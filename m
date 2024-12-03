@@ -4,92 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7ADDE77160
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 23:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266E4E77166
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 23:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0U49IlDCeK7HBEN/uQHlg2wgkfetKLVDfbkQU/1cTBw=; b=rcc8G4H3JR7BNwTB024gJx6eWx
-	MCBxiBWhdZ74A0NG+eZOOYOlwsVarcLNGmJCjr5YCgyF6/qYBEO1TWI8OeDznptXYGETsykrGvs1D
-	noVXt745pHE0k/+yh26mhiLWMYMOC0xsdLPo0Bxq7E0NPml3MZk8zLcPLIbxkjXncZrBuqUyzgcGN
-	n9AEEhY5PQ4e0kReUyBcrGFvE7dw5bpowo8g+z0OzZPtOjiB5AGfA3sywU2YCY2FnBIGL2whJzlPF
-	TPhwxcr87HEGBcslUwyRcwtbMkjG2y5uT9ACcCbuO6keeT3mbfZC0MPDa9yY3EcluBWpKTm4GuFH3
-	UWQd6j/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OOTTAJFcSrB46TDyuVyN4UfDPuhoFiUbIOqMeTRxmxo=; b=ftOCau+vClru7xY/SnwTeAcnhq
+	3MfleQD2mPtMTFk0r+ByWBP7FvBBr/RS+D8pbcbUA37RUa61EencuWfTKwCCKetK/WkjD90/wOaMi
+	T1JJLi+aYxKXsA29hjd/imKPmTW82XuKA1wPTKyRhkNtoOoPu7T18i67bTbdHTqStb9W49OfVQQx9
+	t1g0O8zdXA7BerR9KG2QX6wx9dni1kR8+JPxpxav1M1Qm0QI/FovN2HlumZWFabv+E0mkzrjEfSmt
+	t2ttnNbb0ViAYXK4Ypnz6JuN/gGji3LM0OYk1IFNteI+SvYjePUfToavGcsgw9ubH4mRp4aKg8xwh
+	hY8/vF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIc0n-0000000B01S-2kgr;
-	Tue, 03 Dec 2024 23:08:57 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1tIcJu-0000000B23d-0zXT;
+	Tue, 03 Dec 2024 23:28:42 +0000
+Received: from mail-vi1eur02on2062d.outbound.protection.outlook.com ([2a01:111:f403:2607::62d] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIbzm-0000000Azux-2ccQ
+	id 1tIcIt-0000000B1r0-0vXq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 23:07:55 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7256dc42176so3042785b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 15:07:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733267273; x=1733872073; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0U49IlDCeK7HBEN/uQHlg2wgkfetKLVDfbkQU/1cTBw=;
-        b=FdAzoTw13RdoDLbEg+lQhobPchwga9NA2yZdzO+towY7UekRi6eE2URgWR3beme5nZ
-         GBbejBRPMUVU+52IVwY/+EkldtqGvtygS6XVxHv1DKHaFMzTsoJzapEhn1xefSbD6LH2
-         qn5mdfOipPJGA9yIK2uCg3Hlq/qHhjgqPwyiAGV7FYaXnN+sqCPL/MLfTNJ9KzQpy5RD
-         yFiiUP46Sw/rnvoHF+KHZb4PJez3xuK4rt/JWBCrU9ucnz/74fkP73J5FBexjOh3E33N
-         mFRqasbvBBFkZKPvt0zQwvyr+3edjO3xfYbT0AezSz1+htvUNG1D8ohc7q8X+0OsDFT2
-         Bxtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733267273; x=1733872073;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0U49IlDCeK7HBEN/uQHlg2wgkfetKLVDfbkQU/1cTBw=;
-        b=Qyj16uG0zpUsKy1OOS7t9wiIp9UGGjHORcTdRJIj+1WCIi/vlCk7A6IUWgmJ7z7QMu
-         Cd1t24AjlwalQy7nklnddc86K86EU/EXBPdVTLuaZRc9sLoBEw223U3FvzUUw6c7rFVk
-         IysjbUejO2GOfecAwjDdmK5FTA5SVcCpDosmx10C5Xp4UO3JoZ3rILhvub+F0dteCRiY
-         bH0YhOKzvbUNwAN3D2vNnjzcw5Tc5qMHRAczLTaQAS6L+eyyB6F/1/pMV0bAtuyLDvwQ
-         r750Hk+rNzntOm+kh5quhZU13YwgP6P59fmTXJqLKPJZwQ6YeqWNlQwFARXmpk+CUqDd
-         wGug==
-X-Forwarded-Encrypted: i=1; AJvYcCX+yFMzX7WnFpnicJZpeTN24pPXjpmC0rTf/9yUO2y6pxgfsZaGTPAuvKeFb8prYimkkzMKzjFxHgQstcQpSGfD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+WgPpa+TyJI576MZH+7c1AuPYIXu9h7CudC5jYd3tOxOp8vZB
-	TI1mRpSAV6NAU/kLY0y9Sw1K1Jg8wc6HLCrwNA8s9CUQ/OykWCfQ
-X-Gm-Gg: ASbGncvificIvEEl+p3gJy3eyT3BKoP2GQr0RG+UYOtx9WSsl4/y+3QJhcbvKTqAO+4
-	SFqt2JjWXtHLfVgUFqmdmEsFplCZoHSpD4kTrt51SE3TKNOCLvGCWU+SqMCARVgwE163b3i7CWq
-	M31CN0BFJDDi+Vu2+TkhVz5b5AkqPrpw5E72jyHFOeH+Dnw6pR3kH73PT/vnTiZld3VP99AVGD1
-	CAqlvHoA0r3zbE6njYTcQ8e7XWHDUhFuydpIwrx7LvJ5DoHBBg=
-X-Google-Smtp-Source: AGHT+IFYI13VkWwRgLVB6DJuGypi9ZrShZ3JEfdse7w4DS+ip8vdeR1La5zhbMRPmcRoJpitV0yweg==
-X-Received: by 2002:a05:6a00:3a05:b0:725:24c2:b794 with SMTP id d2e1a72fcca58-7257fcc4097mr6531055b3a.23.1733267272791;
-        Tue, 03 Dec 2024 15:07:52 -0800 (PST)
-Received: from google.com ([2620:15c:9d:2:a614:a365:7f4d:1d6c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7254176f401sm10993630b3a.52.2024.12.03.15.07.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 15:07:52 -0800 (PST)
-Date: Tue, 3 Dec 2024 15:07:49 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: fnkl.kernel@gmail.com
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v2 2/4] input: apple_z2: Add a driver for Apple Z2
- touchscreens
-Message-ID: <Z0-PRapfiAUGvr4W@google.com>
-References: <20241128-z2-v2-0-76cc59bbf117@gmail.com>
- <20241128-z2-v2-2-76cc59bbf117@gmail.com>
+	Tue, 03 Dec 2024 23:27:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x2G3EpSTQzknsTXms4LBl9O7O/qDSRlFI2htdn/HxkhWr7MhhUeYTizRG8JIBOTR2ezM+hQf2/dOc2Ux6xA2rWPcJ9X9pwW12y74rryxWwvoZG+0/3ZEamhb2L1MkMD8oLzXG/s+vY8ujqcALLdHnVpGK6BifVhbHW8VJoXk27nCrzCj6q8qDVTKeOO9+q2ADfBN6gEEJJTqnVYjVw5QqbeKpMUmOw6Je87A4sWcusDnvPnZO60GVQmZAEmmk3T0GMMZZvF6JeAfOJXr+XLomDCtLB3FxNkB57c5WwPAtMDOGfBVkVN1ZDkkxfbEHI5IJ7o6YNqv2OAv/JAyegmXFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OOTTAJFcSrB46TDyuVyN4UfDPuhoFiUbIOqMeTRxmxo=;
+ b=UAs+tngQz2qIZr/5wTZmS4Mt/QnNzRUawalX+vb9OXtM6oT9QPTyOM+3h0z5JzKTJ2zJ+qXs51wlSouBU3bPtKpQryx7xe/K0xrH2yJsOoG/HI4j0yeUIiDqjEc5X/NPopLFLZCPXp/SStRTKre+hqscgkudfaxk1xYw9FL9z5AGSxfu+3VIXF8Ie+MM0lnNtas95Ils+7Tss3yeOna7UoyG7qtOqvBbMc9gSj7D8I2NN2UbAoS9MOzj7PHzoRnSoWLXhrtZHOB+0fk4kz3SADfwdRrhNC9INC1sogpno6a8cSHXFOOg88kOIgpUAh6Rgc/JnE0R+y/251hXSmrOnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OOTTAJFcSrB46TDyuVyN4UfDPuhoFiUbIOqMeTRxmxo=;
+ b=HixhssCBsRcH/Lhxa+etzZfBtdk4PRw4PFOZJ65UOJ4v2GwDDdmJQyQVFyNpyEe/tbiAFSDG+ZqeAEoypYuETY+LCxgiK1grBwp2pjnS8RSv8JljpJ8AMUVDxPcC+CMZt+HlVSbT1Pa9HRrThI2u+OiVHmST5oLsyOUDk6CaqKEyomD585c5PE/xWzPBfFsx1tvGdX72g2D5Gk+qAO+wd6P4vCovNxkRbCCvF0WLgXDwIJ+YHX0lXXCBJjQKdFxirSA5lOced3iDwd8ugwqijDHe3qYVqvNznv2fGa8h38eYh1Z5LEooYRLE4xbBCoO9DZ7oC9XIikQc6iOyG8z1jA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB8846.eurprd04.prod.outlook.com (2603:10a6:102:20d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Tue, 3 Dec
+ 2024 23:27:31 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8207.017; Tue, 3 Dec 2024
+ 23:27:31 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v7 0/2] PCI: add enabe(disable)_device() hook for bridge
+Date: Tue, 03 Dec 2024 18:27:14 -0500
+Message-Id: <20241203-imx95_lut-v7-0-d0cd6293225e@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANKTT2cC/23PTWrDMBAF4KsErasyM/qzsuo9SiiSLTWCxg52Y
+ lyC795JFo1cupjFG/S9QTcxpbGkSex3NzGmuUxl6Dm4l51oj6H/TLJ0nAUBafBkZTkt3nx8XS8
+ SW9sQUQKvteD35zHlsjy63g+cj2W6DOP3o3rG+/a/lhklyA5aS9C4Lob41i/n13Y4iXvHTJVTU
+ Dtip6LV1sVglA9bp34d8tROsXMGfOsjX2vs1umnQ8DaaXaQu+wD5eSM3jpTu809wy6n6B1llVH
+ 9+Z+tHDa1s+wCeYMxoFLaPd26rj/p/6NTuAEAAA==
+To: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, Frank.li@nxp.com, 
+ alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org, jgg@ziepe.ca, 
+ joro@8bytes.org, l.stach@pengutronix.de, lgirdwood@gmail.com, 
+ maz@kernel.org, p.zabel@pengutronix.de, robin.murphy@arm.com, 
+ will@kernel.org, Robin Murphy <robin.murphy@arm.com>, 
+ Marc Zyngier <maz@kernel.org>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733268445; l=4531;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=shOHe7cmTF1H6vKadfS0HmYw8AgCeZm86jLE6+lRuW0=;
+ b=x67FwKFG1Dh5ZuuWUNWjgoFPP69OcwvtOXTdLB9D2WDL0GVZM6Ek/SHWjDVWaN8Jo+xiua2MN
+ BrzU7O+8RnBC513OalS+4B09KkXTsftem8gAeiC00FSYHtgpUmyZ5KZ
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR13CA0128.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c6::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241128-z2-v2-2-76cc59bbf117@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8846:EE_
+X-MS-Office365-Filtering-Correlation-Id: 851c7ae7-e270-4395-e6e7-08dd13f20f27
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|376014|7416014|38350700014|7053199007|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z3hkWGw2VnZNNlRlNVBIQ2YvbWgvT3oydnY2aTJSMGo4ejN2RlkwNE42aytS?=
+ =?utf-8?B?NGcrTFdVMDNZQ01zd0tYc2ozd2lJeldQSVloam9TdmtKang4TnVKWDh6ajlS?=
+ =?utf-8?B?VjQ3SlpVT25XM1RTb29rL2JWcWQwL3E1NDFIUVdUUE9LejRFbE9mK1BZT3ov?=
+ =?utf-8?B?KzhFLzBuUzZKUlJ2SmVlUmY4dUdIQUhEWmlhRFd0SVlTTFpSTG4vSmRaQkxG?=
+ =?utf-8?B?NXdqUk5ENGwyS05WMFpUY25QbUtBTytTQjhBM0xJSU9BLzI5Wnp3dmZsN3BN?=
+ =?utf-8?B?U09pb09sVmxtUUhMd1ArVS9Tdmxsa2Joc0JDaUJjUXZuSVEyTlVWZnFjYWdp?=
+ =?utf-8?B?eS9CdzZ1ZktKbnpFRDNhVlN3dnM3b1NIUGkxNGNyVzRaRytXaVJmRUo5UUtk?=
+ =?utf-8?B?UFFtSURCZzNiZXc2WGQwLzNTNjdKRDYrVCtpdkhEWEg2SGRxdCtmcnd0VDdh?=
+ =?utf-8?B?cXBuT2U0WHFLUXpaVUhhRXJFbnYwdWdZTFIvUlZENTZCdks3czk0WDJFT0lR?=
+ =?utf-8?B?NkUreWt2cFJQY2tBUmdoWU44STVTMThSVFhBaTZCblVVM053ejFlcmN3WXhK?=
+ =?utf-8?B?RGZPaG9hcmJZeVc0VTI4ZERwKy9Na2pGU2JMYjQxYTUwUDZVM0JOaWw5eERM?=
+ =?utf-8?B?MVNPUDVWRVQ2SnBhckR3VitVNjBkbXpQSkI5L0lLRGRoVEF2VEo5MXUxRHZW?=
+ =?utf-8?B?M0xNQVY2ZG5ObkNDWHZtUWlmZlNyd0xubTR1VEg0UzIzeURQK3YzYWRpWDl1?=
+ =?utf-8?B?VjAvOWVZZ3c2YXRGdy9CZWhUWWtCY0V3VVJSMVFSZCsxUHFyTkRRamt4WXNm?=
+ =?utf-8?B?VUFmLy9YZHlYdEJHSSt0UjdHQzNsNTVuWmZTV1ZVa3p1TGVsL2R2TDlKdnRT?=
+ =?utf-8?B?c2I0R1hGR0JnUzlYZDY4TjgxUmJCMm5aUlZQNms4NnhpeVpnY0hDeDJwa3du?=
+ =?utf-8?B?ekdtMGszR3VWVVZZa1FJYkd1VU1RaGF6VGUzVkc2OVdFRzBBV0g1THg1aWgy?=
+ =?utf-8?B?TzFoVHRzeXpEY3pSYVB0ODcrK1ozZlVoV0x4TTNYWCtqTlliMy9PMnpPVEF2?=
+ =?utf-8?B?Q2VPNDZRaXRleElEQ0tuZi9YdDlWRnBySnY5Z0hFZGk0eVAwUkttbjBBd0ty?=
+ =?utf-8?B?Z2JiOFNIS0UxZitCeWdpQWVpczB6bXljTVZwaGVyMmhaWG43K0UxVlNkTlJD?=
+ =?utf-8?B?VklOU2Nvb0NMOTBMVklSK2U0SFZDL0l1RmY2YUg1NXRVbFF6VzNJbkgxNHdh?=
+ =?utf-8?B?RkhwTkx2Vit5ZkJXbVVEcityc2ptVDY2cEZFL3owNzg2V3hLTlBENSswL3Bx?=
+ =?utf-8?B?bjBkbTNPYTBuZDJ6SzlpcTVlSWV3VzNrZEZLenlPN0JHb0xUbkQ1MHB0eEVC?=
+ =?utf-8?B?bXdERVZzaEZxQ2d6WWtQNTF4OXhTVVlEVXR2bXBFNEVraUJjLzFVZUV3Z2l1?=
+ =?utf-8?B?b3NuTkdRa2xxTGJtNld5OHppRWNVZGVKVmRmSmNiZXdRS2pzRmdsTUhCK1Nt?=
+ =?utf-8?B?RXgwVUVpL3dHK1dWVytNZmYwa1U5RlQzVzJqV3ROTnluTENNOVJDWGNYdDh0?=
+ =?utf-8?B?Q0l1S2ozVktDcmVRVTJlYlpvbUo4QTlRQk1aY29lM1IwWC94Tm9WbnB3ZkNt?=
+ =?utf-8?B?YUlpRzdjUURGdDB1MGQ3MlQ0SWVZbkEyc1REL01rOS9LZk1kWngvZFZvWkRs?=
+ =?utf-8?B?YkxpRzJ5aHN4LytOYzNwa2taUW5HN3NiQ25oVTAxcXBNOHBhK1I1UXl4bTRw?=
+ =?utf-8?B?NnQ3M3Z3STQzY3duUG1iRmtpbk9pdFBwVWtIS1dyNEZkNnQzUWlybWwrTW1N?=
+ =?utf-8?B?VGo0Q2ZCK2lIbmpxWHNjUHdndy9VS2pTWDZUN2FmWm9NdWt5OUJnelpIeG1M?=
+ =?utf-8?B?WlhjaFlqdVBUSURhaTlpMWZBZ3hjc2QyYTlHdU5DV3NtSGl0TlIrZ3dwN3pL?=
+ =?utf-8?Q?CgdJctsomgA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(376014)(7416014)(38350700014)(7053199007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VjJkaVhNdjhvNGVGRmpQUDUxNGlCK3IwS3NMT1lrYWx6TyswRlQvUm5tYU95?=
+ =?utf-8?B?cEN6ZThKNVJsQTlQTEJTZGpEUXZoWUc1cVh1SmMzUDFkTDRIaUNpeXB0a1Vq?=
+ =?utf-8?B?blRNMWlBamdvWEdvYmlDQmxKOXMyRVFseVJGMnVhOHdqQzU0Z2NJb2xiNUha?=
+ =?utf-8?B?N2ltajVQN1kzMjh4eUpwOUlSNjcyZjJVMHg5b3FHbzMwOUQ1Q0JGaGN5U1B3?=
+ =?utf-8?B?dE5Wb3hXYkM3Nk81czY5T2N4cStaODJhYll5R3k3WE50UFpoVENSQVBSZE9G?=
+ =?utf-8?B?cld5ay93cWxlbkVUVVJ1UlQ2QTlLTmVJZm1OSUwvVnYzT0hmL0o2alR5YWJJ?=
+ =?utf-8?B?bEpSNC8xU3JYT3VscDNtL2wyWU4vbW82TUJTR2lwSytmR0htVENtVy9iRmMz?=
+ =?utf-8?B?MFJZK0dPS0d6azB0NEx5UzBWQUZvZFlFNi9KS0ZkQ2ZuN3owM0lSdjlydkVY?=
+ =?utf-8?B?dXZ5c3UyV3RIeFBrVDBjLzhnOFdBSkF3S2dsK3l3dTh4RUlqMzB2c2k4S1RW?=
+ =?utf-8?B?bFh6czU5ZWQxVzlzSE0wcU5LNWdqK0VlOXJYN2ZrSXZqSlVDS2liOXdMeTFn?=
+ =?utf-8?B?emRlaC9yOWN5K3Q3NktIdnJpNThuUStqQXlFaUpUcWtaUGEyeGN6dkZRbVJ6?=
+ =?utf-8?B?Q0pvU2dvZWdTYnBlNXpJVUlCK3dtTGdMeCt2cEZDRWJUSlUwR1ZOYm5OeU16?=
+ =?utf-8?B?Tk10UkwvUFBvWXBFSncwNFZNZjRNUXhSZ0hvUVZORFJlTkxkeXFCcmNhdWFz?=
+ =?utf-8?B?M2RrSmltRjJsSWgyaDA1dFZhOGdlUmpDNnIzZVZhNXZWcUJpZEs1UGxjVnR6?=
+ =?utf-8?B?Mkxha2x0bmVmMjB3bGw4UytoZ2hWZm83TmZpNlZiSG5VMVQzNnRwWjEwNjBU?=
+ =?utf-8?B?d04velpTeHRjcVByTVBJWEtQcTlzdi96d0lFMGRHZmttTjh6bDIxRExWUHVS?=
+ =?utf-8?B?OU5NMXdXM2IwOUR0cklodVBualRuWFB4b3pKbC8yWEYwdDhpYWRwQVNWV0M3?=
+ =?utf-8?B?Umd3RXEvNWdQL0pSQXBHeXBMcFNNa2ZrZ09HYW5SR1N0VzArRHdBWVlrRjdm?=
+ =?utf-8?B?TWYrWTh5QUZ4d1NpRGRyRXhEU1lMUHJMNnZTMHc2bHVWa0psN3JvQ0swd2x5?=
+ =?utf-8?B?VDRRbmp1ekd1SWZJdmVGSTRkVWh2T0xJQy9IdjEzN3BlWlpmZktxRUZMS1Nh?=
+ =?utf-8?B?dGY5ajNUUFVjMGJ2RW1EZDhJWFhhN0ZFRTJxbG9scElLNU81ak9wZEVVQmJ4?=
+ =?utf-8?B?ellyWmdDUXNMSzhIR01pUDdBWGo3aUhSczczd2FXTEd4aUpVSlMvVVVpUjhj?=
+ =?utf-8?B?d3pVMFhBNXZiUWhseVA2S1Y0aytzSzFQcTV0Q0o2TG9oVnpDOVBzWkZqRlB5?=
+ =?utf-8?B?WmVGNzJUbzMzaGw1SzRjVVVBRTFrTWFyc1VLWFlwL3ZVZVpRSXc0MVNiRFVk?=
+ =?utf-8?B?TkRZM3JqRDlMVG4zbHI4S2xPd2YxZnVhVEJNMGlDU3paMXl0WlphUktpeHhC?=
+ =?utf-8?B?YXprQndhcmNMV1dOT3MzSzc4UndkQmhvMGFnanBxdkVSRnh1OWZWSmxqejNP?=
+ =?utf-8?B?NU5qeDZBU2pSNStQdzdQblRpa2U1bjRaRmFFSWVSczBWKzkwcElVdHZWbHZM?=
+ =?utf-8?B?UVFOL0RvWkxKYS9sazVmTmxyVm93UW9MUFFtK3hIVEZ2bEhYYno2cXdSOHg0?=
+ =?utf-8?B?WTBDeGlyc1ZFbnp2MVFHdk9LRUV0REZObjVLNi9FV0dDNFg5SUtJQUlVaDRX?=
+ =?utf-8?B?d3JERERwS3Z5SzZMYW5US0tDQkRuZ3F1STJIVVRGd1dZTFo4THphNXF3dDdn?=
+ =?utf-8?B?bGFlQmR4L1ZQYlhVK295MlVRdlJBZlp0T05RM2dnZVpjcG5sYVE5eFB5MHF0?=
+ =?utf-8?B?M0h4ZmdHRkYwejlBZkdxRG14blgyd3lBYXJuVHU4Q01pNFhLMDVIS3IzdW5I?=
+ =?utf-8?B?OGNyMUdFOEFPck9CK3JGUzV6eGtaaDRWdHZjYlBLbVgwTlNHN2YxZjM0aFRs?=
+ =?utf-8?B?K2M5WEh3NW5RRTNnendobU84Ulc3NkVWSXdlUHQwRkJRMnRUditkTW1RTU5I?=
+ =?utf-8?B?YXRVUGlZV3d2SW9pUUt5VFRFSG1LQk9YbkVQTUZDODJUbEJVN2k1YWxISHVp?=
+ =?utf-8?Q?/c8PeLLE9c/l7A2R0W2aceNem?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 851c7ae7-e270-4395-e6e7-08dd13f20f27
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2024 23:27:31.4804
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fk0qwZdx/eHn6vCHuzhAzkEO/5is+tYWmqQP43wyW4i/Bgd83kdoOh5BTDqA62qEQsZrv8p7utH9apwplUyEHA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8846
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_150754_677621_224B36CC 
-X-CRM114-Status: GOOD (  40.27  )
+X-CRM114-CacheID: sfid-20241203_152739_426281_3B21DC65 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,584 +196,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sasha,
+Some system's IOMMU stream(master) ID bits(such as 6bits) less than
+pci_device_id (16bit). It needs add hardware configuration to enable
+pci_device_id to stream ID convert.
 
-On Thu, Nov 28, 2024 at 11:29:17PM +0100, Sasha Finkelstein via B4 Relay wrote:
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> 
-> Adds a driver for Apple touchscreens using the Z2 protocol.
-> 
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  drivers/input/touchscreen/Kconfig    |  13 +
->  drivers/input/touchscreen/Makefile   |   1 +
->  drivers/input/touchscreen/apple_z2.c | 458 +++++++++++++++++++++++++++++++++++
->  3 files changed, 472 insertions(+)
-> 
-> diff --git a/drivers/input/touchscreen/Kconfig b/drivers/input/touchscreen/Kconfig
-> index 1ac26fc2e3eb94a4f62a49962c25ec853b567a43..4ad5002191f77a17414f9e1494b0afd6447355c0 100644
-> --- a/drivers/input/touchscreen/Kconfig
-> +++ b/drivers/input/touchscreen/Kconfig
-> @@ -103,6 +103,19 @@ config TOUCHSCREEN_ADC
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called resistive-adc-touch.ko.
->  
-> +config TOUCHSCREEN_APPLE_Z2
-> +	tristate "Apple Z2 touchscreens"
-> +	default ARCH_APPLE
-> +	depends on SPI
-> +	help
-> +	  Say Y here if you have an Apple device with
-> +	  a touchscreen or a touchbar.
-> +
-> +	  If unsure, say N.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called apple_z2.
-> +
->  config TOUCHSCREEN_AR1021_I2C
->  	tristate "Microchip AR1020/1021 i2c touchscreen"
->  	depends on I2C && OF
-> diff --git a/drivers/input/touchscreen/Makefile b/drivers/input/touchscreen/Makefile
-> index 82bc837ca01e2ee18c5e9c578765d55ef9fab6d4..97a025c6a3770fb80255246eb63c11688ebd79eb 100644
-> --- a/drivers/input/touchscreen/Makefile
-> +++ b/drivers/input/touchscreen/Makefile
-> @@ -15,6 +15,7 @@ obj-$(CONFIG_TOUCHSCREEN_AD7879_I2C)	+= ad7879-i2c.o
->  obj-$(CONFIG_TOUCHSCREEN_AD7879_SPI)	+= ad7879-spi.o
->  obj-$(CONFIG_TOUCHSCREEN_ADC)		+= resistive-adc-touch.o
->  obj-$(CONFIG_TOUCHSCREEN_ADS7846)	+= ads7846.o
-> +obj-$(CONFIG_TOUCHSCREEN_APPLE_Z2)	+= apple_z2.o
->  obj-$(CONFIG_TOUCHSCREEN_AR1021_I2C)	+= ar1021_i2c.o
->  obj-$(CONFIG_TOUCHSCREEN_ATMEL_MXT)	+= atmel_mxt_ts.o
->  obj-$(CONFIG_TOUCHSCREEN_AUO_PIXCIR)	+= auo-pixcir-ts.o
-> diff --git a/drivers/input/touchscreen/apple_z2.c b/drivers/input/touchscreen/apple_z2.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..05f8e8d01a242415ad79f1b7bae2306dd30d94e3
-> --- /dev/null
-> +++ b/drivers/input/touchscreen/apple_z2.c
-> @@ -0,0 +1,458 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Apple Z2 touchscreen driver
-> + *
-> + * Copyright (C) The Asahi Linux Contributors
-> + */
-> +
-> +#include <linux/delay.h>
-> +#include <linux/firmware.h>
-> +#include <linux/input.h>
-> +#include <linux/input/mt.h>
-> +#include <linux/input/touchscreen.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/spi/spi.h>
-> +#include <linux/unaligned.h>
-> +
-> +#define APPLE_Z2_NUM_FINGERS_OFFSET      16
-> +#define APPLE_Z2_FINGERS_OFFSET          24
-> +#define APPLE_Z2_TOUCH_STARTED           3
-> +#define APPLE_Z2_TOUCH_MOVED             4
-> +#define APPLE_Z2_CMD_READ_INTERRUPT_DATA 0xEB
-> +#define APPLE_Z2_HBPP_CMD_BLOB           0x3001
-> +#define APPLE_Z2_FW_MAGIC                0x5746325A
-> +#define LOAD_COMMAND_INIT_PAYLOAD        0
-> +#define LOAD_COMMAND_SEND_BLOB           1
-> +#define LOAD_COMMAND_SEND_CALIBRATION    2
-> +#define CAL_PROP_NAME                    "apple,z2-cal-blob"
-> +
-> +struct apple_z2 {
-> +	struct spi_device *spidev;
-> +	struct gpio_desc *reset_gpio;
-> +	struct input_dev *input_dev;
-> +	struct completion boot_irq;
-> +	int booted;
+https://lore.kernel.org/imx/20240622173849.GA1432357@bhelgaas/
+This ways use pcie bus notifier (like apple pci controller), when new PCIe
+device added, bus notifier will call register specific callback to handle
+look up table (LUT) configuration.
 
-bool.
+https://lore.kernel.org/imx/20240429150842.GC1709920-robh@kernel.org/
+which parse dt's 'msi-map' and 'iommu-map' property to static config LUT
+table (qcom use this way). This way is rejected by DT maintainer Rob.
 
-> +	int counter;
-> +	struct touchscreen_properties props;
-> +	const char *fw_name;
-> +};
-> +
-> +struct apple_z2_finger {
-> +	u8 finger;
-> +	u8 state;
-> +	__le16 unknown2;
-> +	__le16 abs_x;
-> +	__le16 abs_y;
-> +	__le16 rel_x;
-> +	__le16 rel_y;
-> +	__le16 tool_major;
-> +	__le16 tool_minor;
-> +	__le16 orientation;
-> +	__le16 touch_major;
-> +	__le16 touch_minor;
-> +	__le16 unused[2];
-> +	__le16 pressure;
-> +	__le16 multi;
-> +};
-> +
-> +struct apple_z2_hbpp_blob_hdr {
-> +	__le16 cmd;
-> +	__le16 len;
-> +	__le32 addr;
-> +	__le16 checksum;
-> +};
-> +
-> +struct apple_z2_fw_hdr {
-> +	__le32 magic;
-> +	__le32 version;
-> +};
-> +
-> +struct apple_z2_read_interrupt_cmd {
-> +	u8 cmd;
-> +	u8 counter;
-> +	u8 unused[12];
-> +	__le16 checksum;
-> +};
-> +
-> +static void apple_z2_parse_touches(struct apple_z2 *z2, char *msg, size_t msg_len)
-> +{
-> +	int i;
-> +	int nfingers;
-> +	int slot;
-> +	int slot_valid;
-> +	struct apple_z2_finger *fingers;
-> +
-> +	if (msg_len <= APPLE_Z2_NUM_FINGERS_OFFSET)
-> +		return;
-> +	nfingers = msg[APPLE_Z2_NUM_FINGERS_OFFSET];
-> +	fingers = (struct apple_z2_finger *)(msg + APPLE_Z2_FINGERS_OFFSET);
-> +	for (i = 0; i < nfingers; i++) {
-> +		slot = input_mt_get_slot_by_key(z2->input_dev, fingers[i].finger);
-> +		if (slot < 0) {
-> +			dev_warn(&z2->spidev->dev, "unable to get slot for finger\n");
-> +			continue;
-> +		}
-> +		slot_valid = fingers[i].state == APPLE_Z2_TOUCH_STARTED ||
-> +			     fingers[i].state == APPLE_Z2_TOUCH_MOVED;
-> +		input_mt_slot(z2->input_dev, slot);
-> +		if (!input_mt_report_slot_state(z2->input_dev, MT_TOOL_FINGER, slot_valid))
-> +			continue;
-> +		touchscreen_report_pos(z2->input_dev, &z2->props, le16_to_cpu(fingers[i].abs_x),
-> +				       le16_to_cpu(fingers[i].abs_y), true);
-> +		input_report_abs(z2->input_dev, ABS_MT_WIDTH_MAJOR,
-> +				 le16_to_cpu(fingers[i].tool_major));
-> +		input_report_abs(z2->input_dev, ABS_MT_WIDTH_MINOR,
-> +				 le16_to_cpu(fingers[i].tool_minor));
-> +		input_report_abs(z2->input_dev, ABS_MT_ORIENTATION,
-> +				 le16_to_cpu(fingers[i].orientation));
-> +		input_report_abs(z2->input_dev, ABS_MT_TOUCH_MAJOR,
-> +				 le16_to_cpu(fingers[i].touch_major));
-> +		input_report_abs(z2->input_dev, ABS_MT_TOUCH_MINOR,
-> +				 le16_to_cpu(fingers[i].touch_minor));
-> +	}
-> +	input_mt_sync_frame(z2->input_dev);
-> +	input_sync(z2->input_dev);
-> +}
-> +
-> +static int apple_z2_read_packet(struct apple_z2 *z2)
-> +{
-> +	struct spi_message msg;
-> +	struct spi_transfer xfer;
-> +	int error;
-> +	size_t pkt_len;
-> +	struct apple_z2_read_interrupt_cmd *len_cmd __free(kfree) = NULL;
-> +	char *len_rx __free(kfree) = NULL;
-> +	char *pkt_rx __free(kfree) = NULL;
+Above ways can resolve LUT take or stream id out of usage the problem. If
+there are not enough stream id resource, not error return, EP hardware
+still issue DMA to do transfer, which may transfer to wrong possition.
 
-Have you considered pre-allocating rx and tx buffers instead of doing
-these allocations in the interrupt handler? You can probably have tx
-buffer as part of apple_z2 structure annotated as ____cacheline_aligned,
-and rx allocated separately (depending on how large it is).
+Add enable(disable)_device() hook for bridge can return error when not
+enough resource, and PCI device can't enabled.
 
-> +
-> +	spi_message_init(&msg);
-> +	memset(&xfer, 0, sizeof(xfer));
-> +	len_cmd = kzalloc(sizeof(*len_cmd), GFP_KERNEL);
-> +	len_rx = kzalloc(16, GFP_KERNEL);
-> +	if (!len_cmd || !len_rx)
-> +		return -ENOMEM;
-> +
-> +	len_cmd->cmd = APPLE_Z2_CMD_READ_INTERRUPT_DATA;
-> +	len_cmd->counter = z2->counter + 1;
-> +	len_cmd->checksum = cpu_to_le16(APPLE_Z2_CMD_READ_INTERRUPT_DATA + 1 + z2->counter);
-> +	z2->counter = 1 - z2->counter;
+Basicallly this version can match Bjorn's requirement:
+1: simple, because it is rare that there are no LUT resource.
+2: EP driver probe failure when no LUT, but lspci can see such device.
 
-Is this toggling between 1 and 0? Should it be "counter = !counter"? And
-is there better name than counter?
+[    2.164415] nvme nvme0: pci function 0000:01:00.0
+[    2.169142] pci 0000:00:00.0: Error enabling bridge (-1), continuing
+[    2.175654] nvme 0000:01:00.0: probe with driver nvme failed with error -12
 
-> +	xfer.tx_buf = len_cmd;
-> +	xfer.rx_buf = len_rx;
-> +	xfer.len = sizeof(*len_cmd);
-> +
-> +	spi_message_add_tail(&xfer, &msg);
-> +	error = spi_sync(z2->spidev, &msg);
-> +	if (error)
-> +		return error;
-> +
-> +	pkt_len = (get_unaligned_le16(len_rx + 1) + 8) & (-4);
-> +	pkt_rx = kzalloc(pkt_len, GFP_KERNEL);
-> +	if (!pkt_rx)
-> +		return -ENOMEM;
-> +
-> +	spi_message_init(&msg);
-> +	memset(&xfer, 0, sizeof(xfer));
-> +	xfer.rx_buf = pkt_rx;
-> +	xfer.len = pkt_len;
-> +
-> +	spi_message_add_tail(&xfer, &msg);
-> +	error = spi_sync(z2->spidev, &msg);
-> +
-> +	if (!error)
-> +		apple_z2_parse_touches(z2, pkt_rx + 5, pkt_len - 5);
-> +
-> +	return error;
+> lspci
+0000:00:00.0 PCI bridge: Philips Semiconductors Device 0000
+0000:01:00.0 Non-Volatile memory controller: Micron Technology Inc 2100AI NVMe SSD [Nitro] (rev 03)
 
-The preferred form is:
+To: Bjorn Helgaas <bhelgaas@google.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+To: Lucas Stach <l.stach@pengutronix.de>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Krzysztof Wilczyński <kw@linux.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Rob Herring <robh@kernel.org>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: imx@lists.linux.dev
+Cc: Frank.li@nxp.com \
+Cc: alyssa@rosenzweig.io \
+Cc: bpf@vger.kernel.org \
+Cc: broonie@kernel.org \
+Cc: jgg@ziepe.ca \
+Cc: joro@8bytes.org \
+Cc: l.stach@pengutronix.de \
+Cc: lgirdwood@gmail.com \
+Cc: maz@kernel.org \
+Cc: p.zabel@pengutronix.de \
+Cc: robin.murphy@arm.com \
+Cc: will@kernel.org \
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
 
-	error = spi_sync(...);
-	if (error)
-		return error;
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v7:
+- Rebase v6.13-rc1
+- Update patch 2 according to mani's feedback
+- Link to v6: https://lore.kernel.org/r/20241118-imx95_lut-v6-0-a2951ba13347@nxp.com
 
-	apple_z2_parse_touches(...);
+Changes in v6:
+- Bjorn give review tags at v4, but v5 have big change, drop Bjorn's review
+tag.
+- Add back Marc Zyngier't review and test tags
+- Add mani's ack at first patch
+- Mini change for patch 2 according to mani's feedback
+- Link to v5: https://lore.kernel.org/r/20241104-imx95_lut-v5-0-feb972f3f13b@nxp.com
 
-	return 0;
+Changes in v5:
+- Add help function of pci_bridge_enable(disable)_device
+- Because big change, removed Bjorn's review tags and have not
+added
+Marc Zyngier't review and test tags
+- Fix pci-imx6.c according to Mani's feedback
+- Link to v4: https://lore.kernel.org/r/20241101-imx95_lut-v4-0-0fdf9a2fe754@nxp.com
 
-> +}
-> +
-> +static irqreturn_t apple_z2_irq(int irq, void *data)
-> +{
-> +	struct spi_device *spi = data;
-> +	struct apple_z2 *z2 = spi_get_drvdata(spi);
-> +
-> +	if (unlikely(!z2->booted))
-> +		complete(&z2->boot_irq);
-> +	else
-> +		apple_z2_read_packet(z2);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int apple_z2_build_cal_blob(struct apple_z2 *z2, u32 address, size_t cal_size, char *data)
-> +{
-> +	u16 len_words = (cal_size + 3) / 4;
-> +	u32 checksum = 0;
-> +	u16 checksum_hdr = 0;
-> +	int i;
-> +	struct apple_z2_hbpp_blob_hdr *hdr;
-> +	int error;
-> +
-> +	hdr = (struct apple_z2_hbpp_blob_hdr *)data;
-> +	hdr->cmd = cpu_to_le16(APPLE_Z2_HBPP_CMD_BLOB);
-> +	hdr->len = cpu_to_le16(len_words);
-> +	hdr->addr = cpu_to_le32(address);
-> +
-> +	for (i = 2; i < 8; i++)
-> +		checksum_hdr += data[i];
-> +
-> +	hdr->checksum = cpu_to_le16(checksum_hdr);
-> +	error = device_property_read_u8_array(&z2->spidev->dev, CAL_PROP_NAME, data + 10, cal_size);
+Changes in v4:
+- Add Bjorn Helgaas review tag for patch1
+- check 'target' value for patch2
+- detail see each patches
+- Link to v3: https://lore.kernel.org/r/20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com
 
-What is 10? Can we have a #define for it?
+Changes in v3:
+- disable_device when error happen
+- use target for of_map_id
+- Check if rid already in lut table when enable deviced
+- Link to v2: https://lore.kernel.org/r/20240930-imx95_lut-v2-0-3b6467ba539a@nxp.com
 
-> +	if (error < 0)
+Changes in v2:
+- see each patch
+- Link to v1: https://lore.kernel.org/r/20240926-imx95_lut-v1-0-d0c62087dbab@nxp.com
 
-Does device_property_read_u8_array() return positive values on success?
-If not then just "if (error)". Same for the rest of the checks.
+---
+Frank Li (2):
+      PCI: Add enable_device() and disable_device() callbacks for bridges
+      PCI: imx6: Add IOMMU and ITS MSI support for i.MX95
 
-> +		return error;
-> +
-> +	for (i = 0; i < cal_size; i++)
-> +		checksum += data[i + 10];
-> +
-> +	put_unaligned_le32(checksum, data + cal_size + 10);
-> +	return 0;
-> +}
-> +
-> +static int apple_z2_send_firmware_blob(struct apple_z2 *z2, const char *data, u32 size, u8 bpw)
-> +{
-> +	struct spi_message msg;
-> +	struct spi_transfer blob_xfer, ack_xfer;
-> +	int error;
-> +	char *int_ack __free(kfree) = NULL;
-> +
-> +	int_ack = kzalloc(2, GFP_KERNEL);
-> +	if (!int_ack)
-> +		return -ENOMEM;
-> +	int_ack[0] = 0x1a;
-> +	int_ack[1] = 0xa1;
-> +
-> +	spi_message_init(&msg);
-> +	memset(&blob_xfer, 0, sizeof(blob_xfer));
-> +	memset(&ack_xfer, 0, sizeof(ack_xfer));
-> +
-> +	blob_xfer.tx_buf = data;
-> +	blob_xfer.len = size;
-> +	blob_xfer.bits_per_word = bpw;
-> +	spi_message_add_tail(&blob_xfer, &msg);
-> +
-> +	ack_xfer.tx_buf = int_ack;
-> +	ack_xfer.len = 2;
-> +	spi_message_add_tail(&ack_xfer, &msg);
-> +
-> +	reinit_completion(&z2->boot_irq);
-> +	error = spi_sync(z2->spidev, &msg);
-> +	if (error)
-> +		return error;
-> +	wait_for_completion_timeout(&z2->boot_irq, msecs_to_jiffies(20));
-> +	return 0;
-> +}
-> +
-> +static int apple_z2_upload_firmware(struct apple_z2 *z2)
-> +{
-> +	const struct firmware *fw __free(firmware) = NULL;
+ drivers/pci/controller/dwc/pci-imx6.c | 183 +++++++++++++++++++++++++++++++++-
+ drivers/pci/pci.c                     |  36 ++++++-
+ include/linux/pci.h                   |   2 +
+ 3 files changed, 219 insertions(+), 2 deletions(-)
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20240926-imx95_lut-1c68222e0944
 
-Please keep __free() annotated definitions close to the site of first
-use. In this case directly above call to request_firmware().
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
 
-> +	struct apple_z2_fw_hdr *fw_hdr;
-> +	size_t fw_idx = sizeof(struct apple_z2_fw_hdr);
-> +	int error;
-> +	u32 load_cmd;
-> +	u32 size;
-> +	u32 address;
-> +	char *data;
-> +	u8 bits_per_word;
-> +	size_t cal_size;
-> +	error = request_firmware(&fw, z2->fw_name, &z2->spidev->dev);
-> +	if (error) {
-> +		dev_err(&z2->spidev->dev, "unable to load firmware");
-> +		return error;
-> +	}
-> +
-> +	fw_hdr = (struct apple_z2_fw_hdr *)fw->data;
-
-You are losing constness think.
-
-> +	if (le32_to_cpu(fw_hdr->magic) != APPLE_Z2_FW_MAGIC || le32_to_cpu(fw_hdr->version) != 1) {
-> +		dev_err(&z2->spidev->dev, "invalid firmware header");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/*
-> +	 * This will interrupt the upload half-way if the file is malformed
-> +	 * As the device has no non-volatile storage to corrupt, and gets reset
-> +	 * on boot anyway, this is fine.
-> +	 */
-> +	while (fw_idx < fw->size) {
-> +		if (fw->size - fw_idx < 8) {
-> +			dev_err(&z2->spidev->dev, "firmware malformed");
-> +			return -EINVAL;
-> +		}
-> +
-> +		load_cmd = le32_to_cpu(*(__le32 *)(fw->data + fw_idx));
-> +		fw_idx += 4;
-
-sizeof(u32)?
-
-> +		if (load_cmd == LOAD_COMMAND_INIT_PAYLOAD || load_cmd == LOAD_COMMAND_SEND_BLOB) {
-> +			size = le32_to_cpu(*(__le32 *)(fw->data + fw_idx));
-> +			fw_idx += 4;
-> +			if (fw->size - fw_idx < size) {
-> +				dev_err(&z2->spidev->dev, "firmware malformed");
-> +				return -EINVAL;
-> +			}
-> +			bits_per_word = load_cmd == LOAD_COMMAND_SEND_BLOB ? 16 : 8;
-> +			error = apple_z2_send_firmware_blob(z2, fw->data + fw_idx,
-> +							    size, bits_per_word);
-> +			if (error)
-> +				return error;
-> +			fw_idx += size;
-> +		} else if (load_cmd == 2) {
-> +			address = le32_to_cpu(*(u32 *)(fw->data + fw_idx));
-> +			fw_idx += 4;
-> +			cal_size = device_property_count_u8(&z2->spidev->dev, CAL_PROP_NAME);
-> +			if (cal_size != 0) {
-> +				size = cal_size + sizeof(struct apple_z2_hbpp_blob_hdr) + 4;
-> +				data = kzalloc(size, GFP_KERNEL);
-> +				error = apple_z2_build_cal_blob(z2, address, cal_size, data);
-> +				if (!error)
-> +					error = apple_z2_send_firmware_blob(z2, data, size, 16);
-> +				kfree(data);
-> +				if (error)
-> +					return error;
-> +			}
-> +		} else {
-> +			dev_err(&z2->spidev->dev, "firmware malformed");
-> +			return -EINVAL;
-> +		}
-> +		if (fw_idx % 4 != 0)
-> +			fw_idx += 4 - (fw_idx % 4);
-> +	}
-> +
-> +
-> +	z2->booted = 1;
-> +	apple_z2_read_packet(z2);
-> +	return 0;
-> +}
-> +
-> +static int apple_z2_boot(struct apple_z2 *z2)
-> +{
-> +	int timeout;
-> +	int error;
-> +
-> +	enable_irq(z2->spidev->irq);
-> +	gpiod_direction_output(z2->reset_gpio, 0);
-> +	timeout = wait_for_completion_timeout(&z2->boot_irq, msecs_to_jiffies(20));
-> +	if (timeout == 0)
-> +		return -ETIMEDOUT;
-> +
-> +	error = apple_z2_upload_firmware(z2);
-> +	if (error) {
-> +		gpiod_direction_output(z2->reset_gpio, 1);
-> +		disable_irq(z2->spidev->irq);
-> +	}
-> +	return error;
-> +}
-> +
-> +static int apple_z2_probe(struct spi_device *spi)
-> +{
-> +	struct device *dev = &spi->dev;
-> +	struct apple_z2 *z2;
-> +	int error;
-> +
-> +	z2 = devm_kzalloc(dev, sizeof(*z2), GFP_KERNEL);
-> +	if (!z2)
-> +		return -ENOMEM;
-> +
-> +	z2->spidev = spi;
-> +	init_completion(&z2->boot_irq);
-> +	spi_set_drvdata(spi, z2);
-> +
-> +	z2->reset_gpio = devm_gpiod_get_index(dev, "reset", 0, 0);
-> +	if (IS_ERR(z2->reset_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(z2->reset_gpio), "unable to get reset");
-> +
-> +	error = devm_request_threaded_irq(dev, z2->spidev->irq, NULL,
-> +					apple_z2_irq, IRQF_ONESHOT | IRQF_NO_AUTOEN,
-> +					"apple-z2-irq", spi);
-> +	if (error < 0)
-> +		return dev_err_probe(dev, z2->spidev->irq, "unable to request irq");
-> +
-> +	error = device_property_read_string(dev, "firmware-name", &z2->fw_name);
-> +	if (error)
-> +		return dev_err_probe(dev, error, "unable to get firmware name");
-> +
-> +	z2->input_dev = devm_input_allocate_device(dev);
-> +	if (!z2->input_dev)
-> +		return -ENOMEM;
-> +	z2->input_dev->name = (char *)spi_get_device_id(spi)->driver_data;
-> +	z2->input_dev->phys = "apple_z2";
-> +	z2->input_dev->id.bustype = BUS_SPI;
-> +
-> +	/* Allocate the axes before setting from DT */
-> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_X, 0, 0, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_POSITION_Y, 0, 0, 0, 0);
-> +	touchscreen_parse_properties(z2->input_dev, true, &z2->props);
-> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_X, 100);
-> +	input_abs_set_res(z2->input_dev, ABS_MT_POSITION_Y, 100);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MAJOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_WIDTH_MINOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MAJOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_TOUCH_MINOR, 0, 65535, 0, 0);
-> +	input_set_abs_params(z2->input_dev, ABS_MT_ORIENTATION, -32768, 32767, 0, 0);
-> +
-> +	input_set_drvdata(z2->input_dev, z2);
-> +
-> +	error = input_mt_init_slots(z2->input_dev, 256, INPUT_MT_DIRECT);
-> +	if (error < 0)
-> +		return dev_err_probe(dev, error, "unable to initialize multitouch slots");
-> +
-> +	error = input_register_device(z2->input_dev);
-> +	if (error < 0)
-> +		return dev_err_probe(dev, error, "unable to register input device");
-> +
-> +	/* Reset the device on boot */
-> +	gpiod_direction_output(z2->reset_gpio, 1);
-> +	usleep_range(5000, 10000);
-> +	return apple_z2_boot(z2);
-
-	error = apple_z2_boot(z2);
-	if (error)
-		return error;
-
-	return 0;
-
-> +}
-> +
-> +static void apple_z2_shutdown(struct spi_device *spi)
-> +{
-> +	struct apple_z2 *z2 = spi_get_drvdata(spi);
-> +
-> +	disable_irq(z2->spidev->irq);
-> +	gpiod_direction_output(z2->reset_gpio, 1);
-> +	z2->booted = 0;
-> +}
-> +
-> +static int apple_z2_suspend(struct device *dev)
-> +{
-> +	apple_z2_shutdown(to_spi_device(dev));
-> +	return 0;
-> +}
-> +
-> +static int apple_z2_resume(struct device *dev)
-> +{
-> +	struct apple_z2 *z2 = spi_get_drvdata(to_spi_device(dev));
-> +
-> +	return apple_z2_boot(z2);
-> +}
-> +
-> +static DEFINE_SIMPLE_DEV_PM_OPS(apple_z2_pm, apple_z2_suspend, apple_z2_resume);
-> +
-> +static const struct of_device_id apple_z2_of_match[] = {
-> +	{ .compatible = "apple,j293-touchbar" },
-> +	{ .compatible = "apple,j493-touchbar" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, apple_z2_of_match);
-> +
-> +static struct spi_device_id apple_z2_of_id[] = {
-> +	{ .name = "j293-touchbar", .driver_data = (kernel_ulong_t)"MacBookPro17,1 Touch Bar" },
-> +	{ .name = "j493-touchbar", .driver_data = (kernel_ulong_t)"Mac14,7 Touch Bar" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(spi, apple_z2_of_id);
-> +
-> +static struct spi_driver apple_z2_driver = {
-> +	.driver = {
-> +		.name	= "apple-z2",
-> +		.pm	= pm_sleep_ptr(&apple_z2_pm),
-> +		.of_match_table = apple_z2_of_match,
-> +	},
-> +	.id_table = apple_z2_of_id,
-> +	.probe    = apple_z2_probe,
-> +	.remove   = apple_z2_shutdown,
-
-Purring the device into reset state before tearing down interrupt
-handler, etc, may lead to weird errors. Why do you need to do this on
-removal instead of letting devm tear down the device?
-
-> +	.shutdown = apple_z2_shutdown,
-
-Are you sure you need shutdown? Why?
-
-> +};
-> +
-> +module_spi_driver(apple_z2_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_FIRMWARE("apple/dfrmtfw-*.bin");
-> 
-> -- 
-> 2.47.1
-> 
-> 
-
-Thanks.
-
--- 
-Dmitry
 
