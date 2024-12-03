@@ -4,95 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDD2E64A87
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4C8E64A89
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0SZ3/Zuy8g3IadhgXaPB8LqQDO37Mo3P8H3ntaK+Bw=; b=BcyzMUTk1qdt7+V6UyxsE3ttAW
-	RzcboJ1Q+crJ22/PUebVJPTc6eRZw7S/7y9tsPlil85dJspOMcfYxHpH1GCbMQLfvfWfiLNHLHsFN
-	pI96m/OYPS+l/abM3TvwRTNIENeMloqg46wiEG9+TyM9+ANvlsoN8qu9sK+E/GkYfAg52dayV7GqH
-	6Dz06DCRSbiNw3VtXm00S9CiGLmCU3jDXySiAXdc2PNa/oiX+redPSYszCKUvO3/g/HOmkAV76p+z
-	l7JEJQi3t1LHU5iLwHUwkeBKbdgT9sFGqLmRy/eBCOauT9ryhcXq6O6nzib9jZcgsYkNzyz9VsoDY
-	cAZ7apSw==;
+	bh=e3rwoHqIVnmxtNxDPSG6Cqf+q8c4DgmmReYZaA9pX3Q=; b=jUvN2vQaLKCoz+R2B5iVI9jlHJ
+	Dvqa7666yQOJIrj/os0cSaCkcoNJ3tJr0UrjLnLeToSYnMsceTsxPbJ92keCtGyXkiUEi8CZKAF4t
+	y85BTBpi+mZyweZb4SuC7LlkMM53AUqPc/kl63RObqyFVxjkr1OgwfucvXgYAFVFkqQTesayngc+i
+	sBgNI50Oz0MWRXHsn0d9awa4bbVcW0iMpzMz6xPPFJm3v1AC3d/1WvPCXvvp1jEAbNdRFIxX1CXYg
+	N+pIPTuBDouUM8T+qrMoxp5KLzkdHpGzfyqL36f1ia+d8Esv4P/fJw8JxuLPyMstOql3lIg0ymTfR
+	ekjxgZ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISIT-00000009TpH-1efs;
-	Tue, 03 Dec 2024 12:46:33 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1tISJR-00000009U7W-30Pd;
+	Tue, 03 Dec 2024 12:47:33 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISCb-00000009SJH-3EZ5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:40:30 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa530a94c0eso883220266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:40:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733229628; x=1733834428; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A0SZ3/Zuy8g3IadhgXaPB8LqQDO37Mo3P8H3ntaK+Bw=;
-        b=S5QRY1LSxx70GXMkGYSxU3gfBqsp2a+yS+qs0GUpCRvBjFKwlGPCLQGMRikl62KXxy
-         UgAvqO+t9H6T+1QNyApzlu4ErB0a+/Nhg6USXwTm7RimyOAntkew/HqOFLKc3zyKeBqS
-         /YAYXy7gFgMYxeciHUD1wwevOe0xoe3q0MtcYN7AgK1yMTrcHoeP3jA6p9SUBGzv1gt9
-         SzEQd0vfXduxSGRjskTM5ZVerZ/w5z2ZiXIub79kBiJQ/I1a3mz4HKzrqepV15wUL8LU
-         v5y6Ab/Y4EU06a0bHlkRysGbDScAKbbuE+PheoTrsF3iiGgDo1MkbbOPFJcrxHQdrcRX
-         hG3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733229628; x=1733834428;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A0SZ3/Zuy8g3IadhgXaPB8LqQDO37Mo3P8H3ntaK+Bw=;
-        b=oEkUZcspvefzkUNRDU+qoaPp6z2OO36JLW2R2CgB1TKB0+b1XOvE+MnrKf6uZbNAJy
-         j20UvWlEjj4CsYP6XElmTCZDgfeRxL7DUw8436PzQ1cywRVA0wV8tNXnmw5ifbPEmPU5
-         slyYFNOmnMrIKd/njjmeA6nwZEdXN9GNFNdug8UDLh8sDp/bmOgnZjvowtvk0jH1jUkH
-         eE1QsAyEikpvgw5xqQEI6ejGzuUAMelQZjVs55Rgt4J3a5r4Pgn7xmTClXn4d2NnK26R
-         ctuSZdBDMLGw9ON7xon3FxaFZtsLfNs40ICXGFAFogjWDsc3ZwhWPT0DHXa/FaGYz6NA
-         6YWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWzuKXoB4TTlnx+DMqRtzyLu6rTH4d1uzaC/NoRYSSlu2D1DWYR9H9SE1eVAVH17fSxP38Te1W3hl8gqMH47b50@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgWCNsWKfsi8OUCP5GxNY4TAv5ZNNNSbqjH+v7X+xxvfkOJdSE
-	xVRwXF3yO30C35zxq++YyWvYL2b0Ql1iYcfDRchxJOjQ8ZKSIVWBkyPObbolU3g=
-X-Gm-Gg: ASbGnctMUjuefo6qrmcgMVlZ/R8Rfr4J7q9FSL6brVF2KcRPexw6Yxe9xI3ayn1jRAQ
-	jv9OapbnS0szUmqPx8FuZwSPx8GALjKtN/sVc430pRfKKbIDH4vtd4gYjW75Jx2+LULhaVvuaYI
-	9NdL4BfWtXBJvmnIbwDE2zjH9ZXgyT874izl8fCu+jdTpXmVTf8XdiXNTaxYHVxP764uFLrgnbv
-	BOVqFT2dQbB112j8OnO9sNFazcFH+r2W/LqTcz79PVdVn3ObZ2o1ygi6QCGt864mJz4XFfvzhS/
-	Bm5LEocjf+o7Yj14Mr44V9qM8+e94fqtcQ==
-X-Google-Smtp-Source: AGHT+IEtOgF5+Pd8GQXG5yAk2/ZT7iTApOoCMzUviVqMUPCGmvDJSENPWZg/xy3RM4OpVosidZ2alA==
-X-Received: by 2002:a17:906:31c7:b0:aa5:3c28:e0ae with SMTP id a640c23a62f3a-aa5f7d1b599mr200040266b.15.1733229628143;
-        Tue, 03 Dec 2024 04:40:28 -0800 (PST)
-Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5998e6a4csm616809466b.106.2024.12.03.04.40.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 04:40:27 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 03 Dec 2024 12:40:28 +0000
-Subject: [PATCH v2 5/5] arm64: dts: exynos: gs101-oriole: add pd-disable
- and typec-power-opmode
+	id 1tISFR-00000009SuW-3nbt;
+	Tue, 03 Dec 2024 12:43:27 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id 3F9A41140120;
+	Tue,  3 Dec 2024 07:43:24 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Tue, 03 Dec 2024 07:43:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1733229804;
+	 x=1733316204; bh=e3rwoHqIVnmxtNxDPSG6Cqf+q8c4DgmmReYZaA9pX3Q=; b=
+	OWpbv2SdQuVdeXsxgYdIYA/KQEOsujuHaYuE+skl6m9P5hdrE1UaFcyybQkPuq76
+	6bDBp5NqD2kG0j0jDI6+04wCI5uvt1TO1z92YBGOc33JBgoO/zGJ7xpXQnYwB5VU
+	667WPgV0VTiOBBpkrYn1oW+AajdtHHYz6yjw5weKd0VHoteQxB+Sni1pyWC94cVn
+	oyFzT3pAVGLUe7OzVVq9M5pz5Jti3NLHzc3+9ZdMpRBKGK8Veka5ELFQby51OiUr
+	+1jr9TL1AJxvhzsOWtsUmoZ5MzY/TNz7PGb7rrIVtaHXyYXgqgniHuQDEzfkh6o4
+	fFAjI8NgK94sk2ElzYY0PQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733229804; x=
+	1733316204; bh=e3rwoHqIVnmxtNxDPSG6Cqf+q8c4DgmmReYZaA9pX3Q=; b=K
+	Ql/Q/j6EGWizSaPnM78KL9nimX4jWHu9cNWoF4HcO7W/wVQ1uUjxhZFhTTfx5Aqa
+	33M2uwreBzdZ3DpqTmvU9GsBnGJ2GjS79KV6sFxNvqIOKmm2TJyKdUUhVFzEBEDb
+	lyqQYwbrXuCV6yN+Unumr0KACnFBJH18vNTwqmfdn2113Vjze7mf4HCB5Kc7g352
+	8qWG+EANLFAd/r6OQYNVyMAloDENk/oyZBqHUwQMx8ARCxhZuq1mr5QNc0tIVy1G
+	UDhSXHQ/HU+fKLtkUQDQtrCBozEGl8F/KA4WbYh/NRa+QJrAKdCSCdjHG60cVwqd
+	Oo3OPhib3xoDag3C274eQ==
+X-ME-Sender: <xms:6_xOZ37LmToeylSHwE4pDy2CC6E5m2h_r4emE7KwttNNJVQHVt814g>
+    <xme:6_xOZ870bERLOl4bEyq42aEL1h4E0640CllVZme8LosqvVIuXgXJ4C9HRHoJHCkcP
+    5RY2rk4pE1J9tS-748>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrieefgdduhecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
+    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
+    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeduuddp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhgsrhhunhgvthessggrhihlihgsrh
+    gvrdgtohhmpdhrtghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhmpdhr
+    tghpthhtohepmhhtuhhrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomhdprhgtphhtth
+    hopehmrghrthhinhdrsghluhhmvghnshhtihhnghhlsehgohhoghhlvghmrghilhdrtgho
+    mhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhope
+    hssghohigusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnvghilhdrrghrmhhsthhr
+    ohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghmlhhoghhitg
+    eslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
+    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:6_xOZ-ennU-tpmMXwOsu6RaxhRKa7cQJ3SLICt0PVwd4NRL5gMtdig>
+    <xmx:6_xOZ4Jz0epV8mXeYVZkTuiQXVfz4hRW3uVdMBbCiJgN2KBOEe3SwA>
+    <xmx:6_xOZ7K-EJ0vlzGs_aawZZIr1KnCETj6hPiF1n82ixW_cVLWxCwPXw>
+    <xmx:6_xOZxy6c5QJ1uApKdY5MSpVFiSi-rLKFyt4L4vkrPcScJcNH3bxoA>
+    <xmx:7PxOZ4BhzLtJMlJEFOxcFCY0DqjofD7tFay4QLAAL-V2FXPVnqzKTQKW>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 913E62220072; Tue,  3 Dec 2024 07:43:23 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20241203-gs101-phy-lanes-orientation-dts-v2-5-1412783a6b01@linaro.org>
-References: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
-In-Reply-To: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Sam Protsenko <semen.protsenko@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
- kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
+Date: Tue, 03 Dec 2024 13:43:03 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Stephen Boyd" <sboyd@kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>
+Cc: "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Kevin Hilman" <khilman@baylibre.com>,
+ "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Mark Brown" <broonie@kernel.org>
+Message-Id: <0f07300a-8b32-4d3e-a447-b3fe3cf1ca81@app.fastmail.com>
+In-Reply-To: <df0a53ee859e450d84e81547099f5f36.sboyd@kernel.org>
+References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
+ <12f29978-c8ce-4bee-a447-dcd086eb936d@app.fastmail.com>
+ <1ja5dk2y5l.fsf@starbuckisacylon.baylibre.com>
+ <f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com>
+ <1j4j3r32ld.fsf@starbuckisacylon.baylibre.com>
+ <306b0b30-5a32-4c7c-86b4-57d50e2307e8@app.fastmail.com>
+ <1jy1131kxz.fsf@starbuckisacylon.baylibre.com>
+ <c06317c6-b2b2-4b6d-96e4-0c2cfc6846de@app.fastmail.com>
+ <1jplmf1jqa.fsf@starbuckisacylon.baylibre.com>
+ <ce67e512-a15b-4482-8194-b917096f4eeb@app.fastmail.com>
+ <df0a53ee859e450d84e81547099f5f36.sboyd@kernel.org>
+Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_044029_807820_0F590AAF 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20241203_044326_265536_19612AED 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +128,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the serial console is enabled, we need to disable power delivery
-since serial uses the SBU1/2 pins and appears to confuse the TCPCI,
-resulting in endless interrupts.
+On Tue, Dec 3, 2024, at 03:53, Stephen Boyd wrote:
+> Quoting Arnd Bergmann (2024-11-28 07:34:46)
+>> On Thu, Nov 28, 2024, at 16:06, Jerome Brunet wrote:
+>> Stephen, can you please take a look here and see if you
+>> have a better idea for either decoupling the two drivers
+>> enough to avoid the link time dependency, or to reintegrate
+>> the reset controller code into the clk driver and avoid
+>> the complexity?
+>
+> I think the best approach is to add the reset auxilary device with a
+> function that creates the auxiliary device directly by string name and
+> does nothing else. Maybe we can have some helper in the auxiliary
+> layer that does that all for us, because it's quite a bit of boiler
+> plate that we need to write over and over again. Something like:
+>
+>   int devm_auxiliary_device_create(struct device *parent, const char *name)
+>
+> that does the whole kzalloc() + ida dance that
+> devm_meson_rst_aux_register() is doing today and wraps it all up so that
+> the device is removed when the parent driver unbinds. Then this clk
+> driver can register the reset device with a single call and not need to
+> do anything besides select AUXILIARY_BUS. The regmap can be acquired
+> from the parent device in the auxiliary driver probe with
+> dev_get_regmap(adev->parent).
 
-For now, change the DT such that the serial console continues working.
+I like the idea. Two questions about the interface:
 
-Note1: We can not have both typec-power-opmode and
-new-source-frs-typec-current active at the same time, as otherwise DT
-binding checks complain.
+ - should there be a 'void *platform_data' argument anyway?
+   Even if this can be looked up from the parent, it seems
+   useful enough
 
-Note2: When using a downstream DT, the Pixel boot-loader will modify
-the DT accordingly before boot, but for this upstream DT it doesn't
-know where to find the TCPCI node. The intention is for this commit to
-be reverted once an updated Pixel boot-loader becomes available.
+ - What is the scope of the 'ida' number? My impression was
+   this should be local to one parent device, but I don't
+   know how the number is used in the end, so maybe a global
+   number allocator is sufficient.
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-index a5cbf1e10c7b..e58881c61d53 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
-@@ -107,7 +107,6 @@ connector {
- 			self-powered;
- 			try-power-role = "sink";
- 			op-sink-microwatt = <2600000>;
--			new-source-frs-typec-current = <FRS_5V_1P5A>;
- 			slow-charger-loop;
- 			/*
- 			 * max77759 operating in reverse boost mode (0xA) can
-@@ -146,6 +145,12 @@ VDO_DFP(DFP_VDO_VER1_1,
- 						0, 0, 0x18d1)
- 					VDO_CERT(0x0)
- 					VDO_PRODUCT(0x4ee1, 0x0)>;
-+			/*
-+			 * Until bootloader is updated to set those two when
-+			 * console is enabled, we disable PD here.
-+			 */
-+			pd-disable;
-+			typec-power-opmode = "default";
- 
- 			ports {
- 				#address-cells = <1>;
-
--- 
-2.47.0.338.g60cca15819-goog
-
+       Arnd
 
