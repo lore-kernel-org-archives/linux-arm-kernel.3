@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD973E69E9F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E43DE69E9D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoLTpcw2i/ARiDDfP5KR0JIwlxbCPGGxl8N0KcEuWeM=; b=QB2cLvBlAUgXGMz3NbysIzNP9H
-	LPbwYIuVIyI7x9F7S7nxx+FZFr5ErT8T6foUfBmilgltrmh/M0QrkOlAE6YvGaS4QeUje4XJ2p7RG
-	CExmnTVaWvN1PwMjMY+xZXahwrZJUu81rkLRYzA1/t9pkX8ZW3lXNJ1TsyfGh77LpsLge8mQyL+wt
-	swqAqbvXwjpQnEPgcx1su6DTI6JlVe1qIa2q1HfERyNyZ3iXKSGlPMzWNBirRXMUJXPnAsVB4W8eZ
-	3UNmmcCc9957nhnP58JqL4NaLmJoe+U494DoIH0NcZJjcFBGv+wu5e8Lsof1np2GkEykRxFuMN5Wp
-	/MATYucw==;
+	bh=BRZ2cEpW+rSNUfUs/q11EvB+KMkExBUSGtmow/HBwh4=; b=sJT2MxPFIdP4wXNGv5O18lol6J
+	Yj48IC0poYbz3wrdDfWrWu4lIrpClb9XEhYiw2SFkEWnTU9Jo252btscbYEM7jUEVl6BJtDvyx+oO
+	nFcAdwYK3LEyNqvs650rof81rQmOTDVNCYT7yPZiDAABN8P+2sXwAJ402unjqIf6j6eja3jCCcIq/
+	0ARcX0UJoxkrMdHF4E7nXAO12ZA90bLGRFA7IWi5PuBy1gWvnTYKyswgdAQwo3N5c3bJ4kSEFrQcr
+	ymSmaa6ngWOk5H4IHDUjFzZdXT0z8XzeunR6PYFLkRbeAi6uNjOGZBX1TR9gXSByfW8izXU+30X8T
+	b7HT9wVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQPa-000000097pi-2SHJ;
-	Tue, 03 Dec 2024 10:45:46 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	id 1tIQQZ-0000000986P-0kmq;
+	Tue, 03 Dec 2024 10:46:47 +0000
+Received: from mail-lj1-x249.google.com ([2a00:1450:4864:20::249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQHy-000000095cl-0o6H
+	id 1tIQI0-000000095dg-3A9m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:37:55 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-5d0bde5e90fso3722283a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 02:37:53 -0800 (PST)
+	Tue, 03 Dec 2024 10:37:57 +0000
+Received: by mail-lj1-x249.google.com with SMTP id 38308e7fff4ca-2ffc3b6bb58so32719291fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 02:37:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733222272; x=1733827072; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733222274; x=1733827074; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RoLTpcw2i/ARiDDfP5KR0JIwlxbCPGGxl8N0KcEuWeM=;
-        b=vp2fDDrnIr1C2BUMfkWZVzzaJiAE/+BXrtWhvjpwVsOcEdaZrvHlH09Yd3Shkwf4OW
-         dIgJ93Yjgzq+DGNZSZVW8tysVTCmq7NDDcGQsAqlGgZVCqqUK+DevR5PGjREs9Wt2VOK
-         5QjJWLaxbLh+4ENzJyzhnPAwpdJh+0ktQBxVcdXJIejgVZHkw8PHftES0yYz6o+KNyin
-         +0WTpUWa+k4ux7bgkd/tMf0zMiASfJK57xTWR0OfCPXuvZspB6U7OBvACfZhnE+/izB8
-         2T2VQN2IZxh9MT4vhKptks2F3IDnTQCH6juXUbShkzwrZzECOuPAO/GXzBM/XZ4/iPe+
-         DJfQ==
+        bh=BRZ2cEpW+rSNUfUs/q11EvB+KMkExBUSGtmow/HBwh4=;
+        b=b9OgEAa9fqD1U1c2t14BJkp/HPT4tRZoRHhjE5BpSreGJsy1Yx7CDqfS4NmdYTiahi
+         94XLvZbsJODZERdw9kVDouv4FVW47pecnlzpI2qbU1euHFckxI0D4g2frQ6hgR8K+ZxM
+         gxJAQG9J7BtpPrfbZlxUbgDyQNuTYpJM6Rd74rxu6nGi4dvbq72dXNbrJOHItHV8iPQp
+         zdhAElUlvcNK8Ipe2/Rb87YwU85RFLgO7Jl1wwbNccuyJCHS9iAV7M9XDsAX9+MlUDqc
+         pemkbsk9zdxSEs0grm9fvudHF9R3QX71t+5rSDIEqQFUrjHvFUW0+ypHanG1w1Kl9a8x
+         HjTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733222272; x=1733827072;
+        d=1e100.net; s=20230601; t=1733222274; x=1733827074;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RoLTpcw2i/ARiDDfP5KR0JIwlxbCPGGxl8N0KcEuWeM=;
-        b=BMuxtLKPegraiNYYw9qcP4/2oCO6imOjDFOkM/apNQs1n6fjbMhOFPx8V/feAkIfFr
-         42gFo4CzaVrXQOsO66G+nfuaslKhCootrKR8c0tubhbm1Dd4ZrFVo1bLnV6wMjLkgNEh
-         53LZgozDJpW3YV9wWMelYKc4ENIEqGTAoQgSbz7YZvFzlKmi3IGvIGNUQRaA0eECm8H6
-         rLWZGBfvbILmDuo+CWyuNh150BhuKuIVXs/EOMXrIWC+3AH6yP0APCmxukkH02zWdc+f
-         v7nFa2e5ZLix8kEAruXXUy02KFQL8kvexpl3AH3YdQCYXvOuNPpH/Lz0Q6oUchyNwJer
-         jHHA==
-X-Forwarded-Encrypted: i=1; AJvYcCVWIR5i0nHAjSRcnZ1G699EaVZyWxE5l7E2k4iDbxQTD3HFgYOUndfdkXuRXrW5PIPOL13vQRDH+LJPyENtrQwQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZqMHENr1eTAA2idrlZ7lYnRVhGs2XmRV6H9iYZ95EkIlrusXx
-	Islprmtj8bXIyPxUwznLJjWecWVdyUeS8rQWiXho1mcil5OunOKC7mp/czl/xL+/PeIo5cl8+k6
-	6D21IUw==
-X-Google-Smtp-Source: AGHT+IGydksz2oitkkS+PzunE3Xo1LLjOTwrM0JRUgGZOInmX86+vMlVFPZJqRfsJ77VjfmAauob+8D8Wh13
-X-Received: from edtw23.prod.google.com ([2002:aa7:cb57:0:b0:5cb:ee45:27d6])
- (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:27c9:b0:5cf:924f:9968
- with SMTP id 4fb4d7f45d1cf-5d10cb4f7c1mr2156507a12.2.1733222272258; Tue, 03
- Dec 2024 02:37:52 -0800 (PST)
-Date: Tue,  3 Dec 2024 10:37:24 +0000
+        bh=BRZ2cEpW+rSNUfUs/q11EvB+KMkExBUSGtmow/HBwh4=;
+        b=rzPnxli2VHzDp8isZocyh2n49vr5K5TFeOqzVms6mcoZ2pC2Aue0xYsDbu8AMZRjha
+         HsllWDy7o7N/KBr7J+v/e9SMd5oQxyaD59sDe0z0piVQtzFahZo0D7OP6rA6ojvaQCcS
+         +MILg0mMHm6DkytMq74B7gCYXEQ8ChXLLDXckWhukPCDy6bFmTQ9+fSsouFHAhNESWZt
+         DbY8lV0pvCuP7srS92rYw4wFF4lVrfHGiwv31jN4LU9BU3I30ox43GmeuhrX5gghHquf
+         B0ySXFQ7lbKEpBvAfMnbJ7A1S3+Mgc1FW/0t8IOqWq10rGaxN8z6U9Tz3NAk+2l3JExg
+         /8AA==
+X-Forwarded-Encrypted: i=1; AJvYcCUo+6Vkzr2rRvNLZt0Qg6VGFfanosOSksTqWAhDhS/JS4yMOei5XGakCmNkasb1yCJPZjv5O051RwZ4ea6YsXeX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLkAsrngUWgI8uy8opS+97wH8wHJSwT0azk4jY/BtrO7A4UnAF
+	6ThuRuULDcvra+qGK7m8iKYNpWu6L+TnIAXyA9S6SdF8wDSTH1ev6ctwz9Ig/O5sbGbJLV26UW5
+	4Jyvu+w==
+X-Google-Smtp-Source: AGHT+IEj8AuZHCZpDYFglBJG72MANHTDv565iypJfWiYGscbgWwh2Qi7NN2thjRyh4mSRHfuIeZ5D8lm4Rqv
+X-Received: from edxz12.prod.google.com ([2002:aa7:cf8c:0:b0:5cf:ac1b:14fa])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a2e:b890:0:b0:2ff:8e69:77ef
+ with SMTP id 38308e7fff4ca-30009c0d863mr13033771fa.1.1733222274568; Tue, 03
+ Dec 2024 02:37:54 -0800 (PST)
+Date: Tue,  3 Dec 2024 10:37:25 +0000
 In-Reply-To: <20241203103735.2267589-1-qperret@google.com>
 Mime-Version: 1.0
 References: <20241203103735.2267589-1-qperret@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241203103735.2267589-8-qperret@google.com>
-Subject: [PATCH v2 07/18] KVM: arm64: Make kvm_pgtable_stage2_init() a static
- inline function
+Message-ID: <20241203103735.2267589-9-qperret@google.com>
+Subject: [PATCH v2 08/18] KVM: arm64: Add {get,put}_pkvm_hyp_vm() helpers
 From: Quentin Perret <qperret@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -78,8 +77,8 @@ Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>,
 	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_023754_230714_B64DCEE9 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241203_023756_792135_42A8E334 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +93,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Turn kvm_pgtable_stage2_init() into a static inline function instead of
-a macro. This will allow the usage of typeof() on it later on.
+In preparation for accessing pkvm_hyp_vm structures at EL2 in a context
+where we can't always expect a vCPU to be loaded (e.g. MMU notifiers),
+introduce get/put helpers to get temporary references to hyp VMs from
+any context.
 
 Signed-off-by: Quentin Perret <qperret@google.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  3 +++
+ arch/arm64/kvm/hyp/nvhe/pkvm.c         | 20 ++++++++++++++++++++
+ 2 files changed, 23 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index c2f4149283ef..04418b5e3004 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -526,8 +526,11 @@ int __kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
- 			      enum kvm_pgtable_stage2_flags flags,
- 			      kvm_pgtable_force_pte_cb_t force_pte_cb);
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 24a9a8330d19..f361d8b91930 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -70,4 +70,7 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
+ 					 unsigned int vcpu_idx);
+ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu);
  
--#define kvm_pgtable_stage2_init(pgt, mmu, mm_ops) \
--	__kvm_pgtable_stage2_init(pgt, mmu, mm_ops, 0, NULL)
-+static inline int kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
-+					  struct kvm_pgtable_mm_ops *mm_ops)
++struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle);
++void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm);
++
+ #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 01616c39a810..4db88bedf8d5 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -327,6 +327,26 @@ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	hyp_spin_unlock(&vm_table_lock);
+ }
+ 
++struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
 +{
-+	return __kvm_pgtable_stage2_init(pgt, mmu, mm_ops, 0, NULL);
++	struct pkvm_hyp_vm *hyp_vm;
++
++	hyp_spin_lock(&vm_table_lock);
++	hyp_vm = get_vm_by_handle(handle);
++	if (hyp_vm)
++		hyp_page_ref_inc(hyp_virt_to_page(hyp_vm));
++	hyp_spin_unlock(&vm_table_lock);
++
++	return hyp_vm;
 +}
- 
- /**
-  * kvm_pgtable_stage2_destroy() - Destroy an unused guest stage-2 page-table.
++
++void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm)
++{
++	hyp_spin_lock(&vm_table_lock);
++	hyp_page_ref_dec(hyp_virt_to_page(hyp_vm));
++	hyp_spin_unlock(&vm_table_lock);
++}
++
+ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struct kvm *host_kvm)
+ {
+ 	struct kvm *kvm = &hyp_vm->kvm;
 -- 
 2.47.0.338.g60cca15819-goog
 
