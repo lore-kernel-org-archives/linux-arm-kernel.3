@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 100B1E74AC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63994E74AC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8yKeFLr7GK2j1GC41CvEEkFDcayC545MbavQqa2ETY=; b=VyuAsP8EInb6u1uA+Jx6dXd80I
-	DSvK0jSLoEfs3MKiu6YNXZRmgyZ/+VJUKRNtmqmzVFqIl/P27MFAYJN7O2uNv+zyxK6sCIpu3rAdU
-	I/PS4Vl7W4DmVRKo3s9+zwmI+Rr+QJSCHpCGVeXJwui9EfaOq3aAmD8THSBp+ofHhMU6Bsttn91uj
-	juLNmyENTdycKov4PdoS8NvhIyl7Mk+u3KmmxFABv0KhQ1bJVBMF28Puw8Kpe86Xzbe54KzmhZAQy
-	PwOBLS8vP7Yv0w0fGttKjIkjek2Lwd+LI3ZV9Xl+w3mgjfmXRS00YauDhUk5KcC8irs8RPCmbw71u
-	IM2wYhUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dDXtirkofJxQHdUKHvGa7WJ/KJTFg04tK9XP7XOZ27M=; b=LBaS19/Irz0q2XyUT7vNoIHbEJ
+	IVPtwRR73iudgZmmBGnJrt2UobIOGOo3y9F+Eqc1epWi9iwYbkurg/0pgYVrqyjwgCj0rrb+MguVf
+	rGIulib2Z+WZXDn4GfWbKOZU9Lg+iTT+xogZfttnpLrlWmGDMgqswcoo7gFzOVsVMl6kEwtgjsV5n
+	3YbOlJ2faVT7/japHIiUtLyf2ZYoUswmGY0wkjP+phakTAQx4W6Kcby2KGT/EbxvFZpTXlgTmiaxP
+	xSI+PW2EvlW1+E/GYN6g1J/eoeIdEI7l3vhSWIFKG8bdr08u1bquI5ZU7zfdK+d+0T50odXFkgh7q
+	AAWRwqKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIW6q-0000000A9qI-0L69;
-	Tue, 03 Dec 2024 16:50:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIW7p-0000000AA6y-0Bhh;
+	Tue, 03 Dec 2024 16:51:49 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIW5p-0000000A9VX-1ycZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 16:49:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E7925C5FD8;
-	Tue,  3 Dec 2024 16:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5CEBC4CECF;
-	Tue,  3 Dec 2024 16:49:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733244583;
-	bh=1NqLuuLFwHm0v/yK7wKaDo26NhV34tP1XmqEcIsx8to=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uJo1JZl25KEUEqfUZcLBB/tMBA0DqTkqNW9sWubx4kv7Y3pfx/lt5a+4iT+XQL0W5
-	 Txc43BClWHT6BKKuL7HBYTCMYPXmMS7V/t6cmHshp7VtgQnN9cAbB0LHUZCswVGJdc
-	 DKHlIUuRyXVLaOQJbpL0q6rHr6D89fQVmdPLC61hw3lsn1M1x4dlSb+hV5S6sxRry3
-	 dSuHczvq1DBSm+SCu7n4Y6K0QiEcqdGQo5ECPrRLkbwAiPNPYrO0tVEOabwTXRvjEs
-	 3C1LyxcAoye0/25Q7rKK6tt5+i3LvrKa24QHpz300wIipXPYveiVEftvQvo6EzBScm
-	 u870mSPB8nrlg==
-Date: Tue, 3 Dec 2024 16:49:39 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: soc: fsl: cpm_qe: Limit matching to nodes
- with "fsl,qe"
-Message-ID: <20241203-egotistic-certainly-116f38bd39b6@spud>
-References: <20241202045757.39244-1-wenst@chromium.org>
+	id 1tIW5r-0000000A9Vt-1OvM;
+	Tue, 03 Dec 2024 16:49:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dDXtirkofJxQHdUKHvGa7WJ/KJTFg04tK9XP7XOZ27M=; b=jTaNCrgBZ+IiFYouTRSOu4rbUl
+	mYagNk3XadpVmDdPny1K2WzbbzERGPcw+xyns8UUQI1Rf9RTGsfToipMIY6e8aFbN07LeTEvOZP4f
+	o+DuMzw7BFBiHDBf8/6oR5EEiZ6lmYJsBgRcM/5+3MS9PZypJOzp+B/nWmEHakjTyeRsKrJPs1U43
+	Tb8339IgRSBRRgZNWQmkOyYvKo/Oyi0kya7DLWKvMii+Gm8Ckw4tRG0IouGQ9zIdXbxLYXXfqXL+k
+	TyS2Skc3KiNhnx43BQkMRXlPD/E8xAKemDIq3M7azRFznhSSOUw2O4DrpOb7xkboEXSMa7FLxNl1B
+	98OfhNcw==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tIW5n-0003fy-Rc; Tue, 03 Dec 2024 17:49:43 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: vkoul@kernel.org,
+	kishon@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quentin.schulz@cherry.de,
+	sebastian.reichel@collabora.com,
+	heiko@sntech.de,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	dse@thaumatec.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v5 1/2] dt-bindings: phy: Add Rockchip MIPI C-/D-PHY schema
+Date: Tue,  3 Dec 2024 17:49:31 +0100
+Message-ID: <20241203164934.1500616-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241203164934.1500616-1-heiko@sntech.de>
+References: <20241203164934.1500616-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5+M0C7v+8zXCbXJ/"
-Content-Disposition: inline
-In-Reply-To: <20241202045757.39244-1-wenst@chromium.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_084945_600172_62811D97 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20241203_084947_371404_4271D506 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,103 +85,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
---5+M0C7v+8zXCbXJ/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add dt-binding schema for the MIPI C-/D-PHY found on
+Rockchip RK3588 SoCs.
 
-On Mon, Dec 02, 2024 at 12:57:55PM +0800, Chen-Yu Tsai wrote:
-> Otherwise the binding matches against random nodes with "simple-bus"
-> giving out all kinds of invalid warnings:
->=20
->     $ make CHECK_DTBS=3Dy mediatek/mt8188-evb.dtb
->       SYNC    include/config/auto.conf.cmd
->       UPD     include/config/kernel.release
->       SCHEMA  Documentation/devicetree/bindings/processed-schema.json
->       DTC [C] arch/arm64/boot/dts/mediatek/mt8188-evb.dtb
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible:0: 'fsl,=
-qe' was expected
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible: ['simpl=
-e-bus'] is too short
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controlle=
-r@c000000:compatible:0: 'fsl,qe-ic' was expected
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controlle=
-r@c000000:reg: [[0, 201326592, 0, 262144], [0, 201588736, 0, 2097152]] is t=
-oo long
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controlle=
-r@c000000:#interrupt-cells:0:0: 1 was expected
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controlle=
-r@c000000: '#redistributor-regions', 'ppi-partitions' do not match any of t=
-he regexes: 'pinctrl-[0-9]+'
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'reg' is a required=
- property
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
->     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'bus-frequency' is =
-a required property
-> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe=
-=2Eyaml#
+Tested-by: Daniel Semkowicz <dse@thaumatec.com>
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 87 +++++++++++++++++++
+ 1 file changed, 87 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
 
-I'm curious why this is only coming up now, Rob applied this apparently
-in July.
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+new file mode 100644
+index 000000000000..c8ff5ba22a86
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+@@ -0,0 +1,87 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip MIPI D-/C-PHY with Samsung IP block
++
++maintainers:
++  - Guochun Huang <hero.huang@rock-chips.com>
++  - Heiko Stuebner <heiko@sntech.de>
++
++properties:
++  compatible:
++    enum:
++      - rockchip,rk3576-mipi-dcphy
++      - rockchip,rk3588-mipi-dcphy
++
++  reg:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 1
++    description: |
++      Argument is mode to operate in. Supported modes are:
++        - PHY_TYPE_DPHY
++        - PHY_TYPE_CPHY
++      See include/dt-bindings/phy/phy.h for constants.
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: pclk
++      - const: ref
++
++  resets:
++    maxItems: 4
++
++  reset-names:
++    items:
++      - const: m_phy
++      - const: apb
++      - const: grf
++      - const: s_phy
++
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the syscon managing the 'mipi dcphy general register files'.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      phy@feda0000 {
++        compatible = "rockchip,rk3588-mipi-dcphy";
++        reg = <0x0 0xfeda0000 0x0 0x10000>;
++        clocks = <&cru PCLK_MIPI_DCPHY0>,
++                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
++        clock-names = "pclk", "ref";
++        resets = <&cru SRST_M_MIPI_DCPHY0>,
++                 <&cru SRST_P_MIPI_DCPHY0>,
++                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
++                 <&cru SRST_S_MIPI_DCPHY0>;
++        reset-names = "m_phy", "apb", "grf", "s_phy";
++        rockchip,grf = <&mipidcphy0_grf>;
++        #phy-cells = <1>;
++      };
++    };
+-- 
+2.45.2
 
->=20
-> Fixes: ecbfc6ff94a2 ("dt-bindings: soc: fsl: cpm_qe: convert to yaml form=
-at")
-> Cc: Frank Li <Frank.Li@nxp.com>
-> Cc: <stable@vger.kernel.org> # v6.11+
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
->  .../devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml        | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml=
- b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-> index 89cdf5e1d0a8..9e07a2c4d05b 100644
-> --- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
-> @@ -21,6 +21,14 @@ description: |
->    The description below applies to the qe of MPC8360 and
->    more nodes and properties would be extended in the future.
-> =20
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: fsl,qe
-> +  required:
-> +    - compatible
-> +
->  properties:
->    compatible:
->      items:
-> --=20
-> 2.47.0.338.g60cca15819-goog
->=20
-
---5+M0C7v+8zXCbXJ/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ082owAKCRB4tDGHoIJi
-0s0HAQDAWUaDFTMODECrGoMpk/JQ6X3sb4Uok6Yl2lbO7EaJUwEAkJy4Xvisf0FS
-fWsESM6zpR0CkagNmMJ9ezdGDBwYAAE=
-=ZvIG
------END PGP SIGNATURE-----
-
---5+M0C7v+8zXCbXJ/--
 
