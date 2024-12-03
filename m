@@ -4,96 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716E3E64A83
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33027E64A83
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0I7eoP4tW1sy5Wnizr4Z0EwfocpUFRNEULcv2IVlsM=; b=XXf/Yow8OoPcJlVFDwt4BKLX3X
-	7jrElWHHQnV3jiW1+NDOYt78ihKOj0uVbCbK4MEG9JZTgaemQpM2+YqPHdvQnU+R/RNuX6dtMb7GG
-	Kvfza3MWdI5n7zrvcZcvGziU1XSPsw+JMlAoHItAzhSt+YsQ2HeWlzKyL/PDuaC8MSwfBTKRIM5g8
-	kzXDZ4iTchtcjfrvbYHKZsV0ofgNN1hFl6VHtponyGAdPmfQMQoWhGo2XgiNQTbWqvSTyuOil7+cV
-	M4+DUsp8On2jITt6Idkdu8RpQCWaQyuKmbRZ9r/csNcYoMF2j1IjWzFO8EDSQtuv5ukWrcQrJ/qlT
-	xA+VgbGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+D27OUR16Cl4TWEJRos/7LAnM8aBb1wRGjF74GArkfA=; b=DHmPf4fJpXcmyT
+	HKlg021DtOzNBhK9Vm97MTor45JIk5Tv/5gDGc2ZLtf5oCpp8PjvP4LrA3y014qp2HVr/t8b6WeDr
+	/B7OSCrU1QFw7bMvxsdrOso/3XQ0qA90x0EAHP99fMOKL0u8EE3rqEfFrxzpMIzQNnic2EeFIG/QU
+	xL/DWP4mOnUHQpPpgFs1YmNmAbcGv+4dU4OcDD3v8BQ8+4BetkZF4RBsJuw10QgCanrJcyPOuywmG
+	IqCSfC5VJalatuYOX3PkCoTLxwPMlnHn2j5dQUn7c9J88ExhiYQ83UqRTNIfOTJqoyKagaGU3vSWX
+	kj8QdZiK4tgKyRoXobew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRdU-00000009Ml5-1E3r;
-	Tue, 03 Dec 2024 12:04:12 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tIRns-00000009Nx0-1Igr;
+	Tue, 03 Dec 2024 12:14:56 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRcT-00000009MdU-2al7
+	id 1tIRmq-00000009Ndk-3dlT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:03:11 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-434a766b475so50066575e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:03:08 -0800 (PST)
+	Tue, 03 Dec 2024 12:13:54 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aa54adcb894so704433666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:13:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733227387; x=1733832187; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=y0I7eoP4tW1sy5Wnizr4Z0EwfocpUFRNEULcv2IVlsM=;
-        b=M7dNrVq3RMyKZRSLbMYnnXGNCkn+0QQayPrl24bDsp3trH3ZTlfhTGq0U88z46VgPs
-         flZhMmDJf6bc5awpbcQG60FwiSRE6JgalhaCrJVQxwkF5OS47USUChchbzlGa2ApIIEg
-         CZimuo7DzFMqNIPc1hxQxAJWFXH3QWdJjKfOUstFnp9EtNdmvoWIbIlCczD6GjWmp7i6
-         tc6I6n4hSeUiiN1RV08+dJpO6rJTleHUS/sswP2j4M592fYlW4YgWd2uCt03txemsjjQ
-         USUeqfeQ7HsnVKPIaScW6y0AUDqzYkEeFxTKa0Q+JigCIYtYVqXpLSpw5sKnS1Mo9ri1
-         NniQ==
+        d=linaro.org; s=google; t=1733228031; x=1733832831; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+D27OUR16Cl4TWEJRos/7LAnM8aBb1wRGjF74GArkfA=;
+        b=zYQV3xX+q0z/qNWovaXf7XjtzoN86hywiB59k7gf1SUtkIF2JKHc0V7J5HW23PyWgc
+         CW87iTkYvgOPwKUUdBom0e+9PpwJ1P5H710JEBuPegIyLWKmH3qUJsG0is3pp96U5lOL
+         +RrBqWecoHZOHteSOyY5KNDLFHAaLi0vqqkaayGbeN9+Xq/1Ux4CJJcfN+97j6ARLNhm
+         uI5MjqgDzEgjwxy6r41gBMwiA26NJ/DiPF4Rur1DnJtjRUu6ZC0Qfxq0IggLg1a08XZW
+         4yEN7XbqtuPn9jNjlLFkb2wa7lcAVr+1JAVk2lpHCAUpeuiGW0N+8rNaJ5Yt39ZE0Dtr
+         e+dA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733227387; x=1733832187;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y0I7eoP4tW1sy5Wnizr4Z0EwfocpUFRNEULcv2IVlsM=;
-        b=IikxDPVKNmJvpjqRP2t2g15GUXV0dUwHGIWgefBw9IDkuuz7Myjwi7Hn2a8PecP80Q
-         Uckj0SrIoVIZUK8fhQoW/VIP4Eoeb+6biF7i99bFlpO0QwCHuFvsZZ9vdPG4bAyt1zHK
-         wshh1lYWmspL+BoMw5aiPUyCjQDbmy7BuT1xGRhFBXal/Hyy2GvvePteUoMg3CQaxpG0
-         D8Y6/4y8MNSv9nc80maWkfZ0sSmEchW+yKk+kgjb19JQb7DvcNHwfuAmoFTDZlTw3YPK
-         iSIZVSA42fihTdQDaCw2gJbXeR38mjnchqkpNg3DiUWfosxJ9CubqhytC7nDcJrVrVDX
-         n/uA==
-X-Forwarded-Encrypted: i=1; AJvYcCUEo8sT7zulxSPU0Y6QBxj7DEP2oJI4YdHvhBG+ct4C9FZE4n4bLbm5vL2SQj9RbAJTR3phzvRECk5k8kJrfvIq@lists.infradead.org
-X-Gm-Message-State: AOJu0YziQsEETtnGrD0LnpTjpyf5zj7tUSHodS/GvmjqmNeliDUFaiJt
-	gG9c2Phwu7nhKODtdmHHKAQ1QnzdkKg2Gz7wDCFWlp/2nKu/fRJdkYwCrXPlBeA=
-X-Gm-Gg: ASbGncuI+igdH6wIx9MZo83UM3k9zRNsHUP0FPeaBgWOVrvTqJg4le2K4sh1cGiTsxe
-	BTvSZl/INySdt4wCt1NZNKvtxAAvrnC1fo+cBmZfnfl2nmop9JCIUsFTHrdf1xQPOOBK7DjhCdv
-	YX9Q03hMvSTP+H5zBSGoyj11abbU3Vv3Vxge7M938u+GMduhIggFV5VSWIMab7tLe2l2zwP51Jk
-	rXnGy+7UsNDBtQhaCJu0iULjlEDhQT4rJkC0GOEGLBa+6d3
-X-Google-Smtp-Source: AGHT+IGJuNygbZCGb6hKSPq7svZI0UjE9YSI8WZDBfz+rnhnNF8S82REfql2U1Ng0i3TWUIKQNJLRw==
-X-Received: by 2002:a05:600c:138a:b0:431:52da:9d67 with SMTP id 5b1f17b1804b1-434d09b1831mr21654615e9.3.1733227387134;
-        Tue, 03 Dec 2024 04:03:07 -0800 (PST)
-Received: from linaro.org ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0f326a9sm189099435e9.35.2024.12.03.04.03.05
+        d=1e100.net; s=20230601; t=1733228031; x=1733832831;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+D27OUR16Cl4TWEJRos/7LAnM8aBb1wRGjF74GArkfA=;
+        b=EGnDw+IhxBywK5Zq549MqCyNuxzkJ07lioJICRjarq9zCUnbYEz3oTBHuDtiXACoj+
+         BrAMfKbAAV7OnGKwEm0DPpNgAWB2JVtLYwEq7hwCxNXGU6rGCuTDTfD23vOZsC3XK5kS
+         dhn2HnPbyZnQHka122Fe44SXnCjCfJGFsY1AGb3KaudakgnuEZXC3xhZrzOjhBcrLjW5
+         owLMiDOOmtyNxkq53aCVE5l2l/56EOX5rdcI+LblQufQNaJeaEPvs2QsDk8c0LsIalXo
+         Z4iK+uHaX4Nyb07+m/e9EsD8/7Xy7trU0NNLkHyFJEq3LuCkxAZ5hYScIiwwETjYFLGs
+         Y8ng==
+X-Forwarded-Encrypted: i=1; AJvYcCUfw7eW1dppySTQAz0e8LjZJrEJyEMtpw2jtZphzGXptjrizDEwmJ59Ta+bFRvYLlj5mfv6qHWNxtLqpsxK2djp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJrF4so7gYZZdTgbQok9lZmYYp+NUaPEM5tNxEHuIWR7tB1WkG
+	2rltA8KOvKCdQxl/dq09E9JVdYYNESX1CPe/MjQ1UooAi0C3lebnqJDr+VdgoT0=
+X-Gm-Gg: ASbGncveDhs74tSGto2q9W6ebtTV5rJo06PqTrHasszC2yxLNQW5y6rjLUOVJ3q2zYR
+	Qkd+QAixfoj8sJBklPUgRVG9K5mr4O1VGUkP3R9dATSNTkOSLVFljDL4p+FJnv9mNo+RjKa1jCy
+	bCgp2PvWGllDj+7/9FmU5aYx+JMa4HYwEoVJCyt7RvfDYDWnNabNt9PH6IDQ01f0uL7rLNcEqGm
+	ax/ULJEbwjU7nIHsK5UgQD9j8uMkyr2sObMwI7yf9vHRcIfuhjby/pSc/khWbFqV4DIDAMP/+2B
+	ZOIzxVzP27ZkYZa7tE+7uuSCXNaE9eRBTg==
+X-Google-Smtp-Source: AGHT+IG/LNiQRH1H/AD37FJTCdb/ukxG6+4AcIb4aIX7NrDNY7ETqg4yetmoSzQOoqOa1fQIjvYgLw==
+X-Received: by 2002:a17:906:1daa:b0:aa5:1661:1949 with SMTP id a640c23a62f3a-aa5f7f2413dmr188219066b.40.1733228030629;
+        Tue, 03 Dec 2024 04:13:50 -0800 (PST)
+Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5996c245bsm607603766b.8.2024.12.03.04.13.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 04:03:06 -0800 (PST)
-Date: Tue, 3 Dec 2024 14:03:05 +0200
-From: Abel Vesa <abel.vesa@linaro.org>
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Johan Hovold <johan@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krishna Kurapati <quic_kriskura@quicinc.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
- fingerprint readery
-Message-ID: <Z07zeVJU3Y1GiSLL@linaro.org>
-References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
- <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
- <Z07bgH5vVk44zuEH@hovoldconsulting.com>
- <Z07r3Upr50vLluyn@linaro.org>
+        Tue, 03 Dec 2024 04:13:50 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v2 0/8] USB31DRD phy updates for Google Tensor gs101
+ (orientation & DWC3 rpm)
+Date: Tue, 03 Dec 2024 12:13:48 +0000
+Message-Id: <20241203-gs101-phy-lanes-orientation-phy-v2-0-40dcf1b7670d@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z07r3Upr50vLluyn@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAPz1TmcC/42NQQqDMBBFryKz7pTMIFq76j2Ki2hGHZBEEpGKe
+ PemnqDL9+H9d0CSqJLgWRwQZdOkwWfgWwH9ZP0oqC4zsOGSiGscExnCZdpxtl4Shqz71a7Zu1Z
+ uHJu+co/SMeSXJcqgn6vwbjNPmtYQ9yu40W/9/3sjNEhdPfTCZVOZ7jWrtzHcQxyhPc/zC6gJ1
+ QTPAAAA
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
+ kernel-team@android.com, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_040309_667351_686F25F5 
-X-CRM114-Status: GOOD (  49.99  )
+X-CRM114-CacheID: sfid-20241203_041352_905868_7D13AE9F 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,156 +114,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-12-03 12:30:37, Stephan Gerhold wrote:
-> On Tue, Dec 03, 2024 at 11:20:48AM +0100, Johan Hovold wrote:
-> > [ +CC: Krishna, Thinh and the USB list ]
-> > 
-> > On Mon, Nov 18, 2024 at 11:34:29AM +0100, Stephan Gerhold wrote:
-> > > The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
-> > > multiport controller on eUSB6. All other ports (including USB super-speed
-> > > pins) are unused.
-> > > 
-> > > Set it up in the device tree together with the NXP PTN3222 repeater.
-> > > 
-> > > Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> > > ---
-> > >  arch/arm64/boot/dts/qcom/x1e80100-crd.dts | 48 +++++++++++++++++++++++++++++++
-> > >  1 file changed, 48 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> > > index 39f9d9cdc10d..44942931c18f 100644
-> > > --- a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> > > +++ b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> > > @@ -735,6 +735,26 @@ keyboard@3a {
-> > >  	};
-> > >  };
-> > >  
-> > > +&i2c5 {
-> > > +	clock-frequency = <400000>;
-> > > +
-> > > +	status = "okay";
-> > > +
-> > > +	eusb6_repeater: redriver@4f {
-> > > +		compatible = "nxp,ptn3222";
-> > > +		reg = <0x4f>;
-> > 
-> > The driver does not currently check that there's actually anything at
-> > this address. Did you verify that this is the correct address? 
-> > 
-> > (Abel is adding a check to the driver as we speak to catch any such
-> > mistakes going forward).
-> > 
-> 
-> Yes, I verified this using
-> https://git.codelinaro.org/stephan.gerhold/linux/-/commit/45d5add498612387f88270ca944ee16e2236fddd
-> 
-> (I sent this to Abel back then, so I'm surprised he didn't run that :-))
+Hi,
 
-I don't remember seeing this commit back then. Maybe I didn't look
-careful enough. Sorry.
+This series enables USB3 Type-C lane orientation detection and
+configuration on platforms that support this (Google gs101), and it
+also allows the DWC3 core to enter runtime suspend even when UDC is
+active.
 
-Since you already did the work, can you send that on the list?
+For lane orientation, this driver now optionally (based on DT)
+subscribes to the TCPC's lane orientation notifier and remembers the
+orientation to later be used during phy_init().
 
-So if you remember, back then I hunted down all of these with i2cget on
-my t14s (it has 3 such repeaters, unlike CRD).
+To enable DWC3 runtime suspend, the gadget needs to inform the core via
+dwc3_gadget_interrupt() with event type == DWC3_DEVICE_EVENT_DISCONNECT
+of a cable disconnect. For that to allow to happen, this driver
+therefore needs to stop forcing the Vbus and bvalid signals to active
+and instead change their state based on actual conditions. The same
+TCPC notifier is used to detect this, and program the hardware
+accordingly.
 
-> 
-> > > +		#phy-cells = <0>;
-> > 
-> > nit: I'd put provider properties like this one last.
-> > 
-> > > +		vdd3v3-supply = <&vreg_l13b_3p0>;
-> > > +		vdd1v8-supply = <&vreg_l4b_1p8>;
-> > 
-> > Sort by supply name?
-> > 
-> 
-> Ack.
-> 
-> > > +		reset-gpios = <&tlmm 184 GPIO_ACTIVE_LOW>;
-> > > +
-> > > +		pinctrl-0 = <&eusb6_reset_n>;
-> > > +		pinctrl-names = "default";
-> > > +	};
-> > > +};
-> > > +
-> > >  &i2c8 {
-> > >  	clock-frequency = <400000>;
-> > >  
-> > > @@ -1047,6 +1067,14 @@ edp_reg_en: edp-reg-en-state {
-> > >  		bias-disable;
-> > >  	};
-> > >  
-> > > +	eusb6_reset_n: eusb6-reset-n-state {
-> > > +		pins = "gpio184";
-> > > +		function = "gpio";
-> > > +		drive-strength = <2>;
-> > > +		bias-disable;
-> > > +		output-low;
-> > 
-> > I don't think the pin config should assert reset, that should be up to
-> > the driver to control.
-> > 
-> 
-> I can drop it I guess, but pinctrl is applied before the driver takes
-> control of the GPIO. This means if the GPIO happens to be in input mode
-> before the driver loads (with pull up or pull down), then we would
-> briefly leave it floating when applying the bias-disable.
-> 
-> Or I guess we could drop the bias-disable, since it shouldn't be
-> relevant for a pin we keep in output mode all the time?
-> 
-> > > +	};
-> > > +
-> > >  	hall_int_n_default: hall-int-n-state {
-> > >  		pins = "gpio92";
-> > >  		function = "gpio";
-> > > @@ -1260,3 +1288,23 @@ &usb_1_ss2_dwc3_hs {
-> > >  &usb_1_ss2_qmpphy_out {
-> > >  	remote-endpoint = <&pmic_glink_ss2_ss_in>;
-> > >  };
-> > > +
-> > > +&usb_mp {
-> > > +	status = "okay";
-> > > +};
-> > > +
-> > > +&usb_mp_dwc3 {
-> > > +	/* Limit to USB 2.0 and single port */
-> > > +	maximum-speed = "high-speed";
-> > > +	phys = <&usb_mp_hsphy1>;
-> > > +	phy-names = "usb2-1";
-> > > +};
-> > 
-> > The dwc3 driver determines (and acts on) the number of ports based on
-> > the port interrupts in DT and controller capabilities. 
-> > 
-> > I'm not sure we can (should) just drop the other HS PHY and the SS PHYs
-> > that would still be there in the SoC (possibly initialised by the boot
-> > firmware).
-> > 
-> > I had a local patch to enable the multiport controller (for the suspend
-> > work) and I realise that you'd currently need to specify a repeater also
-> > for the HS PHY which does not have one, but that should be possible to
-> > fix somehow.
-> > 
-> 
-> I think there are two separate questions here:
-> 
->  1. Should we (or do we even need to) enable unused PHYs?
->  2. Do we need to power off unused PHYs left enabled by the firmware?
-> 
-> For (1), I'm not not sure if there is a technical reason that requires
-> us to. And given that PHYs typically consume quite a bit of power, I'm
-> not sure if we should. Perhaps it's not worth spending effort on this
-> minor optimization now, but then the device tree would ideally still
-> tell us which PHYs are actually used (for future optimizations).
-> 
-> For (2), yes, we probably need to. But my impression so far is that this
-> might be a larger problem that we need to handle on the SoC level. I
-> have seen some firmware versions that blindly power up all USB
-> controllers, even completely unused ones. Ideally we would power down
-> unused components during startup and then leave them off.
-> 
-> Thanks,
-> Stephan
+That signal state is based on advice given by Thinh in
+https://lore.kernel.org/all/20240813230625.jgkatqstyhcmpezv@synopsys.com/
+
+Both changes together now allow cable orientation detection to work, as
+the DWC3 will now call phy_exit() on cable disconnect, and we can
+reprogram the lane mux in phy_init().
+
+On top of that, there are some small related cleanup patches.
+
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+Changes in v2:
+- squash patches #2 and #3 from v1 to actually disallow
+  orientation-switch on !gs101 (not just optional) (Conor)
+- update bindings commit message to clarify that the intention for the
+  driver is to work with old and new DTS (Conor)
+- add cc-stable and fixes tags to power gating patch (Krzysztof)
+- fix an #include and typo (Peter)
+- Link to v1: https://lore.kernel.org/r/20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org
+
+---
+André Draszik (8):
+      dt-bindings: phy: samsung,usb3-drd-phy: align to universal style
+      dt-bindings: phy: samsung,usb3-drd-phy: gs101: require Type-C properties
+      phy: exynos5-usbdrd: convert to dev_err_probe
+      phy: exynos5-usbdrd: fix EDS distribution tuning (gs101)
+      phy: exynos5-usbdrd: gs101: ensure power is gated to SS phy in phy_exit()
+      phy: exynos5-usbdrd: gs101: configure SS lanes based on orientation
+      phy: exynos5-usbdrd: subscribe to orientation notifier if required
+      phy: exynos5-usbdrd: allow DWC3 runtime suspend with UDC bound (E850+)
+
+ .../bindings/phy/samsung,usb3-drd-phy.yaml         |  24 +++
+ drivers/phy/samsung/Kconfig                        |   1 +
+ drivers/phy/samsung/phy-exynos5-usbdrd.c           | 223 ++++++++++++++++-----
+ 3 files changed, 202 insertions(+), 46 deletions(-)
+---
+base-commit: ed9a4ad6e5bd3a443e81446476718abebee47e82
+change-id: 20241127-gs101-phy-lanes-orientation-phy-29d20c6d84d2
+
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
+
 
