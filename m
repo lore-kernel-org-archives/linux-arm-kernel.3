@@ -4,75 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B102CD7833F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577C5E6689A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=824aGTWhHL3Qz3Ered4xieaatA3IIyIRB4CneFMeiUc=; b=wWcj4a/ZfIy85n6K8HbzlePtxe
-	iMjBs9zzTpXN7+JwagU0zYVHJgpdjnq7VAqMf2aO7LUwSW4f7ammu999Buf3y2S1Uea211F4iu7qN
-	U46v2xRvkE8XUfxk4Zg/NNqV/IdMpAfulGkdZG5858lTg6s68WYy3ZGkPMcFLtX9+LNssNgOUJQEr
-	gOetrsXkvFgi4wm6Gw102taVwD04icO8ipolGoXEb9iy8ALfE0FJSKipCSYvlsF12ziB2qpMQgePS
-	TrH/fbfz4IUC1aLOEMgo38FtqTcShPmyTYwUiUEVxj5A2a9zqIOne+YTD02I7q0ajEiNVvflD+wZr
-	vOc632zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yXSZqfVCRFqO/EkaLoJnxQdMY4F3FCl7PW/nukt4Sec=; b=VxpI0cWcBiFe7o9w62Bc2qd06g
+	XzYqaQPE0pSkUi8SyGLI/BukgLCV7OXtK+H7ayjbyspHBctAejWkaXfBa84Iw7nNcDxIqDbRmZwTu
+	e1rzfSQBNg6yOJT0FBPgWbpXmqxbgoExQcq4sbgt+KDmwZNTU9GnBy77mOvOHAoOP4E5q/vBeyGLm
+	4nCe4UcFCVHiHBl4sOaxN9GyyxXByz2073gcb0/iMlt7gTWpqudkjSUm3ntS4BfrukPKMnKcWufdU
+	VuLzMaAVhWQuaLK286FcwVY1nmRYAL4yov2Xo1Al3Lh8d7qjNrL5oYyylL9cCaUbabg2suHDeWN6M
+	xofe9vug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPlZ-000000091H3-3ATx;
-	Tue, 03 Dec 2024 10:04:25 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPkY-0000000913v-17b0
+	id 1tIPnI-000000091Xt-3d1T;
+	Tue, 03 Dec 2024 10:06:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIPmI-000000091R1-0I02
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:03:24 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Y2bkK1mxQzPpwx;
-	Tue,  3 Dec 2024 18:00:25 +0800 (CST)
-Received: from kwepemd100010.china.huawei.com (unknown [7.221.188.107])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9B397140444;
-	Tue,  3 Dec 2024 18:03:14 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (7.182.85.71) by
- kwepemd100010.china.huawei.com (7.221.188.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 3 Dec 2024 18:03:13 +0800
-Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
- frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
- Tue, 3 Dec 2024 11:03:11 +0100
-From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-To: Vitaly Chikunov <vt@altlinux.org>, Marc Zyngier <maz@kernel.org>
-CC: Will Deacon <will@kernel.org>, "james.morse@arm.com"
-	<james.morse@arm.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>
-Subject: RE: v6.13-rc1: Internal error: Oops - Undefined instruction:
- 0000000002000000 [#1] SMP
-Thread-Topic: v6.13-rc1: Internal error: Oops - Undefined instruction:
- 0000000002000000 [#1] SMP
-Thread-Index: AQHbRHc1pIGPV7SGf0u8eV81r8P21rLTBiuAgAAE74CAAAGXAIAAAhCAgABrXYCAALdLgIAAGCGA
-Date: Tue, 3 Dec 2024 10:03:11 +0000
-Message-ID: <1847e34fa7724d28aeb22d93752f64f2@huawei.com>
-References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
- <20241202153618.GA6834@willie-the-truck> <86ttbmt71k.wl-maz@kernel.org>
- <20241202155940.p267a3tz5ypj4sog@altlinux.org> <86ser6t6fs.wl-maz@kernel.org>
- <20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
- <20241203092721.j473dthkbq6wzez7@altlinux.org>
-In-Reply-To: <20241203092721.j473dthkbq6wzez7@altlinux.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.203.177.241]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 03 Dec 2024 10:05:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 929A3FEC;
+	Tue,  3 Dec 2024 02:05:34 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F3713F71E;
+	Tue,  3 Dec 2024 02:05:05 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	Dave.Martin@arm.com,
+	will@kernel.org
+Subject: [PATCH] arm64: signal: Ensure signal delivery failure is recoverable
+Date: Tue,  3 Dec 2024 10:03:22 +0000
+Message-ID: <20241203100322.1626805-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_020322_621136_521ECCFB 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20241203_020510_189936_54DE0EBB 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,121 +63,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit eaf62ce1563b ("arm64/signal: Set up and restore the GCS
+context for signal handlers") introduced a potential failure point
+at the end of setup_return(). This is unfortunate as it is too late
+to deliver a SIGSEGV: if that SIGSEGV is handled, the subsequent
+sigreturn will end up returning to the original handler, which is
+not the intention (since we failed to deliver that signal).
 
+Make sure this does not happen by calling gcs_signal_entry()
+at the very beginning of setup_return(), and add a comment just
+after to discourage error cases being introduced from that point
+onwards.
 
-> -----Original Message-----
-> From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On
-> Behalf Of Vitaly Chikunov
-> Sent: Tuesday, December 3, 2024 9:27 AM
-> To: Marc Zyngier <maz@kernel.org>
-> Cc: Will Deacon <will@kernel.org>; james.morse@arm.com; linux-arm-
-> kernel@lists.infradead.org; Catalin Marinas <catalin.marinas@arm.com>;
-> linux-kernel@vger.kernel.org; oliver.upton@linux.dev;
-> mark.rutland@arm.com
-> Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
-> 0000000002000000 [#1] SMP
->=20
-> Marc,
->=20
-> On Tue, Dec 03, 2024 at 01:31:19AM +0300, Vitaly Chikunov wrote:
-> > On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
-> > > On Mon, 02 Dec 2024 15:59:40 +0000,
-> > > Vitaly Chikunov <vt@altlinux.org> wrote:
-> > > >
-> > > > Marc,
-> > > >
-> > > > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
-> > > > >
-> > > > > What the log doesn't say is what the host is. Is it 6.13-rc1 as w=
-ell?
-> > > >
-> > > > No, host is 6.6.60.
-> > >
-> > > Right. I wouldn't be surprised if:
-> > >
-> > > - this v6.6 kernel doesn't hide the MPAM feature as it should (and
-> > >   that's proably something we should backport)
-> >
-> > How to confirm this? Currently I cannot find any (case-insensitive)
-> > "MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM
-> > strings in `strace -v` (as it decodes some KVM ioctls) of qemu process.
-> >
-> > >
-> > > - you get a nastygram in the host log telling you that the guest has
-> > >   executed something it shouldn't (you'll get the encoding of the
-> > >   instruction)
-> >
-> > I requested admins of the box for dmesg output since I don't have root
-> > access myself and nowadays dmesg is not accessible for a user.
->=20
-> This is what they reported:
->=20
->   kvm [2502822]: Unsupported guest sys_reg access at: ffff80008003e9f0
-> [000000c5]
->                    { Op0( 3), Op1( 0), CRn(10), CRm( 4), Op2( 4), func_re=
-ad },
->=20
+While at it, also take care of copy_siginfo_to_user(): since it may
+fail, we shouldn't be calling it after setup_return() either. Call
+it before setup_return() instead, and move the setting of X1/X2
+inside setup_return() where it belongs (after the "point of no
+failure").
 
-As Will pointed out I think this is access to MPAMIDR_EL1 and is from this
-code here,
+Background: the first part of setup_rt_frame(), including
+setup_sigframe(), has no impact on the execution of the interrupted
+thread. The signal frame is written to the stack, but the stack
+pointer remains unchanged. Failure at this stage can be recovered by
+a SIGSEGV handler, and sigreturn will restore the original context,
+at the point where the original signal occurred. On the other hand,
+once setup_return() has updated registers including SP, the thread's
+control flow has been modified and we must deliver the original
+signal.
 
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -478,6 +478,9 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *i=
-nfo)
- 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
- 		__cpuinfo_store_cpu_32bit(&info->aarch32);
-=20
-+	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
-+		info->reg_mpamidr =3D read_cpuid(MPAMIDR_EL1);
+Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+Cc: broonie@kernel.org
+Cc: catalin.marinas@arm.com
+Cc: Dave.Martin@arm.com
+Cc: will@kernel.org
+---
+ arch/arm64/kernel/signal.c | 43 +++++++++++++++++++++++++-------------
+ 1 file changed, 28 insertions(+), 15 deletions(-)
+
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 14ac6fdb872b..0adaa165b876 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -1462,10 +1462,33 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+ 			 struct rt_sigframe_user_layout *user, int usig)
+ {
+ 	__sigrestore_t sigtramp;
++	int err;
 +
- 	cpuinfo_detect_icache_policy(info);
++	if (ksig->ka.sa.sa_flags & SA_RESTORER)
++		sigtramp = ksig->ka.sa.sa_restorer;
++	else
++		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
++
++	err = gcs_signal_entry(sigtramp, ksig);
++	if (err)
++		return err;
++
++	/*
++	 * We must not fail from this point onwards. We are going to update
++	 * registers, including SP, in order to invoke the signal handler. If
++	 * we failed and attempted to deliver a nested SIGSEGV to a handler
++	 * after that point, the subsequent sigreturn would end up restoring
++	 * the (partial) state for the original signal handler.
++	 */
+ 
+ 	regs->regs[0] = usig;
++	if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
++		regs->regs[1] = (unsigned long)&user->sigframe->info;
++		regs->regs[2] = (unsigned long)&user->sigframe->uc;
++	}
+ 	regs->sp = (unsigned long)user->sigframe;
+ 	regs->regs[29] = (unsigned long)&user->next_frame->fp;
++	regs->regs[30] = (unsigned long)sigtramp;
+ 	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
+ 
+ 	/*
+@@ -1506,14 +1529,7 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+ 		sme_smstop();
+ 	}
+ 
+-	if (ksig->ka.sa.sa_flags & SA_RESTORER)
+-		sigtramp = ksig->ka.sa.sa_restorer;
+-	else
+-		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+-
+-	regs->regs[30] = (unsigned long)sigtramp;
+-
+-	return gcs_signal_entry(sigtramp, ksig);
++	return 0;
  }
-
-I did manage to boot my setup in 6.6 and this is what happens,
-
-Host kernel 6.6
-Guest Kernel 6.13-rc1
-
-[    0.195392] smp: Brought up 1 node, 8 CPUs
-[    0.219000] SMP: Total of 8 processors activated.
-[    0.219629] CPU: All CPU(s) started at EL1
-...
-[    0.223212] CPU features: detected: RAS Extension Support
-[    0.223927] CPU features: detected: Memory Partitioning And Monitoring
-[    0.224796] CPU features: detected: Memory Partitioning And Monitoring V=
-irtualisation
-[    0.225961] alternatives: applying system-wide alternatives
-...
-
-Guest detects MPAM and boots fine.
-
-Host kernel 6.13-rc1
-Guest Kernel 6.13-rc1
-
-[    0.196625] smp: Brought up 1 node, 8 CPUs
-[    0.222093] SMP: Total of 8 processors activated.
-[    0.222769] CPU: All CPU(s) started at EL1
-...
-[    0.226620] CPU features: detected: RAS Extension Support
-[    0.227453] alternatives: applying system-wide alternatives
-
-MPAM is not visible to Guest in this case.
-
-So as I pointed out earlier could it be a case where the ID register report=
-s MPAM support
-but the firmware has not enabled MPAM?
-
-James seems to be mentioning that case here,
-
-" (If you have a boot failure that bisects here its likely your CPUs
-advertise MPAM in the id registers, but firmware failed to either enable
-or MPAM, or emulate the trap as if it were disabled)"
-
-https://lore.kernel.org/all/20241030160317.2528209-4-joey.gouly@arm.com/
-
-Is there a way you can find out the BIOS version on that board?
-
-Thanks,
-Shameer
+ 
+ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+@@ -1537,14 +1553,11 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+ 
+ 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
+ 	err |= setup_sigframe(&user, regs, set, &ua_state);
+-	if (err == 0) {
++	if (ksig->ka.sa.sa_flags & SA_SIGINFO)
++		err |= copy_siginfo_to_user(&frame->info, &ksig->info);
++
++	if (err == 0)
+ 		err = setup_return(regs, ksig, &user, usig);
+-		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+-			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+-			regs->regs[1] = (unsigned long)&frame->info;
+-			regs->regs[2] = (unsigned long)&frame->uc;
+-		}
+-	}
+ 
+ 	if (err == 0)
+ 		set_handler_user_access_state();
+-- 
+2.47.0
 
 
