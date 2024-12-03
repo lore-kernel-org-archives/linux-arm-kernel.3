@@ -4,75 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02146E64AB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CF9E64AB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cT72/4/tVK+gKV5ylTvuNcPx2r2Vffrx1cidI2Qbu7g=; b=e1wTeWWef1ig+rHNq17nr7ypV1
-	pDpkZmIHyb2spy0zmgaAJpddorHPGkh1nBniNvuRfdg4j/m+zIafg9brknP5/MeWQc+qfbAE+q2dM
-	pj/NSM9NNNenKzRY0zlj74vBX6JE4ZES83rx8x/wLC7m3VBdGPYAvJfcoPqPfBiCnOYQUmMaiBosp
-	HmvwcVYf6dOLq7CB8TUUkpU5ioabgLIUnD/7xbkNF7OZ/hwMxbgsu+bMzpzhAmVV4ws8TFdibL1sL
-	4s4G4Vq72EIm30ETW8BpXrZ6V8yNlknkE6LTU4Ks2ZQssUbncWA/Vz8lL8K9JfSiMyMGadeH+Q2Mk
-	L0c+3Hkw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yZGZQMA/RwCG4pJIJj9mmZUQbRdtln1Gs85KcOIkYC4=; b=1sEx12TJf4BmaWPXPj1zOvv43F
+	GKeX9jXoSwg61eQ5J1P6HxX4Lu89rdi8JJuEY5TYZzGGlJ/n7YXbPbvdbAK1Vy/tFJFG1SyUSdLmU
+	gZ70lB6iuI0A/NvTUhRsSzto3PLJAEBbF4cdr6YtiP2m6Jolw0E8WMe5+fZFMWvIFQXVyRTDvY9cA
+	Y6COfEgYgMtBh9l0eESjUkWMgmRjK6VuH/BheIeV5bwyqb9UbfOnwMAUPr8FIfJUD8GTqQ86zlyYd
+	t+YaBVXRoGN2MXBoYDkEWUcXOT18dSP2AUBH69c1UTFs+sI1sevm5JADEMkWmUmoxZMHhW6Tk55u/
+	Xawg1pQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUgn-00000009uDN-1LKn;
-	Tue, 03 Dec 2024 15:19:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIUhk-00000009uOm-3qFx;
+	Tue, 03 Dec 2024 15:20:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUfn-00000009u5n-0Igq
+	id 1tIUgk-00000009uCm-0iVZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 15:18:48 +0000
+	Tue, 03 Dec 2024 15:19:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6889E5C61F0;
-	Tue,  3 Dec 2024 15:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8210EC4CECF;
-	Tue,  3 Dec 2024 15:18:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1733239126;
-	bh=k6x86TfFb1xPFJjjMTjiPyo4iv8v/OOLn4Y0ccR1S5A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rDhLxtgeXfcUPEpSj2SyY0xV95iNyVyi0bwvGweWd0lAocOyRKwPhijVtDidKfeLb
-	 6GsCoGmq933xet6V9LINWi128/oXWt8av4ONE75Wm2ldwWALtVgfqwyHRqmAJ+MMCQ
-	 Rhf6sHvOGXj+lYw5uobqm7zhrECOBAyh+hEbx/Cc=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Leo Yan <leo.yan@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ben Gainey <ben.gainey@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Ruidong Tian <tianruidong@linux.alibaba.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	John Garry <john.g.garry@oracle.com>,
-	scclevenger@os.amperecomputing.com,
-	Namhyung Kim <namhyung@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.11 481/817] perf cs-etm: Dont flush when packet_queue fills up
-Date: Tue,  3 Dec 2024 15:40:53 +0100
-Message-ID: <20241203144014.646375317@linuxfoundation.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241203143955.605130076@linuxfoundation.org>
-References: <20241203143955.605130076@linuxfoundation.org>
-User-Agent: quilt/0.67
-X-stable: review
-X-Patchwork-Hint: ignore
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3170BA416EF;
+	Tue,  3 Dec 2024 15:17:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0375C4CECF;
+	Tue,  3 Dec 2024 15:19:43 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH] arm64: Ensure bits ASID[15:8] are masked out when the kernel uses 8-bit ASIDs
+Date: Tue,  3 Dec 2024 15:19:41 +0000
+Message-Id: <20241203151941.353796-1-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_071847_193682_BA55C604 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20241203_071946_276201_B3105093 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,126 +61,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.11-stable review patch.  If anyone has any objections, please let me know.
+Linux currently sets the TCR_EL1.AS bit unconditionally during CPU
+bring-up. On an 8-bit ASID CPU, this is RES0 and ignored, otherwise
+16-bit ASIDs are enabled. However, if running in a VM and the hypervisor
+reports 8-bit ASIDs (ID_AA64MMFR0_EL1.ASIDBits == 0) on a 16-bit ASIDs
+CPU, Linux uses bits 8 to 63 as a generation number for tracking old
+process ASIDs. The bottom 8 bits of this generation end up being written
+to TTBR1_EL1 and also used for the ASID-based TLBI operations as the
+upper 8 bits of the ASID. Following an ASID roll-over event we can have
+threads of the same application with the same 8-bit ASID but different
+generation numbers running on separate CPUs. Both TLB caching and the
+TLBI operations will end up using different actual 16-bit ASIDs for the
+same process.
 
-------------------
+A similar scenario can happen in a big.LITTLE configuration if the boot
+CPU only uses 8-bit ASIDs while secondary CPUs have 16-bit ASIDs.
 
-From: James Clark <james.clark@linaro.org>
+Ensure that the ASID generation is only tracked by bits 16 and up,
+leaving bits 15:8 as 0 if the kernel uses 8-bit ASIDs. Note that
+clearing TCR_EL1.AS is not sufficient since the architecture requires
+that the top 8 bits of the ASID passed to TLBI instructions are 0 rather
+than ignored in such configuration.
 
-[ Upstream commit 5afd032961e8465808c4bc385c06e7676fbe1951 ]
-
-cs_etm__flush(), like cs_etm__sample() is an operation that generates a
-sample and then swaps the current with the previous packet. Calling
-flush after processing the queues results in two swaps which corrupts
-the next sample. Therefore it wasn't appropriate to call flush here so
-remove it.
-
-Flushing is still done on a discontinuity to explicitly clear the last
-branch buffer, but when the packet_queue fills up before reaching a
-timestamp, that's not a discontinuity and the call to
-cs_etm__process_traceid_queue() already generated samples and drained
-the buffers correctly.
-
-This is visible by looking for a branch that has the same target as the
-previous branch and the following source is before the address of the
-last target, which is impossible as execution would have had to have
-gone backwards:
-
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-   (packet_queue fills here before a timestamp, resulting in a flush and
-    branch target ffff80008011cadc is duplicated.)
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
-
-After removing the flush the correct branch target is used for the
-second sample, and ffff8000801117c4 is no longer before the previous
-address:
-
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff8000801117a0 cpu_util+0x0
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
-
-Make sure that a final branch stack is output at the end of the trace
-by calling cs_etm__end_block(). This is already done for both the
-timeless decode paths.
-
-Fixes: 21fe8dc1191a ("perf cs-etm: Add support for CPU-wide trace scenarios")
-Reported-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Closes: https://lore.kernel.org/all/20240719092619.274730-1-gankulkarni@os.amperecomputing.com/
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Tested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Ben Gainey <ben.gainey@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: <stable@vger.kernel.org>
 Cc: Will Deacon <will@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: Benjamin Gray <bgray@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: coresight@lists.linaro.org
-Cc: John Garry <john.g.garry@oracle.com>
-Cc: scclevenger@os.amperecomputing.com
-Link: https://lore.kernel.org/r/20240916135743.1490403-2-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: James Morse <james.morse@arm.com>
 ---
- tools/perf/util/cs-etm.c | 25 ++++++++++++++++++-------
- 1 file changed, 18 insertions(+), 7 deletions(-)
+ arch/arm64/mm/context.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 5e9fbcfad7d44..f4615fa4280d8 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -2439,12 +2439,6 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+index 188197590fc9..b2ac06246327 100644
+--- a/arch/arm64/mm/context.c
++++ b/arch/arm64/mm/context.c
+@@ -32,9 +32,9 @@ static unsigned long nr_pinned_asids;
+ static unsigned long *pinned_asid_map;
  
- 		/* Ignore return value */
- 		cs_etm__process_traceid_queue(etmq, tidq);
--
--		/*
--		 * Generate an instruction sample with the remaining
--		 * branchstack entries.
--		 */
--		cs_etm__flush(etmq, tidq);
- 	}
- }
+ #define ASID_MASK		(~GENMASK(asid_bits - 1, 0))
+-#define ASID_FIRST_VERSION	(1UL << asid_bits)
++#define ASID_FIRST_VERSION	(1UL << 16)
  
-@@ -2587,7 +2581,7 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
+-#define NUM_USER_ASIDS		ASID_FIRST_VERSION
++#define NUM_USER_ASIDS		(1UL << asid_bits)
+ #define ctxid2asid(asid)	((asid) & ~ASID_MASK)
+ #define asid2ctxid(asid, genid)	((asid) | (genid))
  
- 	while (1) {
- 		if (!etm->heap.heap_cnt)
--			goto out;
-+			break;
- 
- 		/* Take the entry at the top of the min heap */
- 		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
-@@ -2670,6 +2664,23 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
- 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, cs_timestamp);
- 	}
- 
-+	for (i = 0; i < etm->queues.nr_queues; i++) {
-+		struct int_node *inode;
-+
-+		etmq = etm->queues.queue_array[i].priv;
-+		if (!etmq)
-+			continue;
-+
-+		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
-+			int idx = (int)(intptr_t)inode->priv;
-+
-+			/* Flush any remaining branch stack entries */
-+			tidq = etmq->traceid_queues[idx];
-+			ret = cs_etm__end_block(etmq, tidq);
-+			if (ret)
-+				return ret;
-+		}
-+	}
- out:
- 	return ret;
- }
--- 
-2.43.0
-
-
-
 
