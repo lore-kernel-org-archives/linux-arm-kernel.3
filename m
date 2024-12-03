@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DA2E64A87
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE102E64A87
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gSM9DgJ8s8ciANY65GvKwivzFuJwV1VAivJ5cEw7IQQ=; b=bJ/t6qBoL0Fp+ld/Vl67GdSxGp
-	nAyL0bhNz4uOswrq/24DmMePYwYMmlXh4asncLVNgmG/7hWguMbfi60tKuQj8n7RcjxLOYe5M7ItO
-	0r3rcSw8YSD4v+PW4jui4ZEixYRK4wKUIqm2WcrdiyqDir6u6rzWTP6zSeGUjFZ6MlhjFObM7sFJC
-	TWKHbdDA5qFkomx4BoSiqLGpQqffyDOQuEgm/UWY/2ikRFV2uqd1aiAcJZIBY3BbfxMIb1m7yuFyb
-	Ez/5PWRtMBuVez1sXL1x4SnjAcPjfzUj/z71ocPxQQjwHpaReFinYhwwn0lhA2uAwIjeijHuB7mfA
-	mwqhtv/Q==;
+	bh=tZ+3x4XN/pFJwUZ9Fq6iibS8haA6YmZ1TimlQMAiSR8=; b=aL5taPKxLc1AkZxaAD8KA8UuDM
+	RVRsopxc91hTYslVGDGaXs8dXSt4J8AsRxnMpnrR4DAjPHjKDlbiPVADzumn7gihCgfyP7AUdRqO6
+	UplE0mzHzlvt/zEx1PmQGJ/A6XQ9+g0gF53pJpp9wCgZgAp55Lt9nImjndrjY040MoqeI9Uqpct68
+	pLJOYXm0vawKenGqFTX2BEypAlDo92qk5IMd+wjEpwf7bimLRO14khp9lmoCihl4d71uMYx7qujQS
+	krgtQUXonOppRkdCh5ussUR0WUuV1ecOlq3uX5GpDSIq3ebuK81GJC5CgQQYbUuMzynhmujwSdnDe
+	udAS+MQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISGV-00000009TI9-0WdW;
-	Tue, 03 Dec 2024 12:44:31 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tISHU-00000009Taw-3Cgb;
+	Tue, 03 Dec 2024 12:45:32 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISCa-00000009SIo-3J3F
+	id 1tISCb-00000009SJ5-1GUN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:40:29 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5d0d71d7f00so4761000a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:40:28 -0800 (PST)
+	Tue, 03 Dec 2024 12:40:30 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-53de8ecb39bso6397031e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:40:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733229627; x=1733834427; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733229628; x=1733834428; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gSM9DgJ8s8ciANY65GvKwivzFuJwV1VAivJ5cEw7IQQ=;
-        b=R/sMnRd72r1iT7pKiMdEZjSGUAQfi96CHz6fTMzZvI04FvoURMOMkfXtUjpQUGVwYZ
-         6cV73myyrhotxWr978YZHeRBHa1YTmmW1Y53TwO7kRWNnBDSBVgXVYqATc+YT84YcYA9
-         sNVkPC1aA6hsPQ9vfq6G1dIq7XWRyUJxtUtFErs93WxbOcI7KwancT+ghD8IjRmjroNx
-         lChiIltOrvQcbCgVeDV/rqSuwxPpA7eBmdo8H9R1r1eMGut9crPirQHBCUiThxXtsJ/m
-         OTemyBP8bZGjKdiiiEZ4vO4Kdm6/umm0isPjHgOU9TUCQpKeD2QAtZPUCfl7lWZZJxpQ
-         wNFQ==
+        bh=tZ+3x4XN/pFJwUZ9Fq6iibS8haA6YmZ1TimlQMAiSR8=;
+        b=j0zQwzAWJ8vuMzb7G6a1ojs/T9qFJe9UWI1kzdQoM8QiJNnmpQ4ml+2DWuyDVaYs4n
+         3RutnAptaosXtSlN62q908myWKGOxzmosT0rqZ1JaPAyAf/riMUhIFIAKaJTkmssbyPF
+         m2tBgHQKYnwcfkacUFNdPYT154VObkRoKTzdI8oEDBDqsdCVB4kIH7L/JaspI2c5gpT+
+         Aq2r8Pn4Ak3hGuh1YUXTOw/LBBUZ2slJkLJ14CSzEyzhlVRqfe/H+ajz2nRN12UO3FzJ
+         sra1S7SvN1zlEaPB2ll+AnE9+kI6bjAMl6G615g27C6FAatjn+dcSdIv0mI0Bxb0ECmn
+         butA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733229627; x=1733834427;
+        d=1e100.net; s=20230601; t=1733229628; x=1733834428;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gSM9DgJ8s8ciANY65GvKwivzFuJwV1VAivJ5cEw7IQQ=;
-        b=YdZxpkqFafXdgllF54C0Pfl1pJo/5XzTTBB1jN1OEC0Rvu6KGOmgdeOEYnhf4VIsum
-         5lmgzzubMZmYfWSku2VwkaPAMoP6DWO7dagaJxBUFN40HGbUKT9LNWmTl27xcMDo+L69
-         s3znJZDY99Pz7hvX9taDnjXUDpOiD17oLtIqCmg5CJqZDl3159xVcJyRasJcCEEGTRaR
-         iK1m0kJlyvsdGWHlZcsclSJklATWuxwkuzrWsg8z8GZOG5CAYSeHV1M1/y/ZoKNNQt3T
-         i3LfFhJ01zbazydGxjEZI/GLrEyaW3m1PQ9cOcywxZH0FWN5/9+4TjOBik4zWY7fK1ia
-         nVVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWsYVmDYXpTdTlfdx27raFex6mL2PgaT8Wat7lup3/ATh5ZDeN7SeFgGvlSEAMF6PPxu7ucE0EdJUNKG7jNszZo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/pipWWt4GBwSYqyNt2bmKUbYzaAtSOyXQD3zJy4j26VkJYE86
-	2pSYP4RooKYMlBkx7xNWq5VPFblIex10Jy51ple1tPWxPjn0nCNn1S5X4Qf/0pA=
-X-Gm-Gg: ASbGncuF73EjwXkJQC/jAaWbP8Urr3pODNibWQEq2Cx8CcyeCPhY0PcMgb58KKUX1O/
-	s78pzyBqz0sUPDpDxPMl9uFhWT2J5qWylKSSdLf2LNjD1Yiv8Sgb5vYjXrH0AAVCmXu4ulwZkaA
-	eiJS9Se+XsaCGwchwSxya2Rt/r6GIt9YdSEgcJSeBjnedF4YyIji4rm5HH3FzsX2+XmAiepx2/w
-	kEO71Z41/G4mkVNBPTbW10fxZi7r8cZtKN4zuBMN6dbiFeI673rslMF8ZCcLv6fsXyRVlm7US6s
-	PipjODsv8PiDZtMuCCpOkwnH4P+rRgl+tA==
-X-Google-Smtp-Source: AGHT+IHow5Ax9TALz74PlLZBVVpeQZfnTQ4QfucP7E9gMwHlWhWcBplvAxbKn5vgo6QeTg9aVvDQPw==
-X-Received: by 2002:a17:906:1ba9:b0:a99:4162:4e42 with SMTP id a640c23a62f3a-aa5f7eef4demr200217966b.37.1733229627078;
+        bh=tZ+3x4XN/pFJwUZ9Fq6iibS8haA6YmZ1TimlQMAiSR8=;
+        b=TXy9J7N5X9redZMOY1n0KRYj+ZVT7vLI2bevzzc9mlqFqJUQ2v28TNDxTEfy46rIQt
+         6x/yi0yTPRfY4wkL3rKerS7BoWkeHFOU93PhW1iCKqp1JD94u3Tg322EkGLZv2OnidgN
+         L9ZqvPviske2ncU31QWV4Z60/AJw0BD+La2ThFdwYRKKFAKek1WCP/vlVNE9K94we4U+
+         QlS09YCq5FHZJh1zTV6NHP6uk6WMoJm0Z3ujVS6rvfdrI/LC6BDElCkd6h9Z66W3kPMG
+         1BqdZnNR1PvCRH1mQNeQasCzox84CDMTzvpS07t8T1qwst6+OaWqUZ3rrhX7prw4GUvi
+         WaNg==
+X-Forwarded-Encrypted: i=1; AJvYcCV7vPNj3kP7Ld6cibmtWLGqiY4FUd0ySWEdAoAOF17J4QozCyKLzJXO+5N+a2avclqqj/qbK7XvDoNEPQsttkTs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3oTluwBv005o++isoiZOkEDU9rPnWtGc1FbEoT0q3rkP3ZPyO
+	gcYCRLjoAhze496rqYJDHM9vXY2rEubNTwm22KGeZclaq2/zE5yUeU2ppm6qVy0=
+X-Gm-Gg: ASbGncsqO+FIczaemSdzz2QC5+bQkoPR5VMtawtrqkjlJnDkp7DipKGeOI37AQ6YOLg
+	6jCL4pCI20hPoOTy5UoJ8TRsIwwIomtveGkjpwV2KcdJUP7/21iEKjDsDaaT7zthchvTgwTbnXK
+	YXFKAMcjU4peN9e5SqHr+KkYh+VHrE4vQn0dI0KHpqVPYENHguPByfAb9qU+T+w0T1CAygXnU9y
+	wqjWG/apWNyC3cVd7+xLwmryEpy0gWD7Gwi/fsE9UsLgw7tODBO/vh1Cr7jOcXpxc6UdUsmXkkT
+	MVxtOeCTO+uKwpD0uyOvMvUwj4hx32Dw6Q==
+X-Google-Smtp-Source: AGHT+IHeO/mKEhXVpXi9pdteGlsI4F23sERp53+a3TrAQPMUegvKy3+VOm9U1xkMFuv9jqKNjlvGEw==
+X-Received: by 2002:a05:6512:6c9:b0:53d:a8cd:4285 with SMTP id 2adb3069b0e04-53e12a2e8damr1334975e87.39.1733229627590;
         Tue, 03 Dec 2024 04:40:27 -0800 (PST)
 Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5998e6a4csm616809466b.106.2024.12.03.04.40.26
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5998e6a4csm616809466b.106.2024.12.03.04.40.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 04:40:26 -0800 (PST)
+        Tue, 03 Dec 2024 04:40:27 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 03 Dec 2024 12:40:26 +0000
-Subject: [PATCH v2 3/5] arm64: dts: exynos: gs101: allow stable USB phy
- Vbus detection
+Date: Tue, 03 Dec 2024 12:40:27 +0000
+Subject: [PATCH v2 4/5] arm64: dts: exynos: gs101-oriole: enable Maxim
+ max77759 TCPCi
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241203-gs101-phy-lanes-orientation-dts-v2-3-1412783a6b01@linaro.org>
+Message-Id: <20241203-gs101-phy-lanes-orientation-dts-v2-4-1412783a6b01@linaro.org>
 References: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
 In-Reply-To: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -91,8 +91,8 @@ Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_044028_827924_267304E4 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20241203_044029_338446_089832E5 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,44 +107,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For the DWC3 core to reliably detect the connected phy's Vbus state, we
-need to disable phy suspend.
+On Pixel 6 (and Pro), a max77759 companion PMIC for USB Type-C
+applications is used, which contains four functional blocks (at
+distinct I2C addresses):
+  * top (including GPIO)
+  * charger
+  * fuel gauge
+  * TCPCi
 
-Add
-    snps,dis_u2_susphy_quirk
-    snps,dis_u3_susphy_quirk
-to do that.
+While in the same package, TCPCi and Fuel Gauge have separate I2C
+addresses, interrupt lines and interrupt status registers and can be
+treated independently.
 
-While at it, also add
-    snps,has-lpm-erratum
-as this is set downstream which implies that the core was configured
-with LPM Erratum. We should do the same here.
+The TCPCi is required to detect and handle connector orientation in
+Pixel's USB PHY driver, and to configure the USB controller's role
+(host vs device).
+
+This change adds the TCPCi part as it can be independent and doesn't
+need a top-level MFD.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
 ---
 v2:
-- drop snps,dis_rxdet_inp3_quirk and instead use the mentioned
-  properties. The former alone wasn't reliable enough in all
-  situations, e.g. when attached to certain USB hubs.
+* compatible has changed to maxim,max77759-tcpci
+* clarify that GPIO is actually part of 'top' in commit message, not
+  separate
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 99 ++++++++++++++++++++++
+ 1 file changed, 99 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 18d4e7852a1a..c5335dd59dfe 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -1302,6 +1302,9 @@ usbdrd31_dwc3: usb@0 {
- 				interrupts = <GIC_SPI 463 IRQ_TYPE_LEVEL_HIGH 0>;
- 				phys = <&usbdrd31_phy 0>, <&usbdrd31_phy 1>;
- 				phy-names = "usb2-phy", "usb3-phy";
-+				snps,has-lpm-erratum;
-+				snps,dis_u2_susphy_quirk;
-+				snps,dis_u3_susphy_quirk;
- 				status = "disabled";
- 			};
- 		};
+diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+index 387fb779bd29..a5cbf1e10c7b 100644
+--- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
++++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+@@ -10,6 +10,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
++#include <dt-bindings/usb/pd.h>
+ #include "gs101-pinctrl.h"
+ #include "gs101.dtsi"
+ 
+@@ -90,6 +91,84 @@ eeprom: eeprom@50 {
+ &hsi2c_12 {
+ 	status = "okay";
+ 	/* TODO: add the devices once drivers exist */
++
++	usb-typec@25 {
++		compatible = "maxim,max77759-tcpci", "maxim,max33359";
++		reg = <0x25>;
++		interrupts-extended = <&gpa8 2 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&typec_int>;
++		pinctrl-names = "default";
++
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB-C";
++			data-role = "dual";
++			power-role = "dual";
++			self-powered;
++			try-power-role = "sink";
++			op-sink-microwatt = <2600000>;
++			new-source-frs-typec-current = <FRS_5V_1P5A>;
++			slow-charger-loop;
++			/*
++			 * max77759 operating in reverse boost mode (0xA) can
++			 * source up to 1.5A while extboost can only do ~1A.
++			 * Since extboost is the primary path, advertise 900mA.
++			 */
++			source-pdos = <PDO_FIXED(5000, 900,
++						 (PDO_FIXED_SUSPEND
++						  | PDO_FIXED_USB_COMM
++						  | PDO_FIXED_DATA_SWAP
++						  | PDO_FIXED_DUAL_ROLE))>;
++			sink-pdos = <PDO_FIXED(5000, 3000,
++					       (PDO_FIXED_DATA_SWAP
++						| PDO_FIXED_USB_COMM
++						| PDO_FIXED_HIGHER_CAP
++						| PDO_FIXED_DUAL_ROLE))
++				     PDO_FIXED(9000, 2200, 0)
++				     PDO_PPS_APDO(5000, 11000, 3000)>;
++			sink-vdos = <VDO_IDH(1, 1, IDH_PTYPE_PERIPH, 0,
++					     IDH_PTYPE_DFP_HOST, 2, 0x18d1)
++				     VDO_CERT(0x0)
++				     VDO_PRODUCT(0x4ee1, 0x0)
++				     VDO_UFP(UFP_VDO_VER1_2,
++					     (DEV_USB2_CAPABLE
++					      | DEV_USB3_CAPABLE),
++					     UFP_RECEPTACLE, 0,
++					     AMA_VCONN_NOT_REQ, 0,
++					     UFP_ALTMODE_NOT_SUPP,
++					     UFP_USB32_GEN1)
++				     /* padding */ 0
++				     VDO_DFP(DFP_VDO_VER1_1,
++					     (HOST_USB2_CAPABLE
++					      | HOST_USB3_CAPABLE),
++					     DFP_RECEPTACLE, 0)>;
++			sink-vdos-v1 = <VDO_IDH(1, 1, IDH_PTYPE_PERIPH, 0,
++						0, 0, 0x18d1)
++					VDO_CERT(0x0)
++					VDO_PRODUCT(0x4ee1, 0x0)>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usbc0_orien_sw: endpoint {
++						remote-endpoint = <&usbdrd31_phy_orien_switch>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usbc0_role_sw: endpoint {
++						remote-endpoint = <&usbdrd31_dwc3_role_switch>;
++					};
++				};
++			};
++		};
++	};
+ };
+ 
+ &pinctrl_far_alive {
+@@ -106,6 +185,13 @@ key_volup: key-volup-pins {
+ 		samsung,pin-pud = <GS101_PIN_PULL_NONE>;
+ 		samsung,pin-drv = <GS101_PIN_DRV_2_5_MA>;
+ 	};
++
++	typec_int: typec-int-pins {
++		samsung,pins = "gpa8-2";
++		samsung,pin-function = <GS101_PIN_FUNC_EINT>;
++		samsung,pin-pud = <GS101_PIN_PULL_UP>;
++		samsung,pin-drv = <GS101_PIN_DRV_2_5_MA>;
++	};
+ };
+ 
+ &pinctrl_gpio_alive {
+@@ -142,9 +228,16 @@ &usbdrd31_dwc3 {
+ 	role-switch-default-mode = "peripheral";
+ 	maximum-speed = "super-speed-plus";
+ 	status = "okay";
++
++	port {
++		usbdrd31_dwc3_role_switch: endpoint {
++			remote-endpoint = <&usbc0_role_sw>;
++		};
++	};
+ };
+ 
+ &usbdrd31_phy {
++	orientation-switch;
+ 	/* TODO: Update these once PMIC is implemented */
+ 	pll-supply = <&reg_placeholder>;
+ 	dvdd-usb20-supply = <&reg_placeholder>;
+@@ -153,6 +246,12 @@ &usbdrd31_phy {
+ 	vdda-usbdp-supply = <&reg_placeholder>;
+ 	vddh-usbdp-supply = <&reg_placeholder>;
+ 	status = "okay";
++
++	port {
++		usbdrd31_phy_orien_switch: endpoint {
++			remote-endpoint = <&usbc0_orien_sw>;
++		};
++	};
+ };
+ 
+ &usi_uart {
 
 -- 
 2.47.0.338.g60cca15819-goog
