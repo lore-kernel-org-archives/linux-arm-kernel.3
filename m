@@ -4,48 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02042E6C5E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 00:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF00E6C5E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 01:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmQ/h9heMz+KncCJaPXxE2NqhV1NegmIfHVLDBVh9Mw=; b=3hM/yPJy5Hl45h9KU7x+V6y1m3
-	q8IAtHS0NqUvzeeKZxPywKNiR0rJ3AwEwdwAJGMS9aGucf//fnEA+m9otVbcI2mg7Sl6/pkRx7avp
-	F595n1vlqlPvbI/7DEZbNtQnkIQK4FGjpE9OCErCFY5VyOT8MQnnM4wnbf1CeDy7eyU0Xj7AVgN3w
-	53uUnNPkZVpO075TYBnB7J8yCzvxnBTPq3P1/kgRFw1jr3xYP1TInpwYEHIjGQ+kEmWXUNlSBWdFj
-	KdLEBis2+C/QpV2bsQdbEJhHAqtx+LVR05FoIuM7R/xXjMffqqitSOBhJOPHYeVcQDo21X2akYVxT
-	hrMEZ78Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
+	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B4Sx+xF70GMxFfVfB9+wAhK7C2qf9G7NzE3Mpx8R8Ig=; b=rgcNBKrdiCi2C/lQknJE8mjP27
+	5W7gf0C8iAqNKTgTpoyJs2UKYQMJhPHjKt7m53EYrD9oypH7tEvduAShFRY0RaEJLSg3ACq2L92FD
+	F/ZEkJZcZ5IxEPwMZusiDhSADeogyogZaSe/dfyBhszC48Vngelt3kkqiI3ocaTYheDkGkAX8Hf2T
+	Bipmbmp1WiyI6n3yUZBzla9utwyL8cDwbuezT2hqxF66F0F0WX1hLvpK012d+w/M4pMNYrktMbMce
+	ndqO7KnyUKn+V1MYFTYTuqunAH32hybPFNZ5K0IhZPODiitLqz9kcOInlQUHnB6PGB4jzRd+k8KxV
+	0nL94YtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIH4P-00000007sEr-3Vgm;
-	Tue, 03 Dec 2024 00:47:17 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1tIHTT-00000007uPI-4BqS;
+	Tue, 03 Dec 2024 01:13:12 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIH3P-00000007sBp-4AkF
+	id 1tIHSS-00000007uKI-3t0E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 00:46:17 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 2396F68BEB; Tue,  3 Dec 2024 01:46:12 +0100 (CET)
-Date: Tue, 3 Dec 2024 01:46:11 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
-	catalin.marinas@arm.com, hch@lst.de, rppt@kernel.org,
-	thuth@redhat.com, will@kernel.org
-Subject: Re: [PATCH] arm64: patching: avoid early page_to_phys()
-Message-ID: <20241203004611.GA8116@lst.de>
-References: <20241202170359.1475019-1-mark.rutland@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202170359.1475019-1-mark.rutland@arm.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+	Tue, 03 Dec 2024 01:12:11 +0000
+Received: from epcas1p4.samsung.com (unknown [182.195.41.48])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20241203011202epoutp04d69a2e9ba3cd3598863218c7febe7545~NhZipXlaB3048630486epoutp04J
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Dec 2024 01:12:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20241203011202epoutp04d69a2e9ba3cd3598863218c7febe7545~NhZipXlaB3048630486epoutp04J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1733188322;
+	bh=B4Sx+xF70GMxFfVfB9+wAhK7C2qf9G7NzE3Mpx8R8Ig=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=Q47MkIi51uODx3/CT6Q5FUz+Go1ClLbVJvRDEBbxZGs6wXQabwVAVl7J9WWVFumuY
+	 qZW2hY8XRyINHB7cVBnguJHqgeqosM00gk6EBuWH7P9T0mUZZ0VGM9ASeF9ajqhQZL
+	 4bnayb3AdxaljCkxVh/NSvVR7q2q6vNIun42TFgQ=
+Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
+	epcas1p3.samsung.com (KnoxPortal) with ESMTP id
+	20241203011201epcas1p30b33f73d2a3087a0b1488e64741ef1fc~NhZiF4eJl1180511805epcas1p37;
+	Tue,  3 Dec 2024 01:12:01 +0000 (GMT)
+Received: from epsmgec1p1-new.samsung.com (unknown [182.195.36.134]) by
+	epsnrtp3.localdomain (Postfix) with ESMTP id 4Y2N0c5g3Pz4x9Q2; Tue,  3 Dec
+	2024 01:12:00 +0000 (GMT)
+X-AuditID: b6c32a4c-ad1fe70000007bf7-93-674e5ae0de6d
+Received: from epcas1p3.samsung.com ( [182.195.41.47]) by
+	epsmgec1p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	4B.AB.31735.0EA5E476; Tue,  3 Dec 2024 10:12:00 +0900 (KST)
+Mime-Version: 1.0
+Subject: RE: [PATCH] devfreq: Switch back to struct
+ platform_driver::remove()
+From: MyungJoo Ham <myungjoo.ham@samsung.com>
+To: =?UTF-8?B?VXdlIEtsZWluZS1Lw7ZuaWc=?= <u.kleine-koenig@baylibre.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>, Kyungmin Park
+	<kyungmin.park@samsung.com>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, ALIM AKHTAR
+	<alim.akhtar@samsung.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-samsung-soc@vger.kernel.org"
+	<linux-samsung-soc@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <20241130135813.895628-2-u.kleine-koenig@baylibre.com>
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20241203011200epcms1p3fbf79a0ca20c982ea472c5f19a2bfbee@epcms1p3>
+Date: Tue, 03 Dec 2024 10:12:00 +0900
+X-CMS-MailID: 20241203011200epcms1p3fbf79a0ca20c982ea472c5f19a2bfbee
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 101P
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrAJsWRmVeSWpSXmKPExsWy7bCmvu6DKL90g+OXdCwezNvGZnFppYTF
+	9S/PWS2ez1/HaHH+/AZ2i7NNb9gtNj2+xmpxufkio8Xn3iOMFjPO72OymLJvF5tFU4uxxfNH
+	nWwW879+YrP4eeg8kwO/x/sbreweO+4uYfTY8Gg1q8fOWXfZPTat6mTz2Lyk3uPF5pmMHn1b
+	VjF6vPo6l9Hj8ya5AK6obJuM1MSU1CKF1Lzk/JTMvHRbJe/geOd4UzMDQ11DSwtzJYW8xNxU
+	WyUXnwBdt8wcoCeUFMoSc0qBQgGJxcVK+nY2RfmlJakKGfnFJbZKqQUpOQWmBXrFibnFpXnp
+	enmpJVaGBgZGpkCFCdkZU/auYi/Yz1tx/VZSA+MJni5GTg4JAROJX13v2boYuTiEBPYwSvy4
+	P5+1i5GDg1dAUOLvDmGQGmEBf4nz7+4zgthCAkoSDTf3MUPE9SU6HmwDi7MJ6Eps3XCXBWSO
+	iMAcRommf9+YQRxmgZmsEmu6fzNDbOOVmNH+lAXClpbYvnwrWDengLPEpDswNaISN1e/ZYex
+	3x+bzwhhi0i03jsLVSMo8eDnbqi4pETfnb1MIMskBLYxSuw4MocNwtnPKDHlYRvUJH2JM3NP
+	soHYvAK+Eh/3bwS7gkVAVaLh/WWoqS4SG1dPA7OZBbQlli18zQwKCmYBTYn1u/QhwnwS7772
+	sMI8s2PeEyYIW03i0O4lUKtkJE5PXwg10kPi2/UlzJDg7WKUuHXlJcsERvlZiBCehWTbLIRt
+	CxiZVzFKpRYU56anJhsWGOrmpZbD4zU5P3cTIzgpa/nsYPy+/q/eIUYmDsZDjBIczEoivMvX
+	e6cL8aYkVlalFuXHF5XmpBYfYjQF+nUis5Rocj4wL+SVxBuaWBqYmBkZm1gYmhkqifOeuVKW
+	KiSQnliSmp2aWpBaBNPHxMEp1cDUpRL54bBF82k73dxg2TnTEr9050dHKEoF87RsP8S9l++u
+	fRWnN+v5cKOWBd5zLq4o+bij7fHz9xfZ53zjP6S1+vNto123rj2wXlP2t3fT5+kOi3q9dU7X
+	X6pZ9lDDvla3+8xVgYjeVPUt02O8Lie+Ydyv99s4IOVma8HD6aaWCjkmd9a0zD/6+f/ZdM2k
+	83Evj/CLseXwitRoWx1Kmui1VShkM2vK/iuV+zjPcSaq9e09rGvVKa3PrnjQU3DigfpnV9lL
+	Jd/aRIhO/zNTKn+mMceMbaf/yz3Uu1tfoqD6OOFp5MXJTkyL306Y7eKWE3ucM+pHxuZmoe3Z
+	17wivh8qNDTTOW4lmLuucd6RMl0lluKMREMt5qLiRACtT/jpUwQAAA==
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20241130135828epcas1p405d9dbb7df745f6aa81ae2033b9a281a
+References: <20241130135813.895628-2-u.kleine-koenig@baylibre.com>
+	<CGME20241130135828epcas1p405d9dbb7df745f6aa81ae2033b9a281a@epcms1p3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_164616_177482_04ACE24B 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20241202_171209_430112_53330C94 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,26 +117,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: myungjoo.ham@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 05:03:59PM +0000, Mark Rutland wrote:
-> +	phys_addr_t phys;
-> +
-> +	if (is_image_text((unsigned long)addr)) {
-> +		phys = __pa_symbol(addr);
-> +	} else {
-> +		struct page *page = vmalloc_to_page(addr);
-> +		BUG_ON(!page);
-> +		phys = page_to_phys(page) + offset_in_page(addr);
-> +	}
-> +
-> +	return (void *)set_fixmap_offset(fixmap, phys);
-
-This looks much better.  Btw, I recently open coded the vmalloc to phys
-logic above in an unrelated fix, and noticed that
-arch/powerpc/mm/pgtable.c has a nice vmalloc_to_phys that could
-be generalized and move to common code.  Does anyone have an opinion
-on that?
-
+>After commit 0edb555a65d1 (=22platform: Make platform_driver::remove()
+>return void=22) .remove() is (again) the right callback to implement for
+>platform drivers.
+>
+>Convert all platform drivers below drivers/devfreq to use .remove(),
+>with the eventual goal to drop struct platform_driver::remove_new(). As
+>.remove() and .remove_new() have the same prototypes, conversion is done
+>by just changing the structure member name in the driver initializer.
+>
+>While touching these drivers, make the alignment of the touched
+>initializers consistent.
+>
+>Signed-off-by: Uwe Kleine-K=C3=B6nig=20<u.kleine-koenig=40baylibre.com>=0D=
+=0A=0D=0AAcked-by:=20MyungJoo=20Ham=20<myungjoo.ham=40samsung.com>=0D=0A=0D=
+=0A=0D=0ACheers,=0D=0AMyungJoo=0D=0A=0D=0A>---=0D=0A>Hello,=0D=0A>=0D=0A>th=
+is=20is=20based=20on=20Friday's=20next,=20feel=20free=20to=20drop=20changes=
+=20that=20result=20in=0D=0A>a=20conflict=20when=20you=20come=20around=20to=
+=20apply=20this.=20I'll=20care=20for=20the=20fallout=0D=0A>at=20a=20later=
+=20time=20then.=20(Having=20said=20that,=20if=20you=20use=20b4=20am=20-3=20=
+and=20git=20am=0D=0A>-3,=20there=20should=20be=20hardly=20any=20conflict.)=
+=0D=0A>=0D=0A>This=20is=20merge=20window=20material.=0D=0A>=0D=0A>Best=20re=
+gards=0D=0A>Uwe=0D=0A>=0D=0A>=20drivers/devfreq/event/exynos-nocp.c=20=7C=
+=206=20+++---=0D=0A>=20drivers/devfreq/event/exynos-ppmu.c=20=7C=206=20+++-=
+--=0D=0A>=20drivers/devfreq/mtk-cci-devfreq.c=20=20=20=7C=204=20++--=0D=0A>=
+=20drivers/devfreq/rk3399_dmc.c=20=20=20=20=20=20=20=20=7C=208=20++++----=
+=0D=0A>=20drivers/devfreq/sun8i-a33-mbus.c=20=20=20=20=7C=202=20+-=0D=0A>=
+=205=20files=20changed,=2013=20insertions(+),=2013=20deletions(-)=0D=0A>=0D=
+=0A
 
