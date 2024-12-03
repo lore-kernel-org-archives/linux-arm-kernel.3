@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7954E74AD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 21:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5CEE74AD9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 21:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HOE+GL2RYQwSxGLRhynIRvYFvV8pa/FyZRyb22lYOio=; b=uoQYHKouE9fnL9cnaCDugJI4o+
-	M5OgOYJMupzSqNrHgLiu9cuwQbvgTDx7DAunsrMjIDfvFO3U68Ue9fw3/8DgFQGNx7ic9alohlpxa
-	isOsTfhIgmPaQsptAsmkjq2nm3mf2Qy7PlsfwAAR5r8IOEyD+N9UrsEy539RJRlt4Ma14+hXGPjjN
-	x0d+FhCZW7rT2RmW4AdGe4SUQoDMCkf8ATvp3dKavojoN927eaq1hBsc2mbL9LbMWQPgwksfM7gHE
-	pUQq7VrWDwwv7GmaewHvIlsh6MaC/rF243rY2/nIvHEts8kVClEvnQViyBqY13Q2f8n2WjYlaKyQE
-	XZZjoGmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xrvwlR04qm2r6yLtEcwqQfocqUOn+5+kugRB+ZXnHmk=; b=fRB5qxbq7HhEWm3DipukW36mcO
+	2WkQdE8wd/dwZFP6VmguSegX4TORq7FTQ9BOp2hGtQVxIzSyGCOruPIhJIIXIVHRAx4VGD3wQXGKe
+	ccj3spNNelAV0f2ngDYyeAbsBWnpqqeMycTIcn6v8RHJ369mF7hBGunTnN1nuL6MmsjQLPV0K/Dlr
+	SHJ2hT/iWKVigO8ATqzUhz1VyZD65akFclirb1Jj3A4ZmZglW38nRIrntgnPSN8xzeVcBsvP9nDzb
+	2rWbzvrX0Qst+MKa1o4DQ4P19+MRtU/MXkDQQC26r4br0jjg0hz2VjGNl2Bw65xLfk/kcoszWgNN5
+	ic0CbyWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIa13-0000000Ak4A-1YMR;
-	Tue, 03 Dec 2024 21:01:05 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tIaGT-0000000Albb-07d4;
+	Tue, 03 Dec 2024 21:17:01 +0000
+Received: from out-03.smtp.spacemail.com ([63.250.43.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIa00-0000000AjwJ-12Gp
+	id 1tIaFS-0000000AlRI-1MR2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 21:00:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=HOE+GL2RYQwSxGLRhynIRvYFvV8pa/FyZRyb22lYOio=; b=dZ
-	wZxKuMdDCaqU7yBCFPkoBbgx2n0hhuLvqxbhD2ofciMC2XyeFKHwXZgeE7los0PWA8cJdm8u6qI84
-	gpb3zsTqBSSv4m6+BdIZ5QXuaIgm7QQCoCuhcd6qgs/tTEsTefhsELchO4HubH5NREOKt2PDUC/IW
-	ZpXngVenO9qsYCU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tIZzw-00F8O6-OJ; Tue, 03 Dec 2024 21:59:56 +0100
-Date: Tue, 3 Dec 2024 21:59:56 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH] gpio: GPIO_MVEBU should not default to y when
- compile-testing
-Message-ID: <44126f2f-92ce-412b-ad9d-e0e0ea28d36d@lunn.ch>
-References: <6b9e55dbf544297d5acf743f6fa473791ab10644.1733242798.git.geert+renesas@glider.be>
- <f552b813-1817-4507-9699-fae87575a762@lunn.ch>
- <CAMRc=Mfh5Rv8OKWOcPVzJp-_e_bXgywT2=+N2cF1ONT3kiw7tQ@mail.gmail.com>
+	Tue, 03 Dec 2024 21:15:59 +0000
+Received: from prod-lbout-phx.jellyfish.systems (unknown [198.177.122.3])
+	by smtp.spacemail.com (Postfix) with ESMTPA id 4Y2tjk64zzzGp9W;
+	Tue, 03 Dec 2024 21:15:54 +0000 (UTC)
+Received: from localhost.localdomain (83.21.102.241.ipv4.supernova.orange.pl [83.21.102.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4Y2tjb4hMTz2x99;
+	Tue,  3 Dec 2024 21:15:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=mentallysanemainliners.org; s=spacemail; t=1733260549;
+	bh=BOopPzcToEprpdw2LIS55Y82go8hBPaS/MvQht0hXKk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QfzRP0W2T4Rp6Z8+zzdY/1ueAkstrlVjNE+c1I0F4pM+4oSTRiFyZOeNymQ/StDtH
+	 wXv+sn60rYhiV4s8QZse92CEVg2zfzfZ1z5cJdkM1w+6smoutjqTm7qx49t3tk928V
+	 yL5rQc7F3KKfHytttjG1cNt3Kg1XO5B1JX7f48oJZBFeJB7CMpv2z0frrvmRXbByv7
+	 GtX6GS4iDNFiOdVYZvF4yZHoh9YgZaBrzYzkgw6H9PmxdyCN/IS8PiHVIeh7r5JtjG
+	 vTt2TrsmmdeGk5jtvpXeUAUj15WFOLvlttaC8mM/xAV0rDD7kwi+Z4pjpxfjG8rpSc
+	 o1YcGNxTVwUQw==
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 2/2] arm64: dts: exynos990: Add pmu and syscon-reboot nodes
+Date: Tue,  3 Dec 2024 22:13:44 +0100
+Message-ID: <20241203211344.515431-3-igor.belwon@mentallysanemainliners.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241203211344.515431-1-igor.belwon@mentallysanemainliners.org>
+References: <20241203211344.515431-1-igor.belwon@mentallysanemainliners.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Mfh5Rv8OKWOcPVzJp-_e_bXgywT2=+N2cF1ONT3kiw7tQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_130000_288447_9C484054 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20241203_131558_422598_9B3EC3BE 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +80,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 09:29:02PM +0100, Bartosz Golaszewski wrote:
-> On Tue, Dec 3, 2024 at 9:13 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > On Tue, Dec 03, 2024 at 05:23:16PM +0100, Geert Uytterhoeven wrote:
-> > > Merely enabling compile-testing should not enable additional
-> > > functionality.
-> >
-> > Sorry for being dumb, but i don't actually see what is wrong here.
-> >
-> > There are 4 GPIO drivers which have
-> >
-> >         def_bool y
-> >
-> > COMPILE_TEST is about building as much as possible, in order to find
-> > build bugs. So i don't get what you mean by additional
-> > functionality. No additional functionality within the MVEBU driver
-> > gets enabled by COMPILE_TEST.
-> >
-> >         Andrew
-> 
-> No, Geert is right. I have been yelled at by Linus Torvalds already
-> for too eagerly enabling too many options. COMPILE_TEST is really
-> about making it possible to build more things with make allmodconfig,
-> not necessarily defaulting to y for everything.
+Add PMU syscon, and syscon-reboot nodes to the Exynos990 dtsi.
 
-So are you saying COMPILE_TEST should allow something to be enabled,
-but should not actually enable it?
+Reboot of the Exynos990 SoC is handled by setting bit(SWRESET_TRIGGER[1])
+of SWRESET register (PMU + 0x3a00).
 
-	Andrew
+Tested using the "reboot" command.
+
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ arch/arm64/boot/dts/exynos/exynos990.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+index c1986f00e443..2619f821bc7c 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+@@ -227,6 +227,20 @@ wakeup-interrupt-controller {
+ 			};
+ 		};
+ 
++		pmu_system_controller: system-controller@15860000 {
++			compatible = "samsung,exynos990-pmu",
++				     "samsung,exynos7-pmu", "syscon";
++			reg = <0x15860000 0x10000>;
++
++			reboot: syscon-reboot {
++				compatible = "syscon-reboot";
++				regmap = <&pmu_system_controller>;
++				offset = <0x3a00>; /* SWRESET */
++				mask = <0x2>; /* SWRESET_TRIGGER */
++				value = <0x2>;
++			};
++		};
++
+ 		pinctrl_cmgp: pinctrl@15c30000 {
+ 			compatible = "samsung,exynos990-pinctrl";
+ 			reg = <0x15c30000 0x1000>;
+-- 
+2.45.2
+
 
