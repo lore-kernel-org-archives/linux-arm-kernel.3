@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73140E64AB7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 14:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5288CE64AB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 14:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NxRWvpRh/XATlPemsVPOp1C/WgHKNO3eQaKjWVu9JCw=; b=mr48NF3add0gZVzz2utlFPZwf7
-	4tqe3c3W5RKjUCwd4KReCbBqu3YpcgDsys3trc9TAcOHm7GCJsO51qre7VGGPB2A1bzTFpoVVRLwh
-	OWwpa/ZOYX3gftZV9s8c92B1zC2x6b0XD49jCBds/RZ9DtrURBmjWabNbPtMOgRpMawllQBzUFvjx
-	BwRYq7rk3XjldM0d4itzCb7KGfXad9k75FELn1nMBeJqXisAg1QziSYzYScBhHqIW4pzkq5uGaw1s
-	8gBuZ8A+uMNJA+jRq9YUjFzVJ38ETWyU7YzT+z9402YHOGl7zvlskAENEi9NHV2CbuGFv5pZJL0OC
-	657So0RA==;
+	bh=o8U6IT/JuO4gtWqGNmB8j7fyacrJGeMkE1vPT6JfBfA=; b=U6ushgsj4LFGF19VjsLNtoJo6J
+	FvJhHCXXImRCCQy332nwEWImZwz3+cQ3aFz2ofM7ZFLE3fQhNT3V7M8mKFyz4IB6wb8ZLHaSNl9d7
+	47VqYOgdew/dL8PzesQy9quGg6anAyEBQ9+BIfMk2DNaocNSHzVvezFI2ngvaqT9QiWtg+I+VmQQD
+	TclwnZA48CPdNoRzmeeoJA5MzXFWVmCP55DUL6obZWSiuZWGHur3oRAkSyjZYakHWFG6ZMQnLdIK7
+	vEB3XHPMfP+9WCCtPt9pHHf8HW5AcJ2DEJztuX+PrOpUNogcbHjSWYoDWDjMGpE5LYiCoGqZ2hJCO
+	+Gfvl3CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUIx-00000009qOl-1kkA;
-	Tue, 03 Dec 2024 14:55:12 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tIUL6-00000009qii-3ss8;
+	Tue, 03 Dec 2024 14:57:24 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUHw-00000009qAd-2vNt
+	id 1tIUK6-00000009qYd-2xuO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 14:54:10 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-215a0390925so22487145ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 06:54:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733237647; x=1733842447; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=NxRWvpRh/XATlPemsVPOp1C/WgHKNO3eQaKjWVu9JCw=;
-        b=vNlA/bWG9gBshF33nwBQj1VTzI4sAQj3lvT4v1WtwI0UXOeT61GyMXxDdAH1mn2iVj
-         rcpZROWVqIV43/kibLOrtbAjn8K7RczBTAssOWfvS0Kgu/m+fERXy9SgNR044bA3KRJe
-         jFkvxvE6ncPCInRB0H/N90Y+dgdqjxjbgJLzrNtkfcAHo/MZ5MmwAFZGAdO31D8Zhhv1
-         RyAPYeuR2iFQ77reou/cHscVyBMTGvfTJ8/rpT4XTmSU/Sanj8HUAII/zum9py97fR6K
-         BtA6+OGwgoCvy4yRn26Nbu0qIiYrY+beEbVKbsvjW57pvbDeMKHjms4yTveEOimt4e7B
-         LsaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733237647; x=1733842447;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NxRWvpRh/XATlPemsVPOp1C/WgHKNO3eQaKjWVu9JCw=;
-        b=Yj6/UmV0W7S7OFi5veC3JV/eEVpCnxP5UQubV9ZiXovoHUjbfLh8AxohbH8VBX7Sjr
-         PmUU1yPAUXYOHBcnIcYdo3n6YS54Afz6hCI0t+79V60CrBhvZHw7dxGWvP/IIh77QvnW
-         jvLaXBy945I36BAapgeYvhx4IKAalXIjsFg4YGzml/XQLUlgocXUU1dlEyCQ6ulmHvVq
-         CSAkBvSe2+eyqX3UWFBd/hZMPeHz3DWsprHiEgvRtHHQFTzibwYBFUBilQzcNF2hPf+L
-         PZwXJN4MaqgGWG86964msZN7XZ1lbJu2eCIQFjRzzbkVQywPNZlzDwgojgnbcJW7NA2/
-         GAqg==
-X-Forwarded-Encrypted: i=1; AJvYcCX3DpQTzS64/XHgKTPv4QmSHLirTZ/wzWsFkAgperGLSHJ0mw5f37W3PzqlCbO6q2p/3YRS1nkLAloI4Pu0xWkC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0Hf/PE4u8fzhFgfwCnc3CYMjkANFRWktQ0ardt2jG1/oZHFl5
-	XUlVSGpXgQd8SKuKtqXF0w+dmnl2tD/Daji3tPN4luzwkMZzysMQZWpOjORfQA==
-X-Gm-Gg: ASbGncvf/MKCVBcAwvFpcagbT99CcVUX0PEvx/TpmrdiftY+JP25t0SDnl43ZtCf5lk
-	KKOCnbl4533c/naFpxHvwPW2zmOx8XfVEG0dlQX8RbPDuWZB3G3aCWZvNx7GLdWvSkm3B1pfGh5
-	0ANksL88RdpPyw5r/0PAvwKs8K2u/TxBInKF2jm/VoMzSvFBx+90t1JI27xGu447OqAa+hIWK7V
-	3F2Gat9GJbXvePhrXc/mVc/GXJvc7CirhlKBlqh+0HOvawz4E4eKZ9/ma2S
-X-Google-Smtp-Source: AGHT+IG1jXS9xGAq/FRf8FrbfE+7Y1wmH9mz8EtqoFxLQOYNOcGvJFOa6X0SdbkbLcjrMI9kzEqtkw==
-X-Received: by 2002:a17:902:f543:b0:20c:a44b:3221 with SMTP id d9443c01a7336-215bd1cb76emr33584985ad.15.1733237647391;
-        Tue, 03 Dec 2024 06:54:07 -0800 (PST)
-Received: from thinkpad ([120.60.48.217])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21565f24c59sm56675255ad.125.2024.12.03.06.54.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 06:54:06 -0800 (PST)
-Date: Tue, 3 Dec 2024 20:24:01 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, cassel@kernel.org,
-	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] dt-bindings: PCI: Add STM32MP25 PCIe endpoint
- bindings
-Message-ID: <20241203145401.7snlxk3sybufaqp2@thinkpad>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-4-christian.bruel@foss.st.com>
+	Tue, 03 Dec 2024 14:56:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733237783; x=1764773783;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=nr9bqAPsYmVIpKYgeN/1T2895DfBpqXXw8ki35XQrNY=;
+  b=KprpihPD/jcSOCFwLVv4rLo4MbsWaVqPSJmHUBqQGZ2JUOGzZ6rJd3SX
+   aW/MnwDl2heIhez9qA4sG0Cn6CCwzy8n5sVCutrEUHFn60xGV1rD82Kjf
+   /BAQWLmpJeAX/bwQLuy99LmgNkwK3dzfkmqRGZs7waT3jaNCogNLy/6l2
+   jQhL5CubDwYWyZ9ZD5aNzJhrxnm34ZgN1i7o/R0MwcTBtwjN7QThL0UOt
+   kahD/XuOA+jOh5MlBU+zFDWytUherSWgMmAoSEbwzI/f0Zv5EWo37+iI4
+   Ivil/nRErtW262opzxQ/2bpcEuQcJm9CWMEb+x41ckXi54Zqk0l//W+BR
+   A==;
+X-CSE-ConnectionGUID: FVcwl0tRSA6+oexvoeMkPg==
+X-CSE-MsgGUID: NPjRJye2Qa+VEOY9LOta0A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11275"; a="37391899"
+X-IronPort-AV: E=Sophos;i="6.12,205,1728975600"; 
+   d="scan'208";a="37391899"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2024 06:56:20 -0800
+X-CSE-ConnectionGUID: Tre4A+gIQ0+OsOTsF+JqxA==
+X-CSE-MsgGUID: /jaX+ZgoRZKGdDviMXmvsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,205,1728975600"; 
+   d="scan'208";a="93921130"
+Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.135])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2024 06:56:07 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>,
+ Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
+ Alex Deucher <alexander.deucher@amd.com>, Christian =?utf-8?Q?K=C3=B6nig?=
+ <christian.koenig@amd.com>, Xinhui Pan <Xinhui.Pan@amd.com>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Phong LE <ple@baylibre.com>,
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rodrigo Vivi
+ <rodrigo.vivi@intel.com>, Joonas Lahtinen
+ <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
+ Rob Clark <robdclark@gmail.com>, Abhinav Kumar
+ <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, Marijn Suijten
+ <marijn.suijten@somainline.org>, Alain Volmat <alain.volmat@foss.st.com>,
+ Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson
+ <dave.stevenson@raspberrypi.com>, =?utf-8?Q?Ma=C3=ADra?= Canal
+ <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org
+Subject: Re: [PATCH 06/10] drm/i915/audio: use eld_mutex to protect access
+ to connector->eld
+In-Reply-To: <20241201-drm-connector-eld-mutex-v1-6-ba56a6545c03@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
+ <20241201-drm-connector-eld-mutex-v1-6-ba56a6545c03@linaro.org>
+Date: Tue, 03 Dec 2024 16:56:04 +0200
+Message-ID: <874j3k4xyz.fsf@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241126155119.1574564-4-christian.bruel@foss.st.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_065408_737604_45C466BB 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20241203_065622_756908_994F56E4 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,92 +110,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 04:51:17PM +0100, Christian Bruel wrote:
-> STM32MP25 PCIe Controller is based on the DesignWare core configured as
-> end point mode from the SYSCFG register.
-> 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+On Sun, 01 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
+> Reading access to connector->eld can happen at the same time the
+> drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
+> order to protect connector->eld from concurrent access.
+>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Reviewed-by: Jani Nikula <jani.nikula@intel.com>
 
-- Mani
+and
+
+Acked-by: Jani Nikula <jani.nikula@intel.com>
+
+for merging via whichever tree you find best.
+
+
 
 > ---
->  .../bindings/pci/st,stm32-pcie-ep.yaml        | 61 +++++++++++++++++++
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
-> new file mode 100644
-> index 000000000000..0da3ee012ba8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-ep.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe endpoint driver
-> +
-> +maintainers:
-> +  - Christian Bruel <christian.bruel@foss.st.com>
-> +
-> +description:
-> +  PCIe endpoint controller based on the Synopsys DesignWare PCIe core.
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/snps,dw-pcie-ep.yaml#
-> +  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: st,stm32mp25-pcie-ep
-> +
-> +  reg:
-> +    items:
-> +      - description: Data Bus Interface (DBI) registers.
-> +      - description: PCIe configuration registers.
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: addr_space
-> +
-> +required:
-> +  - reset-gpios
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-> +
-> +    pcie-ep@48400000 {
-> +        compatible = "st,stm32mp25-pcie-ep";
-> +        num-lanes = <1>;
-> +        reg = <0x48400000 0x400000>,
-> +              <0x10000000 0x8000000>;
-> +        reg-names = "dbi", "addr_space";
-> +        clocks = <&rcc CK_BUS_PCIE>;
-> +        phys = <&combophy PHY_TYPE_PCIE>;
-> +        phy-names = "pcie-phy";
-> +        resets = <&rcc PCIE_R>;
-> +        pinctrl-names = "default", "init";
-> +        pinctrl-0 = <&pcie_pins_a>;
-> +        pinctrl-1 = <&pcie_init_pins_a>;
-> +        reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
-> +        access-controllers = <&rifsc 68>;
-> +        power-domains = <&CLUSTER_PD>;
-> +    };
-> -- 
-> 2.34.1
-> 
+>  drivers/gpu/drm/i915/display/intel_audio.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/i915/display/intel_audio.c b/drivers/gpu/drm/i915/display/intel_audio.c
+> index 32aa9ec1a204d2ecde46cad36598aa768a3af671..3902ab8431139c3ff4dc17b841d94b6d3241dec3 100644
+> --- a/drivers/gpu/drm/i915/display/intel_audio.c
+> +++ b/drivers/gpu/drm/i915/display/intel_audio.c
+> @@ -699,10 +699,12 @@ bool intel_audio_compute_config(struct intel_encoder *encoder,
+>  	const struct drm_display_mode *adjusted_mode =
+>  		&crtc_state->hw.adjusted_mode;
+>  
+> +	mutex_lock(&connector->eld_mutex);
+>  	if (!connector->eld[0]) {
+>  		drm_dbg_kms(&i915->drm,
+>  			    "Bogus ELD on [CONNECTOR:%d:%s]\n",
+>  			    connector->base.id, connector->name);
+> +		mutex_unlock(&connector->eld_mutex);
+>  		return false;
+>  	}
+>  
+> @@ -710,6 +712,7 @@ bool intel_audio_compute_config(struct intel_encoder *encoder,
+>  	memcpy(crtc_state->eld, connector->eld, sizeof(crtc_state->eld));
+>  
+>  	crtc_state->eld[6] = drm_av_sync_delay(connector, adjusted_mode) / 2;
+> +	mutex_unlock(&connector->eld_mutex);
+>  
+>  	return true;
+>  }
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Jani Nikula, Intel
 
