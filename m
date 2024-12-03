@@ -4,102 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0ACE6689A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B592E6689A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=24kNbAf2DV9qqwNGoDvbA1XyQw+YLYxtcrmKEHcOfOI=; b=141eYA2VdTww+EiPIwziUoGL3N
-	QJzAzHhGgtCZpyyCgfw/d7ko9hW+pS0MXf0F2M3rojYL1+cRXduf3lRkpv2dk3X2slyvbth8M8b8V
-	Wf9Nqi7awYWmwddmtTvClKHsP7RpQKQ+rHWPbQciwSh2rt0/dny3GCtsxcDUYMB5i9gz359A2Pwsr
-	MnVvgXHH0g68Q3NSPDM2CKlvDl+zvfHpXZD/n/FF2ZnxGXZaZZhBSr4y84l8MyNBVTAanyXZr32dK
-	dg2RvhZTlim1xF9d1f2v4DFURNUpvnpN6DPNIj4TrBl5ihZE8w3Om2sSQ5A6Wy7RrnCfac5cB/vXL
-	DdzBOIvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jItZPVFxCk2giPMXionZZIUvsaqSVulFYvSoEHHQ0nw=; b=RGV/ywTsZ1PprovI3PoUmefH15
+	CuodD/sddvtZUaaQffHPeLi/5VvbakTeo/sCymVfyR7HEWs7H7wKNmHwEAMFhE3ER4vGNA0aUaki1
+	SUltzKrpy0yDN1XTfgOfHd97DhqZEC/Vo0ru8xsN9Om/v9bBibTrrpwKV73cZEk0jMbMJIAh9CS1i
+	tqQeaIu9xgfKOjFS9LiLvz/H8zAnir4hswfdt+792+Zmy7hd+qHwzs3guk8gbbkOvSGBqYoLz3kic
+	yb1hxEo/wQctxtuEVheGm+1u8cCitGoFkOkB+CkkwaVTXwybLLLPJLI1NivOaCuGPNeQTooMqXWy4
+	prSO99rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPqt-00000009253-160m;
-	Tue, 03 Dec 2024 10:09:55 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1tIPtw-000000092Oc-31xf;
+	Tue, 03 Dec 2024 10:13:04 +0000
+Received: from mail-am0eur02on2072b.outbound.protection.outlook.com ([2a01:111:f403:2606::72b] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPps-000000091v3-0FFh
+	id 1tIPsw-000000092KY-3giM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:08:53 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id D16EF1140109;
-	Tue,  3 Dec 2024 05:08:48 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Tue, 03 Dec 2024 05:08:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1733220528;
-	 x=1733306928; bh=24kNbAf2DV9qqwNGoDvbA1XyQw+YLYxtcrmKEHcOfOI=; b=
-	YoXQmWqadtJcnc70qtzKm40uS4bC/GMOkqoHIfm62TBcFDALwVW8juW5MgGEB1YQ
-	tgJHw9+OGZBNVVwQ0UbVK5Dza4i9Q0IGfWBsdOsbNo2r/fQVHqs9hhJEgSnAB8GT
-	efzOJT8a/fIxjn+1oiMumVD+i7gWD5u+++E/PF0NMIE6hKCW2z1yx9yn+OrVNmEN
-	AqTniePcXQXEvOHHNBjClcAJrrFWYf/apBuPg9p8/b798LxTqkhH9wh0Z4P6tZL/
-	5rSL08XNA4iPjHpzFc62bHAjvCmIkxfvLuRqMHxlmOOTRCwaokvNqFcw4mA5hfii
-	Rdip1ucVZoRT3F5JnvvRMw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733220528; x=
-	1733306928; bh=24kNbAf2DV9qqwNGoDvbA1XyQw+YLYxtcrmKEHcOfOI=; b=f
-	5q+31OlGFiGOXMEBuOCfkEe044TMNI5QHd4qIWUcwJo3oDqZBBOB0gTayYaj6ALl
-	Ju6UcKPwyHo2rFlvzgdCyBDtZUgQy+VgnPou6kF5XtgpaSpzHvBNflWN9TqdMbYb
-	+h+9BsD/bRvgN+NS7pTLw97dJuzKnoJg7ogWozO7DJScl3bXWHphYO0B9J0xD/4i
-	DiSAunJy4+iTeS6twSTuV8s1+0E7RkCKHZ8itmlVjCNQnRXv4GJe/9p1bT1y6jTh
-	WZx3uwxjWtgLPUcKObKlPT/bJWI7Vs2g7oYKgZ4V3Uj403Xqj2GPaTYHXj259Blw
-	jJ/+9WdiWhUgkFg++Dkcw==
-X-ME-Sender: <xms:sNhOZ6zHTtp7SjSpgoPJ5j15kSjKQeWRWKROl970_d0fW5Vdp5xG7w>
-    <xme:sNhOZ2SodT2n-rhOWy3WSuHDMQvr_qeMw_erFL-xujF4EX1M0CXqevdh3B7UPqmXq
-    6RhX4sWnshRQ4yaWto>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddriedvgdduvdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
-    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeipdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidroh
-    hrghdruhhkpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordho
-    rhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinh
-    hfrhgruggvrggurdhorhhgpdhrtghpthhtohepjhhulhhirghnsehouhhtvghrqdhlihhm
-    ihhtshdrohhrghdprhgtphhtthhopehjvhgvthhtvghrsehouhhtvghrqdhlihhmihhtsh
-    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgv
-    lhdrohhrgh
-X-ME-Proxy: <xmx:sNhOZ8Xi8sv7AGW58kvqGWMlzGRGRBpRhD1QO5GOcB6Mki2N7Fys9w>
-    <xmx:sNhOZwj4pjYFhUOct2ToTKJUmpYXGfJpPdM0ifmWN4RzbCTLyoxOug>
-    <xmx:sNhOZ8CPkht2LHwOKdjB0PxRGzZMRh19aZ6PKviYTurgsye_mdWlDg>
-    <xmx:sNhOZxJRdPCYRfJbw_7sMVwi9279H1UTdnUK44wZOzyS3kkvFEBHVA>
-    <xmx:sNhOZ75q0xqZBGoOEAh_V4Sfd733ngs-lKLzef4mJMZlfInk_-gpDkoh>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4DDE42220071; Tue,  3 Dec 2024 05:08:48 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 03 Dec 2024 10:12:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WJwXCd7WJKteERkfpuaa1wVi2DmD2xC7fgztIa/+4Gf5O/AaWSMVWtyrDaMhrJVpq5Lv0vKa2qsN6JYQEs58iCrEUJWyY+rgeCf8wmMhD8T2OuJEZGxoztpY5980RK7dBslidJAUZ5x0zlkwbNhI+sGKe9uCUEQksjurwH0Qidz9ncZ0cvbgDvv8ELruNI4Vf8nrJpz0d8cBr3HuVb6bIbMjsKF/LRYD/04etVEHIAs/xS0QsIYBVY4OOv8hmHZdkj9rHaaWlCjKo2ozPpJzR+pbDeKEqWrct2+yAmLTZDCNMSzJaaFLNb0WGP1t+jG2WjqwLkC27UdHzReC03nrOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jItZPVFxCk2giPMXionZZIUvsaqSVulFYvSoEHHQ0nw=;
+ b=P+F5g0Ef3w+QqLI4gtfIPEskiVxZ6jzc68BhhfDzfQbASp1zJ9mU8c5j7WFXseOfIWYBNlglhcz8xj3lbNdd/2PgZK7s2br5/mJMGtwrhHujHLCriPHiV8w6eqMD+JNL6AgxOnuZOnOfisos0ojX3GwuRGEJYzPCDnE0g55A4NkSJ/XKC6WdQPdH4ojg7GW6az6r8Yu23J2GQ+jd7Vy7XQx4bLpM5qBXFCRJvHAkv9dhVLhvFg0Jzng0zvHz3oHaPiaFRC2D4YSkFdzSWsxqzYx/Ri+IF6jZXZ6iqsHsSfnPvGBqXV6aQSHG8dykHk4jRqZJHs3oHPQ3N8dvNVM/Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
+ dkim=pass header.d=uclouvain.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jItZPVFxCk2giPMXionZZIUvsaqSVulFYvSoEHHQ0nw=;
+ b=U/KazvYAHo7r7vo01QJ/yB6pEkRO7hZob8KIfFhh993ndEERd1wGewP0ue0BKB4snw/WGYWRyBDzxg91ClKjS/bBC2p41arbqhQ4fs/kw7LLjgLvvMw2OKMtoEqbJe2FXHakz3jASXSEXIwbjF6GFIB8T/R4G8TzJr3Ta2IjFTOjyGq60VoZ2al7zGRlgfou/LJ3Ay0uJaR59FSMVdXtjO+RDWFAINfDpymSDlulbW28OgISrNcnS5Xcp4NCkP3UxU697L7BwkBVyrh7eqKnHl5zWM/upOIHx2CEOap1Jc1usJetmxZNeSE/ZyAaNY/N2Z5RuhfarimeQzDceHC9Ng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=uclouvain.be;
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
+ by AS2PR03MB9561.eurprd03.prod.outlook.com (2603:10a6:20b:59a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Tue, 3 Dec
+ 2024 10:11:58 +0000
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c%6]) with mapi id 15.20.8207.017; Tue, 3 Dec 2024
+ 10:11:58 +0000
+Message-ID: <bce22ca8-aed2-41ae-b2ef-fdc71266709a@uclouvain.be>
+Date: Tue, 3 Dec 2024 11:11:15 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] power: supply: add support for max77759 fuel gauge
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
+ <20241202-b4-gs101_max77759_fg-v1-1-98d2fa7bfe30@uclouvain.be>
+ <c377f3302c6c282ad826211c859e2b65bb1222cb.camel@linaro.org>
+ <9387c0cf-d291-485a-8cd1-1aced7eba14e@uclouvain.be>
+ <2883fb0dd22312d5da9039d4fef869276a0bd430.camel@linaro.org>
+Content-Language: en-US
+From: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <2883fb0dd22312d5da9039d4fef869276a0bd430.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MI0P293CA0015.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:44::8) To AS8PR03MB9047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5b6::13)
 MIME-Version: 1.0
-Date: Tue, 03 Dec 2024 11:08:17 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Julian Vetter" <jvetter@outer-limits.org>,
- "Russell King" <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Julian Vetter" <julian@outer-limits.org>,
- "Linus Walleij" <linus.walleij@linaro.org>
-Message-Id: <609b026d-d54c-4a11-b7df-6ef0ac315f25@app.fastmail.com>
-In-Reply-To: <20241203083838.3260036-1-jvetter@outer-limits.org>
-References: <20241203083838.3260036-1-jvetter@outer-limits.org>
-Subject: Re: [PATCH] arm: Remove IO memcpy for Big-Endian
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|AS2PR03MB9561:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0e2c8a0-64b2-4a60-4fd3-08dd1382ec1e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T3pUZzJTSmJxN2lUSENCSUlTQlJRYXFhdVRUc1RkZHkyWjVvNW5FRG1wRHF4?=
+ =?utf-8?B?SDFLQmhqWnFGUkMrZ1kvbGt4LzUvUm1maXpZVEhZQzBGSWc4aVp6UXRHMnB3?=
+ =?utf-8?B?SHJNRmFlUzd2dnBGYlRlMXdqZkJvdXBOTW5UcXdhUndka0VvMGZRMnVUaDg0?=
+ =?utf-8?B?M3l0VXBSanhGK3hMRDNMNXFWYzdGdHFaY0xwUWthZTBlTVVpYXVFVTVydkR1?=
+ =?utf-8?B?VnpvM0dUbXlSSy9Da3ZMWDJ2Z0oySFVIU1BXdzNVNnJzcWNTKzNCdUUybTgr?=
+ =?utf-8?B?dXZ0d2tjeEVtcmZEcVRLZTNTbUFYYlR0V21SSFh4ejVnMEtuYjJEYXRCVjlp?=
+ =?utf-8?B?YncvaHJrNjdHKy9sVVJPNFRHbFJUZjM4Wk8wbGFxSE94ZnQzZ2ZuMDJ5eEtn?=
+ =?utf-8?B?MndjSjlzUFRYaEpJd3NGNVVXRUNJMlZsUmZ3SC9GRXNBUlN6T2had1VKN1Z6?=
+ =?utf-8?B?djhRK3F4TlkvOUVUTmx4YmdUWXBHcTlNVTAyZnRUUklFYVZTU2tSN2ZIZ1kr?=
+ =?utf-8?B?UXBtMWJuZWRkRXFUTDRReEF5WFV2THlqZERWTFUwdzRoRENGMk1QQjVIM1Zx?=
+ =?utf-8?B?WlZaYU92c3lRSU5kNzVieGJBWGwyZTZhRVBLVW96a3NZanFScUh4UGFLeGov?=
+ =?utf-8?B?aE9FWmFWQ1pzcm1GTC9sb2RDWnJldWRiMFNlelhHYkFIdkZ1YjJWc1B1OVJD?=
+ =?utf-8?B?S2JxcTUvYkFUelJtNTZWcFFtM0plWHBoUVF4cUdPWTIyNVdnYjErNzRoVnEw?=
+ =?utf-8?B?ekJTMHlRR2tVYlNUSzlkbisvOHMwbVMvWTJCT2NYcFJBTklQeGJJQVBPT0Y5?=
+ =?utf-8?B?dnJqeWk2YkNWZ3l3QStrOUpoSkdEczY0K0VkS3pHNXVvVFhDNVRJUVpHNm5Z?=
+ =?utf-8?B?ZHRuMmIzYnlHUDVxQXdmNmJGTmgwaGw5YjlIR2I1OWpIRDErQ0UzcUZkTHhy?=
+ =?utf-8?B?T3dZYjVLRGV0RW52TDlJUGJoUElSSE9CZCtJM2pDYnVtZWpPK1A5R0xpS2sx?=
+ =?utf-8?B?OGNCYitZMnNEb1FjYlVyTm5zUHo0L3RMRHRBL0I3VkR4b3BhTXM3WWI3cWZ4?=
+ =?utf-8?B?NUJyamU0OGxqZzg5dTFPYW9uZEpsQ3phUTlPcG1GVDJVaGlHYmFNNWNxR3No?=
+ =?utf-8?B?czVWMXQvTzAwYmxoNUx4clhpZ2xmeUpHT0pTNVZKbEtnUEpEekhmZ3gzZ2U3?=
+ =?utf-8?B?OUVCenlLSE84K3hGT3ZOWDNuaFlVeEVGbVNvUkNPbnBFMFVIcGV2VGJSME5X?=
+ =?utf-8?B?ZEVaOHh3YUJIVEJCb0JCSkdVY1FKZUZENzlUN05EUHZqV1p5YnJVMkgrdi9F?=
+ =?utf-8?B?M0RxRG9pdncwWFhhckRYbzBKSHhrU2dkejlkazZEeTZUdi9VUjR3SG83Kzl5?=
+ =?utf-8?B?RFZJWDdXRy9UWnNjelN0MnY1M0hscjVybGtDUnJwNE9XejN0VGkyQTNnQTNn?=
+ =?utf-8?B?Wm5MemRuUXRmLzV5M2FMNkoxdnVZeW05SHNZM05TTTNhZDlUSHJCeDRhblpQ?=
+ =?utf-8?B?TjVMRGxKbGJxSXpiZkVldEs3K1NtU1FtZ3BoMzk3TlJ4ZUxQWHNPMU9rbTRY?=
+ =?utf-8?B?dXZaZk0rb1BvZkt4em9ZaFQ4bGhKTTVWdUFhb04vSElkdDVUdEVkTVEwanpq?=
+ =?utf-8?B?MmhPanRsZ1ZKVktVcXhHVHZndWZ4K0kvb2k3U2tha1NMK3gxSno1RnFoLzJG?=
+ =?utf-8?B?WjNuM0FPVTdvaWZLL0lOR3pOUVVyS093VFBWci9XVkNCVlR3OG5LUy9yZlpM?=
+ =?utf-8?B?TENEMHdmQldMZDA5eGdRbWM4azJ5OXJLb2w0Y3llNWZaMnZPLzRRenoyNTBP?=
+ =?utf-8?B?ZCtzQy81RTR0aFZRUFZldz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(7416014)(376014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3p1RjBaQkVqOFZtTFZ2dXkxU0l2TTl6NWRPUW15UkRtUk5JZ3VTZTZrUUdq?=
+ =?utf-8?B?UWlnamlid200TFpwblJ5M25tQmUxZE9yMmZsZjkyOG12Tkt2Mm80My9JZ3Y5?=
+ =?utf-8?B?WUVRQjZ6OXpienJJTjFKYXNrbWYzWTVnNXVHVXM3NFdVVksxckkydXFScFZx?=
+ =?utf-8?B?NDVSTHc1YmNWR3NvVDhDNFJXYklURmNyRkgwbjU2dE1zcXd6MHJCaThkVEJ6?=
+ =?utf-8?B?Vm9US1p3QzRnbGtldmN4eVY2SkIzUW1sWFgwZGdQQklrWmlIVmZXaUVGMkRX?=
+ =?utf-8?B?dnl2d25PRWpvbDlRZW9yYkNxb0J4R2lJTlBTbWlJd1BDUndQd1AvS0MxYXlm?=
+ =?utf-8?B?b1JoWkV6dVprQXFxT3dYN1djUFJYazJsME1pS0VnTlNMNUYxdGprV2prbFdF?=
+ =?utf-8?B?SDI1UmdUWEFjL1RIaGRPV0g2OGhJbktkcXhTQUNPK01KVXBGTHJwMFJjN0J2?=
+ =?utf-8?B?cjY3TnFTZnZqT0dKbUVuL2YwRCtoYTd0OHhKSlZyZXc0Z05TZnBhRUZBU2Fv?=
+ =?utf-8?B?OHFVckU4VWQ1d01EL0ErbjhFRUhreDkxUTd2WE53bnU5T3kwalVtSXJkK0g4?=
+ =?utf-8?B?NkFtRHllRlhBYndJRkw3bkRSUE5uOVBHazgzT0VPQStJQTlONFlUcThYOFlX?=
+ =?utf-8?B?b3Z5cm4yZXhvNWFPU2RXMXNFWEYwYlNsWHd0NUQ3cHVsMUhjTU9MMUtrbytC?=
+ =?utf-8?B?VlFzcVpPbzZmcTM5R2VHRlYzY2NYZ1g3cC80azBKalVjZi94WWZkVmJYQ2la?=
+ =?utf-8?B?M3VwTDNoeFVTdlJBT2lxQmhrQktaZXpzQVkrZWFnQ2RubDlxL2x2V1FHRnE1?=
+ =?utf-8?B?V1JjeHJQTTBsZkhWa1NXTno4Mit3a05yMndDdkRQaXBpaWt2YjV1VzdXVTZK?=
+ =?utf-8?B?R2xYU200ejFqbE13bUZLOG5yZU5OQU9ReHc2ZmFXcnMyL2tTcTBWQkZvMWdS?=
+ =?utf-8?B?VjFkNVN2Z1dKMGk2ZUZXR0VGYlBiWHJ0RlAzMXRvSStkMXY0YkUwdHhBdG4y?=
+ =?utf-8?B?dWx2MVQ1Rmh0UzBqWXFzTnZCYTB2eENhUDEwL1pTV2d2aFN1dVgvS2JpSUpD?=
+ =?utf-8?B?VVI0RFlEcEExVGpUVU5PTUVvZ25BQXBxY29DYndRRDJDNVVGampBUmU0NnEr?=
+ =?utf-8?B?K0hrTHJaM0NydDBUbEdwc1Y1dHd6UVpXSHFrMTdETHZmVndOSWp3RGZtUnJi?=
+ =?utf-8?B?dGFRVHV0R3p4RFBPWElmcnU2Y0poVUgzeGRLNyt5OFFQc1B3eS9EMzR4S2JE?=
+ =?utf-8?B?MFBWT3VoUG0yMFJ1cEt6QUM0NHhYZkFBVVZzZlNEcllGYzcvZUNlRWRFc0NZ?=
+ =?utf-8?B?M1U2MEJuOEhTQVdDZHA3amNSSXd2blJRak5PQk51QnJEQ0NDb3ZRREVtSXo0?=
+ =?utf-8?B?S2xHVjdpMW5GdncveGkxdjhtcGZSTFJ5RFF4YmgxMmFsbjBxc0g0UUpKeVlK?=
+ =?utf-8?B?ZHJIL3VsYVVyTVFabVZwbVVTMnF0ckIrbm50bzdnY2s4MnNnWVJCYk90WExj?=
+ =?utf-8?B?UzdjRUJKaEFvekdyaHhOM2hqeVRnWFBVNHRVSGZMeTl4UFAyK1o1dktwSGpy?=
+ =?utf-8?B?di9QUk95WmoyRXdYZUhOVnRHSlM2alU3eU9yeFlFaWdRYjFQbEhFNGVzaVNX?=
+ =?utf-8?B?ZXhNNkprcVhHTnhwLzI1NWhaN2Y4UzdmRjg5WnV1eXYzamZ5RWVrVU0xc3U4?=
+ =?utf-8?B?cUx0UitkN01JUjdUK3d6UjJ3dTM1dkt5c0U2NHgxT1VGcmxNKzhqaHd2bUVJ?=
+ =?utf-8?B?NmJBL1Y1SzhETmpFVitucE9Tc3BhYjViekhhUmlOeFpHVm51dGE0MkNiM0Vj?=
+ =?utf-8?B?K1EydXVqL2owQ1FBVWxreUtNemVJb3VJUy9xSnBybHovM3praGFVU3N6KzJz?=
+ =?utf-8?B?cUFmc3RRQ3VGYjQ2eFZtNzhQTmcvbEpJcEtBK25DM2Jha09tbUh1V2owUzFv?=
+ =?utf-8?B?VDNRSzZYV1NXdlpsczFQZ21jeGRiZVlrVnl3TW92bUNKNjc0T3NFd2RxT01t?=
+ =?utf-8?B?UmdWdG9heXVUWTU1c2hIcFh4eTRDajNNQWdmSE1xNVdpeVM3M1Q5d3pqUHRy?=
+ =?utf-8?B?NDk5a3NOWFVDSHk0enFHRFlsYmVYNk9DL1E5T2pPaVpFYTdUamYwVEdSREVp?=
+ =?utf-8?B?NDNkZ25PSTBjeHM2eUdaM1J1cGNrUXpPK3BydVJVelI1aDNXNCs2NHUwc1ds?=
+ =?utf-8?Q?YqJ8jfdzpAjMhfRaciuX/iAy/sSP1nDgV7EQthS10G1Y?=
+X-OriginatorOrg: uclouvain.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0e2c8a0-64b2-4a60-4fd3-08dd1382ec1e
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2024 10:11:58.6199
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HMsfuIjpAUZ9GVaTJKvl4+QOWP9tBtNVrhSd1XW7T+fxv5wJZI40NGa/wKTkTgkDAeCO0DnY8Yh2hwv2kuGLZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR03MB9561
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_020852_483464_CD6F7295 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20241203_021203_069775_0A21DD55 
+X-CRM114-Status: GOOD (  32.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,57 +185,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 3, 2024, at 09:38, Julian Vetter wrote:
-> From: Julian Vetter <julian@outer-limits.org>
->
-> Recently a new IO memcpy was added in libs/iomem_copy.c. So, remove the
-> byte-wise IO memcpy operations used in ARM big endian builds and fall
-> back to the new generic implementation. It will be slightly faster,
-> because it uses machine word accesses if the memory is aligned and falls
-> back to byte-wise accesses if its not.
->
-> Signed-off-by: Julian Vetter <julian@outer-limits.org>
-> ---
->  arch/arm/include/asm/io.h | 11 ----------
->  arch/arm/kernel/io.c      | 46 ---------------------------------------
->  2 files changed, 57 deletions(-)
+On 12/3/24 10:31, André Draszik wrote:
+> On Tue, 2024-12-03 at 10:08 +0100, Thomas Antoine wrote:
+>> On 12/3/24 07:47, André Draszik wrote:
+>>>> From: Thomas Antoine <t.antoine@uclouvain.be>
+>>>>
+>>>> The Maxim max77759 fuel gauge has the same interface as the Maxim max1720x
+>>>> except for the non-volatile memory slave address which is not available.
+>>>
+>>> It is not fully compatible, and it also has a lot more registers.
+>>>
+>>> For example, the voltage now is not in register 0xda as this driver assumes.
+>>> With these changes, POWER_SUPPLY_PROP_VOLTAGE_NOW just reads as 0. 0xda
+>>> doesn't exist in max77759
+>>>
+>>> I haven't compared in depth yet, though.
+>>
+>> Is the voltage necessary for the driver? If so, we could just not
+>> read the voltage. If it is necessary, I can try to kook into it and try
+>> to find in which register it is located (if there is one).
+> 
+> Downstream reports it in
+> https://android.googlesource.com/kernel/google-modules/bms/+/refs/heads/android-gs-raviole-mainline/max1720x_battery.c#2400
+> 
+> so upstream should do, too.
 
-I'm not sure if this is safe on all platforms. Big-endian arm
-is extremely rare in practice, and in comes in multiple variants
-that behave slightly differently:
+I should have checked before answering. Indeed, I will try to see the
+best way to choose the register based on the chip. From what I see, it
+will also be necessary to change the translation of the reg value to microvolt
+as downstream does *78125/1000 when it is currently *1250 in mainline:
+https://android.googlesource.com/kernel/google-modules/bms/+/refs/heads/android-gs-raviole-mainline/max1720x_battery.h#49
+ 
+>>>>  static const char *const max17205_model = "MAX17205";
+>>>> +static const char *const max77759_model = "MAX77759";
+>>>>
+>>>>  struct max1720x_device_info {
+>>>>       struct regmap *regmap;
+>>>> @@ -54,6 +57,21 @@ struct max1720x_device_info {
+>>>>       int rsense;
+>>>>  };
+>>>>
+>>>> +struct chip_data {
+>>>> +     u16 default_nrsense; /* in regs in 10^-5 */
+>>>> +     u8 has_nvmem;
+>>>> +};
+>>>> +
+>>>> +static const struct chip_data max1720x_data  = {
+>>>> +     .default_nrsense = 1000,
+>>>> +     .has_nvmem = 1,
+>>>> +};
+>>>> +
+>>>> +static const struct chip_data max77759_data = {
+>>>> +     .default_nrsense = 500,
+>>>> +     .has_nvmem = 0,
+>>>> +};
+>>>
+>>> This should be made a required devicetree property instead, at least for
+>>> max77759, as it's completely board dependent, 'shunt-resistor-micro-ohms'
+>>> is widely used.
+>>>
+>>> I also don't think there should be a default. The driver should just fail
+>>> to probe if not specified in DT (for max77759).
+>>
+>> I hesitated to do this but I didn't know what would be better. Will change
+>> for v2.
+> 
+> Just to clarify, has_nvmem can stay here in the driver, just rsense should
+> go into DT is what I mean.
 
-- On modern ARMv7 the byte-invariant big-endian "BE8" mode
-  generally well-behaved and works as one would expect it to.
+It was clear don't worry. This answer is related to the same subject:
+https://lore.kernel.org/linux-devicetree/20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be/T/#ma55f41d42bf39be826d6cbf8987138bcc4eb52e3
 
-- There is one ARMv5 "BE32" based platform, the ixp4xx, which
-  works differently, and this in turn allows multiple configurations
-  for its buses where a byte-swap is performed in the PCI
-  controller.
+>>>> +
+>>>>  /*
+>>>>   * Model Gauge M5 Algorithm output register
+>>>>   * Volatile data (must not be cached)
+>>>> @@ -369,6 +387,8 @@ static int max1720x_battery_get_property(struct
+>>>> power_supply *psy,
+>>>>                       val->strval = max17201_model;
+>>>>               else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
+>>>>                       val->strval = max17205_model;
+>>>> +             else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX77759)
+>>>> +                     val->strval = max77759_model;
+>>>>               else
+>>>
+>>> This is a 16 bit register, and while yes, MAX172XX_DEV_NAME_TYPE_MASK only
+>>> cares about the bottom 4 bits, the register is described as 'Firmware
+>>> Version Information'.
+>>>
+>>> But maybe it's ok to do it like that, at least for now.
+>>
+>> I thought this method would be ok as long as there is no collision on
+>> values. I hesitated to change the model evaluation method based on chip
+>> model, where the max77759 would thus have an hard-coded value and the
+>> max1720x would still evaluate the register value. I did not do it because
+>> it led to a lot more changes for no difference.
+> 
+> Downstream uses the upper bits for max77759:
+> https://android.googlesource.com/kernel/google-modules/bms/+/refs/heads/android-gs-raviole-mainline/max_m5.h#135
+> 
+> I don't know what the original max17201/5 report in this register
+> for those bits, though. Given for max77759 this register returns
+> the firmware version, I assume the lower bits can change.
 
-When the little-endian I/O string operations got optimized to
-calling the word-based helpers in commit 7ddfe625cbc1 ("ARM:
-optimize memset_io()/memcpy_fromio()/memcpy_toio()"), Russell
-intentionally left the big-endian versions alone, which I think
-was done for the case of PCI on ixp4xx, but could have been
-out of general caution.
+Based on this datasheet of the max1720x, the upper bits are the revision
+and the four lower bits are device. So it could change.
+https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17201-MAX17215.pdf#MAX17201%20DS.indd%3A.213504%3A15892
 
-Before we apply your patch, I think the minimum would be to
-have Linus Walleij try it out on an an ixp4xx with a driver
-that uses these functions. Maybe Russell remembers the exact
-constraints that led to using byte access for big-endian
-mmio string operations, and whether the new lib/iomem_copy.c
-version causes problems.
+If the four lower bits are not always 0 for the max77759 then I guess it
+is necessary to change this as it wouldn't work with all max77759.
 
-I also looked at the little-endian arm32 version, and
-it seems that here the generic code would work fine, but
-the custom variant is likely much faster when both the
-source and destination buffers are aligned, as it can
-do larger MMIO transactions using ldm/stm instructions,
-though the generic version would be a bit better if the
-in-memory buffer is unaligned.
-We could get the best of both by implementing optimized
-arm32 versions __iowrite32_copy()/__ioread32_copy and
-using those in the generic memcpy_{from,to}io.
 
-       Arnd
+Best regards,
+Thomas
 
