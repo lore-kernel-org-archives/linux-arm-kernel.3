@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72835E74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 18:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39148E74AC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tv0/FtCsUcuTGQ+jsoiF0iOjSni5uFgH74oUN7PTxcM=; b=IHqSkGfSqErmbnyeNxJnKpyrPG
-	dDTKbECCwJw11QY6CzO+68VPMWQeEMEfVJhR9lThfgkXQiLXoZzhmULC2fwZKrjL+y5d3ITnUffxf
-	alGnMIcF1mgnLuEc8hJsN7WCaT0cxy1+kePWmkHWm8VLOGxMZVJptauNol3icbSjACVtvwSTXPPcn
-	3HKVtycmV0yJ64mjkZQWV4RsDXDKZ+yYUWjS6AylFzzGmaylU4HurVF6LXnXP3gLwNkWXvN+QETUS
-	hMF3KiheHzozzANIh2Y+s/Hh0Fq5q+PoHRf9RUCh1C6obJUJv8VFTzFDi6Qci+Jye3Tx1bOLNcitw
-	8ylaMygA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rWu9NOMgMppqf60Pnys3HfkvoAjKEWmLUDkZwC0aYUc=; b=iugdigH5BeHVoQ7nI4QON2LazC
+	EUFsnP8vZfJzZU0dVjcW3zAu1Jl1+Uw0uGfpm4U6ou1adGiVyKRJc2JODyYpZX3NOcGsiA0FRMljw
+	k0pu2POucP2JOyMjt3iInPGG2U9Tn7E5y+5rGVez3wpyxzbWWPDNMwE/9NPOZEPHRWiPHN+xtUIZ3
+	Mf3dIN7TTdXpdmgtbdLjw7eEQa5tHCMio2DvCk+hkSd8CMoptbetgMI8N0erxYu2h2Vm1BB0aNIiz
+	1X5dPW1F1nkWuX5zBkTKk4kY9tN38iR6DMYltaQYph75qSpnLKymV2hQVRgmGVVKoE8eH87Z7Ff5X
+	vHTrpMJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIY6o-0000000AQ4k-4AsC;
-	Tue, 03 Dec 2024 18:58:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIYC5-0000000AR51-0Nmn;
+	Tue, 03 Dec 2024 19:04:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVmi-0000000A66S-2546
+	id 1tIYB3-0000000AQt2-3xdx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 16:30:18 +0000
+	Tue, 03 Dec 2024 19:03:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 63A21A40E0C
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Dec 2024 16:28:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16F35C4CEDA
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Dec 2024 16:29:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F3469A40463;
+	Tue,  3 Dec 2024 19:01:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA0B7C4CED6;
+	Tue,  3 Dec 2024 19:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733243399;
-	bh=Tv0/FtCsUcuTGQ+jsoiF0iOjSni5uFgH74oUN7PTxcM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ti9pdhA+K7R/MPEZB9ABHCXpptFb69ykzeorjO1rSowT+A1f1/5qsxBMP9aRP5y2O
-	 OAKylJF/RCg0sYh48Rb9frTmiNMGek+mCyy6aDOUhouTxm5B2yG1fXBuoPKPM8lrR7
-	 HK7c/XG29FNkOe7ozwcPw9kkTFCuArWHMOoL+m4OfYxK0iLKHbijYR+lJXpMxBk75B
-	 UE+lUdwXMRCA1+DrAiC8nw6gZAyYSOH76Rb1FkqS7z/QTCjbEUtuVsDjr66tTk1fTI
-	 zTGk5nGOSiP1es4Mz85xnsfYlRjCcqWseLp2wpCcno/hvOP34AzgraYIWEaYgUkh1m
-	 qfInz0nP1ZKqA==
-Received: by mail-yb1-f175.google.com with SMTP id 3f1490d57ef6-e38938a55e7so4784125276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 08:29:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVxuor1XVcD9goR7xp53JwdDa9Ih22yr7BJywZoTr2jrKqg9HCoLWtKGYjLX5PUtVRahDrFivKIxZxgSZiPIScs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVzs4nn6jNECR0s/7Zyljl/tPqyt1GEMzxaiXE1Ep6dmYzWH7B
-	Z3DwrAabaLA8rcIWjNPHrI2KBrfar5lu2MDqTA5iGZwcBrcJSukYAknNHQSEExWd4jXTZPcuCLF
-	dLcLYB+B4dv5tCqmosEoqd4ig+w==
-X-Google-Smtp-Source: AGHT+IEjhzwVUw3GpUhAyfiDrfv9x9+EZvaLuj9fZM6qMK5uI75t59+f1FnfnDvhq+imIO6/SaFkHANqNEPhKwxddCU=
-X-Received: by 2002:a05:6902:f89:b0:e30:e39b:9d72 with SMTP id
- 3f1490d57ef6-e39d3a2a894mr3508084276.16.1733243398164; Tue, 03 Dec 2024
- 08:29:58 -0800 (PST)
+	s=k20201202; t=1733252596;
+	bh=eijrbAe3pZqlViuINmabDVrHYMVGawiSwmMh9zjp4eU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=M4xOX2qvVUnVLmMBciJn/ktir9cYv44PQgN516P1RUy/hPZeRytnnVwufr9xCirtN
+	 L6zCvXUtA0hCxoxiHFGoFlRNuy2LURLASnKomgcf3JbfAYcAit3FgiUPW9KAUKkqVU
+	 OO6GIRcXSxn8trEcptZ09FAOK2BdsqOPLLs4jpjQKpDudO+FnHeNQWlzmc9XtlWZuy
+	 KNrNEq15+0bxzTIJJ9qAyAGvCh+fFTGp6gghmLFLZCtq2Y1Jd9kiYhmkegjDnHQr1f
+	 hZeMLJ7T2GV9snlpAedM7OzOiWRKh0Je1Zj7P+UNLm2YfdGDK10JlY4CPlnwhTemWw
+	 bGAddOoecVgYw==
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=localhost.localdomain)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tIYB0-000CK2-FB;
+	Tue, 03 Dec 2024 19:03:14 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	stable@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH] KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be overridden
+Date: Tue,  3 Dec 2024 19:02:36 +0000
+Message-ID: <20241203190236.505759-1-maz@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20241023185841.1183706-1-festevam@gmail.com> <20241024-pep-proud-d714705c9ddf@spud>
- <CAOMZO5BSZ4YAZ7Lqa3eGP9Wx=Ed7cgug==_UZqc7F57=XCJv3A@mail.gmail.com> <CAOMZO5AgQxd2_gkcPSdhfSDArEEkBVvo_yAW3hdHVXtHH5FyAg@mail.gmail.com>
-In-Reply-To: <CAOMZO5AgQxd2_gkcPSdhfSDArEEkBVvo_yAW3hdHVXtHH5FyAg@mail.gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 3 Dec 2024 10:29:47 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKeAknYwaR_VRfrT7bHf9q6iNMyC9VV+dNBPd5VZNTLAg@mail.gmail.com>
-Message-ID: <CAL_JsqKeAknYwaR_VRfrT7bHf9q6iNMyC9VV+dNBPd5VZNTLAg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: timer: fsl,imxgpt: Fix the fsl,imx7d-gpt fallback
-To: Fabio Estevam <festevam@gmail.com>
-Cc: tglx@linutronix.de, daniel.lezcano@linaro.org, krzk+dt@kernel.org, 
-	Conor Dooley <conor@kernel.org>, conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, catalin.marinas@arm.com, stable@vger.kernel.org, will@kernel.org, mark.rutland@arm.com, james.morse@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_083000_599195_414E3946 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_110318_114438_50E3D422 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 13, 2024 at 11:57=E2=80=AFAM Fabio Estevam <festevam@gmail.com>=
- wrote:
->
-> Rob,
->
-> On Tue, Nov 5, 2024 at 7:48=E2=80=AFAM Fabio Estevam <festevam@gmail.com>=
- wrote:
->
-> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > Can you apply this series via your tree?
->
-> A gentle ping.
+Catalin reports that a hypervisor lying to a guest about the size
+of the ASID field may result in unexpected issues:
 
-Daniel should apply this. That was my assumption and it was out of my
-queue (which drops the chances of me ever reading this ping).
+- if the underlying HW does only supports 8 bit ASIDs, the ASID
+  field in a TLBI VAE1* operation is only 8 bits, and the HW will
+  ignore the other 8 bits
 
-Rob
+- if on the contrary the HW is 16 bit capable, the ASID field
+  in the same TLBI operation is always 16 bits, irrespective of
+  the value of TCR_ELx.AS.
+
+This could lead to missed invalidations if the guest was lead to
+assume that the HW had 8 bit ASIDs while they really are 16 bit wide.
+
+In order to avoid any potential disaster that would be hard to debug,
+prenent the migration between a host with 8 bit ASIDs to one with
+wider ASIDs (the converse was obviously always forbidden). This is
+also consistent with what we already do for VMIDs.
+
+If it becomes absolutely mandatory to support such a migration path
+in the future, we will have to trap and emulate all TLBIs, something
+that nobody should look forward to.
+
+Fixes: d5a32b60dc18 ("KVM: arm64: Allow userspace to change ID_AA64MMFR{0-2}_EL1")
+Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: James Morse <james.morse@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm64/kvm/sys_regs.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index a26f02ec8748..b1918adbd0aa 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2674,7 +2674,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	ID_WRITABLE(ID_AA64MMFR0_EL1, ~(ID_AA64MMFR0_EL1_RES0 |
+ 					ID_AA64MMFR0_EL1_TGRAN4_2 |
+ 					ID_AA64MMFR0_EL1_TGRAN64_2 |
+-					ID_AA64MMFR0_EL1_TGRAN16_2)),
++					ID_AA64MMFR0_EL1_TGRAN16_2 |
++					ID_AA64MMFR0_EL1_ASIDBITS)),
+ 	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
+ 					ID_AA64MMFR1_EL1_HCX |
+ 					ID_AA64MMFR1_EL1_TWED |
+-- 
+2.43.0
+
 
