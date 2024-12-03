@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFA5E64A85
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA280E64A84
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6M6cTvNs7V+xqyuwhG0n9JcP4Mq9Zi3RChVjlFoyS9c=; b=Eud3RgStQCyeDgiCuv3CmVbPFd
-	Nocf6r2vyv45+YJYuZx5E6Ypjk+GXAHUIKgZOemJ6ipmMiN1lNRPwrNdRMGZB4y4HwUx2nRV1fwCu
-	d6AM8RuWgPO7n9OLVlM83zakn38fvaQGPH1NFB7wOPBITsnkov9otksh2gE9QSj810jvUgzf6vQ4J
-	dsiSCis8efnPCfxWNG7RqgpsyRQP3D7Q1BjUMWzvIQrQEcRPcKcDw6rm+jzKmtdN/T0SqnYMDutpU
-	QvnWUwxRpJzqIc/RAB6qxTFQUQDHSS2XNQdAaSTOH4yRKqBPS947YvFs/gWC8+LVBXtcPIQe/ptm6
-	HUsc8CJA==;
+	bh=XyAJZWh204Jg961AaAOy2+aPUgd1uUQOUoQ33ic9q34=; b=ldY2itf/ZJd0fv8rUggIP02otU
+	zaGyZ0gr8ovHdDjGpyKSlUOQf5RCmJAu3DFf/t3b9UDqCpBC7KBs6kWQ6Jt5uhG25Yj5eg8JFtCTU
+	z4pfTcnirecNYY+i8YNl1h1gw38Ljvp3yl3XDMFOdI5SHi1YG2X1HsZHtzmLl6JsmwmmkZENxqZJi
+	B+g8fqGzdBS2/s/75TYbpPaGjyf3A+0KXv304Tjcia3VaIy7801b44BnX0qeJwfj9Ga+QU7bAPvGy
+	f5IzESrT7n5NgWRaOkLFr3NJooJrWJADMrc4ht9LlEh/A9YN7UPysXbp14ipI7ZA0uHagTQSjeML9
+	sXQHUUqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRrm-00000009Ovd-0alt;
-	Tue, 03 Dec 2024 12:18:58 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tIRsl-00000009PBC-1U8t;
+	Tue, 03 Dec 2024 12:19:59 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRmt-00000009Nfk-3Dtv
+	id 1tIRmt-00000009Nez-1bJd
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Dec 2024 12:13:57 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d10f713ef0so500518a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:13:55 -0800 (PST)
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2ffc1009a06so80012431fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:13:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733228034; x=1733832834; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733228033; x=1733832833; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6M6cTvNs7V+xqyuwhG0n9JcP4Mq9Zi3RChVjlFoyS9c=;
-        b=bwsHYZw8qrZzvuEHRjKj+EzzMisoF1hFG5qVSMb9W9sw6UV+CeCkqzhG8pH8oJBV5I
-         IZGNioo4HP9pbzJBbKhJM9CSV98HHH4/CwR71hSSORsjrfAQA1C3OONGY5rbVgiBdgpj
-         yc9lQj5ORW6uibCVMVX115UhsOVXRIBm8weYlspqKNbKque07nRQBFjILnJSmQeDb3XH
-         LZ64bb+8A73BY+Ys7YYGXdRPZ/gLnhUU7Lo6BJSb408fugDPMsnc+VR5g4vL9IQi8z1v
-         P2S6PfQTggwko+sLxPNaksQuqVfiSMsSKcfarVTr0Z0hXYiv0n6RYRWYeAmCVgjFCEi6
-         Fx7Q==
+        bh=XyAJZWh204Jg961AaAOy2+aPUgd1uUQOUoQ33ic9q34=;
+        b=pVY9ZZKhao34IAvdXgVZwOJOKvaK3/qmMnKhMy7FWQ1OzagMiOPKo47Lf5VbYOvCj0
+         +DH+7btXCP23Yl1pKDxAOGxiaSoB3mcvKBg80fJa5JE9mLbw8l1SwfXE3g3k81dnPYHa
+         uUnWY+CnwoV5pPX+gbIQgPyr4FTQW9BYrubHyWtzpmJFA79d1lNs4MnaT8GCzGW53ytE
+         K99I7cepNoYXk06FxreycxY+8998cJWkwk82D5CqwUbm64N5Q1BqCm9Sn8QVjgHlsc1V
+         tSwq6E+2yMfoyeoHntVMYmD7usgllTiu9f6Bc8gi91VspdQQvLedgCR9APbN8TmDGgW0
+         ntJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733228034; x=1733832834;
+        d=1e100.net; s=20230601; t=1733228033; x=1733832833;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6M6cTvNs7V+xqyuwhG0n9JcP4Mq9Zi3RChVjlFoyS9c=;
-        b=TH2eT4CwKLTn3651wMfScN7Fr++yUeFQU5j8C64fHf2rhG7ZhbNr/JiskAsXK1jYPz
-         bixfCTbCVYYaL1ClQXCVfGW3mtM2BLLsj6jYbu7dvhjqEFpBW91wJiPM7DRMhMurv8ch
-         F6UJaoA6mBrS7hewsZ+pU/BcV2nB5T5/hpBkMRCbV8wKRA2Png29HZ3HUHA43e79wtUf
-         8qC1bi30MtWr9TAitUmP1gSLiWgYTvA5u2nolmKH69bZd2YzSAGaGsPqQJMYfNaSZ/gE
-         B4j+uWwrFp3X6S6JR76rF96ClP+TemF8+RxyM05MeGtSM+Nz8Rm3gX6CQB3Hy89f8r88
-         74oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVKc5B0prjMeMt0bBICPOcFvC6UEKQWh7RQyPu9iaKK3VPqYnCTVo0o7kCyKqfwQgYEdEAIPOQy+itnkOThpE3Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdqd3/t3+gJUOwIBSU6Uf2kxaRxqlVimoLZBgunXmsMx/EsJ9l
-	5sp1riILUUnipnv6wPys94mInAT8FT94ugT3kpk2Vt7YJUT4u4pyaZO10Os5ZkA=
-X-Gm-Gg: ASbGnctD5vPl3wnZ0N1a1yB2Qy/7JJiWiXZpmYhl7BXmM85uLuaVxhCkteOHaN6/8U8
-	Zbl55qECItdYwEL7P4TsQ8CH8CYzFKe1ODP0nwgW5DaIm0R6D3KNk2pFxLOq/5msgSeMbBIqGy+
-	TDjODrK0vSd+hSYz2CocnAs+t3UkzEhgZbc+HZ99b2Gi28utxs2HbuYxMMzQZzg+zmk4a1LXvV6
-	57yEWtQYp7T7zK/aw9zVEDQP5I5Sf0X10nySe8ckhGaJFKK62lA5f/DJavvn05mPa/7PuQ7K2IV
-	rkjm9yKIljmI+xg0o22pNCrHJAv5WM4xgQ==
-X-Google-Smtp-Source: AGHT+IFmVCN79AgO12dD2PdCbqVnKblHT8yfYp2CBGY/43ZxpcqEVT7DluzFyun9DnuIF1YW27jRrA==
-X-Received: by 2002:a17:906:d54b:b0:aa5:3fe7:4475 with SMTP id a640c23a62f3a-aa59453454fmr3031209566b.11.1733228033761;
+        bh=XyAJZWh204Jg961AaAOy2+aPUgd1uUQOUoQ33ic9q34=;
+        b=SHg9vISR587XyHCG82LrJiE7A1IrDzaCvp6jhOX+dgSy3TKVrYwR0EpoGNL5A2rMmQ
+         QFqsCgPsiYhZS90awcyA9Cky2maTQwKVaA5t9lejIZXq8kgSedrKFlp3xBX2kQl/g8Wp
+         GF0PS3LFZBUnNsyAvMVQj1w4pSb8nQoVJNQNWVRPP8soq8GkEYxdc9JQPnRP4dUgSKTi
+         0zgEkwnuQXWngs165qaafd/U7u0W06aOeenESEqgvlEwZUn0xzu77IyVLk31YTQBOFOE
+         Bjh0vfS6jPDiOP8d3mlp91EiJJSkdXUgFax1aBXPgxxjp+v/8I9QrWa3oVQ+mO9IxAdw
+         ApRg==
+X-Forwarded-Encrypted: i=1; AJvYcCUDmROX0NgtlJb+fegG6KAZFj1K0m1j4Lt0mDtKlBkVEw6mzuDeIsJbGjy3xJhE0mqZuunBoX+LkccMav3bPbVG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOr2Un6oE3iLZ0jOGGv7kfO1bIsbq3dkPmXiMllk+45dS9LtnB
+	kgGPwNRk0fZx039DohHUhEdEw2CN0NKz1zltAS0DmoBbyGtcVYDCB0MOmnPSTkM=
+X-Gm-Gg: ASbGncufSD4gUJVZYtBjNWSPBB1yaxKP8kEC9IuP4Lt2e7iB5RPv56nsRZlxA9axi9z
+	4z1AkDT1++97nU5ISM9H+dtSnTYWSoLxXbeHVqfBO6ap8YV0bu5pc5wp9paipswBkt0WlFryDD4
+	2iLVMySTAW/FT8v46fNK/21i2xMVd77mEJg/pZuQFgjl/y3rYwL2ou5LKc5RfViDbMlvJtH4g1/
+	VKRKwBmKuwpql4OKAtkXzXKdu3jfdZDF9srphnLvjla1PEUvfyK6Xk7SUKKw4SOcIp/WPEwFJRt
+	jv0RANY56/0TXRxbE2IB2wp5Cc1QCO0ydA==
+X-Google-Smtp-Source: AGHT+IGgwyjBJkS8A9AXx8hnLtvyrGDGaqK5MFnxCflHlyNqWU5j8V8iVeDiiMrTGSbUFmaLqW+/tQ==
+X-Received: by 2002:a05:651c:b24:b0:2ff:d133:b54c with SMTP id 38308e7fff4ca-30009c63bf8mr20389271fa.11.1733228033208;
         Tue, 03 Dec 2024 04:13:53 -0800 (PST)
 Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5996c245bsm607603766b.8.2024.12.03.04.13.53
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5996c245bsm607603766b.8.2024.12.03.04.13.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 04:13:53 -0800 (PST)
+        Tue, 03 Dec 2024 04:13:52 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 03 Dec 2024 12:13:53 +0000
-Subject: [PATCH v2 5/8] phy: exynos5-usbdrd: gs101: ensure power is gated
- to SS phy in phy_exit()
+Date: Tue, 03 Dec 2024 12:13:52 +0000
+Subject: [PATCH v2 4/8] phy: exynos5-usbdrd: fix EDS distribution tuning
+ (gs101)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241203-gs101-phy-lanes-orientation-phy-v2-5-40dcf1b7670d@linaro.org>
+Message-Id: <20241203-gs101-phy-lanes-orientation-phy-v2-4-40dcf1b7670d@linaro.org>
 References: <20241203-gs101-phy-lanes-orientation-phy-v2-0-40dcf1b7670d@linaro.org>
 In-Reply-To: <20241203-gs101-phy-lanes-orientation-phy-v2-0-40dcf1b7670d@linaro.org>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -92,13 +92,11 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  kernel-team@android.com, linux-phy@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- stable@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_041355_819885_9FA45E3A 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241203_041355_458007_65D648A1 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,52 +111,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently don't gate the power to the SS phy in phy_exit().
+This code's intention is to configure lane0 and lane2 tunings, but for
+lane2 there is a typo and it ends up tuning something else.
 
-Shuffle the code slightly to ensure the power is gated to the SS phy as
-well.
+Fix the typo, as it doesn't appear to make sense to apply different
+tunings for lane0 vs lane2.
 
-Fixes: 32267c29bc7d ("phy: exynos5-usbdrd: support Exynos USBDRD 3.1 combo phy (HS & SS)")
-CC: stable@vger.kernel.org # 6.11+
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The same typo appears to exist in the bootloader, hence we restore the
+original value in the typo'd registers as well. This can be removed
+once / if the bootloader is updated.
+
+Note that this is incorrect in the downstream driver as well - the
+values had been copied from there.
+
 Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Tested-by: Peter Griffin <peter.griffin@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
 ---
 v2:
-* add cc-stable and fixes tags (Krzysztof)
 * collect tags
 ---
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 2a724d362c2d..c1ce6fdeef31 100644
+index ceae4b47cece..2a724d362c2d 100644
 --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
 +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -1296,14 +1296,17 @@ static int exynos5_usbdrd_gs101_phy_exit(struct phy *phy)
- 	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
- 	int ret;
- 
-+	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI) {
-+		ret = exynos850_usbdrd_phy_exit(phy);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	exynos5_usbdrd_phy_isol(inst, true);
-+
- 	if (inst->phy_cfg->id != EXYNOS5_DRDPHY_UTMI)
- 		return 0;
- 
--	ret = exynos850_usbdrd_phy_exit(phy);
--	if (ret)
--		return ret;
--
--	exynos5_usbdrd_phy_isol(inst, true);
- 	return regulator_bulk_disable(phy_drd->drv_data->n_regulators,
- 				      phy_drd->regulators);
- }
+@@ -1510,8 +1510,11 @@ static const struct exynos5_usbdrd_phy_tuning gs101_tunes_pipe3_preinit[] = {
+ 	PHY_TUNING_ENTRY_PMA(0x09e0, -1, 0x00),
+ 	PHY_TUNING_ENTRY_PMA(0x09e4, -1, 0x36),
+ 	PHY_TUNING_ENTRY_PMA(0x1e7c, -1, 0x06),
+-	PHY_TUNING_ENTRY_PMA(0x1e90, -1, 0x00),
+-	PHY_TUNING_ENTRY_PMA(0x1e94, -1, 0x36),
++	PHY_TUNING_ENTRY_PMA(0x19e0, -1, 0x00),
++	PHY_TUNING_ENTRY_PMA(0x19e4, -1, 0x36),
++	/* fix bootloader bug */
++	PHY_TUNING_ENTRY_PMA(0x1e90, -1, 0x02),
++	PHY_TUNING_ENTRY_PMA(0x1e94, -1, 0x0b),
+ 	/* improve LVCC */
+ 	PHY_TUNING_ENTRY_PMA(0x08f0, -1, 0x30),
+ 	PHY_TUNING_ENTRY_PMA(0x18f0, -1, 0x30),
 
 -- 
 2.47.0.338.g60cca15819-goog
