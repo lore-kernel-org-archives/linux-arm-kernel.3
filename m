@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35ACE6C610
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 07:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C50BE6C611
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 07:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9QjHyqHq3/QtWY1adbFgvXDLbulCqz3LnK3AngwXCkk=; b=juwX0iElgsE1woXDWLxjFb1SAJ
-	BdrHJhBjRewkIYqs1sofakxWPakP1U4UKSQt0IOiOWu3YNhJL+rWlzsiUkltvUu/tFdWTcVtbreM0
-	+wBnzL22Ov5o0q+3EogZJjHka8Qfi7uN5+OWsb48IhcvxcInLTDP78eMa0V5NlO1ty+dvBKr5+TAM
-	Aw288ICZjOMYfPdVxWhCM7IdCWAB+7Q2GjZNusaRW2Yi+JtZFEW9F9H8nktBKVTZzpU0/gzDc2q1/
-	QiYu9HOvjubbOtYr7OcT95/gxwEhog67ALEnJpoxeWxCi6X0dUiHEdAeWcC5G6+tYqDkZ5pL3khXe
-	sdn0VriQ==;
+	bh=UZsL3ESWMbWCh8ufrY9iIQ/+JVUnWGgaBWqrrz5gGE8=; b=uUuQGK5NOrgUTjnM6NkKavjJQZ
+	SqsxV6b3bHHwh7v1QCw9iHPFuNYtE65x3ZFEwnaiW0OvUvGkzqcUMbxIVDguuXJ4HL3fPewf4a28k
+	Vtw3w4fRTkfJSz4/5lYrjhq+/QBuG3Mpb+AcaoEYYuijlNtbXbwKligx55phv/JEfixIvMgYznhBo
+	b38SbYxjCnB0HDYRyN6viJHPyHnLElSu+Wyq8IfKDSwig2b8wL0ccTv06taADy7H1VZ902OJd8jNS
+	NSGwwf8qJIHjlb/8XtXifCHSXOriJHKiMH3EsTm5KtqCTV2ZO7QPaZ3H54xuyZk7JZVTlEix8QE6G
+	7mMkaUJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tINZv-00000008Yma-0GKX;
-	Tue, 03 Dec 2024 07:44:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tINat-00000008Z3g-2jv2;
+	Tue, 03 Dec 2024 07:45:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tINYv-00000008Yfz-0ZXT
+	id 1tINZX-00000008YjI-3piJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 07:43:14 +0000
+	Tue, 03 Dec 2024 07:43:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BFA47A4032B;
-	Tue,  3 Dec 2024 07:41:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2450C4CECF;
-	Tue,  3 Dec 2024 07:43:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 74F9B5C6206;
+	Tue,  3 Dec 2024 07:43:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F77C4CECF;
+	Tue,  3 Dec 2024 07:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733211791;
-	bh=BTi7Ze0w8np2takrcrnHHLRkx1VFTz7ASEWWSxolVFc=;
+	s=k20201202; t=1733211830;
+	bh=NLJFoTMl+PMuvhemePqgps/gm+iFwkpLmsMRB5c8y7k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kfy/CgZU5fDOl0dZmjjB6FDZNtNmb3RybN6OmTPWQD7x5/R8E3qRAdRtbPeHCkQEt
-	 dwwXLPIJ+uU1Xs6uVimyriBFO2lGQreDY4/r+vbqmc0obhlGBgu7HrB3fn6HRDiSvy
-	 tYxjytFS7ktxmQtLInOGhZ2VvYzoeGFkqKU4wDq2H3DLiftGKugeAd043UYYBKXMZj
-	 2XcLbhxGgO8Q4KJRmVMIM5jDbmR9hK7apNi7yaeDceCS98Wqsb9GmLwJ1Gp8M5ba7s
-	 7oAr85tQycBAHNeGT8CW/bZdQqQEgeXjzhM/ureln3wzoogOEQXgTlZBQFQos+/ogc
-	 5VpZvf5+XXu6Q==
-Date: Tue, 3 Dec 2024 08:43:08 +0100
+	b=mtxX53S3rIBlOPBSOKc4Jeg7IRXlUMF5Dy6/OfQ4rO3AFFH118cM0oGCg1FiM+T2X
+	 ylYZmqnpyCX4BTzqXN6K25MJJBBVnkw1wGxhzEmp6vLt7E6HsHyENLD+yPzzSvb3uR
+	 zqQ6K2iVZqBLuoHGjs6zMQia6xOT64TVJu36WnWSEA8WgRuiWLRPu8WDbVKwLUTsoW
+	 rdUMmEI3Ji5pN0JbelWrEbC7/WeV486yH80DyUNB7OY7jqDk0/PmbV2J15v5oWKJH4
+	 o/+A5u5Z9fnufOSKgx0yf8Fo0spSGer7Krubk+kjabJp24szAgDfsbPGpkp2/0rmzF
+	 fVERHW2RyUw1Q==
+Date: Tue, 3 Dec 2024 08:43:46 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Geert Uytterhoeven <geert+renesas@glider.be>
 Cc: Magnus Damm <magnus.damm@gmail.com>, 
 	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: soc: renesas: Move R8A779G0 White Hawk
- up
-Message-ID: <kqwisxsh64am76mmb5b4cxp7nhmsxafadvnkckadeywsvz6iqj@iyeo5sztpdrf>
+Subject: Re: [PATCH 2/5] dt-bindings: soc: renesas: Document R8A779G3 White
+ Hawk Single
+Message-ID: <u7xrrqfnt5wbl5itftm4ibo63jbjcek2nzz33csmidkc4vynuq@ep2thd5dnkok>
 References: <cover.1733156661.git.geert+renesas@glider.be>
- <d553ef4b1f969f72e384f274d42ac7a62fe45fd4.1733156661.git.geert+renesas@glider.be>
+ <1d2d2a6cbf31c817f574f6eed310a960e6175afe.1733156661.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <d553ef4b1f969f72e384f274d42ac7a62fe45fd4.1733156661.git.geert+renesas@glider.be>
+In-Reply-To: <1d2d2a6cbf31c817f574f6eed310a960e6175afe.1733156661.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_234313_238008_924ECDC3 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20241202_234351_994974_E8C36DF0 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 05:30:07PM +0100, Geert Uytterhoeven wrote:
-> Move the R8A779G0-only White Hawk board stack section up, just below the
-> R8A779G0-only White Hawk CPU section, to improve sort order.
+On Mon, Dec 02, 2024 at 05:30:08PM +0100, Geert Uytterhoeven wrote:
+> Document the compatible value for the Renesas R-Car V4H ES3.0
+> (R8A779G3) SoC, as used on the Renesas White Hawk Single board.
 > 
 > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  .../devicetree/bindings/soc/renesas/renesas.yaml     | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
+>  .../devicetree/bindings/soc/renesas/renesas.yaml          | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
