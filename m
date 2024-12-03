@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CFBE64A89
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C20E64A8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKFhdpgd+bPeOFHzsh4g+d5F5G/DV5ckby6cPXeWyQg=; b=ecRcMYsg7XLdByO/A9LiFV4QFi
-	a1lERDDNAkmns9Cql75kerTsbJH7NbzZ8s8Bl2RmGrhMaX1WwtAIPwxme/2tKhUxTN038ZYqvxx/e
-	6BgdEEi9GFUum5jjiB/TZYVTc5NSzmTyUAEkAdpy3T+brdGGZpjM+203DkGljlWNOTqSHwoyqHTfw
-	9aQhs7FA++8bhPB3fIjDBDf5iYUvCXlKWERsHaO9L+DazNuK43Aywc30IFvHUu9Fyn2RDlAhSbzyg
-	eEyzz61gJ2CwBOyFpr4qaK05MdLcI0YzGtD6LE7v5T407bdDwJEZIXs8iINRID7sC5jfyMpSZjEau
-	eInLpoqw==;
+	bh=HgIAX1za1xfs0fh+arhgTxNiucg8BdlcNuAdbiUERuQ=; b=HJJesC7JllL33Nn44luaPCt+yt
+	WypFaU2Ga82QikjppxMbNyg2YWMiHzSKyvTy7o/rcvG5OJrH4qFxwiL6l/FXcZzj5fb0QILtyksU7
+	vR3I53qe2lGbm97iyZYlUoHQ6KyCv8rep/c7Y/Uir7sHGcMxZKi/hL5K6hA5O8A399w4pUw3QlA7r
+	qNuaQ3Wn9yCiK6cXUP78TrBcXplB2yMsn/KiDQDFCWI4VK7yN5ACiihU4vqo8LD1e8UdWRDAjY6ej
+	KhxnipF0xb6A+Y1OdsrtVjt5zBxVkib959mRltkpAwxrxUKvcl63n4Pn8hyFdqhqkPe8Nl+s4WOPJ
+	1f3Q900g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISby-00000009XyE-1KQL;
-	Tue, 03 Dec 2024 13:06:42 +0000
+	id 1tIScx-00000009YAB-06BE;
+	Tue, 03 Dec 2024 13:07:43 +0000
 Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISNX-00000009V9u-1rOT
+	id 1tISNY-00000009VAP-1WI1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:51:49 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Y2gTK2RRrz1T6FN;
-	Tue,  3 Dec 2024 20:49:25 +0800 (CST)
+	Tue, 03 Dec 2024 12:51:50 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Y2gTN61BXz1T6K1;
+	Tue,  3 Dec 2024 20:49:28 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 949C5140391;
-	Tue,  3 Dec 2024 20:51:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 1C7031A0188;
+	Tue,  3 Dec 2024 20:51:45 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 3 Dec 2024 20:51:40 +0800
+ 15.2.1258.34; Tue, 3 Dec 2024 20:51:44 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
 	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v4 01/10] drivers/perf: hisi: Define a symbol namespace for HiSilicon Uncore PMUs
-Date: Tue, 3 Dec 2024 20:50:40 +0800
-Message-ID: <20241203125049.39458-2-yangyicong@huawei.com>
+Subject: [PATCH v4 09/10] drivers/perf: hisi: Fix incorrect variable name "hha_pmu" in DDRC PMU driver
+Date: Tue, 3 Dec 2024 20:50:48 +0800
+Message-ID: <20241203125049.39458-10-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241203125049.39458-1-yangyicong@huawei.com>
 References: <20241203125049.39458-1-yangyicong@huawei.com>
@@ -55,8 +55,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_045147_799942_BFB98199 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20241203_045148_577880_92145B77 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,274 +71,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+From: Junhao He <hejunhao3@huawei.com>
 
-The HiSilicon Uncore PMU framework implements some common functions
-and exported them to the drivers. Use a specific HISI_PMU namespace
-for the exported symbols to avoid pollute the generic ones.
+In the callback function write_evtype(), the variable name of struct
+hisi_pmu should be "ddrc_pmu" instead of "hha_pmu".
 
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  |  1 +
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c |  1 +
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |  1 +
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  1 +
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |  1 +
- drivers/perf/hisilicon/hisi_uncore_pmu.c      | 36 +++++++++----------
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c |  1 +
- drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   |  1 +
- 8 files changed, 25 insertions(+), 18 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-index 3f3fb1de11f5..d2dc848956af 100644
---- a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-@@ -389,6 +389,7 @@ static void __exit hisi_cpa_pmu_module_exit(void)
- }
- module_exit(hisi_cpa_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon SoC CPA PMU driver");
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Qi Liu <liuqi115@huawei.com>");
 diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-index a6ebf2ec99d3..e323f0c339ec 100644
+index fb596f43ef9a..0caa15aa836f 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-@@ -579,6 +579,7 @@ static void __exit hisi_ddrc_pmu_module_exit(void)
- }
- module_exit(hisi_ddrc_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon SoC DDRC uncore PMU driver");
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
-diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-index 32624872596f..d5c2eab8023e 100644
---- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-@@ -581,6 +581,7 @@ static void __exit hisi_hha_pmu_module_exit(void)
- }
- module_exit(hisi_hha_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon SoC HHA uncore PMU driver");
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
-diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index c235b46ce873..0d1b5d17ba26 100644
---- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -615,6 +615,7 @@ static void __exit hisi_l3c_pmu_module_exit(void)
- }
- module_exit(hisi_l3c_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon SoC L3C uncore PMU driver");
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Anurup M <anurup.m@huawei.com>");
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-index c0f5d7c73e06..eaaad28871a3 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-@@ -569,6 +569,7 @@ static void __exit hisi_pa_pmu_module_exit(void)
- }
- module_exit(hisi_pa_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon Protocol Adapter uncore PMU driver");
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-index 918cdc31de57..416f72a813fc 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-@@ -34,7 +34,7 @@ ssize_t hisi_event_sysfs_show(struct device *dev,
- 
- 	return sysfs_emit(page, "config=0x%lx\n", (unsigned long)eattr->var);
- }
--EXPORT_SYMBOL_GPL(hisi_event_sysfs_show);
-+EXPORT_SYMBOL_NS_GPL(hisi_event_sysfs_show, HISI_PMU);
- 
- /*
-  * sysfs cpumask attributes. For uncore PMU, we only have a single CPU to show
-@@ -46,7 +46,7 @@ ssize_t hisi_cpumask_sysfs_show(struct device *dev,
- 
- 	return sysfs_emit(buf, "%d\n", hisi_pmu->on_cpu);
- }
--EXPORT_SYMBOL_GPL(hisi_cpumask_sysfs_show);
-+EXPORT_SYMBOL_NS_GPL(hisi_cpumask_sysfs_show, HISI_PMU);
- 
- static bool hisi_validate_event_group(struct perf_event *event)
+@@ -111,14 +111,14 @@ static void hisi_ddrc_pmu_v2_write_counter(struct hisi_pmu *ddrc_pmu,
+  * so there is no need to write event type, while it is programmable counter in
+  * PMU v2.
+  */
+-static void hisi_ddrc_pmu_write_evtype(struct hisi_pmu *hha_pmu, int idx,
++static void hisi_ddrc_pmu_write_evtype(struct hisi_pmu *ddrc_pmu, int idx,
+ 				       u32 type)
  {
-@@ -96,7 +96,7 @@ int hisi_uncore_pmu_get_event_idx(struct perf_event *event)
+ 	u32 offset;
  
- 	return idx;
+-	if (hha_pmu->identifier >= HISI_PMU_V2) {
++	if (ddrc_pmu->identifier >= HISI_PMU_V2) {
+ 		offset = DDRC_V2_EVENT_TYPE + 4 * idx;
+-		writel(type, hha_pmu->base + offset);
++		writel(type, ddrc_pmu->base + offset);
+ 	}
  }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_get_event_idx);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_get_event_idx, HISI_PMU);
  
- ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
- 					     struct device_attribute *attr,
-@@ -106,7 +106,7 @@ ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
- 
- 	return sysfs_emit(page, "0x%08x\n", hisi_pmu->identifier);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_identifier_attr_show);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_identifier_attr_show, HISI_PMU);
- 
- static void hisi_uncore_pmu_clear_event_idx(struct hisi_pmu *hisi_pmu, int idx)
- {
-@@ -165,7 +165,7 @@ int hisi_uncore_pmu_init_irq(struct hisi_pmu *hisi_pmu,
- 
- 	return 0;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_init_irq);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_init_irq, HISI_PMU);
- 
- int hisi_uncore_pmu_event_init(struct perf_event *event)
- {
-@@ -219,7 +219,7 @@ int hisi_uncore_pmu_event_init(struct perf_event *event)
- 
- 	return 0;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_event_init);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_event_init, HISI_PMU);
- 
- /*
-  * Set the counter to count the event that we're interested in,
-@@ -273,7 +273,7 @@ void hisi_uncore_pmu_set_event_period(struct perf_event *event)
- 	/* Write start value to the hardware event counter */
- 	hisi_pmu->ops->write_counter(hisi_pmu, hwc, val);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_set_event_period);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_set_event_period, HISI_PMU);
- 
- void hisi_uncore_pmu_event_update(struct perf_event *event)
- {
-@@ -294,7 +294,7 @@ void hisi_uncore_pmu_event_update(struct perf_event *event)
- 		HISI_MAX_PERIOD(hisi_pmu->counter_bits);
- 	local64_add(delta, &event->count);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_event_update);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_event_update, HISI_PMU);
- 
- void hisi_uncore_pmu_start(struct perf_event *event, int flags)
- {
-@@ -317,7 +317,7 @@ void hisi_uncore_pmu_start(struct perf_event *event, int flags)
- 	hisi_uncore_pmu_enable_event(event);
- 	perf_event_update_userpage(event);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_start);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_start, HISI_PMU);
- 
- void hisi_uncore_pmu_stop(struct perf_event *event, int flags)
- {
-@@ -334,7 +334,7 @@ void hisi_uncore_pmu_stop(struct perf_event *event, int flags)
- 	hisi_uncore_pmu_event_update(event);
- 	hwc->state |= PERF_HES_UPTODATE;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_stop);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_stop, HISI_PMU);
- 
- int hisi_uncore_pmu_add(struct perf_event *event, int flags)
- {
-@@ -357,7 +357,7 @@ int hisi_uncore_pmu_add(struct perf_event *event, int flags)
- 
- 	return 0;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_add);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_add, HISI_PMU);
- 
- void hisi_uncore_pmu_del(struct perf_event *event, int flags)
- {
-@@ -369,14 +369,14 @@ void hisi_uncore_pmu_del(struct perf_event *event, int flags)
- 	perf_event_update_userpage(event);
- 	hisi_pmu->pmu_events.hw_events[hwc->idx] = NULL;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_del);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_del, HISI_PMU);
- 
- void hisi_uncore_pmu_read(struct perf_event *event)
- {
- 	/* Read hardware counter and update the perf counter statistics */
- 	hisi_uncore_pmu_event_update(event);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_read);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_read, HISI_PMU);
- 
- void hisi_uncore_pmu_enable(struct pmu *pmu)
- {
-@@ -389,7 +389,7 @@ void hisi_uncore_pmu_enable(struct pmu *pmu)
- 
- 	hisi_pmu->ops->start_counters(hisi_pmu);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_enable);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_enable, HISI_PMU);
- 
- void hisi_uncore_pmu_disable(struct pmu *pmu)
- {
-@@ -397,7 +397,7 @@ void hisi_uncore_pmu_disable(struct pmu *pmu)
- 
- 	hisi_pmu->ops->stop_counters(hisi_pmu);
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_disable);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_disable, HISI_PMU);
- 
- 
- /*
-@@ -484,7 +484,7 @@ int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
- 
- 	return 0;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_online_cpu);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_online_cpu, HISI_PMU);
- 
- int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
- {
-@@ -515,7 +515,7 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
- 
- 	return 0;
- }
--EXPORT_SYMBOL_GPL(hisi_uncore_pmu_offline_cpu);
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_offline_cpu, HISI_PMU);
- 
- void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
- {
-@@ -535,7 +535,7 @@ void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
- 	pmu->attr_groups        = hisi_pmu->pmu_events.attr_groups;
- 	pmu->capabilities       = PERF_PMU_CAP_NO_EXCLUDE;
- }
--EXPORT_SYMBOL_GPL(hisi_pmu_init);
-+EXPORT_SYMBOL_NS_GPL(hisi_pmu_init, HISI_PMU);
- 
- MODULE_DESCRIPTION("HiSilicon SoC uncore Performance Monitor driver framework");
- MODULE_LICENSE("GPL v2");
-diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-index c5f4764ee888..0ef2f6797109 100644
---- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-@@ -507,6 +507,7 @@ static void __exit hisi_sllc_pmu_module_exit(void)
- }
- module_exit(hisi_sllc_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon SLLC uncore PMU driver");
- MODULE_LICENSE("GPL v2");
- MODULE_AUTHOR("Shaokun Zhang <zhangshaokun@hisilicon.com>");
-diff --git a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-index 481dcc9e8fbf..9c724dab6b64 100644
---- a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-@@ -613,6 +613,7 @@ static void __exit hisi_uc_pmu_module_exit(void)
- }
- module_exit(hisi_uc_pmu_module_exit);
- 
-+MODULE_IMPORT_NS(HISI_PMU);
- MODULE_DESCRIPTION("HiSilicon SoC UC uncore PMU driver");
- MODULE_LICENSE("GPL");
- MODULE_AUTHOR("Junhao He <hejunhao3@huawei.com>");
 -- 
 2.24.0
 
