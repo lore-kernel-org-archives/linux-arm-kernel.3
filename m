@@ -4,96 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A165D4979A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0ACE6689A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDhrWjqsitQOm02p1yx3Crr6aSKeDzrUUQOFa0Mc4Mk=; b=sILsfSf0trs9PTIdfTnGHEyKxk
-	6nCosFcVRzO3hZA+c3C/Lc7OoazGw2CJd21id/YHAHQePOemlUkfGormj1Uja/caXKee/DZPHxeX3
-	2pp41qtIejLZN939zjlKaZvYCliD3tTG1VSCuqlMNiWD9PA00txN3dZwQStUoF3uMsMSikzYD55R/
-	Fu0DZCKMZVRAyt6m4qVi+ls9kcEjPyVj1dyMhVHICb1ZqCoza1BvqTyWjDbDaB1n2iWIzhuAwv8eN
-	RcRGmigclTZvQcrvhjdk8xsihalHAjZSNI26acuOV+vbg80eV6x2sWGZWfbrKxP/k633zsnaT0HUe
-	Gw9R6SPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=24kNbAf2DV9qqwNGoDvbA1XyQw+YLYxtcrmKEHcOfOI=; b=141eYA2VdTww+EiPIwziUoGL3N
+	QJzAzHhGgtCZpyyCgfw/d7ko9hW+pS0MXf0F2M3rojYL1+cRXduf3lRkpv2dk3X2slyvbth8M8b8V
+	Wf9Nqi7awYWmwddmtTvClKHsP7RpQKQ+rHWPbQciwSh2rt0/dny3GCtsxcDUYMB5i9gz359A2Pwsr
+	MnVvgXHH0g68Q3NSPDM2CKlvDl+zvfHpXZD/n/FF2ZnxGXZaZZhBSr4y84l8MyNBVTAanyXZr32dK
+	dg2RvhZTlim1xF9d1f2v4DFURNUpvnpN6DPNIj4TrBl5ihZE8w3Om2sSQ5A6Wy7RrnCfac5cB/vXL
+	DdzBOIvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPpU-000000091ps-2Jqz;
-	Tue, 03 Dec 2024 10:08:28 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tIPqt-00000009253-160m;
+	Tue, 03 Dec 2024 10:09:55 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPoU-000000091hl-3eEn
+	id 1tIPps-000000091v3-0FFh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:07:28 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434a852bb6eso48817355e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 02:07:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733220445; x=1733825245; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rDhrWjqsitQOm02p1yx3Crr6aSKeDzrUUQOFa0Mc4Mk=;
-        b=p70mRmfluqkmNJuJKuo+/FTwz2VZatsSxUCjNdMBlZycjPVpLU5sPpk8kw0CFET8/N
-         4slYfBlUap+9kxjwQY0aCvIUnhBfwhFRk70f0344MEy198UqFAA40av4jvrbZhOewDxJ
-         +Y0CLKj12GErnXwIQ4hiRi6KXrO0yUJctVuwXEQWz2HONNsM+iAETob5GluQnZFNpj4x
-         5vwKnEXWOiDS0cIN5CGeENRpOKOGmk+nj3/L4vw012GyaOLZjdYF8o38cmc1fUarT/Kr
-         kMIeEL1GSwroMh5u42mQVsx/ZhCfTvqFUxa2Ge1H+UGe56f++tfx4i5vHtI8L8koaeec
-         8wCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733220445; x=1733825245;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rDhrWjqsitQOm02p1yx3Crr6aSKeDzrUUQOFa0Mc4Mk=;
-        b=iG6F+QSUF41WVy8vLwI/3KxjPeMDpT6/wtQMrM8mrrOWD+5sla3HMY3Aw9crbE1Tpm
-         JiIjTs/4m6oXl7aOvhlGfM8whhkamSm3ab7aTmBQRJze/B/Sj/2COR2OkUjDJGePw70E
-         g4EiMts+f580ZsCKLyYFs51NAHYp38yKqsGrAuoWh5eIYHRg+5mvjXQvNF4hyepY9Z9h
-         clOFNSbpPhnJ3E7LFIYgk46VnbSqHYoIxoG71gzLO3syTH+C+J1UQ8mgW0lQPvkm7qCD
-         8bfsoDROp/5UKe/ybXtmzgtQNualxkx1+SB5nUlEUu6jgZ6+42KrSvQzbNDWDXDNrTcQ
-         JvhA==
-X-Forwarded-Encrypted: i=1; AJvYcCUykq8xAOLxrT2GqmODjfI7y0tm1+aZEhJwGC/CP1y7hssiBhH5eOnd4TGRSSSV5ZM+QwBmRJ8aSNFPC/IXq/Hl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoFQvgnyXLSK16DWq5XdL/rN5y1uxRstHRyEORis8bYW1hU7GG
-	dBvNAM2vimOnnx4GYB69kaOn+t3rp0x0KTtpgt/7/eXDbiJGpJc35z5XHRYHw34W1DHHZNDhAQf
-	eBfA=
-X-Gm-Gg: ASbGncuBtLZuXEuE6PhQTxNohO0ynynADy1Tre3j3K2L+4Dq+IsocvuH87gPjawKKhA
-	vKqtGDzIBcz/r32Do3TDX/Zepc0u+7KIOA2JlxgP1aPDma9+V77BiWAIQBR8enzcIaiKCrWXQ4G
-	fhtpNpKiAhjwKo6Lsp9J9Ahg71H5fLfwOlHaENw1xovdRjni9bD8VkN6Xgu6YFyGIXpZZpgxpic
-	6OhepiVroUCrOgfZ9gq3+lDbXac1rhKTtodoz0BgahOctU3hU0JKYk=
-X-Google-Smtp-Source: AGHT+IEX3CBzUR11qB9xMFFVxV7orqiKJB6nzE3kEEtb8duUyFuW0fDSGHNnay9m/wWpgm8QQt4SVg==
-X-Received: by 2002:a05:600c:1f8e:b0:434:9efd:26b0 with SMTP id 5b1f17b1804b1-434d09c0c12mr16633575e9.13.1733220445220;
-        Tue, 03 Dec 2024 02:07:25 -0800 (PST)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7e5b9csm215194865e9.43.2024.12.03.02.07.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 02:07:24 -0800 (PST)
-Message-ID: <b311b50e0f54959cd8dac1ef21dd798dd6204331.camel@linaro.org>
-Subject: Re: [PATCH 2/4] dt-bindings: power: supply: add max77759-fg flavor
- and don't require nvme address
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Thomas Antoine <t.antoine@uclouvain.be>, Sebastian Reichel
- <sre@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Dimitri Fedrau
- <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>,  Peter Griffin <peter.griffin@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Date: Tue, 03 Dec 2024 10:07:23 +0000
-In-Reply-To: <20588923-a660-49fe-8efb-766bee22f215@uclouvain.be>
-References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
-	 <20241202-b4-gs101_max77759_fg-v1-2-98d2fa7bfe30@uclouvain.be>
-	 <fe254a002000f2bbfbe51d074cf28f7427a27f9a.camel@linaro.org>
-	 <20588923-a660-49fe-8efb-766bee22f215@uclouvain.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	Tue, 03 Dec 2024 10:08:53 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D16EF1140109;
+	Tue,  3 Dec 2024 05:08:48 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Tue, 03 Dec 2024 05:08:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1733220528;
+	 x=1733306928; bh=24kNbAf2DV9qqwNGoDvbA1XyQw+YLYxtcrmKEHcOfOI=; b=
+	YoXQmWqadtJcnc70qtzKm40uS4bC/GMOkqoHIfm62TBcFDALwVW8juW5MgGEB1YQ
+	tgJHw9+OGZBNVVwQ0UbVK5Dza4i9Q0IGfWBsdOsbNo2r/fQVHqs9hhJEgSnAB8GT
+	efzOJT8a/fIxjn+1oiMumVD+i7gWD5u+++E/PF0NMIE6hKCW2z1yx9yn+OrVNmEN
+	AqTniePcXQXEvOHHNBjClcAJrrFWYf/apBuPg9p8/b798LxTqkhH9wh0Z4P6tZL/
+	5rSL08XNA4iPjHpzFc62bHAjvCmIkxfvLuRqMHxlmOOTRCwaokvNqFcw4mA5hfii
+	Rdip1ucVZoRT3F5JnvvRMw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733220528; x=
+	1733306928; bh=24kNbAf2DV9qqwNGoDvbA1XyQw+YLYxtcrmKEHcOfOI=; b=f
+	5q+31OlGFiGOXMEBuOCfkEe044TMNI5QHd4qIWUcwJo3oDqZBBOB0gTayYaj6ALl
+	Ju6UcKPwyHo2rFlvzgdCyBDtZUgQy+VgnPou6kF5XtgpaSpzHvBNflWN9TqdMbYb
+	+h+9BsD/bRvgN+NS7pTLw97dJuzKnoJg7ogWozO7DJScl3bXWHphYO0B9J0xD/4i
+	DiSAunJy4+iTeS6twSTuV8s1+0E7RkCKHZ8itmlVjCNQnRXv4GJe/9p1bT1y6jTh
+	WZx3uwxjWtgLPUcKObKlPT/bJWI7Vs2g7oYKgZ4V3Uj403Xqj2GPaTYHXj259Blw
+	jJ/+9WdiWhUgkFg++Dkcw==
+X-ME-Sender: <xms:sNhOZ6zHTtp7SjSpgoPJ5j15kSjKQeWRWKROl970_d0fW5Vdp5xG7w>
+    <xme:sNhOZ2SodT2n-rhOWy3WSuHDMQvr_qeMw_erFL-xujF4EX1M0CXqevdh3B7UPqmXq
+    6RhX4sWnshRQ4yaWto>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddriedvgdduvdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
+    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
+    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeipdhm
+    ohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidroh
+    hrghdruhhkpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordho
+    rhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinh
+    hfrhgruggvrggurdhorhhgpdhrtghpthhtohepjhhulhhirghnsehouhhtvghrqdhlihhm
+    ihhtshdrohhrghdprhgtphhtthhopehjvhgvthhtvghrsehouhhtvghrqdhlihhmihhtsh
+    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgv
+    lhdrohhrgh
+X-ME-Proxy: <xmx:sNhOZ8Xi8sv7AGW58kvqGWMlzGRGRBpRhD1QO5GOcB6Mki2N7Fys9w>
+    <xmx:sNhOZwj4pjYFhUOct2ToTKJUmpYXGfJpPdM0ifmWN4RzbCTLyoxOug>
+    <xmx:sNhOZ8CPkht2LHwOKdjB0PxRGzZMRh19aZ6PKviYTurgsye_mdWlDg>
+    <xmx:sNhOZxJRdPCYRfJbw_7sMVwi9279H1UTdnUK44wZOzyS3kkvFEBHVA>
+    <xmx:sNhOZ75q0xqZBGoOEAh_V4Sfd733ngs-lKLzef4mJMZlfInk_-gpDkoh>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 4DDE42220071; Tue,  3 Dec 2024 05:08:48 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+Date: Tue, 03 Dec 2024 11:08:17 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Julian Vetter" <jvetter@outer-limits.org>,
+ "Russell King" <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Julian Vetter" <julian@outer-limits.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>
+Message-Id: <609b026d-d54c-4a11-b7df-6ef0ac315f25@app.fastmail.com>
+In-Reply-To: <20241203083838.3260036-1-jvetter@outer-limits.org>
+References: <20241203083838.3260036-1-jvetter@outer-limits.org>
+Subject: Re: [PATCH] arm: Remove IO memcpy for Big-Endian
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_020726_925618_DE5940A2 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20241203_020852_483464_CD6F7295 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +114,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2024-12-03 at 10:32 +0100, Thomas Antoine wrote:
-> On 12/3/24 07:57, Andr=C3=A9 Draszik wrote:
-> > On Mon, 2024-12-02 at 14:07 +0100, Thomas Antoine via B4 Relay wrote:
-> > > From: Thomas Antoine <t.antoine@uclouvain.be>
-> > >=20
-> > > As the Maxim max77759 fuel gauge has no non-volatile memory slave add=
-ress,
-> > > make it non-obligatory. Except for this, the max77759 seems to behave=
- the
-> > > same as the max1720x.
-> >=20
-> > It also needs an interrupt line, and the previously mentioned shunt-
-> > resistor-micro-ohms, and probably a power supply.
->=20
-> I will try to add the interrupt line for v2. About the power supply, I
-> didn't see anything about it in the devicetree from Google. Even it
-> there is one, I guess it would be a single power supply for the whole
-> max77759, not just the fuel gauge. Wouldn't it be more logical to have an
-> mfd which activates the supply when other functions of the max77759 have
-> been implemented?
+On Tue, Dec 3, 2024, at 09:38, Julian Vetter wrote:
+> From: Julian Vetter <julian@outer-limits.org>
+>
+> Recently a new IO memcpy was added in libs/iomem_copy.c. So, remove the
+> byte-wise IO memcpy operations used in ARM big endian builds and fall
+> back to the new generic implementation. It will be slightly faster,
+> because it uses machine word accesses if the memory is aligned and falls
+> back to byte-wise accesses if its not.
+>
+> Signed-off-by: Julian Vetter <julian@outer-limits.org>
+> ---
+>  arch/arm/include/asm/io.h | 11 ----------
+>  arch/arm/kernel/io.c      | 46 ---------------------------------------
+>  2 files changed, 57 deletions(-)
 
-I've looked it up now and for power supply nothing indeed seems necessary.
+I'm not sure if this is safe on all platforms. Big-endian arm
+is extremely rare in practice, and in comes in multiple variants
+that behave slightly differently:
 
+- On modern ARMv7 the byte-invariant big-endian "BE8" mode
+  generally well-behaved and works as one would expect it to.
 
-Cheers,
-Andre'
+- There is one ARMv5 "BE32" based platform, the ixp4xx, which
+  works differently, and this in turn allows multiple configurations
+  for its buses where a byte-swap is performed in the PCI
+  controller.
 
+When the little-endian I/O string operations got optimized to
+calling the word-based helpers in commit 7ddfe625cbc1 ("ARM:
+optimize memset_io()/memcpy_fromio()/memcpy_toio()"), Russell
+intentionally left the big-endian versions alone, which I think
+was done for the case of PCI on ixp4xx, but could have been
+out of general caution.
+
+Before we apply your patch, I think the minimum would be to
+have Linus Walleij try it out on an an ixp4xx with a driver
+that uses these functions. Maybe Russell remembers the exact
+constraints that led to using byte access for big-endian
+mmio string operations, and whether the new lib/iomem_copy.c
+version causes problems.
+
+I also looked at the little-endian arm32 version, and
+it seems that here the generic code would work fine, but
+the custom variant is likely much faster when both the
+source and destination buffers are aligned, as it can
+do larger MMIO transactions using ldm/stm instructions,
+though the generic version would be a bit better if the
+in-memory buffer is unaligned.
+We could get the best of both by implementing optimized
+arm32 versions __iowrite32_copy()/__ioread32_copy and
+using those in the generic memcpy_{from,to}io.
+
+       Arnd
 
