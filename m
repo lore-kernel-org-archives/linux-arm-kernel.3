@@ -4,73 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12270E64AA3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE305E64AAA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6I/jTxWjwgLTjkEk8olI2grbbedbDAW6cOesFET5tGQ=; b=43/lAL55CThOXnYhC0iO5ERNe8
-	JMnct5/7Khn1/sQRTVtSZjfwjFWKm7e1oQ/4EOWNMAjOsV5nxLxEo+Dz9R7YUJ9wtTOzuTSgMl77z
-	g1SCnVB95VJjJcn5nxDci9kijbjSNrLeL7F3D7q/lADyUrJwLi43oYlvpLuHY5Rgn7QftL5oE6SQV
-	6MCu7KwXlNEbIZJNUzbc5prbnZrwYHDssviYJIxSztS56WaqZHXmx1CdBTH8j9fvfJJLN3v1AIR0a
-	Uyd8EO/tBgsPYZQJATMOc7JlzwPRZGhHqvZWJ8/Wg8eE3x1te5fUusM+rw8tB5Zr+NiEzBZFm/bEJ
-	f6sSTgZw==;
+	bh=Pj5SaA33rGzeah/pbmVRQIoqaIyNVExU4n/MvIb6OOM=; b=pRYvRj3cLYM0su2UhLGrq7ZCvh
+	KcMZ1mTgsD4iRC5Wyw2IWGBbwqjj1XJIvtKDLOaHBzVAa14Efj/jg5cFNG9CjLwEh1CZNoXq4IXKj
+	xr4KRd4BCNkLLl/7hsHbS1SfaAe4JPplMCHw2+SKrRB3QJup/BWaaZiFmLASb3C9x+UJH/qiffS38
+	dOP18M0liAaEsTTITVRo2ieAd2AQ2EbXK6ct+Om8E8AmjJ7y6/HLQZKsgqqNDOAarB2vslv6M+h8W
+	HqlFY5cpdqrHcyOZ4d6/aRw4+P34RV2mJV39cSvkoXyQ5pl6/0bvipRr/zhFVdydbFhKm9EGnxs0L
+	oM7ztEPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIT6u-00000009dVT-48sV;
-	Tue, 03 Dec 2024 13:38:40 +0000
-Received: from www530.your-server.de ([188.40.30.78])
+	id 1tITQq-00000009hz4-2Wjx;
+	Tue, 03 Dec 2024 13:59:16 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIT5t-00000009dHJ-3FxD
+	id 1tITPo-00000009hk3-3SfX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 13:37:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
-	s=default2211; h=Content-Type:MIME-Version:Message-ID:Date:References:
-	In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=6I/jTxWjwgLTjkEk8olI2grbbedbDAW6cOesFET5tGQ=; b=u75sQhoNYd14D/9cDtkKOIMuhp
-	1CnXgAILC58nVqEpN/UEsvNz5PlQ19wLgMBkC98SjBox7vw+xumHZ+ZHDp7bhmwC7N/cvFF2snqgB
-	SR96+t7wUEpGyYot+Fvve6FezzWXAzWqC4XnsxvwXdjTFWfmE1OA6q36b0LvacycZB6bOl3tDxz/p
-	0A1LAbDxYPyrZ8yyd+fxcutG/Y/fTwXYe00JZsc/YB0Eo+IduoOlB7uo//+WDFWlPYMbP7M4Y5r5c
-	oWk/MlxsQfr+zOf4wa2yKvedcvC7dPcp664P7GW7YTj/KGSStXSW2mZfR/qkEQqeWwORhqSN2sgU1
-	yEWLd8cA==;
-Received: from sslproxy04.your-server.de ([78.46.152.42])
-	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <esben@geanix.com>)
-	id 1tIT5p-0009sc-A6; Tue, 03 Dec 2024 14:37:33 +0100
-Received: from [185.17.218.86] (helo=localhost)
-	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <esben@geanix.com>)
-	id 1tIT5o-000OZv-34;
-	Tue, 03 Dec 2024 14:37:32 +0100
-From: Esben Haabendal <esben@geanix.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-rtc@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  Patrice Chotard
- <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH 4/6] rtc: st-lpc: Fix initial enable_irq/disable_irq
- balance
-In-Reply-To: <202412031325408acbe302@mail.local> (Alexandre Belloni's message
-	of "Tue, 3 Dec 2024 14:25:40 +0100")
-References: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com>
-	<20241203-rtc-uie-irq-fixes-v1-4-01286ecd9f3f@geanix.com>
-	<202412031325408acbe302@mail.local>
-Date: Tue, 03 Dec 2024 14:37:32 +0100
-Message-ID: <87h67klwf7.fsf@geanix.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Tue, 03 Dec 2024 13:58:14 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3000b64fbe9so7361131fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 05:58:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733234291; x=1733839091; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Pj5SaA33rGzeah/pbmVRQIoqaIyNVExU4n/MvIb6OOM=;
+        b=s818AmeS39MkwXYukcRAe14A7uI9OgdDnePsMtXLujAzNn0GFi8htR7xOZkW1jHszM
+         QmppNn2LCuK/sQo2q16n3xqeM2qP1mKWdDIEZ49BsqB1FXAJhrT1bodAETIE1lvfzLNz
+         TG6x6c+47EBlOcKh8/gVKcDQpOs4vtslpFcPuniK4lkYft0uz2IFBiVFyjmVZfKSTYSQ
+         uAH8oGMGsQ3TYLx0qPNNy6ozBKC6rRHNCXMyc+zIpu8fonbezf2CMCwHfyNf3uBxxtVi
+         abnJ6OmG+LifVwkmwnXLCFNvSkQ9cfRa1WalVsMBCc3I+eJ5z/mhX2qARhqMoMyTFOlj
+         KzJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733234291; x=1733839091;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Pj5SaA33rGzeah/pbmVRQIoqaIyNVExU4n/MvIb6OOM=;
+        b=ngt4Z49aX7l4TkX7iaByoWZ2Sv5gsCnToTzk1HMvdOkjX0CrdFPyD/zdFYHu44gJSB
+         J+ikJWCFrUV0opIXJxFSVDef1aFXdu2rceWT5eNjVSpwDtrpulXKZ0xiX8uvSFBJhpJB
+         DCtPJghI0mRrYaXXdrLHy5xhgW5tLRXs9us+mmil/iA90SZw9giDInpu7rxzG21PT0Zd
+         wo2blOVG9SeBtF2tyNLoXbhpp+z/rerY0P9kRDnsKvr1Q2nnPY26jpMeTIiLRqSDDyhd
+         /fKSPQxq6x43bWFon9cBaC2nomOYtMy34oht4bkcpVOzwBoD5K3YjOmRVhaLJgjQP2C4
+         TNHA==
+X-Forwarded-Encrypted: i=1; AJvYcCX8VxdidjW5JqS1KYmeiY5xQN+nbpZ5XodNVr0KTvJllHmLhtHcSQmUB5wNYAphcck5usZSTKrCHXraPqnENH4f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5plmckhA1IEb/3Xn1Zn99lBroyPhjv+vCPL7O08iUReDgjmy2
+	j31WeTCmI9njlDdrjble5lbaxG38u2aRY9zRctaoUn95FKgVgb6f4ap4xPZMHoU=
+X-Gm-Gg: ASbGncuHMmMeTS/1S5dXrFUiIC+1ZhEF/kWp7oyiQCUFSAFWTlXPij3M+x/5X4xU1/W
+	xV9dzfYYCK2KYBvv3bprSS16hy20tG4+35h3C5kih/n+Q1tYVBhRMgh/y7A596jKzGVc6SW7KR/
+	WDEGnsVWxpQMCAHbaYel2HR8FbqHXlCbiXLBLeWo6Y28NbJvpJ0YhJAuY4nW+GQ3Bn18HFkFQmz
+	TgzWP9yJ7xZaw6152hJK7Sbq1BIOzN/0J2o9XzH5nJO0dkLq1In4+BiXfAO8TYxRP4SV7ZWH2A9
+	T92tvEZluGmeyHAK/ijqDJ8HCKMYYA==
+X-Google-Smtp-Source: AGHT+IHfqup3wRu/YlQwHjftG9hZZW4Odf6KSlTWBL24IqkfpJKbOUgrh1DX0z2m6JH7KpitaUiUxw==
+X-Received: by 2002:a05:6512:2810:b0:53d:cf78:f240 with SMTP id 2adb3069b0e04-53e12a2e9bcmr1842991e87.35.1733234290592;
+        Tue, 03 Dec 2024 05:58:10 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df6496a43sm1829234e87.213.2024.12.03.05.58.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Dec 2024 05:58:09 -0800 (PST)
+Date: Tue, 3 Dec 2024 15:58:07 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Abhinav Kumar <quic_abhinavk@quicinc.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Xinhui Pan <Xinhui.Pan@amd.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Phong LE <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>, 
+	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Rob Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, Alain Volmat <alain.volmat@foss.st.com>, 
+	Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH 07/10] drm/msm/dp: use eld_mutex to protect access to
+ connector->eld
+Message-ID: <n2zmw4wquxzht6gvlx6yjurpobgwlsryh75n5gw65j5vjclhgr@jqubqjispqsr>
+References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
+ <20241201-drm-connector-eld-mutex-v1-7-ba56a6545c03@linaro.org>
+ <ca906dc4-ac72-4a76-a670-36c011c853c9@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Authenticated-Sender: esben@geanix.com
-X-Virus-Scanned: Clear (ClamAV 0.103.10/27476/Tue Dec  3 10:52:11 2024)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ca906dc4-ac72-4a76-a670-36c011c853c9@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_053738_095708_3D49DC10 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20241203_055812_871614_8881C8E9 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +119,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alexandre Belloni <alexandre.belloni@bootlin.com> writes:
+On Mon, Dec 02, 2024 at 07:27:45PM -0800, Abhinav Kumar wrote:
+> 
+> 
+> On 11/30/2024 3:55 PM, Dmitry Baryshkov wrote:
+> > Reading access to connector->eld can happen at the same time the
+> > drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
+> > order to protect connector->eld from concurrent access.
+> > 
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > ---
+> >   drivers/gpu/drm/msm/dp/dp_audio.c | 2 ++
+> >   1 file changed, 2 insertions(+)
+> > 
+> 
+> Reviewed-by: Abhinav Kumar <quic_abhinavk@quicinc.com>
 
-> On 03/12/2024 11:45:34+0100, Esben Haabendal wrote:
->> Interrupts are automatically enabled when requested, so we need to
->> initialize irq_enabled accordingly to avoid causing an unbalanced enable
->> warning.
->> 
->> To: Patrice Chotard <patrice.chotard@foss.st.com>
->> Signed-off-by: Esben Haabendal <esben@geanix.com>
->> ---
->>  drivers/rtc/rtc-st-lpc.c | 1 +
->>  1 file changed, 1 insertion(+)
->> 
->> diff --git a/drivers/rtc/rtc-st-lpc.c b/drivers/rtc/rtc-st-lpc.c
->> index c6d4522411b312f94de2701ff4ff491e5323aa96..dbc2c23bca23f5de6de3fd4b39c9c67290bfd78d 100644
->> --- a/drivers/rtc/rtc-st-lpc.c
->> +++ b/drivers/rtc/rtc-st-lpc.c
->> @@ -218,6 +218,7 @@ static int st_rtc_probe(struct platform_device *pdev)
->>  		return -EINVAL;
->>  	}
->>  
->> +	rtc->irq_enabled = true;
->>  	ret = devm_request_irq(&pdev->dev, rtc->irq, st_rtc_handler,
->>  			       IRQF_NO_AUTOEN, pdev->name, rtc);
->
-> Seeing the IRQF_NO_AUTOEN here, I guess the patch is not correct.
+Ack to merge through drm-misc?
 
-I guess you are right :)
-Sorry about that. I only have HW available for testing the rtc-isl12022
-driver here.
-
-This patch should be dropped.
-
->
->>  	if (ret) {
->> 
->> -- 
->> 2.47.1
->> 
+-- 
+With best wishes
+Dmitry
 
