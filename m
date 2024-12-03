@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C165E74AC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2B2E74AC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t1F52j19RSTD/ExLTuDEtZGAnpbJL/8p4C5yMUPDC6w=; b=TidIQWYpneMOmuT7Syx03GvogX
-	BOm9jwQitR1Av4AJkCt1hB/tDB/z0jNU29GvuK48bTV8VqIYMneQmLuQ195Jjfo3XInSK74ZzS6bT
-	vzXLc3IpDUKeHSzRSGgeNRsuln+7CFBBNYQNagNqWfp2UEIYD2Lgr+HM5Sq90CkH8NN6dfcLdxtf9
-	8PG9PtWLzWIhFE3WHEuElY/24jqkNSME8AF7tAdenL2RpHB2PROFFxXAK4G4PAIWptRPlWBj7iTQ8
-	6m1IHZpTXWwPwLdS3xKkn7bu347OLD8qv53emNiTrABGrme/Svv/6F0Uofh+skkm3y7yseLD2ENXD
-	JLFkuS1g==;
+	bh=ijxdRyc4mcLKg9rm6BGoJB0JmRAT0XsjGWyvMWN6qBk=; b=enbtyGV/sRxTzt9L758QhUiwGO
+	7VGFoadmKWnigRWbVC4mhagdMgjs5Bj3GdEZkScq/0AbBtBILtzvu30v2Bnt97Cr3MQ9EGcISZf42
+	PgVsCdKRhhfUA/vka0ftfTgccN8nNcoq3LVOrff7pcxO7MQQwqg9rXHBCqlUcDugD1JsOLtd87yAb
+	UNNXmSMBfXyVcDq1N21y702MDI0KP5EVYr31nhuiECmFAdHIGAqvg5TfP/kewV8MyJDAtARSnADcI
+	eqzi7fZBoBGZAs16xAbS4+FlevTX2ohl2E5I97h5yZj6/sIz7TrvufHpc+n2mMq10rqG1bRqvvhfa
+	uLdtLKpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYig-0000000AV7Q-2JXw;
-	Tue, 03 Dec 2024 19:38:02 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1tIYjf-0000000AVF7-0r5Z;
+	Tue, 03 Dec 2024 19:39:03 +0000
+Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYdu-0000000ATzD-1Kpe
+	id 1tIYdx-0000000AU03-0EZu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 19:33:07 +0000
+	Tue, 03 Dec 2024 19:33:10 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733254383;
+	t=1733254386;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=t1F52j19RSTD/ExLTuDEtZGAnpbJL/8p4C5yMUPDC6w=;
-	b=Q17xuwtDEnz5rIDgxkxgURhIqVhXITW/UTuzU8ku5sdnW1zW0hsNU+4sv8/QxV8UmonHq4
-	uCPaBwEL6XpqJtKffTrnZojVHOhIAlvySPMJZW25I8TDVa0yTPi5dnfwE7nh13XAzanhPi
-	zgo9C1rQfEeu+4ecBlnLNxdfm5vgwqE=
+	bh=ijxdRyc4mcLKg9rm6BGoJB0JmRAT0XsjGWyvMWN6qBk=;
+	b=sluqRxvyoiZ4T+cA7m4vf4UtDNvz8FiYrPEq+xwCByoIHPK3Mnb3KQkCTpdGmzLYoC8Lks
+	aHDgFaQGVg4lKw27Sz9K+s46Zu32yq+VSmk2vYfpSCMirtKaNfzFShx7DAWCgPbTP1AZk/
+	wNZeXdiHcR2RmQDKPqgjf8AcHT0sNL0=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [RFC PATCH 04/14] KVM: arm64: Compute PMCEID from arm_pmu's event bitmaps
-Date: Tue,  3 Dec 2024 11:32:10 -0800
-Message-Id: <20241203193220.1070811-5-oliver.upton@linux.dev>
+Subject: [RFC PATCH 05/14] KVM: arm64: Always allow fixed cycle counter
+Date: Tue,  3 Dec 2024 11:32:11 -0800
+Message-Id: <20241203193220.1070811-6-oliver.upton@linux.dev>
 In-Reply-To: <20241203193220.1070811-1-oliver.upton@linux.dev>
 References: <20241203193220.1070811-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_113306_493233_99C7852F 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20241203_113309_241869_72744C6D 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,85 +78,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMUv3 driver populates a couple of bitmaps with the values of
-PMCEID{0,1}, from which the guest's PMCEID{0,1} can be derived. This
-is particularly convenient when virtualizing PMUv3 on IMP DEF hardware,
-as reading the nonexistent PMCEID registers leads to a rather unpleasant
-UNDEF.
+The fixed CPU cycle counter is mandatory for PMUv3, so it doesn't make a
+lot of sense allowing userspace to filter it. Only apply the PMU event
+filter to *programmed* event counters.
+
+While at it, use the generic CPU_CYCLES perf event to back the cycle
+counter, potentially allowing non-PMUv3 drivers to map the event onto
+the underlying implementation.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/kvm/pmu-emul.c | 47 ++++++++++++++++++++++++++++++---------
- 1 file changed, 36 insertions(+), 11 deletions(-)
+ arch/arm64/kvm/pmu-emul.c | 35 +++++++++++++++++++----------------
+ 1 file changed, 19 insertions(+), 16 deletions(-)
 
 diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 456102bc0b55..809d65b912e8 100644
+index 809d65b912e8..3e7091e1a2e4 100644
 --- a/arch/arm64/kvm/pmu-emul.c
 +++ b/arch/arm64/kvm/pmu-emul.c
-@@ -861,8 +861,42 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	return pmu;
+@@ -707,26 +707,27 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 	evtreg = kvm_pmc_read_evtreg(pmc);
+ 
+ 	kvm_pmu_stop_counter(pmc);
+-	if (pmc->idx == ARMV8_PMU_CYCLE_IDX)
++	if (pmc->idx == ARMV8_PMU_CYCLE_IDX) {
+ 		eventsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
+-	else
++	} else {
+ 		eventsel = evtreg & kvm_pmu_event_mask(vcpu->kvm);
+ 
+-	/*
+-	 * Neither SW increment nor chained events need to be backed
+-	 * by a perf event.
+-	 */
+-	if (eventsel == ARMV8_PMUV3_PERFCTR_SW_INCR ||
+-	    eventsel == ARMV8_PMUV3_PERFCTR_CHAIN)
+-		return;
++		/*
++		 * If we have a filter in place and that the event isn't
++		 * allowed, do not install a perf event either.
++		 */
++		if (vcpu->kvm->arch.pmu_filter &&
++		    !test_bit(eventsel, vcpu->kvm->arch.pmu_filter))
++			return;
+ 
+-	/*
+-	 * If we have a filter in place and that the event isn't allowed, do
+-	 * not install a perf event either.
+-	 */
+-	if (vcpu->kvm->arch.pmu_filter &&
+-	    !test_bit(eventsel, vcpu->kvm->arch.pmu_filter))
+-		return;
++		/*
++		 * Neither SW increment nor chained events need to be backed
++		 * by a perf event.
++		 */
++		if (eventsel == ARMV8_PMUV3_PERFCTR_SW_INCR ||
++		    eventsel == ARMV8_PMUV3_PERFCTR_CHAIN)
++			return;
++	}
+ 
+ 	memset(&attr, 0, sizeof(struct perf_event_attr));
+ 	attr.type = arm_pmu->pmu.type;
+@@ -877,6 +878,8 @@ static u64 compute_pmceid0(struct arm_pmu *pmu)
+ 
+ 	/* always support CHAIN */
+ 	val |= BIT(ARMV8_PMUV3_PERFCTR_CHAIN);
++	/* always support CPU_CYCLES */
++	val |= BIT(ARMV8_PMUV3_PERFCTR_CPU_CYCLES);
+ 	return val;
  }
- 
-+static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
-+{
-+	u32 hi[2], lo[2];
-+
-+	bitmap_to_arr32(lo, pmu->pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
-+	bitmap_to_arr32(hi, pmu->pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
-+
-+	return ((u64)hi[pmceid1] << 32) | lo[pmceid1];
-+}
-+
-+static u64 compute_pmceid0(struct arm_pmu *pmu)
-+{
-+	u64 val = __compute_pmceid(pmu, 0);
-+
-+	/* always support CHAIN */
-+	val |= BIT(ARMV8_PMUV3_PERFCTR_CHAIN);
-+	return val;
-+}
-+
-+static u64 compute_pmceid1(struct arm_pmu *pmu)
-+{
-+	u64 val = __compute_pmceid(pmu, 1);
-+
-+	/*
-+	 * Don't advertise STALL_SLOT*, as PMMIR_EL0 is handled
-+	 * as RAZ
-+	 */
-+	val &= ~(BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT - 32) |
-+		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND - 32) |
-+		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_BACKEND - 32));
-+	return val;
-+}
-+
- u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
- {
-+	struct arm_pmu *cpu_pmu = vcpu->kvm->arch.arm_pmu;
- 	unsigned long *bmap = vcpu->kvm->arch.pmu_filter;
- 	u64 val, mask = 0;
- 	int base, i, nr_events;
-@@ -871,19 +905,10 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
- 		return 0;
- 
- 	if (!pmceid1) {
--		val = read_sysreg(pmceid0_el0);
--		/* always support CHAIN */
--		val |= BIT(ARMV8_PMUV3_PERFCTR_CHAIN);
-+		val = compute_pmceid0(cpu_pmu);
- 		base = 0;
- 	} else {
--		val = read_sysreg(pmceid1_el0);
--		/*
--		 * Don't advertise STALL_SLOT*, as PMMIR_EL0 is handled
--		 * as RAZ
--		 */
--		val &= ~(BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT - 32) |
--			 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND - 32) |
--			 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_BACKEND - 32));
-+		val = compute_pmceid1(cpu_pmu);
- 		base = 32;
- 	}
  
 -- 
 2.39.5
