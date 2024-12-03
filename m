@@ -4,51 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C79CE74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C0EE74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31p2KCGlZnELuu+jIu1s94gjTesBViipZ7NRxxkjvrQ=; b=ax82DVeWWOOEuIuljCZVq3FLjH
-	W3Mj00pB+VuFVHwr0ShhTo6rvbFvVsX7XMUaOgMVPXn+z4jjZVTCKCZZbwT3MFPzgKLofjHgaJZgO
-	yN/evqGUOm2DKz27sLTJJh8z9syyFWycWY1AGvhA62nIGZIuWGKiko/mqeft2p+S2i+xr2UhztTIm
-	HwnU7PL6gzlfNwEGAm32XwTr3h3bqrAq/pSpyXsjFoHR95F72CKByJ8MS9DytvP1dzv+CPj9owQue
-	zPOxvcC9a9x8qqyTbe1DPmMqIu0rUPJWlNY9W+be1krZiibmUJFyHyU2tb4G/A10U0mCEt1vOgiOV
-	GSPOhhcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SMMOxX/cF7Xb/l1gaQLrU4Pzf2WwR+2hpnP6JvsXT20=; b=bIE0JCggp4J47qR0Ani5tkEG8N
+	+vY37p7QzFlPnb1f37AutcIZtLFG/D5Ql1VKIpFnzaUu0EG3z7wN98QxSWQAn0BN2LaYSEE4v3S9u
+	R8QgoxkUNLl0z4Am5cW622RLELx9V7qa4x5caVJS6u2hJb3Xm5gEbA8VAyuk6lxaE9zfZSds8bAPM
+	dcCw4jaHY7lU5vknc1dPSkCQMLHCIQq9lIEIw+moVJnHkzIERplECq9hWkEsaj3okGwmd7fA88/Vd
+	AVyeiHacODLrqEPNxhUmRARbSx4qBswCGAx/36SIKsq2Zz6dZkc1ojfUpCbpzCCX3F76VXHM9ZDGx
+	WgtSqRng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVgO-0000000A5AH-277G;
-	Tue, 03 Dec 2024 16:23:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVfN-0000000A52u-3wlQ
+	id 1tIVhN-0000000A5My-0UJN;
+	Tue, 03 Dec 2024 16:24:29 +0000
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIVgM-0000000A58o-1kmX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 16:22:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DB49FEC;
-	Tue,  3 Dec 2024 08:22:51 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 990B23F71E;
-	Tue,  3 Dec 2024 08:22:22 -0800 (PST)
-Date: Tue, 3 Dec 2024 16:22:20 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>
-Subject: Re: [PATCH] arm64: Ensure bits ASID[15:8] are masked out when the
- kernel uses 8-bit ASIDs
-Message-ID: <Z08wPAbb1SGYJfdH@J2N7QTR9R3.cambridge.arm.com>
-References: <20241203151941.353796-1-catalin.marinas@arm.com>
+	Tue, 03 Dec 2024 16:23:27 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:829d:a1e7:5b32:5d8e])
+	by laurent.telenet-ops.be with cmsmtp
+	id kGPJ2D00L3sLyzB01GPJFm; Tue, 03 Dec 2024 17:23:22 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tIVgE-000DSa-NC;
+	Tue, 03 Dec 2024 17:23:18 +0100
+Received: from geert by rox.of.borg with local (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tIVgE-00AOqD-K5;
+	Tue, 03 Dec 2024 17:23:18 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] gpio: GPIO_MVEBU should not default to y when compile-testing
+Date: Tue,  3 Dec 2024 17:23:16 +0100
+Message-Id: <6b9e55dbf544297d5acf743f6fa473791ab10644.1733242798.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241203151941.353796-1-catalin.marinas@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_082226_020638_791A5CDF 
-X-CRM114-Status: GOOD (  22.46  )
+X-CRM114-CacheID: sfid-20241203_082326_595169_20BDA0C9 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,58 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 03:19:41PM +0000, Catalin Marinas wrote:
-> Linux currently sets the TCR_EL1.AS bit unconditionally during CPU
-> bring-up. On an 8-bit ASID CPU, this is RES0 and ignored, otherwise
-> 16-bit ASIDs are enabled. However, if running in a VM and the hypervisor
-> reports 8-bit ASIDs (ID_AA64MMFR0_EL1.ASIDBits == 0) on a 16-bit ASIDs
-> CPU, Linux uses bits 8 to 63 as a generation number for tracking old
-> process ASIDs. The bottom 8 bits of this generation end up being written
-> to TTBR1_EL1 and also used for the ASID-based TLBI operations as the
-> upper 8 bits of the ASID. Following an ASID roll-over event we can have
-> threads of the same application with the same 8-bit ASID but different
-> generation numbers running on separate CPUs. Both TLB caching and the
-> TLBI operations will end up using different actual 16-bit ASIDs for the
-> same process.
-> 
-> A similar scenario can happen in a big.LITTLE configuration if the boot
-> CPU only uses 8-bit ASIDs while secondary CPUs have 16-bit ASIDs.
-> 
-> Ensure that the ASID generation is only tracked by bits 16 and up,
-> leaving bits 15:8 as 0 if the kernel uses 8-bit ASIDs. Note that
-> clearing TCR_EL1.AS is not sufficient since the architecture requires
-> that the top 8 bits of the ASID passed to TLBI instructions are 0 rather
-> than ignored in such configuration.
-> 
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: <stable@vger.kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: James Morse <james.morse@arm.com>
+Merely enabling compile-testing should not enable additional
+functionality.
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+Fixes: 956ee0c5c969c9ca ("gpio: mvebu: allow building the module with COMPILE_TEST=y")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ drivers/gpio/Kconfig | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Mark.
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index f483201637062cab..d371ce2578ee9703 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -491,8 +491,9 @@ config GPIO_MT7621
+ 	  Say yes here to support the Mediatek MT7621 SoC GPIO device.
+ 
+ config GPIO_MVEBU
+-	def_bool y
++	bool "Marvell Orion and EBU GPIO support" if COMPILE_TEST
+ 	depends on PLAT_ORION || ARCH_MVEBU || COMPILE_TEST
++	default PLAT_ORION || ARCH_MVEBU
+ 	select GENERIC_IRQ_CHIP
+ 	select REGMAP_MMIO
+ 
+-- 
+2.34.1
 
-> ---
->  arch/arm64/mm/context.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index 188197590fc9..b2ac06246327 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -32,9 +32,9 @@ static unsigned long nr_pinned_asids;
->  static unsigned long *pinned_asid_map;
->  
->  #define ASID_MASK		(~GENMASK(asid_bits - 1, 0))
-> -#define ASID_FIRST_VERSION	(1UL << asid_bits)
-> +#define ASID_FIRST_VERSION	(1UL << 16)
->  
-> -#define NUM_USER_ASIDS		ASID_FIRST_VERSION
-> +#define NUM_USER_ASIDS		(1UL << asid_bits)
->  #define ctxid2asid(asid)	((asid) & ~ASID_MASK)
->  #define asid2ctxid(asid, genid)	((asid) | (genid))
->  
 
