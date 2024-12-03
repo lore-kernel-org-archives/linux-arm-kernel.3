@@ -4,80 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A151E74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040B6E74AC2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxF1YtbxctjOgLe3e+5LAqOGqmoJ7n+8c9ePfvewlDs=; b=Xp0W/XWNsEJHXC9RkFWaY5RBNb
-	D2Z3swCJ4oIGQxp2BDto9JReaLqYR6kh1Ngu0VRxYoP6boawZjVuYtyhym76Nij3WOLRQVFecf1jj
-	vRNtONjogWqGAOOA7D2Ih4g4cbE9g8eNyH6qhwfajWZUG0Xsfz25sq0pMWKM4JHkLZPsEuLBdxhr4
-	I5zAhfDkRl2GivUQCc3AhRiBiN6qZt1Rc30X0uwvBjhLi7BAv+xHPoC68PqNoT/QFCxsLitaFlkYp
-	aBrzGrvQZvz/WiGwYKWrW8faZYvCIuLFjNNTgaoAz9mEpNdp3dYYucQ0aePxAEfPrFs0va3Rs1lyt
-	bPJDFHeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NA5nU2Vd4Cr3takSlNTHL5m15aLLN71NSVIMs5qo4U0=; b=SuIdgLirdJGeIBpwLd06CHBOTm
+	zYpfUe+NPaugkXvAAhSaV3VqUwbj3htuPofV84w10cjZerh6yJr1tSkvgzVvCODsN027BRdkVprIO
+	2EP6vLtlj9IB1UBS3rgrV4My5kCZoHT6J8hi9+rs+abFi9aK0q+tm28j9VPcoq3Q2vNCToQoelLYm
+	QPYHLeJ+hSX/ttkjn41cgvjO8RTDte9MM8+sDRdndcXnDtchMfgl0myQSCLpoqopstv5i+EN/cXgT
+	TKUWZK4e4uPvACxkTEkofZtrcT/RL2gDRt0RotGH3kFw8JlzgAwWIzeSAbRGofol9K80bPT/bbF8j
+	KQmw8oLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVuW-0000000A7Pe-1C8r;
-	Tue, 03 Dec 2024 16:38:04 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tIVy5-0000000A7yp-0H8k;
+	Tue, 03 Dec 2024 16:41:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVtV-0000000A7E3-391c;
-	Tue, 03 Dec 2024 16:37:02 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733243819;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HxF1YtbxctjOgLe3e+5LAqOGqmoJ7n+8c9ePfvewlDs=;
-	b=ZFy87LnXgxMe5bIwTwB4SVdDCSlcxqDM5Dwg3iZ8DiJODrOVGAZoQBBdLtoXDjt7JG0wKP
-	mTN7fvMltxJ83iJSbYgKO8MderplffT0fOTfQB2/Wtntej162k8sEI5zkBAjxQi2zIHnl8
-	BxFPwripxKWqXWIELnCObC6BQbbFI8mURLp0hdAxRn8umpG/RD/LZ0fbGMRkbRKIvp6ddC
-	57glirNfQobi0tK8mH+8iNULQWU1v1HVw88nIrYfvKEwkDgKvrtvlvZOlafyDfnHl4x77X
-	Quw8iMqSljd30mOQ7x1HQpzooupKG8wmDhqSOvDvriiZLNSWQdTg8cuMFNk8ZQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733243819;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HxF1YtbxctjOgLe3e+5LAqOGqmoJ7n+8c9ePfvewlDs=;
-	b=51K1fTOkCTCXZgTFGRDR/uHKZh8KeFOlAsYai8RG5Iq9JQAuG5x/cvB3XaojGxxMqrjr49
-	ScBrmG+vuWWtr/Cg==
-To: "Farber, Eliav" <farbere@amazon.com>, "linux@armlinux.org.uk"
- <linux@armlinux.org.uk>, "catalin.marinas@arm.com"
- <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "npiggin@gmail.com"
- <npiggin@gmail.com>, "christophe.leroy@csgroup.eu"
- <christophe.leroy@csgroup.eu>, "naveen@kernel.org" <naveen@kernel.org>,
- "maddy@linux.ibm.com" <maddy@linux.ibm.com>, "paul.walmsley@sifive.com"
- <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "bhe@redhat.com"
- <bhe@redhat.com>, "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
- "sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
- "adityag@linux.ibm.com" <adityag@linux.ibm.com>,
- "songshuaishuai@tinylab.org" <songshuaishuai@tinylab.org>,
- "takakura@valinux.co.jp" <takakura@valinux.co.jp>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
- <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Cc: "Chocron, Jonathan" <jonnyc@amazon.com>
-Subject: RE: [PATCH v5 1/2] kexec: Consolidate
- machine_kexec_mask_interrupts() implementation
-In-Reply-To: <077908c5f02545f0a9e02ae77cbd771c@amazon.com>
-References: <077908c5f02545f0a9e02ae77cbd771c@amazon.com>
-Date: Tue, 03 Dec 2024 17:36:59 +0100
-Message-ID: <87ed2ou3is.ffs@tglx>
+	id 1tIVx6-0000000A7qX-2eah
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Dec 2024 16:40:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=NA5nU2Vd4Cr3takSlNTHL5m15aLLN71NSVIMs5qo4U0=; b=c5ezznB2pbWo6ziifxnIquxbLV
+	GqBb3pERzfL/+wrET1Ua3a7G5jO54X9P4qamO/JgySfkrR6fqNi1euNV5fEK9RqUCYsHzRWEQ4LMR
+	vy1tUi5IuO51CpDq/eaHWEJPocwmUX0eBAW9hw7n54Fr+Me0BOywGiZjmu89YDfS6rSX8oqbai1zX
+	1jWJG7lS20wo+0h2qnEklxnbMxqjdBgl9tecEpdCeyOfzJTgHn/OX2HKdUvMlCkLxzABzJKOUUh4n
+	6gCU2ELjmhdgtrOfSOk5HvcBaJFAEvbejTE3cl+Mhlh3BDCQz36QZrNF/W85ntaHYZW6v7g2/cCYw
+	9Y7i1s/Q==;
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIVx3-00000002QUj-2WIl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Dec 2024 16:40:43 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4B3GeX8L1911581
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 3 Dec 2024 10:40:33 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733244033;
+	bh=NA5nU2Vd4Cr3takSlNTHL5m15aLLN71NSVIMs5qo4U0=;
+	h=From:To:CC:Subject:Date;
+	b=zVAqtSjPqmM7yBmQehi/Wpfg3wQHyk9CWsfhVAqRskCcs8OK5d4il3+7cUwMXHXXU
+	 R4qOW7IzFihd79iIDfcFIqgLbM34F+jXE/iXPGRMqX/X0/JX6ZKPGE4Xsi/YhFFRxc
+	 dKiE8kmLhy6lHHGMfmebGyPpK3qfVVMTi3k3ZMY0=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B3GeXHr051919
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 3 Dec 2024 10:40:33 -0600
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
+ Dec 2024 10:40:33 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 3 Dec 2024 10:40:32 -0600
+Received: from lelvsmtp5.itg.ti.com ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B3GeWal035675;
+	Tue, 3 Dec 2024 10:40:32 -0600
+From: Andrew Davis <afd@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+        Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-am625-sk: Remove M4 mailbox node redefinition
+Date: Tue, 3 Dec 2024 10:40:31 -0600
+Message-ID: <20241203164031.20211-1-afd@ti.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_083701_923749_4D1E5E95 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20241203_164041_883023_27288198 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03 2024 at 12:55, Eliav Farber wrote:
-> On 12/3/2024 1:04 PM, Thomas Gleixner wrote:
->>> +
->>> +config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
->>> +     bool "Clear forwarded VM interrupts during kexec"
->>
->> This should not be user selectable. Just keep it as:
->>
->> config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
->>         bool
->>
->> which defaults to 'n'. Just add a comment what this is about like it's
->> done with the other options in that file which are only selectable.
-> Question: Should this new configuration option be placed inside or
-> outside the following section:
-> ```
-> menu "IRQ subsystem"
->
->
-> endmenu
-> ```
-> In my patch, I have added the new configuration option at the end of
-> the file, outside the "IRQ subsystem" section.
+This node is already defined in the included k3-am62x-sk-common.dtsi.
+Remove this redefinition.
 
-It does not really matter when the option is silent, but keeping it in
-the menu section as the others is the most intuitive IMO.
+Signed-off-by: Andrew Davis <afd@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am625-sk.dts | 7 -------
+ 1 file changed, 7 deletions(-)
 
-Thanks,
-
-        tglx
-
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk.dts b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+index ae81ebb39d02d..2fbfa37193457 100644
+--- a/arch/arm64/boot/dts/ti/k3-am625-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+@@ -219,13 +219,6 @@ cpsw3g_phy1: ethernet-phy@1 {
+ 	};
+ };
+ 
+-&mailbox0_cluster0 {
+-	mbox_m4_0: mbox-m4-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
+-	};
+-};
+-
+ &fss {
+ 	bootph-all;
+ };
+-- 
+2.39.2
 
 
