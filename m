@@ -4,60 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C0CE64A84
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F56FE64A83
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJdm7vRk6DNiTL3uy27dDoX34LPgWJ/qCvSsVN0vQuw=; b=eLQmcIYOu+3TE5JUa4kRQdZOVl
-	FJF9QT3qqufiK+D37YGOsK36kjt4QsmGmjOd/b/aIHo9WD+JlNIxraWHXHazGMOcNnW+WmBIda3Ex
-	WVF0XfzkqOIuHioXlh7qRUn/TYSHHIWPWM23cpaJ0gq/HH4nqrBVPUaAL3Bnrc9NMjoQtP6Hlfk+9
-	yATxKL1DenbQB1HD7umDJwvTsZ8X3D93GwbZsALT/6upGwI8f5DKojcgISY2Br1jRiDuF5vvBAjzC
-	41qhjWc1qPLzWT7wDlmShuYnmwkONWMZh6mhX+vli/Jp657IK5G2Y2CcBUX4ghoCiDz5detsEEsaT
-	j3rzFfXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/L0nZeVoM/M1WQHLHUkupKPloHUMj3UDCyWWQm5c+xI=; b=vSJhUjRliJbhGMtUgBr6VUE0bV
+	laANQY5RacWLCz84xUGSAexIMTN1CpfitKQpLV349Vg0CSt7ydAjq8mqhnw+K4YtzGYSYgBElURi4
+	BCG0+RSgI3VnXgsZr9ojxajJr0zVCFDJ1BjBgZLJD7LQD4GM06djHHt0ovG6CW0ARAxYxdnH6ixqL
+	ERy0H+E0qL5nU2Ciz+O65gi08DyRa8P1HGTV7/jhTZgUCb2PZI8Q8bJs+4ibyRoQO7v/NufTelIst
+	TJi9W7y2JK8bL9m3K4ME9bOHChrV6FJWca/zYlAPJp0MLJkPfoDWNHMKHnX85sBw1PY23SNgl0p9P
+	AKaUDgVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRZN-00000009M2J-11aI;
-	Tue, 03 Dec 2024 11:59:57 +0000
+	id 1tIRaL-00000009MCu-3q30;
+	Tue, 03 Dec 2024 12:00:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRPt-00000009K6X-1ZUZ
+	id 1tIRW8-00000009LRy-3ENU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 11:50:10 +0000
+	Tue, 03 Dec 2024 11:56:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0410EFEC;
-	Tue,  3 Dec 2024 03:50:32 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2793B3F58B;
-	Tue,  3 Dec 2024 03:50:02 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	nd@arm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v2 7/9] coresight-replicator: change replicator_drvdata spinlock's type to raw_spinlock_t
-Date: Tue,  3 Dec 2024 11:49:40 +0000
-Message-Id: <20241203114942.697188-8-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241203114942.697188-1-yeoreum.yun@arm.com>
-References: <20241203114942.697188-1-yeoreum.yun@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BB0FFEC;
+	Tue,  3 Dec 2024 03:57:02 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 308D73F58B;
+	Tue,  3 Dec 2024 03:56:33 -0800 (PST)
+Date: Tue, 3 Dec 2024 11:56:27 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [PATCH] arm64: signal: Ensure signal delivery failure is
+ recoverable
+Message-ID: <Z07x69L6Mssncg/7@e133380.arm.com>
+References: <20241203100322.1626805-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203100322.1626805-1-kevin.brodsky@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_035009_499160_A9EDA3E9 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20241203_035636_895918_A6BD5BC2 
+X-CRM114-Status: GOOD (  33.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,81 +63,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In coresight-replicator drivers, replicator_drvdata->spinlock can be held
-during __schedule() by perf_event_task_sched_out()/in().
+On Tue, Dec 03, 2024 at 10:03:22AM +0000, Kevin Brodsky wrote:
+> Commit eaf62ce1563b ("arm64/signal: Set up and restore the GCS
+> context for signal handlers") introduced a potential failure point
+> at the end of setup_return(). This is unfortunate as it is too late
+> to deliver a SIGSEGV: if that SIGSEGV is handled, the subsequent
+> sigreturn will end up returning to the original handler, which is
+> not the intention (since we failed to deliver that signal).
+> 
+> Make sure this does not happen by calling gcs_signal_entry()
+> at the very beginning of setup_return(), and add a comment just
+> after to discourage error cases being introduced from that point
+> onwards.
+> 
+> While at it, also take care of copy_siginfo_to_user(): since it may
+> fail, we shouldn't be calling it after setup_return() either. Call
+> it before setup_return() instead, and move the setting of X1/X2
+> inside setup_return() where it belongs (after the "point of no
+> failure").
+> 
+> Background: the first part of setup_rt_frame(), including
+> setup_sigframe(), has no impact on the execution of the interrupted
+> thread. The signal frame is written to the stack, but the stack
+> pointer remains unchanged. Failure at this stage can be recovered by
+> a SIGSEGV handler, and sigreturn will restore the original context,
+> at the point where the original signal occurred. On the other hand,
+> once setup_return() has updated registers including SP, the thread's
+> control flow has been modified and we must deliver the original
+> signal.
+> 
+> Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+> Cc: broonie@kernel.org
+> Cc: catalin.marinas@arm.com
+> Cc: Dave.Martin@arm.com
+> Cc: will@kernel.org
+> ---
+>  arch/arm64/kernel/signal.c | 43 +++++++++++++++++++++++++-------------
+>  1 file changed, 28 insertions(+), 15 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+> index 14ac6fdb872b..0adaa165b876 100644
+> --- a/arch/arm64/kernel/signal.c
+> +++ b/arch/arm64/kernel/signal.c
+> @@ -1462,10 +1462,33 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+>  			 struct rt_sigframe_user_layout *user, int usig)
+>  {
+>  	__sigrestore_t sigtramp;
+> +	int err;
+> +
+> +	if (ksig->ka.sa.sa_flags & SA_RESTORER)
+> +		sigtramp = ksig->ka.sa.sa_restorer;
+> +	else
+> +		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+> +
+> +	err = gcs_signal_entry(sigtramp, ksig);
+> +	if (err)
+> +		return err;
+> +
+> +	/*
+> +	 * We must not fail from this point onwards. We are going to update
+> +	 * registers, including SP, in order to invoke the signal handler. If
+> +	 * we failed and attempted to deliver a nested SIGSEGV to a handler
+> +	 * after that point, the subsequent sigreturn would end up restoring
+> +	 * the (partial) state for the original signal handler.
+> +	 */
 
-Since replicator_drvdata->spinlock type is spinlock_t and
-perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-which is raw_spinlock_t (an unsleepable lock),
-this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+The same is true at the call site of this function; could problems
+creep back in there?
 
-To address this, change type replicator_drvdata->spinlock in
-coresight-replicator drivers, which can be called
-by perf_event_task_sched_out()/in(), from spinlock_t to raw_spinlock_t.
+>  
+>  	regs->regs[0] = usig;
+> +	if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+> +		regs->regs[1] = (unsigned long)&user->sigframe->info;
+> +		regs->regs[2] = (unsigned long)&user->sigframe->uc;
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-replicator.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Nit: This looks like it should work, but it's not really anything to do
+with setting up how the handler returns (we're in setup_return() here).
 
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index 0fba87de6d1a..7d36fe2176cc 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -41,7 +41,7 @@ struct replicator_drvdata {
- 	struct clk		*atclk;
- 	struct clk		*pclk;
- 	struct coresight_device	*csdev;
--	spinlock_t		spinlock;
-+	raw_spinlock_t		spinlock;
- 	bool			check_idfilter_val;
- };
- 
-@@ -125,7 +125,7 @@ static int replicator_enable(struct coresight_device *csdev,
- 	unsigned long flags;
- 	bool first_enable = false;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (atomic_read(&out->src_refcnt) == 0) {
- 		if (drvdata->base)
- 			rc = dynamic_replicator_enable(drvdata, in->dest_port,
-@@ -135,7 +135,7 @@ static int replicator_enable(struct coresight_device *csdev,
- 	}
- 	if (!rc)
- 		atomic_inc(&out->src_refcnt);
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (first_enable)
- 		dev_dbg(&csdev->dev, "REPLICATOR enabled\n");
-@@ -179,14 +179,14 @@ static void replicator_disable(struct coresight_device *csdev,
- 	unsigned long flags;
- 	bool last_disable = false;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (atomic_dec_return(&out->src_refcnt) == 0) {
- 		if (drvdata->base)
- 			dynamic_replicator_disable(drvdata, in->dest_port,
- 						   out->src_port);
- 		last_disable = true;
- 	}
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (last_disable)
- 		dev_dbg(&csdev->dev, "REPLICATOR disabled\n");
-@@ -277,7 +277,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 	}
- 	dev->platform_data = pdata;
- 
--	spin_lock_init(&drvdata->spinlock);
-+	raw_spin_lock_init(&drvdata->spinlock);
- 	desc.type = CORESIGHT_DEV_TYPE_LINK;
- 	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_SPLIT;
- 	desc.ops = &replicator_cs_ops;
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Would it be cleaner just to stage the destructive state changes
+somewhere and apply them right at the end (as with POR_EL0)?
 
+> +	}
+>  	regs->sp = (unsigned long)user->sigframe;
+>  	regs->regs[29] = (unsigned long)&user->next_frame->fp;
+> +	regs->regs[30] = (unsigned long)sigtramp;
+>  	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
+>  
+>  	/*
+> @@ -1506,14 +1529,7 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+>  		sme_smstop();
+>  	}
+>  
+> -	if (ksig->ka.sa.sa_flags & SA_RESTORER)
+> -		sigtramp = ksig->ka.sa.sa_restorer;
+> -	else
+> -		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+> -
+> -	regs->regs[30] = (unsigned long)sigtramp;
+> -
+> -	return gcs_signal_entry(sigtramp, ksig);
+> +	return 0;
+>  }
+>  
+>  static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+> @@ -1537,14 +1553,11 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+>  
+>  	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
+>  	err |= setup_sigframe(&user, regs, set, &ua_state);
+> -	if (err == 0) {
+> +	if (ksig->ka.sa.sa_flags & SA_SIGINFO)
+> +		err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+> +
+> +	if (err == 0)
+>  		err = setup_return(regs, ksig, &user, usig);
+> -		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+> -			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+> -			regs->regs[1] = (unsigned long)&frame->info;
+> -			regs->regs[2] = (unsigned long)&frame->uc;
+> -		}
+> -	}
+>  
+>  	if (err == 0)
+>  		set_handler_user_access_state();
+
+[...]
+
+Cheers
+---Dave
 
