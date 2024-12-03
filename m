@@ -4,95 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B83E74AC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF66E74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=duiFeAaSBhIytnaxrND6nGOkl5Gph0V28FDpDxMvpzI=; b=jE8sFVXAoN8COtXti6saEbS2XY
-	E3Lpfg4W3KE5N4yLmwGZHqYIvBIxZSWrkaeBSglc2AH0xnk5BmH/ZwymSKjzGqLKQVvybEgEBP8mw
-	D4Jl/A6Z8Rc0gcHznH0fo28W4RX3/lV0SPXWg2uO+ez+pgOzjAijj5U5asPyM8jh++ZnUFjM6hoBs
-	f9I7vkl1ydbyw61aLWMQMM2ZFldYiwptwr+7TCjB8lLpEDi4rbHti1F/y4mm4AFmaqZvhEUxPUuZK
-	qJ0HzxD/XDQE5rqjGoXXUjpEqzWVoW7D5EYXsk6BvWiq+8y4ZSCra9/zS+RTxAHRP0sGXTszyoXY3
-	VrHvWZoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cEEmR9qdeZhpCywKEKcZNcZmwsD8RIDWWW3SVa1S5uw=; b=IspWcOKxCLSqYuMfJSMDxexTcL
+	1oo7DdZIVK+WZCV2qB3ilCcGI8g8F1Zp0yYOcKdbPktJkAHuXYhcBdzhTpaE4MzUX/utBrU4+bdoK
+	d6d52kQFF8J3XLtUvJNMpFz9uSrzqkrIW8XGA5Q8wV6D5bKRUR26gi/qXObDnAu7LCTTYluK0ng3j
+	gX752+uonxj0pdXNS4Y4l/iXsLr4NNbMC1GiR+8BOL7m3QtbK2QtKP5ZILjk+KWoyy1Eh/+tfbPqI
+	KnpdSG9ljYoh3DDPZ1pO8pdDhv8J3SSz7+tB1rxmKC1ufzQ6iumdgzLKhYSKLqu+sMxtfEEMQ3+nU
+	hl7K8ELw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWxj-0000000AHxR-3Eus;
-	Tue, 03 Dec 2024 17:45:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tIX44-0000000AJF9-3BiS;
+	Tue, 03 Dec 2024 17:52:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWts-0000000AH9N-2Ril
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 03 Dec 2024 17:41:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=duiFeAaSBhIytnaxrND6nGOkl5Gph0V28FDpDxMvpzI=; b=cMW9eiVM7YNZxbIAbtaJseYpPh
-	SjbhL00YKmsspf0S6DRxgkp+apYOC01ZDZnc67eItOEXfovPN4rjqz29Wyqo3Pb8l6zs6/b7AFKx9
-	zlfsiKpdk9/+Q+Pe53Uy3XZvpmTuK8/1l1mwOpKiZWeTRvPI5hty7BlESYKNHmOiGqb7cC1BRQOLu
-	a4MAraeoK0InhHe83nOtDYDj1dQj2wLRDOwG5qqVbVGceBKwGTUSd50bTVMdmQTvnfrWbn+zfG/hj
-	EufxkQXApkTvn5a4zq8pOUIXXPNUoNqQN96EJbB0PMDPjK9Q/UuhZn87M1WRfgosAI5usJ0N/rVf3
-	QKyANCoQ==;
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWtp-00000002RBi-1tZ6
+	id 1tIX34-0000000AJ66-13ni
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 17:41:27 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B3HfG1t124426;
-	Tue, 3 Dec 2024 11:41:16 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1733247676;
-	bh=duiFeAaSBhIytnaxrND6nGOkl5Gph0V28FDpDxMvpzI=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=NJxEB3RsRDV0Uy2dnrLl/5hl5dmxtFHw1dAYwQHBGyG5ju18HqbnrkJTzNxB+SZ4d
-	 SJ3mIUy9k0eplP2aZKtm3uC2HU+LdfPhufL9gyKivNqo+zchnQ0bNU1iVau5oN0Lbm
-	 6zFOegEPj16UfubJ/v2m0HSn7q3O48BspOObQuRM=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B3HfGgR001712
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 3 Dec 2024 11:41:16 -0600
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
- Dec 2024 11:41:16 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 3 Dec 2024 11:41:16 -0600
-Received: from fllvsmtp7.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B3HfF8K076485;
-	Tue, 3 Dec 2024 11:41:15 -0600
-From: Andrew Davis <afd@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-        Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Jason Kridner <jkridner@beagleboard.org>,
-        Robert
- Nelson <robertcnelson@beagleboard.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-am67a-beagley-ai: Add remote processor nodes
-Date: Tue, 3 Dec 2024 11:41:14 -0600
-Message-ID: <20241203174114.94751-2-afd@ti.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241203174114.94751-1-afd@ti.com>
-References: <20241203174114.94751-1-afd@ti.com>
+	Tue, 03 Dec 2024 17:50:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C5775C6CF5;
+	Tue,  3 Dec 2024 17:50:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2826AC4CECF;
+	Tue,  3 Dec 2024 17:50:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733248257;
+	bh=OSrO/elSn5qIF+zISWp/GORkYyBZhWFrJkT400xtaug=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=qQj1QnVapS8uBGnl89xNEjYNhkPYsYeAz7sgRrEIqcUwbU2NWG8gcPe6OVlzWb8V9
+	 cY3jARPjtO/dFw9hnJpa8XHGtPQaJAzBTj7ecfwaCE2f+Pw/EH8jd6o9K8z/p2Xq1h
+	 XEPWwWPfodOOZLq4i2wGlJSsAw030tB+0yC398aO76SskILKk2oRv/ZPfl6rHPE4KT
+	 dMfRmqrUEU61RL2jbb8yp8n4FNq09qpoDb+7ujD/I7S6QeurnIBfNBXlsXHR1LSeeW
+	 uDJTmlzsZW68yujhGWIS30PWg/DBaUEdqjr/az7SmHheZiV1pn4Kk2Vn2oYkRNOSmd
+	 iMrOoHevVofLA==
+From: Mark Brown <broonie@kernel.org>
+To: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Cs=C3=B3k=C3=A1s=2C_Bence?= <csokas.bence@prolan.hu>
+Cc: Mesih Kilinc <mesihkilinc@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
+In-Reply-To: <20241102125712.2647325-1-csokas.bence@prolan.hu>
+References: <20241102125712.2647325-1-csokas.bence@prolan.hu>
+Subject: Re: [PATCH v5 0/3] Add support for codec of F1C100s
+Message-Id: <173324825387.459040.17438717506518048504.b4-ty@kernel.org>
+Date: Tue, 03 Dec 2024 17:50:53 +0000
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_174125_885181_6EE03D5E 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20241203_095058_335888_E81F7102 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,193 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nodes for the R5F and C7x cores on the SoC. This includes the mailbox
-and memory carveouts used by these remote cores.
+On Sat, 02 Nov 2024 13:57:09 +0100, Csókás, Bence wrote:
+> Support for Allwinner F1C100s/200s series audio was
+> submitted in 2018 as an RFC series, but was not merged,
+> despite having only minor errors. However, this is
+> essential for having audio on these SoCs.
+> This series was forward-ported/rebased to the best of
+> my abilities, on top of Linus' tree as of now:
+> commit c2ee9f594da8 ("KVM: selftests: Fix build on on non-x86 architectures")
+> 
+> [...]
 
-Signed-off-by: Andrew Davis <afd@ti.com>
----
- .../arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 158 ++++++++++++++++++
- 1 file changed, 158 insertions(+)
+Applied to
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-index 44dfbdf892775..9be6bba28c26f 100644
---- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-@@ -50,11 +50,71 @@ secure_ddr: optee@9e800000 {
- 			no-map;
- 		};
- 
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@a0000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa0000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
- 		wkup_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
- 		};
-+
-+		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@a1000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa1000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@a1100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa1100000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		main_r5fss0_core0_dma_memory_region: main-r5fss-dma-memory-region@a2000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa2000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		main_r5fss0_core0_memory_region: main-r5fss-memory-region@a2100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa2100000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		c7x_0_dma_memory_region: c7x-dma-memory@a3000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa3000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		c7x_0_memory_region: c7x-memory@a3100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa3100000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		c7x_1_dma_memory_region: c7x-dma-memory@a4000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa4000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		c7x_1_memory_region: c7x-memory@a4100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa4100000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		rtos_ipc_memory_region: ipc-memories@a5000000 {
-+			reg = <0x00 0xa5000000 0x00 0x1c00000>;
-+			alignment = <0x1000>;
-+			no-map;
-+		};
- 	};
- 
- 	vsys_5v0: regulator-1 {
-@@ -391,3 +451,101 @@ &sdhci1 {
- 	ti,fails-without-test-cd;
- 	status = "okay";
- };
-+
-+&mailbox0_cluster0 {
-+	status = "okay";
-+
-+	mbox_wkup_r5_0: mbox-wkup-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	status = "okay";
-+
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster2 {
-+	status = "okay";
-+
-+	mbox_c7x_0: mbox-c7x-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster3 {
-+	status = "okay";
-+
-+	mbox_main_r5_0: mbox-main-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+
-+	mbox_c7x_1: mbox-c7x-1 {
-+		ti,mbox-rx = <2 0 0>;
-+		ti,mbox-tx = <3 0 0>;
-+	};
-+};
-+
-+/* Timers are used by Remoteproc firmware */
-+&main_timer0 {
-+	status = "reserved";
-+};
-+
-+&main_timer1 {
-+	status = "reserved";
-+};
-+
-+&main_timer2 {
-+	status = "reserved";
-+};
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_wkup_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+};
-+
-+&main_r5fss0 {
-+	status = "okay";
-+};
-+
-+&main_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster3 &mbox_main_r5_0>;
-+	memory-region = <&main_r5fss0_core0_dma_memory_region>,
-+			<&main_r5fss0_core0_memory_region>;
-+};
-+
-+&c7x_0 {
-+	mboxes = <&mailbox0_cluster2 &mbox_c7x_0>;
-+	memory-region = <&c7x_0_dma_memory_region>,
-+			<&c7x_0_memory_region>;
-+	status = "okay";
-+};
-+
-+&c7x_1 {
-+	mboxes = <&mailbox0_cluster3 &mbox_c7x_1>;
-+	memory-region = <&c7x_1_dma_memory_region>,
-+			<&c7x_1_memory_region>;
-+	status = "okay";
-+};
--- 
-2.39.2
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[1/3] ASoC: sun4i-codec: Add DMA Max Burst field
+      commit: cabd4ac290a6ceb87c8dbfb5a3251750e24529e7
+[2/3] dt-bindings: sound: Add Allwinner suniv F1C100s Audio Codec
+      (no commit info)
+[3/3] ASoC: sun4i-codec: Add support for Allwinner suniv F1C100s
+      commit: 2198deb823a6ebe110b737614421a4687d3327f4
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
