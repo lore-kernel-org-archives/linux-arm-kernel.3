@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA75E69EA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D53AE69EA6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQxgn8LhHFxLw/BY5HisaFdRxjq6rIClP7lGnkFWtMc=; b=GrvirlJyoJwqo9UXl7H/iGoSma
-	npM7rPNZSmX92wb9UGh0PsitWsza2Yu/5CxAZtSISnuIBtRtCGeWCYx7AMo/FenKKQkfgH4+ZQ6z+
-	o2G+v8aZY82C9/7nJzp6MfONb2UcgFry2xbbht1SnIrVT75tWpD0koGUixEB9QsxczvWf5epSQ5Hw
-	QqDkrrv/8Zz8IbjPRADKoM6z1cnDW+2Sr1SMR70aQaUaRPdIcj3EgSoU1qhENa6vvwoPpro0GctPy
-	eW6FXFxBMpqg9yeuG3tMHrfaGnOwU5UuJFG9geMp8KG5ZUPWOzeYClV4tak9/BLSvcQ0zWkl2iNVk
-	tL4FE8nA==;
+	bh=yW1jJgQ1tZsmB0QHn+2Xxw0WtByYgrE3ylAMT37OoXs=; b=Z32uFLrDas0NOmjKS2NYS6yL6C
+	kmTl5lqFArv86jlyz5oPIaq/feKn50sTDQhnvK1kPod1v5gXSt+mUtgzmczblIrrWoEuq6F4OIH5/
+	zZ9vNZ4qQxBDfLe8xQmbqqBpr6BIqWo4paJ8MtHNnJRdVv4ZchWYBtb7UFKPjsZM2zW8wXK9or2RA
+	RMTgbYMpi2J1fjpQjccpxpSFdY1fDomvJwM0h8TYiE9MLfIkinxinq6G5+AeMKGB+ybYG8gCRDiSP
+	+OoVMW9Znnn0FWfEUdAZcEwkeX7sFhocB1XkiWwnVasndldqNXv619o0kLskrB+w7zDmoEBlm+KTc
+	qrxCD7HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUuS-00000009wef-2DLx;
-	Tue, 03 Dec 2024 15:33:56 +0000
+	id 1tIUvQ-00000009wrd-0dPi;
+	Tue, 03 Dec 2024 15:34:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUt1-00000009wGk-0vFj
+	id 1tIUtu-00000009wZ6-2uwI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 15:32:28 +0000
+	Tue, 03 Dec 2024 15:33:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0213AFEC;
-	Tue,  3 Dec 2024 07:32:54 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF9AAFEC;
+	Tue,  3 Dec 2024 07:33:49 -0800 (PST)
 Received: from e133380.arm.com (e133380.arm.com [10.1.197.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE9793F71E;
-	Tue,  3 Dec 2024 07:32:24 -0800 (PST)
-Date: Tue, 3 Dec 2024 15:32:22 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7D993F71E;
+	Tue,  3 Dec 2024 07:33:20 -0800 (PST)
+Date: Tue, 3 Dec 2024 15:33:18 +0000
 From: Dave Martin <Dave.Martin@arm.com>
 To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: Re: [PATCH 1/6] arm64/sme: Flush foreign register state in
- do_sme_acc()
-Message-ID: <Z08khk6Mg6+T6VV9@e133380.arm.com>
+Subject: Re: [PATCH 5/6] arm64/signal: Avoid corruption of SME state when
+ entering signal handler
+Message-ID: <Z08kvi0znVM2RHx4@e133380.arm.com>
 References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
- <20241203-arm64-sme-reenable-v1-1-d853479d1b77@kernel.org>
+ <20241203-arm64-sme-reenable-v1-5-d853479d1b77@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241203-arm64-sme-reenable-v1-1-d853479d1b77@kernel.org>
+In-Reply-To: <20241203-arm64-sme-reenable-v1-5-d853479d1b77@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_073227_303216_CD22B498 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20241203_073322_852149_BE877AB4 
+X-CRM114-Status: GOOD (  41.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,48 +66,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 12:45:53PM +0000, Mark Brown wrote:
-> When do_sme_acc() runs with foreign FP state it does not do any updates of
-> the task structure, relying on the next return to userspace to reload the
-> register state appropriately, but leaves the task's last loaded CPU
-> untouched. This means that if the task returns to userspace on the last
-> CPU it ran on then the checks in fpsimd_bind_task_to_cpu() will incorrectly
-> determine that the register state on the CPU is current and suppress reload
-> of the floating point register state before returning to userspace. This
-> will result in spurious warnings due to SME access traps occuring for the
-> task after TIF_SME is set.
+On Tue, Dec 03, 2024 at 12:45:57PM +0000, Mark Brown wrote:
+> We intend that signal handlers are entered with PSTATE.{SM,ZA}={0,0}.
+> The logic for this in setup_return() manipulates the saved state and
+> live CPU state in an unsafe manner, and consequently, when a task enters
+> a signal handler:
 > 
-> Call fpsimd_flush_task_state() to invalidate the last loaded CPU
-> recorded in the task, forcing detection of the task as foreign.
+>  * The task entering the signal handler might not have its PSTATE.{SM,ZA}
+>    bits cleared, and other register state that is affected by changes to
+>    PSTATE.{SM,ZA} might not be zeroed as expected.
 > 
-> Fixes: 8bd7f91c03d8 ("arm64/sme: Implement traps and syscall handling for SME")
-> Reported-by: Mark Rutlamd <mark.rutland@arm.com>
+>  * An unrelated task might have its PSTATE.{SM,ZA} bits cleared
+>    unexpectedly, potentially zeroing other register state that is
+>    affected by changes to PSTATE.{SM,ZA}.
+> 
+>    Tasks which do not set PSTATE.{SM,ZA} (i.e. those only using plain
+>    FPSIMD or non-streaming SVE) are not affected, as there is no
+>    resulting change to PSTATE.{SM,ZA}.
+> 
+> Consider for example two tasks on one CPU:
+> 
+>  A: Begins signal entry in kernel mode, is preempted prior to SMSTOP.
+>  B: Using SM and/or ZA in userspace with register state current on the
+>     CPU, is preempted.
+>  A: Scheduled in, no register state changes made as in kernel mode.
+>  A: Executes SMSTOP, modifying live register state.
+>  A: Scheduled out.
+>  B: Scheduled in, fpsimd_thread_switch() sees the register state on the
+>     CPU is tracked as being that for task B so the state is not reloaded
+>     prior to returning to userspace.
+> 
+> Task B is now running with SM and ZA incorrectly cleared.
+> 
+> Fix this by:
+> 
+>  * Checking TIF_FOREIGN_FPSTATE, and only updating the saved or live
+>    state as appropriate.
+> 
+>  * Using {get,put}_cpu_fpsimd_context() to ensure mutual exclusion
+>    against other code which manipulates this state. To allow their use,
+>    the logic is moved into a new fpsimd_enter_sighandler() helper in
+>    fpsimd.c.
+> 
+> This race has been observed intermittently with fp-stress, especially
+> with preempt disabled, commonly but not exclusively reporting "Bad SVCR: 0".
+> 
+> While we're at it also fix a discrepancy between in register and in memory
+> entries. When operating on the register state we issue a SMSTOP, exiting
+> streaming mode if we were in it. This clears the V/Z and P register and
+> FPMR but nothing else. The in memory version clears all the user FPSIMD
+> state including FPCR and FPSR but does not clear FPMR. Add the clear of
+> FPMR and limit the existing memset() to only cover the vregs, preserving
+> the state of FPCR and FPSR like SMSTOP does.
+> 
+> Fixes: 40a8e87bb3285 ("arm64/sme: Disable ZA and streaming mode when handling signals")
 > Signed-off-by: Mark Brown <broonie@kernel.org>
 > Cc: stable@vger.kernel.org
 > ---
->  arch/arm64/kernel/fpsimd.c | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/include/asm/fpsimd.h |  1 +
+>  arch/arm64/kernel/fpsimd.c      | 39 +++++++++++++++++++++++++++++++++++++++
+>  arch/arm64/kernel/signal.c      | 19 +------------------
+>  3 files changed, 41 insertions(+), 18 deletions(-)
 > 
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index f2a84efc361858d4deda99faf1967cc7cac386c1..09af7cfd9f6c2cec26332caa4c254976e117b1bf 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -76,6 +76,7 @@ extern void fpsimd_load_state(struct user_fpsimd_state *state);
+>  extern void fpsimd_thread_switch(struct task_struct *next);
+>  extern void fpsimd_flush_thread(void);
+>  
+> +extern void fpsimd_enter_sighandler(void);
+>  extern void fpsimd_signal_preserve_current_state(void);
+>  extern void fpsimd_preserve_current_state(void);
+>  extern void fpsimd_restore_current_state(void);
 > diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index 8c4c1a2186cc510a7826d15ec36225857c07ed71..eca0b6a2fc6fa25d8c850a5b9e109b4d58809f54 100644
+> index f02762762dbcf954e9add6dfd3575ae7055b6b0e..c5465c8ec467cb1ab8bd211dc5370f91aa2bcf35 100644
 > --- a/arch/arm64/kernel/fpsimd.c
 > +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1460,6 +1460,8 @@ void do_sme_acc(unsigned long esr, struct pt_regs *regs)
->  		sme_set_vq(vq_minus_one);
+> @@ -1696,6 +1696,45 @@ void fpsimd_signal_preserve_current_state(void)
+>  		sve_to_fpsimd(current);
+>  }
 >  
->  		fpsimd_bind_task_to_cpu();
-> +	} else {
+> +/*
+> + * Called by the signal handling code when preparing current to enter
+> + * a signal handler. Currently this only needs to take care of exiting
+> + * streaming mode and clearing ZA on SME systems.
+> + */
+> +void fpsimd_enter_sighandler(void)
+> +{
+> +	if (!system_supports_sme())
+> +		return;
+> +
+> +	get_cpu_fpsimd_context();
+> +
+> +	if (test_thread_flag(TIF_FOREIGN_FPSTATE)) {
+> +		/*
+> +		 * Exiting streaming mode zeros the V/Z and P
+> +		 * registers and FPMR.  Zero FPMR and the V registers,
+> +		 * marking the state as FPSIMD only to force a clear
+> +		 * of the remaining bits during reload if needed.
+> +		 */
+> +		if (current->thread.svcr & SVCR_SM_MASK) {
+> +			memset(&current->thread.uw.fpsimd_state.vregs, 0,
+> +			       sizeof(current->thread.uw.fpsimd_state.vregs));
+
+Do we need to hold the CPU fpsimd context across this memset?
+
+IIRC, TIF_FOREIGN_FPSTATE can be spontaneously cleared along with
+dumping of the regs into thread_struct (from current's PoV), but never
+spontaneously set again.  So ... -> [*]
+
+> +			current->thread.uw.fpmr = 0;
+> +			current->thread.fp_type = FP_STATE_FPSIMD;
+> +		}
+> +
+> +		current->thread.svcr &= ~(SVCR_ZA_MASK |
+> +					  SVCR_SM_MASK);
+> +
+> +		/* Ensure any copies on other CPUs aren't reused */
 > +		fpsimd_flush_task_state(current);
 
-TIF_FOREIGN_FPSTATE is (or was) a cache of the task<->CPU binding that
-you're clobbering here.
+(This is very similar to fpsimd_flush_thread(); can they be unified?)
 
-So, this fpsimd_flush_task_state() should have no effect unless
-TIF_FOREIGN_FPSTATE is already wrong?  I'm wondering if the apparent
-need for this means that there is an undiagnosed bug elsewhere.
+> +	} else {
+> +		/* The register state is current, just update it. */
+> +		sme_smstop();
 
-(My understanding is based on FPSIMD/SVE; I'm less familiar with the
-SME changes, so I may be missing something important here.)
+... [*] the critical thing seems to be that the CPU fpsimd context is
+held from the test on TIF_FOREIGN_FPSTATE, across this else clause.
+
+(Whether or not this is a worthwhile optimisation is another matter.
+But if the behaviour of TIF_FOREIGN_FPSTATE is still the same, then it
+may be a good idea to avoid sending mixed messages about this in the
+code.)
+
+(A similar argument applies in fpsimd_flush_thread().)
 
 [...]
 
