@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAF7E74AC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1630E74AC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJMZjkVYR8TkLzoVBZtyFkZ4cJjkpNO9R+Qo4cX+WJg=; b=fwthYwH0pYnME2uIbXLF2Dfr3w
-	yksVmJJT6MG6vHuFPldiNkPfF8RgjfjuqgDyfRnqYoDyy1nv9AL231bfkmP5x/xYARiw7NymKAlct
-	OFgqAZOX0I0ARwf31+4yLghY6lNaNACEfhhXykGa7T5sZieAwPxfAujHs2UQ00jCPb5xGxWvGFAYT
-	wPe9FCZ7HGWHQJ2w7NqfJgAwbS+/aUbFlbVA/sm/a6wLTUroHg07zI/GbJSbXg17KH394aokY/Gu/
-	YsENjfnU0ZS+PcqkxI65FBBY3pxVZsui5kWt9tMaQ/n0PhDooYYVKarCkbtaV021yZ5699EsIdGxi
-	Su89R+2g==;
+	bh=DAPsM9kl1wjvCfIVk2UriqfHLpsTudX8xrOCJ684Wqc=; b=FqDjoPq22klcXOlsOmCE1gnk7V
+	xYvVLo55Iu41wiO1MC+CqlF66MEvHvw7S2WxblQq4knib29s39R8yeo+/sbI8odACU3M+HMeEXFyp
+	WkCur5LZioNK6BN/b2Cy9Vfqoii1FleJ7ngTHygny1E8Bic37KVL3/H3bTHgaMc6MIR1O12VI0IDy
+	nFk5AVhrC2rsygLrr2lKWBGYPkvShEdfHrj0ZZx+j7oOKt4c75izkMkiITormTwM04B+eRSOlUniM
+	7uKevbY8RCiCByBvnluqqDgTcUXr5GmjoNVqjRtfEJIj5Myy1tXDZHLMQlUgFskTjbiL6oojNcymx
+	SLhsROTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWHg-0000000AC7N-06D6;
-	Tue, 03 Dec 2024 17:02:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWEI-0000000ABUq-2l9i;
-	Tue, 03 Dec 2024 16:58:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 89AB75C6B93;
-	Tue,  3 Dec 2024 16:57:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDD3DC4CECF;
-	Tue,  3 Dec 2024 16:58:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733245109;
-	bh=arF+AUtSeu6ScqKrFJj4z1B2pVwQCLt63eW9K0h113I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YA/+5FUCNsnzc7OLhztiJaztpx3YVhqilIZltxUkySH8DqVvnFKO/OXroDo3LgeWn
-	 uE8dW8TU8STjU4G3thzdB8bI2m7LSqs1TlH0rahyfAt2Ok5J0pZO4UMMSRIogcgJh9
-	 FI2tGRgC//SEy3MVb/TGxsLK6kahOu3BPmkeZkUmHwUFIfkERsKMN+ZRszO4q6LyF8
-	 DRKgCORo7yHFban6Du/ieT/y1Bzi5WI+xhsOwX6zDdR5tvnVdyb2F/Vn+3fEQbT/Q1
-	 LUfN4eTq6DIdmmjvfZuHVgQHZVvizSHYxgmD6D/D36aELHM/cDPt6xDUQPxslOU0UE
-	 k0d+YW0B12Xew==
-Date: Tue, 3 Dec 2024 10:58:27 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
-	krzk+dt@kernel.org, rfoss@kernel.org, devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	l.stach@pengutronix.de, algea.cao@rock-chips.com,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, hjc@rock-chips.com,
-	conor+dt@kernel.org, vkoul@kernel.org, kever.yang@rock-chips.com,
-	linux-rockchip@lists.infradead.org, andy.yan@rock-chips.com,
-	heiko@sntech.de
-Subject: Re: [PATCH v1 07/10] dt-bindings: display: rockchip: Fix label name
- of hdptxphy for RK3588 HDMI TX Controller
-Message-ID: <173324510682.1955832.14077962445640350158.robh@kernel.org>
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <20241127075157.856029-8-damon.ding@rock-chips.com>
+	id 1tIWJd-0000000ACSl-1vP2;
+	Tue, 03 Dec 2024 17:04:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIWFv-0000000ABo3-4C2W
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Dec 2024 17:00:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 529A7FEC;
+	Tue,  3 Dec 2024 09:00:39 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64CCD3F58B;
+	Tue,  3 Dec 2024 09:00:10 -0800 (PST)
+Date: Tue, 3 Dec 2024 17:00:08 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/6] arm64/sme: Flush foreign register state in
+ do_sme_acc()
+Message-ID: <Z085GKS8jzEhcZdW@e133380.arm.com>
+References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
+ <20241203-arm64-sme-reenable-v1-1-d853479d1b77@kernel.org>
+ <Z08khk6Mg6+T6VV9@e133380.arm.com>
+ <9365be76-8da6-47ce-b88e-dfa244b9e5b7@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241127075157.856029-8-damon.ding@rock-chips.com>
+In-Reply-To: <9365be76-8da6-47ce-b88e-dfa244b9e5b7@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_085830_740240_F251C388 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_090012_079196_6F9CB440 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +68,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 27 Nov 2024 15:51:54 +0800, Damon Ding wrote:
-> The hdptxphy is a combo transmit-PHY for HDMI2.1 TMDS Link, FRL Link, DP
-> and eDP Link. Therefore, it is better to name it hdptxphy0 other than
-> hdptxphy_hdmi0, which will be referenced by both hdmi0 and edp0 nodes.
+On Tue, Dec 03, 2024 at 04:00:45PM +0000, Mark Brown wrote:
+> On Tue, Dec 03, 2024 at 03:32:22PM +0000, Dave Martin wrote:
+> > On Tue, Dec 03, 2024 at 12:45:53PM +0000, Mark Brown wrote:
 > 
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> ---
->  .../bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml   | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > @@ -1460,6 +1460,8 @@ void do_sme_acc(unsigned long esr, struct pt_regs *regs)
+> > >  		sme_set_vq(vq_minus_one);
+> > >  
+> > >  		fpsimd_bind_task_to_cpu();
+> > > +	} else {
+> > > +		fpsimd_flush_task_state(current);
 > 
+> > TIF_FOREIGN_FPSTATE is (or was) a cache of the task<->CPU binding that
+> > you're clobbering here.
+> 
+> > So, this fpsimd_flush_task_state() should have no effect unless
+> > TIF_FOREIGN_FPSTATE is already wrong?  I'm wondering if the apparent
+> > need for this means that there is an undiagnosed bug elsewhere.
+> 
+> > (My understanding is based on FPSIMD/SVE; I'm less familiar with the
+> > SME changes, so I may be missing something important here.)
+> 
+> It's to ensure that the last recorded CPU for the current task is
+> invalid so that if the state was loaded on another CPU and we switch
+> back to that CPU we reload the state from memory, we need to at least
+> trigger configuration of the SME VL.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+OK, so the logic here is something like:
 
+Disregarding SME, the FPSIMD/SVE regs are up to date, which is fine
+because SME is trapped.
+
+When we take the SME trap, we suddenly have some work to do in order to
+make sure that the SME-specific parts of the register state are up to
+date, so we need to mark the state as stale before setting TIF_SME and
+returning.
+
+fpsimd_flush_task_state() means that we do the necessary work when re-
+entering userspace, but is there a problem with simply marking all the
+FPSIMD/vector state as stale?  If FPSR or FPCR is dirty for example, it
+now looks like they won't get written back to thread struct if there is
+a context switch before current re-enters userspace?
+
+Maybe the other flags distinguish these cases -- I haven't fully got my
+head around it.
+
+
+(Actually, the ARM ARM says (IMHTLZ) that toggling PSTATE.SM by any
+means causes FPSR to become 0x800009f.  I'm not sure where that fits in
+-- do we handle that anywhere?  I guess the "soft" SM toggling via
+ptrace, signal delivery or maybe exec, ought to set this?  Not sure how
+that interacts with the expected behaviour of the fenv(3) API...  Hmm.
+I see no corresponding statement about FPCR.)
+
+Cheers
+---Dave
 
