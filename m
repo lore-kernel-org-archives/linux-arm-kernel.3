@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A7AE64A89
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3D2E64A8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQW88qz9+wbWEqCZ8z5z++nVTqcPLZgCyS1kvno9Qds=; b=KtrGQoHStyz4XbfFAOJqVVJMy9
-	uBSTKuFXcsKu97uHSh+lxQ1Grhog71I72vpQEE/ZbZFroIIuYAytg+Dn9oMgblcucihsNblLjgYQa
-	bwMhKi7nk15qnQxabPKDfX/mbIGD77mTRfUR8X88FkEYE4QdE3d8gy8dnXSt7ar7mYzlVyjWXwBR5
-	WsrOxalzcvr7BqlzaI+oGCmwG41usXH1gITKL2Eg+y9jyIEU9Bn8rG0qSxgjSHlSiQ/fd2+twNmET
-	61JFmznTl0j3zUJbzlAMthtayMqiSwC7TkvXXZDibEZ6POGDeQHLBFHi1+nQf042ERM93M9TZy8/w
-	4bMvSZBA==;
+	bh=OYMONl1XyqolJiKTFKi+ctZHaoh4uCEWwQEqXKZL7+Q=; b=XudrcMQZUPhI/vUQCGax67JHDn
+	FNAMhquc4WrdVCjuiGK9g2jae/xoC4Jsd6WG6/w95NXoML+nOgzFeEwzozVLFRUD4aCJgrQIrHkIb
+	XQZIZEiZgLp9kVUjRtHeaU8+POX1WwcyfPsvBwEUdg4uiPF1UtF3D9xQoKHAz1J/iLywr7fh9J1md
+	T8qUPbdzodWtZ+Gb0ZFRWXHIECCG/vMqW5HXGy1sEXXTaCO9ED4rhkYdepCF0DfZ7WxGAJwMFl3Lm
+	LDyqRB4rN6bRCJpV3faxj2jHgNOddu7jbP2Ob8B4Og5N5YURGYT3oAWuG5jR1u/kWLbLYFd69sd7r
+	WC2ZEtdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISdv-00000009YPU-2jeM;
-	Tue, 03 Dec 2024 13:08:43 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tISeu-00000009YeW-17Hi;
+	Tue, 03 Dec 2024 13:09:44 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISNY-00000009VA1-01AG
+	id 1tISNX-00000009V9v-2qWd
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Dec 2024 12:51:50 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Y2gWq3Crzz1JDY2;
-	Tue,  3 Dec 2024 20:51:35 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Y2gSj3HDNzPq0r;
+	Tue,  3 Dec 2024 20:48:53 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 085D51402CB;
+	by mail.maildlp.com (Postfix) with ESMTPS id DC24D1802D0;
 	Tue,  3 Dec 2024 20:51:42 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 3 Dec 2024 20:51:41 +0800
+ 15.2.1258.34; Tue, 3 Dec 2024 20:51:42 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
 	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v4 02/10] drivers/perf: hisi: Don't update the associated_cpus on CPU offline
-Date: Tue, 3 Dec 2024 20:50:41 +0800
-Message-ID: <20241203125049.39458-3-yangyicong@huawei.com>
+Subject: [PATCH v4 04/10] drivers/perf: hisi: Refactor the detection of associated CPUs
+Date: Tue, 3 Dec 2024 20:50:43 +0800
+Message-ID: <20241203125049.39458-5-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241203125049.39458-1-yangyicong@huawei.com>
 References: <20241203125049.39458-1-yangyicong@huawei.com>
@@ -55,9 +55,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_045148_241003_367DE5D6 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_045148_038963_030F047A 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +73,98 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Event will be scheduled on CPU of hisi_pmu::on_cpu which is selected
-from the intersection of hisi_pmu::associated_cpus and online CPUs.
-So the associated_cpus don't need to be maintained with online CPUs.
-This will save one update operation if one associated CPU is offlined.
+There are two type of PMUs supported currently:
+1) PMUs locate on SCCL (Super CPU Cluster [1]), associated with certain
+   CCL (CPU cluster [1])(e.g. L3C PMU) or not (e.g. DDRC PMU)
+2) PMUs locate on the SICL (Super IO Cluster [1]), which has no
+   association with certain CPU topology (e.g. CPA PMU)
 
+Currently the associated CPUs of the PMU is detected in the cpuhp online
+callback as below:
+- for type 1) the CPUs match PMU's sccl_id and ccl_id
+- for type 2) PMU's sccl_id is -1 and all online CPUs will be associated
+
+Since uncore PMUs are not bound to certain CPU context and event could be
+counting started by any online CPU, the associated CPUs are just a
+preference. Below disadvantages are observed in current implementation:
+- the PMU cannot be used if its associated CPUs are offline
+- SICL PMUs are associated to all the online CPUs implicitly without
+  the consideration of locality
+
+So refactor the way we detect the associated CPUs in below aspects:
+- add a clear definition of hisi_pmu::associated_cpus
+- initialize hisi_pmu::on_cpu based on locality if no associated CPU
+  found, otherwise update it from associated CPUs
+- drop the detection with a sccl_id of -1 for SICL PMUs
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/admin-guide/perf/hisi-pmu.rst?h=v6.12-rc1
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_pmu.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_pmu.c | 22 +++++++++++++++-------
+ drivers/perf/hisilicon/hisi_uncore_pmu.h |  6 +++++-
+ 2 files changed, 20 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-index 416f72a813fc..dbe7299f0f05 100644
+index 3a4db5c5d70f..dda8cff4baf4 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-@@ -492,9 +492,6 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
- 						     node);
- 	unsigned int target;
+@@ -446,10 +446,6 @@ static bool hisi_pmu_cpu_is_associated_pmu(struct hisi_pmu *hisi_pmu)
+ {
+ 	int sccl_id, ccl_id;
  
--	if (!cpumask_test_and_clear_cpu(cpu, &hisi_pmu->associated_cpus))
--		return 0;
+-	/* If SCCL_ID is -1, the PMU is in a SICL and has no CPU affinity */
+-	if (hisi_pmu->sccl_id == -1)
+-		return true;
 -
- 	/* Nothing to do if this CPU doesn't own the PMU */
- 	if (hisi_pmu->on_cpu != cpu)
+ 	if (hisi_pmu->ccl_id == -1) {
+ 		/* If CCL_ID is -1, the PMU only shares the same SCCL */
+ 		hisi_read_sccl_and_ccl_id(&sccl_id, NULL);
+@@ -467,13 +463,25 @@ int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
+ 	struct hisi_pmu *hisi_pmu = hlist_entry_safe(node, struct hisi_pmu,
+ 						     node);
+ 
+-	if (!hisi_pmu_cpu_is_associated_pmu(hisi_pmu))
++	/*
++	 * If the CPU is not associated to PMU, initialize the hisi_pmu->on_cpu
++	 * based on the locality if it hasn't been initialized yet. For PMUs
++	 * do have associated CPUs, it'll be updated later.
++	 */
++	if (!hisi_pmu_cpu_is_associated_pmu(hisi_pmu)) {
++		if (hisi_pmu->on_cpu != -1)
++			return 0;
++
++		hisi_pmu->on_cpu = cpumask_local_spread(0, dev_to_node(hisi_pmu->dev));
++		WARN_ON(irq_set_affinity(hisi_pmu->irq, cpumask_of(cpu)));
  		return 0;
++	}
+ 
+ 	cpumask_set_cpu(cpu, &hisi_pmu->associated_cpus);
+ 
+-	/* If another CPU is already managing this PMU, simply return. */
+-	if (hisi_pmu->on_cpu != -1)
++	/* If another associated CPU is already managing this PMU, simply return. */
++	if (hisi_pmu->on_cpu != -1 &&
++	    cpumask_test_cpu(hisi_pmu->on_cpu, &hisi_pmu->associated_cpus))
+ 		return 0;
+ 
+ 	/* Use this CPU in cpumask for event counting */
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+index 25b2d43b72bf..bd48338ce937 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+@@ -87,7 +87,11 @@ struct hisi_pmu {
+ 	const struct hisi_uncore_ops *ops;
+ 	const struct hisi_pmu_dev_info *dev_info;
+ 	struct hisi_pmu_hwevents pmu_events;
+-	/* associated_cpus: All CPUs associated with the PMU */
++	/*
++	 * CPUs associated to the PMU and are preferred to use for counting.
++	 * Could be empty if PMU has no association (e.g. PMU on SICL), in
++	 * which case any online CPU will be used.
++	 */
+ 	cpumask_t associated_cpus;
+ 	/* CPU used for counting */
+ 	int on_cpu;
 -- 
 2.24.0
 
