@@ -4,169 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0B4D49797
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 09:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7F2D49797
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 09:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZD7b+vM71mZfpqF64PRHfvwJTG/DyKr2uo0wPXi0/U=; b=usKy47Nx3zwXkbmi1dkVFCighy
-	RxpgNoj8PCYJl5tV0hV35dKEQkzJ3tLwWdO9W5NWaS3Qcgf/Cw/f1pp7NI6SADVZmBcE2KubLUDn8
-	KUx5rUgnnoeRtm8ZAlZSkZ0K6oy9hPXpxbdt1Yx0r6Xwbvd9Fvsx84/KN0UC2Y5lzCQPcEVP4l+eo
-	dGo5c4fKtt9C+V8KxFwA4EApI+AAWOtLkco4t+1g/zjT/MBO9UGjuTexr8HS8athu+cEKuMB56fhc
-	aLO2Y3CJCKiThKfE9SCHpmOWf/Qwd96JWaVddtaSzTK3id56scjXX3E3sh9DgWubOyGYV6BwFz+pq
-	CClzARPw==;
+	bh=lrJqE01AWclLd3PUTDi+dVDFY4JwZrn85wC2ORTZCc8=; b=eG7ILZhoT+1Gfh3aLhXDTtZ/Qx
+	ly/NmVci7bmgmjW9ZDcXVKGh1j1KFdPw8sUZO92/gx8vnUEJJzKcQMfCfCF0YL3rBUFtAClbqt/Bm
+	KbH6+dq9iJ1IHV+JH8wELL1j/TjdLzOEa2cKePt82cqk67nGkYo6qtbg7lDDfE1NagkFPIjE5pZhJ
+	sz2cCztkKBH9UBDTx6BWkU0BAEyJMUei60VK1OXOy5+vc/5Il94mezDwD4QzOiscUB7FfyqGAFAp7
+	eFpHcvsFb4xlL1KrYOCzkWfyhjqhzUZ6e22nZ/M2gPn4ldoujaq0mvugzMM1+23F/1+hihEpQAX9S
+	S9kVFETQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPBQ-00000008s1g-0gss;
-	Tue, 03 Dec 2024 09:27:04 +0000
-Received: from mail-am6eur05on20722.outbound.protection.outlook.com ([2a01:111:f403:2612::722] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIPAP-00000008ruF-1p96
+	id 1tIPCn-00000008sMF-3LjH;
+	Tue, 03 Dec 2024 09:28:29 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIPBm-00000008s68-3s8G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 09:26:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JlhWLm6Er0PaO+m9r5B5oj0dLHEIkqE5PBfJQocNCYyg/ookrylOrMyRi/HW31Q3KXXIFRjLIEtCOmLsHcREC8akqej8X041dnQLTSBVFd+55LS+Q61XqrsoUJzJmtRYJMk9G/WZYg7PAIJVMQjBkDGqUqhFMW2mgyn5mZCYi66e6tkSm/ps/OQ6C5LXkwvWVhZtCr4ujVR8K77IrUzOvxzcn4ZiNGSNTDK35jtr9nUH5SF9GhiwcnfbHtDYKTGL5cvropiGFnaNqVrguE+qOLMwZtYv6WibTcuS1CmCYZH5lHLiqgP4xpHL76gzrS3xTs+tUkO5sJ6lF7r4LnvGSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2ZD7b+vM71mZfpqF64PRHfvwJTG/DyKr2uo0wPXi0/U=;
- b=JwbnMwTrl8OqmqPh743N4JDI/P7saTWtMMHqYxBDLcS4CVI32nz/LPUAWy75wuCGq33KMwRsI5ROBGBm3zxFlxtFvzSChKHrvLxko7c1pJrj3T3jEvOEa4aIYGNpCTpDbcG+6NrloOLmbK18pnPtaJxxZP8rzm8WXzbMfDnXMvcmB5NvkqCNqRBHKJ6o1uYAJWgxWpO0fKkDz9bhjnJYvcOCc2KjpjvW6cnn8iiYMjk4bUZaY5qvpmz8XcvwD7Naj0zQePVUJ/7rUNxfQ+evjcxeNx8iG4EgpEJXfvHfy9Rxlyvdoxd4h/zc48vj6ofngZXQwqT52rlA6sgw9iCs8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
- dkim=pass header.d=uclouvain.be; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2ZD7b+vM71mZfpqF64PRHfvwJTG/DyKr2uo0wPXi0/U=;
- b=rbF2uqQFIWMiiTImSePsledHwdOtRmXfPSVPwM5W68yCAH4E7ikVvaNcRCJFmeKfJXSiJrKVga3r5qETHY0IJ3mWARtxiUVeN3nUTDROq33Kad9B/NUPyMBACxTYzTw1+Rrup217OLZQvNs56AxguhrScYww/ltZNlJAPjVXNXp2WkzksKJ7FZKDrNbHGhEFTPxHmtl8TcwP3Ta78N7ob2uEn663AyQtdbUf0C6eoHIaiOtuhoT6e3GEghbJlkPvsHRcix2281HHzr+IwnT3VXkoMdGdNKZ6YL/u5Y3iZ1hsJumLqDxYfSDphjV+t8BJ/ej7jwkH6iciyIXacsIqFQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=uclouvain.be;
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
- by GV1PR03MB10607.eurprd03.prod.outlook.com (2603:10a6:150:203::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Tue, 3 Dec
- 2024 09:25:55 +0000
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c%6]) with mapi id 15.20.8207.017; Tue, 3 Dec 2024
- 09:25:55 +0000
-Message-ID: <9426d88b-0a8b-4cd1-81a4-83cfa61bb595@uclouvain.be>
-Date: Tue, 3 Dec 2024 10:25:13 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] power: supply: add support for max77759 fuel gauge
-To: Dimitri Fedrau <dima.fedrau@gmail.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
- <20241202-b4-gs101_max77759_fg-v1-1-98d2fa7bfe30@uclouvain.be>
- <20241203073556.GA3936@debian>
-Content-Language: en-US
-From: Thomas Antoine <t.antoine@uclouvain.be>
-In-Reply-To: <20241203073556.GA3936@debian>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MI2P293CA0008.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:290:45::19) To AS8PR03MB9047.eurprd03.prod.outlook.com
- (2603:10a6:20b:5b6::13)
+	Tue, 03 Dec 2024 09:27:28 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id B607072C90D;
+	Tue,  3 Dec 2024 12:27:21 +0300 (MSK)
+Received: from altlinux.org (sole.flsd.net [185.75.180.6])
+	by imap.altlinux.org (Postfix) with ESMTPSA id A808736D0178;
+	Tue,  3 Dec 2024 12:27:21 +0300 (MSK)
+Date: Tue, 3 Dec 2024 12:27:21 +0300
+From: Vitaly Chikunov <vt@altlinux.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, james.morse@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
+	mark.rutland@arm.com
+Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
+ 0000000002000000 [#1] SMP
+Message-ID: <20241203092721.j473dthkbq6wzez7@altlinux.org>
+References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
+ <20241202153618.GA6834@willie-the-truck>
+ <86ttbmt71k.wl-maz@kernel.org>
+ <20241202155940.p267a3tz5ypj4sog@altlinux.org>
+ <86ser6t6fs.wl-maz@kernel.org>
+ <20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|GV1PR03MB10607:EE_
-X-MS-Office365-Filtering-Correlation-Id: 629e0651-79ef-4d1c-1996-08dd137c7d59
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bU5vd3ZkR0ZZNktYdjVxLzZyS3VmRzRTM2pjbWNyamJBWE4zMDdyZWFaSDZI?=
- =?utf-8?B?bXZsWmFUSXlJKzFwUGtNeHBDZ3MvUHlSUlpOS01ROGNXMmRNU0dJRG5zL0RW?=
- =?utf-8?B?cEZEK2JLZGU1RmhPOStVODN2Q0RpNzJxOTZaakpETlBYTTVwRldJTW1uZ3BS?=
- =?utf-8?B?SFhGNHYyVEQ3NGRuMVlkby9vR0hJVzg5M0NidWlFaVpxazhFejhXQkNkT0xY?=
- =?utf-8?B?UnlYKzRzbU5mc3l4c3BVcEhsZUdjaTFIOHU5Y3JDUGxTem5PbWUwWUFHb3RO?=
- =?utf-8?B?bVAyWjlPVXNYam1BcU42bmdYdjVKVFExUWRzNndab0VGcWNBZnhNTmYxUytS?=
- =?utf-8?B?S0FzeXNzV1BMelJqK1lqWnhiNkk4aU5TU054eG5Yd1k1OGpCTmM4czFneThU?=
- =?utf-8?B?QzYwVHJxNkhGdFRnYzRMVktCMTUwZUZKajlnN050amVvSThJQlRIdk84YWJX?=
- =?utf-8?B?TDJJQzVrVkdTSkhBV1oyODM4ODdzT2J5djNFVUhEeDZrQ1JZV2lmUitaQ2w1?=
- =?utf-8?B?ejlSWHI4SmJaYkZZWFFzZ0RHdWVxb1EyUTN3OUtyWkxUWGZyQW9RZGUwQ0tC?=
- =?utf-8?B?dTNCSkhGQVFvMjFmV3R4bmtoQ1FiSjl6cXdKcmRNbFR4ODBnVUpPTXNMZE9t?=
- =?utf-8?B?eHdLbkk4bk1lYjVUb2V3NkJiS2RIUlk3c1FqQ041MlZ5WEZEdkZLOERLZkc1?=
- =?utf-8?B?Ukx1ejNNOC9HRlBhZjJiM1dvRlp4aVpuVURXNVY0YzA2am5zODdDSmVJZFFq?=
- =?utf-8?B?RFYvbXVNTC9pQi9uc25ldkRBTmVmV2tTVFNhcG42N05JcS9paGU0WHpGMjQr?=
- =?utf-8?B?OW1LbW1MU3FNbHVhVmg3b0p3ZjJDTzNtekRjOTJOSmFWTjFZZjFoTTBqQzZr?=
- =?utf-8?B?UkNEaTA0bHNGWEk2eWNoaTc3M2h4YUhRb1Zmb1ZMa1lxbGs1VjRzakpNTVdK?=
- =?utf-8?B?Y0x1UHdib0k3Ykk2ZTFRTTB0cm41NFJON2tRMm9oSXJMSk5NdkdFVThTWG8x?=
- =?utf-8?B?RzVSNkZyaElhUEhWVTRDZWxGUVdJcURRLzREY0tGZnNkU0VlbVlMR2dZYVlI?=
- =?utf-8?B?d2tXM1MvbFVFRjF3RFc4UjFjVTFwekQ2UHM5TWpiQUk2b3M4Uk03WlFxQ3py?=
- =?utf-8?B?TFdDZ24yVzF1Z3V6bWFUTjhzNTlkdFI3d2tSZmw5M3E0RFd4R1NURHA4em5K?=
- =?utf-8?B?NVM0TmYybGRyYjhMWkovV2Exb0pJaVlxMGFWYTVWYTlVVFVKcS8zZWV6elYx?=
- =?utf-8?B?aysxNHY3aW9oeHM4SXJoZW1qNWhwWHU2a0tFS1VDZS82Z0NDeWFNNER4ekJh?=
- =?utf-8?B?K1BkM3pPWkZqRDY0a2ZCWUxSaGs3cWdRTC9WR0NENzF3cEEzM1FzZzJUQTNu?=
- =?utf-8?B?WHMrYjF2Rm85WTE1OFlXUUMveEJTRGd2bzhmTVJMZTI1TWZXRW95ay9WWElt?=
- =?utf-8?B?cm9hQXcwU0o5ZTVaYzRQZzBGZ21HRlpxQ0NOd2R6ZGIvVWZmUFVQNTVvdzhJ?=
- =?utf-8?B?eDUwZm5QNzFjaW42dGowbzE0WGRXbVcxTGpJUFV4aTV6M01FNCtnOVFwTEVK?=
- =?utf-8?B?ZVJBOTJYR0pHaFdsYUFyQmxRdzZRQzQ0bHFXZWNRQndtQkVXMUpUVWVsNkZ4?=
- =?utf-8?B?bktmMXZJM3ZIMTB5WEh3Z0hwcXpoTDNNUGZyVncwSGtObTNzdElzc3B3ajJw?=
- =?utf-8?B?WFB1dnRjOVhQRzhMaWUvSkQzS3NOcmdlbWsyc3VtRkk3YnpyUWRtc3JEK01r?=
- =?utf-8?B?ZjUyaXRaNDdwR2p2VmFFM0tOV3FodjcySkxnbWZFSzlNcExyWjNlb0ovNmx2?=
- =?utf-8?B?L3Jua05EWnkwMXpRU2x0Zz09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NC9GektYU2xZN1pLNDlQZ1ptTVJqMGhkak9IWE1RR1JCK1pWREVCNERuVVFT?=
- =?utf-8?B?L2tRaGVtRDU1Zm9jdlhNWW55ZUw3MlRlNmNka3padnVXc3c2cEFSMjh5N2pj?=
- =?utf-8?B?aGVnNkxWbTFlNE8wTGxVZXFrcGc3YXZJakl5NXRiN1ZKU2lVNHQ0VlUraEJ2?=
- =?utf-8?B?MUtkOFRuaUFCNTF0a08yQ2l0WmtGMFlqclBxcUNwaDMyWko3VThYa1NvNnFz?=
- =?utf-8?B?VWd3QWxUS0xnVnZpUVpSVEd0K25TOEorVmwxWkFKY2Z5Q01IT1h0RnEzakNN?=
- =?utf-8?B?VDM1TVJ0S0I2NFlKamozbGpYZGxldjhVcWNkZUxnWmpEZ0hMR1psdGVxZy9k?=
- =?utf-8?B?SFZ2Z3ovWUtXLzh4VWxMb0lHK1Z2MG9qVmpWWGtNUlVUUlNyYTRJcC9vMU1U?=
- =?utf-8?B?Zi9BTm5CVmhjVDFQSmQvV1k0ZFR5QmJKVUE2S0hHTGlnUHQ2SjdCbjdiNnVY?=
- =?utf-8?B?T0xNSnhhZDBFOXRaUDlRRnlLQkRLazVEaURkWit2QlpoeFFqbG9oYjRqbHVx?=
- =?utf-8?B?a014RFBJVEU3TjFXQjdhYzU3ZmErakJqNmtFdTVidVZzeUY1Z0I3UVZ5bzZB?=
- =?utf-8?B?YzErNmF2ZmNyTmZCN2E2OERXd1U3dE1DN0JWR2JNdzh6ZnV3Wm5IS3ljSFhw?=
- =?utf-8?B?enUwVDArSUhwMTRJZ3VyS1VkbHhCT0xxVTM3S3pWZ0QyLzRUcmVCLzJ5NmNv?=
- =?utf-8?B?ZFhCZ0k3Tk42a0ZCeml3ckI5dkNUSmtTTVN4V25OaGJEeFUwM0tFK0VHSUFG?=
- =?utf-8?B?OWRWWHJGQnIrNVNkb0pLZVA5NG50YVA0VXdvMk1US1kyM29qU3RPUHhWVjNr?=
- =?utf-8?B?ODAvUUtURlpadEk4OXJPYlJtNUFYV2YydXkwTjhtNFZqMDR3V3p5RlBQd1N2?=
- =?utf-8?B?NFgyS1pSU3NsVFZPL2kyL2pKbW9uVk1DQzJCa3ZTVm5pKzBsTjNXTHVLZ1Vx?=
- =?utf-8?B?dno5bVlMSlEybTBVd1RyVENrRi9LQXB6Wjh4NGRjblJHMU00UURFSlpQQlNW?=
- =?utf-8?B?OFhRc2JBSUJ3V0NCZ1h4bzkyV3pUZ05TMXJET0hBRDR2VUdOdjcwbys5cmJH?=
- =?utf-8?B?WWdtekFUbVJyQUdiRDhSWDB5RTdiMnJmTjI2TS9vMGJsekJ1NXpPOTF3RzZ1?=
- =?utf-8?B?S0FQa0RoZEdoY2d5TTRVSWpwM0VXRE9CTHFuUVhKaXBQZ0pKMkZsZ2lPeVNh?=
- =?utf-8?B?WUNENUozamdkWXorWUgxekJvSHVGb21DUSsrM0d3REtKRlNqUkpCb3pTK256?=
- =?utf-8?B?bk9SMTlTMzh1cG1HQVdtTVpBdXNYcklxMkhFUjZFMkRpc1ZTRzV4eTdLaWJ6?=
- =?utf-8?B?MTE0K0hNRGc3bGZyaTQ5QW9tcDg0TzJjNXdRSmI0ZUR5WDY4bzZScTJUaHBl?=
- =?utf-8?B?S2NMRFVyZ0NEL0o3SHJITEhaTzFXOVZBdzF3MWZlVXVmVGpPN2pVRGtiMnhO?=
- =?utf-8?B?d1lRTlgySTFUaTRPd2JWUG12V1J4ZXUzZEdlQzZXU0xqeTMyc3k1OW04R21F?=
- =?utf-8?B?QmxmOVRmcEJIMEMyS0txYmdKejFadVRaSi8vUXV4MzFuR1hrL3FUai9TTWQr?=
- =?utf-8?B?RjU3T2tsMkV4VUQwVGdDaHNhUytQZXZYRnd2aW8xenczaTNOK2J0ZjRac3Bv?=
- =?utf-8?B?Rm9aTG54a3hnNjVTN2E4UDMvZ0RZd3o5RnNFQzVNbGhiZi9uMThmNXR0alpp?=
- =?utf-8?B?VjV3dXRrdjdVYmZMVGZuUHUyT3Njci9LcGI0MHlOQVJmSDFzKytWT0c5d2xR?=
- =?utf-8?B?Y3B6ZlAreFVxM1ExcGZMbVc4UlVzdTE2SmdDcnFOckNXTlVPY0lPUU1CRlll?=
- =?utf-8?B?NGFDN2d3alVRU2E2SU1pazI5L05FNW9ualVSQ2FXanU2TVRWZTQ0SXB3UHNH?=
- =?utf-8?B?UDgwbDQ4K290NUFpYjhIT1gvR3diRXRCMlZsMDd6Uk9VMUtCWmJaSHlnZWhM?=
- =?utf-8?B?cWJwQmRkUCtEekI5TnU2c09MSXA1MzBBVnVLZU80RVFheTZtVWRtU3JRZzgx?=
- =?utf-8?B?NnpCL1ZqLzZKSnlPanNlMDRiclNidDByQVJhdVdIV0dRYjFWSFR1eEphSWpH?=
- =?utf-8?B?VHFLNFp0a2JhSy9DaFM2NlYzcFpFdDdKWGQzSFNJNTA0MjVqaHBHUUc4OHdL?=
- =?utf-8?B?RFhLQ3lzSXBIeVBpWEdJeTRUOENNaGRvdUFzZ1FZZy9HNzI4OGxLVWJWRER0?=
- =?utf-8?Q?arcUvRhYK1LT4yfzLgrep/94EZay2G/sTsOxx2EMN/Ao?=
-X-OriginatorOrg: uclouvain.be
-X-MS-Exchange-CrossTenant-Network-Message-Id: 629e0651-79ef-4d1c-1996-08dd137c7d59
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2024 09:25:55.8361
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KIsgJuLR/7CGKaLlQGFDwXx1yojBsMdSJ8w2bwa+l75rUtfWQWV7eedhAn3Sv5labwQKZBsKxbGsUmbx1DeBzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR03MB10607
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
+In-Reply-To: <20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_012601_477183_369E094C 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20241203_012727_122855_11F2EBF0 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,54 +71,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/3/24 08:35, Dimitri Fedrau wrote:
-> Hi Antoine,
+Marc,
+
+On Tue, Dec 03, 2024 at 01:31:19AM +0300, Vitaly Chikunov wrote:
+> On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
+> > On Mon, 02 Dec 2024 15:59:40 +0000,
+> > Vitaly Chikunov <vt@altlinux.org> wrote:
+> > > 
+> > > Marc,
+> > > 
+> > > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
+> > > >
+> > > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
+> > > 
+> > > No, host is 6.6.60.
+> > 
+> > Right. I wouldn't be surprised if:
+> > 
+> > - this v6.6 kernel doesn't hide the MPAM feature as it should (and
+> >   that's proably something we should backport)
 > 
-> Am Mon, Dec 02, 2024 at 02:07:15PM +0100 schrieb Thomas Antoine via B4 Relay:
->> From: Thomas Antoine <t.antoine@uclouvain.be>
->> +#include <linux/types.h>
->>  
-> No need to include it, it is done by <linux/i2.c> which includes
-> <linux/device.h> which includes <linux/types.h>
+> How to confirm this? Currently I cannot find any (case-insensitive)
+> "MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM strings
+> in `strace -v` (as it decodes some KVM ioctls) of qemu process.
+> 
+> > 
+> > - you get a nastygram in the host log telling you that the guest has
+> >   executed something it shouldn't (you'll get the encoding of the
+> >   instruction)
+> 
+> I requested admins of the box for dmesg output since I don't have root
+> access myself and nowadays dmesg is not accessible for a user.
 
-Hi,
-Will remove for v2.
+This is what they reported:
 
->>  static const char *const max17201_model = "MAX17201";
->>  static const char *const max17205_model = "MAX17205";
->> +static const char *const max77759_model = "MAX77759";
->>  
->>  struct max1720x_device_info {
->>  	struct regmap *regmap;
->> @@ -54,6 +57,21 @@ struct max1720x_device_info {
->>  	int rsense;
->>  };
->>  
->> +struct chip_data {
->> +	u16 default_nrsense; /* in regs in 10^-5 */
->> +	u8 has_nvmem;
->> +};
->> +
->> +static const struct chip_data max1720x_data  = {
->> +	.default_nrsense = 1000,
->> +	.has_nvmem = 1,
->> +};
->> +
->> +static const struct chip_data max77759_data = {
->> +	.default_nrsense = 500,
->> +	.has_nvmem = 0,
->> +};
->> +
-> You can get rid of chip_data by reading rsense from DT and moving
-> has_nvmem to max1720x_device_info. By doing so you don't have to rely on
-> default values. Either it is specified by DT or by rsense value in
-> nvmem.
+  kvm [2502822]: Unsupported guest sys_reg access at: ffff80008003e9f0 [000000c5]
+                   { Op0( 3), Op1( 0), CRn(10), CRm( 4), Op2( 4), func_read },
 
-I guess I can just get has_nvmem by seeing if of_property_read of the
-rsense value fails. As long as the binding is well defined as to not
-allow a rsense value for the max1720x, there should be no problem.
-Will do that for v2.
+Thanks,
 
-Thanks, best regards,
-Thomas
+> 
+> > 
+> > Can you confirm these two things?
+> 
+> Also, I tried to reproduce on another Kunpeng box with slightly
+> different HiSilicon CPU (presenting to the system as Cortex-A72) and the
+> problem is not reproducible there.
+> 
+> While things are not resolved, is it possible to workaround the problem
+> with some QEMU option, kernel command line, config option, or a patch?
+> 
+> Thanks,
+> 
+> > 
+> > 	M.
+> > 
+> > -- 
+> > Without deviation from the norm, progress is not possible.
 
