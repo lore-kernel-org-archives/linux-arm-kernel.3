@@ -4,68 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AF5E74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C94E74AC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lntT44yDA/CQPJtT+Ol4QD6NQsks727x1mdyw4aP2xo=; b=n51CVjCzkfooswdN9AbGpP2L5A
-	fPfRqLCRxAcQXcLva9U/0Ubgmoz05DSn0ybP1gXyPCs8RTQ0Mlzc4Y8OIAEcczOMB+YOAcPzC5+72
-	npHF9akPAmnegXOo0snfiXFDBDKyb9DtHPvpdOf2EYXIizGEgCy+5ctihVkeBlPWDombzf3TUyujP
-	3z7g16CTYHBDJaaP3pqRcp6oHYdmtKu1qwcnGJ0/UgVorMfX70LJX6YSYDjOEQCjDYbUTKKBXcfDr
-	POfFZPLfZmrAyPhZn66IUYDXc7Ghk2QVtGMGeBIwnSTY9T9Jdjy3pUOXdZFs10DBc9YvS/uGxvDbv
-	3/i6u0og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7THRhMNRRZ35+Cp9Ztb4wM4h4N09m4bzEGPHNNYxxko=; b=BTWOU/u0JNbET91/zkNu6yRCbN
+	25t0N3AMT6zLIlgFOZ1l2pfZAQIbWtKQoAN0u4zi4OjQI1oYsKlS+jgKnDNngOB7cGdqAgOandLDh
+	G5yoU3/O+UmzdbZlk6i9EfFBSHKwc6uozlRpftnJWaNsBZm3TEbVMJLrvSWPR84u5pO6Dc64+mSTu
+	qaMj+4A+zBHi2eATXTskLVRAZ7jIG0xaQNAW4H+yy92J6HfaPx+U0m3PvaA4NfMT9NUCcSkZM+4HX
+	IEtHG1LVklsWeoPiCgNCrpK/5hzus0a87lTPvvffZ9STHNGcz6kL9ddC/f88vk8qc2pGQ1pAeIVQb
+	of95AZhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWei-0000000AF2u-0HGc;
-	Tue, 03 Dec 2024 17:25:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIWff-0000000AFBU-34gC;
+	Tue, 03 Dec 2024 17:26:47 +0000
+Received: from wp530.webpack.hosteurope.de ([80.237.130.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWdh-0000000AEvD-12B9
+	id 1tIWdi-0000000AEul-37WQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 17:24:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 056FCA417FE;
-	Tue,  3 Dec 2024 17:22:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5597DC4CECF;
-	Tue,  3 Dec 2024 17:24:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733246683;
-	bh=LNXxnd+wAtX8yjnWtSQBVcGs5jeF1cYxXYnclU8AnDU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G4fWRbkNm3jIkzfpx0pDOYw+KFGofLZR7Wkua0flCruEk9CYgjatRvlLgPHHy1ilD
-	 +WRMYBCdOJKYuHwHcfz4P+AY/FiH5A4c7paI3nsojLe8d1UYXjPFZL+Jieq4TPzKR+
-	 YPT3BdwA8JIKaPoJohyzwnFAjVS28hYvsatDGWDDhC4Q/1A8D+ZDHVquBLJlUBDzBf
-	 5KmDbKd0dGmv32Q3W+TRwteyk0Xw/ATWLjtku9mZw4eUTOYrofbJjNzMySg3fB0o0R
-	 Ic+q6vFVxzRcugP5nf1717ZCRcdX59WvuMK0vU0no9HyLqBGhGi8l5kbrtLsAE7Pw0
-	 fS+HssiZ74Uhg==
-Date: Tue, 3 Dec 2024 17:24:39 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/6] arm64/sme: Flush foreign register state in
- do_sme_acc()
-Message-ID: <44d67835-1e43-47cc-9a18-c279c885dcec@sirena.org.uk>
-References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
- <20241203-arm64-sme-reenable-v1-1-d853479d1b77@kernel.org>
- <Z08khk6Mg6+T6VV9@e133380.arm.com>
- <9365be76-8da6-47ce-b88e-dfa244b9e5b7@sirena.org.uk>
- <Z085GKS8jzEhcZdW@e133380.arm.com>
+	Tue, 03 Dec 2024 17:24:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=leemhuis.info; s=he214686; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
+	References; bh=7THRhMNRRZ35+Cp9Ztb4wM4h4N09m4bzEGPHNNYxxko=; t=1733246686;
+	x=1733678686; b=Tv0Yw2rC4c/I/urb1wTY8OrUczgTeXteND2FCqN6JmFVzg2XB00Xnd0CI7+OB
+	G3rRXQ9CJR5eoDwl6vRw80E1sT4qOMyc6b01ouWzt0t+I88x2r2Bza76nNR1lYjEGXt7meKhRr4zq
+	ib/kRpr/q3Gx0a9vsHbTVUTGyYJ+wLme3UI97qw/JS2Nj+9lb1b+5WF5mv3MXOakNKqVOAT5KDmen
+	ix2ILJw6sQ8QjD23Al5b1PCcvFl5WkgnwMUdYo02/Chovrl4M+VNBLGe53AhNk6ZUuEmtZVld7XTH
+	RqmOyXD7MZ6dgOMLPtnB6dgASt0c1d2e6yYfeyy4InzHPZNX3A==;
+Received: from [2a02:8108:8980:2478:87e9:6c79:5f84:367d]; authenticated
+	by wp530.webpack.hosteurope.de running ExIM with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
+	id 1tIWdJ-008HP3-01;
+	Tue, 03 Dec 2024 18:24:21 +0100
+Message-ID: <f2ada8a7-165b-41fb-8b7b-3c0d16bb8216@leemhuis.info>
+Date: Tue, 3 Dec 2024 18:24:19 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tHDCWXL5Z30wlzvr"
-Content-Disposition: inline
-In-Reply-To: <Z085GKS8jzEhcZdW@e133380.arm.com>
-X-Cookie: Alimony is the high cost of leaving.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.12 470/826] perf stat: Uniquify event name improvements
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
+ Sasha Levin <sashal@kernel.org>
+Cc: patches@lists.linux.dev, Namhyung Kim <namhyung@kernel.org>,
+ Ian Rogers <irogers@google.com>, Kan Liang <kan.liang@linux.intel.com>,
+ James Clark <james.clark@linaro.org>, Yang Jihong
+ <yangjihong@bytedance.com>, Dominique Martinet <asmadeus@codewreck.org>,
+ Colin Ian King <colin.i.king@gmail.com>, Howard Chu <howardchu95@gmail.com>,
+ Ze Gao <zegao2021@gmail.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ Weilin Wang <weilin.wang@intel.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Jing Zhang <renyu.zj@linux.alibaba.com>,
+ Yang Li <yang.lee@linux.alibaba.com>, Leo Yan <leo.yan@linux.dev>,
+ ak@linux.intel.com, Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+ linux-arm-kernel@lists.infradead.org, Sun Haiyong <sunhaiyong@loongson.cn>,
+ John Garry <john.g.garry@oracle.com>,
+ Justin Forbes <jforbes@fedoraproject.org>
+References: <20241203144743.428732212@linuxfoundation.org>
+ <20241203144802.097952233@linuxfoundation.org>
+From: Thorsten Leemhuis <linux@leemhuis.info>
+Content-Language: en-MW
+Autocrypt: addr=linux@leemhuis.info; keydata=
+ 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 n7RI
+In-Reply-To: <20241203144802.097952233@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-bounce-key: webpack.hosteurope.de;linux@leemhuis.info;1733246686;573924f0;
+X-HE-SMSGID: 1tIWdJ-008HP3-01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_092445_410915_4B3A15DA 
-X-CRM114-Status: GOOD (  33.27  )
+X-CRM114-CacheID: sfid-20241203_092447_074456_A5DB05D5 
+X-CRM114-Status: GOOD (  26.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +131,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 03.12.24 15:43, Greg Kroah-Hartman wrote:
+> 6.12-stable review patch.  If anyone has any objections, please let me =
+know.
+>=20
+> ------------------
+>=20
+> From: Ian Rogers <irogers@google.com>
+>=20
+> [ Upstream commit 057f8bfc6f7070577523d1e3081081bbf4229c1c ]
+>=20
+> Without aggregation on Intel:
 
---tHDCWXL5Z30wlzvr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+My 6.11.y-rc and 6.12.y-rc builds for Fedora failed when building perf.=20
+I did not bisect, but from a brief look at the error message (see
+below) I suspect it might be caused by this patch, which is the
+second of the patch-set "Event parsing fixes":
+https://lore.kernel.org/all/20240926144851.245903-1-james.clark@linaro.or=
+g/
 
-On Tue, Dec 03, 2024 at 05:00:08PM +0000, Dave Martin wrote:
-> On Tue, Dec 03, 2024 at 04:00:45PM +0000, Mark Brown wrote:
+To my untrained eyes and from a quick look I guess the first patch
+in the series needs to be backported as well:
+perf evsel: Add alternate_hw_config and use in evsel__match
+https://lore.kernel.org/all/20240926144851.245903-2-james.clark@linaro.or=
+g/
 
-> > It's to ensure that the last recorded CPU for the current task is
-> > invalid so that if the state was loaded on another CPU and we switch
-> > back to that CPU we reload the state from memory, we need to at least
-> > trigger configuration of the SME VL.
+This is 22a4db3c36034e ("perf evsel: Add alternate_hw_config
+and use in evsel__match") in mainline. I tried to cherry-pick it
+on-top of 6.12.2-rc1, but there were a few small conflicts.=20
 
-> OK, so the logic here is something like:
+Ciao, Thorsten
 
-> Disregarding SME, the FPSIMD/SVE regs are up to date, which is fine
-> because SME is trapped.
+P.S.: The build error:
 
-> When we take the SME trap, we suddenly have some work to do in order to
-> make sure that the SME-specific parts of the register state are up to
-> date, so we need to mark the state as stale before setting TIF_SME and
-> returning.
+  gcc -Wp,-MD,util/.topdown.o.d -Wp,-MT,util/topdown.o -O2 -fexceptions -=
+g -grecord-gcc-switches -pipe -Wall -Wno-complain-wrong-lang -Werror=3Dfo=
+rmat-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3D3 -Wp,-D_GLIBCXX_=
+ASSERTIONS -specs=3D/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-prote=
+ctor-strong -specs=3D/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=3D=
+x86-64 -mtune=3Dgeneric -fasynchronous-unwind-tables -fstack-clash-protec=
+tion -fcf-protection -mtls-dialect=3Dgnu2 -Wbad-function-cast -Wdeclarati=
+on-after-statement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-d=
+eclarations -Wmissing-prototypes -Wno-system-headers -Wold-style-definiti=
+on -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -Wswit=
+ch-enum -Wundef -Wwrite-strings -Wformat -Wno-type-limits -Wstrict-aliasi=
+ng=3D3 -Wshadow -DHAVE_SYSCALL_TABLE_SUPPORT -Iarch/x86/include/generated=
+ -DHAVE_ARCH_X86_64_SUPPORT -DHAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -DNDEB=
+UG=3D1 -O3 -fno-omit-frame-pointer -Wall -Wextra -std=3Dgnu11 -fstack-pro=
+tector-all -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3D2 -D_LARGEFILE64_SOURCE =
+-D_FILE_OFFSET_BITS=3D64 -D_GNU_SOURCE -I/builddir/build/BUILD/kernel-6.1=
+2.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/to=
+ols/perf/util/include -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-=
+6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/arch/x86=
+/include -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/li=
+nux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/include/ -I/builddir/build=
+/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanil=
+la.fc41.x86_64/tools/arch/x86/include/uapi -I/builddir/build/BUILD/kernel=
+-6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_6=
+4/tools/include/uapi -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6=
+=2E12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/arch/x86/inc=
+lude/ -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux=
+-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/arch/x86/ -I/builddir/build/B=
+UILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla=
+=2Efc41.x86_64/tools/perf/util -I/builddir/build/BUILD/kernel-6.12.2-buil=
+d/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf=
+ -DHAVE_PTHREAD_ATTR_SETAFFINITY_NP -DHAVE_PTHREAD_BARRIER -DHAVE_EVENTFD=
+_SUPPORT -DHAVE_GET_CURRENT_DIR_NAME -DHAVE_GETTID -DHAVE_FILE_HANDLE -DH=
+AVE_DWARF_GETLOCATIONS_SUPPORT -DHAVE_DWARF_CFI_SUPPORT -DHAVE_AIO_SUPPOR=
+T -DHAVE_SCANDIRAT_SUPPORT -DHAVE_SCHED_GETCPU_SUPPORT -DHAVE_SETNS_SUPPO=
+RT -DHAVE_ZLIB_SUPPORT -DHAVE_LIBELF_SUPPORT -DHAVE_ELF_GETPHDRNUM_SUPPOR=
+T -DHAVE_GELF_GETNOTE_SUPPORT -DHAVE_ELF_GETSHDRSTRNDX_SUPPORT -DHAVE_DWA=
+RF_SUPPORT -DHAVE_LIBBPF_SUPPORT -DHAVE_SDT_EVENT -DHAVE_JITDUMP -DHAVE_B=
+PF_SKEL -DHAVE_DWARF_UNWIND_SUPPORT -DHAVE_LIBCRYPTO_SUPPORT -DHAVE_SLANG=
+_SUPPORT -DHAVE_LIBPERL_SUPPORT -DHAVE_TIMERFD_SUPPORT -DHAVE_LIBPYTHON_S=
+UPPORT -fPIC -DHAVE_LIBLLVM_SUPPORT -I/usr/include -D_GNU_SOURCE -D__STDC=
+_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -DHAVE_CXA_=
+DEMANGLE_SUPPORT -DHAVE_LZMA_SUPPORT -DHAVE_ZSTD_SUPPORT -DHAVE_BACKTRACE=
+_SUPPORT -DHAVE_LIBNUMA_SUPPORT -DHAVE_KVM_STAT_SUPPORT -DDISASM_FOUR_ARG=
+S_SIGNATURE -DDISASM_INIT_STYLED -DHAVE_LIBBABELTRACE_SUPPORT -DHAVE_AUXT=
+RACE_SUPPORT -DHAVE_JVMTI_CMLR -DHAVE_LIBTRACEEVENT -I/usr/include/tracee=
+vent -DLIBTRACEEVENT_VERSION=3D67067 -I/usr/include/tracefs -I/usr/includ=
+e/traceevent -DLIBTRACEFS_VERSION=3D67065 -I/builddir/build/BUILD/kernel-=
+6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64=
+/tools/perf/libapi/include -I/builddir/build/BUILD/kernel-6.12.2-build/ke=
+rnel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/lib=
+subcmd/include -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-=
+rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/libsymbol/inclu=
+de -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux-6.=
+12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/libperf/include -D"BUILD_ST=
+R(s)=3D#s" -c -o util/topdown.o util/topdown.c
+util/stat-display.c: In function =E2=80=98uniquify_event_name=E2=80=99:
+util/stat-display.c:895:45: error: =E2=80=98struct evsel=E2=80=99 has no =
+member named =E2=80=98alternate_hw_config=E2=80=99
+  895 |         if (counter->pmu->is_core && counter->alternate_hw_config=
+ !=3D PERF_COUNT_HW_MAX)
+      |                                             ^~
+make[4]: *** [/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1=
+/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/build/Makefile.build:10=
+6: util/stat-display.o] Error 1
+make[4]: *** Waiting for unfinished jobs....
 
-We know that the only bit of register state which is not up to date at
-this point is the SME vector length, we don't configure that for tasks
-that do not have SME.  SVCR is always configured since we have to exit
-streaming mode for FPSIMD and SVE to work properly so we know it's
-already 0, all the other SME specific state is gated by controls in
-SVCR.
+> ```
+> $ perf stat -e instructions,cycles ...
+> ```
+> Will use "cycles" for the name of the legacy cycles event but as
+> "instructions" has a sysfs name it will and a "[cpu]" PMU suffix. This
+> often breaks things as the space between the event and the PMU name
+> look like an extra column. The existing uniquify logic was also
+> uniquifying in cases when all events are core and not with uncore
+> events, it was not correctly handling modifiers, etc.
+>=20
+> Change the logic so that an initial pass that can disable
+> uniquification is run. For individual counters, disable uniquification
+> in more cases such as for consistency with legacy events or for
+> libpfm4 events. Don't use the "[pmu]" style suffix in uniquification,
+> always use "pmu/.../". Change how modifiers/terms are handled in the
+> uniquification so that they look like parse-able events.
+>=20
+> This fixes "102: perf stat metrics (shadow stat) test:" that has been
+> failing due to "instructions [cpu]" breaking its column/awk logic when
+> values aren't aggregated. This started happening when instructions
+> could match a sysfs rather than a legacy event, so the fixes tag
+> reflects this.
+>=20
+> Fixes: 617824a7f0f7 ("perf parse-events: Prefer sysfs/JSON hardware eve=
+nts over legacy")
+> Acked-by: Namhyung Kim <namhyung@kernel.org>
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> [ Fix Intel TPEBS counting mode test ]
+> Acked-by: Kan Liang <kan.liang@linux.intel.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> Cc: Yang Jihong <yangjihong@bytedance.com>
+> Cc: Dominique Martinet <asmadeus@codewreck.org>
+> Cc: Colin Ian King <colin.i.king@gmail.com>
+> Cc: Howard Chu <howardchu95@gmail.com>
+> Cc: Ze Gao <zegao2021@gmail.com>
+> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> Cc: Weilin Wang <weilin.wang@intel.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mike Leach <mike.leach@linaro.org>
+> Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
+> Cc: Yang Li <yang.lee@linux.alibaba.com>
+> Cc: Leo Yan <leo.yan@linux.dev>
+> Cc: ak@linux.intel.com
+> Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Sun Haiyong <sunhaiyong@loongson.cn>
+> Cc: John Garry <john.g.garry@oracle.com>
+> Link: https://lore.kernel.org/r/20240926144851.245903-3-james.clark@lin=
+aro.org
+> Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+>  .../perf/tests/shell/test_stat_intel_tpebs.sh |  11 +-
+>  tools/perf/util/stat-display.c                | 101 ++++++++++++++----=
 
-> fpsimd_flush_task_state() means that we do the necessary work when re-
-> entering userspace, but is there a problem with simply marking all the
-> FPSIMD/vector state as stale?  If FPSR or FPCR is dirty for example, it
-> now looks like they won't get written back to thread struct if there is
-> a context switch before current re-enters userspace?
+>  2 files changed, 85 insertions(+), 27 deletions(-)
+>=20
+> diff --git a/tools/perf/tests/shell/test_stat_intel_tpebs.sh b/tools/pe=
+rf/tests/shell/test_stat_intel_tpebs.sh
+> index c60b29add9801..9a11f42d153ca 100755
+> --- a/tools/perf/tests/shell/test_stat_intel_tpebs.sh
+> +++ b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
+> @@ -8,12 +8,15 @@ grep -q GenuineIntel /proc/cpuinfo || { echo Skipping=
+ non-Intel; exit 2; }
+>  # Use this event for testing because it should exist in all platforms
+>  event=3Dcache-misses:R
+> =20
+> +# Hybrid platforms output like "cpu_atom/cache-misses/R", rather than =
+as above
+> +alt_name=3D/cache-misses/R
+> +
+>  # Without this cmd option, default value or zero is returned
+> -echo "Testing without --record-tpebs"
+> -result=3D$(perf stat -e "$event" true 2>&1)
+> -[[ "$result" =3D~ $event ]] || exit 1
+> +#echo "Testing without --record-tpebs"
+> +#result=3D$(perf stat -e "$event" true 2>&1)
+> +#[[ "$result" =3D~ $event || "$result" =3D~ $alt_name ]] || exit 1
+> =20
+>  # In platforms that do not support TPEBS, it should execute without er=
+ror.
+>  echo "Testing with --record-tpebs"
+>  result=3D$(perf stat -e "$event" --record-tpebs -a sleep 0.01 2>&1)
+> -[[ "$result" =3D~ "perf record" && "$result" =3D~ $event ]] || exit 1
+> +[[ "$result" =3D~ "perf record" && "$result" =3D~ $event || "$result" =
+=3D~ $alt_name ]] || exit 1
+> diff --git a/tools/perf/util/stat-display.c b/tools/perf/util/stat-disp=
+lay.c
+> index ea96e4ebad8c8..cbff43ff8d0fb 100644
+> --- a/tools/perf/util/stat-display.c
+> +++ b/tools/perf/util/stat-display.c
+> @@ -871,38 +871,66 @@ static void printout(struct perf_stat_config *con=
+fig, struct outstate *os,
+> =20
+>  static void uniquify_event_name(struct evsel *counter)
+>  {
+> -	char *new_name;
+> -	char *config;
+> -	int ret =3D 0;
+> +	const char *name, *pmu_name;
+> +	char *new_name, *config;
+> +	int ret;
+> =20
+> -	if (counter->uniquified_name || counter->use_config_name ||
+> -	    !counter->pmu_name || !strncmp(evsel__name(counter), counter->pmu=
+_name,
+> -					   strlen(counter->pmu_name)))
+> +	/* The evsel was already uniquified. */
+> +	if (counter->uniquified_name)
+>  		return;
+> =20
+> -	config =3D strchr(counter->name, '/');
+> +	/* Avoid checking to uniquify twice. */
+> +	counter->uniquified_name =3D true;
+> +
+> +	/* The evsel has a "name=3D" config term or is from libpfm. */
+> +	if (counter->use_config_name || counter->is_libpfm_event)
+> +		return;
+> +
+> +	/* Legacy no PMU event, don't uniquify. */
+> +	if  (!counter->pmu ||
+> +	     (counter->pmu->type < PERF_TYPE_MAX && counter->pmu->type !=3D P=
+ERF_TYPE_RAW))
+> +		return;
+> +
+> +	/* A sysfs or json event replacing a legacy event, don't uniquify. */=
 
-> Maybe the other flags distinguish these cases -- I haven't fully got my
-> head around it.
+> +	if (counter->pmu->is_core && counter->alternate_hw_config !=3D PERF_C=
+OUNT_HW_MAX)
+> +		return;
+> +
+> +	name =3D evsel__name(counter);
+> +	pmu_name =3D counter->pmu->name;
+> +	/* Already prefixed by the PMU name. */
+> +	if (!strncmp(name, pmu_name, strlen(pmu_name)))
+> +		return;
+> +
+> +	config =3D strchr(name, '/');
+>  	if (config) {
+> -		if (asprintf(&new_name,
+> -			     "%s%s", counter->pmu_name, config) > 0) {
+> -			free(counter->name);
+> -			counter->name =3D new_name;
+> -		}
+> -	} else {
+> -		if (evsel__is_hybrid(counter)) {
+> -			ret =3D asprintf(&new_name, "%s/%s/",
+> -				       counter->pmu_name, counter->name);
+> +		int len =3D config - name;
+> +
+> +		if (config[1] =3D=3D '/') {
+> +			/* case: event// */
+> +			ret =3D asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, conf=
+ig + 2);
+>  		} else {
+> -			ret =3D asprintf(&new_name, "%s [%s]",
+> -				       counter->name, counter->pmu_name);
+> +			/* case: event/.../ */
+> +			ret =3D asprintf(&new_name, "%s/%.*s,%s", pmu_name, len, name, conf=
+ig + 1);
+>  		}
+> +	} else {
+> +		config =3D strchr(name, ':');
+> +		if (config) {
+> +			/* case: event:.. */
+> +			int len =3D config - name;
+> =20
+> -		if (ret) {
+> -			free(counter->name);
+> -			counter->name =3D new_name;
+> +			ret =3D asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, conf=
+ig + 1);
+> +		} else {
+> +			/* case: event */
+> +			ret =3D asprintf(&new_name, "%s/%s/", pmu_name, name);
+>  		}
+>  	}
+> -
+> -	counter->uniquified_name =3D true;
+> +	if (ret > 0) {
+> +		free(counter->name);
+> +		counter->name =3D new_name;
+> +	} else {
+> +		/* ENOMEM from asprintf. */
+> +		counter->uniquified_name =3D false;
+> +	}
+>  }
+> =20
+>  static bool hybrid_uniquify(struct evsel *evsel, struct perf_stat_conf=
+ig *config)
+> @@ -1559,6 +1587,31 @@ static void print_cgroup_counter(struct perf_sta=
+t_config *config, struct evlist
+>  		print_metric_end(config, os);
+>  }
+> =20
+> +static void disable_uniquify(struct evlist *evlist)
+> +{
+> +	struct evsel *counter;
+> +	struct perf_pmu *last_pmu =3D NULL;
+> +	bool first =3D true;
+> +
+> +	evlist__for_each_entry(evlist, counter) {
+> +		/* If PMUs vary then uniquify can be useful. */
+> +		if (!first && counter->pmu !=3D last_pmu)
+> +			return;
+> +		first =3D false;
+> +		if (counter->pmu) {
+> +			/* Allow uniquify for uncore PMUs. */
+> +			if (!counter->pmu->is_core)
+> +				return;
+> +			/* Keep hybrid event names uniquified for clarity. */
+> +			if (perf_pmus__num_core_pmus() > 1)
+> +				return;
+> +		}
+> +	}
+> +	evlist__for_each_entry_continue(evlist, counter) {
+> +		counter->uniquified_name =3D true;
+> +	}
+> +}
+> +
+>  void evlist__print_counters(struct evlist *evlist, struct perf_stat_co=
+nfig *config,
+>  			    struct target *_target, struct timespec *ts,
+>  			    int argc, const char **argv)
+> @@ -1572,6 +1625,8 @@ void evlist__print_counters(struct evlist *evlist=
+, struct perf_stat_config *conf
+>  		.first =3D true,
+>  	};
+> =20
+> +	disable_uniquify(evlist);
+> +
+>  	if (config->iostat_run)
+>  		evlist->selected =3D evlist__first(evlist);
+> =20
 
-We are doing fpsimd_flush_task_state() in the TIF_FOREIGN_FPSTATE case
-so we know there is no dirty state in the registers.
-
-> (Actually, the ARM ARM says (IMHTLZ) that toggling PSTATE.SM by any
-> means causes FPSR to become 0x800009f.  I'm not sure where that fits in
-> -- do we handle that anywhere?  I guess the "soft" SM toggling via
-
-Urgh, not seen that one - that needs handling in the signal entry path
-and ptrace.  That will have been defined while the feature was being
-implemented.  It's not relevant here though since we are in the SME
-access trap, we might be trapping due to a SMSTART or equivalent
-operation but that SMSTART has not yet run at the point where we return
-to userspace.
-
-> ptrace, signal delivery or maybe exec, ought to set this?  Not sure how
-> that interacts with the expected behaviour of the fenv(3) API...  Hmm.
-> I see no corresponding statement about FPCR.)
-
-Fun.  I'm not sure how the ABI is defined there by libc.
-
---tHDCWXL5Z30wlzvr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdPPtYACgkQJNaLcl1U
-h9APOAf/UFW40tTbHb8uLiLKWdPsreOHsimNJmtyKr1ffXaDSWdfVPDpmIkD2Pq0
-IfxTti7phJ0HbaSbSPQE5Q4wAuoWBKPBF1MA//sROlRYOrgRyGnoh4wYPHsKyHsC
-te9Y7m8YRG5BjAWU9AZxXDqrAzAD0Z2FUzPWHoeCfZfMzF39LVeT9fWrXifq//JL
-pukr0jwLO8Cl6h5beYMmvhhV+tUFooMIyswL0ao+U8oR34CtbTO43JsGwvIQ4jtN
-jkLXq4qeAFpbCdfepZcfO0GM3MIFMBu646I3pUVppZj0FAtQzShBrTdEz8IxAr4/
-Ae/GFy0QGUkCC6ZHRyE/6ZC3sp7Vmw==
-=MArm
------END PGP SIGNATURE-----
-
---tHDCWXL5Z30wlzvr--
 
