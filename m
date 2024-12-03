@@ -4,68 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1003AE64AB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3B9E64AB8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQfWXnwBtjN4+gVX0bHkzy3HHnT2/jPXP6zHmg2fCvs=; b=vP+dZimr8ZIAngwvO9DXXrVau+
-	1sWzJqOKgfXxwWJ+4w68MDCf17JlaDM1FcOVovxPkVVpL3sq5DqwCYNS48Td2Um5baFfda2FM+ycL
-	5W5TAjOYrQh8s6Cb7RUKSwoAQx8dpC+q1C2lmYu0YDr5jtcaOyUK9uYWHbKs8i2Ddw69puWVYiviF
-	1lbXhvrHTTWRxdKkPWsVT9WlXp9i6BOUnzWL/UytQGMQASDkryI+zehLZtafRLDm3nTghBJRZGEGh
-	cBFmuUTMxP5qZCYnmM0eKjft0DI6a6xbxkz2nIp08JiIx1pFY8qBbZzm7LRMN9fpyDliimuABGldU
-	iADo2JQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RNLP9eLhojQC88qp2LK3ww/TK8pltUy8qFda5EwnphM=; b=OKHPyj5tPuJ7Ydagi3jCjpCCle
+	1IvGqqcn8cSRL7UI4t1IsLTUX6KDC/rHzxw5GXmrO/hwT4YRCQApj27K8rvrB6Bci8bB/Ow1a4/fM
+	6gbc45Kkf57Js02s95nJWo4b4JE+vpNHQDfMkALAhm1+v0Ghzg4ewZP/Dqyfwh/LxkgV5N2xGrH+N
+	5MNSBOtyU928/lOD4oyafPitU+Ac0qz0NojJb7b1Jo03IFp7hYEkDqslJM8OhjLu/JukEIGT+zZkI
+	tLOFqlaTz5gH61GGA0jwpky0bmqR0r4OL0DQi7snUurlnnPDgpIZaLB4MWAMunxw86E7JI780F4mv
+	kfv8XQkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUNb-00000009rCH-3ATg;
-	Tue, 03 Dec 2024 14:59:59 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUMb-00000009r4O-3cgl
+	id 1tIUUr-00000009s8V-1hkI;
+	Tue, 03 Dec 2024 15:07:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIUTs-00000009s1R-0zyE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 14:58:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=AQfWXnwBtjN4+gVX0bHkzy3HHnT2/jPXP6zHmg2fCvs=; b=Ln
-	B4d1FLm6hFKT1zzUVBGaUbFqCSIXxlRMFuTgS6FHvoDQDHLEdDcUOJ8gi8ngmraFhNAug/S96vt/i
-	t3QOSt5H8yDbjbaPbKmXFEjhTgrH+vleuSIwL0JbIp+/p6Xs3FsMCIm+Nafv2zdnT/daIZdJpICGx
-	oZHrT0RltarQVX4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tIUMM-00F6Nb-5j; Tue, 03 Dec 2024 15:58:42 +0100
-Date: Tue, 3 Dec 2024 15:58:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
-	yclu4@nuvoton.com, peppe.cavallaro@st.com,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v4 3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for
- Nuvoton MA35 family
-Message-ID: <ba09cea2-4cf7-4203-ae98-ea5d8413f69e@lunn.ch>
-References: <20241202023643.75010-1-a0987203069@gmail.com>
- <20241202023643.75010-4-a0987203069@gmail.com>
- <9f2c8532-8e52-439a-b253-ad2ceb07b21b@lunn.ch>
- <75eb13d7-b582-4056-b707-706865611706@gmail.com>
+	Tue, 03 Dec 2024 15:06:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB5BDFEC;
+	Tue,  3 Dec 2024 07:06:54 -0800 (PST)
+Received: from [10.57.68.85] (unknown [10.57.68.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F172A3F71E;
+	Tue,  3 Dec 2024 07:06:25 -0800 (PST)
+Message-ID: <a9aa36eb-d5c2-4d1c-bf5d-e63e4cb55404@arm.com>
+Date: Tue, 3 Dec 2024 16:06:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <75eb13d7-b582-4056-b707-706865611706@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: signal: Ensure signal delivery failure is
+ recoverable
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, broonie@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org
+References: <20241203100322.1626805-1-kevin.brodsky@arm.com>
+ <Z07x69L6Mssncg/7@e133380.arm.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <Z07x69L6Mssncg/7@e133380.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_065857_906576_9A95E18C 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20241203_070628_327860_4ABB9AD0 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +66,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 05:12:24PM +0800, Joey Lu wrote:
-> Dear Andrew,
-> 
-> You're correct. In the stmmac_hw_init function within stmmac_main.c, whether
-> pmt is true is determined by checking the pmt_remote_wake_up bit in the
-> hardware feature register. However, our hardware configuration only supports
-> magic packet and not remote wakeup, so it must be overwritten in the glue
-> driver.
+On 03/12/2024 12:56, Dave Martin wrote:
+> On Tue, Dec 03, 2024 at 10:03:22AM +0000, Kevin Brodsky wrote:
+>> [...]
+>> @@ -1462,10 +1462,33 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+>>  			 struct rt_sigframe_user_layout *user, int usig)
+>>  {
+>>  	__sigrestore_t sigtramp;
+>> +	int err;
+>> +
+>> +	if (ksig->ka.sa.sa_flags & SA_RESTORER)
+>> +		sigtramp = ksig->ka.sa.sa_restorer;
+>> +	else
+>> +		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+>> +
+>> +	err = gcs_signal_entry(sigtramp, ksig);
+>> +	if (err)
+>> +		return err;
+>> +
+>> +	/*
+>> +	 * We must not fail from this point onwards. We are going to update
+>> +	 * registers, including SP, in order to invoke the signal handler. If
+>> +	 * we failed and attempted to deliver a nested SIGSEGV to a handler
+>> +	 * after that point, the subsequent sigreturn would end up restoring
+>> +	 * the (partial) state for the original signal handler.
+>> +	 */
+> The same is true at the call site of this function; could problems
+> creep back in there?
 
-Please add a comment explaining this. 
+That's a fair point, I could add a short comment after the call to
+setup_return() to clarify this.
 
+>>  
+>>  	regs->regs[0] = usig;
+>> +	if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+>> +		regs->regs[1] = (unsigned long)&user->sigframe->info;
+>> +		regs->regs[2] = (unsigned long)&user->sigframe->uc;
+> Nit: This looks like it should work, but it's not really anything to do
+> with setting up how the handler returns (we're in setup_return() here).
 
-I'm not sure why the original code doesn't include magic packet as part
-> of pmt.
-> 
-> source code:
-> 
->         stmmac_hw_init() @net/ethernet/stmicro/stmmac/stmmac_main.c
-> 
->         priv->plat->enh_desc = priv->dma_cap.enh_desc;
->         priv->plat->pmt = priv->dma_cap.pmt_remote_wake_up &&
->                 !(priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL);
->         priv->hw->pmt = priv->plat->pmt;
-> 
-> Or modify the condition as follows:
-> 
->         priv->plat->pmt = (priv->dma_cap.pmt_remote_wake_up || priv->
-> dma_cap.pmt_magic_frame) &&
->                 !(priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL);
+setup_return() is a bit of a misnomer, unless you interpret "return" as
+"return to userspace". Aside from setting LR, setup_return() isn't about
+how the handler returns but simply how it is invoked. For instance the
+line just above sets X0 to the signal number, the first argument of the
+handler. Setting X1/X2 here seems pretty natural (they're also arguments
+for the handler).
 
-Are there other glue drivers which would benefit from this? It is hard
-for me to say if you hardware is odd, or if this should be a generic
-feature which other glue drivers would use.
-
-	Andrew
+- Kevin
 
