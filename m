@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 118A1E64A89
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1AFE64A89
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHTXjhuveq9WVkJrTG01/Zg4whS1KOZuNvWKaJQ6f0A=; b=ORpYjcByV01ZQexoN5HTCAxFMG
-	XaNsuOmTZoBEW1qceNT6YSXL0AKLS7WbljD89gCiuyoQBv900qe7U5ipOS+Ki88CSLRO8y8mu9kMu
-	30SiJys5jb6VPk2vb/ma4Os1dYx4FPMdi1PPUxZy/h2Z9V/ueYiBfUwJ4xon1qNMTTalGk6hBPuL9
-	sYaugim7B4YSOEtRsanytwHCMNrpTvXGyEKvrxsvLAyPFJ0T9Kxi642IPVIW6+TCULGB838Zj5Hjp
-	ZG8T61ynKjZQEmYBZay4UUvA0yqTUU55wq4YeOfnVCvz9VFQKP4waI1lI1LwSxL55K7W3reBDnHE8
-	0C7xEusA==;
+	bh=nKPY5mUDwCQzcC0NaKAT50ijS7gJKsqZHOvVhsiu++M=; b=D8jcsxG3V6rhgUIM1C7N0N61dq
+	qdoc6AqeAKolNPc3M3ybdKBu/eb8N3EYBt+DmfBUTetlenRRssAxLzevWW6ZS6xmJd/54HN2KT88u
+	RD0x90VY7ei4Pu780+9Epk1GEkQmpQDp3018eLm2vjy+NI2rEm7gaZH1e2sbbdecBaaomF6TJmWkJ
+	IKy16q09MNcQF6hPw871sGotmLncqd4nB41eTsER8KSE+7tghhnRVREUd8jkwsBW4z9vhpBCcsOjk
+	kZEE8CwkAtSP0yYgnwaeaP4bbso7BdmxeoBOLu+LXysTFU8/pC2ZWG2XcYQv7ENRAvZD5BI273m+S
+	4Da8MA3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISZ3-00000009XK6-21zu;
-	Tue, 03 Dec 2024 13:03:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tISa2-00000009XXp-0LhQ;
+	Tue, 03 Dec 2024 13:04:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISKA-00000009UMN-49S0
+	id 1tISKD-00000009UNO-0wTo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:48:20 +0000
+	Tue, 03 Dec 2024 12:48:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 806135C6CF3;
-	Tue,  3 Dec 2024 12:47:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41E3FC4CECF;
-	Tue,  3 Dec 2024 12:48:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BB5725C6CD0;
+	Tue,  3 Dec 2024 12:47:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C299CC4CED8;
+	Tue,  3 Dec 2024 12:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733230098;
-	bh=tqDF+LZfpEl117YVlmHOd2bm86U4BFv5nd1yWgZtYGw=;
+	s=k20201202; t=1733230100;
+	bh=NfLmqQjhH+UlQ7Y+G2ykkZMplv/ejiQc6RhXEP3cv9c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=f6uhEE7H+DIQTiSt6efWDdKqNHf4x8FbOju6/e0fmTWKzZ3d0B9DIcj+vhB05z1B3
-	 lYXZ8lJ0if1ZmJesw7RAue1VKPWYXso1SNkS9sUzPdsfMyK8eXqTk4p7ocD2wqX99C
-	 Vnv+m1Q4zA7VwKhRZaavpHfgALVNFYbQvIBsaeDGn4ygeGelIrol/lInc4PLz1FQZd
-	 3S8Yph/IhbU22252h0frg/hHF5CBFi3AVI/DWkVOrvhdBVY0HBzL/XbE0z/O2TPZPk
-	 AYQvifJVkM9velVV/4/LrWM8uK9nkhnw2Unjvh9eOnLN9tcxCcXTqFhzJ4uggGvyKf
-	 racF4Br/ohEpQ==
+	b=Yu2+KZWiSIg/vcibGpWsC4cSQbX7GUoTsRpfcjQeVzVoSvs+rjG+UlSrYzTyUDwdI
+	 ga5ga1wgyLuIOxUK7PRdjOOwas0dHstcVRs4hb6Ct/oOTZlr3NpjewUgorCB0g1wv3
+	 uTSF9S1gNIZJ4Of4zDoStJL+72ik3DAONCVZE+JXx74xTwu/2AFg8rcOcRWXBMcuax
+	 mulsC1oYrj9JpLIzDjmaiHaRR9S9iFbbgMkR3dpxBTlauafShocbEDuyC47gx8wPKP
+	 jz4tCO3BzZ6kbwKbJMAX7d3JQ/oCVDEUMAaDvZQYqRnKRyZ8qaz8bgndw9Vy1S5HNY
+	 SNbYEK10lubvw==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 03 Dec 2024 12:45:57 +0000
-Subject: [PATCH 5/6] arm64/signal: Avoid corruption of SME state when
- entering signal handler
+Date: Tue, 03 Dec 2024 12:45:58 +0000
+Subject: [PATCH 6/6] arm64/sme: Reenable SME
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241203-arm64-sme-reenable-v1-5-d853479d1b77@kernel.org>
+Message-Id: <20241203-arm64-sme-reenable-v1-6-d853479d1b77@kernel.org>
 References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
 In-Reply-To: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
+ Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6180; i=broonie@kernel.org;
- h=from:subject:message-id; bh=tqDF+LZfpEl117YVlmHOd2bm86U4BFv5nd1yWgZtYGw=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnTv4DRiB8mALTlanBgA4iu6r/2JeW9mfceg8ltz9C
- lMm+gWGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ07+AwAKCRAk1otyXVSH0KpXB/
- 91iUpGoZkqphYBXkHXp+N0vZK7oXmkKGHfuOimfDbia5FwbFMvPjAGF0/KH1aIbemNG/356x2/1zTw
- l2n+JeMtTVaAH08PKBv+bz8YlbeTzHe8/10/nkMBE35m26sZ0MVTgADLhZbuX6NDxw3FGxz+GvOnEN
- z0XxIwuCi3OGCAPmt8L905uHm3c8i0A6oMAn+ZlVxdmsiBIEmE2EH6gt++6XEQ3KMor7hptg6gd2Yw
- HtB9UITN4mPZvJr99IR8Cmwk/Xr5W5VPwh2DDTn6hVy6bE2tCNZ7EBIdNc1teFGpOFyRDr/8/tHul5
- jOhMoIZxMl/vjNRcGLNdMNJKDtjntH
+X-Developer-Signature: v=1; a=openpgp-sha256; l=769; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=NfLmqQjhH+UlQ7Y+G2ykkZMplv/ejiQc6RhXEP3cv9c=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnTv4EwAM7vHQhCvbi4NPdM/aOb5HiD8WW+R04Hwxs
+ zQLBaXaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ07+BAAKCRAk1otyXVSH0GhZB/
+ sGRSMP+r1w2EvOeWpp1ren3qhBDoiJyO61GV2YT1wDopNT9HefjfeDe+yPisElGPZdPvi21dHByK0u
+ 6EHYKPBCF6TrC5EW4eLWCIl86ntF5Ym7Zw6qsBgrdlnQNoUF1NzxxOziu2h9Odun/EjCWC0Ted5Uf4
+ 31BnrqOPDSmcBabkjEVeXjvAKgHv5uFRVHS9MnPNuM1TD55kahcDYCsjQmTFiHM/3OI3z3OkxaMxpu
+ Dr/XrY6g3eQ1/BD5u00yHaMQOHyF71QdwHBMgO6b6ZnKogrJcJcAUmmhlYqU7seGNaylYBWkSUfnum
+ R0rvriv0KBw/bSl5tqqYZBYvZm8ePz
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_044819_119836_C7BCBAAE 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20241203_044821_319332_3DC5BBF4 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,159 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We intend that signal handlers are entered with PSTATE.{SM,ZA}={0,0}.
-The logic for this in setup_return() manipulates the saved state and
-live CPU state in an unsafe manner, and consequently, when a task enters
-a signal handler:
+Now that fixes for all the known issues with SME have been applied
+remove the BROKEN dependency from it so it's generally available again.
 
- * The task entering the signal handler might not have its PSTATE.{SM,ZA}
-   bits cleared, and other register state that is affected by changes to
-   PSTATE.{SM,ZA} might not be zeroed as expected.
-
- * An unrelated task might have its PSTATE.{SM,ZA} bits cleared
-   unexpectedly, potentially zeroing other register state that is
-   affected by changes to PSTATE.{SM,ZA}.
-
-   Tasks which do not set PSTATE.{SM,ZA} (i.e. those only using plain
-   FPSIMD or non-streaming SVE) are not affected, as there is no
-   resulting change to PSTATE.{SM,ZA}.
-
-Consider for example two tasks on one CPU:
-
- A: Begins signal entry in kernel mode, is preempted prior to SMSTOP.
- B: Using SM and/or ZA in userspace with register state current on the
-    CPU, is preempted.
- A: Scheduled in, no register state changes made as in kernel mode.
- A: Executes SMSTOP, modifying live register state.
- A: Scheduled out.
- B: Scheduled in, fpsimd_thread_switch() sees the register state on the
-    CPU is tracked as being that for task B so the state is not reloaded
-    prior to returning to userspace.
-
-Task B is now running with SM and ZA incorrectly cleared.
-
-Fix this by:
-
- * Checking TIF_FOREIGN_FPSTATE, and only updating the saved or live
-   state as appropriate.
-
- * Using {get,put}_cpu_fpsimd_context() to ensure mutual exclusion
-   against other code which manipulates this state. To allow their use,
-   the logic is moved into a new fpsimd_enter_sighandler() helper in
-   fpsimd.c.
-
-This race has been observed intermittently with fp-stress, especially
-with preempt disabled, commonly but not exclusively reporting "Bad SVCR: 0".
-
-While we're at it also fix a discrepancy between in register and in memory
-entries. When operating on the register state we issue a SMSTOP, exiting
-streaming mode if we were in it. This clears the V/Z and P register and
-FPMR but nothing else. The in memory version clears all the user FPSIMD
-state including FPCR and FPSR but does not clear FPMR. Add the clear of
-FPMR and limit the existing memset() to only cover the vregs, preserving
-the state of FPCR and FPSR like SMSTOP does.
-
-Fixes: 40a8e87bb3285 ("arm64/sme: Disable ZA and streaming mode when handling signals")
 Signed-off-by: Mark Brown <broonie@kernel.org>
-Cc: stable@vger.kernel.org
 ---
- arch/arm64/include/asm/fpsimd.h |  1 +
- arch/arm64/kernel/fpsimd.c      | 39 +++++++++++++++++++++++++++++++++++++++
- arch/arm64/kernel/signal.c      | 19 +------------------
- 3 files changed, 41 insertions(+), 18 deletions(-)
+ arch/arm64/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index f2a84efc361858d4deda99faf1967cc7cac386c1..09af7cfd9f6c2cec26332caa4c254976e117b1bf 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -76,6 +76,7 @@ extern void fpsimd_load_state(struct user_fpsimd_state *state);
- extern void fpsimd_thread_switch(struct task_struct *next);
- extern void fpsimd_flush_thread(void);
- 
-+extern void fpsimd_enter_sighandler(void);
- extern void fpsimd_signal_preserve_current_state(void);
- extern void fpsimd_preserve_current_state(void);
- extern void fpsimd_restore_current_state(void);
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index f02762762dbcf954e9add6dfd3575ae7055b6b0e..c5465c8ec467cb1ab8bd211dc5370f91aa2bcf35 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1696,6 +1696,45 @@ void fpsimd_signal_preserve_current_state(void)
- 		sve_to_fpsimd(current);
- }
- 
-+/*
-+ * Called by the signal handling code when preparing current to enter
-+ * a signal handler. Currently this only needs to take care of exiting
-+ * streaming mode and clearing ZA on SME systems.
-+ */
-+void fpsimd_enter_sighandler(void)
-+{
-+	if (!system_supports_sme())
-+		return;
-+
-+	get_cpu_fpsimd_context();
-+
-+	if (test_thread_flag(TIF_FOREIGN_FPSTATE)) {
-+		/*
-+		 * Exiting streaming mode zeros the V/Z and P
-+		 * registers and FPMR.  Zero FPMR and the V registers,
-+		 * marking the state as FPSIMD only to force a clear
-+		 * of the remaining bits during reload if needed.
-+		 */
-+		if (current->thread.svcr & SVCR_SM_MASK) {
-+			memset(&current->thread.uw.fpsimd_state.vregs, 0,
-+			       sizeof(current->thread.uw.fpsimd_state.vregs));
-+			current->thread.uw.fpmr = 0;
-+			current->thread.fp_type = FP_STATE_FPSIMD;
-+		}
-+
-+		current->thread.svcr &= ~(SVCR_ZA_MASK |
-+					  SVCR_SM_MASK);
-+
-+		/* Ensure any copies on other CPUs aren't reused */
-+		fpsimd_flush_task_state(current);
-+	} else {
-+		/* The register state is current, just update it. */
-+		sme_smstop();
-+	}
-+
-+	put_cpu_fpsimd_context();
-+}
-+
- /*
-  * Called by KVM when entering the guest.
-  */
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index abd0907061fe664bf22d1995319f9559c4bbed91..335c2327baf74eac9634cf594855dbf26a7d6b01 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -1461,24 +1461,7 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
- 	/* TCO (Tag Check Override) always cleared for signal handlers */
- 	regs->pstate &= ~PSR_TCO_BIT;
- 
--	/* Signal handlers are invoked with ZA and streaming mode disabled */
--	if (system_supports_sme()) {
--		/*
--		 * If we were in streaming mode the saved register
--		 * state was SVE but we will exit SM and use the
--		 * FPSIMD register state - flush the saved FPSIMD
--		 * register state in case it gets loaded.
--		 */
--		if (current->thread.svcr & SVCR_SM_MASK) {
--			memset(&current->thread.uw.fpsimd_state, 0,
--			       sizeof(current->thread.uw.fpsimd_state));
--			current->thread.fp_type = FP_STATE_FPSIMD;
--		}
--
--		current->thread.svcr &= ~(SVCR_ZA_MASK |
--					  SVCR_SM_MASK);
--		sme_smstop();
--	}
-+	fpsimd_enter_sighandler();
- 
- 	if (ksig->ka.sa.sa_flags & SA_RESTORER)
- 		sigtramp = ksig->ka.sa.sa_restorer;
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 100570a048c5e8892c0112704f9ca74c4fc55b27..7e3182dd6fa0dadd961c352f88484cff0e520eaa 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2270,7 +2270,6 @@ config ARM64_SME
+ 	bool "ARM Scalable Matrix Extension support"
+ 	default y
+ 	depends on ARM64_SVE
+-	depends on BROKEN
+ 	help
+ 	  The Scalable Matrix Extension (SME) is an extension to the AArch64
+ 	  execution state which utilises a substantial subset of the SVE
 
 -- 
 2.39.5
