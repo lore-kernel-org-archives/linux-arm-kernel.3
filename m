@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0647E64AB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF646E64AB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zREpKid1FijkM8w3fvUJYYcepCZqPc1/enXnI+QFhQI=; b=nK80cGXS8DvVcQsLXX+wuQD9V2
-	chfSgVMrnSNvtRCT74RU8ZmpNVA0VkwW9//uNRrP4Ae+Jeds+Z+FeNOVTaFJn2aWtNQEe7tZDKLft
-	ylzb0I/ieuYy4ZnKuus5uItuqZ15OtTaYUo6CKydlsHytzbcsFU+Hu2wd7ytAK2scnOSCvmkNJQtA
-	ooNBP2IaBvovhn/TYIwPdFyy/VufrfXPhw/+bMnk9ig8UR3cygdEB7n485aMW+mgvWGd6Zp8xC/9W
-	7pu5UBIFvufYQiNe2nvBAjfSlwdpNSwJmOsSxwat70ApYDVxqLkkY2xYJ+FeRbhnBUZZ3osp11mPf
-	wWlTJxxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AtfxN7sENpEMTbuvCdRdoHpnn0DF5MS9E6FtTuNVFY4=; b=fGqKpvKlZY+fuX1vDKj5zH0iEJ
+	X9YNsjpx9TFJGJDx44/MnRE353uTEeSc5Bb/tywi4UyAerVoX185RxG7z/6SBSnbcgCKP1E9zPyBg
+	A5sVTXXOqRYmSBsubt0W0IMQlWe2v2rdADhT8GByRipfWxAOFZuyFTgqerYVcoMhDR4UiqDvBF8uC
+	QwD25oU64pwAciodF/E3f4CAS03Jzn6Fc/cpcX03rttqBe2bv85HN5zM7OQ0EWnKvzj1moAmQUFIQ
+	/fPywqk4QHRe22PYj3oJfoJcjoP8ExUeDHA/12dUfV8vDFgu9fx4vyfMY1Jm74BxaGzFQESSutBMB
+	+xUIip7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUZj-00000009tCs-38aL;
-	Tue, 03 Dec 2024 15:12:31 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1tIUfU-00000009u36-365q;
+	Tue, 03 Dec 2024 15:18:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUYj-00000009t3v-1e2n
+	id 1tIUeU-00000009tt8-1aLt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 15:11:31 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-434a099ba95so51068185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 07:11:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733238687; x=1733843487; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zREpKid1FijkM8w3fvUJYYcepCZqPc1/enXnI+QFhQI=;
-        b=gID9rMrWPMWCHgXoWEZ3DOlqmk+vz1SXyeynDq8375eOdJKICrPFRF6K4kqTsxa8ib
-         o7SAWKI8XOwEETH6Q2KaPDSKXFKFN1af4lXzPWx7rhxDW4Te/5Hw4gQ9iKYx6vgsIp2x
-         uOpNnrcyhVLXq1yt0cPOsxYH4pKcM7rIN3MXzpejcSRDFgfFpVZkOdV5lK2HzBnpv+rR
-         SL4d42Md+9uZhCgoinz1GSMzdVY9hEoXJYXxQGtufm0c5QQCrh30cQsJ3aWS5Ekq8zuz
-         jh1z21ns0Xtiy3OyZlO3VqfUkyfHU7y3EnWnRULGk7Ej6F5rq96RAQDFOCUpEPyr9ZNL
-         muBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733238687; x=1733843487;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zREpKid1FijkM8w3fvUJYYcepCZqPc1/enXnI+QFhQI=;
-        b=EboP8jA0OXAs3k2yV7lU02OemQS8LD7kei4rJurKEadV2wk1KKrh/0TbqRbzsqwcuL
-         D/iwdwdD6xmOdqqgF2i3OR7jDsV7tnUOFL3N1mliBNk/0O1rIXCNa51mkR9P81TClcuk
-         SYbk+rZxn4AQDneC0hqzZgU6v2YsAd85mrGDs0NI3+NOs/Agxugp7Z3e1eiv4x6mHd6V
-         BsTFWBrQaBVgeqq3VJXMd8NWHV+2jJEGbofuMFuXWnu9mcSaPiFPo5Vamwoz/6JWF+X6
-         0ukDGXBNHDk1lmjj/d7mcnjgz6sQEw2/kdYi3Y9m9hA/8nLT/fLi5ebHUOW4ea4t5F6s
-         lu8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWmiaGHb1gPwWfxW3BqIV2BUBd9OD5uNK5+qSx/KtRV0c9RDG1ej+iPrEbzGR9QpgPznjEov3DJJLinZwu9JlJH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxixdMl9ZxveOjOE2jDl3hFhSyCwf7OP0fjqHaumZA6CrSVDdsV
-	dVJ5HHjvYXgyhpDrDQifGJ4xmL7/sbSUNfGj1XKxQyxybPgNjD5CeOhZbxf5hL0=
-X-Gm-Gg: ASbGncsxta2gKkvtXvTUljI5LgNjIZvFIAj8z40MoHHvUkFqeaRYS9RsEkWjWsshh3x
-	7EUa2JnDeVbnwbygPUzi9L6Sb1Dvj2OJUwVh9iVPsGbtFuzFW5nO3BOYhtrqQ9MPIZOVmC6Sa0n
-	lk9kwWS2VEQvQtiSJkDI64yy2q/QiBUO0+j/7r0n1HCCTlqVHvKwqYwwtD+F/WQKPQxR/X8llse
-	eo68u5hWGDu9ufB3zMvnTYlJ7rjpatZuuePQ+DJ/MZWi2oq2wTXnFEI8QkdBw==
-X-Google-Smtp-Source: AGHT+IHpG+YYkt5XvDCdFdtRCKt3GJs9wG1S7RmUFMFyXfoO+hh7Lfjm2kqMdLvybUfLqLTQRDejCw==
-X-Received: by 2002:a05:600c:3ca7:b0:431:12a8:7f1a with SMTP id 5b1f17b1804b1-434d09c12bfmr28153625e9.16.1733238687261;
-        Tue, 03 Dec 2024 07:11:27 -0800 (PST)
-Received: from linaro.org ([2a02:2454:ff21:ef80:41ad:5703:2486:8f59])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0dc99b3sm191481505e9.24.2024.12.03.07.11.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 07:11:26 -0800 (PST)
-Date: Tue, 3 Dec 2024 16:11:22 +0100
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Abel Vesa <abel.vesa@linaro.org>, Johan Hovold <johan@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Tue, 03 Dec 2024 15:17:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4AE38A416CD;
+	Tue,  3 Dec 2024 15:15:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0369C4CED8;
+	Tue,  3 Dec 2024 15:17:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1733239045;
+	bh=EF4xBJvDmICYpURJnWySEzsRhbId8eDhxP+tp8kHEeg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JyHz5r8IEjMtaIrGNgJM3FnF3PnljAxABhWOLs8Ob2qmgMNl4LdqHDGgDyp2tgwkY
+	 maEnNSpzsgL6yyEA3STbMraWx/Ax89Dmi72sECfiHOqcBPs3M0MxGMxF6Buu7anHO/
+	 c/TJuD03lJCq9ayY9oYC+4ajn+weCXtHs5617/9g=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Yang Jihong <yangjihong@bytedance.com>,
+	Dominique Martinet <asmadeus@codewreck.org>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Howard Chu <howardchu95@gmail.com>,
+	Ze Gao <zegao2021@gmail.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Weilin Wang <weilin.wang@intel.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Yang Li <yang.lee@linux.alibaba.com>,
+	Leo Yan <leo.yan@linux.dev>,
+	ak@linux.intel.com,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Krishna Kurapati <quic_kriskura@quicinc.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
- fingerprint readery
-Message-ID: <Z08fmvBEh6dYQimN@linaro.org>
-References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
- <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
- <Z07bgH5vVk44zuEH@hovoldconsulting.com>
- <Z07r3Upr50vLluyn@linaro.org>
- <Z07zeVJU3Y1GiSLL@linaro.org>
+	Sun Haiyong <sunhaiyong@loongson.cn>,
+	John Garry <john.g.garry@oracle.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.11 486/817] perf stat: Uniquify event name improvements
+Date: Tue,  3 Dec 2024 15:40:58 +0100
+Message-ID: <20241203144014.842031727@linuxfoundation.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241203143955.605130076@linuxfoundation.org>
+References: <20241203143955.605130076@linuxfoundation.org>
+User-Agent: quilt/0.67
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z07zeVJU3Y1GiSLL@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_071129_429127_6319F9BA 
-X-CRM114-Status: GOOD (  29.32  )
+X-CRM114-CacheID: sfid-20241203_071726_552929_4B46C4C6 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +93,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Cc Dmitry
+6.11-stable review patch.  If anyone has any objections, please let me know.
 
-On Tue, Dec 03, 2024 at 02:03:05PM +0200, Abel Vesa wrote:
-> On 24-12-03 12:30:37, Stephan Gerhold wrote:
-> > On Tue, Dec 03, 2024 at 11:20:48AM +0100, Johan Hovold wrote:
-> > > [ +CC: Krishna, Thinh and the USB list ]
-> > > 
-> > > On Mon, Nov 18, 2024 at 11:34:29AM +0100, Stephan Gerhold wrote:
-> > > > The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
-> > > > multiport controller on eUSB6. All other ports (including USB super-speed
-> > > > pins) are unused.
-> > > > 
-> > > > Set it up in the device tree together with the NXP PTN3222 repeater.
-> > > > 
-> > > > Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> > > > ---
-> > > >  arch/arm64/boot/dts/qcom/x1e80100-crd.dts | 48 +++++++++++++++++++++++++++++++
-> > > >  1 file changed, 48 insertions(+)
-> > > > 
-> > > > diff --git a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> > > > index 39f9d9cdc10d..44942931c18f 100644
-> > > > --- a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> > > > +++ b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> > > > @@ -735,6 +735,26 @@ keyboard@3a {
-> > > >  	};
-> > > >  };
-> > > >  
-> > > > +&i2c5 {
-> > > > +	clock-frequency = <400000>;
-> > > > +
-> > > > +	status = "okay";
-> > > > +
-> > > > +	eusb6_repeater: redriver@4f {
-> > > > +		compatible = "nxp,ptn3222";
-> > > > +		reg = <0x4f>;
-> > > 
-> > > The driver does not currently check that there's actually anything at
-> > > this address. Did you verify that this is the correct address? 
-> > > 
-> > > (Abel is adding a check to the driver as we speak to catch any such
-> > > mistakes going forward).
-> > > 
-> > 
-> > Yes, I verified this using
-> > https://git.codelinaro.org/stephan.gerhold/linux/-/commit/45d5add498612387f88270ca944ee16e2236fddd
-> > 
-> > (I sent this to Abel back then, so I'm surprised he didn't run that :-))
-> 
-> I don't remember seeing this commit back then. Maybe I didn't look
-> careful enough. Sorry.
-> 
-> Since you already did the work, can you send that on the list?
-> 
+------------------
 
-Sure, no problem. What exactly do we want for upstream?
+From: Ian Rogers <irogers@google.com>
 
-My patch above isn't ideal, because it checks the CHIP_ID on every PHY
-power up. But briefly powering up the PHY during probe() just for
-reading the CHIP_ID is also a bit weird. Not sure what the best approach
-here is.
+[ Upstream commit 057f8bfc6f7070577523d1e3081081bbf4229c1c ]
 
-Thanks,
-Stephan
+Without aggregation on Intel:
+```
+$ perf stat -e instructions,cycles ...
+```
+Will use "cycles" for the name of the legacy cycles event but as
+"instructions" has a sysfs name it will and a "[cpu]" PMU suffix. This
+often breaks things as the space between the event and the PMU name
+look like an extra column. The existing uniquify logic was also
+uniquifying in cases when all events are core and not with uncore
+events, it was not correctly handling modifiers, etc.
+
+Change the logic so that an initial pass that can disable
+uniquification is run. For individual counters, disable uniquification
+in more cases such as for consistency with legacy events or for
+libpfm4 events. Don't use the "[pmu]" style suffix in uniquification,
+always use "pmu/.../". Change how modifiers/terms are handled in the
+uniquification so that they look like parse-able events.
+
+This fixes "102: perf stat metrics (shadow stat) test:" that has been
+failing due to "instructions [cpu]" breaking its column/awk logic when
+values aren't aggregated. This started happening when instructions
+could match a sysfs rather than a legacy event, so the fixes tag
+reflects this.
+
+Fixes: 617824a7f0f7 ("perf parse-events: Prefer sysfs/JSON hardware events over legacy")
+Acked-by: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
+[ Fix Intel TPEBS counting mode test ]
+Acked-by: Kan Liang <kan.liang@linux.intel.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
+Cc: Yang Jihong <yangjihong@bytedance.com>
+Cc: Dominique Martinet <asmadeus@codewreck.org>
+Cc: Colin Ian King <colin.i.king@gmail.com>
+Cc: Howard Chu <howardchu95@gmail.com>
+Cc: Ze Gao <zegao2021@gmail.com>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: Weilin Wang <weilin.wang@intel.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mike Leach <mike.leach@linaro.org>
+Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
+Cc: Yang Li <yang.lee@linux.alibaba.com>
+Cc: Leo Yan <leo.yan@linux.dev>
+Cc: ak@linux.intel.com
+Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Sun Haiyong <sunhaiyong@loongson.cn>
+Cc: John Garry <john.g.garry@oracle.com>
+Link: https://lore.kernel.org/r/20240926144851.245903-3-james.clark@linaro.org
+Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ .../perf/tests/shell/test_stat_intel_tpebs.sh |  11 +-
+ tools/perf/util/stat-display.c                | 101 ++++++++++++++----
+ 2 files changed, 85 insertions(+), 27 deletions(-)
+
+diff --git a/tools/perf/tests/shell/test_stat_intel_tpebs.sh b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
+index c60b29add9801..9a11f42d153ca 100755
+--- a/tools/perf/tests/shell/test_stat_intel_tpebs.sh
++++ b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
+@@ -8,12 +8,15 @@ grep -q GenuineIntel /proc/cpuinfo || { echo Skipping non-Intel; exit 2; }
+ # Use this event for testing because it should exist in all platforms
+ event=cache-misses:R
+ 
++# Hybrid platforms output like "cpu_atom/cache-misses/R", rather than as above
++alt_name=/cache-misses/R
++
+ # Without this cmd option, default value or zero is returned
+-echo "Testing without --record-tpebs"
+-result=$(perf stat -e "$event" true 2>&1)
+-[[ "$result" =~ $event ]] || exit 1
++#echo "Testing without --record-tpebs"
++#result=$(perf stat -e "$event" true 2>&1)
++#[[ "$result" =~ $event || "$result" =~ $alt_name ]] || exit 1
+ 
+ # In platforms that do not support TPEBS, it should execute without error.
+ echo "Testing with --record-tpebs"
+ result=$(perf stat -e "$event" --record-tpebs -a sleep 0.01 2>&1)
+-[[ "$result" =~ "perf record" && "$result" =~ $event ]] || exit 1
++[[ "$result" =~ "perf record" && "$result" =~ $event || "$result" =~ $alt_name ]] || exit 1
+diff --git a/tools/perf/util/stat-display.c b/tools/perf/util/stat-display.c
+index ea96e4ebad8c8..cbff43ff8d0fb 100644
+--- a/tools/perf/util/stat-display.c
++++ b/tools/perf/util/stat-display.c
+@@ -871,38 +871,66 @@ static void printout(struct perf_stat_config *config, struct outstate *os,
+ 
+ static void uniquify_event_name(struct evsel *counter)
+ {
+-	char *new_name;
+-	char *config;
+-	int ret = 0;
++	const char *name, *pmu_name;
++	char *new_name, *config;
++	int ret;
+ 
+-	if (counter->uniquified_name || counter->use_config_name ||
+-	    !counter->pmu_name || !strncmp(evsel__name(counter), counter->pmu_name,
+-					   strlen(counter->pmu_name)))
++	/* The evsel was already uniquified. */
++	if (counter->uniquified_name)
+ 		return;
+ 
+-	config = strchr(counter->name, '/');
++	/* Avoid checking to uniquify twice. */
++	counter->uniquified_name = true;
++
++	/* The evsel has a "name=" config term or is from libpfm. */
++	if (counter->use_config_name || counter->is_libpfm_event)
++		return;
++
++	/* Legacy no PMU event, don't uniquify. */
++	if  (!counter->pmu ||
++	     (counter->pmu->type < PERF_TYPE_MAX && counter->pmu->type != PERF_TYPE_RAW))
++		return;
++
++	/* A sysfs or json event replacing a legacy event, don't uniquify. */
++	if (counter->pmu->is_core && counter->alternate_hw_config != PERF_COUNT_HW_MAX)
++		return;
++
++	name = evsel__name(counter);
++	pmu_name = counter->pmu->name;
++	/* Already prefixed by the PMU name. */
++	if (!strncmp(name, pmu_name, strlen(pmu_name)))
++		return;
++
++	config = strchr(name, '/');
+ 	if (config) {
+-		if (asprintf(&new_name,
+-			     "%s%s", counter->pmu_name, config) > 0) {
+-			free(counter->name);
+-			counter->name = new_name;
+-		}
+-	} else {
+-		if (evsel__is_hybrid(counter)) {
+-			ret = asprintf(&new_name, "%s/%s/",
+-				       counter->pmu_name, counter->name);
++		int len = config - name;
++
++		if (config[1] == '/') {
++			/* case: event// */
++			ret = asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, config + 2);
+ 		} else {
+-			ret = asprintf(&new_name, "%s [%s]",
+-				       counter->name, counter->pmu_name);
++			/* case: event/.../ */
++			ret = asprintf(&new_name, "%s/%.*s,%s", pmu_name, len, name, config + 1);
+ 		}
++	} else {
++		config = strchr(name, ':');
++		if (config) {
++			/* case: event:.. */
++			int len = config - name;
+ 
+-		if (ret) {
+-			free(counter->name);
+-			counter->name = new_name;
++			ret = asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, config + 1);
++		} else {
++			/* case: event */
++			ret = asprintf(&new_name, "%s/%s/", pmu_name, name);
+ 		}
+ 	}
+-
+-	counter->uniquified_name = true;
++	if (ret > 0) {
++		free(counter->name);
++		counter->name = new_name;
++	} else {
++		/* ENOMEM from asprintf. */
++		counter->uniquified_name = false;
++	}
+ }
+ 
+ static bool hybrid_uniquify(struct evsel *evsel, struct perf_stat_config *config)
+@@ -1559,6 +1587,31 @@ static void print_cgroup_counter(struct perf_stat_config *config, struct evlist
+ 		print_metric_end(config, os);
+ }
+ 
++static void disable_uniquify(struct evlist *evlist)
++{
++	struct evsel *counter;
++	struct perf_pmu *last_pmu = NULL;
++	bool first = true;
++
++	evlist__for_each_entry(evlist, counter) {
++		/* If PMUs vary then uniquify can be useful. */
++		if (!first && counter->pmu != last_pmu)
++			return;
++		first = false;
++		if (counter->pmu) {
++			/* Allow uniquify for uncore PMUs. */
++			if (!counter->pmu->is_core)
++				return;
++			/* Keep hybrid event names uniquified for clarity. */
++			if (perf_pmus__num_core_pmus() > 1)
++				return;
++		}
++	}
++	evlist__for_each_entry_continue(evlist, counter) {
++		counter->uniquified_name = true;
++	}
++}
++
+ void evlist__print_counters(struct evlist *evlist, struct perf_stat_config *config,
+ 			    struct target *_target, struct timespec *ts,
+ 			    int argc, const char **argv)
+@@ -1572,6 +1625,8 @@ void evlist__print_counters(struct evlist *evlist, struct perf_stat_config *conf
+ 		.first = true,
+ 	};
+ 
++	disable_uniquify(evlist);
++
+ 	if (config->iostat_run)
+ 		evlist->selected = evlist__first(evlist);
+ 
+-- 
+2.43.0
+
+
+
 
