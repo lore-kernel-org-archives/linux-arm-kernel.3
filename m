@@ -4,94 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382C9E6C5EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 02:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22015E6C5F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 02:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=807AMPvhV08hQjY+W9FqkSX3XWvObJEHMlCsMJUuV3g=; b=4qBD+xLxxLWTFmi1GVcRiihS+P
-	oWx9LLfN38NknzeKaOF0t/uUhuQmtAxl6Gikk2XaHZmmE/xr4LfpXhZ22L8KxyuyBfiHSEoHVh6yU
-	k5i90LCfWZqfbz4/YICi8+dxNJ6rRdNucFvvijq0byHTDtx7FsOmL/hvbDchUzM/mHtOcn4d4WTKy
-	YWizinbcc/nZ341BldUQpvBI7oxCWiGm2li/0jyvr1xAoxKywegtDFUzwl/j7ccmi+170KDxl4jU/
-	Y4BQ7iY48q6M24G4Zp4yAswbHgrrGM2fmKjowszMI5zfOc8KnLgbUaCWE4+yi115j1H+ZP3fmm8FK
-	FYMwFGbg==;
+	bh=cLmg0HNuVhVbc0Ci2tnRLaoOQXcxlr9qcL/zPSb0TYw=; b=fFyMmeZU5n2JZsg4HVCXfMTrLY
+	Da0/5keJ2z2nq+cs/7B7+pQvW0xZ+TfMuliAP8NoBKQ72XFR9GfP2QXcj8iZ9aFGwpcStMprVFdnz
+	7sUUpBtyO0CmiMiFZEG7i+OZjy1Vdo4UfwJN+EitsqkKpZCKVSlpp1Cd+HBOORNkoWQPy0r+r3Uyv
+	b9sEQ40COkUCkOeZXNkMoR43UEeVUyeP105dflnRz6WTtw+JrNwPgORqkc6jWQDvPp5jOaD/Z8eGj
+	v5lVdKoSB3KcOfjC4zftGh4JdQZURdx7X4QoGh/asS9ATiVKSlLZim0Jqh7czqZBMd1S6t8rzG2hy
+	vrViH1Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIIps-000000082a5-0u43;
-	Tue, 03 Dec 2024 02:40:24 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+	id 1tIIwh-000000083YR-0o22;
+	Tue, 03 Dec 2024 02:47:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIIoq-000000082Lq-3Jbg
+	id 1tIIvg-000000083MQ-2rjM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 02:39:22 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-843df3c4390so166869339f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 18:39:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1733193559; x=1733798359; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=807AMPvhV08hQjY+W9FqkSX3XWvObJEHMlCsMJUuV3g=;
-        b=l7DH4jP/JZ9MNG2vyU69y2HJoI11BEclxe3jpotcbw6dKhxuQkFaC0C8gyuWmg0TtS
-         C1hPAmRle15N2dfKCzAEEBsF/aVXiBiNzUvuqwLZywFVR/6lnO9g6VsVaVcpdNNbq+DS
-         isIAWErZxx7V0NS0xrFeE3bCdNe7aeFFzfMcLfjecT4zKNpR8IqaL1y4ySWU4JNZoVEK
-         zlE2CLSiGwZ98e0oo40BuEBeYi6QxE+qHc36amEqo8YJdUZAmX/CFECuucuHZGOYqYMm
-         GuGM6P3TkuuAxKkcy2MDTkBu+aWrlvDYfHeN8U4U9mRsPTgZrFyxrU3O4tRVZLlrxrqv
-         fs4A==
+	Tue, 03 Dec 2024 02:46:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733193983;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cLmg0HNuVhVbc0Ci2tnRLaoOQXcxlr9qcL/zPSb0TYw=;
+	b=VpTYgsSxiVe+uFZxW60PKnbv20VTfMIv9kiXhwemMZ/hsZgo1QMwTXvxhhLEsfB7ftbd+k
+	ae6uKkULtdwX40u8xC3c4KN9kTCcBO7pJe4332XWXthY6RV2hVsvq/jj/cFtj4jvpjpqKT
+	oKf/EudP1/oFfVZrGLCypFU3sVwBjjw=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-423-0Pv6VJnsNx-MV0yiH0g7Jg-1; Mon, 02 Dec 2024 21:46:21 -0500
+X-MC-Unique: 0Pv6VJnsNx-MV0yiH0g7Jg-1
+X-Mimecast-MFC-AGG-ID: 0Pv6VJnsNx-MV0yiH0g7Jg
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2157b83f656so27255655ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Dec 2024 18:46:20 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733193559; x=1733798359;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20230601; t=1733193979; x=1733798779;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=807AMPvhV08hQjY+W9FqkSX3XWvObJEHMlCsMJUuV3g=;
-        b=b3QF4VKRUTCwnRTjQcFWrBLaVFUs8pcpYyFreRIh59v7berujXmc30uRqd7b7SPJC2
-         iT8JYqL3RBXOBeSu98qOM4GN14Ok9+NQdYykzq6EW6jDP0/g9r0rP4hN+7P8QEWyXuXh
-         UQXXfAtpoBQCng3KvnjaLs8NnvuLYebAJJlmULLDNAFjPCJ1gaTd+6ZwUuPua8k2j3FW
-         /4ua8oCEX/qvTeXOol+wfSdgg6Ly2tU9JnOBn2zBaUpzIwjhOXfVTppH0QSQOnjzt6ei
-         unV32SEXOzPs8Bifl/IVriPE2RTBF1mAcRku1DvJzm4BakOHI29WWj6wdImg17wvmWTu
-         JVAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWe/Bohd34mwe8b/rkuSqoZyUnG+I+4/UpAG/6WvnHet6AjoYv4rIKY8icXUqFp8euOOLE9I3TFtxsC3vZ0ZYRr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYBmZsLy4FHYwykoqnVKyH5tGHA1CL+2SVhOdqSA/IpHojQEyW
-	Top288s+8JIbE7ydZAMmgZXMuAvr4NKWCPfuv6qc9emcuFKwRaAxDCFL3miRuJQ=
-X-Gm-Gg: ASbGncu4K5akEZOBmVebQd8OYRB067uehEZLWBAOYfvkQxE6D3VrwhaEdhpvH07WAme
-	xd8eLTuinL4LpjiWBBePvTBkRaBIv/c825s4IGj7Ct9vaUCUZ0p6ep5By1/UvECkntIw+TUdCcg
-	yV49YYs4dgxCViCBBQ2/6BWcTxbfy7sgVkTWX4thAPBgeTSXLQ7ovumYGGMl48PHVMmJA2zSIXH
-	3lCpabWDYUTU3iXT6F6p6oFPdwqzOhWvc/tZMqw7PRjoXor1yVi2poG4skVeXzFqITLl9cSy4Q=
-X-Google-Smtp-Source: AGHT+IHd7BOnDkCqoWQpQn9axYX9LaHCjBDlODl0yRpMhp5QCmkH+d5KKW0iQf5wP+UEGLbQlYkP4Q==
-X-Received: by 2002:a05:6602:3405:b0:841:a1c0:c058 with SMTP id ca18e2360f4ac-8445b577d49mr152097239f.9.1733193559650;
-        Mon, 02 Dec 2024 18:39:19 -0800 (PST)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e230da8f03sm2387687173.17.2024.12.02.18.39.17
+        bh=cLmg0HNuVhVbc0Ci2tnRLaoOQXcxlr9qcL/zPSb0TYw=;
+        b=RtKQJOOPPDhrI54S/LGTsvbH1bwOHUt6SRMkUORPiBMOat3olWhoZmtK46/hPHcJC1
+         AHFYX/hOYXC00+LQhwdlRGJlmU5ZCYdNy5eAsCC5ed0Pov/7+jCkoOC23tUULDbH6YXW
+         0aqpIqYnOLHCjQTvPsjNFn9+QmTxeQ7Y9kg2x9Pac2Ky4RG5SKwm2KC8mDQE3lmBWauZ
+         tb9sbBSt7z4RZKpRI4H3g4X2JiXorfDO5MvSVBY0CPMp3WggWBV2oFq6p1LLdtL85Pk7
+         Khcgcmyv6InDb37qcceeBA8aN1B84NMt2L2ELpG0TjNOyo6tANJEArVl5jJYOpA1VoWo
+         +XgA==
+X-Forwarded-Encrypted: i=1; AJvYcCU9OevRvD0G8ks3VV09emWbya5Ah9jMZdzRCmF8gjR+fKIwq/3qA/eomwIXwDt1q1v6nWrWqMunZ7s61OeXZEXK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWTSyCVeOihyX7EsHT7f9Fx7OSszvBex8/iQEYL8YGT/R9kvdj
+	WJcXerk1jeNc+cTKhmA5kMkjodfojfLitzxnTDm8wJi8J0agXnQDNT/ap611LXtQsIiA4WZyJ1u
+	ltK6B+4ds3VRAOIdLGSzp25/pG8L7MGJJED8LbX+TadEo1CDeyy+C90ZAk0BL1SH3kru6cgBr
+X-Gm-Gg: ASbGncthEKC0AgW908o7mZ0Xk9YZH5U1o1ciyCfI/RbKiosAH4rTF1wuuWeOlyAgxR8
+	oGq21h4FzgnVu4PKRl5ooeGRBeWkiH2A5kkJzqV/Eqs5FMnHaoGzd/oxdiwZun+VHr1AzlxfmE2
+	J+XFdPVvwgSJVZZqoLbgCihZZKaTfLyUbHcIYVuoMBG1WNLi/ZnMNjPfDmN7tU6cSPo9S/gFJwW
+	EeokORUySLj2aSymQegE05e2dL/LqHKFhm5JoOulbxbQYLBtI8=
+X-Received: by 2002:a17:902:e841:b0:215:9a6a:63cb with SMTP id d9443c01a7336-215bd200df9mr12107375ad.28.1733193979587;
+        Mon, 02 Dec 2024 18:46:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHfseCusa820FVRmwFbT0mZlAFscpctykYf9htwJewCjZEfnFSGZPbVXSuGQjueevB6XoMygQ==
+X-Received: by 2002:a17:902:e841:b0:215:9a6a:63cb with SMTP id d9443c01a7336-215bd200df9mr12107185ad.28.1733193979272;
+        Mon, 02 Dec 2024 18:46:19 -0800 (PST)
+Received: from [10.72.112.107] ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2159ebee334sm21262215ad.67.2024.12.02.18.46.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 18:39:18 -0800 (PST)
-Message-ID: <b48c4319-1fbc-4703-88d2-6f495af9c24e@sifive.com>
-Date: Mon, 2 Dec 2024 20:39:17 -0600
+        Mon, 02 Dec 2024 18:46:18 -0800 (PST)
+Message-ID: <65823dec-8af2-494c-88a6-0d4683cbf5df@redhat.com>
+Date: Tue, 3 Dec 2024 12:46:13 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] drivers/perf: riscv: Add raw event v2 support
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
- <20241119-pmu_event_info-v1-3-a4f9691421f8@rivosinc.com>
- <e124c532-7a08-4788-843d-345827e35f5f@sifive.com>
- <CAHBxVyEwkPUcut0L7K9eewcmhOOidU16WnGRiPiP3D7-OS7HvQ@mail.gmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH] arm64/mm: Drop INIT_MM_CONTEXT()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
+References: <20241202043553.29592-1-anshuman.khandual@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20241202043553.29592-1-anshuman.khandual@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: umCuP_A_vOzj-slNKhkzjWOhvrIbPkiVmoqp6AgKP4c_1733193979
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <CAHBxVyEwkPUcut0L7K9eewcmhOOidU16WnGRiPiP3D7-OS7HvQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_183920_887185_E9CBA79E 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20241202_184624_803841_C04FF4CE 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,103 +110,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
-
-On 2024-12-02 6:15 PM, Atish Kumar Patra wrote:
-> On Mon, Dec 2, 2024 at 2:37 PM Samuel Holland <samuel.holland@sifive.com> wrote:
->> On 2024-11-19 2:29 PM, Atish Patra wrote:
->>> SBI v3.0 introduced a new raw event type that allows wider
->>> mhpmeventX width to be programmed via CFG_MATCH.
->>>
->>> Use the raw event v2 if SBI v3.0 is available.
->>>
->>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->>> ---
->>>  arch/riscv/include/asm/sbi.h |  4 ++++
->>>  drivers/perf/riscv_pmu_sbi.c | 18 ++++++++++++------
->>>  2 files changed, 16 insertions(+), 6 deletions(-)
->>>
->>> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
->>> index 9be38b05f4ad..3ee9bfa5e77c 100644
->>> --- a/arch/riscv/include/asm/sbi.h
->>> +++ b/arch/riscv/include/asm/sbi.h
->>> @@ -159,7 +159,10 @@ struct riscv_pmu_snapshot_data {
->>>
->>>  #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
->>>  #define RISCV_PMU_PLAT_FW_EVENT_MASK GENMASK_ULL(61, 0)
->>> +/* SBI v3.0 allows extended hpmeventX width value */
->>> +#define RISCV_PMU_RAW_EVENT_V2_MASK GENMASK_ULL(55, 0)
->>>  #define RISCV_PMU_RAW_EVENT_IDX 0x20000
->>> +#define RISCV_PMU_RAW_EVENT_V2_IDX 0x30000
->>>  #define RISCV_PLAT_FW_EVENT  0xFFFF
->>>
->>>  /** General pmu event codes specified in SBI PMU extension */
->>> @@ -217,6 +220,7 @@ enum sbi_pmu_event_type {
->>>       SBI_PMU_EVENT_TYPE_HW = 0x0,
->>>       SBI_PMU_EVENT_TYPE_CACHE = 0x1,
->>>       SBI_PMU_EVENT_TYPE_RAW = 0x2,
->>> +     SBI_PMU_EVENT_TYPE_RAW_V2 = 0x3,
->>>       SBI_PMU_EVENT_TYPE_FW = 0xf,
->>>  };
->>>
->>> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->>> index 50cbdbf66bb7..f0e845ff6b79 100644
->>> --- a/drivers/perf/riscv_pmu_sbi.c
->>> +++ b/drivers/perf/riscv_pmu_sbi.c
->>> @@ -59,7 +59,7 @@ asm volatile(ALTERNATIVE(                                           \
->>>  #define PERF_EVENT_FLAG_USER_ACCESS  BIT(SYSCTL_USER_ACCESS)
->>>  #define PERF_EVENT_FLAG_LEGACY               BIT(SYSCTL_LEGACY)
->>>
->>> -PMU_FORMAT_ATTR(event, "config:0-47");
->>> +PMU_FORMAT_ATTR(event, "config:0-55");
->>>  PMU_FORMAT_ATTR(firmware, "config:62-63");
->>>
->>>  static bool sbi_v2_available;
->>> @@ -527,18 +527,24 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
->>>               break;
->>>       case PERF_TYPE_RAW:
->>>               /*
->>> -              * As per SBI specification, the upper 16 bits must be unused
->>> -              * for a hardware raw event.
->>> +              * As per SBI v0.3 specification,
->>> +              *  -- the upper 16 bits must be unused for a hardware raw event.
->>> +              * As per SBI v3.0 specification,
->>> +              *  -- the upper 8 bits must be unused for a hardware raw event.
->>>                * Bits 63:62 are used to distinguish between raw events
->>>                * 00 - Hardware raw event
->>>                * 10 - SBI firmware events
->>>                * 11 - Risc-V platform specific firmware event
->>>                */
->>> -
->>>               switch (config >> 62) {
->>>               case 0:
->>> -                     ret = RISCV_PMU_RAW_EVENT_IDX;
->>> -                     *econfig = config & RISCV_PMU_RAW_EVENT_MASK;
->>> +                     if (sbi_v3_available) {
->>> +                             *econfig = config & RISCV_PMU_RAW_EVENT_V2_MASK;
->>> +                             ret = RISCV_PMU_RAW_EVENT_V2_IDX;
->>> +                     } else {
->>> +                             *econfig = config & RISCV_PMU_RAW_EVENT_MASK;
->>> +                             ret = RISCV_PMU_RAW_EVENT_IDX;
->>
->> Shouldn't we check to see if any of bits 48-55 are set and return an error,
->> instead of silently requesting the wrong event?
->>
+On 12/2/24 2:35 PM, Anshuman Khandual wrote:
+> Platform override for INIT_MM_CONTEXT() is redundant because swapper_pg_dir
+> always gets assigned as the pgd during init_mm initialization. So just drop
+> this override on arm64.
 > 
-> We can. I did not add it originally as we can't do much validation for
-> the raw events for anyways.
-> If the encoding is not supported the user will get the error anyways
-> as it can't find a counter.
-> We will just save 1 SBI call if the kernel doesn't allow requesting an
-> event if bits 48-55 are set.
+> Originally this override was added via the 'commit 2b5548b68199 ("arm64/mm:
+> Separate boot-time page tables from swapper_pg_dir")' because non standard
+> init_pg_dir was assigned as the pgd. Subsequently it was changed as default
+> swapper_pg_dir by the 'commit ba5b0333a847 ("arm64: mm: omit redundant
+> remap of kernel image")', which might have also just dropped this override.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v6.13-rc1
+> 
+>   arch/arm64/include/asm/mmu.h | 3 ---
+>   1 file changed, 3 deletions(-)
+> 
 
-The scenario I'm concerned about is where masking off bits 48-55 results in a
-valid, supported encoding for a different event. For example, in the HPM event
-encoding scheme used by Rocket and inherited by SiFive cores, bits 8-55 are a
-bitmap. So masking off some of those bits will exclude some events, but will not
-create an invalid encoding. This could be very confusing for users.
-
-Regards,
-Samuel
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
