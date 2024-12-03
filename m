@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E350DE74AC4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8046E74AC3
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+WTzDeex6MvV2fYh0DDtmM+R3bGWHPFsxwrTc0tB2Uk=; b=kBafvgItT/w4jDYWDOlmxIJfsK
-	sY+Der3/RQ5kz10yu6CXdYdUPJySQ6PVQGeVASjGJ+G1XReXnRiM5MToLtYDJMbFrU6ycozTSwiNS
-	rhcem5Fkap36b6I00l8pMVA0ogPMfjJN+Ox2WaIg27Qa4w0RLtTyWgu9fRzuxDZc/9LsyMqu2wgh6
-	oHhvMOb+6vUOkZwbn/ts74+H+UsZvYVQ5OyTPvTNdzHipsx/QWqYcLwUBTxIvv+Zo2zxSEi2wVlx7
-	vtNJYrnkPF/vyaAhIzZF4UQsll9473/PBSGX/+URX+kX7mFZn0+KMKPDU8Fx2aOQFoa1jhXda3j4+
-	wgMY5Z/Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r++d+RPV1w2blKRbvzuo3KzRwCH6lTpvNhv7Zz+M86E=; b=cQBFlh6SoR6b0Hd7AMqE6YDemc
+	urCySwPF4zx5HbFkCLl5DU74WtuBO0c+lWa2nPLOBNWEfJEBFqLMDnnVK+dS+PjD0nRY9vnHLVTZu
+	gKBfcbCAk25f05zXK3OU/foykMt1YghTXv/1j/wmuKy2QD7ftARFWYdyPmXCd+WmpYVi9n8mU80qI
+	Lankj+f/IgAihd96iSb5zGuaH//CBsvSp7cu4m34x98UrrbjWe5Non/64DgJeUmXocchj/ZTmoqWt
+	nP/glQAM6yC8C6X1pmVuBI6ed15M0orPy9HlGHrc3XEbSvUN3EOdQtD6wJMAqll4qG3Bso/w/HBDv
+	e7pnTH+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVNw-0000000A2Dj-1Xl0;
-	Tue, 03 Dec 2024 16:04:24 +0000
-Received: from mail-qt1-x841.google.com ([2607:f8b0:4864:20::841])
+	id 1tIVNv-0000000A2Cq-1Lkj;
+	Tue, 03 Dec 2024 16:04:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVLw-0000000A1rm-3iqp;
-	Tue, 03 Dec 2024 16:02:22 +0000
-Received: by mail-qt1-x841.google.com with SMTP id d75a77b69052e-46686a258c2so49137591cf.2;
-        Tue, 03 Dec 2024 08:02:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733241739; x=1733846539; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+WTzDeex6MvV2fYh0DDtmM+R3bGWHPFsxwrTc0tB2Uk=;
-        b=TundCIp7axpdiLFoKhAIV9h5jxKF2um7YDBW+5MVnCetIwSMhqGZIvHQNf2PwZTHem
-         HP82+NjCuV1bvFeBVr88IPhA6pDytVzer6dUuN0Wm3+dpny2VDfEwqy0aE2lZswtFHdC
-         oebzeN9phVPQKcjh/nvyInxoc/sDzaTVn8wI2boDi5qr44gc7t25KDNemx7cY1c1co09
-         cJisGIbwMGzu1XZ+kv2+W64D4oNSXygkHRLju4fkfkby0XEgD4TSi2Da03tAOrMuZU4b
-         aTIvchIpJxAPAkilmv+K6HrQwpsFptHFb4kfSrrOlT2SUf3xhRz2pXGcmPYJEQJN1FBC
-         fyvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733241739; x=1733846539;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+WTzDeex6MvV2fYh0DDtmM+R3bGWHPFsxwrTc0tB2Uk=;
-        b=Vt+Qx2ynXB/LmN3MvWNrKNfGjPiETq7twWWMfAHaqCZuN2fs84mt+5AW9x7z950tdL
-         YYPJB9TKn6rRLxC0RX57nea2NDrEz8KwzXHtiS9Tva5QEkd7fpzOA93a7aOkOvhhpESl
-         kK3R6ppEO6zXMj7YP+X3wDJWmKZvMXpiLOEuzVOwUZ0maAJC5YXP0rDUOn4EQ1mb1Fah
-         MJEiENP7KIxgPEmiYI+0yGMwl/9hDNeEKCvxAfX00rE4IWL0ny/2gAMCkyiWG99Xizv3
-         mrqIi8XMnkDdod+EEhpXKqk4R/pHObniD305frFFpxlEyIYgQcTO98mj44XkGdH2C7Ld
-         Cw2w==
-X-Forwarded-Encrypted: i=1; AJvYcCVLvdLJjsHTUqIfquN1dfieiuxm8VyeGvCNX/Uh5MUqSOjhywrMrl8XExs0F4EkPwwWv2KJrDFEHrb0MO6bNJ8i@lists.infradead.org, AJvYcCWkVOOk5aD8Fh3MjkJTId0fbQfuk+akEy2LF1SnY3UXiulaca9J3JxyI4dFMfPdPpZ7ueGh+8WasPxbRsJD/GM=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhDl9ZMqUCbynahFsXJkxfN8ju323muS1QfDErNh1+meAZ8kFE
-	3/3x/GzqAdTDr8BcHMPwbGhWw0mnMctzuJpzmeNF+cemGAVaPNI0
-X-Gm-Gg: ASbGnctA3PxF1iSEohl+6LAh/PUB3pSKGEUj4Y0Omk37nq8dKQXkUDT6OGLBe2GrhaK
-	lElIp8+8bV0bRY/dio8Atbhp5riRO7IP102N66cGj7itnaGVviT/iAM4gmxPzSoTw3T9TOQNIG/
-	dpzYiArbQarQzvqpE9P1TDYCLVP+lixlRr7x7ZuVyefWUGYO0cFIYgoYujEhNKyCIdVhQErV3nc
-	4oOoCUw58FPM/DBsiHsv6+SnyrmTKzfTepNrDY3XS5RZ8pyoAPg11rh4UwvIlsmKugXvjtfDXnk
-	Z9+bdWD+7INtsWMhy893Z81vfemXuSHBeuqLZ+YWc5G9CQsLQpPixetYg5Y=
-X-Google-Smtp-Source: AGHT+IGDeeGWcRCTKyUCOq7c8fevpRJKKIBDhzv1JtFZuhU7+1av0GGQHLhd5L0WUnUDcgzYEzYebw==
-X-Received: by 2002:ac8:5a8b:0:b0:466:ad0d:f0ca with SMTP id d75a77b69052e-4670c6c5432mr40809661cf.50.1733241739116;
-        Tue, 03 Dec 2024 08:02:19 -0800 (PST)
-Received: from localhost.localdomain (host-36-26.ilcul54.champaign.il.us.clients.pavlovmedia.net. [68.180.36.26])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-466c42319b6sm62809341cf.77.2024.12.03.08.02.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 08:02:18 -0800 (PST)
-From: Gax-c <zichenxie0106@gmail.com>
-To: maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	thierry.reding@gmail.com,
-	mperttunen@nvidia.com,
-	jonathanh@nvidia.com,
-	kraxel@redhat.com,
-	gurchetansingh@chromium.org,
-	olvaffe@gmail.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	mst@redhat.com,
-	airlied@redhat.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-tegra@vger.kernel.org,
-	virtualization@lists.linux.dev,
+	id 1tIVK3-0000000A1WL-3kjb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Dec 2024 16:00:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E3981A41730;
+	Tue,  3 Dec 2024 15:58:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3097DC4CECF;
+	Tue,  3 Dec 2024 16:00:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1733241622;
+	bh=Xtio/wPbrwiM9ZiHC/wEEdCnmq7EiMwgQ/tZm2uqI6M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=wrLkeqcytivIHt/1c6N5CF1Oq7A/vIXWcI+9HAN2vN76y0QTiz15dXTN8Va/ZkvPn
+	 g9BXVAcuYPWxUbvREnPmxIPofLopyyyFPh+4k/5SNeYvwFy1U+7xMf1atS/D3Ym+zA
+	 RCRYJi+tiqetEOJvBST/fYDzI3boeHoJIsOMH+aQ=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Yang Jihong <yangjihong@bytedance.com>,
+	Dominique Martinet <asmadeus@codewreck.org>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Howard Chu <howardchu95@gmail.com>,
+	Ze Gao <zegao2021@gmail.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Weilin Wang <weilin.wang@intel.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Yang Li <yang.lee@linux.alibaba.com>,
+	Leo Yan <leo.yan@linux.dev>,
+	ak@linux.intel.com,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Zichen Xie <zichenxie0106@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] drm: cast calculation to __u64 to fix potential integer overflow
-Date: Tue,  3 Dec 2024 10:02:00 -0600
-Message-Id: <20241203160159.8129-1-zichenxie0106@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	Sun Haiyong <sunhaiyong@loongson.cn>,
+	John Garry <john.g.garry@oracle.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.12 470/826] perf stat: Uniquify event name improvements
+Date: Tue,  3 Dec 2024 15:43:17 +0100
+Message-ID: <20241203144802.097952233@linuxfoundation.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241203144743.428732212@linuxfoundation.org>
+References: <20241203144743.428732212@linuxfoundation.org>
+User-Agent: quilt/0.67
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_080220_924557_E32318C3 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20241203_080024_060430_D7614E2B 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,74 +93,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zichen Xie <zichenxie0106@gmail.com>
+6.12-stable review patch.  If anyone has any objections, please let me know.
 
-Like commit b0b0d811eac6 ("drm/mediatek: Fix coverity issue with
-unintentional integer overflow"), directly multiply pitch and
-height may lead to integer overflow. Add a cast to avoid it.
+------------------
 
-Fixes: 6d1782919dc9 ("drm/cma: Introduce drm_gem_cma_dumb_create_internal()")
-Fixes: dc5698e80cf7 ("Add virtio gpu driver.")
-Fixes: dc6057ecb39e ("drm/tegra: gem: dumb: pitch and size are outputs")
-Signed-off-by: Zichen Xie <zichenxie0106@gmail.com>
-Cc: stable@vger.kernel.org
+From: Ian Rogers <irogers@google.com>
+
+[ Upstream commit 057f8bfc6f7070577523d1e3081081bbf4229c1c ]
+
+Without aggregation on Intel:
+```
+$ perf stat -e instructions,cycles ...
+```
+Will use "cycles" for the name of the legacy cycles event but as
+"instructions" has a sysfs name it will and a "[cpu]" PMU suffix. This
+often breaks things as the space between the event and the PMU name
+look like an extra column. The existing uniquify logic was also
+uniquifying in cases when all events are core and not with uncore
+events, it was not correctly handling modifiers, etc.
+
+Change the logic so that an initial pass that can disable
+uniquification is run. For individual counters, disable uniquification
+in more cases such as for consistency with legacy events or for
+libpfm4 events. Don't use the "[pmu]" style suffix in uniquification,
+always use "pmu/.../". Change how modifiers/terms are handled in the
+uniquification so that they look like parse-able events.
+
+This fixes "102: perf stat metrics (shadow stat) test:" that has been
+failing due to "instructions [cpu]" breaking its column/awk logic when
+values aren't aggregated. This started happening when instructions
+could match a sysfs rather than a legacy event, so the fixes tag
+reflects this.
+
+Fixes: 617824a7f0f7 ("perf parse-events: Prefer sysfs/JSON hardware events over legacy")
+Acked-by: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
+[ Fix Intel TPEBS counting mode test ]
+Acked-by: Kan Liang <kan.liang@linux.intel.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
+Cc: Yang Jihong <yangjihong@bytedance.com>
+Cc: Dominique Martinet <asmadeus@codewreck.org>
+Cc: Colin Ian King <colin.i.king@gmail.com>
+Cc: Howard Chu <howardchu95@gmail.com>
+Cc: Ze Gao <zegao2021@gmail.com>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: Weilin Wang <weilin.wang@intel.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mike Leach <mike.leach@linaro.org>
+Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
+Cc: Yang Li <yang.lee@linux.alibaba.com>
+Cc: Leo Yan <leo.yan@linux.dev>
+Cc: ak@linux.intel.com
+Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Sun Haiyong <sunhaiyong@loongson.cn>
+Cc: John Garry <john.g.garry@oracle.com>
+Link: https://lore.kernel.org/r/20240926144851.245903-3-james.clark@linaro.org
+Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/drm_gem_dma_helper.c | 6 +++---
- drivers/gpu/drm/tegra/gem.c          | 2 +-
- drivers/gpu/drm/virtio/virtgpu_gem.c | 2 +-
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ .../perf/tests/shell/test_stat_intel_tpebs.sh |  11 +-
+ tools/perf/util/stat-display.c                | 101 ++++++++++++++----
+ 2 files changed, 85 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_gem_dma_helper.c b/drivers/gpu/drm/drm_gem_dma_helper.c
-index 870b90b78bc4..020c3b17fc02 100644
---- a/drivers/gpu/drm/drm_gem_dma_helper.c
-+++ b/drivers/gpu/drm/drm_gem_dma_helper.c
-@@ -272,8 +272,8 @@ int drm_gem_dma_dumb_create_internal(struct drm_file *file_priv,
- 	if (args->pitch < min_pitch)
- 		args->pitch = min_pitch;
+diff --git a/tools/perf/tests/shell/test_stat_intel_tpebs.sh b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
+index c60b29add9801..9a11f42d153ca 100755
+--- a/tools/perf/tests/shell/test_stat_intel_tpebs.sh
++++ b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
+@@ -8,12 +8,15 @@ grep -q GenuineIntel /proc/cpuinfo || { echo Skipping non-Intel; exit 2; }
+ # Use this event for testing because it should exist in all platforms
+ event=cache-misses:R
  
--	if (args->size < args->pitch * args->height)
--		args->size = args->pitch * args->height;
-+	if (args->size < (__u64)args->pitch * args->height)
-+		args->size = (__u64)args->pitch * args->height;
++# Hybrid platforms output like "cpu_atom/cache-misses/R", rather than as above
++alt_name=/cache-misses/R
++
+ # Without this cmd option, default value or zero is returned
+-echo "Testing without --record-tpebs"
+-result=$(perf stat -e "$event" true 2>&1)
+-[[ "$result" =~ $event ]] || exit 1
++#echo "Testing without --record-tpebs"
++#result=$(perf stat -e "$event" true 2>&1)
++#[[ "$result" =~ $event || "$result" =~ $alt_name ]] || exit 1
  
- 	dma_obj = drm_gem_dma_create_with_handle(file_priv, drm, args->size,
- 						 &args->handle);
-@@ -306,7 +306,7 @@ int drm_gem_dma_dumb_create(struct drm_file *file_priv,
- 	struct drm_gem_dma_object *dma_obj;
+ # In platforms that do not support TPEBS, it should execute without error.
+ echo "Testing with --record-tpebs"
+ result=$(perf stat -e "$event" --record-tpebs -a sleep 0.01 2>&1)
+-[[ "$result" =~ "perf record" && "$result" =~ $event ]] || exit 1
++[[ "$result" =~ "perf record" && "$result" =~ $event || "$result" =~ $alt_name ]] || exit 1
+diff --git a/tools/perf/util/stat-display.c b/tools/perf/util/stat-display.c
+index ea96e4ebad8c8..cbff43ff8d0fb 100644
+--- a/tools/perf/util/stat-display.c
++++ b/tools/perf/util/stat-display.c
+@@ -871,38 +871,66 @@ static void printout(struct perf_stat_config *config, struct outstate *os,
  
- 	args->pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
--	args->size = args->pitch * args->height;
-+	args->size = (__u64)args->pitch * args->height;
+ static void uniquify_event_name(struct evsel *counter)
+ {
+-	char *new_name;
+-	char *config;
+-	int ret = 0;
++	const char *name, *pmu_name;
++	char *new_name, *config;
++	int ret;
  
- 	dma_obj = drm_gem_dma_create_with_handle(file_priv, drm, args->size,
- 						 &args->handle);
-diff --git a/drivers/gpu/drm/tegra/gem.c b/drivers/gpu/drm/tegra/gem.c
-index d275404ad0e9..a84acdbbbe3f 100644
---- a/drivers/gpu/drm/tegra/gem.c
-+++ b/drivers/gpu/drm/tegra/gem.c
-@@ -548,7 +548,7 @@ int tegra_bo_dumb_create(struct drm_file *file, struct drm_device *drm,
- 	struct tegra_bo *bo;
+-	if (counter->uniquified_name || counter->use_config_name ||
+-	    !counter->pmu_name || !strncmp(evsel__name(counter), counter->pmu_name,
+-					   strlen(counter->pmu_name)))
++	/* The evsel was already uniquified. */
++	if (counter->uniquified_name)
+ 		return;
  
- 	args->pitch = round_up(min_pitch, tegra->pitch_align);
--	args->size = args->pitch * args->height;
-+	args->size = (__u64)args->pitch * args->height;
+-	config = strchr(counter->name, '/');
++	/* Avoid checking to uniquify twice. */
++	counter->uniquified_name = true;
++
++	/* The evsel has a "name=" config term or is from libpfm. */
++	if (counter->use_config_name || counter->is_libpfm_event)
++		return;
++
++	/* Legacy no PMU event, don't uniquify. */
++	if  (!counter->pmu ||
++	     (counter->pmu->type < PERF_TYPE_MAX && counter->pmu->type != PERF_TYPE_RAW))
++		return;
++
++	/* A sysfs or json event replacing a legacy event, don't uniquify. */
++	if (counter->pmu->is_core && counter->alternate_hw_config != PERF_COUNT_HW_MAX)
++		return;
++
++	name = evsel__name(counter);
++	pmu_name = counter->pmu->name;
++	/* Already prefixed by the PMU name. */
++	if (!strncmp(name, pmu_name, strlen(pmu_name)))
++		return;
++
++	config = strchr(name, '/');
+ 	if (config) {
+-		if (asprintf(&new_name,
+-			     "%s%s", counter->pmu_name, config) > 0) {
+-			free(counter->name);
+-			counter->name = new_name;
+-		}
+-	} else {
+-		if (evsel__is_hybrid(counter)) {
+-			ret = asprintf(&new_name, "%s/%s/",
+-				       counter->pmu_name, counter->name);
++		int len = config - name;
++
++		if (config[1] == '/') {
++			/* case: event// */
++			ret = asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, config + 2);
+ 		} else {
+-			ret = asprintf(&new_name, "%s [%s]",
+-				       counter->name, counter->pmu_name);
++			/* case: event/.../ */
++			ret = asprintf(&new_name, "%s/%.*s,%s", pmu_name, len, name, config + 1);
+ 		}
++	} else {
++		config = strchr(name, ':');
++		if (config) {
++			/* case: event:.. */
++			int len = config - name;
  
- 	bo = tegra_bo_create_with_handle(file, drm, args->size, 0,
- 					 &args->handle);
-diff --git a/drivers/gpu/drm/virtio/virtgpu_gem.c b/drivers/gpu/drm/virtio/virtgpu_gem.c
-index 7db48d17ee3a..d5407316b12e 100644
---- a/drivers/gpu/drm/virtio/virtgpu_gem.c
-+++ b/drivers/gpu/drm/virtio/virtgpu_gem.c
-@@ -72,7 +72,7 @@ int virtio_gpu_mode_dumb_create(struct drm_file *file_priv,
- 		return -EINVAL;
+-		if (ret) {
+-			free(counter->name);
+-			counter->name = new_name;
++			ret = asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, config + 1);
++		} else {
++			/* case: event */
++			ret = asprintf(&new_name, "%s/%s/", pmu_name, name);
+ 		}
+ 	}
+-
+-	counter->uniquified_name = true;
++	if (ret > 0) {
++		free(counter->name);
++		counter->name = new_name;
++	} else {
++		/* ENOMEM from asprintf. */
++		counter->uniquified_name = false;
++	}
+ }
  
- 	pitch = args->width * 4;
--	args->size = pitch * args->height;
-+	args->size = (__u64)pitch * args->height;
- 	args->size = ALIGN(args->size, PAGE_SIZE);
+ static bool hybrid_uniquify(struct evsel *evsel, struct perf_stat_config *config)
+@@ -1559,6 +1587,31 @@ static void print_cgroup_counter(struct perf_stat_config *config, struct evlist
+ 		print_metric_end(config, os);
+ }
  
- 	params.format = virtio_gpu_translate_format(DRM_FORMAT_HOST_XRGB8888);
++static void disable_uniquify(struct evlist *evlist)
++{
++	struct evsel *counter;
++	struct perf_pmu *last_pmu = NULL;
++	bool first = true;
++
++	evlist__for_each_entry(evlist, counter) {
++		/* If PMUs vary then uniquify can be useful. */
++		if (!first && counter->pmu != last_pmu)
++			return;
++		first = false;
++		if (counter->pmu) {
++			/* Allow uniquify for uncore PMUs. */
++			if (!counter->pmu->is_core)
++				return;
++			/* Keep hybrid event names uniquified for clarity. */
++			if (perf_pmus__num_core_pmus() > 1)
++				return;
++		}
++	}
++	evlist__for_each_entry_continue(evlist, counter) {
++		counter->uniquified_name = true;
++	}
++}
++
+ void evlist__print_counters(struct evlist *evlist, struct perf_stat_config *config,
+ 			    struct target *_target, struct timespec *ts,
+ 			    int argc, const char **argv)
+@@ -1572,6 +1625,8 @@ void evlist__print_counters(struct evlist *evlist, struct perf_stat_config *conf
+ 		.first = true,
+ 	};
+ 
++	disable_uniquify(evlist);
++
+ 	if (config->iostat_run)
+ 		evlist->selected = evlist__first(evlist);
+ 
 -- 
-2.34.1
+2.43.0
+
+
 
 
