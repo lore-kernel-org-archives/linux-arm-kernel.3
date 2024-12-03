@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39148E74AC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDF8E74AC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rWu9NOMgMppqf60Pnys3HfkvoAjKEWmLUDkZwC0aYUc=; b=iugdigH5BeHVoQ7nI4QON2LazC
-	EUFsnP8vZfJzZU0dVjcW3zAu1Jl1+Uw0uGfpm4U6ou1adGiVyKRJc2JODyYpZX3NOcGsiA0FRMljw
-	k0pu2POucP2JOyMjt3iInPGG2U9Tn7E5y+5rGVez3wpyxzbWWPDNMwE/9NPOZEPHRWiPHN+xtUIZ3
-	Mf3dIN7TTdXpdmgtbdLjw7eEQa5tHCMio2DvCk+hkSd8CMoptbetgMI8N0erxYu2h2Vm1BB0aNIiz
-	1X5dPW1F1nkWuX5zBkTKk4kY9tN38iR6DMYltaQYph75qSpnLKymV2hQVRgmGVVKoE8eH87Z7Ff5X
-	vHTrpMJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wdn9WBlyNdiY0kjsvpz6XjzAktzFSzWhI4fjS6MrMsM=; b=nw5D4VO5IgVnnbPAfvgf1jS7E1
+	+SZ99mNfffu9+w5gO85wqPvoTlC+ekyv7bPgFpx5GAKVHTOGAcnbGakFcRozYW+vDjYiyNd/PJBrq
+	RZPiB8uestMMeA6K4Ws+r/JWh4bNrBLWxMCEcTmdbRVxJ/tn9WpdtP6QEVcByzzSu1DfUdGNfafEp
+	9CK+t+d53/aCy1QFjI4Fd+zpw4HsWKFCqpFutp2KrbG/TImI7vvdkRB2w4DW3zksW+jOAlXf+ZOPt
+	tzPtp79slGt91lLhBYpg3scuWYuM24+ojGr/hQoIBZqD5CcQsk78xbr3wOEci+Mx8IV34YPxScWt2
+	4Dyt5TfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYC5-0000000AR51-0Nmn;
-	Tue, 03 Dec 2024 19:04:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIYTL-0000000AT2X-0dnS;
+	Tue, 03 Dec 2024 19:22:11 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYB3-0000000AQt2-3xdx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 19:03:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F3469A40463;
-	Tue,  3 Dec 2024 19:01:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA0B7C4CED6;
-	Tue,  3 Dec 2024 19:03:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733252596;
-	bh=eijrbAe3pZqlViuINmabDVrHYMVGawiSwmMh9zjp4eU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=M4xOX2qvVUnVLmMBciJn/ktir9cYv44PQgN516P1RUy/hPZeRytnnVwufr9xCirtN
-	 L6zCvXUtA0hCxoxiHFGoFlRNuy2LURLASnKomgcf3JbfAYcAit3FgiUPW9KAUKkqVU
-	 OO6GIRcXSxn8trEcptZ09FAOK2BdsqOPLLs4jpjQKpDudO+FnHeNQWlzmc9XtlWZuy
-	 KNrNEq15+0bxzTIJJ9qAyAGvCh+fFTGp6gghmLFLZCtq2Y1Jd9kiYhmkegjDnHQr1f
-	 hZeMLJ7T2GV9snlpAedM7OzOiWRKh0Je1Zj7P+UNLm2YfdGDK10JlY4CPlnwhTemWw
-	 bGAddOoecVgYw==
-Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=localhost.localdomain)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tIYB0-000CK2-FB;
-	Tue, 03 Dec 2024 19:03:14 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	stable@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH] KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be overridden
-Date: Tue,  3 Dec 2024 19:02:36 +0000
-Message-ID: <20241203190236.505759-1-maz@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	id 1tIYSK-0000000ASuv-1kUa;
+	Tue, 03 Dec 2024 19:21:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733253665;
+	bh=me674ysn4T+xkyXkjVxxdq0efYr8UjvgzBFk7LZAd70=;
+	h=From:Date:Subject:To:Cc:From;
+	b=T+cfWrQHcK7y+GOW+utyX+YR65qTl5gxPICvVGkewfy97+N38ZlGuIA4ujurN7R71
+	 vQNewctBhMLcDCSitu9XlfMOWf+qP1lPnWN3N43bBdR9JN9kIRsM6h2sCJWucMstJ3
+	 kgg4HNgVn6xVIOGnxsfu1pU8MpIkY6gYEpsgf6wn1SX319Gh5rU3k+0M3ligHz61Z2
+	 ikr28pZMIlHc6V5ZmvzrrrkBwXLUmVUcuBfNPRghHORCiH/oZrmyZqNDyyEANJ8+p6
+	 fVVAB9jGZlr2ZmdS0dVRp+ecmlUiZ/m6yPpKAw+uvO70ya74rcawN1VzqWRYLRhvc2
+	 nO9AwAN/JcSaQ==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1005])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A715017E1036;
+	Tue,  3 Dec 2024 20:21:02 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Tue, 03 Dec 2024 16:20:58 -0300
+Subject: [PATCH] ASoC: mediatek: mt8188-mt6359: Remove hardcoded dmic codec
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.104.136.29
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, catalin.marinas@arm.com, stable@vger.kernel.org, will@kernel.org, mark.rutland@arm.com, james.morse@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Message-Id: <20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com>
+X-B4-Tracking: v=1; b=H4sIABlaT2cC/x3MSw5AMBAA0KvIrE2irU+5ilhUO5iFkhaRiLtrL
+ N/mPRApMEXosgcCXRx58wkiz8Auxs+E7JJBFrIUslC4HlpojbWqWjz9YoKzmyN0K1scTVOX7aR
+ NI0dIwx5o4vvf++F9P0HiRgRtAAAA
+X-Change-ID: 20241203-mt8188-6359-unhardcode-dmic-ba7649f8a72b
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_110318_114438_50E3D422 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20241203_112108_640179_187843A9 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin reports that a hypervisor lying to a guest about the size
-of the ASID field may result in unexpected issues:
+Remove hardcoded dmic codec from the UL_SRC dai link to avoid requiring
+a dmic codec to be present for the driver to probe, as not every
+MT8188-based platform might need a dmic codec. The codec can be assigned
+to the dai link through the dai-link property in Devicetree on the
+platforms where it is needed.
 
-- if the underlying HW does only supports 8 bit ASIDs, the ASID
-  field in a TLBI VAE1* operation is only 8 bits, and the HW will
-  ignore the other 8 bits
+No Devicetree currently relies on it so it is safe to remove without
+worrying about backward compatibility.
 
-- if on the contrary the HW is 16 bit capable, the ASID field
-  in the same TLBI operation is always 16 bits, irrespective of
-  the value of TCR_ELx.AS.
-
-This could lead to missed invalidations if the guest was lead to
-assume that the HW had 8 bit ASIDs while they really are 16 bit wide.
-
-In order to avoid any potential disaster that would be hard to debug,
-prenent the migration between a host with 8 bit ASIDs to one with
-wider ASIDs (the converse was obviously always forbidden). This is
-also consistent with what we already do for VMIDs.
-
-If it becomes absolutely mandatory to support such a migration path
-in the future, we will have to trap and emulate all TLBIs, something
-that nobody should look forward to.
-
-Fixes: d5a32b60dc18 ("KVM: arm64: Allow userspace to change ID_AA64MMFR{0-2}_EL1")
-Reported-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: James Morse <james.morse@arm.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>
+Fixes: 9f08dcbddeb3 ("ASoC: mediatek: mt8188-mt6359: support new board with nau88255")
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- arch/arm64/kvm/sys_regs.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index a26f02ec8748..b1918adbd0aa 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2674,7 +2674,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	ID_WRITABLE(ID_AA64MMFR0_EL1, ~(ID_AA64MMFR0_EL1_RES0 |
- 					ID_AA64MMFR0_EL1_TGRAN4_2 |
- 					ID_AA64MMFR0_EL1_TGRAN64_2 |
--					ID_AA64MMFR0_EL1_TGRAN16_2)),
-+					ID_AA64MMFR0_EL1_TGRAN16_2 |
-+					ID_AA64MMFR0_EL1_ASIDBITS)),
- 	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
- 					ID_AA64MMFR1_EL1_HCX |
- 					ID_AA64MMFR1_EL1_TWED |
+diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
+index 08ae962afeb92965109b303439419bc6e7c2a896..1550e56ab57d54b179ebe5cbd60db1660bb0bd2c 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
++++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
+@@ -188,9 +188,7 @@ SND_SOC_DAILINK_DEFS(pcm1,
+ SND_SOC_DAILINK_DEFS(ul_src,
+ 		     DAILINK_COMP_ARRAY(COMP_CPU("UL_SRC")),
+ 		     DAILINK_COMP_ARRAY(COMP_CODEC("mt6359-sound",
+-						   "mt6359-snd-codec-aif1"),
+-					COMP_CODEC("dmic-codec",
+-						   "dmic-hifi")),
++						   "mt6359-snd-codec-aif1")),
+ 		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
+ 
+ SND_SOC_DAILINK_DEFS(AFE_SOF_DL2,
+
+---
+base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
+change-id: 20241203-mt8188-6359-unhardcode-dmic-ba7649f8a72b
+
+Best regards,
 -- 
-2.43.0
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 
