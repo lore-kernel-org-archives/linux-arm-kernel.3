@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFC8E74AC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E22E74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFvrB57kQUB9+YRdta2CSyD4T69d0dVCuOkS2SjanlQ=; b=PRes2xYc2zdu7+NvYNdEi/0y+a
-	hGrIgkXBdLAl1OP6SZbUsJwr3RytyIaiGGe65h9H+ley0EG2u5x8zO14dUl9YjdfTyzppS7AVfq99
-	rWGn7U8o4JGPST53r6YYo4I54bsAxf6l9HjNstI71DSVJIWHuR3jtFl66Kx3VVEWjIFzVTRdFndxb
-	xKSXbS0blZNqcx7IIfyiW8YK40cWx1VzPQC3nVPUVS64J88WNAt99nEVf3kU6GJ7yZf9rN6NvJhV0
-	uA1bwUP8JXj04GPbTd7FllnxtmUUuOv4GGyvvUO9i/WytvAPv4taw15USq160vXlHzXjaxmxB6xSp
-	kNDF7KQw==;
+	bh=a2HFVmT0ifFjwnHk05ULxBqujThdhTxnxipVuThE684=; b=eWkBJmnsru1hoafCfwLXHo4FgR
+	LW2+PICEmEdu8+gea05WYSNgw8FZT2ED5Oz5a4rFvP24TRdHu14KPAG3sdSN/paFsMvJftZySNn7I
+	bIkmecc0V+G10QD5OqZTfWiV8lE++uSeR1g+IE1sO+QPQu3cLm4EoPPYWf2bAWcvISYjVWStD8hLi
+	HT0abcSMHFlV8CgtJfY+yZEP4gyh4cYGBaPsf4vD/GwSZdzemppNZBPrHFMuMITnOaarljgbDa0Ff
+	C9UTpEAtKaA6AyRq9s/TrzZkHXNQM4L5H0odu4SFuQ35itF2UEyDGXjI9TxFA6z266ZkrGwmd+Ztx
+	Hl7gYQOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWtq-0000000AH8i-0MbE;
-	Tue, 03 Dec 2024 17:41:26 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tIWun-0000000AHKQ-2zS0;
+	Tue, 03 Dec 2024 17:42:25 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWso-0000000AGvP-0mPl
+	id 1tIWtJ-0000000AH1C-1HN4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 17:40:23 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B3C3UdS017760;
-	Tue, 3 Dec 2024 18:40:10 +0100
+	Tue, 03 Dec 2024 17:40:55 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B3Bd87x023380;
+	Tue, 3 Dec 2024 18:40:39 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	CFvrB57kQUB9+YRdta2CSyD4T69d0dVCuOkS2SjanlQ=; b=UV+eJsghDDEF2hwb
-	M9GYd8namo9INodFNJ5/AxXsopoiw58qAQ8a8kBrT+b/6x9k4hlTrgnCvjHi5wQQ
-	WKpV+t2ABNc1RiohH5V+twdlfqDXFL/DGmf2q+vru1C1vx16JEXnU3OklCr/YeuK
-	ShR4r7eCkeuvzoTC7IgF7yLdETstQ0IISqj2zusrb5H4lwIYyrrNgf+9TREaqwhk
-	UdkfaGfTy1gjCcg8fALDhxENXiCeFWJL2Rnvy4tdtJo9zXgyIQKbNMM6uOooE7K9
-	ixExpQrFHFob21GSJeERL7MnE6kdn3qhP7itR37NQmIWlhFlc8ipkRwYgHChF8Gy
-	4oNPSQ==
+	a2HFVmT0ifFjwnHk05ULxBqujThdhTxnxipVuThE684=; b=ZiRWCs2ZytZEyeKv
+	Bvw656ItVt66sZoQUxrvhwU+vNfUe2mA+uHmKYepotJV0iGmyaunR3bScEkMv4PD
+	483J4WUeCyhNXGp8fu5spX+AXLOpVhXbmfOEOBUr2fxpjBmDNA7teUQV7A8hOJd1
+	wJ4tdvd66W2b/uK6BGyvoUxVc+c5J3rxGIccYvKEo5fgY5GcPG3HHaheKMhvTsfs
+	ggUXPH5XpB3IUm4RzlW4ThBFzxtULQkh/S9cTmPZjrJxKjMzaqenfSuxqnxdjexA
+	srPkTt1LHexZ093a6QYwM6NAJODrLjVznKOQHz0Ax2d5UvltZQcYawBg77t9WaEV
+	tCzWDQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 437tx26by3-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 437tfge484-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 03 Dec 2024 18:40:10 +0100 (CET)
+	Tue, 03 Dec 2024 18:40:38 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E93B140048;
-	Tue,  3 Dec 2024 18:39:11 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 598D24004B;
+	Tue,  3 Dec 2024 18:39:45 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3E1772359CC;
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EFF6623781A;
 	Tue,  3 Dec 2024 18:39:11 +0100 (CET)
 Received: from localhost (10.48.86.128) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 3 Dec
- 2024 18:39:10 +0100
+ 2024 18:39:11 +0100
 From: Etienne Carriere <etienne.carriere@foss.st.com>
 To: <linux-kernel@vger.kernel.org>
 CC: Sudeep Holla <sudeep.holla@arm.com>,
@@ -64,9 +64,9 @@ CC: Sudeep Holla <sudeep.holla@arm.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
         Etienne
  Carriere <etienne.carriere@foss.st.com>
-Subject: [PATCH v2 1/2] firmware: arm_scmi: get only min/max clock rates
-Date: Tue, 3 Dec 2024 18:39:07 +0100
-Message-ID: <20241203173908.3148794-2-etienne.carriere@foss.st.com>
+Subject: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in discrete rates
+Date: Tue, 3 Dec 2024 18:39:08 +0100
+Message-ID: <20241203173908.3148794-3-etienne.carriere@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
 References: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
@@ -80,8 +80,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_094022_534321_BAFD3539 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20241203_094053_627774_46239687 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,229 +96,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove limitation of 16 clock rates max for discrete clock rates
-description when the SCMI firmware supports SCMI Clock protocol v2.0
-or later.
+Implement clock round_rate operation for SCMI clocks that describe a
+discrete rates list. Bisect into the supported rates when using SCMI
+message CLOCK_DESCRIBE_RATES to optimize SCMI communication transfers.
+Parse the rate list array when the target rate fit in the bounds
+of the command response for simplicity.
 
-Driver clk-scmi.c is only interested in the min and max clock rates.
-Get these by querying the first and last discrete rates with SCMI
-clock protocol message ID CLOCK_DESCRIBE_RATES since the SCMI
-specification v2.0 and later states that rates enumerated by this
-command are to be enumerated in "numeric ascending order" [1].
+If so some reason the sequence fails or if the SCMI driver has no
+round_rate SCMI clock handler, then fallback to the legacy strategy that
+returned the target rate value.
 
-Preserve the implementation that queries all discrete rates (16 rates
-max) to support SCMI firmware built on SCMI specification v1.0 [2]
-where SCMI Clock protocol v1.0 does not explicitly require rates
-described with CLOCK_DESCRIBE_RATES to be in ascending order.
+Operation handle scmi_clk_determine_rate() is change to get the effective
+supported rounded rate when there is no clock re-parenting operation
+supported. Otherwise, preserve the implementation that assumed any
+clock rate could be obtained.
 
-Link: https://developer.arm.com/documentation/den0056 [1]
-Link: https://developer.arm.com/documentation/den0056/a [2]
 Signed-off-by: Etienne Carriere <etienne.carriere@foss.st.com>
 ---
 Changes since patch series v1:
-- Preserve the original implementation and keep using it for SCMI
-  Clock protocol v1.0.
+- New patch introduced in this v2 series.
 
 ---
- drivers/clk/clk-scmi.c            |   4 +-
- drivers/firmware/arm_scmi/clock.c | 112 ++++++++++++++++++++++++++++--
- include/linux/scmi_protocol.h     |   4 +-
- 3 files changed, 110 insertions(+), 10 deletions(-)
+ drivers/clk/clk-scmi.c            | 17 +++++-
+ drivers/firmware/arm_scmi/clock.c | 93 +++++++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h     |  3 +
+ 3 files changed, 110 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index 15510c2ff21c..09ccd6cea7f2 100644
+index 09ccd6cea7f2..7bbb2ee55f4f 100644
 --- a/drivers/clk/clk-scmi.c
 +++ b/drivers/clk/clk-scmi.c
-@@ -244,8 +244,8 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
- 		if (num_rates <= 0)
- 			return -EINVAL;
+@@ -61,13 +61,20 @@ static long scmi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	struct scmi_clk *clk = to_scmi_clk(hw);
  
--		min_rate = sclk->info->list.rates[0];
--		max_rate = sclk->info->list.rates[num_rates - 1];
-+		min_rate = sclk->info->list.min_rate;
-+		max_rate = sclk->info->list.max_rate;
- 	} else {
- 		min_rate = sclk->info->range.min_rate;
- 		max_rate = sclk->info->range.max_rate;
-diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index 2ed2279388f0..34fde0b88098 100644
---- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -223,10 +223,21 @@ scmi_clock_protocol_attributes_get(const struct scmi_protocol_handle *ph,
- 	return ret;
+ 	/*
+-	 * We can't figure out what rate it will be, so just return the
++	 * In case we can't figure out what rate it will be when the clock
++	 * describes a list of discrete rates, then just return the
+ 	 * rate back to the caller. scmi_clk_recalc_rate() will be called
+ 	 * after the rate is set and we'll know what rate the clock is
+ 	 * running at then.
+ 	 */
+-	if (clk->info->rate_discrete)
++	if (clk->info->rate_discrete) {
++		ftmp = rate;
++		if (scmi_proto_clk_ops->round_rate &&
++		    !scmi_proto_clk_ops->round_rate(clk->ph, clk->id, &ftmp))
++			return ftmp;
++
+ 		return rate;
++	}
+ 
+ 	fmin = clk->info->range.min_rate;
+ 	fmax = clk->info->range.max_rate;
+@@ -122,9 +129,13 @@ static u8 scmi_clk_get_parent(struct clk_hw *hw)
+ static int scmi_clk_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
+ {
+ 	/*
+-	 * Suppose all the requested rates are supported, and let firmware
++	 * If not several parents look into supported rates. Otherwise
++	 * suppose all the requested rates are supported, and let firmware
+ 	 * to handle the left work.
+ 	 */
++	if (to_scmi_clk(hw)->info->num_parents < 2)
++		req->rate = scmi_clk_round_rate(hw, req->rate, NULL);
++
+ 	return 0;
  }
  
-+/*
-+ * Support SCMI_CLOCK protocol v1.0 as described in SCMI specification v1.0
-+ * that do not explicitly require clock rates described with command
-+ * CLOCK_DESCRIBE_RATES to be in ascending order. The Linux legacy
-+ * implementation for these clock supports a max of 16 rates.
-+ * In SCMI specification v2.0 and later, rates must be in ascending order
-+ * to we query only to min and max rates values.
-+ */
-+#define SCMI_MAX_NUM_RATES_V1		16
+diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+index 34fde0b88098..e416476dd336 100644
+--- a/drivers/firmware/arm_scmi/clock.c
++++ b/drivers/firmware/arm_scmi/clock.c
+@@ -999,6 +999,98 @@ static int scmi_clock_config_oem_get(const struct scmi_protocol_handle *ph,
+ 				    NULL, oem_val, atomic);
+ }
+ 
++static int scmi_clock_round_rate(const struct scmi_protocol_handle *ph,
++				 u32 clk_id, u64 *rate)
 +
- struct scmi_clk_ipriv {
- 	struct device *dev;
- 	u32 clk_id;
- 	struct scmi_clock_info *clk;
-+	u64 rates[SCMI_MAX_NUM_RATES_V1];
- };
- 
- static void iter_clk_possible_parents_prepare_message(void *message, unsigned int desc_index,
-@@ -493,7 +504,7 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
- 			break;
- 		}
- 	} else {
--		u64 *rate = &p->clk->list.rates[st->desc_index + st->loop_idx];
-+		u64 *rate = &p->rates[st->desc_index + st->loop_idx];
- 
- 		*rate = RATE_TO_U64(r->rate[st->loop_idx]);
- 		p->clk->list.num_rates++;
-@@ -519,7 +530,7 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
- 		.dev = ph->dev,
- 	};
- 
--	iter = ph->hops->iter_response_init(ph, &ops, SCMI_MAX_NUM_RATES,
-+	iter = ph->hops->iter_response_init(ph, &ops, ARRAY_SIZE(cpriv.rates),
- 					    CLOCK_DESCRIBE_RATES,
- 					    sizeof(struct scmi_msg_clock_describe_rates),
- 					    &cpriv);
-@@ -535,10 +546,95 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
- 			clk->range.min_rate, clk->range.max_rate,
- 			clk->range.step_size);
- 	} else if (clk->list.num_rates) {
--		sort(clk->list.rates, clk->list.num_rates,
--		     sizeof(clk->list.rates[0]), rate_cmp_func, NULL);
-+		sort(cpriv.rates, clk->list.num_rates,
-+		     sizeof(cpriv.rates[0]), rate_cmp_func, NULL);
-+		clk->list.min_rate = cpriv.rates[0];
-+		clk->list.max_rate = cpriv.rates[clk->list.num_rates - 1];
++{
++	const struct scmi_msg_resp_clock_describe_rates *resp;
++	size_t index_low, index_high, index_tmp, count, i;
++	struct scmi_msg_clock_describe_rates *msg;
++	u64 rate_low, rate_high, target_rate;
++	struct scmi_xfer *xfer;
++	int ret;
++	struct clock_info *ci = ph->get_priv(ph);
++	struct scmi_clock_info *clk = ci->clk + clk_id;
++
++	if (clk_id >= ci->num_clocks ||
++	    WARN_ONCE(!clk->rate_discrete, "Unexpected linear rates"))
++		return -EINVAL;
++
++	target_rate = *rate;
++	index_low = 0;
++	index_high = clk->list.num_rates - 1;
++	rate_low = clk->list.min_rate;
++	rate_high = clk->list.max_rate;
++
++	if (target_rate <= rate_low) {
++		*rate = rate_low;
++		return 0;
 +	}
++	if (target_rate >= rate_high) {
++		*rate = rate_high;
++		return 0;
++	}
++
++	ret = ph->xops->xfer_get_init(ph, CLOCK_DESCRIBE_RATES, sizeof(*msg), 0,
++				      &xfer);
++	if (ret)
++		return ret;
++
++	resp = xfer->rx.buf;
++	msg = xfer->tx.buf;
++	msg->id = cpu_to_le32(clk_id);
++
++	while (true) {
++		index_tmp = (index_low + index_high) / 2;
++
++		ph->xops->reset_rx_to_maxsz(ph, xfer);
++		msg->id = cpu_to_le32(clk_id);
++		msg->rate_index = cpu_to_le32(index_tmp);
++
++		ret = ph->xops->do_xfer(ph, xfer);
++		if (!ret && (!RATE_DISCRETE(resp->num_rates_flags) ||
++			     !NUM_RETURNED(resp->num_rates_flags)))
++			ret = -EPROTO;
++		if (ret)
++			break;
++
++		count = NUM_RETURNED(resp->num_rates_flags);
++
++		if (target_rate < RATE_TO_U64(resp->rate[0])) {
++			index_high = index_tmp;
++			rate_high = RATE_TO_U64(resp->rate[0]);
++		} else if (target_rate > RATE_TO_U64(resp->rate[count - 1])) {
++			index_low = index_tmp + count - 1;
++			rate_low = RATE_TO_U64(resp->rate[count - 1]);
++		} else {
++			for (i = 1; i < count; i++)
++				if (target_rate <= RATE_TO_U64(resp->rate[i]))
++					break;
++
++			index_low = index_tmp + i - 1;
++			rate_low = RATE_TO_U64(resp->rate[i - 1]);
++
++			if (i < count) {
++				index_high = index_tmp + i;
++				rate_high = RATE_TO_U64(resp->rate[i]);
++			}
++		}
++
++		if (index_high <= index_low + 1) {
++			if (target_rate - rate_low > rate_high - target_rate)
++				*rate = rate_high;
++			else
++				*rate = rate_low;
++
++			break;
++		}
++	}
++
++	ph->xops->xfer_put(ph, xfer);
 +
 +	return ret;
 +}
 +
-+static int scmi_clock_get_rates_bound(const struct scmi_protocol_handle *ph,
-+				      u32 clk_id, struct scmi_clock_info *clk)
-+{
-+	struct scmi_msg_clock_describe_rates *msg;
-+	const struct scmi_msg_resp_clock_describe_rates *resp;
-+	unsigned int num_returned, num_remaining;
-+	struct scmi_xfer *t;
-+	int ret;
-+
-+	/* Get either the range triplet or the min rate & rates count */
-+	ret = ph->xops->xfer_get_init(ph, CLOCK_DESCRIBE_RATES, sizeof(*msg), 0,
-+				      &t);
-+	if (ret)
-+		return ret;
-+
-+	msg = t->tx.buf;
-+	msg->id = cpu_to_le32(clk_id);
-+	msg->rate_index = 0;
-+
-+	resp = t->rx.buf;
-+
-+	ret = ph->xops->do_xfer(ph, t);
-+	if (ret)
-+		goto out;
-+
-+	clk->rate_discrete = RATE_DISCRETE(resp->num_rates_flags);
-+	num_returned = NUM_RETURNED(resp->num_rates_flags);
-+	num_remaining = NUM_REMAINING(resp->num_rates_flags);
-+
-+	if (clk->rate_discrete) {
-+		clk->list.num_rates = num_returned + num_remaining;
-+		clk->list.min_rate = RATE_TO_U64(resp->rate[0]);
-+
-+		if (num_remaining) {
-+			ph->xops->reset_rx_to_maxsz(ph, t);
-+			msg->id = cpu_to_le32(clk_id);
-+			msg->rate_index = cpu_to_le32(clk->list.num_rates - 1);
-+			ret = ph->xops->do_xfer(ph, t);
-+			if (!ret)
-+				clk->list.max_rate = RATE_TO_U64(resp->rate[0]);
-+		} else {
-+			u64 max = RATE_TO_U64(resp->rate[num_returned - 1]);
-+
-+			clk->list.max_rate = max;
-+		}
-+	} else {
-+		/* We expect a triplet, warn about out of spec replies ... */
-+		if (num_returned != 3 || num_remaining != 0) {
-+			dev_warn(ph->dev,
-+				 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
-+				 clk->name, num_returned, num_remaining,
-+				 t->rx.len);
-+
-+			/*
-+			 * A known quirk: a triplet is returned but
-+			 * num_returned != 3, check for a safe payload
-+			 * size to use returned info.
-+			 */
-+			if (num_remaining != 0 ||
-+			    t->rx.len != sizeof(*resp) +
-+					 sizeof(__le32) * 2 * 3) {
-+				dev_err(ph->dev,
-+					"Cannot fix out-of-spec reply !\n");
-+				ret = -EPROTO;
-+				goto out;
-+			}
-+		}
-+
-+		clk->range.min_rate = RATE_TO_U64(resp->rate[0]);
-+		clk->range.max_rate = RATE_TO_U64(resp->rate[1]);
-+		clk->range.step_size = RATE_TO_U64(resp->rate[2]);
-+
-+		dev_dbg(ph->dev, "Min %llu Max %llu Step %llu Hz\n",
-+			clk->range.min_rate, clk->range.max_rate,
-+			clk->range.step_size);
- 	}
- 
-+out:
-+	ph->xops->xfer_put(ph, t);
-+
- 	return ret;
- }
- 
-@@ -1089,8 +1185,12 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
- 		struct scmi_clock_info *clk = cinfo->clk + clkid;
- 
- 		ret = scmi_clock_attributes_get(ph, clkid, cinfo, version);
--		if (!ret)
--			scmi_clock_describe_rates_get(ph, clkid, clk);
-+		if (!ret) {
-+			if (PROTOCOL_REV_MAJOR(version) >= 0x2)
-+				scmi_clock_get_rates_bound(ph, clkid, clk);
-+			else
-+				scmi_clock_describe_rates_get(ph, clkid, clk);
-+		}
- 	}
- 
- 	if (PROTOCOL_REV_MAJOR(version) >= 0x3) {
+ static int scmi_clock_count_get(const struct scmi_protocol_handle *ph)
+ {
+ 	struct clock_info *ci = ph->get_priv(ph);
+@@ -1027,6 +1119,7 @@ static const struct scmi_clk_proto_ops clk_proto_ops = {
+ 	.info_get = scmi_clock_info_get,
+ 	.rate_get = scmi_clock_rate_get,
+ 	.rate_set = scmi_clock_rate_set,
++	.round_rate = scmi_clock_round_rate,
+ 	.enable = scmi_clock_enable,
+ 	.disable = scmi_clock_disable,
+ 	.state_get = scmi_clock_state_get,
 diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 688466a0e816..240478bb8476 100644
+index 240478bb8476..30cf373c3f8b 100644
 --- a/include/linux/scmi_protocol.h
 +++ b/include/linux/scmi_protocol.h
-@@ -15,7 +15,6 @@
- 
- #define SCMI_MAX_STR_SIZE		64
- #define SCMI_SHORT_NAME_MAX_SIZE	16
--#define SCMI_MAX_NUM_RATES		16
- 
- /**
-  * struct scmi_revision_info - version information structure
-@@ -54,7 +53,8 @@ struct scmi_clock_info {
- 	union {
- 		struct {
- 			int num_rates;
--			u64 rates[SCMI_MAX_NUM_RATES];
-+			u64 min_rate;
-+			u64 max_rate;
- 		} list;
- 		struct {
- 			u64 min_rate;
+@@ -91,6 +91,7 @@ enum scmi_clock_oem_config {
+  * @info_get: get the information of the specified clock
+  * @rate_get: request the current clock rate of a clock
+  * @rate_set: set the clock rate of a clock
++ * @round_rate: tell which is the nearest rate a clock supports (w/o setting it)
+  * @enable: enables the specified clock
+  * @disable: disables the specified clock
+  * @state_get: get the status of the specified clock
+@@ -108,6 +109,8 @@ struct scmi_clk_proto_ops {
+ 			u64 *rate);
+ 	int (*rate_set)(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 			u64 rate);
++	int (*round_rate)(const struct scmi_protocol_handle *ph, u32 clk_id,
++			  u64 *rate);
+ 	int (*enable)(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 		      bool atomic);
+ 	int (*disable)(const struct scmi_protocol_handle *ph, u32 clk_id,
 -- 
 2.25.1
 
