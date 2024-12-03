@@ -4,59 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D35EE64A8C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938BAE64A8B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r6KOtrS9n7MKBh7kOKTd4aylrrKI0Yajti56UFqTwB4=; b=RqGD1JMSLsjbqj3aCRqAGjSCOY
-	Jtz5quEVAbwfWTYyZBJmq9FQXZYScjJENo6oN7rD3ckA/PnXyKqqqwkBvPjnnzlScK6+r14hhGNw/
-	Mhk/T5iKiO9SSZX06+OYSMzh4U/AmLtBUbCGTeahAY036G0xLRRX3C2UjU77CCVRrpjJ1rQwv90Wl
-	ZD+8xSHimZyXP+SX0iT/FctY7rEY9AjKsjm8JrDuNXxOKndrwHIY8i2Qt3qn1beFeG72dN6rcvbSy
-	nLl+Y/ZreuXiBEgJC2UmfWmylvbNIr70FVz/46AheT/I9XmjiEuWBOsEE4P4uEkjYHy1DWKywMx/z
-	tFYYm7gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8x05kfaQVpCRcdfAVgIfJ3QfKGZdtodktYmBmdDZf4A=; b=kDR2G4VgzAnRN29apkKVr3M2Rh
+	b+RQ0yqWtI68XSbfe0Nqc9IDiK1b5AtmYFw59p4OYDz8RGEdc8ElogljY+KwCVHvZzTF5/GI7mrgb
+	5tigzffcU1hBDMop+2yHe3URjFCnvrws/TNBcMnCYf+ycISyACBwe9NwYEtutFsWRAoA2/5Xc7vyo
+	2eVWvr7qFkPpbt6j1KqUFsykDIAQ3tCJLcx5LUj4/TPjU+ihnbpK/2GP2RGU4DxaoPJ8H1qZuCkT0
+	nFV7YaVYuy8nxzE5cygAG58MRdyQRslO07eUlNMTndWKptUyLl5QInpGpSBlK5936L0gbB3idY+/s
+	8WiDVbyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISkk-00000009Zhq-0Brw;
-	Tue, 03 Dec 2024 13:15:46 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1tISm2-00000009a40-2ZON;
+	Tue, 03 Dec 2024 13:17:06 +0000
+Received: from mail-vi1eur05on20630.outbound.protection.outlook.com ([2a01:111:f403:2613::630] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISNY-00000009VA4-0gXb
+	id 1tISbP-00000009Xpz-1HLl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:51:52 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Y2gV65z1mzRhsx;
-	Tue,  3 Dec 2024 20:50:06 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 558551800A1;
-	Tue,  3 Dec 2024 20:51:43 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 3 Dec 2024 20:51:42 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
-	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v4 05/10] drivers/perf: hisi: Extract topology information to a separate structure
-Date: Tue, 3 Dec 2024 20:50:44 +0800
-Message-ID: <20241203125049.39458-6-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20241203125049.39458-1-yangyicong@huawei.com>
-References: <20241203125049.39458-1-yangyicong@huawei.com>
-MIME-Version: 1.0
+	Tue, 03 Dec 2024 13:06:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a5BiI0ZRi9aCDke/XvSqSwDEscnmfSITfadVg/9LlPYwDAo7itOTvUhcZiqdU5RWNmp6Ad82rvNEwTm/PLCRR0t63dpodyHw1X8mLsoQzInd1l3UiJVe1bH8nE/cNNAyufoCf95/CvtQnlVjZiqIu3XBGsK15CdHZjnVa3E1x1xigdlY3zUBBBCdQlbYy+gosovfdC+0onzd9ToeKUFzmUJAfo6JpqoViF2vPDnvPEQ6ijpHTzQ6eja4TbOUfM36menICLPVsLhCoWvJuR22StVeiiBEKMy3olfwjDd7605/EmpCN2EieAKz/LIvTJV7fwQyFiVwfpWOWVe3udSTkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8x05kfaQVpCRcdfAVgIfJ3QfKGZdtodktYmBmdDZf4A=;
+ b=QLLkpN2YWmddTeAIrTvPt0Awhsk6qwV9PphAbVpvh+XkdudWT2Z6ImbZba4ATbV2PQge1orB6jLvd9jN5HtFED7HmjgXtR3zc20EIeSMOEPZMbBghL783NIe1RjSRsRnB8JKO8Eh04lFFSwXlL6Vs0fZagpC/zYlqaDHUakDZhWpw1coJ9L5ZhIaPbQCho2fUm5VwZxLONVULu5A7a3jrsKKdwtVHUbPeY7B58gBaZUHbm2d4hd/TOK6PDf/pvKRJLPBW1H0OUhyO1AYpDgxG9tRMmGTtTYQMrqF7rG7FsbPRg8yIsqjmH2h9cQM/sRfzwFEXkZ3tCn35LwtO7iJOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8x05kfaQVpCRcdfAVgIfJ3QfKGZdtodktYmBmdDZf4A=;
+ b=f7zwxNIrvMjfYzpbXL6hMgKH1HBxEgXj/H18A7WVfJAn6VCLW6w90QhFB1d524lV05Op6bMJlxdmFlURdZB1Yr45hpycMeQ19hBQEqzcncGVnV89PFZFJ8HPD2YqTo8asFT9a6R8+BShLCbFezezcWDw8mffwTbhFLLHMppqh5cTq3t42h3zY82B7wFuNgshbYXgJmHILDwrmjOW9j/ODzL7f8DMYlGmP0lHaCP6Yn3wBoVcyrugrGd+UD1iancbGHcQRH7A/THKC9ONwk/UAt7y96CGtw9vR0HQ7oiAhW9iMxuBue9ImhvMHUco1qwskQ4u1PfEfkIi7kopWHyrNw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA4PR04MB7743.eurprd04.prod.outlook.com (2603:10a6:102:b8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Tue, 3 Dec
+ 2024 13:05:56 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8207.017; Tue, 3 Dec 2024
+ 13:05:56 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengfei Li <pengfei.li_1@nxp.com>,
+	linux-clk@vger.kernel.org (open list:NXP i.MX CLOCK DRIVERS),
+	imx@lists.linux.dev (open list:NXP i.MX CLOCK DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] clk: imx: Enable IMX93_CLK_LVDS_GATE only for i.MX93
+Date: Tue,  3 Dec 2024 21:05:29 +0800
+Message-Id: <20241203130530.1206526-1-peng.fan@oss.nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+X-ClientProxiedBy: SG2PR03CA0124.apcprd03.prod.outlook.com
+ (2603:1096:4:91::28) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7743:EE_
+X-MS-Office365-Filtering-Correlation-Id: b5f6b35e-a5eb-4dfc-17f9-08dd139b39a9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5UyrzVmwm4fEpya6MIUGARvfuCTeqocXnGDu1wpJxdgGXEyv00Bo0SlohDOE?=
+ =?us-ascii?Q?6LjL0WTYEZJudw0oqzlZzHmnT/NUOZQegQX6Aj2/Dz+wP0m2FwWTaH7l/OP6?=
+ =?us-ascii?Q?N/atLT9WXV8Rm9G1mMjy+LbzRsRFJNtT/lwm8P+h7mSnkdQmEaBtsot5fVfd?=
+ =?us-ascii?Q?dFm2kD2+IdaiPGh25I88qddmfGN4RjbGyJN9BjBE1GIoKgXYGuwynG9sPFww?=
+ =?us-ascii?Q?zEqg1vegTyfVvLggl5DPhWbxOKigyGcTNV5W8G9wvI830E+qJi8RT/qF/+Ox?=
+ =?us-ascii?Q?XUKVPbi4Pru6pFbiPE0jyKcXv+dtgkCaF9myQzhKsgnmoD76h+Fwylu/9cCw?=
+ =?us-ascii?Q?HQ9NdHIliarvK1ZLrcTrrQJQNi80dCBfMlXqc9Bdx0MhFNjp8G/ZhgR53Mtn?=
+ =?us-ascii?Q?AxhFr/UmPmIf6Np9tfIJKkjN9FTxpMX+LuYBAerOTgkjQf8JYpl3pCs9blzj?=
+ =?us-ascii?Q?RTLoMHzQ7XncM6XgSAhvzmFRp7opZWkWmA4Mm9OT3KoFfYfsCyTYW9goaCvr?=
+ =?us-ascii?Q?l1VNk03Wf8uedjZ17yif3hUe0fLr6Y7tXwf3O8fgnkdD4rsSXg0w6X8YxYEW?=
+ =?us-ascii?Q?rqLb+4w7fE1rX7ZVggmnrZuMjubAOOKoB9BbI3mC+TCOUP/waQwNEf96inBm?=
+ =?us-ascii?Q?qY08Q8SbrAQurr1yKcubjNkXBVI1VdA+udqW71D5cu0suorWBi4J2Q3px5PT?=
+ =?us-ascii?Q?KGTB/cmJv1eSVpnPsE9evZgEICxtoQ/3PVHVVyvNgNE38yEJ2toJaAUrdQ7a?=
+ =?us-ascii?Q?SuQoNSHCBFhzVUd6rAfI0eulENLGJkY3pWUTau1O4drzi3kUEsnqihNyYL3F?=
+ =?us-ascii?Q?LODgGw1JfzmDYq3F8M/q/up4a6pqwZlfZLsSnJxxMBCOHMIHljbgAj1iOTR7?=
+ =?us-ascii?Q?LXRQ0iXW+EN1238aqy/5PyF/hgfem5PQui0jZ9ZoCF41mf56CunDBZ7lM6E5?=
+ =?us-ascii?Q?+pIMGkxhImOPQTd/402zCEFwtcVa7jp9cyDM0lqiekLCjf7wU/xlB1/GdkiJ?=
+ =?us-ascii?Q?lN/C8/dgxT3S58bFhNIj6FdxNDsF0RGnF7PUwiwlIcnxJeR9mb5obl9bpZFd?=
+ =?us-ascii?Q?liRcp+7+ZGigEl0oR7U1vv1w6ip+Q3SashOnKJZlAl+r69936smb0QO4k+lM?=
+ =?us-ascii?Q?7pzgW+FnRHKV2s3Msyc7im4iHIAVTNe5K1nC0djHS4lG/7Te70TJjqqxkvGw?=
+ =?us-ascii?Q?sdNGyycAPVBAOhjag3eOCYCTE7FhTiKb9lp24nU6hj3Wtv4ACO38+M4eKzgd?=
+ =?us-ascii?Q?+c1VMgxPJdtqx+Rj4Bj46mJMX2YDbDeoTl/7ZVWCJAYsPyzJyRjt3TgUC8iu?=
+ =?us-ascii?Q?hegtTGB4lVcsO3P+1RdRhIRkUA0BREyJ4kQ3hz0P78dvtq6sz7CHnNoV3sr2?=
+ =?us-ascii?Q?F3OZl2Sg5RHTzz6IT4wBvMYcFUJofwZD1W2aiYvhknM1bh987PELEapumetj?=
+ =?us-ascii?Q?LPEKVDvuhd8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wKl5PuiCtUGB5wRVNganF0aCgS1UwYT0DvYnBfoh5yzQify8y2kVE0u94bFf?=
+ =?us-ascii?Q?lJBe4aMDXsLhI3Uo9DTTwUDWkp9rb2naaHE6OoDphsCuaR8ZeLjLhZy49QnD?=
+ =?us-ascii?Q?YoPFvt98gOQ6WaLh8OziyJ6Sf6aHpzVCHLj2uttmJO5IZXZ+UNaD8mA2rThX?=
+ =?us-ascii?Q?KaQvst7QeRV7qQJ/d7oxJxuhdDjEjQ/qfoZNvFBV8Y1GwADOXo8Ye0lRYW7W?=
+ =?us-ascii?Q?qQJLh4a4q4c7ZUcVriq0B2wPvA9j2R5OFGfRs7sB16pB7jcB7fuxxgp00bR/?=
+ =?us-ascii?Q?QC1M1tSxmQxghSHjFAMm9ibovthyKc+V9V3ATj5ZJ5/3eSxeCLLFsA4wk5oo?=
+ =?us-ascii?Q?Mcrq+4i5p0pQP8jPlLfTEc54l5kNBWB8756pIaIj/pB6dWI+wZoBnPu1hWlM?=
+ =?us-ascii?Q?rWSd30CHEp1hN/eXi+yEFXO1tQspQOlWencqJvModja5oHMRCDXAF8dF2W04?=
+ =?us-ascii?Q?uceoXDqVAoVtndogFYA0qZ0qPBgJUT790vQmF/iaANUQdRZlvubKt9No22W5?=
+ =?us-ascii?Q?a64yS+07rAnledDUnwgy+u2BPckathxk1BH7aYToki3z5Z8fT9/Sxc/T6xId?=
+ =?us-ascii?Q?fB9xj9QzpFweqKe/C6KxolLH4BBWfnqgFhwlCisTCDud1f+dVBFWaU97mipe?=
+ =?us-ascii?Q?9Fg8AoxWiD+6hT3F+nnKfWcqzHEoJqT7hGpTEhvTr9BKTaH4sJPld2kSKcKT?=
+ =?us-ascii?Q?/1y8jq7y6kBGcF/BdYiSLqD0xSKJtZjaYSuxMBgUO9dotCaA0bnAjbhGtOdZ?=
+ =?us-ascii?Q?Qiw8OKnzhjk/8/bqU5h8/MceBeGIbLzJJveSD8HLWXiVAflp6zcbogBp08AI?=
+ =?us-ascii?Q?Giw+xfPHETYwcayHNOVccn6N1tgqHKRPJ1IWKXs0iE6SXbbyTbmay1eV9dha?=
+ =?us-ascii?Q?v0wHdTl+m0APNV3m3Q0T8xvU91Js6SW851WT9/iuqzjhyxJCLYPen6vzW0O9?=
+ =?us-ascii?Q?CIWzonZSCsWgtRWHtJ0Y14qH3/6JapWNeHt08q2SmyJnEs/HEtzN/NzVjfpv?=
+ =?us-ascii?Q?FPRQLGOIb2dFt3DgirQojuLJJSm+/UVKAKK9RbOXZ+vhm6YsrWOGxERxs5+r?=
+ =?us-ascii?Q?5b35uFhN0JNot4c4q6bMbTmUi+alnTWvDTHQHkX0v7JDaMn8XRLBrwYmFqki?=
+ =?us-ascii?Q?BvdKaTv2+Ed8fQXhAtM4G0pG8nFRBzn5j+coGxBucv9AzVMyZUFacIsxvc5V?=
+ =?us-ascii?Q?+6LA/UY+bCNsfn/KoKilPGU8bqA54D5i6vHR4r2w52Q6hxQWNMN+2JElXeVL?=
+ =?us-ascii?Q?Q6HrOxWMtNfrmPu/kvya+cz+0d7BixWfbwpgXkt8TS0g1EZmm8Turw/Sxu08?=
+ =?us-ascii?Q?MeqwSp+3zZfuClZ1+io0tnhHLvUzSPnIRqAeKQIZrqe0nggDDIXh3Vfi5cb+?=
+ =?us-ascii?Q?XkcfZoNJBgDVdSknn+yHCm9v5AHoX2k1pvrmMxki7Bx5R0rBFIG4PQ8jroyk?=
+ =?us-ascii?Q?QEeSeDQVy8mRn8ABZM5MVibyycAwakl3QnVVNeB2n/FHiaBKIrZCK86r2vRJ?=
+ =?us-ascii?Q?EzwpX3kXL6/zETvsPz4Tklq65IFWhpksTCy/hB5LBRHFS87GRS0AGfWItgm7?=
+ =?us-ascii?Q?B3ZVes/8wb7AITCulGu886fc8/6R5ILrg8r2Fce2?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b5f6b35e-a5eb-4dfc-17f9-08dd139b39a9
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2024 13:05:56.8147
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AvReJ78x02y5/6hUDt4TtdXw6ZG3aa+fM3Gg6RifjbVxVpvkqx3UkiKPDPcyQEqnH7gvB6xxfFoTxEcSZY7oJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_045148_549078_8D920EE1 
-X-CRM114-Status: GOOD (  25.29  )
+X-CRM114-CacheID: sfid-20241203_050607_345163_DE583E11 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,414 +168,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+From: Peng Fan <peng.fan@nxp.com>
 
-HiSilicon Uncore PMUs are identified by the IDs of the topology element
-on which the PMUs are located. Add a new separate struct hisi_pmu_toplogy
-to encapsulate this information. Add additional documentation on the
-meaning of each ID.
+Enable the LVDS gate only for i.MX93, because i.MX91 does not support
+LVDS.
 
-- make sccl_id and sicl_id into a union since they're exclusive. It can
-  also be accessed by scl_id if the SICL/SCCL distinction is not
-  relevant
-- make index_id and sub_id signed so -1 may be used to indicate the PMU
-  doesn't have this topology element or it could not be retrieved.
-
-This patch should have no functional changes.
-
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Fixes: a27bfff88dd2 ("clk: imx: add i.MX91 clk")
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 12 +++---
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 18 ++++-----
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 12 +++---
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  8 ++--
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 14 +++----
- drivers/perf/hisilicon/hisi_uncore_pmu.c      |  7 ++--
- drivers/perf/hisilicon/hisi_uncore_pmu.h      | 38 +++++++++++++++----
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 10 ++---
- drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 11 +++---
- 9 files changed, 78 insertions(+), 52 deletions(-)
+ drivers/clk/imx/clk-imx93.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-index d2dc848956af..826e25c14cec 100644
---- a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-@@ -181,19 +181,19 @@ static int hisi_cpa_pmu_init_data(struct platform_device *pdev,
- 				  struct hisi_pmu *cpa_pmu)
- {
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &cpa_pmu->sicl_id)) {
-+				     &cpa_pmu->topo.sicl_id)) {
- 		dev_err(&pdev->dev, "Can not read sicl-id\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &cpa_pmu->index_id)) {
-+				     &cpa_pmu->topo.index_id)) {
- 		dev_err(&pdev->dev, "Cannot read idx-id\n");
- 		return -EINVAL;
- 	}
- 
--	cpa_pmu->ccl_id = -1;
--	cpa_pmu->sccl_id = -1;
-+	cpa_pmu->topo.ccl_id = -1;
-+	cpa_pmu->topo.sccl_id = -1;
- 	cpa_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(cpa_pmu->base))
- 		return PTR_ERR(cpa_pmu->base);
-@@ -311,8 +311,8 @@ static int hisi_cpa_pmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sicl%d_cpa%u",
--			      cpa_pmu->sicl_id, cpa_pmu->index_id);
-+	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sicl%d_cpa%d",
-+			      cpa_pmu->topo.sicl_id, cpa_pmu->topo.index_id);
- 	if (!name)
- 		return -ENOMEM;
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-index e323f0c339ec..f7bc86644ebe 100644
---- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-@@ -302,18 +302,18 @@ static int hisi_ddrc_pmu_init_data(struct platform_device *pdev,
- 	 * DDRC PMU, while SCCL_ID is in MPIDR[aff2].
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,ch-id",
--				     &ddrc_pmu->index_id)) {
-+				     &ddrc_pmu->topo.index_id)) {
- 		dev_err(&pdev->dev, "Can not read ddrc channel-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &ddrc_pmu->sccl_id)) {
-+				     &ddrc_pmu->topo.sccl_id)) {
- 		dev_err(&pdev->dev, "Can not read ddrc sccl-id!\n");
- 		return -EINVAL;
- 	}
- 	/* DDRC PMUs only share the same SCCL */
--	ddrc_pmu->ccl_id = -1;
-+	ddrc_pmu->topo.ccl_id = -1;
- 
- 	ddrc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ddrc_pmu->base)) {
-@@ -324,7 +324,7 @@ static int hisi_ddrc_pmu_init_data(struct platform_device *pdev,
- 	ddrc_pmu->identifier = readl(ddrc_pmu->base + DDRC_VERSION);
- 	if (ddrc_pmu->identifier >= HISI_PMU_V2) {
- 		if (device_property_read_u32(&pdev->dev, "hisilicon,sub-id",
--					     &ddrc_pmu->sub_id)) {
-+					     &ddrc_pmu->topo.sub_id)) {
- 			dev_err(&pdev->dev, "Can not read sub-id!\n");
- 			return -EINVAL;
- 		}
-@@ -501,13 +501,13 @@ static int hisi_ddrc_pmu_probe(struct platform_device *pdev)
- 
- 	if (ddrc_pmu->identifier >= HISI_PMU_V2)
- 		name = devm_kasprintf(&pdev->dev, GFP_KERNEL,
--				      "hisi_sccl%u_ddrc%u_%u",
--				      ddrc_pmu->sccl_id, ddrc_pmu->index_id,
--				      ddrc_pmu->sub_id);
-+				      "hisi_sccl%d_ddrc%d_%d",
-+				      ddrc_pmu->topo.sccl_id, ddrc_pmu->topo.index_id,
-+				      ddrc_pmu->topo.sub_id);
- 	else
- 		name = devm_kasprintf(&pdev->dev, GFP_KERNEL,
--				      "hisi_sccl%u_ddrc%u", ddrc_pmu->sccl_id,
--				      ddrc_pmu->index_id);
-+				      "hisi_sccl%d_ddrc%d", ddrc_pmu->topo.sccl_id,
-+				      ddrc_pmu->topo.index_id);
- 
- 	if (!name)
- 		return -ENOMEM;
-diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-index d5c2eab8023e..c5a8f61b5ad5 100644
---- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-@@ -300,7 +300,7 @@ static int hisi_hha_pmu_init_data(struct platform_device *pdev,
- 	 * SCCL_ID is in MPIDR[aff2].
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &hha_pmu->sccl_id)) {
-+				     &hha_pmu->topo.sccl_id)) {
- 		dev_err(&pdev->dev, "Can not read hha sccl-id!\n");
- 		return -EINVAL;
- 	}
-@@ -310,7 +310,7 @@ static int hisi_hha_pmu_init_data(struct platform_device *pdev,
- 	 * both "hisilicon, idx-id" as preference, if available.
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &hha_pmu->index_id)) {
-+				     &hha_pmu->topo.index_id)) {
- 		status = acpi_evaluate_integer(ACPI_HANDLE(&pdev->dev),
- 					       "_UID", NULL, &id);
- 		if (ACPI_FAILURE(status)) {
-@@ -318,10 +318,10 @@ static int hisi_hha_pmu_init_data(struct platform_device *pdev,
- 			return -EINVAL;
- 		}
- 
--		hha_pmu->index_id = id;
-+		hha_pmu->topo.index_id = id;
- 	}
- 	/* HHA PMUs only share the same SCCL */
--	hha_pmu->ccl_id = -1;
-+	hha_pmu->topo.ccl_id = -1;
- 
- 	hha_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(hha_pmu->base)) {
-@@ -510,8 +510,8 @@ static int hisi_hha_pmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%u_hha%u",
--			      hha_pmu->sccl_id, hha_pmu->index_id);
-+	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_hha%d",
-+			      hha_pmu->topo.sccl_id, hha_pmu->topo.index_id);
- 	if (!name)
- 		return -ENOMEM;
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index 0d1b5d17ba26..94546738f6ba 100644
---- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -360,13 +360,13 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
- 	 * SCCL_ID is in MPIDR[aff2] and CCL_ID is in MPIDR[aff1].
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &l3c_pmu->sccl_id)) {
-+				     &l3c_pmu->topo.sccl_id)) {
- 		dev_err(&pdev->dev, "Can not read l3c sccl-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,ccl-id",
--				     &l3c_pmu->ccl_id)) {
-+				     &l3c_pmu->topo.ccl_id)) {
- 		dev_err(&pdev->dev, "Can not read l3c ccl-id!\n");
- 		return -EINVAL;
- 	}
-@@ -544,8 +544,8 @@ static int hisi_l3c_pmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%u_l3c%u",
--			      l3c_pmu->sccl_id, l3c_pmu->ccl_id);
-+	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
-+			      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
- 	if (!name)
- 		return -ENOMEM;
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-index eaaad28871a3..3130b19e8afc 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-@@ -274,19 +274,19 @@ static int hisi_pa_pmu_init_data(struct platform_device *pdev,
- 	 * to identify the PA PMU.
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &pa_pmu->sicl_id)) {
-+				     &pa_pmu->topo.sicl_id)) {
- 		dev_err(&pdev->dev, "Cannot read sicl-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &pa_pmu->index_id)) {
-+				     &pa_pmu->topo.index_id)) {
- 		dev_err(&pdev->dev, "Cannot read idx-id!\n");
- 		return -EINVAL;
- 	}
- 
--	pa_pmu->ccl_id = -1;
--	pa_pmu->sccl_id = -1;
-+	pa_pmu->topo.ccl_id = -1;
-+	pa_pmu->topo.sccl_id = -1;
- 
- 	pa_pmu->dev_info = device_get_match_data(&pdev->dev);
- 	if (!pa_pmu->dev_info)
-@@ -488,9 +488,9 @@ static int hisi_pa_pmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sicl%d_%s%u",
--			      pa_pmu->sicl_id, pa_pmu->dev_info->name,
--			      pa_pmu->index_id);
-+	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sicl%d_%s%d",
-+			      pa_pmu->topo.sicl_id, pa_pmu->dev_info->name,
-+			      pa_pmu->topo.index_id);
- 	if (!name)
- 		return -ENOMEM;
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-index dda8cff4baf4..5d4de5f27819 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-@@ -444,18 +444,19 @@ static void hisi_read_sccl_and_ccl_id(int *scclp, int *cclp)
-  */
- static bool hisi_pmu_cpu_is_associated_pmu(struct hisi_pmu *hisi_pmu)
- {
-+	struct hisi_pmu_topology *topo = &hisi_pmu->topo;
- 	int sccl_id, ccl_id;
- 
--	if (hisi_pmu->ccl_id == -1) {
-+	if (topo->ccl_id == -1) {
- 		/* If CCL_ID is -1, the PMU only shares the same SCCL */
- 		hisi_read_sccl_and_ccl_id(&sccl_id, NULL);
- 
--		return sccl_id == hisi_pmu->sccl_id;
-+		return sccl_id == topo->sccl_id;
- 	}
- 
- 	hisi_read_sccl_and_ccl_id(&sccl_id, &ccl_id);
- 
--	return sccl_id == hisi_pmu->sccl_id && ccl_id == hisi_pmu->ccl_id;
-+	return sccl_id == topo->sccl_id && ccl_id == topo->ccl_id;
- }
- 
- int hisi_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-index bd48338ce937..f162a1b6c6d1 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
-+++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-@@ -81,12 +81,43 @@ struct hisi_pmu_hwevents {
- 	const struct attribute_group **attr_groups;
- };
- 
-+/**
-+ * struct hisi_pmu_topology - Describe the topology hierarchy on which the PMU
-+ *                            is located.
-+ * @sccl_id: ID of the SCCL on which the PMU locate is located.
-+ * @sicl_id: ID of the SICL on which the PMU locate is located.
-+ * @scl_id:  ID used by the core which is unaware of the SCCL/SICL.
-+ * @ccl_id: ID of the CCL (CPU cluster) on which the PMU is located.
-+ * @index_id: the ID of the PMU module if there're several PMUs at a
-+ *            particularly location in the topology.
-+ * @sub_id: submodule ID of the PMU. For example we use this for DDRC PMU v2
-+ *          since each DDRC has more than one DMC
-+ *
-+ * The ID will be -1 if the PMU isn't located on a certain topology.
-+ */
-+struct hisi_pmu_topology {
-+	/*
-+	 * SCCL (Super CPU CLuster) and SICL (Super I/O Cluster) are parallel
-+	 * so a PMU cannot locate on a SCCL and a SICL. If the SCCL/SICL
-+	 * distinction is not relevant, use scl_id instead.
-+	 */
-+	union {
-+		int sccl_id;
-+		int sicl_id;
-+		int scl_id;
-+	};
-+	int ccl_id;
-+	int index_id;
-+	int sub_id;
-+};
-+
- /* Generic pmu struct for different pmu types */
- struct hisi_pmu {
- 	struct pmu pmu;
- 	const struct hisi_uncore_ops *ops;
- 	const struct hisi_pmu_dev_info *dev_info;
- 	struct hisi_pmu_hwevents pmu_events;
-+	struct hisi_pmu_topology topo;
- 	/*
- 	 * CPUs associated to the PMU and are preferred to use for counting.
- 	 * Could be empty if PMU has no association (e.g. PMU on SICL), in
-@@ -98,14 +129,7 @@ struct hisi_pmu {
- 	int irq;
- 	struct device *dev;
- 	struct hlist_node node;
--	int sccl_id;
--	int sicl_id;
--	int ccl_id;
- 	void __iomem *base;
--	/* the ID of the PMU modules */
--	u32 index_id;
--	/* For DDRC PMU v2: each DDRC has more than one DMC */
--	u32 sub_id;
- 	int num_counters;
- 	int counter_bits;
- 	/* check event code range */
-diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-index 0ef2f6797109..276534c12fa4 100644
---- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-@@ -293,19 +293,19 @@ static int hisi_sllc_pmu_init_data(struct platform_device *pdev,
- 	 * while SCCL_ID is from MPIDR_EL1 by CPU.
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &sllc_pmu->sccl_id)) {
-+				     &sllc_pmu->topo.sccl_id)) {
- 		dev_err(&pdev->dev, "Cannot read sccl-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &sllc_pmu->index_id)) {
-+				     &sllc_pmu->topo.index_id)) {
- 		dev_err(&pdev->dev, "Cannot read idx-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	/* SLLC PMUs only share the same SCCL */
--	sllc_pmu->ccl_id = -1;
-+	sllc_pmu->topo.ccl_id = -1;
- 
- 	sllc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(sllc_pmu->base)) {
-@@ -433,8 +433,8 @@ static int hisi_sllc_pmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%u_sllc%u",
--			      sllc_pmu->sccl_id, sllc_pmu->index_id);
-+	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_sllc%d",
-+			      sllc_pmu->topo.sccl_id, sllc_pmu->topo.index_id);
- 	if (!name)
- 		return -ENOMEM;
- 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-index 9c724dab6b64..19a44498758f 100644
---- a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-@@ -372,19 +372,19 @@ static int hisi_uc_pmu_init_data(struct platform_device *pdev,
- 	 * They have some CCLs per SCCL and then 4 UC PMU per CCL.
- 	 */
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &uc_pmu->sccl_id)) {
-+				     &uc_pmu->topo.sccl_id)) {
- 		dev_err(&pdev->dev, "Can not read uc sccl-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,ccl-id",
--				     &uc_pmu->ccl_id)) {
-+				     &uc_pmu->topo.ccl_id)) {
- 		dev_err(&pdev->dev, "Can not read uc ccl-id!\n");
- 		return -EINVAL;
- 	}
- 
- 	if (device_property_read_u32(&pdev->dev, "hisilicon,sub-id",
--				     &uc_pmu->sub_id)) {
-+				     &uc_pmu->topo.sub_id)) {
- 		dev_err(&pdev->dev, "Can not read sub-id!\n");
- 		return -EINVAL;
- 	}
-@@ -538,8 +538,9 @@ static int hisi_uc_pmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_uc%d_%u",
--			      uc_pmu->sccl_id, uc_pmu->ccl_id, uc_pmu->sub_id);
-+	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_uc%d_%d",
-+			      uc_pmu->topo.sccl_id, uc_pmu->topo.ccl_id,
-+			      uc_pmu->topo.sub_id);
- 	if (!name)
- 		return -ENOMEM;
- 
+diff --git a/drivers/clk/imx/clk-imx93.c b/drivers/clk/imx/clk-imx93.c
+index 58a516dd385b..a0d2972ba9cd 100644
+--- a/drivers/clk/imx/clk-imx93.c
++++ b/drivers/clk/imx/clk-imx93.c
+@@ -239,7 +239,7 @@ static const struct imx93_clk_ccgr {
+ 	{ IMX93_CLK_SAI3_IPG,		"sai3_ipg_clk", "bus_wakeup_root",	0x94c0, 0, &share_count_sai3},
+ 	{ IMX93_CLK_MIPI_CSI_GATE,	"mipi_csi",	"media_apb_root",	0x9580, },
+ 	{ IMX93_CLK_MIPI_DSI_GATE,	"mipi_dsi",	"media_apb_root",	0x95c0, },
+-	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, },
++	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, 0, NULL, PLAT_IMX93 },
+ 	{ IMX93_CLK_LCDIF_GATE,		"lcdif",	"media_apb_root",	0x9640, },
+ 	{ IMX93_CLK_PXP_GATE,		"pxp",		"media_apb_root",	0x9680, },
+ 	{ IMX93_CLK_ISI_GATE,		"isi",		"media_apb_root",	0x96c0, },
 -- 
-2.24.0
+2.37.1
 
 
