@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8119DE64A8B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66823E64A8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cWMw4gHAd2mUMBu7rGBi6vIGmX0IuZGnIWJvU8ndO2Q=; b=BdD02mTl3iUbWdBUhOuGS1ZPHK
-	wC6lO+1ZfjWdymt5RIHL8DE8kdaR34Cj/1pbGg3z4eVQMZFn+OkLatE9IFUW4ngHuzJKk/OVhT95r
-	4gDtFBF2e1ap6CDnEq9LB11Ya38M+opfFWz9+ANOjMuDPFJR8jJqllgMgqwqj0CPvF0yno0gjg9bX
-	uGI5t9nQnaeZRMaLw6OVzOA1PdvJ3I1ZR6huKXoCsBH9HJiE7aphopWzaYTwAF9wkedjlf4O//gH4
-	ii+X5y7CuyXtZnkwWq23tIj5KW4g+g77bB4yarSHrirgUZnedrk7d5LYJJ1RUGzCC9aNysMjnbMMT
-	y981sX1g==;
+	bh=SgDvLnP8L2NVti2kG8twwOIPQ6VP3lgY9FptFR4ILsw=; b=c9N7MCVerYYfp/z/r9DKYPmwvg
+	kIb1/9RJEHElcKNu0v+RTs0qJ9wgEAizuj1pQliiBth9cns4Ced6vz8twv7k+N/dq4jBSrYwsVG73
+	bIdV/jASDLQOa2Em3lF9kV5QvjsXsEBrnSDm8DyVh6mkqpvkfyVUdTaY7PXTY8BUNhPLe/xf4kBfp
+	xYL1B/jp7nbxkK5E0sbAq+tZjOyTgmTh0YM9PS9qXTAcOq7QvIRrAs0+isJ6HWs1tQ6NfgembC8qk
+	HvhgBsuacA8+jmWekmpmfbrQJcjV0NX7G4i21BRLessFlooVphFGrheBk33pRgnieU+FleR6ZpcHR
+	e0Ph8FDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISfs-00000009Yox-3c2u;
-	Tue, 03 Dec 2024 13:10:44 +0000
+	id 1tISgq-00000009YyG-24UI;
+	Tue, 03 Dec 2024 13:11:44 +0000
 Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tISNZ-00000009VA8-1cIt
+	id 1tISNZ-00000009VAB-1bNY
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Dec 2024 12:51:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Y2gTt6q05zqTLR;
-	Tue,  3 Dec 2024 20:49:54 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Y2gTv381jzqTLp;
+	Tue,  3 Dec 2024 20:49:55 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id B8876140444;
-	Tue,  3 Dec 2024 20:51:43 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 337AC140156;
+	Tue,  3 Dec 2024 20:51:44 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
@@ -42,9 +42,9 @@ To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
 	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v4 06/10] drivers/perf: hisi: Add a common function to retrieve topology from firmware
-Date: Tue, 3 Dec 2024 20:50:45 +0800
-Message-ID: <20241203125049.39458-7-yangyicong@huawei.com>
+Subject: [PATCH v4 07/10] drivers/perf: hisi: Provide a generic implementation of cpumask/identifier
+Date: Tue, 3 Dec 2024 20:50:46 +0800
+Message-ID: <20241203125049.39458-8-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241203125049.39458-1-yangyicong@huawei.com>
 References: <20241203125049.39458-1-yangyicong@huawei.com>
@@ -55,8 +55,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_045149_771690_70E011A2 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20241203_045149_764093_A939E9C9 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,329 +73,455 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Currently each type of uncore PMU driver uses almost the same routine
-and the same firmware interface (or properties) to retrieve the topology
-information, then reset the unused IDs to -1. Extract the common parts
-to the framework in hisi_uncore_pmu_init_topology().
+Each type of HiSilicon Uncore PMU has the following sysfs attributes:
+
+- format: bitmask in perf_event_attr::config[012] of corresponding
+  attribute
+- event: events name and corresponding event code
+- cpumask: range of CPUs the events can be opened on
+- identifier: the version of this PMU
+
+Different types of PMU have different implementations of the "format"
+and "event" but all share the same implementation of the "cpumask"
+and "identifier". Thus we can move cpumask and identifier to the
+hisi_uncore_pmu framework and drivers can use the generic
+implementation.
 
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 10 +++----
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 10 +++----
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 10 +++----
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  |  8 ++---
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 11 +++----
- drivers/perf/hisilicon/hisi_uncore_pmu.c      | 30 +++++++++++++++++++
- drivers/perf/hisilicon/hisi_uncore_pmu.h      |  1 +
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 11 +++----
- drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 12 ++++----
- 9 files changed, 60 insertions(+), 43 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c  | 27 +----------
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 31 ++-----------
+ drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 31 ++-----------
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c  | 31 ++-----------
+ drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 35 +++------------
+ drivers/perf/hisilicon/hisi_uncore_pmu.c      | 45 ++++++++++++++-----
+ drivers/perf/hisilicon/hisi_uncore_pmu.h      |  4 ++
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 27 +----------
+ drivers/perf/hisilicon/hisi_uncore_uc_pmu.c   | 27 +----------
+ 9 files changed, 63 insertions(+), 195 deletions(-)
 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-index 826e25c14cec..c9b5016fafdb 100644
+index c9b5016fafdb..0d6a1683892a 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_cpa_pmu.c
-@@ -180,20 +180,18 @@ MODULE_DEVICE_TABLE(acpi, hisi_cpa_pmu_acpi_match);
- static int hisi_cpa_pmu_init_data(struct platform_device *pdev,
- 				  struct hisi_pmu *cpa_pmu)
- {
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &cpa_pmu->topo.sicl_id)) {
-+	hisi_uncore_pmu_init_topology(cpa_pmu, &pdev->dev);
-+
-+	if (cpa_pmu->topo.sicl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read sicl-id\n");
- 		return -EINVAL;
- 	}
+@@ -225,34 +225,11 @@ static const struct attribute_group hisi_cpa_pmu_events_group = {
+ 	.attrs = hisi_cpa_pmu_events_attr,
+ };
  
--	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &cpa_pmu->topo.index_id)) {
-+	if (cpa_pmu->topo.index_id < 0) {
- 		dev_err(&pdev->dev, "Cannot read idx-id\n");
- 		return -EINVAL;
- 	}
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+-
+-static struct attribute *hisi_cpa_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_cpa_pmu_cpumask_attr_group = {
+-	.attrs = hisi_cpa_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_cpa_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_cpa_pmu_identifier_attrs[] = {
+-	&hisi_cpa_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_cpa_pmu_identifier_group = {
+-	.attrs = hisi_cpa_pmu_identifier_attrs,
+-};
+-
+ static const struct attribute_group *hisi_cpa_pmu_attr_groups[] = {
+ 	&hisi_cpa_pmu_format_group,
+ 	&hisi_cpa_pmu_events_group,
+-	&hisi_cpa_pmu_cpumask_attr_group,
+-	&hisi_cpa_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
  
--	cpa_pmu->topo.ccl_id = -1;
--	cpa_pmu->topo.sccl_id = -1;
- 	cpa_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(cpa_pmu->base))
- 		return PTR_ERR(cpa_pmu->base);
 diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-index f7bc86644ebe..56a4068d6568 100644
+index 56a4068d6568..fb596f43ef9a 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-@@ -297,6 +297,8 @@ MODULE_DEVICE_TABLE(acpi, hisi_ddrc_pmu_acpi_match);
- static int hisi_ddrc_pmu_init_data(struct platform_device *pdev,
- 				   struct hisi_pmu *ddrc_pmu)
- {
-+	hisi_uncore_pmu_init_topology(ddrc_pmu, &pdev->dev);
-+
- 	/*
- 	 * Use the SCCL_ID and DDRC channel ID to identify the
- 	 * DDRC PMU, while SCCL_ID is in MPIDR[aff2].
-@@ -307,13 +309,10 @@ static int hisi_ddrc_pmu_init_data(struct platform_device *pdev,
- 		return -EINVAL;
- 	}
+@@ -380,42 +380,19 @@ static const struct attribute_group hisi_ddrc_pmu_v2_events_group = {
+ 	.attrs = hisi_ddrc_pmu_v2_events_attr,
+ };
  
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &ddrc_pmu->topo.sccl_id)) {
-+	if (ddrc_pmu->topo.sccl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read ddrc sccl-id!\n");
- 		return -EINVAL;
- 	}
--	/* DDRC PMUs only share the same SCCL */
--	ddrc_pmu->topo.ccl_id = -1;
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+-
+-static struct attribute *hisi_ddrc_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL,
+-};
+-
+-static const struct attribute_group hisi_ddrc_pmu_cpumask_attr_group = {
+-	.attrs = hisi_ddrc_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_ddrc_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_ddrc_pmu_identifier_attrs[] = {
+-	&hisi_ddrc_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_ddrc_pmu_identifier_group = {
+-	.attrs = hisi_ddrc_pmu_identifier_attrs,
+-};
+-
+ static const struct attribute_group *hisi_ddrc_pmu_v1_attr_groups[] = {
+ 	&hisi_ddrc_pmu_v1_format_group,
+ 	&hisi_ddrc_pmu_v1_events_group,
+-	&hisi_ddrc_pmu_cpumask_attr_group,
+-	&hisi_ddrc_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL,
+ };
  
- 	ddrc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ddrc_pmu->base)) {
-@@ -323,8 +322,7 @@ static int hisi_ddrc_pmu_init_data(struct platform_device *pdev,
+ static const struct attribute_group *hisi_ddrc_pmu_v2_attr_groups[] = {
+ 	&hisi_ddrc_pmu_v2_format_group,
+ 	&hisi_ddrc_pmu_v2_events_group,
+-	&hisi_ddrc_pmu_cpumask_attr_group,
+-	&hisi_ddrc_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
  
- 	ddrc_pmu->identifier = readl(ddrc_pmu->base + DDRC_VERSION);
- 	if (ddrc_pmu->identifier >= HISI_PMU_V2) {
--		if (device_property_read_u32(&pdev->dev, "hisilicon,sub-id",
--					     &ddrc_pmu->topo.sub_id)) {
-+		if (ddrc_pmu->topo.sub_id < 0) {
- 			dev_err(&pdev->dev, "Can not read sub-id!\n");
- 			return -EINVAL;
- 		}
 diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-index c5a8f61b5ad5..e59b31fdc4e4 100644
+index e59b31fdc4e4..0a7c44f72ecc 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-@@ -295,12 +295,13 @@ static int hisi_hha_pmu_init_data(struct platform_device *pdev,
- 	unsigned long long id;
- 	acpi_status status;
+@@ -405,42 +405,19 @@ static const struct attribute_group hisi_hha_pmu_v2_events_group = {
+ 	.attrs = hisi_hha_pmu_v2_events_attr,
+ };
  
-+	hisi_uncore_pmu_init_topology(hha_pmu, &pdev->dev);
-+
- 	/*
- 	 * Use SCCL_ID and UID to identify the HHA PMU, while
- 	 * SCCL_ID is in MPIDR[aff2].
- 	 */
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &hha_pmu->topo.sccl_id)) {
-+	if (hha_pmu->topo.sccl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read hha sccl-id!\n");
- 		return -EINVAL;
- 	}
-@@ -309,8 +310,7 @@ static int hisi_hha_pmu_init_data(struct platform_device *pdev,
- 	 * Early versions of BIOS support _UID by mistake, so we support
- 	 * both "hisilicon, idx-id" as preference, if available.
- 	 */
--	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &hha_pmu->topo.index_id)) {
-+	if (hha_pmu->topo.index_id < 0) {
- 		status = acpi_evaluate_integer(ACPI_HANDLE(&pdev->dev),
- 					       "_UID", NULL, &id);
- 		if (ACPI_FAILURE(status)) {
-@@ -320,8 +320,6 @@ static int hisi_hha_pmu_init_data(struct platform_device *pdev,
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+-
+-static struct attribute *hisi_hha_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL,
+-};
+-
+-static const struct attribute_group hisi_hha_pmu_cpumask_attr_group = {
+-	.attrs = hisi_hha_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_hha_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_hha_pmu_identifier_attrs[] = {
+-	&hisi_hha_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_hha_pmu_identifier_group = {
+-	.attrs = hisi_hha_pmu_identifier_attrs,
+-};
+-
+ static const struct attribute_group *hisi_hha_pmu_v1_attr_groups[] = {
+ 	&hisi_hha_pmu_v1_format_group,
+ 	&hisi_hha_pmu_v1_events_group,
+-	&hisi_hha_pmu_cpumask_attr_group,
+-	&hisi_hha_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL,
+ };
  
- 		hha_pmu->topo.index_id = id;
- 	}
--	/* HHA PMUs only share the same SCCL */
--	hha_pmu->topo.ccl_id = -1;
+ static const struct attribute_group *hisi_hha_pmu_v2_attr_groups[] = {
+ 	&hisi_hha_pmu_v2_format_group,
+ 	&hisi_hha_pmu_v2_events_group,
+-	&hisi_hha_pmu_cpumask_attr_group,
+-	&hisi_hha_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
  
- 	hha_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(hha_pmu->base)) {
 diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index 94546738f6ba..290a9e311f48 100644
+index 290a9e311f48..602d8d0b72f7 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -355,18 +355,18 @@ MODULE_DEVICE_TABLE(acpi, hisi_l3c_pmu_acpi_match);
- static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
- 				  struct hisi_pmu *l3c_pmu)
- {
-+	hisi_uncore_pmu_init_topology(l3c_pmu, &pdev->dev);
-+
- 	/*
- 	 * Use the SCCL_ID and CCL_ID to identify the L3C PMU, while
- 	 * SCCL_ID is in MPIDR[aff2] and CCL_ID is in MPIDR[aff1].
- 	 */
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &l3c_pmu->topo.sccl_id)) {
-+	if (l3c_pmu->topo.sccl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read l3c sccl-id!\n");
- 		return -EINVAL;
- 	}
+@@ -441,42 +441,19 @@ static const struct attribute_group hisi_l3c_pmu_v2_events_group = {
+ 	.attrs = hisi_l3c_pmu_v2_events_attr,
+ };
  
--	if (device_property_read_u32(&pdev->dev, "hisilicon,ccl-id",
--				     &l3c_pmu->topo.ccl_id)) {
-+	if (l3c_pmu->topo.ccl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read l3c ccl-id!\n");
- 		return -EINVAL;
- 	}
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+-
+-static struct attribute *hisi_l3c_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL,
+-};
+-
+-static const struct attribute_group hisi_l3c_pmu_cpumask_attr_group = {
+-	.attrs = hisi_l3c_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_l3c_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_l3c_pmu_identifier_attrs[] = {
+-	&hisi_l3c_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_l3c_pmu_identifier_group = {
+-	.attrs = hisi_l3c_pmu_identifier_attrs,
+-};
+-
+ static const struct attribute_group *hisi_l3c_pmu_v1_attr_groups[] = {
+ 	&hisi_l3c_pmu_v1_format_group,
+ 	&hisi_l3c_pmu_v1_events_group,
+-	&hisi_l3c_pmu_cpumask_attr_group,
+-	&hisi_l3c_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL,
+ };
+ 
+ static const struct attribute_group *hisi_l3c_pmu_v2_attr_groups[] = {
+ 	&hisi_l3c_pmu_v2_format_group,
+ 	&hisi_l3c_pmu_v2_events_group,
+-	&hisi_l3c_pmu_cpumask_attr_group,
+-	&hisi_l3c_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
+ 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-index 3130b19e8afc..d7b525f634b9 100644
+index d7b525f634b9..bd7640516d17 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-@@ -269,25 +269,22 @@ static void hisi_pa_pmu_clear_int_status(struct hisi_pmu *pa_pmu, int idx)
- static int hisi_pa_pmu_init_data(struct platform_device *pdev,
- 				   struct hisi_pmu *pa_pmu)
- {
-+	hisi_uncore_pmu_init_topology(pa_pmu, &pdev->dev);
-+
- 	/*
- 	 * As PA PMU is in a SICL, use the SICL_ID and the index ID
- 	 * to identify the PA PMU.
- 	 */
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &pa_pmu->topo.sicl_id)) {
-+	if (pa_pmu->topo.sicl_id < 0) {
- 		dev_err(&pdev->dev, "Cannot read sicl-id!\n");
- 		return -EINVAL;
- 	}
+@@ -353,29 +353,6 @@ static const struct attribute_group hisi_h60pa_pmu_events_group = {
+ 	.attrs = hisi_h60pa_pmu_events_attr,
+ };
  
--	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &pa_pmu->topo.index_id)) {
-+	if (pa_pmu->topo.index_id < 0) {
- 		dev_err(&pdev->dev, "Cannot read idx-id!\n");
- 		return -EINVAL;
- 	}
- 
--	pa_pmu->topo.ccl_id = -1;
--	pa_pmu->topo.sccl_id = -1;
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
 -
- 	pa_pmu->dev_info = device_get_match_data(&pdev->dev);
- 	if (!pa_pmu->dev_info)
- 		return -ENODEV;
+-static struct attribute *hisi_pa_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_pa_pmu_cpumask_attr_group = {
+-	.attrs = hisi_pa_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_pa_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_pa_pmu_identifier_attrs[] = {
+-	&hisi_pa_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_pa_pmu_identifier_group = {
+-	.attrs = hisi_pa_pmu_identifier_attrs,
+-};
+-
+ static struct hisi_pa_pmu_int_regs hisi_pa_pmu_regs = {
+ 	.mask_offset = PA_INT_MASK,
+ 	.clear_offset = PA_INT_CLEAR,
+@@ -385,8 +362,8 @@ static struct hisi_pa_pmu_int_regs hisi_pa_pmu_regs = {
+ static const struct attribute_group *hisi_pa_pmu_v2_attr_groups[] = {
+ 	&hisi_pa_pmu_v2_format_group,
+ 	&hisi_pa_pmu_v2_events_group,
+-	&hisi_pa_pmu_cpumask_attr_group,
+-	&hisi_pa_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
+ 
+@@ -399,8 +376,8 @@ static const struct hisi_pmu_dev_info hisi_h32pa_v2 = {
+ static const struct attribute_group *hisi_pa_pmu_v3_attr_groups[] = {
+ 	&hisi_pa_pmu_v2_format_group,
+ 	&hisi_pa_pmu_v3_events_group,
+-	&hisi_pa_pmu_cpumask_attr_group,
+-	&hisi_pa_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
+ 
+@@ -419,8 +396,8 @@ static struct hisi_pa_pmu_int_regs hisi_h60pa_pmu_regs = {
+ static const struct attribute_group *hisi_h60pa_pmu_attr_groups[] = {
+ 	&hisi_pa_pmu_v2_format_group,
+ 	&hisi_h60pa_pmu_events_group,
+-	&hisi_pa_pmu_cpumask_attr_group,
+-	&hisi_pa_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
+ 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-index 5d4de5f27819..1132822ff97a 100644
+index 1132822ff97a..339e346e94ee 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-@@ -14,6 +14,7 @@
- #include <linux/err.h>
- #include <linux/errno.h>
- #include <linux/interrupt.h>
-+#include <linux/property.h>
- 
- #include <asm/cputype.h>
- #include <asm/local64.h>
-@@ -530,6 +531,35 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+@@ -49,6 +49,41 @@ ssize_t hisi_cpumask_sysfs_show(struct device *dev,
  }
- EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_offline_cpu, HISI_PMU);
+ EXPORT_SYMBOL_NS_GPL(hisi_cpumask_sysfs_show, HISI_PMU);
  
-+/*
-+ * Retrieve the topology information from the firmware for the hisi_pmu device.
-+ * The topology ID will be -1 if we cannot initialize it, it may either due to
-+ * the PMU doesn't locate on this certain topology or the firmware needs to be
-+ * fixed.
-+ */
-+void hisi_uncore_pmu_init_topology(struct hisi_pmu *hisi_pmu, struct device *dev)
++static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
++
++static struct attribute *hisi_pmu_cpumask_attrs[] = {
++	&dev_attr_cpumask.attr,
++	NULL
++};
++
++const struct attribute_group hisi_pmu_cpumask_attr_group = {
++	.attrs = hisi_pmu_cpumask_attrs,
++};
++EXPORT_SYMBOL_NS_GPL(hisi_pmu_cpumask_attr_group, HISI_PMU);
++
++ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
++					     struct device_attribute *attr,
++					     char *page)
 +{
-+	struct hisi_pmu_topology *topo = &hisi_pmu->topo;
++	struct hisi_pmu *hisi_pmu = to_hisi_pmu(dev_get_drvdata(dev));
 +
-+	topo->sccl_id = -1;
-+	topo->ccl_id = -1;
-+	topo->index_id = -1;
-+	topo->sub_id = -1;
-+
-+	if (device_property_read_u32(dev, "hisilicon,scl-id", &topo->sccl_id))
-+		dev_dbg(dev, "no scl-id present\n");
-+
-+	if (device_property_read_u32(dev, "hisilicon,ccl-id", &topo->ccl_id))
-+		dev_dbg(dev, "no ccl-id present\n");
-+
-+	if (device_property_read_u32(dev, "hisilicon,idx-id", &topo->index_id))
-+		dev_dbg(dev, "no idx-id present\n");
-+
-+	if (device_property_read_u32(dev, "hisilicon,sub-id", &topo->sub_id))
-+		dev_dbg(dev, "no sub-id present\n");
++	return sysfs_emit(page, "0x%08x\n", hisi_pmu->identifier);
 +}
-+EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_init_topology, HISI_PMU);
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_identifier_attr_show, HISI_PMU);
 +
- void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module)
++static struct device_attribute hisi_pmu_identifier_attr =
++	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
++
++static struct attribute *hisi_pmu_identifier_attrs[] = {
++	&hisi_pmu_identifier_attr.attr,
++	NULL
++};
++
++const struct attribute_group hisi_pmu_identifier_group = {
++	.attrs = hisi_pmu_identifier_attrs,
++};
++EXPORT_SYMBOL_NS_GPL(hisi_pmu_identifier_group, HISI_PMU);
++
+ static bool hisi_validate_event_group(struct perf_event *event)
  {
- 	struct pmu *pmu = &hisi_pmu->pmu;
+ 	struct perf_event *sibling, *leader = event->group_leader;
+@@ -99,16 +134,6 @@ int hisi_uncore_pmu_get_event_idx(struct perf_event *event)
+ }
+ EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_get_event_idx, HISI_PMU);
+ 
+-ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
+-					     struct device_attribute *attr,
+-					     char *page)
+-{
+-	struct hisi_pmu *hisi_pmu = to_hisi_pmu(dev_get_drvdata(dev));
+-
+-	return sysfs_emit(page, "0x%08x\n", hisi_pmu->identifier);
+-}
+-EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_identifier_attr_show, HISI_PMU);
+-
+ static void hisi_uncore_pmu_clear_event_idx(struct hisi_pmu *hisi_pmu, int idx)
+ {
+ 	clear_bit(idx, hisi_pmu->pmu_events.used_mask);
 diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-index f162a1b6c6d1..53b1331b8565 100644
+index 53b1331b8565..f4fed2544877 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
 +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
-@@ -160,6 +160,7 @@ ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
- 					     char *page);
- int hisi_uncore_pmu_init_irq(struct hisi_pmu *hisi_pmu,
- 			     struct platform_device *pdev);
-+void hisi_uncore_pmu_init_topology(struct hisi_pmu *hisi_pmu, struct device *dev);
+@@ -137,6 +137,10 @@ struct hisi_pmu {
+ 	u32 identifier;
+ };
  
- void hisi_pmu_init(struct hisi_pmu *hisi_pmu, struct module *module);
- #endif /* __HISI_UNCORE_PMU_H__ */
++/* Generic implementation of cpumask/identifier group */
++extern const struct attribute_group hisi_pmu_cpumask_attr_group;
++extern const struct attribute_group hisi_pmu_identifier_group;
++
+ int hisi_uncore_pmu_get_event_idx(struct perf_event *event);
+ void hisi_uncore_pmu_read(struct perf_event *event);
+ int hisi_uncore_pmu_add(struct perf_event *event, int flags);
 diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-index 276534c12fa4..a342ef3d9916 100644
+index a342ef3d9916..b55a06f351aa 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-@@ -288,25 +288,22 @@ MODULE_DEVICE_TABLE(acpi, hisi_sllc_pmu_acpi_match);
- static int hisi_sllc_pmu_init_data(struct platform_device *pdev,
- 				   struct hisi_pmu *sllc_pmu)
- {
-+	hisi_uncore_pmu_init_topology(sllc_pmu, &pdev->dev);
-+
- 	/*
- 	 * Use the SCCL_ID and the index ID to identify the SLLC PMU,
- 	 * while SCCL_ID is from MPIDR_EL1 by CPU.
- 	 */
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &sllc_pmu->topo.sccl_id)) {
-+	if (sllc_pmu->topo.sccl_id < 0) {
- 		dev_err(&pdev->dev, "Cannot read sccl-id!\n");
- 		return -EINVAL;
- 	}
+@@ -344,34 +344,11 @@ static const struct attribute_group hisi_sllc_pmu_v2_events_group = {
+ 	.attrs = hisi_sllc_pmu_v2_events_attr,
+ };
  
--	if (device_property_read_u32(&pdev->dev, "hisilicon,idx-id",
--				     &sllc_pmu->topo.index_id)) {
-+	if (sllc_pmu->topo.index_id < 0) {
- 		dev_err(&pdev->dev, "Cannot read idx-id!\n");
- 		return -EINVAL;
- 	}
- 
--	/* SLLC PMUs only share the same SCCL */
--	sllc_pmu->topo.ccl_id = -1;
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
 -
- 	sllc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(sllc_pmu->base)) {
- 		dev_err(&pdev->dev, "ioremap failed for sllc_pmu resource.\n");
+-static struct attribute *hisi_sllc_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_sllc_pmu_cpumask_attr_group = {
+-	.attrs = hisi_sllc_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_sllc_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_sllc_pmu_identifier_attrs[] = {
+-	&hisi_sllc_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_sllc_pmu_identifier_group = {
+-	.attrs = hisi_sllc_pmu_identifier_attrs,
+-};
+-
+ static const struct attribute_group *hisi_sllc_pmu_v2_attr_groups[] = {
+ 	&hisi_sllc_pmu_v2_format_group,
+ 	&hisi_sllc_pmu_v2_events_group,
+-	&hisi_sllc_pmu_cpumask_attr_group,
+-	&hisi_sllc_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
+ 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-index 19a44498758f..2df8976ab4be 100644
+index 2df8976ab4be..f90f752f32dd 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_uc_pmu.c
-@@ -11,7 +11,6 @@
- #include <linux/irq.h>
- #include <linux/list.h>
- #include <linux/mod_devicetable.h>
--#include <linux/property.h>
+@@ -437,34 +437,11 @@ static const struct attribute_group hisi_uc_pmu_events_group = {
+ 	.attrs = hisi_uc_pmu_events_attr,
+ };
  
- #include "hisi_uncore_pmu.h"
+-static DEVICE_ATTR(cpumask, 0444, hisi_cpumask_sysfs_show, NULL);
+-
+-static struct attribute *hisi_uc_pmu_cpumask_attrs[] = {
+-	&dev_attr_cpumask.attr,
+-	NULL,
+-};
+-
+-static const struct attribute_group hisi_uc_pmu_cpumask_attr_group = {
+-	.attrs = hisi_uc_pmu_cpumask_attrs,
+-};
+-
+-static struct device_attribute hisi_uc_pmu_identifier_attr =
+-	__ATTR(identifier, 0444, hisi_uncore_pmu_identifier_attr_show, NULL);
+-
+-static struct attribute *hisi_uc_pmu_identifier_attrs[] = {
+-	&hisi_uc_pmu_identifier_attr.attr,
+-	NULL
+-};
+-
+-static const struct attribute_group hisi_uc_pmu_identifier_group = {
+-	.attrs = hisi_uc_pmu_identifier_attrs,
+-};
+-
+ static const struct attribute_group *hisi_uc_pmu_attr_groups[] = {
+ 	&hisi_uc_pmu_format_group,
+ 	&hisi_uc_pmu_events_group,
+-	&hisi_uc_pmu_cpumask_attr_group,
+-	&hisi_uc_pmu_identifier_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
+ 	NULL
+ };
  
-@@ -366,25 +365,24 @@ static void hisi_uc_pmu_clear_int_status(struct hisi_pmu *uc_pmu, int idx)
- static int hisi_uc_pmu_init_data(struct platform_device *pdev,
- 				 struct hisi_pmu *uc_pmu)
- {
-+	hisi_uncore_pmu_init_topology(uc_pmu, &pdev->dev);
-+
- 	/*
- 	 * Use SCCL (Super CPU Cluster) ID and CCL (CPU Cluster) ID to
- 	 * identify the topology information of UC PMU devices in the chip.
- 	 * They have some CCLs per SCCL and then 4 UC PMU per CCL.
- 	 */
--	if (device_property_read_u32(&pdev->dev, "hisilicon,scl-id",
--				     &uc_pmu->topo.sccl_id)) {
-+	if (uc_pmu->topo.sccl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read uc sccl-id!\n");
- 		return -EINVAL;
- 	}
- 
--	if (device_property_read_u32(&pdev->dev, "hisilicon,ccl-id",
--				     &uc_pmu->topo.ccl_id)) {
-+	if (uc_pmu->topo.ccl_id < 0) {
- 		dev_err(&pdev->dev, "Can not read uc ccl-id!\n");
- 		return -EINVAL;
- 	}
- 
--	if (device_property_read_u32(&pdev->dev, "hisilicon,sub-id",
--				     &uc_pmu->topo.sub_id)) {
-+	if (uc_pmu->topo.sub_id < 0) {
- 		dev_err(&pdev->dev, "Can not read sub-id!\n");
- 		return -EINVAL;
- 	}
 -- 
 2.24.0
 
