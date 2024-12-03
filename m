@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEDEE6C614
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 08:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEED6E6C617
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 08:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MIALpNpgE4769e0i7Lw8rCrq8jSRIEK8G+ARLJTyG2o=; b=dnU8AF+DfQuB+ubJXMXnZf+kih
-	U/3ml7q8Ffi427MWJOh8QsAT06DhmTR9zfjyt9R1eBuJI34c0UUIPOWdb7TyUj/3WkOxhnqvsU/HT
-	Ps8dlxTC93llwgJs9X57sIHTuqhg0yOrlydcIGBsDwzpML9vxWrOxEtCAQOtv5NGmvaUdff2vYjIQ
-	RAsvmHH6gwOdgh2ffLsCq2Pv6fhqNm8Ix87bmaInTzj2tFWdBe2WzAvc6rXxHkOHzu8LXMsvkq5Po
-	2mVKhUwuF7aXxvKEPURr7a/kKgf9l+AIijbnGFKVoEcH+vkJ0iYhN9UL5j1/IJtX3GzX4Xf1iMgw/
-	RDmmej1Q==;
+	bh=ZIwJfxL+REsPC0EzLsMrbPYPwDQbfDmBHJtA8hy/l8U=; b=d4P2cTDOxRH/4TYQ0s8SizwiNU
+	C5mNzfPWZ673TLdaqJJEMPX9ZJSwwc4LVKEFb4EQLIgZKoQ/+pBH5hsNcnzGfBDDdG8fznXjTXGMQ
+	54nhvhqP+v7LuDTt8eBha8A7LTMK1qdT6xFnScj53YhbkiUvpu8EdxRZYiM7RWePWZc1yscBzNOZG
+	Xszac2bExb6tSKaHjYZgisI4/rohRdvi5lgVQGPVIeO9JCkTojY9kNKe7fMeXaxqjJGaBdMNB92oi
+	/R3bKFsMK5YBHEMvcRHNfbQZF6pV9t4cqaXUwnFi58bD/F7ryLmrgxI32j40Yq+qDOneSQL1Y63/T
+	4fwpqCsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tINrH-00000008cG7-2XeB;
-	Tue, 03 Dec 2024 08:02:11 +0000
+	id 1tINsG-00000008cYg-1Hmv;
+	Tue, 03 Dec 2024 08:03:12 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tINnK-00000008b7I-1a2Y
+	id 1tINnK-00000008b7G-2I2G
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Dec 2024 07:58:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D7F8EA40B61;
+	by nyc.source.kernel.org (Postfix) with ESMTP id C3CCCA40B18;
 	Tue,  3 Dec 2024 07:56:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BC20EC4CEF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 778C9C4CEDA;
 	Tue,  3 Dec 2024 07:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733212684;
-	bh=RvXXydv3bH1dUYAfXpdd8pnBNzEBwK7JMCwrpiha4Tc=;
+	bh=MPqRUHL1p74lDraza5Gu6r3LXxFnHS9yDJRigvY6itc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sX8dYvQq8pHI759u9aAWPwkdn4IclAHTwsFuy0zXmEiIWG+SSGDebKpz6OGXKg/LZ
-	 inS8Xs8NkufPAWeosg8oapJ6dPOieKswC/IxkGSL4gthCx0qgwjkh9eLiAqtY2+cXT
-	 /hpso2RjWgGuK74GbjrWczWpBtoHUeeC3Enozt9glFDk0pXJdK8zVs6QXXxM5IG40a
-	 MMm7qyNiN2ZKhLlfoQqszLzl1ykuA6fjAR5N9vRhAAMd3nsjcz0Mn7aTfirqtyt4ID
-	 lSt5Eubtc+/UDGazNZo9eTD1AMBqTrDNjOd9+Zm8oMXJBGw4ZX4w4h+k00x8qKHuef
-	 eVKY6iNcLSDsQ==
+	b=i+Iaz+vX7XJ67+hcwgVuwWv9LjqOuoMyzMI9v7VkUSbN+P7KEDODPx8RScbjD7eaE
+	 mRpss5A+Cg9kR9JbZE6F86/vTy18stbCz8oaRMedRwTduz8Ac/0GdPkXgEhudg3ila
+	 LhCFKDMmEckXyW0ZDa11z7JOtPewaYABpWqpCnMM01tzTWgmkO1BXjypdMzq6Y5Ner
+	 //S9/U0jguwxawM4DrqsK0YWGAJ2iPVUZ+CjZzPeSNF6aaKlFJBSGd1odaf6suIREL
+	 Xr9QdVqDdFlXsMg2XFYQyrUzBh8k6WnKa0vG+33jx4ikpsWAo7wXTLyv/aek3vNtsw
+	 e36PG9Rg7ttVA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B15D0E6C614;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 61BC2E6C614;
 	Tue,  3 Dec 2024 07:58:04 +0000 (UTC)
 From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Date: Tue, 03 Dec 2024 08:58:01 +0100
-Subject: [PATCH v2 5/5] arm64: dts: apple: Add SPI NOR nvram partition to
- all devices
+Date: Tue, 03 Dec 2024 08:57:57 +0100
+Subject: [PATCH v2 1/5] arm64: dts: apple: t8103: Fix spi4 power domain
+ sort order
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241203-asahi-spi-dt-v2-5-cd68bfaf0c84@jannau.net>
+Message-Id: <20241203-asahi-spi-dt-v2-1-cd68bfaf0c84@jannau.net>
 References: <20241203-asahi-spi-dt-v2-0-cd68bfaf0c84@jannau.net>
 In-Reply-To: <20241203-asahi-spi-dt-v2-0-cd68bfaf0c84@jannau.net>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -63,20 +63,21 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3548; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1498; i=j@jannau.net;
  s=yk2024; h=from:subject:message-id;
- bh=goZjmxtaAm4HRqmqPpfUIxijslYo2LoyehKKAI0aD84=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnS/XVznGWaGH3g0JaF9w6nXjSLmM+ZllfyqPXDlqfZNn
- ceJn2qsOkpZGMS4GGTFFFmStF92MKyuUYypfRAGM4eVCWQIAxenAEzEdifDX4mlF05ka9zblx+d
- 8c+lIVXj46YnRyQ3/WyrM+oy7Cq5epOR4XeZ4Dk53f9K3+9cDnWv+f9UfOFCO1leltAZaz6bnZ1
- ylRcA
+ bh=9ueUveKszfxawJ0HmIK5r7NU/tiqsgQwLWeRgQUwJgA=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnS/XVzVerG/X+kfvlZww+imQce2syrbvpnIbtvpz56tZ
+ vDJ+VB0RykLgxgXg6yYIkuS9ssOhtU1ijG1D8Jg5rAygQxh4OIUgIlYSDIyHPl49dl3Zm+x2wZi
+ F805WX4WfJtdxqR3LNIvlq1wkur2JEaGc9fKjx5hnDRx69rqxinMh1dsCmZbx+YgNvU3u8+FXav
+ /sgEA
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
 X-Original-From: Janne Grunau <j@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_235806_574064_236B5A13 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20241202_235806_722673_B8407B4D 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,110 +93,50 @@ Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Janne Grunau <j@jannau.net>
+From: Hector Martin <marcan@marcan.st>
 
-All known M1* and M2* devices use an identical SPI NOR flash
-configuration with a partition containing a non-volatile key:value
-storage. Use a .dtsi and include it for every device.
-The nvram partition parameters itself depend on the version of the
-installed Apple iboot boot loader. m1n1 will fill in the current values
-provided by Apple's iboot.
-
+Signed-off-by: Hector Martin <marcan@marcan.st>
 Reviewed-by: Neal Gompa <neal@gompa.dev>
-Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- arch/arm64/boot/dts/apple/spi1-nvram.dtsi      | 39 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi |  2 ++
- arch/arm64/boot/dts/apple/t600x-j375.dtsi      |  2 ++
- arch/arm64/boot/dts/apple/t8103-jxxx.dtsi      |  2 ++
- arch/arm64/boot/dts/apple/t8112-jxxx.dtsi      |  2 ++
- 5 files changed, 47 insertions(+)
+ arch/arm64/boot/dts/apple/t8103-pmgr.dtsi | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/spi1-nvram.dtsi b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..3df2fd3993b52884d7c00b65099c88d830a7a4c3
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: GPL-2.0+ OR MIT
-+//
-+// Devicetree include for common spi-nor nvram flash.
-+//
-+// Apple uses a consistent configiguration for the nvram on all known M1* and
-+// M2* devices.
-+//
-+// Copyright The Asahi Linux Contributors
-+
-+/ {
-+	aliases {
-+		nvram = &nvram;
+diff --git a/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi b/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
+index 9645861a858c1a7c46c25a614c2cc4b03083bf46..c41c57d63997a59a9fe3c88de31fddb31781398e 100644
+--- a/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
+@@ -387,6 +387,15 @@ ps_spi3: power-controller@258 {
+ 		power-domains = <&ps_sio>, <&ps_spi_p>;
+ 	};
+ 
++	ps_spi4: power-controller@260 {
++		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
++		reg = <0x260 4>;
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		label = "spi4";
++		power-domains = <&ps_sio>, <&ps_spi_p>;
 +	};
-+};
 +
-+&spi1 {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0x0>;
-+		spi-max-frequency = <25000000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			nvram: partition@700000 {
-+				label = "nvram";
-+				/* To be filled by the loader */
-+				reg = <0x0 0x0>;
-+				status = "disabled";
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index 2e471dfe43cf885c1234d36bf0e0acfdc4904621..22ebc78e120bf8f0f71fd532e9dce4dcd117bbc6 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -119,3 +119,5 @@ sdhci0: mmc@0,0 {
- &fpwm0 {
- 	status = "okay";
- };
-+
-+#include "spi1-nvram.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-index 1e5a19e49b089d4b3c5e12828b682d1993e35e75..d5b985ad567936111ee5cccc9ca9fc23d01d9edf 100644
---- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-@@ -126,3 +126,5 @@ &pcie0_dart_2 {
- &pcie0_dart_3 {
- 	status = "okay";
- };
-+
-+#include "spi1-nvram.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-index 5988a4eb6efaa008c290b1842e0da2aae8052ba4..8e82231acab59ca0bffdcecfb6681f59661fcd96 100644
---- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-@@ -90,3 +90,5 @@ bluetooth0: bluetooth@0,1 {
- &nco_clkref {
- 	clock-frequency = <900000000>;
- };
-+
-+#include "spi1-nvram.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
-index f5edf61113e7aa869613d672b281f7b7e84efb79..6da35496a4c88dbaba125ebbe8c5a4a428c647c3 100644
---- a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
-@@ -79,3 +79,5 @@ &i2c3 {
- &nco_clkref {
- 	clock-frequency = <900000000>;
- };
-+
-+#include "spi1-nvram.dtsi"
+ 	ps_uart_n: power-controller@268 {
+ 		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+ 		reg = <0x268 4>;
+@@ -558,15 +567,6 @@ ps_mcc: power-controller@2f8 {
+ 		apple,always-on; /* Memory controller */
+ 	};
+ 
+-	ps_spi4: power-controller@260 {
+-		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+-		reg = <0x260 4>;
+-		#power-domain-cells = <0>;
+-		#reset-cells = <0>;
+-		label = "spi4";
+-		power-domains = <&ps_sio>, <&ps_spi_p>;
+-	};
+-
+ 	ps_dcs0: power-controller@300 {
+ 		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+ 		reg = <0x300 4>;
 
 -- 
 2.47.0
