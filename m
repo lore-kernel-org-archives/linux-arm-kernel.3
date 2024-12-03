@@ -4,75 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B16DCE69E88
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F99DE69E9D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 10:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e6jCVCtoUvaGNu8G4BhgRm/yUVxujZ16dKwaqI9lDno=; b=v+ELFkeOm1wwiomLuF+aAEtTCe
-	YCnUJ6UkQbuopOWZcybqRK2fBcqq9W2584Gf/3KFPqSlkn0+U8XS/nexI241IGpMcwnjlDEaIKGOj
-	qUaS4FnK8lQguN6YpbhGdAlxhtkqnT4HqlWRRvrlFSu1w/XdZe6tkbt5tQSppsdU6NBEnnHhwnTba
-	1NA+D2zelXcozv0gsXNussxx1qmlnvrt9N0282Vv4pKbsONGAlXloQ51hm9vf1QaYkeoHp/tETULt
-	l2pYZLmUdp0kUlZn11Y4jyTtQSAOHNIqN8sHf6hId0T5j0gFQsuS68DBHlO/xNmUjmflzI9zw1yOf
-	H/p/cbVA==;
+	bh=Lms3eAQIvFdZRyNDCU3C27FqLFuhMcPmxckF36LATyc=; b=ypOM3NUGfHsAXQWjHuDUZDucJK
+	rqFbz1VjgZid+Y4fUvv1UJbRvGAVkb3+DE70TTHEWh/g+kQQkrlxFIHldCunQoOMVR4OotLIRax4X
+	QN+YrjOBx/EYWMtB24c+hsXdJPIpNN08o0/KZrJvcrwvXOFmzOsubjItot2JYBMDVJxAvLW5cWg/e
+	fi3NZ+axREQI1DLJ2G6sTKUx3xG6zfMD8ILZgYRO0qKvJpyRjwMGCrC8G85J6J/i3n2fvrATPedLg
+	pdqL8wn9eSHT6135ymSePgqtTPBCjQXualb5AN2MuJNz7cfTCQyqLJDzKrx0FnCYvMhrgjtcx2lEL
+	SmkF9vUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQ2X-000000093K4-044a;
-	Tue, 03 Dec 2024 10:21:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIQ5z-000000093qC-15pS;
+	Tue, 03 Dec 2024 10:25:31 +0000
+Received: from mail-vi1eur05on20723.outbound.protection.outlook.com ([2a01:111:f403:2613::723] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQ1W-000000093AC-1hVI
+	id 1tIQ4y-000000093gL-0bOj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:20:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6B5495C6956;
-	Tue,  3 Dec 2024 10:20:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EAC1C4CECF;
-	Tue,  3 Dec 2024 10:20:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733221253;
-	bh=9pdmzxINkxEkN9dX9ei/EdSwvHoE6Vl+IzYelHP85Sw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TcJfdsmS0C3Sl6/bO8Ngmz5qwVTQLGllAt9pf4QJXipMFcCDhh1hqjm887k9I3l6I
-	 Bz6MXnOVd1kuwVmdZCmshKvDdBqJVmPz2cCoBu0MhjvwficzEmtGGSpqPcDCo/CIeL
-	 OgQ70G1k9VSgk0GxK3Vk4S+J7dp31xJfYksCCoVr8pwooloPjSpEhS4Az4+lxmdFp5
-	 /PCA7Vy3J/p7g50jeYAqxutNhxNpRwSM+DNFIrfv2/iP4tr/scSuYQmlAI0MJjmbl3
-	 7TQUk4uBseG0REiS2ddjhxYqLEJjSv5xo2KB1ZnUs6FM/IzIECxaWaEhjxpfFRYJwE
-	 6vjfe4hSQHhng==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tIQ1Q-0000000023I-3yyK;
-	Tue, 03 Dec 2024 11:20:49 +0100
-Date: Tue, 3 Dec 2024 11:20:48 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Krishna Kurapati <quic_kriskura@quicinc.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
- fingerprint reader
-Message-ID: <Z07bgH5vVk44zuEH@hovoldconsulting.com>
-References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
- <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+	Tue, 03 Dec 2024 10:24:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IMb0zJnGVUAhdvwHgwUa9fhCqbKtUWIusAkxAePowy8qQA2Eg9/dyZZ8cctIdYzRoQZRAOMhAtgpZp2no9MfWOu80Wr+RnoF7OEESnyRWs7GZ/GkmCXTvAluBKEK1pOXFcfwjNSnd8RcGiGRsw/JImiXnVa3ZArkFHiZ9oiIRmsaG1DzOsPKltBOLc5xlxw83FTE/u9Wa8ia5sClyW+q5arjJGmf91pB7QLABwOXpDTriXJaG1GLHHHmXYCrZ7X7sNx2U9Mod3Lq2k7AYAHw9snODGf8pt8TkurDyFhLJINHvL3tjTNNiqGHbbCXP2kwC7juEFgrepVUJpo82fnkiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Lms3eAQIvFdZRyNDCU3C27FqLFuhMcPmxckF36LATyc=;
+ b=Iv4+xlV19AN5dCJk+22kStkVtBYvIvecyKeI2UjRZ4DwMjDM6fwK+8t2CfuRK1ZrNwu1+r856jdOxkGJuW2FYo+nPowluB007LydBCb2pzJn8VZ21xFCUB0igz1653xiVQGTz/pFpTV2BY5uxrJkMCkAu/GfQk9355CvxOi59t+q3a6Lb32yQ7Z146XIqKdJ3xLVHlqdcEjAW04/aKRYC/rHOj+0YAZDkDAEH1no5/JpydwFvf4nLEMPQ7UCDIaTw9Ixup9OK7SDGC4f0ivUq1SRfe/WXx6RCbVy0n165Xl/VkCO0umoSoXma/xKx53dR/2hDteTBzmdUcQahadLjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
+ dkim=pass header.d=uclouvain.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Lms3eAQIvFdZRyNDCU3C27FqLFuhMcPmxckF36LATyc=;
+ b=MerHWp9TTss/BythT+DtlZ6VVfua+F1uG7iDYtavId34WvGlzsnqD57GYDKRYhe1ZVzVIYGfCMy076ntKDD4lJF3GJINpJRkghUY/qGIi9kHkOhYMB/qfmbw+5vePBkUiylQXLAdjhoZqlL1tfMDISAUHTRWR2NHTYVyqaAx0BV4k7u/kBo8YOYhN1b1rjcdjh58iPOCBA7xUjJBFhMr9V0ZHNKls6ElaeoOaxvR5IMhbQnwp6WFSWQ+jEAqGKCFMUotDkH5O88D6rX/e11p5nwt8fDIc7/PrWbEyKtL4/FInzAXj1QOB0BEilBNxkNjMlPv0TMSn7461N/LcPfLow==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=uclouvain.be;
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
+ by DB3PR0302MB9064.eurprd03.prod.outlook.com (2603:10a6:10:428::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Tue, 3 Dec
+ 2024 10:24:24 +0000
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c%6]) with mapi id 15.20.8207.017; Tue, 3 Dec 2024
+ 10:24:24 +0000
+Message-ID: <575b3275-b2fa-4e5c-bb6b-759394b02e18@uclouvain.be>
+Date: Tue, 3 Dec 2024 11:23:41 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] dt-bindings: power: supply: add max77759-fg flavor
+ and don't require nvme address
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
+ <20241202-b4-gs101_max77759_fg-v1-2-98d2fa7bfe30@uclouvain.be>
+ <e23721ebd766f410103ddfb8705f3d7d6e5ae3e9.camel@linaro.org>
+Content-Language: en-US
+From: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <e23721ebd766f410103ddfb8705f3d7d6e5ae3e9.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MI0P293CA0009.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:44::6) To AS8PR03MB9047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5b6::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|DB3PR0302MB9064:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3db1632c-b56f-4e23-d966-08dd1384a85c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|10070799003|1800799024|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SUVUdE9KMTBkNWFDR3NuYXJPb0lzVy8vWGZZNms1amJuc0hpOUFZL2t3WVhH?=
+ =?utf-8?B?YUF4MU9PcHJ0Qk1qTlhsK2t4bG9HYUNxQWJHSlpFd3hiaS9CVm04WFNHY2N3?=
+ =?utf-8?B?NkpDRGQ0RFZTYitodzZmMlRoY3lSai9DZk1ISU5Db0VSMEZUNlFtUjZLLzZG?=
+ =?utf-8?B?WklwM1JZZmVqZ2dBMEgzd2JvTGNqTHJNa2JqUzBFbzNFK25rbTlTNWRVQWJ6?=
+ =?utf-8?B?SjcwTW8xU1lHbko2Yi9KNXEzall0c1ByS0hPR0lnVUZZWVU5dUZ4aThGaWIv?=
+ =?utf-8?B?bWp5RlRGQkNZZW5iUjNpWGE2MTk1dGRVREZ5ajhKT2FNQ1RJbFRFUCtrSzlS?=
+ =?utf-8?B?cjRtZ21vbEdGNm5XTXU5R0lxYjZvc3EyL3duT21NUkRlN0J5S01nbG96ZWxO?=
+ =?utf-8?B?eE4vcDJMUzRnd1pZWGZBSnB0NjRoSnArQWJZSnUvc3FBOU1WSWZHTGNOYk5M?=
+ =?utf-8?B?Rlp1TnFyODJTbnRXeUFTSWdRUHhRUEU2dkpLSUR1bm1Lb3E2QkpURUQwTHcz?=
+ =?utf-8?B?U0ROVjR0cmk2YXNjVG8vNlVRM0lxR0NnRGU5dkM3cHZ1M3pUNnhHSVFwMGtt?=
+ =?utf-8?B?WjNKLzZReks0cFYxWlpqNmJROThDRHRrMXFFdE9pVmZ1cDFvbzhGejU0blBX?=
+ =?utf-8?B?QjFwYUtGWVBOTUhUcDB4VStQRjE4NmsrSC82UWlMeHkyWG5YL2xPbThVdFln?=
+ =?utf-8?B?Wko5WC9GeEdwdGlORTAvVE5nNVM5MDJyZHlZS1JLT25LUktRcnYxU05vSnNJ?=
+ =?utf-8?B?dzF3R2FQbWRudEhRTXMvZHVQekdmLzNvV3lHVXhnMXlzSU5FRlA4VVhVUXBz?=
+ =?utf-8?B?SHVTNUpkcUp0ZjN6dkhzTTJLa2U5UHh2SG52MzZWYXRtSmF6ZUpPVUtoNlBv?=
+ =?utf-8?B?Tmc1SjVVNUs0VW9PbWQxb3JrVEJ4ckNrWEVWUy9GM29sWlU1ZjdxMHFJUzM5?=
+ =?utf-8?B?OUVLLzd2SEFRK29CTFVNWHk0SVRDdkR3Z0JSWGFFSFJ2TWo0OWFrYzJIOVk5?=
+ =?utf-8?B?dGdCSzl1b1lMbUJna2tIeFFNRjM4NllLQTE1T05QYm5KMVJBS0JTQW5YOUdJ?=
+ =?utf-8?B?YW9DVksyOEgvYXNwaXBaTHM5cVBOVkxYanJyR1BXVEJnZENxMHpFcUdjVzV5?=
+ =?utf-8?B?TlNSYWNSTXZEK2t5Y0tmaXhiait1cmU5YjBCZENHbjhEQm1kUVMyWmc3M2Vl?=
+ =?utf-8?B?QVMveFl2dVNwOTF1TTVCUUZGeFdSaTdxYkZ0MTY5aVQ5UmU4eiswOUFRNWE5?=
+ =?utf-8?B?K2hkMjgwdXhMZ212UlROVEF1a2pSMysyblllemlmYkdrdDdpVytKdnlTTzhY?=
+ =?utf-8?B?R1g0RHh5RVFBU25mM00yaHYyWEZVRGFMQWU5Tnd3cnQ2a1RUYkI3bkxVNzZY?=
+ =?utf-8?B?OERRVXRvaStua3JtMW1NVWhOY3phNDhKaVp2YWMzWVVLTFpZZ3Q2YXBiSmxm?=
+ =?utf-8?B?cWxOK1lER3Fab0tWajZmdWNrYk9TV1B5V3dsODlDUitrNTBOQjBrZHlMdllE?=
+ =?utf-8?B?K0lTczJNdVozbFkvYWRlTEhBSng0MHArVU1YREFGdFJEd2dRYU9ROTJwYzlp?=
+ =?utf-8?B?cG13RE5ZU0N6aHg2SlVOSGZEaWlWeFVHYmhSUmZkYjgzWGRFenFxZ3lWUzVB?=
+ =?utf-8?B?Nk5RUzJCbGwxVnAxd0pGakRhVmJySGpnaElCd3NIM1gwNVowRG5Ybk9hVWdJ?=
+ =?utf-8?B?MkQzUUhyQnhhMExvZ1JaWHdHRjh6ZjAxUWpDa0xTalNHV2V5SHNWRkpHb3JR?=
+ =?utf-8?B?Y2pYUXdBWVpieHIyZ0FpbmM3bWJCV3l3b0NaZ2FqL09vaFR1Sll4cit1eWFN?=
+ =?utf-8?B?YnV1SmIxUktERTJWV1BBamcwNEwyWGpnZkRNa2dhK0J0Z3Z4NkhhTmI0Y1ZQ?=
+ =?utf-8?Q?67kEcYrfP7jLl?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(10070799003)(1800799024)(366016)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T0FVTHh1dXZTdC9jZnBRN21DTkZialZaU3YvY2IwMjhNTFhJdDdWc1FFU1VB?=
+ =?utf-8?B?YmtROHdiaWxMK09xQzNiR1FncytkV245V29Ld3RwYnVOb0NiNHBja0JZaVVF?=
+ =?utf-8?B?Z1o3bnpPeFZnWHNPWmlVRWZBUVY2TzNPNEw3ODRyK3cwZ1FYVUJCWFFLR2Va?=
+ =?utf-8?B?VHlyY2Y1cVBBcUUwSlJueEExRlY2RlNDOHMxSXk0UmNkSzZVZzRoSERrSHpN?=
+ =?utf-8?B?Z1cwbHo2ZzZvRWZ1blpaOGUxdTFSTDl5TDZkYTJ0ek1JVTlaeXRHVDAvWHZp?=
+ =?utf-8?B?UmlNanphKy90WWM2akdTY1JtVnNEbzFQT3JXUjYyelVvTkRsRXIvTzI4UVRY?=
+ =?utf-8?B?a2ZmeEw3VkxQTy95L0JEUnIrVEZiV3pHcDRRT21QQkIwRU9hbGVGcXZyRURM?=
+ =?utf-8?B?Q3pnTGxBVFZFVG5BZ0V1RFltYXdkS1I5QVdGL25DRXNiclVRczBhZGtLaDZP?=
+ =?utf-8?B?WkpwbkNub2RyU3NpRzdaMko1L0Q2M2lxSVBRbjQzOUFtYzdQTTdYTE1pMFdF?=
+ =?utf-8?B?ekpLUXV1WC9NcnRnSlo1cFBuSEF5VHZJb2x1TlRSWDhYaEdDTW9DZjZhZVhI?=
+ =?utf-8?B?K2dNRW84NzdERlpPL21HNk1CeVBnd1BqdVZBVWlCL3BqV0c4Mk5YNG1Ebk0x?=
+ =?utf-8?B?VlV1dUZWaHNJbWRhRmVLQUE2RGRicDNhYjFtSlUySXMrZTQvSHRzYW5jK2Vq?=
+ =?utf-8?B?RVNGbVlnYnhSaUQrZ202ZXhtYlpVWkZQSmswQjNvdGZveDg2N1VJUFBudEtI?=
+ =?utf-8?B?QmRIZlhpVVUrbnRxVVE4RWZUM1pkUFNVdm9UZFZ6dlZ1b1h6amYzM0wxQmc3?=
+ =?utf-8?B?RHQyWnlRQmd0MzhHVHFpU2F5c1hRTDBybDVDYm9sRnVoR3B0bjZLNWd3WWUw?=
+ =?utf-8?B?NEcwQWRVeFJlOGZVM0pITzhlTkg4VnFxMTFlRFN1d0N1UGl5WmJLbXJpMjNa?=
+ =?utf-8?B?dkU1Tnl0UllZZGVqVHo5WTNYb1RLRGs3WWo3ZnhRMnN4TUcwUUg4QXAwbDAw?=
+ =?utf-8?B?Rzd3aVlhblNPMmFwdjlLMVppcmZrWWlGNHNoQStxT082RkR3U1pLQWJPWmRE?=
+ =?utf-8?B?amJhOFZ2VkhTMjdDQll5d0daVmRuZUx2K2tqUVU1dGlzSVdCZ2svUXNHR3h4?=
+ =?utf-8?B?cFdNODlKZnhXajh6Wkh2dzFJUk9jT1gzdi85ZkNUQ2xRWkdUWmNXVmJpOE1M?=
+ =?utf-8?B?ajAwd1oySVI2cjdQTkNHYStQQmtxaTdLSEFDZmEzQ2c5NmxiVWpUMFZwY3VR?=
+ =?utf-8?B?cHdBSlhiVU9XN05lTEFQVm1KYXEzbzNCNDBjLzY1dk9SZ0xia3dLOCtiWTVT?=
+ =?utf-8?B?R0VBQ0xadWx6Z0xJbEtSZnFRNmdsdlNtTTRjaHN4NU1SS2JHWGMrZitpaUIw?=
+ =?utf-8?B?T29HK1d2S1FkYllJZFhhVkZQRHBKYVQ5Z25udlZwUDRRNlY5aUF4ZEdQaXVh?=
+ =?utf-8?B?STJBYm5kMklvUEZQYlUzbEdaQ3hwc0xTN2psK2FER0R5bWdCRzBVUEtBR0dI?=
+ =?utf-8?B?Yks0b3AzVU5FTUFJZ3orSS9KanQ2Q3lURTJvQTc5eWVhRUl0Nmg1QmMrY0pN?=
+ =?utf-8?B?YlZOYmd3dzBZRlFVb3ByNXBOeXp2RzZOVFljVDZpWXlYdSttU1U0UnZ2dWNn?=
+ =?utf-8?B?TTl4My9CelpLSUt6Rk52bTFaSnpGRkhOQnhXSVFaYjlNZ2VLUnd6Zzl4cmF3?=
+ =?utf-8?B?eDdpNE9XdjM5dFZSMXN3MTlJUTNvS0Q0WGRpN1gxSmwwOHFpb1doWm9mQUV0?=
+ =?utf-8?B?MzE5a0JFb1BYUG9rY1F6OGd5NVdYOTZzUWY0WWRYTDhBVGc4bXl3aUtqYkpo?=
+ =?utf-8?B?YndzNHRYakFianRRSmFrNldQUFc4MEJZVzJKTm96RzhlZW9MY2FzYlFDM1d1?=
+ =?utf-8?B?RTFjdk5wRXdyeW1hdFVkalJXK2FXSGFuQjRldDFxUE5MSHh0RkE0WGNiN3JJ?=
+ =?utf-8?B?TlM0VmVGQ0JGY3lDaFlDTXBLdEhKZ2tnZTE0TzZCbEV2cFZhUmFFVmRtZk9t?=
+ =?utf-8?B?L1hYRWhqRUxwRDkwVW5IbTYzWjhVUDNsa3Zsa0FFM3ZoakRUNDFnT1JaUlR6?=
+ =?utf-8?B?VGx2NUNabERjVWR4WEUzdHY4Rjc5eGoybkMwRlhkRDBxclprdUJxc04zSllG?=
+ =?utf-8?B?c0FpQVpvVUdVdTRuZ0E2ZFh2eW4zU2lvNS9XSmdRbCthNFByL3cxaDR6Smlu?=
+ =?utf-8?Q?N7ximnP8ofJ/Hf9UU4Rc6kFfEY9gWLKmTLfwFYcqiI6k?=
+X-OriginatorOrg: uclouvain.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3db1632c-b56f-4e23-d966-08dd1384a85c
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2024 10:24:23.9708
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LO6TtyukR09RaKEBwNlh8HnqT0FDPtpcwSVywnf0zM4yV2ASQI9wlJIEL1tnvsgVgNp/HPWdtpYG8YTYpSTEkQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR0302MB9064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_022054_532502_A524D04F 
-X-CRM114-Status: GOOD (  26.14  )
+X-CRM114-CacheID: sfid-20241203_022428_186292_56D9418E 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,118 +186,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ +CC: Krishna, Thinh and the USB list ]
-
-On Mon, Nov 18, 2024 at 11:34:29AM +0100, Stephan Gerhold wrote:
-> The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
-> multiport controller on eUSB6. All other ports (including USB super-speed
-> pins) are unused.
+On 12/3/24 08:12, André Draszik wrote:
+> On Mon, 2024-12-02 at 14:07 +0100, Thomas Antoine via B4 Relay wrote:
+>> From: Thomas Antoine <t.antoine@uclouvain.be>
+>>
+>> As the Maxim max77759 fuel gauge has no non-volatile memory slave address,
+>> make it non-obligatory. Except for this, the max77759 seems to behave the
+>> same as the max1720x.
 > 
-> Set it up in the device tree together with the NXP PTN3222 repeater.
-> 
-> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
-> ---
->  arch/arm64/boot/dts/qcom/x1e80100-crd.dts | 48 +++++++++++++++++++++++++++++++
->  1 file changed, 48 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> index 39f9d9cdc10d..44942931c18f 100644
-> --- a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> +++ b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
-> @@ -735,6 +735,26 @@ keyboard@3a {
->  	};
->  };
->  
-> +&i2c5 {
-> +	clock-frequency = <400000>;
-> +
-> +	status = "okay";
-> +
-> +	eusb6_repeater: redriver@4f {
-> +		compatible = "nxp,ptn3222";
-> +		reg = <0x4f>;
+> What about the battery characterization tables? Aren't they needed for
+> correct reporting?
 
-The driver does not currently check that there's actually anything at
-this address. Did you verify that this is the correct address? 
+I checked some other patches which added fuel gauge and other bindings and I
+couldn't find such characterization table. Can you point me to an example or
+explain what it should contain if there needs one?
 
-(Abel is adding a check to the driver as we speak to catch any such
-mistakes going forward).
-
-> +		#phy-cells = <0>;
-
-nit: I'd put provider properties like this one last.
-
-> +		vdd3v3-supply = <&vreg_l13b_3p0>;
-> +		vdd1v8-supply = <&vreg_l4b_1p8>;
-
-Sort by supply name?
-
-> +		reset-gpios = <&tlmm 184 GPIO_ACTIVE_LOW>;
-> +
-> +		pinctrl-0 = <&eusb6_reset_n>;
-> +		pinctrl-names = "default";
-> +	};
-> +};
-> +
->  &i2c8 {
->  	clock-frequency = <400000>;
->  
-> @@ -1047,6 +1067,14 @@ edp_reg_en: edp-reg-en-state {
->  		bias-disable;
->  	};
->  
-> +	eusb6_reset_n: eusb6-reset-n-state {
-> +		pins = "gpio184";
-> +		function = "gpio";
-> +		drive-strength = <2>;
-> +		bias-disable;
-> +		output-low;
-
-I don't think the pin config should assert reset, that should be up to
-the driver to control.
-
-> +	};
-> +
->  	hall_int_n_default: hall-int-n-state {
->  		pins = "gpio92";
->  		function = "gpio";
-> @@ -1260,3 +1288,23 @@ &usb_1_ss2_dwc3_hs {
->  &usb_1_ss2_qmpphy_out {
->  	remote-endpoint = <&pmic_glink_ss2_ss_in>;
->  };
-> +
-> +&usb_mp {
-> +	status = "okay";
-> +};
-> +
-> +&usb_mp_dwc3 {
-> +	/* Limit to USB 2.0 and single port */
-> +	maximum-speed = "high-speed";
-> +	phys = <&usb_mp_hsphy1>;
-> +	phy-names = "usb2-1";
-> +};
-
-The dwc3 driver determines (and acts on) the number of ports based on
-the port interrupts in DT and controller capabilities. 
-
-I'm not sure we can (should) just drop the other HS PHY and the SS PHYs
-that would still be there in the SoC (possibly initialised by the boot
-firmware).
-
-I had a local patch to enable the multiport controller (for the suspend
-work) and I realise that you'd currently need to specify a repeater also
-for the HS PHY which does not have one, but that should be possible to
-fix somehow.
-
-> +
-> +&usb_mp_hsphy1 {
-> +	vdd-supply = <&vreg_l2e_0p8>;
-> +	vdda12-supply = <&vreg_l3e_1p2>;
-> +
-> +	phys = <&eusb6_repeater>;
-> +
-> +	status = "okay";
-> +};
-
-Johan
+Best regards,
+Thomas
 
