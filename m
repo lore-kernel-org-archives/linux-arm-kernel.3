@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE94DE74AD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 20:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C43E74ACF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 20:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G33sr/zeO/KNwROltqYFJOHkNCcSFcaU2C0F67a9tG4=; b=ZrMa9MPjOVaf5L6EJzmYEm5zoR
-	18FPwv0aGVPiuFUtw+0xC+VrZ2AR85iJAiv6YwaezlLwLXloay4lV6bzVfpAcANX3xIphEJ602r13
-	r1YKPE+charOArIjsxcJ8d9/Qlt/3FCdG0YLU4pKM6igbOP4bJ/7t+Tu2VzF2jU3pZVkVT3K9JWF+
-	3dAcC2mvxNAKt7xMPKGEGghZyzuBSRDXrGSRBqjCmVYDrOsLA/EWTTNcq0ib+sEmPBC/wH4ZNKeWX
-	+xJqI7QZ3N2G9GlWTOPDoUNBFVNzPRIPl/DdB//uVQRFRG34OIIR3mQrzx4ZvaCw/NxrqL1opaQSb
-	5KUIXOWA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZKcUXU+2AOUg6QNTCMofP8uzOqzKgrO59wIKpeJpBe8=; b=XHF7i/Kz1/Nj4XJ0DhCYIMdvjI
+	y7AO83FwdumCLZNzI9EVH1PU4pcxIUdvL4Q4lQ9s8GJV2MLrAK7jsLpLy+Y/f+uKps5Lr0T0QiOCA
+	KZeaTvPGmQlpkrBYr5jNoJyUgq0hVx5A0IU1MjG9XR+a67iJ+wS+mbzk/OyUAGuI47FVPeL7uJKJ/
+	9gsHWfmKQFTr3leo7o7q2suma37Q0n9oRp9Ug+lqPGF0k+Qt1qXhFGWlCXLyMi7AoNPfViu5xr26x
+	TOQDaQCqz9FDvdtocsAIAxcdbAsCbzfhs8OTSNd/T94/RDWCTwoN36FE4E5xsGx6MkNcqVlZHDheD
+	j4Xa/nYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIZXJ-0000000AdZy-1iDF;
-	Tue, 03 Dec 2024 20:30:21 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tIZgZ-0000000AfEU-2ryE;
+	Tue, 03 Dec 2024 20:39:55 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIZWF-0000000AdQR-2W1U
+	id 1tIZfW-0000000Af4E-12Lx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 20:29:16 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53dd0cb9ce3so5283072e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 12:29:14 -0800 (PST)
+	Tue, 03 Dec 2024 20:38:51 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-434a2f3bae4so55661205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 12:38:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1733257753; x=1733862553; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G33sr/zeO/KNwROltqYFJOHkNCcSFcaU2C0F67a9tG4=;
-        b=PGvkmQKy2s3AGuG8SUVyPublusxtwKgt7MIn94ByvXA9ThtUVTgrlzNFIdc/hd6bgW
-         CSfHvUR+gQlq9Mo92TRJg8mqMsl433SsVua2reWtJXkLVmCFB7p+HaJVhQ9Sshc3ujbr
-         yzgCZ/unoAk0PDFbRYYasMEcbS+acy8DlmGYGhU//Uq5HlxaPQT1BM3CZtTAxG2uAfgy
-         p0ID/Bd2vRirn1BI20sCgJ7V75qcRvhkTOUCaH6sQ16UmOHOqN7tQfMDSM47gyqvoD+4
-         Iuo+jXA8OeiWyKGzsTnJCmG+WGUmWoLkHOV7AwhdId3YGp06s0fgryGf9R6FjnzL9OO1
-         esiw==
+        d=gmail.com; s=20230601; t=1733258328; x=1733863128; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZKcUXU+2AOUg6QNTCMofP8uzOqzKgrO59wIKpeJpBe8=;
+        b=grIGg+LWkAnMDkHUghAWWgYXxYaTzdXEbl8qehLewfD1vq4hiNAggd/NryPev6BKwq
+         rPtUE603jpMneaFe9e2hounzf7ojFQZ0NSh2a9fSwe2/0avZ484RsL5bgbO8X+USAQCh
+         oXdnEdCaTIIwG+Y0Gf3jocDpSzt+zOG86aBC+tVAUZ9Xyps6YJR9PrBKgTFWseaS5dMG
+         kRKRpLAAMX2dMp5pjS3t9uPMR00S7V/A+e3f/WOLrh6K8Oe+5bzfpT/TbJ6zc2cu4vkW
+         p/1ZIC/w4f0AWwp1oyK+YT6k9Yix97M1ujvdyLRlDVBOAyN2L4Wng9QSHk9vcDxcNbu0
+         TCEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733257753; x=1733862553;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=G33sr/zeO/KNwROltqYFJOHkNCcSFcaU2C0F67a9tG4=;
-        b=eVLkFYJvnBogtwCdkJ0aIjTykhYUwmp+8l1uGcmlZewg9baOxpfkINny4FlB6coVuk
-         55IjOWyMzZFdsbpJnfc5If2Wh670PE5Je111bItmfHZ25SJSBcmGcDzPwkkMNPxJf1uI
-         dVW4cuFmn2JVjEt6NGpigErLeMhsQ8w/psCNMEJd/nHgS+5Dt9mIF3JwU1mhxlcTvDYb
-         KAmTENDQWUpqmkfAxXKkY3/4qkw4CNqiOnwUYT7lA48uXeycPLVXKpM1Mtaoj4qNQ2BY
-         TdRSlYiTgIzkzOtGaW1Y+i1MOVr5T+uk5U2ClBZSzhUJX+6KoP8P965vqcAJeJNvnUha
-         ADYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWENcH9wGPCk6PQPnYnNI9G/dApUAh8zEAC4AjOIz7Cfm7uFZWN69h7LheIYD4hF9wK2hNiLESqUHDblM11MqhN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1alNaq2KW89xPZ8xX9BoVlreZXqxsUY76VfP9OrvBO69HUQbw
-	UyfIg1NtqeI4bOcYGFn+u99A7y1MB2m6eo4AuXl5k4ACpyXKRPVQOfCQmRxjs1dR8rVMfP3WQQI
-	j+hKOSHpg9VP7d0pS8Fl3a+a+EjnT0rTd1sXAhw==
-X-Gm-Gg: ASbGnctoHViZ74fjFkpKnIwVCevN0wQnJyrtBQiBFRULteejJHqGKNApL54XsSreDFc
-	3Cmf3/x/SybzKX4FY6QMMh5zYGpb9ygY=
-X-Google-Smtp-Source: AGHT+IFibD9nFMNX+0okWcr0jW9dG5zLnrxoOl37S9ED0qKXToBphOFXAaG0TMap6CEbrI7BqpcPt8HoQ70SurfLgYk=
-X-Received: by 2002:a05:6512:10ce:b0:53d:a4f3:29ed with SMTP id
- 2adb3069b0e04-53e1b890148mr621166e87.27.1733257752908; Tue, 03 Dec 2024
- 12:29:12 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733258328; x=1733863128;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZKcUXU+2AOUg6QNTCMofP8uzOqzKgrO59wIKpeJpBe8=;
+        b=WEaEEgaH7QBz0lc5RFy0IMWBp/jwCapASZP/VhycHYQ1JJC+CE7QDIioEwiAHTQBwR
+         SnYgGP+8b0K6lekYBTP4G48ogq/91PQ6Acx57J+kz+HFrDwwxYjQVhQP5MUmVl/Ioifp
+         /l+VToS6ERVz20iARKLFKix6YufEXQJQmamHyzAATjcbJ+TF6yei2zyj1nVwFaIgUtnK
+         1LUAgZStPYzHUiOy2qWicsQH9BZyD/pN7+9RSaBbLBu40VbqmpRaLhbMl0SoEnIiPFTg
+         Gp28UKnZxYlcnY3vZEnD67aCfJGL1FVJlUEN3v3hKu9qwoJhd7bR3cqpFsWe6WaVEMIb
+         EEFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWuboQFkyHTWglMFe24jBkdyMaL4S2fBTNjIRTEJ8NVtWRx8vJPiBn46i/xYzxNPeQfSWtn17ZAi5T3vc8/4nTd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM0BhYvkrzzJ3In9Y/D7zYIfokmUnccpBEcjVCLQZYJDfs6xOh
+	ONOPdVF7n2Dznfc8m+AFHaKySnsXYFIkZp1/gGjDodHqu3xEndFv
+X-Gm-Gg: ASbGncuX7T+KexQA8SFUS6t48YCe7ZBKvcGlXgHOPGtNhFYd+oLaPjbZKNeArR3TYVl
+	KzlCd3sfvAf5u+Yrge/IzqwS8dSSLXEsUaqVo08JbtqHiZhkuTNpNanCBEkYoluyFsy6qfOs2PZ
+	q8neyoiMSHimyHMRkZyvMegV9e+prTee4Q4vewdtszjH7rDEckk627ac5kBdlLqx12kviDX5aVu
+	RJGkZ6SujXy8JFvCg/h9o1LysVZ5h+Q8Y9xh/RzI1EIG513iUkDJhbmWVYtc1rr8eqH5P8uDXAJ
+	UEtyQBT8PQ5nNqCEsLuR5rMr9Gjo7VtsSnrmAFA=
+X-Google-Smtp-Source: AGHT+IH9uBgSdnHGS6bnhvmeoiLM3AKdhhwAPsU89GFG9+bxT2CRResLtnMTRB1w5ZTJPgDgULimXA==
+X-Received: by 2002:a05:600c:19cc:b0:434:9f0d:3823 with SMTP id 5b1f17b1804b1-434d09b65cdmr36523055e9.9.1733258328079;
+        Tue, 03 Dec 2024 12:38:48 -0800 (PST)
+Received: from localhost.localdomain (229.140-242-81.adsl-dyn.isp.belgacom.be. [81.242.140.229])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa763c50sm231266915e9.12.2024.12.03.12.38.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Dec 2024 12:38:47 -0800 (PST)
+From: Philippe Simons <simons.philippe@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
+	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Philippe Simons <simons.philippe@gmail.com>
+Subject: [PATCH] arm64: dts: allwinner: h616: rg35xx add missing regulator-ramp-delay
+Date: Tue,  3 Dec 2024 21:38:23 +0100
+Message-ID: <20241203203824.23306-1-simons.philippe@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <6b9e55dbf544297d5acf743f6fa473791ab10644.1733242798.git.geert+renesas@glider.be>
- <f552b813-1817-4507-9699-fae87575a762@lunn.ch>
-In-Reply-To: <f552b813-1817-4507-9699-fae87575a762@lunn.ch>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 3 Dec 2024 21:29:02 +0100
-Message-ID: <CAMRc=Mfh5Rv8OKWOcPVzJp-_e_bXgywT2=+N2cF1ONT3kiw7tQ@mail.gmail.com>
-Subject: Re: [PATCH] gpio: GPIO_MVEBU should not default to y when compile-testing
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Linus Walleij <linus.walleij@linaro.org>, 
-	Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_122915_640125_DAA92154 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20241203_123850_284261_E496045B 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +103,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 3, 2024 at 9:13=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Tue, Dec 03, 2024 at 05:23:16PM +0100, Geert Uytterhoeven wrote:
-> > Merely enabling compile-testing should not enable additional
-> > functionality.
->
-> Sorry for being dumb, but i don't actually see what is wrong here.
->
-> There are 4 GPIO drivers which have
->
->         def_bool y
->
-> COMPILE_TEST is about building as much as possible, in order to find
-> build bugs. So i don't get what you mean by additional
-> functionality. No additional functionality within the MVEBU driver
-> gets enabled by COMPILE_TEST.
->
->         Andrew
+AXP datasheet says that ramp delay is 15.625 us/step,
+which is 10mV in our case.
 
-No, Geert is right. I have been yelled at by Linus Torvalds already
-for too eagerly enabling too many options. COMPILE_TEST is really
-about making it possible to build more things with make allmodconfig,
-not necessarily defaulting to y for everything.
+add missing regulator-ramp-delay to dcdc regulators accordingly
 
-Bart
+Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+---
+ .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts    | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+index 80ccab7b5..b6e76a804 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+@@ -238,6 +238,7 @@ reg_dcdc1: dcdc1 {
+ 				regulator-always-on;
+ 				regulator-min-microvolt = <900000>;
+ 				regulator-max-microvolt = <1160000>;
++				regulator-ramp-delay = <640>;
+ 				regulator-name = "vdd-cpu";
+ 			};
+ 
+@@ -245,6 +246,7 @@ reg_dcdc2: dcdc2 {
+ 				regulator-always-on;
+ 				regulator-min-microvolt = <940000>;
+ 				regulator-max-microvolt = <940000>;
++				regulator-ramp-delay = <640>;
+ 				regulator-name = "vdd-gpu-sys";
+ 			};
+ 
+@@ -252,6 +254,7 @@ reg_dcdc3: dcdc3 {
+ 				regulator-always-on;
+ 				regulator-min-microvolt = <1100000>;
+ 				regulator-max-microvolt = <1100000>;
++				regulator-ramp-delay = <640>;
+ 				regulator-name = "vdd-dram";
+ 			};
+ 
+-- 
+2.47.1
+
 
