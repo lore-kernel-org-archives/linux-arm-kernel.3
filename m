@@ -4,69 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D883E6C5E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 00:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02042E6C5E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 00:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JU2hy9sEFcn9zqXCqwnzT2rgECK7e0OcNEISZ4p7Kk0=; b=lfjblIYKCLYu3tGAyqfZGrbssP
-	nmNPXu/MARKm8x5HPd7cz0+qsRDy7pF+jAVxQWr9gHM+LBwpe4/9zgxZBMhiYQxg8lVnILo4D2cIe
-	GO1vurcm9pm8lGNdN0nd1CZL+aUolXTHV9QrTFP++aP1vlbe1j0I5vN0QIr8bYij2eL9fshuuFeUD
-	PF8gR2NPgmFCKhyrfjYWoe1i5hUCyLr+NC2lbCYNAilus+LER2p0sCEeWxGM/rEF46ms7hp6H38PU
-	Fmd66UIUSoKt5UAmFdfFqCXmQ9lj/C/7d1SRggcBTIBseqryrpttqarRZsjyHE4NrLkK22h9iSLXU
-	QZRtCWxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dmQ/h9heMz+KncCJaPXxE2NqhV1NegmIfHVLDBVh9Mw=; b=3hM/yPJy5Hl45h9KU7x+V6y1m3
+	q8IAtHS0NqUvzeeKZxPywKNiR0rJ3AwEwdwAJGMS9aGucf//fnEA+m9otVbcI2mg7Sl6/pkRx7avp
+	F595n1vlqlPvbI/7DEZbNtQnkIQK4FGjpE9OCErCFY5VyOT8MQnnM4wnbf1CeDy7eyU0Xj7AVgN3w
+	53uUnNPkZVpO075TYBnB7J8yCzvxnBTPq3P1/kgRFw1jr3xYP1TInpwYEHIjGQ+kEmWXUNlSBWdFj
+	KdLEBis2+C/QpV2bsQdbEJhHAqtx+LVR05FoIuM7R/xXjMffqqitSOBhJOPHYeVcQDo21X2akYVxT
+	hrMEZ78Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIGrn-00000007pOd-1hFf;
-	Tue, 03 Dec 2024 00:34:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIH4P-00000007sEr-3Vgm;
+	Tue, 03 Dec 2024 00:47:17 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIGqm-00000007pGB-46Ko
+	id 1tIH3P-00000007sBp-4AkF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 00:33:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7DF1FA4133F;
-	Tue,  3 Dec 2024 00:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0433C4CED1;
-	Tue,  3 Dec 2024 00:33:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733185991;
-	bh=P+cKs927/DzHr7RXmSOFRn/pT0qYBrswblnynVURMiU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=e4NCaqBHn0r9TX+saVe2U42+z147y9cdC8ZqLiVtF1Yo2vKYdm5706b8l6NhTT0lG
-	 aCoFRkZo/8LOiRyNpfGg6d2MLfgnzpXSle4VVoH0Uh08Rw2aWjJGEpj+9y9Nh8Dgxh
-	 R91ouvGM5u6ylzIkH+YDw6+8qokCxXCn5q9quqtsB/O2Gg5IO/F+Qur+1QBIxpWday
-	 QCqmAkoTzyzV3KD3Ts+V0yjuNt1/Ey1sMSQfpSGL4PF5nSNRuL+YLJWo9RDJ6PlzFi
-	 tRwGY7Ie+ybLDWjFlRwYe3vOQehxOKL4h/1nEh6w728JU7cPazg3zrEvo77/Iy7BUQ
-	 LRKjnQriXpnaA==
-Date: Mon, 2 Dec 2024 16:33:09 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Furong Xu <0x1207@gmail.com>
-Cc: Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com, Suraj Jaiswal
- <quic_jsuraj@quicinc.com>, Thierry Reding <treding@nvidia.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap
- for non-paged SKB data
-Message-ID: <20241202163309.05603e96@kernel.org>
-In-Reply-To: <20241128144501.0000619b@gmail.com>
-References: <20241021061023.2162701-1-0x1207@gmail.com>
-	<d8112193-0386-4e14-b516-37c2d838171a@nvidia.com>
-	<20241128144501.0000619b@gmail.com>
+	Tue, 03 Dec 2024 00:46:17 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 2396F68BEB; Tue,  3 Dec 2024 01:46:12 +0100 (CET)
+Date: Tue, 3 Dec 2024 01:46:11 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
+	catalin.marinas@arm.com, hch@lst.de, rppt@kernel.org,
+	thuth@redhat.com, will@kernel.org
+Subject: Re: [PATCH] arm64: patching: avoid early page_to_phys()
+Message-ID: <20241203004611.GA8116@lst.de>
+References: <20241202170359.1475019-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241202170359.1475019-1-mark.rutland@arm.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_163313_092281_BF5ED5B2 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20241202_164616_177482_04ACE24B 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +60,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Nov 2024 14:45:01 +0800 Furong Xu wrote:
-> > Let me know if you need any more information.
-> 
-> [  149.986210] dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
-> and
-> [  245.571688] dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
-> [  245.575349] dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
-> are reported by stmmac_xmit() obviously, but not stmmac_tso_xmit().
-> 
-> And these crashes are caused by "Tx DMA map failed", as you can see that
-> current driver code does not handle this kind of failure so well. It is clear
-> that we need to figure out why Tx DMA map failed.
-> 
-> This patch corrects the sequence and timing of DMA unmap by waiting all
-> DMA transmit descriptors to be closed by DMA engine for one DMA map in
-> stmmac_tso_xmit(), it never leaks DMA addresses and never introduces
-> other side effect.
-> 
-> "Tx DMA map failed" is a weird failure, and I cannot reproduce this failure
-> on my device with DWMAC CORE 5.10a(Synopsys ID: 0x51) and DWXGMAC CORE 3.20a.
+On Mon, Dec 02, 2024 at 05:03:59PM +0000, Mark Rutland wrote:
+> +	phys_addr_t phys;
+> +
+> +	if (is_image_text((unsigned long)addr)) {
+> +		phys = __pa_symbol(addr);
+> +	} else {
+> +		struct page *page = vmalloc_to_page(addr);
+> +		BUG_ON(!page);
+> +		phys = page_to_phys(page) + offset_in_page(addr);
+> +	}
+> +
+> +	return (void *)set_fixmap_offset(fixmap, phys);
 
-Let me repeat Jon's question - is there any info or test you need from
-Jon to make progress with a fix?
+This looks much better.  Btw, I recently open coded the vmalloc to phys
+logic above in an unrelated fix, and noticed that
+arch/powerpc/mm/pgtable.c has a nice vmalloc_to_phys that could
+be generalized and move to common code.  Does anyone have an opinion
+on that?
 
-If Jon's board worked before and doesn't work with this patch we will
-need *a* fix, if no fix is provided our only choice is revert.
 
