@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38026E64A93
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12270E64AA3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 13:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VM0b+TuYNA5dZ5GF7J4Mkq+u9rwoaZ/qL/ReFdXCGzk=; b=lu5D/QXy7p/ZcQtAc2OjvzXnj1
-	Rsh43Y7q1TJ3etBd1jfANPd9LjKOQQ0YJ2HYF0PXAsqwRAnbWBysgbz437D9+D6F2y7qgxkAvqGL7
-	DXWQX+RAh4Ja7TAMpfZRz8inimT5Z44y5MY2/yZ7ZvqkB1B+tLJtIkxatXgGDilCbNmlV8/b1vivE
-	9T5gw6y1XjIM0Cd7d70TOm/4//Tq1as5oT/gpF2n5TRlK0o7GI7O4mrpktaZj7yta6K6tjq1E1CKB
-	gfa1Q2tkrBc0hTPA0UTe9LuJMsHR89hDwz6LgTPRFtuWfMJhk/hcZ3eMJnFTF0DaPUCFk8k5+e68A
-	qJz86aUg==;
+	bh=6I/jTxWjwgLTjkEk8olI2grbbedbDAW6cOesFET5tGQ=; b=43/lAL55CThOXnYhC0iO5ERNe8
+	JMnct5/7Khn1/sQRTVtSZjfwjFWKm7e1oQ/4EOWNMAjOsV5nxLxEo+Dz9R7YUJ9wtTOzuTSgMl77z
+	g1SCnVB95VJjJcn5nxDci9kijbjSNrLeL7F3D7q/lADyUrJwLi43oYlvpLuHY5Rgn7QftL5oE6SQV
+	6MCu7KwXlNEbIZJNUzbc5prbnZrwYHDssviYJIxSztS56WaqZHXmx1CdBTH8j9fvfJJLN3v1AIR0a
+	Uyd8EO/tBgsPYZQJATMOc7JlzwPRZGhHqvZWJ8/Wg8eE3x1te5fUusM+rw8tB5Zr+NiEzBZFm/bEJ
+	f6sSTgZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIT45-00000009d29-0bMP;
-	Tue, 03 Dec 2024 13:35:45 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1tIT6u-00000009dVT-48sV;
+	Tue, 03 Dec 2024 13:38:40 +0000
+Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIT35-00000009csm-0jiS
+	id 1tIT5t-00000009dHJ-3FxD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 13:34:44 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-724f74d6457so5433857b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 05:34:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733232882; x=1733837682; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=VM0b+TuYNA5dZ5GF7J4Mkq+u9rwoaZ/qL/ReFdXCGzk=;
-        b=OoGX5zjn1OqpezvjMoC31NYXiNqT3XRNxOTkRMDWj72XrLJ128JPmZ8RexBXOWnnjz
-         p7OR5PT8Pjt1qUxKCLbtBEFvFli5hTPSw17a2kHGK+s4PSL65zNSEQRE11F5fqRLXDBO
-         yDs+q/iNhVuCU8FtVXWAd/ZcQWm2qk1g6repXFCawNxhpHSnEXctEhaleS/hrF6UUwjS
-         eMGckKTQOt96A3Sx0HaAy5Une4WRiYEqJqNd3+eymwQ52LqRqzXrQsKDcSOsEdDb6/ti
-         H5plZxEUVWrDcQorPN7ukkqaXTfF7ylRf9RZ+coyhAAsyOZ9DwFITWo9JBAKtwT+o+j6
-         WBNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733232882; x=1733837682;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VM0b+TuYNA5dZ5GF7J4Mkq+u9rwoaZ/qL/ReFdXCGzk=;
-        b=QxDOqmX5EJzM89F6L3ufaTJmRC4FiqiidyTyexdSpgDk48nBRmDi4ZQTTsm7NnVEk7
-         QpNAenFayX3kY36jsUKuPjvbqlhe6BjYsLx5/SL/Wlfyymn3aJmGaxThXrcbWeWUfkkt
-         Bc9ng8Gj3J2muQfuLdwSvdGaAqo/ECOIE1dk7qTVA5/i18y4rPT/ixkbJfm9lZonFpee
-         V2l0JUwxE1qANNoSgev3eFfeOWXxEQqmVW3s4Juo9EC40KDpPHKlX1mIKbvExIwhH/lV
-         ZJr1Mt4E2scIYCF4DJdIo0hlM32aXNQbAbYcesVGc2jWlNypNbhjjHr+dESnA/BGG4Rv
-         6I8A==
-X-Forwarded-Encrypted: i=1; AJvYcCX1EUenzcB6imHYSEdp/8w1AsFrp5a7OAFKzU5gwurgws7Vn+ptZKcui7aApDHDae8DV4g8htDZjgx6snmettMM@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl6Pirgu+vTMMwUeEDMuSRATHOPdHKmwxEsZDw69yQAnvAnJj+
-	UFqYihaV7kZuaIOoYymW2KJLaYwkNoytH/GvBE1yH8iLxlbFJbPWy9EDttGEeg==
-X-Gm-Gg: ASbGncuP9tZ7J4lY9QKS4BLhRvVby/QBNyBzTDQSYMc4o2OFFpJcisB83GiIJ4xs6oI
-	DgoHcoZRzD6j5SLiAFflZRkO7qLSCjzfwrImSZGVOH4LwiEi4kN71u/GBiq8W8BVf7/E89HWZG3
-	YAuzgNM6mkHqHi7YwdR/l97nQNfhUx/YS3RERYy2xfAv19QC7i/bbjVaOnZWL0iA2fqoW8dglEB
-	QODtr73DWdz132fSQ7xEoedeo+1Ms6c5ozdgAC41fgUmcylMmFj6fSfbdjz
-X-Google-Smtp-Source: AGHT+IHayNjuQ1X29URUJCX9sq0e/A4DCoC/llYxuth0yx0/0uBpnijEWmYVIRWVw90O9w6CjRmR2Q==
-X-Received: by 2002:a17:902:ce08:b0:212:e29:3b2f with SMTP id d9443c01a7336-215bd250316mr28172835ad.44.1733232881563;
-        Tue, 03 Dec 2024 05:34:41 -0800 (PST)
-Received: from thinkpad ([120.60.48.217])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215908ab2dcsm36529975ad.209.2024.12.03.05.34.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 05:34:41 -0800 (PST)
-Date: Tue, 3 Dec 2024 19:04:34 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, cassel@kernel.org,
-	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
- bindings
-Message-ID: <20241203133434.2qbohwi3wrjjja5a@thinkpad>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-2-christian.bruel@foss.st.com>
+	Tue, 03 Dec 2024 13:37:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
+	s=default2211; h=Content-Type:MIME-Version:Message-ID:Date:References:
+	In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=6I/jTxWjwgLTjkEk8olI2grbbedbDAW6cOesFET5tGQ=; b=u75sQhoNYd14D/9cDtkKOIMuhp
+	1CnXgAILC58nVqEpN/UEsvNz5PlQ19wLgMBkC98SjBox7vw+xumHZ+ZHDp7bhmwC7N/cvFF2snqgB
+	SR96+t7wUEpGyYot+Fvve6FezzWXAzWqC4XnsxvwXdjTFWfmE1OA6q36b0LvacycZB6bOl3tDxz/p
+	0A1LAbDxYPyrZ8yyd+fxcutG/Y/fTwXYe00JZsc/YB0Eo+IduoOlB7uo//+WDFWlPYMbP7M4Y5r5c
+	oWk/MlxsQfr+zOf4wa2yKvedcvC7dPcp664P7GW7YTj/KGSStXSW2mZfR/qkEQqeWwORhqSN2sgU1
+	yEWLd8cA==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <esben@geanix.com>)
+	id 1tIT5p-0009sc-A6; Tue, 03 Dec 2024 14:37:33 +0100
+Received: from [185.17.218.86] (helo=localhost)
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <esben@geanix.com>)
+	id 1tIT5o-000OZv-34;
+	Tue, 03 Dec 2024 14:37:32 +0100
+From: Esben Haabendal <esben@geanix.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-rtc@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  Patrice Chotard
+ <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH 4/6] rtc: st-lpc: Fix initial enable_irq/disable_irq
+ balance
+In-Reply-To: <202412031325408acbe302@mail.local> (Alexandre Belloni's message
+	of "Tue, 3 Dec 2024 14:25:40 +0100")
+References: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com>
+	<20241203-rtc-uie-irq-fixes-v1-4-01286ecd9f3f@geanix.com>
+	<202412031325408acbe302@mail.local>
+Date: Tue, 03 Dec 2024 14:37:32 +0100
+Message-ID: <87h67klwf7.fsf@geanix.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241126155119.1574564-2-christian.bruel@foss.st.com>
+Content-Type: text/plain
+X-Authenticated-Sender: esben@geanix.com
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27476/Tue Dec  3 10:52:11 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_053443_230240_CDB329C2 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20241203_053738_095708_3D49DC10 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,175 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 04:51:15PM +0100, Christian Bruel wrote:
-> Document the bindings for STM32MP25 PCIe Controller configured in
-> root complex mode.
-> 
-> Supports 4 legacy interrupts and MSI interrupts from the ARM
-> GICv2m controller.
-> 
-> STM32 PCIe may be in a power domain which is the case for the STM32MP25
-> based boards.
-> 
-> Supports wake# from wake-gpios
-> 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> ---
->  .../bindings/pci/st,stm32-pcie-common.yaml    | 45 +++++++++
->  .../bindings/pci/st,stm32-pcie-host.yaml      | 99 +++++++++++++++++++
->  2 files changed, 144 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-> new file mode 100644
-> index 000000000000..479c03134da3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-> @@ -0,0 +1,45 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-common.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe RC/EP controller
-> +
-> +maintainers:
-> +  - Christian Bruel <christian.bruel@foss.st.com>
-> +
-> +description:
-> +  STM32MP25 PCIe RC/EP common properties
-> +
-> +properties:
-> +  clocks:
-> +    maxItems: 1
-> +    description: PCIe system clock
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  phys:
-> +    maxItems: 1
-> +
-> +  phy-names:
-> +    const: pcie-phy
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  access-controllers:
-> +    maxItems: 1
-> +
-> +  reset-gpios:
-> +    description: GPIO controlled connection to PERST# signal
-> +    maxItems: 1
-> +
-> +required:
-> +  - clocks
-> +  - resets
-> +  - phys
-> +  - phy-names
-> +
-> +additionalProperties: true
-> diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> new file mode 100644
-> index 000000000000..18083cc69024
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-> @@ -0,0 +1,99 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32MP25 PCIe root complex driver
-> +
-> +maintainers:
-> +  - Christian Bruel <christian.bruel@foss.st.com>
-> +
-> +description:
-> +  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> +  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      const: st,stm32mp25-pcie-rc
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    const: st,stm32mp25-pcie-rc
-> +
-> +  reg:
-> +    items:
-> +      - description: Data Bus Interface (DBI) registers.
-> +      - description: PCIe configuration registers.
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: config
-> +
-> +  num-lanes:
-> +    const: 1
-> +
-> +  msi-parent:
-> +    maxItems: 1
-> +
-> +  wake-gpios:
-> +    description: GPIO controlled connection to WAKE# input signal
-> +    maxItems: 1
-> +
-> +  wakeup-source: true
-> +
-> +dependentRequired:
-> +  wakeup-source: [ wake-gpios ]
-> +
-> +required:
-> +  - interrupt-map
-> +  - interrupt-map-mask
-> +  - ranges
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-> +
-> +    pcie@48400000 {
-> +        compatible = "st,stm32mp25-pcie-rc";
-> +        device_type = "pci";
-> +        num-lanes = <1>;
-> +        reg = <0x48400000 0x400000>,
-> +              <0x10000000 0x10000>;
-> +        reg-names = "dbi", "config";
-> +        #interrupt-cells = <1>;
-> +        interrupt-map-mask = <0 0 0 7>;
-> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +        ranges = <0x01000000 0 0x10010000 0x10010000 0 0x10000>,
+Alexandre Belloni <alexandre.belloni@bootlin.com> writes:
 
-PCI address of I/O region should start from address 0x00000000.
+> On 03/12/2024 11:45:34+0100, Esben Haabendal wrote:
+>> Interrupts are automatically enabled when requested, so we need to
+>> initialize irq_enabled accordingly to avoid causing an unbalanced enable
+>> warning.
+>> 
+>> To: Patrice Chotard <patrice.chotard@foss.st.com>
+>> Signed-off-by: Esben Haabendal <esben@geanix.com>
+>> ---
+>>  drivers/rtc/rtc-st-lpc.c | 1 +
+>>  1 file changed, 1 insertion(+)
+>> 
+>> diff --git a/drivers/rtc/rtc-st-lpc.c b/drivers/rtc/rtc-st-lpc.c
+>> index c6d4522411b312f94de2701ff4ff491e5323aa96..dbc2c23bca23f5de6de3fd4b39c9c67290bfd78d 100644
+>> --- a/drivers/rtc/rtc-st-lpc.c
+>> +++ b/drivers/rtc/rtc-st-lpc.c
+>> @@ -218,6 +218,7 @@ static int st_rtc_probe(struct platform_device *pdev)
+>>  		return -EINVAL;
+>>  	}
+>>  
+>> +	rtc->irq_enabled = true;
+>>  	ret = devm_request_irq(&pdev->dev, rtc->irq, st_rtc_handler,
+>>  			       IRQF_NO_AUTOEN, pdev->name, rtc);
+>
+> Seeing the IRQF_NO_AUTOEN here, I guess the patch is not correct.
 
-Also use hex notation for all values.
+I guess you are right :)
+Sorry about that. I only have HW available for testing the rtc-isl12022
+driver here.
 
-- Mani
+This patch should be dropped.
 
--- 
-மணிவண்ணன் சதாசிவம்
+>
+>>  	if (ret) {
+>> 
+>> -- 
+>> 2.47.1
+>> 
 
