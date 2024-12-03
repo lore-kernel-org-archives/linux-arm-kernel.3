@@ -4,49 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CF9E64AB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14ABCE64AB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yZGZQMA/RwCG4pJIJj9mmZUQbRdtln1Gs85KcOIkYC4=; b=1sEx12TJf4BmaWPXPj1zOvv43F
-	GKeX9jXoSwg61eQ5J1P6HxX4Lu89rdi8JJuEY5TYZzGGlJ/n7YXbPbvdbAK1Vy/tFJFG1SyUSdLmU
-	gZ70lB6iuI0A/NvTUhRsSzto3PLJAEBbF4cdr6YtiP2m6Jolw0E8WMe5+fZFMWvIFQXVyRTDvY9cA
-	Y6COfEgYgMtBh9l0eESjUkWMgmRjK6VuH/BheIeV5bwyqb9UbfOnwMAUPr8FIfJUD8GTqQ86zlyYd
-	t+YaBVXRoGN2MXBoYDkEWUcXOT18dSP2AUBH69c1UTFs+sI1sevm5JADEMkWmUmoxZMHhW6Tk55u/
-	Xawg1pQg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eR4QlW226cNWUzaFJtJ5z4V8Lbi+/lhZrV5/z+p6Izc=; b=ZEXdUXX+nmsGAhOBXWvCf962WK
+	JuqsYIx/wJGxr5DgDHYOTxkbCivdkb4Uo4XLmlZ1rOXoKN4wkJmVT/ktJk5J8fhmb1fDBKjUCIr0b
+	feO5O9SaqX/6OtFJElBWINTTbsnBFmkzvxhLA9PW4mCmn7W9/Rt/QDXFfxbpug0CdQQrx4JOO+Zij
+	9sbSc9+jQ5lsTW1OGTNkYmNWo8EGqRfQZs2Mh+L+NbwpP6alYkaQJq2XiFSa8JapblLGs7DDps/88
+	D8CrLauq6/R3Aif2itoYIiy3FN2yDtPMUFquF6FIKcRrqZCJEqeB/huCNzbtXQ7n7+nbK61f2fKrs
+	IB74Jt3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUhk-00000009uOm-3qFx;
-	Tue, 03 Dec 2024 15:20:48 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIUil-00000009uZ9-29hj;
+	Tue, 03 Dec 2024 15:21:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUgk-00000009uCm-0iVZ
+	id 1tIUhl-00000009uP2-33bk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 15:19:47 +0000
+	Tue, 03 Dec 2024 15:20:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3170BA416EF;
-	Tue,  3 Dec 2024 15:17:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0375C4CECF;
-	Tue,  3 Dec 2024 15:19:43 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH] arm64: Ensure bits ASID[15:8] are masked out when the kernel uses 8-bit ASIDs
-Date: Tue,  3 Dec 2024 15:19:41 +0000
-Message-Id: <20241203151941.353796-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.39.5
+	by nyc.source.kernel.org (Postfix) with ESMTP id C382BA415E1;
+	Tue,  3 Dec 2024 15:18:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0E1C4CECF;
+	Tue,  3 Dec 2024 15:20:47 +0000 (UTC)
+Date: Tue, 3 Dec 2024 10:20:47 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Yeo Reum Yun <YeoReum.Yun@arm.com>
+Cc: Suzuki Poulose <Suzuki.Poulose@arm.com>, "mike.leach@linaro.org"
+ <mike.leach@linaro.org>, "james.clark@linaro.org" <james.clark@linaro.org>,
+ "alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>,
+ "bigeasy@linutronix.de" <bigeasy@linutronix.de>, "clrkwllms@kernel.org"
+ <clrkwllms@kernel.org>, "coresight@lists.linaro.org"
+ <coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-rt-devel@lists.linux.dev"
+ <linux-rt-devel@lists.linux.dev>, nd <nd@arm.com>
+Subject: Re: [PATCH 1/9] coresight: change coresight_device lock type to
+ raw_spinlock_t
+Message-ID: <20241203102047.5844de81@gandalf.local.home>
+In-Reply-To: <GV1PR08MB105212FEF9251CA2B3AAF7FFFFB362@GV1PR08MB10521.eurprd08.prod.outlook.com>
+References: <20241125094816.365472-1-yeoreum.yun@arm.com>
+	<20241125094816.365472-2-yeoreum.yun@arm.com>
+	<20241127120954.0facd34f@gandalf.local.home>
+	<GV1PR08MB10521520ABD7B72D92FD60DE9FB292@GV1PR08MB10521.eurprd08.prod.outlook.com>
+	<20241202103853.26db0c13@gandalf.local.home>
+	<GV1PR08MB105212FEF9251CA2B3AAF7FFFFB362@GV1PR08MB10521.eurprd08.prod.outlook.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_071946_276201_B3105093 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20241203_072049_831739_A5E5EC02 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,52 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Linux currently sets the TCR_EL1.AS bit unconditionally during CPU
-bring-up. On an 8-bit ASID CPU, this is RES0 and ignored, otherwise
-16-bit ASIDs are enabled. However, if running in a VM and the hypervisor
-reports 8-bit ASIDs (ID_AA64MMFR0_EL1.ASIDBits == 0) on a 16-bit ASIDs
-CPU, Linux uses bits 8 to 63 as a generation number for tracking old
-process ASIDs. The bottom 8 bits of this generation end up being written
-to TTBR1_EL1 and also used for the ASID-based TLBI operations as the
-upper 8 bits of the ASID. Following an ASID roll-over event we can have
-threads of the same application with the same 8-bit ASID but different
-generation numbers running on separate CPUs. Both TLB caching and the
-TLBI operations will end up using different actual 16-bit ASIDs for the
-same process.
+On Tue, 3 Dec 2024 08:31:54 +0000
+Yeo Reum Yun <YeoReum.Yun@arm.com> wrote:
 
-A similar scenario can happen in a big.LITTLE configuration if the boot
-CPU only uses 8-bit ASIDs while secondary CPUs have 16-bit ASIDs.
+> Hi Steve,
+> 
+> > Still should be documented somewhere. It should describe the maximum number
+> > of feats that will ever be loaded. If there's a max, it makes it back to
+> > O(1). With a 'k' of how long it takes to process the max number of feats.  
+> 
+> But with other patchset seems better
+> since not only this function, but also for other functions too.
 
-Ensure that the ASID generation is only tracked by bits 16 and up,
-leaving bits 15:8 as 0 if the kernel uses 8-bit ASIDs. Note that
-clearing TCR_EL1.AS is not sufficient since the architecture requires
-that the top 8 bits of the ASID passed to TLBI instructions are 0 rather
-than ignored in such configuration.
+Which other patchset?
 
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: <stable@vger.kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: James Morse <james.morse@arm.com>
----
- arch/arm64/mm/context.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> BTW, is there any example describing this I can refer? 
 
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index 188197590fc9..b2ac06246327 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -32,9 +32,9 @@ static unsigned long nr_pinned_asids;
- static unsigned long *pinned_asid_map;
- 
- #define ASID_MASK		(~GENMASK(asid_bits - 1, 0))
--#define ASID_FIRST_VERSION	(1UL << asid_bits)
-+#define ASID_FIRST_VERSION	(1UL << 16)
- 
--#define NUM_USER_ASIDS		ASID_FIRST_VERSION
-+#define NUM_USER_ASIDS		(1UL << asid_bits)
- #define ctxid2asid(asid)	((asid) & ~ASID_MASK)
- #define asid2ctxid(asid, genid)	((asid) | (genid))
- 
+No, it's on our todo list for RT. To document the RT behavior of the
+kernel. This is just one location.
+
+-- Steve
 
