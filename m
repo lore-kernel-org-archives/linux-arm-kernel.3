@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478D8E74AD8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 21:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88276E74AD9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 21:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ib8G94CatERO5UDHdLFTsf8MdBfwleyWt4xBpYxb8iA=; b=Q87MKmiQY/i901UVYC9Q46t+/6
-	mn/HlFr5ngxaQIEJe7JVHn0nkY25NeQLjb5QQz9X25wjAQZPf/B8/0b9fXJOb5ZTfVdX/fZFVFQY1
-	RnB3WtCUwCaqKaRRnSP6gYd7JXF7vQzU2we2g1GKZh1lnj0rlJemKIWA0oahtSr4h5JXKt1o04Nvk
-	MeWOpCSTWaYi+MH1X4JHShX3S437jgviofYRf0v8qDHAIxSkQqvflxvLH3qttCXYGFtsOBURFpaZC
-	f/tp0K4t5Q1vch5JVm1hjwA7C+pfbfQe3fHogGusiRaMMcAKIYN+Qq2sB7b8gJJ5HHXwaXF/UylKe
-	DaQ7M03Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8+P6lLrcxWEupZ6a1qA14fHtwTbpOrTMlLv/FYV/3sc=; b=CfdOFNAJDZrkTMFL8Soo3khYVR
+	9W0nQCIzy+xy4rCID8wp9tuH/KQP+gdm5r7HESu9Yu/L83SYAMHAS9VWjdd3f0vIlyF5pFj0bRjkp
+	PXgtFnJIkkjXla/173WohgtFsi9rxPbk24CCvB9j++eTHOpmg/DMgqGG4B7QfbXOdsAyWhPwdpREF
+	pz0tBvFNFJjDFc+ZTkzUE156ZVOPCDDjp2P6Y9xLaSCafJcu4TMq4+oAyjdlwLkQbjwbx5pogCZl9
+	jd/a+hkpm5No1nu2zoXMUpWOB8ow2Ilk7A8jEuLONRuZ5Sfs06StRUoWTmTbgUrnCarLFejP757Ku
+	Hzjn+WsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIaM9-0000000Amdh-181P;
-	Tue, 03 Dec 2024 21:22:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIaN7-0000000AmnT-3n8Y;
+	Tue, 03 Dec 2024 21:23:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIaJa-0000000Am02-32vL
+	id 1tIaLw-0000000Amb5-1f6m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 21:20:16 +0000
+	Tue, 03 Dec 2024 21:22:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 435FD5C6D82;
-	Tue,  3 Dec 2024 21:19:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC51C4CECF;
-	Tue,  3 Dec 2024 21:20:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 76FC7A41621;
+	Tue,  3 Dec 2024 21:20:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F2EFC4CECF;
+	Tue,  3 Dec 2024 21:22:37 +0000 (UTC)
+Date: Tue, 3 Dec 2024 21:22:35 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: will@kernel.org,
-	baruch@tkos.co.il,
-	ptesarik@suse.com,
-	hch@lst.de,
-	Yang Shi <yang@os.amperecomputing.com>
-Cc: jiangyutang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: fix zone_dma_limit calculation
-Date: Tue,  3 Dec 2024 21:20:10 +0000
-Message-Id: <173326077457.517002.14427872059455527771.b4-ty@arm.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241125171650.77424-1-yang@os.amperecomputing.com>
-References: <20241125171650.77424-1-yang@os.amperecomputing.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>, stable@vger.kernel.org,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	James Morse <james.morse@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be
+ overridden
+Message-ID: <Z092m3iNQYbKljHN@arm.com>
+References: <20241203190236.505759-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203190236.505759-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_132014_806838_7FC94240 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_132240_494564_7C2AA3EB 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,24 +67,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Nov 2024 09:16:50 -0800, Yang Shi wrote:
-> The commit ba0fb44aed47 ("dma-mapping: replace zone_dma_bits by
-> zone_dma_limit") changed how zone_dma_limit was calculated.  Now it
-> returns the memsize limit in IORT or device tree instead of U32_MAX if
-> the memsize limit is greater than U32_MAX.
+On Tue, Dec 03, 2024 at 07:02:36PM +0000, Marc Zyngier wrote:
+> Catalin reports that a hypervisor lying to a guest about the size
+> of the ASID field may result in unexpected issues:
 > 
-> This resulted in DMA allocations may use GFP_DMA even though the devices
-> don't require it.  It caused regression on our two sockets systems due
-> to excessive remote memory access.
+> - if the underlying HW does only supports 8 bit ASIDs, the ASID
+>   field in a TLBI VAE1* operation is only 8 bits, and the HW will
+>   ignore the other 8 bits
 > 
-> [...]
+> - if on the contrary the HW is 16 bit capable, the ASID field
+>   in the same TLBI operation is always 16 bits, irrespective of
+>   the value of TCR_ELx.AS.
+> 
+> This could lead to missed invalidations if the guest was lead to
+> assume that the HW had 8 bit ASIDs while they really are 16 bit wide.
+> 
+> In order to avoid any potential disaster that would be hard to debug,
+> prenent the migration between a host with 8 bit ASIDs to one with
+> wider ASIDs (the converse was obviously always forbidden). This is
+> also consistent with what we already do for VMIDs.
+> 
+> If it becomes absolutely mandatory to support such a migration path
+> in the future, we will have to trap and emulate all TLBIs, something
+> that nobody should look forward to.
+> 
+> Fixes: d5a32b60dc18 ("KVM: arm64: Allow userspace to change ID_AA64MMFR{0-2}_EL1")
+> Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
 
-Applied to arm64 (for-next/fixes), thanks!
-
-[1/1] arm64: mm: fix zone_dma_limit calculation
-      https://git.kernel.org/arm64/c/56a708742a8b
-
--- 
-Catalin
-
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
