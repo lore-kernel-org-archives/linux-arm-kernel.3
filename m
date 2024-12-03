@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C869E74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A15E74AC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AlT1zALzbgxU+zKCEprUsYwm2s1Oy5+l62zNU9xo5jw=; b=mHra0Rx/KCPVUJ2Xdom9FVMYFH
-	xTy7t5ws5UbKhlBi13smVSETdQYkozcIMRl+6Vaubr6gIaQZ2GNstiLSdHdYYG87TucHQrvFCjpR+
-	ldfsOKYKAHH/EhUrRG4U/LzE6lEkiwr1MNibbINE1OE36F9RcNujyg8QFOQny9c1KfJSfBJm6tsxt
-	7zvUFyg86Z1nIxfsEeqzISTHANitePZVM86xcRsR89LD/LJmhlvPoJkFTKXUwNw2YRIiWlkcD9ULb
-	BNID2bwq/POHi0y5XRS5qTl9383kObsu2cQE1UCLFjHwMC82bRILjcOo6fxw1JuQnZA04QOwqKO58
-	R4j74+7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VweZ8YjWZ78Zyn1hhkEyQiyT2MqJ5xoTwegnXNsv6lw=; b=PgsGQ1HI03lC/E0hG036S+60fm
+	0t1aR5LbTyZNbLQbbbE9efn2dzp/MXd8tQbwKp4y3r27mONwis+31wshLqfP73z9vSqzbrHHWTaII
+	CuqfAyXnLFTd+RmN8UBCyP8LAhWRhQHX+OnCQ7HrS+BOG4A7NY1sIqNRSbjYfRZj+edaIR47kHgfM
+	gvJ386AAYYU06FmCizEUM8RjedlWlLiRt+aGn1Y5qAdb25GsMzmx0Hl7l+ZHrtDWED3mNjQmp8rMO
+	LvV5DeO5zPTZ2R5MHEVyEMflABE9iCwvuN1Iz09rx6j6jjozy2GcWvSUl8JJEttCjpDiXbyob6+0U
+	9Hb5RG+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIX53-0000000AJNl-1lQe;
-	Tue, 03 Dec 2024 17:53:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIXAk-0000000AJyn-1jXc;
+	Tue, 03 Dec 2024 17:58:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIX3A-0000000AJ6W-0UWJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 17:51:05 +0000
+	id 1tIW6F-0000000A9e1-01q2;
+	Tue, 03 Dec 2024 16:50:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 84E155C6D05;
-	Tue,  3 Dec 2024 17:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 293EFC4CED9;
-	Tue,  3 Dec 2024 17:50:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EE490A417D6;
+	Tue,  3 Dec 2024 16:48:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE083C4CECF;
+	Tue,  3 Dec 2024 16:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733248263;
-	bh=5p8vEzZ8oE54TBgFSDxwhE30LNOudRqhkcJKN4lnoSA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Dr+Jo7AI5gaM3Qai4tsjbWIuJim3Y1vImcD6YE3kfY/L+sIcqLyI3VMCzqrNJDidZ
-	 1NczPyr3O3v68KpCIp+ejbd6YFc97KVhss17XGTyKmFPrsv8kz4zyZDl3Iw79wBhV+
-	 ikevbvI/gRzaI6QztP9waYtbyV/Cm3f57LNi5NP6sEe5/p+7jRA13NUdmNjXOJqM20
-	 wHbrqBKzyETWlQ74ClcPzPjf/woB78myrNA+Sr/63HGC3MddIpqD5OLpJj7InGLstC
-	 HyQt/fhaAszt3ffIAXGOaCt+tuGhD10aQ7ypVLDkLY0tADZa6YNo7FS32YVO3PL7pI
-	 k/DZgrUBKczyA==
-From: Mark Brown <broonie@kernel.org>
-To: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cs=C3=B3k=C3=A1s=2C_Bence?= <csokas.bence@prolan.hu>
-Cc: Mesih Kilinc <mesihkilinc@gmail.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
-In-Reply-To: <20241123123900.2656837-1-csokas.bence@prolan.hu>
-References: <20241123123900.2656837-1-csokas.bence@prolan.hu>
-Subject: Re: (subset) [PATCH v6 0/3] Add support for codec of F1C100s
-Message-Id: <173324825989.459040.3874572873005288609.b4-ty@kernel.org>
-Date: Tue, 03 Dec 2024 17:50:59 +0000
+	s=k20201202; t=1733244609;
+	bh=hl4qjq6wBEq5/6rBW02XlLyDQNXhu4x9H//HnoHXZC0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kyW7aAvfsRsd+goXqPtxbrF2GZ9SUIgO8a/u1AJ8BIEnmbS5M3rvY8PwauYRqY69E
+	 wMH5EFRYngFm5G+VV1tipxqdIFc41sJlBO0qh3qPCzE4sbfpkOA5o2Vyiy1qWqgIFB
+	 tDM8h/jaa0EONYCKZBgvbq7BzhmLostW8/EjWPzgZMtsAzVQxFUDMqN0NCdgm9ZDLg
+	 4fb6XRDcTbDHRJQdleIIvXoILAqO8mFQ9vF1/QKq2tdmUJNpeYz4vXfsC5H4pgkF5H
+	 yXF+ZFN/xAJAxY7eBbV6DIDQiMKdXO9IDBGv7yUgvqUy0TKwnw3Vi60mUCL2qMjhMk
+	 nZROfofiKrMYw==
+Date: Tue, 3 Dec 2024 10:50:07 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de,
+	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
+	linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org,
+	airlied@gmail.com, mripard@kernel.org, devicetree@vger.kernel.org,
+	ck.hu@mediatek.com, linux-kernel@vger.kernel.org,
+	maarten.lankhorst@linux.intel.com, simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org, kernel@collabora.com,
+	tzimmermann@suse.de, krzk+dt@kernel.org
+Subject: Re: [PATCH v1 1/7] dt-bindings: display: mediatek: Add binding for
+ HDMIv2 DDC
+Message-ID: <173324460711.1946104.15731375026648249870.robh@kernel.org>
+References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
+ <20241120124512.134278-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241120124512.134278-2-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_095104_194466_44019221 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20241203_085011_103625_5A61C0D9 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +79,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 Nov 2024 13:38:55 +0100, Csókás, Bence wrote:
-> Support for Allwinner F1C100s/200s series audio was
-> submitted in 2018 as an RFC series, but was not merged,
-> despite having only minor errors. However, this is
-> essential for having audio on these SoCs.
-> This series was forward-ported/rebased to the best of
-> my abilities, on top of Linus' tree as of now:
-> commit 28eb75e178d3 ("Merge tag 'drm-next-2024-11-21' of https://gitlab.freedesktop.org/drm/kernel")
+
+On Wed, 20 Nov 2024 13:45:06 +0100, AngeloGioacchino Del Regno wrote:
+> Add a binding for the Display Data Channel (DDC) IP in MediaTek
+> SoCs with version 2 HDMI TX IP.
 > 
-> [...]
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../mediatek/mediatek,mt8195-hdmi-ddc.yaml    | 41 +++++++++++++++++++
+>  1 file changed, 41 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+> 
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/5] ASoC: sun4i-codec: Add DMA Max Burst field
-      commit: cabd4ac290a6ceb87c8dbfb5a3251750e24529e7
-[2/5] dt-bindings: sound: Add Allwinner suniv F1C100s Audio Codec
-      commit: bb2cc3014d74dfdab0b358b4539a9d2747598663
-[3/5] ASoC: sun4i-codec: Add support for Allwinner suniv F1C100s
-      commit: 2198deb823a6ebe110b737614421a4687d3327f4
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
