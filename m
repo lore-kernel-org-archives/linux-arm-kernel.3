@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E7CE6C60C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 06:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04FDE6C60B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 06:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kx2Ki5ccK++DP7sy7RPJBbXz/j3VRyM6V5v2cJngrwY=; b=lWn1+kJ6/WfdRaG7Mc116/4zv+
-	RYAAIBzJxvtrSiaw5IX6RnMLHH/8YzHoWv8nNkZADkUWVzNrwDi9Wfg/ttDAmhZCo+O6EnGb78LgH
-	EuXxM8tMP4hMKulD18roqoAvPZxa5fhmH1FYCn3lbPL0Ykxf6uWkGANoJXP6umnz0viLlkU2VMSkU
-	Owo0MXXQGPHUP0uHemVD5f4FBPxzDgchd2SjVrPSXuzWHW70EUzZuK4uJXgy4zbcY/kG3Vhl+OZ6y
-	NyryoWJ6ppkmsPcNZ9GOkbQqhgh8PP3+PKX7q4qYbc2LDvTvkn20C7hAdorDgbNnGFcCwbY4VMJd8
-	UsfMhZSg==;
+	bh=X5sDR63GmWHlBMOZ69UTeGFk+18UevJDESL/pNgfjiM=; b=t4L5Ypsq19CnjSNDkbIqoI75NS
+	SoVcZ1dNo2dIEFiyKGMHCBnWJwOY7CwLmBtMDkx+ryqZDKOkq3nfCJThrgdkNsp7VUcidHH4byeii
+	T+hIpKH/10omDI32jgbG7/nqgzIuDbpCJ+B1j6oK1OwUq/7F/3Cjth+owkJEe4wi1hihhUWGhoH7H
+	kpVNTI3EpQ3hfAbuRo1yPc5Z8n7DbHxzKRM0GsOQ2QcExSjAQOIxSjz68Tvg0l9ufXSvn9awJs6wk
+	IAaJeHuvOzegAGowgtsS7vw7aDANghamrJ7wfHbTvr6CF1PrxhuT6fmj+NKGd7q0A6fMJvjqjxsOl
+	mcoViuHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIM7B-00000008Nzc-3NHM;
-	Tue, 03 Dec 2024 06:10:29 +0000
+	id 1tIM89-00000008O9c-1cRQ;
+	Tue, 03 Dec 2024 06:11:29 +0000
 Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIM6A-00000008NpD-3Pnr
+	id 1tIM6s-00000008NvY-1LBq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 06:09:29 +0000
+	Tue, 03 Dec 2024 06:10:11 +0000
 Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 499851A05A5;
-	Tue,  3 Dec 2024 07:09:23 +0100 (CET)
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 19D9E1A0A46;
+	Tue,  3 Dec 2024 07:10:09 +0100 (CET)
 Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 32E421A0631;
-	Tue,  3 Dec 2024 07:09:23 +0100 (CET)
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 03BD61A0469;
+	Tue,  3 Dec 2024 07:10:09 +0100 (CET)
 Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
-	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 8198D203A7;
-	Tue,  3 Dec 2024 07:09:22 +0100 (CET)
-Date: Tue, 3 Dec 2024 07:09:23 +0100
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 52D27203CD;
+	Tue,  3 Dec 2024 07:10:08 +0100 (CET)
+Date: Tue, 3 Dec 2024 07:10:08 +0100
 From: Jan Petrous <jan.petrous@oss.nxp.com>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Subject: Re: [PATCH net-next v7 01/15] net: driver: stmmac: Fix CSR divider
- comment
-Message-ID: <Z06gk37G65vTJ/3z@lsv051416.swis.nl-cdc01.nxp.com>
+Subject: Re: [PATCH net-next v7 02/15] net: driver: stmmac: Extend CSR calc
+ support
+Message-ID: <Z06gwINwnA7Xcnd8@lsv051416.swis.nl-cdc01.nxp.com>
 References: <20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com>
- <20241202-upstream_s32cc_gmac-v7-1-bc3e1f9f656e@oss.nxp.com>
- <Z04veAM7wBJCLkhu@shell.armlinux.org.uk>
+ <20241202-upstream_s32cc_gmac-v7-2-bc3e1f9f656e@oss.nxp.com>
+ <Z04voJN9uj1Vefef@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z04veAM7wBJCLkhu@shell.armlinux.org.uk>
+In-Reply-To: <Z04voJN9uj1Vefef@shell.armlinux.org.uk>
 X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_220926_980221_5FEB825C 
-X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-CacheID: sfid-20241202_221010_489477_6D973EB9 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,10 +69,10 @@ Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 10:06:48PM +0000, Russell King (Oracle) wrote:
+On Mon, Dec 02, 2024 at 10:07:28PM +0000, Russell King (Oracle) wrote:
 > Hi,
 > 
-> No need for "driver:" in the subject line.
+> As per patch 1, no need for "driver:" in the subject line.
 > 
 
 Will fix it in v8, thanks.
