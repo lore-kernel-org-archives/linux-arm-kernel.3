@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A212BE6C5E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 00:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D883E6C5E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 00:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DLYTwGWkMWLIc6S8rXeQ5AdWzJOnAigIrBbJB1JhA1I=; b=B7kgVzCe06jH4PqaV9f28aLS5L
-	eHNm7PrNmuOZtVTMtnjoFa3hZZXa6jwWv+frB2GEH16yvta4lS4xnocNgsQ8vb3m+LsJZDET3MZ5O
-	tePxXsN7G6pS9rH0CNh+E0r0Jn5Tv/Q67PJKY1pAqcEl4FibJ2jQypLJhQs4TFyQpIlzi7JCN07B4
-	tZmjGN8XLDAc8Zpbf/3nzQv3pWmWzW3IddqTzvfh9+fiJ9CNW+G0y0H83edPFWhEHsGOK9a5xxbKk
-	NYD+A3SO+fErkg8zoCL17li0jY28yM+PyrFHS1kaR2UeummSatRseJSSmEK3NFKLTR4Qm1WJhL3/t
-	O95PsJ4Q==;
+	bh=JU2hy9sEFcn9zqXCqwnzT2rgECK7e0OcNEISZ4p7Kk0=; b=lfjblIYKCLYu3tGAyqfZGrbssP
+	nmNPXu/MARKm8x5HPd7cz0+qsRDy7pF+jAVxQWr9gHM+LBwpe4/9zgxZBMhiYQxg8lVnILo4D2cIe
+	GO1vurcm9pm8lGNdN0nd1CZL+aUolXTHV9QrTFP++aP1vlbe1j0I5vN0QIr8bYij2eL9fshuuFeUD
+	PF8gR2NPgmFCKhyrfjYWoe1i5hUCyLr+NC2lbCYNAilus+LER2p0sCEeWxGM/rEF46ms7hp6H38PU
+	Fmd66UIUSoKt5UAmFdfFqCXmQ9lj/C/7d1SRggcBTIBseqryrpttqarRZsjyHE4NrLkK22h9iSLXU
+	QZRtCWxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIGlv-00000007oh1-3xJR;
-	Tue, 03 Dec 2024 00:28:11 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tIGrn-00000007pOd-1hFf;
+	Tue, 03 Dec 2024 00:34:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIGkv-00000007oVj-2seU;
-	Tue, 03 Dec 2024 00:27:10 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-215a0390925so14361405ad.0;
-        Mon, 02 Dec 2024 16:27:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733185628; x=1733790428; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DLYTwGWkMWLIc6S8rXeQ5AdWzJOnAigIrBbJB1JhA1I=;
-        b=mUbJbUMTxpRI1ZMpTxDi8T6NnliYwrhpVotmbcUkC3dLJPU2KAamYRRdl3BV8yrZI7
-         gPRLEQAX3BrV+Jz8hHwDjhcmR9J1DyfkLl2O9Tf3HrjpPYM8MesYEEgatqS8/4Pax5DJ
-         kBz21QmMIelvb1k/R2lzhFrl3D15hK+qugnD3rwD5nWWMHTbRu6i3Fgx/TyhfEmLVdEL
-         /wQXgZ/lCVRHw5wTZdqxh8OOg8/qDrIxilbFqZVcwKiIBwX7fCVrICGIP+8/q9owFRBP
-         g+4L63z+Yh8D+RP3J+ClJoqhUH3FdyJIzTC8NBZnAprvQVJt74Blx8K0jiSg9y6HjvXz
-         0J4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733185628; x=1733790428;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DLYTwGWkMWLIc6S8rXeQ5AdWzJOnAigIrBbJB1JhA1I=;
-        b=pIuqan0dbMr15IbSvyP5WzTXf+8AcLFij+hJjh/KhRDOybkoycv9ItA67/Gm+/5WQ0
-         FjnO1802FgriTc6Ll2k712tW16Y/0aMiLTLYTVWOn14JFCR1BUjEUEVIPyXIlfCKdmZD
-         JAGNeIPtDoH8j5Rk01Je++I+6VwXW1d329hjyPjxvW9xTQQFwSDOtRFlvF2fRB+xb8m7
-         /BETD1fJN4UGV67ouzZd8XceaCl//DSpFesD7nkzyG/FS4EANqVgg0Rd7M4+H8xco9rL
-         jBDksLGZsBxY1Jt36cVJ4cguSfwMDijGylrbFm6Ipf+jUgsR7bM2wb18dZ0gGSp/apV7
-         T9bQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVPN161xbEwz2HVoYjhFuy07IiTub+BeBko5Tr2YxMKrgnOHw5Jr3FwAMa/rMDddwi3CDCDg/8KwfXt@lists.infradead.org, AJvYcCVsj+przU5jyX3a+F4rOpZQ22uO5QP1fqjM+Flnem/13t7IywNXzD6cTHzozW0aKKuRflcwPvkjcPI4ZFEcmkdR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxmw+fe8VvZKzPB76Oua1wfKEUff2KUbIBQsYB8iY/moYUNVMCr
-	f8TJgh5dTrmBQn8DlDF6mIK7sEJ/rQdbOidLjPSh6dQHKZV71KI6
-X-Gm-Gg: ASbGncsQnhfa8QerbXgt44iUJAeOK0bt3qccqWA1jzP7B6mLFwEiBFxOMoY+3N80lm1
-	J6lUfyVISYx1GySdZ+iyjesR7yiLFhLq91EdTlxiQTGnuS77ap+k1lV7jHZ+7xCt8j2XsZESk0h
-	RHY13G6btsTZ3lc2acQh/aTOf5i194XUwfeg4DemrQBL2WpAw8tCre9xMnmqYH6fPVRgtZGP0K5
-	+ON0laisgkh2aIaSMBQyXAXAZUUxlARAcroSD/xBRge28UczTGex5+Uu/UmzBjINFobnWyjYUIM
-	uz+tFx9biWy19Gs3Ph1PBWJ3
-X-Google-Smtp-Source: AGHT+IGHwdUtcOPNOesLU2uYuzU+uzBNriJXCHFU8gQ6QyGwX1BK3vvXSZUFFBjaUgWZE1pjKQq8OQ==
-X-Received: by 2002:a17:903:22cf:b0:211:3275:3fe with SMTP id d9443c01a7336-215bd1cd723mr8388845ad.17.1733185628104;
-        Mon, 02 Dec 2024 16:27:08 -0800 (PST)
-Received: from [172.19.1.53] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2159d48d97esm20570085ad.239.2024.12.02.16.27.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 16:27:07 -0800 (PST)
-Message-ID: <6395117f-4ed8-45b5-ba80-417d61beb55b@gmail.com>
-Date: Tue, 3 Dec 2024 08:27:04 +0800
+	id 1tIGqm-00000007pGB-46Ko
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Dec 2024 00:33:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7DF1FA4133F;
+	Tue,  3 Dec 2024 00:31:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0433C4CED1;
+	Tue,  3 Dec 2024 00:33:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733185991;
+	bh=P+cKs927/DzHr7RXmSOFRn/pT0qYBrswblnynVURMiU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=e4NCaqBHn0r9TX+saVe2U42+z147y9cdC8ZqLiVtF1Yo2vKYdm5706b8l6NhTT0lG
+	 aCoFRkZo/8LOiRyNpfGg6d2MLfgnzpXSle4VVoH0Uh08Rw2aWjJGEpj+9y9Nh8Dgxh
+	 R91ouvGM5u6ylzIkH+YDw6+8qokCxXCn5q9quqtsB/O2Gg5IO/F+Qur+1QBIxpWday
+	 QCqmAkoTzyzV3KD3Ts+V0yjuNt1/Ey1sMSQfpSGL4PF5nSNRuL+YLJWo9RDJ6PlzFi
+	 tRwGY7Ie+ybLDWjFlRwYe3vOQehxOKL4h/1nEh6w728JU7cPazg3zrEvo77/Iy7BUQ
+	 LRKjnQriXpnaA==
+Date: Mon, 2 Dec 2024 16:33:09 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Furong Xu <0x1207@gmail.com>
+Cc: Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com, Suraj Jaiswal
+ <quic_jsuraj@quicinc.com>, Thierry Reding <treding@nvidia.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap
+ for non-paged SKB data
+Message-ID: <20241202163309.05603e96@kernel.org>
+In-Reply-To: <20241128144501.0000619b@gmail.com>
+References: <20241021061023.2162701-1-0x1207@gmail.com>
+	<d8112193-0386-4e14-b516-37c2d838171a@nvidia.com>
+	<20241128144501.0000619b@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/2] mtd: rawnand: nuvoton: add new driver for the
- Nuvoton MA35 SoC
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: richard@nod.at, vigneshr@ti.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nikita.shubin@maquefel.me, arnd@arndb.de,
- vkoul@kernel.org, esben@geanix.com, linux-arm-kernel@lists.infradead.org,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241125052524.135362-1-hpchen0nvt@gmail.com>
- <20241125052524.135362-3-hpchen0nvt@gmail.com> <875xo257rd.fsf@bootlin.com>
-Content-Language: en-US
-From: Hui-Ping Chen <hpchen0nvt@gmail.com>
-In-Reply-To: <875xo257rd.fsf@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_162709_721061_4C128EC1 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20241202_163313_092281_BF5ED5B2 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Mique,
+On Thu, 28 Nov 2024 14:45:01 +0800 Furong Xu wrote:
+> > Let me know if you need any more information.
+> 
+> [  149.986210] dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
+> and
+> [  245.571688] dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
+> [  245.575349] dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
+> are reported by stmmac_xmit() obviously, but not stmmac_tso_xmit().
+> 
+> And these crashes are caused by "Tx DMA map failed", as you can see that
+> current driver code does not handle this kind of failure so well. It is clear
+> that we need to figure out why Tx DMA map failed.
+> 
+> This patch corrects the sequence and timing of DMA unmap by waiting all
+> DMA transmit descriptors to be closed by DMA engine for one DMA map in
+> stmmac_tso_xmit(), it never leaks DMA addresses and never introduces
+> other side effect.
+> 
+> "Tx DMA map failed" is a weird failure, and I cannot reproduce this failure
+> on my device with DWMAC CORE 5.10a(Synopsys ID: 0x51) and DWXGMAC CORE 3.20a.
 
-Thank you for your reply.
+Let me repeat Jon's question - is there any info or test you need from
+Jon to make progress with a fix?
 
-
-On 2024/12/3 上午 01:12, Miquel Raynal wrote:
-> Hello,
->
->> +static int ma35_nand_attach_chip(struct nand_chip *chip)
->> +{
->> +	struct ma35_nand_info *nand = nand_get_controller_data(chip);
->> +	struct mtd_info *mtd = nand_to_mtd(chip);
->> +	struct device *dev = mtd->dev.parent;
->> +	u32 reg;
->> +
->> +	if (chip->options & NAND_BUSWIDTH_16) {
->> +		dev_err(dev, "16 bits bus width not supported");
->> +		return -EINVAL;
->> +	}
->> +
->> +	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL) & (~PSIZE_MASK);
->> +	if (mtd->writesize == 2048)
->> +		writel(reg | PSIZE_2K, nand->regs + MA35_NFI_REG_NANDCTL);
->> +	else if (mtd->writesize == 4096)
->> +		writel(reg | PSIZE_4K, nand->regs + MA35_NFI_REG_NANDCTL);
->> +	else if (mtd->writesize == 8192)
->> +		writel(reg | PSIZE_8K, nand->regs + MA35_NFI_REG_NANDCTL);
-> You should error out if the writesize is not supported.
-
-Okay. I will return -EINVAL if the writesize is not supported.
-
-
->
-> Thanks,
-> Miquèl
-
-Best regards,
-
-Hui-Ping Chen
-
+If Jon's board worked before and doesn't work with this patch we will
+need *a* fix, if no fix is provided our only choice is revert.
 
