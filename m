@@ -4,119 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C94E74AC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8052CE74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7THRhMNRRZ35+Cp9Ztb4wM4h4N09m4bzEGPHNNYxxko=; b=BTWOU/u0JNbET91/zkNu6yRCbN
-	25t0N3AMT6zLIlgFOZ1l2pfZAQIbWtKQoAN0u4zi4OjQI1oYsKlS+jgKnDNngOB7cGdqAgOandLDh
-	G5yoU3/O+UmzdbZlk6i9EfFBSHKwc6uozlRpftnJWaNsBZm3TEbVMJLrvSWPR84u5pO6Dc64+mSTu
-	qaMj+4A+zBHi2eATXTskLVRAZ7jIG0xaQNAW4H+yy92J6HfaPx+U0m3PvaA4NfMT9NUCcSkZM+4HX
-	IEtHG1LVklsWeoPiCgNCrpK/5hzus0a87lTPvvffZ9STHNGcz6kL9ddC/f88vk8qc2pGQ1pAeIVQb
-	of95AZhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xz/rrNS+hlEL9lqbe3mK8LVGBrP6tU57imWfKl+L6qk=; b=bzM0Tw+H94i0TW25urQyzdTdVZ
+	PrLVN0cyQv+ySJV2gj5eXYopyeSs3052fvOKMwity3GDM8ZVkyjfZPCjO81kgmSjQNETV38NWaRWS
+	eD0O1+qwTKkLFvh3c/9oZfC9/9WOk3861URO1XBtoYazorpLp3EyhXiODAz0KFDzhOaboqlI3+RV7
+	zHH+iNrRw1RloMFaXZG8bfX2C+SikSrvzQQzei1ecXygtRf7LZITG0XyRx4/XCqEcRmgNwk0RwEgx
+	tZPcj7lwJTPVsDgbNgNhgJG0iPnRZcDZ6vkg2AzNsaMw88U1rTPrKSS8DLcXgQea8Fe7mxVo71O7I
+	794GLqMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWff-0000000AFBU-34gC;
-	Tue, 03 Dec 2024 17:26:47 +0000
-Received: from wp530.webpack.hosteurope.de ([80.237.130.52])
+	id 1tIWge-0000000AFSX-1Wkr;
+	Tue, 03 Dec 2024 17:27:48 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWdi-0000000AEul-37WQ
+	id 1tIWfW-0000000AF8r-1Obw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 17:24:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=leemhuis.info; s=he214686; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
-	References; bh=7THRhMNRRZ35+Cp9Ztb4wM4h4N09m4bzEGPHNNYxxko=; t=1733246686;
-	x=1733678686; b=Tv0Yw2rC4c/I/urb1wTY8OrUczgTeXteND2FCqN6JmFVzg2XB00Xnd0CI7+OB
-	G3rRXQ9CJR5eoDwl6vRw80E1sT4qOMyc6b01ouWzt0t+I88x2r2Bza76nNR1lYjEGXt7meKhRr4zq
-	ib/kRpr/q3Gx0a9vsHbTVUTGyYJ+wLme3UI97qw/JS2Nj+9lb1b+5WF5mv3MXOakNKqVOAT5KDmen
-	ix2ILJw6sQ8QjD23Al5b1PCcvFl5WkgnwMUdYo02/Chovrl4M+VNBLGe53AhNk6ZUuEmtZVld7XTH
-	RqmOyXD7MZ6dgOMLPtnB6dgASt0c1d2e6yYfeyy4InzHPZNX3A==;
-Received: from [2a02:8108:8980:2478:87e9:6c79:5f84:367d]; authenticated
-	by wp530.webpack.hosteurope.de running ExIM with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
-	id 1tIWdJ-008HP3-01;
-	Tue, 03 Dec 2024 18:24:21 +0100
-Message-ID: <f2ada8a7-165b-41fb-8b7b-3c0d16bb8216@leemhuis.info>
-Date: Tue, 3 Dec 2024 18:24:19 +0100
+	Tue, 03 Dec 2024 17:26:39 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2ffb3cbcbe4so63087601fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 09:26:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733246796; x=1733851596; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Xz/rrNS+hlEL9lqbe3mK8LVGBrP6tU57imWfKl+L6qk=;
+        b=GqnuqJNouu92bJTQlRdtZDN+QnxTEgPz81aMfEFbF7dU7Fsqd9dkyQ5XHf5kZdMS96
+         I+A7EoG5C2/Fup8oQOjK5WQ0ojcKLPkQUhwxMJ+W6J6FdTt6z4VZZn6Jq1ZYlsCdQKGd
+         F3amw8msiZk61chkS/SfAouUvHJB/p9jUFc0f7hEPTqveDqO1rtA3x73yehMytOZnxkZ
+         1ZV1cvzrSKVm3QL0iK2iHySPoxP2gfufEp6MahgducxApIyKCNoJDFsB/Tj+nCFiWT1m
+         INZYx8zc8Py90nelbjPHg06P0lGVKq8K30O4l4KJGve3ha+bFaI477yRPK7niHymTInJ
+         mGmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733246796; x=1733851596;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Xz/rrNS+hlEL9lqbe3mK8LVGBrP6tU57imWfKl+L6qk=;
+        b=Iv/Jf+9ZlSXETnogFliW/j7FYcuKTe9zK3OdkPj7lrm8Kuz/Qu3x5nZiE9Df6vN+J7
+         T0FBqEZOXldm/JNWk8Us0aCZQGcnIu9KbSr/iekcwZFfSmJ86d3cQDkDakAJzryeyL+R
+         EBEi8yptVQujzrORDogkyUS4sRPPmGe0/COyLcHYZkMLluoavsVZC0y2QpvLbDKYoWcE
+         sH5706p724e4NLUf8HQBBJP0b5SMovUfkDJAhfj6/hOQWwzvS8KaTiYLAAZwhMgiARER
+         ksca37zwFNeiPyOVfMudnzB8B33+FDfHRR04k14vzpVuh4d4JPs18NcRpx8XGYNMHfId
+         seZw==
+X-Forwarded-Encrypted: i=1; AJvYcCU6Cu/YwPMrcePC4ZPDtLZeGKxgmNP/g6HedM7lks7AGjxfT7FL9H5Mbhd4iOO4BXV5cOD9Kqv7/WSc3RfXmnM1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIoDtzMdAabl+xJSC5fpgUCNZiaV1RrD6w9GwGiP58aMsxpof4
+	0STRUqkLbdPQcFqodxNkX5IDrkTYlfr1u5/Nd1lFqoOh+W+2RP+9MSdECLL5dsw=
+X-Gm-Gg: ASbGncuxRn6/3QVNb0jVWI8QFLTU/JKBxSN9CKZU0NWrZ4u5M0LSEwK5w7nmaYZRlAa
+	IU3Je+scG5xpP8PSmhU8+j/bYFOT2jjiApqENvox/Z5H83P0XRHI0wjGUltgMKSYs+hAtQO+U99
+	oYz2p0Aii2DsdqqmEGCI7J670u643Qb8kWJTKvrD9/+xSwD+HuiJdwNVAjG6n4Nkao9TIv62Pff
+	8DjSX2dYzaFS93Hl4+nlfwu/+OXl1kG+zJ3ld+P11lfGtFrATs7arg85UaxwiS2GSdo47DqTyf5
+	yyhd/j6W8be2R0o8C5ufCEpNdW6PGA==
+X-Google-Smtp-Source: AGHT+IHDzL+kViFvLr4LvMnl3L0hi2JMmKApYJ/jwTbetTdwojNyOBaCgkw29eR2Ie0p1Bi0zs9POQ==
+X-Received: by 2002:a2e:a911:0:b0:2ff:d2c8:84fb with SMTP id 38308e7fff4ca-30009c61a31mr24281101fa.24.1733246795808;
+        Tue, 03 Dec 2024 09:26:35 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ffdfbeb8cbsm17312061fa.33.2024.12.03.09.26.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Dec 2024 09:26:34 -0800 (PST)
+Date: Tue, 3 Dec 2024 19:26:31 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Andrej Picej <andrej.picej@norik.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v3 2/3] drm/bridge: ti-sn65dsi83: Add ti, lvds-vod-swing
+ optional properties
+Message-ID: <sjcspny5lmynm4q2dnkhktvwte5e3gigtujynaiqp5gr5rkqfn@j2h5f6xiwz34>
+References: <20241203110054.2506123-1-andrej.picej@norik.com>
+ <20241203110054.2506123-3-andrej.picej@norik.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.12 470/826] perf stat: Uniquify event name improvements
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
- Sasha Levin <sashal@kernel.org>
-Cc: patches@lists.linux.dev, Namhyung Kim <namhyung@kernel.org>,
- Ian Rogers <irogers@google.com>, Kan Liang <kan.liang@linux.intel.com>,
- James Clark <james.clark@linaro.org>, Yang Jihong
- <yangjihong@bytedance.com>, Dominique Martinet <asmadeus@codewreck.org>,
- Colin Ian King <colin.i.king@gmail.com>, Howard Chu <howardchu95@gmail.com>,
- Ze Gao <zegao2021@gmail.com>, Yicong Yang <yangyicong@hisilicon.com>,
- Weilin Wang <weilin.wang@intel.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>, Jing Zhang <renyu.zj@linux.alibaba.com>,
- Yang Li <yang.lee@linux.alibaba.com>, Leo Yan <leo.yan@linux.dev>,
- ak@linux.intel.com, Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
- linux-arm-kernel@lists.infradead.org, Sun Haiyong <sunhaiyong@loongson.cn>,
- John Garry <john.g.garry@oracle.com>,
- Justin Forbes <jforbes@fedoraproject.org>
-References: <20241203144743.428732212@linuxfoundation.org>
- <20241203144802.097952233@linuxfoundation.org>
-From: Thorsten Leemhuis <linux@leemhuis.info>
-Content-Language: en-MW
-Autocrypt: addr=linux@leemhuis.info; keydata=
- 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 n7RI
-In-Reply-To: <20241203144802.097952233@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-bounce-key: webpack.hosteurope.de;linux@leemhuis.info;1733246686;573924f0;
-X-HE-SMSGID: 1tIWdJ-008HP3-01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203110054.2506123-3-andrej.picej@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_092447_074456_A5DB05D5 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20241203_092638_417941_91ADE7D7 
+X-CRM114-Status: GOOD (  38.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,339 +104,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03.12.24 15:43, Greg Kroah-Hartman wrote:
-> 6.12-stable review patch.  If anyone has any objections, please let me =
-know.
->=20
-> ------------------
->=20
-> From: Ian Rogers <irogers@google.com>
->=20
-> [ Upstream commit 057f8bfc6f7070577523d1e3081081bbf4229c1c ]
->=20
-> Without aggregation on Intel:
-
-My 6.11.y-rc and 6.12.y-rc builds for Fedora failed when building perf.=20
-I did not bisect, but from a brief look at the error message (see
-below) I suspect it might be caused by this patch, which is the
-second of the patch-set "Event parsing fixes":
-https://lore.kernel.org/all/20240926144851.245903-1-james.clark@linaro.or=
-g/
-
-To my untrained eyes and from a quick look I guess the first patch
-in the series needs to be backported as well:
-perf evsel: Add alternate_hw_config and use in evsel__match
-https://lore.kernel.org/all/20240926144851.245903-2-james.clark@linaro.or=
-g/
-
-This is 22a4db3c36034e ("perf evsel: Add alternate_hw_config
-and use in evsel__match") in mainline. I tried to cherry-pick it
-on-top of 6.12.2-rc1, but there were a few small conflicts.=20
-
-Ciao, Thorsten
-
-P.S.: The build error:
-
-  gcc -Wp,-MD,util/.topdown.o.d -Wp,-MT,util/topdown.o -O2 -fexceptions -=
-g -grecord-gcc-switches -pipe -Wall -Wno-complain-wrong-lang -Werror=3Dfo=
-rmat-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3D3 -Wp,-D_GLIBCXX_=
-ASSERTIONS -specs=3D/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-prote=
-ctor-strong -specs=3D/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -march=3D=
-x86-64 -mtune=3Dgeneric -fasynchronous-unwind-tables -fstack-clash-protec=
-tion -fcf-protection -mtls-dialect=3Dgnu2 -Wbad-function-cast -Wdeclarati=
-on-after-statement -Wformat-security -Wformat-y2k -Winit-self -Wmissing-d=
-eclarations -Wmissing-prototypes -Wno-system-headers -Wold-style-definiti=
-on -Wpacked -Wredundant-decls -Wstrict-prototypes -Wswitch-default -Wswit=
-ch-enum -Wundef -Wwrite-strings -Wformat -Wno-type-limits -Wstrict-aliasi=
-ng=3D3 -Wshadow -DHAVE_SYSCALL_TABLE_SUPPORT -Iarch/x86/include/generated=
- -DHAVE_ARCH_X86_64_SUPPORT -DHAVE_ARCH_REGS_QUERY_REGISTER_OFFSET -DNDEB=
-UG=3D1 -O3 -fno-omit-frame-pointer -Wall -Wextra -std=3Dgnu11 -fstack-pro=
-tector-all -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3D2 -D_LARGEFILE64_SOURCE =
--D_FILE_OFFSET_BITS=3D64 -D_GNU_SOURCE -I/builddir/build/BUILD/kernel-6.1=
-2.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/to=
-ols/perf/util/include -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-=
-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/arch/x86=
-/include -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/li=
-nux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/include/ -I/builddir/build=
-/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanil=
-la.fc41.x86_64/tools/arch/x86/include/uapi -I/builddir/build/BUILD/kernel=
--6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_6=
-4/tools/include/uapi -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6=
-=2E12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/arch/x86/inc=
-lude/ -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux=
--6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/arch/x86/ -I/builddir/build/B=
-UILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla=
-=2Efc41.x86_64/tools/perf/util -I/builddir/build/BUILD/kernel-6.12.2-buil=
-d/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf=
- -DHAVE_PTHREAD_ATTR_SETAFFINITY_NP -DHAVE_PTHREAD_BARRIER -DHAVE_EVENTFD=
-_SUPPORT -DHAVE_GET_CURRENT_DIR_NAME -DHAVE_GETTID -DHAVE_FILE_HANDLE -DH=
-AVE_DWARF_GETLOCATIONS_SUPPORT -DHAVE_DWARF_CFI_SUPPORT -DHAVE_AIO_SUPPOR=
-T -DHAVE_SCANDIRAT_SUPPORT -DHAVE_SCHED_GETCPU_SUPPORT -DHAVE_SETNS_SUPPO=
-RT -DHAVE_ZLIB_SUPPORT -DHAVE_LIBELF_SUPPORT -DHAVE_ELF_GETPHDRNUM_SUPPOR=
-T -DHAVE_GELF_GETNOTE_SUPPORT -DHAVE_ELF_GETSHDRSTRNDX_SUPPORT -DHAVE_DWA=
-RF_SUPPORT -DHAVE_LIBBPF_SUPPORT -DHAVE_SDT_EVENT -DHAVE_JITDUMP -DHAVE_B=
-PF_SKEL -DHAVE_DWARF_UNWIND_SUPPORT -DHAVE_LIBCRYPTO_SUPPORT -DHAVE_SLANG=
-_SUPPORT -DHAVE_LIBPERL_SUPPORT -DHAVE_TIMERFD_SUPPORT -DHAVE_LIBPYTHON_S=
-UPPORT -fPIC -DHAVE_LIBLLVM_SUPPORT -I/usr/include -D_GNU_SOURCE -D__STDC=
-_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -DHAVE_CXA_=
-DEMANGLE_SUPPORT -DHAVE_LZMA_SUPPORT -DHAVE_ZSTD_SUPPORT -DHAVE_BACKTRACE=
-_SUPPORT -DHAVE_LIBNUMA_SUPPORT -DHAVE_KVM_STAT_SUPPORT -DDISASM_FOUR_ARG=
-S_SIGNATURE -DDISASM_INIT_STYLED -DHAVE_LIBBABELTRACE_SUPPORT -DHAVE_AUXT=
-RACE_SUPPORT -DHAVE_JVMTI_CMLR -DHAVE_LIBTRACEEVENT -I/usr/include/tracee=
-vent -DLIBTRACEEVENT_VERSION=3D67067 -I/usr/include/tracefs -I/usr/includ=
-e/traceevent -DLIBTRACEFS_VERSION=3D67065 -I/builddir/build/BUILD/kernel-=
-6.12.2-build/kernel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64=
-/tools/perf/libapi/include -I/builddir/build/BUILD/kernel-6.12.2-build/ke=
-rnel-6.12.2-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/lib=
-subcmd/include -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-=
-rc1/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/libsymbol/inclu=
-de -I/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1/linux-6.=
-12.2-0.rc1.400.vanilla.fc41.x86_64/tools/perf/libperf/include -D"BUILD_ST=
-R(s)=3D#s" -c -o util/topdown.o util/topdown.c
-util/stat-display.c: In function =E2=80=98uniquify_event_name=E2=80=99:
-util/stat-display.c:895:45: error: =E2=80=98struct evsel=E2=80=99 has no =
-member named =E2=80=98alternate_hw_config=E2=80=99
-  895 |         if (counter->pmu->is_core && counter->alternate_hw_config=
- !=3D PERF_COUNT_HW_MAX)
-      |                                             ^~
-make[4]: *** [/builddir/build/BUILD/kernel-6.12.2-build/kernel-6.12.2-rc1=
-/linux-6.12.2-0.rc1.400.vanilla.fc41.x86_64/tools/build/Makefile.build:10=
-6: util/stat-display.o] Error 1
-make[4]: *** Waiting for unfinished jobs....
-
-> ```
-> $ perf stat -e instructions,cycles ...
-> ```
-> Will use "cycles" for the name of the legacy cycles event but as
-> "instructions" has a sysfs name it will and a "[cpu]" PMU suffix. This
-> often breaks things as the space between the event and the PMU name
-> look like an extra column. The existing uniquify logic was also
-> uniquifying in cases when all events are core and not with uncore
-> events, it was not correctly handling modifiers, etc.
->=20
-> Change the logic so that an initial pass that can disable
-> uniquification is run. For individual counters, disable uniquification
-> in more cases such as for consistency with legacy events or for
-> libpfm4 events. Don't use the "[pmu]" style suffix in uniquification,
-> always use "pmu/.../". Change how modifiers/terms are handled in the
-> uniquification so that they look like parse-able events.
->=20
-> This fixes "102: perf stat metrics (shadow stat) test:" that has been
-> failing due to "instructions [cpu]" breaking its column/awk logic when
-> values aren't aggregated. This started happening when instructions
-> could match a sysfs rather than a legacy event, so the fixes tag
-> reflects this.
->=20
-> Fixes: 617824a7f0f7 ("perf parse-events: Prefer sysfs/JSON hardware eve=
-nts over legacy")
-> Acked-by: Namhyung Kim <namhyung@kernel.org>
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> [ Fix Intel TPEBS counting mode test ]
-> Acked-by: Kan Liang <kan.liang@linux.intel.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> Cc: Yang Jihong <yangjihong@bytedance.com>
-> Cc: Dominique Martinet <asmadeus@codewreck.org>
-> Cc: Colin Ian King <colin.i.king@gmail.com>
-> Cc: Howard Chu <howardchu95@gmail.com>
-> Cc: Ze Gao <zegao2021@gmail.com>
-> Cc: Yicong Yang <yangyicong@hisilicon.com>
-> Cc: Weilin Wang <weilin.wang@intel.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mike Leach <mike.leach@linaro.org>
-> Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
-> Cc: Yang Li <yang.lee@linux.alibaba.com>
-> Cc: Leo Yan <leo.yan@linux.dev>
-> Cc: ak@linux.intel.com
-> Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: Sun Haiyong <sunhaiyong@loongson.cn>
-> Cc: John Garry <john.g.garry@oracle.com>
-> Link: https://lore.kernel.org/r/20240926144851.245903-3-james.clark@lin=
-aro.org
-> Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
+On Tue, Dec 03, 2024 at 12:00:53PM +0100, Andrej Picej wrote:
+> Add a optional properties to change LVDS output voltage. This should not
+> be static as this depends mainly on the connected display voltage
+> requirement. We have three properties:
+> - "ti,lvds-termination-ohms", which sets near end termination,
+> - "ti,lvds-vod-swing-data-microvolt" and
+> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
+> output voltage for data and clock lanes. They are defined as an array
+> with min and max values. The appropriate bitfiled will be set if
+> selected constraints can be met.
+> 
+> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
+> end termination will be used. Selecting only one:
+> "ti,lvds-vod-swing-data-microvolt" or
+> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
+> constraint for only data/clock lanes will be met. Setting both is
+> recommended.
+> 
+> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
 > ---
->  .../perf/tests/shell/test_stat_intel_tpebs.sh |  11 +-
->  tools/perf/util/stat-display.c                | 101 ++++++++++++++----=
-
->  2 files changed, 85 insertions(+), 27 deletions(-)
->=20
-> diff --git a/tools/perf/tests/shell/test_stat_intel_tpebs.sh b/tools/pe=
-rf/tests/shell/test_stat_intel_tpebs.sh
-> index c60b29add9801..9a11f42d153ca 100755
-> --- a/tools/perf/tests/shell/test_stat_intel_tpebs.sh
-> +++ b/tools/perf/tests/shell/test_stat_intel_tpebs.sh
-> @@ -8,12 +8,15 @@ grep -q GenuineIntel /proc/cpuinfo || { echo Skipping=
- non-Intel; exit 2; }
->  # Use this event for testing because it should exist in all platforms
->  event=3Dcache-misses:R
-> =20
-> +# Hybrid platforms output like "cpu_atom/cache-misses/R", rather than =
-as above
-> +alt_name=3D/cache-misses/R
+> Changes in v3:
+> - use microvolts for default array values 1000 mV -> 1000000 uV.
+> Changes in v2:
+> - use datasheet tables to get the proper configuration
+> - since major change was done change the authorship to myself
+> ---
+>  drivers/gpu/drm/bridge/ti-sn65dsi83.c | 144 +++++++++++++++++++++++++-
+>  1 file changed, 141 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> index 57a7ed13f996..1a070df5ea12 100644
+> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> @@ -132,6 +132,16 @@
+>  #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
+>  #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
+>  
+> +enum sn65dsi83_channel {
+> +	CHANNEL_A,
+> +	CHANNEL_B
+> +};
 > +
->  # Without this cmd option, default value or zero is returned
-> -echo "Testing without --record-tpebs"
-> -result=3D$(perf stat -e "$event" true 2>&1)
-> -[[ "$result" =3D~ $event ]] || exit 1
-> +#echo "Testing without --record-tpebs"
-> +#result=3D$(perf stat -e "$event" true 2>&1)
-> +#[[ "$result" =3D~ $event || "$result" =3D~ $alt_name ]] || exit 1
-> =20
->  # In platforms that do not support TPEBS, it should execute without er=
-ror.
->  echo "Testing with --record-tpebs"
->  result=3D$(perf stat -e "$event" --record-tpebs -a sleep 0.01 2>&1)
-> -[[ "$result" =3D~ "perf record" && "$result" =3D~ $event ]] || exit 1
-> +[[ "$result" =3D~ "perf record" && "$result" =3D~ $event || "$result" =
-=3D~ $alt_name ]] || exit 1
-> diff --git a/tools/perf/util/stat-display.c b/tools/perf/util/stat-disp=
-lay.c
-> index ea96e4ebad8c8..cbff43ff8d0fb 100644
-> --- a/tools/perf/util/stat-display.c
-> +++ b/tools/perf/util/stat-display.c
-> @@ -871,38 +871,66 @@ static void printout(struct perf_stat_config *con=
-fig, struct outstate *os,
-> =20
->  static void uniquify_event_name(struct evsel *counter)
+> +enum sn65dsi83_lvds_term {
+> +	OHM_100,
+> +	OHM_200
+> +};
+> +
+>  enum sn65dsi83_model {
+>  	MODEL_SN65DSI83,
+>  	MODEL_SN65DSI84,
+> @@ -147,6 +157,10 @@ struct sn65dsi83 {
+>  	struct regulator		*vcc;
+>  	bool				lvds_dual_link;
+>  	bool				lvds_dual_link_even_odd_swap;
+> +	int				lvdsA_vod_swing_conf;
+> +	int				lvdsB_vod_swing_conf;
+> +	int				lvdsA_term_conf;
+> +	int				lvdsB_term_conf;
+>  };
+>  
+>  static const struct regmap_range sn65dsi83_readable_ranges[] = {
+> @@ -237,6 +251,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
+>  	.max_register = REG_IRQ_STAT,
+>  };
+>  
+> +static const int lvds_vod_swing_data_table[2][4][2] = {
+> +	{	/* 100 Ohm */
+> +		{ 180000, 313000 },
+> +		{ 215000, 372000 },
+> +		{ 250000, 430000 },
+> +		{ 290000, 488000 },
+> +	},
+> +	{	/* 200 Ohm */
+> +		{ 150000, 261000 },
+> +		{ 200000, 346000 },
+> +		{ 250000, 428000 },
+> +		{ 300000, 511000 },
+> +	},
+> +};
+> +
+> +static const int lvds_vod_swing_clock_table[2][4][2] = {
+> +	{	/* 100 Ohm */
+> +		{ 140000, 244000 },
+> +		{ 168000, 290000 },
+> +		{ 195000, 335000 },
+> +		{ 226000, 381000 },
+> +	},
+> +	{	/* 200 Ohm */
+> +		{ 117000, 204000 },
+> +		{ 156000, 270000 },
+> +		{ 195000, 334000 },
+> +		{ 234000, 399000 },
+> +	},
+> +};
+> +
+>  static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
 >  {
-> -	char *new_name;
-> -	char *config;
-> -	int ret =3D 0;
-> +	const char *name, *pmu_name;
-> +	char *new_name, *config;
-> +	int ret;
-> =20
-> -	if (counter->uniquified_name || counter->use_config_name ||
-> -	    !counter->pmu_name || !strncmp(evsel__name(counter), counter->pmu=
-_name,
-> -					   strlen(counter->pmu_name)))
-> +	/* The evsel was already uniquified. */
-> +	if (counter->uniquified_name)
->  		return;
-> =20
-> -	config =3D strchr(counter->name, '/');
-> +	/* Avoid checking to uniquify twice. */
-> +	counter->uniquified_name =3D true;
-> +
-> +	/* The evsel has a "name=3D" config term or is from libpfm. */
-> +	if (counter->use_config_name || counter->is_libpfm_event)
-> +		return;
-> +
-> +	/* Legacy no PMU event, don't uniquify. */
-> +	if  (!counter->pmu ||
-> +	     (counter->pmu->type < PERF_TYPE_MAX && counter->pmu->type !=3D P=
-ERF_TYPE_RAW))
-> +		return;
-> +
-> +	/* A sysfs or json event replacing a legacy event, don't uniquify. */=
-
-> +	if (counter->pmu->is_core && counter->alternate_hw_config !=3D PERF_C=
-OUNT_HW_MAX)
-> +		return;
-> +
-> +	name =3D evsel__name(counter);
-> +	pmu_name =3D counter->pmu->name;
-> +	/* Already prefixed by the PMU name. */
-> +	if (!strncmp(name, pmu_name, strlen(pmu_name)))
-> +		return;
-> +
-> +	config =3D strchr(name, '/');
->  	if (config) {
-> -		if (asprintf(&new_name,
-> -			     "%s%s", counter->pmu_name, config) > 0) {
-> -			free(counter->name);
-> -			counter->name =3D new_name;
-> -		}
-> -	} else {
-> -		if (evsel__is_hybrid(counter)) {
-> -			ret =3D asprintf(&new_name, "%s/%s/",
-> -				       counter->pmu_name, counter->name);
-> +		int len =3D config - name;
-> +
-> +		if (config[1] =3D=3D '/') {
-> +			/* case: event// */
-> +			ret =3D asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, conf=
-ig + 2);
->  		} else {
-> -			ret =3D asprintf(&new_name, "%s [%s]",
-> -				       counter->name, counter->pmu_name);
-> +			/* case: event/.../ */
-> +			ret =3D asprintf(&new_name, "%s/%.*s,%s", pmu_name, len, name, conf=
-ig + 1);
->  		}
-> +	} else {
-> +		config =3D strchr(name, ':');
-> +		if (config) {
-> +			/* case: event:.. */
-> +			int len =3D config - name;
-> =20
-> -		if (ret) {
-> -			free(counter->name);
-> -			counter->name =3D new_name;
-> +			ret =3D asprintf(&new_name, "%s/%.*s/%s", pmu_name, len, name, conf=
-ig + 1);
-> +		} else {
-> +			/* case: event */
-> +			ret =3D asprintf(&new_name, "%s/%s/", pmu_name, name);
->  		}
->  	}
-> -
-> -	counter->uniquified_name =3D true;
-> +	if (ret > 0) {
-> +		free(counter->name);
-> +		counter->name =3D new_name;
-> +	} else {
-> +		/* ENOMEM from asprintf. */
-> +		counter->uniquified_name =3D false;
-> +	}
->  }
-> =20
->  static bool hybrid_uniquify(struct evsel *evsel, struct perf_stat_conf=
-ig *config)
-> @@ -1559,6 +1587,31 @@ static void print_cgroup_counter(struct perf_sta=
-t_config *config, struct evlist
->  		print_metric_end(config, os);
->  }
-> =20
-> +static void disable_uniquify(struct evlist *evlist)
+>  	return container_of(bridge, struct sn65dsi83, bridge);
+> @@ -435,12 +479,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
+>  		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
+>  
+>  	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
+> -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
+> +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
+> +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvdsA_vod_swing_conf) |
+> +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvdsB_vod_swing_conf));
+>  	regmap_write(ctx->regmap, REG_LVDS_LANE,
+>  		     (ctx->lvds_dual_link_even_odd_swap ?
+>  		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
+> -		     REG_LVDS_LANE_CHA_LVDS_TERM |
+> -		     REG_LVDS_LANE_CHB_LVDS_TERM);
+> +		     (ctx->lvdsA_term_conf ?
+> +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
+> +		     (ctx->lvdsB_term_conf ?
+> +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
+>  	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
+>  
+>  	le16val = cpu_to_le16(mode->hdisplay);
+> @@ -576,10 +624,96 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
+>  	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
+>  };
+>  
+> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
+> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
 > +{
-> +	struct evsel *counter;
-> +	struct perf_pmu *last_pmu =3D NULL;
-> +	bool first =3D true;
+> +	int i;
 > +
-> +	evlist__for_each_entry(evlist, counter) {
-> +		/* If PMUs vary then uniquify can be useful. */
-> +		if (!first && counter->pmu !=3D last_pmu)
-> +			return;
-> +		first =3D false;
-> +		if (counter->pmu) {
-> +			/* Allow uniquify for uncore PMUs. */
-> +			if (!counter->pmu->is_core)
-> +				return;
-> +			/* Keep hybrid event names uniquified for clarity. */
-> +			if (perf_pmus__num_core_pmus() > 1)
-> +				return;
-> +		}
+> +	for (i = 0; i <= 3; i++) {
+> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
+> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
+> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
+> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
+> +			return i;
 > +	}
-> +	evlist__for_each_entry_continue(evlist, counter) {
-> +		counter->uniquified_name =3D true;
-> +	}
+> +
+> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
+> +	return -EINVAL;
 > +}
 > +
->  void evlist__print_counters(struct evlist *evlist, struct perf_stat_co=
-nfig *config,
->  			    struct target *_target, struct timespec *ts,
->  			    int argc, const char **argv)
-> @@ -1572,6 +1625,8 @@ void evlist__print_counters(struct evlist *evlist=
-, struct perf_stat_config *conf
->  		.first =3D true,
->  	};
-> =20
-> +	disable_uniquify(evlist);
+> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+> +{
+> +	struct device *dev = ctx->dev;
+> +	struct device_node *endpoint;
+> +	/* Set so the property can be freely selected if not defined */
+> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
+> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
+> +	u32 lvds_term = 200;
+> +	u8 lvds_term_conf;
+> +	int endpoint_reg;
+> +	int lvds_vod_swing_conf;
+> +	int ret = 0;
+> +	int ret_data;
+> +	int ret_clock;
 > +
->  	if (config->iostat_run)
->  		evlist->selected =3D evlist__first(evlist);
-> =20
+> +	if (channel == CHANNEL_A)
+> +		endpoint_reg = 2;
+> +	else
+> +		endpoint_reg = 3;
+> +
+> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+> +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
+> +
+> +	if (lvds_term == 200)
+> +		lvds_term_conf = OHM_200;
+> +	else
+> +		lvds_term_conf = OHM_100;
+> +
+> +	if (channel == CHANNEL_A)
+> +		ctx->lvdsA_term_conf = lvds_term_conf;
+> +	else
+> +		ctx->lvdsB_term_conf = lvds_term_conf;
 
+This sounds like ctx->lvds_term_conf[channel] = ...;
+
+And so on for other properties.
+
+> +
+> +	ret_data = of_property_read_u32_array(endpoint,
+> +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
+> +			ARRAY_SIZE(lvds_vod_swing_data));
+> +	ret_clock = of_property_read_u32_array(endpoint,
+> +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
+> +			ARRAY_SIZE(lvds_vod_swing_clk));
+> +	/* If any of the two properties is defined. */
+> +	if (!ret_data || !ret_clock) {
+
+I think it's not that easy. We were usually ignoring errors for a
+single-value properties, but for the arrays I think we should make a
+diffence between the property being not present in DT and the property
+being erroneous or not being parsed correctly.
+
+> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
+> +			lvds_vod_swing_data, lvds_vod_swing_clk,
+> +			lvds_term_conf);
+> +		if (lvds_vod_swing_conf < 0) {
+> +			ret = lvds_vod_swing_conf;
+> +			goto exit;
+> +		}
+> +		if (channel == CHANNEL_A)
+> +			ctx->lvdsA_vod_swing_conf = lvds_vod_swing_conf;
+> +		else
+> +			ctx->lvdsB_vod_swing_conf = lvds_vod_swing_conf;
+> +	}
+> +	ret = 0;
+> +exit:
+> +	of_node_put(endpoint);
+> +	return ret;
+> +}
+> +
+>  static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+>  {
+>  	struct drm_bridge *panel_bridge;
+>  	struct device *dev = ctx->dev;
+> +	int ret;
+> +
+> +	ctx->lvdsA_vod_swing_conf = 0x1;
+> +	ctx->lvdsB_vod_swing_conf = 0x1;
+> +	ctx->lvdsA_term_conf = 0x1;
+> +	ctx->lvdsB_term_conf = 0x1;
+> +
+> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
+> +	if (ret < 0)
+> +		return ret;
+>  
+>  	ctx->lvds_dual_link = false;
+>  	ctx->lvds_dual_link_even_odd_swap = false;
+> @@ -587,6 +721,10 @@ static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+>  		struct device_node *port2, *port3;
+>  		int dual_link;
+>  
+> +		ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
+> +		if (ret < 0)
+> +			return ret;
+> +
+>  		port2 = of_graph_get_port_by_id(dev->of_node, 2);
+>  		port3 = of_graph_get_port_by_id(dev->of_node, 3);
+>  		dual_link = drm_of_lvds_get_dual_link_pixel_order(port2, port3);
+> -- 
+> 2.34.1
+> 
+
+-- 
+With best wishes
+Dmitry
 
