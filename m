@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB882E74AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C67E74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 17:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4F0jl5g+w3FLRSKr0oxLSX/CTU8D/OJShDcVty3jADw=; b=isR+xsBWU3dFc7SnCOMvOC0XTH
-	6LML4CthxWJIaIbJoy1+J0AoAk/hsg49dKA6vWRYJtV+zhVdijwy3jW2I72Y44GQB2wPTw9sXKBxa
-	f0lX4vnHB/pIzNDgDQ/NirW5sIS/3Ax9i/2GGIvD7vTOAnx+JPULRw6eCXHYaIwisk0V/iRLj9O0Q
-	UyGVF6h1XuMpTBJpiyNIiGeDgSBograsT5YMeWFq1gqEOSiM+wuMLnLV/8ASL77/Bha7CWUmwHnKv
-	t6QTgivH48m8Mjec7KvoEw+d9ztlUW2zEBonWxSyBK6j4DHjgVQZZMtMNYxWAtrXJn/8tmRT+Gpy5
-	LOdbL+SA==;
+	bh=7ZrraI2kA2TOw3GAEcozWYMZfRXVKIpZZc6IZ/Oyre8=; b=zqzx6++Y1rzJEuBcuv4WesuIZL
+	W/qKScagWoY19EpR871nBHw/au2gGHvuUEWk7CMUdRcTFJlN4AH8hR8IIIt9Nvsf+0mwu/OaITiWx
+	YUHFsk14PRI3roE9gR6+v8iX6nwPiPvPD2sjGdwAGcxnFOPZhRQsLrnngSrZEGLrEsusemextvvrD
+	ew1F34dDz3ZB0sA4WcfaGu3JDioWbckLnHVJ741LIiZrWfHeJNfX7B7GUkhKj+BbSCZ/N3SoFzxoo
+	VGeAkD41HKoKlzbJ/Is3zWvESTg0c1i84ihJ//a4ojd7T4jLOcXbmdIqZ8WCBtoLskL1g4dETDybf
+	OgYtJGDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWTD-0000000ADf4-2Gob;
-	Tue, 03 Dec 2024 17:13:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIWaa-0000000AEPt-0q3p;
+	Tue, 03 Dec 2024 17:21:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVVv-0000000A3fZ-32lQ
+	id 1tIWZZ-0000000AEJ0-1peZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 16:12:40 +0000
+	Tue, 03 Dec 2024 17:20:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C087CA4177F;
-	Tue,  3 Dec 2024 16:10:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10F37C4CECF;
-	Tue,  3 Dec 2024 16:12:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ECEC45C698A;
+	Tue,  3 Dec 2024 17:19:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A538C4CECF;
+	Tue,  3 Dec 2024 17:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733242358;
-	bh=F9SO0SqK8bG1I8hFZ3skt7R6pqnnPq9qHCJHYGaW9f4=;
+	s=k20201202; t=1733246428;
+	bh=eu8MFWETCzi5mUkFpsHp3K6rE1uqUbw4E2pfuGZED5M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=igbMQ4yRi9reLImfDnJLr2BHCu1Z6F6F0e6W+TcZm5J3kPylbhM5KYLoN3bmunPN6
-	 8vVr4LryjKCdHD8Qqr93ucUmUxyyNtFF019BIvNgzInqLGkiHneY5/OTt6mxXchlIq
-	 QWDdRsfwGxrBTvC9M8mtoYz5NDXiwvVL8BJfeyUTI+gJ2TDeqBaPLBl+BIu7X6T65t
-	 BJaqYpd5wEkGSao0FoVOxlBvD3Rao/umYJvBjgiGdgFPCUfpCngS/mcWQfx0qy39m1
-	 mQv6knn+kjCqYJS2cuQPyO4QbOTd5IPBOvmpUqFl3GnPDh02o6xkNwWAKBbLNsYVxl
-	 h/R3wWZvFOjNg==
-Date: Tue, 3 Dec 2024 16:12:33 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	b=OwVM1pPTEPLNeSSEZQiHBH6Z4pCfskBgJS15+lqTzDaERICXmEXFijOJ+39t1WkDh
+	 Mmlt3qH1R2/J7kbNEBBNa8OGc8uG848l+SDnviF7uZqXjdG+6gomChXIEF/PNj4fCq
+	 5GCeweIH8jxGsQK2s4SgMyNMbL37kuMMLvFouyNks8GYnNWLHtFcvB3C2M1Utm+Pqo
+	 wGYr9QK1ZMAted2QhGKiI8EVFxEmwMJ32HyX2UToWc2UDLugOmTOsf6zIFiDXXjOLj
+	 mLANce+Qac3pq3ovswLVEsrczQCAZWTae2lEaiVvyOEdDjQTENw5PNhGigRUDjdGSs
+	 vfE8MJ/J/hVCg==
+Date: Tue, 3 Dec 2024 11:20:26 -0600
+From: Rob Herring <robh@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
 	stable@vger.kernel.org
-Subject: Re: [PATCH 5/6] arm64/signal: Avoid corruption of SME state when
- entering signal handler
-Message-ID: <537fe318-a679-4b5c-b87f-93a7812dbeca@sirena.org.uk>
-References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
- <20241203-arm64-sme-reenable-v1-5-d853479d1b77@kernel.org>
- <Z08kvi0znVM2RHx4@e133380.arm.com>
+Subject: Re: [PATCH] dt-bindings: soc: fsl: cpm_qe: Limit matching to nodes
+ with "fsl,qe"
+Message-ID: <20241203172026.GA1988559-robh@kernel.org>
+References: <20241202045757.39244-1-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+lgisz515vzeuI55"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z08kvi0znVM2RHx4@e133380.arm.com>
-X-Cookie: Alimony is the high cost of leaving.
+In-Reply-To: <20241202045757.39244-1-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_081239_828182_7EDB66AE 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20241203_092029_563912_99886119 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Dec 02, 2024 at 12:57:55PM +0800, Chen-Yu Tsai wrote:
+> Otherwise the binding matches against random nodes with "simple-bus"
+> giving out all kinds of invalid warnings:
+> 
+>     $ make CHECK_DTBS=y mediatek/mt8188-evb.dtb
+>       SYNC    include/config/auto.conf.cmd
+>       UPD     include/config/kernel.release
+>       SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+>       DTC [C] arch/arm64/boot/dts/mediatek/mt8188-evb.dtb
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible:0: 'fsl,qe' was expected
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: compatible: ['simple-bus'] is too short
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:compatible:0: 'fsl,qe-ic' was expected
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:reg: [[0, 201326592, 0, 262144], [0, 201588736, 0, 2097152]] is too long
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000:#interrupt-cells:0:0: 1 was expected
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: interrupt-controller@c000000: '#redistributor-regions', 'ppi-partitions' do not match any of the regexes: 'pinctrl-[0-9]+'
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'reg' is a required property
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+>     arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: soc: 'bus-frequency' is a required property
+> 	    from schema $id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe.yaml#
+> 
+> Fixes: ecbfc6ff94a2 ("dt-bindings: soc: fsl: cpm_qe: convert to yaml format")
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: <stable@vger.kernel.org> # v6.11+
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+>  .../devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml        | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
+> index 89cdf5e1d0a8..9e07a2c4d05b 100644
+> --- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
+> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe.yaml
+> @@ -21,6 +21,14 @@ description: |
+>    The description below applies to the qe of MPC8360 and
+>    more nodes and properties would be extended in the future.
+>  
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: fsl,qe
+> +  required:
+> +    - compatible
 
---+lgisz515vzeuI55
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Update your dtschema. The select is no longer necessary. dtbs_check will 
+also run 5x faster.
 
-On Tue, Dec 03, 2024 at 03:33:18PM +0000, Dave Martin wrote:
-> On Tue, Dec 03, 2024 at 12:45:57PM +0000, Mark Brown wrote:
-
-> > +	get_cpu_fpsimd_context();
-
-> > +		if (current->thread.svcr & SVCR_SM_MASK) {
-> > +			memset(&current->thread.uw.fpsimd_state.vregs, 0,
-> > +			       sizeof(current->thread.uw.fpsimd_state.vregs));
-
-> Do we need to hold the CPU fpsimd context across this memset?
-
-> IIRC, TIF_FOREIGN_FPSTATE can be spontaneously cleared along with
-> dumping of the regs into thread_struct (from current's PoV), but never
-> spontaneously set again.  So ... -> [*]
-
-Yes, we could drop the lock here.  OTOH this is very simple and easy to
-understand.
-
-> > +		/* Ensure any copies on other CPUs aren't reused */
-> > +		fpsimd_flush_task_state(current);
-
-> (This is very similar to fpsimd_flush_thread(); can they be unified?)
-
-I have a half finished series to replace the whole setup around
-accessing the state with get/put operations for working on the state
-which should remove all these functions.  The pile of similarly and
-confusingly named operations we have for working on the state is one of
-the major sources of issues with this code, even when actively working
-on the code it's hard to remember exactly which operation does what
-never mind the rules for which is needed.
-
---+lgisz515vzeuI55
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdPLfEACgkQJNaLcl1U
-h9BKOAf+MLS0FpEuVDT0jpRdE+xAaBTIboWgjMz8CcNXxOEGRn3n7smri5xV50BH
-Lvvp8PMP9DsUOxWqAAq7MxgEpo1aXopGH1oc84zjtzOD/rl+MQDlxFcS6jOM1dCf
-oI9bemAyeqxTT79KiPVTptC20e+VcCDeHM/7hXA1gqGPXz/07sdpgT9ZBX2KCdEI
-JD6hdVNzFlj/6Fjy7Awgu9WiqOA8oxjqO3NKgrJMbtdnMlm4SP4O1BX9KPgS35K6
-w0rIXthg3E5B1q53ry+07iAhAUA9CgpiKnKTzRe6W0ogv47mtp6FZa9wUcnBz6RM
-+vtgOU1CAStCu8pO5UeeO+kv1MSjxA==
-=TKmL
------END PGP SIGNATURE-----
-
---+lgisz515vzeuI55--
+Rob
 
