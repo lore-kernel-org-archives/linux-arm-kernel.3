@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575C6E69E9F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 11:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D868E69EA6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 11:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v5s2Bc9I/+zhb1FDDfvQB2F5GJhDWBP0MDpL2zjYIbA=; b=BmZBM6K+YqsHUqDkX0yg9w7HS+
-	fyY9CosbOk57CTsU/dj0PLnQNg1mg4ittcd9p01n0ioMbCmd/rQotoJRlKpQG7ZKIoQT2kZ2WeFrJ
-	+8WSW4QNYdUl+eDzYAR4W2llmRHSyfW8b5qyHRr8N7SkHcJ9UPzPs7qL0ZuojKoN6zR7cr6bviwng
-	qe2nyohMvTZlO/G6/bdun8r4Z0qWYqJjmhxYOcDhyNUz7U3/ayUf84cONOKGyXKC3tAaUuE5vp+ns
-	ltc9YhipETpgMAb4QTSjzy40KqLmPltHbJLEw/xJ8YaTh3ACXRKs3zq6aqqZYpKz+XhKD+sh46rTe
-	E5rVQGVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jOrlgDBwSC9mM8oelPeMw0+wbuO3Fb+HA9uerFd0F1M=; b=yPiTeGHDtnUepc
+	QR2iczz3R2gU/Tq4lz1BCO1NLzOQc3ee1x6M8sUdvO2hnuYLQKFtaBRPatYaobE9Kzu4s3G3jCnIN
+	2ZOCTPWmkQ187bg3/RHg1kGCeN6TaYZ/oT/yIa1VXnFtgG578jx5jPQnQrMx8GZnkCnOCv17t6h/s
+	Lm07/pn710XBA+lG6/shGRvR5NGPIhe3bsVdg3j+rbeTr6bfi0OAXmrMUaeL6Le4aXGYoInIjnWzW
+	LUdFcARnlll76Fvw/s8KVXWbV1M2GfKfJxLwVF6oe4XfoKDX8tOdNL4UY8J2x4MNWf3CD7iKvoGby
+	ZuviF4Aw6JmiuxOXq8mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQk2-00000009CMI-2HW1;
-	Tue, 03 Dec 2024 11:06:54 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIQUq-000000098wE-2mBb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 10:51:14 +0000
-X-CSE-ConnectionGUID: dnEh4QHzS/G6FrHe7XWF3g==
-X-CSE-MsgGUID: vrghDf0tTNeQ1BHutAf9/w==
-X-IronPort-AV: E=Sophos;i="6.12,204,1728918000"; 
-   d="scan'208";a="226779526"
-Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie5.idc.renesas.com with ESMTP; 03 Dec 2024 19:51:07 +0900
-Received: from localhost.localdomain (unknown [10.226.93.2])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 773DE40031FE;
-	Tue,  3 Dec 2024 19:50:54 +0900 (JST)
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Biju Das <biju.das.au@gmail.com>,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 13/13] arm64: defconfig: Enable R9A09G047 SoC
-Date: Tue,  3 Dec 2024 10:49:40 +0000
-Message-ID: <20241203105005.103927-14-biju.das.jz@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241203105005.103927-1-biju.das.jz@bp.renesas.com>
-References: <20241203105005.103927-1-biju.das.jz@bp.renesas.com>
+	id 1tIQl0-00000009CeM-2pxW;
+	Tue, 03 Dec 2024 11:07:54 +0000
+Received: from mout.gmx.net ([212.227.17.20])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIQVd-0000000994A-05pu;
+	Tue, 03 Dec 2024 10:52:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1733223114; x=1733827914; i=frank-w@public-files.de;
+	bh=jOrlgDBwSC9mM8oelPeMw0+wbuO3Fb+HA9uerFd0F1M=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=iOEWZZCiy9t2Oxr7wLKHTBi/lyeg9Upo0+HyO79C5O6or06CDFFkIR2eAQIRq/L2
+	 RZwV0HSt/CQ5uNQSYhJ0kffb0icLv516fhLiXh1m3qEvTTvKDnrL+amuMiD3UHJ6y
+	 it7qgITWliH74N0fDCgeuNPJgJZ5llFux1LvDybqNmALvNllmW75wzZqaos7IcCdG
+	 l+xdDQ+deqH+U0yRJgTYH3jJzq7a80iTsKgpaY1QkFqrSk7scvQE2P36oJiVzA8YO
+	 QAoHmxbJT5tVmXZRMWSajVGTuIiopptqAyImjv/HJq8LWZdCHRkxebwfvQQ9RV6bu
+	 Dxq6xw/G69Xjlyi9EQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([157.180.225.184]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M8hZJ-1tN7TU3eEb-00HJha; Tue, 03
+ Dec 2024 11:51:53 +0100
+Date: Tue, 03 Dec 2024 11:51:54 +0100
+From: Frank Wunderlich <frank-w@public-files.de>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+CC: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_03/18=5D_arm64=3A_dts=3A_mediatek=3A_?=
+ =?US-ASCII?Q?mt7988=3A_add_fixed_regulators_for_1v8_and_3v3?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <016b77dc-2d33-4639-b241-2574ad877971@collabora.com>
+References: <20241202122602.30734-1-linux@fw-web.de> <20241202122602.30734-4-linux@fw-web.de> <016b77dc-2d33-4639-b241-2574ad877971@collabora.com>
+Message-ID: <371B3F0C-D468-45C8-B1F6-F4619B7C72DD@public-files.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:AVZ5ZUm8ptySUab2O2As99HWvCQXqqik2NguTeurSgHy51Tzxde
+ vlfJK6+tcdhrqDgfilpQGR9fkBnPhhrXzeXLiGPAx5aglfRyqtjlD84KvLhHLWUerAye2e2
+ UU+8GUTwnyt7Zb8cYf8TRmBO+KBD/JnT7ChJFYsBKoL1BIdscZYgxSAV7whKhigx1XML4MF
+ 0byLMKqzKMDn9Q1VO08ZA==
+UI-OutboundReport: notjunk:1;M01:P0:RWkNNlChsdE=;rocX9nU54qiIa+fq9H7GdY62buo
+ nl7nEx7rz587xlZ9MxauS/Ih5pM8w36fKob9HPdpZu9wSPFzl5GSwPKhsIpEqHuwtNGV0hfU3
+ tTIOlQFVlJ/0p3PurWja9HHIwjc+iGarGOVm91HIhUeWoZaMB1b9I1RydV2yWkDVEwCcRyUSG
+ bWhmXScFez/uzpTqFIS07OjVyQSW5fr8YN43rBhmvzbHrthsdcFyZWo0R2q3KhGkvEJSYOnsX
+ 0FyvbZ8bLj76Ned3xb+cO0GojM9IujJbcqKtSOU0OZbcRIDL+bmt0mIgd02H0Dda51VmGhH9c
+ 07c6M/4ujoK6q07GD+d7esyGW1ao88QD95zFrKqBgTmXnOBEQECdMQTVciTcJAIR44uYxI28B
+ WtQ+GDNPeSwpcj3BfnuqND9e8ibXYOxUkrkh3OLijGFXJbHUcfHcXwUFdPpY3zSV+HkpjxS3S
+ M28pSZ++f9JfzM/IYd0YqS/YrN62NusypkYaXcBumMjZct9siYFGJhgN84WNxOWPjKJ9BAqNH
+ VaEgElqmWDBBD9VisFFNtcULy8zfSbAE/2bal6hIpCZ4G2yLTPUpLDd9/oajF6StU6A0L6HJz
+ /vPWlRdm97yXSw5nhnd47W2atuqxEI+9Us6d2vt5gyrJ8+sJc+NuI/j51FWAPYZrQsdojMElN
+ eel3hxXJsMLvyl33kLngwikF+i2Jybca4WlYIy7+TFx9eWg5G4po9Y4t0eUCPelagumoF3bg3
+ E9ulxye8Wo0IG2PwNamtZ87VqlTth7BSZI82eGCdlYUFYNfThUEQdTGuLomZlOTpDfKIhByZd
+ AscxHRMU0nEUcu2fex0jjBjg6bXHOpEGqB8o7o62tqQIQrCath4gXSl1fbeDq03NiggCGteuP
+ YWxK6VJ0eOC843vp6HPWmdyqWGUdADbOY4EUcSKA1iTqzmH44WOkrIhwqsMROS2Kp5+oK+6jH
+ 3J+fCVLfnvUkvm+51W6LPaGzCvJVMqsPv/Y9XOzttBm9iqXyIGCe3MBu47nzQ66qUMbRQQTO4
+ yFq3dYZC9eP7P9xnuTDjH1qxYHqv9uLBHU5WYeli0QIXZufE3NiqRwIN8XWy0RjByHAP5oFvS
+ HhZLXRpPx9RJbtAGTI6CKo04czMaPn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_025112_814002_B8E069DF 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_025201_354858_F7FDC806 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +97,97 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable support for the Renesas RZ/G3E (R9A09G047) SoC in the ARM64
-defconfig.
+Am 3=2E Dezember 2024 10:40:54 MEZ schrieb AngeloGioacchino Del Regno <ange=
+logioacchino=2Edelregno@collabora=2Ecom>:
+>Il 02/12/24 13:25, Frank Wunderlich ha scritto:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>=20
+>> Add regulator nodes used for mmc to Bananapi R4 board=2E
+>>=20
+>> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
+>
+>If you're adding the eMMC regulators, I assume that there's an eMMC, or t=
+hat even
+>if there's no device in some version of the board, these two regulators a=
+re always
+>assigned to the eMMC device - right?
 
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-v1->v2:
- * No change.
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Like BPi-R3 there is one mmc controller mapped to either sd or emmc=2E I c=
+an move the regulators to the dtbo,but then they are defined twice (at leas=
+t 3v3)=2E
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index d13218d0c30f..a14d48444bd8 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1458,6 +1458,7 @@ CONFIG_ARCH_R9A07G044=y
- CONFIG_ARCH_R9A07G054=y
- CONFIG_ARCH_R9A08G045=y
- CONFIG_ARCH_R9A09G011=y
-+CONFIG_ARCH_R9A09G047=y
- CONFIG_ARCH_R9A09G057=y
- CONFIG_ROCKCHIP_IODOMAIN=y
- CONFIG_ARCH_TEGRA_132_SOC=y
--- 
-2.43.0
+>You should, at this point, do exactly that: you can leave the mmc0 disabl=
+ed and
+>only enable it in a DTBO=2E
 
+I enable it only in dtbo=2E=2E=2E
+
+>&mmc0 {
+>	/* eMMC gets enabled by DTBO if present */
+>	vmmc-supply =3D <&reg_3p3v>;
+>	vqmmc-supply =3D <&reg_1p8v>;
+>};
+
+Problem is here that sdcard uses only the 3v3 twice
+
+https://github=2Ecom/frank-w/BPI-Router-Linux/blob/6=2E12-main/arch/arm64/=
+boot/dts/mediatek/mt7988a-bananapi-bpi-r4-sd=2Edtso
+
+And emmc needs both
+
+https://github=2Ecom/frank-w/BPI-Router-Linux/blob/6=2E12-main/arch/arm64/=
+boot/dts/mediatek/mt7988a-bananapi-bpi-r4-emmc=2Edtso
+
+Only defining the vmmc-supply in dts and set only the other in dtso is pos=
+sible but but imho not nice=2E
+
+>Cheers,
+>Angelo
+>
+>> ---
+>> v2:
+>> - move mmc regulators to board dts of bpi-r4
+>> ---
+>>   =2E=2E=2E/dts/mediatek/mt7988a-bananapi-bpi-r4=2Edts   | 18 +++++++++=
++++++++++
+>>   1 file changed, 18 insertions(+)
+>>=20
+>> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4=2Edts=
+ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4=2Edts
+>> index d914eae2b524=2E=2Edf53512c6890 100644
+>> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4=2Edts
+>> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4=2Edts
+>> @@ -8,6 +8,24 @@ / {
+>>   	compatible =3D "bananapi,bpi-r4", "mediatek,mt7988a";
+>>   	model =3D "Banana Pi BPI-R4";
+>>   	chassis-type =3D "embedded";
+>> +
+>> +	reg_1p8v: regulator-1p8v {
+>> +		compatible =3D "regulator-fixed";
+>> +		regulator-name =3D "fixed-1=2E8V";
+>> +		regulator-min-microvolt =3D <1800000>;
+>> +		regulator-max-microvolt =3D <1800000>;
+>> +		regulator-boot-on;
+>> +		regulator-always-on;
+>> +	};
+>> +
+>> +	reg_3p3v: regulator-3p3v {
+>> +		compatible =3D "regulator-fixed";
+>> +		regulator-name =3D "fixed-3=2E3V";
+>> +		regulator-min-microvolt =3D <3300000>;
+>> +		regulator-max-microvolt =3D <3300000>;
+>> +		regulator-boot-on;
+>> +		regulator-always-on;
+>> +	};
+>>   };
+>>     &pio {
+>
+>
+
+
+regards Frank
 
