@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5A2E64ABB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1C5E64ABB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 15:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3axE8hWFEOAcBbBVlVC5J9i71o0iCzSmsJDKDt+tz5A=; b=gDtXVp4N9LYXeTZ4TLskmsa64V
-	SBWIzLyiAQPUjWYpzpafI4pxraJw2yaJu/5z+lARj9PQUk+E1lTI4W2AhhDzGj+fPx6U8uEtcbZ1x
-	oQW70On+cjTjQa0OFJgyECTmWrdL8r+DVOX/4d74LiztMZPKINE0i08ArjeTpOhgQTtox0UznJOkq
-	pDYExK3PmoCfIBmEPsnTwrIfnAnkPD1kd0d9QPxtughKqovc12oBserhWE00QsZ+6F6J5d3f0irOl
-	L47dpkBIb1lvVFyb6FF14CRBVleXLCis1V8h+OaD4o/n0m85wOIwNuiGJ191Uidrc8Gq5EHttKxGa
-	ISLc8qSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7JXue3TltHvVyJp/X83GPnii6v8vLThHqmwjgC6myYA=; b=gPmQs+71ITpmeVwKV7GgsBBNdJ
+	tuX63AIAvgf8wJdc+M1RdW9yZwjtiaG8pPm+/vNNtzQWm40Mu1XSymiYBjEtCENTJ+jNIphRY3Syj
+	aeIbqJCSP3ZqmAICyO4/uOHsGJ/t9PWaf5FuP9O1Jr/V8MyXjERwxmc4zkHCkm1eDxKPI1n/HUepc
+	f/U8DALPWAa4epTztR+VCYRCU7zPOgAi6PGAc+in5f2exOkFGQMLrEs3czetDL//sHgKT6h8Ouh4Y
+	srzZeVywvUM7EdMVL818hZ/yVppYmhZFxJaT7r5aDiCIY+Y+nzSnVdPpCYBMe8SqzR1YgM/ZhgORm
+	2HXS+tKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUkX-00000009uos-0xTZ;
-	Tue, 03 Dec 2024 15:23:41 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1tIUpa-00000009vUf-3PhN;
+	Tue, 03 Dec 2024 15:28:54 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUjW-00000009ugy-3TJe
+	id 1tITq0-00000009leO-3pFH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 15:22:40 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-72577d3b026so1842057b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 07:22:38 -0800 (PST)
+	Tue, 03 Dec 2024 14:25:18 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d0ca0f67b6so4592085a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 06:25:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733239357; x=1733844157; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3axE8hWFEOAcBbBVlVC5J9i71o0iCzSmsJDKDt+tz5A=;
-        b=tR2/xHEIDuYlDTlzsvFkvYp1lsjmq/CWm+k9593LTBz5xVtwWnrjsWON0qUqlZ4NZ2
-         hlSqhxkj26uXSphbdl4zMZMEPqZ7XnwdN9pwNcDzw77qGXLYdarsCLSwNREHi2o6hZqu
-         NurjCGMW3e8Ya2/APyTbGtXlxKs2G//up6esWEetsYxHlNDMlcMFlArsZx/OZUpG9Xy7
-         Is8PoDMcPQQoiwaxCja4mK28mkE1Rl5kzp6/nsBKAYtanUF6OsDTfUEkNMn3KPdMofts
-         FdPQ3veHWUI7qKmnzXmxh4s31EzL3YOXAbsiyzKMxMMUkbz8TBzJGEMz4+vDUZhnvLJ0
-         GDLQ==
+        d=linaro.org; s=google; t=1733235915; x=1733840715; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7JXue3TltHvVyJp/X83GPnii6v8vLThHqmwjgC6myYA=;
+        b=Aay/cCketCDzXn23nW9BIK2lrFXmmuHPluB0rpTryUVWMMXiUqAGlQocIXxNWDmZly
+         fyfYylEbob1wTBbylZxtwqARChLihS9ggTPJraUQePdjP6USLv06J4pNtKMPO98EzEOc
+         yHlkEinpVUipmYAUu/gUdJyqMtgeG63pStnyiM4Hg5wm+t5y3izXhfXtKBDS5MsJ8Du+
+         hPYTbfOxkSj7zMJzdVARJp0RJpILrn/z4t3o2yHc2FOitky47LMzkj9QKxj6ochLuMIN
+         6CxYTXQfOyKva4ZIu4xbx183qxpNsGPKHBSWevivyDE2Z2J1GoLfUBnlbvCmuQ4k+2v0
+         Ldxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733239357; x=1733844157;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1733235915; x=1733840715;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3axE8hWFEOAcBbBVlVC5J9i71o0iCzSmsJDKDt+tz5A=;
-        b=Jn1ptthFicWxp+dHBk+uMZYhf+GivBWY0viHCc55fAV4+qZz8v5VGHTAlreSju4clD
-         MpHDSMI+23eF0qmABZ9kAkzdMJLhQsBcLMnOag+erBlcogc475c+Gwl//Gm2tdaRaWT5
-         Gfkt3gscXsXmwjL6s8nQXE2XsgDoE+XAhEff74zKlb6HMiXyZ1Cv2aH4N6GYTc7fboHJ
-         vT3uu22rZB1E16JyfmMNucPwCjRebZXp7OqsmS1CPMGnzxNqYvcUWgSK050SikwyDnBa
-         nNK8aQ0q1B3emZ5SNxvdz5vlQFc7nRqeNvPzMGNhcd6fzvPtB44+SHW6N0DARxbohfxf
-         6a1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV8ze/R1tlFmkU+NzKxU8UBAmSzrXfKJPxXEyRGSVF6Oo7IigPBabgvg0HdnJ1wlqPrIZE3lcs6ADG83wgZcXXE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOGvQEaSfxMHIdG+4p8oOg2iEVU4EQf4U7f4rGrSVisoFg4iNp
-	xBd1K5myBT6YFky7UN4yAgUpRM/H122VNXXBcK8sXa7q87j69kgkt4zvZjSisw==
-X-Gm-Gg: ASbGncutcj0IbxX1RfYP0IJr6cdFR6DVekoAErNn3usLiBZQJb0C1CofgzLynMCxFSh
-	L+dnHGkxDrHYtkU9hjNvHH2lbClUegn8sgmJ2pdsF/sWw9BtoH1oPJaH+MiQvL2JF13br39r2+X
-	0lcXJAsGaBI0G6pny+oZ2SxUvxFukBgXBaSWJSfptpedkHE8vuI/uldjrrO6exeq6r5PQKXn0Rf
-	O7sGH06pOy/zkRwxriRCsmLD+rJXJKmXpVmrSY4gtB6GVyrGVahMZha2TpB
-X-Google-Smtp-Source: AGHT+IEZzaiAa/sDP0NIqy+9CcPtC9S0iqjWkUM0fW3/+Qg2jpqxzNaED37DXLoNtAbdVeskjdanNg==
-X-Received: by 2002:a05:6a00:1826:b0:71e:74bf:6b1a with SMTP id d2e1a72fcca58-7257fcae158mr3814643b3a.16.1733239357479;
-        Tue, 03 Dec 2024 07:22:37 -0800 (PST)
-Received: from thinkpad ([120.60.48.217])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7254176f8f9sm10906738b3a.66.2024.12.03.07.22.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 07:22:37 -0800 (PST)
-Date: Tue, 3 Dec 2024 20:52:30 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, cassel@kernel.org,
-	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
- STM32MP25
-Message-ID: <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-5-christian.bruel@foss.st.com>
+        bh=7JXue3TltHvVyJp/X83GPnii6v8vLThHqmwjgC6myYA=;
+        b=RUKkvGnJakOw85d2XSZd1Ad/qgjBSv2TZKWaNKCJST6IfYd9Bw0NOLrTVqOd4x5imC
+         mZBAvrsGAoTIKQ/RQ+01LJRtWW5h9Q679o64/Li0d6NiqFwk7zBlv9uBTNBYGWyt/36+
+         tjxRW2t2a77b4/hISFkcFOe/GaM0++9GvLvwzxr4hTVsTUAikVzYopLuetY9H0G8KxdI
+         kebLg6wabFHXC+7jpv4om/GMsvJPx0Zd7kDLMQleQAOl3cJFNae/8yQjcMynEkMCi8Sp
+         63vI8uU+sbnwu+MjyrDRYIIoP5rHff+cLHNVQgx1FEBlYImjPoGTbcB3XUM+WdyJ+qLH
+         3CAQ==
+X-Gm-Message-State: AOJu0YzUl5AFO7eCPc2TLM0dxMViXGyZYNfBpd5S3t5hYT4JyjK0J493
+	9r9plWy4oEDfOJFBULnSjzupaX5TT/RWGIscE49bXCydoSsFjp7LvfJRITj3oAo=
+X-Gm-Gg: ASbGncvLH2eMq94IJrguFzut4R3oLCOLfATQVZoGjiPRLSQPfSRNtI5CNWwHxjJJ2Ua
+	3y7Obqv2RM/31fCs6UHPBI0CHHQBt2z0J6Ujdh5WJ1vuAMwCmyZeOwaLCJjoaaqKu99R68HEILr
+	Hk1h+kMXNS+Y9rgUcAXzfxNDEA2xgaM+eW65q0aH7m+zT7OtNnO6st/BADBsfPih2+GJspjHduk
+	eckmE82qbFGpSQO4V37AtCKChLUER0X+sLClhqWc+/C5TkkZzBvxZ/xdv8y
+X-Google-Smtp-Source: AGHT+IFIxu8ZzCLpP/amf7heIGeGIUDYobsi38i+g/Et8m/9aQEZpmJdp8qSKytKJiJPb4+JiCrUhg==
+X-Received: by 2002:a05:6402:5252:b0:5cf:3dc3:7a3f with SMTP id 4fb4d7f45d1cf-5d10cb4f105mr1790880a12.5.1733235914954;
+        Tue, 03 Dec 2024 06:25:14 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.200])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d0e9bba5c2sm2556557a12.8.2024.12.03.06.25.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Dec 2024 06:25:13 -0800 (PST)
+Message-ID: <9cb1ef5e-eb61-4177-a039-4049850196a5@linaro.org>
+Date: Tue, 3 Dec 2024 14:25:12 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241126155119.1574564-5-christian.bruel@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 8/9] coresight: tools: Add configuration table test
+ tools
+To: Mike Leach <mike.leach@linaro.org>, coresight@lists.linaro.org,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, Leo Yan <leo.yan@arm.com>
+References: <20241127134256.2254851-1-mike.leach@linaro.org>
+ <20241127134256.2254851-9-mike.leach@linaro.org>
+Content-Language: en-US
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241127134256.2254851-9-mike.leach@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_072238_872767_22A18911 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20241203_062516_960270_AFEF123F 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,194 +101,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
+
+
+On 27/11/2024 1:42 pm, Mike Leach wrote:
+> Add an example config table generator to test loading configuration
+> tables.
+> 
+> Provides a table buffer writer function that can be re-used in other
+> userspace programs.
+> 
+> Table write format matches that expected by the corresponding reader
+> in the configfs driver code.
+> 
+> Generates tables and outputs in form of binary files.
+> 
+> Add a config table file reader and printer. Takes in config table files
+> and prints the contents. Uses table reader source from kernel driver.
+> 
+> Signed-off-by: Mike Leach <mike.leach@linaro.org>
+> ---
+>   MAINTAINERS                                   |   1 +
+>   .../coresight/coresight-config-table.h        |   5 +
+
+Hi Mike,
+
+Isn't there some convention about maintaining a copy of kernel headers 
+in the tools? Especially as you wouldn't rebuild the tools after 
+updating the kernel headers so breakages might go unnoticed.
 
 [...]
 
-> +static int stm32_pcie_start_link(struct dw_pcie *pci)
-> +{
-> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
-> +	int ret;
 > +
-> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
-> +		dev_dbg(pci->dev, "Link is already enabled\n");
-> +		return 0;
-> +	}
-> +
-> +	ret = stm32_pcie_enable_link(pci);
-> +	if (ret) {
-> +		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
-> +		return ret;
-> +	}
+> +/*
+> + * sets of presets leaves strobing window constant while varying period to allow
+> + * experimentation with mark / space ratios for various workloads
+> + */
+> +static u64 afdo_set_a_presets[AFDO_NR_PRESETS][AFDO_NR_PARAM_SUM] = {
+> +	{ 2000, 100 },
+> +	{ 2000, 1000 },
+> +	{ 2000, 5000 },
+> +	{ 2000, 10000 },
+> +	{ 4000, 100 },
 
-How the REFCLK is supplied to the endpoint? From host or generated locally?
+The comment above here looks like its for example1, this one does vary 
+the window size.
 
-> +
-> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_ENABLED;
-> +
-> +	enable_irq(stm32_pcie->perst_irq);
-> +
-> +	return 0;
-> +}
-> +
-> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
-> +{
-> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
-> +
-> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_DISABLED) {
-> +		dev_dbg(pci->dev, "Link is already disabled\n");
-> +		return;
-> +	}
-> +
-> +	disable_irq(stm32_pcie->perst_irq);
-> +
-> +	stm32_pcie_disable_link(pci);
-> +
-> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_DISABLED;
-> +}
-> +
-> +static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
-> +				unsigned int type, u16 interrupt_num)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-> +
-> +	switch (type) {
-> +	case PCI_IRQ_INTX:
-> +		return dw_pcie_ep_raise_intx_irq(ep, func_no);
-> +	case PCI_IRQ_MSI:
-> +		return dw_pcie_ep_raise_msi_irq(ep, func_no, interrupt_num);
-> +	default:
-> +		dev_err(pci->dev, "UNKNOWN IRQ type\n");
-> +		return -EINVAL;
-> +	}
-> +}
-> +
-> +static const struct pci_epc_features stm32_pcie_epc_features = {
-> +	.msi_capable = true,
-> +	.align = 1 << 16,
+Probably only example2 is enough, I assumed they were different but 
+example2 is basically the same as example1 with an extra preset list. We 
+could comment that the second preset list is optional and delete 
+example1. Saves people reading more and wondering what the difference is.
 
-Use SZ_64K
+I tried to make an example that doesn't use an existing feature by 
+reacreating afdo from scratch which I thought would be a good example. 
+It's pasted at the end. I had to copy paste the ETMv4 macros and 
+constants though, I couldn't include them in the userspace generator 
+because of this error:
 
-> +};
-> +
+   coresight-config.h:10:10: fatal error: linux/coresight.h: No such 
+file
+   or directory
+    10 | #include <linux/coresight.h>
 
-[...]
+I also got this error when loading it:
 
-> +static int stm32_add_pcie_ep(struct stm32_pcie *stm32_pcie,
-> +			     struct platform_device *pdev)
-> +{
-> +	struct dw_pcie *pci = stm32_pcie->pci;
-> +	struct dw_pcie_ep *ep = &pci->ep;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
-> +				 STM32MP25_PCIECR_TYPE_MASK,
-> +				 STM32MP25_PCIECR_EP);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret < 0) {
-> +		dev_err(dev, "pm runtime resume failed: %d\n", ret);
-> +		return ret;
-> +	}
+Unable to handle kernel NULL pointer dereference at virtual address 
+0000000000000008
 
-You might want to do runtime resume before accessing regmap.
+cscfg_reset_feat (drivers/hwtracing/coresight/coresight-config.c:64 
+coresight-config.c:124) coresight
+cscfg_load_config_sets 
+(drivers/hwtracing/coresight/coresight-syscfg.c:217 
+coresight-syscfg.c:262 coresight-syscfg.c:492 coresight-syscfg.c:610) 
+coresight
+cscfg_dyn_load_cfg_table 
+(drivers/hwtracing/coresight/coresight-syscfg-configfs.c:294) coresight
+cscfg_cfg_load_table_write 
+(drivers/hwtracing/coresight/coresight-syscfg-configfs.c:799) coresight
+configfs_release_bin_file (fs/configfs/file.c:415)
+__fput (fs/file_table.c:432)
+__fput_sync (fs/file_table.c:517)
+__arm64_sys_close (fs/open.c:1568 fs/open.c:1550 fs/open.c:1550)
+invoke_syscall (arch/arm64/kernel/syscall.c:? 
+arch/arm64/kernel/syscall.c:49)
+el0_svc_common (include/linux/thread_info.h:127 
+arch/arm64/kernel/syscall.c:140)
+do_el0_svc (arch/arm64/kernel/syscall.c:152)
 
-> +
-> +	reset_control_assert(stm32_pcie->rst);
-> +	reset_control_deassert(stm32_pcie->rst);
-> +
-> +	ep->ops = &stm32_pcie_ep_ops;
-> +
-> +	ret = dw_pcie_ep_init(ep);
-> +	if (ret) {
-> +		dev_err(dev, "failed to initialize ep: %d\n", ret);
-> +		goto err_init;
-> +	}
-> +
-> +	ret = stm32_pcie_enable_resources(stm32_pcie);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable resources: %d\n", ret);
-> +		goto err_clk;
-> +	}
-> +
-> +	ret = dw_pcie_ep_init_registers(ep);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to initialize DWC endpoint registers\n");
-> +		goto err_init_regs;
-> +	}
-> +
-> +	pci_epc_init_notify(ep->epc);
-> +
-> +	return 0;
-> +
-> +err_init_regs:
-> +	stm32_pcie_disable_resources(stm32_pcie);
-> +
-> +err_clk:
-> +	dw_pcie_ep_deinit(ep);
-> +
-> +err_init:
-> +	pm_runtime_put_sync(dev);
-> +	return ret;
-> +}
-> +
-> +static int stm32_pcie_probe(struct platform_device *pdev)
-> +{
-> +	struct stm32_pcie *stm32_pcie;
-> +	struct dw_pcie *dw;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
-> +	if (!stm32_pcie)
-> +		return -ENOMEM;
-> +
-> +	dw = devm_kzalloc(dev, sizeof(*dw), GFP_KERNEL);
-> +	if (!dw)
-> +		return -ENOMEM;
 
-Why can't you allocate it statically inside 'struct stm32_pcie'?
+So I'm wondering if we can do the same thing by setting values via 
+individual files rather than one binary blob which would avoid some of 
+these issues. From what I understand the feature params can already be 
+set directly this way via 
+/sys/kernel/config/cs-syscfg/features/strobing/params/period/value
 
-> +
-> +	stm32_pcie->pci = dw;
-> +
-> +	dw->dev = dev;
-> +	dw->ops = &dw_pcie_ops;
-> +
-> +	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
-> +	if (IS_ERR(stm32_pcie->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
-> +				     "No syscfg specified\n");
-> +
-> +	stm32_pcie->phy = devm_phy_get(dev, "pcie-phy");
-> +	if (IS_ERR(stm32_pcie->phy))
-> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
-> +				     "failed to get pcie-phy\n");
-> +
-> +	stm32_pcie->clk = devm_clk_get(dev, NULL);
-> +	if (IS_ERR(stm32_pcie->clk))
-> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
-> +				     "Failed to get PCIe clock source\n");
-> +
-> +	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
-> +	if (IS_ERR(stm32_pcie->rst))
-> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
-> +				     "Failed to get PCIe reset\n");
-> +
-> +	stm32_pcie->perst_gpio = devm_gpiod_get(dev, "reset", GPIOD_IN);
-> +	if (IS_ERR(stm32_pcie->perst_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
-> +				     "Failed to get reset GPIO\n");
-> +
-> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+We'd have to add a way to add new configs with a mkdir, then the same
+things can be configured without needing an additional tool. Links 
+between features and configs can be done with symlinks which is also 
+mentioned in the configfs docs.
 
-Hmm, so PHY mode is common for both endpoint and host?
+Something like this would be a bit like the current version:
 
-- Mani
+  # ls /config/cs-syscfg
+  configurations
+  features
 
--- 
-மணிவண்ணன் சதாசிவம்
+  # mkdir /config/cs-syscfg/features/my_config
+  # ls /config/cs-syscfg/features/my_config
+  description
+  matches
+  regs_desc
+  params
+
+  # mkdir /config/cs-syscfg/features/my_config/regs_desc/TRCRSCTLRn0
+  # ls /config/cs-syscfg/features/my_config/TRCRSCTLRn0
+  type
+  offset
+  val
+  mask
+
+But another way could be to enumerate all possible regs for each device. 
+This would remove the need to have all the #defines in whatever tool is
+making the config (avoiding the #include issue from above):
+
+  # mkdir /config/cs-syscfg/features/my_config
+  # ls /config/cs-syscfg/features/my_config/regs_desc
+
+  regs_desc is initially empty, but specify what device it's for to make
+  all the properties appear (or the mkdir could be done in an etmv4
+  folder):
+
+  # echo "SRC_ETM4" > matches
+  # ls /config/cs-syscfg/features/my_config/regs_desc
+  TRCRSCTLRn0
+  TRCRSCTLRn1
+  TRCRSCTLRn2
+  ... etc ...
+
+  Now type and offset don't need to be set:
+
+  # ls /config/cs-syscfg/features/my_config/regs_desc/TRCRSCTLRn0
+  val
+  mask
+  save
+
+Don't we already have the full list of parameters in 
+etm4_cfg_map_reg_offset(), so we can expose this to users via configfs 
+directly rather than needing any tooling. And doesn't any new device 
+that's supported by the config mechanism need to know about all its 
+parameters, so it wouldn't remove any flexibility?
+
+
 
