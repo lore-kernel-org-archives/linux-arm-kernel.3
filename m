@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9951BE6C611
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 07:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35ACE6C610
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 07:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pDcV3y4iQBsKRnKr7MXD6rGBgSvcZ1aU6EwZaXAwCk=; b=qjxnDD9jmUK4+VOwbj8TiTrWHX
-	6cFq9GmPckd4aRahns53M9bpoKrlK1ZJLIPoLLz5LavHFoGapjxDzwqT4Njl1tFbfXq2KE3v49d0v
-	8pdmvJ8/nBjS92B8znOzSNkg83kGNEIJ8ngEUFaQSaFYYJNnYcv537uQFsB9XxuQt515ryDy1M+A/
-	yxJjPLAO3xpnCf5VTBamHETwXkMAtWjX9m1ivxSKr2t5UuN72re73o9pN34uRL6+50TlQw7mYwQuQ
-	fkfNxsfqVrQoOD7nFJAecWHjqmnwPUteOje3VeGnC8kbMHicFTSS3ccXAAySG1c2hf0nYJFGh1lvJ
-	zPLQUPvg==;
+	bh=9QjHyqHq3/QtWY1adbFgvXDLbulCqz3LnK3AngwXCkk=; b=juwX0iElgsE1woXDWLxjFb1SAJ
+	BdrHJhBjRewkIYqs1sofakxWPakP1U4UKSQt0IOiOWu3YNhJL+rWlzsiUkltvUu/tFdWTcVtbreM0
+	+wBnzL22Ov5o0q+3EogZJjHka8Qfi7uN5+OWsb48IhcvxcInLTDP78eMa0V5NlO1ty+dvBKr5+TAM
+	Aw288ICZjOMYfPdVxWhCM7IdCWAB+7Q2GjZNusaRW2Yi+JtZFEW9F9H8nktBKVTZzpU0/gzDc2q1/
+	QiYu9HOvjubbOtYr7OcT95/gxwEhog67ALEnJpoxeWxCi6X0dUiHEdAeWcC5G6+tYqDkZ5pL3khXe
+	sdn0VriQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tINUS-00000008Y7G-3XU1;
-	Tue, 03 Dec 2024 07:38:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tINZv-00000008Yma-0GKX;
+	Tue, 03 Dec 2024 07:44:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tINTS-00000008XyD-2gbZ
+	id 1tINYv-00000008Yfz-0ZXT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 07:37:35 +0000
+	Tue, 03 Dec 2024 07:43:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8626FA40500;
-	Tue,  3 Dec 2024 07:35:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5734C4CECF;
-	Tue,  3 Dec 2024 07:37:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BFA47A4032B;
+	Tue,  3 Dec 2024 07:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2450C4CECF;
+	Tue,  3 Dec 2024 07:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733211453;
-	bh=rEGPx2pnXM75vPiO0vxKOrSNAyrijtXiX5PobHe/ZkQ=;
+	s=k20201202; t=1733211791;
+	bh=BTi7Ze0w8np2takrcrnHHLRkx1VFTz7ASEWWSxolVFc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kfnrlCUb87kOU8ibUZM3b+Y1HdcnNr2X9xmflkWNiqoS7PaL/yQLwV6S73r3spawD
-	 n7fFDUAkG7pXBPGleCHXbmAXN/pGvs6E14bY9ve5MZAbMkyvF2aEXa3bbWLbieezv7
-	 N25wcZ0g2Lrg6eoVSAJemgaCdtItJWeuBHmxhewOJ8Vkw8T0D04FNTa/LloapjUJQU
-	 aHdrZqFgwNmJVUSQa8YPPa7cVvVURkKLuLRANjwMXV8viJNJs2IpjcmL7NNFWRtE8O
-	 2vj6anb9b8fgkgbNEad3nTl5iQP99M1Xh4e55Zf6RmkqeoPhnsaVzmRJkAAJZVSOEk
-	 u1QYUwmmvtOzg==
-Date: Tue, 3 Dec 2024 08:37:30 +0100
+	b=kfy/CgZU5fDOl0dZmjjB6FDZNtNmb3RybN6OmTPWQD7x5/R8E3qRAdRtbPeHCkQEt
+	 dwwXLPIJ+uU1Xs6uVimyriBFO2lGQreDY4/r+vbqmc0obhlGBgu7HrB3fn6HRDiSvy
+	 tYxjytFS7ktxmQtLInOGhZ2VvYzoeGFkqKU4wDq2H3DLiftGKugeAd043UYYBKXMZj
+	 2XcLbhxGgO8Q4KJRmVMIM5jDbmR9hK7apNi7yaeDceCS98Wqsb9GmLwJ1Gp8M5ba7s
+	 7oAr85tQycBAHNeGT8CW/bZdQqQEgeXjzhM/ureln3wzoogOEQXgTlZBQFQos+/ogc
+	 5VpZvf5+XXu6Q==
+Date: Tue, 3 Dec 2024 08:43:08 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, igor.belwon@mentallysanemainliners.org
-Subject: Re: [PATCH v3 2/4] arm64: dts: exynos: Add initial support for
- Samsung Galaxy S20 Series boards (hubble)
-Message-ID: <p43dwymjwjhxur7v7x6dl5fl6fq2bt2oxh2zjhoonmqadgj2io@zc6s6bdcqrff>
-References: <20241202162158.5208-1-umer.uddin@mentallysanemainliners.org>
- <20241202162158.5208-3-umer.uddin@mentallysanemainliners.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: soc: renesas: Move R8A779G0 White Hawk
+ up
+Message-ID: <kqwisxsh64am76mmb5b4cxp7nhmsxafadvnkckadeywsvz6iqj@iyeo5sztpdrf>
+References: <cover.1733156661.git.geert+renesas@glider.be>
+ <d553ef4b1f969f72e384f274d42ac7a62fe45fd4.1733156661.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241202162158.5208-3-umer.uddin@mentallysanemainliners.org>
+In-Reply-To: <d553ef4b1f969f72e384f274d42ac7a62fe45fd4.1733156661.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_233734_749744_91C05A64 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20241202_234313_238008_924ECDC3 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 04:21:56PM +0000, Umer Uddin wrote:
-> Add initial support for the Samsung Galaxy S20 Series (hubble) phones.
-> They were launched in 2020, and are based on the Exynos 990 SoC.
-> The devices have multiple RAM configurations,
-> starting from 8GB going all the way up to 16GB for the S20 Ultra devices.
+On Mon, Dec 02, 2024 at 05:30:07PM +0100, Geert Uytterhoeven wrote:
+> Move the R8A779G0-only White Hawk board stack section up, just below the
+> R8A779G0-only White Hawk CPU section, to improve sort order.
 > 
-> This device tree adds support for the following:
-> 
-> - SimpleFB
-> - 8GB RAM (Any more will be mapped in device trees)
-> - Buttons
-> 
-> Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  .../dts/exynos/exynos990-hubble-common.dtsi   | 98 +++++++++++++++++++
->  1 file changed, 98 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynos990-hubble-common.dtsi
+>  .../devicetree/bindings/soc/renesas/renesas.yaml     | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
 
-Filename matching boards, so:
-exynos990-x1s-common.dtsi
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
