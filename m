@@ -4,66 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBB3E74AC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD0AE74ACA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 19:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6d9dUcTSe5Y6WYDonPie5MfCzdgvBZJtuRSWHader5s=; b=eQOLw8P3OF0thOzWhfC5XoaY1P
-	4WdgIv7St3KE7hmvfiuGqt95Ohu7N0B9BeA9thd2E+luzuEU4lz2x7+Qg6Ij6+QryWMmpO25C0IH0
-	hadx6beGpDKpn5ik18Wf+W2HtSlr+8FYLc2RbEIs7xlPZdEG4V2pHA/ZSHzrTpWVfI9Ha2WnRmbfD
-	FyJR5pvevK65YsoLtSRgdQ9dDK1rmMrsXI4Woh7XVgJq4g6xamrzwni/JL+sqjMWMDicchUxChQWy
-	2QdOc/ek048uCcjsOAyonZ1VeBQvmFRZ9D2p35utGLOI5xXm4KTUVbz9v0Mcse4Iy4ozV39ZJkoR/
-	P5sJpm5g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DSRy9NOtmkw1KfcPFSTDvxzNFkoJeBiJ3QTf0XQ/4C8=; b=VrTLvtwdGRucWxKbRLUfWttgNc
+	Z0LhMo8Id6E8pNV1UZoF3hTgIDrkIM25d3B0dRf9QfXQVkToibDjNv/qV1xsPUPZ6lcihCiT150KV
+	qpRk63/VjP/Vw0FHLnFphOTEISBvkFhRrO2QEkf17uxKll4EXSwqf/AMDPWdn6SOnHIWmUtfA0KPp
+	B/JR6K+8Kwf5v6/weWSfh1utti4MSlCmO59wmxo0KpbwT4w+PyWE6AtIX8rC55eNe6WeJ8dJlzRe/
+	tT0uZhDih/YaNT/W5OyoRXCL/cf2FNJ/M2UazbIoejvIfmNrNsSzmFL0Dg7S8ZjoGJmLVMGec87Jy
+	KJYxeEWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYsR-0000000AWsa-3gGP;
-	Tue, 03 Dec 2024 19:48:07 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIYfJ-0000000AUMv-2uH3
+	id 1tIYtP-0000000AX0G-2Vpy;
+	Tue, 03 Dec 2024 19:49:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIYgq-0000000AUkP-1wzr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 19:34:34 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733254470;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6d9dUcTSe5Y6WYDonPie5MfCzdgvBZJtuRSWHader5s=;
-	b=t/mLdkmfsGz7PT1b7e7HBq51k7vnrSjv3Fv5m2HxK1yxOS4PA+P9EVOjaCLoRlZmqY/kiZ
-	ihzPS5A/paa1VAO2eZlPHIt1TiXBUPD5ejxW6W/MHKzjHYhQNcTkwJMtjQ6gV2prTqNGL5
-	voS8qB2TUq/jYfglTPdv/gv5Ip1VFuI=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev
-Cc: Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Tue, 03 Dec 2024 19:36:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45573FEC;
+	Tue,  3 Dec 2024 11:36:33 -0800 (PST)
+Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CC2A3F58B;
+	Tue,  3 Dec 2024 11:36:04 -0800 (PST)
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: [RFC PATCH 14/14] arm64: Enable IMP DEF PMUv3 traps on Apple M2
-Date: Tue,  3 Dec 2024 11:34:15 -0800
-Message-Id: <20241203193415.1070917-1-oliver.upton@linux.dev>
-In-Reply-To: <20241203193220.1070811-1-oliver.upton@linux.dev>
-References: <20241203193220.1070811-1-oliver.upton@linux.dev>
+	arm-scmi@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH] firmware: arm_scmi: Allow transport properties for multiple instances
+Date: Tue,  3 Dec 2024 19:35:44 +0000
+Message-ID: <20241203193544.3895173-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_113433_886651_39F1453B 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20241203_113608_593523_55DBE694 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,72 +62,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple M2 CPUs support IMPDEF traps of the PMUv3 sysregs, allowing a
-hypervisor to virtualize an architectural PMU for a VM. Flip the
-appropriate bit in HACR_EL2 on supporting hardware.
+Default SCMI transport properties values can be overridden with devicetree
+provided descriptors; in order to support multiple SCMI instances, make the
+properties-update happen on a per-instance copy of the original transport
+descriptor.
 
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- arch/arm64/kernel/cpu_errata.c | 38 ++++++++++++++++++++++++++++++++++
- 1 file changed, 38 insertions(+)
+ drivers/firmware/arm_scmi/common.h |  4 ++--
+ drivers/firmware/arm_scmi/driver.c | 18 +++++++++---------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index a78f247029ae..441ee4ffc770 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -194,6 +194,37 @@ has_neoverse_n1_erratum_1542419(const struct arm64_cpu_capabilities *entry,
- 	return is_midr_in_range(midr, &range) && has_dic;
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 48b12f81141d..10ea7962323e 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -442,7 +442,7 @@ struct scmi_transport_core_operations {
+  */
+ struct scmi_transport {
+ 	struct device *supplier;
+-	struct scmi_desc *desc;
++	struct scmi_desc desc;
+ 	struct scmi_transport_core_operations **core_ops;
+ };
+ 
+@@ -468,7 +468,7 @@ static int __tag##_probe(struct platform_device *pdev)			       \
+ 	device_set_of_node_from_dev(&spdev->dev, dev);			       \
+ 									       \
+ 	strans.supplier = dev;						       \
+-	strans.desc = &(__desc);					       \
++	memcpy(&strans.desc, &(__desc), sizeof(strans.desc));		       \
+ 	strans.core_ops = &(__core_ops);				       \
+ 									       \
+ 	ret = platform_device_add_data(spdev, &strans, sizeof(strans));	       \
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 1b5fb2c4ce86..eeed1689b208 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3028,7 +3028,7 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+ 	int ret;
+ 
+ 	trans = dev_get_platdata(dev);
+-	if (!trans || !trans->desc || !trans->supplier || !trans->core_ops)
++	if (!trans || !trans->supplier || !trans->core_ops)
+ 		return NULL;
+ 
+ 	if (!device_link_add(dev, trans->supplier, DL_FLAG_AUTOREMOVE_CONSUMER)) {
+@@ -3043,33 +3043,33 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+ 	dev_info(dev, "Using %s\n", dev_driver_string(trans->supplier));
+ 
+ 	ret = of_property_read_u32(dev->of_node, "arm,max-rx-timeout-ms",
+-				   &trans->desc->max_rx_timeout_ms);
++				   &trans->desc.max_rx_timeout_ms);
+ 	if (ret && ret != -EINVAL)
+ 		dev_err(dev, "Malformed arm,max-rx-timeout-ms DT property.\n");
+ 
+ 	ret = of_property_read_u32(dev->of_node, "arm,max-msg-size",
+-				   &trans->desc->max_msg_size);
++				   &trans->desc.max_msg_size);
+ 	if (ret && ret != -EINVAL)
+ 		dev_err(dev, "Malformed arm,max-msg-size DT property.\n");
+ 
+ 	ret = of_property_read_u32(dev->of_node, "arm,max-msg",
+-				   &trans->desc->max_msg);
++				   &trans->desc.max_msg);
+ 	if (ret && ret != -EINVAL)
+ 		dev_err(dev, "Malformed arm,max-msg DT property.\n");
+ 
+ 	dev_info(dev,
+ 		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
+-		 trans->desc->max_rx_timeout_ms, trans->desc->max_msg_size,
+-		 trans->desc->max_msg);
++		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
++		 trans->desc.max_msg);
+ 
+ 	/* System wide atomic threshold for atomic ops .. if any */
+ 	if (!of_property_read_u32(dev->of_node, "atomic-threshold-us",
+-				  &trans->desc->atomic_threshold))
++				  &trans->desc.atomic_threshold))
+ 		dev_info(dev,
+ 			 "SCMI System wide atomic threshold set to %u us\n",
+-			 trans->desc->atomic_threshold);
++			 trans->desc.atomic_threshold);
+ 
+-	return trans->desc;
++	return &trans->desc;
  }
  
-+static const struct midr_range impdef_pmuv3_cpus[] = {
-+	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
-+	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
-+	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
-+	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
-+	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
-+	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
-+	{},
-+};
-+
-+static bool has_impdef_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
-+{
-+	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	unsigned int pmuver;
-+
-+	if (!is_kernel_in_hyp_mode())
-+		return false;
-+
-+	pmuver = cpuid_feature_extract_unsigned_field(dfr0,
-+						      ID_AA64DFR0_EL1_PMUVer_SHIFT);
-+	if (pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
-+		return false;
-+
-+	return is_midr_in_range_list(read_cpuid_id(), impdef_pmuv3_cpus);
-+}
-+
-+static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *__unused)
-+{
-+	sysreg_clear_set_s(SYS_HACR_EL2, 0, BIT(56));
-+}
-+
- #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
- static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
- #ifdef CONFIG_QCOM_FALKOR_ERRATUM_1009
-@@ -786,6 +817,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
- 	},
- #endif
-+	{
-+		.desc = "Apple IMPDEF PMUv3 Traps",
-+		.capability = ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
-+		.type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
-+		.matches = has_impdef_pmuv3,
-+		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
-+	},
- 	{
- 	}
- };
+ static int scmi_probe(struct platform_device *pdev)
 -- 
-2.39.5
+2.47.0
 
 
