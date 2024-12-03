@@ -4,92 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB6CAE64A87
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36051E64A88
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 12:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/jA4+syt73xHRzh3CLLPIf2LQnHDc6Mp3Wfo7HZ894=; b=3Fqk4/lyU91k9HN+uCrRiyKaIF
-	Z9Uko/lgqJQUucCBKBIRhDovdDiriEtu4FqqV8mdcipK7mc86G6vBWBLPTmdhu/ABLwiL8IOZ4+pz
-	TxOqemJFNzeRiZdm5AjaDcz87NmSkAnJ1PBjBFl3IBWHpH8Em8vVaRd/x2Od83V7i/+1tnQAEP7BV
-	IU7jIdNhRhRJJAhQf/uCfXU8axDzjobihw+Puz4CECJ0ey0/ui1GYma/c/GnvVM9zQrBO8K4stO3B
-	0sfRwk1pfqD3mM0K/PV95hWBkisT5SKxuA0+XPigp6cR3ecui+VV7A7rv9XauAPo5+ninujnbZYw2
-	0D1lzY0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KidvB40Fo4maqTRIu0iP08tZ2RUHssOz5eIQKLC5Snw=; b=mqHSzsChq9cMjj
+	4U7b2kfTXUue4KKWs0ZBzkI1SDJiVPcoIZDzWwzKj6Cuk7CxKv9Lk2KvtGmLbkGxPz+OFJsLIZVnC
+	nC2qUVe6dx2H8MfQl/FqP2FLG7ohmRbpORqDedWNZIJQ0+xDYHiQkaPkyd37bcAkohEpItnqEZLSG
+	D0HHYUqCtlbpPwCdx5plkX+mMt9Qz7jXTlI/wRWCCBOJ8b4/+0UxiqBLzbj1/jSmQN3+ATTnV8xwz
+	A32hq39bmw/wIJv9Rzc8FeQ90NXnGzjZUoIfTm/M7R3/VBJLIb/RfQkmKhBnS5nSjgelhl2DvzPg5
+	YQYgTo508ekPH6ZfaZbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIS9K-00000009RwY-05B3;
-	Tue, 03 Dec 2024 12:37:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tISDZ-00000009SWh-0TRf;
+	Tue, 03 Dec 2024 12:41:29 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIS8I-00000009RnN-3sLJ
+	id 1tISCZ-00000009SII-0AwG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 12:36:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1733229360;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h/jA4+syt73xHRzh3CLLPIf2LQnHDc6Mp3Wfo7HZ894=;
-	b=RgUCoKUpW/Sr13PnAbpZJk3crQyOYUAPbQvJSMYkKnuCtdESKatdVd1mwjtTv949tIc6Gx
-	aAxVJodO3K9+ZBqjmOOVHe2nc/Wui6kuCRA9QQ4HYi2f68hkW4cvHUAZdYn0tsFto1XwB/
-	ptxdyRvzTtHLo3aEQ3J342lr8AtONzQ=
-Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com
- [209.85.161.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-225-CYG0f6JqNE21i8UvEzyAuw-1; Tue, 03 Dec 2024 07:35:57 -0500
-X-MC-Unique: CYG0f6JqNE21i8UvEzyAuw-1
-X-Mimecast-MFC-AGG-ID: CYG0f6JqNE21i8UvEzyAuw
-Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-5ec1c46df37so621851eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:35:57 -0800 (PST)
+	Tue, 03 Dec 2024 12:40:28 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5ceb03aadb1so6450738a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 04:40:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733229625; x=1733834425; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KidvB40Fo4maqTRIu0iP08tZ2RUHssOz5eIQKLC5Snw=;
+        b=Okk7vT7REpfVqzqUuHSxWV6z7/blJ5+s4mWDSEiHTf7uRrOqe3RVwc6P7OJ2mxX3cP
+         PF0ZyVzBWhhJm+0HGAQz+3qA6JovP3cqyEfbz9B9BpDpMOkgRKXWjN8dPUpWbEdn8lgb
+         u7P6s1KZi33MGdjA1wTGTM2ELY2eE1lmm59WRrxMWfRIgxGOxDvOq/Z7ZkPL0MiYfhzl
+         QxXw71X80olAcJ/nRRKfcygNAI77nvPT7L4KVZc4qQwo08fVnXXwaeDxR1NImSInrxsg
+         Vw8wWKje2fU51iv1WeLnp58B9sxG6cR+LPkeSZIAe6MzqbpINBVGz0dNOEtKugV0KE4o
+         HMvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733229356; x=1733834156;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h/jA4+syt73xHRzh3CLLPIf2LQnHDc6Mp3Wfo7HZ894=;
-        b=Gjs5txzhE9t9R91NxmhSM0AYkHt+decVS086PKuLiXjK57FEycXxxN6w2gZ9vbHPWt
-         DUkZIwCQAiDAwOAkMXdGf7VfDJIGn5C/XqNmaTfCUa32IjC5ZO7DMhW7zRBXrQz8Z4lk
-         h9jRHhl8j6hM6tHATX+wy+n2r4Z2bnaE2WKRDKugnqWO0tu0Xmr107DYYuxVwREb9nia
-         BCE3GHE8i/eU4nYlFQeVGHQi1FveccwPJb9ewhYOhy3MhR04FTdRLCN6bTzUfIxGXU+Y
-         yx5mb+xBXR4eUq6BWUARz6nPiyxe6d09/ZE6WUtvf6ICfcnfvHqrq7A8gr/dRCjhgg74
-         6KSw==
-X-Forwarded-Encrypted: i=1; AJvYcCUyZw3oU7iWXGzXX8fbmLmEg5Cq94cXud0Ixr7BRjC77jPji5EbwgRvmbnW4HfDuWLNCjE4AZm1RWMiXx6yrocO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/26pn9sRFELssF8bofMtwbyGV0bcxhmg9/ABeacdht8BU39p2
-	MHSPWv0Z/NuMorykf7ziNZdSvmSLeEx/gkCjSl/VS+JoI4YdpxSvFPlsrh9puskAxq4bKPPkzS1
-	q3JDQ6WMP3yG1e+jhZKasvrPEAARagzdCl1GCoU6cc1vRM9nz4HChcC/JLy3I8SPobYyMyExps8
-	JD43FWyCXSLjiNNlAIEoXBzPBnBkGS4nGuhFNgCnuDz9+xOA8=
-X-Gm-Gg: ASbGncvsnzrj6wMP1f5ze7iiXBPGtMIOIPI+641eZilxJy8/xzP5BZcg0xlUpkaNhdu
-	7+jn/g70VJcs+eckqNmMaNILdaHIMfC3a
-X-Received: by 2002:a05:6830:3c87:b0:71a:20da:f85f with SMTP id 46e09a7af769-71dad717461mr580409a34.7.1733229356361;
-        Tue, 03 Dec 2024 04:35:56 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEzevS3kCzYIexPOiCGrpWFJcklXeddetaq+wX1lpF3svUb/DPOth1TMgPRMkwfxsBqPiCmaSW4NFvRKKtkrK4=
-X-Received: by 2002:a05:6830:3c87:b0:71a:20da:f85f with SMTP id
- 46e09a7af769-71dad717461mr580399a34.7.1733229356086; Tue, 03 Dec 2024
- 04:35:56 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733229625; x=1733834425;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KidvB40Fo4maqTRIu0iP08tZ2RUHssOz5eIQKLC5Snw=;
+        b=P80V61S0j5yrLBTufArwibw9oAXxvfWqpF0dXN76lRXo4y87X/1RaOVySX7a+4bui7
+         pFgjn0e+epxgPUihRPBPzW+uYzs8Zz17xfR+i0GI7iix5kZI6jbazd4C2lQzJjxld8K0
+         ACHV9vBhwgQaWBys2Higiu91jL/uPBeK0QUPrMWZV5e91rsDZQW5UL0abxRbed2ZDdsm
+         7Ulz3XIoHIop/E4nnFSPwRpOqP4prIv77qObSG0ftpeLBcHLU2WwDk0VMfecgO7sX0L8
+         v5gjzITILzZaFeF3xWCjKZGJhcrmfpDDBea2yDH6ZmueQCjrOeSCsUQ8J6uZg02tSxrs
+         4grw==
+X-Forwarded-Encrypted: i=1; AJvYcCVnQr0GZrqZNpMfFDYnZ3RpU4WO3UP40kpzf3paipr3OJOTeJd+0VFklWgAGb9CvSSOJYtElGW1t9fETbdJ1UEv@lists.infradead.org
+X-Gm-Message-State: AOJu0YynVS/04YSxuGcTeeSE9MRGJ1in2VYNKzym26fcZl5uMSE6bCYo
+	qNmcTBUPsAwMOQyrNyX2idAI9n6yDHluI1vFH1+bpbeYW1KLv/2DxV0coVjmfeo=
+X-Gm-Gg: ASbGncsp/ah6gtDWB55ShpobF49ok0Vh4G0c6dvdPdy+EKaoJVwV00fdIs0GH8iDDMw
+	9xuqZKgqaI2rA65BnDzUGNl6djSN8P28UM5eGA36cp4aoGmK6kHDL6we49EShFwrBsTSEWC5yVF
+	FaqqIg1iBMxsvBST2tc+kFzlHKQFkkblijkD8OhAJxreXAiEgP1QQV8L+BytjmFJSYHFNnmRvw6
+	M1JSaMIakVs/kLJpke8nf03wIFu5HFw/qXMcR+cdN5ePaFRx3dslIr6ZcL05fkHnZ3Ohf9bcKEk
+	1XBYGsTRAG8b1rZKRQtM9ajhWjWmhBbEVw==
+X-Google-Smtp-Source: AGHT+IGhLdCxi2DbU4tBTCS3xMoJ+eN/NSNXdGYE86xU3cbMqxxR5/XeFJzbPPRvBrj5K6P11uTb2w==
+X-Received: by 2002:a17:906:30c2:b0:aa4:fc7c:ea78 with SMTP id a640c23a62f3a-aa5f7d390bcmr168580266b.23.1733229625507;
+        Tue, 03 Dec 2024 04:40:25 -0800 (PST)
+Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5998e6a4csm616809466b.106.2024.12.03.04.40.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Dec 2024 04:40:25 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v2 0/5] Google Pixel 6 (oriole): TCPCI enablement & USB
+ updates
+Date: Tue, 03 Dec 2024 12:40:23 +0000
+Message-Id: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
 MIME-Version: 1.0
-References: <20241127-defer-dma-request-chan-v1-1-203db7baf470@redhat.com>
- <4dd1caa7-4b95-4e06-a5ac-e2d33ce88d04@arm.com> <ffccf100-469f-4e5b-a32c-5c06e196aacd@ti.com>
-In-Reply-To: <ffccf100-469f-4e5b-a32c-5c06e196aacd@ti.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Tue, 3 Dec 2024 13:35:44 +0100
-Message-ID: <CALE0LRt9W41Gr0dvDXpt3fV-=jMvrD1X6e4bS9+EMy8J-Qv14w@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: dma_request_chan_by_mask() defer probing unconditionally
-To: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	u-kumar1@ti.com, nm@ti.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: stZlZt2v2QCFOnpXbLksVMeQqXIGR2d9lGZHImFfEKk_1733229356
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIADf8TmcC/42NQQqDMBBFryKz7pRkULRd9R7FRRqnOiCJZIJUx
+ Ls39QRdvg//vR2Uk7DCvdoh8SoqMRSgSwV+cmFklKEwkKHaWmpxVGssLtOGswusGMs9ZJfLD4e
+ seHOe29qRp8ZDsSyJ3/I5C8++8CSaY9rO4Gp/6//u1aLBhoiGrjHdq7WPWYJL8RrTCP1xHF8bp
+ zQ6zwAAAA==
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
+ kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_043603_036310_1EC29667 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20241203_044027_091329_BD11AA69 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,100 +110,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Tue, Dec 3, 2024 at 5:35=E2=80=AFAM Vignesh Raghavendra <vigneshr@ti.com=
-> wrote:
->
-> Hi Enric,
->
-> On 29/11/24 22:14, Robin Murphy wrote:
-> > On 2024-11-27 8:23 am, Enric Balletbo i Serra wrote:
-> >> Having no DMA devices registered is not a guarantee that the device
-> >> doesn't exist, it could be that is not registered yet, so return
-> >> EPROBE_DEFER unconditionally so the caller can wait for the required
-> >> DMA device registered.
-> >>
-> >> Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
-> >> ---
-> >> This patch fixes the following error on TI AM69-SK
-> >>
-> >> [    2.854501] cadence-qspi 47040000.spi: error -ENODEV: No Rx DMA
-> >> available
-> >>
-> >> The DMA device is probed after cadence-qspi driver, so deferring it
-> >> solves the problem.
-> >
-> > Conversely, though, it does carry some risk that if there really is no
-> > DMA device/driver, other callers (e.g. spi-ti-qspi) may now get stuck
-> > deferring forever where the -ENODEV would have let them proceed with a
-> > fallback to non-DMA operation. driver_deferred_probe_check_state() is
-> > typically a good tool for these situations, but I guess it's a bit
-> > tricky in a context where we don't actually have the dependent device t=
-o
-> > hand :/
->
->
-> +1. There is no explicit dependency that can be modeled (via DT or
-> otherwise) for memcpy DMA channels. And the IP (cadence-qspi) is not
-> specific to TI platforms. Its very much possible that a non TI platform
-> may not have memcpy DMA channel at all. Wont this end up breaking such
-> platforms wrt using SPI flash using CPU bound IO?
->
+This series adds and enables the Maxim MAX77759 TCPCI for Google Pixel
+6 (Oriole).
 
-To be honest, I didn't take into account this, so yes, this patch will
-break such platforms. But isn't it already broken in such cases? If I
-understand correctly, if there are no dma devices at all, we're
-already deferring the probe [1].
+It relies on the bindings updates proposed as part of
+https://lore.kernel.org/all/20241203-dtbinding-max77759-v3-1-e1a1d86aca8e@linaro.org/
+and
+https://lore.kernel.org/all/20241203-gs101-phy-lanes-orientation-phy-v2-2-40dcf1b7670d@linaro.org/
 
-        if (list_empty(&dma_device_list))
-             chan =3D ERR_PTR(-EPROBE_DEFER);
+With these patches, we allow the usb phy to detect usb cable
+orientation, and we make it possible for the USB DWC3 core to enter
+runtime suspend upon cable disconnect.
 
-[1] https://elixir.bootlin.com/linux/v6.13-rc1/source/drivers/dma/dmaengine=
-.c#L892
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>
+Cc: Will McVicker <willmcvicker@google.com>   
+Cc: Roy Luo <royluo@google.com>
+Cc: kernel-team@android.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
-Thanks,
-   Enric
+Changes in v2:
+- more appropriate dwc3 quirks to achieve reliable Vbus state detection (patch 3)
+- drop patch 'dt-bindings: usb: max33359: add max77759 flavor' from
+  this series as it should go via linux-usb (Krzysztof)
+- max77759 tcpci compatible has changed
+- Link to v1: https://lore.kernel.org/r/20241127-gs101-phy-lanes-orientation-dts-v1-0-5222d8508b71@linaro.org
 
-> >
-> > Thanks,
-> > Robin.
-> >
-> >> ---
-> >>   drivers/dma/dmaengine.c | 8 ++++----
-> >>   1 file changed, 4 insertions(+), 4 deletions(-)
-> >>
-> >> diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> >> index
-> >> c1357d7f3dc6ca7899c4d68a039567e73b0f089d..57f07b477a5d9ad8f2656584b8c0=
-d6dffb2ab469 100644
-> >> --- a/drivers/dma/dmaengine.c
-> >> +++ b/drivers/dma/dmaengine.c
-> >> @@ -889,10 +889,10 @@ struct dma_chan *dma_request_chan_by_mask(const
-> >> dma_cap_mask_t *mask)
-> >>       chan =3D __dma_request_channel(mask, NULL, NULL, NULL);
-> >>       if (!chan) {
-> >>           mutex_lock(&dma_list_mutex);
-> >> -        if (list_empty(&dma_device_list))
-> >> -            chan =3D ERR_PTR(-EPROBE_DEFER);
-> >> -        else
-> >> -            chan =3D ERR_PTR(-ENODEV);
-> >> +        /* If the required DMA device is not registered yet,
-> >> +         * return EPROBE_DEFER
-> >> +         */
-> >> +        chan =3D ERR_PTR(-EPROBE_DEFER);
-> >>           mutex_unlock(&dma_list_mutex);
-> >>       }
-> >>
-> >> ---
-> >> base-commit: 43fb83c17ba2d63dfb798f0be7453ed55ca3f9c2
-> >> change-id: 20241127-defer-dma-request-chan-4f26c62c8691
-> >>
-> >> Best regards,
-> >
->
-> --
-> Regards
-> Vignesh
-> https://ti.com/opensource
->
+---
+André Draszik (5):
+      arm64: defconfig: enable Maxim TCPCI driver
+      arm64: dts: exynos: gs101: phy region for exynos5-usbdrd is larger
+      arm64: dts: exynos: gs101: allow stable USB phy Vbus detection
+      arm64: dts: exynos: gs101-oriole: enable Maxim max77759 TCPCi
+      arm64: dts: exynos: gs101-oriole: add pd-disable and typec-power-opmode
+
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 104 +++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |   5 +-
+ arch/arm64/configs/defconfig                       |   1 +
+ 3 files changed, 109 insertions(+), 1 deletion(-)
+---
+base-commit: ed9a4ad6e5bd3a443e81446476718abebee47e82
+change-id: 20241127-gs101-phy-lanes-orientation-dts-9ace74a2c25c
+
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
 
 
