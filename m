@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E171BE74AC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52EAE74AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Dec 2024 16:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9lt53vsuFinYfQPPMtO0BSGgjTyTuTC1kRLkpQGt78=; b=exFYJJuU79qZBpaY9eqs2H6L8A
-	OQXnAYCXlA+ThPeBwKcMpZIDhJyde+gy4IBTcpgC7IY/DEFI9pZVrPjB6Lt2r4SDWQG34NXZHqQpL
-	8ehJna4hqsHpDbxBSH3VUNMKROUL+4mwxP5P2ob5KUTbgXOn05ouF5L86g4mjTA5mRigADq8hEj6s
-	nvTvZ4nSRbN9opTaYBXm44eZA0hYFBlh4YhW4/8KHAJN/4d6FS01pFgq1qVu5juE6cDsuT/Bwyq8P
-	wMS7VR4xXvYpRtgIboB0KkGfYhzs4yiHN95UYfdEdhYLcCO2/gv+oTjeCUJkCxfPQkAqcBuNxIvqD
-	etxE15Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p/i9lfz5sCJkFQLxXFYdLwNLA0qoCYW2KkzeZVDwtlU=; b=T9V5mGyrMUft9heFUOM6QPhR/4
+	af0J197HRdzrdoOpc/A76f47L+SBC40kCSjA7M7X7lZ7VcGIT4qI2/tj6RVHOVsqXB1ZAG/Q0zGgs
+	FN2Lvy7LNYiqTBDGXsn3/YzZNKP0LWqn+BIuRkYjitSGeB2ToFBB1Wh8VCBhmEnAvubi23ZFhyPhb
+	gyC1OLeWuLFqcCyixI2K5ly0195l3Z1J5T23/d5KvaLUjdd9YJJ+lrGG+AsGuPcaUiCPp528REgSe
+	YIEOc1jrVjhcTtdk6HGv71FnZAMfkCfom9ZEGpMRUskPXe2U5bwTIqKLevwywcoS0XtWpx+mGcbRK
+	/sZfcKQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIWBn-0000000AB05-1Q1M;
-	Tue, 03 Dec 2024 16:55:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tIWCn-0000000ABBb-10Qx;
+	Tue, 03 Dec 2024 16:56:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIW7n-0000000AA5z-1VB7
+	id 1tIW9E-0000000AAVE-3pNG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Dec 2024 16:51:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1733244706;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g9lt53vsuFinYfQPPMtO0BSGgjTyTuTC1kRLkpQGt78=;
-	b=UnfgvVIAE490iHJ/MPgclBJ0mB5ad5ps46K6umpG+aApeZjaAx44ItogauzAvm2NabtFwo
-	TF9r861sN49ewW9BIBUX5Yn56scZIAkIRju+nzvnkDaqAmokfFaG6nAtTV94D9oJdktcQg
-	O2AnfGYdO1/JPr9fQ9parU9iCKA3oN0=
-Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com
- [209.85.161.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-597-iHSKdb1qMLCDMVRNMJExxQ-1; Tue, 03 Dec 2024 11:51:44 -0500
-X-MC-Unique: iHSKdb1qMLCDMVRNMJExxQ-1
-X-Mimecast-MFC-AGG-ID: iHSKdb1qMLCDMVRNMJExxQ
-Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-5f26520392aso22250eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 08:51:44 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733244704; x=1733849504;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g9lt53vsuFinYfQPPMtO0BSGgjTyTuTC1kRLkpQGt78=;
-        b=G9p4VVU3WaL/ncaV0vizRsXzVn9PNLB3TWRalEfjY3TcMKqL4/bT3woQxSLN0zK4JT
-         T1wyAr7BZnFaPTybBK4mY35AvT8u1zqxz0PQc17P1oFEERPHkHZj4KijKu0pSgKey+HX
-         kdHNG2XHFU6HEn5V9Zgbo76c4WycjkgICV06TOBo+DziLXspnR/2J4+8puAEdvHVm5wi
-         WPa4FUptow8Mblp1+E7pnxaMpxHldQRdG392a1+1Px+YVxCz2OcnHo4GiLrgjwFCUC7T
-         7TGrjxbp7JMEOEEM4dGa5lCG7drDsR+adyKlLtV++O+gw2qd3R0YgLcnFTkQKRuD5fSS
-         whYA==
-X-Forwarded-Encrypted: i=1; AJvYcCXm9qY12r387dO8GZvCv2Y2mAXpFf/8/1CF/l2KFm4LIFOV8vR7N9r4KtAwx6HaDIrra/VQQUKpDKanOCaYAcPL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRq09KBhJcV2lziK7FQOyNWzcvDDH/fnkEUFUczHP6ZF4CKHRX
-	e0zHfUFZPFyYdJUzEKHO9g7FbHvoFTHrzx2mDMcDhmh+0T4OVdTUth+gDQ7/0X1KRNy3YLgOTj5
-	DAN5JzsNpbRufVImKHi3Qzy9tMvspLJuZWGxujHgq49bCrotT922bRrhjoF+68rTqlwYZzDxVU+
-	4Cm+/EsbPxFzP34/WItYMW65273Xpx0/vT9CqiU/q7b6JNCrY=
-X-Gm-Gg: ASbGncs4JPJMwDNLoc1vAsmVa9JDMKxlWRhVE7w7C8VTbcuenNx/Wf0mxQWQ6yW1+2z
-	N77ff105bdr3NI2wHGUaq10lnxqL49g==
-X-Received: by 2002:a05:6870:b526:b0:29a:ea3b:a307 with SMTP id 586e51a60fabf-29e88852dedmr743626fac.10.1733244704095;
-        Tue, 03 Dec 2024 08:51:44 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFzceRUoX3DvEQufLmwTQCJTEwNRUOUtXnGjhdEjvUwvKuNpVXgMIpmPswi4qlPBGvFF8FPGxubxqQ5PeUM7BE=
-X-Received: by 2002:a05:6870:b526:b0:29a:ea3b:a307 with SMTP id
- 586e51a60fabf-29e88852dedmr743612fac.10.1733244703832; Tue, 03 Dec 2024
- 08:51:43 -0800 (PST)
+	Tue, 03 Dec 2024 16:53:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 47EF65C6993;
+	Tue,  3 Dec 2024 16:52:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B1E1C4CECF;
+	Tue,  3 Dec 2024 16:53:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733244795;
+	bh=n/0zLPb5Wfwf5ixhKJ0hEDqs+kdK/IJ6TEf/PR1iuOE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YptYq9x8eFznxIF25GEkMXFyi7kalYe5TIcRjtkiQGIsQyv9nXlg40Kf6/MvqJwtb
+	 4e+mPkX8FVCpzOFtzn3rn8GFQY6EystAGLzNQJgEOuV2r0k82cbiI5qoWBGwDJdFBf
+	 dfJDG5JfqCA83eOe0zDRRTauC+3X5ivRKIMnqCVeZGCBt4nhSTpe0xXq8KZKf8aEx4
+	 vGTKzuZuLvaeWibVCzU9CVBwuOC2RIgUUWGHxJvHnF7ia85B5G+D7KEve0pXfVveDA
+	 a3fSUDOu1Lsvw071pEvsuCssZxMFQtgVs3W7vWlG4RMLYUmSWTowuIM7E1lKzPzGIp
+	 TEL0WAZGdsQ7w==
+Date: Tue, 3 Dec 2024 16:53:11 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/6] arm64/signal: Consistently invalidate the in
+ register FP state in restore
+Message-ID: <f9e297ab-8325-4b48-b8fc-21486ff48cd2@sirena.org.uk>
+References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
+ <20241203-arm64-sme-reenable-v1-4-d853479d1b77@kernel.org>
+ <Z08k6QsYRzO8+O4t@e133380.arm.com>
 MIME-Version: 1.0
-References: <20240615093433.3659829-1-s-vadapalli@ti.com>
-In-Reply-To: <20240615093433.3659829-1-s-vadapalli@ti.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Tue, 3 Dec 2024 17:51:33 +0100
-Message-ID: <CALE0LRssDPn2UAscbCdx2UsO3cQYuYHpBsdGxEWje9LCf4Hr4w@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Enable PCIe Multilink and USB support in Cadence
- Torrent SERDES driver
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, sjakhade@cadence.com, 
-	rogerq@kernel.org, thomas.richard@bootlin.com, robh@kernel.org, 
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: LNKLH-EYu45aZZ0-2_uxUn9SKJ_rvdDUwWKwPOfySHo_1733244704
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hX1yMOOoh6B0Yabs"
+Content-Disposition: inline
+In-Reply-To: <Z08k6QsYRzO8+O4t@e133380.arm.com>
+X-Cookie: Alimony is the high cost of leaving.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_085147_484836_7BF30966 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20241203_085317_033724_8F4142C0 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +77,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth,
 
-On Sat, Jun 15, 2024 at 11:35=E2=80=AFAM Siddharth Vadapalli <s-vadapalli@t=
-i.com> wrote:
->
-> Hello,
->
-> This series adds support for standalone PCIe Multilink configuration
-> along with the support for PCIe Multilink + USB configuration in the
-> Torrent SERDES driver.
->
-> Series is based on linux-next tagged next-20240613.
->
+--hX1yMOOoh6B0Yabs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Seems that these series didn't land, I think they are still required
-for the AM69-SK board? There is any chance that it could be rebased
-and resend?
+On Tue, Dec 03, 2024 at 03:34:01PM +0000, Dave Martin wrote:
+> On Tue, Dec 03, 2024 at 12:45:56PM +0000, Mark Brown wrote:
+> > When restoring the SVE and SME specific floating point register states we
+> > flush the task floating point state, marking the hardware state as stale so
+> > that preemption does not result in us saving register state from the signal
 
-Thanks,
-  Enric
+Now I think about it again this should probably be dropped from the
+series, or at least ordered after the reenablement.
 
-> Regards,
-> Siddharth.
->
-> Swapnil Jakhade (2):
->   phy: cadence-torrent: Add PCIe multilink configuration for 100MHz
->     refclk
->   phy: cadence-torrent: Add PCIe multilink + USB with same SSC register
->     config for 100 MHz refclk
->
->  drivers/phy/cadence/phy-cadence-torrent.c | 276 ++++++++++++++++++++--
->  1 file changed, 257 insertions(+), 19 deletions(-)
->
-> --
-> 2.40.1
->
->
+> > +	 * thread floating point state with preemption enabled, so
+> > +	 * protection is needed to prevent a racing context switch
+> > +	 * from writing stale registers back over the new data. Mark
+> > +	 * the register floating point state as invalid and unbind the
+> > +	 * task from the CPU to force a reload before we return to
+> > +	 * userspace. fpsimd_flush_task_state() has a check for FP
+> > +	 * support.
+> > +	 */
 
+> Maybe add a comment in fpsimd_flush_task_state() about why the
+> system_supports_fpsimd() check is important?  It's not obvious there
+> why we should ever be calling that function on non-FPSIMD systems.
+
+There already is a comment in there about it?
+
+> But would it be a good idea to stick a
+> WARN_ON(!test_thread_flag(TIF_FOREIGN_FPSTATE)) at the start of the
+> functions that rely on this?
+
+As I mentioned in reply to one of your other messages I want to just gut
+the whole API here and replace it with get/put functions for the state
+which would include the get/put functions making sure they're paired
+with each other.
+
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
+
+--hX1yMOOoh6B0Yabs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdPN3cACgkQJNaLcl1U
+h9B40Qf/USE0v0sbO6fCh4oVL2BkT7MBvtv3GiKG3bKqv8rcKBrqefb39r32mr2b
+YsoSkhYJH9EZH16B+f9i7gf4XmBbHBBAFU3sMicLJuuA12hPEss3iLw6C3XHW843
+WUnmJQxmEe0i807I75qY1GflS6wPNP+2fgNw9lwxN+x9zfRsQptLX8h9LRhTrDB1
+7sd3nY2tJ1t5BNMiXEsnlT4fS+DyEMPCgP2r+yZgxFV1gfM/h8Txr+OvUMNqN4EF
+nThX1ZHx4KKIkrjsAod8Nlk9tAZMsDvTF6ZSv2PguRc+v02EwXB6icK5sbkU3KFv
+ZkvisFiNqm6+JA6FcucI4pyUHbBIZw==
+=zNbQ
+-----END PGP SIGNATURE-----
+
+--hX1yMOOoh6B0Yabs--
 
