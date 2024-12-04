@@ -4,149 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758C3E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B524EE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsIBRYUuFM0899T9WNw8x3+NfNa18s1BEWfwk2AcC7E=; b=e94tYZrMN7uSz11hsdvFuehWPe
-	PVqRsfWLtx3ZrPBfZnllkK19+syJjVjiTsGtJfMRVs+8JRQDLAOlzI5CYc5cPbxNSASINCZnAQvM1
-	05onAEDxXnLY1bg0lD9lFoXT8eaAR5FqsUTc3xa1KH5hHtfBJOJL41IxJzh5q4BeZF7UGm5GWKSmE
-	ITpUJU/2szbIAj+byYzc2uLhwk8FovzuqHUEzCdLSbFPm7vl4ziMWlSxZCZeNDjhkJUC+DLSxUi+A
-	7NsBkvHyvWSO1CGNPf4JdJNpDKyq0G3OQLSJNifL59FV2TK0TxpCpmu6i1AzJ/hxRA88QX9hnOunN
-	sUuWN6vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L9thCdYSjEJk6ZQkuiySZH/467OZyfqNQsHy7lp5Pwg=; b=Gu0IrUKurkqFTIqf8zTjvXn4Ld
+	qkPMJgKZNN2Pe3x4+iWt9F2WS/uwxCz2aOAnxr4PbhlkhybHEF4ZIV2U1ezvQ7mXCHqn8UZCNUGK+
+	OzDgsgXOgpVhMAst961AorDTXcNCmKscFex9G4ZMM8kXUcjxQgsmwLfJ4aWvybGtYtI4Eap5KOIgj
+	tka1PCM5QV805/ld5BOPu/GPVZDFIaZAptF8WaXDiXPlIM8v8d7/2tJgnwLc1IYXGC48iBVppr91q
+	746lviIn4IjubzDYFhstEDo9P/q0WEOLdZDvT56Ab45u9LFv1JwtLAxGq0FA/1jGqq3eAJKOHf+ye
+	GbaaPJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIsMf-0000000DD58-27xQ;
-	Wed, 04 Dec 2024 16:36:37 +0000
-Received: from mail-vi1eur05on20601.outbound.protection.outlook.com ([2a01:111:f403:2613::601] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tIsTq-0000000DECo-1bgw;
+	Wed, 04 Dec 2024 16:44:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIsLe-0000000DCxz-4AA0
+	id 1tIrD2-0000000Cyve-459i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 16:35:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iTEf4tSk6KdC+nV26yWRdWYy+arBm1dhETD6ZUpZKOUVn1cc0aSlcmEun6Nj1Xgqrg7S5112gSGUGJ0bmQm7y7o+qWd+D8VWegYWHr8zhcBA2KpJ9Kf9r1ACchkvDlE/5RsjNWwZAOa5BlBfRM9Enms8CgGgNRX7LArLpvhh8qRXgev2BzjnCgqc9IbusEZLkKBuRvopT7JVhF+LCJjZEIKhoCkm96oihI/FlBAsKJN627CHcwXaAwrkmzixLFujYu3rJuhRpfh5OrKAvLAUxfdidw5JOpWr2Arnga9ZNTN6qli/CnEVw8gjds3312BE0EfhmMBJ1iZnjvXcdlOu5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rsIBRYUuFM0899T9WNw8x3+NfNa18s1BEWfwk2AcC7E=;
- b=MsCOrMd0QkfEXVgRFPJID0KEMNcjBy2Q7QOfmJGcGVea0C+BxxMUz2ZSe9cQEi3Dr+y3uY0ip+aC3fOkCKbBpvfqh0MDWxnx0002P94JnkyFYiOkVFnSxT6feoXFDAvw5LPyJDZXv9jYmnTjCBXJaxZ46rwstEKZ9m0Gv/e6DpdVrgoidL9Dtk/XFhM58Z0YBzgNkgpIxD0oyXXdn7Zg6cW9Y5hObG8I5aDui/+SRNS7QB6TYowfmHsVIpctcDcxOWbA9SZheJSj669RSemFqgQVgOY3KMa5hBeHShEhjGVUPouR9foPvVgWNoDxMKn6JR1N2bTbQjBnzro+dI+zGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rsIBRYUuFM0899T9WNw8x3+NfNa18s1BEWfwk2AcC7E=;
- b=CITSfbabPsN8MoMS8JL1NJq1vONYee0sCNxiYG1PebxdNb3W1i6BeMQ7CshZuJNc/4H2KMo2UKLqsq+bnSOb4FPAlojgRr/XnuiQP80FG6D43aGmMdsimFfOeUmcxDzkEEG4fvP9ATanWW0hjTmJKx9qNYMjH0eSPbGSB8zHyegaOE66E1/8jZ3UfKlHoo64o5acmetfo0RRxKJvuqgjrsfP/w4OwGnYBlKXExL0abq8B4tqEvPccwZ62BfKbHweCwDZbnhmXqLn27mve+ZxCpc9YTz5e04zLTvgvmBpNlDGGkATuDJ9Odif1BE34Bcj/Qo4OKIRPApehgzy3W0WmA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI0PR04MB10807.eurprd04.prod.outlook.com (2603:10a6:800:25a::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.10; Wed, 4 Dec
- 2024 16:35:28 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8207.017; Wed, 4 Dec 2024
- 16:35:28 +0000
-Date: Wed, 4 Dec 2024 11:35:20 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: Re: [PATCH 1/2] PCI: host-generic: Allow {en,dis}able_device() to be
- provided via pci_ecam_ops
-Message-ID: <Z1CEyAJn8OnxEHUO@lizhi-Precision-Tower-5810>
-References: <20241204150145.800408-1-maz@kernel.org>
- <20241204150145.800408-2-maz@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241204150145.800408-2-maz@kernel.org>
-X-ClientProxiedBy: BYAPR02CA0065.namprd02.prod.outlook.com
- (2603:10b6:a03:54::42) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 04 Dec 2024 15:22:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B37ECA41845;
+	Wed,  4 Dec 2024 15:20:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F690C4CEDF;
+	Wed,  4 Dec 2024 15:22:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733325755;
+	bh=eI1tefeXL+TZyNSuc2hjvlfnxnuJuAFK0jlaMH14RBU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=U2H5PksU7VxBODqWz2wkYH4LpAtnVsXX9z0m1U6UHr9xf3Mz60c2cwzBGe0OdEHeK
+	 AiJpxyx8wCcVM+GNXBDa3APp0BX7UR6/spg0ulXp2kfOp8eBcGiqp4/zalFoj2ZmaN
+	 uof4Fpe7ihF7CNTHN2HQx5NjZLF5VlSsclah/ASRl9I3L9K2cMVHxcGLvnMG28HAUH
+	 eb5FyM+2ylC9RY5vOnX/TWOtO8ixxCK+Urj0xrcl4/qaEhQw1iqZIGhVqIgyzOEpzR
+	 rRzc8vXhVFhss/etgemsRrn1Y26AG3j5GMFNecPlJj2D+JUWAzILrV11+L/IjLJDTd
+	 C7thHSskPOXQw==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 04 Dec 2024 15:20:54 +0000
+Subject: [PATCH v2 6/6] arm64/signal: Consistently invalidate the in
+ register FP state in restore
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI0PR04MB10807:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc05042d-89b0-41b8-8156-08dd1481a944
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Cf9Bh60T2hKpfgaAagypNZiiu9wRSb2uszIxf89AIn1mzqCY3Vuio/yx8Slh?=
- =?us-ascii?Q?wSPxpkGkpzBbbL78aNJURvw0Hqnli14aiCq5VP167/8UFNtkUxExDguQxIzU?=
- =?us-ascii?Q?t0dqqKICmWlBn+x0o67g6dFFWV6Q43kkT94HuVgX1D5tBS4uD+2lD+HKozPC?=
- =?us-ascii?Q?VU7I0ftQBTgnrP3i3TL6hHgjanvuEhu+VBck6YV4jAHsZLRvyINnkbF0moGR?=
- =?us-ascii?Q?PrWUIoPRvitEmF68F0UUOIuZNYPE0F6oIooy2AhWRmkFdssj5fCy559NlOMH?=
- =?us-ascii?Q?94vB93HcZk03b06nmJZklgiQR73OzGUa7oNiFTuwgetU24ZiPYnqjS0/jdpD?=
- =?us-ascii?Q?m0zRNCC2XoIR510CLNsXEb67udCF3hCvHEasxPw2TCswgOyxRwUacCsK/BGt?=
- =?us-ascii?Q?WgYoU7b5w9CIQU8wSdooB9uhpB7GDMXB6roM/Wo1EsmNc30j6GfBds3VAb4a?=
- =?us-ascii?Q?Pk8o5MOjpMzWIir8e1tPA4LXKnZLjq/EANuAiZZ6J0WQUwlWirhsfflhSvxu?=
- =?us-ascii?Q?iBbelRc8TUq/oBCzxUXDyGxZ9s2PXw4XaZDbvK0S7qHLnLodmEi9zOFJc3a3?=
- =?us-ascii?Q?yBNcU2pNIulX2l/qC7FSdwTi0mp265r5zSYoVnovPW4cux5TAbqlRIwe+BcA?=
- =?us-ascii?Q?IpgwYmFjqCCVGLT+n2nYhAL67O3d7V3D3t0GcEQ3OYEMvxPCKu6in68BSx4W?=
- =?us-ascii?Q?GHNmYzEL0p1b70pd45iAM449RTGriOjLFD2yhurFrtCTd3GioZZvRH5jPu7A?=
- =?us-ascii?Q?h2pIBbNz/wMsLFYiRDcAxMMOYjP+0rObDekui6u10m2Xi3bf9lv/7bugYqtA?=
- =?us-ascii?Q?rm5XLIYaOvD5qIzELN0Jhjgi8pM2VyJU0fDur0bEejC16g8LNqEvoR/IyJe2?=
- =?us-ascii?Q?biO55exvl7zwvtic15gv96Hwdw8G4ig6H6OFQSmfij/rsyOteEqNGvDBw5w5?=
- =?us-ascii?Q?Qipp5nSVkzMK2THUMj/+i5lxyz3vmQ+GBAV0bwCwXcTC310Zx9/qXTc2qOZr?=
- =?us-ascii?Q?/HNouR8Hk4vkvR5oDmRsA9y9s/LeMRfeJSefhcadHVt2RmO3qFgLZcVwCrAr?=
- =?us-ascii?Q?kqGEf2ci0nn1l25rOBjwHtRNUcQjs0pnhjL2i4XwuuyCyc+PwswPv+V7+5wm?=
- =?us-ascii?Q?md4NONp6bCG4Vv2WO0Ek0Ig84v8cJb4xXdSoadzFqueapY+x5R5OdNPGjL24?=
- =?us-ascii?Q?7YTupB2gRg6gM2EDjqnsloxu3v3Qtevf7lXf3d5lJPYh6+5Y179IS2snd1ZQ?=
- =?us-ascii?Q?sfO5CO5o6JKF1tEsfI6eO2WR5V6ysSxpH+xQdMG/by3lftqG4YytjaCRUX5W?=
- =?us-ascii?Q?1xImtjaICuKQMcAqdO3Io/ZVpILRd1JLXD9Cy9T8jUsPzLhnR+bI0m3YOvzC?=
- =?us-ascii?Q?o1dpUWF5wMvyr2ZhyHI8ew45GrBlnr3MEe4i9vHljbVcUUnT3g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tc2pAVrsuyrm09cgv5su3siSeXOtGTsp+FnP+2cmxdwznCL/MVrcESNPd3tK?=
- =?us-ascii?Q?u8guosWCXfcBfpDNnPbsiyOozbqXFES0AlFaWlhTWGk5lzL9jfNCVoAgH59T?=
- =?us-ascii?Q?Mgbx/YwBF7f5432QT/n5vIcBWPzPHxRL9JdbF1K72JFapfJNV1gifzilwNgT?=
- =?us-ascii?Q?2NfiNyD5wVGiX9DvU+jqPuGcoj4Li7vXy+wf6IQhNolpgzTZ1SGtsNwIWOxj?=
- =?us-ascii?Q?+USCyAq/p7SnOYqS7XK5D2f8yfezdruWd9UImdn5ZIcfWypoV5tWhGQgT+LP?=
- =?us-ascii?Q?gI8vZ42F5nAcK9GexYZc0YD8/K+lls6LodZ7Q0Z7IE37th/UAFClS+VH7IN8?=
- =?us-ascii?Q?FrR+tdBbK9gxVAwU3qZhdMbJUmEofvxbxVTef+ZMdZfZQmhPj1XJC5d4D7cA?=
- =?us-ascii?Q?2go4CGif4HWjdB5dZ8/C1CvU85GdQ51O07Enl6kiqSZXa0CpYdyFsINAb+db?=
- =?us-ascii?Q?JRyRTeow5PHZ4Vn3ihIeN5yt7OakXIHUEvvblwIaH8Ybidilv4kJHmWSeBbJ?=
- =?us-ascii?Q?D4bxtuMGN1/7FLFn1jKs3sghOoVXN1PoP2LdL3aFJERyl98mf2lJnJoq2TF5?=
- =?us-ascii?Q?fx1YOQIsIJxtHyPaoyPSHJKnbpM3taJYzNQ3S2jCIYM/40EighNhOqvLTb1P?=
- =?us-ascii?Q?WQ2CruQ5NBOLF9Icu0BW0oUsEtmx+lPvDo49ozx2CcmiDhaZ9i2o5aZ2O+ZR?=
- =?us-ascii?Q?/3HsXBYkOFw1Y/a2hmQbDVj1xzynLUHnCojPpbIJ2s0IQEAXf4Sbx1VynX08?=
- =?us-ascii?Q?1VDq6w74IV1grCMXYec0bCVN0yiZKlM67UpLPOGLtzQKMiln7sEGmKLJzkt9?=
- =?us-ascii?Q?/N75EzODgYZS45PSm/bwADZqT5HPoYiVW8Shn218MiGIMfE5NPWS3SOaHZ2/?=
- =?us-ascii?Q?kmxKG6wqBy9pLFpgTRg6WHlcAZaql901hddbycf0cm3I3ofJ11vdxf5c5S26?=
- =?us-ascii?Q?TUaI2wM5eX43OsB1OY6M8ARfs6MwbuDflRavgckFDDe3tUGIX0T8v8AIRZT6?=
- =?us-ascii?Q?C1eqTGNJ5ZekfalBHtwgXo/uxjUvDRkxn20R5OHbRVYcIx9RLWwpsh1/uB9R?=
- =?us-ascii?Q?Ef4cZrpTn0g+jtYsM/PANiJfMXDjvXN/5NIaJLmgn9puWeCYdf0eNkwE3MQO?=
- =?us-ascii?Q?dmlgKWpu+HbdhnpZXVC6y/PUoXSxO0XZOhbgfD7nCKnohyp+734nGkSI0q7W?=
- =?us-ascii?Q?GwnypcfuGHSg6S1sE6NqA8KIjmD0PJHDnI9Wus7dv7hxcwvYXY4gOZLXpYGi?=
- =?us-ascii?Q?VsD31GrgdsdsLtmQ5Eg72U9Dosz5vk4/nhfDEwSJNNJ0RI+ydE0tfqLBNN6E?=
- =?us-ascii?Q?tTPATN0kodVugQhKEBNe6NiAaVaxsMr8Wvr3zEhj1LUQEqZB0LXXkG1gCUbr?=
- =?us-ascii?Q?0xSumoqKs5qEwt8DLqujL+cVBbJh0GbrO8JiHgfEqu7b17OXNbF+rWrBkG89?=
- =?us-ascii?Q?eclWNJVOZBN9rwF9TfDG3WfVZkMFhjwOdck2oVBV/WvI0KPiVUJSt6bgv+ME?=
- =?us-ascii?Q?cI029niPjVzxOfeurzKAFzdmgg6EA/aQiqEDHZ7Rl8HUYJQb2MntT2KJK7QO?=
- =?us-ascii?Q?7PgpjUWA7Wejfky19pmmYQ+fjAfc4eaXmna4X/2m?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc05042d-89b0-41b8-8156-08dd1481a944
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2024 16:35:28.0800
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bhtnVA21dzEkvUTBwrNlnDr2mvsrLMwxdJB263kWPEctviZzExu7T4YGhV9LouPq7XTLwFqX/4aaRdzDyj+OAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10807
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241204-arm64-sme-reenable-v2-6-bae87728251d@kernel.org>
+References: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
+In-Reply-To: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Dave Martin <Dave.Martin@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7574; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=eI1tefeXL+TZyNSuc2hjvlfnxnuJuAFK0jlaMH14RBU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnUHOsbe0GDhU62lb7UKSWwAgaI1b1a8VR3tzw/dfD
+ 1mu3GAGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ1BzrAAKCRAk1otyXVSH0KOCB/
+ 4p5VAQLLhXOeFnoHp6R0itwyVFkGH1spAboKblwKdR8i+wqsNaLIfICVhZ54UQPw9jtYPjjsrh9Ea0
+ sw9jRxJVbGL4BAy/5Msu9vVYaLkHZxOHLSCJA0eQcUIRTslxqGe6W6JpOXliPSNmckmbRgUIzv5f/h
+ G/u6atg61wUf3tSb7goYClKr1P18RjSPc18DXBPJu0SLbv7O40nmjB44MYbkrlbkT6sSLpX2qciaL8
+ E/ALIsLrT5CpzQVsGxYn5KC+F64l9hr5B/2JPX0QIK3TM+iOG87JsOgcMyMXAtVT7CDOCjYHnHidmk
+ NrfcXRH9OO26RGKlEzPPQWNigcd/O/
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_083535_028847_0B15540F 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20241204_072237_154446_0ADDA9EF 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,50 +86,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 04, 2024 at 03:01:44PM +0000, Marc Zyngier wrote:
-> In order to let host controller drivers using the host-generic
-> infrastructure use the {en,dis}able_device() callbacks that can
-> be used to configure sideband RID mapping hardware, provide these
-> two callbacks as part of the pci_ecap_ops structure.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+When restoring the SVE and SME specific floating point register states we
+flush the task floating point state, marking the hardware state as stale so
+that preemption does not result in us saving register state from the signal
+handler on top of the restored context and forcing a reload from memory.
+For the plain FPSIMD state we don't do this, we just copy the state from
+userspace and then force an immediate reload of the register state.
+This isn't racy against context switch since we copy the incoming data
+onto the stack rather than directly into the task struct but it's still
+messy and inconsistent.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Simplify things and avoid a potential source of error by moving the
+invalidation of the CPU state to the main restore_sigframe() and
+reworking the restore of the FPSIMD state to update the task struct and
+rely on loading as part of the general do_notify_resume() handling for
+return to user like we do for the SVE and SME state.
 
-> ---
->  drivers/pci/controller/pci-host-common.c | 2 ++
->  include/linux/pci-ecam.h                 | 4 ++++
->  2 files changed, 6 insertions(+)
->
-> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-> index cf5f59a745b37..f441bfd6f96a8 100644
-> --- a/drivers/pci/controller/pci-host-common.c
-> +++ b/drivers/pci/controller/pci-host-common.c
-> @@ -75,6 +75,8 @@ int pci_host_common_probe(struct platform_device *pdev)
->
->  	bridge->sysdata = cfg;
->  	bridge->ops = (struct pci_ops *)&ops->pci_ops;
-> +	bridge->enable_device = ops->enable_device;
-> +	bridge->disable_device = ops->disable_device;
->  	bridge->msi_domain = true;
->
->  	return pci_host_probe(bridge);
-> diff --git a/include/linux/pci-ecam.h b/include/linux/pci-ecam.h
-> index 3a4860bd27586..3a10f8cfc3ad5 100644
-> --- a/include/linux/pci-ecam.h
-> +++ b/include/linux/pci-ecam.h
-> @@ -45,6 +45,10 @@ struct pci_ecam_ops {
->  	unsigned int			bus_shift;
->  	struct pci_ops			pci_ops;
->  	int				(*init)(struct pci_config_window *);
-> +	int				(*enable_device)(struct pci_host_bridge *,
-> +							 struct pci_dev *);
-> +	void				(*disable_device)(struct pci_host_bridge *,
-> +							  struct pci_dev *);
->  };
->
->  /*
-> --
-> 2.39.2
->
+As a result of this the only user of fpsimd_update_current_state() is
+the 32 bit signal code which should not have any SVE state, add an
+assert there that we don't have SVE enabled.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/kernel/fpsimd.c |  9 +++---
+ arch/arm64/kernel/signal.c | 70 +++++++++++++++-------------------------------
+ 2 files changed, 27 insertions(+), 52 deletions(-)
+
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index 2b045d4d8f71ace5bf01a596dda279285a0998a5..74080204073d06819838873996b8cb60043d89de 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1868,7 +1868,8 @@ void fpsimd_update_current_state(struct user_fpsimd_state const *state)
+ 	get_cpu_fpsimd_context();
+ 
+ 	current->thread.uw.fpsimd_state = *state;
+-	if (test_thread_flag(TIF_SVE))
++	/* This should only ever be used for 32 bit processes */
++	if (WARN_ON_ONCE(test_thread_flag(TIF_SVE)))
+ 		fpsimd_to_sve(current);
+ 
+ 	task_fpsimd_load();
+@@ -1894,9 +1895,9 @@ void fpsimd_flush_task_state(struct task_struct *t)
+ {
+ 	t->thread.fpsimd_cpu = NR_CPUS;
+ 	/*
+-	 * If we don't support fpsimd, bail out after we have
+-	 * reset the fpsimd_cpu for this task and clear the
+-	 * FPSTATE.
++	 * If we don't support fpsimd, bail out after we have reset
++	 * the fpsimd_cpu for this task and clear the FPSTATE.  We
++	 * check here rather than forcing callers to check.
+ 	 */
+ 	if (!system_supports_fpsimd())
+ 		return;
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 79c9c5cd0802149b3cde20b398617437d79181f2..335c2327baf74eac9634cf594855dbf26a7d6b01 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -271,7 +271,7 @@ static int preserve_fpsimd_context(struct fpsimd_context __user *ctx)
+ 
+ static int restore_fpsimd_context(struct user_ctxs *user)
+ {
+-	struct user_fpsimd_state fpsimd;
++	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
+ 	int err = 0;
+ 
+ 	/* check the size information */
+@@ -279,18 +279,14 @@ static int restore_fpsimd_context(struct user_ctxs *user)
+ 		return -EINVAL;
+ 
+ 	/* copy the FP and status/control registers */
+-	err = __copy_from_user(fpsimd.vregs, &(user->fpsimd->vregs),
+-			       sizeof(fpsimd.vregs));
+-	__get_user_error(fpsimd.fpsr, &(user->fpsimd->fpsr), err);
+-	__get_user_error(fpsimd.fpcr, &(user->fpsimd->fpcr), err);
++	err = __copy_from_user(fpsimd->vregs, &(user->fpsimd->vregs),
++			       sizeof(fpsimd->vregs));
++	__get_user_error(fpsimd->fpsr, &(user->fpsimd->fpsr), err);
++	__get_user_error(fpsimd->fpcr, &(user->fpsimd->fpcr), err);
+ 
+ 	clear_thread_flag(TIF_SVE);
+ 	current->thread.fp_type = FP_STATE_FPSIMD;
+ 
+-	/* load the hardware registers from the fpsimd_state structure */
+-	if (!err)
+-		fpsimd_update_current_state(&fpsimd);
+-
+ 	return err ? -EFAULT : 0;
+ }
+ 
+@@ -396,7 +392,7 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ {
+ 	int err = 0;
+ 	unsigned int vl, vq;
+-	struct user_fpsimd_state fpsimd;
++	struct user_fpsimd_state *fpsimd = &current->thread.uw.fpsimd_state;
+ 	u16 user_vl, flags;
+ 
+ 	if (user->sve_size < sizeof(*user->sve))
+@@ -439,16 +435,6 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ 	if (user->sve_size < SVE_SIG_CONTEXT_SIZE(vq))
+ 		return -EINVAL;
+ 
+-	/*
+-	 * Careful: we are about __copy_from_user() directly into
+-	 * thread.sve_state with preemption enabled, so protection is
+-	 * needed to prevent a racing context switch from writing stale
+-	 * registers back over the new data.
+-	 */
+-
+-	fpsimd_flush_task_state(current);
+-	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
+-
+ 	sve_alloc(current, true);
+ 	if (!current->thread.sve_state) {
+ 		clear_thread_flag(TIF_SVE);
+@@ -471,14 +457,10 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ fpsimd_only:
+ 	/* copy the FP and status/control registers */
+ 	/* restore_sigframe() already checked that user->fpsimd != NULL. */
+-	err = __copy_from_user(fpsimd.vregs, user->fpsimd->vregs,
+-			       sizeof(fpsimd.vregs));
+-	__get_user_error(fpsimd.fpsr, &user->fpsimd->fpsr, err);
+-	__get_user_error(fpsimd.fpcr, &user->fpsimd->fpcr, err);
+-
+-	/* load the hardware registers from the fpsimd_state structure */
+-	if (!err)
+-		fpsimd_update_current_state(&fpsimd);
++	err = __copy_from_user(fpsimd->vregs, user->fpsimd->vregs,
++			       sizeof(fpsimd->vregs));
++	__get_user_error(fpsimd->fpsr, &user->fpsimd->fpsr, err);
++	__get_user_error(fpsimd->fpcr, &user->fpsimd->fpcr, err);
+ 
+ 	return err ? -EFAULT : 0;
+ }
+@@ -587,16 +569,6 @@ static int restore_za_context(struct user_ctxs *user)
+ 	if (user->za_size < ZA_SIG_CONTEXT_SIZE(vq))
+ 		return -EINVAL;
+ 
+-	/*
+-	 * Careful: we are about __copy_from_user() directly into
+-	 * thread.sme_state with preemption enabled, so protection is
+-	 * needed to prevent a racing context switch from writing stale
+-	 * registers back over the new data.
+-	 */
+-
+-	fpsimd_flush_task_state(current);
+-	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
+-
+ 	sme_alloc(current, true);
+ 	if (!current->thread.sme_state) {
+ 		current->thread.svcr &= ~SVCR_ZA_MASK;
+@@ -664,16 +636,6 @@ static int restore_zt_context(struct user_ctxs *user)
+ 	if (nregs != 1)
+ 		return -EINVAL;
+ 
+-	/*
+-	 * Careful: we are about __copy_from_user() directly into
+-	 * thread.zt_state with preemption enabled, so protection is
+-	 * needed to prevent a racing context switch from writing stale
+-	 * registers back over the new data.
+-	 */
+-
+-	fpsimd_flush_task_state(current);
+-	/* From now, fpsimd_thread_switch() won't touch ZT in thread state */
+-
+ 	err = __copy_from_user(thread_zt_state(&current->thread),
+ 			       (char __user const *)user->zt +
+ 					ZT_SIG_REGS_OFFSET,
+@@ -1028,6 +990,18 @@ static int restore_sigframe(struct pt_regs *regs,
+ 	if (err == 0)
+ 		err = parse_user_sigframe(&user, sf);
+ 
++	/*
++	 * Careful: we are about __copy_from_user() directly into
++	 * thread floating point state with preemption enabled, so
++	 * protection is needed to prevent a racing context switch
++	 * from writing stale registers back over the new data. Mark
++	 * the register floating point state as invalid and unbind the
++	 * task from the CPU to force a reload before we return to
++	 * userspace. fpsimd_flush_task_state() has a check for FP
++	 * support.
++	 */
++	fpsimd_flush_task_state(current);
++
+ 	if (err == 0 && system_supports_fpsimd()) {
+ 		if (!user.fpsimd)
+ 			return -EINVAL;
+
+-- 
+2.39.5
+
 
