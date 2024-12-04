@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D441E7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48952E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mWIbiNnKNYcwhrgwtmIyW8/OFwoBBcUW/PJNh6ViAc=; b=2YFaS97wqmHIV3uT0CsdfHMgtG
-	NpZZuzT5/afNet63GZhbPCaLOWDWSWd3RU5DubfGRfvSagGvgbwVX83iyHaPUo05MykBsJ6+KhlOp
-	jdubNGAVt8gFQ8vw0EojrJWIsZWeoFkvK6J40j2Fb68hQLDJQVxK+DJQy65oCilnSZDJeotNo5SWW
-	Ye/fRTTgi6EVLum6odZKUe/thVT4bJuJxIAWElcFB2z6EsUZRB8VBtpG/NUOeypSyVo+9CJ/qZZCs
-	+cZXc7wngojHDimy+v7ManXh1h/794o+VIKiLEssqH0kv3+gQsyXq8TqlWrDRJMrIkHlxWfJcmoyi
-	Rjdn+kMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iqsuDDlHDJ2bNwEn9TFHJaaIK1PftSUTThEO0MmNF/c=; b=M36fd2vlkZz3J2
+	FzvTJk84et37BcBzml/G897/AeFiFDuwd7g1NwZEpnmzecNvrgJgDEy0O3dws6gA1FqUYzkimxxUW
+	HEejGCJ0W2H4Nvvib3L1Dlgqx3kRAyAg4ltIWM/N6U51p0F9mWfvLiRkxvnc0FUqcj8gPx8YdmY12
+	a5IdC+y3Algy/lpabaDWXHjNlQold3dSxwOTSkmeYfRPv4esZL3IduvRTc2+h6nVdMKquoAcGI/t2
+	y2FaHkotg79q5Rx7A2pwg3a3rh/Oy9UpmpZ3NAmTAzazCFUXWaX5KfUxYL//GAp8Y6JQzt+GtWYL3
+	8PznMXqyQRhEolHun3FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrCs-0000000Cyrh-2uKu;
-	Wed, 04 Dec 2024 15:22:26 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1tIrDt-0000000CzAA-1kud;
+	Wed, 04 Dec 2024 15:23:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrBs-0000000Cylh-1MOs
+	id 1tIrCr-0000000CyrN-0lJs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:21:25 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-841d8dec299so288849939f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:21:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733325682; x=1733930482; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0mWIbiNnKNYcwhrgwtmIyW8/OFwoBBcUW/PJNh6ViAc=;
-        b=K48swc2Cufi+XDwlaic5o7yVqM3xv4c4pRE44/roluxyjrAjEYvENvd7BJsoHWEi1v
-         lq4x7NPnc7SfDFZFW+Yes2F/AedoScaHXt7iXEvzlkwuPj0QWPGn4NHbKrY/LhIY7qpz
-         1kPXZKyFuBvJxtC1vX4KknpmWfN/QPqpMk+y3LqDWFUpsyJ6E0mQWHhsdJ9t9Udkcdez
-         /ymkApU+Dsb2AoCnPlQ6u08jYTyXhVLMa9LzSx8VmeX8A2ANOAi3PoyvK6s4s/ti800/
-         RYFz3a2QCWd2nA9AtBk5/w5VypX41zktFpeK+xrGbyVIKAYE2OIods8a81szzjZTl332
-         bTRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733325682; x=1733930482;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0mWIbiNnKNYcwhrgwtmIyW8/OFwoBBcUW/PJNh6ViAc=;
-        b=UvNLZFqr4qg8u3SDbcTZZ3rX9MHQKBXiVklgntdNpoldG1RNQWwDiD+YObG4L7nA+E
-         bEBVFzA5k5SluJ2m9NodPhObpmgIftt4XKar3myWEcQGGw67EOuLyAOKYYdGyjMvQNO+
-         oFY2wDtbyb8QKeIDXhYPxXL86jtOP8FZDTjML6/nDTICoKdFH4gWWN4Bnlx88K9IMyKF
-         UniQSucS44vU0+dooKYMMhRVm3hWREmM4Rq2P9/iNA+xX34gyagfSbbqIWKm81eDyudv
-         83C6bul5fOQcXTnBrAZu6g7yoLLJ3mM15RmMcjJQfojbJgxDzZZJ5aYEpqKhjwxAWD1r
-         Oxug==
-X-Forwarded-Encrypted: i=1; AJvYcCWtjtoalHrFiGzrOzxlBNY37kaf3DL0/2iEwzZEQlZkGF9ygigCnqzlasvduuo6QilQycI+cYsBS3+zsqPFqsDp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmLTxbY1uH4UH+JYsfqrsKuvBK2/vQep22Y4yoSURKAtyqyfEd
-	6gKF476prPQ98VqyKLrl6UBGrNvD5i3KGKCUpvF276NMUn4rAX8bgBuiLbEuZnlG9htRiicLsEn
-	5l6+TMRSUTc+Qhy6GIXchs4e+61Q=
-X-Gm-Gg: ASbGncuqaNaCPCHL3X3UWEx4r6OxIKqF36ScGjm25WkFYZHumVn0jLA43n9vPRiZbEH
-	a65/hrPDdQKJB3EYWqLhxB+9C03Ytd7x6Nn1QMxLEgemV7WVzTEv+f8AXdB+NOQ==
-X-Google-Smtp-Source: AGHT+IHDPo/m1Tgonui7uUaMfEFTF1kB0w/zjAZ5wQ/m2NZv6qbrVx899uJo0oDWh0QmO8HzCYsC+VfkeFHabmPKV1c=
-X-Received: by 2002:a05:6602:6b19:b0:843:e9c0:8290 with SMTP id
- ca18e2360f4ac-8445b5585a1mr786739639f.6.1733325682440; Wed, 04 Dec 2024
- 07:21:22 -0800 (PST)
+	Wed, 04 Dec 2024 15:22:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A1D015C455A;
+	Wed,  4 Dec 2024 15:21:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A79C0C4CECD;
+	Wed,  4 Dec 2024 15:22:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733325744;
+	bh=YxbdLK0hPdinmJ7aseN6ZxvZEvKSnXJP4oKfttGQxMg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=so4yfvkvN9CDgMc6hEnOllf8Nm3zaqsK5NEJLHvCdhz31RV7sTx/cq/2nSN8Dku7t
+	 23F6IN8Gad0ycca3IE/TPM3lwhxI7iNC2BH1NAJVtJHwhtFwaQwFha6HJxkiA7y6jY
+	 AaDRjIFCQ9T0G/pwyJ4cI9YpG28v7YJt0+vsQIsL+fF536WuodGM9uyl8tS8QKPG7Q
+	 sslqF9neGm6Ws1LyD1yspxyYr43IkTWrfSzyxp1MfAkvQKUwIcGsXJeWXP3ZOWkHyp
+	 K2eneCiB2Wko+9nX4bWJlBHZy3ARSAXj9wwRxypcpDL7q9wADVPGEKCYqmhA6UcaCc
+	 Alv9sv6d3sEGA==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v2 0/6] arm64/sme: Collected SME fixes
+Date: Wed, 04 Dec 2024 15:20:48 +0000
+Message-Id: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
 MIME-Version: 1.0
-References: <20241114160721.1527934-1-quic_bibekkum@quicinc.com>
- <20241114160721.1527934-4-quic_bibekkum@quicinc.com> <CAF6AEGuwWsAkRyF-h5Aj3KzM7iksb12HsfJ5Ks+-P8hv60MWFg@mail.gmail.com>
- <9beca099-5cf3-42b5-b1f9-fb1551219b18@quicinc.com> <CAF6AEGvAOswFTpS5PHrgCsG_2-QN_Bi4YjZbPpV+r3x=9D2aUQ@mail.gmail.com>
- <d2d8d9e9-74b1-4b05-84a2-dcfa204e6e00@quicinc.com>
-In-Reply-To: <d2d8d9e9-74b1-4b05-84a2-dcfa204e6e00@quicinc.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Wed, 4 Dec 2024 07:21:10 -0800
-Message-ID: <CAF6AEGtBva41Fz0tS4gRwK21ZqzDH5yGrWLY6TMeS6u7OFfS0Q@mail.gmail.com>
-Subject: Re: [PATCH RESEND v17 3/5] iommu/arm-smmu: add support for PRR bit setup
-To: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
-	jsnitsel@redhat.com, robh@kernel.org, krzysztof.kozlowski@linaro.org, 
-	quic_c_gdjako@quicinc.com, dmitry.baryshkov@linaro.org, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Connor Abbott <cwabbott0@gmail.com>, 
-	Rob Clark <robdclark@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFBzUGcC/22Nyw6CMBREf4XctddQqDxc+R+GRYERGqGYW0M0p
+ P9uJXHnZpIzyZzZyEMsPJ2TjQSr9XZxEbJDQt1o3AC2fWTK0kyrGGxkLjT7GSyAM+0ErisUulO
+ FMhUoDh+Cm33t0msTebT+uch7/1jVt/3p8n+6VXHKfXXKdVn3qi3Lyx3iMB0XGagJIXwArzVMW
+ rUAAAA=
+X-Change-ID: 20241202-arm64-sme-reenable-98e64c161a8e
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Dave Martin <Dave.Martin@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
+X-Mailer: b4 0.15-dev-9b746
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1436; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=YxbdLK0hPdinmJ7aseN6ZxvZEvKSnXJP4oKfttGQxMg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnUHOoeQbPc1HbfhMEJ6VMwbqGljtgzH/xL/utSJwc
+ BuyUoruJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ1BzqAAKCRAk1otyXVSH0BawB/
+ 90OIzPt6j6CGU6RuSdHVSMeewxBU+uf1YFk4npaIu9/p54fletxj5NfLw3xCyb3bdsFlmpFpk3S/AW
+ Wx/8C6TMHj/2Iuohrqgm5pUK+h8LS1WET6CSqFh45R9N1+V3MvfuLr7Z7L1mMMBd+VbV733ZiEJAFO
+ sg/pNDrso2ZbqEDbog4svL/AwhmtkaL+uIUSdikXRrNzc0TPGvQ6w4pgzXlau6eTRbuCUrPP/8rfRy
+ AcS1URPzbJ7KoSmU00K9d0c6OY2NCH7une+m/R6lM5SZcLdY23cnuE/TWDFDNO6K5DHaxpZJ2IUBnz
+ wWdJhYdYKubtbJO5c4aQUCD979PDH2
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_072124_370189_338809C0 
-X-CRM114-Status: GOOD (  58.43  )
+X-CRM114-CacheID: sfid-20241204_072225_267750_BAC8DBCB 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,284 +89,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 4, 2024 at 3:27=E2=80=AFAM Bibek Kumar Patro
-<quic_bibekkum@quicinc.com> wrote:
->
->
->
-> On 11/22/2024 10:33 PM, Rob Clark wrote:
-> > On Fri, Nov 22, 2024 at 8:19=E2=80=AFAM Bibek Kumar Patro
-> > <quic_bibekkum@quicinc.com> wrote:
-> >>
-> >>
-> >>
-> >> On 11/20/2024 10:47 PM, Rob Clark wrote:
-> >>> On Thu, Nov 14, 2024 at 8:10=E2=80=AFAM Bibek Kumar Patro
-> >>> <quic_bibekkum@quicinc.com> wrote:
-> >>>>
-> >>>> Add an adreno-smmu-priv interface for drm/msm to call
-> >>>> into arm-smmu-qcom and initiate the PRR bit setup or reset
-> >>>> sequence as per request.
-> >>>>
-> >>>> This will be used by GPU to setup the PRR bit and related
-> >>>> configuration registers through adreno-smmu private
-> >>>> interface instead of directly poking the smmu hardware.
-> >>>>
-> >>>> Suggested-by: Rob Clark <robdclark@gmail.com>
-> >>>> Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-> >>>> ---
-> >>>>    drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 37 +++++++++++++++++=
-+++++
-> >>>>    drivers/iommu/arm/arm-smmu/arm-smmu.h      |  2 ++
-> >>>>    include/linux/adreno-smmu-priv.h           | 14 ++++++++
-> >>>>    3 files changed, 53 insertions(+)
-> >>>>
-> >>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/io=
-mmu/arm/arm-smmu/arm-smmu-qcom.c
-> >>>> index d26f5aea248e..0e4f3fbda961 100644
-> >>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> >>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> >>>> @@ -16,6 +16,8 @@
-> >>>>
-> >>>>    #define QCOM_DUMMY_VAL -1
-> >>>>
-> >>>> +#define GFX_ACTLR_PRR          (1 << 5)
-> >>>> +
-> >>>>    static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smm=
-u)
-> >>>>    {
-> >>>>           return container_of(smmu, struct qcom_smmu, smmu);
-> >>>> @@ -99,6 +101,32 @@ static void qcom_adreno_smmu_resume_translation(=
-const void *cookie, bool termina
-> >>>>           arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, re=
-g);
-> >>>>    }
-> >>>>
-> >>>> +static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool s=
-et)
-> >>>> +{
-> >>>> +       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> >>>> +       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> >>>> +       struct arm_smmu_cfg *cfg =3D &smmu_domain->cfg;
-> >>>> +       u32 reg =3D 0;
-> >>>> +
-> >>>> +       reg =3D  arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_ACTL=
-R);
-> >>>> +       reg &=3D ~GFX_ACTLR_PRR;
-> >>>> +       if (set)
-> >>>> +               reg |=3D FIELD_PREP(GFX_ACTLR_PRR, 1);
-> >>>> +       arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_ACTLR, reg);
-> >>>> +}
-> >>>> +
-> >>>> +static void qcom_adreno_smmu_set_prr_addr(const void *cookie, phys_=
-addr_t page_addr)
-> >>>> +{
-> >>>> +       struct arm_smmu_domain *smmu_domain =3D (void *)cookie;
-> >>>> +       struct arm_smmu_device *smmu =3D smmu_domain->smmu;
-> >>>> +
-> >>>> +       writel_relaxed(lower_32_bits(page_addr),
-> >>>> +                               smmu->base + ARM_SMMU_GFX_PRR_CFG_LA=
-DDR);
-> >>>> +
-> >>>> +       writel_relaxed(upper_32_bits(page_addr),
-> >>>> +                               smmu->base + ARM_SMMU_GFX_PRR_CFG_UA=
-DDR);
-> >>>> +}
-> >>>> +
-> >>>>    #define QCOM_ADRENO_SMMU_GPU_SID 0
-> >>>>
-> >>>>    static bool qcom_adreno_smmu_is_gpu_device(struct device *dev)
-> >>>> @@ -210,6 +238,7 @@ static bool qcom_adreno_can_do_ttbr1(struct arm_=
-smmu_device *smmu)
-> >>>>    static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *=
-smmu_domain,
-> >>>>                   struct io_pgtable_cfg *pgtbl_cfg, struct device *d=
-ev)
-> >>>>    {
-> >>>> +       const struct device_node *np =3D smmu_domain->smmu->dev->of_=
-node;
-> >>>>           struct adreno_smmu_priv *priv;
-> >>>>
-> >>>>           smmu_domain->cfg.flush_walk_prefer_tlbiasid =3D true;
-> >>>> @@ -239,6 +268,14 @@ static int qcom_adreno_smmu_init_context(struct=
- arm_smmu_domain *smmu_domain,
-> >>>>           priv->get_fault_info =3D qcom_adreno_smmu_get_fault_info;
-> >>>>           priv->set_stall =3D qcom_adreno_smmu_set_stall;
-> >>>>           priv->resume_translation =3D qcom_adreno_smmu_resume_trans=
-lation;
-> >>>> +       priv->set_prr_bit =3D NULL;
-> >>>> +       priv->set_prr_addr =3D NULL;
-> >>>> +
-> >>>> +       if (of_device_is_compatible(np, "qcom,smmu-500") &&
-> >>>> +                       of_device_is_compatible(np, "qcom,adreno-smm=
-u")) {
-> >>>
-> >>> fwiw, it seems like PRR actually works on sc7180, which is _not_
-> >>> mmu-500, so I guess the support actually goes back further.
-> >>>
-> >>
-> >> As I checked sc7180 was on previous variant of SMMU,
-> >> so targets on this variant have different steps to set PRR bit.
-> >> <Do not have both prr bit and PRR page registers>.
-> >
-> > Experimentally, I have to set both the PRR LADDR/UADDR regs and
-> > ACTLR.PRR bit on sc7180 to get the sparse-residency tests passing.  So
-> > the underlying hw seems to work in the same way as mmu-500.  _But_
-> > this is on a sc7180 chromebook, the situation might be different
-> > depending on fw on things that have QC hyp.
-> >
->
-> I checked on sc7180 chipset which is based on the smmu-v2,
-> this time by looking for these offsets specifically. I can see the
-> nomenclature of the PRR related registers are a bit different
-> compared to MMU-500 variant.
-> Also the implementation register is 64 bit instead of
-> dual 32 bit as in case of MMU-500. and PRR bit is not marked in
-> ACTLR register offset.
+This series collects the various SME related fixes that were previously
+posted separately.  These should address all the issues I am aware of so
+a patch which reenables the SME configuration option is also included.
 
-Interesting.. in my experiments it needed both the ACTLR.PRR bit set
-and the LADDR/UADDR.  Maybe it was just happy coincidence that two 32b
-writes worked?
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v2:
+- Pull simplification of the signal restore code after the SME
+  reenablement, it's not a fix but there's some code overlap.
+- Comment updates.
+- Link to v1: https://lore.kernel.org/r/20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org
 
-> So turns out PRR is supported but with some modification and
-> can be carried out with same compatible based approach only - as per
-> my understanding.
->
-> In current patch plan was to provide support for MMU-500 based targets
-> and won't break any legacy targets, so we can take the PRR support
-> for legacy targets in different series once our evaluation is done on
-> smmu-v2 ?
+---
+Mark Brown (6):
+      arm64/sme: Flush foreign register state in do_sme_acc()
+      arm64/fp: Don't corrupt FPMR when streaming mode changes
+      arm64/ptrace: Zero FPMR on streaming mode entry/exit
+      arm64/signal: Avoid corruption of SME state when entering signal handler
+      arm64/sme: Reenable SME
+      arm64/signal: Consistently invalidate the in register FP state in restore
 
-I guess it wouldn't be the end of the world, but it would mean that
-drm would need to expose PRR support to userspace separately from
-sparse binding support.  Maybe we need to do that anyways.  (I'm not
-really sure how many different a6xx+smmu-v2 devices are out there, but
-I guess they are all based on the same generation of snapdragon?)
+ arch/arm64/Kconfig              |  1 -
+ arch/arm64/include/asm/fpsimd.h |  1 +
+ arch/arm64/kernel/fpsimd.c      | 57 ++++++++++++++++++++++----
+ arch/arm64/kernel/ptrace.c      | 12 +++++-
+ arch/arm64/kernel/signal.c      | 89 +++++++++++------------------------------
+ 5 files changed, 84 insertions(+), 76 deletions(-)
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20241202-arm64-sme-reenable-98e64c161a8e
 
-BR,
--R
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
-> We would explore more on this PRR feature for smmu-v2 based targets,
-> before supporting it.
->
-> Thanks & regards,
-> Bibek
->
-> >> It's MMU-500 targets only where PRR support is with both PRR bit
-> >> and PRR page addr registers. As I was re-visiting our discussions on v=
-13
-> >> regarding this - I remember that's why we started using the SMMU-
-> >> compatible string based PRR procedure selection instead of the reserve=
-d-
-> >> memory node. [1] i.e Based on SMMU variant (as selected by compatible
-> >> string), specific sequence will be selected.
-> >>
-> >> So for now only MMU-500 based selection has been supported as part of
-> >> this series and will add subsequent support for other SMMU-variants
-> >> thereafter.
-> >>
-> >>> I'm curious if we can just rely on this being supported by any hw tha=
-t
-> >>> has a6xx or newer?
-> >>>
-> >>
-> >> I'd need to check on targets which will be based on a6xx onwards, on
-> >> what will be the procedure planned to support PRR feature. I'll update
-> >> the information over this space.
-> >
-> > One of the open questions about the drm/msm sparse-memory patchset is
-> > whether we need to expose to userspace whether PRR is supported, or if
-> > we can just rely on sparse-binding support implying sparse residency
-> > (ie, PRR) support. All a6xx devices support per-process pgtables,
-> > which is the only requirement for basic sparseBinding support.  But
-> > PRR is required to additionally expose
-> > sparseResidencyBuffer/sparseResidencyImage2D.
-> >
-> > I think, long term, turnip probably will want to drop support for
-> > older kernels and remove support for legacy buffer mapping.  But if we
-> > have some a6xx devices without PRR, then to do that we'd need to
-> > decouple sparse binding and sparse residency.  (Vulkan allows a driver
-> > to expose the former without the latter.)
-> >
-> > BR,
-> > -R
-> >
-> >> [1]:
-> >> https://lore.kernel.org/all/5790afa3-f9c0-4720-9804-8a7ff3d91854@quici=
-nc.com/#:~:text=3D%3E%20I%20guess%20if,part%20as%20well.
-> >>
-> >> Thanks & regards,
-> >> Bibek
-> >>
-> >>> BR,
-> >>> -R
-> >>>
-> >>>> +               priv->set_prr_bit =3D qcom_adreno_smmu_set_prr_bit;
-> >>>> +               priv->set_prr_addr =3D qcom_adreno_smmu_set_prr_addr=
-;
-> >>>> +       }
-> >>>>
-> >>>>           return 0;
-> >>>>    }
-> >>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/a=
-rm/arm-smmu/arm-smmu.h
-> >>>> index e2aeb511ae90..2dbf3243b5ad 100644
-> >>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> >>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> >>>> @@ -154,6 +154,8 @@ enum arm_smmu_cbar_type {
-> >>>>    #define ARM_SMMU_SCTLR_M               BIT(0)
-> >>>>
-> >>>>    #define ARM_SMMU_CB_ACTLR              0x4
-> >>>> +#define ARM_SMMU_GFX_PRR_CFG_LADDR     0x6008
-> >>>> +#define ARM_SMMU_GFX_PRR_CFG_UADDR     0x600C
-> >>>>
-> >>>>    #define ARM_SMMU_CB_RESUME             0x8
-> >>>>    #define ARM_SMMU_RESUME_TERMINATE      BIT(0)
-> >>>> diff --git a/include/linux/adreno-smmu-priv.h b/include/linux/adreno=
--smmu-priv.h
-> >>>> index c637e0997f6d..614665153b3e 100644
-> >>>> --- a/include/linux/adreno-smmu-priv.h
-> >>>> +++ b/include/linux/adreno-smmu-priv.h
-> >>>> @@ -50,6 +50,18 @@ struct adreno_smmu_fault_info {
-> >>>>     *                 the GPU driver must call resume_translation()
-> >>>>     * @resume_translation: Resume translation after a fault
-> >>>>     *
-> >>>> + * *CAUTION* : PRR callbacks (set_prr_bit/set_prr_addr) are NULL te=
-rminated for
-> >>>> + *             targets without PRR support. Exercise caution and ve=
-rify target
-> >>>> + *             capabilities before invoking these callbacks to prev=
-ent potential
-> >>>> + *             runtime errors or unexpected behavior.
-> >>>> + *
-> >>>> + * @set_prr_bit:   Extendible interface to be used by GPU to modify=
- the
-> >>>> + *                ACTLR register bits, currently used to configure
-> >>>> + *                Partially-Resident-Region (PRR) bit for feature's
-> >>>> + *                setup and reset sequence as requested.
-> >>>> + * @set_prr_addr:  Configure the PRR_CFG_*ADDR register with the
-> >>>> + *                physical address of PRR page passed from
-> >>>> + *                GPU driver.
-> >>>>     *
-> >>>>     * The GPU driver (drm/msm) and adreno-smmu work together for con=
-trolling
-> >>>>     * the GPU's SMMU instance.  This is by necessity, as the GPU is =
-directly
-> >>>> @@ -67,6 +79,8 @@ struct adreno_smmu_priv {
-> >>>>        void (*get_fault_info)(const void *cookie, struct adreno_smmu=
-_fault_info *info);
-> >>>>        void (*set_stall)(const void *cookie, bool enabled);
-> >>>>        void (*resume_translation)(const void *cookie, bool terminate=
-);
-> >>>> +    void (*set_prr_bit)(const void *cookie, bool set);
-> >>>> +    void (*set_prr_addr)(const void *cookie, phys_addr_t page_addr)=
-;
-> >>>>    };
-> >>>>
-> >>>>    #endif /* __ADRENO_SMMU_PRIV_H */
-> >>>> --
-> >>>> 2.34.1
-> >>>>
-> >>
->
 
