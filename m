@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08DB9E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D62E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+O1ilv826b1J07bwiFHjvn/g5RNrsUHc1aSulBRGoyg=; b=OPxyFAQuAq2ApwnCc+c9lkYoSJ
-	Uo7N7FJ+DZ4lHbr5icuZ+NhE79EV2cJpNrtyyLtainb1KADR5H2BiAuz9Y4ih6ifuhwPtF0v2o+0E
-	j2CILhCbFCTmUyFRSN3VKdBpnhMD8h7tdo86m3qQOlFUXf7iMmvd+FuOslb8EqYG3/x/u3snG2lSq
-	3TPEddQhLuqy8V3iIk2ICdelBVqVugtN7lem1pIDpVEl5s2+UQ0ZE5aCTczLsp4ZX65gAPOvHm3h9
-	VK0gF0+SkpI6oVk4rsQYWNNqAUw6kBNbHlq942K/LgbPKFk8F57goiMqVNbu8JN+F2f2wUyw1FVSp
-	ys8cm2vg==;
+	bh=4PmGL/2y4hItZPBzAYxJvSAWfupToCqGwSYAOMaqQdE=; b=BWdXlybfAgF3fN7No4Gr9kngof
+	HeUsEheLBo/yJW9jwQkrdNsExNaM/7oeR5uXyWPJdn0o9GBcvpfdyROrSKMfnV7YBieRea8wz7/4Q
+	AEPJ8q9VnN/VVbj7g57nMHNrtSCGgGmiqvCbaS4KAppxckUoeqeqg4L8oB6dM05Xe1nGw7wE4WPBS
+	3Ihv0WE5/jSoRMqrTXUHftx0UlnKTLK9cNofpTUGOrf1k2jmeYkU0bd6QeVF4rN4sYHUfJXjWXl3M
+	m3riFOee8grv9gn0eDlYpaqoatUH2V3xZsBQSRc7XetaB31v9uybJjjhJQHI3hjWAaeV3SnAJ4oDZ
+	vl0OwelQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqcR-0000000Cs3t-3QP3;
-	Wed, 04 Dec 2024 14:44:47 +0000
+	id 1tIqdR-0000000CsN0-04qk;
+	Wed, 04 Dec 2024 14:45:49 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqbQ-0000000Crt6-3sJO;
-	Wed, 04 Dec 2024 14:43:46 +0000
+	id 1tIqbs-0000000Crxt-04q7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 14:44:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 743EEA40F97;
-	Wed,  4 Dec 2024 14:41:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1679BC4CECD;
-	Wed,  4 Dec 2024 14:43:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2EE28A40680;
+	Wed,  4 Dec 2024 14:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB475C4CECD;
+	Wed,  4 Dec 2024 14:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733323423;
-	bh=undE9DTFHVhAQNgkdMypYeAhhRQBawi8NRp2IEnHt4I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rNSr/yv3mj0EZ/m19i9RxOi7Nnlo/ogkCfR8bstdKVHxnpVm1srNVqcNNAT0btNi3
-	 C+lK1KSh5Yg33D4Hc4e2P0mVokgOosFLtXz1Ed1AupAgTtTo9/Ru1n7qcopV/vATBM
-	 qgnQokM6eCoLHQtjNutQsARREPrgLTcHrCCyBq8a0dXgEKstk5h8402MOavxy56C/S
-	 UegD73F9aJ3EvvkF8FUFFemQcoFlp8ARql4eo/g469HN2u4NsVywqK4FP8qkMrh94K
-	 6dHnlAeKVE7hHw9hOH+rjiXDz2gJ2wgJ54uEp7UC/ZOEfLlN3hJVUzDx+XVxtQxvj1
-	 LxpalJjq4+huA==
-Date: Wed, 4 Dec 2024 08:43:41 -0600
-From: Rob Herring <robh@kernel.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 3/5] dt-bindings: pinctrl: add binding for MT7988 SoC
-Message-ID: <20241204144341.GA191772-robh@kernel.org>
-References: <20241202110045.22084-1-linux@fw-web.de>
- <20241202110045.22084-4-linux@fw-web.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202110045.22084-4-linux@fw-web.de>
+	s=k20201202; t=1733323451;
+	bh=46Z+0L3Ezl1nEU0WOzGgLjKKbkTUHUDezy6UcLo3ymg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lrC+cOU9t2aIN5VGnd60OD+O5OJYkXOlFjiIlZUs4x6xIjD0MNV46qY16lYhhdsoW
+	 q+m9EwjaUJ5LDOLFDA1EJdRIYx2iqGOpRJYoz0+yeqyR3sL6EBlI3I982mqgPm6aZ8
+	 BqwiImmwKE3CzxPsJpBrBeJV+u5ooIX5JDo3+edGWi0Mq0gZ45wJum4tUhUklW5ITG
+	 WXffdHgSfZkWXS9UoOmICEWA1mRpj4D6hYucu1bxhfec/n5s0T77Qtv7gH5p7ZHdnI
+	 A6tNs2fNlA6FUerhX0F8LvRSL/WjnuAAcbMb6Bpz1c1JEhhXWnm6yVi2erZ3C9hfVU
+	 lLU8WlTnsS0qg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tIqbo-000TUi-LZ;
+	Wed, 04 Dec 2024 14:44:08 +0000
+Date: Wed, 04 Dec 2024 14:44:07 +0000
+Message-ID: <86ldwvtsnc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Ralph Siemsen <ralph.siemsen@linaro.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Russell King <linux@armlinux.org.uk>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Tony Lindgren <tony@atomide.com>
+Subject: Re: [PATCH 15/15] ARM: mark footbridge as deprecated
+In-Reply-To: <CACRpkdahQhj5u9ATghszi-N2OYhFbvHF_W_eAMDAU+vhmvdrJA@mail.gmail.com>
+References: <20241204102904.1863796-1-arnd@kernel.org>
+	<20241204102904.1863796-16-arnd@kernel.org>
+	<CACRpkdahQhj5u9ATghszi-N2OYhFbvHF_W_eAMDAU+vhmvdrJA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linus.walleij@linaro.org, arnd@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, arnd@arndb.de, aaro.koskinen@iki.fi, andrew@lunn.ch, ardb@kernel.org, daniel@zonque.org, gregory.clement@bootlin.com, haojian.zhuang@gmail.com, jeremy@jeremypeper.com, kristoffer.ericson@gmail.com, krzk@kernel.org, broonie@kernel.org, ralph.siemsen@linaro.org, robert.jarzmik@free.fr, linux@armlinux.org.uk, sebastian.hesselbarth@gmail.com, tony@atomide.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_064345_100034_F6FAD97F 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20241204_064412_179604_A8D5956F 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,374 +103,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 12:00:37PM +0100, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> This adds bindings for MT7988 pinctrl driver.
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
-> changes in v5 (so not adding RB from Rob given in v4):
-> - do not use MTK_DRIVE_8mA in example
-> - add _0 functions for pwm
+On Wed, 04 Dec 2024 14:29:09 +0000,
+Linus Walleij <linus.walleij@linaro.org> wrote:
+>=20
+> On Wed, Dec 4, 2024 at 11:30=E2=80=AFAM Arnd Bergmann <arnd@kernel.org> w=
+rote:
+>=20
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > Along with RiscPC and SA1100, these are the last remaining Intel Strong=
+ARM
+> > machines. The Corel NetWinder used to be particular popular in the late
+> > 1990s, but was discontinued during the bankruptcy of rebel.com in 2001.
+> > The other machine is the DEC (later Intel) EBSA285 evaluation board that
+> > was made in small numbers in 1997 for software developers.
+>=20
+> IIRC David Rusling at DEC was sending this board out to interested
+> developers.
+>=20
+> > The footbridge/netwinder platform was the main target for the first Deb=
+ian
+> > 2.0 "Hamm" release on the Arm architecture back in 1998, but was dropped
+> > in Debian 6.0 "Squeeze" in 2011, which only supported ARMv4T and higher
+> > with the EABI based ports as ARMv4 hardware had fallen already out of
+> > use by that time.
+> >
+> > Link: http://netwinder.org/
+> > Cc: Linus Walleij <linus.walleij@linaro.org>
+> > Cc: Russell King <linux@armlinux.org.uk>
+> > Cc: Ralph Siemsen <ralph.siemsen@linaro.org>
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>=20
+> I am booting it occasionally, last time to test my KCFI patches.
+> But admittedly that is only to test it for other SA110 users. I remember
+> that Christoph had problems consolidating the DMA used in this
+> machine as well so it is standing in the way of useful work.
+>=20
+> Apart from Ralph and me I know Marc Z has been known to boot
+> this machine, so paging him as well.
 
-Minor enough to keep my R-by, but if I review it again I can always find 
-more. :)
+I won't be crying. It's probably been a couple of years since I last
+switched it on, and it is IMO ready to join the DEC Shark on the shelf
+of "used to be great" HW.
 
-> 
-> changes in v4:
-> - dt-binding: pinctrl: fix dt_binding_check fixed-string error
-> 
-> '^mux$' should not be valid under {'pattern': '^\\^[a-zA-Z0-9,\\-._#@]+\\$$'}
-> 	hint: Fixed strings belong in 'properties', not 'patternProperties'
-> 
-> changes in v3:
-> - limit conf subnode name with optional suffix like mmc on mt7986
-> - match mux subnode without wildcards
-> 
-> changes in v2:
-> - drop gpio-cells description
-> - move ref in mux subnode up
-> - order uart-functions alphanumeric and fix typo
-> ---
->  .../pinctrl/mediatek,mt7988-pinctrl.yaml      | 578 ++++++++++++++++++
->  1 file changed, 578 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml
-> new file mode 100644
-> index 000000000000..dd5584557135
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml
-> @@ -0,0 +1,578 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/mediatek,mt7988-pinctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT7988 Pin Controller
-> +
-> +maintainers:
-> +  - Sean Wang <sean.wang@kernel.org>
-> +
-> +description:
-> +  The MediaTek's MT7988 Pin controller is used to control SoC pins.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt7988-pinctrl
-> +
-> +  reg:
-> +    minItems: 7
-> +    maxItems: 7
-> +
-> +  reg-names:
-> +    items:
-> +      - const: gpio
-> +      - const: iocfg_tr
-> +      - const: iocfg_br
-> +      - const: iocfg_rb
-> +      - const: iocfg_lb
-> +      - const: iocfg_tl
-> +      - const: eint
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  gpio-ranges:
-> +    minItems: 1
-> +    maxItems: 5
-> +    description:
-> +      GPIO valid number range.
-> +
-> +  interrupt-controller: true
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +allOf:
-> +  - $ref: pinctrl.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - gpio-controller
-> +  - "#gpio-cells"
-> +
-> +patternProperties:
-> +  '-pins$':
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      'mux':
+FWIW,
 
-Drop quotes.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
+	M.
 
-> +        type: object
-> +        additionalProperties: false
-> +        $ref: /schemas/pinctrl/pinmux-node.yaml
-> +        description: |
-> +          pinmux configuration nodes.
-> +
-> +          The following table shows the effective values of "group", "function"
-> +          properties and chip pinout pins
-> +
-> +          groups               function           pins (in pin#)
-> +          ---------------------------------------------------------------------
-> +          "tops_jtag0_0"       "jtag"             0, 1, 2, 3, 4
-> +          "wo0_jtag"           "jtag"             50, 51, 52, 53, 54
-> +          "wo1_jtag"           "jtag"             50, 51, 52, 53, 54
-> +          "wo2_jtag"           "jtag"             50, 51, 52, 53, 54
-> +          "jtag"               "jtag"             58, 59, 60, 61, 62
-> +          "tops_jtag0_1"       "jtag"             58, 59, 60, 61, 62
-> +          "int_usxgmii"        "int_usxgmii"      2, 3
-> +          "pwm0"               "pwm"              57
-> +          "pwm1"               "pwm"              21
-> +          "pwm2"               "pwm"              80
-> +          "pwm2_0"             "pwm"              58
-> +          "pwm3"               "pwm"              81
-> +          "pwm3_0"             "pwm"              59
-> +          "pwm4"               "pwm"              82
-> +          "pwm4_0"             "pwm"              60
-> +          "pwm5"               "pwm"              83
-> +          "pwm5_0"             "pwm"              61
-> +          "pwm6"               "pwm"              69
-> +          "pwm6_0"             "pwm"              62
-> +          "pwm7"               "pwm"              70
-> +          "pwm7_0"             "pwm"              4
-> +          "dfd"                "dfd"              0, 1, 2, 3, 4
-> +          "xfi_phy0_i2c0"      "i2c"              0, 1
-> +          "xfi_phy1_i2c0"      "i2c"              0, 1
-> +          "xfi_phy_pll_i2c0"   "i2c"              3, 4
-> +          "xfi_phy_pll_i2c1"   "i2c"              3, 4
-> +          "i2c0_0"             "i2c"              5, 6
-> +          "i2c1_sfp"           "i2c"              5, 6
-> +          "xfi_pextp_phy0_i2c" "i2c"              5, 6
-> +          "xfi_pextp_phy1_i2c" "i2c"              5, 6
-> +          "i2c0_1"             "i2c"              15, 16
-> +          "u30_phy_i2c0"       "i2c"              15, 16
-> +          "u32_phy_i2c0"       "i2c"              15, 16
-> +          "xfi_phy0_i2c1"      "i2c"              15, 16
-> +          "xfi_phy1_i2c1"      "i2c"              15, 16
-> +          "xfi_phy_pll_i2c2"   "i2c"              15, 16
-> +          "i2c1_0"             "i2c"              17, 18
-> +          "u30_phy_i2c1"       "i2c"              17, 18
-> +          "u32_phy_i2c1"       "i2c"              17, 18
-> +          "xfi_phy_pll_i2c3"   "i2c"              17, 18
-> +          "sgmii0_i2c"         "i2c"              17, 18
-> +          "sgmii1_i2c"         "i2c"              17, 18
-> +          "i2c1_2"             "i2c"              69, 70
-> +          "i2c2_0"             "i2c"              69, 70
-> +          "i2c2_1"             "i2c"              71, 72
-> +          "mdc_mdio0"          "eth"              5, 6
-> +          "2p5g_ext_mdio"      "eth"              28, 29
-> +          "gbe_ext_mdio"       "eth"              30, 31
-> +          "mdc_mdio1"          "eth"              69, 70
-> +          "pcie_wake_n0_0"     "pcie"             7
-> +          "pcie_clk_req_n0_0"  "pcie"             8
-> +          "pcie_wake_n3_0"     "pcie"             9
-> +          "pcie_clk_req_n3"    "pcie"             10
-> +          "pcie_clk_req_n0_1"  "pcie"             10
-> +          "pcie_p0_phy_i2c"    "pcie"             7, 8
-> +          "pcie_p1_phy_i2c"    "pcie"             7, 8
-> +          "pcie_p3_phy_i2c"    "pcie"             9, 10
-> +          "pcie_p2_phy_i2c"    "pcie"             7, 8
-> +          "ckm_phy_i2c"        "pcie"             9, 10
-> +          "pcie_wake_n0_1"     "pcie"             13
-> +          "pcie_wake_n3_1"     "pcie"             14
-> +          "pcie_2l_0_pereset"  "pcie"             19
-> +          "pcie_1l_1_pereset"  "pcie"             20
-> +          "pcie_clk_req_n2_1"  "pcie"             63
-> +          "pcie_2l_1_pereset"  "pcie"             73
-> +          "pcie_1l_0_pereset"  "pcie"             74
-> +          "pcie_wake_n1_0"     "pcie"             75
-> +          "pcie_clk_req_n1"    "pcie"             76
-> +          "pcie_wake_n2_0"     "pcie"             77
-> +          "pcie_clk_req_n2_0"  "pcie"             78
-> +          "pcie_wake_n2_1"     "pcie"             79
-> +          "pmic"               "pmic"             11
-> +          "watchdog"           "watchdog"         12
-> +          "spi0_wp_hold"       "spi"              22, 23
-> +          "spi0"               "spi"              24, 25, 26, 27
-> +          "spi1"               "spi"              28, 29, 30, 31
-> +          "spi2"               "spi"              32, 33, 34, 35
-> +          "spi2_wp_hold"       "spi"              36, 37
-> +          "snfi"               "flash"            22, 23, 24, 25, 26, 27
-> +          "emmc_45"            "flash"            21, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
-> +          "sdcard"             "flash"            32, 33, 34, 35, 36, 37
-> +          "emmc_51"            "flash"            38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
-> +          "uart2"              "uart"             0, 1, 2, 3
-> +          "tops_uart0_0"       "uart"             22, 23
-> +          "uart2_0"            "uart"             28, 29, 30, 31
-> +          "uart1_0"            "uart"             32, 33, 34, 35
-> +          "uart2_1"            "uart"             32, 33, 34, 35
-> +          "net_wo0_uart_txd_0" "uart"             28
-> +          "net_wo1_uart_txd_0" "uart"             29
-> +          "net_wo2_uart_txd_0" "uart"             30
-> +          "tops_uart1_0"       "uart"             28, 29
-> +          "tops_uart0_1"       "uart"             30, 31
-> +          "tops_uart1_1"       "uart"             36, 37
-> +          "uart0"              "uart"             55, 56
-> +          "tops_uart0_2"       "uart"             55, 56
-> +          "uart2_2"            "uart"             50, 51, 52, 53
-> +          "uart1_1"            "uart"             58, 59, 60, 61
-> +          "uart2_3"            "uart"             58, 59, 60, 61
-> +          "uart1_2"            "uart"             80, 81, 82, 83
-> +          "uart1_2_lite"       "uart"             80, 81
-> +          "tops_uart1_2"       "uart"             80, 81
-> +          "net_wo0_uart_txd_1" "uart"             80
-> +          "net_wo1_uart_txd_1" "uart"             81
-> +          "net_wo2_uart_txd_1" "uart"             82
-> +          "udi"                "udi"              32, 33, 34, 35, 36
-> +          "i2s"                "audio"            50, 51, 52, 53, 54
-> +          "pcm"                "audio"            50, 51, 52, 53
-> +          "gbe0_led1"          "led"              58
-> +          "gbe1_led1"          "led"              59
-> +          "gbe2_led1"          "led"              60
-> +          "gbe3_led1"          "led"              61
-> +          "2p5gbe_led1"        "led"              62
-> +          "gbe0_led0"          "led"              64
-> +          "gbe1_led0"          "led"              65
-> +          "gbe2_led0"          "led"              66
-> +          "gbe3_led0"          "led"              67
-> +          "2p5gbe_led0"        "led"              68
-> +          "drv_vbus_p1"        "usb"              63
-> +          "drv_vbus"           "usb"              79
-> +
-> +        properties:
-> +          function:
-> +            description:
-> +              A string containing the name of the function to mux to the group.
-> +            enum: [audio, dfd, eth, flash, i2c, int_usxgmii, jtag, led, pcie, pmic, pwm, spi,
-> +                   uart, udi, usb, watchdog]
-> +          groups:
-> +            description:
-> +              An array of strings. Each string contains the name of a group.
-
-blank line
-
-> +        required:
-> +          - function
-> +          - groups
-> +
-> +        allOf:
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: audio
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [i2s, pcm]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: jtag
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [jtag, tops_jtag0_0, tops_jtag0_1, wo0_jtag, wo1_jtag, wo2_jtag]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: int_usxgmii
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [int_usxgmii]
-
-Use const if only 1. Elsewhere too.
-
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: dfd
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [dfd]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: flash
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [emmc_45, emmc_51, sdcard, snfi]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: eth
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [2p5g_ext_mdio, gbe_ext_mdio, mdc_mdio0, mdc_mdio1]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: i2c
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [xfi_phy0_i2c0, xfi_phy1_i2c0, xfi_phy_pll_i2c0,
-> +                         xfi_phy_pll_i2c1, i2c0_0, i2c1_sfp, xfi_pextp_phy0_i2c,
-> +                         xfi_pextp_phy1_i2c, i2c0_1, u30_phy_i2c0, u32_phy_i2c0,
-> +                         xfi_phy0_i2c1, xfi_phy1_i2c1, xfi_phy_pll_i2c2, i2c1_0,
-> +                         u30_phy_i2c1, u32_phy_i2c1, xfi_phy_pll_i2c3, sgmii0_i2c,
-> +                         sgmii1_i2c, i2c1_2, i2c2_0, i2c2_1]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: led
-> +            then:
-> +              properties:
-> +                groups:
-> +                  enum: [2p5gbe_led0, 2p5gbe_led1, gbe0_led0, gbe0_led1, gbe1_led0, gbe1_led1,
-> +                         gbe2_led0, gbe2_led1, gbe3_led0, gbe3_led1, wf5g_led0, wf5g_led1]
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: pcie
-> +            then:
-> +              properties:
-> +                groups:
-> +                  items:
-> +                    enum: [pcie_wake_n0_0, pcie_clk_req_n0_0, pcie_wake_n3_0,
-> +                           pcie_clk_req_n3, pcie_p0_phy_i2c, pcie_p1_phy_i2c,
-> +                           pcie_p3_phy_i2c, pcie_p2_phy_i2c, ckm_phy_i2c,
-> +                           pcie_wake_n0_1, pcie_wake_n3_1, pcie_2l_0_pereset,
-> +                           pcie_1l_1_pereset, pcie_clk_req_n2_1, pcie_2l_1_pereset,
-> +                           pcie_1l_0_pereset, pcie_wake_n1_0, pcie_clk_req_n1,
-> +                           pcie_wake_n2_0, pcie_clk_req_n2_0, pcie_wake_n2_1,
-> +                           pcie_clk_req_n0_1]
-> +                  maxItems: 3
-> +          - if:
-> +              properties:
-> +                function:
-> +                  const: pmic
-> +            then:
-> +              properties:
-> +                groups:
-> +                  items:
-> +                    enum: [pmic]
-> +                  maxItems: 1
-
-This can be just:
-
-groups:
-  const: pmic
-
-A few other places too.
-
-Rob
+--=20
+Without deviation from the norm, progress is not possible.
 
