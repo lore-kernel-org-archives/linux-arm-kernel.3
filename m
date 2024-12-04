@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383B4E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A09CE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifppD8XOVrlj0Y18bnChdCi7ngFpMAIfTyMrOgFm5Gc=; b=Vjfgkt9oKn9kMD12tij17Ns1dC
-	uiEJ+OsGKKYYOtgOwRlwho8Fd5IG9aFoysfDWee3neX+c2kKsZLk3hqK3euByN6BMZMR2oDBKGi5l
-	yy590Yd9GG+Du/7auqnP3B2n3CRWdMPpBiAcmSExeemKtDIE92F6mjVQnL6ojhD2Nyr6X3WAvUM1S
-	Xqy57SN/retXLgWFqhvz6T6kgNADqpU4fa75cJjwzWZ6KKRkPebj8ws88nm0LeeEgttW8qJEoQUQW
-	PFXDMRCV52vjOeNqq5GePulT8aMtC9/EPr49s6cOuPEYyaoYWaJX5iYISdVocyljJUjvGAeeIgZC5
-	2hNuJFYg==;
+	bh=rnZJyT6N3r8vTjoa4UcLa/XGdQ+PqihxUkrotorxiRo=; b=rtghKAB7N+Y4rC59dY/n3EDAOM
+	rmOF75l34MvxT3hye9ormAO1XdiyaljPgaZrAZnYILQqU+kHSDbTC4dYcPynL+Xi4NugvX7fZ6S0Q
+	LsV8/U96qclc526NK8sk1hYByU/Qm5ngiLkOjB3jUHMtwlMg9jY1xGMn69FRPs5l3tKmYkU5LY1E6
+	uM9qB0OBlatJOLzTeNNCw8sc4bgEX6J15nT1S8xL/uCeDTGGfVCYU9Bsw8kpfGsDZY5ybKPLTqQVh
+	Nd2rr8aaL9NMblO/pGzXaQSGCUAXCkVhzYEhzZUrLRAAVFxVVL0ZWX2xScAe6HhSdPJunTl86s2y7
+	77qwk0mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIutF-0000000DesU-3vLk;
-	Wed, 04 Dec 2024 19:18:25 +0000
-Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
+	id 1tIuuE-0000000Df5I-2a7b;
+	Wed, 04 Dec 2024 19:19:26 +0000
+Received: from mail-vk1-xa4a.google.com ([2607:f8b0:4864:20::a4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIupG-0000000Ddg2-1qMu
+	id 1tIupI-0000000Ddgf-0pyW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 19:14:19 +0000
-Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-5f1ee87f67aso136491eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 11:14:17 -0800 (PST)
+	Wed, 04 Dec 2024 19:14:21 +0000
+Received: by mail-vk1-xa4a.google.com with SMTP id 71dfb90a1353d-515cb33556eso18351e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 11:14:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733339657; x=1733944457; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733339658; x=1733944458; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ifppD8XOVrlj0Y18bnChdCi7ngFpMAIfTyMrOgFm5Gc=;
-        b=1A7tH3iuBJsZNVd1cV4yyt5AAmFXwvTbTsvUYwTXWeiU97B+6p+zZS/L7q55oZQ2c7
-         hqRAJ7t6PbbVB56kZ3UeAL1zPXBzNnw84k1qD1TFBuzp0wKvAl/niEcwH/lGTjvVdHHv
-         bk6asrYky+UDLzJO6v79Tba9aYjnWzpbD3D6l9epLOfkwuDlmxBURoXO8X9SVb6nQ7Rx
-         PMC7shoOnTVYO9GAl5Wc4YeIGCdeccLOy29KxpEiqDYjrZN22MBRYYc1OSjoxvSrAGAE
-         qh5nAzPTyEMcUf6R3igeBrm+0wvNl75C0ZPfRzXtR1c+PKuDRJs3AZjTiZ26LrZNgg87
-         WHig==
+        bh=rnZJyT6N3r8vTjoa4UcLa/XGdQ+PqihxUkrotorxiRo=;
+        b=J5/JqZthe4nyV75XAbN0M2nxMbL1/7qTU0IMla5WCiRZt6Bpqln3v79bQx1eiLIrGo
+         6a7+LVVIMLvVkff6OHJldh7Gb33p0jyCROtF3lG0rn7lgw5e7joPTwu56x4UvFaIhRLc
+         AZGXTdjNLOMmbupOMNtjDjLGk3j0clxAlwYE8kUf0nlIFs8L6oY5t+XFQ0zF/9grBezR
+         UIbokCyVkH0lGrxt4D8Hlr8M+Mf8PKIdoECkcgNXbFnXJqjsAYNB0BTUwIPi/ZjhAunw
+         BxPgGQ+LsoMB4A3tLB3/43sS6Rvq8EjvJZUXiH1TMpTUU6hQ500Zt3TdiECFqOxk0nYO
+         xpqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733339657; x=1733944457;
+        d=1e100.net; s=20230601; t=1733339658; x=1733944458;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ifppD8XOVrlj0Y18bnChdCi7ngFpMAIfTyMrOgFm5Gc=;
-        b=T5yW14Sw3HV1snmcZQMMmKCZWs0mm0u+QQgxIPbFMfIkcoFE2R1NDcISoZw3mK00F2
-         0byfRRpCY3OF3otB+D4YpEK0ho9jSSL9CHSlDPl35Zuc4MtRkOiHtIFds0LxC2+QfVOE
-         bNl14QmyQtJWckJdB3ar5F6MQccdOgm9IkZXN86Xz5UoTFwfRiyy3DXb28vHbXbxk0td
-         V/AfkKPbyTWAs3QaD88wjoQDMYkQw5qsgPEROnPT1dSpAARxF9qXar4/tc94m/C2Y0k2
-         stBuHW1DNyVCJgh7dRimmchWF8ffWHw2g5lekGR3Y5zwuS6xbPVYmQ+osiGZMN2zpyWZ
-         yx8w==
-X-Forwarded-Encrypted: i=1; AJvYcCU3EX98mmUbNe19bKWRX5hzFAdTblhsZDmcNe1LpcocMB4+FHMOMFOljYKcfLNfdupDeoV8vYPAi+GR1BntDqNC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgNxBWk6f3hoKOkKmUZpj1zf0xCONiMf1Wu3PFV8sk0nlflD1l
-	QD1C0kkrpyU0ltwPCey5ttLMR3HbPMnfR6KtWedOVZI5k6TTILUBhCdUz24gKgyhc7y8zGliWP0
-	nKELxrY2jflKZFac3Zg==
-X-Google-Smtp-Source: AGHT+IGqVM1yUneXF0DiEvK0H0RPVa3NLvh9Vv5/V4X8bp9PJGOl+SW8n3O2HwvzvAHA/QzfxuBonL+2sIMiSocO
-X-Received: from uaf26.prod.google.com ([2002:a05:6130:6d1a:b0:850:15b2:33d7])
+        bh=rnZJyT6N3r8vTjoa4UcLa/XGdQ+PqihxUkrotorxiRo=;
+        b=IqewtFI9QvUzfpD1ijh1CCv1Wk2dohMKR1h438v5yP2yL9S0/PCdbxsn/OsEJbEvka
+         FKi6D9ZQpH1b33zenQsXOtPoxCuENLSAXW2nShvujgRnoRAUIuvGkpuOEKnZtu99Vlrx
+         pP7Qsui+R53d9DCZtMZ/VMzFTJMaU6MGkczP5Tfpa7H4xx+LFuzX4cVt8GWm0xAWytL0
+         ljHtv2P9YlukDimYYGlWKBAjCveF5rjIrT1Ehcstk0Bu3w8p1BUR+aVSB5VjEPRQNYMO
+         BzQzmsRXN97jrFGD/P61TnYxa0KE/pb8R/XDPN1BrF6yeJwFXfy/XtQ/xds1SvRe381m
+         CPVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWF9dj0qW5dthcztnetD7gXsPUu9ZkSzilfNqlr6z0YY0a/h00wEzDDpihADGKwo/WL0z8gsPKMfArRCLeAe5LX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU0QP4LExTB+Ylsy8zITH8/fuCvMZfhgjoxuAlYaZM/CoAumrB
+	abDx1LgppBr+lS0wbgfAPlvkBtfywFDPJjWO7pDMflSJayfTJqqv0BQOFTvZVp6JZJmjo3bpWN7
+	H7vdXtj2c2tVdM1zJnw==
+X-Google-Smtp-Source: AGHT+IHeflh53wCdtG/eOTj3NVvzDZ1TR16bpwDBvuZyMyTF5KFF0ZrmPFZ5n9dphqqxj6PK08wZjYTOW77Q8bPv
+X-Received: from vkbfc18.prod.google.com ([2002:a05:6122:4b12:b0:50d:6d20:c212])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6359:230b:b0:1c3:94:8ffa with SMTP id e5c5f4694b2df-1caeabc2133mr709229655d.22.1733339656984;
- Wed, 04 Dec 2024 11:14:16 -0800 (PST)
-Date: Wed,  4 Dec 2024 19:13:37 +0000
+ 2002:a05:6122:8d0:b0:50d:4cb8:5aef with SMTP id 71dfb90a1353d-515bf2ff82amr10640137e0c.6.1733339657905;
+ Wed, 04 Dec 2024 11:14:17 -0800 (PST)
+Date: Wed,  4 Dec 2024 19:13:38 +0000
 In-Reply-To: <20241204191349.1730936-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20241204191349.1730936-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241204191349.1730936-3-jthoughton@google.com>
-Subject: [PATCH v1 02/13] KVM: Add KVM_MEMORY_EXIT_FLAG_USERFAULT
+Message-ID: <20241204191349.1730936-4-jthoughton@google.com>
+Subject: [PATCH v1 03/13] KVM: Allow late setting of KVM_MEM_USERFAULT on
+ guest_memfd memslot
 From: James Houghton <jthoughton@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
@@ -78,8 +79,8 @@ Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_111418_472634_B9CF511B 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20241204_111420_236791_4C3BA90D 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,26 +95,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This flag is used for vCPU memory faults caused by KVM Userfault; i.e.,
-the bit in `userfault_bitmap` corresponding to the faulting gfn was set.
+Currently guest_memfd memslots can only be deleted. Slightly change the
+logic to allow KVM_MR_FLAGS_ONLY changes when the only flag being
+changed is KVM_MEM_USERFAULT.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- include/uapi/linux/kvm.h | 1 +
- 1 file changed, 1 insertion(+)
+ virt/kvm/kvm_main.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 94be7e8b46a4..641a2e580441 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -444,6 +444,7 @@ struct kvm_run {
- 		/* KVM_EXIT_MEMORY_FAULT */
- 		struct {
- #define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
-+#define KVM_MEMORY_EXIT_FLAG_USERFAULT	(1ULL << 4)
- 			__u64 flags;
- 			__u64 gpa;
- 			__u64 size;
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 23fa3e911c4e..fa851704db94 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -2009,9 +2009,6 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 		if ((kvm->nr_memslot_pages + npages) < kvm->nr_memslot_pages)
+ 			return -EINVAL;
+ 	} else { /* Modify an existing slot. */
+-		/* Private memslots are immutable, they can only be deleted. */
+-		if (mem->flags & KVM_MEM_GUEST_MEMFD)
+-			return -EINVAL;
+ 		if ((mem->userspace_addr != old->userspace_addr) ||
+ 		    (npages != old->npages) ||
+ 		    ((mem->flags ^ old->flags) & KVM_MEM_READONLY))
+@@ -2025,6 +2022,16 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 			return 0;
+ 	}
+ 
++	/*
++	 * Except for being able to set KVM_MEM_USERFAULT, private memslots are
++	 * immutable, they can only be deleted.
++	 */
++	if (mem->flags & KVM_MEM_GUEST_MEMFD &&
++	    !(change == KVM_MR_CREATE ||
++	      (change == KVM_MR_FLAGS_ONLY &&
++	       (mem->flags ^ old->flags) == KVM_MEM_USERFAULT)))
++		return -EINVAL;
++
+ 	if ((change == KVM_MR_CREATE || change == KVM_MR_MOVE) &&
+ 	    kvm_check_memslot_overlap(slots, id, base_gfn, base_gfn + npages))
+ 		return -EEXIST;
+@@ -2040,7 +2047,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 	new->npages = npages;
+ 	new->flags = mem->flags;
+ 	new->userspace_addr = mem->userspace_addr;
+-	if (mem->flags & KVM_MEM_GUEST_MEMFD) {
++	if (mem->flags & KVM_MEM_GUEST_MEMFD && change == KVM_MR_CREATE) {
+ 		r = kvm_gmem_bind(kvm, new, mem->guest_memfd, mem->guest_memfd_offset);
+ 		if (r)
+ 			goto out;
 -- 
 2.47.0.338.g60cca15819-goog
 
