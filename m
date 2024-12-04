@@ -4,53 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E57FE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FA4E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LKjEsab/YHJDjvXMzn/f8ORtX5aw6wyOGkDVucrAOfw=; b=gthaLTVxWC0RxbkR1Jt8qN4tl8
-	SvSxQQCqomwg5BnQVsu7zq4b92EVewOk/yp6xDwHNqy/MVBV91bUHMR3wvoE5fDHjBHWpAc1KYSuu
-	/JIXY9BzQKQ7hxTHf8TGsA6a+Yt4znLBUM7Wv41JNBiUrqI4dWfv3e1+VYGShyUGJC1FeZbeDhBxM
-	IYRjocHynXP/jkEicZs0uhQuAzASkQo8wgvFXMtiPEGw4KdnjVxlyz3g/BY+t+OjmX8V/XOcqx90V
-	yMmWu7YYPnsCMYmd7hTl8P6UNy+PKlCSD6LQE1SCW66TueD2jbLaW0TjsseOnt92QJUF4zkTPU8gO
-	jIjFVVSw==;
+	bh=avT8sCPNh7sFRj+FBqxStI57oHP5ZUEtBKxa7gJHFZw=; b=uFrGWgoANzzUp+emytrnoDwxzj
+	gcBakWV9q7Uj0OHPw9M4ZSTCNcYC90J7JgWDWuwsVTzMwh6Ow+iQ9G//xdmRhGPaRNKRold/4psSr
+	/QzoORGSFhMjmwlbeeqDlItC/2DVYq5ZXJb0YVLrCUs8xCJaUNlNtMv5fGZipZ3QEwqUSyPKQu8Sw
+	Ljrnv0agcWA3a3a/ZmECoKKLjZwJgeDAwQhjcvthJ6+B8t/osb+aaeUkdLHe+y9PGs5y5HpC3Kzwh
+	pfv8IcNZgeSmjBhYS6FyXVcRx5L/UhrWlGOXOxOmIGruVq6ltdIOjp0pB6G4XcJvAvAlzoUAA7feO
+	G+R/4mzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImXH-0000000CBwU-1EIO;
-	Wed, 04 Dec 2024 10:23:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImVQ-0000000CBhz-2fIT
+	id 1tImYF-0000000CC52-3eZt;
+	Wed, 04 Dec 2024 10:24:11 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tImVr-0000000CBlS-3qYC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 10:21:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 523A01063;
-	Wed,  4 Dec 2024 02:21:41 -0800 (PST)
-Received: from [10.57.68.118] (unknown [10.57.68.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 267EC3F5A1;
-	Wed,  4 Dec 2024 02:21:12 -0800 (PST)
-Message-ID: <7860c682-f6a8-4b97-86bc-c5e706a7bb34@arm.com>
-Date: Wed, 4 Dec 2024 10:21:11 +0000
+	Wed, 04 Dec 2024 10:21:45 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id EA09E6000B;
+	Wed,  4 Dec 2024 10:21:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733307700;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=avT8sCPNh7sFRj+FBqxStI57oHP5ZUEtBKxa7gJHFZw=;
+	b=ChbWaFvNQ1XrD7sl6Uf+fcuNS/6xV+IJMdTHXnbtTVh2nMUCA5yN9w5FZ5WbtI9WORhE3v
+	/mFgbhFLH6z0A3woWTbnR2dt4eu1Uc9Q8MPZdDvn18vVBMf41vg+UR0BXOqQJdWgX7y4Y4
+	rCzseGALJEIX2IrzGL04PnAxF9uY6JE1Wf2GMLrWPE08jjmecFZlqxHcHtZJf/XRd+9fI+
+	GL8LW9sWmZqomuWVaQyzjMHB0ADihQrZMts4QiK3F8b0mJqFk+2KfAmz+JK8usMG5OyWxZ
+	lvKmD1vt/3Z8HtHMPp3LpifIdvpxw/bfbqkNXvGCR1p3qGVzafD6G/UKeEYwyw==
+Message-ID: <e405b65e-e9b7-451b-9b40-64d5d9cafa98@bootlin.com>
+Date: Wed, 4 Dec 2024 11:21:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight-etm4x: add isb() before reading the TRCSTATR
-Content-Language: en-GB
-To: yuanfang zhang <quic_yuanfang@quicinc.com>, mike.leach@linaro.org,
- james.clark@linaro.org, alexander.shishkin@linux.intel.com
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241204101320.3692167-1-quic_yuanfang@quicinc.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20241204101320.3692167-1-quic_yuanfang@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH] arm64: dts: ti: k3-j784s4: use ti,j7200-padconf
+ compatible
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ u-kumar1@ti.com, Tero Kristo <kristo@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gregory.clement@bootlin.com, thomas.petazzoni@bootlin.com,
+ richard.genoud@bootlin.com
+References: <20241113-j784s4-s2r-pinctrl-v1-1-19aeb62739bc@bootlin.com>
+ <20241119190106.GA70080@francesco-nb>
+ <6e47e420-84c4-4539-ba54-5e1e939a37a5@bootlin.com>
+ <Z1An9_auC3dRyPln@gaggiata.pivistrello.it>
+Content-Language: en-US
+From: Thomas Richard <thomas.richard@bootlin.com>
+In-Reply-To: <Z1An9_auC3dRyPln@gaggiata.pivistrello.it>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-GND-Sasl: thomas.richard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_022116_720450_D0C86844 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20241204_022144_097791_8B932A25 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,43 +82,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
-
-
-On 04/12/2024 10:13, yuanfang zhang wrote:
-> From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+On 12/4/24 10:59, Francesco Dolcini wrote:
+> Hello Thomas,
+> thanks for the update.
 > 
-> As recommended by section 4.3.7 ("Synchronization when using system
-> instructions to progrom the trace unit") of ARM IHI 0064H.b, the
-> self-hosted trace analyzer must perform a Context synchronization
-> event between writing to the TRCPRGCTLR and reading the TRCSTATR.
+> On Wed, Dec 04, 2024 at 10:08:43AM +0100, Thomas Richard wrote:
+>> On 11/19/24 20:01, Francesco Dolcini wrote:
+>>> Hello Thomas and TI folks,
+>>>
+>>> On Wed, Nov 13, 2024 at 11:43:05AM +0100, Thomas Richard wrote:
+>>>> Like on j7200, pinctrl contexts shall be saved and restored during
+>>>> suspend-to-ram.
+>>>>
+>>>> So use ti,j7200-padconf compatible.
+>>>>
+>>>> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
+>>>> ---
+>>>> Use ti,j7200-padconf compatible to save and restore pinctrl contexts during
+>>>> suspend-to-ram.
+>>>> ---
+>>>>  arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi       |  6 +++---
+>>>>  arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi | 12 ++++++------
+>>>
+>>> Do j784s4 supports any kind of low power mode and/or suspend to ram? My
+>>> understanding was that this was not supported, but maybe there is some
+>>> details that was lost when I was told this information.
+>>
+>> We are working on suspend-to-ram support for j7200 and j784s4.
+>> During suspend-to-ram the SoC is fully powered-off (thanks to the PMIC
+>> which powers off all the power rails except the DDR which is in
+>> self-refresh), like on j7200.
+>> Please let me know if you want more details.
 > 
+> ok, that's quite different from the common suspend-to-ram we use to have
+> implemented on other SoC. You would have some boot firmware (likely U-Boot)
+> code executing during resume, taking some different code path, in a similar way
+> to what it is being done for the partial-io support on am62p. It's going to be
+> more similar to hibernation from some point of view.
 
-Thanks for the patch. Please could you add the above in a comment
-in the changes below ?
+If you want more details you can have a look to this presentation [1]
+(from my colleague Gregory CLEMENT).
 
-Also, add Fixes tag ? (It may go all the way back to initial support)
+[1] https://www.youtube.com/watch?v=sN4krurp8bM
 
-Otherwise looks sensible to me.
-
-Suzuki
-
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 1 +
->   1 file changed, 1 insertion(+)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 66d44a404ad0..5da2c523c30a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -906,6 +906,7 @@ static void etm4_disable_hw(void *info)
->   	tsb_csync();
->   	etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
->   
-> +	isb();
->   	/* wait for TRCSTATR.PMSTABLE to go to '1' */
->   	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
->   		dev_err(etm_dev,
+> Do you expect to have this feature nicely integrated within the standard
+> suspend/resume "framework" in Linux?
 
+Yes.
+
+Regards,
+
+Thomas
 
