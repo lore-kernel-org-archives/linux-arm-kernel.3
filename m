@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BB5E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 02:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCDDE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 02:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IaKghO/r+2Gyti02wCKlEV8is/DOem4Byb1BzTfl/uk=; b=R4wVqVdw34J9gWetPy8nJVznpL
-	GZFA6xEP3XsBof4HYwkYAvJZJ6WXfExXqiUzY/VGsONwGFgOZWHFfGn1tMyo9LW50eMgVazPhcpb/
-	vfYORESEpP33LMIB97K4A6nPQYl7/rRM12zhxEnmX74DAy+bo+t93NO2x/Hf5B35s01qe6eFtCJxl
-	5a+K9H2CEFdlb03bh1B+gi3ummiQA6SDkDJYQ5920Z3QCVuYRFkyb3ynzgbIraiQDkpphp+8F+tsI
-	HB1MreVvBFmi1fftTxS5J4am5Gku3/05Z0OVYN7i6iGxAlxT86etlNwm9aCRMAQvHXPF4WDX+9PyH
-	j9uU2bcw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hSeIoWgS/KcvXHUN2aQDfLe2Z9qMRzkaT4SKto2xXEg=; b=lnstsJtY7Y8uPbX4QDrG3e6zVW
+	EVNffxn5yj3msd2+90/xOiVZM5fNUVdA9HWfrEr1h5PgHTwXesfgrSh2zyktkmDgAuUnz5OrOPEHd
+	G7oPXjeCWf9TkeGAKT5GXZdDMOQkfw9+ARB/MBJ/fsbgC0sZIGex76v/FjtD3XevKLQNlyxL3ueWI
+	MDvtIrKGoFfNV3gIRK5Yv4GaFCsPfXvewu6QHd4jR04bVhSJxFaqwZmVMQ281t5GjwBezqhOYo273
+	iIvcjJC+uGLEbaMm456BxnCBfltVq2/q7buXOQBjj0Px/MDSU9LVo0GttzGbfAB7PVIBoS33GMrE4
+	V7KfZB6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIerY-0000000BGGJ-1QzI;
-	Wed, 04 Dec 2024 02:11:36 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tIesW-0000000BGNo-3oTs;
+	Wed, 04 Dec 2024 02:12:36 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIeqX-0000000BG5V-1L4j
+	id 1tIeqY-0000000BG5k-02WD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 02:10:34 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-215ac560292so23172865ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 18:10:32 -0800 (PST)
+	Wed, 04 Dec 2024 02:10:35 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21583cf5748so27228815ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 18:10:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733278232; x=1733883032; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IaKghO/r+2Gyti02wCKlEV8is/DOem4Byb1BzTfl/uk=;
-        b=brgx49cpzsBocHTj7oRHBhpTV8KhQKzh74W/1tpICX+/35Qij6M3EZ/walS/6yIObL
-         r0DHZGN3MojULAFQxTMCp9EDf3tTPF8ZwTxajJJAjmZmR1b8rYiVgB9WHpq7NyyBU3VI
-         xsRNTxWICSV7wx+Z0GtT7nnVfHdBy8idwAZYnngsA1xZZkIuSOiUQh2VHv/BjIKgGrBA
-         67phGeIqthJpiVgl2pCEW9OEKSPrgj5P7QNWEhsOjoY4DRGfZDPp9PF31DLy8smfNQ6F
-         J7ebiTMmMzopAZ2xRh/Y3NxFEyXAryVx7HQyxDpsngnXqBBrmMxgW7mh8r/WgLprZ83o
-         mANA==
+        d=gmail.com; s=20230601; t=1733278233; x=1733883033; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hSeIoWgS/KcvXHUN2aQDfLe2Z9qMRzkaT4SKto2xXEg=;
+        b=f5nLOMzuScy4w7JMxosx3ZaCPBEFFKUYyz2mycuWMOb/L6NEtoQuwqcc9+8YZPwZ6/
+         OtuUS1OJY/AEhtnarF+/mL7DvyKFtaN+w96IFUpROMam5gRSd3HEshuHmXZMV72XCZHe
+         6igiWcCb4emx4vf8ldKFoYGLu3Rw2ptYPQVZ3lYmpvOa8x7u+HueGAi3RpVJTevH/a++
+         dUp5fbH4hwsA2iRxouGlmJASOGS2Eyei5D9HDmh7av4vexbhMoeKTibuABYHixmaFmQD
+         +NZWD1tP8ME0c98EYxIvw8AEE1jIElAkMO3kgD7lxmCcRimZtTYmM8y9h0eYJD1rhwru
+         GYkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733278232; x=1733883032;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IaKghO/r+2Gyti02wCKlEV8is/DOem4Byb1BzTfl/uk=;
-        b=UA5Syx6zTehHqZzYT3mPEm4GKsakElJ4qlhSlSzIvR7AqLIHGVJ7WkXmRUqRv1SR4j
-         WtExSXlNxx5mQXC5YU9px/iTWXUOS1Ejs0h2QyPyeKTt45bpqWoxNyu/bbDuQ0FcXFtW
-         VzvhPt0KU0Rx+kbLfx+wIiromm0qRJXtD+UTrHeD8jtBWSfAu5KXPY/Onwb5TLgNeyeK
-         rw+jtsl9m2HZN+h0ZsCwlc7wYUna28ouKD/9GAQbl/blY4pnvtbWc2fGbC86wtBG1l67
-         swhIX3F6aQeSOhxjY0z6kyTKfoY5asqSAL4YWhizQbx5ml3bvBymx2l7HuQe5r+ysPnp
-         nXGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWAEmjTP0D6N0t0Eflk87aBCxIZsy82QGW8V3aby3URcFexrJG/F9i9E0Tm07iIE2EDVOpFb/UzNodCdApWkc05@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcWlrswa+xfMjBP1XcFW/ZZCq/JQgGdVY7tME0vocycvw4WhaQ
-	zmvf0YSVta7q3qzPDudUcz+B8BwyDHxgxvOb4qbMfEJcVO8Ulp/rQb84nw==
-X-Gm-Gg: ASbGncs/ExJbd+gjrN+eZBZdJ11Bl7nb6XliYSZAFlWtW6WVTh4z4lGnZcLMUngEPbC
-	dt7dt/aKWkVdLAOUoLCxyF2A/3HPg7j9xnGQ9gfCmEck3PPTaBDkpLM412L8NVz+W/9lVJceWs5
-	nYKK/4NvDVzeRRVP1+JwO1KIqneUOP5p3qzyd7vfVLbeEM5Arl9fiHSpfcysf1mZOMT0em+jqeO
-	c18aqFNz6dydN4N6vjAOyVt9YLjkgJjTRO17q2DAeTlfq64TpdOUAaaMX6NUVF5GVSCFudpl3An
-	bajWqWSbd1oCUzzdgkrjUivBDHaIO0YB/cY=
-X-Google-Smtp-Source: AGHT+IEc9TYX6FFd5h8hWzBuIlSjssU8B0ZQDuXFK/cXrs5QVelUZhulFTMRvrIPuDQyFFV2pQNAWQ==
-X-Received: by 2002:a17:903:189:b0:211:6b21:5a88 with SMTP id d9443c01a7336-215bcfbe4f4mr55902545ad.20.1733278230412;
-        Tue, 03 Dec 2024 18:10:30 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733278233; x=1733883033;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hSeIoWgS/KcvXHUN2aQDfLe2Z9qMRzkaT4SKto2xXEg=;
+        b=CUwRIShiCxBfg7L900CeHxrwh7Kh3YghrW8d6EX9FEhfIb2idMTrFFCDI/rxICz8yD
+         fkk5flAzzteU2TydWGu9/uhCt3fwzOeiOBQV4XwzDOpaN8Cj4kqkBxMMX/1Q9I49mDEt
+         8YU0+evpprnVSTUdma6BVuhdnG4wu/5agEOoPZiPihQOR+yZsd7B2bjzxrMtTHzI8vAR
+         YVmLpMOdJDqiSk+AWzBHXV+f1npwDblWnIZWMuw/WgZEiIlGnc+aO6rbCO/YHbbNTUEn
+         lfCybSXzRwrR//rvDiLVvPV1qOsZja1vSXJ7ttaSOLkayJhT2XDPIDcWYnia09fB9SXx
+         rUYA==
+X-Forwarded-Encrypted: i=1; AJvYcCULPyMiG1zhKSNvhMNQTO3106f7MSVLmVReyKgME26oDyjLOkRlBYLD9eERXR3A0+hXRAEJl0g4SchKNwaFELbR@lists.infradead.org
+X-Gm-Message-State: AOJu0YySuzHh9OLrOS7tQ5QFELtBebYPOxt69+BclDzQrf5OKwSzauWv
+	CvVGIbWx/PL7VGdvjr8gcffaDLlJtrXzaMVIJEp3L358LJA2xgeX
+X-Gm-Gg: ASbGncthUalPU0kwargcZwunRYQDChWCxqmOeaQLwDDalp+cRguPc2wR6KEXxK9YOlL
+	dH1tQJvy74aJ6psiprULK/PSgFPx0yUMXI3te62lo2Tv63FKZK7WLQU9eK+7sdHXRzhIWzCvazg
+	qnXDGTuFR7gK+BxqmjKYPxLeGFYpB+0FBPTQNvhARi6HIzDp2px4+PDv9qhe4LRDjdmIHIaq364
+	QKcq9aHy0NrL12Y6RG60Jd6FQU2pjAUiDGJeVaNNUzXlQWGCQLvzlDLDyuZWJK5dEGJ4hGQwalu
+	qE0ElVwoFmREhDgfDc8v3e+tuf/wLfU/Puk=
+X-Google-Smtp-Source: AGHT+IHY8SaMy1o6MRYm4tYDmqZ0VqrHIKGdeN7xLR2z0AFr6ivnvXUUsxbMnv9xs1H7BlFTs32tXA==
+X-Received: by 2002:a17:903:32c2:b0:215:5625:885b with SMTP id d9443c01a7336-215bd189d7cmr65841135ad.52.1733278233017;
+        Tue, 03 Dec 2024 18:10:33 -0800 (PST)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2156815bcfesm62785115ad.215.2024.12.03.18.10.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2156815bcfesm62785115ad.215.2024.12.03.18.10.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 18:10:29 -0800 (PST)
+        Tue, 03 Dec 2024 18:10:32 -0800 (PST)
 From: Ming-Jen Chen <mjchen0829@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -79,15 +81,17 @@ To: linux-kernel@vger.kernel.org,
 	krzk+dt@kernel.org,
 	robh@kernel.org,
 	dmitry.torokhov@gmail.com
-Subject: [PATCH v4 0/2] Add support for nuvoton ma35d1 keypad controller
-Date: Wed,  4 Dec 2024 02:10:12 +0000
-Message-Id: <20241204021014.5083-1-mjchen0829@gmail.com>
+Subject: [PATCH v4 1/2] input: keypad: add new keypad driver for MA35D1
+Date: Wed,  4 Dec 2024 02:10:13 +0000
+Message-Id: <20241204021014.5083-2-mjchen0829@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241204021014.5083-1-mjchen0829@gmail.com>
+References: <20241204021014.5083-1-mjchen0829@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_181033_358058_87C1887C 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20241203_181034_051904_6969ECE0 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +106,437 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds keypad driver for the nuvoton ma35 ARMv8 SoC.
-It includes DT binding documentation and the ma35d1 keypad driver.
+Adds a new keypad driver for the MA35D1 platform.
+The driver supports key scanning and interrupt handling.
 
-v4:
-  - Update nuvoton,ma35d1-keypad.yaml
-    - Kept the same order of properties as in the required block.
-    - Changed register addresses to lowercase.
-v3:
-  - Update nuvoton,ma35d1-keypad.yaml
-    - Removed vendor-specific properties and replaced them with common properties
-  - Update ma35d1_keypad.c
-    - Modified the driver to reflect changes in the YAML properties
-v2:
-  - Update nuvoton,ma35d1-keypad.yaml
-    - Fixed warnings and errors generated by running checkpatch.pl
-    - Removed the previous version's properties and rewrote the
-      properties in the Device Tree schema.
-    - Renamed the Device Tree binding file to nuvoton,ma35d1-keypad.yaml
-  - Update Kconfig
-    - Added COMPILE_TEST to the depends on line in the Kconfig
-  - Update ma35d1_keypad.c
-    - Refactored error handling within the probe function.
-    - Fixed the mixed use of devm and non-devm resource management.
-    - Corrected alignment issues in the code.
-    - Updated suspend and resume handling methods.
-    - Fixed variable naming to remove camel casing.
-    - Used for_each_set_bit() to check key states.
-    - Modified the code to align with updates in the device tree binding
-
-Ming-Jen Chen (2):
-  input: keypad: add new keypad driver for MA35D1
-  dt-bindings: input: Add Nuvoton MA35D1 keypad
-
- .../bindings/input/nuvoton,ma35d1-keypad.yaml |  69 ++++
- drivers/input/keyboard/Kconfig                |  10 +
- drivers/input/keyboard/Makefile               |   1 +
- drivers/input/keyboard/ma35d1_keypad.c        | 386 ++++++++++++++++++
- 4 files changed, 466 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+Signed-off-by: Ming-Jen Chen <mjchen0829@gmail.com>
+---
+ drivers/input/keyboard/Kconfig         |  10 +
+ drivers/input/keyboard/Makefile        |   1 +
+ drivers/input/keyboard/ma35d1_keypad.c | 386 +++++++++++++++++++++++++
+ 3 files changed, 397 insertions(+)
  create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
 
+diff --git a/drivers/input/keyboard/Kconfig b/drivers/input/keyboard/Kconfig
+index 721ab69e84ac..d7c0d0f4a88d 100644
+--- a/drivers/input/keyboard/Kconfig
++++ b/drivers/input/keyboard/Kconfig
+@@ -797,4 +797,14 @@ config KEYBOARD_CYPRESS_SF
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called cypress-sf.
+ 
++config KEYBOARD_MA35D1
++	tristate "Nuvoton MA35D1 keypad driver"
++	depends on ARCH_MA35 || COMPILE_TEST
++	select INPUT_MATRIXKMAP
++	help
++	  Say Y here if you want to use Nuvoton MA35D1 keypad.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called ma35d1-keypad.
++
+ endif
+diff --git a/drivers/input/keyboard/Makefile b/drivers/input/keyboard/Makefile
+index 1e0721c30709..9b858cdd1b6b 100644
+--- a/drivers/input/keyboard/Makefile
++++ b/drivers/input/keyboard/Makefile
+@@ -70,3 +70,4 @@ obj-$(CONFIG_KEYBOARD_TEGRA)		+= tegra-kbc.o
+ obj-$(CONFIG_KEYBOARD_TM2_TOUCHKEY)	+= tm2-touchkey.o
+ obj-$(CONFIG_KEYBOARD_TWL4030)		+= twl4030_keypad.o
+ obj-$(CONFIG_KEYBOARD_XTKBD)		+= xtkbd.o
++obj-$(CONFIG_KEYBOARD_MA35D1)		+= ma35d1_keypad.o
+diff --git a/drivers/input/keyboard/ma35d1_keypad.c b/drivers/input/keyboard/ma35d1_keypad.c
+new file mode 100644
+index 000000000000..8410f7dd2e56
+--- /dev/null
++++ b/drivers/input/keyboard/ma35d1_keypad.c
+@@ -0,0 +1,386 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ *  MA35D1 keypad driver
++ *  Copyright (C) 2024 Nuvoton Technology Corp.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/interrupt.h>
++#include <linux/input.h>
++#include <linux/platform_device.h>
++#include <linux/input/matrix_keypad.h>
++#include <linux/clk.h>
++#include <linux/of.h>
++#include <linux/bitops.h>
++#include <linux/pm_wakeirq.h>
++
++/* Keypad Interface Registers */
++#define KPI_CONF		0x00
++#define KPI_3KCONF		0x04
++#define KPI_STATUS		0x08
++#define KPI_RSTC		0x0C
++#define KPI_KEST		0x10
++#define KPI_KPE0		0x18
++#define KPI_KPE1		0x1C
++#define KPI_KRE0		0x20
++#define KPI_KRE1		0x24
++#define KPI_PRESCALDIV		0x28
++
++/* KPI_CONF - Keypad Configuration Register */
++#define KROW			GENMASK(30, 28) /* Keypad Matrix ROW number */
++#define KCOL			GENMASK(26, 24) /* Keypad Matrix COL Number */
++#define DB_CLKSEL		GENMASK(19, 16) /* De-bounce sampling cycle selection */
++#define PRESCALE		GENMASK(15, 8)  /* Row Scan Cycle Pre-scale Value */
++#define WAKEUP			BIT(5) /* Lower Power Wakeup Enable */
++#define INTEN			BIT(3) /* Key Interrupt Enable Control */
++#define RKINTEN			BIT(2) /* Release Key Interrupt Enable */
++#define PKINTEN			BIT(1) /* Press Key Interrupt Enable Control */
++#define ENKP			BIT(0) /* Keypad Scan Enable */
++
++/* KPI_STATUS - Keypad Status Register */
++#define PKEY_INT		BIT(4) /* Press key interrupt */
++#define RKEY_INT		BIT(3) /* Release key interrupt */
++#define KEY_INT			BIT(2) /* Key Interrupt */
++#define RST_3KEY		BIT(1) /* 3-Keys Reset Flag */
++#define PDWAKE			BIT(0) /* Power Down Wakeup Flag */
++
++#define KEY_EVENT_BITS		64
++
++#define NUM_SETTINGS		12
++#define PRE_SCALE_MAX		256
++#define PRE_SCALE_DIV_MAX	256
++
++static const unsigned int debounce_values[NUM_SETTINGS] = {
++	0, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192
++};
++
++static const unsigned int debounce_register[NUM_SETTINGS] = {
++	0x0, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xA, 0xB, 0xC, 0xD
++};
++
++struct ma35d1_keypad {
++	struct clk *clk;
++	struct input_dev *input_dev;
++	void __iomem *mmio_base;
++	int irq;
++	u32 kpi_row;
++	u32 kpi_col;
++	u32 debounce_val;
++	u32 pre_scale;
++	u32 pre_scale_div;
++};
++
++static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad, unsigned int status)
++{
++	struct input_dev *input_dev = keypad->input_dev;
++	u32 row_shift = get_count_order(keypad->kpi_col);
++	u32 *keymap = input_dev->keycode;
++	u32 code, key, index;
++	u32 key_event[4];
++	u64 pressed_keys = 0, released_keys = 0;
++
++	/* Read key event status */
++	key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
++	key_event[1] = readl(keypad->mmio_base + KPI_KPE1);
++	key_event[2] = readl(keypad->mmio_base + KPI_KRE0);
++	key_event[3] = readl(keypad->mmio_base + KPI_KRE1);
++
++	/* Clear key event status */
++	writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
++	writel(key_event[1], (keypad->mmio_base + KPI_KPE1));
++	writel(key_event[2], (keypad->mmio_base + KPI_KRE0));
++	writel(key_event[3], (keypad->mmio_base + KPI_KRE1));
++
++	pressed_keys  = key_event[0] | ((u64)key_event[1] << 32);
++	released_keys = key_event[2] | ((u64)key_event[3] << 32);
++
++	/* Process pressed keys */
++	for_each_set_bit(index, (const unsigned long *)&pressed_keys, KEY_EVENT_BITS) {
++		code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
++		key = keymap[code];
++
++		input_event(input_dev, EV_MSC, MSC_SCAN, code);
++		input_report_key(input_dev, key, 1);
++	}
++
++	/* Process released keys */
++	for_each_set_bit(index, (const unsigned long *)&released_keys, KEY_EVENT_BITS) {
++		code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
++		key = keymap[code];
++
++		input_event(input_dev, EV_MSC, MSC_SCAN, code);
++		input_report_key(input_dev, key, 0);
++	}
++
++	input_sync(input_dev);
++}
++
++static irqreturn_t ma35d1_keypad_interrupt(int irq, void *dev_id)
++{
++	struct ma35d1_keypad *keypad = dev_id;
++	unsigned int  kstatus;
++
++	kstatus = readl(keypad->mmio_base + KPI_STATUS);
++
++	if (kstatus & (PKEY_INT | RKEY_INT)) {
++		ma35d1_keypad_scan_matrix(keypad, kstatus);
++	} else {
++		if (kstatus & PDWAKE)
++			writel(PDWAKE, (keypad->mmio_base + KPI_STATUS));
++	}
++
++	return IRQ_HANDLED;
++}
++
++static int ma35d1_keypad_open(struct input_dev *dev)
++{
++	struct ma35d1_keypad *keypad = input_get_drvdata(dev);
++	u32 val, config;
++
++	val = RKINTEN | PKINTEN | INTEN | ENKP;
++	val |= FIELD_PREP(KCOL, (keypad->kpi_col - 1)) | FIELD_PREP(KROW, (keypad->kpi_row - 1));
++
++	config = FIELD_PREP(PRESCALE, (keypad->pre_scale - 1)) |
++		 FIELD_PREP(DB_CLKSEL, keypad->debounce_val);
++
++	val |= config;
++
++	writel(val, keypad->mmio_base + KPI_CONF);
++	writel((keypad->pre_scale_div - 1), keypad->mmio_base + KPI_PRESCALDIV);
++
++	return 0;
++}
++
++static void ma35d1_keypad_close(struct input_dev *dev)
++{
++	struct ma35d1_keypad *keypad = input_get_drvdata(dev);
++	u32 val;
++
++	val = readl(keypad->mmio_base + KPI_KPE0) & ~ENKP;
++	writel(val, keypad->mmio_base + KPI_CONF);
++}
++
++static int ma35d1_parse_dt(struct ma35d1_keypad *keypad, u32 debounce_ms, u32 scan_interval)
++{
++	u32 clk_rate = clk_get_rate(keypad->clk);
++	u32 min_diff = debounce_values[NUM_SETTINGS];
++	u32 i, clk_cycles, diff, p, d;
++	u32 best_diff = 0xffff;
++
++	/* Calculate debounce cycles */
++	clk_cycles = clk_rate * debounce_ms / 1000;
++
++	keypad->debounce_val = debounce_register[NUM_SETTINGS];
++
++	for (i = 0; i < NUM_SETTINGS; i++) {
++		diff = abs((s32)(clk_cycles - debounce_values[i]));
++		if (diff < min_diff) {
++			min_diff = diff;
++			keypad->debounce_val = debounce_register[i];
++		}
++	}
++
++	/* Find scan time setting */
++	clk_cycles = clk_rate * scan_interval / 1000;
++	clk_cycles = clk_cycles / keypad->kpi_row;
++
++	if (clk_cycles == 0) {
++		keypad->pre_scale = 1;
++		keypad->pre_scale_div = 1;
++	} else if (clk_cycles >= PRE_SCALE_MAX * PRE_SCALE_DIV_MAX) {
++		keypad->pre_scale = PRE_SCALE_MAX;
++		keypad->pre_scale_div = PRE_SCALE_DIV_MAX;
++	} else {
++		for (p = 1; p <= PRE_SCALE_MAX; p++) {
++			d = (clk_cycles + (p / 2)) / p;
++
++			if (d > 0 && d <= PRE_SCALE_DIV_MAX) {
++				diff = abs((s32)(p * d) - clk_cycles);
++
++				if (diff < best_diff) {
++					best_diff = diff;
++					keypad->pre_scale = p;
++					keypad->pre_scale_div = d;
++
++					if (diff == 0)
++						break;
++				}
++			}
++		}
++	}
++
++	/*
++	 * Hardware Limitation:
++	 * Due to the hardware design, the keypad debounce time must not exceed
++	 * half of the row scan time.
++	 *
++	 * The row scan time is determined by the formula:
++	 *     Row Scan Time = pre_scale * pre_scale_div
++	 *
++	 * Therefore, the debounce time must satisfy the following condition:
++	 *     Debounce Time < (Row Scan Time / 2)
++	 *
++	 * For example:
++	 * If pre_scale = 64, pre_scale_div = 32,
++	 * then Row Scan Time = 64 * 32 = 2048 keypad clock.
++	 * Hence, the maximum allowable debounce time is 1024 keypad clock.
++	 */
++
++	if (keypad->debounce_val >= (keypad->pre_scale * keypad->pre_scale_div) / 2)
++		return -EINVAL;
++
++	return 0;
++}
++
++static int ma35d1_keypad_probe(struct platform_device *pdev)
++{
++	struct ma35d1_keypad *keypad;
++	struct input_dev *input_dev;
++	struct resource *res;
++	u32 debounce, scan_interval;
++	int error = 0;
++
++	keypad = devm_kzalloc(&pdev->dev, sizeof(*keypad), GFP_KERNEL);
++	if (!keypad)
++		return -ENOMEM;
++
++	input_dev = devm_input_allocate_device(&pdev->dev);
++	if (!input_dev)
++		return -ENOMEM;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res)
++		return -ENODEV;
++
++	keypad->mmio_base = devm_ioremap_resource(&pdev->dev, res);
++	if (IS_ERR(keypad->mmio_base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(keypad->mmio_base),
++					"failed to remap I/O memor\n");
++
++	keypad->irq = platform_get_irq(pdev, 0);
++	if (keypad->irq < 0) {
++		dev_err(&pdev->dev, "failed to get IRQ\n");
++		return keypad->irq;
++	}
++
++	keypad->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(keypad->clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(keypad->clk), "failed to get core clk\n");
++
++	error = matrix_keypad_parse_properties(&pdev->dev, &keypad->kpi_row, &keypad->kpi_col);
++	if (error) {
++		dev_err(&pdev->dev, "failed to parse keypad params\n");
++		return error;
++	}
++
++	error = matrix_keypad_build_keymap(NULL, NULL, keypad->kpi_row, keypad->kpi_col,
++					   NULL, input_dev);
++	if (error) {
++		dev_err(&pdev->dev, "failed to build keymap\n");
++		return error;
++	}
++
++	keypad->input_dev = input_dev;
++	input_dev->name = pdev->name;
++	input_dev->id.bustype = BUS_HOST;
++	input_dev->open = ma35d1_keypad_open;
++	input_dev->close = ma35d1_keypad_close;
++	input_dev->dev.parent = &pdev->dev;
++
++	error = device_property_read_u32(&pdev->dev, "debounce-delay-ms", &debounce);
++	if (error) {
++		dev_err(&pdev->dev, "failed to acquire 'debounce-delay-ms'\n");
++		return error;
++	}
++
++	error = device_property_read_u32(&pdev->dev, "scan-interval-ms", &scan_interval);
++	if (error) {
++		dev_err(&pdev->dev, "failed to acquire 'scan-interval'\n");
++		return error;
++	}
++
++	error = ma35d1_parse_dt(keypad, debounce, scan_interval);
++	if (error) {
++		dev_err(&pdev->dev, "keypad dt params error\n");
++		return error;
++	}
++
++	__set_bit(EV_REP, input_dev->evbit);
++	input_set_drvdata(input_dev, keypad);
++	input_set_capability(input_dev, EV_MSC, MSC_SCAN);
++
++	error = devm_request_irq(&pdev->dev, keypad->irq, ma35d1_keypad_interrupt,
++				 IRQF_NO_SUSPEND, pdev->name, keypad);
++	if (error) {
++		dev_err(&pdev->dev, "failed to request IRQ\n");
++		return error;
++	}
++
++	platform_set_drvdata(pdev, keypad);
++	device_init_wakeup(&pdev->dev, 1);
++
++	error = dev_pm_set_wake_irq(&pdev->dev, keypad->irq);
++	if (error) {
++		dev_err(&pdev->dev, "failed to enable irq wake\n");
++		return error;
++	}
++
++	error = input_register_device(input_dev);
++	if (error) {
++		dev_err(&pdev->dev, "failed to register input device\n");
++		return error;
++	}
++
++	return 0;
++}
++
++static void ma35d1_keypad_remove(struct platform_device *pdev)
++{
++	struct ma35d1_keypad *keypad = platform_get_drvdata(pdev);
++
++	input_unregister_device(keypad->input_dev);
++}
++
++static int ma35d1_keypad_suspend(struct device *dev)
++{
++	struct ma35d1_keypad *keypad = dev_get_drvdata(dev);
++
++	if (device_may_wakeup(dev))
++		writel(readl(keypad->mmio_base + KPI_CONF) | WAKEUP, keypad->mmio_base + KPI_CONF);
++
++	return 0;
++}
++
++static int ma35d1_keypad_resume(struct device *dev)
++{
++	struct ma35d1_keypad *keypad = dev_get_drvdata(dev);
++
++	if (device_may_wakeup(dev))
++		writel(readl(keypad->mmio_base + KPI_CONF) & ~(WAKEUP),
++		       keypad->mmio_base + KPI_CONF);
++
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(ma35d1_pm_ops, ma35d1_keypad_suspend, ma35d1_keypad_resume);
++
++static const struct of_device_id ma35d1_kpi_of_match[] = {
++	{ .compatible = "nuvoton,ma35d1-kpi"},
++	{},
++};
++MODULE_DEVICE_TABLE(of, ma35d1_kpi_of_match);
++
++static struct platform_driver ma35d1_keypad_driver = {
++	.probe		= ma35d1_keypad_probe,
++	.remove		= ma35d1_keypad_remove,
++	.driver		= {
++		.name	= "ma35d1-kpi",
++		.pm	= pm_sleep_ptr(&ma35d1_pm_ops),
++		.of_match_table = ma35d1_kpi_of_match,
++	},
++};
++module_platform_driver(ma35d1_keypad_driver);
++
++MODULE_AUTHOR("Ming-Jen Chen");
++MODULE_DESCRIPTION("MA35D1 Keypad Driver");
++MODULE_LICENSE("GPL");
 -- 
 2.25.1
 
