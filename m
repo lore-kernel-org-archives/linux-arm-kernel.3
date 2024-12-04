@@ -4,176 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8BAE7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 08:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2C9E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 08:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDMVfpYvuwEP/lRAz4CK7RvbhG5cax8UxvK6rsWdc2s=; b=Rhic8wrX6YfvjrnD198XLi5Asb
-	MD9idTsD+xxyIebm4nCYWS/EWRymnaHDmQftQbJQD5IMZRT7IV2RBSDMzlJFJYFYRxwlGON+WXpe8
-	pmRAPlPc+6O4bduaD44vStHtQZol9mWgbJfirHTG0TC/7gv5V55TNrQY0vYI4wOVq808tG3h42RjP
-	3NfUVWHkLpyu4SIOvnpWWMwdAnQ84Zv4V8LJUD9bJuOp7kDOos/3oBNCdmuZcsNxP5tr6mI4cY+xX
-	H+EL+g/DphePkIc3bPzoC+Bmwui8vesJbk1/xnhXztsQLrMr8/wwzRvFA5k2I6L4uhmVDbB+ef/hg
-	l93Tw93g==;
+	bh=1XWjXY0FYz76bkGczTM1ejKTo2cEoKRp+bVoknS0rKU=; b=2P1ojwPA8Eu05kNXGec/tfauS0
+	QxrnbgTiWZD8jlHvDfuAKgM7EGs1JXaFrqjtzFZOusb4UrMjbuN6R80paSY9oLN54WgoqK3nXPyKF
+	ZNptYYPs93Yp6kuols8DtQ6QEHMEkayEphwdMz3/hX08M8RSsV6vs1dbNsWEnVW95onYjhub0uGB1
+	MBoY6VOsYMwfbNCLllQFW+fZjuz4F3prk85u76vbbTQLyRVhRQSTjeuX+dU3363PoyDkDmXx7DPUi
+	ocF/jW0vvg0b4NE/ODNy240YyndWIqt2+QYaCtvA9etn4vmGe/VreIMvoQCk3bIScLb7MbLXw1F0V
+	s/FwwJEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIl6s-0000000Bx0v-2AEW;
-	Wed, 04 Dec 2024 08:51:50 +0000
-Received: from mail-vi1eur05on2070a.outbound.protection.outlook.com ([2a01:111:f403:2613::70a] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tIl8V-0000000BxDk-1FU8;
+	Wed, 04 Dec 2024 08:53:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIl5r-0000000Bwta-0dSX
+	id 1tIl7U-0000000Bx6k-2Ncp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 08:50:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VsPJJ8Qb04xKjuJa9/Xwb38XqnW3LPox0mYriZzWVqsdPBypXQ+ahWfcHhb9lMR4FmpncV1rR8KEquv1S0JXpovW2Xdm+JJYMeKaYZWQuoBx4MmYBmAObuu1gBe8DD3S1mcu5/DZE14++xwFOYWBpT9BmAZ9FBWgP90ltTDnbeYE4jcKh8/5MtvLHRb5rx7NgW+du9eo+RFzO9Js/u4fEQXhvRxO0FZZwRVuiMtdjYbP2uZ8hr1NO2YPVPUirWuGVSaWF4K4ysmGdtSCemtH0g/Aia7CId2G2+CUBgVlN/jLbRQZt4wADpTW+H39b1ur1uopUL3hFVs6OilvrVNN6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FDMVfpYvuwEP/lRAz4CK7RvbhG5cax8UxvK6rsWdc2s=;
- b=CvWOpUQwfCcbqRYclJJuvCuLi4lEjztt7LtBLJs5E9B55M1VBffilS3l1HHvbVvbEQnXjv6lD8Lwmw2jsdpTGSJgqEnLfqbuc8FgiSfrvzrF0tnG3duMfuMPnseJwn0BaTdW3lPJEFphCd7y+3Oj+gUGRrF/hb+UlWlTkNwEHNjI/GPPCRNoOApUauf0fJeIEA5vDvZ/WMe2xQHAtxLrRkYyHgtutJIUULRBRT7v9DV6zXqKBcu4e030ulu0xvcs+GEfx24DFOcSzbDepoZdDY0U+CFgiGSS7P6AkQmn/fni+OTVY/aXmYireIpRCfY0ZsD5aHnNxPiGvtTa9hrNDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
- dkim=pass header.d=uclouvain.be; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FDMVfpYvuwEP/lRAz4CK7RvbhG5cax8UxvK6rsWdc2s=;
- b=Uc+vB0ymQF/Hxf2t1xh1cLP61/f7SCL5gegLid+g+mkpdlM6d6U0ys3IJafKf1pu5cXi1pByIH9JoIZEmAZxBBg3WkLfP8Qg/bdoMjDRGcXP5WQJJT+s5fEPkTJa28T5oF2uKgcZeq2PQYWNSPthp6oNbNenAxWmE6yI0AKKHxI0J2jZwi+2a5KElD/alALrUy9EqflpYeWQz/Xudg8IzcPzk+dW6N3juOY3afjWbBmOq3vMNfU8onN+hvtZxb3K/LGRU45CLh1eUfPQpdstGa+IViAC4M1e4YKXBqe1tXfEH7FmLxczdLAXx5MoyoGtf5k2va2eIxIuYhptp7/a7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=uclouvain.be;
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
- by GV2PR03MB9474.eurprd03.prod.outlook.com (2603:10a6:150:e1::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Wed, 4 Dec
- 2024 08:50:39 +0000
-Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
- ([fe80::c90e:deef:6dcf:538c%6]) with mapi id 15.20.8230.008; Wed, 4 Dec 2024
- 08:50:39 +0000
-Message-ID: <ed9cf02b-6f6e-46b5-a583-4fd32fa31a91@uclouvain.be>
-Date: Wed, 4 Dec 2024 09:49:55 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] power: supply: add support for max77759 fuel gauge
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be>
- <20241202-b4-gs101_max77759_fg-v1-1-98d2fa7bfe30@uclouvain.be>
- <c377f3302c6c282ad826211c859e2b65bb1222cb.camel@linaro.org>
- <8f585460a1bc52f78a6d0867aed87398bde30152.camel@linaro.org>
- <18629c9edd295a524a1c9764f013a0e97e0b275f.camel@linaro.org>
- <61a54367-2406-4106-bf8b-9fda4f2d11a6@uclouvain.be>
- <d1bade77b5281c1de6b2ddcb4dbbd033e455a116.camel@linaro.org>
-Content-Language: en-US
-From: Thomas Antoine <t.antoine@uclouvain.be>
-In-Reply-To: <d1bade77b5281c1de6b2ddcb4dbbd033e455a116.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MI0P293CA0003.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:290:44::9) To AS8PR03MB9047.eurprd03.prod.outlook.com
- (2603:10a6:20b:5b6::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|GV2PR03MB9474:EE_
-X-MS-Office365-Filtering-Correlation-Id: dcae149f-75dd-4a84-0390-08dd1440b9f0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|7416014|376014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0p6KzQ0c3AxdnMwaWJrOWh1ZTYzcFVSeW5XbElrNUtHbGlPdmRZMkZTdkNO?=
- =?utf-8?B?cFBNdks5K29XZjlxTkdlb3JJQ0ZYc3dKd0VBNTJKZkVxZzUrZTBCUE0yMjhS?=
- =?utf-8?B?eVJKbUdzcmxQQWtMa3NUdmdZVmhyaUp0ZU40OVpRM3FsZXNaN1gxTE56cmdN?=
- =?utf-8?B?VWg3UVh3OWJJK3FvZVZuUzFUSlMyeHY1Y1FLUFJiZGZsWW9oNTdTUUZqQitQ?=
- =?utf-8?B?RHNINGVrSTNKSWVPR0dCVDJKMSt1TVRUUWUvNlRpUi9lalR2YUxuV1VyY1RM?=
- =?utf-8?B?VU1saDVJTVJVeEIzb1VpYU1WcmR2SGU5TVhNTFQxMi9RNmduMDB4N2dweExq?=
- =?utf-8?B?b1hxcFMveVdqdmEzRTdyUSszL1JZTE1ZYlluS29KQllyWW9VM3g2WStuSzd3?=
- =?utf-8?B?WkwxQk9Ja25wVzd5OStHRG5EU01hWUg4U2hqTmJKWGZTelVPWTdmQ0xHV0pU?=
- =?utf-8?B?K1E3K21sT0tvTmM0bVR1S3ZNcGtXZjVaT1g2cktncENzWER2M0FrdnlOYW9l?=
- =?utf-8?B?UGQ0OWEzN3ZqYUFpeHFMbTFBeVpPelpqNFlhMnVtSlFzWHNvYkhYakFsZ3lK?=
- =?utf-8?B?Y1BLait4YktQYVhpVDJGMldmb295cXdCbFQ1YnVGTFFMRDVPdldmT25hYkV1?=
- =?utf-8?B?THhwb0Z0MUdlYUtMWUNsWUhzQUtYME04M2JoRHFCNFZYc0lWeGNNd1JpbFFn?=
- =?utf-8?B?NXdIU2N1RjFGbnlJalhjZVFhUmhveWsyekNiSFdSREhMVHFHNnNnTzZiemh1?=
- =?utf-8?B?ZzJ3ZTcveGZRWm16cHFicmV2L3FOQkdJSXA4Q1hIQ1JhV0NUbUhScWdnOWhD?=
- =?utf-8?B?c25TN3VsdVZuMzhmUlRKOURjbjdFZEY1WjNnY2hsTUl5elVsUFJob1laUmto?=
- =?utf-8?B?b2I1dUFyeUVpR1BiTUwxbXhNMTE1YnUwVDFIZFlHazNLWWVXb2VJOUpJa0tM?=
- =?utf-8?B?Qmt1L216cENGVzM1bjFIMHpXSzljNWpvRG96M3dLZkFySk82Yzdtd0N2b2po?=
- =?utf-8?B?elZmZk01TnhZNnF4cmlJRjhFN0pZN3JpME4vbEZPSWt1TW1pcXBWZUVvMTBx?=
- =?utf-8?B?ajRtR05SY2JlenBXWjdtNjBLT0NZVlFMN3FERnN3Q0RoQVB3RzBOY0V5eDls?=
- =?utf-8?B?MmRqOHJuNDBteHNuWGt1VmFpZVNSbkhWM1RHMEptZmNmMTFqKysvNFk0cUZY?=
- =?utf-8?B?VVc0VElhWlQ3bitUNnMxSERHUGUyQ3k3NUh6bEdrWUZVaEppMnVTNjBpTy8x?=
- =?utf-8?B?dFl2b3VpdC9nZnZTcU9wcGxUL1BiNXpIOXRMdUovZTBSYWQvMTh2SFZicFJ6?=
- =?utf-8?B?akxMTWlZcktCMFhTSmhDTkZ5U0JHV0lBbEJ4UXRmZHhWaDlwbDhxdkdDbUl0?=
- =?utf-8?B?MUJVUlNEamljWGRjTnVGaWFDbWs1UXhtbUtuMVhYajY5TnJueU1XbUpCZEFQ?=
- =?utf-8?B?MytGQkVzcjVPUGdtQnl5NTVFY081b2p5WkIrZ0NnamVSeHg5UGVTVEc2U21y?=
- =?utf-8?B?aWdNQSt2dVdzT3pkdFdTbmVsU0dReUpOaFQyUEtGekltRzdtNjJ4YjNOMmhU?=
- =?utf-8?B?aTJyZHI3dHdITnZ5ZHRYcFhTc2RVQ1ViaDFRWlNDR3BWZ2l3SnJMRk1jU2ZI?=
- =?utf-8?B?aHNBSjhmeWRjSzNuSUVqamZjQWVXbW5HVnk5dmg0Z0hyRllDMXR0TU9lUXJW?=
- =?utf-8?B?bi9PMmY5cDZyTXNlRFhCbXJlY21jaUhVQzljclVvOFNuUnRTQWNlU01jNVM4?=
- =?utf-8?B?WjVGK1haVThPRk9ST3Q1T3M0ekU0eWFrWFVPTzcwbXdNYjBwbUs2OFgzU1FU?=
- =?utf-8?B?bHNTdFQzQnJhandIeUdlY2RtMFVUTGZoUkUzNDZDaldmYkZGaThJdVR1OG1F?=
- =?utf-8?Q?Lw9v+hCjRK0Ea?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(7416014)(376014)(1800799024)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enFYdEoza0ViN29UalJERGI3WkpuWGdkTXBiekMyQ0xsWU5NamwzcHJhYmhj?=
- =?utf-8?B?cDh6clAwdmRYT0RYNDZaNXBKVDBXbmFNbllINVc2bFRMWCtaMEQyaVNmY29Q?=
- =?utf-8?B?aUlZK25vQjEwTVlsM0JLbWpzTW00V2hGa2lSSVkrUmFQTytIMlJKc0dUSFVj?=
- =?utf-8?B?VWJGRzVEUDhwMG5rZFloRzR6M2YzSllZQ2ppYTNaREF4QlhFeTZUeVYvQ2gz?=
- =?utf-8?B?Q0MrZ2V1Y2ZXUDU3WkJpRjRTYTFFOE1MUEZVRkdOSWNsbkwza1RxSGVWM0tO?=
- =?utf-8?B?aHc2akc3V3FTRUZuUXMxRzYza1diOE5COFN3SXlobmtadzg3VW9sMHhtOXJ1?=
- =?utf-8?B?eHRyTGZaZWFjZ3ptdTFzYVJkRVAwUnlFUG56YUNNYVhoRGExODJTODlaRExY?=
- =?utf-8?B?ck02andHeTFxbzRCR0czT1VxOEoyZVlWYngwbkl0SklLd3RwdEc2OTJZblhw?=
- =?utf-8?B?VzNWdWVOWUhNcXByWXlsT2pVYSt2azByQUhxZ3pUa2QvRVZFUi9mc3NZR2VU?=
- =?utf-8?B?RHFXOEM3ZEErbXJIREk0OFlzWFlULzlWVTQrTlYxVVlnYjBvV1RhQWdpWUQy?=
- =?utf-8?B?SnBSN3ZMUWNBZExTcWovN000QVhxK0M5TEN3QXYzK3JEbVQrakNZN2ROYjdv?=
- =?utf-8?B?RUZhRmpIR3ErWnd2UWpnMWFrbUNZbDNmT2RvalNmTC9sc2RidWd1T00vSUZ6?=
- =?utf-8?B?eTUyQVIwU3JvRzF2RkxhWUtyOUhwNm1uY2lSWWxHb3h4cm8rbUlFUlpqM2xH?=
- =?utf-8?B?dlRIYjRxWW9XL2dCYjltTFFqS3MxVmhUdkJsbmJhUzlYVFBMdHovQmlCczJY?=
- =?utf-8?B?T051VVNOWDRXbDd6ekdVU0lpem1ZKzVCZkZVVkY1YldpQzlQdjB2M211TTE0?=
- =?utf-8?B?ak4vZ0F0bW9Wci9ubEo3a1Rhd2Y1cVlkOVQ2WjAvcC83MzR6VWR6RkthRFcy?=
- =?utf-8?B?QStYbGppbUJlNXFTNmowTStUTWRqZEpGSXgrYmVjYXpuMURCUllnK2RlZTlJ?=
- =?utf-8?B?WmFnaXV1aXZhS0FyNFpPQUxBTmlCemdlbFRpL0dySW5UK3pDRTM2b1g0ZTFT?=
- =?utf-8?B?SSswTGx3UFBObEFPUnVWR1NpbUoycXdUNWhlNFppQi9yQWRIVDRmZUVrajE2?=
- =?utf-8?B?ZzV1YTdpTWdWUkZOZTBXdUtyR1FyRlB0OThBRlBmNk4yTCtvTXRPTkoxWFhC?=
- =?utf-8?B?WFVMTUNVYTdBczIvSjk3akhZMk5KS2QweDhab2JEQmVuUGRLTTE4eTNYbEU3?=
- =?utf-8?B?ZzgrSjQxYTdDNFBzZ1pHYUZPZmh6eXNhcTBwVHJNNlBnUXR6MDBRS2lReXhF?=
- =?utf-8?B?QXQ4Ym53QXhUSFNJWUFaUnNoVmdqRXoxOHNtcWloK2VoZU1NcHhCeXUwRnhm?=
- =?utf-8?B?YUhPTXA3MElTekFhTmQ0eFRBZHhZQnArT1dUc3FNbTlZeGhzbTMvVVdhbzFr?=
- =?utf-8?B?NDJjbEpmZzlNTFRvczV1OWxQUjF0RXdZOEhlZTFxaHIyRGdqWkN6ZUhSb004?=
- =?utf-8?B?SGhRMWdDWGJvZ2tsSHNmTUxWVm00bUhkMCs4UFoyYXM4OHUzdnVGQVV5Z2pM?=
- =?utf-8?B?bys3ODhJcXB5eTlQZDNjWE10N1UzUXdlVHl3OVdYK3UzM04zSHkwc05FN3hz?=
- =?utf-8?B?c1lPN2VSelFDendEYXNxdiszVngzUWVXbGs4Ny9FZHd2YVlDQWs4VkJ3Ri9V?=
- =?utf-8?B?STkzZmo1TEJvMS9nYWRjR1NUaFU2UHE5bDJWKzQ4Z1BWRlVqeWF0Zm9MYUo1?=
- =?utf-8?B?YzQxYUlXZlNFVktPdG1wK1U4R01taURYZVZBNE5BTEE5Q09RaEFqNno2Tnhz?=
- =?utf-8?B?ZW5pYjBHUEpSaEtTM2dTSDNBTWNRVFE0MDVkOTlaZkFiQi9hRm1IU1kvYkRH?=
- =?utf-8?B?L3ZWblA3ZHZzOWwrMEZaWlF2aDhEOWx5UUE2OHE3QStkVm92NlpOZy8yK2V0?=
- =?utf-8?B?VkU5MjBKVEhGRmZFSjJValkyRFhGV1JmMEZsbUVnK2hhY25ROGpZRUpIZnRm?=
- =?utf-8?B?am9FUEFBeUh1c3RHamR1SlFRR3FMZVdoTHJ6cnk2dGo0Tk94RjZsNVc1dmM2?=
- =?utf-8?B?TGw5akxFcVBLT1BhWVRNZVN4MzdpTCtVbVpET0dHcXU3WHBSOVZPVWNTeE44?=
- =?utf-8?B?cFdLaDIybHFqOWRSRUMzS3RJRS9PUWUvaHlJK1dhNldDTEpWcW1ETXFhdlhU?=
- =?utf-8?Q?q35WmTmii7Rp6OPMh/gc9oMTXRTOd1KoZn0TB0zK3SAg?=
-X-OriginatorOrg: uclouvain.be
-X-MS-Exchange-CrossTenant-Network-Message-Id: dcae149f-75dd-4a84-0390-08dd1440b9f0
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2024 08:50:38.8973
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yYRbezzs3NpvMrmGWSa3tkpeFGghYJZkEnPjMe1kApGTEEVn1wObnvuTAYw4fkoftux7uoD0lnBbZr2Xdviyuw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR03MB9474
+	Wed, 04 Dec 2024 08:52:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 718E3A41CE3;
+	Wed,  4 Dec 2024 08:50:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A23CC4CED1;
+	Wed,  4 Dec 2024 08:52:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733302347;
+	bh=H+6ZPXSfRxIrWcaR3h/acU4Q4bj6nn/C2IsiJDBTtOM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SHEjzf1v3SsYhBL6mDo2WpswRpfzOXuUmd3vRfNS9yA/Ou1vLb7d7iHUFDJ2RCxPx
+	 yE0spsz9YU58RsMIvywQ0BuqEfn//w5bPn3OiQXzwFBfPRod7hpb5rfjozLl3pnv6i
+	 LgujaVC+RYTvEYM3UhjLjxrIS/KxaElXRwFCQ9+Fuk5wa3R2hporNBTi4F7Qns3zvW
+	 LEEX7lqTUV5WcOSvqzaQQIGpkFHoViDjZqkMulxPHi8V9QfnspPdNn+HJq+QackTt5
+	 1rbZhNl+u4R05tYvgF/cpanYDj4fmco/2yjOuuTFtiR/pXC5wfN/eXiQNwcBjOl2al
+	 CfdJZup2LyxfQ==
+Received: from 82-132-237-135.dab.02.net ([82.132.237.135] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tIl6r-000NUO-Jr;
+	Wed, 04 Dec 2024 08:52:24 +0000
+Date: Wed, 04 Dec 2024 08:51:26 +0000
+Message-ID: <87jzcfsuep.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vitaly Chikunov <vt@altlinux.org>
+Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
+	"Dmitry V. Levin" <ldv@altlinux.org>
+Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction: 0000000002000000 [#1] SMP
+In-Reply-To: <20241203221453.mwh6sozyczi4ec2k@altlinux.org>
+References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
+	<20241202153618.GA6834@willie-the-truck>
+	<86ttbmt71k.wl-maz@kernel.org>
+	<20241202155940.p267a3tz5ypj4sog@altlinux.org>
+	<86ser6t6fs.wl-maz@kernel.org>
+	<20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
+	<20241203092721.j473dthkbq6wzez7@altlinux.org>
+	<1847e34fa7724d28aeb22d93752f64f2@huawei.com>
+	<20241203221453.mwh6sozyczi4ec2k@altlinux.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.237.135
+X-SA-Exim-Rcpt-To: vt@altlinux.org, shameerali.kolothum.thodi@huawei.com, will@kernel.org, james.morse@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, wangzhou1@hisilicon.com, ldv@altlinux.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_005047_474444_E95CC5FD 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20241204_005228_746130_E8F8B2D5 
+X-CRM114-Status: GOOD (  55.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,54 +99,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/3/24 12:06, André Draszik wrote:
-> On Tue, 2024-12-03 at 11:30 +0100, Thomas Antoine wrote:
->> Should I explicitly deny their use in the code for the max77759 or is it
->> just for information?
-> I'd probably do something like this, which will indeed deny their reading
-> and/or writing, both via debugfs, and also normal driver access via
-> readmap_read()/write() etc:
+On Tue, 03 Dec 2024 22:14:53 +0000,
+Vitaly Chikunov <vt@altlinux.org> wrote:
 > 
-> static const struct regmap_range max77759_registers[] = {
-> 	regmap_reg_range(0x00, 0x4f),
-> 	regmap_reg_range(0xb0, 0xbf),
-> 	regmap_reg_range(0xd0, 0xd0),
-> 	regmap_reg_range(0xdc, 0xdf),
-> 	regmap_reg_range(0xfb, 0xfb),
-> 	regmap_reg_range(0xff, 0xff),
-> };
+> Shameer, Marc, Oliver, Will,
 > 
-> static const struct regmap_range max77759_ro_registers[] = {
-> 	regmap_reg_range(0x3d, 0x3d),
-> 	regmap_reg_range(0xfb, 0xfb),
-> 	regmap_reg_range(0xff, 0xff),
-> };
+> On Tue, Dec 03, 2024 at 10:03:11AM +0000, Shameerali Kolothum Thodi wrote:
+> > > -----Original Message-----
+> > > From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On
+> > > Behalf Of Vitaly Chikunov
+> > > Sent: Tuesday, December 3, 2024 9:27 AM
+> > > To: Marc Zyngier <maz@kernel.org>
+> > > Cc: Will Deacon <will@kernel.org>; james.morse@arm.com; linux-arm-
+> > > kernel@lists.infradead.org; Catalin Marinas <catalin.marinas@arm.com>;
+> > > linux-kernel@vger.kernel.org; oliver.upton@linux.dev;
+> > > mark.rutland@arm.com
+> > > Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
+> > > 0000000002000000 [#1] SMP
+> > > 
+> > > Marc,
+> > > 
+> > > On Tue, Dec 03, 2024 at 01:31:19AM +0300, Vitaly Chikunov wrote:
+> > > > On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
+> > > > > On Mon, 02 Dec 2024 15:59:40 +0000,
+> > > > > Vitaly Chikunov <vt@altlinux.org> wrote:
+> > > > > >
+> > > > > > Marc,
+> > > > > >
+> > > > > > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
+> > > > > > >
+> > > > > > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
+> > > > > >
+> > > > > > No, host is 6.6.60.
+> > > > >
+> > > > > Right. I wouldn't be surprised if:
+> > > > >
+> > > > > - this v6.6 kernel doesn't hide the MPAM feature as it should (and
+> > > > >   that's proably something we should backport)
+> > > >
+> > > > How to confirm this? Currently I cannot find any (case-insensitive)
+> > > > "MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM
+> > > > strings in `strace -v` (as it decodes some KVM ioctls) of qemu process.
+> > > >
+> > > > >
+> > > > > - you get a nastygram in the host log telling you that the guest has
+> > > > >   executed something it shouldn't (you'll get the encoding of the
+> > > > >   instruction)
+> > > >
+> > > > I requested admins of the box for dmesg output since I don't have root
+> > > > access myself and nowadays dmesg is not accessible for a user.
+> > > 
+> > > This is what they reported:
+> > > 
+> > >   kvm [2502822]: Unsupported guest sys_reg access at: ffff80008003e9f0
+> > > [000000c5]
+> > >                    { Op0( 3), Op1( 0), CRn(10), CRm( 4), Op2( 4), func_read },
+> > > 
+> > 
+> > As Will pointed out I think this is access to MPAMIDR_EL1 and is from this
+> > code here,
+> > 
+> > +++ b/arch/arm64/kernel/cpuinfo.c
+> > @@ -478,6 +478,9 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+> >  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+> >  		__cpuinfo_store_cpu_32bit(&info->aarch32);
+> >  
+> > +	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+> > +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+> > +
+> >  	cpuinfo_detect_icache_policy(info);
+> >  }
+> > 
+> > I did manage to boot my setup in 6.6 and this is what happens,
+> > 
+> > Host kernel 6.6
+> > Guest Kernel 6.13-rc1
+> > 
+> > [    0.195392] smp: Brought up 1 node, 8 CPUs
+> > [    0.219000] SMP: Total of 8 processors activated.
+> > [    0.219629] CPU: All CPU(s) started at EL1
+> > ...
+> > [    0.223212] CPU features: detected: RAS Extension Support
+> > [    0.223927] CPU features: detected: Memory Partitioning And Monitoring
+> > [    0.224796] CPU features: detected: Memory Partitioning And Monitoring Virtualisation
+> > [    0.225961] alternatives: applying system-wide alternatives
+> > ...
+> > 
+> > Guest detects MPAM and boots fine.
+> > 
+> > Host kernel 6.13-rc1
+> > Guest Kernel 6.13-rc1
+> > 
+> > [    0.196625] smp: Brought up 1 node, 8 CPUs
+> > [    0.222093] SMP: Total of 8 processors activated.
+> > [    0.222769] CPU: All CPU(s) started at EL1
+> > ...
+> > [    0.226620] CPU features: detected: RAS Extension Support
+> > [    0.227453] alternatives: applying system-wide alternatives
+> > 
+> > MPAM is not visible to Guest in this case.
+> > 
+> > So as I pointed out earlier could it be a case where the ID register reports MPAM support
+> > but the firmware has not enabled MPAM?
+> > 
+> > James seems to be mentioning that case here,
+> > 
+> > " (If you have a boot failure that bisects here its likely your CPUs
+> > advertise MPAM in the id registers, but firmware failed to either enable
+> > or MPAM, or emulate the trap as if it were disabled)"
 > 
-> static const struct regmap_access_table max77759_write_table = {
-> 	.yes_ranges = max77759_registers,
-> 	.n_yes_ranges = ARRAY_SIZE(max77759_registers),
-> 	.no_ranges = max77759_ro_registers,
-> 	.n_no_ranges = ARRAY_SIZE(max77759_ro_registers),
-> };
+> I tried to verify that MPAM is advertised with qemu+gdb method, as
+> suggested by Oliver, but ID_AA64PFR0_EL1 register is not there.
 > 
-> static const struct regmap_access_table max77759_rd_table = {
-> 	.yes_ranges = max77759_registers,
-> 	.n_yes_ranges = ARRAY_SIZE(max77759_registers),
-> };
-> 
-> static const struct regmap_config max77759_regmap_config = {
-> 	.reg_bits = 8,
-> 	.val_bits = 8,
-> 	.max_register = 0xff,
-> 	.wr_table = &max77759_write_table,
-> 	.rd_table = &max77759_rd_table,
-> 	.cache_type = REGCACHE_NONE,
-> };
-> 
-> And maybe without cache for now. Most are probably not cacheable anyway.
+>   (gdb) i r ID_AA64PFR0_EL1
+>   Invalid register `ID_AA64PFR0_EL1'
 
-Thank you very much, I'll try this out.
+Then there is a bug in either QEMU or the GDB stubs. This register
+exists, or you wouldn't be here.
 
-Best regards,
-Thomas
+> 
+> Are there other suggestions?
+
+Mark has described what the problem is likely to be. 6.6-stable needs
+to have 6685f5d572c22e10 backported, and it probably should have been
+Cc: to stable. Can you please apply the following patch to your *host*
+machine and retest?
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 370a1a7bd369..258a39bcd3c7 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1330,6 +1330,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 			val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);
+ 
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
++		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);
+ 		break;
+ 	case SYS_ID_AA64ISAR1_EL1:
+ 		if (!vcpu_has_ptrauth(vcpu))
+@@ -1472,6 +1473,13 @@ static u64 read_sanitised_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
+ 
+ 	val &= ~ID_AA64PFR0_EL1_AMU_MASK;
+ 
++	/*
++	 * MPAM is disabled by default as KVM also needs a set of PARTID to
++	 * program the MPAMVPMx_EL2 PARTID remapping registers with. But some
++	 * older kernels let the guest see the ID bit.
++	 */
++	val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
++
+ 	return val;
+ }
+ 
+@@ -1560,6 +1568,29 @@ static int set_id_dfr0_el1(struct kvm_vcpu *vcpu,
+ 	return set_id_reg(vcpu, rd, val);
+ }
+ 
++static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
++			       const struct sys_reg_desc *rd, u64 user_val)
++{
++	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
++	u64 mpam_mask = ID_AA64PFR0_EL1_MPAM_MASK;
++
++	/*
++	 * Commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits
++	 * in ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to
++	 * guests, but didn't add trap handling. KVM doesn't support MPAM and
++	 * always returns an UNDEF for these registers. The guest must see 0
++	 * for this field.
++	 *
++	 * But KVM must also accept values from user-space that were provided
++	 * by KVM. On CPUs that support MPAM, permit user-space to write
++	 * the sanitizied value to ID_AA64PFR0_EL1.MPAM, but ignore this field.
++	 */
++	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
++		user_val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
++
++	return set_id_reg(vcpu, rd, user_val);
++}
++
+ /*
+  * cpufeature ID register user accessors
+  *
+@@ -2018,7 +2049,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_ID_AA64PFR0_EL1),
+ 	  .access = access_id_reg,
+ 	  .get_user = get_id_reg,
+-	  .set_user = set_id_reg,
++	  .set_user = set_id_aa64pfr0_el1,
+ 	  .reset = read_sanitised_id_aa64pfr0_el1,
+ 	  .val = ID_AA64PFR0_EL1_CSV2_MASK | ID_AA64PFR0_EL1_CSV3_MASK, },
+ 	ID_SANITISED(ID_AA64PFR1_EL1),
+
+> > https://lore.kernel.org/all/20241030160317.2528209-4-joey.gouly@arm.com/
+> > 
+> > Is there a way you can find out the BIOS version on that board?
+> 
+> Unfortunately, admins of the server do not provide me with this
+> info.
+
+This doesn't really help, I'm afraid.
+
+> For such cases, when MPAM is incorrectly advertised, can we have kernel
+> command line parameter like mpam=0 to override it's detection?
+
+We could, but only when we can confirm what the problem is.
+
+> I think with "If you have a boot failure that bisects here" it's
+> acknowledged possibility and it's confirmed by our server.
+
+Not really. This talks about firmware. We are debugging the hypervisor
+here. This might be closely related, but these are not the same
+things.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
