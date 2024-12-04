@@ -4,61 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4888CE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F85E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8v1jGAQYxZPBEEyq1ykQk6TdKqm7vvpybYBasNXhLSc=; b=cxa5lJ35RPtnQpESQaljzXUf6x
-	qBuVisGfEfPsZzJ5PGJZ2jrxrypNLerzZ37BRQ9WmpUNzoC1hui8v2JkSlxIVYbmTH8yZ+//ipOyG
-	qd57l+EVeWNnRlBHy3CeBv87s9Rg3wtNAPsuIYIQGWOcvG+caK5pOcIp9o0GZTwPjQGZ5kRVKccnu
-	FlytY21LsUxkfHfee66gWzTXOHodrJoIEhSP2/vl3gSM4UWnVQP5BO3/aO/Almp/QdlutJBSR8njC
-	NLoJRBizvbIfOJ6njBmzIY6bwuetWUWB1d2igRK88bS/c4UOTROTjWvWSOWqo/DdTnl/MO83P2//N
-	dNEZ5yiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=avsElWR/fKi9kOjnFO0ifEAxNLupFUHqYpFEY06aggo=; b=FFEZtG+hKtS++9VziYj0CpGoKp
+	7amFyuZFgKXWbi0yloZ5+yXKPtkd4t0OLBe2FzNKUfr9txkIHkfIADiyyaTRsqK4qKzzDVqwSSdtP
+	8JKdTpWR6NKwUuMaC2FSWnxNxkuO2+cIRwg4mlnP+/btSBmNHiRXfekp/5rKTDmXcImirJNNK1D3t
+	L4tZf3l0Rhjtqny/N/mBOoTAQmDShed1X9WuTHHFh8/IPUvGnTAeOG+m9bM2CgVyTze3/3wafnAcN
+	UzNLPPED79oCIOC+AN1Y4lxDN45OQm672hZGdjJxfaNMxI+5ADi1mIWS9Dh/3j+IQhfqLjm4CSx2d
+	sLOp9s7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIsCm-0000000DBCf-03rA;
-	Wed, 04 Dec 2024 16:26:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIsDl-0000000DBU8-0BfE;
+	Wed, 04 Dec 2024 16:27:25 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIsBl-0000000DAzA-37Fm;
-	Wed, 04 Dec 2024 16:25:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7E522A40C00;
-	Wed,  4 Dec 2024 16:23:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25188C4CECD;
-	Wed,  4 Dec 2024 16:25:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733329520;
-	bh=Nc+FOIpt7TbIStp6l8xTivwnrh0gB0h1NmUqHHiH7nA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=QoQHSMtd4xRonXrPYqRL5VXJnmIHOEMFLAjKen/RG11dUzDEesTySsjhWqTTjzqnZ
-	 MAKhvpaB9jZCECSo4t7d+Y0PvsofWNp6HV0LXi31HY1e8g7pAJ6V3F9GU/eCOmyEud
-	 DbLP/nBZh5Z07dtyGnM0xXKHJg9nwgzYxsPmnjLR+VYyG6TpI3w1WWaXb5FzgV5Cwc
-	 5lTFhVNFjQQ7JgihP759ATsJEtYFrBCj4AY4a7/ZGuwuhq+MQx1t01UDlmcqFDBWvs
-	 I6VQBGeeEeiGYCM01I+7vKkhjdk/kh+D/o6wU9l8QfxMikyQgcGyjMKY7KVBJIEfJ0
-	 ObcI5NywDCjEQ==
-From: Mark Brown <broonie@kernel.org>
-To: Jon Lin <jon.lin@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- heiko@sntech.de, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org
-In-Reply-To: <20241203013513.2628810-1-jon.lin@rock-chips.com>
-References: <20241203013513.2628810-1-jon.lin@rock-chips.com>
-Subject: Re: [PATCH] spi: rockchip-sfc: Optimize the judgment mechanism
- completed by the controller
-Message-Id: <173332951887.13421.11537303801053149682.b4-ty@kernel.org>
-Date: Wed, 04 Dec 2024 16:25:18 +0000
+	id 1tIsCZ-0000000DB95-002U
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 16:26:12 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2ffc016f301so74813361fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 08:26:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733329569; x=1733934369; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=avsElWR/fKi9kOjnFO0ifEAxNLupFUHqYpFEY06aggo=;
+        b=Fg87Mtwrlr4p8KpyL+N+KR/79pNeMpO7gA10O71pZg40ezmOF4ZH9a3w6nXk24fjC2
+         RUa3o5yM49u+/Fyrfi0719sbkHzGAv8wlkZGtZWsy9lw/dhjjPKj6KPdrSqo65iTNIzB
+         Vd1gLzjb5h5WL9FcPOE+8t7NAF/JnMtk3X4NyXb2T2BNydjqF6AybKvPzY7KOiVgXkvJ
+         FyQTkrz+oqh1A0cDHfwF6v0vhur4PwTJLG5XKmUcyYxGSHbbw6lxLb9sw3p/8UaVTs4C
+         Yfi8ci3W4/G77hLQr+81AGz9olYsOwb/arBHxST/ut+f3HxWG6nCiU539Z9cw45XR4nm
+         qLHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733329569; x=1733934369;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=avsElWR/fKi9kOjnFO0ifEAxNLupFUHqYpFEY06aggo=;
+        b=GnQMh78hiRnoSnyb+EhedBtGiOKeKIP/rgaJdrk5ezmR4guNqPmk3tkcwWzj8gZTNM
+         LfHPXG+aU0kAqjpeHgbtg7pM3jv3rJV3SHWD745VFk9z5LSujUrPigkmQYIQ2UrHFZqq
+         w15emrQuhJGGPEKWRN+Cdsl7z3E1F41wd4edVtYi1AwTfICU3mxTMPrYLFfGbTTTQ9lQ
+         7S1ig7ZYOsGPkezyhAQtpZyZ0nDBshIFYn2psgzPlFjAHinesG3OovuRzkrdrOHZEhhT
+         jvE0uJ6gI6Mq2SdL7vtcIp8hYLp4b9Tvp3aUUtLGJn/2WQ0TfFZLK+YJZbHd6jHAK3V3
+         visA==
+X-Forwarded-Encrypted: i=1; AJvYcCVX87daqQiubL3wSl2s7Ws43HzkUe60CEV2XRet0fw73boN6d3RzJDlPuvi9JdcZzeqSDu2ZqVm+xEfkFyGUwI+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMg6dwjXWWD4wN057fzIYM9rOnrY8t4EFZffuQpdhfeULTDMrQ
+	unSC8Z/GnNFZArOUfi377jFl14B3Y1Td/b0sFAKSd8RZ+R0CLHlP
+X-Gm-Gg: ASbGncuJD/Us00TDYhZ4YRiaHsyOPVHB5Zqy1bFzD82weMXf8qVVlHBRNfiChJ1hM5E
+	0o40R6akAGuZ7qNXG1TDkbQAVEV5jRrF1Rl4CXEZVEyyw3BvZUIzWAuRL06CoYwkvx4Z1hTukBr
+	0J2hPcu35GhwEnXGFjtvo0Zam0MA8qqlpj/Ise5HrGEjzju/zg6P5W8GzX1WP4XTqDEIbYW7WIt
+	vNC3Aw1ycO4sTleb+1WvY7eAIzLYAVt20rovFEEfmsTktn/6QJ957TNdCN1h5UItKH1PEgKLA7e
+	M5/bDNU6Vdg=
+X-Google-Smtp-Source: AGHT+IHZ1hSLNbyVNKzBWLLPkHij7c2uDQguaytbWO4jC4VLwSaGA+Z10qe03u3qav3/qIqYzj4nJg==
+X-Received: by 2002:a05:6512:3b83:b0:53d:d41e:b1a8 with SMTP id 2adb3069b0e04-53e129fdd48mr4338645e87.20.1733329568568;
+        Wed, 04 Dec 2024 08:26:08 -0800 (PST)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df646f19csm2252958e87.150.2024.12.04.08.26.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 08:26:06 -0800 (PST)
+Date: Wed, 4 Dec 2024 17:26:04 +0100
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 5/9] ARM: mvebu_v5_defconfig: rebuild default
+ configuration
+Message-ID: <Z1CCnGZvuBLZ2k2P@gmail.com>
+References: <20241204-defconfigs-v1-0-86587652d37a@gmail.com>
+ <20241204-defconfigs-v1-5-86587652d37a@gmail.com>
+ <303c44ca-879c-477c-a96c-9741bf3bf31a@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kilpMY/xPkg/Gz5s"
+Content-Disposition: inline
+In-Reply-To: <303c44ca-879c-477c-a96c-9741bf3bf31a@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_082521_846045_954F7439 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20241204_082611_035521_2E1CC4D9 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +110,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Dec 2024 09:35:13 +0800, Jon Lin wrote:
-> There is very little data left in fifo, and the controller will
-> complete the transmission in a short period of time, so
-> use readl_poll_timeout() for busy wait 10us to accelerate response.
-> 
-> 
 
-Applied to
+--kilpMY/xPkg/Gz5s
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+On Wed, Dec 04, 2024 at 05:04:25PM +0100, Andrew Lunn wrote:
+> On Wed, Dec 04, 2024 at 04:56:47PM +0100, Marcus Folkesson wrote:
+> > This configuration contains obsolete configuration options e.g.
+> > CONFIG_MTD_M25P80 which is integrated into MTD_SPI_NOR.
+> >=20
+> > Rebuild this configuration by run:
+> > make ARCH=3Darm mvebu_v5_defconfig
+> > make ARCH=3Darm savedefconfig
+> >=20
+> > Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+>=20
+> You probably want to wait until Arnd big removal patchset lands,
+> because this is going to be immediately outdated.
 
-Thanks!
+Thanks for the info, I wasn't aware of this.
 
-[1/1] spi: rockchip-sfc: Optimize the judgment mechanism completed by the controller
-      commit: 577f1cf76ceedb5fbdc9aca4f712b21864ac15ee
+I will give it another shot when his patchset has landed.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+>=20
+>      Andrew
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Best regards,
+Marcus Folkesson
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+--kilpMY/xPkg/Gz5s
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Mark
+iQIzBAEBCAAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmdQgpcACgkQiIBOb1ld
+UjLPcA//Y76oK6kUD1ojWaB5BoNve4LYgzpwUuIeHXLEpw6zWShBHmqs6RM3dzs9
+13xOZUPx4wFAWbYi06fdTM33ep0akpMgVwbNG6z12mI3W3MbRsz/CZ7cM8oVTTIo
+NViHeU9Jk8EZVX1udBAFToQIOeO5v1TICeBQF8aWhaNv5MgUNL6H2hQ/AaHxpjmv
+P8Trltk+r3A4d6g0ZcJ7LvQcIdePls3jPwnHMNHcb8YkfPCwTAo3mqWm3N9mT/SO
+CdRsblLyGHBqu+c/9bgqAZglgyAi4xjIhWJVBwdqVn9AgHRsKwmxBkX6Pa3dqr4l
+5P+PBnoqv/CAtlO9nakNDPu4NyeYJ8M6MkKU/5wjcVIuTNnsz9ntcdsJimmC48y9
+F9HI8xvUpJjiRtd5VnrCbU0fbw1nh2G6kpCArhsgmpq4Th5EAZxhOBV6yV3ClzJJ
+5zXckqwRG9XbFZMQ5nuC9J+qIzyjqTEfIKEgOB+ZlbAs4in0H25z02z7wmUVvkNS
+yj6neRSyB2xea+W7wkSdIcxH+1WFH24AdV6nxyYtzZjrLAT87yIf+EUQUJZztk7H
+plJs5NLilJBeeKsgC0Sj67Z//MtLLv+3FQZmyOTZg9eI0qvVd3A1SKRQLopTE2vT
+oF2TutNMWmnnauYXBXta/Kk2yC0ubur3Ne9bYG4sKni3yEI6WE0=
+=vnf8
+-----END PGP SIGNATURE-----
 
+--kilpMY/xPkg/Gz5s--
 
