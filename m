@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9732E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880FFE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mJN0xDsc3RBo9kCI5VpP+8GDP08z7fNPcgv7+CVrqU=; b=1WGQtiBofUk6PH8t8veV6JTwav
-	6nRv6/a3UvYtZEtdsE8X5ae0K5OL+YMN8J8PSX1W5d5WutbneJbyjiD6eAsypUZ6qRnLgoeTL9qCU
-	zjtokgkfVf8oP/Xl+auSr4yFuaHAY27ucpFPiR79lfpcVl6hJvO66IyIJBSGja3Mr8EHrZejhN3ou
-	wdO7RPce/OkDiJEiyMDxOW4R3d15TBY5z0eJEGe20PKosId1JPa9GF9EFVO1XON8+PaF2oTM+L/FB
-	DbxgBFZouQLxitJ4c7fCizbWLLeupiEskyLTi3VdvpLHdZHu3D1LpkcumaBDMqgHpnJ1zF2rxkxY/
-	o6gNAqtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y6Zm/pDEZ2wWuq6CLhWp8fdFsf6yo2FBchkfiY2ICjk=; b=L8yQhTHSRBskDt/B+n72LDawF2
+	2lIUUVmBaS6BR5glTM0zz5rxtF7qMEB4uejglKHGOBQ5jPx5Nqk24LSSsPFZCnsoBb85Uc9cGhxWp
+	bInPmhE0QDmj3/mx2ptsUzdY4RGDwTwgtjz6xa53Peshae8ZaZ9HM30LIjsa/648AM6UABJ1XHhru
+	eM7BCOfqz5kgE8rIZ5UjUltddmymtOMfgWMNMnPMw/ET5RLIVYK/cfjnsQSueMgZaHfz20w+pZ5wH
+	6pQ4IBnFC1B5r9LEwPXQaznOKP/9xfHUTaOGLydJB7JOTCMD+PecylLNyZUfJpDki8kN8JtZPIscN
+	y2VGhxxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqGj-0000000Cp2H-0NnN;
-	Wed, 04 Dec 2024 14:22:21 +0000
-Received: from smtp-fw-52004.amazon.com ([52.119.213.154])
+	id 1tIqM6-0000000Cpfu-3aZY;
+	Wed, 04 Dec 2024 14:27:54 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqEi-0000000CoSy-025O;
-	Wed, 04 Dec 2024 14:20:18 +0000
+	id 1tIqL6-0000000CpZC-0SfW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 14:26:53 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-7fc88476a02so6052836a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 06:26:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1733322015; x=1764858015;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=5mJN0xDsc3RBo9kCI5VpP+8GDP08z7fNPcgv7+CVrqU=;
-  b=gLCDKbQaSIbwvpWBeuxp3KYgH4U3S1kBFOc3NNU+sCPgT+Tl5GdXr/Fb
-   Z6akkhQiJMvwtxNe6doKKdQRRyu5jasdIzAJZwgFSa2S8U6/q7l1wKh3w
-   Hzp8FB1tbxSt9H84CCeCx9DzKUM9FFBy0EDMWBKFQ7loiglyOi+yB5afK
-   s=;
-X-IronPort-AV: E=Sophos;i="6.12,207,1728950400"; 
-   d="scan'208";a="252220900"
-Received: from iad6-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.2])
-  by smtp-border-fw-52004.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 14:20:05 +0000
-Received: from EX19MTAEUA001.ant.amazon.com [10.0.10.100:35215]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.23.253:2525] with esmtp (Farcaster)
- id 4f701277-230b-4dbe-9bbd-a2fd4c729600; Wed, 4 Dec 2024 14:20:04 +0000 (UTC)
-X-Farcaster-Flow-ID: 4f701277-230b-4dbe-9bbd-a2fd4c729600
-Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19MTAEUA001.ant.amazon.com (10.252.50.223) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
- Wed, 4 Dec 2024 14:20:04 +0000
-Received: from EX19MTAUEB002.ant.amazon.com (10.252.135.47) by
- EX19D018EUA004.ant.amazon.com (10.252.50.85) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 4 Dec 2024 14:20:04 +0000
-Received: from email-imr-corp-prod-iad-all-1b-1323ce6b.us-east-1.amazon.com
- (10.124.125.2) by mail-relay.amazon.com (10.252.135.97) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Wed, 4 Dec 2024 14:20:04 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-iad-all-1b-1323ce6b.us-east-1.amazon.com (Postfix) with ESMTP id E07CC4056B;
-	Wed,  4 Dec 2024 14:20:03 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id A058A7595; Wed,  4 Dec 2024 14:20:03 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
-	<hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
-	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v6 2/2] kexec: Prevent redundant IRQ masking by checking state before shutdown
-Date: Wed, 4 Dec 2024 14:20:03 +0000
-Message-ID: <20241204142003.32859-3-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241204142003.32859-1-farbere@amazon.com>
-References: <20241204142003.32859-1-farbere@amazon.com>
+        d=chromium.org; s=google; t=1733322411; x=1733927211; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y6Zm/pDEZ2wWuq6CLhWp8fdFsf6yo2FBchkfiY2ICjk=;
+        b=W0cTJmlVmCoSujb1yhp3DF4pBweAx4xupoz8jsAL9A5Zl2z7anOmPyA6j6kc9+pCja
+         21fgSX1a7FOy/nrMdV/U9RduW10yaQ2stNvIv1dWQmb6V7DFrbeFO/BtEFluNx94YQ3E
+         2A4aGO49OSwK3z1HBYabeWMfw1aTmtFUotbsQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733322411; x=1733927211;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y6Zm/pDEZ2wWuq6CLhWp8fdFsf6yo2FBchkfiY2ICjk=;
+        b=lut5qKxsPj6ixt+sxEezGrKaJvw5pgUV62M9krhncGjtACrLUUWD3bu2wKkAX4Phh6
+         bdceT6No0jJOhjZIWhi5rO47icWgQUVywJD9UL/6SC5nnTtyo55I9/UvxfLUdQfjoj8u
+         Y6pUBIXYTo/I69NXZzFMeeHNzEw76MECaAHog/cW+ao+0cM1GAc9MLJiupVNDJHg5Yyn
+         CwSX752lbW6pHbpHBpZrCPBDifLAyw2iQLhuenui/sBVAy3fzAphkl3bC7Memb9kENeA
+         G+9qsW6vLJZ6APRJxUZw9HkmalvwOSo3+OkY3VAiVP9oZA/e7jOzSMTZT8vjbmxtKs19
+         yqtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUJ2wflyw0nGm8IbqeNNINuqI+ddgc1Dqw+dCbYE5C936H9A2jlzVzt0yW6MYLCqa4q+xWzebq9/WJYjuKlnc8r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZXKpIceex+dBpf1YzdJKcy9PF1usMGEvA8o0IlLFp1jIqGBY4
+	OHK8NB4EVPXrvCBLlOFSgOKpgM/13OVpJ9p4dI+wcR/lqap7y/z8gZcYF7LSKA==
+X-Gm-Gg: ASbGncv6JAqe44qJssyYohPI7eXLmqbANUkeffk2fdn11QMWOAxshbJfizJfWNN5x6/
+	IkHoVAE9XKYGrQ8I8jW8EKN6ZUANlm/uj4xWXNwNNuK9wo+F9Zs8Mpi5enF8Nd/Frb9PTnJg5V6
+	9pv3k5MDO863AaQ4RV+x2zewVlwMixipbHw1B1PhS72u4LT8XWpXP++47OcFGbxW6Wg+SD3A3px
+	yTe/7ZlDSvwsVKZpuyz8SwIf8kN+wrGDTbAqK7GA7qGlSz2ySfJTx0qkZ1g1vfDyvo=
+X-Google-Smtp-Source: AGHT+IF0dNNNk83kN4LRrd8AEGyz62WUomCygJPIZPBTF7uW7lrdAcSow02U1nyM8E/b/c2B1GaPog==
+X-Received: by 2002:a05:6a20:cfa6:b0:1dc:bdbd:9017 with SMTP id adf61e73a8af0-1e165412f33mr9668165637.40.1733322410642;
+        Wed, 04 Dec 2024 06:26:50 -0800 (PST)
+Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:b764:8a78:a02:6e0])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fc9c3a2a5asm11416510a12.80.2024.12.04.06.26.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 06:26:50 -0800 (PST)
+From: Fei Shao <fshao@chromium.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Fei Shao <fshao@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] drm/mediatek: dp: Support flexible length of DP calibration data
+Date: Wed,  4 Dec 2024 22:25:38 +0800
+Message-ID: <20241204142626.158395-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_062016_360714_1A3B4745 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20241204_062652_175625_BACF99E7 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,76 +95,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During machine kexec, the function machine_kexec_mask_interrupts() is
-responsible for disabling or masking all interrupts. While the irq_disable
-hook ensures that an already-disabled IRQ is not disabled again, the
-current implementation unconditionally invokes the irq_mask() function for
-every interrupt descriptor, even when the interrupt is already masked.
+The DP calibration data is stored in nvmem cells, and the data layout is
+described in the `mtk_dp_efuse_fmt` arrays for each platform.
 
-A specific issue was observed in the crash kernel flow after unbinding a
-device (prior to kexec) that used a GPIO as an IRQ source. The warning was
-triggered by the gpiochip_disable_irq() function, which attempted to clear
-the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+There is no guarantee that the data is always a 4-length u32 cell array.
+For example, MT8188 has a data length of 3, preventing it from passing
+the preliminary check and undergoing calibration.
 
-```
-void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
-{
-	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+Update the logic to support flexible data lengths. Specifically, we
+validate the length returned from `nvmem_cell_read()` against the
+platform-specific efuse format. If out-of-bound access is detected, fall
+back to the default calibration values. This likely indicates an error
+in either the efuse data length described in DT or the efuse format
+within the driver.
 
-	if (!IS_ERR(desc) &&
-	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
-		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
-}
-```
-
-This issue surfaced after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
-IRQs to lazy disable") introduced lazy disablement for GPIO IRQs. It
-replaced disable/enable hooks with mask/unmask hooks. Unlike the disable
-hook, the mask hook doesn't handle already-masked IRQs.
-
-When a GPIO-IRQ driver is unbound, the IRQ is released, triggering
-__irq_disable() and irq_state_set_masked(). A subsequent call to
-machine_kexec_mask_interrupts() re-invokes chip->irq_mask(). This results
-in a call chain, including gpiochip_irq_mask() and gpiochip_disable_irq().
-Since FLAG_USED_AS_IRQ was cleared earlier, a warning occurs.
-
-Replace calls to irq_mask() and irq_disable() hooks with a simplified call
-to irq_shutdown(), and check if the interrupt is started (irqd_is_started)
-before calling the shutdown.
-
-Signed-off-by: Eliav Farber <farbere@amazon.com>
+Signed-off-by: Fei Shao <fshao@chromium.org>
 ---
-V5 -> V6: No changes.
 
- kernel/irq/kexec.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+Changes in v2:
+- use %zu identifier for size_t in dev_warn()
 
-diff --git a/kernel/irq/kexec.c b/kernel/irq/kexec.c
-index 0f9548c1708d..1a3deffe6b5b 100644
---- a/kernel/irq/kexec.c
-+++ b/kernel/irq/kexec.c
-@@ -17,7 +17,7 @@ void machine_kexec_mask_interrupts(void)
- 		int check_eoi = 1;
+ drivers/gpu/drm/mediatek/mtk_dp.c | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 36713c176cfc..55671701459a 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -1165,17 +1165,25 @@ static void mtk_dp_get_calibration_data(struct mtk_dp *mtk_dp)
+ 	buf = (u32 *)nvmem_cell_read(cell, &len);
+ 	nvmem_cell_put(cell);
  
- 		chip = irq_desc_get_chip(desc);
--		if (!chip)
-+		if (!chip || !irqd_is_started(&desc->irq_data))
- 			continue;
- 
- 		if (IS_ENABLED(CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD)) {
-@@ -31,10 +31,6 @@ void machine_kexec_mask_interrupts(void)
- 		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
+-	if (IS_ERR(buf) || ((len / sizeof(u32)) != 4)) {
++	if (IS_ERR(buf)) {
+ 		dev_warn(dev, "Failed to read nvmem_cell_read\n");
 -
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_shutdown(desc);
+-		if (!IS_ERR(buf))
+-			kfree(buf);
+-
+ 		goto use_default_val;
  	}
- }
+ 
++	/* The cell length is in bytes. Convert it to be compatible with u32 buffer. */
++	len /= sizeof(u32);
++
+ 	for (i = 0; i < MTK_DP_CAL_MAX; i++) {
+ 		fmt = &mtk_dp->data->efuse_fmt[i];
++
++		if (fmt->idx >= len) {
++			dev_warn(mtk_dp->dev,
++				 "Out-of-bound efuse data access, fmt idx = %d, buf len = %zu\n",
++				 fmt->idx, len);
++			kfree(buf);
++			goto use_default_val;
++		}
++
+ 		cal_data[i] = (buf[fmt->idx] >> fmt->shift) & fmt->mask;
+ 
+ 		if (cal_data[i] < fmt->min_val || cal_data[i] > fmt->max_val) {
 -- 
-2.40.1
+2.47.0.338.g60cca15819-goog
 
 
