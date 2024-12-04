@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E05EE77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EFD0E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMeJs2fkxWVa6maqFMY2sAdjC23oUJsSZNVB/x6QDBk=; b=SwKgXSt3T9sQpD+lw+cTt+o8qa
-	J8tYF9CZBq6mdnZqPweVg/wtQ9SOh7rQACbV6kisdWZo6AWwYp/3gNVlHKcEiMR2Fi8CA2KQUlOcX
-	ru5PN6EZtJE/OBgL+zZW5PbDB9ft3ydFv26Bi6Iu+XAe1eaJkpWBR5j5v8C9nMqKDzOk5rzxEqFz3
-	oENnWPXt0YCV0u+DTUtdj/WDdfpSQlVv9A/rS2ROwKrsWIdaJfQX5rcmwHetJ5jmkzo+SRDFxOWaG
-	CeLbw7VJLWyECPbCBD2YPyCTHrsweHVhcJiJ2WgGEBJIdPCu9xXxfParm6GWzits68wadpwEuPyDB
-	d1S19v3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GtNJo0QiZibz4F5AJzlr0Gn0CnNz2HNSdOIlXuZpqw4=; b=yzVB+umAX22O8zaYTMoJebDwWa
+	wfGrzfPe7fwb7SMz9fUqYexgObeSyTx7Ql36q6GHhzuq79E8nAgSRFNAYAV4DEDfUZkixWsK5YJYz
+	3kpq7gap4I8T9cC17ksskaoG6oQvEsAU5y70hOROQzUC1dOSQXcGPWmOzuB2e37QTVSmQzcHexNqK
+	q9131QzSiUEXmshR8Y2XwsqPKAoY7iXH3mLvvFGMFps72h5LftlcE23nTWlYRgzrJk8hr5H/3KpXX
+	UeUF3ivKV3KT728Fuu+/IBCqGZ9Mb1m2uc7AAMcL2wsFDhM0K1cKIa0RwIzYy9LphF6s4xsVVcH3P
+	YtSCH6nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuqI-0000000De5U-3nc2;
-	Wed, 04 Dec 2024 19:15:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIurH-0000000DeKh-2TXN;
+	Wed, 04 Dec 2024 19:16:23 +0000
+Received: from mail-vs1-xe49.google.com ([2607:f8b0:4864:20::e49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuoq-0000000Ddaa-3NVv
+	id 1tIupF-0000000Ddff-1LZB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 19:13:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 831C9A41BF0;
-	Wed,  4 Dec 2024 19:11:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FE0BC4CECD;
-	Wed,  4 Dec 2024 19:13:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733339631;
-	bh=y6Z1BboDyGXrBlp/9phIXCTZkngI1+QTcK1R5uxh3x0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kttFc9TRajLPnFT656INLu7F7zoYsTFtdl64tEPXZvFZX00sNtktAik6cqhciy4RS
-	 esHrmNDjVuVzWxQ8H8rH5lusyFJXEbmB2WZjvDzoa3PZCanpPS1zB1jQz2GcVpvOQr
-	 0e/u05VkaegndM545KbMqNaTWzfOn1MqNtlNZFerV1yYXofjkhb3LLA3V6mx7V61OI
-	 6rCxGW74Zn9ClAGtAfQjjp+u2eBcM79lZAtMhc91GiOdFayRqVImFcd9maQTyrlSa4
-	 NyBw2DftXCw5wU1zY9ouMgzzsbr1XyhkW4JvicP94YjVlGI1mYOelU84ziswwIv1wU
-	 5Wus3Ar3q+Sng==
-Received: from 82-132-238-195.dab.02.net ([82.132.238.195] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tIuom-000YwB-1Z;
-	Wed, 04 Dec 2024 19:13:48 +0000
-Date: Wed, 04 Dec 2024 19:13:09 +0000
-Message-ID: <87h67js1mi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vitaly Chikunov <vt@altlinux.org>
-Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
-	Gleb Fotengauer-Malinovskiy <glebfm@altlinux.org>
-Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction: 0000000002000000 [#1] SMP
-In-Reply-To: <20241204182231.ovvj6rpvcs2f5gv7@altlinux.org>
-References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
-	<20241202153618.GA6834@willie-the-truck>
-	<86ttbmt71k.wl-maz@kernel.org>
-	<20241202155940.p267a3tz5ypj4sog@altlinux.org>
-	<86ser6t6fs.wl-maz@kernel.org>
-	<20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
-	<20241203092721.j473dthkbq6wzez7@altlinux.org>
-	<1847e34fa7724d28aeb22d93752f64f2@huawei.com>
-	<20241203221453.mwh6sozyczi4ec2k@altlinux.org>
-	<87jzcfsuep.wl-maz@kernel.org>
-	<20241204182231.ovvj6rpvcs2f5gv7@altlinux.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.238.195
-X-SA-Exim-Rcpt-To: vt@altlinux.org, shameerali.kolothum.thodi@huawei.com, will@kernel.org, james.morse@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, wangzhou1@hisilicon.com, glebfm@altlinux.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 04 Dec 2024 19:14:19 +0000
+Received: by mail-vs1-xe49.google.com with SMTP id ada2fe7eead31-4afb0276095so10742137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 11:14:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733339655; x=1733944455; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=GtNJo0QiZibz4F5AJzlr0Gn0CnNz2HNSdOIlXuZpqw4=;
+        b=KIMlkje596m24cQskaCirsI/WBT9vWINOJUF/wslHjBxoXSYL5ikWD0qtW/bdB1Y7z
+         m8LYpdCg1tVnP1oxXmfo6zWMjw4rmRXWssHcyWu+71SvZF/vOfF7Wmn0HRbYNHRhkm8J
+         8TX/sKDHza6qE79+JJ6vW8eRhYbJkqPHZPw4h8YSfRM74BT7OU/PUVrlPaK4VtErVSEg
+         XEvrbt8ZQ2Vj+MRmRHUX35xHZjcTqdKdgx5CNVr++rxbjEKKbNFh2k3uR37HF8nOdv9f
+         6CiRJuoRMzDwLy5XQzVaDPtLJPtr4aYxNCFlutNbRp4pmduVHI2ApUVryi9k8JgXLCnH
+         cj3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733339655; x=1733944455;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GtNJo0QiZibz4F5AJzlr0Gn0CnNz2HNSdOIlXuZpqw4=;
+        b=mYh4UNMxysHx0mywt7yC3zydF+S/abeE2yFYYEF+vJyCsCz9I+3Rgau7E7hNVV7EWk
+         3hksKevKtOqvOx4NbFq/daIoK1l9L6fe5Z+BoXeuBAp4Uxloo6RKaGWBZkN/p1oobSvU
+         mSkqytpL2rTp0RVXRPtVi0qz25mfhPR2OQ9CKkRnnXw58ak47VxDxR+BRWiHZfFQgDj0
+         hXamw2e/U2ou4VdihPMfxycvPEuRkhTkqUw7Qq4MxXpATVOG3sTYE7sKdAQKTE8XYryG
+         ihHyVNijrrsmaA4Y6KkebY3EHTnA8COkPmJIrMngVh9d8rfcw4JW5ppXiB1cpPG5EsTF
+         4WPA==
+X-Forwarded-Encrypted: i=1; AJvYcCWRl0KLPvCc8xKgAGkRmtSVUrLwF/Cg7YpYtcdjh3DMQG2lq+mUKeeVZGhA3MvTqy/r67IgtSzSdjq3SDC9U12z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKfxCbu3Ozl81ah7Ldg+Aq0xXTYmPfJEtbhXbFH5hFh/5xJ+/A
+	s73kc/U/RfROWff5WNYkvtE+fqIckbq1/M7KOQRZt2poE8vsPGcFOIFugELBXliTEyZT4VyMeSg
+	9xQfD3T8eM301119juQ==
+X-Google-Smtp-Source: AGHT+IF1BXeXjzm2ynkFwLfcOwwZSEy3kJcGkjF9TH4hluS8IOC1jCo7DbvQ0TVKaPL1457lCJsGhUwjD3KkdK7U
+X-Received: from vsbhy8.prod.google.com ([2002:a67:e7c8:0:b0:4af:497d:2ec1])
+ (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6102:3ed2:b0:4af:58f7:15ec with SMTP id ada2fe7eead31-4af971fcbddmr10423490137.4.1733339655146;
+ Wed, 04 Dec 2024 11:14:15 -0800 (PST)
+Date: Wed,  4 Dec 2024 19:13:35 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+Message-ID: <20241204191349.1730936-1-jthoughton@google.com>
+Subject: [PATCH v1 00/13] KVM: Introduce KVM Userfault
+From: James Houghton <jthoughton@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Yan Zhao <yan.y.zhao@intel.com>, 
+	James Houghton <jthoughton@google.com>, Nikita Kalyazin <kalyazin@amazon.com>, 
+	Anish Moorthy <amoorthy@google.com>, Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
+	David Matlack <dmatlack@google.com>, Wang@google.com, Wei W <wei.w.wang@intel.com>, 
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_111352_987441_E9B6E2CC 
-X-CRM114-Status: GOOD (  54.18  )
+X-CRM114-CacheID: sfid-20241204_111417_363390_DBC44E78 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,169 +92,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 04 Dec 2024 18:34:53 +0000,
-Vitaly Chikunov <vt@altlinux.org> wrote:
-> 
-> Marc,
-> 
-> On Wed, Dec 04, 2024 at 08:51:26AM +0000, Marc Zyngier wrote:
-> > On Tue, 03 Dec 2024 22:14:53 +0000,
-> > Vitaly Chikunov <vt@altlinux.org> wrote:
-> > > 
-> > > Shameer, Marc, Oliver, Will,
-> > > 
-> > > On Tue, Dec 03, 2024 at 10:03:11AM +0000, Shameerali Kolothum Thodi wrote:
-> > > > > -----Original Message-----
-> > > > > From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On
-> > > > > Behalf Of Vitaly Chikunov
-> > > > > Sent: Tuesday, December 3, 2024 9:27 AM
-> > > > > To: Marc Zyngier <maz@kernel.org>
-> > > > > Cc: Will Deacon <will@kernel.org>; james.morse@arm.com; linux-arm-
-> > > > > kernel@lists.infradead.org; Catalin Marinas <catalin.marinas@arm.com>;
-> > > > > linux-kernel@vger.kernel.org; oliver.upton@linux.dev;
-> > > > > mark.rutland@arm.com
-> > > > > Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
-> > > > > 0000000002000000 [#1] SMP
-> > > > > 
-> > > > > Marc,
-> > > > > 
-> > > > > On Tue, Dec 03, 2024 at 01:31:19AM +0300, Vitaly Chikunov wrote:
-> > > > > > On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
-> > > > > > > On Mon, 02 Dec 2024 15:59:40 +0000,
-> > > > > > > Vitaly Chikunov <vt@altlinux.org> wrote:
-> > > > > > > >
-> > > > > > > > Marc,
-> > > > > > > >
-> > > > > > > > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
-> > > > > > > > >
-> > > > > > > > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
-> > > > > > > >
-> > > > > > > > No, host is 6.6.60.
-> > > > > > >
-> > > > > > > Right. I wouldn't be surprised if:
-> > > > > > >
-> > > > > > > - this v6.6 kernel doesn't hide the MPAM feature as it should (and
-> > > > > > >   that's proably something we should backport)
-> > > > > >
-> > > > > > How to confirm this? Currently I cannot find any (case-insensitive)
-> > > > > > "MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM
-> > > > > > strings in `strace -v` (as it decodes some KVM ioctls) of qemu process.
-> > > > > >
-> > > > > > >
-> > > > > > > - you get a nastygram in the host log telling you that the guest has
-> > > > > > >   executed something it shouldn't (you'll get the encoding of the
-> > > > > > >   instruction)
-> > > > > >
-> > > > > > I requested admins of the box for dmesg output since I don't have root
-> > > > > > access myself and nowadays dmesg is not accessible for a user.
-> > > > > 
-> > > > > This is what they reported:
-> > > > > 
-> > > > >   kvm [2502822]: Unsupported guest sys_reg access at: ffff80008003e9f0
-> > > > > [000000c5]
-> > > > >                    { Op0( 3), Op1( 0), CRn(10), CRm( 4), Op2( 4), func_read },
-> > > > > 
-> > > > 
-> > > > As Will pointed out I think this is access to MPAMIDR_EL1 and is from this
-> > > > code here,
-> > > > 
-> > > > +++ b/arch/arm64/kernel/cpuinfo.c
-> > > > @@ -478,6 +478,9 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
-> > > >  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
-> > > >  		__cpuinfo_store_cpu_32bit(&info->aarch32);
-> > > >  
-> > > > +	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
-> > > > +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
-> > > > +
-> > > >  	cpuinfo_detect_icache_policy(info);
-> > > >  }
-> > > > 
-> > > > I did manage to boot my setup in 6.6 and this is what happens,
-> > > > 
-> > > > Host kernel 6.6
-> > > > Guest Kernel 6.13-rc1
-> > > > 
-> > > > [    0.195392] smp: Brought up 1 node, 8 CPUs
-> > > > [    0.219000] SMP: Total of 8 processors activated.
-> > > > [    0.219629] CPU: All CPU(s) started at EL1
-> > > > ...
-> > > > [    0.223212] CPU features: detected: RAS Extension Support
-> > > > [    0.223927] CPU features: detected: Memory Partitioning And Monitoring
-> > > > [    0.224796] CPU features: detected: Memory Partitioning And Monitoring Virtualisation
-> > > > [    0.225961] alternatives: applying system-wide alternatives
-> > > > ...
-> > > > 
-> > > > Guest detects MPAM and boots fine.
-> > > > 
-> > > > Host kernel 6.13-rc1
-> > > > Guest Kernel 6.13-rc1
-> > > > 
-> > > > [    0.196625] smp: Brought up 1 node, 8 CPUs
-> > > > [    0.222093] SMP: Total of 8 processors activated.
-> > > > [    0.222769] CPU: All CPU(s) started at EL1
-> > > > ...
-> > > > [    0.226620] CPU features: detected: RAS Extension Support
-> > > > [    0.227453] alternatives: applying system-wide alternatives
-> > > > 
-> > > > MPAM is not visible to Guest in this case.
-> > > > 
-> > > > So as I pointed out earlier could it be a case where the ID register reports MPAM support
-> > > > but the firmware has not enabled MPAM?
-> > > > 
-> > > > James seems to be mentioning that case here,
-> > > > 
-> > > > " (If you have a boot failure that bisects here its likely your CPUs
-> > > > advertise MPAM in the id registers, but firmware failed to either enable
-> > > > or MPAM, or emulate the trap as if it were disabled)"
-> > > 
-> > > I tried to verify that MPAM is advertised with qemu+gdb method, as
-> > > suggested by Oliver, but ID_AA64PFR0_EL1 register is not there.
-> > > 
-> > >   (gdb) i r ID_AA64PFR0_EL1
-> > >   Invalid register `ID_AA64PFR0_EL1'
-> > 
-> > Then there is a bug in either QEMU or the GDB stubs. This register
-> > exists, or you wouldn't be here.
-> 
-> 
-> In case this is useful:
-> 
->   builder@aarch64:/.in$ qemu-system-aarch64 --version
->   QEMU emulator version 9.1.1 (qemu-9.1.1-alt2)
->   Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers
->   builder@aarch64:/.in$ gdb --version
->   GNU gdb (GDB) 14.1.0.56.d739d4fd457-alt1 (ALT Sisyphus)
->   Copyright (C) 2023 Free Software Foundation, Inc.
->   License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
->   This is free software: you are free to change and redistribute it.
->   There is NO WARRANTY, to the extent permitted by law.
-> 
-> Is there way to get content of this register with these possible
-> gdb/qemu bugs?
+This is a continuation of the original KVM Userfault RFC[1] from July.
+It contains the simplifications we talked about at LPC[2].
 
-I have no idea. And frankly, I don't think this matters.
+Please see the RFC[1] for the problem description. In summary,
+guest_memfd VMs have no mechanism for doing post-copy live migration.
+KVM Userfault provides such a mechanism. Today there is no upstream
+mechanism for installing memory into a guest_memfd, but there will
+be one soon (e.g. [3]).
 
-> Perhaps, we can add some debugging print in guest kernel.
-> 
-> > > 
-> > > Are there other suggestions?
-> > 
-> > Mark has described what the problem is likely to be. 6.6-stable needs
-> > to have 6685f5d572c22e10 backported, and it probably should have been
-> > Cc: to stable. Can you please apply the following patch to your *host*
-> > machine and retest?
-> 
-> Unfortunately I cannot. But I can apply patches to the guest kernel. [I
-> will try to convince admins of the server to apply the patch, though, but
-> this can take time, and they can refuse since this is production build
-> server and it's update procedure is complicated.]
+There is a second problem that KVM Userfault solves: userfaultfd-based
+post-copy doesn't scale very well. KVM Userfault when used with
+userfaultfd can scale much better in the common case that most post-copy
+demand fetches are a result of vCPU access violations. This is a
+continuation of the solution Anish was working on[4]. This aspect of
+KVM Userfault is important for userfaultfd-based live migration when
+scaling up to hundreds of vCPUs with ~30us network latency for a
+PAGE_SIZE demand-fetch.
 
-Then I really cannot help you. I'm not going to paper over a
-hypervisor bug in the guest kernel, and if you/they are happy to run
-with critical bugs in your production machine, that's about it then.
+The implementation in this series is version than the RFC[1]. It adds...
+ 1. a new memslot flag is added: KVM_MEM_USERFAULT,
+ 2. a new parameter, userfault_bitmap, into struct kvm_memory_slot,
+ 3. a new KVM_RUN exit reason: KVM_MEMORY_EXIT_FLAG_USERFAULT,
+ 4. a new KVM capability KVM_CAP_USERFAULT.
 
-	M.
+KVM Userfault does not attempt to catch KVM's own accesses to guest
+memory. That is left up to userfaultfd.
 
+When enabling KVM_MEM_USERFAULT for a memslot, the second-stage mappings
+are zapped, and new faults will check `userfault_bitmap` to see if the
+fault should exit to userspace.
+
+When KVM_MEM_USERFAULT is enabled, only PAGE_SIZE mappings are
+permitted.
+
+When disabling KVM_MEM_USERFAULT, huge mappings will be reconstructed
+(either eagerly or on-demand; the architecture can decide).
+
+KVM Userfault is not compatible with async page faults. Nikita has
+proposed a new implementation of async page faults that is more
+userspace-driven that *is* compatible with KVM Userfault[5].
+
+Performance
+===========
+
+The takeaways I have are:
+
+1. For cases where lock contention is not a concern, there is a
+   discernable win because KVM Userfault saves the trip through the
+   userfaultfd poll/read/WAKE cycle.
+
+2. Using a single userfaultfd without KVM Userfault gets very slow as
+   the number of vCPUs increases, and it gets even slower when you add
+   more reader threads. This is due to contention on the userfaultfd
+   wait_queue locks. This is the contention that KVM Userfault avoids.
+   Compare this to the multiple-userfaultfd runs; they are much faster
+   because the wait_queue locks are sharded perfectly (1 per vCPU).
+   Perfect sharding is only possible because the vCPUs are configured to
+   touch only their own chunk of memory.
+
+Config:
+ - 64M per vcpu
+ - vcpus only touch their 64M (`-b 64M -a`)
+ - THPs disabled
+ - MGLRU disabled
+
+Each run used the following command:
+
+./demand_paging_test -b 64M -a -v <#vcpus>  \
+	-s shmem		     \ # if using shmem
+	-r <#readers> -u <uffd_mode> \ # if using userfaultfd
+	-k \			     \ # if using KVM Userfault
+	-m 3			       # when on arm64
+
+note: I patched demand_paging_test so that, when using shmem, the page
+      cache will always be preallocated, not only in the `-u MINOR`
+      case. Otherwise the comparison would be unfair. I left this patch
+      out in the selftest commits, but I am happy to add it if it would
+      be useful.
+
+== x86 (96 LPUs, 48 cores, TDP MMU enabled) ==
+
+-- Anonymous memory, single userfaultfd
+
+	userfault mode
+vcpus				2	8	64
+	no userfault		306845	220402	47720
+	MISSING (single reader)	90724	26059	3029
+	MISSING			86840	37912	1664
+	MISSING + KVM UF	143021	104385	34910
+	KVM UF			160326	128247	39913
+
+-- shmem (preallocated), single userfaultfd
+
+vcpus				2	8	64
+	no userfault		375130	214635	54420
+	MINOR (single reader)	102336	31704	3244
+	MINOR 			97981	36982	1673
+	MINOR + KVM UF		161835	113716	33577
+	KVM UF			181972	131204	42914
+
+-- shmem (preallocated), multiple userfaultfds
+
+vcpus				2	8	64
+	no userfault		374060	216108	54433
+	MINOR			102661	56978	11300
+	MINOR + KVM UF		167080	123461	48382
+	KVM UF			180439	122310	42539
+
+== arm64 (96 PEs, AmpereOne) ==
+
+-- shmem (preallocated), single userfaultfd
+
+vcpus:				2	8	64
+	no userfault		419069	363081	34348
+	MINOR (single reader)	87421	36147	3764
+	MINOR			84953	43444	1323
+	MINOR + KVM UF		164509	139986	12373
+	KVM UF			185706	122153	12153
+
+-- shmem (preallocated), multiple userfaultfds
+
+vcpus:				2	8	64
+	no userfault		401931	334142	36117
+	MINOR			83696	75617	15996
+	MINOR + KVM UF		176327	115784	12198
+	KVM UF			190074	126966	12084
+
+This series is based on the latest kvm/next.
+
+[1]: https://lore.kernel.org/kvm/20240710234222.2333120-1-jthoughton@google.com/
+[2]: https://lpc.events/event/18/contributions/1757/
+[3]: https://lore.kernel.org/kvm/20241112073837.22284-1-yan.y.zhao@intel.com/
+[4]: https://lore.kernel.org/all/20240215235405.368539-1-amoorthy@google.com/
+[5]: https://lore.kernel.org/kvm/20241118123948.4796-1-kalyazin@amazon.com/#t
+
+James Houghton (13):
+  KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
+  KVM: Add KVM_MEMORY_EXIT_FLAG_USERFAULT
+  KVM: Allow late setting of KVM_MEM_USERFAULT on guest_memfd memslot
+  KVM: Advertise KVM_CAP_USERFAULT in KVM_CHECK_EXTENSION
+  KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
+  KVM: arm64: Add support for KVM_MEM_USERFAULT
+  KVM: selftests: Fix vm_mem_region_set_flags docstring
+  KVM: selftests: Fix prefault_mem logic
+  KVM: selftests: Add va_start/end into uffd_desc
+  KVM: selftests: Add KVM Userfault mode to demand_paging_test
+  KVM: selftests: Inform set_memory_region_test of KVM_MEM_USERFAULT
+  KVM: selftests: Add KVM_MEM_USERFAULT + guest_memfd toggle tests
+  KVM: Documentation: Add KVM_CAP_USERFAULT and KVM_MEM_USERFAULT
+    details
+
+ Documentation/virt/kvm/api.rst                |  33 +++-
+ arch/arm64/kvm/Kconfig                        |   1 +
+ arch/arm64/kvm/mmu.c                          |  23 ++-
+ arch/x86/kvm/Kconfig                          |   1 +
+ arch/x86/kvm/mmu/mmu.c                        |  27 +++-
+ arch/x86/kvm/mmu/mmu_internal.h               |  20 ++-
+ arch/x86/kvm/x86.c                            |  36 +++--
+ include/linux/kvm_host.h                      |  19 ++-
+ include/uapi/linux/kvm.h                      |   6 +-
+ .../selftests/kvm/demand_paging_test.c        | 145 ++++++++++++++++--
+ .../testing/selftests/kvm/include/kvm_util.h  |   5 +
+ .../selftests/kvm/include/userfaultfd_util.h  |   2 +
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  42 ++++-
+ .../selftests/kvm/lib/userfaultfd_util.c      |   2 +
+ .../selftests/kvm/set_memory_region_test.c    |  33 ++++
+ virt/kvm/Kconfig                              |   3 +
+ virt/kvm/kvm_main.c                           |  47 +++++-
+ 17 files changed, 409 insertions(+), 36 deletions(-)
+
+
+base-commit: 4d911c7abee56771b0219a9fbf0120d06bdc9c14
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.0.338.g60cca15819-goog
+
 
