@@ -4,119 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C9CE7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8B1E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=QHoak+DAlOsJtw7x9Uk039N2Dy921OWTKaiSGrIqjss=; b=V19qH+Yq0BB2sNfW36VE6Y8+Kp
-	i5D9cHhuFGEiBIfhvLXeWyPV4f7mSC66xQTBX4lchgSJZsunJgB2c9KIlOSdoEZgXEZtTmAR2i3ao
-	oqNRvjR/qRhcDhTBqdBJY2dKxlYRRGr37rpJ7asc5aL8GGJ+O5P5fLPe/rt1RgI4foWgQ7VNAvmFF
-	Ni8UQI4+rU5U9F630eqFK+CD6oyX6sAT6fbPVYFDJd7HKzrps6cBloNYbkFvLq757xwOPgIWQBYXH
-	EKC1C6lZOXBr5u9rfrkQ3ohe/4Ari0v+Xb+gGr5CALTXss0pNkdxrj0IbKVeYlrRMuuZWMBGEogfW
-	Xqo7em4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qziqqVngMjaY+9/zShu2onfvOfqpSizM9fK+JFGii+c=; b=PhCeU2j/LOSO2CX89J9VC6Ea5r
+	NawTmSFqYJnN7mIZ0EwHDteGlf9MvLX0j7kkmOwpuw88EKRhjE75gJmWQ1gl4/PJ3YItQMo1fD9Sx
+	5K0mKaMs7ARNDu0/obgnSNnaTVY5bi5xyCT5ihyMU9KXzIn2e7tLDTzJhE6j58Rnc4EjVEKz1XZre
+	QEjKiq89Xfg0Zej3MsfYDJ/hoxrhvjysN/bcghiNKYyiIhT2KDCkJm8C2Q6k8+Jxgua8PGIZ5ARzi
+	ylZLqLVTIPhZw6FicDX22Epi+qx6yY15nz0l0RAOH79SceKHOzP2zp9CD4W6YcXKTJQzDftoHbxrw
+	1K/jCdNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoRM-0000000CVey-1w2E;
-	Wed, 04 Dec 2024 12:25:12 +0000
-Received: from [203.254.224.34] (helo=mailout4.samsung.com)
+	id 1tIoUC-0000000CW3g-131U;
+	Wed, 04 Dec 2024 12:28:08 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoQM-0000000CVXP-0N7m
+	id 1tIoTB-0000000CVqa-1FBn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 12:24:12 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20241204122404epoutp04b301fd971cb9a29c1e02462cd6d4d882~N_NmF5kza1457814578epoutp04N
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Dec 2024 12:24:04 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20241204122404epoutp04b301fd971cb9a29c1e02462cd6d4d882~N_NmF5kza1457814578epoutp04N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733315044;
-	bh=QHoak+DAlOsJtw7x9Uk039N2Dy921OWTKaiSGrIqjss=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=TIXch/mPG1e1jcxis0t6Seif/txYXcrF7SVDBWlSJk1ybuxKLlPv4uHYQXr2aI+g/
-	 cbEsg0Ai+etwOxKUnGWlPRbQwjxGNMc2x+pnFiqTO+M7z7c1MvhzUEGbj/wz0BoTSK
-	 umtTQm87AkniOKO3vRshWhTORD4+ZVotCtXiUVlQ=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
-	20241204122404epcas5p40b0d35f3c998ef8d9134e52773f132da~N_NlzaCIE1722817228epcas5p4F;
-	Wed,  4 Dec 2024 12:24:04 +0000 (GMT)
-Received: from epsmges5p1new.samsung.com (unknown [182.195.38.178]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4Y3Gsb1Jz0z4x9Pv; Wed,  4 Dec
-	2024 12:24:03 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	B6.AA.20052.3E940576; Wed,  4 Dec 2024 21:24:03 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83~N_NkY05II2017620176epcas5p2d;
-	Wed,  4 Dec 2024 12:24:02 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241204122402epsmtrp1839c92f7780120490f36c8bcc3e4589f~N_NkYEtcn0966909669epsmtrp1N;
-	Wed,  4 Dec 2024 12:24:02 +0000 (GMT)
-X-AuditID: b6c32a49-3d20270000004e54-96-675049e3ce50
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	9E.B0.18729.2E940576; Wed,  4 Dec 2024 21:24:02 +0900 (KST)
-Received: from INBRO002811.samsungds.net (unknown [107.122.5.126]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20241204122401epsmtip1446cfb0295879960c574501808b4dcc4~N_NirDjZs0260902609epsmtip1E;
-	Wed,  4 Dec 2024 12:24:00 +0000 (GMT)
-From: Faraz Ata <faraz.ata@samsung.com>
-To: devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	krzk+dt@kernel.org, robh@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, alim.akhtar@samsung.com,
-	rosa.pila@samsung.com, Faraz Ata <faraz.ata@samsung.com>
-Subject: [PATCH] arm64: dts: exynosautov920: add DMA nodes
-Date: Wed,  4 Dec 2024 17:53:33 +0530
-Message-ID: <20241204122335.1578-1-faraz.ata@samsung.com>
-X-Mailer: git-send-email 2.46.0.windows.1
+	Wed, 04 Dec 2024 12:27:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733315226; x=1764851226;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9U+1S5c6QBIEs2jEVkouqNjE862gZHRZMYIqjSXUYvA=;
+  b=JF+RPbyHJIyOLhmSGAqrRwQPlXKsKvpqygLT22ofdGyCHuE5ar+S/3iK
+   hZFozdxsiEmmrqGkpGUAz+TTvQFa/qTDGnK+pdSseKjtP2u8dqo66uNsx
+   GhOlu3YFGGuYkqC6OLLCNdoAK0zNNku/UffMQpT6H3MweMWrSpV7iqFL+
+   Rh57CFxrIyu8b0Du8V1wFb6Wd2MkNzT0hFFQ2xRfR4k26VI7Bs2GMnGuO
+   kFFyDEZeWMnqe/snQ+6gphDGgcz1y25KwaX8WGfDsDsO25XJm+zMnDpZs
+   /qhPuAIXH+qJ4rVEnneMW11PioLhUQfXvncj4n6hN7eajZxTMIatIX6zj
+   A==;
+X-CSE-ConnectionGUID: 6O2fjEd9Ro+LPwMMxw6CSg==
+X-CSE-MsgGUID: Iy5yVAreRniWw6+RSCWA+w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="44954202"
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="scan'208";a="44954202"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 04:27:03 -0800
+X-CSE-ConnectionGUID: BQCuPqjHREGCWw4bnGZW4g==
+X-CSE-MsgGUID: mll3T9a/QYe7tkeqDGCKDQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="scan'208";a="93614814"
+Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
+  by fmviesa007.fm.intel.com with ESMTP; 04 Dec 2024 04:27:00 -0800
+Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tIoT3-00030p-35;
+	Wed, 04 Dec 2024 12:26:57 +0000
+Date: Wed, 4 Dec 2024 20:26:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Paul Benoit <paul@os.amperecomputing.com>, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Paul Benoit <paul@os.amperecomputing.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] firmware: smccc: Support optional Arm SMC SOC_ID name
+Message-ID: <202412042020.U9EEV8mE-lkp@intel.com>
+References: <20241203212854.5565-1-paul@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrMKsWRmVeSWpSXmKPExsWy7bCmuu5jz4B0g9PP2S0ezNvGZjH/yDlW
-	i2s3FrJbvJx1j81i0+NrrBYzzu9jsvi/Zwe7xZefD5gdODw2repk89i8pN6jb8sqRo/Pm+QC
-	WKKybTJSE1NSixRS85LzUzLz0m2VvIPjneNNzQwMdQ0tLcyVFPISc1NtlVx8AnTdMnOArlBS
-	KEvMKQUKBSQWFyvp29kU5ZeWpCpk5BeX2CqlFqTkFJgU6BUn5haX5qXr5aWWWBkaGBiZAhUm
-	ZGcsaH7EVjBHrGLj7xb2BsZGoS5GTg4JAROJ5S/3s3QxcnEICexmlJi++QM7hPOJUeLE5h9s
-	EM43Rol7P2+zwbVMWcMKYgsJ7GWUWH81E6LoO6PE32UrGEESbALqEjNvHGEBsUUEMiTmbH0E
-	1sAsUCux5OdHsBphASuJwxs3g9WwCKhKbGn9CWbzClhKzOjdwwyxTFNi7d49TBBxQYmTM5+w
-	QMyRl2jeOhuq5hy7RGt3AYTtIrHr+i6oQ4UlXh3fwg5hS0m87G+Dsn0kJh/9BnQDB5CdIXFn
-	rQhE2F5i9YIzrCBhZqC163fpQ2zik+j9/YQJoppXoqMNGnCqEqcaL0Mtkpa4t+QaK4TtIXGx
-	cxMTJHRiJZ5sa2KZwCg3C8n9s5DcPwth2QJG5lWMkqkFxbnpqcWmBYZ5qeXwmEzOz93ECE59
-	Wp47GO8++KB3iJGJg/EQowQHs5IIb5B2QLoQb0piZVVqUX58UWlOavEhRlNgoE5klhJNzgcm
-	37ySeEMTSwMTMzMzE0tjM0Mlcd7XrXNThATSE0tSs1NTC1KLYPqYODilGph2/Njqkl/3Y8q1
-	ze6Xyg99DglJUk25fSbe+OVmufQF6z0S52imSIh90OrZER3pc85wpaffl83+B/462W66ZNR8
-	6cTC/yF5Dz0LOXbx/WWdHKNz+Uvq9bs3V6ubrMl5xKS7Kac3/+7DfVd4PF/aytxcfWKmgvE5
-	zidFnQyT/xy4H9M82/m1xo309VsnsmUvDFedI3p55QXTkr1cSZwMLvmLivSWOyn8ufsoqYVr
-	bt2WRzWlXzR2/fn4eTf3sVrG+O3vfvwK3bn028emqle3y3LCHy17XstqID9BZNLOnAnu7zha
-	F8/Nmf3me8uzq+oMS9vXvp445Vpf9MLJZwXyjN5/epYxb7f5/PJgN1fWxlXCSkosxRmJhlrM
-	RcWJAHc9vwgGBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrPLMWRmVeSWpSXmKPExsWy7bCSnO4jz4B0g7apRhYP5m1js5h/5Byr
-	xbUbC9ktXs66x2ax6fE1VosZ5/cxWfzfs4Pd4svPB8wOHB6bVnWyeWxeUu/Rt2UVo8fnTXIB
-	LFFcNimpOZllqUX6dglcGQuaH7EVzBGr2Pi7hb2BsVGoi5GTQ0LARGL5lDWsXYxcHEICuxkl
-	LjxvY4NISEu8ntXFCGELS6z895wdougro8S13j1gRWwC6hIzbxxhAbFFBHIkXpxpYgIpYhZo
-	ZJTYMb+DCSQhLGAlcXjjZrAiFgFViS2tP8FsXgFLiRm9e5ghNmhKrN27hwkiLihxcuYTsBpm
-	AXmJ5q2zmScw8s1CkpqFJLWAkWkVo2RqQXFuem6xYYFhXmq5XnFibnFpXrpecn7uJkZwmGpp
-	7mDcvuqD3iFGJg7GQ4wSHMxKIrxB2gHpQrwpiZVVqUX58UWlOanFhxilOViUxHnFX/SmCAmk
-	J5akZqemFqQWwWSZODilGph8LghdWdhkZPvn8Jnrt7hd5laIcCx7vsfs0b1s1r+/pr38uWNj
-	w9oj89zPR5Zmi0oy9USGZv1rN1qZFmKiaPHmQMrblyKvnizmXynxeeWmOmNjHYdvJ23rE98t
-	by9Xeqe5x1LztP2H/gz/JJuTU+SMz93Te6z237V990m1G/9mFzi9qKqMKtVLrXXPPXnNrV8n
-	vvrt+d3+3CLlr7SOTJBnfjFX8MY60w+Sb39++HvkvDtjrWVa/tGs/fPvbpPJW7PLZu3DoOw5
-	e75kqbWc/NBjUVZyYF/5KZHsx1eFVmV0CbKec8wPkUtYfvZZamXHnc23opx04tNY6rx2cTby
-	fdpVXNyxl9W8MfxS04a5+5iVWIozEg21mIuKEwE39B5lwgIAAA==
-X-CMS-MailID: 20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83
-References: <CGME20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83@epcas5p2.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203212854.5565-1-paul@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_042410_779837_981300D9 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20241204_042705_386238_A2DF7140 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,90 +91,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ExynosAutov920 SoC has 7 DMA controllers. Two secure DMAC
-(SPDMA0 & SPDMA1) and five non-secure DMAC (PDMA0 to PDMA4).
-Adds the required dt node for the same.
+Hi Paul,
 
-Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
----
- .../arm64/boot/dts/exynos/exynosautov920.dtsi | 63 +++++++++++++++++++
- 1 file changed, 63 insertions(+)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index c759134c909e..e65be0c97f7e 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -193,6 +193,69 @@ gic: interrupt-controller@10400000 {
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		spdma0: dma-controller@10180000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x10180000 0x1000>;
-+			interrupts = <GIC_SPI 918 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		spdma1: dma-controller@10190000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x10190000 0x1000>;
-+			interrupts = <GIC_SPI 917 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma0: dma-controller@101A0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101A0000 0x1000>;
-+			interrupts = <GIC_SPI 916 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma1: dma-controller@101B0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101B0000 0x1000>;
-+			interrupts = <GIC_SPI 915 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma2: dma-controller@101C0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101C0000 0x1000>;
-+			interrupts = <GIC_SPI 914 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma3: dma-controller@101D0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101D0000 0x1000>;
-+			interrupts = <GIC_SPI 913 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma4: dma-controller@101E0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101E0000 0x1000>;
-+			interrupts = <GIC_SPI 912 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
- 		cmu_peric0: clock-controller@10800000 {
- 			compatible = "samsung,exynosautov920-cmu-peric0";
- 			reg = <0x10800000 0x8000>;
+[auto build test WARNING on soc/for-next]
+[also build test WARNING on linus/master v6.13-rc1 next-20241203]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Paul-Benoit/firmware-smccc-Support-optional-Arm-SMC-SOC_ID-name/20241204-124243
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20241203212854.5565-1-paul%40os.amperecomputing.com
+patch subject: [PATCH v2] firmware: smccc: Support optional Arm SMC SOC_ID name
+config: arm-qcom_defconfig (https://download.01.org/0day-ci/archive/20241204/202412042020.U9EEV8mE-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241204/202412042020.U9EEV8mE-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412042020.U9EEV8mE-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/firmware/smccc/soc_id.c:109:16: warning: shift count >= width of type [-Wshift-count-overflow]
+     109 |         dst[4] = (reg >> 32) & 0xff;
+         |                       ^  ~~
+   drivers/firmware/smccc/soc_id.c:110:16: warning: shift count >= width of type [-Wshift-count-overflow]
+     110 |         dst[5] = (reg >> 40) & 0xff;
+         |                       ^  ~~
+   drivers/firmware/smccc/soc_id.c:111:16: warning: shift count >= width of type [-Wshift-count-overflow]
+     111 |         dst[6] = (reg >> 48) & 0xff;
+         |                       ^  ~~
+   drivers/firmware/smccc/soc_id.c:112:16: warning: shift count >= width of type [-Wshift-count-overflow]
+     112 |         dst[7] = (reg >> 56) & 0xff;
+         |                       ^  ~~
+>> drivers/firmware/smccc/soc_id.c:37:29: warning: unused variable 'smccc_soc_id_name' [-Wunused-variable]
+      37 | static char __ro_after_init smccc_soc_id_name[136] = "";
+         |                             ^~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/soc_id.c:103:20: warning: unused function 'str_fragment_from_reg' [-Wunused-function]
+     103 | static inline void str_fragment_from_reg(char *dst, unsigned long reg)
+         |                    ^~~~~~~~~~~~~~~~~~~~~
+   6 warnings generated.
+
+
+vim +109 drivers/firmware/smccc/soc_id.c
+
+    36	
+  > 37	static char __ro_after_init smccc_soc_id_name[136] = "";
+    38	
+    39	static int __init smccc_soc_init(void)
+    40	{
+    41		int soc_id_rev, soc_id_version;
+    42		static char soc_id_str[20], soc_id_rev_str[12];
+    43		static char soc_id_jep106_id_str[12];
+    44	
+    45		if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2)
+    46			return 0;
+    47	
+    48		soc_id_version = arm_smccc_get_soc_id_version();
+    49		if (soc_id_version == SMCCC_RET_NOT_SUPPORTED) {
+    50			pr_info("ARCH_SOC_ID not implemented, skipping ....\n");
+    51			return 0;
+    52		}
+    53	
+    54		if (soc_id_version < 0) {
+    55			pr_err("Invalid SoC Version: %x\n", soc_id_version);
+    56			return -EINVAL;
+    57		}
+    58	
+    59		soc_id_rev = arm_smccc_get_soc_id_revision();
+    60		if (soc_id_rev < 0) {
+    61			pr_err("Invalid SoC Revision: %x\n", soc_id_rev);
+    62			return -EINVAL;
+    63		}
+    64	
+    65		soc_dev_attr = kzalloc(sizeof(*soc_dev_attr), GFP_KERNEL);
+    66		if (!soc_dev_attr)
+    67			return -ENOMEM;
+    68	
+    69		sprintf(soc_id_rev_str, "0x%08x", soc_id_rev);
+    70		sprintf(soc_id_jep106_id_str, "jep106:%02x%02x",
+    71			JEP106_BANK_CONT_CODE(soc_id_version),
+    72			JEP106_ID_CODE(soc_id_version));
+    73		sprintf(soc_id_str, "%s:%04x", soc_id_jep106_id_str,
+    74			IMP_DEF_SOC_ID(soc_id_version));
+    75	
+    76		soc_dev_attr->soc_id = soc_id_str;
+    77		soc_dev_attr->revision = soc_id_rev_str;
+    78		soc_dev_attr->family = soc_id_jep106_id_str;
+    79		soc_dev_attr->machine = smccc_soc_name_init();
+    80	
+    81		soc_dev = soc_device_register(soc_dev_attr);
+    82		if (IS_ERR(soc_dev)) {
+    83			kfree(soc_dev_attr);
+    84			return PTR_ERR(soc_dev);
+    85		}
+    86	
+    87		pr_info("ID = %s Revision = %s\n", soc_dev_attr->soc_id,
+    88			soc_dev_attr->revision);
+    89	
+    90		return 0;
+    91	}
+    92	module_init(smccc_soc_init);
+    93	
+    94	static void __exit smccc_soc_exit(void)
+    95	{
+    96		if (soc_dev)
+    97			soc_device_unregister(soc_dev);
+    98		kfree(soc_dev_attr);
+    99	}
+   100	module_exit(smccc_soc_exit);
+   101	
+   102	
+   103	static inline void str_fragment_from_reg(char *dst, unsigned long reg)
+   104	{
+   105		dst[0] = (reg >> 0)  & 0xff;
+   106		dst[1] = (reg >> 8)  & 0xff;
+   107		dst[2] = (reg >> 16) & 0xff;
+   108		dst[3] = (reg >> 24) & 0xff;
+ > 109		dst[4] = (reg >> 32) & 0xff;
+ > 110		dst[5] = (reg >> 40) & 0xff;
+   111		dst[6] = (reg >> 48) & 0xff;
+   112		dst[7] = (reg >> 56) & 0xff;
+   113	}
+   114	
+
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
