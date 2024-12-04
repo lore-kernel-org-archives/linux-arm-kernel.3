@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64CDE7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706D5E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xrvwlR04qm2r6yLtEcwqQfocqUOn+5+kugRB+ZXnHmk=; b=LZOmRaqDBomJIekhDlRNcgcnFu
-	9tK4CbPGZCAhvA3+7y2xnUUDvVkhUa1WphIA0wOXVwJz/17tjWmKnhPc7TRRGM00+UupaZ+AKuOYZ
-	5VpZPX4/ECNYAFiaRP4E+3bewuvd7OiMvrbut6WSlhMk8e35EZMhDAJACeBg3D7kVKXptOxs23R5C
-	iXRo2pTxJJMpQ22ico+b0Sr9/N6u6xcurTJKWP/vO2Hnyj4KlCsK/GMnpknrsbPcJJ5VTWZatarSz
-	Se22DiM14CK+nIQzT83+XjwYpvm6GOtKFySHjPxstCCvlxoe03wI5+xpPkJvfHUWL/pV0FqMr0A5+
-	y3BYy54g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eaLsQvVuWmWMuRUCrFnZ6AshyQPXN1/w5f5ZFhYQW6w=; b=wfgZQGApOSgCL9PTxMO9V9iKgV
+	doWlSQbNG6V78xp1V820qyWIDL5seKvby6y6AyjNGi7IXFirqHyuUYHXTtSnKBaIEL5bGb9FniKJb
+	VZrbQ013GvxbWouJqTz5S7kfi6EFyFUUoPkvzobagbOXV3QJbLj+FMhVRL+34lESwZ3rPHolZYJCk
+	bn9Nzmfgnce9TXOSv0oPl0fWJejWn0FrvERXO4SRdk2zcQpvHPhNIicx3fzO1flIFdQ5SOQ3HBnTJ
+	Tt736AlpcmEu55zD1q7VJGSb75r0L+FatJBrXtM1jdoI3JXSJ9cc0q476+MHQKBITzsB/8CEzeCEl
+	dd0IPoow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqtw-0000000Cved-2WN5;
-	Wed, 04 Dec 2024 15:02:52 +0000
-Received: from out-02.smtp.spacemail.com ([63.250.43.87])
+	id 1tIquv-0000000Cvoc-0pU1;
+	Wed, 04 Dec 2024 15:03:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqr0-0000000Cv0W-2xd2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 14:59:51 +0000
-Received: from prod-lbout-phx.jellyfish.systems (unknown [198.177.122.3])
-	by smtp.spacemail.com (Postfix) with ESMTPA id 4Y3LKG0FvQz4wVY;
-	Wed, 04 Dec 2024 14:59:46 +0000 (UTC)
-Received: from localhost.localdomain (83.21.102.241.ipv4.supernova.orange.pl [83.21.102.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4Y3LK710qhz8sWX;
-	Wed,  4 Dec 2024 14:59:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=mentallysanemainliners.org; s=spacemail; t=1733324380;
-	bh=BOopPzcToEprpdw2LIS55Y82go8hBPaS/MvQht0hXKk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CXJSZNLBlXP7xJOKeyw91iiFtUVza9hZIAr2xPPcF3+PDekLkrwDiNJa+LY1c54vl
-	 D/noGHbrxvO2Oels2LpVvzzqJw0/xZAfWvMz9cxODtccoCeoEbiXlxgN7RUUClfui4
-	 GLeXHMCp5BWVF8wfq1VrswtdR7pjzPoEAmuwkzqBrGkTAQMU93fj3bJgfWGtHlk7R7
-	 lSuaIcVQJ8Q6hn65uOxoSXtr1AoRL+3NvVOYMp84JbogPuoC0F9ebPok8FOblq3j8P
-	 Oy9RlbJ8uQfSTJxk3ILitflezCUYLKi6LW78yLJFNZzSwN9QIx2wTBs8kQiSU4Fp/f
-	 ikjpsNqC3IkQg==
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-To: Rob Herring <robh@kernel.org>,
+	id 1tIqrH-0000000Cv4z-1UB5;
+	Wed, 04 Dec 2024 15:00:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7718E5C6195;
+	Wed,  4 Dec 2024 14:59:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA2D0C4CECD;
+	Wed,  4 Dec 2024 15:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733324406;
+	bh=Xkir4c9pjGx9lAg+oTZfmHXzCTXKE5W+j5Z+hVglI5U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xo7UBX96c7oKyl5E7KZcIqRE76ZpMiwsKs9EejxH5cyzudDkdN2RgIxHNYgVOCGeR
+	 Un7WeqtDYPR+ent/Qye4fBDcANa89ae7Jwi9pCTkxKvUG78wYnU39RZFNXM5v291j+
+	 kP5oy3MCx3gyc76zqPHUGcsftsfru/0fRn0OovMuDQwycZNOxAmuy+gr4TQofL9hO1
+	 AqaCT5Lyqsi2G438+RBbuqGBP+b7LCjUIIaHk6BDPgE+cS/BMwPt+nm2h1ABRgzrvS
+	 eRdArIuyT0HD2z/klQB+q0oiyfaZzXXXADi+1urK3OvrxVBJr+YvsYTvagAIStKabl
+	 IRL7E2IWq/B6g==
+Date: Wed, 4 Dec 2024 09:00:04 -0600
+From: Rob Herring <robh@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: exynos990: Add pmu and syscon-reboot nodes
-Date: Wed,  4 Dec 2024 15:55:59 +0100
-Message-ID: <20241204145559.524932-3-igor.belwon@mentallysanemainliners.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241204145559.524932-1-igor.belwon@mentallysanemainliners.org>
-References: <20241204145559.524932-1-igor.belwon@mentallysanemainliners.org>
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Will McVicker <willmcvicker@google.com>,
+	Roy Luo <royluo@google.com>, kernel-team@android.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/8] dt-bindings: phy: samsung,usb3-drd-phy: align to
+ universal style
+Message-ID: <20241204150004.GA217165-robh@kernel.org>
+References: <20241203-gs101-phy-lanes-orientation-phy-v2-0-40dcf1b7670d@linaro.org>
+ <20241203-gs101-phy-lanes-orientation-phy-v2-1-40dcf1b7670d@linaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241203-gs101-phy-lanes-orientation-phy-v2-1-40dcf1b7670d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_065950_774567_6DF97773 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20241204_070007_432416_12110F6A 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PMU syscon, and syscon-reboot nodes to the Exynos990 dtsi.
+On Tue, Dec 03, 2024 at 12:13:49PM +0000, André Draszik wrote:
+> In [1], Rob pointed out that we should really be separating properties
+> with blank lines in between, which is universal style. Only where
+> properties are booleans, empty lines are not required.
 
-Reboot of the Exynos990 SoC is handled by setting bit(SWRESET_TRIGGER[1])
-of SWRESET register (PMU + 0x3a00).
+In the subject, just say 'add blank lines between DT properties'. 
+'universal style' could be anything.
 
-Tested using the "reboot" command.
+> 
+> Do so.
+> 
+> Link: https://lore.kernel.org/all/20240711212359.GA3023490-robh@kernel.org/ [1]
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> 
+> ---
+> v2:
+> * collect tags
+> ---
+>  .../devicetree/bindings/phy/samsung,usb3-drd-phy.yaml     | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
- arch/arm64/boot/dts/exynos/exynos990.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-index c1986f00e443..2619f821bc7c 100644
---- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-@@ -227,6 +227,20 @@ wakeup-interrupt-controller {
- 			};
- 		};
- 
-+		pmu_system_controller: system-controller@15860000 {
-+			compatible = "samsung,exynos990-pmu",
-+				     "samsung,exynos7-pmu", "syscon";
-+			reg = <0x15860000 0x10000>;
-+
-+			reboot: syscon-reboot {
-+				compatible = "syscon-reboot";
-+				regmap = <&pmu_system_controller>;
-+				offset = <0x3a00>; /* SWRESET */
-+				mask = <0x2>; /* SWRESET_TRIGGER */
-+				value = <0x2>;
-+			};
-+		};
-+
- 		pinctrl_cmgp: pinctrl@15c30000 {
- 			compatible = "samsung,exynos990-pinctrl";
- 			reg = <0x15c30000 0x1000>;
--- 
-2.45.2
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
