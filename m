@@ -4,108 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21757E7716F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE54E7716F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+qyWMAaxSXjS/GuoQtdsJ9zo8e90abOj5J8SrRL65M=; b=GjESNpMz/ry89WQOoLi+lMZzY0
-	HmBTIQR1tgklQtFixlcVHabWK5S+i7kiW5Spmfp73skWRLvwYR84kfooV7QIO3qdBPQTH2brw+RS8
-	8JHNufSRElj0oMY6Yu85ITkj5l7rc8+FbriKktTOZcjtzSbAoIy7Cm0DnaZj8beMmJnRyQIAQQlJM
-	mbA+R48cBkxWqQX9PxlY2UCjST5xnj0rPVdscXz1AfVQO3s3FzQKb7GB0YhkivrIYpaxfBvXIr1P9
-	hoZvXJUqFBcR8gmYEL9m3s8frzgMl/7ahMx1qsrCxwGK6KENk0BW4kl0TG/Q4hm+pTS29TE0WIZ52
-	+4UpXp0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D2H2hG1pAU7RzK3FQX2d+D2gXB3m/FL6BwlcSfzQBiY=; b=H6FQYPhmmAiVuWdkN/9yYx8Wae
+	63n/2Qn8GtN9Ns6OjOYzj++KQPjgIyMHLpcUoMobAj0tctT7GLrTAHgOtM0NTbxoWLULAABU8aXPG
+	NQ9hegbKXCVCDe306xVcsaEa9ao3gWDZgsWL+2+UCbxVHCyakKodMZoUjIpLCtd/HN0tHUxV/6BUw
+	td5dCIRKHJz5ZjEUeKVDHMt8OprCzONNX6YxAjrKO+TnECZM3occnwLyBPDA1CuifRVxF7Pvte77V
+	Y/hJQEuzfbotErTrClPc5j+bhH1RPle9FsBvb6t7VZOeNDB/TmnAy86C+5iOHdhEZgGwn3NA03aWj
+	21Hw/JSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIydu-0000000E7Qn-1OzY;
-	Wed, 04 Dec 2024 23:18:50 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tIyex-0000000E7kU-1C5T;
+	Wed, 04 Dec 2024 23:19:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIycr-0000000E7HZ-2BHx
+	id 1tIydt-0000000E7QW-41oq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 23:17:46 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-53de8ecafeeso378032e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 15:17:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733354264; x=1733959064; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R+qyWMAaxSXjS/GuoQtdsJ9zo8e90abOj5J8SrRL65M=;
-        b=xDzEuxtplgzfeXArIEdj+zqE2bvEjcglxjUhwJNmGOlLGVh4xsA4mfMH04hO0pp83+
-         suQsp21xwOrHYn+ayCG3c3M/jw7d78Sc3GQvbL0XjTcgunhfqtqgz58lwHqtnOBFr/DC
-         7xMPry0GcNmzw6zz3Xg5t6u1mvDMKK6NPBQkhvF/2jJDEPJtIZ7U3++SjzQEKCbXMs0U
-         z5244R9NY0ZJWlNg+n0HkwoX+v3Y5zIbKCr8bKOmx5cYfGbhDoN707KapsDcWcgL/XGG
-         Om4E/Twr4leDu1z8p0gF/KCpGjhtVsBs2HnR88pLoCH+UDxzqv506HYd3NSRu1IQb+az
-         2HSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733354264; x=1733959064;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R+qyWMAaxSXjS/GuoQtdsJ9zo8e90abOj5J8SrRL65M=;
-        b=bbXxwpFDFx0UeXnhrb6ULZ5kND6WvNoSmbnPN7N6xafUbfLbSvjxEaxcPvn6oS9+hf
-         I8v2CqJbNfyH5xJ4qmGMy2F7wGoVt86a4hkisK9urDLj6FYwFnLbqQlsQOkRu5aECrrG
-         +GkdkXPZTSF/bNwhkTNJQuuwkHLYgi0cnLpKbwTo1xElvp64Pn1cW/2AEe66pVK1rxYH
-         9kABDdm8ZnUvNG25PW8pRC/dNgoMTF6/Mal2betd98A5/yyf9C4T/VfyxtSwhTXVUIRy
-         EQorG9Oqv72YbiwgEOawlH7ipMeB2cRX9hjdpch/jhLDBxyZO/9y4T6xGve4EzxU6TRx
-         qAxw==
-X-Forwarded-Encrypted: i=1; AJvYcCUHXt3pulYc3xlS1g6wT7eWC4EOF4xw3y+90D+eb3ZCDUJ0UwJo2GdGO52slJUk0lyl34ESyNvzC8KWu3udWOCI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWJJdIySkrJuni1/SklBwdUea5RGi4xsipTiV1OUTjxp0q88y2
-	fTQ4YXSVViKAwDfR7czQv0noqLFTrY1oP2be/MrnWU3gn76lFbuY+bQktqS3a08=
-X-Gm-Gg: ASbGnctmtdxYEiiWzuzbHgYmo+wMtkxF+rcHtHr9VPYK29FHG+TP/OAMddF3JQ+yoCj
-	u64b+PLLcQF0ILuzIz2/lDwHz7Jl05gPgaU01wBVsoG2QTgGWF5/PQsoG/xLSnEJdNZf6aQest/
-	b/GXSwRml9gkxES7sq6BJrrcDil6S8TcgdIbDnTQlFoT6nRrhTv45rTVZHajqxpuJZvAmf3r51O
-	zn5JCHVL4fXJFb7CRJvwSKN+yzyB86//u4P4PdfkSTSsIx/kJks2f+jlUnGY7cnvE0BZTwuvBT6
-	LzV5H/jgdf2iCTFTbRBCrYMD6jUEUA==
-X-Google-Smtp-Source: AGHT+IG2aNoUrJvkerXSq3eWJ+qwjRlvZ17m+biwTB/m1eLy8NPmwfbxly/t8CsrnbMCJEk1wfQi/Q==
-X-Received: by 2002:a05:6512:3f16:b0:53d:dd09:124a with SMTP id 2adb3069b0e04-53e129ed245mr3412222e87.8.1733354263629;
-        Wed, 04 Dec 2024 15:17:43 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229ca4c2sm31823e87.269.2024.12.04.15.17.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 15:17:42 -0800 (PST)
-Date: Thu, 5 Dec 2024 01:17:39 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Jani Nikula <jani.nikula@linux.intel.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 7/9] drm/bridge_connector: hook
- drm_atomic_helper_connector_hdmi_update_edid()
-Message-ID: <3oz2k3ywwdkxhi4t4setfqjl54yzxg3nxe7upxwl4syyyygf42@3ynkabu2bmvs>
-References: <20241201-drm-bridge-hdmi-connector-v5-0-b5316e82f61a@linaro.org>
- <20241201-drm-bridge-hdmi-connector-v5-7-b5316e82f61a@linaro.org>
- <87a5dc4zd5.fsf@intel.com>
- <txzri7x4pdeakx4juandk3hfhsbx3dhlulxfuehqlmrr7b3wpw@jaunqktsro6x>
- <87v7vz3ne4.fsf@intel.com>
+	Wed, 04 Dec 2024 23:18:51 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B4DPxB0031997;
+	Wed, 4 Dec 2024 23:18:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	D2H2hG1pAU7RzK3FQX2d+D2gXB3m/FL6BwlcSfzQBiY=; b=eVi0hG7LxUuLHJ73
+	IdmYG9Bt0sjaXebNglufH9YBi0Hoc5m7i67yrePAbQgUDEhvJSCGs9mQiuyxfu7o
+	mQ79OD3zlw3YyRUO2ntR9UGoLDHxJNWM/pgvAi9TAnIjG/+LxUaqxyvOduynyzcc
+	T4dtm0zpdvWx8VQLKia45YtSE5oAIGp19UV1DMuixQVjlhy1usicIUy/FhSjFJDF
+	xjvbx0sSGl66M7y5R5GuEbAfIHbVUWrNyaCxDA6vVrwEr8zvBqklgDa73niKWgDn
+	czN/u6SWC2hYm2LJBqI1I7gZ7eOiz6FX4vJgsnKSi2xiHJkDb+4gCIYihHyTpt02
+	7dlaRA==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43a3favmfk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Dec 2024 23:18:43 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B4NIgov014835
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 4 Dec 2024 23:18:42 GMT
+Received: from hu-molvera-lv.qualcomm.com (10.49.16.6) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 4 Dec 2024 15:18:42 -0800
+From: Melody Olvera <quic_molvera@quicinc.com>
+Date: Wed, 4 Dec 2024 15:18:01 -0800
+Subject: [PATCH v3 1/7] dt-bindings: arm: qcom: Document SM8750 SoC and
+ boards
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87v7vz3ne4.fsf@intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241204-sm8750_master_dt-v3-1-4d5a8269950b@quicinc.com>
+References: <20241204-sm8750_master_dt-v3-0-4d5a8269950b@quicinc.com>
+In-Reply-To: <20241204-sm8750_master_dt-v3-0-4d5a8269950b@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        "Satya Durga
+ Srinivasu Prabhala" <quic_satyap@quicinc.com>,
+        Trilok Soni
+	<quic_tsoni@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Melody Olvera <quic_molvera@quicinc.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733354321; l=1091;
+ i=quic_molvera@quicinc.com; s=20241204; h=from:subject:message-id;
+ bh=OwnVuq00vbXFaEYCKtLGG9eyV9YUWd5L//ybktK0jVI=;
+ b=JrhOQEcZiaPhbvyiI046JOhZNngCCrFH0zt1NxujbSWlTsOsvG9KdWDJm2ZnPXfC1a1bYcnSo
+ f2lz6VgMCZiAxWV00rijAUsd8EvRwNu/jLemoXjye0RmlZFsEdO4EeL
+X-Developer-Key: i=quic_molvera@quicinc.com; a=ed25519;
+ pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: zd_uQjzFq_0mM1tmo5RaizpF_PWzkWh7
+X-Proofpoint-GUID: zd_uQjzFq_0mM1tmo5RaizpF_PWzkWh7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 malwarescore=0
+ spamscore=0 mlxscore=0 suspectscore=0 adultscore=0 mlxlogscore=874
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412040178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_151745_569487_FA3AD3FF 
-X-CRM114-Status: GOOD (  25.48  )
+X-CRM114-CacheID: sfid-20241204_151850_025337_027E1DF5 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +120,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 04, 2024 at 09:42:11AM +0200, Jani Nikula wrote:
-> On Wed, 04 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
-> > On Tue, Dec 03, 2024 at 04:25:58PM +0200, Jani Nikula wrote:
-> >> On Sun, 01 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
-> >> > +	drm_edid = drm_bridge_edid_read(bridge, connector);
-> >> > +	if (!drm_edid_valid(drm_edid)) {
-> >> 
-> >> What's the case this check is for?
-> >> 
-> >> My preference would be that bridge->funcs->edid_read() uses
-> >> drm_edid_read*() family of functions that do the checks and return the
-> >> EDID.
-> >> 
-> >> There are some cases that just allocate a blob and return it. Would be
-> >> nice if they could be converted, but in the mean time could use
-> >> drm_edid_valid() right there. Additional validity checks are redundant.
-> >
-> > This was c&p from drm_bridge_connector_get_modes_edid(). If you think
-> > that the check is redundant, could you please send a patch dropping the
-> > check?
-> 
-> Mmmh. It's just scary to *remove* them, and that's the reason I didn't
-> want you to add one in the first place! :)
+Document the SM8750 SoC binding and the boards which use it.
 
-Ack
+Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ Documentation/devicetree/bindings/arm/qcom.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+index d394dffe3fba5a396b85a6093f34e9ef62b6f9cc..f42442993045a648ce61e92a5b10c48ee37750e8 100644
+--- a/Documentation/devicetree/bindings/arm/qcom.yaml
++++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+@@ -97,6 +97,7 @@ description: |
+         sm8450
+         sm8550
+         sm8650
++        sm8750
+         x1e78100
+         x1e80100
+ 
+@@ -1099,6 +1100,12 @@ properties:
+               - qcom,sm8650-qrd
+           - const: qcom,sm8650
+ 
++      - items:
++          - enum:
++              - qcom,sm8750-mtp
++              - qcom,sm8750-qrd
++          - const: qcom,sm8750
++
+       - items:
+           - enum:
+               - qcom,x1e001de-devkit
 
 -- 
-With best wishes
-Dmitry
+2.46.1
+
 
