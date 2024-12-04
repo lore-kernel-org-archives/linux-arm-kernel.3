@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FECE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12D2E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0Bh/8/p57GgUO0KFv6z2qw3B4ssWvPHnpaRRwgHkKo=; b=OkJF6i/sbwHNLButhMiJHnHkMP
-	M+5YFOoWAFhZOJEmYJP/w24om23qN32DkKgkORSlmnIY/skxkgZQV+v6O3Xi++zpJlJIto/WxCZY9
-	yCNUIDwRMrqFR1OE8dRfZo0IjL5j8lcpl80x2SUjbzIYlm8xFQDG3MVvix+jIf/+P1vtdSAKKrsSW
-	SPl+Sga/e/gYi7HukIKQBMlOUGBTwR/JajtjPw3y5lvTkC2nQCnRvKoRf3YWgPRcLndbOhQGEfjFF
-	eV8iVfkcIsxwDp7GcHFQzaEitMiQYOVEj2pU0qRETD8GCgnpnXtN6dZleYKMy4Sq5xMM/qvJX3cZO
-	nSe3eD5w==;
+	bh=zFzCtU30qR2oi/Is6fdl592GY3fZRLXfeluJtZi8G84=; b=dA/4Eav59Lpgr7iJ5M93Op0duA
+	04J1Eq5dwK5yxdDbAGLL432O1Qn0XuIcnxUVAVqv6qR8JnyyVxU5ufc6nNl7ERClSWn049ZNbK4lp
+	hzq8Nf1yhlIuFptirmbC+aGmXkNW49QM7EyE3DONZ0jt/sb2K25yWJSy0nIuUNd1vyOoAtf0Rro7G
+	OjShtLztbVHCHDa7i9nekiDHo/GNUJzfqYh9LPEMAQewzvjkz5S2MWSaKXXl1qJga1qzxWXdIuDXW
+	TZsvUMOo0SaAIEk8gbiNt7ePLrOH5oPkGnnnegbSBXVZzloCWA351iPrKd9/gOad7Ui8awFSW4mFL
+	z6d0DR6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuxO-0000000DfW2-3ayT;
-	Wed, 04 Dec 2024 19:22:42 +0000
-Received: from mail-qt1-x84a.google.com ([2607:f8b0:4864:20::84a])
+	id 1tIuyN-0000000DffG-2CMf;
+	Wed, 04 Dec 2024 19:23:43 +0000
+Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIupM-0000000DdjJ-2bKF
+	id 1tIupN-0000000Ddjv-0WmP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 19:14:25 +0000
-Received: by mail-qt1-x84a.google.com with SMTP id d75a77b69052e-466c499185cso1443451cf.3
+	Wed, 04 Dec 2024 19:14:26 +0000
+Received: by mail-oo1-xc4a.google.com with SMTP id 006d021491bc7-5f1ee87f67aso136714eaf.1
         for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 11:14:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733339662; x=1733944462; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733339663; x=1733944463; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=D0Bh/8/p57GgUO0KFv6z2qw3B4ssWvPHnpaRRwgHkKo=;
-        b=cSS/Krw9giEjzRvU7PlX4PKDWg8/CmQBzjSYgLBDRk+tRgPsW2fbMG8jB9NN6ogPmv
-         Sn71qjxbg3Qql4qE1jE0fwCIGHSgAtpaKx+g+QGhRIi41bjCtJHU1xIJi01eWE8SJIfi
-         61ofRct848wYrD/3jOz4I1CqXIS0uelboaXGPBZRQ8BzcXpUxKztac62Ih5ZikXXQ6oz
-         0jiS4c7bUX/vcnRhfTx9fWXWUAzQQ+Joidnx7D8avRPrzdPHirIoiUttdeBiTHODm8rK
-         ag8p7Hn5xkCBxPR5vOMW6bmsei3a0SmWYXhaY4xtc1Cy3G0IqIS2SQqbwk1Nj6/QVurB
-         Ha4w==
+        bh=zFzCtU30qR2oi/Is6fdl592GY3fZRLXfeluJtZi8G84=;
+        b=zJ18V22d1A6J7Xjo7Y5Ptt/AqmEtc32On6h1ITSLjd1q+FtPoR/l9LlEGk0HL87zdU
+         Er4UsP5cqfepF0Xz0ZDdoJy8uueKO3TZeJMz9ywufzuhUuKsiWXWO89yeLWE2LwWG9Wc
+         tSvlpNAfBJYeJXTZR0zn7QgMKrSjjIJ4Qgd53+nwEj5X+sp+ozlMiVgaDJI8QZ2mpQe1
+         Uo15XnN+G1g3RVkPbNlRwHo0AJaMuFJffgZ6qWGUv4U8q0WIchvm4I/WeYYUbgq5UxqC
+         SEEmKIXwy9arxPdWO64zYcdah4n5Su1jBYvw5KluRdvyUsJxChzhtDpy4MEB3joxHDwV
+         keyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733339662; x=1733944462;
+        d=1e100.net; s=20230601; t=1733339663; x=1733944463;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D0Bh/8/p57GgUO0KFv6z2qw3B4ssWvPHnpaRRwgHkKo=;
-        b=K56L4V+T4optuyMXzxnsU6p0GprNsTrEg0LOPKowh1It3FJAaGnRV7e4k8Lym1uqzN
-         GSmaMdojz7fdJNox0mTigBUCP6w5c69bjF66q7JrjxXiTelH4tzB1kZ71C0kimQYqUwz
-         G9mXiX6BNRvc6Mf2fGLoVhI1eBpvqFvYz3UDrbaHbyXVM/g2ezAGOR78ZjKZ0IJdeePA
-         sJ2u6s/ge8PUA35OAXKV2rCf60543wx37ja0ViHh2uGNIvUU5eXbNjKm7IjLjLQ/dSC9
-         bl/PYJ4NFZR3LlujzFqtQ/gyiz5IMnMnSEly9xuKoINgPzwV1xgHpDC8MX+hor0VxGPa
-         Zd/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXozbc6Xb5+nEYvbQJLT+9Cia1FCF5v8uIp1SzZXxxco77s4cPoozD3RmdA2vVOePYQqPeZc8cgl4LSVtT7CcY+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXsF9YwJRt+bAf1qs+1llzBHmF8GdAFAOdqVMXh3OYpRz7eDwE
-	OsmTM5tyQtHR6vipgKv1vg+UxgBSqGmsDyRECMlx91muBGe5z9GQnud3fKgBAamDVbj6zPQgG3k
-	IvDnipAXobWuPOuXgSA==
-X-Google-Smtp-Source: AGHT+IFL6Yzt0JAsezCjVnC1Ege7Dcb8t0Na16LNTuDgarqYjisKQzOlRXRbl7knWaQbVhi5EaZ6me/AizxIjPXb
-X-Received: from qtbcf26.prod.google.com ([2002:a05:622a:401a:b0:466:a2a5:c51f])
+        bh=zFzCtU30qR2oi/Is6fdl592GY3fZRLXfeluJtZi8G84=;
+        b=bzMON8JqhAQKQBuNVhJbe7pIUSw0xp4YOgZx6oKVENLuQjeY9Vofl/K3AxRFmyJ5Qy
+         IxXNturuH6ETdq/k5RjpLwid/PZrNehfTkjdJRD6GoEsaHjMBdG93ik7er64uXvFPaIA
+         Wp/AtyqxKZGEr1lgwd5dQuLYtg7IkkxjR1QRnXkTOHwZDq4op1ADpg2pkVbY5XbLeMEa
+         qzeGtVWPy23EQWo5F8Vvi4bsRO5T5+x89RkLPWoTe3IKY05FHidDJYZII+vlFKIvkZnR
+         XogAQySBdL29Te9aeQV2MM1yAPp1qI1m3E3cwC5X8ph1MV/9fYdgEiEsLyIwb+giNc7g
+         vp+A==
+X-Forwarded-Encrypted: i=1; AJvYcCXv7RfGIES8oN5biV3ONQfdxgpzZSv9qPAHhQCjQ1psd+oUNxW1UPM73T8UDP20l5MPn/LLTgxTJ3qMqnRrUw2z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQuDqsf0mVkmz7LhZla6h8HGTRkEPi7for5Huyoz0+oLzo3SXn
+	KHnEtvJCNYyfPFUqYEF2cffp/W87oo6SECnGaMkWko2mfqMWL1ISMdj+eRQxdYc/rbVJDHAC1No
+	2CewzlBtu6WAS5otq4g==
+X-Google-Smtp-Source: AGHT+IE0Bvu2wb5sZ62wPHnkPebE9DLvFVJFuHpqNaMFqI9+9IIU97LvrniH728q/X5uxBPvfLsjs32/EpieLb++
+X-Received: from uad11.prod.google.com ([2002:a05:6130:800b:b0:855:e8c8:6d6c])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:ac8:7fc4:0:b0:466:7a01:372b with SMTP id d75a77b69052e-4670c0c1884mr95272281cf.30.1733339662158;
- Wed, 04 Dec 2024 11:14:22 -0800 (PST)
-Date: Wed,  4 Dec 2024 19:13:42 +0000
+ 2002:a05:6218:2812:b0:1bc:45bc:81f0 with SMTP id e5c5f4694b2df-1caeaab608amr694161055d.11.1733339663073;
+ Wed, 04 Dec 2024 11:14:23 -0800 (PST)
+Date: Wed,  4 Dec 2024 19:13:43 +0000
 In-Reply-To: <20241204191349.1730936-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20241204191349.1730936-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241204191349.1730936-8-jthoughton@google.com>
-Subject: [PATCH v1 07/13] KVM: selftests: Fix vm_mem_region_set_flags docstring
+Message-ID: <20241204191349.1730936-9-jthoughton@google.com>
+Subject: [PATCH v1 08/13] KVM: selftests: Fix prefault_mem logic
 From: James Houghton <jthoughton@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
@@ -78,8 +78,8 @@ Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_111424_662670_4F01824F 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20241204_111425_184064_2961D98A 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,26 +94,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-`flags` is what region->region.flags gets set to.
+The previous logic didn't handle the case where memory was partitioned
+AND we were using a single userfaultfd. It would only prefault the first
+vCPU's memory and not the rest.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- tools/testing/selftests/kvm/lib/kvm_util.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/demand_paging_test.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 480e3a40d197..9603f99d3247 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1124,7 +1124,7 @@ memslot2region(struct kvm_vm *vm, uint32_t memslot)
-  *
-  * Input Args:
-  *   vm - Virtual Machine
-- *   flags - Starting guest physical address
-+ *   flags - Flags for the memslot
-  *
-  * Output Args: None
-  *
+diff --git a/tools/testing/selftests/kvm/demand_paging_test.c b/tools/testing/selftests/kvm/demand_paging_test.c
+index 0202b78f8680..315f5c9037b4 100644
+--- a/tools/testing/selftests/kvm/demand_paging_test.c
++++ b/tools/testing/selftests/kvm/demand_paging_test.c
+@@ -172,11 +172,13 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+ 	memset(guest_data_prototype, 0xAB, demand_paging_size);
+ 
+ 	if (p->uffd_mode == UFFDIO_REGISTER_MODE_MINOR) {
+-		num_uffds = p->single_uffd ? 1 : nr_vcpus;
+-		for (i = 0; i < num_uffds; i++) {
++		for (i = 0; i < nr_vcpus; i++) {
+ 			vcpu_args = &memstress_args.vcpu_args[i];
+ 			prefault_mem(addr_gpa2alias(vm, vcpu_args->gpa),
+ 				     vcpu_args->pages * memstress_args.guest_page_size);
++			if (!p->partition_vcpu_memory_access)
++				/* We prefaulted everything */
++				break;
+ 		}
+ 	}
+ 
 -- 
 2.47.0.338.g60cca15819-goog
 
