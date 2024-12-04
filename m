@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC98E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19B8E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5T4VPTHC1HjDTFGld2HmMCi4WsaIbmTJEjJcmDhH4GE=; b=E6DdbvH2PLuq1I/vPVk8FJthth
-	LSQrVdaDboUMIMVbftHkZCZaUBk1TqRlrJucpywbyTQdmuXOyDgwf/vUbY5qFIIT6Ay7mc+UrjkWe
-	AUF4pJkBvszwPaoloI3aUvK8S3/yVhssa4LPEIEv6uHuQp4Ggd/KVr95PnyufX0cAwFx/55U7/UIl
-	QmaD/gn6rT8Tj73IBPq9S3+eo8bX+EDQ4Wk/7bple9X5RozXyQSYs5ByLlkJjtz5cjO9GxKmPSv4o
-	nGufDOsdkdUVO+P/a+k6JcrmAlGlwFzTDurdX7HgmiBnZmz8t3HdYfVxeUP+hk+P2hH3j/59I7b66
-	F3zAT/qQ==;
+	bh=t8Qpni1g+CTP4DtqlAKjnlwu/KLFrA6csbzYi4hK4/c=; b=4EE38JKF25Pxi/wNrCgmHjbRG5
+	I4u2ZscTaiqXQnOcy4wYhsxpa2x7JQg9mXM7zMBNrRKynEmnHjkQJeki0e8DhwmcrNBRM+cO1WYsa
+	OfXh2uKRBM93mM2accvQzouUiX7j0toclRUrvO/zM9+yuSQDZv/iRoGFPRoQgc4Y+dldjWuW6zAvd
+	+SD1O1ylheYRk35gf2eSFC5w8ALkBt/mgYFg2g8PPqJuzf6vjm9EtZ3k3wDSED5ETl0htkMyucmgN
+	eZ4EZjYDDsjknn0haclThf25ZOBPlVKIyGChU5PwWfdq3nJxNHr2u6CnkrHGY9NY/siPDbJvfQcsY
+	YVzWuR+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIt3i-0000000DLHa-18RQ;
-	Wed, 04 Dec 2024 17:21:06 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tItPw-0000000DPfs-26pO;
+	Wed, 04 Dec 2024 17:44:04 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIt2Y-0000000DL0g-2LOR
+	id 1tIsPv-0000000DDVM-16WW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 17:19:56 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434ab938e37so376645e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 09:19:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1733332792; x=1733937592; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5T4VPTHC1HjDTFGld2HmMCi4WsaIbmTJEjJcmDhH4GE=;
-        b=O/cFI4VXE3Qa+H2rQjLCWQy+wUCb14NmIMyUFGx1i4f2w7wswT0jKENsLuilAOh/LL
-         P+Ixg10UO6jM1F2bhm1OZPMHj0wkjP+wCL1pmOJwUTRyi0A39UxD93G4wUFERxKw+mwm
-         gD2tk/m+q2+eaFmL6HSgtBczYkKiV2LSbxdFcnUe08rlalWtFImr1w1sjyyq6n+sAyeh
-         NCkYBL+w6uP3IYZDUc5yK7rlNFJlZejk8lLvkE1xP959J5ndVpw9lUyUhrtLyP7WEV7X
-         Derxtk2TiqN9kgJxKgwFmqeLlTV8q7jQmbLabtHFU8Hnt9YRUdXHVO1mQevOzr5v6xU3
-         EL+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733332792; x=1733937592;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5T4VPTHC1HjDTFGld2HmMCi4WsaIbmTJEjJcmDhH4GE=;
-        b=AAs89KGhy+5zZFsmMXkifdl/79VExiVe6qdCisV56/9cieK2h+jRIsJESwzWSbU9iC
-         xyiF7am8gfwDYw1bxH5vQGcgfhzpKyvW6Wutxari/vUG6HUCkmzJc2kqSzsUELzjPMYi
-         OrmM4ysA3CjwOBQ45F+qS/eilmHjiyXifKC1EoDG4k+sfYzlMO5yuDl+LNMYFN/nCCCU
-         EUAhNmzcQuZgr1sIyDVCOp7M2j+M+lGoLf6M1jWrmH+UIJQxf8k8N+I48xAg/Z1OqH4q
-         tHdCo+Kd8yGkE9vR5njuszw/Vg3K9pIR/J3yd7VHmy00jMh7UnLMbL+F+FNQMW/GXh+T
-         M4Yg==
-X-Forwarded-Encrypted: i=1; AJvYcCX+BhU+4tjuFEdN/BzQog7hP4zXVde1/SI8A9f2+VBXqnVWEyjKqqmDTtTrkSsg+IrFtqcljJsw9/q5obuT7lyh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSTHwnbZCM/dRJNLeQso4B76cuUf5GBq+ApNzr+2uO96HMJTBx
-	Aukl4zjETXN9wVq67mSrG3tQd4I8tpFABVKWctuPYu1kViCcavk421ZZI/W6VpKBrWQJAt133Jw
-	b
-X-Gm-Gg: ASbGncs3Dj6mzwWjsAmqdxHBgQo6V2ZIgdLvjyop71HFXGdmOJk9fQT+GZLoZzJUrjn
-	PT1OwFuaJBtnUX4jTtPN2ZwNVm5R0p8glcExJQQOWT2ihgXouCiLgDzJ6tplV4qUZ/N/15VItz3
-	8p49aFeJwEdJzGqd0Lbo+qAtUhADmWMD/UsvHnd7g2mV13CR/l+7sMoO03DknjqS++qUlh93s+K
-	okf7pmaMYZz9VoFNNh6bLp+eZTzOCBUH+vGydAxenHQZoyq
-X-Google-Smtp-Source: AGHT+IGamjM/ufETyroPqKrH9H7GIRN+D0ykimmkcBZ7eAtT6byGOqzV/kqK41jyST7ik9VBo0aRuw==
-X-Received: by 2002:a05:600c:3d0f:b0:431:5f1c:8352 with SMTP id 5b1f17b1804b1-434d3f8e3e9mr46322275e9.5.1733332792107;
-        Wed, 04 Dec 2024 09:19:52 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:dd03:bc0f:6f7:54b0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d5206649sm31408795e9.0.2024.12.04.09.19.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 09:19:51 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Michael Turquette <mturquette@baylibre.com>,
-  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  linux-amlogic@lists.infradead.org,
-  linux-clk@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH] clk: amlogic: axg-audio: select RESET_MESON_AUX
-In-Reply-To: <37b656cc8272552ba07c93c5a9a59641.sboyd@kernel.org> (Stephen
-	Boyd's message of "Tue, 03 Dec 2024 12:15:48 -0800")
-References: <20241127-clk-audio-fix-rst-missing-v1-1-9f9d0ab98fce@baylibre.com>
-	<f8de4a2a-776f-4c10-b75e-e845bcc38dde@app.fastmail.com>
-	<1j4j3r32ld.fsf@starbuckisacylon.baylibre.com>
-	<306b0b30-5a32-4c7c-86b4-57d50e2307e8@app.fastmail.com>
-	<1jy1131kxz.fsf@starbuckisacylon.baylibre.com>
-	<c06317c6-b2b2-4b6d-96e4-0c2cfc6846de@app.fastmail.com>
-	<1jplmf1jqa.fsf@starbuckisacylon.baylibre.com>
-	<ce67e512-a15b-4482-8194-b917096f4eeb@app.fastmail.com>
-	<df0a53ee859e450d84e81547099f5f36.sboyd@kernel.org>
-	<1jr06pkof6.fsf@starbuckisacylon.baylibre.com>
-	<37b656cc8272552ba07c93c5a9a59641.sboyd@kernel.org>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Wed, 04 Dec 2024 18:19:50 +0100
-Message-ID: <1jfrn3l615.fsf@starbuckisacylon.baylibre.com>
+	Wed, 04 Dec 2024 16:40:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=t8Qpni1g+CTP4DtqlAKjnlwu/KLFrA6csbzYi4hK4/c=; b=ta8+rhefvAfTVON2qkfHns8aKZ
+	M3XgNBM1LKMVU/0hPzAABXNPwE1ahhu39CoKAY6ro8Z5K5XSyjrV2mUmNVjMLoH8iRUQ175ViA3ai
+	Cjy25bi6xMVT0qJmza5h/5eTycpxyifsdFrPNu6Onj1aLEoBNw3U1Povys8tefq3W+sxf3HOM0wSm
+	p74skew5erUlsSllvX8L2IxRjnCSrszXm+ncYbx4w6JqSayC1b+GLpdPhtab9hx0vdbDUJFtD18IW
+	AZ30ZID3dKWRdEpD9Cipoh79ds1zjZ2Z5HL8F4GtBH9RWrGu/2wMDE+MIkxmtKUWOzLkMs7MsSRRY
+	m0bccgOw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43724)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tIsPk-0003eW-0H;
+	Wed, 04 Dec 2024 16:39:48 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tIsPf-0005hd-1N;
+	Wed, 04 Dec 2024 16:39:43 +0000
+Date: Wed, 4 Dec 2024 16:39:43 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Furong Xu <0x1207@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Thierry Reding <treding@nvidia.com>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap
+ for non-paged SKB data
+Message-ID: <Z1CFz7GpeIzkDro1@shell.armlinux.org.uk>
+References: <20241021061023.2162701-1-0x1207@gmail.com>
+ <d8112193-0386-4e14-b516-37c2d838171a@nvidia.com>
+ <20241128144501.0000619b@gmail.com>
+ <20241202163309.05603e96@kernel.org>
+ <20241203100331.00007580@gmail.com>
+ <20241202183425.4021d14c@kernel.org>
+ <20241203111637.000023fe@gmail.com>
+ <klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw>
+ <df3a6a9d-4b53-4338-9bc5-c4eea48b8a40@arm.com>
+ <2g2lp3bkadc4wpeslmdoexpidoiqzt7vejar5xhjx5ayt3uox3@dqdyfzn6khn6>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2g2lp3bkadc4wpeslmdoexpidoiqzt7vejar5xhjx5ayt3uox3@dqdyfzn6khn6>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_091954_708171_91199295 
-X-CRM114-Status: GOOD (  36.01  )
+X-CRM114-CacheID: sfid-20241204_083959_299243_C3A961F3 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +99,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 03 Dec 2024 at 12:15, Stephen Boyd <sboyd@kernel.org> wrote:
+On Wed, Dec 04, 2024 at 04:58:34PM +0100, Thierry Reding wrote:
+> This doesn't match the location from earlier, but at least there's
+> something afoot here that needs fixing. I suppose this could simply be
+> hiding any subsequent errors, so once this is fixed we might see other
+> similar issues.
 
-> Quoting Jerome Brunet (2024-12-03 03:15:41)
->> On Mon 02 Dec 2024 at 18:53, Stephen Boyd <sboyd@kernel.org> wrote:
->> >
->> > I think the best approach is to add the reset auxilary device with a
->> > function that creates the auxiliary device directly by string name and
->> > does nothing else. Maybe we can have some helper in the auxiliary
->> > layer that does that all for us, because it's quite a bit of boiler
->> > plate that we need to write over and over again. Something like:
->> >
->> >   int devm_auxiliary_device_create(struct device *parent, const char *name)
->> >
->> > that does the whole kzalloc() + ida dance that
->> > devm_meson_rst_aux_register() is doing today and wraps it all up so that
->> > the device is removed when the parent driver unbinds. Then this clk
->> > driver can register the reset device with a single call and not need to
->> > do anything besides select AUXILIARY_BUS.
->> 
->> I think this is fairly close to what I proposed in the inital RFC, but
->> generic instead of specific.
->
-> Ok :-/ I've realized that we need this sort of approach in more places
-> to logically split the device without making it SoC specific. It's only
-> useful to have the registration API live in the driver when we need to
-> call functions provided by that module from the driver registering the
-> auxiliary device.
->
->> 
->> I suspect the the generic path is likely to trigger more discussion.
->> I'd like to be able to finish this migration, instead of leaving half
->> finished like it is now.
->
-> Is the half finished migration a problem for this cycle? I was intending
-> to send the revert later this week and try again next cycle.
+Well, having a quick look at this, the first thing which stands out is:
 
-Not really, with the fix you applied. There is just code present in
-reset that should not be used in its current form. I'd prefer to
-sanitise the situation sooner rather than later.
+In stmmac_tx_clean(), we have:
 
->
->> 
->> May I add back the boiler plate code in drivers/clk/meson, similar to
->> what was proposed in the RFC [1] and propose the generic implementation
->> in parallel ? It will just be a matter of switching when/if it is approved.
->
-> Sure. You can make devm_meson_clk_rst_aux_register() use the same
-> signature as I proposed above so that it's a one line patch later. And
-> definitely drop the imply RESET_MESON and depends on REGMAP part. Maybe
-> you can put it in the clkc-utils file?
+                if (likely(tx_q->tx_skbuff_dma[entry].buf &&
+                           tx_q->tx_skbuff_dma[entry].buf_type != STMMAC_TXBUF_T
+_XDP_TX)) {
+                        if (tx_q->tx_skbuff_dma[entry].map_as_page)
+                                dma_unmap_page(priv->device,
+                                               tx_q->tx_skbuff_dma[entry].buf,
+                                               tx_q->tx_skbuff_dma[entry].len,
+                                               DMA_TO_DEVICE);
+                        else
+                                dma_unmap_single(priv->device,
+                                                 tx_q->tx_skbuff_dma[entry].buf,
+                                                 tx_q->tx_skbuff_dma[entry].len,
+                                                 DMA_TO_DEVICE);
+                        tx_q->tx_skbuff_dma[entry].buf = 0;
+                        tx_q->tx_skbuff_dma[entry].len = 0;
+                        tx_q->tx_skbuff_dma[entry].map_as_page = false;
+                }
 
-Sure. Few things I'd like to clarify
+So, tx_skbuff_dma[entry].buf is expected to point appropriately to the
+DMA region.
 
-* I tend think like Arnd, platform data will be needed eventually. Not
-  sure having 2 functions, one with the param, one without is really
-  worth it. We could just pass NULL when it is not needed. It is not
-  uncommon. Would it be acceptable ? (for the generic helper, the
-  temporary solution does not need that for sure)
+Now if we look at stmmac_tso_xmit():
 
-* You mean (meson-)clkc-utils.c ? I could but that would add dependency on
-  the auxiliary_bus for clock controllers that don't need it. It is a
-  minor problem really that I could just ignore.
-  I'd rather keep this helper separate if possible.
+        des = dma_map_single(priv->device, skb->data, skb_headlen(skb),
+                             DMA_TO_DEVICE);
+        if (dma_mapping_error(priv->device, des))
+                goto dma_map_err;
 
-* Why drop 'imply RESET_MESON_AUX' ? I would still like the
-  COMMON_CLK_AXG_AUDIO to 'strongly suggest' RESET_MESON_AUX, with
-  dependency problem sorted out.
-  
+        if (priv->dma_cap.addr64 <= 32) {
+...
+        } else {
+...
+                des += proto_hdr_len;
+...
+	}
+
+        tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = des;
+        tx_q->tx_skbuff_dma[tx_q->cur_tx].len = skb_headlen(skb);
+        tx_q->tx_skbuff_dma[tx_q->cur_tx].map_as_page = false;
+        tx_q->tx_skbuff_dma[tx_q->cur_tx].buf_type = STMMAC_TXBUF_T_SKB;
+
+This will result in stmmac_tx_clean() calling dma_unmap_single() using
+"des" and "skb_headlen(skb)" as the buffer start and length.
+
+One of the requirements of the DMA mapping API is that the DMA handle
+returned by the map operation will be passed into the unmap function.
+Not something that was offset. The length will also be the same.
+
+We can clearly see above that there is a case where the DMA handle has
+been offset by proto_hdr_len, and when this is so, the value that is
+passed into the unmap operation no longer matches this requirement.
+
+So, a question to the reporter - what is the value of
+priv->dma_cap.addr64 in your failing case? You should see the value
+in the "Using %d/%d bits DMA host/device width" kernel message.
+
+Thanks.
+
 -- 
-Jerome
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
