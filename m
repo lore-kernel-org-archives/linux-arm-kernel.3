@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6170AE7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96079E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMFBk9eLaL6gQuRpLXcAw0glVg7Z/D6IgiZ3CsC/KvI=; b=pQj9W5rSDaTBGPWoVBRZA24UMb
-	45YBmflkDa+DRydoxCWWECA7TFl7eTmwXuBsSHntzZgmbofUBLxaWMqBC1xKei5Pc1Qk0Sv6LdfwS
-	kAGd7HOOFmuyxXceqzAbGhF5ihGVEWrVuoUNvuRt9lUB/DWRk887DMXRWeGyp1CMR2rldnOBQVpzL
-	rD8815sLmzuRfVg8+TnonnpiEL95Bp6g3hG8ju8t+WppLes3u3jeh0NTQukd5bn/iupZm8udMdD9E
-	eh8uf30bRHtBw1UI7w3mmYB6zs/dwZ9u/ervx63G9mpHg/4FFpUIPciEGLO/Eq0pAVF6uRa0jwOTs
-	5clrfftg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1es0c/MSVgX9oVPQoWiRJAvPovnhoueN4tFdvc1EZnk=; b=rq+7lDmSFs9QCmrdYzba3FlQvO
+	2b4yTrbSOntuAAkY5lGCloCA1m7/F8d3F5Y6WylQR6yZRzU7LgVl1A/LKSxtIw2WCdgelDC0rmCrW
+	YBfJDKdnrUmvX2aW8xgF8RLt3qvD8lfrzTf6FGDkt7DZiZvknmczBbIJLi5epUErKP0EpbKx29HbX
+	0p46+KQ4qqcqIR0ZymN9AwCVn1Q75PfPtchkQLqsynIgjTpXDWEdOaZU9ilnPpZmplPDEhYr9m1Cn
+	ZBvYRnbnuX0M39Mfwyv9P+UYq1Dc5r790gxSlr3M2v0/KPMcf0zMvm7RAo7rG39tk1IjPGT5IcfTq
+	08tIlvQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqfP-0000000CsuT-1OdX;
-	Wed, 04 Dec 2024 14:47:51 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tIqhZ-0000000CtMu-3Jt4;
+	Wed, 04 Dec 2024 14:50:05 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqcX-0000000Cs6C-31pm;
-	Wed, 04 Dec 2024 14:44:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733323490;
-	bh=NZbhLNGj94fIzTT5df4O2rJPrluFBHWpQhHhEfIxwhg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aN2bDnH5vbcXNAqGycKY+bKNa4aoLURt8zZOMxLXlUZHDOGsNfz/oX0Mrm3hiWQZZ
-	 /8lhBZZ5kx1Oh7A0ZDAUcBMqR0I0pKrSx4umMXINYcxUqst2R4kXaYg5BsP7goIO0Q
-	 UK6s2IF3K6ZUcCHvR69f2or38sT+hitX22uBb+rTccxiqxRAxgiiUzHuPVzNx7d/73
-	 TW2RtJ7lTmupGQdl9cLsk3QOEBWH2JhpyBK8SBpfDBTn+/OCOxVvkgSImThXZQMXii
-	 cLogFTiURiF1imUVd/0v+bZAMC1NEVd/rPPoS30E9xfhW+29jgC83iECMhzAzJfTuK
-	 9F5d33mEqMS1A==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A5C2217E376C;
-	Wed,  4 Dec 2024 15:44:49 +0100 (CET)
-Message-ID: <716b8630-66ef-4497-8cba-d5d20da2382a@collabora.com>
-Date: Wed, 4 Dec 2024 15:44:48 +0100
+	id 1tIqgY-0000000CtAd-3wKg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 14:49:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733323743; x=1764859743;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=f3vtN1u5WBFqe7Z+wdQv6YdkOLXhLcLZNvoW4Nv5FkI=;
+  b=PrHQWO88vuvBIF0nTZlweFx9B9aNaKXXo+8dLqvMfsoJhSgPivVI7IOx
+   M0vwSAqNvbt17SExdDI7bvA4axusPadXojtxtCp3J5ed8u15HWwxmD3H4
+   f7hFYLKkaaUT7R1YrUIIZMVUAoA43cGznQLDNoDxydd6puYMgnshK37ec
+   qMRv6UzSd9wXk79zwQp1woeewaMFlyer2jCNtNXLwG3eZx3ryRL8c+ZGy
+   EXYZyEWfHaP6d8AwKqXXakxNAI1o7Hd/DPUU93bxuGV1SkBEt9KSrbjfG
+   vE3a4yjT3LeGP4QLRYz4AdnJ/QBEjvV8RzBGLpliqlwsTKpnrvMmct/tK
+   Q==;
+X-CSE-ConnectionGUID: MDp5ptFJRhmWxDFFSBCXCQ==
+X-CSE-MsgGUID: eRwZ6sVAQBW4wivf0G4N3w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="36436396"
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="scan'208";a="36436396"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 06:49:02 -0800
+X-CSE-ConnectionGUID: dcVWHyIOSUqKjoi5sxDWTA==
+X-CSE-MsgGUID: 7l9lL/7nT7SoVdN1u8A6gA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="scan'208";a="94614100"
+Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 04 Dec 2024 06:48:58 -0800
+Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tIqgR-00038r-32;
+	Wed, 04 Dec 2024 14:48:55 +0000
+Date: Wed, 4 Dec 2024 22:48:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ming-Jen Chen <mjchen0829@gmail.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, sudeep.holla@arm.com,
+	arnd@arndb.de, peng.fan@nxp.com, conor+dt@kernel.org,
+	krzk+dt@kernel.org, robh@kernel.org, dmitry.torokhov@gmail.com
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v4 1/2] input: keypad: add new keypad driver for MA35D1
+Message-ID: <202412042245.5jwzbfGS-lkp@intel.com>
+References: <20241204021014.5083-2-mjchen0829@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 7/7] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
- <20241120124512.134278-8-angelogioacchino.delregno@collabora.com>
- <559ac08df6614e47c3e8d9d8160b35c9e683c503.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <559ac08df6614e47c3e8d9d8160b35c9e683c503.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241204021014.5083-2-mjchen0829@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_064453_926209_BF505522 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20241204_064902_986745_43A7ADEF 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,103 +90,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 02/12/24 08:27, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
-> 
-> On Wed, 2024-11-20 at 13:45 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
->> found in MediaTek's MT8195, MT8188 SoC and their variants, and
->> including support for display modes up to 4k60 and for HDMI
->> Audio, as per the HDMI 2.0 spec.
->>
->> HDCP and CEC functionalities are also supported by this hardware,
->> but are not included in this commit.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
-> 
-> [snip]
-> 
->> +static int mtk_hdmi_v2_enable(struct mtk_hdmi *hdmi)
->> +{
->> +       int ret;
->> +
->> +       ret = pm_runtime_resume_and_get(hdmi->dev);
-> 
-> Why turn on power when attach?
-> Should hot-plug detection be always on so power on when attach?
-> If so, maybe we need to use CEC to detect hot-plug because CEC has lower power and HDMI power would not be always on.
-> As you describe previously, CEC just need some hack to support both HDMI Tx and HDMI Rx.
-> So there is a software solution to use CEC to detect hot-plug in a lower power mode.
-> And v1 use CEC to detect hot-plug, so it's worth to make v1 and v2 has the same behavior.
-> 
+Hi Ming-Jen,
 
-As I said, we can't use CEC to detect hotplug, because the same CEC controller
-can be used for both HDMI TX and RX at the same time.
+kernel test robot noticed the following build errors:
 
-If you use CEC to detect cable attach and you have both HDMI RX and HDMI TX drivers
-probed and ready, if you attach the cable to HDMI RX port, HDMI TX will try to get
-enabled and will error out.
-Same happens if you attach a cable to HDMI TX: HDMI RX will try to get enabled and
-will error out.
+[auto build test ERROR on dtor-input/next]
+[also build test ERROR on dtor-input/for-linus hid/for-next soc/for-next linus/master v6.13-rc1 next-20241203]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-The only way to use CEC for hotplug detection is to detect twice: CEC for HDMI
-TX/RX controllers wakeup, then reset both, wait for autodetect in both controllers,
-suppress errors, and start signal transmit or receive.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ming-Jen-Chen/input-keypad-add-new-keypad-driver-for-MA35D1/20241204-123001
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git next
+patch link:    https://lore.kernel.org/r/20241204021014.5083-2-mjchen0829%40gmail.com
+patch subject: [PATCH v4 1/2] input: keypad: add new keypad driver for MA35D1
+config: s390-allyesconfig (https://download.01.org/0day-ci/archive/20241204/202412042245.5jwzbfGS-lkp@intel.com/config)
+compiler: s390-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241204/202412042245.5jwzbfGS-lkp@intel.com/reproduce)
 
-While it is technically possible to do so, it's very complicated and hacky.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412042245.5jwzbfGS-lkp@intel.com/
 
-Please keep in mind that on the new SoCs (8188/8195) the CEC block is different
-from the one in the old SoCs (6795, 8173, etc) and requires an entirely new driver
-to get it working.
+All errors (new ones prefixed by >>):
 
-Using CEC for hotplug detection would mean that we need 3 full drivers:
-1. HDMI TX
-2. HDMI RX
-3. CEC
+   drivers/input/keyboard/ma35d1_keypad.c: In function 'ma35d1_keypad_scan_matrix':
+   drivers/input/keyboard/ma35d1_keypad.c:83:24: error: implicit declaration of function 'readl' [-Wimplicit-function-declaration]
+      83 |         key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
+         |                        ^~~~~
+>> drivers/input/keyboard/ma35d1_keypad.c:89:9: error: implicit declaration of function 'writel' [-Wimplicit-function-declaration]
+      89 |         writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
+         |         ^~~~~~
 
-This is because the CEC is shared, so we need to have all three to properly test
-the functionality - and this is not possible to do all at once.
 
-To save some power (not much, though!), we can eventually go for your proposed
-CEC detection *in the future*, but really not right now - and we can do that only
-after upstreaming both HDMI TX and HDMI RX drivers.
+vim +/writel +89 drivers/input/keyboard/ma35d1_keypad.c
 
-The plan (time/effort pemitting!) would look like this:
+    72	
+    73	static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad, unsigned int status)
+    74	{
+    75		struct input_dev *input_dev = keypad->input_dev;
+    76		u32 row_shift = get_count_order(keypad->kpi_col);
+    77		u32 *keymap = input_dev->keycode;
+    78		u32 code, key, index;
+    79		u32 key_event[4];
+    80		u64 pressed_keys = 0, released_keys = 0;
+    81	
+    82		/* Read key event status */
+    83		key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
+    84		key_event[1] = readl(keypad->mmio_base + KPI_KPE1);
+    85		key_event[2] = readl(keypad->mmio_base + KPI_KRE0);
+    86		key_event[3] = readl(keypad->mmio_base + KPI_KRE1);
+    87	
+    88		/* Clear key event status */
+  > 89		writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
+    90		writel(key_event[1], (keypad->mmio_base + KPI_KPE1));
+    91		writel(key_event[2], (keypad->mmio_base + KPI_KRE0));
+    92		writel(key_event[3], (keypad->mmio_base + KPI_KRE1));
+    93	
+    94		pressed_keys  = key_event[0] | ((u64)key_event[1] << 32);
+    95		released_keys = key_event[2] | ((u64)key_event[3] << 32);
+    96	
+    97		/* Process pressed keys */
+    98		for_each_set_bit(index, (const unsigned long *)&pressed_keys, KEY_EVENT_BITS) {
+    99			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
+   100			key = keymap[code];
+   101	
+   102			input_event(input_dev, EV_MSC, MSC_SCAN, code);
+   103			input_report_key(input_dev, key, 1);
+   104		}
+   105	
+   106		/* Process released keys */
+   107		for_each_set_bit(index, (const unsigned long *)&released_keys, KEY_EVENT_BITS) {
+   108			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
+   109			key = keymap[code];
+   110	
+   111			input_event(input_dev, EV_MSC, MSC_SCAN, code);
+   112			input_report_key(input_dev, key, 0);
+   113		}
+   114	
+   115		input_sync(input_dev);
+   116	}
+   117	
 
-Series 1 - Upstream HDMIv2 TX (HPD through HDMIv2 TX controller) - drivers/gpu/drm
-Series 2 - Upstream HDMIv2 RX (HPD through HDMIv2 RX controller) - drivers/media
-Series 3 - Upstream CEC driver (No HPD in CEC)                   - drivers/media
-Series 4 - Implement HPD in CEC and use it in HDMIv2 TX and HDMIv2 RX - media,drm
-
-You can see how complicated this is - and I'm sure that you understand why that
-cannot be done all at once.
-
-Adding up some: the HDMI driver is used only on IoT boards for now, which typically
-run off AC and not battery - so the (again) very little power consumption raise is
-not critical for now.
-
-Cheers,
-Angelo
-
-> Regards,
-> CK
-> 
-> 
->> +       if (ret) {
->> +               dev_err(hdmi->dev, "Cannot resume HDMI\n");
->> +               return ret;
->> +       }
->> +
->> +       mtk_hdmi_v2_clk_enable(hdmi);
->> +       mtk_hdmi_hw_reset(hdmi);
->> +       mtk_hdmi_set_sw_hpd(hdmi, true);
->> +
->> +       return 0;
->> +}
->> +
-> 
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
