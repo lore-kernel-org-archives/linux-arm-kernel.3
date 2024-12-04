@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AFCE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BFFE7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 14:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wuxm3+PMYvcJmbMnGTjMWe0qoQyxuZwETVB6N9HZ3+8=; b=LpfeG4dpZUgVKk6UHTZ/GNpeT5
-	XT82hsjcsKbW/x8qVWTvz9/R6iMMZSHotoYuOMK8OMUvkld/CGjWcxL3R+OybeifQ0AQToyTcr8cC
-	NwHXF3Ng7EzW+iIlMAV4Zy6RpBeVIZZWbMS7ly8PKtOWeRdACxRTzJJPmfaAFyIeWYlbE6ApyB4R8
-	9QFZnHwdRqxmAKeoYFUUSQRY/qQdG3tPk+3kQ0fhQZIEe8OZOqXifFYEIH/8XIRYNGXO4xX9AEpJs
-	jIz6AggXnQ2IWIK9yK25/JWtpkND0oa/vPxI3mtBNoclv6UMpE4D/2MJhex3TYA4n754z3t7b/BOJ
-	yHTw5Sxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CsHsdzyV/3o5nuMXEO42kgR8xs26fCs3pxlgwSBqmQc=; b=mRWWKz0FGR1zMjSloRgGVOxK9q
+	YCgUah7tEDV09ELfC+1l1S1xxYUlgg8As0hZ4E19xLFQpTQtn01tu5TnNBKcwERBvAR2P6raSGTFs
+	532DT6KzvrC/hGl0N5mMzK0L0sw4CgwzWB3f0F40O9HNBbNqrWvIrz3oPoVPYnuxsTjOac5fWijd4
+	1YWhmFAxqV8htSdBLYbhdn4KMk0d91bFDRR82slSMF8Ge4DFLVA83ZxNB6etiobEw6g3YoHCjN0aL
+	/K3gQcL+c2YUgU3Zi54n2XsKAM9Cs1Zl2DPxF0CcdW3LiagwOErmy1w0oH20714AfhnV0xzVQr6Tr
+	eX+5wd7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIq8g-0000000CnEf-1QwU;
-	Wed, 04 Dec 2024 14:14:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tIqB7-0000000Cnk6-2AAA;
+	Wed, 04 Dec 2024 14:16:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIp8L-0000000Ce6I-2RJB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 04 Dec 2024 13:09:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=wuxm3+PMYvcJmbMnGTjMWe0qoQyxuZwETVB6N9HZ3+8=; b=QU80ntkpb2yZFcaXHfAaqmG3Us
-	rFf4Jk8+m9H4h3KtoPxt7Gwqg6kH/jlYCwe6HNHaNsImg9KdB3Uv2nmaxGkjc7xFRZ6XpHZwDq/bq
-	zbmBAQ7QcYMa1ePGjXfUGTI2w6x2PNcyyt2WFBRvhU99mWmj3Fgd3EKnPVPJrxJzTkK+w1FLjuKpQ
-	cEJ29IkuTv52pxMrBW1LrQNgXwKzt4DFll+KA8Jm+TbWSIWjBLMejpXtlVqR1L2tugZPuphJbXOlt
-	uqjDRWS81B2INeXSu5zXOtOx7sPYY9qjzMK8p/C9aydxgNgyDc0Y2+t+JlCSoDfIOYZmIKT4LhkVo
-	fPrgv8yw==;
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIp8I-00000002bid-11ZK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 13:09:36 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 574DB1BF205
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Dec 2024 13:09:29 +0000 (UTC)
-Message-ID: <3b79fb8a-d927-4261-abd7-b7918d927454@korsgaard.com>
-Date: Wed, 4 Dec 2024 14:09:29 +0100
+	id 1tIqA6-0000000CnYj-3hDC;
+	Wed, 04 Dec 2024 14:15:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 791CE5C6EBA;
+	Wed,  4 Dec 2024 14:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADEBC4CECD;
+	Wed,  4 Dec 2024 14:15:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733321730;
+	bh=fJGcZcCvocrYYD5ARLmU36d5qyxLWZqmfekPOwaJlFA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xaje4v2LAo8DiuFogqnwp0IxwdRAJSvcAF4Wqr6Nl27/WXwqHyhLjcZoZFQLFZQgv
+	 nhjO6vDUgg4YxbLx4d1gGM8prSl/a6VeIPjqirl5LO86NR7//gBFH9NUUvHuCgo7iy
+	 4jv6yQOrkKrruEIthtgtxI0MmBf/ZfZLJnVft9XIKPl87097OCFBBNVnlMVPVRCHMc
+	 MhmTiwa6tNhJQcAHSRmIQUGsleSQqjzCFMWDhuS/JtqIJXylgbmhRfOed42ws5YmlF
+	 UIrf1CFqsqVScW7V8ObteDN+t1Tudkac15fKjBQ1JhxiRNqLxtlg/eLRHJlKYgSCxk
+	 LSr5AXQ2QTPYg==
+Date: Wed, 4 Dec 2024 08:15:28 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Kevin Hilman <khilman@baylibre.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	linux-amlogic@lists.infradead.org,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v4 1/5] dt-bindings: mmc: controller: clarify the
+ address-cells description
+Message-ID: <173332172731.169103.7423360262255147051.robh@kernel.org>
+References: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
+ <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-1-11d9f9200a59@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtc: zynqmp: Fix optional clock name property
-To: linux-arm-kernel@lists.infradead.org
-References: <cd5f0c9d01ec1f5a240e37a7e0d85b8dacb3a869.1732723280.git.michal.simek@amd.com>
-Content-Language: en-US
-From: Peter Korsgaard <peter@korsgaard.com>
-In-Reply-To: <cd5f0c9d01ec1f5a240e37a7e0d85b8dacb3a869.1732723280.git.michal.simek@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-GND-Sasl: peter@korsgaard.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-1-11d9f9200a59@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_130934_450595_273F0371 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20241204_061530_957907_FB67E741 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/27/24 17:01, Michal Simek wrote:
-> Clock description in DT binding introduced by commit f69060c14431
-> ("dt-bindings: rtc: zynqmp: Add clock information") is talking about "rtc"
-> clock name but driver is checking "rtc_clk" name instead.
-> Because clock is optional property likely in was never handled properly by
-> the driver.
+
+On Thu, 28 Nov 2024 16:16:41 +0100, Neil Armstrong wrote:
+> The term "slot ID" has nothing to do with the SDIO function number
+> which is specified in the reg property of the subnodes, rephrase
+> the description to be more accurate.
 > 
-> Fixes: 07dcc6f9c762 ("rtc: zynqmp: Add calibration set and get support")
-> Signed-off-by: Michal Simek <michal.simek@amd.com>
-> Cc: <stable@kernel.org>
-
-Reviewed-by: Peter Korsgaard <peter@korsgaard.com>
-
-
->   drivers/rtc/rtc-zynqmp.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+> Fixes: f9b7989859dd ("dt-bindings: mmc: Add YAML schemas for the generic MMC options")
+> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/mmc/mmc-controller.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-> index 08ed171bdab4..b6f96c10196a 100644
-> --- a/drivers/rtc/rtc-zynqmp.c
-> +++ b/drivers/rtc/rtc-zynqmp.c
-> @@ -318,8 +318,8 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
->   		return ret;
->   	}
->   
-> -	/* Getting the rtc_clk info */
-> -	xrtcdev->rtc_clk = devm_clk_get_optional(&pdev->dev, "rtc_clk");
-> +	/* Getting the rtc info */
-> +	xrtcdev->rtc_clk = devm_clk_get_optional(&pdev->dev, "rtc");
->   	if (IS_ERR(xrtcdev->rtc_clk)) {
->   		if (PTR_ERR(xrtcdev->rtc_clk) != -EPROBE_DEFER)
->   			dev_warn(&pdev->dev, "Device clock not found.\n");
 
--- 
-Bye, Peter Korsgaard
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
