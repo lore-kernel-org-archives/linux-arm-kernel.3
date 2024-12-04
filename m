@@ -4,102 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75A9E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85CCE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Svrsg3mmKKAv3YlnGrb0UzTznAqTSntGHCBI+3zPRtg=; b=VCdFFDlSVTcc7mHozDyLWHKLCn
-	Qnnopp8NDCS+NypmgXb5yzutlKZR3YtYCCfvvZSi8nO+ZuOO4toxGrztNj73uA9xUBxeYiw+kU8vS
-	tfxf7XKpl+/yyVMvjBqNTvEQ7UGPCTyS1n0pMZFiN2GLRhBD7AGKoOVlqDv7yydS9y28+GTMCG/jq
-	eWI/cNtaWyBqkrwkhHlQ/9xpXQ9VRZj6VI+bMuyool33xLob8EgavS6M9lRzsB9KcYzoRCGVX/dMp
-	t7nG0AK3DPWL3CJrcmpIwZwpyexAkl6TQjdKxJWIP/BaGPp3c0UB+K94vToQFpxKP63Nw+hjRvnYt
-	rS6rOe7Q==;
+	bh=7QTF0rM+w5EQbe0dkyUe0EzmXHLlCV/ymZQZNrVKoto=; b=AVDvqp4827UE3YkjbHW35fj3Ek
+	4pRY53wdQNe97kJ6kCBiZxqs44yTc/F5J2lPnz8PZGfPTpBopuMXFLZxEB9Vbdnj+0gw4PbBaJFPV
+	RNuXr88lYI5PdtE/SCH9svGtLYMdj2p7hnm9X4pI4vwYqmkjZotr9cPhs389La9S1bmm4JrCpsdIX
+	7gNNhQGoNEY9YDyTKs2HkWHe5w43WCr92WWRq9p1zGdtIPbFQ35jEnSqo9xRKMIBoq9VSgxo26C7l
+	H+XII2vrQ6Hi+Sj8CZIKqW4J/Ekqa4tcs5nCzvYLBad+1IuAHGupYQFcQOGxXaU4V0buICPXUqnYG
+	GU2I/uSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIjp5-0000000BieR-0GQW;
-	Wed, 04 Dec 2024 07:29:23 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tIjq3-0000000Biqz-3tPJ;
+	Wed, 04 Dec 2024 07:30:23 +0000
+Received: from mo4-p00-ob.smtp.rzone.de ([85.215.255.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIjlF-0000000BhsX-0xC3;
-	Wed, 04 Dec 2024 07:25:26 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-434ab114753so54537445e9.0;
-        Tue, 03 Dec 2024 23:25:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733297123; x=1733901923; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Svrsg3mmKKAv3YlnGrb0UzTznAqTSntGHCBI+3zPRtg=;
-        b=d4d5+q1///WBLIPeybnuQm2KxKxIB96xaLeFuaqYh2zfIsrpWL7bdi6UjOiWQKQRYk
-         33UpzRO+PdbeEIp1Dfv6NYbKs9XZKho+9/0xBp6lfj9MArODnVTs1rN3rHi4O1xOCii9
-         jOKZtkD6/tFQH3ChItHrM8u2sGtmZh/uGhforOqsn2JEBfLNJoO8E0W3Y5m089rLZf6w
-         zqgbM+Dlx7CPOUgAVUEE0u55PBq/7zsVTvrE3ov3qgK/cd8O8HQxT05oOBNfFVg3a+a4
-         ZE8QqlK6O9E9eNVfjoqQHx577cAq7CAxMne7JOxb4Yuue7FTaUfuo4hlPXGT54/tSrFK
-         9EAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733297123; x=1733901923;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Svrsg3mmKKAv3YlnGrb0UzTznAqTSntGHCBI+3zPRtg=;
-        b=B3Jexa4TwFz+5X4SvUy4dECjEdNVoIOtPcNEcrzNThDqjBlXAfU/Phvi2HekC3KW9A
-         vk8WCK/62cnUyutroVmFpIwE3i7Go4gFd4yHcpNMjIH72D8qgFg8EYjY8sU9Bo+QonUN
-         3MFs7GebvlhwG8tm5lviyFQYRAbv2xNqv7C32tcxWkmSp6eOzD9ekIIt1d4vrFzwko1t
-         Eo/ch2t+5u4fpAGVd5bH/nyIdgK7ICWJtwVCqJofW6X6UI39s5VS/PZQGePfodaBp8Zf
-         GKEIWHAGCZiUJcehjs8W/QVz3d3xUsHvoc5BPtroF2vhuLHlMWldSSW42jGP8DZY4NKt
-         GfyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVcy+PUDmSB1LlIDfw7P19p6Bg/n+3Weoq8k8m9VM8d2XjgCd4ZxlKBO/fpqm1eejsv6cVRZmcBEwZdghazU/HB@lists.infradead.org, AJvYcCXCUa4L7UsvHs+WNY6QWWChGsIz2B0rBAB+9FXBDtY6LTVJ+V5BeFjmonVMsbnd5OVbQ8mh2k/CP1qgKJprXC4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTraVuz2bBUi8+Ls95sV7E5wL/JZt7n2vx6tq7i0Y4QA4/XwbN
-	kaGeTOyXpRUGdPRq0BHS0iOHMpYWoMEPLnq2tfbpm2QaoandGI+E
-X-Gm-Gg: ASbGncu+tP4ps4NJ5+OEJx8rV5Zuk8pkZgzFoIpkCTBqjqCy3q/bruQbaWwoJ99jJbJ
-	UGCtdOpFk3Nwhtdq06T7MjmNo1SxqztfTfFdTPNkM4Fe0STV3LRbo5/4Yvzof1KceozIwG02HrL
-	uDLZNOt8rhrKEAoGL+nWXHIabkBSHSfHAKpxoMOyeXmyf3E/qWL9KqvQTLWQYGXWn5cLlGEs3la
-	SY6ejNYTKrWFkgPMO3NzG2mayDlBo4H4DVb7tWNfsS5LYT5vJwMn9GyhQdh3v9FV4ssF28JC5sg
-	VUt038CiPZizmIbE1fg=
-X-Google-Smtp-Source: AGHT+IHs+H+xOKCLyIaYESZ+Zid3s9AZ9B7/IzL1DkG7+6BqVYPp8yphBjWfDoSDsRUvVmFct/n1PA==
-X-Received: by 2002:a05:600c:3554:b0:431:6083:cd38 with SMTP id 5b1f17b1804b1-434d09b0020mr45524075e9.6.1733297123184;
-        Tue, 03 Dec 2024 23:25:23 -0800 (PST)
-Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434d527257dsm14396655e9.1.2024.12.03.23.25.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 23:25:22 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: [net-next PATCH v8 4/4] net: phy: Add Airoha AN8855 Internal Switch Gigabit PHY
-Date: Wed,  4 Dec 2024 08:24:11 +0100
-Message-ID: <20241204072427.17778-5-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241204072427.17778-1-ansuelsmth@gmail.com>
-References: <20241204072427.17778-1-ansuelsmth@gmail.com>
+	id 1tIjnj-0000000BiQs-3Ns4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 07:28:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1733297268; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=DW+Ixa3XQxtFxQfckZJV97A9gxX7U1xrO7Qh11l17QsQpXEL5809FG4grREDbp91Wd
+    AHl6BQB+GimvuXaAfQRPC86hbw158Fbix1yk+WUVQJ6OiPcqzNXt0/CZCcwnH3g0v893
+    hcU57Bedo/hgJmec5lBvhq5XoscbsrPHqVSjeHeE53XIPZXa4o+OeFeLdurN918ni2lF
+    fJSGr5bLjZRPj3KYY2gfFfp8rthgDJ+XkkhiouIN5oue8UNTLh5FZTClvhMxMy3fLo2i
+    vM61nXznsTnKAoTOwNcwf5iYn4O/XwUu+Frulrwmh79nXfCQ14+W90PdsA5cTtDYJBME
+    RQfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1733297268;
+    s=strato-dkim-0002; d=strato.com;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=7QTF0rM+w5EQbe0dkyUe0EzmXHLlCV/ymZQZNrVKoto=;
+    b=AZySPL+UH1afjVxjYrO+xin6wVfi8z5SctW/Dk7eVxnG34ynmiXI4aP6UUZJw7slEI
+    VgvWtAX/h6UnJnGIW3/ae49uZO+eL02dHPrc5TvrayF8TqsuVP3AmbpxiQ6Jr3kxaxtA
+    w40gwdNm9o8vM754f6TIpTyl3A7di5qQ3pShzq4aei9CERwt8z3lcOZV1KpluFy3H0AR
+    /jo96/tCi9eMB2SNDj3pbFmCq+ItPFwoE6mQSEW+KymFE8oRuLKXW1wBX5XDfIIeuda4
+    HXrE8JYWDcV417NY2KyXgRh04QNE0bd5Md2ciibi7SCBlae6Vvn9ycIrNulAGRPZDJa8
+    4MRw==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo00
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1733297268;
+    s=strato-dkim-0002; d=outer-limits.org;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=7QTF0rM+w5EQbe0dkyUe0EzmXHLlCV/ymZQZNrVKoto=;
+    b=QFQokjf7U6HgALX84BrA/qhbM1YOMUP3OSMvIgqsBzSCj2ACkmP880wtCZTCAa8SxQ
+    kFz7GpagWtoYKH0ctFM6hWNc9/Nzqp5o/MaBUUhXeKAoaVsNClRyDWrIe4VD6sqhYeIA
+    QDr8mJIMsiNLm4PKDU6vqR00XAlbwfs27p0J7iH0Ci0bYRxDoXhrW6T4n1QK2QtM2sVx
+    RAxYlalY7VTywW/U0g+v3tmIjcP614ARydN5FXNucj+o2oMmgtx1/1Y5X3Ut85QlJb1r
+    6o0KEwxdoeyc82xErKBAf+xuO+w/ye3/+zXUoPfF4THbLqvN3ELVBckj8+4Z/CIElNqQ
+    Otkw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1733297268;
+    s=strato-dkim-0003; d=outer-limits.org;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=7QTF0rM+w5EQbe0dkyUe0EzmXHLlCV/ymZQZNrVKoto=;
+    b=pDac4oALLSCJWwi2Zc4IMR1V0n1zxBNs0rdh1Uqkl3kq2KLWgXavwjx5lu3zHNwjVl
+    dtv55yj5hQs1ZDXj6FCg==
+X-RZG-AUTH: ":JnkIfEGmW/AMJS6HttH4FbRVwc4dHlPLCp4e/IoHo8zEMMHAgwTfqBFXdk5Zv9blcw/Guou9tnmlcuycxXU9rVIojJAYOMzGkPFeCwPebw=="
+Received: from [IPV6:2a02:8429:5895:8b01:5ea:3d78:a142:af08]
+    by smtp.strato.de (RZmta 51.2.11 AUTH)
+    with ESMTPSA id Ja0a030B47RmQWc
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Wed, 4 Dec 2024 08:27:48 +0100 (CET)
+Message-ID: <8d674373-0f30-4d0b-aac7-53eb38c81513@outer-limits.org>
+Date: Wed, 4 Dec 2024 08:27:48 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm: Remove IO memcpy for Big-Endian
+To: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <20241203083838.3260036-1-jvetter@outer-limits.org>
+ <609b026d-d54c-4a11-b7df-6ef0ac315f25@app.fastmail.com>
+Content-Language: en-US
+From: Julian Vetter <julian@outer-limits.org>
+In-Reply-To: <609b026d-d54c-4a11-b7df-6ef0ac315f25@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_232525_268375_1A8329A4 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20241203_232800_149631_755BA8B2 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,334 +107,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Airoha AN8855 Internal Switch Gigabit PHY.
 
-This is a simple PHY driver to configure and calibrate the PHY for the
-AN8855 Switch with the use of NVMEM cells.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- MAINTAINERS                  |   1 +
- drivers/net/phy/Kconfig      |   5 +
- drivers/net/phy/Makefile     |   1 +
- drivers/net/phy/air_an8855.c | 267 +++++++++++++++++++++++++++++++++++
- 4 files changed, 274 insertions(+)
- create mode 100644 drivers/net/phy/air_an8855.c
+On 03.12.24 11:08, Arnd Bergmann wrote:
+> On Tue, Dec 3, 2024, at 09:38, Julian Vetter wrote:
+>> From: Julian Vetter <julian@outer-limits.org>
+>>
+>> Recently a new IO memcpy was added in libs/iomem_copy.c. So, remove the
+>> byte-wise IO memcpy operations used in ARM big endian builds and fall
+>> back to the new generic implementation. It will be slightly faster,
+>> because it uses machine word accesses if the memory is aligned and falls
+>> back to byte-wise accesses if its not.
+>>
+>> Signed-off-by: Julian Vetter <julian@outer-limits.org>
+>> ---
+>>   arch/arm/include/asm/io.h | 11 ----------
+>>   arch/arm/kernel/io.c      | 46 ---------------------------------------
+>>   2 files changed, 57 deletions(-)
+> 
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e3077d9feee2..cf34add2a0bb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -726,6 +726,7 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
- F:	drivers/net/dsa/an8855.c
- F:	drivers/net/dsa/an8855.h
-+F:	drivers/net/phy/air_an8855.c
- 
- AIROHA ETHERNET DRIVER
- M:	Lorenzo Bianconi <lorenzo@kernel.org>
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index ee3ea0b56d48..1d474038ea7f 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -79,6 +79,11 @@ config SFP
- 
- comment "MII PHY device drivers"
- 
-+config AIR_AN8855_PHY
-+	tristate "Airoha AN8855 Internal Gigabit PHY"
-+	help
-+	  Currently supports the internal Airoha AN8855 Switch PHY.
-+
- config AIR_EN8811H_PHY
- 	tristate "Airoha EN8811H 2.5 Gigabit PHY"
- 	help
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index 90f886844381..baba7894785b 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -35,6 +35,7 @@ obj-y				+= $(sfp-obj-y) $(sfp-obj-m)
- 
- obj-$(CONFIG_ADIN_PHY)		+= adin.o
- obj-$(CONFIG_ADIN1100_PHY)	+= adin1100.o
-+obj-$(CONFIG_AIR_AN8855_PHY)   += air_an8855.o
- obj-$(CONFIG_AIR_EN8811H_PHY)   += air_en8811h.o
- obj-$(CONFIG_AMD_PHY)		+= amd.o
- obj-$(CONFIG_AMCC_QT2025_PHY)	+= qt2025.o
-diff --git a/drivers/net/phy/air_an8855.c b/drivers/net/phy/air_an8855.c
-new file mode 100644
-index 000000000000..7ede6674994f
---- /dev/null
-+++ b/drivers/net/phy/air_an8855.c
-@@ -0,0 +1,267 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (C) 2024 Christian Marangi <ansuelsmth@gmail.com>
-+ */
-+
-+#include <linux/phy.h>
-+#include <linux/module.h>
-+#include <linux/bitfield.h>
-+#include <linux/nvmem-consumer.h>
-+
-+#define AN8855_PHY_SELECT_PAGE			0x1f
-+#define   AN8855_PHY_PAGE			GENMASK(2, 0)
-+#define   AN8855_PHY_PAGE_STANDARD		FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x0)
-+#define   AN8855_PHY_PAGE_EXTENDED_1		FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x1)
-+
-+/* MII Registers Page 1 */
-+#define AN8855_PHY_EXT_REG_14			0x14
-+#define   AN8855_PHY_EN_DOWN_SHIFT		BIT(4)
-+
-+/* R50 Calibration regs in MDIO_MMD_VEND1 */
-+#define AN8855_PHY_R500HM_RSEL_TX_AB		0x174
-+#define AN8855_PHY_R50OHM_RSEL_TX_A_EN		BIT(15)
-+#define AN8855_PHY_R50OHM_RSEL_TX_A		GENMASK(14, 8)
-+#define AN8855_PHY_R50OHM_RSEL_TX_B_EN		BIT(7)
-+#define AN8855_PHY_R50OHM_RSEL_TX_B		GENMASK(6, 0)
-+#define AN8855_PHY_R500HM_RSEL_TX_CD		0x175
-+#define AN8855_PHY_R50OHM_RSEL_TX_C_EN		BIT(15)
-+#define AN8855_PHY_R50OHM_RSEL_TX_C		GENMASK(14, 8)
-+#define AN8855_PHY_R50OHM_RSEL_TX_D_EN		BIT(7)
-+#define AN8855_PHY_R50OHM_RSEL_TX_D		GENMASK(6, 0)
-+
-+#define AN8855_SWITCH_EFUSE_R50O		GENMASK(30, 24)
-+
-+/* PHY TX PAIR DELAY SELECT Register */
-+#define AN8855_PHY_TX_PAIR_DLY_SEL_GBE		0x013
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_A_GBE GENMASK(14, 12)
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_B_GBE GENMASK(10, 8)
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_C_GBE GENMASK(6, 4)
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_D_GBE GENMASK(2, 0)
-+/* PHY ADC Register */
-+#define AN8855_PHY_RXADC_CTRL			0x0d8
-+#define   AN8855_PHY_RG_AD_SAMNPLE_PHSEL_A	BIT(12)
-+#define   AN8855_PHY_RG_AD_SAMNPLE_PHSEL_B	BIT(8)
-+#define   AN8855_PHY_RG_AD_SAMNPLE_PHSEL_C	BIT(4)
-+#define   AN8855_PHY_RG_AD_SAMNPLE_PHSEL_D	BIT(0)
-+#define AN8855_PHY_RXADC_REV_0			0x0d9
-+#define   AN8855_PHY_RG_AD_RESERVE0_A		GENMASK(15, 8)
-+#define   AN8855_PHY_RG_AD_RESERVE0_B		GENMASK(7, 0)
-+#define AN8855_PHY_RXADC_REV_1			0x0da
-+#define   AN8855_PHY_RG_AD_RESERVE0_C		GENMASK(15, 8)
-+#define   AN8855_PHY_RG_AD_RESERVE0_D		GENMASK(7, 0)
-+
-+#define AN8855_PHY_ID				0xc0ff0410
-+
-+#define AN8855_PHY_FLAGS_EN_CALIBRATION		BIT(0)
-+
-+struct air_an8855_priv {
-+	u8 calibration_data[4];
-+};
-+
-+static const u8 dsa_r50ohm_table[] = {
-+	127, 127, 127, 127, 127, 127, 127, 127, 127, 127,
-+	127, 127, 127, 127, 127, 127, 127, 126, 122, 117,
-+	112, 109, 104, 101,  97,  94,  90,  88,  84,  80,
-+	78,  74,  72,  68,  66,  64,  61,  58,  56,  53,
-+	51,  48,  47,  44,  42,  40,  38,  36,  34,  32,
-+	31,  28,  27,  24,  24,  22,  20,  18,  16,  16,
-+	14,  12,  11,   9
-+};
-+
-+static int en8855_get_r50ohm_val(struct device *dev, const char *calib_name,
-+				 u8 *dest)
-+{
-+	u32 shift_sel, val;
-+	int ret;
-+	int i;
-+
-+	ret = nvmem_cell_read_u32(dev, calib_name, &val);
-+	if (ret)
-+		return ret;
-+
-+	shift_sel = FIELD_GET(AN8855_SWITCH_EFUSE_R50O, val);
-+	for (i = 0; i < ARRAY_SIZE(dsa_r50ohm_table); i++)
-+		if (dsa_r50ohm_table[i] == shift_sel)
-+			break;
-+
-+	if (i < 8 || i >= ARRAY_SIZE(dsa_r50ohm_table))
-+		*dest = dsa_r50ohm_table[25];
-+	else
-+		*dest = dsa_r50ohm_table[i - 8];
-+
-+	return 0;
-+}
-+
-+static int an8855_probe(struct phy_device *phydev)
-+{
-+	struct device *dev = &phydev->mdio.dev;
-+	struct device_node *node = dev->of_node;
-+	struct air_an8855_priv *priv;
-+	int ret;
-+
-+	/* If we don't have a node, skip get calib */
-+	if (!node)
-+		return 0;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	ret = en8855_get_r50ohm_val(dev, "tx_a", &priv->calibration_data[0]);
-+	if (ret)
-+		return ret;
-+
-+	ret = en8855_get_r50ohm_val(dev, "tx_b", &priv->calibration_data[1]);
-+	if (ret)
-+		return ret;
-+
-+	ret = en8855_get_r50ohm_val(dev, "tx_c", &priv->calibration_data[2]);
-+	if (ret)
-+		return ret;
-+
-+	ret = en8855_get_r50ohm_val(dev, "tx_d", &priv->calibration_data[3]);
-+	if (ret)
-+		return ret;
-+
-+	phydev->priv = priv;
-+
-+	return 0;
-+}
-+
-+static int an8855_get_downshift(struct phy_device *phydev, u8 *data)
-+{
-+	int val;
-+
-+	val = phy_read_paged(phydev, AN8855_PHY_PAGE_EXTENDED_1, AN8855_PHY_EXT_REG_14);
-+	if (val < 0)
-+		return val;
-+
-+	*data = val & AN8855_PHY_EN_DOWN_SHIFT ? DOWNSHIFT_DEV_DEFAULT_COUNT :
-+						 DOWNSHIFT_DEV_DISABLE;
-+
-+	return 0;
-+}
-+
-+static int an8855_set_downshift(struct phy_device *phydev, u8 cnt)
-+{
-+	u16 ds = cnt != DOWNSHIFT_DEV_DISABLE ? AN8855_PHY_EN_DOWN_SHIFT : 0;
-+
-+	return phy_modify_paged(phydev, AN8855_PHY_PAGE_EXTENDED_1,
-+				AN8855_PHY_EXT_REG_14, AN8855_PHY_EN_DOWN_SHIFT,
-+				ds);
-+}
-+
-+static int an8855_config_init(struct phy_device *phydev)
-+{
-+	struct air_an8855_priv *priv = phydev->priv;
-+	int ret;
-+
-+	/* Enable HW auto downshift */
-+	ret = an8855_set_downshift(phydev, DOWNSHIFT_DEV_DEFAULT_COUNT);
-+	if (ret)
-+		return ret;
-+
-+	/* Apply calibration values, if needed.
-+	 * AN8855_PHY_FLAGS_EN_CALIBRATION signal this.
-+	 */
-+	if (priv && phydev->dev_flags & AN8855_PHY_FLAGS_EN_CALIBRATION) {
-+		u8 *calibration_data = priv->calibration_data;
-+
-+		ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_R500HM_RSEL_TX_AB,
-+				     AN8855_PHY_R50OHM_RSEL_TX_A | AN8855_PHY_R50OHM_RSEL_TX_B,
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_A, calibration_data[0]) |
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_B, calibration_data[1]));
-+		if (ret)
-+			return ret;
-+		ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_R500HM_RSEL_TX_CD,
-+				     AN8855_PHY_R50OHM_RSEL_TX_C | AN8855_PHY_R50OHM_RSEL_TX_D,
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_C, calibration_data[2]) |
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_D, calibration_data[3]));
-+		if (ret)
-+			return ret;
-+	}
-+
-+	/* Apply values to reduce signal noise */
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_TX_PAIR_DLY_SEL_GBE,
-+			    FIELD_PREP(AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_A_GBE, 0x4) |
-+			    FIELD_PREP(AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_C_GBE, 0x4));
-+	if (ret)
-+		return ret;
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_CTRL,
-+			    AN8855_PHY_RG_AD_SAMNPLE_PHSEL_A |
-+			    AN8855_PHY_RG_AD_SAMNPLE_PHSEL_C);
-+	if (ret)
-+		return ret;
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_REV_0,
-+			    FIELD_PREP(AN8855_PHY_RG_AD_RESERVE0_A, 0x1));
-+	if (ret)
-+		return ret;
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_REV_1,
-+			    FIELD_PREP(AN8855_PHY_RG_AD_RESERVE0_C, 0x1));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int an8855_get_tunable(struct phy_device *phydev,
-+			      struct ethtool_tunable *tuna, void *data)
-+{
-+	switch (tuna->id) {
-+	case ETHTOOL_PHY_DOWNSHIFT:
-+		return an8855_get_downshift(phydev, data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int an8855_set_tunable(struct phy_device *phydev,
-+			      struct ethtool_tunable *tuna, const void *data)
-+{
-+	switch (tuna->id) {
-+	case ETHTOOL_PHY_DOWNSHIFT:
-+		return an8855_set_downshift(phydev, *(const u8 *)data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int an8855_read_page(struct phy_device *phydev)
-+{
-+	return __phy_read(phydev, AN8855_PHY_SELECT_PAGE);
-+}
-+
-+static int an8855_write_page(struct phy_device *phydev, int page)
-+{
-+	return __phy_write(phydev, AN8855_PHY_SELECT_PAGE, page);
-+}
-+
-+static struct phy_driver an8855_driver[] = {
-+{
-+	PHY_ID_MATCH_EXACT(AN8855_PHY_ID),
-+	.name			= "Airoha AN8855 internal PHY",
-+	/* PHY_GBIT_FEATURES */
-+	.flags			= PHY_IS_INTERNAL,
-+	.probe			= an8855_probe,
-+	.config_init		= an8855_config_init,
-+	.soft_reset		= genphy_soft_reset,
-+	.get_tunable		= an8855_get_tunable,
-+	.set_tunable		= an8855_set_tunable,
-+	.suspend		= genphy_suspend,
-+	.resume			= genphy_resume,
-+	.read_page		= an8855_read_page,
-+	.write_page		= an8855_write_page,
-+}, };
-+
-+module_phy_driver(an8855_driver);
-+
-+static struct mdio_device_id __maybe_unused an8855_tbl[] = {
-+	{ PHY_ID_MATCH_EXACT(AN8855_PHY_ID) },
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(mdio, an8855_tbl);
-+
-+MODULE_DESCRIPTION("Airoha AN8855 PHY driver");
-+MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.45.2
+Hello Arnd,
+first, sorry, that I messed up my sender email while sending the patch.
+
+> I'm not sure if this is safe on all platforms. Big-endian arm
+> is extremely rare in practice, and in comes in multiple variants
+> that behave slightly differently:
+> 
+> - On modern ARMv7 the byte-invariant big-endian "BE8" mode
+>    generally well-behaved and works as one would expect it to.
+> 
+> - There is one ARMv5 "BE32" based platform, the ixp4xx, which
+>    works differently, and this in turn allows multiple configurations
+>    for its buses where a byte-swap is performed in the PCI
+>    controller.
+> 
+> When the little-endian I/O string operations got optimized to
+> calling the word-based helpers in commit 7ddfe625cbc1 ("ARM:
+> optimize memset_io()/memcpy_fromio()/memcpy_toio()"), Russell
+> intentionally left the big-endian versions alone, which I think
+> was done for the case of PCI on ixp4xx, but could have been
+> out of general caution.
+> 
+
+Wow, thank you for the explanation!
+
+> Before we apply your patch, I think the minimum would be to
+> have Linus Walleij try it out on an an ixp4xx with a driver
+> that uses these functions. Maybe Russell remembers the exact
+> constraints that led to using byte access for big-endian
+> mmio string operations, and whether the new lib/iomem_copy.c
+> version causes problems.
+> 
+> I also looked at the little-endian arm32 version, and
+> it seems that here the generic code would work fine, but
+> the custom variant is likely much faster when both the
+> source and destination buffers are aligned, as it can
+> do larger MMIO transactions using ldm/stm instructions,
+> though the generic version would be a bit better if the
+> in-memory buffer is unaligned.
+> We could get the best of both by implementing optimized
+> arm32 versions __iowrite32_copy()/__ioread32_copy and
+> using those in the generic memcpy_{from,to}io.
+> 
+
+ok, then I will wait for now, to see if it works with the current 
+version. If not, I will have a look at using the 
+__iowrite32_copy/__ioread32_copy functions.
+
+>         Arnd
 
 
