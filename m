@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F90E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 11:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50016E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 11:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sh5uOcrV5qXqRGHx9HhO+yy8BE7TzRkntx9irU8GVxM=; b=0qsVSfY2eI0O3wRKFNLIkY8Z2n
-	SlZ8ftX3vFP9BI05lOwNdCa2WyttkyfEV0L5EITPEtWn7LxlVh70EnJJ3z7RPBiy0np4cmUdDOXMz
-	aqZcM7ySMBt1jSA7lFpBEB4p4J1yE3dIzLw6DrBLdL37YzXcaufZWoVTrKgFTAvx7zv9nu1EshlL/
-	/HfDX3FnFIqD7jBqRmNhJkbKaEW5YRnKOrd4I9cS+IeAwCkJ98ocWYOGbCEBE9x/bO6S4hSCPOcRN
-	vYy06uJrA+5UahvAp8ve9fWlC7qvO4fT1j+Qvt4m/DlEJrpwD3ZGbrI+wW03VODvdvU1yzK0xrbwL
-	v0WhnNzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5idbvNyrHZyan+emBRP5C7lgPCobP/XRbc6txHnTLEA=; b=msDMsCkzT+Dd0G9tHNl51qFWHs
+	F9u/bTxIZPLsj/cXXTjgKMpFfrijEYySPkVcaUbD8jHofiMfSidi+Y+YwaCWyQTAEVQP5j/hc0cRy
+	ZxIdBkNX9r75JoY/t6eql436dHaQ39S2a5x6z/OXPHZKB3JsLxBHFAzwFNk7C8ATnNjLDp4QM+Cay
+	8np202+OLrE/GU+p6b0HS6lKv0PhFVvXiVSbCRbSm7rTHA1oGEzyCzkYKLtG8kaKuEe3mY2Xthc8u
+	eo9Oj91C7jdILu9j1EJ8hMw8//YQyjMOJZhw8kId47ZpAUeK1GUMQ+dJrIc520pt7aDCtKQE1CJPs
+	qQ1LSXVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tInUH-0000000CNAW-30le;
-	Wed, 04 Dec 2024 11:24:09 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1tInVG-0000000CNOG-1SMq;
+	Wed, 04 Dec 2024 11:25:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tInTG-0000000CMvn-3Twr
+	id 1tInU0-0000000CN6C-249Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 11:23:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733311387; x=1764847387;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Lm5PIHzRjou6UpwctHmF45CdibJIcEp58ZTJhFUoYJ8=;
-  b=mecWWA2cvBK1jW3eDhZ3vvgZm/Y2HjfWgtquZuF7+uMKILtBYFjlktAW
-   pc3Kp38hGY1EHGQj3IM6/oXhn0IcG+T9CZ4EcnOu7bJpDwum//0TINSzS
-   n47xbxuXbJ12mlk1anFjqP7u+gkClXOtqm1ZpCumBWO/k/oj2120O2Z98
-   CvCpo2WvBK7eDT5szNH/5h0UKHIlg2JyuZsB6UFPI5dkBITXZqO97yfuI
-   qvQGTgjQ6JgjENqaIz93KYgr46anmlwIi9MozQeBJSUmocgVAUH6Iseu9
-   +PxlE5aDoXHoK237hTLV0v6GVrEihNbvSWxpP8H95oLEjSLVNSDCxIQi9
-   A==;
-X-CSE-ConnectionGUID: 6O2q/N9xQaqrC5tCC9g/CQ==
-X-CSE-MsgGUID: 1KmQilEPTM2vT97pHzp7fQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11275"; a="51104507"
-X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
-   d="scan'208";a="51104507"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 03:23:05 -0800
-X-CSE-ConnectionGUID: hNc4TBZaQeKSTPMtboscnw==
-X-CSE-MsgGUID: UJSjbqqeSUeL+IVFxnc6Pw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
-   d="scan'208";a="98726046"
-Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 04 Dec 2024 03:23:03 -0800
-Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tInTA-0002wT-1c;
-	Wed, 04 Dec 2024 11:23:00 +0000
-Date: Wed, 4 Dec 2024 19:22:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Paul Benoit <paul@os.amperecomputing.com>, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Paul Benoit <paul@os.amperecomputing.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] firmware: smccc: Support optional Arm SMC SOC_ID name
-Message-ID: <202412041926.d2p2hcQe-lkp@intel.com>
-References: <20241203212854.5565-1-paul@os.amperecomputing.com>
+	Wed, 04 Dec 2024 11:23:53 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B433V8p001110;
+	Wed, 4 Dec 2024 11:23:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=5idbvNyrHZyan+emBRP5C7
+	lgPCobP/XRbc6txHnTLEA=; b=NDwOxvNBAUfsk3bEfVHrxExq2Id/7SZtn2eO3c
+	4N6yPUpnB5VUyaUwGJ18Lw0rXbYfTp9F2plACvSnQfu45q/eJi47BkAacOaaj3DW
+	ICyusTLTA9lm9IMD4Uw7ROy+JqPJnMMB9gndRciKEbxiV45LyM7H4lrOsy1FaXQ1
+	VI28IPrVt/o6P2PJ1GL1LqT9RAuX9vf6HOI5ZmfnDWibXSlhwsTYKuRfPswMWOYI
+	kU824B3pdLtgpeAL4BC21FpA4FdaIyq7mLcRYRDpxKOywOzpyh9mI/m5nY/L25Ww
+	Aanuj2z7Q+0GHOvivRYZa6ODMR3NgADxP7+mjYVgrIp1XcWQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 439trbmfat-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Dec 2024 11:23:46 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B4BNj3N029049
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 4 Dec 2024 11:23:45 GMT
+Received: from yuanfang4-gv.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 4 Dec 2024 03:23:43 -0800
+From: yuanfang zhang <quic_yuanfang@quicinc.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
+        <james.clark@linaro.org>, <alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] coresight-etm4x: add isb() before reading the TRCSTATR
+Date: Wed, 4 Dec 2024 19:23:32 +0800
+Message-ID: <20241204112332.3706137-1-quic_yuanfang@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241203212854.5565-1-paul@os.amperecomputing.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: tAWKaZHF7z1ZzZk6bCvBZS-GuwZIBb4N
+X-Proofpoint-ORIG-GUID: tAWKaZHF7z1ZzZk6bCvBZS-GuwZIBb4N
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=943 mlxscore=0
+ suspectscore=0 spamscore=0 malwarescore=0 adultscore=0 priorityscore=1501
+ clxscore=1015 phishscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412040089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_032306_878042_7C88C3D0 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20241204_032352_537475_38A5966C 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,133 +95,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 
-kernel test robot noticed the following build warnings:
+As recommended by section 4.3.7 ("Synchronization when using system
+instructions to progrom the trace unit") of ARM IHI 0064H.b, the
+self-hosted trace analyzer must perform a Context synchronization
+event between writing to the TRCPRGCTLR and reading the TRCSTATR.
 
-[auto build test WARNING on soc/for-next]
-[also build test WARNING on linus/master v6.13-rc1 next-20241203]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Fixes: ebddaad09e10 ("coresight: etm4x: Add missing single-shot control API to sysfs")
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+Change in V2:
+Added comments in the code.
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Paul-Benoit/firmware-smccc-Support-optional-Arm-SMC-SOC_ID-name/20241204-124243
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20241203212854.5565-1-paul%40os.amperecomputing.com
-patch subject: [PATCH v2] firmware: smccc: Support optional Arm SMC SOC_ID name
-config: arm-sp7021_defconfig (https://download.01.org/0day-ci/archive/20241204/202412041926.d2p2hcQe-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241204/202412041926.d2p2hcQe-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412041926.d2p2hcQe-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/firmware/smccc/soc_id.c: In function 'str_fragment_from_reg':
->> drivers/firmware/smccc/soc_id.c:109:23: warning: right shift count >= width of type [-Wshift-count-overflow]
-     109 |         dst[4] = (reg >> 32) & 0xff;
-         |                       ^~
-   drivers/firmware/smccc/soc_id.c:110:23: warning: right shift count >= width of type [-Wshift-count-overflow]
-     110 |         dst[5] = (reg >> 40) & 0xff;
-         |                       ^~
-   drivers/firmware/smccc/soc_id.c:111:23: warning: right shift count >= width of type [-Wshift-count-overflow]
-     111 |         dst[6] = (reg >> 48) & 0xff;
-         |                       ^~
-   drivers/firmware/smccc/soc_id.c:112:23: warning: right shift count >= width of type [-Wshift-count-overflow]
-     112 |         dst[7] = (reg >> 56) & 0xff;
-         |                       ^~
-   drivers/firmware/smccc/soc_id.c: At top level:
->> drivers/firmware/smccc/soc_id.c:37:29: warning: 'smccc_soc_id_name' defined but not used [-Wunused-variable]
-      37 | static char __ro_after_init smccc_soc_id_name[136] = "";
-         |                             ^~~~~~~~~~~~~~~~~
-
-
-vim +109 drivers/firmware/smccc/soc_id.c
-
-    36	
-  > 37	static char __ro_after_init smccc_soc_id_name[136] = "";
-    38	
-    39	static int __init smccc_soc_init(void)
-    40	{
-    41		int soc_id_rev, soc_id_version;
-    42		static char soc_id_str[20], soc_id_rev_str[12];
-    43		static char soc_id_jep106_id_str[12];
-    44	
-    45		if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2)
-    46			return 0;
-    47	
-    48		soc_id_version = arm_smccc_get_soc_id_version();
-    49		if (soc_id_version == SMCCC_RET_NOT_SUPPORTED) {
-    50			pr_info("ARCH_SOC_ID not implemented, skipping ....\n");
-    51			return 0;
-    52		}
-    53	
-    54		if (soc_id_version < 0) {
-    55			pr_err("Invalid SoC Version: %x\n", soc_id_version);
-    56			return -EINVAL;
-    57		}
-    58	
-    59		soc_id_rev = arm_smccc_get_soc_id_revision();
-    60		if (soc_id_rev < 0) {
-    61			pr_err("Invalid SoC Revision: %x\n", soc_id_rev);
-    62			return -EINVAL;
-    63		}
-    64	
-    65		soc_dev_attr = kzalloc(sizeof(*soc_dev_attr), GFP_KERNEL);
-    66		if (!soc_dev_attr)
-    67			return -ENOMEM;
-    68	
-    69		sprintf(soc_id_rev_str, "0x%08x", soc_id_rev);
-    70		sprintf(soc_id_jep106_id_str, "jep106:%02x%02x",
-    71			JEP106_BANK_CONT_CODE(soc_id_version),
-    72			JEP106_ID_CODE(soc_id_version));
-    73		sprintf(soc_id_str, "%s:%04x", soc_id_jep106_id_str,
-    74			IMP_DEF_SOC_ID(soc_id_version));
-    75	
-    76		soc_dev_attr->soc_id = soc_id_str;
-    77		soc_dev_attr->revision = soc_id_rev_str;
-    78		soc_dev_attr->family = soc_id_jep106_id_str;
-    79		soc_dev_attr->machine = smccc_soc_name_init();
-    80	
-    81		soc_dev = soc_device_register(soc_dev_attr);
-    82		if (IS_ERR(soc_dev)) {
-    83			kfree(soc_dev_attr);
-    84			return PTR_ERR(soc_dev);
-    85		}
-    86	
-    87		pr_info("ID = %s Revision = %s\n", soc_dev_attr->soc_id,
-    88			soc_dev_attr->revision);
-    89	
-    90		return 0;
-    91	}
-    92	module_init(smccc_soc_init);
-    93	
-    94	static void __exit smccc_soc_exit(void)
-    95	{
-    96		if (soc_dev)
-    97			soc_device_unregister(soc_dev);
-    98		kfree(soc_dev_attr);
-    99	}
-   100	module_exit(smccc_soc_exit);
-   101	
-   102	
-   103	static inline void str_fragment_from_reg(char *dst, unsigned long reg)
-   104	{
-   105		dst[0] = (reg >> 0)  & 0xff;
-   106		dst[1] = (reg >> 8)  & 0xff;
-   107		dst[2] = (reg >> 16) & 0xff;
-   108		dst[3] = (reg >> 24) & 0xff;
- > 109		dst[4] = (reg >> 32) & 0xff;
-   110		dst[5] = (reg >> 40) & 0xff;
-   111		dst[6] = (reg >> 48) & 0xff;
-   112		dst[7] = (reg >> 56) & 0xff;
-   113	}
-   114	
-
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 66d44a404ad0..decb3a87e27e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -906,6 +906,13 @@ static void etm4_disable_hw(void *info)
+ 	tsb_csync();
+ 	etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
+ 
++	/*
++	 * As recommended by section 4.3.7 ("Synchronization when using system
++	 * instructions to progrom the trace unit") of ARM IHI 0064H.b, the
++	 * self-hosted trace analyzer must perform a Context synchronization
++	 * event between writing to the TRCPRGCTLR and reading the TRCSTATR.
++	 */
++	isb();
+ 	/* wait for TRCSTATR.PMSTABLE to go to '1' */
+ 	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
+ 		dev_err(etm_dev,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
