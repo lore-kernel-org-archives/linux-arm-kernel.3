@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB6AE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1807E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBoNT22bjOCCH26k5KlABL0rZ5aFoWyBOOtQ5GiVdgE=; b=ybNkl5KNIcvOm9bp1LJmOjQRT7
-	n5hENTIiyK5S+TzZHCtaU4N+74C3Z8FLlF/DKq3e49wKqBsZ72HURG0l0BV9BdcdsIO2RjiFFK297
-	KMWJMlTxtsgZKYhZsAkuVUpzx0GqX4YSW2UCiHMaFdynrnk4LkdvJJaUrK/VdT743L3xIYiRtwkWN
-	Bon39Wm/9Nn+9KLjdmSlA7HkzkDqFtvYY0Te7NkmMumX3fHVOWbioWKtINKP+euSGUYMuoTxkQEFq
-	PnzS2FlCTwTb39bZtroKx57CLooVG4rdprSqhJ72YwHt/F0/h4pOfoNKMZckaYfmDXwTnHyTVO+ml
-	Q7YFfUMQ==;
+	bh=lSOqBzFuf6TtEcP4WmW9ziCCynrpbdU7GCNn9SgX7ZY=; b=NGW3wXxCDH5QVUe+ivz2vwKN4z
+	CmypmGRdYww4ZRdsX+G1rvuqm8oxrNPJFdBcgrHM36LYfC7ehTBNleORXEn2+7TetBYcFgf8+ZR2R
+	cR/5mvIp0pDy9Eioh3A7IDcTD9d2q+3+nfjuKdZ9xI4X+NpW/cLO70NRu0mEWyMAsIG/P2C3DYTq/
+	LwvMubjXFoZ6IcA2SIfMYjmHQEh79GNZ+4dwhca+yuUL6fDm7rwSiHhGshR4051GqHHDigESA+0cJ
+	R+o5pj6LlbGq53UeFrDOx5XevWiyC9yWM+SfMUAZFTdxXEjBDoB55rpZuQbXjg0cZjBpYxFvRRRl/
+	7k3j0S1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlON-0000000BzUG-0vEO;
-	Wed, 04 Dec 2024 09:09:55 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tIlPK-0000000BzfU-3i3b;
+	Wed, 04 Dec 2024 09:10:54 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlNM-0000000BzHV-1m6C
+	id 1tIlNM-0000000BzI4-3VlC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 09:08:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 86EF320002;
-	Wed,  4 Dec 2024 09:08:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1733303327;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aBoNT22bjOCCH26k5KlABL0rZ5aFoWyBOOtQ5GiVdgE=;
-	b=fZ6TNfcgsKAfXWizpuvYO/VCeUpqVxLoLZU0h80AsSTwqITeBbhUdPjLlXQoRTMhTD83WZ
-	BMDO62sEiMIn92tgFQAaZOkJxlNlDDpGzkk6+e+BPQ7J6eWpGcmwWASDrdwBNmoZV0+0nu
-	SA3mA9Y1v0+JhDqxImGDJbJeSLQ5no9AOHm88gX9w7kWEAuF3Wg5oX/Y8Rs+tiY8n2LKiZ
-	NvDWh4ejpPUPPGSulUjafKPYkRXWNvDtX4JyheQYSYRuvkgiIE0Xh3Is60T+sPjTRV8P/o
-	46IVd9CX6nsK+ETjvRUGXahr6FZf6Pmti9v3gWkaaN1FH/UMEgnTV96oaKUdxQ==
-Message-ID: <6e47e420-84c4-4539-ba54-5e1e939a37a5@bootlin.com>
-Date: Wed, 4 Dec 2024 10:08:43 +0100
+	Wed, 04 Dec 2024 09:08:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Y3BTX4DDsz1kvGw;
+	Wed,  4 Dec 2024 17:06:24 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2902D1401F1;
+	Wed,  4 Dec 2024 17:08:41 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Wed, 4 Dec 2024 17:08:40 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
+Subject: Re: [PATCH 5/5] KVM: arm64: Handle DABT caused by LS64* instructions
+ on unsupported memory
+To: Marc Zyngier <maz@kernel.org>
+References: <20241202135504.14252-1-yangyicong@huawei.com>
+ <20241202135504.14252-6-yangyicong@huawei.com> <87o71trtrx.wl-maz@kernel.org>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <357fbc9b-c73e-7494-0c48-27917b95005f@huawei.com>
+Date: Wed, 4 Dec 2024 17:08:39 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Thomas Richard <thomas.richard@bootlin.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-j784s4: use ti,j7200-padconf
- compatible
-To: Francesco Dolcini <francesco@dolcini.it>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, u-kumar1@ti.com
-Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- gregory.clement@bootlin.com, thomas.petazzoni@bootlin.com,
- richard.genoud@bootlin.com
-References: <20241113-j784s4-s2r-pinctrl-v1-1-19aeb62739bc@bootlin.com>
- <20241119190106.GA70080@francesco-nb>
-Content-Language: en-US
-In-Reply-To: <20241119190106.GA70080@francesco-nb>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <87o71trtrx.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-GND-Sasl: thomas.richard@bootlin.com
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_010852_760564_3A5C9156 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20241204_010853_237933_2212A6ED 
+X-CRM114-Status: GOOD (  30.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,36 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/19/24 20:01, Francesco Dolcini wrote:
-> Hello Thomas and TI folks,
-> 
-> On Wed, Nov 13, 2024 at 11:43:05AM +0100, Thomas Richard wrote:
->> Like on j7200, pinctrl contexts shall be saved and restored during
->> suspend-to-ram.
+On 2024/12/3 17:38, Marc Zyngier wrote:
+> On Mon, 02 Dec 2024 13:55:04 +0000,
+> Yicong Yang <yangyicong@huawei.com> wrote:
 >>
->> So use ti,j7200-padconf compatible.
+>> From: Yicong Yang <yangyicong@hisilicon.com>
 >>
->> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
->> ---
->> Use ti,j7200-padconf compatible to save and restore pinctrl contexts during
->> suspend-to-ram.
->> ---
->>  arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi       |  6 +++---
->>  arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi | 12 ++++++------
+>> FEAT_LS64* instructions only support to access Device/Uncacheable
+>> memory, otherwise a data abort for unsupported Exclusive or atomic
 > 
-> Do j784s4 supports any kind of low power mode and/or suspend to ram? My
-> understanding was that this was not supported, but maybe there is some
-> details that was lost when I was told this information.
+> Not quite. FEAT_LS64WB explicitly supports Write-Back mappings.
 
-Hello Francesco,
+thanks for the information, I didn't know this since it's not listed on DDI0487K.a,
+have seen this feature from [1]. will refine the comments and mention the behaviour
+applies when no FEAT_LS64WB.
 
-We are working on suspend-to-ram support for j7200 and j784s4.
-During suspend-to-ram the SoC is fully powered-off (thanks to the PMIC
-which powers off all the power rails except the DDR which is in
-self-refresh), like on j7200.
-Please let me know if you want more details.
+[1] https://developer.arm.com/documentation/109697/2024_09/Feature-descriptions/The-Armv9-6-architecture-extension
 
-Regards,
+> 
+>> access (0x35) is generated per spec. It's implementation defined
+>> whether the target exception level is routed and is possible to
+>> implemented as route to EL2 on a VHE VM. Per DDI0487K.a Section
+>> C3.2.12.2 Single-copy atomic 64-byte load/store:
+>>
+>>   The check is performed against the resulting memory type after all
+>>   enabled stages of translation. In this case the fault is reported
+>>   at the final enabled stage of translation.
+>>
+>> If it's implemented as generate the DABT to the final enabled stage
+>> (stage-2), inject a DABT to the guest to handle it.
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  arch/arm64/kvm/mmu.c | 14 ++++++++++++++
+>>  1 file changed, 14 insertions(+)
+>>
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index c9d46ad57e52..b7e6f0a27537 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1787,6 +1787,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>>  		return 1;
+>>  	}
+>>  
+>> +	/*
+>> +	 * If instructions of FEAT_{LS64, LS64_V, LS64_ACCDATA} operated on
+>> +	 * unsupported memory regions, a DABT for unsupported Exclusive or
+>> +	 * atomic access is generated. It's implementation defined whether
+>> +	 * the exception will be taken to, a stage-1 DABT or the final enabled
+>> +	 * stage of translation (stage-2 in this case as we hit here). Inject
+>> +	 * a DABT to the guest to handle it if it's implemented as a stage-2
+>> +	 * DABT.
+>> +	 */
+>> +	if (esr_fsc_is_excl_atomic_fault(esr)) {
+>> +		kvm_inject_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+>> +		return 1;
+>> +	}
+> 
+> This doesn't seem quite right. This is injecting an *External* Data
+> Abort, which is not what the spec says happens, as you are emulating
+> the *first* acceptable behaviour:
+> 
+>   "The check is performed at each enabled stage of translation, and
+>    the fault is reported for the first stage of translation that
+>    provides an inappropriate memory type. In this case, the value of
+>    the HCR_EL2.DC bit does not cause accesses generated by the
+>    instructions to generate a stage 1 Data abort,"
+> 
+> So while the exception is reported at a different EL, the fault should
+> still be an "unsupported Exclusive or atomic access". 
 
-Thomas
+yes it's trying to emulate the first behaviour to let guest OS handle it
+as how host OS handle it - send a SIGBUS to the EL0 task if it's performing
+on unsupported memory type. Currently if such cases happens the VM will be
+killed without the handling here. Keep the injected FSC as "unsupported
+Exclusive or atomic access" should be more proper, will make it in next
+version.
+
+> But that's also
+> assuming that S2 has a device mapping, and it is EL1 that did
+> something wrong. Surely you should check the IPA against its memory
+> type?
+
+in my case it happens when both S1 and S2 mapping is normal memory, for example
+running the hwcap test (PATCH 3/5) in the VM. But yes the memory type should
+be checked here.
+
+> 
+> Further questions: what happens when a L2 guest triggers such fault?
+> I don't think you can't arbitrarily route it back to L2 without
+> looking at why it faulted.
+> 
+
+will see what affect to the nested VM case. but as you point out, it's
+too early to inject the abort here, at least we should check the memory
+type. will address it.
+
+Thanks.
+
+
+
+
 
