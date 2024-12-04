@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1B4E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109EEE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=semocD7+uD5Rr+htUCa1O9zukBc4FOENLFDL5d30jQU=; b=CoIgRYgrdrGNDrqXByx8Xc7gcc
-	2WtvMyFXGZu1ZKsFgGPJCAiXFs26wg/Jn8kVBmK9Nx7LC5gjtuHbKTyW0g7fualLL4Y34p5Tg48iO
-	EYQmG7VFnKtbgxQ4Xkitm2Ei3u5AYePPFwfnUPdLKlaEW2/TvXKXthBDsXhkKfC8swzKpim2Wo/bo
-	0wMrz3Bv6BvJfGE9NkZvkEr5rbqEXtn43Gx7SDNID5Or5K2mX3Lc81jx6NQWjyNw3/4n16fN1m1Uf
-	WL4iQd6ZBL2ecb5GIepRIzmxnF3cLBboDJyNp3TteXnJs+Lkc64hib2plkpTcdt6Kzd2VdsU8IYfF
-	FP9BmDcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5z9RnChKryCrKZ5xt8L+fSwsom/wy73EmVF7Vz33ul8=; b=euEUPgTp0dRORf+dhDEH5ef3ex
+	Y+iMvxJPXB3bZyzpagMLzPDm780dX3FYaK0/4+AQKVoheDDzmB3ncBovS/C5zDzAl8Ri+eODGBdgs
+	m8BKTHvF2OPxMIJtR8g0A9q18vIi9uy2Me7jI1JqMG78NkWWNQaae6HbVKrFj2F6DED1JL8gBCT1B
+	/x1CoMj4nmLVDDvwZcXH1xa6j2lkgVh+rNV+8Zlx8/B7dhHP/GclcKvyMuIKlKcTozFmFGzHf03u9
+	R3lsvClIWrRcrkDE/G+KqpAkk1iodLc8BpdMUEoa726iSzZnHmIql1M36hh5E67UvTQoE2qbRjr3T
+	M1HaGVlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIt1k-0000000DKp8-49jz;
-	Wed, 04 Dec 2024 17:19:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIt2j-0000000DL37-2mxt;
+	Wed, 04 Dec 2024 17:20:05 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIswk-0000000DJPb-3LT7;
-	Wed, 04 Dec 2024 17:13:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E5468A40BB1;
-	Wed,  4 Dec 2024 17:12:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98548C4CECD;
-	Wed,  4 Dec 2024 17:13:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733332433;
-	bh=eEil3V8vpg3oJ6G0qHOp/snMvidSP/VdhUMCcKQsQq4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bkFwFNdczkl905yj5flFaM14F7+fdT2zWxsMjwDx6kKTkpxj8rG4gdX28rlGCgrgz
-	 w5CkQQnjCDkpcw6PPloK/nukEd+YU5rYpdEAC2+oCwWBlUsHKzBFvdRNR0qK71mTkd
-	 hsv/FqeYHTuDABB2ijf9gaC2XCwHB3pfsnRTGrWV1nQpiArweHP/F1GRXqox6E0uUp
-	 nKPScAcE7id83rk3FY/6ywiJ7lXij94VuZ410MBMH8QavStopnWqEFI51HyIt2NhAX
-	 9gofSIYTILpYrkVTT/Z26eUsVfooOhOFG9iosfVDlD2Sa94fVD2d1NzfGHTeSeIBxR
-	 lnKrw2/6V2zjQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Defa Li <defa.li@mediatek.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Sasha Levin <sashal@kernel.org>,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-i3c@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.4 4/4] i3c: Use i3cdev->desc->info instead of calling i3c_device_get_info() to avoid deadlock
-Date: Wed,  4 Dec 2024 11:02:25 -0500
-Message-ID: <20241204160227.2217428-4-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241204160227.2217428-1-sashal@kernel.org>
-References: <20241204160227.2217428-1-sashal@kernel.org>
+	id 1tIsx0-0000000DJW1-3wpq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 17:14:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733332450; x=1764868450;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=T11iJzjX9vhpO8MRlSolJbG6EMQMPdcnGxRx1r7tIio=;
+  b=PSFkghPzHyByrPane0yfa2jDrYRkbqtIypI1RDtU0tNT2ptfzBkLOmms
+   TVan89mx+7BjElqf273lpeNzTn53RjbapfrrCGzYABbOKknB/dLm5fRC1
+   y1j8c5aMvNZ9TNK5zUz4Q69079vruqRdECGIR1blBIKtqegSC3h1CYSvp
+   DXZB5HlQxCcqcoaThhnfB8dyYmB5Ke+nlYOM6LUARZlUyXcTuYkeKCJSW
+   ZYbI7LLZoiUect/8NkK/6oauFJFsVW8SOEUMdn0SMCwtOUL+BazgZmIuz
+   2riNYh59kcHrDhyTa/ZbEgMv676Wwjxb8g/j/2FoRyH41tNzdtFF+L2pN
+   Q==;
+X-CSE-ConnectionGUID: 7MyRB1wATLKab6uV88RyKw==
+X-CSE-MsgGUID: BDUeDjq9TiiqW7sp3QoxWQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="33740158"
+X-IronPort-AV: E=Sophos;i="6.12,208,1728975600"; 
+   d="scan'208";a="33740158"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 09:14:08 -0800
+X-CSE-ConnectionGUID: x8sYC6H4Qi6SJ44mNX5BEw==
+X-CSE-MsgGUID: QQmmU4T7T5e817uTO49iCg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,208,1728975600"; 
+   d="scan'208";a="94012859"
+Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 04 Dec 2024 09:14:04 -0800
+Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tIsws-0003KL-2C;
+	Wed, 04 Dec 2024 17:14:02 +0000
+Date: Thu, 5 Dec 2024 01:13:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ming-Jen Chen <mjchen0829@gmail.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, sudeep.holla@arm.com,
+	arnd@arndb.de, peng.fan@nxp.com, conor+dt@kernel.org,
+	krzk+dt@kernel.org, robh@kernel.org, dmitry.torokhov@gmail.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v4 1/2] input: keypad: add new keypad driver for MA35D1
+Message-ID: <202412050142.nkbl6PnK-lkp@intel.com>
+References: <20241204021014.5083-2-mjchen0829@gmail.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.4.286
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241204021014.5083-2-mjchen0829@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_091354_959711_E2D23969 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20241204_091411_039004_24FB16F6 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,111 +90,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Defa Li <defa.li@mediatek.com>
+Hi Ming-Jen,
 
-[ Upstream commit 6cf7b65f7029914dc0cd7db86fac9ee5159008c6 ]
+kernel test robot noticed the following build errors:
 
-A deadlock may happen since the i3c_master_register() acquires
-&i3cbus->lock twice. See the log below.
-Use i3cdev->desc->info instead of calling i3c_device_info() to
-avoid acquiring the lock twice.
+[auto build test ERROR on dtor-input/next]
+[also build test ERROR on dtor-input/for-linus hid/for-next soc/for-next linus/master v6.13-rc1 next-20241203]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-v2:
-  - Modified the title and commit message
+url:    https://github.com/intel-lab-lkp/linux/commits/Ming-Jen-Chen/input-keypad-add-new-keypad-driver-for-MA35D1/20241204-123001
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git next
+patch link:    https://lore.kernel.org/r/20241204021014.5083-2-mjchen0829%40gmail.com
+patch subject: [PATCH v4 1/2] input: keypad: add new keypad driver for MA35D1
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20241205/202412050142.nkbl6PnK-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241205/202412050142.nkbl6PnK-lkp@intel.com/reproduce)
 
-============================================
-WARNING: possible recursive locking detected
-6.11.0-mainline
---------------------------------------------
-init/1 is trying to acquire lock:
-f1ffff80a6a40dc0 (&i3cbus->lock){++++}-{3:3}, at: i3c_bus_normaluse_lock
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412050142.nkbl6PnK-lkp@intel.com/
 
-but task is already holding lock:
-f1ffff80a6a40dc0 (&i3cbus->lock){++++}-{3:3}, at: i3c_master_register
+All errors (new ones prefixed by >>):
 
-other info that might help us debug this:
- Possible unsafe locking scenario:
+   In file included from drivers/input/keyboard/ma35d1_keypad.c:9:
+   In file included from include/linux/input.h:19:
+   In file included from include/linux/device.h:32:
+   In file included from include/linux/device/driver.h:21:
+   In file included from include/linux/module.h:19:
+   In file included from include/linux/elf.h:6:
+   In file included from arch/s390/include/asm/elf.h:181:
+   In file included from arch/s390/include/asm/mmu_context.h:11:
+   In file included from arch/s390/include/asm/pgalloc.h:18:
+   In file included from include/linux/mm.h:2228:
+   include/linux/vmstat.h:503:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     503 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     504 |                            item];
+         |                            ~~~~
+   include/linux/vmstat.h:510:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     510 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     511 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:517:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     517 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   include/linux/vmstat.h:523:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     523 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     524 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/input/keyboard/ma35d1_keypad.c:83:17: error: call to undeclared function 'readl'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      83 |         key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
+         |                        ^
+   drivers/input/keyboard/ma35d1_keypad.c:89:2: error: call to undeclared function 'writel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      89 |         writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
+         |         ^
+   drivers/input/keyboard/ma35d1_keypad.c:123:12: error: call to undeclared function 'readl'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     123 |         kstatus = readl(keypad->mmio_base + KPI_STATUS);
+         |                   ^
+   drivers/input/keyboard/ma35d1_keypad.c:129:4: error: call to undeclared function 'writel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     129 |                         writel(PDWAKE, (keypad->mmio_base + KPI_STATUS));
+         |                         ^
+   drivers/input/keyboard/ma35d1_keypad.c:148:2: error: call to undeclared function 'writel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     148 |         writel(val, keypad->mmio_base + KPI_CONF);
+         |         ^
+   drivers/input/keyboard/ma35d1_keypad.c:159:8: error: call to undeclared function 'readl'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     159 |         val = readl(keypad->mmio_base + KPI_KPE0) & ~ENKP;
+         |               ^
+   drivers/input/keyboard/ma35d1_keypad.c:160:2: error: call to undeclared function 'writel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     160 |         writel(val, keypad->mmio_base + KPI_CONF);
+         |         ^
+   drivers/input/keyboard/ma35d1_keypad.c:166:17: warning: array index 12 is past the end of the array (that has type 'const unsigned int[12]') [-Warray-bounds]
+     166 |         u32 min_diff = debounce_values[NUM_SETTINGS];
+         |                        ^               ~~~~~~~~~~~~
+   drivers/input/keyboard/ma35d1_keypad.c:53:1: note: array 'debounce_values' declared here
+      53 | static const unsigned int debounce_values[NUM_SETTINGS] = {
+         | ^
+   drivers/input/keyboard/ma35d1_keypad.c:173:25: warning: array index 12 is past the end of the array (that has type 'const unsigned int[12]') [-Warray-bounds]
+     173 |         keypad->debounce_val = debounce_register[NUM_SETTINGS];
+         |                                ^                 ~~~~~~~~~~~~
+   drivers/input/keyboard/ma35d1_keypad.c:57:1: note: array 'debounce_register' declared here
+      57 | static const unsigned int debounce_register[NUM_SETTINGS] = {
+         | ^
+   drivers/input/keyboard/ma35d1_keypad.c:349:3: error: call to undeclared function 'writel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     349 |                 writel(readl(keypad->mmio_base + KPI_CONF) | WAKEUP, keypad->mmio_base + KPI_CONF);
+         |                 ^
+   drivers/input/keyboard/ma35d1_keypad.c:349:10: error: call to undeclared function 'readl'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     349 |                 writel(readl(keypad->mmio_base + KPI_CONF) | WAKEUP, keypad->mmio_base + KPI_CONF);
+         |                        ^
+   drivers/input/keyboard/ma35d1_keypad.c:359:3: error: call to undeclared function 'writel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     359 |                 writel(readl(keypad->mmio_base + KPI_CONF) & ~(WAKEUP),
+         |                 ^
+   drivers/input/keyboard/ma35d1_keypad.c:359:10: error: call to undeclared function 'readl'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     359 |                 writel(readl(keypad->mmio_base + KPI_CONF) & ~(WAKEUP),
+         |                        ^
+   6 warnings and 11 errors generated.
 
-       CPU0
-       ----
-  lock(&i3cbus->lock);
-  lock(&i3cbus->lock);
 
- *** DEADLOCK ***
+vim +/readl +83 drivers/input/keyboard/ma35d1_keypad.c
 
- May be due to missing lock nesting notation
+    72	
+    73	static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad, unsigned int status)
+    74	{
+    75		struct input_dev *input_dev = keypad->input_dev;
+    76		u32 row_shift = get_count_order(keypad->kpi_col);
+    77		u32 *keymap = input_dev->keycode;
+    78		u32 code, key, index;
+    79		u32 key_event[4];
+    80		u64 pressed_keys = 0, released_keys = 0;
+    81	
+    82		/* Read key event status */
+  > 83		key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
+    84		key_event[1] = readl(keypad->mmio_base + KPI_KPE1);
+    85		key_event[2] = readl(keypad->mmio_base + KPI_KRE0);
+    86		key_event[3] = readl(keypad->mmio_base + KPI_KRE1);
+    87	
+    88		/* Clear key event status */
+    89		writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
+    90		writel(key_event[1], (keypad->mmio_base + KPI_KPE1));
+    91		writel(key_event[2], (keypad->mmio_base + KPI_KRE0));
+    92		writel(key_event[3], (keypad->mmio_base + KPI_KRE1));
+    93	
+    94		pressed_keys  = key_event[0] | ((u64)key_event[1] << 32);
+    95		released_keys = key_event[2] | ((u64)key_event[3] << 32);
+    96	
+    97		/* Process pressed keys */
+    98		for_each_set_bit(index, (const unsigned long *)&pressed_keys, KEY_EVENT_BITS) {
+    99			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
+   100			key = keymap[code];
+   101	
+   102			input_event(input_dev, EV_MSC, MSC_SCAN, code);
+   103			input_report_key(input_dev, key, 1);
+   104		}
+   105	
+   106		/* Process released keys */
+   107		for_each_set_bit(index, (const unsigned long *)&released_keys, KEY_EVENT_BITS) {
+   108			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
+   109			key = keymap[code];
+   110	
+   111			input_event(input_dev, EV_MSC, MSC_SCAN, code);
+   112			input_report_key(input_dev, key, 0);
+   113		}
+   114	
+   115		input_sync(input_dev);
+   116	}
+   117	
 
-2 locks held by init/1:
- #0: fcffff809b6798f8 (&dev->mutex){....}-{3:3}, at: __driver_attach
- #1: f1ffff80a6a40dc0 (&i3cbus->lock){++++}-{3:3}, at: i3c_master_register
-
-stack backtrace:
-CPU: 6 UID: 0 PID: 1 Comm: init
-Call trace:
- dump_backtrace+0xfc/0x17c
- show_stack+0x18/0x28
- dump_stack_lvl+0x40/0xc0
- dump_stack+0x18/0x24
- print_deadlock_bug+0x388/0x390
- __lock_acquire+0x18bc/0x32ec
- lock_acquire+0x134/0x2b0
- down_read+0x50/0x19c
- i3c_bus_normaluse_lock+0x14/0x24
- i3c_device_get_info+0x24/0x58
- i3c_device_uevent+0x34/0xa4
- dev_uevent+0x310/0x384
- kobject_uevent_env+0x244/0x414
- kobject_uevent+0x14/0x20
- device_add+0x278/0x460
- device_register+0x20/0x34
- i3c_master_register_new_i3c_devs+0x78/0x154
- i3c_master_register+0x6a0/0x6d4
- mtk_i3c_master_probe+0x3b8/0x4d8
- platform_probe+0xa0/0xe0
- really_probe+0x114/0x454
- __driver_probe_device+0xa0/0x15c
- driver_probe_device+0x3c/0x1ac
- __driver_attach+0xc4/0x1f0
- bus_for_each_dev+0x104/0x160
- driver_attach+0x24/0x34
- bus_add_driver+0x14c/0x294
- driver_register+0x68/0x104
- __platform_driver_register+0x20/0x30
- init_module+0x20/0xfe4
- do_one_initcall+0x184/0x464
- do_init_module+0x58/0x1ec
- load_module+0xefc/0x10c8
- __arm64_sys_finit_module+0x238/0x33c
- invoke_syscall+0x58/0x10c
- el0_svc_common+0xa8/0xdc
- do_el0_svc+0x1c/0x28
- el0_svc+0x50/0xac
- el0t_64_sync_handler+0x70/0xbc
- el0t_64_sync+0x1a8/0x1ac
-
-Signed-off-by: Defa Li <defa.li@mediatek.com>
-Link: https://lore.kernel.org/r/20241107132549.25439-1-defa.li@mediatek.com
-Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/i3c/master.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-index 02dc8e29c8280..0503f8398a86a 100644
---- a/drivers/i3c/master.c
-+++ b/drivers/i3c/master.c
-@@ -257,7 +257,8 @@ static int i3c_device_uevent(struct device *dev, struct kobj_uevent_env *env)
- 	struct i3c_device_info devinfo;
- 	u16 manuf, part, ext;
- 
--	i3c_device_get_info(i3cdev, &devinfo);
-+	if (i3cdev->desc)
-+		devinfo = i3cdev->desc->info;
- 	manuf = I3C_PID_MANUF_ID(devinfo.pid);
- 	part = I3C_PID_PART_ID(devinfo.pid);
- 	ext = I3C_PID_EXTRA_INFO(devinfo.pid);
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
