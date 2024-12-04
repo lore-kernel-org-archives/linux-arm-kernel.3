@@ -4,55 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E107DE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 13:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212CCE7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 13:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9xLEcJfgJbctDhNb9CjlGfcfkjspvzICk4M2tPP+aFg=; b=osjfmFPFvNW5t4gP+g/l+pQOAQ
-	Y/7K4hdzDf7zSBpHsPfPvo/nqD7hJ6c3uFIQuso4TIiE5lttGG7Etf5tJB5A1f7rIR4oI8q9wKHex
-	Jhmr2HAzYYsr8rjfueZrq98YcTgE1XSInOfQmQQzc3KrgPnAeY0O50QojvRSAXRaO4+1/VVGlj+aa
-	cccshTvC8y3jusyvtIV42U2K6oFWfW4BXOEWk2F35QK64cyWg1fLFuTClypx1VU6orML6mjbvnp7T
-	vtnFerkhjHhhXegNgAKdKkgyW17TZ8i10NTJ+zOSBXqrbOPfz00EMj+5RsBXWUn4TyLDvYfMXRTCN
-	4Alnrzcg==;
+	bh=Utwk63J/JAAft+jjkAFOI11XjIWN4zZIg9xhLy/xq/U=; b=gtCA9Q1M06npCvIAVvcd0Aihxu
+	/hXpxt3Rwa/llfXMfgkDpEgePgCkFjd8SgaeA4FdUOP12MeXrJ0lxJterS5fclvBtFOr8EtGqgQpB
+	dico8oG18MZO0WJUG8KQDugOAEJ9hu6m6L6yLJ1eJ1yv1lvKDEvHtqJ011psiWnAsruWR0QNDiGrK
+	5WPcL9rGKcpouVoucBnLanI9mWsLbfSdIHLMz48lqTBfFot2fZynu5LLBA7RMLH1OddBrLYLbMrX3
+	TWdIOHCKK0iPI9ATaiORCnRfyHORspnLjUcTfG+j48AR170LlOma09ul+6DqbJofaBfwZEeODijsh
+	lZG2Wkzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIp18-0000000CdDx-39ON;
-	Wed, 04 Dec 2024 13:02:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIp07-0000000Cd7t-37RF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 13:01:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4C6E1063;
-	Wed,  4 Dec 2024 05:01:34 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54AEB3F71E;
-	Wed,  4 Dec 2024 05:01:03 -0800 (PST)
-Date: Wed, 4 Dec 2024 13:01:00 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, andersson@kernel.org,
-	konrad.dybcio@linaro.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	quic_rgottimu@quicinc.com, quic_kshivnan@quicinc.com,
-	arm-scmi@vger.kernel.org, Amir Vajid <avajid@quicinc.com>
-Subject: Re: [PATCH V5 2/2] firmware: arm_scmi: vendors: Add QCOM SCMI
- Generic Extensions
-Message-ID: <Z1BSjM5heBoRFCYk@pluto>
-References: <20241115011515.1313447-1-quic_sibis@quicinc.com>
- <20241115011515.1313447-3-quic_sibis@quicinc.com>
+	id 1tIpBC-0000000CeSl-0YEr;
+	Wed, 04 Dec 2024 13:12:34 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIpAB-0000000CeHq-2ICj;
+	Wed, 04 Dec 2024 13:11:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733317892; x=1764853892;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Ofio2GaUo3BYECCkWzkKf022v7VX6gRxDeQfk5OMne8=;
+  b=bjFzKhgPzR6qXxNrrvy5/TSnSTb7lwk8bDqsOqhP2kuunr1O9DDg/Hle
+   wIU7LGQdiZyUlNUSbVDFE4AZFANRkYHQXjHygUWYmDMgqq74d5nJD2QlJ
+   udBPqErCY+tAi4YbOyO59O08FcrBraDyMROtk06PC26i5Ij8rfoh0WFAR
+   PNj8TYtp73gq+2cSQljbfbvHK4iOx/0JMp2i12fJn02gl674vpiNYwQ2k
+   ZbUaG39zt27A6U7j3mMv/HD4c1tY6iLLADXVpKHhPDMx6WIRRwGfgJe9K
+   P0OBuHmEF8N+JStWY0Ho/UcnK5Swqd6c6H1rNbYYsn0WxgHJHeZiD5C7O
+   Q==;
+X-CSE-ConnectionGUID: YViO3teZSFqRhBJBFW+Qeg==
+X-CSE-MsgGUID: g+Q+sSYySRGWcnrZHzIpMA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="33500202"
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="scan'208";a="33500202"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 05:11:30 -0800
+X-CSE-ConnectionGUID: aE1QXvDHTzaDeAjFKwnf3Q==
+X-CSE-MsgGUID: Ku4mZbNeSTCHzf9fcgKFhA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="scan'208";a="93610487"
+Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
+  by orviesa010.jf.intel.com with ESMTP; 04 Dec 2024 05:11:27 -0800
+Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tIpA4-00032x-2h;
+	Wed, 04 Dec 2024 13:11:24 +0000
+Date: Wed, 4 Dec 2024 21:10:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Fei Shao <fshao@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Fei Shao <fshao@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] drm/mediatek: dp: Support flexible length of DP
+ calibration data
+Message-ID: <202412042020.FZmfgvza-lkp@intel.com>
+References: <20241204053634.1365491-1-fshao@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241115011515.1313447-3-quic_sibis@quicinc.com>
+In-Reply-To: <20241204053634.1365491-1-fshao@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_050107_880425_D47767E9 
-X-CRM114-Status: GOOD (  38.90  )
+X-CRM114-CacheID: sfid-20241204_051131_626506_5BCB6461 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,325 +91,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 06:45:15AM +0530, Sibi Sankar wrote:
-> The QCOM SCMI Generic Extensions Protocol provides a generic way of
-> exposing a number of Qualcomm SoC specific features (like memory bus
-> scaling) through a mixture of pre-determined algorithm strings and
-> param_id pairs hosted on the SCMI controller.
->
+Hi Fei,
 
-Hi,
- 
-> Co-developed-by: Shivnandan Kumar <quic_kshivnan@quicinc.com>
-> Signed-off-by: Shivnandan Kumar <quic_kshivnan@quicinc.com>
-> Co-developed-by: Ramakrishna Gottimukkula <quic_rgottimu@quicinc.com>
-> Signed-off-by: Ramakrishna Gottimukkula <quic_rgottimu@quicinc.com>
-> Co-developed-by: Amir Vajid <avajid@quicinc.com>
-> Signed-off-by: Amir Vajid <avajid@quicinc.com>
-> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+kernel test robot noticed the following build warnings:
 
-You reworked/refactored quite a lot the internals since V4, you should
-have dropped the Reviewed-by tag.
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.13-rc1 next-20241203]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> ---
-> 
-> v4:
-> * Splitting the series into vendor protocol and memlat client.
->   Also the move the memlat client implementation back to RFC
->   due to multiple opens.
-> * Use common xfer helper to avoid code duplication [Dmitry]
-> * Update enum documentation without duplicate enum info [Dmitry]
-> 
->  drivers/firmware/arm_scmi/Kconfig             |   1 +
->  drivers/firmware/arm_scmi/Makefile            |   1 +
->  .../firmware/arm_scmi/vendors/qcom/Kconfig    |  15 ++
->  .../firmware/arm_scmi/vendors/qcom/Makefile   |   2 +
->  .../arm_scmi/vendors/qcom/qcom-generic-ext.c  | 139 ++++++++++++++++++
->  include/linux/scmi_qcom_protocol.h            |  37 +++++
->  6 files changed, 195 insertions(+)
->  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/Kconfig
->  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/Makefile
->  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
->  create mode 100644 include/linux/scmi_qcom_protocol.h
-> 
-> diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
-> index dabd874641d0..73128442d97b 100644
-> --- a/drivers/firmware/arm_scmi/Kconfig
-> +++ b/drivers/firmware/arm_scmi/Kconfig
-> @@ -71,6 +71,7 @@ config ARM_SCMI_DEBUG_COUNTERS
->  
->  source "drivers/firmware/arm_scmi/transports/Kconfig"
->  source "drivers/firmware/arm_scmi/vendors/imx/Kconfig"
-> +source "drivers/firmware/arm_scmi/vendors/qcom/Kconfig"
->  
->  endif #ARM_SCMI_PROTOCOL
->  
-> diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm_scmi/Makefile
-> index 9ac81adff567..58cf4d656cbb 100644
-> --- a/drivers/firmware/arm_scmi/Makefile
-> +++ b/drivers/firmware/arm_scmi/Makefile
-> @@ -12,6 +12,7 @@ scmi-module-objs := $(scmi-driver-y) $(scmi-protocols-y) $(scmi-transport-y)
->  
->  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += transports/
->  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += vendors/imx/
-> +obj-$(CONFIG_ARM_SCMI_PROTOCOL) += vendors/qcom/
->  
->  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-core.o
->  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-module.o
-> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/Kconfig b/drivers/firmware/arm_scmi/vendors/qcom/Kconfig
-> new file mode 100644
-> index 000000000000..5dd9e8a6b75f
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/vendors/qcom/Kconfig
-> @@ -0,0 +1,15 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +menu "ARM SCMI QCOM Vendor Protocols"
-> +
-> +config QCOM_SCMI_GENERIC_EXT
-> +	tristate "Qualcomm Technologies, Inc. Qcom SCMI vendor Protocol"
-> +	depends on ARM_SCMI_PROTOCOL || COMPILE_TEST
-> +	help
-> +	  The QCOM SCMI vendor protocol provides a generic way of exposing
-> +	  a number of Qualcomm SoC specific features (like memory bus scaling)
-> +	  through a mixture of pre-determined algorithm strings and param_id
-> +	  pairs hosted on the SCMI controller.
-> +
-> +	  This driver defines/documents the message ID's used for this
-> +	  communication and also exposes the operations used by the clients.
-> +endmenu
-> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/Makefile b/drivers/firmware/arm_scmi/vendors/qcom/Makefile
-> new file mode 100644
-> index 000000000000..6b98fabbebb8
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/vendors/qcom/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_QCOM_SCMI_GENERIC_EXT) += qcom-generic-ext.o
-> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c b/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
-> new file mode 100644
-> index 000000000000..1b209093d275
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
-> @@ -0,0 +1,139 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#include <linux/scmi_qcom_protocol.h>
-> +
-> +#include "../../common.h"
-> +
-> +/**
-> + * enum qcom_generic_ext_protocol_cmd - vendor specific commands supported by SCMI Qualcomm
-> + *                                      generic vendor protocol.
-> + *
-> + * This protocol is intended as a generic way of exposing a number of Qualcomm SoC
-> + * specific features through a mixture of pre-determined algorithm string and param_id
-> + * pairs hosted on the SCMI controller.
-> + *
-> + * The QCOM SCMI Vendor Protocol has the protocol id as 0x80 and vendor id set to
-> + * Qualcomm and the implementation version set to 0x20000. The PROTOCOL_VERSION command
-> + * returns version 1.0.
+url:    https://github.com/intel-lab-lkp/linux/commits/Fei-Shao/drm-mediatek-dp-Support-flexible-length-of-DP-calibration-data/20241204-133854
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20241204053634.1365491-1-fshao%40chromium.org
+patch subject: [PATCH] drm/mediatek: dp: Support flexible length of DP calibration data
+config: mips-allyesconfig (https://download.01.org/0day-ci/archive/20241204/202412042020.FZmfgvza-lkp@intel.com/config)
+compiler: mips-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241204/202412042020.FZmfgvza-lkp@intel.com/reproduce)
 
-The chosen protocol ID is already defined in the protocol doc in the
-series, and the note about the implementation version seems redundant,
-it is indeed specified as needed in scmi_protocol.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412042020.FZmfgvza-lkp@intel.com/
 
-> + *
-> + * @QCOM_SCMI_SET_PARAM: is used to set the parameter of a specific algo_str hosted on
-> + *			 QCOM SCMI Vendor Protocol. The tx len depends on the algo_str used.
-> + * @QCOM_SCMI_GET_PARAM: is used to get parameter information of a specific algo_str
-> + *			 hosted on QCOM SCMI Vendor Protocol. The tx and rx len depends
-> + *			 on the algo_str used.
-> + * @QCOM_SCMI_START_ACTIVITY: is used to start the activity performed by the algo_str.
-> + * @QCOM_SCMI_STOP_ACTIVITY: is used to stop a pre-existing activity performed by the algo_str.
-> + */
-> +enum qcom_generic_ext_protocol_cmd {
-> +	QCOM_SCMI_SET_PARAM = 0x10,
-> +	QCOM_SCMI_GET_PARAM = 0x11,
-> +	QCOM_SCMI_START_ACTIVITY = 0x12,
-> +	QCOM_SCMI_STOP_ACTIVITY = 0x13,
-> +};
-> +
-> +/**
-> + * struct qcom_scmi_msg - represents the various parameters to be populated
-> + *                        for using the QCOM SCMI Vendor Protocol
-> + *
-> + * @ext_id: reserved, must be zero
-> + * @algo_low: lower 32 bits of the algo_str
-> + * @algo_high: upper 32 bits of the algo_str
-> + * @param_id: serves as token message id to the specific algo_str
-> + * @buf: serves as the payload to the specified param_id and algo_str pair
-> + */
-> +struct qcom_scmi_msg {
-> +	__le32 ext_id;
-> +	__le32 algo_low;
-> +	__le32 algo_high;
-> +	__le32 param_id;
-> +	__le32 buf[];
-> +};
-> +
-> +static int qcom_scmi_common_xfer(const struct scmi_protocol_handle *ph,
-> +				 enum qcom_generic_ext_protocol_cmd cmd_id, void *buf,
-> +				 size_t buf_len, u64 algo_str, u32 param_id, size_t rx_size)
-> +{
-> +	struct scmi_xfer *t;
-> +	struct qcom_scmi_msg *msg;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, cmd_id, buf_len + sizeof(*msg), rx_size, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	msg = t->tx.buf;
-> +	msg->algo_low = cpu_to_le32(lower_32_bits(algo_str));
-> +	msg->algo_high = cpu_to_le32(upper_32_bits(algo_str));
-> +	msg->param_id = cpu_to_le32(param_id);
-> +	memcpy(msg->buf, buf, buf_len);
-> +
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (rx_size)
+All warnings (new ones prefixed by >>):
 
-You should check ret == 0 also here before considering to pick up the reply
-if a non-zero rx_size was specified.
+   In file included from include/linux/device.h:15,
+                    from include/drm/display/drm_dp_aux_bus.h:13,
+                    from drivers/gpu/drm/mediatek/mtk_dp.c:7:
+   drivers/gpu/drm/mediatek/mtk_dp.c: In function 'mtk_dp_get_calibration_data':
+>> drivers/gpu/drm/mediatek/mtk_dp.c:1181:34: warning: format '%lu' expects argument of type 'long unsigned int', but argument 4 has type 'size_t' {aka 'unsigned int'} [-Wformat=]
+    1181 |                                  "Out-of-bound efuse data access, fmt idx = %d, buf len = %lu\n",
+         |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:110:30: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ^~~
+   include/linux/dev_printk.h:156:61: note: in expansion of macro 'dev_fmt'
+     156 |         dev_printk_index_wrap(_dev_warn, KERN_WARNING, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                             ^~~~~~~
+   drivers/gpu/drm/mediatek/mtk_dp.c:1180:25: note: in expansion of macro 'dev_warn'
+    1180 |                         dev_warn(mtk_dp->dev,
+         |                         ^~~~~~~~
+   drivers/gpu/drm/mediatek/mtk_dp.c:1181:93: note: format string is defined here
+    1181 |                                  "Out-of-bound efuse data access, fmt idx = %d, buf len = %lu\n",
+         |                                                                                           ~~^
+         |                                                                                             |
+         |                                                                                             long unsigned int
+         |                                                                                           %u
 
-> +		memcpy(buf, t->rx.buf, t->rx.len);
 
-...you are using the same buf/buf_len to hold the TX request and get back
-the reply content if a non-zero rx_size was provided but while you can
-be sure that the reply payload rx.len <= rx_size by construction
-(via xfer_get_init) you cannot be equally sure that rx_size <= buf_len
-...it depends on te caller how this operation is invoked...so you could
-end up oveflowing buf depending on the caller-provided params...
+vim +1181 drivers/gpu/drm/mediatek/mtk_dp.c
 
-...please add some additional check at the start of this function like:
+  1148	
+  1149	static void mtk_dp_get_calibration_data(struct mtk_dp *mtk_dp)
+  1150	{
+  1151		const struct mtk_dp_efuse_fmt *fmt;
+  1152		struct device *dev = mtk_dp->dev;
+  1153		struct nvmem_cell *cell;
+  1154		u32 *cal_data = mtk_dp->cal_data;
+  1155		u32 *buf;
+  1156		int i;
+  1157		size_t len;
+  1158	
+  1159		cell = nvmem_cell_get(dev, "dp_calibration_data");
+  1160		if (IS_ERR(cell)) {
+  1161			dev_warn(dev, "Failed to get nvmem cell dp_calibration_data\n");
+  1162			goto use_default_val;
+  1163		}
+  1164	
+  1165		buf = (u32 *)nvmem_cell_read(cell, &len);
+  1166		nvmem_cell_put(cell);
+  1167	
+  1168		if (IS_ERR(buf)) {
+  1169			dev_warn(dev, "Failed to read nvmem_cell_read\n");
+  1170			goto use_default_val;
+  1171		}
+  1172	
+  1173		/* The cell length is in bytes. Convert it to be compatible with u32 buffer. */
+  1174		len /= sizeof(u32);
+  1175	
+  1176		for (i = 0; i < MTK_DP_CAL_MAX; i++) {
+  1177			fmt = &mtk_dp->data->efuse_fmt[i];
+  1178	
+  1179			if (fmt->idx >= len) {
+  1180				dev_warn(mtk_dp->dev,
+> 1181					 "Out-of-bound efuse data access, fmt idx = %d, buf len = %lu\n",
+  1182					 fmt->idx, len);
+  1183				kfree(buf);
+  1184				goto use_default_val;
+  1185			}
+  1186	
+  1187			cal_data[i] = (buf[fmt->idx] >> fmt->shift) & fmt->mask;
+  1188	
+  1189			if (cal_data[i] < fmt->min_val || cal_data[i] > fmt->max_val) {
+  1190				dev_warn(mtk_dp->dev, "Invalid efuse data, idx = %d\n", i);
+  1191				kfree(buf);
+  1192				goto use_default_val;
+  1193			}
+  1194		}
+  1195		kfree(buf);
+  1196	
+  1197		return;
+  1198	
+  1199	use_default_val:
+  1200		dev_warn(mtk_dp->dev, "Use default calibration data\n");
+  1201		for (i = 0; i < MTK_DP_CAL_MAX; i++)
+  1202			cal_data[i] = mtk_dp->data->efuse_fmt[i].default_val;
+  1203	}
+  1204	
 
-	if (rx_size > buf_len)
-		return -EINVAL;
-
-...to catch such bad invcations...
-
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int qcom_scmi_set_param(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
-> +			       u64 algo_str, u32 param_id)
-> +{
-> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_SET_PARAM, buf, buf_len, algo_str,
-> +				     param_id, 0);
-> +}
-> +
-> +static int qcom_scmi_get_param(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
-> +			       u64 algo_str, u32 param_id, size_t rx_size)
-> +{
-> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_GET_PARAM, buf, buf_len, algo_str,
-> +				     param_id, rx_size);
-> +}
-> +
-> +static int qcom_scmi_start_activity(const struct scmi_protocol_handle *ph, void *buf,
-> +				    size_t buf_len, u64 algo_str, u32 param_id)
-> +{
-> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_START_ACTIVITY, buf, buf_len, algo_str,
-> +				     param_id, 0);
-> +}
-> +
-> +static int qcom_scmi_stop_activity(const struct scmi_protocol_handle *ph, void *buf,
-> +				   size_t buf_len, u64 algo_str, u32 param_id)
-> +{
-> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_STOP_ACTIVITY, buf, buf_len, algo_str,
-> +				     param_id, 0);
-> +}
-> +
-> +static struct qcom_generic_ext_ops qcom_proto_ops = {
-> +	.set_param = qcom_scmi_set_param,
-> +	.get_param = qcom_scmi_get_param,
-> +	.start_activity = qcom_scmi_start_activity,
-> +	.stop_activity = qcom_scmi_stop_activity,
-> +};
-> +
-> +static int qcom_generic_ext_protocol_init(const struct scmi_protocol_handle *ph)
-> +{
-> +	u32 version;
-> +
-> +	ph->xops->version_get(ph, &version);
-
-... please check retval and bailout on error when not even a basic version_get
-succedeed...
-
-> +
-> +	dev_dbg(ph->dev, "QCOM Generic Vendor Version %d.%d\n",
-> +		PROTOCOL_REV_MAJOR(version), PROTOCOL_REV_MINOR(version));
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct scmi_protocol qcom_generic_ext = {
-> +	.id = SCMI_PROTOCOL_QCOM_GENERIC,
-> +	.owner = THIS_MODULE,
-> +	.instance_init = &qcom_generic_ext_protocol_init,
-> +	.ops = &qcom_proto_ops,
-> +	.vendor_id = "Qualcomm",
-> +	.impl_ver = 0x20000,
-> +};
-> +module_scmi_protocol(qcom_generic_ext);
-> +
-
-You may have to add a proper MODULE_ALIAS, if the series on autoload
-goes through
-
-https://lore.kernel.org/linux-arm-kernel/20241203200038.3961090-1-cristian.marussi@arm.com/
-
-> +MODULE_DESCRIPTION("QCOM SCMI Generic Vendor protocol");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/scmi_qcom_protocol.h b/include/linux/scmi_qcom_protocol.h
-> new file mode 100644
-> index 000000000000..465b2522ca29
-> --- /dev/null
-> +++ b/include/linux/scmi_qcom_protocol.h
-> @@ -0,0 +1,37 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * SCMI Message Protocol driver QCOM extension header
-> + *
-> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef _LINUX_SCMI_QCOM_PROTOCOL_H
-> +#define _LINUX_SCMI_QCOM_PROTOCOL_H
-> +
-> +#include <linux/types.h>
-> +
-> +#define SCMI_PROTOCOL_QCOM_GENERIC    0x80
-> +
-> +struct scmi_protocol_handle;
-> +
-> +/**
-> + * struct qcom_generic_ext_ops - represents the various operations provided
-> + *				 by QCOM Generic Vendor Protocol
-> + *
-> + * @set_param: set parameter specified by param_id and algo_str pair.
-> + * @get_param: retrieve parameter specified by param_id and algo_str pair.
-> + * @start_activity: initiate a specific activity defined by algo_str.
-> + * @stop_activity: halt previously initiated activity defined by algo_str.
-> + */
-> +struct qcom_generic_ext_ops {
-> +	int (*set_param)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
-> +			 u64 algo_str, u32 param_id);
-> +	int (*get_param)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
-> +			 u64 algo_str, u32 param_id, size_t rx_size);
-> +	int (*start_activity)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
-> +			      u64 algo_str, u32 param_id);
-> +	int (*stop_activity)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
-> +			     u64 algo_str, u32 param_id);
-> +};
-> +
-> +#endif /* _LINUX_SCMI_QCOM_PROTOCOL_H */
-> -- 
-
-Thanks,
-Cristian
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
