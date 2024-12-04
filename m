@@ -4,92 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2D2E7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50415E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sofZG67t2t5TiHfKBmKtt/dqWHMT6sCFzC4Y9QOYC8c=; b=MytdQtDwy48CA2PYbFZDlFqVBM
-	gsCRqQbJoYczjFn5XY6YKmDIR8CJz/Y9xlXZum/mPRAjOiB0CXaI4XU7q/0sUxdZQhbsuOnQzH5eJ
-	3Oa9Wn7TKP4/eVCvfPgdR7E259nmyoHY/deQTKXoGHOeOjUHrvYIC562SGn7j8a7sN5Th352KCg/w
-	AMrp0y/5FtLHD3i68ZW1mHK3JIg1z6As597MYadVXtdl6gfega06ojHtI0JibhrurJfWk+lZQiKzq
-	baBgLsw9c/ca6b5D5xeMWsDqyGmBr4Kt820LK3oJRV4ac0rXIkO4yVFZhww+Bp6ShrFDF1cTvOS9B
-	+yv2FokA==;
+	bh=l3A2A2dyYCIFcqs3vUodXDpOQcBZ1CzrLM96sSXpgMM=; b=AmU0Z9RhYnalixIzWCUGltKnbg
+	NKn4ulpoFQU1ravIWq5ExpGNiqG8ekBmA0a/ED1m5EbgLGTHflhgODFMwGBS12KwBOTcpstK5M6aA
+	ik1IS6GZLs5OBGeP51FC1z0qa/hDXCEB70kdw1XH9AVqeBjSK1GXaLazKc2lYNAcpfVAXDopfdTYU
+	wXlUULopXVgd2KbLvPk09gKRFgAqoTGDc0zH19b3Hdr4GXiL6DRWZQwuWsK/q2hZQTl3I7R1ftEP6
+	kQ1xQv/xvSuRHkZv5ojmnj9JQvDjoqrmfGAU0MVaTiJQuk8i84Z8zy+vTg/v4JAkBfv/BxWVY7R07
+	XYSsUHhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImGO-0000000C9bi-2duB;
-	Wed, 04 Dec 2024 10:05:44 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tImHN-0000000C9lw-0sGp;
+	Wed, 04 Dec 2024 10:06:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImBp-0000000C8Wr-295B
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 10:01:02 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B44uZHw010055;
-	Wed, 4 Dec 2024 10:00:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sofZG67t2t5TiHfKBmKtt/dqWHMT6sCFzC4Y9QOYC8c=; b=itLEx1xfeas760bM
-	4DlDj3jbMNd+FCQQfF7iuXdcLBAG3M+abdZDX6YJ/kKA4KHh7ngEjjUmnGTlhC8S
-	iUp52kr5MKakvesSt9908lk4cFtT47nIx7WPOvNhMLYa+mL4SXa1EwELZgEQXBqU
-	+Jo8M7NUiAGjiA0gHx3O4mJJyvOJIGJCJnkiYZQUyjlOos4vzQzTb501PQ4PPDxK
-	otosucj145ol9kUzHWwbi8lSvIcqV+0ZU07oXdnzgvzb+FMFmia9HWrpiOmPunqC
-	XIsdtOjkS/M+agN+hadOWEOkBFsiPsFnYdawTyHcQDN0TzgQu6xN8Lo3iXjaNEPZ
-	gNFWpg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43a4by2jjt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Dec 2024 10:00:55 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B4A0saV018776
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 4 Dec 2024 10:00:54 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 4 Dec 2024 02:00:44 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>
-Subject: [PATCH v7 4/5] arm64: dts: qcom: sc7280: Add support for camss
-Date: Wed, 4 Dec 2024 15:30:02 +0530
-Message-ID: <20241204100003.300123-5-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
-References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
+	id 1tImBp-0000000C8Vu-1ZSN;
+	Wed, 04 Dec 2024 10:01:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=l3A2A2dyYCIFcqs3vUodXDpOQcBZ1CzrLM96sSXpgMM=; b=x5/WXeGBk/irKh/OT/tiRi5Gft
+	L3e4DrdCYGtM4Ma9fNynoW6V6Kmkzzcxxo1joTvmLNXUNdOeeKfCI7SVtB7RFrNbte7SqV2CPwvZ1
+	5vIMlVkkj8VdPRX2D0Sd3qHS8GxbyLgB0hc4UN1weBpZ60tgh8S+t8SPESfoWHzLXSCYycSevyIa8
+	HWt7PR2wuLpeHLgjBGrTldjl35bnKeaDfajJYFrQhkGmp4yOvPIOt4j7BS0fOu1ly0hn6+QN8Mw/f
+	2pRNf1ZlU1Vov9hivIupBBoCNuyvZb94GWfOmwsFdi8mg+1UNm5PunkAyTfI3GTMxaAdPGmgT5J1F
+	9wdVhP2w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40630)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tImBZ-00035V-2u;
+	Wed, 04 Dec 2024 10:00:46 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tImBV-0005SZ-1k;
+	Wed, 04 Dec 2024 10:00:41 +0000
+Date: Wed, 4 Dec 2024 10:00:41 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v8 3/4] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+Message-ID: <Z1AoSSDqAbEisuzK@shell.armlinux.org.uk>
+References: <20241204072427.17778-1-ansuelsmth@gmail.com>
+ <20241204072427.17778-4-ansuelsmth@gmail.com>
+ <20241204100922.0af25d7e@fedora.home>
+ <67501d7b.050a0220.3390ac.353c@mx.google.com>
+ <Z1Af3YaN3xjq_Gtb@shell.armlinux.org.uk>
+ <675021f1.050a0220.34c00a.3a0c@mx.google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: djkR0OFiG5e8qU_UbDxnSHRDl_U9yEV3
-X-Proofpoint-ORIG-GUID: djkR0OFiG5e8qU_UbDxnSHRDl_U9yEV3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 clxscore=1015
- impostorscore=0 suspectscore=0 adultscore=1 phishscore=0 spamscore=0
- priorityscore=1501 malwarescore=0 lowpriorityscore=0 mlxlogscore=910
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412040077
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <675021f1.050a0220.34c00a.3a0c@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_020101_696217_21F9331E 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20241204_020101_416156_DF365460 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,199 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add changes to support the camera subsystem on the SC7280.
+On Wed, Dec 04, 2024 at 10:33:33AM +0100, Christian Marangi wrote:
+> On Wed, Dec 04, 2024 at 09:24:45AM +0000, Russell King (Oracle) wrote:
+> > > Added 5000 as this is present in documentation bits but CPU can only go
+> > > up to 2.5. Should I drop it? Idea was to futureproof it since it really
+> > > seems they added these bits with the intention of having a newer switch
+> > > with more advanced ports.
+> > 
+> > Is there any mention of supporting interfaces faster than 2500BASE-X ?
+> >
+> 
+> In MAC Layer function description, they say:
+> - Support 10/100/1000/2500/5000 Mbps bit rates
+> 
+> So in theory it can support up to that speed.
 
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
----
- arch/arm64/boot/dts/qcom/sc7280.dtsi | 172 +++++++++++++++++++++++++++
- 1 file changed, 172 insertions(+)
+Maybe the internal IP supports this but the SoC doesn't?
 
-diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-index 55db1c83ef55..e363996602d6 100644
---- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-@@ -4426,6 +4426,178 @@ cci1_i2c1: i2c-bus@1 {
- 			};
- 		};
- 
-+		camss: camss@acb3000 {
-+			compatible = "qcom,sc7280-camss";
-+
-+			reg = <0x0 0x0acb3000 0x0 0x1000>,
-+			      <0x0 0x0acba000 0x0 0x1000>,
-+			      <0x0 0x0acc1000 0x0 0x1000>,
-+			      <0x0 0x0acc8000 0x0 0x1000>,
-+			      <0x0 0x0accf000 0x0 0x1000>,
-+			      <0x0 0x0ace0000 0x0 0x2000>,
-+			      <0x0 0x0ace2000 0x0 0x2000>,
-+			      <0x0 0x0ace4000 0x0 0x2000>,
-+			      <0x0 0x0ace6000 0x0 0x2000>,
-+			      <0x0 0x0ace8000 0x0 0x2000>,
-+			      <0x0 0x0acaf000 0x0 0x4000>,
-+			      <0x0 0x0acb6000 0x0 0x4000>,
-+			      <0x0 0x0acbd000 0x0 0x4000>,
-+			      <0x0 0x0acc4000 0x0 0x4000>,
-+			      <0x0 0x0accb000 0x0 0x4000>;
-+			reg-names = "csid0",
-+				    "csid1",
-+				    "csid2",
-+				    "csid_lite0",
-+				    "csid_lite1",
-+				    "csiphy0",
-+				    "csiphy1",
-+				    "csiphy2",
-+				    "csiphy3",
-+				    "csiphy4",
-+				    "vfe0",
-+				    "vfe1",
-+				    "vfe2",
-+				    "vfe_lite0",
-+				    "vfe_lite1";
-+
-+			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-+				 <&camcc CAM_CC_CPAS_AHB_CLK>,
-+				 <&camcc CAM_CC_CSIPHY0_CLK>,
-+				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY1_CLK>,
-+				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY2_CLK>,
-+				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY3_CLK>,
-+				 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY4_CLK>,
-+				 <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
-+				 <&gcc GCC_CAMERA_AHB_CLK>,
-+				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
-+				 <&camcc CAM_CC_ICP_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_0_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_1_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CLK>,
-+				 <&camcc CAM_CC_IFE_2_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CSID_CLK>;
-+			clock-names = "camnoc_axi",
-+				      "cpas_ahb",
-+				      "csiphy0",
-+				      "csiphy0_timer",
-+				      "csiphy1",
-+				      "csiphy1_timer",
-+				      "csiphy2",
-+				      "csiphy2_timer",
-+				      "csiphy3",
-+				      "csiphy3_timer",
-+				      "csiphy4",
-+				      "csiphy4_timer",
-+				      "gcc_camera_ahb",
-+				      "gcc_cam_hf_axi",
-+				      "icp_ahb",
-+				      "vfe0",
-+				      "vfe0_axi",
-+				      "vfe0_cphy_rx",
-+				      "vfe0_csid",
-+				      "vfe1",
-+				      "vfe1_axi",
-+				      "vfe1_cphy_rx",
-+				      "vfe1_csid",
-+				      "vfe2",
-+				      "vfe2_axi",
-+				      "vfe2_cphy_rx",
-+				      "vfe2_csid",
-+				      "vfe_lite0",
-+				      "vfe_lite0_cphy_rx",
-+				      "vfe_lite0_csid",
-+				      "vfe_lite1",
-+				      "vfe_lite1_cphy_rx",
-+				      "vfe_lite1_csid";
-+
-+			interrupts = <GIC_SPI 464 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 466 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 640 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 122 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 641 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "csid0",
-+					  "csid1",
-+					  "csid2",
-+					  "csid_lite0",
-+					  "csid_lite1",
-+					  "csiphy0",
-+					  "csiphy1",
-+					  "csiphy2",
-+					  "csiphy3",
-+					  "csiphy4",
-+					  "vfe0",
-+					  "vfe1",
-+					  "vfe2",
-+					  "vfe_lite0",
-+					  "vfe_lite1";
-+
-+			interconnects = <&gem_noc  MASTER_APPSS_PROC 0 &cnoc2 SLAVE_CAMERA_CFG 0>,
-+					<&mmss_noc MASTER_CAMNOC_HF  0 &mc_virt SLAVE_EBI1     0>;
-+			interconnect-names = "ahb", "hf_0";
-+
-+			iommus = <&apps_smmu 0x800 0x4e0>;
-+
-+			power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
-+					<&camcc CAM_CC_IFE_1_GDSC>,
-+					<&camcc CAM_CC_IFE_2_GDSC>,
-+					<&camcc CAM_CC_TITAN_TOP_GDSC>;
-+			power-domain-names = "ife0", "ife1", "ife2", "top";
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+				};
-+
-+				port@4 {
-+					reg = <4>;
-+				};
-+			};
-+		};
-+
- 		camcc: clock-controller@ad00000 {
- 			compatible = "qcom,sc7280-camcc";
- 			reg = <0 0x0ad00000 0 0x10000>;
+However, I was asking about interfaces rather than speeds - so RGMII,
+SGMII, 2500BASE-X... is there a mention of anything else?
+
 -- 
-2.25.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
