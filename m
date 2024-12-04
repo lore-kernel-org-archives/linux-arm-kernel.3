@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B16E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F641E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H9QHGq8ri5lS4th1+rD5tIuDxxnlDuT/FnyzqyhrZV8=; b=kFNcmscSyv4Zj+LrpizG3bhuFX
-	i22bguuQSQ7sORyYMkBjNYlnD+Cp95/bayJJVz8FdyDaJq0oEtWXt+Ota0G7A2cMbbLA1o8TD1xxu
-	RmDf2U05EY+WIljGfCJnAkbTnNPie2uXFKAVh851VLnJjcIpSQzacitvOnGunJoqOz3FOqN1WBHdx
-	gVij281ysK9/03b5s1Pz62K/h7OIU96Cjc6P/s7IKPlf2o0gE4QuZMhVJrOhJSaqFcdlNKf8lBVXj
-	5gEiCTxaK/4KQjgWxFJL/fLrJDtyN8S0qrcs3KPoNmxx6jLzKWPQQs922nLswLObx2ph2vrxti9Bp
-	ceh/19Rg==;
+	bh=/F/Jw6nVzFg/5bLqKJNEGuEUeVHz7iX0TWknb0In0SY=; b=13TFrJWM2tjtLsZ2On6VLUYCLd
+	NxcgCzGwe8uPZ++2ky7arJBwOt3e5ak8qZwtDzdJRjLyFjtD8HhHuQvnX3uGCB0f0Erq5f8tzwkEX
+	+O4ocYfgPKKPItqniGXABUZOnO0Q2tl/sSygldcTERFEj7AEfyNcz7julIhnNFoUkrxA7eWYVkYRo
+	V6Z5SoSnK7AHZSaVok4BU2MbbU5UCd49UT+czFMsWloqiu2qutEjhc7Pk7s2VRpW13m0agrw1v4VJ
+	mFIa3Twcs4B+s7kPAbBQy3hC73tCHuygwDC0hctjfc8q6GdHq6JChFSWq02uLJl7kOyvCrwosx46H
+	bE+rH7qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImkL-0000000CEDl-2v8B;
-	Wed, 04 Dec 2024 10:36:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tImlL-0000000CEVA-1OQS;
+	Wed, 04 Dec 2024 10:37:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImdq-0000000CCbl-3lnF
+	id 1tImdv-0000000CCdJ-1aPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 10:29:59 +0000
+	Wed, 04 Dec 2024 10:30:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0D9BCA40F0B;
-	Wed,  4 Dec 2024 10:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1588C4CED6;
-	Wed,  4 Dec 2024 10:29:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7292DA40C43;
+	Wed,  4 Dec 2024 10:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BF21C4CEE0;
+	Wed,  4 Dec 2024 10:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733308197;
-	bh=8LBdUUpx/FRHg8VDxMOB3poMFcg37/aar7nw5/8IvY4=;
+	s=k20201202; t=1733308202;
+	bh=Ig2MTPjDp9GtEzGfz9dtsom3kAntHGBlM9IrrVuvXdc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lliecmitigPo/h/BYBh44zrRAsn86P8Za2KThMCS+8Q3nk6O7p9m3s1HQullUA5QI
-	 H1eFE4+ef3TyQQ/9f4RKNuxBuDWw4UvC1CRJaIySmEKHb7iAx//VdCjV4PkJ8/JtKn
-	 ZRN4Ri/fE4liCTzHKzcuVIZYkC98foP4hD9XWWNndedHcoJeJIgZozhuvKv6oBJ0mU
-	 2NRV2QQyFSeJcZpWpYb8tTh4iGbeNL8saXbOq9vElyV/GhiFTf0mYgS7CJolKMPTnx
-	 9gv47JylwWbJv25Mad5+I1Q+mHjMIo7buuFtjWoHoy/U3SgBBb5qJkPlgOsucTxfVF
-	 wYSOEeWYtN58w==
+	b=URqp8wVvZcoXJOlb/brM0MYh2hDT0FQYKcI+tyDyEkX7B5AEVaUhkpxyxUH8PjAsU
+	 R+BvTnMECQZx+QrYvVo0GaJYlbAYilUNZyLDbYbFTbvuQifMkHQpEWhc9lO2mXuz4X
+	 DqEtNOsZFbrHZZTt5s2ulDbYLr6qcUxUjr8RyzSzzMBBH8Bx/3/s+wJKonYvYwlrym
+	 Mb3O43atYmd0f9TswTPfSd2L4aGiyG78Ji3rJ3aNOGThevGlecIpjyHB+FBYSq3qgx
+	 /x96F1ZCFwgJbF1cTzk8dcFLx4cwUySoK0ffkfWEFy2MzqHw+wVOWb2rpp9KI0I7bw
+	 C2sY3lnRm0OfQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -62,17 +62,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	Russell King <linux@armlinux.org.uk>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	Tony Lindgren <tony@atomide.com>
-Subject: [PATCH 06/15] ARM: update DEPRECATED_PARAM_STRUCT removal timeline
-Date: Wed,  4 Dec 2024 11:28:55 +0100
-Message-Id: <20241204102904.1863796-7-arnd@kernel.org>
+Subject: [PATCH 07/15] ARM: s3c64xx: extend deprecation schedule
+Date: Wed,  4 Dec 2024 11:28:56 +0100
+Message-Id: <20241204102904.1863796-8-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20241204102904.1863796-1-arnd@kernel.org>
 References: <20241204102904.1863796-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_022958_996980_A6540854 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20241204_023003_485353_0997A5E0 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +89,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-This configuration option is for the older boot method that preceeded
-ATAGS. This was scheduled for removal back in 2001, but the removal
-never happened, presumably because nobody cared enough to actually do it,
-not because there are any users left.
+Mark Brown is still using this machine for regular work, so it should
+not be removed as originally scheduled.
 
-Add "(DEPRECATED)' to the Kconfig line and update the timeline so we can
-remove it next year along with the other options that are not scheduled
-for that timeframe.
+Give the platform another year, with the option to extend it further
+based on the state of ATAGS support next year.
 
+I expect that we end up removing all of s3c64xx when either Mark has
+moved his test setup to other hardware, or when all other ATAGS based
+machines are getting removed.
+
+Cc: Mark Brown <broonie@kernel.org>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/mach-s3c/Kconfig.s3c64xx | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 2167f71f184b..5278764162f8 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1411,11 +1411,11 @@ config ATAGS
- 	  it is either converted to DT or removed.
- 
- config DEPRECATED_PARAM_STRUCT
--	bool "Provide old way to pass kernel parameters"
-+	bool "Provide old way to pass kernel parameters (DEPRECATED)"
- 	depends on ATAGS
+diff --git a/arch/arm/mach-s3c/Kconfig.s3c64xx b/arch/arm/mach-s3c/Kconfig.s3c64xx
+index 8f40af063ad6..3120a40ef102 100644
+--- a/arch/arm/mach-s3c/Kconfig.s3c64xx
++++ b/arch/arm/mach-s3c/Kconfig.s3c64xx
+@@ -23,10 +23,17 @@ menuconfig ARCH_S3C64XX
  	help
- 	  This was deprecated in 2001 and announced to live on for 5 years.
--	  Some old boot loaders still use this way.
-+	  It is now scheduled for removal in early 2025.
+ 	  Samsung S3C64XX series based systems
  
- # Compressed boot loader in ROM.  Yes, we really want to ask about
- # TEXT and BSS so we preserve their values in the config files.
+-	  The platform is deprecated and scheduled for removal. Please reach to
+-	  the maintainers of the platform and linux-samsung-soc@vger.kernel.org if
+-	  you still use it.
+-	  Without such feedback, the platform will be removed after 2024.
++	  The use of ATAGS based board files is on its way out, and
++	  the only remaining S3C64xx machine in the kernel (Wolfson
++	  Cragganmore 6410) relies on this, without any realistic way
++	  to migrate it to devicetree.
++
++	  Support for S3C64XX will be kept until the 2025 LTS kernel
++	  release and may be removed in early 2026.
++
++	  Please reach out to the maintainers of the platform and
++	  linux-samsung-soc@vger.kernel.org if you use any additional
++	  s3c64xx machines based on devicetree.
+ 
+ if ARCH_S3C64XX
+ 
 -- 
 2.39.5
 
