@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60775E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 11:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E59AE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 11:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YldMD6AO6cWhmK0HNGndxAie+TN7T6jfuhzSfeZi77g=; b=bhkmWCwwngGBX1zdGVubo+qAyO
-	EuulqeAVutblxvGKt7lDI8ttw8lrahJakVOg/xo6y+Eoe/9p1ebXWvY4mQ/Gg2tehCLgYGSen5VMD
-	XrsvwEPDAuYncA7KPx8gP/4jtcovxWl09TIukgxJny1zioptQZm8yi+xLV8mslgoMuUlY1s1oHOah
-	jDY22LZ3952i04sJ/PKcS2m6y/0NNfvVEAkhxLIgnWKYmImB6vwnr9NFQLHr8LTcAgBC7SwbOBqWV
-	TZ9BuR4sdPgq6+7bIuLf6fqG/vfv8MjEo6zR6/eMEcXHr9aG19a6V6frd+qH2d0Xc06jMmUWRVcku
-	oQnUztxQ==;
+	bh=ieRLgjWf1f4VVJw0EwulfthB9XK2KV62XPC6h8BQG5k=; b=a/o2UXNLk3GIv/0KMe2ZLPywqV
+	oWiue8bfJRIq5kG6O519ISAXsuCCeBwGYBKUH2mzSx3lHBkCfqmcepNDZmR80Vy+JridlMPlpIm+F
+	94svvoN7ZDjdTGlX+G2rmhW19VLErdZXslWrheCOypkjBpPtUVk4MexBTgYRgZ8WcMXjbg6HVEh4m
+	wYgst/DSfq8Mry8BJVLW+kJWXvN72eO4fa6lGhLGGwmQ8mO3zTc/aiR7ankGVUywYcCVx2NrGDC3Q
+	/57xOk2MIkNTM1NyDo7ReZDgu5wHlok9kP96oksOrQRk01THLIcXj0fr9SbEMSWHQac+waOdCsU8G
+	Vmyp86ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIndx-0000000COkM-2Ieq;
-	Wed, 04 Dec 2024 11:34:09 +0000
+	id 1tInt3-0000000CRF3-46Js;
+	Wed, 04 Dec 2024 11:49:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIncw-0000000COcf-40PO
+	id 1tInry-0000000CQqz-3zpg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 11:33:08 +0000
+	Wed, 04 Dec 2024 11:48:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC120FEC;
-	Wed,  4 Dec 2024 03:33:33 -0800 (PST)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F9C33F71E;
-	Wed,  4 Dec 2024 03:33:04 -0800 (PST)
-Date: Wed, 4 Dec 2024 11:33:02 +0000
-From: Dave Martin <Dave.Martin@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/6] arm64/sme: Flush foreign register state in
- do_sme_acc()
-Message-ID: <Z1A97pR+un1Trtyg@e133380.arm.com>
-References: <20241203-arm64-sme-reenable-v1-0-d853479d1b77@kernel.org>
- <20241203-arm64-sme-reenable-v1-1-d853479d1b77@kernel.org>
- <Z08khk6Mg6+T6VV9@e133380.arm.com>
- <9365be76-8da6-47ce-b88e-dfa244b9e5b7@sirena.org.uk>
- <Z085GKS8jzEhcZdW@e133380.arm.com>
- <44d67835-1e43-47cc-9a18-c279c885dcec@sirena.org.uk>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DA49FEC;
+	Wed,  4 Dec 2024 03:49:05 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E3B73F71E;
+	Wed,  4 Dec 2024 03:48:35 -0800 (PST)
+Date: Wed, 4 Dec 2024 11:48:26 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, andersson@kernel.org,
+	konrad.dybcio@linaro.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	quic_rgottimu@quicinc.com, quic_kshivnan@quicinc.com,
+	arm-scmi@vger.kernel.org
+Subject: Re: [PATCH V5 1/2] firmware: arm_scmi: Add QCOM Generic Vendor
+ Protocol documentation
+Message-ID: <Z1BBirNWH1eaSKtr@pluto>
+References: <20241115011515.1313447-1-quic_sibis@quicinc.com>
+ <20241115011515.1313447-2-quic_sibis@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <44d67835-1e43-47cc-9a18-c279c885dcec@sirena.org.uk>
+In-Reply-To: <20241115011515.1313447-2-quic_sibis@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_033307_077062_0D081116 
-X-CRM114-Status: GOOD (  34.28  )
+X-CRM114-CacheID: sfid-20241204_034839_087053_2B7A2ECF 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +67,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 05:24:39PM +0000, Mark Brown wrote:
-> On Tue, Dec 03, 2024 at 05:00:08PM +0000, Dave Martin wrote:
-> > On Tue, Dec 03, 2024 at 04:00:45PM +0000, Mark Brown wrote:
-
-[...]
-
-> We know that the only bit of register state which is not up to date at
-> this point is the SME vector length, we don't configure that for tasks
-> that do not have SME.  SVCR is always configured since we have to exit
-> streaming mode for FPSIMD and SVE to work properly so we know it's
-> already 0, all the other SME specific state is gated by controls in
-> SVCR.
+On Fri, Nov 15, 2024 at 06:45:14AM +0530, Sibi Sankar wrote:
+> Add QCOM System Control Management Interface (SCMI) Generic Vendor
+> Extensions Protocol documentation.
 > 
-> > fpsimd_flush_task_state() means that we do the necessary work when re-
-> > entering userspace, but is there a problem with simply marking all the
-> > FPSIMD/vector state as stale?  If FPSR or FPCR is dirty for example, it
-> > now looks like they won't get written back to thread struct if there is
-> > a context switch before current re-enters userspace?
+> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+> ---
 > 
-> > Maybe the other flags distinguish these cases -- I haven't fully got my
-> > head around it.
+> v4:
+> * Update the protol attributes doc with more information. [Cristian]
 > 
-> We are doing fpsimd_flush_task_state() in the TIF_FOREIGN_FPSTATE case
-> so we know there is no dirty state in the registers.
-
-Ah, that wasn't obvious from the diff context, but you're right.
-
-I was confused by the fpsimd_bind_task_to_cpu() call; I forgot that
-there are reasons to call this even when TIF_FOREIGN_FPSTATE is clear.
-Perhaps it would be worth splitting some of those uses up, but it would
-need some thinking about.  Doesn't really belong in this series anyway.
-
-> > (Actually, the ARM ARM says (IMHTLZ) that toggling PSTATE.SM by any
-> > means causes FPSR to become 0x800009f.  I'm not sure where that fits in
-> > -- do we handle that anywhere?  I guess the "soft" SM toggling via
+>  .../arm_scmi/vendors/qcom/qcom_generic.rst    | 211 ++++++++++++++++++
+>  1 file changed, 211 insertions(+)
+>  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
 > 
-> Urgh, not seen that one - that needs handling in the signal entry path
-> and ptrace.  That will have been defined while the feature was being
-> implemented.  It's not relevant here though since we are in the SME
-> access trap, we might be trapping due to a SMSTART or equivalent
-> operation but that SMSTART has not yet run at the point where we return
-> to userspace.
-> 
-> > ptrace, signal delivery or maybe exec, ought to set this?  Not sure how
-> > that interacts with the expected behaviour of the fenv(3) API...  Hmm.
-> > I see no corresponding statement about FPCR.)
-> 
-> Fun.  I'm not sure how the ABI is defined there by libc.
+> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
+> new file mode 100644
+> index 000000000000..141bc932e30f
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
+> @@ -0,0 +1,211 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +.. include:: <isonum.txt>
+> +
+> +===============================================================================
+> +QCOM System Control and Management Interface(SCMI) Vendor Protocols Extension
+> +===============================================================================
+> +
+> +:Copyright: |copy| 2024, Qualcomm Innovation Center, Inc. All rights reserved.
+> +
+> +:Author: Sibi Sankar <quic_sibis@quicinc.com>
+> +
+> +SCMI_GENERIC: System Control and Management Interface QCOM Generic Vendor Protocol
+> +==================================================================================
+> +
+> +This protocol is intended as a generic way of exposing a number of Qualcomm
+> +SoC specific features through a mixture of pre-determined algorithm string and
+> +param_id pairs hosted on the SCMI controller. It implements an interface compliant
+> +with the Arm SCMI Specification with additional vendor specific commands as
+> +detailed below.
+> +
+> +Commands:
+> +_________
+> +
+> +PROTOCOL_VERSION
+> +~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x0
+> +protocol_id: 0x80
+> +
+> ++---------------+--------------------------------------------------------------+
+> +|Return values                                                                 |
+> ++---------------+--------------------------------------------------------------+
+> +|Name           |Description                                                   |
+> ++---------------+--------------------------------------------------------------+
+> +|int32 status   |See ARM SCMI Specification for status code definitions.       |
+> ++---------------+--------------------------------------------------------------+
+> +|uint32 version |For this revision of the specification, this value must be    |
+> +|               |0x10000.                                                      |
+> ++---------------+--------------------------------------------------------------+
+> +
+> +PROTOCOL_ATTRIBUTES
+> +~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x1
+> +protocol_id: 0x80
+> +
+> ++---------------+--------------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |See ARM SCMI Specification for status code definitions.    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 attributes |Bits[31:16] Reserved, must be to 0.                        |
+> +|                  |Bits[15:8] Number of agents in the system                  |
+> +|                  |Bits[7:0] Number of vendor protocols in the system         |
+> ++------------------+-----------------------------------------------------------+
 
-I guess this should be left as-is, for now.  There's an argument for
-sanitising FPCR/FPSR on signal delivery, but neither signal(7) nor
-fenv(3) give any clue about the expected behaviour...
+Thanks of clarifing this....may I ask why number of agents is reported
+here too given that it is already exposed by Base protocol ?
 
-For ptrace, the user has the opportunity to specify exactly what they
-want to happen to all the registers, so I suppose it's best to stick to
-the current model and require the tracer to specify all changes
-explicitly rather than add new magic ptrace behaviour.
+Not really arguing about this so much, but you will end up having to maintain this
+on 2 different protocols fw side...or are they not 'agents' in the SCMI meaning ?
 
-Not relevant for this series, in any case.
+Anyway, I'm fine with it, even though you dont seem to use this
+anywhere.
 
-Cheers
----Dave
+> +
+> +PROTOCOL_MESSAGE_ATTRIBUTES
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x2
+> +protocol_id: 0x80
+> +
+> ++---------------+--------------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |See ARM SCMI Specification for status code definitions.    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 attributes |For all message id's the parameter has a value of 0.       |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +QCOM_SCMI_SET_PARAM
+> +~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x10
+> +protocol_id: 0x80
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 ext_id     |Reserved, must be zero.                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 param_id   |Serves as the token message id for the algorithm string    |
+> +|                  |and is used to set various parameters supported by it.     |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Serves as the payload for the specified param_id and       |
+> +|                  |algorithm string pair.                                     |
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if the param_id and buf[] is parsed successfully  |
+> +|                  |by the chosen algorithm string.                            |
+> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+> +|                  |matches.                                                   |
+> +|                  |INVALID_PARAMETERS: if the param_id and the buf[] passed   |
+> +|                  |is rejected by the algorithm string.                       |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +QCOM_SCMI_GET_PARAM
+> +~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x11
+> +protocol_id: 0x80
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 ext_id     |Reserved, must be zero.                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_low   |Lower 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 algo_high  |Upper 32-bit value of the algorithm string.                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 param_id   |Serves as the token message id for the algorithm string.   |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 buf[]      |Serves as the payload and store of value for the specified |
+> +|                  |param_id and algorithm string pair.                        |
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if the param_id and buf[] is parsed successfully  |
+> +|                  |by the chosen algorithm string and the result is copied    |
+> +|                  |into buf[].                                                |
+> +|                  |NOT_SUPPORTED: if the algorithm string does not have any   |
+> +|                  |matches.                                                   |
+> +|                  |INVALID_PARAMETERS: if the param_id and the buf[] passed   |
+> +|                  |is rejected by the algorithm string.                       |
+> ++------------------+-----------------------------------------------------------+
+
+..missed this last time...so you should add here also a field describing
+the reply buf right ? (as it happenns really in your code) something
+like:
+
+ ++------------------+-----------------------------------------------------------+
+ +|uint32 buf[]      |Holds the payload of the result of the query.	 	 |
+ +|                  |					                         |
+ ++------------------+-----------------------------------------------------------+
+
+Thanks,
+Cristian
 
