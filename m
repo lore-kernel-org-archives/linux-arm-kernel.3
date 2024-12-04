@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5035E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81540E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 08:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2wWCK7I53pv0MXm2vf8vtfX/hrFwsCtYxZ6WvPdzWZg=; b=jKsIzvUdVdqk+W+edX8QVDnCBx
-	OmoDoWSyo1I6QyBZRpXPQZUINvdOgJStSo/Z9gGWKVVkH7KPJSYAo9ip3jkRJknoxSh2EsCwttNCw
-	U0zS1B+MELUyWBIDFg8EkT/gtmEWGa8AP/r5xw7UPGlnzmlodD2rcVc4gE+ruy25mKTtbsbbkwE3j
-	1qnHXCOPxv5EAR1SpLCkAXKU61SSQegE2H2WmvcMLVOonUFQ+s6hROT/GzMRKf5g5aZ9AZ/wJsRVu
-	rTPD2FLuOjSfVO1CdwiBtuDasGvzsqTfTlKLCweJEklNsiRlbgNieSU/9WxkqSi+bi8HnoZt6P+5w
-	Va/qTFGQ==;
+	bh=YadcVfReBs2XK7Wp6qew5wyT/6xKrDqXPFq+/V2+s1M=; b=1Ntq8yzX8scrJSWcKFu1SfndB8
+	G/vynW3OWbYhs4yQ2yHyvRSo/4Adcfbj9z0ZzqR3pI8SlYZEom3fxFCcldD0+Ya6F2xiv5oM/zQD/
+	MHZhTyNUh6PCZf2yz1kRDxKtru7imzFu+Ik2+SRRFJ+uyWBMIoMBl+CdxfOD3+OA+dtiZCWety/QT
+	9RRw2BeAZMVNhZit+EoUOEPK0GSxMbAqNbGIWORvIwBpjXuY62RkOAgNVLGhtau65V+vKcjqjCeIs
+	bdElrKeb7cGKRHmw739ITqDhoB/tgHkDLjjsoZw9fWjxKqDaZaA4AUzb4GFDD23wEcwfpmqKP789s
+	ND8uiPyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIkE7-0000000Bnpf-3b5k;
-	Wed, 04 Dec 2024 07:55:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIkSq-0000000BqL7-24JN;
+	Wed, 04 Dec 2024 08:10:28 +0000
+Received: from www530.your-server.de ([188.40.30.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIkD7-0000000BncD-15Ma
+	id 1tIkRq-0000000BqEm-088N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 07:54:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B5C105C64B8;
-	Wed,  4 Dec 2024 07:53:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92EA3C4CED1;
-	Wed,  4 Dec 2024 07:54:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733298852;
-	bh=r7spAKgJ9nwULUJ94kYk71uQKUoe4HtwLYlFt5AYFJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dg46Bgf9jwMe6I1uCUp3Lsqtqf6L/k+MOBRHQoLdYmuzUIj0YUPcWbX0FtmUbIOMh
-	 /+dpPtOR1Mg9DF47VITfak8t3HqsepZ8N0gAtcWbT/6pxjIAqvvjniAX1LLVgw7bAv
-	 V31ZZPZO5JGoHe70R9EUujt8ApeIxGQSN2FHtuLpDeFwBHMvZt7nUB4zPOdfIl+35Y
-	 shSaxILOJRNytxvk+PlaGNVVI6LhNiGKKuEe1HsxGlNunsHDkFmJ/hO3htzzthOhGs
-	 WoTh7KGN6Wdvj/s576JgluvmyghHZTCHILiPJucuZ5Ury76Jttc74A+mCtU4XIUUMJ
-	 t5DVVQuNwx9MQ==
-Date: Wed, 4 Dec 2024 08:54:09 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andrej Picej <andrej.picej@norik.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
-Subject: Re: [PATCH v3 1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add
- properties for ti,lvds-vod-swing
-Message-ID: <vgg3bygtmj6sotatddkqfapset5bofsqvkzuj7ejuvomn6hs3n@mscq2jbhtaux>
-References: <20241203110054.2506123-1-andrej.picej@norik.com>
- <20241203110054.2506123-2-andrej.picej@norik.com>
+	Wed, 04 Dec 2024 08:09:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=geanix.com;
+	s=default2211; h=Content-Type:MIME-Version:Message-ID:Date:References:
+	In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=YadcVfReBs2XK7Wp6qew5wyT/6xKrDqXPFq+/V2+s1M=; b=SSt9Ck6rXSe3GL44TdtuQwfFD5
+	QJsGr8JSdRzsTF11jrSZ/UX61yTgUff3ext3xzkyh+LZMZ5MBhTlNpWdfkWT/NOC24SMpI4ywpuwO
+	4rSS5zFJqF1Os+KQcc8JiDmVk02TBUo6YpXDWIGv4Gu+3glOfM2x4tN0wxOrSaleU/Als43WjQwvP
+	NLXQV6Mb/fu1k4WNKUIR7LxiLWx7fHyagZ5Qf2bWnSldxv+35sUbHr6U9sgyvgVF8K1elPJGQkNZF
+	6uBpGGttksW6JfgwZhuHhxC7yGtUl+FRsbiS+suuWv4mkrgRMLqOeYNR+jzVfPwo6aAYEF3UuwZTw
+	IUEQIyag==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www530.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <esben@geanix.com>)
+	id 1tIkRk-00067Y-46; Wed, 04 Dec 2024 09:09:20 +0100
+Received: from [185.17.218.86] (helo=localhost)
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <esben@geanix.com>)
+	id 1tIkRj-0002A9-2K;
+	Wed, 04 Dec 2024 09:09:19 +0100
+From: Esben Haabendal <esben@geanix.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-rtc@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  stable@vger.kernel.org,  Patrice
+ Chotard <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH 0/6] rtc: Fix problems with missing UIE irqs
+In-Reply-To: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com> (Esben
+	Haabendal's message of "Tue, 03 Dec 2024 11:45:30 +0100")
+References: <20241203-rtc-uie-irq-fixes-v1-0-01286ecd9f3f@geanix.com>
+Date: Wed, 04 Dec 2024 09:09:19 +0100
+Message-ID: <87cyi798eo.fsf@geanix.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241203110054.2506123-2-andrej.picej@norik.com>
+Content-Type: text/plain
+X-Authenticated-Sender: esben@geanix.com
+X-Virus-Scanned: Clear (ClamAV 0.103.10/27476/Tue Dec  3 10:52:11 2024)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_235413_337834_7CE1BAD5 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20241204_000926_359321_1C9F0883 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 12:00:52PM +0100, Andrej Picej wrote:
-> Add properties which can be used to specify LVDS differential output
-> voltage. Since this also depends on near-end signal termination also
-> include property which sets this. LVDS differential output voltage is
-> specified with an array (min, max), which should match the one from
-> connected device.
-> 
-> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+Esben Haabendal <esben@geanix.com> writes:
+
+> This fixes a couple of different problems, that can cause RTC (alarm)
+> irqs to be missing when generating UIE interrupts.
+>
+> The first commit fixes a long-standing problem, which has been
+> documented in a comment since 2010. This fixes a race that could cause
+> UIE irqs to stop being generated, which was easily reproduced by
+> timing the use of RTC_UIE_ON ioctl with the seconds tick in the RTC.
+>
+> The last commit ensures that RTC (alarm) irqs are enabled whenever
+> RTC_UIE_ON ioctl is used.
+>
+> The driver specific commits avoids kernel warnings about unbalanced
+> enable_irq/disable_irq, which gets triggered on first RTC_UIE_ON with
+> the last commit. Before this series, the same warning should be seen
+> on initial RTC_AIE_ON with those drivers.
+
+I don't have access to hardware using cpcap, st-lpc or tps6586x rtc
+drivers, so I have not been able to test those 3 patches.
+
+/Esben
+
+> Signed-off-by: Esben Haabendal <esben@geanix.com>
 > ---
-> Changes in v3:
-> - no change
-
-
-One version of patchset per 24h.
-
-> Changes in v2:
-> - move LVDS port schema to a $defs and reference it from there
-> - properties are now defined in microvolts/ohms
-> - use 1 property for data-lane and 1 for clock-lane LVDS voltage swing
-> - add 1 property which sets LVDS near-end termination
-> - since major change was done change the authorship to myself
+> Esben Haabendal (6):
+>       rtc: interface: Fix long-standing race when setting alarm
+>       rtc: isl12022: Fix initial enable_irq/disable_irq balance
+>       rtc: cpcap: Fix initial enable_irq/disable_irq balance
+>       rtc: st-lpc: Fix initial enable_irq/disable_irq balance
+>       rtc: tps6586x: Fix initial enable_irq/disable_irq balance
+>       rtc: interface: Ensure alarm irq is enabled when UIE is enabled
+>
+>  drivers/rtc/interface.c    | 27 +++++++++++++++++++++++++++
+>  drivers/rtc/rtc-cpcap.c    |  1 +
+>  drivers/rtc/rtc-isl12022.c |  1 +
+>  drivers/rtc/rtc-st-lpc.c   |  1 +
+>  drivers/rtc/rtc-tps6586x.c |  1 +
+>  5 files changed, 31 insertions(+)
 > ---
->  .../bindings/display/bridge/ti,sn65dsi83.yaml | 36 +++++++++++++++++--
->  1 file changed, 33 insertions(+), 3 deletions(-)
-
-...
-
->  allOf:
->    - if:
->        properties:
-> @@ -120,7 +150,7 @@ allOf:
->            properties:
->              port@1: false
->  
-> -additionalProperties: false
-> +additionalProperties: true
-
-This cannot be true. Not explained in commit msg and this is not shared
-schema.
-
->  
->  examples:
->    - |
-> -- 
-> 2.34.1
-> 
+> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+> change-id: 20241203-rtc-uie-irq-fixes-f2838782d0f8
+>
+> Best regards,
 
