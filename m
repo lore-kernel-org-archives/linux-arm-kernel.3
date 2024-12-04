@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810AEE7716F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350ACE7716F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgxhGFMxN+jv0nTpz40bEBVbfKGaKfIyIzOmjG7Utww=; b=zcD/RdxgL6ZVp9mnexTsn+obLn
-	fdLD3J74WIvzqNAyRyRPBLy4hOpAd9LgEVHET66q/UJwjKViNOGie/8VI9n8Q0fGj5MDuGNfqdeoR
-	LCBeHh+G4le30LqwrrNoMARGOoQKphIU9IAfIaepc+F65/c4JnjIgk8+P3AQmLxFu3BmhwueAh+vM
-	AjB5neXoZbuSmISIpXyyA+LiIUxz4wEGj6/0Tdl/BcFc6t4sSI17PfoDpIy203Tmr4NBqziGorIVp
-	BQHqSclE6ATJwf8yfoy671kV0emgSqA/YJK4KHGW4pZ3N/oDam+ljC9g81QTOR6Tf3r/YSLJ6xTOH
-	wN0PGpJw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZQIKYI+jEybPC2DKygLR4XESx9RKvOgIqxS9RvUgEy0=; b=A/tyPG5n0vXffUbIUgF9K3K9dG
+	b75SOc/gWZwl1Or6gEI5/dJnjYEhLDe/WNHyIFOdCFcfUT3NRx6C9qIZx7/K9MbeASyId29TxI6qK
+	l2XAi1KLOyPsmg8k/wj2WasfY80ecxzN26ECxJE/4BVSNc62ZTWV+lQ0/QxiHQAK7nBnhPFFyBSgO
+	GmSB1gIHnMR8a40aBBLExcZPvHQNdhuZN+52PgxHhYM870MrSumTs9PvkeDejfOli6JDNPOg/oTbD
+	eaW10IXg0oMx7PsmgyUbPGszJnRUzYKqc08mR9Sygp2BouswEPCT+Dv2S7oe2PVtYg3lwNQIjU6wX
+	VkoDrzBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIyxh-0000000ECPv-2rpj;
-	Wed, 04 Dec 2024 23:39:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIyyh-0000000ECic-3epu;
+	Wed, 04 Dec 2024 23:40:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIymr-0000000E9Ke-0ekr;
-	Wed, 04 Dec 2024 23:28:06 +0000
+	id 1tIynX-0000000E9Wq-1s2R
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 23:28:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AB9B25C7145;
-	Wed,  4 Dec 2024 23:27:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25020C4CECD;
-	Wed,  4 Dec 2024 23:28:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 19D4B5C70F3;
+	Wed,  4 Dec 2024 23:28:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A96EC4CECD;
+	Wed,  4 Dec 2024 23:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733354884;
-	bh=Pk0XYOaSRK/hR93+uDXH8B8FrNukHwTXjp5RVOSUmb8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=k7JpU6SLU8CAYTzrG24RXFK4auc0Z8H6RSoOGCArqJ9C0tppXRwJTO+uFEamIkxFD
-	 SC9QwZaXJJH9jQk3EPdY1RPIeSeRhpCZra9Qe4YxCP2/FmKVwfjiEAoHK5ujTbYck+
-	 7GBhfBB5T3P19lhdcmMCUqkk8PQiXlD0Lzr5Wbne5+JSmU13be7qqjFCKLIWZE/XpV
-	 LwdCD/rONJLEAItyC6QBHFXrOAmOXWJtcUIwEwMbLwM06G/SePs0YaVK+2dFOFqVkt
-	 zVilk5cC24jHSBIfVnbl5jcU6ErSKp/jULFqChCqUDrHUoVSO/C3NtntSDcYGnf2Te
-	 f9tEiX1fn+LJQ==
+	s=k20201202; t=1733354926;
+	bh=TGuyA9UR05R0EA//8oCib2q+/iAF7KW5tp/fKrg23IQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jtSBvPEEQmYvHVQDnZaqb2/YY0N9ZmPseVNRJHHctbWOrjFwScEHT8Xyv8UC5aOP2
+	 87WBaQvVkCn4oIleujX1HB/OOjkv1heYmb7AR0O3iXh4O5AhMu/WqzNhnDDBj3QelI
+	 P60eOWcWkOZM3uQVmbUh3yxUl5DkbzKtGCC3tPaiPfSQ1n4jwbF9Vfr6XxzHxZE/VL
+	 OixR2Y4g8qVV8FP/RoPnBaNCAudisdwdOipeo+tacnmht2hWuKn+Q+ygSsT3nFHeGF
+	 2cprZsSzycsIU8k9v6PhgpxNRVuyZY02gHGGVxka0O3vypPCXPEQINm5RsQeBASI3f
+	 5jgjW24Sg/mGw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Saravana Kannan <saravanak@google.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Thierry Reding <treding@nvidia.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+Cc: Xu Yang <xu.yang_2@nxp.com>,
+	Peter Chen <peter.chen@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	elder@kernel.org,
-	sumit.garg@linaro.org,
-	ricardo@marliere.net,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 08/15] drm: display: Set fwnode for aux bus devices
-Date: Wed,  4 Dec 2024 17:16:02 -0500
-Message-ID: <20241204221627.2247598-8-sashal@kernel.org>
+	shawnguo@kernel.org,
+	linux-usb@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.11 01/15] usb: chipidea: add CI_HDRC_HAS_SHORT_PKT_LIMIT flag
+Date: Wed,  4 Dec 2024 17:16:55 -0500
+Message-ID: <20241204221726.2247988-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241204221627.2247598-1-sashal@kernel.org>
-References: <20241204221627.2247598-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.1
+X-stable-base: Linux 6.11.10
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_152805_235439_8110121E 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20241204_152847_566272_EE3E078D 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +79,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Saravana Kannan <saravanak@google.com>
+From: Xu Yang <xu.yang_2@nxp.com>
 
-[ Upstream commit fe2e59aa5d7077c5c564d55b7e2997e83710c314 ]
+[ Upstream commit ec841b8d73cff37f8960e209017efe1eb2fb21f2 ]
 
-fwnode needs to be set for a device for fw_devlink to be able to
-track/enforce its dependencies correctly. Without this, you'll see error
-messages like this when the supplier has probed and tries to make sure
-all its fwnode consumers are linked to it using device links:
+Currently, the imx deivice controller has below limitations:
 
-mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) with backlight-lcd0
+1. can't generate short packet interrupt if IOC not set in dTD. So if one
+   request span more than one dTDs and only the last dTD set IOC, the usb
+   request will pending there if no more data comes.
+2. the controller can't accurately deliver data to differtent usb requests
+   in some cases due to short packet. For example: one usb request span 3
+   dTDs, then if the controller received a short packet the next packet
+   will go to 2nd dTD of current request rather than the first dTD of next
+   request.
+3. can't build a bus packet use multiple dTDs. For example: controller
+   needs to send one packet of 512 bytes use dTD1 (200 bytes) + dTD2
+   (312 bytes), actually the host side will see 200 bytes short packet.
 
-Reported-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
-Tested-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Signed-off-by: Saravana Kannan <saravanak@google.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Thierry Reding <treding@nvidia.com>
-Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Link: https://lore.kernel.org/r/20241024061347.1771063-2-saravanak@google.com
+Based on these limits, add CI_HDRC_HAS_SHORT_PKT_LIMIT flag and use it on
+imx platforms.
+
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Acked-by: Peter Chen <peter.chen@kernel.org>
+Link: https://lore.kernel.org/r/20240923081203.2851768-1-xu.yang_2@nxp.com
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/display/drm_dp_aux_bus.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/usb/chipidea/ci.h          | 1 +
+ drivers/usb/chipidea/ci_hdrc_imx.c | 1 +
+ drivers/usb/chipidea/core.c        | 2 ++
+ include/linux/usb/chipidea.h       | 1 +
+ 4 files changed, 5 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_dp_aux_bus.c b/drivers/gpu/drm/display/drm_dp_aux_bus.c
-index d810529ebfb6e..ec7eac6b595f7 100644
---- a/drivers/gpu/drm/display/drm_dp_aux_bus.c
-+++ b/drivers/gpu/drm/display/drm_dp_aux_bus.c
-@@ -292,7 +292,7 @@ int of_dp_aux_populate_bus(struct drm_dp_aux *aux,
- 	aux_ep->dev.parent = aux->dev;
- 	aux_ep->dev.bus = &dp_aux_bus_type;
- 	aux_ep->dev.type = &dp_aux_device_type_type;
--	aux_ep->dev.of_node = of_node_get(np);
-+	device_set_node(&aux_ep->dev, of_fwnode_handle(of_node_get(np)));
- 	dev_set_name(&aux_ep->dev, "aux-%s", dev_name(aux->dev));
+diff --git a/drivers/usb/chipidea/ci.h b/drivers/usb/chipidea/ci.h
+index 2a38e1eb65466..e4b003d060c26 100644
+--- a/drivers/usb/chipidea/ci.h
++++ b/drivers/usb/chipidea/ci.h
+@@ -260,6 +260,7 @@ struct ci_hdrc {
+ 	bool				b_sess_valid_event;
+ 	bool				imx28_write_fix;
+ 	bool				has_portsc_pec_bug;
++	bool				has_short_pkt_limit;
+ 	bool				supports_runtime_pm;
+ 	bool				in_lpm;
+ 	bool				wakeup_int;
+diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+index bdc04ce919f7a..b76e7c3fa2c6e 100644
+--- a/drivers/usb/chipidea/ci_hdrc_imx.c
++++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+@@ -342,6 +342,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+ 	struct ci_hdrc_platform_data pdata = {
+ 		.name		= dev_name(&pdev->dev),
+ 		.capoffset	= DEF_CAPOFFSET,
++		.flags		= CI_HDRC_HAS_SHORT_PKT_LIMIT,
+ 		.notify_event	= ci_hdrc_imx_notify_event,
+ 	};
+ 	int ret;
+diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+index 835bf2428dc6e..5aa16dbfc289c 100644
+--- a/drivers/usb/chipidea/core.c
++++ b/drivers/usb/chipidea/core.c
+@@ -1076,6 +1076,8 @@ static int ci_hdrc_probe(struct platform_device *pdev)
+ 		CI_HDRC_SUPPORTS_RUNTIME_PM);
+ 	ci->has_portsc_pec_bug = !!(ci->platdata->flags &
+ 		CI_HDRC_HAS_PORTSC_PEC_MISSED);
++	ci->has_short_pkt_limit = !!(ci->platdata->flags &
++		CI_HDRC_HAS_SHORT_PKT_LIMIT);
+ 	platform_set_drvdata(pdev, ci);
  
- 	ret = device_register(&aux_ep->dev);
+ 	ret = hw_device_init(ci, base);
+diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
+index 5a7f96684ea22..ebdfef124b2bc 100644
+--- a/include/linux/usb/chipidea.h
++++ b/include/linux/usb/chipidea.h
+@@ -65,6 +65,7 @@ struct ci_hdrc_platform_data {
+ #define CI_HDRC_PHY_VBUS_CONTROL	BIT(16)
+ #define CI_HDRC_HAS_PORTSC_PEC_MISSED	BIT(17)
+ #define CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS	BIT(18)
++#define	CI_HDRC_HAS_SHORT_PKT_LIMIT	BIT(19)
+ 	enum usb_dr_mode	dr_mode;
+ #define CI_HDRC_CONTROLLER_RESET_EVENT		0
+ #define CI_HDRC_CONTROLLER_STOPPED_EVENT	1
 -- 
 2.43.0
 
