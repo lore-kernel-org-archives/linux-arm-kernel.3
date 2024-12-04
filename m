@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A43E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E70E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Z8SsfJIMZ6wbDGLFC2pyak5YjkCzmlnT64gSuKBGIU=; b=v9qYXxZYpE9b0zZprHsDkpbooV
-	ewiQ2aoYKsAAR1wxocT0Q6MHrK8Fxg4CEvN1y0tohiGmbQpZbf3msAhCsqaMAX55O/7gr3V5rJv7s
-	iMQwi5RmdUMQcNbJ08C4s0tWPCLI0oiKHO124qfmBG0PyiZAbObxkZBCwC7cJPPNnds1AcesKvMrI
-	MXklHt50HNCftgWw2jQn7l7SdPtbQzAQlIhhdrCS4BaCkqKc57edJMUMNQDMV97xvuzfltGhhHkqG
-	xSu1/cEm4oIdAuMSUKcCGPokpxy8k5y6aMxNoDHyWY8IJ24PlZh3pY7whqNryMKCsMpRPth/tEvaq
-	dXuOhHFg==;
+	bh=U+nWpBtPZhDKntcZxCUK7yH7Edf8LM87G3Th86ukbSQ=; b=IaePuPtL5KL8xBiNAaXn7HxgtT
+	p/BdHo4upLxvhbe8hH8u0ky27YAXWNJa4N/hkVhFoWaFYYtbb7ZpCK926NFW5zAt8lQ5Yz0/l52hq
+	6OBQqi8LvJ9kNoaVD0SW+I3Ku9PVFa99FA4JHT7Ua6HZtBilN8eFT+3qWFKFDhD0JRDZeLj4jtQva
+	SIGLV/Qv9Z+KdatZLQCzLLYLTpXFuyxqd4W8lSOMZ3NewqLicBgMU3DnIlCjW0Cm9OtxH1v8Y8Ofk
+	W5hPyTXnRaxXQELaG0qaIxlR6ujpMM6FBVhUEnNVtjcG82B6h4rrjM9xFDtP2POk4383cyT9l8KrB
+	8Av30oVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqvu-0000000Cw10-0sdG;
-	Wed, 04 Dec 2024 15:04:54 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tIqws-0000000CwD2-3UeV;
+	Wed, 04 Dec 2024 15:05:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqrJ-0000000Cv5I-14Ez
+	id 1tIqsy-0000000CvPr-1FT3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:00:10 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-53dde4f0f23so6905009e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:00:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733324407; x=1733929207; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7Z8SsfJIMZ6wbDGLFC2pyak5YjkCzmlnT64gSuKBGIU=;
-        b=JxbUKn+plfmHpqVY6MpbWFcR8KFMZW99E1OWtVFcTDxQQqO+6FWMI/nkebsBe0JEuo
-         iho7JbXc/DFZGP108XciqJoMRj+5dllSF5n7goyb/OJJPvKWRuRJ6IGG8Usy8hz5o9J+
-         Udx0LV4Rd4yXdTBLndvVnujqjb/xvWA194tln+GgOJO0WTcQPRXlHXtBf3Tv8+f1sK9g
-         ShmNCyCF+ZNu385jsVCBHTuiMI9FfevZC2Oj4x31abiJ9xzIpEw8Ks3RQ0c5Ou0kRy0c
-         3LA7hyXvOFbckWXw4dPsEWfV3AawgKZUWdBAQr+nky/ERbeXMYc6jTLBZVQzol05qwef
-         +2QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733324407; x=1733929207;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7Z8SsfJIMZ6wbDGLFC2pyak5YjkCzmlnT64gSuKBGIU=;
-        b=LmG+lmOILOXsds+swM5S/yrAlVUf+fG1NJy1fTmWLMcX7ujScIQBW/rzjV3IRS1n+x
-         DyjkGU6UswQq1i/zkhek93AzhtU2lR4c23IwFV0oERwLuSuRk7r+ZYQOcsq9MATxsBQl
-         63AczF4w3RInvWv5HknMEKlJGWSM6o4a6AwbcFF0AvSL9R4GU5GNLh/+V90iEMGxHcEu
-         ++pBo+GkXTNf+o+gRQoTB2/KmxE2UuF1IPUvCrt+DCRG3RHk6tIiQ2JPnX0eBI1L4M5L
-         oAPCaNt6fhBVbFgyqbwcUle1lMMNN1AazWNzHRoOLHTcITnVRZqtGleiizbutAqBdX4d
-         anZg==
-X-Forwarded-Encrypted: i=1; AJvYcCWzlwau0/r4TPtsZT+ZSwJBHqSgbZOmzwTLZ8NG0C5yNHL0/uVF4P2PQooGuFgdQvgYEJvsqX/7FY5I3ZfCmwQZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF+LeaLnzbA2LcJjj4qZ6mMYO/8PUdT6ITKuEOXUX/ZZNrPcH6
-	ZTOxnnBZTAquBekXS1pJpYnW+oz1AhBfxldRU3OzHgxQFjotmFD9AdAQfCzsS9D8Mb3F7GAW2sA
-	+h5GhITFrUd96A4fAgDKppGBrtIFuUM12VAUK1g==
-X-Gm-Gg: ASbGncuBdz8Wlc3bq8QcZmg1VoXl1LOdM050fSUHEab1m3pnNkWSu4Ot4MOGcthMyPR
-	pLg3Gu4UtkYoRoHaDTY35BTuRIyOe+A==
-X-Google-Smtp-Source: AGHT+IHT8ot8EDFntaLIs72pipJWUq+cKx2vj1L2uGRfDd/p23/CZ604435wdZoBy3VHdRA1oxNIm06ieh8Uc9hFCWQ=
-X-Received: by 2002:a05:6512:31d4:b0:53d:e57e:dd4a with SMTP id
- 2adb3069b0e04-53e129f2a38mr4263497e87.22.1733324406989; Wed, 04 Dec 2024
- 07:00:06 -0800 (PST)
+	Wed, 04 Dec 2024 15:01:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 825465C628F;
+	Wed,  4 Dec 2024 15:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCA5C4CEDF;
+	Wed,  4 Dec 2024 15:01:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733324511;
+	bh=bGrthp6P6OjGXSuGAAT9PJ7U09h7+JZZ06Vtmr7nZv8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=O0ONyUa0NIju4sT0cu7zhe0Q1Zo9jkyng1DWVpBdqZLqgUuK2IMVW8/iM+9uQ/yim
+	 Sy3wMVyXF0OM4fZiIKEUoFR5QVtfcKVtHcaiz4kgxNfw4AEda2sYch16JtEbhQPZgC
+	 uN1yH/2mjrL35RlGeL+7w+wvzb8BPLPXcoH29bLM+Rp6diKOhE41ehjSvRmk7knvBR
+	 bnp8KN+AanPUfepm0Az5oJkmXhTYb8sJ3hmg4qDHj+fyDQZkd0tmyu2cboIkO0uWtm
+	 71krdOeC8i0jo2P6uVCvZIGQbpg7oUdr3Z4Yi9BHBdqI9wUXVRL9peU4pBNed/w3dh
+	 6bkRRob4dP6fQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tIqsv-000TvG-1E;
+	Wed, 04 Dec 2024 15:01:49 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH 1/2] PCI: host-generic: Allow {en,dis}able_device() to be provided via pci_ecam_ops
+Date: Wed,  4 Dec 2024 15:01:44 +0000
+Message-Id: <20241204150145.800408-2-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20241204150145.800408-1-maz@kernel.org>
+References: <20241204150145.800408-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20241203083838.3260036-1-jvetter@outer-limits.org> <609b026d-d54c-4a11-b7df-6ef0ac315f25@app.fastmail.com>
-In-Reply-To: <609b026d-d54c-4a11-b7df-6ef0ac315f25@app.fastmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 4 Dec 2024 15:59:56 +0100
-Message-ID: <CACRpkdZZ0vrYT1-76SBa0XN00p33sRTmpT1JPLjvBuyGD_yu0Q@mail.gmail.com>
-Subject: Re: [PATCH] arm: Remove IO memcpy for Big-Endian
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Julian Vetter <jvetter@outer-limits.org>, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Julian Vetter <julian@outer-limits.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, alyssa@rosenzweig.io, Frank.Li@nxp.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_070009_363208_2C4ECE7B 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20241204_070152_377982_D15D4BA7 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,51 +88,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 3, 2024 at 11:08=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrote=
-:
+In order to let host controller drivers using the host-generic
+infrastructure use the {en,dis}able_device() callbacks that can
+be used to configure sideband RID mapping hardware, provide these
+two callbacks as part of the pci_ecap_ops structure.
 
-> - There is one ARMv5 "BE32" based platform, the ixp4xx, which
->   works differently, and this in turn allows multiple configurations
->   for its buses where a byte-swap is performed in the PCI
->   controller.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/pci/controller/pci-host-common.c | 2 ++
+ include/linux/pci-ecam.h                 | 4 ++++
+ 2 files changed, 6 insertions(+)
 
-Actually it affects all memory-mapped I/O. E.g.
-drivers/irqchip/irq-ixp4xx.c
-for this reason IXP4xx drivers that are not PCI usually
-use __raw_readl() and __raw_writel() to let the bus
-do its thing.
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index cf5f59a745b37..f441bfd6f96a8 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -75,6 +75,8 @@ int pci_host_common_probe(struct platform_device *pdev)
+ 
+ 	bridge->sysdata = cfg;
+ 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
++	bridge->enable_device = ops->enable_device;
++	bridge->disable_device = ops->disable_device;
+ 	bridge->msi_domain = true;
+ 
+ 	return pci_host_probe(bridge);
+diff --git a/include/linux/pci-ecam.h b/include/linux/pci-ecam.h
+index 3a4860bd27586..3a10f8cfc3ad5 100644
+--- a/include/linux/pci-ecam.h
++++ b/include/linux/pci-ecam.h
+@@ -45,6 +45,10 @@ struct pci_ecam_ops {
+ 	unsigned int			bus_shift;
+ 	struct pci_ops			pci_ops;
+ 	int				(*init)(struct pci_config_window *);
++	int				(*enable_device)(struct pci_host_bridge *,
++							 struct pci_dev *);
++	void				(*disable_device)(struct pci_host_bridge *,
++							  struct pci_dev *);
+ };
+ 
+ /*
+-- 
+2.39.2
 
-IXP4xx PCI drivers are however *not* doing this, because
-PCI is (IIUC) specified to be little-endian, and the hardware
-deals with this. (Except for the PCI host driver itself, using
-__raw accesses.)
-
-> Before we apply your patch, I think the minimum would be to
-> have Linus Walleij try it out on an an ixp4xx with a driver
-> that uses these functions.
-
-I applied the patch, compiled v6.13-rc1 HEAD for the
-Linksys NSLU2 (oldest system there is! also a classic!)
-
-+ Boots cleanly
-+ Mounts root - this is on a USB drive which is on a
-   PCI-attached USB controller, so PCI is tested
-+ Reaches userspace and console
-+ Gets network and IP address
-+ LuCI web user inteface works (browsed to web server on device)
-+ Dropbear SSH login works fine
-
-Tested-by: Linus Walleij <linus.walleij@linaro.org>
-
-I doubt any IXP4xx driver uses ioread/iowrite. The
-MTD driver does not for example, because of other weirdness
-with address swizzling (drivers/mtd/maps/physmap-ixp4xx.c)
-For similar reasons drivers/ata/pata_ixp4xx_cf.c is
-using readw/writew exclusively.
-
-It also looks like a good idea:
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-
-Your,
-Linus Walleij
 
