@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8B1E7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F02E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qziqqVngMjaY+9/zShu2onfvOfqpSizM9fK+JFGii+c=; b=PhCeU2j/LOSO2CX89J9VC6Ea5r
-	NawTmSFqYJnN7mIZ0EwHDteGlf9MvLX0j7kkmOwpuw88EKRhjE75gJmWQ1gl4/PJ3YItQMo1fD9Sx
-	5K0mKaMs7ARNDu0/obgnSNnaTVY5bi5xyCT5ihyMU9KXzIn2e7tLDTzJhE6j58Rnc4EjVEKz1XZre
-	QEjKiq89Xfg0Zej3MsfYDJ/hoxrhvjysN/bcghiNKYyiIhT2KDCkJm8C2Q6k8+Jxgua8PGIZ5ARzi
-	ylZLqLVTIPhZw6FicDX22Epi+qx6yY15nz0l0RAOH79SceKHOzP2zp9CD4W6YcXKTJQzDftoHbxrw
-	1K/jCdNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eF41jGmtQ2ePJq8YvI4gtqnFpvR6q54sJaHzjkAkjuQ=; b=ThvCLde5T7yNwS+gE3P86Ha3m1
+	YD5/cUh1TFYH5/QCzXHGvgb+IFZk/fj53+GhaTMMA7obrgZ4bqn86JBZ0XzXMCTBNpXoGXr+yKJ0x
+	DaFgqyYcZxtxDvploHinmwAz3iLRdtMnASTkol048Igqwv4JYZuUzNqS6ob4vGoQkyRamvwZ3E0G9
+	lm7YQwmLZitm0LLcYBI0CjJ4zbuYsc6VzqlrPEqwZ5+D57n+BhtAs5g4YQd/BBH3Btgz0zNGUAAAc
+	3XhGzlw1Grp1KgmaNL26ZKjahVgNNAQ3Gg32tZSG7bpqNms+o97Eq5Qm52q/D6O7ZAcE1F315pnRE
+	QBo6w1VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoUC-0000000CW3g-131U;
-	Wed, 04 Dec 2024 12:28:08 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tIoVA-0000000CWIL-0ZyV;
+	Wed, 04 Dec 2024 12:29:08 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoTB-0000000CVqa-1FBn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 12:27:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733315226; x=1764851226;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9U+1S5c6QBIEs2jEVkouqNjE862gZHRZMYIqjSXUYvA=;
-  b=JF+RPbyHJIyOLhmSGAqrRwQPlXKsKvpqygLT22ofdGyCHuE5ar+S/3iK
-   hZFozdxsiEmmrqGkpGUAz+TTvQFa/qTDGnK+pdSseKjtP2u8dqo66uNsx
-   GhOlu3YFGGuYkqC6OLLCNdoAK0zNNku/UffMQpT6H3MweMWrSpV7iqFL+
-   Rh57CFxrIyu8b0Du8V1wFb6Wd2MkNzT0hFFQ2xRfR4k26VI7Bs2GMnGuO
-   kFFyDEZeWMnqe/snQ+6gphDGgcz1y25KwaX8WGfDsDsO25XJm+zMnDpZs
-   /qhPuAIXH+qJ4rVEnneMW11PioLhUQfXvncj4n6hN7eajZxTMIatIX6zj
-   A==;
-X-CSE-ConnectionGUID: 6O2fjEd9Ro+LPwMMxw6CSg==
-X-CSE-MsgGUID: Iy5yVAreRniWw6+RSCWA+w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="44954202"
-X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
-   d="scan'208";a="44954202"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 04:27:03 -0800
-X-CSE-ConnectionGUID: BQCuPqjHREGCWw4bnGZW4g==
-X-CSE-MsgGUID: mll3T9a/QYe7tkeqDGCKDQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
-   d="scan'208";a="93614814"
-Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
-  by fmviesa007.fm.intel.com with ESMTP; 04 Dec 2024 04:27:00 -0800
-Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tIoT3-00030p-35;
-	Wed, 04 Dec 2024 12:26:57 +0000
-Date: Wed, 4 Dec 2024 20:26:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Paul Benoit <paul@os.amperecomputing.com>, linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Paul Benoit <paul@os.amperecomputing.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] firmware: smccc: Support optional Arm SMC SOC_ID name
-Message-ID: <202412042020.U9EEV8mE-lkp@intel.com>
-References: <20241203212854.5565-1-paul@os.amperecomputing.com>
+	id 1tIoTO-0000000CVtX-2Wjy;
+	Wed, 04 Dec 2024 12:27:19 +0000
+Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
+	by mxout1.routing.net (Postfix) with ESMTP id DA2B83FEAE;
+	Wed,  4 Dec 2024 12:27:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1733315236;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=eF41jGmtQ2ePJq8YvI4gtqnFpvR6q54sJaHzjkAkjuQ=;
+	b=woRovcdmww3ZzfJaz9SrjOagpgePADSL5orXQoEgclO9zosSSy3X831g7R48VTcBa2cRRS
+	y+p7TZ1Wwpw08JlTtafANLQBRPM9wBboY9LuW6xvVC0EAMDrmgL7Jv89qieS5U/McZh5l9
+	l2pF5mp7R7eHLGHpzlrDthDUZO0GYUg=
+Received: from frank-u24.. (fttx-pool-194.15.87.121.bambit.de [194.15.87.121])
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id E962636037C;
+	Wed,  4 Dec 2024 12:27:14 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Daniel Golle <daniel@makrotopia.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Frank Wunderlich <frank-w@public-files.de>
+Subject: [RFC] phy: mediatek: xsphy: support type switch by pericfg
+Date: Wed,  4 Dec 2024 13:27:05 +0100
+Message-ID: <20241204122706.25190-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241203212854.5565-1-paul@os.amperecomputing.com>
+Content-Transfer-Encoding: 8bit
+X-Mail-ID: 25c0c98c-cfa9-4aae-ab48-f859e8afd9cd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_042705_386238_A2DF7140 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20241204_042718_916755_9677A6C3 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +77,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+From: Daniel Golle <daniel@makrotopia.org>
 
-kernel test robot noticed the following build warnings:
+Patch from Sam Shih <sam.shih@mediatek.com> found in MediaTek SDK
+released under GPL.
 
-[auto build test WARNING on soc/for-next]
-[also build test WARNING on linus/master v6.13-rc1 next-20241203]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Get syscon and use it to set the PHY type.
+Extend support to PCIe and SGMII mode in addition to USB2 and USB3.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Paul-Benoit/firmware-smccc-Support-optional-Arm-SMC-SOC_ID-name/20241204-124243
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20241203212854.5565-1-paul%40os.amperecomputing.com
-patch subject: [PATCH v2] firmware: smccc: Support optional Arm SMC SOC_ID name
-config: arm-qcom_defconfig (https://download.01.org/0day-ci/archive/20241204/202412042020.U9EEV8mE-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241204/202412042020.U9EEV8mE-lkp@intel.com/reproduce)
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+xsphy is needed on mt7988 to get ssusb0 working
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412042020.U9EEV8mE-lkp@intel.com/
+current way is using a syscon node like this
 
-All warnings (new ones prefixed by >>):
+	topmisc: topmisc@11d10000 {
+		compatible = "mediatek,mt7988-topmisc", "syscon",
+			     "mediatek,mt7988-power-controller";
+		reg = <0 0x11d10000 0 0x10000>;
+		#clock-cells = <1>;
+		#power-domain-cells = <1>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
 
->> drivers/firmware/smccc/soc_id.c:109:16: warning: shift count >= width of type [-Wshift-count-overflow]
-     109 |         dst[4] = (reg >> 32) & 0xff;
-         |                       ^  ~~
-   drivers/firmware/smccc/soc_id.c:110:16: warning: shift count >= width of type [-Wshift-count-overflow]
-     110 |         dst[5] = (reg >> 40) & 0xff;
-         |                       ^  ~~
-   drivers/firmware/smccc/soc_id.c:111:16: warning: shift count >= width of type [-Wshift-count-overflow]
-     111 |         dst[6] = (reg >> 48) & 0xff;
-         |                       ^  ~~
-   drivers/firmware/smccc/soc_id.c:112:16: warning: shift count >= width of type [-Wshift-count-overflow]
-     112 |         dst[7] = (reg >> 56) & 0xff;
-         |                       ^  ~~
->> drivers/firmware/smccc/soc_id.c:37:29: warning: unused variable 'smccc_soc_id_name' [-Wunused-variable]
-      37 | static char __ro_after_init smccc_soc_id_name[136] = "";
-         |                             ^~~~~~~~~~~~~~~~~
-   drivers/firmware/smccc/soc_id.c:103:20: warning: unused function 'str_fragment_from_reg' [-Wunused-function]
-     103 | static inline void str_fragment_from_reg(char *dst, unsigned long reg)
-         |                    ^~~~~~~~~~~~~~~~~~~~~
-   6 warnings generated.
+	xs-phy@11e10000 {
+		compatible = "mediatek,mt7988-xsphy",
+			     "mediatek,xsphy";
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		status = "disabled";
 
+		xphyu2port0: usb-phy@11e10000 {
+			reg = <0 0x11e10000 0 0x400>;
+			clocks = <&infracfg CLK_INFRA_USB_UTMI>;
+			clock-names = "ref";
+			#phy-cells = <1>;
+		};
 
-vim +109 drivers/firmware/smccc/soc_id.c
+		xphyu3port0: usb-phy@11e13000 {
+			reg = <0 0x11e13400 0 0x500>;
+			clocks = <&infracfg CLK_INFRA_USB_PIPE>;
+			clock-names = "ref";
+			#phy-cells = <1>;
+			mediatek,syscon-type = <&topmisc 0x218 0>;
+		};
+	};
 
-    36	
-  > 37	static char __ro_after_init smccc_soc_id_name[136] = "";
-    38	
-    39	static int __init smccc_soc_init(void)
-    40	{
-    41		int soc_id_rev, soc_id_version;
-    42		static char soc_id_str[20], soc_id_rev_str[12];
-    43		static char soc_id_jep106_id_str[12];
-    44	
-    45		if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2)
-    46			return 0;
-    47	
-    48		soc_id_version = arm_smccc_get_soc_id_version();
-    49		if (soc_id_version == SMCCC_RET_NOT_SUPPORTED) {
-    50			pr_info("ARCH_SOC_ID not implemented, skipping ....\n");
-    51			return 0;
-    52		}
-    53	
-    54		if (soc_id_version < 0) {
-    55			pr_err("Invalid SoC Version: %x\n", soc_id_version);
-    56			return -EINVAL;
-    57		}
-    58	
-    59		soc_id_rev = arm_smccc_get_soc_id_revision();
-    60		if (soc_id_rev < 0) {
-    61			pr_err("Invalid SoC Revision: %x\n", soc_id_rev);
-    62			return -EINVAL;
-    63		}
-    64	
-    65		soc_dev_attr = kzalloc(sizeof(*soc_dev_attr), GFP_KERNEL);
-    66		if (!soc_dev_attr)
-    67			return -ENOMEM;
-    68	
-    69		sprintf(soc_id_rev_str, "0x%08x", soc_id_rev);
-    70		sprintf(soc_id_jep106_id_str, "jep106:%02x%02x",
-    71			JEP106_BANK_CONT_CODE(soc_id_version),
-    72			JEP106_ID_CODE(soc_id_version));
-    73		sprintf(soc_id_str, "%s:%04x", soc_id_jep106_id_str,
-    74			IMP_DEF_SOC_ID(soc_id_version));
-    75	
-    76		soc_dev_attr->soc_id = soc_id_str;
-    77		soc_dev_attr->revision = soc_id_rev_str;
-    78		soc_dev_attr->family = soc_id_jep106_id_str;
-    79		soc_dev_attr->machine = smccc_soc_name_init();
-    80	
-    81		soc_dev = soc_device_register(soc_dev_attr);
-    82		if (IS_ERR(soc_dev)) {
-    83			kfree(soc_dev_attr);
-    84			return PTR_ERR(soc_dev);
-    85		}
-    86	
-    87		pr_info("ID = %s Revision = %s\n", soc_dev_attr->soc_id,
-    88			soc_dev_attr->revision);
-    89	
-    90		return 0;
-    91	}
-    92	module_init(smccc_soc_init);
-    93	
-    94	static void __exit smccc_soc_exit(void)
-    95	{
-    96		if (soc_dev)
-    97			soc_device_unregister(soc_dev);
-    98		kfree(soc_dev_attr);
-    99	}
-   100	module_exit(smccc_soc_exit);
-   101	
-   102	
-   103	static inline void str_fragment_from_reg(char *dst, unsigned long reg)
-   104	{
-   105		dst[0] = (reg >> 0)  & 0xff;
-   106		dst[1] = (reg >> 8)  & 0xff;
-   107		dst[2] = (reg >> 16) & 0xff;
-   108		dst[3] = (reg >> 24) & 0xff;
- > 109		dst[4] = (reg >> 32) & 0xff;
- > 110		dst[5] = (reg >> 40) & 0xff;
-   111		dst[6] = (reg >> 48) & 0xff;
-   112		dst[7] = (reg >> 56) & 0xff;
-   113	}
-   114	
+maybe there are ways to avoid syscon without writing a dedicated driver
+for the topmisc.
+topmisc node itself is also used in ethernet-block mapped to the
+mediatek,infracfg property.
+---
+ drivers/phy/mediatek/phy-mtk-xsphy.c | 85 +++++++++++++++++++++++++++-
+ 1 file changed, 84 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/phy/mediatek/phy-mtk-xsphy.c b/drivers/phy/mediatek/phy-mtk-xsphy.c
+index 7c248f5cfca5..3f94d0dee1b9 100644
+--- a/drivers/phy/mediatek/phy-mtk-xsphy.c
++++ b/drivers/phy/mediatek/phy-mtk-xsphy.c
+@@ -11,10 +11,12 @@
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/iopoll.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of_address.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
++#include <linux/regmap.h>
+ 
+ #include "phy-mtk-io.h"
+ 
+@@ -81,12 +83,22 @@
+ #define XSP_SR_COEF_DIVISOR	1000
+ #define XSP_FM_DET_CYCLE_CNT	1024
+ 
++/* PHY switch between pcie/usb3/sgmii */
++#define USB_PHY_SWITCH_CTRL	0x0
++#define RG_PHY_SW_TYPE		GENMASK(3, 0)
++#define RG_PHY_SW_PCIE		0x0
++#define RG_PHY_SW_USB3		0x1
++#define RG_PHY_SW_SGMII		0x2
++
+ struct xsphy_instance {
+ 	struct phy *phy;
+ 	void __iomem *port_base;
+ 	struct clk *ref_clk;	/* reference clock of anolog phy */
+ 	u32 index;
+ 	u32 type;
++	struct regmap *type_sw;
++	u32 type_sw_reg;
++	u32 type_sw_index;
+ 	/* only for HQA test */
+ 	int efuse_intr;
+ 	int efuse_tx_imp;
+@@ -259,6 +271,10 @@ static void phy_parse_property(struct mtk_xsphy *xsphy,
+ 			inst->efuse_intr, inst->efuse_tx_imp,
+ 			inst->efuse_rx_imp);
+ 		break;
++	case PHY_TYPE_PCIE:
++	case PHY_TYPE_SGMII:
++		/* nothing to do */
++		break;
+ 	default:
+ 		dev_err(xsphy->dev, "incompatible phy type\n");
+ 		return;
+@@ -305,6 +321,62 @@ static void u3_phy_props_set(struct mtk_xsphy *xsphy,
+ 				     RG_XTP_LN0_RX_IMPSEL, inst->efuse_rx_imp);
+ }
+ 
++/* type switch for usb3/pcie/sgmii */
++static int phy_type_syscon_get(struct xsphy_instance *instance,
++			       struct device_node *dn)
++{
++	struct of_phandle_args args;
++	int ret;
++
++	/* type switch function is optional */
++	if (!of_property_read_bool(dn, "mediatek,syscon-type"))
++		return 0;
++
++	ret = of_parse_phandle_with_fixed_args(dn, "mediatek,syscon-type",
++					       2, 0, &args);
++	if (ret)
++		return ret;
++
++	instance->type_sw_reg = args.args[0];
++	instance->type_sw_index = args.args[1] & 0x3; /* <=3 */
++	instance->type_sw = syscon_node_to_regmap(args.np);
++	of_node_put(args.np);
++	dev_info(&instance->phy->dev, "type_sw - reg %#x, index %d\n",
++		 instance->type_sw_reg, instance->type_sw_index);
++
++	return PTR_ERR_OR_ZERO(instance->type_sw);
++}
++
++static int phy_type_set(struct xsphy_instance *instance)
++{
++	int type;
++	u32 offset;
++
++	if (!instance->type_sw)
++		return 0;
++
++	switch (instance->type) {
++	case PHY_TYPE_USB3:
++		type = RG_PHY_SW_USB3;
++		break;
++	case PHY_TYPE_PCIE:
++		type = RG_PHY_SW_PCIE;
++		break;
++	case PHY_TYPE_SGMII:
++		type = RG_PHY_SW_SGMII;
++		break;
++	case PHY_TYPE_USB2:
++	default:
++		return 0;
++	}
++
++	offset = instance->type_sw_index * BITS_PER_BYTE;
++	regmap_update_bits(instance->type_sw, instance->type_sw_reg,
++			   RG_PHY_SW_TYPE << offset, type << offset);
++
++	return 0;
++}
++
+ static int mtk_phy_init(struct phy *phy)
+ {
+ 	struct xsphy_instance *inst = phy_get_drvdata(phy);
+@@ -325,6 +397,10 @@ static int mtk_phy_init(struct phy *phy)
+ 	case PHY_TYPE_USB3:
+ 		u3_phy_props_set(xsphy, inst);
+ 		break;
++	case PHY_TYPE_PCIE:
++	case PHY_TYPE_SGMII:
++		/* nothing to do, only used to set type */
++		break;
+ 	default:
+ 		dev_err(xsphy->dev, "incompatible phy type\n");
+ 		clk_disable_unprepare(inst->ref_clk);
+@@ -403,12 +479,15 @@ static struct phy *mtk_phy_xlate(struct device *dev,
+ 
+ 	inst->type = args->args[0];
+ 	if (!(inst->type == PHY_TYPE_USB2 ||
+-	      inst->type == PHY_TYPE_USB3)) {
++	      inst->type == PHY_TYPE_USB3 ||
++	      inst->type == PHY_TYPE_PCIE ||
++	      inst->type == PHY_TYPE_SGMII)) {
+ 		dev_err(dev, "unsupported phy type: %d\n", inst->type);
+ 		return ERR_PTR(-EINVAL);
+ 	}
+ 
+ 	phy_parse_property(xsphy, inst);
++	phy_type_set(inst);
+ 
+ 	return inst->phy;
+ }
+@@ -510,6 +589,10 @@ static int mtk_xsphy_probe(struct platform_device *pdev)
+ 			dev_err(dev, "failed to get ref_clk(id-%d)\n", port);
+ 			return PTR_ERR(inst->ref_clk);
+ 		}
++
++		retval = phy_type_syscon_get(inst, child_np);
++		if (retval)
++			return retval;
+ 	}
+ 
+ 	provider = devm_of_phy_provider_register(dev, mtk_phy_xlate);
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
