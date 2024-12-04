@@ -4,99 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75286E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E65E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9NKrOBgZu11P2nfAfAF/ZlFaKTebEaW6uPR22t+uqU=; b=zCEI75/BDhw3KrE08SjSFVM7DW
-	1JKkvnmF3OsFyMKxQRtwl/nHlf/MiM4ZXgmJPH02Qca5gVBepK7ICu5HL/ge4QxTRR+R/8J067u61
-	yk+dXi4GswKASBt3FNR2PrBPDRKhrhajAmaMwNvjN/IZrP7JL0cXNEkm9jMm91DkpTHYj7CpmhFjZ
-	AvW2/f7fjX82hN+VMkFX5LU8QLWeZKkx4x+4lQdzU6o6KdfR+N0Y4n4CFQnxNnGhHa+zlkXJTmmNS
-	fKUYbElpBud+dVEnuCXJthPkhrDA61bxMhtj7H/icsscuevyNAVwUFXlby5BnMY/iaivQzksltRp8
-	G7F3GUmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/icQyzmGHz1TzMA4Cqp5hMi0/miDynHZBXtehJraUg=; b=eKG1G4AabhR1yEK22E+KFnYV2h
+	23MJ0qpXePz+hejLr8jpGRq2l87yG5SexoWL/d3ylPFE55ZM1LGXhXjUTH4GSi46z+7H4U7jmhu4l
+	RA36fx5nS+H0/DLQhpIcCDFONHb8LCsOklOlbhlLje5+vO6FLhCP2l6QU2UvHMrYSK0awZ4DCn4CL
+	bHxfmBzHT92DRL/wAxezUPEFw/QgTZu3CgfSaMOIa6sZhN1xUlYmm/gOhunKlaw7OiFyFp/oRuG0U
+	36lk+5p6VtHIh+YR7FQRdBQU9DAg19T07hCNwLMziZM2udz5yD8/vkSbFiyCy/XjkL9kyo5nG0tH8
+	LB0S2t+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIk2t-0000000BkWy-072h;
-	Wed, 04 Dec 2024 07:43:39 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1tIk4k-0000000BlLL-1PUO;
+	Wed, 04 Dec 2024 07:45:34 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIk1m-0000000Bk4Q-3kCe;
-	Wed, 04 Dec 2024 07:42:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733298151; x=1764834151;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=gK06+f1C0mBtgYKTZ09XhG1sOVFjumSjIgGeM6ZwmU0=;
-  b=JbmURXo97MbGQlWyxfmRCwyqoTszCrXRO8NWX3FclIKkgp/Y5pqcl8i9
-   eE5MYVfHaxgF9JWViH9SZjr+R1GtjPUsxFX+iUtJDDXg81VrXagwWDsli
-   zO414RAROg6QxSfIAMPrtPtGJb/LKOOpKhGvUpuimo4z6PndyOSchTl39
-   PHSteGHz+D0phc4UqrJZdHnJobQUTNw+IBrmdHuFGqPietTjvG9kM07sI
-   ge9Op9rMh0paJEouvFIB7hSqkx9dWwmyEukrSpDzmjq5ToSihG9/DCead
-   Zbrmuu9m4EzR7JQEpc6utFgc4/1h8+c6It/3+hURQIbZ3fMBxmmTNacjA
-   Q==;
-X-CSE-ConnectionGUID: /KztvD7VT7CcUnw2maxGuA==
-X-CSE-MsgGUID: efYmaFQSTo+GqjtCESHPnA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11275"; a="21132177"
-X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
-   d="scan'208";a="21132177"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2024 23:42:27 -0800
-X-CSE-ConnectionGUID: ztyXjIeiR26vOG8EeEOB9Q==
-X-CSE-MsgGUID: MiRNI+71Qr6pKR5u1cWLig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
-   d="scan'208";a="131139278"
-Received: from mwiniars-desk2.ger.corp.intel.com (HELO localhost) ([10.245.246.205])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2024 23:42:14 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jaroslav
- Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE
- <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim
- <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?=
- <heiko@sntech.de>, Andy
- Yan <andy.yan@rock-chips.com>, Alain Volmat <alain.volmat@foss.st.com>,
- Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson
- <dave.stevenson@raspberrypi.com>, =?utf-8?Q?Ma=C3=ADra?= Canal
- <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 7/9] drm/bridge_connector: hook
- drm_atomic_helper_connector_hdmi_update_edid()
-In-Reply-To: <txzri7x4pdeakx4juandk3hfhsbx3dhlulxfuehqlmrr7b3wpw@jaunqktsro6x>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20241201-drm-bridge-hdmi-connector-v5-0-b5316e82f61a@linaro.org>
- <20241201-drm-bridge-hdmi-connector-v5-7-b5316e82f61a@linaro.org>
- <87a5dc4zd5.fsf@intel.com>
- <txzri7x4pdeakx4juandk3hfhsbx3dhlulxfuehqlmrr7b3wpw@jaunqktsro6x>
-Date: Wed, 04 Dec 2024 09:42:11 +0200
-Message-ID: <87v7vz3ne4.fsf@intel.com>
+	id 1tIk3i-0000000Bkpu-466F
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 07:44:32 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-85bb64447b6so989451241.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 23:44:30 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733298269; x=1733903069;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H/icQyzmGHz1TzMA4Cqp5hMi0/miDynHZBXtehJraUg=;
+        b=CcqiiE7ZHX++ig/DmFzNehSFSbKDgXZjuqQkklVLaSR43HvZeSvXQhyEebdbSsYIOV
+         wjLAYgK2dM2zXDGCJtw+XgR6dEeQjpPKx6JUabAXSQRLCYcGUz6kHSsLOZlQu2TANuFR
+         FrerAQeFpBRIgl7YwxAApxwcRB2gnr1cIVuZuYxWUQTaAP8qxpqT2EI+ntRUoQQFSAKZ
+         5PtVdC90G7MCVl7OQ3Y/gKkQiFTr7ogsLeDvSNOR/d5jQj0dHNRSuHnEg4aQQdQs54BG
+         Nk6lnXnfDt7Nyc8ym7Aak9s9wHq4KsCsRCTmWiwE44e8Sfd9yDTMq8RVKpN0OJRP8ES5
+         p66Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU/b1HTcXCS19BGkCgx9MfVvzR4jwDOE8JFCKFExTsAJKtmLB58g1i2asQBFFEEjw7kDTGWK0hsLimZIPYOlwe4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPMJQORen269PwKtNBxTs8Ehr4jrL2uGMpdym+5M2lDxWjM21e
+	/aIWSpmLPsG4MJMXdLY+z488sWXCrVKmzjGu71tH/SWHfy1njqj4N+XMhMyb
+X-Gm-Gg: ASbGncsfyTP1jueqrqZTBTMaDh/hB0UgRvsu1USezrtF/WdLWvk+BvJ9vzaa+I8qRIR
+	L+p84u4fSgmBzHD/xqPkVTHlmXc1+R8+lA4fvjUcZ6lT11Nvc5auAjY8CNBQl4tA1oSfkovfZal
+	W0eRNziYSfy9jvkWq3BnR0iqTDw9nUeUErJvO0lwdU90v2uOe24lZxnGqx7sLqJ5LTzFOuKiOzL
+	DB9Zor9y1myWr+frOcF6xkHtFr2SmSlwwOi8qN3v+ldkTqsKaxR6YXPL1wqeNrRNBx9WORYCLcp
+	5NpZtg56IY4J
+X-Google-Smtp-Source: AGHT+IFcj2YTjRFOPHTBr6alWl6SdwGsmpk79wNFBxkDmC7uJohIiHur10g+chup15S82bxsbSDacQ==
+X-Received: by 2002:a05:6102:5129:b0:4af:4beb:f4e5 with SMTP id ada2fe7eead31-4af971b4d1fmr6452777137.5.1733298269470;
+        Tue, 03 Dec 2024 23:44:29 -0800 (PST)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4afaac2f689sm164067137.24.2024.12.03.23.44.27
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Dec 2024 23:44:27 -0800 (PST)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-85bb13573fbso1060315241.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 23:44:27 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXg3wXjMt5Hs+9APWRwFLI2jNfjN5GeKM/Ka6rvObK3EXUeKgIMD3GTJVi5yYlRWCRoJcH0sce+9wpfWz3qCuws@lists.infradead.org
+X-Received: by 2002:a05:6102:41aa:b0:4af:48a6:79c4 with SMTP id
+ ada2fe7eead31-4af972eaa24mr7774024137.17.1733298266923; Tue, 03 Dec 2024
+ 23:44:26 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <6b9e55dbf544297d5acf743f6fa473791ab10644.1733242798.git.geert+renesas@glider.be>
+ <f552b813-1817-4507-9699-fae87575a762@lunn.ch> <CAMRc=Mfh5Rv8OKWOcPVzJp-_e_bXgywT2=+N2cF1ONT3kiw7tQ@mail.gmail.com>
+ <44126f2f-92ce-412b-ad9d-e0e0ea28d36d@lunn.ch>
+In-Reply-To: <44126f2f-92ce-412b-ad9d-e0e0ea28d36d@lunn.ch>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 4 Dec 2024 08:44:15 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUaPkpSzrkqPRzZZfj6Npmj-8Ax5dXEGbjKXAyCW_DLXA@mail.gmail.com>
+Message-ID: <CAMuHMdUaPkpSzrkqPRzZZfj6Npmj-8Ax5dXEGbjKXAyCW_DLXA@mail.gmail.com>
+Subject: Re: [PATCH] gpio: GPIO_MVEBU should not default to y when compile-testing
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Linus Walleij <linus.walleij@linaro.org>, 
+	Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_234230_969575_A42E846E 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20241203_234431_012178_C7EC241F 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,33 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 04 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
-> On Tue, Dec 03, 2024 at 04:25:58PM +0200, Jani Nikula wrote:
->> On Sun, 01 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
->> > +	drm_edid = drm_bridge_edid_read(bridge, connector);
->> > +	if (!drm_edid_valid(drm_edid)) {
->> 
->> What's the case this check is for?
->> 
->> My preference would be that bridge->funcs->edid_read() uses
->> drm_edid_read*() family of functions that do the checks and return the
->> EDID.
->> 
->> There are some cases that just allocate a blob and return it. Would be
->> nice if they could be converted, but in the mean time could use
->> drm_edid_valid() right there. Additional validity checks are redundant.
+Hi Andrew,
+
+On Tue, Dec 3, 2024 at 9:59=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+> On Tue, Dec 03, 2024 at 09:29:02PM +0100, Bartosz Golaszewski wrote:
+> > On Tue, Dec 3, 2024 at 9:13=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wro=
+te:
+> > >
+> > > On Tue, Dec 03, 2024 at 05:23:16PM +0100, Geert Uytterhoeven wrote:
+> > > > Merely enabling compile-testing should not enable additional
+> > > > functionality.
+> > >
+> > > Sorry for being dumb, but i don't actually see what is wrong here.
+> > >
+> > > There are 4 GPIO drivers which have
+> > >
+> > >         def_bool y
+
+None of these depend on || COMPILE_TEST.
+
+> > > COMPILE_TEST is about building as much as possible, in order to find
+> > > build bugs. So i don't get what you mean by additional
+> > > functionality. No additional functionality within the MVEBU driver
+> > > gets enabled by COMPILE_TEST.
+> >
+> > No, Geert is right. I have been yelled at by Linus Torvalds already
+> > for too eagerly enabling too many options. COMPILE_TEST is really
+> > about making it possible to build more things with make allmodconfig,
+> > not necessarily defaulting to y for everything.
 >
-> This was c&p from drm_bridge_connector_get_modes_edid(). If you think
-> that the check is redundant, could you please send a patch dropping the
-> check?
+> So are you saying COMPILE_TEST should allow something to be enabled,
+> but should not actually enable it?
 
-Mmmh. It's just scary to *remove* them, and that's the reason I didn't
-want you to add one in the first place! :)
+It is meant for relaxing dependencies, i.e. to allow you to do
+build-testing of drivers that cannot possibly work on the system you
+are compiling a kernel for.
 
-BR,
-Jani.
+Gr{oetje,eeting}s,
 
+                        Geert
 
--- 
-Jani Nikula, Intel
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
