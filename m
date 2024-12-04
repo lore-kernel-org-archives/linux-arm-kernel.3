@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE8BE7716F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06601E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDM2q65oM4YLDXWJcAglElygDvBE623ME+4jZY+qegE=; b=Eb1e9IJjSgAW4eGRTZlMTXo0Df
-	44224aQ81g29I28RnUG85C+Hj6gfNe103Zum29ElLmGde+tPRX1mM8TBHl6xnKHTje0vXG+3r/lsY
-	6ApFCfgiuR2vaA2SgS0UcdJqdU+p28f6dEap6jzvBkgqSb09breAdGGkO3/6651ev6DeiZeEdhO3i
-	wUscVWzFtAxkbLf2DmO1zQuvbvnX8PoU6/zr/4+SQwwAj4C/NXt2Dyqtv/y1BF9MMyxLn3CHeNd8N
-	5B6N5AlXn7rN5LEqugcz9JvAlxXwFFIQQBLr56cFOOUNjGhRccv84rgt9WKqLXrj30Zj90RQuArv2
-	vrnEtXdA==;
+	bh=Dpm7RGtstokmGkBCmYp/usXqB3mAQ+ZueuXX2Wi1O8E=; b=jHl5fa1AMHUMWi2thQuEvHT3ng
+	9Sx6RaaTKXuZ806zi1KdWXlINhqEhITwVOHuMnsvD90EgXJsaeaI+oeX7DWXX3z5bXKp4ywGLbz+g
+	Q+hGjB9sCtcgTDytcEda6n0lLsc7lofmscpRokuF5f4HMhS+2YAQ8kz3KL+q9OIfHsWPtgebGmuah
+	GZJSb5+scP77YdKNPIeLwE9JP7TioeMZ1hCsabn488ZrInGxVsmRL2peRy24kikEbto41Su19Qah9
+	N8+pZtGwub4X6iO2eGIhncU55hfUCbylE89Dk6l+fkI4MAhZa3/8U/4n/5zqGnRhoZenEnAyBcE5m
+	u6lHaFPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIz1f-0000000EDZk-1nxQ;
-	Wed, 04 Dec 2024 23:43:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIz2e-0000000EDu5-3hxn;
+	Wed, 04 Dec 2024 23:44:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIypA-0000000EA3G-3EKQ;
-	Wed, 04 Dec 2024 23:30:30 +0000
+	id 1tIytZ-0000000EBIW-3Ym8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 23:35:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 54BC35C54D8;
-	Wed,  4 Dec 2024 23:29:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5CCAC4CED2;
-	Wed,  4 Dec 2024 23:30:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E1695C6AC0;
+	Wed,  4 Dec 2024 23:34:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D20C4CED6;
+	Wed,  4 Dec 2024 23:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733355027;
-	bh=Avd25BoX7Gc9a/fkGmYV/04s9u9/tOaOaYTRyptRfHA=;
+	s=k20201202; t=1733355301;
+	bh=aiONX4M46Isv+HmzJj1n1XZxwqX1wUbZLkj0dScfkdI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C+DrpRkOuMMgicGX8kn768s+V45rwDN1ZskI9KoKZ2z5NvPWIrxhgM3lcp0P16Ae6
-	 tjr/Fs//x8+Bnp95nvfn6KCXSLoKV2deXDucaIrnxGe4zHIkqnPXg1tRbgJMasQ8Tm
-	 qM2fI4GNyXSB4FRt3h3xqHGKCz//jivD0yWHMHMmasvsJpgT3zWPpq7zE1OYZ0zorI
-	 +fKxBeQkqbq198hRJ0tykUWZzkdwVD5gOomfu4MBkkI1ZDhJ4mv+6xwx1YeR8I4f/K
-	 0uYCj0Xiud4B1dvG9bmIPjoxX1fN+FkOzm8en6aVSeJd9bt84rw49TfoY4Q5CGKAOa
-	 u9ntJ7TyGkV0g==
+	b=fjVs5RBENok8rzlhCiOeO2eFUsSjhad123NnRiVd+eoGwFV3YPM6JuPNpOJyuSnC2
+	 jkbU7bopRMdH7boCC77jGdsFEbaaudfwF5VMzG8N5KV+JFjAL/lI9DIIdHE7nxQCmi
+	 F1SyycvVhUwpHDDBBpua/WJI+ZSfbHEW/dZFsU7N+9URxpptbt/DYqZmVKjIn26Ng8
+	 OpleSW0tdf29HM2fXIwdNUinzyw0csyHcCMIchOA8YoL0poQYthMUuhFagCZrwsHay
+	 T+fyL1HTDzQZmbZTmMQCg6Uary2bBHMfpzvlnD9yARl+JPKLR79LbemvKsh61gA+lC
+	 ouhif+rent/gA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Saravana Kannan <saravanak@google.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Thierry Reding <treding@nvidia.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: Zhou Wang <wangzhou1@hisilicon.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Nianyao Tang <tangnianyao@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Sasha Levin <sashal@kernel.org>,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	sumit.garg@linaro.org,
-	ricardo@marliere.net,
-	dri-devel@lists.freedesktop.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 4/8] drm: display: Set fwnode for aux bus devices
-Date: Wed,  4 Dec 2024 17:18:46 -0500
-Message-ID: <20241204221859.2248634-4-sashal@kernel.org>
+	linux-doc@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.12 5/8] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+Date: Wed,  4 Dec 2024 17:23:21 -0500
+Message-ID: <20241204222334.2249307-5-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241204221859.2248634-1-sashal@kernel.org>
-References: <20241204221859.2248634-1-sashal@kernel.org>
+In-Reply-To: <20241204222334.2249307-1-sashal@kernel.org>
+References: <20241204222334.2249307-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.119
+X-stable-base: Linux 6.12.1
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_153028_851281_A4B6E663 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20241204_153501_979476_59266BB5 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +83,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Saravana Kannan <saravanak@google.com>
+From: Zhou Wang <wangzhou1@hisilicon.com>
 
-[ Upstream commit fe2e59aa5d7077c5c564d55b7e2997e83710c314 ]
+[ Upstream commit f82e62d470cc990ebd9d691f931dd418e4e9cea9 ]
 
-fwnode needs to be set for a device for fw_devlink to be able to
-track/enforce its dependencies correctly. Without this, you'll see error
-messages like this when the supplier has probed and tries to make sure
-all its fwnode consumers are linked to it using device links:
+When enabling GICv4.1 in hip09, VMAPP fails to clear some caches during
+the unmap operation, which can causes vSGIs to be lost.
 
-mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) with backlight-lcd0
+To fix the issue, invalidate the related vPE cache through GICR_INVALLR
+after VMOVP.
 
-Reported-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
-Tested-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Signed-off-by: Saravana Kannan <saravanak@google.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Thierry Reding <treding@nvidia.com>
-Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Link: https://lore.kernel.org/r/20241024061347.1771063-2-saravanak@google.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Co-developed-by: Nianyao Tang <tangnianyao@huawei.com>
+Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/display/drm_dp_aux_bus.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/arch/arm64/silicon-errata.rst |  2 +
+ arch/arm64/Kconfig                          | 11 +++++
+ drivers/irqchip/irq-gic-v3-its.c            | 50 ++++++++++++++++-----
+ 3 files changed, 52 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/gpu/drm/display/drm_dp_aux_bus.c b/drivers/gpu/drm/display/drm_dp_aux_bus.c
-index f5741b45ca077..951170e1d5d14 100644
---- a/drivers/gpu/drm/display/drm_dp_aux_bus.c
-+++ b/drivers/gpu/drm/display/drm_dp_aux_bus.c
-@@ -287,7 +287,7 @@ int of_dp_aux_populate_bus(struct drm_dp_aux *aux,
- 	aux_ep->dev.parent = aux->dev;
- 	aux_ep->dev.bus = &dp_aux_bus_type;
- 	aux_ep->dev.type = &dp_aux_device_type_type;
--	aux_ep->dev.of_node = of_node_get(np);
-+	device_set_node(&aux_ep->dev, of_fwnode_handle(of_node_get(np)));
- 	dev_set_name(&aux_ep->dev, "aux-%s", dev_name(aux->dev));
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 65bfab1b18614..77db10e944f03 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -258,6 +258,8 @@ stable kernels.
+ | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+ |                | ,11} SMMU PMCG  |                 |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 22f8a7bca6d21..a11a7a42edbfb 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1232,6 +1232,17 @@ config HISILICON_ERRATUM_161600802
  
- 	ret = device_register(&aux_ep->dev);
+ 	  If unsure, say Y.
+ 
++config HISILICON_ERRATUM_162100801
++	bool "Hip09 162100801 erratum support"
++	default y
++	help
++	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
++	  during unmapping operation, which will cause some vSGIs lost.
++	  To fix the issue, invalidate related vPE cache through GICR_INVALLR
++	  after VMOVP.
++
++	  If unsure, say Y.
++
+ config QCOM_FALKOR_ERRATUM_1003
+ 	bool "Falkor E1003: Incorrect translation due to ASID change"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 52f625e07658c..d9b6ec844cdda 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -44,6 +44,7 @@
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+ #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
++#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+ 
+ #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+ #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+@@ -61,6 +62,7 @@ static u32 lpi_id_bits;
+ #define LPI_PENDBASE_SZ		ALIGN(BIT(LPI_NRBITS) / 8, SZ_64K)
+ 
+ static u8 __ro_after_init lpi_prop_prio;
++static struct its_node *find_4_1_its(void);
+ 
+ /*
+  * Collection structure - just an ID, and a redistributor address to
+@@ -3797,6 +3799,20 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
+ 	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
+ }
+ 
++static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
++{
++	void __iomem *rdbase;
++	u64 val;
++
++	val  = GICR_INVALLR_V;
++	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
++
++	guard(raw_spinlock)(&gic_data_rdist_cpu(cpu)->rd_lock);
++	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
++	gic_write_lpir(val, rdbase + GICR_INVALLR);
++	wait_for_syncr(rdbase);
++}
++
+ static int its_vpe_set_affinity(struct irq_data *d,
+ 				const struct cpumask *mask_val,
+ 				bool force)
+@@ -3804,6 +3820,7 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	struct its_vpe *vpe = irq_data_get_irq_chip_data(d);
+ 	unsigned int from, cpu = nr_cpu_ids;
+ 	struct cpumask *table_mask;
++	struct its_node *its;
+ 	unsigned long flags;
+ 
+ 	/*
+@@ -3866,6 +3883,11 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	vpe->col_idx = cpu;
+ 
+ 	its_send_vmovp(vpe);
++
++	its = find_4_1_its();
++	if (its && its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
++		its_vpe_4_1_invall_locked(cpu, vpe);
++
+ 	its_vpe_db_proxy_move(vpe, from, cpu);
+ 
+ out:
+@@ -4173,22 +4195,12 @@ static void its_vpe_4_1_deschedule(struct its_vpe *vpe,
+ 
+ static void its_vpe_4_1_invall(struct its_vpe *vpe)
+ {
+-	void __iomem *rdbase;
+ 	unsigned long flags;
+-	u64 val;
+ 	int cpu;
+ 
+-	val  = GICR_INVALLR_V;
+-	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+-
+ 	/* Target the redistributor this vPE is currently known on */
+ 	cpu = vpe_to_cpuid_lock(vpe, &flags);
+-	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+-	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+-	gic_write_lpir(val, rdbase + GICR_INVALLR);
+-
+-	wait_for_syncr(rdbase);
+-	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	its_vpe_4_1_invall_locked(cpu, vpe);
+ 	vpe_to_cpuid_unlock(vpe, flags);
+ }
+ 
+@@ -4781,6 +4793,14 @@ static bool its_set_non_coherent(void *data)
+ 	return true;
+ }
+ 
++static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
++{
++	struct its_node *its = data;
++
++	its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100801;
++	return true;
++}
++
+ static const struct gic_quirk its_quirks[] = {
+ #ifdef CONFIG_CAVIUM_ERRATUM_22375
+ 	{
+@@ -4827,6 +4847,14 @@ static const struct gic_quirk its_quirks[] = {
+ 		.init	= its_enable_quirk_hip07_161600802,
+ 	},
+ #endif
++#ifdef CONFIG_HISILICON_ERRATUM_162100801
++	{
++		.desc	= "ITS: Hip09 erratum 162100801",
++		.iidr	= 0x00051736,
++		.mask	= 0xffffffff,
++		.init	= its_enable_quirk_hip09_162100801,
++	},
++#endif
+ #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+ 	{
+ 		.desc   = "ITS: Rockchip erratum RK3588001",
 -- 
 2.43.0
 
