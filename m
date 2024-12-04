@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68599E7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB6AE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tO4J6h9gPG6jlGJ5UoE5+9whK5/FAlAsmuxd7ix2dwI=; b=ANZVAsefHsfn497pB9it0hR+0A
-	CVjXLe9j0af8R6to30cJWVL1z0sS5+JDMrbqg6oP9TvginZ+RGN7slDNH5teLGbUEGA8ZFS8qmthU
-	f1xzwQhfQEDHUc84uaY9HgEQ/IO/g7dfWYdIYKUPMdIhxjVULhOjjIy+jAy95er70s0wMLC34niN7
-	8hD2UqRl1JOvl/1JPjjNgvh+UJ8PvBdAOkGfrL2Pqyq5kNX/b2OZH5JjmZB9rcfHFjeXs67RFHHLm
-	rEFTftS4X/N541O6w1cG886D12trdl0HLEf7b5g+krtHnixnx3lFp5B+LZPwgvaU2UWDckLSlVN6A
-	Al13BvOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aBoNT22bjOCCH26k5KlABL0rZ5aFoWyBOOtQ5GiVdgE=; b=ybNkl5KNIcvOm9bp1LJmOjQRT7
+	n5hENTIiyK5S+TzZHCtaU4N+74C3Z8FLlF/DKq3e49wKqBsZ72HURG0l0BV9BdcdsIO2RjiFFK297
+	KMWJMlTxtsgZKYhZsAkuVUpzx0GqX4YSW2UCiHMaFdynrnk4LkdvJJaUrK/VdT743L3xIYiRtwkWN
+	Bon39Wm/9Nn+9KLjdmSlA7HkzkDqFtvYY0Te7NkmMumX3fHVOWbioWKtINKP+euSGUYMuoTxkQEFq
+	PnzS2FlCTwTb39bZtroKx57CLooVG4rdprSqhJ72YwHt/F0/h4pOfoNKMZckaYfmDXwTnHyTVO+ml
+	Q7YFfUMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlKA-0000000BywC-1hg3;
-	Wed, 04 Dec 2024 09:05:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIlON-0000000BzUG-0vEO;
+	Wed, 04 Dec 2024 09:09:55 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlJA-0000000Byqw-2mZW
+	id 1tIlNM-0000000BzHV-1m6C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 09:04:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 447265C54FC;
-	Wed,  4 Dec 2024 09:03:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7AE8C4CED1;
-	Wed,  4 Dec 2024 09:04:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733303071;
-	bh=VT8ZfVdCX2f7yWT+xNjlJWjbNeNrv22Jv1EIIDNEunU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oUPDjmddCGZGbyLZZD1MzXPndzo55vLhSrq1uC/YHc1lbEAgA1APGQ8GTVh+Ba+4I
-	 tM78cUufghWaVjkEuv5mlwycA4BnNi6/0jwXnBJin8Xn10MAyTpk9IJBm3KQgFJZK3
-	 /LuOEDPh+YBA7j8D4GGEEO49E/7IFtGsUwGfx9LVrPWyu6daToQTaCYwlgqDK2CNhv
-	 YZg7YioF2Pl6uVVusLaFz7FMptlyRuSgtzJAs/L9Rk3BpMmNv1Ypk859PQebCvP1/5
-	 hrd2LC3EHi/nTt5TV8c0LB6mKrNGJymhVPC6FqYPbIlwvDbdITYMgEVtIj5OLYXC8J
-	 D8EPQ9a++hAXw==
-Received: from 82-132-237-135.dab.02.net ([82.132.237.135] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tIlJ6-000Nlg-VV;
-	Wed, 04 Dec 2024 09:04:29 +0000
-Date: Wed, 04 Dec 2024 09:04:26 +0000
-Message-ID: <87ikrzstt1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvmarm@lists.linux.dev,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 05/14] KVM: arm64: Always allow fixed cycle counter
-In-Reply-To: <Z0-HBsBgf6WB7x4R@linux.dev>
-References: <20241203193220.1070811-1-oliver.upton@linux.dev>
-	<20241203193220.1070811-6-oliver.upton@linux.dev>
-	<87ldwwsbad.wl-maz@kernel.org>
-	<Z0-HBsBgf6WB7x4R@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.237.135
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 04 Dec 2024 09:08:53 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 86EF320002;
+	Wed,  4 Dec 2024 09:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733303327;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aBoNT22bjOCCH26k5KlABL0rZ5aFoWyBOOtQ5GiVdgE=;
+	b=fZ6TNfcgsKAfXWizpuvYO/VCeUpqVxLoLZU0h80AsSTwqITeBbhUdPjLlXQoRTMhTD83WZ
+	BMDO62sEiMIn92tgFQAaZOkJxlNlDDpGzkk6+e+BPQ7J6eWpGcmwWASDrdwBNmoZV0+0nu
+	SA3mA9Y1v0+JhDqxImGDJbJeSLQ5no9AOHm88gX9w7kWEAuF3Wg5oX/Y8Rs+tiY8n2LKiZ
+	NvDWh4ejpPUPPGSulUjafKPYkRXWNvDtX4JyheQYSYRuvkgiIE0Xh3Is60T+sPjTRV8P/o
+	46IVd9CX6nsK+ETjvRUGXahr6FZf6Pmti9v3gWkaaN1FH/UMEgnTV96oaKUdxQ==
+Message-ID: <6e47e420-84c4-4539-ba54-5e1e939a37a5@bootlin.com>
+Date: Wed, 4 Dec 2024 10:08:43 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Thomas Richard <thomas.richard@bootlin.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-j784s4: use ti,j7200-padconf
+ compatible
+To: Francesco Dolcini <francesco@dolcini.it>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, u-kumar1@ti.com
+Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gregory.clement@bootlin.com, thomas.petazzoni@bootlin.com,
+ richard.genoud@bootlin.com
+References: <20241113-j784s4-s2r-pinctrl-v1-1-19aeb62739bc@bootlin.com>
+ <20241119190106.GA70080@francesco-nb>
+Content-Language: en-US
+In-Reply-To: <20241119190106.GA70080@francesco-nb>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-GND-Sasl: thomas.richard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_010432_796019_0084190E 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20241204_010852_760564_3A5C9156 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Dec 2024 22:32:38 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
+On 11/19/24 20:01, Francesco Dolcini wrote:
+> Hello Thomas and TI folks,
 > 
-> On Tue, Dec 03, 2024 at 09:32:10PM +0000, Marc Zyngier wrote:
-> > On Tue, 03 Dec 2024 19:32:11 +0000,
-> > Oliver Upton <oliver.upton@linux.dev> wrote:
-> > > 
-> > > The fixed CPU cycle counter is mandatory for PMUv3, so it doesn't make a
-> > > lot of sense allowing userspace to filter it. Only apply the PMU event
-> > > filter to *programmed* event counters.
-> > 
-> > But that's a change in ABI, isn't it? We explicitly say in the
-> > documentation that the cycle counter can be filtered by specifying
-> > event 0x11.
+> On Wed, Nov 13, 2024 at 11:43:05AM +0100, Thomas Richard wrote:
+>> Like on j7200, pinctrl contexts shall be saved and restored during
+>> suspend-to-ram.
+>>
+>> So use ti,j7200-padconf compatible.
+>>
+>> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
+>> ---
+>> Use ti,j7200-padconf compatible to save and restore pinctrl contexts during
+>> suspend-to-ram.
+>> ---
+>>  arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi       |  6 +++---
+>>  arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi | 12 ++++++------
 > 
-> Yeah... A bit of a dirty shortcut I took because I don't like the ABI,
-> but distaste isn't enough to break it :)
-> 
-> > More importantly, the current filtering works in terms of events, and
-> > not in terms of counters.
-> > 
-> > Instead of changing the ABI, how about simply not supporting filtering
-> > on such non-compliant HW? Surely that would simplify a few things.
-> 
-> Yeah, that sounds reasonable. Especially if we allow programmable event
-> counters where the event ID space doesn't match the architecture.
+> Do j784s4 supports any kind of low power mode and/or suspend to ram? My
+> understanding was that this was not supported, but maybe there is some
+> details that was lost when I was told this information.
 
-Another thing I have been wondering is if a slightly better approach
-would be to move some of the handling to the PMU driver itself, and
-let it emulate PMUv3 if it can. This would allow conversion of event
-numbers in situ rather than polluting the PMUv3 code in KVM.
+Hello Francesco,
 
-	M.
+We are working on suspend-to-ram support for j7200 and j784s4.
+During suspend-to-ram the SoC is fully powered-off (thanks to the PMIC
+which powers off all the power rails except the DDR which is in
+self-refresh), like on j7200.
+Please let me know if you want more details.
 
--- 
-Without deviation from the norm, progress is not possible.
+Regards,
+
+Thomas
 
