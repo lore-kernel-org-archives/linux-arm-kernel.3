@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614EDE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA94E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63Dz4jjbRwX5CQLNLC40wvOTv92feQluubf1HWJS80s=; b=GfaNhrVy4msNSwzEt/mWp46wpK
-	CNwYGVNUc4zs4tfWMj4aeiriwfLrz4X53nwzXk/puTXR0b61aUInMKqAmmiRxKF90Sw/CS6dhVSvl
-	LVgeQi06FKzqzROq0YRfMqIiL6TIBb4CvaGpSdjgc+FgkbWOMNajkXN0mVOSlC9Y6D19b8irDVqY+
-	5zT3FZlnpJUo0fqZXRW49MGgOnp+me3PYUvoB/R2lJYrN87mRXgDvBF/oEzSHKK3DDwiLMA5FYQnq
-	B88ISAiqCqk+IvpLKsPKyYRoAhz0DvdvWojR2/iqV2iLxP6XA3UjVYfBmULtyGCBrtyJDqYJ4JW58
-	aFJjPrzA==;
+	bh=TbrPPtzaz1uYp8syc2SwQibDDWFYYYcWdraEyuneUW8=; b=0fRdW1bAKSsUFq/YrltCc7EPQj
+	X2PDmRPKumw2yKC3GLmCnNfL4Uxhqo1tCSFagEUqHVive2TH6zLLnqCjRDY//DNVElsGWrZrKi+0h
+	K7FLEwba+23gO+RsUEsk955XvXkz/45gonrj3cAx33ZhE9LFr/w1P4q2Db1TSx1BVqoxdtLH6ApNF
+	fW7ePapJxDc1EXW/1H5v6/fSAYZ6qO2hzr0bChZ/Js9jdD2XwPO/Wpc9mtEbOipUBUw6TtumEFKCc
+	W9GLYMp17a8QCqamIXWON5A1AL/Z0ZdxtCtvtGMya6wJYoMmC7Oj6Mcgr+n9FAmoEpay7X9nTEGj0
+	FBLWYKGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrFr-0000000Czc4-2jQW;
-	Wed, 04 Dec 2024 15:25:31 +0000
+	id 1tIrGq-0000000CznQ-0zxQ;
+	Wed, 04 Dec 2024 15:26:32 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrCu-0000000CysS-3FnR
+	id 1tIrCw-0000000Cyt9-2ckA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:22:29 +0000
+	Wed, 04 Dec 2024 15:22:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D22C5C5649;
-	Wed,  4 Dec 2024 15:21:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1B18C4CED2;
-	Wed,  4 Dec 2024 15:22:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4526F5C58D9;
+	Wed,  4 Dec 2024 15:21:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F4F9C4CED2;
+	Wed,  4 Dec 2024 15:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733325748;
-	bh=fwkQ2FXE6pq57Zq+2np3KAdjth1F3BAf6kMutQobcPY=;
+	s=k20201202; t=1733325750;
+	bh=A8QKBxilDmxPa7rkbda6zcbE9W7eNHPT2bdz3YleFLw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=epS7muEeP9lQIxwVtpBOEZfTUD0dsC90heQReQpjO5hSMDjQjehvJiOWNMEt5EZyV
-	 Qzd1J2/mQ9EsWaCv7SFchHqtBbmUlRZ2c0o4hSqohK7YgGEjJ86kAqC35Stjhmxuwi
-	 xIGiafCiyU6PJ/8ytGtdm5v64UKhjDqweVbn+3j2/ZCNwPM+miTwgqM5jUTOq1yBVD
-	 bs5kHwXSsZKZEx70b4p0EUneQwhGzEDx4v48roXtTQ2SrGYp/W/DgsD+ZOKUmMFXsW
-	 jHwnlx9WcXcLg6psEzSmW5j89JD3B+fyoO/xkl1vl+Aep0W5R3ksHMHKQ9FyvxT4T8
-	 P2+F7BSdD6K3Q==
+	b=QNj5hXemT+0ygrwbrgagcUNKOZv7DgPtgEFPYb2ASRGxh801B9/Gxxd88fI+jbDvg
+	 JXiP3zd1ThdTKB0crkPoFya/IKM/m0aBjYCv7N4DqXshIk17EBw3LMNPR4GsRxCWRd
+	 ESiLrVPAn2oXczQspoZnSOFa0AY2xWyM1v7JTtEhAjUacMhtsC6mWdAaQXVg9U35Yf
+	 a6VzE0jAv80ZkgP8JErM2iPhqJgas5NSOVaAUpJiQEyCY2rtg8TybLbu+iISNbPm5O
+	 6o5ZWZ4UKPLGy180R+7AvMjUUAdpu3cn7mRDnYXxtfxpFwfzudscBcgI34+mNxa+S4
+	 ZDhyxvNCXkzWQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 04 Dec 2024 15:20:50 +0000
-Subject: [PATCH v2 2/6] arm64/fp: Don't corrupt FPMR when streaming mode
- changes
+Date: Wed, 04 Dec 2024 15:20:51 +0000
+Subject: [PATCH v2 3/6] arm64/ptrace: Zero FPMR on streaming mode
+ entry/exit
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241204-arm64-sme-reenable-v2-2-bae87728251d@kernel.org>
+Message-Id: <20241204-arm64-sme-reenable-v2-3-bae87728251d@kernel.org>
 References: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
 In-Reply-To: <20241204-arm64-sme-reenable-v2-0-bae87728251d@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>, Dave Martin <Dave.Martin@arm.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
+ Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1433; i=broonie@kernel.org;
- h=from:subject:message-id; bh=fwkQ2FXE6pq57Zq+2np3KAdjth1F3BAf6kMutQobcPY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnUHOpaUAs0CFqi8g5AEDwSl46+wYe2DIE2hvmh1nQ
- 7ZNS+yOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ1BzqQAKCRAk1otyXVSH0Hn0B/
- 9VJPrFKOwDan2vT7C2sJe2gkAlzuDlnRvwYUVmOmEC+hyjxz0oxkJ72W+vZD/3ARoKBOO2aJyXtkFg
- X/4cmj2Y7cBdf9sPaTiqHG5lCSKOwptrpInRbgvIviUQqiTsMvY5G2i1c5jDCFu/30qASLdspMVGzF
- YSRBEdob0x1qVbfN5V5sytxnsV/txBc3wzGywRnNjwc9hGdEv3EOKAYhqyKBk3lorL7GpDsX2eTSbb
- w73NyNm5JxQLhQiKQTUXYVsNzaOni64A45ufDLjOfrmA1mYyJVmH6OiHnoFOLqqt6f5z/I+DhKk0YB
- pZVdXllCnDoQZM2Oz5zWMzAyJFHuBT
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2536; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=A8QKBxilDmxPa7rkbda6zcbE9W7eNHPT2bdz3YleFLw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnUHOqPfutP7bJSiz1k/7SJhcoIeMOBJXZS1GuIf38
+ grLqUyCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ1BzqgAKCRAk1otyXVSH0K5oB/
+ 9g8XrD26deExaGvYbmtEB2rk9DdkgD0udiS0bq/MVMNeUZAP6wa0bz7mKAWRk9vEZ7UQ2XhBC+5JOU
+ Y74TcXmBDAxrhN+kxiv/EwXqzTyvLBQ7dmz4sr6sfRUW2jIkzyawXKXPWByssW6Cqu0+Z+lCylgevf
+ V9tCwn/IbrKcvHinej/SrO4Z1BvUjs4B+ea0iAmbCpTipdlARj8HTOESCozy38MrlHXpktcPv5Nzuh
+ 5Z6YyRTBGFWARBoyqqtAMrB4UKfclQrK1g4flJL01GNB5xki7imPM+Xdf+sclqpAKtOMX1ErxyGIQu
+ ETIrsydK0mSkxcXkHB0+UfZC4CPCFD
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_072228_853325_40D6CF13 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20241204_072230_746653_2AE2AF96 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +86,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When we enter or exit streaming more FPMR is reset to 0.  This means
-that when restoring the floating point state from memory we need to
-restore FPMR after we restore SVCR, otherwise if we are entering or
-exiting streaming mode as part of loading the new state the value of
-FPMR will be corrupted.
+When FPMR and SME are both present then entering and exiting streaming mode
+clears FPMR in the same manner as it clears the V/Z and P registers.
+Since entering and exiting streaming mode via ptrace is expected to have
+the same effect as doing so via SMSTART/SMSTOP it should clear FPMR too
+but this was missed when FPMR support was added. Add the required reset
+of FPMR.
 
-Fixes: 203f2b95a882 ("arm64/fpsimd: Support FEAT_FPMR")
+Since changing the vector length resets SVCR a SME vector length change
+implemented via a write to ZA can trigger an exit of streaming mode and
+we need to check when writing to ZA as well.
+
+Fixes: 4035c22ef7d4 ("arm64/ptrace: Expose FPMR via ptrace")
 Signed-off-by: Mark Brown <broonie@kernel.org>
+Cc: stable@vger.kernel.org
 ---
- arch/arm64/kernel/fpsimd.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/kernel/ptrace.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index eca0b6a2fc6fa25d8c850a5b9e109b4d58809f54..a3bb17c88942eba031d26e9f75ad46f37b6dc621 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -359,9 +359,6 @@ static void task_fpsimd_load(void)
- 	WARN_ON(preemptible());
- 	WARN_ON(test_thread_flag(TIF_KERNEL_FPSTATE));
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index e4437f62a2cda93734052c44b48886db83d75b3e..43a9397d5903ff87b608befdcaed3f9a7e48f976 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -877,6 +877,7 @@ static int sve_set_common(struct task_struct *target,
+ 			  const void *kbuf, const void __user *ubuf,
+ 			  enum vec_type type)
+ {
++	u64 old_svcr = target->thread.svcr;
+ 	int ret;
+ 	struct user_sve_header header;
+ 	unsigned int vq;
+@@ -908,8 +909,6 @@ static int sve_set_common(struct task_struct *target,
  
--	if (system_supports_fpmr())
--		write_sysreg_s(current->thread.uw.fpmr, SYS_FPMR);
+ 	/* Enter/exit streaming mode */
+ 	if (system_supports_sme()) {
+-		u64 old_svcr = target->thread.svcr;
 -
- 	if (system_supports_sve() || system_supports_sme()) {
- 		switch (current->thread.fp_type) {
- 		case FP_STATE_FPSIMD:
-@@ -413,6 +410,9 @@ static void task_fpsimd_load(void)
- 			restore_ffr = system_supports_fa64();
- 	}
+ 		switch (type) {
+ 		case ARM64_VEC_SVE:
+ 			target->thread.svcr &= ~SVCR_SM_MASK;
+@@ -1008,6 +1007,10 @@ static int sve_set_common(struct task_struct *target,
+ 				 start, end);
  
-+	if (system_supports_fpmr())
-+		write_sysreg_s(current->thread.uw.fpmr, SYS_FPMR);
+ out:
++	/* If we entered or exited streaming mode then reset FPMR */
++	if ((target->thread.svcr & SVCR_SM) != (old_svcr & SVCR_SM))
++		target->thread.uw.fpmr = 0;
 +
- 	if (restore_sve_regs) {
- 		WARN_ON_ONCE(current->thread.fp_type != FP_STATE_SVE);
- 		sve_load_state(sve_pffr(&current->thread),
+ 	fpsimd_flush_task_state(target);
+ 	return ret;
+ }
+@@ -1104,6 +1107,7 @@ static int za_set(struct task_struct *target,
+ 		  unsigned int pos, unsigned int count,
+ 		  const void *kbuf, const void __user *ubuf)
+ {
++	u64 old_svcr = target->thread.svcr;
+ 	int ret;
+ 	struct user_za_header header;
+ 	unsigned int vq;
+@@ -1184,6 +1188,10 @@ static int za_set(struct task_struct *target,
+ 	target->thread.svcr |= SVCR_ZA_MASK;
+ 
+ out:
++	/* If we entered or exited streaming mode then reset FPMR */
++	if ((target->thread.svcr & SVCR_SM) != (old_svcr & SVCR_SM))
++		target->thread.uw.fpmr = 0;
++
+ 	fpsimd_flush_task_state(target);
+ 	return ret;
+ }
 
 -- 
 2.39.5
