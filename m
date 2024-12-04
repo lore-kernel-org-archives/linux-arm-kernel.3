@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946DFE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7A6E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5lmhyTT2gnZ9bY0N8ST8GSpbytof12mEhpjxb7D+L9U=; b=o+4KXwXnpIXx2cGsmK8ZhdgfDv
-	2EhBGue/AJqjWtOFJuuTkqnM3yhp7d/wwMEEkUF51VpXCaDWLGs60qq0xLh6s6lCBbn4vYTX9l2cK
-	i5G8eugnMa0aYAiXnlb1tedwLgbBHQQvtuUzZLfW1LWrJjUMOwy/lWEuUg1OH4UIzswImk3O6PKNS
-	hG3jS8DQ8d1SVBWEKOGPWm6xJtM7epSDhAsKHhjCsHgwK+05JpeWVgshNLe95dNs+dGYFdpG9XABl
-	y6LXOio3b2t1o/qqdYY2qSIytKZdl2E1SuCjifmL2WoPqW6w4PXn/C0r8NHWa/Pdh9PjVvaRB1DZe
-	SK2CunnQ==;
+	bh=OTEmncciocPRgY7H5fUjlRkCt48qMFTt++Vy8wJxvVM=; b=wvvr3+cxxxiUFEqqhp0h+WzuUe
+	/gA7F4158HvhY4k4NBMV1p5MH12/qZlNV4XiWjz+iPzsenoXcEqpZGQUhAdON/9Wjx//VtEpxjcZg
+	bqPxG1HpI4kNZE0E5fLVGL1EcykGKBFqf31d2J8uaCbth2XCOP97as/nuZaLXDd9q9IqnxDzlu1NV
+	4gi9AA/eiG/jG5kp0gJbPkH3DcIo8Oy2qhJL/kmvL4H8cpCC8TgMPOe16SrUGDnOfesE+ynDPfYZ/
+	pPW0pD1w5uV2kDdPbXxfpSENr0dGS25h+GI+sHw3cmGL8Tt1QEbjjHuas96XKCgBNnyoCAIJP/EMz
+	WrYMiJPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlko-0000000C3fi-3Pvp;
-	Wed, 04 Dec 2024 09:33:06 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1tIllm-0000000C3um-2yGf;
+	Wed, 04 Dec 2024 09:34:06 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlgy-0000000C2fX-1oLW
+	id 1tIljP-0000000C3AW-1Ckh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 09:29:09 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7fcdb53cca6so2113036a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 01:29:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733304547; x=1733909347; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5lmhyTT2gnZ9bY0N8ST8GSpbytof12mEhpjxb7D+L9U=;
-        b=JJLfAW0j9ZzbJyR5J6nctm9QtlMY2T5fxEvzdEtGCXaV1iXvzQBZr4TBmY2Vdo04LL
-         E/466yEx7H6+4dX9rO6faqVws8fFZXsARjfL+SZjzJlRldqWPgQceSrrqkvuhl69Pxsu
-         zh42hdwzjiQFC9tEWUEg6v2ODKNOWaMUxwzP0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733304547; x=1733909347;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5lmhyTT2gnZ9bY0N8ST8GSpbytof12mEhpjxb7D+L9U=;
-        b=Xf2plOpGM2zH7/fx9eH5ZOlwgYPyWeqGJMWx2rcqjIBm95Wr2DpT0aQB1LCSg8vF3B
-         54CZm+MjyV+cbP/6oxBV6rvREi6x9PUzdr7H8wOcNftfNbGILbf2afHOlDInfsLUZSn5
-         pukeYQI+MFtE1DiYz6K2admoCk8YSzSNM5yhruULitGwSWkSzfg2vJBBA0SlbryKetl8
-         nzGtATqfKc0/T3jrzDXtkx2cLW8pedHUJnURtRjo19eGSwRsiaIAmK95GszYWuldnt+h
-         eS3HNnyV8Rg4Zd9N1gEQ6PXFgG8oXFjekuxkNcjg2B9PJX3uDoyfj62C5EFGB4ntFGad
-         xkJg==
-X-Forwarded-Encrypted: i=1; AJvYcCUA83pmbqh+5GztMnIK0zLCP1tKNy+kam2/0QcHRZcuNtS/V4WxfwdoJw3IvpNT3VC22U3dEH8iCQ0km0iNawtO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfVxcf3X0j8weW69LDPww5TopBaEk9ALYT1Uydf9TFD9MzByIF
-	d1r/oVTJxpnX39rB2jiMoNAsQyI9AQNTYfoSrEOs4BjJ6iLTIucXdFzij0MmWw==
-X-Gm-Gg: ASbGnctMe0jokKSVEwBzx4KSAHpMKVc4et8rEfjSqzIMzKiPv+lEgB+sgNqQWshDT+3
-	jLAeyeZAxQviV2pRf4hcEVk2XjRPI1Kr4l6mXCUo9bS6A4r+m9A0cm8hxXX+BDnJaCPs2oPGuYA
-	RVVN0bd+YWKqpQdndWi+5xlzZ7mVO5VwvkyCY+CmZlPLjWsi392HsYTwXZPHsA2mX2055EanXVj
-	iwPdJTaIlCITNlRinpRBfKZEXlkghUte1JbnP824Qri4DbkGBYTJBAn4ix+x3ZXO/xq
-X-Google-Smtp-Source: AGHT+IF/J9a4qflcZHiUbg+VHivDCNAN5kL5imj4FjGYpM9OWcUYV3cXUXaClbk0sydJ7WHWfxLZ0A==
-X-Received: by 2002:a05:6a20:8407:b0:1db:c20f:2c4d with SMTP id adf61e73a8af0-1e1653a6515mr8672949637.2.1733304547503;
-        Wed, 04 Dec 2024 01:29:07 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:2eb1:a68a:2625:b944])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fc9c2d38dbsm11049024a12.15.2024.12.04.01.29.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 01:29:07 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Chaotian Jing <chaotian.jing@mediatek.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Wenbin Mei <wenbin.mei@mediatek.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Andy-ld Lu <andy-ld.lu@mediatek.com>
-Subject: [PATCH 2/2] mmc: mtk-sd: Limit getting top_base to SoCs that require it
-Date: Wed,  4 Dec 2024 17:28:53 +0800
-Message-ID: <20241204092855.1365638-3-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-In-Reply-To: <20241204092855.1365638-1-wenst@chromium.org>
-References: <20241204092855.1365638-1-wenst@chromium.org>
+	Wed, 04 Dec 2024 09:31:40 +0000
+Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id ACA63DEE;
+	Wed,  4 Dec 2024 10:31:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1733304668;
+	bh=mf5laTsJQS47wTWaPVq+HhwOLi61DaR3sotP+bSFleI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=rWV7ej8LRxgfU4fQzjfjsnnXR2NMCQ54lY7nGsqN4c1hphabbMwOTSNt/FcdmV/0w
+	 OGS7INU9dIdLxQ+/Uz8sIQ3qllY7Z1p7lGQptlCdAUX8aRA4xIl+QuOi5PR9BXtkRt
+	 pKOfE0Tc2KGd4oVygcwpv/3nHuY6CpTAagzQ/jMA=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Wed, 04 Dec 2024 11:31:03 +0200
+Subject: [PATCH 03/10] drm/fourcc: Add DRM_FORMAT_Y8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241204-xilinx-formats-v1-3-0bf2c5147db1@ideasonboard.com>
+References: <20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com>
+In-Reply-To: <20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com>
+To: Vishal Sagar <vishal.sagar@amd.com>, 
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1945;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=mf5laTsJQS47wTWaPVq+HhwOLi61DaR3sotP+bSFleI=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnUCFx5mhGi5W/bP9q7RWzGo74Wt3wQPeJI3sXs
+ pd+jiz3RpWJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZ1AhcQAKCRD6PaqMvJYe
+ 9Ug4D/9/xafVOLqBEJNEOZO++iwGGQbir+uOuNgAOupEdeGsu/bOQE1jhMkTIb5n3TIX52m7iJR
+ +Pas60kZO0b06oJYChe9UfseN9KRYxxsvBZQB+gsCVOqcsjkzA4Pfidcs03dALo0UQo7DoUQuGP
+ hBZmoPE/EqK9ksBOou5G83MaL7WtmvBO7Fxt1u7FAxax7G/BeC6N4c5dF/agavqy5dEKyIkiCQc
+ NYofRWTmN1JSQt7fqa8G/KkDVPujWas60MEMQQTsaP2CYwLUEg4vX+AIMTcnPvNNp+KkwFAzzlP
+ D5ijZlcZzyNscMEAj0owMRgVyu8beiCCuQOeu0md7MdUYdKxsBkJ4xRsAbC2Zh2+Y+NGvK/ow+I
+ M9PiEG1Zi97S5VXxim9vovlSCCFCVOrYk9L2bbfW9rHNqzIbprzSDOe1w+zuWqKxVyO7NG6eU9p
+ p+FnWlfDbpx4tn4vbaaDB0Tax3uGpHu7ypNAFcZeYPJ/DoSHjdz1D9iFgbHz3o3mPt0BfIRd4CH
+ BwziywRHllqoGwlLgqTTFUC7rMbODDyoIS0RO/T+Vel39EFnNbdX1lKvjFscUh2n872UFTONB8j
+ bsf0opYv86Zq7ieo1ZLZfjoZk7zWtik/O+DVG9ovdNzuD9qdcPzFhNFSmM+nGa2d9UD5b43UEt+
+ Td6hcK6BXfAKE+w==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_012908_466730_41B6FD89 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20241204_013139_491317_3B75739B 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,85 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the mtk-sd driver tries to get and map the second register
-base, named top_base in the code, regardless of whether the SoC model
-actually has it or not. This produces confusing big error messages on
-the platforms that don't need it:
+Add greyscale Y8 format.
 
-    mtk-msdc 11260000.mmc: error -EINVAL: invalid resource (null)
-
-Limit it to the platforms that actually require it, based on their
-device tree entries, and properly fail if it is missing. There is
-no MMC node in the MT6779 dts, so it's currently unknown if that
-platform needs it or not.
-
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/mmc/host/mtk-sd.c | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/drm_fourcc.c  | 1 +
+ include/uapi/drm/drm_fourcc.h | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index e2c385853eef..1bb7044f4ca1 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -414,6 +414,7 @@ struct mtk_mmc_compatible {
- 	u8 clk_div_bits;
- 	bool recheck_sdio_irq;
- 	bool hs400_tune; /* only used for MT8173 */
-+	bool needs_top_base;
- 	u32 pad_tune_reg;
- 	bool async_fifo;
- 	bool data_tune;
-@@ -587,6 +588,7 @@ static const struct mtk_mmc_compatible mt7986_compat = {
- 	.clk_div_bits = 12,
- 	.recheck_sdio_irq = true,
- 	.hs400_tune = false,
-+	.needs_top_base = true,
- 	.pad_tune_reg = MSDC_PAD_TUNE0,
- 	.async_fifo = true,
- 	.data_tune = true,
-@@ -627,6 +629,7 @@ static const struct mtk_mmc_compatible mt8183_compat = {
- 	.clk_div_bits = 12,
- 	.recheck_sdio_irq = false,
- 	.hs400_tune = false,
-+	.needs_top_base = true,
- 	.pad_tune_reg = MSDC_PAD_TUNE0,
- 	.async_fifo = true,
- 	.data_tune = true,
-@@ -653,6 +656,7 @@ static const struct mtk_mmc_compatible mt8196_compat = {
- 	.clk_div_bits = 12,
- 	.recheck_sdio_irq = false,
- 	.hs400_tune = false,
-+	.needs_top_base = true,
- 	.pad_tune_reg = MSDC_PAD_TUNE0,
- 	.async_fifo = true,
- 	.data_tune = true,
-@@ -2887,9 +2891,13 @@ static int msdc_drv_probe(struct platform_device *pdev)
- 	if (IS_ERR(host->base))
- 		return PTR_ERR(host->base);
+diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
+index adb2d44630ee..d721d9fdbe98 100644
+--- a/drivers/gpu/drm/drm_fourcc.c
++++ b/drivers/gpu/drm/drm_fourcc.c
+@@ -239,6 +239,7 @@ const struct drm_format_info *__drm_format_info(u32 format)
+ 		{ .format = DRM_FORMAT_YVU422,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+ 		{ .format = DRM_FORMAT_YUV444,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+ 		{ .format = DRM_FORMAT_YVU444,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 1, .vsub = 1, .is_yuv = true },
++		{ .format = DRM_FORMAT_Y8,		.depth = 8,  .num_planes = 1, .cpp = { 1, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+ 		{ .format = DRM_FORMAT_NV12,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true },
+ 		{ .format = DRM_FORMAT_NV21,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true },
+ 		{ .format = DRM_FORMAT_NV16,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+index 2a00adcfb1ff..f79ee3b93f09 100644
+--- a/include/uapi/drm/drm_fourcc.h
++++ b/include/uapi/drm/drm_fourcc.h
+@@ -405,6 +405,9 @@ extern "C" {
+ #define DRM_FORMAT_YUV444	fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
+ #define DRM_FORMAT_YVU444	fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
  
--	host->top_base = devm_platform_ioremap_resource(pdev, 1);
--	if (IS_ERR(host->top_base))
--		host->top_base = NULL;
-+	host->dev_comp = of_device_get_match_data(&pdev->dev);
++/* Greyscale formats */
 +
-+	if (host->dev_comp->needs_top_base) {
-+		host->top_base = devm_platform_ioremap_resource(pdev, 1);
-+		if (IS_ERR(host->top_base))
-+			return PTR_ERR(host->top_base);
-+	}
++#define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
  
- 	ret = mmc_regulator_get_supply(mmc);
- 	if (ret)
-@@ -2951,7 +2959,6 @@ static int msdc_drv_probe(struct platform_device *pdev)
- 	msdc_of_property_parse(pdev, host);
- 
- 	host->dev = &pdev->dev;
--	host->dev_comp = of_device_get_match_data(&pdev->dev);
- 	host->src_clk_freq = clk_get_rate(host->src_clk);
- 	/* Set host parameters to mmc */
- 	mmc->ops = &mt_msdc_ops;
+ /*
+  * Format Modifiers:
+
 -- 
-2.47.0.338.g60cca15819-goog
+2.43.0
 
 
