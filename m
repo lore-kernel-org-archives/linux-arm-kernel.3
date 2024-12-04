@@ -4,80 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5CFE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612C9E77171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:07:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zlQ4zYe4YTIzHC/xwMvNF8POGVeCR2OoQYcmd4TzqY=; b=HLQe17lZRFHa+0SNw8ajZlnWqc
-	p1LodDzzdLA/uo3uohn9cpEjgGi6tIo8qOggcY4rhI2BkDFrVRRTpkWK9BFrWWWbU6BR44kTV5C1H
-	WWIJujejhT+dRM14Q9xboaCGX8KEGFg3dSfZxRtZ/yU1TkYHQGiwS2auT0INf/9c4R2yAvX/ZwAha
-	0oLXmBggXY7EBOmUmJuCgiDTiEsTz5vgaBQLyzA6x8VNjCmPqCovySsNbhoG1nxA3SgpR9LhnkIJe
-	jEuCRhUMp1XsiyDOnjFGXDtKpWnUOnBKo/hnYfWZ2XH4+RFYrFT8skBihc2R066NpswOcPVzl2xjl
-	cQzK4jEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r04KUKjd6JtLjhoEL5EPVQAhqHsl2Ek0yDHAo9qbZlM=; b=oxIrO7d++eY8UyEGJwI8mSCQhD
+	QymR1zUmV/3lvjRv/gD8wbFgfblChumoHFLlpPrk5hIQU8SMBGp1new4ny4B5uxcoCEC6s2ZIeC64
+	oQJBtgQUDMx3BaqTCUx2pO6uVCPz7PUlQRWPquDXvlu1TFHyxdRQdwi4alZJsynu5sHua/ui8jPLw
+	BKlZ7W3cT2sDJ58zx+9+P69FHJ7JGcL2K3pppzrPvwx42msYbr5ZJnXAeCIzECgxJmi0fFSZmRaE7
+	sNR5C7A6012j9+x9EwA6bTKz2R+ztfqyRdDCMBujY7CG628Zn86LfEn8Y6+4JykTnIKGcBhcGuAK0
+	3w/Rdy7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIso3-0000000DHgJ-3OEb;
-	Wed, 04 Dec 2024 17:04:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIsq8-0000000DI5b-0J4F;
+	Wed, 04 Dec 2024 17:07:04 +0000
+Received: from mail-sn1nam02on20628.outbound.protection.outlook.com ([2a01:111:f403:2406::628] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIslv-0000000DHAl-0Rjp;
-	Wed, 04 Dec 2024 17:02:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A4715C6F90;
-	Wed,  4 Dec 2024 17:01:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD214C4CECD;
-	Wed,  4 Dec 2024 17:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733331762;
-	bh=7u2DoriNT4352wrIk1exknMyKRlYYDQiy9mn/liPiNA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QAboMdsVN9OVTuY9mdZTyEBEBqUbNN98zMNsbKZvwIxxVwlTbm9VLqYHZhQq1x8Ho
-	 EwAku4XWmrqhw5+PPQYza05JjlBaalJSnFJ/laF7CC04b2l5bUrOk2uQFuqVuI+iGw
-	 sNfuGXjNKgT5ihLO5VW790BoaOthV/wamQhuAJSLD44eecoox762J+1kikBtkoFpxm
-	 fa1sJiJPvUGGePTsnH1jqdqIe2egMrfs7nSHwtiWjeodYF9oa9XOYfPYoADYfW3G9G
-	 3HbbCWlfjOYEX970z485nH3F4DAg3es5NJOOSEz17pU++tYf97gqJEf04A4Kdg3xb+
-	 6/eYAqN+U0MTg==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Bart Van Assche <bvanassche@acm.org>,
-	Avri Altman <Avri.Altman@wdc.com>,
-	Peter Wang <peter.wang@mediatek.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	Sasha Levin <sashal@kernel.org>,
-	James.Bottomley@HansenPartnership.com,
-	yoshihiro.shimoda.uh@renesas.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	avri.altman@wdc.com,
-	manivannan.sadhasivam@linaro.org,
-	ahalaney@redhat.com,
-	beanhuo@micron.com,
-	quic_mnaresh@quicinc.com,
-	ebiggers@google.com,
-	minwoo.im@samsung.com,
-	linux-scsi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 06/15] scsi: ufs: core: Make DMA mask configuration more flexible
-Date: Wed,  4 Dec 2024 10:50:45 -0500
-Message-ID: <20241204155105.2214350-6-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241204155105.2214350-1-sashal@kernel.org>
-References: <20241204155105.2214350-1-sashal@kernel.org>
+	id 1tIsme-0000000DHKr-46Mg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 17:03:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OwnZopVjwIG1uBtq0hbK7KCk3e+EJaOAR+lOgUn/qLQmHhSxEt3eQguGZc5D4IHVQcOxoseBBP4ZCyGKZ9NcGgdjv2YdgjbT6Gv3kHg4fyiheF2w8DJHqWjO1EVPF+MeGPFRxMqWqYOjbz2DMOTm176ej8diIuOrTmkRT/y0rQLa6jl5SfPzBCZmeXAJjppnU3VMpI8lpYx3Onyx0NkOmfZ0j0AaR61q8wC3gwzvlONDOr3C0ds7xsZYvfvArbAxIT+kfhUsLuPpw3IG3Y3JykqZ1g8VjbmacTc2Ma9YCmcrefWvqx9YBOgXt7nCEEGVsEP5PEoaL9R4ujMq/v/g5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r04KUKjd6JtLjhoEL5EPVQAhqHsl2Ek0yDHAo9qbZlM=;
+ b=Ag2ckEsA7GX32rp4lduD3yZUAKuE3280joL3kxCRmYanLshSb+lqB8G61vFf/5/D32ux7KWyRnE4XXG1h8WFW8UG2r1SZxr54gwbHmn9d5VK7MpyLe0OiObdeWqgNElMxUItxyFKb/bNFgJyYZzQLsP1zUJpzZkpNxMEz104bnlWnXiiC5LhZ/l65bVtnwrDYkinDIMfQ7ikk284Yl3hlYL2QCFDV//Y60HjF7fAQQOW+QdNsaUNXuhgdeWPEstB97H+Q6OhYahc+QBHS3ADqfm9KC6QyadKF9JV2tjbHPuzwQfQRu8B5KZzlDckZmAGLn5rAKp+pQ9KYDTTy2kMDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r04KUKjd6JtLjhoEL5EPVQAhqHsl2Ek0yDHAo9qbZlM=;
+ b=uUb+NsLuU5HYJr5ciPKKoskCg5kCvvNSsqEftC4pqMxeUM8vJ7YMHzF69gDl9tWxju7/pJRX2x3ZYgys9aJWTx7lQn030y0CeXZv2bJenn2rEdm3O4Th8P/wLFxxBtaVIqQoHU/cV4r0/5gUDgqyclnTJTrMozx1+gYFn3Ris1V49f68xDcBgofZU/V3aOo3zDYLTTPO8J/fBoC8SKyaJXxhp3xacguE5zDZke/rPRsKxMUZ3sy1SidoHSt81vfYtXN7aSV5eKt7wEpQYTVtgd5TcruOH6zfctLagSzht4A64ddtGObKaWcwcFfFmH+2J5SmB3OkBiBp9T0h9Bx51A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
+ by DM4PR12MB6592.namprd12.prod.outlook.com (2603:10b6:8:8a::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8207.19; Wed, 4 Dec 2024 17:03:21 +0000
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9%2]) with mapi id 15.20.8207.017; Wed, 4 Dec 2024
+ 17:03:21 +0000
+Message-ID: <44e7ae05-2eea-4602-b192-dbd01631169c@nvidia.com>
+Date: Wed, 4 Dec 2024 17:03:14 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap for
+ non-paged SKB data
+To: Furong Xu <0x1207@gmail.com>, Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>, Thierry Reding
+ <treding@nvidia.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20241021061023.2162701-1-0x1207@gmail.com>
+ <d8112193-0386-4e14-b516-37c2d838171a@nvidia.com>
+ <20241128144501.0000619b@gmail.com> <20241202163309.05603e96@kernel.org>
+ <20241203100331.00007580@gmail.com> <20241202183425.4021d14c@kernel.org>
+ <20241203111637.000023fe@gmail.com>
+From: Jon Hunter <jonathanh@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <20241203111637.000023fe@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0515.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:13b::22) To SJ2PR12MB8784.namprd12.prod.outlook.com
+ (2603:10b6:a03:4d0::11)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.119
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|DM4PR12MB6592:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0c13404-b8d9-404f-29ec-08dd14858e5a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bDhhRjJ1REZvTWtrK1RGZXZWRU5tRiswYzJTNTNPUGowVktQbFBLaG0veTQr?=
+ =?utf-8?B?Q2RPeFJZOTZ1RnNLWnExQUt2dWV5YXlJTmhnUUpBNGR2aVBNeUY5WDRLWUVO?=
+ =?utf-8?B?MHp4cEpQRitHUUZkNkpUcWFmdUdsOTFmOUVZRlBWQ3pEVVYrc2xGZko3cUY4?=
+ =?utf-8?B?blhpV0o5RUJkam54YUxjcnFjVVhjdFk0My9WY1c1TFNOWlFHdUlvRHJJb0Zm?=
+ =?utf-8?B?dHJEbWRUZ3FlOXcweDBGTDIwa1FpQzFGR0xyL2EzeUNFQU1YUWRNZng2Q2pm?=
+ =?utf-8?B?M0gwN1hSZlJ1M3htcnEwNWU0cjB6VWRhOEo2V3czUnlqQmdvbUR6L3UrQ3oz?=
+ =?utf-8?B?N3ZUdVp6MGNBbTYxT1BNVStYUHcrSW8xVXZab2hhRXVpR3oxWHVkMEFSWWI2?=
+ =?utf-8?B?NXRKU3RRV1lLLzlVajFHbnpiVWVpUTBrRXVNK0JOeG90U0I0YWFGdUZXTVE5?=
+ =?utf-8?B?a1RoR0crTTc5aldMbUFtK0VzYnFlT1NON0loRlpDRXFEZUtwM1piUFdpV3Zj?=
+ =?utf-8?B?N3NnaUZaU29oamVtUWFKdW5xUTlwWUJUNzBTMHB6eWIzVzdxNktkRXo3dU9G?=
+ =?utf-8?B?TlhxK2J5VkROM2NIUHFFcDJvdlIzWlZEWS9PVEwycjZ1VDVDNjZqbDZMVEQx?=
+ =?utf-8?B?WjlWWkhuUXdIdjcybWViVHY1MEt5a1k0b1dOZWQwS21pc1ZybDdqQmpJa3NL?=
+ =?utf-8?B?bmVqWFVXbDVkWWQ0WitUb3hjb05ma1luT1h2cEFiaXdHeDVhNHRKdjlCa3JW?=
+ =?utf-8?B?ZWY3cnNEeHVxVFZJTG5NeUg5WjdzdjN3dWw1Vmc5Q3d6SGVtTzZlcUN2WGt3?=
+ =?utf-8?B?SXp0aWVFYjRSQ3RGQk9OT043RllDZXRWK1lKekxvWXpJMWxFdXdYK28xVmFL?=
+ =?utf-8?B?dkFMaGNqV0FaRlA0WlpON0RBdnpVYTBHb0JORkZRSTJPdWszRmZVNGdIMXMv?=
+ =?utf-8?B?MzdFVVVJUk53MXk2MzJrejM2K3VUVHdRbWlINnVGSDFPMnllNnJGbmRaUm52?=
+ =?utf-8?B?a20rZC9lRUsxVEVSMlVxZkNZVzArS0ZTZTVGZzJkL1EwbnFPamRGNkVQbWRi?=
+ =?utf-8?B?OEhmaDVCSEJYdTZ4dUVaLzljYWsrd1dMU0NsaWVVWmh0QUU0dVVqd1RDUE5o?=
+ =?utf-8?B?VWhERStsM1prYzJRWDkxWVFjb2tHWDNqSTNuUDlVWis4UU9FdDBHUlJPcERq?=
+ =?utf-8?B?cHdsb0t2YjVZcU1lOXJHMll6ZXZuTGtzMnI5WjJtOFpMN1JjQzVuSGcrSWhj?=
+ =?utf-8?B?YVlCMjZWMm5uMUxzNmozcUNKcjl0Yi9MSnkyNmNsSmNiRndxc1dIa1ZhVTA3?=
+ =?utf-8?B?ZWJhVnRsTVRQTGZ3YWhiTWFHekZuOHpzcXgxZWdnUWl1R21KUDhWb0tNSXNQ?=
+ =?utf-8?B?L1Y5c1dUcmQ0cSsvNGN4VzNhdXJEdTl3QUVtZUIxRVJjSzdFMSs4YmlURENj?=
+ =?utf-8?B?OTYzMy9vK2NybFN6SkVNbHNOdUNHZWJmbmFBRFVmL05DTDZnUlFuQzExWi9x?=
+ =?utf-8?B?R3dGRFE1b29IY3JjRnJ1Y3JFNDdicUpPbXZ2ZVFhQzFhTWhMTnFlQytST0pm?=
+ =?utf-8?B?L1FVcTZMTUVHWjVIT0lmWU1xSDhENGo2QklFMk4zSjJ6OUJSbXI1VUVSWUFJ?=
+ =?utf-8?B?WXJxWVBzUWNqTlhndlFMMXZSRUlmdFBEK1NNM2s3Z3oxRmtVenVBcURBelhJ?=
+ =?utf-8?B?KzhGb3pyb2QrSkthSHc2TUVjZ1l6YWRYTno4Z2ZTYTFiL1FmVk9yY2NoWEhx?=
+ =?utf-8?B?dUhncDVMcUpjbDZwbXBDK3YrM2JRcVNFN2cyQmpOc2VIbWJzVHZLM1hWbFUv?=
+ =?utf-8?B?SjA5d3dkQ1F0SDdvL3J1QT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1paV0VzL2VZS09tYUNFZ1RMd1FEQXVnNGt0TGVpdXFpT1BtWXhlajlOTWE4?=
+ =?utf-8?B?YTFLbXF4eWhMOFJxZ29MS0hNZUF6Nk9JYlZHVUpJK29PbHpSaHN1MTRuK2RJ?=
+ =?utf-8?B?cFpmQmt4dkZjb0tBcVFwWml0NHo0aWw0QUxCbXdoL2RTTTN6L0t2SFNhNGVF?=
+ =?utf-8?B?Nm0zY1lvSGhKVTI0MUpLV3lUcUU5cUpkSkZuSzh4V2FQbjVVa0FMTGp4NUMv?=
+ =?utf-8?B?WCtaWlJRY3BrcDVyaXpXcVllK1VqNzdzTk15eVNaVmxBS3g4K09pczJDN1JB?=
+ =?utf-8?B?V0o3RVUveDFRWVREbTJPN0ZjSTdjUFB1V1EwT3FuUktxM0FoSDdUZ0NPNGdK?=
+ =?utf-8?B?MW1yZjcrTklsU0xXbkIyYWtJWU1YNVo2UWFKNE9aTU8wRzVyb0hxMjJic3BK?=
+ =?utf-8?B?MkE3Q2NFbWdaMW5sS3R4eWJBVXBFK0xveTVKYmJQYVBXbXJxS3psSmgwSjha?=
+ =?utf-8?B?cmVqU1pqTUlJU04wVmJvdVNxWHN6M2Z2MGswRWI2ZWFpc0RqVGNKYlJFZGhV?=
+ =?utf-8?B?R0NoRTY4MU5RaUw4QTFwWUdTVERKeVI1VDJscEhkdGg1M1BtUC9EZk9rQ3Zo?=
+ =?utf-8?B?b3dxSWdRVU1Bd3NIUGxGNEczY0FNM29pR1AvcFhJek1mTm9PcUgzeFgzZzky?=
+ =?utf-8?B?aVJ6cmpMd25KVVdlbFRGR1BZTGlBbUQ5M0owbHRoeE5HaVJvUXN1bWdYQ2RG?=
+ =?utf-8?B?UWQ2ak0yVmo3NGllZWFtc3ZITkg1L0FGcHlrK1JQU3ZIRUpGZGJIWkpPOVda?=
+ =?utf-8?B?ZHpkYnNFYk5vUEhkdC8rSFl1NHFrSTFlR2RBcWtzb0tvWEgzSVhWdVREVXA3?=
+ =?utf-8?B?b3N2OVlDVjlzbC9LbWdHa2dHV21pSGJzRkhIV2JHL29HaCtwbXA4aDlYZTF6?=
+ =?utf-8?B?dlZBY2piL3FyWFg1SDlxRmIwSXRLQk9pejFxUFZQN2krTjBHdEVGNDk4eXNy?=
+ =?utf-8?B?WlJJOTlneUxKbFdFSUdkd2haQVFJRFNzbnVYN0dMVkx0R2g2dmNBM0t6U3dI?=
+ =?utf-8?B?WGZRd2ROWTFzMU1MZmo4R1drdVlRaWsrYUxjdG1Zb1ZFZGlZK0RWNmsrMTlQ?=
+ =?utf-8?B?QjdjYllUYkFDZWVzWkNhWFYzd204RTM3Mlk3c0k3YUJ6cG1TY2J5WVdVVkRF?=
+ =?utf-8?B?UVpGd0ovajJWckYwak5DeTBkTkhwbHU1M0RETkdpWnBKR2MzdEpxNDEzYXJR?=
+ =?utf-8?B?eVgxV1pmcnQ4ZXBZU2Jva2NDK3ZUS3UzSkwvNkhZZXo5YUQxbElmQm5PSXNM?=
+ =?utf-8?B?S3NqN1laNUxSWkVRRXJlSDFqUmw2eFBxRk1xK3RlNUk1aFdnMTA4ZkJsQ3RR?=
+ =?utf-8?B?UU1NaWtvNVJMNXFpbENXQ08xUHhyc05keW14NDB6SlVQU21UOTBFalYzeDEy?=
+ =?utf-8?B?YjVpamlwUVFHMU0xb095V2tOdGR0ZExWRG1yZHYwL0lyWld1RmJUeUtlaDAz?=
+ =?utf-8?B?MzBpRHF0U1JUK0M2dmRnSWlPbVB2aDRQb0oyR2Y3TlZIUURlZi9LWnhIaW1C?=
+ =?utf-8?B?elRuaGZ3WnRtYnBUUnZVTGlWQWFLQWVnTDhMNEJwOVROMEM0a3h1cmNFaXJI?=
+ =?utf-8?B?RTZGUXU3M1I3TERZcmVwbGltZXFwVVB4S0M4NGFNZk5WWnIzQnBTWG9JVGsv?=
+ =?utf-8?B?MFZMZkdlTThnWHdOa0VOb1VDWmhwSXJFT1Z5MDQwb3hFWUxsYk1LZ1FOVFVa?=
+ =?utf-8?B?THFZS3MxOFA5Y0JkQUVnN05uOXV5aHhjb1lzeldQVU1Gak0xYWtOLzRrdGhM?=
+ =?utf-8?B?VktCQUJON2pvbDFEaWlyYkp6YklsM1FCaWlPVVNNVGFjOXFydTZYWjZZN2hX?=
+ =?utf-8?B?UW5SdUpwNkRWS242bXRLNTVlcmZFRGJ3T3h6TnZuZEErL3FHbFE0VHF6ajF4?=
+ =?utf-8?B?NnExZElVSW91RUV4akdsdWYrajdibzdTTlNnVUZ2VGV2Q1hKSFNad1AreTd1?=
+ =?utf-8?B?blh1T0E2WHpVNnBQRWxNeis2b3dMZktYcVNOcjY5S3dQK0MzbHpJN3JuUVo4?=
+ =?utf-8?B?RFpzRUh5UFczTlhQbklxNENrYjM1Q29qSWZzUXl6ZEtPU3JJZVAxTk5GSDJE?=
+ =?utf-8?B?UUcxdjA5TjJpOFR0QmFvS0F1RExzOS9sMTl2TGx0Yk5oRXRXRWNTTml5ekt5?=
+ =?utf-8?B?YXFzYm5kY1V2MXBnci9Fc0xqUGNidFRLKzdMZFdzSmJLZnJxQVlyWERoS2RN?=
+ =?utf-8?Q?NeZdU/95Snuh0kfeP+1wMaQkVNlBkjdjXHXNAocX4SSC?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0c13404-b8d9-404f-29ec-08dd14858e5a
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2024 17:03:21.0569
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e7ZeBFLC2yXEwFdYyzHpsrF66hdTb4UyrZeb1djtIrOaH6VwpywnB0JKvHTUEMR98eNIYPlDvgYdnAmmNJjhbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6592
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_090243_232028_8B3CB7BC 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20241204_090329_033118_38111EB4 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +185,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bart Van Assche <bvanassche@acm.org>
 
-[ Upstream commit 78bc671bd1501e2f6c571e063301a4fdc5db53b2 ]
+On 03/12/2024 03:16, Furong Xu wrote:
+> On Mon, 2 Dec 2024 18:34:25 -0800, Jakub Kicinski <kuba@kernel.org> wrote:
+> 
+>> On Tue, 3 Dec 2024 10:03:31 +0800 Furong Xu wrote:
+>>> I requested Jon to provide more info about "Tx DMA map failed" in previous
+>>> reply, and he does not respond yet.
+>>
+>> What does it mean to provide "more info" about a print statement from
+>> the driver? Is there a Kconfig which he needs to set to get more info?
+>> Perhaps you should provide a debug patch he can apply on his tree, that
+>> will print info about (1) which buffer mapping failed (head or frags);
+>> (2) what the physical address was of the buffer that couldn't be mapped.
+> 
+> A debug patch to print info about buffer makes no sense here.
+> Both Tegra186 Jetson TX2(tegra186-p2771-0000) and Tegra194 Jetson AGX Xavier
+> (tegra194-p2972-0000) enable IOMMU/SMMU for stmmac in its device-tree node,
+> buffer info should be investigated with detailed IOMMU/SMMU debug info from
+> drivers/iommu/arm/arm-smmu/arm-smmu-nvidia.c together.
+> 
+> I am not an expert in IOMMU, so I cannot help more.
+> 
+> Without the help from Jon, our only choice is revert as you said.
 
-Replace UFSHCD_QUIRK_BROKEN_64BIT_ADDRESS with
-ufs_hba_variant_ops::set_dma_mask.  Update the Renesas driver
-accordingly.  This patch enables supporting other configurations than
-32-bit or 64-bit DMA addresses, e.g. 36-bit DMA addresses.
 
-Signed-off-by: Bart Van Assche <bvanassche@acm.org>
-Link: https://lore.kernel.org/r/20241018194753.775074-1-bvanassche@acm.org
-Reviewed-by: Avri Altman <Avri.Altman@wdc.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/ufs/core/ufshcd.c      | 4 ++--
- drivers/ufs/host/ufs-renesas.c | 9 ++++++++-
- include/ufs/ufshcd.h           | 9 +++------
- 3 files changed, 13 insertions(+), 9 deletions(-)
+Sorry Thierry and I were digging into this offline but yes I can provide 
+any more info that is needed.
 
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index a1809aa9a8892..df94c563b808a 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -2230,8 +2230,6 @@ static inline int ufshcd_hba_capabilities(struct ufs_hba *hba)
- 	int err;
- 
- 	hba->capabilities = ufshcd_readl(hba, REG_CONTROLLER_CAPABILITIES);
--	if (hba->quirks & UFSHCD_QUIRK_BROKEN_64BIT_ADDRESS)
--		hba->capabilities &= ~MASK_64_ADDRESSING_SUPPORT;
- 
- 	/* nutrs and nutmrs are 0 based values */
- 	hba->nutrs = (hba->capabilities & MASK_TRANSFER_REQUESTS_SLOTS) + 1;
-@@ -9648,6 +9646,8 @@ EXPORT_SYMBOL_GPL(ufshcd_dealloc_host);
-  */
- static int ufshcd_set_dma_mask(struct ufs_hba *hba)
- {
-+	if (hba->vops && hba->vops->set_dma_mask)
-+		return hba->vops->set_dma_mask(hba);
- 	if (hba->capabilities & MASK_64_ADDRESSING_SUPPORT) {
- 		if (!dma_set_mask_and_coherent(hba->dev, DMA_BIT_MASK(64)))
- 			return 0;
-diff --git a/drivers/ufs/host/ufs-renesas.c b/drivers/ufs/host/ufs-renesas.c
-index ab0652d8705ac..481ad0a3a6c7c 100644
---- a/drivers/ufs/host/ufs-renesas.c
-+++ b/drivers/ufs/host/ufs-renesas.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/clk.h>
- #include <linux/delay.h>
-+#include <linux/dma-mapping.h>
- #include <linux/err.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
-@@ -364,14 +365,20 @@ static int ufs_renesas_init(struct ufs_hba *hba)
- 		return -ENOMEM;
- 	ufshcd_set_variant(hba, priv);
- 
--	hba->quirks |= UFSHCD_QUIRK_BROKEN_64BIT_ADDRESS | UFSHCD_QUIRK_HIBERN_FASTAUTO;
-+	hba->quirks |= UFSHCD_QUIRK_HIBERN_FASTAUTO;
- 
- 	return 0;
- }
- 
-+static int ufs_renesas_set_dma_mask(struct ufs_hba *hba)
-+{
-+	return dma_set_mask_and_coherent(hba->dev, DMA_BIT_MASK(32));
-+}
-+
- static const struct ufs_hba_variant_ops ufs_renesas_vops = {
- 	.name		= "renesas",
- 	.init		= ufs_renesas_init,
-+	.set_dma_mask	= ufs_renesas_set_dma_mask,
- 	.setup_clocks	= ufs_renesas_setup_clocks,
- 	.hce_enable_notify = ufs_renesas_hce_enable_notify,
- 	.dbg_register_dump = ufs_renesas_dbg_register_dump,
-diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
-index b54f22840dabf..c4b1e6dca2397 100644
---- a/include/ufs/ufshcd.h
-+++ b/include/ufs/ufshcd.h
-@@ -272,6 +272,8 @@ struct ufs_pwr_mode_info {
-  * @name: variant name
-  * @init: called when the driver is initialized
-  * @exit: called to cleanup everything done in init
-+ * @set_dma_mask: For setting another DMA mask than indicated by the 64AS
-+ *	capability bit.
-  * @get_ufs_hci_version: called to get UFS HCI version
-  * @clk_scale_notify: notifies that clks are scaled up/down
-  * @setup_clocks: called before touching any of the controller registers
-@@ -303,6 +305,7 @@ struct ufs_hba_variant_ops {
- 	int	(*init)(struct ufs_hba *);
- 	void    (*exit)(struct ufs_hba *);
- 	u32	(*get_ufs_hci_version)(struct ufs_hba *);
-+	int	(*set_dma_mask)(struct ufs_hba *);
- 	int	(*clk_scale_notify)(struct ufs_hba *, bool,
- 				    enum ufs_notify_change_status);
- 	int	(*setup_clocks)(struct ufs_hba *, bool,
-@@ -582,12 +585,6 @@ enum ufshcd_quirks {
- 	 */
- 	UFSHCD_QUIRK_SKIP_PH_CONFIGURATION		= 1 << 16,
- 
--	/*
--	 * This quirk needs to be enabled if the host controller has
--	 * 64-bit addressing supported capability but it doesn't work.
--	 */
--	UFSHCD_QUIRK_BROKEN_64BIT_ADDRESS		= 1 << 17,
--
- 	/*
- 	 * This quirk needs to be enabled if the host controller has
- 	 * auto-hibernate capability but it's FASTAUTO only.
+Jon
+
 -- 
-2.43.0
+nvpublic
 
 
