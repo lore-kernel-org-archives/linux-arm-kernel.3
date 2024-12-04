@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48890E7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA6EE7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kUIems59xpozy/l3/xrNOpDZeJ2bcHvlLtMVeMCRcyw=; b=idkrGtWs3TvAVDYufFFXnAasyB
-	QvsE7Za0DdKoeyXGeCZF6zTkxOxnsCYVZiF4gYIS0BfSpvxG6aVVHTjnpD8aTVa8z//hCc3lhi723
-	BgrVH8p4IAwzn9KsPnRkKh5mi8W1hYfPj7CVDrKBobTIkWhEbyfOoKxqy9jvPAcve1sVeZp3oBW+1
-	wNQjCB8inE7NzCJnWOCh5tvsoos9bY7kgDQWJZPXR7n2kDhQTWGOmCulCi32KmHDmGCp/XiYBZ61q
-	jfWV9IqIc5rKY/szoOyaWSc7Fzus/XnjBr6GykOAxMO0cINAh/nAZtozaowArqC9ly3kZ8asC3/3I
-	BzntnYgQ==;
+	bh=L3suCC+aYHrJLrj7SndZrcpuGNrdVGXOoFT7Lc2dOLU=; b=ZjS0Dj8Qa4UvkMRMbeSbtPJP8q
+	0y4n1Eafwe4H19q1+8vsSrplqcRYrRLuXRVb9fl4aC9o5edGHwOElXk8sX5jnH1C16BdbVuPZEHu1
+	Egkegm/XG2SA9srZXLd/UPlmOCDJC7inQjGyEkf9ei1UfyFNuZmAp5nRp42jLuT8FMhCMc4njEoSL
+	OJtFn63Yy98HUNEkv+pGK0+avGpOevWibsQrXko8g0vFMTB4LOMCxuIPhveOkyTdPjbznsMv/53yr
+	FTh7Uvb5PYovZIhUEX76FPH1XO0VS0o0PXwZNPTvhYCJyRXZcaH5z/qVbLLIjJWMYxYRA/pk9GTFJ
+	Lx0iU/xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImqE-0000000CFVJ-2D1k;
-	Wed, 04 Dec 2024 10:42:46 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tImrD-0000000CFgB-0VAx;
+	Wed, 04 Dec 2024 10:43:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImeH-0000000CCiP-2JQl
+	id 1tImeL-0000000CCjJ-32UL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 10:30:26 +0000
+	Wed, 04 Dec 2024 10:30:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6B6E4A40F0C;
-	Wed,  4 Dec 2024 10:28:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A833C4CEE0;
-	Wed,  4 Dec 2024 10:30:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CB2B8A40F17;
+	Wed,  4 Dec 2024 10:28:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B3EC4CEE1;
+	Wed,  4 Dec 2024 10:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733308224;
-	bh=oclk2RjUWpkTXM4Ts+5VgdtwjHIVQ6ev2N6/KBWfxFY=;
+	s=k20201202; t=1733308228;
+	bh=2usRHJwXPLxCLKp3Cp+X+mvu8EQwaVbHBk6s3Pt0UDI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QMkvjYUI3ovit5VIzHqH5WGQ4rYJnIjJGktVOCmd35BIRhREnWqPhm3EdKKo9P372
-	 GpdIyWq6IByPILnN8XRTz6T7uHLWTCqW7VAiYF1xHHfa+xDbnOmPI/Uqk0ZvREdl18
-	 +tirJmp40B+TpPB3hm7WVCBRNdoMJUmzWJvPCLU3yilzHI7gasQaQIsm1hHQsWLivK
-	 HKue15Cmlap8MUDnn+IIXU70sKTCrMHsYvQCjtlM5vSK2MyoRtBtzZsFUXrFG2JlOW
-	 IA8jgVlvz9Q1TX8Ehf//CTqNERsso+G8woXVQmKdga08aQXCYR05yPzz4fhw55dbV1
-	 3gc+v2e2knxEA==
+	b=CG6/GR7382ltvgUUHANIq2MKmi0iiW8nL8dTyvAGLo3tnhPGgO1Py9ZpFEbnCATjw
+	 52xSTYGEiHHQl3rqH1yHCF2rl2XokGyBh2Nu+3DC87HdRaQFjgySYWywV/PXIhFl3S
+	 Du84oXm7xS6kP3hef7e6epH4mOeSqM4/1V1wn2axFfTXWUimZYxNSRE9h3T91i3FfF
+	 CMzgrI+r4QeP1z+aeG3Riteq09Ykohv1qJrZAjZMayem9mWhnzvkQjHnyofDIkdeGl
+	 xuAccf6C6DvzsswTvHAM5Br8O/Lo1CsnmIMlIGus/Dmjk7bpC7FyzNLLcTfpZq5b7I
+	 tnm2IeJF0Dcqg==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -62,17 +62,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	Russell King <linux@armlinux.org.uk>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	Tony Lindgren <tony@atomide.com>
-Subject: [PATCH 12/15] ARM: orion5x: mark all board files as deprecated
-Date: Wed,  4 Dec 2024 11:29:01 +0100
-Message-Id: <20241204102904.1863796-13-arnd@kernel.org>
+Subject: [PATCH 13/15] ARM: mark mach-sa1100 as deprecated
+Date: Wed,  4 Dec 2024 11:29:02 +0100
+Message-Id: <20241204102904.1863796-14-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20241204102904.1863796-1-arnd@kernel.org>
 References: <20241204102904.1863796-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_023025_716230_4E61C3C4 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20241204_023029_832107_D5523D31 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,231 +89,49 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Conversion of the old orion5x board files to devicetree has
-stalled over the past few years, so it seems better to remove
-the remaining ones in order to allow  cleaning up the device
-drivers.
+Most of the old StrongARM1100 machines were removed two years ago as part
+of a wider cleanup, the remaining four were left either because someone
+showed interest in converting them to devicetree, or because they were
+still supported by qemu and therefore useful to keep the platform alive.
 
-Debian has previously removed the orion/kirkwood kernel
-binary from the armel distro, but building custom kernels
-from the Debian source code should keep working, so
-removing the board files after the 6.12 release ensures
-that this remains possible for the Debian Trixie release,
-assuming this will use the 6.12 LTS kernel.
+None of the devicetree conversion actually happened, and qemu has
+marked the platform as deprecated, so do the same in the kernel now.
 
-Jeremy Peper still plans to convert the Terastation 2 Pro
-to devicetree in the future, but that can be done even
-after it is removed.
+If anyone is still running one of these four machines and planning
+to keep updating their kernels, please speak up now so we can adapt
+the plans as needed.
+
+If nobody is found using StrongARM1100 any more, it can be removing
+during 2025, leaving 6.12-LTS as the last longterm support kernel
+for it.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/configs/multi_v5_defconfig |  9 ------
- arch/arm/configs/mvebu_v5_defconfig | 10 ------
- arch/arm/configs/orion5x_defconfig  |  9 ------
- arch/arm/mach-orion5x/Kconfig       | 47 +++++++++++++++++++++++------
- 4 files changed, 37 insertions(+), 38 deletions(-)
+ arch/arm/mach-sa1100/Kconfig | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/configs/multi_v5_defconfig b/arch/arm/configs/multi_v5_defconfig
-index e40276a28760..588366672b75 100644
---- a/arch/arm/configs/multi_v5_defconfig
-+++ b/arch/arm/configs/multi_v5_defconfig
-@@ -23,17 +23,8 @@ CONFIG_ARCH_NPCM=y
- CONFIG_ARCH_WPCM450=y
- CONFIG_ARCH_ORION5X=y
- CONFIG_MACH_RD88F5182_DT=y
--CONFIG_MACH_KUROBOX_PRO=y
--CONFIG_MACH_DNS323=y
--CONFIG_MACH_TS209=y
--CONFIG_MACH_TERASTATION_PRO2=y
--CONFIG_MACH_LINKSTATION_PRO=y
- CONFIG_MACH_LINKSTATION_MINI=y
--CONFIG_MACH_TS409=y
--CONFIG_MACH_TS78XX=y
--CONFIG_MACH_MV2120=y
- CONFIG_MACH_D2NET_DT=y
--CONFIG_MACH_NET2BIG=y
- CONFIG_MACH_MSS2_DT=y
- CONFIG_ARCH_SUNXI=y
- CONFIG_ARCH_VERSATILE=y
-diff --git a/arch/arm/configs/mvebu_v5_defconfig b/arch/arm/configs/mvebu_v5_defconfig
-index b8d20e1d9c5d..b3396964863b 100644
---- a/arch/arm/configs/mvebu_v5_defconfig
-+++ b/arch/arm/configs/mvebu_v5_defconfig
-@@ -10,18 +10,8 @@ CONFIG_ARCH_MVEBU=y
- CONFIG_MACH_KIRKWOOD=y
- CONFIG_ARCH_ORION5X=y
- CONFIG_MACH_RD88F5182_DT=y
--CONFIG_MACH_KUROBOX_PRO=y
--CONFIG_MACH_DNS323=y
--CONFIG_MACH_TS209=y
--CONFIG_MACH_TERASTATION_PRO2=y
--CONFIG_MACH_LINKSTATION_PRO=y
--CONFIG_MACH_LINKSTATION_LSCHL=y
- CONFIG_MACH_LINKSTATION_MINI=y
--CONFIG_MACH_TS409=y
--CONFIG_MACH_TS78XX=y
--CONFIG_MACH_MV2120=y
- CONFIG_MACH_D2NET_DT=y
--CONFIG_MACH_NET2BIG=y
- CONFIG_MACH_MSS2_DT=y
- CONFIG_HIGHMEM=y
- CONFIG_ARM_APPENDED_DTB=y
-diff --git a/arch/arm/configs/orion5x_defconfig b/arch/arm/configs/orion5x_defconfig
-index 8e10c53818a3..664d11938143 100644
---- a/arch/arm/configs/orion5x_defconfig
-+++ b/arch/arm/configs/orion5x_defconfig
-@@ -10,16 +10,7 @@ CONFIG_ARCH_MULTI_V5=y
- # CONFIG_ARCH_MULTI_V7 is not set
- CONFIG_ARCH_ORION5X=y
- CONFIG_MACH_RD88F5182_DT=y
--CONFIG_MACH_KUROBOX_PRO=y
--CONFIG_MACH_DNS323=y
--CONFIG_MACH_TS209=y
--CONFIG_MACH_TERASTATION_PRO2=y
--CONFIG_MACH_LINKSTATION_PRO=y
- CONFIG_MACH_LINKSTATION_MINI=y
--CONFIG_MACH_TS409=y
--CONFIG_MACH_TS78XX=y
--CONFIG_MACH_MV2120=y
--CONFIG_MACH_NET2BIG=y
- CONFIG_ARM_APPENDED_DTB=y
- CONFIG_ARM_ATAG_DTB_COMPAT=y
- CONFIG_VFP=y
-diff --git a/arch/arm/mach-orion5x/Kconfig b/arch/arm/mach-orion5x/Kconfig
-index ee449ca032d2..cf1bf4cd3733 100644
---- a/arch/arm/mach-orion5x/Kconfig
-+++ b/arch/arm/mach-orion5x/Kconfig
-@@ -18,7 +18,7 @@ menuconfig ARCH_ORION5X
- if ARCH_ORION5X
- 
- config ARCH_ORION5X_DT
--	bool "Marvell Orion5x Flattened Device Tree"
-+	def_bool y
- 	select ORION_CLK
- 	select ORION_IRQCHIP
- 	select ORION_TIMER
-@@ -37,37 +37,49 @@ config MACH_RD88F5182_DT
- 	  Orion-NAS (88F5182) RD2, Flattened Device Tree.
- 
- config MACH_KUROBOX_PRO
--	bool "KuroBox Pro"
-+	bool "KuroBox Pro (DEPRECATED)"
- 	select I2C_BOARDINFO if I2C
+diff --git a/arch/arm/mach-sa1100/Kconfig b/arch/arm/mach-sa1100/Kconfig
+index 0fb4c24cfad5..f3fa215fd254 100644
+--- a/arch/arm/mach-sa1100/Kconfig
++++ b/arch/arm/mach-sa1100/Kconfig
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ menuconfig ARCH_SA1100
+-	bool "SA11x0 Implementations"
++	bool "SA11x0 Implementations (DEPRECATED)"
+ 	depends on ARCH_MULTI_V4 && !(ARCH_MULTI_V4T || ARCH_MULTI_V5)
+ 	depends on !(ARCH_MOXART || ARCH_GEMINI)
  	depends on ATAGS
+@@ -19,6 +19,9 @@ menuconfig ARCH_SA1100
  	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  KuroBox Pro platform.
+ 	  Support for StrongARM 11x0 based boards.
  
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
++	  Support for these machines will go away in 2025,
++	  unless there are any remaining users that speak up.
 +
- config MACH_DNS323
--	bool "D-Link DNS-323"
-+	bool "D-Link DNS-323 (DEPRECATED)"
- 	select I2C_BOARDINFO if I2C
- 	depends on ATAGS
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  D-Link DNS-323 platform.
+ if ARCH_SA1100
  
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_TS209
--	bool "QNAP TS-109/TS-209"
-+	bool "QNAP TS-109/TS-209 (DEPRECATED)"
- 	depends on ATAGS
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  QNAP TS-109/TS-209 platform.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_TERASTATION_PRO2
--	bool "Buffalo Terastation Pro II/Live"
-+	bool "Buffalo Terastation Pro II/Live (DEPRECATED)"
- 	depends on ATAGS
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  Buffalo Terastation Pro II/Live platform.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_LINKSTATION_PRO
--	bool "Buffalo Linkstation Pro/Live"
-+	bool "Buffalo Linkstation Pro/Live (DEPRECATED)"
- 	depends on ATAGS
- 	select I2C_BOARDINFO if I2C
- 	help
-@@ -75,6 +87,9 @@ config MACH_LINKSTATION_PRO
- 	  Buffalo Linkstation Pro/Live platform. Both v1 and
- 	  v2 devices are supported.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_LINKSTATION_MINI
- 	bool "Buffalo Linkstation Mini (Flattened Device Tree)"
- 	select ARCH_ORION5X_DT
-@@ -83,26 +98,35 @@ config MACH_LINKSTATION_MINI
- 	  Buffalo Linkstation Mini (LS-WSGL) platform.
- 
- config MACH_TS409
--	bool "QNAP TS-409"
-+	bool "QNAP TS-409 (DEPRECATED)"
- 	depends on ATAGS
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  QNAP TS-409 platform.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_TS78XX
--	bool "Technologic Systems TS-78xx"
-+	bool "Technologic Systems TS-78xx (DEPRECATED)"
- 	depends on ATAGS
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  Technologic Systems TS-78xx platform.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_MV2120
--	bool "HP Media Vault mv2120"
-+	bool "HP Media Vault mv2120 (DEPRECATED)"
- 	depends on ATAGS
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  HP Media Vault mv2120 or mv5100.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_D2NET_DT
- 	bool "LaCie d2 Network / Big Disk Network (Flattened Device Tree)"
- 	select ARCH_ORION5X_DT
-@@ -111,13 +135,16 @@ config MACH_D2NET_DT
- 	  LaCie d2 Network NAS.
- 
- config MACH_NET2BIG
--	bool "LaCie 2Big Network"
-+	bool "LaCie 2Big Network (DEPRECATED)"
- 	depends on ATAGS
- 	select I2C_BOARDINFO if I2C
- 	help
- 	  Say 'Y' here if you want your kernel to support the
- 	  LaCie 2Big Network NAS.
- 
-+	  Support for this machine will go away in early 2025,
-+	  unless it gets converted to device tree.
-+
- config MACH_MSS2_DT
- 	bool "Maxtor Shared Storage II (Flattened Device Tree)"
- 	select ARCH_ORION5X_DT
+ config SA1100_ASSABET
 -- 
 2.39.5
 
