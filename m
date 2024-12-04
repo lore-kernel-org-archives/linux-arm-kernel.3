@@ -4,65 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5D3E77169
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 00:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DF2E77160
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 00:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuKyh758gXL4H4w1qOWYdSoyL7IX7eUQIvDf/JiLSic=; b=I/Zbhvm5a55SWiuP/Y/dJ5JiJv
-	5tTM9GqQE0apQkfiSw2NyopuqWWHc4YUfo3MSeyDfDJ88kVAeZX+b370SaYRyHEiBC6f3IgCBhgeq
-	vvmETZeVDJMPEN7Uc+15SR+lelkttyoZvkj7uhzzCYS/a8ZBde+N90GMK+PuScCyPY1xKs+GZCk2+
-	OjzqxAwbMZg0XD4StQhUnOFF4tJvPhoyaBlnkONCjSzNrIMVPjt6+iXMWREj+U1iyuUU7iKYQyL0d
-	GtiyQeYdOcWIJlTVxGYMKkTix/5z8CzYwgbC7IvO6WSM9JjdIYTP1RgERI0YDS4CPcCQkh0nk5lzp
-	n6Fa+2sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WHq/CueBPZwmW+MN6Uj7TVhc4dkCyWyMu8hFfcVqlW4=; b=20nx7HGk57aSdlRHo+U6U0Ndn+
+	5FozFvTXBxEeiZ6eSn/hID7rG9X8fwTXK4OisQx0KI/ZKHzoKcOOqMsascOUxvQRKReD/LmdmJZro
+	ngWlR6wau10riqQXCOLxwp9Fxq9iobjuJSIhGGXRk/JZF7o6loC7ESmPcnUX3UkRcHuvF658Nxw06
+	UKAN8VFqg8mfUzhuOXWQTKao/ClUtgx60gcrixxMLdn+wsaYLKuH5yLGOK8lAUzrLmNRfACO65Y5A
+	MF/hPe/DRzzbB4/y+jnprCtDkQatGFc6cMSBkmxqXtFsvsiLONj/nzYHXTFeva4fAo3aNA3m/2gLn
+	B3Rmn1VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIdS7-0000000B8OL-2quH;
-	Wed, 04 Dec 2024 00:41:15 +0000
-Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
+	id 1tIdhV-0000000B9n5-0Wzt;
+	Wed, 04 Dec 2024 00:57:09 +0000
+Received: from mail-japaneastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c405::1] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIdQA-0000000B8Di-2iS9
+	id 1tIdgS-0000000B9bs-14Uf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 00:39:16 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733272752;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BuKyh758gXL4H4w1qOWYdSoyL7IX7eUQIvDf/JiLSic=;
-	b=GF99kdzHwPOPu8J2EKxn4AZYU4VtBVBTgBSgGQpLRe4dqm0Usij0/YgeP/TwfIEWMzsIdJ
-	okjsGMZ6swvZymbOrNECi2alxbeBxt5roZGJetiMWmQQaCbPKbqMq59LkttJDiMm7DyKXg
-	Xrn0znXvUv8G7xPO+7hnusDvfmje/Uk=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	stable@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>
-Subject: Re: [PATCH] KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be overridden
-Date: Tue,  3 Dec 2024 16:38:55 -0800
-Message-Id: <173327270646.1289915.18344519507054696527.b4-ty@linux.dev>
-In-Reply-To: <20241203190236.505759-1-maz@kernel.org>
-References: <20241203190236.505759-1-maz@kernel.org>
+	Wed, 04 Dec 2024 00:56:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L7gpxvuSyKY6YOuPEUJ5vWLITWxdVEY6jw7irzXydTOUhVpor081/jUHvwLJUlmAXucb2oWBfhs2I64a4F8x8cxQuUEZcohkjTEp1071eYwKU56MQgNw46RqY4TGFYN0kDROBobNGhOffdkv4CZgH6vdUkfIFsLd9vjZuGSjqy7jL/OqXCFZcO1LvPOmVoG1k6kXKeobRunKFh7TQDo7kAh+nekW8X9ORWMgyPC6ezwnbYKfQ+J76dqv4V7XYAGDhkZqBEiRlSnfG+ZBQHwkOTScvEYRhv7QUOAEUPzVMrIXkRl2UrM1TzS5zPmlaFXsHsTRJLasB3LW+SDxoAV2gQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WHq/CueBPZwmW+MN6Uj7TVhc4dkCyWyMu8hFfcVqlW4=;
+ b=sqx9OZYeUk2E+lgR+6hGWR129CTkZcGjkMfQwA7jlztALFC/e/EJteyeJsChokOS+m8jrPKCDzS18k81DVCBzZJb+//k9YcqVUijYjPOxb6l3ag98VBJ153s4m124m/28UcHRzsTouGBFX2+qtuVPrafexcwHYVAiD6qiBjicgTCy5lWcajDBW37FnlXCLOT3KTm8ISVhq7BhvbcWj8U/fDqh4OdrWtCv+9xG4Vku3MF4/5eeiiTzb46qyET7rO3tkZ7q/U4QW4X0zDa16bJDwjWdwF3UHEjwad4xW9ngubG2Kbz2X3uOpnQkxNst4qL3OnQdS4nq9/uu8Jjq5fc/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WHq/CueBPZwmW+MN6Uj7TVhc4dkCyWyMu8hFfcVqlW4=;
+ b=dPQs2glQKsBmD0Ghz8Uv6GOJAJY3wFI7IPLWRiKNshScWH/Gf9MeharIF4ji+uxj20rCMGyA18LXvzVWpQtrkdo0hjK8CXx5s/9EQcaiyyF8JfW05hgPLkopwnOXReCNlQhCTRV9CqnM6rG9mQHIOQLPNBwON9h2aDbkcZMSU5U=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11) by OS0PR01MB6146.jpnprd01.prod.outlook.com
+ (2603:1096:604:ca::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Wed, 4 Dec
+ 2024 00:55:52 +0000
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11%4]) with mapi id 15.20.8230.008; Wed, 4 Dec 2024
+ 00:55:52 +0000
+Message-ID: <87jzcg1d2f.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 0/5] arm64: renesas: Add R8A779G3 White Hawk Single support
+In-Reply-To: <cover.1733156661.git.geert+renesas@glider.be>
+References: <cover.1733156661.git.geert+renesas@glider.be>
+User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Wed, 4 Dec 2024 00:55:52 +0000
+X-ClientProxiedBy: TYCP286CA0331.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:38e::10) To TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|OS0PR01MB6146:EE_
+X-MS-Office365-Filtering-Correlation-Id: 438a768b-6088-40f8-29eb-08dd13fe66f4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xGt6orqhOLWW56ilMI1ygfPTWaNrORepKpjPmWhkUp2zXP8fIVCUNvqBCo7v?=
+ =?us-ascii?Q?SXFiCFB4oZxnUrmABjVFEbJexCwPXWVbtmU4WY/TNZ1Gr7icuAoaiNADFH46?=
+ =?us-ascii?Q?abiPHhFTPNh7MD00hiLxfGABUMOll4dk7VjJBjLt5nUexj9rqN7VflTyd2e6?=
+ =?us-ascii?Q?D8fw/YjBW3FhkToWN+iR+QV6ifAx+Y/b7rXZjeTUmlMX9bdAG67i2WCnvEyg?=
+ =?us-ascii?Q?IjdIDoP7u3tR1/OBSLGJsoWx6Tqqhfc1hcUD7KrVTJ0OS3piIqOSOQPAJlPe?=
+ =?us-ascii?Q?OUONsGZcT/N0jZHs2c2PHfIZgFCaJWWoCHHUYA4zpl96MBwNxEw+nq6MvbdR?=
+ =?us-ascii?Q?hLzmlUcorC/3E5+bvMNJWpjQCNipJGZARK0Q99pkkL0wcL3knTBPBWcQye6J?=
+ =?us-ascii?Q?zF7YBfbYmhsDIFF9bz9AoodF3prLPm3FGs+nMrpN5MjEbo9lysK93DsVaTkP?=
+ =?us-ascii?Q?AlSv/nMVot7C8W+eNVyqzcEKd1e+7qK9SH9p+3YqCaGiZDwGIfBGHfpCxVi5?=
+ =?us-ascii?Q?BXBvVVgd4mLpm1kAOyLHuOtxv1EEloqXwPTG6Y+Ed3UkdhUBbmc7hgT38Y5A?=
+ =?us-ascii?Q?Vkgppu8HU1fs8KzsHUFPkkfT08t76dROR0falilGlAlycFhGXzfcmL5eeDXf?=
+ =?us-ascii?Q?aYNFr+BnntttQC4sKf+JAQg7X/KgFoKUC0ikrp8YBtqSQI0Uhc1dgGqGwQJr?=
+ =?us-ascii?Q?YBmMzPlzqe6gHEx/ii6hAswYkG5XCm2BwLUItpMPsimnLDDfGxpVqwhdYhNC?=
+ =?us-ascii?Q?HBEyYEc9ooyTsDNb86vkFZfXqtTM5w7CK8nfKpDeXhx7Jm7DnRjjbsKLB8ND?=
+ =?us-ascii?Q?7FPLB12MMxrs+szKWhDzu/EM5r/cKrs8wt6JDk0OzLZ2wUCQ9HfzJvua3pEb?=
+ =?us-ascii?Q?AKeUU0SjBoSPKBFUolhew1tY6cxs/l1e3scAtW+edBI8DUef/oy0qBNZJzK9?=
+ =?us-ascii?Q?1FzWcBy3ZI4r6Sys3sclymhx1L29hXeLpjJr0ROU3IFQBPgbxsnzOAwJCFPZ?=
+ =?us-ascii?Q?plz+5NHuAGWcyL93OovY9UF8QBKj9FAXI9QICY/QrFmRwzWNYla784DZZ1hI?=
+ =?us-ascii?Q?ogfEA7+huPY6Y/C85DAGHau/Kj1mng/ubqRGJWC2yph1g9xe2c++ZI2J17na?=
+ =?us-ascii?Q?mFTk2c3JSuWtucLDyptyYRTW5gz3HeB334NgutDU+eyL4xbVHa0qaROd1ExX?=
+ =?us-ascii?Q?IYJlXDqcb5ZvbCxFwgmRL8aFgTmcDj5VzVggjVrFyEtNQE+yBDdk3D1wjyka?=
+ =?us-ascii?Q?FWFNfnW86TpkU1N7byvnLT/W0PwMTUfnc0Mxe+OYSSzsGa4scbGyDYBeLxZc?=
+ =?us-ascii?Q?LwK7Nl12eht5YyRXToBpWe0RBFaEr0FqT4F9ApF7iIZn8nJzL4QT/mjUTVN6?=
+ =?us-ascii?Q?707Xir3GOT6JCr48MgmOECKC399VqEY1vXqdX8Yq4FJNdc1zAw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GEUAOn2NFprBM6ZozkyrynymehoSaoYXlUvhlg/hh9Op3CyfVWaGPdaxrXvd?=
+ =?us-ascii?Q?YJYXS3X+f24Au32vU2dNreBCrzKiwWGT4Lw2C1of01kj3ENIZwi0CGxMiQ7a?=
+ =?us-ascii?Q?3cse/YuyftnE7Uhqhds4uZYE24VaK1Cij3zCNswwjUyFvGMYeOKwXTR1RqI3?=
+ =?us-ascii?Q?pyA7dkPyIf2xuAhPW0Rq4MqhbrTSmy0X2hShAZFbNyigJv9/ik+Np+zGCIQc?=
+ =?us-ascii?Q?OM3g4G4tBLbR6CyZKtJMDhxNp+JOW+aXehwFuS490z/dz+whxX0FPauDMuRv?=
+ =?us-ascii?Q?3ZF5C53LOwcvmOPH+dqnN5IhO6WfZH/ZVHQ63eNdkgD+GnKJge/90A2YrN0L?=
+ =?us-ascii?Q?SSkz678v8ku6EaQg3E8Uua1gViCIfh0f2p2iwawF4viFhkMn0WyND32zVsJH?=
+ =?us-ascii?Q?//q0n4A2g8TAPDqHQGTa6dBZORO/kpYteJBlA/hGePIWU2g8uVZq2T4T0EWT?=
+ =?us-ascii?Q?D32zypAPKibi9AgDR3EweCskiisonFy3JjG+ExCfVx4Tzx0JyKflVtEjdoiy?=
+ =?us-ascii?Q?An1ChIo8zupp3l8f5kZASq1b+bvj5ZzKzXGzaY0S9BSgVU2MKRvftUdefbdL?=
+ =?us-ascii?Q?VmbBrTBtEiXFhS8YgNX7CSZgi/SA/aBA58wxUDHFgmyahtDXT7OQCwuAct94?=
+ =?us-ascii?Q?/CEhYoWT5KyJNCDGh/Or7DcXnb4B/fwrKthMxvmAcCj/dp1YlHZcqA5JwJOv?=
+ =?us-ascii?Q?kBumyHPmN5NawoqCN5BCqgID6ptmXy2bGxWlmQ24gw8h0mIy4xZrOCLW3xxv?=
+ =?us-ascii?Q?sQ3idlFSafwkn3larKlRH31ARf5JFd9EHez9GJ/iY0GjwfDiD9sDFO3jN2re?=
+ =?us-ascii?Q?czaI6bbSei+/w5QNPsPV4S/zsb1k4g8yE8wBbV9HZo87fE1VEOlm498lWq8s?=
+ =?us-ascii?Q?tkiAN76iHaEb6LNRKNJ1q+fF6OFKRW/OseUNuyhB5MXXLJ7Px+JqeZSRqQuk?=
+ =?us-ascii?Q?906YHYkxe0JPwbjOa9gNe/itHH0s0dBplieI8h2wYc1J5AhBCkpa40m0bVM7?=
+ =?us-ascii?Q?zRF0RswxzyNrFTsXpDtkZq7s3bjY1nS11rpmwUyhXZqgOPGHThUpWLABQOMF?=
+ =?us-ascii?Q?jofx6pwqKH7ydne0Rm4BLzHxBxMZ6EVXkXBnyqAS8Z3CUaCHjUeiGcNAZ/hB?=
+ =?us-ascii?Q?mKs30OvV1e/sD8w13ljKMH0S76ri3si29cZbr4retNoLLX10fH9U0WFat9Dc?=
+ =?us-ascii?Q?6TacNtMWWGUZ8OwD1EMYWNZ0nrLJ1ArCZHojLnv6K1qWMDxJ62tuNhglTgO5?=
+ =?us-ascii?Q?TgU39YKYr2byRjZzGGhLyvdAQ4quHCmPDcJ7dpYwPIyRVjGMlZPyqeY1g5wL?=
+ =?us-ascii?Q?Sw4VLqLpc4fs6EpekbDtn6HZUE5WTTlr3WVT9e1wOxA41GQBpniKQknj/lf7?=
+ =?us-ascii?Q?GJKJ4G4m82K16+zRddJwottbWmnb+YqwgzCP06HQW0UeDhze91yA4AksdZhm?=
+ =?us-ascii?Q?jlqW9nSR47GrhPS++x918v13S7zOAKEsUsqgcEslbMleuDel0/Z7VHdc5JZT?=
+ =?us-ascii?Q?FUmpS++v8R7PyNZdvsbaJVYQIm3ey5swht8XonkKiE0vz3br/RvahViPwzWH?=
+ =?us-ascii?Q?1YyanG6CvIElCULvaVLN50OhDyS8kQBOzPZzBBFLk6m6pKe0QCehwkBF1RAf?=
+ =?us-ascii?Q?O0YWZUhWfVCASByiANEFqkI=3D?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 438a768b-6088-40f8-29eb-08dd13fe66f4
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2024 00:55:52.8028
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1OMKRuIgGzk0sHdt+WzX/x23x9HZZmTGOBgFmeCaRm5NnV98s7/aEIbRICKCAxj7YRhWROSJqOZGWWP/9019es7Tz4dGnxy5H9MFK3YS4PBOhQzvnDK6gV2tW4sk5DzR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS0PR01MB6146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_163914_821707_CA104A91 
-X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-CacheID: sfid-20241203_165604_516906_1F93E12D 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,22 +162,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Dec 2024 19:02:36 +0000, Marc Zyngier wrote:
-> Catalin reports that a hypervisor lying to a guest about the size
-> of the ASID field may result in unexpected issues:
+
+Hi Geert
+
+> This patch series adds support for the Renesas R-Car V4H ES3.0 (R8A779G3)
+> SoC on the Renesas White Hawk Single board.  R-Car V4H ES3.0 (R8A779G3)
+> is an updated version of R-Car V4H (R8A779G0).
 > 
-> - if the underlying HW does only supports 8 bit ASIDs, the ASID
->   field in a TLBI VAE1* operation is only 8 bits, and the HW will
->   ignore the other 8 bits
-> 
-> [...]
+> I intend to queue these in renesas-devel for v6.14.
+> Thanks for your comments!
 
-Applied to fixes, thanks!
+Thank you for the patch-set. For all patches
 
-[1/1] KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be overridden
-      https://git.kernel.org/kvmarm/kvmarm/c/03c7527e97f7
+Reviewed-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 
---
-Best,
-Oliver
+But small nitpick is that R8A779G2 is not only for ES2.0 but for ES2.x
+
+
+
+Thank you for your help !!
+
+Best regards
+---
+Kuninori Morimoto
 
