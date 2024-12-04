@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E56E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79980E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dyk00jx2rD13abnBIF0gny6mCB3L0WTy7Wj+eriGTe4=; b=ShOzJ9kBzAtfx2
-	bT+VqeDa26qScyKimmeoNhS+P44QHrB9PscA1/uy9IbRWReOKT4vaNGysGzjNsvtCd60pYtcEu+LV
-	p1FZzQCE87ITy8nlAiNRGoNHmauxUgJj7ZLIBPxUr8C7CuVISmpRbsNrbFrSGkqxaAPfhGNTgxjIe
-	t2WZHVjJNsFv+2poJ1hEBrwrMSxeZ4ypeykueBHHBkIg0dFcxBrOD/Ryeq47dFfTyeSIPphxkK0z+
-	yvWHp7rRmNibIaQJet8WJLWV7HWrTsfmTAvm/IGdxMiE65uDuQ8yTVJS9JBlWbH45DxoXqWWilKly
-	Fc+nScz3CT3ndiAFdF3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O2UKodnZ8Rm7sgDDRiSGv7A9dpUqJ+j48TEG+riJO/c=; b=1xkDriXen7D1VzwaO8HDSATHFj
+	B+tSCxbccVMyE67G5mwLry0mcZjqJJW9YDXP90hrm8rFyTgsYkTGwo1FkDx5OrI/wmete+R9prGUG
+	U+EpFRnGj3XmNzI1S2B3DJS3kJxgul4ljHVeIZJKnkZGPb9o50ywMVAhEBp7ocOjFgQWfNNtZDK/f
+	lXavLS0Ov2+OLlHnHJgXhi2LiTiFSVNr8FxlHfIEyYrOxXjFG6wgSeJXwg6QYDVu1M/d8t3SIkwlI
+	dQOubsnkm5riWOvIU4MUdroPOuvT4hiDN1j4v8snPk/YBAJ0t5sk5JMqaMLbOlGe7HqGGxjfH2KLW
+	/WMTgUnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImuA-0000000CGId-0xO1;
-	Wed, 04 Dec 2024 10:46:50 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1tImwe-0000000CGnt-2Vcg;
+	Wed, 04 Dec 2024 10:49:24 +0000
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImhI-0000000CDTP-2FGq;
-	Wed, 04 Dec 2024 10:33:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1733308401; x=1733913201; i=frank-w@public-files.de;
-	bh=dyk00jx2rD13abnBIF0gny6mCB3L0WTy7Wj+eriGTe4=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=p1NsGWXOBMpk9Xrxst9wZ0QHjMpwO7wZJ8PDKhJSd5bz+aLjtIPUof5t5z92JKzh
-	 WT02h1/9Ek2xR76AismXJy1hwo56p+h5riKtLoF+z+6W0IDaGJzvNBC1p0XHudAL3
-	 jtOOec7pDImiWz7HbelNd3t1Wpmj9F65TG7D/yPkSLXvy/a3dlWQ9MygbJHBa++zz
-	 mXLkVzs0UUVuBkS8la5c1KcoKak8F/2CyDCW9yVL+hQelEYyzrEldwIvbUOE6JEp6
-	 TnRY2WuT6d2WACzdxo5G5WAjudf2k/UcG120YBStBRKx6TEuzHzh046azmBcb2MMU
-	 zD7LgwK4EffKaV9O+Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([194.15.87.121]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N7zBR-1tfnDG2q0p-00rC64; Wed, 04
- Dec 2024 11:33:21 +0100
-Date: Wed, 04 Dec 2024 11:33:19 +0100
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Chen-Yu Tsai <wenst@chromium.org>, Chaotian Jing <chaotian.jing@mediatek.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Wenbin Mei <wenbin.mei@mediatek.com>
-CC: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, Andy-ld Lu <andy-ld.lu@mediatek.com>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_1/2=5D_dt-bindings=3A_mmc=3A_mtk-sd=3A_Docu?=
- =?US-ASCII?Q?ment_compatibles_that_need_two_register_ranges?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20241204092855.1365638-2-wenst@chromium.org>
-References: <20241204092855.1365638-1-wenst@chromium.org> <20241204092855.1365638-2-wenst@chromium.org>
-Message-ID: <4762E5F1-59F2-40D1-9D22-724107623AAB@public-files.de>
-MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:db3sHldF0T6VuQva7YZ8BJkBo83cuzvjx9Z9UO2GrwoDa+O4ixH
- 63rmTFteH+CanEW1qjyJ069egAPYXQngNUs46t0yjSkh3WMF/xZrQP6vY9qrGuV5e7KbCfF
- g6HTJA6sh62ZCv5Ae+BJ8V7TBxzSZUshJcf9QvB0tKaivwWdNdU+QxtIxPo6scMnpvq6CFR
- HVb0vJa7N7Bvc35qVqjnA==
-UI-OutboundReport: notjunk:1;M01:P0:cyQuMalTPvY=;G6cIYpP8l4HrqzVPFLzj+VTuA7s
- 6uJk7KoSZC1ZovJPT25TGM8GJhSI8xoE6q/HVcQqBdR69izgSmBk0HHjKrQFCMhBlGOb/YaE1
- zFN4MB2ZIc6cuu4mTxyNsNIPoUrAv53QGq/Cxm6L8eJIqc31ePlcmdDlmYdk3wCBa/bADdyjx
- mCfBONVrdbTanzp6gGEd/sQrLnQJoiw1bf7/dVY3tiTp1f5Kl+pI9Q89yktvTjb8NgoZhitro
- 6UYJ8EU5i5S0NQPv7nd2p7N2dpscbpotcfPfUFzW1teVXMYS5TfSKS/jLpxWt2HVjsuSJ7DOp
- VPKbfuj30K1EbEFpDYPqjxTzdwBJEZw85eAqAu+DukkBex6lHtnQb7UZVJ4XDeZvfMXyXtOKB
- 66ZW1RLWCHvlAA1cBw3uIFJw4Gf65wmMO2UqTc+F4s9bJ5+TyUEkwGdY8oCr9ZBIvO2Bz8tzz
- GFWCjJ2X9GpvCXVRsHOjuAtzQY+zDeamSdAaSmxCx+SM05MFMUt53JTmBecp8xBA6w/mryszI
- PU9ndFD1J3U3Pl9sh+3RNNgBwRB9HZF9rWs5Bkbz94U8pIRKCxav7ojdmSx6d6SGOhBmbhOl5
- p/tPEYB0PXqLCglsVzE+650DxSgPifuJmr+9592Vh6OjY384voQrQFvSe65q+dzoSmoYMYzB4
- sE8VJwUSkTk1161t1+9qzBU+gVrrGHd/PfJtzGs7Rm0Ou5kYUR4CnjtefZIuJKxlxbbU29WWJ
- kGiK9aICfxDhWANsyKZ9QwlaWxZ7e+bG+MqcmE/I3DxIs4F3D53d8Vm/1gn7zgrmL1KiyuSZ2
- 3SacLt7TdVo4kM3MLSt5CdP+AxNBAXcwTE8Cy4mHVoDNOHgztGLGzKVB4UdO29dGXGLmDUHHk
- Z4wSQbE66gN7+4pDbDUc5U03YTZ3jsvphxj8U6LOv0+dX3NgWE7hkmbxAA6m4lGVbJ4QWFDW8
- fuA+JppOaV3Fm2tuCQ5lzQTLY6lgpQT96ME/EUYMtYWT+AzHPjIwZoPCwnTt7eRp4F04AXgIF
- WzqtPeQ0ZQ/r9Pfk27OTM7w1CCceSbdZLtCA06MSWkN89GmH8b/ZDCZqFhlb4yfzNtaNVCg8+
- yZaXe4JsM0f1iCA05qDKUovnAigL3g
+	id 1tImvd-0000000CGao-2hWG
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 10:48:22 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1733309293;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=O2UKodnZ8Rm7sgDDRiSGv7A9dpUqJ+j48TEG+riJO/c=;
+	b=qLo3qT2+panflIVAmf4iYX0CPTVCzg9EkWVcKb7KeKgZnE+P9MMOqfsJ+LFr0ZL1GWnZSK
+	R0habEwAovGA6gOKjDgW0+C6xVjiibx1RNax0qkInVOtt2NKjJomzme3h37i++IiO+TML3
+	6oH0x6pXWYEdza9HGISMYaq0yPW8pF5oXpDuu4qyHAd33FR1/hCIhZwu89htbcM0LsV+Ux
+	j0D01g+ub5DCmJSA2NSVja29btWrot8o6MN5pzSVlbNGukeKV7czBY0F7pksj+1yTEoxGv
+	2+GedYEZFSrYlyePSSgQQzVY6tIzdBh599PkxfnPWGGiRAu3YFZwCSUMSmXMcQ==
+Content-Type: multipart/signed;
+ boundary=36be8bfcf2ccc3f593d537c5169e7561860be4acb341ccb6b71acfde7e94;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Wed, 04 Dec 2024 11:48:02 +0100
+Message-Id: <D62UUZI7C1GD.1YSCGFIH9N60N@cknow.org>
+Cc: <andy.yan@rock-chips.com>, <maarten.lankhorst@linux.intel.com>,
+ <mripard@kernel.org>, <tzimmermann@suse.de>, <robh@kernel.org>,
+ <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andrzej.hajda@intel.com>,
+ <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
+ <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+ <jernej.skrabec@gmail.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <quentin.schulz@cherry.de>, "Kever Yang" <kever.yang@rock-chips.com>,
+ "Heiko Stuebner" <heiko.stuebner@cherry.de>, "Daniel Semkowicz"
+ <dse@thaumatec.com>
+Subject: Re: [PATCH v3 3/3] drm/rockchip: Add MIPI DSI2 glue driver for
+ RK3588
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Heiko Stuebner" <heiko@sntech.de>
+References: <20241203165450.1501219-1-heiko@sntech.de>
+ <20241203165450.1501219-4-heiko@sntech.de>
+ <af1cce1a-c46d-470f-a1b9-bfbc90b46415@rock-chips.com>
+In-Reply-To: <af1cce1a-c46d-470f-a1b9-bfbc90b46415@rock-chips.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_023332_857478_83A5C9DD 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241204_024821_959839_4D6ED982 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,70 +79,120 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 4=2E Dezember 2024 10:28:52 MEZ schrieb Chen-Yu Tsai <wenst@chromium=2Eo=
-rg>:
->Besides the MT8183's MMC controller and all its compatible derivatives,
->the recently added MT7986 and MT8196 also require two register ranges=2E
->This is based on the actual device trees=2E
+--36be8bfcf2ccc3f593d537c5169e7561860be4acb341ccb6b71acfde7e94
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Hi
+If there's going to be another version (to fix this) ...
 
-Mt7988 is similar to mt7986 (only using different clock settings) and usin=
-g 2 reg too=2E
+On Wed Dec 4, 2024 at 3:16 AM CET, Kever Yang wrote:
+> On 2024/12/4 00:54, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> >
+> > This adds the glue code for the MIPI DSI2 bridge on Rockchip SoCs and
+> > enables its use on the RK3588.
+> >
+> > Right now the DSI2 controller is always paired with a DC-phy based on a
+> > Samsung IP, so the interface values are set statically for now.
+> > This stays true for the upcoming RK3576 as well.
+> >
+> > Tested-by: Daniel Semkowicz <dse@thaumatec.com>
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > ---
+> >   drivers/gpu/drm/rockchip/Kconfig              |  10 +
+> >   drivers/gpu/drm/rockchip/Makefile             |   1 +
+> >   .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  | 524 +++++++++++++++++=
++
+> >   drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |   2 +
+> >   drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |   1 +
+> >   5 files changed, 538 insertions(+)
+> >   create mode 100644 drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+> >
+> > diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchi=
+p/Kconfig
+> > index 448fadd4ba15..84af423b7f90 100644
+> > --- a/drivers/gpu/drm/rockchip/Kconfig
+> > +++ b/drivers/gpu/drm/rockchip/Kconfig
+> > @@ -10,6 +10,7 @@ config DRM_ROCKCHIP
+> >   	select DRM_DW_HDMI if ROCKCHIP_DW_HDMI
+> >   	select DRM_DW_HDMI_QP if ROCKCHIP_DW_HDMI_QP
+> >   	select DRM_DW_MIPI_DSI if ROCKCHIP_DW_MIPI_DSI
+> > +	select DRM_DW_MIPI_DSI2 if ROCKCHIP_DW_MIPI_DSI2
+> >   	select GENERIC_PHY if ROCKCHIP_DW_MIPI_DSI
+> >   	select GENERIC_PHY_MIPI_DPHY if ROCKCHIP_DW_MIPI_DSI
+> >   	select SND_SOC_HDMI_CODEC if ROCKCHIP_CDN_DP && SND_SOC
+> > @@ -81,6 +82,15 @@ config ROCKCHIP_DW_MIPI_DSI
+> >   	  enable MIPI DSI on RK3288 or RK3399 based SoC, you should
+> >   	  select this option.
+> >  =20
+> > +config ROCKCHIP_DW_MIPI_DSI2
+> > +	bool "Rockchip specific extensions for Synopsys DW MIPI DSI2"
+> > +	select GENERIC_PHY_MIPI_DPHY
+> > +	help
+> > +	  This selects support for Rockchip SoC specific extensions
+> > +	  for the Synopsys DesignWare dsi driver. If you want to
 
-Currently there is no mmc node in mt7988 dts (i currently upstreaming it) =
-so i guess this is why you have not yet noticed it=2E
+... could you then also s/dsi/DSI/ ?
 
-See this for more:
+Cheers,
+  Diederik
 
-https://patchwork=2Ekernel=2Eorg/project/linux-mediatek/patch/202412021226=
-02=2E30734-3-linux@fw-web=2Ede/
-
-Maybe you can add mt7988 compatible here too in v2=2E
-
-Regards Frank
-
->Properly enforce this in the binding=2E
+> > +	  enable MIPI DSI on RK3576 or RK3588 based SoC, you should
+> > +	  select this option.
+> > +
+> >   config ROCKCHIP_INNO_HDMI
+> >   	bool "Rockchip specific extensions for Innosilicon HDMI"
+> >   	select DRM_DISPLAY_HDMI_HELPER
+> > diff --git a/drivers/gpu/drm/rockchip/Makefile b/drivers/gpu/drm/rockch=
+ip/Makefile
+> > index 3eab662a5a1d..2b867cebbc12 100644
+> > --- a/drivers/gpu/drm/rockchip/Makefile
+> > +++ b/drivers/gpu/drm/rockchip/Makefile
+> > @@ -13,6 +13,7 @@ rockchipdrm-$(CONFIG_ROCKCHIP_CDN_DP) +=3D cdn-dp-cor=
+e.o cdn-dp-reg.o
+> >   rockchipdrm-$(CONFIG_ROCKCHIP_DW_HDMI) +=3D dw_hdmi-rockchip.o
+> >   rockchipdrm-$(CONFIG_ROCKCHIP_DW_HDMI_QP) +=3D dw_hdmi_qp-rockchip.o
+> >   rockchipdrm-$(CONFIG_ROCKCHIP_DW_MIPI_DSI) +=3D dw-mipi-dsi-rockchip.=
+o
+> > +rockchipdrm-$(CONFIG_ROCKCHIP_DW_MIPI_DSI2) +=3D dw-mipi-dsi2-rockchip=
+.o
+> >   rockchipdrm-$(CONFIG_ROCKCHIP_INNO_HDMI) +=3D inno_hdmi.o
+> >   rockchipdrm-$(CONFIG_ROCKCHIP_LVDS) +=3D rockchip_lvds.o
+> >   rockchipdrm-$(CONFIG_ROCKCHIP_RGB) +=3D rockchip_rgb.o
+> > diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c b/drivers=
+/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+> > new file mode 100644
+> > index 000000000000..55eed4001634
+> > --- /dev/null
+> > +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+> > @@ -0,0 +1,524 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/*
+> > + * Copyright (C) 2024 Rockchip Electronics Co.Ltd
+> This should be:
 >
->Fixes: 4a8bd2b07d88 ("dt-bindings: mmc: mtk-sd: Add mt7988 SoC")
->Fixes: 58927c9dc4ab ("dt-bindings: mmc: mtk-sd: Add support for MT8196")
->Cc: Frank Wunderlich <frank-w@public-files=2Ede>
->Cc: Andy-ld Lu <andy-ld=2Elu@mediatek=2Ecom>
->Signed-off-by: Chen-Yu Tsai <wenst@chromium=2Eorg>
->---
-> Documentation/devicetree/bindings/mmc/mtk-sd=2Eyaml | 9 ++++++++-
-> 1 file changed, 8 insertions(+), 1 deletion(-)
+> Rockchip Electronics Co., Ltd.
 >
->diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd=2Eyaml b/Docume=
-ntation/devicetree/bindings/mmc/mtk-sd=2Eyaml
->index f86ebd81f5a5=2E=2E9ea035928563 100644
->--- a/Documentation/devicetree/bindings/mmc/mtk-sd=2Eyaml
->+++ b/Documentation/devicetree/bindings/mmc/mtk-sd=2Eyaml
->@@ -235,11 +235,18 @@ allOf:
->       properties:
->         compatible:
->           contains:
->-            const: mediatek,mt8183-mmc
->+            enum:
->+              - mediatek,mt7986-mmc
->+              - mediatek,mt8183-mmc
->+              - mediatek,mt8196-mmc
->     then:
->       properties:
->         reg:
->           minItems: 2
->+    else:
->+      properties:
->+        reg:
->+          maxItems: 1
->=20
->   - if:
->       properties:
+> This typo is from vendor kernel, we will correct all this kind of issue l=
+ocally,
+> and Andy is going to correct other files in drm for mainline kernel.
+>
+> Thanks,
+> - Kever
 
+--36be8bfcf2ccc3f593d537c5169e7561860be4acb341ccb6b71acfde7e94
+Content-Type: application/pgp-signature; name="signature.asc"
 
-regards Frank
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ1AzZgAKCRDXblvOeH7b
+bgWNAQC3fSnJVdLSgG4VTa6DlS3SopUVzVFSbfEGiC729h16vAEAwIBqQFd3xgCB
+KHlaIkQrEF/mSaPEoy27gQHJra96XQU=
+=cYSZ
+-----END PGP SIGNATURE-----
+
+--36be8bfcf2ccc3f593d537c5169e7561860be4acb341ccb6b71acfde7e94--
 
