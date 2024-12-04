@@ -4,49 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE00E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1459E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qbctXXUEYmaglYdoEL1dDI4e28aFyWpnLTTol9RJXcY=; b=RxgrJvTXB6HzyOmFtaMRfd76ea
-	1ES93Cj9ydewWvtNCZT+MgVHKKIMobcjaTsX4GFlxFrguUZbtle0CJ4vO7xfuQxdHHEGz1l77UujX
-	bsOUlaEJ81w63zszj+/MUGLwpzior/beTXC99Mo2DLBZgFosBDm9LlapELVewem1k7QGLDeZEIPX+
-	eug8vOos+MKhH3Ir8YOg3X+DdlzARIK9cxvenfjLqxGkZdGgU0YUfRNs/euFgmh825zj8Kdn9fdTh
-	lMc3jSXfeu/0YBsV7+7cMwNpohHT/IDr3mFXd9/n634gvQXUH2ksxQDi47ooBuOJ0Tuk4lBWrZ/LO
-	9MC6NNfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ik3QLw9UGMKnxPg4l01yFX/0oyq1X9s68T58mzM5ads=; b=oJROiWe4cdY0uXG0Tf3/nNcNZH
+	wN8XHB5uvH3pIZxbRfscLII/YPq8txeJ/FHcMkToP8vk4sOMDrZ4RMcfEoVE8Zr+T6RzFhab42eLQ
+	hEr3uEnmo/s6lUcX+Y9HwHLIEMYxNhdRuo962buIRqPZsV1ssdF3RDNKqMhucgdYOb9A2tBTwk+1K
+	UiVIgrU/RwGuzPvJ94iIJD927cKeGh6pvol5IG5v90CE4yIHTeZenAkijMCz/GnNFIa3XBl9DCavg
+	O2IBfee8rWXdTZ0lhJ58GAn8tFXQCZxmXbTwgUgZ9vw47iSQB9sfo3iKoYNHJ/sJGW/YrMChoZa+B
+	4t7FpeMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tItWr-0000000DRSV-2KI4;
-	Wed, 04 Dec 2024 17:51:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tItXt-0000000DRoR-0rB4;
+	Wed, 04 Dec 2024 17:52:17 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tItVp-0000000DR04-2a8Q
+	id 1tItWr-0000000DRSH-434j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 17:50:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 89AE9A40F1F;
-	Wed,  4 Dec 2024 17:48:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34785C4CECD;
-	Wed,  4 Dec 2024 17:50:07 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Sasha Levin <sashal@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	David Hildenbrand <david@redhat.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH] arm64: mte: Fix copy_highpage() warning on hugetlb folios
-Date: Wed,  4 Dec 2024 17:50:04 +0000
-Message-Id: <20241204175004.906754-1-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.39.5
+	Wed, 04 Dec 2024 17:51:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733334674; x=1764870674;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ik3QLw9UGMKnxPg4l01yFX/0oyq1X9s68T58mzM5ads=;
+  b=JZOzm+X4nivyNIDJkEremS2ctfmMCB7PqDMVC8MMvfDKcYVaAhoJzfBS
+   3OxqIhC/8UVOpN36vaNWUXXPBxODxk3OObTgy+cI0v9cEStZ5rz+u+Mzh
+   9xO34GzrhPU4aHNfwWnYuVxcnqya6FIOh7wnMbSICUyvKHGAvqS/jTqzc
+   WqP9IcOUdveD1NUJl2BeTi25v25EigYTO8p13wNF8M9aIGvjmvdlBIzgV
+   PDdF8PxNILz5bxVMI/Tqh3gG4BZnc0APwRmnLjJpfsqvtEvuIHvEJg+I7
+   WuuL+V8I5nSuo/CgLXssvQvq0mdC51L/a+zpSRsJqZXBtGDngDwqXe5Yk
+   A==;
+X-CSE-ConnectionGUID: IcqLN6qgTb2NW44ygTCHyQ==
+X-CSE-MsgGUID: zsX06L9WQ3G7NtyAVRLs2A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="37392174"
+X-IronPort-AV: E=Sophos;i="6.12,208,1728975600"; 
+   d="scan'208";a="37392174"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 09:51:11 -0800
+X-CSE-ConnectionGUID: lPqKmV1BT4eeE13DlFLk8Q==
+X-CSE-MsgGUID: ImJp8lYITJ6+VecW9ZGo8w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,208,1728975600"; 
+   d="scan'208";a="131283575"
+Received: from ldmartin-desk2.corp.intel.com (HELO ldmartin-desk2) ([10.125.108.58])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 09:51:09 -0800
+Date: Wed, 4 Dec 2024 11:51:01 -0600
+From: Lucas De Marchi <lucas.demarchi@intel.com>
+To: Jani Nikula <jani.nikula@intel.com>
+Cc: dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, Javier Martinez Canillas <javierm@redhat.com>, 
+	Alex Deucher <alexander.deucher@amd.com>, Simon Ser <contact@emersion.fr>, 
+	Jeffrey Hugo <quic_jhugo@quicinc.com>, David Airlie <airlied@gmail.com>, 
+	Hamza Mahfooz <hamza.mahfooz@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>, 
+	Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, amd-gfx@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org, xen-devel@lists.xenproject.org
+Subject: Re: [PATCH v2 3/3] drm: remove driver date from struct drm_driver
+ and all drivers
+Message-ID: <lf2kh3f7wr7nd3tsuq4p2eppiizveqb3mm6z7bfw7a47hj4hsy@u6hybopsg6bl>
+References: <cover.1733322525.git.jani.nikula@intel.com>
+ <1f2bf2543aed270a06f6c707fd6ed1b78bf16712.1733322525.git.jani.nikula@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <1f2bf2543aed270a06f6c707fd6ed1b78bf16712.1733322525.git.jani.nikula@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_095009_719863_4FE4AF1B 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20241204_095114_042030_A750745A 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,67 +93,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 25c17c4b55de ("hugetlb: arm64: add mte support") improved the
-copy_highpage() function to update the tags in the destination hugetlb
-folio. However, when the source folio isn't tagged, the code takes the
-non-hugetlb path where try_page_mte_tagging() warns as the destination
-is a hugetlb folio:
+On Wed, Dec 04, 2024 at 04:31:12PM +0200, Jani Nikula wrote:
+>We stopped using the driver initialized date in commit 7fb8af6798e8
+>("drm: deprecate driver date") and (eventually) started returning "0"
+>for drm_version ioctl instead.
+>
+>Finish the job, and remove the unused date member from struct
+>drm_driver, its initialization from drivers, along with the common
+>DRIVER_DATE macros.
+>
+>v2: Also update drivers/accel (kernel test robot)
+>
+>Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+>Acked-by: Alex Deucher <alexander.deucher@amd.com>
+>Acked-by: Simon Ser <contact@emersion.fr>
+>Acked-by: Jeffrey Hugo <quic_jhugo@quicinc.com>
+>Signed-off-by: Jani Nikula <jani.nikula@intel.com>
 
-  WARNING: CPU: 0 PID: 363 at arch/arm64/include/asm/mte.h:58 copy_highpage+0x1d4/0x2d8
-  [...]
-  pc : copy_highpage+0x1d4/0x2d8
-  lr : copy_highpage+0x78/0x2d8
-  [...]
-  Call trace:
-   copy_highpage+0x1d4/0x2d8 (P)
-   copy_highpage+0x78/0x2d8 (L)
-   copy_user_highpage+0x20/0x48
-   copy_user_large_folio+0x1bc/0x268
-   hugetlb_wp+0x190/0x860
-   hugetlb_fault+0xa28/0xc10
-   handle_mm_fault+0x2a0/0x2c0
-   do_page_fault+0x12c/0x578
-   do_mem_abort+0x4c/0xa8
-   el0_da+0x44/0xb0
-   el0t_64_sync_handler+0xc4/0x138
-   el0t_64_sync+0x198/0x1a0
 
-Change the check for the tagged status of the source folio so that it
-does not fall through the non-hugetlb case. In addition, only perform
-the copy (for the full folio) if the source page is the folio head and
-warn if the destination folio is already tagged, for symmetry with the
-non-hugetlb case.
+Acked-by: Lucas De Marchi <lucas.demarchi@intel.com>
 
-Fixes: 25c17c4b55de ("hugetlb: arm64: add mte support")
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Reported-by: Sasha Levin <sashal@kernel.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Will Deacon <will@kernel.org>
-Link: https://lore.kernel.org/r/Z0STR6VLt2MCalnY@sashalap
----
- arch/arm64/mm/copypage.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
-index 87b3f1a25535..a86c897017df 100644
---- a/arch/arm64/mm/copypage.c
-+++ b/arch/arm64/mm/copypage.c
-@@ -30,11 +30,13 @@ void copy_highpage(struct page *to, struct page *from)
- 	if (!system_supports_mte())
- 		return;
- 
--	if (folio_test_hugetlb(src) &&
--	    folio_test_hugetlb_mte_tagged(src)) {
--		if (!folio_try_hugetlb_mte_tagging(dst))
-+	if (folio_test_hugetlb(src)) {
-+		if (!folio_test_hugetlb_mte_tagged(src) ||
-+		    from != folio_page(src, 0))
- 			return;
- 
-+		WARN_ON_ONCE(!folio_try_hugetlb_mte_tagging(dst));
-+
- 		/*
- 		 * Populate tags for all subpages.
- 		 *
+Lucas De Marchi
 
