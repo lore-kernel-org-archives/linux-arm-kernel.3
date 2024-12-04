@@ -4,173 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612C9E77171
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BDFE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r04KUKjd6JtLjhoEL5EPVQAhqHsl2Ek0yDHAo9qbZlM=; b=oxIrO7d++eY8UyEGJwI8mSCQhD
-	QymR1zUmV/3lvjRv/gD8wbFgfblChumoHFLlpPrk5hIQU8SMBGp1new4ny4B5uxcoCEC6s2ZIeC64
-	oQJBtgQUDMx3BaqTCUx2pO6uVCPz7PUlQRWPquDXvlu1TFHyxdRQdwi4alZJsynu5sHua/ui8jPLw
-	BKlZ7W3cT2sDJ58zx+9+P69FHJ7JGcL2K3pppzrPvwx42msYbr5ZJnXAeCIzECgxJmi0fFSZmRaE7
-	sNR5C7A6012j9+x9EwA6bTKz2R+ztfqyRdDCMBujY7CG628Zn86LfEn8Y6+4JykTnIKGcBhcGuAK0
-	3w/Rdy7Q==;
+	bh=kyzjLjMRagyvWzdl5MnjPXEAjgE5hArllBgzqEyKERY=; b=e9p9qNhELyDFITD+DHno+djHAB
+	qbCnoshFffhblUB9VXbQ2M+KmfpS7F4mJfetICy+AO+Z26yDbNANiyQyZgvpA5cNDuk6jzhhAsEGE
+	9AV59l7WDk9O1SQyBYwxzVvK3XmfcIpGtyHVSZvQTFliUxq0QFq27y3qwGEXWD9l4JCVq3qL9GZxk
+	M8VrQfEuVIdZqrkfbHBcB/mPXNQm7bw+YD6XxH2V2FVzGd05W6u1WfGstKEz+Wm7hz0S0+OfT5uJy
+	p6fw9BlsJHSeAnfAurbocPLxpS4FgqTVBgTxpTvFZRY5ACZX1/kxyiV498Q1Vp6+39izdGH6P2NHS
+	fU6+1VKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIsq8-0000000DI5b-0J4F;
+	id 1tIsq8-0000000DI5h-2Sfh;
 	Wed, 04 Dec 2024 17:07:04 +0000
-Received: from mail-sn1nam02on20628.outbound.protection.outlook.com ([2a01:111:f403:2406::628] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIsme-0000000DHKr-46Mg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 17:03:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OwnZopVjwIG1uBtq0hbK7KCk3e+EJaOAR+lOgUn/qLQmHhSxEt3eQguGZc5D4IHVQcOxoseBBP4ZCyGKZ9NcGgdjv2YdgjbT6Gv3kHg4fyiheF2w8DJHqWjO1EVPF+MeGPFRxMqWqYOjbz2DMOTm176ej8diIuOrTmkRT/y0rQLa6jl5SfPzBCZmeXAJjppnU3VMpI8lpYx3Onyx0NkOmfZ0j0AaR61q8wC3gwzvlONDOr3C0ds7xsZYvfvArbAxIT+kfhUsLuPpw3IG3Y3JykqZ1g8VjbmacTc2Ma9YCmcrefWvqx9YBOgXt7nCEEGVsEP5PEoaL9R4ujMq/v/g5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r04KUKjd6JtLjhoEL5EPVQAhqHsl2Ek0yDHAo9qbZlM=;
- b=Ag2ckEsA7GX32rp4lduD3yZUAKuE3280joL3kxCRmYanLshSb+lqB8G61vFf/5/D32ux7KWyRnE4XXG1h8WFW8UG2r1SZxr54gwbHmn9d5VK7MpyLe0OiObdeWqgNElMxUItxyFKb/bNFgJyYZzQLsP1zUJpzZkpNxMEz104bnlWnXiiC5LhZ/l65bVtnwrDYkinDIMfQ7ikk284Yl3hlYL2QCFDV//Y60HjF7fAQQOW+QdNsaUNXuhgdeWPEstB97H+Q6OhYahc+QBHS3ADqfm9KC6QyadKF9JV2tjbHPuzwQfQRu8B5KZzlDckZmAGLn5rAKp+pQ9KYDTTy2kMDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r04KUKjd6JtLjhoEL5EPVQAhqHsl2Ek0yDHAo9qbZlM=;
- b=uUb+NsLuU5HYJr5ciPKKoskCg5kCvvNSsqEftC4pqMxeUM8vJ7YMHzF69gDl9tWxju7/pJRX2x3ZYgys9aJWTx7lQn030y0CeXZv2bJenn2rEdm3O4Th8P/wLFxxBtaVIqQoHU/cV4r0/5gUDgqyclnTJTrMozx1+gYFn3Ris1V49f68xDcBgofZU/V3aOo3zDYLTTPO8J/fBoC8SKyaJXxhp3xacguE5zDZke/rPRsKxMUZ3sy1SidoHSt81vfYtXN7aSV5eKt7wEpQYTVtgd5TcruOH6zfctLagSzht4A64ddtGObKaWcwcFfFmH+2J5SmB3OkBiBp9T0h9Bx51A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by DM4PR12MB6592.namprd12.prod.outlook.com (2603:10b6:8:8a::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8207.19; Wed, 4 Dec 2024 17:03:21 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%2]) with mapi id 15.20.8207.017; Wed, 4 Dec 2024
- 17:03:21 +0000
-Message-ID: <44e7ae05-2eea-4602-b192-dbd01631169c@nvidia.com>
-Date: Wed, 4 Dec 2024 17:03:14 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap for
- non-paged SKB data
-To: Furong Xu <0x1207@gmail.com>, Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>, Thierry Reding
- <treding@nvidia.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20241021061023.2162701-1-0x1207@gmail.com>
- <d8112193-0386-4e14-b516-37c2d838171a@nvidia.com>
- <20241128144501.0000619b@gmail.com> <20241202163309.05603e96@kernel.org>
- <20241203100331.00007580@gmail.com> <20241202183425.4021d14c@kernel.org>
- <20241203111637.000023fe@gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <20241203111637.000023fe@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO2P265CA0515.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:13b::22) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	id 1tIsoK-0000000DHlW-2wDP;
+	Wed, 04 Dec 2024 17:05:15 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E82114D4;
+	Wed,  4 Dec 2024 18:04:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1733331880;
+	bh=78gxj/BzoWW/qirjW9VkHtBeuxgnIovOYGaNqmENlXM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ORW1M6NSD/L10kyaJaBu69hYJhJ+ZqX0mJM0fy66bzh7YHxRWFubGNkNF7eKLB1KR
+	 9CNIPWNKHYNh8kV+TjHEtQ3xd/UR78LQvYnDJUWm1qM+Ji7XmZeIZOoU6PWiZ0F3Pi
+	 IJoycTEnrm+Kr9CxYCPs4C2ThkNRheyOw3EmO5/0=
+Date: Wed, 4 Dec 2024 19:04:56 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+Cc: dafna@fastmail.com, linux-media@vger.kernel.org, mchehab@kernel.org,
+	heiko@sntech.de, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 media-next] media: rkisp1: Fix unused value issue
+Message-ID: <20241204170456.GA16224@pendragon.ideasonboard.com>
+References: <20241119072653.72260-1-dheeraj.linuxdev@gmail.com>
+ <20241119075944.GA31681@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|DM4PR12MB6592:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0c13404-b8d9-404f-29ec-08dd14858e5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bDhhRjJ1REZvTWtrK1RGZXZWRU5tRiswYzJTNTNPUGowVktQbFBLaG0veTQr?=
- =?utf-8?B?Q2RPeFJZOTZ1RnNLWnExQUt2dWV5YXlJTmhnUUpBNGR2aVBNeUY5WDRLWUVO?=
- =?utf-8?B?MHp4cEpQRitHUUZkNkpUcWFmdUdsOTFmOUVZRlBWQ3pEVVYrc2xGZko3cUY4?=
- =?utf-8?B?blhpV0o5RUJkam54YUxjcnFjVVhjdFk0My9WY1c1TFNOWlFHdUlvRHJJb0Zm?=
- =?utf-8?B?dHJEbWRUZ3FlOXcweDBGTDIwa1FpQzFGR0xyL2EzeUNFQU1YUWRNZng2Q2pm?=
- =?utf-8?B?M0gwN1hSZlJ1M3htcnEwNWU0cjB6VWRhOEo2V3czUnlqQmdvbUR6L3UrQ3oz?=
- =?utf-8?B?N3ZUdVp6MGNBbTYxT1BNVStYUHcrSW8xVXZab2hhRXVpR3oxWHVkMEFSWWI2?=
- =?utf-8?B?NXRKU3RRV1lLLzlVajFHbnpiVWVpUTBrRXVNK0JOeG90U0I0YWFGdUZXTVE5?=
- =?utf-8?B?a1RoR0crTTc5aldMbUFtK0VzYnFlT1NON0loRlpDRXFEZUtwM1piUFdpV3Zj?=
- =?utf-8?B?N3NnaUZaU29oamVtUWFKdW5xUTlwWUJUNzBTMHB6eWIzVzdxNktkRXo3dU9G?=
- =?utf-8?B?TlhxK2J5VkROM2NIUHFFcDJvdlIzWlZEWS9PVEwycjZ1VDVDNjZqbDZMVEQx?=
- =?utf-8?B?WjlWWkhuUXdIdjcybWViVHY1MEt5a1k0b1dOZWQwS21pc1ZybDdqQmpJa3NL?=
- =?utf-8?B?bmVqWFVXbDVkWWQ0WitUb3hjb05ma1luT1h2cEFiaXdHeDVhNHRKdjlCa3JW?=
- =?utf-8?B?ZWY3cnNEeHVxVFZJTG5NeUg5WjdzdjN3dWw1Vmc5Q3d6SGVtTzZlcUN2WGt3?=
- =?utf-8?B?SXp0aWVFYjRSQ3RGQk9OT043RllDZXRWK1lKekxvWXpJMWxFdXdYK28xVmFL?=
- =?utf-8?B?dkFMaGNqV0FaRlA0WlpON0RBdnpVYTBHb0JORkZRSTJPdWszRmZVNGdIMXMv?=
- =?utf-8?B?MzdFVVVJUk53MXk2MzJrejM2K3VUVHdRbWlINnVGSDFPMnllNnJGbmRaUm52?=
- =?utf-8?B?a20rZC9lRUsxVEVSMlVxZkNZVzArS0ZTZTVGZzJkL1EwbnFPamRGNkVQbWRi?=
- =?utf-8?B?OEhmaDVCSEJYdTZ4dUVaLzljYWsrd1dMU0NsaWVVWmh0QUU0dVVqd1RDUE5o?=
- =?utf-8?B?VWhERStsM1prYzJRWDkxWVFjb2tHWDNqSTNuUDlVWis4UU9FdDBHUlJPcERq?=
- =?utf-8?B?cHdsb0t2YjVZcU1lOXJHMll6ZXZuTGtzMnI5WjJtOFpMN1JjQzVuSGcrSWhj?=
- =?utf-8?B?YVlCMjZWMm5uMUxzNmozcUNKcjl0Yi9MSnkyNmNsSmNiRndxc1dIa1ZhVTA3?=
- =?utf-8?B?ZWJhVnRsTVRQTGZ3YWhiTWFHekZuOHpzcXgxZWdnUWl1R21KUDhWb0tNSXNQ?=
- =?utf-8?B?L1Y5c1dUcmQ0cSsvNGN4VzNhdXJEdTl3QUVtZUIxRVJjSzdFMSs4YmlURENj?=
- =?utf-8?B?OTYzMy9vK2NybFN6SkVNbHNOdUNHZWJmbmFBRFVmL05DTDZnUlFuQzExWi9x?=
- =?utf-8?B?R3dGRFE1b29IY3JjRnJ1Y3JFNDdicUpPbXZ2ZVFhQzFhTWhMTnFlQytST0pm?=
- =?utf-8?B?L1FVcTZMTUVHWjVIT0lmWU1xSDhENGo2QklFMk4zSjJ6OUJSbXI1VUVSWUFJ?=
- =?utf-8?B?WXJxWVBzUWNqTlhndlFMMXZSRUlmdFBEK1NNM2s3Z3oxRmtVenVBcURBelhJ?=
- =?utf-8?B?KzhGb3pyb2QrSkthSHc2TUVjZ1l6YWRYTno4Z2ZTYTFiL1FmVk9yY2NoWEhx?=
- =?utf-8?B?dUhncDVMcUpjbDZwbXBDK3YrM2JRcVNFN2cyQmpOc2VIbWJzVHZLM1hWbFUv?=
- =?utf-8?B?SjA5d3dkQ1F0SDdvL3J1QT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1paV0VzL2VZS09tYUNFZ1RMd1FEQXVnNGt0TGVpdXFpT1BtWXhlajlOTWE4?=
- =?utf-8?B?YTFLbXF4eWhMOFJxZ29MS0hNZUF6Nk9JYlZHVUpJK29PbHpSaHN1MTRuK2RJ?=
- =?utf-8?B?cFpmQmt4dkZjb0tBcVFwWml0NHo0aWw0QUxCbXdoL2RTTTN6L0t2SFNhNGVF?=
- =?utf-8?B?Nm0zY1lvSGhKVTI0MUpLV3lUcUU5cUpkSkZuSzh4V2FQbjVVa0FMTGp4NUMv?=
- =?utf-8?B?WCtaWlJRY3BrcDVyaXpXcVllK1VqNzdzTk15eVNaVmxBS3g4K09pczJDN1JB?=
- =?utf-8?B?V0o3RVUveDFRWVREbTJPN0ZjSTdjUFB1V1EwT3FuUktxM0FoSDdUZ0NPNGdK?=
- =?utf-8?B?MW1yZjcrTklsU0xXbkIyYWtJWU1YNVo2UWFKNE9aTU8wRzVyb0hxMjJic3BK?=
- =?utf-8?B?MkE3Q2NFbWdaMW5sS3R4eWJBVXBFK0xveTVKYmJQYVBXbXJxS3psSmgwSjha?=
- =?utf-8?B?cmVqU1pqTUlJU04wVmJvdVNxWHN6M2Z2MGswRWI2ZWFpc0RqVGNKYlJFZGhV?=
- =?utf-8?B?R0NoRTY4MU5RaUw4QTFwWUdTVERKeVI1VDJscEhkdGg1M1BtUC9EZk9rQ3Zo?=
- =?utf-8?B?b3dxSWdRVU1Bd3NIUGxGNEczY0FNM29pR1AvcFhJek1mTm9PcUgzeFgzZzky?=
- =?utf-8?B?aVJ6cmpMd25KVVdlbFRGR1BZTGlBbUQ5M0owbHRoeE5HaVJvUXN1bWdYQ2RG?=
- =?utf-8?B?UWQ2ak0yVmo3NGllZWFtc3ZITkg1L0FGcHlrK1JQU3ZIRUpGZGJIWkpPOVda?=
- =?utf-8?B?ZHpkYnNFYk5vUEhkdC8rSFl1NHFrSTFlR2RBcWtzb0tvWEgzSVhWdVREVXA3?=
- =?utf-8?B?b3N2OVlDVjlzbC9LbWdHa2dHV21pSGJzRkhIV2JHL29HaCtwbXA4aDlYZTF6?=
- =?utf-8?B?dlZBY2piL3FyWFg1SDlxRmIwSXRLQk9pejFxUFZQN2krTjBHdEVGNDk4eXNy?=
- =?utf-8?B?WlJJOTlneUxKbFdFSUdkd2haQVFJRFNzbnVYN0dMVkx0R2g2dmNBM0t6U3dI?=
- =?utf-8?B?WGZRd2ROWTFzMU1MZmo4R1drdVlRaWsrYUxjdG1Zb1ZFZGlZK0RWNmsrMTlQ?=
- =?utf-8?B?QjdjYllUYkFDZWVzWkNhWFYzd204RTM3Mlk3c0k3YUJ6cG1TY2J5WVdVVkRF?=
- =?utf-8?B?UVpGd0ovajJWckYwak5DeTBkTkhwbHU1M0RETkdpWnBKR2MzdEpxNDEzYXJR?=
- =?utf-8?B?eVgxV1pmcnQ4ZXBZU2Jva2NDK3ZUS3UzSkwvNkhZZXo5YUQxbElmQm5PSXNM?=
- =?utf-8?B?S3NqN1laNUxSWkVRRXJlSDFqUmw2eFBxRk1xK3RlNUk1aFdnMTA4ZkJsQ3RR?=
- =?utf-8?B?UU1NaWtvNVJMNXFpbENXQ08xUHhyc05keW14NDB6SlVQU21UOTBFalYzeDEy?=
- =?utf-8?B?YjVpamlwUVFHMU0xb095V2tOdGR0ZExWRG1yZHYwL0lyWld1RmJUeUtlaDAz?=
- =?utf-8?B?MzBpRHF0U1JUK0M2dmRnSWlPbVB2aDRQb0oyR2Y3TlZIUURlZi9LWnhIaW1C?=
- =?utf-8?B?elRuaGZ3WnRtYnBUUnZVTGlWQWFLQWVnTDhMNEJwOVROMEM0a3h1cmNFaXJI?=
- =?utf-8?B?RTZGUXU3M1I3TERZcmVwbGltZXFwVVB4S0M4NGFNZk5WWnIzQnBTWG9JVGsv?=
- =?utf-8?B?MFZMZkdlTThnWHdOa0VOb1VDWmhwSXJFT1Z5MDQwb3hFWUxsYk1LZ1FOVFVa?=
- =?utf-8?B?THFZS3MxOFA5Y0JkQUVnN05uOXV5aHhjb1lzeldQVU1Gak0xYWtOLzRrdGhM?=
- =?utf-8?B?VktCQUJON2pvbDFEaWlyYkp6YklsM1FCaWlPVVNNVGFjOXFydTZYWjZZN2hX?=
- =?utf-8?B?UW5SdUpwNkRWS242bXRLNTVlcmZFRGJ3T3h6TnZuZEErL3FHbFE0VHF6ajF4?=
- =?utf-8?B?NnExZElVSW91RUV4akdsdWYrajdibzdTTlNnVUZ2VGV2Q1hKSFNad1AreTd1?=
- =?utf-8?B?blh1T0E2WHpVNnBQRWxNeis2b3dMZktYcVNOcjY5S3dQK0MzbHpJN3JuUVo4?=
- =?utf-8?B?RFpzRUh5UFczTlhQbklxNENrYjM1Q29qSWZzUXl6ZEtPU3JJZVAxTk5GSDJE?=
- =?utf-8?B?UUcxdjA5TjJpOFR0QmFvS0F1RExzOS9sMTl2TGx0Yk5oRXRXRWNTTml5ekt5?=
- =?utf-8?B?YXFzYm5kY1V2MXBnci9Fc0xqUGNidFRLKzdMZFdzSmJLZnJxQVlyWERoS2RN?=
- =?utf-8?Q?NeZdU/95Snuh0kfeP+1wMaQkVNlBkjdjXHXNAocX4SSC?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0c13404-b8d9-404f-29ec-08dd14858e5a
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2024 17:03:21.0569
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e7ZeBFLC2yXEwFdYyzHpsrF66hdTb4UyrZeb1djtIrOaH6VwpywnB0JKvHTUEMR98eNIYPlDvgYdnAmmNJjhbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6592
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241119075944.GA31681@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_090329_033118_38111EB4 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20241204_090512_888904_9D5D181F 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,37 +67,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 03/12/2024 03:16, Furong Xu wrote:
-> On Mon, 2 Dec 2024 18:34:25 -0800, Jakub Kicinski <kuba@kernel.org> wrote:
+On Tue, Nov 19, 2024 at 09:59:44AM +0200, Laurent Pinchart wrote:
+> Hi Dheeraj,
 > 
->> On Tue, 3 Dec 2024 10:03:31 +0800 Furong Xu wrote:
->>> I requested Jon to provide more info about "Tx DMA map failed" in previous
->>> reply, and he does not respond yet.
->>
->> What does it mean to provide "more info" about a print statement from
->> the driver? Is there a Kconfig which he needs to set to get more info?
->> Perhaps you should provide a debug patch he can apply on his tree, that
->> will print info about (1) which buffer mapping failed (head or frags);
->> (2) what the physical address was of the buffer that couldn't be mapped.
+> Thank you for the patch.
 > 
-> A debug patch to print info about buffer makes no sense here.
-> Both Tegra186 Jetson TX2(tegra186-p2771-0000) and Tegra194 Jetson AGX Xavier
-> (tegra194-p2972-0000) enable IOMMU/SMMU for stmmac in its device-tree node,
-> buffer info should be investigated with detailed IOMMU/SMMU debug info from
-> drivers/iommu/arm/arm-smmu/arm-smmu-nvidia.c together.
+> On Tue, Nov 19, 2024 at 12:56:53PM +0530, Dheeraj Reddy Jonnalagadda wrote:
+> > This commit fixes an unused value issue detected by Coverity (CID
+> > 1519008). The error condition for the invalid MIPI CSI-2 is not
+> > properly handled as the break statement would only exit the switch block
+> > and not the entire loop. Fixed this by returning the error immediately
+> > after the switch block.
 > 
-> I am not an expert in IOMMU, so I cannot help more.
+> The patch doesn't "return immediately". You can write "Fix this by
+> breaking from the look immediately after the switch block when an error
+> occurs." or something similar.
 > 
-> Without the help from Jon, our only choice is revert as you said.
+> > 'Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver
+> > optional")'
+> 
+> The Fixes tag should be formatted on a single line, without outer
+> quotes, and without a blank line between it and the Signed-off-by line:
+> 
+> Fixes: 8d4f126fde89 ("media: rkisp1: Make the internal CSI-2 receiver optional")
 
+That commit ID doesn't exist in the git history. The commit
+corresponding to the message is 7d4f126fde89. I'll update the commit
+message accordingly.
 
-Sorry Thierry and I were digging into this offline but yes I can provide 
-any more info that is needed.
-
-Jon
+> > Signed-off-by: Dheeraj Reddy Jonnalagadda <dheeraj.linuxdev@gmail.com>
+> 
+> I can update the commit message when applying the patch, there's no need
+> to submit a v5, unless if you want to. Please let me know if I should
+> take this version and update the commit message, or if you will send a
+> v5.
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+> > ---
+> >  drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> > index dd114ab77800..9ad5026ab10a 100644
+> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> > @@ -228,6 +228,9 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+> >  			break;
+> >  		}
+> >  
+> > +		if (ret)
+> > +			break;
+> > +
+> >  		/* Parse the endpoint and validate the bus type. */
+> >  		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> >  		if (ret) {
 
 -- 
-nvpublic
+Regards,
 
+Laurent Pinchart
 
