@@ -4,100 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F41E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB44E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mMG9VWcGW6XK+xMZkzrylicgj/+zPFuMCrXN5cYEltk=; b=aiq6p0Tu9hym9DSoBKsWV6q7sx
-	OCA9xqkZpwS8pAsXHRnt6Nas6r31pSBzsH6D8XeIqFsEFQfS2vTm9t4rvzuurNLqDZeDgNNn319ev
-	+qs9VELnSEttdLH+YAXPsd67zSqflflPrSvKrBV1mphj/DtdD8E9id9/j7Y8YQjyhw7xK7UFjOErr
-	RDlIRzXa+iDBHokE6F3qIUK8atliBJ7tSFW8SD7FfaAjpbv6oddnoY4KNGIlbsuz8nbKYs+VNOVdo
-	7xw/MFSGEX2rTw7GJ8kwnLkcELcQUodc9XvT3BzaVsnIJbs6Nc39aa5ooeMtv9GG0F3RHYQHe2qz+
-	jw6VdnuA==;
+	bh=0Dekx4KL+QoChivisrLJX7qW9l76kKESFHiTeOu9u7A=; b=FJ8gejLjW4vZxkgRC0tHb1/mES
+	b4z+MYaYOaRto5CdgpNiZ6D5aItq+joEuVXpzhCN6hIiilIR5/9fKH+BrseDHBn+aQOy8Sw7mmRBU
+	Q4GMNOzzlXucu2u9ewcCRS9kO3YhNaSNYFfOSXiNzfBSZMTj4qYqfaJQ/Ww5VVMKEIYnfECWkzL2l
+	Jmejh8h6yeea7l5I0TsrGckQ19yPXjOSHFX3B+yb23k6gePtSszO6dEef4BRami9+Yc0vvmnvceiC
+	unZj2FHI334dKhL/aUhMJZorwdT3LlHjdRBNUqT9/pZTlPG2Xhtm10RQP5jY+WgJK4hbAWhPKFiU7
+	u9jv3uoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrvy-0000000D7Q0-0vbl;
-	Wed, 04 Dec 2024 16:09:02 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tIrx7-0000000D7uX-0nru;
+	Wed, 04 Dec 2024 16:10:13 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrlv-0000000D4fq-0QXA
+	id 1tIrni-0000000D5Ap-1zxP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:58:40 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-434a90fed23so58944935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:58:38 -0800 (PST)
+	Wed, 04 Dec 2024 16:00:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j3+cd+dxX0u/nDgVZOySoRRwmUaaljS+Zn3ur8haDf6DnHTMCeu6MtilNCIkSpJ4DpYTDhLZsbyb8Dr4gOwdNUy2LDwjsYJy+9HibSpP6vZlmbBmeED1R5FyCsaO0a6lyax1wmOGIO9A7u1Yuno4B4KZ3bMlgNou7Urlun9c/6Xh06fkJcKuhGQYOOFTqps+RhUiOu6Am9zCQ8F4v8nptGDqzFTpA+SWDGESJdAOZFpQ71OIoPKDfGNREqopZwKLgCnplEVFk34yRK4MlujzygskaawnCsggk8ewyxlaVnp+p66cRw38OthxfVFOtFzOfM+vMnCgiqzOXHVd83yBMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0Dekx4KL+QoChivisrLJX7qW9l76kKESFHiTeOu9u7A=;
+ b=kbhvG5TK77cf++WPHfy/JmwviNAsWzUKB3hYV5li71KLdi2wkcvJZ0ZvifrC5ZB5iGrggmNJjndsJBIeu68cahYa24pmFWdGS276Fk8fp2tDWYhQAsjp/bAuxDhFSMro4pUqYkt5ONFjcWoPbDD3dkichmnm5JxWCs26BuDUNeCaD0tlYq0B+2sXvM/ItZ0WiZhEy1d4kyk1kF4cVudOtL3ZaB+UinCUWBGqMas6idSqasodmFbbs8hFsfugKQFEafdePu4L2dsT3W71k7yrA6LSWLcjIQgHsgMlbZhJAhPDph4UQarb7eOhXoojuWx0zhfWv1WXqfe4CQhHPPO26w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733327917; x=1733932717; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mMG9VWcGW6XK+xMZkzrylicgj/+zPFuMCrXN5cYEltk=;
-        b=FpdXFJUKIerlTd9g033T0Y990v8iZqwLI608ahxZb9YiWP+IcQd9MMo4ecOkGWFnVi
-         qVvmImImq0EyYfPXaYvqqT11WPvO8Fe+sD4prWdu5PR7cpAmpkzjlyMvkE1L44Ry6qJb
-         ZAduNSIFwbizxTXoYNUd9ou7y82NnyZTYpFyXcfsiWxUPFK6QwyZS8wHid7epy3fFTRY
-         WwHS3mUfTgNnyx77uMVmyJwYlKgn8d7vnuM1pqw4iX2JnvEgY/2Bu5z7nRpQIe71GB72
-         fVOBVZ48r5LfOEO7gRRy8lSBhGH8Fy5b3tv3cRDGftvKd98MCBMj/am1EwWQgh/3u8Qi
-         umAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733327917; x=1733932717;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mMG9VWcGW6XK+xMZkzrylicgj/+zPFuMCrXN5cYEltk=;
-        b=GRIwvOVD3dSRVUH38rJwfzWsVpL2Q1TSYk0P2huwiCOeDnTZaWjiecNkt5SeSCqcBm
-         h8zl0+AJZ8BTQ+g4OwwT9Kd4O20jqb5PD0LklwJc4rKEd6bj9DF8thHgSmeaGaUsJGDp
-         ThmZ883D2JX8V/4J0iBlmSeUCKjkKcdY6Vc8CXrTXJJPpzYxygzBea2mdgysoB7BwSgC
-         BJPKKyL0jFJ405OvW7lfAPkmnfVxx/o75gnwvT1JH0LLgHSZTmBpC+BVUCQlCR3L9cvI
-         4l9XP+tofiJVAMoqpuVkV0fXAHufxYlRD/ki+H/ki+sGGjSuJ6vB7/BJ56Gi36VIg2IS
-         DPWA==
-X-Forwarded-Encrypted: i=1; AJvYcCVcBs3K4sn8H+Swnzsu24OHTRZb/gZIv7s1G9t+zXXgdEbgOk5NspbyHIwIaTvwRWaJZ61Jvzgm9ddlWWOtAh60@lists.infradead.org
-X-Gm-Message-State: AOJu0YxndOrJL152v/wm5wvxxaBTNLo2+ZjFYx0DD9HvCs2hzCbLvHgf
-	QwHKLu1cxAMo1UNHPRKhJvFEjiASIp2l010P20FyQro+bH/isr2r
-X-Gm-Gg: ASbGncueak1tTfB7sc/3Bdy/4tzJyuDPDXSbqZkgH3pHyRm0ocEoFL68SDudLFbt95Y
-	+WpcnQCw9dyRc8Lm5YyEJJHIp29U15kp/Qim7F+QNaPdcpuv/9Hk9YCIGT4ccIkd7WTOqy8jAPL
-	bLKpcpmanfqEpTKYsa7YlX6WQwhLFBezKG5ENGXtwLbq6P337lX275YqqWpUxGIbvaBvLNpUpy9
-	f3fFsINtkd1Vej9R0xMWgH98dpxBLkUWcD1hK/dSnER4/MuYwRakLeTly8FK00yjyCnr6nJ6zKb
-	IZrPI4m+dfVNOADY8e6XbeMrhCYsdbj8wisA
-X-Google-Smtp-Source: AGHT+IHO71cSsB7ROtvHoZs2gzZ0MtQJUhn4XUUKyoKwjM4QzdG/kDeL3+etQeFOAswozQMP3lNc1g==
-X-Received: by 2002:a05:600c:3554:b0:431:6083:cd38 with SMTP id 5b1f17b1804b1-434d09b0020mr60787685e9.6.1733327917130;
-        Wed, 04 Dec 2024 07:58:37 -0800 (PST)
-Received: from orome (p200300e41f281900f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1900:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d52a46e6sm29690685e9.30.2024.12.04.07.58.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 07:58:36 -0800 (PST)
-Date: Wed, 4 Dec 2024 16:58:34 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Furong Xu <0x1207@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Jon Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com, 
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>, Thierry Reding <treding@nvidia.com>, 
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap
- for non-paged SKB data
-Message-ID: <2g2lp3bkadc4wpeslmdoexpidoiqzt7vejar5xhjx5ayt3uox3@dqdyfzn6khn6>
-References: <20241021061023.2162701-1-0x1207@gmail.com>
- <d8112193-0386-4e14-b516-37c2d838171a@nvidia.com>
- <20241128144501.0000619b@gmail.com>
- <20241202163309.05603e96@kernel.org>
- <20241203100331.00007580@gmail.com>
- <20241202183425.4021d14c@kernel.org>
- <20241203111637.000023fe@gmail.com>
- <klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw>
- <df3a6a9d-4b53-4338-9bc5-c4eea48b8a40@arm.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Dekx4KL+QoChivisrLJX7qW9l76kKESFHiTeOu9u7A=;
+ b=M8h450oypiLaa5j4Zhohv6QD7xbxoEAi0mg+syBOG/wCHPndXgsEuoWtfjHBdxeSzk5xPB716jmXO9vqCFV6ROIzOtlijhK677xI2y9xyLaXbyhyvMEfwMbdfLVdt3+/FyruikVeX5oTD+O5nTPhRLrdY9E48kZmUYfMnDZKsHk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH0PR01MB7383.prod.exchangelabs.com (2603:10b6:510:104::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8230.11; Wed, 4 Dec 2024 16:00:21 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%4]) with mapi id 15.20.8230.010; Wed, 4 Dec 2024
+ 16:00:21 +0000
+Message-ID: <5f99ff7d-67dc-41da-8a90-a1a5e76b8daa@os.amperecomputing.com>
+Date: Wed, 4 Dec 2024 08:00:16 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] arm64 updates for 6.13-rc1
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ David Hildenbrand <david@redhat.com>
+Cc: Sasha Levin <sashal@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon
+ <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241118100623.2674026-1-catalin.marinas@arm.com>
+ <Z0STR6VLt2MCalnY@sashalap> <Z0TLhc3uxa5RnK64@arm.com>
+ <0c09425b-c8ba-4ed6-b429-0bce4e7d00e9@os.amperecomputing.com>
+ <Z0dhc-DtVsvufv-E@arm.com>
+ <dc5e8809-825f-4c38-b487-b16c7d516311@os.amperecomputing.com>
+ <e6b3e6c7-193d-43c4-a8c6-6023458723dd@redhat.com>
+ <6aec1d44-4a89-4acf-a16b-4493626b93bb@os.amperecomputing.com>
+ <Z1B1VS8PayXsXDzl@arm.com> <4919faec-3e35-459f-a7d3-b5b3f188bd9c@redhat.com>
+ <Z1B6OMqEZitgBVEx@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <Z1B6OMqEZitgBVEx@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR05CA0045.namprd05.prod.outlook.com
+ (2603:10b6:a03:33f::20) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lrjlcvs3uibftgsq"
-Content-Disposition: inline
-In-Reply-To: <df3a6a9d-4b53-4338-9bc5-c4eea48b8a40@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB7383:EE_
+X-MS-Office365-Filtering-Correlation-Id: a320eb12-78b8-4dcb-096a-08dd147cc0b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OENqa1VsVncwK1NFcGFkU0Q4ZjREOFFhL1k0dlA1TFU3Q0xaSmZtK240d3Nv?=
+ =?utf-8?B?djlydnpJckJNUlRUeHY1WmVhdlFJUStxZzZaaUJ6ZjhXYUlTQUpkdGFvTWNQ?=
+ =?utf-8?B?MGJhc1pRVDA2ZXdMazg4c0licldxSWVVVlZwdEVCRDZNY1VBK1pjY1ZrOEJI?=
+ =?utf-8?B?dTBKZG8yMFZuMktOQ2xrNHdaQ2FHQkx6THN6YUtvbGpUbTZYUytqRU42QXN2?=
+ =?utf-8?B?QWxmL1EwWncvUE9tWnQ2STFRekl2UHpnRit2SWhpWjRhdS9Ib3ZOMml3S3lI?=
+ =?utf-8?B?cGJOWGd4OWxsZWFKMmMwYzdDUXFhcmY0Z1ZJNU0xQ2dXaDBiMEpwa01DWG5x?=
+ =?utf-8?B?dG1rNisxS0ZmYUtIblF4MTNxeDBSTk5NaUxXYVgxVU44N2swTWlSMytVWk80?=
+ =?utf-8?B?allnWFNyb3hDVEtrV01Sb01SQlFnRlNJaEo2ais4bENSdjdYZkNqQlUzY1lF?=
+ =?utf-8?B?cVkvU1lkNVM1YWJqcDhNZFAxY05TNEdRZ3c5VHdUcTlDREt1U0YrMVk3Nll2?=
+ =?utf-8?B?VEpXSmFJdHdSQ1hra0JGdmo1T2d4Rm5TMlgwNVUySDROb0Z4WWhJRWg2QVNu?=
+ =?utf-8?B?aU9TY1lGYVIrNmxqLzFRMXM2dCtYOXVqbzNnZkZVSmE4NW9IQU1hM2hOaE1S?=
+ =?utf-8?B?RFVCWjlEN3I4WXI1RHRsUVZrS0F5aitZSnQvZ2szaVFyNlNncEJsYlMxR21q?=
+ =?utf-8?B?OGRTcGhxMi9iUUxteDVKZDhzSDUxTGZuSlEwa0xvaEw3TnBvUEVFV3lQejNu?=
+ =?utf-8?B?MHNMTlQvUktsVXlQK0FjbU1mMkoxbDl0K25CRWxYc1dzY0lFV0JnVVE2dStM?=
+ =?utf-8?B?UkNMNHhQWHdVODlBZktRUm1aWjArb0xad2gyc2o1WjVwTXZpMnRBdXhPcXVp?=
+ =?utf-8?B?ZFZDTG9IblhGUHk3cmVFanR3ampET1JwakZnRDExU0YwcnJlNnJhdFlIM1Ur?=
+ =?utf-8?B?UWhNRHFacEt1OHdlM0Vza2ZETEtpRXRYamxUNnE2YWZmSTcwd1YrbnhnMEFW?=
+ =?utf-8?B?RlVLalprYXp1NnN6Tit4bk1XU09UZGxsc3AwWGNSQkZVaExNK2ZVU0JhMHdw?=
+ =?utf-8?B?VmtaU2NoUm5sVzVJdURxeEMwRnNZb3JDNi9ZZzRDYVdHR2lYWmtHVFRDOUZF?=
+ =?utf-8?B?RWtnNzUvZnIwL1kyNGJqRFlIODlWUGFBcjl0dWNJaHBKNFQ4cVJGWnZ5Rjdq?=
+ =?utf-8?B?OENiWjBPSjFvNU4xaGRvbVNyaE9pTnFZWGU5UHpDaSs4UzVpK2VoNit2Nnd1?=
+ =?utf-8?B?LzVhaWFqdjFKSkt5RTR4T1ZQdGdwZEw5OFhKMGxYY2tlMjBIR0NienBHbjhS?=
+ =?utf-8?B?b211a0h5SXJjWkhjVVNXbXRxdS9SbGw2YWF1QXdoQWtkclg2VW80WmZ5TkhX?=
+ =?utf-8?B?ZTVjQkhvUXhRc0VGeUhGcjZ3bnZ4MTdFQTkyN2JDVUk1alR5Z2IxTHk0blhM?=
+ =?utf-8?B?S2xPNzBRZDdOeFBERG41bEppMXhuNkxHZ0EvZlg3MkNCZE53cFhIditDK2hP?=
+ =?utf-8?B?QTRFTUE3K0tUZ1BRajBkRGVlVkFVR1VsekF1VVo5elJ3TWhQd282d3lSZGxN?=
+ =?utf-8?B?bE1oVmFsYWI5YzYzM2VISXZjRnVTUUYzbWdMTlBwaVBVZlRqNTNUQ3AxRk5R?=
+ =?utf-8?B?VHh0YnpPZmJlUUZEM2NrQUdJd0puSldUelpaQ01OL1lzTExBYXNaMVM0Q0l5?=
+ =?utf-8?B?V0QyaXlwMHdrcVZSRHZZeEozS08zTDN1RmZBRXUrOVZ1SVFWZ3NHMjJ0L3dW?=
+ =?utf-8?B?U214ZXZjYVBWMmdWSWQ2M1Y0NWhzQXhteTQ3SmQwUmdYZTZMcGtOUFFZZjVj?=
+ =?utf-8?B?bGZWU1NoTG1BRlFTOEMzdz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UjJoS0NDdWRLWWJmREhUUWNZUGJZbGxnbksyK21OUnVxOXovNGZkbkNPWUY1?=
+ =?utf-8?B?aTkrQXlrOEN2Y1dPNkdsZisrdE1lSDRjK3FUT0lramdOVVdtQlI5SlJLUmRF?=
+ =?utf-8?B?QzliYXJxc1QrS1ZZV3YzWWEwaS9YRElrcFRzZXBwQzNoVSs5Sm5jWjdXNjJ3?=
+ =?utf-8?B?bWs2dFBtdXhCV1gzall6dVdlOUd1NmV3TEs0QzZPZ2JRQi9ad0dxWTZKcnlY?=
+ =?utf-8?B?QmtrNlpKUUhtYWVjWVN4SkFhOFpnMERGZ1FmUkF1dktaVDl2UTNBMkxId2xW?=
+ =?utf-8?B?UUFqci9hOEF5NnNIeHJLdEZSZUduSlc1MCtQUEF5UFJoYloxbUJkQitGdEYz?=
+ =?utf-8?B?c2l1ZkwvWE12bzhaVlZDSXMzOFhBZ2RKa0xnb3JQODREcXc2RitEMEk2WWhI?=
+ =?utf-8?B?UmtIVzRENldqcEVpZVVMUm5VTHZCcDR4QldpdE1XWXJNTHZNSVJaV21TMDll?=
+ =?utf-8?B?K1BORENUajBaYkpnUHhGM2JveHBJQVQ0OUp0eS9Ba1NzQ3Qwc01nQXdxN3Ru?=
+ =?utf-8?B?ZTFkUk9lemUrU0FyMm4wb1VpZTdjbEFxaSswSTVLOVNqNkFuakU5MTdkZVdW?=
+ =?utf-8?B?TmVvK1o1eVMrdGxZLzdXSGdwSzZza050THBYLzl2VThhaVlRUkpCQlpnOGtw?=
+ =?utf-8?B?SUNRZE9xZUg1QVpndTRTQytKSGREOEpJbnlQV2FCb0Zia081UDFNZzJVZ2dj?=
+ =?utf-8?B?OTI0YkQ5bDF0V3ZjN3ZZRTFzWkVpOWpadGFFa2Y2THV0OEU2TE9PRXBtVmY3?=
+ =?utf-8?B?K0xacEJGaFRTakQ3M3IvMWp5VFBqMW9tOEsrVnNjODNSZDFSckRaUzcxaC9S?=
+ =?utf-8?B?VjF5OFBjbkhmMGtKOWg4UUJONjJULzhMeUlGL2pWemovNmxkenJRNElFRG1v?=
+ =?utf-8?B?OW8wWjh6MjdvQ1BUZXhENG12RzZ3UUlSa1NrWlFzTFc1WTdocHRDNE94SzhP?=
+ =?utf-8?B?UjRmbGp0VGpNWnhLQTJ1MGhRcDFZYVhwd1BYSHRRbS9EREFtcTRoRHQyMFY1?=
+ =?utf-8?B?amtjMDB5Um14RUg4UDFzakNzdlp6c1oxNEErWUFPeHVQNlY5MjRXc1dYQmw2?=
+ =?utf-8?B?eTdlVm9WcTcvUERiQ0ZPcGRHZFFVWDVyc1N3WC93Y1JJNWlMWnpjZGxMcjMx?=
+ =?utf-8?B?Z0dKSlpFSGt2d3VQU084QzZFY1cxOUV5UmxSSEdraW5ORkQ2UDRKV2kyWW1G?=
+ =?utf-8?B?czA0bFNTUHc3YjhrSG4wVDNMMVMvUzcrcC9NbmlVdmFmTE1yS0dtN3dqRHY2?=
+ =?utf-8?B?VXJQU0paMGE2dDMyOVJGM1d0QlNoY0JVbzNnVTVlVHczNTVRSVJWV2Fwc2sr?=
+ =?utf-8?B?SFNQZ1JpdU43ajZha3JMSW5mVkN4WkVoSkdoZ1ZaOWtrem1Ka1BCTHJEaUFh?=
+ =?utf-8?B?eVg0V1M5UjU1WWpFeThCZndqdHNUVXZjemdTNUZFbzdrdGJpQU5vTU54T2ov?=
+ =?utf-8?B?QWdNQ211MkR6UjJaY1lhQS9VdFZXSERldVBRNUhIaVh1Tit3TTNublZYSHlj?=
+ =?utf-8?B?TUtCSGtoYnRpRlFTbE9FallHVnV5TEJHcWx6bWRJeUlVZEprZ0J6UVFCSXlD?=
+ =?utf-8?B?ZFErTS9GOHBIbkhwREg3VGNtTjhpV2pwQlozSlhHYTNTSjNXNVN1RWtSOVlQ?=
+ =?utf-8?B?TmQ0dzR1b1JNV1BaWXhqWmZ2bGdYWHdOeTgrdmdoRHdiYy84TW4za1VLOTVM?=
+ =?utf-8?B?bEFLdFNJMHVSQ0E4SkZsM2lCMEs1Y2o3SlJvMHllOHJLaDh0cVhOamVrQnFk?=
+ =?utf-8?B?UURhbEYrYWtURVBxckdZVVprVStsUUo5Yks2NHErUFNsbUhQdnJ0Q0ZURmZi?=
+ =?utf-8?B?VDFZKzBNNUdFNU5nOUJmNmhlU3FsVUhrU1FweXhsZUxxc2dCeGkvQTBwdDV6?=
+ =?utf-8?B?cjAwV0haSy9BMmpCeFNyaUk0SUh6TnRhQlRtdWhCenkyN3ZVWW0vVmxEVjhl?=
+ =?utf-8?B?UjBxVlEyQ0hTc3k0bVhEOTk4YmNJR1AxZVNZcmtkcHU5RXhocXFlYk5sSmxH?=
+ =?utf-8?B?czN2U3NkZHoweTlDVXEzUXRrYWxMQkFnTWZZNC80S2gvUDJVbXdLa0VZNlNs?=
+ =?utf-8?B?SjN2NStDM2Rud09lU0FtVE1LVWcxR2JaQlhWR015b2tHSE5xUDN5R1h1VDdw?=
+ =?utf-8?B?THIyMDBtM1MySnQxN1hyVDRJRlZWZW1VVWM4V2dXYjlXRVJmVVpLdlcrTGlR?=
+ =?utf-8?Q?WE3ocLu4XUBnz/u0OjJTRXI=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a320eb12-78b8-4dcb-096a-08dd147cc0b9
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2024 16:00:20.8975
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Wtucez1Qg4gMElwLapA0YthHM5Eqv8iMSdh/v+a9pWKV1a6AOjSbVPSe2/l5bB7Os9bgnplIZgeEtcvMrbL+bQp2m1394/J4qjGFMhRnE+U=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB7383
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_075839_146243_1B669EB0 
-X-CRM114-Status: GOOD (  37.86  )
+X-CRM114-CacheID: sfid-20241204_080030_601322_26DCFE1D 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,261 +186,107 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---lrjlcvs3uibftgsq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap
- for non-paged SKB data
-MIME-Version: 1.0
 
-On Wed, Dec 04, 2024 at 02:06:00PM +0000, Robin Murphy wrote:
-> On 2024-12-04 1:57 pm, Thierry Reding wrote:
-> > On Tue, Dec 03, 2024 at 11:16:37AM +0800, Furong Xu wrote:
-> > > On Mon, 2 Dec 2024 18:34:25 -0800, Jakub Kicinski <kuba@kernel.org> w=
-rote:
-> > >=20
-> > > > On Tue, 3 Dec 2024 10:03:31 +0800 Furong Xu wrote:
-> > > > > I requested Jon to provide more info about "Tx DMA map failed" in=
- previous
-> > > > > reply, and he does not respond yet.
-> > > >=20
-> > > > What does it mean to provide "more info" about a print statement fr=
-om
-> > > > the driver? Is there a Kconfig which he needs to set to get more in=
-fo?
-> > > > Perhaps you should provide a debug patch he can apply on his tree, =
-that
-> > > > will print info about (1) which buffer mapping failed (head or frag=
-s);
-> > > > (2) what the physical address was of the buffer that couldn't be ma=
-pped.
-> > >=20
-> > > A debug patch to print info about buffer makes no sense here.
-> > > Both Tegra186 Jetson TX2(tegra186-p2771-0000) and Tegra194 Jetson AGX=
- Xavier
-> > > (tegra194-p2972-0000) enable IOMMU/SMMU for stmmac in its device-tree=
- node,
-> > > buffer info should be investigated with detailed IOMMU/SMMU debug inf=
-o from
-> > > drivers/iommu/arm/arm-smmu/arm-smmu-nvidia.c together.
-> > >=20
-> > > I am not an expert in IOMMU, so I cannot help more.
-> > >=20
-> > > Without the help from Jon, our only choice is revert as you said.
-> >=20
-> > I was able to reproduce this locally and I get this splat:
-> >=20
-> > --- >8 ---
-> > [  228.179234] WARNING: CPU: 0 PID: 0 at drivers/iommu/io-pgtable-arm.c=
-:346 __arm_lpae_map+0x388/0x4e4
-> > [  228.188300] Modules linked in: snd_soc_tegra210_mixer snd_soc_tegra2=
-10_admaif snd_soc_tegra_pcm snd_soc_tegra186_asrc snd_soc_tegra210_ope snd_=
-soc_tegra210_adx snd_soc_tegra210_mvc snd_soc_tegra210_dmic snd_soc_tegra18=
-6_dspk snd_soc_tegra210_sfc snd_soc_tegra210_amx snd_soc_tegra210_i2s tegra=
-_drm drm_dp_aux_bus cec drm_display_helper drm_client_lib tegra210_adma snd=
-_soc_tegra210_ahub drm_kms_helper snd_hda_codec_hdmi snd_hda_tegra snd_soc_=
-tegra_audio_graph_card at24 snd_hda_codec ina3221 snd_soc_audio_graph_card =
-snd_soc_simple_card_utils tegra_bpmp_thermal tegra_xudc snd_hda_core tegra_=
-aconnect host1x fuse drm backlight ipv6
-> > [  228.243750] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G S       =
-          6.13.0-rc1-next-20241203 #30
-> > [  228.253412] Tainted: [S]=3DCPU_OUT_OF_SPEC
-> > [  228.257336] Hardware name: nvidia NVIDIA P2771-0000-500/NVIDIA P2771=
--0000-500, BIOS 2025.01-rc3-00040-g36352ae2e68e-dirty 01/01/2025
-> > [  228.269239] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BT=
-YPE=3D--)
-> > [  228.276205] pc : __arm_lpae_map+0x388/0x4e4
-> > [  228.280398] lr : __arm_lpae_map+0x120/0x4e4
-> > [  228.284587] sp : ffff8000800037f0
-> > [  228.287901] x29: ffff800080003800 x28: 0000000000000002 x27: 0000000=
-000000001
-> > [  228.295050] x26: 0000000000000001 x25: 0000000111580000 x24: 0000000=
-000001000
-> > [  228.302197] x23: 000000ffffc72000 x22: 0000000000000ec0 x21: 0000000=
-000000003
-> > [  228.309342] x20: 0000000000000001 x19: ffff00008574b000 x18: 0000000=
-000000001
-> > [  228.316486] x17: 0000000000000000 x16: 0000000000000001 x15: ffff800=
-080003ad0
-> > [  228.323631] x14: ffff00008574d000 x13: 0000000000000000 x12: 0000000=
-000000001
-> > [  228.330775] x11: 0000000000000001 x10: 0000000000000001 x9 : 0000000=
-000001000
-> > [  228.337921] x8 : ffff00008674c390 x7 : ffff00008674c000 x6 : 0000000=
-000000003
-> > [  228.345066] x5 : 0000000000000003 x4 : 0000000000000001 x3 : 0000000=
-000000002
-> > [  228.352209] x2 : 0000000000000001 x1 : 0000000000000000 x0 : ffff000=
-08574b000
-> > [  228.359356] Call trace:
-> > [  228.361807]  __arm_lpae_map+0x388/0x4e4 (P)
-> > [  228.366002]  __arm_lpae_map+0x120/0x4e4 (L)
-> > [  228.370198]  __arm_lpae_map+0x120/0x4e4
-> > [  228.374042]  __arm_lpae_map+0x120/0x4e4
-> > [  228.377886]  __arm_lpae_map+0x120/0x4e4
-> > [  228.381730]  arm_lpae_map_pages+0x108/0x250
-> > [  228.385922]  arm_smmu_map_pages+0x40/0x120
-> > [  228.390029]  __iommu_map+0xfc/0x1bc
-> > [  228.393525]  iommu_map+0x38/0xc0
-> > [  228.396759]  __iommu_dma_map+0xb4/0x1a4
-> > [  228.400604]  iommu_dma_map_page+0x14c/0x27c
-> > [  228.404795]  dma_map_page_attrs+0x1fc/0x280
-> > [  228.408987]  stmmac_tso_xmit+0x2d0/0xbac
-> > [  228.412920]  stmmac_xmit+0x230/0xd14
-> > [  228.416505]  dev_hard_start_xmit+0x94/0x11c
-> > [  228.420697]  sch_direct_xmit+0x8c/0x380
-> > [  228.424540]  __qdisc_run+0x11c/0x66c
-> > [  228.428121]  net_tx_action+0x168/0x228
-> > [  228.431875]  handle_softirqs+0x100/0x244
-> > [  228.435809]  __do_softirq+0x14/0x20
-> > [  228.439303]  ____do_softirq+0x10/0x20
-> > [  228.442972]  call_on_irq_stack+0x24/0x64
-> > [  228.446903]  do_softirq_own_stack+0x1c/0x40
-> > [  228.451091]  __irq_exit_rcu+0xd4/0x10c
-> > [  228.454847]  irq_exit_rcu+0x10/0x1c
-> > [  228.458343]  el1_interrupt+0x38/0x68
-> > [  228.461927]  el1h_64_irq_handler+0x18/0x24
-> > [  228.466032]  el1h_64_irq+0x6c/0x70
-> > [  228.469438]  default_idle_call+0x28/0x58 (P)
-> > [  228.473718]  default_idle_call+0x24/0x58 (L)
-> > [  228.477998]  do_idle+0x1fc/0x260
-> > [  228.481234]  cpu_startup_entry+0x34/0x3c
-> > [  228.485163]  rest_init+0xdc/0xe0
-> > [  228.488401]  console_on_rootfs+0x0/0x6c
-> > [  228.492250]  __primary_switched+0x88/0x90
-> > [  228.496270] ---[ end trace 0000000000000000 ]---
-> > [  228.500950] dwc-eth-dwmac 2490000.ethernet: Tx dma map failed
-> > --- >8 ---
-> >=20
-> > This looks to be slightly different from what Jon was seeing. Looking at
-> > the WARN_ON() that triggers this, it seems like for some reason the page
-> > is getting mapped twice.
-> >=20
-> > Not exactly sure why that would be happening, so adding Robin and Will,
-> > maybe they can shed some light on this from the ARM SMMU side.
-> >=20
-> > Robin, Will, any idea who could be the culprit here? Is this a map/unmap
-> > imbalance or something else entirely?
->=20
-> If valid PTEs are getting left behind in the pagetable, that would indica=
-te
-> that a previous dma_unmap_page() was called with a size smaller than its
-> original dma_map_page(). Throwing CONFIG_DMA_API_DEBUG at it should
-> hopefully shed more light.
+On 12/4/24 7:50 AM, Catalin Marinas wrote:
+> On Wed, Dec 04, 2024 at 04:32:11PM +0100, David Hildenbrand wrote:
+>> On 04.12.24 16:29, Catalin Marinas wrote:
+>>> On Mon, Dec 02, 2024 at 08:22:57AM -0800, Yang Shi wrote:
+>>>> On 11/28/24 1:56 AM, David Hildenbrand wrote:
+>>>>> On 28.11.24 02:21, Yang Shi wrote:
+>>>>>>>> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+>>>>>>>> index 87b3f1a25535..ef303a2262c5 100644
+>>>>>>>> --- a/arch/arm64/mm/copypage.c
+>>>>>>>> +++ b/arch/arm64/mm/copypage.c
+>>>>>>>> @@ -30,9 +30,9 @@ void copy_highpage(struct page *to, struct
+>>>>>>>> page *from)
+>>>>>>>>           if (!system_supports_mte())
+>>>>>>>>               return;
+>>>>>>>> -    if (folio_test_hugetlb(src) &&
+>>>>>>>> -        folio_test_hugetlb_mte_tagged(src)) {
+>>>>>>>> -        if (!folio_try_hugetlb_mte_tagging(dst))
+>>>>>>>> +    if (folio_test_hugetlb(src)) {
+>>>>>>>> +        if (!folio_test_hugetlb_mte_tagged(src) ||
+>>>>>>>> +            !folio_try_hugetlb_mte_tagging(dst))
+>>>>>>>>                   return;
+>>>>>>>>               /*
+>>>>>>> I wonder why we had a 'return' here originally rather than a
+>>>>>>> WARN_ON_ONCE() as we do further down for the page case. Do you seen any
+>>>>>>> issue with the hunk below? Destination should be a new folio and not
+>>>>>>> tagged yet:
+>>>>>> Yes, I did see problem. Because we copy tags for all sub pages then set
+>>>>>> folio mte tagged when copying the data for the first subpage. The
+>>>>>> warning will be triggered when we copy the second subpage.
+>>>>> It's rather weird, though. We're instructed to copy a single page, yet
+>>>>> copy tags for all pages.
+>>>>>
+>>>>> This really only makes sense when called from folio_copy(), where we are
+>>>>> guaranteed to copy all pages.
+>>>>>
+>>>>> I'm starting to wonder if we should be able to hook into / overload
+>>>>> folio_copy() instead, to just handle the complete hugetlb copy ourselves
+>>>>> in one shot, and assume that copy_highpage() will never be called for
+>>>>> hugetlb pages (WARN and don't copy tags).
+>>>> Actually folio_copy() is just called by migration. Copy huge page in CoW is
+>>>> more complicated and uses copy_user_highpage()->copy_highpage() instead of
+>>>> folio_copy(). It may start the page copy from any subpage. For example, if
+>>>> the CoW is triggered by accessing to the address in the middle of 2M. Kernel
+>>>> may copy the second half first then the first half to guarantee the accessed
+>>>> data in cache.
+>>> Still trying to understand the possible call paths here. If we get a
+>>> write fault on a large folio, does the core code allocate a folio of the
+>>> same size for CoW or it starts with smaller ones? wp_page_copy()
+>>> allocates order 0 AFAICT, though if it was a pmd fault, it takes a
+>>> different path in handle_mm_fault(). But we also have huge pages using
+>>> contiguous ptes.
+>>>
+>>> Unless the source and destinations folios are exactly the same size, it
+>>> will break many assumptions in the code above. Going the other way
+>>> around is also wrong, dst larger than src, we are not initialising the
+>>> whole dst folio.
+>>>
+>>> Maybe going back to per-page PG_mte_tagged flag rather than per-folio
+>>> would keep things simple, less risk of wrong assumptions.
+>> I think the magic bit here is that for hugetlb, we only get hugetlb folios
+>> of the same size, and no mixtures.
 
-Bull's-eye! DMA_API_DEBUG does flag this:
+Yes, hugetlb always allocates the same order folio for CoW. And hugetlb 
+CoW path is:
 
---- >8 ---
-[   60.469121] DMA-API: dwc-eth-dwmac 2490000.ethernet: device driver tries=
- to free DMA memory it has not allocated [device add ress=3D0x000000ffffcf6=
-5c0] [size=3D66 bytes]
-1
-[   60.486534] WARNING: CPU: 0 PID: 0 at kernel/dma/debug.c:972 check_unmap=
-+0x564/0x8f0
-[   60.494493] Modules linked in: snd_soc_tegra210_admaif snd_soc_tegra_pcm=
- snd_soc_tegra210_ope snd_soc_tegra186_asrc snd_soc_tegra210_amx snd_soc_te=
-gra210_mv
-c snd_soc_tegra210_mixer snd_soc_tegra210_dmic snd_soc_tegra210_sfc snd_soc=
-_tegra186_dspk snd_soc_tegra210_i2s snd_soc_tegra210_adx tegra_drm drm_dp_a=
-ux_bus ce
-c drm_display_helper drm_client_lib drm_kms_helper tegra210_adma snd_soc_te=
-gra210_ahub snd_hda_codec_hdmi snd_soc_tegra_audio_graph_card snd_hda_tegra=
- snd_soc_
-audio_graph_card snd_hda_codec snd_soc_simple_card_utils at24 snd_hda_core =
-ina3221 tegra_aconnect tegra_xudc tegra_bpmp_thermal host1x fuse drm backli=
-ght ipv6
-[   60.549857] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G S           =
-      6.13.0-rc1-next-20241203 #31
-[   60.559504] Tainted: [S]=3DCPU_OUT_OF_SPEC
-[   60.563423] Hardware name: nvidia NVIDIA P2771-0000-500/NVIDIA P2771-000=
-0-500, BIOS 2025.01-rc3-00040-g36352ae2e68e-dirty 01/01/2025
-[   60.575317] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=
-=3D--)
-[   60.582273] pc : check_unmap+0x564/0x8f0
-[   60.586197] lr : check_unmap+0x564/0x8f0
-[   60.590117] sp : ffff800080003b50
-[   60.593428] x29: ffff800080003b50 x28: ffff0000825309c0 x27: ffff0000825=
-313c0
-[   60.600562] x26: 00000000000001b9 x25: 0000000000000001 x24: ffff0000801=
-1b410
-[   60.607696] x23: ffff800082059ec0 x22: 0000000000000000 x21: ffff8000825=
-b25c8
-[   60.614829] x20: ffff800080003bc0 x19: 000000ffffcf65c0 x18: 00000000000=
-00006
-[   60.621962] x17: 645b206465746163 x16: 0000000000000000 x15: 07200720072=
-00720
-[   60.629095] x14: ffff800082074960 x13: 0720072007200720 x12: 07200720072=
-00720
-[   60.636229] x11: ffff800082074960 x10: 0000000000000299 x9 : ffff8000820=
-cc960
-[   60.643362] x8 : 0000000000017fe8 x7 : 00000000fffff000 x6 : ffff8000820=
-cc960
-[   60.650496] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 00000000000=
-00000
-[   60.657629] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff8000820=
-64900
-[   60.664763] Call trace:
-[   60.667206]  check_unmap+0x564/0x8f0 (P)
-[   60.671131]  check_unmap+0x564/0x8f0 (L)
-[   60.675055]  debug_dma_unmap_page+0xac/0xc0
-[   60.679239]  dma_unmap_page_attrs+0xf4/0x200
-[   60.683508]  stmmac_tx_clean.constprop.0+0x1ac/0x7bc
-[   60.688474]  stmmac_napi_poll_tx+0xdc/0x168
-[   60.692657]  __napi_poll+0x38/0x180
-[   60.696148]  net_rx_action+0x158/0x2c0
-[   60.699897]  handle_softirqs+0x100/0x244
-[   60.703821]  __do_softirq+0x14/0x20
-[   60.707309]  ____do_softirq+0x10/0x20
-[   60.710970]  call_on_irq_stack+0x24/0x64
-[   60.714891]  do_softirq_own_stack+0x1c/0x40
-[   60.719072]  __irq_exit_rcu+0xd4/0x10c
-[   60.722821]  irq_exit_rcu+0x10/0x1c
-[   60.726308]  el1_interrupt+0x38/0x68
-[   60.729886]  el1h_64_irq_handler+0x18/0x24
-[   60.733980]  el1h_64_irq+0x6c/0x70
-[   60.737381]  default_idle_call+0x28/0x58 (P)
-[   60.741652]  default_idle_call+0x24/0x58 (L)
-[   60.745920]  do_idle+0x1fc/0x260
-[   60.749149]  cpu_startup_entry+0x34/0x3c
-[   60.753068]  rest_init+0xdc/0xe0
-[   60.756296]  console_on_rootfs+0x0/0x6c
-[   60.760135]  __primary_switched+0x88/0x90
-[   60.764146] ---[ end trace 0000000000000000 ]---
---- >8 ---
+handle_mm_fault() ->
+   hugetlb_fault() ->
+     hugetlb_wp()
 
-This doesn't match the location from earlier, but at least there's
-something afoot here that needs fixing. I suppose this could simply be
-hiding any subsequent errors, so once this is fixed we might see other
-similar issues.
+> Ah, ok, we do check for this and only do the advance copy for hugetlb
+> folios. I'd add a check for folio size just in case, something like
+> below (I'll add some description and post it properly):
+>
+> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+> index 87b3f1a25535..c3a83db46ec6 100644
+> --- a/arch/arm64/mm/copypage.c
+> +++ b/arch/arm64/mm/copypage.c
+> @@ -30,11 +30,14 @@ void copy_highpage(struct page *to, struct page *from)
+>   	if (!system_supports_mte())
+>   		return;
+>   
+> -	if (folio_test_hugetlb(src) &&
+> -	    folio_test_hugetlb_mte_tagged(src)) {
+> -		if (!folio_try_hugetlb_mte_tagging(dst))
+> +	if (folio_test_hugetlb(src)) {
+> +		if (!folio_test_hugetlb_mte_tagged(src) ||
+> +		    from != folio_page(src, 0) ||
+> +		    WARN_ON_ONCE(folio_nr_pages(src) != folio_nr_pages(dst)))
 
-Furong, I can look into this some more, but I'm not at all familiar with
-this part of the driver, so I don't really know where this could be
-originating from. Any pointers would be appreciated. Also, if you think
-there's anything I should try, I do have this setup that I can test on
-locally.
+The check is ok, but TBH I don't see too much benefit. The same order is 
+guaranteed by hugetlb fault handler. And I don't think we will support 
+mixed order for hugetlb in foreseeable future.
 
-Thierry
+>   			return;
+>   
+> +		WARN_ON_ONCE(!folio_try_hugetlb_mte_tagging(dst));
+> +
+>   		/*
+>   		 * Populate tags for all subpages.
+>   		 *
+>
 
---lrjlcvs3uibftgsq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmdQfCYACgkQ3SOs138+
-s6FjWhAAni5ilnFd5G+xoW+k7BqHpNA7A+YjYGceNk3Ae7gX/rgCXRHqjnoCFS/o
-qqLEJr/IQ7HvXYyBbfXEaGtXTX3v6QM/RXPqZOAFt4K/e7+4X0zJC51UAmdtcGpp
-jV0FflBnCVvMd+LdLqAN7OEIQnFyXp8wb1+k3V9BOqj/CG/V2QbIyJU3Ff4v0GlX
-ljiHkd3gQcd5te7e0u5H4O9tf794jEc2iQBf+wKeEZLN5Dqkf8XRDpP8GSWiwVhx
-EgqjxxaVLcRZb0wiPmulyoWx7iKi0a1He1SefSbAqTkxuLP7iaXmMtffrZfYEkyT
-W+MLvtEmpp1+7MSL7I3JD/UYXh5gXqIE3I/flECwPcpH+tTmmW+NvA5kmvS/Z7y4
-aYnAez5jv65vGpwFMkFZTbw7oaPV00BKpXliyCe25ghDwKA2NOHlR1qt1bz+d/jE
-gUYO2wWBWnX2zpuUfYEVzPjKWsFSsand4WUwRQOcsGNk1UKXMI4aoTagOU1vG2aZ
-DIHJFVQx/bHAZh025m30UdcKr8mwpQHQHkOGEmmxJhxW5YzHHOLNTU7ANPXawPUR
-Uvqqql88Luxfw9EU+DYABmP6kFll+Gh2kOs81IjZkc4uyrNNzGL6/ydluzntwoEq
-TiP+c/2g0jY+/mJquWKvs2S7qjv9h5L/XG4NKeOX+xxN+mYxNAI=
-=HkJp
------END PGP SIGNATURE-----
-
---lrjlcvs3uibftgsq--
 
