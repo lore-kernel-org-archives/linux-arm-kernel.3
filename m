@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1121E77172
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FECE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 19:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tFj98HJEqxlM2yS1YScvzRxxJLlbahOUdL6PgedEnEc=; b=KdhBq+/H+/KAI4qHJmKqoxpxkR
-	ATx0uyraTcMz874Df6MD3/Ua/34HQUHFn22Kpf9wxMZM/q1muTKGPobObkGLS/7GR6HrrD96PRxqy
-	cpu5P8dcxzkF9WEXGIFqi64mwwhdhztAQmqx7pH6/3fCW3xRd1QkzYwxbsvoDCpzwyGvaBcYnsczb
-	ixY9xeYNqy9X7weo4wgE9EjZGxd1RyplUdh60eWFINPqq5rNOD5p9/TGzqlFcsrM2+UWquP4J5/uE
-	Dj1f+pfsFPeajVSm2Oq0+ZIt/t1/FBIv6cr1hrakeDWOiMX1NGmXJlHYY15SooKHws1GEqxUuxIXm
-	vMoOyiYg==;
+	bh=D0Bh/8/p57GgUO0KFv6z2qw3B4ssWvPHnpaRRwgHkKo=; b=OkJF6i/sbwHNLButhMiJHnHkMP
+	M+5YFOoWAFhZOJEmYJP/w24om23qN32DkKgkORSlmnIY/skxkgZQV+v6O3Xi++zpJlJIto/WxCZY9
+	yCNUIDwRMrqFR1OE8dRfZo0IjL5j8lcpl80x2SUjbzIYlm8xFQDG3MVvix+jIf/+P1vtdSAKKrsSW
+	SPl+Sga/e/gYi7HukIKQBMlOUGBTwR/JajtjPw3y5lvTkC2nQCnRvKoRf3YWgPRcLndbOhQGEfjFF
+	eV8iVfkcIsxwDp7GcHFQzaEitMiQYOVEj2pU0qRETD8GCgnpnXtN6dZleYKMy4Sq5xMM/qvJX3cZO
+	nSe3eD5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuwC-0000000DfNb-0v9k;
-	Wed, 04 Dec 2024 19:21:28 +0000
-Received: from mail-qk1-x749.google.com ([2607:f8b0:4864:20::749])
+	id 1tIuxO-0000000DfW2-3ayT;
+	Wed, 04 Dec 2024 19:22:42 +0000
+Received: from mail-qt1-x84a.google.com ([2607:f8b0:4864:20::84a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIupJ-0000000Ddi6-3ulM
+	id 1tIupM-0000000DdjJ-2bKF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 19:14:23 +0000
-Received: by mail-qk1-x749.google.com with SMTP id af79cd13be357-7b67a9aea08so11345985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 11:14:21 -0800 (PST)
+	Wed, 04 Dec 2024 19:14:25 +0000
+Received: by mail-qt1-x84a.google.com with SMTP id d75a77b69052e-466c499185cso1443451cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 11:14:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733339660; x=1733944460; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733339662; x=1733944462; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tFj98HJEqxlM2yS1YScvzRxxJLlbahOUdL6PgedEnEc=;
-        b=BABYEbCgK+3HxLlXxkoPaMFgatrRx6+XrcvdEe/qU+r02Q74bcO0yhLsgg2KJKjdPo
-         3vKz08A/k3HayDxIJvOo4Z0GiYEOVEjglwdIbC5JyuG3J4P4deYyDn54fnqT1tT971Au
-         VZjAnbndyv8d9zqNHIrojP0IViWlrtiRsVRo1BNpWT8MDgMvhOjg6LQZxixlwaO4dZ4G
-         CrOY9nLGRPcOz3RbVRTxEk33in3xuFLusfOzopJo7oY1hlHdil3c7H8OgPScnvcRm/Nk
-         XgpE/OCOuTU+pjhIuR6T/zaGuNdAjtz8P8Woco2mGtBi1uxX+IM6oOkvj2MPYJ4MPT3g
-         2xgA==
+        bh=D0Bh/8/p57GgUO0KFv6z2qw3B4ssWvPHnpaRRwgHkKo=;
+        b=cSS/Krw9giEjzRvU7PlX4PKDWg8/CmQBzjSYgLBDRk+tRgPsW2fbMG8jB9NN6ogPmv
+         Sn71qjxbg3Qql4qE1jE0fwCIGHSgAtpaKx+g+QGhRIi41bjCtJHU1xIJi01eWE8SJIfi
+         61ofRct848wYrD/3jOz4I1CqXIS0uelboaXGPBZRQ8BzcXpUxKztac62Ih5ZikXXQ6oz
+         0jiS4c7bUX/vcnRhfTx9fWXWUAzQQ+Joidnx7D8avRPrzdPHirIoiUttdeBiTHODm8rK
+         ag8p7Hn5xkCBxPR5vOMW6bmsei3a0SmWYXhaY4xtc1Cy3G0IqIS2SQqbwk1Nj6/QVurB
+         Ha4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733339660; x=1733944460;
+        d=1e100.net; s=20230601; t=1733339662; x=1733944462;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tFj98HJEqxlM2yS1YScvzRxxJLlbahOUdL6PgedEnEc=;
-        b=WJKrlJZXLzjQUbzLPfEMKbUEdEVjaRBXYaUliWEqH6nCg8gEDjHNLorD1SXxvE2VX3
-         b00vSKSUoajTCpxfKOUEyLHI5k2Y8fTwGQYhBGbOPXEacZ6mA38dI46rf1rhoGBwJNni
-         4BbH0pAAnF8VmZMxmTb1hdjPXO/JFzmdYXVSOZj1J/cK9daDBaS7AXC22AEr+2Iidjiy
-         ONJXef3ddXue+MoXLAJmooL4ndIwCj1CE+JSx85djAHRh9nDgQDuzlprH8H9km2H1W1x
-         732VOMfn7PIicAxRELAei2uSRUOoop2RguRdyLatZscG9kPE0sdGXXWnpacHLj9n7tJN
-         e+6g==
-X-Forwarded-Encrypted: i=1; AJvYcCW8A/nKz5FHKBhop71qRSVEspuBe3hr7dNPCSMG3eCiERsGtUOTOe11cgzavj/VxzZ4hAGuQUcWal41Qq+63NLF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9nahbiPI5yxBRzc3hhl7n1YEbd6+EKuYNVcIrHuwe6BNouplA
-	5fj5rw0Rs5c/mLoHdjfK9ENG0SN8ebTkr0kAWe1HOsPTUP7YOhp3rBDC4rdayI1TazpM6MXdQO2
-	t3Rd0pclz+WN9HHO82w==
-X-Google-Smtp-Source: AGHT+IEjAFXSEtfmGOodffFw31TXE80vwkJvDLAFbZ3yUQDUssUZgM+UMQkcUbluyRy21fc1aO4FFwapwVcSSi9j
-X-Received: from qtbci19.prod.google.com ([2002:a05:622a:2613:b0:462:aa34:aae2])
+        bh=D0Bh/8/p57GgUO0KFv6z2qw3B4ssWvPHnpaRRwgHkKo=;
+        b=K56L4V+T4optuyMXzxnsU6p0GprNsTrEg0LOPKowh1It3FJAaGnRV7e4k8Lym1uqzN
+         GSmaMdojz7fdJNox0mTigBUCP6w5c69bjF66q7JrjxXiTelH4tzB1kZ71C0kimQYqUwz
+         G9mXiX6BNRvc6Mf2fGLoVhI1eBpvqFvYz3UDrbaHbyXVM/g2ezAGOR78ZjKZ0IJdeePA
+         sJ2u6s/ge8PUA35OAXKV2rCf60543wx37ja0ViHh2uGNIvUU5eXbNjKm7IjLjLQ/dSC9
+         bl/PYJ4NFZR3LlujzFqtQ/gyiz5IMnMnSEly9xuKoINgPzwV1xgHpDC8MX+hor0VxGPa
+         Zd/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXozbc6Xb5+nEYvbQJLT+9Cia1FCF5v8uIp1SzZXxxco77s4cPoozD3RmdA2vVOePYQqPeZc8cgl4LSVtT7CcY+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXsF9YwJRt+bAf1qs+1llzBHmF8GdAFAOdqVMXh3OYpRz7eDwE
+	OsmTM5tyQtHR6vipgKv1vg+UxgBSqGmsDyRECMlx91muBGe5z9GQnud3fKgBAamDVbj6zPQgG3k
+	IvDnipAXobWuPOuXgSA==
+X-Google-Smtp-Source: AGHT+IFL6Yzt0JAsezCjVnC1Ege7Dcb8t0Na16LNTuDgarqYjisKQzOlRXRbl7knWaQbVhi5EaZ6me/AizxIjPXb
+X-Received: from qtbcf26.prod.google.com ([2002:a05:622a:401a:b0:466:a2a5:c51f])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:620a:3188:b0:7b6:73f5:2867 with SMTP id af79cd13be357-7b6a61c819cmr926705785a.44.1733339660438;
- Wed, 04 Dec 2024 11:14:20 -0800 (PST)
-Date: Wed,  4 Dec 2024 19:13:40 +0000
+ 2002:ac8:7fc4:0:b0:466:7a01:372b with SMTP id d75a77b69052e-4670c0c1884mr95272281cf.30.1733339662158;
+ Wed, 04 Dec 2024 11:14:22 -0800 (PST)
+Date: Wed,  4 Dec 2024 19:13:42 +0000
 In-Reply-To: <20241204191349.1730936-1-jthoughton@google.com>
 Mime-Version: 1.0
 References: <20241204191349.1730936-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241204191349.1730936-6-jthoughton@google.com>
-Subject: [PATCH v1 05/13] KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
+Message-ID: <20241204191349.1730936-8-jthoughton@google.com>
+Subject: [PATCH v1 07/13] KVM: selftests: Fix vm_mem_region_set_flags docstring
 From: James Houghton <jthoughton@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
@@ -78,8 +78,8 @@ Cc: Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_111421_977022_C1FF2823 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20241204_111424_662670_4F01824F 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,213 +94,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adhering to the requirements of KVM Userfault:
-
-1. Zap all sptes for the memslot when KVM_MEM_USERFAULT is toggled on
-   with kvm_arch_flush_shadow_memslot().
-2. Only all PAGE_SIZE sptes while KVM_MEM_USERFAULT is enabled (for both
-   normal/GUP memory and guest_memfd memory).
-3. Reconstruct huge mappings when KVM_MEM_USERFAULT is toggled off with
-   kvm_mmu_recover_huge_pages().
-
-With the new logic in kvm_mmu_slot_apply_flags(), I've simplified the
-two dirty-logging-toggle checks into one, and I have dropped the
-WARN_ON() that was there.
+`flags` is what region->region.flags gets set to.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- arch/x86/kvm/Kconfig            |  1 +
- arch/x86/kvm/mmu/mmu.c          | 27 +++++++++++++++++++++----
- arch/x86/kvm/mmu/mmu_internal.h | 20 +++++++++++++++---
- arch/x86/kvm/x86.c              | 36 ++++++++++++++++++++++++---------
- include/linux/kvm_host.h        |  5 ++++-
- 5 files changed, 71 insertions(+), 18 deletions(-)
+ tools/testing/selftests/kvm/lib/kvm_util.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index ea2c4f21c1ca..286c6825cd1c 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -47,6 +47,7 @@ config KVM_X86
- 	select KVM_GENERIC_PRE_FAULT_MEMORY
- 	select KVM_GENERIC_PRIVATE_MEM if KVM_SW_PROTECTED_VM
- 	select KVM_WERROR if WERROR
-+	select HAVE_KVM_USERFAULT
- 
- config KVM
- 	tristate "Kernel-based Virtual Machine (KVM) support"
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 22e7ad235123..2f7381255d11 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -4292,14 +4292,19 @@ static inline u8 kvm_max_level_for_order(int order)
- 	return PG_LEVEL_4K;
- }
- 
--static u8 kvm_max_private_mapping_level(struct kvm *kvm, kvm_pfn_t pfn,
--					u8 max_level, int gmem_order)
-+static u8 kvm_max_private_mapping_level(struct kvm *kvm,
-+					struct kvm_memory_slot *slot,
-+					kvm_pfn_t pfn, u8 max_level,
-+					int gmem_order)
- {
- 	u8 req_max_level;
- 
- 	if (max_level == PG_LEVEL_4K)
- 		return PG_LEVEL_4K;
- 
-+	if (kvm_memslot_userfault(slot))
-+		return PG_LEVEL_4K;
-+
- 	max_level = min(kvm_max_level_for_order(gmem_order), max_level);
- 	if (max_level == PG_LEVEL_4K)
- 		return PG_LEVEL_4K;
-@@ -4336,8 +4341,10 @@ static int kvm_mmu_faultin_pfn_private(struct kvm_vcpu *vcpu,
- 	}
- 
- 	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
--	fault->max_level = kvm_max_private_mapping_level(vcpu->kvm, fault->pfn,
--							 fault->max_level, max_order);
-+	fault->max_level = kvm_max_private_mapping_level(vcpu->kvm, fault->slot,
-+							 fault->pfn,
-+							 fault->max_level,
-+							 max_order);
- 
- 	return RET_PF_CONTINUE;
- }
-@@ -4346,6 +4353,18 @@ static int __kvm_mmu_faultin_pfn(struct kvm_vcpu *vcpu,
- 				 struct kvm_page_fault *fault)
- {
- 	unsigned int foll = fault->write ? FOLL_WRITE : 0;
-+	int userfault;
-+
-+	userfault = kvm_gfn_userfault(vcpu->kvm, fault->slot, fault->gfn);
-+	if (userfault < 0)
-+		return userfault;
-+	if (userfault) {
-+		kvm_mmu_prepare_userfault_exit(vcpu, fault);
-+		return -EFAULT;
-+	}
-+
-+	if (kvm_memslot_userfault(fault->slot))
-+		fault->max_level = PG_LEVEL_4K;
- 
- 	if (fault->is_private)
- 		return kvm_mmu_faultin_pfn_private(vcpu, fault);
-diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-index b00abbe3f6cf..15705faa3b67 100644
---- a/arch/x86/kvm/mmu/mmu_internal.h
-+++ b/arch/x86/kvm/mmu/mmu_internal.h
-@@ -282,12 +282,26 @@ enum {
- 	RET_PF_SPURIOUS,
- };
- 
--static inline void kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
--						     struct kvm_page_fault *fault)
-+static inline void __kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
-+						       struct kvm_page_fault *fault,
-+						       bool is_userfault)
- {
- 	kvm_prepare_memory_fault_exit(vcpu, fault->gfn << PAGE_SHIFT,
- 				      PAGE_SIZE, fault->write, fault->exec,
--				      fault->is_private);
-+				      fault->is_private,
-+				      is_userfault);
-+}
-+
-+static inline void kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
-+						     struct kvm_page_fault *fault)
-+{
-+	__kvm_mmu_prepare_memory_fault_exit(vcpu, fault, false);
-+}
-+
-+static inline void kvm_mmu_prepare_userfault_exit(struct kvm_vcpu *vcpu,
-+						  struct kvm_page_fault *fault)
-+{
-+	__kvm_mmu_prepare_memory_fault_exit(vcpu, fault, true);
- }
- 
- static inline int kvm_mmu_do_page_fault(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 2e713480933a..2f7080fd6218 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -13053,12 +13053,36 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
- 	u32 new_flags = new ? new->flags : 0;
- 	bool log_dirty_pages = new_flags & KVM_MEM_LOG_DIRTY_PAGES;
- 
-+	/*
-+	 * When toggling KVM Userfault on, zap all sptes so that userfault-ness
-+	 * will be respected at refault time. All new faults will only install
-+	 * small sptes. Therefore, when toggling it off, recover hugepages.
-+	 *
-+	 * For MOVE and DELETE, there will be nothing to do, as the old
-+	 * mappings will have already been deleted by
-+	 * kvm_arch_flush_shadow_memslot().
-+	 *
-+	 * For CREATE, no mappings will have been created yet.
-+	 */
-+	if ((old_flags ^ new_flags) & KVM_MEM_USERFAULT &&
-+	    (change == KVM_MR_FLAGS_ONLY)) {
-+		if (old_flags & KVM_MEM_USERFAULT)
-+			kvm_mmu_recover_huge_pages(kvm, new);
-+		else
-+			kvm_arch_flush_shadow_memslot(kvm, old);
-+	}
-+
-+	/*
-+	 * Nothing more to do if dirty logging isn't being toggled.
-+	 */
-+	if (!((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
-+		return;
-+
- 	/*
- 	 * Update CPU dirty logging if dirty logging is being toggled.  This
- 	 * applies to all operations.
- 	 */
--	if ((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES)
--		kvm_mmu_update_cpu_dirty_logging(kvm, log_dirty_pages);
-+	kvm_mmu_update_cpu_dirty_logging(kvm, log_dirty_pages);
- 
- 	/*
- 	 * Nothing more to do for RO slots (which can't be dirtied and can't be
-@@ -13078,14 +13102,6 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
- 	if ((change != KVM_MR_FLAGS_ONLY) || (new_flags & KVM_MEM_READONLY))
- 		return;
- 
--	/*
--	 * READONLY and non-flags changes were filtered out above, and the only
--	 * other flag is LOG_DIRTY_PAGES, i.e. something is wrong if dirty
--	 * logging isn't being toggled on or off.
--	 */
--	if (WARN_ON_ONCE(!((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES)))
--		return;
--
- 	if (!log_dirty_pages) {
- 		/*
- 		 * Recover huge page mappings in the slot now that dirty logging
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index f7a3dfd5e224..9e8a8dcf2b73 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2465,7 +2465,8 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
- static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
- 						 gpa_t gpa, gpa_t size,
- 						 bool is_write, bool is_exec,
--						 bool is_private)
-+						 bool is_private,
-+						 bool is_userfault)
- {
- 	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
- 	vcpu->run->memory_fault.gpa = gpa;
-@@ -2475,6 +2476,8 @@ static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
- 	vcpu->run->memory_fault.flags = 0;
- 	if (is_private)
- 		vcpu->run->memory_fault.flags |= KVM_MEMORY_EXIT_FLAG_PRIVATE;
-+	if (is_userfault)
-+		vcpu->run->memory_fault.flags |= KVM_MEMORY_EXIT_FLAG_USERFAULT;
- }
- 
- #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 480e3a40d197..9603f99d3247 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -1124,7 +1124,7 @@ memslot2region(struct kvm_vm *vm, uint32_t memslot)
+  *
+  * Input Args:
+  *   vm - Virtual Machine
+- *   flags - Starting guest physical address
++ *   flags - Flags for the memslot
+  *
+  * Output Args: None
+  *
 -- 
 2.47.0.338.g60cca15819-goog
 
