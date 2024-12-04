@@ -4,109 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC10E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E107DE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 13:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdd8u5wjfE9hm8ngWpX4H/X2z68nPKRah5OeOMFt95M=; b=tb3JbxZiUj11ZdHYwAi6B6SHiu
-	qvbPFoaa03H5USFYZDLszefEbSX9+mofdV+ZUtJNUUmZdk/oOYEtubmN6Pg9i+aTDfm0L0oOqAQVT
-	xs6MjrGkOz4ROjVktgqHO82GveU0PJZLQGjsP+xeukzUIbgE5TKLlRNiCdiqoNzOC8YlZl6SSzwvl
-	GOzsErL2pbKt/agENEWytpbiOVOFtl8njxTMlwKKPSe9QVlh6mDjtIM3M2yYO1lhGGsij3SjQhuB3
-	LuVdRC2e8hubZrYKe697Kl3dHZbsexHKAAWcTNB18GDOM2PbKs0gu7vezkbKhXLA/7E5OvqcNsox0
-	kYt+iHmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9xLEcJfgJbctDhNb9CjlGfcfkjspvzICk4M2tPP+aFg=; b=osjfmFPFvNW5t4gP+g/l+pQOAQ
+	Y/7K4hdzDf7zSBpHsPfPvo/nqD7hJ6c3uFIQuso4TIiE5lttGG7Etf5tJB5A1f7rIR4oI8q9wKHex
+	Jhmr2HAzYYsr8rjfueZrq98YcTgE1XSInOfQmQQzc3KrgPnAeY0O50QojvRSAXRaO4+1/VVGlj+aa
+	cccshTvC8y3jusyvtIV42U2K6oFWfW4BXOEWk2F35QK64cyWg1fLFuTClypx1VU6orML6mjbvnp7T
+	vtnFerkhjHhhXegNgAKdKkgyW17TZ8i10NTJ+zOSBXqrbOPfz00EMj+5RsBXWUn4TyLDvYfMXRTCN
+	4Alnrzcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoxY-0000000CbB2-1K0u;
-	Wed, 04 Dec 2024 12:58:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIolk-0000000CYaX-1xPk;
-	Wed, 04 Dec 2024 12:46:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=kdd8u5wjfE9hm8ngWpX4H/X2z68nPKRah5OeOMFt95M=; b=F4M4FVmUywmsurrd4DRzffGPD2
-	YN3HAtmtVjDckHTwNUI95M9KR6C2qAZ8g4eBdM78RbLbfHhDzgUCg5qyH64it6QPXDZPwFss+ifqu
-	JjulpdV1SPDh0xYQSn09WF33EszDA7q2gobSNj8p83pQ/D0nMVoQnwdXRvuz92u3LYb73ke78HcEB
-	jJ7CyMRPxRGjJWUPX4JLs8OIZY/AEFqBl4PNwybqidm3YCtasjEc9JaQCqAlQtV3GWulydhvi7/CW
-	DIoHPP3fTnqAlhOJIQxDrHpFncYAHIro0ixeE0zse+IlreEDOwOLn2F9jLA4857+Qgx6ARsvCRi48
-	ajArsHuA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIolh-00000002b0x-1QyL;
-	Wed, 04 Dec 2024 12:46:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1AB83A4156E;
-	Wed,  4 Dec 2024 12:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D11C4CEF0;
-	Wed,  4 Dec 2024 12:46:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733316369;
-	bh=fe7lcwYFLHBQlBhA2vl7mVVQ+yJKY96ww+J3jQMWUMQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aZ8F6XZ1jy1YAPBfD0GJUsQfKs6WAGdDjBmy3WMPnZtsAOCQ09o2+zJ5+/IDfupxX
-	 1CvoqQzxawCkVsfT7HcPKGBI1tnwRDx85aq0+g+9EbLcAUUoWyCQ+bsZ0Z7sEmv5sk
-	 yJamHY22kaLLJUh3a2rWo8wAvoyHW9PIECOuzBN1R1evqkNSpfceaZvmBRQ6qUI7aG
-	 GBL7GPwGgWnPaSvBmW5idoJAlN7ZRIXpR+K05xjuskL4r4TORFFgtNrQu/80ZaS/y5
-	 izlQSB47BVmpM2FhAtgm3J+7AX4EBTSqy8jlbkWiN9p00N1bHtROHf/8UKFDWnY8tB
-	 lPjqOGdodVZFg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tIola-000RHy-VH;
-	Wed, 04 Dec 2024 12:46:07 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-pci@vger.kernel.org
-Cc: Joerg Roedel <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Toan Le <toan@os.amperecomputing.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 08/11] iommu/amd: Convert to msi_create_parent_irq_domain() helper
-Date: Wed,  4 Dec 2024 12:45:46 +0000
-Message-Id: <20241204124549.607054-9-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241204124549.607054-1-maz@kernel.org>
-References: <20241204124549.607054-1-maz@kernel.org>
+	id 1tIp18-0000000CdDx-39ON;
+	Wed, 04 Dec 2024 13:02:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIp07-0000000Cd7t-37RF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 13:01:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4C6E1063;
+	Wed,  4 Dec 2024 05:01:34 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54AEB3F71E;
+	Wed,  4 Dec 2024 05:01:03 -0800 (PST)
+Date: Wed, 4 Dec 2024 13:01:00 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, andersson@kernel.org,
+	konrad.dybcio@linaro.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	quic_rgottimu@quicinc.com, quic_kshivnan@quicinc.com,
+	arm-scmi@vger.kernel.org, Amir Vajid <avajid@quicinc.com>
+Subject: Re: [PATCH V5 2/2] firmware: arm_scmi: vendors: Add QCOM SCMI
+ Generic Extensions
+Message-ID: <Z1BSjM5heBoRFCYk@pluto>
+References: <20241115011515.1313447-1-quic_sibis@quicinc.com>
+ <20241115011515.1313447-3-quic_sibis@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com, dwmw2@infradead.org, baolu.lu@linux.intel.com, tglx@linutronix.de, shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, chenhuacai@kernel.org, kernel@xen0n.name, jiaxun.yang@flygoat.com, andrew@lunn.ch, gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, bhelgaas@google.com, toan@os.amperecomputing.com, alyssa@rosenzweig.io
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115011515.1313447-3-quic_sibis@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_124613_727762_B0A38DC6 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20241204_050107_880425_D47767E9 
+X-CRM114-Status: GOOD (  38.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,50 +67,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a concise helper to create an MSI parent domain,
-switch the AMD IOMMU remapping over to that.
+On Fri, Nov 15, 2024 at 06:45:15AM +0530, Sibi Sankar wrote:
+> The QCOM SCMI Generic Extensions Protocol provides a generic way of
+> exposing a number of Qualcomm SoC specific features (like memory bus
+> scaling) through a mixture of pre-determined algorithm strings and
+> param_id pairs hosted on the SCMI controller.
+>
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/iommu/amd/iommu.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+Hi,
+ 
+> Co-developed-by: Shivnandan Kumar <quic_kshivnan@quicinc.com>
+> Signed-off-by: Shivnandan Kumar <quic_kshivnan@quicinc.com>
+> Co-developed-by: Ramakrishna Gottimukkula <quic_rgottimu@quicinc.com>
+> Signed-off-by: Ramakrishna Gottimukkula <quic_rgottimu@quicinc.com>
+> Co-developed-by: Amir Vajid <avajid@quicinc.com>
+> Signed-off-by: Amir Vajid <avajid@quicinc.com>
+> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 
-diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-index 3f691e1fd22ce..8137674aca51d 100644
---- a/drivers/iommu/amd/iommu.c
-+++ b/drivers/iommu/amd/iommu.c
-@@ -3807,6 +3807,7 @@ static struct irq_chip amd_ir_chip = {
- 
- static const struct msi_parent_ops amdvi_msi_parent_ops = {
- 	.supported_flags	= X86_VECTOR_MSI_FLAGS_SUPPORTED | MSI_FLAG_MULTI_PCI_MSI,
-+	.bus_token		= DOMAIN_BUS_AMDVI,
- 	.prefix			= "IR-",
- 	.init_dev_msi_info	= msi_parent_init_dev_msi_info,
- };
-@@ -3818,18 +3819,15 @@ int amd_iommu_create_irq_domain(struct amd_iommu *iommu)
- 	fn = irq_domain_alloc_named_id_fwnode("AMD-IR", iommu->index);
- 	if (!fn)
- 		return -ENOMEM;
--	iommu->ir_domain = irq_domain_create_hierarchy(arch_get_ir_parent_domain(), 0, 0,
--						       fn, &amd_ir_domain_ops, iommu);
-+	iommu->ir_domain = msi_create_parent_irq_domain(fn, &amdvi_msi_parent_ops,
-+							&amd_ir_domain_ops,
-+							IRQ_DOMAIN_FLAG_ISOLATED_MSI, 0,
-+							iommu, arch_get_ir_parent_domain());
- 	if (!iommu->ir_domain) {
- 		irq_domain_free_fwnode(fn);
- 		return -ENOMEM;
- 	}
- 
--	irq_domain_update_bus_token(iommu->ir_domain,  DOMAIN_BUS_AMDVI);
--	iommu->ir_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT |
--				   IRQ_DOMAIN_FLAG_ISOLATED_MSI;
--	iommu->ir_domain->msi_parent_ops = &amdvi_msi_parent_ops;
--
- 	return 0;
- }
- 
--- 
-2.39.2
+You reworked/refactored quite a lot the internals since V4, you should
+have dropped the Reviewed-by tag.
 
+> ---
+> 
+> v4:
+> * Splitting the series into vendor protocol and memlat client.
+>   Also the move the memlat client implementation back to RFC
+>   due to multiple opens.
+> * Use common xfer helper to avoid code duplication [Dmitry]
+> * Update enum documentation without duplicate enum info [Dmitry]
+> 
+>  drivers/firmware/arm_scmi/Kconfig             |   1 +
+>  drivers/firmware/arm_scmi/Makefile            |   1 +
+>  .../firmware/arm_scmi/vendors/qcom/Kconfig    |  15 ++
+>  .../firmware/arm_scmi/vendors/qcom/Makefile   |   2 +
+>  .../arm_scmi/vendors/qcom/qcom-generic-ext.c  | 139 ++++++++++++++++++
+>  include/linux/scmi_qcom_protocol.h            |  37 +++++
+>  6 files changed, 195 insertions(+)
+>  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/Kconfig
+>  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/Makefile
+>  create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
+>  create mode 100644 include/linux/scmi_qcom_protocol.h
+> 
+> diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+> index dabd874641d0..73128442d97b 100644
+> --- a/drivers/firmware/arm_scmi/Kconfig
+> +++ b/drivers/firmware/arm_scmi/Kconfig
+> @@ -71,6 +71,7 @@ config ARM_SCMI_DEBUG_COUNTERS
+>  
+>  source "drivers/firmware/arm_scmi/transports/Kconfig"
+>  source "drivers/firmware/arm_scmi/vendors/imx/Kconfig"
+> +source "drivers/firmware/arm_scmi/vendors/qcom/Kconfig"
+>  
+>  endif #ARM_SCMI_PROTOCOL
+>  
+> diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm_scmi/Makefile
+> index 9ac81adff567..58cf4d656cbb 100644
+> --- a/drivers/firmware/arm_scmi/Makefile
+> +++ b/drivers/firmware/arm_scmi/Makefile
+> @@ -12,6 +12,7 @@ scmi-module-objs := $(scmi-driver-y) $(scmi-protocols-y) $(scmi-transport-y)
+>  
+>  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += transports/
+>  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += vendors/imx/
+> +obj-$(CONFIG_ARM_SCMI_PROTOCOL) += vendors/qcom/
+>  
+>  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-core.o
+>  obj-$(CONFIG_ARM_SCMI_PROTOCOL) += scmi-module.o
+> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/Kconfig b/drivers/firmware/arm_scmi/vendors/qcom/Kconfig
+> new file mode 100644
+> index 000000000000..5dd9e8a6b75f
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/vendors/qcom/Kconfig
+> @@ -0,0 +1,15 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +menu "ARM SCMI QCOM Vendor Protocols"
+> +
+> +config QCOM_SCMI_GENERIC_EXT
+> +	tristate "Qualcomm Technologies, Inc. Qcom SCMI vendor Protocol"
+> +	depends on ARM_SCMI_PROTOCOL || COMPILE_TEST
+> +	help
+> +	  The QCOM SCMI vendor protocol provides a generic way of exposing
+> +	  a number of Qualcomm SoC specific features (like memory bus scaling)
+> +	  through a mixture of pre-determined algorithm strings and param_id
+> +	  pairs hosted on the SCMI controller.
+> +
+> +	  This driver defines/documents the message ID's used for this
+> +	  communication and also exposes the operations used by the clients.
+> +endmenu
+> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/Makefile b/drivers/firmware/arm_scmi/vendors/qcom/Makefile
+> new file mode 100644
+> index 000000000000..6b98fabbebb8
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/vendors/qcom/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-$(CONFIG_QCOM_SCMI_GENERIC_EXT) += qcom-generic-ext.o
+> diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c b/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
+> new file mode 100644
+> index 000000000000..1b209093d275
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom-generic-ext.c
+> @@ -0,0 +1,139 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#include <linux/scmi_qcom_protocol.h>
+> +
+> +#include "../../common.h"
+> +
+> +/**
+> + * enum qcom_generic_ext_protocol_cmd - vendor specific commands supported by SCMI Qualcomm
+> + *                                      generic vendor protocol.
+> + *
+> + * This protocol is intended as a generic way of exposing a number of Qualcomm SoC
+> + * specific features through a mixture of pre-determined algorithm string and param_id
+> + * pairs hosted on the SCMI controller.
+> + *
+> + * The QCOM SCMI Vendor Protocol has the protocol id as 0x80 and vendor id set to
+> + * Qualcomm and the implementation version set to 0x20000. The PROTOCOL_VERSION command
+> + * returns version 1.0.
+
+The chosen protocol ID is already defined in the protocol doc in the
+series, and the note about the implementation version seems redundant,
+it is indeed specified as needed in scmi_protocol.
+
+> + *
+> + * @QCOM_SCMI_SET_PARAM: is used to set the parameter of a specific algo_str hosted on
+> + *			 QCOM SCMI Vendor Protocol. The tx len depends on the algo_str used.
+> + * @QCOM_SCMI_GET_PARAM: is used to get parameter information of a specific algo_str
+> + *			 hosted on QCOM SCMI Vendor Protocol. The tx and rx len depends
+> + *			 on the algo_str used.
+> + * @QCOM_SCMI_START_ACTIVITY: is used to start the activity performed by the algo_str.
+> + * @QCOM_SCMI_STOP_ACTIVITY: is used to stop a pre-existing activity performed by the algo_str.
+> + */
+> +enum qcom_generic_ext_protocol_cmd {
+> +	QCOM_SCMI_SET_PARAM = 0x10,
+> +	QCOM_SCMI_GET_PARAM = 0x11,
+> +	QCOM_SCMI_START_ACTIVITY = 0x12,
+> +	QCOM_SCMI_STOP_ACTIVITY = 0x13,
+> +};
+> +
+> +/**
+> + * struct qcom_scmi_msg - represents the various parameters to be populated
+> + *                        for using the QCOM SCMI Vendor Protocol
+> + *
+> + * @ext_id: reserved, must be zero
+> + * @algo_low: lower 32 bits of the algo_str
+> + * @algo_high: upper 32 bits of the algo_str
+> + * @param_id: serves as token message id to the specific algo_str
+> + * @buf: serves as the payload to the specified param_id and algo_str pair
+> + */
+> +struct qcom_scmi_msg {
+> +	__le32 ext_id;
+> +	__le32 algo_low;
+> +	__le32 algo_high;
+> +	__le32 param_id;
+> +	__le32 buf[];
+> +};
+> +
+> +static int qcom_scmi_common_xfer(const struct scmi_protocol_handle *ph,
+> +				 enum qcom_generic_ext_protocol_cmd cmd_id, void *buf,
+> +				 size_t buf_len, u64 algo_str, u32 param_id, size_t rx_size)
+> +{
+> +	struct scmi_xfer *t;
+> +	struct qcom_scmi_msg *msg;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, cmd_id, buf_len + sizeof(*msg), rx_size, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	msg = t->tx.buf;
+> +	msg->algo_low = cpu_to_le32(lower_32_bits(algo_str));
+> +	msg->algo_high = cpu_to_le32(upper_32_bits(algo_str));
+> +	msg->param_id = cpu_to_le32(param_id);
+> +	memcpy(msg->buf, buf, buf_len);
+> +
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (rx_size)
+
+You should check ret == 0 also here before considering to pick up the reply
+if a non-zero rx_size was specified.
+
+> +		memcpy(buf, t->rx.buf, t->rx.len);
+
+...you are using the same buf/buf_len to hold the TX request and get back
+the reply content if a non-zero rx_size was provided but while you can
+be sure that the reply payload rx.len <= rx_size by construction
+(via xfer_get_init) you cannot be equally sure that rx_size <= buf_len
+...it depends on te caller how this operation is invoked...so you could
+end up oveflowing buf depending on the caller-provided params...
+
+...please add some additional check at the start of this function like:
+
+	if (rx_size > buf_len)
+		return -EINVAL;
+
+...to catch such bad invcations...
+
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
+> +static int qcom_scmi_set_param(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
+> +			       u64 algo_str, u32 param_id)
+> +{
+> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_SET_PARAM, buf, buf_len, algo_str,
+> +				     param_id, 0);
+> +}
+> +
+> +static int qcom_scmi_get_param(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
+> +			       u64 algo_str, u32 param_id, size_t rx_size)
+> +{
+> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_GET_PARAM, buf, buf_len, algo_str,
+> +				     param_id, rx_size);
+> +}
+> +
+> +static int qcom_scmi_start_activity(const struct scmi_protocol_handle *ph, void *buf,
+> +				    size_t buf_len, u64 algo_str, u32 param_id)
+> +{
+> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_START_ACTIVITY, buf, buf_len, algo_str,
+> +				     param_id, 0);
+> +}
+> +
+> +static int qcom_scmi_stop_activity(const struct scmi_protocol_handle *ph, void *buf,
+> +				   size_t buf_len, u64 algo_str, u32 param_id)
+> +{
+> +	return qcom_scmi_common_xfer(ph, QCOM_SCMI_STOP_ACTIVITY, buf, buf_len, algo_str,
+> +				     param_id, 0);
+> +}
+> +
+> +static struct qcom_generic_ext_ops qcom_proto_ops = {
+> +	.set_param = qcom_scmi_set_param,
+> +	.get_param = qcom_scmi_get_param,
+> +	.start_activity = qcom_scmi_start_activity,
+> +	.stop_activity = qcom_scmi_stop_activity,
+> +};
+> +
+> +static int qcom_generic_ext_protocol_init(const struct scmi_protocol_handle *ph)
+> +{
+> +	u32 version;
+> +
+> +	ph->xops->version_get(ph, &version);
+
+... please check retval and bailout on error when not even a basic version_get
+succedeed...
+
+> +
+> +	dev_dbg(ph->dev, "QCOM Generic Vendor Version %d.%d\n",
+> +		PROTOCOL_REV_MAJOR(version), PROTOCOL_REV_MINOR(version));
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct scmi_protocol qcom_generic_ext = {
+> +	.id = SCMI_PROTOCOL_QCOM_GENERIC,
+> +	.owner = THIS_MODULE,
+> +	.instance_init = &qcom_generic_ext_protocol_init,
+> +	.ops = &qcom_proto_ops,
+> +	.vendor_id = "Qualcomm",
+> +	.impl_ver = 0x20000,
+> +};
+> +module_scmi_protocol(qcom_generic_ext);
+> +
+
+You may have to add a proper MODULE_ALIAS, if the series on autoload
+goes through
+
+https://lore.kernel.org/linux-arm-kernel/20241203200038.3961090-1-cristian.marussi@arm.com/
+
+> +MODULE_DESCRIPTION("QCOM SCMI Generic Vendor protocol");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/scmi_qcom_protocol.h b/include/linux/scmi_qcom_protocol.h
+> new file mode 100644
+> index 000000000000..465b2522ca29
+> --- /dev/null
+> +++ b/include/linux/scmi_qcom_protocol.h
+> @@ -0,0 +1,37 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * SCMI Message Protocol driver QCOM extension header
+> + *
+> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#ifndef _LINUX_SCMI_QCOM_PROTOCOL_H
+> +#define _LINUX_SCMI_QCOM_PROTOCOL_H
+> +
+> +#include <linux/types.h>
+> +
+> +#define SCMI_PROTOCOL_QCOM_GENERIC    0x80
+> +
+> +struct scmi_protocol_handle;
+> +
+> +/**
+> + * struct qcom_generic_ext_ops - represents the various operations provided
+> + *				 by QCOM Generic Vendor Protocol
+> + *
+> + * @set_param: set parameter specified by param_id and algo_str pair.
+> + * @get_param: retrieve parameter specified by param_id and algo_str pair.
+> + * @start_activity: initiate a specific activity defined by algo_str.
+> + * @stop_activity: halt previously initiated activity defined by algo_str.
+> + */
+> +struct qcom_generic_ext_ops {
+> +	int (*set_param)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
+> +			 u64 algo_str, u32 param_id);
+> +	int (*get_param)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
+> +			 u64 algo_str, u32 param_id, size_t rx_size);
+> +	int (*start_activity)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
+> +			      u64 algo_str, u32 param_id);
+> +	int (*stop_activity)(const struct scmi_protocol_handle *ph, void *buf, size_t buf_len,
+> +			     u64 algo_str, u32 param_id);
+> +};
+> +
+> +#endif /* _LINUX_SCMI_QCOM_PROTOCOL_H */
+> -- 
+
+Thanks,
+Cristian
 
