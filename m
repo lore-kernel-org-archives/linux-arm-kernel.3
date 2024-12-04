@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5226FE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 03:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E1EE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 04:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e1EbTaJONCC4UxWr9Do6ym6s17dMBNgiZQqtVLBSMas=; b=Q654vcPd4eUFBgr5tRpOKbEUaR
-	TbteBGrgrcUpqoB7+jIYJ2E5lEuZyuwD/sUNOoBGFTIdi3K/r9h96MzW7QCTlxUvwDGltPMEkVagY
-	3InoG3c8QFM/ghwod1y5qqOHy7E6Z/eQ5X0Y3qfWiOx1TKRz6d78fxLSmZm6DA0/MmeXJpNZ/7WdW
-	/5zMeIaFqma2+jxFlG8qOyRelS2tBPMLSSOVUdXs4Bs/5bB2InzH8ikgsduSSGfgdD/u203rV60Cg
-	92C4SJXaK26fgz8o6hmt34+6RodP0XLy1JCSJXi/9Ihlqo88BJIm7DTsbUG1pAKIm4o40AyFJ1DJT
-	FKvMK4mA==;
+	bh=LrOFYJV2ZrZYy6LgVD19Et9UmHlo6S9eT8BWN0Eq0bQ=; b=cQluLLk8YHSLiMjw+ELAbiO/Ns
+	IMzi5Y/qdQ7o6R7Zwqc/QStlDYz/TB7kX3VA7+ZiL1rLCYF3jfVDMXKihd0DvLG5ywGcMBMFPfAUA
+	k5BTPJt67EPWdi+QIyJVz+ynY0c4y/SIR0YfR3lqMmxqJCzzNcAK24a5HSZe5JEGvy+ueMzlgMLzz
+	UESEfQ3Cxap2l2lYaayKa79+G/Apv5tppqoT1JZfQsJWbfIZUYR1dQOwb9sd5e7mJ6wiH6mo+2t/Q
+	n7Ikt5f8HxNWqbaT9u2LxyMu466MyjVMNsWaFsrtjy+Blhj/tV3S6iiHAaSUjIfOELeX+MdRb8sGR
+	6p5BID/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIgDZ-0000000BOlN-1knI;
-	Wed, 04 Dec 2024 03:38:25 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1tIgiG-0000000BQyJ-0UNg;
+	Wed, 04 Dec 2024 04:10:08 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIgCY-0000000BOiE-1ckp
+	id 1tIghG-0000000BQvH-15iB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 03:37:23 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-724e14b90cfso6298377b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 19:37:21 -0800 (PST)
+	Wed, 04 Dec 2024 04:09:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733283441; x=1733888241; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=e1EbTaJONCC4UxWr9Do6ym6s17dMBNgiZQqtVLBSMas=;
-        b=wp1oiJNOus4Do7HaOsMs+k8a2W/ZRyUdYCza1XuUI/bJDOBqeY4Zegl+UwISxWCEZS
-         jn+zwSaRZOJqCvRslLTP8je8jTOTlFA/MPJv4Mbt76YsHFXJxHrSuA1oVHJHLEE0W5he
-         +OnSjvHKmnPHzeaiuc72rtVYAxT0SHVbPy5iNfdeYXUmSRDAyNICGXl6a40gLHZcK7km
-         P2WQvosvZsk9Qv9yQsEnAqUQPYUuJ/LerPpCGiT7XnCJZ204Z5VLgSb4Duy2wFRTBOBH
-         zxtr4ERE4WLcvvIFaNh//XYA6KfJuIXw2BvhqakrA9PfymE5/HHuSwt5rj6udzYhmkyF
-         jQ7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733283441; x=1733888241;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e1EbTaJONCC4UxWr9Do6ym6s17dMBNgiZQqtVLBSMas=;
-        b=jBD2nMNww26ewJiYzOjuDh94M3SrzfyudtM0qraEfOsPbPdojr4KiQq0EbkX7UkJ23
-         JbjQYqm+5Ud3T5wCYeA9G23uz6hXlShrlfeG+NZXwFK/buIsMKAV8HD/YV8HwyFEqd+R
-         4iYBX+0lfyg86on8xtKEKO40Vw4ZaOX4mnJ2cpZ12tFG8dRay9vEJlKkAOkVNNSklk24
-         d4NT5gQC/DLg4LOJeFy8NrOuU0QEbv/8KVBcbtrTQRwOC+K44TRaFfivy/g8/Ufqvgjh
-         LrT1a3HwbSB0SOz6bgYZSflc/EQ8pUcZ/XQZh0kSz9cQJoqc5amWl44c7ef7flBBMLnt
-         65CA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMld/FYerSmMg2V0j1XaE5xiXa6CO1NNgeZ1Ram3QROmXBy6yN5rEeRCbA+O95XrlFkgxHT6eldz/dfuUz24/3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtpbvZVN3JEFoRGPl3DWj3IiXnbJLodfZyQ0HbZjCZSriDIc6Y
-	wCu8LLM7zidD0u3uaRO94le7uhePAgFwsZVCCm/HN6aUfibDjInfOIyqsXMCoMs=
-X-Gm-Gg: ASbGnctRmqfKv4F+8w8j8ZNnlJRVGFBd2Vj0o/41oyU0+82m5uhZSOqD4DPgzA3hELF
-	jJZUdMftM9fDNTdpu0KBmp+p7ev0z/wlz6zeOMuOCg4rmEHf9A17VAQ8HTz6wW40CKfe+rkh6YG
-	t/bZDeDbnCeqsFt/Fk7paO/exmE903xZd4m2chRVT6XaICwjnTCLesOqHMOzyS4SVmqwpcgt1n9
-	WTVPNu47CbXihpQkC0bNIkbt0uhQQo8mObMj8sZ9aluMUCcFJ8e
-X-Google-Smtp-Source: AGHT+IFXmIlXRzom3LjevUtmLAA7oE7u/5XJYi4THo7kTNIKMaiJhELqE4B6Y4ifEaHbF1jFv2F1Bw==
-X-Received: by 2002:a17:902:ec87:b0:212:63db:bb15 with SMTP id d9443c01a7336-215bd16f521mr78217995ad.38.1733283440999;
-        Tue, 03 Dec 2024 19:37:20 -0800 (PST)
-Received: from localhost ([122.172.86.146])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21521904caasm102256815ad.60.2024.12.03.19.37.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 19:37:20 -0800 (PST)
-Date: Wed, 4 Dec 2024 09:07:15 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Shiraz Hashim <shiraz.linux.kernel@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH] rtc: RTC_DRV_SPEAR should not default to y when
- compile-testing
-Message-ID: <20241204033715.xzojqni2byocnt5m@vireshk-i7>
-References: <7b8eefe3b0150101ba01c3ea55e45aa3134059ba.1733243007.git.geert+renesas@glider.be>
+	d=codeconstruct.com.au; s=2022a; t=1733285336;
+	bh=LrOFYJV2ZrZYy6LgVD19Et9UmHlo6S9eT8BWN0Eq0bQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=DJrluDAKGeNcgsdW3x3ei/ik/ffQfZJIkBG3/v2CrO1qnlv/S7WLHQPFrZ3zuEEHv
+	 Ql/kiy4lRF9SdAOLkNiMVLcm4qOlIt9pzcAHvDatDUiW7rwKAUEpHE+MusHS3ffky/
+	 TmH8r50SqdUbjnz+i8N7lzhba4EMsUiqJGe8fdWAGRVfbpRK1e1/6PyfyM79sh+Nym
+	 V6l9PJU0fiY0HD1KxdcqrZsUvdezusjkCVZ5bqhdgVaEBm6Fiwf59SE6TgvQwUZxzN
+	 U1JQevi0+nyNR+LxqBN31xERHHWhB9pSYC/mbEyXjNpwXieFBfT65zhuVx3PzaL4yb
+	 6pTB1aWUb035A==
+Received: from [192.168.68.112] (ppp118-210-165-44.adl-adc-lon-bras34.tpg.internode.on.net [118.210.165.44])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C3CC96D6B6;
+	Wed,  4 Dec 2024 12:08:54 +0800 (AWST)
+Message-ID: <9ff74b8a13ff58921a4f7f18dbded9c06b195c06.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] ARM: dts: aspeed: Enable video engine for IBM System1
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: manojkiran.eda@gmail.com, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Eddie James
+ <eajames@linux.ibm.com>, Ninad Palsule <ninad@linux.ibm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org
+Date: Wed, 04 Dec 2024 14:38:53 +1030
+In-Reply-To: <20241203-dts-system1-video-v1-1-008e5e660106@gmail.com>
+References: <20241203-dts-system1-video-v1-1-008e5e660106@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7b8eefe3b0150101ba01c3ea55e45aa3134059ba.1733243007.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_193722_479726_78E458C0 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20241203_200906_524916_4233ED24 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03-12-24, 17:25, Geert Uytterhoeven wrote:
-> Merely enabling compile-testing should not enable additional
-> functionality.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Hi Manoj,
+
+On Tue, 2024-12-03 at 18:52 +0530, Manojkiran Eda via B4 Relay wrote:
+> From: Manojkiran Eda <manojkiran.eda@gmail.com>
+>=20
+> Signed-off-by: Manojkiran Eda <manojkiran.eda@gmail.com>
 > ---
->  drivers/rtc/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> index a60bcc791a4803b7..0bbbf778ecfa3e4c 100644
-> --- a/drivers/rtc/Kconfig
-> +++ b/drivers/rtc/Kconfig
-> @@ -1316,7 +1316,7 @@ config RTC_DRV_SC27XX
->  config RTC_DRV_SPEAR
->  	tristate "SPEAR ST RTC"
->  	depends on PLAT_SPEAR || COMPILE_TEST
-> -	default y
-> +	default PLAT_SPEAR
->  	help
->  	 If you say Y here you will get support for the RTC found on
->  	 spear
+> This patch enables the aspeed video engine support in ASPEED BMC for
+> IBM System1. It is crucial for facilitating the BMC's video capture
+> and redirection capabilities, which are integral to remote management
+> and KVM (Keyboard-Video-Mouse) over IP functionality.
 
-Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+Can you please put this in the body of the commit message rather than
+in a comment?
 
--- 
-viresh
+Commit messages need a body and not just a subject.
+
+Cheers,
+
+Andrew
+
 
