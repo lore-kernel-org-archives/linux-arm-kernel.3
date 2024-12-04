@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1ECE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E85E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 07:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lM0mNCtHjT+hsg9qAEDa4xZpSra1ZeG4WjgSFO0QQkI=; b=dxukcIBAJARSeSG86vC4ty3fvi
-	ZlPWxgLLGnyy85B1ncPlEbtXm0KoXXeJvxB2kbc1BThdzslWoXAXbXYCVPUO/xaeFzQzUqJ76ZCyn
-	n6GXu6K0mm5xDBbE4+lEVXeVR7z5nY9nA+ArvKOHG6COYFAgFQIqLFWY/GzkQU6yzXexsEmQ1Ig85
-	QwE+3QA6LQn1TPWkaojNI1NJDwJgsimpgXHNl4tuCC1JmBSkSOKfRnbiD+7qfawkZsfwph0//JhDP
-	vGHHeAuZxenD43RUYDZgUlC7GGfhqkeJMhZ3pnSPe923zaIiV9t3OAvx3q1klkiidpEtfJJSbfPFI
-	k3vy27Ww==;
+	bh=UObQQxVp3PNi/U3LeYQmo0T4c/idtN7E2PfgKAA5yAg=; b=rd2nG0tMGac0UPzZLUFF2O+/Zx
+	cOZ4/V1U8p03eiTyXmgefG3l+Ns1HStOxwjIKCF/A/eZJLBawHXEsWBPBfv/A7zVfPooV9gIz+lJH
+	KHxSzUdXciSYvV1J1LNpNcquOkDDwthXZAwMnCPzJBNlQucv0pNfv7itP1uUeoIy8V7sbrqVDNPyd
+	aumfu87B740QwWWhu4rHvInji7IRzXnfs0a/ndQh+rCFPQ/IsAp8ENAcTUzkWY54LPCncEBwCfH7G
+	pWSNMsb+15BM/JoKjw/EgPJIEBWUDmlh6INlGsEzEI+VfAtxMIVdxac/Zt9Qp0nqomf4lH5648Prm
+	HPvG0j/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIjn7-0000000BiIu-3fpD;
-	Wed, 04 Dec 2024 07:27:21 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tIjo6-0000000BiTb-0ap1;
+	Wed, 04 Dec 2024 07:28:22 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIjl8-0000000BhqU-43Nb;
-	Wed, 04 Dec 2024 07:25:20 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434a766b475so58844865e9.1;
-        Tue, 03 Dec 2024 23:25:18 -0800 (PST)
+	id 1tIjlB-0000000BhrP-1MeJ;
+	Wed, 04 Dec 2024 07:25:22 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-434a2033562so52972155e9.1;
+        Tue, 03 Dec 2024 23:25:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733297117; x=1733901917; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1733297120; x=1733901920; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lM0mNCtHjT+hsg9qAEDa4xZpSra1ZeG4WjgSFO0QQkI=;
-        b=UOFl743tlqFN+JeXSVjhVF5MNJEwfzewoAp/z3AJQPZMtceIhmYdfxnfW3fnM/UB5N
-         k++E41LOvgMfs5b/F92mHehehgSnHTIzj64gavELOpuOSBjuHREWDVxYshZc/13xfwkM
-         yjX1mTxzpO2EQXXTTCTpo+ATY70iPrgrOwv2S40g1w16vwwChzd0QN5OvEdrsUcN3GNo
-         ED1WL7VBevi+XGFHFcQlOBxFrWBcEkKcmMHsdqt+eN1O+GYiSpv1jUnZbms/7pyITzP6
-         5jtomxxWgZC4n0AmzAqkZ//aqMG+/hhaAzGMB7uJT1x+HzBNgSqcMv3wjuXFXU+3u4fP
-         Lc/w==
+        bh=UObQQxVp3PNi/U3LeYQmo0T4c/idtN7E2PfgKAA5yAg=;
+        b=YbGauGajUQs7L03mCRjRlEa+h/wwAmmpkqhttJCJ4MlwJVRiQPbqw5EEfcejybN686
+         qcPrU8ep2SaQJ1USuPMg4ztnpvo8/mrSG0Mag1qU0sSOPRuy2gBmMAHYd2g5HXBFub5r
+         s0nDZAB39eXwEBti/dUQyJV8joTGX8auiTci5fhT3IkRsBRd8T2QmT9uKbCP+aEtYwEx
+         PHovv/2j8wGlctkfRhjWKXN3CKAs+vwM2srMlXVEF4gBXRMqG3Aaf7XpkwPdmD/Rxm75
+         GqDTizXkFSWx6Va6MjjN5ZFpST13yxhfadHJDxaVR0m8YcEmqgiMPkTk8rVHj9Ma74fI
+         D/uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733297117; x=1733901917;
+        d=1e100.net; s=20230601; t=1733297120; x=1733901920;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lM0mNCtHjT+hsg9qAEDa4xZpSra1ZeG4WjgSFO0QQkI=;
-        b=uJKAZpdzeHLufjSA4lH02nwCt7g1npu6K+qUBwwOo/1dOxLDEL3P+Itnzw5d+xyeFu
-         l2rgA9OVAdsaC6LAA5JPKN8tkg82s7wEmdv0kQppyN1zUByO/8eHvRiYoeq3OcE5SRvx
-         dblCYH2GPxwRe2FBvd0Dh3duI3t3iCc7K2YbvLvVKf+owr7BR5QRqxZdUrcVLVh7T7iT
-         YpC3PrpRCEEZuC+KI1adhCAew0yS8Ue+erqeIwebXrLgP/PwQ+tIAxAJwEHnARnwywTC
-         9xRs9y3LBNaeucLLnJSvAWIaSjrzvhWQzcLrnwOMp2Mpc1Axm6PIf9XolphE+Hc5irdS
-         s1vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVZlQYmMd4swmmidO/wCkrNoxZiMmWulDdqCatGvGepp+mI0d/PDJ+7+xRJhWDjC9B6Fq/JZ8qFNQQQQmB5f5Po@lists.infradead.org, AJvYcCWlTI6LWo074v6sKw0ceQxaVb/AJrY3MK9L0JgN3zystBp5oHHDUmnZOZ0gWH6WaX4va1oEImehhSpHDFfR/hk=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0S3ZDBvqavEaGZ836nlfSwhRDTTZwVZowwsoErI+5tRyQX67z
-	7fDmO8l2NEYGUWQg/jkW8onKSRuLYjyQekpfUaf7+18PRInjpfut
-X-Gm-Gg: ASbGncuFSarqJto2oFE2ruj6TYcegh1nKoDb1orMeuHZsjooTE9BP/KhN6VwQO7qcmf
-	R8G/0sIr+aNgt2BWi9Z0wN5FGNodpEnrVFLF6JnQZCOXdh3ksVz9rr4fFL5uaCUNZqfnnRCVrN6
-	dIPL/G3VPBpw59pWh7j5FbY0WGyPDzs+rJ4h9Sfz89jYPFpFotkp+89+q0ff6HyA7+ADlwKC1YF
-	Prc6J4V8Iy9d7UPrAKzFkReGy7erx9d+QDB46Ara+zCo0RuUg6Fw7XarPn57TZEJX6urlhBlsVW
-	OjHLYR7EybntTWzH304=
-X-Google-Smtp-Source: AGHT+IEhtL7LsG4DAXwbNqLf3tFfGzBkkKQkzEXZrrUsxaZJeipMuj9IjLDyKTikR4xXJlJjRYRVNg==
-X-Received: by 2002:a5d:5849:0:b0:385:fbb4:7d51 with SMTP id ffacd0b85a97d-385fd42d261mr4633208f8f.56.1733297117038;
-        Tue, 03 Dec 2024 23:25:17 -0800 (PST)
+        bh=UObQQxVp3PNi/U3LeYQmo0T4c/idtN7E2PfgKAA5yAg=;
+        b=gKfA639bEDOWo80q0WNKYxP+zzLHSMKf+e/MQw5wKgcqE76gtTjHjYpvmbUC0ISbxB
+         RmyNBNfA77OCUrxX7yoJQSK9Dyl4I1St08IW6fFOJ19cGab/xhKkVMro4I/4sZFwR2Kr
+         QGSRlyr1ba8K45B4Au4r67DWJdsHNuiZoct1GvYIIMuSrRXmL0APZESFZ+jCaDKuXF4y
+         MStCy07PL97KwZtFS2YEWBv98lEH0gvpgZsNajlJURLwLfXQ+8NSuYbZ55rg1JpY3oeP
+         ZULbFPnnpA7/GQiVYKybMcIRLt2Vqe28a4yp7MWhtdpcOSNITsWiHxSavnq+vfTmy6t4
+         znqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVC29dO3rasCqENGlKTufJlSTtiPD7NvAX1ORDbAv8uikfH9JHC43vdnVtW6TIjyx9Q8Ubtu5F/M9I6r719e4NE@lists.infradead.org, AJvYcCXkjo8lfqzaYMXCH9cbLvTv/6j5lX9e4lucTdRiexaXC3q/+r3POhoYqVlySP7AsO4cHwCJvSWaVUTLqPR7Ajk=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3bTsgBosBVZuQPdVkfNqlsZoJhF0o+BugLwz3VAdxXobbIUbL
+	d4TJKPIW6+hE6LIb3uieiWqmynxIfp6rjno1kPBpeKcImXxuBiNs
+X-Gm-Gg: ASbGncs5vp7qkn+nRhgDgURHxZsy1sOPqxvYW4D4OkzKCOe/WjEmyke6Spo+blJxNX8
+	YSBL/+W4+JNZGVyv+0yb+psfCfMSN7dQBa0NcL0hUNI5fKmvkLdsVzd0J9L6YArV+jwZP/Be0LY
+	GCBRHKxuuGquBH44jcxw8P2cB8qGWBTPlHgNuN/re4vp8tS1SIERIyumpobW1kIUxijAPYsl9QC
+	xh+lG5gPl/wL3wRaEbO9MmehGL0DdBVtASmYRs65gm/RSDJG38NsNZ2gBlP1nTIGnHNA8soAj+h
+	/kjAw1wQOdx3GbjVwSs=
+X-Google-Smtp-Source: AGHT+IG6GiOU8xXTwVBff1NMq8Zq0Y8B2/QsfVDLRgbuHim2FUJK1hmA+W5ob0jF5AAiiOWuiHlEzg==
+X-Received: by 2002:a05:600c:4f12:b0:434:a962:2a8c with SMTP id 5b1f17b1804b1-434d0a03abfmr44310995e9.22.1733297119576;
+        Tue, 03 Dec 2024 23:25:19 -0800 (PST)
 Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434d527257dsm14396655e9.1.2024.12.03.23.25.15
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-434d527257dsm14396655e9.1.2024.12.03.23.25.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 23:25:16 -0800 (PST)
+        Tue, 03 Dec 2024 23:25:18 -0800 (PST)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Christian Marangi <ansuelsmth@gmail.com>,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -89,17 +89,17 @@ To: Christian Marangi <ansuelsmth@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@airoha.com
-Subject: [net-next PATCH v8 1/4] net: dsa: add devm_dsa_register_switch()
-Date: Wed,  4 Dec 2024 08:24:08 +0100
-Message-ID: <20241204072427.17778-2-ansuelsmth@gmail.com>
+Subject: [net-next PATCH v8 2/4] dt-bindings: net: dsa: Add Airoha AN8855 Gigabit Switch documentation
+Date: Wed,  4 Dec 2024 08:24:09 +0100
+Message-ID: <20241204072427.17778-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20241204072427.17778-1-ansuelsmth@gmail.com>
 References: <20241204072427.17778-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_232519_002828_330B55F8 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20241203_232521_408902_E6F0AE64 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,58 +114,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some DSA driver can be simplified if devres takes care of unregistering
-the DSA switch. This permits to effectively drop the remove OP from
-driver that just execute the dsa_unregister_switch() and nothing else.
+Add Airoha AN8855 5 port Gigabit Switch documentation.
+
+The switch node requires an additional mdio node to describe each internal
+PHY absolute address on the bus.
+
+Calibration values might be stored in switch EFUSE and internal PHY
+might need to be calibrated, in such case, airoha,ext-surge needs to be
+enabled and relative NVMEM cells needs to be defined in nvmem-layout
+node.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- include/net/dsa.h |  1 +
- net/dsa/dsa.c     | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+)
+ .../bindings/net/dsa/airoha,an8855.yaml       | 242 ++++++++++++++++++
+ 1 file changed, 242 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
 
-diff --git a/include/net/dsa.h b/include/net/dsa.h
-index 72ae65e7246a..c703d5dc3fb0 100644
---- a/include/net/dsa.h
-+++ b/include/net/dsa.h
-@@ -1355,6 +1355,7 @@ static inline void dsa_tag_generic_flow_dissect(const struct sk_buff *skb,
- 
- void dsa_unregister_switch(struct dsa_switch *ds);
- int dsa_register_switch(struct dsa_switch *ds);
-+int devm_dsa_register_switch(struct device *dev, struct dsa_switch *ds);
- void dsa_switch_shutdown(struct dsa_switch *ds);
- struct dsa_switch *dsa_switch_find(int tree_index, int sw_index);
- void dsa_flush_workqueue(void);
-diff --git a/net/dsa/dsa.c b/net/dsa/dsa.c
-index 5a7c0e565a89..aca6aee68248 100644
---- a/net/dsa/dsa.c
-+++ b/net/dsa/dsa.c
-@@ -1544,6 +1544,25 @@ int dsa_register_switch(struct dsa_switch *ds)
- }
- EXPORT_SYMBOL_GPL(dsa_register_switch);
- 
-+static void devm_dsa_unregister_switch(void *data)
-+{
-+	struct dsa_switch *ds = data;
+diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
+new file mode 100644
+index 000000000000..8ea2fadbab85
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
+@@ -0,0 +1,242 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/dsa/airoha,an8855.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	dsa_unregister_switch(ds);
-+}
++title: Airoha AN8855 Gigabit switch
 +
-+int devm_dsa_register_switch(struct device *dev, struct dsa_switch *ds)
-+{
-+	int err;
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
 +
-+	err = dsa_register_switch(ds);
-+	if (err)
-+		return err;
++description: >
++  Airoha AN8855 is a 5-port Gigabit Switch.
 +
-+	return devm_add_action_or_reset(dev, devm_dsa_unregister_switch, ds);
-+}
-+EXPORT_SYMBOL_GPL(devm_dsa_register_switch);
++  The switch node requires an additional mdio node to describe each internal
++  PHY relative offset as the PHY address for the switch match the one for
++  the PHY ports. On top of internal PHY address, the switch base PHY address
++  is added.
 +
- static void dsa_switch_remove(struct dsa_switch *ds)
- {
- 	struct dsa_switch_tree *dst = ds->dst;
++  Also the switch base PHY address can be configured and changed after the
++  first initialization. On reset, the switch PHY address is ALWAYS 1.
++
++properties:
++  compatible:
++    const: airoha,an8855
++
++  reg:
++    maxItems: 1
++
++  reset-gpios:
++    description:
++      GPIO to be used to reset the whole device
++    maxItems: 1
++
++  airoha,ext-surge:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Calibrate the internal PHY with the calibration values stored in EFUSE
++      for the r50Ohm values.
++
++  '#nvmem-cell-cells':
++    const: 0
++
++  nvmem-layout:
++    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml
++    description:
++      NVMEM Layout for exposed EFUSE. (for example to propagate calibration
++      value for r50Ohm for internal PHYs)
++
++  mdio:
++    $ref: /schemas/net/mdio.yaml#
++    unevaluatedProperties: false
++    description:
++      Define the absolute address of the internal PHY for each port.
++
++$ref: dsa.yaml#
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        switch@1 {
++            compatible = "airoha,an8855";
++            reg = <1>;
++            reset-gpios = <&pio 39 0>;
++
++            airoha,ext-surge;
++
++            #nvmem-cell-cells = <0>;
++
++            nvmem-layout {
++                compatible = "fixed-layout";
++                #address-cells = <1>;
++                #size-cells = <1>;
++
++                shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
++                    reg = <0xc 0x4>;
++                };
++
++                shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
++                    reg = <0x10 0x4>;
++                };
++
++                shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
++                    reg = <0x14 0x4>;
++                };
++
++                shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
++                    reg = <0x18 0x4>;
++                };
++
++                shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
++                    reg = <0x1c 0x4>;
++                };
++
++                shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
++                    reg = <0x20 0x4>;
++                };
++
++                shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
++                    reg = <0x24 0x4>;
++                };
++
++                shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
++                    reg = <0x28 0x4>;
++                };
++
++                shift_sel_port2_tx_a: shift-sel-port2-tx-a@2c {
++                    reg = <0x2c 0x4>;
++                };
++
++                shift_sel_port2_tx_b: shift-sel-port2-tx-b@30 {
++                    reg = <0x30 0x4>;
++                };
++
++                shift_sel_port2_tx_c: shift-sel-port2-tx-c@34 {
++                    reg = <0x34 0x4>;
++                };
++
++                shift_sel_port2_tx_d: shift-sel-port2-tx-d@38 {
++                    reg = <0x38 0x4>;
++                };
++
++                shift_sel_port3_tx_a: shift-sel-port3-tx-a@4c {
++                    reg = <0x4c 0x4>;
++                };
++
++                shift_sel_port3_tx_b: shift-sel-port3-tx-b@50 {
++                    reg = <0x50 0x4>;
++                };
++
++                shift_sel_port3_tx_c: shift-sel-port3-tx-c@54 {
++                    reg = <0x54 0x4>;
++                };
++
++                shift_sel_port3_tx_d: shift-sel-port3-tx-d@58 {
++                    reg = <0x58 0x4>;
++                };
++            };
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++                    label = "lan1";
++                    phy-mode = "internal";
++                    phy-handle = <&internal_phy1>;
++                };
++
++                port@1 {
++                    reg = <1>;
++                    label = "lan2";
++                    phy-mode = "internal";
++                    phy-handle = <&internal_phy2>;
++                };
++
++                port@2 {
++                    reg = <2>;
++                    label = "lan3";
++                    phy-mode = "internal";
++                    phy-handle = <&internal_phy3>;
++                };
++
++                port@3 {
++                    reg = <3>;
++                    label = "lan4";
++                    phy-mode = "internal";
++                    phy-handle = <&internal_phy4>;
++                };
++
++                port@5 {
++                    reg = <5>;
++                    label = "cpu";
++                    ethernet = <&gmac0>;
++                    phy-mode = "2500base-x";
++
++                    fixed-link {
++                        speed = <2500>;
++                        full-duplex;
++                        pause;
++                    };
++                };
++            };
++
++            mdio {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                internal_phy1: phy@1 {
++                    reg = <1>;
++
++                    nvmem-cells = <&shift_sel_port0_tx_a>,
++                                  <&shift_sel_port0_tx_b>,
++                                  <&shift_sel_port0_tx_c>,
++                                  <&shift_sel_port0_tx_d>;
++                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++                };
++
++                internal_phy2: phy@2 {
++                    reg = <2>;
++
++                    nvmem-cells = <&shift_sel_port1_tx_a>,
++                                  <&shift_sel_port1_tx_b>,
++                                  <&shift_sel_port1_tx_c>,
++                                  <&shift_sel_port1_tx_d>;
++                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++                };
++
++                internal_phy3: phy@3 {
++                    reg = <3>;
++
++                    nvmem-cells = <&shift_sel_port2_tx_a>,
++                                  <&shift_sel_port2_tx_b>,
++                                  <&shift_sel_port2_tx_c>,
++                                  <&shift_sel_port2_tx_d>;
++                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++                };
++
++                internal_phy4: phy@4 {
++                    reg = <4>;
++
++                    nvmem-cells = <&shift_sel_port3_tx_a>,
++                                  <&shift_sel_port3_tx_b>,
++                                  <&shift_sel_port3_tx_c>,
++                                  <&shift_sel_port3_tx_d>;
++                    nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++                };
++            };
++        };
++    };
 -- 
 2.45.2
 
