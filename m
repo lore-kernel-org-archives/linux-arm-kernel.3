@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC904E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 18:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB78E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 18:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhrL0uncEcrQ3AECIN+oYBnEJDHoGLltvd2rhDn6Kww=; b=py6tbULH/TGtZrZw4h7bJe7dtP
-	CSQMgjLShZQEiVXv0Y243csXDXotHFTvOlm3opCM3U3sr/heENsyZJDhQFHgKJTPXNbiOS6e5c2/C
-	3sJnKbwgPL+z3XXcpGyp85SUq2D62D1RLfRgHOvJ9vQvR1CrNzqM/ELFcakafLbOdw76DXBdiWJ0S
-	4SmDmoDRD2iHJ/OFd0jgKWn0e1a0EtC0stOc6YybVLdR/vZJ2iPFpM/lB5mq2BHQivS0hWtdPMYaR
-	9LdrMRapxpWPBcQo/yGfVAW3Gl/BJLmtRsV+V3Bu+MNRlfJ2m9KRgayBaGTMWqhFkz+JHr7zgkrLy
-	0npTelww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=auf4n7ns2f3Qj0NYN2/W7evPsQUU8K9EsOlDVNmJ198=; b=sCuEPPHZjBB/0lfJ5pwWbbR96V
+	pqYNTiOu/wklUmnjnNP+BP/k0LLK/b2c0KUrQe+DXMqndwJXI/yzxb73TDadTQq/SChzLjmmxdEiL
+	JDx+qILIBAr4M5vMbD8IRkG5Bm+2Kzg5gf3SIugBAuGY6rSFkSN5x2nZ6LCLsinCfEj5143QcjtU7
+	n/r+Fl47FwcqhM2oa+Bd9LGcMec/MfFbm+M3zXpiVqIQgVDEfbBD/WMQmx4lTvpPw3Xhi9CtUNX5E
+	blk9pfMASesHM0Emhdq78m3qC/WoYukilClmAnrAo1bNKOwDNW/nefuUOD0AAhOsMnA2D2QJCtq0p
+	xb76X9xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuAj-0000000DXVE-3ZPH;
-	Wed, 04 Dec 2024 18:32:25 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIu9i-0000000DXNV-3bm6
+	id 1tIuEE-0000000DXoq-2fwd;
+	Wed, 04 Dec 2024 18:36:02 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIuDD-0000000DXib-2Z6H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 18:31:24 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-227-kUr0Et9cOBasZhKmceyLzw-1; Wed, 04 Dec 2024 18:31:19 +0000
-X-MC-Unique: kUr0Et9cOBasZhKmceyLzw-1
-X-Mimecast-MFC-AGG-ID: kUr0Et9cOBasZhKmceyLzw
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 4 Dec
- 2024 18:30:40 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Wed, 4 Dec 2024 18:30:40 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Linus Torvalds
-	<torvalds@linux-foundation.org>, Luc Van Oostenryck
-	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
-	<jani.nikula@linux.intel.com>, Joonas Lahtinen
-	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
-	<rikard.falkeborn@gmail.com>, Martin Uecker
-	<Martin.Uecker@med.uni-goettingen.de>
-CC: "linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>,
+	Wed, 04 Dec 2024 18:35:01 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 17BE472C97E;
+	Wed,  4 Dec 2024 21:34:54 +0300 (MSK)
+Received: from altlinux.org (sole.flsd.net [185.75.180.6])
+	by imap.altlinux.org (Postfix) with ESMTPSA id 060EF36D0178;
+	Wed,  4 Dec 2024 21:34:54 +0300 (MSK)
+Date: Wed, 4 Dec 2024 21:34:53 +0300
+From: Vitaly Chikunov <vt@altlinux.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
-	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>,
-	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"coresight@lists.linaro.org" <coresight@lists.linaro.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH 01/10] compiler.h: add statically_false()
-Thread-Topic: [PATCH 01/10] compiler.h: add statically_false()
-Thread-Index: AQHbROCIk5mOE+KmUE+HEr8z57N8IbLWaz+w
-Date: Wed, 4 Dec 2024 18:30:40 +0000
-Message-ID: <e115a4245e5342a994a7e596cc6357fa@AcuMS.aculab.com>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
- <20241203-is_constexpr-refactor-v1-1-4e4cbaecc216@wanadoo.fr>
-In-Reply-To: <20241203-is_constexpr-refactor-v1-1-4e4cbaecc216@wanadoo.fr>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
+	Gleb Fotengauer-Malinovskiy <glebfm@altlinux.org>
+Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
+ 0000000002000000 [#1] SMP
+Message-ID: <20241204182231.ovvj6rpvcs2f5gv7@altlinux.org>
+References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
+ <20241202153618.GA6834@willie-the-truck>
+ <86ttbmt71k.wl-maz@kernel.org>
+ <20241202155940.p267a3tz5ypj4sog@altlinux.org>
+ <86ser6t6fs.wl-maz@kernel.org>
+ <20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
+ <20241203092721.j473dthkbq6wzez7@altlinux.org>
+ <1847e34fa7724d28aeb22d93752f64f2@huawei.com>
+ <20241203221453.mwh6sozyczi4ec2k@altlinux.org>
+ <87jzcfsuep.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: e2H3uRk00VDpjLq_8Zip-7pIV_b_brzT3OHoVmf3usM_1733337078
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=koi8-r
+Content-Disposition: inline
+In-Reply-To: <87jzcfsuep.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_103123_164698_09C45B14 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20241204_103459_979963_61D9DD5D 
+X-CRM114-Status: GOOD (  52.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +80,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogVmluY2VudCBNYWlsaG9sDQo+IFNlbnQ6IDAyIERlY2VtYmVyIDIwMjQgMTc6MzMNCj4g
-DQo+IEZyb206IFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+DQo+
-IA0KPiBGb3IgY29tcGxldGlvbiwgYWRkIHN0YXRpY2FsbHlfZmFsc2UoKSB3aGljaCBpcyB0aGUg
-ZXF1aXZhbGVudCBvZg0KPiBzdGF0aWNhbGx5X3RydWUoKSBleGNlcHQgdGhhdCBpdCB3aWxsIHJl
-dHVybiB0cnVlIG9ubHkgaWYgdGhlIGlucHV0IGlzDQo+IGtub3duIHRvIGJlIGZhbHNlIGF0IGNv
-bXBpbGUgdGltZS4NCg0KVGhpcyBpcyBwcmV0dHkgbXVjaCBwb2ludGxlc3MuDQpJdCBpcyBqdXN0
-IGFzIGVhc3kgdG8gaW52ZXJ0IHRoZSBjb25kaXRpb24gYXQgdGhlIGNhbGwgc2l0ZS4NCg0KCURh
-dmlkDQoNCj4gDQo+IFRoZSA9PSBvcGVyYXRvciBpcyB1c2VkIGluc3RlYWQgb2YgdGhlICEgbmVn
-YXRpb24gdG8gcHJldmVudCBhDQo+IC1XaW50LWluLWJvb2wtY29udGV4dCBjb21waWxlciB3YXJu
-aW5nIHdoZW4gdGhlIGFyZ3VtZW50IGlzIG5vdCBhDQo+IGJvb2xlYW4uIEZvciBleGFtcGxlOg0K
-PiANCj4gICBzdGF0aWNhbGx5X2ZhbHNlKHZhciAqIDApDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBW
-aW5jZW50IE1haWxob2wgPG1haWxob2wudmluY2VudEB3YW5hZG9vLmZyPg0KPiAtLS0NCj4gIGlu
-Y2x1ZGUvbGludXgvY29tcGlsZXIuaCB8IDEgKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0
-aW9uKCspDQo+IA0KPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9jb21waWxlci5oIGIvaW5j
-bHVkZS9saW51eC9jb21waWxlci5oDQo+IGluZGV4IDQ2OWE2NGRkNjQ5NWZlZmFiMmM4NWZmYzI3
-OTU2OGE2NTdiNzI2NjAuLmEyYTU2YTUwZGQ4NTIyN2E0ZmRjNjIyMzZhMjcxMGNhMzdjNWJhNTIg
-MTAwNjQ0DQo+IC0tLSBhL2luY2x1ZGUvbGludXgvY29tcGlsZXIuaA0KPiArKysgYi9pbmNsdWRl
-L2xpbnV4L2NvbXBpbGVyLmgNCj4gQEAgLTMxNCw2ICszMTQsNyBAQCBzdGF0aWMgaW5saW5lIHZv
-aWQgKm9mZnNldF90b19wdHIoY29uc3QgaW50ICpvZmYpDQo+ICAgKiB2YWx1ZXMgdG8gZGV0ZXJt
-aW5lIHRoYXQgdGhlIGNvbmRpdGlvbiBpcyBzdGF0aWNhbGx5IHRydWUuDQo+ICAgKi8NCj4gICNk
-ZWZpbmUgc3RhdGljYWxseV90cnVlKHgpIChfX2J1aWx0aW5fY29uc3RhbnRfcCh4KSAmJiAoeCkp
-DQo+ICsjZGVmaW5lIHN0YXRpY2FsbHlfZmFsc2UoeCkgKF9fYnVpbHRpbl9jb25zdGFudF9wKHgp
-ICYmICh4KSA9PSAwKQ0KPiANCj4gIC8qDQo+ICAgKiBUaGlzIGlzIG5lZWRlZCBpbiBmdW5jdGlv
-bnMgd2hpY2ggZ2VuZXJhdGUgdGhlIHN0YWNrIGNhbmFyeSwgc2VlDQo+IA0KPiAtLQ0KPiAyLjQ1
-LjINCj4gDQo+IA0KDQotDQpSZWdpc3RlcmVkIEFkZHJlc3MgTGFrZXNpZGUsIEJyYW1sZXkgUm9h
-ZCwgTW91bnQgRmFybSwgTWlsdG9uIEtleW5lcywgTUsxIDFQVCwgVUsNClJlZ2lzdHJhdGlvbiBO
-bzogMTM5NzM4NiAoV2FsZXMpDQo=
+Marc,
 
+On Wed, Dec 04, 2024 at 08:51:26AM +0000, Marc Zyngier wrote:
+> On Tue, 03 Dec 2024 22:14:53 +0000,
+> Vitaly Chikunov <vt@altlinux.org> wrote:
+> > 
+> > Shameer, Marc, Oliver, Will,
+> > 
+> > On Tue, Dec 03, 2024 at 10:03:11AM +0000, Shameerali Kolothum Thodi wrote:
+> > > > -----Original Message-----
+> > > > From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On
+> > > > Behalf Of Vitaly Chikunov
+> > > > Sent: Tuesday, December 3, 2024 9:27 AM
+> > > > To: Marc Zyngier <maz@kernel.org>
+> > > > Cc: Will Deacon <will@kernel.org>; james.morse@arm.com; linux-arm-
+> > > > kernel@lists.infradead.org; Catalin Marinas <catalin.marinas@arm.com>;
+> > > > linux-kernel@vger.kernel.org; oliver.upton@linux.dev;
+> > > > mark.rutland@arm.com
+> > > > Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
+> > > > 0000000002000000 [#1] SMP
+> > > > 
+> > > > Marc,
+> > > > 
+> > > > On Tue, Dec 03, 2024 at 01:31:19AM +0300, Vitaly Chikunov wrote:
+> > > > > On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
+> > > > > > On Mon, 02 Dec 2024 15:59:40 +0000,
+> > > > > > Vitaly Chikunov <vt@altlinux.org> wrote:
+> > > > > > >
+> > > > > > > Marc,
+> > > > > > >
+> > > > > > > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
+> > > > > > > >
+> > > > > > > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
+> > > > > > >
+> > > > > > > No, host is 6.6.60.
+> > > > > >
+> > > > > > Right. I wouldn't be surprised if:
+> > > > > >
+> > > > > > - this v6.6 kernel doesn't hide the MPAM feature as it should (and
+> > > > > >   that's proably something we should backport)
+> > > > >
+> > > > > How to confirm this? Currently I cannot find any (case-insensitive)
+> > > > > "MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM
+> > > > > strings in `strace -v` (as it decodes some KVM ioctls) of qemu process.
+> > > > >
+> > > > > >
+> > > > > > - you get a nastygram in the host log telling you that the guest has
+> > > > > >   executed something it shouldn't (you'll get the encoding of the
+> > > > > >   instruction)
+> > > > >
+> > > > > I requested admins of the box for dmesg output since I don't have root
+> > > > > access myself and nowadays dmesg is not accessible for a user.
+> > > > 
+> > > > This is what they reported:
+> > > > 
+> > > >   kvm [2502822]: Unsupported guest sys_reg access at: ffff80008003e9f0
+> > > > [000000c5]
+> > > >                    { Op0( 3), Op1( 0), CRn(10), CRm( 4), Op2( 4), func_read },
+> > > > 
+> > > 
+> > > As Will pointed out I think this is access to MPAMIDR_EL1 and is from this
+> > > code here,
+> > > 
+> > > +++ b/arch/arm64/kernel/cpuinfo.c
+> > > @@ -478,6 +478,9 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+> > >  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+> > >  		__cpuinfo_store_cpu_32bit(&info->aarch32);
+> > >  
+> > > +	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+> > > +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+> > > +
+> > >  	cpuinfo_detect_icache_policy(info);
+> > >  }
+> > > 
+> > > I did manage to boot my setup in 6.6 and this is what happens,
+> > > 
+> > > Host kernel 6.6
+> > > Guest Kernel 6.13-rc1
+> > > 
+> > > [    0.195392] smp: Brought up 1 node, 8 CPUs
+> > > [    0.219000] SMP: Total of 8 processors activated.
+> > > [    0.219629] CPU: All CPU(s) started at EL1
+> > > ...
+> > > [    0.223212] CPU features: detected: RAS Extension Support
+> > > [    0.223927] CPU features: detected: Memory Partitioning And Monitoring
+> > > [    0.224796] CPU features: detected: Memory Partitioning And Monitoring Virtualisation
+> > > [    0.225961] alternatives: applying system-wide alternatives
+> > > ...
+> > > 
+> > > Guest detects MPAM and boots fine.
+> > > 
+> > > Host kernel 6.13-rc1
+> > > Guest Kernel 6.13-rc1
+> > > 
+> > > [    0.196625] smp: Brought up 1 node, 8 CPUs
+> > > [    0.222093] SMP: Total of 8 processors activated.
+> > > [    0.222769] CPU: All CPU(s) started at EL1
+> > > ...
+> > > [    0.226620] CPU features: detected: RAS Extension Support
+> > > [    0.227453] alternatives: applying system-wide alternatives
+> > > 
+> > > MPAM is not visible to Guest in this case.
+> > > 
+> > > So as I pointed out earlier could it be a case where the ID register reports MPAM support
+> > > but the firmware has not enabled MPAM?
+> > > 
+> > > James seems to be mentioning that case here,
+> > > 
+> > > " (If you have a boot failure that bisects here its likely your CPUs
+> > > advertise MPAM in the id registers, but firmware failed to either enable
+> > > or MPAM, or emulate the trap as if it were disabled)"
+> > 
+> > I tried to verify that MPAM is advertised with qemu+gdb method, as
+> > suggested by Oliver, but ID_AA64PFR0_EL1 register is not there.
+> > 
+> >   (gdb) i r ID_AA64PFR0_EL1
+> >   Invalid register `ID_AA64PFR0_EL1'
+> 
+> Then there is a bug in either QEMU or the GDB stubs. This register
+> exists, or you wouldn't be here.
+
+
+In case this is useful:
+
+  builder@aarch64:/.in$ qemu-system-aarch64 --version
+  QEMU emulator version 9.1.1 (qemu-9.1.1-alt2)
+  Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers
+  builder@aarch64:/.in$ gdb --version
+  GNU gdb (GDB) 14.1.0.56.d739d4fd457-alt1 (ALT Sisyphus)
+  Copyright (C) 2023 Free Software Foundation, Inc.
+  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+  This is free software: you are free to change and redistribute it.
+  There is NO WARRANTY, to the extent permitted by law.
+
+Is there way to get content of this register with these possible gdb/qemu bugs?
+Perhaps, we can add some debugging print in guest kernel.
+
+> > 
+> > Are there other suggestions?
+> 
+> Mark has described what the problem is likely to be. 6.6-stable needs
+> to have 6685f5d572c22e10 backported, and it probably should have been
+> Cc: to stable. Can you please apply the following patch to your *host*
+> machine and retest?
+
+Unfortunately I cannot. But I can apply patches to the guest kernel. [I
+will try to convince admins of the server to apply the patch, though, but
+this can take time, and they can refuse since this is production build
+server and it's update procedure is complicated.]
+
+> > > https://lore.kernel.org/all/20241030160317.2528209-4-joey.gouly@arm.com/
+> > > 
+> > > Is there a way you can find out the BIOS version on that board?
+> > 
+> > Unfortunately, admins of the server do not provide me with this
+> > info.
+> 
+> This doesn't really help, I'm afraid.
+
+They provided me with this dmicedcode output:
+
+  Handle 0x0000, DMI type 0, 26 bytes
+  BIOS Information
+	  Vendor: Huawei Corp.
+	  Version: 1.25
+	  Release Date: 01/17/2020
+	  Address: 0x5F000
+	  Runtime Size: 644 kB
+	  ROM Size: 6 MB
+
+  Handle 0x0001, DMI type 1, 27 bytes
+  System Information
+	  Manufacturer: Huawei
+	  Product Name: TaiShan 200 (Model 2280)
+
+Admins said they are in process of requesting firmware upgrade from
+manufacturer.
+
+> 
+> > For such cases, when MPAM is incorrectly advertised, can we have kernel
+> > command line parameter like mpam=0 to override it's detection?
+> 
+> We could, but only when we can confirm what the problem is.
+> 
+> > I think with "If you have a boot failure that bisects here" it's
+> > acknowledged possibility and it's confirmed by our server.
+> 
+> Not really. This talks about firmware. We are debugging the hypervisor
+> here. This might be closely related, but these are not the same
+> things.
+
+Understandable.
+Thanks,
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
