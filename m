@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D07EE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6D5E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 09:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cy/XJ04+zf5LbxiN66hAMvCUA3gWid9DTtZSOXqwwIw=; b=e1lnjETkdL+PaC/jCdG2TMimNW
-	+aSQeWJOc6+Fsp6JUOhynhX9kbybKO20UnBafsu7XmFSmT5Z79ezs1BhJVSkliUY9mI0P6BRpQzwD
-	Tj7Xn8WL5K9vJUBfY4b2io5OVb75YTI4tG4LNIoyJQYyArnSf7tsH+vsasPDT7w3VJLMbYWKQ94oE
-	dLdcW5TNdOUql+mbVzy0gQk/Q115UomtqckhNdPF+UIxN/G5NPFkzTxPnQ/a9V7ue4K1bYSJCMw5g
-	HSKW2dzHf1uOyVdmq/dMKotIeOnLW/8HkqTZTim+ykK1P0LZJEEPYFQwQn3MxDFzW3unBAW9ccQi+
-	InKfXRaA==;
+	bh=pHrIZaLEeFmzu5KQ0LKYc7lzyVxc78OLSyYQ7PV95dk=; b=o7CMR/6eWlaCBVUAYyY6ls2yvy
+	/HzYhczrWkPa24ze+UJSuqYwXCnJuANXArt8vw2rmVZ6gIivQrnBg4tg4fOKx2NkPYhxFcMfBQhsu
+	FHsyR93UjC08pejGahW0ihxd9Y0KLQDCQ8tKlr2v2LF0Et/enCHz5O5nBULgnB07uCQjkaI3hZkxg
+	RafivliGzG++Ql+HvxG7XJQXEa/q/V/QJfkWGmUvhP0sT3JNVC3YdUkdv4Gxh4tPswGz4f1Qhzu+L
+	fNpYm/56Y8j1/OUml7nZcVfz6dkcILDF+USs9nBNueroBAeb5Lj6Ejsbto/l3PBVrvMck0w2Mk+Cd
+	QLhilk4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIldv-0000000C2EK-40zO;
-	Wed, 04 Dec 2024 09:25:59 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tIlhr-0000000C2qb-0G8s;
+	Wed, 04 Dec 2024 09:30:03 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIlcv-0000000C25E-1aOt;
-	Wed, 04 Dec 2024 09:24:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Cy/XJ04+zf5LbxiN66hAMvCUA3gWid9DTtZSOXqwwIw=; b=xpd9hEgI7XauUdJTL4JW/stQ64
-	5V8Pt/IwwETi+P6/XqImUjn6tmDH8mGrBM985xtQ0aL16sW0E0Ru1UccmYSx6CKH5cwUqFK7UtYe3
-	JWCUBmQ//Q3GNNP7zTe01I3eGt7LjayInwDb9h36o+UVftNZBBNcOBQS5gZWbgspf8NXQY4RJMZTU
-	JgcOVNWPpXqyJx4Ro8XpKpq8oxtM0voPZg14xD8GmvqA6BpS/A95hKQhTFAxlSmeYk2fm3WNJrg7b
-	1qrRt0H20hDOM1QQxFrK0GW/9OOxiKsx7LyQBpP2n+hqgUtJrDH8HAinYxqQhkk+Wb4D438hcK49/
-	oFd3awpw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43590)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tIlcl-00032d-0T;
-	Wed, 04 Dec 2024 09:24:47 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tIlcj-0005RX-2j;
-	Wed, 04 Dec 2024 09:24:45 +0000
-Date: Wed, 4 Dec 2024 09:24:45 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v8 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-Message-ID: <Z1Af3YaN3xjq_Gtb@shell.armlinux.org.uk>
-References: <20241204072427.17778-1-ansuelsmth@gmail.com>
- <20241204072427.17778-4-ansuelsmth@gmail.com>
- <20241204100922.0af25d7e@fedora.home>
- <67501d7b.050a0220.3390ac.353c@mx.google.com>
+	id 1tIlgr-0000000C2dE-0SHZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 09:29:02 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e39841c8fd6so5039044276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 01:29:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733304539; x=1733909339; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pHrIZaLEeFmzu5KQ0LKYc7lzyVxc78OLSyYQ7PV95dk=;
+        b=L+ibu61YflVUoaXFlQcEwiT5B+2smVck+TfEgQtLvV3LCrxyLDOkEB+N3BXDONhSIw
+         GSoI+rlSzs2QEbKmklxMuioD+vcsLnk8ebFOrTQwSygq08IKH1D4msjqu66ZUL5t2pjD
+         Aasr73yYhH4xND1FhDgd8uIsI0sy6LGpgsnAOGqep1pF5SV8x0ZfkIYeGwLSV9sHMEJ6
+         6hSwbCen1x4nAavgPehELTg8A2AjzxZCZZSbCMnSZjkESkL/mcO/3+f/t8Bck1w8Cjjz
+         oGXbZyKOlBOsClgCLG230f3x2lB5Rtz5rwka0SIcoZ7gwWghH8XYEY1XvSNkxBacpodJ
+         wxfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733304539; x=1733909339;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pHrIZaLEeFmzu5KQ0LKYc7lzyVxc78OLSyYQ7PV95dk=;
+        b=DNM7BTTLgTcfdjeLAXonC+D8Rp9Y9m+vH2Ik+PY9myYKw5NWcPbiTt33f455RxWVu8
+         BjbXvrMQNUwELnlHUku16DPsvoE/zVyeaTvhFs9llbjWNwHyxs0YTf4oKedR4nD7IVhJ
+         OJMnFzuobud7ZVSobpyh5ag/A0tnMQxjaEwekv3ohSld/ShGUx/duFCa/fezU9OAGxX/
+         oZ9elr1MVkST1pD+Rky4+p86fWY9Nq2z84oDjq7S93A+TO+6xidJ8jRZUj40f4GzS6pV
+         262IHqyZBnolc7DrQAeSIm25iTFAlQUtk52v+24/8uj7W3wtnX0kMcriUxcXL8fczi2l
+         S07Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVNDRqk0jwFphVsYef2hcM7iKqL8FlZjH35XwMioBe9UMIdBZX6ySzQn1Qygy5tKr4D52Mk9Vkt3qYsNyQueTne@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWP50MuEBLcr+lyUlFR5rIlrNBq7MinJaQxGVjE/+OCl5RnZnM
+	0yM2M28cgVVoCNg0eL6j4zb0upUm0AC7hisiRNV1wxuCeUiY3XdNiyHQHpAVZWgudFP7wu9y6p4
+	W1gLeT+2qUSzPxyn6r2MplERvvnx+Tw==
+X-Gm-Gg: ASbGncuk2PLSIRZjHDhe+Y9Z4WhLaOL6LOErF/1uvaBS9li6QxCviITVnipW9ZiMpxj
+	2jjDx8gpebbD5iKCUN/+UKlRl20Wu+wGo
+X-Google-Smtp-Source: AGHT+IHmiUq5JaZBzDl7/VKOgdhADM9Ii0ineCplj6K99/74ASpMyAFGBPqR+m4ORzqcODkAuKrJN0c0KPHOQNpBbMg=
+X-Received: by 2002:a05:6902:2d91:b0:e30:cea9:b071 with SMTP id
+ 3f1490d57ef6-e39d3e20f00mr4260700276.29.1733304539556; Wed, 04 Dec 2024
+ 01:28:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <67501d7b.050a0220.3390ac.353c@mx.google.com>
+References: <20241128-z2-v2-0-76cc59bbf117@gmail.com> <20241128-z2-v2-2-76cc59bbf117@gmail.com>
+ <Z0-PRapfiAUGvr4W@google.com>
+In-Reply-To: <Z0-PRapfiAUGvr4W@google.com>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Wed, 4 Dec 2024 10:28:48 +0100
+Message-ID: <CAMT+MTQ3M1gfz5aLWd17R-RODJi-wnxKJvf9zoX+TjoZMKjCKA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] input: apple_z2: Add a driver for Apple Z2 touchscreens
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Janne Grunau <j@jannau.net>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_012457_416639_BCEA89C8 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20241204_012901_145703_80344359 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +96,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 04, 2024 at 10:14:31AM +0100, Christian Marangi wrote:
-> On Wed, Dec 04, 2024 at 10:09:22AM +0100, Maxime Chevallier wrote:
-> > > +	case 5:
-> > > +		phy_interface_set_rgmii(config->supported_interfaces);
-> > > +		__set_bit(PHY_INTERFACE_MODE_SGMII,
-> > > +			  config->supported_interfaces);
-> > > +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-> > > +			  config->supported_interfaces);
-> > > +		break;
-> > > +	}
-> > > +
-> > > +	config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> > > +				   MAC_10 | MAC_100 | MAC_1000FD;
-> > 
-> > For port 5, you may also add the MAC_2500FD capability as it supports
-> > 2500BASEX ?
-> > 
-> 
-> I didn't account for the CPU port that runs at 2.5. The LAN port are
-> only 1g. Will add or maybe add the 2500FD only for cpu port?
-> 
-> Maybe Russel can help in this?
+On Wed, 4 Dec 2024 at 00:07, Dmitry Torokhov <dmitry.torokhov@gmail.com> wrote:
+> > +     z2->counter = 1 - z2->counter;
+>
+> Is this toggling between 1 and 0? Should it be "counter = !counter"? And
+> is there better name than counter?
 
-*ll* please.
+message_index_parity? Kind of a mouthful.
 
-Well, 2500BASE-X runs at 2.5G, so if MAC_2500FD isn't set in the mask,
-validation will fail for 2500BASE-X.
+> > +     .remove   = apple_z2_shutdown,
+>
+> Purring the device into reset state before tearing down interrupt
+> handler, etc, may lead to weird errors. Why do you need to do this on
+> removal instead of letting devm tear down the device?
 
-> > > +		case SPEED_5000:
-> > > +			reg |= AN8855_PMCR_FORCE_SPEED_5000;
-> > > +			break;
-> > 
-> > There's no mention of any mode that can give support for the 5000Mbps
-> > speed, is it a leftover from previous work on the driver ?
-> > 
-> 
-> Added 5000 as this is present in documentation bits but CPU can only go
-> up to 2.5. Should I drop it? Idea was to futureproof it since it really
-> seems they added these bits with the intention of having a newer switch
-> with more advanced ports.
-
-Is there any mention of supporting interfaces faster than 2500BASE-X ?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+The interrupt is masked before putting the device into reset,
+and i do need to put it into reset when removing it.
 
