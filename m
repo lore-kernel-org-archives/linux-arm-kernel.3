@@ -4,111 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1285FE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 11:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C59E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 11:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrOmyGbo6peEvA/t3cBYlUIganUoIJapy+zrKdaxlBc=; b=L/waJJUcL7VRA8+KwrLA6AaMSJ
-	BlY0WsvTwi2pla5BK0UFgqWfdMNa+S0zJddbvzsFZ6UUWYeL5ijRZoP/tWBPCviN7G8NBXLmsHTfX
-	YzCrMoLlOYcfR3WPuwWdcrhFFGuwAWGxfAAEXVHDfOBzy0vod6Kk8yUVOcchP+OCGcPpnZo/hMMbU
-	rg4CH1KY3cU13qvBCzCdfZ0Aq9TnIz4MlVrOCJylrNwj/SxmrqF/q23reRoEg31On7ZPuglJlEQUN
-	sv517M+nnlQ0IVAui3pEHIQbQPJEGkJ/6Qnl0uaHGEcbjn9mYmfJBlnnC2W03rq4hdn2KS0vX7TZ7
-	hJXLcsWg==;
+	Content-Type:Cc:To:Message-Id:MIME-Version:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pYs9v+5xS9o1woYf9AwDTUqR002kQs92H7EyPMP95fA=; b=VrtLGJvvsi7HP0EMK7QS+EntbI
+	3OiPfiE9Uye3hInnkvvpYeWkUzpNdEmPGKU/iOsxFxJUhp0zGJ4ymzJ18umhc4y77F4qtniNEKjK2
+	UJesZ5OEqNkNJWmjOyASoGmx1EeYKFIRGMVrfXShR1q8Tpoo544Kj3w3azgdF0FQmYnAfml+m/Hpi
+	Vi27ArkzHGiH9kJNLUu32MA2+ZomI7S3tqyMF/MZhqYpYubxhR3WTVedOeU3N1BICs+a/+xqrOQJ5
+	SHq0o1nv+EueJjOaRzTE19UFrqj2qgQRfhygxH1/cBVdK4ghVVh1lNNdvBOHFlmiqe+slhoi1/lra
+	hk1RDJaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tInAs-0000000CIkG-3fcH;
-	Wed, 04 Dec 2024 11:04:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tInDQ-0000000CJOA-0jNB;
+	Wed, 04 Dec 2024 11:06:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIn9s-0000000CIaY-2hfS;
-	Wed, 04 Dec 2024 11:03:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2DB2EA40FE4;
-	Wed,  4 Dec 2024 11:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F400C4CED1;
-	Wed,  4 Dec 2024 11:02:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733310183;
-	bh=4cnHEcDYmozcESk7GBd1uaYiN1+jgyE+pJZbxMRSqoY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uVflS47f7S5u5l2lGTkW3sUJYXDuDS1Il0/qqXZD6tbSxxgIzmPUQbR1Y7DuOHYHt
-	 tMyH75aTVWV573tKmjqfr6HXYQk0YRz070eW2ciMXuni5aDBfbq37z86BbgyVon+Fj
-	 dxoSq2Oidt4poPbcA8GEagaJx81+o4gT0acXOswjFPmpWfol8SW2n6dpe2LeJZDIMZ
-	 JMWWjDoQ4HPeEM/iG7f6+efdiINvphNIl/urIBGvaTj9nSbPcOcn4n3/96R2g8cHPQ
-	 rgdtzOw7ADIy0LgJsnNgsaGV0IC0ZLuwCOnL4HLXAg03AY7kxrd1NQMrDtMRy3UB5W
-	 SfxDJodTVjZVw==
-Message-ID: <96cdb630-5c9e-4364-93fc-67f9ee34a403@kernel.org>
-Date: Wed, 4 Dec 2024 12:02:56 +0100
+	id 1tInCP-0000000CJ8G-07V1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 11:05:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733310340;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=pYs9v+5xS9o1woYf9AwDTUqR002kQs92H7EyPMP95fA=;
+	b=Ip50DpsW39UO1Bn+qujqFMCyLi/LNgmAOm/omcfM7o76mhHz9SfgdQd++F90UzsQjfWAhU
+	Fib2szdp1DR42cuOt2d9ppVsWBOXLMVNksq2eSWFee4yH99EwOjWLo+XbfH2EKC1CrWKSk
+	6OCguU3nf8Nt31V0U0TK0J/EeWUh/KQ=
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
+ [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-336-lifWS4JJMuqqqin2cPOf6A-1; Wed, 04 Dec 2024 06:05:39 -0500
+X-MC-Unique: lifWS4JJMuqqqin2cPOf6A-1
+X-Mimecast-MFC-AGG-ID: lifWS4JJMuqqqin2cPOf6A
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-466d3ec228bso8612561cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 03:05:39 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733310338; x=1733915138;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pYs9v+5xS9o1woYf9AwDTUqR002kQs92H7EyPMP95fA=;
+        b=CL7NprQcphCZPgAWe2v6Rfh5AwjDebfY7vQKOLlCWRWWXVi8L6bZoezmQ2prE1EkTv
+         +J2OesUhKmocHCXXKhXa9aDgjnTqXew5S70ilvusNtMUO7eHOK/EzzKXWJyA1QHy9Un8
+         OydHWXgtqtHNVZh2xuXMPLQLYwVAOYWrEBAg+zejueJN8QDSvY5kCUIWFBGcACxQGiyn
+         35MJKZQwRYTZh33RV7rMJ41P3PQpKCzsegPdaIEflDgNLTXHRiQ6sIDOSYOeyjkkBUz7
+         0KqGE6Xo9lNOlIa+buIvlCHE5Wc400Tnv6Lz15g7c1U2RAFgvbGyaaKeFaeJj1UtR0kf
+         Jnaw==
+X-Gm-Message-State: AOJu0YxGvZ91GIIJTvNlLrSnP9YwmoU9nRrAgeRpvjPbYTDaOnC1sT78
+	SnYcDr08hc/M9InP/qnF/w+pJGwnOfJOuwAr5qMaaSBTLHCx8Fgr6gJEHVazSJwfNc0YIlIeMd2
+	4RA57qRVUmD3rgCNPyCzsw29AS5vq6ODHN4/Ur03jqphISygz29MuRTE/AH2n0ko1NMxkIVO1ns
+	knc6RiAJaf9A==
+X-Gm-Gg: ASbGncsRz5tk/xRJsZYEQ0HiYv4jCrF4ELCT6s86nujpHoJKc3AGl5vaKDnbQnZUgQc
+	aqLzpOBEFImwJzWxRZ4kD49zR75gr+waepCIJqx4J5Av1W5FMOPk/t62MxJ86F1I+gKjAKwfyyB
+	iCbNGfguUWacOu54599z0IEah4mvZrAzvL2hAWX296Vff6OXIqvRnepoV0Wm9LaSTByxynZV80G
+	JTpxKyLG+1lrSJQJuQjR2IR5T+5MhKr3rTNuz+hIjt2Z3fKCag=
+X-Received: by 2002:ac8:7f88:0:b0:461:653a:eab with SMTP id d75a77b69052e-4670c36962cmr38331951cf.6.1733310338014;
+        Wed, 04 Dec 2024 03:05:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEOpNUOSt5wAKrvynr/39CNBeGiecoP/HZQKzUprTjksMnD7nDIzipnydiPdmgrbnAKZRyvKw==
+X-Received: by 2002:ac8:7f88:0:b0:461:653a:eab with SMTP id d75a77b69052e-4670c36962cmr38331741cf.6.1733310337586;
+        Wed, 04 Dec 2024 03:05:37 -0800 (PST)
+Received: from [192.168.1.51] ([83.45.91.239])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-466c407e11esm72245921cf.42.2024.12.04.03.05.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 03:05:37 -0800 (PST)
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+Date: Wed, 04 Dec 2024 12:05:26 +0100
+Subject: [PATCH v2] arm64: dts: ti: k3-am69-sk: Add USB SuperSpeed support
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] kexec: Consolidate machine_kexec_mask_interrupts()
- implementation
-To: Eliav Farber <farbere@amazon.com>, linux@armlinux.org.uk,
- catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
- npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
- maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, tglx@linutronix.de, akpm@linux-foundation.org,
- bhe@redhat.com, hbathini@linux.ibm.com, sourabhjain@linux.ibm.com,
- adityag@linux.ibm.com, songshuaishuai@tinylab.org, takakura@valinux.co.jp,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org
-Cc: jonnyc@amazon.com
-References: <20241130201143.48808-1-farbere@amazon.com>
- <20241130201143.48808-2-farbere@amazon.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20241130201143.48808-2-farbere@amazon.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Message-Id: <20241204-am69sk-dt-usb-v2-1-d59b2ac45c6e@redhat.com>
+X-B4-Tracking: v=1; b=H4sIAHU3UGcC/3XMQQ7CIBCF4as0s3ZMIVLBlfcwXdAyCDEtBpBoG
+ u4udu/yf8n7NkgUPSW4dBtEKj75sLbghw5mp9c7oTetgff8xBgfUC+DSg80GV9pQqmY7MkKaaW
+ B9nlGsv69e7extfMph/jZ+cJ+6z+pMGSotRCazHmSiq6RjNP5OIcFxlrrF8JCOICrAAAA
+X-Change-ID: 20241126-am69sk-dt-usb-89180ef58f8d
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Dasnavis Sabiya <sabiya.d@ti.com>, 
+ Enric Balletbo i Serra <eballetb@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733310335; l=2663;
+ i=eballetb@redhat.com; s=20241113; h=from:subject:message-id;
+ bh=FMm9H6sLzpHevS+BDD1ZhChgz+IY/7iaPRnVhXYcLc8=;
+ b=4mJOPQHNLdI0jquYC0yWN66Urs5UsMcZCIcQ7ufmqldmUjbtjc5nmPxy0Lo9kBftq27tGXGyv
+ 6Wq10Ov1mjzBotzxZIFBNGQOFnYtMXLNGUm2mAm7c483cKISscpv0Mw
+X-Developer-Key: i=eballetb@redhat.com; a=ed25519;
+ pk=xAM6APjLnjm98JkE7JdP1GytrxFUrcDLr+fvzW1Dlyw=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ivqB1LRc-av-_pCF37DLEbz6JTf8iePcukwlYUKLL5w_1733310338
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_030304_822444_C1812266 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20241204_030541_141011_9D8F57E1 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,42 +119,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30. 11. 24, 21:11, Eliav Farber wrote:
-> Consolidate the machine_kexec_mask_interrupts implementation into a common
-> function located in a new file: kernel/irq/kexec.c. This removes duplicate
-> implementations from architecture-specific files in arch/arm, arch/arm64,
-> arch/powerpc, and arch/riscv, reducing code duplication and improving
-> maintainability.
-> 
-> The new implementation retains architecture-specific behavior for
-> CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD, which was previously implemented
-> for ARM64. When enabled (currently for ARM64), it clears the active state
-> of interrupts forwarded to virtual machines (VMs) before handling other
-> interrupt masking operations.
-...
-> --- a/kernel/irq/Kconfig
-> +++ b/kernel/irq/Kconfig
-> @@ -154,3 +154,12 @@ config DEPRECATED_IRQ_CPU_ONOFFLINE
->   	bool
->   	depends on CAVIUM_OCTEON_SOC
->   	default CAVIUM_OCTEON_SOC
-> +
-> +config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
-> +	bool "Clear forwarded VM interrupts during kexec"
-> +	default n
-> +	help
-> +	  When enabled, this option allows the kernel to clear the active state
-> +	  of interrupts that are forwarded to virtual machines (VMs) during a
-> +	  machine kexec. For interrupts that are not forwarded, if supported,
-> +	  the kernel will attempt to trigger an End of Interrupt (EOI).
+From: Dasnavis Sabiya <sabiya.d@ti.com>
 
-This caught my attention. It looks like you want to allow people 
-toggling it? I believe only arch code should turn it on as you do by 
-"select", not users.
+AM69 SK board has two stacked USB3 connectors:
+   1. USB3 (Stacked TypeA + TypeC)
+   2. USB3 TypeA Hub interfaced through TUSB8041.
 
-thanks,
+The board uses SERDES0 Lane 3 for USB3 IP. So update the
+SerDes lane info for PCIe and USB. Add the pin mux data
+and enable USB 3.0 support with its respective SERDES settings.
+
+Signed-off-by: Dasnavis Sabiya <sabiya.d@ti.com>
+Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
+---
+I've been carrying this patch for quite long time in my builds to have
+support for USB on my AM69-SK board without problems. For some reason this
+patch was never send to upstream or I couldn't find it. So I took the
+opportunity, now that I rebased my build, to send upstream.
+
+I have maintained the original author of the downstream patch as is
+basically his work.
+---
+Changes in v2:
+- Set dr_mode to otg to fully describe the hardware proprieties
+- Link to v1: https://lore.kernel.org/r/20241126-am69sk-dt-usb-v1-1-aa55aed7b89e@redhat.com
+---
+ arch/arm64/boot/dts/ti/k3-am69-sk.dts | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+index 1e36965a14032ca07143230855e04b9549f1d0d1..353579dedb19a4f9809913570143666f4c4ec53e 100644
+--- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+@@ -484,6 +484,12 @@ J784S4_IOPAD(0x09C, PIN_OUTPUT, 0) /* (AF35) MCAN7_TX */
+ 		>;
+ 	};
+ 
++	main_usbss0_pins_default: main-usbss0-default-pins {
++		pinctrl-single,pins = <
++			J784S4_IOPAD(0x0EC, PIN_OUTPUT, 6) /* (AN37) TIMER_IO1.USB0_DRVVBUS */
++		>;
++	};
++
+ };
+ 
+ &wkup_pmx0 {
+@@ -1299,6 +1305,14 @@ serdes0_pcie_link: phy@0 {
+ 		cdns,phy-type = <PHY_TYPE_PCIE>;
+ 		resets = <&serdes_wiz0 1>, <&serdes_wiz0 2>, <&serdes_wiz0 3>;
+ 	};
++
++	serdes0_usb_link: phy@3 {
++		reg = <3>;
++		cdns,num-lanes = <1>;
++		#phy-cells = <0>;
++		cdns,phy-type = <PHY_TYPE_USB3>;
++		resets = <&serdes_wiz0 4>;
++	};
+ };
+ 
+ &serdes_wiz1 {
+@@ -1339,3 +1353,22 @@ &pcie3_rc {
+ 	phy-names = "pcie-phy";
+ 	num-lanes = <1>;
+ };
++
++&usb_serdes_mux {
++	idle-states = <0>; /* USB0 to SERDES0 */
++};
++
++&usbss0 {
++	status = "okay";
++	pinctrl-0 = <&main_usbss0_pins_default>;
++	pinctrl-names = "default";
++	ti,vbus-divider;
++};
++
++&usb0 {
++	status = "okay";
++	dr_mode = "otg";
++	maximum-speed = "super-speed";
++	phys = <&serdes0_usb_link>;
++	phy-names = "cdns3,usb3-phy";
++};
+
+---
+base-commit: 7eef7e306d3c40a0c5b9ff6adc9b273cc894dbd5
+change-id: 20241126-am69sk-dt-usb-89180ef58f8d
+
+Best regards,
 -- 
-js
-suse labs
+Enric Balletbo i Serra <eballetb@redhat.com>
 
 
