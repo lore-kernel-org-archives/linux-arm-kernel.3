@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6478E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 13:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A06E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 13:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=29v3SXT9Ffvys5mgEj1UJ5xZTZpwErFonfp1Kr6gROc=; b=sEkiTHmM4LGByosgd4ElpBRltG
-	yMjkoew5s6x9x7Em4oDNgSDs+56y513YOoQxdPUIkTdLBBy0J4D6N0xry7eBgvMAN+1glgDK3xcLy
-	8vz/doM88wCqBcMoNFAQOHQYb9+GLfzIXTC21exiGcKaLdnvxO5/yLnITuwC0ZBl4i70yPX0JOeTK
-	dHpMRqSJdQ+tay2Q76E2tVZZN1Ho9SFeHQ08DdC8fkua2ysZfDlSCHEudoe3YJBp0RRyQ2eeTZXHs
-	jFBjFhHzMPamo66kWGis6B6HkUXq4enBS3k0bWvNxILeLILafXhcgAvWg9OUdbmjrZOU7TTLRtoJO
-	1xPkMDRg==;
+	bh=DxJGDQiokXdnBDutg8BRJ6ed0FV85bCGCnc9t0BKeSk=; b=fpmGY5TcddqDRk4a7wcAcD1WXa
+	GKIqJ7BN6ZyBck2nkam8gVdabg1p4MADift+piD3irIUZ8xSr00lxYUuE4xOSphhH4TwMzNOSG6Y8
+	hN9cIUU4xEanEzh9DYcK0OUx7aXExXyV4rUUq5NYnXVvUceARXE1Y63SpADvUFBB46s+3SM6F1SFp
+	iRpahKK4iHK2hcSW1h66BqMN2SNsUIojkbVdETItbBPN4qlficZNOjtFeivLshPqw5mP6z2QJ862V
+	jKS+oiRjcJ2O3HeaEfOF/2UyjFtkKrbwStqpdPIVt+cI1roWcCWSEM1aNuEMD54x3TCPQqoJ8AQd+
+	Joq7i/zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIpID-0000000CfHb-1N8p;
-	Wed, 04 Dec 2024 13:19:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIpJB-0000000CfVa-3rvP;
+	Wed, 04 Dec 2024 13:20:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIpHC-0000000Cf7o-0dc1
+	id 1tIpHV-0000000Cf9n-2nVq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 13:18:47 +0000
+	Wed, 04 Dec 2024 13:19:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFA375C5DF6;
-	Wed,  4 Dec 2024 13:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10ECAC4CED2;
-	Wed,  4 Dec 2024 13:18:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9A371A4133E;
+	Wed,  4 Dec 2024 13:17:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61BEBC4CED1;
+	Wed,  4 Dec 2024 13:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733318325;
-	bh=TAtHKYWCoR1GL0UUMdPzrLKHlmmmfkDHR9X3xB5fKEY=;
+	s=k20201202; t=1733318344;
+	bh=NUA39rehtYvADj0ngQK4ICqhBTOri7NSzSD38ajApu0=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=nvctxKCum2d6ej0vjNutgyLBtwWMCMMlMaz65XUAQFbiQERaOXEoG+UKzFMK1u5Co
-	 1u6YvF1xpCJTtjaSwekhfkL42715ZuX14hzb5g3vEtxnveVP8yhOxE35rVry4mcCsZ
-	 pUENYBBZkvHu64x7FDArYYXDvNbooO+gPFjMB6iRsD8jdxruw+2/CzoejqTj6WbaRE
-	 y1e+Fl2/4WyDJHnsx9vbEafU29BgphKQ2GiG2V/SGZqyaxdpTIp9MlL5yR6HN1pOJl
-	 auik38Q8PpFOfgXc2RaAQA2+q7wja+9nuqUsxJ59bVIQYwMXKjHF+2cW7J/cM8PdEz
-	 BGemHxJ885PRQ==
+	b=JpIhi9Rk6VDqzd/TCwaIKHRQ9AhtoQ0+q8XLZSuQJodlDw1PDO4pTWd1aV2ZsCtG3
+	 JfIGMg787zQKNQdyh/e/HnX2lv+6r/iN3pkBQMFWg+az2yrRDod+yEDDNQk8tM2Ev0
+	 x+jCTOlWwzV569YVuQYJeq9keA4bHrpWWJyYeBVewaXXlXYrBT5oMglETZOdivhxmv
+	 UWoZWSAXFGLkCZWzz+ug0IyxVQZsszp6xLb23fC+TV+2UBz4y53PcTjNRWZxQ4MbE4
+	 01L+XzqHVsdnV5xxTRfhxN9q9+qRt6BdDow+JoTjgZXDreWwM5do1i6VFpoRuXWIWz
+	 B9EyGWxrxtFbA==
 From: Vinod Koul <vkoul@kernel.org>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241124-admac-power-v1-1-58f2165a4d55@gmail.com>
-References: <20241124-admac-power-v1-1-58f2165a4d55@gmail.com>
-Subject: Re: [PATCH] dmaengine: apple-admac: Avoid accessing registers in
- probe
-Message-Id: <173331832270.673314.2577106831553574713.b4-ty@kernel.org>
-Date: Wed, 04 Dec 2024 18:48:42 +0530
+To: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ =?utf-8?q?Cs=C3=B3k=C3=A1s=2C_Bence?= <csokas.bence@prolan.hu>
+Cc: Mark Brown <broonie@kernel.org>, Mesih Kilinc <mesihkilinc@gmail.com>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Amit Singh Tomar <amitsinght@marvell.com>
+In-Reply-To: <20241122161128.2619172-1-csokas.bence@prolan.hu>
+References: <20241122161128.2619172-1-csokas.bence@prolan.hu>
+Subject: Re: (subset) [PATCH v5 0/5] Add support for DMA of F1C100s
+Message-Id: <173331833897.673424.223627111827356616.b4-ty@kernel.org>
+Date: Wed, 04 Dec 2024 18:48:58 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_051846_235704_F2D3A7FE 
-X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-CacheID: sfid-20241204_051905_769481_0EA4702F 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,18 +84,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 24 Nov 2024 16:48:28 +0100, Sasha Finkelstein wrote:
-> The ADMAC attached to the AOP has complex power sequencing, and is
-> power gated when the probe callback runs. Move the register reads
-> to other functions, where we can guarantee that the hardware is
-> switched on.
+On Fri, 22 Nov 2024 17:11:23 +0100, Csókás, Bence wrote:
+> Support for Allwinner F1C100s/200s series audio was
+> submitted in 2018 as an RFC series, but was not merged,
+> despite having only minor errors. However, this is
+> essential for having audio on these SoCs.
+> This series was forward-ported/rebased to the best of
+> my abilities, on top of Linus' tree as of now:
+> commit 28eb75e178d3 ("Merge tag 'drm-next-2024-11-21' of https://gitlab.freedesktop.org/drm/kernel")
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] dmaengine: apple-admac: Avoid accessing registers in probe
-      commit: 8d55e8a16f019211163f1180fd9f9fbe05901900
+[1/5] dma-engine: sun4i: Add a quirk to support different chips
+      commit: eeca1b60138189ef1b9636709e578d0c9e0de517
+[2/5] dma-engine: sun4i: Add has_reset option to quirk
+      commit: 1f738d0c2f67ae3551e4543e8dddbfb44cdd9f53
+[3/5] dt-bindings: dmaengine: Add Allwinner suniv F1C100s DMA
+      commit: 1ad2ebf3be836e62792788f4cd105b30ca9178b6
+[4/5] dma-engine: sun4i: Add support for Allwinner suniv F1C100s
+      commit: 61785259d1eb4e4c4acef8551a2524441683dbf3
 
 Best regards,
 -- 
