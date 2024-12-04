@@ -4,96 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5068DE7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 02:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B8FE7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 03:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oEG8+eCQo1MFmYJd+DVWtgBoJTHTnzsQ1C5KFV95jCg=; b=qTGG0LhWjHqXhfN421whL/mN09
-	/v4qNN4/dZEyHqn40mzaSC/Y4SgB46X983eHmwei8RLaiO3rJJxMR+gGWR/Nr8JCkD1NrZj32nMmk
-	iC6+WbGATNRH0eDZJVYS6YGLxhJdrq05dtZXesBs0iJQvXznXfuyN150HM2/XBffdbThrW0weOgne
-	flXYf+j5dLcd2gQ4yNEvuisbeofsM3FRSWOxLtQ/zE7DV9Ybpyw5BSzbYk8A7CMI0ABbzfAIpi5Ub
-	dKDMhAbUpeDWq89CpL7PZ2WLmiMmKnTywrIr+zgO3eXAvpfcRKf+9fWrbrtkhNSapI3gIdU0j2S65
-	EXSlffMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ov4oIDApdgx4WHS7bE5m2BIEReCDIeuVyAq9ezmep2w=; b=abty3GvdgyJNNxQH5eqt7NokCj
+	Yc4VnaL2UJLsY2JJl1L/pFYi/clJ9vVq2mlVGLL8htHWRwFjsaLyAZ5nC88ZP8Swr2UovpKfvldW0
+	xecsq5bp2YbOhVce0Cy2HcEwa911E4m7mldRcOJWUckN0obNBLjnZ8UQJtIT9CwjoMV7Q4lqfJc3o
+	Q1+DteilDYwu31ppgFlVHBf33/owX6JR1QpboAgevjlCjrDjBbC2p5SZMWAaccj4cdXXBPD6Hc/Hk
+	8yxb3og8Z0T1lCdDrxv/JCh0+3pYZ4soctNGQerHrGx81jVq3fvNnzK5ThHgxZ/dlHtZxP13QA4Uk
+	EgW0IUHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIfXE-0000000BKSD-1QoL;
-	Wed, 04 Dec 2024 02:54:40 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1tIfv5-0000000BN2M-42qA;
+	Wed, 04 Dec 2024 03:19:19 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIfUM-0000000BJwj-1kvc;
-	Wed, 04 Dec 2024 02:51:43 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-7fc41dab8e3so4322388a12.3;
-        Tue, 03 Dec 2024 18:51:42 -0800 (PST)
+	id 1tIfu5-0000000BMrm-0sGO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Dec 2024 03:18:19 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53df80eeeedso6441549e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Dec 2024 19:18:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733280701; x=1733885501; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oEG8+eCQo1MFmYJd+DVWtgBoJTHTnzsQ1C5KFV95jCg=;
-        b=KFcSKqsjL5AHY2nT0/d7/K2meyYat5DhWbK+EboETGZoydx3Ir7Svx0hVc50E8vn04
-         A3qckR+Ve2288syWj7ttA9oTAu7kPTQ/F6FXQAPgl3KenWaEGDaK7kvysNZBYEwQtbsW
-         Tu55AvbX/SvyOk/dgUy9gJ6bKZCx+2ICHcoLxPT/3RSy9sZFdWBfa1mmZ/mlcscs7Tt8
-         63HyLONAGkI2f7eP9B3a0whWWwZcpuZcIJlzqLWBZAlSLjNZlB9uIgdBWHSbp78iCdql
-         4Lc7I3s9WYT8ikEsFZdGglmMUhErAhsakEK5/+elE/E8PWZoapbVlH+xQknuERec0iYc
-         2wag==
+        d=linaro.org; s=google; t=1733282295; x=1733887095; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ov4oIDApdgx4WHS7bE5m2BIEReCDIeuVyAq9ezmep2w=;
+        b=FUblq3kaVGpQ/7JifRvJ2B6QzfMSKwRvDsAk8gJmWis5VaRQXS8Za/5e+ZyBy9eJt/
+         EtkC3ljOpT0lQN5X0nvnFtWhwAhwDuDHbZs1ZTzS4xvZBGZH0oKg/aSbKvANx2tEx5Pd
+         UNMAFlSc1Qh/tijRgNoLinT+SsiWYTN7+hvrBROHu/VmqyGl70layNWDzJ73SxeWSRTP
+         I23e9EQJ36TSXwTYGCR9Qx/Bw34FWCQQopt4w6Y4JFdt/YZCTfbEkj5yW22+MNgSUpzn
+         6+ppAOue5xdOjPE2VAKNZHLeo5CxyRDrcP5QAil0Kek7nJZ6QtwzdOPlQyCLH7LDjWtj
+         cF3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733280701; x=1733885501;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oEG8+eCQo1MFmYJd+DVWtgBoJTHTnzsQ1C5KFV95jCg=;
-        b=ItILB+CXKML2YvfFj29T4DGXps/XzQ/jIFYdX8mbXHbiRqkYEPLT/vzBTdItoNSg3l
-         R+GL2VO4/dUqLpd0YZfwSJP/6BOY7GXtcllPnskY/peE3UidVGxp7le3pasr9mxvK/Tw
-         0T2M9eISb5/vqzRVIJG/lXKYL7UeaakBO/j0FWwFxWX9ZW5DDvtz/kTcbEtMi5g2jjMy
-         YBsSMY/i2ZMIxk2QI19oGJVZ0dIzhtvfEqcv0TG7Ct085jp3l/IRHJltiBqHs/OeiIU0
-         zf91V02sONW+BTSGob51tRnZBWJm5I8/f/O5gMk9Cnu/8b/FnQYZPP61qTFfF2xTVmx/
-         EcFA==
-X-Forwarded-Encrypted: i=1; AJvYcCURvjuTEGgCl77IOvkcgxtKNTti+E/EfqX+xt0q+3Y4/jtZZGBKJDGn0xscPqb8rOe1u8QVv8pQqPQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsuY3PSRDefwPlOC5WE6dOd3sAxjI6pcIXp4JzXSbGMcOKDMU3
-	29QPDQ21ylfEuOMj1ROEzFxGDnDAu0XIF6T1HI1Y/6P97DqVHeJu
-X-Gm-Gg: ASbGncuXPEiIatTTZodDogrs1fITdRsFfCDb/VZFhn9z8Jg5ucFiCNRzFnLuRuR8Lkj
-	1CNRyR2PvJSPh3WBQG8+f57712lxovkUpK/dUhQ+By+aSLjR7pJXbHtj4cyPZnCQwOW8+DgcqTo
-	NSrB5lrNIqtWS0Pd3pOvfCwZ4YIDoIi4bu2Pf2bRulonHWABumzY8joj8GVvETgh9337bM6DuHQ
-	+3OraXW4eGb2gqZ7pWebPNCNEF811oIAMTba3f667waZ3C99l3b6raQLQU53X1p71efVsaHvWIz
-	3V3I0BIF3nJlmS25VJXVk03qYjJvAsYFXXI=
-X-Google-Smtp-Source: AGHT+IHZyXClaUEFL2oYAtc9ugU9ya/RZ47bRtouq4F9krBzpP00zERNGzmm7lsDBQH/737FS6QVRA==
-X-Received: by 2002:a05:6a21:6d85:b0:1e0:e027:2eaf with SMTP id adf61e73a8af0-1e1653c5e18mr6909757637.19.1733280701171;
-        Tue, 03 Dec 2024 18:51:41 -0800 (PST)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7259114ec35sm74543b3a.126.2024.12.03.18.51.38
+        d=1e100.net; s=20230601; t=1733282295; x=1733887095;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ov4oIDApdgx4WHS7bE5m2BIEReCDIeuVyAq9ezmep2w=;
+        b=KreEV51P0s56GcZen2Id28xOhAdoqhOYvRmw5bY28Oe7moFuRiq1sUTcJSY2UrTL0P
+         bKUPJS7jEJHiR1Pdi/Cf3ZUvDSq+NFb9mzK5w/TMfjHY94KdoAlmkdUlYu2DPfOz8uDh
+         nWZ1mJ0khpwEgS6hXb6F74sR1P6mPqsg6wE+2TVSFr9B2Qxdd1b3xlyW62fkpiXAsZGm
+         JnYJUL2Z1EIdlAY2bVcGSSbT1YVaqiT2qGgFWzy9Tnd/M/8+wbLdxc22CYB82g5nuLo9
+         L2TV8kJdFYDuvTUVWqVZoXVP/YZULqSHNlml39imNlBhfGtkyd/H+GHYcpOvCDkb5s/W
+         NsMg==
+X-Forwarded-Encrypted: i=1; AJvYcCU7D0eeQcV30c6KhrRZTFpOX+wdxNa/k8ljr5T5YTUvSqcMR6no3tEwKk+8nul2HT9aXfMutBHy8kigf5jVI5ws@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLWorSYwdhrAOkpa+ly5F2Z3g/LubLlJrGdpiVQeVZigY3Rs+Y
+	0Q7ld/vVuVuG0XGPVEwuBot6V/zs/EC4xgT6pfMxC7OILPV6a+olEq4slrdUUiY=
+X-Gm-Gg: ASbGncskibh1tvTApCN0ffxj1nBYLyGFnh8ELJ/8nMBw8wuMTKFBfoFRZKVuMHO/G9H
+	WcX4farlJ7/Sq7NaxdONb8TVzdIiaHU+bRbWRjOX6HVNU5KpO2jhv2ve6+yd15KAikzVPodG69P
+	/XW9Nf/O03BARgwZHsuMaiKv2+56MpG2ikpxyOuuRWuzmrNxpFqrAzcRS7rPXwr53yASPeRs/KY
+	CRYdTUKxkg02eQFxYJT+mWaKLolZku7/8TSoS/oAzVWTro2MqH8SPiocXChOfkoh/1E5v0FTGk2
+	14snWR1kVuCmfbQHXJE49Rmite8o8Q==
+X-Google-Smtp-Source: AGHT+IFJX8QZfHrEBC9Xxxj95DpGajpX3DiwA7TRxy/4ydOL7I3C5fwKfR6CJxAdfz87Jxn9zNInqQ==
+X-Received: by 2002:a05:6512:3a8e:b0:53d:a550:2885 with SMTP id 2adb3069b0e04-53e12a34282mr2179215e87.47.1733282295266;
+        Tue, 03 Dec 2024 19:18:15 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53df649f13csm2058532e87.230.2024.12.03.19.18.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Dec 2024 18:51:40 -0800 (PST)
-From: Hui-Ping Chen <hpchen0nvt@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	nikita.shubin@maquefel.me,
-	arnd@arndb.de,
-	vkoul@kernel.org,
-	esben@geanix.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hui-Ping Chen <hpchen0nvt@gmail.com>
-Subject: [PATCH v10 2/2] mtd: rawnand: nuvoton: add new driver for the Nuvoton MA35 SoC
-Date: Wed,  4 Dec 2024 02:51:29 +0000
-Message-Id: <20241204025129.150525-3-hpchen0nvt@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241204025129.150525-1-hpchen0nvt@gmail.com>
-References: <20241204025129.150525-1-hpchen0nvt@gmail.com>
+        Tue, 03 Dec 2024 19:18:14 -0800 (PST)
+Date: Wed, 4 Dec 2024 05:18:11 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Jani Nikula <jani.nikula@linux.intel.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v5 7/9] drm/bridge_connector: hook
+ drm_atomic_helper_connector_hdmi_update_edid()
+Message-ID: <txzri7x4pdeakx4juandk3hfhsbx3dhlulxfuehqlmrr7b3wpw@jaunqktsro6x>
+References: <20241201-drm-bridge-hdmi-connector-v5-0-b5316e82f61a@linaro.org>
+ <20241201-drm-bridge-hdmi-connector-v5-7-b5316e82f61a@linaro.org>
+ <87a5dc4zd5.fsf@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87a5dc4zd5.fsf@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_185142_474681_380F2757 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20241203_191817_260547_6B9BE145 
+X-CRM114-Status: GOOD (  36.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,1089 +118,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nuvoton MA35 SoCs NAND Flash Interface Controller
-supports 2kiB, 4kiB and 8kiB page size, and up to
-8-bit, 12-bit, and 24-bit hardware ECC calculation
-circuit to protect data.
+On Tue, Dec 03, 2024 at 04:25:58PM +0200, Jani Nikula wrote:
+> On Sun, 01 Dec 2024, Dmitry Baryshkov <dmitry.baryshkov@linaro.org> wrote:
+> > Extend drm_bridge_connector code to read the EDID and use it to update
+> > connector status if the bridge chain implements HDMI bridge. Performing
+> > it from the generic location minimizes individual bridge's code and
+> > enforces standard behaviour from all corresponding drivers.
+> >
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > ---
+> >  drivers/gpu/drm/display/drm_bridge_connector.c | 67 ++++++++++++++++++++------
+> >  1 file changed, 53 insertions(+), 14 deletions(-)
+> >
+> > diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+> > index 12ab9f14cc8a8672478ae2804c9a68d766d88ea5..71ae3b2c9049016d1cc0d39a787f6461633efd53 100644
+> > --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> > +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> > @@ -17,6 +17,7 @@
+> >  #include <drm/drm_edid.h>
+> >  #include <drm/drm_managed.h>
+> >  #include <drm/drm_modeset_helper_vtables.h>
+> > +#include <drm/drm_print.h>
+> >  #include <drm/drm_probe_helper.h>
+> >  #include <drm/display/drm_hdmi_state_helper.h>
+> >  
+> > @@ -175,17 +176,55 @@ static void drm_bridge_connector_disable_hpd(struct drm_connector *connector)
+> >   * Bridge Connector Functions
+> >   */
+> >  
+> > +static const struct drm_edid *
+> > +drm_bridge_connector_read_edid(struct drm_connector *connector,
+> > +			       enum drm_connector_status status)
+> > +{
+> > +	struct drm_bridge_connector *bridge_connector =
+> > +		to_drm_bridge_connector(connector);
+> > +	const struct drm_edid *drm_edid;
+> > +	struct drm_bridge *bridge;
+> > +
+> > +	bridge = bridge_connector->bridge_edid;
+> > +	if (!bridge)
+> > +		return NULL;
+> > +
+> > +	if (status != connector_status_connected)
+> > +		return NULL;
+> > +
+> > +	drm_edid = drm_bridge_edid_read(bridge, connector);
+> > +	if (!drm_edid_valid(drm_edid)) {
+> 
+> What's the case this check is for?
+> 
+> My preference would be that bridge->funcs->edid_read() uses
+> drm_edid_read*() family of functions that do the checks and return the
+> EDID.
+> 
+> There are some cases that just allocate a blob and return it. Would be
+> nice if they could be converted, but in the mean time could use
+> drm_edid_valid() right there. Additional validity checks are redundant.
 
-Signed-off-by: Hui-Ping Chen <hpchen0nvt@gmail.com>
----
- drivers/mtd/nand/raw/Kconfig                  |    8 +
- drivers/mtd/nand/raw/Makefile                 |    1 +
- .../nand/raw/nuvoton-ma35d1-nand-controller.c | 1032 +++++++++++++++++
- 3 files changed, 1041 insertions(+)
- create mode 100644 drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
+This was c&p from drm_bridge_connector_get_modes_edid(). If you think
+that the check is redundant, could you please send a patch dropping the
+check?
 
-diff --git a/drivers/mtd/nand/raw/Kconfig b/drivers/mtd/nand/raw/Kconfig
-index d0aaccf72d78..e3677bcaf035 100644
---- a/drivers/mtd/nand/raw/Kconfig
-+++ b/drivers/mtd/nand/raw/Kconfig
-@@ -454,6 +454,14 @@ config MTD_NAND_TS72XX
- 	help
- 	  Enables support for NAND controller on ts72xx SBCs.
- 
-+config MTD_NAND_NUVOTON_MA35
-+	tristate "Nuvoton MA35 SoC NAND controller"
-+	depends on ARCH_MA35 || COMPILE_TEST
-+	depends on OF
-+	help
-+	  Enables support for the NAND controller found on
-+	  the Nuvoton MA35 series SoCs.
-+
- comment "Misc"
- 
- config MTD_SM_COMMON
-diff --git a/drivers/mtd/nand/raw/Makefile b/drivers/mtd/nand/raw/Makefile
-index d0b0e6b83568..99e79c448847 100644
---- a/drivers/mtd/nand/raw/Makefile
-+++ b/drivers/mtd/nand/raw/Makefile
-@@ -58,6 +58,7 @@ obj-$(CONFIG_MTD_NAND_INTEL_LGM)	+= intel-nand-controller.o
- obj-$(CONFIG_MTD_NAND_ROCKCHIP)		+= rockchip-nand-controller.o
- obj-$(CONFIG_MTD_NAND_PL35X)		+= pl35x-nand-controller.o
- obj-$(CONFIG_MTD_NAND_RENESAS)		+= renesas-nand-controller.o
-+obj-$(CONFIG_MTD_NAND_NUVOTON_MA35)	+= nuvoton-ma35d1-nand-controller.o
- 
- nand-objs := nand_base.o nand_legacy.o nand_bbt.o nand_timings.o nand_ids.o
- nand-objs += nand_onfi.o
-diff --git a/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c b/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
-new file mode 100644
-index 000000000000..d8d830cd6823
---- /dev/null
-+++ b/drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c
-@@ -0,0 +1,1032 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2024 Nuvoton Technology Corp.
-+ */
-+#include <linux/clk.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/err.h>
-+#include <linux/init.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/mtd/mtd.h>
-+#include <linux/mtd/partitions.h>
-+#include <linux/mtd/rawnand.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+/* NFI Registers */
-+#define MA35_NFI_REG_DMACTL		0x400
-+#define   DMA_EN				BIT(0)
-+#define   DMA_RST				BIT(1)
-+#define   DMA_BUSY				BIT(9)
-+
-+#define MA35_NFI_REG_DMASA		0x408
-+#define MA35_NFI_REG_GCTL		0x800
-+#define   GRST					BIT(0)
-+#define   NAND_EN				BIT(3)
-+
-+#define MA35_NFI_REG_NANDCTL		0x8A0
-+#define   SWRST				BIT(0)
-+#define   DMA_R_EN				BIT(1)
-+#define   DMA_W_EN				BIT(2)
-+#define   ECC_CHK				BIT(7)
-+#define   PROT3BEN				BIT(8)
-+#define   PSIZE_2K				BIT(16)
-+#define   PSIZE_4K				BIT(17)
-+#define   PSIZE_8K				GENMASK(17, 16)
-+#define   PSIZE_MASK				GENMASK(17, 16)
-+#define   BCH_T24				BIT(18)
-+#define   BCH_T8				BIT(20)
-+#define   BCH_T12				BIT(21)
-+#define   BCH_NONE				(0x0)
-+#define   BCH_MASK				GENMASK(22, 18)
-+#define   ECC_EN				BIT(23)
-+#define   DISABLE_CS0				BIT(25)
-+
-+#define MA35_NFI_REG_NANDINTEN	0x8A8
-+#define MA35_NFI_REG_NANDINTSTS	0x8AC
-+#define   INT_DMA				BIT(0)
-+#define   INT_ECC				BIT(2)
-+#define   INT_RB0				BIT(10)
-+
-+#define MA35_NFI_REG_NANDCMD		0x8B0
-+#define MA35_NFI_REG_NANDADDR		0x8B4
-+#define   ENDADDR				BIT(31)
-+
-+#define MA35_NFI_REG_NANDDATA		0x8B8
-+#define MA35_NFI_REG_NANDRACTL	0x8BC
-+#define MA35_NFI_REG_NANDECTL		0x8C0
-+#define   ENABLE_WP				0x0
-+#define   DISABLE_WP				BIT(0)
-+
-+#define MA35_NFI_REG_NANDECCES0	0x8D0
-+#define   ECC_STATUS_MASK			GENMASK(1, 0)
-+#define   ECC_ERR_CNT_MASK			GENMASK(4, 0)
-+
-+#define MA35_NFI_REG_NANDECCEA0	0x900
-+#define MA35_NFI_REG_NANDECCED0	0x960
-+#define MA35_NFI_REG_NANDRA0		0xA00
-+
-+/* Define for the BCH hardware ECC engine */
-+/* define the total padding bytes for 512/1024 data segment */
-+#define MA35_BCH_PADDING_512	32
-+#define MA35_BCH_PADDING_1024	64
-+/* define the BCH parity code length for 512 bytes data pattern */
-+#define MA35_PARITY_BCH8	15
-+#define MA35_PARITY_BCH12	23
-+/* define the BCH parity code length for 1024 bytes data pattern */
-+#define MA35_PARITY_BCH24	45
-+
-+#define MA35_MAX_NSELS		(2)
-+#define PREFIX_RA_IS_EMPTY(reg)	FIELD_GET(GENMASK(31, 16), (reg))
-+
-+struct ma35_nand_chip {
-+	struct list_head node;
-+	struct nand_chip chip;
-+
-+	u32 eccstatus;
-+	u8 nsels;
-+	u8 sels[] __counted_by(nsels);
-+};
-+
-+struct ma35_nand_info {
-+	struct nand_controller controller;
-+	struct device *dev;
-+	void __iomem *regs;
-+	int irq;
-+	struct clk *clk;
-+	struct completion complete;
-+	struct list_head chips;
-+
-+	u8 *buffer;
-+	unsigned long assigned_cs;
-+};
-+
-+static inline struct ma35_nand_chip *to_ma35_nand(struct nand_chip *chip)
-+{
-+	return container_of(chip, struct ma35_nand_chip, chip);
-+}
-+
-+static int ma35_ooblayout_ecc(struct mtd_info *mtd, int section,
-+			      struct mtd_oob_region *oob_region)
-+{
-+	struct nand_chip *chip = mtd_to_nand(mtd);
-+
-+	if (section)
-+		return -ERANGE;
-+
-+	oob_region->length = chip->ecc.total;
-+	oob_region->offset = mtd->oobsize - oob_region->length;
-+
-+	return 0;
-+}
-+
-+static int ma35_ooblayout_free(struct mtd_info *mtd, int section,
-+			       struct mtd_oob_region *oob_region)
-+{
-+	struct nand_chip *chip = mtd_to_nand(mtd);
-+
-+	if (section)
-+		return -ERANGE;
-+
-+	oob_region->length = mtd->oobsize - chip->ecc.total - 2;
-+	oob_region->offset = 2;
-+
-+	return 0;
-+}
-+
-+static const struct mtd_ooblayout_ops ma35_ooblayout_ops = {
-+	.free = ma35_ooblayout_free,
-+	.ecc = ma35_ooblayout_ecc,
-+};
-+
-+static inline void ma35_clear_spare(struct nand_chip *chip, int size)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	int i;
-+
-+	for (i = 0; i < size / 4; i++)
-+		writel(0xff, nand->regs + MA35_NFI_REG_NANDRA0);
-+}
-+
-+static inline void read_remaining_bytes(struct ma35_nand_info *nand, u32 *buf,
-+					u32 offset, int size, int swap)
-+{
-+	u32 value = readl(nand->regs + MA35_NFI_REG_NANDRA0 + offset);
-+	u8 *ptr = (u8 *)buf;
-+	int i, shift;
-+
-+	for (i = 0; i < size; i++) {
-+		shift = (swap ? 3 - i : i) * 8;
-+		ptr[i] = (value >> shift) & 0xff;
-+	}
-+}
-+
-+static inline void ma35_read_spare(struct nand_chip *chip, int size, u32 *buf, u32 offset)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	u32 off = round_down(offset, 4);
-+	int len = offset % 4;
-+	int i;
-+
-+	if (len) {
-+		read_remaining_bytes(nand, buf, off, 4 - len, 1);
-+		off += 4;
-+		size -= (4 - len);
-+	}
-+
-+	for (i = 0; i < size / 4; i++)
-+		*buf++ = readl(nand->regs + MA35_NFI_REG_NANDRA0 + off + (i * 4));
-+
-+	read_remaining_bytes(nand, buf, off + (size & ~3), size % 4, 0);
-+}
-+
-+static inline void ma35_write_spare(struct nand_chip *chip, int size, u32 *buf)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	u32 value;
-+	int i, j;
-+	u8 *ptr;
-+
-+	for (i = 0, j = 0; i < size / 4; i++, j += 4)
-+		writel(*buf++, nand->regs + MA35_NFI_REG_NANDRA0 + j);
-+
-+	ptr = (u8 *)buf;
-+	switch (size % 4) {
-+	case 1:
-+		writel(*ptr, nand->regs + MA35_NFI_REG_NANDRA0 + j);
-+		break;
-+	case 2:
-+		value = *ptr | (*(ptr+1) << 8);
-+		writel(value, nand->regs + MA35_NFI_REG_NANDRA0 + j);
-+		break;
-+	case 3:
-+		value = *ptr | (*(ptr+1) << 8) | (*(ptr+2) << 16);
-+		writel(value, nand->regs + MA35_NFI_REG_NANDRA0 + j);
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
-+static void ma35_nand_target_enable(struct nand_chip *chip, unsigned int cs)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	u32 reg;
-+
-+	switch (cs) {
-+	case 0:
-+		reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+		writel(reg & ~DISABLE_CS0, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+		reg = readl(nand->regs + MA35_NFI_REG_NANDINTSTS);
-+		reg |= INT_RB0;
-+		writel(reg, nand->regs + MA35_NFI_REG_NANDINTSTS);
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
-+static int ma35_nand_hwecc_init(struct nand_chip *chip, struct ma35_nand_info *nand)
-+{
-+	struct ma35_nand_chip *nvtnand = to_ma35_nand(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct device *dev = mtd->dev.parent;
-+	u32 reg;
-+
-+	nand->buffer = devm_kzalloc(dev, mtd->writesize, GFP_KERNEL);
-+	if (!nand->buffer)
-+		return -ENOMEM;
-+
-+	/* Redundant area size */
-+	writel(mtd->oobsize, nand->regs + MA35_NFI_REG_NANDRACTL);
-+
-+	/* Protect redundant 3 bytes and disable ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	reg |= (PROT3BEN | ECC_CHK);
-+	reg &= ~ECC_EN;
-+
-+	if (chip->ecc.strength != 0) {
-+		chip->ecc.steps = mtd->writesize / chip->ecc.size;
-+		nvtnand->eccstatus = (chip->ecc.steps < 4) ? 1 : chip->ecc.steps / 4;
-+		/* Set BCH algorithm */
-+		reg &= ~BCH_MASK;
-+		switch (chip->ecc.strength) {
-+		case 8:
-+			chip->ecc.total = chip->ecc.steps * MA35_PARITY_BCH8;
-+			reg |= BCH_T8;
-+			break;
-+		case 12:
-+			chip->ecc.total = chip->ecc.steps * MA35_PARITY_BCH12;
-+			reg |= BCH_T12;
-+			break;
-+		case 24:
-+			chip->ecc.total = chip->ecc.steps * MA35_PARITY_BCH24;
-+			reg |= BCH_T24;
-+			break;
-+		default:
-+			dev_err(nand->dev, "ECC strength unsupported\n");
-+			return -EINVAL;
-+		}
-+
-+		chip->ecc.bytes = chip->ecc.total / chip->ecc.steps;
-+	}
-+	writel(reg, nand->regs + MA35_NFI_REG_NANDCTL);
-+	return 0;
-+}
-+
-+/* Correct data by BCH alrogithm */
-+static void ma35_nfi_correct(struct nand_chip *chip, u8 index,
-+				u8 err_cnt, u8 *addr)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	u32 temp_data[24], temp_addr[24];
-+	u32 padding_len, parity_len;
-+	u32 value, offset, remain;
-+	u32 err_data[6];
-+	u8  i, j;
-+
-+	/* Configurations */
-+	if (chip->ecc.strength <= 8) {
-+		parity_len = MA35_PARITY_BCH8;
-+		padding_len = MA35_BCH_PADDING_512;
-+	} else if (chip->ecc.strength <= 12) {
-+		parity_len = MA35_PARITY_BCH12;
-+		padding_len = MA35_BCH_PADDING_512;
-+	} else if (chip->ecc.strength <= 24) {
-+		parity_len = MA35_PARITY_BCH24;
-+		padding_len = MA35_BCH_PADDING_1024;
-+	} else {
-+		dev_err(nand->dev, "Invalid BCH_TSEL = 0x%lx\n",
-+			readl(nand->regs + MA35_NFI_REG_NANDCTL) & BCH_MASK);
-+		return;
-+	}
-+
-+	/*
-+	 * got valid BCH_ECC_DATAx and parse them to temp_data[]
-+	 * got the valid register number of BCH_ECC_DATAx since
-+	 * one register include 4 error bytes
-+	 */
-+	j = (err_cnt + 3) / 4;
-+	j = (j > 6) ? 6 : j;
-+	for (i = 0; i < j; i++)
-+		err_data[i] = readl(nand->regs + MA35_NFI_REG_NANDECCED0 + i * 4);
-+
-+	for (i = 0; i < j; i++) {
-+		temp_data[i*4+0] = err_data[i] & 0xff;
-+		temp_data[i*4+1] = (err_data[i] >> 8) & 0xff;
-+		temp_data[i*4+2] = (err_data[i] >> 16) & 0xff;
-+		temp_data[i*4+3] = (err_data[i] >> 24) & 0xff;
-+	}
-+
-+	/*
-+	 * got valid REG_BCH_ECC_ADDRx and parse them to temp_addr[]
-+	 * got the valid register number of REG_BCH_ECC_ADDRx since
-+	 * one register include 2 error addresses
-+	 */
-+	j = (err_cnt + 1) / 2;
-+	j = (j > 12) ? 12 : j;
-+	for (i = 0; i < j; i++) {
-+		temp_addr[i*2+0] = readl(nand->regs + MA35_NFI_REG_NANDECCEA0 + i * 4)
-+					& 0x07ff;
-+		temp_addr[i*2+1] = (readl(nand->regs + MA35_NFI_REG_NANDECCEA0 + i * 4)
-+					>> 16) & 0x07ff;
-+	}
-+
-+	/* pointer to begin address of field that with data error */
-+	addr += index * chip->ecc.size;
-+
-+	/* correct each error bytes */
-+	for (i = 0; i < err_cnt; i++) {
-+		u32 corrected_index = temp_addr[i];
-+
-+		/* for wrong data in field */
-+		if (corrected_index < chip->ecc.size)
-+			*(addr + corrected_index) ^= temp_data[i];
-+
-+		/* for wrong first-3-bytes in redundancy area */
-+		else if (corrected_index < (chip->ecc.size + 3)) {
-+			corrected_index -= chip->ecc.size;
-+			temp_addr[i] += (parity_len * index);	/* field offset */
-+
-+			value = readl(nand->regs + MA35_NFI_REG_NANDRA0);
-+			value ^= temp_data[i] << (8 * corrected_index);
-+			writel(value, nand->regs + MA35_NFI_REG_NANDRA0);
-+		}
-+		/*
-+		 * for wrong parity code in redundancy area
-+		 * BCH_ERR_ADDRx = [data in field] + [3 bytes] + [xx] + [parity code]
-+		 *                                   |<--     padding bytes      -->|
-+		 * The BCH_ERR_ADDRx for last parity code always = field size + padding size.
-+		 * So, the first parity code = field size + padding size - parity code length.
-+		 * For example, for BCH T12, the first parity code = 512 + 32 - 23 = 521.
-+		 * That is, error byte address offset within field is
-+		 */
-+		else {
-+			corrected_index -= (chip->ecc.size + padding_len - parity_len);
-+
-+			/*
-+			 * final address = first parity code of first field +
-+			 *                 offset of fields +
-+			 *                 offset within field
-+			 */
-+			offset = (readl(nand->regs + MA35_NFI_REG_NANDRACTL) & 0x1ff) -
-+				(parity_len * chip->ecc.steps) +
-+				(parity_len * index) + corrected_index;
-+
-+			remain = offset % 4;
-+			value = readl(nand->regs + MA35_NFI_REG_NANDRA0 + offset - remain);
-+			value ^= temp_data[i] << (8 * remain);
-+			writel(value, nand->regs + MA35_NFI_REG_NANDRA0 + offset - remain);
-+		}
-+	}
-+}
-+
-+static int ma35_nfi_ecc_check(struct nand_chip *chip, u8 *addr)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct ma35_nand_chip *nvtnand = to_ma35_nand(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	int maxbitflips = 0;
-+	int cnt = 0;
-+	u32 status;
-+	int i, j;
-+
-+	for (j = 0; j < nvtnand->eccstatus; j++) {
-+		status = readl(nand->regs + MA35_NFI_REG_NANDECCES0 + j * 4);
-+		if (!status)
-+			continue;
-+
-+		for (i = 0; i < 4; i++) {
-+			if ((status & ECC_STATUS_MASK) == 0x01) {
-+				/* Correctable error */
-+				cnt = (status >> 2) & ECC_ERR_CNT_MASK;
-+				ma35_nfi_correct(chip, j * 4 + i, cnt, addr);
-+				maxbitflips = max_t(u32, maxbitflips, cnt);
-+				mtd->ecc_stats.corrected += cnt;
-+			} else {
-+				/* Uncorrectable error */
-+				mtd->ecc_stats.failed++;
-+				dev_err(nand->dev, "uncorrectable error! 0x%4x\n", status);
-+				return -EBADMSG;
-+			}
-+			status >>= 8;
-+		}
-+	}
-+	return maxbitflips;
-+}
-+
-+static void ma35_nand_dmac_init(struct ma35_nand_info *nand)
-+{
-+	/* DMAC reset and enable */
-+	writel(DMA_RST | DMA_EN, nand->regs + MA35_NFI_REG_DMACTL);
-+	writel(DMA_EN, nand->regs + MA35_NFI_REG_DMACTL);
-+
-+	/* Clear DMA finished flag and enable */
-+	writel(INT_DMA | INT_ECC, nand->regs + MA35_NFI_REG_NANDINTSTS);
-+	writel(INT_DMA, nand->regs + MA35_NFI_REG_NANDINTEN);
-+}
-+
-+static int ma35_nand_do_write(struct nand_chip *chip, const u8 *addr, u32 len)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	dma_addr_t dma_addr;
-+	int ret = 0, i;
-+	u32 reg;
-+
-+	if (len != mtd->writesize) {
-+		for (i = 0; i < len; i++)
-+			writel(addr[i], nand->regs + MA35_NFI_REG_NANDDATA);
-+		return 0;
-+	}
-+
-+	ma35_nand_dmac_init(nand);
-+
-+	/* To mark this page as dirty. */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDRA0);
-+	if (reg & 0xffff0000)
-+		writel(reg & 0xffff, nand->regs + MA35_NFI_REG_NANDRA0);
-+
-+	dma_addr = dma_map_single(nand->dev, (void *)addr, len, DMA_TO_DEVICE);
-+	ret = dma_mapping_error(nand->dev, dma_addr);
-+	if (ret) {
-+		dev_err(nand->dev, "dma mapping error\n");
-+		return -EINVAL;
-+	}
-+	dma_sync_single_for_device(nand->dev, dma_addr, len, DMA_TO_DEVICE);
-+
-+	reinit_completion(&nand->complete);
-+	writel(dma_addr, nand->regs + MA35_NFI_REG_DMASA);
-+	writel(readl(nand->regs + MA35_NFI_REG_NANDCTL) | DMA_W_EN,
-+		nand->regs + MA35_NFI_REG_NANDCTL);
-+	ret = wait_for_completion_timeout(&nand->complete, msecs_to_jiffies(1000));
-+	if (!ret) {
-+		dev_err(nand->dev, "write timeout\n");
-+		ret = -ETIMEDOUT;
-+	}
-+
-+	dma_unmap_single(nand->dev, dma_addr, len, DMA_TO_DEVICE);
-+
-+	return ret;
-+}
-+
-+static int ma35_nand_do_read(struct nand_chip *chip, u8 *addr, u32 len)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	int ret = 0, cnt = 0, i;
-+	dma_addr_t dma_addr;
-+	u32 reg;
-+
-+	if (len != mtd->writesize) {
-+		for (i = 0; i < len; i++)
-+			addr[i] = readb(nand->regs + MA35_NFI_REG_NANDDATA);
-+		return 0;
-+	}
-+
-+	ma35_nand_dmac_init(nand);
-+
-+	/* Setup and start DMA using dma_addr */
-+	dma_addr = dma_map_single(nand->dev, (void *)addr, len, DMA_FROM_DEVICE);
-+	ret = dma_mapping_error(nand->dev, dma_addr);
-+	if (ret) {
-+		dev_err(nand->dev, "dma mapping error\n");
-+		return -EINVAL;
-+	}
-+
-+	reinit_completion(&nand->complete);
-+	writel(dma_addr, nand->regs + MA35_NFI_REG_DMASA);
-+	writel(readl(nand->regs + MA35_NFI_REG_NANDCTL) | DMA_R_EN,
-+		nand->regs + MA35_NFI_REG_NANDCTL);
-+	ret = wait_for_completion_timeout(&nand->complete, msecs_to_jiffies(1000));
-+	if (!ret) {
-+		dev_err(nand->dev, "read timeout\n");
-+		ret = -ETIMEDOUT;
-+	}
-+
-+	dma_unmap_single(nand->dev, dma_addr, len, DMA_FROM_DEVICE);
-+
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDINTSTS);
-+	if (reg & INT_ECC) {
-+		cnt = ma35_nfi_ecc_check(chip, addr);
-+		if (cnt < 0) {
-+			writel(DMA_RST | DMA_EN, nand->regs + MA35_NFI_REG_DMACTL);
-+			writel(readl(nand->regs + MA35_NFI_REG_NANDCTL) | SWRST,
-+				nand->regs + MA35_NFI_REG_NANDCTL);
-+		}
-+		writel(INT_ECC, nand->regs + MA35_NFI_REG_NANDINTSTS);
-+	}
-+
-+	ret = ret < 0 ? ret : cnt;
-+	return ret;
-+}
-+
-+static int ma35_nand_format_subpage(struct nand_chip *chip, u32 offset,
-+					u32 len, const u8 *buf)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	u32 page_off = round_down(offset, chip->ecc.size);
-+	u32 end = DIV_ROUND_UP(page_off + len, chip->ecc.size);
-+	u32 start = page_off / chip->ecc.size;
-+	u32 reg;
-+	int i;
-+
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDRACTL) | 0xffff0000;
-+	memset(nand->buffer, 0xff, mtd->writesize);
-+	for (i = start; i < end; i++) {
-+		memcpy(nand->buffer + i * chip->ecc.size,
-+			buf + i * chip->ecc.size,
-+			chip->ecc.size);
-+		reg &= ~(1 << (i + 16));
-+	}
-+	writel(reg, nand->regs + MA35_NFI_REG_NANDRACTL);
-+
-+	return 0;
-+}
-+
-+static int ma35_nand_write_subpage_hwecc(struct nand_chip *chip, u32 offset,
-+					u32 data_len, const u8 *buf,
-+					int oob_required, int page)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	u32 reg, oobpoi, index;
-+	int i;
-+
-+	/* Enable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg | ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	ma35_nand_target_enable(chip, chip->cur_cs);
-+
-+	ma35_clear_spare(chip, mtd->oobsize);
-+	ma35_write_spare(chip, mtd->oobsize - chip->ecc.total,
-+			(u32 *)chip->oob_poi);
-+
-+	ma35_nand_format_subpage(chip, offset, data_len, buf);
-+	nand_prog_page_begin_op(chip, page, 0, NULL, 0);
-+	ma35_nand_do_write(chip, nand->buffer, mtd->writesize);
-+	nand_prog_page_end_op(chip);
-+
-+	oobpoi = mtd->oobsize - chip->ecc.total;
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDRACTL);
-+	for (i = 0; i < chip->ecc.steps; i++) {
-+		index = i * chip->ecc.bytes;
-+		if (!(reg & (1 << (i + 16)))) {
-+			ma35_read_spare(chip, chip->ecc.bytes,
-+					(u32 *)(chip->oob_poi + oobpoi + index),
-+					oobpoi + index);
-+		}
-+	}
-+
-+	writel(mtd->oobsize, nand->regs + MA35_NFI_REG_NANDRACTL);
-+	/* Disable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg & ~ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	return 0;
-+}
-+
-+static int ma35_nand_write_page_hwecc(struct nand_chip *chip, const u8 *buf,
-+				      int oob_required, int page)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	u32 reg;
-+
-+	/* Enable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg | ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	ma35_nand_target_enable(chip, chip->cur_cs);
-+
-+	ma35_clear_spare(chip, mtd->oobsize);
-+	ma35_write_spare(chip, mtd->oobsize - chip->ecc.total,
-+			(u32 *)chip->oob_poi);
-+
-+	nand_prog_page_begin_op(chip, page, 0, NULL, 0);
-+	ma35_nand_do_write(chip, buf, mtd->writesize);
-+	nand_prog_page_end_op(chip);
-+
-+	ma35_read_spare(chip, chip->ecc.total,
-+			(u32 *)(chip->oob_poi + (mtd->oobsize - chip->ecc.total)),
-+			mtd->oobsize - chip->ecc.total);
-+
-+	/* Disable HW ECC engine */
-+	writel(reg & ~ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	return 0;
-+}
-+
-+static int ma35_nand_read_subpage_hwecc(struct nand_chip *chip, u32 offset,
-+					u32 data_len, u8 *buf, int page)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	int bitflips = 0;
-+	u32 reg;
-+
-+	/* Enable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg | ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	ma35_nand_target_enable(chip, chip->cur_cs);
-+	nand_read_oob_op(chip, page, 0, chip->oob_poi, mtd->oobsize);
-+	ma35_write_spare(chip, mtd->oobsize, (u32 *)chip->oob_poi);
-+
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDRA0);
-+	if (PREFIX_RA_IS_EMPTY(reg)) {
-+		memset((void *)buf, 0xff, mtd->writesize);
-+	} else {
-+		nand_read_page_op(chip, page, offset, NULL, 0);
-+		bitflips = ma35_nand_do_read(chip, buf + offset, data_len);
-+		ma35_read_spare(chip, mtd->oobsize, (u32 *)chip->oob_poi, 0);
-+	}
-+
-+	/* Disable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg & ~ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	return bitflips;
-+}
-+
-+static int ma35_nand_read_page_hwecc(struct nand_chip *chip, u8 *buf,
-+					int oob_required, int page)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	int bitflips = 0;
-+	u32 reg;
-+
-+	/* Enable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg | ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	ma35_nand_target_enable(chip, chip->cur_cs);
-+	nand_read_oob_op(chip, page, 0, chip->oob_poi, mtd->oobsize);
-+	ma35_write_spare(chip, mtd->oobsize, (u32 *)chip->oob_poi);
-+
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDRA0);
-+	if (PREFIX_RA_IS_EMPTY(reg)) {
-+		memset((void *)buf, 0xff, mtd->writesize);
-+	} else {
-+		nand_read_page_op(chip, page, 0, NULL, 0);
-+		bitflips = ma35_nand_do_read(chip, buf, mtd->writesize);
-+		ma35_read_spare(chip, mtd->oobsize, (u32 *)chip->oob_poi, 0);
-+	}
-+
-+	/* Disable HW ECC engine */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	writel(reg & ~ECC_EN, nand->regs + MA35_NFI_REG_NANDCTL);
-+
-+	return bitflips;
-+}
-+
-+static int ma35_nand_read_oob_hwecc(struct nand_chip *chip, int page)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	u32 reg;
-+
-+	ma35_nand_target_enable(chip, chip->cur_cs);
-+	nand_read_oob_op(chip, page, 0, chip->oob_poi, mtd->oobsize);
-+
-+	/* copy OOB data to controller redundant area for page read */
-+	ma35_write_spare(chip, mtd->oobsize, (u32 *)chip->oob_poi);
-+
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDRA0);
-+	if (PREFIX_RA_IS_EMPTY(reg))
-+		memset((void *)chip->oob_poi, 0xff, mtd->oobsize);
-+
-+	return 0;
-+}
-+
-+static inline void ma35_hw_init(struct ma35_nand_info *nand)
-+{
-+	u32 reg;
-+
-+	/* Disable flash wp. */
-+	writel(DISABLE_WP, nand->regs + MA35_NFI_REG_NANDECTL);
-+
-+	/* resets the internal state machine and counters */
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL);
-+	reg |= SWRST;
-+	writel(reg, nand->regs + MA35_NFI_REG_NANDCTL);
-+}
-+
-+static irqreturn_t ma35_nand_irq(int irq, void *id)
-+{
-+	struct ma35_nand_info *nand = (struct ma35_nand_info *)id;
-+	u32 isr;
-+
-+	isr = readl(nand->regs + MA35_NFI_REG_NANDINTSTS);
-+	if (isr & INT_DMA) {
-+		writel(INT_DMA, nand->regs + MA35_NFI_REG_NANDINTSTS);
-+		complete(&nand->complete);
-+		return IRQ_HANDLED;
-+	}
-+
-+	return IRQ_NONE;
-+}
-+
-+static int ma35_nand_attach_chip(struct nand_chip *chip)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct device *dev = mtd->dev.parent;
-+	u32 reg;
-+
-+	if (chip->options & NAND_BUSWIDTH_16) {
-+		dev_err(dev, "16 bits bus width not supported");
-+		return -EINVAL;
-+	}
-+
-+	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL) & (~PSIZE_MASK);
-+	switch (mtd->writesize) {
-+	case SZ_2K:
-+		writel(reg | PSIZE_2K, nand->regs + MA35_NFI_REG_NANDCTL);
-+		break;
-+	case SZ_4K:
-+		writel(reg | PSIZE_4K, nand->regs + MA35_NFI_REG_NANDCTL);
-+		break;
-+	case SZ_8K:
-+		writel(reg | PSIZE_8K, nand->regs + MA35_NFI_REG_NANDCTL);
-+		break;
-+	default:
-+		dev_err(dev, "Unsupported page size");
-+		return -EINVAL;
-+	}
-+
-+	switch (chip->ecc.engine_type) {
-+	case NAND_ECC_ENGINE_TYPE_ON_HOST:
-+		/* Do not store BBT bits in the OOB section as it is not protected */
-+		if (chip->bbt_options & NAND_BBT_USE_FLASH)
-+			chip->bbt_options |= NAND_BBT_NO_OOB;
-+		chip->options |= NAND_USES_DMA | NAND_SUBPAGE_READ;
-+		chip->ecc.write_subpage = ma35_nand_write_subpage_hwecc;
-+		chip->ecc.write_page = ma35_nand_write_page_hwecc;
-+		chip->ecc.read_subpage = ma35_nand_read_subpage_hwecc;
-+		chip->ecc.read_page  = ma35_nand_read_page_hwecc;
-+		chip->ecc.read_oob   = ma35_nand_read_oob_hwecc;
-+		return ma35_nand_hwecc_init(chip, nand);
-+	case NAND_ECC_ENGINE_TYPE_NONE:
-+	case NAND_ECC_ENGINE_TYPE_SOFT:
-+	case NAND_ECC_ENGINE_TYPE_ON_DIE:
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int ma35_nfc_exec_instr(struct nand_chip *chip,
-+			      const struct nand_op_instr *instr)
-+{
-+	struct ma35_nand_info *nand = nand_get_controller_data(chip);
-+	unsigned int i;
-+	int ret = 0;
-+	u32 status;
-+
-+	switch (instr->type) {
-+	case NAND_OP_CMD_INSTR:
-+		writel(instr->ctx.cmd.opcode, nand->regs + MA35_NFI_REG_NANDCMD);
-+		break;
-+	case NAND_OP_ADDR_INSTR:
-+		for (i = 0; i < instr->ctx.addr.naddrs; i++) {
-+			if (i == (instr->ctx.addr.naddrs - 1))
-+				writel(instr->ctx.addr.addrs[i] | ENDADDR,
-+					nand->regs + MA35_NFI_REG_NANDADDR);
-+			else
-+				writel(instr->ctx.addr.addrs[i],
-+					nand->regs + MA35_NFI_REG_NANDADDR);
-+		}
-+		break;
-+	case NAND_OP_DATA_IN_INSTR:
-+		ret = ma35_nand_do_read(chip, instr->ctx.data.buf.in, instr->ctx.data.len);
-+		break;
-+	case NAND_OP_DATA_OUT_INSTR:
-+		ret = ma35_nand_do_write(chip, instr->ctx.data.buf.out, instr->ctx.data.len);
-+		break;
-+	case NAND_OP_WAITRDY_INSTR:
-+		return readl_poll_timeout(nand->regs + MA35_NFI_REG_NANDINTSTS, status,
-+					  status & INT_RB0, 20,
-+					  instr->ctx.waitrdy.timeout_ms * MSEC_PER_SEC);
-+	default:
-+		ret = -EINVAL;
-+		break;
-+	}
-+
-+	return ret;
-+}
-+
-+static int ma35_nfc_exec_op(struct nand_chip *chip,
-+			  const struct nand_operation *op,
-+			  bool check_only)
-+{
-+	int ret = 0;
-+	u32 i;
-+
-+	if (check_only)
-+		return 0;
-+
-+	ma35_nand_target_enable(chip, op->cs);
-+
-+	for (i = 0; i < op->ninstrs; i++) {
-+		ret = ma35_nfc_exec_instr(chip, &op->instrs[i]);
-+		if (ret)
-+			break;
-+	}
-+
-+	return ret;
-+}
-+
-+static const struct nand_controller_ops ma35_nfc_ops = {
-+	.attach_chip = ma35_nand_attach_chip,
-+	.exec_op = ma35_nfc_exec_op,
-+};
-+
-+static int ma35_nand_chip_init(struct device *dev, struct ma35_nand_info *nand,
-+				 struct device_node *np)
-+{
-+	struct ma35_nand_chip *nvtnand;
-+	struct nand_chip *chip;
-+	struct mtd_info *mtd;
-+	int nsels;
-+	int ret;
-+	u32 cs;
-+	int i;
-+
-+	nsels = of_property_count_elems_of_size(np, "reg", sizeof(u32));
-+	if (!nsels || nsels > MA35_MAX_NSELS) {
-+		dev_err(dev, "invalid reg property size %d\n", nsels);
-+		return -EINVAL;
-+	}
-+
-+	nvtnand = devm_kzalloc(dev, struct_size(nvtnand, sels, nsels),
-+			      GFP_KERNEL);
-+	if (!nvtnand)
-+		return -ENOMEM;
-+
-+	nvtnand->nsels = nsels;
-+	for (i = 0; i < nsels; i++) {
-+		ret = of_property_read_u32_index(np, "reg", i, &cs);
-+		if (ret) {
-+			dev_err(dev, "reg property failure : %d\n", ret);
-+			return ret;
-+		}
-+
-+		if (cs >= MA35_MAX_NSELS) {
-+			dev_err(dev, "invalid CS: %u\n", cs);
-+			return -EINVAL;
-+		}
-+
-+		if (test_and_set_bit(cs, &nand->assigned_cs)) {
-+			dev_err(dev, "CS %u already assigned\n", cs);
-+			return -EINVAL;
-+		}
-+
-+		nvtnand->sels[i] = cs;
-+	}
-+
-+	chip = &nvtnand->chip;
-+	chip->controller = &nand->controller;
-+
-+	nand_set_flash_node(chip, np);
-+	nand_set_controller_data(chip, nand);
-+
-+	mtd = nand_to_mtd(chip);
-+	mtd->owner = THIS_MODULE;
-+	mtd->dev.parent = dev;
-+
-+	mtd_set_ooblayout(mtd, &ma35_ooblayout_ops);
-+	ret = nand_scan(chip, nsels);
-+	if (ret)
-+		return ret;
-+
-+	ret = mtd_device_register(mtd, NULL, 0);
-+	if (ret) {
-+		nand_cleanup(chip);
-+		return ret;
-+	}
-+
-+	list_add_tail(&nvtnand->node, &nand->chips);
-+
-+	return 0;
-+}
-+
-+static void ma35_chips_cleanup(struct ma35_nand_info *nand)
-+{
-+	struct ma35_nand_chip *nvtnand, *tmp;
-+	struct nand_chip *chip;
-+	int ret;
-+
-+	list_for_each_entry_safe(nvtnand, tmp, &nand->chips, node) {
-+		chip = &nvtnand->chip;
-+		ret = mtd_device_unregister(nand_to_mtd(chip));
-+		WARN_ON(ret);
-+		nand_cleanup(chip);
-+		list_del(&nvtnand->node);
-+	}
-+}
-+
-+static int ma35_nand_chips_init(struct device *dev, struct ma35_nand_info *nand)
-+{
-+	struct device_node *np = dev->of_node, *nand_np;
-+	int ret;
-+
-+	for_each_child_of_node(np, nand_np) {
-+		ret = ma35_nand_chip_init(dev, nand, nand_np);
-+		if (ret) {
-+			ma35_chips_cleanup(nand);
-+			return ret;
-+		}
-+	}
-+	return 0;
-+}
-+
-+static int ma35_nand_probe(struct platform_device *pdev)
-+{
-+	struct ma35_nand_info *nand;
-+	int ret = 0;
-+
-+	nand = devm_kzalloc(&pdev->dev, sizeof(*nand), GFP_KERNEL);
-+	if (!nand)
-+		return -ENOMEM;
-+
-+	nand_controller_init(&nand->controller);
-+	INIT_LIST_HEAD(&nand->chips);
-+	nand->controller.ops = &ma35_nfc_ops;
-+
-+	init_completion(&nand->complete);
-+
-+	nand->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(nand->regs))
-+		return PTR_ERR(nand->regs);
-+
-+	nand->dev = &pdev->dev;
-+
-+	nand->clk = devm_clk_get_enabled(&pdev->dev, "nand_gate");
-+	if (IS_ERR(nand->clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(nand->clk),
-+				     "failed to find NAND clock\n");
-+
-+	nand->irq = platform_get_irq(pdev, 0);
-+	if (nand->irq < 0)
-+		return dev_err_probe(&pdev->dev, nand->irq,
-+				     "failed to get platform irq\n");
-+
-+	ret = devm_request_irq(&pdev->dev, nand->irq, ma35_nand_irq,
-+				  IRQF_TRIGGER_HIGH, "ma35d1-nand", nand);
-+	if (ret) {
-+		dev_err(&pdev->dev, "failed to request NAND irq\n");
-+		return -ENXIO;
-+	}
-+
-+	platform_set_drvdata(pdev, nand);
-+
-+	writel(GRST | NAND_EN, nand->regs + MA35_NFI_REG_GCTL);
-+	ma35_hw_init(nand);
-+	ret = ma35_nand_chips_init(&pdev->dev, nand);
-+	if (ret) {
-+		dev_err(&pdev->dev, "failed to init NAND chips\n");
-+		clk_disable(nand->clk);
-+		return ret;
-+	}
-+
-+	return ret;
-+}
-+
-+static void ma35_nand_remove(struct platform_device *pdev)
-+{
-+	struct ma35_nand_info *nand = platform_get_drvdata(pdev);
-+
-+	ma35_chips_cleanup(nand);
-+}
-+
-+static const struct of_device_id ma35_nand_of_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-nand" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, ma35_nand_of_match);
-+
-+static struct platform_driver ma35_nand_driver = {
-+	.driver = {
-+		.name = "ma35d1-nand",
-+		.of_match_table = ma35_nand_of_match,
-+	},
-+	.probe = ma35_nand_probe,
-+	.remove = ma35_nand_remove,
-+};
-+
-+module_platform_driver(ma35_nand_driver);
-+
-+MODULE_DESCRIPTION("Nuvoton ma35 NAND driver");
-+MODULE_AUTHOR("Hui-Ping Chen <hpchen0nvt@gmail.com>");
-+MODULE_LICENSE("GPL");
+> 
+> BR,
+> Jani.
+> 
+> 
+> > +		drm_edid_free(drm_edid);
+> > +		return NULL;
+> > +	}
+> > +
+> > +	return drm_edid;
+> > +}
+> > +
+> >  static enum drm_connector_status
+> >  drm_bridge_connector_detect(struct drm_connector *connector, bool force)
+> >  {
+> >  	struct drm_bridge_connector *bridge_connector =
+> >  		to_drm_bridge_connector(connector);
+> >  	struct drm_bridge *detect = bridge_connector->bridge_detect;
+> > +	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
+> >  	enum drm_connector_status status;
+> >  
+> >  	if (detect) {
+> >  		status = detect->funcs->detect(detect);
+> >  
+> > +		if (hdmi) {
+> > +			const struct drm_edid *drm_edid;
+> > +			int ret;
+> > +
+> > +			drm_edid = drm_bridge_connector_read_edid(connector, status);
+> > +			ret = drm_atomic_helper_connector_hdmi_update_edid(connector, drm_edid);
+> > +			if (ret)
+> > +				drm_warn(connector->dev, "updating EDID failed with %d\n", ret);
+> > +
+> > +			drm_edid_free(drm_edid);
+> > +		}
+> > +
+> >  		drm_bridge_connector_hpd_notify(connector, status);
+> >  	} else {
+> >  		switch (connector->connector_type) {
+> > @@ -246,29 +285,29 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+> >  static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
+> >  					       struct drm_bridge *bridge)
+> >  {
+> > +	struct drm_bridge_connector *bridge_connector =
+> > +		to_drm_bridge_connector(connector);
+> > +	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
+> >  	enum drm_connector_status status;
+> >  	const struct drm_edid *drm_edid;
+> > -	int n;
+> >  
+> >  	status = drm_bridge_connector_detect(connector, false);
+> >  	if (status != connector_status_connected)
+> > -		goto no_edid;
+> > +		return 0;
+> >  
+> > -	drm_edid = drm_bridge_edid_read(bridge, connector);
+> > -	if (!drm_edid_valid(drm_edid)) {
+> > +	/* In HDMI setup the EDID has been read and handled as a part of .detect() */
+> > +	if (!hdmi) {
+> > +		drm_edid = drm_bridge_connector_read_edid(connector, status);
+> > +		if (!drm_edid) {
+> > +			drm_edid_connector_update(connector, NULL);
+> > +			return 0;
+> > +		}
+> > +
+> > +		drm_edid_connector_update(connector, drm_edid);
+> >  		drm_edid_free(drm_edid);
+> > -		goto no_edid;
+> >  	}
+> >  
+> > -	drm_edid_connector_update(connector, drm_edid);
+> > -	n = drm_edid_connector_add_modes(connector);
+> > -
+> > -	drm_edid_free(drm_edid);
+> > -	return n;
+> > -
+> > -no_edid:
+> > -	drm_edid_connector_update(connector, NULL);
+> > -	return 0;
+> > +	return drm_edid_connector_add_modes(connector);
+> >  }
+> >  
+> >  static int drm_bridge_connector_get_modes(struct drm_connector *connector)
+> 
+> -- 
+> Jani Nikula, Intel
+
 -- 
-2.25.1
-
+With best wishes
+Dmitry
 
