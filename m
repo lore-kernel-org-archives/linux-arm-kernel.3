@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CC3E7716B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C859E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsW3P2k6T49Ey7msdJFqq/bskLvtp3R1ODCsR+DajSk=; b=Hz99OtFZnKZJCRpc7YLw1qTR6q
-	1Fex/f53cC+fPttalr3LFW/MYA6LxyaYvzHaUnA/xONWIsVzNyhZZZOH0kdZc792OMl5S/SSVbkkA
-	WWSh19Fts/PxSxvyCrcqqR43IQAOdrn/Frbl0+B88sCd47RPwiMmfvd5mTp2P902KcE1dbkzBaNXh
-	Vt9jYVi/0S5A+wQvlt7xzglbt1b/IabxHw0xYCAcesukOX+OD0vFjR9O59ZXYolot3+KZNBp6xQoC
-	T1uj+IIaQ6QAr7ny6PSTOLkqpFxdfXxUYHCpHc/T4hypoMZavBCyiiXDUxsb8kQJDnWSET5DGVyIb
-	OPO3GnZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SiIlk/FEAmgdvplpgvduA7wwa6KAo49gIMe+ijciV2U=; b=K6G03l0i+FUYLVm4yTtQuzExJk
+	/GP6H0feieN7kexC6OWdnrmiwI7OtiOXjgxyDi+KupCr7G8C5IP0veipsjTGwmreG85OC8RTmZSeC
+	dWFB0LMx1qFi/NB3q7vhE6NSByHTgAh2Vm7vGyaQc/V/bC2uxJrvXGzP2f1NQBd3APzj24+O6FRS1
+	5+vWqprvGwaI7QVAICnV9o7ePO2EjQmVo0wvnmxr7C23HLfvyB7s+q/nlfCrY2C1oPoRTUOmShDzC
+	ALzx0XsO23JqlG9KPA3GitxENHUipsyLvgeUAUsjlUop1HxivVuw92UVSOyTnlDP6D196bxZRohnn
+	+6iuTg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIraF-0000000D2g8-39O3;
-	Wed, 04 Dec 2024 15:46:35 +0000
-Received: from mail-10630.protonmail.ch ([79.135.106.30])
+	id 1tIrd4-0000000D3Bc-3sKW;
+	Wed, 04 Dec 2024 15:49:30 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrZE-0000000D2WJ-2t9z
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:45:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1733327128; x=1733586328;
-	bh=zsW3P2k6T49Ey7msdJFqq/bskLvtp3R1ODCsR+DajSk=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
-	b=NRNvUt7HhECMIl8yQpiHpQJ56mc1E5xg0aO3r2yXYdr5NqWkSLwnoMxa98HmOpN7p
-	 kKV8D2fR0w+VLay45drsoikN9vp2ESNP4OKd5kjr+afHiAymDmWsW659qAPCtbUw5/
-	 Ja/uK1u8HfR39su4/jw01Pk+45uBLnmy0SrMdHqChjfoj4xc6H4QNcJIKdHS4/l/Gl
-	 N3v7Q1588l2b2T+3kzhxe9mRbeFrzOG96aMCmSpr+zbws6MNFeLu7J/PhP4V/5bPv1
-	 pcMb1fOO1igHx0oFyE8F+ulJFJMo0YKdW1m94SFB6tXUO5KS9K0HiRzsg7kVjszJOs
-	 Tggsc08QUktQw==
-Date: Wed, 04 Dec 2024 15:45:21 +0000
-To: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Piotr Zalewski <pZ010001011111@proton.me>
-Cc: skhan@linuxfoundation.org, Piotr Zalewski <pZ010001011111@proton.me>, Daniel Stone <daniel@fooishbar.org>, Dragan Simic <dsimic@manjaro.org>, Diederik de Haas <didi.debian@cknow.org>
-Subject: Re: [PATCH v7] rockchip/drm: vop2: add support for gamma LUT
-Message-ID: <9Rp0NJW2QG5qDduowVaialZWN6xTe9KJFciu7Q2LERJZQXsUgFvMGXfcFaNznIEJEBpZeOdZPuL4fxOEFduaSJLuQJ3cIvN-fx2lEzYSBKE=@proton.me>
-In-Reply-To: <20241101185545.559090-3-pZ010001011111@proton.me>
-References: <20241101185545.559090-3-pZ010001011111@proton.me>
-Feedback-ID: 53478694:user:proton
-X-Pm-Message-ID: 6afc641a1cddc26bcfae7f62410b05a81c0b4b8c
+	id 1tIrc4-0000000D305-1jgJ;
+	Wed, 04 Dec 2024 15:48:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=SiIlk/FEAmgdvplpgvduA7wwa6KAo49gIMe+ijciV2U=; b=wXP9JVK9S2ioX6EyNKlr+dmzS2
+	mYdH7i78kdizKRgc569heQlzOBvygoPMqcAGtglYh2BU1jAyFbSoyTRiTNFOQZ+kgPXAYqFg3e5MQ
+	jIBNm2/yl7xysLVtzrkB52We+Lvbpk+86HPRefEsEN+L+0h3RHD7qia5oyMpxDtoXLqk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tIrbt-00FE2Z-5y; Wed, 04 Dec 2024 16:48:17 +0100
+Date: Wed, 4 Dec 2024 16:48:17 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v8 3/4] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+Message-ID: <af078f6a-08ba-4a68-ae54-2d49a59ce1bb@lunn.ch>
+References: <20241204072427.17778-1-ansuelsmth@gmail.com>
+ <20241204072427.17778-4-ansuelsmth@gmail.com>
+ <20241204100922.0af25d7e@fedora.home>
+ <67501d7b.050a0220.3390ac.353c@mx.google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <67501d7b.050a0220.3390ac.353c@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_074533_218185_9C70DBA9 
-X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-CacheID: sfid-20241204_074828_455010_F4710D8F 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,15 +86,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+> Added 5000 as this is present in documentation bits but CPU can only go
+> up to 2.5. Should I drop it? Idea was to futureproof it since it really
+> seems they added these bits with the intention of having a newer switch
+> with more advanced ports.
 
-I just noticed that after coming out of suspend gamma LUT is lost and must
-be rewritten by userspace.
+The other way to future proof this is to have a dev_err() and
+-EINVAL. Testing will then quickly find any missing places in the
+code.
 
-So I guess it will be needed to save LUT to a buffer and rewrite it after
-going out of suspend during modeset?
-
-I checked the patch isn't yet in the "official" linux-next.
-
-Regards, Piotr Zalewski
+	Andrew
 
