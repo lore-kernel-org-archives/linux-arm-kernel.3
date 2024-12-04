@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAE1E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FD0E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rvkL+iGL9dXyN4VynI/wPtrLJWQRP5/GbBl00TeCCOM=; b=kByNgIi6OJpcA4BH3wR0kCSLa2
-	DF7aWGZyyi33ucXkfYVHqOfDlzl3iI9uTcvnOtijTWhPbA4IUVSEugkG8HS2DgLFmguCeCMa3JOxD
-	vFMw9/rAJ9UdTWYW7zEYq+vl77t2gY9GL8m2tDSyiZ6etQQHijB8Mw0gh68PtbCiRksczW7P03FJ9
-	zAhVXNOAyDzOjOH633cs+guf7tSxavT4z2bO5r1Npg80plMqSoquEKDHdZ00/xM48L2ljyvoHCOCp
-	tpKCLZj9hMlofRbTj37UineofbCLQy8g3/B2J9iWHPWE+PBP9EdU+SNrTMJ2BR0/bgy6kkbUEFwGp
-	sYYXx7BQ==;
+	bh=JfHYxP2GgtlUvSHoyxk9brlVRWIg2t+9FS/MzmulW6A=; b=neQrYjchERDe/xuVSAs6g1w5tP
+	8xpHBxgtGCA7fcfOSxNeYnNOGQBJ4nfQDrpNUBNEQxTLnCquiilu3dcgub1tPprg+WZgNM/4V1Mg8
+	8+JL2/8oSL+5dSKaKBW+g7VGIs1aMH9Z9HwPIZkxjViQ4KUb3K9wfEANzwNNW3ikCZYl3AAT53bhs
+	htw55QXICZio05pt/1yqojuAExWSTBkxizkqTAzMc4Vwl49O1OhgF/91jJFOv2B6YfnEGMfRRhe6j
+	/+TJLr6t5DaHcf3OzJ9TEBu1lfrqyUk5h6eMr+Ihc4MwYeYNOoF6+W7/1qbt3uqApLyq4RBl0l4jK
+	S8AzzcJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrq4-0000000D5ue-0PxT;
-	Wed, 04 Dec 2024 16:02:56 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tIrr2-0000000D69a-2z6C;
+	Wed, 04 Dec 2024 16:03:56 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrlH-0000000D4RO-3tKz
+	id 1tIrlK-0000000D4SA-26KE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:58:00 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53de852a287so7622094e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:57:59 -0800 (PST)
+	Wed, 04 Dec 2024 15:58:03 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2ff976ab0edso71762821fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:58:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733327878; x=1733932678; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1733327880; x=1733932680; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rvkL+iGL9dXyN4VynI/wPtrLJWQRP5/GbBl00TeCCOM=;
-        b=imJPPtQmNY+cQM2Z2PAWZTR9sU9nxwlHpLbco37kDvzrTqid4YHuEPmrEihr36A3gg
-         jMHAd4k0V+bke5K1wQsP4vfm3Ic7cPzOrJK1/+LDPPkPXRtXbQUtbtknOP/4COZ15crH
-         1Hc4JBbFmT1r4wwT6SnbCfwmabB0iX1bgy2zzv2HZlakXV/RSHOQfjb6+vowqy8A7ryb
-         nLroUb9QxiTe757/fZIo09482UUa4VsJrmpfnQrpIBEyWh6fcwdlpYWbB2h51N/eDzHH
-         9MaeU+3r3Diki+uHcXRzF/Kb/jzRMNk9mef6EUc26T5IDiEPPE6iMbJRV7gOpGJx2OKS
-         jYNA==
+        bh=JfHYxP2GgtlUvSHoyxk9brlVRWIg2t+9FS/MzmulW6A=;
+        b=VcABfeOyRZH1E6jVXvM//kkMHr9+X+ApgrAVePJJadksiJGTbammuGRTYr99Eb4lWW
+         qkDjVJljl2mPjYgCEIGsrjMjWpobmJzA9RHiY8FGQw8WfWbsKmgvaCVloqcMIBim5+In
+         rirrseqDK1Q/aNsh8Jve3S10p/p7Mfyi/A0nm/Lh+cV7rX3A3SzYd/FIaJBkyQyiK4UT
+         G7PfcjQmxmeZYkIJSh7d0nQag3IhBnPIbK6zMs5i/vYnqVQfY1Thi10UTdVOf/VNdBZM
+         xClC5NOJJ3EGpiNpzelMHJno0J/x4RmQZs+RIUVZUJGlIK6fs/19WMAoc5qqYPTXH43R
+         oJWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733327878; x=1733932678;
+        d=1e100.net; s=20230601; t=1733327880; x=1733932680;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rvkL+iGL9dXyN4VynI/wPtrLJWQRP5/GbBl00TeCCOM=;
-        b=o22qMBoiRhA9V8nmVqvAm5Zz548pOZfrPN960WlhZy6FgVEvhiYi1tClIztT8O8Htc
-         ZkZ8khTp+ZH47PmT2dOs+fpJ2/r2TpNgVrsqYcwT8RWZuwcJ6QEO29g2S/lYJFsxN/6S
-         E7CtxI5GXIu5LEN/STd1JnlBxaxtT3w2xQYLQ1/BKsT3M1vAGgRfwsWM5zWqGgYhGabh
-         JtUbDD9DlhLddxzF2Z2TaMI/4JGhdZFE1DV8KQoqEhbeKy2y+rBjSchpLBai+ZFkbvp0
-         /xhrAPVPS03sF0xprOEHN6C/7LBrjVGOYorADVMXLgBUwgLrGXKkV9HureyOMOOjD3Oy
-         vIlQ==
-X-Gm-Message-State: AOJu0YyYT33zqCbXsgXPz042TC72/dP0CLBjewqYNdWJyjpGTl7u3hOA
-	kJKvxeqwPIrbbrC82rMCONdRUhp7PWJpN8XCXv7VXWQ0XjbvMmEs
-X-Gm-Gg: ASbGncvwXPqup9jBMuo97f3SEBaS/2V5ebQU3L2PJL/tbrl0A7Zhc+5vhfX17ko6QZh
-	U90bRmnZyhfY6K4JZavLyA3ynNDxzqenqoI3m3BVQZyHfduLBHF2tvrMi+BFwM9iYA1kirQEOVe
-	VAqakzaXkYrsIpFodMesB3RkXBi53rYHXEK6WOLJJ2JfstS22usVg15JbtGvKHjRQBfgbG/Ekrh
-	U/9b0ufYopXN98oU+/S4T+yYJX63C2HFVireqT6xqnfr/vIBUIwmlPGrAZHXLvNULthylyEKCRv
-	MuMSJcsV6WCeWXU=
-X-Google-Smtp-Source: AGHT+IE67J6k3HvkHJRG20ocHCZ9O3WvIIZUThbSEm9x3FYTGNUFEeEanYYSp5FF2xnbedolSUZgiA==
-X-Received: by 2002:a05:6512:4028:b0:53d:dbb9:f3e8 with SMTP id 2adb3069b0e04-53e1b878e31mr1822141e87.4.1733327877559;
-        Wed, 04 Dec 2024 07:57:57 -0800 (PST)
+        bh=JfHYxP2GgtlUvSHoyxk9brlVRWIg2t+9FS/MzmulW6A=;
+        b=p7QKqOpuaFOw3kxcndyBxZLSmZK/m0FMIrS/0JiwvxbWdNZ8H50aMmanu4ffsRm1T0
+         JHIpd7R/E6unV6ODexfT1lJ2nJToQubDT+1BSH5b4nKRlAIC632fwdvhBf/+H2noMK26
+         tmVrlrS6pd63XivvYkeWyF0oM9+tJNp86KulxPWtH5HcyX/UcOlWiDQRb74i5+6SXWSZ
+         OXILV2W1GokFZ0rZm5TgsBV8/rjHUiuEUlVCm3nzEjzSPtl2FomjIiJ1BhP/EErZfaG0
+         fUKA97f3BkGOb+P8QS/6bWDb2wDKFtPYxi+kvVGJ4scvWMy966S+Uviu/Hyu347/EWOe
+         M4Jg==
+X-Gm-Message-State: AOJu0YyzurC/CkotlwTVHULuHO8KvyWaeHYX+ZTdM1Nh+TuCCV92sN+h
+	ew3saP4Gw4xdYbsKttxYUeR5TB8zdlpmU4gzxxblJQxsDBH8Jo5t
+X-Gm-Gg: ASbGncs7L2j5UAlDy3nl7qcfh+UUmCPzQ1jaGcVAUGHx+PhYOBZTQ9jAVPs5ggyjTFT
+	0vUFO+qUFKO3jpm+V1bo4HqyJDgJdLnhv23d87OjOaPD2ApkVLYiQaa7/xIhTF1SZ83l626pSdb
+	XkWM7yaOxnO9yOaL6XJGpw/6MeHn9Qd1BRq8VidQsc3FG1CUcWALU585B2HalLPKwaf9kJdTp5N
+	FuPyNeYLmlRIQHCYRuRFvlEI779H1Ptdto1H22zKaAak+4wW0kG12YHsXlC47+Xsg8Ng1Ts4tAa
+	f3scW2VArBltT2g=
+X-Google-Smtp-Source: AGHT+IEnG7rAIHbmYk1mvEg0ri78z0sWiaMH6QfOyp2+jXWu85eTrMU3PvGvXTghn3BBrs0fux21+w==
+X-Received: by 2002:a05:6512:12cd:b0:53d:e5b0:1709 with SMTP id 2adb3069b0e04-53e12a22fc1mr5089410e87.38.1733327879786;
+        Wed, 04 Dec 2024 07:57:59 -0800 (PST)
 Received: from [172.17.0.1] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e1f5498easm168999e87.105.2024.12.04.07.57.54
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e1f5498easm168999e87.105.2024.12.04.07.57.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 07:57:55 -0800 (PST)
+        Wed, 04 Dec 2024 07:57:58 -0800 (PST)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Wed, 04 Dec 2024 16:56:46 +0100
-Subject: [PATCH 4/9] ARM: keystone_defconfig: rebuild default configuration
+Date: Wed, 04 Dec 2024 16:56:47 +0100
+Subject: [PATCH 5/9] ARM: mvebu_v5_defconfig: rebuild default configuration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241204-defconfigs-v1-4-86587652d37a@gmail.com>
+Message-Id: <20241204-defconfigs-v1-5-86587652d37a@gmail.com>
 References: <20241204-defconfigs-v1-0-86587652d37a@gmail.com>
 In-Reply-To: <20241204-defconfigs-v1-0-86587652d37a@gmail.com>
 To: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
@@ -87,26 +87,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
  Marcus Folkesson <marcus.folkesson@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2579;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2194;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=oC5WpfuhGcDDhe0hfhnhh6bRD144vLn7vRt/q3XD9H4=;
- b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnUHvX6+Vxmycmjnq4bO+MBXpUvKvu6jheX/FrG
- jK4MKR7/uiJAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZ1B71wAKCRCIgE5vWV1S
- MuvkEACuj0rtF9LabF7AJ6GXYrD+sFMrZqOK2SkVUNMfkMAAd0t2TS4AYvVLU3zaQbSVi8xoE6Q
- wOcpY9OvrnIWBmCV5rcQoJRDx14H6ry5LcaVrLWmvPvWqb2aoSIpxKpngH0Z1uQY/9Kk3UBc0PQ
- 33t1VSiln8g1/S/L6xKTfuPTMMVQrd+R6vjMHBCS2RccCBxqb39sDZwA1dq91KiWNVG+Ca/8l7z
- iH3fGxtldUH+0is757NpjHKBqqu/OvLcWqojSSYVK9lGCuelYDIuBywqGpHpK06WJ8pCcbQgJHF
- S2tVUvEfP2oRFWGeKhVB5Ud96MbfzBIkPtHICuMAGBIPd8gD6+mTiLE8gQwDDDmjAYs2ja124X4
- bY4pqWVlQsgX4WvPgdN5tvwXFaDTgTfFQy1jYCpKU6MFVBlSFHtrmYoGe8/2wwdB3qZ/N2IujuD
- Y9gSW6MSLrQqlzy5twUNQQ+oQJU2PZ6T4LlRh3kw3hknel9e1tWahXUXwUxatTgKZAz1UKQBh6K
- UxVJebrcNHapNTNoInzydLPmtGunnInrR0EzfwF3VPrGC4qU38FBJ98BA0JS3KuusiZO4s7LGX3
- Q+AUnU9h70Rbumki0AY1Vy20+/obpZOb0XIJozYuIHvYIQVOEsmF6E3M+4VeZQIcCs+EFER7jYg
- 96GgoPbronYdj2A==
+ bh=XPKa8479dz0V5E5HAGWYwOAk2JntXJAee03QMzKRTSQ=;
+ b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnUHvch911bcazEE3clz1x9w8iZQmmDlX4uDR9z
+ 07T6Hpka4SJAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZ1B73AAKCRCIgE5vWV1S
+ MgBKEACj7IXfw3FWzIMmgTNg4C/ssmHFA+VrYa1r+Ni1oPjhCk3fKvz5VL2/mwxOcpWriNPVkeW
+ VPIdNAzyTkw/TXyFjLYdH5mtGO1cHP6U8l+lLm1qWWImSzXyTraAuIC8iFc69gAUYUh359rj7k5
+ L9rNoGsHhAT4/wjcbSCOCEWbf6z3eUuCNXQ+I8Bd6whCTSyLTfq7keKpghzzPK1o30lf8GpDnIV
+ bzVYkd71OtDyKkqNXZ0r/zQhOJ0xkuy17fxfKmUwDRXW6zPjEBwkMvGoAcKRDGG2lvrZNqg3L97
+ FdLG/LlX1EMP000XJbUVui5oluOvAhF41THQKnHxKdqGON+IuHzD4H36lGMOg8+VpM1Ol7UwYa0
+ TpUCbEvI83waD/2riwpFDHgVrgwV9WhJsLhXAyDME7+TJU/+eCg4rQsbqJUlZ5ihwRo4XguS5L2
+ petdLHofkYcZKGFR9QtJNrbywhGbRNlz9GiawyoBsBesF6bLoDs0b41fVfltuGiPKihBUhqJNSH
+ +vkBmT17upIxRjy+cX9mBTi5qflxTQZcUfq2sNOjc/K7zTfdgzxcjh9sEA8UQHJFxMI36AlWG/c
+ vbuqPoDDm0n8i+EVwcG0tkYOkT69xi1V904+mHesdROU8xWDJ/t1zyXLY4oR3mARqwEWhdVYog3
+ VH3Y0+T0lxBzxQw==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_075759_970170_7084D2EE 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20241204_075802_539607_3B5323D3 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,88 +125,76 @@ This configuration contains obsolete configuration options e.g.
 CONFIG_MTD_M25P80 which is integrated into MTD_SPI_NOR.
 
 Rebuild this configuration by run:
-make ARCH=arm keystone_defconfig
+make ARCH=arm mvebu_v5_defconfig
 make ARCH=arm savedefconfig
 
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
- arch/arm/configs/keystone_defconfig | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+ arch/arm/configs/mvebu_v5_defconfig | 8 --------
+ 1 file changed, 8 deletions(-)
 
-diff --git a/arch/arm/configs/keystone_defconfig b/arch/arm/configs/keystone_defconfig
-index c1291ca290b23c7519a0c34ac5951fc0942c45bf..c5682f2728a176c054313f351186f6e548cff8e0 100644
---- a/arch/arm/configs/keystone_defconfig
-+++ b/arch/arm/configs/keystone_defconfig
-@@ -11,18 +11,16 @@ CONFIG_CGROUP_FREEZER=y
- CONFIG_CGROUP_DEVICE=y
- CONFIG_CGROUP_CPUACCT=y
- CONFIG_BLK_DEV_INITRD=y
-+CONFIG_EXPERT=y
- # CONFIG_ELF_CORE is not set
- CONFIG_BASE_SMALL=y
- CONFIG_KALLSYMS_ALL=y
--CONFIG_EXPERT=y
- CONFIG_PROFILING=y
- CONFIG_ARCH_KEYSTONE=y
- CONFIG_ARM_LPAE=y
--CONFIG_PCI_KEYSTONE=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
- CONFIG_ARM_PSCI=y
--CONFIG_AEABI=y
- CONFIG_HIGHMEM=y
- CONFIG_VFP=y
- CONFIG_NEON=y
-@@ -62,9 +60,6 @@ CONFIG_IP_MROUTE_MULTIPLE_TABLES=y
- CONFIG_IP_PIMSM_V2=y
- CONFIG_INET_AH=y
- CONFIG_INET_IPCOMP=y
--CONFIG_INET6_XFRM_MODE_TRANSPORT=m
--CONFIG_INET6_XFRM_MODE_TUNNEL=m
--CONFIG_INET6_XFRM_MODE_BEET=m
- CONFIG_IPV6_SIT=m
- CONFIG_IPV6_MULTIPLE_TABLES=y
- CONFIG_IPV6_SUBTREES=y
-@@ -90,7 +85,6 @@ CONFIG_NETFILTER_XT_MATCH_MARK=y
- CONFIG_NETFILTER_XT_MATCH_MULTIPORT=y
- CONFIG_NETFILTER_XT_MATCH_PKTTYPE=y
- CONFIG_NETFILTER_XT_MATCH_STATE=y
--CONFIG_NF_CONNTRACK_IPV4=y
- CONFIG_IP_NF_IPTABLES=y
- CONFIG_IP_NF_MATCH_AH=y
- CONFIG_IP_NF_MATCH_ECN=y
-@@ -101,7 +95,6 @@ CONFIG_IP_NF_MANGLE=y
- CONFIG_IP_NF_TARGET_ECN=y
- CONFIG_IP_NF_TARGET_TTL=y
- CONFIG_IP_NF_RAW=y
--CONFIG_IP_NF_ARPTABLES=y
- CONFIG_IP_NF_ARPFILTER=y
- CONFIG_IP_NF_ARP_MANGLE=y
- CONFIG_IP6_NF_IPTABLES=m
-@@ -117,7 +110,6 @@ CONFIG_MTD=y
- CONFIG_MTD_CMDLINE_PARTS=y
- CONFIG_MTD_BLOCK=y
- CONFIG_MTD_PLATRAM=y
+diff --git a/arch/arm/configs/mvebu_v5_defconfig b/arch/arm/configs/mvebu_v5_defconfig
+index 2467afd32146ba7ba2bf4b71053a6747bc58d1cc..0e3da23baab417378afcbc40fca88ace5cd51e57 100644
+--- a/arch/arm/configs/mvebu_v5_defconfig
++++ b/arch/arm/configs/mvebu_v5_defconfig
+@@ -1,5 +1,4 @@
+ CONFIG_SYSVIPC=y
+-CONFIG_FHANDLE=y
+ CONFIG_NO_HZ_IDLE=y
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_PREEMPT=y
+@@ -15,7 +14,6 @@ CONFIG_MACH_DNS323=y
+ CONFIG_MACH_TS209=y
+ CONFIG_MACH_TERASTATION_PRO2=y
+ CONFIG_MACH_LINKSTATION_PRO=y
+-CONFIG_MACH_LINKSTATION_LSCHL=y
+ CONFIG_MACH_LINKSTATION_MINI=y
+ CONFIG_MACH_TS409=y
+ CONFIG_MACH_TS78XX=y
+@@ -45,7 +43,6 @@ CONFIG_IP_PNP_DHCP=y
+ CONFIG_IP_PNP_BOOTP=y
+ # CONFIG_IPV6 is not set
+ CONFIG_NET_DSA=y
+-CONFIG_NET_SWITCHDEV=y
+ CONFIG_NET_PKTGEN=m
+ CONFIG_CFG80211=y
+ CONFIG_MAC80211=y
+@@ -63,7 +60,6 @@ CONFIG_MTD_CFI_GEOMETRY=y
+ CONFIG_MTD_CFI_INTELEXT=y
+ CONFIG_MTD_CFI_STAA=y
+ CONFIG_MTD_PHYSMAP=y
 -CONFIG_MTD_M25P80=y
  CONFIG_MTD_RAW_NAND=y
- CONFIG_MTD_NAND_DAVINCI=y
+ CONFIG_MTD_NAND_ORION=y
  CONFIG_MTD_SPI_NOR=y
-@@ -144,7 +136,6 @@ CONFIG_SERIAL_8250_CONSOLE=y
+@@ -96,12 +92,10 @@ CONFIG_SERIAL_8250_RUNTIME_UARTS=2
  CONFIG_SERIAL_OF_PLATFORM=y
  # CONFIG_HW_RANDOM is not set
  CONFIG_I2C=y
 -# CONFIG_I2C_COMPAT is not set
  CONFIG_I2C_CHARDEV=y
- CONFIG_I2C_DAVINCI=y
+ CONFIG_I2C_MV64XXX=y
  CONFIG_SPI=y
-@@ -189,7 +180,6 @@ CONFIG_LEDS_TRIGGER_CPU=y
- CONFIG_LEDS_TRIGGER_ACTIVITY=y
- CONFIG_LEDS_TRIGGER_GPIO=y
+ CONFIG_SPI_ORION=y
+-CONFIG_GPIO_SYSFS=y
+ CONFIG_POWER_RESET=y
+ CONFIG_POWER_RESET_GPIO=y
+ CONFIG_POWER_RESET_QNAP=y
+@@ -166,7 +160,6 @@ CONFIG_RTC_DRV_MV=y
  CONFIG_DMADEVICES=y
--CONFIG_TI_EDMA=y
- CONFIG_MAILBOX=y
- CONFIG_TI_MESSAGE_MANAGER=y
- CONFIG_SOC_TI=y
+ CONFIG_MV_XOR=y
+ CONFIG_STAGING=y
+-CONFIG_FB_XGI=y
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT3_FS=y
+ CONFIG_ISO9660_FS=m
+@@ -194,6 +187,5 @@ CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+ CONFIG_MAGIC_SYSRQ=y
+ CONFIG_DEBUG_FS=y
+ # CONFIG_SCHED_DEBUG is not set
+-# CONFIG_DEBUG_PREEMPT is not set
+ # CONFIG_FTRACE is not set
+ CONFIG_DEBUG_USER=y
 
 -- 
 2.47.0
