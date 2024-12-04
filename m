@@ -4,49 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1936E77178
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0F1E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eeCBlcIwLaY2mG6jZqfUVdEsB7Kam1ZpO0aPx+zXCZk=; b=p/hnFkZAmhpJtJrVZxwEmRic0B
-	2JUUlkP61mbbwUuhu4+CzTMWczaDwuWEUUzxFRMiwNE2Zuk0bbWavO2aDJQqWIrsR0uc4cpzSh3Pe
-	oH/6VHdy2x9bWRmuNb+gvzp5Nqm/ElNaHlO0GJiyR1BqPC639QjkgcufOoo223L5hiqwdOV1vXl1Q
-	iKUTBYObOmF+QIfsFZS21NAlt/enVtssqEB33BHg2CwIw9LYP2QtKYey9yQRkbCRYaNEcK9J1vn+Z
-	MYURS9QEHY2pMTDzkyA+xhakzt50XualYT7anRYH68OB8pYv+HwrMCv9/DDRDJ0vTWaLO3RlVSElS
-	phLvIrhA==;
+	bh=KTlyoZd0Z8X3Ax+8OlWTkIefIPquaGyJJBQOFPH0lCo=; b=Lx081HhjDXoCbmK0nUTgVZg6xq
+	oM5h0Ed35mhwY6vM3twQWwjXg02IcDyJUIRw7p1WR6fdc18dw8gkJ9U8CcUesFXQt1MKDE3Qz6HB+
+	6ZEEJAWdPuY7ctG3tbR73D5yO0kXjmuA+SXQ6tSBkOFQmubIOuJBSGm3XU07MfW5ZjyDuVVyTUxo+
+	+FG/Tl0prw6B1acTJjvV2FRsLMfnMLy1tXb2P/UwBe34s0WHyzooLrhXfUPerooMdDP+iRftQBwsR
+	XE1nQwT1eP/n2lK3cZlw1MSd/M4iEXVE/5xCVlsCncQ0i1vauSvgvcnreSghku3kzMyFqvxJ7gOzx
+	1BKiUaKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoxJ-0000000Case-3Z1C;
-	Wed, 04 Dec 2024 12:58:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIoxa-0000000CbGs-36f9;
+	Wed, 04 Dec 2024 12:58:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIolc-0000000CYQn-0GSO;
-	Wed, 04 Dec 2024 12:46:09 +0000
+	id 1tIolk-0000000CYab-2qXx;
+	Wed, 04 Dec 2024 12:46:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=KTlyoZd0Z8X3Ax+8OlWTkIefIPquaGyJJBQOFPH0lCo=; b=BiLilogvHdarUqJNzyyqKwPwMi
+	aGFvMMjzpm0yDfXaXgrAh/464Ajo6ka+/LylWQ3wKtuAFi96U8GNOIn5ib61u2TcwjgPs51s/A2iA
+	Kk1bkGQioSkqgFPA5Hvq7+xOEfAEr7XkOZA15JSCACRKcYGcvjrWdPu7ii1e1encl7krsdYTEPwrU
+	09J9lsCwh7blpzOZkvYY3QLEBJIPsXfggR8B2rotrVEcqXr+2FYIL2dHOkEsfJMW94E8yQlCGamiD
+	KajVUKr35nJbVnpsGlPNy2qTj+vziuvS9TRI3ugjkO23VwgfP1z7KUGGE6e9ITp++IYU0E2jn7ezr
+	yJ8OpWag==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIolh-00000002b10-353m;
+	Wed, 04 Dec 2024 12:46:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B40BAA40DA1;
-	Wed,  4 Dec 2024 12:44:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C02C4CED2;
-	Wed,  4 Dec 2024 12:46:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1B9EEA416F5;
+	Wed,  4 Dec 2024 12:44:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D740C4CEE4;
+	Wed,  4 Dec 2024 12:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733316366;
-	bh=SWvLGrD5bHK6LkQqH6wSJ0wPWFyKPMKVEBv+X+6czU8=;
+	s=k20201202; t=1733316370;
+	bh=WovDOhGvJI34dfRdwLOil5noAJ5CREZZX4oJMEsuV3c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Pgksu6L1x9lwvYyaR3de4qE6JqwFDBovjtoTrN72K/hv52SRySq6bgOz66gXZLGNz
-	 H2EBNr2q9g5m4CWtw9cseezfj2nVE+Iry+yaV9zSR8GNv4brlz+JLl6UTuG2H81bVv
-	 2FN3KyehEeefVz6SXsPjW6TPGStkwp5ym8FrRqrfDNT3tHvaV072SLW6CfEE4BQIpF
-	 1xunjw5GxcrqrdOe9U3Qmst0MPdobQtxSTMjfDXkQ/F4+IIZxAZq0CHKa63n0AzFpN
-	 PgnLfWoiTX3zLNJcJkMRtOGh+Uz8yHIzFXGsv89qxKkuikpmQUAlXQByHh8pNRcD6d
-	 l55O49e2iQl0w==
+	b=eUOAOGxDdJCpu9CKizY2dme6+QjXgFdhMgbIAtu+zIYKisA9lS0WvyerxS1fXCxPY
+	 t3j55q66bUY9eCYymATDsBvYYd+IqYHPtn1e7vQx3RJyDLiWiiZcmWyYHYRa/Yb0Ln
+	 MP23MO1U0GrTvYw679XpCjcEmsS67z6gvNhik4vdE+Epv3wWWPgKxGcKHztdtZTY8F
+	 N9Gp8NbO7A3+t5/Kz0j7J765cEhdqVSHzFEjI6t+yuOY4AYcZ2dLyldBbRb0UGDIw9
+	 fuFJc9P29p0HnKXgUxtCjZp6djxgFRjuSXkSuWYGjCHcqcKpWMnMXvvqIlIh5EjUI1
+	 7fYhjW87yzjFQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIolY-000RHy-3p;
-	Wed, 04 Dec 2024 12:46:04 +0000
+	id 1tIolc-000RHy-5S;
+	Wed, 04 Dec 2024 12:46:08 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
@@ -78,9 +92,9 @@ Cc: Joerg Roedel <joro@8bytes.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Toan Le <toan@os.amperecomputing.com>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 01/11] irqchip: Make irq-msi-lib.h globally available
-Date: Wed,  4 Dec 2024 12:45:39 +0000
-Message-Id: <20241204124549.607054-2-maz@kernel.org>
+Subject: [PATCH 11/11] PCI: xgene: Convert to MSI parent infrastructure
+Date: Wed,  4 Dec 2024 12:45:49 +0000
+Message-Id: <20241204124549.607054-12-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241204124549.607054-1-maz@kernel.org>
 References: <20241204124549.607054-1-maz@kernel.org>
@@ -91,8 +105,8 @@ X-SA-Exim-Rcpt-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-ar
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_044608_242996_AC04C326 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20241204_124614_088860_CDFC33E4 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,208 +121,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move irq-msi-lib.h into include/linux/irqchip, making it available
-to compilation units outside of drivers/irqchip. This requires some
-churn in drivers to fetch it from the new location.
+In an effort to move arm64 away from the legacy MSI setup,
+convert the xgene PCIe driver to the MSI-parent infrastructure
+and let each device have its own MSI domain.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v2m.c                    | 2 +-
- drivers/irqchip/irq-gic-v3-its-msi-parent.c      | 2 +-
- drivers/irqchip/irq-gic-v3-its.c                 | 2 +-
- drivers/irqchip/irq-gic-v3-mbi.c                 | 2 +-
- drivers/irqchip/irq-imx-mu-msi.c                 | 2 +-
- drivers/irqchip/irq-loongarch-avec.c             | 2 +-
- drivers/irqchip/irq-loongson-pch-msi.c           | 2 +-
- drivers/irqchip/irq-msi-lib.c                    | 2 +-
- drivers/irqchip/irq-mvebu-gicp.c                 | 2 +-
- drivers/irqchip/irq-mvebu-icu.c                  | 2 +-
- drivers/irqchip/irq-mvebu-odmi.c                 | 2 +-
- drivers/irqchip/irq-mvebu-sei.c                  | 2 +-
- {drivers => include/linux}/irqchip/irq-msi-lib.h | 6 +++---
- 13 files changed, 15 insertions(+), 15 deletions(-)
- rename {drivers => include/linux}/irqchip/irq-msi-lib.h (84%)
+ drivers/pci/controller/Kconfig         |  1 +
+ drivers/pci/controller/pci-xgene-msi.c | 44 +++++++++-----------------
+ 2 files changed, 16 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
-index be35c5349986a..db79ae622f3c4 100644
---- a/drivers/irqchip/irq-gic-v2m.c
-+++ b/drivers/irqchip/irq-gic-v2m.c
-@@ -26,7 +26,7 @@
- #include <linux/irqchip/arm-gic.h>
- #include <linux/irqchip/arm-gic-common.h>
- 
--#include "irq-msi-lib.h"
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index 98a62f4559dfd..205e0e365c6b1 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -304,6 +304,7 @@ config PCI_XGENE_MSI
+ 	bool "X-Gene v1 PCIe MSI feature"
+ 	depends on PCI_XGENE
+ 	depends on PCI_MSI
++	select IRQ_MSI_LIB
+ 	default y
+ 	help
+ 	  Say Y here if you want PCIe MSI support for the APM X-Gene v1 SoC.
+diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
+index 88c0977bc41a4..d9e4d1e136f77 100644
+--- a/drivers/pci/controller/pci-xgene-msi.c
++++ b/drivers/pci/controller/pci-xgene-msi.c
+@@ -12,6 +12,7 @@
+ #include <linux/module.h>
+ #include <linux/msi.h>
+ #include <linux/irqchip/chained_irq.h>
 +#include <linux/irqchip/irq-msi-lib.h>
+ #include <linux/pci.h>
+ #include <linux/platform_device.h>
+ #include <linux/of_pci.h>
+@@ -32,7 +33,6 @@ struct xgene_msi_group {
+ struct xgene_msi {
+ 	struct device_node	*node;
+ 	struct irq_domain	*inner_domain;
+-	struct irq_domain	*msi_domain;
+ 	u64			msi_addr;
+ 	void __iomem		*msi_regs;
+ 	unsigned long		*bitmap;
+@@ -44,20 +44,6 @@ struct xgene_msi {
+ /* Global data */
+ static struct xgene_msi xgene_msi_ctrl;
  
+-static struct irq_chip xgene_msi_top_irq_chip = {
+-	.name		= "X-Gene1 MSI",
+-	.irq_enable	= pci_msi_unmask_irq,
+-	.irq_disable	= pci_msi_mask_irq,
+-	.irq_mask	= pci_msi_mask_irq,
+-	.irq_unmask	= pci_msi_unmask_irq,
+-};
+-
+-static struct  msi_domain_info xgene_msi_domain_info = {
+-	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
+-		  MSI_FLAG_PCI_MSIX),
+-	.chip	= &xgene_msi_top_irq_chip,
+-};
+-
  /*
- * MSI_TYPER:
-diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-index e150365fbe892..b4adee2a1aaae 100644
---- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-@@ -8,7 +8,7 @@
- #include <linux/pci.h>
+  * X-Gene v1 has 16 groups of MSI termination registers MSInIRx, where
+  * n is group number (0..F), x is index of registers in each group (0..7)
+@@ -235,34 +221,34 @@ static void xgene_irq_domain_free(struct irq_domain *domain,
+ 	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
+ }
  
- #include "irq-gic-common.h"
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
+-static const struct irq_domain_ops msi_domain_ops = {
++static const struct irq_domain_ops xgene_msi_domain_ops = {
+ 	.alloc  = xgene_irq_domain_alloc,
+ 	.free   = xgene_irq_domain_free,
+ };
  
- #define ITS_MSI_FLAGS_REQUIRED  (MSI_FLAG_USE_DEF_DOM_OPS |	\
- 				 MSI_FLAG_USE_DEF_CHIP_OPS |	\
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 92244cfa04647..334fd15be1de1 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -41,7 +41,7 @@
- #include <asm/exception.h>
++static const struct msi_parent_ops xgene_msi_parent_ops = {
++	.supported_flags	= (MSI_GENERIC_FLAGS_MASK	|
++				   MSI_FLAG_PCI_MSIX),
++	.required_flags		= (MSI_FLAG_USE_DEF_DOM_OPS	|
++				   MSI_FLAG_USE_DEF_CHIP_OPS),
++	.bus_select_token	= DOMAIN_BUS_PCI_MSI,
++	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
++};
++
+ static int xgene_allocate_domains(struct xgene_msi *msi)
+ {
+-	msi->inner_domain = irq_domain_add_linear(NULL, NR_MSI_VEC,
+-						  &msi_domain_ops, msi);
++	msi->inner_domain = msi_create_parent_irq_domain(of_node_to_fwnode(msi->node),
++							 &xgene_msi_parent_ops,
++							 &xgene_msi_domain_ops,
++							 0, NR_MSI_VEC, msi, NULL);
+ 	if (!msi->inner_domain)
+ 		return -ENOMEM;
  
- #include "irq-gic-common.h"
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
+-	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(msi->node),
+-						    &xgene_msi_domain_info,
+-						    msi->inner_domain);
+-
+-	if (!msi->msi_domain) {
+-		irq_domain_remove(msi->inner_domain);
+-		return -ENOMEM;
+-	}
+-
+ 	return 0;
+ }
  
- #define ITS_FLAGS_CMDQ_NEEDS_FLUSHING		(1ULL << 0)
- #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
-diff --git a/drivers/irqchip/irq-gic-v3-mbi.c b/drivers/irqchip/irq-gic-v3-mbi.c
-index 3fe870f8ee174..63c658375fd55 100644
---- a/drivers/irqchip/irq-gic-v3-mbi.c
-+++ b/drivers/irqchip/irq-gic-v3-mbi.c
-@@ -18,7 +18,7 @@
- 
- #include <linux/irqchip/arm-gic-v3.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- struct mbi_range {
- 	u32			spi_start;
-diff --git a/drivers/irqchip/irq-imx-mu-msi.c b/drivers/irqchip/irq-imx-mu-msi.c
-index 4342a21de1eb0..b3f656c6e7708 100644
---- a/drivers/irqchip/irq-imx-mu-msi.c
-+++ b/drivers/irqchip/irq-imx-mu-msi.c
-@@ -24,7 +24,7 @@
- #include <linux/pm_domain.h>
- #include <linux/spinlock.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- #define IMX_MU_CHANS            4
- 
-diff --git a/drivers/irqchip/irq-loongarch-avec.c b/drivers/irqchip/irq-loongarch-avec.c
-index 0f6e465dd3095..c95704707219d 100644
---- a/drivers/irqchip/irq-loongarch-avec.c
-+++ b/drivers/irqchip/irq-loongarch-avec.c
-@@ -18,7 +18,7 @@
- #include <asm/loongarch.h>
- #include <asm/setup.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- #include "irq-loongson.h"
- 
- #define VECTORS_PER_REG		64
-diff --git a/drivers/irqchip/irq-loongson-pch-msi.c b/drivers/irqchip/irq-loongson-pch-msi.c
-index bd337ecddb409..3f6f4e9887c53 100644
---- a/drivers/irqchip/irq-loongson-pch-msi.c
-+++ b/drivers/irqchip/irq-loongson-pch-msi.c
-@@ -15,7 +15,7 @@
- #include <linux/pci.h>
- #include <linux/slab.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- #include "irq-loongson.h"
- 
- static int nr_pics;
-diff --git a/drivers/irqchip/irq-msi-lib.c b/drivers/irqchip/irq-msi-lib.c
-index d8e29fc0d4068..514b2616d9559 100644
---- a/drivers/irqchip/irq-msi-lib.c
-+++ b/drivers/irqchip/irq-msi-lib.c
-@@ -4,7 +4,7 @@
- 
- #include <linux/export.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- /**
-  * msi_lib_init_dev_msi_info - Domain info setup for MSI domains
-diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
-index 2b6183919ea48..b206b7fe03f17 100644
---- a/drivers/irqchip/irq-mvebu-gicp.c
-+++ b/drivers/irqchip/irq-mvebu-gicp.c
-@@ -17,7 +17,7 @@
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- 
-diff --git a/drivers/irqchip/irq-mvebu-icu.c b/drivers/irqchip/irq-mvebu-icu.c
-index b337f6c05f184..30d51a26ea05f 100644
---- a/drivers/irqchip/irq-mvebu-icu.c
-+++ b/drivers/irqchip/irq-mvebu-icu.c
-@@ -20,7 +20,7 @@
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- #include <dt-bindings/interrupt-controller/mvebu-icu.h>
- 
-diff --git a/drivers/irqchip/irq-mvebu-odmi.c b/drivers/irqchip/irq-mvebu-odmi.c
-index ff19bfd258dce..0ba39fbdb451f 100644
---- a/drivers/irqchip/irq-mvebu-odmi.c
-+++ b/drivers/irqchip/irq-mvebu-odmi.c
-@@ -18,7 +18,7 @@
- #include <linux/of_address.h>
- #include <linux/slab.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- 
-diff --git a/drivers/irqchip/irq-mvebu-sei.c b/drivers/irqchip/irq-mvebu-sei.c
-index 065166ab5dbc0..c12e650ae7c92 100644
---- a/drivers/irqchip/irq-mvebu-sei.c
-+++ b/drivers/irqchip/irq-mvebu-sei.c
-@@ -14,7 +14,7 @@
- #include <linux/of_irq.h>
- #include <linux/of_platform.h>
- 
--#include "irq-msi-lib.h"
-+#include <linux/irqchip/irq-msi-lib.h>
- 
- /* Cause register */
- #define GICP_SECR(idx)		(0x0  + ((idx) * 0x4))
-diff --git a/drivers/irqchip/irq-msi-lib.h b/include/linux/irqchip/irq-msi-lib.h
-similarity index 84%
-rename from drivers/irqchip/irq-msi-lib.h
-rename to include/linux/irqchip/irq-msi-lib.h
-index 681ceabb7bc74..dd8d1d1385449 100644
---- a/drivers/irqchip/irq-msi-lib.h
-+++ b/include/linux/irqchip/irq-msi-lib.h
-@@ -2,8 +2,8 @@
- // Copyright (C) 2022 Linutronix GmbH
- // Copyright (C) 2022 Intel
- 
--#ifndef _DRIVERS_IRQCHIP_IRQ_MSI_LIB_H
--#define _DRIVERS_IRQCHIP_IRQ_MSI_LIB_H
-+#ifndef _IRQCHIP_IRQ_MSI_LIB_H
-+#define _IRQCHIP_IRQ_MSI_LIB_H
- 
- #include <linux/bits.h>
- #include <linux/irqdomain.h>
-@@ -24,4 +24,4 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
- 			       struct irq_domain *real_parent,
- 			       struct msi_domain_info *info);
- 
--#endif /* _DRIVERS_IRQCHIP_IRQ_MSI_LIB_H */
-+#endif /* _IRQCHIP_IRQ_MSI_LIB_H */
+ static void xgene_free_domains(struct xgene_msi *msi)
+ {
+-	if (msi->msi_domain)
+-		irq_domain_remove(msi->msi_domain);
+ 	if (msi->inner_domain)
+ 		irq_domain_remove(msi->inner_domain);
+ }
 -- 
 2.39.2
 
