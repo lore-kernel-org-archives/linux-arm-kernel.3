@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882EDE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1B4E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 17:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0IR5OMx+DyBWuoMwhoq8fJlm2oVOt7D9K+1eNcRtmG4=; b=wiu5eiD+R9qd5UqeOpaB49d6sz
-	onG9u7zkUCwOda2TLYu1Y7E6mIbMzOFOe3tKw8WR1ahbFPJOvnhexAKNKN+f037Ddf4VZIUZrnx1U
-	B/y+7y5E1+K+6Q4ZMK3/nNIgajwZ2++H7GDuarsGECAvB8ADVuY/gj2TCbLJWDJ43yg0CGNSmVkIV
-	DGLc/jNQEKKBjqKoBk6PGPi4ZvcEssf5iV7WR3pSStwy68rQyFeYvE4SHxTn0KqVoknr4iZQH/MJ0
-	V79sUa7sxuhXOOY+dcx2sAt07Ht6kgrzcXojS3PKEQ61OBFjri1F0NkpHuudBcxITRbWa75hNJuXz
-	tYkHQvtQ==;
+	bh=semocD7+uD5Rr+htUCa1O9zukBc4FOENLFDL5d30jQU=; b=CoIgRYgrdrGNDrqXByx8Xc7gcc
+	2WtvMyFXGZu1ZKsFgGPJCAiXFs26wg/Jn8kVBmK9Nx7LC5gjtuHbKTyW0g7fualLL4Y34p5Tg48iO
+	EYQmG7VFnKtbgxQ4Xkitm2Ei3u5AYePPFwfnUPdLKlaEW2/TvXKXthBDsXhkKfC8swzKpim2Wo/bo
+	0wMrz3Bv6BvJfGE9NkZvkEr5rbqEXtn43Gx7SDNID5Or5K2mX3Lc81jx6NQWjyNw3/4n16fN1m1Uf
+	WL4iQd6ZBL2ecb5GIepRIzmxnF3cLBboDJyNp3TteXnJs+Lkc64hib2plkpTcdt6Kzd2VdsU8IYfF
+	FP9BmDcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIt0m-0000000DKaL-1SrZ;
-	Wed, 04 Dec 2024 17:18:04 +0000
+	id 1tIt1k-0000000DKp8-49jz;
+	Wed, 04 Dec 2024 17:19:04 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIswZ-0000000DJMo-3s1n;
-	Wed, 04 Dec 2024 17:13:45 +0000
+	id 1tIswk-0000000DJPb-3LT7;
+	Wed, 04 Dec 2024 17:13:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 199AEA41AA9;
-	Wed,  4 Dec 2024 17:11:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2CE9C4CECD;
-	Wed,  4 Dec 2024 17:13:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E5468A40BB1;
+	Wed,  4 Dec 2024 17:12:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98548C4CECD;
+	Wed,  4 Dec 2024 17:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733332422;
-	bh=NXP4QUyd02bGAEelbqE6WO7Iq9nUM2FRQKZrYr01BK0=;
+	s=k20201202; t=1733332433;
+	bh=eEil3V8vpg3oJ6G0qHOp/snMvidSP/VdhUMCcKQsQq4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U/mFab4UPePircTkq6P7A8iSsA82pvoQobH9JNuARFQCOCbeOxB+57m6p3DltW+1p
-	 79aoTho8Z9d+zVeekqAr6vFhgpQ6lkL0XnXF5R3FQU1LrJCTuqeuco9uolQ4MqBiGx
-	 HS1s7p3bhVxMBOds026By3aMk+j7UhVvmanZUYh21yO+EdaIw9HmRH6DrtAdXZ9/fX
-	 YmWsEjRV7LoKI7fR9ET9mahCx+BuRxSS/WljS2f+wtS9B1rwy3w1P6gKBscldtmggQ
-	 EtgMjDHHowk0k+Hg0YWySwDhcDh/O0FLIDOk7wj95/W1CeqYwalD1TeQlPEFhT+PiL
-	 eRMzhC8ef0Ziw==
+	b=bkFwFNdczkl905yj5flFaM14F7+fdT2zWxsMjwDx6kKTkpxj8rG4gdX28rlGCgrgz
+	 w5CkQQnjCDkpcw6PPloK/nukEd+YU5rYpdEAC2+oCwWBlUsHKzBFvdRNR0qK71mTkd
+	 hsv/FqeYHTuDABB2ijf9gaC2XCwHB3pfsnRTGrWV1nQpiArweHP/F1GRXqox6E0uUp
+	 nKPScAcE7id83rk3FY/6ywiJ7lXij94VuZ410MBMH8QavStopnWqEFI51HyIt2NhAX
+	 9gofSIYTILpYrkVTT/Z26eUsVfooOhOFG9iosfVDlD2Sa94fVD2d1NzfGHTeSeIBxR
+	 lnKrw2/6V2zjQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -52,19 +52,19 @@ Cc: Defa Li <defa.li@mediatek.com>,
 	linux-i3c@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 4/4] i3c: Use i3cdev->desc->info instead of calling i3c_device_get_info() to avoid deadlock
-Date: Wed,  4 Dec 2024 11:02:14 -0500
-Message-ID: <20241204160216.2217323-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 4/4] i3c: Use i3cdev->desc->info instead of calling i3c_device_get_info() to avoid deadlock
+Date: Wed,  4 Dec 2024 11:02:25 -0500
+Message-ID: <20241204160227.2217428-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241204160216.2217323-1-sashal@kernel.org>
-References: <20241204160216.2217323-1-sashal@kernel.org>
+In-Reply-To: <20241204160227.2217428-1-sashal@kernel.org>
+References: <20241204160227.2217428-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.230
+X-stable-base: Linux 5.4.286
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_091344_086443_665D9716 
+X-CRM114-CacheID: sfid-20241204_091354_959711_E2D23969 
 X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -171,10 +171,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-index 828fb236a63ae..525f789b0f86c 100644
+index 02dc8e29c8280..0503f8398a86a 100644
 --- a/drivers/i3c/master.c
 +++ b/drivers/i3c/master.c
-@@ -279,7 +279,8 @@ static int i3c_device_uevent(struct device *dev, struct kobj_uevent_env *env)
+@@ -257,7 +257,8 @@ static int i3c_device_uevent(struct device *dev, struct kobj_uevent_env *env)
  	struct i3c_device_info devinfo;
  	u16 manuf, part, ext;
  
