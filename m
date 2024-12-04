@@ -4,142 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1BBE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 866F6E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 23:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NcU+NmHJdNR31TOBlMnx/TcllfV5Lqqi/BTC8sXm10=; b=FK4pWYeqPOUQeX0Q+AfSFG9MDZ
-	fW56DiE05JABoJoCmVuADkVwcxARukvzZ9eD0V92uaqludDM+RJgufEVbdlXEOhrBCA/NMFb5xx+U
-	ygCo1zFxQ6XtNzVqWS6Fmha0ejNbAsRKiGOTRz+Gi42+ThLjfHWUNbRj1Wr5sfW0HAXRv4iZ23WIg
-	yfFKtQYr81kZdJGxk50uMqD138c5S5KQ67x/nrmdfGvVSqwn0pVJH3RVbFYRdMhFhpMMXKeZ4+JOU
-	LWxcGxNzG9bqS4Zke6G9/rEx75n2YAUJmLAVUTA6Ttqe9sNb9qWTwOWCal+T/IwQsb6exMtZWu0rE
-	lj+K9agg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kKTeLF2LD/0snEBFQ6S60BKJbaadWC3/2FMdq6OxqQc=; b=gI26MhZJOLLcOvYBRiS6BXXBlc
+	aP+NxhX2fxgU9qGLTIfZOsSCEt3kJetdYiBr/UZHobT/x43YXP3E3VLMFBFI3cNBAHUTmkNMgYn2Z
+	8mCmqUpl6GWNepwEtdReP3Lb5/iUXJzLpohjOo8OoOZTlhTXtgokkTpLRfRxxs0PayiQKb8MEUaLg
+	68g7YsujCkn7D5h5DqBBHQCzWh4+eKd4ZLwDg7c7GIubrnIjMV+UvVFSHu3JePvsBAossouQNYSBl
+	r+NP3xJJM8TGvCoTOPwMapvXW4PnE97l1y5CExAKqU9h9FPxXah+1hufGmOwDtjl53sB6fm8Cd0tF
+	z+GfRnZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIyvj-0000000EBv8-2295;
-	Wed, 04 Dec 2024 23:37:15 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tIywj-0000000ECA3-0L2U;
+	Wed, 04 Dec 2024 23:38:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIylc-0000000E909-37Vu
+	id 1tIyma-0000000E9F9-3gnW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 23:26:49 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B4GwrnU023313;
-	Wed, 4 Dec 2024 23:26:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+NcU+NmHJdNR31TOBlMnx/TcllfV5Lqqi/BTC8sXm10=; b=THa7UkInrllMtWzJ
-	uYkCvLLot7XsIfeRzLNoQGWv6Sj3rWCWJlXyW3UZnreHGwEtRTUooSNUvHEgK1PR
-	K5Vm8zZAg+ebgd8n6M7uBY8jje3BMUl+6FEq3qCHA9PA8ii7qvuLQZM0nuVhsJZi
-	182C2/CCqy1eSDupcgPyJ6Vvk6e0mtbA2QvKA0BR5OQAI0mTksQcZg7PPQf+lpvM
-	l7HU0Fc5YBYUgQtojE1QP6NIsEgsmnunjne+QWyxD8hGDmk15RJQ1+qC6Go4TFk6
-	xs0kXCPNIJys991PW+dDAvF7bgEVttrt4oW952qRKZbYE/C0wJJMqNlLP+r09eCD
-	M8h8MA==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43aj42aeds-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Dec 2024 23:26:23 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B4NQMKZ030623
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 4 Dec 2024 23:26:22 GMT
-Received: from [10.71.110.107] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 4 Dec 2024
- 15:26:19 -0800
-Message-ID: <c4c3dd96-727b-4be1-9152-e384478a7508@quicinc.com>
-Date: Wed, 4 Dec 2024 15:26:18 -0800
+	Wed, 04 Dec 2024 23:27:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F40AAA400E5;
+	Wed,  4 Dec 2024 23:25:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A070BC4CECD;
+	Wed,  4 Dec 2024 23:27:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733354867;
+	bh=2lTEFNxmgsLzehvi5xaYBbzeac9Q5WJzz1xmFsfPIok=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KrjQge4knmZjipSInPhMpJly92RaZefFqX2Wn6GyVNg7QBMtCsEn0MsSENy6Melru
+	 XIo9e3HwvUWVy/ne9gdGPrMAr8Caz75TVxVAUdsmxsmUXs1jfAtq0/HjZgNsfNyT2v
+	 lUT7BaSXA4mfpcQQuOpzD3e8P2aX9X+Nru3MtjrMqb2UeGRVHBrNGwM6A6bITT73jN
+	 94R0wTGcwesWydxDqgVXNMcbs94ckLhqGVrYgXyH2BVE+VjdLbeJsiTqmNvK5XpqjY
+	 V3cetXrJTm4omhJIRjfTA3SpbHXPooa65FPUu5DAhkMqpR/WXw4qn/UiXK27O9HOHV
+	 Z6UvPwsK4/PZg==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Xu Yang <xu.yang_2@nxp.com>,
+	Peter Chen <peter.chen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	shawnguo@kernel.org,
+	linux-usb@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 01/15] usb: chipidea: add CI_HDRC_HAS_SHORT_PKT_LIMIT flag
+Date: Wed,  4 Dec 2024 17:15:55 -0500
+Message-ID: <20241204221627.2247598-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/10] drm/msm/dp: use eld_mutex to protect access to
- connector->eld
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Harry Wentland
-	<harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
-        Rodrigo Siqueira
-	<Rodrigo.Siqueira@amd.com>,
-        Alex Deucher <alexander.deucher@amd.com>,
-        =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
-        Xinhui Pan
-	<Xinhui.Pan@amd.com>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong
-	<neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej
- Skrabec <jernej.skrabec@gmail.com>,
-        Phong LE <ple@baylibre.com>, Inki Dae
-	<inki.dae@samsung.com>,
-        Seung-Woo Kim <sw0312.kim@samsung.com>,
-        Kyungmin Park
-	<kyungmin.park@samsung.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Alim
- Akhtar <alim.akhtar@samsung.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen
-	<joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        Rob
- Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        Alain Volmat <alain.volmat@foss.st.com>,
-        Raphael Gallais-Pou <rgallaispou@gmail.com>,
-        Dave Stevenson
-	<dave.stevenson@raspberrypi.com>,
-        =?UTF-8?Q?Ma=C3=ADra_Canal?=
-	<mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance
-	<kernel-list@raspberrypi.com>,
-        <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <amd-gfx@lists.freedesktop.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-samsung-soc@vger.kernel.org>, <intel-gfx@lists.freedesktop.org>,
-        <intel-xe@lists.freedesktop.org>, <linux-arm-msm@vger.kernel.org>,
-        <freedreno@lists.freedesktop.org>
-References: <20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org>
- <20241201-drm-connector-eld-mutex-v1-7-ba56a6545c03@linaro.org>
- <ca906dc4-ac72-4a76-a670-36c011c853c9@quicinc.com>
- <n2zmw4wquxzht6gvlx6yjurpobgwlsryh75n5gw65j5vjclhgr@jqubqjispqsr>
-Content-Language: en-US
-From: Abhinav Kumar <quic_abhinavk@quicinc.com>
-In-Reply-To: <n2zmw4wquxzht6gvlx6yjurpobgwlsryh75n5gw65j5vjclhgr@jqubqjispqsr>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: ih6cbWCa3Fo1OS03TdHomljQ100iLSU9
-X-Proofpoint-ORIG-GUID: ih6cbWCa3Fo1OS03TdHomljQ100iLSU9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
- mlxscore=0 mlxlogscore=925 lowpriorityscore=0 clxscore=1015 malwarescore=0
- priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0 impostorscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412040179
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.12.1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_152648_903510_7A2C9326 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20241204_152749_046487_19D1DE68 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,29 +79,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Xu Yang <xu.yang_2@nxp.com>
 
+[ Upstream commit ec841b8d73cff37f8960e209017efe1eb2fb21f2 ]
 
-On 12/3/2024 5:58 AM, Dmitry Baryshkov wrote:
-> On Mon, Dec 02, 2024 at 07:27:45PM -0800, Abhinav Kumar wrote:
->>
->>
->> On 11/30/2024 3:55 PM, Dmitry Baryshkov wrote:
->>> Reading access to connector->eld can happen at the same time the
->>> drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
->>> order to protect connector->eld from concurrent access.
->>>
->>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->>> ---
->>>    drivers/gpu/drm/msm/dp/dp_audio.c | 2 ++
->>>    1 file changed, 2 insertions(+)
->>>
->>
->> Reviewed-by: Abhinav Kumar <quic_abhinavk@quicinc.com>
-> 
-> Ack to merge through drm-misc?
-> 
+Currently, the imx deivice controller has below limitations:
 
-Yes,
+1. can't generate short packet interrupt if IOC not set in dTD. So if one
+   request span more than one dTDs and only the last dTD set IOC, the usb
+   request will pending there if no more data comes.
+2. the controller can't accurately deliver data to differtent usb requests
+   in some cases due to short packet. For example: one usb request span 3
+   dTDs, then if the controller received a short packet the next packet
+   will go to 2nd dTD of current request rather than the first dTD of next
+   request.
+3. can't build a bus packet use multiple dTDs. For example: controller
+   needs to send one packet of 512 bytes use dTD1 (200 bytes) + dTD2
+   (312 bytes), actually the host side will see 200 bytes short packet.
 
-Acked-by: Abhinav Kumar <quic_abhinavk@quicinc.com>
+Based on these limits, add CI_HDRC_HAS_SHORT_PKT_LIMIT flag and use it on
+imx platforms.
+
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Acked-by: Peter Chen <peter.chen@kernel.org>
+Link: https://lore.kernel.org/r/20240923081203.2851768-1-xu.yang_2@nxp.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/usb/chipidea/ci.h          | 1 +
+ drivers/usb/chipidea/ci_hdrc_imx.c | 1 +
+ drivers/usb/chipidea/core.c        | 2 ++
+ include/linux/usb/chipidea.h       | 1 +
+ 4 files changed, 5 insertions(+)
+
+diff --git a/drivers/usb/chipidea/ci.h b/drivers/usb/chipidea/ci.h
+index 2a38e1eb65466..e4b003d060c26 100644
+--- a/drivers/usb/chipidea/ci.h
++++ b/drivers/usb/chipidea/ci.h
+@@ -260,6 +260,7 @@ struct ci_hdrc {
+ 	bool				b_sess_valid_event;
+ 	bool				imx28_write_fix;
+ 	bool				has_portsc_pec_bug;
++	bool				has_short_pkt_limit;
+ 	bool				supports_runtime_pm;
+ 	bool				in_lpm;
+ 	bool				wakeup_int;
+diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+index c64ab0e07ea03..17b3ac2ac8a1e 100644
+--- a/drivers/usb/chipidea/ci_hdrc_imx.c
++++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+@@ -342,6 +342,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+ 	struct ci_hdrc_platform_data pdata = {
+ 		.name		= dev_name(&pdev->dev),
+ 		.capoffset	= DEF_CAPOFFSET,
++		.flags		= CI_HDRC_HAS_SHORT_PKT_LIMIT,
+ 		.notify_event	= ci_hdrc_imx_notify_event,
+ 	};
+ 	int ret;
+diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+index 835bf2428dc6e..5aa16dbfc289c 100644
+--- a/drivers/usb/chipidea/core.c
++++ b/drivers/usb/chipidea/core.c
+@@ -1076,6 +1076,8 @@ static int ci_hdrc_probe(struct platform_device *pdev)
+ 		CI_HDRC_SUPPORTS_RUNTIME_PM);
+ 	ci->has_portsc_pec_bug = !!(ci->platdata->flags &
+ 		CI_HDRC_HAS_PORTSC_PEC_MISSED);
++	ci->has_short_pkt_limit = !!(ci->platdata->flags &
++		CI_HDRC_HAS_SHORT_PKT_LIMIT);
+ 	platform_set_drvdata(pdev, ci);
+ 
+ 	ret = hw_device_init(ci, base);
+diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
+index 5a7f96684ea22..ebdfef124b2bc 100644
+--- a/include/linux/usb/chipidea.h
++++ b/include/linux/usb/chipidea.h
+@@ -65,6 +65,7 @@ struct ci_hdrc_platform_data {
+ #define CI_HDRC_PHY_VBUS_CONTROL	BIT(16)
+ #define CI_HDRC_HAS_PORTSC_PEC_MISSED	BIT(17)
+ #define CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS	BIT(18)
++#define	CI_HDRC_HAS_SHORT_PKT_LIMIT	BIT(19)
+ 	enum usb_dr_mode	dr_mode;
+ #define CI_HDRC_CONTROLLER_RESET_EVENT		0
+ #define CI_HDRC_CONTROLLER_STOPPED_EVENT	1
+-- 
+2.43.0
+
 
