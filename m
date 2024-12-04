@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481FDE77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884B8E7716B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 16:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSJIaNwMpBSVKM3jz7waFi0qzaqRh8xMyWjRSkgvN1w=; b=gtDnGWHYDhatAbjxvQcLP5MhvF
-	GIJn3c8RQLWDNeQGNijDDnB94/zGSM7A5SxC6iSW8tMb3UZjGd0RYcKOseo4NZcjg0n3aZFN3lSbl
-	B0v8ypgaxREaZEFpak/GnP+e6oS8hOrk9xXwN6HZxoUbnLYVn1SXR596yj8eOSvuCDqjycvL0vRO5
-	8WNnFQOME2GcZratBuhEQDbkbNeiob/+egOO4L9JZlz3qyQsR+YsLuBenBkSBp9gSQpxJfSWOznLs
-	OaLphJm9g692JHaGvRZhnnQjsnAA+s/UxA5V0lefo4SPzCxVdXgtFJa4uj0V7koi1dwaA9kzhOPza
-	ufkqgK1w==;
+	bh=pE54ERLXzMFHOSVaFHGMF5JbmllGHfQ89Y0kI1gToQg=; b=BT1qdVpPraKnyUTVbQdzZL2i8z
+	+/hf4nm1CYwMm9fGfT9Xz/LAPF7Kkq/QnFMzZ7Ubq36FyXaC1Ow+PlitBfFbdihdkgO4/jHzG7WIF
+	iYHfYudVjzdutg4MEuG13saGcRaLLAtgyBAsXezWCuUXCJTJpig4YYyC6IUZ7fprR04eOnxi2KfHm
+	J3PlUEXb9fTUl0lcXixUdgPKqfAYujJGlTXE+JWFKKrBcM33Jo1qXs7vOCM3/pXXwGg5ICygZ0CCp
+	QcNuMug9nJB2/THaRC9eROB2OenEHgNAXNcnqZw9nf3B1G4Xxk7CRBlF/0B8ajaOM/aXspHBIMf0p
+	twZQI7TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIro4-0000000D5L1-3Zm0;
-	Wed, 04 Dec 2024 16:00:52 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tIrp4-0000000D5dZ-2Am7;
+	Wed, 04 Dec 2024 16:01:54 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrlB-0000000D4QF-0S2J
+	id 1tIrlE-0000000D4R1-389r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 15:57:54 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53dd57589c8so1155937e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:57:52 -0800 (PST)
+	Wed, 04 Dec 2024 15:57:57 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53de7321675so7510383e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 07:57:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733327871; x=1733932671; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1733327874; x=1733932674; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GSJIaNwMpBSVKM3jz7waFi0qzaqRh8xMyWjRSkgvN1w=;
-        b=X5rvOUbXyxm0ttoY+Y6JMdM77tZNXdh794ywxKWZy4R+MkPUli3CIknA76+dodvWe8
-         wIPlUDuWVgc18ZAqKqHLJZaNb1PT0ix9kGR1Stt7ZwBNUTVWWmyVf5Y3+Qwxo6BAQmUb
-         PH9tREw2PZ+AyA3Q7MzoABZc5zgTKNcZJVyVh0ELMs6ZtoGG8FJzlACdKG1O7LIfkcF6
-         iHKYhsX92C8mPaRkpGqtgMAx1EIsGuuxPRSz4+kz9ixp8zHF9bQ2h8UqdOTizsgKjlUq
-         bnjpGFw1+9AOqdh0iP7LAcys6Xw26TzMFe55tIKIVAQPnij/v7bWmMkymJMFUXKWRfU8
-         /Drg==
+        bh=pE54ERLXzMFHOSVaFHGMF5JbmllGHfQ89Y0kI1gToQg=;
+        b=ZGr1VZicdcii9AA0DX7sBR1VKR7fjvXgj+l0gBBgx9chp0fgkk4A8kNiB8T+BwMtas
+         fElHIj33VpM6kQMprck6Q/jZbK20h5assSZW1f2VAkrhu/GeD7dCupqdoZiLgpNs6X6X
+         rUug4DRdvxPGETnYAVmet7pnvy4CRpOO3UZXi0SrukGDzMazm1fEj4OefelF1MoK15kz
+         vOGPBb7MtNgK8VDGDuacwokLW4UvqVzgbR2DgM9Q/MLZIfogfUyhc9Urxu/LAGZRf4SX
+         YW5px3kc4/MajAcehDL6iWaPnT3fmO7Tn7K2iKYLNxECs2TWGkSFi0L+uxVLhRfMOEs/
+         NbJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733327871; x=1733932671;
+        d=1e100.net; s=20230601; t=1733327874; x=1733932674;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GSJIaNwMpBSVKM3jz7waFi0qzaqRh8xMyWjRSkgvN1w=;
-        b=t0KcwHQ9w5zldy+2G/j+mQs7aMuefskuQRY11Ufmae5OzI3cu4gxzvpxyTdHfQsC4x
-         v4sIdg2HSNVQB4p/jipPG9e+5cl5zJw/yZvEBU5aIaI65hpsW6dj50iLhDViVR73vjs1
-         /rdy1MZ2CY98n3LYSfpCEDkHIMr4y1KnZJD8lFcUbBMMdCPUN5p1mTEtcINEbYfABi+0
-         pT4nzSCihGSmeMf0dfnFXs17zzDrTQ48m0VRGp+iMP3LjmAmTScKuAmNis2rvFRv56Js
-         qLb1ltJ4taRoxVNzqIFV3RLGpstmwK3I8Hts73VCRR3L26xAwh9L7wF6NQbhKaNnLvZ9
-         PECA==
-X-Gm-Message-State: AOJu0YydiTnf1NZqzevi4aCnIbHew4f5YuGU3Xs8J57d3ZTqlJhXaWYs
-	7Pieszu4rBhjmVnpxO8zODhOtdcmjHEdyzuxX5tvcj49rYeDicmy
-X-Gm-Gg: ASbGncuwhuzKEOrMR38/83iyII68o3uDi8nCgdr6Qwd+rkq5/0t/OdhqxTSXh8B290Q
-	pmt3OhuPrUH6uyDWHRIZM0gS54BfM/9Fcjpvwx2rrFJ3t96FsASVUkIg79mfepiARpBKwoywK/R
-	nCij++QuU84ReiHezaijnJ1Q3eHLV4ekjJ9IJeqLSnRJKhIUYBJoanq/zujQM2Odi40FPTWnh4e
-	16zlj0xdm2p8LY6XDGbz8P1Az69O+OSvycqUyJmmTpauyw3BmnidAZsB/IbHpl4Z8L1usfAzSS/
-	VCfoEVKr00YZJVM=
-X-Google-Smtp-Source: AGHT+IFK+sV7O4icijjKv457E5UuddczGGVpjLjFLjjS3CacPYgnaEiA3MVt7SsciegK+X62jTjZDA==
-X-Received: by 2002:a05:6512:118a:b0:53e:1d35:802b with SMTP id 2adb3069b0e04-53e1d3580aemr870242e87.22.1733327871107;
-        Wed, 04 Dec 2024 07:57:51 -0800 (PST)
+        bh=pE54ERLXzMFHOSVaFHGMF5JbmllGHfQ89Y0kI1gToQg=;
+        b=d0FLmgEkhzbP376NygA5s3Tav4+a8gzZxRcaQ8BK8e+oseUKiNriMjk3kAiWEJlSj6
+         Bkj8dM1/vGpJY0RvlNjBgOT06wCKK9jD6wpwwqmGzvp+VplZVl/0OVgNlYMb20TDVbLw
+         ZqEYGNA2ZW4RwII9LFqkYPQ7TkhWWkHcFRMN4fGTrZcsTRH1dB0XeQ9uVP5BWcBXuyMW
+         WoSAfmqmyWJrLACpHY4+ujzUfAPaEqbEVP2D38U0H4pTl77z4ScaUPpkcRdF2jP7q+id
+         QO4vmq+GiQscTPhkLOTVIk3pNKwuW6d+C5PpF0caKNatAlUKaZX9OGjKiucPbz/weL/4
+         Xz1Q==
+X-Gm-Message-State: AOJu0Yxei5jFR1aX4P9ngQC5Tq1flHQf2vLkfG2Z8AZ+hEjVyyhD3SNn
+	haVdWUjN5DQXFP7QViTFZKZM230rCU2Rjt5dr2k7bxz9h2T5bX4wvJQnsutg
+X-Gm-Gg: ASbGncsuQOMnuYMabL90WtSEXZoLe8EvoqG8mROHAfM7JHRG+oRGeI/HHwJUCvMfgXV
+	udQl8sqAQiLjdfknqsglVVMgwRrjBFHbKIRCvTewSmUjVhjJe/ktZYKoU+DzAepLM91byIYSHcv
+	yxJ2YpdykvJf1L6mq08heExTYcAe4TKTh4fh2q/Ae7oo59Mo9jVK93Nl5X1uPdacK0twM2wS/dO
+	V+R5G8Kp1QUl44XMJHX2lPHDXLV5mpdETX6w2PLBI+PdAXdTxsnpezhmjiQLdAb8FHMN0M4G1Wv
+	JGqfmAOprr/LWD4=
+X-Google-Smtp-Source: AGHT+IE9tM02DUH8MOCjzjoQQbTra+vnau6HGJnv0bJ8SHLzV3mdbCN08x9wN5NL4MZ4tHud9pXj/w==
+X-Received: by 2002:a05:6512:3b1e:b0:53e:f38:60eb with SMTP id 2adb3069b0e04-53e129cd2f1mr3878419e87.10.1733327874359;
+        Wed, 04 Dec 2024 07:57:54 -0800 (PST)
 Received: from [172.17.0.1] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e1f5498easm168999e87.105.2024.12.04.07.57.48
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e1f5498easm168999e87.105.2024.12.04.07.57.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 07:57:49 -0800 (PST)
+        Wed, 04 Dec 2024 07:57:52 -0800 (PST)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Wed, 04 Dec 2024 16:56:44 +0100
-Subject: [PATCH 2/9] ARM: davinci_all_defconfig: rebuild default
- configuration
+Date: Wed, 04 Dec 2024 16:56:45 +0100
+Subject: [PATCH 3/9] ARM: dove_defconfig: rebuild default configuration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241204-defconfigs-v1-2-86587652d37a@gmail.com>
+Message-Id: <20241204-defconfigs-v1-3-86587652d37a@gmail.com>
 References: <20241204-defconfigs-v1-0-86587652d37a@gmail.com>
 In-Reply-To: <20241204-defconfigs-v1-0-86587652d37a@gmail.com>
 To: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
@@ -88,27 +87,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
  Marcus Folkesson <marcus.folkesson@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3651;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2163;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=zjQeF+lHLGXt0nBZef6OKhZZCWLAYAtCLWguUvf+RB8=;
- b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnUHvO2C97zXXxQW6czHz2jFaB/m+N9evB/PHNu
- 48CzcfkS8GJAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZ1B7zgAKCRCIgE5vWV1S
- Mkd9EACa7dWnhdxZ/VRwCKnmJRA7zIPAmC7tIzR+zRXuXs+a95upoo/ZyESKuqLwNTsfZ1kCK01
- rNz9PIIJIGTjWWZpiZQ+teoVg4Mi15eNNCqGTwjVpaLDS9EAwZ3S8FJhSleO5LihSDE45XAEDhJ
- UIFRg89f3IvmQTLMmpKDeLTukzruYLiPEvD2bXJw9REYeKz7O7XWa9Jfn+ePN9whWU6zoe6Xhqw
- CL+x6oK8/NC0rTcueevwDvEnsM5bD8iInLmTd6bHT9J1XJTt9ek+5qHe4h2+6L94FwnFZqior7/
- WgM8wJX/mAX62sP0xcP4GlnNMnpyARZfnGFOy6gy4P/MwPx6byCnQ11tI5E3ASVO8B52rBsqWoA
- UHO4ulHPZoVApKf2/TN0H2J5bduRAxn0rBCw0NEvyksi0qNj7HM5gVIBq0IU1Ydf51zgoJToKyB
- fw54yqJLZ82kcwuw3wb9tztcrm8tnMuVry32orTB2JhtDt+RxKKqA266UCGaIpn049fYsyYe/rQ
- F6XQXxiAjuVuweKehGCZagm6lxG9BNcDtU/wXv7Vpz3YKGaM77mFRX2Gk23nA/Ojf91yqXv7TzD
- hyE4DqyOdYzkqAMBu22/KOQT8BoXp0WgOCpNGRoS6cVbL10ADb+KTqqbQU+V96K+Hb8K/Q4zXQp
- gLGrJSIi6PlnmkQ==
+ bh=HdpaVHroT6iC/mIuADXOnpTo/dSXbaiBN9gF6efkgy0=;
+ b=owEBbQKS/ZANAwAIAYiATm9ZXVIyAcsmYgBnUHvTAsyCMOgmu7E7wO60y6tKwceJVxfi79/8L
+ xMvNhX1cYyJAjMEAAEIAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCZ1B70wAKCRCIgE5vWV1S
+ MoSJD/9KbSQFCcwv99pqsWFQON7Uam7nPkP8bGmLJAjlaK+anFeRQOjNCs8z+ohJSol7YY3eFwG
+ u3x8NtJ0vhmHurJkTv5jzI2UuAT0povAAGeUcZPtB0XWm2c4vo7wdu96TazEMlr1BItqO3xogVn
+ wZfE7jIGaXkPYaMEcJr8fu+kgGAUq2Ie6yIj6pLI4Shj1Q5C8ObGzYJttVJwAZscK+USBJNt7cP
+ Y5hBvNZpl3ObqbeyMGgntiDjeQGiXblr6Yknv0oXVDWHRR8V7YlV22DNLcTT+2JTivfjG3137RX
+ Gnernb3VmE3Nk/VBJE1MfwInv6y41HakaQ+MNzq//n3Wj3zSAUfo149qMfmvxCMz7f+1W6tGdNU
+ NtSCYuyA6+Yfp9PWKW9M9mlHxEIBIuUhtlJ7XXbpvPaGlEW5tv7pZLwSSnc8HIqYYqTy4OjEP0t
+ MOgVy+BGu+hppz7NhMGfZ63FsnqTJTVjDq0mtez7zY+yzJ/buQS8L8BhZQ1Mq7GrjgD0HbmPPvB
+ 6KYr9rkhVwqUUS1xt1HZ118kwupanjZH7e1XLxLR1DryxkHDSAabhYDO3d4iwuSc2wrKsgvLc+9
+ zYQdAx383LofbDG6NLIOJTyVBjH7/jCt29rzXvjUs0ay3ED2Y1QIjDSqHiHuTsVJ4EPGFaBdcZX
+ gBi+mFXD/llylAA==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_075753_149247_2368ED46 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241204_075756_790411_179C0ACA 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,129 +125,76 @@ This configuration contains obsolete configuration options e.g.
 CONFIG_MTD_M25P80 which is integrated into MTD_SPI_NOR.
 
 Rebuild this configuration by run:
-make ARCH=arm davinci_all_defconfig
+make ARCH=arm dove_defconfig
 make ARCH=arm savedefconfig
 
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
- arch/arm/configs/davinci_all_defconfig | 18 ------------------
- 1 file changed, 18 deletions(-)
+ arch/arm/configs/dove_defconfig | 11 -----------
+ 1 file changed, 11 deletions(-)
 
-diff --git a/arch/arm/configs/davinci_all_defconfig b/arch/arm/configs/davinci_all_defconfig
-index 3474e475373ae89a90bb5af8f11fca2aa9c289dc..6465a56cb51f5cf89b6bb1b00e1ff82707758e6a 100644
---- a/arch/arm/configs/davinci_all_defconfig
-+++ b/arch/arm/configs/davinci_all_defconfig
-@@ -10,8 +10,6 @@ CONFIG_CGROUPS=y
- CONFIG_CHECKPOINT_RESTORE=y
- CONFIG_BLK_DEV_INITRD=y
+diff --git a/arch/arm/configs/dove_defconfig b/arch/arm/configs/dove_defconfig
+index 2849d17f585660aa8ff6aad5d554c4bb2d794c60..c3e19e6aa6c9d8e40ecee7d97d185909db61b6c2 100644
+--- a/arch/arm/configs/dove_defconfig
++++ b/arch/arm/configs/dove_defconfig
+@@ -3,11 +3,8 @@ CONFIG_NO_HZ_IDLE=y
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_LOG_BUF_SHIFT=14
  CONFIG_EXPERT=y
--CONFIG_ARCH_MULTIPLATFORM=y
--CONFIG_ARCH_MULTI_V5=y
- # CONFIG_ARCH_MULTI_V7 is not set
- CONFIG_ARCH_DAVINCI=y
- CONFIG_ARCH_DAVINCI_DA830=y
-@@ -19,10 +17,8 @@ CONFIG_ARCH_DAVINCI_DA850=y
- CONFIG_DAVINCI_MUX_DEBUG=y
- CONFIG_DAVINCI_MUX_WARNINGS=y
- CONFIG_AEABI=y
--CONFIG_SECCOMP=y
+-# CONFIG_ARCH_MULTI_V6 is not set
+-CONFIG_ARCH_MULTI_V7=y
+ CONFIG_ARCH_DOVE=y
+ CONFIG_MACH_CM_A510=y
+-CONFIG_AEABI=y
+ CONFIG_HIGHMEM=y
  CONFIG_ARM_APPENDED_DTB=y
  CONFIG_ARM_ATAG_DTB_COMPAT=y
--CONFIG_AUTO_ZRELADDR=y
- CONFIG_CPU_FREQ=y
- CONFIG_CPU_FREQ_DEFAULT_GOV_USERSPACE=y
- CONFIG_CPU_FREQ_GOV_PERFORMANCE=m
-@@ -53,7 +49,6 @@ CONFIG_BT_HCIUART=m
- CONFIG_BT_HCIUART_LL=y
- CONFIG_DEVTMPFS=y
- CONFIG_DEVTMPFS_MOUNT=y
--CONFIG_FW_LOADER=m
- CONFIG_DA8XX_MSTPRI=y
- CONFIG_MTD=m
- CONFIG_MTD_TESTS=m
-@@ -63,7 +58,6 @@ CONFIG_MTD_CFI=m
- CONFIG_MTD_CFI_INTELEXT=m
- CONFIG_MTD_CFI_AMDSTD=m
- CONFIG_MTD_PHYSMAP=m
--CONFIG_MTD_M25P80=m
- CONFIG_MTD_RAW_NAND=m
- CONFIG_MTD_NAND_DAVINCI=m
- CONFIG_MTD_SPI_NOR=m
-@@ -77,7 +71,6 @@ CONFIG_EEPROM_AT24=y
- CONFIG_BLK_DEV_SD=m
- CONFIG_ATA=m
- CONFIG_AHCI_DA850=m
--CONFIG_PATA_BK3710=m
+@@ -40,7 +37,6 @@ CONFIG_MTD_CFI_GEOMETRY=y
+ CONFIG_MTD_CFI_INTELEXT=y
+ CONFIG_MTD_CFI_STAA=y
+ CONFIG_MTD_PHYSMAP=y
+-CONFIG_MTD_M25P80=y
+ CONFIG_MTD_SPI_NOR=y
+ CONFIG_BLK_DEV_LOOP=y
+ CONFIG_BLK_DEV_RAM=y
+@@ -53,7 +49,6 @@ CONFIG_ATA=y
+ CONFIG_SATA_MV=y
  CONFIG_NETDEVICES=y
- CONFIG_NETCONSOLE=y
- CONFIG_TUN=m
-@@ -116,12 +109,10 @@ CONFIG_I2C_DAVINCI=y
- CONFIG_SPI=y
- CONFIG_SPI_DAVINCI=m
- CONFIG_PINCTRL_DA850_PUPD=m
--CONFIG_PINCTRL_SINGLE=y
- CONFIG_GPIOLIB=y
- CONFIG_GPIO_SYSFS=y
- CONFIG_GPIO_PCA953X=y
- CONFIG_GPIO_PCA953X_IRQ=y
--CONFIG_RESET_CONTROLLER=y
- CONFIG_POWER_RESET=y
- CONFIG_POWER_RESET_GPIO=y
- CONFIG_SYSCON_REBOOT_MODE=m
-@@ -133,32 +124,26 @@ CONFIG_REGULATOR=y
- CONFIG_REGULATOR_FIXED_VOLTAGE=y
- CONFIG_REGULATOR_TPS6507X=y
- CONFIG_MEDIA_SUPPORT=m
--CONFIG_MEDIA_CAMERA_SUPPORT=y
- CONFIG_MEDIA_USB_SUPPORT=y
- CONFIG_USB_VIDEO_CLASS=m
- CONFIG_V4L_PLATFORM_DRIVERS=y
- CONFIG_VIDEO_DAVINCI_VPIF_DISPLAY=m
- CONFIG_VIDEO_DAVINCI_VPIF_CAPTURE=m
--# CONFIG_MEDIA_SUBDRV_AUTOSELECT is not set
- CONFIG_VIDEO_TVP514X=m
- CONFIG_VIDEO_ADV7343=m
- CONFIG_DRM=m
- CONFIG_DRM_TILCDC=m
- CONFIG_DRM_SIMPLE_BRIDGE=m
--CONFIG_DRM_TINYDRM=m
- CONFIG_TINYDRM_ST7586=m
- CONFIG_FB=y
--CONFIG_FB_DA8XX=y
- CONFIG_FIRMWARE_EDID=y
- CONFIG_BACKLIGHT_PWM=m
- CONFIG_BACKLIGHT_GPIO=m
--CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_LOGO=y
- CONFIG_SOUND=m
- CONFIG_SND=m
- CONFIG_SND_USB_AUDIO=m
- CONFIG_SND_SOC=m
--CONFIG_SND_SOC_TLV320AIC3X=m
- CONFIG_SND_SOC_DAVINCI_MCASP=m
- CONFIG_SND_SOC_DAVINCI_EVM=m
- CONFIG_SND_SIMPLE_CARD=m
-@@ -204,14 +189,12 @@ CONFIG_MMC_DAVINCI=y
- CONFIG_NEW_LEDS=y
- CONFIG_LEDS_CLASS=m
- CONFIG_LEDS_GPIO=m
--CONFIG_LEDS_TRIGGERS=y
- CONFIG_LEDS_TRIGGER_TIMER=m
- CONFIG_LEDS_TRIGGER_HEARTBEAT=m
- CONFIG_LEDS_TRIGGER_DEFAULT_ON=m
- CONFIG_RTC_CLASS=y
- CONFIG_RTC_DRV_OMAP=m
- CONFIG_DMADEVICES=y
--CONFIG_TI_EDMA=y
- CONFIG_COMMON_CLK_PWM=m
- CONFIG_REMOTEPROC=y
- CONFIG_DA8XX_REMOTEPROC=m
-@@ -254,5 +237,4 @@ CONFIG_DMA_CMA=y
- CONFIG_DEBUG_FS=y
- CONFIG_DEBUG_RT_MUTEXES=y
- CONFIG_DEBUG_MUTEXES=y
--# CONFIG_ARM_UNWIND is not set
- CONFIG_DEBUG_USER=y
+ CONFIG_MV643XX_ETH=y
+-# CONFIG_INPUT_MOUSEDEV is not set
+ CONFIG_INPUT_EVDEV=y
+ # CONFIG_KEYBOARD_ATKBD is not set
+ # CONFIG_MOUSE_PS2 is not set
+@@ -96,8 +91,6 @@ CONFIG_DMADEVICES=y
+ CONFIG_MV_XOR=y
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT3_FS=y
+-# CONFIG_EXT3_FS_XATTR is not set
+-CONFIG_EXT4_FS=y
+ CONFIG_ISO9660_FS=y
+ CONFIG_JOLIET=y
+ CONFIG_UDF_FS=m
+@@ -112,12 +105,9 @@ CONFIG_NLS_CODEPAGE_850=y
+ CONFIG_NLS_ISO8859_1=y
+ CONFIG_NLS_ISO8859_2=y
+ CONFIG_NLS_UTF8=y
+-CONFIG_TIMER_STATS=y
+ CONFIG_CRYPTO_NULL=y
+ CONFIG_CRYPTO_BLOWFISH=y
+-CONFIG_CRYPTO_TEA=y
+ CONFIG_CRYPTO_TWOFISH=y
+-CONFIG_CRYPTO_ECB=m
+ CONFIG_CRYPTO_PCBC=m
+ CONFIG_CRYPTO_HMAC=y
+ CONFIG_CRYPTO_MD4=y
+@@ -126,7 +116,6 @@ CONFIG_CRYPTO_SHA256=y
+ CONFIG_CRYPTO_SHA512=y
+ CONFIG_CRYPTO_DEFLATE=y
+ CONFIG_CRYPTO_LZO=y
+-# CONFIG_CRYPTO_ANSI_CPRNG is not set
+ CONFIG_CRYPTO_DEV_MARVELL_CESA=y
+ CONFIG_CRC_CCITT=y
+ CONFIG_LIBCRC32C=y
 
 -- 
 2.47.0
