@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E476E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EF4E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 10:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mRUdBUrvOR5OMLLhJd0Blsd5j07lMOMnM9Fsmzdm5jQ=; b=SO217qbFM65oD9t2WdCL+PSW/W
-	4VREfrEXn6BAt5rathHhdq0DYMk0rZRiy8QxB6mSG8a0L0LVj9GVi4iaToX5QFQ40bd3xeLGMmr9z
-	dH1d6xgqTZGhuST8bwic6uffQWXbB9xdEl4DDGTjXkNNZ/5/fAxnI0I6bXyyVyxAU3lxsCZVHrjkI
-	P8HdlTurQJn9ZUTbiDw289Ze6CzwfedPUiHOyBlbyD8vQEUzVffCjs343IaheacnOQduAXoj7DuIb
-	jDZ5XstFPk8HNhWQCabm2+TT4PSM63ObsgkePK5jfVJFNIMZYJkMlwpTWPRPdUXRswSNbU9esl9F5
-	aqzCB52Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BMGnNPxPYgtjLytE4uW9hhJz+Jg05BhCFp2UIgwDwC0=; b=fuK1eNkTk1LQb4dU4B10g7mflS
+	Tz7QVuq0ThPmXPu1vuZc11AGXLHFfA/5L85vxYUat6bxNi/yBWAOlHpDbdX+flQrGKJuY0pnYlrav
+	s9wXtgQ8BKIt5j3dswhSuvvw0I6YF2vdTlYzNn72ZpJm0MWOWBhF84uisM8NrgUTQcbXbIZjn27s9
+	C018E+yPq+DHr4sIobF1TJbI4MLs/j2ZTaAnKK/McqFwCPykB5rkkxv6I8nmnkCi4O3RRRpcd5Exj
+	Vo+82EUMmR82fQxYBwqMjDqDnnl7wo+jcjHgKwxIpAB2nTgtgEeqm0ZsktOYcjmuxca6Ui0ZXyFt4
+	ayLKe/xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImPB-0000000CB2c-2CRo;
-	Wed, 04 Dec 2024 10:14:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tImQA-0000000CBB6-0XvM;
+	Wed, 04 Dec 2024 10:15:50 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImOA-0000000CAsa-2R6p
+	id 1tImOY-0000000CAxo-35py
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 10:13:47 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B45ouxi027841;
-	Wed, 4 Dec 2024 10:13:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=mRUdBUrvOR5OMLLhJd0Bls
-	d5j07lMOMnM9Fsmzdm5jQ=; b=Wj95f/NyHX6plyu4Tt2TtA0p8IbNBipW82gtwI
-	H5Bu/j9x2Bfm4dK+NXATqNq8zNVwd1ZjfJsr9lBabO8JcqVgn7YN9CiM+v9qtprn
-	6W/+1TPSAG36mBn3r7FJd6eeavSPW3+r3+9qgGt0jD8uLSFbW0Xpp1AFVOn/KDCG
-	Lqh85pnv+OV0ogK6yhKUFCD/gk+of9nCCy6vNYhnAmzhwnZLAJjz7LI8sYWRJZyW
-	4gx6vGRf6gH7Ii0I/wRkPjfQu7UGQuIIgpNrT/+2twukBillvW0Jyc3kczcSiXUM
-	RrZcVxRV/UEVtn4PWsdAMdlVWqtA2tfwQSu7ATsaDpp5DcFQ==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 439vcem0eq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Dec 2024 10:13:39 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B4ADc1O018701
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 4 Dec 2024 10:13:38 GMT
-Received: from yuanfang4-gv.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 4 Dec 2024 02:13:36 -0800
-From: yuanfang zhang <quic_yuanfang@quicinc.com>
-To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
-        <james.clark@linaro.org>, <alexander.shishkin@linux.intel.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH] coresight-etm4x: add isb() before reading the TRCSTATR
-Date: Wed, 4 Dec 2024 18:13:20 +0800
-Message-ID: <20241204101320.3692167-1-quic_yuanfang@quicinc.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 04 Dec 2024 10:14:11 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4349c7b6b0dso35765e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 02:14:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733307249; x=1733912049; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BMGnNPxPYgtjLytE4uW9hhJz+Jg05BhCFp2UIgwDwC0=;
+        b=LctlKP6QoQAMj+QkO36ejS7NgsODyYis0DE7c0gB5jGb95Y8HIjfhxo3B6gqqqTS96
+         eep/6+gTvPJE22VZqgvtqBKvy7KFV08FUa9WBl8imhknPHjEsNmyJcckzDwLqqwrLMHJ
+         FvCM2LmQzeBOw3hKrkd4O8GYPBCfw871v5aAgya0EGYE1mMWfv4YmCSTt1/9ABVMhQ6q
+         x+Le0vgi+bXqJG08jTa9Qy8YJxetQ5mVK5nZFeq+t/nIvP2YghzhGmPbyCGhAkrI2FMA
+         gKYUxPBTd7SNZ25X5svb7Y1uz3ZRKP73m1ereNy7+eoHl2hFDyBDSo0gV6h+3BceVsOX
+         uI3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733307249; x=1733912049;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BMGnNPxPYgtjLytE4uW9hhJz+Jg05BhCFp2UIgwDwC0=;
+        b=dvVLl40z8U7j9JIxOuFKu/2BJRVOwOpjZoCCbhgYX0zKpBrXi+dmiC4Ux6aE4MHU1V
+         aGLz7sAr5n4vcaosjK1QLW9F1qkB08dEKVjy8mQ7B0A4x21YnT1vmnJjLF3QnoDmOfWS
+         LaZOA7kvJH/LXiAFUMObr9oFcuatquwDjM+fZIHnix/utLvoNdLJg4ihGhlM1aYOI2VO
+         Gx1ta0h9XV8647NvUBY6rgMxkslIulW1l6DAQ4Vh2K2PXXwukRaeir+7pfC+ObXn3P7u
+         8oNuTqPU1XYWOflKyyVyHkmkOYjUb7Gc/6/yp8jzTNUZuoFmW9qK+6X+dTYOWRAWJ0gd
+         hNwg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6HyvooHRBiqCb9eqTnw9YKWdeor4jjj5DDegfl6hIuylNTKazuafZqsUeVUOBb2fFszQ5SrG/j3WUlBFFUyx5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxrm+W3kUIl+ZYWerl6ymIu+OXc/S+tTc3yo8fvgjqcYd3/b2EV
+	ymbr5enA0wfGt+pMOxptEHJxWoWOyGTF+VLycsZOl1gx+wr0C9vyCl+o+KgGAA==
+X-Gm-Gg: ASbGncv4ZWS26knkTRQ01LJPUBHkzNXceBI5/RWr6sceTi0HnuD04ZiOPqgfE7RL2dV
+	r0mGEesCy7LHlZyiIo+EBsHw8aa1Ah4aBtlB4ZoF0vmoZX9vTdMFbLDbNlAwLpf6thhktRUqRMc
+	pCXA3WpCECVkTZNsDpfVl9PFYO0rMrZ3JHFjpGPLYd6omsQ014fdBlOyJGzlg6sFnJUzzdm+040
+	DCucr0w4xtJnNUiRVVZ7KndL6WzuQSFxYFnWGD87NgEiCRisNUbtbvC5ehvEPzkqIIdEGjgpOrB
+	gmj5yYmv8o8Q
+X-Google-Smtp-Source: AGHT+IEI5ovyp1RCIv/DEgpLwXFNydHyjD9DBddbq5V/1dJpcQ7kJme1DtYiR17VJHUI0rTtCpgyHQ==
+X-Received: by 2002:a7b:ca4d:0:b0:434:9ff3:8ffc with SMTP id 5b1f17b1804b1-434d4aaada7mr918595e9.4.1733307248895;
+        Wed, 04 Dec 2024 02:14:08 -0800 (PST)
+Received: from google.com (158.100.79.34.bc.googleusercontent.com. [34.79.100.158])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385e4617a61sm12383645f8f.3.2024.12.04.02.14.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 02:14:08 -0800 (PST)
+Date: Wed, 4 Dec 2024 10:14:04 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Rob Clark <robdclark@gmail.com>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Rob Clark <robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>,
+	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v10 2/4] iommu/io-pgtable-arm: Re-use the pgtable walk
+ for iova_to_phys
+Message-ID: <Z1ArbJbqAnD-Qn52@google.com>
+References: <20241028213146.238941-1-robdclark@gmail.com>
+ <20241028213146.238941-3-robdclark@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: F0QmzLYZNmO_MEcX7yaJ7-GrgTerG-RR
-X-Proofpoint-ORIG-GUID: F0QmzLYZNmO_MEcX7yaJ7-GrgTerG-RR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 mlxlogscore=999 adultscore=0 suspectscore=0 spamscore=0
- impostorscore=0 phishscore=0 mlxscore=0 malwarescore=0 clxscore=1011
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412040079
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028213146.238941-3-robdclark@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_021346_621400_CA9D7AB5 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241204_021410_774471_D460345F 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,31 +102,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Hi Rob,
 
-As recommended by section 4.3.7 ("Synchronization when using system
-instructions to progrom the trace unit") of ARM IHI 0064H.b, the
-self-hosted trace analyzer must perform a Context synchronization
-event between writing to the TRCPRGCTLR and reading the TRCSTATR.
+On Mon, Oct 28, 2024 at 02:31:38PM -0700, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
+> 
+> Re-use the generic pgtable walk path.
+> 
+> Signed-off-by: Rob Clark <robdclark@chromium.org>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
-Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 1 +
- 1 file changed, 1 insertion(+)
+Thanks,
+Mostafa
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 66d44a404ad0..5da2c523c30a 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -906,6 +906,7 @@ static void etm4_disable_hw(void *info)
- 	tsb_csync();
- 	etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
- 
-+	isb();
- 	/* wait for TRCSTATR.PMSTABLE to go to '1' */
- 	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
- 		dev_err(etm_dev,
--- 
-2.34.1
-
+> ---
+>  drivers/iommu/io-pgtable-arm.c | 74 +++++++++++++++++-----------------
+>  1 file changed, 37 insertions(+), 37 deletions(-)
+> 
+> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> index 7e9c0f8ae138..88b128c77893 100644
+> --- a/drivers/iommu/io-pgtable-arm.c
+> +++ b/drivers/iommu/io-pgtable-arm.c
+> @@ -712,42 +712,6 @@ static size_t arm_lpae_unmap_pages(struct io_pgtable_ops *ops, unsigned long iov
+>  				data->start_level, ptep);
+>  }
+>  
+> -static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
+> -					 unsigned long iova)
+> -{
+> -	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
+> -	arm_lpae_iopte pte, *ptep = data->pgd;
+> -	int lvl = data->start_level;
+> -
+> -	do {
+> -		/* Valid IOPTE pointer? */
+> -		if (!ptep)
+> -			return 0;
+> -
+> -		/* Grab the IOPTE we're interested in */
+> -		ptep += ARM_LPAE_LVL_IDX(iova, lvl, data);
+> -		pte = READ_ONCE(*ptep);
+> -
+> -		/* Valid entry? */
+> -		if (!pte)
+> -			return 0;
+> -
+> -		/* Leaf entry? */
+> -		if (iopte_leaf(pte, lvl, data->iop.fmt))
+> -			goto found_translation;
+> -
+> -		/* Take it to the next level */
+> -		ptep = iopte_deref(pte, data);
+> -	} while (++lvl < ARM_LPAE_MAX_LEVELS);
+> -
+> -	/* Ran out of page tables to walk */
+> -	return 0;
+> -
+> -found_translation:
+> -	iova &= (ARM_LPAE_BLOCK_SIZE(lvl, data) - 1);
+> -	return iopte_to_paddr(pte, data) | iova;
+> -}
+> -
+>  struct io_pgtable_walk_data {
+>  	struct io_pgtable		*iop;
+>  	void				*data;
+> @@ -763,6 +727,41 @@ static int __arm_lpae_iopte_walk(struct arm_lpae_io_pgtable *data,
+>  				 arm_lpae_iopte *ptep,
+>  				 int lvl);
+>  
+> +struct iova_to_phys_data {
+> +	arm_lpae_iopte pte;
+> +	int lvl;
+> +};
+> +
+> +static int visit_iova_to_phys(struct io_pgtable_walk_data *walk_data, int lvl,
+> +			      arm_lpae_iopte *ptep, size_t size)
+> +{
+> +	struct iova_to_phys_data *data = walk_data->data;
+> +	data->pte = *ptep;
+> +	data->lvl = lvl;
+> +	return 0;
+> +}
+> +
+> +static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
+> +					 unsigned long iova)
+> +{
+> +	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
+> +	struct iova_to_phys_data d;
+> +	struct io_pgtable_walk_data walk_data = {
+> +		.data = &d,
+> +		.visit = visit_iova_to_phys,
+> +		.addr = iova,
+> +		.end = iova + 1,
+> +	};
+> +	int ret;
+> +
+> +	ret = __arm_lpae_iopte_walk(data, &walk_data, data->pgd, data->start_level);
+> +	if (ret)
+> +		return 0;
+> +
+> +	iova &= (ARM_LPAE_BLOCK_SIZE(d.lvl, data) - 1);
+> +	return iopte_to_paddr(d.pte, data) | iova;
+> +}
+> +
+>  static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
+>  			    struct io_pgtable_walk_data *walk_data,
+>  			    arm_lpae_iopte *ptep, int lvl)
+> @@ -780,8 +779,9 @@ static int io_pgtable_visit(struct arm_lpae_io_pgtable *data,
+>  		return 0;
+>  	}
+>  
+> -	if (WARN_ON(!iopte_table(pte, lvl)))
+> +	if (!iopte_table(pte, lvl)) {
+>  		return -EINVAL;
+> +	}
+>  
+>  	ptep = iopte_deref(pte, data);
+>  	return __arm_lpae_iopte_walk(data, walk_data, ptep, lvl + 1);
+> -- 
+> 2.47.0
+> 
 
