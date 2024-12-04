@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E70E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CA1E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 15:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+nWpBtPZhDKntcZxCUK7yH7Edf8LM87G3Th86ukbSQ=; b=IaePuPtL5KL8xBiNAaXn7HxgtT
-	p/BdHo4upLxvhbe8hH8u0ky27YAXWNJa4N/hkVhFoWaFYYtbb7ZpCK926NFW5zAt8lQ5Yz0/l52hq
-	6OBQqi8LvJ9kNoaVD0SW+I3Ku9PVFa99FA4JHT7Ua6HZtBilN8eFT+3qWFKFDhD0JRDZeLj4jtQva
-	SIGLV/Qv9Z+KdatZLQCzLLYLTpXFuyxqd4W8lSOMZ3NewqLicBgMU3DnIlCjW0Cm9OtxH1v8Y8Ofk
-	W5hPyTXnRaxXQELaG0qaIxlR6ujpMM6FBVhUEnNVtjcG82B6h4rrjM9xFDtP2POk4383cyT9l8KrB
-	8Av30oVQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iqcVUl6jypUv2yirtx2oOB53fQWi5HfMaKffVOPYuZo=; b=b8SGQs4Z/5aXiVKBFJxHpKFEzD
+	NZJ/bwYuPSzUXNc14l25OkWyzuetHdj8e9g0gzyKzFukSw/N1VWoPrAWEygf4BkYECd8qc6feePPk
+	bnFKAliKt9k0Zq2Bf8HcWHfug5bselCBGepceD3wlMX4Bvty+sfxLnCJjpVfafb8JFi5GaXaD8kCI
+	pI1if64yAhIQzddIQz9yK1kkkgf53CQOdO2mViruO3kg0MvOqvHGCAdEx77cFlAC+MwbFYghaTqN0
+	lFUxGdvLavjOgn7o00gQE8DZMoLcfXLqUsFRg7m4M8stx5F/5e8tfsFg5I7oJYmflje0FmloFCQGI
+	A0j55vpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqws-0000000CwD2-3UeV;
-	Wed, 04 Dec 2024 15:05:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIqxr-0000000CwQk-1vIw;
+	Wed, 04 Dec 2024 15:06:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIqsy-0000000CvPr-1FT3
+	id 1tIqsy-0000000CvPq-1Gjk
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 04 Dec 2024 15:01:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 825465C628F;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3BF115C618F;
 	Wed,  4 Dec 2024 15:01:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCA5C4CEDF;
-	Wed,  4 Dec 2024 15:01:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7E70C4CECD;
+	Wed,  4 Dec 2024 15:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733324511;
-	bh=bGrthp6P6OjGXSuGAAT9PJ7U09h7+JZZ06Vtmr7nZv8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O0ONyUa0NIju4sT0cu7zhe0Q1Zo9jkyng1DWVpBdqZLqgUuK2IMVW8/iM+9uQ/yim
-	 Sy3wMVyXF0OM4fZiIKEUoFR5QVtfcKVtHcaiz4kgxNfw4AEda2sYch16JtEbhQPZgC
-	 uN1yH/2mjrL35RlGeL+7w+wvzb8BPLPXcoH29bLM+Rp6diKOhE41ehjSvRmk7knvBR
-	 bnp8KN+AanPUfepm0Az5oJkmXhTYb8sJ3hmg4qDHj+fyDQZkd0tmyu2cboIkO0uWtm
-	 71krdOeC8i0jo2P6uVCvZIGQbpg7oUdr3Z4Yi9BHBdqI9wUXVRL9peU4pBNed/w3dh
-	 6bkRRob4dP6fQ==
+	s=k20201202; t=1733324510;
+	bh=ZgmW1sBTfwJr9tj+mXvEmq9zW0CWL1uawNJ9/cc4h+Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hLICcAwNyBQPVbBe1H4HFth55jRSywxIhAKDEYYsIoAv+h1uY1VksFb3r7spAWmD6
+	 o/rrNu4tBkKcyeHiPwVsmB23m4CEHPHINIEk7u3J+GEpgGogpQ1IwoSX4NKZ/yCSYV
+	 A7tJ8Bkk45ETaETagN+O4UUQJrWrvLQ7A7gEnFBN/t5H6mnD9jApPTSf7XBJwTWYIM
+	 G8QgZ37A/vUcBdjB8XlzVU47Te0tRDEzdgN/FY/7yv3LRt3cZcy8vQO3qI8dHffY0J
+	 Is+e/KWVMVr4881ubXJdq9578vCQ+qVNYWtDOUyJJJj4eP+FWVbR2ZncJ2YJIemECb
+	 2ySoenyMq0exg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIqsv-000TvG-1E;
-	Wed, 04 Dec 2024 15:01:49 +0000
+	id 1tIqsu-000TvG-Q5;
+	Wed, 04 Dec 2024 15:01:48 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,12 +59,10 @@ Cc: Bjorn Helgaas <bhelgaas@google.com>,
 	Rob Herring <robh@kernel.org>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH 1/2] PCI: host-generic: Allow {en,dis}able_device() to be provided via pci_ecam_ops
-Date: Wed,  4 Dec 2024 15:01:44 +0000
-Message-Id: <20241204150145.800408-2-maz@kernel.org>
+Subject: [PATCH 0/2] PCI: Convert the Apple controller to host bridge hooks
+Date: Wed,  4 Dec 2024 15:01:43 +0000
+Message-Id: <20241204150145.800408-1-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241204150145.800408-1-maz@kernel.org>
-References: <20241204150145.800408-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -72,8 +70,8 @@ X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.o
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_070152_377982_D15D4BA7 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20241204_070152_380877_8E01AF86 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to let host controller drivers using the host-generic
-infrastructure use the {en,dis}able_device() callbacks that can
-be used to configure sideband RID mapping hardware, provide these
-two callbacks as part of the pci_ecap_ops structure.
+The Apple PCIe controller requires some additional attention when
+enabling an endpoint device, so that the RID gets correctly mapped to
+a SID on its way to the IOMMU.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/pci/controller/pci-host-common.c | 2 ++
- include/linux/pci-ecam.h                 | 4 ++++
- 2 files changed, 6 insertions(+)
+So far, we have need relying on a custom bus notifier to perform this
+task, but Frank Li's series [1] is a better approach as it puts the
+complexity in the core code instead of the host controller driver, and
+this series builds on that:
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index cf5f59a745b37..f441bfd6f96a8 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -75,6 +75,8 @@ int pci_host_common_probe(struct platform_device *pdev)
- 
- 	bridge->sysdata = cfg;
- 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
-+	bridge->enable_device = ops->enable_device;
-+	bridge->disable_device = ops->disable_device;
- 	bridge->msi_domain = true;
- 
- 	return pci_host_probe(bridge);
-diff --git a/include/linux/pci-ecam.h b/include/linux/pci-ecam.h
-index 3a4860bd27586..3a10f8cfc3ad5 100644
---- a/include/linux/pci-ecam.h
-+++ b/include/linux/pci-ecam.h
-@@ -45,6 +45,10 @@ struct pci_ecam_ops {
- 	unsigned int			bus_shift;
- 	struct pci_ops			pci_ops;
- 	int				(*init)(struct pci_config_window *);
-+	int				(*enable_device)(struct pci_host_bridge *,
-+							 struct pci_dev *);
-+	void				(*disable_device)(struct pci_host_bridge *,
-+							  struct pci_dev *);
- };
- 
- /*
+- allow the new {en,dis}able_device() to be provided via pci_ecam_ops
+
+- convert the Apple PCIe driver to that infrastructure
+
+Patches on top of 6.13-rc1, plus Frank's v7 series.
+
+[1] https://lore.kernel.org/r/20241203-imx95_lut-v7-0-d0cd6293225e@nxp.com
+
+Marc Zyngier (2):
+  PCI: host-generic: Allow {en,dis}able_device() to be provided via
+    pci_ecam_ops
+  PCI: apple: Convert to {en,dis}able_device() callbacks
+
+ drivers/pci/controller/pci-host-common.c |  2 +
+ drivers/pci/controller/pcie-apple.c      | 75 +++++-------------------
+ include/linux/pci-ecam.h                 |  4 ++
+ 3 files changed, 21 insertions(+), 60 deletions(-)
+
 -- 
 2.39.2
 
