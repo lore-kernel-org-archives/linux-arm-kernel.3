@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB78E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 18:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB43E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Dec 2024 18:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auf4n7ns2f3Qj0NYN2/W7evPsQUU8K9EsOlDVNmJ198=; b=sCuEPPHZjBB/0lfJ5pwWbbR96V
-	pqYNTiOu/wklUmnjnNP+BP/k0LLK/b2c0KUrQe+DXMqndwJXI/yzxb73TDadTQq/SChzLjmmxdEiL
-	JDx+qILIBAr4M5vMbD8IRkG5Bm+2Kzg5gf3SIugBAuGY6rSFkSN5x2nZ6LCLsinCfEj5143QcjtU7
-	n/r+Fl47FwcqhM2oa+Bd9LGcMec/MfFbm+M3zXpiVqIQgVDEfbBD/WMQmx4lTvpPw3Xhi9CtUNX5E
-	blk9pfMASesHM0Emhdq78m3qC/WoYukilClmAnrAo1bNKOwDNW/nefuUOD0AAhOsMnA2D2QJCtq0p
-	xb76X9xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MtCOK0HVkC7gUFMSIgVVL4Xc+Z55LO/CooQTrZpf8Mw=; b=Ob+wlKC1Mo2+UxULTqlh9D/WrI
+	ErUbaqygLcyF5lPoaPUKe9+TOV/34CThmJ3d44sGPzLs6prx55ly+gYstTVsFpyE3NT+S7QQ/3HoZ
+	+t04cezJqiy2ciPK/COFnwNnJtnx3eN0H4JfNdf8zxYBiNzitLWGu96brMgUTPFpTsHaWFsrYdW52
+	DGabIU12y7r8g9sUKDCO5q2vptJE/wCIKMwLaCLHcYS/dRGvUisge5vd+cAJSbBfpHWWLOgT4G/Ug
+	m6rQ5YHbTkBHyBgvoDqigbNho1CNa92WHefcORu+egy6M5WljzDWr+TFNuTnLKd0jMfZqd91xtdcl
+	FmFKGsLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuEE-0000000DXoq-2fwd;
-	Wed, 04 Dec 2024 18:36:02 +0000
-Received: from vmicros1.altlinux.org ([194.107.17.57])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIuDD-0000000DXib-2Z6H
+	id 1tIuJf-0000000DYLE-2nMq;
+	Wed, 04 Dec 2024 18:41:39 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIuIe-0000000DYEC-1e8S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 18:35:01 +0000
-Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
-	by vmicros1.altlinux.org (Postfix) with ESMTP id 17BE472C97E;
-	Wed,  4 Dec 2024 21:34:54 +0300 (MSK)
-Received: from altlinux.org (sole.flsd.net [185.75.180.6])
-	by imap.altlinux.org (Postfix) with ESMTPSA id 060EF36D0178;
-	Wed,  4 Dec 2024 21:34:54 +0300 (MSK)
-Date: Wed, 4 Dec 2024 21:34:53 +0300
-From: Vitaly Chikunov <vt@altlinux.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Wed, 04 Dec 2024 18:40:37 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-43--ru7XJDzPXaGunFvat9ayQ-1; Wed, 04 Dec 2024 18:40:33 +0000
+X-MC-Unique: -ru7XJDzPXaGunFvat9ayQ-1
+X-Mimecast-MFC-AGG-ID: -ru7XJDzPXaGunFvat9ayQ
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 4 Dec
+ 2024 18:39:53 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Wed, 4 Dec 2024 18:39:53 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Linus Torvalds
+	<torvalds@linux-foundation.org>, Luc Van Oostenryck
+	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
+ Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
+	<jani.nikula@linux.intel.com>, Joonas Lahtinen
+	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
+	<rikard.falkeborn@gmail.com>, Martin Uecker
+	<Martin.Uecker@med.uni-goettingen.de>
+CC: "linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
-	Gleb Fotengauer-Malinovskiy <glebfm@altlinux.org>
-Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
- 0000000002000000 [#1] SMP
-Message-ID: <20241204182231.ovvj6rpvcs2f5gv7@altlinux.org>
-References: <20241202045830.e4yy3nkvxtzaybxk@altlinux.org>
- <20241202153618.GA6834@willie-the-truck>
- <86ttbmt71k.wl-maz@kernel.org>
- <20241202155940.p267a3tz5ypj4sog@altlinux.org>
- <86ser6t6fs.wl-maz@kernel.org>
- <20241202223119.k3uod4ksnlf7gqh2@altlinux.org>
- <20241203092721.j473dthkbq6wzez7@altlinux.org>
- <1847e34fa7724d28aeb22d93752f64f2@huawei.com>
- <20241203221453.mwh6sozyczi4ec2k@altlinux.org>
- <87jzcfsuep.wl-maz@kernel.org>
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>,
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+Thread-Topic: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+Thread-Index: AQHbROFPJXcuwP9wN0+yRzIQ2cx/pbLWa+gg
+Date: Wed, 4 Dec 2024 18:39:53 +0000
+Message-ID: <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+In-Reply-To: <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Type: text/plain; charset=koi8-r
-Content-Disposition: inline
-In-Reply-To: <87jzcfsuep.wl-maz@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ppQscq05FPZ_K5ggK70gld8noK0xV7SU-1SAU9Wz1Vc_1733337631
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_103459_979963_61D9DD5D 
-X-CRM114-Status: GOOD (  52.67  )
+X-CRM114-CacheID: sfid-20241204_104036_705677_C80BC6B5 
+X-CRM114-Status: GOOD (  35.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,205 +101,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc,
+RnJvbTogVmluY2VudCBNYWlsaG9sDQo+IFNlbnQ6IDAyIERlY2VtYmVyIDIwMjQgMTc6MzMNCj4g
+DQo+IEZyb206IFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+DQo+
+IA0KPiBfX2lzX2NvbnN0ZXhwcigpLCB3aGlsZSBiZWluZyBvbmUgb2YgdGhlIG1vc3QgZ2xvcmlv
+dXMgb25lIGxpbmVyIGhhY2sNCj4gZXZlciB3aXRuZXNzZWQgYnkgbWFua2luZCwgaXMgb3Zlcmx5
+IGNvbXBsZXguIEZvbGxvd2luZyB0aGUgYWRvcHRpb24NCj4gb2YgQzExIGluIHRoZSBrZXJuZWws
+IHRoaXMgbWFjcm8gY2FuIGJlIHNpbXBsaWZpZWQgdGhyb3VnaCB0aGUgdXNlIG9mDQo+IGEgX0dl
+bmVyaWMoKSBzZWxlY3Rpb24uDQoNCllvdSBzaG91bGQgZ2l2ZSBjcmVkaXQgdG8gc29tZSBvZiB0
+aGUgZWFybGllciBwYXRjaGVzIHRoYXQgZG8gdGhlIHNhbWUuDQpJJ20gc3VyZSB0aGVyZSB3ZXJl
+IHNvbWUgcmVsYXRlZCBvbmVzIGZyb20gTGludXMgLSBub3QgYXBwbGllZCB5ZXQuDQoNCj4gDQo+
+IEZpcnN0LCBzcGxpdCB0aGUgbWFjcm8gaW4gdHdvOg0KPiANCj4gICAtIF9faXNfY29uc3RfemVy
+byh4KTogYW4gaGVscGVyIG1hY3JvOyB0ZWxscyB3aGV0aGVyIHggaXMgdGhlDQo+ICAgICBpbnRl
+Z2VyIGNvbnN0YW50IGV4cHJlc3Npb24gMCBvciBzb21ldGhpbmcgZWxzZS4NCj4gDQo+ICAgLSBp
+c19jb25zdCh4KTogcmVwbGFjZW1lbnQgb2YgX19pc19jb25zdGV4cHIoKTsgdGVsbHMgd2hldGhl
+ciB4IGlzIGENCj4gICAgIGludGVnZXIgY29uc3RhbnQgZXhwcmVzc2lvbi4NCj4gDQo+IFRoZSBz
+cGxpdCBzZXJ2ZXMgdHdvIHB1cnBvc2VzOiBmaXJzdCBtYWtlIGl0IGVhc2llciB0byB1bmRlcnN0
+YW5kOw0KPiBzZWNvbmQsIF9faXNfY29uc3RfemVybygpIHdpbGwgYmUgcmV1c2VkIGFzIGEgYnVp
+bGRpbmcgYmxvY2sgZm9yIG90aGVyDQo+IGlzX2NvbnN0XyooKSBtYWNyb3MgdGhhdCB3aWxsIGJl
+IGludHJvZHVjZWQgbGF0ZXIgb24uDQo+IA0KPiBUaGUgY29yZSBwcmluY2lwbGUgb2YgX19pc19j
+b25zdGV4cHIoKSB0byBhYnVzZSB0aGUgcmV0dXJuIHR5cGUgb2YgdGhlDQo+IHRlcm5hcnkgb3Bl
+cmF0b3IgcmVtYWlucywgYnV0IGFsbCB0aGUgc3Vycm91bmRpbmcgc2l6ZW9mKCkgaGFjaw0KPiBk
+aXNhcHBlYXIuDQo+IA0KPiBPbiBhIHNpZGUgbm90ZSwgd2hpbGUgbm90IHJlbGV2YW50IHRvIHRo
+ZSBrZXJuZWwsIF9faXNfY29uc3RleHByKCkNCj4gcmVsaWVkIG9uIHRoZSBHTlUgZXh0ZW5zaW9u
+IHRoYXQgc2l6ZW9mKHZvaWQpIGlzIDEuIGNvbnN0X2V4cHIoKSBkb2VzDQo+IG5vdCB1c2UgYW55
+IEdOVSBleHRlbnNpb25zLCBtYWtpbmcgaXQgSVNPIEMgY29tcGxpYW50Lg0KPiANCj4gX19pc19j
+b25zdGV4cHIoKSBpcyB0ZW1wb3JhcmlseSBrZXB0IGFuZCB3aWxsIGJlIHJlbW92ZWQgb25jZSBh
+bGwgaXRzDQo+IHVzZXJzIGdldCBtaWdyYXRlZCB0byBpc19jb25zdCgpIChvciBvbmUgb2YgaXRz
+IGZyaWVuZCkuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50IE1haWxob2wgPG1haWxob2wu
+dmluY2VudEB3YW5hZG9vLmZyPg0KPiAtLS0NCj4gIGluY2x1ZGUvbGludXgvY29tcGlsZXIuaCB8
+IDQxICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrDQo+ICAxIGZpbGUg
+Y2hhbmdlZCwgNDEgaW5zZXJ0aW9ucygrKQ0KPiANCj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGlu
+dXgvY29tcGlsZXIuaCBiL2luY2x1ZGUvbGludXgvY29tcGlsZXIuaA0KPiBpbmRleCBhMmE1NmE1
+MGRkODUyMjdhNGZkYzYyMjM2YTI3MTBjYTM3YzViYTUyLi4zMGNlMDZkZjQxNTNjZmRjMGZhZDli
+YzdiZmZhYjkwOTdmOGIwNDUwIDEwMDY0NA0KPiAtLS0gYS9pbmNsdWRlL2xpbnV4L2NvbXBpbGVy
+LmgNCj4gKysrIGIvaW5jbHVkZS9saW51eC9jb21waWxlci5oDQo+IEBAIC0zMTYsNiArMzE2LDQ3
+IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCAqb2Zmc2V0X3RvX3B0cihjb25zdCBpbnQgKm9mZikNCj4g
+ICNkZWZpbmUgc3RhdGljYWxseV90cnVlKHgpIChfX2J1aWx0aW5fY29uc3RhbnRfcCh4KSAmJiAo
+eCkpDQo+ICAjZGVmaW5lIHN0YXRpY2FsbHlfZmFsc2UoeCkgKF9fYnVpbHRpbl9jb25zdGFudF9w
+KHgpICYmICh4KSA9PSAwKQ0KPiANCj4gKy8qDQo+ICsgKiBXaGV0aGVyIHggaXMgdGhlIGludGVn
+ZXIgY29uc3RhbnQgZXhwcmVzc2lvbiAwIG9yIHNvbWV0aGluZyBlbHNlLg0KPiArICoNCj4gKyAq
+IERldGFpbHM6DQo+ICsgKiAgIC0gVGhlIEMxMSBzdGFuZGFyZCBkZWZpbmVzIGluIMKnNi4zLjIu
+My4zDQo+ICsgKiAgICAgICAodm9pZCAqKTxpbnRlZ2VyIGNvbnN0YW50IGV4cHJlc3Npb24gd2l0
+aCB0aGUgdmFsdWUgMD4NCj4gKyAqICAgICBhcyBhIG51bGwgcG9pbnRlciBjb25zdGFudCAoYy5m
+LiB0aGUgTlVMTCBtYWNybykuDQo+ICsgKiAgIC0gSWYgeCBldmFsdWF0ZXMgdG8gdGhlIGludGVn
+ZXIgY29uc3RhbnQgZXhwcmVzc2lvbiAwLA0KPiArICogICAgICAgKHZvaWQgKikoeCkNCj4gKyAq
+ICAgICBpcyBhIG51bGwgcG9pbnRlciBjb25zdGFudC4gRWxzZSwgaXQgaXMgYSB2b2lkICogZXhw
+cmVzc2lvbi4NCj4gKyAqICAgLSBJbiBhIHRlcm5hcnkgZXhwcmVzc2lvbjoNCj4gKyAqICAgICAg
+IGNvbmRpdGlvbiA/IG9wZXJhbmQxIDogb3BlcmFuZDINCj4gKyAqICAgICBpZiBvbmUgb2YgdGhl
+IHR3byBvcGVyYW5kcyBpcyBvZiB0eXBlIHZvaWQgKiBhbmQgdGhlIG90aGVyIG9uZQ0KPiArICog
+ICAgIHNvbWUgb3RoZXIgcG9pbnRlciB0eXBlLCB0aGUgQzExIHN0YW5kYXJkIGRlZmluZXMgaW4g
+wqc2LjUuMTUuNg0KPiArICogICAgIHRoZSByZXN1bHRpbmcgdHlwZSBhcyBiZWxvdzoNCj4gKyAq
+ICAgICAgIGlmIG9uZSBvcGVyYW5kIGlzIGEgbnVsbCBwb2ludGVyIGNvbnN0YW50LCB0aGUgcmVz
+dWx0IGhhcyB0aGUNCj4gKyAqICAgICAgIHR5cGUgb2YgdGhlIG90aGVyIG9wZXJhbmQ7IG90aGVy
+d2lzZSBbLi4uXSB0aGUgcmVzdWx0IHR5cGUgaXMNCj4gKyAqICAgICAgIGEgcG9pbnRlciB0byBh
+biBhcHByb3ByaWF0ZWx5IHF1YWxpZmllZCB2ZXJzaW9uIG9mIHZvaWQuDQo+ICsgKiAgIC0gQXMg
+c3VjaCwgaW4NCj4gKyAqICAgICAgIDAgPyAodm9pZCAqKSh4KSA6IChjaGFyICopMA0KPiArICog
+ICAgIGlmIHggaXMgdGhlIGludGVnZXIgY29uc3RhbnQgZXhwcmVzc2lvbiAwLCBvcGVyYW5kMSBp
+cyBhIG51bGwNCj4gKyAqICAgICBwb2ludGVyIGNvbnN0YW50IGFuZCB0aGUgcmVzdWx0aW5nIHR5
+cGUgaXMgdGhhdCBvZiBvcGVyYW5kMjoNCj4gKyAqICAgICBjaGFyICouIElmIHggaXMgYW55dGhp
+bmcgZWxzZSwgdGhlIHR5cGUgaXMgdm9pZCAqLg0KPiArICogICAtIFRoZSAobG9uZykgY2FzdCBz
+aWxlbmNlcyBhIGNvbXBpbGVyIHdhcm5pbmcgZm9yIHdoZW4geCBpcyBub3QgMC4NCj4gKyAqICAg
+LSBGaW5hbGx5LCB0aGUgX0dlbmVyaWMoKSBkaXNwYXRjaGVzIHRoZSByZXN1bHRpbmcgdHlwZSBp
+bnRvIGENCj4gKyAqICAgICBCb29sZWFuLg0KDQpUaGUgY29tbWVudCBpcyBhYnNvbHV0ZWx5IGV4
+Y2Vzc2l2ZS4NCkknbSBzdXJlIEkgbWFuYWdlZCBhYm91dCAyIGxpbmVzIGluIG9uZSBvZiB0aGUg
+cGF0Y2hlcyBJIGRpZC4NCg0KPiArICoNCj4gKyAqIEdsb3J5IHRvIE1hcnRpbiBVZWNrZXIgPE1h
+cnRpbi5VZWNrZXJAbWVkLnVuaS1nb2V0dGluZ2VuLmRlPg0KDQpJSVJDIE1hcnRpbiBoYXMgYWdy
+ZWVkIGluIHRoZSBwYXN0IHRoYXQgdGhlIGFjY3JlZGl0YXRpb24gY2FuDQpiZSByZW1vdmVkIC0g
+ZXNwZWNpYWxseSBzaW5jZSBpdCByZWZlcnMgdG8gdGhlICdzaXplb2YgKHZvaWQpJyB0cmljay4N
+Cg0KPiArICovDQo+ICsjZGVmaW5lIF9faXNfY29uc3RfemVybyh4KSBcDQo+ICsJX0dlbmVyaWMo
+MCA/ICh2b2lkICopKGxvbmcpKHgpIDogKGNoYXIgKikwLCBjaGFyICo6IDEsIHZvaWQgKjogMCkN
+Cj4gKw0KPiArLyoNCj4gKyAqIFJldHVybnMgYSBjb25zdGFudCBleHByZXNzaW9uIHdoaWxlIGRl
+dGVybWluaW5nIGlmIGl0cyBhcmd1bWVudCBpcyBhDQo+ICsgKiBjb25zdGFudCBleHByZXNzaW9u
+LCBtb3N0IGltcG9ydGFudGx5IHdpdGhvdXQgZXZhbHVhdGluZyB0aGUgYXJndW1lbnQuDQoNCllv
+dSBuZWVkIHRvIGRpZmZlcmVudGlhdGUgYmV0d2VlbiBhICdjb25zdGFudCBpbnRlZ2VyIGV4cHJl
+c3Npb24nDQphbmQgYSAnY29tcGlsZSB0aW1lIGNvbnN0YW50Jy4NCiANCj4gKyAqDQo+ICsgKiBJ
+ZiBnZXR0aW5nIGEgY29uc3RhbnQgZXhwcmVzc2lvbiBpcyBub3QgcmVsZXZhbnQgdG8geW91LCB1
+c2UgdGhlIG1vcmUNCj4gKyAqIHBvd2VyZnVsIF9fYnVpbHRpbl9jb25zdGFudF9wKCkgaW5zdGVh
+ZC4NCg0KX19idWlsdGluX2NvbnN0YW50X3AoKSBpcyBub3QgJ21vcmUgcG93ZXJmdWwnIGl0IGlz
+IHRlc3RpbmcgZm9yDQpzb21ldGhpbmcgZGlmZmVyZW50Lg0KDQoJRGF2aWQNCg0KPiArICovDQo+
+ICsjZGVmaW5lIGlzX2NvbnN0KHgpIF9faXNfY29uc3RfemVybygwICogKHgpKQ0KPiArDQo+ICAv
+Kg0KPiAgICogVGhpcyBpcyBuZWVkZWQgaW4gZnVuY3Rpb25zIHdoaWNoIGdlbmVyYXRlIHRoZSBz
+dGFjayBjYW5hcnksIHNlZQ0KPiAgICogYXJjaC94ODYva2VybmVsL3NtcGJvb3QuYzo6c3RhcnRf
+c2Vjb25kYXJ5KCkgZm9yIGFuIGV4YW1wbGUuDQo+IA0KPiAtLQ0KPiAyLjQ1LjINCj4gDQoNCi0N
+ClJlZ2lzdGVyZWQgQWRkcmVzcyBMYWtlc2lkZSwgQnJhbWxleSBSb2FkLCBNb3VudCBGYXJtLCBN
+aWx0b24gS2V5bmVzLCBNSzEgMVBULCBVSw0KUmVnaXN0cmF0aW9uIE5vOiAxMzk3Mzg2IChXYWxl
+cykNCg==
 
-On Wed, Dec 04, 2024 at 08:51:26AM +0000, Marc Zyngier wrote:
-> On Tue, 03 Dec 2024 22:14:53 +0000,
-> Vitaly Chikunov <vt@altlinux.org> wrote:
-> > 
-> > Shameer, Marc, Oliver, Will,
-> > 
-> > On Tue, Dec 03, 2024 at 10:03:11AM +0000, Shameerali Kolothum Thodi wrote:
-> > > > -----Original Message-----
-> > > > From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On
-> > > > Behalf Of Vitaly Chikunov
-> > > > Sent: Tuesday, December 3, 2024 9:27 AM
-> > > > To: Marc Zyngier <maz@kernel.org>
-> > > > Cc: Will Deacon <will@kernel.org>; james.morse@arm.com; linux-arm-
-> > > > kernel@lists.infradead.org; Catalin Marinas <catalin.marinas@arm.com>;
-> > > > linux-kernel@vger.kernel.org; oliver.upton@linux.dev;
-> > > > mark.rutland@arm.com
-> > > > Subject: Re: v6.13-rc1: Internal error: Oops - Undefined instruction:
-> > > > 0000000002000000 [#1] SMP
-> > > > 
-> > > > Marc,
-> > > > 
-> > > > On Tue, Dec 03, 2024 at 01:31:19AM +0300, Vitaly Chikunov wrote:
-> > > > > On Mon, Dec 02, 2024 at 04:07:03PM +0000, Marc Zyngier wrote:
-> > > > > > On Mon, 02 Dec 2024 15:59:40 +0000,
-> > > > > > Vitaly Chikunov <vt@altlinux.org> wrote:
-> > > > > > >
-> > > > > > > Marc,
-> > > > > > >
-> > > > > > > On Mon, Dec 02, 2024 at 03:53:59PM +0000, Marc Zyngier wrote:
-> > > > > > > >
-> > > > > > > > What the log doesn't say is what the host is. Is it 6.13-rc1 as well?
-> > > > > > >
-> > > > > > > No, host is 6.6.60.
-> > > > > >
-> > > > > > Right. I wouldn't be surprised if:
-> > > > > >
-> > > > > > - this v6.6 kernel doesn't hide the MPAM feature as it should (and
-> > > > > >   that's proably something we should backport)
-> > > > >
-> > > > > How to confirm this? Currently I cannot find any (case-insensitive)
-> > > > > "MPAM" files in /sys, nor mpam string in /proc/cpuinfo, nor MPAM
-> > > > > strings in `strace -v` (as it decodes some KVM ioctls) of qemu process.
-> > > > >
-> > > > > >
-> > > > > > - you get a nastygram in the host log telling you that the guest has
-> > > > > >   executed something it shouldn't (you'll get the encoding of the
-> > > > > >   instruction)
-> > > > >
-> > > > > I requested admins of the box for dmesg output since I don't have root
-> > > > > access myself and nowadays dmesg is not accessible for a user.
-> > > > 
-> > > > This is what they reported:
-> > > > 
-> > > >   kvm [2502822]: Unsupported guest sys_reg access at: ffff80008003e9f0
-> > > > [000000c5]
-> > > >                    { Op0( 3), Op1( 0), CRn(10), CRm( 4), Op2( 4), func_read },
-> > > > 
-> > > 
-> > > As Will pointed out I think this is access to MPAMIDR_EL1 and is from this
-> > > code here,
-> > > 
-> > > +++ b/arch/arm64/kernel/cpuinfo.c
-> > > @@ -478,6 +478,9 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
-> > >  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
-> > >  		__cpuinfo_store_cpu_32bit(&info->aarch32);
-> > >  
-> > > +	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
-> > > +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
-> > > +
-> > >  	cpuinfo_detect_icache_policy(info);
-> > >  }
-> > > 
-> > > I did manage to boot my setup in 6.6 and this is what happens,
-> > > 
-> > > Host kernel 6.6
-> > > Guest Kernel 6.13-rc1
-> > > 
-> > > [    0.195392] smp: Brought up 1 node, 8 CPUs
-> > > [    0.219000] SMP: Total of 8 processors activated.
-> > > [    0.219629] CPU: All CPU(s) started at EL1
-> > > ...
-> > > [    0.223212] CPU features: detected: RAS Extension Support
-> > > [    0.223927] CPU features: detected: Memory Partitioning And Monitoring
-> > > [    0.224796] CPU features: detected: Memory Partitioning And Monitoring Virtualisation
-> > > [    0.225961] alternatives: applying system-wide alternatives
-> > > ...
-> > > 
-> > > Guest detects MPAM and boots fine.
-> > > 
-> > > Host kernel 6.13-rc1
-> > > Guest Kernel 6.13-rc1
-> > > 
-> > > [    0.196625] smp: Brought up 1 node, 8 CPUs
-> > > [    0.222093] SMP: Total of 8 processors activated.
-> > > [    0.222769] CPU: All CPU(s) started at EL1
-> > > ...
-> > > [    0.226620] CPU features: detected: RAS Extension Support
-> > > [    0.227453] alternatives: applying system-wide alternatives
-> > > 
-> > > MPAM is not visible to Guest in this case.
-> > > 
-> > > So as I pointed out earlier could it be a case where the ID register reports MPAM support
-> > > but the firmware has not enabled MPAM?
-> > > 
-> > > James seems to be mentioning that case here,
-> > > 
-> > > " (If you have a boot failure that bisects here its likely your CPUs
-> > > advertise MPAM in the id registers, but firmware failed to either enable
-> > > or MPAM, or emulate the trap as if it were disabled)"
-> > 
-> > I tried to verify that MPAM is advertised with qemu+gdb method, as
-> > suggested by Oliver, but ID_AA64PFR0_EL1 register is not there.
-> > 
-> >   (gdb) i r ID_AA64PFR0_EL1
-> >   Invalid register `ID_AA64PFR0_EL1'
-> 
-> Then there is a bug in either QEMU or the GDB stubs. This register
-> exists, or you wouldn't be here.
-
-
-In case this is useful:
-
-  builder@aarch64:/.in$ qemu-system-aarch64 --version
-  QEMU emulator version 9.1.1 (qemu-9.1.1-alt2)
-  Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers
-  builder@aarch64:/.in$ gdb --version
-  GNU gdb (GDB) 14.1.0.56.d739d4fd457-alt1 (ALT Sisyphus)
-  Copyright (C) 2023 Free Software Foundation, Inc.
-  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-  This is free software: you are free to change and redistribute it.
-  There is NO WARRANTY, to the extent permitted by law.
-
-Is there way to get content of this register with these possible gdb/qemu bugs?
-Perhaps, we can add some debugging print in guest kernel.
-
-> > 
-> > Are there other suggestions?
-> 
-> Mark has described what the problem is likely to be. 6.6-stable needs
-> to have 6685f5d572c22e10 backported, and it probably should have been
-> Cc: to stable. Can you please apply the following patch to your *host*
-> machine and retest?
-
-Unfortunately I cannot. But I can apply patches to the guest kernel. [I
-will try to convince admins of the server to apply the patch, though, but
-this can take time, and they can refuse since this is production build
-server and it's update procedure is complicated.]
-
-> > > https://lore.kernel.org/all/20241030160317.2528209-4-joey.gouly@arm.com/
-> > > 
-> > > Is there a way you can find out the BIOS version on that board?
-> > 
-> > Unfortunately, admins of the server do not provide me with this
-> > info.
-> 
-> This doesn't really help, I'm afraid.
-
-They provided me with this dmicedcode output:
-
-  Handle 0x0000, DMI type 0, 26 bytes
-  BIOS Information
-	  Vendor: Huawei Corp.
-	  Version: 1.25
-	  Release Date: 01/17/2020
-	  Address: 0x5F000
-	  Runtime Size: 644 kB
-	  ROM Size: 6 MB
-
-  Handle 0x0001, DMI type 1, 27 bytes
-  System Information
-	  Manufacturer: Huawei
-	  Product Name: TaiShan 200 (Model 2280)
-
-Admins said they are in process of requesting firmware upgrade from
-manufacturer.
-
-> 
-> > For such cases, when MPAM is incorrectly advertised, can we have kernel
-> > command line parameter like mpam=0 to override it's detection?
-> 
-> We could, but only when we can confirm what the problem is.
-> 
-> > I think with "If you have a boot failure that bisects here" it's
-> > acknowledged possibility and it's confirmed by our server.
-> 
-> Not really. This talks about firmware. We are debugging the hypervisor
-> here. This might be closely related, but these are not the same
-> things.
-
-Understandable.
-Thanks,
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
 
