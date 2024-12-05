@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C725E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D44E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQaVE4xma2mfyf9DwEGfyp+l3xlEQFu3UABAOXDY/f0=; b=S5hYT4/9vYxkuiJfw4bYVwnv+k
-	5yESdsOBeZmkmai7H0Vt8eXjlMm5AlsBrM+y86Y2DyVkJtii5XAhKb7DtvQ+gZsDoMfOClLOGmzm+
-	SlyREQ5JHgBNlLnjJ+BQaOdZtqFvv3jBxfeJKqM1hzh01sCi8CDOBh8VrwVNrFQzmlVquNsP2KVu6
-	lpcKjLdc/3/YvKMGFispWT1yRKutNefsf0iu2MLz1VRT7TCMbfnmYIQsuJ+rvSpcdyVC5zyx0Uvls
-	R42FPF1xwIXgZL6p23ybdwznsLVUJfMNBW8SfMBT4SbNTvIvZ0RgPDHY6ZakslZpjBXjzpuEbRPN7
-	fzcu2PrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j52yWXL33J+b9C4aQGdxSf0Rg4c/99LnqEiKjLeaVbc=; b=rqsN0fj+r/2dCJNElcLPKC2LAv
+	/Erg9wDB1okibw66/z9V0PMu1CYVOnSAnyWN9z4vGe0pcuZndeBogVVMhEg8W5n7fvGXIO97S7Whb
+	Rh8kSOG1CNODyEA1x1pyiVQPgczNoiZ9+M4TIZe72mTd3x+lqMjGzHWHfjfHQKEyrhAgSvvFz6v0j
+	4BJxq41lZB7KqH82hlaH6o86phc3xEEt2MCPolg7UXIONj+vO5/XOW5KyF0Kq8nisueC4JwCGn++G
+	Md5EhMU4PASat/5O6hb1dKRqhd9Oln4/P/TlTQLpwiAx6kxLKGBRmBJoOXpUB3/laESrwGfeBnHwU
+	NPAhps6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJewz-00000002giq-03S0;
-	Fri, 06 Dec 2024 20:29:21 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tJfGO-00000002iFy-0H49;
+	Fri, 06 Dec 2024 20:49:24 +0000
+Received: from out-12.smtpout.orange.fr ([193.252.22.12] helo=out.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJevx-00000002ga1-3HZV
+	id 1tJfFL-00000002i1X-0vyn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 20:28:18 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-385e96a285eso1396338f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 12:28:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733516895; x=1734121695; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NQaVE4xma2mfyf9DwEGfyp+l3xlEQFu3UABAOXDY/f0=;
-        b=gvEvuxSIPZrKl8yhTNybmgjGk3sLLFKJBXIxNaW9SfLad4OTlZKZEH+o9GpTNOqfxA
-         uOQ6prjIgkgE5duCt53UZgl4yf5gnbHoVZ/3a4E9EhLqjUuFsZdizEMqtqzNGkF9okzL
-         QvYdXLq7rb5DG6LK/209MVp2j2IciJPC/U+TRYVCRAUGw4dzXesz7SbybxNi5lDnkaYH
-         WS9yRoZav/W+POAYyXv8WrVqlaLhO9v7wq+FH53IKByqkXj8x+MsAeET7Qdq9EmsU/JH
-         9vF2AH/WvN5n3vi+BNfMsitiaxvAZCkmUiZZm6VcRYaCuVi1yjT/yCXZuvtOFs6liVDT
-         xMXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733516895; x=1734121695;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NQaVE4xma2mfyf9DwEGfyp+l3xlEQFu3UABAOXDY/f0=;
-        b=WilpP+CUcVUfFcOqRzI4vyIoP0xhiBgLmhejJ8E9ZC/FRK9kxzSZL6DA+eebENvgsx
-         pltTVPukZigUsMA6Bi5v1S+LJxgPx+IkLQVFQ82PMR4upo69I13+uanYY2CxmentRMv2
-         lhDwyZtaz6QJpeB08TKAkQnHtdF3E8dHchyejOCEkVj3G6oGiFxy1q8ikuOeMrkU+Req
-         AZL1Gmu87V++KUTvHMkM4235dSanFWmRYy58WyMJz7XvZTuImYHl66gh+z9KIlG9E8sR
-         ckIvwZQGum+t45uT6w8LGazTYl36b6T74QKYv1EBxvnSMhgMrego8/p/X0JXI5kG5TC8
-         cJDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUvA7NVcocApxbd+zqcBxyHOdPt0so/f8aP3jjsbBy9UqvLlAWYj73ZMpHXIexIOVPFPc5/HWnUH0aFb3kKmtMc@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywsr8XrKCAZOoo2GH24GLsBAjL7yvIoRJDUwe4W+ayMiB3mGVJc
-	3an+PzNfsuled0nco7WfiVE1AYTuwRtQRUtWpCMNjVe8lC+LM2L5SVh7+Cb3whEn77yhtiRxm3N
-	k
-X-Gm-Gg: ASbGnctxy2NCnOlo6WQ54XfHkueIu435uJ0TSwp7abYypmdSGYz5HyP5SvzHsG5WcWn
-	sy1o5nkFubJGPdOIRkMQdkEL5COYfbfiAZr2kT7ZiP+QacJL5JAUwGC5wMnUjLYK2QHjRhgZZqQ
-	w8UqlQjPtq+mtIE45BoOG22qSGlB9y0zGd6voLOhbvhWYCbcuby2cy2PWqhyyA2ADm4mAflKoan
-	b3vlENxuN6+wg/S52378hUFloP06X79+bbO3kg4ZnrLsWoXnjTnXyU=
-X-Google-Smtp-Source: AGHT+IGekqBUH4G61NmWpwsXhLA6y8516RqskqF/tq8JR1N/a6IKQ5CbI54DTrqFonQGIY9zzCX1sg==
-X-Received: by 2002:a5d:5f8c:0:b0:385:f38e:c0c3 with SMTP id ffacd0b85a97d-3862b33eda1mr3932008f8f.6.1733516895327;
-        Fri, 06 Dec 2024 12:28:15 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434da0d26a3sm67425945e9.1.2024.12.06.12.28.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 12:28:14 -0800 (PST)
-Date: Fri, 6 Dec 2024 23:28:11 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Etienne Carriere <etienne.carriere@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
- discrete rates
-Message-ID: <7fe840af-d56d-4cb6-8d82-d42631409b2a@stanley.mountain>
-References: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
- <20241203173908.3148794-3-etienne.carriere@foss.st.com>
+	Fri, 06 Dec 2024 20:48:21 +0000
+Received: from mail-ej1-f41.google.com ([209.85.218.41])
+	by smtp.orange.fr with ESMTPSA
+	id JfFFtg1ffFm7WJfFGt7zWJ; Fri, 06 Dec 2024 21:48:14 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1733518094;
+	bh=j52yWXL33J+b9C4aQGdxSf0Rg4c/99LnqEiKjLeaVbc=;
+	h=MIME-Version:From:Date:Message-ID:Subject:To;
+	b=CPcPW7GqARI9PYj8ih6+LhoTkm4glDm2r2kOlUgIgqaNCf3GVb98zfM4b/bk1b3r9
+	 GGPbouWx0wDpnd2U41ltfxJY3kbKIH4NmyBQUg2FvjNiKyKcR01b45ciIdsx50gVQF
+	 3Yd+fkqkhsKVpOOiGvlMe8GguC7VJAT7Y71LCCJTCbZx5P0XFztJdHyPaNo+wpuQ0G
+	 sd518U6PLZLQCDpHwtjHrV1eIu7qlGCpugJs6NaY3cjimAP8dvhtjg3KmoCeARX+JN
+	 60r//dMjKvRq7f3xwIW6lEYCSCp41XqXYuI8LeZP8j9DTfR46+CGxs2Q/wpKB95Ae6
+	 kSXZbEAyRLzrw==
+X-ME-Helo: mail-ej1-f41.google.com
+X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
+X-ME-Date: Fri, 06 Dec 2024 21:48:14 +0100
+X-ME-IP: 209.85.218.41
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-aa64f3c5a05so2496766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 12:48:14 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXAr8BBG3BbZKhzGfMH2VrCt0/kdTFYRVl0L6J8ZhiMfKqa5zCxdHL40jeIUYelMxzFkDy3P5gcx+HFmReYoymo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+UC2Gk1lEAVugPX/ArZnGS9NXmCBn8RhGXN3FJovazGdgJZfV
+	bSzmsL6rfFxARbwIdjioRxhZpXwKIEn3m/sJWIsjH8BUhttiYbTQu2BtjlXyv1AEiaVyeNmd0hk
+	/AmnrF+OuXrCUxboKFhR+CTOpfVg=
+X-Google-Smtp-Source: AGHT+IFPV3ip3SYHkyJAtAl7kySK0yuNHOCaaw0rmFlBgQknleAfhI1fXHmOk07U56ZQY/Lp14i5paMJiLtiZFuprbE=
+X-Received: by 2002:a17:906:2191:b0:aa6:2d5c:29ce with SMTP id
+ a640c23a62f3a-aa62d5c2a3bmr190097866b.52.1733413722571; Thu, 05 Dec 2024
+ 07:48:42 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241203173908.3148794-3-etienne.carriere@foss.st.com>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-3-4e4cbaecc216@wanadoo.fr> <c617483816b54096ba4b30bea595da49@AcuMS.aculab.com>
+In-Reply-To: <c617483816b54096ba4b30bea595da49@AcuMS.aculab.com>
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Date: Fri, 6 Dec 2024 00:48:31 +0900
+X-Gmail-Original-Message-ID: <CAMZ6Rq+=-d0_v3Xqj0CpaPbNuzQuv1SouTkc3Ew5vc5Sb_DUng@mail.gmail.com>
+Message-ID: <CAMZ6Rq+=-d0_v3Xqj0CpaPbNuzQuv1SouTkc3Ew5vc5Sb_DUng@mail.gmail.com>
+Subject: Re: [PATCH 03/10] compiler.h: add is_const_true() and is_const_false()
+To: David Laight <David.Laight@aculab.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+	Martin Uecker <Martin.Uecker@med.uni-goettingen.de>, 
+	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_122817_876840_9CCBEB3F 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20241206_124819_701169_A61B3480 
+X-CRM114-Status: GOOD (  38.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +104,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 06:39:08PM +0100, Etienne Carriere wrote:
-> diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-> index 09ccd6cea7f2..7bbb2ee55f4f 100644
-> --- a/drivers/clk/clk-scmi.c
-> +++ b/drivers/clk/clk-scmi.c
-> @@ -61,13 +61,20 @@ static long scmi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
->  	struct scmi_clk *clk = to_scmi_clk(hw);
->  
->  	/*
-> -	 * We can't figure out what rate it will be, so just return the
-> +	 * In case we can't figure out what rate it will be when the clock
-> +	 * describes a list of discrete rates, then just return the
->  	 * rate back to the caller. scmi_clk_recalc_rate() will be called
->  	 * after the rate is set and we'll know what rate the clock is
->  	 * running at then.
->  	 */
-> -	if (clk->info->rate_discrete)
-> +	if (clk->info->rate_discrete) {
-> +		ftmp = rate;
+On Thu. 5 Dec 2024 at 03:48, David Laight <David.Laight@aculab.com> wrote:
+> From: Vincent Mailhol
+> > Sent: 02 December 2024 17:33
+> >
+> > __builtin_constant_p() is known for not always being able to produce
+> > constant expression [1] which led to the introduction of
+> > __is_constexpr() [2]. Because of its dependency on
+> > __builtin_constant_p(), statically_true() suffers from the same
+> > issues.
+>
+> No, they are testing different things.
 
-No need for this assignment.
+OK, I will remove this paragraph.
 
-> +		if (scmi_proto_clk_ops->round_rate &&
-> +		    !scmi_proto_clk_ops->round_rate(clk->ph, clk->id, &ftmp))
-> +			return ftmp;
-> +
->  		return rate;
-> +	}
->  
->  	fmin = clk->info->range.min_rate;
->  	fmax = clk->info->range.max_rate;
+> > For example:
+> >
+> >   void foo(int a)
+> >   {
+> >        /* fail on GCC */
+> >       BUILD_BUG_ON_ZERO(statically_true(a));
+> >
+> >        /* fail on both clang and GCC */
+> >       static char arr[statically_true(a) ? 1 : 2];
+> >   }
+> >
+> > Define a new is_const_true() and is_const_false() pair of macros
+> > which, by making use of __is_const_zero(), always produces a constant
+> > expression.
+> >
+> > Note that is_const_false() can not be directly defined as an alias to
+> > __is_const_zero(). Otherwise, it could yield some false positives on
+> > huge numbers because of a lost of precision when doing the (long) cast
+> > in __is_const_zero(). Example:
+> >
+> >   is_const_false((u128)ULONG_MAX << BITS_PER_LONG)
+> >
+> > Furthermore, using the ! operator like this:
+> >
+> >   #define is_const_true(x) __is_const_zero(!(x))
+> >   #define is_const_false(x) __is_const_zero(!!(x))
+> >
+> > would yield a -Wint-in-bool-context compiler warning if the argument
+> > is not a boolean. Use the =3D=3D and !=3D operators instead.
+> >
+> > It should be noted that statically_true/false() are the only ones
+> > capable of folding tautologic expressions in which at least one on the
+> > operands is not a constant expression. For example:
+> >
+> >   statically_true(true || var)
+> >   statically_true(var =3D=3D var)
+> >   statically_false(var * 0)
+> >   statically_false(var * 8 % 4)
+> >
+> > always evaluate to true, whereas all of these would be false under
+> > is_const_true/false() if var is not a constant expression [3].
+> >
+> > For this reason, usage of const_true/false() should be the exception.
+> > Reflect in the documentation that const_true() is less powerful and
+> > that statically_true() is the overall preferred solution.
+> >
+> > [1] __builtin_constant_p cannot resolve to const when optimizing
+> > Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D19449
+> >
+> > [2] commit 3c8ba0d61d04 ("kernel.h: Retain constant expression output f=
+or max()/min()")
+> > Link: https://git.kernel.org/torvalds/c/3c8ba0d61d04
+> >
+> > [3] https://godbolt.org/z/E4r7EaxW9
 
-regards,
-dan carpenter
+D'oh, I used some old versions of the macros in that link. The link
+will be updated to this in v2:
+
+  https://godbolt.org/z/E4r7EaxW9
+
+> > Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+> > ---
+> >  include/linux/compiler.h | 23 +++++++++++++++++++++++
+> >  1 file changed, 23 insertions(+)
+> >
+> > diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+> > index 30ce06df4153cfdc0fad9bc7bffab9097f8b0450..165aa5b9bc484376087a130=
+a1ac1f3edb50c983d 100644
+> > --- a/include/linux/compiler.h
+> > +++ b/include/linux/compiler.h
+> > @@ -357,6 +357,29 @@ static inline void *offset_to_ptr(const int *off)
+> >   */
+> >  #define is_const(x) __is_const_zero(0 * (x))
+> >
+> > +/*
+> > + * Similar to statically_true() but produces a constant expression
+>
+> No.
+> It tests whether a value is a 'constant integer expression' and
+> the result is a 'constant integer expression'.
+> statically_true() checks for the value being a 'compile time constant'.
+
+I still would argue that =E2=80=99constant integer expressions=E2=80=99 and=
+ =E2=80=99compile
+time constants=E2=80=99 are *similar*. Not the same, agreed, but not
+drastically different either. I picked the term *similar* for that
+reason.
+
+> Most code really doesn't care, it all got added to min() so that
+> a very few places could do:
+>         char foo[min(16, sizeof (type))];
+> without triggering the 'variable length array' warning.
+> But that just bloated everywhere else and (IIRC) Linus replaced
+> them with a MIN() that was just an expression.
+
+What about:
+
+  Return an integer constant expression while evaluating if the
+  argument is a true (non zero) integer constant expression.
+
+
+
+> > + *
+> > + * To be used in conjunction with macros, such as BUILD_BUG_ON_ZERO(),
+> > + * which require their input to be a constant expression and for which
+> > + * statically_true() would otherwise fail.
+>
+> Use a different BUILD_BUG macro instead.
+> Look at the current definition of min().
+
+Do you mean BUILD_BUG_ON_MSG()? That one, at the end, relies on the
+error attribute:
+
+  https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-=
+error-function-attribute
+
+And the error attribute logic relies on compiler optimization. So
+BUILD_BUG_ON_MSG() is not a valid example here because it does not
+require its argument to be an integer constant expression. It works
+well with other compile time constants.
+
+Another valid example would be _Static_assert() but as a matter of
+fact, it is more common to use __is_constexpr() together with
+BUILD_BUG_ON_ZERO() than it is with _Static_assert(). So I think that
+BUILD_BUG_ON_ZERO() is best here.
+
+
+Yours sincerely,
+Vincent Mailhol
 
