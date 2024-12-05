@@ -4,119 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A85E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13928E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=geLYj4ffrUzfqRmnsjwEbY5ovHG3TYp14qcCVAMnS0Y=; b=ivPeWD14nqXuFgcy/ppPaK3/Kn
-	k/62rPf73xlq4WAww2GI3r9uc2VJh4GlM2rbg4GWddD76NDcJ2QrQ38p2pUFOXdayHjVBi99Y1/97
-	FfWqgv1FEPBwQkE4Ue0a8gOwsMFfaVxZvBkKHEdPt+fK1nyg++Vdr5CSSFP0pVs06knTHZ7ImbogB
-	0z535eS/N+4Pj8ssMKwxcclbtnf2Mrf+NFgdtJns4CV0al2uEzdhaqQdsbOf8HZsJp2xtKv/z8oEe
-	JLtHycaotOlIHl2Sdsf4P1QqgAYXnuR5wq9i2l2tmbz2i3X62piWsRdp7LXo5BEoeadxi7F7zPjEC
-	+BgvhSNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JnvVwtr9/F4jJKXEEsYzqt/ANxNWxE6TN8UKflWr8wo=; b=25tpiRXA3NZGhvIkpcZtolZGoN
+	AqLZJ5liN/yb9P9+OWU2c/qYXVPNGWU0zICwZxGyn68B1jlGrcGzje9Dq2B4LEsh4V0ApQLmkf6Eb
+	LoCowONQKgg8JDfzpvkU4lNoO3ZIKfsTtetvCMuuVgsLu21x2VkftW0xOaGFIqOhTBuwPkEY5sCWU
+	MwNtdE0FsqGVOe44M8RNP9e3iI6bmfOAnkaoMgsRhhqeUzZxM1xiWuAL9tWACq3b+rYNEsEhS0Xls
+	MjSjR1TEVZeLMHKTaR9Hu4NOFALF8UMIx5NAiVzMYGhC1zeonHF9nZ9EZnXp22JL9VLHk3llpa8+/
+	Rs/5RHqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8b0-0000000FQij-10l9;
-	Thu, 05 Dec 2024 09:56:30 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1tJ8cl-0000000FQuN-3ti0;
+	Thu, 05 Dec 2024 09:58:19 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8Zv-0000000FQZ5-2zLx
+	id 1tJ8bk-0000000FQox-2Cic
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 09:55:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=geLYj4ffrUzfqRmnsjwEbY5ovHG3TYp14qcCVAMnS0Y=; b=MccObqJov9sAc2Z7S8IKQEwkcW
-	Sku9ZfX1gtZPPeO7awOd+AP5Tpdq5wjgyZLgGeEUAf7YrHyYrWnhe8/G+W93OSeKSkNKlFQfaZDSy
-	e/jsbPugcBvPglPcvezZw01hGa3wiZqvmS+K8MOA9WXapo0eHWEHBUHDFJteySsQw+Mv/UBXUxG4D
-	rzxxsWR7rWMNfjRWXpQ2XcbKD+B+GRmr3OXTwZ2wzo9cL4ZalMppEKp9oJS48+n9bwY9lUbtHxemm
-	MyS7s13u2K13Z1NJxvOHcNd0c1qyZQayREERvxt1Qk5l8xkYNeteHAAJdAh2pVmft4XEndnLpi8TQ
-	lEciBT+w==;
-Received: from [89.212.21.243] (port=41552 helo=[192.168.69.52])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tJ8Zr-0017OK-2Q;
-	Thu, 05 Dec 2024 10:55:19 +0100
-Message-ID: <6fd4d9e6-b457-4e7a-acb8-4dbcd270a7f9@norik.com>
-Date: Thu, 5 Dec 2024 10:55:18 +0100
+	Thu, 05 Dec 2024 09:57:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733392637; x=1764928637;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=miV+lFMFVzAaAvt8JNrBIkbBUgixoMAJpy4otndSQqI=;
+  b=LRW4JC/ETIvGIvlGEKlosDDNip4qnQ88M14FMeTWxsF0bo+Qh4lYGExd
+   HnK+Zp9t9hFyjf6u4839Jp/ePZjjnRDhRXw2h+6DP7mKyKEKaECaAhOMm
+   zsf9j4ALzWiHa1dsGRHd5rd3hlhOf4lJkJcjEUGtwViNA5qC6h/NWS0zA
+   gSQ/ZjvM5mgEm3IYFhH5E/ouwKw6ipipy7A02W2RLbpiduHpf2Mgv97rs
+   orYinfid6ynx3R+oQIZ1eWNiVNhxbWHDjNHll0W1PpUFMMkid2cv29j1E
+   FlZHYEwDuQbyghMKreVdR5T/qLTIGUr7sh8dCVMT1NL7bNqLaf7ActE/D
+   Q==;
+X-CSE-ConnectionGUID: TKbBYKFISlCTYliYBZMdug==
+X-CSE-MsgGUID: B/i8g4eKSlyJ517PbZMMSg==
+X-IronPort-AV: E=Sophos;i="6.12,209,1728975600"; 
+   d="scan'208";a="266366333"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Dec 2024 02:57:14 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 5 Dec 2024 02:56:23 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Thu, 5 Dec 2024 02:56:19 -0700
+From: Charan Pedumuru <charan.pedumuru@microchip.com>
+Date: Thu, 5 Dec 2024 15:26:18 +0530
+Subject: [PATCH] dt-bindings: dma: atmel: Convert to json schema
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] drm/bridge: ti-sn65dsi83: Add ti, lvds-vod-swing
- optional properties
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- upstream@lists.phytec.de
-References: <20241203110054.2506123-1-andrej.picej@norik.com>
- <20241203110054.2506123-3-andrej.picej@norik.com>
- <sjcspny5lmynm4q2dnkhktvwte5e3gigtujynaiqp5gr5rkqfn@j2h5f6xiwz34>
-Content-Language: en-US
-From: Andrej Picej <andrej.picej@norik.com>
-Autocrypt: addr=andrej.picej@norik.com; keydata=
- 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
- xtT/8OxBOVSHvA==
-In-Reply-To: <sjcspny5lmynm4q2dnkhktvwte5e3gigtujynaiqp5gr5rkqfn@j2h5f6xiwz34>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Message-ID: <20241205-xdma-v1-1-76a4a44670b5@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAMF4UWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDQyNT3YqU3ERdSwvTZLNkE4vUpBRTJaDSgqLUtMwKsDHRsbW1ACEYSFR
+ WAAAA
+To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Nicolas
+ Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Charan Pedumuru <charan.pedumuru@microchip.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_015524_070901_49767990 
-X-CRM114-Status: GOOD (  29.26  )
+X-CRM114-CacheID: sfid-20241205_015716_690309_93BF1B6A 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,259 +89,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+Convert old text based binding to json schema.
+Changes during conversion:
+- Add the required properties `clock` and `clock-names`, which were
+  missing in the original binding.
+- Add a fallback for `microchip,sam9x7-dma` and `microchip,sam9x60-dma`
+  as they are compatible with the dma IP core on `atmel,sama5d4-dma`.
+- Update examples and include appropriate file directives to resolve
+  errors identified by `dt_binding_check` and `dtbs_check`.
 
-On 3. 12. 24 18:26, Dmitry Baryshkov wrote:
-> On Tue, Dec 03, 2024 at 12:00:53PM +0100, Andrej Picej wrote:
->> Add a optional properties to change LVDS output voltage. This should not
->> be static as this depends mainly on the connected display voltage
->> requirement. We have three properties:
->> - "ti,lvds-termination-ohms", which sets near end termination,
->> - "ti,lvds-vod-swing-data-microvolt" and
->> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
->> output voltage for data and clock lanes. They are defined as an array
->> with min and max values. The appropriate bitfiled will be set if
->> selected constraints can be met.
->>
->> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
->> end termination will be used. Selecting only one:
->> "ti,lvds-vod-swing-data-microvolt" or
->> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
->> constraint for only data/clock lanes will be met. Setting both is
->> recommended.
->>
->> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
->> ---
->> Changes in v3:
->> - use microvolts for default array values 1000 mV -> 1000000 uV.
->> Changes in v2:
->> - use datasheet tables to get the proper configuration
->> - since major change was done change the authorship to myself
->> ---
->>   drivers/gpu/drm/bridge/ti-sn65dsi83.c | 144 +++++++++++++++++++++++++-
->>   1 file changed, 141 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
->> index 57a7ed13f996..1a070df5ea12 100644
->> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
->> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
->> @@ -132,6 +132,16 @@
->>   #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
->>   #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
->>   
->> +enum sn65dsi83_channel {
->> +	CHANNEL_A,
->> +	CHANNEL_B
->> +};
->> +
->> +enum sn65dsi83_lvds_term {
->> +	OHM_100,
->> +	OHM_200
->> +};
->> +
->>   enum sn65dsi83_model {
->>   	MODEL_SN65DSI83,
->>   	MODEL_SN65DSI84,
->> @@ -147,6 +157,10 @@ struct sn65dsi83 {
->>   	struct regulator		*vcc;
->>   	bool				lvds_dual_link;
->>   	bool				lvds_dual_link_even_odd_swap;
->> +	int				lvdsA_vod_swing_conf;
->> +	int				lvdsB_vod_swing_conf;
->> +	int				lvdsA_term_conf;
->> +	int				lvdsB_term_conf;
->>   };
->>   
->>   static const struct regmap_range sn65dsi83_readable_ranges[] = {
->> @@ -237,6 +251,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
->>   	.max_register = REG_IRQ_STAT,
->>   };
->>   
->> +static const int lvds_vod_swing_data_table[2][4][2] = {
->> +	{	/* 100 Ohm */
->> +		{ 180000, 313000 },
->> +		{ 215000, 372000 },
->> +		{ 250000, 430000 },
->> +		{ 290000, 488000 },
->> +	},
->> +	{	/* 200 Ohm */
->> +		{ 150000, 261000 },
->> +		{ 200000, 346000 },
->> +		{ 250000, 428000 },
->> +		{ 300000, 511000 },
->> +	},
->> +};
->> +
->> +static const int lvds_vod_swing_clock_table[2][4][2] = {
->> +	{	/* 100 Ohm */
->> +		{ 140000, 244000 },
->> +		{ 168000, 290000 },
->> +		{ 195000, 335000 },
->> +		{ 226000, 381000 },
->> +	},
->> +	{	/* 200 Ohm */
->> +		{ 117000, 204000 },
->> +		{ 156000, 270000 },
->> +		{ 195000, 334000 },
->> +		{ 234000, 399000 },
->> +	},
->> +};
->> +
->>   static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
->>   {
->>   	return container_of(bridge, struct sn65dsi83, bridge);
->> @@ -435,12 +479,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
->>   		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
->>   
->>   	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
->> -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
->> +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
->> +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvdsA_vod_swing_conf) |
->> +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvdsB_vod_swing_conf));
->>   	regmap_write(ctx->regmap, REG_LVDS_LANE,
->>   		     (ctx->lvds_dual_link_even_odd_swap ?
->>   		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
->> -		     REG_LVDS_LANE_CHA_LVDS_TERM |
->> -		     REG_LVDS_LANE_CHB_LVDS_TERM);
->> +		     (ctx->lvdsA_term_conf ?
->> +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
->> +		     (ctx->lvdsB_term_conf ?
->> +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
->>   	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
->>   
->>   	le16val = cpu_to_le16(mode->hdisplay);
->> @@ -576,10 +624,96 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
->>   	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
->>   };
->>   
->> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
->> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
->> +{
->> +	int i;
->> +
->> +	for (i = 0; i <= 3; i++) {
->> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
->> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
->> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
->> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
->> +			return i;
->> +	}
->> +
->> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
->> +	return -EINVAL;
->> +}
->> +
->> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
->> +{
->> +	struct device *dev = ctx->dev;
->> +	struct device_node *endpoint;
->> +	/* Set so the property can be freely selected if not defined */
->> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
->> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
->> +	u32 lvds_term = 200;
->> +	u8 lvds_term_conf;
->> +	int endpoint_reg;
->> +	int lvds_vod_swing_conf;
->> +	int ret = 0;
->> +	int ret_data;
->> +	int ret_clock;
->> +
->> +	if (channel == CHANNEL_A)
->> +		endpoint_reg = 2;
->> +	else
->> +		endpoint_reg = 3;
->> +
->> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
->> +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
->> +
->> +	if (lvds_term == 200)
->> +		lvds_term_conf = OHM_200;
->> +	else
->> +		lvds_term_conf = OHM_100;
->> +
->> +	if (channel == CHANNEL_A)
->> +		ctx->lvdsA_term_conf = lvds_term_conf;
->> +	else
->> +		ctx->lvdsB_term_conf = lvds_term_conf;
-> 
-> This sounds like ctx->lvds_term_conf[channel] = ...;
-> 
-> And so on for other properties.
+Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+---
+ .../devicetree/bindings/dma/atmel,sama5d4-dma.yaml | 79 ++++++++++++++++++++++
+ .../devicetree/bindings/dma/atmel-xdma.txt         | 54 ---------------
+ 2 files changed, 79 insertions(+), 54 deletions(-)
 
-correct, this might simplify the code. Will include it in next patch 
-iteration.
+diff --git a/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml b/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
+new file mode 100644
+index 000000000000..9ca1c5d1f00f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
+@@ -0,0 +1,79 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/atmel,sama5d4-dma.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Microchip AT91 Extensible Direct Memory Access Controller
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++  - Charan Pedumuru <charan.pedumuru@microchip.com>
++
++description:
++  The DMA Controller (XDMAC) is a AHB-protocol central direct memory access
++  controller. It performs peripheral data transfer and memory move operations
++  over one or two bus ports through the unidirectional communication
++  channel. Each channel is fully programmable and provides both peripheral
++  or memory-to-memory transfers. The channel features are configurable at
++  implementation.
++
++allOf:
++  - $ref: dma-controller.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - atmel,sama5d4-dma
++          - microchip,sama7g5-dma
++      - items:
++          - enum:
++              - microchip,sam9x60-dma
++              - microchip,sam9x7-dma
++          - const: atmel,sama5d4-dma
++
++  "#dma-cells":
++    description: |
++      Represents the number of integer cells in the `dmas` property of client
++      devices. The single cell specifies the channel configuration register:
++        - bit 13: SIF (Source Interface Identifier) for memory interface.
++        - bit 14: DIF (Destination Interface Identifier) for peripheral interface.
++        - bit 30-24: PERID (Peripheral Identifier).
++    const: 1
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: dma_clk
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - "#dma-cells"
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/at91.h>
++    #include <dt-bindings/dma/at91.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    dma-controller@f0008000 {
++        compatible = "atmel,sama5d4-dma";
++        reg = <0xf0008000 0x1000>;
++        interrupts = <20 IRQ_TYPE_LEVEL_HIGH 0>;
++        #dma-cells = <1>;
++        clocks = <&pmc PMC_TYPE_PERIPHERAL 20>;
++        clock-names = "dma_clk";
++    };
+diff --git a/Documentation/devicetree/bindings/dma/atmel-xdma.txt b/Documentation/devicetree/bindings/dma/atmel-xdma.txt
+deleted file mode 100644
+index 76d649b3a25d..000000000000
+--- a/Documentation/devicetree/bindings/dma/atmel-xdma.txt
++++ /dev/null
+@@ -1,54 +0,0 @@
+-* Atmel Extensible Direct Memory Access Controller (XDMAC)
+-
+-* XDMA Controller
+-Required properties:
+-- compatible: Should be "atmel,sama5d4-dma", "microchip,sam9x60-dma" or
+-  "microchip,sama7g5-dma" or
+-  "microchip,sam9x7-dma", "atmel,sama5d4-dma".
+-- reg: Should contain DMA registers location and length.
+-- interrupts: Should contain DMA interrupt.
+-- #dma-cells: Must be <1>, used to represent the number of integer cells in
+-the dmas property of client devices.
+-  - The 1st cell specifies the channel configuration register:
+-    - bit 13: SIF, source interface identifier, used to get the memory
+-    interface identifier,
+-    - bit 14: DIF, destination interface identifier, used to get the peripheral
+-    interface identifier,
+-    - bit 30-24: PERID, peripheral identifier.
+-
+-Example:
+-
+-dma1: dma-controller@f0004000 {
+-	compatible = "atmel,sama5d4-dma";
+-	reg = <0xf0004000 0x200>;
+-	interrupts = <50 4 0>;
+-	#dma-cells = <1>;
+-};
+-
+-
+-* DMA clients
+-DMA clients connected to the Atmel XDMA controller must use the format
+-described in the dma.txt file, using a one-cell specifier for each channel.
+-The two cells in order are:
+-1. A phandle pointing to the DMA controller.
+-2. Channel configuration register. Configurable fields are:
+-    - bit 13: SIF, source interface identifier, used to get the memory
+-    interface identifier,
+-    - bit 14: DIF, destination interface identifier, used to get the peripheral
+-    interface identifier,
+-  - bit 30-24: PERID, peripheral identifier.
+-
+-Example:
+-
+-i2c2: i2c@f8024000 {
+-	compatible = "atmel,at91sam9x5-i2c";
+-	reg = <0xf8024000 0x4000>;
+-	interrupts = <34 4 6>;
+-	dmas = <&dma1
+-		(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1)
+-		 | AT91_XDMAC_DT_PERID(6))>,
+-	       <&dma1
+-		(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1)
+-		| AT91_XDMAC_DT_PERID(7))>;
+-	dma-names = "tx", "rx";
+-};
 
-> 
->> +
->> +	ret_data = of_property_read_u32_array(endpoint,
->> +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
->> +			ARRAY_SIZE(lvds_vod_swing_data));
->> +	ret_clock = of_property_read_u32_array(endpoint,
->> +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
->> +			ARRAY_SIZE(lvds_vod_swing_clk));
->> +	/* If any of the two properties is defined. */
->> +	if (!ret_data || !ret_clock) {
-> 
-> I think it's not that easy. We were usually ignoring errors for a
-> single-value properties, but for the arrays I think we should make a
-> diffence between the property being not present in DT and the property
-> being erroneous or not being parsed correctly.
-
-Ok, no problem. I'll add additional checks on return values and err out 
-if return value is anything else then 0 or -EINVAL.
+---
+base-commit: 85a2dd7d7c8152cb125712a1ecae1d0a6ccac250
+change-id: 20241125-xdma-985c6c48ebd5
 
 Best regards,
-Andrej
+-- 
+Charan Pedumuru <charan.pedumuru@microchip.com>
 
-> 
->> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
->> +			lvds_vod_swing_data, lvds_vod_swing_clk,
->> +			lvds_term_conf);
->> +		if (lvds_vod_swing_conf < 0) {
->> +			ret = lvds_vod_swing_conf;
->> +			goto exit;
->> +		}
->> +		if (channel == CHANNEL_A)
->> +			ctx->lvdsA_vod_swing_conf = lvds_vod_swing_conf;
->> +		else
->> +			ctx->lvdsB_vod_swing_conf = lvds_vod_swing_conf;
->> +	}
->> +	ret = 0;
->> +exit:
->> +	of_node_put(endpoint);
->> +	return ret;
->> +}
->> +
->>   static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
->>   {
->>   	struct drm_bridge *panel_bridge;
->>   	struct device *dev = ctx->dev;
->> +	int ret;
->> +
->> +	ctx->lvdsA_vod_swing_conf = 0x1;
->> +	ctx->lvdsB_vod_swing_conf = 0x1;
->> +	ctx->lvdsA_term_conf = 0x1;
->> +	ctx->lvdsB_term_conf = 0x1;
->> +
->> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
->> +	if (ret < 0)
->> +		return ret;
->>   
->>   	ctx->lvds_dual_link = false;
->>   	ctx->lvds_dual_link_even_odd_swap = false;
->> @@ -587,6 +721,10 @@ static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
->>   		struct device_node *port2, *port3;
->>   		int dual_link;
->>   
->> +		ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
->> +		if (ret < 0)
->> +			return ret;
->> +
->>   		port2 = of_graph_get_port_by_id(dev->of_node, 2);
->>   		port3 = of_graph_get_port_by_id(dev->of_node, 3);
->>   		dual_link = drm_of_lvds_get_dual_link_pixel_order(port2, port3);
->> -- 
->> 2.34.1
->>
-> 
 
