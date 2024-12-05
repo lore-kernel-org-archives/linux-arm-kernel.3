@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7945CE77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AC6E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DzZzeW6LtUsNwMv+kA0kTMV9+3xVaKazBCL45YLJgXw=; b=iuHRzPFKfclXvqNrk7yJBfS91h
-	XB7AGMEHe1fQxbphZa2/XDn8EnAno7FFW7r5JLw+paEhMOcZaJf7x0PyISDvzIPH9VIscCKcQd9nQ
-	3OoalE8rB4PvKP0TgxKxHifNEHF+9nwiO3jTjVEC1NwkVERYD2G2/3YTSi3uasFnke3J6L5O6yR1B
-	fEIZozty4M9Lpp8g2t2D9pucS/bmpQCJHNqwb+ybA6HVJR/wXjF+SEtNZKOlJ/WpOw6/Mo5VM03RL
-	lxYTGqrc15bOXz6dmbDns8sDnmOD/uyANWsCyyuaVpKZp3BiaHCBI6s9/vSE6/kuDpJvAnjl3DPxh
-	+a2ujn/w==;
+	bh=FDTpwgkDlbRc1zIFut/KEqYGHdEqAg2rBPP//jqqsak=; b=VylhbpF5ObyJhvyhEbO8EHJWVz
+	uaE5vbJo/GU2kmm7ok2BCulUFMa7W7+6637vfvsoeikIJt7GPqmE9LIUnPOYZ2h1wUhUlK9ItonVJ
+	+KrE9eHgAi6Bus6uuEIQaDUQZE/pBGSckNQYrZFDU+gBBlpiEEGm6d7+3/q9CCbl74SVYXmJ6k7C3
+	AD+nda/lP5WqcpmFByiT8osVkfdvOV0Di+0YOSkcNznt1uai4xzaZJdi+XTEHB/HhGjgdcbM1Gby5
+	o9XPAg5teT851U4EhRM4iOSs3DMAiO5SOw0Q4DVMLBVyYxz+xmqerF3VMtVM54yhEziPd0ueB5FuE
+	OUGgWsKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJB47-0000000FyNg-2myB;
-	Thu, 05 Dec 2024 12:34:43 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tJB56-0000000Fybp-2TBS;
+	Thu, 05 Dec 2024 12:35:44 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAyj-0000000FxCg-14QE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 12:29:11 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53df1d1b726so871332e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 04:29:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733401747; x=1734006547; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DzZzeW6LtUsNwMv+kA0kTMV9+3xVaKazBCL45YLJgXw=;
-        b=fOXG1ThTgx/K7CbWjzoE0AkL84ippEO8UNZM0vTpOICQe1KsWhfrp9R1HIKuy2UlpR
-         UBgvdcinEPD3VXssKRg8xk0w3yQ+9U4Bd4ZR7hHYuTi6tLRsky1XCQX/7lMqPdXZSqxV
-         la62651vZ0wfYAjUEM98ye09pEmcU1qMLF8OaQRDUkMYb7X3okJYViLa9yIO4zR+C0IW
-         FvE7adH38k6R5EnT/0OkUm8O/6i+k61gsE4YhYCjO1UqYtLK1SMP3Xth75ITIDaul/9N
-         HckOODUWAc894wD+DDZ1jvizw17k7pokJDWy9gKCNfJUUGAauGyk9yqQdjfFcoNsMZZ9
-         9sBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733401747; x=1734006547;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DzZzeW6LtUsNwMv+kA0kTMV9+3xVaKazBCL45YLJgXw=;
-        b=iN2nv+1U74tHkabPAHtwVJF0fdMbmlQM+oteNwHdPlsbWIoebwaC9OabfSC6uu3kla
-         SXfU1+jEfBVR1I+xDC/1QqQksGkdyV+M1qoCVzGPInwiCaDn61zhzZgVsF2IIzdo47lb
-         DVtP6RfoLYtAAV71Ixk0qHXlzDWbMNRoeAa63hdwksJAjqorne8o3GITlZrncJslMHh2
-         ybJ5q+Ob8dKpIPEuPpPr2RP6FoE4uuxH73CUD4roqAApZgicwdlwG7F4lYtkkakIAjDN
-         xAEAiH5W1PNGfpRF29afHtmAsp22Ocmm9983fUYTVVlma3fcZMFzf6qOmgo4ovIjrum/
-         2Hmg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/tpaNdOYpwtX3wRzPd+gkGrfL7ZMomm2Btg9MhmRpFQfF1aLD7B/3PELWo9OoqipMbMl5REWIok4s8lUtdtot@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlMa2pDXZ5/1zAQA9fSF82MW6ysGbVMCnMLp7CzF07WQfjKchd
-	xH4L13K0z8z0T8MBIz7pWjBjbzd12cmy2WPUjEQPX3RIpB227HWMremFGkqRIt8=
-X-Gm-Gg: ASbGnct1cPDvmk4xoaMd4UVSSGq03epDiY8DoqezUFOP2TGmiaQJUh505BDOfC71ZMM
-	8I0FD+gh5ygZlGTqd9apxyMC9RNj7EUE3+Cg/OcPW8woK2JYVVaSqvc1VuT2cM+f2l564n9XxDh
-	AiPdDJK1Uwr96C0+bM0hqk157HDHez6FqeqSb3hR/ahm857YO6lCxgjYePc+Cz2jG2gwVczb3Q8
-	tBnNzHL8A2J8YepffU6xwiAjplOiveZKeuxFTWuXAeDzrPEEsCC0+ShfK2SXMbLroNOYgpu2NFa
-	/c0/qSoh6hgS9U8TcZwQ7xBh7HEipQ==
-X-Google-Smtp-Source: AGHT+IGWyrIJVNkXZfMk2D77Z12NxWguDqxu6KGooscExaYt6vk4bYi8IUDxyjnT5IkrNFyNFyZrTg==
-X-Received: by 2002:a05:6512:3f1f:b0:53d:eefc:2b48 with SMTP id 2adb3069b0e04-53e12a01888mr5509943e87.33.1733401747192;
-        Thu, 05 Dec 2024 04:29:07 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229c1d6dsm233341e87.183.2024.12.05.04.29.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 04:29:05 -0800 (PST)
-Date: Thu, 5 Dec 2024 14:29:03 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v2 12/15] drm/mediatek: mtk_hdmi: Split driver and add
- common probe function
-Message-ID: <olxtqto5mbgofxg4iqjvsmpxxzz6zoj7pbwmoeklhfjiavqfvv@dyveek7hgtki>
-References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
- <20241205114518.53527-13-angelogioacchino.delregno@collabora.com>
+	id 1tJAza-0000000FxXV-095E;
+	Thu, 05 Dec 2024 12:30:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=FDTpwgkDlbRc1zIFut/KEqYGHdEqAg2rBPP//jqqsak=; b=2rGECUB6il0LywPas6Kn3dUIhN
+	NPlpm80YqXB+YXBd7D8OOzYK54IFSl4WsdFh3hpmP4jMzqHn3Beh/ld2frmibcVbI29x2GNe4Fw5L
+	ggHGa0ciIkz3oBa954gOM/XEUFaXGUyAxlDcgsKd2xmYHn9wvEucak/oqGjI27IBDTjKP/XQFM4Js
+	WtruVkYZq5VmVn/jHFOxX2Vk1lANiYz0QovoCeVk5IeZRWyhkKo2OAyRbG59oD+bj90ho63zwE+qh
+	OPQgWTPkrmmrhZJeGecAbvh9TBgCtA0FUx/PFILTdrOzxY9DWDafE+XyXFK5MDoxXrJcCW8dsiaB7
+	tfV/BC6Q==;
+Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tJAzU-00048V-2e; Thu, 05 Dec 2024 13:29:56 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Val Packett <val@packett.cool>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH] clk: rockchip: add clock ID for CIF0/1 on RK3066
+Date: Thu, 05 Dec 2024 13:29:55 +0100
+Message-ID: <1944322.g5d078U9FE@diego>
+In-Reply-To: <5kesytgbhfununu5li4ychaw4newkctx4wuhlshks2ertfkd2t@jauqcntehv2z>
+References: <20241205055122.11613-1-val@packett.cool>
+ <5kesytgbhfununu5li4ychaw4newkctx4wuhlshks2ertfkd2t@jauqcntehv2z>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241205114518.53527-13-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_042909_305359_A3021567 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20241205_043002_088831_3D939DD2 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,57 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 12:45:14PM +0100, AngeloGioacchino Del Regno wrote:
-> In preparation for adding a new driver for the HDMI TX v2 IP,
-> split out the functions that will be common between the already
-> present mtk_hdmi (v1) driver and the new one.
-> 
-> Since the probe flow for both drivers is 90% similar, add a common
-> probe function that will be called from each driver's .probe()
-> callback, avoiding lots of code duplication.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  drivers/gpu/drm/mediatek/Kconfig           |  11 +-
->  drivers/gpu/drm/mediatek/Makefile          |   1 +
->  drivers/gpu/drm/mediatek/mtk_hdmi.c        | 724 +++------------------
->  drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 425 ++++++++++++
->  drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 203 ++++++
->  5 files changed, 729 insertions(+), 635 deletions(-)
->  create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
->  create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
-> 
-> @@ -1026,19 +812,12 @@ static int mtk_hdmi_setup_vendor_specific_infoframe(struct mtk_hdmi *hdmi,
->  	return 0;
->  }
->  
-> -static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
-> +static void mtk_hdmi_send_infoframe(struct mtk_hdmi *hdmi, u8 *buffer_spd, size_t bufsz_spd,
-> +				    u8 *buffer_avi, size_t bufsz_avi,
-> +				    struct drm_display_mode *mode)
->  {
-> -	struct hdmi_audio_param *aud_param = &hdmi->aud_param;
-> -
-> -	hdmi->csp = HDMI_COLORSPACE_RGB;
-> -	aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
-> -	aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-> -	aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
-> -	aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
-> -	aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
-> -	aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
-> -
-> -	return 0;
-> +	mtk_hdmi_setup_avi_infoframe(hdmi, buffer_avi, bufsz_avi, mode);
-> +	mtk_hdmi_setup_spd_infoframe(hdmi, buffer_spd, bufsz_spd, "mediatek", "On-chip HDMI");
+Hi Krzysztof,
 
-Please use the HDMI Connector framework instead of handling everything
-on your own.
+Am Donnerstag, 5. Dezember 2024, 11:25:28 CET schrieb Krzysztof Kozlowski:
+> On Thu, Dec 05, 2024 at 02:50:46AM -0300, Val Packett wrote:
+> > RK3066 does have two "CIF" video capture interface blocks, add their
+> > corresponding clock IDs so that they could be used.
+> > 
+> > Signed-off-by: Val Packett <val@packett.cool>
+> > ---
+> >  drivers/clk/rockchip/clk-rk3188.c             | 4 ++--
+> >  include/dt-bindings/clock/rk3188-cru-common.h | 2 ++
+> >  2 files changed, 4 insertions(+), 2 deletions(-)
+> 
+> Please run scripts/checkpatch.pl and fix reported warnings. Then please
+> run 'scripts/checkpatch.pl --strict' and (probably) fix more warnings.
+> Some warnings can be ignored, especially from --strict run, but the code
+> here looks like it needs a fix. Feel free to get in touch if the warning
+> is not clear.
 
->  }
->  
->  static void mtk_hdmi_audio_enable(struct mtk_hdmi *hdmi)
+I guess you're taking a shot of the indentation?
 
--- 
-With best wishes
-Dmitry
+Though that is an intentional deviation, for the long lists of
+clock-declarations, that is more a spreadsheet than actual code.
+
+To give this some context, an excerpt from the rk3188 clock driver:
+
+        COMPOSITE(0, "aclk_lcdc1_pre", mux_pll_src_cpll_gpll_p, 0,
+                        RK2928_CLKSEL_CON(31), 15, 1, MFLAGS, 8, 5, DFLAGS,
+                        RK2928_CLKGATE_CON(1), 4, GFLAGS),
+        GATE(ACLK_PERI, "aclk_peri", "aclk_peri_pre", 0,
+                        RK2928_CLKGATE_CON(2), 1, GFLAGS),
+        COMPOSITE_NOMUX(HCLK_PERI, "hclk_peri", "aclk_peri_pre", 0,
+                        RK2928_CLKSEL_CON(10), 8, 2, DFLAGS | CLK_DIVIDER_POWER_OF_TWO,
+                        RK2928_CLKGATE_CON(2), 2, GFLAGS),
+        MUX(0, "cif_src", mux_pll_src_cpll_gpll_p, 0,
+                        RK2928_CLKSEL_CON(29), 0, 1, MFLAGS),
+
+Rockchip clocks most of the time consist of a mux+divider in one register
+and a gate-bit in another. Most clocks are of the COMPOSITE-type above.
+Surprisingly this is true since before 2013 - and even today :-) .
+
+So the notation is
+      TYPE(id, name, parent-name(s), main-clk-flags,
+	MUXDIV-reg, muxoffset, muxwidth, muxflags, divoffset, divwidth, divflags,
+	GATE-reg, gatebit, gateflags)
+
+Having all these elements keep their relative position makes it way easier
+on the eyes, compared to if they followed that opening parenthesis of each
+individual line or maybe reflowing of the elements.
+
+The only real change the clock definitions will see are fixes to wrong
+register numbers or wrong bits (or missing clock-ids), so being able to
+see check those easily is just nice to have.
+
+
+Heiko
+
+
 
