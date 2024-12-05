@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CBEE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144F0E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Hj51tQUYsAKS9xS0L2qk/b2rKWVlQnqo5rEveZPtVGw=; b=YE/l7jJRBxRgz6z//XlOVI+ppQ
-	zNjEVlXtYbTJFZgSJEY5fkIgBQ2LYuaFEXmBZr2MWozS+JpTqQkQUUUo+rIjcwWuzvEZeXsqC0sOc
-	OrtmkFPmZwy0sxRaUN6v9uLhobor/SGUMM8/UZX57xWmj3geDfkKyGYQ3MwbxAV9Xsf4JG1M5/lMZ
-	iV7fKEWv48PRX4v4HZYSm/3Wg9Yy0kZc35Op99z475CTz5y573baDhU7EyEIZODzB3ZO3B34djByP
-	iNxW8Wsa83NdF/YP45vh+paRyRV8iCLjNMgIWdQXl2FX54l08DSP7ymzdqK1ATHcF0tcFSALJGKbj
-	6Rcqe+Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+2RDehCeAqy1Sa/dz+VRMEOHtTzxxo24zkp59yr3MJ0=; b=yZY+DJ2twAjoHmcOWDDrUtaeQp
+	gijrWaKjbp7ToXrRCbS01Cl/G2ZByUt0QYXuvrrMj9ZuiUfhOgYZHNuSTp0vWcCk+KQTGTXDRv+Gl
+	EVGHGxui7zvD3PtDEfFZqKxgf3oAZos6b7LVygDebpFUK7XgdOInzbJLrnUNqGRn7cnoONHdL1F3b
+	KbSgnvp2LwN4RDThYkTRHaN+8RQn5NurOdb8sey4Up6aqwIx7QJBEgLPtew21KY3VY8e2N9QGRkyq
+	P5jZn2JBOMnmc9tLrmFdMW021MRQ/VEUNt0bD38D96uFifquFQWSK0V+5L8wwXnq3EnHI0XPjb8Ae
+	VePSac1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8OW-0000000FP19-2MUX;
-	Thu, 05 Dec 2024 09:43:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tJ8P2-0000000FP5W-00XL;
+	Thu, 05 Dec 2024 09:44:08 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8NU-0000000FOqY-1bff;
-	Thu, 05 Dec 2024 09:42:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Hj51tQUYsAKS9xS0L2qk/b2rKWVlQnqo5rEveZPtVGw=; b=mZDHzZpZ7UAggidQeG3syJ3de0
-	dsAHDnsnRDbcJRJfQRz3Vos1oBdsSeVnILL9sZCTmVDFrqYSDoAKPqD6i5tJ3piMAFWr9aKo7lBCE
-	14R2DIjdE2Ux6zUbl2FXl5okEUQZR+MMbU4kB/AgPbDfsdu/15cikvSQbCJ5H8nqsKS+30skHEgSm
-	Pny8lL+4M4jr9GA+HwfQc7ulTogImxOAPs31fG6ibqbgOU0F/ZOKQNZu/yd5doZyUoLjtm21aQlxh
-	LetfzV46pagrWINlev6EZ4CvprBNV0vA1Mn0GuaHvES/NTbTVoERHBEBI7Wi5Oc6DAtZrydZOkhLS
-	VbHwLHZA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56980)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tJ8NA-0004Ta-2c;
-	Thu, 05 Dec 2024 09:42:13 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tJ8N5-0006RK-0l;
-	Thu, 05 Dec 2024 09:42:07 +0000
-Date: Thu, 5 Dec 2024 09:42:07 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexander Couzens <lynxis@fe80.eu>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 0/3] net: net: add negotiation of in-band
- capabilities (remainder)
-Message-ID: <Z1F1b8eh8s8T627j@shell.armlinux.org.uk>
+	id 1tJ7Fr-0000000FBWQ-3sFE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 08:30:37 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B58UTR9101707;
+	Thu, 5 Dec 2024 02:30:29 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733387429;
+	bh=+2RDehCeAqy1Sa/dz+VRMEOHtTzxxo24zkp59yr3MJ0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=x0AY/nm2q+CKavp2sG848X8Qv5czPlK3qa9G8LvU2XAVOYUmSobcj160J4gW1J334
+	 1o4Mh3A0M4X0QK0+5B4jLmWXtN3rFYel2VhOsB+EZRa//exBM3uI1maCYlCFPdJBGY
+	 qKaDUmw2o9XmFEtWzERmxAyTw8nU/4aUu9b03jvc=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B58UTWi107459
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 5 Dec 2024 02:30:29 -0600
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Dec 2024 02:30:29 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Dec 2024 02:30:29 -0600
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B58UOum075586;
+	Thu, 5 Dec 2024 02:30:25 -0600
+Message-ID: <d0457446-2b45-44ed-91d4-8839e1626180@ti.com>
+Date: Thu, 5 Dec 2024 14:00:24 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 1/2] net: ti: icssg-prueth: Fix firmware load
+ sequence.
+To: <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>,
+        <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
+        <horms@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <danishanwar@ti.com>
+References: <20241205082447.777463-1-m-malladi@ti.com>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <20241205082447.777463-1-m-malladi@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_014232_420633_0CDB4CA9 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241205_003036_062540_A5B55FAE 
+X-CRM114-Status: GOOD (  37.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +89,475 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi All,
 
-Here are the last three patches which were not included in the non-RFC
-posting, but were in the RFC posting. These add the .pcs_inband()
-method to the Lynx, MTK Lynx and XPCS drivers.
+Apologies for this mishap (incorrect patch series). Please ignore this 
+patch.
 
- drivers/net/pcs/pcs-lynx.c      | 22 ++++++++++++++++++++++
- drivers/net/pcs/pcs-mtk-lynxi.c | 16 ++++++++++++++++
- drivers/net/pcs/pcs-xpcs.c      | 28 ++++++++++++++++++++++++++++
- 3 files changed, 66 insertions(+)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On 05/12/24 13:54, Meghana Malladi wrote:
+> From: MD Danish Anwar <danishanwar@ti.com>
+> 
+> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
+> and SLICE1. Currently whenever any ICSSG interface comes up we load the
+> respective firmwares to PRU cores and whenever interface goes down, we
+> stop the resective cores. Due to this, when SLICE0 goes down while
+> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
+> stopped. This results in clock jump for SLICE1 interface as the timesync
+> related operations are no longer running.
+> 
+> As there are interdependencies between SLICE0 and SLICE1 firmwares,
+> fix this by running both PRU0 and PRU1 firmwares as long as at least 1
+> ICSSG interface is up. Add new flag in prueth struct to check if all
+> firmwares are running.
+> 
+> Use emacs_initialized as reference count to load the firmwares for the
+> first and last interface up/down. Moving init_emac_mode and fw_offload_mode
+> API outside of icssg_config to icssg_common_start API as they need
+> to be called only once per firmware boot.
+> 
+> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> ---
+> 
+> Hi all,
+> 
+> This patch is based on net-next tagged next-20241128.
+> v2:https://lore.kernel.org/all/20241128122931.2494446-2-m-malladi@ti.com/
+> 
+> * Changes since v2 (v3-v2):
+> - error handling in caller function of prueth_emac_common_start()
+> - Use prus_running flag check before stopping the firmwares
+> Both suggested by Roger Quadros <rogerq@kernel.org>
+> 
+>   drivers/net/ethernet/ti/icssg/icssg_config.c |  45 ++++--
+>   drivers/net/ethernet/ti/icssg/icssg_config.h |   1 +
+>   drivers/net/ethernet/ti/icssg/icssg_prueth.c | 157 ++++++++++++-------
+>   drivers/net/ethernet/ti/icssg/icssg_prueth.h |   5 +
+>   4 files changed, 140 insertions(+), 68 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+> index 5d2491c2943a..342150756cf7 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+> @@ -397,7 +397,7 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
+>   	return 0;
+>   }
+>   
+> -static void icssg_init_emac_mode(struct prueth *prueth)
+> +void icssg_init_emac_mode(struct prueth *prueth)
+>   {
+>   	/* When the device is configured as a bridge and it is being brought
+>   	 * back to the emac mode, the host mac address has to be set as 0.
+> @@ -406,9 +406,6 @@ static void icssg_init_emac_mode(struct prueth *prueth)
+>   	int i;
+>   	u8 mac[ETH_ALEN] = { 0 };
+>   
+> -	if (prueth->emacs_initialized)
+> -		return;
+> -
+>   	/* Set VLAN TABLE address base */
+>   	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, SMEM_VLAN_OFFSET_MASK,
+>   			   addr <<  SMEM_VLAN_OFFSET);
+> @@ -423,15 +420,13 @@ static void icssg_init_emac_mode(struct prueth *prueth)
+>   	/* Clear host MAC address */
+>   	icssg_class_set_host_mac_addr(prueth->miig_rt, mac);
+>   }
+> +EXPORT_SYMBOL_GPL(icssg_init_emac_mode);
+>   
+> -static void icssg_init_fw_offload_mode(struct prueth *prueth)
+> +void icssg_init_fw_offload_mode(struct prueth *prueth)
+>   {
+>   	u32 addr = prueth->shram.pa + EMAC_ICSSG_SWITCH_DEFAULT_VLAN_TABLE_OFFSET;
+>   	int i;
+>   
+> -	if (prueth->emacs_initialized)
+> -		return;
+> -
+>   	/* Set VLAN TABLE address base */
+>   	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, SMEM_VLAN_OFFSET_MASK,
+>   			   addr <<  SMEM_VLAN_OFFSET);
+> @@ -448,6 +443,7 @@ static void icssg_init_fw_offload_mode(struct prueth *prueth)
+>   		icssg_class_set_host_mac_addr(prueth->miig_rt, prueth->hw_bridge_dev->dev_addr);
+>   	icssg_set_pvid(prueth, prueth->default_vlan, PRUETH_PORT_HOST);
+>   }
+> +EXPORT_SYMBOL_GPL(icssg_init_fw_offload_mode);
+>   
+>   int icssg_config(struct prueth *prueth, struct prueth_emac *emac, int slice)
+>   {
+> @@ -455,11 +451,6 @@ int icssg_config(struct prueth *prueth, struct prueth_emac *emac, int slice)
+>   	struct icssg_flow_cfg __iomem *flow_cfg;
+>   	int ret;
+>   
+> -	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
+> -		icssg_init_fw_offload_mode(prueth);
+> -	else
+> -		icssg_init_emac_mode(prueth);
+> -
+>   	memset_io(config, 0, TAS_GATE_MASK_LIST0);
+>   	icssg_miig_queues_init(prueth, slice);
+>   
+> @@ -786,3 +777,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
+>   		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
+>   }
+>   EXPORT_SYMBOL_GPL(icssg_set_pvid);
+> +
+> +int emac_fdb_flow_id_updated(struct prueth_emac *emac)
+> +{
+> +	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
+> +	int slice = prueth_emac_slice(emac);
+> +	struct mgmt_cmd fdb_cmd = { 0 };
+> +	int ret = 0;
+> +
+> +	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
+> +	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
+> +	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
+> +	fdb_cmd.param  = 0;
+> +
+> +	fdb_cmd.param |= (slice << 4);
+> +	fdb_cmd.cmd_args[0] = 0;
+> +
+> +	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
+> +
+> +	if (ret)
+> +		return ret;
+> +
+> +	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
+> +	if (fdb_cmd_rsp.status == 1)
+> +		return 0;
+> +
+> +	return -EINVAL;
+> +}
+> +EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> index 92c2deaa3068..c884e9fa099e 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> @@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
+>   #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
+>   #define ICSSG_FW_MGMT_CMD_TYPE		0x04
+>   #define ICSSG_FW_MGMT_PKT		0x80000000
+> +#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
+>   
+>   struct icssg_r30_cmd {
+>   	u32 cmd[4];
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index c568c84a032b..2e22e793b01a 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -164,11 +164,11 @@ static struct icssg_firmwares icssg_emac_firmwares[] = {
+>   	}
+>   };
+>   
+> -static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+> +static int prueth_emac_start(struct prueth *prueth, int slice)
+>   {
+>   	struct icssg_firmwares *firmwares;
+>   	struct device *dev = prueth->dev;
+> -	int slice, ret;
+> +	int ret;
+>   
+>   	if (prueth->is_switch_mode)
+>   		firmwares = icssg_switch_firmwares;
+> @@ -177,16 +177,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+>   	else
+>   		firmwares = icssg_emac_firmwares;
+>   
+> -	slice = prueth_emac_slice(emac);
+> -	if (slice < 0) {
+> -		netdev_err(emac->ndev, "invalid port\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	ret = icssg_config(prueth, emac, slice);
+> -	if (ret)
+> -		return ret;
+> -
+>   	ret = rproc_set_firmware(prueth->pru[slice], firmwares[slice].pru);
+>   	ret = rproc_boot(prueth->pru[slice]);
+>   	if (ret) {
+> @@ -208,7 +198,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+>   		goto halt_rtu;
+>   	}
+>   
+> -	emac->fw_running = 1;
+>   	return 0;
+>   
+>   halt_rtu:
+> @@ -220,6 +209,80 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+>   	return ret;
+>   }
+>   
+> +static int prueth_emac_common_start(struct prueth *prueth)
+> +{
+> +	struct prueth_emac *emac;
+> +	int ret = 0;
+> +	int slice;
+> +
+> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
+> +		return -EINVAL;
+> +
+> +	/* clear SMEM and MSMC settings for all slices */
+> +	memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
+> +	memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
+> +
+> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
+> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
+> +
+> +	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
+> +		icssg_init_fw_offload_mode(prueth);
+> +	else
+> +		icssg_init_emac_mode(prueth);
+> +
+> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
+> +		emac = prueth->emac[slice];
+> +		if (emac) {
+> +			ret |= icssg_config(prueth, emac, slice);
+> +			if (ret)
+> +				return ret;
+> +		}
+> +		ret |= prueth_emac_start(prueth, slice);
+> +	}
+> +	if (!ret)
+> +		prueth->prus_running = 1;
+> +	else
+> +		return ret;
+> +
+> +	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
+> +	       prueth->emac[ICSS_SLICE1];
+> +	ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
+> +			    emac, IEP_DEFAULT_CYCLE_TIME_NS);
+> +	if (ret) {
+> +		dev_err(prueth->dev, "Failed to initialize IEP module\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int prueth_emac_common_stop(struct prueth *prueth)
+> +{
+> +	struct prueth_emac *emac;
+> +	int slice;
+> +
+> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
+> +		return -EINVAL;
+> +
+> +	icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
+> +	icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
+> +
+> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
+> +		if (prueth->prus_running) {
+> +			rproc_shutdown(prueth->txpru[slice]);
+> +			rproc_shutdown(prueth->rtu[slice]);
+> +			rproc_shutdown(prueth->pru[slice]);
+> +		}
+> +	}
+> +	prueth->prus_running = 0;
+> +
+> +	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
+> +	       prueth->emac[ICSS_SLICE1];
+> +	icss_iep_exit(emac->iep);
+> +
+> +	return 0;
+> +}
+> +
+>   /* called back by PHY layer if there is change in link state of hw port*/
+>   static void emac_adjust_link(struct net_device *ndev)
+>   {
+> @@ -369,12 +432,13 @@ static void prueth_iep_settime(void *clockops_data, u64 ns)
+>   {
+>   	struct icssg_setclock_desc __iomem *sc_descp;
+>   	struct prueth_emac *emac = clockops_data;
+> +	struct prueth *prueth = emac->prueth;
+>   	struct icssg_setclock_desc sc_desc;
+>   	u64 cyclecount;
+>   	u32 cycletime;
+>   	int timeout;
+>   
+> -	if (!emac->fw_running)
+> +	if (!prueth->prus_running)
+>   		return;
+>   
+>   	sc_descp = emac->prueth->shram.va + TIMESYNC_FW_WC_SETCLOCK_DESC_OFFSET;
+> @@ -543,23 +607,17 @@ static int emac_ndo_open(struct net_device *ndev)
+>   {
+>   	struct prueth_emac *emac = netdev_priv(ndev);
+>   	int ret, i, num_data_chn = emac->tx_ch_num;
+> +	struct icssg_flow_cfg __iomem *flow_cfg;
+>   	struct prueth *prueth = emac->prueth;
+>   	int slice = prueth_emac_slice(emac);
+>   	struct device *dev = prueth->dev;
+>   	int max_rx_flows;
+>   	int rx_flow;
+>   
+> -	/* clear SMEM and MSMC settings for all slices */
+> -	if (!prueth->emacs_initialized) {
+> -		memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
+> -		memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
+> -	}
+> -
+>   	/* set h/w MAC as user might have re-configured */
+>   	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
+>   
+>   	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
+>   	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+>   
+>   	/* Notify the stack of the actual queue counts. */
+> @@ -597,18 +655,23 @@ static int emac_ndo_open(struct net_device *ndev)
+>   		goto cleanup_napi;
+>   	}
+>   
+> -	/* reset and start PRU firmware */
+> -	ret = prueth_emac_start(prueth, emac);
+> -	if (ret)
+> -		goto free_rx_irq;
+> +	if (!prueth->emacs_initialized) {
+> +		ret = prueth_emac_common_start(prueth);
+> +		if (ret)
+> +			goto stop;
+> +	}
+>   
+> -	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
+> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
+> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
+> +	ret = emac_fdb_flow_id_updated(emac);
+>   
+> -	if (!prueth->emacs_initialized) {
+> -		ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
+> -				    emac, IEP_DEFAULT_CYCLE_TIME_NS);
+> +	if (ret) {
+> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
+> +		goto stop;
+>   	}
+>   
+> +	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
+> +
+>   	ret = request_threaded_irq(emac->tx_ts_irq, NULL, prueth_tx_ts_irq,
+>   				   IRQF_ONESHOT, dev_name(dev), emac);
+>   	if (ret)
+> @@ -653,8 +716,7 @@ static int emac_ndo_open(struct net_device *ndev)
+>   free_tx_ts_irq:
+>   	free_irq(emac->tx_ts_irq, emac);
+>   stop:
+> -	prueth_emac_stop(emac);
+> -free_rx_irq:
+> +	prueth_emac_common_stop(prueth);
+>   	free_irq(emac->rx_chns.irq[rx_flow], emac);
+>   cleanup_napi:
+>   	prueth_ndev_del_tx_napi(emac, emac->tx_ch_num);
+> @@ -689,8 +751,6 @@ static int emac_ndo_stop(struct net_device *ndev)
+>   	if (ndev->phydev)
+>   		phy_stop(ndev->phydev);
+>   
+> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
+> -
+>   	if (emac->prueth->is_hsr_offload_mode)
+>   		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
+>   	else
+> @@ -728,11 +788,9 @@ static int emac_ndo_stop(struct net_device *ndev)
+>   	/* Destroying the queued work in ndo_stop() */
+>   	cancel_delayed_work_sync(&emac->stats_work);
+>   
+> -	if (prueth->emacs_initialized == 1)
+> -		icss_iep_exit(emac->iep);
+> -
+>   	/* stop PRUs */
+> -	prueth_emac_stop(emac);
+> +	if (prueth->emacs_initialized == 1)
+> +		prueth_emac_common_stop(prueth);
+>   
+>   	free_irq(emac->tx_ts_irq, emac);
+>   
+> @@ -1069,16 +1127,10 @@ static void prueth_emac_restart(struct prueth *prueth)
+>   	icssg_set_port_state(emac1, ICSSG_EMAC_PORT_DISABLE);
+>   
+>   	/* Stop both pru cores for both PRUeth ports*/
+> -	prueth_emac_stop(emac0);
+> -	prueth->emacs_initialized--;
+> -	prueth_emac_stop(emac1);
+> -	prueth->emacs_initialized--;
+> +	prueth_emac_common_stop(prueth);
+>   
+>   	/* Start both pru cores for both PRUeth ports */
+> -	prueth_emac_start(prueth, emac0);
+> -	prueth->emacs_initialized++;
+> -	prueth_emac_start(prueth, emac1);
+> -	prueth->emacs_initialized++;
+> +	prueth_emac_common_start(prueth);
+>   
+>   	/* Enable forwarding for both PRUeth ports */
+>   	icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
+> @@ -1413,13 +1465,10 @@ static int prueth_probe(struct platform_device *pdev)
+>   		prueth->pa_stats = NULL;
+>   	}
+>   
+> -	if (eth0_node) {
+> +	if (eth0_node || eth1_node) {
+>   		ret = prueth_get_cores(prueth, ICSS_SLICE0, false);
+>   		if (ret)
+>   			goto put_cores;
+> -	}
+> -
+> -	if (eth1_node) {
+>   		ret = prueth_get_cores(prueth, ICSS_SLICE1, false);
+>   		if (ret)
+>   			goto put_cores;
+> @@ -1618,14 +1667,12 @@ static int prueth_probe(struct platform_device *pdev)
+>   	pruss_put(prueth->pruss);
+>   
+>   put_cores:
+> -	if (eth1_node) {
+> -		prueth_put_cores(prueth, ICSS_SLICE1);
+> -		of_node_put(eth1_node);
+> -	}
+> -
+> -	if (eth0_node) {
+> +	if (eth0_node || eth1_node) {
+>   		prueth_put_cores(prueth, ICSS_SLICE0);
+>   		of_node_put(eth0_node);
+> +
+> +		prueth_put_cores(prueth, ICSS_SLICE1);
+> +		of_node_put(eth1_node);
+>   	}
+>   
+>   	return ret;
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index f5c1d473e9f9..b30f2e9a73d8 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -257,6 +257,7 @@ struct icssg_firmwares {
+>    * @is_switchmode_supported: indicates platform support for switch mode
+>    * @switch_id: ID for mapping switch ports to bridge
+>    * @default_vlan: Default VLAN for host
+> + * @prus_running: flag to indicate if all pru cores are running
+>    */
+>   struct prueth {
+>   	struct device *dev;
+> @@ -298,6 +299,7 @@ struct prueth {
+>   	int default_vlan;
+>   	/** @vtbl_lock: Lock for vtbl in shared memory */
+>   	spinlock_t vtbl_lock;
+> +	bool prus_running;
+>   };
+>   
+>   struct emac_tx_ts_response {
+> @@ -361,6 +363,8 @@ int icssg_set_port_state(struct prueth_emac *emac,
+>   			 enum icssg_port_state_cmd state);
+>   void icssg_config_set_speed(struct prueth_emac *emac);
+>   void icssg_config_half_duplex(struct prueth_emac *emac);
+> +void icssg_init_emac_mode(struct prueth *prueth);
+> +void icssg_init_fw_offload_mode(struct prueth *prueth);
+>   
+>   /* Buffer queue helpers */
+>   int icssg_queue_pop(struct prueth *prueth, u8 queue);
+> @@ -377,6 +381,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
+>   		       u8 untag_mask, bool add);
+>   u16 icssg_get_pvid(struct prueth_emac *emac);
+>   void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
+> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
+>   #define prueth_napi_to_tx_chn(pnapi) \
+>   	container_of(pnapi, struct prueth_tx_chn, napi_tx)
+>   
 
