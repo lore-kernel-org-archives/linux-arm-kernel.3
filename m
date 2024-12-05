@@ -4,135 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 702E4E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 00:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A56CAE7716F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 00:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHsb9uG3lsO2MSDA0jNylxCXRl9bK7Qx7zpPxaTAmzQ=; b=MNUr3SfFTV9WjsYOy1M7gyTAbb
-	6QDp8yxAWLnZG8A1Tjmz5DGhpeoHiIqnPB1oHTyOrUOr/9kSPXN/UOwEw5NWXSVTV0wQ9pvORSp5Q
-	FDfDP0HfRb5GKjqG5PJHWAt5lLhxihTY5TfFG4VNdov5/T7cVHYJNa/dZKp554RTMRtKe4tdMef4e
-	v8YbnQe21CE3yVa0mNi7uLLmqkilbWdnePKvocbTZKT556476mBQESbbbPmigk7qAo9+2AS444tqT
-	qKtHFzIS3dqArCM+Junjvb4JV2c4IuUWhyB1CfF7Ag2THVWoyuh/q5Gozg6kIv6RgE4rfWyGVaDuT
-	IDDOH1MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+fesaggYnmYPTzNBJhmMN//258qRMFZQIkG5W+7nf4=; b=RMXdt+fY1Dlpt4tI+vB+JddZd5
+	5xwl9bXg/KSQNVDLVTnNsWYkmf8yE3OXQWq/37purNB4aTL52EC8tVT/pON4ww+UdvBtp8VYOde1x
+	PV3wsaqhRVZnvxp7dCnx4k7Zs1xAPWl+AxKi22wsEFGKzta3LbNwt89SW7gNcWzwC59u7oe5K+VCj
+	iYP7Mmx/6iUSaAnnBajJDATFBfSyolkzPrQ/0CQrg+tRme2lAZSc4Gwlcsan7+wskmVcR6eQln+zz
+	JK/4J5nllBnhoqH6PUAJ2k5v4RDk16USja+AcY1HAML2b32c/CYZXvvk8KN7zku0CDMQBBaa/ukYp
+	+nv5sYiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIzk6-0000000EMG1-24IS;
-	Thu, 05 Dec 2024 00:29:18 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1tIztJ-0000000ENQA-2ivl;
+	Thu, 05 Dec 2024 00:38:49 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIzj4-0000000EM6y-2oOr
+	id 1tIzsI-0000000ENFv-3SzI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 00:28:16 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20241205002809epoutp031d9d629b000043bc2aaace95f262406a~OIFzdyf611707717077epoutp03F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Dec 2024 00:28:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20241205002809epoutp031d9d629b000043bc2aaace95f262406a~OIFzdyf611707717077epoutp03F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733358489;
-	bh=UHsb9uG3lsO2MSDA0jNylxCXRl9bK7Qx7zpPxaTAmzQ=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=UqOxZFu4ijnADzYKCYilriq5tysrrp5pncFT5b1x8OXWMTDJH/rrrNEC681/93ZWx
-	 z85Ue0Sv1X4bcwu8eLorkUR17+qGoWnRv+Dw8uK8XPNKcJhYQh2Ifh+V0YCyBa/pvI
-	 eOCFTIpChoMizKGRLZtLhRUC1Q+3xCOUWqYH8dc4=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTP id
-	20241205002809epcas2p12e68369b9434556e75935c0ccea2e71c~OIFzE1vHr0419504195epcas2p11;
-	Thu,  5 Dec 2024 00:28:09 +0000 (GMT)
-Received: from epsmges2p3.samsung.com (unknown [182.195.36.99]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4Y3Zx46vstz4x9Pt; Thu,  5 Dec
-	2024 00:28:08 +0000 (GMT)
-Received: from epcas2p1.samsung.com ( [182.195.41.53]) by
-	epsmges2p3.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A9.75.22105.693F0576; Thu,  5 Dec 2024 09:28:06 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20241205002806epcas2p458dbe079cd2287366c636d168a998edb~OIFwGtYVX2084520845epcas2p46;
-	Thu,  5 Dec 2024 00:28:06 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20241205002806epsmtrp28e8e468e1bc5806b7e947f31e2063f04~OIFwE2dkZ1071310713epsmtrp2I;
-	Thu,  5 Dec 2024 00:28:06 +0000 (GMT)
-X-AuditID: b6c32a47-fd1c970000005659-11-6750f3969cb5
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	EE.A0.18729.693F0576; Thu,  5 Dec 2024 09:28:06 +0900 (KST)
-Received: from KORCO119526 (unknown [10.229.8.143]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20241205002805epsmtip1b76984dc726d58d245434a8f166ae988~OIFv4NdDI1474514745epsmtip1u;
-	Thu,  5 Dec 2024 00:28:05 +0000 (GMT)
-From: =?utf-8?B?6rmA7YOc7JmE?= <trunixs.kim@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: "'Guenter Roeck'" <linux@roeck-us.net>, "'Rob Herring'"
-	<robh@kernel.org>, "'Krzysztof Kozlowski'" <krzk+dt@kernel.org>, "'Conor
- Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'" <alim.akhtar@samsung.com>,
-	<linux-watchdog@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>
-In-Reply-To: <c487babb-84a5-4e47-a58f-75fec55cbabb@kernel.org>
-Subject: RE: [PATCH v3 3/3] arm64: dts: exynosautov920: add watchdog DT node
-Date: Thu, 5 Dec 2024 09:28:05 +0900
-Message-ID: <000201db46ac$8d7cfee0$a876fca0$@samsung.com>
+	Thu, 05 Dec 2024 00:37:48 +0000
+Date: Wed, 4 Dec 2024 16:37:34 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733359063;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=y+fesaggYnmYPTzNBJhmMN//258qRMFZQIkG5W+7nf4=;
+	b=ncAmXn3NSw8a8PcZ3ZdbA+Sk7ZibUOGTbgwXXbJrGv82qW64BwjUsCdSRqpCTs6dBEngub
+	tWEqrhO55s+7IIotR0RT41ftfStdWGaOdVmbvxXcTLAAjijsQ2KTaDB4kp43I4M78abNUt
+	ZFpijB0n+1EyiDcMrpAfOqKyqNcXjaU=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Christoffer Dall <christoffer.dall@arm.com>
+Subject: Re: [PATCH 06/11] KVM: arm64: nv: Acceletate EL0 counter accesses
+ from hypervisor context
+Message-ID: <Z1D1zus18KCpCqjD@linux.dev>
+References: <20241202172134.384923-1-maz@kernel.org>
+ <20241202172134.384923-7-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQMd16p+X2UldERt9X3UXGHKyeOT/gFfR1PzAhOyk7QBWm0aqwINNyvVAoah3z0BqLdGjwJ1Uc7or+WuLIA=
-Content-Language: ko
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrBJsWRmVeSWpSXmKPExsWy7bCmqe60zwHpBi9OqFg8mLeNzWLN3nNM
-	FvOPnGO1eDnrHpvF+fMb2C02Pb7GanF51xw2ixnn9zFZ3Fi3j93iycIzTBb/9+xgd+D22LSq
-	k81j85J6j53fG9g9+rasYvT4vEkugDUq2yYjNTEltUghNS85PyUzL91WyTs43jne1MzAUNfQ
-	0sJcSSEvMTfVVsnFJ0DXLTMH6DIlhbLEnFKgUEBicbGSvp1NUX5pSapCRn5xia1SakFKToF5
-	gV5xYm5xaV66Xl5qiZWhgYGRKVBhQnbGm/6dTAXv2SvOXtvA1MD4l7WLkZNDQsBEYnPTMcYu
-	Ri4OIYEdjBK3Dr5hgnA+MUos3nsJyvnGKHF98QZ2mJbXLW+YIRJ7GSUWPN3LCuG8YJR4fGk7
-	M0gVm4CFxJJrH5hAbBEBXYnNN5aDdTMLtDJL7L0qBmJzCthJHJx1AywuLOAjMX/vObBeFgEV
-	iUkbe8HivAKWEueXP2WFsAUlTs58wgIxR15i+9s5zBAXKUj8fLoMqIYDaFeSRMMTEYgSEYnZ
-	nW1gh0oIbOGQ2H10ElS9i8Sco5OgvhGWeHV8C5QtJfH53V42CDtfYuXKE0wQdo3EvbZdLBC2
-	vcSiMz/ZQXYxC2hKrN+lD2JKCChLHLkFdRmfRMfhv+wQYV6JjjYhCFNVYvqyAIgZ0hITZ6xl
-	m8CoNAvJW7OQvDULyf2zEFYtYGRZxSiWWlCcm55abFRgDI/q5PzcTYzgJKvlvoNxxtsPeocY
-	mTgYDzFKcDArifAGaQekC/GmJFZWpRblxxeV5qQWH2I0BQb0RGYp0eR8YJrPK4k3NLE0MDEz
-	MzQ3MjUwVxLnvdc6N0VIID2xJDU7NbUgtQimj4mDU6qBSXddTnl2+vIdbtvylrSYvk60Mcme
-	J87NunY3Q/B97ZRv0/qSDTozYqWfpi058MO8nv/pjPRTjy1+mIeUPXLOWrhWaqeFR/O3B3Yf
-	Ts6b9ebc/laR2MXrDwsKyyXLH2WZub4k+kFslWbBT7OXUbqlfvUPFzjE8v249WT3DJeGc1c1
-	kwPP7WqWfRrKFflo7/3rDTMtJvkuOjFrWp7n8Qvcr+bvD2cufK6+wcBJ7tTmHJfn0RXBvIEb
-	T1f737IzUj33f/nf2KhbgpoyThGW2duvSjA0+/mbHXB4rzZp1veFyRk/zrhUFhkfnq5weGZq
-	IIOGdZL/C8+bVucnFKy5q8Q6ozbBYOPeesUIk3rNW4kGSizFGYmGWsxFxYkAEEYtKTsEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprOIsWRmVeSWpSXmKPExsWy7bCSnO60zwHpBn9+s1o8mLeNzWLN3nNM
-	FvOPnGO1eDnrHpvF+fMb2C02Pb7GanF51xw2ixnn9zFZ3Fi3j93iycIzTBb/9+xgd+D22LSq
-	k81j85J6j53fG9g9+rasYvT4vEkugDWKyyYlNSezLLVI3y6BK+NN/06mgvfsFWevbWBqYPzL
-	2sXIySEhYCLxuuUNcxcjF4eQwG5GieO7HkMlpCWO/H7BBmELS9xvOcIKUfSMUaJvwSewIjYB
-	C4kl1z4wgdgiAroSm28sZwcpYhboZZbYf3sn1NitzBJfVhwH6+AUsJM4OOsGO4gtLOAjMX/v
-	OWYQm0VARWLSxl6wOK+ApcT55U9ZIWxBiZMzn7CA2MwC2hJPbz6FsuUltr+dwwxxnoLEz6fL
-	gOo5gK5Ikmh4IgJRIiIxu7ONeQKj8Cwkk2YhmTQLyaRZSFoWMLKsYpRMLSjOTc8tNiwwzEst
-	1ytOzC0uzUvXS87P3cQIjjstzR2M21d90DvEyMTBeIhRgoNZSYQ3SDsgXYg3JbGyKrUoP76o
-	NCe1+BCjNAeLkjiv+IveFCGB9MSS1OzU1ILUIpgsEwenVANT4nkR/sJrZs1rTnny2YasaFFx
-	1Ptp1npfomDyAuVHOzLuFnkYzTobkei4UZ1vZcP9xy0HQqwUZY80Mr3hmJlsWekpwf3qyLOO
-	u2LvtS9y8Up7vc965PpVZYXgHAZG+wzh1zMOVZg+e55+sGaiUdCU4595z3ZKbcnSL0rmmcNz
-	+f7VR+vUVeIui75PXMEqvr+W4eP8RZ6suzuUP+tWcTzUY3wckDjr+e4nwtffl7Ieuvnbl5nt
-	+ISpU4QP1cwNdazsDTI2+bSmO8SQ6aBHelS7BlPW3rJWswPfHjXtcQjYUrCKJ6Hg3fLHl+6e
-	LG1dW+PxOn1F/XfOa5I8+XOW3CprWpjasKXI0b7l6bOHMtZKLMUZiYZazEXFiQDV5FOYKgMA
-	AA==
-X-CMS-MailID: 20241205002806epcas2p458dbe079cd2287366c636d168a998edb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241021063938epcas2p1c01c89badb532f08a46087a4907df7dc
-References: <20241021063903.793166-1-trunixs.kim@samsung.com>
-	<CGME20241021063938epcas2p1c01c89badb532f08a46087a4907df7dc@epcas2p1.samsung.com>
-	<20241021063903.793166-4-trunixs.kim@samsung.com>
-	<961e1aca-cd90-4db1-87d7-afd2e542421e@kernel.org>
-	<20241107103331.GA4818@www.linux-watchdog.org>
-	<589c40e1-6a1c-4ef7-b0d8-b761b132578a@kernel.org>
-	<20241107113325.GA5284@www.linux-watchdog.org>
-	<c487babb-84a5-4e47-a58f-75fec55cbabb@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241202172134.384923-7-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_162815_177436_9DF05D49 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20241204_163747_140237_F8BA1C81 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,41 +73,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+typo: accelerate
 
-> On 07/11/2024 12:33, Wim Van Sebroeck wrote:
-> >>> Seems like you are having a hard day.
-> >>> The 3 patches are dropped. I presume that you will take them all
-> through your tree then?
-> >>
-> >> I meant only this one patch, not entire patchset. The bindings and
-> >> watchdog driver are for you. I commented only about this patch here -
-> DTS.
-> >>
-> >>
-> >> Best regards,
-> >> Krzysztof
-> >>
-> >
-> > I added the first two patches again. Even when it sounds more logical to
-> me to keep the 3 together.
+On Mon, Dec 02, 2024 at 05:21:29PM +0000, Marc Zyngier wrote:
+> Similarly to handling the physical timer accesses early when FEAT_ECV
+> causes a trap, we try to handle the physical counter without returning
+> to the general sysreg handling.
 > 
-> Thank you.
+> More surprisingly, we introduce something similar for the virtual
+> counter. Although this isn't necessary yet, it will prove useful on
+> systems that have a broken CNTVOFF_EL2 implementation. Yes, they exist.
 > 
-> > But that's a never ending discussion, so we won't go into that :-).
+> Special care is taken to offset reads of the counter with the host's
+> CNTPOFF_EL2, as we perform this with TGE clear.
 > 
-> DTS is hardware description independent from Linux, therefore always goes
-> separate way than Linux drivers.
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  5 +++++
+>  arch/arm64/kvm/hyp/vhe/switch.c         | 13 +++++++++++++
+>  2 files changed, 18 insertions(+)
 > 
-> Best regards,
-> Krzysztof
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 34f53707892df..30e572de28749 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -501,6 +501,11 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
+>  	return true;
+>  }
+>  
+> +static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
+> +{
+> +	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
+> +}
+> +
+>  static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
+>  {
+>  	struct arch_timer_context *ctxt;
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index b014b0b10bf5d..49815a8a4c9bc 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -296,6 +296,13 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  			val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
+>  		}
+>  		break;
+> +	case SYS_CNTPCT_EL0:
+> +	case SYS_CNTPCTSS_EL0:
+> +		/* If !ELIsInHost(EL0), the guest's CNTPOFF_EL2 applies */
+> +		val = compute_counter_value(!(vcpu_el2_e2h_is_set(vcpu) &&
+> +					      vcpu_el2_tge_is_set(vcpu)) ?
+> +					    vcpu_ptimer(vcpu) : vcpu_hptimer(vcpu));
+> +		break;
+>  	case SYS_CNTV_CTL_EL02:
+>  		val = __vcpu_sys_reg(vcpu, CNTV_CTL_EL0);
+>  		break;
+> @@ -314,6 +321,12 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  		else
+>  			val = __vcpu_sys_reg(vcpu, CNTV_CVAL_EL0);
+>  		break;
+> +	case SYS_CNTVCT_EL0:
+> +	case SYS_CNTVCTSS_EL0:
+> +		/* If !ELIsInHost(EL2), the guest's CNTVOFF_EL2 applies */
 
-I found that the first two patches have been added to the linux-next git, 
-but the last patch has not yet been reviewed.
+!ELIsInHost(EL0)
 
-I would appreciate it if you could take a look at this patch.
-
-Best regards,
-Taewan Kim.
-
+> +		val = compute_counter_value(!vcpu_el2_e2h_is_set(vcpu) ?
+> +					    vcpu_vtimer(vcpu) : vcpu_hvtimer(vcpu));
+> +		break;
+>  	default:
+>  		return false;
+>  	}
+> -- 
+> 2.39.2
+> 
 
