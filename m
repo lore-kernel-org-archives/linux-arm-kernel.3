@@ -4,57 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15688E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC57E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmfV6kYYUIEvZRQ/7JpZruh6/qJl8XECDZR2P76mplU=; b=UXzNndAyXf0mqFaePQJrb6w2BQ
-	7+3StWsvCby/jrGVFAzqvNzvhG0z3BREpcG3KIwPl/pCx3POAf4ZY2158ljAgsackkFa7M8lS2+1Q
-	q45Uhe/Vtv+rs21gQqZrAyGsd8Ywt/pR2Ig7ZaBs/I0W2d3X/0dBVixG990effvZUgry79y9sJiZt
-	3c3fMl/I/JzBwcj8ggzb/e5R3YPvyZ2+uPsoFwFDZtl8/n7wkdbu253374Aax7Z4o6Ix6CtfHyjZq
-	kbzKtB4sdUMzmHyPVJsQRtSlM8f/P/mNkgnhGn3E4gLKQWTH9N3vwGnsJ4AXSCBZcRLzOxFITgMpF
-	cDYNLKMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mSVWv3kzGyP7Ixr3DcJKWQ/Cs0NKKVxGUdtaJxvtNOU=; b=oOhYOtV0lNQKah+Oy+2pgKShdm
+	rlXU7S8TxpgI1Kh0CYGOtiLqpIsGQ0KOktNjSbHZK0cbalXkxFQP2h+OGZw+EBeuFEfd7+dpqcN2q
+	Mwyb/BOYuP5Hrt1B+2ZU6dnsayiKMsbCh0y7TNgpXx9Az8cYGf5bCkkmn7z2ZkmHA9wRIGSg5NCjn
+	8uyKCML8mPDBllxKBLaVSg2ue26Cq4bYISPVTvPkTwFdYFoj4emhQBMyBMBvZmvYmKsDpCnb/Zpfx
+	CkRvqUw06Y1gU54lzpXBzzMD43Bfzwirz0GcIASU1t9W9iCxg3jq92QTRRIkqJ1+r1ioxhn5Rh6nQ
+	j/ugUy8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDqq-0000000GYMc-06pA;
-	Thu, 05 Dec 2024 15:33:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDpn-0000000GY6d-3ZEo
+	id 1tJDrp-0000000GYca-2jqY;
+	Thu, 05 Dec 2024 15:34:13 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJDqB-0000000GYBs-0CpS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 15:32:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 025411063;
-	Thu,  5 Dec 2024 07:32:35 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7CB383F71E;
-	Thu,  5 Dec 2024 07:32:05 -0800 (PST)
-Date: Thu, 5 Dec 2024 15:32:02 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, <andersson@kernel.org>,
-	<konrad.dybcio@linaro.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-msm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <quic_rgottimu@quicinc.com>,
-	<quic_kshivnan@quicinc.com>, <arm-scmi@vger.kernel.org>
-Subject: Re: [PATCH V5 1/2] firmware: arm_scmi: Add QCOM Generic Vendor
- Protocol documentation
-Message-ID: <Z1HHciQfWL-l79YR@bogus>
-References: <20241115011515.1313447-1-quic_sibis@quicinc.com>
- <20241115011515.1313447-2-quic_sibis@quicinc.com>
- <Z1BBirNWH1eaSKtr@pluto>
- <73a16eb4-e590-92db-ee24-cc4f42a9de01@quicinc.com>
+	Thu, 05 Dec 2024 15:32:32 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-29e71d653fbso586339fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 07:32:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cornersoftsolutions.com; s=google; t=1733412749; x=1734017549; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mSVWv3kzGyP7Ixr3DcJKWQ/Cs0NKKVxGUdtaJxvtNOU=;
+        b=qf0U/abdfXa/eaLBSAe8sNpRQ4MgFW/CWZayDiOxwxlXURPZHZUCff5XHaBRy8t/dN
+         1uOlUV18x/V4h5iX7RPKUudfH0cBgQwc2U9Mx5yhlNwCo6dv5c93CscAHiwc3DK3Vdib
+         41xlSBW6nULXVyZFLrzpDMqOzv4OANiVsgrHY1qUnyBKbWbsK2GUtGFCyK95m8mueAiB
+         fDI90YWNChwZaUGm5pGeC1RgShWlu3hSDcEwnAHNFKsJPNcxiQmqaoonyMVWCCBA2OJh
+         PUOpZJZT6kAuFcbKeXYLJt07f5aAk3Vx8RSTpU4uFUi3rH2+KE9sXYEEjAQFX9a0lvL/
+         XQWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733412749; x=1734017549;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mSVWv3kzGyP7Ixr3DcJKWQ/Cs0NKKVxGUdtaJxvtNOU=;
+        b=Lz4nro18b5sr5Q5guWl13o2Gkj756qXNKea41Ev/LzJaACUSTE+UfALRhxIrmQgNXr
+         pY1T9J3gH9Gg5RNP0TD8VKj2SXTWb62zVK0fOFD3NIMaRC89UTeYbdQ98o9983Zr6JY6
+         ygS2j64PIr/9G9PKLeMnIlo6wLIhbdnhEQSmOmj0fr3QRifgcjFeRFEwwElheUsk2HPf
+         c91XLQSLdnHCrTw/nsHT9GXudl/yCpCFQqitrDIgyWnPkkwglNcwLXX2lkMhKXObUpSE
+         GHObY2Jz4F8W/t8PILO/XGgDgYduOyKrDw/ANpCbfbXY9dUfAtYW21VwVQL52zr7h5sL
+         Niug==
+X-Forwarded-Encrypted: i=1; AJvYcCViWTV11YG3XCcshvDG6wjJmPrE3K+rAAYRbucwyqacqmUDQJn4AXWC3wLrRj3OwsFbmLFe9HD6gcWZ+7Ml7c9z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOTDrMEEww1VzhkQIiN20bMPBM4JBu7gXdHrxbag5ePGMA9hPT
+	rfoUGFqRfWfkRi6kmMCB1COimSzpleeAc4xThAxCj5zTEltbgvJhoo3u6bIzSXCoJv+hq/3e/5u
+	auFurSinsrn+IRSwh89RknGXPjJQ6L/EZzMuPiQ==
+X-Gm-Gg: ASbGncs+ynmUmrlYkFe1HQrI9zEIRqi9DMFu591n6ABqqtdGdIf4Z4kKk5igux9ZQDZ
+	0u1MFDSYU86hp0YOYzn+TVUQd3YIuFltf
+X-Google-Smtp-Source: AGHT+IEXh3wkarBLzAyKqYC0kT/Y8r28C1neLlKp6rQpRD5NvnZVxaGgz+SOmihpuXwnZlzhFMNga5hrHKjeRZiwzUg=
+X-Received: by 2002:a05:6871:606:b0:296:ee2e:a23c with SMTP id
+ 586e51a60fabf-29e88560c9bmr11677702fac.5.1733412749132; Thu, 05 Dec 2024
+ 07:32:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <73a16eb4-e590-92db-ee24-cc4f42a9de01@quicinc.com>
+From: Ken Sloat <ksloat@cornersoftsolutions.com>
+Date: Thu, 5 Dec 2024 10:32:17 -0500
+Message-ID: <CADRqkYAaCYvo3ybGdKO1F_y9jFEcwTBxZzRN-Av-adq_4fVu6g@mail.gmail.com>
+Subject: [PATCH v1] dt-bindings: dma: st-stm32-dmamux: Add description for
+ dma-cell values
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	dmaengine@vger.kernel.org, alexandre.torgue@foss.st.com, 
+	mcoquelin.stm32@gmail.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
+	robh@kernel.org, vkoul@kernel.org, amelie.delaunay@foss.st.com
+Cc: Ken Sloat <ksloat@cornersoftsolutions.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_073207_977830_6D87A121 
-X-CRM114-Status: GOOD (  26.01  )
+X-CRM114-CacheID: sfid-20241205_073231_194194_7232B948 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,106 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 04:37:28PM +0530, Sibi Sankar wrote:
-> 
-> 
-> On 12/4/24 17:18, Cristian Marussi wrote:
-> > On Fri, Nov 15, 2024 at 06:45:14AM +0530, Sibi Sankar wrote:
-> > > Add QCOM System Control Management Interface (SCMI) Generic Vendor
-> > > Extensions Protocol documentation.
-> > > 
-> > > Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-> > > ---
-> > > 
-> > > v4:
-> > > * Update the protol attributes doc with more information. [Cristian]
-> > > 
-> > >   .../arm_scmi/vendors/qcom/qcom_generic.rst    | 211 ++++++++++++++++++
-> > >   1 file changed, 211 insertions(+)
-> > >   create mode 100644 drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
-> > > 
-> > > diff --git a/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
-> > > new file mode 100644
-> > > index 000000000000..141bc932e30f
-> > > --- /dev/null
-> > > +++ b/drivers/firmware/arm_scmi/vendors/qcom/qcom_generic.rst
-> > > @@ -0,0 +1,211 @@
-> > > +.. SPDX-License-Identifier: GPL-2.0
-> > > +.. include:: <isonum.txt>
-> > > +
-> > > +===============================================================================
-> > > +QCOM System Control and Management Interface(SCMI) Vendor Protocols Extension
-> > > +===============================================================================
-> > > +
-> > > +:Copyright: |copy| 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> > > +
-> > > +:Author: Sibi Sankar <quic_sibis@quicinc.com>
-> > > +
-> > > +SCMI_GENERIC: System Control and Management Interface QCOM Generic Vendor Protocol
-> > > +==================================================================================
-> > > +
-> > > +This protocol is intended as a generic way of exposing a number of Qualcomm
-> > > +SoC specific features through a mixture of pre-determined algorithm string and
-> > > +param_id pairs hosted on the SCMI controller. It implements an interface compliant
-> > > +with the Arm SCMI Specification with additional vendor specific commands as
-> > > +detailed below.
-> > > +
-> > > +Commands:
-> > > +_________
-> > > +
-> > > +PROTOCOL_VERSION
-> > > +~~~~~~~~~~~~~~~~
-> > > +
-> > > +message_id: 0x0
-> > > +protocol_id: 0x80
-> > > +
-> > > ++---------------+--------------------------------------------------------------+
-> > > +|Return values                                                                 |
-> > > ++---------------+--------------------------------------------------------------+
-> > > +|Name           |Description                                                   |
-> > > ++---------------+--------------------------------------------------------------+
-> > > +|int32 status   |See ARM SCMI Specification for status code definitions.       |
-> > > ++---------------+--------------------------------------------------------------+
-> > > +|uint32 version |For this revision of the specification, this value must be    |
-> > > +|               |0x10000.                                                      |
-> > > ++---------------+--------------------------------------------------------------+
-> > > +
-> > > +PROTOCOL_ATTRIBUTES
-> > > +~~~~~~~~~~~~~~~~~~~
-> > > +
-> > > +message_id: 0x1
-> > > +protocol_id: 0x80
-> > > +
-> > > ++---------------+--------------------------------------------------------------+
-> > > +|Return values                                                                 |
-> > > ++------------------+-----------------------------------------------------------+
-> > > +|Name              |Description                                                |
-> > > ++------------------+-----------------------------------------------------------+
-> > > +|int32 status      |See ARM SCMI Specification for status code definitions.    |
-> > > ++------------------+-----------------------------------------------------------+
-> > > +|uint32 attributes |Bits[31:16] Reserved, must be to 0.                        |
-> > > +|                  |Bits[15:8] Number of agents in the system                  |
-> > > +|                  |Bits[7:0] Number of vendor protocols in the system         |
-> > > ++------------------+-----------------------------------------------------------+
-> > 
-> > Thanks of clarifing this....may I ask why number of agents is reported
-> > here too given that it is already exposed by Base protocol ?
-> > 
-> > Not really arguing about this so much, but you will end up having to maintain this
-> > on 2 different protocols fw side...or are they not 'agents' in the SCMI meaning ?
-> > 
-> > Anyway, I'm fine with it, even though you dont seem to use this
-> > anywhere.
-> 
-> We don't use it anywhere and it looks like it was just put together
-> so that this protocol is compliant to the spec :|
+The dma-cell values for the stm32-dmamux are used to craft the DMA spec
+for the actual controller. These values are currently undocumented
+leaving the user to reverse engineer the driver in order to determine
+their meaning. Add a basic description, while avoiding duplicating
+information by pointing the user to the associated DMA docs that
+describe the fields in depth.
 
-Interesting, I need to dig and check if that is needed to be compliant.
-Even if it is required, please add a text to say it must match what std.
-BASE protocol response(IOW it just can't be random here as you don't use
-it anymore). We may decide to match and warn if required at all.
+Signed-off-by: Ken Sloat <ksloat@cornersoftsolutions.com>
+---
+.../bindings/dma/stm32/st,stm32-dmamux.yaml | 11 +++++++++++
+1 file changed, 11 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
+b/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
+index f26c914a3a9a..aa2e52027ee6 100644
+--- a/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
++++ b/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
+@@ -15,6 +15,17 @@ allOf:
+properties:
+"#dma-cells":
+const: 3
++ description: |
++ Should be set to <3> with each cell representing the following:
++ 1. The mux input number/line for the request
++ 2. Bitfield representing DMA channel configuration that is passed
++ to the real DMA controller
++ 3. Bitfield representing device dependent DMA features passed to
++ the real DMA controller
++
++ For bitfield definitions of cells 2 and 3, see the associated
++ bindings doc for the actual DMA controller the mux is connected
++ to.
+compatible:
+const: st,stm32h7-dmamux
 -- 
-Regards,
-Sudeep
+2.34.1
 
