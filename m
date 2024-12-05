@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74496E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32405E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBQOwKu9OJiT1I5Qr6Q4UEzDcss8Pz589vKUuiIBLLg=; b=d4qUHVDSoXYow0icht7AxnOLTU
-	QVoh8Ox4dRh+yLD6ruwQOqYVqOVickpbP9s2/6/8l0iH/kGhsuxKMiEyzAqRd8ajhsytabImVDq5x
-	AnpPLcNmUATRTxrHx/EOmOoBF/jAydi502Hh6VTfdNUmtmpedYQhoyfRtKvJayCtDqRpOw+6dutKE
-	gI4Ojzx4edtC98H5tasCa14pJwOf+THkq79C+2o9MGKOCZFNQC8SIB29BmuattX+7pYnxh5ul6OVL
-	R0F6YTBlP5yvosCG1gmEigFaceExjnPTKCh9+2GQUynNxUOdkalIuA0xHQukcLYX80UyKpar3m1yo
-	Qfqau5fg==;
+	bh=svw3hVWhjLUsKCnyMo5bW6Ng4sD85ogIrMfseX9wbyA=; b=D+KATT3OH+vCio+klzAqiyH5dc
+	ad8OAVf7ZdTBQB30AXlj2cAQlESM9j+XCyYGqF7wj3lp0+jis4utExeta8iNaiTgEZS3Z+At7bAsS
+	/XTqxocw//5Y5F+rFhXr4VnfCAjhlvY5URb6w6PxCJWpn3CjyIxg21wl94Chg9V/k2rnB9lI0VF7w
+	lnGbCUlMKJ86dzB2BT5ZtdXEzLL9z7YjkK14mk19lmLTlt8b0wlzhXejrCJUmIp1m0+kz/Zb7MVQc
+	3BuJ422znAS0fW9Y/LGTtmhkYMgzyAiG+dQkKArx9Rgc+FS1JfQmASjJJakWcvdMXP4LHcSF8MOpX
+	FbZ1N/xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8BC-0000000FN9d-34k0;
-	Thu, 05 Dec 2024 09:29:50 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tJ8Gx-0000000FNpU-14g6;
+	Thu, 05 Dec 2024 09:35:47 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8AA-0000000FMpq-3Ta0;
-	Thu, 05 Dec 2024 09:28:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733390925;
-	bh=08SvqowVDJCgE5IzAAjkQDSRH/V9tuU5xAqjvOgn6U0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cJSN6a+PsrIqsNmVbAFAcGkOu8DqLl1M94Aa/LLxwyhxdOEj+L0z4gGRDPPbG8lCC
-	 fuH4lJ/wE/s+wWQOiwA4AEp0xkY4vqM2BZn+HUD+pX9h+3UrKir2/g6eoNQaxTM+82
-	 h3owPOkfLJlIdqUZJz/wqZVUD0X9bVqmSdCiSTj1IXD8VrDtsMdIbSgtBWRcJ400fU
-	 tiRG6T+rNma5wlklzaR52n1/yHWIOJCMxH5e3z5AXHVPe1J0quvwxSB56eNzN6Un7g
-	 XPpVKQR32VgnWI6D6Uh73ZtptOlRql7AZKA8KsEXxFI8502hkojYAcTYXaGDDFRqgV
-	 YPlJMiqRHCBSQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 44D4917E35E3;
-	Thu,  5 Dec 2024 10:28:44 +0100 (CET)
-Message-ID: <5cbf569c-7288-48bd-8958-dcdd29b0aa20@collabora.com>
-Date: Thu, 5 Dec 2024 10:28:43 +0100
+	id 1tJ8Fu-0000000FNg2-3yQW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 09:34:44 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-724e5fb3f9dso581150b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 01:34:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733391282; x=1733996082; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=svw3hVWhjLUsKCnyMo5bW6Ng4sD85ogIrMfseX9wbyA=;
+        b=VPRRZ1GXXSBlUiM9PUrZ4+gfVa3o8EGEbKAqZdGFJtR650LBC4SSkCgHg+yQRU5843
+         T5fuhbt6Df+AeunaBk/AJPj0Ta4bzA7R9aorcuFQHamRKdXHRTZbDxlx7cSwb01IlZxZ
+         ImdqRiagwYnWnUt1Mc2QxZxAflt6pHXOLsTh9xQB3KEkm0Hzs/WSmPd4elumoV7fVAxY
+         GcdmwXnBXtUpqRo19zQvrfPpexn4PuToX4bepvLo0Y+BRvzIECQ1ImyhpJE7NlLyKNof
+         KGXFf3cWBqiRGNG7AwUhvjzvZKosMJV6hrdtmPnomvEFNXumudRy+Hczansve9nGWRGS
+         mXxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733391282; x=1733996082;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=svw3hVWhjLUsKCnyMo5bW6Ng4sD85ogIrMfseX9wbyA=;
+        b=QN7TLG226r0vUdP5c72+2rJVDrc09jYgZMX3ckn33PXfTqiEN2dLKguivXxPi1fLxP
+         1xqTfv2zjj2lMjqy1pdO+NoWhbH5f7I72788YzWWDStCmF/oYwEChhexnkct4yLqudRb
+         JM2UuMwVWoDWm1bCpQk9wH37twQvI4o8iGZtnS4/aaf5HI7s/Wbpy24lznePO2lm7n9V
+         ze9CdjrB2b40AdifpsXrOC3TFVgCKzFEJRL3TwP4KD105MyVMoeux2m9zT7ZqUxxDqSb
+         Nrc7Sk9kkWPWB4V1tcPRijeTUEAjBq9L4avnA+JiCyykutlS/lUNrq7vkZUEMHOAhuby
+         riig==
+X-Forwarded-Encrypted: i=1; AJvYcCUyQMQ0khKYKyygJCkQTq6SbPo2579hyXtuXlS0W1ZokFG706qqBTjnyxsPv1ANQtO0uiqBH8+wK2DIKN78FWnk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwEBhfLgCP2pjGNOS7tuw3ppV5hAiE3h+bktRyjTDgrEux09Za
+	Fe1q8RYpWk6EmzhnXrC7IDC+uheknTKXtg7mtlk300K1D0ZB0iGN
+X-Gm-Gg: ASbGncsq/4PLYgsCjh7xi0S8lhEaln1uBwuVjpJbUIP7pxrYnlDHUqagTVGwcbtGHgs
+	ufTf/JCy4/tLRZJ20FWdyThyr35+C4h9CnLYKdR1V/gQDy3OhyubNIBfzOpc6SdOFhhSVayg6WZ
+	zkAuqLP2vYEvh2Uyc9tyMHQTPF6j0wlkDkzxd8YuSnty2x8q5a9ZgA6AeR0ezyjWROuPUoWdBgE
+	GkT50knem5Yz4ZZgCU24qUTT64a53CPYzFqkDGdtS5Axs4=
+X-Google-Smtp-Source: AGHT+IGGByayQpZUFnuuK54B4xfgnuxti4ZXFGpFEg18KahQT7dWybOnF+z1/CV1gszt9ZR4jHsBdg==
+X-Received: by 2002:a17:902:ec8b:b0:215:19ae:77bf with SMTP id d9443c01a7336-215bd0d8999mr134561575ad.19.1733391281860;
+        Thu, 05 Dec 2024 01:34:41 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8e5f172sm8672215ad.69.2024.12.05.01.34.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 01:34:41 -0800 (PST)
+Date: Thu, 5 Dec 2024 17:34:31 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Jon Hunter <jonathanh@nvidia.com>, Thierry Reding
+ <thierry.reding@gmail.com>, Robin Murphy <robin.murphy@arm.com>, Jakub
+ Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com, Suraj Jaiswal
+ <quic_jsuraj@quicinc.com>, Thierry Reding <treding@nvidia.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, Will Deacon
+ <will@kernel.org>
+Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap
+ for non-paged SKB data
+Message-ID: <20241205173431.0000779e@gmail.com>
+In-Reply-To: <Z1CVRzWcSDuPyQZe@shell.armlinux.org.uk>
+References: <20241128144501.0000619b@gmail.com>
+	<20241202163309.05603e96@kernel.org>
+	<20241203100331.00007580@gmail.com>
+	<20241202183425.4021d14c@kernel.org>
+	<20241203111637.000023fe@gmail.com>
+	<klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw>
+	<df3a6a9d-4b53-4338-9bc5-c4eea48b8a40@arm.com>
+	<2g2lp3bkadc4wpeslmdoexpidoiqzt7vejar5xhjx5ayt3uox3@dqdyfzn6khn6>
+	<Z1CFz7GpeIzkDro1@shell.armlinux.org.uk>
+	<9719982a-d40c-4110-9233-def2e6cb4d74@nvidia.com>
+	<Z1CVRzWcSDuPyQZe@shell.armlinux.org.uk>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 7/7] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
- <20241120124512.134278-8-angelogioacchino.delregno@collabora.com>
- <559ac08df6614e47c3e8d9d8160b35c9e683c503.camel@mediatek.com>
- <716b8630-66ef-4497-8cba-d5d20da2382a@collabora.com>
- <6bba26909f2fe0686c2584536f7a080451f768a1.camel@mediatek.com>
- <8c34c5a6cc2217ffc1a2d9881f20708e8427ffe6.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <8c34c5a6cc2217ffc1a2d9881f20708e8427ffe6.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_012847_019825_7F4F5577 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20241205_013442_991536_CC8A6D1C 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,146 +118,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/12/24 03:48, CK Hu (胡俊光) ha scritto:
-> On Thu, 2024-12-05 at 10:42 +0800, CK Hu wrote:
->> On Wed, 2024-12-04 at 15:44 +0100, AngeloGioacchino Del Regno wrote:
->>> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>>
->>>
->>> Il 02/12/24 08:27, CK Hu (胡俊光) ha scritto:
->>>> Hi, Angelo:
->>>>
->>>> On Wed, 2024-11-20 at 13:45 +0100, AngeloGioacchino Del Regno wrote:
->>>>> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>>>>
->>>>>
->>>>> Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
->>>>> found in MediaTek's MT8195, MT8188 SoC and their variants, and
->>>>> including support for display modes up to 4k60 and for HDMI
->>>>> Audio, as per the HDMI 2.0 spec.
->>>>>
->>>>> HDCP and CEC functionalities are also supported by this hardware,
->>>>> but are not included in this commit.
->>>>>
->>>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>>> ---
->>>>
->>>> [snip]
->>>>
->>>>> +static int mtk_hdmi_v2_enable(struct mtk_hdmi *hdmi)
->>>>> +{
->>>>> +       int ret;
->>>>> +
->>>>> +       ret = pm_runtime_resume_and_get(hdmi->dev);
->>>>
->>>> Why turn on power when attach?
->>>> Should hot-plug detection be always on so power on when attach?
->>>> If so, maybe we need to use CEC to detect hot-plug because CEC has lower power and HDMI power would not be always on.
->>>> As you describe previously, CEC just need some hack to support both HDMI Tx and HDMI Rx.
->>>> So there is a software solution to use CEC to detect hot-plug in a lower power mode.
->>>> And v1 use CEC to detect hot-plug, so it's worth to make v1 and v2 has the same behavior.
->>>>
->>>
->>> As I said, we can't use CEC to detect hotplug, because the same CEC controller
->>> can be used for both HDMI TX and RX at the same time.
->>>
->>> If you use CEC to detect cable attach and you have both HDMI RX and HDMI TX drivers
->>> probed and ready, if you attach the cable to HDMI RX port, HDMI TX will try to get
->>> enabled and will error out.
->>> Same happens if you attach a cable to HDMI TX: HDMI RX will try to get enabled and
->>> will error out.
->>>
->>> The only way to use CEC for hotplug detection is to detect twice: CEC for HDMI
->>> TX/RX controllers wakeup, then reset both, wait for autodetect in both controllers,
->>> suppress errors, and start signal transmit or receive.
->>>
->>> While it is technically possible to do so, it's very complicated and hacky.
->>>
->>> Please keep in mind that on the new SoCs (8188/8195) the CEC block is different
->>> from the one in the old SoCs (6795, 8173, etc) and requires an entirely new driver
->>> to get it working.
->>>
->>> Using CEC for hotplug detection would mean that we need 3 full drivers:
->>> 1. HDMI TX
->>> 2. HDMI RX
->>> 3. CEC
->>>
->>> This is because the CEC is shared, so we need to have all three to properly test
->>> the functionality - and this is not possible to do all at once.
->>>
->>> To save some power (not much, though!), we can eventually go for your proposed
->>> CEC detection *in the future*, but really not right now - and we can do that only
->>> after upstreaming both HDMI TX and HDMI RX drivers.
->>>
->>> The plan (time/effort pemitting!) would look like this:
->>>
->>> Series 1 - Upstream HDMIv2 TX (HPD through HDMIv2 TX controller) - drivers/gpu/drm
->>> Series 2 - Upstream HDMIv2 RX (HPD through HDMIv2 RX controller) - drivers/media
->>> Series 3 - Upstream CEC driver (No HPD in CEC)                   - drivers/media
->>> Series 4 - Implement HPD in CEC and use it in HDMIv2 TX and HDMIv2 RX - media,drm
->>>
->>> You can see how complicated this is - and I'm sure that you understand why that
->>> cannot be done all at once.
->>>
->>> Adding up some: the HDMI driver is used only on IoT boards for now, which typically
->>> run off AC and not battery - so the (again) very little power consumption raise is
->>> not critical for now.
->>
->> If you plan to upstream HDMI RX driver recently, it's OK not using CEC to detect hot-plug.
->> But for any behavior which is different with v1 and it's related to CEC, add comment about CEC.
+Hi Russell,
+
+On Wed, 4 Dec 2024 17:45:43 +0000, "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+> So yes, "des" is being offset, which will upset the unmap operation.
+> Please try the following patch, thanks:
 > 
-> In here, describe more about the power.
-> Chromebook may need HDMI TX driver and its power is from battery.
-> Maybe Googler would be interested in low power behavior.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 9b262cdad60b..c81ea8cdfe6e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	struct stmmac_txq_stats *txq_stats;
+>  	struct stmmac_tx_queue *tx_q;
+>  	u32 pay_len, mss, queue;
+> +	dma_addr_t tso_des, des;
+>  	u8 proto_hdr_len, hdr;
+> -	dma_addr_t des;
+>  	bool set_ic;
+>  	int i;
+>  
+> @@ -4289,14 +4289,15 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+>  
+>  		/* If needed take extra descriptors to fill the remaining payload */
+>  		tmp_pay_len = pay_len - TSO_MAX_BUFF_SIZE;
+> +		tso_des = des;
+>  	} else {
+>  		stmmac_set_desc_addr(priv, first, des);
+>  		tmp_pay_len = pay_len;
+> -		des += proto_hdr_len;
+> +		tso_des = des + proto_hdr_len;
+>  		pay_len = 0;
+>  	}
+>  
+> -	stmmac_tso_allocator(priv, des, tmp_pay_len, (nfrags == 0), queue);
+> +	stmmac_tso_allocator(priv, tso_des, tmp_pay_len, (nfrags == 0), queue);
+>  
+>  	/* In case two or more DMA transmit descriptors are allocated for this
+>  	 * non-paged SKB data, the DMA buffer address should be saved to
 > 
 
-There's no Chromebook with HDMI TX, only DP.
+Much appreciated for your comments and suggestions, I sent a new patch to fix
+this issue. Please let me know if you have any new advice.
+https://lore.kernel.org/netdev/20241205091830.3719609-1-0x1207@gmail.com/
 
-The only boards exposing the HDMI connector routed through the HDMI TX Controller
-are:
-  - Radxa NIO 12L  (MT8195)
-  - Genio 1200 EVK (MT8195)
-  - Genio 700 EVK  (MT8188)
-
-Should a Chromebook featuring HDMI TX appear, we can go with heavy power related
-optimization later, there's no problem (besides, again, it's about some microamps
-and nothing more).
-
-The power consumption was measured with a Joulescope JS110 on the Genio 700 EVK.
-I didn't save the current measurement values, and I peformed those 3 weeks ago
-so I don't remember the exact values - what I remember is that there was a
-difference of microamps (18650 battery 4.2V -> JS110 -> board), but nothing more.
-
-Cheers,
-Angelo
-
-> Regards,
-> CK
-> 
->>
->> Regards,
->> CK
->>
->>>
->>> Cheers,
->>> Angelo
->>>
->>>> Regards,
->>>> CK
->>>>
->>>>
->>>>> +       if (ret) {
->>>>> +               dev_err(hdmi->dev, "Cannot resume HDMI\n");
->>>>> +               return ret;
->>>>> +       }
->>>>> +
->>>>> +       mtk_hdmi_v2_clk_enable(hdmi);
->>>>> +       mtk_hdmi_hw_reset(hdmi);
->>>>> +       mtk_hdmi_set_sw_hpd(hdmi, true);
->>>>> +
->>>>> +       return 0;
->>>>> +}
->>>>> +
-> 
-
+Thanks,
+Furong
 
