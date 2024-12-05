@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B0EE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F16E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yta+XXMHP1ejgRZZWR5HMkhLHp1OT/pNiE2xb2AFLps=; b=PeLObI1Km0kHc8LnaExQpGRaY0
-	Mkl22yh4Pmi1t276rCvMgmS23S9mFxL2PySjpq650pyqh/o39CayDJGePC/1uEZP0vTg91b9JYUeF
-	yHlOBu0qqtCmU+8AUBon+R4azm9Awxxf+npysIc7/18JzWK1sylAHhiEmSLlpSaqxPmYMiZPh0AyQ
-	SWMFKVvBaRs1lZ9Yz6agICflisq1m5xmUuLVz+w7MS4vz9AxEWzbXGN2OiMAw8XlfTy8OhcrrLQaD
-	m8643r1V3+AuzpwYLKUby8zfcKNFACZEdmAZ0guDykXzKlhl2MHVlhE8k9EJ05WNsKpwpDj1EcaIF
-	64GFrHIQ==;
+	bh=tR8Gx4YF+iGaCMV6DuY+XQYSDcjVdzyIfn9PDc6LDOM=; b=DZANR5WNff4c/YolBTt9U8n9pm
+	EoZH56qut3rpg2ESImzXAjbyWAdGVw3DGzVyZtP6tEjsHhtDUOQN8VDMqWKRgsQ2PptQ2i35VO4XY
+	ophFK596RlGMjQBoXcQXRQVUYKoYxW41K77KO8jEyHpTVKB917c8+x+M49FA/DLQlXVcCBmkcybxA
+	2poN8AC2t03DMyxs8T8/sDrzm+K7sShB/mESW/cxqM+AUiB8gCr2OVaYnMSMbdrsNtvCqEU0TM+Ez
+	egE3zrdqvLaSP6zke42vpetf5iUbvKagItj+snM8O/bR9yZ0q9o15S0txxrd92tw0QXS9661w80Bx
+	ptnq95qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGgz-0000000H88u-18L5;
-	Thu, 05 Dec 2024 18:35:13 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tJGoq-0000000H8n3-0xHQ;
+	Thu, 05 Dec 2024 18:43:20 +0000
+Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGfx-0000000H7y8-17m8;
-	Thu, 05 Dec 2024 18:34:10 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aa625782fb1so16361266b.0;
-        Thu, 05 Dec 2024 10:34:08 -0800 (PST)
+	id 1tJGnn-0000000H8dV-3pxy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 18:42:17 +0000
+Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-85bb264993cso278920241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 10:42:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733423647; x=1734028447; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yta+XXMHP1ejgRZZWR5HMkhLHp1OT/pNiE2xb2AFLps=;
-        b=KMzNjcu5/cSeJCP/k0d6J+02g4/4gZjXjQXFD603t44/n5ke4snuDQNHG9Zv+YuMjS
-         HYRBBHEU5CLIxRQiZPV+B9GvJxF1X9dIQKLE7c1sXbYDKQCkt26wE4Ly8z01ba9M5yEg
-         RzgUBJNiAHZ1fuP4jpErjygVHwNdIk7HAIVa2LN1eHc6QWvU55tWLVnyU7pdtk/HHUg4
-         lClBP5RUf3OKNW3MNY6sy7bWUVrtiIJydKcCNCuBP/66SlgxK+wupsKqiAIz9ldz0S05
-         y20Ehhf7h9E8jIvg9SKfPZIZbljEJmD6Po2VCQ2cPwPC0P8mn3LY7dKfPW96oBP8GjhZ
-         I1Jw==
+        d=linaro.org; s=google; t=1733424134; x=1734028934; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tR8Gx4YF+iGaCMV6DuY+XQYSDcjVdzyIfn9PDc6LDOM=;
+        b=oPFs7nypFPPxFNhIELyVnoP6Px/ZB6k7Gte1L7A5jg6zrLAt243PIrLOTrJ+LeVsK3
+         7GEyrkwXI6Cw4rb+iGBKw300FdWHf0aWQeOuhDOueJN2VCHAoflIliILYZcfTg4xN2oZ
+         sfgsq7BytVv5mN8yOaFs+gMVLEooylWpFYJ1ey8QmnZUJ8gyCKG/McIW7CTxDDJfFgRn
+         sDvCvUuFfy0bkmHoXOK90/PJTqStx/bHQZ+s/YmPb72iaIO0/wennUWYTxIZCoOvydMP
+         +1w3tzg26QIMHsYaQC0kzuraL6yCnvtCe2UbGK2cJ687tOsRg8cpycWJHifNaKUGBj9h
+         K5Ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733423647; x=1734028447;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yta+XXMHP1ejgRZZWR5HMkhLHp1OT/pNiE2xb2AFLps=;
-        b=VhZOMC2rnIyFj/qo3uYT092e82EtZ8arEa/DOUwTHSj/sZE6sDG0U+vfM9oYfGfSVq
-         +hpd6/fMKCQpa/O1/tMypa1NOjYHbrJ9fnd+/UnwzSseJ33yhofumn6HmmDVSQy43Wjd
-         /EmSyY4sKhQ/J7/HsO1anaNLgmTz2fAcGK4h256MSPT3uR9I/I0eSfZ08RumVOwk8F5D
-         Bt+wpVX39K6PpiMHS8tlXHt7vxklQltX+4d64mAfBJgw2rMO5YfdKVcptU1P0b0HZQfs
-         g2wsawlk1ivBJQSdlgR9P/13t63FkOxEtsOco5SQECKG49x2pJZz99PGZL859CxagQHi
-         +sJA==
-X-Forwarded-Encrypted: i=1; AJvYcCWKXZ9vZuNCAL/QIZpe/S3v1oJTZMQU6pnmPPM8eW2dfrlVtkURWSlJ5J4BjXJ+aX7FyzRF7o68AxcUN63y68I=@lists.infradead.org, AJvYcCWtFrctGPnfFN8DDJfz3axTTDTP7bb61ZrcSV2cXlQD5D90Fne0GmJ6Ny6TjIodWMOKp465IBUOaJUSGKUyI+r2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyptJzhUkJ8nGEghl2Nt5RCw99aen+AihlQzyjNm/ZYryJEfOXl
-	QKh4FTHhin/JOw+d9FhjiYeFFlEABPaF9Mw8HVvtofa8+weVdp5q
-X-Gm-Gg: ASbGncupX8o1MFSLcgvAoxQlH1kGTtY9YOSdobo9QSs2eYd6B7vCrNyVlxkVRf6BDSM
-	QSt9/00D7RmLtsu5jyz1o+Ok9jzTqTDVXfAwB2HpzdveUhKwvjve44y9xxN94OPrU9OQZOIT9hT
-	WB8rbS7aH7aKv+BYXUuXKAeMG2oPn+UStnHufaLFfBayUJZYGRl0PeJRjzaZzmV7G21gd1C/n+3
-	T7A6MsFvkUm+r08GqjhNuDs7vj+BLzZR8Po4O8=
-X-Google-Smtp-Source: AGHT+IG4CYEfyQeKmQp0tq23JHoVrVPDcBsqZFNjm8gaj1DxcM0BYc34ahZP6mtlpoMmYTjT7JB0lQ==
-X-Received: by 2002:a17:907:72cb:b0:a99:482c:b2c6 with SMTP id a640c23a62f3a-aa5f7dab976mr476916066b.8.1733423647107;
-        Thu, 05 Dec 2024 10:34:07 -0800 (PST)
-Received: from skbuf ([188.25.135.117])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6260a3a89sm125047166b.171.2024.12.05.10.34.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 10:34:06 -0800 (PST)
-Date: Thu, 5 Dec 2024 20:34:03 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v9 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-Message-ID: <20241205183403.zla5syfzj3yrinwj@skbuf>
-References: <20241205145142.29278-1-ansuelsmth@gmail.com>
- <20241205145142.29278-4-ansuelsmth@gmail.com>
- <20241205170629.ww7qcvgbqdf5ipcj@skbuf>
- <6751e22d.050a0220.3435c6.57de@mx.google.com>
+        d=1e100.net; s=20230601; t=1733424134; x=1734028934;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tR8Gx4YF+iGaCMV6DuY+XQYSDcjVdzyIfn9PDc6LDOM=;
+        b=NwmbSWORsyqqNA+i43wVd2J8DxfViggD6vRSTJcnmFSqQZYYwLbADpTaXpStzpmbq+
+         14Gw3NBPI0a/qo/EIoLh32dR6t9zANVzMX2pAeAOsZTtqMJ0c2rGO71DdVemz8zparnF
+         +4cTXvktx4PAqsqWleD2oc6s+VPNOJuxH3/57tPciyacLvtdbpp6WPNtEOob/KPA1sux
+         U4LsYH9LYO9KKMUZXU8ai0jxqZAdPg7AVhcU6XJySJ5z6wwDk1cwjYwIm9uehgox8Gle
+         2xLdTTNI81FBdhslT3uMmd2hLL0zusCvb2OH4YUT6s09kZ06rjVh2SdrDgEY+3JsZ7GB
+         fngw==
+X-Forwarded-Encrypted: i=1; AJvYcCVf2Fucs58LpM/RbwtASwR8mG19Q1SSmwOwZ4WzJckuq7SwNyLRSM6TQtL1v2U54ArNskID/ACcU+2TumBDYL49@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9gYFMr8qNYICRvsLeMJQdJvfoz5gsGSicn52uXM/dwV8GPcvo
+	mxPUtny3o14R2Rqh4PhsvbfU368BNh5RDE17SDi/QnNxtXx4179wOTQ4m027KLjtFKowyvdith/
+	I11bQcayjMiq9tOGqqOcYGpPvAlwS3ntlBTJfKg==
+X-Gm-Gg: ASbGnct6/PpKSu8wZXdevkvm4mSC+SpACTfbEpWl3i5tqms8u5jLY6wpEY+uShLrV53
+	AlakScTnJZJ960OGTpYF5zUbQBZ9rOcwr
+X-Google-Smtp-Source: AGHT+IG269PkgdVPpsUfRMnNfyCTRw+6b9s1FqQamygLLFlRX39CxuzaR647OcbZrJKkKII8mvW1s/GWCnxsPXgxkTM=
+X-Received: by 2002:a05:6102:3909:b0:4af:bf45:39a8 with SMTP id
+ ada2fe7eead31-4afcaa4f74cmr835447137.16.1733424134670; Thu, 05 Dec 2024
+ 10:42:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6751e22d.050a0220.3435c6.57de@mx.google.com>
+References: <CA+G9fYsT34UkGFKxus63H6UVpYi5GRZkezT9MRLfAbM3f6ke0g@mail.gmail.com>
+ <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain>
+In-Reply-To: <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Fri, 6 Dec 2024 00:12:03 +0530
+Message-ID: <CA+G9fYv5gW1gByakU1yyQ__BoAKWkCcg=vGGyNep7+5p9_2uJA@mail.gmail.com>
+Subject: Re: arm64: include/linux/compiler_types.h:542:38: error: call to
+ '__compiletime_assert_1050' declared with attribute error: clamp() low limit
+ min greater than high limit max_avail
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: David Laight <David.Laight@aculab.com>, open list <linux-kernel@vger.kernel.org>, 
+	lkft-triage@lists.linaro.org, Linux Regressions <regressions@lists.linux.dev>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, netfilter-devel@vger.kernel.org, 
+	Arnd Bergmann <arnd@arndb.de>, Anders Roxell <anders.roxell@linaro.org>, 
+	Johannes Berg <johannes.berg@intel.com>, toke@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, kernel@jfarr.cc, kees@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_103409_305852_3F97213B 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20241205_104215_966452_6F82FCEF 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,58 +98,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 06:26:01PM +0100, Christian Marangi wrote:
-> Concept looks handy, ideally I can just assign one ID for each port
-> like:
-> port 1 -> FIB 1
-> port 2 -> FIB 1
-> port 3 -> FIB 2
-> 
-> Question:
-> Ports of the same bridge should have the same FIB?
+On Thu, 5 Dec 2024 at 20:46, Dan Carpenter <dan.carpenter@linaro.org> wrote:
+>
+> Add David to the CC list.
 
-The answer, as well as many other explanations, is under the "Address
-databases" section of Documentation/networking/dsa/dsa.rst. Please read
-it through before starting to implement anything.
+Anders bisected this reported issue and found the first bad commit as,
 
-> What I need to check is how the switch handle this for learning. Does
-> the switch correctly create FDB entry with the right FIB?
+# first bad commit:
+  [ef32b92ac605ba1b7692827330b9c60259f0af49]
+  minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
 
-You're asking me how an8855 behaves? I have no idea, I never interacted
-with it :-|
 
-The idea as far as the DSA API is concerned would be to learn addresses
-in the bridge database (DSA_DB_BRIDGE) that the user port is configured
-for, and not learn any addresses in the port-private database (DSA_DB_PORT).
-
-> If that's not the case then I think assisted_learning is needed and HW
-> Learn can't be used?
-
-ds->assisted_learning_on_cpu_port applies, as suggested by its name,
-only on the CPU port. On user ports, address learning should work normally.
-
-As you will find in the documentation, the CPU port is not like a user
-port, in the sense that it is not configured to service a single address
-database, but all of them. So, source learning on the CPU port will not
-work unless the switch knows which address database should each packet
-be associated with.
-
-In principle, one way could be to pass, during tagger xmit, the database ID,
-so that the switch knows that it must learn the MAC SA of this packet in
-this FID. I don't have the full image of the Mediatek DSA tag format,
-but if an8855 is anything like mt7530, this option isn't available.
-Thus, like mt7530, it needs to set ds->assisted_learning_on_cpu_port, so
-that software will call port_fdb_add() on the CPU port with the correct
-dsa_db (for the right bridge) as argument. But I don't think that is
-going to pose any sort of issue.
-
-> (I still need to check if I can assign a default FIB for a port...
-> Currently the STP register are 2 bit for each FIB id, so 16 different
-> FIB are possible)
-> 
-> Also do we have a script for selft tests? I remember there was one back
-> in the days for fdb isolation?
-
-I don't remember right now, I don't think we do. I'll try to come up
-with something in the following days.
+ - Naresh
 
