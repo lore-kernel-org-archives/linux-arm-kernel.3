@@ -4,86 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AF5E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871BEE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1unPXMZbH7h5cW8eJggnz5tqss4o788EkVvHmHsyGXk=; b=HX76LI8xLINw6Y//PCEmNlmUW8
-	CJW5zS6n8mASt/f1u2wWggWzhe3zPGxCfB/fYPVGyoZmHbmjGuCGhV8ouWDXAD74UDsxGfc3faA2M
-	rWoVnovgrFYDqMAqvx7VGOIWfgEFo2y+f0aj0tNGGeKaYvEZ0rFzUpxSqoQ+U8bBu4jmf+O7JHQ9C
-	7F8xz1X59zh4X2RypVVFfVVqabYcf6u0uUTUkqrdMiAgcmy6a6iDyctgf7CqiCMz6J5SUMnO17QuJ
-	ge3JbIkct4j0676DG8sclt4cw/Uskl4WBgj4Y3e+agc+IFSX1zzQUIqqP0tTNHU44L6OOE+CIxxFn
-	HIMSMKWw==;
+	bh=KPDtMP442gaYKlVh/Ls3N+heIJstnrgXbKV87aNODbc=; b=tt0heb9cDm0tyy+y/6L/T3UPS8
+	iWSlfGNtMaGo6gEX3jTiSUHS3TYzJpVrrFgoTKEwvpqsJDHtsgOK4VYOHcKq+CN+fKzuPtzdluFES
+	tc1OyXcCtjU/eaxCWcUd/9sW2UjxaAluo1+H095sxvUNvUolfQW6i8XYZmMGX8wjYDFQzel4fWi9Y
+	L8lAhqJxz+HvUIQAhZpXM/P21J6j8EHrkzF/5mZPIB1fLwm3hYWlDOFnZEUKj/rqNoOM/bnj72zF/
+	jHcJnx8MfXeizDfMzVqXuxLpxZM9q1Dx3xJ9yuECH4RNqfmXpSlq/aTjgFIv22s/9Y/FxzuzWdBk+
+	XRxAiAZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGND-0000000H5Wc-3cT5;
-	Thu, 05 Dec 2024 18:14:47 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tJGRm-0000000H65D-3QHy;
+	Thu, 05 Dec 2024 18:19:30 +0000
+Received: from mail-westcentralusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c112::] helo=CY4PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGMA-0000000H5QN-43tn
+	id 1tJGQm-0000000H61f-0oqP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 18:13:45 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4349fb56260so8755925e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 10:13:41 -0800 (PST)
+	Thu, 05 Dec 2024 18:18:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zQwFU1TnAF/SH7QpbMkKvWe28KO43t2dBPlovDbU1cmxn5gTwaag6XR3dyQ5WnwSRxHeBjvE9dKBSfc5/3pM2wJnIbmEtdWs1YgD+WjwoyRTjmLXW9EqcwxX4e3kxYid0ufBPgcaBpK3Mjfaub7N5z1SBmgU2rw6os/KUNiOjYDUZSoc4nmcorESMyRgZGekkAvklcMD2qTvmL7KdqTRFDv4bu/Z/MUmJNzA3zq2z3opzsdla6m1XlNZtqdo7mPOVaBUyXV3mPcbOiHr19BSbRvXyTnwFvluYw6gnpE0vJ1XOGEQ7NLH6TvHxopSM1jaK9AOVKzk5V7WwkC92zdFzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KPDtMP442gaYKlVh/Ls3N+heIJstnrgXbKV87aNODbc=;
+ b=LRcxIo8au0Te0fsfM11ATmpDLY82ykCgU8LUjIBIKFv5tFJmcgUzlw+7R1/jTOkVlIZvR1tBEA3rNNVhG/k/+FZP/HrYMQK1pE5yRbwU++TT+kG1j8Y+/Z5kDZIQkV+5VTIrtJ10e26QwxEZ8CGhKQdo/BId3cqdUtAO2YPhGwVcy8FTyrRWp8Guw+28dkFIWxLEl2lJGgKjxANsmqZDenpEd0gWjhn9KWRUj9vuPtibLU/BFYGfJn2vJBqYmlA27U2gevLPNddrz9rvbfmwo+8h6nu0BBx+SaYSBpqPY0oEa+vrr8u8WBFj+eI5iik8W7snpDDfaWjosyp7sTYemg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733422420; x=1734027220; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1unPXMZbH7h5cW8eJggnz5tqss4o788EkVvHmHsyGXk=;
-        b=YoAE0amXQaHD2KpyeTB3HPKQbJFddrRigrJLz1ScekU6Q1bzqEYUEhmpeIZ/PutmKH
-         5H2Aew2Qlyq+JeXwkCWY4LdO+/ymFd+X4hqib/GGw9fsXL06oquiGdLGcmvgHRI/Euaj
-         UE8vchMDw86+GCqwa5RLWIkmW3Y/dbZz2yiQD0RxPGNw/LSUEg12MgQejxKYafdC1y3R
-         Tex29FBbJEXT+zcC2OqiKPL34ADjXNqBmwtO9J3F8OXpaNauMH5htYiKUq2DrpbDc/H0
-         nB6FqKlH1k7h33L5Pnr9CRVjVIkvaU+o+GUKugWErITlNVY9E2CMFMCK003lGlRlzGIx
-         XL0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733422420; x=1734027220;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1unPXMZbH7h5cW8eJggnz5tqss4o788EkVvHmHsyGXk=;
-        b=SXfP8wUauAFw39GIZubNHJ1rveeWeuAB7O1S5Pt70PIz4QIu9fJ1B0Wg91mFSsHKj6
-         NUQbu60McDtN+CnaqhFBr+JLQJbY0hR0LKSOS7XFKs77gY4cUqFX8ITPH85C73RwEiDF
-         ktRFYoKFcwbs3028lND1YNEoXcvBWfP9X89s4i+ynZAcFtoPMrHcYb6onNbImoySVxt1
-         A2kPgCHsL6bRqCCXbmcnvzrTdCeEE2Hk+TtoVzzJP8OBnm8+YfnkYDrE50GzD6IT1g8R
-         vQ/z2FTqFNKEsnBAJ6CUA9sIPFwNv1ryUxvZlSGvResOu4evLB5FVnCfqogQMCDfGGhM
-         gE6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWM9w+LcP+OsgmunVNwhoIt0dYKbtUvTXH6BGhTMi7aD+3bXnxCGol5gC2zaq/QvtEisnHo0cdqlCNna9th7vVb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP3bsoKK2rnmuPURXQMcHcmp8N8++0zBZ5ZSRwHKGMgF1vYh9i
-	TVFiBdLKcPqE0R1lV5KAVHCUHNqSW998wTvqreifFdJsiHqUd1TzLZNDECWgHK0=
-X-Gm-Gg: ASbGncsRIKC5hQ4QMB1wQ9soXQruJKR3KL3XMYLHtkEbRrdTcwRKjRCFfkdJ4xwTlKE
-	6x9mlLF90j6e0BrFUneBM4b5qbZ9bk6tVlmN4qODG4ArdKfymDRxo+OCPJS+HHJuVrh7Dnj20ME
-	KM6FGJuKl5l5enA2OpAjv7+yCsQeAy9hQiqRINTLRCZV2D9Ylb6lrFqBiva/FnJRW+awNVXS7gU
-	0oRLDGYO/xjrqgOJ+vVRsM35R/jNUvhegXTpVEZvPaesSBk
-X-Google-Smtp-Source: AGHT+IHKsHgIdjWajIbHdYgI8g5SeKEyxiZvjxt64/im4qNjm8LREHx8tkyIsq6B6xmkfdQuB8t1Ng==
-X-Received: by 2002:a05:600c:1d21:b0:434:9cc4:5139 with SMTP id 5b1f17b1804b1-434ddeb0492mr3060455e9.17.1733422420375;
-        Thu, 05 Dec 2024 10:13:40 -0800 (PST)
-Received: from myrica ([2.221.137.100])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434da113458sm32078165e9.27.2024.12.05.10.13.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 10:13:39 -0800 (PST)
-Date: Thu, 5 Dec 2024 18:14:04 +0000
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, catalin.marinas@arm.com, joro@8bytes.org,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com, joey.gouly@arm.com, ryan.roberts@arm.com,
-	broonie@kernel.org
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Document SVA interaction with new
- pagetable features
-Message-ID: <20241205181404.GB664340@myrica>
-References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
-MIME-Version: 1.0
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KPDtMP442gaYKlVh/Ls3N+heIJstnrgXbKV87aNODbc=;
+ b=V/WjzeuKP1hg9a39/aTDj6iy/hgzjl8E7ZC0E4ixajRXWijjZR8zZZhbywThbNZLE3GbE1THThIF9tq1nH/Qe09WeG2njOpR45tYh7p7sZCzeVojwpLvst+iZjHOH+fB5jJX32C/Pavq5isB0Act3X2NoQFktxQdhnyuEBh8s7c=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW2PR0102MB3419.prod.exchangelabs.com (2603:10b6:302:5::13) by
+ MW6PR01MB8577.prod.exchangelabs.com (2603:10b6:303:24b::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8251.8; Thu, 5 Dec 2024 18:18:20 +0000
+Received: from MW2PR0102MB3419.prod.exchangelabs.com
+ ([fe80::28e1:2469:1811:caa2]) by MW2PR0102MB3419.prod.exchangelabs.com
+ ([fe80::28e1:2469:1811:caa2%5]) with mapi id 15.20.8251.007; Thu, 5 Dec 2024
+ 18:18:20 +0000
+Date: Thu, 5 Dec 2024 03:50:36 -0800
+From: Darren Hart <darren@os.amperecomputing.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Oliver Upton <oliver.upton@linux.dev>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	James Morse <james.morse@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v3 00/16] KVM: arm64: nv: Shadow stage-2 page table
+ handling
+Message-ID: <Z1GTjN3Ba0x1iKj9@Fedora>
+References: <20240614144552.2773592-1-maz@kernel.org>
+ <171878647493.242213.9111337124987897859.b4-ty@linux.dev>
+ <46bea470-3a3b-4dcc-b4a8-a74830c66774@os.amperecomputing.com>
+ <86plmov8n3.wl-maz@kernel.org>
+ <38339ef8-6e69-43b5-8d16-b7fd66775c93@os.amperecomputing.com>
+ <86o727um28.wl-maz@kernel.org>
+ <871pz2th4b.wl-maz@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
+In-Reply-To: <871pz2th4b.wl-maz@kernel.org>
+X-ClientProxiedBy: MW4PR03CA0046.namprd03.prod.outlook.com
+ (2603:10b6:303:8e::21) To MW2PR0102MB3419.prod.exchangelabs.com
+ (2603:10b6:302:5::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW2PR0102MB3419:EE_|MW6PR01MB8577:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8538d7f1-5c05-4b9c-1bea-08dd15593288
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HuQT0PGjpn5QhunT4Z8tlYllTf+07Oe+n0RSXUARobMFjEfs4yGdNiHV+AgZ?=
+ =?us-ascii?Q?J4t0REgTOlB8OyOJ1coMM1X6/7RGhezkxtbHYu6ptZvfWhVr/qCKzECLysb+?=
+ =?us-ascii?Q?QpsfwqdooLdaZc1ACuBSmhM0b7ptYHm3vFQTwgzGGj4nWbkvAn/Zy3Bq1UGy?=
+ =?us-ascii?Q?D75mW4LcMeAHPCp1Ay46itdaGViTx6sRAQ2NouBa2ZZ+TUDceqt7aOIHRItP?=
+ =?us-ascii?Q?hRyiSZB6DKW//XO/bYCxtStbwdLePwUkVkhZ6S6OUKYAGtwchC7AznbBiwPD?=
+ =?us-ascii?Q?h5OX+9ZxR9bNuJc8GFo1XC8uHdbBPmiEtDJthtcaIR9SQ+Su1v1fo6fMDE56?=
+ =?us-ascii?Q?XsojWc3Rz8NuJcMVrixvgq/GCbDPpbBo4ON1K5sZlFT0Fi6qoWodrgff63hT?=
+ =?us-ascii?Q?EGL66lUUkwl1TtpJnSDurIhQu/7HLfAhTQEvJ4NovOVEsRaMMdJ+NNPeD+6n?=
+ =?us-ascii?Q?cJUhxbUA5ZZhJk+ZVc9wIEeyLgmjgdwycj/mmSV17COB9VBx8qj+pyqIPRNB?=
+ =?us-ascii?Q?P8lF1sOMaoO43AsfhH0Uq9U0gPvYOedz/UOTnk3unzbj987GXIy6DQuyduaY?=
+ =?us-ascii?Q?kYhoGSLSZpM9ya7QqdYmxoUrYixdAcy326NoVGjR+Z1qTgHcJ3NszdqI27SO?=
+ =?us-ascii?Q?7lyn21jI//yxFXOTTGkH+c2Ri8+w6v6uaoc5QKMgXLe5Y5JBHkoQyka/ayT9?=
+ =?us-ascii?Q?EduSvegzAKmWOul48fS2imNNldzZIVID+Kona5L+jQRvo95t0/cVXTj2TGRa?=
+ =?us-ascii?Q?Q+R2VhrYx5ZO9X0tHzKjBqlMO5MkMYnr1hiSm0ctU0PuQFsDd7bQWD8Fi2uK?=
+ =?us-ascii?Q?gL8fWy5WsLi1is2bLXJtUhDDZqlKxXkkPLA5iARxpM/dTaSTKQbsWf1raflb?=
+ =?us-ascii?Q?b9uwtafWmUQsIbtMXkndjG2/ic6R5NXeRFQhdnbKqP8SXG/XM6go4eb7IGq7?=
+ =?us-ascii?Q?lsBi6wiU3OQDdtMvYt5m2VTZEeLkOFvzXkZnD9mx9bHT5fcUu4DTWgueKY0u?=
+ =?us-ascii?Q?4OoPPgTvOxEANkgLsJ95BCdWEJdAVoGpiul2HzR2HAdnDqRegClw2QP/lHxl?=
+ =?us-ascii?Q?abK+43YL7htxH+zuA0yc3QRlLmjwNEmEthSbCfUpzL9pPfgGBkma3KMSyhC7?=
+ =?us-ascii?Q?zPqmSKOfoEkNaM01sTOn6HJP9f6wv31o9Ps6hKMrgrMpuxynNCtB9aFy/glK?=
+ =?us-ascii?Q?fIXSnzqpRk0S2I404BSkv2jJHUn7z1YYIOcIpHLgJRuXZiCHSBZaznPGwCr3?=
+ =?us-ascii?Q?ySfm8kN8L3/TrzlVowUeFsJ3ZK0wiPhcNnRUh/XVmvtq9+Z4lxE+gzQ1FXJb?=
+ =?us-ascii?Q?0BCJFXjgd0HTbSA6Y3XAIHaMJyulFft0nJNIxKpbxOmH1h/SNyL3EWwU0TkO?=
+ =?us-ascii?Q?RpKZTjjAg+qxbBpMaWPIE2Kc5LFJ5AbbhdfPg376MpTZj4LBAA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW2PR0102MB3419.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+vFRob0Ubci9qp2lx9YKndADfQj7VqRtmG2fjBZkVC5W1YzPXKlQ9SWCm8tm?=
+ =?us-ascii?Q?VU8YWFai7Dk8+h7vzP9fgZlgYJ3hIQAOOMJ+HWjv23xLNm5AP1awddpSTPl/?=
+ =?us-ascii?Q?uf/vB6FBEQ6uUDz69FNI3k2HmYJtSnbDyd83kuFoC6czO/r27y1jQ2ZikTZQ?=
+ =?us-ascii?Q?H+NNg5tWkhMAzuc5XqTB6/MqIA2XU2mVKJq4fUD1B+FIhCTsRmXHFtYqhnqB?=
+ =?us-ascii?Q?EGlKt4l8sWhSuxHVTNBMnjB2V3OhcfBlXrzUNk2evt0O+ZoNdDMHKsLOA+TZ?=
+ =?us-ascii?Q?N3lSuaN4jnOWiSZcZ91lp4PP/MMB1ts3pVXUg4Wbh9VAyw2nK4wIjcHLAqa6?=
+ =?us-ascii?Q?poFbAiq64s1M/IL6pb4XbNVie++IB2j4He+CgpG5bhWNTxdx4VN3fJPnDHB6?=
+ =?us-ascii?Q?XPqRgtttdkvyeuZ+GyFBPJN9WJ0bs+AeW/7aAGnaC5ZDjWYLdfB31a8zT7k3?=
+ =?us-ascii?Q?/7Aeao9IHuyiPR3jdaei8hyvz6/GBFsi4pHkAKZQwHdkN1fCZdnOFnmqjUor?=
+ =?us-ascii?Q?Hix3ZRNkxIfg+VqtN5TmNnQJTNLCCpHjhCl76k52cg2SufGN0JLZ2Yyq1NWN?=
+ =?us-ascii?Q?fdqR+V5vINz5ZbAfLTJdQWSIuMWNwVB2sQozagE3Go8EgoQmfsD25fLQpofZ?=
+ =?us-ascii?Q?+iUXPbY/J/g2K2UQrS0GNEkDDNcIW0ptHJwmaMW1hDfTQHX6XDQ+AHaMX+k+?=
+ =?us-ascii?Q?Ye8rHOljW39DVlVWVlRCXDstkVGFmJvGef3/OHFYpIabWa2Zyo1zWSI6vfC3?=
+ =?us-ascii?Q?s7lcwz5WVfwIwewZNSu2+XdRCv7qzXbXR97BVoyAMuIO17XYPMCXRpNvXUR5?=
+ =?us-ascii?Q?776cdgT79xt/Kd0cD8nirOSZExaHG74UwM8td3HhEC9wvxJVUKaazURtS9VN?=
+ =?us-ascii?Q?+4+11P3dEZkoELtAobgSnlEYfUVDfgzfJmwUcc/2H9N3+Is/XeJL9kmhH4hb?=
+ =?us-ascii?Q?P8QS2JXJMYM0ytpyNF0GyTnu1d1jHmuPbUwaf0xOBaziIAdAvZoiAdqa6vzK?=
+ =?us-ascii?Q?KHCibuHZW1PiAtsJrJXldGTRjzL6Tm5Fo9e0ae6MMUPuDYKyn2+lxU1OcXNN?=
+ =?us-ascii?Q?VF5hikHbCXosRtH1KKR7rI9GjykOTzPBOPnYKq/OwNsr0VYWoZ0qoSdsqKka?=
+ =?us-ascii?Q?Qac7/qiYk806eYmyJ+4GSl42GlWGkapXpyQBlx6OwyE0UB9Hp+uoXkZkO5Dh?=
+ =?us-ascii?Q?ITwOBI9TuxtioO1X/gF4oXxnVlki9nzWVzluF+LKtKRFeMd/A8C3w4D/zAuw?=
+ =?us-ascii?Q?wLZf4pPQIuZ+LjHAmjNlwpGE/KW3q39JoV/gqo2sMTcZLxgwr2DuheKMdhYj?=
+ =?us-ascii?Q?1dW3u8KQSUZr7prpFo6CKZoX+9magubYFo+VaSNKXfkcIs5oZmHlv1I5v5/P?=
+ =?us-ascii?Q?vs+v/O7KtfdhLtPe3FF9goMg3DWqQ/CNbt6I3846A5RH7ODqTjC9Bxj5iUA5?=
+ =?us-ascii?Q?PGgruVVqIVEfVbBuIPLpES3PZt2qSOsM6AgUiV3fUaYZfvpHotre8prn5gfq?=
+ =?us-ascii?Q?pTquR/TMPUSyC6qAmcZT7I0bN+udk8+KDgRWh7K+QlXd/VUPq4Eu06rZF5Sj?=
+ =?us-ascii?Q?Z6hWkZ8SXBrsPUxKkq0ASUa6QWs5n/7gggn+GP8O3HH8N8LBmMcCYqsTUXPo?=
+ =?us-ascii?Q?xHoV72iJ1UnBeQNBeGrCVoU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8538d7f1-5c05-4b9c-1bea-08dd15593288
+X-MS-Exchange-CrossTenant-AuthSource: MW2PR0102MB3419.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2024 18:18:20.4897
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CHCKaHnCROrGhTY92njRtTrlSArxi1kWskCFj/1J9g4M49VvBESrxsp9FR8WbC2dG1fmyZ1qaxDob40u9qbqypoZa+bFHTuv8uCSjAb/zNbKIUv4sK/JxXhEUexBDiIT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR01MB8577
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_101343_056007_F68349D1 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20241205_101828_252835_957ABA13 
+X-CRM114-Status: GOOD (  31.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,84 +169,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 01:48:09PM +0000, Robin Murphy wrote:
-> Process pagetables may now be using new permission-indirection-based
-> features which an SMMU may not understand when given such a table for
-> SVA. Although SMMUv3.4 does add its own S1PIE feature, realistically
-> we're still going to have to cope with feature mismatches between CPUs
-> and SMMUs, so let's start simple and essentially just document the
-> expectations for what falls out as-is. Although it seems unlikely for
-> SVA applications to also depend on memory-hardening features, or
-> vice-versa,
-
-Hard to predict, but SVA could be indirectly enabled by some common
-library: for example a libcrypto plugin that shares the address space with
-an accelerator when one is available (see uadk_engine). I'm not familiar
-with the POE use-cases, but I guess a common library could also enable
-those memory-hardening features, such that unsuspecting applications have
-everything enabled.
-
-> the relative lifecycles make it tricky to enforce mutual
-> exclusivity. Thankfully our PIE index allocation makes it relatively
-> benign for an SMMU to keep interpreting them as direct permissions, the
-> only real implication is that an SVA application cannot harden itself
-> against its own devices with these features. Thus, inform the user about
-> that just in case they have other expectations.
+On Sat, Nov 23, 2024 at 09:49:08AM +0000, Marc Zyngier wrote:
+> On Fri, 22 Nov 2024 19:04:47 +0000,
+> Marc Zyngier <maz@kernel.org> wrote:
+> > 
+> > On Fri, 22 Nov 2024 16:54:16 +0000,
+> > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> > > 
+> > > 
+> > > 
+> > > On 21-11-2024 10:14 pm, Marc Zyngier wrote:
+> > > > On Thu, 21 Nov 2024 08:11:00 +0000,
+> > > > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> > > > 
+> > > > Hi Ganapatrao,
+> > > > 
+> > > >> IIRC, Most of the patches that are specific to NV have been merged
+> > > >> upstream. However I do see that, some of the vGIC and Timer related
+> > > >> patches are still in your private NV repository. Can these patches be
+> > > >> prioritized to upstream, so that we can have have the first working
+> > > >> version of NV on mainline.
+> > > > 
+> > > > Who is *we*?
+> > > > 
+> > > > Things get upstreamed when we (people doing the actual work) decide
+> > > > they are ready. At the moment, they are not.
+> > > > 
+> > > > Also, while I enjoy working on NV, this isn't *my* priority.
+> > > 
+> > > Sure, I understand that it's not your priority right now.  I'm happy
+> > > to spend some time on it, please do let us know in what areas/patches
+> > > needs attention before the code would be ready to merge?
+> > 
+> > Please understand that NV isn't special, and while there is still a
+> > bunch of things that need to be merged, it is the whole of KVM/arm64
+> > that needs attention.
+> > 
+> > For example, there is the debug series from Oliver, the feature
+> > handling from Fuad. They may not have NV written all over them, but
+> > they do have an impact on the NV behaviour one way or another.
+> > 
+> > By paying attention to these series, you would help with the
+> > groundwork that is required before we can actually enable NV. This is
+> > what matters now, not the next 50 or so NV-specific patches.
 > 
-> Also we don't (yet) support LPA2, so deny SVA entirely if we're going to
-> misunderstand the pagetable format altogether.
+> And one last thing, while I think of it: NV is very unlikely to get
+> merged without a testing infrastructure. Which means that the current
+> selftests must run at EL2, and that *new* selftests must be created to
+> test the NV implementation (all the trap behaviours, for example).
 > 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 15 ++++++++++++++-
->  1 file changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> index 1d3e71569775..9ba596430e7c 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> @@ -112,6 +112,15 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
->  	 * from the current CPU register
->  	 */
->  	target->data[3] = cpu_to_le64(read_sysreg(mair_el1));
-> +
-> +	/*
-> +	 * Note that we don't bother with S1PIE on the SMMU, we just rely on
-> +	 * our default encoding scheme matching direct permissions anyway.
-> +	 * SMMU has no notion of S1POE nor GCS, so make sure that is clear if
-> +	 * either is enabled for CPUs, just in case anyone imagines otherwise.
-> +	 */
-> +	if (system_supports_poe() || system_supports_gcs())
-> +		dev_warn_once(master->smmu->dev, "SVA devices ignore permission overlays and GCS\n");
+> So if you (and I assume your employer, as you keep using the plural)
+> want to help moving NV support upstream, this is an area where you
+> could help and make a massive difference.
 
-If POE tightens the page permissions, enabling SVA on top lets the
-application easily bypass the POE protection. Could we actually return
-false in arm_smmu_sva_supported() instead of displaying a warning that
-likely no one will notice?
+Appreciate the specific examples Marc, thank you. I'll work with my team
+at Ampere in this direction - specifically the testing infrastructure
+work and engaging in the NV-adjacent kvm patche series.
 
-I guess enforcing !(SVA & POE) on an address space would be too much work?
-
-Thanks,
-Jean
-
->  }
->  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_make_sva_cd);
->  
-> @@ -206,8 +215,12 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
->  	unsigned long asid_bits;
->  	u32 feat_mask = ARM_SMMU_FEAT_COHERENCY;
->  
-> -	if (vabits_actual == 52)
-> +	if (vabits_actual == 52) {
-> +		/* We don't support LPA2 */
-> +		if (PAGE_SIZE != SZ_64K)
-> +			return false;
->  		feat_mask |= ARM_SMMU_FEAT_VAX;
-> +	}
->  
->  	if ((smmu->features & feat_mask) != feat_mask)
->  		return false;
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
-> 
+-- 
+Darren Hart
+Ampere Computing / Linux Enabling
 
