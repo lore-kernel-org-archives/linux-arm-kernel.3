@@ -4,198 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D83E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C4CE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bAbqJzjg+5Zot9AIRxBD7sFSQQZdZrnLEPbQFmMYleY=; b=DlRA/uFcY4bsJqJi3hPVzaee4a
-	PmiVkoVCkKBctAk17TgY+vruy81EeldQosqWDaRhde+hCqArViLORWN8PDSZCpHSA/KDN58CiDhr9
-	u9mcIIz+6qwFk8lCfMqfvlJy76zzS2+UZa+hp/k3/YakMQKB7C4kc8cfDgZxBD8sXZFz0GXtpE64y
-	YnAMop4QVIQ9oNhgvxibUPs4qYj8GMGofrI0M33uSTsttdIIUewiuMJRTywr5L7DXjpk3uY0WncAm
-	uTxmV44isCYaIhy8i4ocRtW1T4Bgi4hK0SzQBUnwMlP/rW1GFyOJqlaoOdgS+8+PE05nnXRw3MULl
-	L9ag/Pqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WbOJ35fY7F9+jI/tW14AqH05jyd4Q0l+WLHyuUjes7g=; b=4NwYG+Qij+wTo1frxAEbD8EeeM
+	MdT4HOR1l3Y4DHoS4yuPpbb4LYOCEJAnAuTA4Y/udflYEf/KOcn40/9yjmZ06EXTrYOwqruPhu51b
+	pL/UcyMKWEMoWDNx/oOEWD910NG4teSunU8kM5YE8ZTj0rst8JcpSk+WezwPseU1oYPjeSp58/+9J
+	XieEYupu2yUCn8ezXSrO/2XeRDHdqoWTz6T1Oe1WIoYQCrQlhX0jVMykARstkEatqfvnKuAYh5Uiz
+	jTWeVVKExnhKG6YKXDw0iehOA7udfyqrNxDtyz3RHaHU0AFOF4rMRBmZXxJ6sBDDQu89eiLFjZ0ws
+	VUGVPM/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAkG-0000000Ftuq-0dH8;
-	Thu, 05 Dec 2024 12:14:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJAlF-0000000FuDY-0KqE;
+	Thu, 05 Dec 2024 12:15:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9ce-0000000FeEp-43Yb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Dec 2024 11:02:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Cc:To:From:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=bAbqJzjg+5Zot9AIRxBD7sFSQQZdZrnLEPbQFmMYleY=; b=NKFZwquejmtJZUn4nwMUyeSzQk
-	7KGZcBGYxlhoZkC3OAl8aFrCidd3GZRaAu5SdKFZkn1Z9/JN7AAk/1PeK+W1I95hVkw9Sqm/rpJnw
-	fE9a4fpXwrLW9Pzmq5bvwYHgHlPqedjG6YseoD7iZDexDMc+yjpbgyRydCt2e+v1t4N37PLMs5bv2
-	S00Tojy2yLHI4VJs8pG01c2t7laBmtryboD0zPp1TZjPWnQrKoALOqoej5WPAOkrtlzWr6EPa4vcR
-	szuaaEHMbQcWofpU8s+WXlFG5Ka1GwR2w0/0/GRn20gRTbBjSt9N/yPr8LFVwifVZYurEKbMJ01ur
-	II6Mb4uQ==;
-Received: from mail-dm6nam11on20618.outbound.protection.outlook.com ([2a01:111:f403:2415::618] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9cb-00000002qv5-2mKR
+	id 1tJAj0-0000000Ftat-0hl6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 11:02:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W0X2qohuZywZOhZDYP+EPRDkUUpqmyNmEuH9Zadfn7hv5VsQREhCb9kR5ovmE6bVt+hgGVSGICwwKcR0CTJpbzt+FanCBwsaSO0Ukk7Uu6Qa9ONi9qV7mLznLLc2kLOTdsv0xq3obFgqKsI2nQ4tJjtn+wwKsOqbYb2VGvmEJlZdFGf+cDLd8Pbzu3l/3gU+zETIojs+isOHOIO6JUmRhslplz1vjhAe1k+vrvZrOEChboTPIUp3NGq7KYOFfHOdEuBNNiwbqfF4JqTls+GIDzpkZFt3kznrf1IJFpRZH45AJ3cNevopetNd5iPuYePTZaDBKazz4j9d2sEOXnA3Mw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bAbqJzjg+5Zot9AIRxBD7sFSQQZdZrnLEPbQFmMYleY=;
- b=FVBtazqnqVIdWC9neghSe08dhFaT766LTMEfdFyDRepfVnFv8F//72jwFkmhpfdUdnymWZ/BIfRfINBCAZJip3gg8W97CVL8eIIA+k4UQ2e/jA5NSRus3iS2BtOuAA79ZDda++nMW9EENY9HMRXH1JZWAq1boYlXNNS0sB0KYwYrhuEcXeiGeh4xZfpEtLOwP7a5MsfQ+toPp12qj7+Qds8kupw0m65mUU1jay9tQsHdKulGunnhZLE+aBe24WKXQlVKnqNu77NYY24LF9Xq5F9nKxEa2/fzmKs3MHAAljBAm4fCbxxAZ6InZ983Gt7m56fj0nPY2fA+xEF1p1PVNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bAbqJzjg+5Zot9AIRxBD7sFSQQZdZrnLEPbQFmMYleY=;
- b=gAuXO5P17RdK/YqvbHRUsrHbZIHkw5MuCzbA59hRIbg4CQ3yEacVZuNrSTYZe8SnQ9fXKKNSRsC1fftl0U3R0akYF5AS5sYf8jyDb/BEm/XbqWpXwy9eDyhoNDcgiBWqagd/bK6af+TQeGhVNg051NGjPK/kW2LC9/72gp78QtY9Zf4BjyVqedn4k6PQelcsOEnJ7ulMNYDSwB9w7ElxEIXm1rk5T0cnHBcryDQ8baogmkVX5WbfRt7xlbMbCQnMsR6HuvdibcrCONGXmR0WLmnVMN2Kr8e5l+jntwaTz1XCMZiYzpIHtsFTXcnTrYW7NNOlLORHrCJVIMwDGq2FzQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by CH3PR12MB7548.namprd12.prod.outlook.com (2603:10b6:610:144::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Thu, 5 Dec
- 2024 11:02:06 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%2]) with mapi id 15.20.8207.017; Thu, 5 Dec 2024
- 11:02:06 +0000
-Message-ID: <ddfe8dbf-a2ae-4aa0-ad09-fa5efcb62c12@nvidia.com>
-Date: Thu, 5 Dec 2024 11:02:00 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unbalanced DMA map/unmap for
- non-paged SKB data
-From: Jon Hunter <jonathanh@nvidia.com>
-To: Thierry Reding <thierry.reding@gmail.com>,
- "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Robin Murphy <robin.murphy@arm.com>, Furong Xu <0x1207@gmail.com>,
- Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>, Thierry Reding
- <treding@nvidia.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- Will Deacon <will@kernel.org>
-References: <20241202163309.05603e96@kernel.org>
- <20241203100331.00007580@gmail.com> <20241202183425.4021d14c@kernel.org>
- <20241203111637.000023fe@gmail.com>
- <klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw>
- <df3a6a9d-4b53-4338-9bc5-c4eea48b8a40@arm.com>
- <2g2lp3bkadc4wpeslmdoexpidoiqzt7vejar5xhjx5ayt3uox3@dqdyfzn6khn6>
- <Z1CFz7GpeIzkDro1@shell.armlinux.org.uk>
- <9719982a-d40c-4110-9233-def2e6cb4d74@nvidia.com>
- <Z1CVRzWcSDuPyQZe@shell.armlinux.org.uk>
- <pckuhqpx33woc7tgcv4mluhwg2clriokzb7r4vkzmr6jz3gy3p@hykwm4qtgv6f>
- <0ac66b26-9a1b-4bff-94b9-86f5597a106d@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <0ac66b26-9a1b-4bff-94b9-86f5597a106d@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P265CA0231.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:315::17) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Thu, 05 Dec 2024 12:12:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A25325C6D42;
+	Thu,  5 Dec 2024 12:12:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DE68C4CEDC;
+	Thu,  5 Dec 2024 12:12:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733400773;
+	bh=5pIpWgALCksfBcP+JSYhp1PXA9kKAYqrDMxMw/x6eeU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EYqMUl9AZlkrWyE9JWIVDoCBpjv96wFSLalVU7s7gBPA2v9oNUfntzBuraykrWK/o
+	 sXpUpdnbmL7nTmChty93IHsRi3/hCLCCj+f7uKHkK7JYYflKSFAe/amV3a4E773iCR
+	 +nWBcTvx+2FMt8qEPxFbOBBMEsBryvuDVg9rXtgJrbJJQioIJqIXl/819D1HKfIw0N
+	 uTU8P8eBCAnNFwk66nLsfNnhBnZsiJdwk0qwmnEtqUBgmDnY5MebMtoh/4Vuj025f7
+	 GZeFMCKaN+qjSs/s2prkO/bO3QcVWAMlAdH+Ok4DNjVK7elVuThxVh/qCVyPFGGjtt
+	 X/WqbOlDPByew==
+Message-ID: <6999aff2-5889-4786-9395-28d9ce40f6c0@kernel.org>
+Date: Thu, 5 Dec 2024 13:12:46 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|CH3PR12MB7548:EE_
-X-MS-Office365-Filtering-Correlation-Id: 723c9aa9-10df-434f-a66f-08dd151c41df
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TWMrZTVYem1nbnZIZUwxNjJUTFZFM2JMR2VKQXFBbTdhVlp4aWJWNzBTQ1hN?=
- =?utf-8?B?YWc1TTFjOGQyd25ZMXVOZ1FIRktMOFJNSzJib2Zna1ZhUEdxdTdkMFJLcEZn?=
- =?utf-8?B?ZTVOU3Jhb0VjcVY3anppZmN2VFh2L3BVNUwzNEpQTE5GbTZhZjFsR0xQS2xT?=
- =?utf-8?B?M08zUzcvNktzbDZYZ2k2c253ZzdONm44Wlcwc1BzcytHcTRScUdKeWM2TE5w?=
- =?utf-8?B?MUdGQklMU29XcG54dzlOa1JSMFVxT095QVp2SU15cVdyOVlwMTFvRVZ1dW5T?=
- =?utf-8?B?RTNYeGlFcDRLQW5CdEdGajNkQjFqZGszaWovdzhyUCtZVno5SnlVT25SeXNj?=
- =?utf-8?B?ekU0d0w5SXVtbXpiNyt0K2V6WVRseXlYU0Z1ZlhPU0d1dGpDZkdnbjUxL1B2?=
- =?utf-8?B?bURxWFk2MlRrdE1pMXF1S3QzSUlmbHRHK29qNFFJNllJL1k4SENuNmlzWHlF?=
- =?utf-8?B?ODhYVW05dGJEOUNURXpIZUliRC84cFF6L0ozRGNWbFBXZ3B1NlRmc09SVE1y?=
- =?utf-8?B?MDVDUEpUS2xlU21ZWHdKOW96K1gvU01JUmxTWnpMalc5T2tSMW9zdEdQQmxI?=
- =?utf-8?B?bllnZGpuVEhVcXRFK3RvY3FYWkx2cFJpd0hwZGNCdUJSY29oRklqZWRvaDZV?=
- =?utf-8?B?RGpBcklQbktpVjRFeDZOajE0STdXY2tHWEt0VzFuM3dFemZ2SC9zcUUvZnha?=
- =?utf-8?B?TEVlY3YzbWxJeU5EbnpnbXcvUjQxcm54Y2Z0YWEyNjVSajNlRmtzTTFSUnY5?=
- =?utf-8?B?UjlHYUwyd0pXckNQYVBkMUtMTHpJcTRZRHJzTHM3dXM0dklJVWo2eUNEam9V?=
- =?utf-8?B?M0w0MGVoMDdldVlycUkvZGkxaXV2aUc4akJiZXM0a0ViL21ZVEdwWExyUjk0?=
- =?utf-8?B?QnBHWE9WdE15R0ZaNk9yZ3g3QTlGdEczM1ErT29qWXQ2cTRMRmY5cVc2NmNQ?=
- =?utf-8?B?NjBsRGl2WFhWekxCLzJEdFRVTGtiMHNYcWNBR1FPNlJ3bGpvU05rUjc4R2Iw?=
- =?utf-8?B?Vmd4SDJ2UHZyNTVIeFRnU3piQkpZS1k4WUpNVDdiZ29hYTByUlRaNEVwQzI3?=
- =?utf-8?B?YmtxZVNlekZ0dkdTT0JZcFJUV1FvRGVJRWZpQzlUMXN3TEFGbU5heXdzclQ0?=
- =?utf-8?B?aHF2MXJzTEZQRENIK3hKeUhNcGtYV0RNWVJyUlRNWFRSVzJPNENOUWhmREIv?=
- =?utf-8?B?Z1BqUkkrbEtKQktjZDJvOHBSM25NbGJWbUthUHRJUjE3c3NOTW1WOVdtVUpS?=
- =?utf-8?B?Ny82dlV6TUNxUEhxVERKMElsR3owT0E1dWtYU2o0cUk0SFE4emlTbWxINmlQ?=
- =?utf-8?B?RWY3a0c3cDdQUnFiclVMbDBZcjJHMDY1MzZaK0p5UGlaaURCU1YxL3ViNW81?=
- =?utf-8?B?WjVTSkVlanFtMy9xUjcxck5BQzMzY3VJK3p2QmFyYm5pcWhBNU41d09YM1Z6?=
- =?utf-8?B?aDlWSy82eGRjQ0hoU3NEZlhJaGg0d1RObnoxUk92RmN5ckhFYkM1a3IvM2ho?=
- =?utf-8?B?THJIcXg1Z3MybmVFaURhMDlaQ2QwcytONXMyNnlseEtqcERBMTdmTHJNVVhJ?=
- =?utf-8?B?ZVpiOTJrNzFGcWhSV1hZaVZIdHBBZVlsa2Z5WWIzWUNJd0FEZmVFWmFnekJi?=
- =?utf-8?B?c3ZZMHhjMi80VVFPSFN2cmI2OHE3VER1OGl4R0xkMmhpc21RRzY3RkhvUWlJ?=
- =?utf-8?B?NEhISFVaQTRlRlpBMUJuRVMvTjRsTTZGSmYxTHRqeGpzakpJaXRqaVJucUFv?=
- =?utf-8?B?U3FOa2t5eDUvWUxZczNGSTF2UnlWVlQzb2tpNkVIYkNQVmxOcVp3YTcxWWdi?=
- =?utf-8?B?SWhleHpHWlBFajNxRUl6UT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RW9raVpHSWlzUU1OTGcydXFBc1d5SHpkMXhBZFcxNjQ2YXJ6L1JhNy9rZXlM?=
- =?utf-8?B?QWV6VUZCc21zMWNtcmplVHYxUUFJNXkxZmUzdFNGV0MzZ2cvemdtZW1TWk5D?=
- =?utf-8?B?ekM3bEQ0U1liQmM4S0tFUmVHaXlYc2VyMVAzTDA3aFIxZ0xMMy9MQ2hRMlhl?=
- =?utf-8?B?dUhnUmpjQWlGL0NZQzRxeU5LckI2ckFBcTdLVVFlR2tYY2FrNG4yWEd1Q2lt?=
- =?utf-8?B?K0xoTzlEYUxwMDdDbmw1M2FFZGp2aldxRG9VbWxGU3NvUGFaV3BWeDdnZUZL?=
- =?utf-8?B?TW0wNzA5TVRIMlRxM1J2d05kNEFDaW5FYkQ2dHd4V04rQ0lpa0RWZVJVUnJI?=
- =?utf-8?B?TzRrY2tYRmh1YWR5WVdKQ0J4cmI3NndnZDVRR2ZBT1dWVmdUZDN2RlhoVzVk?=
- =?utf-8?B?RUhEd2E5QWlSLzVUMmR3S05ZV1lTUE4ySjVHWWE5RFhCdkRKbWZlYjJTaFdo?=
- =?utf-8?B?b3hVei80VWs4NG1jTERBTHJvMFh3bVV6NE1oUXBRV1pOR1B0V0tqcTgycGdJ?=
- =?utf-8?B?RlBPU3hEcjdMTm84WWtMRTBXak80Vm9EbitoZC96U1BlZHJLUzVRRGhMV1Zk?=
- =?utf-8?B?SzhUN1ZjYW1QaS95UWo3dFRnOU45U3JZTHBhWStpb3drNWFvQnAyNWV5TG92?=
- =?utf-8?B?eWUydVBnYVRqNE9wOC9HZ1F2MEVpVVJrVGdPUFNuSEtFc0s0U3lYN2dRTitr?=
- =?utf-8?B?WGh2MGwwMW1kQWJLV08zMHRTaENHTSsveXo1OVpIY1VsbWFXQmlCLzFrckNV?=
- =?utf-8?B?dnpISFZTNFV2WHJQYW9DZ1Bob2lLaTREREJPS3dVK0FaZEs2bVFaRmd3RnNT?=
- =?utf-8?B?Vm9iY3NJOFBVMGpaTElJY1ZGVHRzWEVPUWlHVEFsVzJBMi9WSXpLREFZV3hr?=
- =?utf-8?B?QU1MRC9DUk5ROHdzSU9TOFhYc0MzeTdySVlhZmRoRHl4RHFkNXM0a2FmM2l5?=
- =?utf-8?B?UDk3b2dpOHpsejBVbE9uS3NUS2pmdWtxbHJ5ZDR1Lzc5bWo3NnIwWS9MMGdp?=
- =?utf-8?B?ZkV4djlkdzRnb2FSVXBseWJrTWFQUW54VXlORTJsTzFVMG84cVVPTU5kd1k4?=
- =?utf-8?B?RDBSTVFXUlV1bUVHM1FHczdFcUJrYy9uQ2tPeS9aSVA1cUM4clhZTUtWRUl0?=
- =?utf-8?B?MklhY3JuZU9RR1E3eXNtVHpWSndaaFpjczh3RzBWN2djdmltdk5EbHhmcFVi?=
- =?utf-8?B?eEZkT01SMTRWdlU3Wjk5RUlHL3gzNFdBWkFWNXlWMENJWlQ3UkN3MmdLZG5D?=
- =?utf-8?B?WlVic0N3SldXU1BBS2RVclRmNll3OGhnT3k1b092Mm8wZVdBeWJQSUY5MU9X?=
- =?utf-8?B?akxaaGN4MjhhQW84YTNjYldiZ0JCdjhzVE8reEQyNTZZS1VCUUNFY3lYUzFx?=
- =?utf-8?B?OE90Y1AzS1lXT3Iva0dXU0FOSDBiOTdTeWQ0WndNU2xmazFCRVhhM2d4SXBw?=
- =?utf-8?B?M1NHSG41VjdOcXdmTEF6c0Jrb09DZ3J2VVhmWnJ5cFpXSFg0MWNaT25yQlhn?=
- =?utf-8?B?ZnpBRDJ0aVdIODcrOVlRTGNkUjRaK1hkZlFGQmM5cWljekFPcVJldWtzNWpy?=
- =?utf-8?B?VHlGQzNscjJvLzlqYlczNU5iZnM3MnRiMUttWUtsZFNFYmV5bVdIWHNpdWRZ?=
- =?utf-8?B?Ym5FZ0FxQjZoUnMrMXVpOEV6SlBtc1luWUtLdm11cWVOQ0N6bXVwZmlESGxq?=
- =?utf-8?B?VU5KRVQ3cXhJck1VaU14Ukl5UEE0QkNXK0wyOUxyYW1WVU5ZbU0wY29zNzN6?=
- =?utf-8?B?ZU5peDU4RmFjOGpzZmc1cDZ5SVBUcHl3VUZvZTJLRE93K3JNL3NtamlETmxT?=
- =?utf-8?B?T2J4R3hLUEM1QWViRTB5QnVTMzRsZHk5N21PcWlaMGpSa1p3ek9RdmtrS3pm?=
- =?utf-8?B?SnZPM1RqOSs4UkRaRmlPT0doRVVyRzh2NUVnTks2NEhIWWVzS3FCdlJIRXVw?=
- =?utf-8?B?am8vNldXVkYrV01wZmNtT1UycURxVmVhOW9oMUdNdEpxUktZa002VzdXa1c1?=
- =?utf-8?B?UWx2VVZhZXhob0doOGpaWDJ3MGo4cFA5Qzc0QUd3eElLRDBlMXFSL2xVMmta?=
- =?utf-8?B?dTREVlh6M2Z1OHk2RG9Ld3ljOTVPbWYyQ3VjN0sxbkhHMmF5bXhsL25xRnMv?=
- =?utf-8?Q?jAxL09XFdy3jR/n/zrgN9tqPK?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 723c9aa9-10df-434f-a66f-08dd151c41df
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2024 11:02:06.7360
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HpopsH9HHWtutlWdo4Kg3aAhUfk2Hfi58ICOq3r5Nxsw88rIaxo0DDD9XxJM7hCD4ffLWXk2WlbyEzNuN7bNlQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7548
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 6/6] MAINTAINER: Add entry for Blaize SoC
+To: Matt Redfearn <matt.redfearn@blaize.com>,
+ Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, James Cowgill
+ <james.cowgill@blaize.com>, Neil Jones <neil.jones@blaize.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
+References: <20241204-blaize-blzp1600_init_board_support-v5-0-b642bcc49307@blaize.com>
+ <20241204-blaize-blzp1600_init_board_support-v5-6-b642bcc49307@blaize.com>
+ <h5awakp52e6pxnnfrclhtlhhs3i66twvmqwlf5vmnfwk2xhbwr@marp6wti72ti>
+ <ac96f306-e5ea-4514-b25d-18b44777d3e6@blaize.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <ac96f306-e5ea-4514-b25d-18b44777d3e6@blaize.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_110214_010775_2D3B21C5 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20241205_041254_298201_2EB25DF1 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,160 +126,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 05/12/2024 10:57, Jon Hunter wrote:
-> 
-> On 04/12/2024 18:18, Thierry Reding wrote:
->> On Wed, Dec 04, 2024 at 05:45:43PM +0000, Russell King (Oracle) wrote:
->>> On Wed, Dec 04, 2024 at 05:02:19PM +0000, Jon Hunter wrote:
->>>> Hi Russell,
->>>>
->>>> On 04/12/2024 16:39, Russell King (Oracle) wrote:
->>>>> On Wed, Dec 04, 2024 at 04:58:34PM +0100, Thierry Reding wrote:
->>>>>> This doesn't match the location from earlier, but at least there's
->>>>>> something afoot here that needs fixing. I suppose this could 
->>>>>> simply be
->>>>>> hiding any subsequent errors, so once this is fixed we might see 
->>>>>> other
->>>>>> similar issues.
->>>>>
->>>>> Well, having a quick look at this, the first thing which stands out 
->>>>> is:
->>>>>
->>>>> In stmmac_tx_clean(), we have:
->>>>>
->>>>>                   if (likely(tx_q->tx_skbuff_dma[entry].buf &&
->>>>>                              tx_q->tx_skbuff_dma[entry].buf_type != 
->>>>> STMMAC_TXBUF_T
->>>>> _XDP_TX)) {
->>>>>                           if (tx_q->tx_skbuff_dma[entry].map_as_page)
->>>>>                                   dma_unmap_page(priv->device,
->>>>>                                                  tx_q- 
->>>>> >tx_skbuff_dma[entry].buf,
->>>>>                                                  tx_q- 
->>>>> >tx_skbuff_dma[entry].len,
->>>>>                                                  DMA_TO_DEVICE);
->>>>>                           else
->>>>>                                   dma_unmap_single(priv->device,
->>>>>                                                    tx_q- 
->>>>> >tx_skbuff_dma[entry].buf,
->>>>>                                                    tx_q- 
->>>>> >tx_skbuff_dma[entry].len,
->>>>>                                                    DMA_TO_DEVICE);
->>>>>                           tx_q->tx_skbuff_dma[entry].buf = 0;
->>>>>                           tx_q->tx_skbuff_dma[entry].len = 0;
->>>>>                           tx_q->tx_skbuff_dma[entry].map_as_page = 
->>>>> false;
->>>>>                   }
->>>>>
->>>>> So, tx_skbuff_dma[entry].buf is expected to point appropriately to the
->>>>> DMA region.
->>>>>
->>>>> Now if we look at stmmac_tso_xmit():
->>>>>
->>>>>           des = dma_map_single(priv->device, skb->data, 
->>>>> skb_headlen(skb),
->>>>>                                DMA_TO_DEVICE);
->>>>>           if (dma_mapping_error(priv->device, des))
->>>>>                   goto dma_map_err;
->>>>>
->>>>>           if (priv->dma_cap.addr64 <= 32) {
->>>>> ...
->>>>>           } else {
->>>>> ...
->>>>>                   des += proto_hdr_len;
->>>>> ...
->>>>>     }
->>>>>
->>>>>           tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = des;
->>>>>           tx_q->tx_skbuff_dma[tx_q->cur_tx].len = skb_headlen(skb);
->>>>>           tx_q->tx_skbuff_dma[tx_q->cur_tx].map_as_page = false;
->>>>>           tx_q->tx_skbuff_dma[tx_q->cur_tx].buf_type = 
->>>>> STMMAC_TXBUF_T_SKB;
->>>>>
->>>>> This will result in stmmac_tx_clean() calling dma_unmap_single() using
->>>>> "des" and "skb_headlen(skb)" as the buffer start and length.
->>>>>
->>>>> One of the requirements of the DMA mapping API is that the DMA handle
->>>>> returned by the map operation will be passed into the unmap function.
->>>>> Not something that was offset. The length will also be the same.
->>>>>
->>>>> We can clearly see above that there is a case where the DMA handle has
->>>>> been offset by proto_hdr_len, and when this is so, the value that is
->>>>> passed into the unmap operation no longer matches this requirement.
->>>>>
->>>>> So, a question to the reporter - what is the value of
->>>>> priv->dma_cap.addr64 in your failing case? You should see the value
->>>>> in the "Using %d/%d bits DMA host/device width" kernel message.
->>>>
->>>> It is ...
->>>>
->>>>   dwc-eth-dwmac 2490000.ethernet: Using 40/40 bits DMA host/device 
->>>> width
->>>
->>> So yes, "des" is being offset, which will upset the unmap operation.
->>> Please try the following patch, thanks:
->>>
->>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/ 
->>> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>> index 9b262cdad60b..c81ea8cdfe6e 100644
->>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>> @@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct 
->>> sk_buff *skb, struct net_device *dev)
->>>       struct stmmac_txq_stats *txq_stats;
->>>       struct stmmac_tx_queue *tx_q;
->>>       u32 pay_len, mss, queue;
->>> +    dma_addr_t tso_des, des;
->>>       u8 proto_hdr_len, hdr;
->>> -    dma_addr_t des;
->>>       bool set_ic;
->>>       int i;
->>> @@ -4289,14 +4289,15 @@ static netdev_tx_t stmmac_tso_xmit(struct 
->>> sk_buff *skb, struct net_device *dev)
->>>           /* If needed take extra descriptors to fill the remaining 
->>> payload */
->>>           tmp_pay_len = pay_len - TSO_MAX_BUFF_SIZE;
->>> +        tso_des = des;
->>>       } else {
->>>           stmmac_set_desc_addr(priv, first, des);
->>>           tmp_pay_len = pay_len;
->>> -        des += proto_hdr_len;
->>> +        tso_des = des + proto_hdr_len;
->>>           pay_len = 0;
->>>       }
->>> -    stmmac_tso_allocator(priv, des, tmp_pay_len, (nfrags == 0), queue);
->>> +    stmmac_tso_allocator(priv, tso_des, tmp_pay_len, (nfrags == 0), 
->>> queue);
->>>       /* In case two or more DMA transmit descriptors are allocated 
->>> for this
->>>        * non-paged SKB data, the DMA buffer address should be saved to
+On 05/12/2024 12:22, Matt Redfearn wrote:
 >>
->> I see, that makes sense. Looks like this has been broken for a few years
->> (since commit 34c15202896d ("net: stmmac: Fix the problem of tso_xmit"))
->> and Furong's patch ended up exposing it.
+>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 >>
->> Anyway, this seems to fix it for me. I can usually trigger the issue
->> within one or two iperf runs, with your patch I haven't seen it break
->> after a dozen or so runs.
->>
->> It may be good to have Jon's test results as well, but looks good so
->> far.
+>> They should also ack it to confirm they understand the burden.
+> 
+> Acked-by: Matt Redfearn <matt.redfearn@blaize.com>
 > 
 > 
-> I have been running tests on my side and so far so good too. I have not 
-> seen any more mapping failure cases.
-> 
-> Russell, if you are planning to send a fix for this, please add my ...
-> 
-> Tested-by: Jon Hunter <jonathanh@nvidia.com>
+> A question about process: should Niko resend V5 with all of the acks?
 
-Nevermind I see Furong already sent a fix.
+Normally not, here however after finished review expectation was to send
+it to soc tree (I think Arnd described the process).
 
-Jon
-
--- 
-nvpublic
-
+Best regards,
+Krzysztof
 
