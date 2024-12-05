@@ -4,97 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF4AE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85756E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cs9RMDRe4jTFPEvDmtH/eSMnjvvfZudpLPQ72QFuTUQ=; b=Agc0xd6vIq8QgnHprXlHGinR51
-	PZq/1cPpeQns8t+w3vuUbdPFy4ZLsi99LnV0FIbrlaPjOItbWepxb0QGgXlU+J01w8aYrFOJ5lZwr
-	5d5j96dV97WBanzCQAVg33qiabFrCfA1fOZjrI0XsV0ZzN0VPvhO2/4oRQJRVVWaLer0+4h5FK98z
-	rZ2OV2H/Cu3zGQlDLnTpjpry+KLG2/0vfbarPJ4rWQgPWOzEx2qqZx150VSUMTTYBwBXgemqFiVDT
-	jyGm3LROpEBPMby8Lkdue4X5k73WzBUDThtRmbtC2D0CPZXoRKXdLIFh7P7/A6hqI3P/cK5kSb9tS
-	XgSM135A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i83+XyCVE1KwnX0mSRiSVl27kUFWH+OoIaPZSuRFm2k=; b=Zi1IECh6IUwOhpKA/EWlhLwnEB
+	uGvX/roo635vzCpVdXfiQzoBtAHHYI2xiyqC9u5kz5ddCwcEoLyttk6rFVCNPn7+TGpfR/7ybbKHk
+	wYzQnEka40e+Ns/7SbW3Wab2i2VtW7NplPiOSYoriPFnvLiLfkE93nsrssrcu8UFazDFWOi0+wdcE
+	RzQLKOGHYmH4fT/l704FTIR+ZZtgUbyxO3a5qkMxNkukUKBan0JmUZYLnatwYqvaHstgztSTJfv8y
+	PA+WDPifI9Z3lmUm1NFBPS2+lgTIIHL30bvcminpbZsdMkya38mPtD6lMnUkWR5asgyutchqVQcnq
+	3dC/C0tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAgG-0000000FtHT-35su;
-	Thu, 05 Dec 2024 12:10:04 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tJAjC-0000000FteX-3wPQ;
+	Thu, 05 Dec 2024 12:13:06 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJATF-0000000FozZ-0HPi
+	id 1tJAYH-0000000Frhe-1BNM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 11:56:39 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aa549f2fa32so160413066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 03:56:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733399795; x=1734004595; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Cs9RMDRe4jTFPEvDmtH/eSMnjvvfZudpLPQ72QFuTUQ=;
-        b=izcQ5cTXpxGoFVnKNlbsc3Pu8VhQyDOU97vZjv2Wk6W1a57ZPcDV/ItcYM93qmbms9
-         aCtmQcWZHA10BPcUUMcQKu5h44ITQjL7SurrFCo9gSrJRNKcKH42pGUkR+zq2LAzY5SI
-         mtSWY9ZJc65WMQ419UpziowH+vseW22jvoAUWBsM+OB2j9rqls4jO/v2vM21o4tv255I
-         pjsm6QxcXv5EudoDplLGVdIoWZgoI5rhhnhLLMoVliL1Q6WY7o8ncqL+ibsf/SqEUQ+K
-         wRDRhw0Vc3BPwVLfFmtp2RM2ZxyBfC/6xMWMSA2UypK1H0lBUkz00P6hcsy3RPv0MobY
-         JCDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733399795; x=1734004595;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cs9RMDRe4jTFPEvDmtH/eSMnjvvfZudpLPQ72QFuTUQ=;
-        b=sv643/ZnYJarrwj6zeJWkwznDDhPn6v6+RH9Mol1PM24yom7oFVTrIpiFt6lXRSZVl
-         K3jggP+P46biht7sK7ovbEPsjVFpzxrbesYF1uYN+7W9DoWJexhqtYxAechNV2cs775i
-         DQk3lDlN5Cll16DhaSl/r77MCg7yYZfOND4gMtBL9tj+Y2VkSAO5Ui91mCha+nPiJPka
-         E2NVWKqjt++HqM2/9LObPEVTuLp+O2tBNDfndnUcvWBzwW11gOy8i3n5q1hSts5XvBJp
-         dHGWThWdWwDmK4NWwo4KJvvwd6O/Woeza8QxlxVM35RZmOwkYlIjZSaYCR5tNLjUESwl
-         Gzkw==
-X-Forwarded-Encrypted: i=1; AJvYcCVi2HfYy2smUcvaXwo0sJr/chGjz+razlGrYb86yDze+bH06h4v29iuuu1ktHskDBbUrnsWhz4I70qOxBVdUbH/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxu+WoHrwS8XnmDdXOoWl/RVIDl3Xi5hdgnRM8IjyrQWq+DbUrk
-	g3Ac9HRL7p7RuKiGNrhJ39UpkqPhRW9xIy0wgaqQTXuj2f8M/6XIobVyig7N51Gu+a1cC5YQ9gI
-	8dG4=
-X-Gm-Gg: ASbGncvQ2XVcjzQDORlx3k6icf6dl2awozjwVtIalGbzTrVv/XAGxLlP3UtR1BMM+AY
-	3GP7/O9/pvkP2kHojs1BWKcdwbQnP9GZX8/GvaGfLGsRknXQ95KoU9m/J6X4EBPShgg9u0Z2bfr
-	/wO8dEOVGFG5sL1EnUgURDrkUCMp8aZlOQjApnuGVk4XkdD/6knWy54Jw5JWhdyPWEZY6ztg6oc
-	aB21hzrP9NMui6uQLs1s4pLTvQzgHK5o0F8/yzLwJlV8b5wujh+0Wj5CDGiY+U=
-X-Google-Smtp-Source: AGHT+IEWGiuqCz5p22sJv4oUuBbuzMg9J4wgAEUTDCD4f1ma8OOcOH3epiuHrkUATGhdMfNL7flyUQ==
-X-Received: by 2002:a17:906:23e1:b0:aa6:312c:5abe with SMTP id a640c23a62f3a-aa6312c5c99mr28100666b.58.1733399795552;
-        Thu, 05 Dec 2024 03:56:35 -0800 (PST)
-Received: from [192.168.0.62] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa626088e8fsm81659766b.139.2024.12.05.03.56.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Dec 2024 03:56:35 -0800 (PST)
-Message-ID: <2cb5940b-3779-4450-a213-fa766df7f406@linaro.org>
-Date: Thu, 5 Dec 2024 11:56:33 +0000
+	Thu, 05 Dec 2024 12:01:50 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5C1kSR1943306
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 5 Dec 2024 06:01:46 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733400106;
+	bh=i83+XyCVE1KwnX0mSRiSVl27kUFWH+OoIaPZSuRFm2k=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=XoG1bTkJ1yyBSGqWEFgrHrXy4odDQ/jWXsM0kZN7Uo1BLgYLT6XF+0NSpvh2ThM/C
+	 23mhuGG3HDjtpSzqHBR67dA0hqGd4ga2I+8HrSyRvhvWBfjz+OaUBL8HaWTjg3cX+k
+	 2uhoXkm3KpWoSsGnTRjLyErYKbthj6Bf63qBnr3U=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5C1kHQ107982
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 5 Dec 2024 06:01:46 -0600
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Dec 2024 06:01:46 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Dec 2024 06:01:45 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5C1Zp9018608;
+	Thu, 5 Dec 2024 06:01:42 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am62x-sk-common: Support SoC wakeup using USB1 wakeup
+Date: Thu, 5 Dec 2024 17:31:29 +0530
+Message-ID: <20241205120134.754664-3-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241205120134.754664-1-s-vadapalli@ti.com>
+References: <20241205120134.754664-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/5] media: dt-bindings: Add qcom,sc7280-camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: rfoss@kernel.org, todor.too@gmail.com, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
- <20241204100003.300123-2-quic_vikramsa@quicinc.com>
- <oko5qqysmxhicqzkwhkz54wvsmt64ba3cd37zkcy55ee77owbk@5z3zetfr2ejx>
- <eaffa633-c3a4-4924-8ba7-694b18bf92ee@quicinc.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <eaffa633-c3a4-4924-8ba7-694b18bf92ee@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_035637_126266_28FCD04F 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20241205_040149_362166_C959D524 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2024 10:59, Vikram Sharma wrote:
-> Hi Krzysztof,
-> 
-> Thanks for your "Reviewed-by"
-> 
-> +        camss@acb3000 {
-> 
-> If there is going to be resend, then node name: isp
-> 
-> Sure, we will change node-name from camss to isp or camera (As its a 
-> part of generic names recommendation as per the shared link.)
-> If there is a resend. or we will address this as a followup.
-> 
-> So
-> 
-> - camss@acb3000 {
-> + camera@acb3000 {
-> 
-> Best Regards,
-> Vikram
+After the SoC has entered the Deep Sleep mode, USB1 can be used to wakeup
+the SoC based on USB events triggered by USB devices. This requires that
+the pin corresponding to the Type-A connector remains pulled up even after
+the SoC has entered the Deep Sleep mode. Hence, enable Deep Sleep pullup /
+pulldown selection for the USB1_DRVVBUS pin and set its Deep Sleep state to
+PULL_UP.
 
-Please no top-posting.
-https://subspace.kernel.org/etiquette.html
-
-Shouldn't that be isp@0xaddress ?
-
-If you are making this change, please remember to do it in both the 
-example and the dts.
-
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
-bod
+v1:
+https://lore.kernel.org/r/20241112115650.988943-3-s-vadapalli@ti.com
+Changes since v1:
+- Rebased on next-20241204.
+
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+index 6957b3e44c82..8b6316454639 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+@@ -256,7 +256,7 @@ AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19/V15) RGMII1_TX_CTL */
+ 
+ 	main_usb1_pins_default: main-usb1-default-pins {
+ 		pinctrl-single,pins = <
+-			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18/E16) USB1_DRVVBUS */
++			AM62X_IOPAD(0x0258, PIN_OUTPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (F18/E16) USB1_DRVVBUS */
+ 		>;
+ 	};
+ 
+-- 
+2.43.0
+
 
