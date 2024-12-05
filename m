@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E298EE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7208DE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZ/cXBEc0+WzvIm2fhi1PPLgodnyN9TD2rS5aGEE1SM=; b=lOLIte3MUN5BmYRulwOqIfJI0z
-	0g9E8qzDVSYTcb8fVLd9Evvsjeo0t8Ez/I+v/68H0pUBfhgauIXcKFoYIveJbUoWjh2pEyKAKuF8r
-	MsfQgXIZfwyMA3qTnxUkWDdLeJD58AeuEKSN67qebKvb85eeqANKuxyiVK/m195t63M33vLvi07mA
-	D50jkuZB26UixDTxWGaMQ+bon5pptOXu4WWiqMZozqzyh2hM5sf6VQQfvLN2OsQzodhz6ormk4U95
-	mf2+m//a5Ovw+dVv0J6X7ijk0cTUlzVJTp6Q/flXr9H29dR4Zk6vkipUbM6OWWrnXI4ikyzq7IdOH
-	FzdJ0Aag==;
+	bh=yL+tleFt2L+1SozlABSJgb4PFD+G/C/vaJcHDx0ytEs=; b=YuSlyfT4jD4imuwAP9dcAKptm2
+	BZeiMOOsqdIDzbw2UZs27BJs3ZSpZgBrfpkQKBYBLc7UauMheQ209Jgqy8jWULI4L4JIexTtW3n+j
+	K3Xj1xlNNXrH1MnzJmamP0qaxpxpXo1bbTh40U3vvgUC4n9aPHmv0qlgxUgWJNTCtShZk0u8rq7g9
+	B+nY3T+DXPa/uCbzbaTAdJ8IP39E+kpKVtsBtdy6Ld7Ul1NkLyv5NqhGwhcS3O22cb1Ca1JQVn3qN
+	1RauP+J1WWv0NyY7LWxULsa0VV4hfBj88EztsY+47RM+ccKnEflFoKeJ6ZgF2ahl1G4xm5tfMFTJn
+	jJtNhz3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJByX-0000000GAop-3uY0;
-	Thu, 05 Dec 2024 13:33:01 +0000
+	id 1tJC0R-0000000GBI3-2cLI;
+	Thu, 05 Dec 2024 13:34:59 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBwu-0000000GAHo-3VIM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 13:31:22 +0000
+	id 1tJBzP-0000000GB34-41uf;
+	Thu, 05 Dec 2024 13:33:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 18D5BA43822;
-	Thu,  5 Dec 2024 13:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16C3C4CEDF;
-	Thu,  5 Dec 2024 13:31:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 27307A4383F;
+	Thu,  5 Dec 2024 13:32:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0318C4CEE0;
+	Thu,  5 Dec 2024 13:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733405479;
-	bh=/sHcCMY3XMr6dLQvSV/4gjcitj8SoTgTdLcl5qToPtk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pRJ8dFzzpRO31xufNa4qCQ45PJFTsPpJ7gPU+o95Wycw1WnpsDXfGTTzJKfO1EPCm
-	 HHcEj8gr3dSlgZS289ywqeaHWWyl9wN5XsfP1H6Y01NUQ0K+Fpe4gT6R+VMKFpx1E/
-	 N6z5XwNhnjGFPHWPXDS7ab8Cwdt9g2m6WeJwQgWlCRCRz6B19JUZODjYAH1B0y3JSd
-	 HLYAnSq25eyzUKRNnttUim1/hUsAhuLV9nHtCBLndUwi62d8vcz76LoGdmTM1AHsnx
-	 om1U3lOkfGesIZxaQA6el1cgQefqCU7wcaprLIvG5XxqRKdWw5r+FtoDgeJMnTkYuH
-	 9Q/dI3N7NglPg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tJBwr-000pIY-GJ;
-	Thu, 05 Dec 2024 13:31:17 +0000
-Date: Thu, 05 Dec 2024 13:31:16 +0000
-Message-ID: <86h67itfx7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Christoffer Dall <christoffer.dall@arm.com>
-Subject: Re: [PATCH 06/11] KVM: arm64: nv: Acceletate EL0 counter accesses from hypervisor context
-In-Reply-To: <20241205120707.GA102570@e124191.cambridge.arm.com>
-References: <20241202172134.384923-1-maz@kernel.org>
-	<20241202172134.384923-7-maz@kernel.org>
-	<20241205120707.GA102570@e124191.cambridge.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1733405634;
+	bh=HY9tTGeW5NW/9Fp7iwxPs9KMW7cXmJeJAVDmaY4R1VE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=UsrwpU1jhn2CrdcLXusDmzHQxeTYjTOseV6uFBr3sr6C/rFvFwziJqAOQpqxzQuGL
+	 RzdajG9/dhis/gxXfRCPrPRImkDFnnxHPZzBxFsPEQ1SmERTmmQtC5TjwhfWWAZJnT
+	 Sg6G/Gt8DDY5LH7aJclBgfC3kJBiM5LnL5zJpU6h/EupV2fUtc5gyTAJvnsiGx4UQI
+	 xZjeedfI1zEC71nDNpXzq2bhhmthTMIW3SrRsLT7GeW3V148yRO3Rvgh1p13OHdTzb
+	 4ssr0tkkLvPN/Zt4AEnXfqt8J18drl7cmPwUbQXf06AC13luQhAH/jkTVAXDwco17y
+	 sgipnyP69ENTQ==
+Date: Thu, 05 Dec 2024 07:33:52 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: simona@ffwll.ch, devicetree@vger.kernel.org, p.zabel@pengutronix.de, 
+ junzhi.zhao@mediatek.com, mripard@kernel.org, matthias.bgg@gmail.com, 
+ linux-kernel@vger.kernel.org, tzimmermann@suse.de, krzk+dt@kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ airlied@gmail.com, chunkuang.hu@kernel.org, conor+dt@kernel.org, 
+ kernel@collabora.com, jitao.shi@mediatek.com, 
+ maarten.lankhorst@linux.intel.com, ck.hu@mediatek.com, 
+ linux-mediatek@lists.infradead.org, jie.qiu@mediatek.com
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241205114518.53527-8-angelogioacchino.delregno@collabora.com>
+References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+ <20241205114518.53527-8-angelogioacchino.delregno@collabora.com>
+Message-Id: <173340563286.3304541.16351309995499835638.robh@kernel.org>
+Subject: Re: [PATCH v2 07/15] dt-bindings: display: mediatek: Add binding
+ for MT8195 HDMI-TX v2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_053121_001749_71C7E505 
-X-CRM114-Status: GOOD (  31.83  )
+X-CRM114-CacheID: sfid-20241205_053356_122559_BB8E0BF3 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,110 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Dec 2024 12:07:07 +0000,
-Joey Gouly <joey.gouly@arm.com> wrote:
+
+On Thu, 05 Dec 2024 12:45:09 +0100, AngeloGioacchino Del Regno wrote:
+> Add a binding for the HDMI TX v2 Encoder found in MediaTek MT8195
+> and MT8188 SoCs.
 > 
-> On Mon, Dec 02, 2024 at 05:21:29PM +0000, Marc Zyngier wrote:
-> > Similarly to handling the physical timer accesses early when FEAT_ECV
-> > causes a trap, we try to handle the physical counter without returning
-> > to the general sysreg handling.
-> > 
-> > More surprisingly, we introduce something similar for the virtual
-> > counter. Although this isn't necessary yet, it will prove useful on
-> > systems that have a broken CNTVOFF_EL2 implementation. Yes, they exist.
-> > 
+> This fully supports the HDMI Specification 2.0b, hence it provides
+> support for 3D-HDMI, Polarity inversion, up to 16 bits Deep Color,
+> color spaces including RGB444, YCBCR420/422/444 (ITU601/ITU709) and
+> xvYCC, with output resolutions up to 3840x2160p@60Hz.
 > 
-> > Special care is taken to offset reads of the counter with the host's
-> > CNTPOFF_EL2, as we perform this with TGE clear.
+> Moreover, it also supports HDCP 1.4 and 2.3, Variable Refresh Rate
+> (VRR) and Consumer Electronics Control (CEC).
 > 
-> Can you explain this part a bit more? I'm assuming it's somehow related to the
-> arch_timer_read_cntpct_el0() call.
+> This IP also includes support for HDMI Audio, including IEC60958
+> and IEC61937 SPDIF, 8-channel PCM, DSD, and other lossless audio
+> according to HDMI 2.0.
 > 
-> However I think we're at EL2 inside kvm_hyp_handle_timer(), so reading
-> CNTPCT_EL0 won't involve CNTPOFF_EL2.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../mediatek/mediatek,mt8195-hdmi.yaml        | 154 ++++++++++++++++++
+>  1 file changed, 154 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml
 > 
-> What am I missing/misunderstanding?
 
-I think the wording above is particularly misleading, and leads to
-some bad confusion.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Let's go back to basics: we're at host EL2, and handling a trap from
-guest EL2.  Although you are right that CNTPOFF_EL2 doesn't affect a
-direct read of CNTPCT_EL0 from EL2, we are emulating it as if it was
-executed from EL1 (guest EL2 being EL1).
+yamllint warnings/errors:
 
-So any offsetting that would be applied if we were not trapping
-CNTPCT_EL0 must still be applied. In the case of a read from
-hypervisor context, this is the VM-wide offset.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.yaml:
+Error in referenced schema matching $id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.example.dtb: hdmi-tx@1c300000: i2c: False schema does not allow {'compatible': ['mediatek,mt8195-hdmi-ddc'], 'clocks': [[4294967295]]}
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.example.dtb: hdmi-tx@1c300000: i2c: Unevaluated properties are not allowed ('clocks', 'compatible' were unexpected)
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8195-hdmi.yaml#
+Documentation/devicetree/bindings/display/mediatek/mediatek,mt8195-hdmi.example.dtb: /example-0/soc/hdmi-tx@1c300000/i2c: failed to match any schema with compatible: ['mediatek,mt8195-hdmi-ddc']
 
-But this makes me realise that...
+doc reference errors (make refcheckdocs):
 
-> 
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/hyp/include/hyp/switch.h |  5 +++++
-> >  arch/arm64/kvm/hyp/vhe/switch.c         | 13 +++++++++++++
-> >  2 files changed, 18 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > index 34f53707892df..30e572de28749 100644
-> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > @@ -501,6 +501,11 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
-> >  	return true;
-> >  }
-> >  
-> > +static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
-> > +{
-> > +	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
-> > +}
-> > +
-> >  static bool kvm_hyp_handle_cntpct(struct kvm_vcpu *vcpu)
-> >  {
-> >  	struct arch_timer_context *ctxt;
-> > diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> > index b014b0b10bf5d..49815a8a4c9bc 100644
-> > --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> > +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> > @@ -296,6 +296,13 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
-> >  			val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
-> >  		}
-> >  		break;
-> > +	case SYS_CNTPCT_EL0:
-> > +	case SYS_CNTPCTSS_EL0:
-> > +		/* If !ELIsInHost(EL0), the guest's CNTPOFF_EL2 applies */
-> > +		val = compute_counter_value(!(vcpu_el2_e2h_is_set(vcpu) &&
-> > +					      vcpu_el2_tge_is_set(vcpu)) ?
-> > +					    vcpu_ptimer(vcpu) : vcpu_hptimer(vcpu));
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241205114518.53527-8-angelogioacchino.delregno@collabora.com
 
-... this should be simplified, because there is no case where we can
-be in HYP context *and* not be using the hptimer() context (everything
-else would be handled by kvm_handle_cntxct()).
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-I'm minded to change this to:
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index a8b1a23712329..5a79ed0aac613 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -305,10 +305,7 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
- 		break;
- 	case SYS_CNTPCT_EL0:
- 	case SYS_CNTPCTSS_EL0:
--		/* If !ELIsInHost(EL0), the guest's CNTPOFF_EL2 applies */
--		val = compute_counter_value(!(vcpu_el2_e2h_is_set(vcpu) &&
--					      vcpu_el2_tge_is_set(vcpu)) ?
--					    vcpu_ptimer(vcpu) : vcpu_hptimer(vcpu));
-+		val = compute_counter_value(vcpu_hptimer(vcpu));
- 		break;
- 	case SYS_CNTV_CTL_EL02:
- 		val = __vcpu_sys_reg(vcpu, CNTV_CTL_EL0);
+pip3 install dtschema --upgrade
 
-Thanks,
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
