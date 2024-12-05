@@ -4,102 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7978BE77171
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 07:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6656E77171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 08:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=haUzoOdl3j5ZhKh6v9Mp+uyoSF/yENN0p8H5q1O4kPw=; b=t+50sVccFdepNH
-	ni0Ku298+hb9kLT4BSJDqJk8bHDBAyqD7GTMGrMBQEfFNOg/W2JqcThVsZAAEpAzJn/fsZNHbNwKO
-	0k8XZzbZjcH4llXMikXhV4AjQL6jzMdwqV0PjZiGQwYvuUavFilUqsYjRMCYBkJnsxxlocNtzsPn1
-	bkuKnrmjB83TqpLAPY4RI6ig6WW9a0zlL/lkdXZFmApqTrKLxdkRjuZbU77P3nwNIWKGv9E8AuDKf
-	kPXcrB5objIW4Nbi4PtDYYmEAQzNs36A7kCcx5bnJJKoQxsXfWg/EY4bJsTIFIOSZQuG5MBn22CJW
-	wBUwDVFK9l9Nrt8uLAbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yqbqqcJulAmbWewF5le6MsZzz4kokdCOT6f67ZVo8NM=; b=iuDAbsb42xqZjlwp4xA8J6756S
+	qj+C8fqOAoAb1fuRiTaJGX+OcBwH4haBSb61onL723N5oFizUY4DL/YoFBBv/xojS9kgwO/2itoJi
+	+fMRuAiwqbHeHKy+UidK8OemFDNWfaYWHWXw0+TkwseCjBx6PxdIcuu3o+MdEgD9QvU24tTw5sPFW
+	wvlEWyv32+lvqzJJfvli2akGWnWqJd1C0lJFIoVH/HDC38/Im3Gj32N7CnSZ+6SoqrenWaUKHYKzP
+	e7n2rjBjdxZhYAxfuw1HY7+PwC3pXY0QcMs7UsRLeaQ14Nc8DETuEHf6dKSRwH92DaaWy5dBlU9n9
+	iW2P82BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6Yh-0000000F4n0-42Fg;
-	Thu, 05 Dec 2024 07:45:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJ6ps-0000000F6vU-26qp;
+	Thu, 05 Dec 2024 08:03:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6Sf-0000000F3Qq-18K3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Dec 2024 07:39:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=haUzoOdl3j5ZhKh6v9Mp+uyoSF/yENN0p8H5q1O4kPw=; b=Z2uYjSHoBAL2dY5yX39EJHJgrW
-	+ogrD1mzJ05oJyFnG1ExibwyozMW4hkwhuA4oE9eHTQewW2AOh8MsYCtetYJwFq6FzCD+v7Od0aRx
-	IWdeO0AxJAIPkzRsqlSIE6/5+8j2sCcanPkaIiD9TQW6DHIh95k9WScIpi5qtORLuZZrtTxENkoXr
-	J7cZ8/JBRMaE1Vtyw3662bGGnDqHwzGAejkkImSxXpTWMvdHQTraJFdr+IOxCQGB/WNg2LH0LCDlE
-	Tyiekk6+bYvsStCovCQMy6k9l9Ta2KA8dQCBSoodcXYkPEYAE8P6O7/OXthEn4Tq5b2ORt5dLBknQ
-	x2OLNPYw==;
-Received: from mail-lf1-f44.google.com ([209.85.167.44])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6Sb-00000002n1B-2Tpg
+	id 1tJ6oq-0000000F6ms-0Y9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 07:39:44 +0000
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-53e274f149fso80457e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 23:39:39 -0800 (PST)
+	Thu, 05 Dec 2024 08:02:42 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B4Nt2s1014524
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Dec 2024 08:02:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yqbqqcJulAmbWewF5le6MsZzz4kokdCOT6f67ZVo8NM=; b=ocVCW4fa/Q1LgQWQ
+	bdgwCfPTS0t6awWhQu+TRKU6UgdPcDCIKYZJOgk7klFa0diIGbp5PXqQI45DRTgZ
+	sUiE8NZU3LPNUWMlSRNjtzVu5ieuZy5FxJqMumDFC3iN+jcVZ0kOTnz/XDIkQyPa
+	xcEiLlfxLj1iXnK7ECN+laP6mYq4RKwgqHfOupENK0LtGgZkWbrC3Y8C4xXXKH8O
+	HpW0nrAp3/QCn7kAQp1I/MMBW9WBtoadx9PCPFrRj9AoblbXRWnGBemDMi8Y1Ok5
+	mNtCXJQFFq/KY73YzNp/Ho55jvbdoyIanohg+c09hYupoVj8RynxEs30B6RB64lV
+	X8rJEQ==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43b15d90cn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 08:02:37 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-7f71e2fc065so516723a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 00:02:37 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733384377; x=1733989177;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=haUzoOdl3j5ZhKh6v9Mp+uyoSF/yENN0p8H5q1O4kPw=;
-        b=VNBRrB0gn5UeVip+tPuxmYcjEx+O8bd/TJGKLAT+CkmbZQTS1Xiva87VZWItJQ7oAn
-         q/Luw5DFodTnlNLo8frhqL8SLAHM1ttWF/GQiAAhtw/bWwVaSIxI5vpcsUPI/lGo0Pf3
-         cfKB4MNfAjC+tZobDhV1/MjIwCS8GQw1ZcQvPF9jbH657zI/BJQRYaE8omwJu0+cMDH/
-         rwUHBw5+SUf4L61xMuoY71WVC4wbZ8eVhrdJK+B480Z/DGsFSrkbqyL2fGURpDx7++OR
-         0LNt4cjPPMPFFBQBsDtQI09psoFm/IoP3Bkk4O1Ttk+eWS2J0nWQqpfAIcAmO8jbpbIk
-         wnlA==
-X-Forwarded-Encrypted: i=1; AJvYcCXF/ujSuA0Y4RgsSZHxtvNCZoLDFpfhNNSX76bhmCAncLgLMxdOXVCdnWIAEFQROTLc5JArYHC7qc3YlAazeM1v@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUJ4KAgoR1SeEBQkZvWplN0l1MvUw8YH/pN7PQQhLUWK405GE9
-	k8JG35J2JlMIHTpe7ecnO+bHP3wxBlqaXtlV6YMhAQlXByPrE/V9udHA5mCB
-X-Gm-Gg: ASbGncs1ph28FnrcRQ514XN4z/Sjgd+tg7tctVqlUR0zsngDi/SO6F4Hz15QBI+Qq1r
-	RNvPu286maehKJ2CZIY2Xtt5mhm2hNRupUPXgXPOekvuroAzKqVDJkxSKn0LQqnR0zrzifT+cZb
-	kQ53DHHe6clAiG44Q4uwFZWe/4LfXU/3lXUcZdFgvsr3LNOvDpXYFOQU4/1hSBkJgIvYY6JFxHf
-	RnsYn8JikaTnhT9RaA4TALahjLoQasRUw79C+2TDcez38RjqmRsroF8pjk2Y1PrptQ08kDwDyhL
-	oxY9MvY=
-X-Google-Smtp-Source: AGHT+IFhynrsRCtoYhVWMI6N/PxO6/IiVz9GxwZUIPrzdO/c4cKLUBTLLgLneuMOkA7dR81NBKegyA==
-X-Received: by 2002:a05:6512:e88:b0:53e:1c3e:25f with SMTP id 2adb3069b0e04-53e1c3e0546mr3593288e87.4.1733384377323;
-        Wed, 04 Dec 2024 23:39:37 -0800 (PST)
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com. [209.85.208.177])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229ba553sm148482e87.138.2024.12.04.23.39.36
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1733385756; x=1733990556;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yqbqqcJulAmbWewF5le6MsZzz4kokdCOT6f67ZVo8NM=;
+        b=UHclEfV5GiNyVwDQYREcg+p8eRu2ufATm2CuxVrortHv7ee0cpHXxSFNv93GbX2OwG
+         +GgsnZSUTph8ssNo57o6jwKlQz9CiOAxnZa6IELL+1EeIQttIR8QOLzsy2zTYoLveGma
+         d5n1qoc75Legl9Qy5k8OXRpEK6VMvGZJhli5c0MdkzvonvgTxlTlBPDOvjSK89jlo/pI
+         tHFF0fjqL9vUlvNQDsnvAHGwi8NwDh6KU/gkOqu95Ys/eX+rUtQvxLPa/SucIPSxaMSi
+         V7v0bhcASLKeMtWEOcnsXIaOTD4ieTTsvl5fIzxo2KylQUOdUcY6ZDPkOAO/1K1imoAq
+         9KtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUPt0erveq8Cwf4LnUm5NDAa+qmJoDPj07rp0XlHF//c6OCX/xDPEXavdffR4OeZq8jPRMy+fdzL3W9OY8AFKq+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8F0M0fyLeNaBABXkp0C+igAxIkphrxi5pKZwLKMIiC5DhHaJA
+	URnoc6e71QpmWSfECwK5INUPCxvpdwc+ER5qeds9flYf+BXlkPIkzk+zgmDluRDsger5Y1XtU0t
+	TmXiubgFpoWjm+kqo9I9M0+bEDR32peqlfbsvpV6Pmjr8EpQ+HwZZ9nz547UBdWOq8zTIlUORKw
+	==
+X-Gm-Gg: ASbGncvFWeVp0U6DDQvJk1L2eLyGI3UoXhikrpgXf/nubBY9RyJ0O7RvprWLEH3Q43q
+	HjbWljGyKLGctmFCQ7Lvrv+1crJKjS1ENW6Q8KCdk3Dan7sFvs/Z8K1GMvjPuzgI5xuN9EWTXTi
+	UQUutAJCR4xEviw5+kmk2N+76m8MIlDx3vaEs1vgCG3Phsz+u6WZG0LiD8JnlL66KeDipSIRsrv
+	R9+j9EGn7fx0nWJYLxzoDUxla+js4Y1f+PkqnQEhjxK8yEPhK6RCcJ1lTAgLzZj7HxbcWruZ7br
+	PPlQYg==
+X-Received: by 2002:a05:6a21:3941:b0:1d9:3acf:8bdc with SMTP id adf61e73a8af0-1e165438833mr16445329637.46.1733385756351;
+        Thu, 05 Dec 2024 00:02:36 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFerYsbdp1Pj/tRpDFeOsFzKZusCyeQcW368bYmYk17ZSI8YNxJAIjpZrugnZOIdSlvtWUTQQ==
+X-Received: by 2002:a05:6a21:3941:b0:1d9:3acf:8bdc with SMTP id adf61e73a8af0-1e165438833mr16445278637.46.1733385755960;
+        Thu, 05 Dec 2024 00:02:35 -0800 (PST)
+Received: from [10.92.169.167] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fd157b229csm735543a12.52.2024.12.05.00.02.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Dec 2024 23:39:36 -0800 (PST)
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3000b64fbe9so4815661fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 23:39:36 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWaWMvNYOUNZ+PegYvvM2fcy1KobIvOc80sH5D7Ci6SDgTqvs844rgoGpDT0r6muUHtpoStPjVDJG/p1OuIeq9p@lists.infradead.org
-X-Received: by 2002:a2e:a907:0:b0:300:8ff:d93f with SMTP id
- 38308e7fff4ca-30009c50cb0mr55293541fa.22.1733384376650; Wed, 04 Dec 2024
- 23:39:36 -0800 (PST)
+        Thu, 05 Dec 2024 00:02:35 -0800 (PST)
+Message-ID: <98b2b88b-9690-44a7-9b22-2f23e6606e82@oss.qualcomm.com>
+Date: Thu, 5 Dec 2024 13:32:29 +0530
 MIME-Version: 1.0
-References: <20241203203824.23306-1-simons.philippe@gmail.com>
- <CAGb2v67Uv3SVQSqox85qt_05aVvX0oCynNRoaN9BA1Nha3eo8w@mail.gmail.com> <CADomA482XLFNySkjujoPmPCnCrKn+RcppW=SqRqcA2WLMe-mNw@mail.gmail.com>
-In-Reply-To: <CADomA482XLFNySkjujoPmPCnCrKn+RcppW=SqRqcA2WLMe-mNw@mail.gmail.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Thu, 5 Dec 2024 15:39:24 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64YFcEhTYVzTJWTvw7CZ3XF08e7+1jiTg25HN6C1Ny+Jg@mail.gmail.com>
-Message-ID: <CAGb2v64YFcEhTYVzTJWTvw7CZ3XF08e7+1jiTg25HN6C1Ny+Jg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: allwinner: h616: rg35xx add missing regulator-ramp-delay
-To: Philippe Simons <simons.philippe@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
+ fingerprint reader
+To: Johan Hovold <johan@kernel.org>,
+        Stephan Gerhold <stephan.gerhold@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, Abel Vesa <abel.vesa@linaro.org>,
+        Krishna Kurapati <quic_kriskura@quicinc.com>,
+        Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org
+References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
+ <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+ <Z07bgH5vVk44zuEH@hovoldconsulting.com>
+ <d095ae2a-3f9d-464c-9dc8-a3e73eac6598@oss.qualcomm.com>
+Content-Language: en-US
+From: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
+In-Reply-To: <d095ae2a-3f9d-464c-9dc8-a3e73eac6598@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: enRVRE_Xpmwr4tH3mlCxvJekdnKWlN-Y
+X-Proofpoint-ORIG-GUID: enRVRE_Xpmwr4tH3mlCxvJekdnKWlN-Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ priorityscore=1501 clxscore=1011 lowpriorityscore=0 bulkscore=0
+ phishscore=0 mlxlogscore=999 suspectscore=0 malwarescore=0 mlxscore=0
+ adultscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412050058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_073941_744406_BC6D859C 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20241205_000240_178913_062C25AA 
+X-CRM114-Status: GOOD (  30.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,92 +129,127 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 5, 2024 at 3:26=E2=80=AFPM Philippe Simons
-<simons.philippe@gmail.com> wrote:
 
-Please reply inline.
 
-> Ok I can do that, but the driver (axp20x-regulator.c) is using macros
->  to generate these regulator_desc structs.
->
-> So I have two options, create a new macro with the ramp_delay, or
-> modify the existing macro, using 0 for the regulators I don't know about.
+On 12/3/2024 6:45 PM, Krishna Kurapati wrote:
+> 
+> 
+> On 12/3/2024 3:50 PM, Johan Hovold wrote:
+>> [ +CC: Krishna, Thinh and the USB list ]
+>>
+>> On Mon, Nov 18, 2024 at 11:34:29AM +0100, Stephan Gerhold wrote:
+>>> The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
+>>> multiport controller on eUSB6. All other ports (including USB 
+>>> super-speed
+>>> pins) are unused.
+>>>
+>>> Set it up in the device tree together with the NXP PTN3222 repeater.
+>>>
+>>> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
+>>> ---
+>>>   arch/arm64/boot/dts/qcom/x1e80100-crd.dts | 48 
+>>> +++++++++++++++++++++++++++++++
+>>>   1 file changed, 48 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts 
+>>> b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+>>> index 39f9d9cdc10d..44942931c18f 100644
+>>> --- a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+>>> +++ b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+>>> @@ -735,6 +735,26 @@ keyboard@3a {
+>>>       };
+>>>   };
+>>> +&i2c5 {
+>>> +    clock-frequency = <400000>;
+>>> +
+>>> +    status = "okay";
+>>> +
+>>> +    eusb6_repeater: redriver@4f {
+>>> +        compatible = "nxp,ptn3222";
+>>> +        reg = <0x4f>;
+>>
+>> The driver does not currently check that there's actually anything at
+>> this address. Did you verify that this is the correct address?
+>>
+>> (Abel is adding a check to the driver as we speak to catch any such
+>> mistakes going forward).
+>>
+>>> +        #phy-cells = <0>;
+>>
+>> nit: I'd put provider properties like this one last.
+>>
+>>> +        vdd3v3-supply = <&vreg_l13b_3p0>;
+>>> +        vdd1v8-supply = <&vreg_l4b_1p8>;
+>>
+>> Sort by supply name?
+>>
+>>> +        reset-gpios = <&tlmm 184 GPIO_ACTIVE_LOW>;
+>>> +
+>>> +        pinctrl-0 = <&eusb6_reset_n>;
+>>> +        pinctrl-names = "default";
+>>> +    };
+>>> +};
+>>> +
+>>>   &i2c8 {
+>>>       clock-frequency = <400000>;
+>>> @@ -1047,6 +1067,14 @@ edp_reg_en: edp-reg-en-state {
+>>>           bias-disable;
+>>>       };
+>>> +    eusb6_reset_n: eusb6-reset-n-state {
+>>> +        pins = "gpio184";
+>>> +        function = "gpio";
+>>> +        drive-strength = <2>;
+>>> +        bias-disable;
+>>> +        output-low;
+>>
+>> I don't think the pin config should assert reset, that should be up to
+>> the driver to control.
+>>
+>>> +    };
+>>> +
+>>>       hall_int_n_default: hall-int-n-state {
+>>>           pins = "gpio92";
+>>>           function = "gpio";
+>>> @@ -1260,3 +1288,23 @@ &usb_1_ss2_dwc3_hs {
+>>>   &usb_1_ss2_qmpphy_out {
+>>>       remote-endpoint = <&pmic_glink_ss2_ss_in>;
+>>>   };
+>>> +
+>>> +&usb_mp {
+>>> +    status = "okay";
+>>> +};
+>>> +
+>>> +&usb_mp_dwc3 {
+>>> +    /* Limit to USB 2.0 and single port */
+>>> +    maximum-speed = "high-speed";
+>>> +    phys = <&usb_mp_hsphy1>;
+>>> +    phy-names = "usb2-1";
+>>> +};
+>>
+>> The dwc3 driver determines (and acts on) the number of ports based on
+>> the port interrupts in DT and controller capabilities.
+>>
+>> I'm not sure we can (should) just drop the other HS PHY and the SS PHYs
+>> that would still be there in the SoC (possibly initialised by the boot
+>> firmware).
+>>
+> 
+> The DWC3 core driver identifies number of ports based on xHCI registers. 
+> The QC Wrapper reads this number via interrupts. But these two values 
+> are independent of each other. The core driver uses these values to 
+> identify and manipulate phys. Even if only one HS is given in multiport 
+> it would be sufficient if the name is "usb2-1". If the others are 
+> missing, those phys would be read by driver as NULL and any ops to phys 
+> would be NOP.
+> 
 
-You can add a new macro with the extra ramp_delay argument, and modify
-the existing macro to expand to that with ramp_delay =3D 0.
+However do we need to reduce the number of interrupts used in DTS ?
+We don't need to give all interrupts as there is only one port present.
+We don't want to enable all interrupts when ports are not exposed.
 
-ChenYu
-
-> Philippe
->
-> On Thu, Dec 5, 2024 at 5:16=E2=80=AFAM Chen-Yu Tsai <wens@csie.org> wrote=
-:
-> >
-> > On Wed, Dec 4, 2024 at 4:38=E2=80=AFAM Philippe Simons
-> > <simons.philippe@gmail.com> wrote:
-> > >
-> > > AXP datasheet says that ramp delay is 15.625 us/step,
-> > > which is 10mV in our case.
-> >
-> > (CC-ing Mark for knowledge on regulators)
-> >
-> > If this is the property of the PMIC, it probably belongs in the driver,
-> > in "regulator_desc.ramp_delay".
-> >
-> > The "regulator-ramp-delay" in the DT can be used to override this
-> > if the board has excessive ramp delay due to other design reasons.
-> >
-> >
-> > ChenYu
-> >
-> > > add missing regulator-ramp-delay to dcdc regulators accordingly
-> > >
-> > > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> > > ---
-> > >  .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts    | 3 +=
-++
-> > >  1 file changed, 3 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35x=
-x-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024=
-.dts
-> > > index 80ccab7b5..b6e76a804 100644
-> > > --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.=
-dts
-> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.=
-dts
-> > > @@ -238,6 +238,7 @@ reg_dcdc1: dcdc1 {
-> > >                                 regulator-always-on;
-> > >                                 regulator-min-microvolt =3D <900000>;
-> > >                                 regulator-max-microvolt =3D <1160000>=
-;
-> > > +                               regulator-ramp-delay =3D <640>;
-> > >                                 regulator-name =3D "vdd-cpu";
-> > >                         };
-> > >
-> > > @@ -245,6 +246,7 @@ reg_dcdc2: dcdc2 {
-> > >                                 regulator-always-on;
-> > >                                 regulator-min-microvolt =3D <940000>;
-> > >                                 regulator-max-microvolt =3D <940000>;
-> > > +                               regulator-ramp-delay =3D <640>;
-> > >                                 regulator-name =3D "vdd-gpu-sys";
-> > >                         };
-> > >
-> > > @@ -252,6 +254,7 @@ reg_dcdc3: dcdc3 {
-> > >                                 regulator-always-on;
-> > >                                 regulator-min-microvolt =3D <1100000>=
-;
-> > >                                 regulator-max-microvolt =3D <1100000>=
-;
-> > > +                               regulator-ramp-delay =3D <640>;
-> > >                                 regulator-name =3D "vdd-dram";
-> > >                         };
-> > >
-> > > --
-> > > 2.47.1
-> > >
+Regards,
+Krishna,
 
