@@ -4,81 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AA4E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDA6E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OgpqTYmx1JwJV2MXhL2h0e8cSJoFw6QERgxshp0L/wQ=; b=H282jGBJVVUHtkZuZQJrQVVF5a
-	6eqWptLqfsklLUwwRjTXEdGXfTFsg/bvXZDQKy5Ca0vIFqUdCbePnlRlFePIxlHofT7R7CAGVHMQo
-	IF4sAv020NRdj1eyGh2a5FIQLe6jXWMz73qy+FYeOA+gXhZ01eNTdU8rmWqR0FfH8vEZeqnEQza6P
-	LnSm0JEP1PX0Q3cYdqUltC4FSa+7QijnhiDvD6EZtkZy3FsqrDCa0MWzjQ+UnoKFMPDCTndGCSdvu
-	7ZY1vfSdcOlijPjrII21qDGyrr8nni05yRB7r7o7tmQjUtIReLeZP9VbIYLS2ga8DSLA4BlnJZac5
-	gxEhyPwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TeU21f2/gzBOxQVVYAFoJs6zNxfWr5ZjMAtgv/QGkUY=; b=w5hFhwoMwIRJOJMt4Nwohy5REZ
+	BUdH1/HrfQ+iax/HrFzfKV/vjOz3Zfntt2gJZYCI/zEcPdvf6KAkPHWDAX2DCgj1mMXo0k6TQcurv
+	tJI0dJVjdBRfRrwTOtM//tYMSGvVt3Lhch63u++f0C9Rj6mIX2LOiry3/sRuKX7IvJi0yFtOcDa0w
+	ia8VZN5w77B1C072Jb7hBPolTj+bb0TH9KHuffuUeyQ0elynBLWrH2OCiBZqXZrYxakjAa2R51nz9
+	gH0BbbIJwTYL/IkECpf7mzH15TPiKvqGp0vR0NjG3Thm8HNr0GIAx5JHnHixYB/BPvAmNzouL3ruw
+	IT7K9fDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDhZ-0000000GWJ0-2ewf;
-	Thu, 05 Dec 2024 15:23:37 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tJDj4-0000000GWhG-3hqC;
+	Thu, 05 Dec 2024 15:25:10 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDgW-0000000GW2q-49CO
+	id 1tJDi2-0000000GWQ2-1nnG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 15:22:34 +0000
+	Thu, 05 Dec 2024 15:24:08 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-434a1095fe4so1244705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 07:24:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1733412153; x=1764948153;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=OgpqTYmx1JwJV2MXhL2h0e8cSJoFw6QERgxshp0L/wQ=;
-  b=UCE2bKeroNkgMIM1TQc1O5JQXtGcel3ZeZHXxp8s60zoUipgU68PfnxG
-   egn270suPQJj2EVrl79yGIOcOLIEPDRt8GcUdLGc79KA5MWNB857zw003
-   r6GIV84aPGNpydLfoOsOc15wAd+6cW7V9LWN5t3ECRRTdGxn2enzIL01Q
-   l3HA4jT2SV6igrLXZzxk+cHXqJL4szPPXSgLXC8aLA1Zbroyr9uwReRBF
-   4SxeeuouEaM6UyNe4aCa2TeYU6kuOF75u7CDByTrWDZL7DciyNOqzf2iy
-   Zo73PaGDAGpVNt9SfhU7ROcpnXTJpW+3ud1sY64vOut2ObW1NmtlBLAUG
-   w==;
-X-CSE-ConnectionGUID: UHuHdMOHR8eI0Ysd+CRJnQ==
-X-CSE-MsgGUID: HUOL6jrqQzyh1aS6IVtEsA==
-X-IronPort-AV: E=Sophos;i="6.12,210,1728943200"; 
-   d="scan'208";a="40435227"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 05 Dec 2024 16:22:30 +0100
-X-CheckPoint: {6751C536-37-86C05612-CA75E1CA}
-X-MAIL-CPID: FCDE8C9170E3D42729ED4A0AD7E02C0D_1
-X-Control-Analysis: str=0001.0A682F21.6751C537.0039,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 502B6163BB5;
-	Thu,  5 Dec 2024 16:22:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1733412146;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OgpqTYmx1JwJV2MXhL2h0e8cSJoFw6QERgxshp0L/wQ=;
-	b=KHXc9JZXoqdeRsEZnWh0P2KoB3nAhvdjG7ZxHhi2Xl3w/sBB5T89MPHE34iZUVvxyoMME5
-	ML7qUzm+CAyupIe4+o7+jDJrLIt1qwEuKrktHkyz/HRLGYrpKr90X2deBlIp4nR59D5qgh
-	9pIBOjbeKpl2qtz8QhkW5s8c/O4JeSnWqP52TqhJbvMXOMwl+DeLzMDR0Y4HFiFwC5+3UW
-	BQwCqL82hTsAwk7QhdJXIo1Sx1E/uQml8erg4mGT51+d5GrJY04rFF0gQUg2Sitj6Ma9z4
-	5ITi7+M3JF6tRYAyJClPpB/liq9cxJjV0ohPX8+1y811NOGP0tVe7b+TgjY1xw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v2 1/4] media: i2c: imx290: Limit analogue gain according to module
-Date: Thu, 05 Dec 2024 16:22:22 +0100
-Message-ID: <4950196.GXAFRqVoOG@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20241120-media-imx290-imx462-v2-1-7e562cf191d8@raspberrypi.com>
-References: <20241120-media-imx290-imx462-v2-0-7e562cf191d8@raspberrypi.com> <20241120-media-imx290-imx462-v2-1-7e562cf191d8@raspberrypi.com>
+        d=linaro.org; s=google; t=1733412244; x=1734017044; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=TeU21f2/gzBOxQVVYAFoJs6zNxfWr5ZjMAtgv/QGkUY=;
+        b=D2GBLBjBXsW5YrQFCb8LRC/r3TTbi3/quGHf2lpl/WvPttHjgTeQ1q2aMl7QwYCNCp
+         J+ib9O25oD10Xccu4wRtITS0J7zEO73Es0nG2vIhdMzac4v0nyi+N3f/ugTSSBZwnESq
+         ZeKQg1zY8YBzx7hQK762qcrAJr9Lq0cnoUdW9SpFipQ8rhQn1Opo73F2cC7/FUON/jyU
+         S1d/DtOiYHnJD55uDb50KCuXwW2AO3RapbFpsHjXoZDRaeMRi1IWLcUJEmNytxK0TcB7
+         1DkYV7R9SiMDNI4tjqNbtiLdG1kYjO8Lbf/71/Xa57dba3v1D5MDMtPm7MlIZ+xJpPcs
+         JYDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733412244; x=1734017044;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TeU21f2/gzBOxQVVYAFoJs6zNxfWr5ZjMAtgv/QGkUY=;
+        b=kHaMJjWVt8kkJALoaKIvA7JuGsjyfHILxMA5lyHFUoDKCd3gCaApmAgfGRnnxK5/YM
+         1cyZ/2261iGdJcFZsD9hqbshFUpBqz8sz3mZuKBJtGdRrU3YQZfDgBSgoKs3u4SSr072
+         vhs3jawfaFKuKM4ZZLv3M5bDVGS5sTJppiwg7vHTQ+d0nOctMl71syvePCCETkUiPwlu
+         8Jb7sssbepMz7Tj6kGRyzsmpr77Yrfmdh36ZXSEqLXGoxnzDdbnFCbezuXyL7J4sY6q0
+         vZrqZqPA66eSOTQNGcatQvr9HV/PSsv+vxOsqPU0i2RBDxjBVBJazonIJLAPIHyIiysP
+         gicw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRNzm48gyEd8TICUnIdfl3NYftwnYDeSc+OF9RFE2nm7r4aGbpdUTUcdO/SRvmXe+KxVlugkMUMurnZvDPjNfH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeOnIuPLWw6Z01taIsI6HfqVsB5xLYULJRNQxkDal5RR7a9Z8P
+	lymY59XyrMb8kGwm5GsLUt56H9E8rAjQeHqkDEa/Hx+AA0plfJQOWSgEgx6e8Tk=
+X-Gm-Gg: ASbGncvoUdHIFASwlHiTAJ/V4kHq2UZ7YjuV1tywjMidZMyAq0V7AehBqllszgxYiFQ
+	lPinHB8fSFv/8Zavxp2U1KLmhRKT0R8sj2rcYLRhF2jz7FEhZe+yeZ6ZhosVnipcCTT5fEoMieL
+	aQDRMo9rXa1Fnwm2cfREN+XZ5+I9/nWxJG2iB6bTcnOBfh+vF/ClrLEtfLGh4VJt9KeXGYzF3cd
+	53lnmlvDGcsJbTFulI9Neg6fXEHnhFVJngpx7t8iJoY6vKTjjMvs97S9r6oOYI2UVLe6A==
+X-Google-Smtp-Source: AGHT+IHLXWIJves++ZMhfFZ9YnRFSus0l3v1nMxTqppBY8H9rgds0EQOScsxeweq65UPC5yR6ftVxA==
+X-Received: by 2002:a05:6000:1787:b0:385:f479:ef46 with SMTP id ffacd0b85a97d-385fd42316bmr3426787f8f.13.1733412244461;
+        Thu, 05 Dec 2024 07:24:04 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d52c12a4sm64628455e9.30.2024.12.05.07.24.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Dec 2024 07:24:03 -0800 (PST)
+Message-ID: <97d7b661-8b9b-4c56-aa85-3833718f4e01@linaro.org>
+Date: Thu, 5 Dec 2024 16:24:01 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: rockchip: increase gmac rx_delay on
+ rk3399-puma
+To: Jakob Unterwurzacher <jakobunt@gmail.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Quentin Schulz <quentin.schulz@cherry.de>,
+ Iskander Amara <iskander.amara@theobroma-systems.com>,
+ Sasha Levin <sashal@kernel.org>,
+ Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
+ Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>,
+ Klaus Goger <klaus.goger@theobroma-systems.com>
+Cc: stable@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241205151827.282130-1-jakob.unterwurzacher@cherry.de>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20241205151827.282130-1-jakob.unterwurzacher@cherry.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_072233_515029_F0D785E4 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20241205_072406_477523_31A099A8 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,90 +154,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+On 05/12/2024 16:18, Jakob Unterwurzacher wrote:
+> During mass manufacturing, we noticed the mmc_rx_crc_error counter,
+> as reported by "ethtool -S eth0 | grep mmc_rx_crc_error", to increase
+> above zero during nuttcp speedtests. Most of the time, this did not
+> affect the achieved speed, but it prompted this investigation.
+> 
+> Cycling through the rx_delay range on six boards (see table below) of
+> various ages shows that there is a large good region from 0x12 to 0x35
+> where we see zero crc errors on all tested boards.
+> 
+> The old rx_delay value (0x10) seems to have always been on the edge for
+> the KSZ9031RNX that is usually placed on Puma.
+> 
+> Choose "rx_delay = 0x23" to put us smack in the middle of the good
+> region. This works fine as well with the KSZ9131RNX PHY that was used
+> for a small number of boards during the COVID chip shortages.
+> 
+> 	Board S/N        PHY        rx_delay good region
+> 	---------        ---        --------------------
+> 	Puma TT0069903   KSZ9031RNX 0x11 0x35
+> 	Puma TT0157733   KSZ9031RNX 0x11 0x35
+> 	Puma TT0681551   KSZ9031RNX 0x12 0x37
+> 	Puma TT0681156   KSZ9031RNX 0x10 0x38
+> 	Puma 17496030079 KSZ9031RNX 0x10 0x37 (Puma v1.2 from 2017)
+> 	Puma TT0681720   KSZ9131RNX 0x02 0x39 (alternative PHY used in very few boards)
+> 
+> 	Intersection of good regions = 0x12 0x35
+> 	Middle of good region = 0x23
+> 
+> Relates-to: PUMA-111
 
-Am Mittwoch, 20. November 2024, 20:17:03 CET schrieb Dave Stevenson:
-> The imx327 only supports up to 29.4dB of analogue gain, vs
-> the imx290 going up to 30dB. Both are in 0.3dB steps.
+Drop 3rd party tags.
 
-While I agree for 30dB on imx290, my (maybe outdated) Rev0.2 datasheet says
-up to 27dB in 0.3dB steps.
+Also you you CC-ed an address, which suggests you do not work on
+mainline kernel or you do not use get_maintainers.pl/b4/patman.
+Regardless of the reason, process needs improvement: please rebase and
+always work on mainline or start using mentioned tools tools, so correct
+addresses will be used.
 
-Despite that this change looks good.
 
 Best regards,
-Alexander
-
-> As we now have model specific config, fix this mismatch,
-> and delete the comment referencing it.
->=20
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
->  drivers/media/i2c/imx290.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/media/i2c/imx290.c b/drivers/media/i2c/imx290.c
-> index ee698c99001d..da654deb444a 100644
-> --- a/drivers/media/i2c/imx290.c
-> +++ b/drivers/media/i2c/imx290.c
-> @@ -176,6 +176,7 @@ struct imx290_model_info {
->  	enum imx290_colour_variant colour_variant;
->  	const struct cci_reg_sequence *init_regs;
->  	size_t init_regs_num;
-> +	unsigned int max_analog_gain;
->  	const char *name;
->  };
-> =20
-> @@ -876,14 +877,10 @@ static int imx290_ctrl_init(struct imx290 *imx290)
->  	 * up to 72.0dB (240) add further digital gain. Limit the range to
->  	 * analog gain only, support for digital gain can be added separately
->  	 * if needed.
-> -	 *
-> -	 * The IMX327 and IMX462 are largely compatible with the IMX290, but
-> -	 * have an analog gain range of 0.0dB to 29.4dB and 42dB of digital
-> -	 * gain. When support for those sensors gets added to the driver, the
-> -	 * gain control should be adjusted accordingly.
->  	 */
->  	v4l2_ctrl_new_std(&imx290->ctrls, &imx290_ctrl_ops,
-> -			  V4L2_CID_ANALOGUE_GAIN, 0, 100, 1, 0);
-> +			  V4L2_CID_ANALOGUE_GAIN, 0,
-> +			  imx290->model->max_analog_gain, 1, 0);
-> =20
->  	/*
->  	 * Correct range will be determined through imx290_ctrl_update setting
-> @@ -1441,18 +1438,21 @@ static const struct imx290_model_info imx290_mode=
-ls[] =3D {
->  		.colour_variant =3D IMX290_VARIANT_COLOUR,
->  		.init_regs =3D imx290_global_init_settings_290,
->  		.init_regs_num =3D ARRAY_SIZE(imx290_global_init_settings_290),
-> +		.max_analog_gain =3D 100,
->  		.name =3D "imx290",
->  	},
->  	[IMX290_MODEL_IMX290LLR] =3D {
->  		.colour_variant =3D IMX290_VARIANT_MONO,
->  		.init_regs =3D imx290_global_init_settings_290,
->  		.init_regs_num =3D ARRAY_SIZE(imx290_global_init_settings_290),
-> +		.max_analog_gain =3D 100,
->  		.name =3D "imx290",
->  	},
->  	[IMX290_MODEL_IMX327LQR] =3D {
->  		.colour_variant =3D IMX290_VARIANT_COLOUR,
->  		.init_regs =3D imx290_global_init_settings_327,
->  		.init_regs_num =3D ARRAY_SIZE(imx290_global_init_settings_327),
-> +		.max_analog_gain =3D 98,
->  		.name =3D "imx327",
->  	},
->  };
->=20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Krzysztof
 
