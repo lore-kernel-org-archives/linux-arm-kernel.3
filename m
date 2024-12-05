@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37FEE7716F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 00:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D67E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 00:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZZCQu8PNGzbUydOutittbytVy0ecwKj8suiZ8x5X5G4=; b=x2GDdCfCxkEAwqclMukuNW0Ye7
-	+2XCW1Z5EDKStJFYE+4v3V+uys1mkLHtnJlFbbn63AeMrHj8kvojScBVWkirXI3Ol3B+8auIsjXa4
-	Rr1y/Yfwvk3UeBWcfzCrmNC111+21ZHjMGW3S3QsjqjTIsGWFO5g7akAlnDmMKHmaI9f7ARfIRsuY
-	g0QJVkcT3gXTCVLP5Ddq2KnnaH7a4/1ECPMGlUlfVbJKEbIjxpkqoagKVZAKarEM5mcSLEotzi5Hl
-	QZAwOFcpQ/ecL8Ylic8hoVWam+/ueivsUltlU3rhqrDcacVmoEtVmryb43jXV0NhMvRA+AacTwiHp
-	fLA1g1lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F5r6szPNnorsqIWpPC+AQkvg5kKkB5X+Ow8aOshGuD0=; b=xcUu2xKVV8kqGlOBs7qLn3JE1O
+	RVEA2aYfJbEIxBOdqsfLKrY8NJ1cH+QNF72lhN896rnooYr/Iw2EWYb7/LVlGuLmttyIolwwR7BHo
+	OuDYKN0ah+At/mqO68Op4t156GXSBqjkZ1wvRUpIysTqD8wPIhv8wFYaQ+8OOCq/WUMXVyoxypglS
+	ktezhy+gdZ8esclhq4Dc5mrrA+GellXBVjELiL2OJhKx7SkCv/hy1/bSPCAQax9ON+5XpTQe9gOVq
+	E0qp3EN8wCq3ogybuUZ2lQeb72G8moD0SR5Ukox7xZD9KCnWlNhp0BsXEAxdXI1+t+PzS1qz/1GTE
+	YUAvBnZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIzOy-0000000EHgl-2FZI;
-	Thu, 05 Dec 2024 00:07:28 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tIziL-0000000ELzq-3azH;
+	Thu, 05 Dec 2024 00:27:29 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIzL3-0000000EH02-12pU
+	id 1tIzhK-0000000ELpA-0b5V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 00:03:26 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id F00E3A0EF3;
-	Thu,  5 Dec 2024 01:03:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=ZZCQu8PNGzbUydOutitt
-	bytVy0ecwKj8suiZ8x5X5G4=; b=Hg8o7GWSUJguKoIGhZzqH0h2rQ+BFrmb7szp
-	2qdUmyk0Lju44v+ZBLP5M52a5BnKklhi3S5uEMhpmc8xUn82nXv4vIuZv9GI5oQ6
-	XKMnLlISbfmr3m4XFDP5HDP9gw6FQfZfwLcCCAP+1rMtkSfSSI1OZUoNmXF6NiXI
-	YiFFL7mhd0HeYCmkGa0+/BXdvuW6zwjTTqp+plE/f7Tk+tKRxLw4fBEpo8kV3ydP
-	oo65XQSclw5gAExUbwWTtFPSBmL7Zle8EKz6vj7iLM4GzTe8yfKWUyxFnSEQQjp1
-	MycRpklAlleP3jCvH6rmKRgn7ICDHVXQn1FoLCzRo4KdJJ2h4TuYIntasdu7HRee
-	a5oaZH8Oc1jg7GSaQJeIajT7lUrjKHRgfeSYk28jOo9kYi0ym1qd89RlBLqaVZWk
-	YV/Xc5LglZJlr21gzoSheOpqqD1MrJ+bzDMFhvR9jAqAQTwwggeOaVSvViYFV4Vp
-	SV0/LGBeFPTlaKPbaShmrB9vyfvGpIZDp9J7GjMIGNaRLGU/Er12Oxg/E42xMmMQ
-	DBhily29JlITUOJuJN78yGYk/dJtKmias7C1dvYY55jbi+qWm915qrfqsZhTuT3G
-	h/BwRTHBMEOHvy7SmMd+mhbaLO3iyuRiBs/vxVTYg0p1dPA7muNPDkjRFn9btpI1
-	+tycfYg=
-From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
-To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: Mesih Kilinc <mesihkilinc@gmail.com>,
-	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
-Subject: [PATCH 3/3] ARM: dts: suniv: f1c100s: Activate Audio Codec for Lichee Pi Nano
-Date: Thu, 5 Dec 2024 01:01:38 +0100
-Message-ID: <20241205000137.187450-4-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241205000137.187450-1-csokas.bence@prolan.hu>
-References: <20241205000137.187450-1-csokas.bence@prolan.hu>
+	Thu, 05 Dec 2024 00:26:27 +0000
+Date: Wed, 4 Dec 2024 16:26:11 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733358381;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=F5r6szPNnorsqIWpPC+AQkvg5kKkB5X+Ow8aOshGuD0=;
+	b=NwDU9FQIwoub1Gg6x2WTmSKJlM3Vv1CCwTH0gdQv3lxYpy0GYCXYNJW4L5WJKA2Y6sY9v0
+	7hnfnX7N++NtUa91/EOBAjXqVjsyInmUbGxW1DdODnGteUn9kaVQnBkX1LESOwCGHkWvtQ
+	3OSVqrt03bSDzkTEL29MjMXmQur6YSY=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Christoffer Dall <christoffer.dall@arm.com>
+Subject: Re: [PATCH 02/11] KVM: arm64: nv: Sync nested timer state with
+ FEAT_NV2
+Message-ID: <Z1DzI75XOcJVHARq@linux.dev>
+References: <20241202172134.384923-1-maz@kernel.org>
+ <20241202172134.384923-3-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1733357003;VERSION=7982;MC=1494516499;ID=169669;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94855627561
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241202172134.384923-3-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_160325_444699_56FEECDB 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241204_162626_502883_F34D3AA1 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mesih Kilinc <mesihkilinc@gmail.com>
+On Mon, Dec 02, 2024 at 05:21:25PM +0000, Marc Zyngier wrote:
+> Emulating the timers with FEAT_NV2 is a bit odd, as the timers
+> can be reconfigured behind our back without the hypervisor even
+> noticing. In the VHE case, that's an actual regression in the
+> architecture...
+> 
+> Co-developed-by: Christoffer Dall <christoffer.dall@arm.com>
+> Signed-off-by: Christoffer Dall <christoffer.dall@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/arch_timer.c  | 44 ++++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/arm.c         |  3 +++
+>  include/kvm/arm_arch_timer.h |  1 +
+>  3 files changed, 48 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 1215df5904185..81afafd62059f 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -905,6 +905,50 @@ void kvm_timer_vcpu_put(struct kvm_vcpu *vcpu)
+>  		kvm_timer_blocking(vcpu);
+>  }
+>  
+> +void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
+> +{
+> +	/*
+> +	 * When NV2 is on, guest hypervisors have their EL0 timer register
+> +	 * accesses redirected to the VNCR page. Any guest action taken on
+> +	 * the timer is postponed until the next exit, leading to a very
+> +	 * poor quality of emulation.
+> +	 */
+> +	if (!is_hyp_ctxt(vcpu))
+> +		return;
+> +
+> +	if (!vcpu_el2_e2h_is_set(vcpu)) {
+> +		/*
+> +		 * A non-VHE guest hypervisor doesn't have any direct access
+> +		 * to its timers: the EL2 registers trap (and the HW is
+> +		 * fully emulated), while the EL0 registers access memory
+> +		 * despite the access being notionally direct. Boo.
+> +		 *
+> +		 * We update the hardware timer registers with the
+> +		 * latest value written by the guest to the VNCR page
+> +		 * and let the hardware take care of the rest.
+> +		 */
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CTL_EL0),  SYS_CNTV_CTL);
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0), SYS_CNTV_CVAL);
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CTL_EL0),  SYS_CNTP_CTL);
+> +		write_sysreg_el0(__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0), SYS_CNTP_CVAL);
+> +	} else {
+> +		/*
+> +		 * For a VHE guest hypervisor, the EL2 state is directly
+> +		 * stored in the host EL0 timers, while the emulated EL0
+> +		 * state is stored in the VNCR page. The latter could have
+> +		 * been updated behind our back, and we must reset the
+> +		 * emulation of the timers.
+> +		 */
 
-Allwinner suniv F1C100s now has basic audio codec support. Activate it
-for Lichee Pi Nano board.
+nitpick: s/host EL0/EL1/
 
-Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
-[ csokas.bence: Moved and fixed conflict ]
-Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
----
- .../boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts    | 8 ++++++++
- 1 file changed, 8 insertions(+)
+At least in the way the architecture terms it there's no such thing as
+an EL0 timer, and "host EL0" might lead one to think of ELIsInHost(EL0)
 
-diff --git a/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts b/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts
-index 43896723a994..472ded0aafcf 100644
---- a/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts
-+++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts
-@@ -62,6 +62,14 @@ &uart0 {
- 	status = "okay";
- };
- 
-+&codec {
-+	allwinner,audio-routing =
-+		"Headphone", "HP",
-+		"Headphone", "HPCOM",
-+		"MIC", "Mic";
-+	status = "okay";
-+};
-+
- &usb_otg {
- 	dr_mode = "otg";
- 	status = "okay";
 -- 
-2.34.1
-
-
+Thanks,
+Oliver
 
