@@ -4,91 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A131DE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84DFE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JCLk/wc3MKwAF912ySsq2eZpu6hxxtGQsnffSicJSqo=; b=Fh6Wp/Gr0QgwdMLI/oPZ/m8F2I
-	rh3lVjJE/pWxnZ9sT34d9R1pkkNRdJIfN0KVApv+8Vqoakba7O/VdLaZAsqZ+0y7zvtBIk+DOw3Id
-	AH66XnFPKQmTxLzXu31mxczyHEp2X20GvOtRCRBVkUX9+bI3lZ6dSJW74i4ltI3P1FKbKOK0eo9MA
-	lzgOMBY+RZi1II9zfX1bSbcHSwHsniq706f6wsadEeeIDS0Gu6dJmT+23TzcXxBoC4lbdqXxt+0z4
-	6a1n2E79K70YT6wS1LLGhMxSKkxf/8pp8dNYsNMa9QHuz6nPyGlGG9kOBr+BPXisxxEFeUVW1A/DW
-	Chqz2qGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xPXoJcPeSQwufs65dme8yzbSHiM4hQw48CgHRQis7MU=; b=LHHyZtrn5inPaIm8XzNqcjNXM3
+	nlBUQD2RQG5JyOcl7jXNg27hKhD23+sslGqGlPGrJRPft4szA0yPG/9ab4t5472cPT97S2O+SH66w
+	xBpvIoNJU5Tu93IRTEIWvRZzxG9FKfFoUl6adoA+suWl7+TJZFgFnojMVs4J8ucY4Sd8WPtlmGpOH
+	eXm7nuc82Lg6fptTIG6A160R5kny250/43fIoxCtZqoNkbgFb8skcKKcspKf5kmDbFBuESK3ud2P9
+	StYO4zVeLaV9KMTHAgCzy3rMSbuJXC3EjotSUriZCbPnLvt1qJ53AaLRCoQBxpGmS+B3YudL0AoXP
+	AmsXbzxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEhF-0000000GkJu-0w4Y;
-	Thu, 05 Dec 2024 16:27:21 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tJEiy-0000000GkfO-3sdl;
+	Thu, 05 Dec 2024 16:29:08 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEgD-0000000Gk6m-2xEs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 16:26:18 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d12709e262so1593701a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 08:26:17 -0800 (PST)
+	id 1tJEhx-0000000GkVc-023P;
+	Thu, 05 Dec 2024 16:28:06 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa62fc2675cso8107666b.1;
+        Thu, 05 Dec 2024 08:28:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1733415976; x=1734020776; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JCLk/wc3MKwAF912ySsq2eZpu6hxxtGQsnffSicJSqo=;
-        b=PjcTvxx2Kuqx7kjjik+m04VI0qu04+qZuW7lZziyifWw8oD+t0C47c71rscoSRwHYt
-         w043crsGadFZTzurmrHmFjipY0Hvqv25EBIO/P2YCcK9PR4y5rsne+vABJ64VJmqpO7p
-         N3c2HIw3p/lHytIhM8cdq2bPCNtDTej1iKiI0=
+        d=gmail.com; s=20230601; t=1733416083; x=1734020883; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xPXoJcPeSQwufs65dme8yzbSHiM4hQw48CgHRQis7MU=;
+        b=MPc5LiTyenZ1azZRy9BH8K/kCb+nFb08oO9rEAforrRxvDMY9Bh4MhVwcvXKis+ciS
+         3zslKp3e9c2QuIHUiz7gHWRGNx51ag4DJPt+6Q8VHMc8WRwysLKpyiRtWR37Dvr/EvNa
+         bXOwU8hoV7Y7q4GvZR0GM4B67EwG1VBSCzTpWkZ/gYHOP9qdH1K3bymNSzNm840iN3uV
+         XKfIhUqI6j3NyFrJshFdbULTdZJrDf2EbiiMRPHGGeox6BtWZ8rK+j/gFSldCDuty+9m
+         5yagwn76iAbyy93rQNDTdAiBAaQ0quW1wzYExviv0kVfZJ1mCbsycUWA7MwlDMjI+91a
+         INdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733415976; x=1734020776;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JCLk/wc3MKwAF912ySsq2eZpu6hxxtGQsnffSicJSqo=;
-        b=XuOeU8rKNNd9Wkb6x6CCelLPwvn0HMdOorTtVZQ3l1fra1ynahZo+SqwH6erkCAVkt
-         nXmJ+RIn8z2gcPcjtjqo7+wNzf7aUy18W6+yso3dXEfgcmPod/1ZiU9VVynD5Dw0C/nk
-         EqymDX2EnXteQxUK0cN8/erVJmh9TAhlInet9MdZ6c1pnGiqzkVFyXthrJniKHK+BxYQ
-         UNselg5lCoNyyegJH7HzSiP0H02Mgm6T1rWlcoV514NasuSlvTdDGr1S8eK6B9jnA+t0
-         zxQAjHsNfbqV8tmMoDbgWevXtgte6Bo+yU32gL261XiJ0f2bbVsVyagxtn+AWHz8PcVt
-         cYcg==
-X-Forwarded-Encrypted: i=1; AJvYcCVg/+8hYde4GGvLj+j4ZxU6Pi6g00bV5FqVgO8Ug/r1TmWLcbjZBca4zwQnka3bdmkMGSTzBH7uPy2EsKC71nKt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfikV0ZieVz6RIMvNhqeKIAU9sekJ+cVmGNadiPUdtC0BJ3F2A
-	/v5CJbFODxLRRpLe+H6yuV+RWEupDo3DeYSWDTDDNmucafg64R+oF+fJ12ghbCXyJD8AtCokBvU
-	1
-X-Gm-Gg: ASbGncszTqZ8m/Pu5mgEW0qcWV8lhd6Y82zj3Ra+eNQxhwKLhoxwl2W6qRrkFdvvo0I
-	CevWhFT7hI4vgDiXL/MYBMsasKS/SO8kD+A+rGTtpNZnGzOc+pqZ+xipqJOtvrXhUIATvwvnAza
-	Zeyi4Xw7rT10RXGoX01Z7p8+5kWOqrPm11IWLmj+csiS1gYXB6ds/eUZaUiS7SEpIM7OVyx5d6n
-	1bAWIiLYRgQJ7h1g2WMA4qSWxnaJABLt7bQocXeh8IkYejlAbBO9AjuL4+VbXUQxSBKMYAKUzkU
-	dwi1u0BfjUOxVnvg6LkEqHyMLeLvNRVcYj+6Pnx0fJ1ydg==
-X-Google-Smtp-Source: AGHT+IFXrt5EyVJNmwjOInbQwIR0hRyAYkVbpEnHiym56laCVf9oh8OvxH+kl7ISbHpLv75ASv1ecQ==
-X-Received: by 2002:a05:6402:5107:b0:5d0:eb2d:db97 with SMTP id 4fb4d7f45d1cf-5d10cb80219mr11709960a12.25.1733415975690;
-        Thu, 05 Dec 2024 08:26:15 -0800 (PST)
-Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2001:b07:6474:ebbf:61a1:9bc8:52c6:3c2d])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d14c798f98sm965026a12.57.2024.12.05.08.26.13
+        d=1e100.net; s=20230601; t=1733416083; x=1734020883;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xPXoJcPeSQwufs65dme8yzbSHiM4hQw48CgHRQis7MU=;
+        b=xHf+C1/T5yInyO6YELlHBsKN4jB3oB+kobPT+6C7YQdV2W7zXcC9OYb0BfCOx0aIpA
+         abldkJeu3UzxTYTt6ih1i5LQyw/gmanHyiGCcV3lmX3An2LTTVUg2FwIiSRCyhRULeeC
+         tJ/oYtSbMWu3Yc3cRTT4sZkLrLmDi7SRmoPuWX0SpI8n/uwciHIG1h2Bf4Rpb3XbSzyd
+         mBSv+mvDh/Ubit1gnc49hq3ZHwmhDjZpI3E99Zu/8RjNbVW4wTZTuEt24piV2dZIG7b3
+         AhxQt3OLmszy3nziz0r+nGxrJ0ruKAK/NL8Z9xm4TtIMF6fIslc/InjnTi1veL+8O/wK
+         ND5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXcGb8WAkR8IjaHFznWbmA0YZ7Yw3tsDTdHbAl9Pak94ki9uvN8Vq1Zql8SkNILHuSyeoN7F492rewJYWqdyeZh@lists.infradead.org, AJvYcCXfcjq6lj4eRivG+eiyuo1ub0eAU49tKzoPeyYHMqdz71zxpqVxmBwRNdtxagckZPd/jOlt2ZK50Hd9gepGSXU=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5OxkmEY/3aV1eqL5b29taCrtFBukF80oWHu4Ptyy5L/wV+FVg
+	WAaBle67cw0Wy1OG7YS1aiSHBFg/hMfpnp+EN9f+7duWwfGUdO2A
+X-Gm-Gg: ASbGncs1LNz23LSfljQjN4XmRDXgEqGkj+jUnUt9rq80bFgrKnKTQ5ILxnLp0XLjh7d
+	Kgz3/nh94ADXrYPNkPwUyo1mmNXYfVT/YCGtFbBvsQREqiSFvkRoi1lC5bB2tlPwjHCHu6tb6r+
+	1BZFSc72VVjzBpcHlmsDnMcg7+IK3NhCt1K+2/cxC1mW5dcl4Js/yBi+Sof5FLTew88oAaay0uS
+	Wu7gXrnxBZpkVH4UsjKCc4Qvov3F/X4R82ym+0=
+X-Google-Smtp-Source: AGHT+IFXo8dPa3kP8TWBFDql5AxNgfAf43Sw1KmsQzDEJFJ2Gu14qwW18WvRihEawx3T8P1t1NEPUw==
+X-Received: by 2002:a17:907:7b85:b0:a99:f230:8d6e with SMTP id a640c23a62f3a-aa5f7d9a1c9mr486801166b.7.1733416082676;
+        Thu, 05 Dec 2024 08:28:02 -0800 (PST)
+Received: from skbuf ([188.25.135.117])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62601b5ddsm111902466b.118.2024.12.05.08.28.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 08:26:15 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Thu, 05 Dec 2024 08:28:02 -0800 (PST)
+Date: Thu, 5 Dec 2024 18:27:59 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [RESEND PATCH v2] arm64: dts: imx8mn-bsh-smm-s2/pro: add simple-framebuffer
-Date: Thu,  5 Dec 2024 17:26:04 +0100
-Message-ID: <20241205162612.1804274-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v9 3/4] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+Message-ID: <20241205162759.pm3iz42bhdsvukfm@skbuf>
+References: <20241205145142.29278-1-ansuelsmth@gmail.com>
+ <20241205145142.29278-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241205145142.29278-4-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_082617_737528_39931661 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20241205_082805_043945_DFFB46FB 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a simple-framebuffer node for U-Boot to further fill and activate.
+On Thu, Dec 05, 2024 at 03:51:33PM +0100, Christian Marangi wrote:
+> +static int an8855_efuse_read(void *context, unsigned int offset,
+> +			     void *val, size_t bytes)
+> +{
+> +	struct an8855_priv *priv = context;
+> +
+> +	return regmap_bulk_read(priv->regmap, AN8855_EFUSE_DATA0 + offset,
+> +				val, bytes / sizeof(u32));
+> +}
+> +
+> +static struct nvmem_config an8855_nvmem_config = {
+> +	.name = "an8855-efuse",
+> +	.size = AN8855_EFUSE_CELL * sizeof(u32),
+> +	.stride = sizeof(u32),
+> +	.word_size = sizeof(u32),
+> +	.reg_read = an8855_efuse_read,
+> +};
+> +
+> +static int an8855_sw_register_nvmem(struct an8855_priv *priv)
+> +{
+> +	struct nvmem_device *nvmem;
+> +
+> +	an8855_nvmem_config.priv = priv;
+> +	an8855_nvmem_config.dev = priv->dev;
+> +	nvmem = devm_nvmem_register(priv->dev, &an8855_nvmem_config);
+> +	if (IS_ERR(nvmem))
+> +		return PTR_ERR(nvmem);
+> +
+> +	return 0;
+> +}
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+At some point we should enforce the rule that new drivers for switch
+SoCs with complex peripherals should use MFD and move all non-networking
+peripherals to drivers handled by their respective subsystems.
 
----
+I don't have the expertise to review a nvmem driver, and the majority of
+them are in drivers/nvmem, with a dedicated subsystem and maintainer.
+In general I want to make sure it is clear that I don't encourage the
+model where DSA owns the entire mdio_device.
 
-Changes in v2:
-- Fix the warnings:
-  (ranges_format): /chosen:ranges: empty "ranges" property but its #address-cells (1) differs from / (2)
-  (ranges_format): /chosen:ranges: empty "ranges" property but its #size-cells (1) differs from / (2)
-  by setting both #address-cells and #size-cells to 2.
+What other peripherals are there on this SoC other than an MDIO bus and
+an EFUSE? IRQCHIP, GPIOs, LED controller, sensors?
 
- .../freescale/imx8mn-bsh-smm-s2-display.dtsi  | 28 +++++++++++++++++++
- 1 file changed, 28 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
-index 7675583a6b67..98dec3c42060 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
-@@ -4,6 +4,34 @@
-  */
- 
- / {
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		framebuffer-panel0 {
-+			compatible = "simple-framebuffer";
-+			clocks = <&clk IMX8MN_CLK_DISP_PIXEL_ROOT>, /* lcdif */
-+				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
-+				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>,
-+				 <&clk IMX8MN_VIDEO_PLL1>,
-+				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>, /* pgc_dispmix */
-+				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
-+				 <&clk IMX8MN_CLK_DISP_AXI>,
-+				 <&clk IMX8MN_CLK_DISP_APB>,
-+				 <&clk IMX8MN_SYS_PLL2_1000M>,
-+				 <&clk IMX8MN_SYS_PLL1_800M>,
-+				 <&clk IMX8MN_CLK_DSI_CORE>, /* mipi_disi */
-+				 <&clk IMX8MN_CLK_DSI_PHY_REF>;
-+
-+			power-domains = <&disp_blk_ctrl IMX8MN_DISPBLK_PD_LCDIF>,
-+					<&disp_blk_ctrl IMX8MN_DISPBLK_PD_MIPI_DSI>;
-+			dvdd-supply = <&reg_3v3_dvdd>;
-+			avdd-supply = <&reg_v3v3_avdd>;
-+			status = "disabled";
-+		};
-+	};
-+
- 	backlight: backlight {
- 		compatible = "pwm-backlight";
- 		pwms = <&pwm1 0 700000 0>;	/* 700000 ns = 1337Hz */
--- 
-2.43.0
-
+You can take a look at drivers/mfd/ocelot* and
+Documentation/devicetree/bindings/mfd/mscc,ocelot.yaml for an example on
+how to use mfd for the top-level MDIO device, and DSA as just the driver
+for the Ethernet switch component (which will be represented as a
+platform_device).
 
