@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F16E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4D8E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tR8Gx4YF+iGaCMV6DuY+XQYSDcjVdzyIfn9PDc6LDOM=; b=DZANR5WNff4c/YolBTt9U8n9pm
-	EoZH56qut3rpg2ESImzXAjbyWAdGVw3DGzVyZtP6tEjsHhtDUOQN8VDMqWKRgsQ2PptQ2i35VO4XY
-	ophFK596RlGMjQBoXcQXRQVUYKoYxW41K77KO8jEyHpTVKB917c8+x+M49FA/DLQlXVcCBmkcybxA
-	2poN8AC2t03DMyxs8T8/sDrzm+K7sShB/mESW/cxqM+AUiB8gCr2OVaYnMSMbdrsNtvCqEU0TM+Ez
-	egE3zrdqvLaSP6zke42vpetf5iUbvKagItj+snM8O/bR9yZ0q9o15S0txxrd92tw0QXS9661w80Bx
-	ptnq95qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5pWBaXiip4ai7Zuk7UcSTo/0F35OqRUI11Y0Kje79Xg=; b=vKZmX/LL+CnP2CEbRlbnon824g
+	KgY05myytu5HH5s3rgk0Jm6+fNCLoANcAINiQgm22tQ8UPPT+X7TiqDaGpF50oZiKYleX/qf4B5fG
+	dnUnq0QFaFumqdZXsDmaYti55OoafYRPMf9zTEmiJSn98MTQjBVefg+O1jrHsU4CF4DK4MbqN8ICq
+	XQygHWOBivr+/ufBCAQwkzLdI9JM76tRSFkvTdvxzy74VoQIXqLSsW5SyCcHzmrpry5ikCNZNlqbh
+	T8GftOSH3J9xvfuz5aDWRj4pELyAKOopaNyJgrKk7S2+Vt3xZd4ATdRXgGAB+LcQ9dwjIaS4++tQd
+	Yl4dHg1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGoq-0000000H8n3-0xHQ;
-	Thu, 05 Dec 2024 18:43:20 +0000
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
+	id 1tJGwO-0000000H9PU-2eBP;
+	Thu, 05 Dec 2024 18:51:08 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGnn-0000000H8dV-3pxy
+	id 1tJGvL-0000000H9FM-3wYZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 18:42:17 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-85bb264993cso278920241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 10:42:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733424134; x=1734028934; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tR8Gx4YF+iGaCMV6DuY+XQYSDcjVdzyIfn9PDc6LDOM=;
-        b=oPFs7nypFPPxFNhIELyVnoP6Px/ZB6k7Gte1L7A5jg6zrLAt243PIrLOTrJ+LeVsK3
-         7GEyrkwXI6Cw4rb+iGBKw300FdWHf0aWQeOuhDOueJN2VCHAoflIliILYZcfTg4xN2oZ
-         sfgsq7BytVv5mN8yOaFs+gMVLEooylWpFYJ1ey8QmnZUJ8gyCKG/McIW7CTxDDJfFgRn
-         sDvCvUuFfy0bkmHoXOK90/PJTqStx/bHQZ+s/YmPb72iaIO0/wennUWYTxIZCoOvydMP
-         +1w3tzg26QIMHsYaQC0kzuraL6yCnvtCe2UbGK2cJ687tOsRg8cpycWJHifNaKUGBj9h
-         K5Ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733424134; x=1734028934;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tR8Gx4YF+iGaCMV6DuY+XQYSDcjVdzyIfn9PDc6LDOM=;
-        b=NwmbSWORsyqqNA+i43wVd2J8DxfViggD6vRSTJcnmFSqQZYYwLbADpTaXpStzpmbq+
-         14Gw3NBPI0a/qo/EIoLh32dR6t9zANVzMX2pAeAOsZTtqMJ0c2rGO71DdVemz8zparnF
-         +4cTXvktx4PAqsqWleD2oc6s+VPNOJuxH3/57tPciyacLvtdbpp6WPNtEOob/KPA1sux
-         U4LsYH9LYO9KKMUZXU8ai0jxqZAdPg7AVhcU6XJySJ5z6wwDk1cwjYwIm9uehgox8Gle
-         2xLdTTNI81FBdhslT3uMmd2hLL0zusCvb2OH4YUT6s09kZ06rjVh2SdrDgEY+3JsZ7GB
-         fngw==
-X-Forwarded-Encrypted: i=1; AJvYcCVf2Fucs58LpM/RbwtASwR8mG19Q1SSmwOwZ4WzJckuq7SwNyLRSM6TQtL1v2U54ArNskID/ACcU+2TumBDYL49@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9gYFMr8qNYICRvsLeMJQdJvfoz5gsGSicn52uXM/dwV8GPcvo
-	mxPUtny3o14R2Rqh4PhsvbfU368BNh5RDE17SDi/QnNxtXx4179wOTQ4m027KLjtFKowyvdith/
-	I11bQcayjMiq9tOGqqOcYGpPvAlwS3ntlBTJfKg==
-X-Gm-Gg: ASbGnct6/PpKSu8wZXdevkvm4mSC+SpACTfbEpWl3i5tqms8u5jLY6wpEY+uShLrV53
-	AlakScTnJZJ960OGTpYF5zUbQBZ9rOcwr
-X-Google-Smtp-Source: AGHT+IG269PkgdVPpsUfRMnNfyCTRw+6b9s1FqQamygLLFlRX39CxuzaR647OcbZrJKkKII8mvW1s/GWCnxsPXgxkTM=
-X-Received: by 2002:a05:6102:3909:b0:4af:bf45:39a8 with SMTP id
- ada2fe7eead31-4afcaa4f74cmr835447137.16.1733424134670; Thu, 05 Dec 2024
- 10:42:14 -0800 (PST)
+	Thu, 05 Dec 2024 18:50:05 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tJGv7-0006PO-8a; Thu, 05 Dec 2024 19:49:49 +0100
+Message-ID: <6b39268b-7487-427d-aff5-f3ca3b2afd42@pengutronix.de>
+Date: Thu, 5 Dec 2024 19:49:47 +0100
 MIME-Version: 1.0
-References: <CA+G9fYsT34UkGFKxus63H6UVpYi5GRZkezT9MRLfAbM3f6ke0g@mail.gmail.com>
- <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain>
-In-Reply-To: <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Fri, 6 Dec 2024 00:12:03 +0530
-Message-ID: <CA+G9fYv5gW1gByakU1yyQ__BoAKWkCcg=vGGyNep7+5p9_2uJA@mail.gmail.com>
-Subject: Re: arm64: include/linux/compiler_types.h:542:38: error: call to
- '__compiletime_assert_1050' declared with attribute error: clamp() low limit
- min greater than high limit max_avail
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: David Laight <David.Laight@aculab.com>, open list <linux-kernel@vger.kernel.org>, 
-	lkft-triage@lists.linaro.org, Linux Regressions <regressions@lists.linux.dev>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, netfilter-devel@vger.kernel.org, 
-	Arnd Bergmann <arnd@arndb.de>, Anders Roxell <anders.roxell@linaro.org>, 
-	Johannes Berg <johannes.berg@intel.com>, toke@kernel.org, 
-	Al Viro <viro@zeniv.linux.org.uk>, kernel@jfarr.cc, kees@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] i2c: imx: support DMA defer probing
+To: Carlos Song <carlos.song@nxp.com>, "mkl@pengutronix.de"
+ <mkl@pengutronix.de>, Frank Li <frank.li@nxp.com>,
+ "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>
+Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20241127083818.2108201-1-carlos.song@nxp.com>
+ <153e8e36-7b0e-4379-9cc3-6dacb5d705be@pengutronix.de>
+ <AM0PR0402MB39370E69BC4B71C761EE8377E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <AM0PR0402MB39370E69BC4B71C761EE8377E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_104215_966452_6F82FCEF 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241205_105004_144336_829EA429 
+X-CRM114-Status: GOOD (  46.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,16 +78,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Dec 2024 at 20:46, Dan Carpenter <dan.carpenter@linaro.org> wrote:
->
-> Add David to the CC list.
+Hello Carlos,
 
-Anders bisected this reported issue and found the first bad commit as,
+On 27.11.24 11:43, Carlos Song wrote:
+>> -----Original Message-----
+>> From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+>> Sent: Wednesday, November 27, 2024 4:38 PM
+>> To: Carlos Song <carlos.song@nxp.com>; mkl@pengutronix.de; Frank Li
+>> <frank.li@nxp.com>; o.rempel@pengutronix.de; kernel@pengutronix.de;
+>> andi.shyti@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de;
+>> festevam@gmail.com
+>> Cc: imx@lists.linux.dev; linux-i2c@vger.kernel.org;
+>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+>> Subject: [EXT] Re: [PATCH v4] i2c: imx: support DMA defer probing
 
-# first bad commit:
-  [ef32b92ac605ba1b7692827330b9c60259f0af49]
-  minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+>> Please try to address open questions before sending new versions of the patch
+>> set. Otherwise, it's difficult to follow the conversation.
+>>
+>> Did you see my question[1] on your v2:
+>>
+> 
+> Hi, thank you so much! So sorry about it... I missed it yesterday. I will answer your question[1] in this mail.
+> 
+> 
+>> | Wouldn't this break probe for all i2c-imx users who have
+>> | CONFIG_IMX_SDMA disabled?
+>> |
+> 
+> I have tested i2c probe at IMX and LS platform when DMA disabled,
+
+What does DMA disabled mean? Did you leave the dmas property in the device
+tree unchanged, but just disabled the config option?
+
+> it won't break i2c-imx probe.
+> When require DMA channel in i2c_imx_dma_request, find no devices and return
+> -ENODEV, as you see at V4 patch, it will continue to probe and work in PIO mode.
+> I2C adapter should keep available whatever DMA mode is or isn't enabled.
+
+If that's the case, then all is good. I thought the situation described
+above would return -EPROBE_DEFER instead. I haven't dug into the code
+to understand what the difference between when dma_request_chan().
+
+>> | Also I am wondering on what kernel version and what configuration
+>> | (CONFIG_I2C_IMX=?, CONFIG_IMX_SDMA=?) you have that made you run into
+>> | this situation.
+>> |
+> 
+> I want to correct something, these code about DMA in i2c-imx.c is for eDMA not for SDMA.
+> For eDMA mode, I have tested this patch at layerscape-1043 platform. My patch is based on
+> cfba9f07a1d6 (tag: next-20241122, origin/master, origin/HEAD).
+
+The driver also handles i.MX variants like i.MX6, i.MX8 and so on, which
+have SDMA. So eDMA is not the only DMA driver it is used with.
+
+> 
+> Test log is :
+> No apply this patch:
+> CONFIG_I2C_IMX=y
+> CONFIG_FSL_EDMA=y
+> root@ls1043ardb:~# dmesg | grep i2c
+> [    1.162053] i2c i2c-0: IMX I2C adapter registered
+> [    1.166826] i2c i2c-0: using dma0chan16 (tx) and dma0chan17 (rx) for DMA transfers
+> [    4.722057] i2c_dev: i2c /dev entries driver
+> 
+> Not apply the patch:
+> CONFIG_I2C_IMX=y
+> CONFIG_FSL_EDMA=m
+> root@ls1043ardb:~# dmesg | grep i2c
+> [    1.166381] i2c i2c-0: IMX I2C adapter registered
+> [    4.719226] i2c_dev: i2c /dev entries driver
+> (result shows i2c not enabled the eDMA mode)
+> root@ls1043ardb:~# i2cdetect -y -l
+> i2c-0   i2c             2180000.i2c                             I2C adapter
+> root@ls1043ardb:~# i2cdetect -y 0
+>      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+> 00:                         08 -- -- -- -- -- -- --
+> 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+> 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+> 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+> 40: UU -- -- -- -- -- -- -- -- -- -- -- UU -- -- --
+> 50: -- UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
+> 60: -- -- -- -- -- -- -- -- -- 69 -- -- -- -- -- --
+> 70: -- -- -- -- -- -- -- --
+> 
+> After apply the patch:
+> CONFIG_I2C_IMX=y
+> CONFIG_FSL_EDMA=m
+> root@ls1043ardb:~#
+> root@ls1043ardb:~# dmesg | grep i2c
+> [    4.697046] i2c_dev: i2c /dev entries driver
+> [    7.304142] imx-i2c 2180000.i2c: using dma0chan16 (tx) and dma0chan17 (rx) for DMA transfers
+> [    7.313532] i2c i2c-0: IMX I2C adapter registered
+> (result shows i2c probed after eDMA module installed)
+
+My concern is this configuration:
+
+  - A user has eDMA/SDMA module or disabled, but enabled in DT
+  - The I2C has a PMIC, which is needed for eMMC VCC
+  - System startup is stuck or considerably delayed
+
+> root@ls1043ardb:~#
+> root@ls1043ardb:~# i2cdetect -y -l
+> i2c-0   i2c             2180000.i2c                             I2C adapter
+> root@ls1043ardb:~# i2cdetect -y 0
+>      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+> 00:                         08 -- -- -- -- -- -- --
+> 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+> 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+> 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+> 40: UU -- -- -- -- -- -- -- -- -- -- -- UU -- -- --
+> 50: -- UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
+> 60: -- -- -- -- -- -- -- -- -- 69 -- -- -- -- -- --
+> 70: -- -- -- -- -- -- -- --
+> 
+> 
+>> | I'd have expected that with fw_devlink enabled, the I2C controller
+>> | wouldn't be probed before the DMA provider is available.
+>>
+> 
+> This is a legacy patch, it has been in our local tree for a long time. The related history is relatively vague.
+> I reproduced the problem and found this patch is effective, so I referred the community patch and
+> legacy patch to rewrite the commit log(I am not sure if this would happened in some cases so I kept this information).
+> Now it seems that these descriptions are redundant. I should completely removed this in the commit log:
+>     Move i2c_imx_dma_request() before registering I2C adapter to avoid
+>     infinite loop of .probe() calls to the same driver, see "e8c220fac415
+>     Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
+>     and "Documentation/driver-api/driver-model/driver.rst".
+
+Cheers,
+Ahmad
+
+> 
+> [1]: https://lore.kernel.org/all/19a43db4-db5c-4638-9778-d94fb571a206@pengutronix.de/
+> [2]:https://lore.kernel.org/all/153e8e36-7b0e-4379-9cc3-6dacb5d705be@pengutronix.de/
+> 
+>>>
+>>> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+>>> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+>>> ---
+>>> Change for V4:
+>>> - Output "Only use PIO mode" log in debug level when no DMA configure.
+>>> Change for V3:
+>>> - According to Marc's comment, remove error print when defer probe.
+>>>   Add info log when DMA has not been enabled and add error log when
+>>>   DMA error, both won't stuck the i2c adapter register, just for reminding,
+>>>   i2c adapter is working only in PIO mode.
+>>> Change for V2:
+>>> - According to Frank's comments, wrap at 75 char and Simplify fix code
+>>>   at i2c_imx_dma_request().
+>>> - Use strict patch check, fix alignment warning at
+>>> i2c_imx_dma_request()
+>>> ---
+>>>  drivers/i2c/busses/i2c-imx.c | 31 +++++++++++++++++++++++--------
+>>>  1 file changed, 23 insertions(+), 8 deletions(-)
+>>>
+>>> diff --git a/drivers/i2c/busses/i2c-imx.c
+>>> b/drivers/i2c/busses/i2c-imx.c index 5ed4cb61e262..b11d66d56c55 100644
+>>> --- a/drivers/i2c/busses/i2c-imx.c
+>>> +++ b/drivers/i2c/busses/i2c-imx.c
+>>> @@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct
+>>> imx_i2c_struct *i2c_imx)  }
+>>>
+>>>  /* Functions for DMA support */
+>>> -static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
+>>> -                                             dma_addr_t
+>> phy_addr)
+>>> +static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
+>>> +dma_addr_t phy_addr)
+>>>  {
+>>>       struct imx_i2c_dma *dma;
+>>>       struct dma_slave_config dma_sconfig;
+>>> -     struct device *dev = &i2c_imx->adapter.dev;
+>>> +     struct device *dev = i2c_imx->adapter.dev.parent;
+>>>       int ret;
+>>>
+>>>       dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
+>>>       if (!dma)
+>>> -             return;
+>>> +             return -ENOMEM;
+>>>
+>>>       dma->chan_tx = dma_request_chan(dev, "tx");
+>>>       if (IS_ERR(dma->chan_tx)) {
+>>> @@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct
+>> imx_i2c_struct *i2c_imx,
+>>>       dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
+>>>               dma_chan_name(dma->chan_tx),
+>>> dma_chan_name(dma->chan_rx));
+>>>
+>>> -     return;
+>>> +     return 0;
+>>>
+>>>  fail_rx:
+>>>       dma_release_channel(dma->chan_rx);
+>>> @@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct
+>> imx_i2c_struct *i2c_imx,
+>>>       dma_release_channel(dma->chan_tx);
+>>>  fail_al:
+>>>       devm_kfree(dev, dma);
+>>> +
+>>> +     return ret;
+>>>  }
+>>>
+>>>  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,23 @@
+>>> static int i2c_imx_probe(struct platform_device *pdev)
+>>>       if (ret == -EPROBE_DEFER)
+>>>               goto clk_notifier_unregister;
+>>>
+>>> +     /*
+>>> +      * Init DMA config if supported, -ENODEV means DMA not enabled at
+>>> +      * this platform, that is not a real error, so just remind "only
+>>> +      * PIO mode is used". If DMA is enabled, but meet error when request
+>>> +      * DMA channel, error should be showed in probe error log. PIO mode
+>>> +      * should be available regardless of DMA.
+>>> +      */
+>>> +     ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+>>> +     if (ret) {
+>>> +             if (ret == -EPROBE_DEFER)
+>>> +                     goto clk_notifier_unregister;
+>>> +             else if (ret == -ENODEV)
+>>> +                     dev_dbg(&pdev->dev, "Only use PIO mode\n");
+>>> +             else
+>>> +                     dev_err_probe(&pdev->dev, ret, "Failed to setup
+>> DMA, only use PIO mode\n");
+>>> +     }
+>>> +
+>>>       /* Add I2C adapter */
+>>>       ret = i2c_add_numbered_adapter(&i2c_imx->adapter);
+>>>       if (ret < 0)
+>>> @@ -1817,9 +1835,6 @@ static int i2c_imx_probe(struct platform_device
+>> *pdev)
+>>>               i2c_imx->adapter.name);
+>>>       dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter registered\n");
+>>>
+>>> -     /* Init DMA config if supported */
+>>> -     i2c_imx_dma_request(i2c_imx, phy_addr);
+>>> -
+>>>       return 0;   /* Return OK */
+>>>
+>>>  clk_notifier_unregister:
+>>
+>>
+>> --
+>> Pengutronix e.K.                           |
+>> |
+>> Steuerwalder Str. 21                       |
+>> http://www.pen/
+>> gutronix.de%2F&data=05%7C02%7Ccarlos.song%40nxp.com%7C1acf840d499f
+>> 49a7872408dd0ebedc39%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
+>> %7C638682935131084746%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAw
+>> MDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&s
+>> data=Y9Qn9XEk15yu4CespwsNu6hl3%2FqfNTvEeOn4ZvnGxbo%3D&reserved=0
+>> |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
+>> |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:
+>> +49-5121-206917-5555 |
+> 
 
 
- - Naresh
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
