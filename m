@@ -4,71 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F43E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCAA7E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MmHKOegUCAzoPx5EkMu41F32NHwcGnKPOxcKrUxVd5c=; b=5GjJdg9xbXz9CpTMDPhm7KRBv2
-	z6uWTPA6Lf/Z15VOEkjLf6GNYppWssCeB3IO3pzXisx0MjRZj2XCDQ1t26txFQ906xQjB1a9R61wc
-	dOJaiRKBpu9a2EglPhTfLaXthH+0nLLf2+mrD6nivphUOnBN5SwwaV/rYRDCfZh9U+1hqra2Fn/p/
-	YdzypMWo0b2lGgFyVKQrxza81e792rSdawk8ml1XRj6v94jxiROTU9egzjhSNl9Sv/vZ1q+pE0uUf
-	eQ3BVotvdQN+00LkvcO89sqC71IvqgWM3m4LLhkuAjJpY6X62qqKEszwIr2DHGBCfsPlGKgVlXmoR
-	9pmotiDg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y0HmfRBKBkLsgyW/HeIjKXTJHSnwiReWOxGDbcg2lig=; b=iJVMLmbxFOaxV0DP7+Uh7cbI0H
+	F20jmTHHrDLh8BmZlWP93l/BFowx1x6afVTLGDhWvQVHOVW1IWA0tbMPi19uO2lUWW23rGr8tovyv
+	l9c/S2KbTCsLEiH4kP6paWSo9XmioVMc7myps7iNekUjYGApfOykxKzpctUCN6jSVcvKwq4lDuuB+
+	c7mi+fQKZoNCgQSeoxiiVuetTZK59bRFB8j3CZ0wnho7Chjqu2+6CmvALXV+QwZAGkDZvkjUrHpSn
+	A2YTWJLwtd1laMttVWFwPHJnu3zKqo/rgGGVXS9Frpge/DBW8VVuDGj08ZkQeBTBU205OSHHUTbsi
+	WsFHPfFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ81i-0000000FLBB-3Nw0;
-	Thu, 05 Dec 2024 09:20:02 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1tJ82i-0000000FLVE-1GHO;
+	Thu, 05 Dec 2024 09:21:04 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ80M-0000000FKt6-32qe;
-	Thu, 05 Dec 2024 09:18:40 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout3.routing.net (Postfix) with ESMTP id 1E598616B6;
-	Thu,  5 Dec 2024 09:18:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1733390315;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MmHKOegUCAzoPx5EkMu41F32NHwcGnKPOxcKrUxVd5c=;
-	b=ktA/SVxy29czMtiMwoNkO0otnKMqpmC2qOUufS7HEFUT1mYbgADtOkMSt72qLdvCi+POZX
-	OB/5NETolms6U2ObIGquvlnOH6bkGwM62Igmr539l8N7geOb1SNS9nZvi9cses7AfFP2Ml
-	/CJAZbhdHzk3IHeLTdH5g35lQ++m+kU=
-Received: from webmail.hosting.de (unknown [134.0.26.148])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 545051002C7;
-	Thu,  5 Dec 2024 09:18:34 +0000 (UTC)
+	id 1tJ81J-0000000FL5E-2s1L
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 09:19:39 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21578cfad81so5506315ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 01:19:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733390376; x=1733995176; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=y0HmfRBKBkLsgyW/HeIjKXTJHSnwiReWOxGDbcg2lig=;
+        b=X3gh6SwoOy9jBU8T5/8W8yl576QmnlWJA6bBLkw0kMqddS/loHNYoPxIJzdUSGOIsP
+         hj2U8nTT24H7NbG68EmY+I1A9VY3BNRs6sU6cbeGDCAfM6EjF2tK3I+MKI9c5JxS8wTj
+         nAIVFp0p0IKzr06EBg19clEqhW5HS0VQrG6zREdcregybvhfwbB0LJOJ7CeWaTqWJmYZ
+         ukQDBzxUBPw6YIlLwnKuTlPEY9RndxhR1GlRa6uFJs+ANwEkaCiKGFeVGZZfZ0dYDWEo
+         Siqzsq1+sYzDG6HN123yNaChSs/ZYQjvLMoYXUIy7PkNfaq+3RGzv/19/NmQfaZ5PkCT
+         XA1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733390376; x=1733995176;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y0HmfRBKBkLsgyW/HeIjKXTJHSnwiReWOxGDbcg2lig=;
+        b=Ut4Fr9O2YjI9ITjcNQRxC0VTpjzLTm3e7n7LL31ct1lpRkl/3SAXGwdDv6bDKlUyys
+         V7fXRajYFWgSVyivHYoBDEyrAz0gqKijpg6Jt/FosdbE1TJSqx2uZLKZR/gj0l3cjCnP
+         iqbop37BGmWgoW1rDlPW2We648Qsp+YF/79BiOlF1Lu5u94hKbxH90/a+BeqWm+yq1N2
+         woxh44G5nBRN/myjWUiW8LWDG7Ovv9PNZJJmI/cGMLZtN47W5jcUvtRZ1/QJBmO5X0x+
+         oV1XP9iPHGZx9aoZof89kR8dTysEon3dj7ihwEmuLzk16GVCZuhNZx/yXvTHfLdaS+xU
+         S4pg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwaIGog+QEyJm27jecaxz2GmElckplfU4WUi83LsuZRezSTzYFzFihjkghJCYa7/sXPjuy5MYKKKC03U8eFHm2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb2iBkQfMGWWxuQOiNgYLjS8fBzqYJAQAhCE2Q65vjdO2fbTZ2
+	BGLGuOVncl9w+izVjgUFcK/qz299qkYUv/mMjmeiDkCMM2AzN3fF
+X-Gm-Gg: ASbGncuGVvZLO/LuKezfvT0HbW/dfGT8h/qSQVkZTIxk2wl5/pOLoD0tgoun9SQZ71d
+	LwwhFbBfH95RUAxZLa9UseXS7ZGvoD2HRhugJsdlKasbMhg9cn+2stDCTbNMv1aKMEDyVQzuOHk
+	V6lfFBkBFE69HbfFQlY8QXYVoqfoeT0AbD1h1oU7/FjU/bz1grauBkeGhfDePpr77wOj5YIGCbD
+	x+9e2Q15l54x3yxeENYDjf+iB0QKJc6gcAyXndck57OTw9XsSBHVBeNZVoa+FM=
+X-Google-Smtp-Source: AGHT+IHFjK3cGcjfncsTvxz/JQr72PK97p7r+aYYZQ6H2u3kZ0kfRozsXNPN9a0ZsbcFy3VaXfTZ0g==
+X-Received: by 2002:a17:903:1ca:b0:20b:8a71:b5c1 with SMTP id d9443c01a7336-215bd1b4604mr141553115ad.1.1733390376224;
+        Thu, 05 Dec 2024 01:19:36 -0800 (PST)
+Received: from localhost.localdomain ([129.146.253.192])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-215f8f09270sm8234895ad.203.2024.12.05.01.19.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 01:19:35 -0800 (PST)
+From: Furong Xu <0x1207@gmail.com>
+To: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	xfr@outlook.com,
+	Furong Xu <0x1207@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH net v1] net: stmmac: TSO: Fix unaligned DMA unmap for non-paged SKB data
+Date: Thu,  5 Dec 2024 17:18:30 +0800
+Message-Id: <20241205091830.3719609-1-0x1207@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Date: Thu, 05 Dec 2024 10:18:34 +0100
-From: "Frank Wunderlich (linux)" <linux@fw-web.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: frank-w@public-files.de, Linus Walleij <linus.walleij@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean
- Wang <sean.wang@kernel.org>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 3/5] dt-bindings: pinctrl: add binding for MT7988 SoC
-In-Reply-To: <6ebd58fd-8461-476c-9266-a21455d5e819@kernel.org>
-References: <20241202110045.22084-1-linux@fw-web.de>
- <20241202110045.22084-4-linux@fw-web.de>
- <iwmnxlqpaijvr4kmzwk3elacqj5ukqlchfs67ca6c6gxrycpbb@pc6a6scqkdi5>
- <1DBA844B-4DB2-4AA2-BF04-B3CC39B3C3F8@public-files.de>
- <6ebd58fd-8461-476c-9266-a21455d5e819@kernel.org>
-Message-ID: <6926509bd56cbb32125a978c939b28ab@fw-web.de>
-X-Sender: linux@fw-web.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Mail-ID: ac2b3ffa-74bd-41dc-bc2b-b3b7e5131251
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_011838_931135_C688AECE 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20241205_011937_721261_CFEBBCDC 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +107,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 2024-12-05 08:35, schrieb Krzysztof Kozlowski:
-> On 04/12/2024 08:41, Frank Wunderlich wrote:
->> Am 4. Dezember 2024 08:35:37 MEZ schrieb Krzysztof Kozlowski 
->> <krzk@kernel.org>:
->>> On Mon, Dec 02, 2024 at 12:00:37PM +0100, Frank Wunderlich wrote:
->>>> From: Frank Wunderlich <frank-w@public-files.de>
->>>> 
->>>> This adds bindings for MT7988 pinctrl driver.
->>>> 
->>>> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
->>>> ---
->>>> changes in v5 (so not adding RB from Rob given in v4):
->>>> - do not use MTK_DRIVE_8mA in example
->>>> - add _0 functions for pwm
->>>> 
->>> 
->>> <form letter>
->>> This is a friendly reminder during the review process.
->>> 
->>> It looks like you received a tag and forgot to add it.
->>> 
->>> If you do not know the process, here is a short explanation: Please 
->>> add
->>> Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
->>> or above your Signed-off-by tag. Tag is "received", when provided
->>> in a message replied to you on the mailing list. Tools like b4 can 
->>> help
->>> here. However, there's no need to repost patches *only* to add the 
->>> tags.
->>> The upstream maintainer will do that for tags received on the version
->>> they apply.
->>> 
->>> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
->>> 
->>> If a tag was not added on purpose, please state why and what changed.
->>> </form letter>
->> 
->> Is this an automatic message? I guess yes...
->> 
->> I have not added it (robs reviewed-by) from v4 due to changes and 
->> explained why in changelog. If i'm wrong please let me know.
-> 
-> Where did you explain the reason of dropping review tag? This has to be
-> *EXPLICIT* but I only see:
-> 
-> - rebased to 6.13-rc1
-> - moved dt nodes with mutliple options to BPI-R4 board
-> - changes suggested by angelo in v4
-> - changed example in binding and dt node to not using const 
-> MTK_DRIVE_8mA
-> 
-> 
-> Nothing here suggests even remotely that review tag was dropped. 
-> Nothing
-> suggests that it should be dropped!
+Commit 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for
+non-paged SKB data") assigns a wrong DMA buffer address that is added an
+offset of proto_hdr_len to tx_q->tx_skbuff_dma[entry].buf on a certain
+platform that the DMA AXI address width is configured to 40-bit/48-bit,
+stmmac_tx_clean() will try to unmap this illegal DMA buffer address
+and many crashes are reported: [1] [2].
 
-here:
->>>> changes in v5 (so not adding RB from Rob given in v4):
+This patch guarantees that DMA address is passed to stmmac_tx_clean()
+unmodified and without offset.
 
+[1] https://lore.kernel.org/all/d8112193-0386-4e14-b516-37c2d838171a@nvidia.com/
+[2] https://lore.kernel.org/all/klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw/
 
-> Best regards,
-> Krzysztof
+Reported-by: Jon Hunter <jonathanh@nvidia.com>
+Reported-by: Thierry Reding <thierry.reding@gmail.com>
+Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
+Fixes: 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for non-paged SKB data")
+Signed-off-by: Furong Xu <0x1207@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 9b262cdad60b..7227f8428b5e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	struct stmmac_txq_stats *txq_stats;
+ 	struct stmmac_tx_queue *tx_q;
+ 	u32 pay_len, mss, queue;
++	dma_addr_t tso_hdr, des;
+ 	u8 proto_hdr_len, hdr;
+-	dma_addr_t des;
+ 	bool set_ic;
+ 	int i;
+ 
+@@ -4279,6 +4279,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 			     DMA_TO_DEVICE);
+ 	if (dma_mapping_error(priv->device, des))
+ 		goto dma_map_err;
++	tso_hdr = des;
+ 
+ 	if (priv->dma_cap.addr64 <= 32) {
+ 		first->des0 = cpu_to_le32(des);
+@@ -4310,7 +4311,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	 * this DMA buffer right after the DMA engine completely finishes the
+ 	 * full buffer transmission.
+ 	 */
+-	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = des;
++	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = tso_hdr;
+ 	tx_q->tx_skbuff_dma[tx_q->cur_tx].len = skb_headlen(skb);
+ 	tx_q->tx_skbuff_dma[tx_q->cur_tx].map_as_page = false;
+ 	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf_type = STMMAC_TXBUF_T_SKB;
+-- 
+2.34.1
+
 
