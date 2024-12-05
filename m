@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2DB1E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D167E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q4ssub2oHj1XQWaekdv+c0iO6yU2XYhJflP7PVgCVxw=; b=WcBtvem0vobr552JFdMWQAK694
-	Bi9jVK1yMEQehCXFBZEloHL2KsSdR39EGrcc3hOjEIZ8L+oHWJ09D6OkkFiDUCnnd8OZIMLVGSoyR
-	n9LHvzVqq8IMBXNtQSSvV7p9UFtgob0D3EhTZJhDKHgMy+MxUEQcX6npZJ1ht0KNim/ak1ONbM9Qu
-	h6SOFc2BcofPhzJhlMLqdn/8x2ofaIKOYiroJvFB0c9fuSxzsyqSyTTBXTTWf07RE+NvFyvQ7hfuD
-	WDXyqdL/bn7viRowrRRlVu5OQAQw6JMZjiYmLZQP+5AsQipcQkLqeEeRduNWkZFJedD/R3vkf9/xL
-	Z0MF2p5A==;
+	bh=z/KaeDb4jhwVyfpWTf+pM2xw3edUlnwH5Ep89GQm1VQ=; b=yWq3kCw7Uc8ovLt3CTea/CeNw6
+	V/Qnrapk2v8BYPBWvam7y/TrFCAYDP7h5Sc/s2wWjy9sHipepO4BYjSRjsN07JMkXedro8jqGj0iP
+	5RKF93f0nZIJmI0wVUxbQNkzz5iqeomDRl3IuNQfRdAwjv40i+XVqfv2qZ6KIOikAVbk5xcd8MEWN
+	u6srR0xAc6vc9fOKwcmNmzXDqtIAG/ZkReX8uOBAkLYiLYTm8GZQu1sQG3hgyC7T5QJsLc1BpXsXl
+	teeNIRISzCQCg6PRUzHraxVp65X8qmHYAKydb9VqSl5bAec70VrZ0QhxvVh2LMBEk25leEcH0Y2NT
+	mZIJftlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBER-0000000G0bm-0eLw;
-	Thu, 05 Dec 2024 12:45:23 +0000
+	id 1tJBFR-0000000G0p8-0Z7s;
+	Thu, 05 Dec 2024 12:46:25 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBAb-0000000FzZv-3dEs;
-	Thu, 05 Dec 2024 12:41:27 +0000
+	id 1tJBBI-0000000Fzla-2IBD;
+	Thu, 05 Dec 2024 12:42:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733402484;
-	bh=HO0wXGzhDvgrKBdJi7+/8nVYZ/pZQYioghULZD0qjqo=;
+	s=mail; t=1733402527;
+	bh=LM2gUsX/c1KVTYV3HmF0p9792S12iewI4CRKDypr+as=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aOzgpfaY0TmEBk4soLcN6wXjvOIK/KhkM2yCNrY0T55tinTVZmWGVnzCruNUqUrRK
-	 VloxJi6n5F4lESgTIFAqIEVKP/pyK1wORtxVWe60RzpzCah+cA/h/avbuMD3ggk4gs
-	 QA7cKy5fG+YEe2NHFvFqfJh2ltiIe2FnvcjYOvoA/Yqo4RPtios+9XokGEdnu9A9V3
-	 FbiCTkQKgB0xj6Ijxd6e5vEiQxZe0nnMQdI9E+IuaW4CHnTWKNqf48NgsBP2yJwVPK
-	 H72H0ITEThfLkRK5emjJ1JX2R7kstw5LqBE7EFw2ElTfRkoz2O7zuWFOANE4ZImGLi
-	 Lb3Ky7+KGFHpw==
+	b=e0zKmW/eBTcWod3x01BANWCi2/KHwDjSdRb9jaCq0pv8j2puM8OFQ8CY4ZbUboONF
+	 xcIfdySa4bT4UbJviXFc7XTv/0D1LRrt2gnhO6qfPWT1DcTgNEna/uXvC76kvZ/sqn
+	 LzTRf89s8zrcVzPUJQvSdZVtMLNiU92WI/yfuF7BBbZDXoCPqtdk7otxuk08laXnT9
+	 m9buhbyjhHqkAnsaF+N5PG6MVkiTqwUTX0d13GnshiMbjcnYB0PZaJEa+1dPKswzlk
+	 1Nq+ReaDNS6SW0qlGisTH0CvdFO0k6y91n4BNNcTjwv+6vMPkY7RZZnGoWEe3k9iz6
+	 ovUvEzRTUb+7g==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0F6B017E369C;
-	Thu,  5 Dec 2024 13:41:23 +0100 (CET)
-Message-ID: <ef8db876-bd06-4d5d-96ff-c570beefaa9a@collabora.com>
-Date: Thu, 5 Dec 2024 13:41:23 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8852C17E367E;
+	Thu,  5 Dec 2024 13:42:06 +0100 (CET)
+Message-ID: <ce2f6f07-0276-4a8b-ae3f-4188c707c6e7@collabora.com>
+Date: Thu, 5 Dec 2024 13:42:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add DSP
- properties
+Subject: Re: [PATCH 5/5] arm64: dts: mediatek: mt8390-genio-700-evk: Add sound
+ output support
 To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
@@ -56,17 +56,20 @@ To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Mark Brown <broonie@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>
 Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
+ Aary Patil <aary.patil@mediatek.com>,
+ Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>,
+ parkeryang <Parker.Yang@mediatek.com>
 References: <20241205-genio700-audio-output-v1-0-0e955c78c29e@collabora.com>
- <20241205-genio700-audio-output-v1-3-0e955c78c29e@collabora.com>
+ <20241205-genio700-audio-output-v1-5-0e955c78c29e@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20241205-genio700-audio-output-v1-3-0e955c78c29e@collabora.com>
+In-Reply-To: <20241205-genio700-audio-output-v1-5-0e955c78c29e@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_044126_046330_AC37BBDA 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20241205_044208_726227_BDEB9E2E 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +85,88 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 05/12/24 13:13, Nícolas F. R. A. Prado ha scritto:
-> Add the mediatek,adsp and mediatek,dai-link properties to allow
-> describing the DSP configuration in the sound card node, as is already
-> the case for other MediaTek SoCs.
+> Describe all the components to get sound output working on the two audio
+> jacks, Earphone and Speaker, present on the Genio 700 EVK board with the
+> audio DSP enabled.
 > 
+> Co-developed-by: Aary Patil <aary.patil@mediatek.com>
+> Signed-off-by: Aary Patil <aary.patil@mediatek.com>
+> Co-developed-by: Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>
+> Signed-off-by: Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>
+> Co-developed-by: parkeryang <Parker.Yang@mediatek.com>
+> Signed-off-by: parkeryang <Parker.Yang@mediatek.com>
 > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 > ---
->   .../devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml      | 10 ++++++++++
->   1 file changed, 10 insertions(+)
+>   .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 50 ++++++++++++++++++++++
+>   1 file changed, 50 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
-> index ffe9347b543f5c687433862a21ad534b8aace27e..1e282c34dbd99851d3959b641096968c0b2e71be 100644
-> --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
-> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
-> @@ -33,6 +33,16 @@ properties:
->       $ref: /schemas/types.yaml#/definitions/phandle
->       description: The phandle of MT8188 ASoC platform.
->   
-> +  mediatek,adsp:
-
-This is already upstream
-
-https://lore.kernel.org/r/20241105091246.3944946-1-fshao@chromium.org
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: The phandle of MT8195 ADSP platform.
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts b/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+> index bb68665f0b2da80397b833db0241a06648a322a0..2fded39078773e81d8e0313d6b118b3064be308d 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+> @@ -92,6 +92,24 @@ vpu_mem: memory@57000000 {
+>   			compatible = "shared-dma-pool";
+>   			reg = <0 0x57000000 0 0x1400000>; /* 20 MB */
+>   		};
 > +
-> +  mediatek,dai-link:
+> +		adsp_mem: memory@60000000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0 0x60000000 0 0xf00000>;
+> +			no-map;
+> +		};
+> +
+> +		afe_dma_mem: memory@60f00000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0 0x60f00000 0 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		adsp_dma_mem: memory@61000000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0 0x61000000 0 0x100000>;
+> +			no-map;
+> +		};
+>   	};
+>   
+>   	common_fixed_5v: regulator-0 {
+> @@ -209,6 +227,16 @@ usb_p2_vbus: regulator-9 {
+>   	};
+>   };
+>   
+> +&adsp {
+> +	memory-region = <&adsp_dma_mem>, <&adsp_mem>;
+> +	status = "okay";
+> +};
+> +
+> +&afe {
+> +	memory-region = <&afe_dma_mem>;
+> +	status = "okay";
+> +};
+> +
+>   &gpu {
+>   	mali-supply = <&mt6359_vproc2_buck_reg>;
+>   	status = "okay";
+> @@ -912,6 +940,28 @@ &scp {
+>   	status = "okay";
+>   };
+>   
+> +&sound {
+> +	compatible = "mediatek,mt8390-mt6359-evk", "mediatek,mt8188-mt6359-evb";
+> +	model = "mt8390-evk";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&audio_default_pins>;
+> +	audio-routing =
+> +		"Headphone", "Headphone L",
+> +		"Headphone", "Headphone R";
+> +	mediatek,adsp = <&adsp>;
+> +	mediatek,dai-link = "DL_SRC_BE", "UL_SRC_BE", "AFE_SOF_DL2",
+> +		"AFE_SOF_DL3", "AFE_SOF_UL4", "AFE_SOF_UL5";
 
-That shouldn't be needed.
+Are you really, really, really, extremely sure that you need mediatek,dai-link?
 
-...so this patch can be dropped :-)
+I say you don't... :-)
 
 Cheers,
 Angelo
-
-> +    $ref: /schemas/types.yaml#/definitions/string-array
-> +    description:
-> +      A list of the desired dai-links in the sound card. Each entry is a
-> +      name defined in the machine driver.
-> +
->   patternProperties:
->     "^dai-link-[0-9]+$":
->       type: object
-> 
 
 
