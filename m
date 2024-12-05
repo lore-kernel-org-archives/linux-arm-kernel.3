@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A12E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F60E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IC1wtMjyo1HtH+XoCfZpi0yaYTaMWsPlw3uW5ro0VoI=; b=yszYyYJcFzNh5B9O1SXUcZQ2su
-	ogI2bm/GB7+Qs1rXWdz2Qb8oOVISmGpIACjIfhS88bkJtn0PefQI/ZBQnsrmygu3ivASh9l1HLKxH
-	pWfVPq6FX0wKzDHGdtGZXMpo+UBXLsW5wvsjqB8p2RtkLqBoogp1h+Pqj8rtVbBKD+xBRNy45s0U3
-	dUZheeIfzNN1grucGElUTTzPUjrMK+ycFyfqYtxuAo2KcEFQgou05Uao1i9GAi1qGV4l7O0ivedBL
-	vGnxIXC6PdiZcMUYz53r0Wq40uV0gAAEm4aWTTflucNHV1LYHMaIw7bZqwDPCQfoFblIMm80L8MCE
-	wVAks8Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZjEy0aw23/6E8gCN6l4+v6e28c6E01xkv9hb+E5Fl+A=; b=Qibq8bK7dEpL5PK6lLByfBi/sI
+	/o6SP7MBirNM1hSPPyp+iMOfnWX3hsr/CzYvwE6/cjpyBSIgXgTQYnFZkcBNEcFsEgWHd66dHiDU7
+	7COVwFDKjTdVyJRUGB06aiH7+9G5HXjkWNeOJ8uuGE09mAb77WXYGMBRzvKM/DDZVuvyRo2vDjObw
+	rFzRyt32hXomwNpc9J6Gko47uktEP8xMHMyVPyNQO7o5oDbFObSQndZLtC68Tfkfdj8MxEd2n0wg0
+	wgPbFDRiXoIrbOpYFcBjh0+b+S1/BL7XzMzO7mJEBe6a4uBfomRg8kD6q8MZdFozefdqDdWZRWU2T
+	qtpVkMnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEsn-0000000GmNy-1MmU;
-	Thu, 05 Dec 2024 16:39:17 +0000
+	id 1tJEtm-0000000GmVW-3r9o;
+	Thu, 05 Dec 2024 16:40:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEny-0000000GlcI-1H5F
+	id 1tJEpF-0000000GlpL-2hhD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 16:34:19 +0000
+	Thu, 05 Dec 2024 16:35:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE6F01758;
-	Thu,  5 Dec 2024 08:34:45 -0800 (PST)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 017423F5A1;
-	Thu,  5 Dec 2024 08:34:16 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	joro@8bytes.org
-Cc: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	quic_pbrahma@quicinc.com
-Subject: [PATCH v2 4/4] iommu: Manage driver probe deferral better
-Date: Thu,  5 Dec 2024 16:33:58 +0000
-Message-Id: <41fa59f156ef8d196d08fa75c4901e6d4b12e6c4.1733406914.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1733406914.git.robin.murphy@arm.com>
-References: <cover.1733406914.git.robin.murphy@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41ECC1063;
+	Thu,  5 Dec 2024 08:36:05 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CD9A3F5A1;
+	Thu,  5 Dec 2024 08:35:35 -0800 (PST)
+Date: Thu, 5 Dec 2024 16:35:33 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: <cristian.marussi@arm.com>, <andersson@kernel.org>,
+	<konrad.dybcio@linaro.org>, <linux-kernel@vger.kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	<linux-arm-msm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <quic_rgottimu@quicinc.com>,
+	<quic_kshivnan@quicinc.com>, <arm-scmi@vger.kernel.org>
+Subject: Re: [PATCH V5 0/2] arm_scmi: vendors: Qualcomm Generic Vendor
+ Extensions
+Message-ID: <Z1HWVfIS-w0OXQHl@bogus>
+References: <20241115011515.1313447-1-quic_sibis@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115011515.1313447-1-quic_sibis@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_083418_380944_4E0E1F62 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241205_083537_723429_3EBB6644 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,49 +67,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since iommu_fwspec_init() absorbed the basic driver probe deferral
-check to wait for an IOMMU to register, we may as well handle the probe
-deferral timeout there as well. The current inconsistency of callers
-results in client devices deferring forever on an arm64 ACPI system
-where an SMMU has failed its own driver probe.
+On Fri, Nov 15, 2024 at 06:45:13AM +0530, Sibi Sankar wrote:
+> The QCOM SCMI vendor protocol provides a generic way of exposing a
+> number of Qualcomm SoC specific features (like memory bus scaling)
+> through a mixture of pre-determined algorithm strings and param_id
+> pairs hosted on the SCMI controller. Introduce a client driver that
+> uses the memlat algorithm string hosted on QCOM SCMI Vendor Protocol
+> to detect memory latency workloads and control frequency/level of
+> the various memory buses (DDR/LLCC/DDR_QOS).
+> 
+> QCOM SCMI Generic Vendor protocol background:
+> It was found that a lot of the vendor protocol used internally was
+> for debug/internal development purposes that would either be super
+> SoC specific or had to be disabled because of some features being
+> fused out during production. This lead to a large number of vendor
+> protocol numbers being quickly consumed and were never released
+> either. Using a generic vendor protocol with functionality abstracted
+> behind algorithm strings gave us the flexibility of allowing such
+> functionality exist during initial development/debugging while
+> still being able to expose functionality like memlat once they have
+> matured enough. The param-ids are certainly expected to act as ABI
+> for algorithms strings like MEMLAT.
+> 
+> Thanks in advance for taking time to review the series.
+> 
+> V4:
+> * Splitting the series into vendor protocol and memlat client.
+>   Also the move the memlat client implementation back to RFC
+>   due to multiple opens.
 
-Acked-by: Will Deacon <will@kernel.org>
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
+Sorry if I missed the rationale for the split here from the previous
+discussions, but I would like to see the DT bindings if any for all the
+users first before I can merge this. I am happy to get this series reviewed
+independently but my views might change looking at how it will be used as
+I might get better idea looking at the users. I really don't like the
+interface as well as the DT bindings that might be enforcing us to define.
+I have given my initial comments there.
 
-v2: No change
+No need to respin it together immediately or even in future as along as
+there is a reference for me to look at.
 
- drivers/iommu/iommu.c    | 2 +-
- drivers/iommu/of_iommu.c | 2 --
- 2 files changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 9bc0c74cca3c..7cd433803bd6 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2819,7 +2819,7 @@ int iommu_fwspec_init(struct device *dev, struct fwnode_handle *iommu_fwnode)
- 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
- 
- 	if (!ops)
--		return -EPROBE_DEFER;
-+		return driver_deferred_probe_check_state(dev);
- 
- 	if (fwspec)
- 		return ops == iommu_fwspec_ops(fwspec) ? 0 : -EINVAL;
-diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-index e7a6a1611d19..97987cd78da9 100644
---- a/drivers/iommu/of_iommu.c
-+++ b/drivers/iommu/of_iommu.c
-@@ -29,8 +29,6 @@ static int of_iommu_xlate(struct device *dev,
- 		return -ENODEV;
- 
- 	ret = iommu_fwspec_init(dev, of_fwnode_handle(iommu_spec->np));
--	if (ret == -EPROBE_DEFER)
--		return driver_deferred_probe_check_state(dev);
- 	if (ret)
- 		return ret;
- 
--- 
-2.39.2.101.g768bb238c484.dirty
-
+--
+Regards,
+Sudeep
 
