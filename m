@@ -4,63 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D33E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 14:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8105E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 14:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQuPWUe/i3J0DiWhv5TFa0VBBVmVEoaWf2ZG4+Ov7mk=; b=pkgru3YQazqLUT5hiRjQzcRRsB
-	by9UhBqxrtwmys1eAkDufwaFz6yP0gxzt1tit3CQ8kxojB4iBAVOKzMF23qSj05bf7rhP0yvwGaHm
-	Gf9IYpy8pVMlR3ivk9j8ajHIZ1bSbSVrfEKmUvLcE/QozBbkgsj9PwNab5+Zn/E4F8ZbGNByZDYr6
-	yrW/jy8YJwsV+s+OUx6lpE1u9bqb9/xzeTnZwaalOmlW0+OT9BGyPpBtl1nOlArgMYCP2zDZWy2G9
-	xb5r0eqMz1OmG0FhM/ULbb7JVxS1RUItJuvIOU9eV4dWBcOSDkTToaXBRyD2H+b27XkT9QbX54pkx
-	zQPxybMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m7DoeE3TYVVni0K1JKpeJT+u+a+Z3VlU3EP3kgxgJns=; b=AuUzhOPx4NbDACQOMwUaashlYo
+	lIv5s8f3Oa+uyK1tqQf9EfZVpSm9bEpkA8sZACh60kOiiNCxR5qT3VxqZBPa8qBSAwKNVnuTkkz5E
+	IbWC/vQ0C0MWSML6mGUkFS63kYpBrd9bMOkFTP29SRnomz69l7DIH+BlxjsDXQM18+yqWwkdOQ1Hn
+	A2aw7id+mH42bG46KAYgnS81KX1ZeDwM55n0XzSPhYhU4yYWkvTQPyL/3GTiz58B/f0VDgyIbvtKX
+	6AIWITetFSTYMOTOCwsMcWUJFylBmVg1SobHiGbZIRrk5HDqRxbItqRMHHkRHRI4u8sMaBVpXMiyv
+	JRTlwq5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCSM-0000000GGwu-3XLf;
-	Thu, 05 Dec 2024 14:03:50 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCMx-0000000GFuk-2iNt
+	id 1tJCmb-0000000GJiP-3cLQ;
+	Thu, 05 Dec 2024 14:24:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJClb-0000000GJcF-0shz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 13:58:16 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tJCMh-0000kQ-S9; Thu, 05 Dec 2024 14:57:59 +0100
-Message-ID: <361b3a14-db86-4c3c-9f07-4ebc1dd40d0e@pengutronix.de>
-Date: Thu, 5 Dec 2024 14:57:59 +0100
+	Thu, 05 Dec 2024 14:23:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B0281063;
+	Thu,  5 Dec 2024 06:24:10 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE54B3F5A1;
+	Thu,  5 Dec 2024 06:23:40 -0800 (PST)
+Date: Thu, 5 Dec 2024 14:23:35 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: will@kernel.org, catalin.marinas@arm.com, joro@8bytes.org,
+	jean-philippe@linaro.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
+	ryan.roberts@arm.com, broonie@kernel.org
+Subject: Re: [PATCH 2/2] arm64: cpufeature: Add GCS to cpucap_is_possible()
+Message-ID: <Z1G3Z9C9efBkVKjR@J2N7QTR9R3>
+References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
+ <416c7369fcdce4ebb2a8f12daae234507be27e38.1733406275.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm: dts: st: stm32mp151a-prtt1l: Fix QSPI
- configuration
-To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20240806120517.406714-1-o.rempel@pengutronix.de>
- <20dc2cd4-7684-4894-9db3-23c3f4abd661@pengutronix.de>
- <a483fb50-f978-4e48-b38e-6d79632540f1@foss.st.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <a483fb50-f978-4e48-b38e-6d79632540f1@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <416c7369fcdce4ebb2a8f12daae234507be27e38.1733406275.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_055815_682370_CAF04A9C 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20241205_062343_290315_D7BE06FE 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +65,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alex,
-
-On 29.10.24 16:39, Alexandre TORGUE wrote:
-> On 8/7/24 11:38, Ahmad Fatoum wrote:
->> Hello Oleksij,
->>
->> On 06.08.24 14:05, Oleksij Rempel wrote:
->> There's bias-disable in stm32mp15-pinctrl.dtsi. You may want to add
->> a /delete-property/ for that to make sure, it's not up to the driver
->> which one has priority.
->>
->>>           drive-push-pull;
->>>           slew-rate = <1>;
->>
->> These are already in qspi_bk1_pins_a. If repeating those is ok, why
->> not go a step further and just duplicate the pinmux property and stay
->> clear of this issue altogether, provided Alex is amenable to changing
->> his mind regarding pinctrl groups in board device trees.
+On Thu, Dec 05, 2024 at 01:48:10PM +0000, Robin Murphy wrote:
+> Since system_supports_gcs() ends up referring to cpucap_is_possible(),
+> teach the latter about GCS for consistency with similar features.
 > 
-> I still prefer to have pin configuration defined in pinctrl dtsi file and I'll continue like this for ST board. The reason is that we try to reuse as much as possible pins when we create a new board and so it is easier to maintain if we declare them only one time.
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 
-I can see the point for ST evaluation kits as ST customer hardware
-will often copy the reference designs.
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-> But, I'm not blocked for "other" boards based on STM32 SoC. I mean, if it is simpler for you and above all if it avoid issues/complexities then, you can declare some pin groups in your board dts file. In this case we need to take care of the IO groups label name.
+Looking around, we should probably do the same for HAFT.
 
-That's good to hear and what I wanted to clarify. Especially for things like
-ADCs, there are so many possible permutations that there is no point for
-boards to add their pinctrl group to the main DTSI instead of just listing
-their specific pin configuration in the board DTS.
+Mark.
 
-Thanks,
-Ahmad
-
+> ---
+>  arch/arm64/include/asm/cpucaps.h    | 2 ++
+>  arch/arm64/include/asm/cpufeature.h | 3 +--
+>  2 files changed, 3 insertions(+), 2 deletions(-)
 > 
-> regards
-> alex
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 201a46efd918..cbbf70e0f204 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -44,6 +44,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_TLB_RANGE);
+>  	case ARM64_HAS_S1POE:
+>  		return IS_ENABLED(CONFIG_ARM64_POE);
+> +	case ARM64_HAS_GCS:
+> +		return IS_ENABLED(CONFIG_ARM64_GCS);
+>  	case ARM64_UNMAP_KERNEL_AT_EL0:
+>  		return IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0);
+>  	case ARM64_WORKAROUND_843419:
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index b64e49bd9d10..8b4e5a3cd24c 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -847,8 +847,7 @@ static inline bool system_supports_poe(void)
+>  
+>  static inline bool system_supports_gcs(void)
+>  {
+> -	return IS_ENABLED(CONFIG_ARM64_GCS) &&
+> -		alternative_has_cap_unlikely(ARM64_HAS_GCS);
+> +	return alternative_has_cap_unlikely(ARM64_HAS_GCS);
+>  }
+>  
+>  static inline bool system_supports_haft(void)
+> -- 
+> 2.39.2.101.g768bb238c484.dirty
 > 
->>
->>
->> Cheers,
->> Ahmad
->>
-> 
-
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
