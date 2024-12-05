@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3FFE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB641E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pjo2xI2NoMV+ws/SdQvbE1uUrLIcffRmbIgnflplOI=; b=kpEuH7xqS9UrQGCoJ+/buts07G
-	L3xv4zbYSxNzdYRgpoDVqUTHBz92tEgL+kAW3cNohteZfYu/q7vb7jGhKKaE+DBkyHhBBj5aTGGp2
-	5OqzCm/DaLLHEKfVMmwQuh5jNu8+aTxRnllLLLywrJiMY7JRtW7uDHtsTY2qCDA4kWoI0icsB8daa
-	G+7P7WPnYWSTP9G6+cqhMufS8OAZ5mVQuHwD60SqZBOpqqdDVQIYi07Tuwkd7DowmbY6Zi3QTqhyp
-	0kUzUERGQeCC9Lz+xAjWF/EJcP4iTfhWHbcoMMoiRVvFkOYaeYaKjtL5m97XCT/fgm7tbHuxOzwfD
-	T5CGpFKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EBUdjdgLVwj0/hVJtgaHJOU56SLNHURQ1RyBIpwz4Os=; b=TdPLCTWrhx1Zw9DARXd9wCzr7W
+	2IG949aH9TIrO3w2w56RfqH/jhYKZHfDYKJhDkyrzKg+e7f9aCIobVdK4dwu7ug47Q89ybPMVpM6o
+	AQJUPutpZPiuNLrNxue2tvupZ2XeurUSSXO111CfVG/A+8pmd6Dq0II7Mur/Npes+89RvzWtseLAy
+	rE6/IqQvTRyPeEgG3k0DjoG7lNgDsa7uMWdFZmEfGotfDf2FXAof/vT3T2+gejCeeiZoVXTk/wxqK
+	HhXwkfnR0m2MQUP27fsdZ6wvMiNXKYvD0SoOVaAEdkciojia7UAesxcKjx//C0SP0edORvj6JviHK
+	6/BB8JyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAVw-0000000Fpxb-1DGm;
-	Thu, 05 Dec 2024 11:59:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJAVz-0000000Fq4M-13ZY;
+	Thu, 05 Dec 2024 11:59:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9Rq-0000000Fcwt-2zB4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Dec 2024 10:51:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=9pjo2xI2NoMV+ws/SdQvbE1uUrLIcffRmbIgnflplOI=; b=GD5ORHNGSOGUwfsx+qdSvXNLyU
-	qScY6a3xiEewksfYFY/6ZNXGd0wz+c7VtzsE34y37vPDSQW6xNFKl0h2NYQiVyyTCpKCOc2+koiEo
-	jvXVD9NrzEf/717sTYNcq2oQgDzx3KkUac5t89rYgW4sIOA5hkhFqWkgAmXvyyqZqngryqfWKxmK5
-	UkzaH4rtPk20NFWmumif+yyK3aAY/qYiELvSbGbt+cIWDLeo7BC8RsyczAV7A+oIvE0/t+eOJxB3T
-	TykRJof8pUa40BO7DlrqzcdcBL3TMeUVCkaO7Eq6EjtE2w5s03UTH2yHAk5E1qfElv9r047PwizWR
-	G4dFvDBQ==;
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9Rn-00000002pq8-1uvJ
+	id 1tJ9Xh-0000000FdbC-44Ci
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:51:05 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B5AoxYW109484;
-	Thu, 5 Dec 2024 04:50:59 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1733395859;
-	bh=9pjo2xI2NoMV+ws/SdQvbE1uUrLIcffRmbIgnflplOI=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=c+C1wYAqvEmWXBmLgMQjzUYK7TGxlL2zeMdtfnI6edTrfhKJOvs4H+HrYdPA1ILEF
-	 EtQmIsX7ut+ezOZ++JcWp7xBI4RPOJxnZacqd/LGWYjSlamnihByYQ1pEugFuNUHFd
-	 iI5uVINjdv3f8zmrt2ZohuuuLVCfhF6gWfobGQrI=
-Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5AoxW5021313
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 5 Dec 2024 04:50:59 -0600
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
- Dec 2024 04:50:59 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 5 Dec 2024 04:50:59 -0600
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5AofJu110686;
-	Thu, 5 Dec 2024 04:50:56 -0600
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH v4 4/4] arm64: dts: ti: k3-am69-sk: Add overlay for PCIE0 Endpoint Mode
-Date: Thu, 5 Dec 2024 16:20:36 +0530
-Message-ID: <20241205105041.749576-5-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241205105041.749576-1-s-vadapalli@ti.com>
-References: <20241205105041.749576-1-s-vadapalli@ti.com>
+	Thu, 05 Dec 2024 10:57:11 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B542ECT031997;
+	Thu, 5 Dec 2024 10:57:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	EBUdjdgLVwj0/hVJtgaHJOU56SLNHURQ1RyBIpwz4Os=; b=Bp2UtrnYL0yAewsA
+	g2+mP0bimstgu7QQKTe2scd7rgvK2rQRC4ICw2z2RUYPahnMwPkaZd79mvYjmCdW
+	3zhMK0cqvMg4JBdKZB+yQz967I+ZhQbaDJSLgh7urJ0EGfP8fwdgvxxd/9j9LxgM
+	y63IbYAtCI7u46zAXIuaqAFgsxBYeLikbN+dILRFEfN4xOT9RvwqdCSl3mZtFVjX
+	XNKoTQGGLOdnalExdzDsbemccqqSPl3cNV5NRViLf78rBOuIspacux4jV73OampP
+	Ucxjn99H83f+4Ia+1IxizJZJ0Fjzv6A0GUBao/gldbeqDDw7GjkiDG+I6yIwFGxF
+	fccPBQ==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43a3fax7ag-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 05 Dec 2024 10:57:02 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B5Av1db026052
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 5 Dec 2024 10:57:01 GMT
+Received: from [10.190.163.187] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 5 Dec 2024
+ 02:56:57 -0800
+Message-ID: <d61bb7bc-d824-883a-4edd-109ae74076c1@quicinc.com>
+Date: Thu, 5 Dec 2024 16:26:55 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH V4 0/5] arm_scmi: vendors: Qualcomm Generic Vendor
+ Extensions
+Content-Language: en-US
+To: Johan Hovold <johan@kernel.org>
+CC: Cristian Marussi <cristian.marussi@arm.com>, <sudeep.holla@arm.com>,
+        <andersson@kernel.org>, <konrad.dybcio@linaro.org>,
+        <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_rgottimu@quicinc.com>, <quic_kshivnan@quicinc.com>,
+        <conor+dt@kernel.org>, <arm-scmi@vger.kernel.org>
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <ZytnRc94iKUfMYH0@hovoldconsulting.com> <ZyvLktLUZOGP-LH5@pluto>
+ <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
+ <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
+ <Z0BC203BhGEmXcJi@hovoldconsulting.com>
+From: Sibi Sankar <quic_sibis@quicinc.com>
+In-Reply-To: <Z0BC203BhGEmXcJi@hovoldconsulting.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 3uxBE9bRq_pqJ6zTmUEmn1JHAbjS8324
+X-Proofpoint-GUID: 3uxBE9bRq_pqJ6zTmUEmn1JHAbjS8324
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 malwarescore=0
+ spamscore=0 mlxscore=0 suspectscore=0 adultscore=0 mlxlogscore=999
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412050078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_105103_853389_65AC98EF 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20241205_025710_017182_9686B4B7 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,108 +109,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add overlay to enable the PCIE0 instance of PCIe on AM69-SK in Endpoint
-mode of operation.
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
 
-This patch has been newly introduced in this series.
+On 11/22/24 14:07, Johan Hovold wrote:
+> On Thu, Nov 14, 2024 at 09:52:12AM +0530, Sibi Sankar wrote:
+>> On 11/8/24 20:44, Johan Hovold wrote:
+> 
+>>>> On Wed, Nov 06, 2024 at 01:55:33PM +0100, Johan Hovold wrote:
+> 
+>>>>> Second, after loading the protocol and client drivers manually (in that
+>>>>> order, shouldn't the client driver pull in the protocol?), I got:
+>>>>>
+>>>>> 	scmi_module: Loaded SCMI Vendor Protocol 0x80 - Qualcomm  20000
+>>>>> 	arm-scmi arm-scmi.0.auto: QCOM Generic Vendor Version 1.0
+>>>>> 	scmi-qcom-generic-ext-memlat scmi_dev.5: error -EOPNOTSUPP: failed to configure common events
+>>>>> 	scmi-qcom-generic-ext-memlat scmi_dev.5: probe with driver scmi-qcom-generic-ext-memlat failed with error -95
+>>>>>
+>>>>> which seems to suggest that the firmware on my CRD does not support this
+>>>>> feature. Is that the way this should be interpreted? And does that mean
+>>>>> that non of the commercial laptops supports this either?
+> 
+>>> Yeah, hopefully Sibi can shed some light on this. I'm using the DT
+>>> patch (5/5) from this series, which according to the commit message is
+>>> supposed to enable bus scaling on the x1e80100 platform. So I guess
+>>> something is missing in my firmware.
+>>
+>> Nah, it's probably just because of the algo string used.
+>> The past few series used caps MEMLAT string instead of
+>> memlat to pass the tuneables, looks like all the laptops
+>> havn't really switched to it yet. Will revert back to
+>> using to lower case memlat so that all devices are
+>> supported. Thanks for trying the series out!
+> 
+> I have a Lenovo ThinkPad T14s set up now so I gave this series a spin
+> there too, and there I do *not* see the above mentioned -EOPNOSUPP error
+> and the memlat driver probes successfully.
+> 
+> On the other hand, this series seems to have no effect on a kernel
+> compilation benchmark. Is that expected?
 
- arch/arm64/boot/dts/ti/Makefile               |  4 ++
- .../boot/dts/ti/k3-am69-sk-pcie0-ep.dtso      | 53 +++++++++++++++++++
- 2 files changed, 57 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am69-sk-pcie0-ep.dtso
+I can have a look at your tree. But memlat in general
+depends on the cpu frequency when your benchmarks max
+the cpu's the ddr/llcc are scaled accordingly by it.
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 04438f7136b8..db5ae27467e7 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -126,6 +126,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
- 
- # Boards with J784s4 SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am69-sk-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-pcie0-pcie1-ep.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-quad-port-eth-exp1.dtbo
-@@ -198,6 +199,8 @@ k3-am68-sk-base-board-pcie1-ep-dtbs := k3-am68-sk-base-board.dtb \
- 	k3-am68-sk-base-board-pcie1-ep.dtbo
- k3-am69-sk-csi2-dual-imx219-dtbs := k3-am69-sk.dtb \
- 	k3-j721e-sk-csi2-dual-imx219.dtbo
-+k3-am69-sk-pcie0-ep-dtbs := k3-am69-sk.dtb \
-+	k3-am69-sk-pcie0-ep.dtbo
- k3-j7200-evm-pcie1-ep-dtbs := k3-j7200-common-proc-board.dtb \
- 	k3-j7200-evm-pcie1-ep.dtbo
- k3-j721e-common-proc-board-infotainment-dtbs := k3-j721e-common-proc-board.dtb \
-@@ -237,6 +240,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-am68-sk-base-board-csi2-dual-imx219.dtb \
- 	k3-am68-sk-base-board-pcie1-ep.dtb \
- 	k3-am69-sk-csi2-dual-imx219.dtb \
-+	k3-am69-sk-pcie0-ep.dtb \
- 	k3-j7200-evm-pcie1-ep.dtb \
- 	k3-j721e-common-proc-board-infotainment.dtb \
- 	k3-j721e-evm-pcie0-ep.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk-pcie0-ep.dtso b/arch/arm64/boot/dts/ti/k3-am69-sk-pcie0-ep.dtso
-new file mode 100644
-index 000000000000..9a5bcf282a9e
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am69-sk-pcie0-ep.dtso
-@@ -0,0 +1,53 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/**
-+ * DT Overlay for enabling PCIE0 instances of PCIe in Endpoint Configuration
-+ * on AM69-SK.
-+ *
-+ * AM69-SK Product Link: https://www.ti.com/tool/SK-AM69
-+ *
-+ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/soc/ti,sci_pm_domain.h>
-+
-+#include "k3-pinctrl.h"
-+
-+/*
-+ * Since Root Complex and Endpoint modes are mutually exclusive
-+ * disable Root Complex mode.
-+ */
-+&pcie0_rc {
-+	status = "disabled";
-+};
-+
-+&cbass_main {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	interrupt-parent = <&gic500>;
-+
-+	pcie0_ep: pcie-ep@2900000 {
-+		compatible = "ti,j784s4-pcie-ep";
-+		reg = <0x00 0x02900000 0x00 0x1000>,
-+		      <0x00 0x02907000 0x00 0x400>,
-+		      <0x00 0x0d000000 0x00 0x00800000>,
-+		      <0x00 0x10000000 0x00 0x08000000>;
-+		reg-names = "intd_cfg", "user_cfg", "reg", "mem";
-+		interrupt-names = "link_state";
-+		interrupts = <GIC_SPI 318 IRQ_TYPE_EDGE_RISING>;
-+		max-link-speed = <3>;
-+		num-lanes = <4>;
-+		power-domains = <&k3_pds 332 TI_SCI_PD_EXCLUSIVE>;
-+		clocks = <&k3_clks 332 0>;
-+		clock-names = "fck";
-+		max-functions = /bits/ 8 <6>;
-+		max-virtual-functions = /bits/ 8 <4 4 4 4 0 0>;
-+		dma-coherent;
-+		phys = <&serdes1_pcie_link>;
-+		phy-names = "pcie-phy";
-+		ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x0>;
-+	};
-+};
--- 
-2.43.0
+> 
+> And does this mean that you should stick with the uppercase "MEMLAT"
+> string after all? The firmware on my CRD is not the latest one, but I am
+> using the latest available firmware for the T14s.
 
+We should stick with "memlat" if we run into a device in the
+wild that doesn't support "MEMLAT"
+
+-Sibi
+
+> 
+> Johan
+> 
 
