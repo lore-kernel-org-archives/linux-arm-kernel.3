@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0B3E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C078CE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXsmplCWIfDU1nslWwIzWjXlT1Uhwo23G/KzmcVHbWA=; b=lyv85UXtGPcjGrIVXYXSlB5hLs
-	BVN4nbejUGmxqL+hZ4aYWjfXJLVlw1i4f0H6M0X/TH0Mssgo192t87RE+RMS9ULVI1HnHcglWXtUY
-	dwS7vYgKUkuGu2+TjDYRD45uMxItc13kie9Dpi6brBmq/pJKJqll2+Lg1BlvWllYi026iWKepThzD
-	A+O4ra1AamLM9jxpq/OmhgY17/AA+UJvkDPHrwSfVCEuxr/igI0we2LaAEXkJSSBdTYDUJOwY/zn7
-	kQe2zQSbUPZflZuF0rU6QuQu0fljsy90luKV5TbE6LtKvYzjH4PI1mq/oE5NZqlV9SbjEsJLsO/53
-	7Jgkn5dA==;
+	bh=C/0wAm6mwf+xx0gp44Kb3h1fQJN2+oekj+V8ngaLLkk=; b=dxmFKNTJWMaEKYu8K4wdpoG2z2
+	vY9zK9OM/X7qWLxsZdMeDzI8Iemq9YHByshNtQ9fUd0B2ziR8fOyZc+z54JmJQgkTX/0qb3ooZuvB
+	ZFPju1S3Ot8JytTXBpzR9Y6bFxhbAGZFCjBsr25Lq0Is0Hu7XbFwWqlzpVpHD0In9e6QdrXq/5vu5
+	xtuCA5cAt7rjDkM9xlFVEZVO7r8TCbPg+UZqvunbHLQPg4nwUmama1X8mAwYrLLyZ7pKDrOdX4xBM
+	muNwMJRCeIWBqCRSfKzYUw4d6lLCbp6z+L11bJ8pBEWeh0V+aOCddy29SLabct6JMKkVSSqi5lDcZ
+	BL1Ih2sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGHt-0000000H4K5-2IEX;
-	Thu, 05 Dec 2024 18:09:17 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tJGIt-0000000H4WP-1mzN;
+	Thu, 05 Dec 2024 18:10:19 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGDX-0000000H3Xl-3iXQ;
-	Thu, 05 Dec 2024 18:04:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1733421881; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CD7IQ9sWFL7LplVEoEnc0NaZmOuF/y0rMnTPwHbvX/n0+Wy1kmwvi2g/Dmov9FV8tSDE6QihziJhYSLNZUJIGVhVNk2b0nR9aTGiX44aNWWKy1lrT+7YlppBJXhurBP2IwpVlv3dAli0nEGsKSGcrIq/cdZkDcSQs+HR0ntm0VY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1733421881; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tXsmplCWIfDU1nslWwIzWjXlT1Uhwo23G/KzmcVHbWA=; 
-	b=AOBAnGEz+5pBuWHF1fr3zRWsZvFOUonvoDDj1zKnmNeTuEvDsb5rbbpXSSZbUM8mcJD2R8EgDMRCzkTyXAIH311txt422DYrmbHPLfSsLQ8S5H6XMuInc+HBX2skjSTMg/DQObGD7U+10Ndm+xtIQRcnxjQ8vPPUMUnSTNLX2ww=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1733421881;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=tXsmplCWIfDU1nslWwIzWjXlT1Uhwo23G/KzmcVHbWA=;
-	b=SLgIBSPyZrlSRVdtdt8u5wyKkpez+z41A5lkHP/IjxRXWMXULNC2fPxqpO2qn4xh
-	Q69s3f7XeGip3ZO8f3afDchahlQ4n5yTM9V4p0A5MS/dHduVGpSKG9lBDjEoayEfSxa
-	Jxjg8ssPj3vD6lBlYGrC2szq5y5Kqo8Hp0T7Ceqk=
-Received: by mx.zohomail.com with SMTPS id 1733421877901470.7310984148362;
-	Thu, 5 Dec 2024 10:04:37 -0800 (PST)
-Received: by mercury (Postfix, from userid 1000)
-	id 563EF10604B0; Thu, 05 Dec 2024 19:04:32 +0100 (CET)
-Date: Thu, 5 Dec 2024 19:04:32 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
-	cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, andy.yan@rock-chips.com, 
-	hjc@rock-chips.com, algea.cao@rock-chips.com, kever.yang@rock-chips.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support
- for eDP mode
-Message-ID: <5ncdog66jtc4s7vxk2yt4jkknf2es3whvweuqmrxbot3azi5ge@t6s3xadkiasp>
-References: <20241127075157.856029-1-damon.ding@rock-chips.com>
- <2131853.KlZ2vcFHjT@diego>
- <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
- <2886747.Y6S9NjorxK@diego>
- <h4giob7bcrh7qmtepti6huym2llw4ujfmeff76vrgpahb5zy6x@dz6zghsifww5>
- <2342f342-672c-447e-90d8-674b748af6a4@rock-chips.com>
- <abzu2chif2g3urxoqbm3gbe6cciexbmqvn44qezrx4hgllfkkn@7bzi5jl3stqe>
- <42035ebe-09b7-4005-912a-8ec72d5dabcc@rock-chips.com>
+	id 1tJGDp-0000000H3eJ-3Bit
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 18:05:07 +0000
+Date: Thu, 5 Dec 2024 13:04:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733421903;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C/0wAm6mwf+xx0gp44Kb3h1fQJN2+oekj+V8ngaLLkk=;
+	b=DTncR6Y5mA5Y7j8JEDZCiuaVLQqxXdm6EI5UZvAiaW6dRKVGrQgzRI55HKE5UDTl/I/80w
+	anM2v6U54fYUgOn9SDwik2PN/YKiTOQHOsPzHp/5gx9c3fB3sTEpm1AgfRWwegc/cOY8Ps
+	fq2GrnvkH/uFuQUsJuv8IyHLYe4sIfI=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: linux-arm-kernel@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, linux-bcachefs@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: arm64: stacktrace: unwind exception boundaries
+Message-ID: <zbwbgkuvvciezpmigcp6gaahfxwm7cwhpzus7gtbfnbzsjb2n3@kfbdppbd74o4>
+References: <36kx57aw46vwykgckr5cm4fafhw54tjuj4cqljrdnpfwvjl7if@a7znuhpfu54o>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tgjajudtqqajoprm"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <42035ebe-09b7-4005-912a-8ec72d5dabcc@rock-chips.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.3.1/233.339.97
-X-ZohoMailClient: External
+In-Reply-To: <36kx57aw46vwykgckr5cm4fafhw54tjuj4cqljrdnpfwvjl7if@a7znuhpfu54o>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_100447_993982_6F726B2A 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20241205_100506_089909_146169A9 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +67,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6.13-rc1, I'm now seeing a ton of test failures due to this warning -
+what gives?
 
---tgjajudtqqajoprm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support
- for eDP mode
-MIME-Version: 1.0
+00104 ========= TEST   generic/017
+00104        run fstests generic/017 at 2024-12-05 11:47:43
+00104 spectre-v4 mitigation disabled by command-line option
+00106 bcachefs (vdc): starting version 1.13: inode_has_child_snapshots
+00106 bcachefs (vdc): initializing new filesystem
+00106 bcachefs (vdc): going read-write
+00106 bcachefs (vdc): marking superblocks
+00106 bcachefs (vdc): initializing freespace
+00106 bcachefs (vdc): done initializing freespace
+00106 bcachefs (vdc): reading snapshots table
+00106 bcachefs (vdc): reading snapshots done
+00106 bcachefs (vdc): done starting filesystem
+00200 ------------[ cut here ]------------
+00200 WARNING: CPU: 8 PID: 12571 at arch/arm64/kernel/stacktrace.c:223 arch_stack_walk+0x2c0/0x388
+00200 Modules linked in:
+00200 CPU: 8 UID: 0 PID: 12571 Comm: cat Not tainted 6.13.0-rc1-ktest-gdf1fce23d033 #10877
+00200 Hardware name: linux,dummy-virt (DT)
+00200 pstate: 80001005 (Nzcv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=--)
+00200 pc : arch_stack_walk+0x2c0/0x388
+00200 lr : arch_stack_walk+0x1f4/0x388
+00200 sp : ffffff80ca757b00
+00200 x29: ffffff80ca757b00 x28: ffffff80d6783758 x27: 000000000000036f
+00200 x26: ffffff80d6783780 x25: ffffff80c19de180 x24: ffffff80c273ee40
+00200 x23: ffffffc080022708 x22: ffffffc080025828 x21: ffffff80ca757be8
+00200 x20: ffffffc0800c98c8 x19: ffffff80d8533d10 x18: ffffffffffffffff
+00200 x17: 0000000000000000 x16: 0000000000000000 x15: ffffffffffffffff
+00200 x14: 0000000000000000 x13: ffffff80d6c92000 x12: 0000000000000000
+00200 x11: 0000000000000000 x10: 000000000000000a x9 : ffffffc08086beec
+00200 x8 : ffffff80ca757bc0 x7 : 0000000000000000 x6 : ffffff80d8533d28
+00200 x5 : ffffff80ca757b60 x4 : ffffff80d8534000 x3 : ffffff80ca757b40
+00200 x2 : 0000000000000018 x1 : ffffff80d8533d10 x0 : 0000000000000000
+00200 Call trace:
+00200  arch_stack_walk+0x2c0/0x388 (P)
+00200  arch_stack_walk+0x1f4/0x388 (L)
+00200  stack_trace_save_tsk+0x90/0xd8
+00200  bch2_save_backtrace+0x68/0x160
+00200  bch2_prt_task_backtrace+0x30/0xb8
+00200  bch2_btree_transactions_read+0xe0/0x1f0
+00200  full_proxy_read+0x60/0xd0
+00200  vfs_read+0x80/0x2d8
+00200  ksys_read+0x5c/0xf0
+00200  __arm64_sys_read+0x20/0x30
+00200  invoke_syscall.constprop.0+0x54/0xe8
+00200  do_el0_svc+0x44/0xc8
+00200  el0_svc+0x18/0x58
+00200  el0t_64_sync_handler+0x104/0x130
+00200  el0t_64_sync+0x154/0x158
+00200 ---[ end trace 0000000000000000 ]---
+00233 hrtimer: interrupt took 49506640 ns
+00493 bcachefs (vdb): shutting down
+00493 bcachefs (vdb): going read-only
+00493 bcachefs (vdb): finished waiting for writes to stop
+00493 bcachefs (vdb): flushing journal and stopping allocators, journal seq 18
+00493 bcachefs (vdb): flushing journal and stopping allocators complete, journal seq 18
+00493 bcachefs (vdb): clean shutdown complete, journal seq 19
+00493 bcachefs (vdb): marking filesystem clean
+00493 bcachefs (vdb): shutdown complete
+00493 bcachefs (vdc): shutting down
+00493 bcachefs (vdc): going read-only
+00493 bcachefs (vdc): finished waiting for writes to stop
+00493 bcachefs (vdc): flushing journal and stopping allocators, journal seq 41457
+00493 bcachefs (vdc): flushing journal and stopping allocators complete, journal seq 41459
+00493 bcachefs (vdc): clean shutdown complete, journal seq 41460
+00493 bcachefs (vdc): marking filesystem clean
+00493 bcachefs (vdc): shutdown complete
+00495 bcachefs (vdc): starting version 1.13: inode_has_child_snapshots
+00495 bcachefs (vdc): recovering from clean shutdown, journal seq 41460
+00495 bcachefs (vdc): accounting_read... done
+00495 bcachefs (vdc): alloc_read... done
+00495 bcachefs (vdc): stripes_read... done
+00495 bcachefs (vdc): snapshots_read... done
+00495 bcachefs (vdc): going read-write
+00495 bcachefs (vdc): journal_replay... done
+00495 bcachefs (vdc): resume_logged_ops... done
+00495 bcachefs (vdc): delete_dead_inodes... done
+00495 bcachefs (vdc): done starting filesystem
+00495 bcachefs (vdc): shutting down
+00495 bcachefs (vdc): going read-only
+00495 bcachefs (vdc): finished waiting for writes to stop
+00495 bcachefs (vdc): flushing journal and stopping allocators, journal seq 41460
+00495 bcachefs (vdc): flushing journal and stopping allocators complete, journal seq 41460
+00495 bcachefs (vdc): clean shutdown complete, journal seq 41461
+00495 bcachefs (vdc): marking filesystem clean
+00495 bcachefs (vdc): shutdown complete
+00495 _check_dmesg: something found in dmesg (see /ktest-out/xfstests/generic/017.dmesg)
+00496 
+00496 /ktest-out/xfstests/generic/017.full:
+00496 cat: /ktest-out/xfstests/generic/017.full: No such file or directory
+00496 ========= FAILED generic/017 in 391s, exit status 0
 
-Hello Damon,
-
-On Thu, Dec 05, 2024 at 09:13:33AM +0800, Damon Ding wrote:
-> Firstly, the term "the HDMI and eDP dynamic switching" can be somewhat
-> misleading, because the eDP usually does not support hot plug. The RK3588
-> eDP is often used as DP, and it actually supports DP 1.2. Therefore, it is
-> better to use the "the HDMI and DP dynamic switching" description.
-
-The part unclear to me is how the dynamic switching is supposed to
-happen. Looking at the TRM the hotplug detect signals also seem to be
-shared between HDMI and eDP. Can the RK3588S EVB distinguish if HDMI
-or eDP has been plugged, or does this require some user interaction
-to set the right mode?
-
-> Indeed, the devm_phy_get(dp->dev, "dp") and devm_of_phy_get_by_index() wi=
-ll
-> help to get the phy reference in .probe() or .bind().
->=20
-> However, the phy_set_mode() may be still needed in the HDMI and DP dynamic
-> switching application scenarios. We need the enum phy_mode
-> PHY_MODE_DP/PHY_MODE_HDMI to differentiate the configuration processes in
-> .power_on(), .power_off() and .configure() of struct phy_ops, which will =
-be
-> called in conjunction with plugging in and unplugging an HDMI or DP cable.
-
-I suppose you could fetch the PHY in power_on() and release it in
-power_off(). But using phy_set_mode() might indeed be better here.
-
--- Sebastian
-
---tgjajudtqqajoprm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmdR6ykACgkQ2O7X88g7
-+pqINw/8CISqq7TtaVuYjbUOVbMUju+XZCYIgQ86pXkRiTB8jbo9FSE0v+9rD3B2
-oxzyPpwv6e3CW9hJHsPgmeUz+zqzwa+gzHDTtdyapfOhrDHbALNBaskJavvFxjAG
-rXs/kJaga35Z1AtGug6P//VQt5jOKx6VjBe51mQqphngJngD4gW2xr7Jh3zjSuJU
-uwx7QiMwxdT2ysmQkwddEXm5B8Wjn4NqmxehkLSQWF+gi9P0al9uuYua17vbz5OA
-sP3mpDYUsvPVUwPjYO+8c2eGuKFCIAwZBS01v1TtpjeEMCLqIZAAVcGpx1jwN2H/
-XIFLQaf06CvqvB4IqErNgoXfqVV/B/X0kCnHVEfu0AD8yrZ7sT7EVo/FtFF8/DtD
-yd7p3/+x+7z34LPUf6uhpjzyyko5gPZpFXILYSFACxhDO8ayX95PEQazQbmGnG0U
-pLanIRga3lIxoCaGXaFetBHOCeSiqWxBs9SPO7r3gWYQmBv15VPLhR4q+9lSjoFT
-O25niK3n7hgpuT40FfAcLgnftvycNIrTK9SWQbEeOKGH0G2Rq1rdk74zcgmlnQEM
-DjucMFzuoftYsJlq8HN2nPrwr7P07N6F0eFapyTH3xfGj3O1zbKroiosXZEFJDTo
-tl/VwfSg8bbGG/Zbc+/D+ZIvD+ovCWItkKoKJqB7j+lZJmbCzvc=
-=0mlA
------END PGP SIGNATURE-----
-
---tgjajudtqqajoprm--
 
