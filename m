@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1910FE77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBEEE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDWgYQBwKAkBmU8mqem4U1vbpJlKGSSLkLEYV7hJT08=; b=vn9xLpA9b7sMT1Q1NdGBxbNacs
-	1Wyf0XCQLXFHqjIwt9ddwWuu0yD9aELHJMks+AfYFxnc3Co9rUCSGRn1f+ouC5Iv+8WqkewORhFK3
-	JMSHEyrDiigDviFnmqWZEXgv75nzRN3x4U077d1sV5+ed9LX2gfFHGpp+eA8uUg/ZAVvjxiG1HGqU
-	Om3TRjPup40TT9Io4atCZ2ZLpN4qhAcL015c4T0Y7jvNMHhIYEBm8hL6AlFVqbwg1/twPrslW+WrT
-	yrDCFc5QTxy4Xc+ebMXXZTnYJmSQwS+AMuW4cWLBx2TCkGXXVYTdavlo/2ZdkPL9VzNeIoT/S/bTl
-	yja6QH4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o1mDTalpLUj3bkk2XLCND1J/h+nXXrpkv1dc6Li300M=; b=dqhWE8iCPfH5uQT2qn08q+YTCE
+	06TzyHOEP1RLzO4+uW4kzEmoRYmt6mmsxEXniZABaRJluNclatpZeSn0sGF7qkVl8C4OjSNauLudA
+	JkzxItgqlYG8hPiqi+PO7OFKzdvsiZ1oZ3vHQ9bl94OcZFNSibYOw4JmDrUNYUFzt9UC9uFXJo+3n
+	iJwljttE2vZL1cs5n+IOFqYzqMg8unAyhB6u/PxyiUdr/x7mwz7B561cjhW+iphcP09/WbRZshmah
+	IxctBy99RJs3mA+zELlReZObh0gzcslrA/URrd84251V85Un9z71BPkuYkvbYWCQR1gHCnsDz8EYB
+	BuFdlecg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8dY-0000000FR0T-1TID;
-	Thu, 05 Dec 2024 09:59:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJ8dk-0000000FR6Q-35nO;
+	Thu, 05 Dec 2024 09:59:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7WB-0000000FE2s-26Dx;
-	Thu, 05 Dec 2024 08:47:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=aDWgYQBwKAkBmU8mqem4U1vbpJlKGSSLkLEYV7hJT08=; b=T7dlqbKmvwTVZtpFGTgWTJbQQA
-	z0/UiMGJTOOtg9RVil7EH64Ebusx+/DQ9aEZ9K0brLm9c4Oa9j6kuQ4v2DOWzP6ONh+G+gGSqyEAj
-	xVo2WIb/dvHz7Sn/jBQ+2rwXByqEvpoTACDPQgzoaE9mBMcSxueK3BDVDlXY+Pod5tdXc815ykB04
-	ARqMEL1UzSATuOZJTDl7ZRZY95PXLKyqkIgckYhGkbdz9dIgOK6XkoItVbQ+Uf3YnWP16A1Wy7DsJ
-	p5krd8w6io0MVMmYoSLOKHDRgVqyPvyuBsTm9SyLGKJ5K4MTwe6p2TTKvcg4hz0ugq0ljHq1FtjCP
-	4ryQniDQ==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7W8-00000002o6E-2xN9;
-	Thu, 05 Dec 2024 08:47:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=aDWgYQBwKAkBmU8mqem4U1vbpJlKGSSLkLEYV7hJT08=; b=oP8OJjsWLoKfVicRB2LCXen8Vl
-	wH0npdneX8nZoBc05jmy+wn01h/O79FQyoNgPNcTc8jghL1U22uxnxEpjIlQpY4AagQwBuZtxNAno
-	hkG5CHYLT4yA4bZTLhJzflIO4ZR8LVMwJdLym5YbBZgHkS1FxoVpgSBzyU9aEsEhUApUUvJeAlMoA
-	WDvYf6r2yPGQyZMRcP9AbgqR3pViyuS5kGpBLgl+P71FeW+ZbX9pX/EcXIoyUlXlMl4A49AFSpztn
-	6PTFygzbmF1nJhH8VpI4V1LuETGyxsRLGGFIZ8hSZOxjg72rCjkhy83WoBzXpHI5VOWqWeSFfqfL4
-	ERYaTxqg==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tJ7Vv-0001iq-2o; Thu, 05 Dec 2024 09:47:11 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Frank Wang <frawang.cn@gmail.com>, vkoul@kernel.org, kishon@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- Kever Yang <kever.yang@rock-chips.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, william.wu@rock-chips.com,
- tim.chen@rock-chips.com, Frank Wang <frank.wang@rock-chips.com>
-Subject: Re: [RESEND PATCH v3 2/2] phy: rockchip-naneng-combo: add rk3576 support
-Date: Thu, 05 Dec 2024 09:47:10 +0100
-Message-ID: <5541205.29KlJPOoH8@diego>
-In-Reply-To: <e853b62f-2ebd-4520-8dea-15d8102f25d8@rock-chips.com>
-References: <20241106021357.19782-1-frawang.cn@gmail.com>
- <20241106021357.19782-2-frawang.cn@gmail.com>
- <e853b62f-2ebd-4520-8dea-15d8102f25d8@rock-chips.com>
+	id 1tJ8bm-0000000FQox-3Iss
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 09:57:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733392639; x=1764928639;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=SdM7VggmTcxbf8b2OTX6vQfzxYnAZ+EP51JNF4mJMF0=;
+  b=XbgNF6+sqJYnmJdKLbYbHqVClHPkUwVq8nf52QWWjFEfEkvjHskQhDkH
+   JkY9Io0GELgK7xvI6uZ59IXI4yO0mVLO1NErleGsh2oiKpSW2M80vsUKJ
+   Jtq9FrUBD518i2U69iV/KOiTyyA3/Z3JtOF0d8ik9obhj51CBvLhDZzSu
+   /hNIIYKzaP/JjxPTn+SDr5i49TepKB/GfToE2IU8dr6/dKlr0B/c6CvIX
+   rYLMGFq9i/wKRiVTCh8JheffmXln4I3dAvCIZtowzKj+RM4Qvw0OSj0+E
+   GbpTTDd80OO6D/IbbAvZDmZMDt+QMpupDgVST7hgPlKeq5VTVIcfEAzbj
+   A==;
+X-CSE-ConnectionGUID: TKbBYKFISlCTYliYBZMdug==
+X-CSE-MsgGUID: 8R89V+2PRp+YRmOpe5uZbQ==
+X-IronPort-AV: E=Sophos;i="6.12,209,1728975600"; 
+   d="scan'208";a="266366334"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Dec 2024 02:57:14 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 5 Dec 2024 02:57:13 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Thu, 5 Dec 2024 02:57:08 -0700
+From: Dharma Balasubiramani <dharma.b@microchip.com>
+Date: Thu, 5 Dec 2024 15:27:02 +0530
+Subject: [PATCH] dt-bindings: mmc: atmel,hsmci: Convert to json schema
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241205-hsmci-v1-1-5a25e622dfed@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAO14UWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDIwNT3Yzi3ORMXfPEZOPUREtDU3NzcyWg2oKi1LTMCrA50bG1tQD8cYq
+ DVwAAAA==
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Aubin Constans <aubin.constans@microchip.com>
+CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Dharma Balasubiramani <dharma.b@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733392627; l=5386;
+ i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
+ bh=SdM7VggmTcxbf8b2OTX6vQfzxYnAZ+EP51JNF4mJMF0=;
+ b=0QN3MW/Jgdj9oByvvhUmcqV48fPYJRFbZgt9+zC65YPTHjeIKzDb4lKnwYLGe3k6k/uR09hw+
+ o/btQrK51yxC3JpnRuqRaKYLJIoSg0vpCPPfZaS2xz5YOUuSqnVWGB6
+X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
+ pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_084724_915062_85330424 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20241205_015718_837606_7565273E 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +97,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kever,
+Convert atmel,hsmci documentation to yaml format. The new file will inherit
+from mmc-controller.yaml.
 
-Am Donnerstag, 5. Dezember 2024, 09:21:07 CET schrieb Kever Yang:
-> On 2024/11/6 10:13, Frank Wang wrote:
-> > From: Kever Yang <kever.yang@rock-chips.com>
-> >
-> > Rockchip RK3576 integrates two naneng-combo PHY, PHY0 is used for
-> > PCIE and SATA, PHY1 is used for PCIE, SATA and USB3.
-> >
-> > This adds device specific data support.
-> >
-> > Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> > Signed-off-by: William Wu <william.wu@rock-chips.com>
-> > Signed-off-by: Frank Wang <frank.wang@rock-chips.com>
-> Test on rk3576 evb with pcie port.
-> Test-by: Kever Yang <kever.yang@rock-chips.com>
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+---
+ .../devicetree/bindings/mmc/atmel,hsmci.yaml       | 124 +++++++++++++++++++++
+ .../devicetree/bindings/mmc/atmel-hsmci.txt        |  73 ------------
+ 2 files changed, 124 insertions(+), 73 deletions(-)
 
-nitpick: the tag should be named
+diff --git a/Documentation/devicetree/bindings/mmc/atmel,hsmci.yaml b/Documentation/devicetree/bindings/mmc/atmel,hsmci.yaml
+new file mode 100644
+index 000000000000..3870d464faa8
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mmc/atmel,hsmci.yaml
+@@ -0,0 +1,124 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mmc/atmel,hsmci.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Atmel High-Speed MultiMedia Card Interface (HSMCI)
++
++description:
++  The Atmel HSMCI controller provides an interface for MMC, SD, and SDIO memory
++  cards.
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++  - Aubin Constans <aubin.constans@microchip.com>
++
++allOf:
++  - $ref: mmc-controller.yaml
++
++properties:
++  compatible:
++    const: atmel,hsmci
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  dmas:
++    maxItems: 1
++
++  dma-names:
++    const: rxtx
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: mci_clk
++
++  "#address-cells":
++    const: 1
++    description: Used for slot IDs.
++
++  "#size-cells":
++    const: 0
++
++patternProperties:
++  "^slot@[0-9]+$":
++    type: object
++    description: A slot node representing an MMC, SD, or SDIO slot.
++
++    allOf:
++      - $ref: mmc-controller.yaml
++
++    properties:
++      reg:
++        description: Slot ID.
++        minimum: 0
++
++      bus-width:
++        description: Number of data lines connected to the controller.
++        enum: [1, 4, 8]
++
++      cd-gpios:
++        description: GPIO used for card detection.
++
++      cd-inverted:
++        type: boolean
++        description: Inverts the value of the card detection GPIO.
++
++      wp-gpios:
++        description: GPIO used for write protection.
++
++    required:
++      - reg
++      - bus-width
++
++    unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - "#address-cells"
++  - "#size-cells"
++
++anyOf:
++  - required:
++      - slot@0
++  - required:
++      - slot@1
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/at91.h>
++    mmc@f0008000 {
++      compatible = "atmel,hsmci";
++      reg = <0xf0008000 0x600>;
++      interrupts = <12 IRQ_TYPE_LEVEL_HIGH>;
++      clocks = <&mci0_clk>;
++      clock-names = "mci_clk";
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      slot@0 {
++        reg = <0>;
++        bus-width = <4>;
++        cd-gpios = <&pioD 15 0>;
++        cd-inverted;
++      };
++
++      slot@1 {
++        reg = <1>;
++        bus-width = <4>;
++      };
++    };
++...
+diff --git a/Documentation/devicetree/bindings/mmc/atmel-hsmci.txt b/Documentation/devicetree/bindings/mmc/atmel-hsmci.txt
+deleted file mode 100644
+index 07ad02075a93..000000000000
+--- a/Documentation/devicetree/bindings/mmc/atmel-hsmci.txt
++++ /dev/null
+@@ -1,73 +0,0 @@
+-* Atmel High Speed MultiMedia Card Interface
+-
+-This controller on atmel products provides an interface for MMC, SD and SDIO
+-types of memory cards.
+-
+-This file documents differences between the core properties described
+-by mmc.txt and the properties used by the atmel-mci driver.
+-
+-1) MCI node
+-
+-Required properties:
+-- compatible: should be "atmel,hsmci"
+-- #address-cells: should be one. The cell is the slot id.
+-- #size-cells: should be zero.
+-- at least one slot node
+-- clock-names: tuple listing input clock names.
+-	Required elements: "mci_clk"
+-- clocks: phandles to input clocks.
+-
+-The node contains child nodes for each slot that the platform uses
+-
+-Example MCI node:
+-
+-mmc0: mmc@f0008000 {
+-	compatible = "atmel,hsmci";
+-	reg = <0xf0008000 0x600>;
+-	interrupts = <12 4>;
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	clock-names = "mci_clk";
+-	clocks = <&mci0_clk>;
+-
+-	[ child node definitions...]
+-};
+-
+-2) slot nodes
+-
+-Required properties:
+-- reg: should contain the slot id.
+-- bus-width: number of data lines connected to the controller
+-
+-Optional properties:
+-- cd-gpios: specify GPIOs for card detection
+-- cd-inverted: invert the value of external card detect gpio line
+-- wp-gpios: specify GPIOs for write protection
+-
+-Example slot node:
+-
+-slot@0 {
+-	reg = <0>;
+-	bus-width = <4>;
+-	cd-gpios = <&pioD 15 0>
+-	cd-inverted;
+-};
+-
+-Example full MCI node:
+-mmc0: mmc@f0008000 {
+-	compatible = "atmel,hsmci";
+-	reg = <0xf0008000 0x600>;
+-	interrupts = <12 4>;
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	slot@0 {
+-		reg = <0>;
+-		bus-width = <4>;
+-		cd-gpios = <&pioD 15 0>
+-		cd-inverted;
+-	};
+-	slot@1 {
+-		reg = <1>;
+-		bus-width = <4>;
+-	};
+-};
 
-Tested-by: Kever Yang <kever.yang@rock-chips.com>
+---
+base-commit: feffde684ac29a3b7aec82d2df850fbdbdee55e4
+change-id: 20241205-hsmci-7ac3ea915777
 
-
-
+Best regards,
+-- 
+Dharma Balasubiramani <dharma.b@microchip.com>
 
 
