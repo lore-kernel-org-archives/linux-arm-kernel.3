@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB5BE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AF5E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0JnhlkT+86La11TTNlcsIBnITx15puWkRfuAEfVFs/I=; b=x9vFTqPJC1dg9i6EQXSl/piokB
-	+lqus1SibDgzSxzXDhdYJXQehNhv7XodV5OpW9zbuWXX5DHVcQ8XBYsv9qrTqNxQPYL5M111RlbAI
-	LU5dXZhymdidiO/h7Y7D9WQAjnQpW86mas/MKzkAuUSHVh0L/cDkWsjZ6GGBugt2i8lUxgfpeJeHp
-	8hcu15oHjmN7SyEwwYIz6NqjAYvxDhz98E7GdJ6zNEM29pr47LeKtoGyNizL0+SRsLQfrkFfvIG5q
-	0NM8fAgWZqJ3PgLOBxJnK8Ccdhjpueo+5+wdLgpWzTeC6HHFjIFf9zm3CFBSd723kLVCrbLzX6J9L
-	6xp/Yp/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1unPXMZbH7h5cW8eJggnz5tqss4o788EkVvHmHsyGXk=; b=HX76LI8xLINw6Y//PCEmNlmUW8
+	CJW5zS6n8mASt/f1u2wWggWzhe3zPGxCfB/fYPVGyoZmHbmjGuCGhV8ouWDXAD74UDsxGfc3faA2M
+	rWoVnovgrFYDqMAqvx7VGOIWfgEFo2y+f0aj0tNGGeKaYvEZ0rFzUpxSqoQ+U8bBu4jmf+O7JHQ9C
+	7F8xz1X59zh4X2RypVVFfVVqabYcf6u0uUTUkqrdMiAgcmy6a6iDyctgf7CqiCMz6J5SUMnO17QuJ
+	ge3JbIkct4j0676DG8sclt4cw/Uskl4WBgj4Y3e+agc+IFSX1zzQUIqqP0tTNHU44L6OOE+CIxxFn
+	HIMSMKWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGLr-0000000H5Kv-2iIq;
-	Thu, 05 Dec 2024 18:13:23 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tJGND-0000000H5Wc-3cT5;
+	Thu, 05 Dec 2024 18:14:47 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGFY-0000000H43K-0k2b
+	id 1tJGMA-0000000H5QN-43tn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 18:06:53 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B5G4HBk019839;
-	Thu, 5 Dec 2024 19:06:41 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	0JnhlkT+86La11TTNlcsIBnITx15puWkRfuAEfVFs/I=; b=G5nZotVwCco3qDt6
-	3Cfl9zzcdOOU/Uml9SI6+Fw7T1PoD+tUBhguTxQqOSCFrZl4j6YaIKRFFUSUsiU6
-	Z6iGESJ+JSmq9RTT1t3VA0DFwQJ/Tm6hJnSkA69uFFtZMyJqrtuK7FELR3ZTBTrK
-	S3s21nK0xDo+JIR2VMGa8d3iOmV8DY445J5iDbsysAGTRpdMXryOLz5RnGT76Ar8
-	6seG7FYjzqNSVuXp9r0ifTCCPcdi+nC9M07N/9QOT0Rzif4ecraID5m2AoIhGBS1
-	14KhdkgN7fTr44dxms2+AewXh3kKtod4nNUch5Ho3mf5FBvTX1vRFu9/CPIl0cGW
-	ZAkXGQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 437rq9gssg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 05 Dec 2024 19:06:40 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 69D6840049;
-	Thu,  5 Dec 2024 19:05:36 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 52D9D267F27;
-	Thu,  5 Dec 2024 19:04:41 +0100 (CET)
-Received: from [10.252.15.31] (10.252.15.31) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 5 Dec
- 2024 19:04:40 +0100
-Message-ID: <bdfeceb6-962a-4f20-b76c-4fe5e5ff80c3@foss.st.com>
-Date: Thu, 5 Dec 2024 19:04:39 +0100
+	Thu, 05 Dec 2024 18:13:45 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4349fb56260so8755925e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 10:13:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733422420; x=1734027220; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1unPXMZbH7h5cW8eJggnz5tqss4o788EkVvHmHsyGXk=;
+        b=YoAE0amXQaHD2KpyeTB3HPKQbJFddrRigrJLz1ScekU6Q1bzqEYUEhmpeIZ/PutmKH
+         5H2Aew2Qlyq+JeXwkCWY4LdO+/ymFd+X4hqib/GGw9fsXL06oquiGdLGcmvgHRI/Euaj
+         UE8vchMDw86+GCqwa5RLWIkmW3Y/dbZz2yiQD0RxPGNw/LSUEg12MgQejxKYafdC1y3R
+         Tex29FBbJEXT+zcC2OqiKPL34ADjXNqBmwtO9J3F8OXpaNauMH5htYiKUq2DrpbDc/H0
+         nB6FqKlH1k7h33L5Pnr9CRVjVIkvaU+o+GUKugWErITlNVY9E2CMFMCK003lGlRlzGIx
+         XL0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733422420; x=1734027220;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1unPXMZbH7h5cW8eJggnz5tqss4o788EkVvHmHsyGXk=;
+        b=SXfP8wUauAFw39GIZubNHJ1rveeWeuAB7O1S5Pt70PIz4QIu9fJ1B0Wg91mFSsHKj6
+         NUQbu60McDtN+CnaqhFBr+JLQJbY0hR0LKSOS7XFKs77gY4cUqFX8ITPH85C73RwEiDF
+         ktRFYoKFcwbs3028lND1YNEoXcvBWfP9X89s4i+ynZAcFtoPMrHcYb6onNbImoySVxt1
+         A2kPgCHsL6bRqCCXbmcnvzrTdCeEE2Hk+TtoVzzJP8OBnm8+YfnkYDrE50GzD6IT1g8R
+         vQ/z2FTqFNKEsnBAJ6CUA9sIPFwNv1ryUxvZlSGvResOu4evLB5FVnCfqogQMCDfGGhM
+         gE6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWM9w+LcP+OsgmunVNwhoIt0dYKbtUvTXH6BGhTMi7aD+3bXnxCGol5gC2zaq/QvtEisnHo0cdqlCNna9th7vVb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzP3bsoKK2rnmuPURXQMcHcmp8N8++0zBZ5ZSRwHKGMgF1vYh9i
+	TVFiBdLKcPqE0R1lV5KAVHCUHNqSW998wTvqreifFdJsiHqUd1TzLZNDECWgHK0=
+X-Gm-Gg: ASbGncsRIKC5hQ4QMB1wQ9soXQruJKR3KL3XMYLHtkEbRrdTcwRKjRCFfkdJ4xwTlKE
+	6x9mlLF90j6e0BrFUneBM4b5qbZ9bk6tVlmN4qODG4ArdKfymDRxo+OCPJS+HHJuVrh7Dnj20ME
+	KM6FGJuKl5l5enA2OpAjv7+yCsQeAy9hQiqRINTLRCZV2D9Ylb6lrFqBiva/FnJRW+awNVXS7gU
+	0oRLDGYO/xjrqgOJ+vVRsM35R/jNUvhegXTpVEZvPaesSBk
+X-Google-Smtp-Source: AGHT+IHKsHgIdjWajIbHdYgI8g5SeKEyxiZvjxt64/im4qNjm8LREHx8tkyIsq6B6xmkfdQuB8t1Ng==
+X-Received: by 2002:a05:600c:1d21:b0:434:9cc4:5139 with SMTP id 5b1f17b1804b1-434ddeb0492mr3060455e9.17.1733422420375;
+        Thu, 05 Dec 2024 10:13:40 -0800 (PST)
+Received: from myrica ([2.221.137.100])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434da113458sm32078165e9.27.2024.12.05.10.13.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 10:13:39 -0800 (PST)
+Date: Thu, 5 Dec 2024 18:14:04 +0000
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: will@kernel.org, catalin.marinas@arm.com, joro@8bytes.org,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com, joey.gouly@arm.com, ryan.roberts@arm.com,
+	broonie@kernel.org
+Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Document SVA interaction with new
+ pagetable features
+Message-ID: <20241205181404.GB664340@myrica>
+References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] dt-bindings: dma: st-stm32-dmamux: Add description for
- dma-cell values
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Ken Sloat
-	<ksloat@cornersoftsolutions.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <dmaengine@vger.kernel.org>, <alexandre.torgue@foss.st.com>,
-        <mcoquelin.stm32@gmail.com>, <conor+dt@kernel.org>,
-        <krzk+dt@kernel.org>, <robh@kernel.org>, <vkoul@kernel.org>
-References: <CADRqkYAaCYvo3ybGdKO1F_y9jFEcwTBxZzRN-Av-adq_4fVu6g@mail.gmail.com>
- <d53538ea-f846-4a6a-bc14-22ec7ee57e53@kernel.org>
- <CADRqkYDnDNL_H2CzxjsPOdM++iYp-9Ak3PVFBw2qcjR_M=GeBA@mail.gmail.com>
- <28d1bb46-ab18-42da-9ca2-ff498c888d66@kernel.org>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <28d1bb46-ab18-42da-9ca2-ff498c888d66@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.15.31]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_100652_664222_B5996737 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20241205_101343_056007_F68349D1 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +98,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Dec 05, 2024 at 01:48:09PM +0000, Robin Murphy wrote:
+> Process pagetables may now be using new permission-indirection-based
+> features which an SMMU may not understand when given such a table for
+> SVA. Although SMMUv3.4 does add its own S1PIE feature, realistically
+> we're still going to have to cope with feature mismatches between CPUs
+> and SMMUs, so let's start simple and essentially just document the
+> expectations for what falls out as-is. Although it seems unlikely for
+> SVA applications to also depend on memory-hardening features, or
+> vice-versa,
 
-On 12/5/24 17:09, Krzysztof Kozlowski wrote:
-> On 05/12/2024 17:07, Ken Sloat wrote:
->>>> + 1. The mux input number/line for the request
->>>> + 2. Bitfield representing DMA channel configuration that is passed
->>>> + to the real DMA controller
->>>> + 3. Bitfield representing device dependent DMA features passed to
->>>> + the real DMA controller
->>>> +
->>>> + For bitfield definitions of cells 2 and 3, see the associated
->>>> + bindings doc for the actual DMA controller the mux is connected
->>>
->>> This does not sound right. This is the binding for DMA controller, so
->>> you are saying "please look at itself". I suggest to drop this as well.
->>>
->>
->> While logically it is the DMA controller, this doc is specifically for
->> the mux - the DMA controller has its own driver and binding docs in
->> Documentation/devicetree/bindings/dma/stm32/st,stm32-dma.yaml
->>
->> I can reference st,stm32-dma.yaml directly, but I was unsure if this
->> mux IP was used with another DMA controller from ST on a different
->> SoC.
->>
->> What do you suggest here?
+Hard to predict, but SVA could be indirectly enabled by some common
+library: for example a libcrypto plugin that shares the address space with
+an accelerator when one is available (see uadk_engine). I'm not familiar
+with the POE use-cases, but I guess a common library could also enable
+those memory-hardening features, such that unsuspecting applications have
+everything enabled.
+
+> the relative lifecycles make it tricky to enforce mutual
+> exclusivity. Thankfully our PIE index allocation makes it relatively
+> benign for an SMMU to keep interpreting them as direct permissions, the
+> only real implication is that an SVA application cannot harden itself
+> against its own devices with these features. Thus, inform the user about
+> that just in case they have other expectations.
 > 
-> Thanks for explanation, I think it is fine.
+> Also we don't (yet) support LPA2, so deny SVA entirely if we're going to
+> misunderstand the pagetable format altogether.
 > 
-> Best regards,
-> Krzysztof
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 15 ++++++++++++++-
+>  1 file changed, 14 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> index 1d3e71569775..9ba596430e7c 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> @@ -112,6 +112,15 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
+>  	 * from the current CPU register
+>  	 */
+>  	target->data[3] = cpu_to_le64(read_sysreg(mair_el1));
+> +
+> +	/*
+> +	 * Note that we don't bother with S1PIE on the SMMU, we just rely on
+> +	 * our default encoding scheme matching direct permissions anyway.
+> +	 * SMMU has no notion of S1POE nor GCS, so make sure that is clear if
+> +	 * either is enabled for CPUs, just in case anyone imagines otherwise.
+> +	 */
+> +	if (system_supports_poe() || system_supports_gcs())
+> +		dev_warn_once(master->smmu->dev, "SVA devices ignore permission overlays and GCS\n");
 
-This description was lost when STM32 DMAMUX binding txt file was 
-converted to yaml:
-0b7c446fa9f7 ("dt-bindings: dma: Convert stm32 DMAMUX bindings to 
-json-schema")
+If POE tightens the page permissions, enabling SVA on top lets the
+application easily bypass the POE protection. Could we actually return
+false in arm_smmu_sva_supported() instead of displaying a warning that
+likely no one will notice?
 
--- #dma-cells:	Should be set to <3>.
--		First parameter is request line number.
--		Second is DMA channel configuration
--		Third is Fifo threshold
--		For more details about the three cells, please see
--		stm32-dma.txt documentation binding file
+I guess enforcing !(SVA & POE) on an address space would be too much work?
 
+Thanks,
+Jean
 
-stm32-dmamux exclusively muxes stm32-dma channels. It is not used with 
-other ST DMA controllers (STM32 MDMA, STM32 DMA3).
-
-So it is fine to refer to st,stm32-dma.yaml.
-
-Regards,
-Amelie
+>  }
+>  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_make_sva_cd);
+>  
+> @@ -206,8 +215,12 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+>  	unsigned long asid_bits;
+>  	u32 feat_mask = ARM_SMMU_FEAT_COHERENCY;
+>  
+> -	if (vabits_actual == 52)
+> +	if (vabits_actual == 52) {
+> +		/* We don't support LPA2 */
+> +		if (PAGE_SIZE != SZ_64K)
+> +			return false;
+>  		feat_mask |= ARM_SMMU_FEAT_VAX;
+> +	}
+>  
+>  	if ((smmu->features & feat_mask) != feat_mask)
+>  		return false;
+> -- 
+> 2.39.2.101.g768bb238c484.dirty
+> 
 
