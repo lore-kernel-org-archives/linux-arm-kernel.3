@@ -4,92 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F96E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FEEE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mr8rvSiMKhhr7+g2wBjSbr4ZapMlTY5YRIRH4XPzpek=; b=Q0kT23imNUcxWTKc1HgPIOq2O/
-	H5r/wG6KsmBumPdrwO+xAVwivT8gIe20J4g95Rp+g2daYmNsQcUbuf9dvbA4R3lMYW1pv0ld3ehW3
-	M+q/TxiT0ZWZgEhxfGM1awDyJQ0IzMQH8VTMv6qupY8uzvDgMYU2XMUa0UBsHfwV2ESnmhEwtjOho
-	KpCnUc32PAVgT6G1qRlRG7D9pxI2v2JHmOvyOtYmJ/qW5S/DfAcIlAulIfWBVI7HZDTgEC6zQgZo2
-	wW7O3GjTl16AgxTqdHI9wAZ9HLxH7Y69/SdoUOV9snXUFmBo6tRTn/ihUXoyfJ+qGlBlWV+VBtAzY
-	fScsarHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:To:From:Date:Reply-To:Subject:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uUQRGG6F5iHI1AHQ+KI818TFAhHliFY5xuCUnq35RCY=; b=FUY87mJ7Fbf5cluVb0TUyp0il7
+	MC6djd4GadsHvHafDhDB0C/fn4b5aR2u0jVIm+7QUz+kylYyVhJAMBUua7zwXvDIvf4NR8mjidpNd
+	Tom6kni3HHwmS9Xb1Tq5zatGbbdy5+adyRyPtFqwWMNnXyuoaGCN9GsdFoliAwO140tqZ1cH56XPJ
+	wRBGVc4c3KInJnyGY5lTnEy69LGCCESnCdnVkUEeaUlB+JI/IDcFT/3huTclHY3GOvo+W1imasXHD
+	CTnRB2poLGjSDWxKJasLuHGC9nJ6srXXoVDHTLD+Qd3Xqm10kJeQGrS3FrC85c5dTyBicawbkHQ4i
+	bZ1Oexgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRDnZ-00000000gIf-0ti1;
-	Fri, 27 Dec 2024 17:06:53 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1tJGGt-0000000H4Dp-3qWD;
+	Thu, 05 Dec 2024 18:08:15 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRDea-00000000eUP-3ZEh
+	id 1tJGC8-0000000H3Gt-0GYf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 16:57:38 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa6997f33e4so1263913766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 08:57:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1735318655; x=1735923455; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Mr8rvSiMKhhr7+g2wBjSbr4ZapMlTY5YRIRH4XPzpek=;
-        b=UTJiQ5/tEqYNoboy5YYe+EoJEOKw8j8aZIYr8XMjJR26vV3MDRsmaQT6+bMZji5Pc3
-         drUugYLz+2ulm55/zY2+fHW1LYT5BBRiNIbHDLZpKSKE/jJECWlna9XT+qkVT0uqc93t
-         OIl2iUrF48Wzw0EsG5JuqO0XWnhLZWTIEACvs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735318655; x=1735923455;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Mr8rvSiMKhhr7+g2wBjSbr4ZapMlTY5YRIRH4XPzpek=;
-        b=UQJyIe7TQO5kdXy3CxKegGX99mx4RLh1v3WiRsWBXIgZef3fppiQtcdRcBhA4hnPKN
-         XJs7cUuuHmwCBo/gyU2Cny30UaaKrSnDHYGj9gGsDsUBsNP/8EfVuKyCVfAwPlt5Jo93
-         i39F2mj49sLWcx1ytkk0rI7PpH8XWtbiwccz2sKErR65mjihClzPVihTLMEJSBuVD5QZ
-         AV6+egFWSARteoFJt7rhqNmlETJ04n4dnCMfImc4M+l6Hc7cb8zmN++5aTfe5+DMLPd1
-         C5rN3J472VrqVOH5cmoR9GeaCRlorWV3OwmPxWq8AnDUBHrO2GOZDxg74TGqL08Fpjba
-         t0Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCX/O19Hfmr6b6roCCoVmBoUvgzjnghTTcJU57k9UTm+Hp0sOK8oCK8+ZN8nZHjEHd3KdeEEDRZEwJplTivv+q1x@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYUvXYKdhleOYkLFq/Wy+PqbxzdpDwGvPWTj9wETwZY/Qr9EHL
-	ibMohBIRQ6sB9VQ/2l8mAJ1MBj+cx2YCvT6IV9GWVY7/6ZYNzDqC8/OqzWjGrjQ=
-X-Gm-Gg: ASbGnctD6RH3WjXnDSEcLd9UTFT03o4hfDfPr5Of4fhiW3OqcniR2vm+Fg87iYNaBst
-	iDiwBgkDaod1C06Jd4M1ZKlOscHYnNrfhxQXdo1az6kNL/efiCjsw1npUOgpkx4czQIEJ6FTvQc
-	FcSEkPyqUNe1lEjoju/heO/eFAeEthyRPqLtP/cnZTMPtmknhKxz713fxD0xe3v4QDm2XmNrakb
-	AAMQnxfLNlY7aRTtTXVod74Qxo5VhvEYlDdMGnfB2NDgAR9Urr/nCPGEadCcSlSr1rKq4e/arKH
-	94uj8/ESiuEVSJYPx1rpMQ==
-X-Google-Smtp-Source: AGHT+IE0OOORdYEPfw3l5TavUkTwemsNNoEqAVu6kBH4Ag8emI9J3IoeOvq1nphdPOb5Rod0D0CmkQ==
-X-Received: by 2002:a17:907:d9f:b0:aac:619:7ed8 with SMTP id a640c23a62f3a-aac28748b30mr2647750766b.7.1735318655550;
-        Fri, 27 Dec 2024 08:57:35 -0800 (PST)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f0159f1sm1130097266b.154.2024.12.27.08.57.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Dec 2024 08:57:35 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v7 07/23] arm64: dts: imx8mn: add anatop clocks
-Date: Fri, 27 Dec 2024 17:56:10 +0100
-Message-ID: <20241227165719.3902388-8-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241227165719.3902388-1-dario.binacchi@amarulasolutions.com>
-References: <20241227165719.3902388-1-dario.binacchi@amarulasolutions.com>
+	Thu, 05 Dec 2024 18:03:21 +0000
+Date: Thu, 5 Dec 2024 13:03:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733421794;
+	h=from:from:reply-to:subject:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=uUQRGG6F5iHI1AHQ+KI818TFAhHliFY5xuCUnq35RCY=;
+	b=QYeojBXREqjn+wWh4epVhI5wOj0+RJ9hEbc5Ta2HF0Ax6iq4PVksKg97bDgHuRpQVZ+zEh
+	AJcAgBaIfU/4u9hLG5ImnVwoqzM7GzfOhxD6iutr/Kei6eSAGO+Pl+K0nPr2T1w+YN1FXq
+	B94fIgwdZS5p8tfmTQDPwiBZuqNYbew=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: linux-arm-kernel@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, linux-bcachefs@vger.kernel.org
+Message-ID: <36kx57aw46vwykgckr5cm4fafhw54tjuj4cqljrdnpfwvjl7if@a7znuhpfu54o>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_085736_883126_FC01661B 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20241205_100320_611771_6AAF36BD 
+X-CRM114-Status: UNSURE (   6.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,34 +63,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clocks to anatop node.
+linux-kernel@vger.kernel.org
+Cc:
+Bcc:
+Subject: Re: arm64: stacktrace: unwind exception boundaries
+Message-ID: <cqmiqyusbdua2x4kh6eefndnneg6ever6doztccko4taky3b6k@ezqikwh2ooe7>
+Reply-To:
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+On 6.13-rc1, I'm now seeing a ton of test failures due to this warning -
+what gives?
 
----
-
-(no changes since v4)
-
-Changes in v4:
-- New
-
- arch/arm64/boot/dts/freescale/imx8mn.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-index a5f9cfb46e5d..49be492b5687 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-@@ -606,6 +606,8 @@ anatop: clock-controller@30360000 {
- 				compatible = "fsl,imx8mn-anatop", "fsl,imx8mm-anatop";
- 				reg = <0x30360000 0x10000>;
- 				#clock-cells = <1>;
-+				clocks = <&osc_32k>, <&osc_24m>;
-+				clock-names = "osc_32k", "osc_24m";
- 			};
- 
- 			snvs: snvs@30370000 {
--- 
-2.43.0
+00104 ========= TEST   generic/017
+00104        run fstests generic/017 at 2024-12-05 11:47:43
+00104 spectre-v4 mitigation disabled by command-line option
+00106 bcachefs (vdc): starting version 1.13: inode_has_child_snapshots
+00106 bcachefs (vdc): initializing new filesystem
+00106 bcachefs (vdc): going read-write
+00106 bcachefs (vdc): marking superblocks
+00106 bcachefs (vdc): initializing freespace
+00106 bcachefs (vdc): done initializing freespace
+00106 bcachefs (vdc): reading snapshots table
+00106 bcachefs (vdc): reading snapshots done
+00106 bcachefs (vdc): done starting filesystem
+00200 ------------[ cut here ]------------
+00200 WARNING: CPU: 8 PID: 12571 at arch/arm64/kernel/stacktrace.c:223 arch_stack_walk+0x2c0/0x388
+00200 Modules linked in:
+00200 CPU: 8 UID: 0 PID: 12571 Comm: cat Not tainted 6.13.0-rc1-ktest-gdf1fce23d033 #10877
+00200 Hardware name: linux,dummy-virt (DT)
+00200 pstate: 80001005 (Nzcv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=--)
+00200 pc : arch_stack_walk+0x2c0/0x388
+00200 lr : arch_stack_walk+0x1f4/0x388
+00200 sp : ffffff80ca757b00
+00200 x29: ffffff80ca757b00 x28: ffffff80d6783758 x27: 000000000000036f
+00200 x26: ffffff80d6783780 x25: ffffff80c19de180 x24: ffffff80c273ee40
+00200 x23: ffffffc080022708 x22: ffffffc080025828 x21: ffffff80ca757be8
+00200 x20: ffffffc0800c98c8 x19: ffffff80d8533d10 x18: ffffffffffffffff
+00200 x17: 0000000000000000 x16: 0000000000000000 x15: ffffffffffffffff
+00200 x14: 0000000000000000 x13: ffffff80d6c92000 x12: 0000000000000000
+00200 x11: 0000000000000000 x10: 000000000000000a x9 : ffffffc08086beec
+00200 x8 : ffffff80ca757bc0 x7 : 0000000000000000 x6 : ffffff80d8533d28
+00200 x5 : ffffff80ca757b60 x4 : ffffff80d8534000 x3 : ffffff80ca757b40
+00200 x2 : 0000000000000018 x1 : ffffff80d8533d10 x0 : 0000000000000000
+00200 Call trace:
+00200  arch_stack_walk+0x2c0/0x388 (P)
+00200  arch_stack_walk+0x1f4/0x388 (L)
+00200  stack_trace_save_tsk+0x90/0xd8
+00200  bch2_save_backtrace+0x68/0x160
+00200  bch2_prt_task_backtrace+0x30/0xb8
+00200  bch2_btree_transactions_read+0xe0/0x1f0
+00200  full_proxy_read+0x60/0xd0
+00200  vfs_read+0x80/0x2d8
+00200  ksys_read+0x5c/0xf0
+00200  __arm64_sys_read+0x20/0x30
+00200  invoke_syscall.constprop.0+0x54/0xe8
+00200  do_el0_svc+0x44/0xc8
+00200  el0_svc+0x18/0x58
+00200  el0t_64_sync_handler+0x104/0x130
+00200  el0t_64_sync+0x154/0x158
+00200 ---[ end trace 0000000000000000 ]---
+00233 hrtimer: interrupt took 49506640 ns
+00493 bcachefs (vdb): shutting down
+00493 bcachefs (vdb): going read-only
+00493 bcachefs (vdb): finished waiting for writes to stop
+00493 bcachefs (vdb): flushing journal and stopping allocators, journal seq 18
+00493 bcachefs (vdb): flushing journal and stopping allocators complete, journal seq 18
+00493 bcachefs (vdb): clean shutdown complete, journal seq 19
+00493 bcachefs (vdb): marking filesystem clean
+00493 bcachefs (vdb): shutdown complete
+00493 bcachefs (vdc): shutting down
+00493 bcachefs (vdc): going read-only
+00493 bcachefs (vdc): finished waiting for writes to stop
+00493 bcachefs (vdc): flushing journal and stopping allocators, journal seq 41457
+00493 bcachefs (vdc): flushing journal and stopping allocators complete, journal seq 41459
+00493 bcachefs (vdc): clean shutdown complete, journal seq 41460
+00493 bcachefs (vdc): marking filesystem clean
+00493 bcachefs (vdc): shutdown complete
+00495 bcachefs (vdc): starting version 1.13: inode_has_child_snapshots
+00495 bcachefs (vdc): recovering from clean shutdown, journal seq 41460
+00495 bcachefs (vdc): accounting_read... done
+00495 bcachefs (vdc): alloc_read... done
+00495 bcachefs (vdc): stripes_read... done
+00495 bcachefs (vdc): snapshots_read... done
+00495 bcachefs (vdc): going read-write
+00495 bcachefs (vdc): journal_replay... done
+00495 bcachefs (vdc): resume_logged_ops... done
+00495 bcachefs (vdc): delete_dead_inodes... done
+00495 bcachefs (vdc): done starting filesystem
+00495 bcachefs (vdc): shutting down
+00495 bcachefs (vdc): going read-only
+00495 bcachefs (vdc): finished waiting for writes to stop
+00495 bcachefs (vdc): flushing journal and stopping allocators, journal seq 41460
+00495 bcachefs (vdc): flushing journal and stopping allocators complete, journal seq 41460
+00495 bcachefs (vdc): clean shutdown complete, journal seq 41461
+00495 bcachefs (vdc): marking filesystem clean
+00495 bcachefs (vdc): shutdown complete
+00495 _check_dmesg: something found in dmesg (see /ktest-out/xfstests/generic/017.dmesg)
+00496 
+00496 /ktest-out/xfstests/generic/017.full:
+00496 cat: /ktest-out/xfstests/generic/017.full: No such file or directory
+00496 ========= FAILED generic/017 in 391s, exit status 0
 
 
