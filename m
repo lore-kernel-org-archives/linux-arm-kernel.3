@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7972DE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0208CE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PcL6LK93M7DNVKiaLOsm9hd8sg5VT8mEQUy23TGFPuI=; b=efu7p8CJDClr+pjw4N+No8EVr6
-	mae3L1dzFhgKw1mWPn+8uuiH5T/rM9gSeRUjeP6kR10GSk++F4cRYVBoFUcpK0j+1XdGMriZVrr35
-	1qgwd9jGzTJp89xPjmrYuhHJL5VL5v2d03GwxavF7Sr6+xJzvg2YPZz1OQEBSzz0NqOQOhGM/fm68
-	fywInT92jD6Iggcyqfss7jeGWqYKzOZVzLJhstkGi41fkfVt5ffAhrB3ymyCrvU4smctCWVT2u7r5
-	6awDi9QmHE2Sa5+qWYT45hfxbeyjtE5dC7piqRAMIVdzw6PKt98bysEJR5mdP907Z8UnHVnnSIuWH
-	YemPyNJg==;
+	bh=QCrpYoPJ6N33+Q2Y170te2pYq/gHNunbssEixAmTtTg=; b=aqfWvq1MZr8/eraaFNWf4JpFu8
+	FEFJ9LKPcg8AYIC7zgluAnzwrK96pKw2iZWfsH7CJG/NHOeXfdtaD1TNdGBQY2h3p5L4NruDgf43k
+	F1EMwhsRK4uFYkhvzl+xovO8GN0O5OR+sX1xaq9/1s+YX6Fpy9yqKQodHh8Iilf5uV4hZAH+1Th/o
+	DNZizzKGCUfQjaYeeWP+7s5gEsUM0ZMxS2ZvYv5n8nKocLG+vd9qlW/WJOgbmoomapuQX4gyExLva
+	XiKkQsUqGJvthfkRD0lZ9OXoxn11xvkB8htdPGbGc6Ga2305EQmwJk5V72mXoYvT9Pcv9KEEcqFV9
+	wmVxhfFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBMX-0000000G1h0-3dFt;
-	Thu, 05 Dec 2024 12:53:45 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tJBNk-0000000G1vQ-3Nic;
+	Thu, 05 Dec 2024 12:55:00 +0000
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBKp-0000000G1Ui-3ipM;
-	Thu, 05 Dec 2024 12:52:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733403118;
-	bh=YFG6FkeYF20hfhB+H5eEVSa+7PdyoD2Fi7/VWdKN8TA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KZSgg/eG+4pJoYg5IOAh4jn0QexhOcRzFpHycAlWZdQ3PQcacmRwLiViHhCfpCyx3
-	 SgEYLUIW373laCBE2ZpsVyDd/WarbyA/3w8WsmvjLxdC3wbM7KXhxZg29W12e6Q5Yk
-	 f62XrD6L0AXoNwVkg4Te7ORJJZQOuaRSLUyMbq7+kugsJChxp0He5LzsethuHQ4dqA
-	 Ti7n1SPjPhNcVlgCeqR+J37KfmLt48dhu4XSMKk4G+U5VEBQ8gGtKmO6wRe0Av5FF8
-	 haU1hnrwnZYE3aPFxBtiyO+022xaK2ZXxKWNcseJ1bO05wdokYUrZuTTNOXCbJCnu1
-	 WxwkoVLcByjRw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D3C8717E36AF;
-	Thu,  5 Dec 2024 13:51:57 +0100 (CET)
-Message-ID: <a70a0521-985d-43a4-a1fa-36eb733d5ca9@collabora.com>
-Date: Thu, 5 Dec 2024 13:51:57 +0100
+	id 1tJBMi-0000000G1jp-3hmc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 12:53:58 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:b16a:6561:fa1:2b32])
+	by laurent.telenet-ops.be with cmsmtp
+	id l0ts2D00M3EEtj2010tsVD; Thu, 05 Dec 2024 13:53:53 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tJBMd-000LOd-Pq;
+	Thu, 05 Dec 2024 13:53:52 +0100
+Received: from geert by rox.of.borg with local (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tJBMe-00EQDL-Gf;
+	Thu, 05 Dec 2024 13:53:52 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH 1/2] arm64: dts: renesas: white-hawk-ard-audio: Drop SoC part
+Date: Thu,  5 Dec 2024 13:53:48 +0100
+Message-Id: <0a72c67991828784066f76b61605d2f7913a353c.1733402907.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1733402907.git.geert+renesas@glider.be>
+References: <cover.1733402907.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: Enable apll1 clock during reg rw
- to prevent hang
-To: =?UTF-8?B?VHJldm9yIFd1ICjlkLPmlofoia8p?= <Trevor.Wu@mediatek.com>,
- "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- Nicolas Prado <nfraprado@collabora.com>,
- "broonie@kernel.org" <broonie@kernel.org>, "tiwai@suse.com"
- <tiwai@suse.com>, "perex@perex.cz" <perex@perex.cz>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-References: <20241203-mt8188-afe-fix-hang-disabled-apll1-clk-v1-1-07cdd7760834@collabora.com>
- <a10dbdf265194e77a69b6e40afa3df9636b3ab14.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <a10dbdf265194e77a69b6e40afa3df9636b3ab14.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_045200_090732_09539DE4 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20241205_045357_061930_7BAD5362 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,108 +71,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 04/12/24 13:17, Trevor Wu (吳文良) ha scritto:
-> On Tue, 2024-12-03 at 17:07 -0300, Nícolas F. R. A. Prado wrote:
-> 
->>
->> Currently, booting the Genio 700 EVK board with the MT8188 sound
->> platform driver configured as a module (CONFIG_SND_SOC_MT8188=m)
->> results
->> in a system hang right when the HW registers for the audio controller
->> are read:
->>
->>    mt8188-audio 10b10000.audio-controller: No cache defaults, reading
->> back from HW
->>
->> The hang doesn't occur with the driver configured as builtin as then
->> the
->> unused clocks are still enabled.
->>
->> Enable the apll1 clock during register read/write to prevent the
->> hang.
->>
->> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> ---
->>   sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 4 ++++
->>   1 file changed, 4 insertions(+)
->>
->> diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
->> b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
->> index
->> e69c1bb2cb239596dee50b166c20192d5408be10..fb8cf286df3f02ac076528b898f
->> d0d7a708ec1ea 100644
->> --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
->> +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
->> @@ -587,6 +587,8 @@ int mt8188_afe_enable_reg_rw_clk(struct
->> mtk_base_afe *afe)
->>          mt8188_afe_enable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_AUD_A1SYS_HP]);
->>          mt8188_afe_enable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_AUD_A1SYS]);
->>
->> +       mt8188_afe_enable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_APMIXED_APLL1]);
->> +
->>          return 0;
->>   }
-> Hi Nicolas,
-> 
-> If I understand correctly, APLL1 should be the parent clock of
-> AUD_A1SYS_HP and AUD_A1SYS, so it should be enabled automatically by
-> CCF.
-> 
-> I'm not sure why you resolved the hang issue after enabling APLL1.
-> Could you share more details about the solution?
-> 
+The White Hawk with ARD-AUDIO-DA7212 external audio board stack is not
+specific to R8A779G0.  Hence rename its DTS file name to drop the
+"r8a779g0-" prefix.
 
-Hmm. Now I see what's happening here...
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ arch/arm64/boot/dts/renesas/Makefile                          | 4 ++--
+ ...ard-audio-da7212.dtso => white-hawk-ard-audio-da7212.dtso} | 0
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ rename arch/arm64/boot/dts/renesas/{r8a779g0-white-hawk-ard-audio-da7212.dtso => white-hawk-ard-audio-da7212.dtso} (100%)
 
-Nicolas, Trevor,
-
-Possible parents for top_a1sys_hp are:
-  - clk26m
-  - apll1_d4
-
-...what's happening here most probably is that after the clock gets disabled as
-unused, it gets parented to clk26m by default as that is parent index 0... and
-something else in AFE needs APLL1 to feed a clock to .. something .. to allow
-register access.
-
-Trevor, do you know why is this IP unaccessible when A1SYS is parented to clk26m?
-
-That might give Nicolas a definitive hint about how to resolve this issue.
-
-Cheers,
-Angelo
-
-> Thanks,
-> Trevor
-> 
->>
->> @@ -594,6 +596,8 @@ int mt8188_afe_disable_reg_rw_clk(struct
->> mtk_base_afe *afe)
->>   {
->>          struct mt8188_afe_private *afe_priv = afe->platform_priv;
->>
->> +       mt8188_afe_disable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_APMIXED_APLL1]);
->> +
->>          mt8188_afe_disable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_AUD_A1SYS]);
->>          mt8188_afe_disable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_AUD_A1SYS_HP]);
->>          mt8188_afe_disable_clk(afe, afe_priv-
->>> clk[MT8188_CLK_AUD_AFE]);
->>
->> ---
->> base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
->> change-id: 20241203-mt8188-afe-fix-hang-disabled-apll1-clk-
->> b3c11782cbaf
->>
->> Best regards,
->> --
->> Nícolas F. R. A. Prado <nfraprado@collabora.com>
->>
->>
+diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
+index df9ea5b2e20818f4..dea812ba55f3132e 100644
+--- a/arch/arm64/boot/dts/renesas/Makefile
++++ b/arch/arm64/boot/dts/renesas/Makefile
+@@ -86,8 +86,8 @@ dtb-$(CONFIG_ARCH_R8A779F0) += r8a779f4-s4sk.dtb
+ 
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g0-white-hawk.dtb
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g0-white-hawk-cpu.dtb
+-dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g0-white-hawk-ard-audio-da7212.dtbo
+-r8a779g0-white-hawk-ard-audio-da7212-dtbs := r8a779g0-white-hawk.dtb r8a779g0-white-hawk-ard-audio-da7212.dtbo
++dtb-$(CONFIG_ARCH_R8A779G0) += white-hawk-ard-audio-da7212.dtbo
++r8a779g0-white-hawk-ard-audio-da7212-dtbs := r8a779g0-white-hawk.dtb white-hawk-ard-audio-da7212.dtbo
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g0-white-hawk-ard-audio-da7212.dtb
+ 
+ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g2-white-hawk-single.dtb
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g0-white-hawk-ard-audio-da7212.dtso b/arch/arm64/boot/dts/renesas/white-hawk-ard-audio-da7212.dtso
+similarity index 100%
+rename from arch/arm64/boot/dts/renesas/r8a779g0-white-hawk-ard-audio-da7212.dtso
+rename to arch/arm64/boot/dts/renesas/white-hawk-ard-audio-da7212.dtso
+-- 
+2.34.1
 
 
