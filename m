@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9136BE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 00:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DA8E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 00:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=61SmXPB1pqUq0dTHUQbrnyBHYgFk//AhCJ0oubFb88k=; b=ZkWEstixq8zrxjJdWbH+FIqLjJ
-	L4FB/C3QHb/56/uOjixpw6yl2SVK4/k5+8AptI1mF3AgbzpLNdaD3u33N+VK5JJlS9QpwF+v96Yha
-	pVnyyJMyO3iVv9ajK3XgShhdF9OrFkZeWMrdsGy1DFaBnlJNlk7EOp/HQa7WSDsa/uFY9ldHQnTOX
-	XIlBWGHUgwxfU9Pf/cUV8DkSzTP2cel71fyFc0S/sCol67lWvjpKQ+hY6JjCFh/V8gURaXzbLAvdr
-	TSQ0gYCzU9S5p7zgi/1GT+z/SRaUSqPVNAkO4gJPfTO5FhdnW/t81KqFAolSaSf6b3shbBiBPhFLy
-	R8Pd6U6g==;
+	bh=gF4/ZNsAK1S1Q0ruvMfpDSairoKQHeLYMeqLyk6oG4w=; b=L2dyofrCBE00qJFGqGXHvwV0n5
+	dzo40wyV+37seMe+iQAHZr8KJ2miUkz/KCISiIGLnoj/gg+AHVEdkTuTglLF0yOuEhKFA8LgIBnEo
+	LVC/WAm9VbmHMMs2kC8g6uiSIDcK5Xlf5kn2MvEHHwvGKhNWiIVEJCOnbzNCIbMo2sOuqMd0u9zKt
+	M/nZ6OCYPdUhXGhlhCUH3aT6ih91H4k9q4J1FLBxop4KBP5Z4upN5UeAfUMq9ubEptEhs1kpy+K70
+	NVYU/5m2vX0RLi1yWbyNjfUUYBBQ3Dj81F2DBOLUGAY2QtDY6eM2mutyOE6tx+5EUzoak6y12odNo
+	qyCFJGRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIzHb-0000000EGe1-2RrI;
-	Wed, 04 Dec 2024 23:59:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIzM2-0000000EHDz-27yg;
+	Thu, 05 Dec 2024 00:04:26 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIzGa-0000000EGUp-36MI
+	id 1tIzL1-0000000EGzD-0EiJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Dec 2024 23:58:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E17925C6E03;
-	Wed,  4 Dec 2024 23:58:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCB77C4CECD;
-	Wed,  4 Dec 2024 23:58:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733356727;
-	bh=SfP6s4VIWMTbvk2G5z6Y+FMQluZGJn5y1iWBpbzQLUc=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=PuwxZRtU1iEBR/hrQMvR1LQ1CsjdX/f/kpaeCbz5fjMfNxC+GosCTzHqeudqViaOp
-	 2ByBbMc0Xx7W6RQa45NHVJrOc08iwMl4EMELNSi73UKzocDCFK/cXH+k06ZX7fy+AZ
-	 Uos7beTN5nbUG3fLgt+9mc5/mrID4QO6b40hz6xhx+/bMQMX2uUsS4/iLjMC3Am76c
-	 +4Hi2+CPbMm0bju/NxMSwHWGmn6nF9BQ3EWk/NBi519OE+V43OAyoZ3LrofjbipWHf
-	 UGGDPVG5ToCDAMjPrZujCikcuAgIft5iQMchwh4MM5duEzj+UnwtisVNrEFEcPDjTI
-	 B7Ajhpsb+SmqA==
-Date: Thu, 05 Dec 2024 09:58:44 +1000
-From: Kees Cook <kees@kernel.org>
-To: mailhol.vincent@wanadoo.fr,
- Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- David Laight <David.Laight@aculab.com>,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Rikard Falkeborn <rikard.falkeborn@gmail.com>,
- Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-CC: linux-sparse@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-hardening@vger.kernel.org,
- intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_00/10=5D_compiler=2Eh=3A_refactor_=5F=5Fis?=
- =?US-ASCII?Q?=5Fconstexpr=28=29_into_is=5F?=
- =?US-ASCII?Q?const=7B=2C=5Ftrue=2C=5Ffalse=7D=28=29?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
-Message-ID: <FBEB24FF-5885-4938-8D1C-9B7BA9071FB9@kernel.org>
+	Thu, 05 Dec 2024 00:03:24 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 61CF9A0E4F;
+	Thu,  5 Dec 2024 01:03:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=gF4/ZNsAK1S1Q0ruvMfp
+	DSairoKQHeLYMeqLyk6oG4w=; b=Loe0OhO78keO1ZI0hJt2c3d7dv9aMV2/f/bW
+	j6wlV07/b511+kMrUTxWjj8E6ngQB3w96JzFExXs/a3Yq4IJOX8Ux8EaMQyZGNRv
+	g+k9PEj3Fa2JLXwlsVXnvUBXFp6/X4EleyuQA198Mi1Y6Bhs2KpjYho0O9N21wGN
+	DRTYazKDQmI2uZhVmy2wzkjS3jnI8As5MSka0rb6gpEowm1ybO9wpjdU6JUZgfpc
+	++f4+QbZNV0YywfPkFSZuPwAJFb39vGUJvXTsVlZPyXetxaU2ZB4RTWHM4LfYof1
+	e44+fYyF2cZjsbggTtRVyEYpE7XzTZrr4+pB34d/UDK86n4GbciicH+iDxIo7LS7
+	xWLZREHF4df37jTM0ALS788iBbv9uEA4y3KBxuZIqzxry+AitY9OYTetwm7OMWoC
+	ZtlRn9C64p56MwydVX1t/xXzGp1Vg6KZmX9UqjFb1Pq2Puo+Kmgw/g5oopZoQtVZ
+	wpufLej3/yn1NriJp/uOUDNBzI/yRdM0CR7dLcNY/uV6utWy7MxbL/HL2hMr/5rn
+	xcvWzSYKAwiJCKIvtfTgj8f70tEEKIeAdj0D+6NukwOzO+YdKi1uEIrMms4NP0tX
+	29j80spxhvoHQDEe/ySCGYFTEhdwv3oe6+UpqVji3+L1aL9Du2qVClkFlahAW3BP
+	a7iQfl4=
+From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
+To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: Mesih Kilinc <mesihkilinc@gmail.com>,
+	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Subject: [PATCH 1/3] ARM: dts: suniv: f1c100s: Add support for DMA
+Date: Thu, 5 Dec 2024 01:01:36 +0100
+Message-ID: <20241205000137.187450-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241205000137.187450-1-csokas.bence@prolan.hu>
+References: <20241205000137.187450-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1733357000;VERSION=7982;MC=2619784077;ID=169667;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94855627561
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_155848_866377_6E0E2FDF 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20241204_160323_249814_CAFA80B2 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,37 +85,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Mesih Kilinc <mesihkilinc@gmail.com>
+
+Allwinner suniv F1C100s now has DMA support. Enable it under device
+tree.
+
+Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
+[ csokas.bence: Rebased on current master ]
+Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
+---
+ arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
+index 3c61d59ab5f8..290efe026ceb 100644
+--- a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
++++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
+@@ -6,6 +6,7 @@
+ 
+ #include <dt-bindings/clock/suniv-ccu-f1c100s.h>
+ #include <dt-bindings/reset/suniv-ccu-f1c100s.h>
++#include <dt-bindings/dma/sun4i-a10.h>
+ 
+ / {
+ 	#address-cells = <1>;
+@@ -159,6 +160,15 @@ usbphy: phy@1c13400 {
+ 			status = "disabled";
+ 		};
+ 
++		dma: dma-controller@1c02000 {
++			compatible = "allwinner,suniv-f1c100s-dma";
++			reg = <0x01c02000 0x1000>;
++			interrupts = <18>;
++			clocks = <&ccu CLK_BUS_DMA>;
++			resets = <&ccu RST_BUS_DMA>;
++			#dma-cells = <2>;
++		};
++
+ 		ccu: clock@1c20000 {
+ 			compatible = "allwinner,suniv-f1c100s-ccu";
+ 			reg = <0x01c20000 0x400>;
+-- 
+2.34.1
 
 
-On December 3, 2024 3:33:22 AM GMT+10:00, Vincent Mailhol via B4 Relay <de=
-vnull+mailhol=2Evincent=2Ewanadoo=2Efr@kernel=2Eorg> wrote:
->This series is the spiritual successor of [1] which introduced
->const_true()=2E In [1], following a comment from David Laight, Linus
->came with a suggestion to simplify __is_constexpr() and its derived
->macros using a _Generic() selection=2E Because of the total change of
->scope, I am starting a new series=2E
->
->The goal is to introduce a set of three macros:
->
->  - is_const(): a one to one replacement of __is_constexpr() in term
->    of features but written in a less hacky way thanks to _Generic()=2E
->
->  - is_const_true(): tells whether or not the argument is a true
->    integer constant expression=2E
->
->  - is_const_false(): tells whether or not the argument is a false
->    integer constant expression=2E
-
-But why make this change? Is something broken? Does it make builds faster?
-
-> 7 files changed, 97 insertions(+), 84 deletions(-)
-
-It makes the code larger too=2E I don't see what the benefit is, and given=
- how much time has been spent making sure the existing stuff works correctl=
-y, I feel like we should have a clear benefit to replacing it all=2E
-
--Kees
-
---=20
-Kees Cook
 
