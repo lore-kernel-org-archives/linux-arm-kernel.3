@@ -4,52 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B107E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9880E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMyT9smhDnfbZXFW8e+jrN9phjyi/Ay14OgP7oGz2Uk=; b=yWNyM4MgEmfnudQso0JprHw9/0
-	TSGVrG5cWmzm0YfFkNL1YePzDYGPEpvQ3lxqy9X0zTaliVCosyYQvh4uP/WAQ57AdXRFvVwZrNdIr
-	KdRJiFWW/7EQ1KaTpKPZ3OadIOH+2xP7uevvLF0QDlavcXC++EcrvYCU8a6ToP0CtvbzMmAC1HzAm
-	Otet1NX1MscJst9TG0BUZOsT5q7vy7tOmc32gryHpf/IqIcsT8ykL56LFt3wweHL42uRQMXiqjVv9
-	OFTjoqUq72h4O3C7FYcwD8FMxCgs/yfceXNrA2tjuJVntq+n21oFs7FEso1YjsRFBVC/5ArE6tzf0
-	JSHEM/cQ==;
+	bh=73SZW2MQjFqdAN1Sdd8XLZhaUnreQcWGlY82lHCm058=; b=4L3gxh0bQkfXEztEbsuxWnjRkd
+	f7vnAIy1VVwLW/yht5SUs92fT2LPL4MJCukJJ0oBrzCoKuZlLnZ/ZfeHDnGjSpgc2ic1KV87GCnO/
+	I7fJbpFqJR31kA2DO5EkaFTnXfsJbdE44svjjLjijd2cftAiQcgyIRB2qu2iQEEwhlkzAtP8LITdf
+	+kTboSaUwwpMAeOCVAlMi0Br7KKGeFsseo8KFoIXBt5S5UJaa5rHBmdPjZV8fRqaYiU667hkQHT6q
+	Pg7N0UvGdmDvUMiYxmECwJmqkFrrOej1IkhwTeWJE0BXEpyECGrvMjOrFBHcZal4Q7yqD9UxMnlCV
+	OXKc2+XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGXs-0000000H6px-1iAv;
-	Thu, 05 Dec 2024 18:25:48 +0000
+	id 1tJGYs-0000000H6xw-00A4;
+	Thu, 05 Dec 2024 18:26:50 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGVN-0000000H6Xc-3bXe
+	id 1tJGVp-0000000H6ZW-2N9M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 18:23:15 +0000
+	Thu, 05 Dec 2024 18:23:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8EB845C0685;
-	Thu,  5 Dec 2024 18:22:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EED26C4CED1;
-	Thu,  5 Dec 2024 18:23:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 44EFC5C54BC;
+	Thu,  5 Dec 2024 18:22:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3866C4CEDC;
+	Thu,  5 Dec 2024 18:23:38 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	broonie@kernel.org,
-	joey.gouly@arm.com
-Subject: Re: [PATCH 0/4] arm64: ptrace: fix handling of partial SETREGSET calls
-Date: Thu,  5 Dec 2024 18:23:09 +0000
-Message-Id: <173342292875.1735998.10087174638613515208.b4-ty@arm.com>
+To: will@kernel.org,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: joro@8bytes.org,
+	jean-philippe@linaro.org,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	ryan.roberts@arm.com,
+	broonie@kernel.org
+Subject: Re: (subset) [PATCH 1/2] iommu/arm-smmu-v3: Document SVA interaction with new pagetable features
+Date: Thu,  5 Dec 2024 18:23:36 +0000
+Message-Id: <173342292875.1735998.11342538299837592943.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241205121655.1824269-1-mark.rutland@arm.com>
-References: <20241205121655.1824269-1-mark.rutland@arm.com>
+In-Reply-To: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
+References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_102313_935744_38820D6C 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20241205_102341_643489_5CA53D69 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,28 +69,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Dec 2024 12:16:51 +0000, Mark Rutland wrote:
-> A few of arm64's regsets forget to handle partial-length SETREGSET
-> calls, and copy a small portion of uninitialized kernel stack memory to
-> the backing storage of the relevant registers. In all cases the read is
-> limited to a specific slot on the stack, and the issue does not provide
-> a write mechanism.
-> 
-> For example, a zero-length SETREGSET to NT_ARM_FPMR will reset FPMR to
-> an arbitrary uninitialized value from the kernel stack:
+On Thu, 05 Dec 2024 13:48:09 +0000, Robin Murphy wrote:
+> Process pagetables may now be using new permission-indirection-based
+> features which an SMMU may not understand when given such a table for
+> SVA. Although SMMUv3.4 does add its own S1PIE feature, realistically
+> we're still going to have to cope with feature mismatches between CPUs
+> and SMMUs, so let's start simple and essentially just document the
+> expectations for what falls out as-is. Although it seems unlikely for
+> SVA applications to also depend on memory-hardening features, or
+> vice-versa, the relative lifecycles make it tricky to enforce mutual
+> exclusivity. Thankfully our PIE index allocation makes it relatively
+> benign for an SMMU to keep interpreting them as direct permissions, the
+> only real implication is that an SVA application cannot harden itself
+> against its own devices with these features. Thus, inform the user about
+> that just in case they have other expectations.
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/4] arm64: ptrace: fix partial SETREGSET for NT_ARM_TAGGED_ADDR_CTRL
-      https://git.kernel.org/arm64/c/ca62d90085f4
-[2/4] arm64: ptrace: fix partial SETREGSET for NT_ARM_FPMR
-      https://git.kernel.org/arm64/c/f5d71291841a
-[3/4] arm64: ptrace: fix partial SETREGSET for NT_ARM_POE
-      https://git.kernel.org/arm64/c/594bfc4947c4
-[4/4] arm64: ptrace: fix partial SETREGSET for NT_ARM_GCS
-      https://git.kernel.org/arm64/c/d60624f72d15
+[2/2] arm64: cpufeature: Add GCS to cpucap_is_possible()
+      https://git.kernel.org/arm64/c/f00b53f1614f
 
 -- 
 Catalin
