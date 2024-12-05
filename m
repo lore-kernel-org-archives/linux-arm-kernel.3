@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD072E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E03E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2Jxa49+lF4JxHiGnW6UzqLVnsE/QayBWcQoJh8S91E=; b=neCWT9mcfF3WghnRY2LXrhPN13
-	d43H/JnlLFsd7kubt20QI4tgWTyiICQ/F4nen4qmO8s2YDb/k1aFWaRjdLjUmCFAAHOyIVNcUn1A+
-	TXeBT7I4F2Wc5ITqpLuwaiBX5NyzIg4GOkDP+HHqG94AWkMR+dFP7b7gZ83hr9WZB/4q650a5mi8X
-	AIgiyk09VgVmPltsTYXGupsWrWlIZMcpIBcirmxAZSYgmAMSq6NIsWRe8k0cTM/T8/LEfZ5ZTS0EQ
-	wz4NZwQjEUDwCvlyAwLW4ODIeyqDSMhxsjRKv/9xnhkNUka0mZAMR4PoKGWzKVdvoCETEiu/K+Ry+
-	Susnzoyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wgtya74jr3fwO8Z5Wb9rXbJo7gjO4bNxMH8VWgYYMQk=; b=zHgehME7TQ/X8zNfux4MRqc/iC
+	FHOtCHS238QpOVbaTQOX8OqlwbmqVSrABZf3WVxQC6w0qw1yX8O8F9rQ4+5Wg5lGY2IvmUI0R5KdZ
+	98QzFYpM2+TpOp02MOC8yRvtB1QJqAmW1jjqTZ2PS0Cb2t3ixKmfXcV5zokWi+ZfM+o2v8zKmI7ae
+	cmNG4+DbJcKqgQBSn98IEIiMG6dYafmLYknyQZwEMRFnfGn/51cWZ2FcY9RDDjmzK/kWCznf5mDqK
+	Wfq0uNpCE0G7rRJO1QgMwAig0NqXtFnBnh02hmSpbmY1g0rBbBPG0nGhbnekHd8oO0LppcwxeMK1w
+	fwQiMvnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBSj-0000000G3Bj-0Wr4;
-	Thu, 05 Dec 2024 13:00:09 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tJBTi-0000000G3TP-1ETi;
+	Thu, 05 Dec 2024 13:01:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBPh-0000000G2Gd-0Ky0
+	id 1tJBRO-0000000G2mx-3Wxx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 12:57:02 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53de771c5ebso895167e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 04:57:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733403419; x=1734008219; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=s2Jxa49+lF4JxHiGnW6UzqLVnsE/QayBWcQoJh8S91E=;
-        b=ChHuTmXGO/o9993It/OthHgisER7xILvuN70nSnD+wEAYX467lBXt++yraBeTYsA6s
-         y4eS0BTpeaKaoYkSkE5GYbjcpzS6vPkhSf4NarZzwISlRQqn2JTY65eFj/P01lu9yjU3
-         N/IexDYmryUnCfQsMVjgCO1fEFLRH/shaSXgfAtmQfFAPfkb5K3FleJ0HV/396wNPd79
-         WpNIXpZrVG0m4GmRV9pR9K3ycv/ybViR14SsHZ85HQ6IZCpMCYmbkdGw66IncQlPLNi7
-         NbML23SSElyoPovVWaN36BsJoZFa/YZ7LBZQJORGipuloKEzhdzpHNuSilXnPspDq4dI
-         xPKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733403419; x=1734008219;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s2Jxa49+lF4JxHiGnW6UzqLVnsE/QayBWcQoJh8S91E=;
-        b=DyLXhtAc5s1Ycq+PX3fhM9oM3vCFXxw92QdBc3qFRzeDsWXHR3zRNY+vOdoJ0yVHGN
-         lw/PjqncUYH09GzaFE+/+pJqleEnextAwYFzuzohxv/SHpTx6DzVwnoYmsbo0eXlC2df
-         hIGLQYPLu8+aPOoVzjkOgBUlFKAlod1FRcwqBnJCudoqFU83v0RiQ6HzGKBjuFpW1beI
-         xGNR2t26RBAFelp6/6KJD8xvxaT5J23V3R/pfF/mue+H4U/HAGaAGrqGxfJPBC5d8/lO
-         3Usmw0fe48fdcY18snq1e4mWZo/8o56+Cf0SUU/+HoN3TBkleaxnENUua7sp96MF2Pgr
-         /j9g==
-X-Forwarded-Encrypted: i=1; AJvYcCUiL/28mWkhHUi/jdjbO+cpNozRvD4KO6hglnf6eCbTv8/wC3yfBBv7DGjkjuvRKuU8ATgp0HxEGPI0mAAj3IuW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8LKwyGTOgv6oC7KAh28nsnBAARPpqn8ePPycE3v3e9lqcBOdA
-	h0y8XzgqpwNp72jvpoon/Hj5Q+aFQd5XMPot51akjHzwhl1c+v2bMNQotYPEycw=
-X-Gm-Gg: ASbGncu7eNzdwcCpP9wsZzKFQ1gZMAsui1p9C333bmKIwHdS/k/niJdOzQK8tqFALGL
-	12XRPfGFqPZDiUwaFDqvfwYo2V2J3W5CSzTnzt3yAQDohE6OX5Jqob1cwR1963Iz7A5ApuCXy/7
-	cpCp+b9nhb/QyLPw0g5BY4Nx0CDlfY/btd/LBW0WRHxZxlTBVHwMS8oBoi5RMvEL/dzZxswBTWm
-	oUP3vc8+LarWE9mSP5Vg624mv+uom8yfiqJcVUBwMIouzEdq3yrLawZ0oGjSzsmrVYZxReGGRqH
-	g8WKAQ+9ioi2GEYWyRYjkYB0ApPZIg==
-X-Google-Smtp-Source: AGHT+IFxozV5yADLSZdT2aZmMAmC3YLc8oyR/mmxvGNOEAUjKfoe1x86CuOyh23J/0TyZbHiXn/ilw==
-X-Received: by 2002:ac2:51d3:0:b0:53e:1c3d:d0c5 with SMTP id 2adb3069b0e04-53e1c3dd10cmr3218316e87.28.1733403419364;
-        Thu, 05 Dec 2024 04:56:59 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229751fcsm237413e87.87.2024.12.05.04.56.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 04:56:58 -0800 (PST)
-Date: Thu, 5 Dec 2024 14:56:57 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v2 12/15] drm/mediatek: mtk_hdmi: Split driver and add
- common probe function
-Message-ID: <uhcl2ypz3xmari73xl3l4klu2ucfkfkuj7bt3dz35hfmuzvvkj@5odvmmhivl54>
-References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
- <20241205114518.53527-13-angelogioacchino.delregno@collabora.com>
- <olxtqto5mbgofxg4iqjvsmpxxzz6zoj7pbwmoeklhfjiavqfvv@dyveek7hgtki>
- <f2862790-f613-4583-bec5-302e06c77d8d@collabora.com>
+	Thu, 05 Dec 2024 12:58:49 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B5BmpwE026044;
+	Thu, 5 Dec 2024 12:58:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Wgtya74jr3fwO8Z5Wb9rXbJo7gjO4bNxMH8VWgYYMQk=; b=oZMcMhaiYn/3eFfi
+	M4VsH1m2vhpcc6sPw1fAr/TB/dnAwns7i9k6+3tpNRJYm62eeyRjrF5yJCkGZ0Sn
+	NQKXQpc7v20UoMAYT7Ng/8O6B6Q5ennkmHB91mg+GfsdxiYWnCgiEmW9RRsJo2y5
+	Pwg7SvgfChEce2bvHB4PnpNjeYwKpp5okrWztQRbEBtKECc6XFrHuqcLXd6BW5rw
+	MjIFyOQBz2zPFy2oSWDAcf+7rx8RQGVPx/Eeygcme6yCfIp9Ki5lHRp8JMFamruD
+	0YfBoSY/vDAVyQOo1LWXpunjLOGeNxPrWfScc0shp299Wrp3fKOnVPTNDtFX6WlH
+	mpVwtg==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 439yr9q232-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 05 Dec 2024 12:58:38 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B5CwaDi008832
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 5 Dec 2024 12:58:36 GMT
+Received: from [10.204.66.229] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 5 Dec 2024
+ 04:58:28 -0800
+Message-ID: <dbc5e54e-97ef-4d88-a2bd-a6493527c0dc@quicinc.com>
+Date: Thu, 5 Dec 2024 18:28:25 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f2862790-f613-4583-bec5-302e06c77d8d@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/5] media: dt-bindings: Add qcom,sc7280-camss
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Krzysztof Kozlowski
+	<krzk@kernel.org>
+CC: <rfoss@kernel.org>, <todor.too@gmail.com>, <mchehab@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <akapatra@quicinc.com>, <hariramp@quicinc.com>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <kernel@quicinc.com>
+References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
+ <20241204100003.300123-2-quic_vikramsa@quicinc.com>
+ <oko5qqysmxhicqzkwhkz54wvsmt64ba3cd37zkcy55ee77owbk@5z3zetfr2ejx>
+ <eaffa633-c3a4-4924-8ba7-694b18bf92ee@quicinc.com>
+ <2cb5940b-3779-4450-a213-fa766df7f406@linaro.org>
+Content-Language: en-US
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+In-Reply-To: <2cb5940b-3779-4450-a213-fa766df7f406@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: FrAt9i5wYfoytjkDfEz-v4cDQJXgCMal
+X-Proofpoint-GUID: FrAt9i5wYfoytjkDfEz-v4cDQJXgCMal
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 impostorscore=0
+ clxscore=1015 priorityscore=1501 mlxlogscore=650 phishscore=0
+ lowpriorityscore=0 malwarescore=0 mlxscore=0 suspectscore=0 adultscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412050094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_045701_118106_EF54B625 
-X-CRM114-Status: GOOD (  32.06  )
+X-CRM114-CacheID: sfid-20241205_045846_994246_2EAA16FB 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,86 +111,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 01:36:18PM +0100, AngeloGioacchino Del Regno wrote:
-> Il 05/12/24 13:29, Dmitry Baryshkov ha scritto:
-> > On Thu, Dec 05, 2024 at 12:45:14PM +0100, AngeloGioacchino Del Regno wrote:
-> > > In preparation for adding a new driver for the HDMI TX v2 IP,
-> > > split out the functions that will be common between the already
-> > > present mtk_hdmi (v1) driver and the new one.
-> > > 
-> > > Since the probe flow for both drivers is 90% similar, add a common
-> > > probe function that will be called from each driver's .probe()
-> > > callback, avoiding lots of code duplication.
-> > > 
-> > > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> > > ---
-> > >   drivers/gpu/drm/mediatek/Kconfig           |  11 +-
-> > >   drivers/gpu/drm/mediatek/Makefile          |   1 +
-> > >   drivers/gpu/drm/mediatek/mtk_hdmi.c        | 724 +++------------------
-> > >   drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 425 ++++++++++++
-> > >   drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 203 ++++++
-> > >   5 files changed, 729 insertions(+), 635 deletions(-)
-> > >   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> > >   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
-> > > 
-> > > @@ -1026,19 +812,12 @@ static int mtk_hdmi_setup_vendor_specific_infoframe(struct mtk_hdmi *hdmi,
-> > >   	return 0;
-> > >   }
-> > > -static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
-> > > +static void mtk_hdmi_send_infoframe(struct mtk_hdmi *hdmi, u8 *buffer_spd, size_t bufsz_spd,
-> > > +				    u8 *buffer_avi, size_t bufsz_avi,
-> > > +				    struct drm_display_mode *mode)
-> > >   {
-> > > -	struct hdmi_audio_param *aud_param = &hdmi->aud_param;
-> > > -
-> > > -	hdmi->csp = HDMI_COLORSPACE_RGB;
-> > > -	aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
-> > > -	aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-> > > -	aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
-> > > -	aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
-> > > -	aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
-> > > -	aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
-> > > -
-> > > -	return 0;
-> > > +	mtk_hdmi_setup_avi_infoframe(hdmi, buffer_avi, bufsz_avi, mode);
-> > > +	mtk_hdmi_setup_spd_infoframe(hdmi, buffer_spd, bufsz_spd, "mediatek", "On-chip HDMI");
-> > 
-> > Please use the HDMI Connector framework instead of handling everything
-> > on your own.
-> > 
-> 
-> Dmitry, my plan is to get the MediaTek HDMIv2 driver upstreamed *with* using
-> the HDMI helpers - this commit is only splitting the old HDMI v1 driver in
-> common parts and v1 handling.
-> 
-> This "handling everything on my own" is something that was already present
-> into the old v1 driver, I am *not adding* this code, but *moving it around*.
-> 
-> I cannot migrate the v1 driver to the HDMI helpers right now because in this
-> moment I have no way to test that and I don't want to break any functionality.
-> 
-> If you check patch 15, you'll see that I am indeed using all of the helper
-> goodies - but for now only on the new driver, and not on the old one.
-> 
-> I do plan to migrate the v1 driver to the new helpers as well, but I would
-> (please) really prefer to do that only after the v2 driver is upstreamed.
-> 
-> Is that okay for you?
 
-Yes, I've sent this comment before seeing the last patches.
+On 12/5/2024 5:26 PM, Bryan O'Donoghue wrote:
+> On 05/12/2024 10:59, Vikram Sharma wrote:
+>> Hi Krzysztof,
+>>
+>> Thanks for your "Reviewed-by"
+>>
+>> +        camss@acb3000 {
+>>
+>> If there is going to be resend, then node name: isp
+>>
+>> Sure, we will change node-name from camss to isp or camera (As its a 
+>> part of generic names recommendation as per the shared link.)
+>> If there is a resend. or we will address this as a followup.
+>>
+>> So
+>>
+>> - camss@acb3000 {
+>> + camera@acb3000 {
+>>
+>> Best Regards,
+>> Vikram
+>
+> Please no top-posting.
+> https://subspace.kernel.org/etiquette.html
+>
+> Shouldn't that be isp@0xaddress ?
 
-> 
-> Cheers,
-> Angelo
-> 
-> > >   }
-> > >   static void mtk_hdmi_audio_enable(struct mtk_hdmi *hdmi)
-> > 
-> 
-> 
-> 
+ACK.
 
--- 
-With best wishes
-Dmitry
+- camss@acb3000 {
++ isp@acb3000 {
+
+In both YAML and DTS. If we post V8.
+
+>
+> If you are making this change, please remember to do it in both the 
+> example and the dts.
+Understood. Will avoid this.
+>
+> ---
+> bod
+
+
+Best Regards,
+Vikram
+
 
