@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B868E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 17:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97894E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 17:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JKLV+ZZ6L5RhiT3EAHJqznTL9zji3yYsZpCcDpbwg+Y=; b=uEq6OSfC2I9uIaF+A38sQ991yR
-	OF9Y9JpZ9/eccWiIWD7uIKrqM0u8gc0hX3bXRbbeTL5+DcCnTD7GnkkWdU4iqpJM2bjZo6CiHduWc
-	UUsanxnP8JpGlBTAJSbRsBg4deCfxSRVw+8k5OvDbQH+FqV9XR4mr2yJJ2OlFeYNxgPauuSzCgvoT
-	7nQQFb9/zbdvQ/JQBmhTuujdzZJ2P92mDuhrVdIxLqgdOClWfdX5C7gTXmVOFcgbkbh7wQtoJTRJ7
-	BUnwy4k5RGcBLctwAc0M17AuS7jIDfWp+ZG+c4GGkEnxfgDlA7eozVtnVcho9+blFOEIiRNvE/uDG
-	N6Y/tmJA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PR2xJ5Z9SsCGNBcYWItEbZKibtJD439Z5G3+KUVhGYw=; b=LEXpMmtJZp5aBg6dKoLGJtYjx7
+	5h2vHjSVNjrR3awRXa1HMgI5yJ50a6tqvauLBI+MVUjQzZhKYtp0AKhUsNE1YmiFA+mGa3ANItrV7
+	PJM8MGSKMuAUMhtz3aEiPNjOYUhtoXf8A600UNEoeyDh1Mxq/kA5AN0LqGaSmkFQQ3r6OpDzOkHdK
+	Z+BK+O9HuDp1Q78KlJ/BxxuJcpnWkGo96lLV/VrdmGYqRj48/HPvQ6a799XvOgp/29Imlv/TM+2dG
+	Rm0Hj2dXco80U8o1NGUDmCv0bXzWle9vORVf3hsoeyojSenmGLJrvr0PYZZr8L+U2omLFrblzkhGO
+	6wzGG+bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJG3y-0000000H1sa-0qqU;
-	Thu, 05 Dec 2024 17:54:54 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tJG4x-0000000H233-3N3s;
+	Thu, 05 Dec 2024 17:55:55 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJG2w-0000000H1a4-2Xvd
+	id 1tJG2x-0000000H1a8-0Fmo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 17:53:51 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-434a1639637so12992945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 09:53:49 -0800 (PST)
+	Thu, 05 Dec 2024 17:53:52 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4349fb56260so8610525e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 09:53:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733421228; x=1734026028; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JKLV+ZZ6L5RhiT3EAHJqznTL9zji3yYsZpCcDpbwg+Y=;
-        b=htQt149/mgttho6hgyuazazKL1mp4LD4EJmIX3WA47MpuINuTTBhhuwDjHw+yJrdhS
-         +KLeHc6Tb7pgkYCkyehzGGBKJkOSVs//QxRP1musymKd4bD0nEYCor0/othkOHEA8NML
-         EBjq8nCbqrKm5kbrfXBnLe7U8jH0zSpEqlWRsYm6T4cPSi2m4LytZFoOVdPDfnd+DSi+
-         SPqmjF7AYZ4F9D7j42ZM/Oy7fDd4IusS7keWAa8a9U+aInTZQcR1PklhHEE2+u6CaIR2
-         XYFPFdhMJw/OK8+CSWFEsdaUVuo4OzOpb2JYuKYIg/MUitlY8X88gvRUz7wUDQBMD6r7
-         PQag==
+        d=linaro.org; s=google; t=1733421229; x=1734026029; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PR2xJ5Z9SsCGNBcYWItEbZKibtJD439Z5G3+KUVhGYw=;
+        b=v2VUsXj+qmlBDdIaetsWUed+62bPMKHKIv7g36Tu7y2yavAOHYWCuLSW2ZtnTCN4pl
+         aZDX3xXFFNmyx4asZPMlGtS6Ek7x+584qQ9fFNXcuFVZ0WUxth5LuwZVd0YsUXicEX0c
+         gc2jDuFMS7Zi5SoUqajBA4NOma403V4Ckffembg/cjHD7zE059KgM69rGYHRxi/1jRiA
+         YJHirvgkv39D50W7DxijLJfOo8P8j1wOAKjF2FOfDO7C0jEmkez5k8sK937gJd8meVmo
+         6Jk9TxVyK0ZDwuCOL5pLCY0K+oiywQv8LPu3WtyAOTrRvuk/b0GXtB93bti3/+2EGLSN
+         ySaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733421228; x=1734026028;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JKLV+ZZ6L5RhiT3EAHJqznTL9zji3yYsZpCcDpbwg+Y=;
-        b=pXsYOD8ra80nH1kdOyn/hQbFet8yr9jjXpMIWTtoiA+HeDbnIlG8xSz1pVoJQIWVuj
-         CRFRm4j5ZcuEnrlVOvY0LCCzU7dsaI1ZOjuru3IpJuXSkIY7oWFQYxXvXP67PQdGuNcy
-         020r9HFeDsQehx62IhqJh50Q9/FMn1iYOycpuoxLzPPC24AYdD86qH4872XAHtGItkHh
-         ZcNdIFgF2wTY1m7caPXbV4/6m/oBJlC61vNy/yM9IaCMbmYtSs58NJw2nTUyleHQbIoa
-         qs7bwveB1vB8y0gfR8M3sOM7moq8KYePlhhV5iQ3qfIQw3BXlQQvdA6DcJtEw8JkISC2
-         rlsA==
-X-Forwarded-Encrypted: i=1; AJvYcCVB/4TY8eggAPSUg1NRv50adHiVJGh+F7N6eyuL/FE3mhCKvxfK0p7J6tICFndEJk6EYF4ZwZfJEcGR2bGJAsie@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJqaRUrekXdL8zplEcQTqY5jiURgGm56GUWntcUbVCV+yLkvnu
-	YjNe+qMt94yDCUE6QraUN+UDIMVsSKtbS39OpWAsZiCHjKLOeNCT0caYeM//33o=
-X-Gm-Gg: ASbGncsbgg2yVPNxDc0fUgeRQYrLJ8ZR1qXbmSLB9P1cOkghJqarXXkGMmWtKI54VSg
-	ja3SAMQIFoQEFfyCSzXk6tsyK9KzmalVA9ZBu1A2+1Nqk0JgxNTQa2ZBAopQP0FrQ6Lw5JnkzST
-	sGS3WQhAQIKBXTO9u3hyv5l3zHp6GdJP4a+wW4QFU0iDzsIO8JZGWPY2YBYGO1+eNb+lVKsRF15
-	7GEjo+Lh1W8WYG3ht/Krt4t3twmH/uFEuYxJ/ufHWqG9V/1qazuuE77FMn8YXE7MaxslFpwYd2i
-	wmPGo8A20JUThlyJSkJDBcoDW9XJYRzt
-X-Google-Smtp-Source: AGHT+IHYi5ufJF54E0WyoeAp8hOns/BOtH+3X4gKSwUdN9VlL8YVCCF+k0/XEjzO2xfKiytFgL5nWA==
-X-Received: by 2002:a05:600c:35d5:b0:42c:b45d:4a7b with SMTP id 5b1f17b1804b1-434dded6649mr1525615e9.25.1733421228429;
-        Thu, 05 Dec 2024 09:53:48 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733421229; x=1734026029;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PR2xJ5Z9SsCGNBcYWItEbZKibtJD439Z5G3+KUVhGYw=;
+        b=HcKundMOb5YJFXimSbUY8t3c55omH8cifM0S8ubL52ruWVAX3x/MsNFr/N0aFiUuoZ
+         AF6UtK7Jj2tDyY7laM6qOKC7JJNqJw4R6+fzzu3FwbxYwa+QtavamB1jQR4yoI1KZ2Wh
+         qK5/3envrhpaYNL7x5mKqseeBR/MpJRdGJiqiLesS0qI25hZglPIBferF7rY8fZx3vOa
+         NxMWnPJ5o52UV2dQ/C4kBYGwuh2KrPoE2v0rs1cEJ6XLR4qySDvMx3NnMf9iyZeaQ/F2
+         DZ6sb7jLCUcAeoaqN+q9Rd9sqkDKj/W5SzeBkxyzFittFOqxRfgYis20zlRi+lZm5RbH
+         1zFg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUpLzsrUe6OvfQDM+8ejj+uPbqkuDt8zazchoYwnFUolbdcG8N/FK/XQwl2xxOgdDI4fOd6SJnsRY4awU4UHdX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF9bxey9yT+4lHO/XkgosWFXACffb6z5lBFO6duEOoqcb7HrKq
+	bQIdxHv8WUUxHR5ltFCqXRSisqIrs1ZW6wiisiak4zLI0hhgWQsXpwz7bbhN6vs=
+X-Gm-Gg: ASbGncsu1nAbQngmdBH+C5p43MVwz12UtrvwsEBHieMsLQV+jzKXCmQ3rGAypkTeNdC
+	VSkFeNbRAH1KL7Baf8Tu20VBzD3Y8LUlZJPTwrshyen6XMOdtJzLu9cerkvsOcCE6Urh/f7daKz
+	Mbqw/YHgQ8fQI52VtD5INnul40OBFoFQemFYC8W0460H2FHNCu/l/yw1Yl8r9gls9oGG+6MoyPg
+	FAwZdlyGbESDdU3HJqT9KmwDs8ksh/g/NrnErF5s4hBKMTP0zxkBV94WG/jt+ft84NCRuz3Rg9y
+	PnQhr5EmPGWUg3V9qi9Y2rZ6IdG5q+GQ
+X-Google-Smtp-Source: AGHT+IGglrekvKKTqqsY8LE2N+RmZaoeHCt9yP48Sso0w5nnfmLh8mPNzUHKoOLK/L5/37jluV81wQ==
+X-Received: by 2002:a05:600c:1d21:b0:434:9cc4:5139 with SMTP id 5b1f17b1804b1-434ddeb0492mr2236875e9.17.1733421229341;
+        Thu, 05 Dec 2024 09:53:49 -0800 (PST)
 Received: from ta2.c.googlers.com.com (32.134.38.34.bc.googleusercontent.com. [34.38.134.32])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d5280fc4sm67882835e9.24.2024.12.05.09.53.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d5280fc4sm67882835e9.24.2024.12.05.09.53.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 09:53:47 -0800 (PST)
+        Thu, 05 Dec 2024 09:53:48 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -87,15 +88,17 @@ Cc: linux-kernel@vger.kernel.org,
 	ulf.hansson@linaro.org,
 	arnd@arndb.de,
 	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v3 0/3] firmware: add exynos ACPM protocol driver
-Date: Thu,  5 Dec 2024 17:53:42 +0000
-Message-ID: <20241205175345.201595-1-tudor.ambarus@linaro.org>
+Subject: [PATCH v3 1/3] dt-bindings: firmware: add samsung,exynos-acpm-ipc bindings
+Date: Thu,  5 Dec 2024 17:53:43 +0000
+Message-ID: <20241205175345.201595-2-tudor.ambarus@linaro.org>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+In-Reply-To: <20241205175345.201595-1-tudor.ambarus@linaro.org>
+References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_095350_643649_EBCD095A 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20241205_095351_096322_3FD22A3A 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,55 +113,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alive Clock and Power Manager (ACPM) Message Protocol is defined for
-the purpose of communication between the ACPM firmware and masters
-(AP, AOC, ...). ACPM firmware operates on the Active Power Management
-(APM) module that handles overall power activities.
+Add bindings for the samsung exynos ACPM mailbox protocol.
 
-This protocol library provides the interface for all the client drivers
-making use of the features offered by the APM. Add ACPM protocol support.
-
-I mark this as v3 because it is a continuation of:
-https://lore.kernel.org/linux-arm-kernel/20241017163649.3007062-1-tudor.ambarus@linaro.org/
-
-The samsung exynos mailbox controller driver, the transport layer for
-ACPM, can be found at:
-https://lore.kernel.org/linux-arm-kernel/20241205174137.190545-1-tudor.ambarus@linaro.org/
-
-Changes in v3:
-- decouple the mailbox controller driver from the ACPM protocol driver
-- address Krzysztof's eview comments 
-- add ACPM PMIC protocol helpers
-
-Cheers,
-ta
-
-Tudor Ambarus (3):
-  dt-bindings: firmware: add samsung,exynos-acpm-ipc bindings
-  firmware: add exynos ACPM protocol driver
-  MAINTAINERS: add entry for the samsung exynos ACPM mailbox protocol
-
- .../firmware/samsung,exynos-acpm-ipc.yaml     |  64 ++
- MAINTAINERS                                   |  10 +
- drivers/firmware/Kconfig                      |   1 +
- drivers/firmware/Makefile                     |   1 +
- drivers/firmware/samsung/Kconfig              |  14 +
- drivers/firmware/samsung/Makefile             |   4 +
- drivers/firmware/samsung/exynos-acpm-pmic.c   | 226 +++++
- drivers/firmware/samsung/exynos-acpm-pmic.h   |  24 +
- drivers/firmware/samsung/exynos-acpm.c        | 772 ++++++++++++++++++
- drivers/firmware/samsung/exynos-acpm.h        |  15 +
- .../linux/soc/samsung/exynos-acpm-protocol.h  |  57 ++
- 11 files changed, 1188 insertions(+)
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+ .../firmware/samsung,exynos-acpm-ipc.yaml     | 64 +++++++++++++++++++
+ 1 file changed, 64 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
- create mode 100644 drivers/firmware/samsung/Kconfig
- create mode 100644 drivers/firmware/samsung/Makefile
- create mode 100644 drivers/firmware/samsung/exynos-acpm-pmic.c
- create mode 100644 drivers/firmware/samsung/exynos-acpm-pmic.h
- create mode 100644 drivers/firmware/samsung/exynos-acpm.c
- create mode 100644 drivers/firmware/samsung/exynos-acpm.h
- create mode 100644 include/linux/soc/samsung/exynos-acpm-protocol.h
 
+diff --git a/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml b/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
+new file mode 100644
+index 000000000000..bfc9b4af9ea1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
+@@ -0,0 +1,64 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright 2024 Linaro Ltd.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/firmware/samsung,exynos-acpm-ipc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Samsung exynos ACPM mailbox protocol
++
++maintainers:
++  - Tudor Ambarus <tudor.ambarus@linaro.org>
++
++description: |
++  ACPM (Alive Clock and Power Manager) is a firmware that operates on the
++  APM (Active Power Management) module that handles overall power management
++  activities. ACPM and masters regard each other as independent hardware
++  component and communicate with each other using mailbox messages and
++  shared memory.
++
++  This binding is intended to define the interface the firmware implementing
++  ACPM provides for OSPM in the device tree.
++
++properties:
++  $nodename:
++    const: acpm_ipc
++
++  compatible:
++    const: google,gs101-acpm-ipc
++
++  mboxes:
++    description:
++      List of phandle and mailbox channel specifiers.
++    maxItems: 1
++
++  shmem:
++    description:
++      List of phandle pointing to the shared memory (SHM) area. The memory
++      contains channels configuration data and the TX/RX ring buffers that
++      are used for passing messages to/from the ACPM firmware.
++    maxItems: 1
++
++  initdata-base:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      Base address of the configuration data in the shared memory.
++
++additionalProperties: false
++
++required:
++  - compatible
++  - mboxes
++  - shmem
++  - initdata-base
++
++examples:
++  - |
++    firmware {
++        acpm_ipc: acpm_ipc {
++            compatible = "google,gs101-acpm-ipc";
++            mboxes = <&ap2apm_mailbox 0>;
++            shmem = <&apm_sram>;
++            initdata-base = <0xa000>;
++        };
++    };
 -- 
 2.47.0.338.g60cca15819-goog
 
