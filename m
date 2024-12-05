@@ -4,220 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEEFE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 03:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165E1E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 03:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+tRpGmfHpJDORNOvyb0EV2Y/CWYPEJcTRhZSkK6yoqc=; b=kbU7Vrz0RtdhbY24mvzDWcydNO
-	SNzW+qZxP3gOmiK4ZalZYoweV6RpRPSMziQqOk5J7kcfEGIojQNq6hoF6JMIYg7o/K1EwhxeKNil+
-	tuaiZ+i3vc6aSKt6ISBYXum7qhXnQWX7Z1bMEGPYf2IJkraTWR55rAR/nckb8td38JL2R3oP1uyTp
-	J86PXqfPFGl3WI90z3SEnWjUel3Suv96j4fRdZNYdhPMhBSNUkUcD1rxpEoQK6gx/Juml+47TNH22
-	FvPihB3EScVQEmF7jWHfQAtwrEzY3awbqrICBjouv7koWI0Nirbkz/IGxpVBrJbxoLsYxs/cBUiEH
-	7glFLkZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BRqyA2iLqILRhWLDugjEeSy0LZxfFUQidLgqU7Kkw5k=; b=5GJ0E2Me0QCZSkDekQY2ZJWo9W
+	zF/QbEYBHqejQiVbB5dOtMZVhQNZZV8eni0Br4nY9fnVsUGo2JqLfmVGunyJSvd7jaWt279NOl10j
+	fPy6EalPajNP7qAqlUafrhRro/592/uDyfIKB2ocfXkVlNjs6RAloirUB/8NFZJvn1hiG/fLSQ4LZ
+	hGJizq5oSYajDYnrBHwtVW1mB+P/K24jkfIFkUHsG4FKiI3FCJVbqXdRU7filPszc2fc7EfENTYH8
+	+l8PV+vK7OASPUlOFjMEXXmREPhmoUfl8JVeNgEXLs+OTH1l7IdZdl+L82glJowZ8K2POyjDX7df+
+	YkFBqPSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ2N4-0000000EdVi-33hR;
-	Thu, 05 Dec 2024 03:17:42 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tJ2Si-0000000Ee2c-3APe;
+	Thu, 05 Dec 2024 03:23:32 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ2M4-0000000EdNf-1QeZ;
-	Thu, 05 Dec 2024 03:16:41 +0000
-X-UUID: 560d335eb2b711ef82ff63e91e7eb18c-20241204
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=+tRpGmfHpJDORNOvyb0EV2Y/CWYPEJcTRhZSkK6yoqc=;
-	b=pxzAmpLk8eClPiYo5zKaGxMMk0N3+4W2WjRq/CAJzGwdZUBkoZ0+tz3VA0QsbM9D/2lBSJ7yXv4RHEiHSjPy7cg1l0kCYWcMl0bahjfRGV2yrK/njU71vlht6bd1mN6tlERJGEb+sXpXndv+3ab1J46SOEeNe3//gL+B9/mgvP8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:a31fb81a-fd9e-4085-9a56-1f5b76072fdd,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:bc0d753b-e809-4df3-83cd-88f012b9e9ba,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0,EDM
-	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 560d335eb2b711ef82ff63e91e7eb18c-20241204
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 214846658; Wed, 04 Dec 2024 20:16:36 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 5 Dec 2024 11:16:32 +0800
-Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 5 Dec 2024 11:16:32 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zNRFF0zExpw5ap+pzaqwPMwnFI6CyquAu+iTtSNNl9hgLBmVXJur0q6y5kaQ64VUdECLesoGrIu2bqrFFk/TyML0CyY+Qe9faTOt/ni2PVjKjp5cgEGUQA2SCbT6GSCepwynIZi/N/ecq/D/94lI6nCt+83GD05VEDzhLYn+NGiZMAfUpOWJRevXOmLZgOsOV+KExtqkjy5IbmjsN3XJNa5PHXjQ2qdf+Eqwmjy9OW1HvvAv2ZHwoYiHHLSwGZ5Hi0VM5QjYl4ZqUGtOxD1Zd5C90bsje6MPX/NXy54qE5W7IeffdVWclPGxpoiqhHosSuOhdUHhBJy8j8W1u4TW2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+tRpGmfHpJDORNOvyb0EV2Y/CWYPEJcTRhZSkK6yoqc=;
- b=nQRfOVxh2zCqqj07XdyVYEyR3p5G9IK+QH9sZCEQLxi/4lbENDXIWDTjGp2rcXb/BI/gq+P/lj2LFjTJVWHE1MVNyj3rdHb3h6FPLzOW95VSZTylWNKf7WgcXXFP1O0KEjF/OHzQMP+FsIfxQBYjEspGuSZNirimcxC/2Wy+l2HOVsHAoPKxyVxfwGcU16QniEvbBMlg2y7fXk7ANfX4q22MLM72XhnuiSAcLni3OsciJdM6HFeRVBEgf5vR4wh9KJUhSPs7sw+Ir8Tq+3UMlLQyO3ac6yYDbNXyfpZDiShIIQuUBwewJtjD4vsYC+Bun4Fvmikd6trDbxASfhmK/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+tRpGmfHpJDORNOvyb0EV2Y/CWYPEJcTRhZSkK6yoqc=;
- b=PUtB+azOC4YkNmYRa2ymIhShVDMu9b3IO4Wdrsk63VkLB/6v+h3wHxT9j0PYdtnsmlBktVUgiN2Q19mGozu35jONQzY/ihxLwPo435vttsGMCm4GGPGLmY/xgpF6KsfXiw7x+RIEXFDPlOP5qvECuDMW737QrtaEPqIURFYFMUQ=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SEZPR03MB8382.apcprd03.prod.outlook.com (2603:1096:101:21f::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.16; Thu, 5 Dec
- 2024 03:16:30 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8207.014; Thu, 5 Dec 2024
- 03:16:30 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "tzimmermann@suse.de"
-	<tzimmermann@suse.de>, "simona@ffwll.ch" <simona@ffwll.ch>,
-	"mripard@kernel.org" <mripard@kernel.org>, "kernel@collabora.com"
-	<kernel@collabora.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "airlied@gmail.com" <airlied@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>
-Subject: Re: [PATCH v1 6/7] drm/mediatek: mtk_hdmi: Split driver and add
- common probe function
-Thread-Topic: [PATCH v1 6/7] drm/mediatek: mtk_hdmi: Split driver and add
- common probe function
-Thread-Index: AQHbO0pOdhPnCCfvPUeRqumGFBNh8LLXEZKA
-Date: Thu, 5 Dec 2024 03:16:30 +0000
-Message-ID: <b032782b60db4c3cf86ab9a50c18e1c0a315f68b.camel@mediatek.com>
-References: <20241120124512.134278-1-angelogioacchino.delregno@collabora.com>
-	 <20241120124512.134278-7-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20241120124512.134278-7-angelogioacchino.delregno@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SEZPR03MB8382:EE_
-x-ms-office365-filtering-correlation-id: 5c378ea0-585a-489e-b1e5-08dd14db3699
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?ZXJkNDJGVEpBL2MvaW9jcmgvOWx0MTc3U0E0cjFxazgxaDdxSHAzSWQySXlU?=
- =?utf-8?B?YWpqaVZEWkRUR05oR2pqQisxOE5ZalhFQUc2NXVobFRrT2oySy8yTkhEMlZn?=
- =?utf-8?B?bHJqOEI0aVZrY25za1Q0RTJaQUpPMElSNW13eXFXWUN2cEpQcnJ4MVNUWXN5?=
- =?utf-8?B?YzJQMElXSmFzTk5qem8wVTlXWTBuRWNkYWpERDlvVFJSczkxNjRHUDJtSzhr?=
- =?utf-8?B?aTErZUkzd2p5K204bm90YlJ5b1hDdWdJUHBJY0prTTlDV2c5SUdaUnpFSU82?=
- =?utf-8?B?b1dNRXZVeStyYzdjVXNYdTJmRW0xRURFd0l6bU1MdzU3MmRjSjhkSGhrbW1H?=
- =?utf-8?B?bzAyeU11QloyMVB6RFh6dWh4M0xOdlNPazYwYTg2cnZDYWljREhBTzlVWjJU?=
- =?utf-8?B?bkZlK00rdFJzSU1PRnpjSzBEZTk5SjliOXgwaHZORWRsTTd0RDVEVjVnZ3Nx?=
- =?utf-8?B?cWdvOE0xTldrSUNleHk0cE5WaXdyeVJHV2Z1YVVBZnQrckFoN01xbncrL09V?=
- =?utf-8?B?Qk44djlaQXF0T0xYWlEzd1F5N0RKRHgyT2hkZnhXTnhGQ1pDcm5hSk53bkNp?=
- =?utf-8?B?MWRRT2MveVMrZmJ3MTZLOW9OMEFkd0xYajZCQWtMdVJSZDFtWDVNVFJuMlhi?=
- =?utf-8?B?Z0tUU2VaN1ZWU3M1cXY4SEhDV2dZSDdralBHUjRyV1lWNExCTkE1R2RpaW1X?=
- =?utf-8?B?SWlrR0Frb2djcERmbTNHTm5JTEoyTzZBdEtrQ0sxcWpOd2Y0UHNEZm9MeXJj?=
- =?utf-8?B?NytTK29Mck80RnVmV3VkZzJvOFArMFpkMGttVWdsVmVVQ0V6UVNxQlBtdTV5?=
- =?utf-8?B?NnJuWVJhYnpNck1ML0RvUEJWVjByZlVkYUZsN0JibXJ4NjN2VWVrTEIvSnF5?=
- =?utf-8?B?blROeTM1bHZ3bS82TWNRNDAzdS9pdVdzODNSY0c4OUxBTkl4cXpvK0lBczNF?=
- =?utf-8?B?Q0cybDFBSXU1Nm9IZC9wQkorMjd5Q2pvamIzaTdLbGNhL2c2UE80Y0U4ZjJU?=
- =?utf-8?B?VForREtIWXBqYkRUVjYwQTlMb1lyWmRydUxWNzVmSy9HR2ZwdlFmYlBLdkxx?=
- =?utf-8?B?dFFvdTJwbHBwUDdOTDNZTXBDNGdaZFhnZ1pwdkIxK1hNWVl1TVZNQW9ZUVAv?=
- =?utf-8?B?V3BsYTI4QlZiQnZxVzUvd0l0TmxReXBydElhOHdpTkZuWnFqY2Z2d1B0cDd1?=
- =?utf-8?B?NWdMYjlCb3prOWVkYTU2L0daK2t2L0F3WldaZHhjODlsV3FRdGtpV0x3RmZq?=
- =?utf-8?B?bjEvdkJrNDFibDRINXd6NWdUQm0vSmpJUENhLzRJNGxObys3L1dLRk95cDV0?=
- =?utf-8?B?eHE3UUJGOGtpeE1kb1FHTURXaG9zaW1QeUMyZ3BJT0ZaSWNqSFBrMGFoMW94?=
- =?utf-8?B?YXk2Zko1STdFd3pPSXB1cWV1UmlyQVhDMkkydjlDOFEyTURhYXdOU1NvcnJr?=
- =?utf-8?B?ZGxmVXdzS3phWjk2WmdIVXM2eFgxdDNqYkJ5WU42ZG1RcVJFa0tFUWhGeE9I?=
- =?utf-8?B?RElSMXA0TDkrM0c4dlZiVU5TSE5rdXNaMlZ5RGNtaFRNYjJOMmpXbnBUQWtk?=
- =?utf-8?B?cjlnWTFOT1VjZmhpS3lNUGtvQ2ZoRzhtaEVKT3pydE5meWJDRW5WRHNNNllr?=
- =?utf-8?B?VytUZDF2SkFtWWMvTjRyNVJqbzhYUVVZZlY1dUVvZ0hnZnk3a0tTYWkvelBY?=
- =?utf-8?B?ODBRYTJ1by8zbTI3a04xOE9FTG5iLy9lVWI2QnlsbENrQkhEcjg5djBCU1p2?=
- =?utf-8?B?dm1UaG5PekQ4OWxNY0NpTzRwdXMrM1NibHhzdjhDSU5QM3Y5Nkx0d0dGOHZT?=
- =?utf-8?B?WUhnMTFodjJvSlJYSVpSaWVDMjJFVEJ0b0tTRjBvSHU1dkRXRThmWkhuekE5?=
- =?utf-8?B?VW1QYzNtVlRmMGpwUmhHTjd5YUI0WGgvQ0Y0RHdLdXhtRkE9PQ==?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SkVkOFVUOURqTmkrTDR2RGFtc29Ya3duTjJWMll0UWJ3N2J3MUJWN1ZPbDRz?=
- =?utf-8?B?OE5OekZpRzR3a1hZOGx6WG1UelpHRS9sbVF6R3FTbUlWQVcvS2pXOGJ6Smth?=
- =?utf-8?B?NGt6MDZsdklxZWxXNllHU2pIR2NobjBKKzhHWGNzeVJCSVdCVS9zQmJhdDJM?=
- =?utf-8?B?eHNIaWV5UXNxcnJBaVNwdnc0YTJWM0IzSEo2WHF4L0lGbisrVG80Y3ZFNW9E?=
- =?utf-8?B?aStNV3lHajNBTlErZnU5bGo2WFd2R1oxVDFjVFZiRWVMaDZ2S1ZjMEpmL2w5?=
- =?utf-8?B?YnZFeVlVMXVZMlpDTjhIRmhjc2ZGRk5NRTdzQWRkam4wTERhbWxkY1NOY3A2?=
- =?utf-8?B?Nnh6OHJwemxxQmEwbWZ1RmRqWUY0c2FZMzBTdjh3dlMyODY0c1dCZVJjUXhP?=
- =?utf-8?B?bmZXaTdqTUIvZHdJRXRPZXRSWWtUY0hOelBIN1NiUE94VWMzaitxeUJZUEx6?=
- =?utf-8?B?aytyVjlYUGFKMjB4YU5TUFd6MXRaWWh2RXk1TUN4Qllick5wUUNpbTBKVit2?=
- =?utf-8?B?OEhvUWI4am9tR28xWU9HVWxFSUdiaG4zRVNWWGpXVXdDbmVQMzhpT1RBSUZl?=
- =?utf-8?B?c2dtM2k1VWY0VXVadEdEcUhYbGJKQXUzUXZ0Y2o3c2VrQkJrb04rWEZVTWNl?=
- =?utf-8?B?UVo1Q1ZaYzY2b2RleURhcHFBZExZejNIaTdSdVhzTElZS3M0REZJQitwclpT?=
- =?utf-8?B?N3lOWDhLZEpkQmxHNTlyek5nTWZ4TG9RWEhteXU1N3RJWlRXVG9DbVJ4aVVs?=
- =?utf-8?B?b3MyZzlDdFdmQnBZWG93M1EydThlR0EvZVVuaDBWR3k2bDA5OGduakhtVWw0?=
- =?utf-8?B?QXAzcFJOS3FhL0NEU21LYmFGWVdsVjQ1eU9VaC83enhuZnpCUEJoeWVSaUhz?=
- =?utf-8?B?MVNTTjhGSFhCV2lhU3ZHY2QvM0cwOHJIeEU0eERrZjdGTC9EZHBYb1FPWlU2?=
- =?utf-8?B?cG9udWNGMVFmYmlTQnU4Q21kb0E2SDJXRHVOdDlySHh3eC9yWTlPSnRzVC93?=
- =?utf-8?B?RGVtemFoZnNEZDU2WDV2c0hHbnJBaHN0QUY0cGE1b3RkSXlrM1J2YWlsRDI0?=
- =?utf-8?B?VkdIejFpcDlJNkRqTVY0RjQ5YUI3eEVydEVNTGg3UVBuLzZKMVdEWHgxYjlr?=
- =?utf-8?B?ajBHZ0xWeGpYUStZVkNvcXJ2c1lnbllsakQ5Rksvc0doR2dNb2FHemZmNzla?=
- =?utf-8?B?RjI3UUEzOSs4UmJXbCs4UkE2UFRyS09meHhSZzhHcXNPNkJUaDFIVUdLTHNT?=
- =?utf-8?B?NGd5MW1lWlZOTzFOdTVKRk1QaW1HRUdWbFhrNWxkajlhVlpSQXpJbWlWdk1S?=
- =?utf-8?B?N1dLRUZiZ25vZEl4SFVDZ1RqVklSYUg0a2pOTTZ0eWdQY2YrTm1TcjBOVzVJ?=
- =?utf-8?B?NkhGZ2ljMXQzc3IxajMzQlpBRDdEQXJjSWZIbmdsamhGcnhzVEtuNjF3WlhP?=
- =?utf-8?B?RU03cW5Vb0FaZjlqQ1hNNEVCSHBHdE8vS1RiVUszejNId1RtdkE4TWdFMmxt?=
- =?utf-8?B?c0U1RVFCUjVuelUxTUF3b3ZHSFVTeGRMT1kwWTlzRW5XTGEwMDMwc0NEZjkw?=
- =?utf-8?B?MUJjZGtsWkVtK25tWTcyUC8yWFVNQW5KWW5mRkxMdXg5L05BaDlaZmEySnpS?=
- =?utf-8?B?U085ei9penBWQklWT3YrT04wdEd6WDhQaGZjWTYyNnJDMGNRc2tyN0pWTGRF?=
- =?utf-8?B?WVNuRU82WG5BUWprOFp4UGxubmtScXZCU0lOYUcrejJYbElLYjFYVjYzT29R?=
- =?utf-8?B?R2FjQVhhbjdwRDVpTytmYjdWd0ZTdzl4dFlKaWNJb3RuUjVMVGs3TmNvMEZU?=
- =?utf-8?B?aFJ4TWVMcTA5SHhITy9ZdkVmRmZIeWttUEdTZnI0dFZBUGV5cGtRa2ZUZEZ3?=
- =?utf-8?B?MzZnNDhCTm5tVlVwWjZnMjRJUGZKbncvNGtsT1J5QkRSeElhKzFaeU9oekNJ?=
- =?utf-8?B?NVBzTGdkUCtsRzhPbUtERzIxcWJhTWN4b2JiTHhjdWhBdjczWE9BVjVNbzJs?=
- =?utf-8?B?YUhsOVdKNWRLSW5qT01VWFVRUDE5N0VIclFxaFZOWnNjT3hGUmpSRWlvZFpo?=
- =?utf-8?B?OTlNTkd0a3dVaEh4Sk55d2VwblRwYjNMYUZ5cmdJN0pFZitsaGlKTzFjbDEx?=
- =?utf-8?B?TEFXd0krcTRZWko0WEVqOWh6dmtUY041UHVBeDZCVTNUTm5EMXo2SWVhZEt1?=
- =?utf-8?B?WFE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <7C551FB822FE2F4BB3D2A93FDD26AD6D@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1tJ2Rh-0000000Edu1-1lng
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 03:22:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733368949; x=1764904949;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=GWd9pG1FglgIBxcW2hHRJKly993XVdY5eLFcJlzre+U=;
+  b=oJ0YAksp0n42LK+aAFAb3ALeLEyxPfYEc7lBMWOOp1pd1VrAVbqVHsXy
+   Ldm+mw+j75Ra6ZPUB5RfriFEKFVP7C+hZjPzfHV45qIisoNdPoRsx3HDl
+   YJ4wEZKP+i3M/Q1CkqS0k82AyEJPTND8AhGBgcHwaLncjzadk8B739R91
+   wPM2sUqTZVt8DcIZxHmA8uAVKg44BU5Nep+TaJxiGp8xmfz/P3eWAHdPJ
+   j2qQKk22ZnPFQMv1vXWr8F7ytQimjIsf+c+1Ru/JzclSX2dbEhZlbAK+i
+   dNZ5BlfnEf88RAEGdx8UubMIFwPfE/tMjblBV3ytKVgpIJE5ZVyJFSn8w
+   g==;
+X-CSE-ConnectionGUID: t5fkD4MqSCq5ukFjHQoSTg==
+X-CSE-MsgGUID: G0vRoB8aSY6XeW1QQPwbVg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="33000666"
+X-IronPort-AV: E=Sophos;i="6.12,209,1728975600"; 
+   d="scan'208";a="33000666"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 19:22:22 -0800
+X-CSE-ConnectionGUID: QHPCtul5Q6Wl3hhnNDaPJw==
+X-CSE-MsgGUID: zPYauwrRQjST/EF8CYQB5A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,209,1728975600"; 
+   d="scan'208";a="93642518"
+Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
+  by fmviesa006.fm.intel.com with ESMTP; 04 Dec 2024 19:22:00 -0800
+Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tJ2RB-0003jZ-2P;
+	Thu, 05 Dec 2024 03:21:57 +0000
+Date: Thu, 5 Dec 2024 11:21:08 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:pci/xgene-fixes-6.13 14/18]
+ drivers/pci/controller/pci-xgene-msi.c:101:31: error: implicit declaration
+ of function 'FIELD_PREP'
+Message-ID: <202412051158.EfEkIVqu-lkp@intel.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c378ea0-585a-489e-b1e5-08dd14db3699
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Dec 2024 03:16:30.2664
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: kLxZgs1jERNt2MBHbMijLffOmICRttEwSz6u8RYjKik1xdnfHaUoFpCEyTfMtoEgE2fOA5FgrrpbrTI+k5k9wA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8382
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--19.244000-8.000000
-X-TMASE-MatchedRID: QW5G6BKkLToNtKv7cnNXnSa1MaKuob8PCJpCCsn6HCHBnyal/eRn3gzR
-	CsGHURLuwpcJm2NYlPAF6GY0Fb6yCrfUboIp1QbVuIwLnB3Aqp24vBuE2X0HlVwpnAAvAwazkaC
-	qYviih52NKaasnxJAFjDDWg3cV0z4m0qYZR+CUBLil2r2x2PwtQrefVId6fzVLzNBnatH86l8yt
-	0Pc0hS+ySNsvbDyWzxhqVQcGwtQOUyVnV3QQcwse7KTDtx8CggbSE5tsEh8ODJrP9MePs1nKPFj
-	JEFr+olFUew0Fl/1pH1MHKyrhxIFlZ0V5tYhzdWxEHRux+uk8jpP8tMOyYmaA==
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--19.244000-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 1B0C56E0259F191025DE8595346E82FCC0F169F2A15390CA71EE8EDB695BD8A32000:8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_191640_386911_3B4BEE00 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20241204_192229_504431_0711C6B8 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -232,42 +85,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksIEFuZ2VsbzoNCg0KT24gV2VkLCAyMDI0LTExLTIwIGF0IDEzOjQ1ICswMTAwLCBBbmdlbG9H
-aW9hY2NoaW5vIERlbCBSZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8g
-bm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZp
-ZWQgdGhlIHNlbmRlciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBJbiBwcmVwYXJhdGlvbiBm
-b3IgYWRkaW5nIGEgbmV3IGRyaXZlciBmb3IgdGhlIEhETUkgVFggdjIgSVAsDQo+IHNwbGl0IG91
-dCB0aGUgZnVuY3Rpb25zIHRoYXQgd2lsbCBiZSBjb21tb24gYmV0d2VlbiB0aGUgYWxyZWFkeQ0K
-PiBwcmVzZW50IG10a19oZG1pICh2MSkgZHJpdmVyIGFuZCB0aGUgbmV3IG9uZS4NCj4gDQo+IFNp
-bmNlIHRoZSBwcm9iZSBmbG93IGZvciBib3RoIGRyaXZlcnMgaXMgOTAlIHNpbWlsYXIsIGFkZCBh
-IGNvbW1vbg0KPiBwcm9iZSBmdW5jdGlvbiB0aGF0IHdpbGwgYmUgY2FsbGVkIGZyb20gZWFjaCBk
-cml2ZXIncyAucHJvYmUoKQ0KPiBjYWxsYmFjaywgYXZvaWRpbmcgbG90cyBvZiBjb2RlIGR1cGxp
-Y2F0aW9uLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8g
-PGFuZ2Vsb2dpb2FjY2hpbm8uZGVscmVnbm9AY29sbGFib3JhLmNvbT4NCj4gLS0tDQoNCltzbmlw
-XQ0KDQo+ICAvKg0KPiAgICogSERNSSBhdWRpbyBjb2RlYyBjYWxsYmFja3MNCj4gICAqLw0KPiBA
-QCAtMTUyOCwxNCArMTEwNCwxNCBAQCBzdGF0aWMgaW50IG10a19oZG1pX2F1ZGlvX2h3X3BhcmFt
-cyhzdHJ1Y3QgZGV2aWNlICpkZXYsIHZvaWQgKmRhdGEsDQo+ICAgICAgICAgc3dpdGNoIChkYWlm
-bXQtPmZtdCkgew0KPiAgICAgICAgIGNhc2UgSERNSV9JMlM6DQo+ICAgICAgICAgICAgICAgICBo
-ZG1pX3BhcmFtcy5hdWRfY29kZWMgPSBIRE1JX0FVRElPX0NPRElOR19UWVBFX1BDTTsNCj4gLSAg
-ICAgICAgICAgICAgIGhkbWlfcGFyYW1zLmF1ZF9zYW1wZV9zaXplID0gSERNSV9BVURJT19TQU1Q
-TEVfU0laRV8xNjsNCj4gKyAgICAgICAgICAgICAgIGhkbWlfcGFyYW1zLmF1ZF9zYW1wbGVfc2l6
-ZSA9IEhETUlfQVVESU9fU0FNUExFX1NJWkVfMTY7DQoNCllvdSBjaGFuZ2UgdGhlIG5hbWUgZnJv
-bSBhdWRfc2FtcGVfc2l6ZSB0byBhdWRfc2FtcGxlX3NpemUuDQpTbyB0aGlzIGlzIGEgcmVmaW5l
-bWVudC4gU2VwYXJhdGUgdGhpcyB0byBhIHJlZmluZW1lbnQgcGF0Y2guDQoNClJlZ2FyZHMsDQpD
-Sw0KDQo+ICAgICAgICAgICAgICAgICBoZG1pX3BhcmFtcy5hdWRfaW5wdXRfdHlwZSA9IEhETUlf
-QVVEX0lOUFVUX0kyUzsNCj4gICAgICAgICAgICAgICAgIGhkbWlfcGFyYW1zLmF1ZF9pMnNfZm10
-ID0gSERNSV9JMlNfTU9ERV9JMlNfMjRCSVQ7DQo+ICAgICAgICAgICAgICAgICBoZG1pX3BhcmFt
-cy5hdWRfbWNsayA9IEhETUlfQVVEX01DTEtfMTI4RlM7DQo+ICAgICAgICAgICAgICAgICBicmVh
-azsNCj4gICAgICAgICBjYXNlIEhETUlfU1BESUY6DQo+ICAgICAgICAgICAgICAgICBoZG1pX3Bh
-cmFtcy5hdWRfY29kZWMgPSBIRE1JX0FVRElPX0NPRElOR19UWVBFX1BDTTsNCj4gLSAgICAgICAg
-ICAgICAgIGhkbWlfcGFyYW1zLmF1ZF9zYW1wZV9zaXplID0gSERNSV9BVURJT19TQU1QTEVfU0la
-RV8xNjsNCj4gKyAgICAgICAgICAgICAgIGhkbWlfcGFyYW1zLmF1ZF9zYW1wbGVfc2l6ZSA9IEhE
-TUlfQVVESU9fU0FNUExFX1NJWkVfMTY7DQo+ICAgICAgICAgICAgICAgICBoZG1pX3BhcmFtcy5h
-dWRfaW5wdXRfdHlwZSA9IEhETUlfQVVEX0lOUFVUX1NQRElGOw0KPiAgICAgICAgICAgICAgICAg
-YnJlYWs7DQo+ICAgICAgICAgZGVmYXVsdDoNCj4gQEAgLTE1OTAsNiArMTE2Niw3IEBAIHN0YXRp
-YyBpbnQgbXRrX2hkbWlfYXVkaW9fZ2V0X2VsZChzdHJ1Y3QgZGV2aWNlICpkZXYsIHZvaWQgKmRh
-dGEsIHVpbnQ4X3QgKmJ1ZiwNCj4gICAgICAgICAgICAgICAgIG1lbWNweShidWYsIGhkbWktPmN1
-cnJfY29ubi0+ZWxkLCBtaW4oc2l6ZW9mKGhkbWktPmN1cnJfY29ubi0+ZWxkKSwgbGVuKSk7DQo+
-ICAgICAgICAgZWxzZQ0KPiAgICAgICAgICAgICAgICAgbWVtc2V0KGJ1ZiwgMCwgbGVuKTsNCj4g
-Kw0KPiAgICAgICAgIHJldHVybiAwOw0KPiAgfQ0KPiANCg0K
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git pci/xgene-fixes-6.13
+head:   32627e010975ae9817552c5e21d1860ce9c9bdfa
+commit: 3d9c887e78e0ae9e97a531f2015c585b5c213a76 [14/18] PCI: xgene: Sanitise MSI allocation and affinity setting
+config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20241205/202412051158.EfEkIVqu-lkp@intel.com/config)
+compiler: arceb-elf-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241205/202412051158.EfEkIVqu-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412051158.EfEkIVqu-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/swab.h:5,
+                    from include/uapi/linux/byteorder/big_endian.h:14,
+                    from include/linux/byteorder/big_endian.h:5,
+                    from arch/arc/include/uapi/asm/byteorder.h:14,
+                    from include/asm-generic/bitops/le.h:6,
+                    from arch/arc/include/asm/bitops.h:192,
+                    from include/linux/bitops.h:68,
+                    from include/linux/thread_info.h:27,
+                    from include/linux/sched.h:14,
+                    from include/linux/ratelimit.h:6,
+                    from include/linux/dev_printk.h:16,
+                    from include/linux/device.h:15,
+                    from include/linux/node.h:18,
+                    from include/linux/cpu.h:17,
+                    from drivers/pci/controller/pci-xgene-msi.c:9:
+   drivers/pci/controller/pci-xgene-msi.c: In function 'xgene_msi_ir_read':
+>> drivers/pci/controller/pci-xgene-msi.c:101:31: error: implicit declaration of function 'FIELD_PREP' [-Werror=implicit-function-declaration]
+     101 |                              (FIELD_PREP(MSI_GROUP_MASK, msi_grp) |
+         |                               ^~~~~~~~~~
+   include/uapi/linux/swab.h:118:38: note: in definition of macro '__swab32'
+     118 |         (__u32)(__builtin_constant_p(x) ?       \
+         |                                      ^
+   include/linux/byteorder/generic.h:89:21: note: in expansion of macro '__le32_to_cpu'
+      89 | #define le32_to_cpu __le32_to_cpu
+         |                     ^~~~~~~~~~~~~
+   drivers/pci/controller/pci-xgene-msi.c:100:16: note: in expansion of macro 'readl_relaxed'
+     100 |         return readl_relaxed(msi->msi_regs + MSI_IR0 +
+         |                ^~~~~~~~~~~~~
+   drivers/pci/controller/pci-xgene-msi.c: In function 'compute_hwirq':
+>> drivers/pci/controller/pci-xgene-msi.c:114:18: error: implicit declaration of function 'FIELD_GET' [-Werror=implicit-function-declaration]
+     114 |         return ((FIELD_GET(BIT(3), grp_idx) << 7)       |
+         |                  ^~~~~~~~~
+   cc1: some warnings being treated as errors
+
+
+vim +/FIELD_PREP +101 drivers/pci/controller/pci-xgene-msi.c
+
+    43	
+    44	/*
+    45	 * X-Gene v1 has 16 frames of MSI termination registers MSInIRx, where n is
+    46	 * frame number (0..15), x is index of registers in each frame (0..7).  Each
+    47	 * 32b register is at the beginning of a 64kB region, each frame occupying
+    48	 * 512kB (and the whole thing 8MB of PA space).
+    49	 *
+    50	 * Each register supports 16 MSI vectors (0..15) to generate interrupts.
+    51	 *
+    52	 * Additionally, each MSI termination frame has 1 MSIINTn register (n is
+    53	 * 0..15) to indicate the MSI pending status caused by 1 of its 8 index
+    54	 * registers. Each 32b register is at the beginning of a 64kB region (and
+    55	 * overall occupying an extra 1MB).
+    56	 *
+    57	 * There is one GIC IRQ assigned for each MSI termination frame, 16 in
+    58	 * total.
+    59	 *
+    60	 * The register layout is as follows:
+    61	 * MSI0IR0			base_addr
+    62	 * MSI0IR1			base_addr +  0x10000
+    63	 * ...				...
+    64	 * MSI0IR6			base_addr +  0x60000
+    65	 * MSI0IR7			base_addr +  0x70000
+    66	 * MSI1IR0			base_addr +  0x80000
+    67	 * MSI1IR1			base_addr +  0x90000
+    68	 * ...				...
+    69	 * MSI1IR7			base_addr +  0xF0000
+    70	 * MSI2IR0			base_addr + 0x100000
+    71	 * ...				...
+    72	 * MSIFIR0			base_addr + 0x780000
+    73	 * MSIFIR1			base_addr + 0x790000
+    74	 * ...				...
+    75	 * MSIFIR7			base_addr + 0x7F0000
+    76	 * MSIINT0			base_addr + 0x800000
+    77	 * MSIINT1			base_addr + 0x810000
+    78	 * ...				...
+    79	 * MSIINTF			base_addr + 0x8F0000
+    80	 *
+    81	 * In order to allow an MSI to be moved from one CPU to another without
+    82	 * having to repaint both the address and the data (which cannot be done
+    83	 * atomically), we statically partitions the MSI frames between CPUs. Given
+    84	 * that XGene-1 has 8 CPUs, each CPU gets two frames assigned to it
+    85	 *
+    86	 * We adopt the convention that when an MSI is moved, it is configured to
+    87	 * target the same register number in the new frame. This reserves a given
+    88	 * MSI across all CPUs, and reduces the MSI capacity from 2048 to 256.
+    89	 *
+    90	 * Effectively, this amounts to:
+    91	 * - hwirq[7]::cpu[2:0] is the target frame number
+    92	 * - hwirq[6:4] is the register index in any given frame
+    93	 * - hwirq[3:0] is the MSI data
+    94	 */
+    95	
+    96	/* MSInIRx read helper */
+    97	static u32 xgene_msi_ir_read(struct xgene_msi *msi,
+    98					    u32 msi_grp, u32 msir_idx)
+    99	{
+   100		return readl_relaxed(msi->msi_regs + MSI_IR0 +
+ > 101				     (FIELD_PREP(MSI_GROUP_MASK, msi_grp) |
+   102				      FIELD_PREP(MSI_INDEX_MASK, msir_idx)));
+   103	}
+   104	
+   105	/* MSIINTn read helper */
+   106	static u32 xgene_msi_int_read(struct xgene_msi *msi, u32 msi_grp)
+   107	{
+   108		return readl_relaxed(msi->msi_regs + MSI_INT0 +
+   109				     FIELD_PREP(MSI_INTR_MASK, msi_grp));
+   110	}
+   111	
+   112	static irq_hw_number_t compute_hwirq(u32 grp_idx, u32 msir_idx, u32 intr_idx)
+   113	{
+ > 114		return ((FIELD_GET(BIT(3), grp_idx) << 7)	|
+   115			(msir_idx << 4)				|
+   116			intr_idx);
+   117	}
+   118	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
