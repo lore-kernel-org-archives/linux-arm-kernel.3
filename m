@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4913BE77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 17:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF52E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 17:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O5mhDTiQCniX4dOvULwv2bY5E40qxNFbSX0TtTudBO0=; b=RSBU2Aam2rwpIJe+kbrUQT+1/q
-	EwYBvkTTFik3w66Jc18592F+7GRc0QUmhC08L/Q9UBHeEIyVhjgyqFVZdO8ekDuFOqbpvlz+KXwX1
-	7f47ZTtyFF+l7BLUtGPuQu9ee6yUorscXXfjxH+wVQRm1O4MFuAER/S8caFx0u3o8JmwKnMAUzt8y
-	/+ZExytNdVMHEeoR3VGZqsxPhNVdMLEJgGovzZkHrh7uFZOmdWRvTeikyA1c2jYa/CC5d+jI28rRv
-	Sish/zjClR+AdBqd93ehNnOZm+w/Pek48/8sUI0FBytByQ+GHFiRfsmnFnCsOoJjmEr5Da94MWbgN
-	PkX5tftA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=XNAcjeI+JTLnHLWMS6wwOPHgI07zL+P1HvYAjUN+l9o=; b=wa9/Ly/M35iXN5
+	SWpxG3ImpU7HzwS3Do8zS3kA2vLcl7wL+pxeFW+fPe47B6YK0KCmOXUtRM74SDX5g2I30fJuQceE6
+	+yFUcRx+uUoC0g74MjENpncn1qNLuJeFaE/+Dkgeh5abb4vDSrXLRCLoQ9HJcYEZYk5U1P7M/Boxp
+	28NyerCHLzYyVWTnIFTyh2NCyu0QoDswahH7af27geRUGIQ5FJ0Aq6HCSo0SUdqxpmf2Ck8b/9hIT
+	KdXFywDSTfTzpInPjIHiCHQ48Fsg2DVVULPR8fSdn1uZ8mRtrmwNAp6g6fIDrNH86fIrpFG5fURhG
+	9vVGl0uM41eTZ0RqcZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJFh4-0000000GxZR-2RzX;
-	Thu, 05 Dec 2024 17:31:14 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tJFi4-0000000GxqS-20d1;
+	Thu, 05 Dec 2024 17:32:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJFc8-0000000GwWO-3ks9;
-	Thu, 05 Dec 2024 17:26:10 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-434a8b94fb5so7781145e9.0;
-        Thu, 05 Dec 2024 09:26:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733419567; x=1734024367; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=O5mhDTiQCniX4dOvULwv2bY5E40qxNFbSX0TtTudBO0=;
-        b=ixmEheYyZ7IlAuHQ+H41w9DbVSrG/RGzk1YOrsjitAPv75xgoJJ6so1KcbyqsMBqCf
-         OIXKYa7VxBE+Fo6ARKC2eNEfClh50jN1iguDN2wsXNrAT3E1U37l1gksZeUs2FSRYs37
-         EhTOnG799tWQ+19VLR7g8wbpPOgLYB23t2IjqZqrHaEKg05mf4HIMQfqRPWpHMRovWeO
-         F+V0XzwB+MASCfXpaR5V9H4oSn+oN9BnBG6Gmf1wElz62u7+kxV1egc7LriBKSGlqhWT
-         Kx5W6tWay6l5tyzEK4lPB56tbTBMwS44TWOrWu0ur64uluq1t+kuNONPaxJNxVPphwD6
-         je5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733419567; x=1734024367;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O5mhDTiQCniX4dOvULwv2bY5E40qxNFbSX0TtTudBO0=;
-        b=ks1UZMAPOuEhRZYgHGqW9SUb1FIq9Hu3jIf3x5W6/RC/lIk6qaJqHVUsWx4kZwViLP
-         6drGe2XBJT0LMMlN9xRpHG/dB8N3W5OV9z92AYcsrZhHVhz2tCa/S3zUBwqfvHCGrYe3
-         Xdcjsrcz29eaZ6oYhEBhAHRl5J6DltKqPAVBjKp9oJCaifg3Az6yZVmBZfvPimOgIsfA
-         RFOZU3Xassris30llP4bcOJlp2WxFSWxq2DjO/XjGKbCHA9yGOJ0qdzIpEEOB6XYzCZY
-         zI+ZhqmTofvGokB1SQQAy3qC/36ok5aR4qs4hTb41dFgeNLy7dzfsJM6/xGEbY1BErVK
-         RBnA==
-X-Forwarded-Encrypted: i=1; AJvYcCWmUCMuM7tfBZFizgKh00JNPEhtgqjQSY5HgKFZUJfV6wgJM736LBEiGVtLHsBhP39DEKdEz23puzVQ+Woz5Y+J@lists.infradead.org, AJvYcCXTufCIITehTlpnhzIR1zF1d4iRPMzg5lDy5MrOUSbTJbNwNbbGycD4ad2YukE5wChMnd/P+JT58owbWC5doB0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmIAh3QDBYvdZN9/lKnWLjnYxsPdLS+W7knlK9gzVq0wwkXXV8
-	/NrT3CpRnicxf4q/IVQp6mJpUe7FpCXFJH2WWm05m82MitnXelHH
-X-Gm-Gg: ASbGncugTHX61/pjReazwcRdGBjhrs1G/eqjvFjOjUPuC4u7wguzKni9UIQ1hBuhEu/
-	Bkv0aYknAohdAim5X+hEB8hn/3KPtcHq9ulafOx0yPJWMnhJztLJpbA/DfhpRVUJlj0ctdCk/w3
-	q6N61X2rwmAd05ngCNJHQoBHIH3U3qgflZlB7WkfywsoUvbs1nES9UFdDr9ycwfYFOStMaP0n9n
-	AmHynchpktpgiorEr9Stg+HJ7rxv1ImRYJcY0EF93cdeCI+6JLFBLJaNlZJ8ffxtWMzaPvPfc39
-	0Z51XQ==
-X-Google-Smtp-Source: AGHT+IGWBr7m/eK/LTokHoFmkVp6cSV6bU7ybbZzYTsPTC5V+3f3UIT5XgVkJ22lghZ4+yW3kvJwBg==
-X-Received: by 2002:a05:600c:1906:b0:431:7ccd:ff8a with SMTP id 5b1f17b1804b1-434ddee0503mr1062795e9.14.1733419566414;
-        Thu, 05 Dec 2024 09:26:06 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d526b577sm68800725e9.3.2024.12.05.09.26.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 09:26:05 -0800 (PST)
-Message-ID: <6751e22d.050a0220.3435c6.57de@mx.google.com>
-X-Google-Original-Message-ID: <Z1HiKXfpdluKA0_w@Ansuel-XPS.>
-Date: Thu, 5 Dec 2024 18:26:01 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v9 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-References: <20241205145142.29278-1-ansuelsmth@gmail.com>
- <20241205145142.29278-4-ansuelsmth@gmail.com>
- <20241205170629.ww7qcvgbqdf5ipcj@skbuf>
+	id 1tJFdd-0000000Gwy2-3cTV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 17:27:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1AEB7A43E7A;
+	Thu,  5 Dec 2024 17:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88212C4CED1;
+	Thu,  5 Dec 2024 17:27:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733419660;
+	bh=Ri91blaEJu7Ua+jUwYZXPSeBwql1Lk/K8YeLB3/SMrc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=ecgAG1XAX0KLrXM6fWo9pl2oJJO6VYSY69RsMhWwXPBtDG+NAvyFaFri8BJEEnvJ/
+	 ASsWy0ZWIpKjN9kJUkZdW9/sv+KdeWeToBjYbiiwzBGTUlerd1t9XqzBdq5RWVJKV2
+	 g+yYV/Mwpkr8pUzeCmfkDUakzUxFNr+h0d+fg2YBvDgxh7auNQoif/C42tItTndx/f
+	 PoS/aOSeWdlVhNEgucreK+/PAvsv7A0N1GXCpzH4y0EtPiYRB2K6PQ4KjWCGgD7z+E
+	 iMJiUfUKBgLWtUhB9rCo9BzHrEloST1HnlsiibqwpZYzCt/GcYJAhNZASZH55UGlVv
+	 3SUby2bfsHzOA==
+Date: Thu, 5 Dec 2024 11:27:38 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
+	cassel@kernel.org, quic_schintav@quicinc.com,
+	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
+ STM32MP25
+Message-ID: <20241205172738.GA3054352@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241205170629.ww7qcvgbqdf5ipcj@skbuf>
+In-Reply-To: <20241126155119.1574564-5-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_092608_952265_16DB1320 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20241205_092742_027704_B4DB29A2 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +78,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 07:06:29PM +0200, Vladimir Oltean wrote:
-> On Thu, Dec 05, 2024 at 03:51:33PM +0100, Christian Marangi wrote:
-> > +	.port_fdb_add = an8855_port_fdb_add,
-> > +	.port_fdb_del = an8855_port_fdb_del,
-> > +	.port_fdb_dump = an8855_port_fdb_dump,
-> > +	.port_mdb_add = an8855_port_mdb_add,
-> > +	.port_mdb_del = an8855_port_mdb_del,
-> 
-> Please handle the "struct dsa_db" argument of these functions, so that
-> you can turn on ds->fdb_isolation. It is likely that instead of a single
-> AN8855_FID_BRIDGED, there needs to be a unique FID allocated for each
-> VLAN-unaware bridge in order for their FDBs to be isolated from each
-> other, and so that the same MAC address could live under both bridges.
+On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
+> Add driver to configure the STM32MP25 SoC PCIe Gen2 controller based on the
+> DesignWare PCIe core in endpoint mode.
 
-Mh ok, I hoped we could first have the base DSA driver merged before
-starting to applying these kind of feature.
+> +config PCIE_STM32_EP
+> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (endpoint mode)"
+> +	depends on ARCH_STM32 || COMPILE_TEST
+> +	depends on PCI_ENDPOINT
+> +	select PCIE_DW_EP
+> +	help
+> +	  Enables endpoint support for DesignWare core based PCIe controller in found
+> +	  in STM32MP25 SoC.
 
-Concept looks handy, ideally I can just assign one ID for each port
-like:
-port 1 -> FIB 1
-port 2 -> FIB 1
-port 3 -> FIB 2
+s/in found in/in/ (or "found in" if you prefer)
 
-Question:
-Ports of the same bridge should have the same FIB?
+Wrap so help text fits in 80 columns when for "make menuconfig".
 
-What I need to check is how the switch handle this for learning. Does
-the switch correctly create FDB entry with the right FIB? If that's not
-the case then I think assisted_learning is needed and HW Learn can't be
-used?
+> +static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> +	enum pci_barno bar;
+> +
+> +	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
+> +		dw_pcie_ep_reset_bar(pci, bar);
+> +
+> +	/* Defer Completion Requests until link started */
 
-(I still need to check if I can assign a default FIB for a port...
-Currently the STP register are 2 bit for each FIB id, so 16 different
-FIB are possible)
+I asked about this before [1] but didn't finish the conversation.  My
+main point is that I think "Completion Request" is a misnomer.
+There's a "Configuration Request" and a "Completion," but no such
+thing as a "Completion Request."
 
-Also do we have a script for selft tests? I remember there was one back
-in the days for fdb isolation?
+Based on your previous response, I think this should say something
+like "respond to config requests with Request Retry Status (RRS) until
+we're prepared to handle them."
 
--- 
-	Ansuel
+> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +			   STM32MP25_PCIECR_REQ_RETRY_EN,
+> +			   STM32MP25_PCIECR_REQ_RETRY_EN);
+> +}
+> +
+> +static int stm32_pcie_enable_link(struct dw_pcie *pci)
+> +{
+> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> +	int ret;
+> +
+> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +			   STM32MP25_PCIECR_LTSSM_EN,
+> +			   STM32MP25_PCIECR_LTSSM_EN);
+> +
+> +	ret = dw_pcie_wait_for_link(pci);
+> +	if (ret)
+> +		return ret;
+> +
+> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +			   STM32MP25_PCIECR_REQ_RETRY_EN,
+> +			   0);
+
+And I assume this means the endpoint will accept config requests and
+handle them normally instead of responding with RRS.
+
+Strictly speaking this is a different condition than "the link is up"
+because the link must be up in order to even receive a config request.
+The purpose of RRS is for devices that need more initialization time
+after the link is up before they can respond to config requests.
+
+The fact that the hardware provides this bit makes me think the
+designer anticipated that the link might come up before the rest of
+the device is fully initialized.
+
+Bjorn
+
+[1] https://lore.kernel.org/r/20241112203846.GA1856246@bhelgaas
+
 
