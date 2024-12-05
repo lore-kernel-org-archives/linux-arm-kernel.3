@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC9FE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239DCE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C2qCz2oyAWXcySnvC/YTGdboyjGwCf8uvEh34M5NQ1w=; b=XwbKiYby8niCaBpYlthbJtJhQa
-	blnu3leOjNiOQw7FAlrNXETxou2N+uZryHli8jxSiQgXMDc6BPbefLwEWrksmn/ZYotB+rDHIzRV7
-	SUR2IowIKD+gtuz8w2RZnIMcztRQCXCwU6++xZ9WS+A21go7qZxP5b7hHSvG0+C9j9IfZr3XF9Q5s
-	4SuPClcLv4XtQ37jdTk0Vj8CoNKoU/WsffbaWCw+CI6xdgHWlSEhY7/tk5liTo7+lSvcgDVbdrDdG
-	2P595fCt1Q1mQc7dN34iCUnTFDBWCLYtrPYqedPanIVn4cjcAcnitnmudA96iUOX9sakTWl63zJhU
-	mDR6QRFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YJPfyDC/9RGzocNfSLC2nVAShdVT4UUs2RuNOdF6VdI=; b=i3enDT2iYGoMpKrGhNcjtAwDkx
+	bPf2GQ0ACfAOCvbCkCDbrUaH7sg3fpNUiDiTRYnHCQLgS/+PNWx8JTIzud35/EPQQCdH0tQBftnC2
+	5DmWmLZaF0GiY7bJnKzUoFZjLr1tqyEvB2Ur01zvtzNFd9bB7zwtsHPWh/oe86uM2taAWSKSIjdTn
+	39x8ve5yzMA6IxSWqRaWsksjLHxshJBATWQdSx7OboMNVCy5/tOjkrN2IauvuPLj5TLW77VzfzI7z
+	AgUcxTstXf5w36ALcHk0P+fyo9iSc8xAA7i4HYMw705IAlHDRf19QCpIkvfZvrySE3A4tS53oRDRZ
+	kJpH0i7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ90k-0000000FUqH-2MNy;
-	Thu, 05 Dec 2024 10:23:06 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tJ93s-0000000FVZI-0Tyy;
+	Thu, 05 Dec 2024 10:26:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8zi-0000000FUeS-2NKf
+	id 1tJ92r-0000000FVNV-2hMf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:22:04 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa549f2fa32so142597966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 02:22:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733394121; x=1733998921; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=C2qCz2oyAWXcySnvC/YTGdboyjGwCf8uvEh34M5NQ1w=;
-        b=wF17t4K4IftoUAXPknb5x8rNCjdBBerbbAuNenYo5VxXXsDpy7sJT6WCl4vnbh7VGj
-         mYHOfBx9AR5kPs61CjA75Mk0JAMjvRXPG0ZGpWmnLYHUeHgk1vt+gwqyPKtUZeNYOOJ3
-         IpHcuQ+HJTnfPrkw2b3rdJNwb98ME/YSSZwrZjSGlI3e0LkNdWtQ2EBKbu4lvnuA0UHA
-         2uVMpdV/u5bt/YqcY/cfct8EJ6lvmEA10Weel5Xc7Psaqs0NEPvMo1hZK6hi6Fh5WlUp
-         /+HT+KFkEhGSFy3mpgEu3hbCzQ/V8WTTJONJqWEwOlJeAv2ulHiQaG9Vs6OollyC4wHf
-         c3gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733394121; x=1733998921;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=C2qCz2oyAWXcySnvC/YTGdboyjGwCf8uvEh34M5NQ1w=;
-        b=NzIt5ApjqB/v7k80WTLZ/xHZm34L+NXxiY2DihjfFKdGloqrRHEKISsrcMZLkVltn5
-         L+qR35A1B1GhYHmyqWM6muMCa59z/HkhEvjxvNhlSfqhRSktVX/TtUW8gzhN+9YKI1XG
-         ONu3oJSnWQJnOXsFExM4g4zlwW23Mpjzvj6of9YuF0mJLqOrBEjbJRt7qJ6btcE4vqyn
-         whq2c6VTawWsKBOpYYTFAyczAycRLqsiVoAy77otafCJImsKkWB3r8e4KovgT0b72jZD
-         Z3GwMz7QXbTOmPHV0wkEnUW6HW4ZaowJxA2u9PK1ZAu2cMUYw8QR3Pmj9tJCWdJNWCVp
-         kllA==
-X-Forwarded-Encrypted: i=1; AJvYcCVQU+GaDPZOTBiaO33lONL3KAzIHW5uXCUy3sR6rfRlYyhbLC9OsSXSGnkc/QxYjuob9lzfQ8t6DzE6e/X6iBRt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaAoAuxumwvzzCVoMsNfWqfaiO1eNSOgEZUPtTErrb5OIiAkMD
-	qfP0anyGf21CtunmuJtaZks/OmWxwydYQddQHOkzvThIiX9aNmWYPvq8xI/9n2Y=
-X-Gm-Gg: ASbGnct0D8/byhan8Mj1g0LRzAHRt17FBWFNFc9rIYHe5Ewy70RcIGUySQ8Rl2cX9Bq
-	CwumuUCDVgLBw+Ds2X8TG5ARKLX9Q1Ur/OqWTa/febBNcLaaLcm/PXgTw0ZYHWO4wklnQd2aMUs
-	KiX+Kqlk67lw0TAPNPoaENMigRmSuqkWZys00DWJGT2RHDXhP+W321LIzleCE8otw+UewnJ3IkH
-	Y5SOioXNNSiyn+MShABb5Ct37ACK/UZWgDUkzhyAQQ0qIgY9Zym+MxWDU3j3OIAiIyzY+vqn8Qg
-	mQQ2laOw+8w7Ws4HmOf/sTueSs2Nz4aWjg==
-X-Google-Smtp-Source: AGHT+IGIzS6w8nmzLwTehZGRCWLb5o+CLPa7VmxDEuLmOqo4b1mzG0cAAJu2wok4wnlPx8fiTWLtkA==
-X-Received: by 2002:a17:906:3d31:b0:aa5:41b2:e23e with SMTP id a640c23a62f3a-aa5f7da9717mr766598566b.30.1733394120780;
-        Thu, 05 Dec 2024 02:22:00 -0800 (PST)
-Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62608f57fsm71606166b.146.2024.12.05.02.22.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 02:22:00 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 05 Dec 2024 10:22:00 +0000
-Subject: [PATCH v4] phy: exynos5-usbdrd: gs101: ensure power is gated to SS
- phy in phy_exit()
+	Thu, 05 Dec 2024 10:25:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7ECF65C7232;
+	Thu,  5 Dec 2024 10:24:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B3DC4CED1;
+	Thu,  5 Dec 2024 10:25:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733394316;
+	bh=ZJ4S4rNEnh/7WF34+Cs6LWN0Zkt6lyhksJC0cFFlqIQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dvqVQHE9jp7pk+jU9f+CQgDHRpTrZltyTe2qQIEqiJYJUNF3Q0dWjog+pjeeyAiy/
+	 8s47hPCgmt9rI4fgwqYPw4048P7C3ISV80w/Q3OjWwqYDs4uKHlJC5X8/3t8Ymb3EK
+	 jrEnvQVaX7VrB9Szmz1sqnKvXd55AI8piYeLZCIUtEjPAqKX88bSH7m3hwXXsfK+yN
+	 k7Jzx2psRCGDbKKvDAJe+Ob+xIqwAKDpgCXQKXqXROtAHYP6WaPTv83fr/9l5rofe+
+	 vwNskYI+POPWTT0o6UVBJLlMWb4rWmeXoUFDWiDl3jdYmIdzJ8VTA4KKZGvX6zjqzs
+	 21fCnttBFHqBA==
+Date: Thu, 5 Dec 2024 11:25:07 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org,
+	broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org,
+	lgirdwood@gmail.com, maz@kernel.org, p.zabel@pengutronix.de,
+	robin.murphy@arm.com, will@kernel.org
+Subject: Re: [PATCH v7 2/2] PCI: imx6: Add IOMMU and ITS MSI support for
+ i.MX95
+Message-ID: <Z1F/g/clUxAIGFZ1@lpieralisi>
+References: <20241203-imx95_lut-v7-0-d0cd6293225e@nxp.com>
+ <20241203-imx95_lut-v7-2-d0cd6293225e@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20241205-gs101-usb-phy-fix-v4-1-0278809fb810@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAMd+UWcC/x2MQQqAMAzAviI9W9iqA/Ur4mFq3XpRWVEU8e8Oj
- wkkDygnYYWueCDxKSrbmqEuC5iiXwOjzJmBDNWWjMOg1lg8dMQ93rjIhTQ513hvqpY85G5PnPX
- /7If3/QBAd16DYwAAAA==
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Will McVicker <willmcvicker@google.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, kernel-team@android.com, 
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203-imx95_lut-v7-2-d0cd6293225e@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_022202_597911_16BFB857 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20241205_022517_777577_4D2997AB 
+X-CRM114-Status: GOOD (  48.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,66 +84,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently don't gate the power to the SS phy in phy_exit().
+On Tue, Dec 03, 2024 at 06:27:16PM -0500, Frank Li wrote:
+> For the i.MX95, configuration of a LUT is necessary to convert Bus Device
+> Function (BDF) to stream IDs, which are utilized by both IOMMU and ITS.
+> This involves examining the msi-map and smmu-map to ensure consistent
 
-Shuffle the code slightly to ensure the power is gated to the SS phy as
-well.
+This involves checking msi-map and iommu-map device tree properties
+to...
 
-Fixes: 32267c29bc7d ("phy: exynos5-usbdrd: support Exynos USBDRD 3.1 combo phy (HS & SS)")
-CC: stable@vger.kernel.org # 6.11+
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-Changes in v4:
-- separate this patch out from original series
-- Link to v3: https://lore.kernel.org/all/20241205-gs101-phy-lanes-orientation-phy-v3-5-32f721bed219@linaro.org/
+> mapping of PCI BDF to the same stream IDs. Subsequently, LUT-related
+> registers are configured. In the absence of an msi-map, the built-in MSI
+> controller is utilized as a fallback.
+> 
+> Register a PCI bus callback function to handle enable_device() and
+> disable_device() operations, setting up the LUT whenever a new PCI device
+> is enabled.
+> 
+> Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Change from v5 to v6
+> - change comment rid to RID
+> - some mini change according to mani's feedback
+> 
+> Change from v4 to v5
+> - rework commt message
+> - add comment for mutex
+> - s/reqid/rid/
+> - keep only one loop when enable lut
+> - add warning when try to add duplicate rid
+> - Replace hardcode 0xffff with IMX95_PE0_LUT_MASK
+> - Fix some error message
+> 
+> Change from v3 to v4
+> - Check target value at of_map_id().
+> - of_node_put() for target.
+> - add case for msi-map exist, but rid entry is not exist.
+> 
+> Change from v2 to v3
+> - Use the "target" argument of of_map_id()
+> - Check if rid already in lut table when enable device
+> 
+> change from v1 to v2
+> - set callback to pci_host_bridge instead pci->ops.
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 183 +++++++++++++++++++++++++++++++++-
+>  1 file changed, 182 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index c8d5c90aa4d45..ac5caa7b05075 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -55,6 +55,22 @@
+>  #define IMX95_PE0_GEN_CTRL_3			0x1058
+>  #define IMX95_PCIE_LTSSM_EN			BIT(0)
+>  
+> +#define IMX95_PE0_LUT_ACSCTRL			0x1008
+> +#define IMX95_PEO_LUT_RWA			BIT(16)
+> +#define IMX95_PE0_LUT_ENLOC			GENMASK(4, 0)
+> +
+> +#define IMX95_PE0_LUT_DATA1			0x100c
+> +#define IMX95_PE0_LUT_VLD			BIT(31)
+> +#define IMX95_PE0_LUT_DAC_ID			GENMASK(10, 8)
+> +#define IMX95_PE0_LUT_STREAM_ID			GENMASK(5, 0)
+> +
+> +#define IMX95_PE0_LUT_DATA2			0x1010
+> +#define IMX95_PE0_LUT_REQID			GENMASK(31, 16)
+> +#define IMX95_PE0_LUT_MASK			GENMASK(15, 0)
+> +
+> +#define IMX95_SID_MASK				GENMASK(5, 0)
+> +#define IMX95_MAX_LUT				32
+> +
+>  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
+>  
+>  enum imx_pcie_variants {
+> @@ -87,6 +103,7 @@ enum imx_pcie_variants {
+>   * workaround suspend resume on some devices which are affected by this errata.
+>   */
+>  #define IMX_PCIE_FLAG_BROKEN_SUSPEND		BIT(9)
+> +#define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
+>  
+>  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+>  
+> @@ -139,6 +156,9 @@ struct imx_pcie {
+>  	struct device		*pd_pcie_phy;
+>  	struct phy		*phy;
+>  	const struct imx_pcie_drvdata *drvdata;
+> +
+> +	/* Ensure that only one device's LUT is configured at any given time */
+> +	struct mutex		lock;
+>  };
+>  
+>  /* Parameters for the waiting for PCIe PHY PLL to lock on i.MX7 */
+> @@ -930,6 +950,159 @@ static void imx_pcie_stop_link(struct dw_pcie *pci)
+>  	imx_pcie_ltssm_disable(dev);
+>  }
+>  
+> +static int imx_pcie_add_lut(struct imx_pcie *imx_pcie, u16 rid, u8 sid)
+> +{
+> +	struct dw_pcie *pci = imx_pcie->pci;
+> +	struct device *dev = pci->dev;
+> +	u32 data1, data2;
+> +	int free = -1;
+> +	int i;
+> +
+> +	if (sid >= 64) {
+> +		dev_err(dev, "Invalid SID for index %d\n", sid);
+> +		return -EINVAL;
+> +	}
+> +
+> +	guard(mutex)(&imx_pcie->lock);
+> +
+> +	/*
+> +	 * Iterate through all LUT entries to check for duplicate RID and
+> +	 * identify the first available entry. Configure this available entry
+> +	 * immediately after verification to avoid rescanning it.
+> +	 */
+> +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, IMX95_PEO_LUT_RWA | i);
+> +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, &data1);
+> +
+> +		if (!(data1 & IMX95_PE0_LUT_VLD)) {
+> +			if (free < 0)
+> +				free = i;
+> +			continue;
+> +		}
+> +
+> +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, &data2);
+> +
+> +		/* Do not add duplicate RID */
+> +		if (rid == FIELD_GET(IMX95_PE0_LUT_REQID, data2)) {
+> +			dev_warn(dev, "Existing LUT entry available for RID (%d)", rid);
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	if (free < 0) {
+> +		dev_err(dev, "LUT entry is not available\n");
+> +		return -ENOSPC;
+> +	}
+> +
+> +	data1 = FIELD_PREP(IMX95_PE0_LUT_DAC_ID, 0);
+> +	data1 |= FIELD_PREP(IMX95_PE0_LUT_STREAM_ID, sid);
+> +	data1 |= IMX95_PE0_LUT_VLD;
+> +	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, data1);
+> +
+> +	data2 = IMX95_PE0_LUT_MASK; /* Match all bits of RID */
+> +	data2 |= FIELD_PREP(IMX95_PE0_LUT_REQID, rid);
+> +	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, data2);
+> +
+> +	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, free);
+> +
+> +	return 0;
+> +}
+> +
+> +static void imx_pcie_remove_lut(struct imx_pcie *imx_pcie, u16 rid)
+> +{
+> +	u32 data2;
+> +	int i;
+> +
+> +	guard(mutex)(&imx_pcie->lock);
+> +
+> +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, IMX95_PEO_LUT_RWA | i);
+> +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, &data2);
+> +		if (FIELD_GET(IMX95_PE0_LUT_REQID, data2) == rid) {
+> +			regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, 0);
+> +			regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, 0);
+> +			regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, i);
+> +
+> +			break;
+> +		}
+> +	}
+> +}
+> +
+> +static int imx_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_dev *pdev)
+> +{
+> +	struct imx_pcie *imx_pcie = to_imx_pcie(to_dw_pcie_from_pp(bridge->sysdata));
+> +	u32 sid_i, sid_m, rid = pci_dev_id(pdev);
+> +	struct device_node *target;
+> +	struct device *dev;
+> +	int err_i, err_m;
+> +
+> +	dev = imx_pcie->pci->dev;
+> +
+> +	target = NULL;
+> +	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask", &target, &sid_i);
+> +	if (target)
+> +		of_node_put(target);
+> +	else
+> +		err_i = -EINVAL;
 
-Changes in v3:
-- none
-- Link to v2: https://lore.kernel.org/all/20241203-gs101-phy-lanes-orientation-phy-v2-5-40dcf1b7670d@linaro.org/
+Why ? If target == NULL err_i is already set to a negative value ?
 
-Changes in v2:
-- add cc-stable and fixes tags to power gating patch (Krzysztof)
-- Link to v1: https://lore.kernel.org/all/20241127-gs101-phy-lanes-orientation-phy-v1-6-1b7fce24960b@linaro.org/
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+> +
+> +	target = NULL;
+> +	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask", &target, &sid_m);
+> +
+> +	/*
+> +	 * Return failure if msi-map exist and no entry for RID because dwc common
+> +	 * driver will skip setting up built-in MSI controller if msi-map existed.
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index c421b495eb0f..e4699d4e8075 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -1296,14 +1296,17 @@ static int exynos5_usbdrd_gs101_phy_exit(struct phy *phy)
- 	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
- 	int ret;
- 
-+	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI) {
-+		ret = exynos850_usbdrd_phy_exit(phy);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	exynos5_usbdrd_phy_isol(inst, true);
-+
- 	if (inst->phy_cfg->id != EXYNOS5_DRDPHY_UTMI)
- 		return 0;
- 
--	ret = exynos850_usbdrd_phy_exit(phy);
--	if (ret)
--		return ret;
--
--	exynos5_usbdrd_phy_isol(inst, true);
- 	return regulator_bulk_disable(phy_drd->drv_data->n_regulators,
- 				      phy_drd->regulators);
- }
+This is not ideal - to depend on the DWC common driver behaviour.
 
----
-base-commit: c245a7a79602ccbee780c004c1e4abcda66aec32
-change-id: 20241205-gs101-usb-phy-fix-2c558aa0392a
+> +	 *
+> +	 *   err_m      target
+> +	 *	0	NULL		Return failure, function not work.
+> +	 *      !0      NULL		msi-map not exist, use built-in MSI.
+					^^^^
+"function not work" does not mean anything, sorry. What is it meant to
+say ?
 
-Best regards,
--- 
-André Draszik <andre.draszik@linaro.org>
+!=0
 
+> +	 *	0	!NULL		Find one entry.
+> +	 *	!0	!NULL		Invalidate case.
+
+"Find one entry", "Invalidate case", I don't understand what they mean.
+
+!=0 !=NULL
+
+> +	 */
+> +	if (!err_m && !target)
+> +		return -EINVAL;
+> +	else if (target)
+> +		of_node_put(target); /* Find entry for RID in msi-map */
+> +
+> +	/*
+> +	 * msi-map        iommu-map
+> +	 *   Y                Y            ITS + SMMU, require the same sid
+> +	 *   Y                N            ITS
+> +	 *   N                Y            DWC MSI Ctrl + SMMU
+> +	 *   N                N            DWC MSI Ctrl
+> +	 */
+> +	if (!err_i && !err_m)
+> +		if ((sid_i & IMX95_SID_MASK) != (sid_m & IMX95_SID_MASK)) {
+
+Here you mask sid_i
+
+> +			dev_err(dev, "iommu-map and msi-map entries mismatch!\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +	/*
+> +	 * Both iommu-map and msi-map not exist, use dwc built-in MSI
+> +	 * controller, do nothing here.
+> +	 */
+> +	if (err_i && err_m)
+> +		return 0;
+> +
+> +	if (!err_i)
+> +		return imx_pcie_add_lut(imx_pcie, rid, sid_i);
+
+Here you don't ?
+
+Moreover - this would also cater for the case where (!err_i && !err_m) is
+true ?
+
+Probably cleaner to do:
+	u32 sid;
+
+	if (err_i && err_m)
+		return 0;
+
+	if (!err_i && !err_m) {
+		if ((sid_i & IMX95_SID_MASK) != (sid_m & IMX95_SID_MASK)) {
+			dev_err(dev, "iommu-map and msi-map entries mismatch!\n");
+			return -EINVAL;
+		}
+	}
+
+	if (!err_i)
+		sid = sid_i & IMX95_SID_MASK;
+	else if (!err_m)
+		sid = sid_m & IMX95_SID_MASK;
+
+	return imx_pcie_add_lut(imx_pcie, rid, sid);
+> +	else if (!err_m)
+> +		/*
+> +		 * Hardware auto add 2 bits controller id ahead of stream ID,
+> +		 * so mask this 2bits to get stream ID.
+> +		 */
+> +		return imx_pcie_add_lut(imx_pcie, rid, sid_m & IMX95_SID_MASK);
+> +
+> +	return 0;
+
+return 0; is dead code AFAICS.
+
+> +}
+> +
+> +static void imx_pcie_disable_device(struct pci_host_bridge *bridge, struct pci_dev *pdev)
+> +{
+> +	struct imx_pcie *imx_pcie;
+> +
+> +	imx_pcie = to_imx_pcie(to_dw_pcie_from_pp(bridge->sysdata));
+> +	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
+> +}
+> +
+>  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> @@ -946,6 +1119,11 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  		}
+>  	}
+>  
+> +	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
+> +		pp->bridge->enable_device = imx_pcie_enable_device;
+> +		pp->bridge->disable_device = imx_pcie_disable_device;
+> +	}
+> +
+>  	imx_pcie_assert_core_reset(imx_pcie);
+>  
+>  	if (imx_pcie->drvdata->init_phy)
+> @@ -1330,6 +1508,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	imx_pcie->pci = pci;
+>  	imx_pcie->drvdata = of_device_get_match_data(dev);
+>  
+> +	mutex_init(&imx_pcie->lock);
+> +
+>  	/* Find the PHY if one is defined, only imx7d uses it */
+>  	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
+>  	if (np) {
+> @@ -1627,7 +1807,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	},
+>  	[IMX95] = {
+>  		.variant = IMX95,
+> -		.flags = IMX_PCIE_FLAG_HAS_SERDES,
+> +		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+> +			 IMX_PCIE_FLAG_HAS_LUT,
+>  		.clk_names = imx8mq_clks,
+>  		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
+>  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+> 
+> -- 
+> 2.34.1
+> 
 
