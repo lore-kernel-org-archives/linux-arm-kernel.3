@@ -4,85 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA15CE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 22:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308DBE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 23:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sH87X6W/dLOtD8UP/csY7pFImd1CCK2lfpgwTum9UvI=; b=42WlA3KIfnc1kP2pEN1Y7I+Nn8
-	w1vHy20J760F0p/PgSLvbxzCeWAvpoCua/8vKrZ2hg+cFEES9ZX0VfLfHSEpNlm6OFxiL1J6sP4Oq
-	m6TBXAe/ZL+qjQhnz5KoVcSQUY+2ti1iyczQIUZnOcfGeS1MrUh0AUd5VqNQhAabeJ4WBtnTOe59S
-	e7oLblgmo7FOIz7oTvRsN6JBazkUZyZd2Shp6F5EEnMQJfyO2anY0wIYXVesp+kmZaPtLiIxOVaFy
-	OV73YzgnqkMmdD8J3cXHE5voba63xE2GhNk+0EstPj0RUXwtU6sqPMUIYy0MANzvrDVahabMSkZ6+
-	gc8jx6EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2cfmId59vxiNvq6eQ30QkQNn6nuXdIqcNwMG9TRCwVI=; b=cmPeBTZAiBLPDWSe7GL7dgoW8E
+	C73O0Vt/W+ZvVxStQF4w61J+ltEqFE54GZnNGdimsM+ToIuU2I4wZlejcAKR7zCVuCcpkJBpCeNdb
+	HkN4AHL8COEEZ1X8fT9TIEA8hqQOPQe8AMZD18OF4NIRvqKTqTHJajgWL/Ef5ps03mv3cGaBCyT0T
+	Lx3KZUwb8SbCEYVpq1JSuWTYCDXES8E2pOQk1f3vr9CBZLGx6b78qVC/Sawzdtrxm3m7UNDQY8Jpv
+	t8dwmqiKuSLBQeplzsK3qIlzvj+OSaF9cCXhXghPsdpsvSTKLiuiaag/Z08o2WAozg1v/Br0uE4bn
+	x0AQ7vZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJKg6-0000000HW2D-2zGL;
-	Thu, 05 Dec 2024 22:50:34 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tJKx5-0000000HXPO-1Er1;
+	Thu, 05 Dec 2024 23:08:07 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJKeo-0000000HVkO-35pR;
-	Thu, 05 Dec 2024 22:49:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733438954; x=1764974954;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=eQJA8gt/+Gn9iJvh/y6xFlkCm3roALrW99s5s7lFyB4=;
-  b=huQB4W93jK93TayzOhVvaZbPuIaIklFtK2us2WYmrEoycdMoL2MwrbZl
-   VlqgU8y3tdAsIC26AqYGu9jU5Egfxs5eFx6wsNgpHQP0BCcy/1iwsmt17
-   HA93jsKM1uGx/PYY8YyTKUrbEYcUOMIcF3reO9vhXT4GtaRJfB+sLVqWF
-   OTAjKHIKnoK4aUUh0dZBCus4JxPhWqB2h+0Iaip5dERV3C6egYP7FuIqI
-   oaEcBxLuTuEHH6u/vbvnJj5frCzT58sb6RmBibGdJAmur7C7KoCnDgP18
-   bWz+kP5boerUs487HTj5KxbZaDeb2WP79E3NwLjCKZnn3hvhiU2ZksGhl
-   A==;
-X-CSE-ConnectionGUID: 9zysJmyCTjugCRQqYY6S4Q==
-X-CSE-MsgGUID: u2S0n0yiRAS+W/jqTNs+4g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11277"; a="59182023"
-X-IronPort-AV: E=Sophos;i="6.12,211,1728975600"; 
-   d="scan'208";a="59182023"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2024 14:49:13 -0800
-X-CSE-ConnectionGUID: JX65fdsCRgKOoxGGtSwVMA==
-X-CSE-MsgGUID: m5jj8HO8Trak+cnRf2CGEg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,211,1728975600"; 
-   d="scan'208";a="93909721"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 05 Dec 2024 14:49:07 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tJKef-0000Sd-28;
-	Thu, 05 Dec 2024 22:49:05 +0000
-Date: Fri, 6 Dec 2024 06:48:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	chunkuang.hu@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com,
-	jitao.shi@mediatek.com, jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-Message-ID: <202412060636.00bzNpm9-lkp@intel.com>
-References: <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
+	id 1tJKw3-0000000HXFR-0Gbb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 23:07:04 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee76befe58so1252596a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 15:07:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1733440021; x=1734044821; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2cfmId59vxiNvq6eQ30QkQNn6nuXdIqcNwMG9TRCwVI=;
+        b=0NMXEBUo59mbBa0JvddDduQk75223ddUPk79KwCucbPf51WfjHKthQJxY9+6qY6GhT
+         Ngc7fRWQ/D+frDH3RpItP3XJXKbM4jTAnnllfrhMJDlDB9U4yrZdYgtJG+k9gomEBDtJ
+         eRTcci3FIVMPaPDcKy3Orr1nNHtReWluYBmzqLsCZPTpo86he5YehfJoh2CJ0241GP+G
+         Ax3Si26xcOy30tinvyXowZVJVT8c6aGg5jFgCXmoLZQzOMbKW6fdzrXpWO3cmc05n3Vw
+         sH8yontQI6OaTlV8Jmii0Y6eNoj1fayhTAyhWPdceJVekOMjSl+BtAP0P4VSS9LL7zfU
+         yj9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733440021; x=1734044821;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2cfmId59vxiNvq6eQ30QkQNn6nuXdIqcNwMG9TRCwVI=;
+        b=FjWDmSwJ6kfBzDxJ1s5kUAZAYq2z+BoDVucfL0w1E8/a41mv4e+KFmhU4qpZjIjPSN
+         l9dmnWm/7U3yKGziN6ITSLwKHVOtMZTazal65c8Sl2GwZsu8EYVg48VumqGNKq2JhF8P
+         gUEiGa6nauTXNloHfA5Po/zPiRimcp96CTnnaIYQCZSgM4JJItY84TRdv5gWjgfGkb6/
+         oWbWPXY2fWjvDgwvopkJwYrNtu7W2ZX9hXqMYQxEMF4IwbzIwXtqQT/viQtefN3nkHcj
+         5r5Jy84sfzGdUp3s21Dvzkp/UFGTnkrlpUK8cBe/RFLiWK81q3irI5w8Y0EGmRiqGnQN
+         6j6w==
+X-Forwarded-Encrypted: i=1; AJvYcCWw26+lJP8LSxFzKbOntXDlJfWtMWls0s3qoQM4C8//129mZfe+ew0K/9qLLnaFP4BguHn377eyzNoWpCC/4b4e@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIP+j1W/gRZ1y3hWfESEGAXl0gGnsMKh0QiRRaJP2eo74ftrcg
+	l/W1plCyvJQe7XtEzw1gej5KV11BWFCOLIetUKVD3SgY4dzxlfTvKSBSzuuG5tn/mEy8v6Bu1QX
+	/w1E=
+X-Gm-Gg: ASbGncuKZQqhQafAYYtI688mralwppfMCZWXv0zDOllZxZLlLS1/i/vZipmpcaHylG6
+	eJeOVGMTYrorzihi5rTbPS6RwAHyVXg7sCHCRMqgifWfSYqfLe/aSPwt8aQlJuzl8uvcSEXE610
+	NZDLbf9KoECGZqe2O0niN7egh/OPAmHoRLZb5HKAZOr6LKRS96FXVV/SupilYmAv8BGJsyT5hkk
+	DILCxKp0SAEWGKdDdw4Uz7IKvrh3oQoixBmthtLM/byIbQj
+X-Google-Smtp-Source: AGHT+IF0lJnHZZwx5qW89pY3JM7PmU56DWfppWtG1IiiileeHZLO1SZtL+I4lEvD0dwQNQWcZ0pTbg==
+X-Received: by 2002:a17:90b:520e:b0:2ee:fa0c:cebc with SMTP id 98e67ed59e1d1-2ef6a6c112cmr1324606a91.20.1733440021483;
+        Thu, 05 Dec 2024 15:07:01 -0800 (PST)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef45f7d804sm1938792a91.1.2024.12.05.15.07.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 15:07:00 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+In-Reply-To: <ec20fd5c347bf74963532e95282f850d209d84d5.1730539664.git.christophe.jaillet@wanadoo.fr>
+References: <ec20fd5c347bf74963532e95282f850d209d84d5.1730539664.git.christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH] ARM: OMAP2+: Fix a typo
+Message-Id: <173344002056.407600.10771943462992727832.b4-ty@baylibre.com>
+Date: Thu, 05 Dec 2024 15:07:00 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-cb14d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_144914_789283_6433AF69 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241205_150703_109000_342DCCA9 
+X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,75 +102,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
 
-kernel test robot noticed the following build errors:
+On Sat, 02 Nov 2024 10:27:51 +0100, Christophe JAILLET wrote:
+> A 'a' is missing in "powerdomin".
+> Add it.
+> 
+> 
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on pza/reset/next linus/master drm-misc/drm-misc-next v6.13-rc1 next-20241205]
-[cannot apply to pza/imx-drm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Applied, thanks!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-display-mediatek-dpi-Add-MT8195-and-MT8188-compat/20241205-194853
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20241205114518.53527-16-angelogioacchino.delregno%40collabora.com
-patch subject: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20241206/202412060636.00bzNpm9-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241206/202412060636.00bzNpm9-lkp@intel.com/reproduce)
+[1/1] ARM: OMAP2+: Fix a typo
+      (no commit info)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412060636.00bzNpm9-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:15:
-   In file included from include/linux/i2c.h:13:
-   In file included from include/linux/acpi.h:39:
-   In file included from include/acpi/acpi_io.h:7:
-   In file included from arch/arm64/include/asm/acpi.h:14:
-   In file included from include/linux/memblock.h:12:
-   In file included from include/linux/mm.h:2223:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
->> drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c:389:47: error: expected ';' after top level declarator
-     389 | MODULE_DEVICE_TABLE(of, mtk_hdmi_ddc_v2_match)
-         |                                               ^
-         |                                               ;
-   4 warnings and 1 error generated.
-
-
-vim +389 drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
-
-   384	
-   385	static const struct of_device_id mtk_hdmi_ddc_v2_match[] = {
-   386		{ .compatible = "mediatek,mt8195-hdmi-ddc" },
-   387		{ /* sentinel */ }
-   388	};
- > 389	MODULE_DEVICE_TABLE(of, mtk_hdmi_ddc_v2_match)
-   390	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Kevin Hilman <khilman@baylibre.com>
+
 
