@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 671DCE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D39E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGNlAokFjmhN1EyWyvNQ13rV62s826Uf7N3aP5+qRgI=; b=qgzYgby28RVKqlRfhP3Sn1CWiG
-	dEPdJNDEwLmV8T0/C5A60Or5MmaFzUbgjEDZAn184KZ/5PoChyQvIm0zjF5m2HgAku7im0Pd+yiM1
-	h8fQni965fxhZGj/H76dVuNLc9Dm9d2/4NthCIO9m6W1EYcjPjhR5kMfgChnM1YHFKTVnQv/szpSW
-	i5dH5Iwb10XqV0Fz3M93pj/OqItBNBwcJEMjW09rtAn2LywrAzYoJgJ1j/JKOvZtJSNIgYjQigjOP
-	POjE9Veodl1PnJlgZE1UOELjApM95UvH1q2KjuHz5wvhbkH9xMDTdv7vfysPs4XKd//oCQV7JgG9f
-	DCvBZAqA==;
+	bh=4S+griczfxgrR9KAzd1SmZx0kxJ5pUx4zHOlhhAKa68=; b=bYrx0S9GFf9IVqrP0s/QHPDMsj
+	gkUBnKd8ROZSS63BrY4CsgxFSmNFSpKpyMM+WTTjSlvtujGBW9d9RQOV+YB/ytmTCZA1wyetoMOLa
+	FPMHiI/e9yHZd11bW5NRANLK761X9QZ+vAyrP7fXeLU+fmgnumSTwJRr5SJUj3KBe9fTKNjERKwC5
+	uzabNrEfFp2IW33C2X9NLS/27C9WdzbLq41Csm6ibppVnQpAybMAkZaRYjBIvLXUhL4QdML42X7O8
+	8oboXFqe8PJuQRxMjonwEgLVabBTbYaEGC0nXafjAPcQuiqZkdAKjMBDBtAa7bmIhz0kHfDh5j8/S
+	UUqulwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEzw-0000000Go6t-0Wrt;
-	Thu, 05 Dec 2024 16:46:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJF0v-0000000GoNx-3NYp;
+	Thu, 05 Dec 2024 16:47:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEwv-0000000Gn5f-2KNF
+	id 1tJEwv-0000000Gn5v-3eBW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Dec 2024 16:43:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8E2395C639D;
-	Thu,  5 Dec 2024 16:42:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BECAEC4CEDD;
+	by nyc.source.kernel.org (Postfix) with ESMTP id A4F6DA43839;
+	Thu,  5 Dec 2024 16:41:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DF30BC4CEE5;
 	Thu,  5 Dec 2024 16:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733417011;
-	bh=zonr3mCcTyCgwR7d1gZNImuy1doROORC9hQH8Wi0Qyg=;
+	bh=prEv+e0GG/OD65Qb7TwYdsqNMCpYICnodlwVYKCW350=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=B8oc+62XcqZXJYDwzLdQHxQmjtDEty3a7JQFOJ0C0Edbj/d2bfrEcBuv5IQ8B1/6I
-	 pLuWV4hK5IjYngf+Sd2IALqQRA61xTXnq4x11haER5s/IYRPA9gNRTYIIUaHiM4dtz
-	 5SkI0uHnUuGZntafkU+iLJbq/D6OIGtO5dJEjkJRaZLaITLLcihZHaPM2AueAyV+G3
-	 hJXBicRsgxNKT0OeD9jG1/A7VDTIQHmm2sbZj/aOf3uqv7zumdvktYJi/GgVoGhBCm
-	 p3yib1MMTL5tEqUejwVTHD8aiRMBJrM9zWmlOOihI3fggWpJHkg0K04IHtU9aya57+
-	 TjwEGYRFxkl2g==
+	b=GGzJNXn31M94/47WhfVe5KNP5fWaCLN9VTNnNLEF5Lg1wQd5tiLZKhf/8XdlgCOdS
+	 fEqH+ZAFXLWXWE0yjRcnYxBqI9GCikHpRNya3pcn7SA0s0FRu6nflQJJsYs6kAtPyg
+	 hsduLiBrd5X7gEcuMmsqXLmgkpgExKY3JGpmRwyULVtMjUGj8cZ2RRW5/iizme8/vd
+	 2g4kTWa/vUuihUI9ktGiZKR6KjFmeJ20NsZ+RQLpOPY5EMsOAm+EJSzWzo38o3C2y0
+	 FutFvJviiX+m1Pka8vJSoTMzuKykhqv8TO3+bONfSEM+llSR7b7oEDpzBVOUqUB8ir
+	 A5KR1XmOiPB2A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7815E7716D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEBBBE7716C;
 	Thu,  5 Dec 2024 16:43:31 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Thu, 05 Dec 2024 17:42:58 +0100
-Subject: [PATCH net-next v8 01/15] net: stmmac: Fix CSR divider comment
+Date: Thu, 05 Dec 2024 17:43:00 +0100
+Subject: [PATCH net-next v8 03/15] net: stmmac: Fix clock rate variables
+ size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241205-upstream_s32cc_gmac-v8-1-ec1d180df815@oss.nxp.com>
+Message-Id: <20241205-upstream_s32cc_gmac-v8-3-ec1d180df815@oss.nxp.com>
 References: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 In-Reply-To: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -81,21 +82,21 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
  0x1207@gmail.com, fancer.lancer@gmail.com, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
- Jacob Keller <jacob.e.keller@intel.com>
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=958;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=4080;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=2KaIHv/oSTo3FOtKPvkHjEF7Z3D3rI5ymtYbTqdzAuo=;
- b=v8pvfQ8UAtPhcdINtdsR/HinWMhi87hDMqA2bUaESoiOXT0yKZSWa3bAQ70f2YH6jc3aLZyRV
- y5PdyrHt1rvBDETp2KAy9KF3HHtfsuJZrbEbJFNcPj5qW7cGAh8YN0U
+ bh=MBmDp2CoF+dbqWlxm3bedxlXiboLWf0OxlOUmswN3oE=;
+ b=8uHChxyIMSVZ0sLlUHsuSF/lowaFTxpDQYDwaIyAUy7QxgcGBTDGIIbxtarvCJivFXktl9Q37
+ 8F1uSfvC6i8D/yJXSIPYKNIbZ+O+yaCVkgno9jXKCpuEvJjniOSU3Qy
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_084333_677954_2707A07E 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20241205_084334_037921_4B83D756 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,30 +114,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-The comment in declaration of STMMAC_CSR_250_300M
-incorrectly describes the constant as '/* MDC = clk_scr_i/122 */'
-but the DWC Ether QOS Handbook version 5.20a says it is
-CSR clock/124.
+The clock API clk_get_rate() returns unsigned long value.
+Expand affected members of stmmac platform data and
+convert the stmmac_clk_csr_set() and dwmac4_core_init() methods
+to defining the unsigned long clk_rate local variables.
 
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Serge Semin <fancer.lancer@gmail.com>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- include/linux/stmmac.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c       | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c       | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c   | 2 +-
+ include/linux/stmmac.h                                  | 6 +++---
+ 5 files changed, 7 insertions(+), 7 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index 901a3c1959fa..2a5b38723635 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -777,7 +777,7 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
+ 		netdev_err(priv->dev, "Failed to max out clk_ptp_ref: %d\n", err);
+ 	plat_dat->clk_ptp_rate = clk_get_rate(plat_dat->clk_ptp_ref);
+ 
+-	netdev_dbg(priv->dev, "PTP rate %d\n", plat_dat->clk_ptp_rate);
++	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
+ }
+ 
+ static int qcom_ethqos_probe(struct platform_device *pdev)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index c25781874aa7..c36f90a782c5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -27,7 +27,7 @@ static void dwmac4_core_init(struct mac_device_info *hw,
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	void __iomem *ioaddr = hw->pcsr;
+ 	u32 value = readl(ioaddr + GMAC_CONFIG);
+-	u32 clk_rate;
++	unsigned long clk_rate;
+ 
+ 	value |= GMAC_CORE_INIT;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3cb7ad6ccc4e..d45fd7a3acd5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -301,7 +301,7 @@ static void stmmac_global_err(struct stmmac_priv *priv)
+  */
+ static void stmmac_clk_csr_set(struct stmmac_priv *priv)
+ {
+-	u32 clk_rate;
++	unsigned long clk_rate;
+ 
+ 	clk_rate = clk_get_rate(priv->plat->stmmac_clk);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 3ac32444e492..06e07e6e180b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -640,7 +640,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 		dev_info(&pdev->dev, "PTP uses main clock\n");
+ 	} else {
+ 		plat->clk_ptp_rate = clk_get_rate(plat->clk_ptp_ref);
+-		dev_dbg(&pdev->dev, "PTP rate %d\n", plat->clk_ptp_rate);
++		dev_dbg(&pdev->dev, "PTP rate %lu\n", plat->clk_ptp_rate);
+ 	}
+ 
+ 	plat->stmmac_rst = devm_reset_control_get_optional(&pdev->dev,
 diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index d79ff252cfdc..75cbfb576358 100644
+index 865d0fe26f98..c9878a612e53 100644
 --- a/include/linux/stmmac.h
 +++ b/include/linux/stmmac.h
-@@ -33,7 +33,7 @@
- #define	STMMAC_CSR_20_35M	0x2	/* MDC = clk_scr_i/16 */
- #define	STMMAC_CSR_35_60M	0x3	/* MDC = clk_scr_i/26 */
- #define	STMMAC_CSR_150_250M	0x4	/* MDC = clk_scr_i/102 */
--#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/122 */
-+#define	STMMAC_CSR_250_300M	0x5	/* MDC = clk_scr_i/124 */
- 
- /* MTL algorithms identifiers */
- #define MTL_TX_ALGORITHM_WRR	0x0
+@@ -252,8 +252,8 @@ struct plat_stmmacenet_data {
+ 	struct clk *stmmac_clk;
+ 	struct clk *pclk;
+ 	struct clk *clk_ptp_ref;
+-	unsigned int clk_ptp_rate;
+-	unsigned int clk_ref_rate;
++	unsigned long clk_ptp_rate;
++	unsigned long clk_ref_rate;
+ 	unsigned int mult_fact_100ns;
+ 	s32 ptp_max_adj;
+ 	u32 cdc_error_adj;
+@@ -265,7 +265,7 @@ struct plat_stmmacenet_data {
+ 	int mac_port_sel_speed;
+ 	int has_xgmac;
+ 	u8 vlan_fail_q;
+-	unsigned int eee_usecs_rate;
++	unsigned long eee_usecs_rate;
+ 	struct pci_dev *pdev;
+ 	int int_snapshot_num;
+ 	int msi_mac_vec;
 
 -- 
 2.47.0
