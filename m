@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4D8E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B70E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 18:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5pWBaXiip4ai7Zuk7UcSTo/0F35OqRUI11Y0Kje79Xg=; b=vKZmX/LL+CnP2CEbRlbnon824g
-	KgY05myytu5HH5s3rgk0Jm6+fNCLoANcAINiQgm22tQ8UPPT+X7TiqDaGpF50oZiKYleX/qf4B5fG
-	dnUnq0QFaFumqdZXsDmaYti55OoafYRPMf9zTEmiJSn98MTQjBVefg+O1jrHsU4CF4DK4MbqN8ICq
-	XQygHWOBivr+/ufBCAQwkzLdI9JM76tRSFkvTdvxzy74VoQIXqLSsW5SyCcHzmrpry5ikCNZNlqbh
-	T8GftOSH3J9xvfuz5aDWRj4pELyAKOopaNyJgrKk7S2+Vt3xZd4ATdRXgGAB+LcQ9dwjIaS4++tQd
-	Yl4dHg1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xuL0vSwcp+HMpPwWDWVKgActioYscbfUsEOUicYp0kE=; b=Gz9AuuLvGy7AZ18/IBrZ8tx8NX
+	83l/Ppz1LFwrJuC8f3PJSp31J14rxeyqTXSLGFQSMrMoylaxrzg24OzgqEkTC/trQ6UyfQx5FlB3i
+	qBLetBy3tIwQGebznekQhzn27dCMRYoI4vYf5jM823FhuPX45gN+WSFSWPmotEH3bB224WX8yUUPa
+	uvIIXZrlq/fAymHj/Z1bxpLVq9NzfGS+FFpFEyc95AArDxytKClAkYnUcV293a4QfY5NY2YBcwtLs
+	p+adqCO8i1Gz6FrG1wTA4372nqn/qy75kwZm68XCwUF1AhEAFoMbeG7imC+1h7vZiT8ytX1ndED3J
+	82ADd8OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGwO-0000000H9PU-2eBP;
-	Thu, 05 Dec 2024 18:51:08 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tJGxN-0000000H9Uk-0tz6;
+	Thu, 05 Dec 2024 18:52:09 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJGvL-0000000H9FM-3wYZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 18:50:05 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tJGv7-0006PO-8a; Thu, 05 Dec 2024 19:49:49 +0100
-Message-ID: <6b39268b-7487-427d-aff5-f3ca3b2afd42@pengutronix.de>
-Date: Thu, 5 Dec 2024 19:49:47 +0100
+	id 1tJGvy-0000000H9La-3FLS;
+	Thu, 05 Dec 2024 18:50:43 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa63584e157so3295466b.1;
+        Thu, 05 Dec 2024 10:50:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733424641; x=1734029441; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xuL0vSwcp+HMpPwWDWVKgActioYscbfUsEOUicYp0kE=;
+        b=hTS8BSVjU2O3PLLIuu1oOt9Q4T7H3y7F5z7P4zZv+wz9IIAvLKNS7ymCHQdfmly6YE
+         zs5Pyo9cI6UlKpVuggnqzN9ABLcuoviNLLsoYvKmozfCSWDJ07VIZCT29LyGlWjrm3w6
+         v5F4mBLgCFXPYws/O2ygFM9gpqKHywIGFkdHK5WmdnLkywB89Z2glI5ywdtA1zu2CNPK
+         9+wEtzI0569m4QABh4s6GiLsdP7lHMtuTH9xE3XxeF7jAmvuEgk5FnNWq+BKhNS66Ouz
+         /U14v1WoDgrmdWI9K7bKTUePd7rpVw0ln7ItKeOrF2XPui8PFyWTnte+InyW8K71EVSx
+         fWWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733424641; x=1734029441;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xuL0vSwcp+HMpPwWDWVKgActioYscbfUsEOUicYp0kE=;
+        b=vwvt0kHE35B1UzC3ZijADu4sviLbFYgdj5Te7nsSnQLx04z/uH7MXr+3IdfMLM7G+v
+         Y9bAzT0Btj54nedoiZvbnC7XBFOeA7JlVPu4G6jBKQ6bV2Z6Gk0rxKRyrBov+NlJuSy3
+         jNHxE6jfxrgBgUHrH1q2/JmI3k+9m2bON674XyZYOv8YDYCNJCHbT3DJR6W6Q6p3uVzJ
+         q5UMTySVfvQnVbzAGuzCA2zbvXsmK78O143QIco+8PVeSaMJDTi5fPGOIU9DCKgrhAn8
+         xBn4Yz8G5PXhbnNUc+mSXZcEVWSBoQkVnCcQEmgalXK8kUgqc3Ft3rr5U2RQ4IRT/jYD
+         F5JA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+dPLUCKO5m4NZnTaTTKsYmnzGlPSVxlsVOc+dS9oUjA2cmE3+sr/R5XgKf274IZACEM0qsHtvFKuMhoutSj8=@lists.infradead.org, AJvYcCVd+xji7AIPwk02qXAb7xfldfHW3gscB/8cZSYRRSEjMqCJz3KAvyHXFQsOt2PBnSe3AOih3B6uoApcgyXAI7hr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOf2saUdvyiGhUVmL6EuG7oJA2KCVwfpKlrmXCiqTmUY5tvKiH
+	IGtAn1ye4uaE36LicfU22gRaTmN+75PZ8NCfRp0LPLZY1zTnKnSd
+X-Gm-Gg: ASbGncu4hgxOdlNjjSuzjYp9sggZ7firk88Xa9js7l+VnA5aYBXHhgaFlz8vuflIKIe
+	N0bRh0E0a43NsGyjrS/BcuiWlTqhIKZXTCDyxQfAFnNDBTpi2+P+5yvxZDHN9yhfVq+Jr9/2Lu8
+	skRaOEltV1MC64gPSR1R/fZ216ej5taPYzy21osCmVNF47rHHm9KJL7aisW/TuNj5QI+0pfRDlc
+	1TwqYSleMD2QUyIwid9k/UIS6CBO6spVRjcSso=
+X-Google-Smtp-Source: AGHT+IHXBo4XbdE1KRXT45i7tcr0tQbymXLsF4fYU2CO5TAKnlDgiYLqOd3ZY8+xqizacESzgmiQQg==
+X-Received: by 2002:a17:906:db03:b0:aa5:3b5c:f638 with SMTP id a640c23a62f3a-aa5f7ccc944mr453434466b.1.1733424640392;
+        Thu, 05 Dec 2024 10:50:40 -0800 (PST)
+Received: from skbuf ([188.25.135.117])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625e972c1sm126626266b.76.2024.12.05.10.50.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 10:50:39 -0800 (PST)
+Date: Thu, 5 Dec 2024 20:50:37 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v9 3/4] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+Message-ID: <20241205185037.g6cqejgad5jamj7r@skbuf>
+References: <20241205145142.29278-1-ansuelsmth@gmail.com>
+ <20241205145142.29278-4-ansuelsmth@gmail.com>
+ <20241205162759.pm3iz42bhdsvukfm@skbuf>
+ <20241205145142.29278-1-ansuelsmth@gmail.com>
+ <20241205145142.29278-4-ansuelsmth@gmail.com>
+ <20241205162759.pm3iz42bhdsvukfm@skbuf>
+ <6751e023.5d0a0220.394b90.7bc9@mx.google.com>
+ <6751e023.5d0a0220.394b90.7bc9@mx.google.com>
+ <20241205180539.6t5iz2m3wjjwyxp3@skbuf>
+ <6751f125.5d0a0220.255b79.7be0@mx.google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] i2c: imx: support DMA defer probing
-To: Carlos Song <carlos.song@nxp.com>, "mkl@pengutronix.de"
- <mkl@pengutronix.de>, Frank Li <frank.li@nxp.com>,
- "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>
-Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20241127083818.2108201-1-carlos.song@nxp.com>
- <153e8e36-7b0e-4379-9cc3-6dacb5d705be@pengutronix.de>
- <AM0PR0402MB39370E69BC4B71C761EE8377E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <AM0PR0402MB39370E69BC4B71C761EE8377E8282@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6751f125.5d0a0220.255b79.7be0@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_105004_144336_829EA429 
-X-CRM114-Status: GOOD (  46.03  )
+X-CRM114-CacheID: sfid-20241205_105042_811542_27B527C6 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,267 +117,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Carlos,
-
-On 27.11.24 11:43, Carlos Song wrote:
->> -----Original Message-----
->> From: Ahmad Fatoum <a.fatoum@pengutronix.de>
->> Sent: Wednesday, November 27, 2024 4:38 PM
->> To: Carlos Song <carlos.song@nxp.com>; mkl@pengutronix.de; Frank Li
->> <frank.li@nxp.com>; o.rempel@pengutronix.de; kernel@pengutronix.de;
->> andi.shyti@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de;
->> festevam@gmail.com
->> Cc: imx@lists.linux.dev; linux-i2c@vger.kernel.org;
->> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
->> Subject: [EXT] Re: [PATCH v4] i2c: imx: support DMA defer probing
-
->> Please try to address open questions before sending new versions of the patch
->> set. Otherwise, it's difficult to follow the conversation.
->>
->> Did you see my question[1] on your v2:
->>
+On Thu, Dec 05, 2024 at 07:29:53PM +0100, Christian Marangi wrote:
+> Ohhhh ok, wasn't clear to me the MFD driver had to be placed in the mdio
+> node.
 > 
-> Hi, thank you so much! So sorry about it... I missed it yesterday. I will answer your question[1] in this mail.
+> To make it clear this would be an implementation.
 > 
+> mdio_bus: mdio-bus {
+> 	#address-cells = <1>;
+> 	#size-cells = <0>;
 > 
->> | Wouldn't this break probe for all i2c-imx users who have
->> | CONFIG_IMX_SDMA disabled?
->> |
+> 	...
 > 
-> I have tested i2c probe at IMX and LS platform when DMA disabled,
-
-What does DMA disabled mean? Did you leave the dmas property in the device
-tree unchanged, but just disabled the config option?
-
-> it won't break i2c-imx probe.
-> When require DMA channel in i2c_imx_dma_request, find no devices and return
-> -ENODEV, as you see at V4 patch, it will continue to probe and work in PIO mode.
-> I2C adapter should keep available whatever DMA mode is or isn't enabled.
-
-If that's the case, then all is good. I thought the situation described
-above would return -EPROBE_DEFER instead. I haven't dug into the code
-to understand what the difference between when dma_request_chan().
-
->> | Also I am wondering on what kernel version and what configuration
->> | (CONFIG_I2C_IMX=?, CONFIG_IMX_SDMA=?) you have that made you run into
->> | this situation.
->> |
+> 	mfd@1 {
+> 		compatible = "airoha,an8855-mfd";
+> 		reg = <1>;
 > 
-> I want to correct something, these code about DMA in i2c-imx.c is for eDMA not for SDMA.
-> For eDMA mode, I have tested this patch at layerscape-1043 platform. My patch is based on
-> cfba9f07a1d6 (tag: next-20241122, origin/master, origin/HEAD).
-
-The driver also handles i.MX variants like i.MX6, i.MX8 and so on, which
-have SDMA. So eDMA is not the only DMA driver it is used with.
-
+> 		nvmem_node {
+> 			...
+> 		};
 > 
-> Test log is :
-> No apply this patch:
-> CONFIG_I2C_IMX=y
-> CONFIG_FSL_EDMA=y
-> root@ls1043ardb:~# dmesg | grep i2c
-> [    1.162053] i2c i2c-0: IMX I2C adapter registered
-> [    1.166826] i2c i2c-0: using dma0chan16 (tx) and dma0chan17 (rx) for DMA transfers
-> [    4.722057] i2c_dev: i2c /dev entries driver
-> 
-> Not apply the patch:
-> CONFIG_I2C_IMX=y
-> CONFIG_FSL_EDMA=m
-> root@ls1043ardb:~# dmesg | grep i2c
-> [    1.166381] i2c i2c-0: IMX I2C adapter registered
-> [    4.719226] i2c_dev: i2c /dev entries driver
-> (result shows i2c not enabled the eDMA mode)
-> root@ls1043ardb:~# i2cdetect -y -l
-> i2c-0   i2c             2180000.i2c                             I2C adapter
-> root@ls1043ardb:~# i2cdetect -y 0
->      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-> 00:                         08 -- -- -- -- -- -- --
-> 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 40: UU -- -- -- -- -- -- -- -- -- -- -- UU -- -- --
-> 50: -- UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
-> 60: -- -- -- -- -- -- -- -- -- 69 -- -- -- -- -- --
-> 70: -- -- -- -- -- -- -- --
-> 
-> After apply the patch:
-> CONFIG_I2C_IMX=y
-> CONFIG_FSL_EDMA=m
-> root@ls1043ardb:~#
-> root@ls1043ardb:~# dmesg | grep i2c
-> [    4.697046] i2c_dev: i2c /dev entries driver
-> [    7.304142] imx-i2c 2180000.i2c: using dma0chan16 (tx) and dma0chan17 (rx) for DMA transfers
-> [    7.313532] i2c i2c-0: IMX I2C adapter registered
-> (result shows i2c probed after eDMA module installed)
+> 		switch_node {
+> 			...
+> 		};
+> 	};
+> };
 
-My concern is this configuration:
+I mean, I did mention Documentation/devicetree/bindings/mfd/mscc,ocelot.yaml
+in my initial reply, which has an example with exactly this layout...
 
-  - A user has eDMA/SDMA module or disabled, but enabled in DT
-  - The I2C has a PMIC, which is needed for eMMC VCC
-  - System startup is stuck or considerably delayed
+> The difficulties I found (and maybe is very easy to solve and I'm
+> missing something here) is that switch and internal PHY port have the
+> same address and conflicts.
+> 
+> Switch will be at address 1 (or 2 3 4 5... every port can access switch
+> register with page 0x4)
+> 
+> DSA port 0 will be at address 1, that is already occupied by the switch.
+> 
+> Defining the DSA port node on the host MDIO bus works correctly for
+> every port but for port 0 (the one at address 1), the kernel complains
+> and is not init. (as it does conflict with the switch that is at the
+> same address) (can't remember the exact warning)
 
-> root@ls1043ardb:~#
-> root@ls1043ardb:~# i2cdetect -y -l
-> i2c-0   i2c             2180000.i2c                             I2C adapter
-> root@ls1043ardb:~# i2cdetect -y 0
->      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-> 00:                         08 -- -- -- -- -- -- --
-> 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-> 40: UU -- -- -- -- -- -- -- -- -- -- -- UU -- -- --
-> 50: -- UU UU UU -- -- -- -- -- -- -- -- -- -- -- --
-> 60: -- -- -- -- -- -- -- -- -- 69 -- -- -- -- -- --
-> 70: -- -- -- -- -- -- -- --
-> 
-> 
->> | I'd have expected that with fw_devlink enabled, the I2C controller
->> | wouldn't be probed before the DMA provider is available.
->>
-> 
-> This is a legacy patch, it has been in our local tree for a long time. The related history is relatively vague.
-> I reproduced the problem and found this patch is effective, so I referred the community patch and
-> legacy patch to rewrite the commit log(I am not sure if this would happened in some cases so I kept this information).
-> Now it seems that these descriptions are redundant. I should completely removed this in the commit log:
->     Move i2c_imx_dma_request() before registering I2C adapter to avoid
->     infinite loop of .probe() calls to the same driver, see "e8c220fac415
->     Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
->     and "Documentation/driver-api/driver-model/driver.rst".
+Can any of these MDIO addresses (switch or ports) be changed through registers?
 
-Cheers,
-Ahmad
+I guess the non-hack solution would be to permit MDIO buses to have
+#size-cells = 1, and MDIO devices to acquire a range of the address
+space, rather than just one address. Though take this with a grain of
+salt, I have a lot more to learn.
 
-> 
-> [1]: https://lore.kernel.org/all/19a43db4-db5c-4638-9778-d94fb571a206@pengutronix.de/
-> [2]:https://lore.kernel.org/all/153e8e36-7b0e-4379-9cc3-6dacb5d705be@pengutronix.de/
-> 
->>>
->>> Signed-off-by: Carlos Song <carlos.song@nxp.com>
->>> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
->>> ---
->>> Change for V4:
->>> - Output "Only use PIO mode" log in debug level when no DMA configure.
->>> Change for V3:
->>> - According to Marc's comment, remove error print when defer probe.
->>>   Add info log when DMA has not been enabled and add error log when
->>>   DMA error, both won't stuck the i2c adapter register, just for reminding,
->>>   i2c adapter is working only in PIO mode.
->>> Change for V2:
->>> - According to Frank's comments, wrap at 75 char and Simplify fix code
->>>   at i2c_imx_dma_request().
->>> - Use strict patch check, fix alignment warning at
->>> i2c_imx_dma_request()
->>> ---
->>>  drivers/i2c/busses/i2c-imx.c | 31 +++++++++++++++++++++++--------
->>>  1 file changed, 23 insertions(+), 8 deletions(-)
->>>
->>> diff --git a/drivers/i2c/busses/i2c-imx.c
->>> b/drivers/i2c/busses/i2c-imx.c index 5ed4cb61e262..b11d66d56c55 100644
->>> --- a/drivers/i2c/busses/i2c-imx.c
->>> +++ b/drivers/i2c/busses/i2c-imx.c
->>> @@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct
->>> imx_i2c_struct *i2c_imx)  }
->>>
->>>  /* Functions for DMA support */
->>> -static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
->>> -                                             dma_addr_t
->> phy_addr)
->>> +static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
->>> +dma_addr_t phy_addr)
->>>  {
->>>       struct imx_i2c_dma *dma;
->>>       struct dma_slave_config dma_sconfig;
->>> -     struct device *dev = &i2c_imx->adapter.dev;
->>> +     struct device *dev = i2c_imx->adapter.dev.parent;
->>>       int ret;
->>>
->>>       dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
->>>       if (!dma)
->>> -             return;
->>> +             return -ENOMEM;
->>>
->>>       dma->chan_tx = dma_request_chan(dev, "tx");
->>>       if (IS_ERR(dma->chan_tx)) {
->>> @@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct
->> imx_i2c_struct *i2c_imx,
->>>       dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
->>>               dma_chan_name(dma->chan_tx),
->>> dma_chan_name(dma->chan_rx));
->>>
->>> -     return;
->>> +     return 0;
->>>
->>>  fail_rx:
->>>       dma_release_channel(dma->chan_rx);
->>> @@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct
->> imx_i2c_struct *i2c_imx,
->>>       dma_release_channel(dma->chan_tx);
->>>  fail_al:
->>>       devm_kfree(dev, dma);
->>> +
->>> +     return ret;
->>>  }
->>>
->>>  static void i2c_imx_dma_callback(void *arg) @@ -1803,6 +1804,23 @@
->>> static int i2c_imx_probe(struct platform_device *pdev)
->>>       if (ret == -EPROBE_DEFER)
->>>               goto clk_notifier_unregister;
->>>
->>> +     /*
->>> +      * Init DMA config if supported, -ENODEV means DMA not enabled at
->>> +      * this platform, that is not a real error, so just remind "only
->>> +      * PIO mode is used". If DMA is enabled, but meet error when request
->>> +      * DMA channel, error should be showed in probe error log. PIO mode
->>> +      * should be available regardless of DMA.
->>> +      */
->>> +     ret = i2c_imx_dma_request(i2c_imx, phy_addr);
->>> +     if (ret) {
->>> +             if (ret == -EPROBE_DEFER)
->>> +                     goto clk_notifier_unregister;
->>> +             else if (ret == -ENODEV)
->>> +                     dev_dbg(&pdev->dev, "Only use PIO mode\n");
->>> +             else
->>> +                     dev_err_probe(&pdev->dev, ret, "Failed to setup
->> DMA, only use PIO mode\n");
->>> +     }
->>> +
->>>       /* Add I2C adapter */
->>>       ret = i2c_add_numbered_adapter(&i2c_imx->adapter);
->>>       if (ret < 0)
->>> @@ -1817,9 +1835,6 @@ static int i2c_imx_probe(struct platform_device
->> *pdev)
->>>               i2c_imx->adapter.name);
->>>       dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter registered\n");
->>>
->>> -     /* Init DMA config if supported */
->>> -     i2c_imx_dma_request(i2c_imx, phy_addr);
->>> -
->>>       return 0;   /* Return OK */
->>>
->>>  clk_notifier_unregister:
->>
->>
->> --
->> Pengutronix e.K.                           |
->> |
->> Steuerwalder Str. 21                       |
->> http://www.pen/
->> gutronix.de%2F&data=05%7C02%7Ccarlos.song%40nxp.com%7C1acf840d499f
->> 49a7872408dd0ebedc39%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
->> %7C638682935131084746%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAw
->> MDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&s
->> data=Y9Qn9XEk15yu4CespwsNu6hl3%2FqfNTvEeOn4ZvnGxbo%3D&reserved=0
->> |
->> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
->> |
->> Amtsgericht Hildesheim, HRA 2686           | Fax:
->> +49-5121-206917-5555 |
-> 
+If neither of those are options, in principle the hack with just
+selecting, randomly, one of the N internal PHY addresses as the central
+MDIO address should work equally fine regardless of whether we are
+talking about the DSA switch's MDIO address here, or the MFD device's
+MDIO address.
 
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+With MFD you still have the option of creating a fake MDIO controller
+child device, which has mdio-parent-bus = <&host_bus>, and redirecting
+all user port phy-handles to children of this bus. Since all regmap I/O
+of this fake MDIO bus goes to the MFD driver, you can implement there
+your hacks with page switching etc etc, and it should be equally safe.
 
