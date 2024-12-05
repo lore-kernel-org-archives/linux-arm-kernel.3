@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C29E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00F6E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zrpm3XeH+mOs42vBgawvUmt6HS7pncA0m+kxGWfcqJw=; b=UyorOuEjPF+YBSjLWf+xSLIDbX
-	4C29t7TxSWGt7U/ne/Bgvux1R9uguvqzBMNsRgnUYJMtgFgN8JowlUNN3hqTQRaO9VDgAAuD8b9TP
-	mqAWMdv5TgIylCWiV0p2Txzbu8qNf72l4UENIoCIoGB7FkUb97drl0fjwcOWGq040WpwkZo+m7kJy
-	+T1+kMCG2OgHiGeYBP+YvX0YaYIfLHqRCyasmgiWuIITpAXl0OY/PcubpJUqsa9RROxFWxj+zPuDo
-	0K+X3K70FhqaGetfMTZU8DIkVkprOyZAFX3mKmqVZh3SqWVOUlLs1fGC+/D4vH3zz9g1BSwll8QyU
-	goAcSjLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aemKenByK1Wm9gLtV2/eR1Ty/NyvthyNtF1WcfPekrI=; b=2gVL81GIKAue4j+1fOhJm1Xc1I
+	HfWBytJxBmqFhM3qTYUPgCal9kENTSpp6YTcSSWa6smnU0VsjXDlYXa61J05VMvOGm3/cuCNUQq6V
+	u7xNL3NktBD8YXs45KL4OVHPtUxS/lzWK7qg7wKAcY/5Iz8hYcC2Z+lJWxVfoyAE15TS1X6GJW3Bd
+	CA2c/djITuc5+elwXbsH6Ly0dBu7NpyncliGyGFhhrBcrBBOJBJLvJ5+HsAUR+59Gm4EjYV7Q8N7j
+	HE0BbSD6gLMbwQY/l2Wj0XNKG7gQ9cvDpGGfQtIQDzOt5AU+sYCBYkTiYAP0T+XIMnqEAQ+07tgU9
+	mhJKy+SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9Qu-0000000FcZ1-3uAN;
-	Thu, 05 Dec 2024 10:50:08 +0000
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	id 1tJ9Si-0000000Fd41-2s9c;
+	Thu, 05 Dec 2024 10:52:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9L9-0000000FaBA-3zFe
+	id 1tJ9Ri-0000000FcvP-1fjJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Dec 2024 10:50:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=aemKenByK1Wm9gLtV2/eR1Ty/NyvthyNtF1WcfPekrI=; b=MXnRM4ZOICyB9p6OZ9NYH8BCdG
+	5/PDZDC2+sbTt/8NPpYtqfiyL4DcFX6jZCnc/m0al/GqxsXIVTE6DiAbzDTCa8eJ+58up1uiYLU2w
+	PMzybS1OzAOJu+9k1oh4HUBK7x5SXbpWSB8iroRiOllgbN1gk5YdsLg0+bqku9uBmLOmacO91DzzM
+	pSOue/yYZv+4vzyVNiKhCMuFj6Rsv4NOwBfScD907E4RPivthEhM/HEWz3uowXammIpYqGzIVk8tj
+	/Iddxo54QUuGPA0Ykgl5KnvUT/O/dgSHpRIOeGcLZous5jRWDuSBvOPEhWJNgUozgFR1UzJz9XwzE
+	X4cOXlng==;
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJ9Rf-00000002pl8-0FkF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:44:13 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-29e71d653fbso427027fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 02:44:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733395450; x=1734000250; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zrpm3XeH+mOs42vBgawvUmt6HS7pncA0m+kxGWfcqJw=;
-        b=N9+1+dX04XfNor+Bqy2vu+PNnO2qkSWAbW2Id09KbM4rA0UUlpLJdwJJjLSDWzL9K7
-         fN+nHYHgpNn/xwVqUle1UhF8B6PPyH72C2HtToUAbl43aCS1kJIQNEMv5XAlAYTB6TcT
-         11aypV9cYlZ6BtWeDuUrvEoqk/q9AYLy+iYGInelae1e6tuveG7lBG+qphlHZQGVauCx
-         6CpqiQe1gCbjamxc0QhHYs6h/67gmexI++rgfwOblLHXRwWAZ0cc9eFViSiXpWuDgdBk
-         TOnfVf449pDSFkw7AD5fY6+zjmBVwgM9dN/N7yzfVgBpQlexH2z4kbSZOqyKQyWvM/ty
-         IbdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733395450; x=1734000250;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Zrpm3XeH+mOs42vBgawvUmt6HS7pncA0m+kxGWfcqJw=;
-        b=Wwh89xGsF87y1GcuywuNODhOa86FwNkmJa2V0ZOnpE5tK8fTdssliwQP9YB5ehzpMO
-         utnhytlJ7q6TZGCe/NnNyq2hkN9RH5VS6M4ZVph8AVoAkW50yNynA4IlJZqMP4+B4+Ez
-         o8K2qqBaquWNUkUaLxgj/JxxLZDHNwfqoT2UDVfzyF9DQ1fogM2cDYD4wJSgjyessDhR
-         /M9x8bH+KlXfTZjn7drIffhdRieuhTATfkBUW7T6BGaTXFAMHxhL9y4fyqY32nUBiAA9
-         h72vXfcVANtfXQxM2wjedrhYH7tyg2oC7VPRZmOhN1hnX7VLJeC5z7LaoZyXBOREUs+x
-         FWEA==
-X-Forwarded-Encrypted: i=1; AJvYcCVpkYjs6yCTDAHl/+VXfSmCGk81wTW81Miz7yMNABUVQqW07FwxxYuFzFMETTcD9ZHPUD+gh9xHPAoDpzhzwq+w@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLvSVYacEjKjHgf0lPbyyX1cKBGGFQdaDLJ6qaD4Eg681Orf6w
-	57jDnd1TyY5bqVO2hhomCYgPA9ZgS1KaexlLRfJL8dOSE2B9CJxTAw3XtK/u/8g93WcIUmEgeXj
-	8ydPZ7A9k8dg3dTEApkekhOYkBMgJiMXeMitJCA==
-X-Gm-Gg: ASbGncuV2GHu8jBKD7kvF8nt3J0iQhqStxAZaPkt16NTJZu2sgbLn7spSpMj5kndstk
-	GCA5xbwEdxTao9WpAm/IOCxE4vtTlgQg=
-X-Google-Smtp-Source: AGHT+IEkbgy0HVg9g3FanBbnyR0UrX+I+6OCetArRo5yw3tk0iAyUe69De6WL0TtHdjziJhstql+Sq+aKSTTeC75xNo=
-X-Received: by 2002:a05:6870:e310:b0:29e:2bbd:51ba with SMTP id
- 586e51a60fabf-29e88560cb3mr10541855fac.9.1733395450323; Thu, 05 Dec 2024
- 02:44:10 -0800 (PST)
+	Thu, 05 Dec 2024 10:50:57 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B5AokcL109449;
+	Thu, 5 Dec 2024 04:50:46 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733395846;
+	bh=aemKenByK1Wm9gLtV2/eR1Ty/NyvthyNtF1WcfPekrI=;
+	h=From:To:CC:Subject:Date;
+	b=m+1Dov+NKonZEedrdEWUuOAueDFn6/ex1AUwv1y0ihwgUM/4fs9j8qRqvb2m9HXnF
+	 cqjKanmkgWmAUj+LTxeofLCHA29ccNHt74DhI0gvGzNIDnYzYmoAIKvOyuy4vVsLCH
+	 ebHn7e9iREOIqf38bWtG8GajvYSelM7KvCA9oTTg=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5Aokfg070540
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 5 Dec 2024 04:50:46 -0600
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Dec 2024 04:50:45 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Dec 2024 04:50:45 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5AofJq110686;
+	Thu, 5 Dec 2024 04:50:42 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v4 0/4] Add PCIe Overlays for J721E, AM68 and AM69
+Date: Thu, 5 Dec 2024 16:20:32 +0530
+Message-ID: <20241205105041.749576-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20241128150927.1377981-1-jens.wiklander@linaro.org>
- <20241128150927.1377981-2-jens.wiklander@linaro.org> <CAFA6WYPVEzNLRL3sFUBgGGF_9m7tqGmg+h4TY5LDCAN5=qgBTg@mail.gmail.com>
-In-Reply-To: <CAFA6WYPVEzNLRL3sFUBgGGF_9m7tqGmg+h4TY5LDCAN5=qgBTg@mail.gmail.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Thu, 5 Dec 2024 11:43:57 +0100
-Message-ID: <CAHUa44EL-8OH4a9ZvW5v7s3eW14_eYaDJV1HR17exWH5roeUFA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] tee: add restricted memory allocation
-To: Sumit Garg <sumit.garg@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_024411_997348_2E8D4A8E 
-X-CRM114-Status: GOOD (  33.13  )
+X-CRM114-CacheID: sfid-20241205_105055_490855_D232E457 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,645 +98,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sumit,
+Hello,
 
-On Tue, Dec 3, 2024 at 8:58=E2=80=AFAM Sumit Garg <sumit.garg@linaro.org> w=
-rote:
->
-> Hi Jens,
->
-> On Thu, 28 Nov 2024 at 20:39, Jens Wiklander <jens.wiklander@linaro.org> =
-wrote:
-> >
-> > Add restricted memory allocation to the TEE subsystem. Restricted memor=
-y
-> > is not be accessible by kernel during normal circumstances. A new ioctl
->
-> s/not be accessible/not accessible/
->
-> How about if we reword it as follows?
->
->     Restricted memory refers to memory buffers behind a hardware enforced
->     firewall. It is not accessible to the kernel during normal circumstan=
-ces but
->     rather only accessible to certain hardware IPs or CPUs executing in h=
-igher
->     privileged mode than the kernel itself. This interface allows to
-> allocate and
->     manage such restricted memory buffers via interaction with a TEE
->     implementation.
+This series adds device-tree overlays for enabling Endpoint mode of
+operation of the PCIe Controllers on TI's J721E, AM68 and AM69 SoCs.
 
-Sure, thanks.
+Only the second patch of this series has a v3 while the rest of the
+patches have been newly introduced in this series. The reason for
+grouping patches is the dependency on the Makefile w.r.t. the changes
+made in the patches when enabling overlays.
 
->
-> > TEE_IOC_RSTMEM_ALLOC is added to allocate these restricted memory
-> > buffers.
-> >
-> > The restricted memory is allocated for a specific use-case, like Secure
-> > Video Playback, Trusted UI, or Secure Video Recording where certain
-> > hardware devices can access the memory.
-> >
-> > More use-cases can be added in userspace ABI, but it's up to the backen=
-d
-> > drivers to provide the implementation.
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >  drivers/tee/Makefile       |   1 +
-> >  drivers/tee/tee_core.c     |  37 ++++++-
-> >  drivers/tee/tee_private.h  |   2 +
-> >  drivers/tee/tee_rstmem.c   | 201 +++++++++++++++++++++++++++++++++++++
-> >  drivers/tee/tee_shm.c      |   2 +
-> >  drivers/tee/tee_shm_pool.c |  69 ++++++++++++-
-> >  include/linux/tee_core.h   |  15 +++
-> >  include/linux/tee_drv.h    |   4 +-
-> >  include/uapi/linux/tee.h   |  37 ++++++-
-> >  9 files changed, 363 insertions(+), 5 deletions(-)
-> >  create mode 100644 drivers/tee/tee_rstmem.c
-> >
-> > diff --git a/drivers/tee/Makefile b/drivers/tee/Makefile
-> > index 5488cba30bd2..a4c6b55444b9 100644
-> > --- a/drivers/tee/Makefile
-> > +++ b/drivers/tee/Makefile
-> > @@ -3,6 +3,7 @@ obj-$(CONFIG_TEE) +=3D tee.o
-> >  tee-objs +=3D tee_core.o
-> >  tee-objs +=3D tee_shm.o
-> >  tee-objs +=3D tee_shm_pool.o
-> > +tee-objs +=3D tee_rstmem.o
-> >  obj-$(CONFIG_OPTEE) +=3D optee/
-> >  obj-$(CONFIG_AMDTEE) +=3D amdtee/
-> >  obj-$(CONFIG_ARM_TSTEE) +=3D tstee/
-> > diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
-> > index d113679b1e2d..e81167826002 100644
-> > --- a/drivers/tee/tee_core.c
-> > +++ b/drivers/tee/tee_core.c
-> > @@ -1,12 +1,13 @@
-> >  // SPDX-License-Identifier: GPL-2.0-only
-> >  /*
-> > - * Copyright (c) 2015-2016, Linaro Limited
-> > + * Copyright (c) 2015-2022, 2024, Linaro Limited
-> >   */
-> >
-> >  #define pr_fmt(fmt) "%s: " fmt, __func__
-> >
-> >  #include <linux/cdev.h>
-> >  #include <linux/cred.h>
-> > +#include <linux/dma-buf.h>
-> >  #include <linux/fs.h>
-> >  #include <linux/idr.h>
-> >  #include <linux/module.h>
-> > @@ -815,6 +816,38 @@ static int tee_ioctl_supp_send(struct tee_context =
-*ctx,
-> >         return rc;
-> >  }
-> >
-> > +static int
-> > +tee_ioctl_rstmem_alloc(struct tee_context *ctx,
-> > +                      struct tee_ioctl_rstmem_alloc_data __user *udata=
-)
-> > +{
-> > +       struct tee_ioctl_rstmem_alloc_data data;
-> > +       struct dma_buf *dmabuf;
-> > +       int id;
-> > +       int fd;
-> > +
-> > +       if (copy_from_user(&data, udata, sizeof(data)))
-> > +               return -EFAULT;
-> > +
-> > +       if (data.use_case =3D=3D TEE_IOC_UC_RESERVED)
-> > +               return -EINVAL;
-> > +
-> > +       dmabuf =3D tee_rstmem_alloc(ctx, data.flags, data.use_case, dat=
-a.size,
-> > +                                 &id);
-> > +       if (IS_ERR(dmabuf))
-> > +               return PTR_ERR(dmabuf);
-> > +       if (put_user(id, &udata->id)) {
-> > +               fd =3D -EFAULT;
-> > +               goto err;
-> > +       }
-> > +       fd =3D dma_buf_fd(dmabuf, O_CLOEXEC);
-> > +       if (fd < 0)
-> > +               goto err;
-> > +       return fd;
-> > +err:
-> > +       dma_buf_put(dmabuf);
-> > +       return fd;
-> > +}
-> > +
-> >  static long tee_ioctl(struct file *filp, unsigned int cmd, unsigned lo=
-ng arg)
-> >  {
-> >         struct tee_context *ctx =3D filp->private_data;
-> > @@ -839,6 +872,8 @@ static long tee_ioctl(struct file *filp, unsigned i=
-nt cmd, unsigned long arg)
-> >                 return tee_ioctl_supp_recv(ctx, uarg);
-> >         case TEE_IOC_SUPPL_SEND:
-> >                 return tee_ioctl_supp_send(ctx, uarg);
-> > +       case TEE_IOC_RSTMEM_ALLOC:
-> > +               return tee_ioctl_rstmem_alloc(ctx, uarg);
-> >         default:
-> >                 return -EINVAL;
-> >         }
-> > diff --git a/drivers/tee/tee_private.h b/drivers/tee/tee_private.h
-> > index 9bc50605227c..bf97796909c0 100644
-> > --- a/drivers/tee/tee_private.h
-> > +++ b/drivers/tee/tee_private.h
-> > @@ -23,5 +23,7 @@ void teedev_ctx_put(struct tee_context *ctx);
-> >  struct tee_shm *tee_shm_alloc_user_buf(struct tee_context *ctx, size_t=
- size);
-> >  struct tee_shm *tee_shm_register_user_buf(struct tee_context *ctx,
-> >                                           unsigned long addr, size_t le=
-ngth);
-> > +struct dma_buf *tee_rstmem_alloc(struct tee_context *ctx, u32 flags,
-> > +                                u32 use_case, size_t size, int *shm_id=
-);
-> >
-> >  #endif /*TEE_PRIVATE_H*/
-> > diff --git a/drivers/tee/tee_rstmem.c b/drivers/tee/tee_rstmem.c
-> > new file mode 100644
-> > index 000000000000..536bca2901e2
-> > --- /dev/null
-> > +++ b/drivers/tee/tee_rstmem.c
-> > @@ -0,0 +1,201 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (c) 2024 Linaro Limited
-> > + */
-> > +#include <linux/device.h>
-> > +#include <linux/dma-buf.h>
-> > +#include <linux/genalloc.h>
-> > +#include <linux/scatterlist.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/tee_core.h>
-> > +#include "tee_private.h"
-> > +
-> > +struct tee_rstmem_attachment {
-> > +       struct sg_table table;
-> > +       struct device *dev;
-> > +};
-> > +
-> > +static int rstmem_dma_attach(struct dma_buf *dmabuf,
-> > +                            struct dma_buf_attachment *attachment)
-> > +{
-> > +       struct tee_shm *shm =3D dmabuf->priv;
-> > +       struct tee_rstmem_attachment *a;
-> > +       int rc;
-> > +
-> > +       a =3D kzalloc(sizeof(*a), GFP_KERNEL);
-> > +       if (!a)
-> > +               return -ENOMEM;
-> > +
-> > +       if (shm->pages) {
-> > +               rc =3D sg_alloc_table_from_pages(&a->table, shm->pages,
-> > +                                              shm->num_pages, 0,
-> > +                                              shm->num_pages * PAGE_SI=
-ZE,
-> > +                                              GFP_KERNEL);
-> > +               if (rc)
-> > +                       goto err;
-> > +       } else {
-> > +               rc =3D sg_alloc_table(&a->table, 1, GFP_KERNEL);
-> > +               if (rc)
-> > +                       goto err;
-> > +               sg_set_page(a->table.sgl, phys_to_page(shm->paddr), shm=
-->size,
-> > +                           0);
-> > +       }
-> > +
-> > +       a->dev =3D attachment->dev;
-> > +       attachment->priv =3D a;
-> > +
-> > +       return 0;
-> > +err:
-> > +       kfree(a);
-> > +       return rc;
-> > +}
-> > +
-> > +static void rstmem_dma_detach(struct dma_buf *dmabuf,
-> > +                             struct dma_buf_attachment *attachment)
-> > +{
-> > +       struct tee_rstmem_attachment *a =3D attachment->priv;
-> > +
-> > +       sg_free_table(&a->table);
-> > +       kfree(a);
-> > +}
-> > +
-> > +static struct sg_table *
-> > +rstmem_dma_map_dma_buf(struct dma_buf_attachment *attachment,
-> > +                      enum dma_data_direction direction)
-> > +{
-> > +       struct tee_rstmem_attachment *a =3D attachment->priv;
-> > +       int ret;
-> > +
-> > +       ret =3D dma_map_sgtable(attachment->dev, &a->table, direction,
-> > +                             DMA_ATTR_SKIP_CPU_SYNC);
-> > +       if (ret)
-> > +               return ERR_PTR(ret);
-> > +
-> > +       return &a->table;
-> > +}
-> > +
-> > +static void rstmem_dma_unmap_dma_buf(struct dma_buf_attachment *attach=
-ment,
-> > +                                    struct sg_table *table,
-> > +                                    enum dma_data_direction direction)
-> > +{
-> > +       struct tee_rstmem_attachment *a =3D attachment->priv;
-> > +
-> > +       WARN_ON(&a->table !=3D table);
-> > +
-> > +       dma_unmap_sgtable(attachment->dev, table, direction,
-> > +                         DMA_ATTR_SKIP_CPU_SYNC);
-> > +}
-> > +
-> > +static int rstmem_dma_buf_begin_cpu_access(struct dma_buf *dmabuf,
-> > +                                          enum dma_data_direction dire=
-ction)
-> > +{
-> > +       return -EPERM;
-> > +}
-> > +
-> > +static int rstmem_dma_buf_end_cpu_access(struct dma_buf *dmabuf,
-> > +                                        enum dma_data_direction direct=
-ion)
-> > +{
-> > +       return -EPERM;
-> > +}
-> > +
-> > +static int rstmem_dma_buf_mmap(struct dma_buf *dmabuf,
-> > +                              struct vm_area_struct *vma)
-> > +{
-> > +       return -EPERM;
-> > +}
-> > +
-> > +static void rstmem_dma_buf_free(struct dma_buf *dmabuf)
-> > +{
-> > +       struct tee_shm *shm =3D dmabuf->priv;
-> > +
-> > +       tee_shm_put(shm);
-> > +}
-> > +
-> > +static const struct dma_buf_ops rstmem_generic_buf_ops =3D {
-> > +       .attach =3D rstmem_dma_attach,
-> > +       .detach =3D rstmem_dma_detach,
-> > +       .map_dma_buf =3D rstmem_dma_map_dma_buf,
-> > +       .unmap_dma_buf =3D rstmem_dma_unmap_dma_buf,
-> > +       .begin_cpu_access =3D rstmem_dma_buf_begin_cpu_access,
-> > +       .end_cpu_access =3D rstmem_dma_buf_end_cpu_access,
-> > +       .mmap =3D rstmem_dma_buf_mmap,
-> > +       .release =3D rstmem_dma_buf_free,
-> > +};
-> > +
-> > +struct dma_buf *tee_rstmem_alloc(struct tee_context *ctx, u32 flags,
-> > +                                u32 use_case, size_t size, int *shm_id=
-)
-> > +{
-> > +       struct tee_device *teedev =3D ctx->teedev;
-> > +       DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
-> > +       struct dma_buf *dmabuf;
-> > +       struct tee_shm *shm;
-> > +       void *ret;
-> > +       int rc;
-> > +
-> > +       if (!tee_device_get(teedev))
-> > +               return ERR_PTR(-EINVAL);
-> > +
-> > +       if (!teedev->desc->ops->rstmem_alloc ||
-> > +           !teedev->desc->ops->rstmem_free) {
-> > +               dmabuf =3D ERR_PTR(-EINVAL);
-> > +               goto err;
-> > +       }
-> > +
-> > +       shm =3D kzalloc(sizeof(*shm), GFP_KERNEL);
-> > +       if (!shm) {
-> > +               dmabuf =3D ERR_PTR(-ENOMEM);
-> > +               goto err;
-> > +       }
-> > +
-> > +       refcount_set(&shm->refcount, 1);
-> > +       shm->flags =3D TEE_SHM_RESTRICTED;
-> > +       shm->use_case =3D use_case;
-> > +       shm->ctx =3D ctx;
-> > +
-> > +       mutex_lock(&teedev->mutex);
-> > +       shm->id =3D idr_alloc(&teedev->idr, NULL, 1, 0, GFP_KERNEL);
-> > +       mutex_unlock(&teedev->mutex);
-> > +       if (shm->id < 0) {
-> > +               dmabuf =3D ERR_PTR(shm->id);
-> > +               goto err_kfree;
-> > +       }
-> > +
-> > +       rc =3D teedev->desc->ops->rstmem_alloc(ctx, shm, flags, use_cas=
-e, size);
-> > +       if (rc) {
-> > +               dmabuf =3D ERR_PTR(rc);
-> > +               goto err_idr_remove;
-> > +       }
-> > +
-> > +       mutex_lock(&teedev->mutex);
-> > +       ret =3D idr_replace(&teedev->idr, shm, shm->id);
-> > +       mutex_unlock(&teedev->mutex);
-> > +       if (IS_ERR(ret)) {
-> > +               dmabuf =3D ret;
-> > +               goto err_rstmem_free;
-> > +       }
-> > +       teedev_ctx_get(ctx);
-> > +
-> > +       exp_info.ops =3D &rstmem_generic_buf_ops;
-> > +       exp_info.size =3D shm->size;
-> > +       exp_info.priv =3D shm;
-> > +       dmabuf =3D dma_buf_export(&exp_info);
-> > +       if (IS_ERR(dmabuf)) {
-> > +               tee_shm_put(shm);
-> > +               return dmabuf;
-> > +       }
-> > +
-> > +       *shm_id =3D shm->id;
-> > +       return dmabuf;
-> > +
-> > +err_rstmem_free:
-> > +       teedev->desc->ops->rstmem_free(ctx, shm);
-> > +err_idr_remove:
-> > +       mutex_lock(&teedev->mutex);
-> > +       idr_remove(&teedev->idr, shm->id);
-> > +       mutex_unlock(&teedev->mutex);
-> > +err_kfree:
-> > +       kfree(shm);
-> > +err:
-> > +       tee_device_put(teedev);
-> > +       return dmabuf;
-> > +}
-> > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-> > index daf6e5cfd59a..416f7f25d885 100644
-> > --- a/drivers/tee/tee_shm.c
-> > +++ b/drivers/tee/tee_shm.c
-> > @@ -55,6 +55,8 @@ static void tee_shm_release(struct tee_device *teedev=
-, struct tee_shm *shm)
-> >                                 "unregister shm %p failed: %d", shm, rc=
-);
-> >
-> >                 release_registered_pages(shm);
-> > +       } else if (shm->flags & TEE_SHM_RESTRICTED) {
-> > +               teedev->desc->ops->rstmem_free(shm->ctx, shm);
-> >         }
-> >
-> >         teedev_ctx_put(shm->ctx);
-> > diff --git a/drivers/tee/tee_shm_pool.c b/drivers/tee/tee_shm_pool.c
-> > index 80004b55628d..ee57ef157a77 100644
-> > --- a/drivers/tee/tee_shm_pool.c
-> > +++ b/drivers/tee/tee_shm_pool.c
-> > @@ -1,9 +1,8 @@
-> >  // SPDX-License-Identifier: GPL-2.0-only
-> >  /*
-> > - * Copyright (c) 2015, 2017, 2022 Linaro Limited
-> > + * Copyright (c) 2015, 2017, 2022, 2024 Linaro Limited
-> >   */
-> >  #include <linux/device.h>
-> > -#include <linux/dma-buf.h>
-> >  #include <linux/genalloc.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/tee_core.h>
-> > @@ -90,3 +89,69 @@ struct tee_shm_pool *tee_shm_pool_alloc_res_mem(unsi=
-gned long vaddr,
-> >         return ERR_PTR(rc);
-> >  }
-> >  EXPORT_SYMBOL_GPL(tee_shm_pool_alloc_res_mem);
-> > +
-> > +static int rstmem_pool_op_gen_alloc(struct tee_shm_pool *pool,
-> > +                                   struct tee_shm *shm, size_t size,
-> > +                                   size_t align)
-> > +{
-> > +       size_t sz =3D ALIGN(size, PAGE_SIZE);
-> > +       phys_addr_t pa;
-> > +
-> > +       pa =3D gen_pool_alloc(pool->private_data, sz);
-> > +       if (!pa)
-> > +               return -ENOMEM;
-> > +
-> > +       shm->size =3D sz;
-> > +       shm->paddr =3D pa;
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +static void rstmem_pool_op_gen_free(struct tee_shm_pool *pool,
-> > +                                   struct tee_shm *shm)
-> > +{
-> > +       gen_pool_free(pool->private_data, shm->paddr, shm->size);
-> > +       shm->paddr =3D 0;
-> > +}
-> > +
-> > +static struct tee_shm_pool_ops rstmem_pool_ops_generic =3D {
-> > +       .alloc =3D rstmem_pool_op_gen_alloc,
-> > +       .free =3D rstmem_pool_op_gen_free,
-> > +       .destroy_pool =3D pool_op_gen_destroy_pool,
-> > +};
-> > +
-> > +struct tee_shm_pool *tee_rstmem_gen_pool_alloc(phys_addr_t paddr, size=
-_t size)
-> > +{
-> > +       const size_t page_mask =3D PAGE_SIZE - 1;
-> > +       struct tee_shm_pool *pool;
-> > +       int rc;
-> > +
-> > +       /* Check it's page aligned */
-> > +       if ((paddr | size) & page_mask)
-> > +               return ERR_PTR(-EINVAL);
-> > +
-> > +       pool =3D kzalloc(sizeof(*pool), GFP_KERNEL);
-> > +       if (!pool)
-> > +               return ERR_PTR(-ENOMEM);
-> > +
-> > +       pool->private_data =3D gen_pool_create(PAGE_SHIFT, -1);
-> > +       if (!pool->private_data) {
-> > +               rc =3D -ENOMEM;
-> > +               goto err_free;
-> > +       }
-> > +
-> > +       rc =3D gen_pool_add(pool->private_data, paddr, size, -1);
-> > +       if (rc)
-> > +               goto err_free_pool;
-> > +
-> > +       pool->ops =3D &rstmem_pool_ops_generic;
-> > +       return pool;
-> > +
-> > +err_free_pool:
-> > +       gen_pool_destroy(pool->private_data);
-> > +err_free:
-> > +       kfree(pool);
-> > +
-> > +       return ERR_PTR(rc);
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_rstmem_gen_pool_alloc);
-> > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
-> > index a38494d6b5f4..608302f494fe 100644
-> > --- a/include/linux/tee_core.h
-> > +++ b/include/linux/tee_core.h
-> > @@ -26,6 +26,7 @@
-> >  #define TEE_SHM_USER_MAPPED    BIT(1)  /* Memory mapped in user space =
-*/
-> >  #define TEE_SHM_POOL           BIT(2)  /* Memory allocated from pool *=
-/
-> >  #define TEE_SHM_PRIV           BIT(3)  /* Memory private to TEE driver=
- */
-> > +#define TEE_SHM_RESTRICTED     BIT(4)  /* Restricted memory */
-> >
-> >  #define TEE_DEVICE_FLAG_REGISTERED     0x1
-> >  #define TEE_MAX_DEV_NAME_LEN           32
-> > @@ -76,6 +77,8 @@ struct tee_device {
-> >   * @supp_send:         called for supplicant to send a response
-> >   * @shm_register:      register shared memory buffer in TEE
-> >   * @shm_unregister:    unregister shared memory buffer in TEE
-> > + * @rstmem_alloc:      allocate restricted memory
-> > + * @rstmem_free:       free restricted memory
-> >   */
-> >  struct tee_driver_ops {
-> >         void (*get_version)(struct tee_device *teedev,
-> > @@ -99,6 +102,9 @@ struct tee_driver_ops {
-> >                             struct page **pages, size_t num_pages,
-> >                             unsigned long start);
-> >         int (*shm_unregister)(struct tee_context *ctx, struct tee_shm *=
-shm);
-> > +       int (*rstmem_alloc)(struct tee_context *ctx, struct tee_shm *sh=
-m,
-> > +                           u32 flags, u32 use_case, size_t size);
-> > +       void (*rstmem_free)(struct tee_context *ctx, struct tee_shm *sh=
-m);
-> >  };
-> >
-> >  /**
-> > @@ -229,6 +235,15 @@ static inline void tee_shm_pool_free(struct tee_sh=
-m_pool *pool)
-> >         pool->ops->destroy_pool(pool);
-> >  }
-> >
-> > +/**
-> > + * tee_rstmem_gen_pool_alloc() - Create a restricted memory manager
-> > + * @paddr:     Physical address of start of pool
-> > + * @size:      Size in bytes of the pool
-> > + *
-> > + * @returns pointer to a 'struct tee_shm_pool' or an ERR_PTR on failur=
-e.
-> > + */
-> > +struct tee_shm_pool *tee_rstmem_gen_pool_alloc(phys_addr_t paddr, size=
-_t size);
-> > +
-> >  /**
-> >   * tee_get_drvdata() - Return driver_data pointer
-> >   * @returns the driver_data pointer supplied to tee_register().
-> > diff --git a/include/linux/tee_drv.h b/include/linux/tee_drv.h
-> > index a54c203000ed..b7ee346e5e44 100644
-> > --- a/include/linux/tee_drv.h
-> > +++ b/include/linux/tee_drv.h
-> > @@ -55,6 +55,7 @@ struct tee_context {
-> >   * @pages:     locked pages from userspace
-> >   * @num_pages: number of locked pages
-> >   * @refcount:  reference counter
-> > + * @use_case:  defined by TEE_IOC_UC_* in tee.h
-> >   * @flags:     defined by TEE_SHM_* in tee_core.h
-> >   * @id:                unique id of a shared memory object on this dev=
-ice, shared
-> >   *             with user space
-> > @@ -71,7 +72,8 @@ struct tee_shm {
-> >         struct page **pages;
-> >         size_t num_pages;
-> >         refcount_t refcount;
-> > -       u32 flags;
-> > +       u16 use_case;
-> > +       u16 flags;
->
-> Shouldn't we keep them u32 instead to be aligned with user-space inputs?
+v3:
+https://lore.kernel.org/r/20241010100933.2492806-1-s-vadapalli@ti.com/
+Changes since v3:
+- Rebased on next-20241204.
 
-Sure, that makes sense.
+v2:
+https://lore.kernel.org/r/20240222065733.1213434-1-s-vadapalli@ti.com/
+Changes since v2:
+- Rebased patch on next-20241010.
+- Moved vendor specific property "ti,syscon-pcie-ctrl" to the end of the
+  node.
 
->
-> >         int id;
-> >         u64 sec_world_id;
-> >  };
-> > diff --git a/include/uapi/linux/tee.h b/include/uapi/linux/tee.h
-> > index d0430bee8292..cdc8c82c9a38 100644
-> > --- a/include/uapi/linux/tee.h
-> > +++ b/include/uapi/linux/tee.h
-> > @@ -1,5 +1,5 @@
-> >  /*
-> > - * Copyright (c) 2015-2016, Linaro Limited
-> > + * Copyright (c) 2015-2017, 2020, 2024, Linaro Limited
-> >   * All rights reserved.
-> >   *
-> >   * Redistribution and use in source and binary forms, with or without
-> > @@ -48,6 +48,7 @@
-> >  #define TEE_GEN_CAP_PRIVILEGED (1 << 1)/* Privileged device (for suppl=
-icant) */
-> >  #define TEE_GEN_CAP_REG_MEM    (1 << 2)/* Supports registering shared =
-memory */
-> >  #define TEE_GEN_CAP_MEMREF_NULL        (1 << 3)/* NULL MemRef support =
-*/
-> > +#define TEE_GEN_CAP_RSTMEM     (1 << 4)/* Supports restricted memory *=
-/
-> >
-> >  #define TEE_MEMREF_NULL                (__u64)(-1) /* NULL MemRef Buff=
-er */
-> >
-> > @@ -389,6 +390,40 @@ struct tee_ioctl_shm_register_data {
-> >   */
-> >  #define TEE_IOC_SHM_REGISTER   _IOWR(TEE_IOC_MAGIC, TEE_IOC_BASE + 9, =
-\
-> >                                      struct tee_ioctl_shm_register_data=
-)
-> > +
-> > +#define TEE_IOC_UC_RESERVED            0
-> > +#define TEE_IOC_UC_SECURE_VIDEO_PLAY   1
-> > +#define TEE_IOC_UC_TRUSTED_UI          2
-> > +#define TEE_IOC_UC_SECURE_VIDEO_RECORD 3
-> > +
-> > +/**
-> > + * struct tee_ioctl_rstmem_alloc_data - Restricted memory allocate arg=
-ument
-> > + * @size:      [in/out] Size of restricted memory to allocate
-> > + * @flags:     [in/out] Flags to/from allocate
-> > + * @use_case   [in] Restricted memory use case, TEE_IOC_UC_*
-> > + * @id:                [out] Identifier of the restricted memory
-> > + */
-> > +struct tee_ioctl_rstmem_alloc_data {
-> > +       __u64 size;
-> > +       __u32 flags;
-> > +       __u32 use_case;
-> > +       __s32 id;
-> > +};
-> > +
-> > +/**
-> > + * TEE_IOC_RSTMEM_ALLOC - allocate restricted memory
-> > + *
-> > + * Allocates restricted physically memory normally not accessible by t=
-he
-> > + * kernel.
->
-> Can we elaborate here as well on similar lines as per commit message?
+v1:
+https://lore.kernel.org/r/20240220105006.1056824-1-s-vadapalli@ti.com/
+Changes since v1:
+- Created a new overlay for PCIE1 based on Andrew's suggestion at:
+  https://lore.kernel.org/r/415ee6d4-fe26-4582-80f3-9b503d308fdf@ti.com/
+- Updated Makefile to allow applying overlay on
+  "k3-j721e-evm-pcie0-ep.dtb"
 
-OK, I'll add something.
+Series is based on linux-next tagged next-20241204.
 
-Thanks,
-Jens
+Logs validating series:
+1. J721E Overlay test logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/682d2469884d74ad73c3e6ab4b829067
+2. AM68 Overlay test logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/b302475ee8ff257dab358a7ccfaaa734
+3. AM69 Overlay test logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/c50e5a09b5af962cba722619974add2b
 
->
-> -Sumit
->
-> > + *
-> > + * Returns a file descriptor on success or < 0 on failure
-> > + *
-> > + * The returned file descriptor is a dma-buf that can be attached and
-> > + * mapped for device with permission to access the physical memory.
-> > + */
-> > +#define TEE_IOC_RSTMEM_ALLOC     _IOWR(TEE_IOC_MAGIC, TEE_IOC_BASE + 1=
-0, \
-> > +                                      struct tee_ioctl_rstmem_alloc_da=
-ta)
-> > +
-> >  /*
-> >   * Five syscalls are used when communicating with the TEE driver.
-> >   * open(): opens the device associated with the driver
-> > --
-> > 2.43.0
-> >
+Regards,
+Siddharth.
+
+Siddharth Vadapalli (4):
+  arm64: dts: ti: Makefile: Fix typo "k3-j7200-evm-pcie1-ep.dtbo"
+  arm64: dts: ti: k3-j721e-evm: Add overlay for PCIE1 Endpoint Mode
+  arm64: dts: ti: k3-am68-sk-base-board: Add overlay for PCIE1 Endpoint
+    Mode
+  arm64: dts: ti: k3-am69-sk: Add overlay for PCIE0 Endpoint Mode
+
+ arch/arm64/boot/dts/ti/Makefile               | 15 +++++-
+ .../ti/k3-am68-sk-base-board-pcie1-ep.dtso    | 53 +++++++++++++++++++
+ .../boot/dts/ti/k3-am69-sk-pcie0-ep.dtso      | 53 +++++++++++++++++++
+ .../boot/dts/ti/k3-j721e-evm-pcie1-ep.dtso    | 53 +++++++++++++++++++
+ 4 files changed, 173 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-sk-base-board-pcie1-ep.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am69-sk-pcie0-ep.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j721e-evm-pcie1-ep.dtso
+
+-- 
+2.43.0
+
 
