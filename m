@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC57E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E6EE77179
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mSVWv3kzGyP7Ixr3DcJKWQ/Cs0NKKVxGUdtaJxvtNOU=; b=oOhYOtV0lNQKah+Oy+2pgKShdm
-	rlXU7S8TxpgI1Kh0CYGOtiLqpIsGQ0KOktNjSbHZK0cbalXkxFQP2h+OGZw+EBeuFEfd7+dpqcN2q
-	Mwyb/BOYuP5Hrt1B+2ZU6dnsayiKMsbCh0y7TNgpXx9Az8cYGf5bCkkmn7z2ZkmHA9wRIGSg5NCjn
-	8uyKCML8mPDBllxKBLaVSg2ue26Cq4bYISPVTvPkTwFdYFoj4emhQBMyBMBvZmvYmKsDpCnb/Zpfx
-	CkRvqUw06Y1gU54lzpXBzzMD43Bfzwirz0GcIASU1t9W9iCxg3jq92QTRRIkqJ1+r1ioxhn5Rh6nQ
-	j/ugUy8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sReBoPT1JSJ1DA3ZC1WbbChZ9fR0cPQ03s/2GbhiFr4=; b=tl4vbGtcwY399QHInPxfvO4/pz
+	eMXE7VKjbOZV9YbFvm8CngLOkbNkkFs1+7s+z0qv5H/Rel4ofvncdftmlNiuP+u/0DEWqnBHILxIZ
+	LTpiVwN32M5F7tBTXwWKwKjJYYLh+9gZTFDyJZFDPPX/H4PyxCJhP5NP2nNuPcA5W5ibygkUJDgW+
+	NsMhXTZlDzJiMchFGwJnA26NGd6HXJKBpYodQYHkJKn7F5pcGN1xKknvt+bMqWX+j526DWknxD0iq
+	KxqvELup9OyRG3bQMbKlNLGG1gGRjLPyz+Ec30tmsIIR37OnULm5Kr1Fp/wV1hmLFaN6eiFvo3m6t
+	krBAYMvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDrp-0000000GYca-2jqY;
-	Thu, 05 Dec 2024 15:34:13 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1tJDsq-0000000GYvT-1BHZ;
+	Thu, 05 Dec 2024 15:35:16 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDqB-0000000GYBs-0CpS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 15:32:32 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-29e71d653fbso586339fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 07:32:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cornersoftsolutions.com; s=google; t=1733412749; x=1734017549; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=mSVWv3kzGyP7Ixr3DcJKWQ/Cs0NKKVxGUdtaJxvtNOU=;
-        b=qf0U/abdfXa/eaLBSAe8sNpRQ4MgFW/CWZayDiOxwxlXURPZHZUCff5XHaBRy8t/dN
-         1uOlUV18x/V4h5iX7RPKUudfH0cBgQwc2U9Mx5yhlNwCo6dv5c93CscAHiwc3DK3Vdib
-         41xlSBW6nULXVyZFLrzpDMqOzv4OANiVsgrHY1qUnyBKbWbsK2GUtGFCyK95m8mueAiB
-         fDI90YWNChwZaUGm5pGeC1RgShWlu3hSDcEwnAHNFKsJPNcxiQmqaoonyMVWCCBA2OJh
-         PUOpZJZT6kAuFcbKeXYLJt07f5aAk3Vx8RSTpU4uFUi3rH2+KE9sXYEEjAQFX9a0lvL/
-         XQWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733412749; x=1734017549;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mSVWv3kzGyP7Ixr3DcJKWQ/Cs0NKKVxGUdtaJxvtNOU=;
-        b=Lz4nro18b5sr5Q5guWl13o2Gkj756qXNKea41Ev/LzJaACUSTE+UfALRhxIrmQgNXr
-         pY1T9J3gH9Gg5RNP0TD8VKj2SXTWb62zVK0fOFD3NIMaRC89UTeYbdQ98o9983Zr6JY6
-         ygS2j64PIr/9G9PKLeMnIlo6wLIhbdnhEQSmOmj0fr3QRifgcjFeRFEwwElheUsk2HPf
-         c91XLQSLdnHCrTw/nsHT9GXudl/yCpCFQqitrDIgyWnPkkwglNcwLXX2lkMhKXObUpSE
-         GHObY2Jz4F8W/t8PILO/XGgDgYduOyKrDw/ANpCbfbXY9dUfAtYW21VwVQL52zr7h5sL
-         Niug==
-X-Forwarded-Encrypted: i=1; AJvYcCViWTV11YG3XCcshvDG6wjJmPrE3K+rAAYRbucwyqacqmUDQJn4AXWC3wLrRj3OwsFbmLFe9HD6gcWZ+7Ml7c9z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOTDrMEEww1VzhkQIiN20bMPBM4JBu7gXdHrxbag5ePGMA9hPT
-	rfoUGFqRfWfkRi6kmMCB1COimSzpleeAc4xThAxCj5zTEltbgvJhoo3u6bIzSXCoJv+hq/3e/5u
-	auFurSinsrn+IRSwh89RknGXPjJQ6L/EZzMuPiQ==
-X-Gm-Gg: ASbGncs+ynmUmrlYkFe1HQrI9zEIRqi9DMFu591n6ABqqtdGdIf4Z4kKk5igux9ZQDZ
-	0u1MFDSYU86hp0YOYzn+TVUQd3YIuFltf
-X-Google-Smtp-Source: AGHT+IEXh3wkarBLzAyKqYC0kT/Y8r28C1neLlKp6rQpRD5NvnZVxaGgz+SOmihpuXwnZlzhFMNga5hrHKjeRZiwzUg=
-X-Received: by 2002:a05:6871:606:b0:296:ee2e:a23c with SMTP id
- 586e51a60fabf-29e88560c9bmr11677702fac.5.1733412749132; Thu, 05 Dec 2024
- 07:32:29 -0800 (PST)
+	id 1tJDqG-0000000GYD0-42v8;
+	Thu, 05 Dec 2024 15:32:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DEFFAE0007;
+	Thu,  5 Dec 2024 15:32:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733412754;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sReBoPT1JSJ1DA3ZC1WbbChZ9fR0cPQ03s/2GbhiFr4=;
+	b=BxWdMtw3m+YnkiJOTIyp6NWDPWfOSmQBU/jDdKrUhI55GR1DYIc1Y8A2X3REOlx+dEWSCD
+	wnK/fWZGVJjO6vz3W2BWQUgp2ktCB9cvIkO0PzNzDPYA4k9aDMD6Q+0ld5bw531AQ5iSQ1
+	Ix5riO1K25mRWOu8wCmomoNmD5pFWZ/reWDzycTd9b3M6oXnN7T2Tifhs+sEX1zCuaF5UD
+	Ed3g5vJYFRQQkLXoj+QXOm1Xypddh3dqjYXaXprEu4YD8g4JT7wAKEm5gPT0LeQzx7bPGN
+	LEgglkTdIpLES2SmsVdk9aBeDQTuoIgsQllstJIqD7pJ0MSYy+rd08wN6eFn+w==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Sky Huang <SkyLake.Huang@mediatek.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Richard Weinberger
+ <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Daniel Golle
+ <daniel@makrotopia.org>,  Chia-Lin Kao <acelan.kao@canonical.com>,  "Cheng
+ Ming Lin" <chengminglin@mxic.com.tw>,  Christophe JAILLET
+ <christophe.jaillet@wanadoo.fr>,  Pratyush Yadav <pratyush@kernel.org>,
+  <linux-kernel@vger.kernel.org>,  <linux-mtd@lists.infradead.org>,
+  <linux-arm-kernel@lists.infradead.org>,
+  <linux-mediatek@lists.infradead.org>,  Steven Liu
+ <Steven.Liu@mediatek.com>
+Subject: Re: [PATCH nand/next] mtd: nand: spi: Use write_cache first and
+ then update_cache in write operation
+In-Reply-To: <20241119093949.3014-1-SkyLake.Huang@mediatek.com> (Sky Huang's
+	message of "Tue, 19 Nov 2024 17:39:49 +0800")
+References: <20241119093949.3014-1-SkyLake.Huang@mediatek.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Thu, 05 Dec 2024 16:32:32 +0100
+Message-ID: <871pymtab3.fsf@bootlin.com>
 MIME-Version: 1.0
-From: Ken Sloat <ksloat@cornersoftsolutions.com>
-Date: Thu, 5 Dec 2024 10:32:17 -0500
-Message-ID: <CADRqkYAaCYvo3ybGdKO1F_y9jFEcwTBxZzRN-Av-adq_4fVu6g@mail.gmail.com>
-Subject: [PATCH v1] dt-bindings: dma: st-stm32-dmamux: Add description for
- dma-cell values
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	dmaengine@vger.kernel.org, alexandre.torgue@foss.st.com, 
-	mcoquelin.stm32@gmail.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
-	robh@kernel.org, vkoul@kernel.org, amelie.delaunay@foss.st.com
-Cc: Ken Sloat <ksloat@cornersoftsolutions.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_073231_194194_7232B948 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20241205_073237_311777_B18F4969 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,40 +81,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dma-cell values for the stm32-dmamux are used to craft the DMA spec
-for the actual controller. These values are currently undocumented
-leaving the user to reverse engineer the driver in order to determine
-their meaning. Add a basic description, while avoiding duplicating
-information by pointing the user to the associated DMA docs that
-describe the fields in depth.
+Hello,
 
-Signed-off-by: Ken Sloat <ksloat@cornersoftsolutions.com>
----
-.../bindings/dma/stm32/st,stm32-dmamux.yaml | 11 +++++++++++
-1 file changed, 11 insertions(+)
+On 19/11/2024 at 17:39:49 +08, Sky Huang <SkyLake.Huang@mediatek.com> wrote:
 
-diff --git a/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
-b/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
-index f26c914a3a9a..aa2e52027ee6 100644
---- a/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
-+++ b/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
-@@ -15,6 +15,17 @@ allOf:
-properties:
-"#dma-cells":
-const: 3
-+ description: |
-+ Should be set to <3> with each cell representing the following:
-+ 1. The mux input number/line for the request
-+ 2. Bitfield representing DMA channel configuration that is passed
-+ to the real DMA controller
-+ 3. Bitfield representing device dependent DMA features passed to
-+ the real DMA controller
-+
-+ For bitfield definitions of cells 2 and 3, see the associated
-+ bindings doc for the actual DMA controller the mux is connected
-+ to.
-compatible:
-const: st,stm32h7-dmamux
--- 
-2.34.1
+> From: Sky Huang <skylake.huang@mediatek.com>
+>
+> According to discussion with Miquel Raynal <miquel.raynal@bootlin.com>
+> and Chuanhong Guo <gch981213@gmail.com> on FORESEE F35SQA002G patch,
+> Chuanhong recommmends that we can use the following sequence in
+> spinand_write_to_cache_op():
+>
+> x1 mode:
+> 02H(program data load) -> 84H(random program data load) -> 84H ...
+>
+> x4 mode:
+> 32H(program data load x4) -> 34H(random program data load x4) -> 34H ...
+>
+> 02H or 32H commands will clear cache buffer on SPI-NAND and load
+> data to it. For those SPI controllers which can't finish transmission
+> in single step, 84H or 34H will be triggered for the rest data.
+>
+> We observe that some current SPI-NANDs, including FORESEE F35SQA001G and
+> F35SQA002G, must use 02H or 32H to reset cache buffer in flash before
+> using 84H or 34H. Or users may encounter program failure issue. This issue
+> is not always reproducible, but it may occur and cause system instability.
+>
+> This sequence should work on all SPI-NANDs nowadays. I also check with
+> Foresee that the sequence can solve the above program failure issue.
+>
+> On my test platform (MT7988), SPI driver is drivers/spi/spi-mt65xx.c.
+> And I limit MTK_SPI_IPM_PACKET_SIZE to SZ_1K to simulate lightweight SPI
+> controller which can only transmit 1024 bytes.
+>
+> The test step is the following:
+> - mtd erase /dev/mtd2
+> - dd if=3D/dev/zero bs=3D2048 count=3D1 | tr '\0' '\xA5' > output.bin
+> - mtd write output.bin /dev/mtd2
+>
+> Before applying this patch, write operation uses only 34H(update_cache):
+> [78.937720] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st byt=
+e: 0xa5
+> [78.945297] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st b=
+yte: 0xa5
+> [78.954251] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byt=
+e: 0xa5
+> [78.962966] OP code: 0x10, addr val: 0x300
+> [78.968816] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st byt=
+e: 0xff
+> [78.977233] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st b=
+yte: 0xff
+> [78.985124] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byt=
+e: 0xff
+> [78.992527] OP code: 0x10, addr val: 0x301
+> [78.996981] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st byt=
+e: 0xff
+> [79.004416] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st b=
+yte: 0xff
+> [79.012031] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st byt=
+e: 0xff
+> [79.019435] OP code: 0x10, addr val: 0x302
+
+I am sorry but above you said that we should not perform:
+
+    0x32, 0x32, 0x32...
+
+because the second time it would clear the cache again. And here
+you tell us that actually the core already handles that by performing
+instead:
+
+    0x34, 0x34, 0x34...
+
+So what is the problem?
+
+Or maybe I misunderstood the issue, but I think Chuanhong raised an
+issue that is already solved? Isn't it?
+
+Thanks,
+Miqu=C3=A8l
 
