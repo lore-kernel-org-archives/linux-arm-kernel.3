@@ -4,127 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26FAE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 01:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3648AE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 01:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhVkkhykF8V+VMNYVyZo7kab5J5PPxq7Kvz1Fr0GRcM=; b=ar57w8NiCjBLS4slqUZruNqBAQ
-	KU5RRzCdAo7Scv2fZ6O6hIZFEiX5c4ReTegipaKZvlJG666nSYyP6GQyTcyEZJTykyUPxKgy2OC1m
-	JdhsewJUuH/E8+UdNVSYd/OnWF7H9kAoDNbzbfMgRnOcSK/XgUZQoTAjQYz80WYNFC48YatukR+oz
-	fGR+mxD/cuyd9w8dzmDGaZ42wGtnopkM7Er65k4E7PyArM+fm2jFzyN6z9LIk6FmxvQlmqbeFqy0g
-	cA0uYte3q/1X3JWucNE83adM0yS+qq0vxCjQVUshP0EBcqWiDqH2djZtiaSq9QuS3sQ8Y/EthPlVH
-	XbrnaeIA==;
+	bh=zLAkxLqudvXI9kJz4bfxYhpqq56UCtbbOxLFlON26Po=; b=GY+osrRhzPeBN8mrsWPfB3rdMb
+	OTNsxvFQJ6fjIQtasSPwmu1FU1QEDX+C0NHMWmLkiSXpdnywmMrg7cEUwF1EZC5oRWz2/VJEJtvkZ
+	hvCeO6EqDXksVdbx0T5HJRiGv1rhlFQWEPUjJI3iT8TsIxiut9zXLuY6MW+JtcoVZG2eaqs8/CsuG
+	p25LsJw1d26325qZS/onzTksCeoVnjdo7HA0Q3NPePe7tKzUt2NyWZIyzGXYjXG7KdQVCs+68e4Ts
+	J5SnqU6C6LnaYsYD55u5NVTaXLczLGxmlQ2eHPdAA05cELt/SPJ16O3d76uIZOtVlxVrISMtVZuHf
+	jN7YKLiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ0NW-0000000ERJq-0oRI;
-	Thu, 05 Dec 2024 01:10:02 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1tJ0Ph-0000000ERhs-2ZmV;
+	Thu, 05 Dec 2024 01:12:17 +0000
+Received: from mail-m127220.xmail.ntesmail.com ([115.236.127.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ0Lr-0000000ER0e-0P8a
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 01:08:20 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20241205010816epoutp01b8376552679b842f3a67a02fb080bf6a~OIo0n1QNO1534315343epoutp01i
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Dec 2024 01:08:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20241205010816epoutp01b8376552679b842f3a67a02fb080bf6a~OIo0n1QNO1534315343epoutp01i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733360896;
-	bh=YhVkkhykF8V+VMNYVyZo7kab5J5PPxq7Kvz1Fr0GRcM=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=h4qJToKgdEfRy6LdmVszjlgVJpqfANUKTlviOgMjNncRLbdFp9Szmcv7sXX1T3s/v
-	 s5PS2EuRd7a1hOIo/qRB3eY9SN54QGIs4FBOvma2DNETUSmzJwLAfJBhcgMVXXqW1P
-	 u+yXFlb8Vp731/pD/14II2YTwZV8mCSl6Zrzcl5w=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
-	20241205010815epcas5p1c94cd6495ae9743792e12021bc99147b~OIo0RYwT11233112331epcas5p1x;
-	Thu,  5 Dec 2024 01:08:15 +0000 (GMT)
-Received: from epsmges5p1new.samsung.com (unknown [182.195.38.174]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4Y3bqL0sXcz4x9Q8; Thu,  5 Dec
-	2024 01:08:14 +0000 (GMT)
-Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
-	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	E5.63.20052.CFCF0576; Thu,  5 Dec 2024 10:08:12 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20241205010811epcas5p11d9ff08741bedccc9b0c919bb74d4c78~OIowqoa943092230922epcas5p1M;
-	Thu,  5 Dec 2024 01:08:11 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20241205010811epsmtrp23ea566f2f861aeda7d030bb21298386d~OIowpz7p50201702017epsmtrp26;
-	Thu,  5 Dec 2024 01:08:11 +0000 (GMT)
-X-AuditID: b6c32a49-3fffd70000004e54-7d-6750fcfc5ed8
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	20.85.18729.BFCF0576; Thu,  5 Dec 2024 10:08:11 +0900 (KST)
-Received: from INBRO002756 (unknown [107.122.12.5]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20241205010810epsmtip1e1ed17a39d5a905c339d24f4d11452b6~OIovZjV250608906089epsmtip1F;
-	Thu,  5 Dec 2024 01:08:10 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Igor Belwon'" <igor.belwon@mentallysanemainliners.org>, "'Rob
-	Herring'" <robh@kernel.org>, "'Krzysztof Kozlowski'" <krzk+dt@kernel.org>,
-	"'Conor Dooley'" <conor+dt@kernel.org>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <20241204145559.524932-2-igor.belwon@mentallysanemainliners.org>
-Subject: RE: [PATCH v2 1/2] dt-bindings: soc: samsung: exynos-pmu: Add
- exynos990-pmu compatible
-Date: Thu, 5 Dec 2024 06:38:09 +0530
-Message-ID: <0f2401db46b2$2753d4d0$75fb7e70$@samsung.com>
+	id 1tJ0Of-0000000ERaf-2ikP;
+	Thu, 05 Dec 2024 01:11:16 +0000
+Received: from [172.16.12.69] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4bd27b01;
+	Thu, 5 Dec 2024 09:11:06 +0800 (GMT+08:00)
+Message-ID: <cd4fe5b9-20d3-4cb1-8125-5ffdcef5c428@rock-chips.com>
+Date: Thu, 5 Dec 2024 09:11:06 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] dt-bindings: display: rockchip: Add schema for
+ RK3588 DW DSI2 controller
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+ rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20241203165450.1501219-1-heiko@sntech.de>
+ <20241203165450.1501219-3-heiko@sntech.de>
+Content-Language: en-US
+From: Andy Yan <andy.yan@rock-chips.com>
+In-Reply-To: <20241203165450.1501219-3-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQGGNHhzN/gxjLnIJKtzBVvnrIc1QgI9EESvAdNXXoqzYHgBEA==
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprNJsWRmVeSWpSXmKPExsWy7bCmhu6fPwHpBn2rpC3W7D3HZDH/yDlW
-	i2v7Z7FYvJx1j81i0+NrrBaXd81hs5hxfh+Txf89O9gdODw2repk89i8pN7j4fZDbB6fN8kF
-	sERl22SkJqakFimk5iXnp2TmpdsqeQfHO8ebmhkY6hpaWpgrKeQl5qbaKrn4BOi6ZeYAXaGk
-	UJaYUwoUCkgsLlbSt7Mpyi8tSVXIyC8usVVKLUjJKTAp0CtOzC0uzUvXy0stsTI0MDAyBSpM
-	yM7417SZpWAub8XbvX3sDYw3uboYOTkkBEwknh67y9zFyMUhJLCbUeLopfNMEM4nRon1L+ax
-	gVQJCXxjlDi2yRam48mTVkaIor2MEnNWTWSHcF4wSmxdd5cVpIpNQFdix+I2NpCEiMBORokN
-	O+eDzWUW6AdyvrwAq+IU8JV4eH4JO4gtLJAoMX31MSYQm0VARWL3z5ksIDavgKXE575zjBC2
-	oMTJmU/A4swC8hLb385hhrhJQeLn02VgM0UEnCSefLwEVSMu8fLoEbDzJASmckg0PrvJCtHg
-	IrH22WN2CFtY4tXxLVC2lMTnd3vZIOxsieMXZ0HZFRLdrR+hauwldj66CbSAA2iBpsT6XfoQ
-	u/gken8/YQIJSwjwSnS0CUFUq0o0v7vKAmFLS0zs7oa6wEPi8/cPzBMYFWch+WwWks9mIflg
-	FsKyBYwsqxglUwuKc9NTi00LDPNSy+Exnpyfu4kRnEq1PHcw3n3wQe8QIxMH4yFGCQ5mJRHe
-	IO2AdCHelMTKqtSi/Pii0pzU4kOMpsDgnsgsJZqcD0zmeSXxhiaWBiZmZmYmlsZmhkrivK9b
-	56YICaQnlqRmp6YWpBbB9DFxcEo1MC33Vju62EYuMTNox4q8BCZ3Dh+uQ3/2THO7zJ789Lj3
-	tekbLv+/Ff6avTP9mNf3TaILv8tWNx3ZK5PsxXF9ptpp/WD7Nxw5ajZR4pxSrUbTrKtSFTLf
-	72ZUZHNxfPxezVss3vgWN0vU56xLyX5aRVsZ4lbJyggnqLJ5RPLc7p4y5erlHCVfttl6U6RO
-	heeXxNxde1Ar/Yybt25n9mmGaem1HPrcN+0WSbF1z25afPO12mpe96fvI9NSs2cdOzbxTMb8
-	57v6s4s3ZSs+Wen4R0GCUefy8dcRixe0i9xVtilnevahR6n5SVjF6+9f9eKesf2P2L2atUdT
-	vUVddHKikuTenFflZ/Zszp8yIXyKEktxRqKhFnNRcSIA61RwPi4EAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpmkeLIzCtJLcpLzFFi42LZdlhJTvf3n4B0g4Z3RhZr9p5jsph/5Byr
-	xbX9s1gsXs66x2ax6fE1VovLu+awWcw4v4/J4v+eHewOHB6bVnWyeWxeUu/xcPshNo/Pm+QC
-	WKK4bFJSczLLUov07RK4Mv41bWYpmMtb8XZvH3sD402uLkZODgkBE4knT1oZuxi5OIQEdjNK
-	rPj8mREiIS1xfeMEdghbWGLlv+fsEEXPGCVO/7zJCpJgE9CV2LG4jQ0kIQLS/f3nE1YQh1lg
-	MpBzYC0TRMt9RonP6xeDzeIU8JV4eH4JmC0sEC8xefIasH0sAioSu3/OZAGxeQUsJT73nWOE
-	sAUlTs58AhTnAJqqJ9G2ESzMLCAvsf3tHGaI8xQkfj5dBnaRiICTxJOPl1ggasQlXh49wj6B
-	UXgWkkmzECbNQjJpFpKOBYwsqxglUwuKc9Nziw0LDPNSy/WKE3OLS/PS9ZLzczcxguNJS3MH
-	4/ZVH/QOMTJxMB5ilOBgVhLhDdIOSBfiTUmsrEotyo8vKs1JLT7EKM3BoiTOK/6iN0VIID2x
-	JDU7NbUgtQgmy8TBKdXAtOh9uFdF8PTFIip3ur2mLPVNunQsxs4g7IiJVvSq9Mdf2hZFb5eK
-	Tki3yNnssEfvhM+vpO5V1Qc95NZt/7Dn9D2RTfmPF3D9DmFnLGeUWP1v0tSl3+SOfv7klunB
-	6WG358UDa9H32198umx2O+vgzqXZchVMJTF2jR5Xmpbcu+6q4BW+//7N/xJXLzwXM87o+/3U
-	r21vkswvg5DZDVxxhwVzr8/YKD6vU8HaqaOXd0ekaQ9H0ZKyA/u4jiz7r7ggbLpXQPCBoit8
-	ze2nWrO17/B5Ntf8+CKnK/dDdu7s5+titnoyPONex7WukU+6qYhdtmuy+OUgY6+gTcczVz3e
-	tdywxFD9wa+efXHbAguklFiKMxINtZiLihMBRg6KshYDAAA=
-X-CMS-MailID: 20241205010811epcas5p11d9ff08741bedccc9b0c919bb74d4c78
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241204145947epcas5p3f4fc2a6d35669293b339a31d85daef1c
-References: <20241204145559.524932-1-igor.belwon@mentallysanemainliners.org>
-	<CGME20241204145947epcas5p3f4fc2a6d35669293b339a31d85daef1c@epcas5p3.samsung.com>
-	<20241204145559.524932-2-igor.belwon@mentallysanemainliners.org>
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhodT1ZNGR8dQx4fTklMHRpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	xVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93945ee28509d6kunm4bd27b01
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OBw6SQw*TTIYQggWQyNJSggv
+	KDJPC09VSlVKTEhISE1KS01DT0hNVTMWGhIXVRoVHwJVAhoVOwkUGBBWGBMSCwhVGBQWRVlXWRIL
+	WUFZTkNVSUlVTFVKSk9ZV1kIAVlBT0pLSDcG
+DKIM-Signature: a=rsa-sha256;
+	b=iClUr7uhV1g5klU3OZyGngVZvpK2DGHFqRCLpzcw3XQdn+sr+tLM4xklQDaaS57SjOfU9/al0dslCzKN+w4t9ihQJsRvrpOIpvd8+AbR1w/DbZukMzw1xFmc8+Ov4YqHb37DUAIhNxvgyJZwg6htOpsh93JgUbyBrBAnPrhWIPs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=zLAkxLqudvXI9kJz4bfxYhpqq56UCtbbOxLFlON26Po=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_170819_472653_1C06AAE6 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20241204_171114_256913_B28BF592 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,49 +81,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor
+Hi Heiko,
 
-> -----Original Message-----
-> From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-> Sent: Wednesday, December 4, 2024 8:26 PM
-> To: Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Alim Akhtar
-> <alim.akhtar@samsung.com>
-> Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-linux-
-> samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org
-> Subject: [PATCH v2 1/2] dt-bindings: soc: samsung: exynos-pmu: Add
-> exynos990-pmu compatible
+On 12/4/24 00:54, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> Add a dt-binding compatible for the Exynos990 PMU. It's compatible with
-the
-> Exynos7 PMU design. It handles system reboot, as well as other system
-> control registers (i.e registers for the USB PHY).
+> The Display Serial Interface 2 (DSI-2) is part of a group of communication
+> protocols defined by the MIPI Alliance. The RK3588 implements this
+> specification in its two MIPI DSI-2 Host Controllers that are based on a
+> new Synopsis IP.
 > 
-> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 > ---
-
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-
->  Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>   .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   | 119 ++++++++++++++++++
+>   1 file changed, 119 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-
-> pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-
-> pmu.yaml
-> index 6cdfe7e059a3..8e6d051d8c97 100644
-> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-> @@ -55,6 +55,7 @@ properties:
->                - samsung,exynos7885-pmu
->                - samsung,exynos8895-pmu
->                - samsung,exynos9810-pmu
-> +              - samsung,exynos990-pmu
->                - samsung,exynosautov9-pmu
->                - samsung,exynosautov920-pmu
->                - tesla,fsd-pmu
-> --
-> 2.45.2
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
+> new file mode 100644
+> index 000000000000..7c017e927223
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
+> @@ -0,0 +1,119 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip specific extensions to the Synopsys Designware MIPI DSI2
+> +
+> +maintainers:
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3588-mipi-dsi2
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: pclk
+> +      - const: sys
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      This SoC uses GRF regs to switch between vopl/vopb.
+> +
+> +  phys:
+> +    maxItems: 1
+> +
+> +  phy-names:
+> +    const: dcphy
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  reset-names:
+> +    const: apb
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Input node to receive pixel data.
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: DSI output node to panel.
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - clock-names
+> +  - rockchip,grf
+> +  - phys
+> +  - phy-names
+> +  - ports
+> +  - reg
+> +
+> +allOf:
+> +  - $ref: /schemas/display/dsi-controller.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/power/rk3588-power.h>
+> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+> +
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      dsi@fde20000 {
+> +        compatible = "rockchip,rk3588-mipi-dsi2";
+> +        reg = <0x0 0xfde20000 0x0 0x10000>;
+> +        interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH 0>;
+> +        clocks = <&cru PCLK_DSIHOST0>, <&cru CLK_DSIHOST0>;
+> +        clock-names = "pclk", "sys";
+> +        resets = <&cru SRST_P_DSIHOST0>;
+> +        reset-names = "apb";
+> +        power-domains = <&power RK3588_PD_VOP>;
+> +        phys = <&mipidcphy0>;
 
+Should it be phys = <&mipidcphy0 PHY_TYPE_DPHY>, as the #phy-cells = 1 on phy side ?
 
+> +        phy-names = "dcphy";
+> +        rockchip,grf = <&vop_grf>;
+> +
+> +        ports {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +          dsi0_in: port@0 {
+> +            reg = <0>;
+> +          };
+> +
+> +          dsi0_out: port@1 {
+> +            reg = <1>;
+> +          };
+> +        };
+> +      };
+> +    };
 
