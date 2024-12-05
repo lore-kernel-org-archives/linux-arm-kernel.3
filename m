@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938F8E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169C9E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O815o55Xkk+cMJ1t2Gfojje1UGmiXnHBnCWLsognMZ4=; b=pA5lhpoE85raX7+op1Jw3nboli
-	hRZ3YY3jpp0SQzogWlw/u0JQFr5tctU49ei6s9mPh+oiVwfglEUuu0rzLx+Rx59MtMgiuzgqeau31
-	5LVUNn4P/p58GZffP4wgO3wSz0wzV5vdaTZ3M6tGhZCb0TNrHEuFGuAJuKipi7h2szPvQ0v1rGb+C
-	EJB5t5TEnDVslDM81CpRFqzOnmQiUhWkzrEH4sx8OJrOJCyVH3vQAY33s9c5gaDrilUgyAQEdPQBi
-	aJEyr9/yODW9nbtJY/4FYfvMcskAVhWetYyeiaV6YObTC8KH9/xtoILuoeN/ZYQGv/iypgf5NxD5D
-	zxHgbraA==;
+	bh=DwOpMaW2es02J1yfBmzoVz6Jv19EkUC2xX3SDPzEuqM=; b=vzIFw94cOopeFP69YfFO5m2ptH
+	NTLWu1n3oeiVqXaiGH1d3PFvYsyvST9CfXJzJ6/zjoiyC8g3eiTm9g0VoXNfbTu4/tmyWNeW/iU+m
+	M5dP0Od5Dg4569alRoX0cR+iGmoNk46L8VToMMJL762wygaG9M6LGA+uaYbEvdf7sHPvhvkCHdFNW
+	NQMb5MM6Yuv1XfeLe4Hb6DLYctbsqoPsL+An5oyl2g6Zj9EpE03cOE+wG9LAlGZunMYbpmv53zLzb
+	b/XW25XOuhLNJ9G7F1CbX556sRw+3CM2j6YHO2Q3f+2oXmTSBowAlKvmKNpOO8p1Vfeh7CuwfGkFC
+	9LwsfryQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBgI-0000000G58N-2KHj;
-	Thu, 05 Dec 2024 13:14:10 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tJBgJ-0000000G58s-1a59;
+	Thu, 05 Dec 2024 13:14:11 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAIm-0000000Fm5q-3o6o;
-	Thu, 05 Dec 2024 11:45:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733399147;
-	bh=qpO+nJZF0DU6fSTLFPnVmHghbUVHnculHwGGQ/6LCi8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CMYxaEuf21u7TxYRxauqiSkLiggGVDpwHT2QOkEaeXATG5JfgqRpvCtnOvQqq4M/3
-	 bCdFtEkLDwAk8moa3x+CNoCAtfMNSXj1WqkuCnAfkX8xLaKXpKJoDTEq5HfUVTXJXQ
-	 TV3J+x7Si3nqxIhjMoRKXvAmLXn0AQuG66GIUysfXqDEK8Rrv1LnrwNHhz73X4tZxg
-	 /RF+yLYqid7zEMuIpUTwnLgayCx0aHJrbsxPSR86tjysqp8ihjUp+qI0FoQBXVUdgA
-	 aW2gxk7fRmEvYxqAjtHpF1NrELKImPATnmpDg7pXHfZEFf83MTBhg/l0DmPP8JtoBt
-	 fmUdtzEOWtwQg==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9A64117E369C;
-	Thu,  5 Dec 2024 12:45:46 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	jitao.shi@mediatek.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	Guillaume Ranquet <granquet@baylibre.com>
-Subject: [PATCH v2 10/15] drm/mediatek: hdmi: Use regmap instead of iomem for main registers
-Date: Thu,  5 Dec 2024 12:45:12 +0100
-Message-ID: <20241205114518.53527-11-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
-References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+	id 1tJAO8-0000000Fnmt-1gFU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 11:51:22 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B5ANMBj026590;
+	Thu, 5 Dec 2024 12:50:57 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	DwOpMaW2es02J1yfBmzoVz6Jv19EkUC2xX3SDPzEuqM=; b=Joc3kW/FpGpozv/F
+	49MXK1F3AUIaGDlU0HmQlEy2tYgzNNZdBeXQwaWuNtio/g6MPlb4ftsBGiwKbi8E
+	6FL8hx/WN1hSMIBcxw3kOfykVoKfFxh/z9PAHBqKD+qqyA4uYJLW9md83bGqqOlm
+	+cqsp8LW61JlT6RSyF/jNRr0cQoh+9TiCv0NYStWxoUYOF5KQOT27dJk8xXfSMHu
+	gZnujWyBv9FKpQc8K9QeS4IwlJN7Ctxvb1torK6Y7SesS3Uqox0dODmK4ngz7xuH
+	MSsNpC4o4X6lUb4XAD+oxtUGuMDRWhsrjG3aBrUfFK9VUM/51UsdKak7Mw7OyV14
+	jtDQsg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 438ehp4gjy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 05 Dec 2024 12:50:57 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 907B640044;
+	Thu,  5 Dec 2024 12:49:26 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 454DE29BB01;
+	Thu,  5 Dec 2024 12:46:38 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 5 Dec
+ 2024 12:46:37 +0100
+Message-ID: <9340979e-8f0e-465b-a524-4ff315a9941d@foss.st.com>
+Date: Thu, 5 Dec 2024 12:46:29 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH v2 2/5] PCI: stm32: Add PCIe host support for STM32MP25
+To: Lucas Stach <l.stach@pengutronix.de>, Bjorn Helgaas <helgaas@kernel.org>,
+        Rob Herring <robh+dt@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241129205822.GA2772018@bhelgaas>
+ <9ca967aea19d6c28327f3a9bb77e23f6245603e9.camel@pengutronix.de>
+Content-Language: en-US
+In-Reply-To: <9ca967aea19d6c28327f3a9bb77e23f6245603e9.camel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_034549_249593_8D4CD8C6 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20241205_035121_089006_0D5B49B8 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,444 +100,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guillaume Ranquet <granquet@baylibre.com>
+Hello Bjorn and Lucas,
 
-In preparation for the addition of a new version of the HDMI IP
-which will need to share its iospace between multiple subdrivers,
-and in preparation for moving out the common bits between the two,
-migrate this driver to fully use regmap.
+On 11/29/24 22:18, Lucas Stach wrote:
+> Am Freitag, dem 29.11.2024 um 14:58 -0600 schrieb Bjorn Helgaas:
+>> [+to Rob, DMA mask question]
+>>
+>> On Tue, Nov 26, 2024 at 04:51:16PM +0100, Christian Bruel wrote:
+>>> Add driver for the STM32MP25 SoC PCIe Gen2 controller based on the
+>>> DesignWare PCIe core.
+>>
+>> Can you include the numeric rate, not just "gen2", so we don't have to
+>> search for it?
+>>
+>>> +static int stm32_pcie_resume_noirq(struct device *dev)
+>>> +{
+>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>>> +	struct dw_pcie *pci = stm32_pcie->pci;
+>>> +	struct dw_pcie_rp *pp = &pci->pp;
+>>> +	int ret;
+>>> +
+>>> +	/* init_state must be called first to force clk_req# gpio when no
+>>> +	 * device is plugged.
+>>> +	 */
+>>
+>> Use drivers/pci/ conventional comment style:
+>>
+>>    /*
+>>     * text ...
+>>     */
+>>
+>>> +static bool is_stm32_pcie_driver(struct device *dev)
+>>> +{
+>>> +	/* PCI bridge */
+>>> +	dev = get_device(dev);
+>>> +
+>>> +	/* Platform driver */
+>>> +	dev = get_device(dev->parent);
+>>> +
+>>> +	return (dev->driver == &stm32_pcie_driver.driver);
+>>> +}
+>>> +
+>>> +/*
+>>> + * DMA masters can only access the first 4GB of memory space,
+>>> + * so we setup the bus DMA limit accordingly.
+>>> + */
+>>> +static int stm32_dma_limit(struct pci_dev *pdev, void *data)
+>>> +{
+>>> +	dev_dbg(&pdev->dev, "disabling DMA DAC for device");
+>>> +
+>>> +	pdev->dev.bus_dma_limit = DMA_BIT_MASK(32);
+>>
+>> I don't think this is the right way to do this.  Surely there's a way
+>> to describe the DMA capability of the bridge once instead of iterating
+>> over all the downstream devices?  This quirk can't work for hot-added
+>> devices anyway.
+>>
 
-Signed-off-by: Guillaume Ranquet <granquet@baylibre.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 173 +++++++++++-----------------
- 1 file changed, 65 insertions(+), 108 deletions(-)
+agree,
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index bacb1a5289cb..9e8d9144cf86 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -170,7 +170,7 @@ struct mtk_hdmi {
- 	u32 ibias_up;
- 	struct regmap *sys_regmap;
- 	unsigned int sys_offset;
--	void __iomem *regs;
-+	struct regmap *regs;
- 	enum hdmi_colorspace csp;
- 	struct hdmi_audio_param aud_param;
- 	bool audio_enable;
-@@ -186,50 +186,10 @@ static inline struct mtk_hdmi *hdmi_ctx_from_bridge(struct drm_bridge *b)
- 	return container_of(b, struct mtk_hdmi, bridge);
- }
- 
--static u32 mtk_hdmi_read(struct mtk_hdmi *hdmi, u32 offset)
--{
--	return readl(hdmi->regs + offset);
--}
--
--static void mtk_hdmi_write(struct mtk_hdmi *hdmi, u32 offset, u32 val)
--{
--	writel(val, hdmi->regs + offset);
--}
--
--static void mtk_hdmi_clear_bits(struct mtk_hdmi *hdmi, u32 offset, u32 bits)
--{
--	void __iomem *reg = hdmi->regs + offset;
--	u32 tmp;
--
--	tmp = readl(reg);
--	tmp &= ~bits;
--	writel(tmp, reg);
--}
--
--static void mtk_hdmi_set_bits(struct mtk_hdmi *hdmi, u32 offset, u32 bits)
--{
--	void __iomem *reg = hdmi->regs + offset;
--	u32 tmp;
--
--	tmp = readl(reg);
--	tmp |= bits;
--	writel(tmp, reg);
--}
--
--static void mtk_hdmi_mask(struct mtk_hdmi *hdmi, u32 offset, u32 val, u32 mask)
--{
--	void __iomem *reg = hdmi->regs + offset;
--	u32 tmp;
--
--	tmp = readl(reg);
--	tmp = (tmp & ~mask) | (val & mask);
--	writel(tmp, reg);
--}
--
- static void mtk_hdmi_hw_vid_black(struct mtk_hdmi *hdmi, bool black)
- {
--	mtk_hdmi_mask(hdmi, VIDEO_CFG_4, black ? GEN_RGB : NORMAL_PATH,
--		      VIDEO_SOURCE_SEL);
-+	regmap_update_bits(hdmi->regs, VIDEO_SOURCE_SEL,
-+			   VIDEO_CFG_4, black ? GEN_RGB : NORMAL_PATH);
- }
- 
- static void mtk_hdmi_hw_make_reg_writable(struct mtk_hdmi *hdmi, bool enable)
-@@ -264,12 +224,12 @@ static void mtk_hdmi_hw_1p4_version_enable(struct mtk_hdmi *hdmi, bool enable)
- 
- static void mtk_hdmi_hw_aud_mute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_set_bits(hdmi, GRL_AUDIO_CFG, AUDIO_ZERO);
-+	regmap_set_bits(hdmi->regs, GRL_AUDIO_CFG, AUDIO_ZERO);
- }
- 
- static void mtk_hdmi_hw_aud_unmute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_clear_bits(hdmi, GRL_AUDIO_CFG, AUDIO_ZERO);
-+	regmap_clear_bits(hdmi->regs, GRL_AUDIO_CFG, AUDIO_ZERO);
- }
- 
- static void mtk_hdmi_hw_reset(struct mtk_hdmi *hdmi)
-@@ -278,25 +238,25 @@ static void mtk_hdmi_hw_reset(struct mtk_hdmi *hdmi)
- 			   HDMI_RST, HDMI_RST);
- 	regmap_update_bits(hdmi->sys_regmap, hdmi->sys_offset + HDMI_SYS_CFG1C,
- 			   HDMI_RST, 0);
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG3, CFG3_CONTROL_PACKET_DELAY);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG3, CFG3_CONTROL_PACKET_DELAY);
- 	regmap_update_bits(hdmi->sys_regmap, hdmi->sys_offset + HDMI_SYS_CFG1C,
- 			   ANLG_ON, ANLG_ON);
- }
- 
- static void mtk_hdmi_hw_enable_notice(struct mtk_hdmi *hdmi, bool enable_notice)
- {
--	mtk_hdmi_mask(hdmi, GRL_CFG2, enable_notice ? CFG2_NOTICE_EN : 0,
--		      CFG2_NOTICE_EN);
-+	regmap_update_bits(hdmi->regs, GRL_CFG2, CFG2_NOTICE_EN,
-+			   enable_notice ? CFG2_NOTICE_EN : 0);
- }
- 
- static void mtk_hdmi_hw_write_int_mask(struct mtk_hdmi *hdmi, u32 int_mask)
- {
--	mtk_hdmi_write(hdmi, GRL_INT_MASK, int_mask);
-+	regmap_write(hdmi->regs, GRL_INT_MASK, int_mask);
- }
- 
- static void mtk_hdmi_hw_enable_dvi_mode(struct mtk_hdmi *hdmi, bool enable)
- {
--	mtk_hdmi_mask(hdmi, GRL_CFG1, enable ? CFG1_DVI : 0, CFG1_DVI);
-+	regmap_update_bits(hdmi->regs, GRL_CFG1, CFG1_DVI, enable ? CFG1_DVI : 0);
- }
- 
- static void mtk_hdmi_hw_send_info_frame(struct mtk_hdmi *hdmi, u8 *buffer,
-@@ -342,22 +302,22 @@ static void mtk_hdmi_hw_send_info_frame(struct mtk_hdmi *hdmi, u8 *buffer,
- 		dev_err(hdmi->dev, "Unknown infoframe type %d\n", frame_type);
- 		return;
- 	}
--	mtk_hdmi_clear_bits(hdmi, ctrl_reg, ctrl_frame_en);
--	mtk_hdmi_write(hdmi, GRL_INFOFRM_TYPE, frame_type);
--	mtk_hdmi_write(hdmi, GRL_INFOFRM_VER, frame_ver);
--	mtk_hdmi_write(hdmi, GRL_INFOFRM_LNG, frame_len);
-+	regmap_clear_bits(hdmi->regs, ctrl_reg, ctrl_frame_en);
-+	regmap_write(hdmi->regs, GRL_INFOFRM_TYPE, frame_type);
-+	regmap_write(hdmi->regs, GRL_INFOFRM_VER, frame_ver);
-+	regmap_write(hdmi->regs, GRL_INFOFRM_LNG, frame_len);
- 
--	mtk_hdmi_write(hdmi, GRL_IFM_PORT, checksum);
-+	regmap_write(hdmi->regs, GRL_IFM_PORT, checksum);
- 	for (i = 0; i < frame_len; i++)
--		mtk_hdmi_write(hdmi, GRL_IFM_PORT, frame_data[i]);
-+		regmap_write(hdmi->regs, GRL_IFM_PORT, frame_data[i]);
- 
--	mtk_hdmi_set_bits(hdmi, ctrl_reg, ctrl_frame_en);
-+	regmap_set_bits(hdmi->regs, ctrl_reg, ctrl_frame_en);
- }
- 
- static void mtk_hdmi_hw_send_aud_packet(struct mtk_hdmi *hdmi, bool enable)
- {
--	mtk_hdmi_mask(hdmi, GRL_SHIFT_R2, enable ? 0 : AUDIO_PACKET_OFF,
--		      AUDIO_PACKET_OFF);
-+	regmap_update_bits(hdmi->regs, AUDIO_PACKET_OFF,
-+			   GRL_SHIFT_R2, enable ? 0 : AUDIO_PACKET_OFF);
- }
- 
- static void mtk_hdmi_hw_config_sys(struct mtk_hdmi *hdmi)
-@@ -378,44 +338,44 @@ static void mtk_hdmi_hw_set_deep_color_mode(struct mtk_hdmi *hdmi)
- 
- static void mtk_hdmi_hw_send_av_mute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG4, CTRL_AVMUTE);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG4, CTRL_AVMUTE);
- 	usleep_range(2000, 4000);
--	mtk_hdmi_set_bits(hdmi, GRL_CFG4, CTRL_AVMUTE);
-+	regmap_set_bits(hdmi->regs, GRL_CFG4, CTRL_AVMUTE);
- }
- 
- static void mtk_hdmi_hw_send_av_unmute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_mask(hdmi, GRL_CFG4, CFG4_AV_UNMUTE_EN,
--		      CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET);
-+	regmap_update_bits(hdmi->regs, GRL_CFG4, CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET,
-+			   CFG4_AV_UNMUTE_EN);
- 	usleep_range(2000, 4000);
--	mtk_hdmi_mask(hdmi, GRL_CFG4, CFG4_AV_UNMUTE_SET,
--		      CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET);
-+	regmap_update_bits(hdmi->regs, GRL_CFG4, CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET,
-+			   CFG4_AV_UNMUTE_SET);
- }
- 
- static void mtk_hdmi_hw_ncts_enable(struct mtk_hdmi *hdmi, bool on)
- {
--	mtk_hdmi_mask(hdmi, GRL_CTS_CTRL, on ? 0 : CTS_CTRL_SOFT,
--		      CTS_CTRL_SOFT);
-+	regmap_update_bits(hdmi->regs, GRL_CTS_CTRL, CTS_CTRL_SOFT,
-+			   on ? 0 : CTS_CTRL_SOFT);
- }
- 
- static void mtk_hdmi_hw_ncts_auto_write_enable(struct mtk_hdmi *hdmi,
- 					       bool enable)
- {
--	mtk_hdmi_mask(hdmi, GRL_CTS_CTRL, enable ? NCTS_WRI_ANYTIME : 0,
--		      NCTS_WRI_ANYTIME);
-+	regmap_update_bits(hdmi->regs, GRL_CTS_CTRL, NCTS_WRI_ANYTIME,
-+			   enable ? NCTS_WRI_ANYTIME : 0);
- }
- 
- static void mtk_hdmi_hw_msic_setting(struct mtk_hdmi *hdmi,
- 				     struct drm_display_mode *mode)
- {
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG4, CFG4_MHL_MODE);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG4, CFG4_MHL_MODE);
- 
- 	if (mode->flags & DRM_MODE_FLAG_INTERLACE &&
- 	    mode->clock == 74250 &&
- 	    mode->vdisplay == 1080)
--		mtk_hdmi_clear_bits(hdmi, GRL_CFG2, CFG2_MHL_DE_SEL);
-+		regmap_clear_bits(hdmi->regs, GRL_CFG2, CFG2_MHL_DE_SEL);
- 	else
--		mtk_hdmi_set_bits(hdmi, GRL_CFG2, CFG2_MHL_DE_SEL);
-+		regmap_set_bits(hdmi->regs, GRL_CFG2, CFG2_MHL_DE_SEL);
- }
- 
- static void mtk_hdmi_hw_aud_set_channel_swap(struct mtk_hdmi *hdmi,
-@@ -443,7 +403,7 @@ static void mtk_hdmi_hw_aud_set_channel_swap(struct mtk_hdmi *hdmi,
- 		swap_bit = LFE_CC_SWAP;
- 		break;
- 	}
--	mtk_hdmi_mask(hdmi, GRL_CH_SWAP, swap_bit, 0xff);
-+	regmap_update_bits(hdmi->regs, GRL_CH_SWAP, 0xff, swap_bit);
- }
- 
- static void mtk_hdmi_hw_aud_set_bit_num(struct mtk_hdmi *hdmi,
-@@ -464,7 +424,7 @@ static void mtk_hdmi_hw_aud_set_bit_num(struct mtk_hdmi *hdmi,
- 		break;
- 	}
- 
--	mtk_hdmi_mask(hdmi, GRL_AOUT_CFG, val, AOUT_BNUM_SEL_MASK);
-+	regmap_update_bits(hdmi->regs, GRL_AOUT_CFG, AOUT_BNUM_SEL_MASK, val);
- }
- 
- static void mtk_hdmi_hw_aud_set_i2s_fmt(struct mtk_hdmi *hdmi,
-@@ -472,7 +432,7 @@ static void mtk_hdmi_hw_aud_set_i2s_fmt(struct mtk_hdmi *hdmi,
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_CFG0);
-+	regmap_read(hdmi->regs, GRL_CFG0, &val);
- 	val &= ~(CFG0_W_LENGTH_MASK | CFG0_I2S_MODE_MASK);
- 
- 	switch (i2s_fmt) {
-@@ -496,7 +456,7 @@ static void mtk_hdmi_hw_aud_set_i2s_fmt(struct mtk_hdmi *hdmi,
- 		val |= CFG0_I2S_MODE_I2S | CFG0_W_LENGTH_16BIT;
- 		break;
- 	}
--	mtk_hdmi_write(hdmi, GRL_CFG0, val);
-+	regmap_write(hdmi->regs, GRL_CFG0, val);
- }
- 
- static void mtk_hdmi_hw_audio_config(struct mtk_hdmi *hdmi, bool dst)
-@@ -505,14 +465,14 @@ static void mtk_hdmi_hw_audio_config(struct mtk_hdmi *hdmi, bool dst)
- 	u8 val;
- 
- 	/* Disable high bitrate, set DST packet normal/double */
--	mtk_hdmi_clear_bits(hdmi, GRL_AOUT_CFG, HIGH_BIT_RATE_PACKET_ALIGN);
-+	regmap_clear_bits(hdmi->regs, GRL_AOUT_CFG, HIGH_BIT_RATE_PACKET_ALIGN);
- 
- 	if (dst)
- 		val = DST_NORMAL_DOUBLE | SACD_DST;
- 	else
- 		val = 0;
- 
--	mtk_hdmi_mask(hdmi, GRL_AUDIO_CFG, val, mask);
-+	regmap_update_bits(hdmi->regs, GRL_AUDIO_CFG, mask, val);
- }
- 
- static void mtk_hdmi_hw_aud_set_i2s_chan_num(struct mtk_hdmi *hdmi,
-@@ -553,10 +513,10 @@ static void mtk_hdmi_hw_aud_set_i2s_chan_num(struct mtk_hdmi *hdmi,
- 		i2s_uv = I2S_UV_CH_EN(0);
- 	}
- 
--	mtk_hdmi_write(hdmi, GRL_CH_SW0, ch_switch & 0xff);
--	mtk_hdmi_write(hdmi, GRL_CH_SW1, (ch_switch >> 8) & 0xff);
--	mtk_hdmi_write(hdmi, GRL_CH_SW2, (ch_switch >> 16) & 0xff);
--	mtk_hdmi_write(hdmi, GRL_I2S_UV, i2s_uv);
-+	regmap_write(hdmi->regs, GRL_CH_SW0, ch_switch & 0xff);
-+	regmap_write(hdmi->regs, GRL_CH_SW1, (ch_switch >> 8) & 0xff);
-+	regmap_write(hdmi->regs, GRL_CH_SW2, (ch_switch >> 16) & 0xff);
-+	regmap_write(hdmi->regs, GRL_I2S_UV, i2s_uv);
- }
- 
- static void mtk_hdmi_hw_aud_set_input_type(struct mtk_hdmi *hdmi,
-@@ -564,7 +524,7 @@ static void mtk_hdmi_hw_aud_set_input_type(struct mtk_hdmi *hdmi,
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_CFG1);
-+	regmap_read(hdmi->regs, GRL_CFG1, &val);
- 	if (input_type == HDMI_AUD_INPUT_I2S &&
- 	    (val & CFG1_SPDIF) == CFG1_SPDIF) {
- 		val &= ~CFG1_SPDIF;
-@@ -572,7 +532,7 @@ static void mtk_hdmi_hw_aud_set_input_type(struct mtk_hdmi *hdmi,
- 		(val & CFG1_SPDIF) == 0) {
- 		val |= CFG1_SPDIF;
- 	}
--	mtk_hdmi_write(hdmi, GRL_CFG1, val);
-+	regmap_write(hdmi->regs, GRL_CFG1, val);
- }
- 
- static void mtk_hdmi_hw_aud_set_channel_status(struct mtk_hdmi *hdmi,
-@@ -581,13 +541,13 @@ static void mtk_hdmi_hw_aud_set_channel_status(struct mtk_hdmi *hdmi,
- 	int i;
- 
- 	for (i = 0; i < 5; i++) {
--		mtk_hdmi_write(hdmi, GRL_I2S_C_STA0 + i * 4, channel_status[i]);
--		mtk_hdmi_write(hdmi, GRL_L_STATUS_0 + i * 4, channel_status[i]);
--		mtk_hdmi_write(hdmi, GRL_R_STATUS_0 + i * 4, channel_status[i]);
-+		regmap_write(hdmi->regs, GRL_I2S_C_STA0 + i * 4, channel_status[i]);
-+		regmap_write(hdmi->regs, GRL_L_STATUS_0 + i * 4, channel_status[i]);
-+		regmap_write(hdmi->regs, GRL_R_STATUS_0 + i * 4, channel_status[i]);
- 	}
- 	for (; i < 24; i++) {
--		mtk_hdmi_write(hdmi, GRL_L_STATUS_0 + i * 4, 0);
--		mtk_hdmi_write(hdmi, GRL_R_STATUS_0 + i * 4, 0);
-+		regmap_write(hdmi->regs, GRL_L_STATUS_0 + i * 4, 0);
-+		regmap_write(hdmi->regs, GRL_R_STATUS_0 + i * 4, 0);
- 	}
- }
- 
-@@ -595,13 +555,13 @@ static void mtk_hdmi_hw_aud_src_reenable(struct mtk_hdmi *hdmi)
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_MIX_CTRL);
-+	regmap_read(hdmi->regs, GRL_MIX_CTRL, &val);
- 	if (val & MIX_CTRL_SRC_EN) {
- 		val &= ~MIX_CTRL_SRC_EN;
--		mtk_hdmi_write(hdmi, GRL_MIX_CTRL, val);
-+		regmap_write(hdmi->regs, GRL_MIX_CTRL, val);
- 		usleep_range(255, 512);
- 		val |= MIX_CTRL_SRC_EN;
--		mtk_hdmi_write(hdmi, GRL_MIX_CTRL, val);
-+		regmap_write(hdmi->regs, GRL_MIX_CTRL, val);
- 	}
- }
- 
-@@ -609,10 +569,10 @@ static void mtk_hdmi_hw_aud_src_disable(struct mtk_hdmi *hdmi)
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_MIX_CTRL);
-+	regmap_read(hdmi->regs, GRL_MIX_CTRL, &val);
- 	val &= ~MIX_CTRL_SRC_EN;
--	mtk_hdmi_write(hdmi, GRL_MIX_CTRL, val);
--	mtk_hdmi_write(hdmi, GRL_SHIFT_L1, 0x00);
-+	regmap_write(hdmi->regs, GRL_MIX_CTRL, val);
-+	regmap_write(hdmi->regs, GRL_SHIFT_L1, 0x00);
- }
- 
- static void mtk_hdmi_hw_aud_set_mclk(struct mtk_hdmi *hdmi,
-@@ -620,7 +580,7 @@ static void mtk_hdmi_hw_aud_set_mclk(struct mtk_hdmi *hdmi,
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_CFG5);
-+	regmap_read(hdmi->regs, GRL_CFG5, &val);
- 	val &= CFG5_CD_RATIO_MASK;
- 
- 	switch (mclk) {
-@@ -643,7 +603,7 @@ static void mtk_hdmi_hw_aud_set_mclk(struct mtk_hdmi *hdmi,
- 		val |= CFG5_FS256;
- 		break;
- 	}
--	mtk_hdmi_write(hdmi, GRL_CFG5, val);
-+	regmap_write(hdmi->regs, GRL_CFG5, val);
- }
- 
- struct hdmi_acr_n {
-@@ -727,9 +687,9 @@ static void do_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi, unsigned int n,
- 	unsigned char val[NCTS_BYTES];
- 	int i;
- 
--	mtk_hdmi_write(hdmi, GRL_NCTS, 0);
--	mtk_hdmi_write(hdmi, GRL_NCTS, 0);
--	mtk_hdmi_write(hdmi, GRL_NCTS, 0);
-+	regmap_write(hdmi->regs, GRL_NCTS, 0);
-+	regmap_write(hdmi->regs, GRL_NCTS, 0);
-+	regmap_write(hdmi->regs, GRL_NCTS, 0);
- 	memset(val, 0, sizeof(val));
- 
- 	val[0] = (cts >> 24) & 0xff;
-@@ -742,7 +702,7 @@ static void do_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi, unsigned int n,
- 	val[6] = n & 0xff;
- 
- 	for (i = 0; i < NCTS_BYTES; i++)
--		mtk_hdmi_write(hdmi, GRL_NCTS, val[i]);
-+		regmap_write(hdmi->regs, GRL_NCTS, val[i]);
- }
- 
- static void mtk_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi,
-@@ -757,8 +717,7 @@ static void mtk_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi,
- 	dev_dbg(hdmi->dev, "%s: sample_rate=%u, clock=%d, cts=%u, n=%u\n",
- 		__func__, sample_rate, clock, n, cts);
- 
--	mtk_hdmi_mask(hdmi, DUMMY_304, AUDIO_I2S_NCTS_SEL_64,
--		      AUDIO_I2S_NCTS_SEL);
-+	regmap_update_bits(hdmi->regs, DUMMY_304, AUDIO_I2S_NCTS_SEL, AUDIO_I2S_NCTS_SEL_64);
- 	do_hdmi_hw_aud_set_ncts(hdmi, n, cts);
- }
- 
-@@ -878,7 +837,7 @@ static void mtk_hdmi_aud_set_input(struct mtk_hdmi *hdmi)
- 	bool dst;
- 
- 	mtk_hdmi_hw_aud_set_channel_swap(hdmi, HDMI_AUD_SWAP_LFE_CC);
--	mtk_hdmi_set_bits(hdmi, GRL_MIX_CTRL, MIX_CTRL_FLAT);
-+	regmap_set_bits(hdmi->regs, GRL_MIX_CTRL, MIX_CTRL_FLAT);
- 
- 	if (hdmi->aud_param.aud_input_type == HDMI_AUD_INPUT_SPDIF &&
- 	    hdmi->aud_param.aud_codec == HDMI_AUDIO_CODING_TYPE_DST) {
-@@ -910,7 +869,7 @@ static int mtk_hdmi_aud_set_src(struct mtk_hdmi *hdmi,
- 
- 	mtk_hdmi_hw_ncts_enable(hdmi, false);
- 	mtk_hdmi_hw_aud_src_disable(hdmi);
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG2, CFG2_ACLK_INV);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG2, CFG2_ACLK_INV);
- 
- 	if (hdmi->aud_param.aud_input_type == HDMI_AUD_INPUT_I2S) {
- 		switch (sample_rate) {
-@@ -1424,7 +1383,6 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	struct device_node *cec_np, *remote, *i2c_np;
- 	struct platform_device *cec_pdev;
- 	struct regmap *regmap;
--	struct resource *mem;
- 	int ret;
- 
- 	ret = mtk_hdmi_get_all_clk(hdmi, np);
-@@ -1470,8 +1428,7 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	}
- 	hdmi->sys_regmap = regmap;
- 
--	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	hdmi->regs = devm_ioremap_resource(dev, mem);
-+	hdmi->regs = device_node_to_regmap(dev->of_node);
- 	if (IS_ERR(hdmi->regs)) {
- 		ret = PTR_ERR(hdmi->regs);
- 		goto put_device;
--- 
-2.47.0
+> This should simply be a dma-ranges property in the PCIe host controller
+> DT node, which should describe the DMA address range limits for
+> transactions passing through the host.
 
+far better indeed, dma-ranges works like a charm
+
+thanks,
+
+> 
+> Regards,
+> Lucas
+> 
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +static void quirk_stm32_dma_mask(struct pci_dev *pci)
+>>> +{
+>>> +	struct pci_dev *root_port;
+>>> +
+>>> +	root_port = pcie_find_root_port(pci);
+>>> +
+>>> +	if (root_port && is_stm32_pcie_driver(root_port->dev.parent))
+>>> +		pci_walk_bus(pci->bus, stm32_dma_limit, NULL);
+>>> +}
+>>> +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SYNOPSYS, 0x0550, quirk_stm32_dma_mask);
+>>
+> 
 
