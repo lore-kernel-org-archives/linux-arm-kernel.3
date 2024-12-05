@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4939E77171
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 08:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1563EE77171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 08:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcsDxMoiN7TNJEZpNWOj8buoqn0gV394uJbXKXQCWiU=; b=fYpxwK+QgVaqiLdNCgEBwmVBUa
-	zmcmTX32ybhimQb9uDEBy6rPL9CwAiIOlWrpnc/xwdiWE/A6HtaJiZ/IM6+JZe+Ekh4jbsRHvyRKU
-	9Wm2r8Z+cGzu4APYMyGIHqA89p2VYVbePNrbU3ODjMk9WK44VGVciDs7fUCZpN1/yjXGIyG/A6fry
-	FkwmtE90fvN9NYUuRZpP/CI9aAfhGzZJslWEitH0/HkD8900q46qC55ZiAiOiOcVhjARUswFE4umt
-	C0Lk7yBCjBY6A6JxNFJxUiHkDssc+EemBRwpr+ZGqwgDAShGtw9375KfmZEsJudZcyUs14cT8moiN
-	3LsYGNDg==;
+	bh=d9IFvjQJur5Mc1jKu7jmQt0cXfWwbZKjMKrDZ+uBFiA=; b=kP2CSIOJNLZJjaVZDzZkrS2u5A
+	Tb03eukI7ngsaavTBUH/iqdQUIyzwOHkkUNXN9pSjamPPOz50vE8/O8Zia3cmhFYC72eaZm/bR1Ji
+	WVvThAN8zp7Ycg6MFRBQOro5uQmAWTLZlOwFTIsSo1Jm5fesO3tZwEfDKbVoBOrdlsz+wXh1F0R6T
+	GZKdNdyj4wJQhcwteg78yXVmS54/7mzSZBSrxxIunj8BrisUKFrsoavTDJGtEsUZfKeFzjNDWpx1l
+	BZk6PzUtokLZ+ueXlJ7Isv6v3mysCuVuuBz4t7QyNhDbg5k/y88rCWz3OXvVWmJQ/GE86+Rrr6jJ9
+	Ngp6gi+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7fc-0000000FFmY-3FXw;
-	Thu, 05 Dec 2024 08:57:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJ7gd-0000000FG2Z-1E7d;
+	Thu, 05 Dec 2024 08:58:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7cw-0000000FFEZ-2uCr;
-	Thu, 05 Dec 2024 08:54:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IcsDxMoiN7TNJEZpNWOj8buoqn0gV394uJbXKXQCWiU=; b=k8jP2WcugNo+/MQCVJYO3fIkhb
-	3j/oEHrSZqj2AAkSxz9AhN98yp3oMZrlej7KKPK3JVYTXM4YfeRP8qspP0FaEihB6wviCExGlDMaR
-	lsOAIkY5tjia1/V5ndmmNmNjFYcyHshqcLNueCpMawZiAIUZJL+7OvAS64Xu+VNLpMIwIbrWjvnMv
-	efCtCVeM9qkX43oKq5D4jpr8Gdd96UQNsJn4Djli72NsRerZByogf8BRacfwCsEHEDTOa5pM3cb9f
-	jDxt3rYm/fzlpZiofwZsb8eShVHPKVzh7bvcZaoQ3IUeEefzGbKgL8GpZtEPcawH56k7O6Aad6Vwn
-	BBApXpgg==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7ct-00000002oKm-2LyV;
-	Thu, 05 Dec 2024 08:54:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IcsDxMoiN7TNJEZpNWOj8buoqn0gV394uJbXKXQCWiU=; b=cO1Bn9l+peVZ5Vp9k8peqnNgHR
-	aIBl+/9vunapUW8U+SeqbA2ARNPeIj/OnX+tsUTfGYNembEi14mWx+i7abMncCvpjz1UfR7yFbDvH
-	OBLv0HW+HWm0ObwTS97O+2SBqOryjFkK+f/RXloYT8M3Ma0wzTQ/dvYhb0uTzsMcrALxBHjQ0B9m/
-	VeTpNrYXoNJbNk+LKqtP79AT9NMzLN0EvmEjE2IYpHR57+fUcXJ3zczSieD8MMBqhEBubBUKIFYLi
-	G1yYOzNlqoKvPR3Oib9JptAQA0I6zlLL5T6acz445OFfnYoFepSKmZhc4pNf0p0KVZfw4DnMTJi5s
-	fckR/8gQ==;
-Received: from i5e86190f.versanet.de ([94.134.25.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tJ7cg-0001mo-UZ; Thu, 05 Dec 2024 09:54:10 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: hjc@rock-chips.com, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Piotr Zalewski <pZ010001011111@proton.me>
-Cc: skhan@linuxfoundation.org, Piotr Zalewski <pZ010001011111@proton.me>,
- Daniel Stone <daniel@fooishbar.org>, Dragan Simic <dsimic@manjaro.org>,
- Diederik de Haas <didi.debian@cknow.org>
-Subject: Re: [PATCH v7] rockchip/drm: vop2: add support for gamma LUT
-Date: Thu, 05 Dec 2024 09:54:09 +0100
-Message-ID: <12938960.VsHLxoZxqI@diego>
-In-Reply-To: <9Rp0NJW2QG5qDduowVaialZWN6xTe9KJFciu7Q2LERJZQXsUgFvMGXfcFaNznIEJEBpZeOdZPuL4fxOEFduaSJLuQJ3cIvN-fx2lEzYSBKE=@proton.me>
-References: <20241101185545.559090-3-pZ010001011111@proton.me>
- <9Rp0NJW2QG5qDduowVaialZWN6xTe9KJFciu7Q2LERJZQXsUgFvMGXfcFaNznIEJEBpZeOdZPuL4fxOEFduaSJLuQJ3cIvN-fx2lEzYSBKE=@proton.me>
+	id 1tJ7ec-0000000FFYQ-2cLC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 08:56:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C34A0A42649;
+	Thu,  5 Dec 2024 08:54:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73C53C4CED1;
+	Thu,  5 Dec 2024 08:56:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733388969;
+	bh=pH8a0eNfRI80cchfeptzgtUqN5gprH6NUlyyyD8s8k8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hRYlrZp4YbGf3IH2/CZlwrjiBWrjQjPllwLRDW0N44b8FMUTV4+lC5DVRm2fXg59i
+	 zo3acu0Lg3JGMV2uJCcUpJLOTU1O29naKmDcdHmQqK88S7TdSUnOQ/BBxbPysZS+ez
+	 GWY8vz4V4RA6HNt9oua3A9v9WevjE31P+GBUcmNkpcs/L9e82eFC8CRM7v1c4+vZJx
+	 TLSFlb8kqAniIMfIIPuCnYSmXYjmrKMotzaY8W5+tjVtcyvogU//yXlTPS1rPXSdtN
+	 wdeO2yJMqYNYYaVjEotOQpTck5uMMr+RDe3r4xU0RfX6BZdF9MHP63qFxrZCXugDSb
+	 czIM+Z6jeYOVw==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1tJ7eZ-0000000082O-2LQ2;
+	Thu, 05 Dec 2024 09:56:08 +0100
+Date: Thu, 5 Dec 2024 09:56:07 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
+Cc: Stephan Gerhold <stephan.gerhold@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Krishna Kurapati <quic_kriskura@quicinc.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
+ fingerprint reader
+Message-ID: <Z1Fqp4EXxDbLOM4e@hovoldconsulting.com>
+References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
+ <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+ <Z07bgH5vVk44zuEH@hovoldconsulting.com>
+ <d095ae2a-3f9d-464c-9dc8-a3e73eac6598@oss.qualcomm.com>
+ <98b2b88b-9690-44a7-9b22-2f23e6606e82@oss.qualcomm.com>
+ <Z1FhQ3OUI0t3k1_q@hovoldconsulting.com>
+ <e6f60ca6-a4d2-4539-ab9b-dabe95dd2d21@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e6f60ca6-a4d2-4539-ab9b-dabe95dd2d21@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_085423_737895_3CCEC1C4 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20241205_005610_722228_732EE595 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +93,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Piotr,
+On Thu, Dec 05, 2024 at 01:52:08PM +0530, Krishna Kurapati wrote:
+> On 12/5/2024 1:46 PM, Johan Hovold wrote:
 
-Am Mittwoch, 4. Dezember 2024, 16:45:21 CET schrieb Piotr Zalewski:
-> I just noticed that after coming out of suspend gamma LUT is lost and must
-> be rewritten by userspace.
+> > And IIRC I even had to specify more than just the fingerprint reader PHY
+> > on the X13s to get it to enumerate. I never had time to fully determine
+> > why this was the case though.
 > 
-> So I guess it will be needed to save LUT to a buffer and rewrite it after
-> going out of suspend during modeset?
+> This might need to be checked. Did you attempt adding each phy 
+> individually ? Just incase the first PHY is not the one corresponding to 
+> the fingerprint reader.
 
-Most likely ... the old vop does this already too, so I guess you can
-get inspiration from there. (gamma_set call in vop_crtc_atomic_enable())
+Yes, I tried each PHY in turn, and only enabling the HS and SS PHY for
+the fingerprint reader port, but that was not enough.
 
-> I checked the patch isn't yet in the "official" linux-next.
-
-The patch is in drm-misc-next:
-https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/4f537776340dab2b680a4d8554567f6884240d0b
-
-so should turn up in linux-next at some point. This also means, please
-provide a follow-up patch for the suspend handling.
-
-Thanks a lot
-Heiko
-
-
+Johan
 
