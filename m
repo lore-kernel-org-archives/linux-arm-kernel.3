@@ -4,97 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84DFE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213DFE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPXoJcPeSQwufs65dme8yzbSHiM4hQw48CgHRQis7MU=; b=LHHyZtrn5inPaIm8XzNqcjNXM3
-	nlBUQD2RQG5JyOcl7jXNg27hKhD23+sslGqGlPGrJRPft4szA0yPG/9ab4t5472cPT97S2O+SH66w
-	xBpvIoNJU5Tu93IRTEIWvRZzxG9FKfFoUl6adoA+suWl7+TJZFgFnojMVs4J8ucY4Sd8WPtlmGpOH
-	eXm7nuc82Lg6fptTIG6A160R5kny250/43fIoxCtZqoNkbgFb8skcKKcspKf5kmDbFBuESK3ud2P9
-	StYO4zVeLaV9KMTHAgCzy3rMSbuJXC3EjotSUriZCbPnLvt1qJ53AaLRCoQBxpGmS+B3YudL0AoXP
-	AmsXbzxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EVewGd+CHap/GFBRG9A4Vc53nu5CRbniCuyyyIyrS/E=; b=lA1mvgvVJsPF5JmLYCx+zR+0AH
+	/XySRNucq16ZqF/IjCsgKUnXMehTg6PuRmAla0PU9DttLZmlFSEXb37W61XKyovMhz1PI0bOXPbpY
+	w2jsQ3BNw2HrIX4QbchXauFXpjmzHgZPg9okqlzQ7KPyIR4GkoWc4gJ0p/oKRIC7p0fntXxKD73Tf
+	Hkwju1Bza9wiTyMyt42zxvPuS+8nCgu2hLdBZYFiefoDrJXoxomRxeSHziOD8D4JUweYStdB/xsF2
+	DBWemx2TeqvHdlbZAqfz0FsHr0fhKHXI8jlS+V2jSOk8e7GQFKjnhDwHw2AenZ2fAbX2jR30YBbwZ
+	k6hwI3Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEiy-0000000GkfO-3sdl;
-	Thu, 05 Dec 2024 16:29:08 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tJEjx-0000000Gknf-3TCP;
+	Thu, 05 Dec 2024 16:30:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEhx-0000000GkVc-023P;
-	Thu, 05 Dec 2024 16:28:06 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa62fc2675cso8107666b.1;
-        Thu, 05 Dec 2024 08:28:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733416083; x=1734020883; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xPXoJcPeSQwufs65dme8yzbSHiM4hQw48CgHRQis7MU=;
-        b=MPc5LiTyenZ1azZRy9BH8K/kCb+nFb08oO9rEAforrRxvDMY9Bh4MhVwcvXKis+ciS
-         3zslKp3e9c2QuIHUiz7gHWRGNx51ag4DJPt+6Q8VHMc8WRwysLKpyiRtWR37Dvr/EvNa
-         bXOwU8hoV7Y7q4GvZR0GM4B67EwG1VBSCzTpWkZ/gYHOP9qdH1K3bymNSzNm840iN3uV
-         XKfIhUqI6j3NyFrJshFdbULTdZJrDf2EbiiMRPHGGeox6BtWZ8rK+j/gFSldCDuty+9m
-         5yagwn76iAbyy93rQNDTdAiBAaQ0quW1wzYExviv0kVfZJ1mCbsycUWA7MwlDMjI+91a
-         INdQ==
+	id 1tJEiV-0000000Gkaz-28jM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 16:28:40 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B59whmZ030449
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Dec 2024 16:28:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	EVewGd+CHap/GFBRG9A4Vc53nu5CRbniCuyyyIyrS/E=; b=Ch5SBvcB0TbZns63
+	81Peg1qa9GnWJwaAeVOgwplc7EZrn58imN7b63HagQ6JYvhDMxyBgtcaT/pmueuB
+	zkUo2dJezjDsRZE+nbXSJnkLFlBzX3ZP8wC4PzS8mDIZPQpXCp0yy6E8LkoLR/DQ
+	V3w+xxssOZOK08jCqrhFmfzGULacHOFNW4ZY23LdjK6pRM42tj28cJeoU6LNeCOQ
+	PL+AxoFXYpW29PE4Z9V4mNkiv56UTIzSVPRwI+y/myG9y9EVMLcWumWjOeHxXYpG
+	vUTvJlD6zXzVds1K+BYG0s9XDU3kJy7tWW1JTxKmz1qgGrx9ybNFOJMMnQ7eIh8K
+	+MCIaw==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43ba1412da-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 16:28:38 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6d881a3e466so2950696d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 08:28:38 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733416083; x=1734020883;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xPXoJcPeSQwufs65dme8yzbSHiM4hQw48CgHRQis7MU=;
-        b=xHf+C1/T5yInyO6YELlHBsKN4jB3oB+kobPT+6C7YQdV2W7zXcC9OYb0BfCOx0aIpA
-         abldkJeu3UzxTYTt6ih1i5LQyw/gmanHyiGCcV3lmX3An2LTTVUg2FwIiSRCyhRULeeC
-         tJ/oYtSbMWu3Yc3cRTT4sZkLrLmDi7SRmoPuWX0SpI8n/uwciHIG1h2Bf4Rpb3XbSzyd
-         mBSv+mvDh/Ubit1gnc49hq3ZHwmhDjZpI3E99Zu/8RjNbVW4wTZTuEt24piV2dZIG7b3
-         AhxQt3OLmszy3nziz0r+nGxrJ0ruKAK/NL8Z9xm4TtIMF6fIslc/InjnTi1veL+8O/wK
-         ND5A==
-X-Forwarded-Encrypted: i=1; AJvYcCXcGb8WAkR8IjaHFznWbmA0YZ7Yw3tsDTdHbAl9Pak94ki9uvN8Vq1Zql8SkNILHuSyeoN7F492rewJYWqdyeZh@lists.infradead.org, AJvYcCXfcjq6lj4eRivG+eiyuo1ub0eAU49tKzoPeyYHMqdz71zxpqVxmBwRNdtxagckZPd/jOlt2ZK50Hd9gepGSXU=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5OxkmEY/3aV1eqL5b29taCrtFBukF80oWHu4Ptyy5L/wV+FVg
-	WAaBle67cw0Wy1OG7YS1aiSHBFg/hMfpnp+EN9f+7duWwfGUdO2A
-X-Gm-Gg: ASbGncs1LNz23LSfljQjN4XmRDXgEqGkj+jUnUt9rq80bFgrKnKTQ5ILxnLp0XLjh7d
-	Kgz3/nh94ADXrYPNkPwUyo1mmNXYfVT/YCGtFbBvsQREqiSFvkRoi1lC5bB2tlPwjHCHu6tb6r+
-	1BZFSc72VVjzBpcHlmsDnMcg7+IK3NhCt1K+2/cxC1mW5dcl4Js/yBi+Sof5FLTew88oAaay0uS
-	Wu7gXrnxBZpkVH4UsjKCc4Qvov3F/X4R82ym+0=
-X-Google-Smtp-Source: AGHT+IFXo8dPa3kP8TWBFDql5AxNgfAf43Sw1KmsQzDEJFJ2Gu14qwW18WvRihEawx3T8P1t1NEPUw==
-X-Received: by 2002:a17:907:7b85:b0:a99:f230:8d6e with SMTP id a640c23a62f3a-aa5f7d9a1c9mr486801166b.7.1733416082676;
-        Thu, 05 Dec 2024 08:28:02 -0800 (PST)
-Received: from skbuf ([188.25.135.117])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62601b5ddsm111902466b.118.2024.12.05.08.28.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 08:28:02 -0800 (PST)
-Date: Thu, 5 Dec 2024 18:27:59 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v9 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-Message-ID: <20241205162759.pm3iz42bhdsvukfm@skbuf>
-References: <20241205145142.29278-1-ansuelsmth@gmail.com>
- <20241205145142.29278-4-ansuelsmth@gmail.com>
+        d=1e100.net; s=20230601; t=1733416117; x=1734020917;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EVewGd+CHap/GFBRG9A4Vc53nu5CRbniCuyyyIyrS/E=;
+        b=OHz3cESEZSSbd8ug98+O3K/cLLuG1Jp9Z5LGb3r0OIJvl3UxwWDF1C3EJcosDEpK+w
+         0IMo4o/0WYNfg7JLjxZHEAjxgRwD1obT8BSz2lOv72o/UVpF/3d80D8Fpy/o93F9Q5j3
+         9jBuJpd4PBX86Ky3sxCkcfCvlI1pV91S6irfNCwjNyKbhdlRv1paYsY8pcInPzsnGIy/
+         KpLeFCfIvp+KbILJl1r+VHVQO0wBAUiI7ELc9vKzaFZXa27K6zQQRuxukPUsjqJPNSLC
+         5M2qIlWRcj0zMF2PyoIJqXlRd5p7e5MahwKfztX02Tu3o5wqNcUsfqkAm2B2fuhU5Ums
+         acvg==
+X-Gm-Message-State: AOJu0YxSQGO9vGAu5XVLGNF+4aI61ZEhOjQMQ8jubTW4QW3+AcxlOZlE
+	WBwZWKmdDtomqadOH+qCmWP1Y+plhtluhmVs28lLTpMDE3abWHc0F0Vyl/OSHhTG3bko93qKn9r
+	oAS+r5w6ayoqmU9gWLIgHvMu/hUgAl0a0kgDD3NUh+i6aB/nqidwK0nKH+2g4biULzJ+TerVFzQ
+	==
+X-Gm-Gg: ASbGncsnxxKMTzX7yCok0mTGGTweHDLiAtqigMjlGZ+aSUp2mp86zlfqs8qmHAFqyqW
+	vb2Q5ZKGC/NEGSnj7nimir3q211CNbRkNAp7X/dhQ0OmgbFTJzYNzRTTjlAjYzpA9LWZK7rNiDH
+	3W8MtAra40MRKyPSRl/5jIAtoOb+vD4aFrKzjYS5Pswt8S+J50yOcLFd0fSHYma7PEjSGfvU/IB
+	xyWM5BznuHWZNOLFziFsJDrdcMr8v/66gSKViYX2GZ3TGIIq4+/syrzuRTMPeJjIiMU3oBVaflW
+	cCIPFvga9zsup8RvebUw5k2raXV+uA4=
+X-Received: by 2002:a05:620a:2a0b:b0:7b6:72f6:210e with SMTP id af79cd13be357-7b6a6bddcf1mr653503785a.3.1733416117639;
+        Thu, 05 Dec 2024 08:28:37 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGIQmJDqB7aPqLdNqqxjOXlNlTRx0vV7ECtpg6Wubt2pVIN3Isf/fldXO36qKZaV1jYkkt/Pw==
+X-Received: by 2002:a05:620a:2a0b:b0:7b6:72f6:210e with SMTP id af79cd13be357-7b6a6bddcf1mr653500585a.3.1733416117234;
+        Thu, 05 Dec 2024 08:28:37 -0800 (PST)
+Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d14c7aa441sm964726a12.72.2024.12.05.08.28.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Dec 2024 08:28:36 -0800 (PST)
+Message-ID: <e586b76f-50a7-47cc-9ce6-a37f9b53262f@oss.qualcomm.com>
+Date: Thu, 5 Dec 2024 17:28:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241205145142.29278-4-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 4/5] arm64: dts: qcom: sc7280: Add support for camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
+        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
+        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
+        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
+        will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, kernel@quicinc.com
+References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
+ <20241204100003.300123-5-quic_vikramsa@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20241204100003.300123-5-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: La-7ua6B_Tda5fgqjdZNSiPUC5rsj1MW
+X-Proofpoint-ORIG-GUID: La-7ua6B_Tda5fgqjdZNSiPUC5rsj1MW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
+ phishscore=0 clxscore=1015 mlxscore=0 lowpriorityscore=0 adultscore=0
+ priorityscore=1501 suspectscore=0 mlxlogscore=999 malwarescore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412050119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_082805_043945_DFFB46FB 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20241205_082839_669764_58D4B65A 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +125,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 03:51:33PM +0100, Christian Marangi wrote:
-> +static int an8855_efuse_read(void *context, unsigned int offset,
-> +			     void *val, size_t bytes)
-> +{
-> +	struct an8855_priv *priv = context;
-> +
-> +	return regmap_bulk_read(priv->regmap, AN8855_EFUSE_DATA0 + offset,
-> +				val, bytes / sizeof(u32));
-> +}
-> +
-> +static struct nvmem_config an8855_nvmem_config = {
-> +	.name = "an8855-efuse",
-> +	.size = AN8855_EFUSE_CELL * sizeof(u32),
-> +	.stride = sizeof(u32),
-> +	.word_size = sizeof(u32),
-> +	.reg_read = an8855_efuse_read,
-> +};
-> +
-> +static int an8855_sw_register_nvmem(struct an8855_priv *priv)
-> +{
-> +	struct nvmem_device *nvmem;
-> +
-> +	an8855_nvmem_config.priv = priv;
-> +	an8855_nvmem_config.dev = priv->dev;
-> +	nvmem = devm_nvmem_register(priv->dev, &an8855_nvmem_config);
-> +	if (IS_ERR(nvmem))
-> +		return PTR_ERR(nvmem);
-> +
-> +	return 0;
-> +}
+On 4.12.2024 11:00 AM, Vikram Sharma wrote:
+> Add changes to support the camera subsystem on the SC7280.
+> 
+> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
 
-At some point we should enforce the rule that new drivers for switch
-SoCs with complex peripherals should use MFD and move all non-networking
-peripherals to drivers handled by their respective subsystems.
+[...]
 
-I don't have the expertise to review a nvmem driver, and the majority of
-them are in drivers/nvmem, with a dedicated subsystem and maintainer.
-In general I want to make sure it is clear that I don't encourage the
-model where DSA owns the entire mdio_device.
+(isp@ as mentioned)
 
-What other peripherals are there on this SoC other than an MDIO bus and
-an EFUSE? IRQCHIP, GPIOs, LED controller, sensors?
+> +			interconnects = <&gem_noc  MASTER_APPSS_PROC 0 &cnoc2 SLAVE_CAMERA_CFG 0>,
 
-You can take a look at drivers/mfd/ocelot* and
-Documentation/devicetree/bindings/mfd/mscc,ocelot.yaml for an example on
-how to use mfd for the top-level MDIO device, and DSA as just the driver
-for the Ethernet switch component (which will be represented as a
-platform_device).
+QCOM_ICC_TAG_ACTIVE_ONLY
+
+> +					<&mmss_noc MASTER_CAMNOC_HF  0 &mc_virt SLAVE_EBI1     0>;
+
+QCOM_ICC_TAG_ALWAYS
+
+> +			interconnect-names = "ahb", "hf_0";
+> +
+> +			iommus = <&apps_smmu 0x800 0x4e0>;
+> +
+> +			power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
+> +					<&camcc CAM_CC_IFE_1_GDSC>,
+> +					<&camcc CAM_CC_IFE_2_GDSC>,
+> +					<&camcc CAM_CC_TITAN_TOP_GDSC>;
+> +			power-domain-names = "ife0", "ife1", "ife2", "top";
+
+vertical list, please
+
+Konrad
 
