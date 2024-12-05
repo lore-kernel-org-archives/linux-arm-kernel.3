@@ -4,104 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD4EE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38988E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcdfiovRB1tZ2kc8fOZRVqxaf9TP9RnwKID2+Jd+EAM=; b=LP4HoWdMTtIjEBajiQ8C20zcsK
-	irGHgCkQWpUgKybHaC9gooSQdxCAyamN14LNHgyj2T5xi9dORw0iRgne0QIAlrHA7UJDhnw2fh38Z
-	pNI/o8rK5jCGFDdhgCqzIZb9I5i48OJwLXsFwLXd6pKjFvVL8IFfwtgrqi3tOGm7x4BlLJMvo2VKo
-	eDaeSfDSUacHXEeVqjbgf8YlNU6G9VllpiRF8knuGe3NYA/h+ZiH8aCWyt2fTzyBhGueoUNeaciF3
-	44kMQ99a+8RB9Sl6jtlHgE7anBrL8NOCoo8WkulMPqSMYcSRpLTwxf0mx+PYJQz6io5K4E7eOk0qU
-	HfnIPJcw==;
+	bh=mh55fI/KIz27lrEWU72IUyAf+hMLU1UqHF5w5IO+46Q=; b=CuYe+fpbjLtfG/ixxp2RxR+8q0
+	0CnjJFw3p28tH2yisFkGY5hFWGeXXk2TqkH5aduJrADSlOfm5FgEPoljVzv2UEavmXRew7j9LzD4N
+	7Hems8QlCxvYgpD3tNkCyexkV+G+tQORVzDOOPtX70uUJF28Qr7CmfasktMNj5VVARP7NuYnVxN7L
+	F/PDSDulP/yOIuHbpoK2XUog9jeIJ9fLSlr6evIAB2Q01FdwNhqk4brmx7zIxfyRq5xR3EWtGBRxA
+	OyeB1C+COFWbS60rol/QtW62UrGboixK5cWaGXP/JW/DJa4Sb9vx8PQ6UciCXz6Euh6R1mDeoCY2P
+	vkZW07/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9aY-0000000Fdy7-3Gjf;
-	Thu, 05 Dec 2024 11:00:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJ9el-0000000FeQY-15im;
+	Thu, 05 Dec 2024 11:04:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9YO-0000000Fdjz-2zyB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Dec 2024 10:57:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZcdfiovRB1tZ2kc8fOZRVqxaf9TP9RnwKID2+Jd+EAM=; b=qV65h2zMviyUKrq+VAZPcUaPpB
-	P510vrjulyqcf4hfP+jqV6VappD90038Yb9LQK0tLXcCHaFK15XM/fPeM3Cl2Mer92l1lymyjUqkg
-	p/VgrhBEHN3jUO/LOOepivNj1/dyGt3eh0d6CDmmR76sZX+eDvazoRoqjh+K/0lxfnSRiW1rR490A
-	vC0ftBJ0LDYesCAKjirHXRWEJ7RZ+ZZZKAXBOojJCGMvISilJv0lFP5OA6SmqmFt9UzNmQ9mTYxME
-	EcO1084KbOxBNDoJX/H7euVI/Dli4WO8wwbrwR1CSTZ5qIdFvkYvD7zGk3FcUTKiU9rW2juIc0wKF
-	6Y0W1jgg==;
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9YL-00000002qZi-2WE8
+	id 1tJ9dk-0000000FeM2-0FUm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:57:51 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-29e998c70f9so545632fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 02:57:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733396267; x=1734001067; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZcdfiovRB1tZ2kc8fOZRVqxaf9TP9RnwKID2+Jd+EAM=;
-        b=pPGrsRyJ0v6Cay8fzkeaUUFje6NPHpUNHsKNo7jnQB0LP5NvPvifY6Kxv3GVXeqPAN
-         JnyrSe50X41ZO4KQCI+s89/t1eSZYRs0OOQNuGU20tXoYyhOJdASOVwFpQfjVJbuhuWx
-         Sf0SBv+RPKemIwwthk1Rd0E4i38wyB4ndfeCcRJUskJPV4qhuKz6Y5coZdLcxkWLz14f
-         E2uR8MzGfEWsiNu8LGYiF+Piei2xJJcEwzUoxWbUZKo55aLZV+grR6teL9AFuFVyhdRV
-         WJNmCCteu84iFozCAixcWrBAq1e/g4XkwTVL/LtuiHO/O9FmGgwoLR8BK8o6qQkbgpuS
-         tiYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733396267; x=1734001067;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZcdfiovRB1tZ2kc8fOZRVqxaf9TP9RnwKID2+Jd+EAM=;
-        b=pCmp7Ohxkoz2blfpp69nNf5DpM7zEny/S9O8Shel+V4j6we2OqtzQctkMfRztTFKu5
-         vHN4jITsKK1SCbiO41xV16g29j2jtNlJpMMSiFWn1311xzJ8chAt3f9/TG3K4VH5eys9
-         l9OlCgSBqHidkPiqA6llN9j2TWfqqNhFlmwXqH97vSdFjzqGjl0mXaUHIEzwjF5RNMID
-         SyfFFDNe308A4c7MuM822XuBu8yKPQ/Y96iqsfHfn+7x7TN2dhw6yO10geKCCix/eiRT
-         0UsPBHpX8X5tPp1BOBa3QytUm+rVckVlvxxzBmLtuEulDo8Pp0+YkBMQrwrl0ffDqdaB
-         c1HA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7+dvo9WpdC+/NO7+UJlJcoqloxPvdaak8ithFBbDPKaUQHq7vBCjPwn4WvPOv++IH0ygEY/OI15ZRqMeTI1DF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAHCtZ9T1pTgGI6FqpHSNeXjsY3A6X5pRWqtpoWlbtCu1aCsHh
-	AFZfM2l3zo+0VtyTFKr7ek6rgZV0RuituqENcIP0gmtk2K/6trFJ/06O+Svinfa3WVexW6wh1DZ
-	ZWbpBwe4fb8tkJGCEhUKZ4zy+EuEwxB7ez4TjPA==
-X-Gm-Gg: ASbGncuvgg44f5nBGAMKLIZ4YQ3lbBSRG5iIljMJvP19QE+6f9x/jYG2M9kxmQI0ULT
-	ZglIebGd0eANQG0qnKg7XeX7mH18XUVQ=
-X-Google-Smtp-Source: AGHT+IFm1GoK+h4rsYz7xh1CzneqpPmxYvaeTaX80jwrx08rVeEfFTK8mLufFBmr+jloJU+tzxUzRUintqo/0CspOFU=
-X-Received: by 2002:a05:6870:3313:b0:296:e88f:8f56 with SMTP id
- 586e51a60fabf-29e88849756mr11839164fac.26.1733396266877; Thu, 05 Dec 2024
- 02:57:46 -0800 (PST)
+	Thu, 05 Dec 2024 11:03:25 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B56qMPE006059;
+	Thu, 5 Dec 2024 11:03:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mh55fI/KIz27lrEWU72IUyAf+hMLU1UqHF5w5IO+46Q=; b=jGxc8R53Fl+zeugD
+	S9PCmCsYUdNxhtY2c/ip69o52EKn6dH2BaWiem+VyemFEhnnF+qt5DR74K9fKNfF
+	nTRdl/GuJzNHXE8KyJY+W4oMEcjVtL68uTzej94M0H3aNBxMizsc2y7xLCISO6Fk
+	Ql73lslKcJUcNHYsufiABJ1sgt1bzQPtS29TNBCoIf0Rkt6I7Bmt4y8+SUs7UUH3
+	IkrOIBIKIatuxOR9NC3oSv1rq+8Y6oqnXbFxe/iHaP476a35VnK3x2hmoIs3ZBuW
+	6ELZArTTic+sf0Ox7JdMzg31jVxdFlyEKPiXs/Bc6mhj02tCVF/0MgpbBg3diMXm
+	h8QL/w==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 439w3eqa29-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 05 Dec 2024 11:03:13 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B5B3DVl006384
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 5 Dec 2024 11:03:13 GMT
+Received: from [10.190.163.187] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 5 Dec 2024
+ 03:03:08 -0800
+Message-ID: <61ce8618-cb08-06bc-9159-4ca26d703b14@quicinc.com>
+Date: Thu, 5 Dec 2024 16:33:05 +0530
 MIME-Version: 1.0
-References: <20241128150927.1377981-1-jens.wiklander@linaro.org>
- <20241128150927.1377981-5-jens.wiklander@linaro.org> <CAFA6WYMi6X37=nKx4v52xYWU2wkW1dmcPMeXn6=6k4nv2igpPA@mail.gmail.com>
-In-Reply-To: <CAFA6WYMi6X37=nKx4v52xYWU2wkW1dmcPMeXn6=6k4nv2igpPA@mail.gmail.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Thu, 5 Dec 2024 11:57:33 +0100
-Message-ID: <CAHUa44E=LvL305qWUAUKmGkJreEYepnSQjBkY7u7_priXTDeEg@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] optee: support restricted memory allocation
-To: Sumit Garg <sumit.garg@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH V4 4/5] soc: qcom: Introduce SCMI based Memlat (Memory
+ Latency) governor
+Content-Language: en-US
+To: Shivnandan Kumar <quic_kshivnan@quicinc.com>, <sudeep.holla@arm.com>,
+        <cristian.marussi@arm.com>, <andersson@kernel.org>,
+        <konrad.dybcio@linaro.org>, <robh+dt@kernel.org>,
+        <krzysztof.kozlowski+dt@linaro.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_rgottimu@quicinc.com>, <conor+dt@kernel.org>,
+        <arm-scmi@vger.kernel.org>, Amir Vajid <avajid@quicinc.com>
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <20241007061023.1978380-5-quic_sibis@quicinc.com>
+ <2e9614de-1a93-4e17-a10c-945c50fb3f1a@quicinc.com>
+From: Sibi Sankar <quic_sibis@quicinc.com>
+In-Reply-To: <2e9614de-1a93-4e17-a10c-945c50fb3f1a@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: vxP11GDstn4oZPgXmolGScvnwy4uP692
+X-Proofpoint-ORIG-GUID: vxP11GDstn4oZPgXmolGScvnwy4uP692
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
+ bulkscore=0 mlxscore=0 adultscore=0 priorityscore=1501 mlxlogscore=999
+ spamscore=0 malwarescore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412050079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_105749_826691_7191635E 
-X-CRM114-Status: GOOD (  34.72  )
+X-CRM114-CacheID: sfid-20241205_030324_126246_89EC9C91 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,1027 +107,731 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sumit,
 
-On Tue, Dec 3, 2024 at 9:19=E2=80=AFAM Sumit Garg <sumit.garg@linaro.org> w=
-rote:
->
-> Hi Jens,
->
-> On Thu, 28 Nov 2024 at 20:39, Jens Wiklander <jens.wiklander@linaro.org> =
-wrote:
-> >
-> > Add support in the OP-TEE backend driver for restricted memory
-> > allocation.
-> >
-> > The restricted memory can be allocated from a static carveout, but also
-> > be dynamically allocated from CMA and turned into restricted memory by
-> > OP-TEE, inaccessible by the kernel. The restricted memory configuration
-> > is depends on the platform and is probed by driver.
-> >
-> > A restricted memory pool is allocated during probe if a static carveout
-> > is available. The restricted memory pools for dynamically allocated
-> > restrict memory are instantiated when requested by user-space. This
-> > instantiation can fail if OP-TEE doesn't support the requested use-case
-> > of restricted memory.
->
-> Can we split this patch into smaller reviewable pieces as follows?
->
-> - Patch 1: Adds support for static carveout using SMC ABI
-> - Patch 2: Adds support for dynamic CMA pool using SMC ABI
-> - Patch 3: Adds support for both using FF-A ABI
 
-OK, I'll split it.
+On 11/29/24 15:27, Shivnandan Kumar wrote:
+> 
+> 
+> On 10/7/2024 11:40 AM, Sibi Sankar wrote:
+>> Introduce a client driver that uses the memlat algorithm string
+>> hosted on QCOM SCMI Generic Extension Protocol to detect memory
+>> latency workloads and control frequency/level of the various
+>> memory buses (DDR/LLCC/DDR_QOS).
+>>
+>> Co-developed-by: Shivnandan Kumar <quic_kshivnan@quicinc.com>
+>> Signed-off-by: Shivnandan Kumar <quic_kshivnan@quicinc.com>
+>> Co-developed-by: Ramakrishna Gottimukkula <quic_rgottimu@quicinc.com>
+>> Signed-off-by: Ramakrishna Gottimukkula <quic_rgottimu@quicinc.com>
+>> Co-developed-by: Amir Vajid <avajid@quicinc.com>
+>> Signed-off-by: Amir Vajid <avajid@quicinc.com>
+>> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+>> ---
+>>
+>> v3:
+>> * Add missing enum in the scmi memlat driver and fix documentation 
+>> [Konrad]
+>> * Add checks for max memory and monitor [Shivnandan]
+>> * Fix typo from START_TIMER -> STOP_TIMER [Shivnandan]
+>> * Make populate_physical_mask func to void [Shivnandan]
+>> * Remove unecessary zero set [Shivnandan]
+>> * Use __free(device node) in init_cpufreq-memfreqmap [Christian/Konrad]
+>> * Use sdev->dev.of_node directly [Christian]
+>> * use return dev_err_probe in multiple places [Christian]
+>>
+>>   drivers/soc/qcom/Kconfig                   |  12 +
+>>   drivers/soc/qcom/Makefile                  |   1 +
+>>   drivers/soc/qcom/qcom_scmi_memlat_client.c | 569 +++++++++++++++++++++
+>>   3 files changed, 582 insertions(+)
+>>   create mode 100644 drivers/soc/qcom/qcom_scmi_memlat_client.c
+>>
+>> diff --git a/drivers/soc/qcom/Kconfig b/drivers/soc/qcom/Kconfig
+>> index 74b9121240f8..1b6dd40d69ea 100644
+>> --- a/drivers/soc/qcom/Kconfig
+>> +++ b/drivers/soc/qcom/Kconfig
+>> @@ -295,4 +295,16 @@ config QCOM_PBS
+>>         This module provides the APIs to the client drivers that wants 
+>> to send the
+>>         PBS trigger event to the PBS RAM.
+>> +config QCOM_SCMI_MEMLAT_CLIENT
+>> +    tristate "Qualcomm Technologies Inc. SCMI client driver"
+>> +    depends on QCOM_SCMI_GENERIC_EXT || COMPILE_TEST
+>> +    help
+>> +      This driver uses the MEMLAT (memory latency) algorithm string
+>> +      hosted on QCOM SCMI Vendor Protocol to detect memory latency
+>> +      workloads and control frequency/level of the various memory
+>> +      buses (DDR/LLCC/DDR_QOS).
+>> +
+>> +      This driver defines/documents the parameter IDs used while 
+>> configuring
+>> +      the memory buses.
+>> +
+>>   endmenu
+>> diff --git a/drivers/soc/qcom/Makefile b/drivers/soc/qcom/Makefile
+>> index acbca2ab5cc2..28549bb141bc 100644
+>> --- a/drivers/soc/qcom/Makefile
+>> +++ b/drivers/soc/qcom/Makefile
+>> @@ -36,6 +36,7 @@ obj-$(CONFIG_QCOM_APR) += apr.o
+>>   obj-$(CONFIG_QCOM_LLCC) += llcc-qcom.o
+>>   obj-$(CONFIG_QCOM_KRYO_L2_ACCESSORS) +=    kryo-l2-accessors.o
+>>   obj-$(CONFIG_QCOM_ICC_BWMON)    += icc-bwmon.o
+>> +obj-$(CONFIG_QCOM_SCMI_MEMLAT_CLIENT)    += qcom_scmi_memlat_client.o
+>>   qcom_ice-objs            += ice.o
+>>   obj-$(CONFIG_QCOM_INLINE_CRYPTO_ENGINE)    += qcom_ice.o
+>>   obj-$(CONFIG_QCOM_PBS) +=    qcom-pbs.o
+>> diff --git a/drivers/soc/qcom/qcom_scmi_memlat_client.c 
+>> b/drivers/soc/qcom/qcom_scmi_memlat_client.c
+>> new file mode 100644
+>> index 000000000000..05198bf1f7ec
+>> --- /dev/null
+>> +++ b/drivers/soc/qcom/qcom_scmi_memlat_client.c
+>> @@ -0,0 +1,569 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights 
+>> reserved.
+>> + */
+>> +
+>> +#include <linux/cpu.h>
+>> +#include <linux/err.h>
+>> +#include <linux/errno.h>
+>> +#include <linux/init.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/scmi_protocol.h>
+>> +#include <linux/scmi_qcom_protocol.h>
+>> +#include <linux/units.h>
+>> +#include <dt-bindings/firmware/qcom,scmi-memlat.h>
+>> +
+>> +#define MEMLAT_ALGO_STR                0x4D454D4C4154 /* MEMLAT */
+>> +#define INVALID_IDX                0xff
+>> +#define MAX_MEMORY_TYPES            3
+>> +#define MAX_MONITOR_CNT                4
+>> +#define MAX_NAME_LEN                20
+>> +#define MAX_MAP_ENTRIES                7
+>> +#define CPUCP_DEFAULT_SAMPLING_PERIOD_MS    4
+>> +#define CPUCP_DEFAULT_FREQ_METHOD        1
+>> +
+>> +/**
+>> + * enum scmi_memlat_protocol_cmd - parameter_ids supported by the 
+>> "MEMLAT" algo_str hosted
+>> + *                                 by the Qualcomm Generic Vendor 
+>> Protocol on the SCMI controller.
+>> + *
+>> + * MEMLAT (Memory Latency) monitors the counters to detect memory 
+>> latency bound workloads
+>> + * and scales the frequency/levels of the memory buses accordingly.
+>> + *
+>> + * @MEMLAT_SET_MEM_GROUP: initializes the frequency/level scaling 
+>> functions for the memory bus.
+>> + * @MEMLAT_SET_MONITOR: configures the monitor to work on a specific 
+>> memory bus.
+>> + * @MEMLAT_SET_COMMON_EV_MAP: set up common counters used to monitor 
+>> the cpu frequency.
+>> + * @MEMLAT_SET_GRP_EV_MAP: set up any specific counters used to 
+>> monitor the memory bus.
+>> + * @MEMLAT_IPM_CEIL: set the IPM (Instruction Per Misses) ceiling per 
+>> monitor.
+>> + * @MEMLAT_SAMPLE_MS: set the sampling period for all the monitors.
+>> + * @MEMLAT_MON_FREQ_MAP: setup the cpufreq to memfreq map.
+>> + * @MEMLAT_SET_MIN_FREQ: set the max frequency of the memory bus.
+>> + * @MEMLAT_SET_MAX_FREQ: set the min frequency of the memory bus.
+>> + * @MEMLAT_START_TIMER: start all the monitors with the requested 
+>> sampling period.
+>> + * @MEMLAT_STOP_TIMER: stop all the running monitors.
+>> + * @MEMLAT_SET_EFFECTIVE_FREQ_METHOD: set the method used to 
+>> determine cpu frequency.
+>> + */
+>> +enum scmi_memlat_protocol_cmd {
+>> +    MEMLAT_SET_MEM_GROUP = 16,
+>> +    MEMLAT_SET_MONITOR,
+>> +    MEMLAT_SET_COMMON_EV_MAP,
+>> +    MEMLAT_SET_GRP_EV_MAP,
+>> +    MEMLAT_IPM_CEIL = 23,
+>> +    MEMLAT_SAMPLE_MS = 31,
+>> +    MEMLAT_MON_FREQ_MAP,
+>> +    MEMLAT_SET_MIN_FREQ,
+>> +    MEMLAT_SET_MAX_FREQ,
+>> +    MEMLAT_START_TIMER = 36,
+>> +    MEMLAT_STOP_TIMER,
+>> +    MEMLAT_SET_EFFECTIVE_FREQ_METHOD = 39,
+>> +};
+>> +
+>> +struct map_table {
+>> +    u16 v1;
+>> +    u16 v2;
+>> +};
+>> +
+>> +struct map_param_msg {
+>> +    u32 hw_type;
+>> +    u32 mon_idx;
+>> +    u32 nr_rows;
+>> +    struct map_table tbl[MAX_MAP_ENTRIES];
+>> +} __packed;
+>> +
+>> +struct node_msg {
+>> +    u32 cpumask;
+>> +    u32 hw_type;
+>> +    u32 mon_type;
+>> +    u32 mon_idx;
+>> +    char mon_name[MAX_NAME_LEN];
+>> +};
+>> +
+>> +struct scalar_param_msg {
+>> +    u32 hw_type;
+>> +    u32 mon_idx;
+>> +    u32 val;
+>> +};
+>> +
+>> +enum common_ev_idx {
+>> +    INST_IDX,
+>> +    CYC_IDX,
+>> +    CONST_CYC_IDX,
+>> +    FE_STALL_IDX,
+>> +    BE_STALL_IDX,
+>> +    NUM_COMMON_EVS
+>> +};
+>> +
+>> +enum grp_ev_idx {
+>> +    MISS_IDX,
+>> +    WB_IDX,
+>> +    ACC_IDX,
+>> +    NUM_GRP_EVS
+>> +};
+>> +
+>> +#define EV_CPU_CYCLES        0
+>> +#define EV_INST_RETIRED        2
+>> +#define EV_L2_D_RFILL        5
+>> +
+>> +struct ev_map_msg {
+>> +    u32 num_evs;
+>> +    u32 hw_type;
+>> +    u32 cid[NUM_COMMON_EVS];
+>> +};
+>> +
+>> +struct cpufreq_memfreq_map {
+>> +    unsigned int cpufreq_mhz;
+>> +    unsigned int memfreq_khz;
+>> +};
+>> +
+>> +struct scmi_monitor_info {
+>> +    struct cpufreq_memfreq_map *freq_map;
+>> +    char mon_name[MAX_NAME_LEN];
+>> +    u32 mon_idx;
+>> +    u32 mon_type;
+>> +    u32 ipm_ceil;
+>> +    u32 mask;
+>> +    u32 freq_map_len;
+>> +};
+>> +
+>> +struct scmi_memory_info {
+>> +    struct scmi_monitor_info *monitor[MAX_MONITOR_CNT];
+>> +    u32 hw_type;
+>> +    int monitor_cnt;
+>> +    u32 min_freq;
+>> +    u32 max_freq;
+>> +};
+>> +
+>> +struct scmi_memlat_info {
+>> +    struct scmi_protocol_handle *ph;
+>> +    const struct qcom_generic_ext_ops *ops;
+>> +    struct scmi_memory_info *memory[MAX_MEMORY_TYPES];
+>> +    u32 cluster_info[NR_CPUS];
+>> +    int memory_cnt;
+>> +};
+>> +
+>> +static int populate_cluster_info(u32 *cluster_info)
+>> +{
+>> +    char name[MAX_NAME_LEN];
+>> +    int i = 0;
+>> +
+>> +    struct device_node *cn __free(device_node) = 
+>> of_find_node_by_path("/cpus");
+>> +    if (!cn)
+>> +        return -ENODEV;
+>> +
+>> +    struct device_node *map __free(device_node) = 
+>> of_get_child_by_name(cn, "cpu-map");
+>> +    if (!map)
+>> +        return -ENODEV;
+>> +
+>> +    do {
+>> +        snprintf(name, sizeof(name), "cluster%d", i);
+>> +        struct device_node *c __free(device_node) = 
+>> of_get_child_by_name(map, name);
+>> +        if (!c)
+>> +            break;
+>> +
+>> +        *(cluster_info + i) = of_get_child_count(c);
+>> +        i++;
+>> +    } while (1);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static void populate_physical_mask(struct device_node *np, u32 *mask, 
+>> u32 *cluster_info)
+>> +{
+>> +    struct device_node *dev_phandle __free(device_node);
+>> +    int cpu, i = 0, physical_id;
+>> +
+>> +    do {
+>> +        dev_phandle = of_parse_phandle(np, "cpus", i++);
+>> +        cpu = of_cpu_node_to_id(dev_phandle);
+>> +        if (cpu != -ENODEV) {
+>> +            physical_id = topology_core_id(cpu);
+>> +            for (int j = 0; j < topology_cluster_id(cpu); j++)
+>> +                physical_id += *(cluster_info + j);
+>> +            *mask |= BIT(physical_id);
+>> +        }
+>> +    } while (dev_phandle);
+>> +}
+>> +
+>> +static struct cpufreq_memfreq_map *init_cpufreq_memfreq_map(struct 
+>> device *dev,
+>> +                                struct scmi_memory_info *memory,
+>> +                                struct device_node *of_node,
+>> +                                u32 *cnt)
+>> +{
+>> +    struct device_node *tbl_np __free(device_node), *opp_np 
+>> __free(device_node);
+>> +    struct cpufreq_memfreq_map *tbl;
+>> +    int ret, i = 0;
+>> +    u32 level, len;
+>> +    u64 rate;
+>> +
+>> +    tbl_np = of_parse_phandle(of_node, "operating-points-v2", 0);
+>> +    if (!tbl_np)
+>> +        return ERR_PTR(-ENODEV);
+>> +
+>> +    len = min(of_get_available_child_count(tbl_np), MAX_MAP_ENTRIES);
+>> +    if (len == 0)
+>> +        return ERR_PTR(-ENODEV);
+>> +
+>> +    tbl = devm_kzalloc(dev, (len + 1) * sizeof(struct 
+>> cpufreq_memfreq_map),
+>> +               GFP_KERNEL);
+>> +    if (!tbl)
+>> +        return ERR_PTR(-ENOMEM);
+>> +
+>> +    for_each_available_child_of_node(tbl_np, opp_np) {
+>> +        ret = of_property_read_u64_index(opp_np, "opp-hz", 0, &rate);
+>> +        if (ret < 0)
+>> +            return ERR_PTR(ret);
+>> +
+>> +        tbl[i].cpufreq_mhz = rate / HZ_PER_MHZ;
+>> +
+>> +        if (memory->hw_type != QCOM_MEM_TYPE_DDR_QOS) {
+>> +            ret = of_property_read_u64_index(opp_np, "opp-hz", 1, 
+>> &rate);
+>> +            if (ret < 0)
+>> +                return ERR_PTR(ret);
+>> +
+>> +            tbl[i].memfreq_khz = rate / HZ_PER_KHZ;
+>> +        } else {
+>> +            ret = of_property_read_u32(opp_np, "opp-level", &level);
+>> +            if (ret < 0)
+>> +                return ERR_PTR(ret);
+>> +
+>> +            tbl[i].memfreq_khz = level;
+>> +        }
+>> +
+>> +        dev_dbg(dev, "Entry%d CPU:%u, Mem:%u\n", i, 
+>> tbl[i].cpufreq_mhz, tbl[i].memfreq_khz);
+>> +        i++;
+>> +    }
+>> +    *cnt = len;
+>> +
+>> +    return tbl;
+>> +}
+>> +
+>> +static int process_scmi_memlat_of_node(struct scmi_device *sdev, 
+>> struct scmi_memlat_info *info)
+>> +{
+>> +    struct scmi_monitor_info *monitor;
+>> +    struct scmi_memory_info *memory;
+>> +    char name[MAX_NAME_LEN];
+>> +    u64 memfreq[2];
+>> +    int ret;
+>> +
+>> +    ret = populate_cluster_info(info->cluster_info);
+>> +    if (ret < 0) {
+>> +        dev_err_probe(&sdev->dev, ret, "failed to populate cluster 
+>> info\n");
+>> +        goto err;
+>> +    }
+>> +
+>> +    of_node_get(sdev->dev.of_node);
+>> +    do {
+>> +        snprintf(name, sizeof(name), "memory-%d", info->memory_cnt);
+>> +        struct device_node *memory_np __free(device_node) =
+>> +            of_find_node_by_name(sdev->dev.of_node, name);
+>> +
+>> +        if (!memory_np)
+>> +            break;
+>> +
+>> +        if (info->memory_cnt >= MAX_MEMORY_TYPES)
+>> +            return dev_err_probe(&sdev->dev, -EINVAL,
+>> +                         "failed to parse unsupported memory type\n");
+>> +
+>> +        memory = devm_kzalloc(&sdev->dev, sizeof(*memory), GFP_KERNEL);
+>> +        if (!memory) {
+>> +            ret = -ENOMEM;
+>> +            goto err;
+>> +        }
+>> +
+>> +        ret = of_property_read_u32(memory_np, "qcom,memory-type", 
+>> &memory->hw_type);
+>> +        if (ret) {
+>> +            dev_err_probe(&sdev->dev, ret, "failed to read memory 
+>> type\n");
+>> +            goto err;
+>> +        }
+>> +
+>> +        ret = of_property_read_u64_array(memory_np, "freq-table-hz", 
+>> memfreq, 2);
+>> +        if (ret && (ret != -EINVAL)) {
+>> +            dev_err_probe(&sdev->dev, ret, "failed to read min/max 
+>> freq\n");
+>> +            goto err;
+>> +        }
+>> +
+>> +        if (memory->hw_type != QCOM_MEM_TYPE_DDR_QOS) {
+>> +            memory->min_freq = memfreq[0] / HZ_PER_KHZ;
+>> +            memory->max_freq = memfreq[1] / HZ_PER_KHZ;
+>> +        } else {
+>> +            memory->min_freq = memfreq[0];
+>> +            memory->max_freq = memfreq[1];
+>> +        }
+>> +        info->memory[info->memory_cnt++] = memory;
+>> +
+>> +        do {
+>> +            snprintf(name, sizeof(name), "monitor-%d", 
+>> memory->monitor_cnt);
+>> +            struct device_node *monitor_np __free(device_node) =
+>> +                of_get_child_by_name(memory_np, name);
+>> +
+>> +            if (!monitor_np)
+>> +                break;
+>> +
+>> +            if (memory->monitor_cnt >= MAX_MONITOR_CNT)
+>> +                return dev_err_probe(&sdev->dev, -EINVAL,
+>> +                             "failed to parse unsupported monitor\n");
+>> +
+>> +            monitor = devm_kzalloc(&sdev->dev, sizeof(*monitor), 
+>> GFP_KERNEL);
+>> +            if (!monitor) {
+>> +                ret = -ENOMEM;
+>> +                goto err;
+>> +            }
+>> +
+>> +            monitor->mon_type = of_property_read_bool(monitor_np, 
+>> "qcom,compute-type");
+>> +            if (!monitor->mon_type) {
+>> +                ret = of_property_read_u32(monitor_np, "qcom,ipm-ceil",
+>> +                               &monitor->ipm_ceil);
+>> +                if (ret) {
+>> +                    dev_err_probe(&sdev->dev, ret,
+>> +                              "failed to read IPM ceiling\n");
+>> +                    goto err;
+>> +                }
+>> +            }
+>> +
+>> +            /*
+>> +             * Variants of the SoC having reduced number of cpus operate
+>> +             * with the same number of logical cpus but the physical
+>> +             * cpu disabled will differ between parts. Calculate the
+>> +             * physical cpu number using cluster information instead.
+>> +             */
+>> +            populate_physical_mask(monitor_np, &monitor->mask, 
+>> info->cluster_info);
+>> +
+>> +            monitor->freq_map = init_cpufreq_memfreq_map(&sdev->dev, 
+>> memory, monitor_np,
+>> +                                     &monitor->freq_map_len);
+>> +            if (IS_ERR(monitor->freq_map)) {
+>> +                dev_err_probe(&sdev->dev, PTR_ERR(monitor->freq_map),
+>> +                          "failed to populate cpufreq-memfreq map\n");
+>> +                goto err;
+>> +            }
+>> +
+>> +            strscpy(monitor->mon_name, name, sizeof(monitor->mon_name));
+>> +            monitor->mon_idx = memory->monitor_cnt;
+>> +
+>> +            memory->monitor[memory->monitor_cnt++] = monitor;
+>> +        } while (1);
+>> +
+>> +        if (!memory->monitor_cnt) {
+>> +            ret = -EINVAL;
+>> +            dev_err_probe(&sdev->dev, ret, "failed to find monitor 
+>> nodes\n");
+>> +            goto err;
+>> +        }
+>> +    } while (1);
+>> +
+>> +    if (!info->memory_cnt) {
+>> +        ret = -EINVAL;
+>> +        dev_err_probe(&sdev->dev, ret, "failed to find memory nodes\n");
+>> +    }
+>> +
+>> +err:
+>> +    of_node_put(sdev->dev.of_node);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int configure_cpucp_common_events(struct scmi_memlat_info *info)
+>> +{
+>> +    const struct qcom_generic_ext_ops *ops = info->ops;
+>> +    u8 ev_map[NUM_COMMON_EVS];
+>> +    struct ev_map_msg msg;
+>> +
+>> +    memset(ev_map, 0xFF, NUM_COMMON_EVS);
+>> +
+>> +    msg.num_evs = NUM_COMMON_EVS;
+>> +    msg.hw_type = INVALID_IDX;
+>> +    msg.cid[INST_IDX] = EV_INST_RETIRED;
+>> +    msg.cid[CYC_IDX] = EV_CPU_CYCLES;
+>> +    msg.cid[CONST_CYC_IDX] = INVALID_IDX;
+>> +    msg.cid[FE_STALL_IDX] = INVALID_IDX;
+>> +    msg.cid[BE_STALL_IDX] = INVALID_IDX;
+>> +
+>> +    return ops->set_param(info->ph, &msg, sizeof(msg), MEMLAT_ALGO_STR,
+>> +                  MEMLAT_SET_COMMON_EV_MAP);
+>> +}
+>> +
+>> +static int configure_cpucp_grp(struct device *dev, struct 
+>> scmi_memlat_info *info, int memory_index)
+>> +{
+>> +    const struct qcom_generic_ext_ops *ops = info->ops;
+>> +    struct scmi_memory_info *memory = info->memory[memory_index];
+>> +    struct ev_map_msg ev_msg;
+>> +    u8 ev_map[NUM_GRP_EVS];
+>> +    struct node_msg msg;
+>> +    int ret;
+>> +
+>> +    msg.cpumask = 0;
+>> +    msg.hw_type = memory->hw_type;
+>> +    msg.mon_type = 0;
+>> +    msg.mon_idx = 0;
+>> +    ret = ops->set_param(info->ph, &msg, sizeof(msg), 
+>> MEMLAT_ALGO_STR, MEMLAT_SET_MEM_GROUP);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(dev, ret, "failed to configure mem type 
+>> %d\n",
+>> +                     memory->hw_type);
+>> +
+>> +    memset(ev_map, 0xFF, NUM_GRP_EVS);
+>> +    ev_msg.num_evs = NUM_GRP_EVS;
+>> +    ev_msg.hw_type = memory->hw_type;
+>> +    ev_msg.cid[MISS_IDX] = EV_L2_D_RFILL;
+>> +    ev_msg.cid[WB_IDX] = INVALID_IDX;
+>> +    ev_msg.cid[ACC_IDX] = INVALID_IDX;
+>> +    ret = ops->set_param(info->ph, &ev_msg, sizeof(ev_msg), 
+>> MEMLAT_ALGO_STR,
+>> +                 MEMLAT_SET_GRP_EV_MAP);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(dev, ret, "failed to configure event map 
+>> for mem type %d\n",
+>> +                     memory->hw_type);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int configure_cpucp_mon(struct device *dev, struct 
+>> scmi_memlat_info *info,
+>> +                   int memory_index, int monitor_index)
+>> +{
+>> +    const struct qcom_generic_ext_ops *ops = info->ops;
+>> +    struct scmi_memory_info *memory = info->memory[memory_index];
+>> +    struct scmi_monitor_info *monitor = memory->monitor[monitor_index];
+>> +    struct scalar_param_msg scalar_msg;
+>> +    struct map_param_msg map_msg;
+>> +    struct node_msg msg;
+>> +    int ret;
+>> +    int i;
+>> +
+>> +    msg.cpumask = monitor->mask;
+>> +    msg.hw_type = memory->hw_type;
+>> +    msg.mon_type = monitor->mon_type;
+>> +    msg.mon_idx = monitor->mon_idx;
+>> +    strscpy(msg.mon_name, monitor->mon_name, sizeof(msg.mon_name));
+>> +    ret = ops->set_param(info->ph, &msg, sizeof(msg), 
+>> MEMLAT_ALGO_STR, MEMLAT_SET_MONITOR);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(dev, ret, "failed to configure monitor 
+>> %s\n",
+>> +                     monitor->mon_name);
+>> +
+>> +    scalar_msg.hw_type = memory->hw_type;
+>> +    scalar_msg.mon_idx = monitor->mon_idx;
+>> +    scalar_msg.val = monitor->ipm_ceil;
+>> +    ret = ops->set_param(info->ph, &scalar_msg, sizeof(scalar_msg), 
+>> MEMLAT_ALGO_STR,
+>> +                 MEMLAT_IPM_CEIL);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(dev, ret, "failed to set ipm ceil for 
+>> %s\n",
+>> +                     monitor->mon_name);
+>> +
+>> +    map_msg.hw_type = memory->hw_type;
+>> +    map_msg.mon_idx = monitor->mon_idx;
+>> +    map_msg.nr_rows = monitor->freq_map_len;
+>> +    for (i = 0; i < monitor->freq_map_len; i++) {
+>> +        map_msg.tbl[i].v1 = monitor->freq_map[i].cpufreq_mhz;
+>> +        map_msg.tbl[i].v2 = monitor->freq_map[i].memfreq_khz;
+>> +    }
+>> +    ret = ops->set_param(info->ph, &map_msg, sizeof(map_msg), 
+>> MEMLAT_ALGO_STR,
+>> +                 MEMLAT_MON_FREQ_MAP);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(dev, ret, "failed to configure freq_map 
+>> for %s\n",
+>> +                     monitor->mon_name);
+>> +
+>> +    scalar_msg.hw_type = memory->hw_type;
+>> +    scalar_msg.mon_idx = monitor->mon_idx;
+>> +    scalar_msg.val = memory->min_freq;
+>> +    ret = ops->set_param(info->ph, &scalar_msg, sizeof(scalar_msg), 
+>> MEMLAT_ALGO_STR,
+>> +                 MEMLAT_SET_MIN_FREQ);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(dev, ret, "failed to set min_freq for 
+>> %s\n",
+>> +                     monitor->mon_name);
+>> +
+>> +    scalar_msg.hw_type = memory->hw_type;
+>> +    scalar_msg.mon_idx = monitor->mon_idx;
+>> +    scalar_msg.val = memory->max_freq;
+>> +    ret = ops->set_param(info->ph, &scalar_msg, sizeof(scalar_msg), 
+>> MEMLAT_ALGO_STR,
+>> +                 MEMLAT_SET_MAX_FREQ);
+>> +    if (ret < 0)
+>> +        dev_err_probe(dev, ret, "failed to set max_freq for %s\n", 
+>> monitor->mon_name);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int cpucp_memlat_init(struct scmi_device *sdev)
+>> +{
+>> +    const struct scmi_handle *handle = sdev->handle;
+>> +    const struct qcom_generic_ext_ops *ops;
+>> +    struct scmi_protocol_handle *ph;
+>> +    struct scmi_memlat_info *info;
+>> +    u32 cpucp_freq_method = CPUCP_DEFAULT_FREQ_METHOD;
+>> +    u32 cpucp_sample_ms = CPUCP_DEFAULT_SAMPLING_PERIOD_MS;
+>> +    int ret, i, j;
+>> +
+>> +    if (!handle)
+>> +        return -ENODEV;
+>> +
+>> +    ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_QCOM_GENERIC, 
+>> &ph);
+>> +    if (IS_ERR(ops))
+>> +        return PTR_ERR(ops);
+>> +
+>> +    info = devm_kzalloc(&sdev->dev, sizeof(*info), GFP_KERNEL);
+>> +    if (!info)
+>> +        return -ENOMEM;
+>> +
+>> +    ret = process_scmi_memlat_of_node(sdev, info);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    info->ph = ph;
+>> +    info->ops = ops;
+>> +
+>> +    /* Configure common events ids */
+>> +    ret = configure_cpucp_common_events(info);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(&sdev->dev, ret, "failed to configure 
+>> common events\n");
+>> +
+>> +    for (i = 0; i < info->memory_cnt; i++) {
+>> +        /* Configure per group parameters */
+>> +        ret = configure_cpucp_grp(&sdev->dev, info, i);
+>> +        if (ret < 0)
+>> +            return ret;
+>> +
+>> +        for (j = 0; j < info->memory[i]->monitor_cnt; j++) {
+>> +            /* Configure per monitor parameters */
+>> +            ret = configure_cpucp_mon(&sdev->dev, info, i, j);
+>> +            if (ret < 0)
+>> +                return ret;
+>> +        }
+>> +    }
+>> +
+>> +    /* Set loop sampling time */
+>> +    ret = ops->set_param(ph, &cpucp_sample_ms, 
+>> sizeof(cpucp_sample_ms), MEMLAT_ALGO_STR,
+>> +                 MEMLAT_SAMPLE_MS);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(&sdev->dev, ret, "failed to set 
+>> sample_ms\n");
+>> +
+>> +    /* Set the effective cpu frequency calculation method */
+>> +    ret = ops->set_param(ph, &cpucp_freq_method, 
+>> sizeof(cpucp_freq_method), MEMLAT_ALGO_STR,
+>> +                 MEMLAT_SET_EFFECTIVE_FREQ_METHOD);
+>> +    if (ret < 0)
+>> +        return dev_err_probe(&sdev->dev, ret,
+>> +                     "failed to set effective frequency calc method\n");
+>> +
+> 
+> Hi Sibi,
 
-Thanks,
-Jens
+Hey Shiv,
 
->
-> -Sumit
->
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >  drivers/tee/optee/Makefile        |   1 +
-> >  drivers/tee/optee/core.c          |   1 +
-> >  drivers/tee/optee/ffa_abi.c       | 135 ++++++++++-
-> >  drivers/tee/optee/optee_private.h |  33 ++-
-> >  drivers/tee/optee/rstmem.c        | 380 ++++++++++++++++++++++++++++++
-> >  drivers/tee/optee/smc_abi.c       | 138 ++++++++++-
-> >  6 files changed, 683 insertions(+), 5 deletions(-)
-> >  create mode 100644 drivers/tee/optee/rstmem.c
-> >
-> > diff --git a/drivers/tee/optee/Makefile b/drivers/tee/optee/Makefile
-> > index a6eff388d300..498969fb8e40 100644
-> > --- a/drivers/tee/optee/Makefile
-> > +++ b/drivers/tee/optee/Makefile
-> > @@ -4,6 +4,7 @@ optee-objs +=3D core.o
-> >  optee-objs +=3D call.o
-> >  optee-objs +=3D notif.o
-> >  optee-objs +=3D rpc.o
-> > +optee-objs +=3D rstmem.o
-> >  optee-objs +=3D supp.o
-> >  optee-objs +=3D device.o
-> >  optee-objs +=3D smc_abi.o
-> > diff --git a/drivers/tee/optee/core.c b/drivers/tee/optee/core.c
-> > index c75fddc83576..f4fa494789a4 100644
-> > --- a/drivers/tee/optee/core.c
-> > +++ b/drivers/tee/optee/core.c
-> > @@ -182,6 +182,7 @@ void optee_remove_common(struct optee *optee)
-> >         tee_device_unregister(optee->teedev);
-> >
-> >         tee_shm_pool_free(optee->pool);
-> > +       optee_rstmem_pools_uninit(optee);
-> >         optee_supp_uninit(&optee->supp);
-> >         mutex_destroy(&optee->call_queue.mutex);
-> >         rpmb_dev_put(optee->rpmb_dev);
-> > diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
-> > index 02e6175ac5f0..f500cf101c8d 100644
-> > --- a/drivers/tee/optee/ffa_abi.c
-> > +++ b/drivers/tee/optee/ffa_abi.c
-> > @@ -672,6 +672,122 @@ static int optee_ffa_do_call_with_arg(struct tee_=
-context *ctx,
-> >         return optee_ffa_yielding_call(ctx, &data, rpc_arg, system_thre=
-ad);
-> >  }
-> >
-> > +static int do_call_lend_rstmem(struct optee *optee, u64 cookie, u32 us=
-e_case)
-> > +{
-> > +       struct optee_shm_arg_entry *entry;
-> > +       struct optee_msg_arg *msg_arg;
-> > +       struct tee_shm *shm;
-> > +       u_int offs;
-> > +       int rc;
-> > +
-> > +       msg_arg =3D optee_get_msg_arg(optee->ctx, 1, &entry, &shm, &off=
-s);
-> > +       if (IS_ERR(msg_arg))
-> > +               return PTR_ERR(msg_arg);
-> > +
-> > +       msg_arg->cmd =3D OPTEE_MSG_CMD_ASSIGN_RSTMEM;
-> > +       msg_arg->params[0].attr =3D OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
-> > +       msg_arg->params[0].u.value.a =3D cookie;
-> > +       msg_arg->params[0].u.value.b =3D use_case;
-> > +
-> > +       rc =3D optee->ops->do_call_with_arg(optee->ctx, shm, offs, fals=
-e);
-> > +       if (rc)
-> > +               goto out;
-> > +       if (msg_arg->ret !=3D TEEC_SUCCESS) {
-> > +               rc =3D -EINVAL;
-> > +               goto out;
-> > +       }
-> > +
-> > +out:
-> > +       optee_free_msg_arg(optee->ctx, entry, offs);
-> > +       return rc;
-> > +}
-> > +
-> > +static int optee_ffa_lend_rstmem(struct optee *optee, struct tee_shm *=
-rstmem,
-> > +                                u16 *end_points, unsigned int ep_count=
-)
-> > +{
-> > +       struct ffa_device *ffa_dev =3D optee->ffa.ffa_dev;
-> > +       const struct ffa_mem_ops *mem_ops =3D ffa_dev->ops->mem_ops;
-> > +       const struct ffa_msg_ops *msg_ops =3D ffa_dev->ops->msg_ops;
-> > +       struct ffa_send_direct_data data;
-> > +       struct ffa_mem_region_attributes *mem_attr;
-> > +       struct ffa_mem_ops_args args =3D {
-> > +               .use_txbuf =3D true,
-> > +               .tag =3D rstmem->use_case,
-> > +       };
-> > +       struct page *page;
-> > +       struct scatterlist sgl;
-> > +       unsigned int n;
-> > +       int rc;
-> > +
-> > +       mem_attr =3D kcalloc(ep_count, sizeof(*mem_attr), GFP_KERNEL);
-> > +       for (n =3D 0; n < ep_count; n++) {
-> > +               mem_attr[n].receiver =3D end_points[n];
-> > +               mem_attr[n].attrs =3D FFA_MEM_RW;
-> > +       }
-> > +       args.attrs =3D mem_attr;
-> > +       args.nattrs =3D ep_count;
-> > +
-> > +       page =3D phys_to_page(rstmem->paddr);
-> > +       sg_init_table(&sgl, 1);
-> > +       sg_set_page(&sgl, page, rstmem->size, 0);
-> > +
-> > +       args.sg =3D &sgl;
-> > +       rc =3D mem_ops->memory_lend(&args);
-> > +       kfree(mem_attr);
-> > +       if (rc)
-> > +               return rc;
-> > +
-> > +       rc =3D do_call_lend_rstmem(optee, args.g_handle, rstmem->use_ca=
-se);
-> > +       if (rc)
-> > +               goto err_reclaim;
-> > +
-> > +       rc =3D optee_shm_add_ffa_handle(optee, rstmem, args.g_handle);
-> > +       if (rc)
-> > +               goto err_unreg;
-> > +
-> > +       rstmem->sec_world_id =3D args.g_handle;
-> > +
-> > +       return 0;
-> > +
-> > +err_unreg:
-> > +       data =3D (struct ffa_send_direct_data){
-> > +               .data0 =3D OPTEE_FFA_RELEASE_RSTMEM,
-> > +               .data1 =3D (u32)args.g_handle,
-> > +               .data2 =3D (u32)(args.g_handle >> 32),
-> > +       };
-> > +       msg_ops->sync_send_receive(ffa_dev, &data);
-> > +err_reclaim:
-> > +       mem_ops->memory_reclaim(args.g_handle, 0);
-> > +       return rc;
-> > +}
-> > +
-> > +static int optee_ffa_reclaim_rstmem(struct optee *optee, struct tee_sh=
-m *rstmem)
-> > +{
-> > +       struct ffa_device *ffa_dev =3D optee->ffa.ffa_dev;
-> > +       const struct ffa_msg_ops *msg_ops =3D ffa_dev->ops->msg_ops;
-> > +       const struct ffa_mem_ops *mem_ops =3D ffa_dev->ops->mem_ops;
-> > +       u64 global_handle =3D rstmem->sec_world_id;
-> > +       struct ffa_send_direct_data data =3D {
-> > +               .data0 =3D OPTEE_FFA_RELEASE_RSTMEM,
-> > +               .data1 =3D (u32)global_handle,
-> > +               .data2 =3D (u32)(global_handle >> 32)
-> > +       };
-> > +       int rc;
-> > +
-> > +       optee_shm_rem_ffa_handle(optee, global_handle);
-> > +       rstmem->sec_world_id =3D 0;
-> > +
-> > +       rc =3D msg_ops->sync_send_receive(ffa_dev, &data);
-> > +       if (rc)
-> > +               pr_err("Release SHM id 0x%llx rc %d\n", global_handle, =
-rc);
-> > +
-> > +       rc =3D mem_ops->memory_reclaim(global_handle, 0);
-> > +       if (rc)
-> > +               pr_err("mem_reclaim: 0x%llx %d", global_handle, rc);
-> > +
-> > +       return rc;
-> > +}
-> > +
-> >  /*
-> >   * 6. Driver initialization
-> >   *
-> > @@ -785,7 +901,10 @@ static void optee_ffa_get_version(struct tee_devic=
-e *teedev,
-> >                 .gen_caps =3D TEE_GEN_CAP_GP | TEE_GEN_CAP_REG_MEM |
-> >                             TEE_GEN_CAP_MEMREF_NULL,
-> >         };
-> > +       struct optee *optee =3D tee_get_drvdata(teedev);
-> >
-> > +       if (optee->rstmem_pools)
-> > +               v.gen_caps |=3D TEE_GEN_CAP_RSTMEM;
-> >         *vers =3D v;
-> >  }
-> >
-> > @@ -804,6 +923,8 @@ static const struct tee_driver_ops optee_ffa_clnt_o=
-ps =3D {
-> >         .cancel_req =3D optee_cancel_req,
-> >         .shm_register =3D optee_ffa_shm_register,
-> >         .shm_unregister =3D optee_ffa_shm_unregister,
-> > +       .rstmem_alloc =3D optee_rstmem_alloc,
-> > +       .rstmem_free =3D optee_rstmem_free,
-> >  };
-> >
-> >  static const struct tee_desc optee_ffa_clnt_desc =3D {
-> > @@ -820,6 +941,8 @@ static const struct tee_driver_ops optee_ffa_supp_o=
-ps =3D {
-> >         .supp_send =3D optee_supp_send,
-> >         .shm_register =3D optee_ffa_shm_register, /* same as for clnt o=
-ps */
-> >         .shm_unregister =3D optee_ffa_shm_unregister_supp,
-> > +       .rstmem_alloc =3D optee_rstmem_alloc,
-> > +       .rstmem_free =3D optee_rstmem_free,
-> >  };
-> >
-> >  static const struct tee_desc optee_ffa_supp_desc =3D {
-> > @@ -833,6 +956,8 @@ static const struct optee_ops optee_ffa_ops =3D {
-> >         .do_call_with_arg =3D optee_ffa_do_call_with_arg,
-> >         .to_msg_param =3D optee_ffa_to_msg_param,
-> >         .from_msg_param =3D optee_ffa_from_msg_param,
-> > +       .lend_rstmem =3D optee_ffa_lend_rstmem,
-> > +       .reclaim_rstmem =3D optee_ffa_reclaim_rstmem,
-> >  };
-> >
-> >  static void optee_ffa_remove(struct ffa_device *ffa_dev)
-> > @@ -937,11 +1062,17 @@ static int optee_ffa_probe(struct ffa_device *ff=
-a_dev)
-> >             (sec_caps & OPTEE_FFA_SEC_CAP_RPMB_PROBE))
-> >                 optee->in_kernel_rpmb_routing =3D true;
-> >
-> > +       if (sec_caps & OPTEE_FFA_SEC_CAP_RSTMEM) {
-> > +               rc =3D optee_rstmem_pools_init(optee);
-> > +               if (rc)
-> > +                       goto err_free_pool;
-> > +       }
-> > +
-> >         teedev =3D tee_device_alloc(&optee_ffa_clnt_desc, NULL, optee->=
-pool,
-> >                                   optee);
-> >         if (IS_ERR(teedev)) {
-> >                 rc =3D PTR_ERR(teedev);
-> > -               goto err_free_pool;
-> > +               goto err_free_rstmem_pools;
-> >         }
-> >         optee->teedev =3D teedev;
-> >
-> > @@ -1020,6 +1151,8 @@ static int optee_ffa_probe(struct ffa_device *ffa=
-_dev)
-> >         tee_device_unregister(optee->teedev);
-> >  err_free_pool:
-> >         tee_shm_pool_free(pool);
-> > +err_free_rstmem_pools:
-> > +       optee_rstmem_pools_uninit(optee);
-> >  err_free_optee:
-> >         kfree(optee);
-> >         return rc;
-> > diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/opte=
-e_private.h
-> > index 20eda508dbac..dd2a3a2224bc 100644
-> > --- a/drivers/tee/optee/optee_private.h
-> > +++ b/drivers/tee/optee/optee_private.h
-> > @@ -174,9 +174,14 @@ struct optee;
-> >   * @do_call_with_arg:  enters OP-TEE in secure world
-> >   * @to_msg_param:      converts from struct tee_param to OPTEE_MSG par=
-ameters
-> >   * @from_msg_param:    converts from OPTEE_MSG parameters to struct te=
-e_param
-> > + * @lend_rstmem:       lends physically contiguous memory as restricte=
-d
-> > + *                     memory, inaccessible by the kernel
-> > + * @reclaim_rstmem:    reclaims restricted memory previously lent with
-> > + *                     @lend_rstmem() and makes it accessible by the
-> > + *                     kernel again
-> >   *
-> >   * These OPs are only supposed to be used internally in the OP-TEE dri=
-ver
-> > - * as a way of abstracting the different methogs of entering OP-TEE in
-> > + * as a way of abstracting the different methods of entering OP-TEE in
-> >   * secure world.
-> >   */
-> >  struct optee_ops {
-> > @@ -191,6 +196,23 @@ struct optee_ops {
-> >                               size_t num_params,
-> >                               const struct optee_msg_param *msg_params,
-> >                               bool update_out);
-> > +       int (*lend_rstmem)(struct optee *optee, struct tee_shm *rstmem,
-> > +                          u16 *end_points, unsigned int ep_count);
-> > +       int (*reclaim_rstmem)(struct optee *optee, struct tee_shm *rstm=
-em);
-> > +};
-> > +
-> > +/**
-> > + * struct optee_rstmem_pools - restricted memory pools
-> > + * @mutex:     serializes write access to @xa when adding a new pool.
-> > + * @xa:                XArray of struct tee_shm_pool where the index i=
-s the
-> > + *             use case ID TEE_IOC_UC_* supplied for TEE_IOC_RSTMEM_AL=
-LOC.
-> > + */
-> > +struct optee_rstmem_pools {
-> > +       /*
-> > +        * Serializes write access to @xa when adding a new pool.
-> > +        */
-> > +       struct mutex mutex;
-> > +       struct xarray xa;
-> >  };
-> >
-> >  /**
-> > @@ -206,6 +228,7 @@ struct optee_ops {
-> >   * @notif:             notification synchronization struct
-> >   * @supp:              supplicant synchronization struct for RPC to su=
-pplicant
-> >   * @pool:              shared memory pool
-> > + * @rstmem_pool:       restricted memory pool for secure data path
-> >   * @mutex:             mutex protecting @rpmb_dev
-> >   * @rpmb_dev:          current RPMB device or NULL
-> >   * @rpmb_scan_bus_done flag if device registation of RPMB dependent de=
-vices
-> > @@ -230,6 +253,7 @@ struct optee {
-> >         struct optee_notif notif;
-> >         struct optee_supp supp;
-> >         struct tee_shm_pool *pool;
-> > +       struct optee_rstmem_pools *rstmem_pools;
-> >         /* Protects rpmb_dev pointer */
-> >         struct mutex rpmb_dev_mutex;
-> >         struct rpmb_dev *rpmb_dev;
-> > @@ -286,6 +310,9 @@ void optee_supp_init(struct optee_supp *supp);
-> >  void optee_supp_uninit(struct optee_supp *supp);
-> >  void optee_supp_release(struct optee_supp *supp);
-> >
-> > +int optee_rstmem_pools_init(struct optee *optee);
-> > +void optee_rstmem_pools_uninit(struct optee *optee);
-> > +
-> >  int optee_supp_recv(struct tee_context *ctx, u32 *func, u32 *num_param=
-s,
-> >                     struct tee_param *param);
-> >  int optee_supp_send(struct tee_context *ctx, u32 ret, u32 num_params,
-> > @@ -378,6 +405,10 @@ void optee_rpc_cmd(struct tee_context *ctx, struct=
- optee *optee,
-> >  int optee_do_bottom_half(struct tee_context *ctx);
-> >  int optee_stop_async_notif(struct tee_context *ctx);
-> >
-> > +int optee_rstmem_alloc(struct tee_context *ctx, struct tee_shm *shm,
-> > +                      u32 flags, u32 use_case, size_t size);
-> > +void optee_rstmem_free(struct tee_context *ctx, struct tee_shm *shm);
-> > +
-> >  /*
-> >   * Small helpers
-> >   */
-> > diff --git a/drivers/tee/optee/rstmem.c b/drivers/tee/optee/rstmem.c
-> > new file mode 100644
-> > index 000000000000..cf300929171f
-> > --- /dev/null
-> > +++ b/drivers/tee/optee/rstmem.c
-> > @@ -0,0 +1,380 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (c) 2024, Linaro Limited
-> > + */
-> > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> > +
-> > +#include <linux/cma.h>
-> > +#include <linux/dma-map-ops.h>
-> > +#include <linux/errno.h>
-> > +#include <linux/genalloc.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/string.h>
-> > +#include <linux/tee_core.h>
-> > +#include <linux/types.h>
-> > +#include "optee_private.h"
-> > +
-> > +struct optee_rstmem_cma_pool {
-> > +       struct tee_shm_pool pool;
-> > +       struct page *page;
-> > +       struct optee *optee;
-> > +       size_t page_count;
-> > +       u16 *end_points;
-> > +       u_int end_point_count;
-> > +       u_int align;
-> > +       refcount_t refcount;
-> > +       struct tee_shm rstmem;
-> > +       /* Protects when initializing and tearing down this struct */
-> > +       struct mutex mutex;
-> > +};
-> > +
-> > +static struct optee_rstmem_cma_pool *
-> > +to_rstmem_cma_pool(struct tee_shm_pool *pool)
-> > +{
-> > +       return container_of(pool, struct optee_rstmem_cma_pool, pool);
-> > +}
-> > +
-> > +static int init_cma_rstmem(struct optee_rstmem_cma_pool *rp)
-> > +{
-> > +       struct cma *cma =3D dev_get_cma_area(&rp->optee->teedev->dev);
-> > +       int rc;
-> > +
-> > +       rp->page =3D cma_alloc(cma, rp->page_count, rp->align, true/*no=
-_warn*/);
-> > +       if (!rp->page)
-> > +               return -ENOMEM;
-> > +
-> > +       /*
-> > +        * TODO unmap the memory range since the physical memory will
-> > +        * become inaccesible after the lend_rstmem() call.
-> > +        */
-> > +
-> > +       rp->rstmem.paddr =3D page_to_phys(rp->page);
-> > +       rp->rstmem.size =3D rp->page_count * PAGE_SIZE;
-> > +       rc =3D rp->optee->ops->lend_rstmem(rp->optee, &rp->rstmem,
-> > +                                        rp->end_points, rp->end_point_=
-count);
-> > +       if (rc)
-> > +               goto err_release;
-> > +
-> > +       rp->pool.private_data =3D gen_pool_create(PAGE_SHIFT, -1);
-> > +       if (!rp->pool.private_data) {
-> > +               rc =3D -ENOMEM;
-> > +               goto err_reclaim;
-> > +       }
-> > +
-> > +       rc =3D gen_pool_add(rp->pool.private_data, rp->rstmem.paddr,
-> > +                         rp->rstmem.size, -1);
-> > +       if (rc)
-> > +               goto err_free_pool;
-> > +
-> > +       refcount_set(&rp->refcount, 1);
-> > +       return 0;
-> > +
-> > +err_free_pool:
-> > +       gen_pool_destroy(rp->pool.private_data);
-> > +err_reclaim:
-> > +       rp->optee->ops->reclaim_rstmem(rp->optee, &rp->rstmem);
-> > +err_release:
-> > +       cma_release(cma, rp->page, rp->page_count);
-> > +       rp->rstmem.paddr =3D 0;
-> > +       rp->rstmem.size =3D 0;
-> > +       rp->rstmem.sec_world_id =3D 0;
-> > +       return rc;
-> > +}
-> > +
-> > +static int get_cma_rstmem(struct optee_rstmem_cma_pool *rp)
-> > +{
-> > +       int rc =3D 0;
-> > +
-> > +       if (!refcount_inc_not_zero(&rp->refcount)) {
-> > +               mutex_lock(&rp->mutex);
-> > +               if (rp->pool.private_data) {
-> > +                       /*
-> > +                        * Another thread has already initialized the p=
-ool
-> > +                        * before us, or the pool was just about to be =
-torn
-> > +                        * down. Either way we only need to increase th=
-e
-> > +                        * refcount and we're done.
-> > +                        */
-> > +                       refcount_inc(&rp->refcount);
-> > +               } else {
-> > +                       rc =3D init_cma_rstmem(rp);
-> > +               }
-> > +               mutex_unlock(&rp->mutex);
-> > +       }
-> > +
-> > +       return rc;
-> > +}
-> > +
-> > +static void release_cma_rstmem(struct optee_rstmem_cma_pool *rp)
-> > +{
-> > +       gen_pool_destroy(rp->pool.private_data);
-> > +       rp->optee->ops->reclaim_rstmem(rp->optee, &rp->rstmem);
-> > +       cma_release(dev_get_cma_area(&rp->optee->teedev->dev), rp->page=
-,
-> > +                   rp->page_count);
-> > +
-> > +       rp->pool.private_data =3D NULL;
-> > +       rp->page =3D NULL;
-> > +       rp->rstmem.paddr =3D 0;
-> > +       rp->rstmem.size =3D 0;
-> > +       rp->rstmem.sec_world_id =3D 0;
-> > +}
-> > +
-> > +static void put_cma_rstmem(struct optee_rstmem_cma_pool *rp)
-> > +{
-> > +       if (refcount_dec_and_test(&rp->refcount)) {
-> > +               mutex_lock(&rp->mutex);
-> > +               if (rp->pool.private_data)
-> > +                       release_cma_rstmem(rp);
-> > +               mutex_unlock(&rp->mutex);
-> > +       }
-> > +}
-> > +
-> > +static int rstmem_pool_op_cma_alloc(struct tee_shm_pool *pool,
-> > +                                   struct tee_shm *shm, size_t size,
-> > +                                   size_t align)
-> > +{
-> > +       struct optee_rstmem_cma_pool *rp =3D to_rstmem_cma_pool(pool);
-> > +       size_t sz =3D ALIGN(size, PAGE_SIZE);
-> > +       phys_addr_t pa;
-> > +       int rc;
-> > +
-> > +       rc =3D get_cma_rstmem(rp);
-> > +       if (rc)
-> > +               return rc;
-> > +
-> > +       pa =3D gen_pool_alloc(rp->pool.private_data, sz);
-> > +       if (!pa) {
-> > +               put_cma_rstmem(rp);
-> > +               return -ENOMEM;
-> > +       }
-> > +
-> > +       shm->size =3D sz;
-> > +       shm->paddr =3D pa;
-> > +       shm->offset =3D pa - page_to_phys(rp->page);
-> > +       shm->sec_world_id =3D rp->rstmem.sec_world_id;
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +static void rstmem_pool_op_cma_free(struct tee_shm_pool *pool,
-> > +                                   struct tee_shm *shm)
-> > +{
-> > +       struct optee_rstmem_cma_pool *rp =3D to_rstmem_cma_pool(pool);
-> > +
-> > +       gen_pool_free(rp->pool.private_data, shm->paddr, shm->size);
-> > +       shm->size =3D 0;
-> > +       shm->paddr =3D 0;
-> > +       shm->offset =3D 0;
-> > +       shm->sec_world_id =3D 0;
-> > +       put_cma_rstmem(rp);
-> > +}
-> > +
-> > +static void pool_op_cma_destroy_pool(struct tee_shm_pool *pool)
-> > +{
-> > +       struct optee_rstmem_cma_pool *rp =3D to_rstmem_cma_pool(pool);
-> > +
-> > +       mutex_destroy(&rp->mutex);
-> > +       kfree(rp);
-> > +}
-> > +
-> > +static struct tee_shm_pool_ops rstmem_pool_ops_cma =3D {
-> > +       .alloc =3D rstmem_pool_op_cma_alloc,
-> > +       .free =3D rstmem_pool_op_cma_free,
-> > +       .destroy_pool =3D pool_op_cma_destroy_pool,
-> > +};
-> > +
-> > +static int get_rstmem_config(struct optee *optee, u32 use_case,
-> > +                            size_t *min_size, u_int *min_align,
-> > +                            u16 *end_points, u_int *ep_count)
-> > +{
-> > +       struct tee_param params[2] =3D {
-> > +               [0] =3D {
-> > +                       .attr =3D TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INOUT=
-,
-> > +                       .u.value.a =3D use_case,
-> > +               },
-> > +               [1] =3D {
-> > +                       .attr =3D TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTP=
-UT,
-> > +               },
-> > +       };
-> > +       struct optee_shm_arg_entry *entry;
-> > +       struct tee_shm *shm_param =3D NULL;
-> > +       struct optee_msg_arg *msg_arg;
-> > +       struct tee_shm *shm;
-> > +       u_int offs;
-> > +       int rc;
-> > +
-> > +       if (end_points && *ep_count) {
-> > +               params[1].u.memref.size =3D *ep_count * sizeof(*end_poi=
-nts);
-> > +               shm_param =3D tee_shm_alloc_priv_buf(optee->ctx,
-> > +                                                  params[1].u.memref.s=
-ize);
-> > +               if (IS_ERR(shm_param))
-> > +                       return PTR_ERR(shm_param);
-> > +               params[1].u.memref.shm =3D shm_param;
-> > +       }
-> > +
-> > +       msg_arg =3D optee_get_msg_arg(optee->ctx, ARRAY_SIZE(params), &=
-entry,
-> > +                                   &shm, &offs);
-> > +       if (IS_ERR(msg_arg)) {
-> > +               rc =3D PTR_ERR(msg_arg);
-> > +               goto out_free_shm;
-> > +       }
-> > +       msg_arg->cmd =3D OPTEE_MSG_CMD_GET_RSTMEM_CONFIG;
-> > +
-> > +       rc =3D optee->ops->to_msg_param(optee, msg_arg->params,
-> > +                                     ARRAY_SIZE(params), params,
-> > +                                     false /*!update_out*/);
-> > +       if (rc)
-> > +               goto out_free_msg;
-> > +
-> > +       rc =3D optee->ops->do_call_with_arg(optee->ctx, shm, offs, fals=
-e);
-> > +       if (rc)
-> > +               goto out_free_msg;
-> > +       if (msg_arg->ret && msg_arg->ret !=3D TEEC_ERROR_SHORT_BUFFER) =
-{
-> > +               rc =3D -EINVAL;
-> > +               goto out_free_msg;
-> > +       }
-> > +
-> > +       rc =3D optee->ops->from_msg_param(optee, params, ARRAY_SIZE(par=
-ams),
-> > +                                       msg_arg->params, true /*update_=
-out*/);
-> > +       if (rc)
-> > +               goto out_free_msg;
-> > +
-> > +       if (!msg_arg->ret && end_points &&
-> > +           *ep_count < params[1].u.memref.size / sizeof(u16)) {
-> > +               rc =3D -EINVAL;
-> > +               goto out_free_msg;
-> > +       }
-> > +
-> > +       *min_size =3D params[0].u.value.a;
-> > +       *min_align =3D params[0].u.value.b;
-> > +       *ep_count =3D params[1].u.memref.size / sizeof(u16);
-> > +
-> > +       if (msg_arg->ret =3D=3D TEEC_ERROR_SHORT_BUFFER) {
-> > +               rc =3D -ENOSPC;
-> > +               goto out_free_msg;
-> > +       }
-> > +
-> > +       if (end_points)
-> > +               memcpy(end_points, tee_shm_get_va(shm_param, 0),
-> > +                      params[1].u.memref.size);
-> > +
-> > +out_free_msg:
-> > +       optee_free_msg_arg(optee->ctx, entry, offs);
-> > +out_free_shm:
-> > +       if (shm_param)
-> > +               tee_shm_free(shm_param);
-> > +       return rc;
-> > +}
-> > +
-> > +static struct tee_shm_pool *alloc_rstmem_pool(struct optee *optee, u32=
- use_case)
-> > +{
-> > +       struct optee_rstmem_cma_pool *rp;
-> > +       size_t min_size;
-> > +       int rc;
-> > +
-> > +       rp =3D kzalloc(sizeof(*rp), GFP_KERNEL);
-> > +       if (!rp)
-> > +               return ERR_PTR(-ENOMEM);
-> > +       rp->rstmem.use_case =3D use_case;
-> > +
-> > +       rc =3D get_rstmem_config(optee, use_case, &min_size, &rp->align=
-, NULL,
-> > +                              &rp->end_point_count);
-> > +       if (rc) {
-> > +               if (rc !=3D -ENOSPC)
-> > +                       goto err;
-> > +               rp->end_points =3D kcalloc(rp->end_point_count,
-> > +                                        sizeof(*rp->end_points), GFP_K=
-ERNEL);
-> > +               if (!rp->end_points) {
-> > +                       rc =3D -ENOMEM;
-> > +                       goto err;
-> > +               }
-> > +               rc =3D get_rstmem_config(optee, use_case, &min_size, &r=
-p->align,
-> > +                                      rp->end_points, &rp->end_point_c=
-ount);
-> > +               if (rc)
-> > +                       goto err_kfree_eps;
-> > +       }
-> > +
-> > +       rp->pool.ops =3D &rstmem_pool_ops_cma;
-> > +       rp->optee =3D optee;
-> > +       rp->page_count =3D min_size / PAGE_SIZE;
-> > +       mutex_init(&rp->mutex);
-> > +
-> > +       return &rp->pool;
-> > +
-> > +err_kfree_eps:
-> > +       kfree(rp->end_points);
-> > +err:
-> > +       kfree(rp);
-> > +       return ERR_PTR(rc);
-> > +}
-> > +
-> > +int optee_rstmem_alloc(struct tee_context *ctx, struct tee_shm *shm,
-> > +                      u32 flags, u32 use_case, size_t size)
-> > +{
-> > +       struct optee *optee =3D tee_get_drvdata(ctx->teedev);
-> > +       struct tee_shm_pool *pool;
-> > +       int rc;
-> > +
-> > +       if (!optee->rstmem_pools)
-> > +               return -EINVAL;
-> > +       if (flags)
-> > +               return -EINVAL;
-> > +
-> > +       pool =3D xa_load(&optee->rstmem_pools->xa, use_case);
-> > +       if (!pool) {
-> > +               pool =3D alloc_rstmem_pool(optee, use_case);
-> > +               if (IS_ERR(pool))
-> > +                       return PTR_ERR(pool);
-> > +               rc =3D xa_insert(&optee->rstmem_pools->xa, use_case, po=
-ol,
-> > +                              GFP_KERNEL);
-> > +               if (rc) {
-> > +                       pool->ops->destroy_pool(pool);
-> > +                       return rc;
-> > +               }
-> > +       }
-> > +
-> > +       return pool->ops->alloc(pool, shm, size, 0);
-> > +}
-> > +
-> > +void optee_rstmem_free(struct tee_context *ctx, struct tee_shm *shm)
-> > +{
-> > +       struct optee *optee =3D tee_get_drvdata(ctx->teedev);
-> > +       struct tee_shm_pool *pool;
-> > +
-> > +       pool =3D xa_load(&optee->rstmem_pools->xa, shm->use_case);
-> > +       if (pool)
-> > +               pool->ops->free(pool, shm);
-> > +       else
-> > +               pr_err("Can't find pool for use_case %u\n", shm->use_ca=
-se);
-> > +}
-> > +
-> > +int optee_rstmem_pools_init(struct optee *optee)
-> > +{
-> > +       struct optee_rstmem_pools *pools;
-> > +
-> > +       pools =3D kmalloc(sizeof(*pools), GFP_KERNEL);
-> > +       if (!pools)
-> > +               return -ENOMEM;
-> > +
-> > +       mutex_init(&pools->mutex);
-> > +       xa_init(&pools->xa);
-> > +       optee->rstmem_pools =3D pools;
-> > +       return 0;
-> > +}
-> > +
-> > +void optee_rstmem_pools_uninit(struct optee *optee)
-> > +{
-> > +       if (optee->rstmem_pools) {
-> > +               struct tee_shm_pool *pool;
-> > +               u_long idx;
-> > +
-> > +               xa_for_each(&optee->rstmem_pools->xa, idx, pool) {
-> > +                       xa_erase(&optee->rstmem_pools->xa, idx);
-> > +                       pool->ops->destroy_pool(pool);
-> > +               }
-> > +
-> > +               xa_destroy(&optee->rstmem_pools->xa);
-> > +               mutex_destroy(&optee->rstmem_pools->mutex);
-> > +               kfree(optee->rstmem_pools);
-> > +               optee->rstmem_pools =3D NULL;
-> > +       }
-> > +}
-> > diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-> > index d1f79947f58a..7fa7d9d14c94 100644
-> > --- a/drivers/tee/optee/smc_abi.c
-> > +++ b/drivers/tee/optee/smc_abi.c
-> > @@ -1001,6 +1001,67 @@ static int optee_smc_do_call_with_arg(struct tee=
-_context *ctx,
-> >         return rc;
-> >  }
-> >
-> > +static int optee_smc_lend_rstmem(struct optee *optee, struct tee_shm *=
-rstmem,
-> > +                                u16 *end_points, unsigned int ep_count=
-)
-> > +{
-> > +       struct optee_shm_arg_entry *entry;
-> > +       struct optee_msg_arg *msg_arg;
-> > +       struct tee_shm *shm;
-> > +       u_int offs;
-> > +       int rc;
-> > +
-> > +       msg_arg =3D optee_get_msg_arg(optee->ctx, 2, &entry, &shm, &off=
-s);
-> > +       if (IS_ERR(msg_arg))
-> > +               return PTR_ERR(msg_arg);
-> > +
-> > +       msg_arg->cmd =3D OPTEE_MSG_CMD_LEND_RSTMEM;
-> > +       msg_arg->params[0].attr =3D OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
-> > +       msg_arg->params[0].u.value.a =3D OPTEE_MSG_RSTMEM_SECURE_VIDEO_=
-PLAY;
-> > +       msg_arg->params[1].attr =3D OPTEE_MSG_ATTR_TYPE_TMEM_INPUT;
-> > +       msg_arg->params[1].u.tmem.buf_ptr =3D rstmem->paddr;
-> > +       msg_arg->params[1].u.tmem.size =3D rstmem->size;
-> > +       msg_arg->params[1].u.tmem.shm_ref =3D (u_long)rstmem;
-> > +
-> > +       rc =3D optee->ops->do_call_with_arg(optee->ctx, shm, offs, fals=
-e);
-> > +       if (rc)
-> > +               goto out;
-> > +       if (msg_arg->ret !=3D TEEC_SUCCESS) {
-> > +               rc =3D -EINVAL;
-> > +               goto out;
-> > +       }
-> > +
-> > +out:
-> > +       optee_free_msg_arg(optee->ctx, entry, offs);
-> > +       return rc;
-> > +}
-> > +
-> > +static int optee_smc_reclaim_rstmem(struct optee *optee, struct tee_sh=
-m *rstmem)
-> > +{
-> > +       struct optee_shm_arg_entry *entry;
-> > +       struct optee_msg_arg *msg_arg;
-> > +       struct tee_shm *shm;
-> > +       u_int offs;
-> > +       int rc;
-> > +
-> > +       msg_arg =3D optee_get_msg_arg(optee->ctx, 1, &entry, &shm, &off=
-s);
-> > +       if (IS_ERR(msg_arg))
-> > +               return PTR_ERR(msg_arg);
-> > +
-> > +       msg_arg->cmd =3D OPTEE_MSG_CMD_RECLAIM_RSTMEM;
-> > +       msg_arg->params[0].attr =3D OPTEE_MSG_ATTR_TYPE_RMEM_INPUT;
-> > +       msg_arg->params[0].u.rmem.shm_ref =3D (u_long)rstmem;
-> > +
-> > +       rc =3D optee->ops->do_call_with_arg(optee->ctx, shm, offs, fals=
-e);
-> > +       if (rc)
-> > +               goto out;
-> > +       if (msg_arg->ret !=3D TEEC_SUCCESS)
-> > +               rc =3D -EINVAL;
-> > +
-> > +out:
-> > +       optee_free_msg_arg(optee->ctx, entry, offs);
-> > +       return rc;
-> > +}
-> > +
-> >  /*
-> >   * 5. Asynchronous notification
-> >   */
-> > @@ -1201,6 +1262,8 @@ static void optee_get_version(struct tee_device *=
-teedev,
-> >                 v.gen_caps |=3D TEE_GEN_CAP_REG_MEM;
-> >         if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_MEMREF_NULL)
-> >                 v.gen_caps |=3D TEE_GEN_CAP_MEMREF_NULL;
-> > +       if (optee->rstmem_pools)
-> > +               v.gen_caps |=3D TEE_GEN_CAP_RSTMEM;
-> >         *vers =3D v;
-> >  }
-> >
-> > @@ -1223,6 +1286,8 @@ static const struct tee_driver_ops optee_clnt_ops=
- =3D {
-> >         .cancel_req =3D optee_cancel_req,
-> >         .shm_register =3D optee_shm_register,
-> >         .shm_unregister =3D optee_shm_unregister,
-> > +       .rstmem_alloc =3D optee_rstmem_alloc,
-> > +       .rstmem_free =3D optee_rstmem_free,
-> >  };
-> >
-> >  static const struct tee_desc optee_clnt_desc =3D {
-> > @@ -1239,6 +1304,8 @@ static const struct tee_driver_ops optee_supp_ops=
- =3D {
-> >         .supp_send =3D optee_supp_send,
-> >         .shm_register =3D optee_shm_register_supp,
-> >         .shm_unregister =3D optee_shm_unregister_supp,
-> > +       .rstmem_alloc =3D optee_rstmem_alloc,
-> > +       .rstmem_free =3D optee_rstmem_free,
-> >  };
-> >
-> >  static const struct tee_desc optee_supp_desc =3D {
-> > @@ -1252,6 +1319,9 @@ static const struct optee_ops optee_ops =3D {
-> >         .do_call_with_arg =3D optee_smc_do_call_with_arg,
-> >         .to_msg_param =3D optee_to_msg_param,
-> >         .from_msg_param =3D optee_from_msg_param,
-> > +       .lend_rstmem =3D optee_smc_lend_rstmem,
-> > +       .reclaim_rstmem =3D optee_smc_reclaim_rstmem,
-> > +       //.alloc_rstmem_pool =3D optee_smc_alloc_rstmem_pool,
-> >  };
-> >
-> >  static int enable_async_notif(optee_invoke_fn *invoke_fn)
-> > @@ -1619,6 +1689,62 @@ static inline int optee_load_fw(struct platform_=
-device *pdev,
-> >  }
-> >  #endif
-> >
-> > +static int optee_sdp_pool_init(struct optee *optee)
-> > +{
-> > +       bool dyn_sdp =3D optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_DYNAMI=
-C_RSTMEM;
-> > +       bool sdp =3D optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_SDP;
-> > +       struct tee_shm_pool *pool;
-> > +       int rc;
-> > +
-> > +       /*
-> > +        * optee_sdp_pools_init() must be called if secure world has an=
-y
-> > +        * SDP capability. If the static carvout is available initializ=
-e
-> > +        * and add a pool for that. If there's an error from secure wor=
-ld
-> > +        * we complain but don't call optee_sdp_pools_uninit() unless w=
-e
-> > +        * know that there is no SDP capability left.
-> > +        */
-> > +       if (!dyn_sdp && !sdp)
-> > +               return 0;
-> > +
-> > +       rc =3D optee_rstmem_pools_init(optee);
-> > +       if (rc)
-> > +               return rc;
-> > +
-> > +       if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_SDP) {
-> > +               union {
-> > +                       struct arm_smccc_res smccc;
-> > +                       struct optee_smc_get_sdp_config_result result;
-> > +               } res;
-> > +
-> > +               optee->smc.invoke_fn(OPTEE_SMC_GET_SDP_CONFIG, 0, 0, 0,=
- 0, 0, 0,
-> > +                                    0, &res.smccc);
-> > +               if (res.result.status !=3D OPTEE_SMC_RETURN_OK) {
-> > +                       pr_err("Secure Data Path service not available\=
-n");
-> > +                       if (!dyn_sdp)
-> > +                               goto err;
-> > +                       return 0;
-> > +               }
-> > +
-> > +               pool =3D tee_rstmem_gen_pool_alloc(res.result.start,
-> > +                                                res.result.size);
-> > +               if (IS_ERR(pool)) {
-> > +                       rc =3D PTR_ERR(pool);
-> > +                       goto err;
-> > +               }
-> > +               rc =3D xa_insert(&optee->rstmem_pools->xa,
-> > +                              TEE_IOC_UC_SECURE_VIDEO_PLAY, pool, GFP_=
-KERNEL);
-> > +               if (rc) {
-> > +                       pool->ops->destroy_pool(pool);
-> > +                       goto err;
-> > +               }
-> > +       }
-> > +
-> > +       return 0;
-> > +err:
-> > +       optee_rstmem_pools_uninit(optee);
-> > +       return rc;
-> > +}
-> > +
-> >  static int optee_probe(struct platform_device *pdev)
-> >  {
-> >         optee_invoke_fn *invoke_fn;
-> > @@ -1714,7 +1840,7 @@ static int optee_probe(struct platform_device *pd=
-ev)
-> >         optee =3D kzalloc(sizeof(*optee), GFP_KERNEL);
-> >         if (!optee) {
-> >                 rc =3D -ENOMEM;
-> > -               goto err_free_pool;
-> > +               goto err_free_shm_pool;
-> >         }
-> >
-> >         optee->ops =3D &optee_ops;
-> > @@ -1726,10 +1852,14 @@ static int optee_probe(struct platform_device *=
-pdev)
-> >             (sec_caps & OPTEE_SMC_SEC_CAP_RPMB_PROBE))
-> >                 optee->in_kernel_rpmb_routing =3D true;
-> >
-> > +       rc =3D optee_sdp_pool_init(optee);
-> > +       if (rc)
-> > +               goto err_free_optee;
-> > +
-> >         teedev =3D tee_device_alloc(&optee_clnt_desc, NULL, pool, optee=
-);
-> >         if (IS_ERR(teedev)) {
-> >                 rc =3D PTR_ERR(teedev);
-> > -               goto err_free_optee;
-> > +               goto err_rstmem_pools_uninit;
-> >         }
-> >         optee->teedev =3D teedev;
-> >
-> > @@ -1836,9 +1966,11 @@ static int optee_probe(struct platform_device *p=
-dev)
-> >         tee_device_unregister(optee->supp_teedev);
-> >  err_unreg_teedev:
-> >         tee_device_unregister(optee->teedev);
-> > +err_rstmem_pools_uninit:
-> > +       optee_rstmem_pools_uninit(optee);
-> >  err_free_optee:
-> >         kfree(optee);
-> > -err_free_pool:
-> > +err_free_shm_pool:
-> >         tee_shm_pool_free(pool);
-> >         if (memremaped_shm)
-> >                 memunmap(memremaped_shm);
-> > --
-> > 2.43.0
-> >
+Thanks for taking time to review the series!
+
+> Since the MEMLAT_SET_EFFECTIVE_FREQ_METHOD command is not supported in 
+> the legacy CPUCP firmware, it should be kept optional. This way, if the 
+> legacy firmware is used, the driver will not return an error when the 
+> CPUCP firmware returns -EOPNOTSUPP.
+
+The vendor protocol with the current major/minor version is
+expected to work as is on x1e platforms. What legacy firmware
+are you referring to? All future SoCs that plan to adhere to
+it are expected to maintain this abi and can decide to make
+use of alternate mechanisms to calculating frequency based
+on additional dt properties set.
+
+-Sibi
+
+> 
+> Thanks,
+> Shivnandan
+> 
+>> +    /* Start sampling and voting timer */
+>> +    ret = ops->start_activity(ph, NULL, 0, MEMLAT_ALGO_STR, 
+>> MEMLAT_START_TIMER);
+>> +    if (ret < 0)
+>> +        dev_err_probe(&sdev->dev, ret, "failed to start memory group 
+>> timer\n");
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int scmi_client_probe(struct scmi_device *sdev)
+>> +{
+>> +    return cpucp_memlat_init(sdev);
+>> +}
+>> +
+>> +static const struct scmi_device_id scmi_id_table[] = {
+>> +    { SCMI_PROTOCOL_QCOM_GENERIC, "qcom-generic-ext" },
+>> +    { },
+>> +};
+>> +MODULE_DEVICE_TABLE(scmi, scmi_id_table);
+>> +
+>> +static struct scmi_driver qcom_scmi_client_drv = {
+>> +    .name        = "scmi-qcom-generic-ext-memlat",
+>> +    .probe        = scmi_client_probe,
+>> +    .id_table    = scmi_id_table,
+>> +};
+>> +module_scmi_driver(qcom_scmi_client_drv);
+>> +
+>> +MODULE_DESCRIPTION("QTI SCMI client driver");
+>> +MODULE_LICENSE("GPL");
 
