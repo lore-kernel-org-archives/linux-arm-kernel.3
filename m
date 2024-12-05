@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4776E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119A3E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zfxb2RLPC+1/iUCdJ/q2I8FfgFuLsBd7nl7oCaiu/iE=; b=zPZDXeiO+zFsjhJ1CLBw1fwKgv
-	/BJfGesu4MZX94M6UxN0TLCWc+KMOJnyqHruRw72NdHuynhtDKog2Dz712r1bNsv9kCyvgMh/FWhb
-	iL5J/joBvMZr7wP4tpaUiO8Qi+wLEw/7k4sZw/NgjlEImeZTZuYQLvp3Y22VwfHpL0NW6+c0OWH3C
-	qsfZrKBK0KWED0M7aW4gnpWUAirTSHBP18M4Ksa+s+vgWYExlHUP4sJalOdptT9YdU4ya6eQC8RWq
-	zBCImo/Lw7QaMmXziph2wR9Ru8lmke30RfeAflJeZfetJgMvPZ1tdYh5n1JQcUROQGr5t/C9GiFeb
-	R+RIjyxg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DQj8homD0inyAdCUx9HjNnb00tV3Wrp/g0R9zC5dSo=; b=MYcg+HRPP7OolU0ZPCL7F4THHc
+	w0OZqwNl/C8a1FQeKtKGqx4pB8L77spG94lmrl9zHdNe29I8Gc5L7X2xMW+GoGr3UzLFwXdqVK5BD
+	wCp9hONy55/W3yC79heH2KJ2rfAby5RfklsiKROnx2K8ih/KZepSoCAUvx4iaXYu+EXUg2hf1/+3x
+	AH87JWBq0G5hjuLwcEwLRIrweOJ35RJvfMQxD6KlqFeHrPQkiK8TcATp732HY0HZUkFde1uoXFV3t
+	pQwz9pI9rixYIhVLQH+Cj0ccweASoS/+f5kcMfp5WnwY7B2NovgnUYk7Op1Q11U9RODYQJ595hI7x
+	ULy3s88g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAsE-0000000FvbR-2aLU;
-	Thu, 05 Dec 2024 12:22:26 +0000
+	id 1tJAtE-0000000FvnI-0rhl;
+	Thu, 05 Dec 2024 12:23:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAn5-0000000Fun4-0U12
+	id 1tJAn5-0000000FunF-19hG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 12:17:08 +0000
+	Thu, 05 Dec 2024 12:17:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70DEF1063;
-	Thu,  5 Dec 2024 04:17:32 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4572169E;
+	Thu,  5 Dec 2024 04:17:34 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 98A693F5A1;
-	Thu,  5 Dec 2024 04:17:03 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DD8C13F5A1;
+	Thu,  5 Dec 2024 04:17:05 -0800 (PST)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -40,15 +40,17 @@ Cc: broonie@kernel.org,
 	joey.gouly@arm.com,
 	mark.rutland@arm.com,
 	will@kernel.org
-Subject: [PATCH 0/4] arm64: ptrace: fix handling of partial SETREGSET calls
-Date: Thu,  5 Dec 2024 12:16:51 +0000
-Message-Id: <20241205121655.1824269-1-mark.rutland@arm.com>
+Subject: [PATCH 1/4] arm64: ptrace: fix partial SETREGSET for NT_ARM_TAGGED_ADDR_CTRL
+Date: Thu,  5 Dec 2024 12:16:52 +0000
+Message-Id: <20241205121655.1824269-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20241205121655.1824269-1-mark.rutland@arm.com>
+References: <20241205121655.1824269-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_041707_193993_6C4CD05A 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20241205_041707_354221_70D18284 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,68 +65,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A few of arm64's regsets forget to handle partial-length SETREGSET
-calls, and copy a small portion of uninitialized kernel stack memory to
-the backing storage of the relevant registers. In all cases the read is
-limited to a specific slot on the stack, and the issue does not provide
-a write mechanism.
+Currently tagged_addr_ctrl_set() doesn't initialize the temporary 'ctrl'
+variable, and a SETREGSET call with a length of zero will leave this
+uninitialized. Consequently tagged_addr_ctrl_set() will consume an
+arbitrary value, potentially leaking up to 64 bits of memory from the
+kernel stack. The read is limited to a specific slot on the stack, and
+the issue does not provide a write mechanism.
 
-For example, a zero-length SETREGSET to NT_ARM_FPMR will reset FPMR to
-an arbitrary uninitialized value from the kernel stack:
+As set_tagged_addr_ctrl() only accepts values where bits [63:4] zero and
+rejects other values, a partial SETREGSET attempt will randomly succeed
+or fail depending on the value of the uninitialized value, and the
+exposure is significantly limited.
 
-| # ./fpmr-test
-| Attempting to write NT_ARM_FPMR::fpmr = 0x900d900d900d900d
-| SETREGSET(nt=0x40e, len=8) wrote 8 bytes
-|
-| Attempting to read NT_ARM_FPMR::fpmr
-| GETREGSET(nt=0x40e, len=8) read 8 bytes
-| Read NT_ARM_FPMR::fpmr = 0x900d900d900d900d
-|
-| Attempting to write NT_ARM_FPMR (zero length)
-| SETREGSET(nt=0x40e, len=0) wrote 0 bytes
-|
-| Attempting to read NT_ARM_FPMR::fpmr
-| GETREGSET(nt=0x40e, len=8) read 8 bytes
-| Read NT_ARM_FPMR::fpmr = 0xffff800083963d50
+Fix this by initializing the temporary value before copying the regset
+from userspace, as for other regsets (e.g. NT_PRSTATUS, NT_PRFPREG,
+NT_ARM_SYSTEM_CALL). In the case of a zero-length write, the existing
+value of the tagged address ctrl will be retained.
 
-This series (based on v6.13-rc1) fixes affected regsets. To fix each
-case there are three approaches we could follow:
+The NT_ARM_TAGGED_ADDR_CTRL regset is only visible in the
+user_aarch64_view used by a native AArch64 task to manipulate another
+native AArch64 task. As get_tagged_addr_ctrl() only returns an error
+value when called for a compat task, tagged_addr_ctrl_get() and
+tagged_addr_ctrl_set() should never observe an error value from
+get_tagged_addr_ctrl(). Add a WARN_ON_ONCE() to both to indicate that
+such an error would be unexpected, and error handlnig is not missing in
+either case.
 
-(a) Preserve the registers which are not explicitly written to. Most
-    other regsets (e.g. NT_PRSTATUS, NT_PRFPREG, NT_ARM_SYSTEM_CALL)
-    follow this approach.
+Fixes: 2200aa7154cb7ef7 ("arm64: mte: ptrace: Add NT_ARM_TAGGED_ADDR_CTRL regset")
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kernel/ptrace.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-(b) Reset registers to a fixed value (e.g. zero) if not explicitly
-    written to.
-
-(c) Forbid writes that are smaller than the entire regset. For example,
-    x86 does this in xfpregs_set().
-
-For most regsets, partial-length SETREGSET calls follow option (a)
-today, so I've taken that approach for all the affected arm64 regsets.
-
-I've checked all of arm64's regsets (native, native view of compat, and
-compat view of compat), and as far as I can tell, the only affected
-regsets are NT_ARM_TAGGED_ADDR_CTRL, NT_ARM_FPMR, NT_ARM_POE, and
-NT_ARM_GCS. All other regsets either either initialize a temporary
-buffer prior to copying in, or copy directly to the backing storage, and
-so don't copy uninitialized data.
-
-There are some other cleanups which could be made here in future;
-ideally we'd have a compiler warning for these cases, or a mechanism
-that avoids the problem entirely.
-
-Mark.
-
-Mark Rutland (4):
-  arm64: ptrace: fix partial SETREGSET for NT_ARM_TAGGED_ADDR_CTRL
-  arm64: ptrace: fix partial SETREGSET for NT_ARM_FPMR
-  arm64: ptrace: fix partial SETREGSET for NT_ARM_POE
-  arm64: ptrace: fix partial SETREGSET for NT_ARM_GCS
-
- arch/arm64/kernel/ptrace.c | 36 +++++++++++++++++++++++++++++-------
- 1 file changed, 29 insertions(+), 7 deletions(-)
-
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index e4437f62a2cda..8525d03f0fb40 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -1427,7 +1427,7 @@ static int tagged_addr_ctrl_get(struct task_struct *target,
+ {
+ 	long ctrl = get_tagged_addr_ctrl(target);
+ 
+-	if (IS_ERR_VALUE(ctrl))
++	if (WARN_ON_ONCE(IS_ERR_VALUE(ctrl)))
+ 		return ctrl;
+ 
+ 	return membuf_write(&to, &ctrl, sizeof(ctrl));
+@@ -1441,6 +1441,10 @@ static int tagged_addr_ctrl_set(struct task_struct *target, const struct
+ 	int ret;
+ 	long ctrl;
+ 
++	ctrl = get_tagged_addr_ctrl(target);
++	if (WARN_ON_ONCE(IS_ERR_VALUE(ctrl)))
++		return ctrl;
++
+ 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ctrl, 0, -1);
+ 	if (ret)
+ 		return ret;
 -- 
 2.30.2
 
