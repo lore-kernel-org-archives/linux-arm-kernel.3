@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08971E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 17:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F11EE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 17:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MUjYGZM8Wn9lXxLMeS6SbGdYzdUSKeJjfxwmycYz8PI=; b=UEUiEaLUE+CZGbdIXgbCbws4ni
-	h/7gmis3GpNj67LkQObrMTdWmPoKXIwi4UYo0A1p9RVZFIQz3wnE6yoRJjq2PHOr/lPkfTI4CM53Q
-	+Curizt90CwgXQjUzvxkroKZUbhR0y5eXOonXljwFKC3BSaPkeYwo4YSkI3UYMonccBdpGM4JFkSJ
-	fxLwOdX3g64oYFD3HZLwtGFWGrkRxh9hpKHVDKrjZjZ0wRv3NlWR0xYwOmYkNiptY2c9u4PbZrAgy
-	egMDhRhuXM/x5vc6xTJUM2EsWP0S/mV/JpgisyLpJP0mqoF0WCT18azN7Oz/CdexA40oUg17ADOsB
-	mVbHY7Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=73xQjGFD4kv0bIyMOBquAjnNM1xCWQ7ChvbHtBBk+Ag=; b=d77yL/YyOnp/joHjFnm5FUuWoA
+	KDKpOwRxkvzPJq1dfZCtCJi32PIuDtlcIvBNvykdh/16xqfMxtFmSdyRzC5/uXpnqFSUwa3n3lW3Z
+	eccu0BJ3tTZ3E1TCX581iWlLbibDPzlP6a0ZtGUXHHUIKVVt2VYs4F9hCcgr8ZMeCndf0M8jDh5yt
+	Gc5OSxiqq5uVCaaAu6Zij1gnXAChGGorXoMyx3woM9eHg4zl6t9WeGJUNf5eZ7ycwSQrb7feHmZIp
+	pcsr/f5g3EDptwQXa1V+rQR8MZqScHNN4f1d4fdSRTZrl9xPYZKNAib7A+t9vtXRCO9ZfZevjZxTE
+	U/Sd9TVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJG6x-0000000H2OD-0Lti;
-	Thu, 05 Dec 2024 17:57:59 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tJG8U-0000000H2dH-306f;
+	Thu, 05 Dec 2024 17:59:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJG30-0000000H1bH-3XoO
+	id 1tJG7T-0000000H2UG-0C0r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 17:53:55 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-434a766b475so12319255e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 09:53:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733421233; x=1734026033; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MUjYGZM8Wn9lXxLMeS6SbGdYzdUSKeJjfxwmycYz8PI=;
-        b=qgUcH7M1XrGfdr/0Hb7ZtKaMVfFpjQQSqbjyL5WKS+TToqGuPRIwqfITy46fU5eV3i
-         UB9BmCoKsnxY4Zw5vLH+h1R2N77HBM1z9ThnebiRKT/ZYFJK8QgxhDVtJjs7icKTcjHf
-         ZOoD0IOcpxjZ/ovmbW6A5ONt2UyAoOcZlHYzwZB5UtdPyi/m+mPER9cbqwBYRUXwEfsw
-         SOnLKCo4k13YA5+8HDfsNGgIr9+Ut1LN+eKgPR/JTEirD9y8L4vuldn1LpxgNuvEhQd0
-         SuJGwApeoT5Y8j6rgI+gvt0BFWKbfWqcZKW4wxjTaTW95/gqxSXTh1R/uiBmihhZXfaK
-         8nbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733421233; x=1734026033;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MUjYGZM8Wn9lXxLMeS6SbGdYzdUSKeJjfxwmycYz8PI=;
-        b=BGRv/JDGc9By+AC3ndU/pZJA03m9QaS1kshx00OftMDFPcwZgY93MhX58Fa1V9Tmlp
-         jUL6Kveje1Ur8VuBEboJ/0HCX+fQfb+CxJrdQVc2xREUn+qzNQFVMJzi7Dak8eLJxanV
-         BbavuR1qgvwAQbXhPXwI/Np5+WO1bTJuwdJpZP+sWduFJhps1Zi1bYgwyprlopf5BnBq
-         tjXKKjuarTN/7+ieMNs4u6fioXjUOnaUVQWdeZBmWSyO1NhndLb8U0CUOWnf2rzXjX21
-         PXySLG5p1hlIlK+pQpSkZdNuNn/ZqgEF++7MQOegA7SbS+mU8JvdYdbnqcVzOnGJ3DbJ
-         Agew==
-X-Forwarded-Encrypted: i=1; AJvYcCX9L2wjfcPcj0RvMQOuCQh29/NqhAAClC8pkhiErmh6st4Mzmnx08c1iUszWxe2garMiu7Tnrtcqi9Po26Q+P84@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLf1J6YoKbJPlqBaXcw0PWMYkT6du4iE2MrNu+xNM3mQYYgdTK
-	k+qSQRThyy/qQcyB89fxztqlHsfZsQSgc68FFKzGpsUi8QJ8Ru20lXC/HQp7d3w=
-X-Gm-Gg: ASbGncuPHdsHDWWMII8bZCs4SV0EmA+a1pCYwtY6Dut/coclFMBQk/3twv4oBUymCZZ
-	qNSJNIjcjadG0U0m0ikDxAoXLkivOAeUIL94d1JSApPw1ftcTlCxsoHC1dZIfQlODbTG5x3hAse
-	I5Ofc+S+dZ5A1Nj9wM9FBnO+Goc9sd6JK2FEye9ka/4RHPQeEItGgPy7Ak/pcmVzBTgJmMqaR7A
-	m+KaS0tYJ5F0g3Rcv8NdzWcZev18f6++HorSMnEce5IIn/l0W1ejrcF4NhUYWjPf/EMLiVYjlmk
-	AWjWQedFzkQJx2wXRe8RW5VS8UfFAUyF
-X-Google-Smtp-Source: AGHT+IGVQz+uq4dtBtqtBu1Y8X22ebMDa5YP2r6YCdjfCnpf2qvqcplq7ge2zv2BqYCM+IMoonQK5w==
-X-Received: by 2002:a05:6000:188f:b0:385:fa3d:1988 with SMTP id ffacd0b85a97d-3862b33d273mr12625f8f.8.1733421233156;
-        Thu, 05 Dec 2024 09:53:53 -0800 (PST)
-Received: from ta2.c.googlers.com.com (32.134.38.34.bc.googleusercontent.com. [34.38.134.32])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d5280fc4sm67882835e9.24.2024.12.05.09.53.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 09:53:50 -0800 (PST)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	alim.akhtar@samsung.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	andre.draszik@linaro.org,
-	kernel-team@android.com,
-	willmcvicker@google.com,
-	peter.griffin@linaro.org,
-	javierm@redhat.com,
-	tzimmermann@suse.de,
-	daniel.lezcano@linaro.org,
-	vincent.guittot@linaro.org,
-	ulf.hansson@linaro.org,
-	arnd@arndb.de,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v3 3/3] MAINTAINERS: add entry for the samsung exynos ACPM mailbox protocol
-Date: Thu,  5 Dec 2024 17:53:45 +0000
-Message-ID: <20241205175345.201595-4-tudor.ambarus@linaro.org>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-In-Reply-To: <20241205175345.201595-1-tudor.ambarus@linaro.org>
-References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
+	Thu, 05 Dec 2024 17:58:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A51495C6D9D;
+	Thu,  5 Dec 2024 17:57:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BF0AC4CED1;
+	Thu,  5 Dec 2024 17:58:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733421510;
+	bh=73xQjGFD4kv0bIyMOBquAjnNM1xCWQ7ChvbHtBBk+Ag=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Orlrb+ElrHdizDwlaDZTRLYCgXbBCQ7lTewAAGkzKjsd2qydeM+XKlwzkgmHmNakO
+	 /Tg1HkdP0dmYfuhOwdRfv/iqU0R5Che9ad6MPbCSkOjUQ4o3huwLs9e42to2S/Plbi
+	 fLUrVrT2+wROyeUOu7V/5B8hFgFlrDNnU4JsuV5RqE1x2iXZpSpQBG2PO/JfXWp2/4
+	 r3tCBU9HrWPHnBgmDharqVj374h+kKmfJx981ZFl4g0jypdF+Z6wwkrSeE/7RwwZWP
+	 48hqgipspHnjAN5w8ooFd1fs+ag48MQvzPj72b8DvOKVT5EKZoqapsgIc4dlwVmnnb
+	 OQ1s9bINGxWYA==
+Date: Thu, 5 Dec 2024 17:58:25 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Robin Gong <yibin.gong@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev, joy.zou@nxp.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/5] regulator: dt-bindings: pca9450: Add pca9452 support
+Message-ID: <20241205-cornfield-stoplight-664ad32353de@spud>
+References: <20241205-pca9450-v1-0-aab448b74e78@nxp.com>
+ <20241205-pca9450-v1-3-aab448b74e78@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="MyZ5EmMb99Zgg/w4"
+Content-Disposition: inline
+In-Reply-To: <20241205-pca9450-v1-3-aab448b74e78@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_095354_879761_B0E8A4EE 
-X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-CacheID: sfid-20241205_095831_124308_B085CE29 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,42 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add entry for the samsung exynos ACPM mailbox protocol.
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- MAINTAINERS | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+--MyZ5EmMb99Zgg/w4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1e930c7a58b1..5cff01641f23 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3023,6 +3023,7 @@ F:	drivers/*/*s3c24*
- F:	drivers/*/*s3c64xx*
- F:	drivers/*/*s5pv210*
- F:	drivers/clocksource/samsung_pwm_timer.c
-+F:	drivers/firmware/samsung/
- F:	drivers/memory/samsung/
- F:	drivers/pwm/pwm-samsung.c
- F:	drivers/soc/samsung/
-@@ -20712,6 +20713,15 @@ F:	arch/arm64/boot/dts/exynos/exynos850*
- F:	drivers/clk/samsung/clk-exynos850.c
- F:	include/dt-bindings/clock/exynos850.h
- 
-+SAMSUNG EXYNOS ACPM MAILBOX PROTOCOL
-+M:	Tudor Ambarus <tudor.ambarus@linaro.org>
-+L:	linux-kernel@vger.kernel.org
-+L:	linux-samsung-soc@vger.kernel.org
-+S:	Supported
-+F:	Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
-+F:	drivers/firmware/samsung/exynos-acpm*
-+F:	include/linux/soc/samsung/exynos-acpm-protocol.h
-+
- SAMSUNG EXYNOS PSEUDO RANDOM NUMBER GENERATOR (RNG) DRIVER
- M:	Krzysztof Kozlowski <krzk@kernel.org>
- L:	linux-crypto@vger.kernel.org
--- 
-2.47.0.338.g60cca15819-goog
+On Thu, Dec 05, 2024 at 11:51:11AM -0500, Frank Li wrote:
+> From: Joy Zou <joy.zou@nxp.com>
+>=20
+> Add compatible string 'nxp,pca9452'. pca9452 add 'ldo3' compared with
+> pca9451a.
+>=20
+> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+--MyZ5EmMb99Zgg/w4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ1HpwAAKCRB4tDGHoIJi
+0vSkAP0e4ibG2OMWjU9zkkepAuDnmh7gZrt/mo0r917YnFvyvQEA1mACkRWBygEy
+s2e5cq6G63ISm+PTrFg9VWDwjfPXngs=
+=9/jl
+-----END PGP SIGNATURE-----
+
+--MyZ5EmMb99Zgg/w4--
 
