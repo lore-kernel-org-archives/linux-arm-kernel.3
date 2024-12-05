@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1ECE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 03:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F407E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 04:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JwfLitJcijVjn3mYmWjqS2pZ/U3vybZ9MoCggOPZX9Y=; b=tg5+qhvl+BaxoZbQqRSp6x7mz4
-	QI2exoJaFXrUvyMGd7mbIt0Ru4JvDPjB4G7pJlHcBTl3taG2ma74sUtP0g7EaOGbgwwIei4S5I4z4
-	z/IlOs/9ul0j781iW4XaRGZajaf/tZBAujGDG+DMhEVTfLMpD1nxKUw8mpYzvWnB9NOHG5rGZ8xde
-	la3w0ByimmHCbfE6lgiqY13X7tugCdc28EW6dEVKRGW0JdJ20sozpmAlXjMRWJEPGlpciKvkcEAVA
-	wPYdIYRBT/wwMqRJFNjFs2kVhwz03Ewx6SgjjQD3EsF6vIiZ7PDH40rXbh8OMc85JKrYcgTvovhIl
-	u1D5Xh0A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=piW9kHZgsyQb9cy9HU5rDPdSyIGIWO93TJJ1y0kDyvc=; b=uvDQ3Q4ZVTlp67
+	ALOetNrLmSY7broV8I7OLTWntGsv0zeX09Uj7Amb/dSFfClYrtijXHnkxA6tTEdHKwQFXWcLpvOsF
+	z0Agux/KUwZQuL4KgIQCkCqOg9blG5jg8hFDkNCNp7G9p3y1Ykr/pWh2n72/mcoPeHeNi/fs8D5wg
+	0uqDcjykFcBH89YCBk9M1Gzv5Eg4YWqJ7/qI90wKeNv8DK0Rtk2QY/esfP9BzGN7ihdx03oVJenE8
+	haUlRhNdzTdbJQ4J2NJKhwmF/FEn9zGawxPIQrMTElw/O6y/qOgJAJeK7VQNAokSQhJOZAWHR3j9D
+	GT+lJPIIS2eWHRPvWFZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ2kr-0000000EfvI-3g80;
-	Thu, 05 Dec 2024 03:42:17 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tJ3In-0000000Eimi-2b61;
+	Thu, 05 Dec 2024 04:17:21 +0000
+Received: from mail-lf1-f54.google.com ([209.85.167.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ2jr-0000000Eflq-0lAX
+	id 1tJ3Hm-0000000Eigr-2Np0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 03:41:16 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53df67d6659so462671e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 19:41:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733370073; x=1733974873; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JwfLitJcijVjn3mYmWjqS2pZ/U3vybZ9MoCggOPZX9Y=;
-        b=Wx29szyl2MgTHmdBVlHOe+9hAZL0jw6u7HW1xy6vUwlH0f7vA3zTTA7LZegNsEGK1B
-         Pz0lSUqPk/OjJfM9t1bPeY+BgcCDjNDBSUTVmi0vrbZ2GLgj3+NYCo68JbmsqchvPceb
-         iWCd8ZDKGhRaC2pfPKvbOOZKe8rwos/XvmZYY=
+	Thu, 05 Dec 2024 04:16:19 +0000
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-53de556ecdaso517314e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 20:16:18 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733370073; x=1733974873;
+        d=1e100.net; s=20230601; t=1733372175; x=1733976975;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JwfLitJcijVjn3mYmWjqS2pZ/U3vybZ9MoCggOPZX9Y=;
-        b=gL+q7mE1eIa2IMJ0JHP7qBdmNtHWBkUm4xCAHcPQ2BzFMXmU+g6GlIdtDZ7O2InJID
-         WZDA6iNWrUFkGfrjraMXjcjxDu7BtAz9YraEEJ03s5dLVdp+3PkNOMFWhd4bsYepgcek
-         /9PfDTFBy4uv2QI8gmoSWq9eiEo/atIWljPqNX8fWGdEvylFcCDhn/zAy3oSIE/FYh97
-         CHjwHnzPVseuhQJyvbbpQE5U511mr8tUI/+VL1SqEuCzyU1h4raQe2qs9kU5l10mhBD5
-         oUykX8TKxHI+/trL+0VGNGtYtM1Er3bk62Fu/HufT8B65ydLRgEvcIADVrp4g/xf/r29
-         krNg==
-X-Forwarded-Encrypted: i=1; AJvYcCX3aIIZnDY96HPZ9kddP/y+PQyM+qElKS0L2Y5nP8UgCkdZeEeMur7FNLtGARUAnsqeV+eyEuTSKItdO8m/DDmU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuScfLeG5Rag0IDlUy5l5YYe3NIHlPTc3Btl2pXExlBByDVbPy
-	ZYU8voInhrhESZ3mypm3xM7bDQA2/RIaRlmh/Q/XIv31FXaolem2NHUP3+SgYgaU+1hnSYL2CO3
-	53NVodc1E5MswcFcWSE72ZP6MWb8F8W6pBzzo
-X-Gm-Gg: ASbGnctWp7KIgPbLeAAmPOcQqNBe1j46tLmvbCUuflS2Y57LHtbxCb2I/hn3wRo9Kp2
-	5+F/Xk8vvtsz8mazcdGCqXM7fBWzJvBgeu64lcOGLQwTWkEbutwPtA8Bp274=
-X-Google-Smtp-Source: AGHT+IHqgDnUkKGPY8hz6ukhVqJstOuAN0fggL2+fodGywtVNADNTkDdluEMvlUwqS+eqw7nTOCdm7Cyv8kDB7dlMcU=
-X-Received: by 2002:a05:6512:2822:b0:53e:228a:85b with SMTP id
- 2adb3069b0e04-53e228a0a02mr191564e87.11.1733370073161; Wed, 04 Dec 2024
- 19:41:13 -0800 (PST)
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=piW9kHZgsyQb9cy9HU5rDPdSyIGIWO93TJJ1y0kDyvc=;
+        b=sUd3DsijoOtFmqNHXXZFPBsZJzPwsHuzcHIEJD4llHNCt+m71ZfullvJxiqovWEffn
+         ZshIEo8J1bQE+AR57tUnBgbp7z7tdzGd1JDqichCuBR621sRlxNCc/PKOnxnQ+VVEivY
+         AaCrcrWn+L1/VE376YRr7JOzc/45werZAuAE2PYjpkroT/L5vfrziB+Ndxp7KCtEGTiQ
+         AjPywnc75LrRt5ZyRhmFMV57cfFZWfBZ8hG2o5OVB1nRsntLpGQyWpJQvpy21ttbmmD5
+         F5/O3hanXavmUaEUSvHb1BvbzzTqhxKueblCCtIyrd9vSRGkspMIhAcZ0YCHGWVWhZKZ
+         /otA==
+X-Forwarded-Encrypted: i=1; AJvYcCW6QDCvC9jUB3LELK4ikqWRgjb+LTocQXpWuipcKyEnUU2Y0rAZbpz/izg6lr8L9aVFdLeJ5vTMVsj/pVZCYxMw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzc9x201cSapk72fDgLHb769JHRhqMGwKwHUzaTwbVusO7/mMzj
+	ZVELBG27zADNNHCvROznQJTl4pZWlQFO3rx14EyqURiYWK8sUvZhGUlusivX
+X-Gm-Gg: ASbGncvXaH42Is73ERGFK4RboBZMRUZbCLQQxH5Mj0pus/OudqHuMt7mgkHTqnJmzt7
+	kzfC/tZOUOHYmExS24VZyCFVW4bkuIb1zWULhNTitardFh3HoDnQ9Zwqfq5CZ4j+DwBG3xkYLy0
+	j8UvL+LTK4xK2UP1CqMk9ECM+XT+E4vQHwL0zT0VS/UGbu2B/Po+cjsijTtImhy/sdflyvc8IYH
+	Y1+n8dyR12biniMi7C99dLT2ttifZuDkM+0RLDpZmEbVrlLUWhEq2ULeeE7Huq6HQY8pSq/PI7T
+	9xr0uNE=
+X-Google-Smtp-Source: AGHT+IHQhY1Yfw3DDgF6FtM9oyKkYIGO5ql8Mh3ABZSTdG9LXZ66VpVOR2lG2DiG7ATJeZi5U53CwQ==
+X-Received: by 2002:a05:6512:4028:b0:53e:1b94:727d with SMTP id 2adb3069b0e04-53e1b947326mr3991937e87.10.1733372174734;
+        Wed, 04 Dec 2024 20:16:14 -0800 (PST)
+Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e22947411sm99093e87.42.2024.12.04.20.16.14
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Dec 2024 20:16:14 -0800 (PST)
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2ffd796ba0aso3811821fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 20:16:14 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUtzf3dcKXQ7WuVlTQohTB7rzGjMo59V8fyEBjQmAZfOjC4gFN0BntCXD2gwSQKOB4vyTuQJscH6AIrdeVJqcz9@lists.infradead.org
+X-Received: by 2002:a05:651c:1501:b0:300:1889:6340 with SMTP id
+ 38308e7fff4ca-30018896590mr21262461fa.13.1733372174094; Wed, 04 Dec 2024
+ 20:16:14 -0800 (PST)
 MIME-Version: 1.0
-References: <20241204092855.1365638-1-wenst@chromium.org> <20241204092855.1365638-2-wenst@chromium.org>
- <4762E5F1-59F2-40D1-9D22-724107623AAB@public-files.de>
-In-Reply-To: <4762E5F1-59F2-40D1-9D22-724107623AAB@public-files.de>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 5 Dec 2024 11:41:01 +0800
-Message-ID: <CAGXv+5EYf9-r88nv7zDo8JFGhMFyzVPU1gBNwkETvGTp+27q0g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: mmc: mtk-sd: Document compatibles that
- need two register ranges
-To: frank-w@public-files.de
-Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wenbin Mei <wenbin.mei@mediatek.com>, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	Andy-ld Lu <andy-ld.lu@mediatek.com>
+References: <20241203203824.23306-1-simons.philippe@gmail.com>
+In-Reply-To: <20241203203824.23306-1-simons.philippe@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Thu, 5 Dec 2024 12:16:00 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67Uv3SVQSqox85qt_05aVvX0oCynNRoaN9BA1Nha3eo8w@mail.gmail.com>
+Message-ID: <CAGb2v67Uv3SVQSqox85qt_05aVvX0oCynNRoaN9BA1Nha3eo8w@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: allwinner: h616: rg35xx add missing regulator-ramp-delay
+To: Philippe Simons <simons.philippe@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>, 
+	Mark Brown <broonie@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_194115_249590_612C2CB8 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20241204_201618_604784_D99C9304 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +95,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 4, 2024 at 6:38=E2=80=AFPM Frank Wunderlich <frank-w@public-fil=
-es.de> wrote:
+On Wed, Dec 4, 2024 at 4:38=E2=80=AFAM Philippe Simons
+<simons.philippe@gmail.com> wrote:
 >
-> Am 4. Dezember 2024 10:28:52 MEZ schrieb Chen-Yu Tsai <wenst@chromium.org=
->:
-> >Besides the MT8183's MMC controller and all its compatible derivatives,
-> >the recently added MT7986 and MT8196 also require two register ranges.
-> >This is based on the actual device trees.
->
-> Hi
->
-> Mt7988 is similar to mt7986 (only using different clock settings) and usi=
-ng 2 reg too.
->
-> Currently there is no mmc node in mt7988 dts (i currently upstreaming it)=
- so i guess this is why you have not yet noticed it.
->
-> See this for more:
->
-> https://patchwork.kernel.org/project/linux-mediatek/patch/20241202122602.=
-30734-3-linux@fw-web.de/
+> AXP datasheet says that ramp delay is 15.625 us/step,
+> which is 10mV in our case.
 
-I think I noticed it at the beginning, but it then slipped my mind. I
-might have gotten it mixed up with mt7986.
+(CC-ing Mark for knowledge on regulators)
 
-> Maybe you can add mt7988 compatible here too in v2.
+If this is the property of the PMIC, it probably belongs in the driver,
+in "regulator_desc.ramp_delay".
 
-Will do.
+The "regulator-ramp-delay" in the DT can be used to override this
+if the board has excessive ramp delay due to other design reasons.
 
-Thanks
+
 ChenYu
 
-> Regards Frank
+> add missing regulator-ramp-delay to dcdc regulators accordingly
 >
-> >Properly enforce this in the binding.
-> >
-> >Fixes: 4a8bd2b07d88 ("dt-bindings: mmc: mtk-sd: Add mt7988 SoC")
-> >Fixes: 58927c9dc4ab ("dt-bindings: mmc: mtk-sd: Add support for MT8196")
-> >Cc: Frank Wunderlich <frank-w@public-files.de>
-> >Cc: Andy-ld Lu <andy-ld.lu@mediatek.com>
-> >Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> >---
-> > Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 9 ++++++++-
-> > 1 file changed, 8 insertions(+), 1 deletion(-)
-> >
-> >diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documen=
-tation/devicetree/bindings/mmc/mtk-sd.yaml
-> >index f86ebd81f5a5..9ea035928563 100644
-> >--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> >+++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> >@@ -235,11 +235,18 @@ allOf:
-> >       properties:
-> >         compatible:
-> >           contains:
-> >-            const: mediatek,mt8183-mmc
-> >+            enum:
-> >+              - mediatek,mt7986-mmc
-> >+              - mediatek,mt8183-mmc
-> >+              - mediatek,mt8196-mmc
-> >     then:
-> >       properties:
-> >         reg:
-> >           minItems: 2
-> >+    else:
-> >+      properties:
-> >+        reg:
-> >+          maxItems: 1
-> >
-> >   - if:
-> >       properties:
+> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+> ---
+>  .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts    | 3 +++
+>  1 file changed, 3 insertions(+)
 >
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-20=
+24.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> index 80ccab7b5..b6e76a804 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> @@ -238,6 +238,7 @@ reg_dcdc1: dcdc1 {
+>                                 regulator-always-on;
+>                                 regulator-min-microvolt =3D <900000>;
+>                                 regulator-max-microvolt =3D <1160000>;
+> +                               regulator-ramp-delay =3D <640>;
+>                                 regulator-name =3D "vdd-cpu";
+>                         };
 >
-> regards Frank
+> @@ -245,6 +246,7 @@ reg_dcdc2: dcdc2 {
+>                                 regulator-always-on;
+>                                 regulator-min-microvolt =3D <940000>;
+>                                 regulator-max-microvolt =3D <940000>;
+> +                               regulator-ramp-delay =3D <640>;
+>                                 regulator-name =3D "vdd-gpu-sys";
+>                         };
+>
+> @@ -252,6 +254,7 @@ reg_dcdc3: dcdc3 {
+>                                 regulator-always-on;
+>                                 regulator-min-microvolt =3D <1100000>;
+>                                 regulator-max-microvolt =3D <1100000>;
+> +                               regulator-ramp-delay =3D <640>;
+>                                 regulator-name =3D "vdd-dram";
+>                         };
+>
+> --
+> 2.47.1
+>
 
