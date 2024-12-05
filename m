@@ -4,111 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB53E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 07:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7978BE77171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 07:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ydwVJRNcZ0Clkl6JIvCztV260tQiNmYERnGhkQ6UUXQ=; b=UhDjYbUQROtjBApsq7QMbCUfDm
-	U6p0ev8aWwD3M3ijJpYgC7PSRVuzN31VBVM2ANacALk3mCpYdAjgrwKwW1ZmPsUNhEYvGx10dAGs0
-	w7SpKCOGBMbaCHt3u1BqHS3hfT7ChjlgZ6y3nof63Wp+lUJyHsjOe2CoT4Exv2+RbXtkduL+2jqkw
-	PcfpMUvZ+F9lKuEaRUN8ZQzMqGtU1mXZ5geIgnbXsd0PFmr1rEbOuH2H+0Q9xAxBWApp8kPrPIuic
-	gulbjZF5yt0i3lsc2VTizGeA6fuPHOIGlxNMqwTDMtBE3f/b8vT6X8DmuQFkuPYhCMCBiYxZUWVGp
-	AK6Cj42A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=haUzoOdl3j5ZhKh6v9Mp+uyoSF/yENN0p8H5q1O4kPw=; b=t+50sVccFdepNH
+	ni0Ku298+hb9kLT4BSJDqJk8bHDBAyqD7GTMGrMBQEfFNOg/W2JqcThVsZAAEpAzJn/fsZNHbNwKO
+	0k8XZzbZjcH4llXMikXhV4AjQL6jzMdwqV0PjZiGQwYvuUavFilUqsYjRMCYBkJnsxxlocNtzsPn1
+	bkuKnrmjB83TqpLAPY4RI6ig6WW9a0zlL/lkdXZFmApqTrKLxdkRjuZbU77P3nwNIWKGv9E8AuDKf
+	kPXcrB5objIW4Nbi4PtDYYmEAQzNs36A7kCcx5bnJJKoQxsXfWg/EY4bJsTIFIOSZQuG5MBn22CJW
+	wBUwDVFK9l9Nrt8uLAbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6Xi-0000000F4XU-3qKj;
-	Thu, 05 Dec 2024 07:44:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJ6Yh-0000000F4n0-42Fg;
+	Thu, 05 Dec 2024 07:45:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6OJ-0000000F2Q8-3duD;
-	Thu, 05 Dec 2024 07:35:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6FAF95C6474;
-	Thu,  5 Dec 2024 07:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 589ECC4CED1;
-	Thu,  5 Dec 2024 07:35:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733384115;
-	bh=2fpEE9g5kB4y2a28WRCuU7Z+GUEAs6iFyykpq7ObRP4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RnbYcAHur+sbhSle+xhDJIt4rtZCkFDHBqfEkNG+JhpT8QH8QzSawtkqY7XKO79Yw
-	 Vr98kplGvhfdzDeaxQ5r1905DlwBuWWBotmNjqNgeWYpreQM7/1hs0Qwgfy93eLi3l
-	 2FzSYl8CxEsajAs1R8snoWnxkwoEM/KNsOyNtPbRP297vIZJkDDGVGBdgvVrGzJknB
-	 2k33pMLL+TTWOhRhsRwpNaTqwCLPdMZF2AOixkGpqdlI0PV0iaBT8smqoq0v2LwQFp
-	 f0BX6/05W3fOGPkR2GKTds0DgGtJMCgdCmp0owRDreDQxfwi6Sdijmwsx2uAcPo2VL
-	 ko7bkOqyEq2mg==
-Message-ID: <6ebd58fd-8461-476c-9266-a21455d5e819@kernel.org>
-Date: Thu, 5 Dec 2024 08:35:08 +0100
+	id 1tJ6Sf-0000000F3Qq-18K3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Dec 2024 07:39:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
+	MIME-Version:Sender:Content-ID:Content-Description;
+	bh=haUzoOdl3j5ZhKh6v9Mp+uyoSF/yENN0p8H5q1O4kPw=; b=Z2uYjSHoBAL2dY5yX39EJHJgrW
+	+ogrD1mzJ05oJyFnG1ExibwyozMW4hkwhuA4oE9eHTQewW2AOh8MsYCtetYJwFq6FzCD+v7Od0aRx
+	IWdeO0AxJAIPkzRsqlSIE6/5+8j2sCcanPkaIiD9TQW6DHIh95k9WScIpi5qtORLuZZrtTxENkoXr
+	J7cZ8/JBRMaE1Vtyw3662bGGnDqHwzGAejkkImSxXpTWMvdHQTraJFdr+IOxCQGB/WNg2LH0LCDlE
+	Tyiekk6+bYvsStCovCQMy6k9l9Ta2KA8dQCBSoodcXYkPEYAE8P6O7/OXthEn4Tq5b2ORt5dLBknQ
+	x2OLNPYw==;
+Received: from mail-lf1-f44.google.com ([209.85.167.44])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJ6Sb-00000002n1B-2Tpg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 07:39:44 +0000
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-53e274f149fso80457e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 23:39:39 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733384377; x=1733989177;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=haUzoOdl3j5ZhKh6v9Mp+uyoSF/yENN0p8H5q1O4kPw=;
+        b=VNBRrB0gn5UeVip+tPuxmYcjEx+O8bd/TJGKLAT+CkmbZQTS1Xiva87VZWItJQ7oAn
+         q/Luw5DFodTnlNLo8frhqL8SLAHM1ttWF/GQiAAhtw/bWwVaSIxI5vpcsUPI/lGo0Pf3
+         cfKB4MNfAjC+tZobDhV1/MjIwCS8GQw1ZcQvPF9jbH657zI/BJQRYaE8omwJu0+cMDH/
+         rwUHBw5+SUf4L61xMuoY71WVC4wbZ8eVhrdJK+B480Z/DGsFSrkbqyL2fGURpDx7++OR
+         0LNt4cjPPMPFFBQBsDtQI09psoFm/IoP3Bkk4O1Ttk+eWS2J0nWQqpfAIcAmO8jbpbIk
+         wnlA==
+X-Forwarded-Encrypted: i=1; AJvYcCXF/ujSuA0Y4RgsSZHxtvNCZoLDFpfhNNSX76bhmCAncLgLMxdOXVCdnWIAEFQROTLc5JArYHC7qc3YlAazeM1v@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUJ4KAgoR1SeEBQkZvWplN0l1MvUw8YH/pN7PQQhLUWK405GE9
+	k8JG35J2JlMIHTpe7ecnO+bHP3wxBlqaXtlV6YMhAQlXByPrE/V9udHA5mCB
+X-Gm-Gg: ASbGncs1ph28FnrcRQ514XN4z/Sjgd+tg7tctVqlUR0zsngDi/SO6F4Hz15QBI+Qq1r
+	RNvPu286maehKJ2CZIY2Xtt5mhm2hNRupUPXgXPOekvuroAzKqVDJkxSKn0LQqnR0zrzifT+cZb
+	kQ53DHHe6clAiG44Q4uwFZWe/4LfXU/3lXUcZdFgvsr3LNOvDpXYFOQU4/1hSBkJgIvYY6JFxHf
+	RnsYn8JikaTnhT9RaA4TALahjLoQasRUw79C+2TDcez38RjqmRsroF8pjk2Y1PrptQ08kDwDyhL
+	oxY9MvY=
+X-Google-Smtp-Source: AGHT+IFhynrsRCtoYhVWMI6N/PxO6/IiVz9GxwZUIPrzdO/c4cKLUBTLLgLneuMOkA7dR81NBKegyA==
+X-Received: by 2002:a05:6512:e88:b0:53e:1c3e:25f with SMTP id 2adb3069b0e04-53e1c3e0546mr3593288e87.4.1733384377323;
+        Wed, 04 Dec 2024 23:39:37 -0800 (PST)
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com. [209.85.208.177])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229ba553sm148482e87.138.2024.12.04.23.39.36
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Dec 2024 23:39:36 -0800 (PST)
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3000b64fbe9so4815661fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 23:39:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWaWMvNYOUNZ+PegYvvM2fcy1KobIvOc80sH5D7Ci6SDgTqvs844rgoGpDT0r6muUHtpoStPjVDJG/p1OuIeq9p@lists.infradead.org
+X-Received: by 2002:a2e:a907:0:b0:300:8ff:d93f with SMTP id
+ 38308e7fff4ca-30009c50cb0mr55293541fa.22.1733384376650; Wed, 04 Dec 2024
+ 23:39:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] dt-bindings: pinctrl: add binding for MT7988 SoC
-To: frank-w@public-files.de, Frank Wunderlich <linux@fw-web.de>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@kernel.org>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241202110045.22084-1-linux@fw-web.de>
- <20241202110045.22084-4-linux@fw-web.de>
- <iwmnxlqpaijvr4kmzwk3elacqj5ukqlchfs67ca6c6gxrycpbb@pc6a6scqkdi5>
- <1DBA844B-4DB2-4AA2-BF04-B3CC39B3C3F8@public-files.de>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <1DBA844B-4DB2-4AA2-BF04-B3CC39B3C3F8@public-files.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20241203203824.23306-1-simons.philippe@gmail.com>
+ <CAGb2v67Uv3SVQSqox85qt_05aVvX0oCynNRoaN9BA1Nha3eo8w@mail.gmail.com> <CADomA482XLFNySkjujoPmPCnCrKn+RcppW=SqRqcA2WLMe-mNw@mail.gmail.com>
+In-Reply-To: <CADomA482XLFNySkjujoPmPCnCrKn+RcppW=SqRqcA2WLMe-mNw@mail.gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Thu, 5 Dec 2024 15:39:24 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64YFcEhTYVzTJWTvw7CZ3XF08e7+1jiTg25HN6C1Ny+Jg@mail.gmail.com>
+Message-ID: <CAGb2v64YFcEhTYVzTJWTvw7CZ3XF08e7+1jiTg25HN6C1Ny+Jg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: allwinner: h616: rg35xx add missing regulator-ramp-delay
+To: Philippe Simons <simons.philippe@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>, 
+	Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_233516_002192_F0B41438 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20241205_073941_744406_BC6D859C 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,57 +111,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2024 08:41, Frank Wunderlich wrote:
-> Am 4. Dezember 2024 08:35:37 MEZ schrieb Krzysztof Kozlowski <krzk@kernel.org>:
->> On Mon, Dec 02, 2024 at 12:00:37PM +0100, Frank Wunderlich wrote:
->>> From: Frank Wunderlich <frank-w@public-files.de>
->>>
->>> This adds bindings for MT7988 pinctrl driver.
->>>
->>> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
->>> ---
->>> changes in v5 (so not adding RB from Rob given in v4):
->>> - do not use MTK_DRIVE_8mA in example
->>> - add _0 functions for pwm
->>>
->>
->> <form letter>
->> This is a friendly reminder during the review process.
->>
->> It looks like you received a tag and forgot to add it.
->>
->> If you do not know the process, here is a short explanation: Please add
->> Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
->> or above your Signed-off-by tag. Tag is "received", when provided
->> in a message replied to you on the mailing list. Tools like b4 can help
->> here. However, there's no need to repost patches *only* to add the tags.
->> The upstream maintainer will do that for tags received on the version
->> they apply.
->>
->> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
->>
->> If a tag was not added on purpose, please state why and what changed.
->> </form letter>
-> 
-> Is this an automatic message? I guess yes...
-> 
-> I have not added it (robs reviewed-by) from v4 due to changes and explained why in changelog. If i'm wrong please let me know.
+On Thu, Dec 5, 2024 at 3:26=E2=80=AFPM Philippe Simons
+<simons.philippe@gmail.com> wrote:
 
-Where did you explain the reason of dropping review tag? This has to be
-*EXPLICIT* but I only see:
+Please reply inline.
 
-- rebased to 6.13-rc1
-- moved dt nodes with mutliple options to BPI-R4 board
-- changes suggested by angelo in v4
-- changed example in binding and dt node to not using const MTK_DRIVE_8mA
+> Ok I can do that, but the driver (axp20x-regulator.c) is using macros
+>  to generate these regulator_desc structs.
+>
+> So I have two options, create a new macro with the ramp_delay, or
+> modify the existing macro, using 0 for the regulators I don't know about.
 
+You can add a new macro with the extra ramp_delay argument, and modify
+the existing macro to expand to that with ramp_delay =3D 0.
 
-Nothing here suggests even remotely that review tag was dropped. Nothing
-suggests that it should be dropped!
+ChenYu
 
-Best regards,
-Krzysztof
+> Philippe
+>
+> On Thu, Dec 5, 2024 at 5:16=E2=80=AFAM Chen-Yu Tsai <wens@csie.org> wrote=
+:
+> >
+> > On Wed, Dec 4, 2024 at 4:38=E2=80=AFAM Philippe Simons
+> > <simons.philippe@gmail.com> wrote:
+> > >
+> > > AXP datasheet says that ramp delay is 15.625 us/step,
+> > > which is 10mV in our case.
+> >
+> > (CC-ing Mark for knowledge on regulators)
+> >
+> > If this is the property of the PMIC, it probably belongs in the driver,
+> > in "regulator_desc.ramp_delay".
+> >
+> > The "regulator-ramp-delay" in the DT can be used to override this
+> > if the board has excessive ramp delay due to other design reasons.
+> >
+> >
+> > ChenYu
+> >
+> > > add missing regulator-ramp-delay to dcdc regulators accordingly
+> > >
+> > > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+> > > ---
+> > >  .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts    | 3 +=
+++
+> > >  1 file changed, 3 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35x=
+x-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024=
+.dts
+> > > index 80ccab7b5..b6e76a804 100644
+> > > --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.=
+dts
+> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.=
+dts
+> > > @@ -238,6 +238,7 @@ reg_dcdc1: dcdc1 {
+> > >                                 regulator-always-on;
+> > >                                 regulator-min-microvolt =3D <900000>;
+> > >                                 regulator-max-microvolt =3D <1160000>=
+;
+> > > +                               regulator-ramp-delay =3D <640>;
+> > >                                 regulator-name =3D "vdd-cpu";
+> > >                         };
+> > >
+> > > @@ -245,6 +246,7 @@ reg_dcdc2: dcdc2 {
+> > >                                 regulator-always-on;
+> > >                                 regulator-min-microvolt =3D <940000>;
+> > >                                 regulator-max-microvolt =3D <940000>;
+> > > +                               regulator-ramp-delay =3D <640>;
+> > >                                 regulator-name =3D "vdd-gpu-sys";
+> > >                         };
+> > >
+> > > @@ -252,6 +254,7 @@ reg_dcdc3: dcdc3 {
+> > >                                 regulator-always-on;
+> > >                                 regulator-min-microvolt =3D <1100000>=
+;
+> > >                                 regulator-max-microvolt =3D <1100000>=
+;
+> > > +                               regulator-ramp-delay =3D <640>;
+> > >                                 regulator-name =3D "vdd-dram";
+> > >                         };
+> > >
+> > > --
+> > > 2.47.1
+> > >
 
