@@ -4,110 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC6FE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A898E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8h3sVWKQNPY7YkEdPdGLbgQBb3rdw8UsSKhEf1IYfpg=; b=Rep8RzjwbAK4lN99dU2uLPg9VN
-	gRTRSLWBXCxpzSqGl2cEtktSxkIAMcKgIEP5LNdC64VFJ0rcs2gpp1zeRITCu/pICBEs33hXVF153
-	joRkZ6oHIn/N4CsSLIDneqEJI0KQUsbxqhqXoNQ8b1n0Atfcqm+vkLTBoMnpQ8d6BujlU4eO+w1lS
-	OPCsIuWD4lPP3T9ULDD0kmQIr73WS+k6RP0FjjBV3/QDglZ7HofEbm/XZ9EX4HERnVM7ITNVOHuM/
-	hxCN6C/VB8HrWvVitEUPSCxwQa2LfE35xmhD2xH4Xai0CyXH4c66m0EFJHC2TfHdWMTknPmyyOaMo
-	bqucd0Aw==;
+	bh=9gu2Vz8xpuhrUOAG06JEy41cILvsNVFpEmqGgn17RPI=; b=xD5RSa9MSC2CN3gcw3Ngks+WRN
+	eAebwWCX8NW6/QH/A/zP6zNlDSM6UxsBbJBRz+k1k+6oypMd8rKbnaNG9Dv7sZIzksb4sGcIggKiA
+	cZCt+DR/SqRYaBY9HCT90dM3JPgw/h3j0FFD5sLeya8Ll7qUgJXIOjwiB1B9QI9gVkUlKsT0yK+Ew
+	8ZtGuxvyeVSA8bf9q7qMPQ/M+KtXai4CT5krEJnOoKmUtu9mwO7k0ba0kxnaBPyS9UdvhRBy8NWOM
+	IEgTxukvYFE+bD7PkvVqUM+p0YpWDdl+EiR2DuZgoifrLfmnteHd9Dlabr0njz2rCUOvYx6IJVtVO
+	p2Nkc2Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCBp-0000000GDRa-167K;
-	Thu, 05 Dec 2024 13:46:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tJCCo-0000000GDia-0qgd;
+	Thu, 05 Dec 2024 13:47:46 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCAm-0000000GD8s-43mX;
-	Thu, 05 Dec 2024 13:45:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 31C9BA4387B;
-	Thu,  5 Dec 2024 13:43:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFB79C4CEDC;
-	Thu,  5 Dec 2024 13:45:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733406340;
-	bh=sYyo/f2vG6x0gzx36/Uo7OePp+W7KVEbo3vlM28jggE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DOe3d/QuhIuLZ7jKeL8ww5U8R1KQKLgyaDg+DUktNI43MeaJepWDUTh/Q/QBtrnwZ
-	 Lk9xRfaID92DhrGT/WTtTNGHf3UlB9yCVTMXXfHCX+6BYhuhrvblOlGBpdk8c7ygkz
-	 Kr+O2C7Z2GsyjEaaiex9h3fmuU1zQwLaP0Ns4QBYGLQI1ZsCransStBgfThJXnzGEr
-	 FWAcdq81yP6ajEbLQqR3bKub4odf/tib81ZUnDUnsRiN9naRT9g+B4SJ8wUhCkyCgB
-	 Q6AbBSBrtjj1A3uf68g3Nz9G9fOGTIwvbk8V4ywCsJPc0u0shJfsVRVJixA98okhnU
-	 YISoVzlJkuSxA==
-Message-ID: <bc43fd83-326e-4fe2-9f53-efaef7581a5f@kernel.org>
-Date: Thu, 5 Dec 2024 14:45:33 +0100
+	id 1tJCAz-0000000GDER-2U07
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 13:45:55 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B5AWiAB022747;
+	Thu, 5 Dec 2024 14:45:36 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	9gu2Vz8xpuhrUOAG06JEy41cILvsNVFpEmqGgn17RPI=; b=hNJBtkMubMRskCIV
+	tJ9kgNC+p/g/+EdpcNlmMkE3AV1339M2Z7QAJSn7FahTLfLY5QApK9kvQNA4lAPk
+	RMuF0+Aiha0DVV8SzRvtTJIZu30TEUsO2JvNDo/qV3EbLAYHXpvarjk2KkG3g25k
+	FE7608a6Eu/k911tngGm6ODPB28VOE8U2PfIqzK7tC9epIps0jaaLArm83vhGnNn
+	R/LoSo2VFVZmq+SNylQXd9jL1Zbsuzk5nwzz+fio9f/wy6vmJXpJIjy0jAmUAGVa
+	fukvaD9QzHR6q/vZQRDUxDkmLjTelasVnJQVyhAgRPiBioPbXhHq/91zwSmukUSG
+	s7GVyQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 437tx2g7mq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 05 Dec 2024 14:45:36 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 94F6240047;
+	Thu,  5 Dec 2024 14:44:15 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9A014264FCA;
+	Thu,  5 Dec 2024 14:41:27 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 5 Dec
+ 2024 14:41:26 +0100
+Message-ID: <569904ad-2b70-4a58-98fe-4f24e1089e17@foss.st.com>
+Date: Thu, 5 Dec 2024 14:41:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: rockchip: add clock ID for CIF0/1 on RK3066
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Val Packett <val@packett.cool>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20241205055122.11613-1-val@packett.cool>
- <5kesytgbhfununu5li4ychaw4newkctx4wuhlshks2ertfkd2t@jauqcntehv2z>
- <1944322.g5d078U9FE@diego>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
+ bindings
+To: Bjorn Helgaas <helgaas@kernel.org>, Rob Herring <robh+dt@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <bhelgaas@google.com>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241203222515.GA2967814@bhelgaas>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <1944322.g5d078U9FE@diego>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241203222515.GA2967814@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_054541_132178_C29133AE 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20241205_054553_939191_F54431F1 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2024 13:29, Heiko Stübner wrote:
-> Hi Krzysztof,
-> 
-> Am Donnerstag, 5. Dezember 2024, 11:25:28 CET schrieb Krzysztof Kozlowski:
->> On Thu, Dec 05, 2024 at 02:50:46AM -0300, Val Packett wrote:
->>> RK3066 does have two "CIF" video capture interface blocks, add their
->>> corresponding clock IDs so that they could be used.
->>>
->>> Signed-off-by: Val Packett <val@packett.cool>
->>> ---
->>>  drivers/clk/rockchip/clk-rk3188.c             | 4 ++--
->>>  include/dt-bindings/clock/rk3188-cru-common.h | 2 ++
->>>  2 files changed, 4 insertions(+), 2 deletions(-)
+
+
+On 12/3/24 23:25, Bjorn Helgaas wrote:
+> On Tue, Nov 26, 2024 at 04:51:15PM +0100, Christian Bruel wrote:
+>> Document the bindings for STM32MP25 PCIe Controller configured in
+>> root complex mode.
 >>
->> Please run scripts/checkpatch.pl and fix reported warnings. Then please
->> run 'scripts/checkpatch.pl --strict' and (probably) fix more warnings.
->> Some warnings can be ignored, especially from --strict run, but the code
->> here looks like it needs a fix. Feel free to get in touch if the warning
->> is not clear.
+>> Supports 4 legacy interrupts and MSI interrupts from the ARM
+>> GICv2m controller.
 > 
-> I guess you're taking a shot of the indentation?
+> s/legacy/INTx/
+> 
+>> STM32 PCIe may be in a power domain which is the case for the STM32MP25
+>> based boards.
+>>
+>> Supports wake# from wake-gpios
+> 
+> s/wake#/WAKE#/
+> 
+>> +  wake-gpios:
+>> +    description: GPIO controlled connection to WAKE# input signal
+> 
+> I'm not a hardware guy, but this sounds like a GPIO that *reads*
+> WAKE#, not controls it.
 
-No, there is a big, fat warning about bindings.
+Rephrasing as
+"GPIO used as WAKE# input signal" (output for the endpoint bindings)
 
-Best regards,
-Krzysztof
+> 
+>> +    pcie@48400000 {
+>> +        compatible = "st,stm32mp25-pcie-rc";
+>> +        device_type = "pci";
+>> +        num-lanes = <1>;
+> 
+> num-lanes applies to a Root Port, not to a Root Complex.  I know most
+> bindings conflate Root Ports with the Root Complex, maybe because many
+> of these controllers only support a single Root Port?
+> 
+> But are we ever going to separate these out?  I assume someday
+> controllers will support multiple Root Ports and/or additional devices
+> on the root bus, like RCiEPs, RCECs, etc., and we'll need per-RP phys,
+> max-link-speed, num-lanes, reset-gpios, etc.
+> 
+> Seems like it would be to our benefit to split out the Root Ports when
+> we can, even if the current hardware only supports one, so we can
+> start untangling the code and data structures.
+
+OK. and we support only 1 lane anyway, so drop it.
+
+thanks,
+
+> 
+> Bjorn
 
