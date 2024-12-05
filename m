@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8139DE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 19:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB601E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 19:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOoooPhx/l7HLxvA2brAhQv1Lnc9qpuTdTl2b6/0YwM=; b=LxrWf5TfcDocqAptJ7fZOVynVX
-	m7uxGgj7d7BpmOYuR6ymbuWbl8Sp/SJoH0ABTtF/6xbjdQGrOlmcyqv7pojmvrvXPF4z3SusEU70t
-	wQsZEFiyr8bGgU9Cg2+QUjHVPcV18lXjGqKb0THxQ/JYww13Jpjzt9/zLuCAdnW+yBjVPKBiYtPmf
-	F9oqueadGzCvqF5Bz2Bw99YUtUxlZyXupJSKGIV//HVqtWfdAtlq111ZQUoZxcZLlQQDlpwIIctPX
-	Fc0wpZkbztt1giy3F8DE4+BFlhR6+RR9UnwYW2rx6tavDq+fW++qeILBcSkUeNv4k7aTNT8B65mTB
-	FQ92/lHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1FRoHoQWpZzbjWYvjotIUGh9Pf5+Jx2FZlKpO4hH6NM=; b=1s97HrrxcjTUMgFpcVtvB5fVvK
+	/ZijM9C0bWdt48U8yIHp6ujdA7JutMsTpEkg3FgL68Pf82vrckkSYZnSfEOQlG9//mHZglBmugOdD
+	uy7DGQ10F9tVLGZ578Xp5RFCANOwui11MYmx1ZrA/HivlgzIUPyO7trdYgYTSxLYjI15Epwy1hAtV
+	Vqdw4vQJvmd/4SX+cVU8LT65dtDkKSTK7DBfRlMlQlyg0vobVkSVDy4gSv2uIrqcMFVwDPTfMWCgo
+	5/lFEfd7gnUkaQsTvYR2nT9t3JxSrjVjL8Xte5d4F7aHLrphUUVt+TejnEcKozhgdEvzwtKV/oIjr
+	d32aJ90A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJHdj-0000000HDRZ-09Ge;
-	Thu, 05 Dec 2024 19:35:55 +0000
-Received: from out-16.smtpout.orange.fr ([193.252.22.16] helo=out.smtpout.orange.fr)
+	id 1tJHei-0000000HDgN-2ePu;
+	Thu, 05 Dec 2024 19:36:56 +0000
+Received: from out-14.smtpout.orange.fr ([193.252.22.14] helo=out.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJHcg-0000000HDI4-0HFA
+	id 1tJHdE-0000000HDMV-46Y2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 19:34:52 +0000
-Received: from mail-wm1-f49.google.com ([209.85.128.49])
+	Thu, 05 Dec 2024 19:35:26 +0000
+Received: from mail-lj1-f179.google.com ([209.85.208.179])
 	by smtp.orange.fr with ESMTPSA
-	id JHcYt5v5vKnkaJHcYtMYBG; Thu, 05 Dec 2024 20:34:42 +0100
+	id JHdBtTGq6zLhcJHdCtzdGP; Thu, 05 Dec 2024 20:35:22 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1733427282;
-	bh=gOoooPhx/l7HLxvA2brAhQv1Lnc9qpuTdTl2b6/0YwM=;
+	s=t20230301; t=1733427322;
+	bh=1FRoHoQWpZzbjWYvjotIUGh9Pf5+Jx2FZlKpO4hH6NM=;
 	h=MIME-Version:From:Date:Message-ID:Subject:To;
-	b=BGgpTcJ0m2dh5l+1sYwoRkxGSsDoFIyP2z1x1y00OT3vcT/qIivP80imprIzkzn2/
-	 mwnaUWTyQjKq0UJXeMgRQFk0u6qsG6Sq3/ijMXxUvPkHhxwJcca64cWIynkT4svrAo
-	 EnK0x1SEO/tSkrGgM1pOSWemgBoesZ9ybGL24VV2GnGAok8X/K1ExmhaTqSVuv/z++
-	 njVovnYxpVcsTyPKa496hJtdapbse9fNMMTUcnI5i3ZAdkat3aJDxv0vJ95yMpam9l
-	 L81tjywwsLFFYCBIeHsZcalmsJKDa8ud74VkgnSl8JnhvRaELlrz77/uAmEm1VqoZz
-	 qzWyJ8RfmbJPA==
-X-ME-Helo: mail-wm1-f49.google.com
+	b=hgY4IWBLVXTxJ1NJ99f4Zc4KjrymtaQRRIsvNFk07dAxGe0PFcSM7kw/ga9Uceuhx
+	 0YT6ZVRNzY34+PD1XV2lmkdj6szbmgXGZoqVJ3SgUXQ1CK1mlgcghAXXlzcGIZ5C1s
+	 dZ1037ZfqZgi67BYIPxWJ8A2lYPa5zaZb/y3hiMSIvSWfutX3KYYqIhwuQCf6+PZvz
+	 d8YOno0q7huxHxJ9D7Zhsmv8qI3Lxhu7c5WNGHAtZWu48d99BHsGoPEY9PCMovcCqK
+	 IEwXbmu/G86c8ckJhj4Bw4z33Xos5gSY0La4M/99plLYDxXqVlEeXe9+Eppen9MbVp
+	 82pUVd5fVocQQ==
+X-ME-Helo: mail-lj1-f179.google.com
 X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 05 Dec 2024 20:34:42 +0100
-X-ME-IP: 209.85.128.49
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-434a2033562so12858445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 11:34:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUwggIbQIgnkdrGCdJMuYJmdDVgJyUsX+XvmoqAEc0Jo13BcJjsKnw4c7JaSg79kYHk9yYDCT0axdYPZslzEPfC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCfwLsfj+gms0p6jduCinffH6lq3SB6le8O5YCKbEyZNVNER89
-	oitc1BC2g0Y15S1TbzeSHJplmbYY7cyxUZVl3lbGPaVrfVMrbESEn0/26rq2XiY2wWMssQuFgR2
-	BR0hGkrlouL0h5F6F1JFDshlOgVE=
-X-Google-Smtp-Source: AGHT+IFEdpgbM9v1hEJyP58q1rp9/ynE8X6JLZXjVWzmdZJjAWTc9kp//N1g8Aq1Xn7w0wSLoLE1A73y8EJUIxU21wE=
-X-Received: by 2002:a17:906:319a:b0:aa5:f288:e7e3 with SMTP id
- a640c23a62f3a-aa5f7d15684mr942250466b.15.1733412700594; Thu, 05 Dec 2024
- 07:31:40 -0800 (PST)
+X-ME-Date: Thu, 05 Dec 2024 20:35:22 +0100
+X-ME-IP: 209.85.208.179
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-2ffa8df8850so14373781fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 11:35:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUkmAeTc+byvq/VDkA7K6xM9Teu23h+yWggSnTLl9iETHVQg8mIJTC2h100CibAWAYKkFtRuMhw9wopdHEuYGJp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuLFVsPuvrupB+k6IPp/zLmfH/PsUGz9XZk9MQH727+vyMGFh+
+	e8QjDsMIxHuieChvrGkamUA6wJ1SXHRDvJnHTfwbyyrf9W5UCYUVDIdbgLSWY23WTrXjNf0NmNS
+	pTDl4rbbQUZTJR+zjBYRTCkWNLrg=
+X-Google-Smtp-Source: AGHT+IFYWIvr/wb1ttWAqU3XdgmdbVRXgljv2wGXYHxZGru+z8zfXAuY4J7uLgYbwqJhFyewdEilCwKv6EaVf4E+2bE=
+X-Received: by 2002:a17:907:270f:b0:a9e:b5d0:e5c with SMTP id
+ a640c23a62f3a-aa5f7f6f2f8mr768523566b.61.1733414207483; Thu, 05 Dec 2024
+ 07:56:47 -0800 (PST)
 MIME-Version: 1.0
 References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
- <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr> <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
-In-Reply-To: <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+ <20241203-is_constexpr-refactor-v1-8-4e4cbaecc216@wanadoo.fr> <6597979088eb4ee7b98cfb99815a402e@AcuMS.aculab.com>
+In-Reply-To: <6597979088eb4ee7b98cfb99815a402e@AcuMS.aculab.com>
 From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Date: Fri, 6 Dec 2024 00:31:29 +0900
-X-Gmail-Original-Message-ID: <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
-Message-ID: <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
-Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of __is_constexpr()
-To: David Laight <David.Laight@aculab.com>, Martin Uecker <muecker@gwdg.de>
+Date: Fri, 6 Dec 2024 00:56:35 +0900
+X-Gmail-Original-Message-ID: <CAMZ6Rq+XhOb+yn5A1dHD=qkbB1_FQXMA7_ydBB4nPTSnys3jkA@mail.gmail.com>
+Message-ID: <CAMZ6Rq+XhOb+yn5A1dHD=qkbB1_FQXMA7_ydBB4nPTSnys3jkA@mail.gmail.com>
+Subject: Re: [PATCH 08/10] drm/i915/reg: replace __is_const_expr() by
+ is_const_true() or is_const()
+To: David Laight <David.Laight@aculab.com>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
 	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
 	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
@@ -76,6 +77,7 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
 	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+	Martin Uecker <Martin.Uecker@med.uni-goettingen.de>, 
 	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
 	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
@@ -85,10 +87,9 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
 	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_113450_516664_AE883633 
-X-CRM114-Status: GOOD (  44.19  )
+X-CRM114-CacheID: sfid-20241205_113525_150490_E2F21318 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,157 +104,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
--CC: Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-+CC: Martin Uecker <muecker@gwdg.de>
-(seems that Martin changed his address)
-
-On Thu. 5 Dec. 2024 at 03:39, David Laight <David.Laight@aculab.com> wrote:
-> > Sent: 02 December 2024 17:33
+On Thu. 5 Dec 2024 at 04:00, David Laight <David.Laight@aculab.com> wrote:
+> From: Vincent Mailhol
+> > Sent: 02 December 2024 17:34
 > >
-> > From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-> >
-> > __is_constexpr(), while being one of the most glorious one liner hack
-> > ever witnessed by mankind, is overly complex. Following the adoption
-> > of C11 in the kernel, this macro can be simplified through the use of
-> > a _Generic() selection.
+> > Most of the use of __is_const_expr() in i915_reg_defs.h are just to
+> > test whether an expression is known to be true. Because those checks
+> > are all done in a BUILD_BUG_ON_ZERO(), replace those with
+> > is_const_true().
 >
-> You should give credit to some of the earlier patches that do the same.
-> I'm sure there were some related ones from Linus - not applied yet.
+> Another place that could use statically_true() and BUILD_BUG_ON_MSG().
 
-ACK. Would adding a suggested--by Linus tag solve your concern?
+Here also, BUILD_BUG_ON_MSG() is not suitable because it does not
+return a value.
 
-> > First, split the macro in two:
-> >
-> >   - __is_const_zero(x): an helper macro; tells whether x is the
-> >     integer constant expression 0 or something else.
-> >
-> >   - is_const(x): replacement of __is_constexpr(); tells whether x is a
-> >     integer constant expression.
-> >
-> > The split serves two purposes: first make it easier to understand;
-> > second, __is_const_zero() will be reused as a building block for other
-> > is_const_*() macros that will be introduced later on.
-> >
-> > The core principle of __is_constexpr() to abuse the return type of the
-> > ternary operator remains, but all the surrounding sizeof() hack
-> > disappear.
-> >
-> > On a side note, while not relevant to the kernel, __is_constexpr()
-> > relied on the GNU extension that sizeof(void) is 1. const_expr() does
-> > not use any GNU extensions, making it ISO C compliant.
-> >
-> > __is_constexpr() is temporarily kept and will be removed once all its
-> > users get migrated to is_const() (or one of its friend).
-> >
-> > Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-> > ---
-> >  include/linux/compiler.h | 41 ++++++++++++++++++++++++++++++++++++++++=
-+
-> >  1 file changed, 41 insertions(+)
-> >
-> > diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-> > index a2a56a50dd85227a4fdc62236a2710ca37c5ba52..30ce06df4153cfdc0fad9bc=
-7bffab9097f8b0450 100644
-> > --- a/include/linux/compiler.h
-> > +++ b/include/linux/compiler.h
-> > @@ -316,6 +316,47 @@ static inline void *offset_to_ptr(const int *off)
-> >  #define statically_true(x) (__builtin_constant_p(x) && (x))
-> >  #define statically_false(x) (__builtin_constant_p(x) && (x) =3D=3D 0)
-> >
-> > +/*
-> > + * Whether x is the integer constant expression 0 or something else.
-> > + *
-> > + * Details:
-> > + *   - The C11 standard defines in =C2=A76.3.2.3.3
-> > + *       (void *)<integer constant expression with the value 0>
-> > + *     as a null pointer constant (c.f. the NULL macro).
-> > + *   - If x evaluates to the integer constant expression 0,
-> > + *       (void *)(x)
-> > + *     is a null pointer constant. Else, it is a void * expression.
-> > + *   - In a ternary expression:
-> > + *       condition ? operand1 : operand2
-> > + *     if one of the two operands is of type void * and the other one
-> > + *     some other pointer type, the C11 standard defines in =C2=A76.5.=
-15.6
-> > + *     the resulting type as below:
-> > + *       if one operand is a null pointer constant, the result has the
-> > + *       type of the other operand; otherwise [...] the result type is
-> > + *       a pointer to an appropriately qualified version of void.
-> > + *   - As such, in
-> > + *       0 ? (void *)(x) : (char *)0
-> > + *     if x is the integer constant expression 0, operand1 is a null
-> > + *     pointer constant and the resulting type is that of operand2:
-> > + *     char *. If x is anything else, the type is void *.
-> > + *   - The (long) cast silences a compiler warning for when x is not 0=
-.
-> > + *   - Finally, the _Generic() dispatches the resulting type into a
-> > + *     Boolean.
->
-> The comment is absolutely excessive.
-> I'm sure I managed about 2 lines in one of the patches I did.
+__BUILD_BUG_ON_ZERO_MSG() could be used; but there is less benefit to
+do this at a driver scope. In this i915_reg_defs.h,
+BUILD_BUG_ON_ZERO() is used 20 times. Adding an error message each
+time will just make things ugly.
 
-I think that Linus made it  clear in:
+If we want more readable error messages here, the solution for me is
+just to redefine BUILD_BUG_ON_ZERO() to print a more meaningful error
+message by default. But this is not the scope of this series. I sent a
+separate patch for this:
 
-  https://lore.kernel.org/all/CAHk-=3DwgfpLdt7SFFGcByTfHdkvv7AEa3MDu_s_W1kf=
-OxQs49pw@mail.gmail.com/
+  https://lore.kernel.org/all/20241205151316.1480255-2-mailhol.vincent@wanadoo.fr/
 
-that this deserves a detailed comment.
-
-The details block in the current __is_constexpr() is 37 lines long,
-the details block in __is_const_zero() takes 22 lines. So I would
-argue that I made things better.
-
-Unless more people share your concern, I am planning to keep this comment a=
-s-is.
-
-> > + *
-> > + * Glory to Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
->
-> IIRC Martin has agreed in the past that the accreditation can
-> be removed - especially since it refers to the 'sizeof (void)' trick.
-
-I tried to look for such message:
-
-  https://lore.kernel.org/all/?q=3Df%3A%22martin+uecker%22+__is_constexpr
-
-but couldn't find it. Do you have the link?
-
-@Martin, do you agree that I remove the accreditation?
-
-> > + */
-> > +#define __is_const_zero(x) \
-> > +     _Generic(0 ? (void *)(long)(x) : (char *)0, char *: 1, void *: 0)
-> > +
-> > +/*
-> > + * Returns a constant expression while determining if its argument is =
-a
-> > + * constant expression, most importantly without evaluating the argume=
-nt.
->
-> You need to differentiate between a 'constant integer expression'
-> and a 'compile time constant'.
-
-OK. This one was just copied from the previous __is_constexpr(). I will app=
-ly
-"s/constant expression/constant integer expression/g" in v2.
-
-> > + *
-> > + * If getting a constant expression is not relevant to you, use the mo=
-re
-> > + * powerful __builtin_constant_p() instead.
->
-> __builtin_constant_p() is not 'more powerful' it is testing for
-> something different.
-
-I meant to say that __builtin_constant_p() is more powerful at
-constant folding. But I agree that the comment is not clear.
-
-What about this?
-
-  If getting a constant integer expression is not relevant to you, use
-  __builtin_constant_p() which not only returns true if the argument
-  is an integer constant expression, but also if it is a compile time
-  constant.
+Concerning statically_true() instead of is_const_true(), let me test,
+and if this works, then I will replace these in v2.
 
 
 Yours sincerely,
