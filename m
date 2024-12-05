@@ -4,114 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C4CE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8975E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbOJ35fY7F9+jI/tW14AqH05jyd4Q0l+WLHyuUjes7g=; b=4NwYG+Qij+wTo1frxAEbD8EeeM
-	MdT4HOR1l3Y4DHoS4yuPpbb4LYOCEJAnAuTA4Y/udflYEf/KOcn40/9yjmZ06EXTrYOwqruPhu51b
-	pL/UcyMKWEMoWDNx/oOEWD910NG4teSunU8kM5YE8ZTj0rst8JcpSk+WezwPseU1oYPjeSp58/+9J
-	XieEYupu2yUCn8ezXSrO/2XeRDHdqoWTz6T1Oe1WIoYQCrQlhX0jVMykARstkEatqfvnKuAYh5Uiz
-	jTWeVVKExnhKG6YKXDw0iehOA7udfyqrNxDtyz3RHaHU0AFOF4rMRBmZXxJ6sBDDQu89eiLFjZ0ws
-	VUGVPM/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OYz/VO8rr6uc7kqlbCeP1npGgQFZfADgJhJkCesJVTY=; b=oEW/zt7NtlbMUM
+	MWVARmBf8fHptsNO4QFk6vYC5v4VtMz2dqamjs0Bk98rm6r6ChlSg/OgiO+kz3/d0L1gSN1GCutOC
+	I331TRdW7GGl7ze3RzzWXmDFmRfHyIGklFIIK1PO/BEkoy8h5xGVYQu9tp3HDj5V9sEZxB7VUN+yd
+	W6r9Ekm1I26aCI0jOydjfVfvAlZGKA8criMaO2dVLhgxLYPB6hfNFrNlO0/mKknlxMuZuw4jpzyp1
+	rXs/cRp+HEX/u+PnNhd3rlHuONgYvy3+EDLABa1P31iMM11iJY4WPN5CXGmRctvX9eX/7IB+kVonk
+	Qm3Y30qO1FEQGJwEJLfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAlF-0000000FuDY-0KqE;
-	Thu, 05 Dec 2024 12:15:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJAmI-0000000Fua1-3BO0;
+	Thu, 05 Dec 2024 12:16:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAj0-0000000Ftat-0hl6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 12:12:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A25325C6D42;
-	Thu,  5 Dec 2024 12:12:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DE68C4CEDC;
-	Thu,  5 Dec 2024 12:12:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733400773;
-	bh=5pIpWgALCksfBcP+JSYhp1PXA9kKAYqrDMxMw/x6eeU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EYqMUl9AZlkrWyE9JWIVDoCBpjv96wFSLalVU7s7gBPA2v9oNUfntzBuraykrWK/o
-	 sXpUpdnbmL7nTmChty93IHsRi3/hCLCCj+f7uKHkK7JYYflKSFAe/amV3a4E773iCR
-	 +nWBcTvx+2FMt8qEPxFbOBBMEsBryvuDVg9rXtgJrbJJQioIJqIXl/819D1HKfIw0N
-	 uTU8P8eBCAnNFwk66nLsfNnhBnZsiJdwk0qwmnEtqUBgmDnY5MebMtoh/4Vuj025f7
-	 GZeFMCKaN+qjSs/s2prkO/bO3QcVWAMlAdH+Ok4DNjVK7elVuThxVh/qCVyPFGGjtt
-	 X/WqbOlDPByew==
-Message-ID: <6999aff2-5889-4786-9395-28d9ce40f6c0@kernel.org>
-Date: Thu, 5 Dec 2024 13:12:46 +0100
+	id 1tJAlD-0000000FuC3-3Dto;
+	Thu, 05 Dec 2024 12:15:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733400908;
+	bh=SOT2XbAmTovuMmADv2M5zsZ8pRjumedPkWS8520ru+c=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Rw5SYxew0a3AzM1MXPFTKjaur2JoIFireNzPSAT3mOvo7grIQ4XZezYewB3T5P0jI
+	 fJZun3YpgG2N1uZ0fGV7O+43P+cSFf0s5jCAFjeAVtjOBK7STvEEKhqjkiXDov1AXL
+	 IAdJ8G1AXHdfwiJOHj6JXvuP8MFwwaHD9e/xCXowr5y2/s/Js5myhLjZ4uGH/5+ADK
+	 g89Xa+9+Giu41dpsqyZMr+lRBuRcOg0Pnjiq08me+1g0ecmQMVL/zhtHmW2pSVE4MH
+	 LvcWLsTT34CucBMoSixvYRHhpr+/XU+BE0F+82pnIv/RRnHdL8ZuFt1Bstr29NBr8Y
+	 CEEsyqsbcTOJA==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1000])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 29C1217E363B;
+	Thu,  5 Dec 2024 13:15:03 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH 0/5] Enable audio output for Genio 700 EVK board
+Date: Thu, 05 Dec 2024 09:13:53 -0300
+Message-Id: <20241205-genio700-audio-output-v1-0-0e955c78c29e@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/6] MAINTAINER: Add entry for Blaize SoC
-To: Matt Redfearn <matt.redfearn@blaize.com>,
- Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Neil Jones <neil.jones@blaize.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
-References: <20241204-blaize-blzp1600_init_board_support-v5-0-b642bcc49307@blaize.com>
- <20241204-blaize-blzp1600_init_board_support-v5-6-b642bcc49307@blaize.com>
- <h5awakp52e6pxnnfrclhtlhhs3i66twvmqwlf5vmnfwk2xhbwr@marp6wti72ti>
- <ac96f306-e5ea-4514-b25d-18b44777d3e6@blaize.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <ac96f306-e5ea-4514-b25d-18b44777d3e6@blaize.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAGZUWcC/x3MPQqAMAxA4atIZgNpERSvIg7VppqlLf0RQby7x
+ fEb3nsgcxLOMHcPJL4kS/ANqu9gP40/GMU2gyY9KE0DHuwljERoqpWAoZZYC7rNTE7zZqwiaG1
+ M7OT+v8v6vh+jq/a2ZwAAAA==
+X-Change-ID: 20241204-genio700-audio-output-fba8f2ebad10
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Trevor Wu <trevor.wu@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Aary Patil <aary.patil@mediatek.com>, 
+ Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>, 
+ parkeryang <Parker.Yang@mediatek.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_041254_298201_2EB25DF1 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241205_041512_806138_E31E73EC 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,20 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2024 12:22, Matt Redfearn wrote:
->>
->> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>
->> They should also ack it to confirm they understand the burden.
-> 
-> Acked-by: Matt Redfearn <matt.redfearn@blaize.com>
-> 
-> 
-> A question about process: should Niko resend V5 with all of the acks?
+This series enables audio output support for the Genio 700 EVK board.
+Patches 1-4 do the required binding and DT changes, and patch 5
+describes the audio DT nodes to get audio output working on the two
+audio jacks, Earphone and Speaker, present on the board.
 
-Normally not, here however after finished review expectation was to send
-it to soc tree (I think Arnd described the process).
+The standalone fix in [1] is required in addition to this series in
+order to get the sound card probing.
+
+[1] https://lore.kernel.org/all/20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Nícolas F. R. A. Prado (5):
+      arm64: dts: mt6359: Add #sound-dai-cells property
+      ASoC: dt-bindings: mediatek,mt8188-mt6359: Add compatible for mt8390 evk
+      ASoC: dt-bindings: mediatek,mt8188-mt6359: Add DSP properties
+      ASoC: dt-bindings: mediatek,mt8188-mt6359: Allow DL_SRC/UL_SRC dai-links
+      arm64: dts: mediatek: mt8390-genio-700-evk: Add sound output support
+
+ .../bindings/sound/mediatek,mt8188-mt6359.yaml     | 26 ++++++++---
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi           |  1 +
+ .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 50 ++++++++++++++++++++++
+ 3 files changed, 72 insertions(+), 5 deletions(-)
+---
+base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
+change-id: 20241204-genio700-audio-output-fba8f2ebad10
 
 Best regards,
-Krzysztof
+-- 
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
 
