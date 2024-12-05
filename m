@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C98E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E72E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slhXHLrcA4lnMI4mcoJ78dsh1V1y/MQiAPdO/CifUdE=; b=WMMrVXgKR4y/rkJ+lBdS3OTKEf
-	BQOFPD4/sZCh4bSWYEk95qcZSpUJIJtem8IJghCLNvyqfTy1O/v2UjWPVLCtbYHDAcFRjlAkbu6zU
-	K0siDllJSomypHlXsRjkMbkE9CWbuLtxogKdSZihVWN0E30YIQ240pgRtO4lQAmS3TXwyQrAVfkby
-	5lsUsHpexfgKAeqnXA0iu6/WV2TWqvvG1glcJi3xDgqRsPvpdYRU5AAsUYPGRWL9H75n/Lf+NQER5
-	wF1h9OiqTGuNp1p4KP4OPgr9aTXaob3SwtvDYXd4rZIOnHz7zI/T4Nh3ReturYf0UHHKo7b2Qrqy2
-	MRgX+RvA==;
+	bh=nxhk2o0tAc4zIrdHxGtBhCpg5dWRaRnoqVjOuRbuph0=; b=fdaKvVBAErPON6k2r2JQ5g7Zxq
+	/Nr+Kh04EMsxPTUIxs3bVYbrF6IL9UCh0k6YmOTl0Ae3ICoyt9lCVKNsgWWz5u6fX9q+UhPk9+xQw
+	erXDyxF8mw+omJnu/vSDhA1BU0eU5g70XRkbDYl6kMf1CuNqqxcnTv7sNLE0JBstSZfaLN2p2oEy3
+	Djakz1ky7fg7riJsKmYgwWPa3BqKwU5kYgfkbPkXUBTIOCSr5PM2cnGQKU5UufWB+ZBYzli0WWv7d
+	bJMQkkNT13I10RNDWtMcdi3LqpX5AFr08t9EgVB7sB7FtTbP0cSZobNhi6lwLPQic3FuxTknLnDdZ
+	OczaaL+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDSv-0000000GSpc-165c;
-	Thu, 05 Dec 2024 15:08:29 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tJDTu-0000000GT1H-434B;
+	Thu, 05 Dec 2024 15:09:30 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDO3-0000000GRjY-0zfL
+	id 1tJDO6-0000000GRkN-2afX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 15:03:28 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-434a195814fso8678875e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 07:03:26 -0800 (PST)
+	Thu, 05 Dec 2024 15:03:31 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-385dcadffebso491283f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 07:03:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733411005; x=1734015805; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733411008; x=1734015808; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=slhXHLrcA4lnMI4mcoJ78dsh1V1y/MQiAPdO/CifUdE=;
-        b=nKD542odnw3o3r5+GTwBwtJxb99tdGmzjCU/AmBDAskq0NDIT9JFkSZNtf3NYLJGXD
-         CljvD8RY5CdDEoaX4pcFH+leHWEuVLcdqe+i7ZJj8aCFQTtbkq2sAA+4G4woTT2YrTAG
-         eSnRXCPIqezbnc3Txt57ygl6GxMtztM3HnvOIR+CPlGuc5Hrrl3D7JDE+SRYg89NIme6
-         o/AYh9M31f0o1+v9vbLL2+CkOCgHI6GSmI/e6OC32e6t6W607sVheX94OMoYol7wG8xT
-         TBWa8bUpPUHvWETa1oRyWs8+i+HBwEUa1jCFVN3Ec6vi9eb0hMsa3wh8WfmE9BVAGb6w
-         /N/Q==
+        bh=nxhk2o0tAc4zIrdHxGtBhCpg5dWRaRnoqVjOuRbuph0=;
+        b=uYfhBLC9QP7HkGRQIBHWZXfDVbneEXkvkX6ZmLUPa2X0alckUjtrplQ0EWwpasas4j
+         qa8BkQF+oGLHrRIk6tPN51VAiSUxu30Shpxom0U9UmZ/ogr3zxuN6PDLb9H6LmdWnhfS
+         Yv3TPjkaGnm4S4pd0kinVOqTCLty1p0C63UoCmqGjFAtTLLXZyh6UlNIwdM0g8AG1LM1
+         iWXC2HvPqMkAwwEMq+05J75svpqYVLKb0YpPHtmd44171sVLTzHFeLyc3lVOoyLlwq+C
+         oI3U2aAiFeu670jnNoSTKIDPvJQ9mxTrh9BEfNYIioEwu7awPMjBrHFMtM8XC6mukbOG
+         jI2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733411005; x=1734015805;
+        d=1e100.net; s=20230601; t=1733411008; x=1734015808;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=slhXHLrcA4lnMI4mcoJ78dsh1V1y/MQiAPdO/CifUdE=;
-        b=ny2Om4mYXcgbMTzmT9bfbDSJ7rx80nh/wULCaiTY3We8L14iApAT7ANvNrCYQAuGTB
-         CwyzyN0STfizAHvN0c4LUoNtH+0WuX+/ac3E3JWkKslN5FCnASAw5IiM73SCeOL29Ez8
-         CUPzsu6vGrVb1KpGSH9EMIVsXgsijSgOqWKnHWvsND9mXiCOvzpieovLDFALXEfFv655
-         27Lg+nW18wqJeH9pPuMPgWggh9MHUYvmtxTLO+23JN8tpfIbjYsYevePZm7E1OAaUcfr
-         ZsYzM/pmptRxMqMvbbThVAeWtic4f4eulKyXAok6+aR8aBCEZ6nmKsUL452LE5+8sb/x
-         vYXA==
-X-Gm-Message-State: AOJu0YzdllKDW2MheyV7S4dffyiuSUrUZmTbunUYz1Ey8IYQtRxq065J
-	aPIlSG24pNyiFlCmVUAJb5DG5QnFK6ysxCthvmhIxLdn16c3EeLIXr3VzCW9PXgMu3EFjZM2iag
-	qgwVfHsQAnEJQxX61zJ+z2KlkhIuGDpLv0K2AgMGQBYW3hyVflmowLMRnb9kWb+4e8cIHxuqPnY
-	6hywIhagxrW9nwZjUj2Kq2xCtfhK7BKPm6Br7yXHHw
-X-Google-Smtp-Source: AGHT+IErGDMyoNEYHKdtQJ6HM76Rh0wVhjISU3TsZyJvd34+AxRKANhdtUS2dFF3NpSngDONw8BYuky4
-X-Received: from wmap8.prod.google.com ([2002:a7b:cc88:0:b0:434:a98d:6a1c])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:138a:b0:431:52da:9d67
- with SMTP id 5b1f17b1804b1-434d09b1831mr105644975e9.3.1733411005512; Thu, 05
- Dec 2024 07:03:25 -0800 (PST)
-Date: Thu,  5 Dec 2024 16:02:34 +0100
+        bh=nxhk2o0tAc4zIrdHxGtBhCpg5dWRaRnoqVjOuRbuph0=;
+        b=sRC8PwnAiCeTm+MqUm2a+kYtRE3scRN5/7mBAblGjilJlzJyBA6VUPzsiSxCtAXjEr
+         KjPa3JAjcNLLz4p6E9vbWbKAI3pQ86DVbTTsTnHh8p3brlmuW+eoVEcJqN/uJzHCpu+2
+         j4Hqlt/nqADQiGBYHjZyvrbfpoh4oqX3hF4LAnm+mEuLrok2ozOOVtXWvASPGm1AziNM
+         /LBvTGTujBVI+OfOTIP6I2eDoxdAUDv4ATJq/tVz6pF2eJ97jfKINJZImcg0ygReS4eC
+         ONEnayHGN3BIULfQY7MEgsAXAEZeg3/R6TH9CMUdUMEq/MIpeUxvCkP00zz5IDIHv5F5
+         W8dg==
+X-Gm-Message-State: AOJu0Yw5idRzxMm7HH0Nw5Rp6sS6Hi9q7xS0bWVUxSKwuNqxEjOcxVqF
+	UXJLxo82O8vTRrHux/mrXtbnGL/vNX544oJ7pCInDgwE8XKyflkF2mopPbJdJCZuzkQQeNRHQ9w
+	9xq82SNYX4b706oKuYMvgoswxNDI+ufjOZo13sv35Z/NaBOlkI91GoTFWeL4Za5CD9uArbD28u8
+	wcP4xewQKwp46d56jK/ZPoj1eVhdapWCQmPyt1Nhsn
+X-Google-Smtp-Source: AGHT+IGK+uqdrolwBE/YK0GzQSi2JfIN1swfXk1Cl/uS2VCNW+v/H02aP5idPYHHs/NRxJPEYLwBvIPp
+X-Received: from wmbd6.prod.google.com ([2002:a05:600c:58c6:b0:434:a471:130f])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:184c:b0:385:df73:2f24
+ with SMTP id ffacd0b85a97d-385fd418d72mr9456469f8f.39.1733411007685; Thu, 05
+ Dec 2024 07:03:27 -0800 (PST)
+Date: Thu,  5 Dec 2024 16:02:35 +0100
 In-Reply-To: <20241205150229.3510177-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20241205150229.3510177-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4048; i=ardb@kernel.org;
- h=from:subject; bh=VbEZrG51fuTH0v9uDoNKILnxrXNsrpIhK9DKU+UIPRo=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIT3wQE+L6sedXZ5yJg+VTgT9CFzu0uz17I6W0Jk+Jc6Oc
- 8ZhR7M7SlkYxDgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwEQW8zL84dq2VW6meKX7c+ao
- P7npe27eN/73/uBeCT2mUPWAeUcf8zD8Mz73zqPWPsxO9D2LcpuNSq7+lCXyvFcXHt99L+Yt975 NzAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2690; i=ardb@kernel.org;
+ h=from:subject; bh=nNzKrIEGl5/jzZq+G376hZKl+MZq0c7mORI7knhQaps=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIT3wQG9+RtOixbsYNq4JUL8kkbBoa67TClvXWOHDh+ub4
+ lvqRao7SlkYxDgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwEQSJjAyrKpamhqhsPpueoj2
+ vnM+bCJGR+JXxx74/71z55d9FTvqnzMyrHjDzDGpYem2TsVDjDN9DVSf+la5LIyb+q/csYojo8i THQA=
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241205150229.3510177-12-ardb+git@google.com>
-Subject: [PATCH v2 4/6] arm64/kvm: Avoid invalid physical addresses to signal
- owner updates
+Message-ID: <20241205150229.3510177-13-ardb+git@google.com>
+Subject: [PATCH v2 5/6] arm64: Kconfig: force ARM64_PAN=y when enabling TTBR0
+ sw PAN
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
@@ -83,8 +83,8 @@ Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
 	Quentin Perret <qperret@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_070327_275249_285E2843 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20241205_070330_654698_C82E8340 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,117 +101,72 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The pKVM stage2 mapping code relies on an invalid physical address to
-signal to the internal API that only the owner_id fields of descriptors
-should be updated, and these are stored in the high bits of invalid
-descriptors covering memory that has been donated to protected guests,
-and is therefore unmapped from the host stage-2 page tables.
+There are a couple of instances of Kconfig constraints where PAN must be
+enabled too if TTBR0 sw PAN is enabled, primarily to avoid dealing with
+the modified TTBR0_EL1 sysreg format that is used when 52-bit physical
+addressing and/or CnP are enabled (support for either implies support
+for hardware PAN as well, which will supersede PAN emulation if both are
+available)
 
-Given that these invalid PAs are never stored into the descriptors, it
-is better to rely on an explicit flag, to clarify the API and to avoid
-confusion regarding whether or not the output address of a descriptor
-can ever be invalid to begin with (which is not the case with LPA2).
+Let's simplify this, and always enable ARM64_PAN when enabling TTBR0 sw
+PAN. This decouples the PAN configuration from the VA size selection,
+permitting us to simplify the latter in subsequent patches. (Note that
+PAN and TTBR0 sw PAN can still be disabled after this patch, but not
+independently)
 
-That removes a dependency on the logic that reasons about the maximum PA
-range, which differs on LPA2 capable CPUs based on whether LPA2 is
-enabled or not, and will be further clarified in subsequent patches.
+To avoid a convoluted circular Kconfig dependency involving KCSAN, make
+ARM64_MTE select ARM64_PAN too, instead of depending on it.
 
-Cc: Quentin Perret <qperret@google.com>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/kvm/hyp/pgtable.c | 33 ++++++--------------
- 1 file changed, 10 insertions(+), 23 deletions(-)
+ arch/arm64/Kconfig | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 40bd55966540..0569e1d97c38 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -35,14 +35,6 @@ static bool kvm_pgtable_walk_skip_cmo(const struct kvm_pgtable_visit_ctx *ctx)
- 	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_CMO);
- }
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 100570a048c5..c1ca21adddc1 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1379,7 +1379,6 @@ config ARM64_VA_BITS_48
  
--static bool kvm_phys_is_valid(u64 phys)
--{
--	u64 parange_max = kvm_get_parange_max();
--	u8 shift = id_aa64mmfr0_parange_to_phys_shift(parange_max);
--
--	return phys < BIT(shift);
--}
--
- static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
- {
- 	u64 granule = kvm_granule_size(ctx->level);
-@@ -53,7 +45,7 @@ static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx,
- 	if (granule > (ctx->end - ctx->addr))
- 		return false;
- 
--	if (kvm_phys_is_valid(phys) && !IS_ALIGNED(phys, granule))
-+	if (!IS_ALIGNED(phys, granule))
- 		return false;
- 
- 	return IS_ALIGNED(ctx->addr, granule);
-@@ -587,6 +579,9 @@ struct stage2_map_data {
- 
- 	/* Force mappings to page granularity */
- 	bool				force_pte;
-+
-+	/* Walk should update owner_id only */
-+	bool				owner_update;
- };
- 
- u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
-@@ -885,18 +880,7 @@ static u64 stage2_map_walker_phys_addr(const struct kvm_pgtable_visit_ctx *ctx,
- {
- 	u64 phys = data->phys;
- 
--	/*
--	 * Stage-2 walks to update ownership data are communicated to the map
--	 * walker using an invalid PA. Avoid offsetting an already invalid PA,
--	 * which could overflow and make the address valid again.
--	 */
--	if (!kvm_phys_is_valid(phys))
--		return phys;
--
--	/*
--	 * Otherwise, work out the correct PA based on how far the walk has
--	 * gotten.
--	 */
-+	/* Work out the correct PA based on how far the walk has gotten */
- 	return phys + (ctx->addr - ctx->start);
- }
- 
-@@ -908,6 +892,9 @@ static bool stage2_leaf_mapping_allowed(const struct kvm_pgtable_visit_ctx *ctx,
- 	if (data->force_pte && ctx->level < KVM_PGTABLE_LAST_LEVEL)
- 		return false;
- 
-+	if (data->owner_update && ctx->level == KVM_PGTABLE_LAST_LEVEL)
-+		return true;
-+
- 	return kvm_block_mapping_supported(ctx, phys);
- }
- 
-@@ -923,7 +910,7 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
- 	if (!stage2_leaf_mapping_allowed(ctx, data))
- 		return -E2BIG;
- 
--	if (kvm_phys_is_valid(phys))
-+	if (!data->owner_update)
- 		new = kvm_init_valid_leaf_pte(phys, data->attr, ctx->level);
- 	else
- 		new = kvm_init_invalid_leaf_owner(data->owner_id);
-@@ -1085,11 +1072,11 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
- {
- 	int ret;
- 	struct stage2_map_data map_data = {
--		.phys		= KVM_PHYS_INVALID,
- 		.mmu		= pgt->mmu,
- 		.memcache	= mc,
- 		.owner_id	= owner_id,
- 		.force_pte	= true,
-+		.owner_update	= true,
- 	};
- 	struct kvm_pgtable_walker walker = {
- 		.cb		= stage2_map_walker,
+ config ARM64_VA_BITS_52
+ 	bool "52-bit"
+-	depends on ARM64_PAN || !ARM64_SW_TTBR0_PAN
+ 	help
+ 	  Enable 52-bit virtual addressing for userspace when explicitly
+ 	  requested via a hint to mmap(). The kernel will also use 52-bit
+@@ -1431,7 +1430,6 @@ config ARM64_PA_BITS_48
+ config ARM64_PA_BITS_52
+ 	bool "52-bit"
+ 	depends on ARM64_64K_PAGES || ARM64_VA_BITS_52
+-	depends on ARM64_PAN || !ARM64_SW_TTBR0_PAN
+ 	help
+ 	  Enable support for a 52-bit physical address space, introduced as
+ 	  part of the ARMv8.2-LPA extension.
+@@ -1681,6 +1679,7 @@ config RODATA_FULL_DEFAULT_ENABLED
+ config ARM64_SW_TTBR0_PAN
+ 	bool "Emulate Privileged Access Never using TTBR0_EL1 switching"
+ 	depends on !KCSAN
++	select ARM64_PAN
+ 	help
+ 	  Enabling this option prevents the kernel from accessing
+ 	  user-space memory directly by pointing TTBR0_EL1 to a reserved
+@@ -1937,7 +1936,6 @@ config ARM64_RAS_EXTN
+ config ARM64_CNP
+ 	bool "Enable support for Common Not Private (CNP) translations"
+ 	default y
+-	depends on ARM64_PAN || !ARM64_SW_TTBR0_PAN
+ 	help
+ 	  Common Not Private (CNP) allows translation table entries to
+ 	  be shared between different PEs in the same inner shareable
+@@ -2132,7 +2130,7 @@ config ARM64_MTE
+ 	depends on AS_HAS_ARMV8_5
+ 	depends on AS_HAS_LSE_ATOMICS
+ 	# Required for tag checking in the uaccess routines
+-	depends on ARM64_PAN
++	select ARM64_PAN
+ 	select ARCH_HAS_SUBPAGE_FAULTS
+ 	select ARCH_USES_HIGH_VMA_FLAGS
+ 	select ARCH_USES_PG_ARCH_2
 -- 
 2.47.0.338.g60cca15819-goog
 
