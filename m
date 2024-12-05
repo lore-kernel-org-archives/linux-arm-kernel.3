@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C13E7716C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8088E7717A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 14:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZVgTlvIlXpPnlsjIlZk/dwWHTcz6Xo0XD6Cuu+iUl8=; b=VvjF86zmCAOUU0XQG/4SBqIu/M
-	pUYiyfaJb5cqf/l+2/0TvtJ4xUs6mHPgEuT/1WCXyNkDJrZUQL68PfLfHJ3Y1bXONUmbk4bCH5Arx
-	438qXhzwdNCPM0S7Uf2LZabZsgXRtkELsG+XaGZC2MzCWCZev4ERiYJ54501AoZ0ustSRQvkbCwih
-	ipyMBmRFTWfMwyMK1OP5PdhtHxwgGFkQFsXXWEr6y4BQrkX3cCgntOjkMw4KgxGWs1mckZBwAA1uO
-	tc0K4ELbTEpQTRDPKaOtEnelPRWhDjJ1o2UokU9FHSWxATaVozD9v63tedhSHMSv7rP0kckEkCCig
-	qsFbCDjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xeByAKCLyISHzQ6+LEbPiuQutggH8J/FE/3qIh+Q7zQ=; b=tfS6umEIQPVDmWnQuPg8cjSQyc
+	jEgwCnsAFhDxHeggxt+wkaBf7IiBa12LbFiZQ0nBm6Y9L7eAuM6ud9eS+BCHV8Z521Zd5H7FmP+mE
+	htmHG+73GXyoW3FGx/opK21mDealHtC4K+sDT5L0J22fVHIrMsIg6r5G+40fZTcOSCEIlHM2+vrL1
+	szQFUavl8GRifT5F/XsYzF5vm6e/jXCSElkjpkAAHwHeqDqPK0alQcCjMCsQvLKv34xNPgUrS4A4N
+	+LPr0IO2CkUdV0cgzel7wwmGoEW/mJhUWPoh4XcY0rscsHTc1LCniG999sAlfBVS9YLTeAGz49YI0
+	55LqUHCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCqu-0000000GKVX-1yxe;
-	Thu, 05 Dec 2024 14:29:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tJCqv-0000000GKWC-00bp;
+	Thu, 05 Dec 2024 14:29:13 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAQV-0000000FoJs-1jEr
+	id 1tJAYC-0000000FrdP-1NGj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 11:53:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A86FE5C695A;
-	Thu,  5 Dec 2024 11:53:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CD39C4CED1;
-	Thu,  5 Dec 2024 11:53:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733399626;
-	bh=tSQQ66F4jeW5K1srmBU98kc4DpfJggoVb0IT3KWdT8k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ieC3culDSl2VwB3HHzWGwlkamj/WY1/e5j1mLUWW4S2mVZY/C+bwQMltWEIliycbU
-	 duO3nwxyBS2rQeuoa6YAPdIIyRSEsr7ygvrAIJDwKTRrpfu0l6ESZJ/uwLVym94KNp
-	 ok/4jBRqVfeFpAVGZdI08wbFFgm2KYnT/Dn4ReD8ARJ+6+c+J5CdIEsBipqUEdvusY
-	 5GLl0yOyQJMwy/mBTvAYUIyXuHUtLjwK7ZPy1voFRC8GQRybdDp5vXATfF91XrP8/l
-	 Il+6hFX3C7Ep/Bim+3oG3QgWJHAP8Pv7rqHw0BpdugQWiMTUip/z4hlLviAumJ59Jf
-	 pFsBgM34RZwFA==
-Date: Thu, 5 Dec 2024 12:53:42 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: carlos.song@nxp.com
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, festevam@gmail.com, frank.li@nxp.com, linux-i2c@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: imx: make controller available until system
- suspend_noirq() and from resume_noirq()
-Message-ID: <6d6xgvuvu74hm5466xeovgr4qqkwxaxaoeemvfdty3dqnl4gjp@axlzm6mxnzkv>
-References: <20241125142108.1613016-1-carlos.song@nxp.com>
+	Thu, 05 Dec 2024 12:01:45 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5C1dFL1943300
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 5 Dec 2024 06:01:39 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733400099;
+	bh=xeByAKCLyISHzQ6+LEbPiuQutggH8J/FE/3qIh+Q7zQ=;
+	h=From:To:CC:Subject:Date;
+	b=BXzuxkGQtLI1O57Qfafs0ogNMBmIB46nW1okrwq+409gtcfhi+Qm4jwd9aHFHddj8
+	 0hnPyD6Zyi/yY76gsZE/lP47ChipGK4F5dkrUWjhCeY7/HcJtX0bGyNrIG46g9zQU9
+	 +fWG7t8FkCNWHmfie+xEXBC0/2DESAlT/Spgt7Hk=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5C1d1u062603;
+	Thu, 5 Dec 2024 06:01:39 -0600
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Dec 2024 06:01:39 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Dec 2024 06:01:38 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5C1Zp7018608;
+	Thu, 5 Dec 2024 06:01:35 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v2 0/2] Add Deep Sleep pinmux macros for TI's K3 SoCs
+Date: Thu, 5 Dec 2024 17:31:27 +0530
+Message-ID: <20241205120134.754664-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241125142108.1613016-1-carlos.song@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_035347_500329_16DDBAA1 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20241205_040144_408948_BF99742D 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Hello,
 
-...
+This series introduces deep sleep macros which are common to TI's K3
+SoCs and can be used to configure the behavior of SoC pins during Deep
+Sleep mode. Additionally, support for SoC wakeup with USB1 on AM62x
+based SoCs is added with the help of the newly introduced deep sleep
+macros.
 
-> +static int i2c_imx_suspend(struct device *dev)
-> +{
-> +	/*
-> +	 * Some I2C devices may need I2C controller up during resume_noirq()
-> +	 * or suspend_noirq(), if the controller is autosuspended, there is
-> +	 * no way to wakeup it once runtime pm is disabled (in suspend_late()).
-> +	 * When system resume, I2C controller will be available until runtime pm
-> +	 * is enabled(in_resume_early()). But it is too late for some devices.
-> +	 * Wakeup the controller in suspend() callback while runtime pm is enabled,
-> +	 * I2C controller will be available until suspend_noirq() callback
-> +	 * (pm_runtime_force_suspend()) is called. During the resume, I2C controller
-> +	 * can be restored by resume_noirq() callback (pm_runtime_force_resume()).
-> +	 * Then resume() callback enables autosuspend. It will make I2C controller
-> +	 * available until system suspend_noirq() and from resume_noirq().
-> +	 */
+v1:
+https://lore.kernel.org/r/20241112115650.988943-1-s-vadapalli@ti.com
+Changes since v1:
+- Rebased on next-20241204.
 
-Just made some little adjustments to the comment above, please
-let me know if they are fine:
+Series is based on linux-next tagged next-20241204.
 
-	/*
-	 * Some I2C devices may need the I2C controller to remain active
-	 * during resume_noirq() or suspend_noirq(). If the controller is
-	 * autosuspended, there is no way to wake it up once runtime PM is
-	 * disabled (in suspend_late()).
-	 *
-	 * During system resume, the I2C controller will be available only
-	 * after runtime PM is re-enabled (in resume_early()). However, this
-	 * may be too late for some devices.
-	 *
-	 * Wake up the controller in the suspend() callback while runtime PM
-	 * is still enabled. The I2C controller will remain available until
-	 * the suspend_noirq() callback (pm_runtime_force_suspend()) is
-	 * called. During resume, the I2C controller can be restored by the
-	 * resume_noirq() callback (pm_runtime_force_resume()).
-	 *
-	 * Finally, the resume() callback re-enables autosuspend, ensuring
-	 * the I2C controller remains available until the system enters
-	 * suspend_noirq() and from resume_noirq().
-	 */
+Regards,
+Siddharth.
 
-If so, I will take it in.
+Siddharth Vadapalli (2):
+  arm64: dts: ti: k3-pinctrl: Introduce deep sleep macros
+  arm64: dts: ti: k3-am62x-sk-common: Support SoC wakeup using USB1
+    wakeup
 
-Andi
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi |  2 +-
+ arch/arm64/boot/dts/ti/k3-pinctrl.h           | 19 +++++++++++++++++++
+ 2 files changed, 20 insertions(+), 1 deletion(-)
 
-> +	return pm_runtime_resume_and_get(dev);
-> +}
+-- 
+2.43.0
+
 
