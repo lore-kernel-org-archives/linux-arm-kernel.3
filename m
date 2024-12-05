@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB601E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 19:37:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7482DE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 19:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1FRoHoQWpZzbjWYvjotIUGh9Pf5+Jx2FZlKpO4hH6NM=; b=1s97HrrxcjTUMgFpcVtvB5fVvK
-	/ZijM9C0bWdt48U8yIHp6ujdA7JutMsTpEkg3FgL68Pf82vrckkSYZnSfEOQlG9//mHZglBmugOdD
-	uy7DGQ10F9tVLGZ578Xp5RFCANOwui11MYmx1ZrA/HivlgzIUPyO7trdYgYTSxLYjI15Epwy1hAtV
-	Vqdw4vQJvmd/4SX+cVU8LT65dtDkKSTK7DBfRlMlQlyg0vobVkSVDy4gSv2uIrqcMFVwDPTfMWCgo
-	5/lFEfd7gnUkaQsTvYR2nT9t3JxSrjVjL8Xte5d4F7aHLrphUUVt+TejnEcKozhgdEvzwtKV/oIjr
-	d32aJ90A==;
+	bh=9S8RsTdn0sMTjJIGfbeOK6kTewNAIU+Mvw8MKGo2JS8=; b=TlgQjNd1LcPJ5qXqakx6GEFc+c
+	5K8RHdd0idwsfgJbJBqS5vOw5Zw0Pv5fGtpj1QgMBPDMh8ihFUJ5WUqoy6p0j4BJyjhaxkJ/NEKMN
+	6rKuEPOUDE5fBXCDcWQjsUjXy2scuKQ7MquhZRzzJcE6NB2+97Q7nLC7YmcOUaJmCMSwhaMLth66S
+	wHK58Sv+/Q3i68CR636QH6S86QjOqsQqUvAjEX6ORsB7l/WWrHQhRFFvzYSX2LJWesCqm+fvDcCu6
+	Bnn/T+C+FO9dC8cJo4fU4muk2C1nxrI5R2XZU9rBQJHJfWcK4WwcRo4raLO4yM/EewfGuK3sNTUPR
+	rfvz3bjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJHei-0000000HDgN-2ePu;
-	Thu, 05 Dec 2024 19:36:56 +0000
-Received: from out-14.smtpout.orange.fr ([193.252.22.14] helo=out.smtpout.orange.fr)
+	id 1tJHfh-0000000HDxy-3pvZ;
+	Thu, 05 Dec 2024 19:37:57 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJHdE-0000000HDMV-46Y2
+	id 1tJHdJ-0000000HDNO-2hhw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 19:35:26 +0000
-Received: from mail-lj1-f179.google.com ([209.85.208.179])
-	by smtp.orange.fr with ESMTPSA
-	id JHdBtTGq6zLhcJHdCtzdGP; Thu, 05 Dec 2024 20:35:22 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1733427322;
-	bh=1FRoHoQWpZzbjWYvjotIUGh9Pf5+Jx2FZlKpO4hH6NM=;
-	h=MIME-Version:From:Date:Message-ID:Subject:To;
-	b=hgY4IWBLVXTxJ1NJ99f4Zc4KjrymtaQRRIsvNFk07dAxGe0PFcSM7kw/ga9Uceuhx
-	 0YT6ZVRNzY34+PD1XV2lmkdj6szbmgXGZoqVJ3SgUXQ1CK1mlgcghAXXlzcGIZ5C1s
-	 dZ1037ZfqZgi67BYIPxWJ8A2lYPa5zaZb/y3hiMSIvSWfutX3KYYqIhwuQCf6+PZvz
-	 d8YOno0q7huxHxJ9D7Zhsmv8qI3Lxhu7c5WNGHAtZWu48d99BHsGoPEY9PCMovcCqK
-	 IEwXbmu/G86c8ckJhj4Bw4z33Xos5gSY0La4M/99plLYDxXqVlEeXe9+Eppen9MbVp
-	 82pUVd5fVocQQ==
-X-ME-Helo: mail-lj1-f179.google.com
-X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 05 Dec 2024 20:35:22 +0100
-X-ME-IP: 209.85.208.179
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-2ffa8df8850so14373781fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 11:35:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUkmAeTc+byvq/VDkA7K6xM9Teu23h+yWggSnTLl9iETHVQg8mIJTC2h100CibAWAYKkFtRuMhw9wopdHEuYGJp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuLFVsPuvrupB+k6IPp/zLmfH/PsUGz9XZk9MQH727+vyMGFh+
-	e8QjDsMIxHuieChvrGkamUA6wJ1SXHRDvJnHTfwbyyrf9W5UCYUVDIdbgLSWY23WTrXjNf0NmNS
-	pTDl4rbbQUZTJR+zjBYRTCkWNLrg=
-X-Google-Smtp-Source: AGHT+IFYWIvr/wb1ttWAqU3XdgmdbVRXgljv2wGXYHxZGru+z8zfXAuY4J7uLgYbwqJhFyewdEilCwKv6EaVf4E+2bE=
-X-Received: by 2002:a17:907:270f:b0:a9e:b5d0:e5c with SMTP id
- a640c23a62f3a-aa5f7f6f2f8mr768523566b.61.1733414207483; Thu, 05 Dec 2024
- 07:56:47 -0800 (PST)
+	Thu, 05 Dec 2024 19:35:31 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53dd57589c8so2682985e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 11:35:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733427327; x=1734032127; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9S8RsTdn0sMTjJIGfbeOK6kTewNAIU+Mvw8MKGo2JS8=;
+        b=ZlR9QJTAWSUSExqcDMNchoBSrqDAdqUFboqHyaPreibsEIQ1ceKaHn+R3uBbJeqroW
+         kz1AlBVYubOZlCMHnieRmbtQUaMVDX11SljgCGSyP04JQw8xlCoAnTKPp2gTtxuv4Gcs
+         tellucC5pcYr18KCmDRAiLGuNMVeKDvIYnamE97J9n5/XrFEkj/tZ5BXF3AsQckCLC1n
+         Xi/KdblkBT0MwZKMdR+bQdMu45DnvDm5Q3pPYkaLDI1LhSrz4LYDae17szsftD9N7FN4
+         eUqsebRJd+t74NTr+juwegxSSqd33ecm7Mi/7A1zqEJ6s11H57Z9Ksx67UEuuJav+A/0
+         kaDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733427327; x=1734032127;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9S8RsTdn0sMTjJIGfbeOK6kTewNAIU+Mvw8MKGo2JS8=;
+        b=sbZCQF4jxC03bsBibiTPQHaDcRbg1/l5dQAznu5appxiL8+okE4WJeBB56BCjiss7p
+         C78Rdjl6A/6geNf3panIGfjh8aLLIDSqrGqsUP7eKRRztCM/nkk4ptLNcW6XvhgBm83i
+         usFJRmUq2gQqdz86OQr4F9NLDL6RIVsRhAXJTQuIiIRT9KM+VWTm8BTFqwT0wKI6NpCQ
+         JfvRLJzYWRgWgqDtdNsHniZQUy4+HkYnI9LAxzCg+bXW3Elxd40CO3PlI/iF0fVaU38M
+         M9/ihs1bJw2Y8rl8BHHNW1069zrRI1rA29Co6hHjsAijozmP4BERhexwLIEwaCnYrpsd
+         agYA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhIPgq9COgUqYGp64Pj2zpKcYCGqfu3O1ZBezrJqeY4ex4Llv1IBScbZaLbWgu5EGaRexTmQIWU9Vm3aCtmEsR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq1F7r2KVC0966aSJp6J7C0tlsE/6RQ7m2f15jNy40PVPaLmga
+	kdtrmHkA8F8b1+cZp7kNblCGRpceXlIhYsHUwyYE04G+XiGJiRI85MXx0Uov+WY=
+X-Gm-Gg: ASbGncsdejLzyYbE/QLxD8HCQ1SujU4cmkSc6bh8EqyR9y2fsZ41L3BvHTrNRoRKzFI
+	Z5W6QPV6a/wXJ6g4oiIBj1vxr3axZZXgwKhPPBi9s7psTcWyIhJ+hOdT4R0xncuH5J4woO+8111
+	lskh3IofTU4NVU4Crx+Tc5PmwMmlvhfclTpcOyfJXYpmmjpS0nCrYYp2pg1EeYfNVOBqxmdJIPs
+	5SUCFmwzteajgHlyZcEhIp2Wro299do0iXMave3y9I8pAEfUJfd7Ouzfy3yARFE5gPsxWaxnA+E
+	m8ZbKz4hFnPHk6cLzCkRPQ1nvC45Ag==
+X-Google-Smtp-Source: AGHT+IGFrK2H/ob2QGWXfJHSb8e119RrKRAfgEocoDRBmzA04v/V3A76FGV/VQz7I65Os/Jolm+7xg==
+X-Received: by 2002:a05:6512:39d3:b0:53d:f67d:d580 with SMTP id 2adb3069b0e04-53e216f02f0mr1698149e87.2.1733427327271;
+        Thu, 05 Dec 2024 11:35:27 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229ca11csm317706e87.238.2024.12.05.11.35.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 11:35:25 -0800 (PST)
+Date: Thu, 5 Dec 2024 21:35:23 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
+	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+Message-ID: <m7u6xzm2o4dmcjot4xfk6do4slikpsp6gi3uyiuw4d35kunbc5@jyzgkrp4xjwc>
+References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+ <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
+ <4lvsvo6vsc7bipcgftsq3mzunwxoka3wjqad42ptr37oz77zub@5uarhvjmcxnc>
+ <a4a74f96-29cc-4007-9b03-f634b84d9cc2@collabora.com>
 MIME-Version: 1.0
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
- <20241203-is_constexpr-refactor-v1-8-4e4cbaecc216@wanadoo.fr> <6597979088eb4ee7b98cfb99815a402e@AcuMS.aculab.com>
-In-Reply-To: <6597979088eb4ee7b98cfb99815a402e@AcuMS.aculab.com>
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Date: Fri, 6 Dec 2024 00:56:35 +0900
-X-Gmail-Original-Message-ID: <CAMZ6Rq+XhOb+yn5A1dHD=qkbB1_FQXMA7_ydBB4nPTSnys3jkA@mail.gmail.com>
-Message-ID: <CAMZ6Rq+XhOb+yn5A1dHD=qkbB1_FQXMA7_ydBB4nPTSnys3jkA@mail.gmail.com>
-Subject: Re: [PATCH 08/10] drm/i915/reg: replace __is_const_expr() by
- is_const_true() or is_const()
-To: David Laight <David.Laight@aculab.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
-	Martin Uecker <Martin.Uecker@med.uni-goettingen.de>, 
-	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
-	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
-	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
-	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a4a74f96-29cc-4007-9b03-f634b84d9cc2@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_113525_150490_E2F21318 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20241205_113529_695424_4FB82E60 
+X-CRM114-Status: GOOD (  66.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +105,400 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu. 5 Dec 2024 at 04:00, David Laight <David.Laight@aculab.com> wrote:
-> From: Vincent Mailhol
-> > Sent: 02 December 2024 17:34
-> >
-> > Most of the use of __is_const_expr() in i915_reg_defs.h are just to
-> > test whether an expression is known to be true. Because those checks
-> > are all done in a BUILD_BUG_ON_ZERO(), replace those with
-> > is_const_true().
->
-> Another place that could use statically_true() and BUILD_BUG_ON_MSG().
+On Thu, Dec 05, 2024 at 02:30:51PM +0100, AngeloGioacchino Del Regno wrote:
+> Il 05/12/24 13:56, Dmitry Baryshkov ha scritto:
+> > On Thu, Dec 05, 2024 at 12:45:17PM +0100, AngeloGioacchino Del Regno wrote:
+> > > Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
+> > > found in MediaTek's MT8195, MT8188 SoC and their variants, and
+> > > including support for display modes up to 4k60 and for HDMI
+> > > Audio, as per the HDMI 2.0 spec.
+> > > 
+> > > HDCP and CEC functionalities are also supported by this hardware,
+> > > but are not included in this commit and that also poses a slight
+> > > difference between the V2 and V1 controllers in how they handle
+> > > Hotplug Detection (HPD).
+> > > 
+> > > While the v1 controller was using the CEC controller to check
+> > > HDMI cable connection and disconnection, in this driver the v2
+> > > one does not.
+> > > 
+> > > This is due to the fact that on parts with v2 designs, like the
+> > > MT8195 SoC, there is one CEC controller shared between the HDMI
+> > > Transmitter (HDMI-TX) and Receiver (HDMI-RX): before eventually
+> > > adding support to use the CEC HW to wake up the HDMI controllers
+> > > it is necessary to have support for one TX, one RX *and* for both
+> > > at the same time.
+> > > 
+> > > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> > > ---
+> > >   drivers/gpu/drm/mediatek/Kconfig            |    8 +
+> > >   drivers/gpu/drm/mediatek/Makefile           |    4 +
+> > >   drivers/gpu/drm/mediatek/mtk_hdmi_common.c  |    5 +
+> > >   drivers/gpu/drm/mediatek/mtk_hdmi_common.h  |    1 +
+> > >   drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c  |  403 +++++
+> > >   drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h |  263 ++++
+> > >   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c      | 1488 +++++++++++++++++++
+> > >   7 files changed, 2172 insertions(+)
+> > >   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
+> > >   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
+> > >   create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> > > 
+> 
+> ..snip..
+> 
+> > > diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> > > new file mode 100644
+> > > index 000000000000..05cbfc45be54
+> > > --- /dev/null
+> > > +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> > > @@ -0,0 +1,1488 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +/*
+> 
+> ..snip..
+> 
+> > > +static int mtk_hdmi_v2_setup_audio_infoframe(struct mtk_hdmi *hdmi)
+> > > +{
+> > > +	struct hdmi_codec_params *params = &hdmi->aud_param.codec_params;
+> > > +	struct hdmi_audio_infoframe frame;
+> > > +	u8 buffer[14];
+> > > +	ssize_t ret;
+> > > +
+> > > +	memcpy(&frame, &params->cea, sizeof(frame));
+> > > +
+> > > +	ret = hdmi_audio_infoframe_pack(&frame, buffer, sizeof(buffer));
+> > > +	if (ret < 0)
+> > > +		return ret;
+> > > +
+> > > +	mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
+> > 
+> > This should be handled via HDMI Connector framework too. There is
+> > already an interface to set / clear audio infoframes.
+> > als I have been working on an interface to make HDMI codec
+> > implementation more generic, see [1]. Your comments are appreciated.
+> > 
+> > [1] https://patchwork.freedesktop.org/series/134927/
+> > 
+> 
+> I didn't go for that because I was afraid that your series wouldn't actually
+> land in the same window as this driver.
 
-Here also, BUILD_BUG_ON_MSG() is not suitable because it does not
-return a value.
+There were two points in my comment (sorry for being not explicit
+enough). One is to point to the HDMI codec infra (and you are right,
+it's not yet in the mergeable state). Second one is to use
+drm_atomic_helper_connector_hdmi_update_audio_infoframe() and
+drm_atomic_helper_connector_hdmi_clear_audio_infoframe() if possible (it
+might be hard to do it - in fact it being hard kind of forced me to
+work on the HDMI codec infra).
 
-__BUILD_BUG_ON_ZERO_MSG() could be used; but there is less benefit to
-do this at a driver scope. In this i915_reg_defs.h,
-BUILD_BUG_ON_ZERO() is used 20 times. Adding an error message each
-time will just make things ugly.
+> I am at this point puzzled to whether I should add a commit on top of this
+> submission that switches this driver to using the generic HDMI Codec infra
+> (which could also be helpful as guidance to others trying to do the same on
+> other drivers, I guess), or if I should just rebase on top of that.
 
-If we want more readable error messages here, the solution for me is
-just to redefine BUILD_BUG_ON_ZERO() to print a more meaningful error
-message by default. But this is not the scope of this series. I sent a
-separate patch for this:
+I'd say, a completely separate patch might be even better, I can then
+integrate it into the HDMI codec patchset, adding a soft dependency on
+your series. If for some reason the codec lands earlier than your
+patchset, the patch can be dropped and reintegrated into your series. Or
+just committed separately.
 
-  https://lore.kernel.org/all/20241205151316.1480255-2-mailhol.vincent@wanadoo.fr/
+> I'd rather add a commit on top to mainly avoid risking to delay this driver,
+> but if you're absolutely certain that you can get your series merged in the
+> same window as this driver I have *zero* problems in just rebasing on top.
+> 
+> Besides...
+> 
+> I'll find the time to review your series - I'm sad it didn't land earlier as
+> I would've written a bit less code otherwise :-)
+> 
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> 
+> ..snip..
+> 
+> > > +
+> > > +	/* Enable the controller at attach time for HPD/Pord feedback */
+> > > +	ret = mtk_hdmi_v2_enable(hdmi);
+> > > +	if (ret)
+> > > +		return ret;
+> > 
+> > This looks like a hack. Please use .hpd_enable() / .hpd_disable()
+> > callbacks.
+> > 
+> 
+> ...but there's no way to power on only the HPD - you can either power on
+> the entire controller, or nothing.
+> 
+> I can't call mtk_hdmi_v2_enable/disable() from the HPD callbacks.
 
-Concerning statically_true() instead of is_const_true(), let me test,
-and if this works, then I will replace these in v2.
+Why? Add a powerup refcount if necessary.
 
+> 
+> Perhaps the comment should have been
+> 
+> "Enable the controller attach time also allows HPD/Pord feedback"?
 
-Yours sincerely,
-Vincent Mailhol
+I think it should still be explicit call from those callbacks. Consider
+a platform using external GPIO to implement HPD. Then the HDMI
+controller can stay disabled if it is not necessary.
+
+> 
+> > > +
+> > > +	/* Enable Hotplug and Pord pins internal debouncing */
+> > > +	regmap_set_bits(hdmi->regs, HPD_DDC_CTRL,
+> > > +			HPD_DDC_HPD_DBNC_EN | HPD_DDC_PORD_DBNC_EN);
+> > > +
+> > > +	irq_clear_status_flags(hdmi->irq, IRQ_NOAUTOEN);
+> > > +	enable_irq(hdmi->irq);
+> > > +
+> > > +	/*
+> > > +	 * Check if any HDMI monitor was connected before probing this driver
+> > > +	 * and/or attaching the bridge, without debouncing: if so, we want to
+> > > +	 * notify the DRM so that we start outputting an image ASAP.
+> > > +	 * Note that calling the ISR thread function will also perform a HW
+> > > +	 * registers write that enables both the HPD and Pord interrupts.
+> > > +	 */
+> > > +	__mtk_hdmi_v2_isr_thread(hdmi);
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> 
+> ..snip..
+> 
+> > > +static void mtk_hdmi_v2_bridge_pre_enable(struct drm_bridge *bridge,
+> > > +					  struct drm_bridge_state *old_state)
+> > > +{
+> > > +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+> > > +	struct drm_atomic_state *state = old_state->base.state;
+> > > +	struct drm_connector_state *conn_state;
+> > > +	union phy_configure_opts opts = {
+> > > +		.dp = { .link_rate = hdmi->mode.clock * KILO }
+> > > +	};
+> > > +
+> > > +	/* Retrieve the connector through the atomic state */
+> > > +	hdmi->curr_conn = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+> > > +
+> > > +	conn_state = drm_atomic_get_new_connector_state(state, hdmi->curr_conn);
+> > > +	if (WARN_ON(!conn_state))
+> > > +		return;
+> > > +
+> > > +	/*
+> > > +	 * Preconfigure the HDMI controller and the HDMI PHY at pre_enable
+> > > +	 * stage to make sure that this IP is ready and clocked before the
+> > > +	 * mtk_dpi gets powered on and before it enables the output.
+> > > +	 */
+> > > +	hdmi->dvi_mode = !hdmi->curr_conn->display_info.is_hdmi;
+> > 
+> > Can you access display_info directly instead?
+> > 
+> 
+> Nice catch. Yeah, I should've done that from the beginning. Fixed for v3.
+> 
+> > > +	mtk_hdmi_v2_output_set_display_mode(hdmi, &hdmi->mode);
+> > > +
+> > > +	/* Reconfigure phy clock link with appropriate rate */
+> > > +	phy_configure(hdmi->phy, &opts);
+> > > +
+> > > +	/* Power on the PHY here to make sure that DPI_HDMI is clocked */
+> > > +	phy_power_on(hdmi->phy);
+> > > +
+> > > +	hdmi->powered = true;
+> > > +}
+> > > +
+> > > +static void mtk_hdmi_v2_bridge_enable(struct drm_bridge *bridge,
+> > > +				      struct drm_bridge_state *old_state)
+> > > +{
+> > > +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+> > > +	struct drm_atomic_state *state = old_state->base.state;
+> > > +	int ret;
+> > > +
+> > > +	ret = drm_atomic_helper_connector_hdmi_update_infoframes(hdmi->curr_conn, state);
+> > > +	if (ret)
+> > > +		dev_err(hdmi->dev, "Could not update infoframes: %d\n", ret);
+> > > +
+> > > +	mtk_hdmi_v2_hw_vid_mute(hdmi, false);
+> > > +	mtk_hdmi_v2_hw_aud_mute(hdmi, false);
+> > > +
+> > > +	/* signal the connect event to audio codec */
+> > > +	mtk_hdmi_v2_handle_plugged_change(hdmi, true);
+> > 
+> > I think it was agreed that this should be called from the hotplug path,
+> > see the (linked) HDMI codec infrastructure patchset and dicussions for
+> > the previous revisions.
+> > 
+> 
+> Okay, I'll check that out.
+> 
+> > > +
+> > > +	hdmi->enabled = true;
+> > > +}
+> > > +
+> 
+> ..snip..
+> 
+> > > +
+> > > +static int mtk_hdmi_v2_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
+> > > +						 const struct drm_display_mode *mode,
+> > > +						 unsigned long long tmds_rate)
+> > > +{
+> > > +	if (mode->clock < MTK_HDMI_V2_CLOCK_MIN)
+> > > +		return MODE_CLOCK_LOW;
+> > > +	else if (mode->clock > MTK_HDMI_V2_CLOCK_MAX)
+> > > +		return MODE_CLOCK_HIGH;
+> > > +	else
+> > > +		return MODE_OK;
+> > > +}
+> > > +
+> > > +static enum drm_mode_status
+> > > +mtk_hdmi_v2_bridge_mode_valid(struct drm_bridge *bridge,
+> > > +			      const struct drm_display_info *info,
+> > > +			      const struct drm_display_mode *mode)
+> > > +{
+> > > +	unsigned long long rate;
+> > > +
+> > > +	rate = drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
+> > > +	return mtk_hdmi_v2_hdmi_tmds_char_rate_valid(bridge, mode, rate);
+> > > +}
+> > 
+> > Please rebase on top of https://patchwork.freedesktop.org/series/140193/
+> > There should be no need to do this manually.
+> > 
+> 
+> Oh finally there's a helper for this. Cool, will rebase! Thanks!
+
+And it doesn't even add an extra dependency for you.
+
+> 
+> > > +
+> > > +static int mtk_hdmi_v2_hdmi_clear_infoframe(struct drm_bridge *bridge,
+> > > +					    enum hdmi_infoframe_type type)
+> > > +{
+> > > +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+> > > +	u32 reg_start, reg_end;
+> > > +
+> > > +	switch (type) {
+> > > +	case HDMI_INFOFRAME_TYPE_AUDIO:
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AUD_EN | AUD_EN_WR);
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AUD_RPT_EN);
+> > > +		reg_start = TOP_AIF_HEADER;
+> > > +		reg_end = TOP_AIF_PKT03;
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_AVI:
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AVI_EN_WR | AVI_EN);
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AVI_RPT_EN);
+> > > +		reg_start = TOP_AVI_HEADER;
+> > > +		reg_end = TOP_AVI_PKT05;
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_SPD:
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, SPD_EN_WR | SPD_EN);
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, SPD_RPT_EN);
+> > > +		reg_start = TOP_SPDIF_HEADER;
+> > > +		reg_end = TOP_SPDIF_PKT07;
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_VENDOR:
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, VSIF_EN_WR | VSIF_EN);
+> > > +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, VSIF_RPT_EN);
+> > > +		reg_start = TOP_VSIF_HEADER;
+> > > +		reg_end = TOP_VSIF_PKT07;
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_DRM:
+> > > +	default:
+> > > +		return 0;
+> > > +	};
+> > > +
+> > > +	for (; reg_start <= reg_end; reg_start += 4)
+> > > +		regmap_write(hdmi->regs, reg_start, 0);
+> > 
+> > Interesting. Usually sending of the infoframe is controlled by a
+> > register of a kind.
+> > 
+> 
+> "This callback clears the infoframes in the hardware during commit"
+> 
+> ...and that's exactly what this function does: clears the infoframes
+> in the HW and stops the RPT, making the HW ready for the "next round".
+> 
+> Did I get the documentation wrong?
+> Should this function *send* an all-zero infoframe to the external display?
+
+No, it should stop sending the callback. My point was that usually there
+is a separate register which controls the infoframes. You code just
+clears the header (which probably is handled as disabling in the IP
+core).
+
+> 
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int mtk_hdmi_v2_hdmi_write_infoframe(struct drm_bridge *bridge,
+> > > +					    enum hdmi_infoframe_type type,
+> > > +					    const u8 *buffer, size_t len)
+> > > +{
+> > > +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+> > > +
+> > > +	switch (type) {
+> > > +	case HDMI_INFOFRAME_TYPE_AUDIO:
+> > > +		mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_AVI:
+> > > +		mtk_hdmi_v2_hw_write_avi_infoframe(hdmi, buffer);
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_SPD:
+> > > +		mtk_hdmi_v2_hw_write_spd_infoframe(hdmi, buffer);
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_VENDOR:
+> > > +		mtk_hdmi_v2_hw_write_vendor_infoframe(hdmi, buffer);
+> > > +		break;
+> > > +	case HDMI_INFOFRAME_TYPE_DRM:
+> > > +	default:
+> > > +		dev_err(hdmi->dev, "Unsupported HDMI infoframe type %u\n", type);
+> > > +		break;
+> > > +	};
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int mtk_hdmi_v2_bridge_atomic_check(struct drm_bridge *bridge,
+> > > +					   struct drm_bridge_state *bridge_state,
+> > > +					   struct drm_crtc_state *crtc_state,
+> > > +					   struct drm_connector_state *conn_state)
+> > > +{
+> > > +	return drm_atomic_helper_connector_hdmi_check(conn_state->connector,
+> > > +						      conn_state->state);
+> > > +}
+> > 
+> > Note to myself, probably we can move this to drm_bridge_connector too.
+> > 
+> > > +
+> > > +static int mtk_hdmi_v2_set_abist(struct mtk_hdmi *hdmi, bool enable)
+> > > +{
+> > > +	struct drm_display_mode *mode = &hdmi->mode;
+> > > +	int abist_format = -EINVAL;
+> > > +	bool interlaced;
+> > > +
+> > > +	if (!enable) {
+> > > +		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
+> > > +		return 0;
+> > > +	}
+> > > +
+> > > +	if (!mode->hdisplay || !mode->vdisplay)
+> > > +		return -EINVAL;
+> > > +
+> > > +	interlaced = mode->flags & DRM_MODE_FLAG_INTERLACE;
+> > 
+> > The interlaced modes should be filtered, unless you also set
+> > bridge->interlace_allowed to true.
+> > 
+> 
+> Noted. Many Thanks for the review!
+> 
+> I'll wait until next week for more feedback before sending a v3.
+
+-- 
+With best wishes
+Dmitry
 
