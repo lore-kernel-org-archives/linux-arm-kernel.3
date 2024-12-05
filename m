@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2FEE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ED1E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+88K50aTDgOA/7wFH5ZjGz8l4UiR5hwqKGUx+3zRuuk=; b=SKFx41x4wJTT+K3UllPtBo6NTT
-	GK8KD+bsR2fHIxQnAbEjUqB65uSXJB/ryMT8dNFepszCIZ674nGYvOKh1kBBVqRSbW3Qa06mgZxwI
-	DfLRL27ukX9C4bJuj6tOzIO7Z47Ek9LBrIrXqWL+tR+zb93TZ8jXqe7ZDPxoBTemII8xYe2JfnQzY
-	m1OwWI0xp1XxMZkbyZGMot+sPDziRANL66VaNjFGd1D6dD1Gb+ZtxPoZIxmdE+ubZLYsB9JcDgy9T
-	npi2FAwkaNxPuFaVDGlSd/rthvruOywhXCi2omrCB0v8gcJ3ZbKC2HUh1J0KgwaBHHRA1OFu9gH9q
-	iTQk2uzg==;
+	bh=XB2AuX2rSGhL8VpaWZ5HMuplj5cH17yU0HKWkdNMBEE=; b=XYDbtMzTRcf3xrVbN/nMnFRDk+
+	gWzH/TamO5WBpFC2kkt5T121ypr7f6ovlPbAQPnu3rNoMLdA/uN3Uaexy2kvprNtmNjDSdvlIUW8q
+	L4WQxMWUxqivYWcXuC1Actw4FuYmK61hwu7yoKGENrcfiCAgvXuwviOJz2kvjz17oR6i4K4UiUqWh
+	bQPjekSGhROpGZg5I2mYJRBnEFcN5GaO/3PmoHMXabKSy/xE4N9lBh+blhSmhzV/iB0BG/BuNs6TC
+	mCQs+22YwWC2E7vvk1lFhkVLt4sTfsW0+p1VwJbI3oEL32FtKfnAI2wPnWERGvxnZAlyGdT8+UNex
+	ErauOlUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCFJ-0000000GEMo-3Caw;
-	Thu, 05 Dec 2024 13:50:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCDJ-0000000GDvz-49tV
+	id 1tJCLQ-0000000GFQo-3XDm;
+	Thu, 05 Dec 2024 13:56:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJCKP-0000000GF9h-1eVK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 13:48:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82FE9169E;
-	Thu,  5 Dec 2024 05:48:45 -0800 (PST)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 44CF03F71E;
-	Thu,  5 Dec 2024 05:48:16 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	catalin.marinas@arm.com
-Cc: joro@8bytes.org,
-	jean-philippe@linaro.org,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	ryan.roberts@arm.com,
-	broonie@kernel.org
-Subject: [PATCH 2/2] arm64: cpufeature: Add GCS to cpucap_is_possible()
-Date: Thu,  5 Dec 2024 13:48:10 +0000
-Message-Id: <416c7369fcdce4ebb2a8f12daae234507be27e38.1733406275.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
-References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
+	Thu, 05 Dec 2024 13:55:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733406937; x=1764942937;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=PGYbsklcZxbQKe46gCtSJ/T9MPciNf2YV+Mvvz1GowY=;
+  b=KeL490m9YYcWY9SAZCWu5eFaaFZBx7QFRq0j6nYtFojFDPvRDkwWH9j0
+   ySR/t+/rVdOCqLVmOrdltzP+O6glRCUHdj9gjzA8XvR5RZFlbPptOxBQn
+   7LYLzYmzDeTCHhYJ2yEZj1FPCRt97pPQbgskDpVVjuXzPDDNeakvAQ5o5
+   Xk6vt1Q+DtIFuBaazI9wbfUE5p4NCE3PsMv1IYmhK+kvm632NVUaKdv+Y
+   Os1xgbCl2sEcZXMebKQJe5Kd7q/w7F1uclUNHPMFsvDBboA/yS9oUPMEc
+   Nzo/sVlSLi7PXOzd2dHSGBcP0o5ZGyUlT6XTH7Z1CCi6gPBjZIFQ4holK
+   w==;
+X-CSE-ConnectionGUID: 7ioOcpSzQfuJnUZ0WQ6I1Q==
+X-CSE-MsgGUID: qF9MfwCwSdCrE3fz2fX5Pw==
+X-IronPort-AV: E=Sophos;i="6.12,210,1728975600"; 
+   d="scan'208";a="34869386"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Dec 2024 06:55:34 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 5 Dec 2024 06:55:26 -0700
+Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 5 Dec 2024 06:55:22 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Thu, 5 Dec 2024 14:54:25 +0100
+Subject: [PATCH net 2/5] net: lan969x: fix the use of spin_lock in PTP
+ handler
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241205-sparx5-lan969x-misc-fixes-v1-2-575ff3d0b022@microchip.com>
+References: <20241205-sparx5-lan969x-misc-fixes-v1-0-575ff3d0b022@microchip.com>
+In-Reply-To: <20241205-sparx5-lan969x-misc-fixes-v1-0-575ff3d0b022@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Lars Povlsen
+	<lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Richard Cochran <richardcochran@gmail.com>,
+	Bjarni Jonasson <bjarni.jonasson@microchip.com>,
+	<jensemil.schulzostergaard@microchip.com>, <horatiu.vultur@microchip.com>,
+	<arnd@arndb.de>, <jacob.e.keller@intel.com>,
+	<Parthiban.Veerasooran@microchip.com>
+CC: Calvin Owens <calvin@wbinvd.org>, Muhammad Usama Anjum
+	<Usama.Anjum@collabora.com>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_054818_067463_1836866C 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20241205_055537_502628_1322C578 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,43 +94,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since system_supports_gcs() ends up referring to cpucap_is_possible(),
-teach the latter about GCS for consistency with similar features.
+We are mixing the use of spin_lock() and spin_lock_irqsave() functions
+in the PTP handler of lan969x. Fix this by correctly using the _irqsave
+variants.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Fixes: 24fe83541755 ("net: lan969x: add PTP handler function")
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+
+[1]: https://lore.kernel.org/netdev/20241024-sparx5-lan969x-switch-driver-2-v2-10-a0b5fae88a0f@microchip.com/
 ---
- arch/arm64/include/asm/cpucaps.h    | 2 ++
- arch/arm64/include/asm/cpufeature.h | 3 +--
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 201a46efd918..cbbf70e0f204 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -44,6 +44,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_ARM64_TLB_RANGE);
- 	case ARM64_HAS_S1POE:
- 		return IS_ENABLED(CONFIG_ARM64_POE);
-+	case ARM64_HAS_GCS:
-+		return IS_ENABLED(CONFIG_ARM64_GCS);
- 	case ARM64_UNMAP_KERNEL_AT_EL0:
- 		return IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0);
- 	case ARM64_WORKAROUND_843419:
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index b64e49bd9d10..8b4e5a3cd24c 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -847,8 +847,7 @@ static inline bool system_supports_poe(void)
+diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+index 67463d41d10e..c2afa2176b08 100644
+--- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
++++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+@@ -273,9 +273,9 @@ static irqreturn_t lan969x_ptp_irq_handler(int irq, void *args)
+ 		if (WARN_ON(!skb_match))
+ 			continue;
  
- static inline bool system_supports_gcs(void)
- {
--	return IS_ENABLED(CONFIG_ARM64_GCS) &&
--		alternative_has_cap_unlikely(ARM64_HAS_GCS);
-+	return alternative_has_cap_unlikely(ARM64_HAS_GCS);
- }
+-		spin_lock(&sparx5->ptp_ts_id_lock);
++		spin_lock_irqsave(&sparx5->ptp_ts_id_lock, flags);
+ 		sparx5->ptp_skbs--;
+-		spin_unlock(&sparx5->ptp_ts_id_lock);
++		spin_unlock_irqrestore(&sparx5->ptp_ts_id_lock, flags);
  
- static inline bool system_supports_haft(void)
+ 		/* Get the h/w timestamp */
+ 		sparx5_get_hwtimestamp(sparx5, &ts, delay);
+
 -- 
-2.39.2.101.g768bb238c484.dirty
+2.34.1
 
 
