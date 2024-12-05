@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77ACDE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF4AE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjjkTGRy79P8WpoMlifAZbLqMV17YtjvjzVaFaQZF98=; b=SNzu+a2uFNYwfVJaCx0mxK7uW8
-	hGFvOX0zEBXOvDE5H4m3imMKuN+iPCz2BAM5OtX3uTzpCP9P2HtZsOhMYM+4YeP7Jxpy1b+lrMN/7
-	yoPZkWwEw56kFgqKFU90MytXASzr2s8JkZLju3vPLlLtODmFdssH/DS9QaE+rXFBzZZ+rdb7FQf9m
-	ZJR9OSsBOhYHUv9xXIV5F4KqiaQtTPjlC1nkY9xWKq51lsD5MgsFxMx3wPyt8ufUAk2IRUMsP/XSs
-	2WTDfx7TZfqmt/DDLlIyhKp6l6d1oZX4+EAUxobJV/NnRw0uwRWkYK/04GGRLjp+aOTVJafBjJQ0Z
-	8DoP93Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cs9RMDRe4jTFPEvDmtH/eSMnjvvfZudpLPQ72QFuTUQ=; b=Agc0xd6vIq8QgnHprXlHGinR51
+	PZq/1cPpeQns8t+w3vuUbdPFy4ZLsi99LnV0FIbrlaPjOItbWepxb0QGgXlU+J01w8aYrFOJ5lZwr
+	5d5j96dV97WBanzCQAVg33qiabFrCfA1fOZjrI0XsV0ZzN0VPvhO2/4oRQJRVVWaLer0+4h5FK98z
+	rZ2OV2H/Cu3zGQlDLnTpjpry+KLG2/0vfbarPJ4rWQgPWOzEx2qqZx150VSUMTTYBwBXgemqFiVDT
+	jyGm3LROpEBPMby8Lkdue4X5k73WzBUDThtRmbtC2D0CPZXoRKXdLIFh7P7/A6hqI3P/cK5kSb9tS
+	XgSM135A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAfH-0000000Ft9E-0c9n;
-	Thu, 05 Dec 2024 12:09:03 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tJAgG-0000000FtHT-35su;
+	Thu, 05 Dec 2024 12:10:04 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAQf-0000000FoMi-3gGL
+	id 1tJATF-0000000FozZ-0HPi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 11:53:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733399638; x=1764935638;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FRyYeWHuT16TJ1pPRuXZ4fEoLV6czcJ/L3feRyc8wfg=;
-  b=bIKTxC5no9PJEC7e3Ua7YfnnNBtoZAQdhCc/BiOBywR36NOecrUm+Jzy
-   uZDHQ+6swQYPVt6N2rFYcIvyxRKB4PozommmSsC13xo85MO9hPVA7280b
-   jBVtYdw/vT5EX3uHMMDAHWfpvEwyCV3aKlGKWlT5m24Eseita4taTlK4B
-   M0mmaOswpbA+gKB9gmjHatwvAuHI75IVYpuijLKU9tylRvQB/8MZx7cIR
-   qOw3yj7wF39h0slCS4IRTt0SWXFlb1dB+pR9IQh7HEAmAbKVrHidoojde
-   GlxEiv8qdLHVJkPmOBNim9K+MQx7h2fkP/UkErydBkrcm1so93xWp3Uha
-   A==;
-X-CSE-ConnectionGUID: 3x3piVd8Tvm2+2gsqrh5VQ==
-X-CSE-MsgGUID: vahABDb+TW+B4byRINJ5MA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11276"; a="59114642"
-X-IronPort-AV: E=Sophos;i="6.12,210,1728975600"; 
-   d="scan'208";a="59114642"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2024 03:53:57 -0800
-X-CSE-ConnectionGUID: YEDaCdP7S3ebOP/c4wLnQg==
-X-CSE-MsgGUID: 1Yoj6dBFSq+1TfWPX6XJew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,210,1728975600"; 
-   d="scan'208";a="99152051"
-Received: from lkp-server02.sh.intel.com (HELO 1f5a171d57e2) ([10.239.97.151])
-  by orviesa004.jf.intel.com with ESMTP; 05 Dec 2024 03:53:52 -0800
-Received: from kbuild by 1f5a171d57e2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tJAQX-00048n-2K;
-	Thu, 05 Dec 2024 11:53:49 +0000
-Date: Thu, 5 Dec 2024 19:52:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: James Houghton <jthoughton@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>
-Cc: oe-kbuild-all@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Yan Zhao <yan.y.zhao@intel.com>,
-	James Houghton <jthoughton@google.com>,
-	Nikita Kalyazin <kalyazin@amazon.com>,
-	Anish Moorthy <amoorthy@google.com>,
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>,
-	David Matlack <dmatlack@google.com>, Wang@google.com,
-	Wei W <wei.w.wang@intel.com>, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v1 01/13] KVM: Add KVM_MEM_USERFAULT memslot flag and
- bitmap
-Message-ID: <202412051904.GNL7BE1X-lkp@intel.com>
-References: <20241204191349.1730936-2-jthoughton@google.com>
+	Thu, 05 Dec 2024 11:56:39 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aa549f2fa32so160413066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 03:56:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733399795; x=1734004595; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Cs9RMDRe4jTFPEvDmtH/eSMnjvvfZudpLPQ72QFuTUQ=;
+        b=izcQ5cTXpxGoFVnKNlbsc3Pu8VhQyDOU97vZjv2Wk6W1a57ZPcDV/ItcYM93qmbms9
+         aCtmQcWZHA10BPcUUMcQKu5h44ITQjL7SurrFCo9gSrJRNKcKH42pGUkR+zq2LAzY5SI
+         mtSWY9ZJc65WMQ419UpziowH+vseW22jvoAUWBsM+OB2j9rqls4jO/v2vM21o4tv255I
+         pjsm6QxcXv5EudoDplLGVdIoWZgoI5rhhnhLLMoVliL1Q6WY7o8ncqL+ibsf/SqEUQ+K
+         wRDRhw0Vc3BPwVLfFmtp2RM2ZxyBfC/6xMWMSA2UypK1H0lBUkz00P6hcsy3RPv0MobY
+         JCDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733399795; x=1734004595;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Cs9RMDRe4jTFPEvDmtH/eSMnjvvfZudpLPQ72QFuTUQ=;
+        b=sv643/ZnYJarrwj6zeJWkwznDDhPn6v6+RH9Mol1PM24yom7oFVTrIpiFt6lXRSZVl
+         K3jggP+P46biht7sK7ovbEPsjVFpzxrbesYF1uYN+7W9DoWJexhqtYxAechNV2cs775i
+         DQk3lDlN5Cll16DhaSl/r77MCg7yYZfOND4gMtBL9tj+Y2VkSAO5Ui91mCha+nPiJPka
+         E2NVWKqjt++HqM2/9LObPEVTuLp+O2tBNDfndnUcvWBzwW11gOy8i3n5q1hSts5XvBJp
+         dHGWThWdWwDmK4NWwo4KJvvwd6O/Woeza8QxlxVM35RZmOwkYlIjZSaYCR5tNLjUESwl
+         Gzkw==
+X-Forwarded-Encrypted: i=1; AJvYcCVi2HfYy2smUcvaXwo0sJr/chGjz+razlGrYb86yDze+bH06h4v29iuuu1ktHskDBbUrnsWhz4I70qOxBVdUbH/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxu+WoHrwS8XnmDdXOoWl/RVIDl3Xi5hdgnRM8IjyrQWq+DbUrk
+	g3Ac9HRL7p7RuKiGNrhJ39UpkqPhRW9xIy0wgaqQTXuj2f8M/6XIobVyig7N51Gu+a1cC5YQ9gI
+	8dG4=
+X-Gm-Gg: ASbGncvQ2XVcjzQDORlx3k6icf6dl2awozjwVtIalGbzTrVv/XAGxLlP3UtR1BMM+AY
+	3GP7/O9/pvkP2kHojs1BWKcdwbQnP9GZX8/GvaGfLGsRknXQ95KoU9m/J6X4EBPShgg9u0Z2bfr
+	/wO8dEOVGFG5sL1EnUgURDrkUCMp8aZlOQjApnuGVk4XkdD/6knWy54Jw5JWhdyPWEZY6ztg6oc
+	aB21hzrP9NMui6uQLs1s4pLTvQzgHK5o0F8/yzLwJlV8b5wujh+0Wj5CDGiY+U=
+X-Google-Smtp-Source: AGHT+IEWGiuqCz5p22sJv4oUuBbuzMg9J4wgAEUTDCD4f1ma8OOcOH3epiuHrkUATGhdMfNL7flyUQ==
+X-Received: by 2002:a17:906:23e1:b0:aa6:312c:5abe with SMTP id a640c23a62f3a-aa6312c5c99mr28100666b.58.1733399795552;
+        Thu, 05 Dec 2024 03:56:35 -0800 (PST)
+Received: from [192.168.0.62] ([176.61.106.227])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa626088e8fsm81659766b.139.2024.12.05.03.56.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Dec 2024 03:56:35 -0800 (PST)
+Message-ID: <2cb5940b-3779-4450-a213-fa766df7f406@linaro.org>
+Date: Thu, 5 Dec 2024 11:56:33 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241204191349.1730936-2-jthoughton@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/5] media: dt-bindings: Add qcom,sc7280-camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: rfoss@kernel.org, todor.too@gmail.com, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
+ konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
+ will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, kernel@quicinc.com
+References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
+ <20241204100003.300123-2-quic_vikramsa@quicinc.com>
+ <oko5qqysmxhicqzkwhkz54wvsmt64ba3cd37zkcy55ee77owbk@5z3zetfr2ejx>
+ <eaffa633-c3a4-4924-8ba7-694b18bf92ee@quicinc.com>
+Content-Language: en-US
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <eaffa633-c3a4-4924-8ba7-694b18bf92ee@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_035357_930467_938D68FA 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20241205_035637_126266_28FCD04F 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,181 +109,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On 05/12/2024 10:59, Vikram Sharma wrote:
+> Hi Krzysztof,
+> 
+> Thanks for your "Reviewed-by"
+> 
+> +        camss@acb3000 {
+> 
+> If there is going to be resend, then node name: isp
+> 
+> Sure, we will change node-name from camss to isp or camera (As its a 
+> part of generic names recommendation as per the shared link.)
+> If there is a resend. or we will address this as a followup.
+> 
+> So
+> 
+> - camss@acb3000 {
+> + camera@acb3000 {
+> 
+> Best Regards,
+> Vikram
 
-kernel test robot noticed the following build warnings:
+Please no top-posting.
+https://subspace.kernel.org/etiquette.html
 
-[auto build test WARNING on 4d911c7abee56771b0219a9fbf0120d06bdc9c14]
+Shouldn't that be isp@0xaddress ?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/James-Houghton/KVM-Add-KVM_MEM_USERFAULT-memslot-flag-and-bitmap/20241205-032516
-base:   4d911c7abee56771b0219a9fbf0120d06bdc9c14
-patch link:    https://lore.kernel.org/r/20241204191349.1730936-2-jthoughton%40google.com
-patch subject: [PATCH v1 01/13] KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
-config: x86_64-randconfig-121 (https://download.01.org/0day-ci/archive/20241205/202412051904.GNL7BE1X-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241205/202412051904.GNL7BE1X-lkp@intel.com/reproduce)
+If you are making this change, please remember to do it in both the 
+example and the dts.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412051904.GNL7BE1X-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c: note: in included file:
-   include/linux/kvm_host.h:2080:54: sparse: sparse: array of flexible structures
-   include/linux/kvm_host.h:2082:56: sparse: sparse: array of flexible structures
->> arch/x86/kvm/../../../virt/kvm/kvm_main.c:2049:39: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected unsigned long [noderef] __user *userfault_bitmap @@     got unsigned long * @@
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:2049:39: sparse:     expected unsigned long [noderef] __user *userfault_bitmap
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:2049:39: sparse:     got unsigned long *
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:626:25: sparse: sparse: context imbalance in 'kvm_mmu_notifier_invalidate_range_start' - different lock contexts for basic block
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:626:25: sparse: sparse: context imbalance in 'kvm_mmu_notifier_invalidate_range_end' - different lock contexts for basic block
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:626:25: sparse: sparse: context imbalance in 'kvm_mmu_notifier_clear_flush_young' - different lock contexts for basic block
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:626:25: sparse: sparse: context imbalance in 'kvm_mmu_notifier_clear_young' - different lock contexts for basic block
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:626:25: sparse: sparse: context imbalance in 'kvm_mmu_notifier_test_young' - different lock contexts for basic block
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c: note: in included file (through include/linux/mutex.h, include/linux/kvm_types.h, include/kvm/iodev.h):
-   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
-   arch/x86/kvm/../../../virt/kvm/kvm_main.c:1960:49: sparse: sparse: self-comparison always evaluates to false
-   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
-
-vim +2049 arch/x86/kvm/../../../virt/kvm/kvm_main.c
-
-  1931	
-  1932	/*
-  1933	 * Allocate some memory and give it an address in the guest physical address
-  1934	 * space.
-  1935	 *
-  1936	 * Discontiguous memory is allowed, mostly for framebuffers.
-  1937	 *
-  1938	 * Must be called holding kvm->slots_lock for write.
-  1939	 */
-  1940	int __kvm_set_memory_region(struct kvm *kvm,
-  1941				    const struct kvm_userspace_memory_region2 *mem)
-  1942	{
-  1943		struct kvm_memory_slot *old, *new;
-  1944		struct kvm_memslots *slots;
-  1945		enum kvm_mr_change change;
-  1946		unsigned long npages;
-  1947		gfn_t base_gfn;
-  1948		int as_id, id;
-  1949		int r;
-  1950	
-  1951		r = check_memory_region_flags(kvm, mem);
-  1952		if (r)
-  1953			return r;
-  1954	
-  1955		as_id = mem->slot >> 16;
-  1956		id = (u16)mem->slot;
-  1957	
-  1958		/* General sanity checks */
-  1959		if ((mem->memory_size & (PAGE_SIZE - 1)) ||
-  1960		    (mem->memory_size != (unsigned long)mem->memory_size))
-  1961			return -EINVAL;
-  1962		if (mem->guest_phys_addr & (PAGE_SIZE - 1))
-  1963			return -EINVAL;
-  1964		/* We can read the guest memory with __xxx_user() later on. */
-  1965		if ((mem->userspace_addr & (PAGE_SIZE - 1)) ||
-  1966		    (mem->userspace_addr != untagged_addr(mem->userspace_addr)) ||
-  1967		     !access_ok((void __user *)(unsigned long)mem->userspace_addr,
-  1968				mem->memory_size))
-  1969			return -EINVAL;
-  1970		if (mem->flags & KVM_MEM_GUEST_MEMFD &&
-  1971		    (mem->guest_memfd_offset & (PAGE_SIZE - 1) ||
-  1972		     mem->guest_memfd_offset + mem->memory_size < mem->guest_memfd_offset))
-  1973			return -EINVAL;
-  1974		if (as_id >= kvm_arch_nr_memslot_as_ids(kvm) || id >= KVM_MEM_SLOTS_NUM)
-  1975			return -EINVAL;
-  1976		if (mem->guest_phys_addr + mem->memory_size < mem->guest_phys_addr)
-  1977			return -EINVAL;
-  1978		if ((mem->memory_size >> PAGE_SHIFT) > KVM_MEM_MAX_NR_PAGES)
-  1979			return -EINVAL;
-  1980	
-  1981		slots = __kvm_memslots(kvm, as_id);
-  1982	
-  1983		/*
-  1984		 * Note, the old memslot (and the pointer itself!) may be invalidated
-  1985		 * and/or destroyed by kvm_set_memslot().
-  1986		 */
-  1987		old = id_to_memslot(slots, id);
-  1988	
-  1989		if (!mem->memory_size) {
-  1990			if (!old || !old->npages)
-  1991				return -EINVAL;
-  1992	
-  1993			if (WARN_ON_ONCE(kvm->nr_memslot_pages < old->npages))
-  1994				return -EIO;
-  1995	
-  1996			return kvm_set_memslot(kvm, old, NULL, KVM_MR_DELETE);
-  1997		}
-  1998	
-  1999		base_gfn = (mem->guest_phys_addr >> PAGE_SHIFT);
-  2000		npages = (mem->memory_size >> PAGE_SHIFT);
-  2001	
-  2002		if (!old || !old->npages) {
-  2003			change = KVM_MR_CREATE;
-  2004	
-  2005			/*
-  2006			 * To simplify KVM internals, the total number of pages across
-  2007			 * all memslots must fit in an unsigned long.
-  2008			 */
-  2009			if ((kvm->nr_memslot_pages + npages) < kvm->nr_memslot_pages)
-  2010				return -EINVAL;
-  2011		} else { /* Modify an existing slot. */
-  2012			/* Private memslots are immutable, they can only be deleted. */
-  2013			if (mem->flags & KVM_MEM_GUEST_MEMFD)
-  2014				return -EINVAL;
-  2015			if ((mem->userspace_addr != old->userspace_addr) ||
-  2016			    (npages != old->npages) ||
-  2017			    ((mem->flags ^ old->flags) & KVM_MEM_READONLY))
-  2018				return -EINVAL;
-  2019	
-  2020			if (base_gfn != old->base_gfn)
-  2021				change = KVM_MR_MOVE;
-  2022			else if (mem->flags != old->flags)
-  2023				change = KVM_MR_FLAGS_ONLY;
-  2024			else /* Nothing to change. */
-  2025				return 0;
-  2026		}
-  2027	
-  2028		if ((change == KVM_MR_CREATE || change == KVM_MR_MOVE) &&
-  2029		    kvm_check_memslot_overlap(slots, id, base_gfn, base_gfn + npages))
-  2030			return -EEXIST;
-  2031	
-  2032		/* Allocate a slot that will persist in the memslot. */
-  2033		new = kzalloc(sizeof(*new), GFP_KERNEL_ACCOUNT);
-  2034		if (!new)
-  2035			return -ENOMEM;
-  2036	
-  2037		new->as_id = as_id;
-  2038		new->id = id;
-  2039		new->base_gfn = base_gfn;
-  2040		new->npages = npages;
-  2041		new->flags = mem->flags;
-  2042		new->userspace_addr = mem->userspace_addr;
-  2043		if (mem->flags & KVM_MEM_GUEST_MEMFD) {
-  2044			r = kvm_gmem_bind(kvm, new, mem->guest_memfd, mem->guest_memfd_offset);
-  2045			if (r)
-  2046				goto out;
-  2047		}
-  2048		if (mem->flags & KVM_MEM_USERFAULT)
-> 2049			new->userfault_bitmap = (unsigned long *)mem->userfault_bitmap;
-  2050	
-  2051		r = kvm_set_memslot(kvm, old, new, change);
-  2052		if (r)
-  2053			goto out_unbind;
-  2054	
-  2055		return 0;
-  2056	
-  2057	out_unbind:
-  2058		if (mem->flags & KVM_MEM_GUEST_MEMFD)
-  2059			kvm_gmem_unbind(new);
-  2060	out:
-  2061		kfree(new);
-  2062		return r;
-  2063	}
-  2064	EXPORT_SYMBOL_GPL(__kvm_set_memory_region);
-  2065	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+---
+bod
 
