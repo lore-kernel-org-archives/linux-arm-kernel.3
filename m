@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10F4E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C45E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tVOU/hBtES9NqNMn3b9b53d5oMMBwDCM8MS0sfrPHxw=; b=uUZVD+NQZLzUyF
-	2QMdDM10OgHC21POGUV4qHE8s0OUg5goUyYIdS/Xb3kaRNaDjZwE2DkRe9ubyvdwfQP57Bn6QZEp6
-	iLTQNcJs93ZrjTcg+QPKqXbwVGo2wfJE+5ftHWRNHs36cnNUIjOcpT/xhf8Ja5vyh+RxcR1wUl+RT
-	S9cKGD6K6eKR2ggaP83eKk7m4uFxXUgSec8QELRXSUOELKVpJfFF5rpCBqi3ta5zBe33oyq6AbLUa
-	y+AciQNW9nr75mpgbxXMIoCfhS5QPmfRxVEmt1OyH3f7e5KInTKfFg7/lB4pW2hU9gpiylilF+zkm
-	krulixCwpwSdxEbAE5rA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VxBfAidCZEpZfBvPJ7kpXgJ70sPB6hVOSGyHqW1x/Zo=; b=0O3UimS6mWE2CmKChdCPNAeK3H
+	fJrioUMzkN5MGYjgS0F7hjdlzUgNmzBRFiq9DPtTVbGOAqQpjquYR9YVNUuCLF9ZWOysjBqUq0lDv
+	Ca+2loVsY9Zx7EjXn2/JkErbejCm0x9rtXcdT54HQ5irYre/sUXd4MQVR24EWafKnY+rnFQiIK7+K
+	Qj7byaw+g+CEuxZ8niKsKw9gmDXVXuIJAg9PrIkpberF1inWtXdAqmpUXRLZqHIyCubWuS8qm7SoY
+	7EsIWAQI3uO9BhuvGeqlszSgSPoTSqOjTPmBUDEZvov4vsk/VBiwXaB5erX9uigjStgcmB8ftL0Fx
+	PP0r15Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAVl-0000000Fpi5-0ZcZ;
-	Thu, 05 Dec 2024 11:59:13 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tJAVs-0000000Fpr0-2rl0;
+	Thu, 05 Dec 2024 11:59:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9Ka-0000000FZwJ-1oFX;
-	Thu, 05 Dec 2024 10:43:37 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 92C6EFF80C;
-	Thu,  5 Dec 2024 10:43:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1733395414;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tVOU/hBtES9NqNMn3b9b53d5oMMBwDCM8MS0sfrPHxw=;
-	b=NJnHShKWQUPjsX2QhlM5RDC+Jzxsy8E7DP7gbzzy10uiSf8zLJzRgetftuIys0UKY5J3/z
-	dZWX9tr5Ds/Wu8zUUSUTAIIGSpdwLF2mrHkqpInaACBaJCF7/pDxTfR00uHY4a+epFiWKI
-	n18wVl8zCnBtflYJW/vJvYMwUOP/OmzQcVnqMAPbvI5iCIXz75fjvBb8GdFzARHOVBj86m
-	zpfcoA5iQUn6ElWHAr4IjGQf2rl8GrRvtUbNYBeDcb+1j1dR37ufXae52mw3NwvlW/oOwh
-	ma/3ujT1hBMvn7nnVZiscRbdLoXa4pYSkWvzaAvSSBNJFlydFY1B0v9aihF+Ow==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Subject: Re: [PATCH next] mtd: rawnand: fix double free in atmel_pmecc_create_user()
-Date: Thu,  5 Dec 2024 11:43:25 +0100
-Message-ID: <173339519112.766262.17129619892556491178.b4-ty@bootlin.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <7d809e5f-32e1-4438-9cc6-3167f27dd239@stanley.mountain>
-References: <7d809e5f-32e1-4438-9cc6-3167f27dd239@stanley.mountain>
+	id 1tJ9Rj-0000000Fcvh-2t38
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Dec 2024 10:50:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=VxBfAidCZEpZfBvPJ7kpXgJ70sPB6hVOSGyHqW1x/Zo=; b=biwuR2z3PRCJQMSvEFSZqlGxOT
+	Z5fxK5EMOuT7DBt1x+Fhrobecu92dehYcY34xNfEQa/S50rP06H2OyqFw+q3UoEuJor/3nown826W
+	FmQ8yve+NG061SlFDKZ/ByPJxdmxdcnHXgbE+nLJCnKNJa6MLN4mjRe+0Y2RH1gr1nUi9kDjOGYX2
+	a//IkLzBo7HvTsKzw1pxZxsv0nCkV2EMqVFSoFZgJ4kLnbv1O3b+xX2l9GoiBA/SfwEGxuCPnWGkh
+	Oyr8HrFJ+TAceCPh0Rpi4w7VUjI3AYWjaAaa2c8fDe49xEN8SQ+ggP3T6OQyL7lnH5uiLdx+MrxzI
+	ZmvkfROw==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJ9Rg-00000002pmW-2IkK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 10:50:58 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5AonFC1747659
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 5 Dec 2024 04:50:49 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733395849;
+	bh=VxBfAidCZEpZfBvPJ7kpXgJ70sPB6hVOSGyHqW1x/Zo=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=Kcg7KMJb6dL89WRcBzF7/wTLAV7RkjSYi91u7pbT22PV+Ca0s2rfI0p3DgjL7d1I2
+	 LIYb6jXGII054DjUgydrwGX7hEQHIUK1g1mUVuEPEzJK88oaKsiDQRFKN3yEEaq3a3
+	 vvvSHUdm6WUu5Wh8GGcT/mGeFTKacbBvctX9fqEA=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5Aonnf022871;
+	Thu, 5 Dec 2024 04:50:49 -0600
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Dec 2024 04:50:49 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Dec 2024 04:50:49 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5AofJr110686;
+	Thu, 5 Dec 2024 04:50:46 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v4 1/4] arm64: dts: ti: Makefile: Fix typo "k3-j7200-evm-pcie1-ep.dtbo"
+Date: Thu, 5 Dec 2024 16:20:33 +0530
+Message-ID: <20241205105041.749576-2-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241205105041.749576-1-s-vadapalli@ti.com>
+References: <20241205105041.749576-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_024336_617940_0FDA66F3 
-X-CRM114-Status: UNSURE (   5.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241205_105056_802462_405E5E7F 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,24 +97,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>, kernel-janitors@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 11:40:56 +0300, Dan Carpenter wrote:
-> The "user" pointer was converted from being allocated with kzalloc() to
-> being allocated by devm_kzalloc().  Calling kfree(user) will lead to a
-> double free.
-> 
-> 
+The list of "dtbs" should contain the resultant "dtb" formed by applying
+the "dtbo" overlay on the base "dtb", rather than the "dtbo" itself.
 
-Applied to mtd/fixes, thanks!
+Hence, change "k3-j7200-evm-pcie1-ep.dtbo" to "k3-j7200-evm-pcie1-ep.dtb"
+in the list of "dtbs".
 
-[1/1] mtd: rawnand: fix double free in atmel_pmecc_create_user()
+Fixes: f43ec89bbc83 ("arm64: dts: ti: k3-j7200-evm: Add overlay for PCIE1 Endpoint Mode")
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-Patche(s) will be available within hours on:
-mtd/linux.git
+This patch has been newly introduced in this series.
 
-Kind regards,
-Miquèl
+ arch/arm64/boot/dts/ti/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index f71360f14f23..379bfa4425d4 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -230,7 +230,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
+ 	k3-am68-sk-base-board-csi2-dual-imx219.dtb \
+ 	k3-am69-sk-csi2-dual-imx219.dtb \
+-	k3-j7200-evm-pcie1-ep.dtbo \
++	k3-j7200-evm-pcie1-ep.dtb \
+ 	k3-j721e-common-proc-board-infotainment.dtb \
+ 	k3-j721e-evm-pcie0-ep.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtb \
+-- 
+2.43.0
+
 
