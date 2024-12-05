@@ -4,57 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA54E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BCEE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TN8pvwpDnxwncszsG0NMIBH27G5W8mHhCglWqsxgfcQ=; b=BQDzRnFzHrzKBRF+eOCB3xXWgt
-	bsaeUu1oHiT+i2M9eIZpKzuCQ8ow/JfBXcWcDUJjZLie9II7jREzBYwx1UNCi8N9iVy5BMMRoaFNH
-	sw6Wq//SnKLl3YjS7m5NdO+anIV5QlmXjcnDCnxYw+eiG4tyh2ZPpd+w3rmAgjbmZf8Fy98lnHF7U
-	nirK8tddid8VUz1UEgqpCuIQsMjCFPgk22ONoe/QvADdzCz/tMtST+ne0EDDz8oGXgDkD0LfEHPo0
-	BHIgGfqiaEplsvykIvz/naYkOOJDYhHrXCeXYY3wr95eoIqASmy6rvMFSCZLFPseg4mIvUZLc2uSH
-	+uMNEXjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dit2XdV4jZIb+L6jEF8gWfIehhTuSojBtBDYrG6sMmI=; b=3Nhxst7swHDQHQc95xlCuUX6kX
+	p+Z726FUnocBKO12ZIAxpK8HNBb0VQvLxbuEnCHvrV9lhuq1ks3/zZczkaLyPBMilKk7TK8yGWXAF
+	NB8xF1RyyBX18LKIfiZkzEIpFwJlqTT9z4pQP5QpOZiwck74aAoy1OrIqTkWKqV+SBmUkgrBzYuNK
+	T1xY8u7nnUrFZuHeu5VjL7TsAGsITAnFgltxSzi2eXSsnL2WMoZz2IYqsh59V+7v8YlekuSt4xeyu
+	+HzA+pl23VDcaZ00KJT/b7qL8B15fm+WZYt47mVwLvZp5DdIdBfsZoJtK30O2NOghv8cwWbWhF8nP
+	HxJYlEKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8el-0000000FROi-0Z1R;
-	Thu, 05 Dec 2024 10:00:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8dc-0000000FR1v-2Oyr
+	id 1tJ8wQ-0000000FU9B-3n4r;
+	Thu, 05 Dec 2024 10:18:38 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJ8vK-0000000FTrI-3Hxg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 09:59:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC77BFEC;
-	Thu,  5 Dec 2024 01:59:37 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 338E03F5A1;
-	Thu,  5 Dec 2024 01:59:08 -0800 (PST)
-Date: Thu, 5 Dec 2024 09:59:05 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Liviu Dudau <liviu.dudau@arm.com>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH] arm64: dts: fvp: Update bus-range property
-Message-ID: <Z1F5aeNT-0KFOVHf@bogus>
-References: <20241128152543.1821878-1-aneesh.kumar@kernel.org>
- <Z1CwGaAh714XfILz@e110455-lin.cambridge.arm.com>
+	Thu, 05 Dec 2024 10:17:32 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B57UxGp025018;
+	Thu, 5 Dec 2024 10:17:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Dit2XdV4jZIb+L6jEF8gWfIehhTuSojBtBDYrG6sMmI=; b=ZX1Dx79TqwzKLo3U
+	mGA5Z9aJbhUDzHhKOma/mqMlGNdGK4T+gKs9uLPZC4fzgY36K4B3vkmBhCMBkeHq
+	mTu0gSs4Q3scZHRNMYB4ulS+wO+9s1RqtytgL9lVBtSRjcDFaG642qrFJL78Jphn
+	VDzKaM9OT/o4MRw9XzBvT5TZc+8WDxJPyUIW44q860ZAy/mKCOzxf1pLhurUjP0M
+	NBScpNp9P2MpuCYnmnNyTVnMjcTLdbadv82wsEc0J54ji/HclVFhetOeaqEXLEHZ
+	/HHF7/UMf6isDbsBGeQYnwG7z6vZ3XklnbA4aZFZNtEu745Ne8YHlNhKkCAJXg7u
+	M/oqDA==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43aj42bvf6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 05 Dec 2024 10:17:24 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B5AHNdU020454
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 5 Dec 2024 10:17:23 GMT
+Received: from [10.190.163.187] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 5 Dec 2024
+ 02:17:17 -0800
+Message-ID: <6356241e-6bfc-c4dc-1fbd-cd92f1b236ba@quicinc.com>
+Date: Thu, 5 Dec 2024 15:47:14 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z1CwGaAh714XfILz@e110455-lin.cambridge.arm.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH V4 4/5] soc: qcom: Introduce SCMI based Memlat (Memory
+ Latency) governor
+Content-Language: en-US
+To: <myungjoo.ham@samsung.com>,
+        Dmitry Baryshkov
+	<dmitry.baryshkov@linaro.org>,
+        Kyungmin Park <Kyungmin.park@samsung.com>,
+        Chanwoo Choi <cw00.choi@samsung.com>,
+        Viresh Kumar <viresh.kumar@linaro.org>
+CC: "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+        "cristian.marussi@arm.com"
+	<cristian.marussi@arm.com>,
+        "andersson@kernel.org" <andersson@kernel.org>,
+        "konrad.dybcio@linaro.org" <konrad.dybcio@linaro.org>,
+        "robh+dt@kernel.org"
+	<robh+dt@kernel.org>,
+        "krzysztof.kozlowski+dt@linaro.org"
+	<krzysztof.kozlowski+dt@linaro.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>,
+        "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "quic_rgottimu@quicinc.com"
+	<quic_rgottimu@quicinc.com>,
+        "quic_kshivnan@quicinc.com"
+	<quic_kshivnan@quicinc.com>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+        Amir Vajid
+	<avajid@quicinc.com>
+References: <ac655bdc-5ccf-c6c6-3203-659f1916c53c@quicinc.com>
+ <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <20241007061023.1978380-5-quic_sibis@quicinc.com>
+ <2aycrvnvivcrqctqmweadcgenwugafdr6ub3bzkscterpenz32@bzabln2hkral>
+ <29eef87e-96f6-5105-6f7a-a8e01efcb4a3@quicinc.com>
+ <k4lpzxtrq3x6riyv6etxiobn7nbpczf2bp3m4oc752nhjknlit@uo53kbppzim7>
+ <CGME20241114041419epcas1p3b52bb9795ffd9efa568bb106ba268e02@epcms1p5>
+ <20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6@epcms1p5>
+From: Sibi Sankar <quic_sibis@quicinc.com>
+In-Reply-To: <20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6@epcms1p5>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: j-5sSJzGurTdnMTU9b402_166u-cHYBA
+X-Proofpoint-ORIG-GUID: j-5sSJzGurTdnMTU9b402_166u-cHYBA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
+ mlxscore=0 mlxlogscore=981 lowpriorityscore=0 clxscore=1015 malwarescore=0
+ priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412050073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_015912_709934_45C0ABD2 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20241205_021730_946682_68EEB6F3 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,82 +135,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 04, 2024 at 07:40:09PM +0000, Liviu Dudau wrote:
-> On Thu, Nov 28, 2024 at 08:55:43PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> > These days, the Fixed Virtual Platforms(FVP) Base RevC model supports
-> > more PCI devices. Update the max bus number so that Linux can enumerate
-> > them correctly. Without this, the kernel throws the below error while
-> > booting with the default hierarchy
-> > 
-> > pci_bus 0000:01: busn_res: [bus 01] end is updated to 01
-> > pci_bus 0000:02: busn_res: can not insert [bus 02-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > pci_bus 0000:02: busn_res: [bus 02-01] end is updated to 02
-> > pci_bus 0000:02: busn_res: can not insert [bus 02] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > pci_bus 0000:03: busn_res: can not insert [bus 03-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > pci_bus 0000:03: busn_res: [bus 03-01] end is updated to 03
-> > pci_bus 0000:03: busn_res: can not insert [bus 03] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > pci_bus 0000:04: busn_res: can not insert [bus 04-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > pci_bus 0000:04: busn_res: [bus 04-01] end is updated to 04
-> > pci_bus 0000:04: busn_res: can not insert [bus 04] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > pci 0000:00:01.0: BAR 14: assigned [mem 0x50000000-0x500fffff]
-> > 
-> > The change is using 0xff as max bus nr because the ECAM window is 256MB in size.
-> > 
-> > pci-host-generic 40000000.pci: ECAM at [mem 0x40000000-0x4fffffff] for [bus 00-01]
-> > 
-> > lspci output with and without the change
-> > without fix:
-> > 00:00.0 Host bridge: ARM Device 00ba (rev 01)
-> > 00:01.0 PCI bridge: ARM Device 0def
-> > 00:02.0 PCI bridge: ARM Device 0def
-> > 00:03.0 PCI bridge: ARM Device 0def
-> > 00:04.0 PCI bridge: ARM Device 0def
-> > 00:1e.0 Unassigned class [ff00]: ARM Device ff80
-> > 00:1e.1 Unassigned class [ff00]: ARM Device ff80
-> > 00:1f.0 SATA controller: Device 0abc:aced (rev 01)
-> > 01:00.0 SATA controller: Device 0abc:aced (rev 01)
-> > 
-> > with fix:
-> > 00:00.0 Host bridge: ARM Device 00ba (rev 01)
-> > 00:01.0 PCI bridge: ARM Device 0def
-> > 00:02.0 PCI bridge: ARM Device 0def
-> > 00:03.0 PCI bridge: ARM Device 0def
-> > 00:04.0 PCI bridge: ARM Device 0def
-> > 00:1e.0 Unassigned class [ff00]: ARM Device ff80
-> > 00:1e.1 Unassigned class [ff00]: ARM Device ff80
-> > 00:1f.0 SATA controller: Device 0abc:aced (rev 01)
-> > 01:00.0 SATA controller: Device 0abc:aced (rev 01)
-> > 02:00.0 Unassigned class [ff00]: ARM Device ff80
-> > 02:00.4 Unassigned class [ff00]: ARM Device ff80
-> > 03:00.0 PCI bridge: ARM Device 0def
-> > 04:00.0 PCI bridge: ARM Device 0def
-> > 04:01.0 PCI bridge: ARM Device 0def
-> > 04:02.0 PCI bridge: ARM Device 0def
-> > 05:00.0 SATA controller: Device 0abc:aced (rev 01)
-> > 06:00.0 Unassigned class [ff00]: ARM Device ff80
-> > 06:00.7 Unassigned class [ff00]: ARM Device ff80
-> > 07:00.0 Unassigned class [ff00]: ARM Device ff80
-> > 07:00.3 Unassigned class [ff00]: ARM Device ff80
-> > 08:00.0 Unassigned class [ff00]: ARM Device ff80
-> > 08:00.1 Unassigned class [ff00]: ARM Device ff80
-> > 
-> > Cc: Liviu Dudau <liviu.dudau@arm.com>
-> > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > Cc: Conor Dooley <conor+dt@kernel.org>
-> > Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> 
-> Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-> 
-> Sudeep, can you please take this patch through your tree?
->
 
-I have already queued and must be in -next, just didn't get to a point to
-respond as applied yet. I will update with your tags. Thanks!
 
--- 
-Regards,
-Sudeep
+On 11/15/24 06:08, MyungJoo Ham wrote:
+>>
+>> Hey Dmitry,
+>>
+>> Thanks for taking time to review the series.
+>>
+>> + Devfreq maintainers to comment (I thought you already added
+>> them by name)
+>>
+>>
+>> Hey MyungJoo/Kyungmin/Chanwoo,
+>>
+>> Can you weigh in here? Does it make sense to add a new
+>> class of devfreq devices that don't have governors
+>> associated with them just for them to export a few
+>> essential data to userspace? In this scenario the
+>> scaling algorithm is in a SCP and we just start
+>> them from the kernel. We do have ways to get the
+>> current frequency of various buses but does this
+>> warrant adding a new class of governor less devices?
+>>
+>> -Sibi
+> 
+> If voltage/frequency is controlled by SCP
+> (it's an SoC's internal hardware IP, right?),
+> it's good to have a userspace governer
+> with the driver not accepting updates from userspace.
+> 
+> E.g., Let "target" callback not update the frequency value,
+>   or let "target" callback always return an error with
+>   a dev_err message that you don't accept frequency changes
+>   from userspace.
+
+Thanks for the input. Will implement something similar to
+what you suggested for the next re-spin.
+
+-Sibi
+
+> 
+> Cheers,
+> MyungJoo.
 
