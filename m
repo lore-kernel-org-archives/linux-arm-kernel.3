@@ -4,117 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3D2E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F405AE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUssVfWElWpIOlRFU81J3Yi8OkhS0NtEeGQTqXRLNBM=; b=CNp6qIzhhOF7z9/e4emmgbjBeJ
-	G/RSGBIa9ZSETJC9/qwjApbj1HaxKXXC84NkIMXvtOdmIlOjw8WCJBWLjHGJHgXHsF3TQiY3XJq6e
-	VhJQDA9ihmhN/stOKQo7FHd91ob5MsMMT1cpOilJ8CRh8C8nVmJzK4/Lfq9gMWcEnbsuwydWA6FBO
-	FOiFqMyPjD96Q2zvlRCxZ0zSQdNWgW3iA6aR8RoxXbYLY0Ty9GCunZiieXAnLlimAL2thYr84UWJe
-	NaZgkqj2qFB9lwQMVud9BPhtsatnGCbp9xDXF50mLTa6WVvFLaW08lCPQ6XLSfKqwjAYQQC0BGJ+k
-	mMyk62WQ==;
+	bh=HjmVk9gKLzWJyLcAvjRtiVX8Ir6tmlI7JsF/W31nlu4=; b=aI08yB7tT1xWtLGIRxsUZW+4hk
+	miLb9bNLIVudQ60vmRw7QV+Chgs9kBsLVgcPt3DSyL+1npX1a5rLKVkF0ORlK+fVZApJLWGjCWzFh
+	Fkc27cj/yZaXOOqBPELUzg1UfUfTrKajGZMhvzPjIxc/llF4rHqxDcOxADJCNF7quaqaCChEH70eb
+	90D/TWrvtvm4eDazYHxjQYiXmL8G/t+Xw2MBVqu6r3D8pB2XHUyKiKYDk6jc0xJKvmbtUyEQq2sCd
+	vApZkkhhS1oEFG2K6Urz9nfy9RU5dSuFpY0D7dvTPv19dEN3OzeHCf+dTRdyEVtEo05Y9prr6kBhW
+	LVBPAkfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9Em-0000000FXsi-17D9;
-	Thu, 05 Dec 2024 10:37:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tJ9Fl-0000000FYHx-21Lk;
+	Thu, 05 Dec 2024 10:38:37 +0000
+Received: from mail-m11871.qiye.163.com ([115.236.118.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9D4-0000000FXY7-0hLy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:35:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 391F7A43159;
-	Thu,  5 Dec 2024 10:33:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80D87C4CED1;
-	Thu,  5 Dec 2024 10:35:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733394948;
-	bh=zvwx3dNMbF1OGEZ/wX/0dBuD40qhT1nOo1XKS+LNxVw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=nWI5jfSS9Q0rD+jRCWevdh2IgcROcB8DWDo3U/YVYumrEG5UbO2tUpCQ+RYjov8UH
-	 IBPqiSmaNTMFBZLn1t8BLUEMSlQRXls8VlODx7FABjQLl9HZ9E3HJoixFVF2NCeCqd
-	 FlrXcaZ+KyONsk2FtXgZp4aRjCUummri/tH5JCCtSt/ZcDO/RAjoy7GyhJO6JeI3w1
-	 AenYLMxRnZGBlr8iGFkVLKq7epAO9yNBQBPLShGoXLYMPe+uZITwdMjd/yI0ocs/pC
-	 +4fVnCh5bgqPvC4ln+sVQSqfbVvd4IpFz/QIpxtPsvvuRN8Ak+T17tNQv7aecR14uc
-	 f7HH+V8oYeHnw==
-Message-ID: <171072ed-c35f-430e-a8c0-5cf718efed0c@kernel.org>
-Date: Thu, 5 Dec 2024 11:35:43 +0100
+	id 1tJ9Dl-0000000FXfS-2OkT;
+	Thu, 05 Dec 2024 10:36:36 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4cf7c95c;
+	Thu, 5 Dec 2024 18:36:28 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org
+Subject: [PATCH 1/6] dt-bindings: PCI: dwc: rockchip: Add rk3576 support
+Date: Thu,  5 Dec 2024 18:36:18 +0800
+Message-Id: <20241205103623.878181-2-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241205103623.878181-1-kever.yang@rock-chips.com>
+References: <20241205103623.878181-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: dts: exynosautov920: add watchdog DT node
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: =?UTF-8?B?6rmA7YOc7JmE?= <trunixs.kim@samsung.com>
-Cc: 'Guenter Roeck' <linux@roeck-us.net>, 'Rob Herring' <robh@kernel.org>,
- 'Krzysztof Kozlowski' <krzk+dt@kernel.org>,
- 'Conor Dooley' <conor+dt@kernel.org>, 'Alim Akhtar'
- <alim.akhtar@samsung.com>, linux-watchdog@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20241021063903.793166-1-trunixs.kim@samsung.com>
- <CGME20241021063938epcas2p1c01c89badb532f08a46087a4907df7dc@epcas2p1.samsung.com>
- <20241021063903.793166-4-trunixs.kim@samsung.com>
- <961e1aca-cd90-4db1-87d7-afd2e542421e@kernel.org>
- <20241107103331.GA4818@www.linux-watchdog.org>
- <589c40e1-6a1c-4ef7-b0d8-b761b132578a@kernel.org>
- <20241107113325.GA5284@www.linux-watchdog.org>
- <c487babb-84a5-4e47-a58f-75fec55cbabb@kernel.org>
- <000201db46ac$8d7cfee0$a876fca0$@samsung.com>
- <88950a3a-c3de-4ff5-9ff8-9b85e1b0ad14@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <88950a3a-c3de-4ff5-9ff8-9b85e1b0ad14@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0hIGVZDGB4eGU5DThlCTB1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a9396647c2a03afkunm4cf7c95c
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MRw6Qjo*KzIYMw0JHyMVCxgs
+	Qg0aCRxVSlVKTEhISEJPQkNCT05MVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFMTEs3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=anhxgR45JOFGpKYa1kzJdcLz3u+TUdMFwNCxoA87+DdTw61fMspve3iNy1DjZNhpoUElFzHHaz82zHL/Z7AnKOKMpXZMAl5h37qDmi3Tli1Onw+YUAyoEGzB16SWA9y9CMV9CqPGeRf/zwOMOWkE2rdkuziEzOT1ib+2lh0C/Ic=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=HjmVk9gKLzWJyLcAvjRtiVX8Ir6tmlI7JsF/W31nlu4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_023550_336599_6E61F192 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20241205_023634_012505_B6D1A6B8 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,29 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2024 08:19, Krzysztof Kozlowski wrote:
->>>> But that's a never ending discussion, so we won't go into that :-).
->>>
->>> DTS is hardware description independent from Linux, therefore always goes
->>> separate way than Linux drivers.
->>>
->>> Best regards,
->>> Krzysztof
->>
->> I found that the first two patches have been added to the linux-next git, 
->> but the last patch has not yet been reviewed.
->>
->> I would appreciate it if you could take a look at this patch.
-> 
-> Since this patch was applied, I dropped from my queue. I don't have it
-> in my inbox anymore. Please rebase, resolve any comments and resend.
+rk3576 is using the same controller as rk3568.
 
-I found it in my inbox and tried to apply but it fails:
-error: patch failed: arch/arm64/boot/dts/exynos/exynosautov920.dtsi:172
+Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+---
 
+ Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-please rebase and resend.
+diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
+index 550d8a684af3..5328ccad7130 100644
+--- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
+@@ -26,6 +26,7 @@ properties:
+       - const: rockchip,rk3568-pcie
+       - items:
+           - enum:
++              - rockchip,rk3576-pcie
+               - rockchip,rk3588-pcie
+           - const: rockchip,rk3568-pcie
+ 
+-- 
+2.25.1
 
-Best regards,
-Krzysztof
 
