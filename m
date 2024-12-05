@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FA5E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08EAAE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NwutsNPAZK7/hfdSHu8QBUZhX3HGDLwE2+eaXINxW7k=; b=grV0beX8ACxYeC2qvPkE+E/UX9
-	hTRO0mzXc4GbdcoKGRvIUFljQIOIJzI3r+Ma2dxfBdvgBgIreLbpP60UbsGG8Dr3pyIl9b5BQb61k
-	gpSCXsiRO1aqwWPY6Jxl4HST5h/aQ5cPi3rKsVFDldmxkHMw4YiBpQkqcHi7LeznQo3zAFqdnMYgN
-	LgwdoVbHlKpuzPuEKHqH0V0mUXuWhhPyV4Oz0IgqNmlCe5wVWZkWDMoCiouj8zZjWh9trpsI7T80J
-	dGvsfbChRBercsl4fZsdkoyAy8cXjaVlcuDZaLG3qgIyQSXKLFZB1rhxac2k6QUe4w89CYIkxoAwr
-	vm2gxgAg==;
+	bh=YdV8B8FrQyPertKrQMmuIzrsZcu2pgueLdXDLFnU0YI=; b=dr5z2vrxk4Qxb1n61PC0Mk/OZ5
+	zTAm12azLGZvhTJbVdUpgsYWs7p7aDOXA11HvafP4H+N2MKYCSP3g7cumltR13otIY0I03iF18Bz9
+	YMDyGqtGgKtczxmXHVlqWEyHy3GQHoFRVFutOJ6qCph65fixuq+hCyCl4WCyCZVLi9X7xNQSdYze1
+	PuWOP6iyhAHpb/oWnl6Dc23oeLv5k8jfvBHAI2Oo7OC8Sb4w3ub6g186XG0jpC59+GC29bMoziynw
+	1wnb1CwCrPV88HKTkhtQkKuax36ef/Qn3dkOMdHhJOiH1SD7ORBdFALI735K+sek6R6+Dq8ezi16x
+	Kdi/yDhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJF8r-0000000GqR8-4B70;
-	Thu, 05 Dec 2024 16:55:53 +0000
+	id 1tJF9r-0000000GqfT-2gIi;
+	Thu, 05 Dec 2024 16:56:55 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEwx-0000000Gn8K-2plu
+	id 1tJEwx-0000000Gn8c-3EQM
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Dec 2024 16:43:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9DE1BA43E93;
+	by nyc.source.kernel.org (Postfix) with ESMTP id BF6CDA40FC4;
 	Thu,  5 Dec 2024 16:41:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 93D9FC113D0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EB615C4CEFF;
 	Thu,  5 Dec 2024 16:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733417012;
-	bh=sBLS/P03iFF2+zCHse2AmBVBwkDaehZopS1JK5brE2o=;
+	s=k20201202; t=1733417013;
+	bh=zUEz2ANM1tWrM6cItHLJ+CI7tAh+sUssEFYL0gzJjUo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ok6JwIrao+YnzyNUl9KBasZ3yy+g+xIqNJUqKuFuxV2tYqPAldecOGgrn7xwssSej
-	 YnFEVs6Y8esKw/EzTjPyBcTqBMOyUSqO32jrhKV7S68DK1r+dhGXQvLN2XToKMkVfr
-	 gZzdL1F87tqXbb5zY/07FVHCxzXt6frQRQXZSSf/jQKErpgWz9GGkpYo0TzCW2Gt+y
-	 i8BSQ3EeZhdDDCUwYoKKGRXDd+knF4ISXm6aWvYCvJ0YJcuw2rWxNXX8h+KBiEVlFL
-	 PngGNTdN3u2QeOtV3IkKZJdN1I5SfW/hbHiwE54wPn3+OWSWz9cgcDcuayrfkFPOl1
-	 pE+OwBiF+LzSg==
+	b=S3Se5s91KmNBupBt6GTjHQmRqPzstj5nC9S5/XWgmfPtT5ZeWqNK1RcdBcusahgm9
+	 9mHYS8rbL2TTD/yPWbvFFPwCWTX+YSsblS/cIJezPOjGxr7sMIfAk+qsDwQhMcef9f
+	 nojh+3QfBJy9yr/wg/zDn2mGSdNE92osS4yGb01fT/Q+bruJzO0BjDAbGf0yiH30kZ
+	 HaVZDmdJdjf2tFbyOoAD6Bmb+9phh96SSNyTNKTDT6cB76ZGvGvujRNRhzjXuhwNBe
+	 Jhlky9PIW9SPVqfRwlQNl0OCOTmH9E0+VufvvSHLOhKEDIPjFOwF8dN4FoV9g0EjTE
+	 2CANKPn1+Q6Zw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82BAEE7716E;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D4AD2E7716E;
 	Thu,  5 Dec 2024 16:43:32 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Thu, 05 Dec 2024 17:43:06 +0100
-Subject: [PATCH net-next v8 09/15] net: dwmac-starfive: Use helper
- rgmii_clock
+Date: Thu, 05 Dec 2024 17:43:08 +0100
+Subject: [PATCH net-next v8 11/15] net: xgene_enet: Use helper rgmii_clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241205-upstream_s32cc_gmac-v8-9-ec1d180df815@oss.nxp.com>
+Message-Id: <20241205-upstream_s32cc_gmac-v8-11-ec1d180df815@oss.nxp.com>
 References: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 In-Reply-To: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -82,22 +81,21 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
  0x1207@gmail.com, fancer.lancer@gmail.com, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=1364;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=1191;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=iW+rtrhNTh7WkbcA9xBon+2w19YzKulFFk0dv7RW/YA=;
- b=NOIwLIuzNeNzUYzaRpQaBZN2GHObVUWkFhO970SdtF6MLwSTP4bOhX/HGV5TRldTVniarDwNt
- bVYJMWLRcV7DILqASh3TIhxMmDjdEp44snp2JFS13GWdOv3pbEd2WU2
+ bh=yT5e9PnijROcL6qGdZBMgaJx1+AeFQufN+me46lPuTM=;
+ b=buC5c2GkYhQ/NsyQePazI8hBsK8E3aHOL9F+ZxsQbkzw8cI6D6S6tQJOI9vbMfYOi13+7YJjR
+ ZAG+pz3zR00DO4Le1o6AMqEhmjBhUx127NpkLAsBkBoG+9HltoNpzeA
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_084335_877722_93E2741A 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20241205_084335_982704_744BAAE9 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,45 +117,39 @@ Utilize a new helper function rgmii_clock().
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c | 19 ++++---------------
- 1 file changed, 4 insertions(+), 15 deletions(-)
+ drivers/net/ethernet/apm/xgene/xgene_enet_hw.c | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 421666279dd3..0a0a363d3730 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -34,24 +34,13 @@ struct starfive_dwmac {
- static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
- {
- 	struct starfive_dwmac *dwmac = priv;
--	unsigned long rate;
-+	long rate;
- 	int err;
+diff --git a/drivers/net/ethernet/apm/xgene/xgene_enet_hw.c b/drivers/net/ethernet/apm/xgene/xgene_enet_hw.c
+index e641dbbea1e2..b854b6b42d77 100644
+--- a/drivers/net/ethernet/apm/xgene/xgene_enet_hw.c
++++ b/drivers/net/ethernet/apm/xgene/xgene_enet_hw.c
+@@ -421,18 +421,12 @@ static void xgene_enet_configure_clock(struct xgene_enet_pdata *pdata)
  
--	rate = clk_get_rate(dwmac->clk_tx);
--
--	switch (speed) {
--	case SPEED_1000:
--		rate = 125000000;
--		break;
--	case SPEED_100:
--		rate = 25000000;
--		break;
--	case SPEED_10:
--		rate = 2500000;
--		break;
--	default:
-+	rate = rgmii_clock(speed);
-+	if (rate < 0) {
- 		dev_err(dwmac->dev, "invalid speed %u\n", speed);
--		break;
-+		return;
+ 	if (dev->of_node) {
+ 		struct clk *parent = clk_get_parent(pdata->clk);
++		long rate = rgmii_clock(pdata->phy_speed);
+ 
+-		switch (pdata->phy_speed) {
+-		case SPEED_10:
+-			clk_set_rate(parent, 2500000);
+-			break;
+-		case SPEED_100:
+-			clk_set_rate(parent, 25000000);
+-			break;
+-		default:
+-			clk_set_rate(parent, 125000000);
+-			break;
+-		}
++		if (rate < 0)
++			rate = 125000000;
++
++		clk_set_rate(parent, rate);
  	}
- 
- 	err = clk_set_rate(dwmac->clk_tx, rate);
+ #ifdef CONFIG_ACPI
+ 	else {
 
 -- 
 2.47.0
