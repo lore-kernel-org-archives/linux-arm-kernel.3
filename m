@@ -4,81 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED338E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:40:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7DFE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bITlpbaxJZ/ELoBexWwZ37dzybUATEmdzTJTeCJOdUs=; b=GMdlkNTfTF2d5AxVGw6RIpyEP9
-	uofyi7ovbTS2J0Ab8H5iBRPEOySVUiFVYKe2umc0fh+/d0e7KN+oXM47Z83EWoVSSXmcuhCgjN//b
-	Hf9L9D+6etddUK9xnoyuumz9BzgNFyZNJWfFT0H59vwhQDvT7Hik4sZlJ+x2IDhR1JWxCvjhAQHb9
-	gQOPXFQOEw5Q5K/MtMMgmExo+Xj0OikYeQEuEVthG/cyzjJuYj3WGbYQl6AJN6Sls0V0gFE7NoC3e
-	DQWRLDun0xF66EkycU4S+/ZvOQbGsvadg25G65g0rqv+AQNSfwURozYdIfpd0dykquwTaWap/64aO
-	sDOVlXbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2TPvgyTw3LZW4e0wTKdQTd3s8HG+STLY+zBXPkj4Tik=; b=2UpzapoXNJoRRVF1mZ9+sBwRZA
+	fLf3mMFqDgi+7S2ItN/bBu4OjWYQ29DN0XN1gOq1q5cQOnhWmRRcws0RK2r/C/s3e+dyfFdg2WjWz
+	QiDUsRTJTZdCV5nvn1Vil7deIzGA3wq7Wn0G5dzLgKEAoEZInYEWDSodsl6pqTmwPh+bOfWjLhccd
+	to/TVTha308eT3mUgqFL7nW6ycMhDr/jflprOiSSqJM/AAEo7w9n5afSXhttM+6a5KzxDNNAQpz+Q
+	oWzFsoAlbkkQLLRV0jE+lZBL5jqibqRVsSusqfAxBYziPjI7Lm8zc48pbfSXT+5nDSQnvof/L0u8q
+	5D9X5rGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDy8-0000000Gav4-3Nhj;
-	Thu, 05 Dec 2024 15:40:44 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tJDz8-0000000Gb6w-2hD1;
+	Thu, 05 Dec 2024 15:41:46 +0000
+Received: from mail-bn7nam10on20619.outbound.protection.outlook.com ([2a01:111:f403:2009::619] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDx6-0000000GajZ-16rI
+	id 1tJDxo-0000000Garr-3lRO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 15:39:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1733413180; x=1764949180;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=bITlpbaxJZ/ELoBexWwZ37dzybUATEmdzTJTeCJOdUs=;
-  b=UoqO9PPklD4wNdll1vza8hu2Cawu/GNqhhOoI2CfB+T4+9ctNbBReK/n
-   hciYpqUa4LsYcB1ArOtFhmNOi78TFLv0LePrGt8IqYRX8/W3Uo2mG6cmh
-   rpmbXQRmWs5IIMC3Pa21OcjkczE8pXX53B0OyLZh1AqfODxLx7k9Pseki
-   yOiIXcVF4B+E3SYT+4xaLPeVwM5ltkjU5pzJi72p83CBteAEGWQPGKZQB
-   7OKMQT+liX2UIFmrzoWhebJgcAujKn6ixk6lGxQeTYzAvE97f8CDUuR4M
-   3dPIsxGzhlrr2emkapTBh9a+1ErWfyP30mZ9wx0YqcdplNOFJn/C4f9tq
-   w==;
-X-CSE-ConnectionGUID: QIQQHHRvSUCxCFxzGq0uLg==
-X-CSE-MsgGUID: lciEpNtRTu+EqC5iYhRfKA==
-X-IronPort-AV: E=Sophos;i="6.12,210,1728943200"; 
-   d="scan'208";a="40435594"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 05 Dec 2024 16:39:37 +0100
-X-CheckPoint: {6751C939-10-F5DC7025-F79421CB}
-X-MAIL-CPID: D7BACB0F9DFF492E6B3DFE2FE5CB2D96_0
-X-Control-Analysis: str=0001.0A682F28.6751C93A.0019,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A1D60160A43;
-	Thu,  5 Dec 2024 16:39:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1733413173;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bITlpbaxJZ/ELoBexWwZ37dzybUATEmdzTJTeCJOdUs=;
-	b=jglWqUKtPxsplmsR67CkjKnm3GPFeNYZ+33ZpbMDegN2VzbsUsSNStUMqWq7f/NAamdhvz
-	ys19VGl9kakyogCFGseboz6ZPnonF1lhFtEVpLxcK1SvVLCbhGgVO0i8igUPUJ+gyn7syu
-	e5NPqbOjafNf9UroaitX+VbIYEQarWaYOAsDWEWpP2HKsrVKVPf4hjbNLmIHfyRJQ3Z4Dh
-	IuVgmLi8a2IN/pI1Us8rRht0xzd+qW4qRKNsslp2X2AVTD/mxk9ADpvGbDpXqGtS7jcfk1
-	kKF2ZX8T/aeyLGjQIiTx06a/tlO0O91Lpr64iyLW4glg8fxPkfTBnENVxwdQTA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] media: i2c: imx290: Limit analogue gain according to module
-Date: Thu, 05 Dec 2024 16:39:30 +0100
-Message-ID: <2214258.irdbgypaU6@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <CAPY8ntCeYOtBhEKCcygsT-aAHJ8rxo5qP0NdjE9DMJmHCxZzsA@mail.gmail.com>
-References: <20241120-media-imx290-imx462-v2-0-7e562cf191d8@raspberrypi.com> <4950196.GXAFRqVoOG@steina-w> <CAPY8ntCeYOtBhEKCcygsT-aAHJ8rxo5qP0NdjE9DMJmHCxZzsA@mail.gmail.com>
+	Thu, 05 Dec 2024 15:40:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vVtSTJh0Z3mLLzEMlZs2t/2vhvFDTD57bKuGzWq7/ja8E79G7cAeksuzgqZvr5CuqeZe69C8I89bK8Fg7z0Uv2AgC4ROLvGdbzDpe2vAvsYq7fvTZ2zhSJ6iQsMhG5PsnF5q5XoJoBuLT34i5MejUHf8OrlgXwYQV9fc5Sm4xdcwlmY9p2NsZ30h5iklWxTKQIpAFLmtMOTux65CJzgvkI+S8eYo1l7XtJRLy4HIA4PMoYqrf075vY3WS8Boo92MICYrwsYsuamSjNkMzKyGpmvvZdUUc03+6Pzq+vSLuTWslbyOG//pJcbhDDNmKYtrrMPpHHDmvxEFZvwyw/V+bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2TPvgyTw3LZW4e0wTKdQTd3s8HG+STLY+zBXPkj4Tik=;
+ b=MOEJQbGK+qu/H6to5c425425bPDB7+NC+cStY/+Z0QcdxD04+9T/unadIYrE3jF3i4VQs/eOx7nAZ4tcKSAldhBNTAY4WffJxIAnq+KickpxJJz3ew+F1uHJVqqGCzEi5zfgjB3GhwtdAopgsAKJIJF5Box6xlSK8x8DA9kSJbI8FlVCXb3A24PaftzuPozOXhMJa+cKg27GStMjwrKoL1LZl1tTVhCGu55UDxXfMyx9io4O8Ec0kJ8ulKAK3J8NjWmy1MwUA+/xvUFrRo1UljCiXdMcGQg7xlfUp1lP7Mx1WZy31t7CusoOHw2VbiUbOivS3Y8HRjeeUH0yu8MWbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2TPvgyTw3LZW4e0wTKdQTd3s8HG+STLY+zBXPkj4Tik=;
+ b=hMI+YVKej9A9WRCW3r9VZVM9iS3HX3WIHTGZlZ6BBS/sCIt+4Wesznts+nuxLO1mYtMk6vplE5djXF3ndpk1B9Xy07pG7SZ2b9lPBGCiqt+0gjsj4IOxfO2fV1lwUyFhsHaZzh6ifWphp4zhQNBs04mAObzagViR3zcHDHrCqZOu1Xs1GXikNgjq6urgLRlmzugpiFvX2FLqGChW2bBT1mVLpCRZjdqjlqtRr1HOOi3bPdYHB+p6ziy9up2Kj/Nbb7kp/dBcW5a+EASCRR7/kYUlvi7AnPxtyj5mVeXxsisFpxtEF/FYPmFyO29loSQfwMAOb0PDCTOXTSY6sCg54A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH2PR12MB4248.namprd12.prod.outlook.com (2603:10b6:610:7a::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Thu, 5 Dec
+ 2024 15:40:17 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8230.010; Thu, 5 Dec 2024
+ 15:40:17 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: Jerry Snitselaar <jsnitsel@redhat.com>,
+	Michael Shavit <mshavit@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	patches@lists.linux.dev,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH] iommu/arm-smmuv3: Update comments about ATS and bypass
+Date: Thu,  5 Dec 2024 11:40:15 -0400
+Message-ID: <0-v1-f27174f44f39+27a33-smmuv3_ats_note_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BN9PR03CA0797.namprd03.prod.outlook.com
+ (2603:10b6:408:13f::22) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH2PR12MB4248:EE_
+X-MS-Office365-Filtering-Correlation-Id: 397ee47f-5eae-4683-60f7-08dd15431e21
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jOj1yS7QyVzrM7jThCJZ6hV9vV68/zHXmWncW+gEQLDcDXX54l+CERKL9IhL?=
+ =?us-ascii?Q?kHdLPrdIfbjaUS7fxHUbfG6ECEJlDcEUzjSkYrBfEN98Q6Se8eKGVCwawn3D?=
+ =?us-ascii?Q?5NV+bfdP9KwETI2L8yIQOeY7avqe2kIyF+j9FbdFfvkfxMibbgWAUKB4meT7?=
+ =?us-ascii?Q?EjK8GMYGgUUvISWodFtYMBk+AtECZyll//p1wANdbJQ7UTEtXb301A3C7uR2?=
+ =?us-ascii?Q?EJeZZZI4sywYhs4AUwrxv+tJa7H68Y+uYJYxdQb3n0rLg/zUIqeG0A+cty1m?=
+ =?us-ascii?Q?LkTEWH1In1+P3GjCydhHZRCFaUaoA3NhGk+nNMG/0fambESr0T9+2kmV2yn2?=
+ =?us-ascii?Q?qEVZk64OGNCH2TFj8NJJ3Zhn3KklHCc8H1rVfNb80+s0i8N6tT/vbPmrQODT?=
+ =?us-ascii?Q?hrLGwfcy4Ayr7WqT2cRXgyBO0F24AxO+TrAnSpxa/gdRCSXmrqH5o2zizIib?=
+ =?us-ascii?Q?YM7dGjcXizlUq0UugVzJy4ZoM94AnAcGu766YByrSqbVlENM4HlE9hH9q3NH?=
+ =?us-ascii?Q?GRKaFVJcdb5x9OmjaitdxWmwg0jbABQQI+0nZ4S/aWm0PbDpWsMTiYeIT4Jk?=
+ =?us-ascii?Q?qXaqrgiBzX4iDqroHsywJWGSzipibxJYuIgWvdjj3UskQQpMuIpQcoB2hCSY?=
+ =?us-ascii?Q?gpuGaFrl+EudWUFBgwLJRvpdYB3VplQ9yGYLQF1+TN1SNH5YypcEI3b2kutm?=
+ =?us-ascii?Q?OaJ8ohMFLePzKQWWwrlcLgavnxrLqUq4nHk5mUoycnARk3YLwVaoGYSAO3Ii?=
+ =?us-ascii?Q?b7mY4GrZSyG04o/aKhFL0B7+1pepLFcCXZY+Jn/c9B+kmjF7E29yHgGkgQT8?=
+ =?us-ascii?Q?fSLPDQmok3pGDEQJ9rplf28CvKx2luQ2+MxTkk6cWSMJavV52z/pNM++HpIQ?=
+ =?us-ascii?Q?RQ8C/rE/RUi72vq7sf79uYR0vgGZgAhAKAb38Vndo0wWwq+b6QMHulKxdznM?=
+ =?us-ascii?Q?BNpF2ocDPCVL6YUdSouLLj8SKScu0sKbOk1YF+h+AVBXDLaC2LaEQjGqQyxr?=
+ =?us-ascii?Q?CbyFh9tRfgxhrbTFEsXI5VB/EpdYEUYBp5lDEgIja2OFrtKuE6zRAcqIqhIz?=
+ =?us-ascii?Q?5i4qpCV/rBONWL9rl9pqht6ahD8CJdLEGxd5SYFV2vB5GYlCWT3ac/kQNs3y?=
+ =?us-ascii?Q?Ndw0weCrPNhzpPA/jy9c1EjxO3wzO7aTf9pltBGMLkWnbrpgQ9zXMQhVFAsx?=
+ =?us-ascii?Q?F5QqYrH25A/spYdqOvLD4XcgD0atXX/9mBZoIn4VJ9bEB1tSGJQ+elO9QwU6?=
+ =?us-ascii?Q?zDMLC5miOa2Rx1MUtK/W1HwPxtLVInvSOTFupQ7MupgmNS85Z1QmRRrn0npT?=
+ =?us-ascii?Q?c/SbuzyAFl5EWtJm2ebTK5b+sRFyGFIm2yMUxWd+Mo4gOA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KCqJjRyW+TME/iDW13+tKzoYca5Ve8BCDz3NCZJAdiXkDvWK1pM1fdprviA5?=
+ =?us-ascii?Q?J13WiLX1Zxxa5bbKskBG7hKIRC6ZbwxaXvYtHafF5DmKFCj6PfZsOk3K5cdF?=
+ =?us-ascii?Q?eL08QiWABGD0sa5+kyZCmFlAAACRrL4HRqFpYlkO4X86zMwsFjKY7qbn3juX?=
+ =?us-ascii?Q?kjfeTwT51AWfQN3pGVMA3aJ5k09VuN+l6mk9W8r5owg3JVgB1+124dmZrTD6?=
+ =?us-ascii?Q?+id1EXP3PhAmuLh622vPAwhsrNYD4l8nulYnw8DsxBkulbSbSh9y7mub59an?=
+ =?us-ascii?Q?Ls5AlMTMRqfwpxlM7XWWH3FX0xFfbUIQekLYmETXUBdoq/dIhSDq5xWMKJAw?=
+ =?us-ascii?Q?Ntr63ca3IpFcvcKW2ofPzJiucYKuu1XrOBrYbO3Rcko+BM4ytLayvSJIuZLi?=
+ =?us-ascii?Q?g/kQvA/DGpngp537QEwI6JqW0+bUZdDewOTEgtDtm8ABMrfLXA1fmAE95QN/?=
+ =?us-ascii?Q?570XFZ1l+1eJOLUFgeFaR0ISkCG3uqqhNyTF2dY1+q+/5p1Mk40ufZGV2uh6?=
+ =?us-ascii?Q?3B72KZ6Rqyh758CnEm/B9SYDKFQai8eo3iq2HyUpLZ8uQ0xZGIN+W4X9U8Mo?=
+ =?us-ascii?Q?byjQnNYP6N5eialXIbHsb+w9wj5uEfs/N46baLC8HaJFZXW3skJLS3JrZglb?=
+ =?us-ascii?Q?wgCb+FgKh36lOSZ5hufWyal2FZ8GqVX8VSWOyFUWqIbX3guVG1jACDJtv4wO?=
+ =?us-ascii?Q?DR1wVeJEOg2HZGZp1hPzal9HOxmaQiAMkWq1kaN99ihRmev5hr+NPf00TYOO?=
+ =?us-ascii?Q?GTUhrI6s+qUYq2oQIOcf64SCQFqLEqA/2C8IJSgJPnr6KvdPq8ITti9+/bMN?=
+ =?us-ascii?Q?z8VqY/6t0nKZ7v4tn1198Wbm1PLX2Qb0z5HvnhY8swIDIZhKE0snQz35jeJP?=
+ =?us-ascii?Q?mA5hYa3ru/BU7i2PImMMP5gV/RFWR5HEuv9wz3U9X1SCvVudO1oP/0plU2V9?=
+ =?us-ascii?Q?I9q1LeL7Pe4kY4CHWXTBY7tjh7+EsaDMeLYiLbxZW9aJvq2/1SAhGJ60J/Dc?=
+ =?us-ascii?Q?XKj0BD0UgZ19OAFgQmJkiTqCeqdWPtbii/oU3nkaagHPvmPDHJ2mFWZdrcty?=
+ =?us-ascii?Q?z28y6zGuOZxezrFqfBtEEU8WB6Dd2EcmxKxNpTa13+nu0n2KZOQ6Jckk/eyi?=
+ =?us-ascii?Q?0WG9x32K5lcZjPa1NlDB25bu3nKXHHgHYRM8uGiyqJnYwqG4MdcTrF7c2+wZ?=
+ =?us-ascii?Q?9HiO8MKRdDere+eW5+xgmfOKWb/2SmqF+599f/D0zca3cFlhbY14JrGCCZ+x?=
+ =?us-ascii?Q?mqaXhbN/iEpMMeR92XjWXbPmxgrRcBsIjT13pastpg2VW7/cp63o4W4SZZkB?=
+ =?us-ascii?Q?k2kFIEFqw5NtBDTlJow+E+UnNWPfcf0tMJB98LiCPvfWRUu78TZ4U2nttY99?=
+ =?us-ascii?Q?OnuCVK2pKhp659M5KW1DaqF//hVD/k2JCoEuDPYPVjq1LsOug3Vhm+KXnk5G?=
+ =?us-ascii?Q?XtZzy+vyFu0qxMtvpHgZT9TcQ+NMJpvN4/HLGJFvfzn0Tv7+kcRFpqllQOXc?=
+ =?us-ascii?Q?i3shGvY9HaTQ7qEN2FZblHdXGQfgmcdmQHRxpyDZ8h7U7WNZmiw9e+wn/nwZ?=
+ =?us-ascii?Q?0ZEfvPOiglJWRK9tI564cypf+F/C6RwfkwJkyhhZ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 397ee47f-5eae-4683-60f7-08dd15431e21
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2024 15:40:17.0609
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /IMGpQAIKygXhT2XiNK+I6u73owcvaDe1cUHHibJossTUNbU3eVtd346uMAHSkFz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4248
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_073940_802081_C770986C 
-X-CRM114-Status: GOOD (  32.29  )
+X-CRM114-CacheID: sfid-20241205_074024_937852_09BF493A 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,144 +159,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+The SMMUv3 spec has a note that BYPASS and ATS don't work together under
+the STE EATS field definition. However there is another section "13.6.4
+Full ATS skipping stage 1" that explains under certain conditions BYPASS
+and ATS do work together if the STE is using S1DSS to select BYPASS and
+the CD table has the possibility for a substream.
 
-Am Donnerstag, 5. Dezember 2024, 16:37:01 CET schrieb Dave Stevenson:
-> Hi Alexander
->=20
-> On Thu, 5 Dec 2024 at 15:22, Alexander Stein
-> <alexander.stein@ew.tq-group.com> wrote:
-> >
-> > Hi Dave,
-> >
-> > Am Mittwoch, 20. November 2024, 20:17:03 CET schrieb Dave Stevenson:
-> > > The imx327 only supports up to 29.4dB of analogue gain, vs
-> > > the imx290 going up to 30dB. Both are in 0.3dB steps.
-> >
-> > While I agree for 30dB on imx290, my (maybe outdated) Rev0.2 datasheet =
-says
-> > up to 27dB in 0.3dB steps.
->=20
-> For IMX327, I have revision E17Z06B93 2019/03/25.
->=20
-> The revision control section for Rev0.3 lists
-> Page 1: "Correction: Max analog gain 27dB - 29.4dB"
-> Page 74: "Correction: Max Gain 69dB -> 71.4dB"
->=20
-> The graph in "Gain Adjustment Function" (page 74) also shows values
-> above 27dB as being purely analogue gain. Certainly 0x62 is red for
-> analogue, which would be a gain of 29.4dB. The next dot is 0x64 (30dB)
-> and blue, so we have to trust the text for 0x63 being 29.4dB analogue
-> and 0.3dB digital gain.
->=20
-> So I'm happy that the limit is 29.4dB.
+When these comments were written the understanding was that all forms of
+BYPASS just didn't work and this was to be a future problem to solve.
 
-Okay, this is a newer datasheet. So assume this is correct.
+It turns out that ATS and IDENTITY will always work just fine:
 
-Thanks for clarification.
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+ - If STE.Config = BYPASS then the PCI ATS is disabled
 
-Best regards,
-Alexander
+ - If a PASID domain is attached then S1DSS = BYPASS and ATS will be
+   enabled. This meets the requirements of 13.6.4 to automatically
+   generate 1:1 ATS replies on the RID.
 
+Update the comments to reflect this.
 
->   Dave
->=20
-> > Despite that this change looks good.
-> >
-> > Best regards,
-> > Alexander
-> >
-> > > As we now have model specific config, fix this mismatch,
-> > > and delete the comment referencing it.
-> > >
-> > > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> > > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > ---
-> > >  drivers/media/i2c/imx290.c | 12 ++++++------
-> > >  1 file changed, 6 insertions(+), 6 deletions(-)
-> > >
-> > > diff --git a/drivers/media/i2c/imx290.c b/drivers/media/i2c/imx290.c
-> > > index ee698c99001d..da654deb444a 100644
-> > > --- a/drivers/media/i2c/imx290.c
-> > > +++ b/drivers/media/i2c/imx290.c
-> > > @@ -176,6 +176,7 @@ struct imx290_model_info {
-> > >       enum imx290_colour_variant colour_variant;
-> > >       const struct cci_reg_sequence *init_regs;
-> > >       size_t init_regs_num;
-> > > +     unsigned int max_analog_gain;
-> > >       const char *name;
-> > >  };
-> > >
-> > > @@ -876,14 +877,10 @@ static int imx290_ctrl_init(struct imx290 *imx2=
-90)
-> > >        * up to 72.0dB (240) add further digital gain. Limit the range=
- to
-> > >        * analog gain only, support for digital gain can be added sepa=
-rately
-> > >        * if needed.
-> > > -      *
-> > > -      * The IMX327 and IMX462 are largely compatible with the IMX290=
-, but
-> > > -      * have an analog gain range of 0.0dB to 29.4dB and 42dB of dig=
-ital
-> > > -      * gain. When support for those sensors gets added to the drive=
-r, the
-> > > -      * gain control should be adjusted accordingly.
-> > >        */
-> > >       v4l2_ctrl_new_std(&imx290->ctrls, &imx290_ctrl_ops,
-> > > -                       V4L2_CID_ANALOGUE_GAIN, 0, 100, 1, 0);
-> > > +                       V4L2_CID_ANALOGUE_GAIN, 0,
-> > > +                       imx290->model->max_analog_gain, 1, 0);
-> > >
-> > >       /*
-> > >        * Correct range will be determined through imx290_ctrl_update =
-setting
-> > > @@ -1441,18 +1438,21 @@ static const struct imx290_model_info imx290_=
-models[] =3D {
-> > >               .colour_variant =3D IMX290_VARIANT_COLOUR,
-> > >               .init_regs =3D imx290_global_init_settings_290,
-> > >               .init_regs_num =3D ARRAY_SIZE(imx290_global_init_settin=
-gs_290),
-> > > +             .max_analog_gain =3D 100,
-> > >               .name =3D "imx290",
-> > >       },
-> > >       [IMX290_MODEL_IMX290LLR] =3D {
-> > >               .colour_variant =3D IMX290_VARIANT_MONO,
-> > >               .init_regs =3D imx290_global_init_settings_290,
-> > >               .init_regs_num =3D ARRAY_SIZE(imx290_global_init_settin=
-gs_290),
-> > > +             .max_analog_gain =3D 100,
-> > >               .name =3D "imx290",
-> > >       },
-> > >       [IMX290_MODEL_IMX327LQR] =3D {
-> > >               .colour_variant =3D IMX290_VARIANT_COLOUR,
-> > >               .init_regs =3D imx290_global_init_settings_327,
-> > >               .init_regs_num =3D ARRAY_SIZE(imx290_global_init_settin=
-gs_327),
-> > > +             .max_analog_gain =3D 98,
-> > >               .name =3D "imx327",
-> > >       },
-> > >  };
-> > >
-> > >
-> >
-> >
-> > --
-> > TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-> > Amtsgericht M=FCnchen, HRB 105018
-> > Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-> > http://www.tq-group.com/
-> >
-> >
->=20
+Fixes: 7497f4211f4f ("iommu/arm-smmu-v3: Make changing domains be hitless for ATS")
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index e4ebd9e12ad468..7605b264fbf983 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2745,9 +2745,14 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 		 * Translation Requests and Translated transactions are denied
+ 		 * as though ATS is disabled for the stream (STE.EATS == 0b00),
+ 		 * causing F_BAD_ATS_TREQ and F_TRANSL_FORBIDDEN events
+-		 * (IHI0070Ea 5.2 Stream Table Entry). Thus ATS can only be
+-		 * enabled if we have arm_smmu_domain, those always have page
+-		 * tables.
++		 * (IHI0070Ea 5.2 Stream Table Entry).
++		 *
++		 * However, if we have installed a CD table and are using S1DSS
++		 * then ATS will work in S1DSS bypass. See "13.6.4 Full ATS
++		 * skipping stage 1".
++		 *
++		 * Disable ATS if we are going to create a normal 0b100 bypass
++		 * STE.
+ 		 */
+ 		state->ats_enabled = !state->disable_ats &&
+ 				     arm_smmu_ats_supported(master);
+@@ -3070,8 +3075,10 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
+ 	if (arm_smmu_ssids_in_use(&master->cd_table)) {
+ 		/*
+ 		 * If a CD table has to be present then we need to run with ATS
+-		 * on even though the RID will fail ATS queries with UR. This is
+-		 * because we have no idea what the PASID's need.
++		 * on because we have to assume a PASID is using ATS. For
++		 * IDENTITY this will setup things so that S1DSS=bypass which
++		 * follows the explanation in "13.6.4 Full ATS skipping stage 1"
++		 * and allows for ATS on the RID to work.
+ 		 */
+ 		state.cd_needs_ats = true;
+ 		arm_smmu_attach_prepare(&state, domain);
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+-- 
+2.43.0
 
 
