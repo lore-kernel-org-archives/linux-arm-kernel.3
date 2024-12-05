@@ -4,123 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BCEE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC9FE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dit2XdV4jZIb+L6jEF8gWfIehhTuSojBtBDYrG6sMmI=; b=3Nhxst7swHDQHQc95xlCuUX6kX
-	p+Z726FUnocBKO12ZIAxpK8HNBb0VQvLxbuEnCHvrV9lhuq1ks3/zZczkaLyPBMilKk7TK8yGWXAF
-	NB8xF1RyyBX18LKIfiZkzEIpFwJlqTT9z4pQP5QpOZiwck74aAoy1OrIqTkWKqV+SBmUkgrBzYuNK
-	T1xY8u7nnUrFZuHeu5VjL7TsAGsITAnFgltxSzi2eXSsnL2WMoZz2IYqsh59V+7v8YlekuSt4xeyu
-	+HzA+pl23VDcaZ00KJT/b7qL8B15fm+WZYt47mVwLvZp5DdIdBfsZoJtK30O2NOghv8cwWbWhF8nP
-	HxJYlEKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C2qCz2oyAWXcySnvC/YTGdboyjGwCf8uvEh34M5NQ1w=; b=XwbKiYby8niCaBpYlthbJtJhQa
+	blnu3leOjNiOQw7FAlrNXETxou2N+uZryHli8jxSiQgXMDc6BPbefLwEWrksmn/ZYotB+rDHIzRV7
+	SUR2IowIKD+gtuz8w2RZnIMcztRQCXCwU6++xZ9WS+A21go7qZxP5b7hHSvG0+C9j9IfZr3XF9Q5s
+	4SuPClcLv4XtQ37jdTk0Vj8CoNKoU/WsffbaWCw+CI6xdgHWlSEhY7/tk5liTo7+lSvcgDVbdrDdG
+	2P595fCt1Q1mQc7dN34iCUnTFDBWCLYtrPYqedPanIVn4cjcAcnitnmudA96iUOX9sakTWl63zJhU
+	mDR6QRFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8wQ-0000000FU9B-3n4r;
-	Thu, 05 Dec 2024 10:18:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tJ90k-0000000FUqH-2MNy;
+	Thu, 05 Dec 2024 10:23:06 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8vK-0000000FTrI-3Hxg
+	id 1tJ8zi-0000000FUeS-2NKf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:17:32 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B57UxGp025018;
-	Thu, 5 Dec 2024 10:17:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Dit2XdV4jZIb+L6jEF8gWfIehhTuSojBtBDYrG6sMmI=; b=ZX1Dx79TqwzKLo3U
-	mGA5Z9aJbhUDzHhKOma/mqMlGNdGK4T+gKs9uLPZC4fzgY36K4B3vkmBhCMBkeHq
-	mTu0gSs4Q3scZHRNMYB4ulS+wO+9s1RqtytgL9lVBtSRjcDFaG642qrFJL78Jphn
-	VDzKaM9OT/o4MRw9XzBvT5TZc+8WDxJPyUIW44q860ZAy/mKCOzxf1pLhurUjP0M
-	NBScpNp9P2MpuCYnmnNyTVnMjcTLdbadv82wsEc0J54ji/HclVFhetOeaqEXLEHZ
-	/HHF7/UMf6isDbsBGeQYnwG7z6vZ3XklnbA4aZFZNtEu745Ne8YHlNhKkCAJXg7u
-	M/oqDA==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43aj42bvf6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 05 Dec 2024 10:17:24 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B5AHNdU020454
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 5 Dec 2024 10:17:23 GMT
-Received: from [10.190.163.187] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 5 Dec 2024
- 02:17:17 -0800
-Message-ID: <6356241e-6bfc-c4dc-1fbd-cd92f1b236ba@quicinc.com>
-Date: Thu, 5 Dec 2024 15:47:14 +0530
+	Thu, 05 Dec 2024 10:22:04 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa549f2fa32so142597966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 02:22:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733394121; x=1733998921; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=C2qCz2oyAWXcySnvC/YTGdboyjGwCf8uvEh34M5NQ1w=;
+        b=wF17t4K4IftoUAXPknb5x8rNCjdBBerbbAuNenYo5VxXXsDpy7sJT6WCl4vnbh7VGj
+         mYHOfBx9AR5kPs61CjA75Mk0JAMjvRXPG0ZGpWmnLYHUeHgk1vt+gwqyPKtUZeNYOOJ3
+         IpHcuQ+HJTnfPrkw2b3rdJNwb98ME/YSSZwrZjSGlI3e0LkNdWtQ2EBKbu4lvnuA0UHA
+         2uVMpdV/u5bt/YqcY/cfct8EJ6lvmEA10Weel5Xc7Psaqs0NEPvMo1hZK6hi6Fh5WlUp
+         /+HT+KFkEhGSFy3mpgEu3hbCzQ/V8WTTJONJqWEwOlJeAv2ulHiQaG9Vs6OollyC4wHf
+         c3gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733394121; x=1733998921;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=C2qCz2oyAWXcySnvC/YTGdboyjGwCf8uvEh34M5NQ1w=;
+        b=NzIt5ApjqB/v7k80WTLZ/xHZm34L+NXxiY2DihjfFKdGloqrRHEKISsrcMZLkVltn5
+         L+qR35A1B1GhYHmyqWM6muMCa59z/HkhEvjxvNhlSfqhRSktVX/TtUW8gzhN+9YKI1XG
+         ONu3oJSnWQJnOXsFExM4g4zlwW23Mpjzvj6of9YuF0mJLqOrBEjbJRt7qJ6btcE4vqyn
+         whq2c6VTawWsKBOpYYTFAyczAycRLqsiVoAy77otafCJImsKkWB3r8e4KovgT0b72jZD
+         Z3GwMz7QXbTOmPHV0wkEnUW6HW4ZaowJxA2u9PK1ZAu2cMUYw8QR3Pmj9tJCWdJNWCVp
+         kllA==
+X-Forwarded-Encrypted: i=1; AJvYcCVQU+GaDPZOTBiaO33lONL3KAzIHW5uXCUy3sR6rfRlYyhbLC9OsSXSGnkc/QxYjuob9lzfQ8t6DzE6e/X6iBRt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaAoAuxumwvzzCVoMsNfWqfaiO1eNSOgEZUPtTErrb5OIiAkMD
+	qfP0anyGf21CtunmuJtaZks/OmWxwydYQddQHOkzvThIiX9aNmWYPvq8xI/9n2Y=
+X-Gm-Gg: ASbGnct0D8/byhan8Mj1g0LRzAHRt17FBWFNFc9rIYHe5Ewy70RcIGUySQ8Rl2cX9Bq
+	CwumuUCDVgLBw+Ds2X8TG5ARKLX9Q1Ur/OqWTa/febBNcLaaLcm/PXgTw0ZYHWO4wklnQd2aMUs
+	KiX+Kqlk67lw0TAPNPoaENMigRmSuqkWZys00DWJGT2RHDXhP+W321LIzleCE8otw+UewnJ3IkH
+	Y5SOioXNNSiyn+MShABb5Ct37ACK/UZWgDUkzhyAQQ0qIgY9Zym+MxWDU3j3OIAiIyzY+vqn8Qg
+	mQQ2laOw+8w7Ws4HmOf/sTueSs2Nz4aWjg==
+X-Google-Smtp-Source: AGHT+IGIzS6w8nmzLwTehZGRCWLb5o+CLPa7VmxDEuLmOqo4b1mzG0cAAJu2wok4wnlPx8fiTWLtkA==
+X-Received: by 2002:a17:906:3d31:b0:aa5:41b2:e23e with SMTP id a640c23a62f3a-aa5f7da9717mr766598566b.30.1733394120780;
+        Thu, 05 Dec 2024 02:22:00 -0800 (PST)
+Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62608f57fsm71606166b.146.2024.12.05.02.22.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 02:22:00 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Thu, 05 Dec 2024 10:22:00 +0000
+Subject: [PATCH v4] phy: exynos5-usbdrd: gs101: ensure power is gated to SS
+ phy in phy_exit()
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH V4 4/5] soc: qcom: Introduce SCMI based Memlat (Memory
- Latency) governor
-Content-Language: en-US
-To: <myungjoo.ham@samsung.com>,
-        Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>,
-        Kyungmin Park <Kyungmin.park@samsung.com>,
-        Chanwoo Choi <cw00.choi@samsung.com>,
-        Viresh Kumar <viresh.kumar@linaro.org>
-CC: "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-        "cristian.marussi@arm.com"
-	<cristian.marussi@arm.com>,
-        "andersson@kernel.org" <andersson@kernel.org>,
-        "konrad.dybcio@linaro.org" <konrad.dybcio@linaro.org>,
-        "robh+dt@kernel.org"
-	<robh+dt@kernel.org>,
-        "krzysztof.kozlowski+dt@linaro.org"
-	<krzysztof.kozlowski+dt@linaro.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "quic_rgottimu@quicinc.com"
-	<quic_rgottimu@quicinc.com>,
-        "quic_kshivnan@quicinc.com"
-	<quic_kshivnan@quicinc.com>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-        Amir Vajid
-	<avajid@quicinc.com>
-References: <ac655bdc-5ccf-c6c6-3203-659f1916c53c@quicinc.com>
- <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <20241007061023.1978380-5-quic_sibis@quicinc.com>
- <2aycrvnvivcrqctqmweadcgenwugafdr6ub3bzkscterpenz32@bzabln2hkral>
- <29eef87e-96f6-5105-6f7a-a8e01efcb4a3@quicinc.com>
- <k4lpzxtrq3x6riyv6etxiobn7nbpczf2bp3m4oc752nhjknlit@uo53kbppzim7>
- <CGME20241114041419epcas1p3b52bb9795ffd9efa568bb106ba268e02@epcms1p5>
- <20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6@epcms1p5>
-From: Sibi Sankar <quic_sibis@quicinc.com>
-In-Reply-To: <20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6@epcms1p5>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: j-5sSJzGurTdnMTU9b402_166u-cHYBA
-X-Proofpoint-ORIG-GUID: j-5sSJzGurTdnMTU9b402_166u-cHYBA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 bulkscore=0
- mlxscore=0 mlxlogscore=981 lowpriorityscore=0 clxscore=1015 malwarescore=0
- priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0 impostorscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412050073
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241205-gs101-usb-phy-fix-v4-1-0278809fb810@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMd+UWcC/x2MQQqAMAzAviI9W9iqA/Ur4mFq3XpRWVEU8e8Oj
+ wkkDygnYYWueCDxKSrbmqEuC5iiXwOjzJmBDNWWjMOg1lg8dMQ93rjIhTQ513hvqpY85G5PnPX
+ /7If3/QBAd16DYwAAAA==
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: Will McVicker <willmcvicker@google.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, kernel-team@android.com, 
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_021730_946682_68EEB6F3 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20241205_022202_597911_16BFB857 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,47 +108,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+We currently don't gate the power to the SS phy in phy_exit().
 
+Shuffle the code slightly to ensure the power is gated to the SS phy as
+well.
 
-On 11/15/24 06:08, MyungJoo Ham wrote:
->>
->> Hey Dmitry,
->>
->> Thanks for taking time to review the series.
->>
->> + Devfreq maintainers to comment (I thought you already added
->> them by name)
->>
->>
->> Hey MyungJoo/Kyungmin/Chanwoo,
->>
->> Can you weigh in here? Does it make sense to add a new
->> class of devfreq devices that don't have governors
->> associated with them just for them to export a few
->> essential data to userspace? In this scenario the
->> scaling algorithm is in a SCP and we just start
->> them from the kernel. We do have ways to get the
->> current frequency of various buses but does this
->> warrant adding a new class of governor less devices?
->>
->> -Sibi
-> 
-> If voltage/frequency is controlled by SCP
-> (it's an SoC's internal hardware IP, right?),
-> it's good to have a userspace governer
-> with the driver not accepting updates from userspace.
-> 
-> E.g., Let "target" callback not update the frequency value,
->   or let "target" callback always return an error with
->   a dev_err message that you don't accept frequency changes
->   from userspace.
+Fixes: 32267c29bc7d ("phy: exynos5-usbdrd: support Exynos USBDRD 3.1 combo phy (HS & SS)")
+CC: stable@vger.kernel.org # 6.11+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+Changes in v4:
+- separate this patch out from original series
+- Link to v3: https://lore.kernel.org/all/20241205-gs101-phy-lanes-orientation-phy-v3-5-32f721bed219@linaro.org/
 
-Thanks for the input. Will implement something similar to
-what you suggested for the next re-spin.
+Changes in v3:
+- none
+- Link to v2: https://lore.kernel.org/all/20241203-gs101-phy-lanes-orientation-phy-v2-5-40dcf1b7670d@linaro.org/
 
--Sibi
+Changes in v2:
+- add cc-stable and fixes tags to power gating patch (Krzysztof)
+- Link to v1: https://lore.kernel.org/all/20241127-gs101-phy-lanes-orientation-phy-v1-6-1b7fce24960b@linaro.org/
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-> 
-> Cheers,
-> MyungJoo.
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index c421b495eb0f..e4699d4e8075 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -1296,14 +1296,17 @@ static int exynos5_usbdrd_gs101_phy_exit(struct phy *phy)
+ 	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
+ 	int ret;
+ 
++	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI) {
++		ret = exynos850_usbdrd_phy_exit(phy);
++		if (ret)
++			return ret;
++	}
++
++	exynos5_usbdrd_phy_isol(inst, true);
++
+ 	if (inst->phy_cfg->id != EXYNOS5_DRDPHY_UTMI)
+ 		return 0;
+ 
+-	ret = exynos850_usbdrd_phy_exit(phy);
+-	if (ret)
+-		return ret;
+-
+-	exynos5_usbdrd_phy_isol(inst, true);
+ 	return regulator_bulk_disable(phy_drd->drv_data->n_regulators,
+ 				      phy_drd->regulators);
+ }
+
+---
+base-commit: c245a7a79602ccbee780c004c1e4abcda66aec32
+change-id: 20241205-gs101-usb-phy-fix-2c558aa0392a
+
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
+
 
