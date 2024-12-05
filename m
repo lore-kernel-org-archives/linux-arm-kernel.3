@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7B9E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 05:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A088DE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 05:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWyo9Bu5l9XOsB4Q8M1dSJaLQtxfsxiyf7xxvykE+sk=; b=TdueJpQBpd+DocGos+U4Y+3+24
-	yH4eCQvSF5eaCXIQLWzI+x5opYl0hMrc3EyMqy2R+QvjRssRIzo0Ia/77j+DXQDyGvXa+j5rloZDf
-	J4zEjfTeSvmylfwWfCkwkYHEb0ljQlILLSe4nMnKodBOKbjkaDX4MsTKnjmFriooKlCdMynVOoDAU
-	KixEcOrzKYbIfva32FmKQY5jHZlU5W1ERl1DRkRM9hEe0qMf5rqj0/cje2H+VbMt1ttKi2N5XmKob
-	/WZF4NKcLna21n9KLP8Gid3KTlupgdmi6rd4eAfHeQmUxrhbhSyY2MCJqyA+iKrUbDljkA3T9jyS4
-	g+05vUNw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zqIsEszztQaofpg7Apmowpob1qU+kHY4W1kZzuvfgdE=; b=x1QWq57hy/RVUjnVu5F7Kq+rp9
+	WtZX6hK8g2sWytxZDfbBpt5YI0wjR5G6TezcmSWhProGdtFAkDO9j1A3LQ5YgUUmnesBrfz0vMYAa
+	gjNZqUYyF7Qsx6jXORZ6rQE/kRb4N3tiLtqXz9FD1YkBAndITx2zqBDrBC8YaYCLZ5LJlEa0dGjD6
+	Ss93cxg4fIsypq1g3lReUylEtdmlcaBG/ZZT2eb55YCaVPPvXofG+AD/TAI4b7pW7Oal9PMpP4Pfo
+	53KjERgyy69sIGq1CJRy6f4dVP6HqBJT/b3SE20+u6mv4A1ue4GaiFn7aD0cR1VtCZ6eQnvRrjKt9
+	qbRdtG4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ4Bq-0000000Emoh-1f06;
-	Thu, 05 Dec 2024 05:14:14 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tJ4D6-0000000En1O-47tc;
+	Thu, 05 Dec 2024 05:15:32 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ4Ap-0000000EmjH-2ViE
+	id 1tJ4C5-0000000Emqo-1X9D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 05:13:12 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id E6F8C88EDD;
-	Thu,  5 Dec 2024 06:13:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1733375588;
-	bh=dWyo9Bu5l9XOsB4Q8M1dSJaLQtxfsxiyf7xxvykE+sk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SstSwugAf14DWGV0olpYo99gQMHuNa+3siS4StFcJh/xEgnrORDiQssMO2Li27VH3
-	 401H97eV0rRm0NbmB6ei5GhU/JrlUrBdG/6OCb+8Aeykufm/pJCiLP6rmXOKCOhjBf
-	 fuuE8RIqUFBGgJOcNyVQS/oaImdI8HeOPC8/PG2AM1jvK1EehTfMpmGy8Rfi9KHDB1
-	 fB18rdFu5bJaMxU7TA0XkCCrt4YUklofs56efQjO/8v1qfBuHoxzFycT/jI+Tk1COJ
-	 trpyNocUyirAsChlZITCNZw6jj/uONDppuWKyAyN9JQNOvl6We6A3A23w+RnQ6XOkn
-	 0dbwhMVeE69Vw==
-Message-ID: <3c809cae-991b-4b13-8d8b-bd6cbcc9a9b9@denx.de>
-Date: Thu, 5 Dec 2024 06:07:51 +0100
+	Thu, 05 Dec 2024 05:14:30 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-46684744173so8062211cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 21:14:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733375668; x=1733980468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zqIsEszztQaofpg7Apmowpob1qU+kHY4W1kZzuvfgdE=;
+        b=nSPxp3YgWsz4VSVS3AxkACOklFySCvBGmfJTk9MMvZwsFquK1v7Xxr844wGNbwidLs
+         8ysLzjrv4hw22XtVOIGHla9yoV34tqHMzvA1pANJr+3zL5ctmDMtB5YblcPmDqi5yMI6
+         cMSHKahXYG+x9x+UoGBxZw5eh7uCfTyH6oDHgRm2Cd3TuETu88Xomop/gUuJtZ1xzxy+
+         LrINJCrQ/e+B/xwKQsWq+hUGLz0rJ6+vdXiaHr/VjRAXFGZ8kNKjl9cMLOQ2FCgSeJrU
+         mGBeE531rnYgVGmHnIPIr71wmofuB+3z73hPmr1QpWZ3NpIF1ixN1kEEn8qjIoUMNH+e
+         MHbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733375668; x=1733980468;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zqIsEszztQaofpg7Apmowpob1qU+kHY4W1kZzuvfgdE=;
+        b=CmLoEwRvhaW3Y/qTsJ03JH58XXWedqSN+0J4wh8ASpOzQbLLmFGTBnTcCcaFtRRoAK
+         uZjGZHyq/Aq1QmTlZYJDD1vFSQDV5wjtnQyljvxhQ+eKgfN55m0KRHMNyn1pVErWJH1m
+         /batUKK3cS4/s6WI/WsxwMBK6WHTjYuC18nwAtCEn3I+TABc2UQE7HpZQbRZKql8Swmd
+         WjT2mISZASF+9LCTgnRYCeK3fWgbABEhBTwdKjHZmk+uuTsOduO16b5N8EIjTC+AsiqS
+         Ib4msJPnuls+KRh01DDhZmiSEFE5ecJVS1TXfznLZ0CAu/nRANAmg0K6QlYjj29bWmsM
+         ziqw==
+X-Forwarded-Encrypted: i=1; AJvYcCWyi/LLAJhjaxTvChFjuJhNEwDTS+SDyK9RmsYZ6OteoruQ+SIEB/7Igi9++NxRGerd8ywjZQGVDaQ9ARjuLXAc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1uDmf63kOeRjlDiZw/AT51xE7Xx5hGxXE2t7kMupNHHw+3JfP
+	6cgmvzt9juib8GwNko9Fc2Q4t7uJUAn7yqqAziElxIp/QQqhPWT/
+X-Gm-Gg: ASbGnctstf6H0uNIClbu7y6he0Slwez3QgqpXfL1uiWiGODdqhPiNJ4QnUuD1rmr8e2
+	wvD8By8P98gnVF45Ztu+Ol9G9SieGIuKktbpH4VvbgSHeGBjVdAsR3U529/bra64mLArJrmALfB
+	qv+pk6JFS3gIbTHuWX+nDF3h17CKC21ILAouQ7f/VAspWV5w1yQbaVEm66sXaAe9JGuLaKNT6Re
+	GEweW1qVFDaliGzTKytd1ExzfmI9XNKb9VlzvW8B5A9rVQJP8ebs8Kigmyeiw==
+X-Google-Smtp-Source: AGHT+IHzGOaqKMeldKYNCc7I7mqnuoEWuHAjvkW6hiehdx/v3xwHIV4vK2uaIYyHVBgVn+HHe4JCfw==
+X-Received: by 2002:a05:622a:1992:b0:463:5bd4:59b8 with SMTP id d75a77b69052e-4670c712e88mr150275551cf.40.1733375667946;
+        Wed, 04 Dec 2024 21:14:27 -0800 (PST)
+Received: from localhost.localdomain ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-467297c239dsm4041821cf.77.2024.12.04.21.14.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 21:14:26 -0800 (PST)
+From: Mingwei Zheng <zmw12306@gmail.com>
+To: fabrice.gasnier@foss.st.com,
+	ukleinek@kernel.org,
+	coquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	thierry.reding@gmail.com,
+	lee@kernel.org
+Cc: linux-pwm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mingwei Zheng <zmw12306@gmail.com>,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH] pwm: stm32-lp: Add check for clk_enable()
+Date: Thu,  5 Dec 2024 00:17:46 -0500
+Message-Id: <20241205051746.2465490-1-zmw12306@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: stm32: Add check for clk_enable()
-To: Mingwei Zheng <zmw12306@gmail.com>, linus.walleij@linaro.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, make24@iscas.ac.cn,
- peng.fan@nxp.com, fabien.dessenne@foss.st.com
-Cc: linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiasheng Jiang <jiashengjiangcool@gmail.com>
-References: <20241205045942.2441430-1-zmw12306@gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20241205045942.2441430-1-zmw12306@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_211311_799311_5A42EF2E 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20241204_211429_406987_5EF531C5 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/5/24 5:59 AM, Mingwei Zheng wrote:
-> Add check for the return value of clk_enable() to catch the potential
-> error. Add a cleanup loop to disable clocks already enabled in case
-> of an error during clock enabling for subsequent banks.
-> 
-> Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
-> Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
-> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-> ---
->   drivers/pinctrl/stm32/pinctrl-stm32.c | 12 +++++++++---
->   1 file changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-> index 5b7fa77c1184..eb7b2f864d88 100644
-> --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-> +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-> @@ -1738,10 +1738,16 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
->   {
->   	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
->   	struct stm32_pinctrl_group *g = pctl->groups;
-> -	int i;
-> +	int i, j, ret;
->   
-> -	for (i = 0; i < pctl->nbanks; i++)
-> -		clk_enable(pctl->banks[i].clk);
-> +	for (i = 0; i < pctl->nbanks; i++) {
-> +		ret = clk_enable(pctl->banks[i].clk);
-> +		if (ret) {
-> +			for (j = 0; j < i; j++)
+Add check for the return value of clk_enable() to catch the potential
+error.
 
-Instead of this open-coded loop, can you please convert the driver to 
-clk_bulk*() API and then do simple clk_bulk_enable()/clk_bulk_disable() 
-here and everywhere ?
+Fixes: e70a540b4e02 ("pwm: Add STM32 LPTimer PWM driver")
+Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+ drivers/pwm/pwm-stm32-lp.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-Thank you
+diff --git a/drivers/pwm/pwm-stm32-lp.c b/drivers/pwm/pwm-stm32-lp.c
+index 989731256f50..4abef304417d 100644
+--- a/drivers/pwm/pwm-stm32-lp.c
++++ b/drivers/pwm/pwm-stm32-lp.c
+@@ -163,12 +163,16 @@ static int stm32_pwm_lp_get_state(struct pwm_chip *chip,
+ 	unsigned long rate = clk_get_rate(priv->clk);
+ 	u32 val, presc, prd;
+ 	u64 tmp;
++	int ret;
+ 
+ 	regmap_read(priv->regmap, STM32_LPTIM_CR, &val);
+ 	state->enabled = !!FIELD_GET(STM32_LPTIM_ENABLE, val);
+ 	/* Keep PWM counter clock refcount in sync with PWM initial state */
+-	if (state->enabled)
+-		clk_enable(priv->clk);
++	if (state->enabled) {
++		ret = clk_enable(priv->clk);
++		if (ret)
++			return ret;
++	}
+ 
+ 	regmap_read(priv->regmap, STM32_LPTIM_CFGR, &val);
+ 	presc = FIELD_GET(STM32_LPTIM_PRESC, val);
+-- 
+2.34.1
+
 
