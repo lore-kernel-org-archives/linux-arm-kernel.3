@@ -4,66 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FC1E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0123BE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 10:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tJ3COf8d8BbdT17/SRzmg0LLbh3l+96wtMBsuDbJm/Q=; b=Pj+6To5x08WqxDU3/nAwdQGrQc
-	KTFy0tjImUcvpolKr8DpLvyEBoy86sJmiHOtUtOxAy2lZV677YkFk1uqrYPqOXtYN5JaygaHWRF5Y
-	yQJlR9yZjv9KGbmaxoCYKU1djqOzIeDdhddMMatqgfP8phtPnGxF3txRrLBKKDdvC8Lol/pHxExgv
-	rTxx1MX7onkYQAJCn3WcMW+I3gEi175EUELX4RzXFmq8yCIs+8zPtWmG7KSXH0J6M/WYkOdEGYfPM
-	nIcCqrAy7No4tTg8we2Vy1CdNzSNF9FK+3caUIPRpk0YQ0nJsq/glfic/Bz8hY3fNX/6rYuskK2e7
-	3e9bKpJA==;
+	bh=gvjP73SRyI7DohNuKBh6XtndiDZoOsCEkKSd3XZyTnY=; b=xUFy2ubQNKJ2tKpFcyHxQGxneY
+	77OKndgjXZKgYr393o2rLRgFsyoozPmeeSWAWNJSuCXWIMnAiWUDtM5q5aFC7IGrGQTz473sVS+V0
+	10NZ/0ofvbxS93e4jM7sVPI6dHDyQIYYZrYUBf4v+Gqqj7MNZSTN7uEhSBiewpxxPgS1lVzX28cs2
+	QNWq/H3q1JZzT+g0Zvg0ml6Wq54exuEH4Zj7uafYwLxKPu5cu/6lLTpXR6Vuio+0Z7kyD0oGocYXx
+	nXbWDkqf8HbL2rJVpZKqyNbfrdG2CxDo7frdzXOytOGIk9aSdkrU7ZVLtKJ2muFyoAbsc1ggHKWZx
+	MMSt2RQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9B9-0000000FXBQ-18By;
-	Thu, 05 Dec 2024 10:33:51 +0000
+	id 1tJ9Dn-0000000FXgR-2gzh;
+	Thu, 05 Dec 2024 10:36:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ99s-0000000FWqs-31lU
+	id 1tJ9Cl-0000000FXUH-2vxN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 10:32:33 +0000
+	Thu, 05 Dec 2024 10:35:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23C70FEC;
-	Thu,  5 Dec 2024 02:33:00 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41174FEC;
+	Thu,  5 Dec 2024 02:35:59 -0800 (PST)
 Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3152F3F5A1;
-	Thu,  5 Dec 2024 02:32:29 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 574A23F5A1;
+	Thu,  5 Dec 2024 02:35:30 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Mark Brown <broonie@kernel.org>,
-	Arnd Bergmann <arnd@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
 Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: fix i.MX build dependency
-Date: Thu,  5 Dec 2024 10:32:25 +0000
-Message-Id: <173339471403.691669.17537976195919564595.b4-ty@arm.com>
+	nd@arm.com
+Subject: Re: [PATCH v2 0/2] small fixes for arm_ffa driver
+Date: Thu,  5 Dec 2024 10:35:03 +0000
+Message-Id: <173339480142.692288.1444653013736952859.b4-ty@arm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241115230555.2435004-1-arnd@kernel.org>
-References: <20241115230555.2435004-1-arnd@kernel.org>
+In-Reply-To: <20241203143109.1030514-1-yeoreum.yun@arm.com>
+References: <20241203143109.1030514-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_023232_807165_7B2CD5FD 
-X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-CacheID: sfid-20241205_023531_782723_709AF4F0 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,23 +66,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 Nov 2024 00:05:18 +0100, Arnd Bergmann wrote:
-> The newly added SCMI vendor driver references functions in the
-> protocol driver but needs a Kconfig dependency to ensure it can link,
-> essentially the Kconfig dependency needs to be reversed to match the
-> link time dependency:
-> 
-> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_write':
-> fsl_mqs.c:(.text+0x1aa): undefined reference to `scmi_imx_misc_ctrl_set'
-> arm-linux-gnueabi-ld: sound/soc/fsl/fsl_mqs.o: in function `fsl_mqs_sm_read':
-> fsl_mqs.c:(.text+0x1ee): undefined reference to `scmi_imx_misc_ctrl_get'
-> 
+On Tue, 03 Dec 2024 14:31:07 +0000, Yeoreum Yun wrote:
+> This patchset small fixes for arm_ffa driver:
+>     - change ffa_device_register()'s declaration and its return value.
+>     - fix direct message request version 2 uuid setup.
+>
+>
+> v1 -> v2:
+>     - Restore error return in ffa_device_register().
+>     - change type __be64 to unsigned long to suppress warning.
+>
 > [...]
 
-Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+Applied with some reformating/reworking of the commit messages including
+$subject change to sudeep.holla/linux (for-next/ffa/fixes), thanks!
 
-[1/1] firmware: arm_scmi: fix i.MX build dependency
-      https://git.kernel.org/sudeep.holla/c/514b2262ade4
+[1/2] firmware/arm_ffa: change ffa_device_register()'s parameters and return
+      https://git.kernel.org/sudeep.holla/c/6fe437cfe2cd
+[2/2] firmware/arm_ffa: remove __le64_to_cpu() when set uuid for direct msg v2
+      https://git.kernel.org/sudeep.holla/c/81c8b1c2ef7a
 --
 Regards,
 Sudeep
