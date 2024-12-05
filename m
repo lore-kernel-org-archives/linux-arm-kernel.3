@@ -4,164 +4,230 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106B7E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 07:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3ACE77171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 07:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZMPAzUJtEZlDER17NWKwIIveeV8osFA4jYgOuYBHSmk=; b=yt0nz8HmhTmJEPvkcYnHfwPwpo
-	Ei6yd7ev44oZNFb0SVJvdgYpx/UyeC9d1r6t3ysbJOm/Kax+4ZEwgkrpJj5NR1UV6/t/4D3cT5Dbp
-	/PkoQLJdLDHt1HDNRtS+FdjOATmMQIyt703oNfGGd2qbrvGdlFE5TkGvCDZ8KHPzdIRg4VwrG8ShC
-	9YdjxOC6Cyj9FlsC16hhIe9QJPJtI8lI7Xe17yGOnODkvBccGWgpKZlRS/eVA6grdOu6xD/s5pS8g
-	u8v+v1b+9cdIN48SoRmSgK3cKXM6+kmwG9PeOnBoiEvVWoWMghljOEPsbTlLuezs8xSfwTEmLaMVp
-	zkoSRhHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RxEoFeOuHE11nWwvKqDRGl4Gxt802rq9B96qJ1mmi9E=; b=1laJyWj7pNl+CWal4u4kd5PJQr
+	Cjb3zkFzjiZTd+ff6iY5fCUq1nRUThikMCsWoPvN39oum/dY90EEqzVmTOPfIMkdyfFFOL5pqgzRH
+	GdBTfalM1A/OiJS7pYg3jIiUtHAgfkerTmG3KOcNjjFDN3ea8EQh2vPYp0o7wEsGNU9rXlU6708aw
+	4MkilTd9QBOausQwvbXPJ+89UXcYQDHOIs3z2ey76t8soWeFOYxHVio+Zy7MqXa7uBUAQMp/DqoOU
+	rEx7XbLbSg1WB+cXGqnMHAKVKAryYQbx/eQXl2zrixsGV7fOQLrl3unPH8JqY68eEocQIrDwHtLXl
+	BGPtDVjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6Jb-0000000F0j9-0TwY;
-	Thu, 05 Dec 2024 07:30:23 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tJ6Ms-0000000F1sS-0V2y;
+	Thu, 05 Dec 2024 07:33:46 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6IZ-0000000F0aP-0pJn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 07:29:21 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 114C6211FD;
-	Thu,  5 Dec 2024 07:29:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1733383757; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ZMPAzUJtEZlDER17NWKwIIveeV8osFA4jYgOuYBHSmk=;
-	b=ai0PjzUWZ/URKmE0hFhPbSmYOD1YmPttGFvhbJPX+QC1SSOobAETrRdgd6mQkV7KgjmiXe
-	DQSkhkb++6g10HUV/HJLNKhkA6v7fiBs8zMeFNlgx6EafYhKpeI8tj5ZT4p8br25/36dKG
-	BVN58Dnk2F3qEAcdotqCdt/5OgS+PwI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1733383757;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ZMPAzUJtEZlDER17NWKwIIveeV8osFA4jYgOuYBHSmk=;
-	b=UE0QI+t1o8JfDveCqpbB521DwQVWIsNTFN7CmMDDAL9J/EHbIUDhh8OxKJEo59HWZge9xA
-	46lADKwbc/jOUJCg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ai0PjzUW;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=UE0QI+t1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1733383757; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ZMPAzUJtEZlDER17NWKwIIveeV8osFA4jYgOuYBHSmk=;
-	b=ai0PjzUWZ/URKmE0hFhPbSmYOD1YmPttGFvhbJPX+QC1SSOobAETrRdgd6mQkV7KgjmiXe
-	DQSkhkb++6g10HUV/HJLNKhkA6v7fiBs8zMeFNlgx6EafYhKpeI8tj5ZT4p8br25/36dKG
-	BVN58Dnk2F3qEAcdotqCdt/5OgS+PwI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1733383757;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ZMPAzUJtEZlDER17NWKwIIveeV8osFA4jYgOuYBHSmk=;
-	b=UE0QI+t1o8JfDveCqpbB521DwQVWIsNTFN7CmMDDAL9J/EHbIUDhh8OxKJEo59HWZge9xA
-	46lADKwbc/jOUJCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7CF07138A5;
-	Thu,  5 Dec 2024 07:29:16 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 2slcHExWUWe3XQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 05 Dec 2024 07:29:16 +0000
-Message-ID: <340a179e-04fb-49cc-8ed9-227a34c32bc6@suse.de>
-Date: Thu, 5 Dec 2024 08:29:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] drm: remove driver date from struct drm_driver and
- all drivers
-To: Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
-Cc: Javier Martinez Canillas <javierm@redhat.com>,
- Alex Deucher <alexander.deucher@amd.com>, Simon Ser <contact@emersion.fr>,
- Jeffrey Hugo <quic_jhugo@quicinc.com>, David Airlie <airlied@gmail.com>,
- Hamza Mahfooz <hamza.mahfooz@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>,
- Simona Vetter <simona@ffwll.ch>,
- =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
- amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- nouveau@lists.freedesktop.org, xen-devel@lists.xenproject.org
-References: <cover.1733322525.git.jani.nikula@intel.com>
- <1f2bf2543aed270a06f6c707fd6ed1b78bf16712.1733322525.git.jani.nikula@intel.com>
+	id 1tJ6Lp-0000000F1Uy-2nOT;
+	Thu, 05 Dec 2024 07:32:42 +0000
+X-UUID: 197f4f3eb2db11ef82ff63e91e7eb18c-20241205
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=RxEoFeOuHE11nWwvKqDRGl4Gxt802rq9B96qJ1mmi9E=;
+	b=A/ebQZrIAFGUcK/oXdfxjgWe7LscrW8pcna/JiMUTnu8D6rSKXLZgCjJs2iR7yPN6GrH5DA1Lz/JA5HINDd11sMPVzQlc/dweiEgThG8rL2XGS6phOXoLmSFaFUiAKZNTbqpIYll7OXg+3bmKP+T8nV0z75/7U/vG7g2W/j3jOU=;
+X-CID-CACHE: Type:Local,Time:202412050005-07,HitQuantity:1
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:795c91d3-dca9-4663-ab53-b436bf3ff5ba,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:6493067,CLOUDID:b337f7f5-e524-4511-b681-7d630745cb54,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0,EDM
+	:-3,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: 197f4f3eb2db11ef82ff63e91e7eb18c-20241205
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <karl.li@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 971454358; Thu, 05 Dec 2024 00:32:36 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 5 Dec 2024 15:32:33 +0800
+Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 5 Dec 2024 15:32:33 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dJ1N7u4kQAEm5PhDhcfeha3io+Xc7KCASmhQS2BHFQ92nQYbQ27GeVFE/cB0SZOc6nUwUeGSNUqpA5MtsJ68sfBff7/dH0467aQQAw3XXkNo9U5kICVHkrMI9Jsca29Gga4c6+IKGWy4+X3koiKCTd/LZHYe6nvN7j65UZUy6Ud2lvQVlFg6HHga1rY2RBRbyL+yPbI98N+UGiZpgeWQULv+zGpwX2OGkTdHKNYHFP8ISi1WmM4ovT5bzWWWq+/t+pxVVwLebiiqzhqUuBRDV4ddk/fxowK20/trIx4tBsF8baIPd+VupNMNZtWfuQSQySx78MdgA+YiCjiBGZgDEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RxEoFeOuHE11nWwvKqDRGl4Gxt802rq9B96qJ1mmi9E=;
+ b=CTDX8s5Tn0wJtRN/QO7D3rxcu96O02SaddAO41eyjH+dwhv6TbGx5SGAqPgV0eO9hLdF2ZuZL4fXOa0x42eHbzxjWgLDWMGpddACClbN9tlkvECDg+BM7ja4AjRmFud/jm0GBhtsELdTj+q9I2T3GEUidC1MB3LPPDrQ7/V5NFXIP9iBxa8hH0GojbwWIVdjXhfpYPfAKg+Ej0+EbcNWWh6y5Rh3jxSkK2tpM9CkY83as1njHtA7O8THZGHjAoN8cbOIggWB9f2nEvm2Jv+YobrG1wd+ARdEilNUbQoM8hZZ45ZHbQUZPT7hm8LlOfU3TZ3rJf/VutSJaKVOfoaPqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RxEoFeOuHE11nWwvKqDRGl4Gxt802rq9B96qJ1mmi9E=;
+ b=Yu6H5Q3/Kg/OGVh3dri2x0S81J/fipedD2FyWb3Qdm8CQliIR4YUGF8jgLdrk+tzKbMKxSnbNY57XJe8KfzE4LaRFIr5DDbB1WzCzcNHIzUAkyGz7xHzgAVWOtQv+y9hXnDbAUEI+k07eW5qXrdBvUYpjSFf7aOyjSOA2yNlEpo=
+Received: from KL1PR03MB5861.apcprd03.prod.outlook.com (2603:1096:820:92::6)
+ by SEZPR03MB8315.apcprd03.prod.outlook.com (2603:1096:101:197::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Thu, 5 Dec
+ 2024 07:32:26 +0000
+Received: from KL1PR03MB5861.apcprd03.prod.outlook.com
+ ([fe80::db90:295a:45d0:8831]) by KL1PR03MB5861.apcprd03.prod.outlook.com
+ ([fe80::db90:295a:45d0:8831%2]) with mapi id 15.20.8230.008; Thu, 5 Dec 2024
+ 07:32:25 +0000
+From: =?utf-8?B?S2FybCBMaSAo5p2O5pm65ZiJKQ==?= <Karl.Li@mediatek.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: =?utf-8?B?Q2h1bmd5aW5nIEx1ICjlkYLlv6DnqY4p?= <Chungying.Lu@mediatek.com>,
+	=?utf-8?B?QW5keSBUZW5nICjphKflpoLlro8p?= <Andy.Teng@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	=?utf-8?B?Q2hpZW4tQ2hpaCBUc2VuZyAo5pu+5bu65pm6KQ==?=
+	<Chien-Chih.Tseng@mediatek.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "wenst@chromium.org"
+	<wenst@chromium.org>
+Subject: Re: [PATCH 3/3] mailbox: mediatek: Add mtk-apu-mailbox driver
+Thread-Topic: [PATCH 3/3] mailbox: mediatek: Add mtk-apu-mailbox driver
+Thread-Index: AQHbJfcBznqgJFang06dIc02o0KI7LKVvRmAgAX4x4CAAbcEgIA6D1CAgAAHhoA=
+Date: Thu, 5 Dec 2024 07:32:25 +0000
+Message-ID: <cf75f3c3932ddc50f5697bc4f394bd77fc16cd39.camel@mediatek.com>
+References: <20241024092608.431581-1-karl.li@mediatek.com>
+	 <20241024092608.431581-4-karl.li@mediatek.com>
+	 <083c8f7b-0969-4ca3-8a91-35f5767c5f32@collabora.com>
+	 <CAGXv+5Fw+qZhTTgJq0QdiQHgiQP2ByR1tgae2+k4erx+0fp61g@mail.gmail.com>
+	 <a3c3280478bf86eb97a422782ce60ec4eaa35224.camel@mediatek.com>
+	 <0f98405c40530d81c342af06dea593e7babedeac.camel@mediatek.com>
+In-Reply-To: <0f98405c40530d81c342af06dea593e7babedeac.camel@mediatek.com>
+Accept-Language: zh-TW, en-US
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <1f2bf2543aed270a06f6c707fd6ed1b78bf16712.1733322525.git.jani.nikula@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 114C6211FD
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_TLS_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	MIME_TRACE(0.00)[0:+];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[redhat.com,amd.com,emersion.fr,quicinc.com,gmail.com,linux.intel.com,kernel.org,epam.com,ffwll.ch,lists.freedesktop.org,lists.infradead.org,lists.xenproject.org];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[infradead.org:email];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR03MB5861:EE_|SEZPR03MB8315:EE_
+x-ms-office365-filtering-correlation-id: ffb80eb4-d4b2-46e7-f531-08dd14fef730
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?L3FYaWMwUDRERXVqbnlYZ2g3aDYwMXFkQnI5dU96MUpDUDR4Q1pzRU53b1gw?=
+ =?utf-8?B?SG43MG9VWlV5QXByZlhIODV5aEU2bUp0MUYrckVRcVF1S3hTQ0I1SjNiVXNa?=
+ =?utf-8?B?N0lndFFMcjduQW5iTXpuQkV3VmxzTlhsbkgrYitxY0FFOG95YVhYZDJVMTFN?=
+ =?utf-8?B?b255RXN1ZGFkc1VQZVdQMmxxalNxOVlmUjFRa1B2cE0yeGtoYlJwUU14VkpV?=
+ =?utf-8?B?M1NpMWNIaFNUQ1l3T2Z3VVNBMkhwTHMvc3ljdnpiazJ5VlA5VWpJeWk3OGVG?=
+ =?utf-8?B?Vm9hZFlER0czVXlKRTBkMjFkeDQvaEgvVGEyRzB5RFpzd2JCQWhHVmhMdnpR?=
+ =?utf-8?B?S1NvN3BPUE9lMy90Tng1RzBFK0tRM1oyMWs0MzgvMlBUWmV3dTFNVzlvRzBG?=
+ =?utf-8?B?cGF0MFBrQTc0cVR6dExjQ3pSNHVWNkxmSU9RMXg0UU1tT1RaakdHam80cVla?=
+ =?utf-8?B?M3dSNVVid0ppZDFQQ05zVThzSW9vcTY3MnFaVWpjUnAxc1lYdVIxa2pkNHZy?=
+ =?utf-8?B?WFVWSWM3N3JPOTlVRDlrQW56SjR4eUhFQXU3R01icXhSRVVnWFlRUGlyVmZE?=
+ =?utf-8?B?ejR2c3RxR2NWajJmejUrWCtqRnR5VWNZT0oxS1pObUdsWk1MTDE3OUttMCtB?=
+ =?utf-8?B?bDlnc0lLS1NYeUVqV29FYzh2RG1tbGxEdnhZckNPdjFPRDZOOUxmWkZoZkVm?=
+ =?utf-8?B?Ylo0cU9ST0RmRjhQL2Q3dnVRbXVrKzBWMDZGaXBITnlwMklHTldkQ0FCQzk0?=
+ =?utf-8?B?eWdRMmxXbW9nT2lCdDBmek8yUzZZc2hEWGdVZW8rZzBjbkV1cDVIZFhVTndp?=
+ =?utf-8?B?ZGdRd0RPOHZPemRoQmpBNWYxaE80cmxiSmp5dHQ0Z2ZrRjRsYWxKSXU3WVUz?=
+ =?utf-8?B?R0FCZFZSWTQ0bGNYWEtkbWRvTEI2NEFESFkxVEdaWWJUNUFTdWpmdzc1eVUz?=
+ =?utf-8?B?QUIxaEN5NnZaVDkwdTNvTDhjY0lWR3A5NnJBd3IvUmNuUXRWT3RLaG9HVWlW?=
+ =?utf-8?B?RzFxY3I3V0xLYkdRa1RXZVZGQlF4M0UvUHFtOWdyaVE1elVWTi9oQXJKOTNT?=
+ =?utf-8?B?ZXJOZ3VXMlUrK05oZGlhd3ptOHd1MEdjZE5haERndHUwYmMvZnVxUmFpMG84?=
+ =?utf-8?B?bkhlVjdDTDFuNDhlY3pPOTZEaXBTRklSc2JyNzluSUZIS1RrbTdFVXhZak96?=
+ =?utf-8?B?NWRESXpiKzRrU0JWalF2SHpMYUhMNU1ITGhXVW4yTHZMUE1HQnpPK0FZdTht?=
+ =?utf-8?B?V1dScWVGdXZtOXZRNjdSTXhFQ0tFaGtFL1pyS3c4dHBVMExvR0RrQWF0VUV4?=
+ =?utf-8?B?MG1TbmFiTDlaL1BzcXQ4T3NkZUY4dlFLay9UL0tkV0VIa2hQUER2Slpna3FX?=
+ =?utf-8?B?c0pHQkVEWk5uVWZHWHVSYThVTGwySHRVWk1Qbllib2tWM24vQkJrT0N2VTYr?=
+ =?utf-8?B?QmRBb2dJLzVNNXJ1MUNRQ2E5NVp4UTErS05Ec3BNOVM1V0d4eEJTNkJFN2Ew?=
+ =?utf-8?B?RjM3VTYzT3ZPT2FMYUxMQjZFVTRrbENLNmtUMlJXckQvTXlDWXpISHM3K1Br?=
+ =?utf-8?B?NVQyb3hDdEZhUmFxd29yRmVJQi9LWmZCVjRXMDNuQ0tCamtGQXZFRURwMEdN?=
+ =?utf-8?B?WGd4ekkwVDlROWRUdDhkTkpOY0EvcW10TWxaT3poZW5ISCtkTkRaYWxMRVlX?=
+ =?utf-8?B?SFdkM0ViZjc1MGJETFNQRWpiRy9nSGU3cytKTjVrYkNCSmJLeW5xNjVNOWtF?=
+ =?utf-8?B?ZXdzWk1xUENjYm5pRkdBSmRsc2NYVFArRjFCQ1hVMzFrNFV1MCtSM1MxZ01w?=
+ =?utf-8?B?dStMZ0pkaFdla0Q5T0xNNUhuWTZnVnZldk5weUk5ejNDdU9acHRJTmZjVFJi?=
+ =?utf-8?B?ZzdiYkRQeFBGT1ZVQ1lGOXl3ZG9sdjZwSWlOUWZHYnFDdEE9PQ==?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5861.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UFdnWmp3eWxzci90NHF4NVNkbzVhVm5iYnVkMXhPRXpTc0sydDVtTFVwYW00?=
+ =?utf-8?B?VU92cEFRWHpEYkcwWFV0YWtyNFZBY1Y3U2p2ZjhDQVAxQmpoUTJhMjJ0YjlT?=
+ =?utf-8?B?SkZLRTVoWWdoZG84TGsrOFovWE5Oa25zOCs5MFNGS0k5YXcwUlQvN05rRXRZ?=
+ =?utf-8?B?dGVVeUg1VytMdlRnU2Z5L3pVaDY1dDZKTGorcUE3djlCb2ljSzNNS3FmemI2?=
+ =?utf-8?B?MjZSUlg3VHF0SHhNL3d3YzNBMTRtQmY0L2JGRnFiTWYwUlZpTXhYSzVoK3gr?=
+ =?utf-8?B?YUFBQ0o1enpUczFIRnZrR1hpVGd0OEVMUnAybEZPcnN1T05pem1mN2xwa2VY?=
+ =?utf-8?B?NjlHU2plREw1aTR4M0phb25rVDRnNi9iYitFWUd2QTc5L05iL3NaUzR4b3di?=
+ =?utf-8?B?T0o5eXNMdHNmTUNMLzBjUVhZeEl4V1JQM1lYNFA1V1UrRTlTZzYwV1lYYkU1?=
+ =?utf-8?B?Y1J6SWo4aVgxL1d1WGNiZXdFZk9jM1cwd0hlTWNMbHlGWVE1aVFxZ280cWww?=
+ =?utf-8?B?dlpqVVpqYmxjMVNYdEV5OGYxbXdjWlNzWXhmNjRBcVBJcXQ2aGp5ZmtwUE5t?=
+ =?utf-8?B?aXcxV21UdnY1ZUNQVWdzNlBHQ1FoTEZIVnpNMUhkV2x4WVYvQm8ySFA2Y1hq?=
+ =?utf-8?B?MHRnenFSbG51dzNBWkRJcWpNQloyUjRQU2FZdVNuanN1bFZaNmU5b0xnZnVF?=
+ =?utf-8?B?dUdJSHBZbnBLZEd1L3YvMFN1dXh3RkVzaWtQS3FVUG92WlgzVEkwNnFVeFpx?=
+ =?utf-8?B?Y1FncjJkdHFySjcwZXdneTF4Z0tCTVM0dlBJYkZ4alVROURZaXFmcFZQa3U2?=
+ =?utf-8?B?VStodCtyOUNkMkZtMUNxS1ZIeEVGS21Bb2VuRzF2T2YyVUgrQ0FtSXpJeklR?=
+ =?utf-8?B?ZlJBcWxQV0RibkVtb3lnYlVWSXhMVDJOcm5Eb1Z1RFhuTGRUYldIRHJiZ2cy?=
+ =?utf-8?B?aUc5WFg5QTY5L2tZcThXS2dpNEpmRFVxcUMxdWdvZUZZNTJoeStEQUY5cmdi?=
+ =?utf-8?B?VnRXYVd5eGJoWjJZaUp2a1RNWnB0RElCR2ovTHFFSnNHZEdTdnRBWDBvdjNR?=
+ =?utf-8?B?ZzVvbGxCZ01hOC9WTjJacCtxaXZSSHZDZDNGYmhNZHpyYWcwdzdsaHd5TnpR?=
+ =?utf-8?B?a2kxeUl2dFVYRHBzMU5zS25FSU9WQ0lmYnkrenN3TUtORGVXK3ZlVU82ei9v?=
+ =?utf-8?B?MGNYM2tFUEZoZDFqWE1tRWtNNnBLdjBkSGtMWDlka2M2Y2pGOVd5b2wyZDlU?=
+ =?utf-8?B?ZDVOZkhCQkIvL2M2RFdINjlGL0o0ZFhMUk5IOTJiSkE2cnMyeDBzSERUUEtB?=
+ =?utf-8?B?Vng5VzhsdmZrSVMwNU9OT1c3ZWdtd2MvL2NQdzEwZTVybTdyRTI5MkI0WHFH?=
+ =?utf-8?B?ZWx6aVlMWGVPS0RDY3ZZdnd2NGVwMFFBekhBdTlQdEpCMDNreXdIdk0rK3pa?=
+ =?utf-8?B?SFg3L2trUStVS3dXcjVodGFQdTBPTERpbW5MWkNORTNSZWFiR2RScmczT2oz?=
+ =?utf-8?B?dGFrejZVOGZUc00rRzFCc1NPdEdSQ1ljdkNDNEV2N0hVU0RHdDZoWkFZZkUx?=
+ =?utf-8?B?bmdIMmFMK2RtdEdFakZoakYrZlFJWHB2UFdBRGg3MWsxWTJMb3JYOUJKaGl2?=
+ =?utf-8?B?b3RpOGlJYUNvYVpmMUt2NEpDRVdPOTJVL1BhRlBOOExTdXJwTjJoelV6MVZn?=
+ =?utf-8?B?SEs2VjhyTkkxZ096eTJzSk16VThNUFpITGNTTmtUYkpOSFpGZ01takQrVnpY?=
+ =?utf-8?B?ZHFIVXdLUGsvQ085UlRHd3Zic21QWHZRZ05mdUlKSFdvWkkzLzBXZk9VYWFC?=
+ =?utf-8?B?YmpyM3VVei9nV0U1dld1SExsQVhUK2kwZCtEMGJXb0RuV21Uc0xlMnh1Y2hp?=
+ =?utf-8?B?aW52L2pPK3FxNWlhL01EekVSQzRmVVRsSFRYRnlySzRGZ0N3YmNtT0VHOWxI?=
+ =?utf-8?B?R3BJeGNJUUdJTkhFNkIwN0diUUVFU0daK01uN3d5RnFzY2NlTjhCMXlMRnhX?=
+ =?utf-8?B?Z0RyNmV6WFpvUGNGU1ZBUlkyVHMvM1Npem96bnM1WXVFNkIxUmpTK1lUQW1q?=
+ =?utf-8?B?S2VVUXc4YWE1eVQrdkh4QnYwOXYyWjR5WmNQcXRweXhpdHM4anVLUXV4QkQr?=
+ =?utf-8?B?ejVaamM1ekd5bXM5Yk5sTkRKMitBeVFibGw1TEtEZ3FBdmUyUExxVUNRQTJH?=
+ =?utf-8?B?UXc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <42FBB3ABE108234881C8247AA3CBCD07@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5861.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffb80eb4-d4b2-46e7-f531-08dd14fef730
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Dec 2024 07:32:25.7669
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: phsWHKu8qR6iXpC1/sIZLeiWpMHzYuanKWYOktyqI0A6c54FBkGJO7tqJNtH4tPxHS0LWfo5Tpw/h3nJ9lCW2A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8315
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--30.772800-8.000000
+X-TMASE-MatchedRID: 6jmP1Ht9qSvUL3YCMmnG4ia1MaKuob8PCJpCCsn6HCGvloAnGr4qhl4X
+	7D7ry2pDf9QbGjDUAmRWFSeAB6o/RuO3C1C2ZcTl4NAJeq9IDSyBEWjW7h4qhR+ZGcvxEG4EqAX
+	wsdh85gZlgb6w9ka1K3WNY21ytRgSCt2Gn2l1DBe4c2SP3X63TpnjfJthXRonN8Ttkd26AVhW7q
+	iGPv7JEJAAT4Cgbf9K3xLfQMvczu4NtKv7cnNXnceoa6UUq2IrMZm0+sEE9mv7efdnqtsaEz9N5
+	2LYhn6egML9UOgCBPdneT8mZET+lm8aeniRmKw1H5YQyOg71ZZaNaxZBRbNWtK+dKlL2BxAUh2Q
+	VWfkzrvl4/2MlPaButRrGypw1446ua8xKml5Zs24jAucHcCqnZYcYQ11P5U/xKLCLOyCW5BVJ0A
+	DqZV4hs4sgKjdtSkKKFKUiJL1+WpVSJqlH1QxwxA0LjlGWpxLnQkHrAHoKqZCannV/b7f2QtqTu
+	B/BtMsI1/Ds5nW8XDPHdrH2BvZHBBvv3WDz+O1w69AIwXJn0ZBCir9/rc1+4fAYSb4KlgZohQio
+	QPL1+6cV5k1/HRpKI53Dpy9JXtfEOYcSTjO4UPAJnGRMfFxyYEcpMn6x9cZJcSrzASFpEtZMUfz
+	ivhwNLJyXtHjEj8Y59Hu41dzmXS/j8IlzbJRZkLhYg/sa1gskos2tunL8DRaW2Ktn+I8/kbwlL6
+	i/W8Ixi/unRwlKeJ4g+uqHqSECnqXqkTdJ+1pRcGHEV0WBxDuHZGuwo6K7YU6cdF82Xk6A3M0+6
+	9OFa11P2cY3pfbtogRws2CAuzfBLIUC3yGa8qeAiCmPx4NwMFrpUbb72MU1kTfEkyaZdz6C0ePs
+	7A07QKmARN5PTKc
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--30.772800-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: 0BE353857B06848E67DE8B1AAA58573CC85B13803B32C04BB166E5C754AB61FE2000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_232919_691183_649694EB 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20241204_233241_723468_B9FC9C0C 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,1535 +242,392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-
-Am 04.12.24 um 15:31 schrieb Jani Nikula:
-> We stopped using the driver initialized date in commit 7fb8af6798e8
-> ("drm: deprecate driver date") and (eventually) started returning "0"
-> for drm_version ioctl instead.
->
-> Finish the job, and remove the unused date member from struct
-> drm_driver, its initialization from drivers, along with the common
-> DRIVER_DATE macros.
->
-> v2: Also update drivers/accel (kernel test robot)
->
-> Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
-> Acked-by: Alex Deucher <alexander.deucher@amd.com>
-> Acked-by: Simon Ser <contact@emersion.fr>
-> Acked-by: Jeffrey Hugo <quic_jhugo@quicinc.com>
-> Signed-off-by: Jani Nikula <jani.nikula@intel.com>
-
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
->
-> ---
->
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Hamza Mahfooz <hamza.mahfooz@amd.com>
-> Cc: Javier Martinez Canillas <javierm@redhat.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-> Cc: Simon Ser <contact@emersion.fr>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: Ville Syrjälä <ville.syrjala@linux.intel.com>
-> Cc: amd-gfx@lists.freedesktop.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: nouveau@lists.freedesktop.org
-> Cc: xen-devel@lists.xenproject.org
-> ---
->   drivers/accel/habanalabs/common/habanalabs_drv.c | 1 -
->   drivers/accel/ivpu/ivpu_drv.c                    | 1 -
->   drivers/accel/qaic/qaic_drv.c                    | 1 -
->   drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c          | 2 --
->   drivers/gpu/drm/amd/amdgpu/amdgpu_drv.h          | 1 -
->   drivers/gpu/drm/arm/display/komeda/komeda_kms.c  | 1 -
->   drivers/gpu/drm/arm/hdlcd_drv.c                  | 1 -
->   drivers/gpu/drm/arm/malidp_drv.c                 | 1 -
->   drivers/gpu/drm/armada/armada_drv.c              | 1 -
->   drivers/gpu/drm/aspeed/aspeed_gfx_drv.c          | 1 -
->   drivers/gpu/drm/ast/ast_drv.c                    | 1 -
->   drivers/gpu/drm/ast/ast_drv.h                    | 1 -
->   drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c     | 1 -
->   drivers/gpu/drm/etnaviv/etnaviv_drv.c            | 1 -
->   drivers/gpu/drm/exynos/exynos_drm_drv.c          | 2 --
->   drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c        | 1 -
->   drivers/gpu/drm/gma500/psb_drv.c                 | 1 -
->   drivers/gpu/drm/gma500/psb_drv.h                 | 1 -
->   drivers/gpu/drm/gud/gud_drv.c                    | 1 -
->   drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c  | 1 -
->   drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c  | 1 -
->   drivers/gpu/drm/hyperv/hyperv_drm_drv.c          | 2 --
->   drivers/gpu/drm/i915/i915_driver.c               | 1 -
->   drivers/gpu/drm/i915/i915_driver.h               | 1 -
->   drivers/gpu/drm/i915/i915_gpu_error.c            | 1 -
->   drivers/gpu/drm/imagination/pvr_drv.c            | 1 -
->   drivers/gpu/drm/imagination/pvr_drv.h            | 1 -
->   drivers/gpu/drm/imx/dcss/dcss-kms.c              | 1 -
->   drivers/gpu/drm/imx/ipuv3/imx-drm-core.c         | 1 -
->   drivers/gpu/drm/imx/lcdc/imx-lcdc.c              | 1 -
->   drivers/gpu/drm/ingenic/ingenic-drm-drv.c        | 1 -
->   drivers/gpu/drm/kmb/kmb_drv.c                    | 1 -
->   drivers/gpu/drm/kmb/kmb_drv.h                    | 1 -
->   drivers/gpu/drm/lima/lima_drv.c                  | 1 -
->   drivers/gpu/drm/logicvc/logicvc_drm.c            | 1 -
->   drivers/gpu/drm/loongson/lsdc_drv.c              | 2 --
->   drivers/gpu/drm/mcde/mcde_drv.c                  | 1 -
->   drivers/gpu/drm/mediatek/mtk_drm_drv.c           | 2 --
->   drivers/gpu/drm/meson/meson_drv.c                | 1 -
->   drivers/gpu/drm/mgag200/mgag200_drv.c            | 1 -
->   drivers/gpu/drm/mgag200/mgag200_drv.h            | 1 -
->   drivers/gpu/drm/msm/msm_drv.c                    | 1 -
->   drivers/gpu/drm/mxsfb/lcdif_drv.c                | 1 -
->   drivers/gpu/drm/mxsfb/mxsfb_drv.c                | 1 -
->   drivers/gpu/drm/nouveau/nouveau_drm.c            | 5 -----
->   drivers/gpu/drm/nouveau/nouveau_drv.h            | 1 -
->   drivers/gpu/drm/omapdrm/omap_drv.c               | 2 --
->   drivers/gpu/drm/panfrost/panfrost_drv.c          | 1 -
->   drivers/gpu/drm/panthor/panthor_drv.c            | 1 -
->   drivers/gpu/drm/pl111/pl111_drv.c                | 1 -
->   drivers/gpu/drm/qxl/qxl_drv.c                    | 1 -
->   drivers/gpu/drm/qxl/qxl_drv.h                    | 1 -
->   drivers/gpu/drm/radeon/radeon_drv.c              | 1 -
->   drivers/gpu/drm/radeon/radeon_drv.h              | 1 -
->   drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c    | 1 -
->   drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c     | 1 -
->   drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c | 1 -
->   drivers/gpu/drm/rockchip/rockchip_drm_drv.c      | 2 --
->   drivers/gpu/drm/solomon/ssd130x.c                | 2 --
->   drivers/gpu/drm/sprd/sprd_drm.c                  | 2 --
->   drivers/gpu/drm/sti/sti_drv.c                    | 2 --
->   drivers/gpu/drm/stm/drv.c                        | 1 -
->   drivers/gpu/drm/sun4i/sun4i_drv.c                | 1 -
->   drivers/gpu/drm/tegra/drm.c                      | 2 --
->   drivers/gpu/drm/tidss/tidss_drv.c                | 1 -
->   drivers/gpu/drm/tilcdc/tilcdc_drv.c              | 1 -
->   drivers/gpu/drm/tiny/arcpgu.c                    | 1 -
->   drivers/gpu/drm/tiny/bochs.c                     | 1 -
->   drivers/gpu/drm/tiny/cirrus-qemu.c               | 2 --
->   drivers/gpu/drm/tiny/gm12u320.c                  | 2 --
->   drivers/gpu/drm/tiny/hx8357d.c                   | 1 -
->   drivers/gpu/drm/tiny/ili9163.c                   | 1 -
->   drivers/gpu/drm/tiny/ili9225.c                   | 1 -
->   drivers/gpu/drm/tiny/ili9341.c                   | 1 -
->   drivers/gpu/drm/tiny/ili9486.c                   | 1 -
->   drivers/gpu/drm/tiny/mi0283qt.c                  | 1 -
->   drivers/gpu/drm/tiny/ofdrm.c                     | 2 --
->   drivers/gpu/drm/tiny/panel-mipi-dbi.c            | 1 -
->   drivers/gpu/drm/tiny/repaper.c                   | 1 -
->   drivers/gpu/drm/tiny/sharp-memory.c              | 1 -
->   drivers/gpu/drm/tiny/simpledrm.c                 | 2 --
->   drivers/gpu/drm/tiny/st7586.c                    | 1 -
->   drivers/gpu/drm/tiny/st7735r.c                   | 1 -
->   drivers/gpu/drm/tve200/tve200_drv.c              | 1 -
->   drivers/gpu/drm/udl/udl_drv.c                    | 1 -
->   drivers/gpu/drm/udl/udl_drv.h                    | 1 -
->   drivers/gpu/drm/v3d/v3d_drv.c                    | 2 --
->   drivers/gpu/drm/vboxvideo/vbox_drv.c             | 1 -
->   drivers/gpu/drm/vboxvideo/vbox_drv.h             | 1 -
->   drivers/gpu/drm/vc4/vc4_drv.c                    | 3 ---
->   drivers/gpu/drm/vgem/vgem_drv.c                  | 2 --
->   drivers/gpu/drm/virtio/virtgpu_drv.c             | 1 -
->   drivers/gpu/drm/virtio/virtgpu_drv.h             | 1 -
->   drivers/gpu/drm/vkms/vkms_drv.c                  | 2 --
->   drivers/gpu/drm/vmwgfx/vmwgfx_drv.c              | 1 -
->   drivers/gpu/drm/vmwgfx/vmwgfx_drv.h              | 1 -
->   drivers/gpu/drm/xe/xe_device.c                   | 1 -
->   drivers/gpu/drm/xe/xe_drv.h                      | 1 -
->   drivers/gpu/drm/xen/xen_drm_front.c              | 1 -
->   drivers/gpu/drm/xlnx/zynqmp_kms.c                | 1 -
->   include/drm/drm_drv.h                            | 2 --
->   101 files changed, 126 deletions(-)
->
-> diff --git a/drivers/accel/habanalabs/common/habanalabs_drv.c b/drivers/accel/habanalabs/common/habanalabs_drv.c
-> index 708dfd10f39c..5409b2c656c8 100644
-> --- a/drivers/accel/habanalabs/common/habanalabs_drv.c
-> +++ b/drivers/accel/habanalabs/common/habanalabs_drv.c
-> @@ -101,7 +101,6 @@ static const struct drm_driver hl_driver = {
->   	.major = LINUX_VERSION_MAJOR,
->   	.minor = LINUX_VERSION_PATCHLEVEL,
->   	.patchlevel = LINUX_VERSION_SUBLEVEL,
-> -	.date = "20190505",
->   
->   	.fops = &hl_fops,
->   	.open = hl_device_open,
-> diff --git a/drivers/accel/ivpu/ivpu_drv.c b/drivers/accel/ivpu/ivpu_drv.c
-> index 1f359dbe5150..1e8ffbe25eee 100644
-> --- a/drivers/accel/ivpu/ivpu_drv.c
-> +++ b/drivers/accel/ivpu/ivpu_drv.c
-> @@ -458,7 +458,6 @@ static const struct drm_driver driver = {
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
->   
-> -	.date = UTS_RELEASE,
->   	.major = 1,
->   };
->   
-> diff --git a/drivers/accel/qaic/qaic_drv.c b/drivers/accel/qaic/qaic_drv.c
-> index 3575e0c984d6..542c5d24e499 100644
-> --- a/drivers/accel/qaic/qaic_drv.c
-> +++ b/drivers/accel/qaic/qaic_drv.c
-> @@ -208,7 +208,6 @@ static const struct drm_driver qaic_accel_driver = {
->   
->   	.name			= QAIC_NAME,
->   	.desc			= QAIC_DESC,
-> -	.date			= "20190618",
->   
->   	.fops			= &qaic_accel_fops,
->   	.open			= qaic_open,
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
-> index 346746d6c233..eaeaaddb32cd 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
-> @@ -2916,7 +2916,6 @@ static const struct drm_driver amdgpu_kms_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = KMS_DRIVER_MAJOR,
->   	.minor = KMS_DRIVER_MINOR,
->   	.patchlevel = KMS_DRIVER_PATCHLEVEL,
-> @@ -2940,7 +2939,6 @@ const struct drm_driver amdgpu_partition_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = KMS_DRIVER_MAJOR,
->   	.minor = KMS_DRIVER_MINOR,
->   	.patchlevel = KMS_DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.h b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.h
-> index 5bc2cb661af7..2d86cc6f7f4d 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.h
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.h
-> @@ -40,7 +40,6 @@
->   
->   #define DRIVER_NAME		"amdgpu"
->   #define DRIVER_DESC		"AMD GPU"
-> -#define DRIVER_DATE		"20150101"
->   
->   extern const struct drm_driver amdgpu_partition_driver;
->   
-> diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-> index 1e7b1fcb2848..6ed504099188 100644
-> --- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-> +++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-> @@ -63,7 +63,6 @@ static const struct drm_driver komeda_kms_driver = {
->   	.fops = &komeda_cma_fops,
->   	.name = "komeda",
->   	.desc = "Arm Komeda Display Processor driver",
-> -	.date = "20181101",
->   	.major = 0,
->   	.minor = 1,
->   };
-> diff --git a/drivers/gpu/drm/arm/hdlcd_drv.c b/drivers/gpu/drm/arm/hdlcd_drv.c
-> index 4af8fce7dab7..8617d10940d8 100644
-> --- a/drivers/gpu/drm/arm/hdlcd_drv.c
-> +++ b/drivers/gpu/drm/arm/hdlcd_drv.c
-> @@ -233,7 +233,6 @@ static const struct drm_driver hdlcd_driver = {
->   	.fops = &fops,
->   	.name = "hdlcd",
->   	.desc = "ARM HDLCD Controller DRM",
-> -	.date = "20151021",
->   	.major = 1,
->   	.minor = 0,
->   };
-> diff --git a/drivers/gpu/drm/arm/malidp_drv.c b/drivers/gpu/drm/arm/malidp_drv.c
-> index 38b1b5b6bf69..3abc9339464b 100644
-> --- a/drivers/gpu/drm/arm/malidp_drv.c
-> +++ b/drivers/gpu/drm/arm/malidp_drv.c
-> @@ -570,7 +570,6 @@ static const struct drm_driver malidp_driver = {
->   	.fops = &fops,
->   	.name = "mali-dp",
->   	.desc = "ARM Mali Display Processor driver",
-> -	.date = "20160106",
->   	.major = 1,
->   	.minor = 0,
->   };
-> diff --git a/drivers/gpu/drm/armada/armada_drv.c b/drivers/gpu/drm/armada/armada_drv.c
-> index ddf0eaf546a6..5d5b7435970a 100644
-> --- a/drivers/gpu/drm/armada/armada_drv.c
-> +++ b/drivers/gpu/drm/armada/armada_drv.c
-> @@ -45,7 +45,6 @@ static const struct drm_driver armada_drm_driver = {
->   	.minor			= 0,
->   	.name			= "armada-drm",
->   	.desc			= "Armada SoC DRM",
-> -	.date			= "20120730",
->   	.driver_features	= DRIVER_GEM | DRIVER_MODESET | DRIVER_ATOMIC,
->   	.ioctls			= armada_ioctls,
->   	.num_ioctls = ARRAY_SIZE(armada_ioctls),
-> diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-> index 55e90ab9b231..90189a3cf886 100644
-> --- a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-> +++ b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-> @@ -252,7 +252,6 @@ static const struct drm_driver aspeed_gfx_driver = {
->   	.fops = &fops,
->   	.name = "aspeed-gfx-drm",
->   	.desc = "ASPEED GFX DRM",
-> -	.date = "20180319",
->   	.major = 1,
->   	.minor = 0,
->   };
-> diff --git a/drivers/gpu/drm/ast/ast_drv.c b/drivers/gpu/drm/ast/ast_drv.c
-> index 8e9c9cb89a50..ff3bcdd1cff2 100644
-> --- a/drivers/gpu/drm/ast/ast_drv.c
-> +++ b/drivers/gpu/drm/ast/ast_drv.c
-> @@ -60,7 +60,6 @@ static const struct drm_driver ast_driver = {
->   	.fops = &ast_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/ast/ast_drv.h b/drivers/gpu/drm/ast/ast_drv.h
-> index 21ce3769bf0d..6b4305ac07d4 100644
-> --- a/drivers/gpu/drm/ast/ast_drv.h
-> +++ b/drivers/gpu/drm/ast/ast_drv.h
-> @@ -43,7 +43,6 @@
->   
->   #define DRIVER_NAME		"ast"
->   #define DRIVER_DESC		"AST"
-> -#define DRIVER_DATE		"20120228"
->   
->   #define DRIVER_MAJOR		0
->   #define DRIVER_MINOR		1
-> diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-> index 506289a937e2..b51528b2166c 100644
-> --- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-> +++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-> @@ -846,7 +846,6 @@ static const struct drm_driver atmel_hlcdc_dc_driver = {
->   	.fops = &fops,
->   	.name = "atmel-hlcdc",
->   	.desc = "Atmel HLCD Controller DRM",
-> -	.date = "20141504",
->   	.major = 1,
->   	.minor = 0,
->   };
-> diff --git a/drivers/gpu/drm/etnaviv/etnaviv_drv.c b/drivers/gpu/drm/etnaviv/etnaviv_drv.c
-> index 9b4e2f4b1bc7..c4ddabe3cabd 100644
-> --- a/drivers/gpu/drm/etnaviv/etnaviv_drv.c
-> +++ b/drivers/gpu/drm/etnaviv/etnaviv_drv.c
-> @@ -503,7 +503,6 @@ static const struct drm_driver etnaviv_drm_driver = {
->   	.fops               = &fops,
->   	.name               = "etnaviv",
->   	.desc               = "etnaviv DRM",
-> -	.date               = "20151214",
->   	.major              = 1,
->   	.minor              = 4,
->   };
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-> index 7e517a2ec681..91ab42b56716 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-> @@ -35,7 +35,6 @@
->   
->   #define DRIVER_NAME	"exynos"
->   #define DRIVER_DESC	"Samsung SoC DRM"
-> -#define DRIVER_DATE	"20180330"
->   
->   /*
->    * Interface history:
-> @@ -118,7 +117,6 @@ static const struct drm_driver exynos_drm_driver = {
->   	.fops			= &exynos_drm_driver_fops,
->   	.name	= DRIVER_NAME,
->   	.desc	= DRIVER_DESC,
-> -	.date	= DRIVER_DATE,
->   	.major	= DRIVER_MAJOR,
->   	.minor	= DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-> index 12b2096b6c9d..e1183644ec39 100644
-> --- a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-> +++ b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-> @@ -174,7 +174,6 @@ static const struct drm_driver fsl_dcu_drm_driver = {
->   	.fops			= &fsl_dcu_drm_fops,
->   	.name			= "fsl-dcu-drm",
->   	.desc			= "Freescale DCU DRM",
-> -	.date			= "20160425",
->   	.major			= 1,
->   	.minor			= 1,
->   };
-> diff --git a/drivers/gpu/drm/gma500/psb_drv.c b/drivers/gpu/drm/gma500/psb_drv.c
-> index 2c56ece17d71..85d3557c2eb9 100644
-> --- a/drivers/gpu/drm/gma500/psb_drv.c
-> +++ b/drivers/gpu/drm/gma500/psb_drv.c
-> @@ -513,7 +513,6 @@ static const struct drm_driver driver = {
->   	.fops = &psb_gem_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL
-> diff --git a/drivers/gpu/drm/gma500/psb_drv.h b/drivers/gpu/drm/gma500/psb_drv.h
-> index de62cbfcdc72..7f77cb2b2751 100644
-> --- a/drivers/gpu/drm/gma500/psb_drv.h
-> +++ b/drivers/gpu/drm/gma500/psb_drv.h
-> @@ -26,7 +26,6 @@
->   
->   #define DRIVER_NAME "gma500"
->   #define DRIVER_DESC "DRM driver for the Intel GMA500, GMA600, GMA3600, GMA3650"
-> -#define DRIVER_DATE "20140314"
->   
->   #define DRIVER_MAJOR 1
->   #define DRIVER_MINOR 0
-> diff --git a/drivers/gpu/drm/gud/gud_drv.c b/drivers/gpu/drm/gud/gud_drv.c
-> index 65a16f009ea6..cb405771d6e2 100644
-> --- a/drivers/gpu/drm/gud/gud_drv.c
-> +++ b/drivers/gpu/drm/gud/gud_drv.c
-> @@ -381,7 +381,6 @@ static const struct drm_driver gud_drm_driver = {
->   
->   	.name			= "gud",
->   	.desc			= "Generic USB Display",
-> -	.date			= "20200422",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
-> index 69bdae604982..7f814c32ed34 100644
-> --- a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
-> +++ b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
-> @@ -57,7 +57,6 @@ static const struct drm_driver hibmc_driver = {
->   	.driver_features	= DRIVER_GEM | DRIVER_MODESET | DRIVER_ATOMIC,
->   	.fops			= &hibmc_fops,
->   	.name			= "hibmc",
-> -	.date			= "20160828",
->   	.desc			= "hibmc drm driver",
->   	.major			= 1,
->   	.minor			= 0,
-> diff --git a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
-> index 5616c3917c03..2eb49177ac42 100644
-> --- a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
-> +++ b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
-> @@ -929,7 +929,6 @@ static const struct drm_driver ade_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name = "kirin",
->   	.desc = "Hisilicon Kirin620 SoC DRM Driver",
-> -	.date = "20150718",
->   	.major = 1,
->   	.minor = 0,
->   };
-> diff --git a/drivers/gpu/drm/hyperv/hyperv_drm_drv.c b/drivers/gpu/drm/hyperv/hyperv_drm_drv.c
-> index c5ac240f7a7a..f59abfa7622a 100644
-> --- a/drivers/gpu/drm/hyperv/hyperv_drm_drv.c
-> +++ b/drivers/gpu/drm/hyperv/hyperv_drm_drv.c
-> @@ -20,7 +20,6 @@
->   
->   #define DRIVER_NAME "hyperv_drm"
->   #define DRIVER_DESC "DRM driver for Hyper-V synthetic video device"
-> -#define DRIVER_DATE "2020"
->   #define DRIVER_MAJOR 1
->   #define DRIVER_MINOR 0
->   
-> @@ -31,7 +30,6 @@ static struct drm_driver hyperv_driver = {
->   
->   	.name		 = DRIVER_NAME,
->   	.desc		 = DRIVER_DESC,
-> -	.date		 = DRIVER_DATE,
->   	.major		 = DRIVER_MAJOR,
->   	.minor		 = DRIVER_MINOR,
->   
-> diff --git a/drivers/gpu/drm/i915/i915_driver.c b/drivers/gpu/drm/i915/i915_driver.c
-> index c1edf5e1f61e..e35aa0274d76 100644
-> --- a/drivers/gpu/drm/i915/i915_driver.c
-> +++ b/drivers/gpu/drm/i915/i915_driver.c
-> @@ -1797,7 +1797,6 @@ static const struct drm_driver i915_drm_driver = {
->   	.fops = &i915_driver_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/i915/i915_driver.h b/drivers/gpu/drm/i915/i915_driver.h
-> index 94a70d8ec5d5..4b67ad9a61cd 100644
-> --- a/drivers/gpu/drm/i915/i915_driver.h
-> +++ b/drivers/gpu/drm/i915/i915_driver.h
-> @@ -15,7 +15,6 @@ struct drm_printer;
->   
->   #define DRIVER_NAME		"i915"
->   #define DRIVER_DESC		"Intel Graphics"
-> -#define DRIVER_DATE		"20230929"
->   #define DRIVER_TIMESTAMP	1695980603
->   
->   extern const struct dev_pm_ops i915_pm_ops;
-> diff --git a/drivers/gpu/drm/i915/i915_gpu_error.c b/drivers/gpu/drm/i915/i915_gpu_error.c
-> index 4eb58887819a..eb975b3815df 100644
-> --- a/drivers/gpu/drm/i915/i915_gpu_error.c
-> +++ b/drivers/gpu/drm/i915/i915_gpu_error.c
-> @@ -841,7 +841,6 @@ static void __err_print_to_sgl(struct drm_i915_error_state_buf *m,
->   	err_printf(m, "Kernel: %s %s\n",
->   		   init_utsname()->release,
->   		   init_utsname()->machine);
-> -	err_printf(m, "Driver: %s\n", DRIVER_DATE);
->   	ts = ktime_to_timespec64(error->time);
->   	err_printf(m, "Time: %lld s %ld us\n",
->   		   (s64)ts.tv_sec, ts.tv_nsec / NSEC_PER_USEC);
-> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-> index 36c0e768698e..6ab023593476 100644
-> --- a/drivers/gpu/drm/imagination/pvr_drv.c
-> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
-> @@ -1387,7 +1387,6 @@ static struct drm_driver pvr_drm_driver = {
->   
->   	.name = PVR_DRIVER_NAME,
->   	.desc = PVR_DRIVER_DESC,
-> -	.date = PVR_DRIVER_DATE,
->   	.major = PVR_DRIVER_MAJOR,
->   	.minor = PVR_DRIVER_MINOR,
->   	.patchlevel = PVR_DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/imagination/pvr_drv.h b/drivers/gpu/drm/imagination/pvr_drv.h
-> index 378fe477b759..7fa147312dd1 100644
-> --- a/drivers/gpu/drm/imagination/pvr_drv.h
-> +++ b/drivers/gpu/drm/imagination/pvr_drv.h
-> @@ -9,7 +9,6 @@
->   
->   #define PVR_DRIVER_NAME "powervr"
->   #define PVR_DRIVER_DESC "Imagination PowerVR (Series 6 and later) & IMG Graphics"
-> -#define PVR_DRIVER_DATE "20230904"
->   
->   /*
->    * Driver interface version:
-> diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
-> index 490b5c269f39..3633e8f3aff6 100644
-> --- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
-> +++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
-> @@ -34,7 +34,6 @@ static const struct drm_driver dcss_kms_driver = {
->   	.fops			= &dcss_cma_fops,
->   	.name			= "imx-dcss",
->   	.desc			= "i.MX8MQ Display Subsystem",
-> -	.date			= "20190917",
->   	.major			= 1,
->   	.minor			= 0,
->   	.patchlevel		= 0,
-> diff --git a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-> index 6b84429735d6..bcb35ba670fc 100644
-> --- a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-> +++ b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-> @@ -163,7 +163,6 @@ static const struct drm_driver imx_drm_driver = {
->   	.fops			= &imx_drm_driver_fops,
->   	.name			= "imx-drm",
->   	.desc			= "i.MX DRM graphics",
-> -	.date			= "20120507",
->   	.major			= 1,
->   	.minor			= 0,
->   	.patchlevel		= 0,
-> diff --git a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
-> index c5121fed80fd..d70981295f88 100644
-> --- a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
-> +++ b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
-> @@ -352,7 +352,6 @@ static struct drm_driver imx_lcdc_drm_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name = "imx-lcdc",
->   	.desc = "i.MX LCDC driver",
-> -	.date = "20200716",
->   };
->   
->   static const struct of_device_id imx_lcdc_of_dev_id[] = {
-> diff --git a/drivers/gpu/drm/ingenic/ingenic-drm-drv.c b/drivers/gpu/drm/ingenic/ingenic-drm-drv.c
-> index 0a4eb3994cd6..6546d9ec410a 100644
-> --- a/drivers/gpu/drm/ingenic/ingenic-drm-drv.c
-> +++ b/drivers/gpu/drm/ingenic/ingenic-drm-drv.c
-> @@ -953,7 +953,6 @@ static const struct drm_driver ingenic_drm_driver_data = {
->   	.driver_features	= DRIVER_MODESET | DRIVER_GEM | DRIVER_ATOMIC,
->   	.name			= "ingenic-drm",
->   	.desc			= "DRM module for Ingenic SoCs",
-> -	.date			= "20200716",
->   	.major			= 1,
->   	.minor			= 1,
->   	.patchlevel		= 0,
-> diff --git a/drivers/gpu/drm/kmb/kmb_drv.c b/drivers/gpu/drm/kmb/kmb_drv.c
-> index 4173344ba32c..c340b4c6a74b 100644
-> --- a/drivers/gpu/drm/kmb/kmb_drv.c
-> +++ b/drivers/gpu/drm/kmb/kmb_drv.c
-> @@ -445,7 +445,6 @@ static const struct drm_driver kmb_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name = "kmb-drm",
->   	.desc = "KEEMBAY DISPLAY DRIVER",
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/kmb/kmb_drv.h b/drivers/gpu/drm/kmb/kmb_drv.h
-> index bf085e95b28f..1f0c10d317fe 100644
-> --- a/drivers/gpu/drm/kmb/kmb_drv.h
-> +++ b/drivers/gpu/drm/kmb/kmb_drv.h
-> @@ -16,7 +16,6 @@
->   #define KMB_MIN_WIDTH                   1920 /*Max width in pixels */
->   #define KMB_MIN_HEIGHT                  1080 /*Max height in pixels */
->   
-> -#define DRIVER_DATE			"20210223"
->   #define DRIVER_MAJOR			1
->   #define DRIVER_MINOR			1
->   
-> diff --git a/drivers/gpu/drm/lima/lima_drv.c b/drivers/gpu/drm/lima/lima_drv.c
-> index 10bce18b7c31..4b70c5189f7c 100644
-> --- a/drivers/gpu/drm/lima/lima_drv.c
-> +++ b/drivers/gpu/drm/lima/lima_drv.c
-> @@ -271,7 +271,6 @@ static const struct drm_driver lima_drm_driver = {
->   	.fops               = &lima_drm_driver_fops,
->   	.name               = "lima",
->   	.desc               = "lima DRM",
-> -	.date               = "20191231",
->   	.major              = 1,
->   	.minor              = 1,
->   	.patchlevel         = 0,
-> diff --git a/drivers/gpu/drm/logicvc/logicvc_drm.c b/drivers/gpu/drm/logicvc/logicvc_drm.c
-> index 9152034e54a3..bda2a689d928 100644
-> --- a/drivers/gpu/drm/logicvc/logicvc_drm.c
-> +++ b/drivers/gpu/drm/logicvc/logicvc_drm.c
-> @@ -52,7 +52,6 @@ static struct drm_driver logicvc_drm_driver = {
->   	.fops				= &logicvc_drm_fops,
->   	.name				= "logicvc-drm",
->   	.desc				= "Xylon LogiCVC DRM driver",
-> -	.date				= "20200403",
->   	.major				= 1,
->   	.minor				= 0,
->   
-> diff --git a/drivers/gpu/drm/loongson/lsdc_drv.c b/drivers/gpu/drm/loongson/lsdc_drv.c
-> index a55aa1fe2c21..12193d2a301a 100644
-> --- a/drivers/gpu/drm/loongson/lsdc_drv.c
-> +++ b/drivers/gpu/drm/loongson/lsdc_drv.c
-> @@ -26,7 +26,6 @@
->   #define DRIVER_AUTHOR               "Sui Jingfeng <suijingfeng@loongson.cn>"
->   #define DRIVER_NAME                 "loongson"
->   #define DRIVER_DESC                 "drm driver for loongson graphics"
-> -#define DRIVER_DATE                 "20220701"
->   #define DRIVER_MAJOR                1
->   #define DRIVER_MINOR                0
->   #define DRIVER_PATCHLEVEL           0
-> @@ -39,7 +38,6 @@ static const struct drm_driver lsdc_drm_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/mcde/mcde_drv.c b/drivers/gpu/drm/mcde/mcde_drv.c
-> index f8c7aa9d7f33..324a95d7f15b 100644
-> --- a/drivers/gpu/drm/mcde/mcde_drv.c
-> +++ b/drivers/gpu/drm/mcde/mcde_drv.c
-> @@ -208,7 +208,6 @@ static const struct drm_driver mcde_drm_driver = {
->   	.fops = &drm_fops,
->   	.name = "mcde",
->   	.desc = DRIVER_DESC,
-> -	.date = "20180529",
->   	.major = 1,
->   	.minor = 0,
->   	.patchlevel = 0,
-> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> index 38297d705df6..723782e75c55 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -33,7 +33,6 @@
->   
->   #define DRIVER_NAME "mediatek"
->   #define DRIVER_DESC "Mediatek SoC DRM"
-> -#define DRIVER_DATE "20150513"
->   #define DRIVER_MAJOR 1
->   #define DRIVER_MINOR 0
->   
-> @@ -615,7 +614,6 @@ static const struct drm_driver mtk_drm_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/meson/meson_drv.c b/drivers/gpu/drm/meson/meson_drv.c
-> index 83ee18024682..64c8c4bb60f1 100644
-> --- a/drivers/gpu/drm/meson/meson_drv.c
-> +++ b/drivers/gpu/drm/meson/meson_drv.c
-> @@ -105,7 +105,6 @@ static const struct drm_driver meson_driver = {
->   	.fops			= &fops,
->   	.name			= DRIVER_NAME,
->   	.desc			= DRIVER_DESC,
-> -	.date			= "20161109",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/mgag200/mgag200_drv.c b/drivers/gpu/drm/mgag200/mgag200_drv.c
-> index b7ed763addfa..069fdd2dc8f6 100644
-> --- a/drivers/gpu/drm/mgag200/mgag200_drv.c
-> +++ b/drivers/gpu/drm/mgag200/mgag200_drv.c
-> @@ -97,7 +97,6 @@ static const struct drm_driver mgag200_driver = {
->   	.fops = &mgag200_driver_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/mgag200/mgag200_drv.h b/drivers/gpu/drm/mgag200/mgag200_drv.h
-> index 988967eafbf2..0608fc63e588 100644
-> --- a/drivers/gpu/drm/mgag200/mgag200_drv.h
-> +++ b/drivers/gpu/drm/mgag200/mgag200_drv.h
-> @@ -25,7 +25,6 @@
->   
->   #define DRIVER_NAME		"mgag200"
->   #define DRIVER_DESC		"MGA G200 SE"
-> -#define DRIVER_DATE		"20110418"
->   
->   #define DRIVER_MAJOR		1
->   #define DRIVER_MINOR		0
-> diff --git a/drivers/gpu/drm/msm/msm_drv.c b/drivers/gpu/drm/msm/msm_drv.c
-> index b5fa715cbfb0..73e72aee6ec5 100644
-> --- a/drivers/gpu/drm/msm/msm_drv.c
-> +++ b/drivers/gpu/drm/msm/msm_drv.c
-> @@ -910,7 +910,6 @@ static const struct drm_driver msm_driver = {
->   	.fops               = &fops,
->   	.name               = "msm",
->   	.desc               = "MSM Snapdragon DRM",
-> -	.date               = "20130625",
->   	.major              = MSM_VERSION_MAJOR,
->   	.minor              = MSM_VERSION_MINOR,
->   	.patchlevel         = MSM_VERSION_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/mxsfb/lcdif_drv.c b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-> index 81ec91cef66c..02fe6b89f3aa 100644
-> --- a/drivers/gpu/drm/mxsfb/lcdif_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-> @@ -248,7 +248,6 @@ static const struct drm_driver lcdif_driver = {
->   	.fops	= &fops,
->   	.name	= "imx-lcdif",
->   	.desc	= "i.MX LCDIF Controller DRM",
-> -	.date	= "20220417",
->   	.major	= 1,
->   	.minor	= 0,
->   };
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> index 1c27a97dce03..129cc3fb4448 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> @@ -336,7 +336,6 @@ static const struct drm_driver mxsfb_driver = {
->   	.fops	= &fops,
->   	.name	= "mxsfb-drm",
->   	.desc	= "MXSFB Controller DRM",
-> -	.date	= "20160824",
->   	.major	= 1,
->   	.minor	= 0,
->   };
-> diff --git a/drivers/gpu/drm/nouveau/nouveau_drm.c b/drivers/gpu/drm/nouveau/nouveau_drm.c
-> index a99c1d9855c9..744ae9d3305d 100644
-> --- a/drivers/gpu/drm/nouveau/nouveau_drm.c
-> +++ b/drivers/gpu/drm/nouveau/nouveau_drm.c
-> @@ -1326,11 +1326,6 @@ driver_stub = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -#ifdef GIT_REVISION
-> -	.date = GIT_REVISION,
-> -#else
-> -	.date = DRIVER_DATE,
-> -#endif
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/nouveau/nouveau_drv.h b/drivers/gpu/drm/nouveau/nouveau_drv.h
-> index 685d6ca3d8aa..55abc510067b 100644
-> --- a/drivers/gpu/drm/nouveau/nouveau_drv.h
-> +++ b/drivers/gpu/drm/nouveau/nouveau_drv.h
-> @@ -7,7 +7,6 @@
->   
->   #define DRIVER_NAME		"nouveau"
->   #define DRIVER_DESC		"nVidia Riva/TNT/GeForce/Quadro/Tesla/Tegra K1+"
-> -#define DRIVER_DATE		"20120801"
->   
->   #define DRIVER_MAJOR		1
->   #define DRIVER_MINOR		4
-> diff --git a/drivers/gpu/drm/omapdrm/omap_drv.c b/drivers/gpu/drm/omapdrm/omap_drv.c
-> index 1796cd20a877..a80e0f375a0e 100644
-> --- a/drivers/gpu/drm/omapdrm/omap_drv.c
-> +++ b/drivers/gpu/drm/omapdrm/omap_drv.c
-> @@ -28,7 +28,6 @@
->   
->   #define DRIVER_NAME		MODULE_NAME
->   #define DRIVER_DESC		"OMAP DRM"
-> -#define DRIVER_DATE		"20110917"
->   #define DRIVER_MAJOR		1
->   #define DRIVER_MINOR		0
->   #define DRIVER_PATCHLEVEL	0
-> @@ -653,7 +652,6 @@ static const struct drm_driver omap_drm_driver = {
->   	.fops = &omapdriver_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> index 04d615df5259..fbaef3afcd66 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> @@ -636,7 +636,6 @@ static const struct drm_driver panfrost_drm_driver = {
->   	.fops			= &panfrost_drm_driver_fops,
->   	.name			= "panfrost",
->   	.desc			= "panfrost DRM",
-> -	.date			= "20180908",
->   	.major			= 1,
->   	.minor			= 3,
->   
-> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
-> index ac7e53f6e3f0..ad46a40ed9e1 100644
-> --- a/drivers/gpu/drm/panthor/panthor_drv.c
-> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
-> @@ -1505,7 +1505,6 @@ static const struct drm_driver panthor_drm_driver = {
->   	.fops = &panthor_drm_driver_fops,
->   	.name = "panthor",
->   	.desc = "Panthor DRM driver",
-> -	.date = "20230801",
->   	.major = 1,
->   	.minor = 2,
->   
-> diff --git a/drivers/gpu/drm/pl111/pl111_drv.c b/drivers/gpu/drm/pl111/pl111_drv.c
-> index 4b96f48cf630..56ff6a3fb483 100644
-> --- a/drivers/gpu/drm/pl111/pl111_drv.c
-> +++ b/drivers/gpu/drm/pl111/pl111_drv.c
-> @@ -220,7 +220,6 @@ static const struct drm_driver pl111_drm_driver = {
->   	.fops = &drm_fops,
->   	.name = "pl111",
->   	.desc = DRIVER_DESC,
-> -	.date = "20170317",
->   	.major = 1,
->   	.minor = 0,
->   	.patchlevel = 0,
-> diff --git a/drivers/gpu/drm/qxl/qxl_drv.c b/drivers/gpu/drm/qxl/qxl_drv.c
-> index f15e9583b098..417061ae59eb 100644
-> --- a/drivers/gpu/drm/qxl/qxl_drv.c
-> +++ b/drivers/gpu/drm/qxl/qxl_drv.c
-> @@ -300,7 +300,6 @@ static struct drm_driver qxl_driver = {
->   	.num_ioctls = ARRAY_SIZE(qxl_ioctls),
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = 0,
->   	.minor = 1,
->   	.patchlevel = 0,
-> diff --git a/drivers/gpu/drm/qxl/qxl_drv.h b/drivers/gpu/drm/qxl/qxl_drv.h
-> index b5fc14c9525d..cc02b5f10ad9 100644
-> --- a/drivers/gpu/drm/qxl/qxl_drv.h
-> +++ b/drivers/gpu/drm/qxl/qxl_drv.h
-> @@ -54,7 +54,6 @@ struct iosys_map;
->   
->   #define DRIVER_NAME		"qxl"
->   #define DRIVER_DESC		"RH QXL"
-> -#define DRIVER_DATE		"20120117"
->   
->   #define DRIVER_MAJOR 0
->   #define DRIVER_MINOR 1
-> diff --git a/drivers/gpu/drm/radeon/radeon_drv.c b/drivers/gpu/drm/radeon/radeon_drv.c
-> index 5ce7e91bedad..267f082bc430 100644
-> --- a/drivers/gpu/drm/radeon/radeon_drv.c
-> +++ b/drivers/gpu/drm/radeon/radeon_drv.c
-> @@ -603,7 +603,6 @@ static const struct drm_driver kms_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = KMS_DRIVER_MAJOR,
->   	.minor = KMS_DRIVER_MINOR,
->   	.patchlevel = KMS_DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/radeon/radeon_drv.h b/drivers/gpu/drm/radeon/radeon_drv.h
-> index 02a65971d140..0f3dbffc492d 100644
-> --- a/drivers/gpu/drm/radeon/radeon_drv.h
-> +++ b/drivers/gpu/drm/radeon/radeon_drv.h
-> @@ -43,7 +43,6 @@
->   
->   #define DRIVER_NAME		"radeon"
->   #define DRIVER_DESC		"ATI Radeon"
-> -#define DRIVER_DATE		"20080528"
->   
->   /* Interface history:
->    *
-> diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c b/drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c
-> index 0f5204ef996e..be39b107b98c 100644
-> --- a/drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c
-> +++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_drv.c
-> @@ -611,7 +611,6 @@ static const struct drm_driver rcar_du_driver = {
->   	.fops			= &rcar_du_fops,
->   	.name			= "rcar-du",
->   	.desc			= "Renesas R-Car Display Unit",
-> -	.date			= "20130110",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
-> index 0a03a20f663b..9bbdc4d63d88 100644
-> --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
-> +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
-> @@ -84,7 +84,6 @@ static const struct drm_driver rzg2l_du_driver = {
->   	.fops			= &rzg2l_du_fops,
->   	.name			= "rzg2l-du",
->   	.desc			= "Renesas RZ/G2L Display Unit",
-> -	.date			= "20230410",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c b/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c
-> index 40b582ee178e..387eb602dadf 100644
-> --- a/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c
-> +++ b/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c
-> @@ -107,7 +107,6 @@ static const struct drm_driver shmob_drm_driver = {
->   	.fops			= &shmob_drm_fops,
->   	.name			= "shmob-drm",
->   	.desc			= "Renesas SH Mobile DRM",
-> -	.date			= "20120424",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-> index 0393b48ad65b..1fe4399d6901 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-> @@ -39,7 +39,6 @@
->   
->   #define DRIVER_NAME	"rockchip"
->   #define DRIVER_DESC	"RockChip Soc DRM"
-> -#define DRIVER_DATE	"20140818"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -235,7 +234,6 @@ static const struct drm_driver rockchip_drm_driver = {
->   	.fops			= &rockchip_drm_driver_fops,
->   	.name	= DRIVER_NAME,
->   	.desc	= DRIVER_DESC,
-> -	.date	= DRIVER_DATE,
->   	.major	= DRIVER_MAJOR,
->   	.minor	= DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/solomon/ssd130x.c b/drivers/gpu/drm/solomon/ssd130x.c
-> index a737f650c2bc..7b9f8fc193ac 100644
-> --- a/drivers/gpu/drm/solomon/ssd130x.c
-> +++ b/drivers/gpu/drm/solomon/ssd130x.c
-> @@ -39,7 +39,6 @@
->   
->   #define DRIVER_NAME	"ssd130x"
->   #define DRIVER_DESC	"DRM driver for Solomon SSD13xx OLED displays"
-> -#define DRIVER_DATE	"20220131"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -1784,7 +1783,6 @@ static const struct drm_driver ssd130x_drm_driver = {
->   	DRM_FBDEV_SHMEM_DRIVER_OPS,
->   	.name			= DRIVER_NAME,
->   	.desc			= DRIVER_DESC,
-> -	.date			= DRIVER_DATE,
->   	.major			= DRIVER_MAJOR,
->   	.minor			= DRIVER_MINOR,
->   	.driver_features	= DRIVER_ATOMIC | DRIVER_GEM | DRIVER_MODESET,
-> diff --git a/drivers/gpu/drm/sprd/sprd_drm.c b/drivers/gpu/drm/sprd/sprd_drm.c
-> index a74cd0caf645..867ee2d8997f 100644
-> --- a/drivers/gpu/drm/sprd/sprd_drm.c
-> +++ b/drivers/gpu/drm/sprd/sprd_drm.c
-> @@ -23,7 +23,6 @@
->   
->   #define DRIVER_NAME	"sprd"
->   #define DRIVER_DESC	"Spreadtrum SoCs' DRM Driver"
-> -#define DRIVER_DATE	"20200201"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -59,7 +58,6 @@ static struct drm_driver sprd_drm_drv = {
->   
->   	.name			= DRIVER_NAME,
->   	.desc			= DRIVER_DESC,
-> -	.date			= DRIVER_DATE,
->   	.major			= DRIVER_MAJOR,
->   	.minor			= DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/sti/sti_drv.c b/drivers/gpu/drm/sti/sti_drv.c
-> index a6c13318aa0b..46e6b674fa54 100644
-> --- a/drivers/gpu/drm/sti/sti_drv.c
-> +++ b/drivers/gpu/drm/sti/sti_drv.c
-> @@ -29,7 +29,6 @@
->   
->   #define DRIVER_NAME	"sti"
->   #define DRIVER_DESC	"STMicroelectronics SoC DRM"
-> -#define DRIVER_DATE	"20140601"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -143,7 +142,6 @@ static const struct drm_driver sti_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/stm/drv.c b/drivers/gpu/drm/stm/drv.c
-> index d181d11b277b..40a62c57e04c 100644
-> --- a/drivers/gpu/drm/stm/drv.c
-> +++ b/drivers/gpu/drm/stm/drv.c
-> @@ -62,7 +62,6 @@ static const struct drm_driver drv_driver = {
->   	.driver_features = DRIVER_MODESET | DRIVER_GEM | DRIVER_ATOMIC,
->   	.name = "stm",
->   	.desc = "STMicroelectronics SoC DRM",
-> -	.date = "20170330",
->   	.major = 1,
->   	.minor = 0,
->   	.patchlevel = 0,
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_drv.c b/drivers/gpu/drm/sun4i/sun4i_drv.c
-> index a7c11b795e98..025b0bdcbfd9 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_drv.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_drv.c
-> @@ -50,7 +50,6 @@ static const struct drm_driver sun4i_drv_driver = {
->   	.fops			= &sun4i_drv_fops,
->   	.name			= "sun4i-drm",
->   	.desc			= "Allwinner sun4i Display Engine",
-> -	.date			= "20150629",
->   	.major			= 1,
->   	.minor			= 0,
->   
-> diff --git a/drivers/gpu/drm/tegra/drm.c b/drivers/gpu/drm/tegra/drm.c
-> index 34878f5d2918..4596073fe28f 100644
-> --- a/drivers/gpu/drm/tegra/drm.c
-> +++ b/drivers/gpu/drm/tegra/drm.c
-> @@ -35,7 +35,6 @@
->   
->   #define DRIVER_NAME "tegra"
->   #define DRIVER_DESC "NVIDIA Tegra graphics"
-> -#define DRIVER_DATE "20120330"
->   #define DRIVER_MAJOR 1
->   #define DRIVER_MINOR 0
->   #define DRIVER_PATCHLEVEL 0
-> @@ -901,7 +900,6 @@ static const struct drm_driver tegra_drm_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
-> index 53bc219c097f..ee1132d581f5 100644
-> --- a/drivers/gpu/drm/tidss/tidss_drv.c
-> +++ b/drivers/gpu/drm/tidss/tidss_drv.c
-> @@ -113,7 +113,6 @@ static const struct drm_driver tidss_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name			= "tidss",
->   	.desc			= "TI Keystone DSS",
-> -	.date			= "20180215",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-> index 821d0ba26287..8013f01dbdf0 100644
-> --- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-> +++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-> @@ -481,7 +481,6 @@ static const struct drm_driver tilcdc_driver = {
->   	.fops               = &fops,
->   	.name               = "tilcdc",
->   	.desc               = "TI LCD Controller DRM",
-> -	.date               = "20121205",
->   	.major              = 1,
->   	.minor              = 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/arcpgu.c b/drivers/gpu/drm/tiny/arcpgu.c
-> index 5a0c8a874421..1e570f6f639f 100644
-> --- a/drivers/gpu/drm/tiny/arcpgu.c
-> +++ b/drivers/gpu/drm/tiny/arcpgu.c
-> @@ -367,7 +367,6 @@ static const struct drm_driver arcpgu_drm_driver = {
->   	.driver_features = DRIVER_MODESET | DRIVER_GEM | DRIVER_ATOMIC,
->   	.name = "arcpgu",
->   	.desc = "ARC PGU Controller",
-> -	.date = "20160219",
->   	.major = 1,
->   	.minor = 0,
->   	.patchlevel = 0,
-> diff --git a/drivers/gpu/drm/tiny/bochs.c b/drivers/gpu/drm/tiny/bochs.c
-> index 71a1f15d6ac9..89a699370a59 100644
-> --- a/drivers/gpu/drm/tiny/bochs.c
-> +++ b/drivers/gpu/drm/tiny/bochs.c
-> @@ -680,7 +680,6 @@ static const struct drm_driver bochs_driver = {
->   	.fops			= &bochs_fops,
->   	.name			= "bochs-drm",
->   	.desc			= "bochs dispi vga interface (qemu stdvga)",
-> -	.date			= "20130925",
->   	.major			= 1,
->   	.minor			= 0,
->   	DRM_GEM_SHMEM_DRIVER_OPS,
-> diff --git a/drivers/gpu/drm/tiny/cirrus-qemu.c b/drivers/gpu/drm/tiny/cirrus-qemu.c
-> index c0ae316888e2..52ec1e4ea9e5 100644
-> --- a/drivers/gpu/drm/tiny/cirrus-qemu.c
-> +++ b/drivers/gpu/drm/tiny/cirrus-qemu.c
-> @@ -48,7 +48,6 @@
->   
->   #define DRIVER_NAME "cirrus-qemu"
->   #define DRIVER_DESC "qemu cirrus vga"
-> -#define DRIVER_DATE "2019"
->   #define DRIVER_MAJOR 2
->   #define DRIVER_MINOR 0
->   
-> @@ -659,7 +658,6 @@ static const struct drm_driver cirrus_driver = {
->   
->   	.name		 = DRIVER_NAME,
->   	.desc		 = DRIVER_DESC,
-> -	.date		 = DRIVER_DATE,
->   	.major		 = DRIVER_MAJOR,
->   	.minor		 = DRIVER_MINOR,
->   
-> diff --git a/drivers/gpu/drm/tiny/gm12u320.c b/drivers/gpu/drm/tiny/gm12u320.c
-> index 47dbee84d58b..41e9bfb2e2ff 100644
-> --- a/drivers/gpu/drm/tiny/gm12u320.c
-> +++ b/drivers/gpu/drm/tiny/gm12u320.c
-> @@ -34,7 +34,6 @@ MODULE_PARM_DESC(eco_mode, "Turn on Eco mode (less bright, more silent)");
->   
->   #define DRIVER_NAME		"gm12u320"
->   #define DRIVER_DESC		"Grain Media GM12U320 USB projector display"
-> -#define DRIVER_DATE		"2019"
->   #define DRIVER_MAJOR		1
->   #define DRIVER_MINOR		0
->   
-> @@ -626,7 +625,6 @@ static const struct drm_driver gm12u320_drm_driver = {
->   
->   	.name		 = DRIVER_NAME,
->   	.desc		 = DRIVER_DESC,
-> -	.date		 = DRIVER_DATE,
->   	.major		 = DRIVER_MAJOR,
->   	.minor		 = DRIVER_MINOR,
->   
-> diff --git a/drivers/gpu/drm/tiny/hx8357d.c b/drivers/gpu/drm/tiny/hx8357d.c
-> index 910279ebbbaa..df263818f45f 100644
-> --- a/drivers/gpu/drm/tiny/hx8357d.c
-> +++ b/drivers/gpu/drm/tiny/hx8357d.c
-> @@ -199,7 +199,6 @@ static const struct drm_driver hx8357d_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "hx8357d",
->   	.desc			= "HX8357D",
-> -	.date			= "20181023",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/ili9163.c b/drivers/gpu/drm/tiny/ili9163.c
-> index e54ce120692f..62cadf5e033d 100644
-> --- a/drivers/gpu/drm/tiny/ili9163.c
-> +++ b/drivers/gpu/drm/tiny/ili9163.c
-> @@ -118,7 +118,6 @@ static struct drm_driver ili9163_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "ili9163",
->   	.desc			= "Ilitek ILI9163",
-> -	.date			= "20210208",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/ili9225.c b/drivers/gpu/drm/tiny/ili9225.c
-> index f322e67f473a..6de44ff69b51 100644
-> --- a/drivers/gpu/drm/tiny/ili9225.c
-> +++ b/drivers/gpu/drm/tiny/ili9225.c
-> @@ -364,7 +364,6 @@ static const struct drm_driver ili9225_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name			= "ili9225",
->   	.desc			= "Ilitek ILI9225",
-> -	.date			= "20171106",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/ili9341.c b/drivers/gpu/drm/tiny/ili9341.c
-> index 356c7f107c3e..e55029433509 100644
-> --- a/drivers/gpu/drm/tiny/ili9341.c
-> +++ b/drivers/gpu/drm/tiny/ili9341.c
-> @@ -155,7 +155,6 @@ static const struct drm_driver ili9341_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "ili9341",
->   	.desc			= "Ilitek ILI9341",
-> -	.date			= "20180514",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/ili9486.c b/drivers/gpu/drm/tiny/ili9486.c
-> index f5b1d21f7109..093661c771a0 100644
-> --- a/drivers/gpu/drm/tiny/ili9486.c
-> +++ b/drivers/gpu/drm/tiny/ili9486.c
-> @@ -177,7 +177,6 @@ static const struct drm_driver ili9486_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "ili9486",
->   	.desc			= "Ilitek ILI9486",
-> -	.date			= "20200118",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/mi0283qt.c b/drivers/gpu/drm/tiny/mi0283qt.c
-> index 61e33376fbc9..b6b4664908ae 100644
-> --- a/drivers/gpu/drm/tiny/mi0283qt.c
-> +++ b/drivers/gpu/drm/tiny/mi0283qt.c
-> @@ -159,7 +159,6 @@ static const struct drm_driver mi0283qt_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "mi0283qt",
->   	.desc			= "Multi-Inno MI0283QT",
-> -	.date			= "20160614",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/ofdrm.c b/drivers/gpu/drm/tiny/ofdrm.c
-> index b27ed3677bfd..cd5916752507 100644
-> --- a/drivers/gpu/drm/tiny/ofdrm.c
-> +++ b/drivers/gpu/drm/tiny/ofdrm.c
-> @@ -25,7 +25,6 @@
->   
->   #define DRIVER_NAME	"ofdrm"
->   #define DRIVER_DESC	"DRM driver for OF platform devices"
-> -#define DRIVER_DATE	"20220501"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -1348,7 +1347,6 @@ static struct drm_driver ofdrm_driver = {
->   	DRM_FBDEV_SHMEM_DRIVER_OPS,
->   	.name			= DRIVER_NAME,
->   	.desc			= DRIVER_DESC,
-> -	.date			= DRIVER_DATE,
->   	.major			= DRIVER_MAJOR,
->   	.minor			= DRIVER_MINOR,
->   	.driver_features	= DRIVER_ATOMIC | DRIVER_GEM | DRIVER_MODESET,
-> diff --git a/drivers/gpu/drm/tiny/panel-mipi-dbi.c b/drivers/gpu/drm/tiny/panel-mipi-dbi.c
-> index 79d5818cbbe6..4786b8144a9f 100644
-> --- a/drivers/gpu/drm/tiny/panel-mipi-dbi.c
-> +++ b/drivers/gpu/drm/tiny/panel-mipi-dbi.c
-> @@ -269,7 +269,6 @@ static const struct drm_driver panel_mipi_dbi_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "panel-mipi-dbi",
->   	.desc			= "MIPI DBI compatible display panel",
-> -	.date			= "20220103",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/repaper.c b/drivers/gpu/drm/tiny/repaper.c
-> index 9373063a13fc..52ba6c699bc8 100644
-> --- a/drivers/gpu/drm/tiny/repaper.c
-> +++ b/drivers/gpu/drm/tiny/repaper.c
-> @@ -917,7 +917,6 @@ static const struct drm_driver repaper_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name			= "repaper",
->   	.desc			= "Pervasive Displays RePaper e-ink panels",
-> -	.date			= "20170405",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/sharp-memory.c b/drivers/gpu/drm/tiny/sharp-memory.c
-> index d87068126f9b..03d2850310c4 100644
-> --- a/drivers/gpu/drm/tiny/sharp-memory.c
-> +++ b/drivers/gpu/drm/tiny/sharp-memory.c
-> @@ -107,7 +107,6 @@ static const struct drm_driver sharp_memory_drm_driver = {
->   	DRM_FBDEV_DMA_DRIVER_OPS,
->   	.name			= "sharp_memory_display",
->   	.desc			= "Sharp Display Memory LCD",
-> -	.date			= "20231129",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/simpledrm.c b/drivers/gpu/drm/tiny/simpledrm.c
-> index b3a2fc11dcf0..b47ca2d902d9 100644
-> --- a/drivers/gpu/drm/tiny/simpledrm.c
-> +++ b/drivers/gpu/drm/tiny/simpledrm.c
-> @@ -31,7 +31,6 @@
->   
->   #define DRIVER_NAME	"simpledrm"
->   #define DRIVER_DESC	"DRM driver for simple-framebuffer platform devices"
-> -#define DRIVER_DATE	"20200625"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -1015,7 +1014,6 @@ static struct drm_driver simpledrm_driver = {
->   	DRM_FBDEV_SHMEM_DRIVER_OPS,
->   	.name			= DRIVER_NAME,
->   	.desc			= DRIVER_DESC,
-> -	.date			= DRIVER_DATE,
->   	.major			= DRIVER_MAJOR,
->   	.minor			= DRIVER_MINOR,
->   	.driver_features	= DRIVER_ATOMIC | DRIVER_GEM | DRIVER_MODESET,
-> diff --git a/drivers/gpu/drm/tiny/st7586.c b/drivers/gpu/drm/tiny/st7586.c
-> index 7bfd4296c1c9..a29672d84ede 100644
-> --- a/drivers/gpu/drm/tiny/st7586.c
-> +++ b/drivers/gpu/drm/tiny/st7586.c
-> @@ -295,7 +295,6 @@ static const struct drm_driver st7586_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "st7586",
->   	.desc			= "Sitronix ST7586",
-> -	.date			= "20170801",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tiny/st7735r.c b/drivers/gpu/drm/tiny/st7735r.c
-> index 6832ca590127..1d60f6e5b3bc 100644
-> --- a/drivers/gpu/drm/tiny/st7735r.c
-> +++ b/drivers/gpu/drm/tiny/st7735r.c
-> @@ -160,7 +160,6 @@ static const struct drm_driver st7735r_driver = {
->   	.debugfs_init		= mipi_dbi_debugfs_init,
->   	.name			= "st7735r",
->   	.desc			= "Sitronix ST7735R",
-> -	.date			= "20171128",
->   	.major			= 1,
->   	.minor			= 0,
->   };
-> diff --git a/drivers/gpu/drm/tve200/tve200_drv.c b/drivers/gpu/drm/tve200/tve200_drv.c
-> index cb66dbbe2801..65a0d4301160 100644
-> --- a/drivers/gpu/drm/tve200/tve200_drv.c
-> +++ b/drivers/gpu/drm/tve200/tve200_drv.c
-> @@ -146,7 +146,6 @@ static const struct drm_driver tve200_drm_driver = {
->   	.fops = &drm_fops,
->   	.name = "tve200",
->   	.desc = DRIVER_DESC,
-> -	.date = "20170703",
->   	.major = 1,
->   	.minor = 0,
->   	.patchlevel = 0,
-> diff --git a/drivers/gpu/drm/udl/udl_drv.c b/drivers/gpu/drm/udl/udl_drv.c
-> index 6c182b21028e..05b3a152cc33 100644
-> --- a/drivers/gpu/drm/udl/udl_drv.c
-> +++ b/drivers/gpu/drm/udl/udl_drv.c
-> @@ -78,7 +78,6 @@ static const struct drm_driver driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/udl/udl_drv.h b/drivers/gpu/drm/udl/udl_drv.h
-> index 1eb716d9dad5..be00dc1d87a1 100644
-> --- a/drivers/gpu/drm/udl/udl_drv.h
-> +++ b/drivers/gpu/drm/udl/udl_drv.h
-> @@ -26,7 +26,6 @@ struct drm_mode_create_dumb;
->   
->   #define DRIVER_NAME		"udl"
->   #define DRIVER_DESC		"DisplayLink"
-> -#define DRIVER_DATE		"20120220"
->   
->   #define DRIVER_MAJOR		0
->   #define DRIVER_MINOR		0
-> diff --git a/drivers/gpu/drm/v3d/v3d_drv.c b/drivers/gpu/drm/v3d/v3d_drv.c
-> index fb35c5c3f1a7..9d8de9146cb0 100644
-> --- a/drivers/gpu/drm/v3d/v3d_drv.c
-> +++ b/drivers/gpu/drm/v3d/v3d_drv.c
-> @@ -31,7 +31,6 @@
->   
->   #define DRIVER_NAME "v3d"
->   #define DRIVER_DESC "Broadcom V3D graphics"
-> -#define DRIVER_DATE "20180419"
->   #define DRIVER_MAJOR 1
->   #define DRIVER_MINOR 0
->   #define DRIVER_PATCHLEVEL 0
-> @@ -248,7 +247,6 @@ static const struct drm_driver v3d_drm_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/vboxvideo/vbox_drv.c b/drivers/gpu/drm/vboxvideo/vbox_drv.c
-> index d9d884aad97f..bb861f0a0a31 100644
-> --- a/drivers/gpu/drm/vboxvideo/vbox_drv.c
-> +++ b/drivers/gpu/drm/vboxvideo/vbox_drv.c
-> @@ -189,7 +189,6 @@ static const struct drm_driver driver = {
->   	.fops = &vbox_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/vboxvideo/vbox_drv.h b/drivers/gpu/drm/vboxvideo/vbox_drv.h
-> index e77bd6512eb1..dfa935f381a6 100644
-> --- a/drivers/gpu/drm/vboxvideo/vbox_drv.h
-> +++ b/drivers/gpu/drm/vboxvideo/vbox_drv.h
-> @@ -25,7 +25,6 @@
->   
->   #define DRIVER_NAME         "vboxvideo"
->   #define DRIVER_DESC         "Oracle VM VirtualBox Graphics Card"
-> -#define DRIVER_DATE         "20130823"
->   
->   #define DRIVER_MAJOR        1
->   #define DRIVER_MINOR        0
-> diff --git a/drivers/gpu/drm/vc4/vc4_drv.c b/drivers/gpu/drm/vc4/vc4_drv.c
-> index ee5df153c2a6..e88a7ee486c6 100644
-> --- a/drivers/gpu/drm/vc4/vc4_drv.c
-> +++ b/drivers/gpu/drm/vc4/vc4_drv.c
-> @@ -47,7 +47,6 @@
->   
->   #define DRIVER_NAME "vc4"
->   #define DRIVER_DESC "Broadcom VC4 graphics"
-> -#define DRIVER_DATE "20140616"
->   #define DRIVER_MAJOR 0
->   #define DRIVER_MINOR 0
->   #define DRIVER_PATCHLEVEL 0
-> @@ -222,7 +221,6 @@ const struct drm_driver vc4_drm_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> @@ -244,7 +242,6 @@ const struct drm_driver vc5_drm_driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/vgem/vgem_drv.c b/drivers/gpu/drm/vgem/vgem_drv.c
-> index c5e3e5457737..2752ab4f1c97 100644
-> --- a/drivers/gpu/drm/vgem/vgem_drv.c
-> +++ b/drivers/gpu/drm/vgem/vgem_drv.c
-> @@ -47,7 +47,6 @@
->   
->   #define DRIVER_NAME	"vgem"
->   #define DRIVER_DESC	"Virtual GEM provider"
-> -#define DRIVER_DATE	"20120112"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -121,7 +120,6 @@ static const struct drm_driver vgem_driver = {
->   
->   	.name	= DRIVER_NAME,
->   	.desc	= DRIVER_DESC,
-> -	.date	= DRIVER_DATE,
->   	.major	= DRIVER_MAJOR,
->   	.minor	= DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/virtio/virtgpu_drv.c b/drivers/gpu/drm/virtio/virtgpu_drv.c
-> index e216123ce6a5..6a67c6297d58 100644
-> --- a/drivers/gpu/drm/virtio/virtgpu_drv.c
-> +++ b/drivers/gpu/drm/virtio/virtgpu_drv.c
-> @@ -201,7 +201,6 @@ static const struct drm_driver driver = {
->   
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/virtio/virtgpu_drv.h b/drivers/gpu/drm/virtio/virtgpu_drv.h
-> index 8328107edf78..f42ca9d8ed10 100644
-> --- a/drivers/gpu/drm/virtio/virtgpu_drv.h
-> +++ b/drivers/gpu/drm/virtio/virtgpu_drv.h
-> @@ -45,7 +45,6 @@
->   
->   #define DRIVER_NAME "virtio_gpu"
->   #define DRIVER_DESC "virtio GPU"
-> -#define DRIVER_DATE "0"
->   
->   #define DRIVER_MAJOR 0
->   #define DRIVER_MINOR 1
-> diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
-> index fa3331f612e3..e0409aba9349 100644
-> --- a/drivers/gpu/drm/vkms/vkms_drv.c
-> +++ b/drivers/gpu/drm/vkms/vkms_drv.c
-> @@ -34,7 +34,6 @@
->   
->   #define DRIVER_NAME	"vkms"
->   #define DRIVER_DESC	"Virtual Kernel Mode Setting"
-> -#define DRIVER_DATE	"20180514"
->   #define DRIVER_MAJOR	1
->   #define DRIVER_MINOR	0
->   
-> @@ -116,7 +115,6 @@ static const struct drm_driver vkms_driver = {
->   
->   	.name			= DRIVER_NAME,
->   	.desc			= DRIVER_DESC,
-> -	.date			= DRIVER_DATE,
->   	.major			= DRIVER_MAJOR,
->   	.minor			= DRIVER_MINOR,
->   };
-> diff --git a/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c b/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c
-> index ded48554568a..1699236fca5a 100644
-> --- a/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c
-> +++ b/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c
-> @@ -1634,7 +1634,6 @@ static const struct drm_driver driver = {
->   	.fops = &vmwgfx_driver_fops,
->   	.name = VMWGFX_DRIVER_NAME,
->   	.desc = VMWGFX_DRIVER_DESC,
-> -	.date = VMWGFX_DRIVER_DATE,
->   	.major = VMWGFX_DRIVER_MAJOR,
->   	.minor = VMWGFX_DRIVER_MINOR,
->   	.patchlevel = VMWGFX_DRIVER_PATCHLEVEL
-> diff --git a/drivers/gpu/drm/vmwgfx/vmwgfx_drv.h b/drivers/gpu/drm/vmwgfx/vmwgfx_drv.h
-> index b21831ef214a..5275ef632d4b 100644
-> --- a/drivers/gpu/drm/vmwgfx/vmwgfx_drv.h
-> +++ b/drivers/gpu/drm/vmwgfx/vmwgfx_drv.h
-> @@ -57,7 +57,6 @@
->   
->   
->   #define VMWGFX_DRIVER_NAME "vmwgfx"
-> -#define VMWGFX_DRIVER_DATE "20211206"
->   #define VMWGFX_DRIVER_MAJOR 2
->   #define VMWGFX_DRIVER_MINOR 20
->   #define VMWGFX_DRIVER_PATCHLEVEL 0
-> diff --git a/drivers/gpu/drm/xe/xe_device.c b/drivers/gpu/drm/xe/xe_device.c
-> index d6fccea1e083..56d4ffb650da 100644
-> --- a/drivers/gpu/drm/xe/xe_device.c
-> +++ b/drivers/gpu/drm/xe/xe_device.c
-> @@ -271,7 +271,6 @@ static struct drm_driver driver = {
->   	.fops = &xe_driver_fops,
->   	.name = DRIVER_NAME,
->   	.desc = DRIVER_DESC,
-> -	.date = DRIVER_DATE,
->   	.major = DRIVER_MAJOR,
->   	.minor = DRIVER_MINOR,
->   	.patchlevel = DRIVER_PATCHLEVEL,
-> diff --git a/drivers/gpu/drm/xe/xe_drv.h b/drivers/gpu/drm/xe/xe_drv.h
-> index d45b71426cc8..d61650d4aa0b 100644
-> --- a/drivers/gpu/drm/xe/xe_drv.h
-> +++ b/drivers/gpu/drm/xe/xe_drv.h
-> @@ -10,7 +10,6 @@
->   
->   #define DRIVER_NAME		"xe"
->   #define DRIVER_DESC		"Intel Xe Graphics"
-> -#define DRIVER_DATE		"20201103"
->   
->   /* Interface history:
->    *
-> diff --git a/drivers/gpu/drm/xen/xen_drm_front.c b/drivers/gpu/drm/xen/xen_drm_front.c
-> index 931d855bfbe8..1bda7ef606cc 100644
-> --- a/drivers/gpu/drm/xen/xen_drm_front.c
-> +++ b/drivers/gpu/drm/xen/xen_drm_front.c
-> @@ -478,7 +478,6 @@ static const struct drm_driver xen_drm_driver = {
->   	.fops                      = &xen_drm_dev_fops,
->   	.name                      = "xendrm-du",
->   	.desc                      = "Xen PV DRM Display Unit",
-> -	.date                      = "20180221",
->   	.major                     = 1,
->   	.minor                     = 0,
->   
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-> index e272ecbce78d..b47463473472 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-> @@ -409,7 +409,6 @@ static const struct drm_driver zynqmp_dpsub_drm_driver = {
->   
->   	.name				= "zynqmp-dpsub",
->   	.desc				= "Xilinx DisplayPort Subsystem Driver",
-> -	.date				= "20130509",
->   	.major				= 1,
->   	.minor				= 0,
->   };
-> diff --git a/include/drm/drm_drv.h b/include/drm/drm_drv.h
-> index 1bbbcb8e2d23..1b6e59139e6c 100644
-> --- a/include/drm/drm_drv.h
-> +++ b/include/drm/drm_drv.h
-> @@ -401,8 +401,6 @@ struct drm_driver {
->   	char *name;
->   	/** @desc: driver description */
->   	char *desc;
-> -	/** @date: driver date, unused, to be removed */
-> -	char *date;
->   
->   	/**
->   	 * @driver_features:
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstrasse 146, 90461 Nuernberg, Germany
-GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
-HRB 36809 (AG Nuernberg)
-
+T24gVGh1LCAyMDI0LTEyLTA1IGF0IDA3OjA1ICswMDAwLCBLYXJsIExpICjmnY7mmbrlmIkpIHdy
+b3RlOg0KPiBEZWFkIG1haW50YWluZXJzLA0KIkRlYXIiIG1haW50YWluZXJzLiBSZWFsbHkgc29y
+cnkgZm9yIHRoZSB0eXBvLi4uDQo+IA0KPiBJIGhvcGUgeW91J3JlIGRvaW5nIHdlbGwuIEp1c3Qg
+YSB3YXJtIHJlbWluZGVyIHRoYXQgd2UncmUgZm9sbG93aW5nDQo+IHVwDQo+IG9uIHRoZXNlIHBh
+dGNoIGFuZCByZWFsbHkgYXBwcmVjaWF0ZSBhbnkgZmVlZGJhY2sgeW91IG1pZ2h0IGhhdmUuDQo+
+IA0KPiBUaGFua3MgeW91IGluIGFkdmFuY2UgZm9yIHlvdXIgcmV2aWV3Lg0KPiANCj4gUmVnYXJk
+cywNCj4gS2FybA0KPiANCj4gT24gVHVlLCAyMDI0LTEwLTI5IGF0IDE2OjI3ICswODAwLCBLYXJs
+IExpIHdyb3RlOg0KPiA+IE9uIE1vbiwgMjAyNC0xMC0yOCBhdCAxNDoxNiArMDgwMCwgQ2hlbi1Z
+dSBUc2FpIHdyb3RlOg0KPiA+ID4gDQo+ID4gPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBu
+b3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cw0KPiA+ID4gdW50aWwNCj4gPiA+IHlv
+dSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+ID4gPiANCj4gPiA+
+IA0KPiA+ID4gT24gVGh1LCBPY3QgMjQsIDIwMjQgYXQgNzoxM+KAr1BNIEFuZ2Vsb0dpb2FjY2hp
+bm8gRGVsIFJlZ25vDQo+ID4gPiA8YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEu
+Y29tPiB3cm90ZToNCj4gPiA+ID4gDQo+ID4gPiA+IElsIDI0LzEwLzI0IDExOjI1LCBLYXJsLkxp
+IGhhIHNjcml0dG86DQo+ID4gPiA+ID4gRnJvbTogS2FybCBMaSA8a2FybC5saUBtZWRpYXRlay5j
+b20+DQo+ID4gPiA+ID4gDQo+ID4gPiA+ID4gQWRkIG10ay1hcHUtbWFpbGJveCBkcml2ZXIgdG8g
+c3VwcG9ydCB0aGUgY29tbXVuaWNhdGlvbiB3aXRoDQo+ID4gPiA+ID4gQVBVIHJlbW90ZSBtaWNy
+b3Byb2Nlc3Nvci4NCj4gPiA+ID4gPiANCj4gPiA+ID4gPiBBbHNvLCB0aGUgbWFpbGJveCBoYXJk
+d2FyZSBjb250YWlucyBleHRyYSBzcGFyZSAoc2NyYXRjaCkNCj4gPiA+ID4gPiByZWdpc3RlcnMN
+Cj4gPiA+ID4gPiB0aGF0IG90aGVyIGhhcmR3YXJlIGJsb2NrcyB1c2UgdG8gY29tbXVuaWNhdGUg
+dGhyb3VnaC4NCj4gPiA+ID4gPiBFeHBvc2UgdGhlc2Ugd2l0aCBjdXN0b20gbXRrX2FwdV9tYm94
+XyhyZWFkfHdyaXRlKSgpDQo+ID4gPiA+ID4gZnVuY3Rpb25zLg0KPiA+ID4gPiA+IA0KPiA+ID4g
+PiA+IFNpZ25lZC1vZmYtYnk6IEthcmwgTGkgPGthcmwubGlAbWVkaWF0ZWsuY29tPg0KPiA+ID4g
+PiA+IC0tLQ0KPiA+ID4gPiA+IMKgIGRyaXZlcnMvbWFpbGJveC9LY29uZmlnwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgOSArDQo+ID4gPiA+ID4gwqAgZHJpdmVycy9tYWls
+Ym94L01ha2VmaWxlwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDIgKw0KPiA+
+ID4gPiA+IMKgIGRyaXZlcnMvbWFpbGJveC9tdGstYXB1LW1haWxib3guY8KgwqDCoMKgwqDCoCB8
+IDIyMg0KPiA+ID4gPiA+ICsrKysrKysrKysrKysrKysrKysrKysrKw0KPiA+ID4gPiA+IMKgIGlu
+Y2x1ZGUvbGludXgvbWFpbGJveC9tdGstYXB1LW1haWxib3guaCB8wqAgMjAgKysrDQo+ID4gPiA+
+ID4gwqAgNCBmaWxlcyBjaGFuZ2VkLCAyNTMgaW5zZXJ0aW9ucygrKQ0KPiA+ID4gPiA+IMKgIGNy
+ZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21haWxib3gvbXRrLWFwdS1tYWlsYm94LmMNCj4gPiA+
+ID4gPiDCoCBjcmVhdGUgbW9kZSAxMDA2NDQgaW5jbHVkZS9saW51eC9tYWlsYm94L210ay1hcHUt
+bWFpbGJveC5oDQo+ID4gPiA+ID4gDQo+ID4gPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWFp
+bGJveC9LY29uZmlnDQo+ID4gPiA+ID4gYi9kcml2ZXJzL21haWxib3gvS2NvbmZpZw0KPiA+ID4g
+PiA+IGluZGV4IDZmYjk5NTc3ODYzNi4uMjMzOGUwOGExMTBhIDEwMDY0NA0KPiA+ID4gPiA+IC0t
+LSBhL2RyaXZlcnMvbWFpbGJveC9LY29uZmlnDQo+ID4gPiA+ID4gKysrIGIvZHJpdmVycy9tYWls
+Ym94L0tjb25maWcNCj4gPiA+ID4gPiBAQCAtMjQwLDYgKzI0MCwxNSBAQCBjb25maWcgTVRLX0FE
+U1BfTUJPWA0KPiA+ID4gPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYmV0d2VlbiBwcm9jZXNz
+b3JzIHdpdGggQURTUC4gSXQgd2lsbCBwbGFjZSB0aGUNCj4gPiA+ID4gPiBtZXNzYWdlIHRvIHNo
+YXJlDQo+ID4gPiA+ID4gwqDCoMKgwqDCoMKgwqAgYnVmZmVyIGFuZCB3aWxsIGFjY2VzcyB0aGUg
+aXBjIGNvbnRyb2wuDQo+ID4gPiA+ID4gDQo+ID4gPiA+ID4gK2NvbmZpZyBNVEtfQVBVX01CT1gN
+Cj4gPiA+ID4gPiArwqDCoMKgwqAgdHJpc3RhdGUgIk1lZGlhVGVrIEFQVSBNYWlsYm94IFN1cHBv
+cnQiDQo+ID4gPiA+ID4gK8KgwqDCoMKgIGRlcGVuZHMgb24gQVJDSF9NRURJQVRFSyB8fCBDT01Q
+SUxFX1RFU1QNCj4gPiA+ID4gPiArwqDCoMKgwqAgaGVscA0KPiA+ID4gPiA+ICvCoMKgwqDCoMKg
+wqAgU2F5IHllcyBoZXJlIHRvIGFkZCBzdXBwb3J0IGZvciB0aGUgTWVkaWFUZWsgQVBVDQo+ID4g
+PiA+ID4gTWFpbGJveA0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgwqAgZHJpdmVyLiBUaGUgbWFpbGJv
+eCBpbXBsZW1lbnRhdGlvbiBwcm92aWRlcyBhY2Nlc3MNCj4gPiA+ID4gPiBmcm9tDQo+ID4gPiA+
+ID4gdGhlDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoCBhcHBsaWNhdGlvbiBwcm9jZXNzb3IgdG8g
+dGhlIE1lZGlhVGVrIEFJIFByb2Nlc3NpbmcNCj4gPiA+ID4gPiBVbml0Lg0KPiA+ID4gPiA+ICvC
+oMKgwqDCoMKgwqAgSWYgdW5zdXJlIHNheSBOLg0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiDCoCBj
+b25maWcgTVRLX0NNRFFfTUJPWA0KPiA+ID4gPiA+IMKgwqDCoMKgwqAgdHJpc3RhdGUgIk1lZGlh
+VGVrIENNRFEgTWFpbGJveCBTdXBwb3J0Ig0KPiA+ID4gPiA+IMKgwqDCoMKgwqAgZGVwZW5kcyBv
+biBBUkNIX01FRElBVEVLIHx8IENPTVBJTEVfVEVTVA0KPiA+ID4gPiA+IGRpZmYgLS1naXQgYS9k
+cml2ZXJzL21haWxib3gvTWFrZWZpbGUNCj4gPiA+ID4gPiBiL2RyaXZlcnMvbWFpbGJveC9NYWtl
+ZmlsZQ0KPiA+ID4gPiA+IGluZGV4IDNjM2MyN2Q1NGMxMy4uNmI2ZGNjNzhkNjQ0IDEwMDY0NA0K
+PiA+ID4gPiA+IC0tLSBhL2RyaXZlcnMvbWFpbGJveC9NYWtlZmlsZQ0KPiA+ID4gPiA+ICsrKyBi
+L2RyaXZlcnMvbWFpbGJveC9NYWtlZmlsZQ0KPiA+ID4gPiA+IEBAIC01Myw2ICs1Myw4IEBAIG9i
+ai0kKENPTkZJR19TVE0zMl9JUENDKcKgwqDCoCArPSBzdG0zMi1pcGNjLm8NCj4gPiA+ID4gPiAN
+Cj4gPiA+ID4gPiDCoCBvYmotJChDT05GSUdfTVRLX0FEU1BfTUJPWCkgKz0gbXRrLWFkc3AtbWFp
+bGJveC5vDQo+ID4gPiA+ID4gDQo+ID4gPiA+ID4gK29iai0kKENPTkZJR19NVEtfQVBVX01CT1gp
+wqDCoCArPSBtdGstYXB1LW1haWxib3gubw0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiDCoCBvYmot
+JChDT05GSUdfTVRLX0NNRFFfTUJPWCkgKz0gbXRrLWNtZHEtbWFpbGJveC5vDQo+ID4gPiA+ID4g
+DQo+ID4gPiA+ID4gwqAgb2JqLSQoQ09ORklHX1pZTlFNUF9JUElfTUJPWCnCoMKgwqDCoMKgwqAg
+Kz0genlucW1wLWlwaS1tYWlsYm94Lm8NCj4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9t
+YWlsYm94L210ay1hcHUtbWFpbGJveC5jDQo+ID4gPiA+ID4gYi9kcml2ZXJzL21haWxib3gvbXRr
+LWFwdS1tYWlsYm94LmMNCj4gPiA+ID4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NA0KPiA+ID4gPiA+
+IGluZGV4IDAwMDAwMDAwMDAwMC4uYjM0N2ViZDM0ZWY3DQo+ID4gPiA+ID4gLS0tIC9kZXYvbnVs
+bA0KPiA+ID4gPiA+ICsrKyBiL2RyaXZlcnMvbWFpbGJveC9tdGstYXB1LW1haWxib3guYw0KPiA+
+ID4gPiA+IEBAIC0wLDAgKzEsMjIyIEBADQo+ID4gPiA+ID4gKy8vIFNQRFgtTGljZW5zZS1JZGVu
+dGlmaWVyOiBHUEwtMi4wDQo+ID4gPiA+ID4gKy8qDQo+ID4gPiA+ID4gKyAqIENvcHlyaWdodCAo
+YykgMjAyNCBNZWRpYVRlayBJbmMuDQo+ID4gPiA+ID4gKyAqLw0KPiA+ID4gPiA+ICsNCj4gPiA+
+ID4gPiArI2luY2x1ZGUgPGFzbS9pby5oPg0KPiA+ID4gPiA+ICsjaW5jbHVkZSA8bGludXgvYml0
+cy5oPg0KPiA+ID4gPiA+ICsjaW5jbHVkZSA8bGludXgvaW50ZXJydXB0Lmg+DQo+ID4gPiA+ID4g
+KyNpbmNsdWRlIDxsaW51eC9tYWlsYm94X2NvbnRyb2xsZXIuaD4NCj4gPiA+ID4gPiArI2luY2x1
+ZGUgPGxpbnV4L21haWxib3gvbXRrLWFwdS1tYWlsYm94Lmg+DQo+ID4gPiA+ID4gKyNpbmNsdWRl
+IDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4NCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gKyNkZWZp
+bmUgSU5CT1jCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKDB4MCkNCj4gPiA+ID4gPiAr
+I2RlZmluZSBPVVRCT1jCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICgweDIwKQ0KPiA+ID4g
+PiA+ICsjZGVmaW5lIElOQk9YX0lSUcKgwqDCoCAoMHhjMCkNCj4gPiA+ID4gPiArI2RlZmluZSBP
+VVRCT1hfSVJRwqDCoCAoMHhjNCkNCj4gPiA+ID4gPiArI2RlZmluZSBJTkJPWF9JUlFfTUFTS8Kg
+wqDCoMKgwqDCoCAoMHhkMCkNCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gKyNkZWZpbmUgU1BBUkVf
+T0ZGX1NUQVJUwqDCoMKgwqDCoCAoMHg0MCkNCj4gPiA+ID4gPiArI2RlZmluZSBTUEFSRV9PRkZf
+RU5EwqDCoMKgwqDCoMKgwqAgKDB4QjApDQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICtzdHJ1Y3Qg
+bXRrX2FwdV9tYWlsYm94IHsNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IGRldmljZSAqZGV2
+Ow0KPiA+ID4gPiA+ICvCoMKgwqDCoCB2b2lkIF9faW9tZW0gKnJlZ3M7DQo+ID4gPiA+ID4gK8Kg
+wqDCoMKgIHN0cnVjdCBtYm94X2NvbnRyb2xsZXIgY29udHJvbGxlcjsNCj4gPiA+ID4gDQo+ID4g
+PiA+IHN0cnVjdCBtYm94X2NvbnRyb2xsZXIgbWJveDsNCj4gPiA+ID4gDQo+ID4gPiA+IC4uLml0
+J3Mgc2hvcnRlciBhbmQgY29uc2lzdGVudCB3aXRoIGF0IGxlYXN0IG90aGVyIE1USyBtYWlsYm94
+DQo+ID4gPiA+IGRyaXZlcnMuDQo+ID4gPiA+IA0KPiA+ID4gPiA+ICvCoMKgwqDCoCB1MzIgbXNn
+c1tNU0dfTUJPWF9TTE9UU107DQo+ID4gPiA+IA0KPiA+ID4gPiBKdXN0IHJldXNlIHN0cnVjdCBt
+dGtfYXB1X21haWxib3hfbXNnIGluc3RlYWQuLi4uLg0KPiA+ID4gPiANCj4gPiA+ID4gPiArfTsN
+Cj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gK3N0cnVjdCBtdGtfYXB1X21haWxib3ggKmdfbWJveDsN
+Cj4gPiA+ID4gDQo+ID4gPiA+IFRoYXQgZ2xvYmFsIHN0cnVjdCBtdXN0IGRpc2FwcGVhciAtIGFu
+ZCBpZiB5b3UgdXNlIHRoZSBtYWlsYm94DQo+ID4gPiA+IEFQSQ0KPiA+ID4gPiBjb3JyZWN0bHkN
+Cj4gPiA+ID4gaXQncyBldmVuIHNpbXBsZS4NCj4gPiA+ID4gDQo+ID4gPiA+IEFsc28sIHlvdSB3
+YW50IHNvbWV0aGluZyBsaWtlLi4uLg0KPiA+ID4gPiANCj4gPiA+ID4gc3RhdGljIGlubGluZSBz
+dHJ1Y3QgbXRrX2FwdV9tYWlsYm94DQo+ID4gPiA+ICpnZXRfbXRrX2FwdV9tYWlsYm94KHN0cnVj
+dA0KPiA+ID4gPiBtYm94X2NvbnRyb2xsZXIgKm1ib3gpDQo+ID4gPiA+IHsNCj4gPiA+ID4gwqDC
+oMKgwqDCoMKgwqAgcmV0dXJuIGNvbnRhaW5lcl9vZihtYm94LCBzdHJ1Y3QgbXRrX2FwdV9tYWls
+Ym94LA0KPiA+ID4gPiBtYm94KTsNCj4gPiA+ID4gfQ0KPiA+ID4gPiANCj4gPiA+ID4gPiArDQo+
+ID4gPiA+ID4gK3N0YXRpYyBpcnFyZXR1cm5fdCBtdGtfYXB1X21haWxib3hfaXJxX3RvcF9oYWxm
+KGludCBpcnEsDQo+ID4gPiA+ID4gdm9pZA0KPiA+ID4gPiA+ICpkZXZfaWQpDQo+ID4gPiA+ID4g
+K3sNCj4gPiA+ID4gc3RhdGljIGlycXJldHVybl90IG10a19hcHVfbWFpbGJveF9pcnEoaW50IGly
+cSwgdm9pZCAqZGF0YSkNCj4gPiA+ID4gew0KPiA+ID4gPiDCoMKgwqDCoMKgwqDCoCBzdHJ1Y3Qg
+bWJveF9jaGFuICpjaGFuID0gZGF0YTsNCj4gPiA+ID4gwqDCoMKgwqDCoMKgwqAgc3RydWN0IG10
+a19hcHVfbWFpbGJveCA9IGdldF9tdGtfYXB1X21haWxib3goY2hhbi0NCj4gPiA+ID4gPm1ib3gp
+Ow0KPiA+ID4gPiANCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IG10a19hcHVfbWFpbGJveCAq
+bWJveCA9IGRldl9pZDsNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IG1ib3hfY2hhbiAqbGlu
+ayA9ICZtYm94LT5jb250cm9sbGVyLmNoYW5zWzBdOw0KPiA+ID4gPiA+ICvCoMKgwqDCoCBpbnQg
+aTsNCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gK8KgwqDCoMKgIGZvciAoaSA9IDA7IGkgPCBNU0df
+TUJPWF9TTE9UUzsgaSsrKQ0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgbWJv
+eC0+bXNnc1tpXSA9IHJlYWRsKG1ib3gtPnJlZ3MgKyBPVVRCT1ggKyBpICoNCj4gPiA+ID4gPiBz
+aXplb2YodTMyKSk7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICvCoMKgwqDCoCBtYm94X2NoYW5f
+cmVjZWl2ZWRfZGF0YShsaW5rLCAmbWJveC0+bXNncyk7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+
+ICvCoMKgwqDCoCByZXR1cm4gSVJRX1dBS0VfVEhSRUFEOw0KPiA+ID4gPiA+ICt9DQo+ID4gPiA+
+ID4gKw0KPiA+ID4gPiA+ICtzdGF0aWMgaXJxcmV0dXJuX3QgbXRrX2FwdV9tYWlsYm94X2lycV9i
+dG1faGFsZihpbnQgaXJxLA0KPiA+ID4gPiA+IHZvaWQNCj4gPiA+ID4gPiAqZGV2X2lkKQ0KPiA+
+ID4gPiANCj4gPiA+ID4gLi4uLm10a19hcHVfbWFpbGJveF9pcnFfdGhyZWFkKC4uLikNCj4gPiA+
+ID4gDQo+ID4gPiA+ID4gK3sNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IG10a19hcHVfbWFp
+bGJveCAqbWJveCA9IGRldl9pZDsNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IG1ib3hfY2hh
+biAqbGluayA9ICZtYm94LT5jb250cm9sbGVyLmNoYW5zWzBdOw0KPiA+ID4gPiA+ICsNCj4gPiA+
+ID4gPiArwqDCoMKgwqAgbWJveF9jaGFuX3JlY2VpdmVkX2RhdGFfYmgobGluaywgJm1ib3gtPm1z
+Z3MpOw0KPiA+ID4gPiANCj4gPiA+ID4gSSBkb24ndCB0aGluayB0aGF0IHlvdSByZWFsbHkgbmVl
+ZCB0aGlzIF9iaCB2YXJpYW50LCBsb29rcyBtb3JlDQo+ID4gPiA+IGxpa2UgeW91IHdhbnRlZA0K
+PiA+ID4gPiB0byBoYXZlIHR3byBjYWxsYmFja3MgaW5zdGVhZCBvZiBvbmUuDQo+ID4gPiA+IA0K
+PiA+ID4gPiBZb3UgY2FuIGluc3RlYWQgaGF2ZSBvbmUgY2FsbGJhY2sgYW5kIHZhcnkgZnVuY3Rp
+b25hbGl0eSBiYXNlZA0KPiA+ID4gPiBiYXNlZCBvbiByZWFkaW5nDQo+ID4gPiA+IGEgdmFyaWFi
+bGUgdG8gZGVjaWRlIHdoYXQgdG8gYWN0dWFsbHkgZG8gaW5zaWRlLiBOb3QgYSBiaWcNCj4gPiA+
+ID4gZGVhbC4NCj4gPiA+IA0KPiA+ID4gVGhlIHByb2JsZW0gaXMgdGhhdCB0aGV5IG5lZWQgc29t
+ZXRoaW5nIHdpdGggZGlmZmVyZW50IHNlbWFudGljcy4NCj4gPiA+IG1ib3hfY2hhbl9yZWNlaXZl
+ZF9kYXRhKCkgaXMgYXRvbWljIG9ubHkuDQo+ID4gDQo+ID4gWWVzLCBhcyBDaGVuLVl1IHNhaWQs
+IHdlIHdhbnQgdG8gaGF2ZSBhbm90aGVyIGNhbGxiYWNrIHdoaWNoIGNhbg0KPiA+IHJ1bg0KPiA+
+IHVuZGVyIG5vbi1hdG9taWMgc2VtYW50aWMuDQo+ID4gRXZlbiB0aG91Z2ggd2UgY2hhbmdlIHRo
+ZSBmdW5jdGlvbiBiYXNlZCBpbiB0aGUgY2FsbGJhY2sgZnVuY3Rpb24NCj4gPiBvZg0KPiA+IG1i
+b3hfY2hhbl9yZWNlaXZlZF9kYXRhKCksIGl0IGlzIHN0aWxsIG5vbi1hdG9taWMgZm9yIHRoZSBi
+b3R0b20tDQo+ID4gaGFsZg0KPiA+IGhhbmRsZXIuDQo+ID4gDQo+ID4gPiANCj4gPiA+ID4gPiAr
+wqDCoMKgwqAgd3JpdGVsKHJlYWRsKG1ib3gtPnJlZ3MgKyBPVVRCT1hfSVJRKSwgbWJveC0+cmVn
+cyArDQo+ID4gPiA+ID4gT1VUQk9YX0lSUSk7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICvCoMKg
+wqDCoCByZXR1cm4gSVJRX0hBTkRMRUQ7DQo+ID4gPiA+ID4gK30NCj4gPiA+ID4gPiArDQo+ID4g
+PiA+ID4gK3N0YXRpYyBpbnQgbXRrX2FwdV9tYWlsYm94X3NlbmRfZGF0YShzdHJ1Y3QgbWJveF9j
+aGFuICpjaGFuLA0KPiA+ID4gPiA+IHZvaWQgKmRhdGEpDQo+ID4gPiA+ID4gK3sNCj4gPiA+ID4g
+PiArwqDCoMKgwqAgc3RydWN0IG10a19hcHVfbWFpbGJveCAqbWJveCA9IGNvbnRhaW5lcl9vZihj
+aGFuLT5tYm94LA0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgc3RydWN0DQo+ID4gPiA+ID4gbXRrX2FwdV9tYWlsYm94LA0KPiA+ID4gPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqANCj4gPiA+ID4gPiBjb250cm9sbGVy
+KTsNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IG10a19hcHVfbWFpbGJveF9tc2cgKm1zZyA9
+IGRhdGE7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIGludCBpOw0KPiA+ID4gPiA+ICsNCj4gPiA+ID4g
+PiArwqDCoMKgwqAgaWYgKG1zZy0+c2VuZF9jbnQgPD0gMCB8fCBtc2ctPnNlbmRfY250ID4NCj4g
+PiA+ID4gPiBNU0dfTUJPWF9TTE9UUykNCj4gPiA+ID4gPiB7DQo+ID4gPiA+ID4gK8KgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBkZXZfZXJyKG1ib3gtPmRldiwgIiVzOiBpbnZhbGlkIHNlbmRfY250
+ICVkXG4iLA0KPiA+ID4gPiA+IF9fZnVuY19fLCBtc2ctPnNlbmRfY250KTsNCj4gPiA+ID4gPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiAtRUlOVkFMOw0KPiA+ID4gPiA+ICvCoMKg
+wqDCoCB9DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICvCoMKgwqDCoCAvKg0KPiA+ID4gPiA+ICvC
+oMKgwqDCoMKgICrCoMKgwqDCoMKgIE1hc2sgbG93ZXN0ICJzZW5kX2NudC0xIiBpbnRlcnJ1cHRz
+IGJpdHMsIHNvDQo+ID4gPiA+ID4gdGhlDQo+ID4gPiA+ID4gaW50ZXJydXB0IG9uIHRoZSBvdGhl
+ciBzaWRlDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqAgKsKgwqDCoMKgwqAgdHJpZ2dlcnMgb25seSBh
+ZnRlciB0aGUgbGFzdCBkYXRhIHNsb3QgaXMNCj4gPiA+ID4gPiB3cml0dGVuDQo+ID4gPiA+ID4g
+KHNlbnQpLg0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgICovDQo+ID4gPiA+ID4gK8KgwqDCoMKgIHdy
+aXRlbChHRU5NQVNLKG1zZy0+c2VuZF9jbnQgLSAyLCAwKSwgbWJveC0+cmVncyArDQo+ID4gPiA+
+ID4gSU5CT1hfSVJRX01BU0spOw0KPiA+ID4gPiA+ICvCoMKgwqDCoCBmb3IgKGkgPSAwOyBpIDwg
+bXNnLT5zZW5kX2NudDsgaSsrKQ0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+d3JpdGVsKG1zZy0+ZGF0YVtpXSwgbWJveC0+cmVncyArIElOQk9YICsgaSAqDQo+ID4gPiA+ID4g
+c2l6ZW9mKHUzMikpOw0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArwqDCoMKgwqAgcmV0dXJuIDA7
+DQo+ID4gPiA+ID4gK30NCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gK3N0YXRpYyBib29sIG10a19h
+cHVfbWFpbGJveF9sYXN0X3R4X2RvbmUoc3RydWN0IG1ib3hfY2hhbg0KPiA+ID4gPiA+ICpjaGFu
+KQ0KPiA+ID4gPiA+ICt7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIHN0cnVjdCBtdGtfYXB1X21haWxi
+b3ggKm1ib3ggPSBjb250YWluZXJfb2YoY2hhbi0+bWJveCwNCj4gPiA+ID4gPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdA0KPiA+ID4gPiA+IG10a19hcHVf
+bWFpbGJveCwNCj4gPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgDQo+ID4gPiA+ID4gY29udHJvbGxlcik7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICvCoMKg
+wqDCoCByZXR1cm4gcmVhZGwobWJveC0+cmVncyArIElOQk9YX0lSUSkgPT0gMDsNCj4gPiA+ID4g
+PiArfQ0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArc3RhdGljIGNvbnN0IHN0cnVjdCBtYm94X2No
+YW5fb3BzIG10a19hcHVfbWFpbGJveF9vcHMgPSB7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIC5zZW5k
+X2RhdGEgPSBtdGtfYXB1X21haWxib3hfc2VuZF9kYXRhLA0KPiA+ID4gPiA+ICvCoMKgwqDCoCAu
+bGFzdF90eF9kb25lID0gbXRrX2FwdV9tYWlsYm94X2xhc3RfdHhfZG9uZSwNCj4gPiA+ID4gPiAr
+fTsNCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gKy8qKg0KPiA+ID4gPiA+ICsgKiBtdGtfYXB1X21i
+b3hfd3JpdGUgLSBXcml0ZSB2YWx1ZSB0byBzcGVjaWZpY2UNCj4gPiA+ID4gPiBtdGtfYXB1X21i
+b3gNCj4gPiA+ID4gPiBzcGFyZSByZWdpc3Rlci4NCj4gPiA+ID4gPiArICogQHZhbDogVmFsdWUg
+dG8gYmUgd3JpdHRlbi4NCj4gPiA+ID4gPiArICogQG9mZnNldDogT2Zmc2V0IG9mIHRoZSBzcGFy
+ZSByZWdpc3Rlci4NCj4gPiA+ID4gPiArICoNCj4gPiA+ID4gPiArICogUmV0dXJuOiAwIGlmIHN1
+Y2Nlc3NmdWwNCj4gPiA+ID4gPiArICrCoMKgwqDCoMKgIG5lZ2F0aXZlIHZhbHVlIGlmIGVycm9y
+IGhhcHBlbmVkDQo+ID4gPiA+ID4gKyAqLw0KPiA+ID4gPiA+ICtpbnQgbXRrX2FwdV9tYm94X3dy
+aXRlKHUzMiB2YWwsIHUzMiBvZmZzZXQpDQo+ID4gPiA+ID4gK3sNCj4gPiA+ID4gPiArwqDCoMKg
+wqAgaWYgKCFnX21ib3gpIHsNCj4gPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHBy
+X2VycigibXRrIGFwdSBtYm94IHdhcyBub3QgaW5pdGlhbGl6ZWQsIHN0b3ANCj4gPiA+ID4gPiB3
+cml0aW5nIHJlZ2lzdGVyXG4iKTsNCj4gPiA+ID4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHJldHVybiAtRU5PREVWOw0KPiA+ID4gPiA+ICvCoMKgwqDCoCB9DQo+ID4gPiA+ID4gKw0KPiA+
+ID4gPiA+ICvCoMKgwqDCoCBpZiAob2Zmc2V0IDwgU1BBUkVfT0ZGX1NUQVJUIHx8IG9mZnNldCA+
+PQ0KPiA+ID4gPiA+IFNQQVJFX09GRl9FTkQpDQo+ID4gPiA+ID4gew0KPiA+ID4gPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgZGV2X2VycihnX21ib3gtPmRldiwgIkludmFsaWQgb2Zmc2V0
+ICVkIGZvciBtdGsNCj4gPiA+ID4gPiBhcHUNCj4gPiA+ID4gPiBtYm94IHNwYXJlIHJlZ2lzdGVy
+XG4iLCBvZmZzZXQpOw0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJu
+IC1FSU5WQUw7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIH0NCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4g
+K8KgwqDCoMKgIHdyaXRlbCh2YWwsIGdfbWJveC0+cmVncyArIG9mZnNldCk7DQo+ID4gPiA+IA0K
+PiA+ID4gPiBUaGVyZSdzIHNvbWV0aGluZyBvZGQgaW4gd2hhdCB5b3UncmUgZG9pbmcgaGVyZSwg
+d2h5IHdvdWxkIHlvdQ0KPiA+ID4gPiBldmVyDQo+ID4gPiA+IG5lZWQNCj4gPiA+ID4gYSBmdW5j
+dGlvbiB0aGF0IHBlcmZvcm1zIGEgd3JpdGVsIGp1c3QgbGlrZSB0aGF0PyBXaGF0J3MgdGhlDQo+
+ID4gPiA+IHB1cnBvc2U/DQo+ID4gPiA+IA0KPiA+ID4gPiBXaGF0IGFyZSB5b3Ugd3JpdGluZyB0
+byB0aGUgc3BhcmUgcmVnaXN0ZXJzPw0KPiA+ID4gPiBGb3Igd2hpY2ggcmVhc29uPw0KPiA+ID4g
+DQo+ID4gPiBJJ2xsIGxlYXZlIHRoZSBleHBsYWluaW5nIHRvIEthcmwsIGJ1dCBiYXNlZCBvbiBp
+bnRlcm5hbCByZXZpZXdzDQo+ID4gPiBmb3INCj4gPiA+IHRoZQ0KPiA+ID4gcHJldmlvdXMgZ2Vu
+ZXJhdGlvbiwgaXQgbG9va2VkIGxpa2UgcGFzc2luZyB2YWx1ZXMgdG8vZnJvbSB0aGUNCj4gPiA+
+IE1DVS4NCj4gPiA+IA0KPiA+IA0KPiA+IFRoZSBtYWluIHJlYXNvbiB3ZSB3YW50IHRvIGFjY2Vz
+cyB0aGUgQVBVIG1haWxib3ggc3BhcmUgcmVnaXN0ZXJzDQo+ID4gaXMNCj4gPiB0bw0KPiA+IGVu
+c3VyZSB0aGF0IHdlIGNhbiBjb25maWd1cmUgdGhlIG5lY2Vzc2FyeSBzZXR0aW5ncyBiZWZvcmUg
+dGhlIEFQVQ0KPiA+IGZpcm13YXJlIGJlY29tZXMgZnVsbHkgb3BlcmF0aW9uYWwuDQo+ID4gDQo+
+ID4gQXQgdGhlIGVhcmx5IHN0YWdlLCB0aGUgY29tbXVuaWNhdGlvbiBwYXRod2F5cyBiZXR3ZWVu
+IHRoZSBBUFUgYW5kDQo+ID4gdGhlDQo+ID4gTGludXggS2VybmVsIGFyZW4ndCB5ZXQgYXZhaWxh
+YmxlLCBzbyB0aGVzZSBzcGFyZSByZWdpc3RlcnMgYXJlDQo+ID4gbmVlZGVkDQo+ID4gZm9yIHBh
+c3NpbmcgdGhlIGluaXRpYWwgY29uZmlndXJhdGlvbiBkYXRhLg0KPiA+IA0KPiA+ID4gPiBJIHRo
+aW5rIHlvdSBjYW4gYXZvaWQgKHJlYWQgdGhpcyBhczogeW91ICpoYXZlIHRvKiBhdm9pZCkNCj4g
+PiA+ID4gaGF2aW5nDQo+ID4gPiA+IHN1Y2ggYQ0KPiA+ID4gPiBmdW5jdGlvbiBhcm91bmQuDQo+
+ID4gPiANCj4gPiA+IEFnYWluLCBkdXJpbmcgdGhlIHByZXZpb3VzIHJvdW5kIG9mIGludGVybmFs
+IHJldmlld3MsIEkgaGFkDQo+ID4gPiB0aG91Z2h0DQo+ID4gPiBhYm91dCBtb2RlbGluZyB0aGVz
+ZSBhcyBleHRyYSBtYm94IGNoYW5uZWxzLiBJIG1heSBoYXZlIGV2ZW4NCj4gPiA+IGFza2VkDQo+
+ID4gPiBhYm91dCB0aGlzIG9uIElSQy4NCj4gPiA+IA0KPiA+ID4gVGhlIHByb2JsZW0gaXMgdGhh
+dCBpdCBkb2Vzbid0IHJlYWxseSBoYXZlIG1ib3ggc2VtYW50aWNzLiBUaGV5DQo+ID4gPiBhcmUN
+Cj4gPiA+IGp1c3Qgc2hhcmVkIHJlZ2lzdGVycyB3aXRoIG5vIHNlbmQvcmVjZWl2ZSBub3RpZmlj
+YXRpb24uIFNvIGF0DQo+ID4gPiB0aGUNCj4gPiA+IHZlcnkgbGVhc3QsIHRoZXJlJ3Mgbm90aGlu
+ZyB0aGF0IHdpbGwgdHJpZ2dlciBhIHJlY2VwdGlvbi4gSQ0KPiA+ID4gc3VwcG9zZQ0KPiA+ID4g
+d2UgY291bGQgbWFrZSB0aGUgLnBlZWtfZGF0YSBvcCB0cmlnZ2VyIFJYLCBidXQgdGhhdCdzIGEg
+cmVhbGx5DQo+ID4gPiBjb252b2x1dGVkIHdheSB0byByZWFkIGp1c3QgYSByZWdpc3Rlci4NCj4g
+PiA+IA0KPiA+ID4gVGhlIG90aGVyIG9wdGlvbiB3b3VsZCBiZSB0byBoYXZlIGEgc3lzY29uIC8g
+Y3VzdG9tIGV4cG9ydGVkDQo+ID4gPiByZWdtYXA/DQo+ID4gPiANCj4gPiA+ID4gPiArwqDCoMKg
+wqAgcmV0dXJuIDA7DQo+ID4gPiA+ID4gK30NCj4gPiA+ID4gPiArRVhQT1JUX1NZTUJPTF9OUyht
+dGtfYXB1X21ib3hfd3JpdGUsIE1US19BUFVfTUFJTEJPWCk7DQo+ID4gPiA+ID4gKw0KPiA+ID4g
+PiA+ICsvKioNCj4gPiA+ID4gPiArICogbXRrX2FwdV9tYm94X3JlYWQgLSBSZWFkIHZhbHVlIHRv
+IHNwZWNpZmljZSBtdGtfYXB1X21ib3gNCj4gPiA+ID4gPiBzcGFyZSByZWdpc3Rlci4NCj4gPiA+
+ID4gPiArICogQG9mZnNldDogT2Zmc2V0IG9mIHRoZSBzcGFyZSByZWdpc3Rlci4NCj4gPiA+ID4g
+PiArICogQHZhbDogUG9pbnRlciB0byBzdG9yZSByZWFkIHZhbHVlLg0KPiA+ID4gPiA+ICsgKg0K
+PiA+ID4gPiA+ICsgKiBSZXR1cm46IDAgaWYgc3VjY2Vzc2Z1bA0KPiA+ID4gPiA+ICsgKsKgwqDC
+oMKgwqAgbmVnYXRpdmUgdmFsdWUgaWYgZXJyb3IgaGFwcGVuZWQNCj4gPiA+ID4gPiArICovDQo+
+ID4gPiA+ID4gK2ludCBtdGtfYXB1X21ib3hfcmVhZCh1MzIgb2Zmc2V0LCB1MzIgKnZhbCkNCj4g
+PiA+ID4gPiArew0KPiA+ID4gPiA+ICvCoMKgwqDCoCBpZiAoIWdfbWJveCkgew0KPiA+ID4gPiA+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcHJfZXJyKCJtdGsgYXB1IG1ib3ggd2FzIG5vdCBp
+bml0aWFsaXplZCwgc3RvcA0KPiA+ID4gPiA+IHJlYWRpbmcgcmVnaXN0ZXJcbiIpOw0KPiA+ID4g
+PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIC1FTk9ERVY7DQo+ID4gPiA+ID4g
+K8KgwqDCoMKgIH0NCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gK8KgwqDCoMKgIGlmIChvZmZzZXQg
+PCBTUEFSRV9PRkZfU1RBUlQgfHwgb2Zmc2V0ID49DQo+ID4gPiA+ID4gU1BBUkVfT0ZGX0VORCkN
+Cj4gPiA+ID4gPiB7DQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBkZXZfZXJy
+KGdfbWJveC0+ZGV2LCAiSW52YWxpZCBvZmZzZXQgJWQgZm9yIG10aw0KPiA+ID4gPiA+IGFwdQ0K
+PiA+ID4gPiA+IG1ib3ggc3BhcmUgcmVnaXN0ZXJcbiIsIG9mZnNldCk7DQo+ID4gPiA+ID4gK8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gLUVJTlZBTDsNCj4gPiA+ID4gPiArwqDCoMKg
+wqAgfQ0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArwqDCoMKgwqAgKnZhbCA9IHJlYWRsKGdfbWJv
+eC0+cmVncyArIG9mZnNldCk7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiANCj4gPiA+ID4gU2FtZSBn
+b2VzIGZvciB0aGlzIG9uZS4NCj4gPiA+ID4gDQo+ID4gPiA+ID4gK8KgwqDCoMKgIHJldHVybiAw
+Ow0KPiA+ID4gPiA+ICt9DQo+ID4gPiA+ID4gK0VYUE9SVF9TWU1CT0xfTlMobXRrX2FwdV9tYm94
+X3JlYWQsIE1US19BUFVfTUFJTEJPWCk7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICtzdGF0aWMg
+aW50IG10a19hcHVfbWFpbGJveF9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlDQo+ID4gPiA+
+ID4gKnBkZXYpDQo+ID4gPiA+ID4gK3sNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IGRldmlj
+ZSAqZGV2ID0gJnBkZXYtPmRldjsNCj4gPiA+ID4gPiArwqDCoMKgwqAgc3RydWN0IG10a19hcHVf
+bWFpbGJveCAqbWJveDsNCj4gPiA+ID4gPiArwqDCoMKgwqAgaW50IGlycSA9IC0xLCByZXQgPSAw
+Ow0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArwqDCoMKgwqAgbWJveCA9IGRldm1fa3phbGxvYyhk
+ZXYsIHNpemVvZigqbWJveCksIEdGUF9LRVJORUwpOw0KPiA+ID4gPiA+ICvCoMKgwqDCoCBpZiAo
+IW1ib3gpDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gLUVOT01F
+TTsNCj4gPiA+ID4gPiArDQo+ID4gPiA+ID4gK8KgwqDCoMKgIG1ib3gtPmRldiA9IGRldjsNCj4g
+PiA+ID4gPiArwqDCoMKgwqAgcGxhdGZvcm1fc2V0X2RydmRhdGEocGRldiwgbWJveCk7DQo+ID4g
+PiA+ID4gKw0KPiA+ID4gPiANCj4gPiA+ID4gUGxlYXNlIG1vdmUgdGhlIHBsYXRmb3JtX2dldF9p
+cnEgY2FsbCBoZXJlIG9yIGFueXdheSBiZWZvcmUNCj4gPiA+ID4gcmVnaXN0ZXJpbmcgdGhlDQo+
+ID4gPiA+IG1ib3ggY29udHJvbGxlcjogaW4gY2FzZSBhbnl0aGluZyBnb2VzIHdyb25nLCBkZXZt
+IHdvbid0IGhhdmUNCj4gPiA+ID4gdG8NCj4gPiA+ID4gdW5yZWdpc3Rlcg0KPiA+ID4gPiB0aGUg
+bWJveCBhZnRlcndhcmRzIGJlY2F1c2UgaXQgbmV2ZXIgZ290IHJlZ2lzdGVyZWQgaW4gdGhlDQo+
+ID4gPiA+IGZpcnN0DQo+ID4gPiA+IHBsYWNlLg0KPiA+ID4gDQo+ID4gPiBUbyBjbGFyaWZ5LCB5
+b3UgbWVhbiBfanVzdF8gcGxhdGZvcm1fZ2V0X2lycSgpIGFuZCBub3QNCj4gPiA+IHJlcXVlc3Rf
+aXJxDQo+ID4gPiBhcw0KPiA+ID4gd2VsbC4NCj4gPiA+IA0KPiA+ID4gPiA+ICvCoMKgwqDCoCBt
+Ym94LT5yZWdzID0gZGV2bV9wbGF0Zm9ybV9pb3JlbWFwX3Jlc291cmNlKHBkZXYsIDApOw0KPiA+
+ID4gPiA+ICvCoMKgwqDCoCBpZiAoSVNfRVJSKG1ib3gtPnJlZ3MpKQ0KPiA+ID4gPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIFBUUl9FUlIobWJveC0+cmVncyk7DQo+ID4gPiA+
+ID4gKw0KPiA+ID4gPiA+ICvCoMKgwqDCoCBtYm94LT5jb250cm9sbGVyLnR4ZG9uZV9pcnEgPSBm
+YWxzZTsNCj4gPiA+ID4gPiArwqDCoMKgwqAgbWJveC0+Y29udHJvbGxlci50eGRvbmVfcG9sbCA9
+IHRydWU7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIG1ib3gtPmNvbnRyb2xsZXIudHhwb2xsX3Blcmlv
+ZCA9IDE7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIG1ib3gtPmNvbnRyb2xsZXIub3BzID0gJm10a19h
+cHVfbWFpbGJveF9vcHM7DQo+ID4gPiA+ID4gK8KgwqDCoMKgIG1ib3gtPmNvbnRyb2xsZXIuZGV2
+ID0gZGV2Ow0KPiA+ID4gPiA+ICvCoMKgwqDCoCAvKg0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgICog
+SGVyZSB3ZSBvbmx5IHJlZ2lzdGVyIDEgbWJveCBjaGFubmVsLg0KPiA+ID4gPiA+ICvCoMKgwqDC
+oMKgICogVGhlIHJlbWFpbmluZyBjaGFubmVscyBhcmUgdXNlZCBieSBvdGhlciBtb2R1bGVzLg0K
+PiA+ID4gPiANCj4gPiA+ID4gV2hhdCBvdGhlciBtb2R1bGVzPyBJIGRvbid0IHJlYWxseSBzZWUg
+YW55IC0gc28gcGxlYXNlIGF0IGxlYXN0DQo+ID4gPiA+IGV4cGxhaW4gdGhhdCBpbiB0aGUNCj4g
+PiA+ID4gY29tbWl0IGRlc2NyaXB0aW9uLg0KPiA+IA0KPiA+IFNvcnJ5IGZvciBhbnkgY29uZnVz
+aW9uIGNhdXNlZCBieSB0aGUgYWJvdmUgY29tbWVudC4gVG8gY2xhcmlmeSwNCj4gPiB0aGUNCj4g
+PiBjb21tZW50IHdhcyBzcGVjaWZpYyB0byB0aGUgTVQ4MTg4IHBsYXRmb3JtLCB3aGljaCBpcyB0
+aGUgbGVnYWN5DQo+ID4gcGxhdGZvcm0gY29tcGFyZWQgdG8gTVQ4MTk2Lg0KPiA+IEluIHRoZSBj
+b250ZXh0IG9mIE1UODE4OCwgdGhlIEFQVSBtYWlsYm94IGhhcyBtdWx0aXBsZSBpbi9vdXQNCj4g
+PiBib3hlcywNCj4gPiBhbmQgTGludXggb25seSB1dGlsaXplcyBpbi9vdXQgYm94IDAsIHdoaWxl
+IHRoZSBvdGhlcnMgYXJlIHJlc2VydmVkDQo+ID4gZm9yDQo+ID4gZGlmZmVyZW50IFZNcy4NCj4g
+PiANCj4gPiBIb3dldmVyLCB0aGUgQVBVIG1haWxib3ggaGFyZHdhcmUgZGVzaWduIGluIE1UODE5
+NiBkaWZmZXJzIGZyb20NCj4gPiB0aGF0DQo+ID4gb2YNCj4gPiBNVDgxODgsIGFuZCBpbiBNVDgx
+OTYsIExpbnV4IGhhcyBmdWxsIGFjY2VzcyB0byB0aGUgQVBVIG1haWxib3guDQo+ID4gDQo+ID4g
+R2l2ZW4gdGhhdCB0aGlzIHBhdGNoIGlzIHByaW1hcmlseSBmb3IgdGhlIE1UODE5NiBwbGF0Zm9y
+bSwgd2Ugd2lsbA0KPiA+IHJlbW92ZSB0aGUgYWJvdmUgY29tbWVudCBpbiB0aGUgbmV4dCB2ZXJz
+aW9uIG9mIHRoZSBwYXRjaC4NCj4gPiANCj4gPiBUaGFua3MgZm9yIHlvdXIgYXNraW5nLg0KPiA+
+IA0KPiA+IEthcmwNCj4gPiANCj4gPiA+ID4gDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqAgKi8NCj4g
+PiA+ID4gPiArwqDCoMKgwqAgbWJveC0+Y29udHJvbGxlci5udW1fY2hhbnMgPSAxOw0KPiA+ID4g
+PiA+ICvCoMKgwqDCoCBtYm94LT5jb250cm9sbGVyLmNoYW5zID0gZGV2bV9rY2FsbG9jKGRldiwg
+bWJveC0NCj4gPiA+ID4gPiA+IGNvbnRyb2xsZXIubnVtX2NoYW5zLA0KPiA+ID4gPiA+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc2l6ZW9mKCptYm94LQ0KPiA+ID4gPiA+ID4gY29udHJv
+bGxlci5jaGFucyksDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBHRlBf
+S0VSTkVMKTsNCj4gPiA+ID4gPiArwqDCoMKgwqAgaWYgKCFtYm94LT5jb250cm9sbGVyLmNoYW5z
+KQ0KPiA+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIC1FTk9NRU07DQo+
+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICvCoMKgwqDCoCByZXQgPSBkZXZtX21ib3hfY29udHJvbGxl
+cl9yZWdpc3RlcihkZXYsICZtYm94LQ0KPiA+ID4gPiA+ID4gY29udHJvbGxlcik7DQo+ID4gPiA+
+ID4gK8KgwqDCoMKgIGlmIChyZXQpDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCByZXR1cm4gcmV0Ow0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArwqDCoMKgwqAgaXJxID0gcGxh
+dGZvcm1fZ2V0X2lycShwZGV2LCAwKTsNCj4gPiA+ID4gPiArwqDCoMKgwqAgaWYgKGlycSA8IDAp
+DQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gaXJxOw0KPiA+ID4g
+PiA+ICsNCj4gPiA+ID4gPiArwqDCoMKgwqAgcmV0ID0gZGV2bV9yZXF1ZXN0X3RocmVhZGVkX2ly
+cShkZXYsIGlycSwNCj4gPiA+ID4gPiBtdGtfYXB1X21haWxib3hfaXJxX3RvcF9oYWxmLA0KPiA+
+ID4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqANCj4gPiA+ID4gPiBtdGtfYXB1X21haWxib3hfaXJxX2J0
+bV9oYWxmLCBJUlFGX09ORVNIT1QsDQo+ID4gPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBkZXZfbmFt
+ZShkZXYpLCBtYm94KTsNCj4gPiA+ID4gDQo+ID4gPiA+IHBhc3MgbWJveC0+Y2hhbnMgdG8gdGhl
+IGlzcg0KPiA+ID4gPiANCj4gPiA+ID4gPiArwqDCoMKgwqAgaWYgKHJldCkNCj4gPiA+ID4gPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBkZXZfZXJyX3Byb2JlKGRldiwgcmV0LCAi
+RmFpbGVkIHRvDQo+ID4gPiA+ID4gcmVxdWVzdA0KPiA+ID4gPiA+IElSUVxuIik7DQo+ID4gPiA+
+ID4gKw0KPiA+ID4gPiA+ICvCoMKgwqDCoCBnX21ib3ggPSBtYm94Ow0KPiA+ID4gPiA+ICsNCj4g
+PiA+ID4gPiArwqDCoMKgwqAgZGV2X2RiZyhkZXYsICJyZWdpc3RlcmVkIG10ayBhcHUgbWFpbGJv
+eFxuIik7DQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICvCoMKgwqDCoCByZXR1cm4gMDsNCj4gPiA+
+ID4gPiArfQ0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArc3RhdGljIHZvaWQgbXRrX2FwdV9tYWls
+Ym94X3JlbW92ZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlDQo+ID4gPiA+ID4gKnBkZXYpDQo+ID4g
+PiA+ID4gK3sNCj4gPiA+ID4gPiArwqDCoMKgwqAgZ19tYm94ID0gTlVMTDsNCj4gPiA+ID4gPiAr
+fQ0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArc3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZpY2Vf
+aWQgbXRrX2FwdV9tYWlsYm94X29mX21hdGNoW10NCj4gPiA+ID4gPiA9DQo+ID4gPiA+ID4gew0K
+PiA+ID4gPiA+ICvCoMKgwqDCoCB7IC5jb21wYXRpYmxlID0gIm1lZGlhdGVrLG10ODE4OC1hcHUt
+bWFpbGJveCIgfSwNCj4gPiA+ID4gPiArwqDCoMKgwqAgeyAuY29tcGF0aWJsZSA9ICJtZWRpYXRl
+ayxtdDgxOTYtYXB1LW1haWxib3giIH0sDQo+ID4gPiA+IA0KPiA+ID4gPiBKdXN0IG1lZGlhdGVr
+LG10ODE4OC1hcHUtbWFpbGJveCBpcyBmaW5lOyB5b3UgY2FuIGFsbG93DQo+ID4gPiA+IG10ODE5
+Nj09bXQ4MTg4IGluIHRoZQ0KPiA+ID4gPiBiaW5kaW5nIGluc3RlYWQuDQo+ID4gPiA+IA0KPiA+
+ID4gPiA+ICvCoMKgwqDCoCB7fQ0KPiA+ID4gPiA+ICt9Ow0KPiA+ID4gPiA+ICtNT0RVTEVfREVW
+SUNFX1RBQkxFKG9mLCBtdGtfYXB1X21haWxib3hfb2ZfbWF0Y2gpOw0KPiA+ID4gPiA+ICsNCj4g
+PiA+ID4gPiArc3RhdGljIHN0cnVjdCBwbGF0Zm9ybV9kcml2ZXIgbXRrX2FwdV9tYWlsYm94X2Ry
+aXZlciA9IHsNCj4gPiA+ID4gPiArwqDCoMKgwqAgLnByb2JlID0gbXRrX2FwdV9tYWlsYm94X3By
+b2JlLA0KPiA+ID4gPiA+ICvCoMKgwqDCoCAucmVtb3ZlID0gbXRrX2FwdV9tYWlsYm94X3JlbW92
+ZSwNCj4gPiA+ID4gDQo+ID4gPiA+IFlvdSBkb24ndCBuZWVkIHRoaXMgcmVtb3ZlIGNhbGxiYWNr
+LCBzaW5jZSBnX21ib3ggaGFzIHRvDQo+ID4gPiA+IGRpc2FwcGVhcg0KPiA+ID4gPiA6LSkNCj4g
+PiA+ID4gDQo+ID4gPiA+ID4gK8KgwqDCoMKgIC5kcml2ZXIgPSB7DQo+ID4gPiA+ID4gK8KgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCAubmFtZSA9ICJtdGstYXB1LW1haWxib3giLA0KPiA+ID4gPiA+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLm9mX21hdGNoX3RhYmxlID0gbXRrX2FwdV9tYWls
+Ym94X29mX21hdGNoLA0KPiA+ID4gPiA+ICvCoMKgwqDCoCB9LA0KPiA+ID4gPiA+ICt9Ow0KPiA+
+ID4gPiA+ICsNCj4gPiA+ID4gPiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihtdGtfYXB1X21haWxi
+b3hfZHJpdmVyKTsNCj4gPiA+ID4gPiArTU9EVUxFX0xJQ0VOU0UoIkdQTCIpOw0KPiA+ID4gPiA+
+ICtNT0RVTEVfREVTQ1JJUFRJT04oIk1lZGlhVGVrIEFQVSBNYWlsYm94IERyaXZlciIpOw0KPiA+
+ID4gPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L21haWxib3gvbXRrLWFwdS1tYWlsYm94
+LmgNCj4gPiA+ID4gPiBiL2luY2x1ZGUvbGludXgvbWFpbGJveC9tdGstYXB1LW1haWxib3guaA0K
+PiA+ID4gPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0DQo+ID4gPiA+ID4gaW5kZXggMDAwMDAwMDAw
+MDAwLi5kMTQ1N2QxNmNlOWINCj4gPiA+ID4gPiAtLS0gL2Rldi9udWxsDQo+ID4gPiA+ID4gKysr
+IGIvaW5jbHVkZS9saW51eC9tYWlsYm94L210ay1hcHUtbWFpbGJveC5oDQo+ID4gPiA+ID4gQEAg
+LTAsMCArMSwyMCBAQA0KPiA+ID4gPiA+ICsvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BM
+LTIuMCAqLw0KPiA+ID4gPiA+ICsvKg0KPiA+ID4gPiA+ICsgKiBDb3B5cmlnaHQgKGMpIDIwMjQg
+TWVkaWFUZWsgSW5jLg0KPiA+ID4gPiA+ICsgKg0KPiA+ID4gPiA+ICsgKi8NCj4gPiA+ID4gPiAr
+DQo+ID4gPiA+ID4gKyNpZm5kZWYgX19NVEtfQVBVX01BSUxCT1hfSF9fDQo+ID4gPiA+ID4gKyNk
+ZWZpbmUgX19NVEtfQVBVX01BSUxCT1hfSF9fDQo+ID4gPiA+ID4gKw0KPiA+ID4gPiA+ICsjZGVm
+aW5lIE1TR19NQk9YX1NMT1RTwqDCoMKgwqDCoMKgICg4KQ0KPiA+ID4gPiA+ICsNCj4gPiA+ID4g
+PiArc3RydWN0IG10a19hcHVfbWFpbGJveF9tc2cgew0KPiA+ID4gPiA+ICvCoMKgwqDCoCBpbnQg
+c2VuZF9jbnQ7DQo+ID4gPiA+IA0KPiA+ID4gPiB1OCBkYXRhX2NudDsNCj4gPiA+ID4gDQo+ID4g
+PiA+ID4gK8KgwqDCoMKgIHUzMiBkYXRhW01TR19NQk9YX1NMT1RTXTsNCj4gPiA+ID4gDQo+ID4g
+PiA+IFdpdGggaGFyZGNvZGVkIHNsb3RzLCB3aGF0IGhhcHBlbnMgd2hlbiB3ZSBnZXQgYSBuZXcg
+Y2hpcCBpbg0KPiA+ID4gPiB0aGUNCj4gPiA+ID4gZnV0dXJlIHRoYXQNCj4gPiA+ID4gc3VwcG9y
+dHMgbW9yZSBzbG90cz8NCj4gPiA+IA0KPiA+ID4gU2VlbXMgbGlrZSB3ZSBjYW4gbWFrZSBpdCBh
+IGZsZXhpYmxlIGFycmF5IG1lbWJlcj8gQnV0IHRoZQ0KPiA+ID4gcHJvYmxlbQ0KPiA+ID4gdGhl
+bg0KPiA+ID4gYmVjb21lcyBob3cgZG9lcyB0aGUgY2xpZW50IGtub3cgd2hhdCB0aGUgbWF4aW11
+bSBsZW5ndGggaXMuIE9yDQo+ID4gPiBtYXliZQ0KPiA+ID4gaXQgc2hvdWxkIGFscmVhZHkga25v
+dyBnaXZlbiBpdCdzIHRpZWQgdG8gYSBwYXJ0aWN1bGFyIHBsYXRmb3JtLg0KPiA+ID4gDQo+ID4g
+PiBJbiBhbnkgY2FzZSBpdCBiZWNvbWVzOg0KPiA+ID4gDQo+ID4gPiDCoMKgwqAgc3RydWN0IG10
+a19hcHVfbWFpbGJveF9tc2cgew0KPiA+ID4gwqDCoMKgwqDCoMKgwqAgdTggZGF0YV9zaXplOw0K
+PiA+ID4gwqDCoMKgwqDCoMKgwqAgdTggZGF0YVtdIF9fY291bnRlZF9ieShkYXRhX3NpemUpOw0K
+PiA+ID4gwqDCoMKgIH07DQo+ID4gPiANCj4gPiA+IFRoaXMgY2FuJ3QgYmUgYWxsb2NhdGVkIG9u
+IHRoZSBzdGFjayBpZiBgZGF0YV9zaXplYCBpc24ndCBhDQo+ID4gPiBjb21waWxlDQo+ID4gPiB0
+aW1lIGNvbnN0YW50IHRob3VnaDsgYnV0IGFnYWluIGl0IHNob3VsZG4ndCBiZSBhIHByb2JsZW0g
+Z2l2ZW4NCj4gPiA+IHRoZQ0KPiA+ID4gbWVzc2FnZSBzaXplIGlzIHRpZWQgdG8gdGhlIGNsaWVu
+dCAmIGl0cyBwbGF0Zm9ybSBhbmQgc2hvdWxkIGJlDQo+ID4gPiBjb25zdGFudCBhbnl3YXkuDQo+
+ID4gPiANCj4gPiA+IFRoZSBjb250cm9sbGVyIHNob3VsZCBqdXN0IGVycm9yIG91dCBpZiB0aGUg
+bWVzc2FnZSBpcyBsYXJnZXINCj4gPiA+IHRoYW4NCj4gPiA+IHdoYXQgaXQgY2FuIGF0b21pY2Fs
+bHkgc2VuZC4NCj4gPiA+IA0KPiA+ID4gDQo+ID4gPiBDaGVuWXUNCj4gPiA+IA0KPiA+ID4gPiBQ
+bGVhc2UgdGhpbmsgYWJvdXQgdGhpcyBub3cgYW5kIG1ha2UgdGhlIGltcGxlbWVudGF0aW9uDQo+
+ID4gPiA+IGZsZXhpYmxlDQo+ID4gPiA+IGJlZm9yZSB0aGF0DQo+ID4gPiA+IGhhcHBlbnMgYmVj
+YXVzZSwgYXQgYSBsYXRlciB0aW1lLCBpdCdsbCBiZSBoYXJkZXIuDQo+ID4gPiA+IA0KPiA+ID4g
+PiBSZWdhcmRzLA0KPiA+ID4gPiBBbmdlbG8NCj4gPiA+ID4gDQo+ID4gPiA+ID4gK307DQo+ID4g
+PiA+ID4gKw0KPiA+ID4gPiA+ICtpbnQgbXRrX2FwdV9tYm94X3dyaXRlKHUzMiB2YWwsIHUzMiBv
+ZmZzZXQpOw0KPiA+ID4gPiA+ICtpbnQgbXRrX2FwdV9tYm94X3JlYWQodTMyIG9mZnNldCwgdTMy
+ICp2YWwpOw0KPiA+ID4gPiA+ICsNCj4gPiA+ID4gPiArI2VuZGlmIC8qIF9fTVRLX0FQVV9NQUlM
+Qk9YX0hfXyAqLw0KPiA+ID4gPiANCj4gPiA+ID4gDQo+ID4gDQo+IA0KDQo=
 
