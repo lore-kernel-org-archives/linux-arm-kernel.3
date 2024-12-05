@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF702E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 14:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843A3E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 14:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYkF8Jl7PXN/6GtOUv5i7MYbBh/DkRzPp4tW4MXD1sE=; b=qtHrLn/b6JIFvyoRSO+3sFFCq/
-	F5ftx4f/IMt7QTSUIFmPX7ywABtIWixHq+9hJ/vE7WH2gfcCiOJouasXOPLwQcnglQfyuShMqCvnX
-	RBi7hgpf4/Hkf6Ba7FCYioreiKisLxCKXCALSd8jge987fylOPy43pcWuXRzgIUsqvvhaYURRH4Bd
-	GCmh+rCjezM6cQuyCPQQkOnbyps0llWgilQJ78TBkoimZ6JWWcjiTPdm3FYoVZdp0MHsW98KK8Ujt
-	cQVNdTf5H3jPJJdfTFscCSDKMBsA58njF5KCthXztDbvMXVKoXg3KAZqZymg9aBITKb51eRTbl4W6
-	3hWtiZJw==;
+	bh=aujwLeQT3HzYwdCgr/y0T0q1JE+aR67oIysdUNWWl/w=; b=MbWqRprUhY6E/J2SKitdkPCKUe
+	N7cG5ImiQiE5b4gdedplf+wqajTlVn1ae6Nk/A0K5FcykwpyYn7HSh8Ppgsdh3jqv9EaHksCSauv/
+	5OyKP32qWCqwkmH+qRG3C5WqD6ZnXk5pYGvu3I56K7UNu71IsRCLL1JEySpEDciOMsTZKZ6jIvw+h
+	HOt3bCZjx6Ar771yVaJacqS+b8dlkrelx6dsG5sthSGCXWnW+RdjQgpuQpXcPZiOKClrcXSXry1CI
+	OQ8tAO7NpL6T6WXWbDZjg/WIEDK5g4wOoRl9tPT2k7NA9zlzD/81AGSfajndXDvsSGiFuz4D3ajN1
+	V9/4/cbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCqY-0000000GKPH-3yj0;
-	Thu, 05 Dec 2024 14:28:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCpF-0000000GKDA-1XPq
+	id 1tJCqv-0000000GKWs-2k25;
+	Thu, 05 Dec 2024 14:29:13 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJAYF-0000000Fres-0UAm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 14:27:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A45661063;
-	Thu,  5 Dec 2024 06:27:55 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 659BF3F5A1;
-	Thu,  5 Dec 2024 06:27:26 -0800 (PST)
-Date: Thu, 5 Dec 2024 14:27:24 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Liviu Dudau <liviu.dudau@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@arm.com>,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH] arm64: dts: fvp: Update bus-range property
-Message-ID: <Z1G4TCY9ekezAc8Y@bogus>
-References: <20241128152543.1821878-1-aneesh.kumar@kernel.org>
- <173339457335.691023.1334271427632194234.b4-ty@arm.com>
- <Z1GxQHY1XkQcPFc0@e110455-lin.cambridge.arm.com>
+	Thu, 05 Dec 2024 12:01:48 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5C1gFY2198093
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 5 Dec 2024 06:01:42 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733400103;
+	bh=aujwLeQT3HzYwdCgr/y0T0q1JE+aR67oIysdUNWWl/w=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=sb+0/sQBJmqWOA3hNiias5WYz3eCqUyeDk0dVWUtRzBnb/0ThBXNoXqhO67oi4qUF
+	 /2xhPYYjYAT9Gz2gIj8QEMAwO/T4omipPjiIGJM9NE4agvhqA+x44TRKSkgWiNxXPk
+	 16xPa/pCX3hqhctvKE4cR6IufXwIJrdkzJPj5xJ0=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B5C1gGd002276
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 5 Dec 2024 06:01:42 -0600
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Dec 2024 06:01:42 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Dec 2024 06:01:42 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B5C1Zp8018608;
+	Thu, 5 Dec 2024 06:01:39 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v2 1/2] arm64: dts: ti: k3-pinctrl: Introduce deep sleep macros
+Date: Thu, 5 Dec 2024 17:31:28 +0530
+Message-ID: <20241205120134.754664-2-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241205120134.754664-1-s-vadapalli@ti.com>
+References: <20241205120134.754664-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z1GxQHY1XkQcPFc0@e110455-lin.cambridge.arm.com>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_062729_443929_3F085FA3 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20241205_040147_242973_A3539DCA 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +86,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 01:57:20PM +0000, Liviu Dudau wrote:
-> On Thu, Dec 05, 2024 at 10:31:03AM +0000, Sudeep Holla wrote:
-> > On Thu, 28 Nov 2024 20:55:43 +0530, Aneesh Kumar K.V (Arm) wrote:
-> > > These days, the Fixed Virtual Platforms(FVP) Base RevC model supports
-> > > more PCI devices. Update the max bus number so that Linux can enumerate
-> > > them correctly. Without this, the kernel throws the below error while
-> > > booting with the default hierarchy
-> > >
-> > > pci_bus 0000:01: busn_res: [bus 01] end is updated to 01
-> > > pci_bus 0000:02: busn_res: can not insert [bus 02-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > > pci_bus 0000:02: busn_res: [bus 02-01] end is updated to 02
-> > > pci_bus 0000:02: busn_res: can not insert [bus 02] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > > pci_bus 0000:03: busn_res: can not insert [bus 03-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > > pci_bus 0000:03: busn_res: [bus 03-01] end is updated to 03
-> > > pci_bus 0000:03: busn_res: can not insert [bus 03] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > > pci_bus 0000:04: busn_res: can not insert [bus 04-01] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > > pci_bus 0000:04: busn_res: [bus 04-01] end is updated to 04
-> > > pci_bus 0000:04: busn_res: can not insert [bus 04] under [bus 00-01] (conflicts with (null) [bus 00-01])
-> > > pci 0000:00:01.0: BAR 14: assigned [mem 0x50000000-0x500fffff]
-> > >
-> > > [...]
-> > 
-> > Applied to sudeep.holla/linux (for-next/juno/fixes), thanks!
-> > 
-> > [1/1] arm64: dts: fvp: Update bus-range property
-> >       https://git.kernel.org/sudeep.holla/c/4f776d81bf92
-> 
-> Thanks for the quick response. TBH, I did not receive your initial review
-> email, that's why I've messaged thinking it got lost.
+The behavior of pins in deep sleep mode can be configured by programming
+the corresponding bits in the respective Pad Configuration register. Add
+macros to support this.
 
-No I hadn't responded on the list yet. I queue and wait for a day for the
-kbuild bot or any other bots to report no failures before I officially respond
-as applied as I wouldn't have tried all build configs in general but it
-doesn't apply for DT files though 😉.
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
---
+v1:
+https://lore.kernel.org/r/20241112115650.988943-2-s-vadapalli@ti.com
+Changes since v1:
+- Rebased on next-20241204.
+
+While Rob had suggested dropping the zero defines at:
+https://lore.kernel.org/r/20241115154822.GA2954187-robh@kernel.org/
+I had pointed out the inconsistency with existing convention at:
+https://lore.kernel.org/r/5b35c736-74d6-4fe9-ae82-272dc2e98b82@ti.com/
+asking for Rob's opinion. Since I didn't receive a reply, I assumed that
+the patch is fine in terms of being consistent and hence haven't dropped
+the zero defines in the current version.
+
 Regards,
-Sudeep
+Siddharth.
+
+ arch/arm64/boot/dts/ti/k3-pinctrl.h | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+index 22b8d73cfd32..cac7cccc1112 100644
+--- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
++++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+@@ -12,6 +12,12 @@
+ #define PULLTYPESEL_SHIFT	(17)
+ #define RXACTIVE_SHIFT		(18)
+ #define DEBOUNCE_SHIFT		(11)
++#define FORCE_DS_EN_SHIFT	(15)
++#define DS_EN_SHIFT		(24)
++#define DS_OUT_DIS_SHIFT	(25)
++#define DS_OUT_VAL_SHIFT	(26)
++#define DS_PULLUD_EN_SHIFT	(27)
++#define DS_PULLTYPE_SEL_SHIFT	(28)
+ 
+ #define PULL_DISABLE		(1 << PULLUDEN_SHIFT)
+ #define PULL_ENABLE		(0 << PULLUDEN_SHIFT)
+@@ -38,6 +44,19 @@
+ #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
+ #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
+ 
++#define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
++#define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
++#define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
++#define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
++#define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
++#define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
++#define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
++#define PIN_DS_OUT_VALUE_ONE		(1 << DS_OUT_VAL_SHIFT)
++#define PIN_DS_PULLUD_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
++#define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
++#define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
++#define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
++
+ /* Default mux configuration for gpio-ranges to use with pinctrl */
+ #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+ 
+-- 
+2.43.0
+
 
