@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E3AE77170
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52940E7716C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,86 +12,85 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BHj8xJJDjB/nn7+FV+WNgNcGZHPneQlK/63TZumKERk=; b=B4wScC+t4FQI6MQ2QAC0u/pomG
-	xHXT/tMUGQmD9pJiLd22GduFSOE0iNv5ht1cbhr/oO396o4c9BSPMGKfnRrGYZ7GLBbtBL+BmRFmN
-	p5vBtMPEvQkpkrKH8LbFToYjAaFRs5Xhoher9d+zmzIDs+czJ+pdFssZhQEy/22XyndZiY9qJEdZd
-	Ws2pi51chUeDYtcFHvBz0SFbvo6bZUVNcv4qYHXzcNqOJayPnekXq+wf5GMTOp0Y05bgVzKJJS3YY
-	28nUy4gVnZQW2ICQA5CIAGMr9OdUo5O8RanAYwGSWRR1DmEmOZOWjHUZi9uhTo/IYfeVPNnG75h8M
-	d/Jgd1uw==;
+	bh=5sIT0jqKNMZhKzMLzfgvLUDfd+FJ1ix9dxzYWA8kfsM=; b=N1XyDsSPEc5yMKLlcZAWXiDNiI
+	Jp3WZ0syHi/Jbcc6K6aTfJB9D3Si5XCRKy7Ar6nDc5PkQpOQgK1Nq/+8qIHjP9lCLGrc9GIE4cQV3
+	mSrEzvd9rsg6n/pna/SO+ehe0PZWSuOT8f/TkH9rcTvJm1VperK0MZWUNzayCvTWkq0WpSM1VYQK6
+	OVHXpDiXrLCPoz7KxZRmf2QvsKMgHkHl/8ZcetoTTTMOfUeV43/TUpOR5qc7wENdMwPwyliwcVo/m
+	ZPGFttgLCHxuOp7cr70NqaVAG8E3Syj3S68OJDmeYC6peInBEa1zReslU2RQ0pLoBIw8bs0rhXihI
+	n5rKTe8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJBDG-0000000G0Cg-34aH;
-	Thu, 05 Dec 2024 12:44:10 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tJBDH-0000000G0D0-1Pd1;
+	Thu, 05 Dec 2024 12:44:11 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9tl-0000000FgeB-3Cm9
+	id 1tJ9tq-0000000Fgh7-2UpJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 11:19:58 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53dde5262fdso1019034e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 03:19:57 -0800 (PST)
+	Thu, 05 Dec 2024 11:20:03 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9a68480164so98880066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 03:20:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1733397596; x=1734002396; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1733397601; x=1734002401; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BHj8xJJDjB/nn7+FV+WNgNcGZHPneQlK/63TZumKERk=;
-        b=O69vlgIvDr73ypSSpaPtpc3HYxAz+zmWRSmG5gEGAdfSRbud4eM+tSX9LuiiIBEwgt
-         SJPGmQdND46KkR3cAPeYCBNKrHibJxiMIxsrnbIk5Im+Ld8DbEMgby9Shw8TwJ96NPFx
-         Ll4cD0VCPlClj0pxAxyt31sNekecJ89se+l0U=
+        bh=5sIT0jqKNMZhKzMLzfgvLUDfd+FJ1ix9dxzYWA8kfsM=;
+        b=E1I0L5e4Gna9DigGDEbcGrLl5phul2cbLE+Spb4LhdPkFD1C//5QEsv/3mzy7dSc7k
+         MIodll0Qwc2zzQiqBWe0Ny4mt5ytLd9lJz/i+UcFqem67T6/tG6oEX9A30dSk+bTOtDb
+         oX8VWM9wemVGZJTptEbOwKKhMrK6jqx/QC7jo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733397596; x=1734002396;
+        d=1e100.net; s=20230601; t=1733397601; x=1734002401;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BHj8xJJDjB/nn7+FV+WNgNcGZHPneQlK/63TZumKERk=;
-        b=SFBiAMrfpr9Bd9VXj/4l6sxdbXrtVII/Yjavb4PjeqXv5te0cBguZXyk0lrAixKJdE
-         pDUVXfj8zHsanqtra2HUUijCP4S2pWEYDkEwkx6ZetGc19JJ7vdOb8J4obhC01MlLJTp
-         cLZCWBWKtKfCO56HG9lcprKX//Dw0j+P/c0zywjb5RQ1+77TxlviFsF1J0AOiZDfpvt1
-         rnSGHWrRlGJ1Vs4+5fFeQXsrqtCid784ukQic03Kf4yWGeM3+riVkhJmQV8AORKFha0d
-         ZDEMRYSYmr/U0rhQxDO/FzqxEstAMdParg6VIUboD5nJ5Fe0ICa9cQzRkN/aqSBspHMG
-         jf4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUESj88TpvKofoXd5bRihCKnvHZ62YRVVJ8uovdd25F72zZdrJ3/+LmgLmfWvr8gGlFTMRkuzTf/tbiiuYTljOr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsTq1hkymOAlDTqfsBQGZldRaqGbH0BWVMtqnQ2NcXMvLfl0wh
-	opUVCZuUp6rNoL+6iYlqOXu9iOWvw3HUdgca6GvHIMPFmrWOtZuQ3Iq0v/g0ZeIKH5UoQpDC+gM
-	L
-X-Gm-Gg: ASbGncvUE5n6g5hMkjyL18AiCA3hsGZT7ji7LT+fdb1ppAq4x7Touvg4O0JpNBLHsCv
-	mMLK0YGVoVg1mvxBtK2Y/f8t6TpB0EVhy1NEiJ/RAodKpGZfMveQTxsW2XrkCdf26W3zZYWd96m
-	AN0G45ioDbJpJDPFfldp3NBE0IHBv7DB5hgcV+B3D78QpKolCCCEgxffshvVqLur+FYXMVJQpeK
-	NPZZv/pW5nyVK5PoMMjkP4pkKQfJDAACc5pl82ghREZ/L/lPVgbNNExf9Aow6yyzxmk/T70XvEU
-	9qMei4SK/GFw+3JKfwfuX7D2HS63R8mV8jds7yxC1YdVrA==
-X-Google-Smtp-Source: AGHT+IEtuduGBZsALDR63XXUfmp8mk6Ffl1qQAFy8dFjE8C6ALJJ5nV+WsPlwDq8/o6BI50yiETcjA==
-X-Received: by 2002:a05:6512:3ba3:b0:53e:284a:70e9 with SMTP id 2adb3069b0e04-53e284a712dmr306591e87.57.1733397595775;
-        Thu, 05 Dec 2024 03:19:55 -0800 (PST)
+        bh=5sIT0jqKNMZhKzMLzfgvLUDfd+FJ1ix9dxzYWA8kfsM=;
+        b=Oei7xdU6Is1GQoorjr7Li2Q8LLJrNfcOZuDnkNvDIMuEI43KNzmN/bz5u+GTy5L3pq
+         1gF8p8OfUrzpR/SBde3/eCvx4T8lfzFbogNzICpqYoN9nj8iTDMhfVgBXbQGI4Y/3v2R
+         V/tRwWW7JqHpRY9ooWw8DzZ5/1CFgw0PufeAOMoceTL0jW1I50Ofdxq6q6cFgdzY5j4y
+         WS1EHfcBaHPtztv77+Ejn586YR9F90uSFsLZiEci99IRYylQXtHtZZWkH+7YJO+3uYcf
+         PbOHQPCb5MANMClq+LR1XvaRUQat3r/kfHE+CZz2G6QKQOuN/C56A88OnkoCRV4yDk5U
+         CpVA==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ/EoFMCAH9Hn1sFZimk4iwBS3J9CvXfVteVZoLURAG8uJCOwFUqUS6rNz2YYGPzXnib6IiiCQngcONH0nif3X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz7Xx3L59xfXb92g59ANPvSemo6VOSMqGLq7NY+c9pd3+gpd4g
+	CSAFIlOgLj5pX2PRsp6ZlSYyLUOAIF9/qamzk3af949ht/4WvZ9d5R2OOGftZdE=
+X-Gm-Gg: ASbGncsV3VlNe+T5yXGFdBpQo/8Gal0sV44fnUPufuKL8FxhmTf9QR28oJJg0Wzc2RM
+	RFITaeicRFoyE4NxipN3crztmBCp+pFh/hXJ9LzE0RSj+YsPsZDgXQCC2Pc5vsvrLEJ6fZlD1Mb
+	wuPrHnq7GtfuWg6/WvZf98y8EDxcBP1xBs0LDz7LTmLaZ4SflxqbaQlZ1Q1IbgWwkXDDlskCedL
+	Mi5Zh8dVOqmcefMcpsZzqQp7LSTTTC2c2Afwm/iQm3cYfnd/nQZGe6sls3oVH0uTe5/OHn6KlVi
+	DFftMkYPUcvq6uYi1tt+P2bJJ0Aa2b3N6ZieR84Rl28UqQ==
+X-Google-Smtp-Source: AGHT+IFWmfdNCt85Uk2ZsGUp6FJYDKMTwFmyiWTZIau8bHhRLJjRv3qW139XBm4OciWPi9ZRYi576Q==
+X-Received: by 2002:a17:907:7847:b0:aa6:2a5c:fee2 with SMTP id a640c23a62f3a-aa62a5d4b52mr116294366b.31.1733397601340;
+        Thu, 05 Dec 2024 03:20:01 -0800 (PST)
 Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2001:b07:6474:ebbf:61a1:9bc8:52c6:3c2d])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625eedcd0sm77505266b.87.2024.12.05.03.19.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625eedcd0sm77505266b.87.2024.12.05.03.20.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 03:19:55 -0800 (PST)
+        Thu, 05 Dec 2024 03:20:00 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Peng Fan <peng.fan@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
+	Stephen Boyd <sboyd@kernel.org>,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 09/20] arm64: dts: imx8mq: add anatop clocks
-Date: Thu,  5 Dec 2024 12:17:44 +0100
-Message-ID: <20241205111939.1796244-10-dario.binacchi@amarulasolutions.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v5 13/20] clk: imx: add hw API imx8m_anatop_get_clk_hw
+Date: Thu,  5 Dec 2024 12:17:48 +0100
+Message-ID: <20241205111939.1796244-14-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241205111939.1796244-1-dario.binacchi@amarulasolutions.com>
 References: <20241205111939.1796244-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_031957_799791_B2A7DBEB 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241205_032002_631985_9E926996 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +105,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clocks to anatop node.
+Get the hw of a clock registered by the anatop module. This function is
+preparatory for future developments.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
 ---
 
-(no changes since v4)
+Changes in v5:
+- Consider CONFIG_CLK_IMX8M{M,N,P,Q}_MODULE to fix compilation errors
 
 Changes in v4:
 - New
 
- arch/arm64/boot/dts/freescale/imx8mq.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/clk/imx/clk.c | 28 ++++++++++++++++++++++++++++
+ drivers/clk/imx/clk.h |  7 +++++++
+ 2 files changed, 35 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-index d51de8d899b2..1d1424a136f0 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-@@ -817,6 +817,8 @@ anatop: clock-controller@30360000 {
- 				reg = <0x30360000 0x10000>;
- 				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
- 				#clock-cells = <1>;
-+				clocks = <&ckil>, <&osc_25m>, <&osc_27m>;
-+				clock-names = "ckil", "osc_25m", "osc_27m";
- 			};
+diff --git a/drivers/clk/imx/clk.c b/drivers/clk/imx/clk.c
+index df83bd939492..9a21f233e105 100644
+--- a/drivers/clk/imx/clk.c
++++ b/drivers/clk/imx/clk.c
+@@ -128,6 +128,34 @@ struct clk_hw *imx_get_clk_hw_by_name(struct device_node *np, const char *name)
+ }
+ EXPORT_SYMBOL_GPL(imx_get_clk_hw_by_name);
  
- 			snvs: snvs@30370000 {
++#if defined(CONFIG_CLK_IMX8MM) || defined(CONFIG_CLK_IMX8MM_MODULE) || \
++	defined(CONFIG_CLK_IMX8MN) || defined(CONFIG_CLK_IMX8MN_MODULE) || \
++	defined(CONFIG_CLK_IMX8MP) || defined(CONFIG_CLK_IMX8MP_MODULE) || \
++	defined(CONFIG_CLK_IMX8MQ) || defined(CONFIG_CLK_IMX8MQ_MODULE)
++struct clk_hw *imx8m_anatop_get_clk_hw(int id)
++{
++#if defined(CONFIG_CLK_IMX8MQ) || defined(CONFIG_CLK_IMX8MQ_MODULE)
++	const char *compatible = "fsl,imx8mq-anatop";
++#else
++	const char *compatible = "fsl,imx8mm-anatop";
++#endif
++	struct device_node *np;
++	struct of_phandle_args args;
++	struct clk_hw *hw;
++
++	np = of_find_compatible_node(NULL, NULL, compatible);
++	args.np = np;
++	args.args_count = 1;
++	args.args[0] = id;
++	of_node_put(np);
++
++	hw = __clk_get_hw(of_clk_get_from_provider(&args));
++	pr_debug("%s: got clk: %s\n", __func__, clk_hw_get_name(hw));
++	return hw;
++}
++EXPORT_SYMBOL_GPL(imx8m_anatop_get_clk_hw);
++#endif
++
+ /*
+  * This fixups the register CCM_CSCMR1 write value.
+  * The write/read/divider values of the aclk_podf field
+diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
+index aa5202f284f3..52055fda3058 100644
+--- a/drivers/clk/imx/clk.h
++++ b/drivers/clk/imx/clk.h
+@@ -487,4 +487,11 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
+ 			       u32 reg, const char **parent_names,
+ 			       u8 num_parents, const u32 *mux_table, u32 mask);
+ 
++#if defined(CONFIG_CLK_IMX8MM) || defined(CONFIG_CLK_IMX8MM_MODULE) || \
++	defined(CONFIG_CLK_IMX8MN) || defined(CONFIG_CLK_IMX8MN_MODULE) || \
++	defined(CONFIG_CLK_IMX8MP) || defined(CONFIG_CLK_IMX8MP_MODULE) || \
++	defined(CONFIG_CLK_IMX8MQ) || defined(CONFIG_CLK_IMX8MQ_MODULE)
++struct clk_hw *imx8m_anatop_get_clk_hw(int id);
++#endif
++
+ #endif
 -- 
 2.43.0
 
