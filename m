@@ -4,119 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B85CE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30BCE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBfiocvIunnaNdZDDLqDWW4sOXy+djzBwH8MF4PUINQ=; b=05Obw1qcFmLj16kK8sAumwF7Xi
-	PjolZEZKSUWcY1LhCpfoRopY0bR/Xt2FeezY8PSZKSTS6vtig2BhdwGjywfCwH//2Ho4qsQnOWQsu
-	aZNDBTHuXNFW3p3fLhONlOKvKnAiNNeHP+TwH5xQJyW6WaDc9nLocrKdNaGRPkYx9fmyoALat6bea
-	JBRHLKfuHutgbfSXJUzC+mkhHWFkSN69uuY6KsJqYhX2c3X8aE0tGpZ3nMWw+tfHuP5v833/Y5xOR
-	LanD1ttIWwgeYuHR0Lqsh9x6ul/Ydp1xZ0qdcS4Jq/ooIp2bI3DAJpH33KtayrAH2CJAzAQR9A0h4
-	OF1/VuYg==;
+	bh=KOckcNe8W3RQKx65UzBFy6XStXAxVc8nCNjDX8cXNw0=; b=Joi9VxX2kn12T9pVOtKOyAMmBL
+	gkfbISo9aijHuUWzRTvIH59KCdpkjEuDY36slz+6MCzQ7sIPseYp9apmHRimY5IysZi0x/DdpSmc1
+	KjvtcZgKmd9NvNLHsL3HCUsyJ4y5BUPPmqTfMlZWmmJdW++2zBmweebP9V1dNQZh+TI+GX4pKOKQi
+	EtLGjqJCzfjh7YI0PjdUN0hJuO044zFyEuIRpMW5kBXgDRTQInynI9kIdio4TPSl6m2N2QQWWOMyl
+	JNh4PcXKaYL5mHzzUl1VJKFUTQzbevQRPsaFDciyYlujFL4yuDURyjwV+HmUotEA4UJsgq1eiTB4T
+	9bQ/3Yuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEO4-0000000GgQi-3B4Z;
-	Thu, 05 Dec 2024 16:07:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tJEP7-0000000GgiI-0Bgk;
+	Thu, 05 Dec 2024 16:08:37 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEN0-0000000GgBd-1vUn
+	id 1tJEO4-0000000GgQh-3jfL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 16:06:27 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B56vhhs009565
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Dec 2024 16:06:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xBfiocvIunnaNdZDDLqDWW4sOXy+djzBwH8MF4PUINQ=; b=hwivEnYFXmdrGs4v
-	MBK7TzXbl65XrV89nzqUUFt+MgNVfhrv8mMWc/ZmftpyxLdS3BYx1jPgMPBNKcOF
-	XRYyDZZPm06o61Dzxwi+mWNkI79vbZxW/PXjTgzYV4CS17czWFiXDd0fZBGPDm0L
-	HMUdl72fFjGuNbxPgXN33ws+K7zYKKPBJnYBDNmFAvIIa6sYbE2HmpngUy/Gn6XK
-	dKAMIhfMy4NeCsVbkcJOvVfp1p3TSPdO4kdHaB14mkT4tNn3a16yVxjg+4BxP/A8
-	qprbVThfdQfsfcc1GCLQ59q+COiu12VhipMuMULbtLBTHQI5UXHIZ28vU9lyBqjs
-	iOHzyA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 439v8009hw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 16:06:03 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4668c9aa8c7so2816841cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 08:06:03 -0800 (PST)
+	Thu, 05 Dec 2024 16:07:34 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-288fa5ce8f0so331261fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 08:07:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cornersoftsolutions.com; s=google; t=1733414851; x=1734019651; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KOckcNe8W3RQKx65UzBFy6XStXAxVc8nCNjDX8cXNw0=;
+        b=Z37S69OgTYLaFw5XA2BsoOqsv7inJpmL/9uy77atwuzOYlpmdqLIAjDQh8VMeZN3Wa
+         jftcPVVYDskdM1M1/Mcac5qzXvdiBZxvGiFjQjnBuytPfElHXoG9bZNKfoyzhd36hhg1
+         Lz/Iwse6Hhq17f1ABmW/bfMETLg7ktZnIQKgDvz0Wpo01ndKrHS16NS1MWYG1TOqcBIH
+         toc7fbf4aGIqjn/+5vZa89Up5plpDUpRoqYoBU8TOb2DBgERs7V7Y2PLLlnsfBzwaKKn
+         0sO3qTvAFoY7qhBdivSpqilRNLX4en43y3JeBuszTAivaJVRFST9vABj6P7VzE7uOef1
+         frFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733414763; x=1734019563;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xBfiocvIunnaNdZDDLqDWW4sOXy+djzBwH8MF4PUINQ=;
-        b=Sav5eknzJ7KW7yO/eaQJ76oOqss9SrH+LL2Nq8oPfeJ245RLuBGuO1G935qYW4cb08
-         q4L/06aTIxjp+wr2cu1MF1lj+qFU8qyXxNeWLlBuPWJ+Yza+aUhmdTdbIjfoNGMpQj17
-         gkmiIIufZMV7sVxqnxsoytmJ3fQqCeS5KhEOXz0b3dtaAZ7yr9xK2Twld0TieQuxjk91
-         nqQHXwV3tse1z/l5C9GcYlD3bmVDKKOn0fiY8KKXRPEVJuaVCmXr/e18Rjn22a7LXy8L
-         0Q6ojvIbEXL2u4A/ZUzaLxMxFQva0Wr1ihg/KglbMKEnEpaIo5zeVrEbVX8QACH9MuaQ
-         Ksmw==
-X-Forwarded-Encrypted: i=1; AJvYcCVlhF9k1dLYt7GFsESjvYJwqNKbPjhchIdfG8awvyemk7bWBBbocHN8WwmtvO7B3Arxtij/57vNBAuXQMNltM9P@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUyhaudcWeAFXxmkaEJmVldJvHDPvh1SC7+uDGZ2+7oUGAWewT
-	PR8VmRnY5PyPQ0gioi1dfOCOcnOlqtc1Zi94TgLo8sSG0yBDTK/gPUXZXAg3QYyi6Muc4Z+vpDv
-	GYrDrSRbWZtR7bUkDSl6ePST89NpWC6H5Fu7TdQHVrvqUkSH4S4x2sfKVnVMTma1y/Kj6lOTFbA
-	==
-X-Gm-Gg: ASbGncvvahOnI4G1L3whCH5qmFxEMqDidnEaB1ebLbekRyfrC5G1d42MBdTz4KxWO2F
-	9R4+ywAX1Z8XG6O/em1p8AmqRO0ba7N/8Pjo3FEQhjrglDtOtKpAoUQYemTtOD+WxNA2H0QJuBf
-	rGdnV7SfkByQD+PUfbtbO4sYlPau+OXdJlmv/7m4qrjFIHyEldqHzBni3jsnuYeh1sSpZpI83HQ
-	rhVrSkRMOj4BFlTQfY/OytEah1G5vtLJfGDad/i8v6RQvbpNRgkqrlHZOQpS3w9HfkTGArihULR
-	NG92el5pvL6Rsw+gW8suTrNkL6o7Ct8=
-X-Received: by 2002:a05:622a:14cc:b0:464:9463:7b32 with SMTP id d75a77b69052e-4670c0c1266mr65695291cf.7.1733414762961;
-        Thu, 05 Dec 2024 08:06:02 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHrCtcaE45feNNHFxkzDlmaVr36CClapjNu62lWnE1/SccytLaUZvqDSxyCoV/RvKzynTQGcw==
-X-Received: by 2002:a05:622a:14cc:b0:464:9463:7b32 with SMTP id d75a77b69052e-4670c0c1266mr65694961cf.7.1733414762471;
-        Thu, 05 Dec 2024 08:06:02 -0800 (PST)
-Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625e4dbf3sm110912566b.12.2024.12.05.08.05.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Dec 2024 08:06:01 -0800 (PST)
-Message-ID: <54e9582b-8570-4272-9d08-6a89a1548bd9@oss.qualcomm.com>
-Date: Thu, 5 Dec 2024 17:05:58 +0100
+        d=1e100.net; s=20230601; t=1733414851; x=1734019651;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KOckcNe8W3RQKx65UzBFy6XStXAxVc8nCNjDX8cXNw0=;
+        b=aQ7RXmx9naA+EbNzqmvMzZ7ix2uG5ehr4TVZ3zjoYqosyk66GfYg2M1tuPfvo2PKfI
+         eeAQgag0pxVa5bbq3VcBV7phYUSy0EpkbUAS3WkLAJ+zVAwgXcz4sMNEOqt70ZaXDxZz
+         EeJGLZZxhdJD5NgppApVnZz8ijuH3CZHUxBUuFi2zhPlTI1IKAI0t5uv00ULY5vStKnD
+         aSy98Vk2V89GsrdqKoppXPT+8xuZC++lLpQ6603wwgRFi9StSRhOuZZqvf7UomtVTAFp
+         qWsUIOHblSO8noj6VTrtKJvFt7fhPjnEEpURREOFAdUojMqeWiadVkZ879sNXCnBm8pE
+         YvSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1NDF/v1ud/LDiyt99rij0mL5RCIjMIcqhsSYAYXoyqVrRj/S8ANJeVBwrMrOkehrqxfM9empNBOrldSNN7Yva@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEEs7apPHDwuxUxT/mUHZBjWeqRBJH5/9IYkWOv3vagtfoo0Dy
+	AlWl0Ux9OiGd36WNGkaPcOy9ACOjSOvdzZ/0nnJqTfA+geRVoJxHBzV+qAxiHGi3FZr32vK1l0f
+	nTXrw2EueBCn3PpyRF1VT1CML3uH5O/MtBDX6mg==
+X-Gm-Gg: ASbGncv4G4N7OXGDnkOrNLsZ7MMf3O39QMhPSHwOHFZ3yDezsk3rMOjyfvcWE4KzVAa
+	BMiGvPGsTp9fwdsfpqbwD33OHgX7L4X1R
+X-Google-Smtp-Source: AGHT+IFc4uqMYZT0SxPqLKcDtYnZCPI05fbA21AsNVCAy81bsUwRL7Rs+7Wfd6hN5qQc+lT4SQo91gDOIfd4QY1CTs0=
+X-Received: by 2002:a05:6871:4b83:b0:29d:c832:840d with SMTP id
+ 586e51a60fabf-29e8890d522mr10222701fac.35.1733414850886; Thu, 05 Dec 2024
+ 08:07:30 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/7] arm64: dts: qcom: Add base SM8750 dtsi
-To: Melody Olvera <quic_molvera@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-        Trilok Soni <quic_tsoni@quicinc.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Taniya Das <quic_tdas@quicinc.com>,
-        Jishnu Prakash <quic_jprakash@quicinc.com>,
-        Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-References: <20241204-sm8750_master_dt-v3-0-4d5a8269950b@quicinc.com>
- <20241204-sm8750_master_dt-v3-4-4d5a8269950b@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241204-sm8750_master_dt-v3-4-4d5a8269950b@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: p72wvBMJCcSY4yfMjPnIRUdeUx-pshkz
-X-Proofpoint-GUID: p72wvBMJCcSY4yfMjPnIRUdeUx-pshkz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxscore=0
- impostorscore=0 adultscore=0 priorityscore=1501 clxscore=1015
- lowpriorityscore=0 suspectscore=0 mlxlogscore=745 malwarescore=0
- bulkscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412050117
+References: <CADRqkYAaCYvo3ybGdKO1F_y9jFEcwTBxZzRN-Av-adq_4fVu6g@mail.gmail.com>
+ <d53538ea-f846-4a6a-bc14-22ec7ee57e53@kernel.org>
+In-Reply-To: <d53538ea-f846-4a6a-bc14-22ec7ee57e53@kernel.org>
+From: Ken Sloat <ksloat@cornersoftsolutions.com>
+Date: Thu, 5 Dec 2024 11:07:20 -0500
+Message-ID: <CADRqkYDnDNL_H2CzxjsPOdM++iYp-9Ak3PVFBw2qcjR_M=GeBA@mail.gmail.com>
+Subject: Re: [PATCH v1] dt-bindings: dma: st-stm32-dmamux: Add description for
+ dma-cell values
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	dmaengine@vger.kernel.org, alexandre.torgue@foss.st.com, 
+	mcoquelin.stm32@gmail.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
+	robh@kernel.org, vkoul@kernel.org, amelie.delaunay@foss.st.com, 
+	Ken Sloat <ksloat@cornersoftsolutions.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_080626_614422_1934F324 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20241205_080732_937532_14723BEC 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,21 +98,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5.12.2024 12:18 AM, Melody Olvera wrote:
-> Add the base dtsi for the SM8750 SoC describing the CPUs, GCC and
-> RPMHCC clock controllers, geni UART, interrupt controller, TLMM,
-> reserved memory, interconnects, and SMMU.
-> 
-> Co-developed-by: Taniya Das <quic_tdas@quicinc.com>
-> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
-> Co-developed-by: Jishnu Prakash <quic_jprakash@quicinc.com>
-> Signed-off-by: Jishnu Prakash <quic_jprakash@quicinc.com>
-> Co-developed-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-> Signed-off-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
+Hi Krzysztof,
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Thanks for reviewing
 
-Konrad
+On Thu, Dec 5, 2024 at 10:59=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 05/12/2024 16:32, Ken Sloat wrote:
+> > The dma-cell values for the stm32-dmamux are used to craft the DMA spec
+> > for the actual controller. These values are currently undocumented
+> > leaving the user to reverse engineer the driver in order to determine
+> > their meaning. Add a basic description, while avoiding duplicating
+> > information by pointing the user to the associated DMA docs that
+> > describe the fields in depth.
+> >
+> > Signed-off-by: Ken Sloat <ksloat@cornersoftsolutions.com>
+> > ---
+> > .../bindings/dma/stm32/st,stm32-dmamux.yaml | 11 +++++++++++
+> > 1 file changed, 11 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamu=
+x.yaml
+> > b/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
+> > index f26c914a3a9a..aa2e52027ee6 100644
+> > --- a/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
+> > +++ b/Documentation/devicetree/bindings/dma/stm32/st,stm32-dmamux.yaml
+> > @@ -15,6 +15,17 @@ allOf:
+> > properties:
+> > "#dma-cells":
+> > const: 3
+>
+> Your patch is corrupted. Please use git send-email or b4 or b4+relay.
+
+Sorry about that, I will do that. I will wait for any additional
+comments and then re-submit.
+
+>
+> > + description: |
+> > + Should be set to <3> with each cell representing the following:
+>
+> Drop this part, const says this.
+
+Ok
+
+>
+> > + 1. The mux input number/line for the request
+> > + 2. Bitfield representing DMA channel configuration that is passed
+> > + to the real DMA controller
+> > + 3. Bitfield representing device dependent DMA features passed to
+> > + the real DMA controller
+> > +
+> > + For bitfield definitions of cells 2 and 3, see the associated
+> > + bindings doc for the actual DMA controller the mux is connected
+>
+> This does not sound right. This is the binding for DMA controller, so
+> you are saying "please look at itself". I suggest to drop this as well.
+>
+
+While logically it is the DMA controller, this doc is specifically for
+the mux - the DMA controller has its own driver and binding docs in
+Documentation/devicetree/bindings/dma/stm32/st,stm32-dma.yaml
+
+I can reference st,stm32-dma.yaml directly, but I was unsure if this
+mux IP was used with another DMA controller from ST on a different
+SoC.
+
+What do you suggest here?
+
+>
+> Best regards,
+> Krzysztof
+
+--=20
+Sincerely,
+Ken Sloat
 
