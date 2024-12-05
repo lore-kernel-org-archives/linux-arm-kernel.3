@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A6FEE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28ACFE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 11:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mXxkS1vS/kL4yv3RzBcUaxy4y/wsAKRKnz+x4WsCaDk=; b=xLphCaDFJCnPbNUUGIh5/09QzQ
-	F8dqKJEkhsSXsb/0sAGPZARlgxNkD09m7U71h99qy9tkcnTlkdXJZWpxv6Agi/VprOM62+V2U3WaT
-	6y6OOqtYKayGCEdGYeczA4PtSQ6ZhNTIlApa8fYTxsSqTaQcJgcN+YM86kbArlBNdzOhuV59lp029
-	T9/2jrkjIbqVmn1F9Akj33ErAWVNi8OevRl9BXgqcM3rxsfHPDpLzbT7ANe10s9ru83Sy9Cq6jmxb
-	WrhTiGsiT3/aIZkk3LGnXXrk7Ruv8mwBudBA6nQOWVNCbzil8u0XG6V8TRD06tl3u5kQMvQIc4hcD
-	hDIttvLA==;
+	bh=0nJdEhC2O3r8IFo3UBonEOR7lGpODIWg2oWGi3FM7ko=; b=DlhI3qc5nRjeWbaTp2XBTN+Dc9
+	w16oQ28afANF87U/JmBulT+jdWpE8tql1NdwPeympACynteAJE5ULot3SM67Rm3L9HLeN0oa5Pc5T
+	e4u6RvCkGUBLL/FKymZMFv5f6W+2ZK+owamIw+pZ0fp5zYnQE5R7pRSBEN42QnYtow5YwS+dtj67B
+	QbsBBEMx2xKwl+3KU7zeWU1b9U42YxPBFYjxcWtu+Ns9w6qFBYWhP0g9JpIDqoYsTPEcSG8PYfA/8
+	iC7JmeAeKx5X0Yy25A4vM+yJcbkYUxd7PakKbE8zJMNqcH4BfIF8yQmOijobuAb4eENudI2h77uAC
+	UiC6l+wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAJK-0000000FmQp-21PK;
-	Thu, 05 Dec 2024 11:46:22 +0000
+	id 1tJAKK-0000000Fmka-0jS3;
+	Thu, 05 Dec 2024 11:47:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAGJ-0000000FlN0-2oIE
+	id 1tJAGu-0000000FlY8-30C0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 11:43:17 +0000
+	Thu, 05 Dec 2024 11:43:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB9A4FEC;
-	Thu,  5 Dec 2024 03:43:42 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E0A6FEC;
+	Thu,  5 Dec 2024 03:44:20 -0800 (PST)
 Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 54C673F71E;
-	Thu,  5 Dec 2024 03:43:13 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 08BB13F71E;
+	Thu,  5 Dec 2024 03:43:50 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: ARM SoC Team <arm@kernel.org>,
 	SoC Team <soc@kernel.org>,
 	ALKML <linux-arm-kernel@lists.infradead.org>
 Cc: Sudeep Holla <sudeep.holla@arm.com>,
 	Arnd Bergmann <arnd@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
 	Olof Johansson <olof@lixom.net>
-Subject: [GIT PULL] arm64: dts: juno: Fixes for v6.13
-Date: Thu,  5 Dec 2024 11:43:02 +0000
-Message-Id: <20241205114302.708433-1-sudeep.holla@arm.com>
+Subject: [GIT PULL] firmware: arm_scmi: Fix for v6.13
+Date: Thu,  5 Dec 2024 11:43:48 +0000
+Message-Id: <20241205114348.708618-1-sudeep.holla@arm.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_034315_747349_ECBE52C4 
-X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-CacheID: sfid-20241205_034352_804614_0F88ED65 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,23 +80,25 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/juno-fix-6.13
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-fix-6.13
 
-for you to fetch changes up to 4f776d81bf927a4f25d5e32a4d0df08ee509dd6c:
+for you to fetch changes up to 514b2262ade48a0503ac6aa03c3bfb8c5be69b21:
 
-  arm64: dts: fvp: Update PCIe bus-range property (2024-12-05 10:28:26 +0000)
-
-----------------------------------------------------------------
-Armv8 Juno fix for v6.13
-
-Just a single fix updating the PCIe bus address range to accommodate
-the full ECAM window of 256MB available on most of the recent versions
-of RevC FVP models.
+  firmware: arm_scmi: Fix i.MX build dependency (2024-12-03 15:47:11 +0000)
 
 ----------------------------------------------------------------
-Aneesh Kumar K.V (Arm) (1):
-      arm64: dts: fvp: Update PCIe bus-range property
+Arm SCMI fix for v6.13
 
- arch/arm64/boot/dts/arm/fvp-base-revc.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Fix for the build issue in the ASoC driver with the SCMI support by
+enforcing the link-time dependency if IMX_SCMI_MISC_DRV is a loadable
+module but not if that is disabled.
+
+----------------------------------------------------------------
+Arnd Bergmann (1):
+      firmware: arm_scmi: Fix i.MX build dependency
+
+ drivers/firmware/arm_scmi/vendors/imx/Kconfig | 1 +
+ drivers/firmware/imx/Kconfig                  | 1 -
+ sound/soc/fsl/Kconfig                         | 2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
 
