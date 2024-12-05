@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608E2E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09BAE77178
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWu6Z5v7RGtsxQryvFIF5ARBAtAKsVetYj8/dSX2OYc=; b=PTLKWJHYwXxWWGJ62sqKqYIlsd
-	4j04OrfZF9QvdkJWsokpkSk9R5WWxbWE1haYkAUH/n25gN1m99XJauGBdKR/z4/+eRCe82dhMXK2B
-	77R+i8on9mkdNmpUf7KbCxsGFK/VUJ8O41oAklQyz+HhfUKK+bwxCi/hCTu82u4sc9CkNi3xpuUzP
-	WSi0pb1RK1jlLIyTgW7BMlqN/BGev/jmmTlagSKmufEla6R5pm88TWZPQXzUyRb42WuzQBfIiztXf
-	ckF+e7mq+GY9vEw1K8WfNxCUwe1/zHp8piQYqP/tZpthdogoMp6RhE9K33AQQx90LAi4I7VjG2GcQ
-	0GKZQr0g==;
+	bh=s4R9ZCznSvP7a9d+goJa7yTje1YRCtLV0iG5CivTw30=; b=LzRfifZI/bHOWNEAl3E7GKQ/ut
+	kKacEWROKbv6YnJhv46fObFj0IssSjcDLIK1jWnk7nSv/YWWZYmG4J2SnEo17RrPtxdKfKBq0bEeB
+	d28Wf1HyO7JA7lkGNfxj9pRbTt2Fc23jf+pJbmJLa+NIy1M9tAawW7oEB24Dd1ggTtK2GS3M4aNHU
+	BSyDGPZ24Uu3UfTSTtAw5loN/NELACdmR8kvoT3UqnwgRILqcLiRBd/yXEILTRljjpUY20iuJ7gZP
+	Z6zKMNEJj/0pGqzhzQQEh3NbNEx0SQCBtlEwHLLSbLhUcXvbVZMyAZ4vrRIs85Za3pD+cyURv11uv
+	gKEB9omw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJF6t-0000000GpzH-32QL;
-	Thu, 05 Dec 2024 16:53:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJF7t-0000000GqDl-1fDP;
+	Thu, 05 Dec 2024 16:54:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEwx-0000000Gn82-1GjY
+	id 1tJEwx-0000000Gn8H-1ZgE
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Dec 2024 16:43:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 520F25C68B6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id BE1685C6ABD;
 	Thu,  5 Dec 2024 16:42:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 51ED8C4CEE2;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B2CFBC4CEE7;
 	Thu,  5 Dec 2024 16:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733417012;
-	bh=MdqsHWxoEbswm9BrGX6SpwNbcHkCUMsgVrFUDFuO4JM=;
+	bh=AlRn+WZd6SfhWS2fa7bQSadmkZzrS2yhhKqX7aao6Sg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Denyvrpf0tWH62oxZRuwZeV9cAUf7quM7F8qC3nvWM+wA8PpUg8GrE8rX+zLe7hKx
-	 YUxvUd93ULGbaCpdFox/yMriOn05fbgq/hSMNHbHPqdKugAgpTRqTlorwTquAJgJKa
-	 pKfyk/rkcxMirulLIMF/WfNnVt5KyUsCaXAcVn0+s1kaZomIygajUnxl4CoDlvr1nP
-	 gIvSB+aDzuPhF0n4wXEss02OjaaYU+aEq+IGCoTBlkJdyUlQALb8i3mni35++UY6c2
-	 gM2Aed4MwzhUXBgazf6V6ShmmmnAXLX/34wCKRmwUQbkBv8sTXgarQptn6cxZLA0iR
-	 C0r4LJvxZCWlw==
+	b=TmJbDTemO2jVZW2qnNkIWzlh81zLnENRSZ1JjgBLJCcy6My0Q8ksunQTBpkRCYvD9
+	 bCmJiCi7dX74qGD7B3pgm63rX/6QmcS0lyArExyci+t/DYSWoyV2VfVqbP6xhtk9Ef
+	 rRRF/N4zdoPKZR18t6Dp3KLLcxWASykmOd5h0njZGQRZPuaLUwK5MwZnDy0jPZuPos
+	 AJpD4X8IhzdzRnOuJ2qSj4pdSEluKt9Ws1zbaU4+d7xzitroQBQNM9goYsAHolvLjs
+	 J3lw2inbcaucpE7L9RlwmAlyRR5ZSHVeHxWDxlUkOGUcnxLSS2x5Lj4WIeVpTHLIpn
+	 VeWkdq0v5qgHA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43098E7716D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D4B1E7716D;
 	Thu,  5 Dec 2024 16:43:32 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Thu, 05 Dec 2024 17:43:04 +0100
-Subject: [PATCH net-next v8 07/15] net: dwmac-intel-plat: Use helper
- rgmii_clock
+Date: Thu, 05 Dec 2024 17:43:07 +0100
+Subject: [PATCH net-next v8 10/15] net: macb: Use helper rgmii_clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241205-upstream_s32cc_gmac-v8-7-ec1d180df815@oss.nxp.com>
+Message-Id: <20241205-upstream_s32cc_gmac-v8-10-ec1d180df815@oss.nxp.com>
 References: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 In-Reply-To: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -81,21 +80,22 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
  netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
  devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
  0x1207@gmail.com, fancer.lancer@gmail.com, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=1284;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=1061;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=Ku8xMy0eJs5aGJR44zqrL9wRlkD9lntzlgmaMXGJpvg=;
- b=SlpOh7v4nNVm0pLzCwptN0QBO2ldqsCSY8Sf9nSyQhquMj3GTfNs51jbIqb7A69K9Y2Oz4E7Y
- PdHJq4FPfOODeNV5AMzSER5GuG4JDLjTKCNEpQfcqWKrIuUZAvOaO+n
+ bh=lqge0TxoQLFiynEUre89U7vm4A38Pvil86ayrYiUui0=;
+ b=HVHZUUwYBwhrlL6BmOOImKqXUfNg2MEpvgsvdQxpheQtqTJkFS1atcWcvBZMIuVU0RGITds2R
+ JKKMG6yJ6L2DRn5uzlzCLP26+8gBZZpw93jPiI4gG63B7AyoGOJhtW+
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_084335_474439_43F577E4 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20241205_084335_540862_A05F7B52 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,50 +115,39 @@ From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
 Utilize a new helper function rgmii_clock().
 
-When in, remove dead code in kmb_eth_fix_mac_speed().
-
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-intel-plat.c | 22 ++++------------------
- 1 file changed, 4 insertions(+), 18 deletions(-)
+ drivers/net/ethernet/cadence/macb_main.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-index d94f0a150e93..ddee6154d40b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-@@ -31,27 +31,13 @@ struct intel_dwmac_data {
- static void kmb_eth_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
- {
- 	struct intel_dwmac *dwmac = priv;
--	unsigned long rate;
-+	long rate;
- 	int ret;
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index daa416fb1724..640f500f989d 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -530,19 +530,9 @@ static void macb_set_tx_clk(struct macb *bp, int speed)
+ 	if (bp->phy_interface == PHY_INTERFACE_MODE_MII)
+ 		return;
  
--	rate = clk_get_rate(dwmac->tx_clk);
--
 -	switch (speed) {
--	case SPEED_1000:
--		rate = 125000000;
--		break;
--
--	case SPEED_100:
--		rate = 25000000;
--		break;
--
 -	case SPEED_10:
 -		rate = 2500000;
 -		break;
--
+-	case SPEED_100:
+-		rate = 25000000;
+-		break;
+-	case SPEED_1000:
+-		rate = 125000000;
+-		break;
 -	default:
 +	rate = rgmii_clock(speed);
-+	if (rate < 0) {
- 		dev_err(dwmac->dev, "Invalid speed\n");
--		break;
-+		return;
- 	}
++	if (rate < 0)
+ 		return;
+-	}
  
- 	ret = clk_set_rate(dwmac->tx_clk, rate);
+ 	rate_rounded = clk_round_rate(bp->tx_clk, rate);
+ 	if (rate_rounded < 0)
 
 -- 
 2.47.0
