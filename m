@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03C8E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CBEE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjDqS05st+cDBpUDwPN55de5TW7/RedGp9MsJFKfa1A=; b=bR6ja6ICii2xrWcTs5gCef/eWz
-	Q6+SpjGhyjwO47YscGqZGRjE/aOkIatfKJyiV9Mr1nqStTdBRl1g6DBkDu/RIL2MyiytYm22JF/mD
-	iFwyjz0WlzH+WtmPNVsZZytJOOhF5qTyUagf9E0pWE7S1RIlASvZcV0mWMfYQHDtCcnChWqj8IQND
-	gQg3oywLC/Xbw8DTSqZE8JjK/1D98fHnHLn0yTmdQ4+5RT2bjesAe9lOVbfd+JfU6V6L7N70dzajG
-	FGgNo2PQWKWFd61lOxB0nHlwDs+/ROOHSqU6xEMeKiW+avK16qBO8bHpQ6l4a+lhOC6Vv6LouCl0f
-	CePaKfkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hj51tQUYsAKS9xS0L2qk/b2rKWVlQnqo5rEveZPtVGw=; b=YE/l7jJRBxRgz6z//XlOVI+ppQ
+	zNjEVlXtYbTJFZgSJEY5fkIgBQ2LYuaFEXmBZr2MWozS+JpTqQkQUUUo+rIjcwWuzvEZeXsqC0sOc
+	OrtmkFPmZwy0sxRaUN6v9uLhobor/SGUMM8/UZX57xWmj3geDfkKyGYQ3MwbxAV9Xsf4JG1M5/lMZ
+	iV7fKEWv48PRX4v4HZYSm/3Wg9Yy0kZc35Op99z475CTz5y573baDhU7EyEIZODzB3ZO3B34djByP
+	iNxW8Wsa83NdF/YP45vh+paRyRV8iCLjNMgIWdQXl2FX54l08DSP7ymzdqK1ATHcF0tcFSALJGKbj
+	6Rcqe+Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8Hx-0000000FNyj-2agG;
-	Thu, 05 Dec 2024 09:36:50 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tJ8OW-0000000FP19-2MUX;
+	Thu, 05 Dec 2024 09:43:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8Gn-0000000FNnM-298d
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 09:35:38 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d0d3dd3097so1054039a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 01:35:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733391335; x=1733996135; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tjDqS05st+cDBpUDwPN55de5TW7/RedGp9MsJFKfa1A=;
-        b=yKPD88CCJtJ+Ka/kWooKfYw46WHvSa7fmTH7I0lhrRNirPUxTnGnOWowTlTE2K/2gW
-         lfC0Zy5yuP/Lz0hGXw4YGmPN/J/rAT2MxYsKpt4N0SyMp/vDClKmBDe/M0skUoSgx2TL
-         VHm06Tr3a1YYbG7VuT902RMBBjvGCQV4eOC3383R30HFiu+cljXMCk8Yv1CFFLqEukF8
-         VORnxOW5Tkm75FQ3fXlDLoQiJtPZW9ddDNmqAwJvhgEmSdp7Ae1f23UzRbmNhwDt9EA2
-         OGlClszgl8Ud1RjgYGjOjQZVBSJ0a+HfOQ2DD7qCARu5vFggB1AdaI8vooV/IKdbvsYW
-         sbMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733391335; x=1733996135;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tjDqS05st+cDBpUDwPN55de5TW7/RedGp9MsJFKfa1A=;
-        b=XGBliw8wSqlLMBYVd1vEoqleMCT3B1qnS6rugHT9YzzhWOvGzdsz3IklVaOu/ub9dt
-         9CHr/btDdoaTyp2BNphaba0YUBDu2XGPTrrxlH8k28YwrKVZ0eWLVq/7T9ujeb0eucNX
-         sDn6mq7eJ3FpU/zUdaqm0ySTpKG0efAXfgs/z53zYrOY/AkmdM60XIjpd88/eyMd29uN
-         RG5k2WdfUnU+bwS6D8GBmfdur4sBgLmHZ2JXrTjSwSoZuXayCEoNYQnelP7Nk4Rxs3js
-         EQazZntuPHPIQ7lXA34keIAKicEQBW2BkD+W24FkmxXRAb8LlrRy+8xlOgXKEmgvp/+x
-         WGLw==
-X-Gm-Message-State: AOJu0YwKzJjTYUnaHce7unxmnWtgXCo/cX0ciGEIMyg+fwe+eyDGOcbD
-	vlhUMqqHiKcNT0Yy23Kjww873hyQZJ5RfPnEDLJMtmndwR8DQ27sHz0sePdhBqg=
-X-Gm-Gg: ASbGncvbH0K2zgBffEIFLLiApQKfPHklGj7redujBB8e0fcXouB+FOTTKFnl8K7O4I2
-	OykMcSDnrhCCiaflJ/55gkTU+ZsnfKe1r6XzobSKv5Zq9PeM7ucS51YKdjmZPBjBneJwQHkvDkR
-	zvdDt0Lh9uTMQuQ3uW/IsPwxHlovWdCTUGSUp3KWrMN8MpOCepX0/9duLuXoHt2RnFvPetIudir
-	+vhTMxtSPKJnCZiiSSuVVpd5TiWjJ6PO9us6ppgP+w+mdSjqoBMFovPW/s0ojc=
-X-Google-Smtp-Source: AGHT+IHFm4UZarfubQus9XeHuRq9CcZZpSvgMn+7LHQv0GsiN/Tz1ExqT9VocSpHFgTuSVRxvEIx3A==
-X-Received: by 2002:a17:907:b98:b0:aa6:1678:fdc with SMTP id a640c23a62f3a-aa616781260mr394843066b.58.1733391335136;
-        Thu, 05 Dec 2024 01:35:35 -0800 (PST)
-Received: from [192.168.0.40] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62601b609sm66188266b.109.2024.12.05.01.35.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Dec 2024 01:35:34 -0800 (PST)
-Message-ID: <51d340e1-a62a-4851-a2be-545580bf4088@linaro.org>
-Date: Thu, 5 Dec 2024 09:35:33 +0000
+	id 1tJ8NU-0000000FOqY-1bff;
+	Thu, 05 Dec 2024 09:42:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Hj51tQUYsAKS9xS0L2qk/b2rKWVlQnqo5rEveZPtVGw=; b=mZDHzZpZ7UAggidQeG3syJ3de0
+	dsAHDnsnRDbcJRJfQRz3Vos1oBdsSeVnILL9sZCTmVDFrqYSDoAKPqD6i5tJ3piMAFWr9aKo7lBCE
+	14R2DIjdE2Ux6zUbl2FXl5okEUQZR+MMbU4kB/AgPbDfsdu/15cikvSQbCJ5H8nqsKS+30skHEgSm
+	Pny8lL+4M4jr9GA+HwfQc7ulTogImxOAPs31fG6ibqbgOU0F/ZOKQNZu/yd5doZyUoLjtm21aQlxh
+	LetfzV46pagrWINlev6EZ4CvprBNV0vA1Mn0GuaHvES/NTbTVoERHBEBI7Wi5Oc6DAtZrydZOkhLS
+	VbHwLHZA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56980)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tJ8NA-0004Ta-2c;
+	Thu, 05 Dec 2024 09:42:13 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tJ8N5-0006RK-0l;
+	Thu, 05 Dec 2024 09:42:07 +0000
+Date: Thu, 5 Dec 2024 09:42:07 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexander Couzens <lynxis@fe80.eu>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/3] net: net: add negotiation of in-band
+ capabilities (remainder)
+Message-ID: <Z1F1b8eh8s8T627j@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 4/5] arm64: dts: qcom: sc7280: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
- hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
- <20241204100003.300123-5-quic_vikramsa@quicinc.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20241204100003.300123-5-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_013537_556780_2D532092 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20241205_014232_420633_0CDB4CA9 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +87,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2024 10:00, Vikram Sharma wrote:
-> Add changes to support the camera subsystem on the SC7280.
-> 
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   arch/arm64/boot/dts/qcom/sc7280.dtsi | 172 +++++++++++++++++++++++++++
->   1 file changed, 172 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-> index 55db1c83ef55..e363996602d6 100644
-> --- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Hi,
+
+Here are the last three patches which were not included in the non-RFC
+posting, but were in the RFC posting. These add the .pcs_inband()
+method to the Lynx, MTK Lynx and XPCS drivers.
+
+ drivers/net/pcs/pcs-lynx.c      | 22 ++++++++++++++++++++++
+ drivers/net/pcs/pcs-mtk-lynxi.c | 16 ++++++++++++++++
+ drivers/net/pcs/pcs-xpcs.c      | 28 ++++++++++++++++++++++++++++
+ 3 files changed, 66 insertions(+)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
