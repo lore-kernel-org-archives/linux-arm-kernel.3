@@ -4,58 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C2A3E7716F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 01:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D55E7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 02:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a02t46PEwRVnRpxZYLUqBijr/RkkKHLmK9OWcFLCwKI=; b=p2LARcp+ZLd25ElNu2iaL1QQJG
-	K3HRe3cuxFhFeGgr1MDigVhs1tj0BITKESmVjpTxLtHK6zqLSLU9wRD0E/jnNVbw1RKn25VxsM+w8
-	VNzndVEHiGTMrrnom7R29Wm5oRmcE2oBXfZUHo5td6/lUnKzrfnxhxZsDn7S8veK1Ay6dDaeYOBk9
-	ZZ/qgBZum1ha7FHzsfI+fmbJF9r+RhOzkgtQIY+R5CsXX5EpLs0BBJ4zoTn/10F136yxF0y+ioaSJ
-	RG4vA6D/8UlHjA3hieCL4eaCuT9s0eiq9MrqximXC43Fy8Mhy5dINRQOisRIwD21TlXoSa50x+dU4
-	aXTnwD4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e6Gw0AX39hZKgDHXxv9Qp3FDLeF0px+FhZ38A7wP9Z8=; b=lYH0/LK61RWX2irpv8YI81+d83
+	Zx1sYRbkVBwhWqIzvVBTYq4K2p4enT8EIbjzFIMaF/Kk5qKKyzgs4UijiPprpP/J6oEW9H7Wrc6ab
+	WD74iNi3KrGT8JpFI6Uy+IwMA5TZ386QRN/qDRqzgOKSCQIEwDTl7zByQTfPTRxukY3XqCZFd2V6n
+	653dfQcfno1qRj+OlN8xIfmcCQSIsUFQdF9uj3WvA3runJmXKf+c4Wx/8ZtDaJHGtHE6VcJJJZI9O
+	DZ5QkHCziRuFiXzemw1h+DOFGDW3JUYtln/Z9WP1yOKza9u97Yzowj5XIMIPhAVX/mRr851FVQMdp
+	9CODai1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ0mG-0000000ETtH-2gFw;
-	Thu, 05 Dec 2024 01:35:36 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tJ1JM-0000000EWKL-3MDH;
+	Thu, 05 Dec 2024 02:09:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ0kU-0000000ETgg-01hi
+	id 1tJ1IK-0000000EWDg-1GcF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 01:33:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Y3cNs1XkRz1yrY2;
-	Thu,  5 Dec 2024 09:33:49 +0800 (CST)
-Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 72AB21A016C;
-	Thu,  5 Dec 2024 09:33:33 +0800 (CST)
-Received: from localhost.huawei.com (10.90.30.45) by
- kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 5 Dec 2024 09:33:32 +0800
-From: Qinxin Xia <xiaqinxin@huawei.com>
-To: <guohanjun@huawei.com>, <lpieralisi@kernel.org>, <sudeep.holla@arm.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <fanghao11@huawei.com>, <prime.zeng@hisilicon.com>,
-	<yangyicong@huawei.com>, <linuxarm@huawei.com>, <xiaqinxin@huawei.com>
-Subject: [PATCH v2] ACPI/IORT: Add PMCG platform information for HiSilicon HIP09A
-Date: Thu, 5 Dec 2024 09:33:31 +0800
-Message-ID: <20241205013331.1484017-1-xiaqinxin@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	Thu, 05 Dec 2024 02:08:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733364521;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e6Gw0AX39hZKgDHXxv9Qp3FDLeF0px+FhZ38A7wP9Z8=;
+	b=fa+FaLFboPjNZ9sfW+l8fHsqA4+Bo4tSWMFOp2b2juBa9mb6MDJgqKwPdK9zHfrc4nMi7p
+	NSIURG9ioOdnfKJSfOEiW5pu7wqQL3SvsLqs+JEuMJBL+F70NQAOtxnwbmH57nYHN0OOQF
+	vQnPmEoUWzDQZ4sKEvA3+zIuApu+5aA=
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
+ [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-526-l5bA0G3DNqWbp_bNyV7alQ-1; Wed, 04 Dec 2024 21:08:39 -0500
+X-MC-Unique: l5bA0G3DNqWbp_bNyV7alQ-1
+X-Mimecast-MFC-AGG-ID: l5bA0G3DNqWbp_bNyV7alQ
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-7eaac1e95ffso409776a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 18:08:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733364518; x=1733969318;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e6Gw0AX39hZKgDHXxv9Qp3FDLeF0px+FhZ38A7wP9Z8=;
+        b=LsWrRAR8obajvnul3XErQytk/shL2jAXaTZLPhZ8UvXrR/dMvqyrBe94LiBiv8fMd+
+         DkwSOQtVBTaVYb8D7Jxa4PpXGeB6bSFC952fTUECauyeTfWvNk21u2BQDiy/cH4MiXOE
+         VW/KilZbDuxqCyFtBXik2e/ZuwqxlT4/oboh0JB6zpSCox4VFckmxaAVX3UtJKvwEy7F
+         /L3DePXZtCLnzq5hzX9m8UB2hnQgwpzb3KXp6epxd3VK3W76X8aCQVlxcBPAJbcMy0kE
+         bxYHiRl8BVhzbRS8TFgGh5WujKWxky1MNQl5dFkEU5g2ujZVHkADDsdInt9uPtz9xOFT
+         PGOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUG+tm6RxoUzxqOaoWTfz62cok/ytwy3YhUXUOLjs2xM3p0mqLVB5UxcrjeWfJvnYmbU/cA6sjjrQR9HfMM2AOS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwySLFRbxFn3Tubfz7Pm7UYRZ1WkFlUJmhqTZZWdmeGGS1IjypW
+	8LkkB6qVWJVGXyr5zVJyFpGexthBIrwNC2bLSD84NLfsQ3B+D+rGdxod7Lsl/4/C2bt59LNIMNd
+	RDdhvRBmyricism4H89F0Cq/DTXnhkUZi+HNMKdTT+1ehSF7EIag50hoVUn/NfwgDHwEJjuyE
+X-Gm-Gg: ASbGncsp5sw2twsPUbZB0YLXkPtzc3U3pM5Si45WAixX0afaw9N7Vmafaqc20aZpkP2
+	pw61G9K8/moxeN8JZgz14/ieGHmM4cbMcxAEEBHyQeyCLAH4HG1MdVikzxfPK9gmRbql7r19D5i
+	ivHexOVCWLZabH6YlE4ButUWwEjYevwmLBAVFwiJc7WORXJNdqmJKFSr4AMm0M7XVb9Gv5Ttv2l
+	jD+I9uTttt8fnk/WW35VcOrwDgqqcXEFo1trE9yTdKzbfRZ19U=
+X-Received: by 2002:a05:6a20:3d85:b0:1e0:ca95:2de8 with SMTP id adf61e73a8af0-1e16542f2b2mr12982091637.46.1733364518048;
+        Wed, 04 Dec 2024 18:08:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHhDcSGGSElTLYdqdAj3uX++CbDOTLqJIwBzBiZJs+d3G5x5Z329XdRGvzzx2G+x78WocvU2w==
+X-Received: by 2002:a05:6a20:3d85:b0:1e0:ca95:2de8 with SMTP id adf61e73a8af0-1e16542f2b2mr12982041637.46.1733364517252;
+        Wed, 04 Dec 2024 18:08:37 -0800 (PST)
+Received: from [10.72.112.152] ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725a29c5ccesm172907b3a.12.2024.12.04.18.08.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Dec 2024 18:08:36 -0800 (PST)
+Message-ID: <60ab506d-5374-484d-906e-3561fc895a6d@redhat.com>
+Date: Thu, 5 Dec 2024 12:08:29 +1000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] arm64: rsi: Add automatic arm-cca-guest module
+ loading
+To: Jeremy Linton <jeremy.linton@arm.com>, kernel test robot <lkp@intel.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ steven.price@arm.com, sami.mujawar@arm.com, suzuki.poulose@arm.com,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org
+References: <20241203000156.72451-2-jeremy.linton@arm.com>
+ <202412031348.bp5i3ws2-lkp@intel.com>
+ <b1923d68-726a-4864-8661-54588a634d95@redhat.com>
+ <a64a21cc-6d10-4e8f-9ab9-87aca44ca858@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <a64a21cc-6d10-4e8f-9ab9-87aca44ca858@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: skziJLmE5H069q8qVUNKiJ0LxL7yoXVTN7QdhHHsnvY_1733364518
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.30.45]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_173346_343199_09D6E83F 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20241204_180844_415490_B67308BD 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,56 +114,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HiSilicon HIP09A platforms using the same SMMU PMCG with HIP09
-and thus suffers the same erratum. List them in the PMCG platform
-information list without introducing a new SMMU PMCG Model.
 
-Update the silicon-errata.rst as well.
+On 12/4/24 1:30 AM, Jeremy Linton wrote:
+> On 12/3/24 2:56 AM, Gavin Shan wrote:
+>> On 12/3/24 4:03 PM, kernel test robot wrote:
+>>> Hi Jeremy,
+>>>
+>>> kernel test robot noticed the following build warnings:
+>>>
+>>> [auto build test WARNING on arm64/for-next/core]
+>>> [also build test WARNING on linus/master v6.13-rc1 next-20241128]
+>>> [cannot apply to kvmarm/next soc/for-next arm/for-next arm/fixes]
+>>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+>>> And when submitting patch, we suggest to use '--base' as documented in
+>>> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>>>
+>>> url:    https://github.com/intel-lab-lkp/linux/commits/Jeremy-Linton/ arm64-rsi-Add-automatic-arm-cca-guest-module-loading/20241203-080347
+>>> base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/ linux.git for-next/core
+>>> patch link:    https://lore.kernel.org/r/20241203000156.72451-2- jeremy.linton%40arm.com
+>>> patch subject: [PATCH v2 1/1] arm64: rsi: Add automatic arm-cca-guest module loading
+>>> config: arm64-randconfig-004-20241203 (https://download.01.org/0day- ci/archive/20241203/202412031348.bp5i3ws2-lkp@intel.com/config)
+>>> compiler: clang version 20.0.0git (https://github.com/llvm/llvm- project 592c0fe55f6d9a811028b5f3507be91458ab2713)
+>>> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/ archive/20241203/202412031348.bp5i3ws2-lkp@intel.com/reproduce)
+>>>
+>>> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+>>> the same patch/commit), kindly add following tags
+>>> | Reported-by: kernel test robot <lkp@intel.com>
+>>> | Closes: https://lore.kernel.org/oe-kbuild-all/202412031348.bp5i3ws2- lkp@intel.com/
+>>>
+>>> All warnings (new ones prefixed by >>):
+>>>
+>>>>> drivers/virt/coco/arm-cca-guest/arm-cca-guest.c:224:21: warning: attribute declaration must precede definition [-Wignored-attributes]
+>>>       224 | static const struct __maybe_unused platform_device_id arm_cca_match[] = {
+>>>           |                     ^
+>>>     include/linux/compiler_attributes.h:356:56: note: expanded from macro '__maybe_unused'
+>>>       356 | #define __maybe_unused __attribute__((__unused__))
+>>>           |                                                        ^
+>>>     include/linux/mod_devicetable.h:607:8: note: previous definition is here
+>>>       607 | struct platform_device_id {
+>>>           |        ^
+>>>>> drivers/virt/coco/arm-cca-guest/arm-cca-guest.c:224:55: warning: unused variable 'arm_cca_match' [-Wunused-const-variable]
+>>>       224 | static const struct __maybe_unused platform_device_id arm_cca_match[] = {
+>>>           | ^~~~~~~~~~~~~
+>>>     2 warnings generated.
+>>>
+>>>
+>>> vim +224 drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+>>>
+>>>     222
+>>>     223    /* modalias, so userspace can autoload this module when RSI is available */
+>>>   > 224    static const struct __maybe_unused platform_device_id arm_cca_match[] = {
+>>>     225        { RSI_PDEV_NAME, 0},
+>>>     226        { }
+>>>     227    };
+>>>     228
+>>>
+>>
+>> The definition may have to be something like below, to avoid the compiling warning.
+>>
+>> static const struct platform_device_id __maybe_unused arm_cca_match[] = {
+> 
+> I should have tested this with clang rather than copy/pasting the utilization from somewhere else! It looks like a number of other kernel users are putting it before the '=', but its sorta annoying because it seems like the kind of warning that should be suppressed globally for this case (module device description in module that can be built in).
+> 
+> 
 
-Reviewed-by: Yicong Yang <yangyicong@hisilicon.com>
-Acked-by: Hanjun Guo <guohanjun@huawei.com>
-Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
+I think it also work by putting '__maybe_unused' before '='. It's also my personaly preferred style.
+However, I don't see how the pattern 'struct __maybe_unused platform_device_id arm_cca_match[]' can
+work because the affective scope of '__maybe_unused' is ambiguous to the compiler: 'struct platform_device_id'
+or 'arm_cca_match[]'.
 
----
+> 
+>>         ...
+>> };
+>>
 
-Changes since V1:
-- Change the description of PMCG HIP09x to HIP09A in silicon-errata.rst
-- Link: https://lore.kernel.org/linux-arm-kernel/4ac9e057-725c-a0ae-e2db-612ea359bec1@huawei.com/T/#mf90dd6937b2aee3895a1b2cc9d0ec8a6061e5c8a
+Thanks,
+Gavin
 
-Documentation/arch/arm64/silicon-errata.rst | 5 +++--
-drivers/acpi/arm64/iort.c                   | 2 ++
-2 files changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 77db10e944f0..b42fea07c5ce 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -255,8 +255,9 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Hisilicon      | Hip08 SMMU PMCG | #162001800      | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
--| Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
--|                | ,11} SMMU PMCG  |                 |                             |
-+| Hisilicon      | Hip{08,09,09A,10| #162001900      | N/A                         |
-+|                | ,10C,11}        |                 |                             |
-+|                | SMMU PMCG       |                 |                             |
- +----------------+-----------------+-----------------+-----------------------------+
- | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-index 1f7e4c691d9e..98759d6199d3 100644
---- a/drivers/acpi/arm64/iort.c
-+++ b/drivers/acpi/arm64/iort.c
-@@ -1716,6 +1716,8 @@ static struct acpi_platform_list pmcg_plat_info[] __initdata = {
- 	/* HiSilicon Hip09 Platform */
- 	{"HISI  ", "HIP09   ", 0, ACPI_SIG_IORT, greater_than_or_equal,
- 	 "Erratum #162001900", IORT_SMMU_V3_PMCG_HISI_HIP09},
-+	{"HISI  ", "HIP09A  ", 0, ACPI_SIG_IORT, greater_than_or_equal,
-+	 "Erratum #162001900", IORT_SMMU_V3_PMCG_HISI_HIP09},
- 	/* HiSilicon Hip10/11 Platform uses the same SMMU IP with Hip09 */
- 	{"HISI  ", "HIP10   ", 0, ACPI_SIG_IORT, greater_than_or_equal,
- 	 "Erratum #162001900", IORT_SMMU_V3_PMCG_HISI_HIP09},
--- 
-2.33.0
 
 
