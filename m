@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C251BE7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B34BE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 15:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drCjzHvtjNpHff9hGzqloOB/2JfX6x56fLo/32hxt6E=; b=0u/Ivg0gy/KSAhCyhudqaJJ4tc
-	SovL/FMvVrHu9MZRgQXnHk7uqozUaoKPuoeA+ABN/yhs6emxg+M42cX34EHCPPW0a2T8DrAtYVJXy
-	iOl/gLI8KQNSvPuV40rL2NkKZQVUgnHCGvqTIHsp0u9yYDN+QMHqadDaI5xFyEytzBAqrgP1eBUXh
-	jCBCBKNspHmujh+m/l/Q/CleXnFFQTFYVkOb+VGCb/lvJjw1PVFecmUcdSps3AOWndaQl1frvLaJA
-	/nL6OYus8G6Gg8Xm+cbbBSeQoamtHYptLkcjV62di6WvD0QXyALlD9CpCO29lA+XrYQhcTqBb8b5/
-	zYlEwpVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=owlbvx/kRHzonFJ8nb841FHj32M/qOU85thSp1YvB0Y=; b=wXlS7WzVOv5jF7yMFSJlEbbJFt
+	Mqw28+qHxwilud2CJsPy7MBdKUCczdrxX/x0grGQWMJMgBxLho14CqpPdlpNrW6BrQUQgJ51cXQBn
+	89N+i3q48/PbEJCFMUiBR1zU1e9Q5NOQCuGFU2M/jqw4lPQRBsB5IaTebCxEk9Li/KyqjylxubOdz
+	vlo50Lh5VBY6lvwo1joubYmTGfBykB5eLQDFJ97tHaOV/pqwiImADKtJLpBsp1SH7SSzn3UBbmSgo
+	PCrN+vSTZeBl+5ipNAw2A8BSePpv+ImTpJ7xNfWxf4EY1FBKvUFZSkowXv8F4Y7kK8plPu/RnqWum
+	FGv/9QWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDVt-0000000GTen-0lZH;
-	Thu, 05 Dec 2024 15:11:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tJDWr-0000000GTwy-3HD6;
+	Thu, 05 Dec 2024 15:12:33 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJDOr-0000000GRu8-069r
+	id 1tJDSB-0000000GSeh-0eKU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 15:04:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4DCC6A43DAB;
-	Thu,  5 Dec 2024 15:02:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0A0C4CED1;
-	Thu,  5 Dec 2024 15:04:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733411056;
-	bh=D+6lIZ9bV7/xmzLlToKOUu2B1ZQZPieWd2KlAr78KFA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FFLtffy8VkU0jop2tBE4Nby6MYHqO9tZwCt3wlR5Y6DtZRYvtVt1sLIPUxa7orxN9
-	 GMSUCXqbiKiLjiQuuFKz0RflS4afn99I+O2ZLpY+iHR6JYmP4TcwBuovzXI8q9eUbX
-	 pbqNeiIiC866KjlpDRx/tDV1828q0r2+rW+CwRwALRDcVrFtvu6FMce0MfIG/+50Md
-	 /t5M9uZxzMZlfOda4A+pqp5RQyrJYW9AdWgdp+QzLBTLA83OzDb44eBi6FR6t6cInq
-	 REIx0DBED9ljs/QKgUeReKQ0QxAuEAqPk3gqR9YAHbTMj42JP+6yCCXCdVEdpSRWC4
-	 vzHdM6+CTAakg==
-Date: Thu, 5 Dec 2024 15:04:11 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, catalin.marinas@arm.com, joro@8bytes.org,
-	jean-philippe@linaro.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
-	joey.gouly@arm.com, ryan.roberts@arm.com
-Subject: Re: [PATCH 2/2] arm64: cpufeature: Add GCS to cpucap_is_possible()
-Message-ID: <051c017c-a60f-48a7-b09f-07f0f32e48e3@sirena.org.uk>
-References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
- <416c7369fcdce4ebb2a8f12daae234507be27e38.1733406275.git.robin.murphy@arm.com>
+	Thu, 05 Dec 2024 15:07:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1733411263; x=1764947263;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=owlbvx/kRHzonFJ8nb841FHj32M/qOU85thSp1YvB0Y=;
+  b=qA8ACHL6AVZuj113e3bHugLXM1zLP5ywIG5j68aiVFadtCSQKqokG5Ax
+   w4tupweoxCwL6CEARmOsF6m8XCpGBxBtJwMVMeiLsd/nD7Tm5Xx3fbGLh
+   vRxeBrnoMZw6jhIPc4H2xzvLBe6Sotvzmaz3pCIRFkOQqYvM+2es9zmhb
+   LZ0Fhiz5wSpI0+JQODUc6AX87WIqA84sPsB6LxSdyBDp7z/3ahEIPN0EK
+   EpDVrlRn+vuonl+YHmEBuBzHVYkDBr/Y+BcRRk5Qgwox4YAIZi529gPRE
+   Jm2hkwAmkfoWBeTeuaaprlb68u+1Gcdj9ygFGgitGCVpIXpOOn9JJ6G/2
+   A==;
+X-CSE-ConnectionGUID: mHFpWIMnS024qwk9ZfiRkA==
+X-CSE-MsgGUID: Lz2SSl9LR267uOFsz5wzCg==
+X-IronPort-AV: E=Sophos;i="6.12,210,1728943200"; 
+   d="scan'208";a="40434849"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 05 Dec 2024 16:07:38 +0100
+X-CheckPoint: {6751C1BA-1-90CD5875-E0265C0B}
+X-MAIL-CPID: DB51403153CCC72A33CFE8CA058B14B7_3
+X-Control-Analysis: str=0001.0A682F26.6751C1BA.006F,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2481160B1E;
+	Thu,  5 Dec 2024 16:07:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1733411253;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=owlbvx/kRHzonFJ8nb841FHj32M/qOU85thSp1YvB0Y=;
+	b=XhQLwN4sHvUZEtt/WhvaA0p7WZP7JzhIUjPBjgx+6tojBH6drdnfW52cxErD322YWkBtMA
+	2Vrsz2wEUkomorScQng+8HwMx3C1oL2Dtz+2wKIw9yk+LAZ9myudh6cTcNGIbNZPrGYlVM
+	MO8CP3r9Uawz95K+9StQ1cXeoe83uiIxiK4tHgUkAjI66Xx/vCzkDWQH7CPUFO5kg6u5Bj
+	l1kdxOSOuVc8LfvwMb3Y3o+5+oISvgG9SvR4lrQkFMlRY89n7eBkAcHErdcNTb4KBmJN5p
+	t4PYASIHcCFpAb3nP2sPtelD1mhQoYOp0+IkQzYc1dxezkHnluZWwyT7pidi0g==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peng Fan <peng.fan@nxp.com>
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 1/2] arm64: dt: imx93-tqma9352-mba93xxca: enable Open Drain for MDIO
+Date: Thu,  5 Dec 2024 16:07:28 +0100
+Message-Id: <20241205150730.3132807-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fK5nFpGDFbAVSTd6"
-Content-Disposition: inline
-In-Reply-To: <416c7369fcdce4ebb2a8f12daae234507be27e38.1733406275.git.robin.murphy@arm.com>
-X-Cookie: System checkpoint complete.
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_070417_131969_D3D38ED1 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20241205_070743_692384_7588853B 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
---fK5nFpGDFbAVSTd6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The board has a pull-up resistor for MDIO pin per PHY design guide.
+When MDIO is idle, it needs to be high and open drain is better
+to be used here for power saving.
 
-On Thu, Dec 05, 2024 at 01:48:10PM +0000, Robin Murphy wrote:
-> Since system_supports_gcs() ends up referring to cpucap_is_possible(),
-> teach the latter about GCS for consistency with similar features.
+Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v2:
+* Update commit message
 
-Not clear why this is part of a series, there's no obvious relationship
-with patch 1?
+ .../arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dts | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
->  static inline bool system_supports_gcs(void)
->  {
-> -	return IS_ENABLED(CONFIG_ARM64_GCS) &&
-> -		alternative_has_cap_unlikely(ARM64_HAS_GCS);
-> +	return alternative_has_cap_unlikely(ARM64_HAS_GCS);
->  }
+diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dts
+index 599df32976e24..8e939d716aac8 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dts
+@@ -627,8 +627,8 @@ pinctrl_eqos: eqosgrp {
+ 		fsl,pins = <
+ 			/* PD | FSEL_2 | DSE X4 */
+ 			MX93_PAD_ENET1_MDC__ENET_QOS_MDC			0x51e
+-			/* SION | HYS | FSEL_2 | DSE X4 */
+-			MX93_PAD_ENET1_MDIO__ENET_QOS_MDIO			0x4000111e
++			/* SION | HYS | ODE | FSEL_2 | DSE X4 */
++			MX93_PAD_ENET1_MDIO__ENET_QOS_MDIO			0x4000191e
+ 			/* HYS | FSEL_0 | DSE no drive */
+ 			MX93_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x1000
+ 			MX93_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x1000
+@@ -659,8 +659,8 @@ pinctrl_fec: fecgrp {
+ 		fsl,pins = <
+ 			/* PD | FSEL_2 | DSE X4 */
+ 			MX93_PAD_ENET2_MDC__ENET1_MDC			0x51e
+-			/* SION | HYS | FSEL_2 | DSE X4 */
+-			MX93_PAD_ENET2_MDIO__ENET1_MDIO			0x4000111e
++			/* SION | HYS | ODE | FSEL_2 | DSE X4 */
++			MX93_PAD_ENET2_MDIO__ENET1_MDIO			0x4000191e
+ 			/* HYS | FSEL_0 | DSE no drive */
+ 			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x1000
+ 			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x1000
+-- 
+2.34.1
 
-Ah, this is bitrot since the series was on the list for so long.  As
-well as HAFT which Rutland mentioned it looks like _bti_kernel(),
-_irq_prio_masking() and possibly others have the same thing.  Ideally
-we'd have no uses of IS_ENABLED() in these functions so it's a bit more
-obvious.  In any case
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
---fK5nFpGDFbAVSTd6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdRwOoACgkQJNaLcl1U
-h9CKCQf+PJ8xyxhvWUHGbBuvArpSMIsFSw+7fhNagnbBeERzr41D0PePE5LX+Cmk
-6dz3kmNjq6dOXgE+3Rfkg6b+TXeIOusL+uYCaBrTYQBnEWM+lk9iLoDFQl7GGq3f
-+qGLeP9ao7/bHZw4fud2kaNQqnRhkaQWMKBWgAqSJkJav74Px4IXdVUR5PhvtEHV
-N21Wqm2F/0/deeX8i8MWFqXIzVh3xGmHaNSTvRu5Cu6pZf0rKMKJ4zfPuvKOxLIb
-90qIFQ0LxjTmPJ3MbfkcpB79OcHKz5STwV+lc2MM0IEsMl48cqrY70xrnSK8MGRW
-dlGUimQQPI5s+0N/rctb0kDpMXz+mA==
-=NPof
------END PGP SIGNATURE-----
-
---fK5nFpGDFbAVSTd6--
 
