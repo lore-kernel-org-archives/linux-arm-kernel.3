@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174FFE77171
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 08:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 014C2E77171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 08:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0hZA2kqQL7wjCxGzzyGpZIhLtHX/xV1mQEZjEB5W9jc=; b=ppwpLQ2wPw+zl2ZPZz4q1B4UGs
-	iuZJrjbA8Btbs/zJ5Rim7YMvjSYNVZcSROueOrRvrEFxpkhY7p59SztjzjEVuHIRdmQZ+6XqzavYA
-	z4HdKKU8gDjuQ4HiLi7beKNLljWA7lyzL+CEq0DhBw0DbV2Bdd5OYbWqfl2kg9UX7yAHo2S1J4lYX
-	HfDk3PDJjxCQdQx8UpVZfKYVCV/0X55aPGuoEipDckuu0yJeXZEl3qky47oNrIkEWAewBTlOD5+nl
-	S8txOepC5laQua44TK4MvJQweNViPG6epnFa2dltEbTCFFN57/H89BjPh+ZpqVNhA2sHh556ss8Ae
-	OmuQ8x7Q==;
+	bh=LMFtiwUdUqwrxdjEBusTcZgGwFjXia4Vke/I7vmZaZ8=; b=oYOWzLleDQp5AFJLkhljlS7sKS
+	oEJ09JLvj2kbNVMRM+dOMRfz9zKWsxBqkGUG29wi6C2srfYJc59YbdV3RR8RxsCsuHcUljijJuFqN
+	J3zMoRMIcdwypwsbAKMyDdoqVbvdmQ+gtRQowjrYRIITZTkbWX9ilA9X3C5WmOd9wb4bSJ1WD8pgo
+	L1icZw6BoaxHnz3XRymakw6IN6hQi0gRvy5EyHh+zJ0NGmK7a8jZrH5M1/O0TxggHjmsFxkOftF5z
+	JLZGcNy5fEzPQQhqwP/T65RJpWj89P0lDxsN2q70QPGU0Xn3zWlRcc8L4HpSTgzBubvVv/PvcYFlW
+	7deP9apA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ72s-0000000F96b-0tlv;
-	Thu, 05 Dec 2024 08:17:10 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tJ73q-0000000F9Fk-3QvK;
+	Thu, 05 Dec 2024 08:18:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ71r-0000000F8v7-1WgI
+	id 1tJ72b-0000000F92w-2ysQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 08:16:08 +0000
+	Thu, 05 Dec 2024 08:16:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05B5FA42A9C;
-	Thu,  5 Dec 2024 08:14:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A770FC4CEE1;
-	Thu,  5 Dec 2024 08:16:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 887B6A420B3;
+	Thu,  5 Dec 2024 08:15:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BDCBC4CED1;
+	Thu,  5 Dec 2024 08:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733386565;
-	bh=3FQdoGHbtK4vxVzpu1LkgtvENvTPq08yLxgUVs8oYPw=;
+	s=k20201202; t=1733386612;
+	bh=v5YMVBLFaNQyG3N8yGkbXOj72cn8bq1dBgHNk+/bZkY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WIgPuRN4Xrn4bkadyn8DMZ/h9U0a9wSzY3HJyFpYa9fMErDpJhXWuK5tEdnuPwttX
-	 vNNF7fxByZr7Kzh1eASsFa5nHv5yWVyuqm+4YxRXxxR7n6zFl+hUygtRpzK1ZMfPPv
-	 YJmPFtytJInKofdzmnJWlzc1UVBpZA+sSpHGCYXKL36zGudTTEtLKHvcDaLBaJOVPc
-	 IkrpmJ6BaiFkGyqBn/tlANtL/q2emfE+0pNNqupvwUozTQTttLRqTx4kVRvSO0OZtB
-	 cgivhs/DQ/b4rTIaYHfMg/0lcOccEqXeRjEJZvBYDyMLdqVMxqw2HpWxvRYPQU+gT7
-	 9X/aiHpEdGHeg==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tJ71n-000000007QL-2hW1;
-	Thu, 05 Dec 2024 09:16:04 +0100
-Date: Thu, 5 Dec 2024 09:16:03 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
-Cc: Stephan Gerhold <stephan.gerhold@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Krishna Kurapati <quic_kriskura@quicinc.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
- fingerprint reader
-Message-ID: <Z1FhQ3OUI0t3k1_q@hovoldconsulting.com>
-References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
- <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
- <Z07bgH5vVk44zuEH@hovoldconsulting.com>
- <d095ae2a-3f9d-464c-9dc8-a3e73eac6598@oss.qualcomm.com>
- <98b2b88b-9690-44a7-9b22-2f23e6606e82@oss.qualcomm.com>
+	b=AIKVnjdgpYOAF4L/6FlAtcAhJFHh4xev7UfxqA2l+ZnfHiqERX+6EzaroIgUXXCpU
+	 Dua6HfKGySb7XskcQ8aLXSe2HsTJWmL1JhBadbTlhsH4xyADdIzeS3CcvZq3kKGdMt
+	 f9ajM0l9i42fm5iQrRT1UI31re78agJ6VtmKlKw4qAZNzdTiIQSnF21wK9TSoXr2gd
+	 lBmmQ6rhA67MZfxWmIaFiw+S3pP7xk6T/kMPRYw4Y+WDzEi2lSMMV7qvcy7q4HgWLc
+	 4vC75sqN1clPjRixrDBcO+9ZtGPtFYySgGJhgpQeMYGlYrAjj9NgnzLC7XIMLIRipk
+	 HNeCNmNKMhyOg==
+Date: Thu, 5 Dec 2024 09:16:49 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matt.redfearn@blaize.com>, 
+	Neil Jones <neil.jones@blaize.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
+Subject: Re: [PATCH v5 6/6] MAINTAINER: Add entry for Blaize SoC
+Message-ID: <h5awakp52e6pxnnfrclhtlhhs3i66twvmqwlf5vmnfwk2xhbwr@marp6wti72ti>
+References: <20241204-blaize-blzp1600_init_board_support-v5-0-b642bcc49307@blaize.com>
+ <20241204-blaize-blzp1600_init_board_support-v5-6-b642bcc49307@blaize.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <98b2b88b-9690-44a7-9b22-2f23e6606e82@oss.qualcomm.com>
+In-Reply-To: <20241204-blaize-blzp1600_init_board_support-v5-6-b642bcc49307@blaize.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_001607_525242_EE52A128 
-X-CRM114-Status: GOOD (  25.29  )
+X-CRM114-CacheID: sfid-20241205_001653_811762_AFF116EC 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,52 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 01:32:29PM +0530, Krishna Kurapati wrote:
-> On 12/3/2024 6:45 PM, Krishna Kurapati wrote:
-> > On 12/3/2024 3:50 PM, Johan Hovold wrote:
-> >> On Mon, Nov 18, 2024 at 11:34:29AM +0100, Stephan Gerhold wrote:
+On Wed, Dec 04, 2024 at 04:05:29PM +0000, Nikolaos Pasaloukos wrote:
+> Add MAINTAINERS entry for Blaize SoC platform with a list of
+> maintainers.
+> 
+> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> ---
+>  MAINTAINERS | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 273a84483b74543b510de7b08804bbd1f6514358..43846a23f9d990ae9fe066e65ed2bdd36376e327 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2238,6 +2238,15 @@ F:	arch/arm64/boot/dts/bitmain/
+>  F:	drivers/clk/clk-bm1880.c
+>  F:	drivers/pinctrl/pinctrl-bm1880.c
+>  
+> +ARM/BLAIZE ARCHITECTURE
+> +M:	James Cowgill <james.cowgill@blaize.com>
+> +M:	Matt Redfearn <matt.redfearn@blaize.com>
+> +M:	Neil Jones <neil.jones@blaize.com>
+> +M:	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
 
-> >>> +&usb_mp_dwc3 {
-> >>> +    /* Limit to USB 2.0 and single port */
-> >>> +    maximum-speed = "high-speed";
-> >>> +    phys = <&usb_mp_hsphy1>;
-> >>> +    phy-names = "usb2-1";
-> >>> +};
-> >>
-> >> The dwc3 driver determines (and acts on) the number of ports based on
-> >> the port interrupts in DT and controller capabilities.
-> >>
-> >> I'm not sure we can (should) just drop the other HS PHY and the SS PHYs
-> >> that would still be there in the SoC (possibly initialised by the boot
-> >> firmware).
-> > 
-> > The DWC3 core driver identifies number of ports based on xHCI registers. 
-> > The QC Wrapper reads this number via interrupts. But these two values 
-> > are independent of each other. The core driver uses these values to 
-> > identify and manipulate phys. Even if only one HS is given in multiport 
-> > it would be sufficient if the name is "usb2-1". If the others are 
-> > missing, those phys would be read by driver as NULL and any ops to phys 
-> > would be NOP.
+Just to be clear: this is list of active maintainers, so all above are
+supposed to perform reviews or maintainer duties. This is not
+credits/managers/I-need-to-please-someone list.
 
-No, the core driver still acts on these ports (to some extent) even if
-there is no PHY specified (e.g. updates DWC3_GUSB2PHYCFG on suspend).
+With the assumption these are active maintainers:
 
-And IIRC I even had to specify more than just the fingerprint reader PHY
-on the X13s to get it to enumerate. I never had time to fully determine
-why this was the case though.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> However do we need to reduce the number of interrupts used in DTS ?
-> We don't need to give all interrupts as there is only one port present.
-> We don't want to enable all interrupts when ports are not exposed.
+They should also ack it to confirm they understand the burden.
 
-No, the interrupts are still there, wired up in the SoC, so we should
-not change that.
+Best regards,
+Krzysztof
 
-With runtime PM eventually enabled and working as it should, the OS
-should be able to power down any unused ports. And we could also
-consider marking some ports as not physically accessible and not
-connected as a further hint to the OS that they can be disabled even
-sooner.
-
-Johan
 
