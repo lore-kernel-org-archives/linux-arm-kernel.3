@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EE6E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7945CE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHOb9heVAe7GR/2bHqs/7oOtnOkvdRG1hN5GAtd/qzE=; b=QBkTZppAfJ3hgwBJL4yXQCqkja
-	onkx0SZoIdBAQuT66F/laTw0gzv9rjobaFx+I5J5v0o0BGbAouTUhbwzzoh9c652CQGKZ+uumgCFn
-	3nh2Wb/SxxCGvWDuK/1fSeLnLmt50HXn2NoAgx4JIw/C/KSK+CPkvHyRt1MAxlyKZW6NWIPH5IoEl
-	xWF7ObVcHM1qF1Zd2KvBYlyvzLfMpwEaf50S/hZzOEse2A6NKVTD8MSxmVeY7IlpJLvraNVmV64aN
-	n+idMFXnERx7bWkvbGOLGSftLOYlUUSCOIjy5zcivZeeZk1MUaspXWF9xo7k4Chgj/0mLcUeQ0XIQ
-	xixUScNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzZzeW6LtUsNwMv+kA0kTMV9+3xVaKazBCL45YLJgXw=; b=iuHRzPFKfclXvqNrk7yJBfS91h
+	XB7AGMEHe1fQxbphZa2/XDn8EnAno7FFW7r5JLw+paEhMOcZaJf7x0PyISDvzIPH9VIscCKcQd9nQ
+	3OoalE8rB4PvKP0TgxKxHifNEHF+9nwiO3jTjVEC1NwkVERYD2G2/3YTSi3uasFnke3J6L5O6yR1B
+	fEIZozty4M9Lpp8g2t2D9pucS/bmpQCJHNqwb+ybA6HVJR/wXjF+SEtNZKOlJ/WpOw6/Mo5VM03RL
+	lxYTGqrc15bOXz6dmbDns8sDnmOD/uyANWsCyyuaVpKZp3BiaHCBI6s9/vSE6/kuDpJvAnjl3DPxh
+	+a2ujn/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJB38-0000000FyDU-2hOs;
-	Thu, 05 Dec 2024 12:33:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tJB47-0000000FyNg-2myB;
+	Thu, 05 Dec 2024 12:34:43 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAwh-0000000FwU9-23d9;
-	Thu, 05 Dec 2024 12:27:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733401621;
-	bh=nrfocU40C1E7t1lw39FQ7R9127iSar+XPZLXnMOKwaw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Eamc60rFbmbDye+pCeVNeRdxskiQYCdcVUz7cFt9Gumvi659rxVMlH8OOewIuQXag
-	 HzO8IKY7g2qGJ7OhYB3Iew5Bg77qu6jp52MEh562r2kvFdiy3/CpoHW8XKL/qqv9Hb
-	 daOhbOIqkrHlbGGP4Em25pgi9o0OjrCA/0XvnU0v2YNa2pz59rbi+ehilOGXaXT2TD
-	 1eWOu1WMmRUwQCVpMOGQS1UVjLvlN9dRRHDrK85xzX7rGjES4yQGnAlBDYbtfl9m4L
-	 CdWGcQwsHC+d5JpLvdGFomyrQeZ4A4nkAVfVMs/5xa3X/8GD9ry/+WOHxXqcOU5f7n
-	 2hJqC1GBjS14Q==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B8C617E366D;
-	Thu,  5 Dec 2024 13:27:01 +0100 (CET)
-Message-ID: <7bf536a5-30c1-43d8-9ea3-3aaea65c6b0a@collabora.com>
-Date: Thu, 5 Dec 2024 13:27:01 +0100
+	id 1tJAyj-0000000FxCg-14QE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Dec 2024 12:29:11 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53df1d1b726so871332e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 04:29:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733401747; x=1734006547; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DzZzeW6LtUsNwMv+kA0kTMV9+3xVaKazBCL45YLJgXw=;
+        b=fOXG1ThTgx/K7CbWjzoE0AkL84ippEO8UNZM0vTpOICQe1KsWhfrp9R1HIKuy2UlpR
+         UBgvdcinEPD3VXssKRg8xk0w3yQ+9U4Bd4ZR7hHYuTi6tLRsky1XCQX/7lMqPdXZSqxV
+         la62651vZ0wfYAjUEM98ye09pEmcU1qMLF8OaQRDUkMYb7X3okJYViLa9yIO4zR+C0IW
+         FvE7adH38k6R5EnT/0OkUm8O/6i+k61gsE4YhYCjO1UqYtLK1SMP3Xth75ITIDaul/9N
+         HckOODUWAc894wD+DDZ1jvizw17k7pokJDWy9gKCNfJUUGAauGyk9yqQdjfFcoNsMZZ9
+         9sBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733401747; x=1734006547;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DzZzeW6LtUsNwMv+kA0kTMV9+3xVaKazBCL45YLJgXw=;
+        b=iN2nv+1U74tHkabPAHtwVJF0fdMbmlQM+oteNwHdPlsbWIoebwaC9OabfSC6uu3kla
+         SXfU1+jEfBVR1I+xDC/1QqQksGkdyV+M1qoCVzGPInwiCaDn61zhzZgVsF2IIzdo47lb
+         DVtP6RfoLYtAAV71Ixk0qHXlzDWbMNRoeAa63hdwksJAjqorne8o3GITlZrncJslMHh2
+         ybJ5q+Ob8dKpIPEuPpPr2RP6FoE4uuxH73CUD4roqAApZgicwdlwG7F4lYtkkakIAjDN
+         xAEAiH5W1PNGfpRF29afHtmAsp22Ocmm9983fUYTVVlma3fcZMFzf6qOmgo4ovIjrum/
+         2Hmg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/tpaNdOYpwtX3wRzPd+gkGrfL7ZMomm2Btg9MhmRpFQfF1aLD7B/3PELWo9OoqipMbMl5REWIok4s8lUtdtot@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlMa2pDXZ5/1zAQA9fSF82MW6ysGbVMCnMLp7CzF07WQfjKchd
+	xH4L13K0z8z0T8MBIz7pWjBjbzd12cmy2WPUjEQPX3RIpB227HWMremFGkqRIt8=
+X-Gm-Gg: ASbGnct1cPDvmk4xoaMd4UVSSGq03epDiY8DoqezUFOP2TGmiaQJUh505BDOfC71ZMM
+	8I0FD+gh5ygZlGTqd9apxyMC9RNj7EUE3+Cg/OcPW8woK2JYVVaSqvc1VuT2cM+f2l564n9XxDh
+	AiPdDJK1Uwr96C0+bM0hqk157HDHez6FqeqSb3hR/ahm857YO6lCxgjYePc+Cz2jG2gwVczb3Q8
+	tBnNzHL8A2J8YepffU6xwiAjplOiveZKeuxFTWuXAeDzrPEEsCC0+ShfK2SXMbLroNOYgpu2NFa
+	/c0/qSoh6hgS9U8TcZwQ7xBh7HEipQ==
+X-Google-Smtp-Source: AGHT+IGWyrIJVNkXZfMk2D77Z12NxWguDqxu6KGooscExaYt6vk4bYi8IUDxyjnT5IkrNFyNFyZrTg==
+X-Received: by 2002:a05:6512:3f1f:b0:53d:eefc:2b48 with SMTP id 2adb3069b0e04-53e12a01888mr5509943e87.33.1733401747192;
+        Thu, 05 Dec 2024 04:29:07 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e229c1d6dsm233341e87.183.2024.12.05.04.29.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 04:29:05 -0800 (PST)
+Date: Thu, 5 Dec 2024 14:29:03 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
+	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v2 12/15] drm/mediatek: mtk_hdmi: Split driver and add
+ common probe function
+Message-ID: <olxtqto5mbgofxg4iqjvsmpxxzz6zoj7pbwmoeklhfjiavqfvv@dyveek7hgtki>
+References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+ <20241205114518.53527-13-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] MT8516/MT8167 dtsi fixes
-To: Val Packett <val@packett.cool>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Fabien Parent <fparent@baylibre.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241204190524.21862-1-val@packett.cool>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241204190524.21862-1-val@packett.cool>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241205114518.53527-13-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_042703_703649_EA5CF624 
-X-CRM114-Status: GOOD (  35.81  )
+X-CRM114-CacheID: sfid-20241205_042909_305359_A3021567 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +103,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 04/12/24 20:05, Val Packett ha scritto:
-> Hi everyone,
+On Thu, Dec 05, 2024 at 12:45:14PM +0100, AngeloGioacchino Del Regno wrote:
+> In preparation for adding a new driver for the HDMI TX v2 IP,
+> split out the functions that will be common between the already
+> present mtk_hdmi (v1) driver and the new one.
 > 
-> I've been working on mainline bringup on an MT8167 tablet I found at a
-> junkyard sale (lenovo,tb7304f) for postmarketOS :3
+> Since the probe flow for both drivers is 90% similar, add a common
+> probe function that will be called from each driver's .probe()
+> callback, avoiding lots of code duplication.
 > 
-> This first series consists of basic device tree fixes for the MT8516
-> dtsi that the MT8167 one inherits from.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  drivers/gpu/drm/mediatek/Kconfig           |  11 +-
+>  drivers/gpu/drm/mediatek/Makefile          |   1 +
+>  drivers/gpu/drm/mediatek/mtk_hdmi.c        | 724 +++------------------
+>  drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 425 ++++++++++++
+>  drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 203 ++++++
+>  5 files changed, 729 insertions(+), 635 deletions(-)
+>  create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>  create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_common.h
 > 
+> @@ -1026,19 +812,12 @@ static int mtk_hdmi_setup_vendor_specific_infoframe(struct mtk_hdmi *hdmi,
+>  	return 0;
+>  }
+>  
+> -static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
+> +static void mtk_hdmi_send_infoframe(struct mtk_hdmi *hdmi, u8 *buffer_spd, size_t bufsz_spd,
+> +				    u8 *buffer_avi, size_t bufsz_avi,
+> +				    struct drm_display_mode *mode)
+>  {
+> -	struct hdmi_audio_param *aud_param = &hdmi->aud_param;
+> -
+> -	hdmi->csp = HDMI_COLORSPACE_RGB;
+> -	aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+> -	aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+> -	aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
+> -	aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
+> -	aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
+> -	aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
+> -
+> -	return 0;
+> +	mtk_hdmi_setup_avi_infoframe(hdmi, buffer_avi, bufsz_avi, mode);
+> +	mtk_hdmi_setup_spd_infoframe(hdmi, buffer_spd, bufsz_spd, "mediatek", "On-chip HDMI");
 
-...Yes, but I don't see any patch that is introducing your TB7304F device here.
+Please use the HDMI Connector framework instead of handling everything
+on your own.
 
-I strongly suggest you to also send one that achieves basic boot with UART console
-as a first step for upstreaming your board, and then go for incremental changes
-everytime you get a new feature working.
+>  }
+>  
+>  static void mtk_hdmi_audio_enable(struct mtk_hdmi *hdmi)
 
-> The changes that follow add support for the MT6392 PMIC, and that's
-> mostly been implemented by Fabien Parent back in 2020 and not merged:
-> 
-> <https://patchwork.kernel.org/project/linux-arm-kernel/patch/20201027181157.862927-3-fparent@baylibre.com/>
-> <https://patchwork.kernel.org/project/linux-arm-kernel/patch/20201024200304.1427864-2-fparent@baylibre.com/>
-> 
-> but I have a couple changes on top of those patches (like adding the
-> missing mt6392_set_buck_vosel_reg). I'm wondering what the best way to
-> get this in would be, should I squash my changes and submit the "final"
-> patches with a Co-developed-by tag?
-> 
-
-Generally, if the patches are only simple additions, you could send the original
-patches without any author variation (and fixing that MT6392_IRQ_numbers enum
-in the original ones because lower case please!) and then your patches on top
-with your additions.
-
-Otherwise, if you're "changing a lot of stuff" it makes sense to grab authorship
-and add the Co-Developed-by... but I don't think you're changing much, honestly.
-
-Of course, you'll have to drop the TXT additions, as now they are YAML (where the
-YAML additions go to a separated dt-bindings patch!).
-
-In the end, it's your choice - that's more or less a gist of how to do it.
-
-> (Similar situation with DRM nodes, not merged due to "concerns about
-> the driver architecture" in 2021, now missing GCE/CMDQ mailbox props:
-> <https://lore.kernel.org/df4c57f9-115b-c4da-e656-e4bdec62c2d7@gmail.com/>)
-> 
-
-The upstream driver just gained support for configuring the display paths
-entirely in the devicetree as those are obviously device specific.
-
-You can make use of that for upstreaming your tablet after adding the display
-nodes (and bindings, if required) as if you go for the default configuration
-that's probably not going to work because it's for the pumpkin boards which
-will most probably have a different display pipeline compared to your board.
-
-> By the way, is anyone familiar with PSCI cpuidle/hot-unplug issues on
-> Mediatek Android devices from around this time? Specifically on this
-> tablet, I can't make the cores come back from suspend. I have
-> investigated local-timer-stop and arm,no-tick-in-suspend, Fabien pointed
-> me to the mediatek timer and its required clocks, but nothing helped.
-> Trying the psci_checker, I realized that it's not just suspend: they
-> do not come back from hot-unplug either. Initial CPU_ON on boot is fine,
-> but then after a CPU_OFF they do not actually come back when CPU_ON
-> supposedly turns them on. Now I can't help but notice that the only DTS
-> in mainline for a device that came with Android, mt6795-sony-xperia-m5,
-> does not have any cpuidle nodes in its SoC's dtsi either..
-> 
-
-I did have some issues with an older bootloader on the Xperia M5 smartphone
-and would even lock up at boot, because on the old firmwares the power
-domains for the CPUs are not managed automatically by FW.
-
-Before discovering that there was new FW (and this stuff is signed so you
-cannot cross-flash...) I did engineer a solution, but never upstreamed it
-because I did effectively lack time to clean it up and make it proper.
-
-This solution is not upstreamable, as it makes the mtk-pm-domains driver
-to be usable only as built-in and not as module anymore... so that would
-probably need a separated driver or something like that.
-
-Here's the (rather dirty, but working) code: 
-https://gitlab.collabora.com/google/chromeos-kernel/-/commit/ae8f7048aadac03037391a64d9d79ca5af7b7a77
-
-Cheers!
-Angelo
-
-> Val Packett (5):
->    arm64: dts: mediatek: mt8516: fix GICv2 range
->    arm64: dts: mediatek: mt8516: fix wdt irq type
->    arm64: dts: mediatek: mt8516: add i2c clock-div property
->    arm64: dts: mediatek: mt8516: reserve 192 KiB for TF-A
->    arm64: dts: mediatek: mt8516: add keypad node
-> 
->   arch/arm64/boot/dts/mediatek/mt8516.dtsi      | 21 +++++++++++++++----
->   .../boot/dts/mediatek/pumpkin-common.dtsi     |  2 --
->   2 files changed, 17 insertions(+), 6 deletions(-)
-> 
-
-
-
+-- 
+With best wishes
+Dmitry
 
