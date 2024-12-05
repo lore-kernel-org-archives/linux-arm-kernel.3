@@ -4,77 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13928E77170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7173DE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JnvVwtr9/F4jJKXEEsYzqt/ANxNWxE6TN8UKflWr8wo=; b=25tpiRXA3NZGhvIkpcZtolZGoN
-	AqLZJ5liN/yb9P9+OWU2c/qYXVPNGWU0zICwZxGyn68B1jlGrcGzje9Dq2B4LEsh4V0ApQLmkf6Eb
-	LoCowONQKgg8JDfzpvkU4lNoO3ZIKfsTtetvCMuuVgsLu21x2VkftW0xOaGFIqOhTBuwPkEY5sCWU
-	MwNtdE0FsqGVOe44M8RNP9e3iI6bmfOAnkaoMgsRhhqeUzZxM1xiWuAL9tWACq3b+rYNEsEhS0Xls
-	MjSjR1TEVZeLMHKTaR9Hu4NOFALF8UMIx5NAiVzMYGhC1zeonHF9nZ9EZnXp22JL9VLHk3llpa8+/
-	Rs/5RHqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VPcp32i194zjkohuP3ghdoazYclk/zwkpzXjsI6FYvY=; b=cb3RYnIgR4rBluYcDJeahOEg/b
+	Hsr22kEZ+4tlSuNCnnm5RFJX9NcEt+PeO1DAvfPkUHHx7r/3zkxG3UGpiNZLT7bheyWuEsgmQfgGa
+	9E/xJUYGEvdKiXEEAyiavOqoM7dFJBBMV9XREaF1suDpRBwx9Ow+E+tiOozi7/HjTXkPzI0ddMaxm
+	XEXjEO5l//ZZgYq3/rOABAGa0MlSJGP490woVPT2actj4ZtnEZnDLc3GuzB1TuWTb0GptpQfgbMo6
+	bDaWoQTs4NOJhKDh76F63RZLPApfkv+yAgydxjR7XDPpRnN4zQgbRd0z2rVwHhN/qbjbz937Gn0rW
+	hLIcBknQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8cl-0000000FQuN-3ti0;
-	Thu, 05 Dec 2024 09:58:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tJ8dX-0000000FQzq-2AT5;
+	Thu, 05 Dec 2024 09:59:07 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ8bk-0000000FQox-2Cic
+	id 1tJ6MN-0000000F1hH-3Bpy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 09:57:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1733392637; x=1764928637;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=miV+lFMFVzAaAvt8JNrBIkbBUgixoMAJpy4otndSQqI=;
-  b=LRW4JC/ETIvGIvlGEKlosDDNip4qnQ88M14FMeTWxsF0bo+Qh4lYGExd
-   HnK+Zp9t9hFyjf6u4839Jp/ePZjjnRDhRXw2h+6DP7mKyKEKaECaAhOMm
-   zsf9j4ALzWiHa1dsGRHd5rd3hlhOf4lJkJcjEUGtwViNA5qC6h/NWS0zA
-   gSQ/ZjvM5mgEm3IYFhH5E/ouwKw6ipipy7A02W2RLbpiduHpf2Mgv97rs
-   orYinfid6ynx3R+oQIZ1eWNiVNhxbWHDjNHll0W1PpUFMMkid2cv29j1E
-   FlZHYEwDuQbyghMKreVdR5T/qLTIGUr7sh8dCVMT1NL7bNqLaf7ActE/D
-   Q==;
-X-CSE-ConnectionGUID: TKbBYKFISlCTYliYBZMdug==
-X-CSE-MsgGUID: B/i8g4eKSlyJ517PbZMMSg==
-X-IronPort-AV: E=Sophos;i="6.12,209,1728975600"; 
-   d="scan'208";a="266366333"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Dec 2024 02:57:14 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 5 Dec 2024 02:56:23 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Thu, 5 Dec 2024 02:56:19 -0700
-From: Charan Pedumuru <charan.pedumuru@microchip.com>
-Date: Thu, 5 Dec 2024 15:26:18 +0530
-Subject: [PATCH] dt-bindings: dma: atmel: Convert to json schema
+	Thu, 05 Dec 2024 07:33:18 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa5366d3b47so89433166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 23:33:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733383994; x=1733988794; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VPcp32i194zjkohuP3ghdoazYclk/zwkpzXjsI6FYvY=;
+        b=v+xwC7j1ftDJczza/XL2qyBwAgIa8UCAVBKbUvgOuuwdOghVHDWJvcVMQ+6AjDyPvu
+         OWm754T12+I/RnTqt49YI4OL1cEwZqwGySFvaz9CoLslw0b5RoKMp/q5hFehBO2T1Dvr
+         jHmDH9D5W9mKDtkuZQD9j9cFHsebl60v/C/Km5ieJ0Wtd5YoCZqKeBCO9pXt45PQRg/K
+         C6Ygj84lszCXMwVq1Boiz/4BkrO6inB7EOK18+zkrNqDjdcoF5Fdqt8Zckh5sAFmM8p+
+         4A+S4/XCCOclQl+vUHTpr2I4C9cDwb0RQ6zakrtTEuutRWOLcFGjw0+o5Jq/WS0gekOJ
+         72KA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733383994; x=1733988794;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VPcp32i194zjkohuP3ghdoazYclk/zwkpzXjsI6FYvY=;
+        b=H9se+7h+yQgfZx1Lh06udcmizV1a+0Xq+W6KzsICDUzQfMALbNI58YLWCPKDs5Tqwz
+         5BakoOpIdS8n4SKuorpRKk7ljCJRxmvSl8fGpJinIiLB+WGI78VKlUAM/GKiMPZ3sdia
+         sd2ALHcbJTmiGaKVV5Kz/usDOXS1ExOct2S0I3AVFbhLBgB7/eH5YfsIxjaZOeFKbmWb
+         gTCZKCbBbcQ7qk4cgPcnXWh2BKKsFjpL8394J+xswqcvOP5V0DI7o9WYbtjENhTdwhfH
+         kH7bx3TX6pcgFmzB3+X1NZpZqSnYAQm+imNfH7V6qHP00HwqKMRpytTNC9LbPHNv4mDI
+         roHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDENl+U2k/gAkhIAryyaGafu5I+j1rO/5q0EWS9WPUQY07SExMiGMtTrIl4wUNW6s5pYdr6TyuzZ8YJGyknNeB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi7UBLlJ8HGGpRaSmeRSWswktQJojtGokUGTLEjMDESdWLOGCj
+	DSsvYrhv6stz0UicUvzMziXIhT0pSyaxHZb00tUfq5zFfrhHkx/MAWhst5kZXXI=
+X-Gm-Gg: ASbGncvAAiF1cJMwIXdB/DgaS91DjFvzhHA2FWLI7YDAIIZOOnBpwDoYERcyK5pkLqc
+	s60AtpXW5q3jFm282nRrRGcxTClo/wLoVe3oCMCuIz6jG4DBekURqSqt7kCRhH8H9owalke2UrO
+	m/PdDQgSl7//6g0Yp0ockNAd+Wx6pCIXtc5/7eK5air9TyFCSdCHw2Ay1kL+9RuCqLusZkzLTwj
+	vQ+DCIsU/xwtvvKSHqfLTu8O2n7r/etJ4UNMsx7Qs1sq9fzVd1ePooc6ZRYmQi7g+Q4BtTp4S6a
+	SfmBdxnYJ3geP5xnNcY3z9XJQfy/8AIjBw==
+X-Google-Smtp-Source: AGHT+IG2cRFoErHvd+1EuK9aLmhx/7F0pkt3orG+NahV6/yW750scFnzkpmch+QEqJyukIDF69QaRw==
+X-Received: by 2002:a17:906:328d:b0:aa5:30c0:384b with SMTP id a640c23a62f3a-aa5f7d4d1f6mr732358166b.24.1733383993763;
+        Wed, 04 Dec 2024 23:33:13 -0800 (PST)
+Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6260888casm53371766b.133.2024.12.04.23.33.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 23:33:13 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Thu, 05 Dec 2024 07:33:12 +0000
+Subject: [PATCH v3 1/8] dt-bindings: phy: samsung,usb3-drd-phy: add blank
+ lines between DT properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241205-xdma-v1-1-76a4a44670b5@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAMF4UWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDQyNT3YqU3ERdSwvTZLNkE4vUpBRTJaDSgqLUtMwKsDHRsbW1ACEYSFR
- WAAAA
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Nicolas
- Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
-CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Charan Pedumuru <charan.pedumuru@microchip.com>
-X-Mailer: b4 0.14.1
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241205-gs101-phy-lanes-orientation-phy-v3-1-32f721bed219@linaro.org>
+References: <20241205-gs101-phy-lanes-orientation-phy-v3-0-32f721bed219@linaro.org>
+In-Reply-To: <20241205-gs101-phy-lanes-orientation-phy-v3-0-32f721bed219@linaro.org>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
+ kernel-team@android.com, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_015716_690309_93BF1B6A 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20241204_233315_793492_9F48166E 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,173 +112,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert old text based binding to json schema.
-Changes during conversion:
-- Add the required properties `clock` and `clock-names`, which were
-  missing in the original binding.
-- Add a fallback for `microchip,sam9x7-dma` and `microchip,sam9x60-dma`
-  as they are compatible with the dma IP core on `atmel,sama5d4-dma`.
-- Update examples and include appropriate file directives to resolve
-  errors identified by `dt_binding_check` and `dtbs_check`.
+In [1], Rob pointed out that we should really be separating properties
+with blank lines in between, which is universal style. Only where
+properties are booleans, empty lines are not required.
 
-Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
----
- .../devicetree/bindings/dma/atmel,sama5d4-dma.yaml | 79 ++++++++++++++++++++++
- .../devicetree/bindings/dma/atmel-xdma.txt         | 54 ---------------
- 2 files changed, 79 insertions(+), 54 deletions(-)
+Do so.
 
-diff --git a/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml b/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
-new file mode 100644
-index 000000000000..9ca1c5d1f00f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
-@@ -0,0 +1,79 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dma/atmel,sama5d4-dma.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Microchip AT91 Extensible Direct Memory Access Controller
-+
-+maintainers:
-+  - Nicolas Ferre <nicolas.ferre@microchip.com>
-+  - Charan Pedumuru <charan.pedumuru@microchip.com>
-+
-+description:
-+  The DMA Controller (XDMAC) is a AHB-protocol central direct memory access
-+  controller. It performs peripheral data transfer and memory move operations
-+  over one or two bus ports through the unidirectional communication
-+  channel. Each channel is fully programmable and provides both peripheral
-+  or memory-to-memory transfers. The channel features are configurable at
-+  implementation.
-+
-+allOf:
-+  - $ref: dma-controller.yaml#
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - atmel,sama5d4-dma
-+          - microchip,sama7g5-dma
-+      - items:
-+          - enum:
-+              - microchip,sam9x60-dma
-+              - microchip,sam9x7-dma
-+          - const: atmel,sama5d4-dma
-+
-+  "#dma-cells":
-+    description: |
-+      Represents the number of integer cells in the `dmas` property of client
-+      devices. The single cell specifies the channel configuration register:
-+        - bit 13: SIF (Source Interface Identifier) for memory interface.
-+        - bit 14: DIF (Destination Interface Identifier) for peripheral interface.
-+        - bit 30-24: PERID (Peripheral Identifier).
-+    const: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: dma_clk
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - "#dma-cells"
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/at91.h>
-+    #include <dt-bindings/dma/at91.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    dma-controller@f0008000 {
-+        compatible = "atmel,sama5d4-dma";
-+        reg = <0xf0008000 0x1000>;
-+        interrupts = <20 IRQ_TYPE_LEVEL_HIGH 0>;
-+        #dma-cells = <1>;
-+        clocks = <&pmc PMC_TYPE_PERIPHERAL 20>;
-+        clock-names = "dma_clk";
-+    };
-diff --git a/Documentation/devicetree/bindings/dma/atmel-xdma.txt b/Documentation/devicetree/bindings/dma/atmel-xdma.txt
-deleted file mode 100644
-index 76d649b3a25d..000000000000
---- a/Documentation/devicetree/bindings/dma/atmel-xdma.txt
-+++ /dev/null
-@@ -1,54 +0,0 @@
--* Atmel Extensible Direct Memory Access Controller (XDMAC)
--
--* XDMA Controller
--Required properties:
--- compatible: Should be "atmel,sama5d4-dma", "microchip,sam9x60-dma" or
--  "microchip,sama7g5-dma" or
--  "microchip,sam9x7-dma", "atmel,sama5d4-dma".
--- reg: Should contain DMA registers location and length.
--- interrupts: Should contain DMA interrupt.
--- #dma-cells: Must be <1>, used to represent the number of integer cells in
--the dmas property of client devices.
--  - The 1st cell specifies the channel configuration register:
--    - bit 13: SIF, source interface identifier, used to get the memory
--    interface identifier,
--    - bit 14: DIF, destination interface identifier, used to get the peripheral
--    interface identifier,
--    - bit 30-24: PERID, peripheral identifier.
--
--Example:
--
--dma1: dma-controller@f0004000 {
--	compatible = "atmel,sama5d4-dma";
--	reg = <0xf0004000 0x200>;
--	interrupts = <50 4 0>;
--	#dma-cells = <1>;
--};
--
--
--* DMA clients
--DMA clients connected to the Atmel XDMA controller must use the format
--described in the dma.txt file, using a one-cell specifier for each channel.
--The two cells in order are:
--1. A phandle pointing to the DMA controller.
--2. Channel configuration register. Configurable fields are:
--    - bit 13: SIF, source interface identifier, used to get the memory
--    interface identifier,
--    - bit 14: DIF, destination interface identifier, used to get the peripheral
--    interface identifier,
--  - bit 30-24: PERID, peripheral identifier.
--
--Example:
--
--i2c2: i2c@f8024000 {
--	compatible = "atmel,at91sam9x5-i2c";
--	reg = <0xf8024000 0x4000>;
--	interrupts = <34 4 6>;
--	dmas = <&dma1
--		(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1)
--		 | AT91_XDMAC_DT_PERID(6))>,
--	       <&dma1
--		(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1)
--		| AT91_XDMAC_DT_PERID(7))>;
--	dma-names = "tx", "rx";
--};
+Link: https://lore.kernel.org/all/20240711212359.GA3023490-robh@kernel.org/ [1]
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
 ---
-base-commit: 85a2dd7d7c8152cb125712a1ecae1d0a6ccac250
-change-id: 20241125-xdma-985c6c48ebd5
+v3:
+* update subject line (Rob)
+* collect tags
 
-Best regards,
+v2:
+* collect tags
+---
+ .../devicetree/bindings/phy/samsung,usb3-drd-phy.yaml     | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+index 16321cdd4919..1f8b35917b11 100644
+--- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+@@ -83,14 +83,19 @@ properties:
+ 
+   pll-supply:
+     description: Power supply for the USB PLL.
++
+   dvdd-usb20-supply:
+     description: DVDD power supply for the USB 2.0 phy.
++
+   vddh-usb20-supply:
+     description: VDDh power supply for the USB 2.0 phy.
++
+   vdd33-usb20-supply:
+     description: 3.3V power supply for the USB 2.0 phy.
++
+   vdda-usbdp-supply:
+     description: VDDa power supply for the USB DP phy.
++
+   vddh-usbdp-supply:
+     description: VDDh power supply for the USB DP phy.
+ 
+@@ -117,6 +122,7 @@ allOf:
+             - description: Gate of control interface AXI clock
+             - description: Gate of control interface APB clock
+             - description: Gate of SCL APB clock
++
+         clock-names:
+           items:
+             - const: phy
+@@ -124,10 +130,13 @@ allOf:
+             - const: ctrl_aclk
+             - const: ctrl_pclk
+             - const: scl_pclk
++
+         reg:
+           minItems: 3
++
+         reg-names:
+           minItems: 3
++
+       required:
+         - reg-names
+         - pll-supply
+@@ -149,6 +158,7 @@ allOf:
+         clocks:
+           minItems: 5
+           maxItems: 5
++
+         clock-names:
+           items:
+             - const: phy
+@@ -156,8 +166,10 @@ allOf:
+             - const: phy_utmi
+             - const: phy_pipe
+             - const: itp
++
+         reg:
+           maxItems: 1
++
+         reg-names:
+           maxItems: 1
+ 
+@@ -174,12 +186,15 @@ allOf:
+         clocks:
+           minItems: 2
+           maxItems: 2
++
+         clock-names:
+           items:
+             - const: phy
+             - const: ref
++
+         reg:
+           maxItems: 1
++
+         reg-names:
+           maxItems: 1
+ 
+
 -- 
-Charan Pedumuru <charan.pedumuru@microchip.com>
+2.47.0.338.g60cca15819-goog
 
 
