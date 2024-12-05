@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63B4E77171
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48337E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 09:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/1+AiVhiUv+sExiwJYXTkMxRtDVn8b9sUGT3Jo3lP4=; b=M/d4YzJfwBU/Ihs+6n0O3H1RBS
-	v0sHULcW4uBqdTL20DM/UgVnmQV2ax/WqgOF+8lQqE4sir+hbptBQH4jwhUOz/gH9/u8x3RIZh71V
-	RQsw8C12h6skKgBsf0F0DAaaW0SQILJpRdBaHPkpYbj1BFoc+tnZ4y3trj3IVjorLWmG3+ejTjcCb
-	9VKahyp3BBc4tvbCyqDcC6XzHD2ZU1xI8EV1Q79in8S3Gkr7FZcD2zUQvcSVuUZTZU9InDeMLNjQo
-	dzjiU+g/2K3ZJIytQLkY/g0zUlJBusP4a7diaWxvs0q7qKKOUOLGMPBHNBrp1GDGfYbXBeeFVQwXm
-	Flh2WgyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LOb5bRCTs7fB0tNDMCyTrFEpjY3yj4VUPsI90sOxb2A=; b=jiIK6NI7sQir39kwwSYYuEDhSt
+	emb9CZJNUsTuycqh0GtvySXeeveGmE12wmPoc9/P4pSpD2gFagge2G3J9pgLFa7Prq4HFn/axxmk7
+	vfuLwBNtn3Q9sVdq8e2JuF+f6Gl8+zE2/QmjZTp6V50O8MfZhEYD16G2tyuoNka3+povlA08yA39C
+	gFcSdQIS/svbxUlj89X70ZQVqsssfxWRR0hLRXaX1ClgZYWIxNN11ua3Q4QjPmnSVoPvB7IkwXxos
+	jQ3IIpq8r20MosC0wGODkVsIkYhx87GPym1ozNbfURRf4Zfi4YdOeHFosuIFTdz+W3nuWUq1UN2fw
+	JFvm8t1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7qx-0000000FIVg-4A7z;
-	Thu, 05 Dec 2024 09:08:55 +0000
-Received: from mail-ua1-f52.google.com ([209.85.222.52])
+	id 1tJ7rx-0000000FIpD-2fu2;
+	Thu, 05 Dec 2024 09:09:57 +0000
+Received: from mail-il1-f197.google.com ([209.85.166.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ7pw-0000000FIHp-2m5F
+	id 1tJ7qX-0000000FIPA-19Fu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 09:07:53 +0000
-Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-85b95896cefso151423241.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 01:07:52 -0800 (PST)
+	Thu, 05 Dec 2024 09:08:30 +0000
+Received: by mail-il1-f197.google.com with SMTP id e9e14a558f8ab-3a78589df29so4807785ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 01:08:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733389670; x=1733994470;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l/1+AiVhiUv+sExiwJYXTkMxRtDVn8b9sUGT3Jo3lP4=;
-        b=DD/Y9NSAcDaqwXmaQtF2qCKsZiDGhy8e0IlQ/MJi2/qSuBX1aw+fz2UijPWq5czWm3
-         vz2rkFXn0dthyigie7C0ooQKo3m3Kg3Zxs2rvlG89od5QnBMQbWLGsGDtjldarfLb1N1
-         iRjr0HbmOvt578BB50OzAvhWsa7z9vcCalAplvg6WeuFq7Cf89Uuk329//ekqB91+2bW
-         a9AgvHbvdAkj3MZSrqTgNUCLU8HkKk6Wd3OdL95KMWWDZuMoN6xvgDUCGqAL6lNCjYUl
-         6EtdfjY8rzggi392TjzchzDRiKaLqE1RqiO87eymNBi08etxquvga3WrIbe5zn7Obut0
-         dUdg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMO1hTXZQsBNMoNWxmxd3kasvKgXJlKv7n4Uf6WlcUCOHARHMrNrpDMK/JUdcXzznsLIfr1lbnUvpiu69UDwMB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGIvgaxgqVLNftE59uRkJX9z8QsrqW67VvS0IaMd9t1rCUUb3J
-	z8jV/Rmcbqo1vKlDxDLACsrQSIGuqpSCS3NtHCUD1mZnAsAWVUG77W/Crlsd
-X-Gm-Gg: ASbGncsmVk6BWS5vgtdoNrwfAdqTBFVIhdYXeqsyKNmo40ZlOMeAhTgjty84CI4kL/Y
-	INU14B4MAkEylLYDooPbM1XKMlABh505e90RhWGUcdeJgW2li80mAeG2d2AeNOSFJyhay1usJ4b
-	L2ghI5kVdYxFHQHpKl1l8S8/0SXRdZuLzF45fqtlGsPQ6ExY7GfbRBpowBGeYt4rB36yyIRTM5U
-	ivYvokA6C7YS9nwFAue8BqBeQss6PlbR1haTlkUDZMF70UKY8pWYdM7/X5JlS6FCGKL0DdRG03p
-	4nJOWBS0ogKu
-X-Google-Smtp-Source: AGHT+IFVpALUHz/CbysbJKQev6eGarP7j4CZqr1fafDkXUcHH9BKIW7r92E9/CK+JTG9yilbtgaWAg==
-X-Received: by 2002:a05:6102:50a2:b0:4af:abee:74db with SMTP id ada2fe7eead31-4afabee86ffmr5674624137.23.1733389670085;
-        Thu, 05 Dec 2024 01:07:50 -0800 (PST)
-Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-85c2b964991sm133170241.2.2024.12.05.01.07.49
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Dec 2024 01:07:49 -0800 (PST)
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-4afbaf7612cso171013137.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 01:07:49 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWT2Wxbl5dsFFVhsXCvgNdpJ42ctQ6Xi2a4kIQyFTt0roj5KOCs3OfzHC10ry8eCJakjG1ElHTUgn/vnGnQP4DI@lists.infradead.org
-X-Received: by 2002:a05:6102:3707:b0:4af:ae02:d3ba with SMTP id
- ada2fe7eead31-4afae02d7d0mr5814131137.16.1733389669526; Thu, 05 Dec 2024
- 01:07:49 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733389707; x=1733994507;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LOb5bRCTs7fB0tNDMCyTrFEpjY3yj4VUPsI90sOxb2A=;
+        b=XX7jWLlVUNz39NBTat3blckegNjU0q4HcS5Ho5NRr2oQ9oSFWLdIJvfOJsDS9CKtzV
+         JpfldUnDzR5ONx5TrpwzsGsdXRmnxxcnulw3+PgA8cXoF1a1NiAt7sWopE/dfteFcQjv
+         yBJshuc6T95QTgyUGY4TaDJxdhITw/iXR+kOOs0dbKXO1Zqzsc6Jux/TIIteE0IiMHBq
+         9bNTdQ+9CdsyW6o9PqEFGK2Nh/Uu5UcmQpalh+ZLQ2/Nmfe8pP9ueIinbBB3rg5gFI5v
+         7c4L2SnzX+RQz9wZPWbjDLZzr0AhspQsDEVY1ATWX4eyKKcY22QJQiY6WuX9G8mWUVZn
+         w4Kw==
+X-Gm-Message-State: AOJu0YyS90BZIBJzHMCbmukBPK6xfSVsnxrTpYf1pUDY9tsRB5Wyth6G
+	faIOCbH+a+CKTEPee8OU/k4vKN/kyZVBTWjoY0QM7wbyoEXchTYZKsMlRJF2DGZy3UWbbkx0dLl
+	wb71tZFBkbWma1IYnVI7+GuM5Qc4paDi9WMtdySZ6XW5k7nfGJgIIy/g=
+X-Google-Smtp-Source: AGHT+IGFvIah2BIE67hHqF9MlPPOwhy/w8UaViJ0teMog5nkys7YJXsLbRsV5l6JsV1JrUo7cTM2I2RjWjCRULRGGSwntd5zJKkB
 MIME-Version: 1.0
-References: <cover.1733156661.git.geert+renesas@glider.be> <87jzcg1d2f.wl-kuninori.morimoto.gx@renesas.com>
-In-Reply-To: <87jzcg1d2f.wl-kuninori.morimoto.gx@renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Dec 2024 10:07:37 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWF7NcmKYzvF4Dfjh3S5MccbJrpSphK5BhxXNnhxgtmYQ@mail.gmail.com>
-Message-ID: <CAMuHMdWF7NcmKYzvF4Dfjh3S5MccbJrpSphK5BhxXNnhxgtmYQ@mail.gmail.com>
-Subject: Re: [PATCH 0/5] arm64: renesas: Add R8A779G3 White Hawk Single support
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org
+X-Received: by 2002:a05:6e02:164f:b0:3a6:ac4e:264a with SMTP id
+ e9e14a558f8ab-3a7f9a46431mr112676745ab.10.1733389707494; Thu, 05 Dec 2024
+ 01:08:27 -0800 (PST)
+Date: Thu, 05 Dec 2024 01:08:27 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <67516d8b.050a0220.17bd51.0092.GAE@google.com>
+Subject: [syzbot] Monthly arm report (Dec 2024)
+From: syzbot <syzbot+list5853008af9f104a9355f@syzkaller.appspotmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_010752_696957_C6531AE9 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20241205_010829_309794_D26F21EB 
+X-CRM114-Status: UNSURE (   4.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Morimoto-san,
+Hello arm maintainers/developers,
 
-On Wed, Dec 4, 2024 at 1:56=E2=80=AFAM Kuninori Morimoto
-<kuninori.morimoto.gx@renesas.com> wrote:
-> > This patch series adds support for the Renesas R-Car V4H ES3.0 (R8A779G=
-3)
-> > SoC on the Renesas White Hawk Single board.  R-Car V4H ES3.0 (R8A779G3)
-> > is an updated version of R-Car V4H (R8A779G0).
-> >
-> > I intend to queue these in renesas-devel for v6.14.
-> > Thanks for your comments!
->
-> Thank you for the patch-set. For all patches
->
-> Reviewed-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
->
-> But small nitpick is that R8A779G2 is not only for ES2.0 but for ES2.x
+This is a 31-day syzbot report for the arm subsystem.
+All related reports/information can be found at:
+https://syzkaller.appspot.com/upstream/s/arm
 
-I didn't add any occurrences of "ES2.0" in this series ;-)
+During the period, 0 new issues were detected and 0 were fixed.
+In total, 5 issues are still open and 5 have already been fixed.
 
-I did consider adding comments to the SoC-specific compatible values
-in Documentation/devicetree/bindings/soc/renesas/renesas.yaml
+Some of the still happening issues:
 
--              - renesas,r8a779g2
--              - renesas,r8a779g3
-+              - renesas,r8a779g2 # ES2.x
-+              - renesas,r8a779g3 # ES3.0
+Ref Crashes Repro Title
+<1> 3448    Yes   BUG: bad usercopy in fpa_set
+                  https://syzkaller.appspot.com/bug?extid=cb76c2983557a07cdb14
+<2> 817     Yes   BUG: unable to handle kernel paging request in trans_pgd_create_copy
+                  https://syzkaller.appspot.com/bug?extid=2d1f5a94167d430a3bd7
+<3> 123     No    WARNING in delayed_work_timer_fn
+                  https://syzkaller.appspot.com/bug?extid=e13e654d315d4da1277c
 
-but decided against doing so, as "ES3.0" would become stale as soon
-as Renesas releases "ES3.1". Alternatively, I could use "ES3.x"
-immediately.
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-What do you think?
-Thanks!
+To disable reminders for individual bugs, reply with the following command:
+#syz set <Ref> no-reminders
 
-Gr{oetje,eeting}s,
+To change bug's subsystems, reply with:
+#syz set <Ref> subsystems: new-subsystem
 
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+You may send multiple commands in a single email message.
 
