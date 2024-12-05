@@ -4,170 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDCCE7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84BDE7716D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 13:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=232t4n5PDUpymulw/AfE7CDRWTglqEbr5Z933Hak+7Y=; b=NaJUJ8GIAS1hJhG82FqAbC/vie
-	ESxtf9/XaC3MEtGwSLkOrav76iNI+14PpsUdx8O6rlp1MX8DVtx5OsGZdtH2MIgIUglTDkNBTumaW
-	Tyjvs2IBBk1Wls+Rd9XNo1bHJk7O38FHwMSfQ92r+zOkz2RgfWL6LcmtC9AgVs5dFPHRGKwUgHdip
-	YU2fvtYd51PDNfa1srSK6jkK5QybNthBjxS42ABNgI81Azgsl+wVA26GSbb2Gf0MVW9jAnS3Bx2su
-	Ql4Xy3y3Ik1VsmwwNeOcK9lWHzWk37e9DQrMQ44dl3GaSEfBo6TmzZUlpGy/fhfWE7DRJ1zv4OUQB
-	v3VAIIDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SdYG3515FjwwJEDl4jTuSFQq09fY6x8Appn7iagJwnA=; b=qIptGRunQ3/S/IbFdh64qb7LQk
+	lUU7W2ng9DCbqgmKDJWH0Bm7Ed8WwRBfXBph2ErOPMh6JrkE/0t7GWkaZquFDYphIqEj18iFl7vQu
+	n1VYnvBTM+tRGhfXe6eV9JtLpq7Q7Uu9mrND0W3ysSUC6Mco38IYlgeG8ViIDquGeP0oyMtWEZmM5
+	kFpbM8dqWOO7vy+G4R7s8J6prE2jqrlYQejnWJVjuw23i/8vwBWOK+8rHkeClMWMb7sAJjJxn8sIX
+	7x8q9+ni6RWBG0iXFpg9jvh5R1GA8oQjo/FJdguXMxibkBuRioJv2GGkKyU49TEmnkKnAJdY7PXqF
+	hHqwngLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCNQ-0000000GG0f-1nEQ;
-	Thu, 05 Dec 2024 13:58:44 +0000
-Received: from mail-bn8nam11on20615.outbound.protection.outlook.com ([2a01:111:f403:2414::615] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tJCOP-0000000GGAo-06Jj;
+	Thu, 05 Dec 2024 13:59:45 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJCKQ-0000000GF9m-04y8
+	id 1tJCKR-0000000GFAL-10BN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 13:55:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CYSa2Rwhz+bUrlMO78Z+6xF70yYveVuiDTD9fVezHvnuygLDOTDXZNX5Q/N/VaCwFS5yRkGBMgCSN5fFM2crk2MN15HkP4JlUoTbb7PRMc1Bt2yvKZ9Pm8pvS67gfhNNVENbMKFn/Y+JvSSEVPQVj774BkGc7RhQKG4xQjsU/GdoCC9ltKwIIcIVDs/SVqDNtpiV0MKQMvMb9CxEfjZR+jS3XAuTEQTWOHIKVs1D/rSSbrWYyNH14fQIDJtPuk0ikRk6UicrUm8NZAe61/kX1ijF/5qufEJsCuOyjEZyaOBT1/jUvl/i4c86u4ZhH642vTWc8dBLH9b/nYaw5uyHaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=232t4n5PDUpymulw/AfE7CDRWTglqEbr5Z933Hak+7Y=;
- b=WdYa+zyRVtUkpm5Q4U6MNxuaXcoAspOKxVAS2B2xxd7ke0K2pGK9/WelSjG+/kKix51Lab/v18y1tZEaOOCX/RDypmF8JpP7Kj9Jto9Y4p383PWmpEu1vRlkf3zzebszcZlD9lmkk9buJDYXtyc/4mSP9djukKKKqxd/1UhPKrqciIC1WDfAPPvSostXdFouEOWJyw+KN+h+QtLCP9cdFCp6Bj/9QnhV/R0nHnZruM0EJQvEtzbpD5QxxzmBjYnbQW13Pd9Kc/bYrPIUu0cyPCU6hLPEbZVHMPnCjHPyEpfKgpZoJMJwutMHnrNj6zdMq76lRMFYEA4UCMcyt7IScg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=232t4n5PDUpymulw/AfE7CDRWTglqEbr5Z933Hak+7Y=;
- b=AUkLzDDkT6pYsHQNBpyZPXJFmwDAzYVzLh42xmCt1YC9T+5JTFBfkt0j4fp5GzNAAUy3NwxfDgtPnM4VF3Re1ffKPVywLxmgu0yh+nTvhpkSeEwsl+PNTh43D09JDiDXu+v9TCLFQeQGMaecwYcCy0i2Zjfjc5RovRbYOlB8wLx4lMd2izbj0llPtIdGnA/m9X/Jvt6Te823+ykbKXMg0uac9ThozdKKbm4gRikYWZzOVK7rgMAzMhNYKmpNFFuYfaaU1eNpnwUTbTBtiItazIqByNugy8ZanTUdusBoasmenVCx649zMyACruJ7jG+w5BQhAEt14diodFUvUBa5/w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by MN2PR12MB4358.namprd12.prod.outlook.com (2603:10b6:208:24f::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Thu, 5 Dec
- 2024 13:55:29 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%2]) with mapi id 15.20.8207.017; Thu, 5 Dec 2024
- 13:55:29 +0000
-Message-ID: <566fb566-4806-41bc-ae6f-7f4ef5762a7b@nvidia.com>
-Date: Thu, 5 Dec 2024 13:55:24 +0000
-User-Agent: Mozilla Thunderbird
-From: Jon Hunter <jonathanh@nvidia.com>
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unaligned DMA unmap for
- non-paged SKB data
-To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
- Thierry Reding <thierry.reding@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20241205091830.3719609-1-0x1207@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20241205091830.3719609-1-0x1207@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0524.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:2c5::9) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Thu, 05 Dec 2024 13:55:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733406939; x=1764942939;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=0oKgcrkZi8Q7zAmrkKmMg4EAU89Jf7N07xhOp2/GiHA=;
+  b=eUx3Q1Xqx4Y0Km9TQYE/qTTY7zoYQuab34gZHaWu7B+EmnleikMIxPmx
+   Hcf0EtSXUE4qJmhFsmxNwVM4AnjOr7xS94t2StIdIJxhiMAL4KgT+Zq44
+   SEQKJcr0jPSfFK+wcQwmQ9g/e1IxLbQfi4/Wv/2odAZ2cwG6bARow/0Wz
+   qJ0Qpv5BWNq+CyjfYNoL+F31ATyTYy7g/9PqnRbs9/KrJ7yQghU3te9uh
+   wXATL5y19FrYa3FWJkWpbXx64YgOFe8GBEAYk+Rf5ntof3KJKf6/2+ktk
+   70X2LkCOKXihuoNycwik0JHh25bp7rTf7W6V5Fjvh1g03UjJh8HPNCyyR
+   w==;
+X-CSE-ConnectionGUID: 7ioOcpSzQfuJnUZ0WQ6I1Q==
+X-CSE-MsgGUID: 6MGhBgw7Qlie2uWE/2VadQ==
+X-IronPort-AV: E=Sophos;i="6.12,210,1728975600"; 
+   d="scan'208";a="34869392"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Dec 2024 06:55:35 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 5 Dec 2024 06:55:33 -0700
+Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 5 Dec 2024 06:55:29 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Thu, 5 Dec 2024 14:54:27 +0100
+Subject: [PATCH net 4/5] net: sparx5: fix default value of monitor ports
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|MN2PR12MB4358:EE_
-X-MS-Office365-Filtering-Correlation-Id: 33ddd82b-f888-4ffc-ff8c-08dd15347a7a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aDlTcStiZDVqeDdlbWJnRm00VmZNWUh2NEh6RjJHbGRBSU1XRUZHQldvZkV4?=
- =?utf-8?B?RlNtTHJVa3pYVWhJQVF5TkdhQTVPdDNiTi8vTU9SdjhORmdVUXN0UnZsZWpK?=
- =?utf-8?B?ZTZhSjFhMFRRQy9HeGVPTklrSlJ0bEdGZUNMOXVyU0dtTXFmekhCa0JBQlhN?=
- =?utf-8?B?WWdlb05NN2tUd3hyRy9JbCs3c0Z1V05QWXZvZ2FwU3VhQjdOVSt1T3FVMDU3?=
- =?utf-8?B?bHJuUDNBbkxuYmtoMjI2QURWSGRiUkxMaFRXcmgyMHB6SXJmRjVCR0toSTFI?=
- =?utf-8?B?NkhGQ1NWbnRUZmlUc29qN3VwUDMrTGlhaXF4bDB5TjlUcGh0Q1lqU2paTk1j?=
- =?utf-8?B?SGYxYlgrRFpudjBhbCtxV3dKM1pvOUIrbGE1Zk1VYmRGK3c4RVpiSjBGZUR3?=
- =?utf-8?B?WXc1SUg5UWZ3VFhWTVhpZjF5KzBzVmxmN0REdG82K1pDZytST0lZOTVpOCt0?=
- =?utf-8?B?REQwZWx6Qit6N0piLzlOYUZRRkxtQWRUc3I2NnhvVjNmcWxSdng0SkJlSSs5?=
- =?utf-8?B?WHVhWm41UEIxOWNYSk9uRlZnOWdjclV1a0hzQjhMYmJ2YVRTazZ3UGkvNGVR?=
- =?utf-8?B?MG1Ib2VKa2hzZ25jdVJld3puUUFHTWg4bEQyd3ZidThva0lkUHBySGJEQ2lG?=
- =?utf-8?B?QmU3Y1Evbk11NGRZc0I5emRpNktWRm1DcDcvVm1vdGJzTXlHbldXd2FBVXZE?=
- =?utf-8?B?cnZFaXBHYUJwMW85SHpPOG5WVmxoRTZQVnYvWmZzSUF3VkRLSnZIWTFJODkz?=
- =?utf-8?B?UW43S2svaUpUazlRSGZCdzRBWEREMUEwekY2SWdXYTBmTlZmYTFhUmJsbHJo?=
- =?utf-8?B?UHpLR0NtckJ1SEpmOFF0S09IekF2Y2V2dVBrRitOeFJ6ZjVtSXlQRzdmNEtK?=
- =?utf-8?B?TVFVdlc5bVRaTExLZXhyMG9aTTREbjVDUVBGQWpqakFSTzQwMyt4eHFvZGpD?=
- =?utf-8?B?aDR6d2FQRGNDSVN6b3RxLzRTQ1RQYlh6RVdUblpZQ2FRR0xBcHp6ZzdGVlJD?=
- =?utf-8?B?dkwzTEszdjNYZURudHVVRHM4QWhGaHQ4QTcvdGxvZHlHaisrcHVXcmxIdit1?=
- =?utf-8?B?VExITzZ0Yk1sK3huMDBGWFF5eGdzYTdpdDFKT2Evcm1GZ2xJNVF3ZXpSNEJv?=
- =?utf-8?B?cS9NRVFFQitWd1BnUzVCMk5PRDFBMlJtKzNISjhRU0JBV25EdDVsdDVGaHBQ?=
- =?utf-8?B?bU9MVFhKa1dZdGp5Z2xURzhVWlVwL0Rpdm1UclpzaTM5SnhGSmRKOVBHbUpV?=
- =?utf-8?B?NVFlQXZvRHFYWGw1QktPd3pEVTFTTm1nVktPWXdSbGxjRDEyVU5qM2hNM0kv?=
- =?utf-8?B?c0dKSVpGRkdjTmY3RjlKd1lTUlJTYnArL05IQ29xRC9FSm14dFNNQjJwOG85?=
- =?utf-8?B?VXd4TXVVNUpCL056NDdyRU9nODdqVVE3NzFYQjhyOGUwc1VvQnVmVlY2ZWZ3?=
- =?utf-8?B?YzREaFdidlYwd2l5OXB5eHJmVEphREVwYW5nMWZsUWVXa0ZnVlhLb09YNUFi?=
- =?utf-8?B?QTB1dS8wK2F1YVBxSWZNSkFueGp3NUt3TmxLTmNXcTVOMEtIUHdlSjc4QkRX?=
- =?utf-8?B?TThlY0ZpSlNWRmltdEFFc0I4VzRLNXZweHJkR25jajhLS0dBeVdVV1NqbCtX?=
- =?utf-8?B?MllTOGFKNllxT1RvTjZkUmNtRXFobjEyTHdXeU9iRWRkUGM5ODQ0MEFzc05F?=
- =?utf-8?B?QU1ldVUzSk8rZTlXMUF0SnVSVS85NUpBcjFDeHUyTUxuQXlPNmRFVUZSSWpi?=
- =?utf-8?B?VzBkSkRsL1ErMHpwMzFkY01qVDA4SE1KUVF0NzNYUzE4ZC9lbUpacTNKNFg0?=
- =?utf-8?Q?Mr+ipQ0GJZfQJjXXDXWu17LWqBBqq8C+guSo0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WS9OWnJuUkVvMGJFcXkzdEZXSUY4aFhIeGVVdWIreldUUU9CRXZlcmsxU3RP?=
- =?utf-8?B?a0NkWHRsQlcxbjcwKzU4Qk1xeEhXeDBCWjNVZXJ0VzlreUlZSkhEVmNSUVdh?=
- =?utf-8?B?RE1RNTZxMFg1ZUVxTDRwdlppMGY1cjlEQWthMmFTRXVBMFhRU1UzOFJIYXo3?=
- =?utf-8?B?cmg2aVhaaVVyNG4wMlN2OGhuQVcvT1YwNk15b3lteWMzUElKYVVMaE9ldkhh?=
- =?utf-8?B?Z09qS2lTczlxTVh1VFovNjJyUjNYQWs4NENRK2tzQndIYlowV2E3VEwxNmdx?=
- =?utf-8?B?WGpjLytORndSNTFOS3U5RjdvdFgxVUNtaDRVK092U0VaK2FvOURFWGxCZHB5?=
- =?utf-8?B?TTRmTWtoWWw2Tkg5TmprQkR6NVRPb0FVbExhQlRGNDlUd0dBdFdYUk8yN1kr?=
- =?utf-8?B?bE5xdWt1UCtpS0lCVXBXVW8wQzlwYVh1bXkyQWF4am9NWkl1UStnSnlFRTJx?=
- =?utf-8?B?OHN4a0V6K0hXMlhrczAyVjJxY2NQT29iZW9Hc2RUVnN2cUFKODlkS3hJL3Zq?=
- =?utf-8?B?Y0JoZmgxYVpLeDFVZTBJbDVOUE5lVXFhMHRaZCtVZHo0YllMcTI2TXpaamtq?=
- =?utf-8?B?SHFGd2FPKzM5bXkrSGpkQUxhbTVaSnAzcFJDQ3pnMU5FQTE3NTRnOEgyUmhD?=
- =?utf-8?B?MGNLTkJPYzN1d1lwNVdqYjZIWnRiNDFucGMvZEo0TEQ5ZVIwcHNwQmV3b085?=
- =?utf-8?B?bHBBN3pROHpuTFZUTWNWeHlJdE1wV2NvTnNwSzhPbXpQQ3piREhIajFXVFdS?=
- =?utf-8?B?S051Uzl0TXpZY2NpL3M2VVRGVFA4VUdHZkViVmNLYVU5cE40aWhkM2llU3ls?=
- =?utf-8?B?blE3UWZaTWJ2MGMxc0hjZGd0UE83WnJJM3FWYzVLMXFBOERKR241V1VrMFQ3?=
- =?utf-8?B?dFN4MUVHekFjaU5YM2RDeEtFZ2VRVHRCVmZGS0VQcjdibHJqTTV5U2xkZUpY?=
- =?utf-8?B?dzRZVGdtOCtacllYSjR4T2ltS1RWNm1mb1J0RzZQR1FpdTkwQkVnN3dsODAx?=
- =?utf-8?B?U2lCMEhEaTJERDBWWjVhN3M2WDNBL0h4aHM5MjVDZmt2N2FKVXR4eHlJVDdC?=
- =?utf-8?B?RUNqaVFoQlNrNjNvNWxjcncvZHE5dStRQnl5QzNPWXVoQjQ3eEMxOGRQOTRy?=
- =?utf-8?B?bldYZzUybzFxN0dIK0RqS1g0M1VIYzNKTldDYXljaDhWYkJLQ2k2bUpwUjRj?=
- =?utf-8?B?NWxFZUdkVit1M3FJM1EvVmc2aUtsdXF6YU5xVTM5TDMraUNoRmpybGtJL1BX?=
- =?utf-8?B?MjBhY2UrcjMxSTIvYXJKQTEwM3U4Sm00bXlZT0hLaDRPb2tiOTZ6Rzg3QjFn?=
- =?utf-8?B?UzhCd1ZWTkFvcm14V1JTL3d4eHdRRGN2b2xIdmhPbHFiTEZsRTQxWVRWOFZv?=
- =?utf-8?B?cGVBNTZ2TElwZ2hLUnVtaVBranFsSzhGVG5WWVFMNmxvTGw0L1pLYkM1TkFI?=
- =?utf-8?B?ZUZ3RWE2dWRHNzJsMzVKcnZhRUw1YzNFYVFNUWNOeTg1SkpMWG1sNG12MTRY?=
- =?utf-8?B?V1pkQmhsK2kzNnd2OWpWRHFMTUJDRWgzOXNwTjRBRjZNQ29XZTM5bTcxeHhv?=
- =?utf-8?B?ZGlrOFF3bnVTcG5CdnZkYUtVczE2ZGNoWEdhRlZxd2NFODgwbXlRektFbDRZ?=
- =?utf-8?B?ejc0ZndnOGIrNkJRbytIbEx4UHVtZXlaWms0V1BDNTNOWjNoQlRncXZrV1NP?=
- =?utf-8?B?WHA3cVJxZmluWUlKdHRudzJQNnNNSUsvMThHVWQvSFZYcE13TmYwVEdZc1BM?=
- =?utf-8?B?cm9kWW9tYzdvTEIyb2xTMDBtNk5kSmE5cURPMUNRMlVaalV0azIxSDBndzRZ?=
- =?utf-8?B?aWNGbGhlcm9PUk93QmwydjJDL3F4TFRNUHVhY1BJNUF1aHdORXovNUxFQmls?=
- =?utf-8?B?eTZZVStHZTRKZVdwR25HNC9MQ3JqZjRHcnpxWHUveThIWk4weEJIOHdWTGxq?=
- =?utf-8?B?cTN0M04xdEgrZmc3SVBnMjFlOWZsaU9nNHhqUkV3VFN6MWxjNDhMWFdsWk5O?=
- =?utf-8?B?NlNBendTR0xQMFVOMzR0QmdYbFdsQXF6RUFDL09lUnVsbTBQMVRXaTdVM1hQ?=
- =?utf-8?B?ZFozWWRBOWYzSXNVaDBKWERzbU9uZzg4SFVJU1VydkhRMDk1L21KdU9NcXQ2?=
- =?utf-8?Q?Bxjhu3q2ic/y+pqP3b4wzxV4/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33ddd82b-f888-4ffc-ff8c-08dd15347a7a
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2024 13:55:29.5759
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Lt9eD4HRtLtqKgM3MlBX+yCeIXMBvqg4hZPfE+OskmsGz8IwmFvqfXzPVejXbEF++pHDrqK2tUkzLu/MgWk83w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4358
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241205-sparx5-lan969x-misc-fixes-v1-4-575ff3d0b022@microchip.com>
+References: <20241205-sparx5-lan969x-misc-fixes-v1-0-575ff3d0b022@microchip.com>
+In-Reply-To: <20241205-sparx5-lan969x-misc-fixes-v1-0-575ff3d0b022@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Lars Povlsen
+	<lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Richard Cochran <richardcochran@gmail.com>,
+	Bjarni Jonasson <bjarni.jonasson@microchip.com>,
+	<jensemil.schulzostergaard@microchip.com>, <horatiu.vultur@microchip.com>,
+	<arnd@arndb.de>, <jacob.e.keller@intel.com>,
+	<Parthiban.Veerasooran@microchip.com>
+CC: Calvin Owens <calvin@wbinvd.org>, Muhammad Usama Anjum
+	<Usama.Anjum@collabora.com>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_055538_073571_BBA0CA2F 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20241205_055539_350598_F90EC3B4 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,74 +93,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When doing port mirroring, the physical port to send the frame to, is
+written to the FRMC_PORT_VAL field of the QFWD_FRAME_COPY_CFG register.
+This field is 7 bits wide on sparx5 and 6 bits wide on lan969x, and has
+a default value of 65 and 30, respectively (the number of front ports).
 
-On 05/12/2024 09:18, Furong Xu wrote:
-> Commit 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for
-> non-paged SKB data") assigns a wrong DMA buffer address that is added an
-> offset of proto_hdr_len to tx_q->tx_skbuff_dma[entry].buf on a certain
-> platform that the DMA AXI address width is configured to 40-bit/48-bit,
+On mirror deletion, we set the default value of the monitor port to
+65 for this field, in case no more ports exists for the mirror. Needless
+to say, this will not fit the 6 bits on lan969x.
 
-In our case it is 40/40 ...
+Fix this by correctly using the n_ports constant instead.
 
-  dwc-eth-dwmac 2490000.ethernet: Using 40/40 bits DMA host/device width
+Fixes: 3f9e46347a46 ("net: sparx5: use SPX5_CONST for constants which already have a symbol")
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-> stmmac_tx_clean() will try to unmap this illegal DMA buffer address
-> and many crashes are reported: [1] [2].
-> 
-> This patch guarantees that DMA address is passed to stmmac_tx_clean()
-> unmodified and without offset.
-> 
-> [1] https://lore.kernel.org/all/d8112193-0386-4e14-b516-37c2d838171a@nvidia.com/
-> [2] https://lore.kernel.org/all/klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw/
-> 
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Reported-by: Thierry Reding <thierry.reding@gmail.com>
-> Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
-> Fixes: 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for non-paged SKB data")
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 9b262cdad60b..7227f8428b5e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->   	struct stmmac_txq_stats *txq_stats;
->   	struct stmmac_tx_queue *tx_q;
->   	u32 pay_len, mss, queue;
-> +	dma_addr_t tso_hdr, des;
->   	u8 proto_hdr_len, hdr;
-> -	dma_addr_t des;
->   	bool set_ic;
->   	int i;
->   
-> @@ -4279,6 +4279,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->   			     DMA_TO_DEVICE);
->   	if (dma_mapping_error(priv->device, des))
->   		goto dma_map_err;
-> +	tso_hdr = des;
->   
->   	if (priv->dma_cap.addr64 <= 32) {
->   		first->des0 = cpu_to_le32(des);
-> @@ -4310,7 +4311,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->   	 * this DMA buffer right after the DMA engine completely finishes the
->   	 * full buffer transmission.
->   	 */
-> -	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = des;
-> +	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = tso_hdr;
->   	tx_q->tx_skbuff_dma[tx_q->cur_tx].len = skb_headlen(skb);
->   	tx_q->tx_skbuff_dma[tx_q->cur_tx].map_as_page = false;
->   	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf_type = STMMAC_TXBUF_T_SKB;
-
-Otherwise ...
-
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
-
-Jon
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c b/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c
+index 9806729e9c62..76097761fa97 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_mirror.c
+@@ -12,7 +12,6 @@
+ #define SPX5_MIRROR_DISABLED 0
+ #define SPX5_MIRROR_EGRESS 1
+ #define SPX5_MIRROR_INGRESS 2
+-#define SPX5_MIRROR_MONITOR_PORT_DEFAULT 65
+ #define SPX5_QFWD_MP_OFFSET 9 /* Mirror port offset in the QFWD register */
+ 
+ /* Convert from bool ingress/egress to mirror direction */
+@@ -200,7 +199,7 @@ void sparx5_mirror_del(struct sparx5_mall_entry *entry)
+ 
+ 	sparx5_mirror_monitor_set(sparx5,
+ 				  mirror_idx,
+-				  SPX5_MIRROR_MONITOR_PORT_DEFAULT);
++				  sparx5->data->consts->n_ports);
+ }
+ 
+ void sparx5_mirror_stats(struct sparx5_mall_entry *entry,
 
 -- 
-nvpublic
+2.34.1
 
 
