@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65E4E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85712E7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 12:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbNKfaOaUULeO+Hqb2B8/YMo5/oNy260ujCfeqa6Wyc=; b=wbYIEm5tJL/W3SGhcY9RkuPJve
-	3XadHeyyx0F2rT9KxDcDj7VEDSWxvQqjsGCxZiXObIvA1JQzTKn6XI58QRKPpO17izFd5HIzB9J2e
-	JMVw1Lrv16+HHQzimBuR2ihqgUa01xDLz6SlIrmrkFoDSRBcac7isTnSM9xVjUdyixAO3TXkqXcZ7
-	dhWtF2tV7Sw3VlFagO9TavA1pTxL4Dq2R5NL64kMFHnG0caApz+dzXFYRw7oXDzn/GmoAX0mdf/QI
-	AaXs06JfhraaaeTuUoAdjUCu172OT7r4qRoYbn7EnI8FehIe+mDrGhlUzUrOEGGAYoo3kALGXosys
-	PiEzYFcA==;
+	bh=fC0/tnyFSQ7fsagllHRASCLpGbRMGFWlv1yTpD9hTbc=; b=xiGmeTxwUf4yRO83y82Xq16nUz
+	IlE504mJ3wK4BS00lO0Pso9x3FejjTTh2R99fNEyI9QieP+NPELynB9xuwZ97BZAHPr25cgdq0YYI
+	+0EzJ290+dFCWBvHtOUnCbTdEWZ4SHHcmkJAd8BmelEkoxjKsNUsyqbgkrejkN/xTGdQ3CeDpjNio
+	kcjpkZqlMV8wJhJJmR65WfJ3g6J9crQrpWbJBmoqE71nO8mmgxZxcHrAQI2oGVSpCETwbO+ucd+Qk
+	uK1xVbnm9LszQf7nA5i6vAFuFMsjj2QXjBZ6Duu5E8YidUjVFGQZLDNICILifCjqGCOzi0XTbkg0j
+	mSSIcwXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJB1A-0000000Fxrx-297X;
-	Thu, 05 Dec 2024 12:31:40 +0000
+	id 1tJB29-0000000Fy1r-2yn6;
+	Thu, 05 Dec 2024 12:32:41 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJAwU-0000000FwPM-1jEv;
-	Thu, 05 Dec 2024 12:26:51 +0000
+	id 1tJAwZ-0000000FwRG-3XxC;
+	Thu, 05 Dec 2024 12:26:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733401609;
-	bh=g9tQsWZEgpAzauiZeojXOmlzi/LihZGmyZsC+hkQVQQ=;
+	s=mail; t=1733401614;
+	bh=zsPKHnrcacW6vTwMq+rykbMwQmETfVdATKj5CCRdNEU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SNpGXDmIAoC0TD0L9kg3VWYRWAwP4KJTgSTYwH8Lr1N/7sGp9O8i0exG+g4X66Arm
-	 4L+iugIXkjSscNAMwoSKZMvCjChlWQ6gq8WhGjEccRaLnBmDpwNEG9kHPy9nby82rK
-	 XL8O/QeZq9Oj3QJ42k1HCzYgj0ZHqa/8NH30onAnB/9ZovInivqb0DxzazmSEuyBSD
-	 JeeDmihW+lMtSBVpkpTmEwGWaVeHBX/nFBLR9oTJXfhwIn2oLLT+fLGfk+SXnKMcFL
-	 0Ruq0vc/oC62/1IJesNeUZQUiHGdR1JIkez0fZeXjtc0iZYCsjsYI5ZCLASgo43vfV
-	 I4TS2OQ3nGHJQ==
+	b=TTCBjD+tdZW5GtuKCQPy/E8lAVHKaqkuLpeREytZM3+ChFIFcx6LGYMTzl7NtDdJj
+	 Pp+qTOEo0mhwDYWjHXGx/s0tXcbJ7peBuJ6s5G6GzGfpcDW2hqgKc2JwKaLY6gq6Ce
+	 93KiPkfHC9WavruXoVdlFFqfFlZhjd9v+2h+RBbj/xQYpfCEOtiZ2sVoTGuXIfxqZT
+	 2wRVJ71jgz4MYPDLulEOVH3s/Y7/fRL01HaS6d848u4JF6t6pOS8E4aHdh02hn1qi4
+	 q1WJd7NPcgAIagjKs1pIFALiUgqDlSIvMKCGkof7d8oO20r9aPuSWw6ARXTf9ci0vv
+	 hGp73UBEufrbw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B04E717E366D;
-	Thu,  5 Dec 2024 13:26:48 +0100 (CET)
-Message-ID: <ece47aeb-e9e2-4690-8103-a05a01ec7be5@collabora.com>
-Date: Thu, 5 Dec 2024 13:26:48 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2D79D17E35D8;
+	Thu,  5 Dec 2024 13:26:54 +0100 (CET)
+Message-ID: <9e19d117-ad78-43d0-990e-e3b881428601@collabora.com>
+Date: Thu, 5 Dec 2024 13:26:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] arm64: dts: mediatek: mt8516: fix wdt irq type
+Subject: Re: [PATCH 1/5] arm64: dts: mediatek: mt8516: fix GICv2 range
 To: Val Packett <val@packett.cool>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
@@ -55,15 +55,15 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20241204190524.21862-1-val@packett.cool>
- <20241204190524.21862-3-val@packett.cool>
+ <20241204190524.21862-2-val@packett.cool>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20241204190524.21862-3-val@packett.cool>
+In-Reply-To: <20241204190524.21862-2-val@packett.cool>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_042650_600326_21B63AAA 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20241205_042656_037012_0F3FCD31 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,11 +79,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 04/12/24 20:05, Val Packett ha scritto:
-> The GICv2 does not support EDGE_FALLING interrupts, so the watchdog
-> would refuse to attach due to a failing check coming from the GIC driver.
+> On the MT8167 which is based on the MT8516 DTS, the following error
+> was appearing on boot, breaking interrupt operation:
 > 
+> GICv2 detected, but range too small and irqchip.gicv2_force_probe not set
+> 
+> Similar to what's been proposed for MT7622 which has the same issue,
+> fix by using the range reported by force_probe.
+> 
+> Link: https://lore.kernel.org/all/YmhNSLgp%2Fyg8Vr1F@makrotopia.org/
 > Fixes: 5236347bde42 ("arm64: dts: mediatek: add dtsi for MT8516")
 > Signed-off-by: Val Packett <val@packett.cool>
+
+Yeah, that's fine, I agree.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
@@ -92,18 +100,17 @@ Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com
 >   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/arch/arm64/boot/dts/mediatek/mt8516.dtsi b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-> index 444429341302..098c32ebf678 100644
+> index d0b03dc4d3f4..444429341302 100644
 > --- a/arch/arm64/boot/dts/mediatek/mt8516.dtsi
 > +++ b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-> @@ -206,7 +206,7 @@ watchdog@10007000 {
->   			compatible = "mediatek,mt8516-wdt",
->   				     "mediatek,mt6589-wdt";
->   			reg = <0 0x10007000 0 0x1000>;
-> -			interrupts = <GIC_SPI 198 IRQ_TYPE_EDGE_FALLING>;
-> +			interrupts = <GIC_SPI 198 IRQ_TYPE_LEVEL_LOW>;
->   			#reset-cells = <1>;
->   		};
->   
-
+> @@ -268,7 +268,7 @@ gic: interrupt-controller@10310000 {
+>   			interrupt-parent = <&gic>;
+>   			interrupt-controller;
+>   			reg = <0 0x10310000 0 0x1000>,
+> -			      <0 0x10320000 0 0x1000>,
+> +			      <0 0x1032f000 0 0x2000>,
+>   			      <0 0x10340000 0 0x2000>,
+>   			      <0 0x10360000 0 0x2000>;
+>   			interrupts = <GIC_PPI 9
 
 
