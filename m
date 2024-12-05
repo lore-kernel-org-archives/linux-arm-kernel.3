@@ -4,76 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BB2E7716D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1941FE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 16:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmjyrvnpPNwpDiDIROM0xyv/tcPaPUlc2In2NJ5co5A=; b=ODBFpqELHtm5fc4mVJmr0DEdb6
-	BFtKBt9BFxgGRpK+lr6j/frZU6I7sD17p7YsciHpSpGMJXnHtxxv9AEzjqsI1EttWi/rWAHZ1mBa7
-	efpVAJHU/xpM/usPVXOgwzpbaifskTwClkfD4S6vqkWKNoFcHFCx789LGVahRq9wvO0aN9kYe6vpm
-	dUy8woGOjFtBOgra8yeOSbAfxOuB43/5jZJHBRVtJwKCQckyStFAE/AE/4drRvUh5hubTveXn8HCs
-	dPpTAp0MpXWusVUXsBTedPBx+ItLdDFL/8FhV/Rn/Y1JQ0GpU9eWTGG3TXX21wWO7mLp4QEfKCJD/
-	DFZQ4RBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RCyPjSOWrGZhJqnB0bi1CaUILqiQ9pjqFPAvMPLxdEA=; b=Q1QK+GwkmvAOE7jCbGx5N5u8gh
+	CJsdtRPSFSGwrkjINWnhRBsHukpJOl9n0Hn7drF0W8uqm/z7Og48JzeXQW+6/vJ0gjCn7DavJGG4/
+	PJO3zZo/ssWZMAXFsthE29d3cn0A/UQmIqycynwC/sWfNIa0szKs5wfS3P1Al6af4g7hXUaUAHxpJ
+	7ETV16ZFp7n3p2jrdflAR2Zl96c7cNEXoZazNUHIVCMoEXqvsJAknw9V7iGQBezWltXWr5PxnA72N
+	JXSIujvDmlbktpmc+eF7DUJWOMXzz0y2wvCZ/FB5eQZhTxcYCzO2ehKAffAcyCea0UVYdBc/EUjef
+	cs4L76hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEy1-0000000GnSY-0OlY;
-	Thu, 05 Dec 2024 16:44:41 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tJEyw-0000000Gnpb-2F5x;
+	Thu, 05 Dec 2024 16:45:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJEwu-0000000Gn5Y-3u4f
+	id 1tJEwv-0000000Gn5e-1oQb
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Dec 2024 16:43:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CmjyrvnpPNwpDiDIROM0xyv/tcPaPUlc2In2NJ5co5A=; b=k2bEv9n0wBPLIU78/F7g50Cx7r
-	DBz85Y5fCgDKwAyLK6vSnWPRCpXkoUpGyUaHcL6LuL8xzRyRfuVpK4N/+sKHFjSKqk6qWQCNXljoR
-	2xsIEf/Jzc1FH3pCakKQNs73Qe6AQfrN4rBJgMaotnItza+9NFH0JAjMj6IJ/oMsP8icEuDya8scq
-	f8mFp/C97A3LReoe4eKXw+cZndWAYVcF+YlNj/WTbRGApvrSReVBcgzgsM1O1jg871QjfBQNy67lh
-	TGLLlEZsmkX/OdfpGATOOW6UEfH/a9yU/OnV14nJ1F98mR/DUPmX8XAfFZMv6iEFkx+lpr08V20tz
-	M2+MPcwQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59112)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tJEwo-00059f-1H;
-	Thu, 05 Dec 2024 16:43:26 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tJEwk-0006hf-2W;
-	Thu, 05 Dec 2024 16:43:22 +0000
-Date: Thu, 5 Dec 2024 16:43:22 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com,
-	Jon Hunter <jonathanh@nvidia.com>,
-	Thierry Reding <thierry.reding@gmail.com>
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unaligned DMA unmap for
- non-paged SKB data
-Message-ID: <Z1HYKh9eCwkYGlrA@shell.armlinux.org.uk>
-References: <20241205091830.3719609-1-0x1207@gmail.com>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 331DA5C5839;
+	Thu,  5 Dec 2024 16:42:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A17C7C4CEDC;
+	Thu,  5 Dec 2024 16:43:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733417011;
+	bh=Tl/s8JiV2SmGTZhlUaKGgX3/7+W6B+dH6noXJZ++bs4=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=QJC69m5gichtZOBgjEl2dZk9CJJIUDa6+pBYXdrcVifpcFvSe8yaCISj/42BzaKZs
+	 3nNadWCf4B7lTb069UdDHTlH7HX0OES9dCiZkbv0iHeyJJGZU4SRFb2lQbcgvhoa16
+	 QUGDQA9ZYOAfW6csl2U4zN5UJ9lKJoMMRpADI1O4JPSWSWeAWYhSfkxb7lk9nx9/0a
+	 IcKvskvjNFHxrpju9SLFcvEu0cdQqkjoR0nMOKXZO/aiHZ5MDOA4yG4fl8GDfhGiAf
+	 pqOvOzt4gc+XiU6kgXd6kDPBBbxxxdvEVkp/amjxjY3OXhw24Gs6RpiKTj05Amlqao
+	 jSKfa/NetnCzQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E2C8E7716E;
+	Thu,  5 Dec 2024 16:43:31 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Subject: [PATCH net-next v8 00/15] Add support for Synopsis DWMAC IP on NXP
+ Automotive SoCs S32G2xx/S32G3xx/S32R45
+Date: Thu, 05 Dec 2024 17:42:57 +0100
+Message-Id: <20241205-upstream_s32cc_gmac-v8-0-ec1d180df815@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241205091830.3719609-1-0x1207@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABHYUWcC/23Py2rDMBAF0F8JWldBo7ey6n+UEuzxKNHCDyzXu
+ AT/exVvkmJvBi6XOcM8WKYxUWaX04ONNKec+q4E/3FieK+6G/HUlMykkFoEqfjPkKeRqvaalUS
+ 83toKufUBqHamBmlZ2RxGimnZ1C/W0cQ7Wib2XZp7ylM//m7nZrX1TxkEHMuz4oI3Xtemsq4OS
+ nz2OZ+7ZThj327irN8U6Y8VXRShLPgIghTJvWJeCkA4VkxRXIMYRMQYKe4V+6ZIfazY50doHHj
+ EKATsFfdSyjhWXFFqVAQxRGss/VfWdf0D8zuZmdoBAAA=
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+ Minda Chen <minda.chen@starfivetech.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Iyappan Subramanian <iyappan@os.amperecomputing.com>, 
+ Keyur Chudgar <keyur@os.amperecomputing.com>, 
+ Quan Nguyen <quan@os.amperecomputing.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+ 0x1207@gmail.com, fancer.lancer@gmail.com, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+ Jacob Keller <jacob.e.keller@intel.com>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733417009; l=6670;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=Tl/s8JiV2SmGTZhlUaKGgX3/7+W6B+dH6noXJZ++bs4=;
+ b=jqz5a1dhjZiXqKcL3y2gtJfIRnyu4VHGYnJ6F8wTkQVkurHP9vUPM/EvymoExsa9f6VWqis4z
+ iDIN2RYSxzVDn6mpr8/S5oI+NqZxvDfHbbq0RAUDemu2LbwTE1Mnw33
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_084332_968747_F2DF7B31 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20241205_084333_564318_C7500242 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,82 +113,165 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'm slightly disappointed to have my patch turned into a commit under
-someone else's authorship before I've had a chance to do that myself.
-Next time I won't send a patch out until I've done that.
+The SoC series S32G2xx and S32G3xx feature one DWMAC instance,
+the SoC S32R45 has two instances. The devices can use RGMII/RMII/MII
+interface over Pinctrl device or the output can be routed
+to the embedded SerDes for SGMII connectivity.
 
-On Thu, Dec 05, 2024 at 05:18:30PM +0800, Furong Xu wrote:
-> Commit 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for
-> non-paged SKB data") assigns a wrong DMA buffer address that is added an
-> offset of proto_hdr_len to tx_q->tx_skbuff_dma[entry].buf on a certain
-> platform that the DMA AXI address width is configured to 40-bit/48-bit,
-> stmmac_tx_clean() will try to unmap this illegal DMA buffer address
-> and many crashes are reported: [1] [2].
+The provided stmmac glue code implements only basic functionality,
+interface support is restricted to RGMII only. More, including
+SGMII/SerDes support will come later.
 
-This should mention that the DMA mapping API requires the cookie that is
-returned from dma_map_single() be passed in unaltered to
-dma_unmap_single(), and this driver does not do that when the DMA
-address width is greater than 32-bit.
+This patchset adds stmmac glue driver based on downstream NXP git [0].
 
-> 
-> This patch guarantees that DMA address is passed to stmmac_tx_clean()
-> unmodified and without offset.
-> 
-> [1] https://lore.kernel.org/all/d8112193-0386-4e14-b516-37c2d838171a@nvidia.com/
-> [2] https://lore.kernel.org/all/klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw/
-> 
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Reported-by: Thierry Reding <thierry.reding@gmail.com>
-> Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
+[0] https://github.com/nxp-auto-linux/linux
 
-Please use rmk+kernel@armlinux.org.uk there.
+v8:
+- dropped 'driver' in patch subject
+- fixed interface rx/tx clock init
+- Link to v7: https://lore.kernel.org/r/20241202-upstream_s32cc_gmac-v7-0-bc3e1f9f656e@oss.nxp.com
 
-> Fixes: 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for non-paged SKB data")
-> Signed-off-by: Furong Xu <0x1207@gmail.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 9b262cdad60b..7227f8428b5e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  	struct stmmac_txq_stats *txq_stats;
->  	struct stmmac_tx_queue *tx_q;
->  	u32 pay_len, mss, queue;
-> +	dma_addr_t tso_hdr, des;
->  	u8 proto_hdr_len, hdr;
-> -	dma_addr_t des;
->  	bool set_ic;
->  	int i;
->  
-> @@ -4279,6 +4279,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  			     DMA_TO_DEVICE);
->  	if (dma_mapping_error(priv->device, des))
->  		goto dma_map_err;
-> +	tso_hdr = des;
->  
->  	if (priv->dma_cap.addr64 <= 32) {
->  		first->des0 = cpu_to_le32(des);
-> @@ -4310,7 +4311,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  	 * this DMA buffer right after the DMA engine completely finishes the
->  	 * full buffer transmission.
->  	 */
-> -	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = des;
-> +	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf = tso_hdr;
->  	tx_q->tx_skbuff_dma[tx_q->cur_tx].len = skb_headlen(skb);
->  	tx_q->tx_skbuff_dma[tx_q->cur_tx].map_as_page = false;
->  	tx_q->tx_skbuff_dma[tx_q->cur_tx].buf_type = STMMAC_TXBUF_T_SKB;
-> -- 
-> 2.34.1
-> 
-> 
+v7:
+- rebased on v6.13-rc1 and removed RFC prefix
+- Link to v6: https://lore.kernel.org/r/20241124-upstream_s32cc_gmac-v6-0-dc5718ccf001@oss.nxp.com
 
+v6:
+- removed dead code in dwmac-intel-plat.c
+- yaml: fix indention
+- validate interface mode in probe
+- dropped patch#16 to fit in max 15 patches in series
+- Link to v5: https://lore.kernel.org/r/20241119-upstream_s32cc_gmac-v5-0-7dcc90fcffef@oss.nxp.com
+
+v5:
+- yaml: refactored compatible string to use fallback
+- yaml: fix indention in example
+- fix xmas tree formating in local variable declarations
+- removed lazy rx clk setup
+- drop PTP clock reading patch and replace it with stmmac_platform fix
+- Link to v4: https://lore.kernel.org/r/20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com
+
+v4:
+- fixed empty commit messages for rgmi_clock() helper patches
+- fixed yaml path in MAINTAINERS
+- switched to platform_driver::remove() as suggested Uwe
+- yaml: returned back all compatibility sting values
+- added better commit description for rgmii_clock() helper
+- Link to v3: https://lore.kernel.org/r/20241013-upstream_s32cc_gmac-v3-0-d84b5a67b930@oss.nxp.com
+
+v3:
+- switched to b4 WoW to overcome threading issue with b4
+- extracted the hunk with the typo fix from v2 patch#1 to separate patch
+  as Jacob suggested
+- removed dead code for RMII/MII support, which will be added alter
+- used new rgmii_clock() helper in other stmmac:dwmac glue drivers
+- yaml: compatible strings compressed to simple one "nxp,s32-dwmac",
+  removed duplicated required properties, already defined in snps,dwmac,
+  fixed example
+
+v2:
+- send to wider audience as first version missed many maintainers
+- created rgmi_clk() helper as Russell suggested (see patch#4)
+- address Andrew's, Russell's, Serge's and Simon's comments
+
+Message-ID: <AM9PR04MB85066576AD6848E2402DA354E2832@AM9PR04MB8506.eurprd04.prod.outlook.com>
+
+Cc: 
+
+Cc:
+
+---
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+To: Jose Abreu <joabreu@synopsys.com>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@google.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Vinod Koul <vkoul@kernel.org>
+To: Richard Cochran <richardcochran@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Emil Renner Berthing <kernel@esmil.dk>
+To: Minda Chen <minda.chen@starfivetech.com>
+To: Nicolas Ferre <nicolas.ferre@microchip.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: Iyappan Subramanian <iyappan@os.amperecomputing.com>
+To: Keyur Chudgar <keyur@os.amperecomputing.com>
+To: Quan Nguyen <quan@os.amperecomputing.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Giuseppe Cavallaro <peppe.cavallaro@st.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: linux-stm32@st-md-mailman.stormreply.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: netdev@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: devicetree@vger.kernel.org
+Cc: NXP S32 Linux Team <s32@nxp.com>
+Cc: 0x1207@gmail.com
+Cc: fancer.lancer@gmail.com
+Cc: 
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+
+---
+Jan Petrous (OSS) (15):
+      net: stmmac: Fix CSR divider comment
+      net: stmmac: Extend CSR calc support
+      net: stmmac: Fix clock rate variables size
+      net: phy: Add helper for mapping RGMII link speed to clock rate
+      net: dwmac-dwc-qos-eth: Use helper rgmii_clock
+      net: dwmac-imx: Use helper rgmii_clock
+      net: dwmac-intel-plat: Use helper rgmii_clock
+      net: dwmac-rk: Use helper rgmii_clock
+      net: dwmac-starfive: Use helper rgmii_clock
+      net: macb: Use helper rgmii_clock
+      net: xgene_enet: Use helper rgmii_clock
+      net: dwmac-sti: Use helper rgmii_clock
+      dt-bindings: net: Add DT bindings for DWMAC on NXP S32G/R SoCs
+      net: stmmac: dwmac-s32: add basic NXP S32G/S32R glue driver
+      MAINTAINERS: Add Jan Petrous as the NXP S32G/R DWMAC driver maintainer
+
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 105 +++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
+ MAINTAINERS                                        |   7 +
+ drivers/net/ethernet/apm/xgene/xgene_enet_hw.c     |  16 +-
+ drivers/net/ethernet/cadence/macb_main.c           |  14 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig        |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
+ drivers/net/ethernet/stmicro/stmmac/common.h       |   2 +
+ .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    |  11 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c    |  15 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-intel-plat.c |  22 +--
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c     |  30 +--
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    | 202 +++++++++++++++++++++
+ .../net/ethernet/stmicro/stmmac/dwmac-starfive.c   |  19 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c    |  18 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |   6 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |   2 +-
+ include/linux/phy.h                                |  23 +++
+ include/linux/stmmac.h                             |  10 +-
+ 21 files changed, 399 insertions(+), 121 deletions(-)
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20240923-upstream_s32cc_gmac-6891eb75b126
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+
+
 
