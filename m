@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F407E7716C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 04:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD6CE7716C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Dec 2024 04:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=piW9kHZgsyQb9cy9HU5rDPdSyIGIWO93TJJ1y0kDyvc=; b=uvDQ3Q4ZVTlp67
-	ALOetNrLmSY7broV8I7OLTWntGsv0zeX09Uj7Amb/dSFfClYrtijXHnkxA6tTEdHKwQFXWcLpvOsF
-	z0Agux/KUwZQuL4KgIQCkCqOg9blG5jg8hFDkNCNp7G9p3y1Ykr/pWh2n72/mcoPeHeNi/fs8D5wg
-	0uqDcjykFcBH89YCBk9M1Gzv5Eg4YWqJ7/qI90wKeNv8DK0Rtk2QY/esfP9BzGN7ihdx03oVJenE8
-	haUlRhNdzTdbJQ4J2NJKhwmF/FEn9zGawxPIQrMTElw/O6y/qOgJAJeK7VQNAokSQhJOZAWHR3j9D
-	GT+lJPIIS2eWHRPvWFZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fIsW9ZbBJH35/ofhXRoLLDoPk7qr9yyhaAH28xywAJs=; b=cxyc5nMwahIBDuwnYWdtLWGvbn
+	4LydJuTSGZGI49W0mqm5MwylVKuN8C29Y72sTi4qAKzf7rpZ2y0s6MrxHt7h8Dp/v+vgZxsysQt6U
+	WvkWFa+Y8yzINuiy0uCopzau8OLTRiH7OyQ9wYNVWOpiWAWbsYO2qWFUl8BJ22VGzdr1EbN4D8pmp
+	13VcFsyM1BVPw3bq9g/3vfNPWl1gU4MK1NwXoasDD0jhC5D8tj/GEaz+jMLOupohMm7IjP1iAO7ho
+	KNyvdoDubhdU43wnxkFeb4LctVqezaPkTZD0yp6aT/0J+z7qrJWUsT9hqvt7F9iwaMsseQZ1NZz7M
+	EdgRhizg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ3In-0000000Eimi-2b61;
-	Thu, 05 Dec 2024 04:17:21 +0000
-Received: from mail-lf1-f54.google.com ([209.85.167.54])
+	id 1tJ3LY-0000000Ej4f-1iJn;
+	Thu, 05 Dec 2024 04:20:12 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ3Hm-0000000Eigr-2Np0
+	id 1tJ3KX-0000000Eiyc-2UMW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Dec 2024 04:16:19 +0000
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-53de556ecdaso517314e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 20:16:18 -0800 (PST)
+	Thu, 05 Dec 2024 04:19:10 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7b66ea49407so49816385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 20:19:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733372348; x=1733977148; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fIsW9ZbBJH35/ofhXRoLLDoPk7qr9yyhaAH28xywAJs=;
+        b=ORoNQ8thhHEZTMaueKCvdzdZUANkQc9LiHdRzT9L4jj+5wrSEqzRQHGpZUB/oHaN0h
+         vYoyNfaFzlIxd2yeWp6sBavtLfkcfjYUCGjYgWEbGzNbPd1x2mEt9KUMaQ+bfNaH2T1P
+         8Z6pt+hVHaOvubW4gs9y31X+aviYOINwRKmlwsmk/pl4ZdlnxN7XrqImvGhOCGxQSa5h
+         jD7eYYRt1Es8/wpR3bDk1coBJXWx3yXWbj8xKk6WyOsmWZMsX84vCvZy3tNA59+s2DJq
+         SD1SZZGB427bNkknVi3ntf/lIyzTrHyTkCqL65OC8/9jJfJgV/RAGZK49i92Pht62OXc
+         jpPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733372175; x=1733976975;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=piW9kHZgsyQb9cy9HU5rDPdSyIGIWO93TJJ1y0kDyvc=;
-        b=sUd3DsijoOtFmqNHXXZFPBsZJzPwsHuzcHIEJD4llHNCt+m71ZfullvJxiqovWEffn
-         ZshIEo8J1bQE+AR57tUnBgbp7z7tdzGd1JDqichCuBR621sRlxNCc/PKOnxnQ+VVEivY
-         AaCrcrWn+L1/VE376YRr7JOzc/45werZAuAE2PYjpkroT/L5vfrziB+Ndxp7KCtEGTiQ
-         AjPywnc75LrRt5ZyRhmFMV57cfFZWfBZ8hG2o5OVB1nRsntLpGQyWpJQvpy21ttbmmD5
-         F5/O3hanXavmUaEUSvHb1BvbzzTqhxKueblCCtIyrd9vSRGkspMIhAcZ0YCHGWVWhZKZ
-         /otA==
-X-Forwarded-Encrypted: i=1; AJvYcCW6QDCvC9jUB3LELK4ikqWRgjb+LTocQXpWuipcKyEnUU2Y0rAZbpz/izg6lr8L9aVFdLeJ5vTMVsj/pVZCYxMw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc9x201cSapk72fDgLHb769JHRhqMGwKwHUzaTwbVusO7/mMzj
-	ZVELBG27zADNNHCvROznQJTl4pZWlQFO3rx14EyqURiYWK8sUvZhGUlusivX
-X-Gm-Gg: ASbGncvXaH42Is73ERGFK4RboBZMRUZbCLQQxH5Mj0pus/OudqHuMt7mgkHTqnJmzt7
-	kzfC/tZOUOHYmExS24VZyCFVW4bkuIb1zWULhNTitardFh3HoDnQ9Zwqfq5CZ4j+DwBG3xkYLy0
-	j8UvL+LTK4xK2UP1CqMk9ECM+XT+E4vQHwL0zT0VS/UGbu2B/Po+cjsijTtImhy/sdflyvc8IYH
-	Y1+n8dyR12biniMi7C99dLT2ttifZuDkM+0RLDpZmEbVrlLUWhEq2ULeeE7Huq6HQY8pSq/PI7T
-	9xr0uNE=
-X-Google-Smtp-Source: AGHT+IHQhY1Yfw3DDgF6FtM9oyKkYIGO5ql8Mh3ABZSTdG9LXZ66VpVOR2lG2DiG7ATJeZi5U53CwQ==
-X-Received: by 2002:a05:6512:4028:b0:53e:1b94:727d with SMTP id 2adb3069b0e04-53e1b947326mr3991937e87.10.1733372174734;
-        Wed, 04 Dec 2024 20:16:14 -0800 (PST)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e22947411sm99093e87.42.2024.12.04.20.16.14
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Dec 2024 20:16:14 -0800 (PST)
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2ffd796ba0aso3811821fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Dec 2024 20:16:14 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUtzf3dcKXQ7WuVlTQohTB7rzGjMo59V8fyEBjQmAZfOjC4gFN0BntCXD2gwSQKOB4vyTuQJscH6AIrdeVJqcz9@lists.infradead.org
-X-Received: by 2002:a05:651c:1501:b0:300:1889:6340 with SMTP id
- 38308e7fff4ca-30018896590mr21262461fa.13.1733372174094; Wed, 04 Dec 2024
- 20:16:14 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733372348; x=1733977148;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fIsW9ZbBJH35/ofhXRoLLDoPk7qr9yyhaAH28xywAJs=;
+        b=L1PyH+IThbo1hhPBZ26l3xhVB+3ndw/Mbplku+FMw5+jk5QMJTYz95kUGm582qvytK
+         rcntRvqJMxSa4a2MpyjgDSDNUH6m5+8yt9/Oq1xBlp9O7DNd1ITdr+cETNADoXsdbc1s
+         5zj9yhwERng20BzIRZE2XxihG3Ks2CiwHm0Dh/wIHp4Woe0c3b9oSSJI2VvQOWZwHeNY
+         Bd6cq87CnGmFonr1aC6fisZzMwt5fFU0vDtmwvWFrsg4THekslNEgmWrqfnkk5RQoeSO
+         XF8fjm52CxOUl2pmjVjG1ohy78bi6nV7JrGmWQy7fmgPLcgO2OHcCETkD7PQYodcc+TI
+         BCxg==
+X-Gm-Message-State: AOJu0YzGo/ACPRWJ34TaMGetFj8idbsW7MRJoVjX5Tgw71fn0PR08QXc
+	IGC81qOKxhLIaR5/Bgy2EQyoLsQIuhuRHYwNCevcfNV6QS3yW45v
+X-Gm-Gg: ASbGncuM5d9KUlj1etkhrzxkP9AxN7Br572ZlXECXVYKYNmwdqaduc+0XsTk4n4smhv
+	HSO2L/sLz/sQqfuenY5wwXrMpevAzE0kkJro3B8SAFXpNe1DGUWE6LwSvd5itkmOOaL1arm2wLK
+	/eWIXPkZtqK84vOKlCo992++wG3f5mkogCh1DpKwjcLdK7/NFyIxrwblm4yS3vp21Ldi43n8aQN
+	TdaiVFLMAtP493moBF5CU/LxdI2zxcPYNEbW7wlACg86txqhIwY/8yz+7FJXw==
+X-Google-Smtp-Source: AGHT+IGb15BU9VZuTfcCc0Kt4sxDfpy9Ekjg2I7uCZCEK0h+QJBSNLMKU3cxm4nqE2b2Ha98hRfcsg==
+X-Received: by 2002:a05:620a:488e:b0:7b6:6fb4:2967 with SMTP id af79cd13be357-7b6b4188fdemr333159985a.10.1733372347741;
+        Wed, 04 Dec 2024 20:19:07 -0800 (PST)
+Received: from localhost.localdomain ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b6b5a5c2e6sm26301585a.42.2024.12.04.20.19.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Dec 2024 20:19:07 -0800 (PST)
+From: Mingwei Zheng <zmw12306@gmail.com>
+To: linus.walleij@linaro.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mingwei Zheng <zmw12306@gmail.com>,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH] pinctrl: nomadik: Add check for clk_enable()
+Date: Wed,  4 Dec 2024 23:22:14 -0500
+Message-Id: <20241205042214.2410982-1-zmw12306@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241203203824.23306-1-simons.philippe@gmail.com>
-In-Reply-To: <20241203203824.23306-1-simons.philippe@gmail.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Thu, 5 Dec 2024 12:16:00 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67Uv3SVQSqox85qt_05aVvX0oCynNRoaN9BA1Nha3eo8w@mail.gmail.com>
-Message-ID: <CAGb2v67Uv3SVQSqox85qt_05aVvX0oCynNRoaN9BA1Nha3eo8w@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: allwinner: h616: rg35xx add missing regulator-ramp-delay
-To: Philippe Simons <simons.philippe@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_201618_604784_D99C9304 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20241204_201909_632751_F7606A34 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +92,114 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 4, 2024 at 4:38=E2=80=AFAM Philippe Simons
-<simons.philippe@gmail.com> wrote:
->
-> AXP datasheet says that ramp delay is 15.625 us/step,
-> which is 10mV in our case.
+Add check for the return value of clk_enable() to catch the potential
+error. Change return type of nmk_gpio_glitch_slpm_init casade.
 
-(CC-ing Mark for knowledge on regulators)
+Fixes: 3a19805920f1 ("pinctrl: nomadik: move all Nomadik drivers to subdir")
+Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+ drivers/pinctrl/nomadik/pinctrl-nomadik.c | 29 +++++++++++++++++------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
 
-If this is the property of the PMIC, it probably belongs in the driver,
-in "regulator_desc.ramp_delay".
+diff --git a/drivers/pinctrl/nomadik/pinctrl-nomadik.c b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
+index f4f10c60c1d2..2207c9513afd 100644
+--- a/drivers/pinctrl/nomadik/pinctrl-nomadik.c
++++ b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
+@@ -438,9 +438,9 @@ static void nmk_prcm_altcx_set_mode(struct nmk_pinctrl *npct,
+  *  - Any spurious wake up event during switch sequence to be ignored and
+  *    cleared
+  */
+-static void nmk_gpio_glitch_slpm_init(unsigned int *slpm)
++static int nmk_gpio_glitch_slpm_init(unsigned int *slpm)
+ {
+-	int i;
++	int i, ret;
+ 
+ 	for (i = 0; i < NMK_MAX_BANKS; i++) {
+ 		struct nmk_gpio_chip *chip = nmk_gpio_chips[i];
+@@ -449,11 +449,15 @@ static void nmk_gpio_glitch_slpm_init(unsigned int *slpm)
+ 		if (!chip)
+ 			break;
+ 
+-		clk_enable(chip->clk);
++		ret = clk_enable(chip->clk);
++		if (ret)
++			return ret;
+ 
+ 		slpm[i] = readl(chip->addr + NMK_GPIO_SLPC);
+ 		writel(temp, chip->addr + NMK_GPIO_SLPC);
+ 	}
++
++	return 0;
+ }
+ 
+ static void nmk_gpio_glitch_slpm_restore(unsigned int *slpm)
+@@ -923,7 +927,9 @@ static int nmk_pmx_set(struct pinctrl_dev *pctldev, unsigned int function,
+ 
+ 			slpm[nmk_chip->bank] &= ~BIT(bit);
+ 		}
+-		nmk_gpio_glitch_slpm_init(slpm);
++		ret = nmk_gpio_glitch_slpm_init(slpm);
++		if (ret)
++			goto out_pre_slpm_init;
+ 	}
+ 
+ 	for (i = 0; i < g->grp.npins; i++) {
+@@ -940,7 +946,10 @@ static int nmk_pmx_set(struct pinctrl_dev *pctldev, unsigned int function,
+ 		dev_dbg(npct->dev, "setting pin %d to altsetting %d\n",
+ 			g->grp.pins[i], g->altsetting);
+ 
+-		clk_enable(nmk_chip->clk);
++		ret = clk_enable(nmk_chip->clk);
++		if (ret)
++			goto out_glitch;
++
+ 		/*
+ 		 * If the pin is switching to altfunc, and there was an
+ 		 * interrupt installed on it which has been lazy disabled,
+@@ -988,6 +997,7 @@ static int nmk_gpio_request_enable(struct pinctrl_dev *pctldev,
+ 	struct nmk_gpio_chip *nmk_chip;
+ 	struct gpio_chip *chip;
+ 	unsigned int bit;
++	int ret;
+ 
+ 	if (!range) {
+ 		dev_err(npct->dev, "invalid range\n");
+@@ -1004,7 +1014,9 @@ static int nmk_gpio_request_enable(struct pinctrl_dev *pctldev,
+ 
+ 	find_nmk_gpio_from_pin(pin, &bit);
+ 
+-	clk_enable(nmk_chip->clk);
++	ret = clk_enable(nmk_chip->clk);
++	if (ret)
++		return ret;
+ 	/* There is no glitch when converting any pin to GPIO */
+ 	__nmk_gpio_set_mode(nmk_chip, bit, NMK_GPIO_ALT_GPIO);
+ 	clk_disable(nmk_chip->clk);
+@@ -1058,6 +1070,7 @@ static int nmk_pin_config_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 	unsigned long cfg;
+ 	int pull, slpm, output, val, i;
+ 	bool lowemi, gpiomode, sleep;
++	int ret;
+ 
+ 	nmk_chip = find_nmk_gpio_from_pin(pin, &bit);
+ 	if (!nmk_chip) {
+@@ -1116,7 +1129,9 @@ static int nmk_pin_config_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 			output ? (val ? "high" : "low") : "",
+ 			lowemi ? "on" : "off");
+ 
+-		clk_enable(nmk_chip->clk);
++		ret = clk_enable(nmk_chip->clk);
++		if (ret)
++			return ret;
+ 		if (gpiomode)
+ 			/* No glitch when going to GPIO mode */
+ 			__nmk_gpio_set_mode(nmk_chip, bit, NMK_GPIO_ALT_GPIO);
+-- 
+2.34.1
 
-The "regulator-ramp-delay" in the DT can be used to override this
-if the board has excessive ramp delay due to other design reasons.
-
-
-ChenYu
-
-> add missing regulator-ramp-delay to dcdc regulators accordingly
->
-> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> ---
->  .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts    | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-20=
-24.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
-> index 80ccab7b5..b6e76a804 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
-> @@ -238,6 +238,7 @@ reg_dcdc1: dcdc1 {
->                                 regulator-always-on;
->                                 regulator-min-microvolt =3D <900000>;
->                                 regulator-max-microvolt =3D <1160000>;
-> +                               regulator-ramp-delay =3D <640>;
->                                 regulator-name =3D "vdd-cpu";
->                         };
->
-> @@ -245,6 +246,7 @@ reg_dcdc2: dcdc2 {
->                                 regulator-always-on;
->                                 regulator-min-microvolt =3D <940000>;
->                                 regulator-max-microvolt =3D <940000>;
-> +                               regulator-ramp-delay =3D <640>;
->                                 regulator-name =3D "vdd-gpu-sys";
->                         };
->
-> @@ -252,6 +254,7 @@ reg_dcdc3: dcdc3 {
->                                 regulator-always-on;
->                                 regulator-min-microvolt =3D <1100000>;
->                                 regulator-max-microvolt =3D <1100000>;
-> +                               regulator-ramp-delay =3D <640>;
->                                 regulator-name =3D "vdd-dram";
->                         };
->
-> --
-> 2.47.1
->
 
