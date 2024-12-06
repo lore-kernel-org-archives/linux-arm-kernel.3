@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7190E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456A8E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMJviehisLm8mXyH/isCkI9Mk7IwoYDtT0/mTp3ffXg=; b=5EemzsWi27oguINDUy0F9YYL6d
-	hMu15PV+UTahxLgdfuLGGAHB6T9iHe5afn+8oBKbZeM/Oe03Os2gm0B6vmZsHTGVqf4lhFhuk2NZr
-	kCcr8v5Z9MdQ+XaFQzgSISKqwsQalyysRAyb4EGdWzNdW8jIq1JYnORLE+Dyj2ukKQetxiuNB0pAc
-	HjFFUiS7PVDPGb9agIZVLqCBdmzaYVlaYUQ4qJ5mchgA0olO7CZxsziuEIlWw5dchahUb06Y0hgNW
-	n9Ilp1yjpuozXWO2NIAYbP6Ir76bvMKmyrtuR18yMYspwXdQiyX56kYuzo4SB0fcoIwgMg1y0TmO4
-	2hEiQRpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OymvNbNhhpKoEMjUDLtKhe5sk4PAYvIpK66BpSAfOXk=; b=gLE3UFZnS0mArOJSoyyyOq+lHo
+	R4uuYfc00zXl0M0j5gKB9oIn/7fENc68jMwlcsnSr9oOKgizjZXoxXY+TepxMsV+vu0s0G3l8uJB3
+	HbCwxjR7wIDEHUUVkUbfTL0xMCmTaPz0byvfYd/bSbvBkic/x1dPT3k6hyV+xoD3i8zxpPDDn6TAq
+	c4SUVTGNggy0n3cg4mNb8KsjGyRYb2sFj+CghKvr/AX7X7K2oqiugpDojamtLxykY4d56TtwBmpEA
+	n5SF0S2jjWylH0j/5Esmf+4yAvNK0tx9IUYFxPgnQX+IH+N8Cjzg32Oyp3LZmGx/iH1uwBYae5mJr
+	l1lPC9+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJYps-00000001nbI-1ZH0;
-	Fri, 06 Dec 2024 13:57:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJYoa-00000001nFt-1Z24;
-	Fri, 06 Dec 2024 13:56:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B4FB3A416C3;
-	Fri,  6 Dec 2024 13:54:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 261C0C4CEDC;
-	Fri,  6 Dec 2024 13:56:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733493375;
-	bh=563SsPu6/+OsYwdbvzEtes3bIYtTyUec5qqj5KSLCAo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z0++dduS4VP6El2s8mBfIALW+2dmy6vZ33ooYuEgdXM317b/U4EqhGelyHGrrZNzL
-	 miIzeR+cSJnDn2jCkwlWbbPQzMvGFWSHJhDdY+7Q/Yd+Cq1A2hSDtsk9xQb/HEkLVt
-	 0ZmBu6Yv/uqEFGGpNw+RidIfX39MLYvNpox74jqIsyHDwG8s0kme4AlF6hXb3g1p4Q
-	 PD8UA0A0sOhtVkJtPiVQde7vkG47XDvRIjeALCafiEVQT9rNkK5XaiRD+igQQhlf1T
-	 9Ixw6DsaTKfU0t/e/lZGzQ9lrlMDkUdvGSpTCflX+LMZTIiL/wAyKsXyfrrwV7lYxj
-	 OjWK6lrW78A6Q==
-Date: Fri, 6 Dec 2024 13:56:08 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to
- common code
-Message-ID: <20241206-threaten-showing-1214491f3899@spud>
-References: <20241002-private-unequal-33cfa6101338@spud>
- <20241002-hula-unwashed-1c4ddbadbec2@spud>
- <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org>
- <1jwmiqsks3.fsf@starbuckisacylon.baylibre.com>
- <20241003-tacking-ladylike-dfe2b633e647@spud>
- <20241106-freefall-slider-db379b05821e@spud>
- <430bde3b35382e640843e32a9f351326.sboyd@kernel.org>
- <20241128-monstrous-embargo-a665d921410d@wendy>
- <e53adbf9fdf6e3f142083b0d40d074ca.sboyd@kernel.org>
+	id 1tJYqs-00000001nt1-2RIE;
+	Fri, 06 Dec 2024 13:58:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJYos-00000001nIJ-27tN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Dec 2024 13:56:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48F9CFEC;
+	Fri,  6 Dec 2024 05:56:59 -0800 (PST)
+Received: from e125905.cambridge.arm.com (e125905.cambridge.arm.com [10.1.194.73])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2469B3F71E;
+	Fri,  6 Dec 2024 05:56:28 -0800 (PST)
+From: Beata Michalska <beata.michalska@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	ionela.voinescu@arm.com,
+	sudeep.holla@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: sumitg@nvidia.com,
+	yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com,
+	lihuisong@huawei.com,
+	zhanjie9@hisilicon.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Phil Auld <pauld@redhat.com>,
+	x86@kernel.org,
+	linux-doc@vger.kernel.org
+Subject: [PATCH v8 0/4] Add support for AArch64 AMUv1-based average freq
+Date: Fri,  6 Dec 2024 13:55:56 +0000
+Message-Id: <20241206135600.4083965-1-beata.michalska@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="D3KsjEcBH/hYSuAR"
-Content-Disposition: inline
-In-Reply-To: <e53adbf9fdf6e3f142083b0d40d074ca.sboyd@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_055616_546846_EEA2DF46 
-X-CRM114-Status: GOOD (  34.03  )
+X-CRM114-CacheID: sfid-20241206_055634_629831_CDCBE984 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,98 +79,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi All,
 
---D3KsjEcBH/hYSuAR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This series adds support for obtaining an average CPU frequency based on
+a hardware provided feedback. The average frequency is being exposed via
+dedicated yet optional cpufreq sysfs attribute - cpuinfo_avg_freq.
+The architecture specific bits are being provided for AArch64, caching on
+existing implementation for FIE and AMUv1 support: the frequency scale
+factor, updated on each sched tick, serving as a base for retrieving
+the frequency for a given CPU, representing an average frequency
+reported between the ticks.
 
-On Tue, Dec 03, 2024 at 02:50:31PM -0800, Stephen Boyd wrote:
-> Quoting Conor Dooley (2024-11-28 02:36:16)
-> > On Thu, Nov 14, 2024 at 05:29:54PM -0800, Stephen Boyd wrote:
-> > > Quoting Conor Dooley (2024-11-06 04:56:25)
-> > > > My use case doesn't
-> > > > actually need the registration code changes either as, currently, o=
-nly reg
-> > > > gets set at runtime, but leaving that out is a level of incomplete =
-I'd not
-> > > > let myself away with.
-> > > > Obviously shoving the extra members into the clk structs has the do=
-wnside
-> > > > of taking up a pointer and a offset worth of memory for each clock =
-of
-> > > > that type registered, but it is substantially easier to support dev=
-ices
-> > > > with multiple regmaps that way. Probably moot though since the appr=
-oach you
-> > > > suggested in the thread linked above that implements a clk_hw_get_r=
-egmap()
-> > > > has to store a pointer to the regmap's identifier which would take =
-up an
-> > > > identical amount of memory.
-> > >=20
-> > > We don't need to store the regmap identifier in the struct clk. We can
-> > > store it in the 'struct clk_init_data' with some new field, and only =
-do
-> > > that when/if we actually need to. We would need to pass the init data=
- to
-> > > the clk_ops::init() callback though. We currently knock that out duri=
-ng
-> > > registration so that clk_hw->init is NULL. Probably we can just set t=
-hat
-> > > to NULL after the init routine runs in __clk_core_init().
-> > >=20
-> > > Long story short, don't add something to 'struct clk_core', 'struct
-> > > clk', or 'struct clk_hw' for these details. We can have a 'struct
-> > > clk_regmap_hw' that everyone else can build upon:
-> > >=20
-> > >   struct clk_regmap_hw {
-> > >         struct regmap *regmap;
-> > >         struct clk_hw hw;
-> > >   };
-> >=20
-> > What's the point of this? I don't understand why you want to do this ov=
-er
-> > what clk_divider et al already do, where clk_hw and the iomem pointer
-> > are in the struct itself.
->=20
-> Can you give an example? I don't understand what you're suggesting. I
-> prefer a struct clk_regmap_hw like above so that the existing struct
-> clk_hw in the kernel aren't increased by a pointer. SoC drivers can use
-> the same struct as a replacement for their struct clk_hw member today.
+The changes have been rather lightly (due to some limitations) tested on
+an FVP model.
 
-Best example I guess is to link what I did? This one is the core
-changes:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Dsyscon-rework-2&id=3D35904222355e971c24b3eb9b9fad3dd0c38d1393
-clk-gate has my original hack that I did while trying to figure out
-what you wanted, clk-divider-regmap is a 99% copy of clk-divider with
-the types, function names and readl()/writel() implementations modified.
-Before your last set of comments I was doing something identical to the
-clk-gate change for clk-divider also.
-Here's the changes required to my driver to make it work with the
-updated:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Dsyscon-rework-2&id=3Dea40211fe20f8bc6ef0320b93e1baa5b3f244601
-It's pretty much a drop in replacement, other than the additional
-complexity in probe.
+Note that [PATCH 2/4] arm64: amu: Delay allocating cpumask for AMU FIE support
+can be merged independently.
+Additionally, this series depends on [6]
 
-Hopefully that either gets my point across or lets you spot why I don't
-understand the benefit of a wrapper around clk_hw.
+Relevant discussions:
+[1] https://lore.kernel.org/all/20240229162520.970986-1-vanshikonda@os.amperecomputing.com/
+[2] https://lore.kernel.org/all/7eozim2xnepacnnkzxlbx34hib4otycnbn4dqymfziqou5lw5u@5xzpv3t7sxo3/
+[3] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
+[4] https://lore.kernel.org/lkml/ZIHpd6unkOtYVEqP@e120325.cambridge.arm.com/T/#m4e74cb5a0aaa353c60fedc6cfb95ab7a6e381e3c
+[5] https://lore.kernel.org/all/20240603081331.3829278-1-beata.michalska@arm.com/
+[6] https://lore.kernel.org/all/20240827154818.1195849-1-ionela.voinescu@arm.com/
 
-Cheers,
-Conor.
+v8:
+- Drop introducing new function and reuse arch_freq_get_on_cpu, guarding its use
+  in scaling_cur_freq sysfs handler with dedicated config for x86
 
---D3KsjEcBH/hYSuAR
-Content-Type: application/pgp-signature; name="signature.asc"
+v7:
+- Dropping 'arch_topology: init capacity_freq_ref to 0' patch from the series
+  as this one has been sent separately as an independent change
+  [https://lore.kernel.org/all/20240827154818.1195849-1-ionela.voinescu@arm.com/]
+- Including in the series change that introduces new sysfs entry [PATCH 1/4]
+- Consequently modifying previously arch_freq_get_on_cpu to match reqs for new
+  sysfs attribute
+- Dropping an idea of considering a CPU that has been idle for a while as a
+  valid source of information for obtaining an AMU-counter based frequency
+- Some minor cosmetic changes
 
------BEGIN PGP SIGNATURE-----
+v6:
+ - delay allocating cpumask for AMU FIE support instead of invalidating the mask
+   upon failure to register cpufreq policy notifications
+ - drop the change to cpufreq core (for cpuinfo_cur_freq) as this one will be
+   sent as a separate change
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ1MCeAAKCRB4tDGHoIJi
-0sqzAP9waSsOIi7fzVRAF2IfUyhCzbN2HRg7fuiXsVL8Q28vwQD7BAtQFxtD1L8h
-wFWZMACgozCdkOQyTUTRyE/s54HVoAg=
-=wQYC
------END PGP SIGNATURE-----
+v5:
+ - Fix invalid access to cpumask
+ - Reworked finding reference cpu when getting the freq
 
---D3KsjEcBH/hYSuAR--
+v4:
+- dropping seqcount
+- fixing identifying active cpu within given policy
+- skipping full dynticks cpus when retrieving the freq
+- bringing back plugging in arch_freq_get_on_cpu into cpuinfo_cur_freq
+
+v3:
+- dropping changes to cpufreq_verify_current_freq
+- pulling in changes from Ionela initializing capacity_freq_ref to 0
+  (thanks for that!)  and applying suggestions made by her during last review:
+	- switching to arch_scale_freq_capacity and arch_scale_freq_ref when
+	  reversing freq scale factor computation
+	- swapping shift with multiplication
+- adding time limit for considering last scale update as valid
+- updating frequency scale factor upon entering idle
+
+v2:
+- Splitting the patches
+- Adding comment for full dyntick mode
+- Plugging arch_freq_get_on_cpu into cpufreq_verify_current_freq instead
+  of in show_cpuinfo_cur_freq to allow the framework to stay more in sync
+  with potential freq changes
+
+CC: Jonathan Corbet <corbet@lwn.net>
+CC: Thomas Gleixner <tglx@linutronix.de>
+CC: Ingo Molnar <mingo@redhat.com>
+CC: Borislav Petkov <bp@alien8.de>
+CC: Dave Hansen <dave.hansen@linux.intel.com>
+CC: H. Peter Anvin <hpa@zytor.com>
+CC: Phil Auld <pauld@redhat.com>
+CC: x86@kernel.org
+CC: linux-doc@vger.kernel.org
+
+Beata Michalska (4):
+  cpufreq: Introduce an optional cpuinfo_avg_freq sysfs entry
+  arm64: amu: Delay allocating cpumask for AMU FIE support
+  arm64: Provide an AMU-based version of arch_freq_get_on_cpu
+  arm64: Update AMU-based freq scale factor on entering idle
+
+ Documentation/admin-guide/pm/cpufreq.rst |  16 ++-
+ arch/arm64/kernel/topology.c             | 144 +++++++++++++++++++----
+ arch/x86/kernel/cpu/aperfmperf.c         |   2 +-
+ arch/x86/kernel/cpu/proc.c               |   7 +-
+ drivers/cpufreq/Kconfig.x86              |  12 ++
+ drivers/cpufreq/cpufreq.c                |  36 +++++-
+ include/linux/cpufreq.h                  |   2 +-
+ 7 files changed, 188 insertions(+), 31 deletions(-)
+
+-- 
+2.25.1
+
 
