@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B307EE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FBEBE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQPhfD23YTFu2k8PG7PzToLjH9H9SzaXg3NW46Iyzwk=; b=yr0bbaE4R1l97h4ZiUCBsfLnHG
-	ESFSD9GWHeAyICt/rc4QtN7+UVG+5dGS22a53+Ef+SgqKCmJ/KXCsgMHz+vB4efE0t4Ju211bUilQ
-	0aa26K5QHAyzGkNF80M7T57WSgH1gzyO2vfQDxl9KLcTos8Kk26Vjxr4VszmOC9Ko8aybiDvM8uEX
-	3Nw/hg8OVO6GwiU0yYrnTv6ySRHaSKoY/bDfuwtOSBw2lTu0Ov2fsW1W+wUXpYEMs1OaQOyxSIzgw
-	GzKMphjxLprgCD4Bb+75zuLtiepkvZdcg4Dqd5vXH/pS6yIxX+SxxXytxJLnZBs/ZzWPkMZ1b6uov
-	30l6VGmA==;
+	bh=2gs2ec38XFPz86Jk4Qi4EGjPA32125hNqYFYzOizGgA=; b=ds7Cn0zV+GAp57iByMyjRUg6ev
+	4ziFf5BX0cBoiqw+J1WGn+LzBp5S7NZ6dD76m8QvYYsHX8m2ca9rNPpZSYoUKZ97OpP4Cvm40BGH7
+	xsemyGe5vrDvKN2VhZ6wY/xlc8ZbW9bbYuibqR058IiY/L/XqPcf3I3wvc8eO6J6U17e0W5mITQUS
+	q+TEyCiQrBf4M9ZnpkHkygZXpm/zJOQQh8rw9zQHxExH6MAb5ZVk6VGttSTFpisq5jkQJeGIbai2H
+	5PeNzvFfDIkceDXrU6Yr+gkQ+g1rudmRovanD4j7DmTN42bALRYnuMWyTfC77vUwk2eHqXd8V9r/+
+	iCrlBaJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJcH9-00000002Mjm-0Ug4;
-	Fri, 06 Dec 2024 17:37:59 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tJcNp-00000002NNr-2HB2;
+	Fri, 06 Dec 2024 17:44:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJcG6-00000002Mdw-2AJQ;
-	Fri, 06 Dec 2024 17:36:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jQPhfD23YTFu2k8PG7PzToLjH9H9SzaXg3NW46Iyzwk=; b=OAsSaXPmNKWbDvZAt2FfJrx+NN
-	INUzGPq8N1RuCnmRfnPcnrecc3H2wSuYkENTEjfdewM3VyK/Ta145Y7zhhTcdaWfHXXpYcz4er1Ol
-	mcWZFZtppOyfOt+L0KXOI9MLHQntSMP38xR/IOMzod27BqxmTJ3dGavZmQorAtPvY31bRmcC7eR2i
-	r6WrGUjO46+7E6vTrc4oLURq4lgF7mj56R4Z4997/z2/UrS+zpBcfqAVZISIOszZRRfKMfowKEBET
-	Uc3qFkGmmBCuRfF+DCzrOwDMWB+ho1+Id9Ey2E/MGzXC+x4YZV9DlSG1LhENOUcXRQkxhZ1hDSyHj
-	9KxtPopQ==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tJcG1-00032U-VI; Fri, 06 Dec 2024 18:36:50 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: vkoul@kernel.org, kishon@kernel.org,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 1/2] phy: phy-rockchip-samsung-hdptx: annotate regmap
- register-callback
-Date: Fri, 06 Dec 2024 18:36:49 +0100
-Message-ID: <2287157.Dhsi8hcfAM@diego>
-In-Reply-To: <e6172204-2f3f-4a9c-892c-be85d19ad031@collabora.com>
-References: <20241206103401.1780416-1-heiko@sntech.de>
- <20241206103401.1780416-2-heiko@sntech.de>
- <e6172204-2f3f-4a9c-892c-be85d19ad031@collabora.com>
+	id 1tJcMn-00000002NJ2-3AzA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Dec 2024 17:43:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8BC9AA41D08;
+	Fri,  6 Dec 2024 17:41:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DEA8C4CED1;
+	Fri,  6 Dec 2024 17:43:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733507028;
+	bh=m36ms2felAIm8ttAb0ORtpc8vmNP200R40r2sWRfe6Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VZXDzbVvYAfO1SbeJe/TLE6CMGABko/B1N+zOIs/vX9f/jOKXNSmLyrESFHJ3Lzq/
+	 S6z3Ln/Sg3f2Vkwk7Vx+EGehY5smJgnxQaqjDMjOjGz91Y8qnCXpREmvhauXADpA+B
+	 6WAXrsk+itZqusmlmcR/pzWdapVbT2kthDUvDroOmpALoFq3SXjaiRjSAZaXNG29rE
+	 Dpsl/CIZEtEnoRMf86D7rm/moNHFik6BGNsbQfxsvfzY3ab0SNh13gnSbrr9rbnQFJ
+	 3Hneqbu7YGavvxZgKe0N04fhjeVqgrUA/rnZf8bAOIGrJk8R49nRYTtNAwwgT6o+Zl
+	 Dwe9OFYWXHLRQ==
+Date: Fri, 6 Dec 2024 17:43:42 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, kristina.martsenko@arm.com
+Subject: Re: [PATCH v4 06/14] KVM: arm64: Set protected VM traps based on its
+ view of feature registers
+Message-ID: <70992791-af72-43ed-88cc-1bb5a8acaf9a@sirena.org.uk>
+References: <20241202154742.3611749-1-tabba@google.com>
+ <20241202154742.3611749-7-tabba@google.com>
+ <Z1M1DYbvuqAEU5c-@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4iR098i89+hFApT8"
+Content-Disposition: inline
+In-Reply-To: <Z1M1DYbvuqAEU5c-@google.com>
+X-Cookie: Sales tax applies.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_093654_576853_71191BB4 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20241206_094349_861389_82146B67 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +79,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 6. Dezember 2024, 12:18:56 CET schrieb Cristian Ciocaltea:
-> On 12/6/24 12:34 PM, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > 
-> > The variant of the driver in the vendor-tree contained those handy
-> > comments in the regmap register callback. Having the different ranges
-> > describe what they are looks helpful.
-> > 
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 14 +++++++-------
-> >  1 file changed, 7 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> > index 4ced1479e2dc..c5c64c209e96 100644
-> > --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> > +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> > @@ -766,13 +766,13 @@ static struct tx_drv_ctrl tx_drv_ctrl_hbr2[4][4] = {
-> >  static bool rk_hdptx_phy_is_rw_reg(struct device *dev, unsigned int reg)
-> >  {
-> >  	switch (reg) {
-> > -	case 0x0000 ... 0x029c:
-> > -	case 0x0400 ... 0x04a4:
-> > -	case 0x0800 ... 0x08a4:
-> > -	case 0x0c00 ... 0x0cb4:
-> > -	case 0x1000 ... 0x10b4:
-> > -	case 0x1400 ... 0x14b4:
-> > -	case 0x1800 ... 0x18b4:
-> > +	case 0x0000 ... 0x029c: /* CMN Register */
-> > +	case 0x0400 ... 0x04a4: /* Sideband Register */
-> > +	case 0x0800 ... 0x08a4: /* Lane Top Register */
-> > +	case 0x0c00 ... 0x0cb4: /* Lane 0 Register */
-> > +	case 0x1000 ... 0x10b4: /* Lane 1 Register */
-> > +	case 0x1400 ... 0x14b4: /* Lane 2 Register */
-> > +	case 0x1800 ... 0x18b4: /* Lane 3 Register */
-> >  		return true;
-> >  	}
-> >  
-> 
-> Nice finding!  The HDMI variant of the driver which I used as an
-> implementation reference (i.e. phy-rockchip-samsung-hdptx-hdmi.c)
-> doesn't provide these comments.
 
-yep, those comments were in the displayport variant of the phy-driver ;-) .
-I don't really understand why the vendor tree contains 2 separate drivers
-written by two different people, but at least it looks like we're getting
-one driver in mainline, thanks to Damon's work :-)
+--4iR098i89+hFApT8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Fri, Dec 06, 2024 at 05:31:57PM +0000, Quentin Perret wrote:
+> On Monday 02 Dec 2024 at 15:47:33 (+0000), Fuad Tabba wrote:
 
+> > -	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_RAS), id_aa64pfr0) <
+> > -	    ID_AA64PFR0_EL1_RAS_V1P1) {
+> > +	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
 
+> I'm admittedly getting a bit lost in the kvm_has_feat() macro maze, but
+> should this be:
+
+> 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, V1P1))
+
+> to replicate the existing check?
+
+kvm_has_feat() checks for a value <= the supplied constant while the
+existing check is just < and the values for the field are:
+
+UnsignedEnum	31:28	RAS
+	0b0000	NI
+	0b0001	IMP
+	0b0010	V1P1
+EndEnum
+
+so they're both checking for the same thing.
+
+--4iR098i89+hFApT8
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdTN80ACgkQJNaLcl1U
+h9BWPgf+IQiyhQrKBJvuASNYJ/HHdApW24+9RZSV8wxRm63d5lAl4Wl5Mh78cHTL
+P9yv+xL4VRJ34d9S9Vko6160kelDqIf3oMuyEJYMluKpGEy5L7fazjPdusj3CrJP
+3moUCZDvr5TvJ64mXXlTyU9VKsC2miihqrnlPO0siYsWP1ZrmvmbzS6rSh7dZceg
+W82rM4+3wTQj+hAzP26UHRRPneo+n8prEb/qrZ6eHjCYkKQdB3usSyBwsvOdRebR
+GSiXe33WBxpgL2PYc8sNM53Qc5jir2U2t2ivinp9wpNQHzzAfibP94h/s7Z0rRAa
+SgPzixBbmLmWFsOHYwa5U0IcS+5uVQ==
+=+crv
+-----END PGP SIGNATURE-----
+
+--4iR098i89+hFApT8--
 
