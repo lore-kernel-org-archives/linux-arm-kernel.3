@@ -4,102 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C501AE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 06:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0223E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 06:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cn/mEteP39h7mG9+aXdZN/tTfaU/U5YGN1nxsLlnwXQ=; b=ZfyqzRappniBx1QPqM3KYod6/X
-	bzV877YOV4kqy/QT0q798fSwe/rToCJ4oIhUViTRbObnZly+8ojBqSHlb4Lvx+5AvqEouAtSh3wDu
-	+MM9UM/Ls4UQan13xMu/1XVlsBJgc8Kkue4/238cXNDCj7RUfvZJ++m0lEESeOd0E3McSlrHzO0h9
-	6weKTV4YQyDRD8bKlOQQhatJokrGkYCLgW7qggtT3yvC58vDi57WEIca+LViAPsnN/zF4f+7SvxlU
-	NIio28XKZf7Xmo4DRudqELAD3HB/dEJjXFoTjRITjQzFJROGWW+tU1fiii65gDBlzao3xZDrBtqtw
-	aTRk/YMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MXTnzO1XZ2VddqzjxnlaUzrpeuKoS+bHl85A8NmfDSY=; b=qjqUvaY4kpSM5rk/BshMC6cIPp
+	7j+hjE7NzzAsVG+SV1ov6wNB8MfzLV3CO9r2pYnt6nHROxagqv8c4At5oTZGLAXP7Dr2KldJlsT27
+	r05k/gqa/0ZLAtbhhnEhubPvacV5VKRj2eul5u4oaOfqh9ZrqhM904NZFkLtg+Jg3DPm8B3LcLOJQ
+	aW03y2rgJUlHwDfpbRkNQ77aEwuukzjl1EGNrckMPmUoWqUWvAHXSpEuCcDo5x+oOhQ7MK4tvZ2lJ
+	W5jp3ZhWwCGuyMWW+t0++6jBYXZiM36WrdRdtPjTzp8wQwjxG8Twg0sCa0scTxYvn/GrEQuhmhdz2
+	m1/FDooA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJS2A-00000000iq7-1o2l;
-	Fri, 06 Dec 2024 06:41:50 +0000
-Received: from mx-2023-1.gwdg.de ([134.76.10.21])
+	id 1tJS9G-00000000jcS-2SWF;
+	Fri, 06 Dec 2024 06:49:10 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJS17-00000000ii4-33hi
+	id 1tJS8E-00000000jWf-1uWB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 06:40:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
-	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=Cn/mEteP39h7mG9+aXdZN/tTfaU/U5YGN1nxsLlnwXQ=; b=QIuEFM5T0FLtiEdDVaCUTynHbc
-	a3zmimEUtLd/4jb8a077kuj6t5Z1EudBlrkT12B2MBGOIwTrIpHJGw3Pk6iKOpO6TtYMuo4JiWtSe
-	FALBY7LUEVLwAAmC+Ce1w4h4KJ1Q2urw4zmYWkyBBzLGfosCtmeVjXhaA8OjAaqeQV2RnqsiVCy8m
-	7awRl+GwnnpkJjPVI4EbRQMiIMkDU4bc3J9mK7PKsqdbKi7W+7pUlBzCRs/m7RKmjvy3jv/GZxiaF
-	qizFSXH5UYZwccUBvg+by18Y9rZX4pnr/B+RuHQJtZemMZiqWS+sQHHLpwRFb7mmbtt58Ow1VWUYu
-	sAyfaCaw==;
-Received: from xmailer.gwdg.de ([134.76.10.29]:37823)
-	by mailer.gwdg.de with esmtp (GWDG Mailer)
-	(envelope-from <muecker@gwdg.de>)
-	id 1tJS0h-003tPL-1m;
-	Fri, 06 Dec 2024 07:40:19 +0100
-Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <muecker@gwdg.de>)
-	id 1tJS0h-000D3F-1M;
-	Fri, 06 Dec 2024 07:40:19 +0100
-Received: from [192.168.0.221] (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
- (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Fri, 6 Dec
- 2024 07:40:17 +0100
-Message-ID: <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
-Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-From: Martin Uecker <muecker@gwdg.de>
-To: David Laight <David.Laight@ACULAB.COM>, 'Vincent Mailhol'
-	<mailhol.vincent@wanadoo.fr>
-CC: Linus Torvalds <torvalds@linux-foundation.org>, Luc Van Oostenryck
-	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
-	<jani.nikula@linux.intel.com>, Joonas Lahtinen
-	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
-	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
-	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
-	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
-	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
-	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
-	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Date: Fri, 6 Dec 2024 07:40:17 +0100
-In-Reply-To: <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
-	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
-	 <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
-	 <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
-	 <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Fri, 06 Dec 2024 06:48:08 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id 67060114016E;
+	Fri,  6 Dec 2024 01:48:02 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 06 Dec 2024 01:48:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1733467682;
+	 x=1733554082; bh=MXTnzO1XZ2VddqzjxnlaUzrpeuKoS+bHl85A8NmfDSY=; b=
+	B5Zxev0615rfInbbM8O/2wHlNzygAM3f4XoIYu8QItHfWEwDVhZOO9cCCMoR8VXh
+	w/uD+ZkO+fZQjtbCIdzVwtvg1JvS7Hs9F2+oQvB0BLLbwqjKbciGjIgIShCV/sYH
+	G7G67H3dwHCrr9DQfCPPnXuWS4fvoAkkyFe3G0LjoJPO7BgUDc2Jv0AHY7G8+vsP
+	g0a5AtBEArec58w4p3yhv+cF+ruAURKfB7LaSPZu/ZgMs2C/ApFZB1WmOXhg1woD
+	lXGw7WVUqiVIRnTzU7DjA6QCvdMLXmvJsP+4FA40snC3QP7GM9JIdsvWvORkAdVs
+	tnmLyeWdkCPfrgzpMWbKvQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733467682; x=
+	1733554082; bh=MXTnzO1XZ2VddqzjxnlaUzrpeuKoS+bHl85A8NmfDSY=; b=F
+	Ejy8jmCDiD6FwMT5K7rHQJ8R8P3166Jsms31AxIquKxq/20/XPbwpTrMeHfFFVzh
+	/ia/xHJVgWghbnXHMDT1kul1CCEhlPcv6CP7t2aEryjDja0UO1qO25R3keh+Y8xV
+	MmEC88UDJ7WG4TlVHU1vlXM28j1BdBJlDU8s4gY4CLpObRplTJKvuLKzDjLOLveM
+	0QKvsFiyIoGvyZm5TrVGiB+zWFST4u5dPfq+GydncyeX/KYgxJEq2TK6mjpzp0CS
+	hYMyUD4d7hJM7zWgcXSQzZ9aRLu0bVqhtC3mqd4klfjY9JOnMJXr6H5pa9tWtJ2U
+	Q7qw4/Ev0sWNe6HLnjfZg==
+X-ME-Sender: <xms:IZ5SZzCGJx7AAEz16aZ4CNjS5ecbseDHkIOirhww-rmVmznXIHokVA>
+    <xme:IZ5SZ5hemfXp8tdYm-Hjs-1Huj9ZGRcrCBUtSUlaWahdaO3hDh0ogh4wYM3zfcdHC
+    ge9-O6w8l6SzR8dFjY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrieekgdelkecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
+    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
+    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedukedp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepkhgvrhhnvghlqdhtvggrmhesrghnug
+    hrohhiugdrtghomhdprhgtphhtthhopeifihhllhhmtghvihgtkhgvrhesghhoohhglhgv
+    rdgtohhmpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtph
+    htthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhes
+    khgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgdrughrrghsiihikheslhhinh
+    grrhhordhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghr
+    ohdrohhrghdprhgtphhtthhopehpvghtvghrrdhgrhhifhhfihhnsehlihhnrghrohdroh
+    hrghdprhgtphhtthhopehtuhguohhrrdgrmhgsrghruhhssehlihhnrghrohdrohhrgh
+X-ME-Proxy: <xmx:IZ5SZ-kuyljmTwbW46smaKAIlhw1f8J9dTGwct-_fRW_2bgzKRp1dQ>
+    <xmx:IZ5SZ1y76gU_3p-q-FQLa0Vs3szN9McrP7Wo8TzzdpCONgY5frXYRA>
+    <xmx:IZ5SZ4QyWia5MJfYpAe-gKQWR1fl0muHRIl-hYCZH8-dfcB9t45u5g>
+    <xmx:IZ5SZ4a2YOhUyvflEDFMZTrMWF8ghVxwda_xcralOHPCll624rEy1A>
+    <xmx:Ip5SZ6FrmFlB7gs9EvcXlJmWImgkyaz8WymObdXCZUjoGaFwgXVeddxu>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 2DBFB2220072; Fri,  6 Dec 2024 01:48:01 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: MBX19-GWD-08.um.gwdg.de (10.108.142.61) To
- MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
-X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:6, sv:1733449028, ts:1733467219
-X-Virus-Scanned: (clean) by clamav
+Date: Fri, 06 Dec 2024 07:47:40 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Tudor Ambarus" <tudor.ambarus@linaro.org>,
+ "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
+ "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ kernel-team@android.com, "William McVicker" <willmcvicker@google.com>,
+ "Peter Griffin" <peter.griffin@linaro.org>,
+ "Javier Martinez Canillas" <javierm@redhat.com>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Vincent Guittot" <vincent.guittot@linaro.org>,
+ "Ulf Hansson" <ulf.hansson@linaro.org>
+Message-Id: <427caa87-b9ba-4797-88bd-a18a96eefdcf@app.fastmail.com>
+In-Reply-To: <20241205175345.201595-3-tudor.ambarus@linaro.org>
+References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
+ <20241205175345.201595-3-tudor.ambarus@linaro.org>
+Subject: Re: [PATCH v3 2/3] firmware: add exynos ACPM protocol driver
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_224046_200630_6A820AA4 
-X-CRM114-Status: GOOD (  55.30  )
+X-CRM114-CacheID: sfid-20241205_224807_107996_08E447B9 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,241 +124,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, dem 06.12.2024 um 02:25 +0000 schrieb David Laight:
-> From: Vincent Mailhol
-> > Sent: 05 December 2024 15:31
-> >=20
-> > -CC: Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-> > +CC: Martin Uecker <muecker@gwdg.de>
-> > (seems that Martin changed his address)
+On Thu, Dec 5, 2024, at 18:53, Tudor Ambarus wrote:
 
-My current one is this: uecker@tugraz.at
+> +#define exynos_acpm_set_bulk(data, i)					\
+> +	(((data) & ACPM_BULK_MASK) << (ACPM_BULK_SHIFT * (i)))
+> +#define exynos_acpm_read_bulk(data, i)					\
+> +	(((data) >> (ACPM_BULK_SHIFT * (i))) & ACPM_BULK_MASK)
 
-Martin
+Could these be inline functions for readability?
 
-> >=20
-> > On Thu. 5 Dec. 2024 at 03:39, David Laight <David.Laight@aculab.com> wr=
-ote:
-> > > > Sent: 02 December 2024 17:33
-> > > >=20
-> > > > From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-> > > >=20
-> > > > __is_constexpr(), while being one of the most glorious one liner ha=
-ck
-> > > > ever witnessed by mankind, is overly complex. Following the adoptio=
-n
-> > > > of C11 in the kernel, this macro can be simplified through the use =
-of
-> > > > a _Generic() selection.
-> > >=20
-> > > You should give credit to some of the earlier patches that do the sam=
-e.
-> > > I'm sure there were some related ones from Linus - not applied yet.
-> >=20
-> > ACK. Would adding a suggested--by Linus tag solve your concern?
->=20
-> I actually suspect the first patches to change __is_constexpr() to
-> use _Generic were from myself.
-> I've found a patch I send in November 2023.
->=20
-> >=20
-> > > > First, split the macro in two:
-> > > >=20
-> > > >   - __is_const_zero(x): an helper macro; tells whether x is the
-> > > >     integer constant expression 0 or something else.
-> > > >=20
-> > > >   - is_const(x): replacement of __is_constexpr(); tells whether x i=
-s a
-> > > >     integer constant expression.
-> > > >=20
-> > > > The split serves two purposes: first make it easier to understand;
-> > > > second, __is_const_zero() will be reused as a building block for ot=
-her
-> > > > is_const_*() macros that will be introduced later on.
-> > > >=20
-> > > > The core principle of __is_constexpr() to abuse the return type of =
-the
-> > > > ternary operator remains, but all the surrounding sizeof() hack
-> > > > disappear.
-> > > >=20
-> > > > On a side note, while not relevant to the kernel, __is_constexpr()
-> > > > relied on the GNU extension that sizeof(void) is 1. const_expr() do=
-es
-> > > > not use any GNU extensions, making it ISO C compliant.
-> > > >=20
-> > > > __is_constexpr() is temporarily kept and will be removed once all i=
-ts
-> > > > users get migrated to is_const() (or one of its friend).
-> > > >=20
-> > > > Signed-off-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-> > > > ---
-> > > >  include/linux/compiler.h | 41 ++++++++++++++++++++++++++++++++++++=
-+++++
-> > > >  1 file changed, 41 insertions(+)
-> > > >=20
-> > > > diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-> > > > index a2a56a50dd85227a4fdc62236a2710ca37c5ba52..30ce06df4153cfdc0fa=
-d9bc7bffab9097f8b0450 100644
-> > > > --- a/include/linux/compiler.h
-> > > > +++ b/include/linux/compiler.h
-> > > > @@ -316,6 +316,47 @@ static inline void *offset_to_ptr(const int *o=
-ff)
-> > > >  #define statically_true(x) (__builtin_constant_p(x) && (x))
-> > > >  #define statically_false(x) (__builtin_constant_p(x) && (x) =3D=3D=
- 0)
-> > > >=20
-> > > > +/*
-> > > > + * Whether x is the integer constant expression 0 or something els=
-e.
-> > > > + *
-> > > > + * Details:
-> > > > + *   - The C11 standard defines in =C2=A76.3.2.3.3
-> > > > + *       (void *)<integer constant expression with the value 0>
-> > > > + *     as a null pointer constant (c.f. the NULL macro).
-> > > > + *   - If x evaluates to the integer constant expression 0,
-> > > > + *       (void *)(x)
-> > > > + *     is a null pointer constant. Else, it is a void * expression=
-.
-> > > > + *   - In a ternary expression:
-> > > > + *       condition ? operand1 : operand2
-> > > > + *     if one of the two operands is of type void * and the other =
-one
-> > > > + *     some other pointer type, the C11 standard defines in =C2=A7=
-6.5.15.6
-> > > > + *     the resulting type as below:
-> > > > + *       if one operand is a null pointer constant, the result has=
- the
-> > > > + *       type of the other operand; otherwise [...] the result typ=
-e is
-> > > > + *       a pointer to an appropriately qualified version of void.
-> > > > + *   - As such, in
-> > > > + *       0 ? (void *)(x) : (char *)0
-> > > > + *     if x is the integer constant expression 0, operand1 is a nu=
-ll
-> > > > + *     pointer constant and the resulting type is that of operand2=
-:
-> > > > + *     char *. If x is anything else, the type is void *.
-> > > > + *   - The (long) cast silences a compiler warning for when x is n=
-ot 0.
-> > > > + *   - Finally, the _Generic() dispatches the resulting type into =
-a
-> > > > + *     Boolean.
-> > >=20
-> > > The comment is absolutely excessive.
-> > > I'm sure I managed about 2 lines in one of the patches I did.
-> >=20
-> > I think that Linus made it  clear in:
-> >=20
-> >   https://lore.kernel.org/all/CAHk-=3DwgfpLdt7SFFGcByTfHdkvv7AEa3MDu_s_=
-W1kfOxQs49pw@mail.gmail.com/
-> >=20
-> > that this deserves a detailed comment.
->=20
-> And he wrote one in https://lore.kernel.org/all/CAHk-=3Dwiq=3DGUNWJwWh1CR=
-AYchW73UmOaSkaCovLatfDKeveZctA@mail.gmail.com/
->=20
->    /*
->     * iff 'x' is a non-zero constant integer expression,
->     * then '!(x)' will be a zero constant integer expression,
->     * and casting that to 'void *' will result in a NULL pointer.
->     * Otherwise casting it to 'void *' will be just a regular 'void *'.
->     *
->     * The type of '0 ? NULL : (char *)' is 'char *'
->     * The type of '0 ? (void *) : (char *) is 'void *'
->     */
->     #define const_true(x) \
->         _Generic(0 ? (void *)((long)!(x)) : (char *)0, char *: 1, void *:=
- 0)
->=20
->=20
->=20
-> >=20
-> > The details block in the current __is_constexpr() is 37 lines long,
-> > the details block in __is_const_zero() takes 22 lines. So I would
-> > argue that I made things better.
->=20
-> The old block was too long :-)
->=20
-> >=20
-> > Unless more people share your concern, I am planning to keep this comme=
-nt as-is.
-> >=20
-> > > > + *
-> > > > + * Glory to Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-> > >=20
-> > > IIRC Martin has agreed in the past that the accreditation can
-> > > be removed - especially since it refers to the 'sizeof (void)' trick.
-> >=20
-> > I tried to look for such message:
-> >=20
-> >   https://lore.kernel.org/all/?q=3Df%3A%22martin+uecker%22+__is_constex=
-pr
-> >=20
-> > but couldn't find it. Do you have the link?
-> >=20
-> > @Martin, do you agree that I remove the accreditation?
-> >=20
-> > > > + */
-> > > > +#define __is_const_zero(x) \
-> > > > +     _Generic(0 ? (void *)(long)(x) : (char *)0, char *: 1, void *=
-: 0)
-> > > > +
-> > > > +/*
-> > > > + * Returns a constant expression while determining if its argument=
- is a
-> > > > + * constant expression, most importantly without evaluating the ar=
-gument.
-> > >=20
-> > > You need to differentiate between a 'constant integer expression'
-> > > and a 'compile time constant'.
-> >=20
-> > OK. This one was just copied from the previous __is_constexpr(). I will=
- apply
-> > "s/constant expression/constant integer expression/g" in v2.
-> >=20
-> > > > + *
-> > > > + * If getting a constant expression is not relevant to you, use th=
-e more
-> > > > + * powerful __builtin_constant_p() instead.
-> > >=20
-> > > __builtin_constant_p() is not 'more powerful' it is testing for
-> > > something different.
-> >=20
-> > I meant to say that __builtin_constant_p() is more powerful at
-> > constant folding. But I agree that the comment is not clear.
-> >=20
-> > What about this?
-> >=20
-> >   If getting a constant integer expression is not relevant to you, use
-> >   __builtin_constant_p() which not only returns true if the argument
-> >   is an integer constant expression, but also if it is a compile time
-> >   constant.
->=20
-> Complete f***ed tense.
->=20
-> It's not about 'constant folding' and 'powerful' isn't the correct word.
-> They are checking for two different things.
->=20
-> A 'constant integer expression' is defined by the C language, and is
-> basically something that is constant when first parsed by the compiler
-> (my definition) so it can pretty much only contain constants, sizeof()
-> and offsetof().
->=20
-> __builtin_constant_p() is true if the compiler decides that an expression=
- is
-> constant. This can track values through inlined function calls and can
-> change from 'unknown' to 'true' late in the compilation.
->=20
-> 	David
->=20
-> >=20
-> >=20
-> > Yours sincerely,
-> > Vincent Mailhol
->=20
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1=
- 1PT, UK
-> Registration No: 1397386 (Wales)
+> +	cmd[3] = (u32)(sched_clock() / 1000000); /*record ktime ms*/
 
+The comment does not match the implementation, sched_clock()
+is probably not what you want here because of its limitiations.
+
+Maybe ktime_to_ms(ktime_get())?
+
+> +/**
+> + * acpm_get_rx() - get response from RX queue.
+> + * @achan:	ACPM channel info.
+> + * @xfer:	reference to the transfer to get response for.
+> + *
+> + * Return: 0 on success, -errno otherwise.
+> + */
+> +static int acpm_get_rx(struct acpm_chan *achan, struct acpm_xfer *xfer)
+> +{
+> +	struct acpm_msg *tx = &xfer->tx;
+> +	struct acpm_msg *rx = &xfer->rx;
+> +	struct acpm_rx_data *rx_data;
+> +	const void __iomem *base, *addr;
+> +	u32 rx_front, rx_seqnum, tx_seqnum, seqnum;
+> +	u32 i, val, mlen;
+> +	bool rx_set = false;
+> +
+> +	rx_front = readl_relaxed(achan->rx.front);
+> +	i = readl_relaxed(achan->rx.rear);
+
+If you have to use readl_relaxed(), please annotate why,
+otherwise just use the normal readl().  Is this access to
+the SRAM?
+
+> +	spin_lock_irqsave(&achan->tx_lock, flags);
+> +
+> +	tx_front = readl_relaxed(achan->tx.front);
+> +	idx = (tx_front + 1) % achan->qlen;
+> +
+> +	ret = acpm_wait_for_queue_slots(achan, idx);
+> +	if (ret) {
+> +		spin_unlock_irqrestore(&achan->tx_lock, flags);
+> +		return ret;
+> +	}
+
+It looks like you are calling a busy loop function inside
+of a hardirq handler here, with a 500ms timeout. This is
+not ok.
+
+If you may need to wait for a long timeout, I would suggest
+changing the interface so that this function is not allowed
+to be called from irq-disabled context, change the spinlock
+to a mutex and polling read to a sleeping version.
+
+> +	/* Advance TX front. */
+> +	writel_relaxed(idx, achan->tx.front);
+> +
+> +	/* Flush SRAM posted writes. */
+> +	readl_relaxed(achan->tx.front);
+> +
+> +	spin_unlock_irqrestore(&achan->tx_lock, flags);
+
+I don't think this sequence guarantees the serialization
+you want. By making the access _relaxed() you explicitly
+say you don't want serialization, so the store does
+not have to complete before the unlock.
+
+> +static const struct of_device_id acpm_match[] = {
+> +	{ .compatible = "google,gs101-acpm-ipc" },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, acpm_match);
+> +
+> +static struct platform_driver acpm_driver = {
+> +	.probe	= acpm_probe,
+> +	.driver	= {
+> +		.name = "exynos-acpm-protocol",
+> +		.of_match_table	= of_match_ptr(acpm_match),
+
+Remove the stray of_match_ptr() here.
+
+> diff --git a/drivers/firmware/samsung/exynos-acpm.h 
+> b/drivers/firmware/samsung/exynos-acpm.h
+> new file mode 100644
+> index 000000000000..a03adcd260f5
+> --- /dev/null
+> +++ b/drivers/firmware/samsung/exynos-acpm.h
+> @@ -0,0 +1,15 @@
+> +#ifndef __EXYNOS_ACPM_H__
+> +#define __EXYNOS_ACPM_H__
+> +
+> +struct acpm_handle;
+> +struct acpm_xfer;
+> +
+> +int acpm_do_xfer(const struct acpm_handle *handle, struct acpm_xfer 
+> *xfer);
+> +
+> +#endif /* __EXYNOS_ACPM_H__ */
+> diff --git a/include/linux/soc/samsung/exynos-acpm-protocol.h 
+> b/include/linux/soc/samsung/exynos-acpm-protocol.h
+> new file mode 100644
+> index 000000000000..762783af7617
+> --- /dev/null
+> +++ b/include/linux/soc/samsung/exynos-acpm-protocol.h
+
+Why is this in include/linux/soc, and not in the firmware
+header?
+
+      Arnd
 
