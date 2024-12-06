@@ -4,56 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1558E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 15:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2ADE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 15:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cbygikUCESgNV8TlX+N1yyRafcdbiIiqKGBmV3HzKrM=; b=kFUdqj2VCQa6exrcbNpadF5cEY
-	EbeAPMMXGiQJkVBXdzSYV2WPXkjcphqLQvk6lYE9jPnAg1Z4I1eK2bJHULdMrGI9DmsxVUHm+8Kee
-	KIvT6nT8BzfJjXpKo4IAiy5Ywjf8PJAb2IQ8qiyzY0eF84dS8Xb2qNfmV0tl3MgLmnzviT+JqF7QW
-	ILTXevBUd/GSoVdSGdmv2pyRwsOZdbEpG0ieeYipkAIyRR9IVBKPhbM/et6RYy2RwqFqyfMuZCkTc
-	YLPOYN5yIrMhgVI73/LRdl9WWCfHdKf4ws/IhqIdhNHxnVzPysz/yhL1VQVepKAjVLO54I1GIUC3S
-	q1sZZxtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q1k59tg7g6ZR0AiJKHkbtvAsnBjYlK49uTsKYbfsQyM=; b=xBna4PQV8leSSG1X1Y372gUAni
+	LsncX1ICxPepOhL3XCik2N69kak9Nh2wxzO3oD5/KXT9UjlyzO99Y8xO2qEquKh2XLpcb0pCdh3Y1
+	NmbjunF3zdc4pHiuCFqo31jtLXDMebaAp1yK79Ka6/mgvKhXrBPWMI3hUhyg5tji6A0Crj7SUadpB
+	1ZSazhYqD3FiKquaOCen2fXW+r0A4OzOZ3RwaWF2KzjJtdaE/giu7YJz9dyLlzc3KCHnHwyUk7TUg
+	09y4kTxaphrzQ5iH8u5lwbI65kvG7hbTkmRu8wSQX0xr84U6kLcTvFBId2Gw4MFYDI+nckzuDYzxm
+	UyJXMkaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJaaA-000000022nX-0YmJ;
-	Fri, 06 Dec 2024 15:49:30 +0000
-Received: from smtp-42ae.mail.infomaniak.ch ([2001:1600:4:17::42ae])
+	id 1tJaex-000000023QU-0eAC;
+	Fri, 06 Dec 2024 15:54:27 +0000
+Received: from out-15.smtpout.orange.fr ([193.252.22.15] helo=out.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJaXF-000000022MR-1wlS
+	id 1tJadv-000000023M9-0g4E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 15:46:31 +0000
-Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Y4bG85qNJztSm;
-	Fri,  6 Dec 2024 16:46:24 +0100 (CET)
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4Y4bG81dM8z6Rx;
-	Fri,  6 Dec 2024 16:46:24 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 06 Dec 2024 16:46:17 +0100
-Subject: [PATCH] arm64: dts: rockchip: minimal support for Pre-ICT tester
- adapter for RK3588 Jaguar
+	Fri, 06 Dec 2024 15:53:25 +0000
+Received: from mail-lj1-f178.google.com ([209.85.208.178])
+	by smtp.orange.fr with ESMTPSA
+	id JadotaIEQ60jWJadptLVNb; Fri, 06 Dec 2024 16:53:19 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1733500399;
+	bh=Q1k59tg7g6ZR0AiJKHkbtvAsnBjYlK49uTsKYbfsQyM=;
+	h=MIME-Version:From:Date:Message-ID:Subject:To;
+	b=fKtbMZ5e7UStiyuD342Rp/U/JB98QwkfvLfdqD7cHAhFT750srLxdTN2JGUakuWD3
+	 SHPJCkf7UsV9WL2EHl0AGNoXBaElul1y/DEDEWK4M+WfhiYxHPwiea+PmwUMRtLjyB
+	 PufA6TTvHBMBJinHrTbV8e5+3aJY+BlKwsQz2KvJ1yUeych6uTXvyinfwpWZHuThPe
+	 9f/xJKrHajZknKxH8UWQa23/nAyCBvihjRiB8KSWVs4drqj/AXL7lX5E1gxjteq5Ma
+	 rO3c7ZSyb4NQogF030iFOs0ETIV4hYqIqQGoCKK5jXC1J0zjPX/kc+O/DJBQ7+4YgX
+	 t4GGdaSO5OezQ==
+X-ME-Helo: mail-lj1-f178.google.com
+X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
+X-ME-Date: Fri, 06 Dec 2024 16:53:19 +0100
+X-ME-IP: 209.85.208.178
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-2ffc7a2c5d5so22502711fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 07:53:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUqM6uayhU9AeelWC4O6rTLdusZDJYV4Z1TcIFfGHOV3BfUm+iDM2ApHZ1wt7X1PpRaybHqmqZhWYf/+tEwd5my@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9XuRfNJ8ksDJfw3/rAwJ8ajmJf8CyKAJcfYOHWMkyTKmhwbJ8
+	S7SvcaQG3E+vyIynI4v1veNSjITzFsOlKdFkunu1/FGA6h6OOr+j/ifCwmA3ka1RuEqT4ZQn3nJ
+	hAt/7dzLCJ5hbMVBSxvIParE6Xbs=
+X-Google-Smtp-Source: AGHT+IHLXgFQhA/c3KQxjVrMyKCAmSqwk42Fqpsfdz6EK+jIFFcEtdXEZClHZQiPmD1jBbv/RGy99L+br5F0PLvN22o=
+X-Received: by 2002:a17:907:7392:b0:aa5:427d:b101 with SMTP id
+ a640c23a62f3a-aa63a1109camr127306566b.36.1733460187056; Thu, 05 Dec 2024
+ 20:43:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241206-pre-ict-jaguar-v1-1-7f660bd4b70c@cherry.de>
-X-B4-Tracking: v=1; b=H4sIAEgcU2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDIwMz3YIioFByiW5WYnppYpFukqVBWmJaaqpFUoqFElATUDotswJsYHR
- sbS0AYe0Q72AAAAA=
-X-Change-ID: 20241206-pre-ict-jaguar-b90fafee8bd8
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-1-4e4cbaecc216@wanadoo.fr>
+ <e115a4245e5342a994a7e596cc6357fa@AcuMS.aculab.com> <CAMZ6Rq+n0vG9zObF-kY-Xo+iP_Y3P8A6_nEfB8F=UhqeQBepRw@mail.gmail.com>
+ <b48e2f5dd8d64cbab471629ae03c7511@AcuMS.aculab.com>
+In-Reply-To: <b48e2f5dd8d64cbab471629ae03c7511@AcuMS.aculab.com>
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Date: Fri, 6 Dec 2024 13:42:56 +0900
+X-Gmail-Original-Message-ID: <CAMZ6RqKUH5VGHAuqv+dR_0o1JFTvV_gNV2qUwoMfcWCQUSX2Lg@mail.gmail.com>
+Message-ID: <CAMZ6RqKUH5VGHAuqv+dR_0o1JFTvV_gNV2qUwoMfcWCQUSX2Lg@mail.gmail.com>
+Subject: Re: [PATCH 01/10] compiler.h: add statically_false()
+To: David Laight <David.Laight@aculab.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+	Martin Uecker <Martin.Uecker@med.uni-goettingen.de>, 
+	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_074629_774363_5C7935ED 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20241206_075323_606225_CAED8655 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,227 +105,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+On Fri. 6 Dec. 2024 at 12:39, David Laight <David.Laight@aculab.com> wrote:
+> From: Vincent Mailhol
+> > Sent: 05 December 2024 15:26
+> >
+> > On Thu. 5 Dec 2024 at 03:30, David Laight <David.Laight@aculab.com> wrote:
+> > > From: Vincent Mailhol
+> > > > Sent: 02 December 2024 17:33
+> > > >
+> > > > From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+> > > >
+> > > > For completion, add statically_false() which is the equivalent of
+> > > > statically_true() except that it will return true only if the input is
+> > > > known to be false at compile time.
+> > >
+> > > This is pretty much pointless.
+> > > It is just as easy to invert the condition at the call site.
+> >
+> > To start with, I will argue that:
+> >
+> >   statically_false(foo)
+> >
+> > is more pretty than
+> >
+> >   statically_true(!(foo))
+>
+> Except that the test is more likely to be:
+>         statically_false(x > y)
+> and the invert is then
+>         statically_true(x <= y)
+>
+> No different from C itself, there is no 'ifnot (condition) {...}'
+> (don't talk to me about perl...)
 
-The Pre-ICT tester adapter connects to RK3588 Jaguar SBC through its
-proprietary Mezzanine connector.
+No need to talk about perl, just staying in C, it has both the #ifdef
+and the #ifndef directives (and since C23, it even has the #elifndef).
 
-It exposes a PCIe Gen2 1x M.2 connector and two proprietary camera
-connectors. Support for the latter will come once the rest of the camera
-stack is supported.
+Regardless, this was just a nitpick. You convinced me, I will remove
+both statically_false() and is_const_false() in v2.
 
-Additionally, the adapter loops some GPIOs together as well as route
-some GPIOs to power rails.
+> I suspect you need to pretty much remove all the comments that
+> cross-refer to statically_true() from the other patches.
+>
+> So is_const_true() is just 'return true if the expression
+> is a 'non-zero constant integer expression'.
 
-This adapter is used for manufacturing RK3588 Jaguar to be able to test
-the Mezzanine connector is properly soldered.
+No. Linus made it clear in
 
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
-GPIO3A3, GPIO3A4, GPIO3B2 and GPIO3D2 to GPIO3D5 are all routed to power
-rails and can only be used as input and their bias are important to be
-able to properly detect soldering issues.
----
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso | 171 +++++++++++++++++++++
- 2 files changed, 172 insertions(+)
+  https://lore.kernel.org/all/CAHk-=wh5SNYdgx8-X+ggHP+ojbG2F7oyt3TLmMgqejYd5zn0Aw@mail.gmail.com/
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 86cc418a2255cdc22f1d503e9519d2d9572d4e9d..60074d21d92b4800bdc555648a9360e13d19febc 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -139,6 +139,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6b-io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..9d44dfe2f30d793accb994a230c58038f0c3daad
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso
-@@ -0,0 +1,171 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2024 Cherry Embedded Solutions GmbH
-+ *
-+ * Device Tree Overlay for the Pre-ICT tester adapter for the Mezzanine
-+ * connector on RK3588 Jaguar.
-+ *
-+ * This adapter has a PCIe Gen2 x1 M.2 M-Key connector and two proprietary
-+ * camera connectors (each their own I2C bus, clock, reset and PWM lines as well
-+ * as 2-lane CSI).
-+ *
-+ * This adapter routes some GPIOs to power rails and loops together some other
-+ * GPIOs.
-+ *
-+ * This adapter is used during manufacturing for validating proper soldering of
-+ * the mezzanine connector.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	pre_ict_tester_vcc_1v2: regulator-pre-ict-tester-vcc-1v2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pre_ict_tester_vcc_1v2";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	pre_ict_tester_vcc_2v8: regulator-pre-ict-tester-vcc-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pre_ict_tester_vcc_2v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+};
-+
-+&combphy0_ps {
-+	status = "okay";
-+};
-+
-+&gpio3 {
-+	pinctrl-0 = <&pre_ict_pwr2gpio>;
-+	pinctrl-names = "default";
-+};
-+
-+&pcie2x1l2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2x1l2_perstn_m0>;
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>; /* PCIE20X1_2_PERSTN_M0 */
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	pcie2x1l2 {
-+		pcie2x1l2_perstn_m0: pcie2x1l2-perstn-m0 {
-+			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pre-ict-tester {
-+		pre_ict_pwr2gpio: pre-ict-pwr2gpio-pins {
-+			rockchip,pins =
-+			/*
-+			 * GPIO3_A3 requires two power rails to be properly
-+			 * routed to the mezzanine connector to report a proper
-+			 * value: VCC_1V8_S0_1 and VCC_IN_2. It may report an
-+			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
-+			 * but GPIO3_C6 would catch this HW soldering issue.
-+			 * If VCC_IN_2 is properly routed, GPIO3_A3 should be
-+			 * LOW. The signal shall not read HIGH in the event
-+			 * GPIO3_A3 isn't properly routed due to soldering
-+			 * issue. Therefore, let's enforce a pull-up (which is
-+			 * the SoC default for this pin).
-+			 */
-+				<3 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>,
-+			/*
-+			 * GPIO3_A4 is directly routed to VCC_1V8_S0_2 power
-+			 * rail. It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_B2 requires two power rails to be properly
-+			 * routed to the mezzanine connector to report a proper
-+			 * value: VCC_1V8_S0_1 and VCC_IN_1. It may report an
-+			 * incorrect value if VCC_1V8_S0_1 isn't properly routed,
-+			 * but GPIO3_C6 would catch this HW soldering issue.
-+			 * If VCC_IN_1 is properly routed, GPIO3_B2 should be
-+			 * LOW. This is an issue if GPIO3_B2 isn't properly
-+			 * routed due to soldering issue, because GPIO3_B2
-+			 * default bias is pull-down therefore being LOW. So
-+			 * the worst case scenario and the pass scenario expect
-+			 * the same value. Make GPIO3_B2 a pull-up so that a
-+			 * soldering issue on GPIO3_B2 reports HIGH but proper
-+			 * soldering reports LOW.
-+			 */
-+				<3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
-+			/*
-+			 * GPIO3_C6 is directly routed to VCC_1V8_S0_1 power
-+			 * rail. It should be HIGH if all is properly soldered.
-+			 * This is an issue if GPIO3_C6 or VCC_1V8_S0_1 isn't
-+			 * properly routed due to soldering issue, because
-+			 * GPIO3_C6 default bias is pull-up therefore being HIGH
-+			 * in all cases:
-+			 *  - GPIO3_C6 is floating (so HIGH) if GPIO3_C6 is not
-+			 *    routed properly,
-+			 *  - GPIO3_C6 is floating (so HIGH) if VCC_1V8_S0_1 is
-+			 *    not routed properly,
-+			 *  - GPIO3_C6 is HIGH if everything is proper,
-+			 * Make GPIO3_C6 a pull-down so that a soldering issue
-+			 * on GPIO3_C6 or VCC_1V8_S0_1 reports LOW but proper
-+			 * soldering reports HIGH.
-+			 */
-+				<3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D2 is routed to VCC_5V0_1 power rail through a
-+			 * voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD2 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D3 is routed to VCC_5V0_2 power rail through a
-+			 * voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D4 is routed to VCC_3V3_S3_1 power rail through
-+			 * a voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_down>,
-+			/*
-+			 * GPIO3_D5 is routed to VCC_3V3_S3_2 power rail through
-+			 * a voltage divider on the adapter.
-+			 * It should be HIGH if all is properly soldered.
-+			 * To guarantee that, a pull-down is enforced (which is
-+			 * the SoC default for this pin) so that LOW is read if
-+			 * the loop doesn't exist on HW (soldering issue on
-+			 * either signals).
-+			 */
-+				<3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
+that we need an explanation of why statically_true() may not work in
+some contexts and I agree with this.
 
----
-base-commit: b8f52214c61a5b99a54168145378e91b40d10c90
-change-id: 20241206-pre-ict-jaguar-b90fafee8bd8
+As far as I like using proper nuances between the terms 'integer
+constant expression' and 'compile time constant', treating
+statically_true() and is_const_true() as completely different things
+as you are suggesting is not constructive. At the end, what matters
+the most in a comment, is that the final user properly understands how
+to use the thing correctly.
 
-Best regards,
--- 
-Quentin Schulz <quentin.schulz@cherry.de>
+Removing the cross reference would increase the risk of people using
+is_const_true() in places where it is not needed. I will keep the
+cross reference to statically_true().
 
+
+Yours sincerely,
+Vincent Mailhol
 
