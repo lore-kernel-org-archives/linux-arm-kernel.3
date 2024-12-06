@@ -4,159 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90290E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 03:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B618E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 03:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MUmcvK9L4U2rvaDvmfPJpH0OTH8JqXN5kshonLki2gY=; b=VvPv+ycOejDXFwT3Dbr0ipDrJt
-	4E6UBASvhnTWY507skX0IQfvfJF1mjAdIf2OL5LxEvGq8nkOoY/ow8ItJooy5hHOAbWWHpOu5oJqf
-	LDx4e/POAqILgassi9YledyC3cGmE4E6Ewr11WBbDJf8YwCHBs6mUrkfl+1+PdLpi7txjTbi1SHHw
-	PhiTYq8VzBE+1rVOQfjszit54UTVAWT2YQeokjgptckIe1EpZ/j1AzkwgkUbsll97x1CnfKj+0+cV
-	a+g7lPM26Qa7kfKu7NIwMGz/aice+GVckKaUr3BlV8O2pQvcvKldZ6IyfJymGC1BSte7wJ7CcniRo
-	EYYtA5xQ==;
+	bh=OkOQFcENXzlE05E2GhFQKZHqHer5Jyvf4HzPjb5KtAk=; b=Y0WK8BMEXkpUCSAZhfISTigTUH
+	rdLp/uwGs2AHEwSKaETXbw2DyJxDkIWo5n35B88OgxRLBItS2CJjm8WESkbKvXk947KOKIR1u/nyG
+	anQt60blOuI3M/uH+EEuMVKFC+0wQFNALjWM6Ku2nDN6/sJc2kuYTbppFUyStd08/jZt7OZUCRbja
+	YDcvl7yTVc4Fv+OB2K1cjIUV3KX9DAx44C04Q6RkB74jYJCOaWcs8V/lM/9fMy7BrV0BEGnreANMA
+	+0PitubvyLCaipryOVGKQQuvrpnC/hNNISI22+GZRSx5VpqEvc84j3uZIzKmv68LKYsLRUdzTW2BM
+	c8O15oZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJOyf-00000000QVS-2pie;
-	Fri, 06 Dec 2024 03:26:01 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1tJP29-00000000RGD-1Puq;
+	Fri, 06 Dec 2024 03:29:37 +0000
+Received: from mail-m49232.qiye.163.com ([45.254.49.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJOxe-00000000QMo-1xeX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 03:24:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zBmP/TQqCGL2hXC6lzMvzp9GbUwAuJsmHAjWyPT2lv8MVntwpzhGg9vrvAIbYQLpXbvQ8XhDFdgP4NFom1wzkUX4fWCJ6gddM7IfBqILDheA9HSnTWOdu+JEtBj7bO9Ri6/AoHKgAqwbpCvfbW6Kq64vbFgh3RdhY0pt9t6ykI8zcfPJmVB5edtLH9cAH/MZ84ROylF0NIDTh5d8wncUCEheRWMm4lUAE2Q5ohdwEdullTS8pdIysJ2RjVu9jeIe+XKlfAuDmQSkRADmcEacYEt9AdF8kRN+I4QD8jBSMAhNHbDunesRuJ1OjEf75rfgdesMbtmV+aneet/dTVE+Fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MUmcvK9L4U2rvaDvmfPJpH0OTH8JqXN5kshonLki2gY=;
- b=mHs5jxmHVCqtrU42GckHH94Cv9GDb1wtC5qWQuWvkzxbfTFLuQow09wGjJSuS8vih1kaOjiR1hXNjE8KtcVvcjmGhyOa+RidAYaN5Ir0UqOGAKwJt8YjvrxgIWFgZyN/xcwjIQWiwdoFdQMs9Cp+xRchSy3UL5lLqRqRgMesLN0ddmOv9m5KJ3DyfyXlzvmM8JPYpckCBBYf+uIzG0jgwl53XCgxKdj+SZl3hjOPMkR3fOvHXUZiA6gL2I14dx+y2XKUL2z30adsTR1Wx8k79hITOxMy6xli2IMQ4f3Ybz+1BzAPPGfOrjyb4r7BfmD06RJv7wd5x8ah+U4eduRqKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MUmcvK9L4U2rvaDvmfPJpH0OTH8JqXN5kshonLki2gY=;
- b=gYkDwIvxscmyhcO8GfMWkgZYLoN+u6jRsfFJBuBoslYuxSlrNU8mZdSIB38bslx/HZQ7NOiu4OGGsdUGfXYD+8ZcQX/CgFIsMNOtrho6fAhaeCVRKqm12dCwDsWD8ZNcQ7ZIWcD5p8870+MCOh6IPDBSVvYRZMhKHocxBhjl15U=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- CH3PR01MB8340.prod.exchangelabs.com (2603:10b6:610:177::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8230.10; Fri, 6 Dec 2024 03:24:48 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Fri, 6 Dec 2024
- 03:24:47 +0000
-From: Huang Shijie <shijie@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: patches@amperecomputing.com,
-	cl@linux.com,
-	paulmck@kernel.org,
-	akpm@linux-foundation.org,
-	thuth@redhat.com,
-	rostedt@goodmis.org,
-	xiongwei.song@windriver.com,
-	ardb@kernel.org,
-	steven.price@arm.com,
-	suzuki.poulose@arm.com,
-	mark.rutland@arm.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Subject: [PATCH v2 4/4 fix] arm64: add a new document for the fine-tuning tips
-Date: Fri,  6 Dec 2024 11:23:43 +0800
-Message-Id: <20241206032343.6357-1-shijie@os.amperecomputing.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241126085647.4993-5-shijie@os.amperecomputing.com>
-References: <20241126085647.4993-5-shijie@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MAXPR01CA0118.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::36) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
+	id 1tJP16-00000000R0P-0GHX;
+	Fri, 06 Dec 2024 03:28:33 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4df43c1a;
+	Fri, 6 Dec 2024 11:28:21 +0800 (GMT+08:00)
+Message-ID: <c0bc25b7-6e41-4ed8-ae8d-692a908607df@rock-chips.com>
+Date: Fri, 6 Dec 2024 11:28:21 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|CH3PR01MB8340:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95cf8766-c6db-480e-3c47-08dd15a5891b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6iAgD0qn9MyGjX9Lr+y64NnQdphgkeag1Zf0JgYlmJgmIEaFz7i4XasqSW7i?=
- =?us-ascii?Q?sRRdVHhgJL2Ks7U85CfI1q+b8fl2NUmgOyE1q6Nc0LtTj0IPpr2/y1SVgwl0?=
- =?us-ascii?Q?seD4TI30t43f5R75cweJovLTZ2H7rKk3bxUH9e+r0kXch9Q/BRS3Jcwt5dDU?=
- =?us-ascii?Q?yrLD27E5Xx88rsmo954VRzThW4HrgYhhADvl337ASDTZCQW7hiCjjlhMSxT+?=
- =?us-ascii?Q?+ItakaTzLQAiWCNBBTe7Cz0eU5oT+AgQ4A4nYCJErPf8k+gNVyaDj0zxj0HP?=
- =?us-ascii?Q?i7hqRS60jssp7mQaZoGFtY1+Y1uyjfvOY2T9ySobLTGnFYXI6A5BHUzTsx6X?=
- =?us-ascii?Q?+0saqa6ghY9DF0sTmvjW8yzjLClXOFyaWdMtRqMdeEu0rNIXJkQtoLugB+Em?=
- =?us-ascii?Q?CnGpsZD/fVDle6ejB/fizkhRNgyVJZ/PWs9ih2hrevsQG/WK1H3wz0THiCc8?=
- =?us-ascii?Q?KJCuAVm+3IghBuunePXpEBUXujZm5PAv5t8il1mYbBm1iLtctrB44qH2rxTw?=
- =?us-ascii?Q?PbG1N1Mk9hDRK5LYhbMrgjnkho9mi+WXciM4QkDXU3rs2z7XGKwWhra7JQU9?=
- =?us-ascii?Q?SXILvbyL9k3HzTuawiD3d/rpxKqdIdWyx2ZvI5uKM6lThRNNQTcD/iDOag9g?=
- =?us-ascii?Q?f9Jf/BZm7jThbTXlXYR/Zr5rDJcjR01bfLmJZjsKKQ8GYGlybVfOhzfh2dd/?=
- =?us-ascii?Q?G8xJANBjdUCDQqmOLdIRSerTLN65MUd4b7RhOraDvp9CRUGI2ZdkN7wl8lM2?=
- =?us-ascii?Q?Bx3NYqmHM04B8Zsa+M5VHMd5IXSZ+zRyDEH+NBBpOrLRzwmw3vtQcY3B5hmW?=
- =?us-ascii?Q?N0Rrly+ON/9DJqpbIufGKCVNQzz8Wvi8hIT/3CJAo/3E4pGEVWyH8VdkP+Xl?=
- =?us-ascii?Q?G3uLYVhx8UG+ZbJ3abcvfkJZD2l0x+jDL/vGqhqZ32/si2NKiF4DYdABv2+7?=
- =?us-ascii?Q?ozWUCNc1mO7ZRQNpGHNU2i4N27kUP3J9/bCeI32YrTSICA0+lWZCsiD2NOm0?=
- =?us-ascii?Q?UOE90Vu/i8U28cJQv0SxK0UDEYjtr2VZTwJQZ57mKXCA8LJLTpAHnxWbRnOq?=
- =?us-ascii?Q?5quN0INVMRX0t8d76Dy8Cvp/i0IKaXSZSuBpstCd77vQvrT9xZqTEnvE56dk?=
- =?us-ascii?Q?09xckP7HVARKnJBApJ7IL9XcpjgdR0qh9/7RlYNKehDaO4EVbXvFJBqvaYLy?=
- =?us-ascii?Q?vy8u8BCmU0SvmKuV6xY/VfdHnZL5i1+hdCIw7sc7K9TTS1KhTn48VJcHMRvh?=
- =?us-ascii?Q?tPXPibnG/sxgh03bvqMjbF50mW6u5J4LPI1qZLgi/tpLY6y7YYyfnENPTMPK?=
- =?us-ascii?Q?R8of4Xxb3oX1s/K/3Lqft1F5IidJ5BRc0juG9TJOlTscUmJRU3+MxkgF3sst?=
- =?us-ascii?Q?dHzt3a4Uvq+Fa7mHX2uS4/fPEK55x3uv0g02mI36xxKLqsEzGw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4NZrxc5D1FNfp/29yvhIZxzCxiUSVJhf9oAdV2W5PJEYT5oHQfk4MO2WzWgk?=
- =?us-ascii?Q?sdkZ5B+dnCOlX0xJP79Uek1ziy8inyplzu4q26PH73qeu8BI6uFeFEMAOqAE?=
- =?us-ascii?Q?kEGnobxwvXKXXYpFTUAdB68V7V42NiIqhoZWr4xBuJKJJ9NBUZXEQ36pu7aj?=
- =?us-ascii?Q?pMnuQNKQ2Wiv7bu3/yK7vRSvL2Vo73d8Ix9WUduOZ6incWJamMw+gR1fFykd?=
- =?us-ascii?Q?j49oat5FteasalmrWVD6UhUjFgvJoGH8RQyHDLaIGSj+NnnP6/IRTY1lVSb2?=
- =?us-ascii?Q?TmXMEIVbe219k9uT1ganaLBKJyOkj58PUd/4yXh/C6gOCDI8TLb/rYBMlgXD?=
- =?us-ascii?Q?QBZM9whlEQ1fE8XTk39Vqv3zFLtBQd9TeztSMnszvwtFBBc4I/uAuJUQ4Xe7?=
- =?us-ascii?Q?8TXjBTUN0D//lkM5oyiag7xBeZoRriQMKYZD3GePC42anTZnqr05NkM2JvHn?=
- =?us-ascii?Q?o+iUZ5bOen6gp2J9bs9b+fUJvji6Nm/P5PkNfypFmbhMM0pDExBDRmkbbh18?=
- =?us-ascii?Q?7/KQ5u5k2EyP9DitrIkcUxDRd3lkSaJ53hHGC/f2W9feeV/LdSSusz3/8E9e?=
- =?us-ascii?Q?CZAjpl03w7i/eFuh2HadOfOVs/+iKhtIL8wly7zcu+EBDWp2TDEocGTg+WUt?=
- =?us-ascii?Q?Ew6GBDUB3Lh5C5xnC3/A7gUvy7CxMaThXEQv66gZ5oDiStylUJg9JaR4wkNC?=
- =?us-ascii?Q?wGy3v20s3N8YgxQHefu9s+kDso6/IrT+9OKdOwEicFpEkZC5if4IgRN1ayUm?=
- =?us-ascii?Q?QazBvW/efQ/M//SsSpvJKBPqsE1A9WKNTQd2eS5wRM+JmwaHZvPWgoe7gX6d?=
- =?us-ascii?Q?mw/CBAuT4e5QmmjdV5uyx+PURTV1Z2w//7NwdLPZ3dYy9QfsjE1giZ/jRxUI?=
- =?us-ascii?Q?yi/LCswXrr1wpGM8CV/XKW5jApq/P7u6kRxWBxvB5ye6lADU3SVFpkI8R6Pn?=
- =?us-ascii?Q?A9uaZJn1RlxEIq5uFBCwa9lvLc94n4HBe0Ml3a+ysn6IE2CeYW7zdB48Ke8J?=
- =?us-ascii?Q?PXLNrSIC65KTbwFOc/e0tdU3i8rFGH8gwG/Wy8n1/LzmrQ9u4yIjst0BIbhr?=
- =?us-ascii?Q?hHO2hhHL0JMS97rSAZadZOSfd7YoZo3EkpK9aLJ965s/vt0tE6CPQse8c65m?=
- =?us-ascii?Q?s/eUh1fgZFUDDFJjs4iqb0gJvh9972EKYFi2MzRunolr11wBQYFB5ihTRlPV?=
- =?us-ascii?Q?Md7HmZC1xfy8iL4CjLzRc6c5rZXnwh3tCODjWk+ncWKBzNwySmXzV7wnCq2m?=
- =?us-ascii?Q?LoJZmDbrs/ty828v9QpHJsmBqit3e5k5pvSNTrV2SFUSFP4pV/8Vf8jluBgO?=
- =?us-ascii?Q?ZtrtObyYWLMiG2FIR2B+7h0Py9gv7wFOoEwDS518vHMbOid8dETKINDyU664?=
- =?us-ascii?Q?fIKol653aqEjLsINgWgmwE3fw1wwRG1c3iZeIFTP4z/eNlLMGL/ZpWYXRSzj?=
- =?us-ascii?Q?2U0xWWtNHsZDsg1foJmr0FZrvFpOHM5bQI6XsBch2gxcAHC7mQ1FKi6xm2UX?=
- =?us-ascii?Q?iUzKa6uLvaMtpdSa3WpdUBiSM+Q/OsaqTtdEuPcBv6kgSZjCAX5CAGbnL610?=
- =?us-ascii?Q?tRqUjd38Xxtz57KqJ9E2JrY+F48mnCP9bYhvPkLuCf6zgvRRrY2o3MhrkEZh?=
- =?us-ascii?Q?GCJUzsbxzmg6QVW6zX4HNGc=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95cf8766-c6db-480e-3c47-08dd15a5891b
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2024 03:24:47.6599
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4GNS07eY+7VE4AuKU3zeY9hoRu5aNtQ/n97yhOoEy7eCiTOa6nkVnJXikBDQf56kqU8K0lzR6FFErdrdpU8uTp1ipnhn5nkw+vtSU5jDe7nGer2YB4S2tIWiV4ikPshD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR01MB8340
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 04/10] phy: phy-rockchip-samsung-hdptx: Add support for
+ eDP mode
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20241127075157.856029-1-damon.ding@rock-chips.com>
+ <2131853.KlZ2vcFHjT@diego>
+ <6e1f35c0-5ea8-414f-b3ea-4e7222c605ef@rock-chips.com>
+ <2886747.Y6S9NjorxK@diego>
+ <h4giob7bcrh7qmtepti6huym2llw4ujfmeff76vrgpahb5zy6x@dz6zghsifww5>
+ <2342f342-672c-447e-90d8-674b748af6a4@rock-chips.com>
+ <abzu2chif2g3urxoqbm3gbe6cciexbmqvn44qezrx4hgllfkkn@7bzi5jl3stqe>
+ <42035ebe-09b7-4005-912a-8ec72d5dabcc@rock-chips.com>
+ <5ncdog66jtc4s7vxk2yt4jkknf2es3whvweuqmrxbot3azi5ge@t6s3xadkiasp>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <5ncdog66jtc4s7vxk2yt4jkknf2es3whvweuqmrxbot3azi5ge@t6s3xadkiasp>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0JDQlYdSBoZS0sfTx0dTx9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a939a02e70703a3kunm4df43c1a
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MhQ6GTo4OjIpSgEZKCkWFzww
+	FhVPCilVSlVKTEhIT05OTEtITkhNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTUtLNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=kPHScr159WsiJG96Ork6FzwSMNbCQmUyQiTo49UIfTNDjTnurol/onZC7EOZpN8egR0d5Wltmfu4s4A1J2M/lM0yadBTKzrhmL5jyZk8oBUo6Ei1RJqUkOFc+a+RMgvgkwTIS2d4wyBGm1zAptOnnzrxcMoGdC5S+7C9miLNpcc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=OkOQFcENXzlE05E2GhFQKZHqHer5Jyvf4HzPjb5KtAk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_192458_545214_0CA59717 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20241205_192832_611635_50897D0D 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,66 +88,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Put some fine-tuning tips in this file:
-	1.) rodata=noalias
-	2.) slab_strict_numa
-	3.) CONFIG_SCHED_CLUSTER
+Hi Sebastian,
 
-We can add more tips in future.
+On 2024/12/6 2:04, Sebastian Reichel wrote:
+> Hello Damon,
+> 
+> On Thu, Dec 05, 2024 at 09:13:33AM +0800, Damon Ding wrote:
+>> Firstly, the term "the HDMI and eDP dynamic switching" can be somewhat
+>> misleading, because the eDP usually does not support hot plug. The RK3588
+>> eDP is often used as DP, and it actually supports DP 1.2. Therefore, it is
+>> better to use the "the HDMI and DP dynamic switching" description.
+> 
+> The part unclear to me is how the dynamic switching is supposed to
+> happen. Looking at the TRM the hotplug detect signals also seem to be
+> shared between HDMI and eDP. Can the RK3588S EVB distinguish if HDMI
+> or eDP has been plugged, or does this require some user interaction
+> to set the right mode?
 
-Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
----
-Add the comment from Christoph.
----
- Documentation/arch/arm64/fine-tuning-tips.rst | 25 +++++++++++++++++++
- Documentation/arch/arm64/index.rst            |  1 +
- 2 files changed, 26 insertions(+)
- create mode 100644 Documentation/arch/arm64/fine-tuning-tips.rst
+Indeed, HDMI and eDP share the same pin for hotplug detect. However, 
+some users may connect the hotplug detection pin of DP-connector with an 
+unexpected pin that can not support the iomux of hotplug detect function 
+on RK3588 SoC. This could be due to a flaw in the hardware design, a 
+conflict in pin multiplexing, or other factors. Therefore, we support 
+the GPIO HDP function for the eDP, as DP also supports this for the same 
+reasons.
 
-diff --git a/Documentation/arch/arm64/fine-tuning-tips.rst b/Documentation/arch/arm64/fine-tuning-tips.rst
-new file mode 100644
-index 000000000000..df67a5ac87b9
---- /dev/null
-+++ b/Documentation/arch/arm64/fine-tuning-tips.rst
-@@ -0,0 +1,25 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+================
-+fine-tuning tips
-+================
-+
-+This file contains some fine-tuning tips for arm64 machines.
-+These tips do not gurantee that you can get better performance,
-+but you can try them with your workload.
-+
-+rodata=noalias
-+----------------
-+It can provide us more block mappings and contiguous hits
-+to map the linear region which minimizes the TLB footprint.
-+
-+slab_strict_numa
-+----------------
-+In NUMA, it will provide the local memory allocation by SLUB.
-+Slab objects will be placed individually according to memory policies.
-+Increases object locality which is useful for NUMA systems using SLC caches.
-+
-+CONFIG_SCHED_CLUSTER
-+----------------
-+Some arm64 machines have cpu core clusters, enable it may
-+helps you get better performance.
-diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
-index 6a012c98bdcd..36d1ef09bd71 100644
---- a/Documentation/arch/arm64/index.rst
-+++ b/Documentation/arch/arm64/index.rst
-@@ -16,6 +16,7 @@ ARM64 Architecture
-     cpu-feature-registers
-     cpu-hotplug
-     elf_hwcaps
-+    fine-tuning-tips
-     gcs
-     hugetlbpage
-     kdump
--- 
-2.40.1
+If the dynamic switching is enabled, HDMI detects the HPD signal through 
+  the hotplug detect function pin, while eDP uses one of the available 
+GPIO pins to do this.
 
+What's more, if the user connects an HDMI cable first and than connects 
+a DP cable as well, despite our clear instruction against using HDMI and 
+eDP simultaneously, the status register of GRF will indicate that HDMI 
+has been connected. Meanwhile, during the HPD detection process for eDP, 
+it will return "connector_status_disconnected". The reverse scenario 
+also applies.
+
+> 
+>> Indeed, the devm_phy_get(dp->dev, "dp") and devm_of_phy_get_by_index() will
+>> help to get the phy reference in .probe() or .bind().
+>>
+>> However, the phy_set_mode() may be still needed in the HDMI and DP dynamic
+>> switching application scenarios. We need the enum phy_mode
+>> PHY_MODE_DP/PHY_MODE_HDMI to differentiate the configuration processes in
+>> .power_on(), .power_off() and .configure() of struct phy_ops, which will be
+>> called in conjunction with plugging in and unplugging an HDMI or DP cable.
+> 
+> I suppose you could fetch the PHY in power_on() and release it in
+> power_off(). But using phy_set_mode() might indeed be better here.
+> 
+
+As a future expansion, the .set_mode() can also be helpful in the txffe 
+level adjustment for HDMI 2.1. :)
+
+> -- Sebastian
+
+Best regards,
+Damon
 
