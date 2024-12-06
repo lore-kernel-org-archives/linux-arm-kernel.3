@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2CDE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22351E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=414B2bdnV7pewwUPGUuaXFA0gzrVEbGJRzz6VqMGWLc=; b=g0JD39omMZnT9itA+YDe1LZghv
-	/hO97M5jubq+TFRZnT/K30AYNl8Q28RZs/dwSqZNPU0yooqa0ydusBc9NAjK0/j6ilsBCVTQsbVbD
-	554UzxPjnDjjm3qN8nUZ0c6PGmS/S+a7cPjcObNaXs1Bg0ECSFCoaa2xfXbgkvfXSMSIeRJOMOuKr
-	KVaLtmrwkVYSPOiy24YAWGPeJD5LK4yieMe5BrHGFO3ry4bNjYd0CfT3ATherjnjOvamJvTOXhImn
-	flwdf6tVWHrbopXsQWtCEDwHN8UYCaBuqqGHYXy1mC05bcrNIboG/QpPUwDgYN+kXWHLu8wFsVBc8
-	BQowh/9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EBGOdW4oTTCa1JclPp8xkjljvgMUCVt9VuA0WKX1NwQ=; b=WI3S9NiTlGbSJIpdRkGHAC6u4n
+	xslSA2cFtcTI4SdcdEWconHRh4x4a5Nx/4ItD2qfzZK1lpKjpSjXXMYlL3ApJ0tiKQi9mzrxOfo6N
+	9YhflIXPtdpFVQEgNVQk2kq14+GvBzyFsDOJRgUFJjxYgwMxnMm+LRPNkRUmOJHvL9e7ECN+mR0Zl
+	jN6FEyf/rHTKv6Wdfjp6PBlAo+r4VTaVRHmNnDN7Ah35As0dMMzFMl0jMCH03BX2wwdF5GBAES9/K
+	MM49uk+dS7BdkwNK0qy1p+8Ic2qo6nNOnyG2ahuR0jrCoNBg6Wxfmg5F/FIYOlHr+yQTyfig2bSfI
+	lukNQBSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgOf-00000002qO7-3sNr;
-	Fri, 06 Dec 2024 22:02:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJgRb-00000002qwv-2xQi;
+	Fri, 06 Dec 2024 22:05:03 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgNd-00000002q9H-2FEa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 22:00:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4CC275C626E;
-	Fri,  6 Dec 2024 22:00:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6217C4CED1;
-	Fri,  6 Dec 2024 22:00:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733522456;
-	bh=t/6GEzQk8jo4ExFTy0KZr9Z+7vMsm9jKpU2nCTRdKZ8=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=mj8xPExIQ0lpSzBkPF6xTzhSVCWdwyUmwBDtbtvs/zZI+bl5PwCBnDwOmFb+4u2+U
-	 m3SsN121xZLNkAgCjlxEg2wlPJXGCqAqYeCjZtMj6qMiym0O2aprd9ryxmwnAHgasS
-	 miPRHjp5+6y8vUYdrRqCGnXMJB5UTFCf2X25waQLlheiR148dCMfVbzEHjoI52CA3z
-	 EMlbfWvtdLuTKmHX9cLB0Pwd5OJvtZdW54WJEKmFuzDURjtGFb/Uo+TBFLcVCV/DNv
-	 Lped7mNBehxciDz7hH18OArMYgpmd/jY+YjR/uxgSqxxO1dqI56nqlCwBW1ZYt62Jo
-	 x921MXOsoPsNw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EC16E380A95C;
-	Fri,  6 Dec 2024 22:01:12 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for 6.13-rc2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <Z1NCFeR4iBm5Bxqg@arm.com>
-References: <Z1NCFeR4iBm5Bxqg@arm.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <Z1NCFeR4iBm5Bxqg@arm.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-X-PR-Tracked-Commit-Id: d60624f72d15862a96965b945f6ddfee9a1359e7
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: f3ddc438a29f78f0642bfcf84407c236a0b2bdc7
-Message-Id: <173352247159.2810195.14014493447586884302.pr-tracker-bot@kernel.org>
-Date: Fri, 06 Dec 2024 22:01:11 +0000
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1tJgQY-00000002qgd-3iZy;
+	Fri, 06 Dec 2024 22:04:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733522637;
+	bh=ocDDbVeLdHpMPiMcDE70Fk3emF/id8nLMdcCqc5xz28=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=bBha6SS8RvYjJUKGyMU5idpglImf7IY01Mf33R5oAsYv8afU9xum3uaJDDgLmHmZe
+	 oK5o1cYoDpJN2eQgC1ee3PIY3iekV8nniKrAla6srAwkEEFIqanMYI5xjHtA6KH7x4
+	 o4c+FGnj6KxVLzNjl/pPKOuqwudz0akvZ7MrcWlWnZGFpyipC1eDkH8Xm00iaeSLq2
+	 9eSFzN7Gxe7mLNw72DReoM5slGcHZ8NRBfsXg4trPppJ4Lmc0M5QAM769aeLeQbNlK
+	 fkfF/VY+7ITVaSvFkJzUVzU5xP8jLQ1wnv35dta5tTBDd0KGLrY7KsBAOS29hNRGvV
+	 1+BK8RIROqKYw==
+Received: from localhost (unknown [188.27.48.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3CB1B17E3807;
+	Fri,  6 Dec 2024 23:03:57 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Sat, 07 Dec 2024 00:03:41 +0200
+Subject: [PATCH 1/4] phy: Add HDMI configuration options
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241207-phy-sam-hdptx-bpc-v1-1-03c2e4d6d797@collabora.com>
+References: <20241207-phy-sam-hdptx-bpc-v1-0-03c2e4d6d797@collabora.com>
+In-Reply-To: <20241207-phy-sam-hdptx-bpc-v1-0-03c2e4d6d797@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Sandor Yu <Sandor.yu@nxp.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_140057_634124_D078A6DC 
-X-CRM114-Status: UNSURE (   3.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241206_140359_075178_12C7D6A0 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 6 Dec 2024 18:27:33 +0000:
+From: Sandor Yu <Sandor.yu@nxp.com>
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+Allow HDMI PHYs to be configured through the generic
+functions through a custom structure added to the generic union.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/f3ddc438a29f78f0642bfcf84407c236a0b2bdc7
+The parameters added here are based on HDMI PHY
+implementation practices.  The current set of parameters
+should cover the potential users.
 
-Thank you!
+Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Link: https://lore.kernel.org/r/43757beec6cd418fc17252283de38009d531c7c7.1732627815.git.Sandor.yu@nxp.com
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/phy/phy-hdmi.h | 19 +++++++++++++++++++
+ include/linux/phy/phy.h      |  7 ++++++-
+ 2 files changed, 25 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..6a696922bc7f29af63d88646701b2c0fcee5c885
+--- /dev/null
++++ b/include/linux/phy/phy-hdmi.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright 2022,2024 NXP
++ */
++
++#ifndef __PHY_HDMI_H_
++#define __PHY_HDMI_H_
++
++/**
++ * struct phy_configure_opts_hdmi - HDMI configuration set
++ * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
++ *
++ * This structure is used to represent the configuration state of a HDMI phy.
++ */
++struct phy_configure_opts_hdmi {
++	unsigned long long tmds_char_rate;
++};
++
++#endif /* __PHY_HDMI_H_ */
+diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
+index 03cd5bae92d3f189d739c453fe4c160dd2a5063e..4ac486b101fe4023b8f2a84e907e65a0ff0a5ede 100644
+--- a/include/linux/phy/phy.h
++++ b/include/linux/phy/phy.h
+@@ -17,6 +17,7 @@
+ #include <linux/regulator/consumer.h>
+ 
+ #include <linux/phy/phy-dp.h>
++#include <linux/phy/phy-hdmi.h>
+ #include <linux/phy/phy-lvds.h>
+ #include <linux/phy/phy-mipi-dphy.h>
+ 
+@@ -42,7 +43,8 @@ enum phy_mode {
+ 	PHY_MODE_MIPI_DPHY,
+ 	PHY_MODE_SATA,
+ 	PHY_MODE_LVDS,
+-	PHY_MODE_DP
++	PHY_MODE_DP,
++	PHY_MODE_HDMI,
+ };
+ 
+ enum phy_media {
+@@ -60,11 +62,14 @@ enum phy_media {
+  *		the DisplayPort protocol.
+  * @lvds:	Configuration set applicable for phys supporting
+  *		the LVDS phy mode.
++ * @hdmi:	Configuration set applicable for phys supporting
++ *		the HDMI phy mode.
+  */
+ union phy_configure_opts {
+ 	struct phy_configure_opts_mipi_dphy	mipi_dphy;
+ 	struct phy_configure_opts_dp		dp;
+ 	struct phy_configure_opts_lvds		lvds;
++	struct phy_configure_opts_hdmi		hdmi;
+ };
+ 
+ /**
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.47.0
+
 
