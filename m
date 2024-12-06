@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE99E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 10:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1BDE77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 10:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1UN1KsYoShLP+jnqNIAIPC6ZRY2mrO3AN1No45ThK+A=; b=ZbWJVCbO+Z3bEET4lnlUPUuY8J
-	t0o1JbqOZSAJvntO9Jez+9E0p34nnYaPgqO+5I+D+ea7MzZC3LP164XvgsPEabAsK0fHX5pMVdCiK
-	lhwYu059f8hE1pDtCalBHyISqY9Ll9Wvu1iiEDmpt5CQI8GiVT+gNSCVsJdtMFID8AcECrOEMyXdW
-	Nfm1uAMWyKKdAB2JI4Y+pYBmku5cd4/IIB778iR0SLLuXSyc8cH1Em0XTW2kB/z+LX/wbCpKvLhs/
-	7+QS7H9jBaf5mMfKFbFZ0KfZ9ZhHnfcAHzCEHFiuJVEgs0MP0RH+9MsFOt0f+cHa0g+dwM0zteUsc
-	LsMdiyKg==;
+	bh=5dpoHhnnSqF1AlwYKD5E4gHGT3XutAgIPGhaNKW/0HU=; b=iFSipWsxdpkOSiPY6iNfF9PWEZ
+	GWJdVDiFuM6zX42pJzUDi/AUfDvy/7Lg7TKel0cv0XRANvXlJ5Qo2qSIwwlQB7xBzmUqDM6AVAT+b
+	6RGDuPNCpYZI0RY6r2mV62xa6PUHIuFQJbsKNtxH+s6mL2Hzi3gPdtA4WxA1e8CnoiONZ5zC5SYUS
+	StEV5gP9pyzOJdtcSeqzLvFgJ2YvEVY/AcjwlEuUx9opxEYt3Hr3vuEA82EBDSndmkQyrsflYGTDM
+	OqsoAXc/3Az5Amj0WlR9mmxAFRXFrNh6Q1iITyo5hyGW8GBo/Agsu71z4o7TgxcHSxQXr3pFKwtL9
+	MTYupPyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJVua-00000001MU0-2KSp;
-	Fri, 06 Dec 2024 10:50:16 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tJVvZ-00000001Mcq-2txn;
+	Fri, 06 Dec 2024 10:51:17 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJVfL-00000001JTs-3NZ4;
-	Fri, 06 Dec 2024 10:34:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1UN1KsYoShLP+jnqNIAIPC6ZRY2mrO3AN1No45ThK+A=; b=mzzy5mD5NWF6ZSh19e3QQ5MydT
-	S5w2G+L96caWc7NlxMc1pxfCni2jc1+nhvTDAOp0652BZqOQOn7zpvMrBMZNef69oIJ8S2EjbrAkz
-	pSB5htNJrn9KGuTcM/t9QQyr/2NbBPKZF0MBsTvKVTmfeohLMeGyP2UpgSW9IIyGX4gefdeKl0mjz
-	5jWZQ1+1tuZwfuZ23ntF+1ZJkS4G9UMXzL8HxOyFXux6580OnWhyI03SRtOPJNdkQT6LznCuP0YxA
-	JREvhPDW2uI5gKotYB4zCR2T1paeX8zLjB/un6zWB9f7sh0rXMxuHQtBI+J+ZGF+0WIchelknuohz
-	Vd9/2/ow==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tJVfI-0007XU-FB; Fri, 06 Dec 2024 11:34:28 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: vkoul@kernel.org,
-	kishon@kernel.org
-Cc: heiko@sntech.de,
-	cristian.ciocaltea@collabora.com,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH 2/2] phy: phy-rockchip-samsung-hdptx: Don't use dt aliases to determine phy-id
-Date: Fri,  6 Dec 2024 11:34:01 +0100
-Message-ID: <20241206103401.1780416-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241206103401.1780416-1-heiko@sntech.de>
-References: <20241206103401.1780416-1-heiko@sntech.de>
+	id 1tJVl6-00000001Kks-3Jkq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Dec 2024 10:40:30 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-29e5aedbebdso986386fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 02:40:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cornersoftsolutions.com; s=google; t=1733481627; x=1734086427; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5dpoHhnnSqF1AlwYKD5E4gHGT3XutAgIPGhaNKW/0HU=;
+        b=d05xsZfv0lVEYiDIdpxnBNVJRnvv6dIlHbrdZHNiV6PLJXpmJVcnRqcaKXfx3xV8GE
+         Hxn9uHvVsvlRyvfiFLfwidSpbkEloXD9+rfiMEesFM2kdyQYT2zAGNo/RR7OfwI4yYOm
+         8Jgw6BJgOgd/xneyXeFqe2u4VzXewt0eXPQvrvoQsLfDeMdK13d1UgkQpr5eatKDU1wz
+         EVVmeWe/OoyY6Tn8cDsG9cAoRnn+2xjf5ZyUo3cwNdgsHNmt5hsFp69uVTbTe9OhxT0t
+         BiRdplJUZGGvWSdB1ZGKtIC+qL2hspV2Y5xXA7ng+sJW3xi9Qbz4q4E/X8qLfSBsYtQj
+         b37A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733481627; x=1734086427;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5dpoHhnnSqF1AlwYKD5E4gHGT3XutAgIPGhaNKW/0HU=;
+        b=OgjVQUscfmHERU47R1prbocY8U8RuUrOXK2gGoH1IGmwb9NN9eIXrLQujermu23LBu
+         zns0lOUym4IZIYKpH3Tr0fmDgmLbLOlfgYQZ55L3FWLaxOgkjRx128jymJw1Be6XsYfj
+         Zj0DjmQoWWpaC9lZpRH4H14WpikefKfEy014WIJw6RJ53XpZAKLuMXycFKGeE2zjG5ME
+         G1mGc33U64ltouvOzjxZqFVYmn+OxHmA7e2i1CbIRx2ntNsvluZfcXWWnuRvXhGrwxUw
+         EMEx1CPJh99V+/+AxArBUDN8J9zgjo2uqTIAfyoyThoYAehvtCuNx9ELlYCCWAcE218R
+         vw8w==
+X-Forwarded-Encrypted: i=1; AJvYcCUEGo0qIjFn1zQXVuboA68MdcDGRBZlQyJdm+o4t8n0+CrTbyqVIaJHtH2ieJanurtPmY0vxf8Bu4hWH00p8ovf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU+UZN5bcItdW+kO+JUGdKewnVCSCrP7DDJDsuV2wQAvnG4sjp
+	Vrjkkv1O3zYxmG/27L0E1qM4U1KqjxFg2i6mj3lUtYLf0KGCHk1NQs/gV9yRRB7b9hYj5wq/QDz
+	lO2iRN6lOj0igG0WraEbbzkMbZdZKITgFfcj7Cw==
+X-Gm-Gg: ASbGncugmATE3SkV51dXnRB/3k//a0WYGr8S+YMnnmWsD8Y10XwkqapRzF6h2+4p+px
+	TbcV7ntG5CrzFyUScvqq+Fgp+rvoNTrvU
+X-Google-Smtp-Source: AGHT+IEEgtCpiEfKyepoSM+/D8HoOWbGc7v8g0uhiFB/aNLSdUw6Ym7nLZpksS0y4DeVwr2P94N5ssZLKnJh8nBacmA=
+X-Received: by 2002:a05:6870:c69a:b0:29d:c832:7ef6 with SMTP id
+ 586e51a60fabf-29f735d53damr1234503fac.39.1733481627713; Fri, 06 Dec 2024
+ 02:40:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <CADRqkYAaCYvo3ybGdKO1F_y9jFEcwTBxZzRN-Av-adq_4fVu6g@mail.gmail.com>
+ <d53538ea-f846-4a6a-bc14-22ec7ee57e53@kernel.org> <CADRqkYDnDNL_H2CzxjsPOdM++iYp-9Ak3PVFBw2qcjR_M=GeBA@mail.gmail.com>
+ <28d1bb46-ab18-42da-9ca2-ff498c888d66@kernel.org> <bdfeceb6-962a-4f20-b76c-4fe5e5ff80c3@foss.st.com>
+In-Reply-To: <bdfeceb6-962a-4f20-b76c-4fe5e5ff80c3@foss.st.com>
+From: Ken Sloat <ksloat@cornersoftsolutions.com>
+Date: Fri, 6 Dec 2024 05:40:16 -0500
+Message-ID: <CADRqkYAg5k3xM81-qBBiiLsvVdJCGdCVyAJgEexMw4s-1PeQkQ@mail.gmail.com>
+Subject: Re: [PATCH v1] dt-bindings: dma: st-stm32-dmamux: Add description for
+ dma-cell values
+To: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, dmaengine@vger.kernel.org, 
+	alexandre.torgue@foss.st.com, mcoquelin.stm32@gmail.com, conor+dt@kernel.org, 
+	krzk+dt@kernel.org, robh@kernel.org, vkoul@kernel.org, 
+	Ken Sloat <ksloat@cornersoftsolutions.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_023431_868087_7ACF6AA4 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20241206_024028_933150_5B294E48 
+X-CRM114-Status: GOOD (  23.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,130 +99,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Hi Amelie,
 
-The phy needs to know its identity in the system (phy0 or phy1 on rk3588)
-for some actions and the driver currently contains code abusing of_alias
-for that.
+Thanks for reviewing
 
-Devicetree aliases are always optional and should not be used for core
-device functionality, so instead keep a list of phys on a soc in the
-of_device_data and find the phy-id by comparing against the mapped
-register-base.
+On Thu, Dec 5, 2024 at 1:06=E2=80=AFPM Amelie Delaunay
+<amelie.delaunay@foss.st.com> wrote:
+>
+>
+> On 12/5/24 17:09, Krzysztof Kozlowski wrote:
+> > On 05/12/2024 17:07, Ken Sloat wrote:
+> >>>> + 1. The mux input number/line for the request
+> >>>> + 2. Bitfield representing DMA channel configuration that is passed
+> >>>> + to the real DMA controller
+> >>>> + 3. Bitfield representing device dependent DMA features passed to
+> >>>> + the real DMA controller
+> >>>> +
+> >>>> + For bitfield definitions of cells 2 and 3, see the associated
+> >>>> + bindings doc for the actual DMA controller the mux is connected
+> >>>
+> >>> This does not sound right. This is the binding for DMA controller, so
+> >>> you are saying "please look at itself". I suggest to drop this as wel=
+l.
+> >>>
+> >>
+> >> While logically it is the DMA controller, this doc is specifically for
+> >> the mux - the DMA controller has its own driver and binding docs in
+> >> Documentation/devicetree/bindings/dma/stm32/st,stm32-dma.yaml
+> >>
+> >> I can reference st,stm32-dma.yaml directly, but I was unsure if this
+> >> mux IP was used with another DMA controller from ST on a different
+> >> SoC.
+> >>
+> >> What do you suggest here?
+> >
+> > Thanks for explanation, I think it is fine.
+> >
+> > Best regards,
+> > Krzysztof
+>
+> This description was lost when STM32 DMAMUX binding txt file was
+> converted to yaml:
+> 0b7c446fa9f7 ("dt-bindings: dma: Convert stm32 DMAMUX bindings to
+> json-schema")
+>
+> -- #dma-cells:  Should be set to <3>.
+> -               First parameter is request line number.
+> -               Second is DMA channel configuration
+> -               Third is Fifo threshold
 
-Fixes: c4b09c562086 ("phy: phy-rockchip-samsung-hdptx: Add clock provider support")
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 50 ++++++++++++++++---
- 1 file changed, 44 insertions(+), 6 deletions(-)
+Thanks for the info, this aligns with what I have
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index c5c64c209e96..b137f8c4d157 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -385,11 +385,22 @@ enum rk_hdptx_reset {
- 	RST_MAX
- };
- 
-+#define MAX_HDPTX_PHY_NUM	2
-+
-+struct rk_hdptx_phy_cfg {
-+	unsigned int num_phys;
-+	unsigned int phy_ids[MAX_HDPTX_PHY_NUM];
-+};
-+
- struct rk_hdptx_phy {
- 	struct device *dev;
- 	struct regmap *regmap;
- 	struct regmap *grf;
- 
-+	/* PHY const config */
-+	const struct rk_hdptx_phy_cfg *cfgs;
-+	int phy_id;
-+
- 	struct phy *phy;
- 	struct phy_config *phy_cfg;
- 	struct clk_bulk_data *clks;
-@@ -1857,15 +1868,14 @@ static int rk_hdptx_phy_clk_register(struct rk_hdptx_phy *hdptx)
- 	struct device *dev = hdptx->dev;
- 	const char *name, *pname;
- 	struct clk *refclk;
--	int ret, id;
-+	int ret;
- 
- 	refclk = devm_clk_get(dev, "ref");
- 	if (IS_ERR(refclk))
- 		return dev_err_probe(dev, PTR_ERR(refclk),
- 				     "Failed to get ref clock\n");
- 
--	id = of_alias_get_id(dev->of_node, "hdptxphy");
--	name = id > 0 ? "clk_hdmiphy_pixel1" : "clk_hdmiphy_pixel0";
-+	name = hdptx->phy_id > 0 ? "clk_hdmiphy_pixel1" : "clk_hdmiphy_pixel0";
- 	pname = __clk_get_name(refclk);
- 
- 	hdptx->hw.init = CLK_HW_INIT(name, pname, &hdptx_phy_clk_ops,
-@@ -1908,8 +1918,9 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
- 	struct phy_provider *phy_provider;
- 	struct device *dev = &pdev->dev;
- 	struct rk_hdptx_phy *hdptx;
-+	struct resource *res;
- 	void __iomem *regs;
--	int ret;
-+	int ret, id;
- 
- 	hdptx = devm_kzalloc(dev, sizeof(*hdptx), GFP_KERNEL);
- 	if (!hdptx)
-@@ -1917,11 +1928,27 @@ static int rk_hdptx_phy_probe(struct platform_device *pdev)
- 
- 	hdptx->dev = dev;
- 
--	regs = devm_platform_ioremap_resource(pdev, 0);
-+	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(regs))
- 		return dev_err_probe(dev, PTR_ERR(regs),
- 				     "Failed to ioremap resource\n");
- 
-+	hdptx->cfgs = device_get_match_data(dev);
-+	if (!hdptx->cfgs)
-+		return dev_err_probe(dev, -EINVAL, "missing match data\n");
-+
-+	/* find the phy-id from the io address */
-+	hdptx->phy_id = -ENODEV;
-+	for (id = 0; id < hdptx->cfgs->num_phys; id++) {
-+		if (res->start == hdptx->cfgs->phy_ids[id]) {
-+			hdptx->phy_id = id;
-+			break;
-+		}
-+	}
-+
-+	if (hdptx->phy_id < 0)
-+		return dev_err_probe(dev, -ENODEV, "no matching device found\n");
-+
- 	ret = devm_clk_bulk_get_all(dev, &hdptx->clks);
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "Failed to get clocks\n");
-@@ -1981,8 +2008,19 @@ static const struct dev_pm_ops rk_hdptx_phy_pm_ops = {
- 		       rk_hdptx_phy_runtime_resume, NULL)
- };
- 
-+static const struct rk_hdptx_phy_cfg rk3588_hdptx_phy_cfgs = {
-+	.num_phys = 2,
-+	.phy_ids = {
-+		0xfed60000,
-+		0xfed70000,
-+	},
-+};
-+
- static const struct of_device_id rk_hdptx_phy_of_match[] = {
--	{ .compatible = "rockchip,rk3588-hdptx-phy", },
-+	{
-+		.compatible = "rockchip,rk3588-hdptx-phy",
-+		.data = &rk3588_hdptx_phy_cfgs
-+	},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, rk_hdptx_phy_of_match);
--- 
-2.45.2
+> -               For more details about the three cells, please see
+> -               stm32-dma.txt documentation binding file
+>
+>
+> stm32-dmamux exclusively muxes stm32-dma channels. It is not used with
+> other ST DMA controllers (STM32 MDMA, STM32 DMA3).
+>
+> So it is fine to refer to st,stm32-dma.yaml.
 
+Ok, I can add that on v2
+
+>
+> Regards,
+> Amelie
+
+--=20
+Sincerely,
+Ken Sloat
 
