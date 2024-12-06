@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A28E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFE8E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nH91nUEHCZ8Nx6AA9lQ6YBtzGAKrJR2lJ/ou3vw6QRI=; b=pEYJ63JuC3mMFaPfI0+kEJHCGa
-	FIjkaOyMURio/uCGCHuVJiaeNQ2VEkbEvAUpQuP+LvtGDe96P0zXxbmwWFWEJB22nGQ7FwHw+l2aJ
-	Yo1WqBsStQfgkeWOtZaovpkAbo/Ghvi2g8eNuF8JZyr0aUISi2M1E4b6ecLeqAJL6txr/ALhpNmLi
-	2Ov30xI3mFXCOxabmP7VLYH3SP2hTQ/4D0bq+Gr7yjs1d1LaW5BIyixIO8F+eNKXEQ5u5XvgwpuNw
-	CdlpT1xA0QReofroSyYr4pZgFjCH+KT9ELJ6IBZFGhtwX6rxPHJ4KZMSjTFWeMVN/qHc29fp+FDQd
-	Gj3LZg9g==;
+	bh=IR3CBYmVz3WChMKC+3bqNlNVKDz36LomTpsP6RbwpBI=; b=Jxfmv296FIyH48VbVKyMRiLw8V
+	nb1nGiPE/TrycwcO9YyPfusi1a6/KUM2PWbMcjiajjbtrP6gPQJJynXlFNRo2psfEE0pDuQ1oQkP2
+	k+FCD2DGBB+G/o19hSCoGbrKBPGyp9OsV/DAtl3OJYBT6av867SP908B+I7wjhqsQkl6BL9OjQrR3
+	PhPe7VKUuIvKzHrEL2yEGUo1QM6kKiJ+gb2IWSLr+GNM7yiU2Y6Ccs2iDPoXAhYELOY2O5b7dhlWM
+	UoeSQFFtQn+4ct+jVc6HZL5zCSoDsNmdz2UORnjKdGLFKFvQMCivhZZsKfv0I7cf+5JsQE6sfpAW6
+	HlwAE+Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJapK-000000025Pl-1Snt;
-	Fri, 06 Dec 2024 16:05:10 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tJas0-000000025it-3Wpj;
+	Fri, 06 Dec 2024 16:07:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJaoI-000000025Ct-3C3g
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 16:04:07 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tJaoE-0005lP-Ai; Fri, 06 Dec 2024 17:04:02 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tJaoB-0021SN-0o;
-	Fri, 06 Dec 2024 17:04:00 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tJaoB-000Bg5-32;
-	Fri, 06 Dec 2024 17:03:59 +0100
-Message-ID: <036d3c0e721947002dc598aef2b65d48967ab52e.camel@pengutronix.de>
-Subject: Re: [PATCH 0/2] Add support for A1 SoC in auxiliary reset driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org, Jerome Brunet
- <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>
-Date: Fri, 06 Dec 2024 17:03:59 +0100
-In-Reply-To: <20241112230056.1406222-1-jan.dakinevich@salutedevices.com>
-References: <20241112230056.1406222-1-jan.dakinevich@salutedevices.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1tJaqz-000000025ch-1tOt;
+	Fri, 06 Dec 2024 16:06:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 056675C6946;
+	Fri,  6 Dec 2024 16:06:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 403D8C4CED1;
+	Fri,  6 Dec 2024 16:06:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733501211;
+	bh=gToIYM+37jkKtK/Sbu0IwPGwvwqDSaBXiHsgZA/gUAk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rUZhriGHwCOGUtnZPn6FC7saJhs6BKSmHqVG5AS+E0JB1T7WxDfeMpEbolQahWmV4
+	 +/IvsXta9NDAgw02+PN2UCwNsn9gZ7EcEzwPrENYs2Vv191ztYUHRjTXw+lBe+c9Ic
+	 odbaoVofPbb+z6qo3uRJPlLjvHkpPXpFKIIvFaH5hbkzMAoRG89g854UUjG8fG127a
+	 4I04DzE5/U6OQjK/qkdEVVwAPxTAKAB2LS0I9ttpCOLbB7M9AkUDMA1KcR+1H7deLu
+	 TFv1mG8eIAAlXUdkyPJgcjkxdssShLZNDvFIYmCLWfTfQ3uccoPRQtkhT+hkSm5eNH
+	 lTXQ1kBPWpADw==
+Date: Fri, 6 Dec 2024 16:06:45 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Jiaxin Yu =?utf-8?B?KOS/nuWutumRqyk=?= <Jiaxin.Yu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"ajye_huang@compal.corp-partner.google.com" <ajye_huang@compal.corp-partner.google.com>,
+	Chunxu Li =?utf-8?B?KOadjuaYpeaXrSk=?= <Chunxu.Li@mediatek.com>,
+	Allen-KH Cheng =?utf-8?B?KOeoi+WGoOWLsik=?= <Allen-KH.Cheng@mediatek.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"kuninori.morimoto.gx@renesas.com" <kuninori.morimoto.gx@renesas.com>,
+	"andrzej.hajda@intel.com" <andrzej.hajda@intel.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"robert.foss@linaro.org" <robert.foss@linaro.org>,
+	"Laurent.pinchart@ideasonboard.com" <Laurent.pinchart@ideasonboard.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Nicolas Prado <nfraprado@collabora.com>,
+	"alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>
+Subject: Re: [PATCH v2 1/3] ASoC: hdmi-codec: Add event handler for hdmi TX
+Message-ID: <6456e0b7-08ae-4515-a7c9-734f50c9130a@sirena.org.uk>
+References: <Y4Y/vEWe3dw0FPQH@sirena.org.uk>
+ <cf9ea98a3263ffb8fc8b542888ad0ad680facfc7.camel@mediatek.com>
+ <Y4jHAJgmz/P58Q/C@sirena.org.uk>
+ <7023a2c7b471d6888d9079563a6c01f22599201f.camel@mediatek.com>
+ <Y43e+EsNCrCpZSIH@sirena.org.uk>
+ <dc50d0b21795acbcc44c77e5fd81e7cb92c65c67.camel@mediatek.com>
+ <Y5ipwqzHKTK8UdlC@sirena.org.uk>
+ <a699178dcef540fff5caae6291983a444886bff6.camel@mediatek.com>
+ <00d5c728-3eb9-427a-bc60-5828c20fec09@sirena.org.uk>
+ <b44319c9fabbea2e8c333191a0005ef5c4ec6b2c.camel@mediatek.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0Q96+HlCP5jtbeOt"
+Content-Disposition: inline
+In-Reply-To: <b44319c9fabbea2e8c333191a0005ef5c4ec6b2c.camel@mediatek.com>
+X-Cookie: Sales tax applies.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_080406_788113_02CDE9AF 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241206_080653_573815_9B514DA3 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2024-11-13 at 02:00 +0300, Jan Dakinevich wrote:
-> This was a part of series [1]. Comparing to original series, reset functi=
-onality
-> on top of 'audio-vad' clock controller also is added.
->=20
-> Links:
->   [1] https://lore.kernel.org/all/20240913121152.817575-1-jan.dakinevich@=
-salutedevices.com/
->=20
-> Jan Dakinevich (2):
->   dt-bindings: reset: add bindings for A1 SoC audio reset controller
->   reset: amlogic: add support for A1 SoC in auxiliary reset driver
-[...]
 
-Applied to reset/next, thanks!
+--0Q96+HlCP5jtbeOt
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[1/2] dt-bindings: reset: add bindings for A1 SoC audio reset
-controller
-      https://git.pengutronix.de/cgit/pza/linux/commit/?id=3D3465a696bd93
-[2/2] reset: amlogic: add support for A1 SoC in auxiliary reset driver
-      https://git.pengutronix.de/cgit/pza/linux/commit/?id=3D3d99f9231bed
+On Fri, Dec 06, 2024 at 03:39:15PM +0000, Jiaxin Yu (=E4=BF=9E=E5=AE=B6=E9=
+=91=AB) wrote:
+> On Mon, 2024-12-02 at 13:16 +0000, Mark Brown wrote:
+> > On Sun, Dec 01, 2024 at 05:15:45PM +0000, Jiaxin Yu (=E4=BF=9E=E5=AE=B6=
+=E9=91=AB) wrote:
 
-regards
-Philipp
+> > > So I want to ask if I can do it by just adding
+> > > SOC_DAPM_PIN_SWITCH("Speakers") and SOC_DAPM_PIN_SWITCH("HDMI")?
+> > > Correspondingly, dapm widget and route path need to be added. That
+> > > is
+> > > "SND_SOC_DAPM_SPK("Speakers", NULL)/ SND_SOC_DAPM_LINE("HDMI1",
+> > > NULL)"
+> > > and "{"Speakers", NULL, "Speaker"}/ {"HDMI1", NULL, "TX"}".
+
+> > Yes, that's what I'd expect to see.
+
+> So if I open the "HDMI Switch" amixer control, it will call
+> 'hdmi_codec_startup', which in turn calls "audio_startup()"  in
+> 'hdmi_codec_ops'. Conversely, if I close it, it will call
+> 'hdmi_codec_shutdown', which in turn calls 'audio_shutdown' in
+> 'hdmi_codec_ops'. Is this understanding correct?
+
+The audio stream will still run, the DAPM path attached to it will get
+shut down.
+
+--0Q96+HlCP5jtbeOt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdTIRQACgkQJNaLcl1U
+h9AR8gf9Hfqv5O8hW1VoO/+oNPx5CkfRkyZFsfXQTS4FYXeTZ9zcxTzV8bdgREIe
+WVUSi00ehS2CCupQkffrSFfZHqk88wxKrrMFNQYcoDrekq/kUtbseBayFJgB6mQY
+4NUYT/0mnejbXDk+qeiHI1f0UzygswelfRVu+TZ7exCG2UI7GJO2RYdL6fpItNpQ
+F7ISvK9ldljmyAmqAbZ8Ol6tg2eNfbhESwdEGsGrx58UpFAWH/0Qb6G+T4tzPxQ+
+3rMJvvwahR0VMHmVglGFRUneunLknVaycWRVne7jYBilbaRlWMGQQ4FVs8XLY45q
+OE7ZqGZc2+b4p2bOuAcnSLIiQPRSsg==
+=/TNF
+-----END PGP SIGNATURE-----
+
+--0Q96+HlCP5jtbeOt--
 
