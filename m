@@ -4,109 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A48E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC37E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x03sJVwrqE3uL6CiBIWoNaov4PgZbIR471x5QywtumU=; b=b87LFLXHSrbTiepPgoHL1lmM6V
-	lN6T+D5UTMXZtiQD4d0SYpePW9fTsJbiaW3oLnill8yQsYM+jRDeoMOjeuCp9jK0TalYnhohzfsQO
-	qgP+oOedH6cs/WweKbAFyKh3szCjeumcJtiDmXDa3s12nITEKeZj6Fho8X+oDKG4gDuAVIqWALzcA
-	9vsPw0tNWaEVy5BZpoeGgrmdV3XW47VwjdS86Vf2g71QPysdBz9Ya1kbq1XAx/jBWniLT0ghtzS0D
-	zvdX8t6tZM6/GPUH+V8ncRuo/8rzq7vqo1bOnnHqcL7kGXKN7cgcmQFLpmLd+8ut00stx03f+snpt
-	PMfdoh0g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2CpAbRbq9u9WtuDg3cZhOuMl7YhAj8Mt6ZON6tTJ5Ls=; b=OY61583N2MlGR1Od5ZwWKb0tAi
+	qE3zjtlVTbPnQWa0I4gMZMr4ughsD0rJQUhk33JxR566dZUdy2cTx/SDuHzsxAvPMbppoHupclHsS
+	aqW8NgWJ07YDuoEggFAJ/7V5P3idIbdF5CapjRqFk5Ho8Ei1sfsM6j5otNidlElHa4rv6DEdhIzy3
+	iEb/KN9nAQuOzICi+9GnPzJ8ug3azwb4A3KH4uOertJDezxhzhcXpT4Oi5qmJG0vyz3+DrQ6BERwA
+	T+N3z/Aunkappr+4QZU5IlSiv3sM/9yhTj8O2DmNN8rdNwl7FF9NBQ0CoYlVHOUe4TOlWNLMeSjLU
+	0BOwwvBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJY8N-00000001hPI-1xYK;
-	Fri, 06 Dec 2024 13:12:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tJYKa-00000001igl-2n5R;
+	Fri, 06 Dec 2024 13:25:16 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJY7L-00000001hGY-06ap
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 13:11:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 46B74A4423E;
-	Fri,  6 Dec 2024 13:09:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2AE4C4CED1;
-	Fri,  6 Dec 2024 13:11:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733490693;
-	bh=LgIJFC/bkuiLiJ86lwprG7kL3obiSTl1MWtTblN84WM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pp3W6LgEYDULirIoE4HjXW5yaqzOBbQ0SM5Xzmx9HO4GofAHpks3qi7UrEWUmoUd9
-	 n5laU+k1gaiDTnL+b52VAz8LSAa3b9ttUnue6IE4difM42K9GPrramz/zB6foOc48D
-	 bJrEjVicCk/WUu0xUHv/em6mzjUovDMXYFWF1LPfHsZUpmWY9FMETX75iKG0gp+Pi1
-	 PDABCMArM6mIg9EyP2eoTVmNJ4lA29XDk5GA2q67DDHq+V1SDCjrIFAOo5GQEJZXjU
-	 YqCYIbCcJsBGcudcvABvYpHoUVze+ofnIdGhdKhCnHar8jsmVWch6GV1DEpMdC84y1
-	 ptYTgCeqjr+KA==
-Message-ID: <5e3e43eb-3afc-486e-aa9a-4c1074fd30b8@kernel.org>
-Date: Fri, 6 Dec 2024 14:11:28 +0100
+	id 1tJYJY-00000001iZg-0qcv;
+	Fri, 06 Dec 2024 13:24:13 +0000
+Received: from mxbox1.masterlogin.de (unknown [192.168.10.88])
+	by mxout1.routing.net (Postfix) with ESMTP id 7F727403F7;
+	Fri,  6 Dec 2024 13:24:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1733491447;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=2CpAbRbq9u9WtuDg3cZhOuMl7YhAj8Mt6ZON6tTJ5Ls=;
+	b=PAfOyoi0HQt9BPx4rQNXYUrByAoZD+VvnaGCs69Ep0un7VbrsSm2YYrzbk85lVkRHfEadF
+	V4ezwHEJapO4MpjdqldDhgG2dHgjczBxNnZUNyRCF9av1DXEeNzBvHozSvsIu6X7ttZII9
+	U8CkCOK7Kx6Zca0fJ74ejQ/GLFuwj2k=
+Received: from frank-u24.. (fttx-pool-194.15.84.200.bambit.de [194.15.84.200])
+	by mxbox1.masterlogin.de (Postfix) with ESMTPSA id 918A640044;
+	Fri,  6 Dec 2024 13:24:06 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v4] arm64: dts: mt7986: add overlay for SATA power socket on BPI-R3
+Date: Fri,  6 Dec 2024 14:23:59 +0100
+Message-ID: <20241206132401.70259-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm64: dts: exynos: Add initial support for
- Samsung Galaxy S20 5G (x1s)
-To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- igor.belwon@mentallysanemainliners.org
-References: <20241203080327.4751-1-umer.uddin@mentallysanemainliners.org>
- <20241203080327.4751-4-umer.uddin@mentallysanemainliners.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241203080327.4751-4-umer.uddin@mentallysanemainliners.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Mail-ID: 7d988917-a59f-423f-be98-36300de87045
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_051135_190677_AAF08E27 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20241206_052412_402875_FCDF1C6D 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/12/2024 09:03, Umer Uddin wrote:
->  arch/arm64/boot/dts/exynos/Makefile          |  1 +
->  arch/arm64/boot/dts/exynos/exynos990-x1s.dts | 28 ++++++++++++++++++++
->  2 files changed, 29 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1s.dts
-> 
-> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-> index 948a2c6cb..6959acfbb 100644
-> --- a/arch/arm64/boot/dts/exynos/Makefile
-> +++ b/arch/arm64/boot/dts/exynos/Makefile
-> @@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
->  	exynos850-e850-96.dtb		\
->  	exynos8895-dreamlte.dtb		\
->  	exynos990-c1s.dtb		\
-> +	exynos990-x1s.dtb		\
->  	exynos990-r8s.dtb               \
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Keep the order (sorted).
+Bananapi R3 has a Power socket entended for using external SATA drives.
+This Socket is off by default but can be switched with gpio 8.
 
+Add an overlay to activate it.
 
-Best regards,
-Krzysztof
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+v4:
+- rebased on 6.13-rc1 without the full-dtb patch
+v3:
+- make sata overlay better readable
+v2:
+- rebase on the patch "add dtbs with applied overlays for bpi-r3"
+- add sata-overlay to the full dtbs
+---
+ arch/arm64/boot/dts/mediatek/Makefile         |  1 +
+ .../mt7986a-bananapi-bpi-r3-sata.dtso         | 35 +++++++++++++++++++
+ 2 files changed, 36 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-sata.dtso
+
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index 8fd7b2bb7a15..d844c4ce9863 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -17,6 +17,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-mini.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-emmc.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-nand.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-nor.dtbo
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sata.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sd.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-rfb.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986b-rfb.dtb
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-sata.dtso b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-sata.dtso
+new file mode 100644
+index 000000000000..17659545470e
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-sata.dtso
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2021 MediaTek Inc.
++ * Author: Frank Wunderlich <frank-w@public-files.de>
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	compatible = "bananapi,bpi-r3", "mediatek,mt7986a";
++
++	reg_sata12v: regulator-sata12v {
++		compatible = "regulator-fixed";
++		regulator-name = "sata12v";
++		regulator-min-microvolt = <12000000>;
++		regulator-max-microvolt = <12000000>;
++		gpio = <&pio 8 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-always-on;
++	};
++
++	reg_sata5v: regulator-sata5v {
++		compatible = "regulator-fixed";
++		regulator-name = "sata5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		vin-supply = <&reg_sata12v>;
++	};
++
++};
++
+-- 
+2.43.0
+
 
