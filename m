@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D53E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 18:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55552E77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 18:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AfkDLPMDt8Kayc4VDuPlcHaf9XLIojDBFyOkJPrRaJY=; b=qES4lYI7u1ql4Hi8/9S65rzTYg
-	xFc0+F775SZYeLRpNpocFlBAgaXpul97o599FbtfV65NFKZuUAnig2z0iD3zbw4o5iq/pwWzyJW9y
-	Os9AKWwywTllH9I1GzvEN1PJ0OaUbqNoOgs2cqJBIzCIsVY0NB6EgOWu7Doa1iN8ndunTmV+QdIbT
-	Qq+KUAqpjyhi+iCMFnGkbc9qFV19LkhwlaCbFp4w3PI9uEDL7ccVVkNcdUuxu9+jnDYxzK4eCJ5LF
-	Ufw8W5M+zQncApvllwK5L+Eb8C4OwBluRFfrkbRYuxn+CyfVN3tZrLHH6jVNOvxN05/nJI6TrZ7o0
-	JTDwKySQ==;
+	bh=5djkSzgvcRhUsJUfE7u7JhGjk061MSHTTjG7mXapw+w=; b=RArCoTAwhm3r0SkXDkIB6gm47U
+	OKohTVF2v9BdvkBlBA0amRrsMmDLTh12Ykg/nOKvHcLEUc7cgXd4AQAcHt4fi/dDZ8mmCvBxOeMId
+	ldAL/zEUju6yRh6XbHgMG001OyalkrJmYD2z8B5aSIj/hxLmCUrs6lGJCKTczgO8NGu/bip9vh2F+
+	X0TP8f/ZcpMoSOnUg/t06nmlAaDNC5SUvj5x6BszsKBoLhb1Xe1b3f029j9W9nsz/Hsyl8kKDeLYW
+	9gArFRahEXASClDlr/vOjXROaVrgUEjzxi+q5OpK23ILiaXW6j38jqT0QR43+c/a9NA/xTvR9dNz0
+	4xZXWKVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJczU-00000002RKN-0IAJ;
-	Fri, 06 Dec 2024 18:23:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJd29-00000002RXu-3Sjc;
+	Fri, 06 Dec 2024 18:26:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJcyS-00000002REo-3bhE
+	id 1tJd17-00000002RRn-1w6C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 18:22:45 +0000
+	Fri, 06 Dec 2024 18:25:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 69C725C5FB8;
-	Fri,  6 Dec 2024 18:22:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5608C4CED1;
-	Fri,  6 Dec 2024 18:22:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ABB015C5A0C;
+	Fri,  6 Dec 2024 18:24:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0FBBC4CED1;
+	Fri,  6 Dec 2024 18:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733509363;
-	bh=cbyuqAguj2f/Nz/gXkuZ4/3ryUl/+UVbIDgnVfdtEmM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GLZF+Lo4Qf/a94yrYD1mrrCRhsnbE+dQnIhMYwPN7QXZoe2RtWmCoqQiORjfC7hC6
-	 34wwFdgSiFreTPEXtGZ8TBE5oN1X54cFLQN0mY62lPjD8/Np/Kudbltw5PXYDGOQ87
-	 3dMKpo2o1juIf09PKQyo+AurbqkLkjJtXcW0ihTLZfrrm8q/EELDGSLGYXv9hx0lOh
-	 EcTx6/nDaSLjSMqY0V8OV5jFctiAOZc6vcWKO6XRbjTe0rLhGaMqXj1hjwy3vgstz0
-	 eYkZCLnoWVMR9DFPgKolAN8INcaTEnRvJNQ8LhmCDWreiWFr7+eu9niuiDmwhkcGJE
-	 5WW7gMpDxosCQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tJcyP-001FUX-DV;
-	Fri, 06 Dec 2024 18:22:41 +0000
-Date: Fri, 06 Dec 2024 18:22:40 +0000
-Message-ID: <868qssu0wf.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	james.clark@linaro.org,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v4 06/14] KVM: arm64: Set protected VM traps based on its view of feature registers
-In-Reply-To: <70992791-af72-43ed-88cc-1bb5a8acaf9a@sirena.org.uk>
-References: <20241202154742.3611749-1-tabba@google.com>
-	<20241202154742.3611749-7-tabba@google.com>
-	<Z1M1DYbvuqAEU5c-@google.com>
-	<70992791-af72-43ed-88cc-1bb5a8acaf9a@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, qperret@google.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, james.clark@linaro.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, kristina.martsenko@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1733509528;
+	bh=6zPrOx2SudmgD/c40+Z4a9ztiOiUIdAL08zqV81/sfs=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=tl5mKPRJ4qW6dAOX/AFyy4x6zWaRQy9Z/ra+AtEAYP1YS+8iNTK13pAz/lwHUFmuW
+	 vkO18VAW3gT75101h1AAzL4GWebmnOzOPe/RZUwWSkKQsPssck0zqGUeRH3vQU64G4
+	 0c+pwI61ZfzdDMUK+pur+1WXpU9i2vQiDL27LgnsflrBquDTI0N031EaWffY/x3z+G
+	 Uscw4QpmECno6h5u2jkEw7vFHzL45uDGHBkpiGnVt8TPbdmC/hS/tV+3JIOcQ9Zykk
+	 yKni9yZvcLdKsSbookP0Y5Omwi9ArnXRDmdyVX+u4bpc0kMVQW+enQNSLexJwbWOtH
+	 N7edetiR57TsQ==
+Date: Fri, 06 Dec 2024 12:25:26 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Helge Deller <deller@gmx.de>, Lee Jones <lee@kernel.org>, 
+ Hector Martin <marcan@marcan.st>, dri-devel@lists.freedesktop.org, 
+ linux-leds@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-kernel@vger.kernel.org, Jingoo Han <jingoohan1@gmail.com>, 
+ asahi@lists.linux.dev, Sven Peter <sven@svenpeter.dev>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Pavel Machek <pavel@ucw.cz>, 
+ Daniel Thompson <danielt@kernel.org>, linux-fbdev@vger.kernel.org
+To: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20241206172735.4310-2-towinchenmi@gmail.com>
+References: <20241206172735.4310-1-towinchenmi@gmail.com>
+ <20241206172735.4310-2-towinchenmi@gmail.com>
+Message-Id: <173350952667.3933863.13037602591337209524.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: leds: backlight: apple,dwi-bl: Add
+ bindings for Apple DWI backlight
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_102244_962352_D3A59A23 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20241206_102529_550375_2F6961E9 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Dec 2024 17:43:42 +0000,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> On Fri, Dec 06, 2024 at 05:31:57PM +0000, Quentin Perret wrote:
-> > On Monday 02 Dec 2024 at 15:47:33 (+0000), Fuad Tabba wrote:
-> 
-> > > -	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_RAS), id_aa64pfr0) <
-> > > -	    ID_AA64PFR0_EL1_RAS_V1P1) {
-> > > +	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
-> 
-> > I'm admittedly getting a bit lost in the kvm_has_feat() macro maze, but
-> > should this be:
-> 
-> > 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, V1P1))
-> 
-> > to replicate the existing check?
-> 
-> kvm_has_feat() checks for a value <= the supplied constant while the
 
-Not quite:
-
-#define kvm_has_feat(kvm, id, fld, limit)				\
-	kvm_cmp_feat(kvm, id, fld, >=, limit)
-
-> existing check is just < and the values for the field are:
+On Sat, 07 Dec 2024 01:24:33 +0800, Nick Chan wrote:
+> Add the device tree bindings for backlight controllers attached via Apple
+> DWI 2-wire interface.
 > 
-> UnsignedEnum	31:28	RAS
-> 	0b0000	NI
-> 	0b0001	IMP
-> 	0b0010	V1P1
-> EndEnum
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> ---
+>  .../bindings/leds/backlight/apple,dwi-bl.yaml | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
 > 
-> so they're both checking for the same thing.
 
-Evidently not. The original code is checking for RASv1p1, while the
-change turns that into a check for the original RAS spec.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-	M.
+yamllint warnings/errors:
 
--- 
-Without deviation from the norm, progress is not possible.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/leds/backlight/apple,dwi.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241206172735.4310-2-towinchenmi@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
