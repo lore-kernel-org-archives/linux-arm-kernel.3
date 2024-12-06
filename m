@@ -4,80 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7FBE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BE6E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+YIfUdq9OR5ROGXG2tbL8UIVwnPsC3GbJ9XOwhsQXWg=; b=Xlx/u/h9ivvPzzhN4cker96irS
-	hcJkFAKM+/S/ercofKVzBQUSVS/cH050GyMFvpAOYSTcpbESJfACXaaiBUjGZJ3Fsq3I2rEzWfeJ3
-	StCIRoDv5CKEte1AROyfNek56OBGL+BlCwDdKh7EaTe/nBFs+G3lHxM3UZqMeHtyg6mFi7byiLEUz
-	wF2k63L9xJNijWLw5lXRNDCsSVH+hXUI1bc7wMNNCMutWmFu8brbs4kHNOwVXQ5GsXseK42KeiI2h
-	+K3tn0mdk2znsC3Ok0sQuI9fzK/lCwLEv00SDBZxLxAw/fc1q3nf8CmbMY7oJvYsdVPitoXJfoghi
-	H4yAMM/g==;
+	bh=WIqd6cICLcDtgVU8TjeLaWc6sKaVVwdmQxgOHtChvG4=; b=WAzPHihzW+mZQp6peZ8EkvFH4A
+	YXQ6KRIrgwwV0kYr7k1/7w0oCvjctjk4zX3fkJEiNmEOhiYn+cJL65QyYvPIAFInQVeoxJCfBeoPV
+	LbRZ3mXoCnH6zK3pa663kQDkHVK/IgIvK57PluIf5O3dWO33gi9kV8mLfcx6XTWi3N8qBgVELHN4n
+	5VwV1oCUaveUR3zxH6ltYl6HNZ47ntV+iDDSBSCCyMtn1BDB6IWcaYvjzSWs+/zcWvCwE9PzlbsU4
+	cFI44eqwNNcyGSK4TjFEDwxLdaVqH9ELoofAjfvDoX9rNzLrQAA5RcLRQNt+m6mP6kwpQZhWA51V+
+	lFOnDePA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUIv-000000011eb-3dmH;
-	Fri, 06 Dec 2024 09:07:17 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tJUPs-000000012ph-0Fq4;
+	Fri, 06 Dec 2024 09:14:28 +0000
+Received: from mail-db8eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2614::621] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUHa-000000011Kt-2fLV
+	id 1tJUOq-000000012fh-0iRD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 09:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1733475954; x=1765011954;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=+YIfUdq9OR5ROGXG2tbL8UIVwnPsC3GbJ9XOwhsQXWg=;
-  b=kmLyHciVtsAXUywT7Eu5uyGdOMbOQ7ut2HF5VbwBPhhJhnOju0MmFUOk
-   rejlQcw2ALh5DJPxwhW7PkmyzpCMnFpByXtWaxicPclgMBFML24emSUlr
-   9x2BkJnzeofrdM7LDXr4i1rM4LjL7bHu+qfMaX/NyhI8jKZBxurm/jAq3
-   6P92y9Q0saqB46dv3vCMv4S9MPOlCOQr+5s7cGWj5ral61O4lBQ9R460m
-   NHoo5lGaexE7rccPF0eAR5yXpPkFl56tS9Z10fXZ6/cjp+bEoa8JKW7mt
-   Yrzy1q+uAr+i0Xd8HIEmz6Xp8zEbZZBFLn9oyPxv2+tTYnH//mKeQcOwX
-   g==;
-X-CSE-ConnectionGUID: oVbENiJ4R3iM76QGjQUZbw==
-X-CSE-MsgGUID: YnhpYHKDRjOcgqB0ukZk4Q==
-X-IronPort-AV: E=Sophos;i="6.12,213,1728943200"; 
-   d="scan'208";a="40449387"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 06 Dec 2024 10:05:52 +0100
-X-CheckPoint: {6752BE70-2-1E10F2A5-CC0651E5}
-X-MAIL-CPID: 313663F2906B776E37CF64B963F0996B_4
-X-Control-Analysis: str=0001.0A682F17.6752BE70.0064,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 786FF163AD6;
-	Fri,  6 Dec 2024 10:05:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1733475947;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+YIfUdq9OR5ROGXG2tbL8UIVwnPsC3GbJ9XOwhsQXWg=;
-	b=rm6Ic1fZRlZmgzFL/7eQp1nhcTTvMsgpS9iWRkPgv1JDg/Ns2sYSxwQf/bZezXw447Kzki
-	1F8E5iNQtQQbMxiZPX1HgsO/xVUJLzMbprmisfvvnxy+2IE3Ubw4alQO5wjgMiWiPN8r9U
-	3hajrS3sEQPb7Z4c2fierSy9XjVNo0tcxmvxEK02C3JH64DEFXpwM9IO/hCGLtLn/Zn4PC
-	oVc8aRcUXK2gVwX3wqAwKgNiTKpoVzktaroRC6jt/6uBW6jFdRiM8bdXxNmtzDAF19mGzV
-	2vPwZLMeb/8y6NyicmynZBd6CT2hydwBNuzmMTPw/NdQ7VbJgOlePcy5WxCNpg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Pengfei Li <pengfei.li_1@nxp.com>, "open list:NXP i.MX CLOCK DRIVERS" <linux-clk@vger.kernel.org>, "open list:NXP i.MX CLOCK DRIVERS" <imx@lists.linux.dev>, "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: Re: [PATCH] clk: imx: Enable IMX93_CLK_LVDS_GATE only for i.MX93
-Date: Fri, 06 Dec 2024 10:05:46 +0100
-Message-ID: <4615625.LvFx2qVVIh@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20241203130530.1206526-1-peng.fan@oss.nxp.com>
-References: <20241203130530.1206526-1-peng.fan@oss.nxp.com>
-MIME-Version: 1.0
+	Fri, 06 Dec 2024 09:13:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TB0+1UuhHUoYgV+xs8eEMQPSeageUuAY/vd5Y6+nMhbpkgt1IE0CAPzBhzzsvy+LnLkPUfI6cCGnp1NleWxZA2s+o1SHL+Y3MpeYYe3tDEI6xuSCcB1f3h18wNfVDWzu2Ubp5p52l85sKCPr3ieKMfbyLFwIAvLrB8aOd9WRKGIB3jhdailYb7LgMDa4ozvn33Pq/S6/jBJzypoUwi/BP9Sbpajt1ZkveanwJO9Qp5StjjzJdCEfGdaf0KFBpHOqKGxHDetC6iKrKjZZTbWgitQYSIJeSe9Druklj5FfCTxTmJM7Nh5tWrHgAjNMWYnI8ZN9ll9RXjUFCSJyU/r+mw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WIqd6cICLcDtgVU8TjeLaWc6sKaVVwdmQxgOHtChvG4=;
+ b=T/s1SOlpKMYgDkYSoWTQDqCveXkaU8yfBEULrZQwWkLEgrrseYyVHi9XW72HEganz38rQjmuV7MGwkuo8oz/N66dzwJmRB5bmDLz5fD3uYa1ILjUMHiZsmAzkK9L94gofITZw8AwZHJRwOzCdpOHM61PFI2nFHNR8NMbniWjjQ3aIqbRhsbNfxuzhvwX2ioaG56CzO6xcXOOU0SRT+e5jHrRgxD93NbOWQb5h/t2lypSyjQIZ5e2Ymn4EAoJdpP2u7XUNTHbqyqqAXNaezsTWg1FIQQvtNIGVubSXUVGQiUDylKOEDrpWdHCuEowMHkpV+gB7/FnQZWwzkItNtoPnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WIqd6cICLcDtgVU8TjeLaWc6sKaVVwdmQxgOHtChvG4=;
+ b=C6TSIAbJ5M6OUIhhf2/wegU53YAhyLFHluSUY/gCsQ5AFDSPCRXtvFA93LTFF3sU36dcoxvKzmDmntkESostjGhHtnsUN0Id+Yvo9GKfjkKuBOUV1WE3NVuOwUE5nxLUKI0o6NRFJRH7ZjJsqNgFI5Zgi+MlObCZ6IOLZwv0+7vyyj2GlOpvCQCIHMB5hxylsMUzx7J//baP4vit8MV7ZWV3wVD5X/GOfbYzUml4wJ20KzuWdCxkVh8yxQCG+hDXoJ0m7/lAeGQwRmM4eI3mFBGrUskor9zul1CJmFcc8SbQUJ4XmRXBX7wx286vhOXBAbE2qV52bTClLZl9YBMR3g==
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
+ by PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.12; Fri, 6 Dec
+ 2024 09:13:16 +0000
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8207.017; Fri, 6 Dec 2024
+ 09:13:16 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] i2c: imx: make controller available until system
+ suspend_noirq() and from resume_noirq()
+Thread-Topic: [PATCH] i2c: imx: make controller available until system
+ suspend_noirq() and from resume_noirq()
+Thread-Index: AQHbR78V5fUGsbCKp0i1DGjXUsVoLQ==
+Date: Fri, 6 Dec 2024 09:13:16 +0000
+Message-ID: <AM0PR0402MB3937ECA7D10662217F787AEBE8312@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+References: <20241125142108.1613016-1-carlos.song@nxp.com>
+ <6d6xgvuvu74hm5466xeovgr4qqkwxaxaoeemvfdty3dqnl4gjp@axlzm6mxnzkv>
+In-Reply-To: <6d6xgvuvu74hm5466xeovgr4qqkwxaxaoeemvfdty3dqnl4gjp@axlzm6mxnzkv>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|PAXPR04MB9644:EE_
+x-ms-office365-filtering-correlation-id: 874a092b-5936-4c9d-1a42-08dd15d637e3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?ECOafoj+FT2Ovnh876Id3hjXmnVxWN+jorD6BpxaiRm11lXIRzB6HdMgwf4m?=
+ =?us-ascii?Q?Pbn1jrq0aaaeOsKAT4APuemya4U9q6ycIZNftZy3DMNS9j18oooOw3VJ1LRw?=
+ =?us-ascii?Q?/hOl8konioazIbojmzWFZxmPqoa/tP1zgzIk+vYqMXwW18dcSh9PhR4ct461?=
+ =?us-ascii?Q?XAA0O9LtzN2DW3QGuAqgw6JtWnXZb5bN2UT321voRUWaUYV8okci6ApLKtk4?=
+ =?us-ascii?Q?bcDrWM478zflLlfbH6vTsSbrKPSgtfoACoGkkk01+zUaGvPmPp161xJzIg5f?=
+ =?us-ascii?Q?zFqAv9U/Ht6+TfLfhrhBIziZ3L6JwMyd2bzqJSf52yYwkvCHK9bm7d9EmJXQ?=
+ =?us-ascii?Q?L5wbb1hFHqUV2HlXP3jgNTLZWorngEYMr6GuM8scVuazVcCXR2k6o2mzHsBp?=
+ =?us-ascii?Q?gOWlghBoDM0cvyutz/m2hmIB/K3OcAdNz3r67AICE1x6MWRk/Qx4dvyCMN+0?=
+ =?us-ascii?Q?KdepIH/pcK+ksEAEU6Qc8/xqAxn5FjZ3PccY7y7fGX0F3MWjvrD4ZAt7yrB7?=
+ =?us-ascii?Q?3nfoT5u2nDsAoW14IVqy58vKXNa6+FuL4AfQXG9xyjTRKSxd25zcs7D5cc36?=
+ =?us-ascii?Q?KMG8ml3tcZj/Vj6hKfM5ryOR/2ORTcfPy4J/ZOHMzeM/TdmC/6z7Cvuf+OFr?=
+ =?us-ascii?Q?xkoLwv5vpsHJh3oxh8Zcy7meWsxotHRTu74zga22I/dUbyfIuybwn2xWm3O+?=
+ =?us-ascii?Q?ZPVfl+UacdqkGa8TQ+jAO8dwsRGoRMEnZugG2RdOz7AJJpbFpeVKYkTBY3CZ?=
+ =?us-ascii?Q?V3ihnhxk7r81vrksfCerxPrMuLuHyN/qHMVgU4KPcKsUF3enSSB5kq3pEbTd?=
+ =?us-ascii?Q?KjRrXALXZFDJ9RXSBNB5uvso1qPA4kISAnh+F/CDjOlvC1KwZU71+WzOAppq?=
+ =?us-ascii?Q?jxPQHpFB32Hg6tXWkBIrDis4pKFpoerp6BvmGGORx6pbaOducO0OaY4KuYB4?=
+ =?us-ascii?Q?j84gCQVKorKbe8ijEzi+6WA0w+Og1G76ChcxQ7xQMUWrGC6LkBnC0F9XGsYA?=
+ =?us-ascii?Q?yy17TNobjtIZKFQYU5xwAIfha5Nd6xh5gxm/I6U743GTwhCNt2ZQWXWToImg?=
+ =?us-ascii?Q?o+uRMZYWU0pFKtrZ/aW/1aXsXhcyQzdUJ6+JsrhDr51NIlpqgm1WD/upV58O?=
+ =?us-ascii?Q?TiymPgS23XTFM4kJcCKWlrdXM6eu9JtODZcUxolLreC5Jofy8aLQ1+PULgRL?=
+ =?us-ascii?Q?s+JekFheeH5mLRw7Ua3QmUrg9WSAQ+3BjMUcYU/qg+y0SrZymt4xphDCCg01?=
+ =?us-ascii?Q?CPADN356TIhk5mSDNHgiGayJbRK7hMNwLpKHhM1PIecEkTibnObeOmOGmFnk?=
+ =?us-ascii?Q?OXYBVuWSDoVheJOdJiayqON74fWTpcQsppVHFBzkaSSBm3bQAb2Uh0gwwuY8?=
+ =?us-ascii?Q?q39KyCoqTfdsIGOWpDFn3ailQ/kQqjoZ4q7LxVnBWhEbWuicYw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?lvEYMToRFvCzf2+rneDhXeRWP85xEibzeVBxtYKI4bcENXFaQERatdJAKs/s?=
+ =?us-ascii?Q?5xTE/Oe9jl9/Idca0JOqZ7GqPMqOErGzenaA1/VseaoPAF1KW2H6AoioQsgR?=
+ =?us-ascii?Q?/X45bhe1ZrN7TbjUZ3+hVW2wlrCuqumm1H1DKUJSvSSjF5CAkMEwzoXQlVkX?=
+ =?us-ascii?Q?zjnuwOiekaIM2lemmXNV+WiBW+gz9Cja9NDiOkTFgMjE3PNgRvfYrRy9IQbE?=
+ =?us-ascii?Q?j4BGwjLz2ezMUqcUpux8EQKsW6iTnKPIadJ21FfP3HSjGgLTCFlkr+MD2Jfv?=
+ =?us-ascii?Q?jrGFrFmkBky7Ps0hL08lgYcR6IcFB7MSqoA7/W3+8iUdGlYJ9wTZYxzxTs2j?=
+ =?us-ascii?Q?UVY18IQhaM0SMY3zqSvLGg/b4UNcr7fcNO2wjLz7XAybSTEXAJqNavdFfx8a?=
+ =?us-ascii?Q?cwq6pDpoBsBwzX+I72ajXCr28RFMorgc6/UxQFhOccYD3zoEX/EX938TbS0B?=
+ =?us-ascii?Q?T+SGORAMS4/7S3gNxNQXnSQk7nZu0gg2QxEnlh+W52qR3XCxRFXjTaCETnYa?=
+ =?us-ascii?Q?N90Z3a2xVzLbjn/5pmFX03n7SS/xRht0P7X5JBW119eY05SaIYyJ79D5RDoh?=
+ =?us-ascii?Q?c1zcMRoI++FlvSwaG6FvccZA2VBxJorQfdVd1AJryED6I0urk7YOKONcS5tu?=
+ =?us-ascii?Q?TxZncG/XAOTsFab1VagfSb7jVhzcY2kwo2eyW7I0C3c4i3o8nc9LirvoOzhr?=
+ =?us-ascii?Q?q5JDZpYa9BHN2S+9qAjD3OZN1z01qYahFLjqM5VUVa8rgr3sVX84roo6z4X1?=
+ =?us-ascii?Q?WLL57XxiAVPzSyfIazAQabuo40HQJUxND6zLswbl2CRjhfL/U7zQtb5eBZ/R?=
+ =?us-ascii?Q?ph9c38dfm8Ji5Cyc5sFraSN3fbbVSbaWeFrFUOy8VrBHVwTVSmBWhPvo7Cfm?=
+ =?us-ascii?Q?SnH3S7EhE+rjk/jFbqaxBKsazGuugIQdUURx8SyYpBHTs9NxziZM/OTis3j5?=
+ =?us-ascii?Q?THWG+dvGOEQGjNnZ2vKUjxwFzbZRSYZ7iYiNddivTEUOCbZBQBLREAzjHwaM?=
+ =?us-ascii?Q?t0sim666P8RBNfgOKI908k1GhnOlgP/gcluKCd1M4d4checkOFCb4C4ARF3z?=
+ =?us-ascii?Q?lGhst8NYJF/mcBSVMrbiAAbuRKFBhDQOM1LJ4xXJkjUiQ6lZhmmEJymTIyb/?=
+ =?us-ascii?Q?oRImBqaKrDGIErg4P/7PTNPLq0pfoWqE6NHxMBSfqg56KD2oNSCAJhEbPef9?=
+ =?us-ascii?Q?ibflB2jzY83Kb6SiEh0OpLbDLJFE4/z6fsf/uP5Qv6RqcpdzNtEp8nXwJ/Vi?=
+ =?us-ascii?Q?0XUKhDmlJsQkHBAu6ZGijNxDzKJLelBh4j2jSmUWWoIoiB7SrhoiT4h+yu07?=
+ =?us-ascii?Q?5wXw8azIJmdhs6ZmUGOWSmXcrI/PpOj+dJLexSScdN9jOPajS7QBdJKAf7ab?=
+ =?us-ascii?Q?A5UpIC45FFXfT+OJwD6fSONLWyYeZu+XKo9ZgFzodFMaoS5iWJecsr8Cx7wD?=
+ =?us-ascii?Q?UGr3ZG0kVN2+TVwYMbTcLgyGpVWSA9Z1aa9vgGRvIFfnyD2+gZMHDHPKwUKT?=
+ =?us-ascii?Q?kt69zmqdgwv0o1Yi27uV/bqTUt3XqR5ts4wnuLXPdsh8hClYa51EcrvpA6ad?=
+ =?us-ascii?Q?c7mCJsOJ0n4y07h32UevFZF8ovllLmIX9H7yUnqY?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 874a092b-5936-4c9d-1a42-08dd15d637e3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Dec 2024 09:13:16.1033
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DCicVmq4e0I+KlkX4DJU6qhwNK923GfZ3QPjF3M+/0q86dhVg2gt17b0zZIXSFY22+LIHf49iMWR3xj4Xlpa1A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9644
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_010555_164004_FA2193DB 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20241206_011324_210850_A69E29FF 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +167,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 3. Dezember 2024, 14:05:29 CET schrieb Peng Fan (OSS):
-> From: Peng Fan <peng.fan@nxp.com>
+
+
+> -----Original Message-----
+> From: Andi Shyti <andi.shyti@kernel.org>
+> Sent: Thursday, December 5, 2024 7:54 PM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: o.rempel@pengutronix.de; kernel@pengutronix.de; shawnguo@kernel.org;
+> s.hauer@pengutronix.de; festevam@gmail.com; Frank Li <frank.li@nxp.com>;
+> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: [EXT] Re: [PATCH] i2c: imx: make controller available until syst=
+em
+> suspend_noirq() and from resume_noirq()
 >=20
-> Enable the LVDS gate only for i.MX93, because i.MX91 does not support
-> LVDS.
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report =
+this
+> email' button
 >=20
-> Fixes: a27bfff88dd2 ("clk: imx: add i.MX91 clk")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/clk/imx/clk-imx93.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 >=20
-> diff --git a/drivers/clk/imx/clk-imx93.c b/drivers/clk/imx/clk-imx93.c
-> index 58a516dd385b..a0d2972ba9cd 100644
-> --- a/drivers/clk/imx/clk-imx93.c
-> +++ b/drivers/clk/imx/clk-imx93.c
-> @@ -239,7 +239,7 @@ static const struct imx93_clk_ccgr {
->  	{ IMX93_CLK_SAI3_IPG,		"sai3_ipg_clk", "bus_wakeup_root",	0x94c0, 0, &s=
-hare_count_sai3},
->  	{ IMX93_CLK_MIPI_CSI_GATE,	"mipi_csi",	"media_apb_root",	0x9580, },
->  	{ IMX93_CLK_MIPI_DSI_GATE,	"mipi_dsi",	"media_apb_root",	0x95c0, },
-
-mipi_csi and mipi_dsi are also only PLAT_IMX93.
-
-> -	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, },
-> +	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, 0, NULL, PLA=
-T_IMX93 },
->  	{ IMX93_CLK_LCDIF_GATE,		"lcdif",	"media_apb_root",	0x9640, },
->  	{ IMX93_CLK_PXP_GATE,		"pxp",		"media_apb_root",	0x9680, },
-
-pxp is also only PLAT_IMX93.
-
->  	{ IMX93_CLK_ISI_GATE,		"isi",		"media_apb_root",	0x96c0, },
+> Hi Carlos,
+>=20
+> ...
+>=20
+> > +static int i2c_imx_suspend(struct device *dev) {
+> > +     /*
+> > +      * Some I2C devices may need I2C controller up during resume_noir=
+q()
+> > +      * or suspend_noirq(), if the controller is autosuspended, there =
+is
+> > +      * no way to wakeup it once runtime pm is disabled (in
+> suspend_late()).
+> > +      * When system resume, I2C controller will be available until run=
+time
+> pm
+> > +      * is enabled(in_resume_early()). But it is too late for some dev=
+ices.
+> > +      * Wakeup the controller in suspend() callback while runtime pm i=
+s
+> enabled,
+> > +      * I2C controller will be available until suspend_noirq() callbac=
+k
+> > +      * (pm_runtime_force_suspend()) is called. During the resume, I2C
+> controller
+> > +      * can be restored by resume_noirq() callback
+> (pm_runtime_force_resume()).
+> > +      * Then resume() callback enables autosuspend. It will make I2C
+> controller
+> > +      * available until system suspend_noirq() and from resume_noirq()=
+.
+> > +      */
+>=20
+> Just made some little adjustments to the comment above, please let me kno=
+w if
+> they are fine:
+>=20
+>         /*
+>          * Some I2C devices may need the I2C controller to remain active
+>          * during resume_noirq() or suspend_noirq(). If the controller is
+>          * autosuspended, there is no way to wake it up once runtime PM i=
+s
+>          * disabled (in suspend_late()).
+>          *
+>          * During system resume, the I2C controller will be available onl=
+y
+>          * after runtime PM is re-enabled (in resume_early()). However, t=
+his
+>          * may be too late for some devices.
+>          *
+>          * Wake up the controller in the suspend() callback while runtime=
+ PM
+>          * is still enabled. The I2C controller will remain available unt=
+il
+>          * the suspend_noirq() callback (pm_runtime_force_suspend()) is
+>          * called. During resume, the I2C controller can be restored by t=
+he
+>          * resume_noirq() callback (pm_runtime_force_resume()).
+>          *
+>          * Finally, the resume() callback re-enables autosuspend, ensurin=
+g
+>          * the I2C controller remains available until the system enters
+>          * suspend_noirq() and from resume_noirq().
+>          */
+>=20
+> If so, I will take it in.
 >=20
 
-Not visible in this diff, but also only PLAT_IMX93:
-* flexio1
-* flexio2
-* cm33
+Hi, Andi,
 
-An most probably also mu*_a and mu*_b, even though they are listed in
-i.MX91 RM, but AFAIK this SoC lacks MU.
+That is so nice!
 
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+> Andi
+>=20
+> > +     return pm_runtime_resume_and_get(dev); }
 
