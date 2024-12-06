@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53A4E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8650E77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V52SU6z4mUrPNmuBCYnRZyOhqwTT/IVAD2aAkFpoqNM=; b=aLFTQIH3GtSSGLCnG8emNdL4J0
-	JIVF/Q/8t+TR+63YE3nha9lLP+YcNQIe96ywYYtgv1Vu+hylWfrgMN1IrX2emytUCCqL86U8CedhN
-	12yVzqNfoXepvI3qUdLzluePCb3cFDJgOWCAangf8Qqd/97hw66drQUW9KxtJ/U44DuVaDk5Z0pyV
-	nuuOkN4LOBo56Mp2eIC9gBfzCQ2OtQd1JKIduRYOEhDIpPAtzWcOKfPAg9j4YC5e2SAiKTDpyEohe
-	TqJBnyiRTY7pxuLCIDtewq9DazIqJmFa+pGDb2H1wBUIJTsJx6FB7K6p2+Zepjs6MbKUnpBkPvbQm
-	tYp3BKjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jnlcCs3H5ImZ7T8Lmudwer0XmkeISsLyy/yE335F2HU=; b=glqCVgIoDoz1i1IMZkPKvLtPew
+	7EYasZX0M8SX7XLxjMFf9BPaA6NTPaGFlHPHZ+vfnj2BwMGss/LO8DzPd3YiXWwONHmstve+uFztz
+	QkPZgt9CUAv9kuVL/P/SpzYQp5h2b1X3jQhwxnjJED1etGSFGcFhuGHvETj/K18glqiS2YPLClibF
+	5jp0jrDDLTAKWgS4SUZVfqiLgxWdpkYJBPahuKHf52DqoBfmLtGyIAnLi3EhxpRCY0JyYtQ0SF/j+
+	bLoVunGpM2szuLk073qV5t9pYh+73Ydag6hZCswvDoh7kSaBEopu4q7Rj7rPgFdGWV5iWamXPS+gi
+	9hdwnjGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbwB-00000002Irc-2Jrw;
-	Fri, 06 Dec 2024 17:16:19 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tJc1l-00000002Ja2-2TIH;
+	Fri, 06 Dec 2024 17:22:05 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbtW-00000002IX8-1MJE
+	id 1tJc0i-00000002JER-2bMr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 17:13:36 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa5325af6a0so364738566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 09:13:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733505212; x=1734110012; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V52SU6z4mUrPNmuBCYnRZyOhqwTT/IVAD2aAkFpoqNM=;
-        b=mYaNmYUkyqN5WNlOj7qrCVYgDkZrmXX4Pe1zA+frN5D/jmt45ZnypmG5NNSpilLRYd
-         KYm9+RfL3zYkrGJ/wFBGIquCdEJrvkJnQ0APWggUQMklJhr39GyXKnuTg1s6paFD8SZO
-         +4JlZv+AUhDJfHbnRLvAE8r9Kmc3ebA6uevDe7AONLD+5qKfD4+IMacIA1GVPEnOnDh+
-         8twb95wzZuFloY5A/2s+yiKcFDIsoNOdqJVWf69B6fXuODNnWPd+shC0fc1TuUCrmVws
-         RoD1tilEndWWeXrcD5ExVuDdR+QTP59Dozj3jyzBE7xCnd71OXG0GcH1Th75pAEhDG2r
-         TNLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733505212; x=1734110012;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V52SU6z4mUrPNmuBCYnRZyOhqwTT/IVAD2aAkFpoqNM=;
-        b=te0QOo0h8zV5YbQh1K422+fn3eLdA6xDaL1mRrczoFgwJdZPDqu5VUw2tRKXrvYvns
-         10pr+kBakaOfxGj9gEZaPEJzXe5hY5ODM39Z6ZlfEJB7eghYN5W3HvVYfLEXxpiSS4HT
-         qF/xbE9ICk4dmhjAaA1MkfykosywnnPxOCc+IRThID5YUSr5TLOZhCiO5OBpWrbNOE3z
-         JqHGm/p2/Cj8tU6nQDuWb2OVBtbV6r8r6ry/U7PYFz+b5qPR1NWlH+go32/WtxCM2DVo
-         6lRcQFtBaiW/14Lz36JnMODecQMYqu3QVZpZzekzx6dBTvcaZY7fzovLUgo/dunId4+A
-         /oVg==
-X-Forwarded-Encrypted: i=1; AJvYcCUtwQLUbfDmkI3V8yORsdRjvcxMkXmbyFTMBONcvtMCFnuNbC/bfJFl1b8bFCqFduc5k5wyos5mikpCVoAOJAHc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIZrqZibyRyfZ9WeFs6iFQ1KR1iVbmt5cT6WqybDyC/kq09ApT
-	pjlnMJqOUhJcNxqMPS1SogWMQoOI8lrAXnuXVRdshf0ZmkZ36h0FNAYAtT9qwA==
-X-Gm-Gg: ASbGncufNKvb8qo3vjbPsBptwa5hb1zgAMbtXGtBVUEJxSl83PBEqoDIgPyKNI4rdBO
-	ud9CKHlMmTv4lTcNtM75QbMs7KGPGu6R8bompX1hISuchw39e2G7IEoLE2j/XLH3mCrK1Wd0FZI
-	nngAmn15PHHxWq1FzVlb+PN522WhdGOBlcmSmp3ax3KJGOIIla/92N9t+dRSyC2JMZW1ED0Ijis
-	DhsxSLD8IO2MSeVEJy285nJ5YoLhEmN3ENJ/TMRurmBbM72DTE8SCc4qn244FySMiyJHpW5Oynf
-	D9vPulCU
-X-Google-Smtp-Source: AGHT+IGVVuQrI2gV96PYQZo2nUQh6IhmbK76llKwDGJgy/lGFOBBWjh4tjYfJ2SWh7aGoxZm5SPXtA==
-X-Received: by 2002:a17:906:23ea:b0:aa6:2755:c185 with SMTP id a640c23a62f3a-aa63a0a676amr353073866b.31.1733505212192;
-        Fri, 06 Dec 2024 09:13:32 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62601b62esm269659966b.104.2024.12.06.09.13.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 09:13:32 -0800 (PST)
-Date: Fri, 6 Dec 2024 17:13:29 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v4 05/14] KVM: arm64: Initialize feature id registers for
- protected VMs
-Message-ID: <Z1MwuSh6jc94cem0@google.com>
-References: <20241202154742.3611749-1-tabba@google.com>
- <20241202154742.3611749-6-tabba@google.com>
+	Fri, 06 Dec 2024 17:21:02 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B6CiBsX017977;
+	Fri, 6 Dec 2024 18:20:27 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=jnlcCs3H5ImZ7T8Lmudwer
+	0XmkeISsLyy/yE335F2HU=; b=caFJ6LytSjeVQpvsrAyiNnmOzCtcssl7+z/tar
+	2vqONMoKgX9UeoCr1vbKTNcHofsIT9AIMJGOTi3laHROiRNrImLqLSuc5gJK2mOG
+	1M9fU1lY+aa9Wnu5JC4cmXZV+6cDLcltCaS3bYbhAhg7n2Z0OI6IdBM3gq3/rwFW
+	80Ggnjvq1nt4nvfLzenBfYWEcD618JInIv7x6nuhkNsMY3LFetr12gVL7fy9VxAi
+	dyduLPyBg47ZHlaDQRtluOBRBOjkMOlucYTKvSfHbrygQw1eIq5uK+tWtHrnPIRd
+	xBsI6MEugPYXCka4G3OFo2IfHFVbVGspPKXZotALNWapo6Qg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43bwj6jan4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 06 Dec 2024 18:20:27 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1A32D40044;
+	Fri,  6 Dec 2024 18:19:27 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 034F029F32D;
+	Fri,  6 Dec 2024 18:18:22 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 6 Dec
+ 2024 18:18:21 +0100
+Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 6 Dec
+ 2024 18:18:21 +0100
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Fabien Dessenne <fabien.dessenne@foss.st.com>
+CC: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] ARM: dts: stm32: Fix IPCC EXTI declaration on stm32mp151
+Date: Fri, 6 Dec 2024 18:17:59 +0100
+Message-ID: <20241206171759.135342-1-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202154742.3611749-6-tabba@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_091334_384997_0C86F54E 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20241206_092101_217077_4F098A8E 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday 02 Dec 2024 at 15:47:32 (+0000), Fuad Tabba wrote:
-> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> index 59fb2f056177..1261da6a2861 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> @@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
->  	return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
->  }
->  
-> -/* Read a sanitized cpufeature ID register by its encoding */
-> -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> +static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
->  {
->  	switch (id) {
->  	case SYS_ID_AA64PFR0_EL1:
-> @@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
->  	}
->  }
->  
-> +/* Read a sanitized cpufeature ID register by its encoding */
-> +u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> +{
-> +	return pvm_calc_id_reg(vcpu, id);
-> +}
+The GIC IRQ type used for IPCC RX should be IRQ_TYPE_LEVEL_HIGH.
+Replacing the interrupt with the EXTI event changes the type to
+the numeric value 1, meaning IRQ_TYPE_EDGE_RISING.
 
-That wrapper doesn't look particularly useful, perhaps we could drop it?
+The issue is that EXTI event 61 is a direct event.The IRQ type of
+direct events is not used by EXTI and is propagated to the parent
+IRQ controller of EXTI, the GIC.
+
+Align the IRQ type to the value expected by the GIC by replacing
+the second parameter "1" with IRQ_TYPE_LEVEL_HIGH.
+
+Fixes: 7d9802bb0e34 ("ARM: dts: stm32: remove the IPCC "wakeup" IRQ on stm32mp151")
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+---
+ arch/arm/boot/dts/st/stm32mp151.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
+index b28dc90926bd..e7e3ce8066ec 100644
+--- a/arch/arm/boot/dts/st/stm32mp151.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
+@@ -129,7 +129,7 @@ ipcc: mailbox@4c001000 {
+ 			reg = <0x4c001000 0x400>;
+ 			st,proc-id = <0>;
+ 			interrupts-extended =
+-				<&exti 61 1>,
++				<&exti 61 IRQ_TYPE_LEVEL_HIGH>,
+ 				<&intc GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "rx", "tx";
+ 			clocks = <&rcc IPCC>;
+-- 
+2.25.1
+
 
