@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33003E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2C9E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fOGpSJqozf26dVxmBeF8vIRHibOPe4MJoalCqug07Qc=; b=NHYjnstDB5onVNKZl5eUsCneYW
-	EBzTp6bHoMS68UUP9NHfD3dbBu4OfjkWRIMK7ZK5knl+aLOq4eQg+npaDBDUtXW8gbiDcLlsrWIGf
-	qo0LjvZUTM8qrn2JHgxaGHV4ai5v33lSI7/KEosGDI0FZxGwpVXSDpu9D901DmhwSGLKtuVl86ahc
-	qxtT0YhRDcDbzCwcI9RVFR1uYAga57fVuYIEOnUkWDjeTETNfeP16xpMOfIJxZhM44THr3dnzFqZS
-	xslTxjacLtqIwGaTFDUXTPWFiotiuq5yLGZv76KpL0GMfg6w3TftiksFr0HFnzGfn0q/DG5rJ4X4/
-	wE2aI+FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2tyQRP3/Qkevdnd5xVHP7lzCOvoAgO/jM4Qf5/s5bwc=; b=okcFauwQVRAbF443d3nvSE67wY
+	wXKSA1oHtelU1KRFwyQuuyf7gXLryG8CyFK8UL2XGhFzk11ySowU37EnC/J+AKMWeo0e4z8hECZ2N
+	SErFpH5+ZRpBic15+x87B+Vwjmzt8En4HgZZZ3Nphd0ZKXTiCq4QyFfGrpuyScl/wmLaXiuOykLyr
+	AiRwsD6sa5raSAIxEZFLRbhx9y4XoVixUCewhGeak+2GHbHB7gXZ1qF1qcPVxBcyhsL3SAL2hJQrI
+	AsPKM38jbMsCouqbVkfMGoUFXXzwxaJPZE8OE5ZHB5v/fzKv9eDYtqsaN/syol+8ExFPVB9Wk2oRf
+	rJgO62Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXh4-00000001bwn-227H;
-	Fri, 06 Dec 2024 12:44:26 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tJXtl-00000001eWQ-1o9l;
+	Fri, 06 Dec 2024 12:57:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXfI-00000001bJL-2uZ1
+	id 1tJXsk-00000001e8b-3E6d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 12:42:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=fOGpSJqozf26dVxmBeF8vIRHibOPe4MJoalCqug07Qc=; b=lWrWWtWtS6V8FLcQmZwm+noR35
-	caPPCLFIo+KloRv5ELucm544Cratny6sAhIU1iCcOxXbPSJ0DMF8sAInugAWqMwlnxdT4hgjI/ObL
-	0SmvTOIdcnl6L8XQbucsfe4erswIwnipyAIfKTbFqLPtGGYn8WiFlD0rhK2d6Nw/5tUZsea8hnnSN
-	jC3RHvpam93LPXgHMqz/jj77I2j2lzpOaT3gbxYVMw9zJa+mQm7ZFINypFJELKn+TsTHf373i92Gj
-	hgyTGP4LgIA9cYT/danRMYVkMYHZaLidpkK9Azb21EfwDt6unjj434eX7W6AwojJGb5WxObeof53M
-	gJaw1ETA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59856 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tJXcz-0006FN-0B;
-	Fri, 06 Dec 2024 12:40:13 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tJXcx-006N4Z-PC; Fri, 06 Dec 2024 12:40:11 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: netdev@vger.kernel.org,
-	 linux-stm32@st-md-mailman.stormreply.com,
-	 linux-arm-kernel@lists.infradead.org,
-	 linux-kernel@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	 Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	 "David S. Miller" <davem@davemloft.net>,
-	 Eric Dumazet <edumazet@google.com>,
-	 Jakub Kicinski <kuba@kernel.org>,
-	 Paolo Abeni <pabeni@redhat.com>,
-	 MaximeCoquelin <mcoquelin.stm32@gmail.com>,
-	 xfr@outlook.com,
-	 Furong Xu<0x1207@gmail.com>,
-	 Jon Hunter <jonathanh@nvidia.com>,
-	 Thierry Reding <thierry.reding@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Furong Xu <0x1207@gmail.com>,
-	Hariprasad Kelam <hkelam@marvell.com>
-Subject: [PATCH net] net: stmmac: fix TSO DMA API usage causing oops
+	Fri, 06 Dec 2024 12:56:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7DD0A5C6796;
+	Fri,  6 Dec 2024 12:55:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D9AC4CED1;
+	Fri,  6 Dec 2024 12:56:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733489790;
+	bh=CcvGwj3nX/cJL1PK353IPE4b9ZUoSfd2vgCJQVxEO60=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XWszWwZ+HkTEZCTr5MgjLWvfnHiAllNkXcFZAWTxxeoGEO8/pNdIiAUXZ4Surj0Ns
+	 5eQopZu6arlr0rUCaCYGfuWVaPwMQ+NNMLo/DtH9opaUI66OMWxn7imQEKM/zYdeV7
+	 gduhLq/UgTZU+VbmiV/Z0d3cXWfKk8RVdfuoisXRDyYFWiFjo9sdu35EsjLl+hf0fL
+	 gdwwKtEXApQfv+f2nvV70UtDXoL72NGXyTW8oxAb50lK/tQLuSktRv197wqNSi5LDX
+	 +b3dINQlpqtV7+kuh/s+7mRogj1tdMucOx1IKydrkM734Uf4C1Ucej9JGu9Zr/GaSb
+	 +aQ0TWgPnJo+Q==
+Date: Fri, 6 Dec 2024 13:56:26 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 01/20] dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+Message-ID: <cnacul23vrat2vmoxmi626awgmodp5zvb7rf5pu2g6cwysmlzh@oqcopgp7tzlm>
+References: <20241205111939.1796244-1-dario.binacchi@amarulasolutions.com>
+ <20241205111939.1796244-2-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tJXcx-006N4Z-PC@rmk-PC.armlinux.org.uk>
-Date: Fri, 06 Dec 2024 12:40:11 +0000
+In-Reply-To: <20241205111939.1796244-2-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_044236_725576_F1886F52 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20241206_045630_848865_1E94C99F 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,74 +78,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap
-for non-paged SKB data") moved the assignment of tx_skbuff_dma[]'s
-members to be later in stmmac_tso_xmit().
+On Thu, Dec 05, 2024 at 12:17:36PM +0100, Dario Binacchi wrote:
+> Unlike audio_pll1 and audio_pll2, there is no video_pll2. Further, the
+> name used in the RM is video_pll. So, let's add the IMX8MM_VIDEO_PLL[_*]
+> definitions to be consistent with the RM and avoid misunderstandings.
+> 
+> The IMX8MM_VIDEO_PLL1* constants have not been removed to ensure
+> backward compatibility of the patch.
+> 
+> No functional changes intended.
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+> Changes in v5:
+> - New
 
-The buf (dma cookie) and len stored in this structure are passed to
-dma_unmap_single() by stmmac_tx_clean(). The DMA API requires that
-the dma cookie passed to dma_unmap_single() is the same as the value
-returned from dma_map_single(). However, by moving the assignment
-later, this is not the case when priv->dma_cap.addr64 > 32 as "des"
-is offset by proto_hdr_len.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This causes problems such as:
-
-  dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
-
-and with DMA_API_DEBUG enabled:
-
-  DMA-API: dwc-eth-dwmac 2490000.ethernet: device driver tries to +free DMA memory it has not allocated [device address=0x000000ffffcf65c0] [size=66 bytes]
-
-Fix this by maintaining "des" as the original DMA cookie, and use
-tso_des to pass the offset DMA cookie to stmmac_tso_allocator().
-
-Full details of the crashes can be found at:
-https://lore.kernel.org/all/d8112193-0386-4e14-b516-37c2d838171a@nvidia.com/
-https://lore.kernel.org/all/klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw/
-
-Reported-by: Jon Hunter <jonathanh@nvidia.com>
-Reported-by: Thierry Reding <thierry.reding@gmail.com>
-Fixes: 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for non-paged SKB data")
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 9b262cdad60b..c81ea8cdfe6e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	struct stmmac_txq_stats *txq_stats;
- 	struct stmmac_tx_queue *tx_q;
- 	u32 pay_len, mss, queue;
-+	dma_addr_t tso_des, des;
- 	u8 proto_hdr_len, hdr;
--	dma_addr_t des;
- 	bool set_ic;
- 	int i;
- 
-@@ -4289,14 +4289,15 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 
- 		/* If needed take extra descriptors to fill the remaining payload */
- 		tmp_pay_len = pay_len - TSO_MAX_BUFF_SIZE;
-+		tso_des = des;
- 	} else {
- 		stmmac_set_desc_addr(priv, first, des);
- 		tmp_pay_len = pay_len;
--		des += proto_hdr_len;
-+		tso_des = des + proto_hdr_len;
- 		pay_len = 0;
- 	}
- 
--	stmmac_tso_allocator(priv, des, tmp_pay_len, (nfrags == 0), queue);
-+	stmmac_tso_allocator(priv, tso_des, tmp_pay_len, (nfrags == 0), queue);
- 
- 	/* In case two or more DMA transmit descriptors are allocated for this
- 	 * non-paged SKB data, the DMA buffer address should be saved to
--- 
-2.30.2
+Best regards,
+Krzysztof
 
 
