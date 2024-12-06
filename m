@@ -4,92 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D15E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7FBE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FIX3GE2Cphszv8rtvt9crE9ghdCcm+668GDkaRhBU4=; b=iMaxvn+xvLWGRTlfeo/yOAj5Au
-	KJnZX5k6PLVXuLLbOoWN1gYn27ff2GjmAEdFczXNqomRYbN/c/oDXmhCGbXbQLX3831ewSWyAOPkK
-	Fl3GvLPky6cvBYIzXzCOWV42meWWq4pgaFBqLCEE0zdR1b+LreIrxK6MW/AitFw6VHk/qWVCFz8ds
-	nraMZC5XR6W/h2I8C4vm1mBlBqPZAgaAqU/nNVXOydGdirpSA92ZvmLJ6IjYkAx5nhwDghCN1b0P7
-	oHzde7j7A7lEGbZSWP1JbaWm+pcDluQf1l1dUSGSOMdwf9y6bv6G2IQ93dJkQdem4pbXIemQOTWYv
-	qFsSL9tA==;
+	bh=+YIfUdq9OR5ROGXG2tbL8UIVwnPsC3GbJ9XOwhsQXWg=; b=Xlx/u/h9ivvPzzhN4cker96irS
+	hcJkFAKM+/S/ercofKVzBQUSVS/cH050GyMFvpAOYSTcpbESJfACXaaiBUjGZJ3Fsq3I2rEzWfeJ3
+	StCIRoDv5CKEte1AROyfNek56OBGL+BlCwDdKh7EaTe/nBFs+G3lHxM3UZqMeHtyg6mFi7byiLEUz
+	wF2k63L9xJNijWLw5lXRNDCsSVH+hXUI1bc7wMNNCMutWmFu8brbs4kHNOwVXQ5GsXseK42KeiI2h
+	+K3tn0mdk2znsC3Ok0sQuI9fzK/lCwLEv00SDBZxLxAw/fc1q3nf8CmbMY7oJvYsdVPitoXJfoghi
+	H4yAMM/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUHw-000000011QA-0vk0;
-	Fri, 06 Dec 2024 09:06:16 +0000
-Received: from out-13.smtpout.orange.fr ([193.252.22.13] helo=out.smtpout.orange.fr)
+	id 1tJUIv-000000011eb-3dmH;
+	Fri, 06 Dec 2024 09:07:17 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUGt-000000011Ee-0LwH
+	id 1tJUHa-000000011Kt-2fLV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 09:05:13 +0000
-Received: from mail-ed1-f50.google.com ([209.85.208.50])
-	by smtp.orange.fr with ESMTPSA
-	id JUGntHME3gEASJUGntdRFj; Fri, 06 Dec 2024 10:05:05 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1733475905;
-	bh=5FIX3GE2Cphszv8rtvt9crE9ghdCcm+668GDkaRhBU4=;
-	h=MIME-Version:From:Date:Message-ID:Subject:To;
-	b=uAppuN40DasNXXQJMdRcTI3wI90rK6g/+b/qh0VMKvnCosl3lme8pdc6ikAuraw60
-	 si7nprTlY+7ruLnRUq0zdf4JjDcXekjY74wVBuYLWawdTz1KUjcPfJvbzyfKaoJBOc
-	 NjSg8i7KTgz/5estW92ClwNf5nJEQYA19wtaQGkTwCt4klbTKcIjNDM1ZEDyTfAZEh
-	 HkaPg8PrD/M9DUvMCyWtmN7D/A9J/scSX8Jzu8q7R0Ii9FzEz1lJ2vfqWidbsKwvq4
-	 B4WFjezzLzWdK+GvYhdYPs3R1qChh/ZOkGat1RiWXcnNAcR33vdv5DVFwPSHKOeLqc
-	 LH6tgbPrtff5Q==
-X-ME-Helo: mail-ed1-f50.google.com
-X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Fri, 06 Dec 2024 10:05:05 +0100
-X-ME-IP: 209.85.208.50
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5d3bdccba49so1084657a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 01:05:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWTvjsqEyRX5tOUaHgnTXl5+OEHJRMw+8N5Dnwo+4o+k368e+GAVHmXbVCWDtd1P48KXEo5QBA+H52AVvE/Xxye@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx02POZd4yyaE8y8ZjQcPH+NtANTghGpvG+sQT4PkQeXpDF+s4E
-	A5m1O5tR9POg8VF0klUEiQorpgMt8WA+uOTGVrv2fTebDQWOY4jaFLcC5qN/S+po12nKm+wMHGU
-	IdaEtlOu4r/OACQdlUnAIxs0oAfs=
-X-Google-Smtp-Source: AGHT+IHtHlVyoW+nRFmP2KVhABtFl5ikoWMC68HCGMKZEPnxOyfyDUMalss4BKk3XOGNHnTjXwFKxuaBrlfCMkC7FxE=
-X-Received: by 2002:a17:906:9895:b0:a9a:238a:381d with SMTP id
- a640c23a62f3a-aa63a2c64eamr136036766b.52.1733469982863; Thu, 05 Dec 2024
- 23:26:22 -0800 (PST)
+	Fri, 06 Dec 2024 09:05:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1733475954; x=1765011954;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=+YIfUdq9OR5ROGXG2tbL8UIVwnPsC3GbJ9XOwhsQXWg=;
+  b=kmLyHciVtsAXUywT7Eu5uyGdOMbOQ7ut2HF5VbwBPhhJhnOju0MmFUOk
+   rejlQcw2ALh5DJPxwhW7PkmyzpCMnFpByXtWaxicPclgMBFML24emSUlr
+   9x2BkJnzeofrdM7LDXr4i1rM4LjL7bHu+qfMaX/NyhI8jKZBxurm/jAq3
+   6P92y9Q0saqB46dv3vCMv4S9MPOlCOQr+5s7cGWj5ral61O4lBQ9R460m
+   NHoo5lGaexE7rccPF0eAR5yXpPkFl56tS9Z10fXZ6/cjp+bEoa8JKW7mt
+   Yrzy1q+uAr+i0Xd8HIEmz6Xp8zEbZZBFLn9oyPxv2+tTYnH//mKeQcOwX
+   g==;
+X-CSE-ConnectionGUID: oVbENiJ4R3iM76QGjQUZbw==
+X-CSE-MsgGUID: YnhpYHKDRjOcgqB0ukZk4Q==
+X-IronPort-AV: E=Sophos;i="6.12,213,1728943200"; 
+   d="scan'208";a="40449387"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 06 Dec 2024 10:05:52 +0100
+X-CheckPoint: {6752BE70-2-1E10F2A5-CC0651E5}
+X-MAIL-CPID: 313663F2906B776E37CF64B963F0996B_4
+X-Control-Analysis: str=0001.0A682F17.6752BE70.0064,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 786FF163AD6;
+	Fri,  6 Dec 2024 10:05:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1733475947;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+YIfUdq9OR5ROGXG2tbL8UIVwnPsC3GbJ9XOwhsQXWg=;
+	b=rm6Ic1fZRlZmgzFL/7eQp1nhcTTvMsgpS9iWRkPgv1JDg/Ns2sYSxwQf/bZezXw447Kzki
+	1F8E5iNQtQQbMxiZPX1HgsO/xVUJLzMbprmisfvvnxy+2IE3Ubw4alQO5wjgMiWiPN8r9U
+	3hajrS3sEQPb7Z4c2fierSy9XjVNo0tcxmvxEK02C3JH64DEFXpwM9IO/hCGLtLn/Zn4PC
+	oVc8aRcUXK2gVwX3wqAwKgNiTKpoVzktaroRC6jt/6uBW6jFdRiM8bdXxNmtzDAF19mGzV
+	2vPwZLMeb/8y6NyicmynZBd6CT2hydwBNuzmMTPw/NdQ7VbJgOlePcy5WxCNpg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Pengfei Li <pengfei.li_1@nxp.com>, "open list:NXP i.MX CLOCK DRIVERS" <linux-clk@vger.kernel.org>, "open list:NXP i.MX CLOCK DRIVERS" <imx@lists.linux.dev>, "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: Re: [PATCH] clk: imx: Enable IMX93_CLK_LVDS_GATE only for i.MX93
+Date: Fri, 06 Dec 2024 10:05:46 +0100
+Message-ID: <4615625.LvFx2qVVIh@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20241203130530.1206526-1-peng.fan@oss.nxp.com>
+References: <20241203130530.1206526-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
- <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
- <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com> <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
- <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com> <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
-In-Reply-To: <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Date: Fri, 6 Dec 2024 16:26:11 +0900
-X-Gmail-Original-Message-ID: <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
-Message-ID: <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
-Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of __is_constexpr()
-To: uecker@tugraz.at
-Cc: David Laight <David.Laight@aculab.com>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
-	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
-	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
-	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
-	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Martin Uecker <muecker@gwdg.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_010511_396457_2FF66CE2 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20241206_010555_164004_FA2193DB 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +92,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri. 6 Dec. 2024 at 15:40, Martin Uecker <muecker@gwdg.de> wrote:
-> Am Freitag, dem 06.12.2024 um 02:25 +0000 schrieb David Laight:
-> > From: Vincent Mailhol
-> > > Sent: 05 December 2024 15:31
-> > >
-> > > -CC: Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-> > > +CC: Martin Uecker <muecker@gwdg.de>
-> > > (seems that Martin changed his address)
->
-> My current one is this: uecker@tugraz.at
+Am Dienstag, 3. Dezember 2024, 14:05:29 CET schrieb Peng Fan (OSS):
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> Enable the LVDS gate only for i.MX93, because i.MX91 does not support
+> LVDS.
+>=20
+> Fixes: a27bfff88dd2 ("clk: imx: add i.MX91 clk")
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/clk/imx/clk-imx93.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/clk/imx/clk-imx93.c b/drivers/clk/imx/clk-imx93.c
+> index 58a516dd385b..a0d2972ba9cd 100644
+> --- a/drivers/clk/imx/clk-imx93.c
+> +++ b/drivers/clk/imx/clk-imx93.c
+> @@ -239,7 +239,7 @@ static const struct imx93_clk_ccgr {
+>  	{ IMX93_CLK_SAI3_IPG,		"sai3_ipg_clk", "bus_wakeup_root",	0x94c0, 0, &s=
+hare_count_sai3},
+>  	{ IMX93_CLK_MIPI_CSI_GATE,	"mipi_csi",	"media_apb_root",	0x9580, },
+>  	{ IMX93_CLK_MIPI_DSI_GATE,	"mipi_dsi",	"media_apb_root",	0x95c0, },
 
-Ack
+mipi_csi and mipi_dsi are also only PLAT_IMX93.
 
-(...)
+> -	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, },
+> +	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, 0, NULL, PLA=
+T_IMX93 },
+>  	{ IMX93_CLK_LCDIF_GATE,		"lcdif",	"media_apb_root",	0x9640, },
+>  	{ IMX93_CLK_PXP_GATE,		"pxp",		"media_apb_root",	0x9680, },
 
-> > > > > + *
-> > > > > + * Glory to Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-> > > >
-> > > > IIRC Martin has agreed in the past that the accreditation can
-> > > > be removed - especially since it refers to the 'sizeof (void)' trick.
-> > >
-> > > I tried to look for such message:
-> > >
-> > >   https://lore.kernel.org/all/?q=f%3A%22martin+uecker%22+__is_constexpr
-> > >
-> > > but couldn't find it. Do you have the link?
-> > >
-> > > @Martin, do you agree that I remove the accreditation?
+pxp is also only PLAT_IMX93.
 
-So, do you agree to have the accreditation removed in compiler.h?
-Personally, I do not mind. I am also OK to remove you from the
-documentation and add you to the CREDITS file if you'd like to.
+>  	{ IMX93_CLK_ISI_GATE,		"isi",		"media_apb_root",	0x96c0, },
+>=20
+
+Not visible in this diff, but also only PLAT_IMX93:
+* flexio1
+* flexio2
+* cm33
+
+An most probably also mu*_a and mu*_b, even though they are listed in
+i.MX91 RM, but AFAIK this SoC lacks MU.
+
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
 
-Yours sincerely,
-Vincent Mailhol
 
