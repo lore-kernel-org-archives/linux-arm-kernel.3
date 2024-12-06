@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CB0E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16ED9E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gezQjvgIcYxaejQ8BDd64CZD9/Ck9vNVcEKNgvbZ4wE=; b=Eyd2K51eGCpIX/qIjqVpjHQPn+
-	Q/8PIHciqtEPCJlbAGH02Ivy3wCU+XvQeJmPZWtfIEakgYoo5GDPgoasIGGExhecC+2U8IIW1789M
-	cT3liHYcBOvBeAn/qhn0WrcXI1Q12ltCs2L22TqIW2uiHO9Jhce547TXxgbWsonGt3jN1MlRk154U
-	r3HyiuGso7X4z8dzFFVeEFsEmB77Y4DBK0u0DQJv+aYgOXGWqFePHqSp1WQx+LTdjN0MXZFLGTVbC
-	iVgtd8Pm4r+XFG1RVZTLNiDQgCZGiMuP7nb6z1M5qECTImiXPrXWDRtPFDLttUJrpz+N+1/jpkGiV
-	83ACYNmg==;
+	bh=MGq6aED53P5HelbsA7MK6wW8IBVofd/BuTMfX8bnHpY=; b=VFgG5KSeLKPJgAJaM41cn2dhpG
+	htrGDYaUhczLxsT0GAnsL4JiPZwcsL7YOIBrIOybVMo6zA1KWGpxXXaeqoTbip7DRrfridyJb6u9u
+	Ai0TMnbbEOT4VN8VWxabN4wTW82Es5Qc0VizuJT7dzb3U1rrwAVVoC4HRkn+0pdwjJNiCzf8mBYyM
+	WSruCB2zeffFvXWdxw5oy2sb7aJLCvo+XgfZk7yGs9uXWrp6c8XuoBL8Nd8xv+pVVpuebElX96ZQ5
+	gfCNQpI4exEoAKOusEbgEXNeldikw+J4mZOwxi1dyzNQH/Jafy6aRLAtGVQ2scBol+eHusKG7SbLA
+	1D91lJzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUyl-000000019Dw-0HHP;
-	Fri, 06 Dec 2024 09:50:31 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tJUzj-000000019Ni-2xx3;
+	Fri, 06 Dec 2024 09:51:31 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUrv-000000017bk-2H58
+	id 1tJUry-000000017eS-1yeD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 09:43:28 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2ffc016f301so16427771fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 01:43:27 -0800 (PST)
+	Fri, 06 Dec 2024 09:43:31 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2ffd6b7d77aso22752441fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 01:43:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733478206; x=1734083006; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733478208; x=1734083008; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gezQjvgIcYxaejQ8BDd64CZD9/Ck9vNVcEKNgvbZ4wE=;
-        b=CcZGMC8hqgG+9pHVa9Dg7RXM4IGNMh9aCzKrZ6aEQ+R1u6GL2SlPW6TOC409QEq1+1
-         fuLM0vXntM2x8t2aQwdyETfIJmUf1elkn0lhBIYVSQSjqqwzu1YKx6ZbCuJ3zEEyj0ZB
-         oSjXFy87Lr4NvPfjMyrScIS6EbGjYGOG1lLftEilB4NoqUHwLAGbMWFy5MaUDD4cqxYp
-         Qh3np75io+Z+u8+AL+zqT6Dl+0ZzSyLIb26TtBR6+LdzmQh0PdhOYsCR6IXvEgxulsuw
-         MqaZubJ0vJ0IwKsrIqknR4iHLT6Zn2xo9t5hAPza6TlCWZqNdXlMALGAjLmiAUdWXNQX
-         giIg==
+        bh=MGq6aED53P5HelbsA7MK6wW8IBVofd/BuTMfX8bnHpY=;
+        b=zQalvKYA7ibmWk8VVbvTXqUSj2tzQSK53h4HvFjzzS5UrPmEEUmOv3Bz/N3P9D7B2X
+         iT7soR565Fq7ye3kBISyDw4ErD7jfg+gVQtK5AQ+uaK3RiUTYFcJyMle5yP58gfRJdvl
+         E2OWMH8tzUjKCc/vOgOcf5G6Q+UF09spzZ5Yu/JFMiv5JLNjxMFDd1g1Fi4S++8cKKTb
+         MkqjK2OjiEWgIfwWvIfra1sYJ9279od4iV3CztZ7630/qCtHoppwb6eiW0b5BDYxGynQ
+         5IFjJDm0UkxnEa4ffVbPBy0IiChV6psd/y36KI5C1/L9kh3OZ4bfhaflpgsskmprTik+
+         4Snw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733478206; x=1734083006;
+        d=1e100.net; s=20230601; t=1733478208; x=1734083008;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gezQjvgIcYxaejQ8BDd64CZD9/Ck9vNVcEKNgvbZ4wE=;
-        b=ocX085tyI3sYQLSWYpQNzn2ItLW2/N1bBYG793/Mcf5LeGDTOTV//hkSuXH25DKu7Q
-         7eYyC+dhRlBAoN5/7oiVeBtBoDpNxUEkLq66NKWrVV8s7v+rSItggYWfaQGgzxMPDYIT
-         agdWG8IUlp2DWoB+gyf6la38ZqLRkxDUO0mD+TrAapte2xxPLAhfEN1XlE1bpNsTWGsq
-         Rz6gS7rDNYPx/r1DVPIf0o9DLJsbPECFBSu+KjJvRGU0G+GXRUfRSsWaO5JzlOq1xs44
-         FmB9hga5DHlc+cjG6M2OySOeq30Hxv7ttzJ0fnPjkiKJtJftAANjWhAe3GGkBao5U8Nd
-         +cnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLvSQsiYuv5FEsFhEjHWRkm8TtEEib7otoWZirpog1+x9/rTszhTz8EpRmLoi9VM3EFx0NBCvt1SYLZ09rnWKm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzF4CTnDZhYiPZi+l3mGnPDK7JQLpN9Ylw4fldGI1f3B8A4EY1J
-	2Xk+IAPSVIOt2CE6gnNtuBxMGffipB8QU+7NQRPYgS7spw53ZiKB79blA0v1p7s=
-X-Gm-Gg: ASbGncsxQAF9hNWbOydA9fhvjJ0zDMtrhRtGXILdezjVVnPmqt96hE7I79QA12Wk8OU
-	M/AizIVUkkHaX22Sglg/thwWqyGRUQmZUxRlqJwv5LfazYCTINMwiDqcS4MJ/NzPm9YDSG2J8dI
-	rloru7gxJAIOTikCjjX82KGCMnXOhcmrSdHSbs46KVfJerM75/RVY8MXwc+klknEabrGF5dV35v
-	K0aJv6LZqHqMSGODPJ6Vvtc1N3lf3L9yKyYpIToEsS6eUEb7nqsxRzBMw==
-X-Google-Smtp-Source: AGHT+IFIxMP3XivqZCXghDCnZTnDDHCeTBksUkUbx72OhyJC9NMw97gxwKXoTkYomD8vLYGmPlA77w==
-X-Received: by 2002:a05:651c:150b:b0:2ff:c69c:db0f with SMTP id 38308e7fff4ca-3002fd14d81mr7610671fa.34.1733478206004;
-        Fri, 06 Dec 2024 01:43:26 -0800 (PST)
+        bh=MGq6aED53P5HelbsA7MK6wW8IBVofd/BuTMfX8bnHpY=;
+        b=Q1JXUKN+NoXzzCN/L99crlMRG62/NGyjUOLtE7yfdRS3UnKrndIythGJfdZ/IJ5icj
+         NOqoPxL7sjtdiZB41HcOiuZA7SdrsQqI92POJPsCdqg2NBd1QNjqtE+0xxjq+j6BFizo
+         d3sY4HKSL6Y4h6smcUBNVtQQD2jJ+lV9kCwCBMNFtXPAk8P+OQpRrJH6gcK0IY/Gy9sl
+         DgdEWKYnZ7/4T9tN9TWn/GOAOZr8S4tMJsSRzxD8dUfc7KN3nPR6E/Ji5tvBy8DSKK7f
+         PcaL2ku1HRjotuj4YKaaZDZ27lYqB0DRS4T+Xryw0FSgtZ3qq9zdSVGKiOMsbgNMkTEE
+         0V1g==
+X-Forwarded-Encrypted: i=1; AJvYcCX3v1Dq29CF7Z3Obe7xZQFR4W0JtHjrntzlW1KR0+Ce/jUU2AFQAwJdncjbW2CtBFbpSJWcBzezTqjoUoB4tJ5a@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA4aXOHW0OylQ5lusJ17HNUgIPtpeKWj8FWfGPCorxKPkstskV
+	Ug5mnj1ko7cazipbYTasZ3i8WCbkTJpiMSImwn8EZM80wlVUNoHh6htNYG1h+wc=
+X-Gm-Gg: ASbGncsplV1J8Wd0IQeXkK5Z8+zc2GZ5eOow+CrrlFI2HJ+NNqf4Emxw+kmRlpRGEjv
+	p0392GQv3uL2vqqdA4I7SpwbQu0L82asJAp/kMtXm/GCpox1kOvfBWACNQOSS+hriRYNkLRlVj2
+	EckIgSVPXTUf0L1vXH36jeEI2xB15YFouV+a+XMRcq1vXzeqg6rngo9OfAUXmYd3pmtO6q/xHgE
+	9qUjt7LSM8F9YgCyEEdNPcDYxt68K86O1ukQLIGOA0y+iMXAqOEV7DSiw==
+X-Google-Smtp-Source: AGHT+IE/NYxmjluRmONb1EoU7KbKKPH87buJ0IjBEcYtxmwcZQlKK0G0iiNZoTWvmIko49pJuOa6eQ==
+X-Received: by 2002:a05:651c:b29:b0:2fb:5f9d:c284 with SMTP id 38308e7fff4ca-3002f8e7df4mr10594341fa.16.1733478208528;
+        Fri, 06 Dec 2024 01:43:28 -0800 (PST)
 Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30020db3805sm4128441fa.50.2024.12.06.01.43.23
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30020db3805sm4128441fa.50.2024.12.06.01.43.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 01:43:24 -0800 (PST)
+        Fri, 06 Dec 2024 01:43:27 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Fri, 06 Dec 2024 11:43:09 +0200
-Subject: [PATCH v2 06/10] drm/i915/audio: use eld_mutex to protect access
- to connector->eld
+Date: Fri, 06 Dec 2024 11:43:10 +0200
+Subject: [PATCH v2 07/10] drm/msm/dp: use eld_mutex to protect access to
+ connector->eld
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241206-drm-connector-eld-mutex-v2-6-c9bce1ee8bea@linaro.org>
+Message-Id: <20241206-drm-connector-eld-mutex-v2-7-c9bce1ee8bea@linaro.org>
 References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
 In-Reply-To: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -108,23 +108,23 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
  intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, Jani Nikula <jani.nikula@intel.com>
+ freedreno@lists.freedesktop.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1533;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1113;
  i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=tgOWbzXmlfNkUNlgKabtbqj34BDfcm3kqO9iU9YutCA=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnUscuyv5W8v1YTELbuHmMKcJNbiEngJDs2MHEM
- hFooEYTmIOJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ1LHLgAKCRCLPIo+Aiko
- 1axkB/99cecYxR+X5C1zAyfkKFkvE75Us55r2gVNp2BPRSD08mYQThqr5+QEsx38SPihPleo366
- eaLD1hT6L2kyK6wdMq+Lkkj0kbXEPPTe9pj1Aad/UleIfoTG7Ps/uhFSFLdKRs0DnQaSZQME+VQ
- M2v8AFXHFAYJgM+8WPJgC0HTtuPSWfqBz+0JZQvtJgjoKRndMOmhlxr4vbN5xbJVZBgEPSDBujk
- kmWs3fgGh1o3Yx1/EyUv6Zz4X6sBrwrTlNvZNOSrOmgizBJLo+cBQyXqidSxYnZIp1DqJdxMFo4
- Qq7ORf/cwV/dZd0e+mmP5jB0ifPb0a3lavlzcLRDNPRaca3O
+ bh=g8XDt4tMHXpR+O+C6P49zaXUZ1QAJx0+8PEn0RE7Eo4=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnUscuHK4m+of5M0K58J1Ue7FnC+JgeJ7oM6NSu
+ bFPedJdqXmJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ1LHLgAKCRCLPIo+Aiko
+ 1bfrCACW5hMSxLBb5or6qGH5D5AVPGJIvY9BGjNY1WTyi2PUHO7TE/oo3Ggc7rv7l860G7eGzQ8
+ uVT1bon1fazOdXW+lYbtHJWim9TYibboTYhb22pQ3YrpWEiuV1UbYdHBB8vzbzO9jXkq/bJmQ1m
+ +E4FMSQ4cvduHdnEWi/8FNjp7zOIShlJYI1KIxungwjDjpEKEtea0kLBR1PRGwCG8/yZZUFfQxI
+ QckeAW77aJDzAZbPOuHWb2f1rJKPg5flOLCaaqtxskOhiUml7r060zILPXNfrxMo4DMSMj+jYwz
+ 1HVsVa0f3CLU5a7ZBeGqVsa/7rnSuUMsfCkuJrb6r9MQM91w
 X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_014327_596703_114C0472 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20241206_014330_510911_3C185B39 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,37 +144,27 @@ drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
 order to protect connector->eld from concurrent access.
 
 Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Reviewed-by: Jani Nikula <jani.nikula@intel.com>
-Acked-by: Jani Nikula <jani.nikula@intel.com>
+Acked-by: Abhinav Kumar <quic_abhinavk@quicinc.com>
+Reviewed-by: Abhinav Kumar <quic_abhinavk@quicinc.com>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
- drivers/gpu/drm/i915/display/intel_audio.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/gpu/drm/msm/dp/dp_audio.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/i915/display/intel_audio.c b/drivers/gpu/drm/i915/display/intel_audio.c
-index 32aa9ec1a204d2ecde46cad36598aa768a3af671..3902ab8431139c3ff4dc17b841d94b6d3241dec3 100644
---- a/drivers/gpu/drm/i915/display/intel_audio.c
-+++ b/drivers/gpu/drm/i915/display/intel_audio.c
-@@ -699,10 +699,12 @@ bool intel_audio_compute_config(struct intel_encoder *encoder,
- 	const struct drm_display_mode *adjusted_mode =
- 		&crtc_state->hw.adjusted_mode;
- 
-+	mutex_lock(&connector->eld_mutex);
- 	if (!connector->eld[0]) {
- 		drm_dbg_kms(&i915->drm,
- 			    "Bogus ELD on [CONNECTOR:%d:%s]\n",
- 			    connector->base.id, connector->name);
-+		mutex_unlock(&connector->eld_mutex);
- 		return false;
+diff --git a/drivers/gpu/drm/msm/dp/dp_audio.c b/drivers/gpu/drm/msm/dp/dp_audio.c
+index 74e01a5dd4195d5e0e04250663886f1116f25711..0fd5e0abaf07828157085bd680bfd3c7d32deb61 100644
+--- a/drivers/gpu/drm/msm/dp/dp_audio.c
++++ b/drivers/gpu/drm/msm/dp/dp_audio.c
+@@ -414,8 +414,10 @@ static int msm_dp_audio_get_eld(struct device *dev,
+ 		return -ENODEV;
  	}
  
-@@ -710,6 +712,7 @@ bool intel_audio_compute_config(struct intel_encoder *encoder,
- 	memcpy(crtc_state->eld, connector->eld, sizeof(crtc_state->eld));
++	mutex_lock(&msm_dp_display->connector->eld_mutex);
+ 	memcpy(buf, msm_dp_display->connector->eld,
+ 		min(sizeof(msm_dp_display->connector->eld), len));
++	mutex_unlock(&msm_dp_display->connector->eld_mutex);
  
- 	crtc_state->eld[6] = drm_av_sync_delay(connector, adjusted_mode) / 2;
-+	mutex_unlock(&connector->eld_mutex);
- 
- 	return true;
+ 	return 0;
  }
 
 -- 
