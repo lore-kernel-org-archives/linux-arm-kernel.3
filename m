@@ -4,114 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3A0E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784CFE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2mGikl9wgoPB6QGMDFbsKjPfadQvu6/96OReyITeFk=; b=ucS2/xqv6BmdZTyf+pCYLC4B8q
-	9zJI8y57GfJpa/rUoDJtkyD6EbF4kSYYS1ap4tq+EUR36/IZ+o/vOd8GaZTFPZQsvDltYHwSX72qk
-	6uecgcDiQ5EUVJvexAlzGi8HW+ZJJIaNW1yTJGs5mO5KKptkgRPNbU2AEOvo1LIXXNZ85zGhBlPTz
-	pJ1Aq+k+HukpAJLSaRRaHCJtiT22ivvpUVN0/S+zPoVBNUXqil1/Yr30NkVElLRjm5i62dCHocn63
-	D51F9r420hhVh9LVSYZAFnHcD20QqRO47InsBMN2LbeROjibcLOb6bGFg4Pzjl0FPZCjmT0h2OPxY
-	20DN5r2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bwc9LXDAAJZ9/0kvee7gl+JgDJP43qDkmP86iqZzvEQ=; b=n6IhEV3LxR5WbJWSLIbXUGZz0F
+	7hH7Y7cr2G6nTr36z+ngg0zgZTtBMvNc3GyQSmrB04nvMsb22oeezRFpOdAOnJd3d5rHPW5f2hGdb
+	caLbPwo+Emx3hdWvBDPmcj7Qj4qQGTTjGnYJWIdj1U+gERLMokkQZ0rQDe8swUCfrMPANUBpcdDJN
+	LwQlPnhUN+EiIVNHG37UcsHKa7YyAuxAr2pT91kqM1ECnLTOEysNCFlcpni47p31AesSw5q/aVy2c
+	nB7U1NT+syZDUzRrQWN6zTSRU8txGFnk5NSEWVu5b5pVfNBDDhGJtAXCihhLMzl3Qcc8t9FqDyQfY
+	gcoc+K+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJY0I-00000001fsk-279D;
-	Fri, 06 Dec 2024 13:04:18 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1tJY1M-00000001g89-1kXx;
+	Fri, 06 Dec 2024 13:05:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXzG-00000001fhY-1tkT
+	id 1tJY0J-00000001ft2-2iMi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 13:03:16 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id C36521140157;
-	Fri,  6 Dec 2024 08:03:12 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 06 Dec 2024 08:03:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1733490192;
-	 x=1733576592; bh=Q2mGikl9wgoPB6QGMDFbsKjPfadQvu6/96OReyITeFk=; b=
-	dKnybjivCTbw/XFCh9sS01mLXRPJ4gwaN2B6x9pux0KTSppt8W9rOgJX4AmvR9Lp
-	IwLOlu4qsLFaGzoGDtFxu9qxgkXJUiFK399tI8ECd81gVKM7k2tJfvZxHyKDRrcX
-	Jkb1Ya6HHWEVwvOL22MZada6TLBuNrXAutaEUhcGDq9yh6QjOp1On7+2vg8sQgYB
-	CJ7vMfRMpw6B1BL7x6LIUYfS6dwXyNlwixukEh8G59uRcmrmJwDi82EGB7osbaMz
-	NzmXnSIuWiOo1H3pZPPVWVygfcbOrHJ7CWzjUNCz2sD7cMpUeHcSOa3vNgHnR/Y3
-	/O5wNAyb2VoJmrSY0/SGNg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733490192; x=
-	1733576592; bh=Q2mGikl9wgoPB6QGMDFbsKjPfadQvu6/96OReyITeFk=; b=a
-	ukdyfWQXN4yJCCSfeKTI2psfUC7pJP06lSaPlUVM5pqyloYDHiMRkHf3QHkac7Cg
-	EXWqnXd+yJW2SKEHDyGwpUgesUa0v+By+UdUBKscL/6rUI2uQ1Yp7VLjVzzZDvMZ
-	sK7AHLVV+21c1Ev/3KUTvLC7sZaOj8B3osOx6p56907Xi5mkyEIcZBwy7RZkES8Y
-	JHh0LH229zLZ464HoprENmxjLtgTHPtVP/LhfmOQhdyU/R8dmKRKfHuEyYHUUpiC
-	HXBlxEiDRq2iwhNM763m/GqiYCCzs6xcXD0jR4QJSyomNneKWiJagBUc15qqpCFi
-	01qjtCSsGVg0bRkoIKP6w==
-X-ME-Sender: <xms:D_ZSZ5GVoHzOXX2xDMFZXz3W-TGG3KlEkI33eTN5eKgDxZeVwu9_9Q>
-    <xme:D_ZSZ-UQYj6xy_pn8EIHY3ZEntYgebtspmL2Y6fqkOJv2zaXbilJVJAfsJXLqEmPO
-    Aauf6LcAt__DVbp8Z0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrieelgdegiecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
-    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedukedp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepkhgvrhhnvghlqdhtvggrmhesrghnug
-    hrohhiugdrtghomhdprhgtphhtthhopeifihhllhhmtghvihgtkhgvrhesghhoohhglhgv
-    rdgtohhmpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtph
-    htthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhes
-    khgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgdrughrrghsiihikheslhhinh
-    grrhhordhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghr
-    ohdrohhrghdprhgtphhtthhopehpvghtvghrrdhgrhhifhhfihhnsehlihhnrghrohdroh
-    hrghdprhgtphhtthhopehtuhguohhrrdgrmhgsrghruhhssehlihhnrghrohdrohhrgh
-X-ME-Proxy: <xmx:EPZSZ7JHa8snLcz6I0aQ9FOzxkZv3FgUF_ANvcqXDMOSLCkbqMS1-g>
-    <xmx:EPZSZ_HeErg6meZEepvltZtpdaRChcfLqyEFsSsSeC9ImXYwIBSTgw>
-    <xmx:EPZSZ_U2xRQyP_fjmoONHc8EgZ47WLi1kj4cBrGOxQaDnfRKkVT1jw>
-    <xmx:EPZSZ6MgG6jRXgrtkUsCvffzr2Mtu9lnxM-xlFob4emZkImbFLANKQ>
-    <xmx:EPZSZxZEdqwV8nMEK3L96QZODrP-dJjTa4fIY8QQbLQth3tuImQurn7a>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E4C762220074; Fri,  6 Dec 2024 08:03:11 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 06 Dec 2024 13:04:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0406BA4423D;
+	Fri,  6 Dec 2024 13:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0B17C4CEE0;
+	Fri,  6 Dec 2024 13:04:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733490258;
+	bh=VLfoQRnwWe0Rvqit/Z+Tb+RfEtPz3Jei9eCUy65SVAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y0EpTmWLThG3R0PlwzAt7twm24nccovDnKlaPEcQS420UMIwrtO8xHxpRVxkymzH9
+	 KH5TnQgF9SxF7RhZwz83d0UAZ7VrV6Mn2zCla7AcoZyDrKudTYbv5rqby013bXNGJo
+	 f2lhAIDa8OwmIDCnwMLAPYGwWDFVA082tVGOO3ohR/GMKagavcsPEtMIJy80BcI5K5
+	 pWjAoeR6vrve6+NdEWNQTKH+KPSJfEK2TmrH28pTH4f4KrY7SKWxtu4Ufk0dRGBCGq
+	 TjtVm+G6AsBDUc0t8I2hBdKMw8+O31HQ9RfqgrWcXdX40FfDIJ9wWyM/pX1WP/Z+/5
+	 0lHK18/yeAvAA==
+Date: Fri, 6 Dec 2024 14:04:15 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 15/20] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+Message-ID: <gbymcmoya7dfmedq4nkopqpswh63d2ujxl2elc2x7x325b75bu@anp36sdya43v>
+References: <20241205111939.1796244-1-dario.binacchi@amarulasolutions.com>
+ <20241205111939.1796244-16-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Date: Fri, 06 Dec 2024 14:02:50 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>,
- "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
- "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- kernel-team@android.com, "William McVicker" <willmcvicker@google.com>,
- "Peter Griffin" <peter.griffin@linaro.org>,
- "Javier Martinez Canillas" <javierm@redhat.com>,
- "Thomas Zimmermann" <tzimmermann@suse.de>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Vincent Guittot" <vincent.guittot@linaro.org>,
- "Ulf Hansson" <ulf.hansson@linaro.org>
-Message-Id: <f6a04a2f-aed6-436d-aef1-4974a6fe35d2@app.fastmail.com>
-In-Reply-To: <aa09bbe3-8f5f-42cb-a7a9-deaaef77affb@linaro.org>
-References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
- <20241205175345.201595-3-tudor.ambarus@linaro.org>
- <427caa87-b9ba-4797-88bd-a18a96eefdcf@app.fastmail.com>
- <aa09bbe3-8f5f-42cb-a7a9-deaaef77affb@linaro.org>
-Subject: Re: [PATCH v3 2/3] firmware: add exynos ACPM protocol driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241205111939.1796244-16-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_050314_952145_06E56A90 
-X-CRM114-Status: GOOD (  33.54  )
+X-CRM114-CacheID: sfid-20241206_050419_872605_ADE26FE1 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,119 +79,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 6, 2024, at 12:59, Tudor Ambarus wrote:
->>> +/**
->>> + * acpm_get_rx() - get response from RX queue.
->>> + * @achan:	ACPM channel info.
->>> + * @xfer:	reference to the transfer to get response for.
->>> + *
->>> + * Return: 0 on success, -errno otherwise.
->>> + */
->>> +static int acpm_get_rx(struct acpm_chan *achan, struct acpm_xfer *xfer)
->>> +{
->>> +	struct acpm_msg *tx = &xfer->tx;
->>> +	struct acpm_msg *rx = &xfer->rx;
->>> +	struct acpm_rx_data *rx_data;
->>> +	const void __iomem *base, *addr;
->>> +	u32 rx_front, rx_seqnum, tx_seqnum, seqnum;
->>> +	u32 i, val, mlen;
->>> +	bool rx_set = false;
->>> +
->>> +	rx_front = readl_relaxed(achan->rx.front);
->>> +	i = readl_relaxed(achan->rx.rear);
->> 
->> If you have to use readl_relaxed(), please annotate why,
->> otherwise just use the normal readl().  Is this access to
->> the SRAM?
->
-> all IO accesses in this driver are to SRAM, yes.
->
-> There are no DMA accesses involved in the driver and the _relaxed()
-> accessors are fully ordered for accesses to the same endpoint, so I
-> thought _relaxed are fine.
+On Thu, Dec 05, 2024 at 12:17:50PM +0100, Dario Binacchi wrote:
+> The patch adds the DT bindings for enabling and tuning spread spectrum
+> clocking generation.
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+> (no changes since v4)
+> 
+> Changes in v4:
+> - Drop "fsl,ssc-clocks" property. The other added properties now refer
+>   to the clock list.
+> - Updated minItems and maxItems of
+>   - clocks
+>   - clock-names
+>   - fsl,ssc-modfreq-hz
+>   - fsl,ssc-modrate-percent
+>   - fsl,ssc-modmethod
+> - Updated the dts examples
+> 
+> Changes in v3:
+> - Added in v3
+> - The dt-bindings have been moved from fsl,imx8m-anatop.yaml to
+>   imx8m-clock.yaml. The anatop device (fsl,imx8m-anatop.yaml) is
+>   indeed more or less a syscon, so it represents a memory area
+>   accessible by ccm (imx8m-clock.yaml) to setup the PLLs.
+> 
+> Changes in v2:
+> - Add "allOf:" and place it after "required:" block, like in the
+>   example schema.
+> - Move the properties definition to the top-level.
+> - Drop unit types as requested by the "make dt_binding_check" command.
+> 
+>  .../bindings/clock/imx8m-clock.yaml           | 77 +++++++++++++++++--
+>  1 file changed, 71 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> index c643d4a81478..83036f6d2274 100644
+> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> @@ -29,12 +29,12 @@ properties:
+>      maxItems: 2
+>  
+>    clocks:
+> -    minItems: 6
+> -    maxItems: 7
+> +    minItems: 7
+> +    maxItems: 10
 
-My normal rule is to only use _relaxed() if it makes any
-intended difference in performance or behavior, otherwise
-every reader of the code has to understand why exactly this
-was done. More generally speaking, use the function with the
-shortest name to do what you want, since the longer functions
-are usually special cases that are not the default ;-)
+ABI break without mentioning, without any explanation in the commit msg.
 
-SRAM is a bit special, as you don't have to deal with
-side-effects the same way that an MMIO register would,
-though there is still a question of serializing against
-concurrent accesses from another processor.
+>  
+>    clock-names:
+> -    minItems: 6
+> -    maxItems: 7
+> +    minItems: 7
+> +    maxItems: 10
+>  
+>    '#clock-cells':
+>      const: 1
+> @@ -43,6 +43,34 @@ properties:
+>        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
+>        for the full list of i.MX8M clock IDs.
+>  
+> +  fsl,ssc-modfreq-hz:
+> +    description:
+> +      The values of modulation frequency (Hz unit) for each clock
+> +      supporting spread spectrum.
+> +    minItems: 7
+> +    maxItems: 10
 
-It's possible that readl_relaxed()/writel_relaxed() end
-up being exactly what you wand for this driver, but I would
-probably encapsulate them in a local sram_readl()/sram_writel()
-wrapper along with some documentation.
+Why all cloks receive now spread spectrum? I had impression - and all
+your previous versions were doing this - that you have only three or
+four clocks with SSC.
 
-You should also have a look at which ioremap() version
-you actually want. The default ioremap() uses
-PROT_DEVICE_nGnRE and has strong ordering but not the
-"non-posted" guarantee like ioremap_np() that would
-let you skip the read-after-write for serialization.
+Do existing clocks 1-6 support SSC?
 
-If you care a lot about performance on the SRAM access,
-you can go the other way with a more relaxed ioremap_wc()
-and explicit barriers where needed, or even better
-see what the remote side uses and use the same mapping
-flags and serialization here.
+> +
+> +  fsl,ssc-modrate-percent:
+> +    description:
+> +      The percentage values of modulation rate for each clock
+> +      supporting spread spectrum.
+> +    minItems: 7
+> +    maxItems: 10
+> +
+> +  fsl,ssc-modmethod:
+> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
+> +    description:
+> +      The modulation techniques for each clock supporting spread
+> +      spectrum.
+> +    minItems: 7
+> +    maxItems: 10
+> +    items:
+> +      enum:
+> +        - ""
 
->>> +	spin_lock_irqsave(&achan->tx_lock, flags);
->>> +
->>> +	tx_front = readl_relaxed(achan->tx.front);
->>> +	idx = (tx_front + 1) % achan->qlen;
->>> +
->>> +	ret = acpm_wait_for_queue_slots(achan, idx);
->>> +	if (ret) {
->>> +		spin_unlock_irqrestore(&achan->tx_lock, flags);
->>> +		return ret;
->>> +	}
->> 
->> It looks like you are calling a busy loop function inside
->> of a hardirq handler here, with a 500ms timeout. This is
->> not ok.
->
-> That's true, the code assumes that the method can be called from hard
-> irq context.
->
-> Can't tell whether that timeout is accurate, it comes from downstream
-> and the resources that I have do not specify anything about what would
-> be an acceptable timeout.
->
-> I see arm_scmi typically uses 30 ms for transport layers.
+Drop "", not sure why do you need it.
 
-I think 30ms is still too much for a busy loop. I see that in
-the SCMI driver it implements both a sleeping and a spinning
-loop, but I have not found exactly which callers use the
-spinning version, and what timeouts those have.
+> +        - down-spread
+> +        - up-spread
+> +        - center-spread
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -76,6 +104,10 @@ allOf:
+>              - const: clk_ext2
+>              - const: clk_ext3
+>              - const: clk_ext4
+> +        fsl,ssc-modfreq-hz: false
+> +        fsl,ssc-modrate-percent: false
+> +        fsl,ssc-modmethod: false
+> +
+>      else:
+>        properties:
+>          clocks:
+> @@ -86,6 +118,10 @@ allOf:
+>              - description: ext2 clock input
+>              - description: ext3 clock input
+>              - description: ext4 clock input
+> +            - description: audio1 PLL input
+> +            - description: audio2 PLL input
+> +            - description: dram PLL input
+> +            - description: video PLL input
 
->> If you may need to wait for a long timeout, I would suggest
->> changing the interface so that this function is not allowed
->> to be called from irq-disabled context, change the spinlock
->> to a mutex and polling read to a sleeping version.
->
-> I think the question I need to answer here is whether the acpm interface
-> can be called from atomic context or not. On a first look, all
-> downstream drivers call it from process context. Curios there's no clock
-> enable though in downstream, which would require atomic context. I'll
-> get back to you on this.
->
-> If there's at least a client that calls the interface in hard/soft irq
-> context (clocks?) then I don't think I'll be able to implement your
-> suggestion. Each channel has its own TX/RX rings in SRAM. If there are
-> requests from both hard irq and process context for the same channel,
-> then I need to protect the accesses to the rings via spin_lock_irqsave.
-> This is what the code assumes, because downstream allows calls from
-> atomic context even if I can't pinpoint one right now.
->
-> I guess I can switch everything to sleeping version, and worry about
-> atomic context when such a client gets proposed?
+Also ABI break....
 
-Yes, usually at that point the caller can be changed to use
-a threaded IRQ or similar.
+Best regards,
+Krzysztof
 
-      Arnd
 
