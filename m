@@ -4,83 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1F3E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C4E9E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q42RlzBJ7KqBAuqUYePY8IHU3p8Lx6u0Ba/+7jjyPE8=; b=x0BE/L2fyVOTRTC9uJGgcyHNEV
-	Oxr3ADrlhBEns43aTQgfZfNwSY8YE8Q/9/fiOpQNWcBwSLKYPeH3KALOwDvkJJv3XDT0JRd5bfA8B
-	rXV4RwsL1GaF48wa1RKOdRItY7hD6Lp1E3420M7x13mYBiE5xjvKDIoU1fTut4Am3JOWX9QFtxnTj
-	ghPl2chETHrvr93RtSv1Rj1NBV6/bNRy3//UgFXgRBdq9NE1H80K81nhkdE39T76ImLCcQbP22IDf
-	uP+5uyVDTyB+/q23flwltIzoa28JgbQmOvEE207YsGH906HrTY4nWN9tbvkkcatm3s6XHH1P6g3aB
-	2CuNJwYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C7rXiwNlneTt0S3Im0z7iFr8r3P4BVASAMn47K57uCI=; b=HlACz88VNSgaOVpWs1wHIK6Amb
+	5NcvuUGUMW2GGEo//egqsBfG/87Cpb0MW4J9U1bBEfq/GWdXNTamBqxhxyrTpKZu1G6hWqSQRsy7J
+	G4c++h/Lh9GN05y8Zyagpn+yGq3iv9/+o0BQvkWRppgSHHQD8yBjXKGOmc5HnNNVbx82z5toWzEP3
+	+7ZHjZSnj1PAB1Jm1z9MuROJ9RGO5cPBEgHzDfIx259nHXEcdVO5xk+ROCQa1jshcTfyTIOm/7d+K
+	2/Cs73oRZ4M9w4T+l4x3aAYlPWOmjlBF6MqroGqzb1wNUZZOQ0X/ZdOTVoJnNMU00UqOVQOZ3OeZ3
+	kQbVe1gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgaJ-00000002sAZ-3PFR;
-	Fri, 06 Dec 2024 22:14:03 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1tJgbK-00000002sPo-1eFT;
+	Fri, 06 Dec 2024 22:15:06 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgZI-00000002rvU-0eEh
+	id 1tJgZL-00000002rwi-2GP3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 22:13:01 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6d8878ec049so18776256d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 14:12:59 -0800 (PST)
+	Fri, 06 Dec 2024 22:13:04 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7242f559a9fso2759425b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 14:13:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733523179; x=1734127979; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q42RlzBJ7KqBAuqUYePY8IHU3p8Lx6u0Ba/+7jjyPE8=;
-        b=EmBrmi9W5z4Zx7VLvH/OTbQFvGoMeKRo4aMK1zjIHNGUAr4MCkDDL6TycGPs3+/u11
-         qynsAoKViLiUfwkGbxDSnL7QkB+XuZSU/E7T8/6HX6saHmNZRp6sh46G4BwbK65spPHi
-         UZcAnfgBdmi8OvAWgOlc+vSZ1Mx+n9Hmve5SN3aKUxkwi7Wpj68dK78qNDjn99WYeOP5
-         bgk/oAZzMBYZ1rIPuBPPflyuOHpJ+J/pfhK6XGwjdCZmfhYsBYz0h8yTNMWXwSU4p9s4
-         Pki9Hlttq5jJiejS2WJq+mSvgRKn9s3rqQ33sqodhjwAxTPaaTgK7irDNS+O91EDLf1z
-         VuhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733523179; x=1734127979;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1733523182; x=1734127982; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=q42RlzBJ7KqBAuqUYePY8IHU3p8Lx6u0Ba/+7jjyPE8=;
-        b=Rq53UwKnQ1C0ZFXmXMs0TeEo0H1t+lmuIjxOG0v+BAFYDD4ccca3gXPZ4d7qFXsMrh
-         Xglxz85W22rWAvII/8XrdWAd7w4nXtj02ualfwX7N/WSW0mPSf9PVCTE7JyTS/4UWQgE
-         VWaK4aVMgpkOu1aY/oxDGfAjiv4ED0/jpYaKUNdSHDvVGBCRUEghg8TeSiRh2l+if//x
-         t3fIti/hyBch3wgEGfyipPCFKsZ8JjlujCwr2AA/kp8J4uXBQ11t20VeA2rS3aY/sLPp
-         +AGUJOEPosikX+0NHH7A+phdt1s6hEGBu3xpZJ3Eh812pdh+IBnmGgrIjnXwim5ilmrz
-         4SFg==
-X-Gm-Message-State: AOJu0Yxq9IrgEEVAAWwS/NTiCYMYv0goricKEzY/hCXpH9RZz8iLvnw3
-	ML2ixdCdMmEqW8vhakj0xTTfSJmkn2ToCkCxktW7GdVeTa/CeOcX
-X-Gm-Gg: ASbGncsbKTCcyPlA2gnOs0TP1FWDNoOexbkl85FUp4VJNJFgAQdajx2GhMIrMhVB/cL
-	QvazYjp2NWEPNs0Yfcq795XrR43pSoVoYWIrGimKdaDAfraZw4/Ck2zb+uJXxV4cqb5GESAs2Z4
-	vgDldXkd7kDr/5xqfdKGj7+Ujy7ELeeJnT4TameECb1gdKxMfn2w4OWSbDghdG9gBYFYFTvHFpE
-	zHmf4VjlqAzKFVTNxfs3qcH5ircmhDSdfuzegkOuPtf7jc5jyZdjiC0XKDR3A==
-X-Google-Smtp-Source: AGHT+IFQFkzHlBJRc6UEiHKJ4eYO1c21bJ9G3NUU01WnmUgcxL08A7K6w/BdnqegWiG6jNv0dFMTIw==
-X-Received: by 2002:a05:6214:29e7:b0:6d8:9c92:6555 with SMTP id 6a1803df08f44-6d8e71675ecmr53676936d6.29.1733523178756;
-        Fri, 06 Dec 2024 14:12:58 -0800 (PST)
-Received: from localhost.localdomain ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d8da9fd1f2sm23607676d6.81.2024.12.06.14.12.57
+        bh=C7rXiwNlneTt0S3Im0z7iFr8r3P4BVASAMn47K57uCI=;
+        b=SRHNrsUllpC6fHpKJzHfMa2ar0ApXSAWaV6NlW+MkiF8c1QC20oGwxOJyYexqYMcGA
+         pTOg3e6YUSejiR60PlNkBQkxIgvw8nWwmLBqhKmAftqkQEB4TzUBbBpYg/DK/e0AIv5D
+         NT0v8FG6aKWXGYNAfm0ddi2+dVILpJxOHKrddrZ1NTWBxQ3WO5vqLJqtrPydpFZA2MpO
+         3enZEklrl54SBQgWHZ7qvnaIil2fS5gNTMYamfucapxu0Coq4+BJhxGj+Y5nA8uE/rAC
+         NWiY4p+eQKqJIBp1AdMnLktTli2/bEMEySO9Habvuq0D24jJx8w6+1bjjWBIkGQnjXa4
+         M+2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733523182; x=1734127982;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=C7rXiwNlneTt0S3Im0z7iFr8r3P4BVASAMn47K57uCI=;
+        b=ITCd6OYzhqdUP4shYlAwObgWCuj78GFM4sxzIjc4KjCHezdgX3QffnSBcBYZUd4KXj
+         AUsRftuTaS+xfxIIhgoqGenDKGNyVeWtMEpxMWZi+sDU6D64cqKUfcbIpRATGLylUkqS
+         MecEA42wobHeA1pwrDzt9AC4C0hOxwseR6SjKyDnnNStOXJjmtTkVCEoIsMx/6sjAtVX
+         UX3cb6LQEJ+3KnevZgYxKN+Kv7/90A6OXK2iBnzvUCh40w/eNUHAamVbWOEtO3SbKFWf
+         mLGc40yiVwcMlkqmT+i7qruX0UMb7DdffvT2r+qWG3sq7Wxj1V9YpG7Qt9bFy2NbQKWP
+         cCcA==
+X-Forwarded-Encrypted: i=1; AJvYcCXW+mZYp2X753gNLOchM4FRW0N0skueBG5J+i2hDK1es105YbDST4+uc7HzZiRLAB7H9xyfvb4jrM3k0tQZbmHF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOGnx9uBrqJotQDAcwVgyFS8JhKYxwlCkeNXsgkGHvp6NNfQ5G
+	kavVnJ/mQHjb9KPNgyICjAMHOKDb+L86iwHNEhA5a1XnvPgBpkkwCBJOe9mmxfg=
+X-Gm-Gg: ASbGncv4z885fdMUIy+JfWbDW7le5xZBjm8h9KlHrKc2FJZ6uZ6aMA3A0r/PPYMIzuR
+	Dkd0FrKOMR5y1gWobz782FYaq5C8MEunwVVFDMePnOVv53kM5o7eS6nIE91LnyGEo+5tIUZpDrq
+	k/F3BorGot5OyUCnkBZc38PuDC/Y8VuZ5ONH1FKxbFSafWcovTNOLL/s1xOnzKTf1Enmbps7KTG
+	f8LUEMqPQT/y0PJ/b8LZD3MkSSsVtGIBWVw6TYSP6kdjv0c
+X-Google-Smtp-Source: AGHT+IEfJ6mTFHdobaZb1oZ2zV41f+MLXhV0wfwqztWK6BVWpG2aRCtQVIyY2AfpGqUSf7Ysz3ATBA==
+X-Received: by 2002:a05:6a00:994:b0:724:ed8f:4d35 with SMTP id d2e1a72fcca58-725b81a9cebmr6601983b3a.26.1733523182698;
+        Fri, 06 Dec 2024 14:13:02 -0800 (PST)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725a27e9193sm3435675b3a.0.2024.12.06.14.13.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 14:12:58 -0800 (PST)
-From: Mingwei Zheng <zmw12306@gmail.com>
-To: linus.walleij@linaro.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Mingwei Zheng <zmw12306@gmail.com>,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v2] pinctrl: nomadik: Add check for clk_enable()
-Date: Fri,  6 Dec 2024 17:16:18 -0500
-Message-Id: <20241206221618.3453159-1-zmw12306@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Fri, 06 Dec 2024 14:13:02 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+Date: Fri, 06 Dec 2024 14:12:50 -0800
+Subject: [PATCH v6 1/3] pmdomain: ti_sci: add per-device latency constraint
+ management
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241206-lpm-v6-10-constraints-pmdomain-v6-1-833980158c68@baylibre.com>
+References: <20241206-lpm-v6-10-constraints-pmdomain-v6-0-833980158c68@baylibre.com>
+In-Reply-To: <20241206-lpm-v6-10-constraints-pmdomain-v6-0-833980158c68@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org
+Cc: Nishanth Menon <nm@ti.com>, Dhruva Gole <d-gole@ti.com>, 
+ Akashdeep Kaur <a-kaur@ti.com>, Sebin Francis <sebin.francis@ti.com>, 
+ Markus Schneider-Pargmann <msp@baylibre.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Kevin Hilman <khilman@baylibre.com>
+X-Mailer: b4 0.15-dev-355e8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4286; i=khilman@baylibre.com;
+ h=from:subject:message-id; bh=j0AdB2Ec/r7btTrtPaxqZvIVKLQ2BqKv+VHDX0Y86Yk=;
+ b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBnU3bs+JJtfkcVGHUhIAcSaWpLkYXr8u3NXouG5
+ 4fGc5caxX6JAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCZ1N27AAKCRBZNxia0/vG
+ ZfnwD/0StIlo35PDhUGEwnfZ+Rydqy8cNKGKRhQb5KzUsyiuOL4ELlJa5D33A8NB2a75+95dlsg
+ gzK1uGvwIdqpVGPEq6kzS+6+66g7gKkGprQ3Mt1pFHFMBhA2cb+8NMzPHxNUxBjcq2CqTL4lMaM
+ 1aeQ5YlLV3GTpJg7ec0WmleQRWkSY5XouNK3GFSSqCwFSYy9s7dri1gBDuzPy/ZP9HfEK7FoBA/
+ 3P5NITclzhBf0OuMF3qmDhQFC7TYX+CSXxKQFQl950y9xpy2zOuKRPWYO0XEqJfHvzWA9Wz/xGi
+ ujsnul6qP8wqGyjbkWZNGHQK6lq2ryliZRnDPhB686kUFKNf6iFdTRISMa7TLHBkMoC6AGL4f+o
+ 3NB5yrgWOjEItFozVTrPtZSt37pQgCRkww7gFaE7EFPt1EfLXkclTZAjWjodA2U7ndDG3DgMUmq
+ 1jcKS7HMQH0iJfAcwDQKpPOZLaakslLctyRlsaBG+duSUZY4moA49Ork4iUCUJObMSpi3zBDDDv
+ wWNjirwjI6iGIrTw/R+v9Xkc9mJzZZQSGm/J+Py5lPrJqiDHI4EgSkBuCJoG2nfoHQg9qJ8vsX4
+ ijrbm+t0IDGLqpMgS+qFX0ViTMvxFy6qMkuCiNCji7qFNIVQhop1ioKJ68eU6Po1/wD3XpUlu0a
+ SKtqsstaZbro8JQ==
+X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
+ fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_141300_189509_5ABB3953 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20241206_141303_609368_CBAC26D4 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,125 +117,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return value of clk_enable() to catch the potential
-error.
-Disable success clks in the error handling.
-Change return type of nmk_gpio_glitch_slpm_init casade.
+For each device in a TI SCI PM domain, check whether the device has
+any resume latency constraints set via per-device PM QoS.  If
+constraints are set, send them to DM via the new SCI constraints API.
 
-Fixes: 3a19805920f1 ("pinctrl: nomadik: move all Nomadik drivers to subdir")
-Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Checking for constraints happen for each device before system-wide
+suspend (via ->suspend() hook.)
+
+An important detail here is that the PM domain driver inserts itself
+into the path of both the ->suspend() and ->resume() hook path
+of *all* devices in the PM domain.  This allows generic PM domain code
+to handle the constraint management and communication with TI SCI.
+
+Further, this allows device drivers to use existing PM QoS APIs to
+add/update constraints.
+
+DM firmware clears constraints during its resume, so Linux has
+to check/update/send constraints each time system suspends.
+
+Also note that the PM QoS framework uses usecs as the units for
+latency whereas the TI SCI firmware uses msecs, so a conversion is
+needed before passing to TI SCI.
+
+Co-developed-by: Vibhore Vardhan <vibhore@ti.com>
+Signed-off-by: Vibhore Vardhan <vibhore@ti.com>
+Reviewed-by: Markus Schneider-Pargmann <msp@baylibre.com>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Tested-by: Dhruva Gole <d-gole@ti.com>
+Signed-off-by: Kevin Hilman <khilman@baylibre.com>
 ---
-Changelog:
+ drivers/pmdomain/ti/ti_sci_pm_domains.c | 55 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
 
-v1 -> v2:
-
-1. Add clk_disable in error handling.
----
- drivers/pinctrl/nomadik/pinctrl-nomadik.c | 35 ++++++++++++++++++-----
- 1 file changed, 28 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/pinctrl/nomadik/pinctrl-nomadik.c b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
-index f4f10c60c1d2..4261541928e9 100644
---- a/drivers/pinctrl/nomadik/pinctrl-nomadik.c
-+++ b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
-@@ -438,9 +438,9 @@ static void nmk_prcm_altcx_set_mode(struct nmk_pinctrl *npct,
-  *  - Any spurious wake up event during switch sequence to be ignored and
-  *    cleared
-  */
--static void nmk_gpio_glitch_slpm_init(unsigned int *slpm)
-+static int nmk_gpio_glitch_slpm_init(unsigned int *slpm)
- {
--	int i;
-+	int i, j, ret;
+diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+index 0e4bd749d067309654307484c5bb98711bf06daf..963fe1901c959197d5d8b5d34fd8420dfb180087 100644
+--- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
++++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+@@ -13,6 +13,8 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/slab.h>
++#include <linux/pm_qos.h>
++#include <linux/pm_runtime.h>
+ #include <linux/soc/ti/ti_sci_protocol.h>
+ #include <dt-bindings/soc/ti,sci_pm_domain.h>
  
- 	for (i = 0; i < NMK_MAX_BANKS; i++) {
- 		struct nmk_gpio_chip *chip = nmk_gpio_chips[i];
-@@ -449,11 +449,21 @@ static void nmk_gpio_glitch_slpm_init(unsigned int *slpm)
- 		if (!chip)
- 			break;
+@@ -51,6 +53,32 @@ struct ti_sci_pm_domain {
  
--		clk_enable(chip->clk);
-+		ret = clk_enable(chip->clk);
-+		if (ret) {
-+			for (j = 0; j < i; j++) {
-+				chip = nmk_gpio_chips[j];
-+				clk_disable(chip->clk);
-+			}
+ #define genpd_to_ti_sci_pd(gpd) container_of(gpd, struct ti_sci_pm_domain, pd)
  
-+			return ret;
-+		}
++static inline bool ti_sci_pd_is_valid_constraint(s32 val)
++{
++	return val != PM_QOS_RESUME_LATENCY_NO_CONSTRAINT;
++}
 +
- 		slpm[i] = readl(chip->addr + NMK_GPIO_SLPC);
- 		writel(temp, chip->addr + NMK_GPIO_SLPC);
- 	}
++#ifdef CONFIG_PM_SLEEP
++static void ti_sci_pd_set_lat_constraint(struct device *dev, s32 val)
++{
++	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
++	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
++	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
++	u16 val_ms;
++	int ret;
 +
-+	return 0;
++	/* PM QoS latency unit is usecs, TI SCI uses msecs */
++	val_ms = val / USEC_PER_MSEC;
++	ret = ti_sci->ops.pm_ops.set_latency_constraint(ti_sci, val_ms, TISCI_MSG_CONSTRAINT_SET);
++	if (ret)
++		dev_err(dev, "ti_sci_pd: set latency constraint failed: ret=%d\n",
++			ret);
++	else
++		dev_dbg(dev, "ti_sci_pd: ID:%d set latency constraint %d\n",
++			pd->idx, val);
++}
++#endif
++
+ /*
+  * ti_sci_pd_power_off(): genpd power down hook
+  * @domain: pointer to the powerdomain to power off
+@@ -79,6 +107,26 @@ static int ti_sci_pd_power_on(struct generic_pm_domain *domain)
+ 		return ti_sci->ops.dev_ops.get_device(ti_sci, pd->idx);
  }
  
- static void nmk_gpio_glitch_slpm_restore(unsigned int *slpm)
-@@ -923,7 +933,9 @@ static int nmk_pmx_set(struct pinctrl_dev *pctldev, unsigned int function,
- 
- 			slpm[nmk_chip->bank] &= ~BIT(bit);
- 		}
--		nmk_gpio_glitch_slpm_init(slpm);
-+		ret = nmk_gpio_glitch_slpm_init(slpm);
-+		if (ret)
-+			goto out_pre_slpm_init;
- 	}
- 
- 	for (i = 0; i < g->grp.npins; i++) {
-@@ -940,7 +952,10 @@ static int nmk_pmx_set(struct pinctrl_dev *pctldev, unsigned int function,
- 		dev_dbg(npct->dev, "setting pin %d to altsetting %d\n",
- 			g->grp.pins[i], g->altsetting);
- 
--		clk_enable(nmk_chip->clk);
-+		ret = clk_enable(nmk_chip->clk);
-+		if (ret)
-+			goto out_glitch;
-+
- 		/*
- 		 * If the pin is switching to altfunc, and there was an
- 		 * interrupt installed on it which has been lazy disabled,
-@@ -988,6 +1003,7 @@ static int nmk_gpio_request_enable(struct pinctrl_dev *pctldev,
- 	struct nmk_gpio_chip *nmk_chip;
- 	struct gpio_chip *chip;
- 	unsigned int bit;
++#ifdef CONFIG_PM_SLEEP
++static int ti_sci_pd_suspend(struct device *dev)
++{
 +	int ret;
- 
- 	if (!range) {
- 		dev_err(npct->dev, "invalid range\n");
-@@ -1004,7 +1020,9 @@ static int nmk_gpio_request_enable(struct pinctrl_dev *pctldev,
- 
- 	find_nmk_gpio_from_pin(pin, &bit);
- 
--	clk_enable(nmk_chip->clk);
-+	ret = clk_enable(nmk_chip->clk);
++	s32 val;
++
++	ret = pm_generic_suspend(dev);
 +	if (ret)
 +		return ret;
- 	/* There is no glitch when converting any pin to GPIO */
- 	__nmk_gpio_set_mode(nmk_chip, bit, NMK_GPIO_ALT_GPIO);
- 	clk_disable(nmk_chip->clk);
-@@ -1058,6 +1076,7 @@ static int nmk_pin_config_set(struct pinctrl_dev *pctldev, unsigned int pin,
- 	unsigned long cfg;
- 	int pull, slpm, output, val, i;
- 	bool lowemi, gpiomode, sleep;
-+	int ret;
++
++	val = dev_pm_qos_read_value(dev, DEV_PM_QOS_RESUME_LATENCY);
++	if (ti_sci_pd_is_valid_constraint(val))
++		ti_sci_pd_set_lat_constraint(dev, val);
++
++	return 0;
++}
++#else
++#define ti_sci_pd_suspend		NULL
++#endif
++
+ /*
+  * ti_sci_pd_xlate(): translation service for TI SCI genpds
+  * @genpdspec: DT identification data for the genpd
+@@ -182,6 +230,13 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
+ 				pd->pd.flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+ 				pd->idx = args.args[0];
+ 				pd->parent = pd_provider;
++				/*
++				 * If SCI constraint functions are present, then firmware
++				 * supports the constraints API.
++				 */
++				if (pd_provider->ti_sci->ops.pm_ops.set_device_constraint &&
++				    pd_provider->ti_sci->ops.pm_ops.set_latency_constraint)
++					pd->pd.domain.ops.suspend = ti_sci_pd_suspend;
  
- 	nmk_chip = find_nmk_gpio_from_pin(pin, &bit);
- 	if (!nmk_chip) {
-@@ -1116,7 +1135,9 @@ static int nmk_pin_config_set(struct pinctrl_dev *pctldev, unsigned int pin,
- 			output ? (val ? "high" : "low") : "",
- 			lowemi ? "on" : "off");
+ 				pm_genpd_init(&pd->pd, NULL, true);
  
--		clk_enable(nmk_chip->clk);
-+		ret = clk_enable(nmk_chip->clk);
-+		if (ret)
-+			return ret;
- 		if (gpiomode)
- 			/* No glitch when going to GPIO mode */
- 			__nmk_gpio_set_mode(nmk_chip, bit, NMK_GPIO_ALT_GPIO);
+
 -- 
-2.34.1
+2.46.2
 
 
