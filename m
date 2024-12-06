@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421CBE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 00:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046A6E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 00:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyWqX2zoZLFRt3ry2g2R9lR3izotXfaeTSy8KYkYq3A=; b=AMaBYBHTs0ViU8YLARR8Uv3oQW
-	oLuuWG9JwtJtFTm2y/ny7QlIgOB4+ogC/B+9KJnCaQB1B9U72rNsdUGV2zgCjuD5CowyjwnjWkMcW
-	ghFH9Ja5bjZf2i6f1kaya+Y4b14EUMiCZvXFZueew/w/NrqEFDkItWZoALUwbkca9TKPjJh8SlFvm
-	nYmuWawcd17/IkVaqFaC/NC/WWLV0I3jSXKibPhM6tZhY8xbObd7QjGTvhD7lhM8dOKSeLew4Uhe2
-	Z7/kWP79sHREGqtB2bYmoqJrJ5PS3mPQsiwBPQtct3Hy5JT+FYyvox9RAlG7hWuGRv791u+88Xf4o
-	/cyU2+4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N5nG2prdL1skIINqaX1bovIzolBU3gInNcwFgxO/rw0=; b=PA0/kFUNQ9ur0K5Ez/WTnkt89p
+	pNQ3z/+4ud4wrYTTuIvM6QAm5/t0m2JsZXbeV8Bmc3emYmy4WsXpWguXoD4yZ0sZ6xE7AJXbwxKhd
+	6sM34z4wvPOHFd603z08wPGX3rL2rdgUkQRtz06WlRouies7lFjJVARHgAxeRAhwUo3EO6ezMWbc/
+	tM/lbzf1eDchrqI6JG66rvL7usBPCoX4CN/rRiEcrj651nAeIxnmNPb2WbAHukyywuL3te0wxJYe7
+	6k0KGDW8tCCWprXUySsmWI9jnWfN8/yuitxa6O0bvlt6eEgmp1qYv8rbbtgcFQCGPy/L5idrAPpTP
+	0z23JMSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJLvj-0000000030R-3Utp;
-	Fri, 06 Dec 2024 00:10:47 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tJMUv-0000000072T-0dKk;
+	Fri, 06 Dec 2024 00:47:09 +0000
+Received: from out-188.mta0.migadu.com ([91.218.175.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJLtP-000000002FZ-20vU
+	id 1tJMTq-000000006tm-0VDG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 00:08:24 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53e2ad03bb3so423534e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 16:08:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733443702; x=1734048502; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AyWqX2zoZLFRt3ry2g2R9lR3izotXfaeTSy8KYkYq3A=;
-        b=FFpzJXl5asmgRaVBG4wX80toWslt4PNX0R1fWOjYqmA+XO7s54cAO8TmAPs/gJG2M0
-         p+uX8sElfj/kZJw0d7Uh6RDmYMtHM0wkcLchDvZWYxyyEFd5MHqxCMzKQq66wVtg6nD/
-         LDWCk1elzHHOiRyPtJDUz6z5SWQvJQAwhlulTW0EOpOHckdNIWvqhPI+TCuY3N4+FQ5O
-         Cf1ICm/Zf893vCLNiAJEUZwHYf/QHJKbvfi+wIFotWCYemH24SXXg4het8hx0x3QY43A
-         GDyQGKsEynkR1xiyNb513/CAf3RivzfZBRzGEFhd3Lxkcw80gf5G8Z+bN1RRfj37dkqC
-         9uMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733443702; x=1734048502;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AyWqX2zoZLFRt3ry2g2R9lR3izotXfaeTSy8KYkYq3A=;
-        b=tFzFAA7w3oxHe7+k2JE14JTNhZZI1pXxInoyH+965KXIYr2gvxJX6nF7fYdLjMjHwQ
-         mhUzQNG0v7mVFx+LP7pPTMMR5d00CH4peUXAz/JSvaU8JadotAj/LOS3yUiMl2VIYUOm
-         8J35KHAY5nwxX3cEoiFJtfbkRJM158yYud/244NziagmCWP1iAQrDHTTvlH4gzIfsX0q
-         vbBgvsFbHbAfZOP57qZBDWmXvpQkXT6frg0kwqDnOivIvjBp51oc4eES7xyo0Mg7OT/s
-         SoZ7IbN+xPpDEfX1j0Hvab+TpC+jVd0zvw1O5XtDwoMmW69ZM2wuk9zkLf6LzDS88xvK
-         DUAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWpISRy+WjyjPROhqhyF0/gJA2nljV5HCZwqU7dvxTRhYsa3Jc1Uplia7gMoh3NQdte0dbTNbHa5+I194GflybT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjXtW5dk1IIVRwxLPf5p1JGTpI05a5OYhvBknjdQmqCd6udiJc
-	wHdtEMtdXnwv14Q3HFzJK51WlZcqy5ri6ex4sX5qy4Qi3dk1WGw80ZaQbZAmHwa6iE1d8IkhelU
-	o7hjkdos47fD+8aeaP1fUwt4Ynfm/+svZjZhb
-X-Gm-Gg: ASbGncvID9H9DVzYZ8EhOlB4Cz1Va8tX5UhXX53DeRsUJvp7hJym6eLMrCz5iKcjL9Y
-	Qjj3dR/OvIaWoV9D+ZJOTFp7R2oPZXA==
-X-Google-Smtp-Source: AGHT+IEl7P8g4C6biT8pMmR7TEmB0gJQnY7JWx1axpsFaCZBcd/5qdwTwlQeic62GJWu2sWz95sDRQrA+1CjugfgIXQ=
-X-Received: by 2002:a05:6512:3993:b0:53d:ed68:3cfa with SMTP id
- 2adb3069b0e04-53e2c504c30mr241237e87.55.1733443701768; Thu, 05 Dec 2024
- 16:08:21 -0800 (PST)
+	Fri, 06 Dec 2024 00:46:07 +0000
+Date: Thu, 5 Dec 2024 16:45:45 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733445956;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=N5nG2prdL1skIINqaX1bovIzolBU3gInNcwFgxO/rw0=;
+	b=dxA2HNTaXIewdfp4tSj8/enaHs9W6w1oqZ9zhUaPD0pq2L6Zt4apsXKgnU3vsW+EkIvvdd
+	QLfsh+b4yQewYZzepTteXQnOvUg8uOCIolm/2gpdPxVlqK4G2Si6meatvyPBj6Zp2FodFX
+	j92vIX2Ujdc82NL3ZWqMpqXGhDFoa2o=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: James Houghton <jthoughton@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Yan Zhao <yan.y.zhao@intel.com>,
+	Nikita Kalyazin <kalyazin@amazon.com>,
+	Anish Moorthy <amoorthy@google.com>,
+	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>,
+	David Matlack <dmatlack@google.com>, Wei W <wei.w.wang@intel.com>,
+	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v1 06/13] KVM: arm64: Add support for KVM_MEM_USERFAULT
+Message-ID: <Z1JJOfnuKQ9LCHq-@linux.dev>
+References: <20241204191349.1730936-1-jthoughton@google.com>
+ <20241204191349.1730936-7-jthoughton@google.com>
+ <Z1Dgr_TnaFQT04Pi@linux.dev>
+ <CADrL8HWC7HhYmEBWa+5KeWmyD+iT1zPBJUAUtNyrhH7ZpLXJNQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20241204221726.2247988-1-sashal@kernel.org> <20241204221726.2247988-8-sashal@kernel.org>
- <CAGETcx8bhzGZKge4qfpNR8FaTWqbo0-5J9c7whc3pn-RECJs3Q@mail.gmail.com>
-In-Reply-To: <CAGETcx8bhzGZKge4qfpNR8FaTWqbo0-5J9c7whc3pn-RECJs3Q@mail.gmail.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Thu, 5 Dec 2024 16:07:45 -0800
-Message-ID: <CAGETcx-6yHV5xr1j7krY8LShCF5JATX0NSwjeRUL9+3TLCMq9w@mail.gmail.com>
-Subject: Re: [PATCH AUTOSEL 6.11 08/15] drm: display: Set fwnode for aux bus devices
-To: Sasha Levin <sashal@kernel.org>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	=?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Thierry Reding <treding@nvidia.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
-	matthias.bgg@gmail.com, elder@kernel.org, ricardo@marliere.net, 
-	sumit.garg@linaro.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CADrL8HWC7HhYmEBWa+5KeWmyD+iT1zPBJUAUtNyrhH7ZpLXJNQ@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_160823_520027_DBF77985 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20241205_164602_445791_A9F308E1 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,77 +79,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 5, 2024 at 4:06=E2=80=AFPM Saravana Kannan <saravanak@google.co=
-m> wrote:
->
-> On Wed, Dec 4, 2024 at 3:29=E2=80=AFPM Sasha Levin <sashal@kernel.org> wr=
-ote:
+On Thu, Dec 05, 2024 at 03:31:05PM -0800, James Houghton wrote:
+> > > @@ -2062,6 +2069,20 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+> > >                                  enum kvm_mr_change change)
+> > >  {
+> > >       bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
+> > > +     u32 changed_flags = (new ? new->flags : 0) ^ (old ? old->flags : 0);
+> > > +
+> > > +     /*
+> > > +      * If KVM_MEM_USERFAULT changed, drop all the stage-2 mappings so that
+> > > +      * we can (1) respect userfault-ness or (2) create block mappings.
+> > > +      */
+> > > +     if ((changed_flags & KVM_MEM_USERFAULT) && change == KVM_MR_FLAGS_ONLY)
+> > > +             kvm_arch_flush_shadow_memslot(kvm, old);
 > >
-> > From: Saravana Kannan <saravanak@google.com>
+> > I'd strongly prefer that we make (2) a userspace problem and don't
+> > eagerly invalidate stage-2 mappings on the USERFAULT -> !USERFAULT
+> > change.
 > >
-> > [ Upstream commit fe2e59aa5d7077c5c564d55b7e2997e83710c314 ]
+> > Having implied user-visible behaviors on ioctls is never good, and for
+> > systems without FEAT_S2FWB you might be better off avoiding the unmap in
+> > the first place.
 > >
-> > fwnode needs to be set for a device for fw_devlink to be able to
-> > track/enforce its dependencies correctly. Without this, you'll see erro=
-r
-> > messages like this when the supplier has probed and tries to make sure
-> > all its fwnode consumers are linked to it using device links:
-> >
-> > mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) w=
-ith backlight-lcd0
-> >
-> > Reported-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> > Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca459=
-8@notapiano/
-> > Tested-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > Reviewed-by: Thierry Reding <treding@nvidia.com>
-> > Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> > Link: https://lore.kernel.org/r/20241024061347.1771063-2-saravanak@goog=
-le.com
-> > Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> > Signed-off-by: Sasha Levin <sashal@kernel.org>
->
-> As mentioned in the original cover letter:
->
-> PSA: Do not pull any of these patches into stable kernels. fw_devlink
-> had a lot of changes that landed in the last year. It's hard to ensure
-> cherry-picks have picked up all the dependencies correctly. If any of
-> these really need to get cherry-picked into stable kernels, cc me and
-> wait for my explicit Ack.
->
-> Is there a pressing need for this in 4.19?
+> > So, if userspace decides there's a benefit to invalidating the stage-2
+> > MMU, it can just delete + recreate the memslot.
+> 
+> Ok I think that's reasonable. So for USERFAULT -> !USERFAULT, I'll
+> just follow the precedent set by dirty logging. For x86 today, we
+> collapse the mappings, and for arm64 we do not.
+> 
+> Is arm64 ever going to support collapsing back to huge mappings after
+> dirty logging is disabled?
 
-I copy pasted this into several replies. In all those cases I meant
-the kernel version mentioned in the subject.
+Patches on list is always a good place to start :)
 
--Saravana
+What I'd expect on FEAT_S2FWB hardware is that invalidating the whole
+stage-2 and faulting back in block entries would give the best
+experience.
 
->
-> -Saravana
->
-> > ---
-> >  drivers/gpu/drm/display/drm_dp_aux_bus.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/gpu/drm/display/drm_dp_aux_bus.c b/drivers/gpu/drm=
-/display/drm_dp_aux_bus.c
-> > index d810529ebfb6e..ec7eac6b595f7 100644
-> > --- a/drivers/gpu/drm/display/drm_dp_aux_bus.c
-> > +++ b/drivers/gpu/drm/display/drm_dp_aux_bus.c
-> > @@ -292,7 +292,7 @@ int of_dp_aux_populate_bus(struct drm_dp_aux *aux,
-> >         aux_ep->dev.parent =3D aux->dev;
-> >         aux_ep->dev.bus =3D &dp_aux_bus_type;
-> >         aux_ep->dev.type =3D &dp_aux_device_type_type;
-> > -       aux_ep->dev.of_node =3D of_node_get(np);
-> > +       device_set_node(&aux_ep->dev, of_fwnode_handle(of_node_get(np))=
-);
-> >         dev_set_name(&aux_ep->dev, "aux-%s", dev_name(aux->dev));
-> >
-> >         ret =3D device_register(&aux_ep->dev);
-> > --
-> > 2.43.0
-> >
+Only in the case of !FWB would a literal table -> block collapse be
+beneficial, as the MMU could potentially elide CMOs when remapping. But
+that assumes you're starting with a fully-mapped table and there are no
+holes that are "out of sync" with the guest.
+
+-- 
+Thanks,
+Oliver
 
