@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6644EE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 08:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9955E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 08:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1UwquMqHQAEbMWHm24NJ3i+17h6zazMQWy5+3k3rLW0=; b=JHUoSOP8OMmzcN+TaMCcvJ73Hr
-	sdZjrORsArYTVZsXuBT3Jz3+T+WckoNo2SLHOPqfhP/dQve0sKKd0C9nGDkIXJbp27CsA8e3pBd21
-	tZeD2BK1MaWsfjbdi10xsuSK0Y26xmUPsEMiU2bq3xo65u7pCgGnf6MAYAIBQlSB/tRKgZJUPgp3s
-	OxouDkNPdMe/YYxcfqeOInrnjFSmGVCGag42juiocYsNOqE3P1jSIpPFqEccEVCFzc+PGNhAT2Q12
-	fX/8qcvHuKvWEwq+bYHXt47Flk075rooJOxUwFkBn2OUxwkYa1+CMiX3YDPDF5cnUdRPcfX2++2XZ
-	Z5ID1tzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WV1SumrajbXcBiCZh7cR2oodxjaKHzLM/ljKxiy91EQ=; b=JvODEctmjpYqyYMpgdmi9bXsM/
+	laRI5wVY3osHEc5grxMYHAnWqHxdYGqV8pH+vPT4klxuiT2CDa72HLGtO/ABXZvBulnz5ggq/YJeT
+	1PGNEaTblRsLBa45I5L72Egg5fzkK1RMXJCGWRQqtNuD3K3rJk+hhdUuI1jH3c0z0wTkDY/QTkIa6
+	rB7WiY4RLkmyx5fdjCSrekIey9UezNyNmCgBJD4DmpEUbqtFCBmHA+XNp62iLu950P9lwzdqYWKWn
+	t743HmqdqyDTqe/0mdk8tpREibXXZjVc/Szlgxyxo4XEeIrmxMSOpX1p2Vil6pRl8VeZT4duW9SNg
+	cfEIZmVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJTnB-00000000wCe-1kYz;
-	Fri, 06 Dec 2024 08:34:29 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tJTp3-00000000wg0-0j0t;
+	Fri, 06 Dec 2024 08:36:25 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJTm9-00000000w2G-3UWT
+	id 1tJTo0-00000000wRD-2hWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 08:33:26 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-385dbf79881so1798741f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 00:33:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733474003; x=1734078803; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=1UwquMqHQAEbMWHm24NJ3i+17h6zazMQWy5+3k3rLW0=;
-        b=V4B4JpgfLG/s9YFYy0RKhLDqauW5hrnE5Jp0ZNXqd65sZvUshvvhyfeZ/BVUsDLHQS
-         zEj/ZDJZRXEP/hazDrYh1yJu/gxzgN9RkQtI5oXmbfAdN6dtmETjMmzC2qFr6YN+MVPo
-         phFaBodKXNA/j1gDxN3c4ZSbrv1Vv+qn1502vcoicPGGeVP3GNA+jS//lGgCRER7MLCc
-         8byaMSSGBKnyGELQ2x0RNppiXhZd3ofh3d4GfBvx36A6xTUsGjf6FvDkvk3jfwKN+9u7
-         5f3pTXbyhgj/AzqTfq7wXkEc0PQc1/ryyPV0kAjP8NFfNQkQZs0PRJqVLPjxUjJ+ClQu
-         0dHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733474003; x=1734078803;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1UwquMqHQAEbMWHm24NJ3i+17h6zazMQWy5+3k3rLW0=;
-        b=tPZtr+APlUFP9vBC4J8D2tSypUB10LxJklpU7ghWFe+UhO9jLsCMPmN0j3imdspUNo
-         OrJ9dwhFFE1/Q4TGykot9MawmMNnNNwx7ixQIcvfZ67iRZLQEKb2ibGy+2ao6DL3s5OH
-         GtchB3IbN94wkLwav3GN6BNkx2jW7P7UrMi3GcCF9rglEOE3GSPrlYQYlgM8EQDmCERr
-         Ybz+bPt7F+tNQEpe1P5QixIyH/YkpjwBHGefToSpHNz97JDPlCbxZDQVGNENarQRqpKI
-         jJPKYsJ1WrBLqOAoHfCOTBIxnRIqLAINr06/Ucwbq4wc2XOJNniBexFayk1OchhBvpLy
-         vBQg==
-X-Gm-Message-State: AOJu0YyHXBnejI1Ka+Mm9/PO3g2Mb8pw1nLf+aguS5oXqkuFMnfeo8Xg
-	bC3g6Ck2k7aoGpEQa+at2tqMFKyK6hXtelqZT7Wkb8XDaOi9/06SJAacSiIRMm13tHDzrCVuDnb
-	1QfEOYwuHnu2pOTqpueJQPkjJiP0a/DfTGHk=
-X-Gm-Gg: ASbGncsLe00XZsdWwE+wmdjyDyFxZV6JRObEWoQBl8ifXB4CP7kSAYLBGksfBoAECBL
-	DojufOiKzq9YaCTMvA5KuJKMSZNK8Soo=
-X-Google-Smtp-Source: AGHT+IEmuAIU0mTKGq/6tyiv+faRyxylaFEW1ymbM8aaM75TuBDPrX1SjlYvQZ+S74OUZZ/o13CLBsk08f2Llqzwq20=
-X-Received: by 2002:a05:6000:4026:b0:385:fa26:f0b5 with SMTP id
- ffacd0b85a97d-3862a91496emr1291250f8f.20.1733474003070; Fri, 06 Dec 2024
- 00:33:23 -0800 (PST)
-MIME-Version: 1.0
-From: richard clark <richard.xnu.clark@gmail.com>
-Date: Fri, 6 Dec 2024 16:33:11 +0800
-Message-ID: <CAJNi4rMfhZOCT+7Ki14vUs+dZbv9cxCZ0s+jgn6=_om4NTgo_A@mail.gmail.com>
-Subject: Question about interrupt prioriyt of ARM GICv3/4
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, will@kernel.org, 
-	"Russell King (Oracle)" <linux@armlinux.org.uk>, Mark Rutland <mark.rutland@arm.com>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, richard clark <richard.xnu.clark@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 06 Dec 2024 08:35:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B2F6B6000D;
+	Fri,  6 Dec 2024 08:35:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733474115;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WV1SumrajbXcBiCZh7cR2oodxjaKHzLM/ljKxiy91EQ=;
+	b=NVR9hKjEAG9vYhynz6REfbxApCyedl4pC+K9g0c2uoNtqUXAlwha3VTqMb83md9W6qHwE8
+	i1vOcNCALO+W5ixz/qgDbTPfXuT/cTweM3YXwRJYAHlp3gH8rS3GQYuGs5+e+Z2nzniDFo
+	3xGH11k7Dv1XpB4QExEFuhFAc3QyF10SbwZprHXbECJQzDobU6sE3VFzOMQpVuxddwO81z
+	Fw0+J8uu6XyXEw+IzVXX67VfUjaTyv+19PRbSpDwoAwVEywL7EAojFtOygHBe/f4Q6Q6RW
+	BMtpe7eYdhKeJxZzRZ36VMASdxxtYZplzL/4nXFgg3kpT9JA5NVieyb2LbT+kg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 06 Dec 2024 09:35:14 +0100
+Message-Id: <D64HAEFFEGS1.3FJ6VM6Y6F1M1@bootlin.com>
+Subject: Re: [PATCH] i2c: nomadik: Add missing sentinel to match table
+Cc: <linux-i2c@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Geert Uytterhoeven" <geert+renesas@glider.be>, "Linus Walleij"
+ <linus.walleij@linaro.org>, "Andi Shyti" <andi.shyti@kernel.org>, "Wolfram
+ Sang" <wsa+renesas@sang-engineering.com>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.18.2-0-ge037c095a049
+References: <34b6ee90437fe19526d9388f2f304d175596cb1f.1733473582.git.geert+renesas@glider.be>
+In-Reply-To: <34b6ee90437fe19526d9388f2f304d175596cb1f.1733473582.git.geert+renesas@glider.be>
+X-GND-Sasl: theo.lebrun@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_003325_866202_DEA75DF2 
-X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-CacheID: sfid-20241206_003520_830422_C6FDD7CE 
+X-CRM114-Status: UNSURE (   5.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,18 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-Currently seems the GICv3/4 irqchip configures all the interrupts as
-the same priority, I am thinking about to minimize the latency of the
-interrupt for a particular device, e.g, the arm arch_timer in the RTL
-system. The question is,
-1. Why don't we provide a /proc or /sys interface for the enduser to
-set the priority of a specific interrupt(SPI/PPI)?
-2. Is there any way to verify the higher priority interrupt will have
-more dominant to be selected to the CPU (IOW, the priority is really
-working) in case of multiple different interrupts asserted to the GIC
-at the same time(some debug registers of GIC like GICD_REEMPT_CNT :-)
-to record higher priority wins)?
+Hello Geert & all,
 
-Thanks
+On Fri Dec 6, 2024 at 9:28 AM CET, Geert Uytterhoeven wrote:
+> The OF match table is not NULL-terminated.
+> Fix this by adding a sentinel to nmk_i2c_eyeq_match_table[].
+
+I had the exact same patch pending locally. Sorry and thanks!
+
+Reviewed-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
