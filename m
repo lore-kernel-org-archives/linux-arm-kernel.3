@@ -4,51 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E3EE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A47E77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I2owo1tpHzwbDp5wmgCJnqmc7fIeVQNphYE0r7zLuNQ=; b=c8AKB9uGPvBhWLMldVERjPiwVk
-	rLaFoZMTcj9WnCuvnJAdTxQjjKVSHb2hCirfgIyjfxEYxIkH3ry79t6hs0+S24IA2tZk/FIQYNulZ
-	Ef+hRJythR7lY1iBStk23+5XQPYLdVCIr03Kkw3lXLIK4cKZ6cA7cZ87aZ/NjHlnWs9ckeOBiSrDT
-	0p9caTJQk0sGIENTQkmDbvVNVvwZWkfOQrVxr3pgvOajfghNGKdtypDeQ691UmAyMClYxuBPdUVFG
-	n8p8dJmF/fj+MhLHc7jkBo83bK3tVp51R1JIgsIETChy/jXMvoRNpA3SedKL+SiveCnXb384Z04hC
-	Qg6vxW4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x1OR+DBVJqFWw+UdI8DDq17A3XB2+9snMuHO6kig0fs=; b=vvIz8qmVK2NrD4gRbBZJhhP8da
+	dvuhJR4amGgjvmKKm25jfChxNXLJyMNIJCMg6vJj/s4ur9FdIFEBNyMUrweerf+i6PMNvPA3zCfWW
+	WddMFNonV43oY7Oe+YKIfwdbaF/gtXYIvjbe+MeNJfm/2AzywTdfUdeIBN07STHW5/R2YKNIOGhY3
+	aycpFhqAT7iKzbYV29exXolJAj+2AysN2uFRhlXPlroKYf2/F/eFJa4ND1uCyRM0/w2R4+Tr+wOal
+	X0BkkYe73s8B0ztWl4zYQCckkMxKkc6eU2AiwGPuguJo20bdV8I9T1jZsFVMr3rVNgGmLTsxSUJiU
+	/tQTarBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeNL-00000002bU9-0mcR;
-	Fri, 06 Dec 2024 19:52:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeLu-00000002bIQ-07RU;
-	Fri, 06 Dec 2024 19:51:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE32B12FC;
-	Fri,  6 Dec 2024 11:51:26 -0800 (PST)
-Received: from [192.168.0.16] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CF733F58B;
-	Fri,  6 Dec 2024 11:50:57 -0800 (PST)
-Message-ID: <1f2b3af4-2b7a-4ac8-ab95-c80120ebf44c@arm.com>
-Date: Fri, 6 Dec 2024 19:50:55 +0000
+	id 1tJeWr-00000002cwC-0TkZ;
+	Fri, 06 Dec 2024 20:02:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJeVm-00000002cSu-2iiI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Dec 2024 20:01:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733515274; x=1765051274;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Et72pDqDPKb2qbyOOGgj6Lp29bo2uZRk5VtQf2gzGT4=;
+  b=S2nO3TqriPyGhKgsmoFjQ06+sq7COfCY0zHQ0lc3tgxiRjf4TeV0oSmE
+   zeCoFlIU8K5JMWw2+lym1GV6lSuP/4Rk7TrK+6ip3qDBma/N2CQlsiNYT
+   tkZCThzwT7LjZJGepWoJiSafIep/hz6CBVyBwQChJC5gBrRN6uLN5afWa
+   TRM9J9Pj/JlJSZMc/m/sj7SMHJQfH4bqAuABt5YoRTkzMjipxe/LokJRe
+   bYxk+k38o/jteLODl4NNDQA/aUFEZfhd1V80ElF7PGLrxJlM1n4pxNqVy
+   N+WI6qMBs8IxLl/Hh91Hn68Rt/DxRvQK+tcLRG/mGyK89IDL9szKu3OxA
+   A==;
+X-CSE-ConnectionGUID: 9plLhrxgQXuYZUyQ8wJyMg==
+X-CSE-MsgGUID: sUD4NM/tRtysaXxvgsHykA==
+X-IronPort-AV: E=Sophos;i="6.12,214,1728975600"; 
+   d="scan'208";a="34926402"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Dec 2024 13:01:11 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 6 Dec 2024 13:01:10 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Fri, 6 Dec 2024 13:01:09 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<arnd@arndb.de>
+CC: <dharma.b@microchip.com>, <mihai.sain@microchip.com>,
+	<romain.sioen@microchip.com>, <varshini.rajendran@microchip.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>
+Subject: [PATCH v3 04/13] dt-bindings: serial: atmel,at91-usart: add microchip,sama7d65-usart
+Date: Fri, 6 Dec 2024 12:59:49 -0700
+Message-ID: <05baeeda872ab06d4d84718c535453b787740876.1733505542.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1733505542.git.Ryan.Wanner@microchip.com>
+References: <cover.1733505542.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: Mark Brown <broonie@kernel.org>, heiko@sntech.de,
- luis.dearquer@inertim.com
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-From: Christian Loehle <christian.loehle@arm.com>
-Subject: [PATCH] spi: rockchip: Fix PM runtime count on no-op cs
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_115102_115405_9B0E1E83 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20241206_120114_824976_1C0253F7 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,54 +92,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The early bail out that caused an out-of-bounds write was removed with
-commit 5c018e378f91 ("spi: spi-rockchip: Fix out of bounds array
-access")
-Unfortunately that caused the PM runtime count to be unbalanced and
-underflowed on the first call. To fix that reintroduce a no-op check
-by reading the register directly.
+From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-Cc: stable@vger.kernel.org
-Fixes: 5c018e378f91 ("spi: spi-rockchip: Fix out of bounds array access")
-Signed-off-by: Christian Loehle <christian.loehle@arm.com>
+Add SAMA7D65 USART compatible to DT bindings documentation.
+
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
-Not particularly happy with it, it's just the most straightforward
-fix for the issue at hand. I couldn't quite convince myself that
-no-op rockchip_spi_set_cs() are 100% ruled out just from spi.c after
-the first call either, but maybe someone more familiar with the code
-can. I have only seen the issue for the first call / during boot FWIW.
-Any more elegant fix suggestions welcome! The other host controller
-drivers don't need the read before CS change, so this shouldn't really
-either.
+ Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- drivers/spi/spi-rockchip.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
-index 864e58167417..1bc012fce7cb 100644
---- a/drivers/spi/spi-rockchip.c
-+++ b/drivers/spi/spi-rockchip.c
-@@ -241,6 +241,20 @@ static void rockchip_spi_set_cs(struct spi_device *spi, bool enable)
- 	struct spi_controller *ctlr = spi->controller;
- 	struct rockchip_spi *rs = spi_controller_get_devdata(ctlr);
- 	bool cs_asserted = spi->mode & SPI_CS_HIGH ? enable : !enable;
-+	bool cs_actual;
-+
-+	/*
-+	 * SPI subsystem tries to avoid no-op calls that would break the PM
-+	 * refcount below. It can't however for the first time it is used.
-+	 * To detect this case we read it here and bail out early for no-ops.
-+	 */
-+	if (spi_get_csgpiod(spi, 0))
-+		cs_actual = !!(readl_relaxed(rs->regs + ROCKCHIP_SPI_SER) & 1);
-+	else
-+		cs_actual = !!(readl_relaxed(rs->regs + ROCKCHIP_SPI_SER) &
-+			       BIT(spi_get_chipselect(spi, 0)));
-+	if (unlikely(cs_actual == cs_asserted))
-+		return;
- 
- 	if (cs_asserted) {
- 		/* Keep things powered as long as CS is asserted */
+diff --git a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
+index f466c38518c4..087a8926f8b4 100644
+--- a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
++++ b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
+@@ -26,6 +26,7 @@ properties:
+           - enum:
+               - microchip,sam9x60-usart
+               - microchip,sam9x7-usart
++              - microchip,sama7d65-usart
+           - const: atmel,at91sam9260-usart
+       - items:
+           - const: microchip,sam9x60-dbgu
 -- 
-2.34.1
+2.43.0
+
 
