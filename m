@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2051FE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4575EE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H11rnIjZ/6A+y0BhElAhFFU5gZO2NZydl8Xc9FZjLpY=; b=mfGCytdLavA8bNqOipi1HF8mfc
-	yh0XnkBU058f2YryMYpG5sckiKIUs4HARg5dB+w7E2uJN3HlIOH6BVPQVpSaDrkqTZExfa+Qni32o
-	wRlTRkn/Cq6AUxEPecAMO39bzZzvlZeIH8P0nc50MYrVznFVMwWrEhNKzj0dCxEbiQiCQfzoxoCKL
-	YWK9q1+9aUtwqsb2UkouxXzBxLedaxfxyskdTmkk/Z/SKgAaBPBmGsaBvgEJmMGRyJ93uu5GvYSfy
-	AzS2aqy+N6ByA5mX0Q7lEukHoRt0S4zWDCnbKNGd58FZcS2+Rh0rb9/9VU/Jbq+J9hHTufpo/GHUe
-	dlkAtEKQ==;
+	bh=XyAJZWh204Jg961AaAOy2+aPUgd1uUQOUoQ33ic9q34=; b=fFO5IbuXIJD7FYwdgmV/WX8Fgx
+	wsFb/AWij0+0WZLeNbeLALD12n+J7RYSqeq3vZCWZNHAXp7El1xw7GENGEJuqbNQXNeKFXKPuSl/i
+	ryuPYc+QzFVx8NVlFZzAlWVqpFbtRZIfDVNUez5XrB1q9Vus9jQiQ5tDqKR02SbLEMd2gAinZ/LOM
+	KHA2AVUHyoCQQjhdQPLLObi9ZsPI8Y5oLp9P0vLKAfaZcIStL8bR5Sims/romCuyDv5IlrfeNrMCm
+	n0Fm9DAVs3gtw4tdDKm6dkqdVs3HH2sHiey7/CH+jEw5m8yPtubGgb9aGTWqC0E6M7eXyRiGAGfZc
+	V9nHfzHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbIR-00000002BTG-1rur;
-	Fri, 06 Dec 2024 16:35:15 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tJbJR-00000002BnP-1gbC;
+	Fri, 06 Dec 2024 16:36:17 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbEO-00000002ADS-48uA
+	id 1tJbEP-00000002AEI-3Wb2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 16:31:07 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53e274f149fso2617283e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 08:31:04 -0800 (PST)
+	Fri, 06 Dec 2024 16:31:08 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-434a736518eso25985435e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 08:31:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733502663; x=1734107463; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733502664; x=1734107464; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=H11rnIjZ/6A+y0BhElAhFFU5gZO2NZydl8Xc9FZjLpY=;
-        b=oKT9uGmUWvsupxgmEMebfD8zhvFhR+J7axPfIuTycsrQVY/Jcxt9Henvfhif0bDVfQ
-         lQOeBz6wljqM93nd5YL9+H7oFJfw+y9JxPmORgcr9sCZ6aPceh8wMl6nKf0GO1/GfZOu
-         AWJHs7RTpeZqNy3eQXpC4bDcm+Oo+g07h0aCLVZl8PxQCpLIE6KwNt/51zD1C61dIsA6
-         AtEoPn2DO4Pe777wD1JtDcmuZpjVRwY4fo3c5sTsfGnRJz/o8YkaiQMb2gG4L23fFMPP
-         BiNxMI40Xe0za4CvXE0hxiTMoDYC8NZtbOEE0WjQKnxPQ4q2QRiEoCiax7LkuO04tY3y
-         3Yaw==
+        bh=XyAJZWh204Jg961AaAOy2+aPUgd1uUQOUoQ33ic9q34=;
+        b=KhcHPotYrU6XRRnuI3kkqTobLkcadO8v33TKusIJzxpX3G9ULAwUb898dRxx3R+4ta
+         cJuuFmDalBnG+PLkyCU5WZQID01YyWKLM9IfPAPjVGxy/JU0akiPeP8/ZCE4byiPZ/J3
+         9tpD0S6WIqSkwHy6TEtEEVh+2LYgz+rE3lKg+0nta96pcQ8CmIKKRGRthsqA8weDec5V
+         qM6/hmhk5Z8lo663a/GWLXEN2zoBs8Km3uRucH1Vq2b/m/OHDGuTLUk1tKYJkKneECtt
+         AwUcxgl8Ujv9JdlTBxrNFcwV4hIRuNITyjLt/6vXoUQnEdgUIM+IVO5pA6NQReEjgq2f
+         v6YQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733502663; x=1734107463;
+        d=1e100.net; s=20230601; t=1733502664; x=1734107464;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=H11rnIjZ/6A+y0BhElAhFFU5gZO2NZydl8Xc9FZjLpY=;
-        b=VLZS76nIPHaeBEjZ/O4zzhR7fA2VgbxLHa2Gt5p7zl/6dfyp+QW/jE9ScPnRJt2PvP
-         m7w6qONPGf7Q03Nj1OQi1C4poafv4QHWuSEoaGiGaXHhBKMQ1EGf2I90lkdeTuqOPz+d
-         CNNqNwSHpWK7hiv0JIoww8wvF1k3zBbsnaY4jAJQVhSNW2pSAu5DBVf0XQnFiDZ9zZgC
-         mIdE0kBCXD5UMUBJ7useZkEU8MfDJMCYGcAQS89Db2Mv+Fs+k4WmlR9OVXZUMBkZbTyn
-         +GeLroCDsPm5DZLucwNbPpIOWVYusn7hnMjwLIOm8jWmP2jzlrjbxtJSnwmy5q89OjN2
-         wN8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUqgD/YVFikTyjULZAzD50JnvxbKi/9dECNDvVYo81W1htKB1ua91APYMu3TA/A3o0+dyH+R4iXNicJCiYA+mG2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXdbr64FtMWZlApGqdtrJroUGndIwAAzpUH2Ad9UNZ80vsbZ0n
-	sG5mtTvdJk9qYu0SCYACmdadI4Uh4f4dLL6voRlYe4/m3m6uUsgdW/fhA8w7hYA=
-X-Gm-Gg: ASbGncs6UpYZWY21yhDJU4+wKbgaeCXpBfoXU/3tajZYDcfRD9hsME3NED5TAAS2ZT2
-	DdWGDPj+Q6LY2Qp1zPkEXnDNlGPhzYM3uTqdIrbT8CQUCPpLRnB4MSpdMZDG9SfgijU3g43TIb0
-	EJ8RLdaQLL70fpt0Ag47VOueJCl3Am4KRBmX7omp7H0jLCTAUrVvyTqndNHjAYVio85dLlTIj0M
-	eVIZlHVbz3tJb7PVOMUh4fhp3V1dtFYv1AGpgvpF/J68ijMnfImM1QqlG9wzWA+WmPt0PTuDLhk
-	EGKmT3yIYdfYsEUY+IAhWsgFG9XDV1vZYw==
-X-Google-Smtp-Source: AGHT+IExkzoUN1HflnT9opUQAW9MqmmpGeThLHiF2BwdjV6cAu9grD1ih7bZFlXxIc4t4D7GinRxbw==
-X-Received: by 2002:a05:6512:ad1:b0:539:da76:c77e with SMTP id 2adb3069b0e04-53e2c2ac7fcmr2130253e87.5.1733502663241;
+        bh=XyAJZWh204Jg961AaAOy2+aPUgd1uUQOUoQ33ic9q34=;
+        b=X6sCGm4/mwJkpyqEvjSzpCwerQCFnpF5hCpsXmQebPhbtPv54Cy9WRYBtgv18zh/jG
+         dk78n4ZchfZjMI4yIeHXdPNutPVC2TPm7SuqQiG0NHG84U6+blC3LX+HAZ0GR1tel2s4
+         K50idztkld/3Ep1B7kHW5LB7/3Qwe2O7zcrPXxW80F9UX3RYfNNJgEbjQTU/lnjvXYHE
+         tYx077Y+aFXBtjms1xJOeBY/B1+8QS9aubBGWOeaB0X+i/hxwb38e91zOm1Tmp5m9lZl
+         aLATvniApxcqd21XMX+fGgN6zG09cnrvIpRsGBChjERSExZmAit3l4vZs0gErpI3apmt
+         FjhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOOJ4fv/kX1WC8YJ71M2cfpWX80w9O2SmTnR69YnLLrxCRvYQdSCzn5WoiM7onQIWNuDPMv+vvsAMkjoORG0ax@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvUXk2+OIGD4tuPOjl7E9G0d0KnMxwqilADRlNzCjqG6IzXZFB
+	BJH2lbDu7NT0AU3kutdZ7zZEZhTkwaLF4P6WjMGnbzi0moMS+ECv0qOWnHnZJ90=
+X-Gm-Gg: ASbGncskpvX8cAjX+10/4pB6Xvsf+wwOky9dyDXUomzDET5ZOivSVO9AzlYwxCj4Iot
+	XOz5CyDw+PgPrWMnvuuRGDhuz/rH7utcMYr9xijL/849Rfk61VgUYmlvj4c9/axpBCqkPGTKpkP
+	UUn3E+aVRcjLVGof9ghRT3CGpiQF33tbbttSOrdcbMgJ9y/h+b+4nGAqJRcHoV3PLmWJEfYjmNa
+	0SCAWYAQ8h/MGZYpPUDFu8IWfEsgeq5Wd1oifA/nJ0SciXgfvEtnAuVIwzURlkFOI4iwoBjtmvj
+	Xv9i4SvuFqofzru5YRYR7tU+Z20gsuvofA==
+X-Google-Smtp-Source: AGHT+IG1rlIGyO/nnPLuP1Na7RwgQmQmvS86new+NKYuNxLnewiatbb2kxtQ1hikVy0uIxEBRnzdMw==
+X-Received: by 2002:a05:6000:1865:b0:385:ed1e:20fe with SMTP id ffacd0b85a97d-3862b3e649amr3139459f8f.59.1733502663773;
         Fri, 06 Dec 2024 08:31:03 -0800 (PST)
 Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6260e8af8sm257710266b.191.2024.12.06.08.31.02
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6260e8af8sm257710266b.191.2024.12.06.08.31.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 08:31:02 -0800 (PST)
+        Fri, 06 Dec 2024 08:31:03 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 06 Dec 2024 16:31:03 +0000
-Subject: [PATCH v4 3/7] phy: exynos5-usbdrd: convert to dev_err_probe
+Date: Fri, 06 Dec 2024 16:31:04 +0000
+Subject: [PATCH v4 4/7] phy: exynos5-usbdrd: fix EDS distribution tuning
+ (gs101)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241206-gs101-phy-lanes-orientation-phy-v4-3-f5961268b149@linaro.org>
+Message-Id: <20241206-gs101-phy-lanes-orientation-phy-v4-4-f5961268b149@linaro.org>
 References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
 In-Reply-To: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -91,12 +92,11 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  kernel-team@android.com, linux-phy@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_083105_017689_9C9E4F03 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241206_083105_886841_D3A778B6 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +111,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dev_err_probe() exists to simplify code.
+This code's intention is to configure lane0 and lane2 tunings, but for
+lane2 there is a typo and it ends up tuning something else.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Fix the typo, as it doesn't appear to make sense to apply different
+tunings for lane0 vs lane2.
+
+The same typo appears to exist in the bootloader, hence we restore the
+original value in the typo'd registers as well. This can be removed
+once / if the bootloader is updated.
+
+Note that this is incorrect in the downstream driver as well - the
+values had been copied from there.
+
 Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Tested-by: Peter Griffin <peter.griffin@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
 ---
 v2:
 * collect tags
 ---
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 21 +++++++++------------
- 1 file changed, 9 insertions(+), 12 deletions(-)
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index c421b495eb0f..ceae4b47cece 100644
+index ceae4b47cece..2a724d362c2d 100644
 --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
 +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -1725,10 +1725,9 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
- 
- 	reg_pmu = syscon_regmap_lookup_by_phandle(dev->of_node,
- 						   "samsung,pmu-syscon");
--	if (IS_ERR(reg_pmu)) {
--		dev_err(dev, "Failed to lookup PMU regmap\n");
--		return PTR_ERR(reg_pmu);
--	}
-+	if (IS_ERR(reg_pmu))
-+		return dev_err_probe(dev, PTR_ERR(reg_pmu),
-+				     "Failed to lookup PMU regmap\n");
- 
- 	/*
- 	 * Exynos5420 SoC has multiple channels for USB 3.0 PHY, with
-@@ -1759,10 +1758,9 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
- 	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
- 		struct phy *phy = devm_phy_create(dev, NULL, drv_data->phy_ops);
- 
--		if (IS_ERR(phy)) {
--			dev_err(dev, "Failed to create usbdrd_phy phy\n");
--			return PTR_ERR(phy);
--		}
-+		if (IS_ERR(phy))
-+			return dev_err_probe(dev, PTR_ERR(phy),
-+					     "Failed to create usbdrd_phy phy\n");
- 
- 		phy_drd->phys[i].phy = phy;
- 		phy_drd->phys[i].index = i;
-@@ -1786,10 +1784,9 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
- 
- 	phy_provider = devm_of_phy_provider_register(dev,
- 						     exynos5_usbdrd_phy_xlate);
--	if (IS_ERR(phy_provider)) {
--		dev_err(phy_drd->dev, "Failed to register phy provider\n");
--		return PTR_ERR(phy_provider);
--	}
-+	if (IS_ERR(phy_provider))
-+		return dev_err_probe(phy_drd->dev, PTR_ERR(phy_provider),
-+				     "Failed to register phy provider\n");
- 
- 	return 0;
- }
+@@ -1510,8 +1510,11 @@ static const struct exynos5_usbdrd_phy_tuning gs101_tunes_pipe3_preinit[] = {
+ 	PHY_TUNING_ENTRY_PMA(0x09e0, -1, 0x00),
+ 	PHY_TUNING_ENTRY_PMA(0x09e4, -1, 0x36),
+ 	PHY_TUNING_ENTRY_PMA(0x1e7c, -1, 0x06),
+-	PHY_TUNING_ENTRY_PMA(0x1e90, -1, 0x00),
+-	PHY_TUNING_ENTRY_PMA(0x1e94, -1, 0x36),
++	PHY_TUNING_ENTRY_PMA(0x19e0, -1, 0x00),
++	PHY_TUNING_ENTRY_PMA(0x19e4, -1, 0x36),
++	/* fix bootloader bug */
++	PHY_TUNING_ENTRY_PMA(0x1e90, -1, 0x02),
++	PHY_TUNING_ENTRY_PMA(0x1e94, -1, 0x0b),
+ 	/* improve LVCC */
+ 	PHY_TUNING_ENTRY_PMA(0x08f0, -1, 0x30),
+ 	PHY_TUNING_ENTRY_PMA(0x18f0, -1, 0x30),
 
 -- 
 2.47.0.338.g60cca15819-goog
