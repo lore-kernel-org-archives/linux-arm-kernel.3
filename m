@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5737E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDA3BE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qWhJO32QaX3zCsv7TE/p5YopM8ATfeZewveYiJmJv4o=; b=Fn97Wz8OErWnetz6843AoYPtJo
-	oxNwGysRrLWnfrOsXX06qSKL7zIHkBqYKD1zfEzDbK8LQgfqlH0fA7NIF59Eccl5IRpD+vAsF/XSa
-	IG6tPJQI0nveHs8/7kCgUt/qCQ4QmRAAiY5bVihlxVG0qOWB1bdh83DrqVtab62i3ic8GapOEihea
-	Mx0GmVVzGHvR22k5mKNdXJFdOTgALWPDRYSY3K5+5b6812FQ3ktaKs83Djz4CIWmPh4IoL1exugqp
-	t5L9dHZzuQWlLOcgHrMKSoHqHrhTaWJ90i6yPvkQQU+qIDc5dl9faDbr1sQD9qo96p3GCAKE8z/Nl
-	Qul+oI0g==;
+	bh=8xOebWP/M8X2cP/fdZF9vXfDo8byCjFk2C5X5FbCC10=; b=2cJ/zpST3fH3r94Qyv+/jHaRVE
+	oZjhkGnbUx12EKZjSYoWB+eC6QlZHdZyfmvL15EaTn7VRyA5A2hUpgasuSfYwIUt//zT3Fr2HhaK8
+	IFVcehmZMs0dTTaeVLS0SjyAhCpEC42drPwpT0UKApMDTQucNVSfp/E/9EyQlIyqSlbIaNMYRtFfp
+	bZk2QAyav0QEv+Oxzfr/bGMetGpN5L7mkP3+sQYnq7Kntf/+eewEi7/ON5fcyL0h9uOivlTUlKREA
+	IlcplLWhqSujsLkM+8+ODmGTeWWFTCqESbzAVK1Jc0UZlk5RUPwGZBg4ramB0/lXsl1qAfAFIKZaT
+	DS1zLS1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJglK-00000002tp3-1ZzX;
-	Fri, 06 Dec 2024 22:25:26 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgiI-00000002tFn-2Fjh
+	id 1tJh7F-00000002xVi-1aTJ;
+	Fri, 06 Dec 2024 22:48:05 +0000
+Received: from mail-vk1-xa49.google.com ([2607:f8b0:4864:20::a49])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJh6D-00000002xOc-1KBK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 22:22:20 +0000
-Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5583F20ACD9A;
-	Fri,  6 Dec 2024 14:22:17 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5583F20ACD9A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1733523737;
-	bh=qWhJO32QaX3zCsv7TE/p5YopM8ATfeZewveYiJmJv4o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sWQ0SH08qm9VeXGl27eQ7mStuAPq1heKmJyhk3J6cj9XUjc8DFgaG+08qqeATQszN
-	 En7kA8JL0Zkwh0/pBwysDXySLzYD7lw6gRiinipklXpaQypollKkxKcmKs4gTZ/eWg
-	 t9tL+IQodGWl8dNVT7ugatUSEdOW5unboz6+FCiQ=
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Cc: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	mhklinux@outlook.com,
-	decui@microsoft.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	arnd@arndb.de,
-	jinankjain@linux.microsoft.com,
-	muminulrussell@gmail.com,
-	skinsburskii@linux.microsoft.com,
-	mukeshrathor@microsoft.com
-Subject: [PATCH 2/2] hyperv: Move create_vp and deposit_pages hvcalls to hv_common.c
-Date: Fri,  6 Dec 2024 14:21:47 -0800
-Message-Id: <1733523707-15954-3-git-send-email-nunodasneves@linux.microsoft.com>
-X-Mailer: git-send-email 1.8.3.1
-In-Reply-To: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
-References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+	Fri, 06 Dec 2024 22:47:02 +0000
+Received: by mail-vk1-xa49.google.com with SMTP id 71dfb90a1353d-515cf198890so445362e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 14:47:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733525219; x=1734130019; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8xOebWP/M8X2cP/fdZF9vXfDo8byCjFk2C5X5FbCC10=;
+        b=2B1vlN27ma7Z9B1mSWnq0LTuash1tmbkhat85Z20D66nuLWlK0pLN6xQVFjBr/MCzX
+         8jNNh4VQMsWJQ9aWMLqzbkv4q1yCCeOqedsWAQfQGU74X/qWPOXscBbrpXlWITSPbPeS
+         jF6gtefy2iQJrlhSxBY+hmzmfT0XQXk2T8FUosm0TlAAbXdURjrsOMGrkZZPvvr8MaHQ
+         l9tH/XUpxAFYwQb82t8bmLFWzaS8Hc6ucqgkC6K5GGpoz/nk9QvkWH3og2Mt0cwvtwhZ
+         o2dTxo9TUZa1F1viSDYzWlwZW62/r/oigNuXHNAmkXJ7MBgy9MsqAMYDgWmNw13SdXgS
+         nkwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733525219; x=1734130019;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8xOebWP/M8X2cP/fdZF9vXfDo8byCjFk2C5X5FbCC10=;
+        b=aGt1UVMe1K+XbnlEwM/Pzq4WlClS+FOLefj7LEJdVfpQu/7Mb+OLorplDfBJtbgt0E
+         ZNems+KschQ7kimFWTlcHi/cL2lHbMWgGUeBZE3lx6Fdkvb+mm2n26Ibh3/HSNTMf4aU
+         AQdmhT+CayhODNxwyS6DUa+qud5FbHCQm5wUOjH8IKSZcuKHjuUgdS501hDCt5FamVBm
+         /3FXTLNtPuJy8f0Ck15IFoPabCa59VV6+se6sSb8pjZ1EGWWt2df1hRd9Y+CToA7sSLG
+         l4DGsVXIpGz0AO15lYdlOTqUgVfMn+GZzgpiQJtvaWokIucB+r4VpC4Cy/8U6uXV6E+k
+         SkBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXkYTB4cKSbRZeRY2lxz5S/S+jgoOLUHJEi7RMTz0Mlo97WllhcZ4HdQr7Wt2zBYPy17OT2rIaFT+zBgT1m/Dfd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxmut5Ie1sh5EZmRxkkQpLzyFNMZ/FFd0L1aRp6RE0jSGtNKxsZ
+	/+d/rjHzbwOX3dsG5NCfge4O39mr6bruZgtj/woffMZyvkrcw1i4O2rL/JLd7QtDF9fgD0Fmo90
+	9d39Lt88QOm+b4kIOXQ==
+X-Google-Smtp-Source: AGHT+IFWYRH0ZDfG1SCEobsGl/BiWTfQRI31egCmHBP1UIFLmQh8g16wMoeT9PBzM1Kkhhw9DuLZq6uIHa5tY1W0
+X-Received: from vkbes1.prod.google.com ([2002:a05:6122:1b81:b0:50d:806e:dfd0])
+ (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6122:1da1:b0:50b:e9a5:cd7b with SMTP id 71dfb90a1353d-515fcae70a3mr5700023e0c.9.1733525219486;
+ Fri, 06 Dec 2024 14:46:59 -0800 (PST)
+Date: Fri,  6 Dec 2024 22:46:58 +0000
+In-Reply-To: <202412052133.pTg3UAQm-lkp@intel.com>
+Mime-Version: 1.0
+References: <202412052133.pTg3UAQm-lkp@intel.com>
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+Message-ID: <20241206224658.2833655-1-jthoughton@google.com>
+Subject: Re: [PATCH v1 01/13] KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
+From: James Houghton <jthoughton@google.com>
+To: lkp@intel.com
+Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
+	jthoughton@google.com, kalyazin@amazon.com, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, maz@kernel.org, 
+	oe-kbuild-all@lists.linux.dev, oliver.upton@linux.dev, pbonzini@redhat.com, 
+	peterx@redhat.com, pgonda@google.com, seanjc@google.com, wei.w.wang@intel.com, 
+	yan.y.zhao@intel.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_142218_626598_EF720CA3 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20241206_144701_356099_9CE71CEA 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,360 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nudasnev@microsoft.com>
+>    arch/x86/kvm/../../../virt/kvm/kvm_main.c: In function '__kvm_set_memory_region':
+> >> arch/x86/kvm/../../../virt/kvm/kvm_main.c:2049:41: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+>     2049 |                 new->userfault_bitmap = (unsigned long *)mem->userfault_bitmap;
+>          |                                         ^
 
-These are not specific to x86_64 and will be needed by common code.
+I realize that, not only have I done this cast slightly wrong, I'm
+missing a few checks on userfault_bitmap that I should have. Applying
+this diff, or at least something like it, to fix it:
 
-Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
----
- arch/x86/hyperv/hv_proc.c       | 144 -------------------------------
- arch/x86/include/asm/mshyperv.h |   2 -
- drivers/hv/hv_common.c          | 145 ++++++++++++++++++++++++++++++++
- include/asm-generic/mshyperv.h  |   2 +
- 4 files changed, 147 insertions(+), 146 deletions(-)
-
-diff --git a/arch/x86/hyperv/hv_proc.c b/arch/x86/hyperv/hv_proc.c
-index 3fa1f2ee7b0d..119354d00637 100644
---- a/arch/x86/hyperv/hv_proc.c
-+++ b/arch/x86/hyperv/hv_proc.c
-@@ -10,109 +10,8 @@
- #include <asm/hypervisor.h>
- #include <asm/mshyperv.h>
- #include <asm/apic.h>
--
- #include <asm/trace/hyperv.h>
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index b552cdef2850..30f09141df64 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1977,6 +1977,12 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 		return -EINVAL;
+ 	if ((mem->memory_size >> PAGE_SHIFT) > KVM_MEM_MAX_NR_PAGES)
+ 		return -EINVAL;
++	if (mem->flags & KVM_MEM_USERFAULT &&
++	    ((mem->userfault_bitmap != untagged_addr(mem->userfault_bitmap)) ||
++	     !access_ok((void __user *)(unsigned long)mem->userfault_bitmap,
++			DIV_ROUND_UP(mem->memory_size >> PAGE_SHIFT, BITS_PER_LONG)
++			 * sizeof(long))))
++		return -EINVAL;
  
--/*
-- * See struct hv_deposit_memory. The first u64 is partition ID, the rest
-- * are GPAs.
-- */
--#define HV_DEPOSIT_MAX (HV_HYP_PAGE_SIZE / sizeof(u64) - 1)
--
--/* Deposits exact number of pages. Must be called with interrupts enabled.  */
--int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
--{
--	struct page **pages, *page;
--	int *counts;
--	int num_allocations;
--	int i, j, page_count;
--	int order;
--	u64 status;
--	int ret;
--	u64 base_pfn;
--	struct hv_deposit_memory *input_page;
--	unsigned long flags;
--
--	if (num_pages > HV_DEPOSIT_MAX)
--		return -E2BIG;
--	if (!num_pages)
--		return 0;
--
--	/* One buffer for page pointers and counts */
--	page = alloc_page(GFP_KERNEL);
--	if (!page)
--		return -ENOMEM;
--	pages = page_address(page);
--
--	counts = kcalloc(HV_DEPOSIT_MAX, sizeof(int), GFP_KERNEL);
--	if (!counts) {
--		free_page((unsigned long)pages);
--		return -ENOMEM;
--	}
--
--	/* Allocate all the pages before disabling interrupts */
--	i = 0;
--
--	while (num_pages) {
--		/* Find highest order we can actually allocate */
--		order = 31 - __builtin_clz(num_pages);
--
--		while (1) {
--			pages[i] = alloc_pages_node(node, GFP_KERNEL, order);
--			if (pages[i])
--				break;
--			if (!order) {
--				ret = -ENOMEM;
--				num_allocations = i;
--				goto err_free_allocations;
--			}
--			--order;
--		}
--
--		split_page(pages[i], order);
--		counts[i] = 1 << order;
--		num_pages -= counts[i];
--		i++;
--	}
--	num_allocations = i;
--
--	local_irq_save(flags);
--
--	input_page = *this_cpu_ptr(hyperv_pcpu_input_arg);
--
--	input_page->partition_id = partition_id;
--
--	/* Populate gpa_page_list - these will fit on the input page */
--	for (i = 0, page_count = 0; i < num_allocations; ++i) {
--		base_pfn = page_to_pfn(pages[i]);
--		for (j = 0; j < counts[i]; ++j, ++page_count)
--			input_page->gpa_page_list[page_count] = base_pfn + j;
--	}
--	status = hv_do_rep_hypercall(HVCALL_DEPOSIT_MEMORY,
--				     page_count, 0, input_page, NULL);
--	local_irq_restore(flags);
--	if (!hv_result_success(status)) {
--		pr_err("Failed to deposit pages: %lld\n", status);
--		ret = hv_result(status);
--		goto err_free_allocations;
--	}
--
--	ret = 0;
--	goto free_buf;
--
--err_free_allocations:
--	for (i = 0; i < num_allocations; ++i) {
--		base_pfn = page_to_pfn(pages[i]);
--		for (j = 0; j < counts[i]; ++j)
--			__free_page(pfn_to_page(base_pfn + j));
--	}
--
--free_buf:
--	free_page((unsigned long)pages);
--	kfree(counts);
--	return ret;
--}
--
- int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
- {
- 	struct hv_input_add_logical_processor *input;
-@@ -154,46 +53,3 @@ int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
- 	return ret;
- }
+ 	slots = __kvm_memslots(kvm, as_id);
  
--int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
--{
--	struct hv_create_vp *input;
--	u64 status;
--	unsigned long irq_flags;
--	int ret = HV_STATUS_SUCCESS;
--
--	/* Root VPs don't seem to need pages deposited */
--	if (partition_id != hv_current_partition_id) {
--		/* The value 90 is empirically determined. It may change. */
--		ret = hv_call_deposit_pages(node, partition_id, 90);
--		if (ret)
--			return ret;
--	}
--
--	do {
--		local_irq_save(irq_flags);
--
--		input = *this_cpu_ptr(hyperv_pcpu_input_arg);
--
--		input->partition_id = partition_id;
--		input->vp_index = vp_index;
--		input->flags = flags;
--		input->subnode_type = HvSubnodeAny;
--		input->proximity_domain_info = hv_numa_node_to_pxm_info(node);
--		status = hv_do_hypercall(HVCALL_CREATE_VP, input, NULL);
--		local_irq_restore(irq_flags);
--
--		if (hv_result(status) != HV_STATUS_INSUFFICIENT_MEMORY) {
--			if (!hv_result_success(status)) {
--				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
--				       vp_index, flags, status);
--				ret = hv_result(status);
--			}
--			break;
--		}
--		ret = hv_call_deposit_pages(node, partition_id, 1);
--
--	} while (!ret);
--
--	return ret;
--}
--
-diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-index 9eeca2a6d047..5bad88cfccba 100644
---- a/arch/x86/include/asm/mshyperv.h
-+++ b/arch/x86/include/asm/mshyperv.h
-@@ -57,9 +57,7 @@ u64 hv_tdx_hypercall(u64 control, u64 param1, u64 param2);
- #define HV_AP_INIT_GPAT_DEFAULT		0x0007040600070406ULL
- #define HV_AP_SEGMENT_LIMIT		0xffffffff
+@@ -2053,7 +2059,8 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 			goto out;
+ 	}
+ 	if (mem->flags & KVM_MEM_USERFAULT)
+-		new->userfault_bitmap = (unsigned long *)mem->userfault_bitmap;
++		new->userfault_bitmap =
++		  (unsigned long __user *)(unsigned long)mem->userfault_bitmap;
  
--int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages);
- int hv_call_add_logical_proc(int node, u32 lp_index, u32 acpi_id);
--int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags);
- 
- /*
-  * If the hypercall involves no input or output parameters, the hypervisor
-diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-index 819bcfd2b149..591cc51e8817 100644
---- a/drivers/hv/hv_common.c
-+++ b/drivers/hv/hv_common.c
-@@ -679,3 +679,148 @@ u64 __weak hv_tdx_hypercall(u64 control, u64 param1, u64 param2)
- 	return HV_STATUS_INVALID_PARAMETER;
- }
- EXPORT_SYMBOL_GPL(hv_tdx_hypercall);
-+
-+int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
-+{
-+	struct hv_create_vp *input;
-+	u64 status;
-+	unsigned long irq_flags;
-+	int ret = HV_STATUS_SUCCESS;
-+
-+	/* Root VPs don't seem to need pages deposited */
-+	if (partition_id != hv_current_partition_id) {
-+		/* The value 90 is empirically determined. It may change. */
-+		ret = hv_call_deposit_pages(node, partition_id, 90);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	do {
-+		local_irq_save(irq_flags);
-+
-+		input = *this_cpu_ptr(hyperv_pcpu_input_arg);
-+
-+		input->partition_id = partition_id;
-+		input->vp_index = vp_index;
-+		input->flags = flags;
-+		input->subnode_type = HvSubnodeAny;
-+		input->proximity_domain_info = hv_numa_node_to_pxm_info(node);
-+		status = hv_do_hypercall(HVCALL_CREATE_VP, input, NULL);
-+		local_irq_restore(irq_flags);
-+
-+		if (hv_result(status) != HV_STATUS_INSUFFICIENT_MEMORY) {
-+			if (!hv_result_success(status)) {
-+				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
-+				       vp_index, flags, status);
-+				ret = hv_result(status);
-+			}
-+			break;
-+		}
-+		ret = hv_call_deposit_pages(node, partition_id, 1);
-+
-+	} while (!ret);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(hv_call_create_vp);
-+
-+/*
-+ * See struct hv_deposit_memory. The first u64 is partition ID, the rest
-+ * are GPAs.
-+ */
-+#define HV_DEPOSIT_MAX (HV_HYP_PAGE_SIZE / sizeof(u64) - 1)
-+
-+/* Deposits exact number of pages. Must be called with interrupts enabled.  */
-+int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
-+{
-+	struct page **pages, *page;
-+	int *counts;
-+	int num_allocations;
-+	int i, j, page_count;
-+	int order;
-+	u64 status;
-+	int ret;
-+	u64 base_pfn;
-+	struct hv_deposit_memory *input_page;
-+	unsigned long flags;
-+
-+	if (num_pages > HV_DEPOSIT_MAX)
-+		return -E2BIG;
-+	if (!num_pages)
-+		return 0;
-+
-+	/* One buffer for page pointers and counts */
-+	page = alloc_page(GFP_KERNEL);
-+	if (!page)
-+		return -ENOMEM;
-+	pages = page_address(page);
-+
-+	counts = kcalloc(HV_DEPOSIT_MAX, sizeof(int), GFP_KERNEL);
-+	if (!counts) {
-+		free_page((unsigned long)pages);
-+		return -ENOMEM;
-+	}
-+
-+	/* Allocate all the pages before disabling interrupts */
-+	i = 0;
-+
-+	while (num_pages) {
-+		/* Find highest order we can actually allocate */
-+		order = 31 - __builtin_clz(num_pages);
-+
-+		while (1) {
-+			pages[i] = alloc_pages_node(node, GFP_KERNEL, order);
-+			if (pages[i])
-+				break;
-+			if (!order) {
-+				ret = -ENOMEM;
-+				num_allocations = i;
-+				goto err_free_allocations;
-+			}
-+			--order;
-+		}
-+
-+		split_page(pages[i], order);
-+		counts[i] = 1 << order;
-+		num_pages -= counts[i];
-+		i++;
-+	}
-+	num_allocations = i;
-+
-+	local_irq_save(flags);
-+
-+	input_page = *this_cpu_ptr(hyperv_pcpu_input_arg);
-+
-+	input_page->partition_id = partition_id;
-+
-+	/* Populate gpa_page_list - these will fit on the input page */
-+	for (i = 0, page_count = 0; i < num_allocations; ++i) {
-+		base_pfn = page_to_pfn(pages[i]);
-+		for (j = 0; j < counts[i]; ++j, ++page_count)
-+			input_page->gpa_page_list[page_count] = base_pfn + j;
-+	}
-+	status = hv_do_rep_hypercall(HVCALL_DEPOSIT_MEMORY,
-+				     page_count, 0, input_page, NULL);
-+	local_irq_restore(flags);
-+	if (!hv_result_success(status)) {
-+		pr_err("Failed to deposit pages: %lld\n", status);
-+		ret = hv_result(status);
-+		goto err_free_allocations;
-+	}
-+
-+	ret = 0;
-+	goto free_buf;
-+
-+err_free_allocations:
-+	for (i = 0; i < num_allocations; ++i) {
-+		base_pfn = page_to_pfn(pages[i]);
-+		for (j = 0; j < counts[i]; ++j)
-+			__free_page(pfn_to_page(base_pfn + j));
-+	}
-+
-+free_buf:
-+	free_page((unsigned long)pages);
-+	kfree(counts);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(hv_call_deposit_pages);
-diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-index 8c4ff6e9aae7..46c0a6cae4e6 100644
---- a/include/asm-generic/mshyperv.h
-+++ b/include/asm-generic/mshyperv.h
-@@ -305,6 +305,8 @@ u64 hv_tdx_hypercall(u64 control, u64 param1, u64 param2);
- void hyperv_cleanup(void);
- bool hv_query_ext_cap(u64 cap_query);
- void hv_setup_dma_ops(struct device *dev, bool coherent);
-+int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages);
-+int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags);
- #else /* CONFIG_HYPERV */
- static inline bool hv_is_hyperv_initialized(void) { return false; }
- static inline bool hv_is_hibernation_supported(void) { return false; }
--- 
-2.34.1
-
+ 	r = kvm_set_memslot(kvm, old, new, change);
+ 	if (r)
 
