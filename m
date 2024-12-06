@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD39DE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 01:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81901E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 02:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7OGBrM+Ds5/EU59L+lS8dg3ydHTx6BnOQHdjJwv4g8=; b=xbqLoEBwh4mka+tx9xTXQ66lej
-	PBgpiHffTmUyL5lv4JAaEj1EjJ4Zd9VEYBvz9h8F1xheYb1uDXlSjpNJkNnajS8CNwKkJGHIOW0bB
-	4s01Fwy2guHhg02Wd3dTgrpprV/KmSGkzvCj2DjZiO9Jt8RvPmsaCfEZvLTFSzvNSnfgWgL9fvCfA
-	YH3womkeI47bPFQQ/n9MGWZTIvr3HZQsxW86U/7M/uPE4GuPrI0b8bylrrk0G5H0ja8LxHyyk8uVF
-	gAzIGNBdf1NlnBVC5rr1OVO9c5A0Dad9SsyrsPoHQg5gwljk0BZJopZiJ9w/A9xCrqzh4YzLhq3GO
-	22BJyz5Q==;
+	bh=LnI0Na3/B3DR4dG1oO0Wy0h54NsiJph8a4Tm/NLGsLI=; b=Wcw9eRVMK7Cwsr6WWaFjhz6sgm
+	DfThTRCHKhy4TPQDkt9INdnCLKsodtCVN5O1nqpRLibbDFPBxa2+f1kmRXLk8nVmIqSWB8EGbsT1n
+	Gd8JOQJyb6rZTKv4Moc+5evonA5JxmXUn4HTnyao1HM+B7IeR+E4TOTZZXjk3CrvM3ItIKSiQCY0A
+	mtUYOvxJQC82CYtMYT5qQn1NYE5q70lA4L4IIsEMi9UVi6Juo4BN23CjFlONCMXDOZdM7BcFApCFs
+	5pNy1Q81duaOvvWl28pQ+3lsRvTsMzx58cRIlGkABne+j3DbelgkKLIK+J7prtsQbJglQ1S77ARwL
+	cy0xRuWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJNQB-00000000EGI-3BJM;
-	Fri, 06 Dec 2024 01:46:19 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tJNxf-00000000JPO-02MO;
+	Fri, 06 Dec 2024 02:20:55 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJNP9-00000000DvS-31yw
+	id 1tJNwc-00000000JGG-0p0F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 01:45:16 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ee88b57ac0so1284155a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 17:45:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733449515; x=1734054315; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+7OGBrM+Ds5/EU59L+lS8dg3ydHTx6BnOQHdjJwv4g8=;
-        b=NAkiAddJHy/VGfThXrGt3260L+ZBJOPRHg/WPguWmJVr0BKEGT22G+uylKk3VtX03P
-         HKJ8NR871tktgcUFzg6+wE/iAD86cSDiGfcySj2fzAQaoiFkA3F4flccg/MEH/JluJ7h
-         t9iHBlzeTTzi9mtqAug5bp0r0fogm0+SQ2rxjqB4vGEVwNpK8KR1kkOydV83gQ4H8Of7
-         Ne8Sy04GxV0EYxUhbnecXoAOxRglJYXMSmDxaK3uzK2Ue72zjeXWDs3UfZLAYYIdzKjm
-         4XBHk2xodGnWn37OYM53A50xCqmfVpbNquDWvAB4K/Q19dqJYTdVZr8B0R/JQi2fKtkH
-         zUTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733449515; x=1734054315;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+7OGBrM+Ds5/EU59L+lS8dg3ydHTx6BnOQHdjJwv4g8=;
-        b=Wi+/SnL0S0M9wp7rKCG+yUHUsEQcQgzQ+y+ipvaRoFL4clwuB1o4WxWQTDaGdk4CNs
-         9PPpWQ27e6ODjN4Hqog6VRavIrUuQO8ykZScmoegBugtE8Altu9aG8zsvI9uGfhCwHKA
-         vL4S+Hmy2DWhh32YsZglY2ibPmvwpGsIr7V8rRlKvCihXPXBkEtM2CyN/dTPISeCLnxH
-         J7ptyENyNCLRYp365jAA9uUq3AsL5BrmF900iy9StaSaY7OM67PbEPosz4eJ3U4R/Fx/
-         vWUnnE8Wa3rJwb6P6qh4uqqG8DCo5eA+OUd59qu7l/XdCRjka06hDR8UDhXMuyKGlu6J
-         hn5w==
-X-Forwarded-Encrypted: i=1; AJvYcCUvE3+tbXRk05Rcbn46ZR5DX26q2PR9Lh0Jw9dhoU+djCgg0miUV0LaaDbObdH4dZO6B1dfjmCMiB22BCvqJjXz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUH+YltI0WIeavJ3tI7RX0EGlvKuoPDYw5ha+a1OvEDn3iRyGL
-	tcFscvgpT4HohSqtXwiJ7ITb6zJyRbvRLm4thsSNlzalpbMsjJFd
-X-Gm-Gg: ASbGnctinnG8o5DKgvgSu97nbWVhuKzWFAbf0AwqPnxG9k4jHO8Rqp3htKmmfNt5Sv+
-	/Qc/UdQtUc+ahaQGYA/dc2c0WoIO7WwreKsg/NFg6HjOaVxdgFKMLbKLc3kIwphZ18diBoe1CB8
-	vHtUq8Scey1uPpBP/GLCsyZ3B6KPbrgR0ffYX6+Ouj5tFMuy8TChgxRowraNW88IgKBRMyD+n7w
-	mlRWPiiOS/pcXZlE8YurBI465w/C2MsXWX0fT9VaoV5kFk=
-X-Google-Smtp-Source: AGHT+IHFjL05H9QqEdxBhvGferOk0PgAeiYGY9/70kKdEA1TFewoP80NXEZbHvZ4XqWoW1SHDKN0wQ==
-X-Received: by 2002:a17:90b:3f44:b0:2e2:c2b0:d03e with SMTP id 98e67ed59e1d1-2ef68d99261mr2300618a91.5.1733449514616;
-        Thu, 05 Dec 2024 17:45:14 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef2708becesm3962772a91.52.2024.12.05.17.45.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 17:45:14 -0800 (PST)
-Date: Fri, 6 Dec 2024 09:45:02 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- xfr@outlook.com, Jon Hunter <jonathanh@nvidia.com>, Thierry Reding
- <thierry.reding@gmail.com>
-Subject: Re: [PATCH net v1] net: stmmac: TSO: Fix unaligned DMA unmap for
- non-paged SKB data
-Message-ID: <20241206094502.000062e8@gmail.com>
-In-Reply-To: <Z1HYKh9eCwkYGlrA@shell.armlinux.org.uk>
-References: <20241205091830.3719609-1-0x1207@gmail.com>
-	<Z1HYKh9eCwkYGlrA@shell.armlinux.org.uk>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 06 Dec 2024 02:19:51 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-38-yTzVEjDMP82plyYRPmALzQ-1; Fri, 06 Dec 2024 02:19:43 +0000
+X-MC-Unique: yTzVEjDMP82plyYRPmALzQ-1
+X-Mimecast-MFC-AGG-ID: yTzVEjDMP82plyYRPmALzQ
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 6 Dec
+ 2024 02:18:59 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Fri, 6 Dec 2024 02:18:59 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Naresh Kamboju' <naresh.kamboju@linaro.org>, Dan Carpenter
+	<dan.carpenter@linaro.org>
+CC: open list <linux-kernel@vger.kernel.org>, "lkft-triage@lists.linaro.org"
+	<lkft-triage@lists.linaro.org>, Linux Regressions
+	<regressions@lists.linux.dev>, Linux ARM
+	<linux-arm-kernel@lists.infradead.org>, "netfilter-devel@vger.kernel.org"
+	<netfilter-devel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Anders
+ Roxell" <anders.roxell@linaro.org>, Johannes Berg <johannes.berg@intel.com>,
+	"toke@kernel.org" <toke@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
+	"kernel@jfarr.cc" <kernel@jfarr.cc>, "kees@kernel.org" <kees@kernel.org>
+Subject: RE: arm64: include/linux/compiler_types.h:542:38: error: call to
+ '__compiletime_assert_1050' declared with attribute error: clamp() low limit
+ min greater than high limit max_avail
+Thread-Topic: arm64: include/linux/compiler_types.h:542:38: error: call to
+ '__compiletime_assert_1050' declared with attribute error: clamp() low limit
+ min greater than high limit max_avail
+Thread-Index: AQHbR0VgROIHG94lCEKLQVwMYBVLZbLYdnCQ
+Date: Fri, 6 Dec 2024 02:18:59 +0000
+Message-ID: <bd95d7249ff94e31beb11b3f71a64e87@AcuMS.aculab.com>
+References: <CA+G9fYsT34UkGFKxus63H6UVpYi5GRZkezT9MRLfAbM3f6ke0g@mail.gmail.com>
+ <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain>
+ <CA+G9fYv5gW1gByakU1yyQ__BoAKWkCcg=vGGyNep7+5p9_2uJA@mail.gmail.com>
+In-Reply-To: <CA+G9fYv5gW1gByakU1yyQ__BoAKWkCcg=vGGyNep7+5p9_2uJA@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: S-5s6IZrKyazdhnRBgcoKxcTWtkk6GIsFPVBe7bTkUI_1733451582
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_174515_764126_7DD52E1A 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20241205_181950_495953_4E2EE426 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,21 +92,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+RnJvbTogTmFyZXNoIEthbWJvanUNCj4gU2VudDogMDUgRGVjZW1iZXIgMjAyNCAxODo0Mg0KPiAN
+Cj4gT24gVGh1LCA1IERlYyAyMDI0IGF0IDIwOjQ2LCBEYW4gQ2FycGVudGVyIDxkYW4uY2FycGVu
+dGVyQGxpbmFyby5vcmc+IHdyb3RlOg0KPiA+DQo+ID4gQWRkIERhdmlkIHRvIHRoZSBDQyBsaXN0
+Lg0KPiANCj4gQW5kZXJzIGJpc2VjdGVkIHRoaXMgcmVwb3J0ZWQgaXNzdWUgYW5kIGZvdW5kIHRo
+ZSBmaXJzdCBiYWQgY29tbWl0IGFzLA0KPiANCj4gIyBmaXJzdCBiYWQgY29tbWl0Og0KPiAgIFtl
+ZjMyYjkyYWM2MDViYTFiNzY5MjgyNzMzMGI5YzYwMjU5ZjBhZjQ5XQ0KPiAgIG1pbm1heC5oOiB1
+c2UgQlVJTERfQlVHX09OX01TRygpIGZvciB0aGUgbG8gPCBoaSB0ZXN0IGluIGNsYW1wKCkNCg0K
+VGhhdCAnanVzdCcgY2hhbmdlZCB0aGUgdGVzdCB0byB1c2UgX19idWlsdGluX2NvbnN0YW50X3Ao
+KSBhbmQNCnRodXMgZ2V0cyBjaGVja2VkIGFmdGVyIHRoZSBvcHRpbWlzZXIgaGFzIHJ1bi4NCg0K
+SSBjYW4gcGFyYXBocmFzZSB0aGUgY29kZSBhczoNCnVuc2lnbmVkIGludCBmbih1bnNpZ25lZCBp
+bnQgeCkNCnsNCglyZXR1cm4gY2xhbXAoMTAsIDUsIHggPT0gMCA/IDAgOiB4IC0gMSk7DQp9DQp3
+aGljaCBpcyBuZXZlciBhY3R1YWxseSBjYWxsZWQgd2l0aCB4IDw9IDUuDQpUaGUgY29tcGlsZXIg
+Y29udmVydHMgaXQgdG86DQoJcmV0dXJuIHggPCAwID8gY2xhbXAoMTAsIDUsIDApIDogY2xhbXAo
+MTAsIDUsIHgpOw0KKFByb2JhYmx5IGJlY2F1c2UgaXQgY2FuIHNlZSB0aGF0IGNsYW1wKDEwLCA1
+LCAwKSBpcyBjb25zdGFudC4pDQpBbmQgdGhlbiB0aGUgY29tcGlsZS10aW1lIHNhbml0eSBjaGVj
+ayBpbiBjbGFtcCgpIGZpcmVzLg0KDQpUaGUgb3JkZXIgb2YgdGhlIGFyZ3VtZW50cyB0byBjbGFt
+cCBpcyBqdXN0IHdyb25nIQ0KDQoJRGF2aWQNCg0KLQ0KUmVnaXN0ZXJlZCBBZGRyZXNzIExha2Vz
+aWRlLCBCcmFtbGV5IFJvYWQsIE1vdW50IEZhcm0sIE1pbHRvbiBLZXluZXMsIE1LMSAxUFQsIFVL
+DQpSZWdpc3RyYXRpb24gTm86IDEzOTczODYgKFdhbGVzKQ0K
 
-On Thu, 5 Dec 2024 16:43:22 +0000, "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
-> I'm slightly disappointed to have my patch turned into a commit under
-> someone else's authorship before I've had a chance to do that myself.
-> Next time I won't send a patch out until I've done that.
-> 
-I am really sorry for this, I should have requested your permission first.
-
-> 
-> Please use rmk+kernel@armlinux.org.uk there.
-> 
-So another iteration is required here.
-Would you mind me send the v2 of this fix?
-I will not send v2 without your permission.
-
-Thanks.
 
