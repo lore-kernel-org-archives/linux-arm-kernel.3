@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD3AE77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8BFE77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 13:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDF1pej/umtycNfhCuypshXjUCnhQjJmU/FweU7t1Po=; b=t6N+z6E12tbzhq5cwu8WJUmUpd
-	ucTX6JuXgWen3GIGjOcerZHWA9o7IAWEGhxSAofUKEhNvGkZmb3kjnaKjxuyho4LykIrZcfWxDkJ7
-	PUF6lvzwtKTbwfPk/Hiyg9Gl7dOWsgTrLzbc53b2GSY4dWo7tjXh7DvQU6CybTIRcpfb3syHIbHF8
-	TWd1NfjnOTLRi0mD9Un63I74/EgfgjKz/jGlC5Bfoq5jC3mMB53d0zc1AybP05JTtHMjjrM8CqI72
-	ho/szCtpFFva/DnHOo7076Sq4FO3c2t5hSmVAEsJY6S5DRgLPazYjiG6ABM+9F0yB7G7WBKURn/Km
-	ErvE+vVw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=stFRl69Yy4ryPFAdd+IunUx2a5npo1o5aGWsoNJUZ7Q=; b=hBtBpjEgFlWx6TWSXNImyLM767
+	LivoFRORNDkwBBpP1KTXFjbiM+9YpxRnbiWI6HLfeb1rjSD+Ns8HmL9CzjXbhOHrSLhiLKpqqqAzB
+	Pvu1iLsSG4LVi2q9DucVnGT5P8E9A1qBo3YqhSbPgUDdAwdLSBHkmXqrp0sERMLw4eteEHAVM2XZN
+	WD2OLlQ09UgTq32ugrih5rW5ilUzFuM+0p4OPyGpTVqt2knTyM+b3dzhKBzAq/s3DhiS+1kboSt57
+	K4YoMloXkbKYa8h8+wcMdGMiJOIlpY87/SMYi2jEQZViFbQZOoagFGE4nsTqDi4E44OISM14K9vVG
+	s8nvRwTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJYcL-00000001kST-46Oq;
-	Fri, 06 Dec 2024 13:43:37 +0000
-Received: from mout.perfora.net ([74.208.4.196])
+	id 1tJYkq-00000001lsr-0oAC;
+	Fri, 06 Dec 2024 13:52:24 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJYbJ-00000001kJt-2wpF
+	id 1tJYjo-00000001ldk-1xaA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 13:42:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finest.io;
-	s=s1-ionos; t=1733492527; x=1734097327; i=parker@finest.io;
-	bh=oDF1pej/umtycNfhCuypshXjUCnhQjJmU/FweU7t1Po=;
-	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=YQ90jWMq2rXWFaX438FmYhwwYE9TSB1Ecw8/gunwHNUi0LUFCsiqYQh2nF3qP/+c
-	 xo9rB1QO90fdP+VVzIe8gqqbit8UqIjSGpbRTQO/vRcoH6OOhurCtJTX2WM/ZJxSZ
-	 kuKtWDGjDg7FREGnWFLCQPrmpXSa6Z5LCggcxfalt02afteb5W077iP4Ys9Ir7rn6
-	 5sWD+4pPEFVIHQcAqHtkXEilZh1AnaWyT1173888lDozReuQz1A/lnr2kfE7y9YyU
-	 B8CxCISPxngEKaIbKKz+2IEp6MeL9eSG4AMhnmAfzH6iMDsDE6pOLEooucYL4Hxul
-	 OrxKOEWWyMoFicx6Qg==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from SWDEV2.connecttech.local ([98.159.241.229]) by
- mrelay.perfora.net (mreueus002 [74.208.5.2]) with ESMTPSA (Nemesis) id
- 0MVwAo-1t8Qek45hQ-00Sn2A; Fri, 06 Dec 2024 14:42:07 +0100
-Date: Fri, 6 Dec 2024 08:42:03 -0500
-From: Parker Newman <parker@finest.io>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Paolo Abeni <pabeni@redhat.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Jonathan
- Hunter <jonathanh@nvidia.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kernel@vger.kernel.org, Parker Newman <pnewman@connecttech.com>
-Subject: Re: [PATCH v1 1/1] net: stmmac: dwmac-tegra: Read iommu stream id
- from device tree
-Message-ID: <20241206084203.2502ab95.parker@finest.io>
-In-Reply-To: <uad6id6omswjm7e4eqwd75c52sy5pddtxru3bcuxlukhecvj4u@klzgrws24r2q>
-References: <ed2ec1c2-65c7-4768-99f1-987e5fa39a54@redhat.com>
-	<20241115135940.5f898781.parker@finest.io>
-	<bb52bdc1-df2e-493d-a58f-df3143715150@lunn.ch>
-	<20241118084400.35f4697a.parker@finest.io>
-	<984a8471-7e49-4549-9d8a-48e1a29950f6@lunn.ch>
-	<20241119131336.371af397.parker@finest.io>
-	<f00bccd3-62d5-46a9-b448-051894267c7a@lunn.ch>
-	<20241119144729.72e048a5.parker@finest.io>
-	<mpgilwqb5zg5kb4n7r6zwbhy4uutdh6rq5s2yc6ndhcj6gqgri@qkfr4qwjj3ym>
-	<20241204115317.008f497c.parker@finest.io>
-	<uad6id6omswjm7e4eqwd75c52sy5pddtxru3bcuxlukhecvj4u@klzgrws24r2q>
-Organization: Connect Tech Inc.
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+	Fri, 06 Dec 2024 13:51:21 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-7fd17f230c2so1712073a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 05:51:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733493079; x=1734097879; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=stFRl69Yy4ryPFAdd+IunUx2a5npo1o5aGWsoNJUZ7Q=;
+        b=BCB9aClFXtiIY6TxutOtAKbg8mEFapITijnhVm2IQcQGgNaVhPCHbrx+HZyJOd7x9g
+         +zaENN5SJNdnIuMjvhIh9AMNMY77CxIJZV1Jw8fuiXsCg3K9zR0V+fygVttQmhd+wlGr
+         fUMw6G3PDfHoqlaDu/uR8PUKwAd6s3J+npB8lWjKMTQy+wfAnlseA48oifAh1mlDJk1A
+         HAtXf4hpK9jNq3LcF5z8sr8tacHRA7YbPcilyX5Y8dYUhUaQYgcJdP151bpebcDvn739
+         YQByDnOWyiwIlsEb0lTMzTzv3zhNUDWoDTenLhqbR4x7pw9xai8h5mt1Dj1bLldJOm4d
+         TE3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733493079; x=1734097879;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=stFRl69Yy4ryPFAdd+IunUx2a5npo1o5aGWsoNJUZ7Q=;
+        b=bHtANgW/pblRBHGIfVE35Je2RgX8yKUSXJWRhAac2UVgVIKEyl1Fz9nagN58bOPHu4
+         5qY3wjzkL8lJEIFY9GIc1pMqaDqZzfmwvLcRbUWIiNhBkIqKqiWcDNBWZs4dr03BTOGS
+         NmgdcZJAm9cCcFsNtP3JDyJqWL9MhrzJVXSRRkN/IGXZoR+meEHmcV3AYWHJjDHHWcGU
+         INdfx6nbsa6Y3cd7xyg/c5mwMjRhgrAy+BmqD/+oa7oBY1t/Yc0Ynh8f0UXDcM4B12Z4
+         CdMe44+A/5503koCq4ndZVzGeBx2EtqHHAWFOZMQ2DbQUMBGijn1xkpx9zFdTABXpCkT
+         7Ffg==
+X-Forwarded-Encrypted: i=1; AJvYcCVdvYCZDeDrJamqW4kmuzbTTi9b8+y1ZHeCxetxsPhkqfDcIGDQiytpC9WkZI+Ecm2+gIDHAF5w2E717XUZk5nj@lists.infradead.org
+X-Gm-Message-State: AOJu0YylQtaZPwv49CsbScgP+QHnuYX/MA6jaEoEJT3r9lbeUQEZLMFR
+	6Jdv36dzWX/TfS0LWbydU2d4C66VRdd2VVdOIuiW1nzOIzTv1dxI
+X-Gm-Gg: ASbGncuWsBHjPhU8GTZwFvrLT/4MswxoABnX9O9Ok1ZAhUc9XhSQKcOit73N0Jipdyz
+	kWHaf6G6vukHcFCU18CMCQfmCVAIM6RWPewulszhH4UIuxE7iaCDsZ1o+R8d57BevAAEiWiKQuL
+	s0LnC7xDXrL27+zQjhSUR330FxPQ/pvmFPNCfBmQBIt3TzYN3MTGQZaR9uA3yvpnaGt5yQtVFXB
+	3/Rz+nxapqoIYLSqRTERNpGufltPOr3aXSZh2OtPeBlvFLBznnS1biTeOmHFtjWRA==
+X-Google-Smtp-Source: AGHT+IFp84/LvRLoYXG34ubT33fATowTlF56K2m/y6+FW07NezqF+NAbf7h9jEawMLoJmfmx+qHSuA==
+X-Received: by 2002:a05:6a20:a104:b0:1e0:dc7b:4ef6 with SMTP id adf61e73a8af0-1e1870c8387mr5097610637.21.1733493078928;
+        Fri, 06 Dec 2024 05:51:18 -0800 (PST)
+Received: from localhost.localdomain ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-7fd3274ca0esm101286a12.20.2024.12.06.05.51.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Dec 2024 05:51:18 -0800 (PST)
+From: Nick Chan <towinchenmi@gmail.com>
+To: Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Nick Chan <towinchenmi@gmail.com>
+Subject: [PATCH] arm64: dts: apple: Split s8000/s8003 SoC DTS files
+Date: Fri,  6 Dec 2024 21:49:18 +0800
+Message-ID: <20241206135051.56049-1-towinchenmi@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:GR+U7oNcooRx02NQ+ePVePaP8XU668iNhisc08U9+9BaNkxGndT
- ifm4bBy086QhHHMDrwj2FKqrc9kTkDBAl0YA5Sbq9GlAu3oHD5tvVHQN97Dzr7Asxs1ATVC
- +X8UyGf8bb8rS27CyMUIzTJTa59yKH/O99qCbKdOZTlB6ORrqh9sGVFig7UcNICBawmgl+l
- X3O5EqjU2q5WN8vEBaqag==
-UI-OutboundReport: notjunk:1;M01:P0:us4J4tAxtOE=;dkxNfRtOIWovCVWfT5CsAqe4xAC
- j/vEtWFMuf0VaSDW7FqfdDV9WKHcGZ68c0pehi9mPt2Vd/Bat3rI+lcbqNKPvGVDljcI+BTQN
- 89k1q3bUkCtEsOj5hRC1V1kaAVVhaudVxEm1RHt3e2NtepesShPp02K7s3M3zp1hOxaePqqPO
- TEJgBwNj8cisc2oucEoAZ4h0L0uWOUAU4EmXIHRy1i6LrsjHpALvb8/abtZ4QB9xU7qQec4TD
- H2l5PabOv5va6EId0BndMKfRxWG3fRa6wNDIjnuTry9SJ208SvMUKMzTrMLVqlrR8/AKIh03o
- ZHxlw4subb9BQ87+qwvx0IB3NDsImsjQjCvcZ0Ur1uZyBVAvr4/A5bWPsZtlLHmQsua9hNBM4
- cSgP0G2HJVJODp5bd9aUKoFiu2Xb/Nf5Ag6NzLJxr8kwupL/cQsoF3JCPeBfwJi//cit8FzWN
- +QI+RUfMBJK7urA758Efx2L02dbaFwjDTGlhHb2cpYp3a+olOwZZ8JyLSEGPW8Dc8JwSabnyo
- VBi8XRegXl7xpTi8KIqDCfqvrwR/Sl4BpCoccO9Qg0fBpaWuKDxwiz7y2jIUGfQ2q8Rp+oUBV
- ipTwLAF2YKYamBf53IB18NO68j42Aib2rH9pHOsAklr3Ew0k5NSoWxnyrdyFdHZ4rYBlDQkx/
- eSI3laW0WCpO8bfjNHP5EvwgImnMoB/MYLTFKCUt1GG7AZjpMJ3iG1tSsAa9sySy0npMgVA14
- 3b+VadvYCr0qEoRquGiZFPKzmfX1url/q7G2Q+LhexpS6i06zfU7bE3AJoEKRXB29p4lqOMpj
- NONu5ea+kwJTiSxIpGJrcpZXNEQYFOxix829XAf6AaTr4hkooWz9ZkHEhU+IGRyWsGNwmznCX
- dzQ6PFhtEzc6T6yUw7L/jRPX1Du6sZoh9ZIEfQwjSNQj9537kUXNlHlGCkBFj/P71jhLS2Eao
- KHqnJZIHdZ1fhGEho1kufqJp8E25v8Us603GzOs7cQqad0NXES20roi5WYfaXbkeAMMDw173Z
- i5YBwkKuUAr48fFIPkbv3MSxuo0isHXiK6zqms3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_054233_971427_9686B27D 
-X-CRM114-Status: GOOD (  53.77  )
+X-CRM114-CacheID: sfid-20241206_055120_509481_D0BAA4F4 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,145 +101,400 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 4 Dec 2024 19:06:30 +0100
-Thierry Reding <thierry.reding@gmail.com> wrote:
+Despite what the code comments said, the DTS files were not split properly.
+Since these two SoCs are now known to have minor differences like in
+latencies for cpufreq state transistions, split the DTS files now.
 
-> On Wed, Dec 04, 2024 at 11:53:17AM -0500, Parker Newman wrote:
-> > On Wed, 4 Dec 2024 17:23:53 +0100
-> > Thierry Reding <thierry.reding@gmail.com> wrote:
-> >
-> > > On Tue, Nov 19, 2024 at 02:47:29PM -0500, Parker Newman wrote:
-> > > > On Tue, 19 Nov 2024 20:18:00 +0100
-> > > > Andrew Lunn <andrew@lunn.ch> wrote:
-> > > >
-> > > > > > I think there is some confusion here. I will try to summarize:
-> > > > > > - Ihe iommu is supported by the Tegra SOC.
-> > > > > > - The way the mgbe driver is written the iommu DT property is =
-REQUIRED.
-> > > > >
-> > > > > If it is required, please also include a patch to
-> > > > > nvidia,tegra234-mgbe.yaml and make iommus required.
-> > > > >
-> > > >
-> > > > I will add this when I submit a v2 of the patch.
-> > > >
-> > > > > > - "iommus" is a SOC DT property and is defined in tegra234.dts=
-i.
-> > > > > > - The mgbe device tree nodes in tegra234.dtsi DO have the iomm=
-us property.
-> > > > > > - There are no device tree changes required to to make this pa=
-tch work.
-> > > > > > - This patch works fine with existing device trees.
-> > > > > >
-> > > > > > I will add the fallback however in case there is changes made =
-to the iommu
-> > > > > > subsystem in the future.
-> > > > >
-> > > > > I would suggest you make iommus a required property and run the =
-tests
-> > > > > over the existing .dts files.
-> > > > >
-> > > > > I looked at the history of tegra234.dtsi. The ethernet nodes wer=
-e
-> > > > > added in:
-> > > > >
-> > > > > 610cdf3186bc604961bf04851e300deefd318038
-> > > > > Author: Thierry Reding <treding@nvidia.com>
-> > > > > Date:   Thu Jul 7 09:48:15 2022 +0200
-> > > > >
-> > > > >     arm64: tegra: Add MGBE nodes on Tegra234
-> > > > >
-> > > > > and the iommus property is present. So the requires is safe.
-> > > > >
-> > > > > Please expand the commit message. It is clear from all the quest=
-ions
-> > > > > and backwards and forwards, it does not provide enough details.
-> > > > >
-> > > >
-> > > > I will add more details when I submit V2.
-> > > >
-> > > > > I just have one open issue. The code has been like this for over=
- 2
-> > > > > years. Why has it only now started crashing?
-> > > > >
-> > > >
-> > > > It is rare for Nvidia Jetson users to use the mainline kernel. Nvi=
-dia
-> > > > provides a custom kernel package with many out of tree drivers inc=
-luding a
-> > > > driver for the mgbe controllers.
-> > > >
-> > > > Also, while the Orin AGX SOC (tegra234) has 4 instances of the mgb=
-e controller,
-> > > > the Nvidia Orin AGX devkit only uses mgbe0. Connect Tech has carri=
-er boards
-> > > > that use 2 or more of the mgbe controllers which is why we found t=
-he bug.
-> > >
-> > > Correct. Also, this was a really stupid thing that I overlooked. I d=
-on't
-> > > recall the exact circumstances, but I vaguely recall there had been
-> > > discussions about adding the tegra_dev_iommu_get_stream_id() helper
-> > > (that this patch uses) around the time that this driver was created.=
- In
-> > > the midst of all of this I likely forgot to update the driver after =
-the
-> > > discussions had settled.
-> > >
-> > > Anyway, I agree with the conclusion that we don't need a compatibili=
-ty
-> > > fallback for this, both because it would be actively wrong to do it =
-and
-> > > we've had the required IOMMU properties in device tree since the sta=
-rt,
-> > > so there can't be any regressions caused by this.
-> > >
-> > > I don't think it's necessary to make the iommus property required,
-> > > though, because there's technically no requirement for these devices=
- to
-> > > be attached to an IOMMU. They usually are, and it's better if they a=
-re,
-> > > but they should be able to work correctly without an IOMMU.
-> > >
-> > Thanks for confirming from the Nvidia side! I wasn't sure if they woul=
-d
-> > work without the iommu. That said, if you did NOT want to use the iomm=
-u
-> > and removed the iommu DT property then the probe will fail after my pa=
-tch.
-> > Would we not need a guard around the writes to MGBE_WRAP_AXI_ASID0_CTR=
-L as well?
->
-> Well... frankly, I don't know. There's an override in the memory
-> controller which we set when a device is attached to an IOMMU. That's
-> usually how the stream ID is programmed. If we don't do that it will
-> typically default to a special passthrough stream ID (technically the
-> firmware can lock down those register and force them to a specific
-> stream ID all the time). I'm not sure what exactly the impact is of
-> these ASID registers (there's a few other instances where those are
-> needed). They are required if you want to use the IOMMU, but I don't
-> know what their meaning is if the IOMMU is not enabled.
->
-> There's also different cases: the IOMMU can be disabled altogether, in
-> which case no page tables and such exist for any device and no
-> translation should happen whatsoever. But there's also the case where an
-> IOMMU is enabled, but certain devices shouldn't attach to them. I should
-> make it very clear that both of these are not recommended setups and I
-> don't know if they'll work. And they are mostly untested. I've been
-> meaning, but haven't found the time, to test some of these cases.
->
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+---
 
-Yes I agree, all of those situations are very niche and not recommended fo=
-r
-a Tegra platform that should always have the iommu enabled anyways. Adding=
- an
-iommu bypass would probably be outside of the scope of this patch.
+Hi,
 
-I will not add a patch marking the iommu as required in the device tree
-bindings when I submit v2 unless anyone else feels different.
+I am preparing multiple series for cpufreq and backlight, both of which
+modifies the Apple A9 DTS files. I am sending this first to make it
+easier to handle conflicts.
 
-Thanks again,
-Parker
+This patch depends on PMGR nodes for Apple A7-A11 SoCs[1] since it
+also renames the pmgr bindings files.
 
+[1]: https://lore.kernel.org/asahi/20241203050640.109378-1-towinchenmi@gmail.com/T
+
+Nick Chan
+
+ .../{s8000-pmgr.dtsi => s800-0-3-pmgr.dtsi}   |   0
+ arch/arm64/boot/dts/apple/s800-0-3.dtsi       | 162 ++++++++++++++++++
+ arch/arm64/boot/dts/apple/s8000.dtsi          | 155 +----------------
+ arch/arm64/boot/dts/apple/s8003.dtsi          |  10 +-
+ 4 files changed, 168 insertions(+), 159 deletions(-)
+ rename arch/arm64/boot/dts/apple/{s8000-pmgr.dtsi => s800-0-3-pmgr.dtsi} (100%)
+ create mode 100644 arch/arm64/boot/dts/apple/s800-0-3.dtsi
+
+diff --git a/arch/arm64/boot/dts/apple/s8000-pmgr.dtsi b/arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi
+similarity index 100%
+rename from arch/arm64/boot/dts/apple/s8000-pmgr.dtsi
+rename to arch/arm64/boot/dts/apple/s800-0-3-pmgr.dtsi
+diff --git a/arch/arm64/boot/dts/apple/s800-0-3.dtsi b/arch/arm64/boot/dts/apple/s800-0-3.dtsi
+new file mode 100644
+index 000000000000..1e0b8f631ac0
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/s800-0-3.dtsi
+@@ -0,0 +1,162 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * Apple S8000/S8003 "A9" SoC
++ *
++ * This file contains parts common to both variants of A9
++ *
++ * Copyright (c) 2022, Konrad Dybcio <konradybcio@kernel.org>
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/apple-aic.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pinctrl/apple.h>
++
++/ {
++	interrupt-parent = <&aic>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	clkref: clock-ref {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <24000000>;
++		clock-output-names = "clkref";
++	};
++
++	cpus {
++		#address-cells = <2>;
++		#size-cells = <0>;
++
++		cpu0: cpu@0 {
++			compatible = "apple,twister";
++			reg = <0x0 0x0>;
++			cpu-release-addr = <0 0>; /* To be filled in by loader */
++			enable-method = "spin-table";
++			device_type = "cpu";
++		};
++
++		cpu1: cpu@1 {
++			compatible = "apple,twister";
++			reg = <0x0 0x1>;
++			cpu-release-addr = <0 0>; /* To be filled in by loader */
++			enable-method = "spin-table";
++			device_type = "cpu";
++		};
++	};
++
++	soc {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		nonposted-mmio;
++		ranges;
++
++		serial0: serial@20a0c0000 {
++			compatible = "apple,s5l-uart";
++			reg = <0x2 0x0a0c0000 0x0 0x4000>;
++			reg-io-width = <4>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 192 IRQ_TYPE_LEVEL_HIGH>;
++			/* Use the bootloader-enabled clocks for now. */
++			clocks = <&clkref>, <&clkref>;
++			clock-names = "uart", "clk_uart_baud0";
++			power-domains = <&ps_uart0>;
++			status = "disabled";
++		};
++
++		pmgr: power-management@20e000000 {
++			compatible = "apple,s8000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			reg = <0x2 0xe000000 0 0x8c000>;
++		};
++
++		aic: interrupt-controller@20e100000 {
++			compatible = "apple,s8000-aic", "apple,aic";
++			reg = <0x2 0x0e100000 0x0 0x100000>;
++			#interrupt-cells = <3>;
++			interrupt-controller;
++			power-domains = <&ps_aic>;
++		};
++
++		pinctrl_ap: pinctrl@20f100000 {
++			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
++			reg = <0x2 0x0f100000 0x0 0x100000>;
++			power-domains = <&ps_gpio>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl_ap 0 0 208>;
++			apple,npins = <208>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 42 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 43 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 44 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 45 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 46 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		pinctrl_aop: pinctrl@2100f0000 {
++			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
++			reg = <0x2 0x100f0000 0x0 0x100000>;
++			power-domains = <&ps_aop_gpio>;
++
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl_aop 0 0 42>;
++			apple,npins = <42>;
++
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 113 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 114 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 115 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 116 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 117 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 118 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 119 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		pmgr_mini: power-management@210200000 {
++			compatible = "apple,s8000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			reg = <0x2 0x10200000 0 0x84000>;
++		};
++
++		wdt: watchdog@2102b0000 {
++			compatible = "apple,s8000-wdt", "apple,wdt";
++			reg = <0x2 0x102b0000 0x0 0x4000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 4 IRQ_TYPE_LEVEL_HIGH>;
++		};
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupt-parent = <&aic>;
++		interrupt-names = "phys", "virt";
++		/* Note that A9 doesn't actually have a hypervisor (EL2 is not implemented). */
++		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
++			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
++	};
++};
++
++#include "s800-0-3-pmgr.dtsi"
++
++/*
++ * The A9 was made by two separate fabs on two different process
++ * nodes: Samsung made the S8000 (APL0898) on 14nm and TSMC made
++ * the S8003 (APL1022) on 16nm. There are some minor differences
++ * such as timing in cpufreq state transistions.
++ */
+diff --git a/arch/arm64/boot/dts/apple/s8000.dtsi b/arch/arm64/boot/dts/apple/s8000.dtsi
+index 84d6b4939ac4..c7e39abda7e1 100644
+--- a/arch/arm64/boot/dts/apple/s8000.dtsi
++++ b/arch/arm64/boot/dts/apple/s8000.dtsi
+@@ -7,160 +7,11 @@
+  * Copyright (c) 2022, Konrad Dybcio <konradybcio@kernel.org>
+  */
+ 
+-#include <dt-bindings/gpio/gpio.h>
+-#include <dt-bindings/interrupt-controller/apple-aic.h>
+-#include <dt-bindings/interrupt-controller/irq.h>
+-#include <dt-bindings/pinctrl/apple.h>
+-
+-/ {
+-	interrupt-parent = <&aic>;
+-	#address-cells = <2>;
+-	#size-cells = <2>;
+-
+-	clkref: clock-ref {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <24000000>;
+-		clock-output-names = "clkref";
+-	};
+-
+-	cpus {
+-		#address-cells = <2>;
+-		#size-cells = <0>;
+-
+-		cpu0: cpu@0 {
+-			compatible = "apple,twister";
+-			reg = <0x0 0x0>;
+-			cpu-release-addr = <0 0>; /* To be filled in by loader */
+-			enable-method = "spin-table";
+-			device_type = "cpu";
+-		};
+-
+-		cpu1: cpu@1 {
+-			compatible = "apple,twister";
+-			reg = <0x0 0x1>;
+-			cpu-release-addr = <0 0>; /* To be filled in by loader */
+-			enable-method = "spin-table";
+-			device_type = "cpu";
+-		};
+-	};
+-
+-	soc {
+-		compatible = "simple-bus";
+-		#address-cells = <2>;
+-		#size-cells = <2>;
+-		nonposted-mmio;
+-		ranges;
+-
+-		serial0: serial@20a0c0000 {
+-			compatible = "apple,s5l-uart";
+-			reg = <0x2 0x0a0c0000 0x0 0x4000>;
+-			reg-io-width = <4>;
+-			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 192 IRQ_TYPE_LEVEL_HIGH>;
+-			/* Use the bootloader-enabled clocks for now. */
+-			clocks = <&clkref>, <&clkref>;
+-			clock-names = "uart", "clk_uart_baud0";
+-			power-domains = <&ps_uart0>;
+-			status = "disabled";
+-		};
+-
+-		pmgr: power-management@20e000000 {
+-			compatible = "apple,s8000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			reg = <0x2 0xe000000 0 0x8c000>;
+-		};
+-
+-		aic: interrupt-controller@20e100000 {
+-			compatible = "apple,s8000-aic", "apple,aic";
+-			reg = <0x2 0x0e100000 0x0 0x100000>;
+-			#interrupt-cells = <3>;
+-			interrupt-controller;
+-			power-domains = <&ps_aic>;
+-		};
+-
+-		pinctrl_ap: pinctrl@20f100000 {
+-			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
+-			reg = <0x2 0x0f100000 0x0 0x100000>;
+-			power-domains = <&ps_gpio>;
+-
+-			gpio-controller;
+-			#gpio-cells = <2>;
+-			gpio-ranges = <&pinctrl_ap 0 0 208>;
+-			apple,npins = <208>;
+-
+-			interrupt-controller;
+-			#interrupt-cells = <2>;
+-			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 42 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 43 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 44 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 45 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 46 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
+-		};
+-
+-		pinctrl_aop: pinctrl@2100f0000 {
+-			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
+-			reg = <0x2 0x100f0000 0x0 0x100000>;
+-			power-domains = <&ps_aop_gpio>;
+-
+-			gpio-controller;
+-			#gpio-cells = <2>;
+-			gpio-ranges = <&pinctrl_aop 0 0 42>;
+-			apple,npins = <42>;
+-
+-			interrupt-controller;
+-			#interrupt-cells = <2>;
+-			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 113 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 114 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 115 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 116 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 117 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 118 IRQ_TYPE_LEVEL_HIGH>,
+-				     <AIC_IRQ 119 IRQ_TYPE_LEVEL_HIGH>;
+-		};
+-
+-		pmgr_mini: power-management@210200000 {
+-			compatible = "apple,s8000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			reg = <0x2 0x10200000 0 0x84000>;
+-		};
+-
+-		wdt: watchdog@2102b0000 {
+-			compatible = "apple,s8000-wdt", "apple,wdt";
+-			reg = <0x2 0x102b0000 0x0 0x4000>;
+-			clocks = <&clkref>;
+-			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 4 IRQ_TYPE_LEVEL_HIGH>;
+-		};
+-	};
+-
+-	timer {
+-		compatible = "arm,armv8-timer";
+-		interrupt-parent = <&aic>;
+-		interrupt-names = "phys", "virt";
+-		/* Note that A9 doesn't actually have a hypervisor (EL2 is not implemented). */
+-		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
+-			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
+-	};
+-};
+-
+-#include "s8000-pmgr.dtsi"
++#include "s800-0-3.dtsi"
+ 
+ /*
+  * The A9 was made by two separate fabs on two different process
+  * nodes: Samsung made the S8000 (APL0898) on 14nm and TSMC made
+- * the S8003 (APL1022) on 16nm. While they are seemingly the same,
+- * they do have distinct part numbers and devices using them have
+- * distinct model names. There are currently no known differences
+- * between these as far as Linux is concerned, but let's keep things
+- * structured properly to make it easier to alter the behaviour of
+- * one of the chips if need be.
++ * the S8003 (APL1022) on 16nm. There are some minor differences
++ * such as timing in cpufreq state transistions.
+  */
+diff --git a/arch/arm64/boot/dts/apple/s8003.dtsi b/arch/arm64/boot/dts/apple/s8003.dtsi
+index 7e4ad4f7e499..807e3452f8a7 100644
+--- a/arch/arm64/boot/dts/apple/s8003.dtsi
++++ b/arch/arm64/boot/dts/apple/s8003.dtsi
+@@ -7,15 +7,11 @@
+  * Copyright (c) 2022, Konrad Dybcio <konradybcio@kernel.org>
+  */
+ 
+-#include "s8000.dtsi"
++#include "s800-0-3.dtsi"
+ 
+ /*
+  * The A9 was made by two separate fabs on two different process
+  * nodes: Samsung made the S8000 (APL0898) on 14nm and TSMC made
+- * the S8003 (APL1022) on 16nm. While they are seemingly the same,
+- * they do have distinct part numbers and devices using them have
+- * distinct model names. There are currently no known differences
+- * between these as far as Linux is concerned, but let's keep things
+- * structured properly to make it easier to alter the behaviour of
+- * one of the chips if need be.
++ * the S8003 (APL1022) on 16nm. There are some minor differences
++ * such as timing in cpufreq state transistions.
+  */
+
+base-commit: d47006c7111b57dd2377d072681935aebb9dde25
+-- 
+2.47.1
 
 
