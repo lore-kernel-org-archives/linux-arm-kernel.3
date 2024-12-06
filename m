@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A413E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 21:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C7AE7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 21:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Sob8jML2a9sfY47l90QZhBAyozcID3U7Li8+UA7roI=; b=Mnchefw5qURjW9g3NWWNckdhRw
-	pvyMdJG7AoHcMDFJVIF19nwQs5yNm1srzsxpDW2FHx3LhXRmIamMUNzqngw9SKNy0DnNQfnWIuBJL
-	3Xmc6zo0wBXEaYfSY30DiUNC0e+/5lX8UKsWGKNzxJWc5359zsjRv+4wmqTXcs85ATYjysSoxFxvV
-	9hAp1jUb/XdnTp3KQ293z21Dhx8389w7AZ0aoD1nCpID25CsPXlTvAwUMV7ix9mHFq7Ohk1FV7R6C
-	q5SAEj9Mv3iBNsn5JHMg/wMs4xM4zjxLWg4iKZ0EZsQV8PIoYQHYD9eupcAWao11SGRrhCuAA2vsp
-	AlkTjFMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nhNrtrkwQMSxpIdT9BDntslWAjYECtg/oyySnSEisxE=; b=EgOyXpsRZqX+NwYkccgEiNBjzK
+	UEGv2sqHXXsVHWJQHF1h9Pm8HUGHMVjl2uHrxzabC/cp3R2rHQcrWZwEhqyZUTHV2ozbDyaOQIYA8
+	c87xAFIX7xETsE85PtlvfhLhKXghblYBfxtgHFu8WoSwRZrf2Wx4o2QLJ+NJqwoAws48bAdOIHYmA
+	ezS1pYBgA+QLRPiHIvgbUlYTG1m6ImthspcjUOm93qeEnzO2e0oX4M4JD1ykiqhOc2n1fvOCXcqaN
+	wMC64mwSeDhXifD6M8wQzLFR8O1B8uEYtHVsoEQex07mzjBOt48fvQT07cadzWDhHbrB2TVqYaZCm
+	IDMEcgAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJfaL-00000002kJ0-1B0m;
-	Fri, 06 Dec 2024 21:10:01 +0000
-Received: from out-17.smtpout.orange.fr ([193.252.22.17] helo=out.smtpout.orange.fr)
+	id 1tJg4M-00000002ofl-12t1;
+	Fri, 06 Dec 2024 21:41:02 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJfZI-00000002kG3-2i9f
+	id 1tJg3K-00000002oaj-0Lor
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 21:08:58 +0000
-Received: from mail-wr1-f49.google.com ([209.85.221.49])
-	by smtp.orange.fr with ESMTPSA
-	id JfZDtuCoZhfQMJfZDtqfgA; Fri, 06 Dec 2024 22:08:51 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1733519331;
-	bh=5Sob8jML2a9sfY47l90QZhBAyozcID3U7Li8+UA7roI=;
-	h=MIME-Version:From:Date:Message-ID:Subject:To;
-	b=NznUb2HPlkYwDxss/RE21LgqU82JUG6A4+vqKLH9kwhaP6rZZwo2qk8TW1P3sely+
-	 FZe2qctUaf1QuyINgTXJmjvV3BvZPxYhuz5LZlhtHw1lr/c6nnRF8uZD9+kGjILlkk
-	 zxYAVBA1SrhBTTn615EPQYyt7c6gnGwikBTO2O45/6oTJPlLKRH4jwXuAQmDOIleFo
-	 kupFau3/7KZ1vrzP4XKKtWCcf7Ia9TT7aMcpOMGrHM3TDUzDaaSZ75ukJFzK1iadD0
-	 b6kE4iroW8cQpIj+o5d9myAR9KO/Y+YHiuxYbrIv1Au9gfV0RYMnHXv76/9oqTahDW
-	 4rGaLbT0cHvQA==
-X-ME-Helo: mail-wr1-f49.google.com
-X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Fri, 06 Dec 2024 22:08:51 +0100
-X-ME-IP: 209.85.221.49
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-3862a921123so893675f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 13:08:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUu0/mChFcBujZn2JgUHV2LYUiVuZaxXVqfc2gOe/Lr8W8OAI81UR3PAnyaet/q8+S6ecuDF+bGB5YWrWJAoPyI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaIYp2etKYUFxFq5cyQYHZzumlJAT8E6jrD9cBUcwohn8hxzez
-	rP8NF2KL/kv3vcZy4qnwPMrNS9YHS+WByhNivnNfgjSL6G5QlU2IghIcHoZaWCRy8TSUAFTT2Z6
-	ZhCT6XwiR+bXYGQw87ThLIFpy+cw=
-X-Google-Smtp-Source: AGHT+IFTPODU6RGdJMXff+75tOD6Nj3x2Mn/gdl5NWtqQnJzhnFZgI0m0ZroaJ8Q+jvxJuILOkW0ziN/Pe9Qt29xALE=
-X-Received: by 2002:a05:6512:32c8:b0:53e:28dd:a9d1 with SMTP id
- 2adb3069b0e04-53e28ddb7bcmr693951e87.24.1733412111008; Thu, 05 Dec 2024
- 07:21:51 -0800 (PST)
+	Fri, 06 Dec 2024 21:39:59 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7b6c40a60cbso44794585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 13:39:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733521197; x=1734125997; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nhNrtrkwQMSxpIdT9BDntslWAjYECtg/oyySnSEisxE=;
+        b=ffyN+bn7XYhdcbEOxUTaTwwJZ9crhbV1vy+wXtxdqN6BL6yZB2XVrZ3iq2/MnBtk2K
+         iL2h0t0sjs5V+Y6SqvuDk5OaZPIyq7URQMiYnPQfXVg67hIwrewRz/7aRM7MD/jlfjRK
+         6R1/PreA6xarWjHMJFTZaWkBl1HVAND6QQZjEhxAdCxKtb4AlSUEaUYrFjfB7Spr2oq8
+         fKucNY4BW0iuMjRvclvICOd3S6vtNLHE2CatBUZ2YeHz5D9rxxWXA9S8vgCenk1jibvN
+         A3SWS+23uOzP+WIVKZqsiE8Pv3aKE82Mgby07Vl43VDhomDVVtnGhluls7xtwHJV1jQC
+         2NfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733521197; x=1734125997;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nhNrtrkwQMSxpIdT9BDntslWAjYECtg/oyySnSEisxE=;
+        b=UKJmSmk3tiUPaoKDpuGMiNvgN1tSUBkRuzQohbHUhKrp7Y8kbkP67Ctw5RJd9ET0fM
+         QEOXRVjrdE/O6yoejwe1r60AUZN0DDrtUe8Hpy5WQzNQJ43n3cDBpJehVV1x4Nh3COrm
+         FQ43ZEl4cYoU7K8OZWrAoT03lCqddKaTm56+TEEB1RPZ8MXPqiBN3JsvEfm59g02+1rh
+         Er0cIxfDSGfVZTGiDQGSOqFkYXKmuDF69Vm8MBNmcQwYi79gQoZ1AKbqzPblZM60AKEq
+         uBOqgGuSfzfgUx8/UO8K/5sw5UZ+BclSMqiakcZ5Qa7d4kCBMN2+ZpzBZhw1Xf35pyzm
+         6DcA==
+X-Forwarded-Encrypted: i=1; AJvYcCWL9CtzUu++gWuuDuNBimAkl/wQIRAyYFM0w73WjO4xKBVRVIBN/NKe8yUmtL1JzMV3/VjjDQVmMb46LXQfrUIS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1ubsNO6Ooec9+l4TxoEXHJDps6NOwCvkLU22O4ICtEI93DYWD
+	d5JY4q786lOq6gvbND5ojjGnwpUqx1yRxvbHToYDhdBzBNNH/HWD
+X-Gm-Gg: ASbGncupaYt0hSzRlOr0mP7m6HK9NZpPUZ6w41nKDYQ3uwun1ErKXpuqEDiAzjLErU5
+	r1+P1TTxOUyxmI0GAZ+hH4mqsYXM7CpBbRifSc6a2DJJGf3aJl9ghPNjoDcmtZpVZ8Seqh2S3nM
+	GeG43NiZrhudkGVhGK+Xek12OQ311fBMrrRNcDQVivM7rWNV8kiDRYXfN2tYY1cfTfym8BTFlmf
+	GDopbuH5kRx4dJCmYUUA8468v8GT+B+PoNfzelgFmVIbGg991qLsBtr/QZeJw==
+X-Google-Smtp-Source: AGHT+IEEnGwLcZ6wgoSEVpifnZ7n698aIGd7Lu/CBlB0yurAYkGYemOCDvTincbiQGiudFkAp3rHqA==
+X-Received: by 2002:a05:620a:2682:b0:7b6:7356:a19e with SMTP id af79cd13be357-7b6bcac22a4mr686886185a.7.1733521196806;
+        Fri, 06 Dec 2024 13:39:56 -0800 (PST)
+Received: from localhost.localdomain ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-467451fa7fcsm3100801cf.9.2024.12.06.13.39.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Dec 2024 13:39:55 -0800 (PST)
+From: Mingwei Zheng <zmw12306@gmail.com>
+To: marex@denx.de
+Cc: linus.walleij@linaro.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	make24@iscas.ac.cn,
+	peng.fan@nxp.com,
+	fabien.dessenne@foss.st.com,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mingwei Zheng <zmw12306@gmail.com>,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH v3] pinctrl: stm32: Add check for clk_enable()
+Date: Fri,  6 Dec 2024 16:43:15 -0500
+Message-Id: <20241206214315.3385033-1-zmw12306@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr> <FBEB24FF-5885-4938-8D1C-9B7BA9071FB9@kernel.org>
-In-Reply-To: <FBEB24FF-5885-4938-8D1C-9B7BA9071FB9@kernel.org>
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Date: Fri, 6 Dec 2024 00:21:35 +0900
-X-Gmail-Original-Message-ID: <CAMZ6RqLSiTfTNQrcje06MbSxvM2k16MgqG1YTCufe6j9FhupEw@mail.gmail.com>
-Message-ID: <CAMZ6RqLSiTfTNQrcje06MbSxvM2k16MgqG1YTCufe6j9FhupEw@mail.gmail.com>
-Subject: Re: [PATCH 00/10] compiler.h: refactor __is_constexpr() into is_const{,_true,_false}()
-To: Kees Cook <kees@kernel.org>
-Cc: Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, David Laight <David.Laight@aculab.com>, 
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
-	Martin Uecker <Martin.Uecker@med.uni-goettingen.de>, linux-sparse@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-hardening@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_130856_949577_787F5F0E 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20241206_133958_120843_7010BFF7 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,54 +103,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu. 5 Dec. 2024 at 08:58, Kees Cook <kees@kernel.org> wrote:
-> On December 3, 2024 3:33:22 AM GMT+10:00, Vincent Mailhol via B4 Relay <devnull+mailhol.vincent.wanadoo.fr@kernel.org> wrote:
-> >This series is the spiritual successor of [1] which introduced
-> >const_true(). In [1], following a comment from David Laight, Linus
-> >came with a suggestion to simplify __is_constexpr() and its derived
-> >macros using a _Generic() selection. Because of the total change of
-> >scope, I am starting a new series.
-> >
-> >The goal is to introduce a set of three macros:
-> >
-> >  - is_const(): a one to one replacement of __is_constexpr() in term
-> >    of features but written in a less hacky way thanks to _Generic().
-> >
-> >  - is_const_true(): tells whether or not the argument is a true
-> >    integer constant expression.
-> >
-> >  - is_const_false(): tells whether or not the argument is a false
-> >    integer constant expression.
->
-> But why make this change? Is something broken? Does it make builds faster?
->
-> > 7 files changed, 97 insertions(+), 84 deletions(-)
->
-> It makes the code larger too. I don't see what the benefit is, and given how much time has been spent making sure the existing stuff works correctly, I feel like we should have a clear benefit to replacing it all.
+Convert the driver to clk_bulk*() API.
+Add check for the return value of clk_bulk_enable() to catch
+the potential error.
 
-It makes the "code" larger because patch 3 ("compiler.h: add
-is_const_true() and is_const_false()") adds two new macros with 20
-lines of comments to explain the pros and cons. So the added "code" is
-only comments. If you ignore the comments, you can see that I am
-actually removing a few lines of code.
+Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
+Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+Changelog:
 
-As for the clear benefit, sorry, but I have nothing more to offer
-other than code simplification. The reason why a lot of time was spent
-to make __is_constexpr() work correctly is just a testimony of how
-complex the thing is. That alone can be a reason to simplify it, now
-that new tools (_Generic()) are available.
+v2 -> v3:
 
-Of course, modifying __is_constexpr() is not strictly needed to
-introduce the new is_const_expr(). My previous series:
+1. Convert clk_disable_unprepare to clk_bulk_disable
+and clk_bulk_unprepare.
 
-  https://lore.kernel.org/all/20241113172939.747686-4-mailhol.vincent@wanadoo.fr/
+v1 -> v2:
 
- did it that way. But I was rightfully pointed out for my macro being
-ugly. Maybe I can suggest that you give a look to the above thread and
-tell me if you still disagree with David and Linus's comments after
-reading it?
+1. Move int ret declaration into if block.
+---
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 28 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 15 deletions(-)
 
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 5b7fa77c1184..0ef912e82736 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
+ 
+ struct stm32_gpio_bank {
+ 	void __iomem *base;
+-	struct clk *clk;
+ 	struct reset_control *rstc;
+ 	spinlock_t lock;
+ 	struct gpio_chip gpio_chip;
+@@ -108,6 +107,7 @@ struct stm32_pinctrl {
+ 	unsigned ngroups;
+ 	const char **grp_names;
+ 	struct stm32_gpio_bank *banks;
++	struct clk_bulk_data *clks;
+ 	unsigned nbanks;
+ 	const struct stm32_pinctrl_match_data *match_data;
+ 	struct irq_domain	*domain;
+@@ -1308,7 +1308,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	if (IS_ERR(bank->base))
+ 		return PTR_ERR(bank->base);
+ 
+-	err = clk_prepare_enable(bank->clk);
++	err = clk_prepare_enable(pctl->clks[pctl->nbanks].clk);
+ 	if (err) {
+ 		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
+ 		return err;
+@@ -1397,7 +1397,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	return 0;
+ 
+ err_clk:
+-	clk_disable_unprepare(bank->clk);
++	clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
+ 	return err;
+ }
+ 
+@@ -1631,11 +1631,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 			fwnode_handle_put(child);
+ 			return -EPROBE_DEFER;
+ 		}
+-
+-		bank->clk = of_clk_get_by_name(np, NULL);
+-		if (IS_ERR(bank->clk)) {
++		pctl->clks[i].clk = of_clk_get_by_name(np, NULL);
++		if (IS_ERR(pctl->clks[i].clk)) {
+ 			fwnode_handle_put(child);
+-			return dev_err_probe(dev, PTR_ERR(bank->clk),
++			return dev_err_probe(dev, PTR_ERR(pctl->clks[i].clk),
+ 					     "failed to get clk\n");
+ 		}
+ 		i++;
+@@ -1646,8 +1645,8 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 		if (ret) {
+ 			fwnode_handle_put(child);
+ 
+-			for (i = 0; i < pctl->nbanks; i++)
+-				clk_disable_unprepare(pctl->banks[i].clk);
++			clk_bulk_disable(pctl->nbanks, pctl->clks);
++			clk_bulk_unprepare(pctl->nbanks, pctl->clks);
+ 
+ 			return ret;
+ 		}
+@@ -1726,10 +1725,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
+ int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+-	int i;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_disable(pctl->banks[i].clk);
++	clk_bulk_disable(pctl->nbanks, pctl->clks);
+ 
+ 	return 0;
+ }
+@@ -1738,10 +1735,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+ 	struct stm32_pinctrl_group *g = pctl->groups;
+-	int i;
++	int i, ret;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_enable(pctl->banks[i].clk);
++	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
++	if (ret)
++		return ret;
+ 
+ 	for (i = 0; i < pctl->ngroups; i++, g++)
+ 		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
+-- 
+2.34.1
 
-Yours sincerely,
-Vincent Mailhol
 
