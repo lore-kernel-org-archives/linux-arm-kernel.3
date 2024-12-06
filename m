@@ -4,174 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774B4E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92544E77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1aM73qPBkgat4pf2SiIS+1PMIz/kgM70Ny1A3v+G0Ls=; b=1f4BRqGw1p6NVsrr4ILz1wi/sN
-	c7mc+RFQQDs1ItS+yiRV1jV7NNPLidLkvrVhj2Pq8IrX+MFj6QewLuRKYea3erTWUwu3DDgWs7nVv
-	LUhdKrGqKizT7a5bZUiIyF6Glnd+z990gwn6HAd/Oafo7QYcArVrnotgd63fi0kDQYG/B1D6pmpKY
-	AJ0SRSCrh/6jArPv4JvATQ24PgMUQ01qq1m2QOSjGlrZbNNji7Lq7CayCPkJUKO/yR0r6KbKiq5la
-	2WHgeQg2w9cjqaQmN4jSiwBsz9Ayu+cmcxtKWzwtaSeNIaMuny6DD4AgfC5z28pimc3Uh4TcJ3wcB
-	HMl8zyow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gYnZuGaBVb8OoJaBG5fmz2bM/VwUfcvVK7JqyrVSEE0=; b=GppbZE8PFPINQujLRlYDG9stBq
+	Nr26mXT5zcWpUKcbo4jz5l/6hmopo5udT70N7D+0ySXZTew+agveUbOq6+bxwvZkBWNSc7Zvb/7PM
+	YTumxNiLC+Hzm0TxaJ9hltEqI8bU4giQQk4NcHRQOiNw26AfOX4f9x2/QTfE2zzNhjlp7f6kBYgCx
+	gXIDGQQuUrzdkr1oaxoOfgRktFWQa3IaMTp/0DxyB6+QJQErTLM3utvamx9TSO3yEj9Ol/wZsH/Ci
+	LcPyFHHEjvrftaUokotbEsqKu/9lWMip3MheHYDuL/C9ZmE6g0cSfm0VOkOaQ67mSKOtjQi2TqbXy
+	TIrndj+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJX6m-00000001WOR-0MjJ;
-	Fri, 06 Dec 2024 12:06:56 +0000
-Received: from mail-am6eur05on20627.outbound.protection.outlook.com ([2a01:111:f403:2612::627] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tJX9k-00000001Wsm-2CE2;
+	Fri, 06 Dec 2024 12:10:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJX5k-00000001WGp-2knj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 12:05:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=twKYL/eazyGgLVlI2VLv4vpoEv7DGli49YJ+3D++mSwjRcqZ6SlgWzk447F/hb2hpPrq6GOBLY00I+nAmAJUZ0MLu+fJ2hqQ+VFFJAD/RyJcSjWbxFgGnZOb+dE2VvkmqT++LGZ/D9lv0dYWEyi9rLfHfyxxOvN4cEBPIMQ2XWN+U4ouD8ondCJuPk4vV919fuqQjvjmcZcPL5KSYYuwI1aAClq5GC5ZtJSXQzDZvCBCmaib8kH8Y/N9CIkrjDkJxo4RUB5mRDW4Jwwzq3y1pLVLg8h/M7bNRqP6PjcPomxRo5w1z+ENwIk6wGdn+cpFbxf31ylTdRiHiol3x8VgaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1aM73qPBkgat4pf2SiIS+1PMIz/kgM70Ny1A3v+G0Ls=;
- b=CbgSaTkr5hOJppRTC6e5UTGxdzo5buM26gRdDj2HapNkvYC/rpLVk4S+c6Wu9MlCMIyLS4ReltgYoXn4Y/C33TZ+J9/n96naHbvqmf6Y9UWF3UxFhwQJXMwOr5q5MAgI5+A2ikKz8e/3zAgAGsePmpcsNg+QZ+w0yVIUkjiDfYT68G8N4C6Eq59XPUeJQ2GHLYkWumVx0KzHboKsj1/Qq8XaBimmjBifWq/DefVfjNBOxjwWIVYQNzcjRwvSGOIunhyYSlF/C6VKVMvug/bbODKW7rHWkGmkeWa5MCkgmZyOnCdgq56usCw+iMIjkZ/UuOfNKqFcHFk1IQ478OS2TA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1aM73qPBkgat4pf2SiIS+1PMIz/kgM70Ny1A3v+G0Ls=;
- b=gq245yHaGPDBGnRWkoBMrIIlSA0OCosY7D/wUGmIsdarx2Fq58NlHkLE6/LowDfzO+lQLF9xFXQkv9DON2tNskhX+/Rzf8dc0rJ1dnyAdoz44boKy5CpQecUDjV/WSTvZhQwWXbX7avlEzKFGSwo43QwDmRfK6xBJvWWhRtXxlgZwby/ZSmW6m+I8vLoP2LDdLL81dzYZwKUF5HrVRGysYVEPX5a3u35WJCY83wnwX3pXy0OTDMjL5turgbiuWM5jj2nx2q+Ykak+ALZ/CqlvSPyO0N8CHumzlsmvqRGrcItj7mp1fh+XEk7xp9y77aAGGPxT12blKpjKRgGULELZQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by DU2PR04MB9147.eurprd04.prod.outlook.com (2603:10a6:10:2f6::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Fri, 6 Dec
- 2024 12:05:44 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::708f:69ee:15df:6ebd%6]) with mapi id 15.20.8207.017; Fri, 6 Dec 2024
- 12:05:44 +0000
-Message-ID: <6f4a0be8-4def-4066-9b44-d43059b7a90d@oss.nxp.com>
-Date: Fri, 6 Dec 2024 14:05:07 +0200
-User-Agent: Mozilla Thunderbird
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Subject: Re: [PATCH v6 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-To: Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux Team <s32@nxp.com>, imx@lists.linux.dev,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>, Bogdan Hamciuc
- <bogdan.hamciuc@nxp.com>, Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-References: <20241206070955.1503412-1-ciprianmarian.costea@oss.nxp.com>
- <20241206070955.1503412-3-ciprianmarian.costea@oss.nxp.com>
- <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
-Content-Language: en-US
-In-Reply-To: <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4PR09CA0030.eurprd09.prod.outlook.com
- (2603:10a6:20b:5d4::20) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	id 1tJX8h-00000001Wlc-3Q5E;
+	Fri, 06 Dec 2024 12:08:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8ABCBA411D1;
+	Fri,  6 Dec 2024 12:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 964E7C4CEDE;
+	Fri,  6 Dec 2024 12:08:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1733486934;
+	bh=9K6GHCZMrxbO9GvnHCeqOPFlq+CzNBqgiuCnhr67PNg=;
+	h=Subject:To:Cc:From:Date:From;
+	b=bczx4L1PZwB96R37jqIEdxv9XqTsQxV5apl0ZHiibhlsdIRpUFlNjBHCnPIYWoXAZ
+	 arrQ7pKYSI84xUjkaILVl/YG7qDIs5EQIQGUOTnjqHvQlu/3qkHaK5x7EMwSUxLtfK
+	 cR9kW+zolfwDBssCTFOE9p11KAinTz1CxjGBTI9M=
+Subject: Patch "perf jevents: fix breakage when do perf stat on system metric" has been added to the 6.12-stable tree
+To: acme@redhat.com,adrian.hunter@intel.com,alexander.shishkin@linux.intel.com,alexghiti@rivosinc.com,aou@eecs.berkeley.edu,atrajeev@linux.vnet.ibm.com,ben717@andestech.com,bgray@linux.ibm.com,chenhuacai@kernel.org,clement.legoffic@foss.st.com,dima@secretsauce.net,gregkh@linuxfoundation.org,irogers@google.com,james.clark@linaro.org,john.g.garry@oracle.com,jolsa@kernel.org,kan.liang@linux.intel.com,leo.yan@linux.dev,linux-arm-kernel@lists.infradead.org,linux-riscv@lists.infradead.org,linux@treblig.org,maobibo@loongson.cn,mark.rutland@arm.com,mhiramat@kernel.org,mike.leach@linaro.org,mingo@redhat.com,namhyung@kernel.org,palmer@dabbelt.com,paul.walmsley@sifive.com,peterz@infradead.org,ravi.bangoria@amd.com,sandipan.das@amd.com,will@kernel.org,xu.yang_2@nxp.com,yangyicong@hisilicon.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Fri, 06 Dec 2024 13:08:06 +0100
+Message-ID: <2024120606-nearly-arousal-e45f@gregkh>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|DU2PR04MB9147:EE_
-X-MS-Office365-Filtering-Correlation-Id: 642adc40-ea76-4f64-6c94-08dd15ee4fdb
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VzRMUXZicXEwc0tpVDJDYXdrYWQ2Y3g5cEFqdlJqN1BsRnJScUF3cWNPM09x?=
- =?utf-8?B?UW5IMG4xaXNMMjZJWjhVYkdpUVdTZlBRSGF1Yy8rczNoTVFyamZlMDVRd3ZN?=
- =?utf-8?B?VVJXUm1ncDArdUdWRkxpenFGVzRPNG1XdkhkWjlIaHhtY01PZEFKZUZJSHpK?=
- =?utf-8?B?VDFMWU5BM0o4M1cxQVVQdEpFYW5xRVJwN3N5MFFYV09QdGtWQ3d1U1FKbjRS?=
- =?utf-8?B?b2NnMjNWVmpCUzBCTjdaZDRKRlptQjJOT2dKY1pFVmRDWGhudHpBekRrZS9S?=
- =?utf-8?B?eG1zckpzWGdnd210MUxGcFgveDk4c3hXeFY2R2xCUGFBbHA4VEo2amZhUVdU?=
- =?utf-8?B?eVpTVXc0bjFvSE1LdDZQME50aCs5VXVVdERjTDNJOUVTb3UvYSt0WWI5dU5V?=
- =?utf-8?B?S25kQVlnS0pxOWtmQm9QcGhKZnRPVFQyMzg1eDJmam5WbVptbnhMSlUvWEtl?=
- =?utf-8?B?MHlXZHgyRmYzVVJvK0dLOVFIaWNUdjlXTFlEMDcvZGtmL1lxa0RsaCtsNmx4?=
- =?utf-8?B?RUJmeHBsb3hld1lvRFducncvYnBHS0liQjg5eWg1bWN2MEZTUlZNYTJmanR4?=
- =?utf-8?B?bG9uQitYenRFMnl1Y01ETVc3bzBZQ3piQ0hrOHdBVnF1Y1NsK3hleURscmx3?=
- =?utf-8?B?Y2t6TE0wcmxlU2IyK0YzaUxUMlBGdlk0ZTY1bFNiR21TWDVJSCsvUXRQRU9p?=
- =?utf-8?B?QjNBTE5xL3VLSTJJRDUxcXVFRVBQaUZoZFhqYklVKzBJMjA4S0Z0LysxUGtr?=
- =?utf-8?B?U0xVWk5VSWJXTXRmVS9EV2w0d20rMWRKVU16aWkwM2JLZWltUVh1ODQ5NWp4?=
- =?utf-8?B?aVBkWFlwU1drZmMraE9Ic1ZKTVViWGhCTXhNTXhwUmtHM0RPclpWVzNJWVFL?=
- =?utf-8?B?VUlBTjEwOFNPUEJBUkM2bGcxbURqVXZCeDl2ZHlmUmIvM2ZKY1hjQ1FEWVdi?=
- =?utf-8?B?MThKRkFoZ3RFSytwYm43OENONWNFREViVEN1N29YbSt4RTRaT1orUnd6MHM3?=
- =?utf-8?B?Y2JhYlFYcEk4a1JHemRKVXZuS2w3NzJmaXd5SWh4bU05UmNDVGpQQU80dWlj?=
- =?utf-8?B?YTBUNVlqbko2WHBQY3FXeFAyQVBuVnpQaFhZa2s0MzBqWWlTeFVKaWFSVUFh?=
- =?utf-8?B?R3kvWDVKVVlEeC9BdTNNUVNENHdpUFZJZGVYRHo0OUJ2YnlmUUROYWFlNFFo?=
- =?utf-8?B?aGo3djI4SHVQY3dGVUY5bWxSKytHT1FNM3dVNW9qSmxGRUF0VDBlTkptZmZq?=
- =?utf-8?B?VHU0WjNTOVN4Q1M1T2l3RGltbTY5UjQvVkhQSS8rYkV6K3JDeklFOGRqd29O?=
- =?utf-8?B?YkRJQ1lMV0hjSDVBT0lPUnNtcHFzb3FTZ1lNMUlBcnNCNkJoOFg1TlJhaXU5?=
- =?utf-8?B?ZlR5VFAwd2hoc0tEZlh6YzQxUktpWW5zMzNBM2g3TnNxYm9ncURTcWdtTnlt?=
- =?utf-8?B?dFhTOXRxS2orQWI5M0dLSHJ4R2U5b041b0JZTkFxWTM4SGp1WHJ4THNMQ2tC?=
- =?utf-8?B?MEJBL3VHSUZjSTJ5M2p1UUxpUW96VHJnNXdQdmlXYWhYWHRDMVRLazlFMnBy?=
- =?utf-8?B?Qlg2clE3cGpMZnAwVTJqTFFvamFydEJtRmF3dVNwSzhQeEhjQTJHVmc3RGlY?=
- =?utf-8?B?UStqQUtxbWdTMUxqenZYbDRPOTRLS2w3cnp2VzE2MUtBa24wVmQrZ2NVdkRl?=
- =?utf-8?B?TVk3OWdmVHVwSVFvQmRIQWw4cHpwbHZzNUdCSUtpREY5KzNTWENnNEErdWZT?=
- =?utf-8?B?N2lNd3Jkei92RGd6SExzTi9QbTFMY1k0ZGF1R3U1UXBWaGQzcVovcjVSN2xq?=
- =?utf-8?B?aFdWUjdzZWlRM2hvK0NFUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bklrcGVjV05wbkpmd3NSSGFibFRGeGxtNVhZMGh0ZHVudmRHRDMxalZLRENv?=
- =?utf-8?B?VkVGTnpJS01YNC9EZndxVGVFajJ6bFdWbURRVXgwTUlMaFoxQm1WUjJRb1Vy?=
- =?utf-8?B?d3YzSGIrbHFxcUExTmVscU8yaERIMi9hNlBDckd5cGNQOG80T0NwZHUrVzdj?=
- =?utf-8?B?azByMkN2dUlpa1UzWmpkTzVZNVNSeHg4WVNYTXZ6Y1cydWE3d0E4cnBoN0xk?=
- =?utf-8?B?SXpzN3RJbHhEdzlkWjVyOEZjdkNxU2lONW9sVlhKTU9JYnlYTkRVcmJraS9z?=
- =?utf-8?B?cktJSFlsQTFGdlRQMi82UktsSDRhWVhpOHJFYjlvQXpPVnhqSGxweDJYaUtC?=
- =?utf-8?B?OFdLSkRkd2k0Mk5TeUFxRXZWazVvY1djWFlvNFZVdFdQdlhzMmNEVjd0QUtq?=
- =?utf-8?B?dzNhYjZmSFE4dlhpUUVFRjFDSldZZ3Q0NVhYeEVCQ1lxNS82bnBvNlk2S0My?=
- =?utf-8?B?TEowaklSZ1JsV2Z2ODRwc0ZaVmRBV1hHSFMxV0taT3JKbkd4NXcyQUY0NzND?=
- =?utf-8?B?OE5YY2NBYVJ6UWpPam82NUJ2ckR4SVZaODJyYnJSZVF6N3h5Y21rMWlMbklY?=
- =?utf-8?B?VVJZdXdkZ1Q2b05GYW04cEdGNGI2bDNGeEpUQU94OXBERXNVWjhaRVdRMnJh?=
- =?utf-8?B?dlp5YUUxZnBwRlV2Q0JSWU1iNXFackNhMkhocTNHTDQzY2FaZFJad21vNDRl?=
- =?utf-8?B?TUc0K2sxaFRJTG5SSk04eHhyU3ExRkZ0eWZaV1poRkpTejJ3Mjc2Z21LVjVP?=
- =?utf-8?B?M2IzUmFRNUlTa29lWFovMm45Mmt1Z1JTeDB1Yjl6YWNRT3F4UUdlS0M5L0da?=
- =?utf-8?B?SEV0SnNHeXhZRk1QTnMvTk4xbVJvZDNvZ21XRTJ4OWljUnpsWW51NitFRWll?=
- =?utf-8?B?eXE0VnNlY01kZUI4WjM0MHEydzdWL3NMMzZpVFJ3ZzdhVDR2by9BTHR3Mkhs?=
- =?utf-8?B?dk1iZzFSM2pMeGRKTG1rekt6Z2graFU3bzNVa3loYk0wQUpiSzlNV1VnUXI2?=
- =?utf-8?B?L0tVYzc1K0ZYZTJvSjZtdnJrOGZTVlRLbTNXU1FrdUh3MWVYOHlNdUFiSjZV?=
- =?utf-8?B?cVVrV1lUbUo4ZUtyMUluaG1WeTFYaTdabmNJdUZ4bVNSS2w4dzN6eGErOU1B?=
- =?utf-8?B?TVMzeDdGMjVBcGlRZndoOTM0Rnc5eUlMUTY2alFNM016a3pPYVdORDhXVFhv?=
- =?utf-8?B?SU5jbVZLK2VhVElhRkJSWFI3bitFb0NCeWUvSG5vYjBBdGhHc3RCN2x0UXQx?=
- =?utf-8?B?NVU1amRqY2RkZTdiSWQ3T3FEVjFKTlQ0OEZQMzZ3NmNVRzA0S1lhVmpDR3Rn?=
- =?utf-8?B?RDdrbU1XZTNkelU5K0NOaTVZcU9zS3pjazJnYnY5QWdtU3N5YTRNTEM5b3Jl?=
- =?utf-8?B?V1Jxc3dhSGVKa1kwdUQyaHdzOStXWmZ2VGlHV3VOMFh1WisvMnR2bkp6M1RB?=
- =?utf-8?B?bmFrbWFNTUpkU3RRak5kbng3V3JPYlBNU2VoNHRGLzRhUU90VTZqK0tkMDlR?=
- =?utf-8?B?N3dqSTRBN2RyQ0NxQTJTek51enpDanErSjBkRjdIbk5KQVFaT1FvdjkyQ1F6?=
- =?utf-8?B?TmNQSzN0NThGOTA3RE5hUUpiMnlUWW1yTlVjMytVOGQzZFBQTzRGRWNjSlZ3?=
- =?utf-8?B?c05VcENYNUFxdVA5VnV4Z2NiVUJ0T2JPbXBJL2JZVGkreVpvZzhjNmsyS3Nk?=
- =?utf-8?B?Q2FwbzlINmVkUDJFeWhSQk1yRU80UEwrOEhJWG16d1I1anp4bVZoS0lxWE5k?=
- =?utf-8?B?VHFSckVhL0FFVEg0VnNUci81YWxaMlViRGtxaGNGZWxRd1VMT0RrRU9vMEdj?=
- =?utf-8?B?ODFEV0xkUVBOd1hjaXFaenNnQ3V5dW5RZTdmWkhRRlR4YngwU25ZckIwUytZ?=
- =?utf-8?B?T1p1M3NOaFphZ2RqMTFIOGFCY0Nsdk03M3RLdHVnMUFkOXZFYkE3bDRzYi9R?=
- =?utf-8?B?eG5XYzMwazRaOTh1cmc5UEFDcVI3V3UxR3FobXA4SVlWeFdDR2NMaXhCN2JS?=
- =?utf-8?B?YWVIQVVOMkpudEFXV3pEa3JjUXgycENnaGx3OGJDUVdVbEwzekNVcDNmdnQw?=
- =?utf-8?B?clBvZ3ZnMmZuQ1pLT0pTVmhaQ1BiRVZlUWwwS0NGSXhQd1NYYXVWVmhKeWRQ?=
- =?utf-8?B?NDJMUkFQVkxwK3dKK2JVdUI5ay9lWmJnNlFiTS96Zm1qS2VZRWt2Z1hTMVcv?=
- =?utf-8?Q?vzwZUYh9U9+supB9x0RiawM=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 642adc40-ea76-4f64-6c94-08dd15ee4fdb
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2024 12:05:44.5100
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yb5Z3RKoE/3t1/zsuqbl19vNhXx1S67K2vmjJmJlglaigqhBDRt93njz23rhJHwddzuCzh+0o8KBDzq2gVYepJgUhK8khADtvtHJ36gI/hY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9147
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_040552_864548_C0238617 
-X-CRM114-Status: GOOD (  39.78  )
+X-CRM114-CacheID: sfid-20241206_040855_979755_24DE0378 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,163 +66,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/6/2024 10:04 AM, Arnd Bergmann wrote:
-> [You don't often get email from arnd@arndb.de. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> On Fri, Dec 6, 2024, at 08:09, Ciprian Costea wrote:
->> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->>
->> Add a RTC driver for NXP S32G2/S32G3 SoCs.
->>
->> RTC tracks clock time during system suspend. It can be a wakeup source
->> for the S32G2/S32G3 SoC based boards.
->>
->> The RTC module from S32G2/S32G3 is not battery-powered and it is not kept
->> alive during system reset.
->>
->> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
->> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
->> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
->> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
->> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-Hello Arnd,
+This is a note to let you know that I've just added the patch titled
 
-Thanks you for your review on this patchset.
+    perf jevents: fix breakage when do perf stat on system metric
 
-> 
-> I read through the driver and this looks all good to me, but there
-> are two fairly minor things I noticed:
-> 
->> +     u64 rtc_hz;
-> 
-> I see the clock rate is a 64-bit value, which is clearly what
-> comes from the clk interface in the kernel
-> 
->> +static u64 cycles_to_sec(u64 hz, u64 cycles)
->> +{
->> +     return div_u64(cycles, hz);
->> +}
-> 
-> and you divide by the clk rate to convert the register value
-> to seconds (as expected)
-> 
->> +     u32 delta_cnt;
->> +
->> +     if (!seconds || seconds > cycles_to_sec(priv->rtc_hz, RTCCNT_MAX_VAL))
->> +             return -EINVAL;
-> 
-> However, the range of the register value is only 32 bits,
-> which means there is no need to ever divide it by a 64-bit
-> number, and with the 32kHz clock in the binding example,
-> you only have about 37 hours worth of range here.
-> 
+to the 6.12-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-I am not sure what is the suggestion here. To cast 'cycles' variable to 
-32-bit ?
-If yes, indeed 'div_u64' converts 'cycles' (the divisor) to 32-bit so I 
-agree it should be u32 instead of u64.
-If not, I would prefer to keep using a 64-by-32 division and avoid 
-casting 'hz' to 32-bit.
+The filename of the patch is:
+     perf-jevents-fix-breakage-when-do-perf-stat-on-system-metric.patch
+and it can be found in the queue-6.12 subdirectory.
 
-> It would appear that this makes the rtc unsuitable for
-> storing absolute time across reboots, and only serve during
-> runtime, which is a limitation you should probably document.
-> 
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-Actually there is the option to use DIV512 and/or DIV32 hardware 
-divisors for the RTC clock. The driver uses a DIV512 divisor by default 
-in order to achieve higher RTC count ranges (by achieving a smaller RTC 
-freq). Therefore, the 37 hours become 37 * 512 => ~ 2 years.
 
-However, the rtc limitation of not being persistent during reboot 
-remains, due to hardware RTC module registers present of NXP S32G2/S32G3 
-SoCs being reset during system reboot. On the other hand, during system 
-suspend, the RTC module will keep counting if a clock source is available.
+From 4a159e6049f319bef6f9e6d2ccdd322f57d24830 Mon Sep 17 00:00:00 2001
+From: Xu Yang <xu.yang_2@nxp.com>
+Date: Thu, 7 Nov 2024 08:20:28 -0800
+Subject: perf jevents: fix breakage when do perf stat on system metric
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Currently, this limittion is documented as follows:
-"RTC tracks clock time during system suspend. It can be a wakeup source 
-for the S32G2/S32G3 SoC based boards.
+From: Xu Yang <xu.yang_2@nxp.com>
 
-The RTC module from S32G2/S32G3 is not battery-powered and it is not 
-kept alive during system reset."
+commit 4a159e6049f319bef6f9e6d2ccdd322f57d24830 upstream.
 
->> +static s64 s32g_rtc_get_time_or_alrm(struct rtc_priv *priv,
->> +                                  u32 offset)
->> +{
->> +     u32 counter;
->> +
->> +     counter = ioread32(priv->rtc_base + offset);
->> +
->> +     if (counter < priv->base.cycles)
->> +             return -EINVAL;
-> 
-> If 'counter' wraps every 37 hours, this will inevitably fail,
-> right? E.g. if priv->base.cycles was already at a large
-> 32-bit number, even reading it shortly later will produce
-> a small value after the wraparound.
-> 
-> Using something like time_before() should address this,
-> but I think you may need a custom version that works on
-> 32-bit numbers.
-> 
+When do perf stat on sys metric, perf tool output nothing now:
 
-This is correct. Would the following change be acceptable ?
+  $ perf stat -a -M imx95_ddr_read.all -I 1000
+  $
 
--       if (counter < priv->base.cycles)
--               return -EINVAL;
+This command runs on an arm64 machine and the Soc has one DDR hw pmu
+except one armv8_cortex_a55 pmu. Their maps show as follows:
+
+const struct pmu_events_map pmu_events_map[] = {
+{
+	.arch = "arm64",
+	.cpuid = "0x00000000410fd050",
+	.event_table = {
+		.pmus = pmu_events__arm_cortex_a55,
+		.num_pmus = ARRAY_SIZE(pmu_events__arm_cortex_a55)
+	},
+	.metric_table = {
+		.pmus = NULL,
+		.num_pmus = 0
+	}
+},
+
+static const struct pmu_sys_events pmu_sys_event_tables[] = {
+{
+	.event_table = {
+		.pmus = pmu_events__freescale_imx95_sys,
+		.num_pmus = ARRAY_SIZE(pmu_events__freescale_imx95_sys)
+	},
+	.metric_table = {
+		.pmus = pmu_metrics__freescale_imx95_sys,
+		.num_pmus = ARRAY_SIZE(pmu_metrics__freescale_imx95_sys)
+	},
+	.name = "pmu_events__freescale_imx95_sys",
+},
+
+Currently, pmu_metrics_table__find() will return NULL when only do perf
+stat on sys metric. Then parse_groups() will never be called to parse
+sys metric_name, finally perf tool will exit directly. This should be a
+common problem.
+
+To fix the issue, this will keep the logic before commit f20c15d13f01
+("perf pmu-events: Remember the perf_events_map for a PMU") to return a
+empty metric table rather than a NULL pointer.
+
+This should be fine since the removed part just check if the table match
+provided metric_name.  Without these code, the code in parse_groups()
+will also check the validity of metrci_name too.
+
+Fixes: f20c15d13f017d4b ("perf pmu-events: Remember the perf_events_map for a PMU")
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Tested-by: Xu Yang <xu.yang_2@nxp.com>
+Acked-by: Ian Rogers <irogers@google.com>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
+Cc: Benjamin Gray <bgray@linux.ibm.com>
+Cc: Ben Zong-You Xie <ben717@andestech.com>
+Cc: Bibo Mao <maobibo@loongson.cn>
+Cc: Clément Le Goffic <clement.legoffic@foss.st.com>
+Cc: Dima Kogan <dima@secretsauce.net>
+Cc: Dr. David Alan Gilbert <linux@treblig.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jiri Olsa <jolsa@kernel.org>
+Cc: John Garry <john.g.garry@oracle.com>
+Cc: Kan Liang <kan.liang@linux.intel.com>
+Cc: Leo Yan <leo.yan@linux.dev>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Mike Leach <mike.leach@linaro.org>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ravi Bangoria <ravi.bangoria@amd.com>
+Cc: Sandipan Das <sandipan.das@amd.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/r/20241107162035.52206-2-irogers@google.com
+Signed-off-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ tools/perf/pmu-events/empty-pmu-events.c |   12 +-----------
+ tools/perf/pmu-events/jevents.py         |   12 +-----------
+ 2 files changed, 2 insertions(+), 22 deletions(-)
+
+--- a/tools/perf/pmu-events/empty-pmu-events.c
++++ b/tools/perf/pmu-events/empty-pmu-events.c
+@@ -539,17 +539,7 @@ const struct pmu_metrics_table *perf_pmu
+         if (!map)
+                 return NULL;
+ 
+-        if (!pmu)
+-                return &map->metric_table;
 -
--       counter -= priv->base.cycles;
-+       if (counter < priv->base.cycles) {
-+               /* A rollover on RTCCTN has occurred */
-+               counter += RTCCNT_MAX_VAL - priv->base.cycles;
-+               priv->base.cycles = 0;
-+       } else {
-+               counter -= priv->base.cycles;
-+       }
+-        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
+-                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
+-                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
+-
+-                if (pmu__name_match(pmu, pmu_name))
+-                           return &map->metric_table;
+-        }
+-        return NULL;
++	return &map->metric_table;
+ }
+ 
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -1089,17 +1089,7 @@ const struct pmu_metrics_table *perf_pmu
+         if (!map)
+                 return NULL;
+ 
+-        if (!pmu)
+-                return &map->metric_table;
+-
+-        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
+-                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
+-                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
+-
+-                if (pmu__name_match(pmu, pmu_name))
+-                           return &map->metric_table;
+-        }
+-        return NULL;
++	return &map->metric_table;
+ }
+ 
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
 
 
->> +static int s32g_rtc_resume(struct device *dev)
->> +{
->> +     struct rtc_priv *priv = dev_get_drvdata(dev);
->> +     int ret;
->> +
->> +     if (!device_may_wakeup(dev))
->> +             return 0;
->> +
->> +     /* Disable wake-up interrupts */
->> +     s32g_enable_api_irq(dev, 0);
->> +
->> +     ret = rtc_clk_src_setup(priv);
->> +     if (ret)
->> +             return ret;
->> +
->> +     /*
->> +      * Now RTCCNT has just been reset, and is out of sync with priv->base;
->> +      * reapply the saved time settings.
->> +      */
->> +     return s32g_rtc_set_time(dev, &priv->base.tm);
->> +}
-> 
-> This also fails if the system has been suspended for more than
-> 37 hours, right?
+Patches currently in stable-queue which might be from xu.yang_2@nxp.com are
 
-Actually, the system would not go into suspend (returning with error) if 
-the alarm setting passes the 32-bit / clk_freq range.
-The check is added in 'sec_to_rtcval' which is called from the suspend 
-routine.
-
-> 
-> One more minor comment: you are using ioread32()/iowrite32()
-> to access the MMIO registers, which is a bit unusual. I would
-> suggest changing those to the more common readl()/writel()
-> that do the exact same thing on arm64.
-> 
->          Arnd
-
-Makes sense. I will change to readl/writel in V7.
-
-Best Regards,
-Ciprian
-
+queue-6.12/perf-jevents-fix-breakage-when-do-perf-stat-on-system-metric.patch
 
