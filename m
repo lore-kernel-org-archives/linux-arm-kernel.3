@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29C2E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 11:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 131D9E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 11:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7J3yXyaGt/G5hnQcvxHMCiYNb3Sd5mnD4YuztycONU=; b=Mu2gV3KBdZgQdlr/nNhI/CHL2n
-	4gxPtMXt2k2NKptX0W/LNIM1V+IogdWTfl4skEcgbfTbJPfyUax5ck7y7boDMvwwqvTNV/VxFKtu0
-	ThArNvmWWZ0gmkYmOn5ooXumzevojuj3XskC4gAy6DuS9ASJKNoNZGVO5ThLnOfnFWhIbFvhOBTSD
-	utrVbxgIdySLx2pVhXzJ+/usqag5DVoNULJOgfy/gQvpLTTGo1USFIXDJBqXUkEc1F0yqxv2QSz6n
-	MOGYaD7oKdSswzakKvzJKfjka8ufN5pnQ7yWPQLS3UYszWTGYCG47Y1/Y0ZuTZ/meSTNMTNathcjg
-	DnX6uyGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PFPFV0Ax8i8C9LyOLIOefcKHDDFqRhlURq1jSxeY31o=; b=pzSxrR1NWkwht2eAHbtVtfgNiz
+	vFuEg10QkM/LaD4xJBqRkfKzNQ2RYijKrsnSoQb9B+qzzabi0v7Pb1bxIroJJbY5nkf0G+GV+nmFU
+	lS3qJOw0QYpLAP6WiQHn2vOSY7c11ORcVugYS27kfGUTY5dsmyrj1K+Ekf2MaP5VziKqgOq1u4xiX
+	d95xpbRpDhN7xxrtZzHt1lRNv45fZIJg94IKHE3azFe2Xws9pHhqUT1YwyXtA+vf6xJk6c9+xJ1ly
+	9H6NkjPbI8ik/ytYUAq2fmAgBJepGsoEo43Bt36V3CNnT+841IDl/Chg/uTzgK9IBkSQvDQ/cSvWn
+	T+KAwBSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJWjM-00000001U15-3KNF;
-	Fri, 06 Dec 2024 11:42:44 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tJWkT-00000001U8m-1mM3;
+	Fri, 06 Dec 2024 11:43:53 +0000
+Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJWiL-00000001Tve-2JVW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 11:41:42 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tJWiA-0004H7-Up; Fri, 06 Dec 2024 12:41:30 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tJWi9-001zVh-2H;
-	Fri, 06 Dec 2024 12:41:30 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tJWiA-000nbD-1C;
-	Fri, 06 Dec 2024 12:41:30 +0100
-Date: Fri, 6 Dec 2024 12:41:30 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, marex@denx.de,
-	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>,
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] soc: imx8m: Add remove function
-Message-ID: <20241206114130.zt4rkotzbzi3xt5n@pengutronix.de>
-References: <20241206112843.98720-1-peng.fan@oss.nxp.com>
+	id 1tJWjS-00000001U1g-18zl;
+	Fri, 06 Dec 2024 11:42:51 +0000
+Received: from laptop.lan (unknown [125.33.216.38])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPSA id 2CFCF3F789;
+	Fri,  6 Dec 2024 11:42:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1733485365;
+	bh=PFPFV0Ax8i8C9LyOLIOefcKHDDFqRhlURq1jSxeY31o=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=blgoFFBseV8uNYm7ISBs4Rh1VbtPHumoIOXPTinyfqfICH5IaNJv1CLMT3yRtHsXJ
+	 3aSrEH7kzcWwEiUZLuWYDqkpfQ2fklpXSk50KvH0ju0RqTB1yfRMGWxE/ldKTFC1An
+	 iVNQ4RYYnqqC4dae2l/0MdarYIj2bYOw9EG9oqKe08YiC8tZ2+eueUQjd7e+/G1SbY
+	 2HWZCKN0uBZQEKI+RHwhs1F2L1h4B5bDY55uzMtumpV/6+90qAVWsqgZ8yW4+j3Luy
+	 M8Is54VTN/qYoBoiEd2PXcKOLdCsT+5bvxcK+77I1/ohFzNIplLdEoK43sccfj7ntE
+	 7Q7I8FcQ1dm5g==
+From: Guoqing Jiang <guoqing.jiang@canonical.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] drm/rockchip: Remove unnecessary checking
+Date: Fri,  6 Dec 2024 19:42:33 +0800
+Message-Id: <20241206114233.1270989-1-guoqing.jiang@canonical.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241206112843.98720-1-peng.fan@oss.nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_034141_667262_6C6AF512 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20241206_034250_486895_9D485A44 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-12-06, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Unregister the cpufreq device and soc device in remove path, otherwise
-> there will be warning when do removing test:
-> sysfs: cannot create duplicate filename '/devices/platform/imx-cpufreq-dt'
-> CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc1-next-20241204
-> Hardware name: NXP i.MX8MPlus EVK board (DT)
-> 
-> Fixes: 9cc832d37799 ("soc: imx8m: Probe the SoC driver as platform driver")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/soc/imx/soc-imx8m.c | 32 +++++++++++++++++++++++++++-----
->  1 file changed, 27 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-imx8m.c
-> index 8ac7658e3d52..8c368947d1e5 100644
-> --- a/drivers/soc/imx/soc-imx8m.c
-> +++ b/drivers/soc/imx/soc-imx8m.c
-> @@ -33,6 +33,11 @@ struct imx8_soc_data {
->  	int (*soc_revision)(u32 *socrev, u64 *socuid);
->  };
->  
-> +struct imx8m_soc_priv {
-> +	struct soc_device *soc_dev;
-> +	struct platform_device *cpufreq_dev;
-> +};
-> +
->  #ifdef CONFIG_HAVE_ARM_SMCCC
->  static u32 imx8mq_soc_revision_from_atf(void)
->  {
-> @@ -198,7 +203,7 @@ static int imx8m_soc_probe(struct platform_device *pdev)
->  	const struct imx8_soc_data *data;
->  	struct device *dev = &pdev->dev;
->  	const struct of_device_id *id;
-> -	struct soc_device *soc_dev;
-> +	struct imx8m_soc_priv *priv;
->  	u32 soc_rev = 0;
->  	u64 soc_uid = 0;
->  	int ret;
-> @@ -207,6 +212,10 @@ static int imx8m_soc_probe(struct platform_device *pdev)
->  	if (!soc_dev_attr)
->  		return -ENOMEM;
->  
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
->  	soc_dev_attr->family = "Freescale i.MX";
->  
->  	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
-> @@ -235,21 +244,34 @@ static int imx8m_soc_probe(struct platform_device *pdev)
->  	if (!soc_dev_attr->serial_number)
->  		return -ENOMEM;
->  
-> -	soc_dev = soc_device_register(soc_dev_attr);
-> -	if (IS_ERR(soc_dev))
-> -		return PTR_ERR(soc_dev);
-> +	priv->soc_dev = soc_device_register(soc_dev_attr);
-> +	if (IS_ERR(priv->soc_dev))
-> +		return PTR_ERR(priv->soc_dev);
->  
->  	pr_info("SoC: %s revision %s\n", soc_dev_attr->soc_id,
->  		soc_dev_attr->revision);
->  
->  	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT))
-> -		platform_device_register_simple("imx-cpufreq-dt", -1, NULL, 0);
-> +		priv->cpufreq_dev = platform_device_register_simple("imx-cpufreq-dt", -1, NULL, 0);
+It is not needed since drm_atomic_helper_shutdown checks it.
 
-If CONFIG_ARM_IMX_CPUFREQ_DT is enabled, I asusme that
-platform_device_register_simple() shouldn't fail else it will be an
-error, right? Therefore I would like to add the 'if(!IS_ERR())' check
-here instead of the remove function.
+Signed-off-by: Guoqing Jiang <guoqing.jiang@canonical.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-> +
-> +	platform_set_drvdata(pdev, priv);
->  
->  	return 0;
->  }
->  
-> +static void imx8m_soc_remove(struct platform_device *pdev)
-> +{
-> +	struct imx8m_soc_priv *priv = platform_get_drvdata(pdev);
-> +
-> +	if (!IS_ERR(priv->cpufreq_dev))
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+index 585355de696b..64f5f547fb7a 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+@@ -488,8 +488,7 @@ static void rockchip_drm_platform_shutdown(struct platform_device *pdev)
+ {
+ 	struct drm_device *drm = platform_get_drvdata(pdev);
+ 
+-	if (drm)
+-		drm_atomic_helper_shutdown(drm);
++	drm_atomic_helper_shutdown(drm);
+ }
+ 
+ static const struct of_device_id rockchip_drm_dt_ids[] = {
+-- 
+2.35.3
 
-With the above shifted, we only need to:
-	if (priv->cpufreq_dev)
-
-Regards,
-  Marco
-
-
-> +		platform_device_unregister(priv->cpufreq_dev);
-> +
-> +	soc_device_unregister(priv->soc_dev);
-> +}
-> +
->  static struct platform_driver imx8m_soc_driver = {
->  	.probe = imx8m_soc_probe,
-> +	.remove	= imx8m_soc_remove,
->  	.driver = {
->  		.name = "imx8m-soc",
->  	},
-> -- 
-> 2.37.1
-> 
-> 
-> 
 
