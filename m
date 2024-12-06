@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005CFE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 10:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D625E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 10:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hthJtxRUGovk5V1RqI0hmfgY1tiYoYoWmAR9jCX9OyI=; b=I3Kqzej4uHV+nypL5Qv77RHtQ4
-	ERCqkF+3CNqu9Lg/jHngT+StlGa0s4wFAj4p5OkVb5O6qJBXEUH84dqrxmJ/Dr5Iu0Cv/9rJb6+t7
-	0Q0x9y89S/gL1iEBvAHJqhoQXK/Mcy+61+bCzmUonUajRTXOeInlDdUIuczMkYtLqkPegRMzBgNUK
-	R83EXBXNLn2p69cXsQsEHiCT5hMGW4GBe1w3J9Ganb71KsQGQp5jQBixmMzPnH/EZ/zuYkmhLQLNJ
-	K6VtGaFJazCx/Q947/YsxXh2SDrCtFc9h4K7/zWpmuy9kCdXGk8Xae0CSkVK0YbyzjC7gC1ARkM8J
-	KGuNtG9w==;
+	bh=KOB2lRuRgc5c5Cx+z4l+rgFqNRL2xohrcJNSDIsVogs=; b=HioKkXkMC3VwL8CESEJ26X3xin
+	OItf53Qt5d99Mry2sCnxHd5Dydj9lnuXeKJFxePQQJ7RjtXi+BzZz1BeEAGtGSGqBuFAFc0awrKfx
+	JGtdRFvXZhvtlCfk+D68QCkZDHWpf0K6gBJx0UbVPj3TG1yaVGqrVklMt4p+g7FE5YlKXIAQNSpvO
+	ox+5O8zzQ2O0iiG0TgQgDcYqKrmHCmOGMhLiutDOz4vTDXet+QxBTPI6LEwnZ5zBsNwtc4kVFjCWy
+	VqfTpgp6FaSDbU+7h0eL3o7e9gjIKV8VfbTMYuInDdDl/bSLI1RSFwXXtrhySnrOPqXCzPYg0yM2/
+	GmWWoKNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJVrU-00000001LrG-3C04;
-	Fri, 06 Dec 2024 10:47:04 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1tJVsU-00000001M1R-2arg;
+	Fri, 06 Dec 2024 10:48:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJVZF-00000001Hq1-4B7L
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 10:28:15 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-126-71H4KnOWMoK8Apry69ITrA-1; Fri, 06 Dec 2024 10:28:08 +0000
-X-MC-Unique: 71H4KnOWMoK8Apry69ITrA-1
-X-Mimecast-MFC-AGG-ID: 71H4KnOWMoK8Apry69ITrA
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 6 Dec
- 2024 10:27:23 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 6 Dec 2024 10:27:23 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, 'Naresh Kamboju'
-	<naresh.kamboju@linaro.org>, 'Dan Carpenter' <dan.carpenter@linaro.org>,
-	Julian Anastasov <ja@ssi.bg>, "'pablo@netfilter.org'" <pablo@netfilter.org>
-CC: 'open list' <linux-kernel@vger.kernel.org>,
-	"'lkft-triage@lists.linaro.org'" <lkft-triage@lists.linaro.org>, "'Linux
- Regressions'" <regressions@lists.linux.dev>, 'Linux ARM'
-	<linux-arm-kernel@lists.infradead.org>, "'netfilter-devel@vger.kernel.org'"
-	<netfilter-devel@vger.kernel.org>, 'Arnd Bergmann' <arnd@arndb.de>, "'Anders
- Roxell'" <anders.roxell@linaro.org>, 'Johannes Berg'
-	<johannes.berg@intel.com>, "'toke@kernel.org'" <toke@kernel.org>, 'Al Viro'
-	<viro@zeniv.linux.org.uk>, "'kernel@jfarr.cc'" <kernel@jfarr.cc>,
-	"'kees@kernel.org'" <kees@kernel.org>
-Subject: [PATCH net] Fix clamp() of ip_vs_conn_tab on small memory systems.
-Thread-Topic: [PATCH net] Fix clamp() of ip_vs_conn_tab on small memory
- systems.
-Thread-Index: AdtHyTlbE/fm67s0Ria1gsbgnJ6Kcg==
-Date: Fri, 6 Dec 2024 10:27:23 +0000
-Message-ID: <33893212b1cc4a418cec09aeeed0a9fc@AcuMS.aculab.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1tJVfL-00000001JTa-2nGY;
+	Fri, 06 Dec 2024 10:34:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=KOB2lRuRgc5c5Cx+z4l+rgFqNRL2xohrcJNSDIsVogs=; b=F4fZ6994jjC53bMEsZmmff8qaP
+	XkcpOrjvd5t5eRx/0gGyTrmiB/ozlNgkaYWj5MWvwqVe/V6b44E1euanIUN+qVBUu6VoyquYqYYvn
+	qr1IVUw4Oxx+0xKtqVUfacx/n6JW0d1fvJKJLUiKo+4W9erAc3F3V3PC3Dogcoh0swtHzdXdcwoSA
+	yVZRDDAsbNKcSots0IUIW97JgxrQb2xPDOof7mJuAHMp8Pqv/2ipMFt17+JCtYCYypF2WCTqVWfWM
+	487M+75KLxZFBtvhelHsG0nA5co64GQXnGXYr4mQemcx3h6ZslrdOFj29C4wF5nBcTNfFBw7p1mPq
+	709sjeHA==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tJVfH-0007XU-GF; Fri, 06 Dec 2024 11:34:27 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: vkoul@kernel.org,
+	kishon@kernel.org
+Cc: heiko@sntech.de,
+	cristian.ciocaltea@collabora.com,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de
+Subject: [PATCH 0/2] phy: phy-rockchip-samsung-hdptx: don't use of-alias
+Date: Fri,  6 Dec 2024 11:33:59 +0100
+Message-ID: <20241206103401.1780416-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Q8gpgp9rNV1zfEOR5hYxE6irASarYfE0DkxJNQ-GI2U_1733480887
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_022814_299737_D9DECCF8 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20241206_023431_724648_6743F18D 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +77,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The intention of the code seems to be that the minimum table
-size should be 256 (1 << min).
-However the code uses max =3D clamp(20, 5, max_avail) which implies
-the author thought max_avail could be less than 5.
-But clamp(val, min, max) is only well defined for max >=3D min.
-If max < min whether is returns min or max depends on the order of
-the comparisons.
+One nice comment addition and removal of of_alias usage for core
+device functionality.
 
-Change to clamp(max_avail, 5, 20) which has the expected behaviour.
+Heiko Stuebner (2):
+  phy: phy-rockchip-samsung-hdptx: annotate regmap register-callback
+  phy: phy-rockchip-samsung-hdptx: Don't use dt aliases to determine
+    phy-id
 
-Replace the clamp_val() on the line below with clamp().
-clamp_val() is just 'an accident waiting to happen' and not needed here.
+ .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 64 +++++++++++++++----
+ 1 file changed, 51 insertions(+), 13 deletions(-)
 
-Fixes: 4f325e26277b6
-(Although I actually doubt the code is used on small memory systems.)
-
-Detected by compile time checks added to clamp(), specifically:
-minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
-
-Signed-off-by: David Laight <david.laight@aculab.com>
----
- net/netfilter/ipvs/ip_vs_conn.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_con=
-n.c
-index 98d7dbe3d787..c0289f83f96d 100644
---- a/net/netfilter/ipvs/ip_vs_conn.c
-+++ b/net/netfilter/ipvs/ip_vs_conn.c
-@@ -1495,8 +1495,8 @@ int __init ip_vs_conn_init(void)
- =09max_avail -=3D 2;=09=09/* ~4 in hash row */
- =09max_avail -=3D 1;=09=09/* IPVS up to 1/2 of mem */
- =09max_avail -=3D order_base_2(sizeof(struct ip_vs_conn));
--=09max =3D clamp(max, min, max_avail);
--=09ip_vs_conn_tab_bits =3D clamp_val(ip_vs_conn_tab_bits, min, max);
-+=09max =3D clamp(max_avail, min, max);
-+=09ip_vs_conn_tab_bits =3D clamp(ip_vs_conn_tab_bits, min, max);
- =09ip_vs_conn_tab_size =3D 1 << ip_vs_conn_tab_bits;
- =09ip_vs_conn_tab_mask =3D ip_vs_conn_tab_size - 1;
-=20
---=20
-2.17.1
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1=
-PT, UK
-Registration No: 1397386 (Wales)
+-- 
+2.45.2
 
 
