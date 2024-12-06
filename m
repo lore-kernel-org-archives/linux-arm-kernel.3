@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1BAE77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B69E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lxD5AZV9DayoSXRYg+9hzpbHGYO21ZbSkS34RH52Yus=; b=Ingf75hEXf9LRszoF68PUwwrhP
-	1Aq/XIa6cdexLCZYXegKEGgSixC4KU8o4ipD1dnik4bnSakc/W3PuZnUrOAZHVMcLeJ3r/BEnr+SN
-	tH0ALBQpISBllm+jHyLksFCZAXh6DUJp5q4DCaqDQT5uWH6PgPO/0of1y/tCGyrc2um0+oGXkmcjS
-	A+FZLCobgUSW/BxxeLrXTlqg6iZq2DJLzMwQECshi+dYEFpe6l68HC+WYdkC1RyHBz0BMKTawzFtE
-	/eW4jbi1o+R9KjDBtGoXkgaexRFw8ACx6n2v9WISkmsXRn+1y2d7WgnA4mdEPvW4CSOA6SmL2gf9P
-	4aSV7ADg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ouW2LPH6PauQZg2DUk39u2DRzqSm/NCoRJSKfMXgry8=; b=0xntVnZGTSAwRI
+	M1WtAtTnNxwCokVC5/H4xLORPYf5GT2KB6gb79j/iKhW4nqo2MMoSIfvQm8v+haXkeEgQv481+ijI
+	orlAFtB7Uq1dKYm5RDG61BJ8lp6PJprBz7JH3+wrM7ykK3zAmd8N6wjhuPoOeK35qrICw3ns7XTYk
+	NjqiCSA5aJGRianelCPTJ4ALpbCJ5Qe8tll1Hobw+nAz5PmNOoNXhTv99r3ZlNJbhuqwbrull2gQ7
+	srrfaHBJKcgb7PZcF0q6OCOXQOnDv50Ajj4+xnyFvd3uSHQVfJQYTI86mNPt1ygJiT7KcAYy5+xZ9
+	FEHyU7PpV02ulLNwIH9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJaxz-000000026um-0sGP;
-	Fri, 06 Dec 2024 16:14:07 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tJayy-000000027GP-3VYh;
+	Fri, 06 Dec 2024 16:15:08 +0000
+Received: from out-02.smtp.spacemail.com ([63.250.43.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJaws-000000026W0-2KYE
+	id 1tJaxp-000000026qR-2WkS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 16:12:59 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53e2baf3160so1423319e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 08:12:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733501575; x=1734106375; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lxD5AZV9DayoSXRYg+9hzpbHGYO21ZbSkS34RH52Yus=;
-        b=26UnIDB9ycaepuq0rWIHLvrjTW0iav2/Rip4atUt/3EU0CM18A+ueeEbRGoMO7Gmx6
-         DtxarKSL0XGJWSJBIeeyN8hJz4pU46Dz6Q4pFO/2LdI0JAKNu7Amj/grCaHGr7s3nm6/
-         N6yU2fEnTzx4bqMNLD6z9o4JDopntuKVWSSpOtbtqOrARaPTLdQu4tdaR+PzrzKp9A5C
-         iqaKfKvp2HSt5TN2X6l60Q8JF45gMKKGgZjK0rW1qfTTcC4x1WAAYMOo4o+zLon+Q8c8
-         2WchoGT6IFzYjrW6es2ED81FDL1MoZOniYzAe7F7BVhNcZJIK/YVjwc2AtHuK0d12uEN
-         YukQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733501575; x=1734106375;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lxD5AZV9DayoSXRYg+9hzpbHGYO21ZbSkS34RH52Yus=;
-        b=wlvyH2tPDnUDQkgkBnM/4iFCmpNYnWrfM54wl8NIcLFvw7zXb7zJqul8nDd8mXrcBH
-         q9NohgUHo+NOjnrtVl10DXVGk6mbijCk1RsNoszBXL+HMAqBGPby0xnbru3MoeuINvN4
-         OqATa00WAass/4TGrIXV9lUjBHPmkEIX/YieBeCvM00puoCvepETyLJjEwnmixtE0+z+
-         W66kAn6D0PkpraFAxer/IwGG/xVAcSPbWXC/YCFov0fR5nl7o+EqDzf74uvZHdMfuCeO
-         fC5A4TJzrqhDHiEyFpbbq5IwQL1Hj4H1fH/XKkZZTsnMiakWY565EVEenv1lr/sjmv/a
-         PepA==
-X-Forwarded-Encrypted: i=1; AJvYcCXS37XHFIC7iw8gdo49EbevL/t/TSLBdysGpXQMMyiqFnTGe0c9hgIwS3dZvwmXrVuz/8Av5gP/nRLXqF3+eL5F@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL2ppUoeSyMQ5nrQPnR8VLd56KXLViTsHUnMIDHYs/ezUAizkw
-	qKchHnKWZ9qV4zMMedBc3LmD79D0JopQJgJ5ifTxWUaz8DcnuP8gPLw1eNxttA==
-X-Gm-Gg: ASbGnctVxw8PCGaYNEVoNhFzAlkgsZLcMLPJiG9r2fI2w8S8An6oca+PfpvUn//bAh5
-	bE1qC3grPW6V5MRjvysefHxYPMG+uBdOnMZjae08e4ostdv22fuYFkNf6GEcufnL6GQsdazfzV9
-	DUJZ6/ngqFfYqd1kpFj6Wqmp2yRx29imR+2dE0+ei7mfEN3+4QOF/8LRLDF9CK9q71wXgfDg/Am
-	BzQ/I1Vc7hBFEMK3WZX+biRdw1QtwqcY4J94oug9eAIGDrwYg6Nzp6n2mxIi8Y6d0DGXkE0/FR/
-	jSSTpoZL
-X-Google-Smtp-Source: AGHT+IGa2N7cTRtb6lbjP9CahxrYnMwp7BFPpNclv1nu7zbQhYjkfiRnsZDFOvKnxHHo3QTqnrg/ow==
-X-Received: by 2002:a05:6512:308f:b0:53e:1ba2:ee1a with SMTP id 2adb3069b0e04-53e2c2b83bcmr2156579e87.20.1733501575334;
-        Fri, 06 Dec 2024 08:12:55 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625e58dbcsm258112366b.15.2024.12.06.08.12.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 08:12:55 -0800 (PST)
-Date: Fri, 6 Dec 2024 16:12:52 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v4 01/14] KVM: arm64: Consolidate allowed and restricted
- VM feature checks
-Message-ID: <Z1MihH-aLq6lTccm@google.com>
-References: <20241202154742.3611749-1-tabba@google.com>
- <20241202154742.3611749-2-tabba@google.com>
+	Fri, 06 Dec 2024 16:13:59 +0000
+Received: from prod-lbout-phx.jellyfish.systems (unknown [198.177.122.3])
+	by smtp.spacemail.com (Postfix) with ESMTPA id 4Y4bsr4hzpz4wRg;
+	Fri, 06 Dec 2024 16:13:52 +0000 (UTC)
+Received: from [127.0.1.1] (83.21.102.241.ipv4.supernova.orange.pl [83.21.102.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.spacemail.com (Postfix) with ESMTPSA id 4Y4bsh4khYz2x99;
+	Fri,  6 Dec 2024 16:13:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=mentallysanemainliners.org; s=spacemail; t=1733501627;
+	bh=C8ZUvyDK/liK+O5PSjiupnuJWNIGEJ028E5VI/EvwKI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=clMCC+Y+efcXfWO23YnMIGTg/lvJB9blKRbyCZDOq6MEpVSv8sdveXU2MU6RX4xrM
+	 yl9Bc5THfSZE/Ppa2qoMMO9QVj25rRoMw1GT4KLrpAEOzmCoEq0TWLak33Io9mr9r7
+	 1whf1EAojBTx4+xoAjfeQI6Xdeb8GCii9b3t8liK3uNitorW9Ww4RG2ykNuCY4Hs+y
+	 sKmchK/DgFyRXUDo9kTwdgxH7NXnIVk+zdfAGLTP88+WVGhv/IO6C/X3mPYIR5EKYy
+	 kk4G9pBnQvU/wDNeAuAOHLsSfR4O2XZNhFSHML5ua/HcY12w0ZcSZN3y3tPmxXAuea
+	 wHj0eEWevO81g==
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Subject: [PATCH v2 0/3] clk: samsung: Introduce Exynos990 clock support
+Date: Fri, 06 Dec 2024 17:12:17 +0100
+Message-Id: <20241206-exynos990-cmu-v2-0-4666ff0a099b@mentallysanemainliners.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202154742.3611749-2-tabba@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGEiU2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIxNDIwMz3dSKyrz8YktLA93k3FJdU4vElERTA1OzxBRTJaCegqLUtMwKsHn
+ RsbW1AGylCihfAAAA
+X-Change-ID: 20241206-exynos990-cmu-58ada5056ad5
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733501552; l=1306;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=C8ZUvyDK/liK+O5PSjiupnuJWNIGEJ028E5VI/EvwKI=;
+ b=XJ05RlLwlH1Hp9sM1jYNxcMvMmBVTe36X4bmaOuUeArZSJK1Jk5wAk46F0i8DqhlW7y1Ar9to
+ Qx8oWcNT9ieDKhbzXF3L5xeHxtfPUPTZkH9QCsYM3N4IEwR0opuY3qS
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_081258_625423_E99949C1 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20241206_081357_732799_605098B9 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday 02 Dec 2024 at 15:47:28 (+0000), Fuad Tabba wrote:
-> The definitions for features allowed and allowed with
-> restrictions for protected guests, which are based on feature
-> registers, were defined and checked for separately, even though
-> they are handled in the same way. This could result in missing
-> checks for certain features, e.g., pointer authentication,
-> causing traps for allowed features.
-> 
-> Consolidate the definitions into one. Use that new definition to
-> construct the guest view of the feature registers for
-> consistency.
-> 
-> Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
-> Reported-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> 
-> ---
-> 
-> Note: This patch ends up being a no-op, since none of the changes
-> in it survive the series. It's included because it makes the rest
-> of the series flow more smoothly.
+Hi all,
 
-Is the Fixes: tag above really needed then? It 'risks' being flagged as
-a -stable candidate, but should it be?
+This patchset adds support for the Clock Management Unit found in the
+Exynos990 SoC. This CMU allows for clocking peripherals such as USB, UFS,
+MCT, et cetera.
+
+Currently there are two blocks implemented, CMU_TOP which
+generates clocks for other blocks, and CMU_HSI0, which generates clocks
+for USB. More blocks will be added (hopefully soon), like HSI1 for UFS.
+
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+Igor Belwon (3):
+      dt-bindings: clock: Add Exynos990 SoC CMU bindings
+      clk: samsung: clk-pll: Add support for pll_{0717x, 0718x, 0732x}
+      clk: samsung: Introduce Exynos990 clock controller driver
+
+ .../bindings/clock/samsung,exynos990-clock.yaml    |  120 ++
+ drivers/clk/samsung/Makefile                       |    1 +
+ drivers/clk/samsung/clk-exynos990.c                | 1343 ++++++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                      |   14 +-
+ drivers/clk/samsung/clk-pll.h                      |    3 +
+ include/dt-bindings/clock/samsung,exynos990.h      |  236 ++++
+ 6 files changed, 1715 insertions(+), 2 deletions(-)
+---
+base-commit: ebe1b11614e079c5e366ce9bd3c8f44ca0fbcc1b
+change-id: 20241206-exynos990-cmu-58ada5056ad5
+
+Best regards,
+-- 
+Igor Belwon <igor.belwon@mentallysanemainliners.org>
+
 
