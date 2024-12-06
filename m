@@ -4,166 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41D4E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 06:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41216E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 06:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tDjg3mRzndK17H44mV4G8Izq05u9HQOXiD7heHkuHsQ=; b=zIyFBYzKRI4atMx+56+2JMs18M
-	goTOYQJOeAPbiGDrHg+/bXpvfiFsuo46zDb8HJO+NnD0zNsc8CN8MvcEN/ejmmxjTwE6c2BczX6RG
-	TmvCMLc/nzU4fIElb0bRjSgIorvLMnkQJs8SFYlNzhIjS6aqiDXjf9YzJ+r0FngOWJ8ee5CLljrRJ
-	ukSSJncTTHMIlgjoqZtB5olQeU+oTae1FaBM/cNzwp3coM5z4SgmJL2w0MHR6yfTEx8FWdWYyFeUZ
-	R93pnorRKqV2C77vhL0dsbOmJZm9F2sIvbn2tmVKRsSevIlUyVSUiOL19k25PSDKxC8S/8mIBcvRr
-	GS1+xeEg==;
+	bh=lkINBrTDhyE0tcSEzrQhWY00f3rEWU+OMRPtBhc6Jxo=; b=rGyx+cpI49KiDalPNBr8PF655x
+	RqObeVr0FIsvMkdYttjaouLpAZsR77AIT4M+vGIaC4WK/yNWVU/5lizuYCqscygSKgWI6WnusTE7U
+	UxNxceJBEahjg5RXxwRZGKtbl8wg2RMm18mL1QxQ3dCJqNyh+5q8hwwgpiQznXUHdSZZ+b0l3+grh
+	gCzw8tmBPL5xBFxDqeimz5eTNHq3nz28VoeZC6hL1N8wrGrh1U6X5VsPEFlGns+hWUa+4MgNorW6j
+	ejBPWX4NBW4G3P1W4mcbY8hEc3D8Zh50MAVavKF1VqHCfKrD6u1mSV5ZRiri9CAmbxXZPIfXbiRMs
+	w2celCRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJRd4-00000000gxV-3ETx;
-	Fri, 06 Dec 2024 06:15:54 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1tJRe3-00000000h6s-22fU;
+	Fri, 06 Dec 2024 06:16:55 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJRc3-00000000goC-07IC
+	id 1tJRc7-00000000gp0-1B0e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 06:14:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R8px0ZtZIH47vGswDRg0VB3eMDUW6Mhhtb7f9lONrmKRuGeWVVf1nrf/Rmq21dSx23S8j9tjsXFECt3+DovQZGojbAk1XUMAndwjW7sumQ4Ry6mdWHqeXvTd1OPkGLsG8BOkoZIa7m2vpggiwKYZePfkRKcowlNIhjtZOSSsDdQWCPLFSOBClOIBMy7e5mJGXY/zuZWOTlRQQweaHYlQlSL9LLSPV11cBXPWfz4EO280tKRrDnVWW9zQWK0LAurRBRa/U6Y/FvTBur3ax+4ZEQyRcicT81YPAJfZkwCTfU9mqFS/2ER1QsZgGbFSkB/pJVzPw4F2zVFfqEeilz7FuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tDjg3mRzndK17H44mV4G8Izq05u9HQOXiD7heHkuHsQ=;
- b=NYvtQ+nhkeErBmca6CJXuagAirAJQQzPvNDDESwsz7t2EPVNRONqTpI9tMiB9rCZDDGnNrUZfIchVtJO6VFae7fPHIv7ouiG/CVPlhKtY1qwQVMka1sTnxNdq9Q41jboes5Emr24WcseoV2NVAilOvxT9dbmrQjmiva4r4x4yo7h7vc7O3rl0cJ/XHkgg1e4rdpasrEByYyJSUhLNxwm3i9RIXAJiL1Fex/haLokt6SEe2+LxkhK/9FovZgHGYtf0kB4X2kdrMfiDhxX82swI8zCyEX+HCbMUh1TAfNuxHgUeg+N4SnSqlBM+atHLKml0dLE4O/Uh+uk5iD7A09h/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=amperemail.onmicrosoft.com; dkim=pass
- header.d=amperemail.onmicrosoft.com; arc=none
+	Fri, 06 Dec 2024 06:14:56 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a9e44654ae3so267584066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 22:14:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tDjg3mRzndK17H44mV4G8Izq05u9HQOXiD7heHkuHsQ=;
- b=ARN6bKZvpghBfHpZhr3JKbxkGeGr/MYxLylH50FpXmNPfVtUBW7qOL7Fmd9oK7XkWivi5nUj2zVp79kcDP0ShJAtmF3+qX8oGK8IJleflrC4iBnRBj6K3GJuipAS4g6XZFrnG6fHjJvkNXfkpM3KGMYyMMxO875UYQa1UQ2HTzY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- DS7PR01MB7565.prod.exchangelabs.com (2603:10b6:8:70::11) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.8; Fri, 6 Dec 2024 06:14:40 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Fri, 6 Dec 2024
- 06:14:40 +0000
-Message-ID: <e7cbafd4-506b-4e26-ad88-e1afba06e972@amperemail.onmicrosoft.com>
-Date: Fri, 6 Dec 2024 14:14:26 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: add a new document for the fine-tuning tips
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: patches@amperecomputing.com, paulmck@kernel.org,
- akpm@linux-foundation.org, thuth@redhat.com, rostedt@goodmis.org,
- xiongwei.song@windriver.com, ardb@kernel.org, steven.price@arm.com,
- suzuki.poulose@arm.com, mark.rutland@arm.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- cl@os.amperecomputing.com
-References: <20241126085647.4993-1-shijie@os.amperecomputing.com>
- <20241126085647.4993-5-shijie@os.amperecomputing.com>
- <e48df345-0946-4b34-a463-e89aa89680f9@arm.com>
-From: Shijie Huang <shijie@amperemail.onmicrosoft.com>
-In-Reply-To: <e48df345-0946-4b34-a463-e89aa89680f9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2P153CA0054.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::23)
- To PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15)
+        d=linux-foundation.org; s=google; t=1733465693; x=1734070493; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=lkINBrTDhyE0tcSEzrQhWY00f3rEWU+OMRPtBhc6Jxo=;
+        b=an1LQF76Ko329oQ+4cQOdnDHcaJYG0bQxYh5iqTyztqGgl6r5afOZfhU9Kw27uV5Qp
+         b7GU6Sz7Rbz7HyKog/CqnlwZfO7hP2YlMkQBFNz6JKC0FOdaok3Lm2Zp0q9IEIzAkQ7n
+         w5Fa9WMNocoRC5EpHbhpcX4ZydGRj46DWU7Lc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733465693; x=1734070493;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lkINBrTDhyE0tcSEzrQhWY00f3rEWU+OMRPtBhc6Jxo=;
+        b=BbmE5wUPGHP8p8zb2svA++kDy179RqhFVE3WJnDL6As0mgIcdjUhUBkuVvI9JeIGik
+         zkAcCf18w/zuQhiRA1KK+fAk2b9T0QaqXaGjD+7cvn79HmcqL5VP+PjoOd7FDHM8QRn2
+         5nFWFgaGo1u59qpwcR9WF6WyZoTnzww7E3FfnF+yDwoyhnUP3oq7eB3l5y6rnSkglVND
+         bUjvsLydLwxmoNNUNlPNV0yyNThKEu2DhWFytMyL+zlAehm9/9P48BshIn+NM5Lzqcif
+         GulVWjOtzzjj6JymIXhCXnXSE6KaHwbvBMdGkEjC5g6IcMsCV8/cA0lQ4DBHppljpDmi
+         va1w==
+X-Forwarded-Encrypted: i=1; AJvYcCVwBeIZlK47g/HGrQE6Vj4PGZptRiC6IwqTUraacFZVKLHO8NeY8vNtMN2z2l4kSvNpWPtnN6PJ1p7Kay6+JIBB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxor1o8XuWKqYRFSFE3tlzG0rdLdLqzGDuuXc0SBHAmdvoCpObb
+	ygcRD6tq5+YuwsuL5bDfFG/HrUKHd28ISG3Y9ikJq9IJRSWDYLn/nk8eSN0xoG7o1igFUEJ1FZL
+	xpF5lEQ==
+X-Gm-Gg: ASbGncviJuybT3tnF1KdTsKcdAsGGQVZfjU9orI3UPB3oxVtZj1W4093yGqXYkMa55X
+	Ykf0ddMKEt6x3rgq6xZvUhiZc3c2jlAI2bufI5bsPq/dgkZpe0xLjoT3/Om9zgxUTIhebCnjz9C
+	oaBFsqj986TnkjsyzG8CAi8YUmGcGRoDXZAoBm0XAla2SShkgJ2D9EXKU6NVYa8LUewA/0xguju
+	kSwOwbU800exRowWzcT21YlQhyw4apOu5HVmG+jnS1ga2t6GF5txt15ldDoQsyoCp2jl4bBmnQ+
+	NSrT2LXKvxcZXUVtdgEtL8F3
+X-Google-Smtp-Source: AGHT+IErfusB5f7oKlEoCFd2ylQqyDawCGC+eRk4urk54XpktSKSHYI3qzgokoxngz2dttT7UMaMTw==
+X-Received: by 2002:a17:906:18b1:b0:aa4:9ab1:196c with SMTP id a640c23a62f3a-aa639fb24a8mr94762966b.9.1733465693023;
+        Thu, 05 Dec 2024 22:14:53 -0800 (PST)
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com. [209.85.218.46])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625e58da5sm191269366b.28.2024.12.05.22.14.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Dec 2024 22:14:52 -0800 (PST)
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-aa5366d3b47so267548466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 22:14:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUNrrflFlOXIor8CXKZt781M5DK32/EzF+7yssY3robQMSyxR81TliEL7dq0Tw7DoUOst+lk3MlGYc0CbJz5zPf@lists.infradead.org
+X-Received: by 2002:a17:906:1db1:b0:aa6:3de7:f258 with SMTP id
+ a640c23a62f3a-aa63de7f394mr66959966b.37.1733465692215; Thu, 05 Dec 2024
+ 22:14:52 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|DS7PR01MB7565:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce16e8ef-fffb-4c3b-01ac-08dd15bd4495
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2lZT3NidHZvbmROa1luWUFPQzFVQ1NWVDZKdmlscDBLMkxRZkJ0cUNHZVZC?=
- =?utf-8?B?ZGFaaEpCSHhKdHRZbEttcDVtWjV3NlhNZytEOUlwdTl3bi8rekl5bC9kUHR2?=
- =?utf-8?B?eUtSWGE5TytTcUVoZFhzU1F2WlBPVURrRkVVUlNSRGRHb3FPMU1WU2JZS3F5?=
- =?utf-8?B?a3MrTkpPdnJQR2tZM1QwNmFwZzhwUFJSTkhsYjN1WE5jMysxUlhJQkZhVFY0?=
- =?utf-8?B?dUJGdTNDMnVjT2lBalhPOFpyM043MkUySzVtS3ZodlNhOSt2YTMvUmFCdll1?=
- =?utf-8?B?b0JEMFExOHVGWXZzZmpCNTlNR2xoUFFYTmlESE9pTk1PK0FORTY2aFFaSGRW?=
- =?utf-8?B?NEp2Rjd5aHExZmtyNmgrRmFmN3prY1gybEI4MXFvU05YOWFVQjhEaVZFV2dl?=
- =?utf-8?B?U1hPZ2pGd0VmY2dKWGFXcGhnZWF0K2xyaURqTE1BR1R5ODY3WklwRUI2UWpR?=
- =?utf-8?B?dExmQ0pXNERWYklLWks5cENJRDF3Tk9Dam56dXdOWEdQeHpQc2JxZ1dlRlJ2?=
- =?utf-8?B?YzZIbmk5dTd5ZmY5dzRpenlMOW02S0dDQWtBdHJJdUhGT1JVOHNza0tTMHd2?=
- =?utf-8?B?d2FxQjI3Z3Q2eStHdGtvc1MrWUFVNUc2M1IzTElLbkRrblFuMEJPR1dZSVhC?=
- =?utf-8?B?UVFIUnhJalo2T0NsZEd5enYvS1ZBRnQvQ3dxZ3FxVlgwRHNBbGpBQ2VtL3dm?=
- =?utf-8?B?WUJEM3VZR0daaVp2TTVMTmVvU1BJclhBVmFTcVE3MDRaSTB5UUgvZU1nN3BM?=
- =?utf-8?B?WmxMQVhHTW9QYjZSMDkwNFhzZXB6a1pKaGpNeVU5dFo5UEQyMitIZDA5VC9a?=
- =?utf-8?B?S2p0ZlZsRllaaGFaL0JHQWFtbU1JQ2tsVVRqRVcya3ZiWXRCV0hCUFIzOHBI?=
- =?utf-8?B?QUh4MGNlWGVEMForVWt5YzRySWlwdldES2t2VHpZeU94SHREMmVTNnNYd1NI?=
- =?utf-8?B?cnlKUjFVK1lLZStCSnJPNERQRy9aNE40bjVZY1pTVHJZb1NPMytVeW5oaDQ2?=
- =?utf-8?B?akI5bTI5ZGFFUFdVWEdHVlFLVms1Z0RkS0dkV21XUW1oY0ZmSDRjMHpXQmMv?=
- =?utf-8?B?azVuZGxrZ25GYmlFajE2Qks4SXFRNEVFZlM4VzR1MTB3eTJEcVU0SDNkVHcz?=
- =?utf-8?B?WlRzNzIyZFZmeFRKNjZMVzlkWEVVdENhVGErOFl1M1d0Y2FiaVNFNEhZZHF3?=
- =?utf-8?B?WGlaS1JhV3J0Nkoyak1RdXh2d090WHhDRnQrWG40d3RZdW01ZitPV1NUOFVN?=
- =?utf-8?B?WGdHek9vTVhEMTBMNVFZREtVc2lwYW1RR2s0bm1Pa2ZHaFFBcDVGNXA1SGN3?=
- =?utf-8?B?NGdDRGtMRmlublRlZVF1eGxUUjA2cWZhU24xK1hGK0laNFN6OFFpdDRZU2Z2?=
- =?utf-8?B?aE1VNkJrekFwYW1ndUgwVGVLOUVQKzA3dWlOMVhLbVdycXVINVR2YitpSXl6?=
- =?utf-8?B?VHE0QXl6OTZaS0pJV3k4UlFESUlkeDhRanJjS01GSGZaU2pscU9SVWNUNERv?=
- =?utf-8?B?NTFjeHp3d3c0SUZhOTR4Z2IzMEh1SDVXNUM5RHZwSjY2Vkd1c0c5K3lJR01w?=
- =?utf-8?B?ZUtKU3lNNExHVEhaUVRzaDdNbTZKYXJtYUc1bGxVM084aFdXczBOMW85WHAw?=
- =?utf-8?B?RTFWTHY4eEhUZXFzSk1pSTF4VFF5MUE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OUpIS0pHVHoyYWp1T3pRYW1XUkpRTUJYSFlkV09zWWs5UEl0VGZTb29RNXcv?=
- =?utf-8?B?dHd1VWJyMVlBN1ZRZ252V2RXVzFMdFB2b2ZQOVVSL3FIM3c1U09VR3M3L1pQ?=
- =?utf-8?B?a2pmRHhGQ3I4WC95bU9kaXdqRmJQM1NLbXR6UDRMdVVQMDZTZEpFeURwdEk1?=
- =?utf-8?B?WGxBdkNpUnI3TGhYVXgyeWIrVEVkV0E3ekZrM0oxL2xIejJvbjBRbCsrOTBj?=
- =?utf-8?B?L2l5dnFaVmFNQ2JDSGdhaDdCbG1FRDFXYjNkZERMR3NZbWcwKzk5S0l6V0Fl?=
- =?utf-8?B?RVRzZU5zdll2ZE9ENkgvTFAranBCMlhKRHNMcTJLUW9VMzBVdXZkVDloNFdO?=
- =?utf-8?B?TkRBdU8xQlRFYXBFcTI2Z09sTW9jNnl6UGx1cnlhK3RSYThzcVgySDlJQ2RD?=
- =?utf-8?B?UHRCeC9nOFBqdFNmUkZNbnAyZmJDck9XVGlGZ1hVNG8yNmV0L3J4aThhaGsz?=
- =?utf-8?B?Zm9Oa3NPR0F3ZkRoYXFodVJSSjBCNGdOaHJjWWNjcEVCN0FUeEtWbElvbWRS?=
- =?utf-8?B?Q09OK0NyM1piUjN3UzRwRkVpTG9RU2lGb0xBaGx1V05Bd2x2TTFDR2hyemdV?=
- =?utf-8?B?ZHBJWVVxcnM4My8zbkVHMDFHSWtibXpOdGFOOHdkMTVYSXpGalFUb1lqamVL?=
- =?utf-8?B?SW9rQzAyVXdKVStBYnJ6NDBORVZnYlhQRDNWU2JKa0RSd09KSUtvU0NUZStX?=
- =?utf-8?B?ZXordTBrZ0lraUtkWWlQMTlNMnhkdTRQeStua3FoV05XN21jMTE5Z0JFMlFI?=
- =?utf-8?B?a1NCa21DdS9zc2Q5RVhwRHYvb0ovbzJWY0Z0T1FjTHpNTFdTTTN0WVNUcEVN?=
- =?utf-8?B?dlRSbXlHb3pGNWZzbC9Na0lwNVN5UEV3N1V2eWNlZFFMTDlNbkdYbGVHdnNs?=
- =?utf-8?B?cXNhZGlZanRWOE5QanIrNnZCQjNBY1FuOXRJbWZtSk9NQlk3YWZNUDE5Q1hl?=
- =?utf-8?B?TWhCVEJub0tsN3RZekw4VFRqa0p6QXh1ang0RlRqYnVDY3d0S0dGRVdnTExI?=
- =?utf-8?B?YUo5MWtDTlhsNGl5SmF0TnNPRUJGUWpib3d3RVFhMDlkS1FiRld6bDc4bmgy?=
- =?utf-8?B?dUxiL0tNdXBYOUxSYWtGWVZmcDU3MW5ESXJFanhueTdHSjlLNHg4ZVRITi9N?=
- =?utf-8?B?YmZkSXp3UmlUT1hpQi9QRjVJL3RpWnl2YlN0ODUvSmFjYVZxTGlsNXBXaHlp?=
- =?utf-8?B?bUlpdmFsWHh0eityVlMzSEN3WG82cU1nY1lGSjN0TS9QL2pleWRCdnlCUEpY?=
- =?utf-8?B?ZHJnVHZDOEhnYy9DVDdObkZEWThWRitoeStWWUpvaFRSTFlxZC9Pc1ZuTGUv?=
- =?utf-8?B?ZFM1Q3c2QW1Gc2lYMEIzRHVBelBpcHFaUHNicTd2T0tJRkw2eDBxRy90T2dy?=
- =?utf-8?B?c1dJVW4ydTBQTXJSTHZGVEducENjK2tBQXBoWWFZdGorZDlDSlF3bm5Ca24y?=
- =?utf-8?B?NTFqVVZjWFlhSEpTaWVxMisvK3RPbXpDY0pzUHg4aXV6OTIrdmdqQllWMmlC?=
- =?utf-8?B?MHdkM3pMNVJLWmtEV050WWpSa0FsOFJxY3dLWDFlK01EMzNhbWhCYU5wTWRL?=
- =?utf-8?B?RWtDeUljRmJoampkcFZZbGtNMVBKU1llUWd1eW5rQ2VJYVlFRTJKcHFMRjZ6?=
- =?utf-8?B?UWlvd3VEaTViKzZGaTdORnZqTDUzS2kzaDE0UTQ1aGp0MkhDWXB6bW5QWVh1?=
- =?utf-8?B?RjZvdUUra2hUeTQzNlluZ3hYRmVQYVdvbEhMVVlCVElrSEZEeUpTRmhXRk1N?=
- =?utf-8?B?MFpQWXg0aUt5Mm1ndzBRTWluTkM1a0xzSGplRURlU1dWbXFCd1AvZ1lYNlpN?=
- =?utf-8?B?cThyc01Ecmkyc0s2bTR4OWNTbmpycVhlMUVoU0NVNDJoZzd5NlAxakRWa240?=
- =?utf-8?B?ZTVVaWZBWG1kRXBJeFFCNVM4S0NuUVhLdWt4UzJYWEZoR1Q1dVZhR0R2OWts?=
- =?utf-8?B?WlVmSnkwYmRFcVZrSCtUODdvRjJ4QUlrd2tlQncxV2p2SWZWUzNrM2k3a2hy?=
- =?utf-8?B?bXpBREh1M09ZNVNMZEQvOEdNaVAwSjNqZ2JkVVcrN1pwc3NZSlpRdHIyNlZi?=
- =?utf-8?B?MWtqMEVKbG1vbHNHWkNLcVAzL3FnMWlNRFhOc2xZL3ZsdHAyM1RSa3FJLzVY?=
- =?utf-8?B?WXBHcDNiSWU3alhhMkpwbEpnOHVLM3Z0dHRuL0pWOUl0SDdsSENCbGVzelh3?=
- =?utf-8?Q?6gLEmXKkU2rOqUyDlEO9QyA=3D?=
-X-OriginatorOrg: amperemail.onmicrosoft.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce16e8ef-fffb-4c3b-01ac-08dd15bd4495
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2024 06:14:40.4153
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +AWDITjNQ1LmFOPVUGTtTL7K4hgGvhDZt39dFLOXhPVXigjUNSvHcdByCczVhGJwO5ljN1Zp+kOK5W5+dshIijA8YrXOgj10tF7ikFQhggOqNNe/knsXy77tXRUvKiLJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR01MB7565
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+ <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com> <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+ <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+In-Reply-To: <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Thu, 5 Dec 2024 22:14:36 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+Message-ID: <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of __is_constexpr()
+To: David Laight <David.Laight@aculab.com>
+Cc: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Martin Uecker <muecker@gwdg.de>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_221451_086518_F20C0B73 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20241205_221455_336076_0E9D2F89 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,99 +122,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 2024/12/6 11:56, Anshuman Khandual wrote:
-> On 11/26/24 14:26, Huang Shijie wrote:
->> Put some fine-tuning tips in this file:
->> 	1.) rodata=noalias
->> 	2.) slab_strict_numa
->> 	3.) CONFIG_SCHED_CLUSTER
->>
->> We can add more tips in future.
->>
->> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
->> ---
->>   Documentation/arch/arm64/fine-tuning-tips.rst | 23 +++++++++++++++++++
->>   Documentation/arch/arm64/index.rst            |  1 +
->>   2 files changed, 24 insertions(+)
->>   create mode 100644 Documentation/arch/arm64/fine-tuning-tips.rst
->>
->> diff --git a/Documentation/arch/arm64/fine-tuning-tips.rst b/Documentation/arch/arm64/fine-tuning-tips.rst
->> new file mode 100644
->> index 000000000000..70ef1cef92fb
->> --- /dev/null
->> +++ b/Documentation/arch/arm64/fine-tuning-tips.rst
->> @@ -0,0 +1,23 @@
->> +.. SPDX-License-Identifier: GPL-2.0
->> +
->> +================
->> +fine-tuning tips
->> +================
->> +
->> +This file contains some fine-tuning tips for arm64 machines.
->> +These tips do not gurantee that you can get better performance,
->> +but you can try them with your workload.
->> +
->> +rodata=noalias
->> +----------------
->> +It can provide us more block mappings and contiguous hits
->> +to map the linear region which minimizes the TLB footprint.
->> +
->> +slab_strict_numa
->> +----------------
->> +In NUMA, it will provide the local memory allocation by SLUB.
->> +
->> +CONFIG_SCHED_CLUSTER
->> +----------------
->> +Some arm64 machines have cpu core cluster, enable it may
->> +helps you get better performance.
->> diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
->> index 6a012c98bdcd..36d1ef09bd71 100644
->> --- a/Documentation/arch/arm64/index.rst
->> +++ b/Documentation/arch/arm64/index.rst
->> @@ -16,6 +16,7 @@ ARM64 Architecture
->>       cpu-feature-registers
->>       cpu-hotplug
->>       elf_hwcaps
->> +    fine-tuning-tips
->>       gcs
->>       hugetlbpage
->>       kdump
-> Although the idea for such a file makes sense, to help system admins
-> tune the kernel command line for required behaviour, I am concerned
-This file also contains the CONFIG_SCHED_CLUSTER which is not a kernel 
-command line.
-> about the overall structure and scope for such a document. Should it
-> contain tips regarding all the subsystems on the platform, till what
-> extent these details should be described in there and then there are
-> so many aspects for a required behaviour etc ?
-
-My original thought is to let this file contains the tips only works in 
-arm64.
-
-All the tips which _may_ make the arm64 machines get better performance 
-can be
-
-recorded here.
-
-Then the arm64 kernel engineers(the newbies) can follow this file, and 
-ramp up
-
-quickly.
-
-
+On Thu, 5 Dec 2024 at 18:26, David Laight <David.Laight@aculab.com> wrote:
 >
-> Besides maintaining such a document might also be very difficult as
-> well given how implementations will change over time thus requiring
-> different tuning etc. Hence kernel source might not be a place for
-> such a document.
+> From: Vincent Mailhol
+> > ACK. Would adding a suggested--by Linus tag solve your concern?
 
-okay. If the kernel source is not the right place, I can remove this 
-patch in next version.
+I'm genberally the one person who doesn't need any more credit ;)
 
+> I actually suspect the first patches to change __is_constexpr() to
+> use _Generic were from myself.
 
-Thanks
+Yes. And David was also I think the one who suggested something else
+than "!!" originally too.
 
-Huang Shijie
+I may have liked "!!" for being very idiomatic and traditional C, but
+there were those pesky compilers that warn about "integer in bool
+context" or whatever the annoying warning was when then doing the
+"multiply by zero" to turn a constant expression into a constant zero
+expression.
 
+So that
+
+  #define is_const(x) __is_const_zero(0 * (x))
+
+causes issues when 'x' is not an integer expression (think
+"is_const(NULL)" or "is_const(1 == 2)".
+
+Side note: I think "(x) == 0" will make sparse unhappy when 'x' is a
+pointer, because it results that horrid "use integer zero as NULL
+without a cast" thing when the plain zero gets implicitly cast to a
+pointer. Which is a really nasty and broken C pattern and should never
+have been silent.
+
+I think David suggested using ((x)?0:0) at some point. Silly
+nonsensical and complex expression, but maybe that finally gets rid of
+all the warnings:
+
+     #define is_const(x) __is_const_zero((x)?0:0)
+
+might work regardless of the type of 'x'.
+
+Or does that trigger some odd case too?
+
+            Linus
 
