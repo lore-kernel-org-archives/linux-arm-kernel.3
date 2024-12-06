@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181DFE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 00:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E9CE77170
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 01:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78rE7sFM5hMSVUktXfM1DYZzRFvqYEeXK7x5OI2RSGM=; b=WltG6rFi8x0npU0xpyqRh3b4Ci
-	A1ZPMmEdLnPcuJZYLRX5U6TRuhPyTkFGYXx53V4dD2bhRrhqIkIAm7JUqk37MDjNOpuERUbQ9fJKj
-	JTgeJ5jJo0f4wXauvtWYkY0ol4pyH3drVv+3PE5u5OT+YQCubO4B33GG3DJOockTYo/dT0blVV3bA
-	Gl5v2y9agKEXeMlgXHH4k94wS2RA1jRShMWhh7OKkYGTcK2sWcoLhcGvmy2oY2YeMluLBnxMK4W3Z
-	CRxhKoPd0RWuSpOiwRUqA5UD1G0i3rDdP/K3sLBf+ytE1XQuIePt4deW30A+lN511BYA9JaT1qJ+n
-	YuVBYw2A==;
+	bh=HcmaJfowWcM2EfWC/f7eVIZnrBnrT7YMLdrj9P9FhKU=; b=WzOEkCGRzuUxkkn0guDHpH0Nso
+	DYYIUnGddGvwffNJE+bUH+yM8G6wEN6g6NbqYjA86hL4XMPUyvPCnYX/tMLpm+72oIgpQvDXy410U
+	A0XC6tNtSdxhql8NT94MVPCMbTX6L7XRGM5Tsjv2fTc1US/UVmJTx1Y4nUIYThfACkS+Yzod2FUBM
+	z0cluifaU+NW3bUCDoMtwLqQfkRq1Jp2K1J5ltPDDlp+VhizvCowcOipXubWLn7zk7NNlGcRc1faj
+	l2zjGzoGfbzGNGfDNZ/Zbme+WDtimzC924iti2YYU+wy3cOmGQE2moHKN1IypFAlgYPC6ypCfRedy
+	VQNOM03g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJMZv-000000007mC-0j6G;
-	Fri, 06 Dec 2024 00:52:19 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1tJMkg-000000009o0-1BPN;
+	Fri, 06 Dec 2024 01:03:26 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJMYt-000000007bN-2Qbf
+	id 1tJMjd-000000009YU-3T3A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 00:51:16 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6d8cb085d1bso12587716d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 16:51:15 -0800 (PST)
+	Fri, 06 Dec 2024 01:02:23 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4349c7b6b0dso11365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 17:02:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733446274; x=1734051074; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1733446939; x=1734051739; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=78rE7sFM5hMSVUktXfM1DYZzRFvqYEeXK7x5OI2RSGM=;
-        b=LKINhVlw+vpq2avgq5a7ASMxQogXS1FijEwbySY4Bz8kv8MYwxRMqoyj4hswpXf7hq
-         ihpFIJ95kWQ7f07CVXG8Y1BchiHq+ICPUG5Ef2VoTEJHV8/1t0BTum9KgC3vf0OraVzG
-         pWOjQVDO5A+4RgYzyifQHu5D5/1IKE2gp12wabVDe4RR2UfzFP/h6m6m7p+E7bGUESRW
-         j2CYJLgh4snqBLQ7e774Osz1i0oYOMVlElJMMpL7wlXEwvtdCTLgYpz5+a4/mSW1mVyj
-         SAc74QngMGoMrH7Sq+4bas4FVpqNlbNFoVrfSRS3HwGqPuqjpRmKR/mdAuXq/ztAxTko
-         YJVg==
+        bh=HcmaJfowWcM2EfWC/f7eVIZnrBnrT7YMLdrj9P9FhKU=;
+        b=HoXQ1y418f79PlVD6Wr7WUhGsq9tVYjjLAxJ2nUKBmgv8nZe+972PvDDirR1An9gPy
+         xgln6sZ9ZZ7KJ0x0nvoFfciY3E8SuQKRdqBSI7F43RaU2/epdyafC9g496ba1qkRvzGX
+         CwFY3W4+wgDeq0x8LKY+ZR03kMy0bxApC9zA0+cP9NhgP0Eypr4uw/XzAY6NiVSyF+EX
+         eYwzIyO0zE11xpS/jXuGggNJ9CMVHaBm/GCzLRy6YbAXPmcDho2VyJBV0xAs8D5rdUtA
+         uHufgcnyjJM46EJblnAJQuPrVeQY7tOodgrq1gB/O0uJhWvc5GReQGyOkK7zcBCF8AHg
+         wqpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733446274; x=1734051074;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1733446939; x=1734051739;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=78rE7sFM5hMSVUktXfM1DYZzRFvqYEeXK7x5OI2RSGM=;
-        b=J9KZBnT4TvWpuTDuvtIkw/hwQn1AV76rJCoqUBAxJgWdLlVVJCeFoirVKWvAKLGvj8
-         pDGxMHEmDclIAqBAka254pdFFuMpX/QOGDJMM4Ok7spsxqb+NlZTEMz3zVNXbpjGAZ/C
-         v0oJOFD0Te5A7YfsmLDTddcdnPi7TWnpuBMk8S5p/RmMXVX0SAyPbAhTSDClIGCb8lEY
-         BTIPEIi4VkbumfUN7FPOi4MMbhbkTGLfRom8FPfyQWUCOaCE46lW/jenAlKs7UITqX8X
-         yX5mUsVgUfSMY9GdyCUjbjF1a3n90CB0S7HYxpYLASeMCqzFV9Cp15G5jTsQTwKRIjgF
-         WT2g==
-X-Forwarded-Encrypted: i=1; AJvYcCWCqnmsrL4b2UyWjeKUQEFiJrCxfCsS6+YPQwrI4arndkS06MoU+P8u//BwFgQkYSiIs2htWrqOokbUtwd4z8ql@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWlJ+Kherlgz+spv6vxE+NlVeHjpYHqAYqdrQzh77nogWQvgUZ
-	l2WiA0iYJrerpA8au6We52LXFHsYgk1wcj6UhzPcp/TCm1B0FCVq
-X-Gm-Gg: ASbGncsk0p8q8ikq+/p8YasPaE9m9Aawce1hYZBBVC/g3xWamg+N+Ob6dg8KKHtZ3zh
-	AHc2iQzXKItBVsXGOmOesJlJ92oGr4m/xh+/S2KVqo1rMQARMmVkTLhFARG0hDuORtXPEwWOcv4
-	A0xIA8hMPdDhPvr3ZTyfUctiqtkFHGzu/wLhgLUXyAQqFQ+hkhi+8+rgNCasosNM+cLTeyxQQ+w
-	jyYFC8PY+3m/D+gFyIp89OcC6THcJsROMdcmDdpeKdbHqLISgWg6zphbw9Uxkg3yemPR/UgSL4=
-X-Google-Smtp-Source: AGHT+IF/sk9ZB235pUfB0O6hz42Upg4C3T7QSAhoiMqwmiLWKznlOnX/VWzkLXPVN06gb5l37ZaJIQ==
-X-Received: by 2002:a05:6214:ac2:b0:6d8:d240:9f26 with SMTP id 6a1803df08f44-6d8e713feb7mr22257846d6.16.1733446274340;
-        Thu, 05 Dec 2024 16:51:14 -0800 (PST)
-Received: from smtpclient.apple ([2601:803:8180:ace0:901f:f4c2:743b:7118])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d8dabfb438sm12583646d6.106.2024.12.05.16.51.11
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 Dec 2024 16:51:13 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.200.110.1.12\))
-Subject: Re: [PATCH] pwm: stm32-lp: Add check for clk_enable()
-From: Mingwei Zheng <zmw12306@gmail.com>
-In-Reply-To: <geyicxufezkbu7cdvnbgnr2qeuwrn5ubz5ent3spk5biuozxrs@gsqx2chgiiot>
-Date: Thu, 5 Dec 2024 19:51:00 -0500
-Cc: fabrice.gasnier@foss.st.com,
- coquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com,
- thierry.reding@gmail.com,
- lee@kernel.org,
- linux-pwm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Jiasheng Jiang <jiashengjiangcool@gmail.com>
+        bh=HcmaJfowWcM2EfWC/f7eVIZnrBnrT7YMLdrj9P9FhKU=;
+        b=VBzP5XITXPZpbdvXvvRJpj9PpcbVr24WjNb5km/t16tvj6Am2moXmoYJhD2ppEWgOE
+         nYsHtkzHhn1P9UoYOSgCJf9M5VzPWYVRuSjRCD80zncXruxCYYNIRzp/M3yks0ucXf3B
+         GvgpPySJtAq6Q87PJHsGL5/m8hurvUQ8j993wZxqLpoltXetYpfaEtg/qniodxk5legm
+         S+6B+QpcXGwCCem7wSo92wH3h1RqTE35jvOXbMFyLXwionDxbxiu5sNtI1TEqDPCu9r0
+         fv68J4F4IATzWJdR2PaXJ4XZCWQ3g6gX7EDfpis85FUVt7OSQFAiWZtbnXdFhB7pL6cZ
+         1Q2g==
+X-Forwarded-Encrypted: i=1; AJvYcCX8wNN+t8Ztg3cZaIZR0mUXUo9sxLhROSQZbqbEM/W40zykhBx7ACZDqR83jGPXZ3IlEaIUcZW+y/7X6+lgn0qV@lists.infradead.org
+X-Gm-Message-State: AOJu0YypgGXM/uZg1CYsK/DDA4eBW/C4KrDm5KLRabyrC8ox4Rahf6dz
+	N4BmOu6QPEyV7uFQU4BLDnBzTXu6VGIVnnklkSkA6gGlFIcG1LVuGsOUzdmnlPyzYU4oMvLWmzM
+	M9+uhVTkw+miirP/FzeHLY96V7k1XkFYUlUT+
+X-Gm-Gg: ASbGnctwpGc0Vud+LUfcN9UuvpciqCBd8u+Qb8diH/oTPiLEbNJZquKbtTA4HjhymSa
+	Fv8w0bVDn593OBxMMgFZOYDDFrHygl/Cczx7fVfE2HCgK1bw6+407y6cpVyNxgA==
+X-Google-Smtp-Source: AGHT+IHr7rZI6yrn8JV11lazv05GZRIqvfrcbTPzKk8VEbu5RR7SF7uBMzJ9HVO9yJW2t5jlaavaPVHxFJi+zcGvyVY=
+X-Received: by 2002:a05:600c:35ca:b0:42c:acd7:b59b with SMTP id
+ 5b1f17b1804b1-434de39c6bbmr476085e9.6.1733446938910; Thu, 05 Dec 2024
+ 17:02:18 -0800 (PST)
+MIME-Version: 1.0
+References: <20241031212104.1429609-1-jiaqiyan@google.com> <86r07v1g2z.wl-maz@kernel.org>
+ <CACw3F51FbzkkX_DcCVCieZ=408oP_Fy3sXYk5AjWRX3RJO2Fzg@mail.gmail.com>
+ <878qtou96b.wl-maz@kernel.org> <CACw3F50gB40dqQ4CZ7f4X4aRkxHQhjiYunAhqbmVtcGnd5g3bA@mail.gmail.com>
+ <Zz2TyC9-zNQ3D-KB@linux.dev>
+In-Reply-To: <Zz2TyC9-zNQ3D-KB@linux.dev>
+From: Jiaqi Yan <jiaqiyan@google.com>
+Date: Thu, 5 Dec 2024 17:02:06 -0800
+Message-ID: <CACw3F50ACSOsP9+qJr2g=dL9p3-6AcZ2VWP2bbWvBMasu796pw@mail.gmail.com>
+Subject: Re: [RFC PATCH v1] KVM: arm64: Introduce KVM_CAP_ARM_SIGBUS_ON_SEA
+To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
+Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, duenwen@google.com, rananta@google.com, 
+	James Houghton <jthoughton@google.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <5778D1D6-9C2B-4456-9765-213120076C62@gmail.com>
-References: <20241205051746.2465490-1-zmw12306@gmail.com>
- <geyicxufezkbu7cdvnbgnr2qeuwrn5ubz5ent3spk5biuozxrs@gsqx2chgiiot>
-To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-X-Mailer: Apple Mail (2.3731.200.110.1.12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_165115_615137_5DD0ACE1 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20241205_170221_877273_2382AAD6 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +99,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Nov 19, 2024 at 11:46=E2=80=AFPM Oliver Upton <oliver.upton@linux.d=
+ev> wrote:
+>
+> On Tue, Nov 19, 2024 at 03:57:46PM -0800, Jiaqi Yan wrote:
+> >
+> > While continuing the discussion here, I think it may make sense I sent
+> > out a V2 with 2 major updates:
+> >   - add documentation for new SIGBUS feature
+> >   - remove KVM_CAP_ARM_SIGBUS_ON_SEA
+>
+> Just wanted to add that QEMU already has a functioning "MCE" injection
+> implemenation based on signals that deals with the sloppy mess of
+> coordinating w/ vCPU threads [*].
+>
+> I completely agree with Marc that the UAPI around using signals for this
+> sort of thing is a giant pile of crap, but it seems to be a semi-understo=
+od
+> pile of crap. And from that perspective, wiring unclaimed SEAs into the
+> existing infrastructure at least makes the UAPI consistent.
+>
+> [*]: https://elixir.bootlin.com/qemu/v9.1.1/C/ident/kvm_on_sigbus_vcpu
+>
+> > On Tue, Nov 12, 2024 at 12:51=E2=80=AFAM Marc Zyngier <maz@kernel.org> =
+wrote:
+> > > > Do you mean a CAP that VMM can tell KVM the VM guest has RAS abilit=
+y?
+> > > > I don't know if there is one for arm64. On x86 there is
+> > > > KVM_X86_SETUP_MCE. KVM_CAP_ARM_INJECT_EXT_DABT maybe a revelant one
+> > > > but I don't think it is exactly the one for "RAS ability".
+> > >
+> > > Having though about this a bit more, I now think this is independent
+> > > of the guest supporting RAS. This really is about the VMM asking to b=
+e
+> > > made aware of RAS errors affecting the guest, and it is the signallin=
+g
+> > > back to the guest that needs to be gated by ID_AA64PFR0_EL1.RAS.
+> >
+> > Just to make sure I fully catch you. I think ID_AA64PFR0_EL1.RAS
+> > translates to ARM64_HAS_RAS_EXTN in the kernel. If VMM signals RAS
+> > error back to the guest with SEA, are you suggesting
+> > __kvm_arm_vcpu_set_events should check
+> > cpus_have_final_cap(ARM64_HAS_RAS_EXTN) before it
+> > kvm_inject_dabt(vcpu)?
+> >
+> > If so, how could __kvm_arm_vcpu_set_events know if the error is about
+> > RAS (e.g. memory error) vs about accessing memory not in a memslot
+> > (i.e. KVM_EXIT_ARM_NISV)? I guess KVM needs to look at ESR_EL2 again
+> > (e.g. kvm_vcpu_abt_issea vs kvm_vcpu_dabt_isvalid)?
+>
+> Good point. I don't think we can lock down this UAPI after the fact
+> given the existing use cases. It is ultimately up to the VMM what to do.
+>
+> I don't see anything that would stop an implementation without FEAT_RAS
+> from generating an SEA in this situation. The lack of FEAT_RAS (to me at
+> least) implies:
+>
+>  - No ESR injection for vSErrors (already enforced in UAPI)
+>  - No deferral of SErrors / ESBs
+>  - No error record registers in the PE
 
+Thanks Oliver, if I read you correctly, __kvm_arm_vcpu_set_events
+doesn't need to assert ARM64_HAS_RAS_EXTN, and it also doesn't need to
+differentiate RAS and KVM_EXIT_ARM_NISV.
 
-> On Dec 5, 2024, at 3:34 AM, Uwe Kleine-K=C3=B6nig =
-<ukleinek@kernel.org> wrote:
->=20
-> On Thu, Dec 05, 2024 at 12:17:46AM -0500, Mingwei Zheng wrote:
->> Add check for the return value of clk_enable() to catch the potential
->> error.
->=20
-> Is this something that you actually hit, or just a janitoral fix you
-> noticed while browsing the code (or reading some checker output)?
+>
+> Of course, it is very likely you've thought about this more than I have,
+> Marc.
 
-We detected this through static analysis, instead of actually hit.
+I will send out RFC V2 in a second. Please take another look and
+comment there, Marc and Oliver, thanks!
 
->=20
->> Fixes: e70a540b4e02 ("pwm: Add STM32 LPTimer PWM driver")
->> Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
->> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
->> ---
->> drivers/pwm/pwm-stm32-lp.c | 8 ++++++--
->> 1 file changed, 6 insertions(+), 2 deletions(-)
->>=20
->> diff --git a/drivers/pwm/pwm-stm32-lp.c b/drivers/pwm/pwm-stm32-lp.c
->> index 989731256f50..4abef304417d 100644
->> --- a/drivers/pwm/pwm-stm32-lp.c
->> +++ b/drivers/pwm/pwm-stm32-lp.c
->> @@ -163,12 +163,16 @@ static int stm32_pwm_lp_get_state(struct =
-pwm_chip *chip,
->> unsigned long rate =3D clk_get_rate(priv->clk);
->> u32 val, presc, prd;
->> u64 tmp;
->> + int ret;
->=20
-> Please move this variable to the block where it's used. No need for =
-such
-> a big scope.
->=20
-> Otherwise looks fine.
->=20
-> Best regards
-> Uwe
-
-Thank you! We will submit a v2 patch for you to review!
-
-Best,
-Mingwei
-
+>
+> --
+> Thanks,
+> Oliver
 
