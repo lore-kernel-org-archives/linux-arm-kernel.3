@@ -4,85 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D297E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0B3E77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvUxd/vxMw8Bwuy6xT8sVlJO+DjkY4zLPCCgu87quuk=; b=aQ9RSfbG99XiMHAW5vJHYxGBXH
-	N4OlcwFpQkE8tK+dy8i4D+myabpjFdhLaRRXgTiuBRQBxn1YvE+WcW00o5+mEd6AXnZuLGyohseFZ
-	uID19xZWmYF4ZlKTuhk4VMljHo78eDyHieRgq38MOQgdYTX1w/HeShe5ttYbPN/sJRyVUslWRv/My
-	sEBYWrQe3NIle55CRPzipOg8+p9ecfgNf7GuzW2o/5pcpxRTKhafKPgztzGjsYrmg+CNYdX3ejgAh
-	N1Fwq3XYw0/U9X5m3dXLnAH1u5yC/YLkS+n0XxMEVqpy9bEmTo5e9o4tgzxyAxQH4tfmKzgWQNCxQ
-	z+iif92w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ramg/LlFf4bZis+Y58Q4bHkqemVET9h0BhtEsVDgRb8=; b=I6RMGpfIxEg9WEyUm2j9026KLD
+	9mD2iSq8FYUm2GPgoLuunVJymKjbc6w/Kgod14OHJgKBm1iR+WI/3kMdvPVs6X9rCeO9j6Gwp/Zd7
+	3l0kNDrfB8CxOQYD5rPoj4DUFS5rxifRwY3vTOUn8I+n0S/jZPsvoxNDwa65f2qw7fwBKizFiaBqG
+	xFtjo9Y+8UUts9bp8uMFDu9ow9FtU6uawFLwLP7/mzNn3UkV0cXNsCK0XouLNShOesaq82chz3gG3
+	M/2qjKIwUJERRlNp6kefDPLGZZvgUJXbaWHn/lXMkIFTYX/DPZqEP2yifTdw4FjJPBBMzyehGDzMD
+	bj5yPpzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXPZ-00000001YW8-05Ww;
-	Fri, 06 Dec 2024 12:26:21 +0000
-Received: from mx.ssi.bg ([193.238.174.39])
+	id 1tJXVX-00000001Zbu-46qh;
+	Fri, 06 Dec 2024 12:32:31 +0000
+Received: from mail-db8eur05on2061f.outbound.protection.outlook.com ([2a01:111:f403:2614::61f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXOX-00000001YSx-2GVb
+	id 1tJXUV-00000001ZTD-2OQq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 12:25:18 +0000
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 8F49721D95;
-	Fri,  6 Dec 2024 14:19:37 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=QvUxd/vxMw8Bwuy6xT8sVlJO+DjkY4zLPCCgu87quuk=; b=jTjz4S9wmd54
-	L6Dz1c6a27LaRJin11iO1/LuIDOevuvoLPkbtFgX8a9QeF+gk3Ke7ELKws4UM/wI
-	Azo277jpuO6dL16+u6kzaO4XWjIKd2oZko3mhOlnhgqboDkTx+QByVc3J0wxQWGv
-	BPhzSfB2p/spiH5Qlj6JavO65+dbOaxEtpzeJyU7aMrTMdcIoQyI02n9V6EC3cpI
-	OFhTpOfPLOUUwI2aDh4SDcYZ0w7LwI6N69heV52JFXt0MJ52b2z5+DC7G2RUU8Pt
-	47r8bhTmj+hf3eM61bUAnMMvdSFeGvqwDKlGOkP8RhoDx+LjFJKcarqGd+8UAsg3
-	5xgDSC1IMtdCP8OTzIitCsAPE8ev+Accj6IoDPSdL6380Io7pOO54slJach30Lps
-	fen1j9m5NDXNr0HLl3mgSb0FWpvM7lNpn393nmw+1ysq9TVZSrfqlxOomwFMYKY/
-	Ub26103Wle4wX/hGBv0s5fi6Qmf/A/yspu9aSOydu6A7KbW1l8hnVDawyWTd2qXQ
-	osu+i30K3PfiMBclcihy81Km6SmmF7a1FhPlBcgePEEd4KxJxJglyRHgbAFvc2eg
-	MrxupfqsU6xYRI9808PMbE/8HxhmTFbbXG2PKeuDIBpHb78GOEfNaBHZRzdY16En
-	gWsUWiNkgzoxMOsC7bIWmgECURJCLUc=
-Received: from ink.ssi.bg (ink.ssi.bg [193.238.174.40])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Fri,  6 Dec 2024 14:19:36 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by ink.ssi.bg (Postfix) with ESMTPSA id 4E9EB15F19;
-	Fri,  6 Dec 2024 14:19:31 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.1/8.17.1) with ESMTP id 4B6CJLt6022576;
-	Fri, 6 Dec 2024 14:19:22 +0200
-Date: Fri, 6 Dec 2024 14:19:21 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: David Laight <David.Laight@ACULAB.COM>
-cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "'Naresh Kamboju'" <naresh.kamboju@linaro.org>,
-        "'Dan Carpenter'" <dan.carpenter@linaro.org>,
-        "'pablo@netfilter.org'" <pablo@netfilter.org>,
-        "'open list'" <linux-kernel@vger.kernel.org>,
-        "'lkft-triage@lists.linaro.org'" <lkft-triage@lists.linaro.org>,
-        "'Linux Regressions'" <regressions@lists.linux.dev>,
-        "'Linux ARM'" <linux-arm-kernel@lists.infradead.org>,
-        "'netfilter-devel@vger.kernel.org'" <netfilter-devel@vger.kernel.org>,
-        "'Arnd Bergmann'" <arnd@arndb.de>,
-        "'Anders Roxell'" <anders.roxell@linaro.org>,
-        "'Johannes Berg'" <johannes.berg@intel.com>,
-        "'toke@kernel.org'" <toke@kernel.org>,
-        "'Al Viro'" <viro@zeniv.linux.org.uk>,
-        "'kernel@jfarr.cc'" <kernel@jfarr.cc>,
-        "'kees@kernel.org'" <kees@kernel.org>
-Subject: Re: [PATCH net] Fix clamp() of ip_vs_conn_tab on small memory
- systems.
-In-Reply-To: <33893212b1cc4a418cec09aeeed0a9fc@AcuMS.aculab.com>
-Message-ID: <5ec10e7c-d050-dab8-1f1b-d0ca2d922eef@ssi.bg>
-References: <33893212b1cc4a418cec09aeeed0a9fc@AcuMS.aculab.com>
+	Fri, 06 Dec 2024 12:31:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lEBRPWEIK5W8F7CB/q3ukOqH4NKEePPWsOjo5FcVPzdB/wVGXwVRkeNP2Nu04wvyThayGKVJZL+quAKxtqexrPCjQxYM6+kRnzD8LStC39Z3wU5UXaMyKEB8QwtYlAwCy415mc/B1PypidZEalxhVAeuVZ/P7WVTxpFy4yv98SaScL9XqYT3teJtgharB7sCkYjScdy8EI7EuvAtaqqdO666/RLOcGQ0UEu8v0wAW/SQrx7trwv96/Z8okNG5W+KW7eiDrZqDF/9epDwy3Pfs7ktujofmsPpM6n9etRLgGgOauVji8qyEdGNwtHOOohP+Mj9jAPJPaIfYD1x1FDKKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ramg/LlFf4bZis+Y58Q4bHkqemVET9h0BhtEsVDgRb8=;
+ b=ZhsSsiEPVS7933bqlb0g2iWQlRB/9R1O1j6ycABk1PWFEVXT/CNYdsrm/WqyBkW1sfUfTBxRuP9C1x0pKe0Ptdk5Rb/LWds6l3btN4ty2LjsRSbjlmh2eRBtR4/uCRfqiDuNmS25MRmFhAKx6Z/IZpLZv3iIC83mwsMGxINrOgQRyb8JcA9laX5WaGx21EoBBTMUKBG+UCQ0Wxs7Dsjw1qrqAGIY34MPu3A3xhFmlnmEEpSnwtyJU0OZyiD5wSmTMvE7gsV2mr23VeDFZEMVWAdr8HGUQFYuaWKQd20i5GYpZiQ01Z+ste1ksFAgm/wR3Wy6KY6IP+uGUV5k/rf/+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ramg/LlFf4bZis+Y58Q4bHkqemVET9h0BhtEsVDgRb8=;
+ b=jNQYcUc5tRc88HjjWFRW99H7WjAQtGsWZacdiEd8dTOt6NR7nbqyEb7tgFD1YpgeMZQaijcZ4j0VcB8d+xX/ml59MWIZvLkF1pCTX/nJq1bl6TT5JpOEGkPHDU9M2GLr/62RrzwcxFRLZikn4IJYc5+PhB8+XzRXyZ48rBVg7wOUwOB+K9+CU9TpIRw2eA6FEDR86cb9No9oVMw9v7NO1B1h9jWbKt1fRVYuL0oHtrmRN0IQm02cPqiYAnxS+j6JeVqqFug+UpU6HVvx90xHVGrFsoDKJWw0Pvfmj+aeMgR6vk6YBuhhSP+bvSjLkOF2m8hKlLUHBq4GsnMRlRcUUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by VI0PR04MB10439.eurprd04.prod.outlook.com (2603:10a6:800:238::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Fri, 6 Dec
+ 2024 12:31:23 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd%6]) with mapi id 15.20.8207.017; Fri, 6 Dec 2024
+ 12:31:23 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	NXP S32 Linux <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH] arm64: dts: s32g: add I2C support
+Date: Fri,  6 Dec 2024 14:31:19 +0200
+Message-ID: <20241206123119.1688712-1-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0PR01CA0152.eurprd01.prod.exchangelabs.com
+ (2603:10a6:208:aa::21) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VI0PR04MB10439:EE_
+X-MS-Office365-Filtering-Correlation-Id: a24f01b0-1709-432f-adaa-08dd15f1e50b
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VGVXKzN1NSt2WEczd2VpNmZiaElOTFE3NmxsL05acjU1eCtpUmlIaGU2L0lC?=
+ =?utf-8?B?eEVrMkVCRFU5bnZxVUw0cVZGeTVhWUtJeFFhR0M4MjhnVzBPYnJzWjMrWXR3?=
+ =?utf-8?B?Q0V4RmpZc2J5UURieU5BdWF0dzJIdXFLZllOTnc0YVRWSXNKU3NzL1NmYk81?=
+ =?utf-8?B?OE1BR215RkxOUlVLdWhNY2UvdElQVEE5SVA4cFkrRFZ4Y05YVVZ0T3l2Y09q?=
+ =?utf-8?B?UnJOWlYvblFMZmY1ZlgzTHRIWkJYei9sOE9JWXV5aldBWFA5UVFac0NlK1hv?=
+ =?utf-8?B?eGhJV00rWE1HVS9jQ3B4dU92djhpSjZqSlVXYmZ4alJSSFFYeVhld0hSeWMw?=
+ =?utf-8?B?UUV0Q0dZUUM3V0F4d2Fvdnh2T1RibFFwU1dXTzFQdlByRzFlUVExTC9XdG9l?=
+ =?utf-8?B?dmFMR0hhdFFIbzdWbE56NW5lZHBUbm96QndHUTlHdzdSOTQxaGJuRFhQZFpo?=
+ =?utf-8?B?WXZPMjIxVGVsalhLY2JiR2FIV2x0d1VuM2YwNFRORGdEV1NFMG9uQTJIeVY3?=
+ =?utf-8?B?UTNWU0U0YzJnTFo3eS9sQUNReDIxbWczM1d2azFJYXRtM2J1bVVxSXEyTE9R?=
+ =?utf-8?B?M3oxdzJnMlJTREtuUWJhS2l4dVJMd2Vxb2dwcmtvbUJGRHd4eUZlMDMrTzBZ?=
+ =?utf-8?B?OHN6WWI2UVdnc3RqWHNKKzNkWFkzVVZrS0REQmdaYktiMDFyODNuelpIMFlF?=
+ =?utf-8?B?N1htdThLc2YycGZaZE9xUUo4V3A0Z1hFQ1lZdGt1SHhhQnB0Q3d3UEZVYnk1?=
+ =?utf-8?B?cjhhTjZFa29UTWpIUmNxOSs5eXdnUzJzVnRJSmIwb3doSkQ1UWxhTVVOd0xI?=
+ =?utf-8?B?a2pEN21HYzZyaWJSVExjKysyclhJeDFiYVV4R1VtTVJKSlY1UXZWZXducWJy?=
+ =?utf-8?B?SFQ2UlZFTmpnZVdzT0NmK2xKcEZDZDRIZi9sY1NHWlRXeHMvRmNtdE5rd0Jj?=
+ =?utf-8?B?eThsUDUwbDlBdjkyZnFadnphRnBRenpzYTNQWUxyWnQxbjNOem1nSVlRdjg5?=
+ =?utf-8?B?YWdXN0NRZERsaVpscHZXK2xBWTVFSnVYSFZFanlUWUI4VkZ5VzZwQjFwN3J2?=
+ =?utf-8?B?MUY3U2RHYzVtRFFKeVZ2RzllSXI4dE5COGY2UHJDenlDTVNQWk5xUG9Va0FR?=
+ =?utf-8?B?YTV4V3VmcjFXVWhpdEpJdmdXMDNERXhrMmtTUHFlVnhUOEFIK0VyVU1DKyt4?=
+ =?utf-8?B?aFpYZjVSS2x5UkJCSUpaL0E5L2dQeENQelhKZUwwS0dTTW03UU5LeUcyNzdZ?=
+ =?utf-8?B?Nm1QOS9sclFIMGxLT1VvYlB3bEcwWFE3dTlQb1BJSzZwQlk4ZHRia2lySmI0?=
+ =?utf-8?B?OWpEQ0x0TUZNMW1GODJhRzhwZkJYYmZZZHJMakxMYjllb1lnV1paSzdwRnJE?=
+ =?utf-8?B?aFAvaE53cW1hcUczcTRVdGUzNmk0Z0d4azBxYU1wYnpUMGlBU2NmWXQ3NGJ4?=
+ =?utf-8?B?ZEhZNEpSUzV3YklKMW5NMm1XdDkzUi9RL0g4U0xBTW1mdE5Sa3RMKzR4Q1hD?=
+ =?utf-8?B?NWVqSDZIbGUvQ25IOGYxRXlZdHlBTXozMjFFTlhDT29oN2NISFlkWmFXcHNE?=
+ =?utf-8?B?RjVoUDgyS3FQTkFydCtJcGlTU1MxQ29YbzE4bDV6WStMbWE1aVpYbnlVZWRF?=
+ =?utf-8?B?emt5d2FxUXpjV283WkVYeTk1Nk9iS09VamFIVTNYSmI2VExtYVNKbFRGd2RM?=
+ =?utf-8?B?MXBhUGl2VmdKbXFGZm5YT1V2SDVwS2dqYVk2NEFpbjJxSzZRN1hDanNKTFBr?=
+ =?utf-8?B?VGIyK3U0QkFvSi9xY28zcXFYQStzazdGS0dYRVE2Z05OWUxiSyttOTQvSDlM?=
+ =?utf-8?B?Q3MvYkRPV2gvOFBRNEtXZz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXAra01qY1hMbEdkTSttMGhkLzJTbDFQMGdqckJQd3VhVC9JTlM1QmdxTjQw?=
+ =?utf-8?B?ejBORlpYYVlWbCtKYnREOVUvOXc4TWZVOXNqL3dEUnZzZCs4cWg4TW15QVlx?=
+ =?utf-8?B?ZC9NMW5VMnpTcm5MUlpNSXZyQW00OERzTHBIZzRXa0EwUzZIb1d2czl5QTdS?=
+ =?utf-8?B?VEZjV3kwOTZTWEVDZWxyZkhJVFM1MXF5RUpVclY1RXVxemY3cFRIeVFWVlp2?=
+ =?utf-8?B?S3oxYkttSmVlaUR2TXpjdzhOOUVFbFdoeG5RbVZ1NnNJemtsVzV5VVVlWG0x?=
+ =?utf-8?B?Z1dwZDBBSmdYeitlNWpWcS9jKzVGV29OQ0lpUGZHRjZtRzQ4S2p5YXJNR3J1?=
+ =?utf-8?B?RC9YWnRkWjRyb3ZvYWdvZFRGditlL2I2KzJTK3NKOXBReHMrYnVHMzRWc2l6?=
+ =?utf-8?B?aWVTWWZweEZWZ3V2SmdiVFJDOUtlWDBXNjRyM2xmY3VYZUwwT0FxZkI3MFVD?=
+ =?utf-8?B?bGVrMCtZdDFPNldlQUxxVHVWR1p4TlB5c3NTdHJMa3ZTOVczYUk0eTR4NENw?=
+ =?utf-8?B?UHlHVkt4OG5Oc2Q3U2RVMzl1QnJXQUdybkR6dWl6bEtlR2luV2w3bVRRN3Vm?=
+ =?utf-8?B?ZHo3Q2Z1cEFBaEFnQ1pyVXlHcnFiZ1AwdDVWL1RvVU9yZVIydU9UMlRNVTFN?=
+ =?utf-8?B?Tm5JdGpCRFJpNXJNUFFOMHF0enhmK01VSWoxWEhWQXFndkhpdFRQNFI5NFBm?=
+ =?utf-8?B?SEN0YytPd3NCODEvQ2xzZU5MVEJZcUVmSGN1d21OQkp3T3JhYUVtb0JXWFc4?=
+ =?utf-8?B?anFrdG1ZZ3pSQisybkhuakVvazlXS3p4NnBNUFVRS2lRKzNmNndmKzFNUzNK?=
+ =?utf-8?B?aXA1dTJMQmFjaVBXeGx0aXBvYzRwVTFtV1VpVE1TZ2hJb2JpYlF1OThSSDYr?=
+ =?utf-8?B?cDJzM2dYbUU1RkVzZ2ttZVZIYmU4OTczcFllWUhFYXRLeU1JemZQN3RsbVgv?=
+ =?utf-8?B?MzVhU3MvUS9iWlhUT2o4ZkpWc3hDUmYrRzJjZVlwL1hpTHQzNEVudyt0VmF5?=
+ =?utf-8?B?a3hhRUowNnBDb1BGcmdhdGtHVDFqYXBZaWgvdGxSQ1ZBL0Urcy85Y1J6Ri90?=
+ =?utf-8?B?ejBCUHBxeXRSakQyTHA4ZU9KRnlTL3g4UzN1VXU0RGtsbXZveHlvS0tKZW13?=
+ =?utf-8?B?WjlFMlRvTWp3M1FNb3l5TXJxRWFZVSsxa0owd2Qyb3QyTHEvUlExSWZ3c1Z0?=
+ =?utf-8?B?ZGMxK1UxMnc4QzJyZFhpYW1FanRWYlBlQmtLUVlIelhuaHBZRGZzczZ6S3Ba?=
+ =?utf-8?B?dnlHSjRDY0FWWDh5LzIvTWJGRTZkRTJFckY1ZHBNZExRVXE0MVR3QWUwcTZU?=
+ =?utf-8?B?Mzk4bW9MUjZ5dnVrNFRZRkNudkVGNlQ1ZjdpUEYxUk5UYlZwb0ZReDJLNzB4?=
+ =?utf-8?B?Sm44NjlJU04rU011OFoyUGlDak84QWR4SVVOaWtmSnBRUE42Sk4veERhcmFZ?=
+ =?utf-8?B?Zlc1VVNNZDRrcTZ3NVIrTEtIOFNZWExMWjNsYVRsMkxsby9ndFIzMkJIbnJX?=
+ =?utf-8?B?RU1BcGJwdnd5c3RoNVdJbXNZVnhackNKSjFwUXZQOEtuRi8zV01JeTJrWnJW?=
+ =?utf-8?B?RkdxK1FOQTdsT0w4UTU2NGNDOGVRUkRLRklCRmxtaHpFSm9iZkFTa24wOVll?=
+ =?utf-8?B?YnJMSVlMK3pRaXZ0M1g2WTV2ZHY1NEZCbEhZbmNtM0gxZlo0ZThZbHNNT24v?=
+ =?utf-8?B?ZFl0Q2ZRM2pIZ0w1d0JKVEtZT3JzT2xTTXhsSVpOQ3JBMjFnMEpYNEQyTkh4?=
+ =?utf-8?B?bEFyRHN2bzgrMnE4WW9aRlVQQlg3bUNuT2VOSTV3bWd5RFFNeFgxSm96a0dE?=
+ =?utf-8?B?blhFU1d4WEEwRVR0TEFVWlM2R1YxTjdGK2Ftd0tBdUROUmdmWFlzT3VOdEV3?=
+ =?utf-8?B?WDRXa09GOTZDT0hLNnpJODkyZmVHM3JRTG9HUzJjZ3ZrSERITWRHc0FyNzRP?=
+ =?utf-8?B?TjFWNktYS3NEREg0L3ZqZFQ3a2N5TDk3cnVxbjM1TlV4M3Y4aklqNFNxTlFp?=
+ =?utf-8?B?RmdiL3FsMG56NUZYcC9qN1RXcmRtcFpDN1lEdUtNMmFJejhBeFo2eWkxdk02?=
+ =?utf-8?B?bkYyUUNXMy94SzhVMEU5QWdlaEVHRmh5SFozaEd5WGpEWUpjSk9JOXNnL2ho?=
+ =?utf-8?B?YXh0SElwMHByUFRhOEJkOCt3ZWRSRS91TFJrTllyS3pWTmFsNHpSMWpRZ24x?=
+ =?utf-8?B?MEE9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a24f01b0-1709-432f-adaa-08dd15f1e50b
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2024 12:31:23.1931
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /wpaAwdFb4MfJCsSHv2xNUcg678iq7eSJJp/a0/3NyEQAc4tUJGQtrWdCdbXM+TSwGJRUaJziWrHbb/H9wexiF4u/mnxmp3QRCYOYFW1/i8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10439
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_042517_747008_F2A67ED4 
-X-CRM114-Status: GOOD (  23.26  )
+X-CRM114-CacheID: sfid-20241206_043127_781234_2FC29924 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,84 +189,504 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-	Hello,
+Add the I2C Devicetree nodes and pinmux for S32G2 and S32G3 SoCs.
 
-On Fri, 6 Dec 2024, David Laight wrote:
+With respect to S32G2/S32G3 SoC based boards, there are multiple RDB
+(rdb2 vs rdb3) and EVB (for G2 vs for G3) board revisions. These versions
+are quite similar. The common part for the EVB revisions will be
+centralized in 's32gxxa-evb.dtsi' file, while the RDB commonalities will
+be placed in 's32gxxa-rdb.dtsi' file.
 
-> The intention of the code seems to be that the minimum table
-> size should be 256 (1 << min).
-> However the code uses max = clamp(20, 5, max_avail) which implies
+This refactor will also serve for other modules in the future, such as
+FlexCAN, DSPI.
 
-	Actually, it tries to reduce max=20 (max possible) below
-max_avail: [8 .. max_avail]. Not sure what 5 is here...
+Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+---
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |  45 ++++++
+ .../arm64/boot/dts/freescale/s32g274a-evb.dts |   1 +
+ .../boot/dts/freescale/s32g274a-rdb2.dts      |   1 +
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |  50 ++++++
+ .../boot/dts/freescale/s32g399a-rdb3.dts      |  12 ++
+ .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 150 ++++++++++++++++++
+ .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 124 +++++++++++++++
+ 7 files changed, 383 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
 
-> the author thought max_avail could be less than 5.
-> But clamp(val, min, max) is only well defined for max >= min.
-> If max < min whether is returns min or max depends on the order of
-> the comparisons.
-
-	Looks like max_avail goes below 8 ? What value you see
-for such small system?
-
-> Change to clamp(max_avail, 5, 20) which has the expected behaviour.
-
-	It should be clamp(max_avail, 8, 20)
-
-> 
-> Replace the clamp_val() on the line below with clamp().
-> clamp_val() is just 'an accident waiting to happen' and not needed here.
-
-	OK
-
-> Fixes: 4f325e26277b6
-> (Although I actually doubt the code is used on small memory systems.)
-> 
-> Detected by compile time checks added to clamp(), specifically:
-> minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
-
-	Existing or new check? Does it happen that max_avail
-is a constant, so that a compile check triggers?
-
-> 
-> Signed-off-by: David Laight <david.laight@aculab.com>
-
-	The code below looks ok to me but can you change the
-comments above to more correctly specify the values and if the
-problem is that max_avail goes below 8 (min).
-
-> ---
->  net/netfilter/ipvs/ip_vs_conn.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_conn.c
-> index 98d7dbe3d787..c0289f83f96d 100644
-> --- a/net/netfilter/ipvs/ip_vs_conn.c
-> +++ b/net/netfilter/ipvs/ip_vs_conn.c
-> @@ -1495,8 +1495,8 @@ int __init ip_vs_conn_init(void)
->  	max_avail -= 2;		/* ~4 in hash row */
->  	max_avail -= 1;		/* IPVS up to 1/2 of mem */
->  	max_avail -= order_base_2(sizeof(struct ip_vs_conn));
-
-	More likely we can additionally clamp max_avail here:
-
-	max_avail = max(min, max_avail);
-
-	But your solution solves the problem with less lines.
-
-> -	max = clamp(max, min, max_avail);
-> -	ip_vs_conn_tab_bits = clamp_val(ip_vs_conn_tab_bits, min, max);
-> +	max = clamp(max_avail, min, max);
-> +	ip_vs_conn_tab_bits = clamp(ip_vs_conn_tab_bits, min, max);
->  	ip_vs_conn_tab_size = 1 << ip_vs_conn_tab_bits;
->  	ip_vs_conn_tab_mask = ip_vs_conn_tab_size - 1;
->  
-> -- 
-> 2.17.1
-
-Regards
-
---
-Julian Anastasov <ja@ssi.bg>
+diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+index 7be430b78c83..0e6c847ab0c3 100644
+--- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+@@ -333,6 +333,33 @@ uart1: serial@401cc000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c0: i2c@401e4000 {
++			compatible = "nxp,s32g2-i2c";
++			reg = <0x401e4000 0x1000>;
++			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
++		i2c1: i2c@401e8000 {
++			compatible = "nxp,s32g2-i2c";
++			reg = <0x401e8000 0x1000>;
++			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
++		i2c2: i2c@401ec000 {
++			compatible = "nxp,s32g2-i2c";
++			reg = <0x401ec000 0x1000>;
++			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
+ 		uart2: serial@402bc000 {
+ 			compatible = "nxp,s32g2-linflexuart",
+ 				     "fsl,s32v234-linflexuart";
+@@ -341,6 +368,24 @@ uart2: serial@402bc000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c3: i2c@402d8000 {
++			compatible = "nxp,s32g2-i2c";
++			reg = <0x402d8000 0x1000>;
++			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
++		i2c4: i2c@402dc000 {
++			compatible = "nxp,s32g2-i2c";
++			reg = <0x402dc000 0x1000>;
++			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
+ 		usdhc0: mmc@402f0000 {
+ 			compatible = "nxp,s32g2-usdhc";
+ 			reg = <0x402f0000 0x1000>;
+diff --git a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+index b9a119eea2b7..c4a195dd67bf 100644
+--- a/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
++++ b/arch/arm64/boot/dts/freescale/s32g274a-evb.dts
+@@ -7,6 +7,7 @@
+ /dts-v1/;
+ 
+ #include "s32g2.dtsi"
++#include "s32gxxxa-evb.dtsi"
+ 
+ / {
+ 	model = "NXP S32G2 Evaluation Board (S32G-VNP-EVB)";
+diff --git a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+index aaa61a8ad0da..b5ba51696f43 100644
+--- a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
++++ b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+@@ -7,6 +7,7 @@
+ /dts-v1/;
+ 
+ #include "s32g2.dtsi"
++#include "s32gxxxa-rdb.dtsi"
+ 
+ / {
+ 	model = "NXP S32G2 Reference Design Board 2 (S32G-VNP-RDB2)";
+diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+index 6c572ffe37ca..666e4029e588 100644
+--- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+@@ -390,6 +390,36 @@ uart1: serial@401cc000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c0: i2c@401e4000 {
++			compatible = "nxp,s32g3-i2c",
++				     "nxp,s32g2-i2c";
++			reg = <0x401e4000 0x1000>;
++			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
++		i2c1: i2c@401e8000 {
++			compatible = "nxp,s32g3-i2c",
++				     "nxp,s32g2-i2c";
++			reg = <0x401e8000 0x1000>;
++			interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
++		i2c2: i2c@401ec000 {
++			compatible = "nxp,s32g3-i2c",
++				     "nxp,s32g2-i2c";
++			reg = <0x401ec000 0x1000>;
++			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
+ 		uart2: serial@402bc000 {
+ 			compatible = "nxp,s32g3-linflexuart",
+ 				     "fsl,s32v234-linflexuart";
+@@ -398,6 +428,26 @@ uart2: serial@402bc000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c3: i2c@402d8000 {
++			compatible = "nxp,s32g3-i2c",
++				     "nxp,s32g2-i2c";
++			reg = <0x402d8000 0x1000>;
++			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
++		i2c4: i2c@402dc000 {
++			compatible = "nxp,s32g3-i2c",
++				     "nxp,s32g2-i2c";
++			reg = <0x402dc000 0x1000>;
++			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 40>;
++			clock-names = "ipg";
++			status = "disabled";
++		};
++
+ 		usdhc0: mmc@402f0000 {
+ 			compatible = "nxp,s32g3-usdhc",
+ 				     "nxp,s32g2-usdhc";
+diff --git a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+index 828e353455b5..eb73a5dcebe7 100644
+--- a/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
++++ b/arch/arm64/boot/dts/freescale/s32g399a-rdb3.dts
+@@ -8,6 +8,7 @@
+ /dts-v1/;
+ 
+ #include "s32g3.dtsi"
++#include "s32gxxxa-rdb.dtsi"
+ 
+ / {
+ 	model = "NXP S32G3 Reference Design Board 3 (S32G-VNP-RDB3)";
+@@ -39,6 +40,17 @@ &uart1 {
+ 	status = "okay";
+ };
+ 
++&i2c4 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	ina231@40 {
++		compatible = "ti,ina231";
++		reg = <0x40>;
++		shunt-resistor = <1000>;
++	};
++};
++
+ &usdhc0 {
+ 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+ 	pinctrl-0 = <&pinctrl_usdhc0>;
+diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+new file mode 100644
+index 000000000000..a44eff28073a
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+@@ -0,0 +1,150 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright 2024 NXP
++ *
++ * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
++ *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
++ *          Larisa Grigore <larisa.grigore@nxp.com>
++ */
++
++&pinctrl {
++	i2c0_pins: i2c0-pins {
++		i2c0-grp0 {
++			pinmux = <0x101>, <0x111>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c0-grp1 {
++			pinmux = <0x2352>, <0x2362>;
++		};
++	};
++
++	i2c0_gpio_pins: i2c0-gpio-pins {
++		i2c0-gpio-grp0 {
++			pinmux = <0x100>, <0x110>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c0-gpio-grp1 {
++			pinmux = <0x2350>, <0x2360>;
++		};
++	};
++
++	i2c1_pins: i2c1-pins {
++		i2c1-grp0 {
++			pinmux = <0x131>, <0x141>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c1-grp1 {
++			pinmux = <0x2cd2>, <0x2ce2>;
++		};
++	};
++
++	i2c1_gpio_pins: i2c1-gpio-pins {
++		i2c1-gpio-grp0 {
++			pinmux = <0x130>, <0x140>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c1-gpio-grp1 {
++			pinmux = <0x2cd0>, <0x2ce0>;
++		};
++	};
++
++	i2c2_pins: i2c2-pins {
++		i2c2-grp0 {
++			pinmux = <0x151>, <0x161>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c2-grp1 {
++			pinmux = <0x2cf2>, <0x2d02>;
++		};
++	};
++
++	i2c2_gpio_pins: i2c2-gpio-pins {
++		i2c2-gpio-grp0 {
++			pinmux = <0x150>, <0x160>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c2-gpio-grp1 {
++			pinmux = <0x2cf0>, <0x2d00>;
++		};
++	};
++
++	i2c4_pins: i2c4-pins {
++		i2c4-grp0 {
++			pinmux = <0x211>, <0x222>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c4-grp1 {
++			pinmux = <0x2d43>, <0x2d33>;
++		};
++	};
++
++	i2c4_gpio_pins: i2c4-gpio-pins {
++		i2c4-gpio-grp0 {
++			pinmux = <0x210>, <0x220>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c4-gpio-grp1 {
++			pinmux = <0x2d40>, <0x2d30>;
++		};
++	};
++};
++
++&i2c0 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c0_pins>;
++	pinctrl-1 = <&i2c0_gpio_pins>;
++	status = "okay";
++};
++
++&i2c1 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c1_pins>;
++	pinctrl-1 = <&i2c1_gpio_pins>;
++	status = "okay";
++};
++
++&i2c2 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c2_pins>;
++	pinctrl-1 = <&i2c2_gpio_pins>;
++	status = "okay";
++};
++
++&i2c4 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c4_pins>;
++	pinctrl-1 = <&i2c4_gpio_pins>;
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
+new file mode 100644
+index 000000000000..d992c0c9e695
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
+@@ -0,0 +1,124 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright 2024 NXP
++ *
++ * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
++ *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
++ *          Larisa Grigore <larisa.grigore@nxp.com>
++ */
++
++&pinctrl {
++	i2c0_pins: i2c0-pins {
++		i2c0-grp0 {
++			pinmux = <0x1f2>, <0x201>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c0-grp1 {
++			pinmux = <0x2353>, <0x2363>;
++		};
++	};
++
++	i2c0_gpio_pins: i2c0-gpio-pins {
++		i2c0-gpio-grp0 {
++			pinmux = <0x1f0>, <0x200>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c0-gpio-grp1 {
++			pinmux = <0x2350>, <0x2360>;
++		};
++	};
++
++	i2c2_pins: i2c2-pins {
++		i2c2-grp0 {
++			pinmux = <0x151>, <0x161>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c2-grp1 {
++			pinmux = <0x2cf2>, <0x2d02>;
++		};
++	};
++
++	i2c2_gpio_pins: i2c2-gpio-pins {
++		i2c2-gpio-grp0 {
++			pinmux = <0x2cf0>, <0x2d00>;
++		};
++
++		i2c2-gpio-grp1 {
++			pinmux = <0x150>, <0x160>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++	};
++
++	i2c4_pins: i2c4-pins {
++		i2c4-grp0 {
++			pinmux = <0x211>, <0x222>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c4-grp1 {
++			pinmux = <0x2d43>, <0x2d33>;
++		};
++	};
++
++	i2c4_gpio_pins: i2c4-gpio-pins {
++		i2c4-gpio-grp0 {
++			pinmux = <0x210>, <0x220>;
++			drive-open-drain;
++			output-enable;
++			input-enable;
++			slew-rate = <133>;
++		};
++
++		i2c4-gpio-grp1 {
++			pinmux = <0x2d40>, <0x2d30>;
++		};
++	};
++};
++
++&i2c0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c0_pins>;
++	pinctrl-1 = <&i2c0_gpio_pins>;
++	status = "okay";
++
++	pcal6524: gpio-expander@22 {
++		compatible = "nxp,pcal6524";
++		reg = <0x22>;
++		gpio-controller;
++		#gpio-cells = <2>;
++	};
++};
++
++&i2c2 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c2_pins>;
++	pinctrl-1 = <&i2c2_gpio_pins>;
++	status = "okay";
++};
++
++&i2c4 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&i2c4_pins>;
++	pinctrl-1 = <&i2c4_gpio_pins>;
++	status = "okay";
++};
+-- 
+2.45.2
 
 
