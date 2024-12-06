@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48E5E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC74E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYU3BtfPgc8JALRFkC2f8cKo9E+ajIbNWzGzFbmxxNQ=; b=Xfv6L8kdy2iYLApR2FstIFHH0h
-	zGHvamtIF38ByiDGne0fXnyFd81haypnaAaDLE2gUGWlm3EOFElBxiy6Ppq+YWAFJoKGpFL04qmwg
-	yV2syo/zQ0OD0e0Jo041tovFqDmI3G0g4ezGQuFWOfLnnueJ5wdafmgaL9MqOjxjm9XuECO+5TjwD
-	mZl1XH14KDJY52mR5Tp5O+7JC/VQV1a4rNkqyj7ZSQQhqi0nlJ2lJsU7zuTZTAf6+konikl1AV9Iu
-	4fr0pIifvsCAi3T+b5dxDYTY/nDvS6+rpR1cSk4mSO37pqozLV5wckgVgWCCGhd95PLV7hLzAK/kD
-	a4OCV0vQ==;
+	bh=l/E+il6y5NtjGrTlLgPM3UZx7oCF93bePU2b7EXLhxo=; b=ZePpYkTui7MZZov9fWo/AxXyv7
+	XovAH6oIso6Su05RgHiPnbNOzJ79/03ta3JN7Aq5TWeW5hC6PaedafcjbBHsjzS1esS71wkFAM+s3
+	lchty16inzirCn+dYeOQGuy0qX8jNaNl2s28LSd3byEfVQ6CvSOYhGIx57z/CtkYs36Xq7Pri7ggZ
+	jQwfz8nEG1waYwm8aRoHoOL5dYxJ4kVS3YclbRdWeYdhHEi7rghCo//I9DSSuOAr1q4tx1JqEOXsy
+	drm9gtVWm5YPlVrZg0uzkkSqQNJ5R/y1FPYCQnA8Z+O4I8eieM7dPjd3rG8OWtqZ96JzJ/+SGaavT
+	2RV+cqDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeCP-00000002aJK-1YFE;
-	Fri, 06 Dec 2024 19:41:13 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1tJeGc-00000002ahq-2Amn;
+	Fri, 06 Dec 2024 19:45:34 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeAk-00000002Ztx-0F2o
+	id 1tJeFa-00000002abO-068h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 19:39:31 +0000
+	Fri, 06 Dec 2024 19:44:31 +0000
 Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
  relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-184-wSN4kbhlPXCqAnAYZUig_Q-1; Fri, 06 Dec 2024 19:39:27 +0000
-X-MC-Unique: wSN4kbhlPXCqAnAYZUig_Q-1
-X-Mimecast-MFC-AGG-ID: wSN4kbhlPXCqAnAYZUig_Q
+ uk-mta-117-WxcFF2J0PnutzUqsQ_ZSew-1; Fri, 06 Dec 2024 19:44:26 +0000
+X-MC-Unique: WxcFF2J0PnutzUqsQ_ZSew-1
+X-Mimecast-MFC-AGG-ID: WxcFF2J0PnutzUqsQ_ZSew
 Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
  (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 6 Dec
- 2024 19:38:40 +0000
+ 2024 19:43:39 +0000
 Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 6 Dec 2024 19:38:40 +0000
+ id 15.00.1497.048; Fri, 6 Dec 2024 19:43:39 +0000
 From: David Laight <David.Laight@ACULAB.COM>
-To: 'Linus Torvalds' <torvalds@linux-foundation.org>
+To: 'Willy Tarreau' <w@1wt.eu>, Linus Torvalds <torvalds@linux-foundation.org>
 CC: Vincent Mailhol <vincent.mailhol@gmail.com>, Luc Van Oostenryck
 	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
  Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
@@ -65,9 +65,9 @@ Subject: RE: [PATCH 02/10] compiler.h: add is_const() as a replacement of
  __is_constexpr()
 Thread-Topic: [PATCH 02/10] compiler.h: add is_const() as a replacement of
  __is_constexpr()
-Thread-Index: AQHbROFPJXcuwP9wN0+yRzIQ2cx/pbLWa+gggAFf14CAACMqUIABpzoGgAAClHCAAAPoAIAAAwjg
-Date: Fri, 6 Dec 2024 19:38:40 +0000
-Message-ID: <0f5c07b827c3468c8fa3928a93a98bfa@AcuMS.aculab.com>
+Thread-Index: AQHbROFPJXcuwP9wN0+yRzIQ2cx/pbLWa+gggAFf14CAACMqUIABpzoGgAAClHCAAAo1Y4AAAKpg
+Date: Fri, 6 Dec 2024 19:43:39 +0000
+Message-ID: <8f4b7d1bfbd84885bddf4cc1dfb9ce43@AcuMS.aculab.com>
 References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
  <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
  <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
@@ -78,7 +78,8 @@ References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
  <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
  <d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com>
  <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
-In-Reply-To: <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
+ <20241206193836.GA26860@1wt.eu>
+In-Reply-To: <20241206193836.GA26860@1wt.eu>
 Accept-Language: en-GB, en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
@@ -86,14 +87,14 @@ x-ms-exchange-transport-fromentityheader: Hosted
 x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: se0nR2yheF8e7r3_QL_0geCxPxaQuiD3lrP6P_x7_To_1733513966
+X-Mimecast-MFC-PROC-ID: I0_FkoYONuw9O3nE7g61LCKn-VTe9HvdtPxQcXzmaYk_1733514265
 X-Mimecast-Originator: aculab.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_113930_361026_2920C236 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20241206_114430_342621_39E6157D 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +109,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTGludXMgVG9ydmFsZHMNCj4gU2VudDogMDYgRGVjZW1iZXIgMjAyNCAxOToxNQ0KPiBP
-biBGcmksIDYgRGVjIDIwMjQgYXQgMTE6MDcsIERhdmlkIExhaWdodCA8RGF2aWQuTGFpZ2h0QGFj
-dWxhYi5jb20+IHdyb3RlOg0KPiA+DQo+ID4gSSdtIG1pc3NpbmcgdGhlIGNvbXBpbGVyIHZlcnNp
-b24gYW5kIG9wdGlvbnMgdG8gZ2VuZXJhdGUgdGhlIGVycm9yLg0KPiANCj4gSnVzdCAtV2FsbCB3
-aXRoIG1vc3QgcmVjZW50IGdjYyB2ZXJzaW9ucyBzZWVtcyB0byBkbyBpdC4gQXQgbGVhc3QgSQ0K
-PiBjYW4gcmVwcm8gaXQgd2l0aCBnY2MtMTQuMi4xIGFuZCBzb21ldGhpbmcgc2lsbHkgbGlrZSB0
-aGlzOg0KDQpJIG1heSBoYXZlIGp1c3QgbWlzc2VkIGdvbGJvbHQgcmV0dXJuaW5nIGEgd2Fybmlu
-Zy4NCi4uLg0KPiA+IERvZXMgYSAnKyAwJyBoZWxwPyAgIih2YXIgPDwgMikgKyAwID8gMCA6IDAi
-DQo+IA0KPiBZZWFoLCB0aGF0IGFjdHVhbGx5IHdvcmtzLg0KPiANCj4gQW5kICIrMCIgaXMgbmlj
-ZSBpbiB0aGF0IGl0IHNob3VsZCB3b3JrIGluIGFueSBjb250ZXh0Lg0KDQpVbmxlc3MgaXQgZmFs
-bHMgZm91bCBvZiB0aGUgY2xhbmcgdGVzdCBmb3IgYXJ0aG1ldGljIG9uIE5VTEwgcG9pbnRlcnMu
-DQooSSdtIHN1cmUgdGhhdCBpcyBvbmx5IGEgcHJvYmxlbSBpZiBOVUxMIGlzbid0IHRoZSBhbGwt
-emVybyBiaXQgcGF0dGVybi4NCkFuZCBwcmV0dHkgbXVjaCBubyBDIGNvZGUgaGFzIGV2ZXIgYmVl
-biAndGhhdCBwb3J0YWJsZScuKQ0KDQpBZGRpbmcgMCBjYW4gYWxzbyBoZWxwIHdoZW4gY29tcGxp
-ZXJzIGFyZSBiZWluZyBwaWNreSBhYm91dCBlbnVtcy4NClNpbmNlIG5vbmUgaGF2ZSAoeWV0KSBt
-YWRlIHRoZW0gbW9yZSBsaWtlIGEgMzJiaXQgcG9pbnRlciB0byBhIG9uZQ0KYnl0ZSBzdHJ1Y3R1
-cmUgKG9yIHRoZSBQYXNjYWwgZW51bSkuDQpJbiBjYXNlIHRoZSByZWxldmFudCBwZW9wbGUgYXJl
-IHJlYWRpbmcgdGhpcywgbWF5YmUgb25seSBkbyBhbnkNCm5vbi1pbnRlZ2VyIHdhcm5pbmdzIGZv
-ciBuYW1lZCBlbnVtcz8NCg0KPiA+ICNkZWZpbmUgY29uc3RfTlVMTCh4KSBfR2VuZXJpYygwID8g
-KHgpIDogKGNoYXIgKikwLCBjaGFyICo6IDEsIHZvaWQgKjogMCkNCj4gPiAjZGVmaW5lIGNvbnN0
-X3RydWUoeCkgY29uc3RfTlVMTCgoeCkgPyBOVUxMIDogKHZvaWQgKikxTCkpDQo+ID4gI2RlZmlu
-ZSBjb25zdF9leHByKHgpIGNvbnN0X05VTEwoKHgpID8gTlVMTCA6IE5VTEwpKQ0KPiA+IEkgc2Vu
-ZCB0aGlzIG1vcm5pbmcuDQo+ID4gTmVlZHMgJ3MvY2hhci9zdHJ1Y3Qga2pramtqa2p1aS8nIGFw
-cGxpZWQuDQo+IA0KPiBPaCBDaHJpc3QuIFlvdSByZWFsbHkgYXJlIHRha2luZyB0aGlzIHdob2xl
-IHVnbHkgdG8gYW5vdGhlciBsZXZlbC4NCg0KSSBzb3J0IG9mIGxpa2VkIHRoYXQgdmVyc2lvbiBp
-biBhIHBlcnZlcnNlIHNvcnQgb2Ygd2F5Lg0KSXQgZG9lcyBnaXZlIHlvdSBhIHNpbXBsZSB0ZXN0
-IGZvciBOVUxMICh1bmxlc3MgeW91J3ZlIHVzZWQgJ3N0cnVjdCBramtqa2pranVpJykuDQoNCglE
-YXZpZA0KDQotDQpSZWdpc3RlcmVkIEFkZHJlc3MgTGFrZXNpZGUsIEJyYW1sZXkgUm9hZCwgTW91
-bnQgRmFybSwgTWlsdG9uIEtleW5lcywgTUsxIDFQVCwgVUsNClJlZ2lzdHJhdGlvbiBObzogMTM5
-NzM4NiAoV2FsZXMpDQo=
+From: Willy Tarreau
+> Sent: 06 December 2024 19:39
+> On Fri, Dec 06, 2024 at 11:15:20AM -0800, Linus Torvalds wrote:
+> > On Fri, 6 Dec 2024 at 11:07, David Laight <David.Laight@aculab.com> wro=
+te:
+> > >
+> > > I'm missing the compiler version and options to generate the error.
+> >
+> > Just -Wall with most recent gcc versions seems to do it. At least I
+> > can repro it with gcc-14.2.1 and something silly like this:
+> >
+> >   $ cat t.c
+> >   int fn(int a) { return (a<<2)?1:2; }
+> >   $ gcc -Wall -S t.c
+> >   t.c: In function 'fn':
+> >   t.c:1:26: warning: '<<' in boolean context, did you mean '<'?
+> > [-Wint-in-bool-context]
+> >
+> > > Does a '+ 0' help?  "(var << 2) + 0 ? 0 : 0"
+> >
+> > Yeah, that actually works.
+> >
+> > And "+0" is nice in that it should work in any context.
+>=20
+> I've already used "+0" to shut certain warnings, I don't really remember
+> which one, but also remember it was OK everywhere I needed.
+
+I've often used +0u when -Wsign-compare is enabled.
+Much safer than a cast.
+
+>=20
+> Another trick I've been using to shut up the compiler is a cast via typeo=
+f
+> and an intermediary variable:
+>=20
+>   #define shut_up(expr)                           \
+>           ({                                      \
+>                   typeof(expr) _expr_ =3D expr;     \
+>                   _expr_;                         \
+>                   })
+
+That is like OPTIMISER_HIDE_VAR() and can't be used in a 'constant integer =
+expression'.
+
+I suspect it also has the same nasty habit of adding an extra register move=
+.
+
+=09David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1=
+PT, UK
+Registration No: 1397386 (Wales)
 
 
