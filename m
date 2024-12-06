@@ -4,114 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C2BFE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33003E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x1weric6zZmvWu4UV+Y5UDAgbXws/QOCE+rGDxo8gCY=; b=J/97RBWfkLegsJuB5Tab5ZhjGG
-	KpHCoEVBPzIRxx4JIxtpTuaSTIwCF3BVPPPBp1hoR6h9DNW5T0408n9tLUrJMNzODAThc2YCvqBgW
-	Uc6nui6PkoZKLBuH9xxKmJBLWTqBlRHh5KuxxRGHIURn0fbRyrrLM5Tar4YBXnHSL9Y1lvsSlnCb2
-	+93nwZXnJsAsDDOk/Lh8wap8+AGKqIlE1ZzFFaxoiCiCuZv9d83O/hTnbFlWK8MFzZb/r5uXhoILS
-	ctMxmQOpoYE5aocId/5mbrS6oBky3h/bseqBYthEicCvEaaIj5ZV2xb5z/DmrtWhvNnNzFhe+J+uL
-	J61YwuEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fOGpSJqozf26dVxmBeF8vIRHibOPe4MJoalCqug07Qc=; b=NHYjnstDB5onVNKZl5eUsCneYW
+	EBzTp6bHoMS68UUP9NHfD3dbBu4OfjkWRIMK7ZK5knl+aLOq4eQg+npaDBDUtXW8gbiDcLlsrWIGf
+	qo0LjvZUTM8qrn2JHgxaGHV4ai5v33lSI7/KEosGDI0FZxGwpVXSDpu9D901DmhwSGLKtuVl86ahc
+	qxtT0YhRDcDbzCwcI9RVFR1uYAga57fVuYIEOnUkWDjeTETNfeP16xpMOfIJxZhM44THr3dnzFqZS
+	xslTxjacLtqIwGaTFDUXTPWFiotiuq5yLGZv76KpL0GMfg6w3TftiksFr0HFnzGfn0q/DG5rJ4X4/
+	wE2aI+FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXg4-00000001bpL-3iCP;
-	Fri, 06 Dec 2024 12:43:24 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1tJXh4-00000001bwn-227H;
+	Fri, 06 Dec 2024 12:44:26 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXf2-00000001bXP-0plj
+	id 1tJXfI-00000001bJL-2uZ1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 12:42:22 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 98A93138341A;
-	Fri,  6 Dec 2024 07:42:18 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 06 Dec 2024 07:42:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1733488938;
-	 x=1733575338; bh=x1weric6zZmvWu4UV+Y5UDAgbXws/QOCE+rGDxo8gCY=; b=
-	M/b16wYyYsnI/s8XYS0cMZC8l+m9jwXwyywWsyiEWOWa0+Jz4tq4vDCXWJ58vqPn
-	Vj94uvNy2rLl0aNRjNxb+j9KBBXworFDKOxIhbONkQiHaVd6UPMPmnwazlfRsb7I
-	NgIyMxAqogq979jABuzZNVx6e/9kq+qfyg3DWAkYCW9hcm2SrForMIgL0A1680/E
-	l0MOrf8y/n2eL9qUCHOM+NEQIb4pJIhz6NgRVKBhTt9dZvUOmaj26RktFrFzrsQh
-	Js+9NlpzSSxXExqYUcIgBo5LHMYGD6jMQXt+Q4p6y49jR70SnmDckvWihcmJJWR4
-	fnH22kBK+mFE/dOmO/ko9Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733488938; x=
-	1733575338; bh=x1weric6zZmvWu4UV+Y5UDAgbXws/QOCE+rGDxo8gCY=; b=k
-	rqYvCyzVsmqaVOL2a9aaKizIgC/m4E/j7AtIF1/n2oQv47Pl15qFrk9Qnn/ouLG3
-	ftQ3nZhLzU8k8A5XpuAXNNFlc7gznVQj0g05sBzRcjmasl+wKrthMJ7OHTb4JjWI
-	4iaREQUesEzHwPjvBLsfnVboaFtKeKFOJFfshYXpOp1W7sTeYuZDLlE94o7l3D2C
-	upZe0+2wJkYD/9/cMR7TyBynV4gx7R5FK478nAapoVO1RdlltGZSPqgv6lhwQQq/
-	MFBs+0kCohmF2r8Q7Q8C6HhBEk4NTV0KBLK7AnLeip2/eNfcRvq24nEedSKM60bF
-	21YXndFSpZBbY/sxmWTFQ==
-X-ME-Sender: <xms:KvFSZ2HbZGPxrZSFzkMVsDotGkhONQaT36soRaG_Cpa0LGi_UQCFkQ>
-    <xme:KvFSZ3WqbJIGm_jQVqkiQSsJFTb7je053okl5c_bGlMivKj7lJLzUM6jgm0__TFwx
-    xg9hzCnrBz5QcPXhiI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrieelgdegvdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
-    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedukedp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrsh
-    esrghrmhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegs
-    ohhothhlihhnrdgtohhmpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdroh
-    hrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthho
-    pehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilhhlsehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
-    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuh
-    igrdguvghvpdhrtghpthhtohepghhhvghnnhgrughirdhprhhotghophgtihhutgesnhig
-    phdrtghomh
-X-ME-Proxy: <xmx:KvFSZwIKpoqhOjksPy-RYhRsmbn8ptH_bJsu9Rc4YN3vWJRDjB-03Q>
-    <xmx:KvFSZwF7a3DMGk_xUV242igARosECCfwipB6tzrDV_-qQABKP5y4mw>
-    <xmx:KvFSZ8UJdu3h0eX0zSrDmA7ZxNPg7vMTjISiOU2Ikx9bhRp_J4kYaA>
-    <xmx:KvFSZzPDi4DXTMFC1WwyPq8Dr53SgjhJxRSmudaA_NZqhe3uors_4w>
-    <xmx:KvFSZyb2_1RniotkMjpKiRsqm6trs0jAS7Lu4xPTIGzGdCg0sL7wHrPr>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0E2D42220072; Fri,  6 Dec 2024 07:42:17 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 06 Dec 2024 12:42:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fOGpSJqozf26dVxmBeF8vIRHibOPe4MJoalCqug07Qc=; b=lWrWWtWtS6V8FLcQmZwm+noR35
+	caPPCLFIo+KloRv5ELucm544Cratny6sAhIU1iCcOxXbPSJ0DMF8sAInugAWqMwlnxdT4hgjI/ObL
+	0SmvTOIdcnl6L8XQbucsfe4erswIwnipyAIfKTbFqLPtGGYn8WiFlD0rhK2d6Nw/5tUZsea8hnnSN
+	jC3RHvpam93LPXgHMqz/jj77I2j2lzpOaT3gbxYVMw9zJa+mQm7ZFINypFJELKn+TsTHf373i92Gj
+	hgyTGP4LgIA9cYT/danRMYVkMYHZaLidpkK9Azb21EfwDt6unjj434eX7W6AwojJGb5WxObeof53M
+	gJaw1ETA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59856 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tJXcz-0006FN-0B;
+	Fri, 06 Dec 2024 12:40:13 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tJXcx-006N4Z-PC; Fri, 06 Dec 2024 12:40:11 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: netdev@vger.kernel.org,
+	 linux-stm32@st-md-mailman.stormreply.com,
+	 linux-arm-kernel@lists.infradead.org,
+	 linux-kernel@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	 Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	 "David S. Miller" <davem@davemloft.net>,
+	 Eric Dumazet <edumazet@google.com>,
+	 Jakub Kicinski <kuba@kernel.org>,
+	 Paolo Abeni <pabeni@redhat.com>,
+	 MaximeCoquelin <mcoquelin.stm32@gmail.com>,
+	 xfr@outlook.com,
+	 Furong Xu<0x1207@gmail.com>,
+	 Jon Hunter <jonathanh@nvidia.com>,
+	 Thierry Reding <thierry.reding@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Furong Xu <0x1207@gmail.com>,
+	Hariprasad Kelam <hkelam@marvell.com>
+Subject: [PATCH net] net: stmmac: fix TSO DMA API usage causing oops
 MIME-Version: 1.0
-Date: Fri, 06 Dec 2024 13:41:55 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ciprian Costea" <ciprianmarian.costea@oss.nxp.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "NXP S32 Linux Team" <s32@nxp.com>, imx@lists.linux.dev,
- "Christophe Lizzi" <clizzi@redhat.com>, "Alberto Ruiz" <aruizrui@redhat.com>,
- "Enric Balletbo" <eballetb@redhat.com>,
- "Bogdan Hamciuc" <bogdan.hamciuc@nxp.com>,
- "Ghennadi Procopciuc" <Ghennadi.Procopciuc@nxp.com>
-Message-Id: <94cba886-86cb-41f1-96ee-501623add7db@app.fastmail.com>
-In-Reply-To: <6f4a0be8-4def-4066-9b44-d43059b7a90d@oss.nxp.com>
-References: <20241206070955.1503412-1-ciprianmarian.costea@oss.nxp.com>
- <20241206070955.1503412-3-ciprianmarian.costea@oss.nxp.com>
- <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
- <6f4a0be8-4def-4066-9b44-d43059b7a90d@oss.nxp.com>
-Subject: Re: [PATCH v6 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tJXcx-006N4Z-PC@rmk-PC.armlinux.org.uk>
+Date: Fri, 06 Dec 2024 12:40:11 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_044221_018268_E5CB05A6 
-X-CRM114-Status: GOOD (  35.46  )
+X-CRM114-CacheID: sfid-20241206_044236_725576_F1886F52 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,129 +93,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 6, 2024, at 13:05, Ciprian Marian Costea wrote:
-> On 12/6/2024 10:04 AM, Arnd Bergmann wrote:
->> 
->> However, the range of the register value is only 32 bits,
->> which means there is no need to ever divide it by a 64-bit
->> number, and with the 32kHz clock in the binding example,
->> you only have about 37 hours worth of range here.
->> 
->
-> I am not sure what is the suggestion here. To cast 'cycles' variable to 
-> 32-bit ?
-> If yes, indeed 'div_u64' converts 'cycles' (the divisor) to 32-bit so I 
-> agree it should be u32 instead of u64.
-> If not, I would prefer to keep using a 64-by-32 division and avoid 
-> casting 'hz' to 32-bit.
+Commit 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap
+for non-paged SKB data") moved the assignment of tx_skbuff_dma[]'s
+members to be later in stmmac_tso_xmit().
 
-The confusing bit here is that the extra function just serves to
-the dividend 'cycles' from 32-bit to 64-bit, and then calling
-div_u64() implicitly casts the dividend 'hz' from 64-bit to
-32-bit, so you definitely get a 32-by-32 division already
-if the function is inlined properly.
+The buf (dma cookie) and len stored in this structure are passed to
+dma_unmap_single() by stmmac_tx_clean(). The DMA API requires that
+the dma cookie passed to dma_unmap_single() is the same as the value
+returned from dma_map_single(). However, by moving the assignment
+later, this is not the case when priv->dma_cap.addr64 > 32 as "des"
+is offset by proto_hdr_len.
 
-I think storing 'rtc_hz' as a u32 variable and adding a range
-check when filling it would help, mainly to save the next reader
-from having to understand what is going on.
+This causes problems such as:
 
->> It would appear that this makes the rtc unsuitable for
->> storing absolute time across reboots, and only serve during
->> runtime, which is a limitation you should probably document.
->> 
->
-> Actually there is the option to use DIV512 and/or DIV32 hardware 
-> divisors for the RTC clock. The driver uses a DIV512 divisor by default 
-> in order to achieve higher RTC count ranges (by achieving a smaller RTC 
-> freq). Therefore, the 37 hours become 37 * 512 => ~ 2 years.
+  dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
 
-Ah, makes sense. Can you add comments in an appropriate place in
-the code about this?
+and with DMA_API_DEBUG enabled:
 
-> However, the rtc limitation of not being persistent during reboot 
-> remains, due to hardware RTC module registers present of NXP S32G2/S32G3 
-> SoCs being reset during system reboot. On the other hand, during system 
-> suspend, the RTC module will keep counting if a clock source is available.
->
-> Currently, this limittion is documented as follows:
-> "RTC tracks clock time during system suspend. It can be a wakeup source 
-> for the S32G2/S32G3 SoC based boards.
->
-> The RTC module from S32G2/S32G3 is not battery-powered and it is not 
-> kept alive during system reset."
+  DMA-API: dwc-eth-dwmac 2490000.ethernet: device driver tries to +free DMA memory it has not allocated [device address=0x000000ffffcf65c0] [size=66 bytes]
 
-My bad, I really should not have skipped the patch
-description ;-)
+Fix this by maintaining "des" as the original DMA cookie, and use
+tso_des to pass the offset DMA cookie to stmmac_tso_allocator().
 
->> If 'counter' wraps every 37 hours, this will inevitably fail,
->> right? E.g. if priv->base.cycles was already at a large
->> 32-bit number, even reading it shortly later will produce
->> a small value after the wraparound.
->> 
->> Using something like time_before() should address this,
->> but I think you may need a custom version that works on
->> 32-bit numbers.
->> 
->
-> This is correct. Would the following change be acceptable ?
->
-> -       if (counter < priv->base.cycles)
-> -               return -EINVAL;
-> -
-> -       counter -= priv->base.cycles;
-> +       if (counter < priv->base.cycles) {
-> +               /* A rollover on RTCCTN has occurred */
-> +               counter += RTCCNT_MAX_VAL - priv->base.cycles;
-> +               priv->base.cycles = 0;
-> +       } else {
-> +               counter -= priv->base.cycles;
-> +       }
+Full details of the crashes can be found at:
+https://lore.kernel.org/all/d8112193-0386-4e14-b516-37c2d838171a@nvidia.com/
+https://lore.kernel.org/all/klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw/
 
-This is the same as just removing the error handling and
-relying on unsigned integer overflow semantics.
+Reported-by: Jon Hunter <jonathanh@nvidia.com>
+Reported-by: Thierry Reding <thierry.reding@gmail.com>
+Fixes: 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for non-paged SKB data")
+Tested-by: Jon Hunter <jonathanh@nvidia.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-The usual check we do in time_before()/time_after instead
-checks if the elapsed time is less than half the available
-range:
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 9b262cdad60b..c81ea8cdfe6e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4192,8 +4192,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	struct stmmac_txq_stats *txq_stats;
+ 	struct stmmac_tx_queue *tx_q;
+ 	u32 pay_len, mss, queue;
++	dma_addr_t tso_des, des;
+ 	u8 proto_hdr_len, hdr;
+-	dma_addr_t des;
+ 	bool set_ic;
+ 	int i;
+ 
+@@ -4289,14 +4289,15 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 
+ 		/* If needed take extra descriptors to fill the remaining payload */
+ 		tmp_pay_len = pay_len - TSO_MAX_BUFF_SIZE;
++		tso_des = des;
+ 	} else {
+ 		stmmac_set_desc_addr(priv, first, des);
+ 		tmp_pay_len = pay_len;
+-		des += proto_hdr_len;
++		tso_des = des + proto_hdr_len;
+ 		pay_len = 0;
+ 	}
+ 
+-	stmmac_tso_allocator(priv, des, tmp_pay_len, (nfrags == 0), queue);
++	stmmac_tso_allocator(priv, tso_des, tmp_pay_len, (nfrags == 0), queue);
+ 
+ 	/* In case two or more DMA transmit descriptors are allocated for this
+ 	 * non-paged SKB data, the DMA buffer address should be saved to
+-- 
+2.30.2
 
-#define time_after(a,b)         \
-        (typecheck(unsigned long, a) && \
-         typecheck(unsigned long, b) && \
-         ((long)((b) - (a)) < 0))
-
->>> +static int s32g_rtc_resume(struct device *dev)
->>> +{
->>> +     struct rtc_priv *priv = dev_get_drvdata(dev);
->>> +     int ret;
->>> +
->>> +     if (!device_may_wakeup(dev))
->>> +             return 0;
->>> +
->>> +     /* Disable wake-up interrupts */
->>> +     s32g_enable_api_irq(dev, 0);
->>> +
->>> +     ret = rtc_clk_src_setup(priv);
->>> +     if (ret)
->>> +             return ret;
->>> +
->>> +     /*
->>> +      * Now RTCCNT has just been reset, and is out of sync with priv->base;
->>> +      * reapply the saved time settings.
->>> +      */
->>> +     return s32g_rtc_set_time(dev, &priv->base.tm);
->>> +}
->> 
->> This also fails if the system has been suspended for more than
->> 37 hours, right?
->
-> Actually, the system would not go into suspend (returning with error) if 
-> the alarm setting passes the 32-bit / clk_freq range.
-> The check is added in 'sec_to_rtcval' which is called from the suspend 
-> routine.
-
-Who sets that alarm though? Are you relying on custom userspace
-for this, or is that something that the kernel already does
-that I'm missing?
-
-       Arnd
 
