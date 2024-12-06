@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA30E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBBB2E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ggbwORZnlwc8YN3DJB21zCsxZm15lFShrMeQG41rm18=; b=JKMn3D9iGzxOjFBYPJ8hNGYOhT
-	SPajpAeJZl//BYjHPzWLU1LMeZHzBpJFE6cPcwECLmGmxm2P7/v0qJL+5pz//cNZVKfpvG3KxBLyr
-	qCnBaUFSAJni9mdQ12zhet3OvIyB27/1ZQ30IeWA6ihGMPqJmImR+QhNmo0jy0YnCHmYuZP8rkCJF
-	mrtNg+UqDaMLNs7vKlbJHcEa1r0ai5cm3IxyvFJp4tkFr6KE4iESLrlEd9NgSxUYNSq1xrPllQW60
-	ZA4lt6t7+ICPQYUm+f1KlPEF40xV9PvCUudR9Q3QZY65KNGdhZMkghsomKKn62foSGGaoGQkkyYb0
-	Y6CHB0aw==;
+	bh=l7YKnxexLJ1+TaE4HafZ+vrLntQPWzQ2qCK8DJmplRQ=; b=CoAHDPCLG3bDWLXZ3G8QSNjoPw
+	RM0lmUQ1RyQYdtZIcnRiJT/iTuw8Xd5GmsVFaX7tIQbwiaWSjUwAzSTjD3zhrazQSzxrI6qez4LlG
+	5fnoKWycsmMGzEOjqAPYpbL4ohIJ4wPRF7l8bvp8YiBCuNoOncoZNnhnBSWxIjH/GT0iAbr9IACIZ
+	MhJ1aww1E6CgMiSUMfH/i6Fap4t6CVILDqEkqi/gI0cAooDzg6rvpVvMh7bjannl2AQm+6NXkIaXL
+	rXq13nCJN+Jort/LLPbbJVL6VC9WP005HdsBgXJ4RKSbWeLLtc2eO7dBPmhtS5n/Aq9nof4Ya9utH
+	SYmO0shg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJdgU-00000002Vc9-2Cx9;
-	Fri, 06 Dec 2024 19:08:14 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1tJdoe-00000002WPx-30Eg;
+	Fri, 06 Dec 2024 19:16:40 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJdfR-00000002VTX-2sT8
+	id 1tJdnc-00000002WHM-2C0s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 19:07:11 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-203-g62EFoMcPseEjHbllHyR1Q-1; Fri, 06 Dec 2024 19:07:06 +0000
-X-MC-Unique: g62EFoMcPseEjHbllHyR1Q-1
-X-Mimecast-MFC-AGG-ID: g62EFoMcPseEjHbllHyR1Q
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 6 Dec
- 2024 19:06:18 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 6 Dec 2024 19:06:18 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Linus Torvalds' <torvalds@linux-foundation.org>, Vincent Mailhol
-	<vincent.mailhol@gmail.com>
-CC: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor
-	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, "Bill
- Wendling" <morbo@google.com>, Justin Stitt <justinstitt@google.com>, "Yury
- Norov" <yury.norov@gmail.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Jani Nikula <jani.nikula@linux.intel.com>, Joonas Lahtinen
-	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
-	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
-	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
-	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
-	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
-	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
-	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "uecker@tugraz.at" <uecker@tugraz.at>
-Subject: RE: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-Thread-Topic: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-Thread-Index: AQHbROFPJXcuwP9wN0+yRzIQ2cx/pbLWa+gggAFf14CAACMqUIABpzoGgAAClHA=
-Date: Fri, 6 Dec 2024 19:06:18 +0000
-Message-ID: <d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
- <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
- <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
- <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
- <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
- <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
- <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
- <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
-In-Reply-To: <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Fri, 06 Dec 2024 19:15:37 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d3cfdc7e4fso695a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 11:15:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733512534; x=1734117334; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l7YKnxexLJ1+TaE4HafZ+vrLntQPWzQ2qCK8DJmplRQ=;
+        b=O+z1eGhqY55B/Gn0QzcYToPpGlnuvh02r4wW2jpW/7Y4HSYj2gjAcOlGEEq0u+VnbE
+         iyncFKSCcOlQABAMolyS9EyXAGs4uPN6tgxPBGTSl/LF+uvUHwVJ1VqTp72HafZXBSq4
+         GzMy7b+UXj6GyNGqiFG5eUmSY1kVLVe4Z8lGZynBrAnKCYVo5A4EsGu3bHdHIF9gMnaI
+         GfkNDTEDjeq7SaB+hMgpGVB8+0STyRP9CP7ctpg98C1kS+lZzW9wHBHJ4yctiWg1p5Li
+         QQzRT01pFLe9D8jWDZVG+CRqEGqMTln4T48rJGJmR666SjEHIOr+ok1eQUvUJkzncpXU
+         gK5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733512534; x=1734117334;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l7YKnxexLJ1+TaE4HafZ+vrLntQPWzQ2qCK8DJmplRQ=;
+        b=LD3BoU8yIYBz4tbwOrvNQBnvYWvPy09yBTwJgwASzMpTOxWXF+Av96dw2/v8fuXzIn
+         G94qxky3LmOZuTo7TleSWzlPkNkyByp+306dOxOFWdsM4inZ4TL5Q6ni2GFgx+aDIRKM
+         rG7187/kE7fbb1yayQZf//ak5515RAgipGQ4hCa/QrBJanzg3OHDBmPkXpCIjHJeGh4S
+         Xv1hEmW8oRUek2RMxyH12q0UXFhnf59A1FvPidHQdorQto5ZhDV/vmYJAdZmBp/Z2gbP
+         +LjvexebiO/zIEVfhDJAoT1sHZQZuJZkllmceK/pXGMtoKRYj9oFSShkI0WRI3Wtus/R
+         vgXg==
+X-Forwarded-Encrypted: i=1; AJvYcCVq7ptknaMWXsMitQmDmEMdoUpS8A8H22btO8/77TA/huV8qeVqwXSiXjdsV6COVgse8/b/koCyk3hyZPk5Hxjp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRS956tjqn4xno6piKOFraQiAe5iPBoOWFChbBaLWw1Rl+kgS2
+	gpDwzRzSlv2hGfVKqK0Tsbudh0d+4n1nIMcO6py3JSMvwU4HqvTuPOQhpYHEnZp5s+db06d0CjW
+	V/eykibNDiRdWA9saK3ia/FSdS7qhUgPtNU90
+X-Gm-Gg: ASbGnctBP2EGitm7sq9Mmq2SGF1JkdCtiHJCo5To9cgZGBG+NGV1fAJ5pK8QPJ5DDuh
+	HQQozBJrXyv6PVZCj7a9uif0YWWKTCipl5P9Xwb7mX1oJPabZA8jT5O2wYyw=
+X-Google-Smtp-Source: AGHT+IElYlBNREfqiZtIPEZ0AoFhO5dJI6xcw9xcSYAg6cDhIC7rFrPCr3zdIfmomIG/xUNduJKYL+dryW/WkRiwaII=
+X-Received: by 2002:aa7:d507:0:b0:5d0:eb21:264d with SMTP id
+ 4fb4d7f45d1cf-5d3db4b972cmr3792a12.1.1733512533171; Fri, 06 Dec 2024 11:15:33
+ -0800 (PST)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: z5ITetjcbtJT6J-jTnbVGYQTft6F61RxPO7TqWlJKSE_1733512024
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
+In-Reply-To: <20241206101110.1646108-1-kevin.brodsky@arm.com>
+From: Jann Horn <jannh@google.com>
+Date: Fri, 6 Dec 2024 20:14:57 +0100
+Message-ID: <CAG48ez1b8BBquEB1BJEg+KsPdPyZLPuD7uToUH3ZdN8F0r+U9w@mail.gmail.com>
+Subject: Re: [RFC PATCH 00/16] pkeys-based page table hardening
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com, 
+	dave.hansen@linux.intel.com, jeffxu@chromium.org, joey.gouly@arm.com, 
+	kees@kernel.org, maz@kernel.org, pierre.langlois@arm.com, qperret@google.com, 
+	ryan.roberts@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_110709_990925_83DC3A99 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20241206_111536_563137_F576FFCE 
+X-CRM114-Status: GOOD (  27.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +96,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTGludXMgVG9ydmFsZHMNCj4gU2VudDogMDYgRGVjZW1iZXIgMjAyNCAxODo1Mw0KPiAN
-Cj4gT24gRnJpLCA2IERlYyAyMDI0IGF0IDEwOjMxLCBWaW5jZW50IE1haWxob2wgPHZpbmNlbnQu
-bWFpbGhvbEBnbWFpbC5jb20+IHdyb3RlOg0KPiA+DQo+ID4gPiBjYXVzZXMgaXNzdWVzIHdoZW4g
-J3gnIGlzIG5vdCBhbiBpbnRlZ2VyIGV4cHJlc3Npb24gKHRoaW5rDQo+ID4gPiAiaXNfY29uc3Qo
-TlVMTCkiIG9yICJpc19jb25zdCgxID09IDIpIi4NCj4gPg0KPiA+IEJ1dCAxID09IDIgYWxyZWFk
-eSBoYXMgYW4gaW50ZWdlciB0eXBlIGFzIHByb3ZlbiBieToNCj4gDQo+IFllYWgsIEkgd2FzIGNv
-bmZ1c2VkIGFib3V0IGV4YWN0bHkgd2hhdCB0cmlnZ2VycyB0aGF0IG9kZA0KPiAnLVdpbnQtaW4t
-Ym9vbC1jb250ZXh0Jy4NCj4gDQo+IEl0J3Mgbm90IGFib3V0IHNvbWUgYWN0dWFsIGJvb2wgdHlw
-ZSwgaXQncyBsaXRlcmFsbHkgYSByYW5kb20NCj4gY29sbGVjdGlvbiBvZiBpbnRlZ2VyIG9wZXJh
-dGlvbnMgdXNlZCB3aXRoIGxvZ2ljYWwgb3BzLg0KPiANCj4gU28gaXQncyB0aGluZ3MgbGlrZSAi
-ISh2YXI8PDIpIiB0aGF0IGdlbmVyYXRlIHRoYXQgd2FybmluZywgYmVjYXVzZQ0KPiBzb21lIGNv
-bXBpbGVyIHBlcnNvbiBhdCBzb21lIHBvaW50IHdlbnQgIm1heWJlIHRoYXQgbGVmdCBzaGlmdCBz
-aG91bGQNCj4gaGF2ZSBiZWVuIGp1c3QgYSBjb21wYXJpc29uIGluc3RlYWQgJzwnIi4NCj4gDQo+
-IEJ1dCBpdCB0dXJucyBvdXQgdGhhdCAiKHZhciA8PDIpPzA6MCIgX2Fsc29fIHRyaWdnZXJzIHRo
-YXQgd2FybmluZy4NCj4gDQo+IEVuZCByZXN1bHQ6IEkgaGF2ZSAqbm8qIGlkZWEgaG93IHRvIHNo
-dXQgdGhhdCBjcmF6eSB3YXJuaW5nIHVwIGZvcg0KPiB0aGlzIGNhc2UsIGlmIHdlIHdhbnQgdG8g
-aGF2ZSBzb21lIGdlbmVyaWMgbWFjcm8gdGhhdCBzYXlzICJpcyB0aGlzDQo+IGNvbnN0YW50Ii4g
-QmVjYXVzZSBpdCBkYW1uIHdlbGwgaXMgcGVyZmVjdGx5IHNhbmUgdG8gYXNrICJpcyAoYSA8PCAz
-KQ0KPiBhIGNvbnN0YW50IGV4cHJlc3Npb24iLg0KDQpJJ20gbWlzc2luZyB0aGUgY29tcGlsZXIg
-dmVyc2lvbiBhbmQgb3B0aW9ucyB0byBnZW5lcmF0ZSB0aGUgZXJyb3IuDQpEb2VzIGEgJysgMCcg
-aGVscD8gICIodmFyIDw8IDIpICsgMCA/IDAgOiAwIg0KDQpJIHJlYWxpc2VkIHRoZToNCiNkZWZp
-bmUgY29uc3RfTlVMTCh4KSBfR2VuZXJpYygwID8gKHgpIDogKGNoYXIgKikwLCBjaGFyICo6IDEs
-IHZvaWQgKjogMCkNCiNkZWZpbmUgY29uc3RfdHJ1ZSh4KSBjb25zdF9OVUxMKCh4KSA/IE5VTEwg
-OiAodm9pZCAqKTFMKSkNCiNkZWZpbmUgY29uc3RfZXhwcih4KSBjb25zdF9OVUxMKCh4KSA/IE5V
-TEwgOiBOVUxMKSkNCkkgc2VuZCB0aGlzIG1vcm5pbmcuDQpOZWVkcyAncy9jaGFyL3N0cnVjdCBr
-amtqa2pranVpLycgYXBwbGllZC4NCg0KCURhdmlkDQoNCi0NClJlZ2lzdGVyZWQgQWRkcmVzcyBM
-YWtlc2lkZSwgQnJhbWxleSBSb2FkLCBNb3VudCBGYXJtLCBNaWx0b24gS2V5bmVzLCBNSzEgMVBU
-LCBVSw0KUmVnaXN0cmF0aW9uIE5vOiAxMzk3Mzg2IChXYWxlcykNCg==
+On Fri, Dec 6, 2024 at 11:13=E2=80=AFAM Kevin Brodsky <kevin.brodsky@arm.co=
+m> wrote:
+> This is a proposal to leverage protection keys (pkeys) to harden
+> critical kernel data, by making it mostly read-only. The series includes
+> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+> as well as a page table hardening feature based on that framework
+> (kpkeys_hardened_pgtables). Both are implemented on arm64 as a proof of
+> concept, but they are designed to be compatible with any architecture
+> implementing pkeys.
+>
+> The proposed approach is a typical use of pkeys: the data to protect is
+> mapped with a given pkey P, and the pkey register is initially configured
+> to grant read-only access to P. Where the protected data needs to be
+> written to, the pkey register is temporarily switched to grant write
+> access to P on the current CPU.
+>
+> The key fact this approach relies on is that the target data is
+> only written to via a limited and well-defined API. This makes it
+> possible to explicitly switch the pkey register where needed, without
+> introducing excessively invasive changes, and only for a small amount of
+> trusted code.
+>
+> Page tables were chosen as they are a popular (and critical) target for
+> attacks, but there are of course many others - this is only a starting
+> point (see section "Further use-cases"). It has become more and more
+> common for accesses to such target data to be mediated by a hypervisor
+> in vendor kernels; the hope is that kpkeys can provide much of that
+> protection in a simpler manner. No benchmarking has been performed at
+> this stage, but the runtime overhead should also be lower (though likely
+> not negligible).
 
+Yeah, it isn't great that vendor kernels contain such invasive changes...
+
+I guess one difference between this approach and a hypervisor-based
+approach is that a hypervisor that uses a second layer of page tables
+can also prevent access through aliasing mappings, while pkeys only
+prevent access through a specific mapping? (Like if an attacker
+managed to add a page that is mapped into userspace to a page
+allocator freelist, allocate this page as a page table, and use the
+userspace mapping to write into this page table. But I guess whether
+that is an issue depends on the threat model.)
+
+> # kpkeys_hardened_pgtables
+>
+> The kpkeys_hardened_pgtables feature uses the interface above to make
+> the (kernel and user) page tables read-only by default, enabling write
+> access only in helpers such as set_pte(). One complication is that those
+> helpers as well as page table allocators are used very early, before
+> kpkeys become available. Enabling kpkeys_hardened_pgtables, if and when
+> kpkeys become available, is therefore done as follows:
+>
+> 1. A static key is turned on. This enables a transition to
+>    KPKEYS_LVL_PGTABLES in all helpers writing to page tables, and also
+>    impacts page table allocators (see step 3).
+>
+> 2. All pages holding kernel page tables are set to KPKEYS_PKEY_PGTABLES.
+>    This ensures they can only be written when runnning at
+>    KPKEYS_LVL_PGTABLES.
+>
+> 3. Page table allocators set the returned pages to KPKEYS_PKEY_PGTABLES
+>    (and the pkey is reset upon freeing). This ensures that all page
+>    tables are mapped with that privileged pkey.
+>
+> # Threat model
+>
+> The proposed scheme aims at mitigating data-only attacks (e.g.
+> use-after-free/cross-cache attacks). In other words, it is assumed that
+> control flow is not corrupted, and that the attacker does not achieve
+> arbitrary code execution. Nothing prevents the pkey register from being
+> set to its most permissive state - the assumption is that the register
+> is only modified on legitimate code paths.
+
+Is the threat model that the attacker has already achieved full
+read/write access to unprotected kernel data and should be stopped
+from gaining write access to protected data? Or is the threat model
+that the attacker has achieved some limited corruption, and this
+series is intended to make it harder to either gain write access to
+protected data or achieve full read/write access to unprotected data?
 
