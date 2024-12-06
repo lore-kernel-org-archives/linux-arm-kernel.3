@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FE2E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B307EE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doyX61/UjfisMnmB4zlyVxfi8RF1xe0m5OcRsC75Zuo=; b=O1ASe8dUbxlEcwjNDZQkqaYSdV
-	x8AyHZ3KDg532awD7evUDZMkhN+DBv6mNc9fqRBO4sBP+hTTgaw9puuSLZyhRyBNA5iQBRa/txfzn
-	HXp2LQ5PRT3q4ADZX5Rsnb1yOcgT0S4N6xUdKvOw6jqDAlfssvnR9jSeOGV6ZkJMcuzUCDDatNJrj
-	q6rqqmTRav4KPwHzO9BwZz00ov9Kdq/560uC4nDBFNYy+s19nmbLHx0H/hqK3KeivfxqmYprW0Qdd
-	5tUrEUO1ckpEBf5kqshzqobAKsemz+6H52WqB7yTVqvCRD89eTKwv9+N5n76C/fBwCHdGRRDMp2JJ
-	2tDRzaZA==;
+	bh=jQPhfD23YTFu2k8PG7PzToLjH9H9SzaXg3NW46Iyzwk=; b=yr0bbaE4R1l97h4ZiUCBsfLnHG
+	ESFSD9GWHeAyICt/rc4QtN7+UVG+5dGS22a53+Ef+SgqKCmJ/KXCsgMHz+vB4efE0t4Ju211bUilQ
+	0aa26K5QHAyzGkNF80M7T57WSgH1gzyO2vfQDxl9KLcTos8Kk26Vjxr4VszmOC9Ko8aybiDvM8uEX
+	3Nw/hg8OVO6GwiU0yYrnTv6ySRHaSKoY/bDfuwtOSBw2lTu0Ov2fsW1W+wUXpYEMs1OaQOyxSIzgw
+	GzKMphjxLprgCD4Bb+75zuLtiepkvZdcg4Dqd5vXH/pS6yIxX+SxxXytxJLnZBs/ZzWPkMZ1b6uov
+	30l6VGmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJcCc-00000002M4V-3HvE;
-	Fri, 06 Dec 2024 17:33:18 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tJcH9-00000002Mjm-0Ug4;
+	Fri, 06 Dec 2024 17:37:59 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJcBO-00000002LrX-2H94
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 17:32:03 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a9e44654ae3so376360766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 09:32:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733506320; x=1734111120; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=doyX61/UjfisMnmB4zlyVxfi8RF1xe0m5OcRsC75Zuo=;
-        b=qfCHLOYkTvsyC48n7RUbQqo+xCh8FEBpUeuBE2NcIQyjokhMST9GjosuOkZjiwjTk5
-         LbjNND+PlNNyzUMjo2vhLKWFR0joXLfYt1aFo6MHf4I1Zh/vyUk1OMQpDf7RJRKzFC9l
-         DkfpbnTNYR/6APUOZoUG97OT22vbKImsK6kdej6tcq03dbRFxdVVzRrPBuT0fRsmou5B
-         RHvdLPyIKuyjyzwkE993ZbA6g/0k4C08d3aAMHy3WhEZcdUfdAmQIDwNnDWxzgLi9aIs
-         5zC14dJ69AXfNHVTKTRJhcvtltbjDeDNgNfGj+3iitREUeoazqFo9Jq+errq11ZQq+Ua
-         9sEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733506320; x=1734111120;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=doyX61/UjfisMnmB4zlyVxfi8RF1xe0m5OcRsC75Zuo=;
-        b=OBwhXoC08ghvBCfoNvYWknd5Lx1HdH0ia0hd3Y5LzUWzSzeli1gVyOIXrMM2cD77Qf
-         s+xtNFJMYeWTTrM62oOMfdt9VirFG5V4fbaoJhWHWkaGnb73eIh44Wpr+uEDhUiX05fz
-         OPxZTVOqNc3pEu7N4GvgF6NaLlHEsHVhoiJKUtuMruVwvezx1k3qVFeBkJtD/NN/cs3Z
-         zWBcl+sTDiInOmUVj7ORAeVIodyVdk5hATLLnR8sVGgEtG1zg9MhiD9RuovTpMjtJCxW
-         Snr21KDVlQ6eUXSEZwEWCiqF9DUQ44dyqlxTWw6YkkzosKOHmO9B7HqMGiFj3Uq3LmIg
-         ZiWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWv7SPiR4e4JQTFaHQtYXWtvKadeyEE+zReQiSZ5ddoVlZTjuDYrqkS2MM2fKITzqofXB5y5wZ6Dl8LwqnclRIK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx65laDXI/U6c4RJGlyM/tVzzKBWw34NLdC9VjXb4NIsO8YPXPZ
-	CmsRKvw6ZcZckolNMgW60impbP2WgAI6Nmj++g0XdTET6xUchsTGGnVu9dhmRw==
-X-Gm-Gg: ASbGncvhyeM+wLiBpqWI1rWN3Y93aR5WAEc8pzilgsRAYopeKo/3PlwEXblBLG3gt0H
-	7SqsWr2U+y5BRMU9/A5vqiXpBa9JZWljJc8G/R4JyvgPzTNJV5p5hptGhI283WZDccVEZlUlDgJ
-	rYL/AjAvr8EpugN52r972wvgvgjK4/YgGwkuKAVTos55BP3hmAsmJ/MxbzgcuodopeOLKyC0dJm
-	EHFw2GZn3M/YgadoDbE74R8Rxjo0l53XZP9/R+J2GEmDsocr6xfjBDHpPIwetZyUEfvCN9AFWJS
-	g/zWbxil
-X-Google-Smtp-Source: AGHT+IGEieJLIbKw0zIu3BVBJZ8gMYSJUZuYoU0fobP25yd/vSbTF7HBZ8ltnsHPA+wF8CK2h2csdA==
-X-Received: by 2002:a17:906:31ce:b0:aa5:358f:1eea with SMTP id a640c23a62f3a-aa63a00ac06mr351706066b.16.1733506320425;
-        Fri, 06 Dec 2024 09:32:00 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625eedcd0sm268395966b.87.2024.12.06.09.32.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 09:32:00 -0800 (PST)
-Date: Fri, 6 Dec 2024 17:31:57 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v4 06/14] KVM: arm64: Set protected VM traps based on its
- view of feature registers
-Message-ID: <Z1M1DYbvuqAEU5c-@google.com>
-References: <20241202154742.3611749-1-tabba@google.com>
- <20241202154742.3611749-7-tabba@google.com>
+	id 1tJcG6-00000002Mdw-2AJQ;
+	Fri, 06 Dec 2024 17:36:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jQPhfD23YTFu2k8PG7PzToLjH9H9SzaXg3NW46Iyzwk=; b=OAsSaXPmNKWbDvZAt2FfJrx+NN
+	INUzGPq8N1RuCnmRfnPcnrecc3H2wSuYkENTEjfdewM3VyK/Ta145Y7zhhTcdaWfHXXpYcz4er1Ol
+	mcWZFZtppOyfOt+L0KXOI9MLHQntSMP38xR/IOMzod27BqxmTJ3dGavZmQorAtPvY31bRmcC7eR2i
+	r6WrGUjO46+7E6vTrc4oLURq4lgF7mj56R4Z4997/z2/UrS+zpBcfqAVZISIOszZRRfKMfowKEBET
+	Uc3qFkGmmBCuRfF+DCzrOwDMWB+ho1+Id9Ey2E/MGzXC+x4YZV9DlSG1LhENOUcXRQkxhZ1hDSyHj
+	9KxtPopQ==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tJcG1-00032U-VI; Fri, 06 Dec 2024 18:36:50 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: vkoul@kernel.org, kishon@kernel.org,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ quentin.schulz@cherry.de, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH 1/2] phy: phy-rockchip-samsung-hdptx: annotate regmap
+ register-callback
+Date: Fri, 06 Dec 2024 18:36:49 +0100
+Message-ID: <2287157.Dhsi8hcfAM@diego>
+In-Reply-To: <e6172204-2f3f-4a9c-892c-be85d19ad031@collabora.com>
+References: <20241206103401.1780416-1-heiko@sntech.de>
+ <20241206103401.1780416-2-heiko@sntech.de>
+ <e6172204-2f3f-4a9c-892c-be85d19ad031@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202154742.3611749-7-tabba@google.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_093202_576902_91C43DF6 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20241206_093654_576853_71191BB4 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday 02 Dec 2024 at 15:47:33 (+0000), Fuad Tabba wrote:
->  static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
->  {
-> -	const u64 id_aa64pfr0 = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
-> -	const u64 id_aa64pfr1 = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR1_EL1);
-> -	const u64 id_aa64mmfr1 = pvm_read_id_reg(vcpu, SYS_ID_AA64MMFR1_EL1);
-> +	struct kvm *kvm = vcpu->kvm;
->  	u64 val = vcpu->arch.hcr_el2;
->  
->  	/* No support for AArch32. */
-> @@ -70,25 +68,20 @@ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
->  	 */
->  	val |= HCR_TACR | HCR_TIDCP | HCR_TID3 | HCR_TID1;
->  
-> -	/* Trap RAS unless all current versions are supported */
-> -	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_RAS), id_aa64pfr0) <
-> -	    ID_AA64PFR0_EL1_RAS_V1P1) {
-> +	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
+Am Freitag, 6. Dezember 2024, 12:18:56 CET schrieb Cristian Ciocaltea:
+> On 12/6/24 12:34 PM, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > 
+> > The variant of the driver in the vendor-tree contained those handy
+> > comments in the regmap register callback. Having the different ranges
+> > describe what they are looks helpful.
+> > 
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > ---
+> >  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 14 +++++++-------
+> >  1 file changed, 7 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> > index 4ced1479e2dc..c5c64c209e96 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+> > @@ -766,13 +766,13 @@ static struct tx_drv_ctrl tx_drv_ctrl_hbr2[4][4] = {
+> >  static bool rk_hdptx_phy_is_rw_reg(struct device *dev, unsigned int reg)
+> >  {
+> >  	switch (reg) {
+> > -	case 0x0000 ... 0x029c:
+> > -	case 0x0400 ... 0x04a4:
+> > -	case 0x0800 ... 0x08a4:
+> > -	case 0x0c00 ... 0x0cb4:
+> > -	case 0x1000 ... 0x10b4:
+> > -	case 0x1400 ... 0x14b4:
+> > -	case 0x1800 ... 0x18b4:
+> > +	case 0x0000 ... 0x029c: /* CMN Register */
+> > +	case 0x0400 ... 0x04a4: /* Sideband Register */
+> > +	case 0x0800 ... 0x08a4: /* Lane Top Register */
+> > +	case 0x0c00 ... 0x0cb4: /* Lane 0 Register */
+> > +	case 0x1000 ... 0x10b4: /* Lane 1 Register */
+> > +	case 0x1400 ... 0x14b4: /* Lane 2 Register */
+> > +	case 0x1800 ... 0x18b4: /* Lane 3 Register */
+> >  		return true;
+> >  	}
+> >  
+> 
+> Nice finding!  The HDMI variant of the driver which I used as an
+> implementation reference (i.e. phy-rockchip-samsung-hdptx-hdmi.c)
+> doesn't provide these comments.
 
-I'm admittedly getting a bit lost in the kvm_has_feat() macro maze, but
-should this be:
+yep, those comments were in the displayport variant of the phy-driver ;-) .
+I don't really understand why the vendor tree contains 2 separate drivers
+written by two different people, but at least it looks like we're getting
+one driver in mainline, thanks to Damon's work :-)
 
-	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, V1P1))
 
-to replicate the existing check?
 
->  		val |= HCR_TERR | HCR_TEA;
->  		val &= ~(HCR_FIEN);
->  	}
 
