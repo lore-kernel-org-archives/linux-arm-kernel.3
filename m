@@ -4,85 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8A6E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B68E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GsOvowfLLjNNwGhyFlvSXDZYnGxjPiihM7jqeMZ3c/o=; b=Fi6BNEUIubSId7wqBnW8sZz9pn
-	wjmxSgJT14a+T4EhnB5+sx9M+NPac9OmMtm468oC5TqMzY47YaiL2MerlOSEL3yIwyPmLPyQHRAqK
-	D+T8jVnqSkSlq1jwWb+oOTHn93Pn3fXo+gRe4eE43QtKYqIGnEuPniqKD81dT9dX2LJzMNM5Ypbdj
-	YxbihhfPJ9bxRRSJldA4NvLIbeLL11EXqAmnNchWht4OCL8tg7FrM+MCVrmWzApNw9tdV6WRlJ8/p
-	b8Q/Yq5EhX7JASt96ITOWrCQEBlEZUbp+IwlH5qeW3KedLclrNW8gksSZN0zzTBzVO5tmrq0zA79j
-	icSi3HGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dD23S9LQ2Mbpczg5HL27KcREQdPCgHjvMEc2WpkN0yI=; b=ImAKhScNMg+Q3TnZ8n6bZjC+tq
+	z/YQoRYfMLNh9uXQIuf74P1oVs9G+8nH1gTkcVs/OqnzYq2oGxmn8XPPrxv0XODs0jmeNmmHkuj5g
+	bCh47SZ19kzHLEL0qbNmHh2WgDSB4vGrFgFof71ahKpi6LjAkpVSDURBwuI4X0o81nepbyR5PYQyx
+	jEliGZlN1DNsIqccEqv3QHYPc2AdfvEZaoXFWfCGA8e4j9+6BUbSGIS0ymiZzKXZGZ/CWSoV2oNx1
+	4zlUOWD91h3y43F6Jsh3wZECYnYY7aiL6wSKEBubnTEaC539ORxXLmffIvHqu0JaISMgXCsBCl5/c
+	KrgEYLSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJV4k-00000001AMW-0qzG;
-	Fri, 06 Dec 2024 09:56:42 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1tJV7G-00000001Anl-1p2e;
+	Fri, 06 Dec 2024 09:59:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJV2h-000000019r8-3yoW
+	id 1tJU1E-00000000yWA-2xgz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 09:54:37 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e388503c0d7so1899557276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 01:54:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733478875; x=1734083675; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=GsOvowfLLjNNwGhyFlvSXDZYnGxjPiihM7jqeMZ3c/o=;
-        b=h0tD9RxD2sDEMZKfpMC/h8WtSW4BUF+EXhD95rxS1ukkhRxVsVw/xeBkXis4OCN8ON
-         GZfxc1phNjw2/JekMO/SszEVz3WdlFK4z2mbdb4A7Gwun4pA4sIiQAonAoYsaP7YT9bH
-         ZYG5vrsrsCHO/ms2yknEPxD9tAKnl/ITcZYAstRWRCH/RWKD/O/ahAJ6HMZp4Vu4aCN2
-         jaWEmG7vySI8XsHXvDlb6CItAnTMtGMAaYY+Sq0RXRFHb6YpcY4RsTAHUc8BTMm6vs/Q
-         pY6JwcDEdC8C/y/qSvA7qAHugkFPwt+qiVp8XDgXvz2YcKH2QX3EV8iQzLH4n1/eRthT
-         9Mlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733478875; x=1734083675;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GsOvowfLLjNNwGhyFlvSXDZYnGxjPiihM7jqeMZ3c/o=;
-        b=ntbgtmakM7pQOElRtB9G+GjBSMqhw0GMSZXTWDeqOn7ogkJ7sZPyvptUi8eeYzeL+C
-         cXJJSmsAqRnshpoL97nuph4E/mfvSYvUEakRzW6UTHP2JaQMnULFQ/sbMATYK96RSdOb
-         bbrPheLzijKB1fSfR6BnsSRJv1TmAj3e5kVfO+e6Ex07GL7mxHmbqONSguO7DVodiEoH
-         tQ4BxkllR66PW9mRf+6XbJ1l8+quOmltw/avFW5g+KcGoeuIUmZ+4aH+7F9yhpQIvOA0
-         d3ZsziYI5hI0ExIha8eQ1eEvJfsZ5ImKeRaU5q4lcTqDwuSRsZT55i2hAbSj0LZ19bF3
-         +0zg==
-X-Forwarded-Encrypted: i=1; AJvYcCXKlgrKYuXF1d0tXXqcEB3uH4Jddct5rvA+0D8K+QYAobvCtkloIQJB5qXZ3Fu4NSZcv7KD7Ta7FYm/igQ2RPfu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxF81A8j+YgpnJ2SpLjryiFTZP2cCGaoFALPagk7lHOe5hHDpTX
-	J4yiN8vESjIE6Mmtb/Clmn12vyEm/qXk8CANzrlzdarjY8jHVp8tauntUWYhn7nHB3gm/0Q3R2e
-	/hZHC+HbPD5TzvaS+wDmPv+E9WLPXVcisb+qawA==
-X-Gm-Gg: ASbGncu1v2nOtW8nxkNajKTlogMxx9sbfpJTNJJ7OWzxc55ZABBUAffxRg0toaBRIWE
-	Q2k07Cr8CtTugxkl6Ihv6Y4R85DyL0F7r
-X-Google-Smtp-Source: AGHT+IG2PPzmCv1pgcSI90k5Rm9y9v17QaBnFLGhMJzvsqYhGx2gb2GCPvaJ4EvSx5NnUUYyYVZdxWz2xiUdxk4w8+w=
-X-Received: by 2002:a05:6902:248a:b0:e39:8174:7f2c with SMTP id
- 3f1490d57ef6-e3a0b4d09d5mr1967202276.46.1733478874767; Fri, 06 Dec 2024
- 01:54:34 -0800 (PST)
+	Fri, 06 Dec 2024 08:49:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02CD8A440A8;
+	Fri,  6 Dec 2024 08:47:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F3B2C4CED1;
+	Fri,  6 Dec 2024 08:48:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733474939;
+	bh=aoEdMQVRDm62MFwU7+GmBXr5pYnwEby46sw7PqYogLk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EcN78dvShJ/8mD3gXzP2sahPpgGZGuuRJIZHjcBDPHQu3c6BGAjVwJqFdNuOdEL6D
+	 iUfcc4cLeRLLH+mNxi6kOv2NQWYN/SMvprkQ/vN+gHXQL/LQYJwWTG5TivN6brisGj
+	 1oRsasYcTsJnI0ydTKjcPeLuUWyNMzeh5gXNFcl0qF3oIU4DwpAFtizoZ8MtJk4M+6
+	 7bu04siKCwmE8jdlrEE8obHiYZqc/i7IhQkj9ylcW0HtOQmqkSAkhiVqmGrCK7VSOi
+	 yifQrAhk18qnU7OM/mZtkRiTB+UtBuHWizixdkrH0giW8NljXp1r0zAfqXKkAcohkT
+	 Ga2i0etFXewcw==
+Message-ID: <510e826d-a434-437d-8d2e-3f2618c28b7f@kernel.org>
+Date: Fri, 6 Dec 2024 09:48:53 +0100
 MIME-Version: 1.0
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <CAPDyKFpGrw+vOs=-TxfChBeORjzkpaL_iVB08MtmaC4sFNKzcg@mail.gmail.com> <72add0ff-db2a-44f8-b4af-0b5fe5f65f20@oss.qualcomm.com>
-In-Reply-To: <72add0ff-db2a-44f8-b4af-0b5fe5f65f20@oss.qualcomm.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 6 Dec 2024 10:53:59 +0100
-Message-ID: <CAPDyKFq5+HWmHK4E4ERx1rb8O4mubHGqRHP8AAiq2KyZyX1GSQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on pre-SYSTEM_SUSPEND
- PSCI impls
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Maulik Shah <quic_mkshah@quicinc.com>
-Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/1] arm64: dts: exynosautov920: add watchdog DT node
+To: Taewan Kim <trunixs.kim@samsung.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, Byoungtae Cho <bt.cho@samsung.com>
+References: <20241206025139.2148833-1-trunixs.kim@samsung.com>
+ <CGME20241206025156epcas2p4c55f230accc4354e6f4bf324ab9a5833@epcas2p4.samsung.com>
+ <20241206025139.2148833-2-trunixs.kim@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241206025139.2148833-2-trunixs.kim@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_015436_000749_CFC1E5C1 
-X-CRM114-Status: GOOD (  42.37  )
+X-CRM114-CacheID: sfid-20241206_004900_901728_61C658A9 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,120 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Maulik, Vincent
+On 06/12/2024 03:51, Taewan Kim wrote:
+> From: Byoungtae Cho <bt.cho@samsung.com>
+> 
+> Adds two watchdog devices for ExynosAutoV920 SoC.
+> 
+> Signed-off-by: Byoungtae Cho <bt.cho@samsung.com>
+> Signed-off-by: Taewan Kim <trunixs.kim@samsung.com>
+> ---
+>  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 20 +++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> index c759134c909e..7b9591255e91 100644
+> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> @@ -183,6 +183,26 @@ cmu_misc: clock-controller@10020000 {
+>  				      "noc";
+>  		};
+>  
+> +		watchdog_cl0: watchdog@10060000 {
 
-On Thu, 5 Dec 2024 at 21:34, Konrad Dybcio
-<konrad.dybcio@oss.qualcomm.com> wrote:
->
-> On 14.11.2024 4:30 PM, Ulf Hansson wrote:
-> > On Mon, 28 Oct 2024 at 15:24, Konrad Dybcio <konradybcio@kernel.org> wrote:
-> >>
-> >> Certain firmwares expose exactly what PSCI_SYSTEM_SUSPEND does through
-> >> CPU_SUSPEND instead. Inform Linux about that.
-> >> Please see the commit messages for a more detailed explanation.
-> >>
-> >> This is effectively a more educated follow-up to [1].
-> >>
-> >> The ultimate goal is to stop making Linux think that certain states
-> >> only concern cores/clusters, and consequently setting
-> >> pm_set_suspend/resume_via_firmware(), so that client drivers (such as
-> >> NVMe, see related discussion over at [2]) can make informed decisions
-> >> about assuming the power state of the device they govern.
-> >
-> > In my opinion, this is not really the correct way to do it. Using
-> > pm_set_suspend/resume_via_firmware() works fine for x86/ACPI, but not
-> > for PSCI like this. Let me elaborate. If the NVMe storage device is
-> > sharing the same power-rail as the CPU cluster, then yes we should use
-> > PSCI to control it. But is that really the case? If so, there are in
-> > principle two ways forward to deal with this correctly.
-> >
-> > 1) If PSCI OSI mode is being used, the corresponding NVMe storage
-> > device should be hooked up to the CPU PM cluster domain via genpd and
-> > controlled as any other devices sharing the cluster-rail. In this way,
-> > genpd together with the cpuidle-psci-domain can decide whether it's
-> > okay to turn off the cluster. I believe this is the preferred way, but
-> > 2) would work fine too.
-> >
-> > 2) If PSCI PC mode is being used, a separate channel/interface to the
-> > FW (like SCMI or rpmh in the QC case), should inform the FW whether
-> > NVMe needs the power to it. This information should then be taken into
-> > account by the PSCI FW when it decides what low-power-state to enter,
-> > which ultimately means whether the cluster-rail can be turned off or
-> > not.
->
-> This assumes PSCI only governs the CPU power rail. But what I'd
-> guesstimate is that in most implementations if system-level suspend is
-> there at all (no matter through which call), as per the spec, it at
-> least also projects onto the DDR power state (like in this i.mx
-> impl here [1]), or some uncore peripherals (like in Tegra's case with
-> some secure element being toggled at [2])
+You need to do careful rebase, not just accept whatever tools shown you.
 
-Right, I certainly understand the above. There are different parts of
-an SoC that may be sharing the same power-island as the CPUs.
+This is now placed in incorrect order - not keeping sorting by unit address.
 
-The question here is whether the NVMe storage device is part of that
-power-island too on some QC SoCs?
-
->
-> > Assuming PSCI OSI mode is used here. Then if 1) doesn't work for you,
-> > please elaborate on why, so we can help to make it work, as it should.
->
-> On Qualcomm platforms, RPMh is the central authority when it comes
-> to power governance, but by design, the CPUs must be off (and with a
-> specific magic cookie) for the RPMh hardware to consider powering off
-> very power hungry parts of the system, such as general i/o rails.
-
-Right, that is why the "qcom,rpmh-rsc" device in many cases belongs to
-the cluster-power-domain (for PSCI). This allows "qcom,rpmh-rsc" to
-control the "last-man" activities and prevent deeper PSCI states
-if/when necessary.
-
->
-> So again, PSCI must be fed a specific value for the rest of the hw
-> to react. The "S2RAM state" isn't really a cpuidle state, because
-> it doesn't differ from many shallower states as far as the cpu/cluster
-> are concerned. If that all isn't in place, the platform never actually
-> enters any "real" sleep state, other than "CPU and some controllable
-> IP blocks are runtime-suspended".
-
-We recently discussed this, offlist, with Maulik - and I think we need
-some more clarity around what is actually going on here.
-
-In principle, it looks to me that using S2I with just another deeper
-idlestate specified (with another psci-suspend-parameter, representing
-a deeper state) should work fine, at least theoretically. Of course,
-we may not be able to use that idlestate during regular
-cpuidle/runtime but only during S2I, which we need to control in a
-smooth way and that is not currently supported (but can be fixed
-easily, I think).
-
-In the end, it's the psci-suspend-parameter that is given to the PSCI
-FW that informs about what state we can enter.
-
-That said, using S2I may not work without updating the PSCI FW, of
-course. For example, there may be FW limitations that require the
-boot-CPU( CPU0) to be the last one for these deeper low-power-states.
-Whether that is just a FW limitation or whether there are some
-additional HW constraints that enforce this, needs to be clarified.
-
->
-> This effectively is very close to what ACPI+x86 do - there's a
-> co-processor/firmware that does a lot of things behind your back and
-> all you can do is *ask* it to change some handwavily-defined P/Cstate
-> that affects a huge chunk of silicon.
-
-Yep, there are similarities.
-
-However, ACPI is for generic device power management. PSCI requires
-something additional, such as ARM SCMI or QC's rpm/rsc interface.
-
->
-> Konrad
->
-> [1] https://github.com/nxp-imx/imx-atf/blob/lf_v2.6/plat/imx/imx8m/imx8mp/imx8mp_lpa_psci.c#L474
-> [2] https://github.com/ARM-software/arm-trusted-firmware/blob/master/plat/nvidia/tegra/soc/t210/plat_psci_handlers.c#L214
->
-
-Kind regards
-Uffe
+Best regards,
+Krzysztof
 
