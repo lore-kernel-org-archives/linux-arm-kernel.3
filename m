@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C445E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F9DE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=18q4gQOuDIplzBrBAcJFu0OAO0g8UI+mX4z+LvhVWHM=; b=zoZTa2lc6mnNTi
-	aqWFJiKNdmH+8eVs9ZlJhqb1kwrB1H7zby+2zmPksrLvdNYCNOMn/NqmpmbOk40NElYR/z2j2IZOn
-	MiSqdq+Op5tfISEsMX4sxYmtsZlmzLpeFIOu62FHEiI9I6ZGnzuj78/Y1e99XX6IwZM8DCoJgtk0L
-	6jADv/Nboqpc40HXQEUihEEaRfqFdLXUahBR9En0PQUmdk7yTgebAErJr+eSJ7MQPTJ6SpbA6LScn
-	3HYDc8PFkfyvgI1vn7/okVffxb6FaFSEb85iXP2oFOKpUb2S2vYngaqU5BhvNzGUhCT1YzKoNtma1
-	oLzLM1yaDUaaBBUOQqZA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VnGo6ZNwboubgG4PK3zPxjFnyRb2ICdQLCcJ6lGvxCQ=; b=fJfI84Ky8yVOHzJf90lPF5SX0L
+	oALVFZRRo2Jv1afjOzAo1nZcwN3GUiFBAov8zRT406wSnmpMUAcV/0j/hiAyKNpgUW5Y3irSVTO6Q
+	4IioMNAWDYQCK6GfcEg50AZyrRWMZ1+lj1HGsh0mVS6OHHPo/gDPc1kH0Lu0DPYyCOAfAyURLrbFI
+	SIB5JiHAq2RtWq1NK1O8s90yEk4VE5yZ1q4LaSef3X8bR5CzXs/oqXuI0GrFeFaJelsCG0HL2eNQy
+	YJWXrrTyCkeK9fTiMTsy3O+4zH7RNw861rtsZ0Ri+m5cRbo+IIYswNwQDKcLf5An67NEEDTzCHS7R
+	WVeJH8Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUsm-000000017xD-3yq5;
-	Fri, 06 Dec 2024 09:44:20 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tJUtm-000000018De-2UZf;
+	Fri, 06 Dec 2024 09:45:22 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUrj-000000017U8-3L0y
+	id 1tJUrk-000000017UF-3aYL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 09:43:17 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2ffa974b2b0so16798411fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 01:43:14 -0800 (PST)
+	Fri, 06 Dec 2024 09:43:18 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2ffc1009a06so15202711fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 01:43:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733478193; x=1734082993; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=18q4gQOuDIplzBrBAcJFu0OAO0g8UI+mX4z+LvhVWHM=;
-        b=v5ikNgcyQ5xTBiZakbVjuE9BijBn05W2uNrR4YfcIDDvvTu1U/nb2RLMbVVecOqIlC
-         cDSQTm90fXPKOlbCrQkI8zBY5D+5MfnoiYnneaVMU7KH9EcOALnJYR+Y6bhEwVI5Ac7R
-         cc6KxmPsVzYyYJ9tH710a39aPciE3WzAtLisQW4Je+iWHrVSgRCYa3ZB+a3njIjgRh44
-         FuuwIq1mHewgzBkCb2s6XnQ9Yw/pKRmaGky3XNUc8Z08kj17ftgVGrIZ5f16JAMMqBxH
-         +cL0lGCc7GbGZYlsvQzZtZKA3Dzt8cosPIxf1LUsMl3SZwJWnIKcPBhxajK2PcH52y5O
-         1d0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733478193; x=1734082993;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1733478195; x=1734082995; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=18q4gQOuDIplzBrBAcJFu0OAO0g8UI+mX4z+LvhVWHM=;
-        b=Iu21sUSer/1n2fWX5gsfPhUP0jv1bQX2zWXSnkqAgok85Gaz+z+SuQ1WJhKFGcRoeE
-         ZfSssmo8dUORtjCarDTzDzqhlb+CM/78r8RthhW4BtTLjVsrfC4LwcdtO6HzR+gaP1VO
-         ZSr75NVtsFpXT2t4J6pCtiK7voE4OzKnwp5IjqWrBqVWdgLeDOK4LnvdeJAPOb//DnId
-         0ArfWZaJ9sjRFd9Ts7b90PwoUN6vQJ7yKM9nRZNUYXPhxvX9Bl30ksYEcA6kZpbJN3xu
-         d7tXI0X69JJTsdLEBplYnOk0vKzaCBflzGUnM/wjYjEKAUL/BODlNbhyNX9cFIQ1s+xv
-         lPlg==
-X-Forwarded-Encrypted: i=1; AJvYcCUUtsRouJNRbkyUgn/nq2K++CUamhmIB9MrDSgO7L5MJf7kzxpBhFdEXMe8YIyrMMa7lS5yzQma0aLQeBeohkI1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+2IzOEXzJOfA6HYE7T8Syk0buDb0QwPSvDA6P1aVucUsfhA/3
-	2PkRIncaP/PBtyFbfVkZZxx8z6FlWVV7gV31AcKnXzFOBqR9f3G6cDevjuRKEtQ=
-X-Gm-Gg: ASbGncsgurA1+SRopWPtgvU0wObxAvglTJ3iYneGhRbrZy1JsK/61QYFz73mRpxVmqZ
-	+IhNTvU2+bZ33xWLEyCE7GoI4+gZF4+fZFhkXqkSZn0ckynoSaO6w37kc2fOAxJ1y/kaX8rs68o
-	TfQKl3n1D9wsRRxwmnSIc7G5R8LOe7OgS5GuG63Rw6b8Xhh08LYkXfvecjs7Ns4ofFAJjMGwKFD
-	brkIS2sjXw+rpSwZc1cZ61Jn4WwOOSRGrnyaUNqvs0AlCuAAo7h8I1S3A==
-X-Google-Smtp-Source: AGHT+IFlB2fuiknxBNErzknuRXx+qDTK7wodKTCgdmP8ceAx91Mtj3NnTnnSwVI5/Dq661IKM0tfTg==
-X-Received: by 2002:a05:651c:b2b:b0:2ff:a5cc:3ede with SMTP id 38308e7fff4ca-3002f8aaa07mr7238681fa.6.1733478193192;
-        Fri, 06 Dec 2024 01:43:13 -0800 (PST)
+        bh=VnGo6ZNwboubgG4PK3zPxjFnyRb2ICdQLCcJ6lGvxCQ=;
+        b=Uz/RSjy5LZi4vTJM5W0FK6YDK5vVuMobzjzi4lgbf/P1AxLewdu4Z8vvZELXJ0relM
+         RsXru+qIgz1i1wJ15xIfHugxPVR2T9KX7bNb9msdopHCKHpQ3lNdUi8p3i911AQd0/OI
+         /tiwi6lpdo5ZPxr1mPkp/mlIltPpNMp1Hfc207oS+4mkCbrCrMlLKNSBhauA9/2UL6zR
+         0mdRRnPtnSwfoLjA/gWVsSYPRP1WJM6Sn5kgMemf3k5wEA3Ogy8KH59kBsLNyGjUq56o
+         DcEQMQrRAIs1qw8SFjQwchaYzJHqeRPE1SIDZ0B9wPqSWEBHn/EptYGSQePMq59d9AED
+         IBLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733478195; x=1734082995;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VnGo6ZNwboubgG4PK3zPxjFnyRb2ICdQLCcJ6lGvxCQ=;
+        b=U1slkOL+p0AE/4zVqQR5dc9HUF//5APoxR7Au9tG2PQPaHThgU8i6/4Ct3F7PSh1aJ
+         2M3FiguvPjWVUi0Slnan7nWAS+ZcfcY+1NczLq02nv1oxIlgXeemArwI95JMyPTaGVen
+         RBtOWr9+ovqC5Dbw4C2WbK4QcFdHu7dgNJ+y5T8Xb06vfpBcDYC0mB7PqetM5HIe09I2
+         jfzCBxAShFlTyO0LhcD/En+6+bhueznO08cEI8U4pZhrYUzEcrtu81yKGYNHSV6rpoGI
+         9RCpd1Pgx6Ei8uL+fW5KW0pd7JJpNU9JJ6Dhc0ol2AWiWRD6ERF9ocWewQgbdv+Yv1eR
+         lwpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDlrHelpdRFYxuJErPZ0yg44IPjq5+4MxANOAWnad9/9edJXmU8RxI8f9LM0+2SSZsejiW/gKLG/sQaR50uK9r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQDqykU2yB2Y6fOkPB6fzLQYx3oaWRmhlnP/43ZTUTaf8PvsZT
+	oleYjF35mbzNck/lgyR+dMLBWlfZVFV+aBIzLGvIL0wcqEzIk/GdWEyPpAri/sg=
+X-Gm-Gg: ASbGnctKBejJt8k2zKN1CZsneerdHe937LaIgoFlg9kj6P5t1L45Zf8FbCt4oN1pZIz
+	FdXAF6b8UtWiF2GjdO6ngz6Uy3n2DxuR59yWYHwE96JLAuA+fKnubiwcCFk/zLgpvHsQIbe3+/f
+	K4TZ+PDte43oDWDDRZOqL2IE0pC34ApGsQDcqop9yuXNPwNM2tXQoMTOtZh7ag9j4vvkjX2lwmQ
+	ZiShKY1EFV6vzYAPSJbw1PNcXMjef+d4uLo26xF9fUaOnMxd9MVHGRzZA==
+X-Google-Smtp-Source: AGHT+IHOfIBmoyEolZXZdyLfUjfRu7LK9x/y6e2NRNb0G1IfVvxWYDXdxw9kGPS8sm9OVNX+a5FRXQ==
+X-Received: by 2002:a2e:bea8:0:b0:2ff:df01:2b43 with SMTP id 38308e7fff4ca-3002f8aaef2mr6873121fa.18.1733478194869;
+        Fri, 06 Dec 2024 01:43:14 -0800 (PST)
 Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30020db3805sm4128441fa.50.2024.12.06.01.43.11
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30020db3805sm4128441fa.50.2024.12.06.01.43.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 01:43:11 -0800 (PST)
+        Fri, 06 Dec 2024 01:43:13 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Subject: [PATCH v2 00/10] drm/connector: add eld_mutex to protect
- connector->eld
-Date: Fri, 06 Dec 2024 11:43:03 +0200
-Message-Id: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
+Date: Fri, 06 Dec 2024 11:43:04 +0200
+Subject: [PATCH v2 01/10] drm/connector: add mutex to protect ELD from
+ concurrent access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACfHUmcC/4WNQQqDMBBFryKz7pQkGrFd9R7FRRqnOqBJmVixi
- Hdv6gW6+fA+vP83SCRMCa7FBkILJ44hgzkV4AcXekLuMoNRptJGaexkQh9DID9HQRo7nN4zrdi
- 48uJKSzkayPZL6MnrsXxvMw+csvA5jhb9a/9vLhoVPpytXW0r61V5Gzk4iecoPbT7vn8BhEyW3
- L8AAAA=
-X-Change-ID: 20241201-drm-connector-eld-mutex-8a39a35e9a38
+Message-Id: <20241206-drm-connector-eld-mutex-v2-1-c9bce1ee8bea@linaro.org>
+References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
+In-Reply-To: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -110,23 +108,23 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
  intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, Jani Nikula <jani.nikula@intel.com>
+ freedreno@lists.freedesktop.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2527;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3318;
  i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=/vOUm2QLF9KTC3t0lXMssols8AsbLs9YQ26k7XYzTjU=;
- b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ3rQcV3/Ndz5pfcma9y/9rZALvb68aKcpQ1RgqeV82p+B
- oaVTIjoZDRmYWDkYpAVU2TxKWiZGrMpOezDjqn1MINYmUCmMHBxCsBEgtvZ/4c9Sqg0ZWr8pqe2
- fkq46C7R7Ij/0hcTXiY8DPrrL7Y/pKL1lvoDK/6HR5alBc0X5Ggz2Jz+bc2f84dlrj4WyjdgnWI
- wLbFsz9v5a1Qdd3iu2stq0ikxlfHztWlGzrHikix2G1iPKsfWnA19s5yxeH1g4QWnF1wa67bc0Z
- KN/LzKudOiv9Ul7W3Zs1sxt00qVB30ruomiS5ayfXM2/NSZuebD+aiptZpF8y0chTMFWd1ly3hW
- Oa6Q+X9pN3MPZPsw/tUuRV2S6WV6Glarp3s9r7EQOPWjoXzwnaJ/c46NqWN4Ujq5JZGX/uZbXkt
- E06rZAWXfTi43uT3vvWcH0J27OkpUHvg2uXdmTT5GNNUAA==
+ bh=3Q5pbMu5lborNDPG00HVqHDspCjjhjGT9968qr3bz9k=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnUsctUfPifOTQ8tgTrVr4NDA9HQHo4lV6wGZ/x
+ 802YkRE+OKJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ1LHLQAKCRCLPIo+Aiko
+ 1YTBB/4+LnnhEaD+gppGgLjgyd7DzGULNQMgJ2hoRulbF1tCZiqhH2JwwQgaiFxKaCK13GN72v/
+ +MlHzrTYbtF24x6wcNLxIFk87u2wdjCt5dO8xqKiiFF4My86VJebVFFgPQmUXcFvMWkWUS3PByj
+ f9McLONHSWPtO0XRW3DbeQ8zzl5cChJhSN8/mkvwrNqq0BkWWOEDxxROis0bi2KSFK0/SBEJ2rN
+ X+RhP/l08plhS1bGyEvzzOyAMvtpjSEsEYXf5mCZGGnypfY+YKJQ1VDkpPcX3/Si3R6D3pZ0Vpw
+ Wfr3vj5voa6Xeg3e/NqY4k/PPQjahgFQwpQeJMdgalo1w5Zq
 X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_014315_860332_35E916B6 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241206_014316_898398_8E6C3591 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,52 +142,81 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The connector->eld is accessed by the .get_eld() callback. This access
 can collide with the drm_edid_to_eld() updating the data at the same
 time. Add drm_connector.eld_mutex to protect the data from concurrenct
-access.
+access. Individual drivers are not updated (to reduce possible issues
+while applying the patch), maintainers are to find a best suitable way
+to lock that mutex while accessing the ELD data.
 
-The individual drivers were just compile tested. I propose to merge the
-drm_connector and bridge drivers through drm-misc, allowing other
-maintainers either to ack merging through drm-misc or merging the
-drm-misc into their tree and then picking up correcponding patch.
-
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
-Changes in v2:
-- Also take the mutex in clear_eld() (Jani)
-- Rebased on top of linux-next + drm-misc-next to solve build error
-- Link to v1: https://lore.kernel.org/r/20241201-drm-connector-eld-mutex-v1-0-ba56a6545c03@linaro.org
+ drivers/gpu/drm/drm_connector.c | 1 +
+ drivers/gpu/drm/drm_edid.c      | 6 ++++++
+ include/drm/drm_connector.h     | 5 ++++-
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
----
-Dmitry Baryshkov (10):
-      drm/connector: add mutex to protect ELD from concurrent access
-      drm/bridge: anx7625: use eld_mutex to protect access to connector->eld
-      drm/bridge: ite-it66121: use eld_mutex to protect access to connector->eld
-      drm/amd/display: use eld_mutex to protect access to connector->eld
-      drm/exynos: hdmi: use eld_mutex to protect access to connector->eld
-      drm/i915/audio: use eld_mutex to protect access to connector->eld
-      drm/msm/dp: use eld_mutex to protect access to connector->eld
-      drm/radeon: use eld_mutex to protect access to connector->eld
-      drm/sti: hdmi: use eld_mutex to protect access to connector->eld
-      drm/vc4: hdmi: use eld_mutex to protect access to connector->eld
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index fc35f47e2849ed6786d6223ac9c69e1c359fc648..bbdaaf7022b62d84594a29f1b60144920903a99a 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -277,6 +277,7 @@ static int __drm_connector_init(struct drm_device *dev,
+ 	INIT_LIST_HEAD(&connector->probed_modes);
+ 	INIT_LIST_HEAD(&connector->modes);
+ 	mutex_init(&connector->mutex);
++	mutex_init(&connector->eld_mutex);
+ 	mutex_init(&connector->edid_override_mutex);
+ 	mutex_init(&connector->hdmi.infoframes.lock);
+ 	connector->edid_blob_ptr = NULL;
+diff --git a/drivers/gpu/drm/drm_edid.c b/drivers/gpu/drm/drm_edid.c
+index 855beafb76ffbecf5c08d58e2f54bfb76f30b930..13bc4c290b17d556d654b7cdd8c48c24a32aba9c 100644
+--- a/drivers/gpu/drm/drm_edid.c
++++ b/drivers/gpu/drm/drm_edid.c
+@@ -5605,7 +5605,9 @@ EXPORT_SYMBOL(drm_edid_get_monitor_name);
+ 
+ static void clear_eld(struct drm_connector *connector)
+ {
++	mutex_lock(&connector->eld_mutex);
+ 	memset(connector->eld, 0, sizeof(connector->eld));
++	mutex_unlock(&connector->eld_mutex);
+ 
+ 	connector->latency_present[0] = false;
+ 	connector->latency_present[1] = false;
+@@ -5657,6 +5659,8 @@ static void drm_edid_to_eld(struct drm_connector *connector,
+ 	if (!drm_edid)
+ 		return;
+ 
++	mutex_lock(&connector->eld_mutex);
++
+ 	mnl = get_monitor_name(drm_edid, &eld[DRM_ELD_MONITOR_NAME_STRING]);
+ 	drm_dbg_kms(connector->dev, "[CONNECTOR:%d:%s] ELD monitor %s\n",
+ 		    connector->base.id, connector->name,
+@@ -5717,6 +5721,8 @@ static void drm_edid_to_eld(struct drm_connector *connector,
+ 	drm_dbg_kms(connector->dev, "[CONNECTOR:%d:%s] ELD size %d, SAD count %d\n",
+ 		    connector->base.id, connector->name,
+ 		    drm_eld_size(eld), total_sad_count);
++
++	mutex_unlock(&connector->eld_mutex);
+ }
+ 
+ static int _drm_edid_to_sad(const struct drm_edid *drm_edid,
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index e3fa43291f449d70f3b92a00985336c4f2237bc6..1e2b25e204cb523d61d30f5409faa059bf2b86eb 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -2001,8 +2001,11 @@ struct drm_connector {
+ 	struct drm_encoder *encoder;
+ 
+ #define MAX_ELD_BYTES	128
+-	/** @eld: EDID-like data, if present */
++	/** @eld: EDID-like data, if present, protected by @eld_mutex */
+ 	uint8_t eld[MAX_ELD_BYTES];
++	/** @eld_mutex: protection for concurrenct access to @eld */
++	struct mutex eld_mutex;
++
+ 	/** @latency_present: AV delay info from ELD, if found */
+ 	bool latency_present[2];
+ 	/**
 
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
- drivers/gpu/drm/bridge/analogix/anx7625.c         | 2 ++
- drivers/gpu/drm/bridge/ite-it66121.c              | 2 ++
- drivers/gpu/drm/drm_connector.c                   | 1 +
- drivers/gpu/drm/drm_edid.c                        | 6 ++++++
- drivers/gpu/drm/exynos/exynos_hdmi.c              | 2 ++
- drivers/gpu/drm/i915/display/intel_audio.c        | 3 +++
- drivers/gpu/drm/msm/dp/dp_audio.c                 | 2 ++
- drivers/gpu/drm/radeon/radeon_audio.c             | 2 ++
- drivers/gpu/drm/sti/sti_hdmi.c                    | 2 ++
- drivers/gpu/drm/vc4/vc4_hdmi.c                    | 4 ++--
- include/drm/drm_connector.h                       | 5 ++++-
- 12 files changed, 30 insertions(+), 3 deletions(-)
----
-base-commit: 84e541b1e58e04d808e1bb13ef566ffbe87aa89b
-change-id: 20241201-drm-connector-eld-mutex-8a39a35e9a38
-
-Best regards,
 -- 
-Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+2.39.5
 
 
