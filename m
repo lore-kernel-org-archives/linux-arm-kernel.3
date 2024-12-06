@@ -4,60 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C31E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 08:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BE5E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 08:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DjwmTo1bI7sOlX9rvb+Omot+RneXBZJwhT76OAJOaKc=; b=MaxX0n1RdJb+199Bi352TEyuxE
-	3fMa+zZLC0wwooHXjJaZ84eGYQvGVXoithQSzmNsO+bBVO1Zv2vFcJhUSXlL3kf54uzLMRCifRWm3
-	Rw4vvo4FJozWenIG93XAcnFLcN2OTPJD/rtcwI+6/8qnxXTxXTt+GhVq9dBOoJnANtkEMjh9mWf3/
-	hbNTH3njOCop7WgiIlPJdAst8VyWQCgDPKBIdFqzamkltZx9inhEhu0+dyISKCOlzzOZzeOJLajY7
-	N+JNTxkc/v4NWz0/gOLFTDz7RXkdulEePW7gbwLvMG2/u66fRg9MJarv3gMY6ltFpzngrIYKK/0Gp
-	F3DKCA8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WmL6atBY7nBTDEYe5VOTVwrRPR/hjoSKjtcblrbJp48=; b=SU02xhsThISuVYIEkSVxWCeXrF
+	DUwts7Mq56BQqlxRrdoEKtTD2fZMa5VGATDcofmm9df8M9/fhwvJP9zIdVciOlwEmUA365u8UYK4F
+	Sf6VJDYCTkyDIJ8VVHsTrydI2x7LXz0RQRx6+qPTsvAH0eBy8/nFn1B/ZFY+WKhrjyihG+4vjLib+
+	WRuQR0Imv+8kvVyliK8bhjC5G5Llyw1ORsam4SddD6sBGd05cnicNXxONIkbtrNsvqyZHTwTeF6e6
+	/QRmJB9f2ccOs8V7ZXVf+iuoJhqfpS9f8u/RBeGCwmPHvE4yNJ451pI9AwbDbFMyGrzmkbdRDDcVY
+	o5Dbed5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJTiF-00000000v7L-15Rc;
-	Fri, 06 Dec 2024 08:29:23 +0000
-Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
+	id 1tJTji-00000000vTs-45E0;
+	Fri, 06 Dec 2024 08:30:54 +0000
+Received: from mx-2023-1.gwdg.de ([134.76.10.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJThD-00000000uuq-2P3C
+	id 1tJTih-00000000vEz-1I0D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 08:28:21 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:9701:674a:6aea:a85b])
-	by xavier.telenet-ops.be with cmsmtp
-	id lLUC2D00a0YidY701LUCQk; Fri, 06 Dec 2024 09:28:13 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tJTh5-000Oma-RK;
-	Fri, 06 Dec 2024 09:28:12 +0100
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tJTh1-00FqMu-H0;
-	Fri, 06 Dec 2024 09:28:07 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: =?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] i2c: nomadik: Add missing sentinel to match table
-Date: Fri,  6 Dec 2024 09:28:06 +0100
-Message-Id: <34b6ee90437fe19526d9388f2f304d175596cb1f.1733473582.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.34.1
+	Fri, 06 Dec 2024 08:29:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
+	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=WmL6atBY7nBTDEYe5VOTVwrRPR/hjoSKjtcblrbJp48=; b=KWJu4wXDZw+s4IkELcE+exNIeZ
+	SSo0m2yaeNsmhbPZ/oLP7GOATxwz7756YrzY/6ZzOA5zBYnOlu2Yu36iTkpnzVQWMtsW6/+cxzj2L
+	hg8YLCgjuS/cDVZrBtXMwChRB4vNOv9dB6kbl0VmRdwGodFNdR7dZ3QfjkFhS6wwqFo5atfqdn5R0
+	mbT2KC1xNWSUYVxPBPlvRqs+9FV5mVo5p3a4bxxzy39ysEiDj/Zx2O5MN/KXu6KVUO2Q8obIYG4ie
+	t2ujGmBVLU95hhmHHIiTp3CUnhGeCaBw7BPwKVyaaRchWBvpNHsXLVIInXkY10ea1lCpbW0ze0sQr
+	TniQO75Q==;
+Received: from xmailer.gwdg.de ([134.76.10.29]:54345)
+	by mailer.gwdg.de with esmtp (GWDG Mailer)
+	(envelope-from <muecker@gwdg.de>)
+	id 1tJTiS-003wlj-1W;
+	Fri, 06 Dec 2024 09:29:36 +0100
+Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
+	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(GWDG Mailer)
+	(envelope-from <muecker@gwdg.de>)
+	id 1tJTiS-000Hhh-1B;
+	Fri, 06 Dec 2024 09:29:36 +0100
+Received: from vra-171-192.tugraz.at (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
+ (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Fri, 6 Dec
+ 2024 09:29:34 +0100
+Message-ID: <c5e037ab5a5718dfba9d1c8c8b57ee53765a851b.camel@gwdg.de>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+From: Martin Uecker <muecker@gwdg.de>
+To: Linus Torvalds <torvalds@linux-foundation.org>, David Laight
+	<David.Laight@aculab.com>
+CC: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Luc Van Oostenryck
+	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
+ Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
+	<jani.nikula@linux.intel.com>, Joonas Lahtinen
+	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
+	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
+	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
+	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
+	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
+	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Date: Fri, 6 Dec 2024 09:29:28 +0100
+In-Reply-To: <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+	 <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+	 <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+	 <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+	 <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.250.9.200]
+X-ClientProxiedBy: MBX19-GWD-06.um.gwdg.de (10.108.142.59) To
+ MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
+X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:5, sv:1733459541, ts:1733473776
+X-Virus-Scanned: (clean) by clamav
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_002819_748041_E55CB145 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241206_002951_386587_CCF3514A 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +115,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OF match table is not NULL-terminated.
-Fix this by adding a sentinel to nmk_i2c_eyeq_match_table[].
+Am Donnerstag, dem 05.12.2024 um 22:14 -0800 schrieb Linus Torvalds:
+> On Thu, 5 Dec 2024 at 18:26, David Laight <David.Laight@aculab.com> wrote=
+:
+> >=20
+> > From: Vincent Mailhol
+> > > ACK. Would adding a suggested--by Linus tag solve your concern?
+>=20
+> I'm genberally the one person who doesn't need any more credit ;)
+>=20
+> > I actually suspect the first patches to change __is_constexpr() to
+> > use _Generic were from myself.
+>=20
+> Yes. And David was also I think the one who suggested something else
+> than "!!" originally too.
+>=20
+> I may have liked "!!" for being very idiomatic and traditional C, but
+> there were those pesky compilers that warn about "integer in bool
+> context" or whatever the annoying warning was when then doing the
+> "multiply by zero" to turn a constant expression into a constant zero
+> expression.
+>=20
+> So that
+>=20
+>   #define is_const(x) __is_const_zero(0 * (x))
+>=20
+> causes issues when 'x' is not an integer expression (think
+> "is_const(NULL)" or "is_const(1 =3D=3D 2)".
+>=20
+> Side note: I think "(x) =3D=3D 0" will make sparse unhappy when 'x' is a
+> pointer, because it results that horrid "use integer zero as NULL
+> without a cast" thing when the plain zero gets implicitly cast to a
+> pointer. Which is a really nasty and broken C pattern and should never
+> have been silent.
 
-Fixes: a0d15cc47f29be6d ("i2c: nomadik: switch from of_device_is_compatible() to of_match_device()")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/i2c/busses/i2c-nomadik.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
-index efb33802804fdde8..d2877e4cc28d42c9 100644
---- a/drivers/i2c/busses/i2c-nomadik.c
-+++ b/drivers/i2c/busses/i2c-nomadik.c
-@@ -1075,6 +1075,7 @@ static const struct of_device_id nmk_i2c_eyeq_match_table[] = {
- 		.compatible = "mobileye,eyeq6h-i2c",
- 		.data = (void *)NMK_I2C_EYEQ_FLAG_32B_BUS,
- 	},
-+	{ /* sentinel */ }
- };
- 
- static int nmk_i2c_probe(struct amba_device *adev, const struct amba_id *id)
--- 
-2.34.1
+BTW: I added '-Wzero-as-null-pointer-constant' to GCC 15.
+
+Hopefully we can also remove / deprecate this for C2Y.
+
+Martin
+
+>=20
+> I think David suggested using ((x)?0:0) at some point. Silly
+> nonsensical and complex expression, but maybe that finally gets rid of
+> all the warnings:
+>=20
+>      #define is_const(x) __is_const_zero((x)?0:0)
+>=20
+> might work regardless of the type of 'x'.
+>=20
+> Or does that trigger some odd case too?
+
 
 
