@@ -4,110 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D09E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA351E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8TXl6zc2x9wr3hGp8Wkq7mrYvv14H9MajeE4l2soGU=; b=R/o6hNvjgZpC+PVKlUcmQgRblW
-	D7npCnCQsCAiNrG+yPK9M2lmEZOoigq2/+36gVGxnQ+MjgnYU6oYP0BENu2jtOEO+IBCHJCYeAaAi
-	kpLzKao+IcGEwDLqldLXCrR944Tq1x0RviVBi6I0ppVMK0sSK0IO7k/oyxS9BAwgHK0+Wp7T/p0WC
-	FZ9A3+eHjXyqH7AkjqruGa8ZbA9FCMSeoTQJrfH7P/kMqU6hJ+HJVnjfNo+d++d017oyxuGtQRzw4
-	0BYM/FVBx8OPNFxzl3aoo2QmaEcUG/xvilItN2P+Ls8RZq+f1wJ9XHSc5U5cQ2C+MeNqtBjy40FJi
-	rXyuSY9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XPymFscJtM0iCR8Z654zo0/sUeFNBdOsH/cxF44Xyqs=; b=PCbVZdYd/PXHINPeMURDnIStXl
+	QcxqnVWGsKYZVAkYE85LoInMQ1q0Chgqo1FFWoWH3IALv7d9QIqS6OTz9rNqlJkhjiG/1sCvFzsPD
+	SMvXokw41aG3pin0qbwRxIuzkl1DyPJD2Y9W/YU+pdikjBhLRrXUOJjz9IvWKhgm9qLAE7E7ImDb9
+	R6EdMYx14NLicgl6Bopiaga9/50CXFS2z/cepwul3XpJICObUlx3lBWI6pLWnfPaqnFchyVumcey6
+	85HJT0on6ZNsViBQDq1W0/Ud9AWlYW6z59gXO7Z6AQrRc/ZysrajSJkMa/AlN76fhFarIFPqL5qc/
+	ieca4+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJemo-00000002fo3-3LBZ;
-	Fri, 06 Dec 2024 20:18:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tJepB-00000002fyp-2UZH;
+	Fri, 06 Dec 2024 20:21:17 +0000
+Received: from [129.206.119.212] (helo=relay2.uni-heidelberg.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJelm-00000002fft-1aWr
+	id 1tJeo9-00000002fv9-0Zck
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 20:17:47 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B6KA5Nx018614;
-	Fri, 6 Dec 2024 20:17:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	V8TXl6zc2x9wr3hGp8Wkq7mrYvv14H9MajeE4l2soGU=; b=pfzvquSl9jFS5XtS
-	tAoOZtrim8gZQPs9cdpo363apKv0TijVSBDzpZFsDW/mSMypc/57phqSljh2+sFL
-	Apb/yVPWVM62UtABfUz2U7Dhb3D3mtmMjKu3r2I7NaPHNEbEEkZHA9TawigrCHzi
-	cR1KXgfY9nuOT0PUpswQjWZ0LKOQ6w4N4qIDwpSidzKLgx4SJcLyHUIr/RZ8fDOS
-	Pnw5+CZHbD+G1oJ7O+ma0ZZaVuGn4hTDvdBRjpDUn1YNXNiFYy/mJyzLJbUp23zp
-	V7yIG7Vwvac+mp88zkp3fba7fmelzFUY8+ysrI93f5QsduheLtejRA/eNzgvqds1
-	tI5Pcg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43bjk8ufkb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 06 Dec 2024 20:17:37 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B6KHael018454
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 6 Dec 2024 20:17:36 GMT
-Received: from [10.110.95.46] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 6 Dec 2024
- 12:17:31 -0800
-Message-ID: <c1b2fe04-e43e-4ab7-b0f8-2bb2ce6e1313@quicinc.com>
-Date: Fri, 6 Dec 2024 12:17:29 -0800
+	Fri, 06 Dec 2024 20:20:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=uni-heidelberg.de; i=@uni-heidelberg.de; q=dns/txt;
+  s=s1; t=1733516414; x=1765052414;
+  h=date:from:to:subject:message-id:mime-version;
+  bh=obweLbPmdaRNnm9sBPFdYU+Tkq05AKGhDIpdDJNmTx0=;
+  b=N8pO5jAGxdMtY+seRGb2LQWXtbUYc4m0D5onq9TFWMIL9jrCmUc9+yPo
+   pCx35pc9HRSHosrVY8fNawWUwhCLqarOx3HNtsKrgYWeMHCzojcWl842Y
+   UsAT7J0E6Iyf0S4/IspcIS6wnFsn2D/I4PG4MnG3zlaiRdagiOQA0tmOX
+   re9yqWf1I5SrOuqwuHdNyyZMgx8qeqJ9w8THsemrh3yslQpg+fUj8BGtf
+   tZyVcmRVcmv4NmrYjTn+3ZLxiqA5CA33s34fn17N0xEAGLoCUvx5QN+tD
+   lbIfactmsvHpATEOjWmB0X5xqUcqRqKt4joa40u9YSWt4GURlyjdAH1oI
+   Q==;
+X-CSE-ConnectionGUID: 8Uvaaj9YQderm1jRwBtoHQ==
+X-CSE-MsgGUID: CejYt4G9T9+tz3lmYZ5eeg==
+X-IPAS-Result: =?us-ascii?q?A2DPAwCyW1Nn/1BqzoFagQmBU4IcgQoBgX6EVbAJgg0BA?=
+ =?us-ascii?q?QEBAQEBAQEJRAQBAYUHimooNQgOAQIEAQEBAQMCAwEBAQEBAQEBDgEBBgEBA?=
+ =?us-ascii?q?QEBBwWBIYYIhwSBCwImAhZJEoVmswOBMoEB3kqBVoEaLohOAYVqATuCDYR+g?=
+ =?us-ascii?q?RQBg2iEJTswgw46gi8Eh04liQCdHYFNeDIBVRMXCwcFgXYDQoE4gU2BNoFRQ?=
+ =?us-ascii?q?4JOSoNKgUJGPYJKaUs3Ag0CNmmBOyRZgk2FGYRphFqGJYIXHUADC209NxQbo?=
+ =?us-ascii?q?n9GhxDHBAelYQQWM5dRkn8BlhuCYCKpCIFpAYISMz6DNlIZD45ZdgECwQ93P?=
+ =?us-ascii?q?AIHCwEBAwmVOQEB?=
+IronPort-Data: A9a23:i8BeXq1EPovxeR409fbD5dJxkn2cJEfYwER7XKvMYLTBsI5bp2QAz
+ mBNX2jTPq7bZTfzLtB2Pou/pBsC6JbXnYI3Sgdr3Hw8FHgiRejtXInGdBeuY0t+DSFhoGZPt
+ Zh2hgzodZhsJpPkjk7wdOCn9z8kjv3gqoPUUIbsIjp2SRJvVBAvgBdin/9RqoNziLBVOSvV0
+ T/Ji5OZYQXNNwJcaDpOt/vZ8E0355wehRtB1rAATaET1LPhvyRNZH4vDfnZB2f1RIBSAtm7S
+ 47rpF1u1jqEl/uFIorNfofTKiXmcJaLVeS9oiI+t5yZv/R3jndaPpDXlBYrQRw/Zz2hx7idw
+ TjW3HC6YV9B0qbkwIzxX/TEes1zFfUuxVPJHZSwmZyu0UTPcSrd+vljFkRvP7cH0PpwIVgbo
+ JT0KBhVBvyCr+a7xbW9DOhznII+KsiuPI4etnxkxzzDArAqTPgvQY2Tv44ehm9uwJkWQ7COP
+ 6L1ahI2BPjESx1LM0oaEro6keKvgD/+bCcetVSU4Ko64mTeyAZ8yrerPNe9ltmiH54NzhnD/
+ TiWl4j/KjoXNu2DlRXUziPvmv2UmSbKat8fGbLto5aGh3XJnzdCVUZIPbehmtG9i0ijS5dWM
+ UlR+Sc0q6U23EiqVcXmGRy+rmSNshMVV5xXCeJSwAWMzLfEph2EAHgFZjpAc8A98ss3QyE6k
+ FOEgbvU6SdHtLCQTnTb96iO6y60OG0VIG4OaCsOQBEKpdXuyG0usv7RZoZeDqe8jIzEID392
+ TXTrhIhrakUrfdegs1X4mv7qz6ro5HISCs86QPWQn+p42tFiGiNOtbABb/zsKooEWqJcmRtq
+ kTojOCywYgz4XCxeM+lGbtl8FSVCxGtamW0vLKXN8N9nwlBAlb6FW2QiRknTKuTDu4KeCXyf
+ GjYsh5L6ZlYMROCNPAsON7rUJh7kPC6SrwJs8w4iPITOPCdkyfaoElTibK4gggBbWB1yvhkY
+ 8fznTiEXSpKV8yLMwZat89HiOR6m3tgrY8ibY39zgqqy6GfeHeYVf8FPVqCY+Qz4bmLyDg5A
+ P4BX/ZnCnx3DoXDX8Ug2ddCfABRcihkVcieRg4+XrfrHzeK0VoJU5f5qY7NsaQ890iJvo8kJ
+ k2AZ3I=
+IronPort-HdrOrdr: A9a23:cQNmwaHB1QcC9vD6pLqEIceALOsnbusQ8zAXPhZKOH9om62j5r
+ iTdZEgvyMc5wxwZJhNo6HnBEDiex3hHPxOkO0s1N6ZNWGMhILCFvAE0WKN+UyYJ8Q8zIJgPG
+ VbHpSWxOeeMXFKyeH9/Qm2E9wp3dmA97rAv5a9815dCSZtdqFu7w1wFwacFVczbw9bApA0UL
+ qa6cwvnUvERZ3fVKWGOkU=
+X-Talos-CUID: =?us-ascii?q?9a23=3A86LVn2oG0SdU/2cOxogRFc7mUZAYbHTUzibhGkO?=
+ =?us-ascii?q?1E2MwSoeKY0OX2Joxxg=3D=3D?=
+X-Talos-MUID: 9a23:UFBdvAoCvnorfNN9aEgezxpvNvZ0v4v/NBFOjYddv8y1B3F9NjjI2Q==
+X-IronPort-Anti-Spam-Filtered: true
+Received: from lemon.iwr.uni-heidelberg.de ([129.206.106.80])
+  by relay2.uni-heidelberg.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Dec 2024 21:20:07 +0100
+Received: from hlauer by lemon.iwr.uni-heidelberg.de with local (Exim 4.92)
+	(envelope-from <hlauer@lemon.iwr.uni-heidelberg.de>)
+	id 1tJeo1-0006Sy-NN; Fri, 06 Dec 2024 21:20:05 +0100
+Date: Fri, 6 Dec 2024 21:20:05 +0100
+From: Hermann.Lauer@uni-heidelberg.de
+To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: [PATCH] ARM: sun8i: r40/a40i: rm unneeded PH23 setup which resets
+ Banana Pi M2 Ultra V1.1
+Message-ID: <20241206202005.GA24845@lemon.iwr.uni-heidelberg.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] drm/msm/dpu: Add SM6150 support
-To: Fange Zhang <quic_fangez@quicinc.com>, Rob Clark <robdclark@gmail.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Krishna
- Manikandan" <quic_mkrishn@quicinc.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Li Liu
-	<quic_lliu6@quicinc.com>,
-        Xiangxu Yin <quic_xiangxuy@quicinc.com>
-CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
- <20241122-add-display-support-for-qcs615-platform-v3-5-35252e3a51fe@quicinc.com>
-Content-Language: en-US
-From: Abhinav Kumar <quic_abhinavk@quicinc.com>
-In-Reply-To: <20241122-add-display-support-for-qcs615-platform-v3-5-35252e3a51fe@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: yj9fXnaj5lnOP6LN3qd6Slds2MgrbGF-
-X-Proofpoint-GUID: yj9fXnaj5lnOP6LN3qd6Slds2MgrbGF-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
- impostorscore=0 bulkscore=0 phishscore=0 suspectscore=0 spamscore=0
- lowpriorityscore=0 adultscore=0 mlxscore=0 mlxlogscore=999
- priorityscore=1501 clxscore=1011 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2412060152
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_121746_580591_223F2D78 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20241206_122013_756029_028996C4 
+X-CRM114-Status: UNSURE (   5.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,92 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Banana Pi M2 Ultra V1.1 board resets immediately when the usb core tries
+to setup PH23 GPIO. It turned out that the V1.0 board USB-A ports are
+always power supplied and according to the board scheme PH23 is simply
+not connected.
 
+So remove the PH23 setup: Doesn't harm V1.0 (with R40) and let V1.1
+(with A40i) start
 
-On 11/22/2024 1:56 AM, Fange Zhang wrote:
-> From: Li Liu <quic_lliu6@quicinc.com>
-> 
-> Add definitions for the display hardware used on the Qualcomm SM6150
-> platform.
-> 
-> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
-> ---
->   .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h | 263 +++++++++++++++++++++
->   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
->   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
->   drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
->   4 files changed, 266 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e8b7f694b885d69a9bbfaa85b0faf0c7af677a75
-> --- /dev/null
-> +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
-> @@ -0,0 +1,263 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef _DPU_5_3_SM6150_H
-> +#define _DPU_5_3_SM6150_H
-> +
-> +
+Signed-off-by: Hermann Lauer <Hermann.Lauer@uni-heidelberg.de>
+---
 
-<snip>
+# HG changeset patch
+# Parent  236ffa4558b03bbc654515fae80a7a2387f06cd4
 
-> +static const struct dpu_sspp_cfg sm6150_sspp[] = {
-> +	{
-> +		.name = "sspp_0", .id = SSPP_VIG0,
-> +		.base = 0x4000, .len = 0x1f0,
-> +		.features = VIG_SDM845_MASK,
-
-This is not correct. Smartdma is supported on this chipset on both Vig 
-and DMA SSPPs.
-
-Please use VIG_SDM845_MASK_SDMA and DMA_SDM845_MASK_SDMA respectively.
-
-
-> +		.sblk = &dpu_vig_sblk_qseed3_2_4,
-> +		.xin_id = 0,
-> +		.type = SSPP_TYPE_VIG,
-> +		.clk_ctrl = DPU_CLK_CTRL_VIG0,
-> +	}, {
-> +		.name = "sspp_8", .id = SSPP_DMA0,
-> +		.base = 0x24000, .len = 0x1f0,
-> +		.features = DMA_SDM845_MASK,
-> +		.sblk = &dpu_dma_sblk,
-> +		.xin_id = 1,
-> +		.type = SSPP_TYPE_DMA,
-> +		.clk_ctrl = DPU_CLK_CTRL_DMA0,
-> +	}, {
-> +		.name = "sspp_9", .id = SSPP_DMA1,
-> +		.base = 0x26000, .len = 0x1f0,
-> +		.features = DMA_SDM845_MASK,
-> +		.sblk = &dpu_dma_sblk,
-> +		.xin_id = 5,
-> +		.type = SSPP_TYPE_DMA,
-> +		.clk_ctrl = DPU_CLK_CTRL_DMA1,
-> +	}, {
-> +		.name = "sspp_10", .id = SSPP_DMA2,
-> +		.base = 0x28000, .len = 0x1f0,
-> +		.features = DMA_CURSOR_SDM845_MASK_SDMA,
-> +		.sblk = &dpu_dma_sblk,
-> +		.xin_id = 9,
-> +		.type = SSPP_TYPE_DMA,
-> +		.clk_ctrl = DPU_CLK_CTRL_DMA2,
-> +	}, {
-> +		.name = "sspp_11", .id = SSPP_DMA3,
-> +		.base = 0x2a000, .len = 0x1f0,
-> +		.features = DMA_CURSOR_SDM845_MASK_SDMA,
-> +		.sblk = &dpu_dma_sblk,
-> +		.xin_id = 13,
-> +		.type = SSPP_TYPE_DMA,
-> +		.clk_ctrl = DPU_CLK_CTRL_DMA3,
-> +	},
-> +};
-> +
-
-<snip>
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
+--- a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
++++ b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
+@@ -347,7 +347,5 @@
+ };
+ 
+ &usbphy {
+-	usb1_vbus-supply = <&reg_vcc5v0>;
+-	usb2_vbus-supply = <&reg_vcc5v0>;
+ 	status = "okay";
+ };
 
