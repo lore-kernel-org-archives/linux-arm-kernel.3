@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3757DE77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D297E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AS6B7LEf/P9SKixjkaV4gNLBVtsd9V7EEg30NeOjf/s=; b=jKoLu7WdJdHQXE2aCzoWZKU7qq
-	uILtjvjOcDWJ/xQ7yuJg4wiBaadQ8FihR4pYHp43EFTID0DftWvotVH547b1S1OIQBL7fr+vYr0Hd
-	LPncDTSDfUpbTPwO64w/08Ff/0aTsOq8gcwnZw4d2bGdf2JCn4PitUfrreo9rnM37/X9Yodi33kwC
-	ukjvN2WkCFSKavg+YnJyiw++3YAKCbt5wTDXzvnRPXnkhGb9ykid/L+ujR6dJ+iSVGApk368DOGea
-	zA1Ht6OO0s/Uz/hSB4RZd5X4MBsnqTGbC0euw7b506F18AnU3QrHQ1Iqc1IvnFw/CwKQHqmdQHQG9
-	CFFoMTXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QvUxd/vxMw8Bwuy6xT8sVlJO+DjkY4zLPCCgu87quuk=; b=aQ9RSfbG99XiMHAW5vJHYxGBXH
+	N4OlcwFpQkE8tK+dy8i4D+myabpjFdhLaRRXgTiuBRQBxn1YvE+WcW00o5+mEd6AXnZuLGyohseFZ
+	uID19xZWmYF4ZlKTuhk4VMljHo78eDyHieRgq38MOQgdYTX1w/HeShe5ttYbPN/sJRyVUslWRv/My
+	sEBYWrQe3NIle55CRPzipOg8+p9ecfgNf7GuzW2o/5pcpxRTKhafKPgztzGjsYrmg+CNYdX3ejgAh
+	N1Fwq3XYw0/U9X5m3dXLnAH1u5yC/YLkS+n0XxMEVqpy9bEmTo5e9o4tgzxyAxQH4tfmKzgWQNCxQ
+	z+iif92w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJXAj-00000001X2Y-2vNS;
-	Fri, 06 Dec 2024 12:11:01 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJX9A-00000001WpZ-0ulK;
-	Fri, 06 Dec 2024 12:09:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=n4hW/V/Xu2dnjj6AYJ4WjJceT096qx6cfGkMAL+BDWw=; b=h
-	g1ELVI/I4z/oSYqyoWt4/Rca5z33HAmc9Rb1shux5Yco08X9sw16uhdQKUvbaLqJ
-	H2nL1hi88EublB7N7C0MKLBzGFPJb3+6zsnyuJQH5K4zple2nEyCaCzlKGlmlajc
-	qtknFjry0sJ/KJMuGlVEtTkEu/IdPwBe0lqJSyfrA0=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-118 (Coremail) ; Fri, 6 Dec 2024 20:08:47 +0800 (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Fri, 6 Dec 2024 20:08:47 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Guoqing Jiang" <guoqing.jiang@canonical.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
-	dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re:[PATCH] drm/rockchip: Remove unnecessary checking
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2024 www.mailtech.cn 163com
-In-Reply-To: <20241206114233.1270989-1-guoqing.jiang@canonical.com>
-References: <20241206114233.1270989-1-guoqing.jiang@canonical.com>
-X-NTES-SC: AL_Qu2YAfiTuUEp4SSeY+lS8zNM9K56MKvt5LljqcQFePgqqTHL3g4cZnlBM0vW6uJQJuqD7OHbXn3B2mnPVyPr
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tJXPZ-00000001YW8-05Ww;
+	Fri, 06 Dec 2024 12:26:21 +0000
+Received: from mx.ssi.bg ([193.238.174.39])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJXOX-00000001YSx-2GVb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Dec 2024 12:25:18 +0000
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id 8F49721D95;
+	Fri,  6 Dec 2024 14:19:37 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=QvUxd/vxMw8Bwuy6xT8sVlJO+DjkY4zLPCCgu87quuk=; b=jTjz4S9wmd54
+	L6Dz1c6a27LaRJin11iO1/LuIDOevuvoLPkbtFgX8a9QeF+gk3Ke7ELKws4UM/wI
+	Azo277jpuO6dL16+u6kzaO4XWjIKd2oZko3mhOlnhgqboDkTx+QByVc3J0wxQWGv
+	BPhzSfB2p/spiH5Qlj6JavO65+dbOaxEtpzeJyU7aMrTMdcIoQyI02n9V6EC3cpI
+	OFhTpOfPLOUUwI2aDh4SDcYZ0w7LwI6N69heV52JFXt0MJ52b2z5+DC7G2RUU8Pt
+	47r8bhTmj+hf3eM61bUAnMMvdSFeGvqwDKlGOkP8RhoDx+LjFJKcarqGd+8UAsg3
+	5xgDSC1IMtdCP8OTzIitCsAPE8ev+Accj6IoDPSdL6380Io7pOO54slJach30Lps
+	fen1j9m5NDXNr0HLl3mgSb0FWpvM7lNpn393nmw+1ysq9TVZSrfqlxOomwFMYKY/
+	Ub26103Wle4wX/hGBv0s5fi6Qmf/A/yspu9aSOydu6A7KbW1l8hnVDawyWTd2qXQ
+	osu+i30K3PfiMBclcihy81Km6SmmF7a1FhPlBcgePEEd4KxJxJglyRHgbAFvc2eg
+	MrxupfqsU6xYRI9808PMbE/8HxhmTFbbXG2PKeuDIBpHb78GOEfNaBHZRzdY16En
+	gWsUWiNkgzoxMOsC7bIWmgECURJCLUc=
+Received: from ink.ssi.bg (ink.ssi.bg [193.238.174.40])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Fri,  6 Dec 2024 14:19:36 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by ink.ssi.bg (Postfix) with ESMTPSA id 4E9EB15F19;
+	Fri,  6 Dec 2024 14:19:31 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.1/8.17.1) with ESMTP id 4B6CJLt6022576;
+	Fri, 6 Dec 2024 14:19:22 +0200
+Date: Fri, 6 Dec 2024 14:19:21 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: David Laight <David.Laight@ACULAB.COM>
+cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "'Naresh Kamboju'" <naresh.kamboju@linaro.org>,
+        "'Dan Carpenter'" <dan.carpenter@linaro.org>,
+        "'pablo@netfilter.org'" <pablo@netfilter.org>,
+        "'open list'" <linux-kernel@vger.kernel.org>,
+        "'lkft-triage@lists.linaro.org'" <lkft-triage@lists.linaro.org>,
+        "'Linux Regressions'" <regressions@lists.linux.dev>,
+        "'Linux ARM'" <linux-arm-kernel@lists.infradead.org>,
+        "'netfilter-devel@vger.kernel.org'" <netfilter-devel@vger.kernel.org>,
+        "'Arnd Bergmann'" <arnd@arndb.de>,
+        "'Anders Roxell'" <anders.roxell@linaro.org>,
+        "'Johannes Berg'" <johannes.berg@intel.com>,
+        "'toke@kernel.org'" <toke@kernel.org>,
+        "'Al Viro'" <viro@zeniv.linux.org.uk>,
+        "'kernel@jfarr.cc'" <kernel@jfarr.cc>,
+        "'kees@kernel.org'" <kees@kernel.org>
+Subject: Re: [PATCH net] Fix clamp() of ip_vs_conn_tab on small memory
+ systems.
+In-Reply-To: <33893212b1cc4a418cec09aeeed0a9fc@AcuMS.aculab.com>
+Message-ID: <5ec10e7c-d050-dab8-1f1b-d0ca2d922eef@ssi.bg>
+References: <33893212b1cc4a418cec09aeeed0a9fc@AcuMS.aculab.com>
 MIME-Version: 1.0
-Message-ID: <6db9676.aa57.1939bdf5e6e.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: digvCgDXfwdP6VJnmyI5AA--.11968W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hetXmdS4Imk1gABsZ
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_040924_599420_CD617AAC 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241206_042517_747008_F2A67ED4 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +97,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgR3VvcWluZywKCkF0IDIwMjQtMTItMDYgMTk6NDI6MzMsICJHdW9xaW5nIEppYW5nIiA8Z3Vv
-cWluZy5qaWFuZ0BjYW5vbmljYWwuY29tPiB3cm90ZToKPkl0IGlzIG5vdCBuZWVkZWQgc2luY2Ug
-ZHJtX2F0b21pY19oZWxwZXJfc2h1dGRvd24gY2hlY2tzIGl0Lgo+Cj5TaWduZWQtb2ZmLWJ5OiBH
-dW9xaW5nIEppYW5nIDxndW9xaW5nLmppYW5nQGNhbm9uaWNhbC5jb20+CgogICBBY2tlZC1ieTog
-QW5keSBZYW48YW5keXNocmtAMTYzLmNvbT4KClRoYW5rcwoKPi0tLQo+IGRyaXZlcnMvZ3B1L2Ry
-bS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fZHJ2LmMgfCAzICstLQo+IDEgZmlsZSBjaGFuZ2VkLCAx
-IGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKPgo+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1
-L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fZHJ2LmMgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2No
-aXAvcm9ja2NoaXBfZHJtX2Rydi5jCj5pbmRleCA1ODUzNTVkZTY5NmIuLjY0ZjVmNTQ3ZmI3YSAx
-MDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fZHJ2LmMK
-PisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fZHJ2LmMKPkBAIC00
-ODgsOCArNDg4LDcgQEAgc3RhdGljIHZvaWQgcm9ja2NoaXBfZHJtX3BsYXRmb3JtX3NodXRkb3du
-KHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4gewo+IAlzdHJ1Y3QgZHJtX2RldmljZSAq
-ZHJtID0gcGxhdGZvcm1fZ2V0X2RydmRhdGEocGRldik7Cj4gCj4tCWlmIChkcm0pCj4tCQlkcm1f
-YXRvbWljX2hlbHBlcl9zaHV0ZG93bihkcm0pOwo+Kwlkcm1fYXRvbWljX2hlbHBlcl9zaHV0ZG93
-bihkcm0pOwo+IH0KPiAKPiBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCByb2NrY2hp
-cF9kcm1fZHRfaWRzW10gPSB7Cj4tLSAKPjIuMzUuMwo+Cj4KPl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCj5MaW51eC1yb2NrY2hpcCBtYWlsaW5nIGxpc3QK
-PkxpbnV4LXJvY2tjaGlwQGxpc3RzLmluZnJhZGVhZC5vcmcKPmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcm9ja2NoaXAK
+
+	Hello,
+
+On Fri, 6 Dec 2024, David Laight wrote:
+
+> The intention of the code seems to be that the minimum table
+> size should be 256 (1 << min).
+> However the code uses max = clamp(20, 5, max_avail) which implies
+
+	Actually, it tries to reduce max=20 (max possible) below
+max_avail: [8 .. max_avail]. Not sure what 5 is here...
+
+> the author thought max_avail could be less than 5.
+> But clamp(val, min, max) is only well defined for max >= min.
+> If max < min whether is returns min or max depends on the order of
+> the comparisons.
+
+	Looks like max_avail goes below 8 ? What value you see
+for such small system?
+
+> Change to clamp(max_avail, 5, 20) which has the expected behaviour.
+
+	It should be clamp(max_avail, 8, 20)
+
+> 
+> Replace the clamp_val() on the line below with clamp().
+> clamp_val() is just 'an accident waiting to happen' and not needed here.
+
+	OK
+
+> Fixes: 4f325e26277b6
+> (Although I actually doubt the code is used on small memory systems.)
+> 
+> Detected by compile time checks added to clamp(), specifically:
+> minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+
+	Existing or new check? Does it happen that max_avail
+is a constant, so that a compile check triggers?
+
+> 
+> Signed-off-by: David Laight <david.laight@aculab.com>
+
+	The code below looks ok to me but can you change the
+comments above to more correctly specify the values and if the
+problem is that max_avail goes below 8 (min).
+
+> ---
+>  net/netfilter/ipvs/ip_vs_conn.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_conn.c
+> index 98d7dbe3d787..c0289f83f96d 100644
+> --- a/net/netfilter/ipvs/ip_vs_conn.c
+> +++ b/net/netfilter/ipvs/ip_vs_conn.c
+> @@ -1495,8 +1495,8 @@ int __init ip_vs_conn_init(void)
+>  	max_avail -= 2;		/* ~4 in hash row */
+>  	max_avail -= 1;		/* IPVS up to 1/2 of mem */
+>  	max_avail -= order_base_2(sizeof(struct ip_vs_conn));
+
+	More likely we can additionally clamp max_avail here:
+
+	max_avail = max(min, max_avail);
+
+	But your solution solves the problem with less lines.
+
+> -	max = clamp(max, min, max_avail);
+> -	ip_vs_conn_tab_bits = clamp_val(ip_vs_conn_tab_bits, min, max);
+> +	max = clamp(max_avail, min, max);
+> +	ip_vs_conn_tab_bits = clamp(ip_vs_conn_tab_bits, min, max);
+>  	ip_vs_conn_tab_size = 1 << ip_vs_conn_tab_bits;
+>  	ip_vs_conn_tab_mask = ip_vs_conn_tab_size - 1;
+>  
+> -- 
+> 2.17.1
+
+Regards
+
+--
+Julian Anastasov <ja@ssi.bg>
+
 
