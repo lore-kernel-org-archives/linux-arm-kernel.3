@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379E7E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C00E77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 16:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JpS/Zt5Xq9vuGvkn4jptuxcPyo4ktemXE6eY8TMimTI=; b=Mk14UhPx+2B5xIrEiqcW8oxWKr
-	Q5zf3rTDYU5fNso5NLUOTwYwyMfEzBRgx+rOCpN7jtV/3OuFEADnl04Gula6HJBWXa5KzjA6DHADF
-	3giX//51MfFAUEt2yUpVyus3wZqvVemrQaapWrJq57cQOluI5cIJvE/3UDGC6EMgXLwO1tTEzATAO
-	++BvWyhP8v4IXUnAZ55cmIJVMSbZzbtprvEQv4jGzVqm4ozIsaR8K7I4M/x6fREHYAbCnWj96KhEe
-	ghhr/HIrvFLDK5SflgLSZxwZLiFVsSuPvfVS3gSPwlRcoBxWd6LdLWogp0GXTfEGgtNew3Sl6SZ3V
-	EQbcrfOg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=ChEhoOdAZzWVUEK8+SJEvbKjEBmPgkSIVAVmGVZFO/w=; b=H+JkqzDsXyS44F
+	kDaFIng/RzxWHk5mIOD9kJDRWaO6mVvW8xSPkB6GqslsQAEnkEzoZdi2vKobPMrB+cgYgo7Ci0CpX
+	nYaE+0YVTLx4VxUJAobtwNaudgg3OxWEXKvGjPBZbWPIAb0ZVcFmDWma+dV3KqF+WGUeZ6aJj8Jws
+	6AhX2PJ5WBbAxFT1JS72mPJOiecMMmcvzUzhVipCOJY/URoUSViM2pCNu6cmEdEcQnblNGeshyQpK
+	krH8ddVerPxyHTWvhtqgAKPOTOkclPCqgeyzYcMDy+ESGcyu2igm6n6OFJHgnmZZHGShXPjgRFF+c
+	FXiBYj6xIhoezMJNJlNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbav-00000002FP5-1eNn;
-	Fri, 06 Dec 2024 16:54:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tJbca-00000002FvK-34Bm;
+	Fri, 06 Dec 2024 16:56:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbZu-00000002FBC-2vTz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 06 Dec 2024 16:53:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JpS/Zt5Xq9vuGvkn4jptuxcPyo4ktemXE6eY8TMimTI=; b=P6WybMvrn3HF7S6ShNpM6suGvp
-	xC35+VWORU26fzhlO8vlG0y2qicInpY6MyaG7v0DyqB2mOORde8RvjtpA0z4p43Gh9kso0BafevLe
-	K0RCtmvTYcO8DyrRuCkHkMNOncZfWQd6udpO053Ht5TSgYY3P18xUs0bvTzYhqkBeIqKMqV2qt6Hj
-	VocBS+0OqZaxrk0wE77rsYtTDsSWQXcxPRWerF0urmGYoDd5pyvxthLGid6zcTK9YRfqZxvC1kF92
-	iVHzJkq4hVhL5HrZIUtNiNM0DDGyhyVR0SQGo5mtaRk5sTP6aY8+32Ano7/cAdXTrEuVNoE5H3Om4
-	1Bifxkig==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbZr-000000037YV-3gHx
+	id 1tJbbY-00000002Fea-00Sr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 16:53:17 +0000
+	Fri, 06 Dec 2024 16:55:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C03DF5C5B4B;
-	Fri,  6 Dec 2024 16:52:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE2E6C4CED1;
-	Fri,  6 Dec 2024 16:53:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5ECB2A4430C;
+	Fri,  6 Dec 2024 16:53:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C59EDC4CED1;
+	Fri,  6 Dec 2024 16:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733503991;
-	bh=JpS/Zt5Xq9vuGvkn4jptuxcPyo4ktemXE6eY8TMimTI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MHza94HH8zx5zpl+tyZniMpGI8BVsXN6Ue6b1SnP0Q2AeEPTMtSpePIt0PNJ7ln5e
-	 Bi8fql9veu1U3/o5xq0bkxI8FinVXnn5uxim3eo/IA2y/t3LGchsLlmh7Qm2s2qrae
-	 lDtyaJUupUDJ2Oxf7PNi68ZUKN5YK26EiBhd8DAxIYdWA8aBkLlkqpIppabcDR9PpU
-	 eBZ++wepN8+6I3qTEUj3RCuJmHq8Rjr/De8FAfTMIew/3IrS15ou8lfHgZQ0EHeed9
-	 llM9rjlFP/esIVb0Ef1TSlkYCbxvsJalbYZ/0bY5ZgOsEufHV9g6xvBhPzdJmLlhYW
-	 Ni3LPwqthYfyA==
-Date: Fri, 6 Dec 2024 17:53:08 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Mingwei Zheng <zmw12306@gmail.com>
-Cc: fabrice.gasnier@foss.st.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, hierry.reding@gmail.com, lee@kernel.org, 
-	linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: Re: [PATCH V2] pwm: stm32-lp: Add check for clk_enable()
-Message-ID: <o6rh2bcxnnubhx6xem55otgequw5zrqmkretcgofohvcpbygdw@z3qagurhjyp3>
-References: <20241206012605.2877412-1-zmw12306@gmail.com>
- <cim6rnzdvhik4kdibfmglf6jiky7xccynqwazmxmnr2f5fvu3f@lvoo3drlgaua>
+	s=k20201202; t=1733504098;
+	bh=np6gijQaJ2x8dV5tPEnKGpmtFkb0N2ZUr3OIxXLKdYo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=OHmXV3QX4IIj37XKRydmQO6CdiMsGQTMjhUjio6TN2j6HRFguE72Bcc6sUNFYPePF
+	 xBW8jxki98Q/fX72d1w/6Z8/cbmFUH7IlGHPpXgNeVtUH6Z+xxIkhADMnoZnHDu6ny
+	 09abxs+PBL+KFW2dwFVPb7N10ptQTr5Wb5pqGsIWajRKAaWZYh2sOJkv2ZD8PM0sUu
+	 0qeX1nQfIqjRZv/vQSmKxPWO8PQasbHzVXLOyBeW0w7oeU45kk8Us3kxvTZMMd958/
+	 ItKdqjHGo8moZJqmS0W0WzwXtl9yu5ESZ86aYUb7doZWKfgs3LXNuVeae7y9L+3fJX
+	 ALExZT5dld14w==
+Date: Fri, 6 Dec 2024 10:54:57 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: ilkka@os.amperecomputing.com, kaishen@linux.alibaba.com,
+	yangyicong@huawei.com, will@kernel.org, Jonathan.Cameron@huawei.com,
+	baolin.wang@linux.alibaba.com, robin.murphy@arm.com,
+	chengyou@linux.alibaba.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	rdunlap@infradead.org, mark.rutland@arm.com,
+	zhuo.song@linux.alibaba.com, renyu.zj@linux.alibaba.com
+Subject: Re: [PATCH v12 4/5] drivers/perf: add DesignWare PCIe PMU driver
+Message-ID: <20241206165457.GA3101599@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lvtle2mtnfezbcjm"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cim6rnzdvhik4kdibfmglf6jiky7xccynqwazmxmnr2f5fvu3f@lvoo3drlgaua>
+In-Reply-To: <20231208025652.87192-5-xueshuai@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_165316_152324_DD66456E 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20241206_085500_176534_FA5E4372 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +75,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 08, 2023 at 10:56:51AM +0800, Shuai Xue wrote:
+> This commit adds the PCIe Performance Monitoring Unit (PMU) driver support
+> for T-Head Yitian SoC chip. Yitian is based on the Synopsys PCI Express
+> Core controller IP which provides statistics feature. The PMU is a PCIe
+> configuration space register block provided by each PCIe Root Port in a
+> Vendor-Specific Extended Capability named RAS D.E.S (Debug, Error
+> injection, and Statistics).
 
---lvtle2mtnfezbcjm
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH V2] pwm: stm32-lp: Add check for clk_enable()
-MIME-Version: 1.0
+> +#define DWC_PCIE_VSEC_RAS_DES_ID		0x02
 
-On Fri, Dec 06, 2024 at 08:12:57AM +0100, Uwe Kleine-K=F6nig wrote:
-> On Thu, Dec 05, 2024 at 08:26:05PM -0500, Mingwei Zheng wrote:
-> > Add check for the return value of clk_enable() to catch the potential
-> > error.
-> >=20
-> > Fixes: e70a540b4e02 ("pwm: Add STM32 LPTimer PWM driver")
-> > Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
-> > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
->=20
-> In reply to (implicit) v1 you wrote:
-> > We detected this through static analysis, instead of actually hit.
->=20
-> Would be nice to mention the tool that actually found it in the commit
-> log.
->=20
-> Otherwise I'm happy with that change now.
->=20
-> Given the issue is old (the offending commit is in v4.14-rc1), I'd note
-> send it as a fix before v4.14. I'd send it along however if something
-> more urgent pops up.
+> +static const struct dwc_pcie_vendor_id dwc_pcie_vendor_ids[] = {
+> +	{.vendor_id = PCI_VENDOR_ID_ALIBABA },
+> +	{} /* terminator */
+> +};
 
-I wasn't very attentive when I wrote that mail, what I meant was:
+> +static bool dwc_pcie_match_des_cap(struct pci_dev *pdev)
+> +{
+> +	const struct dwc_pcie_vendor_id *vid;
+> +	u16 vsec;
+> +	u32 val;
+> +
+> +	if (!pci_is_pcie(pdev) || !(pci_pcie_type(pdev) == PCI_EXP_TYPE_ROOT_PORT))
+> +		return false;
+> +
+> +	for (vid = dwc_pcie_vendor_ids; vid->vendor_id; vid++) {
+> +		vsec = pci_find_vsec_capability(pdev, vid->vendor_id,
+> +						DWC_PCIE_VSEC_RAS_DES_ID);
 
-Given the issue is old (the offending commit is in v4.14-rc1), I'd not
-send it as a fix before v6.13. I'd send it along however if something
-more urgent pops up.
+This looks wrong to me, and it promotes a misunderstanding of how VSEC
+Capabilities work.  The VSEC ID is defined by the vendor, so we have
+to check both the Vendor ID and the VSEC ID before we know what this
+VSEC Capability is.
 
-Best regards
-Uwe
+In this patch, we only find a VSEC Capability that matches
+(PCI_VENDOR_ID_ALIBABA, DWC_PCIE_VSEC_RAS_DES_ID), but as of
+v6.13-rc1, it finds all of these:
 
+  (PCI_VENDOR_ID_ALIBABA, DWC_PCIE_VSEC_RAS_DES_ID)
+  (PCI_VENDOR_ID_AMPERE, DWC_PCIE_VSEC_RAS_DES_ID)
+  (PCI_VENDOR_ID_QCOM, DWC_PCIE_VSEC_RAS_DES_ID)
 
+There is no assurance that DWC_PCIE_VSEC_RAS_DES_ID means the same
+thing to Alibaba, Ampere, and Qualcomm because each company defines
+what 0x02 means to it.  PCIe r6.0, sec 7.9.5 for details.
 
---lvtle2mtnfezbcjm
-Content-Type: application/pgp-signature; name="signature.asc"
+I alluded to this earlier [1] and suggested that these devices should
+have used a Designated Vendor-Specific (DVSEC) Capability instead of a 
+Vendor-Specific (VSEC) Capability.
 
------BEGIN PGP SIGNATURE-----
+But since they didn't, I think the dwc_pcie_vendor_ids[] table is a
+dangerous way to work around this because it suggests that all we have
+to do is add new vendors to that table.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdTK/IACgkQj4D7WH0S
-/k42UAgAs6H2mPbme8oPwP5+Vo7po8iDZLSjx2VBZfboLqKgg60SSEgkWJDW3QRW
-JSMgjh22hbHhuXTjBDM3281KZfebAxFyiVCUoLkFX4dxsP/HBJGb1VCovMAAIdzp
-aKNyDDpyGzvbXv+rNdV8nIRLYooE0AxWuoZiQU5/54Zsg6BQOdRYOw/7NrUffYHx
-Y4cuErXghldB8y6lDG86quZffAwnAp0BFuV55mixSpcV1MKiwiPWqRmr9w605/m3
-e8V6BYUoh+IK/2hvFlcdl95pULgQjAtzaq+NNMQgBU3mT05sD5oOl6EAtvVbJEVd
-fNXPXDr9aVWZWRuTWR8pnjJFn9t/wA==
-=eYs8
------END PGP SIGNATURE-----
+I think the table should be extended to contain the Vendor ID, *and*
+the VSEC ID, *and* the VSEC Rev used by that vendor, i.e., it should
+look like this:
 
---lvtle2mtnfezbcjm--
+  struct dwc_pcie_pmu_vsec {
+    u16 vendor_id;
+    u16 vsec_id;
+    u8 vsec_rev;
+  };
+
+  struct dwc_pcie_pmu_vsec dwc_pcie_pmu_vsec_ids[] = {
+    { .vendor_id = PCI_VENDOR_ID_ALIBABA,
+      .vsec_id = DWC_PCIE_VSEC_RAS_DES_ID, .vsec_rev = 0x4 },
+    { .vendor_id = PCI_VENDOR_ID_AMPERE,
+      .vsec_id = DWC_PCIE_VSEC_RAS_DES_ID, .vsec_rev = 0x4 },
+    { .vendor_id = PCI_VENDOR_ID_QCOM,
+      .vsec_id = DWC_PCIE_VSEC_RAS_DES_ID, .vsec_rev = 0x4 },
+    {}
+  };
+
+This *looks* the same, but it's not, because it makes it obvious that
+the VSEC ID and VSEC Rev are defined separately by each vendor.  It's
+just a lucky coincidence that they happen to be the same for these
+vendors.
+
+> +		if (vsec)
+> +			break;
+> +	}
+> +	if (!vsec)
+> +		return false;
+> +
+> +	pci_read_config_dword(pdev, vsec + PCI_VNDR_HEADER, &val);
+> +	if (PCI_VNDR_HEADER_REV(val) != 0x04)
+> +		return false;
+> +
+> +	pci_dbg(pdev,
+> +		"Detected PCIe Vendor-Specific Extended Capability RAS DES\n");
+> +	return true;
+> +}
+
+> +static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+> +{
+> +	struct pci_dev *pdev = plat_dev->dev.platform_data;
+> +	struct dwc_pcie_pmu *pcie_pmu;
+> +	char *name;
+> +	u32 bdf, val;
+> +	u16 vsec;
+> +	int ret;
+> +
+> +	vsec = pci_find_vsec_capability(pdev, pdev->vendor,
+> +					DWC_PCIE_VSEC_RAS_DES_ID);
+> +     pci_read_config_dword(pdev, vsec + PCI_VNDR_HEADER, &val);
+
+Nit: "val" is never used, so why read it?
+
+This looks even more wrong, because this matches ANY VSEC Capability
+from ANY vendor that happens to be numbered DWC_PCIE_VSEC_RAS_DES_ID.
+
+I know this is indirectly qualified by the check above in
+dwc_pcie_match_des_cap(), but duplicating this here just spreads the
+confusion about how to interpret VSEC IDs.
+
+I suggest updating dwc_pcie_match_des_cap() to iterate through the
+dwc_pcie_pmu_vsec_ids[] table and return the capability offset so you
+can call it from here.
+
+Bjorn
+
+[1] https://lore.kernel.org/r/20231012162512.GA1069387@bhelgaas
+
 
