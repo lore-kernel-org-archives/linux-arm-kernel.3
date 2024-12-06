@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5182EE77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A673E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 09:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFQA6iOLYo0SCjZeL+gF6rG0AM1b70ICi54Jp/cd2fY=; b=uvRBdQviHqAZ0C7fyyNDMTgMx4
-	itBKlUy74pkwVKsyCi3oMJl+0nPe0Nr3nfM1FnAMsDdpcpQN5/BBEpvI3YBBpC63z7iC+lSZG3U+x
-	jAFYQWUVgQUFWyupshSiSJOOfbqM7GzyvcaNxgrAgPQ1w/5WN28F8qM2MvDnq5Bf3VpknDTaWDlIV
-	UDpWYWZPVt4nMcV/lY8Pq7XEyRoU9IoT1bP6sAVlg4uQ32Fz8/E0gN4LMViChmQ9u4xcpgenMPWCa
-	Ue17Dyn/lEpDUup+g8qm2GFup05h0ioF7ubxlifyKHvPIFnRs1riVPo+oLkhCP4SEaCDAXmcPg802
-	0VF6DKJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LS6+0C7sOHJODg52W5usnubigPgJaQONk5sHQ043Pmc=; b=nYzMOBn+ykcqPMfZiiBuU/kmpV
+	LZqfelXK4wsJfZapE8yxYlENBUMAMIyoAnipJU8TZacIHofMeh4QlLwI5wSb1K7lllUu8HfClteTU
+	VYMYqDcvU/rwd0EuFHb16THG2YXriRjR4oFLBJ6aSAvJ777gjJSimTbV2TTkXbirYaT/tNc6vBYac
+	q18DPxwx2mVBNTInKziqQMBvjT6Rigs2n/HFllxE+6MXRSltcq0nbQ0dMH67y46Pm4hgVkDhfN6yZ
+	iEveoVYfkXoJTDoxxqtmKCLltuPAlw1wwOJeF7A4k0vWv5J9X/kKE32pf7EZOeeLLU1pXmiwBJ0JY
+	dZsEGXXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUks-000000015zA-0vEZ;
-	Fri, 06 Dec 2024 09:36:10 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1tJUmp-000000016YT-3f2h;
+	Fri, 06 Dec 2024 09:38:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJUjp-000000015iO-2yDu
+	id 1tJUlo-000000016Gt-1BBY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 09:35:07 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-315-JT-U8hVaNj28TFwmYvvp_A-1; Fri, 06 Dec 2024 09:35:01 +0000
-X-MC-Unique: JT-U8hVaNj28TFwmYvvp_A-1
-X-Mimecast-MFC-AGG-ID: JT-U8hVaNj28TFwmYvvp_A
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 6 Dec
- 2024 09:34:15 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 6 Dec 2024 09:34:15 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Vincent Mailhol' <mailhol.vincent@wanadoo.fr>, 'Martin Uecker'
-	<muecker@gwdg.de>
-CC: 'Linus Torvalds' <torvalds@linux-foundation.org>, 'Luc Van Oostenryck'
-	<luc.vanoostenryck@gmail.com>, 'Nathan Chancellor' <nathan@kernel.org>,
-	"'Nick Desaulniers'" <ndesaulniers@google.com>, 'Bill Wendling'
-	<morbo@google.com>, 'Justin Stitt' <justinstitt@google.com>, 'Yury Norov'
-	<yury.norov@gmail.com>, 'Rasmus Villemoes' <linux@rasmusvillemoes.dk>, 'Kees
- Cook' <kees@kernel.org>, "'Gustavo A. R. Silva'" <gustavoars@kernel.org>,
-	'Jani Nikula' <jani.nikula@linux.intel.com>, 'Joonas Lahtinen'
-	<joonas.lahtinen@linux.intel.com>, 'Rodrigo Vivi' <rodrigo.vivi@intel.com>,
-	'Tvrtko Ursulin' <tursulin@ursulin.net>, 'David Airlie' <airlied@gmail.com>,
-	'Simona Vetter' <simona@ffwll.ch>, 'Suzuki K Poulose'
-	<suzuki.poulose@arm.com>, 'Mike Leach' <mike.leach@linaro.org>, 'James Clark'
-	<james.clark@linaro.org>, 'Alexander Shishkin'
-	<alexander.shishkin@linux.intel.com>, 'Rikard Falkeborn'
-	<rikard.falkeborn@gmail.com>, "'linux-sparse@vger.kernel.org'"
-	<linux-sparse@vger.kernel.org>, "'linux-kernel@vger.kernel.org'"
-	<linux-kernel@vger.kernel.org>, "'llvm@lists.linux.dev'"
-	<llvm@lists.linux.dev>, "'linux-hardening@vger.kernel.org'"
-	<linux-hardening@vger.kernel.org>, "'intel-gfx@lists.freedesktop.org'"
-	<intel-gfx@lists.freedesktop.org>, "'dri-devel@lists.freedesktop.org'"
-	<dri-devel@lists.freedesktop.org>, "'coresight@lists.linaro.org'"
-	<coresight@lists.linaro.org>, "'linux-arm-kernel@lists.infradead.org'"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-Thread-Topic: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-Thread-Index: AQHbROFPJXcuwP9wN0+yRzIQ2cx/pbLWa+gggAFf14CAACMqUIABAFYQ
-Date: Fri, 6 Dec 2024 09:34:15 +0000
-Message-ID: <6576cf10fc424eab874a31714e60474b@AcuMS.aculab.com>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
- <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
- <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
- <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
- <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-In-Reply-To: <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
-MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -zdIzBBssWHOdqU8szXAJFonNj40F-HnxO6pwdVGHGE_1733477699
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+	Fri, 06 Dec 2024 09:37:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 98A015C7283;
+	Fri,  6 Dec 2024 09:36:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12B9BC4CED1;
+	Fri,  6 Dec 2024 09:37:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733477827;
+	bh=0OVqSdKjz29ID2mDogu1rbXECrb7mkjLRUFXqkvFw88=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QasvlkzwlSXhBS1XlZ6BrGuaxJd0Hl6wlwXggvqdPyoPJum3dEyJqOX1JA9eUZ5UB
+	 XfhDfOQKeN0ftjlp58am78mCVZFIC0UIISRG1V5z3+RQIyAZ5fIGatx+J+ZR7SvquL
+	 eXc1Ew1jcvXPmRz6Tjga7mBtMeATzUHsy73hR/ym5YYUxqifn8BbKxkUmhKsS4p80Y
+	 cNqSHMjl86KXKcNgAkZgFP5or6y2P4t4UkV87hVSCB2+l17/ct4AQlyez8pM9MRa0W
+	 QXuJyhm43Eh9JyZZBpeoOexfIsvHzlUuRzy+Xo0hg06nDirVlb6UQq6ksPJPhmzz7O
+	 OKgj8qL5wbUKQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tJUlk-0016ib-Gf;
+	Fri, 06 Dec 2024 09:37:04 +0000
+Date: Fri, 06 Dec 2024 09:37:04 +0000
+Message-ID: <86cyi5tanz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: richard clark <richard.xnu.clark@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	will@kernel.org,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: Question about interrupt prioriyt of ARM GICv3/4
+In-Reply-To: <CAJNi4rMfhZOCT+7Ki14vUs+dZbv9cxCZ0s+jgn6=_om4NTgo_A@mail.gmail.com>
+References: <CAJNi4rMfhZOCT+7Ki14vUs+dZbv9cxCZ0s+jgn6=_om4NTgo_A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: richard.xnu.clark@gmail.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, will@kernel.org, linux@armlinux.org.uk, mark.rutland@arm.com, torvalds@linux-foundation.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_013506_038162_A6AEAECA 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20241206_013708_402473_CE63128C 
+X-CRM114-Status: GOOD (  25.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +87,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogRGF2aWQgTGFpZ2h0DQo+IFNlbnQ6IDA2IERlY2VtYmVyIDIwMjQgMDI6MjYNCg0KKG5v
-dyBpdCBpcyBubyBsb25nZXIgMmFtLi4uKQ0KDQpMaW51cyBzdWdnZXN0ZWQgdGhpcyBhIHdoaWxl
-IGJhY2s6DQoNCj4gIGluIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9DQUhrLT13aXE9R1VO
-V0p3V2gxQ1JBWWNoVzczVW1PYVNrYUNvdkxhdGZES2V2ZVpjdEFAbWFpbC5nbWFpbC5jb20vDQo+
-IA0KPiAgICAvKg0KPiAgICAgKiBpZmYgJ3gnIGlzIGEgbm9uLXplcm8gY29uc3RhbnQgaW50ZWdl
-ciBleHByZXNzaW9uLA0KPiAgICAgKiB0aGVuICchKHgpJyB3aWxsIGJlIGEgemVybyBjb25zdGFu
-dCBpbnRlZ2VyIGV4cHJlc3Npb24sDQo+ICAgICAqIGFuZCBjYXN0aW5nIHRoYXQgdG8gJ3ZvaWQg
-Kicgd2lsbCByZXN1bHQgaW4gYSBOVUxMIHBvaW50ZXIuDQo+ICAgICAqIE90aGVyd2lzZSBjYXN0
-aW5nIGl0IHRvICd2b2lkIConIHdpbGwgYmUganVzdCBhIHJlZ3VsYXIgJ3ZvaWQgKicuDQo+ICAg
-ICAqDQo+ICAgICAqIFRoZSB0eXBlIG9mICcwID8gTlVMTCA6IChjaGFyICopJyBpcyAnY2hhciAq
-Jw0KPiAgICAgKiBUaGUgdHlwZSBvZiAnMCA/ICh2b2lkICopIDogKGNoYXIgKikgaXMgJ3ZvaWQg
-KicNCj4gICAgICovDQo+ICAgICAjZGVmaW5lIGNvbnN0X3RydWUoeCkgXA0KPiAgICAgICAgIF9H
-ZW5lcmljKDAgPyAodm9pZCAqKSgobG9uZykhKHgpKSA6IChjaGFyICopMCwgY2hhciAqOiAxLCB2
-b2lkICo6IDApDQoNCkJ1dCBzb21lIG9mIHRoZSB0aGluZ3MgYnVpbHQgb24gaXQgaGFzIGlzc3Vl
-cyB3aXRoIGNvbXBpbGVyIHdhcm5pbmdzLg0KSSB0aGluayB0aGVyZSBoYXZlIHNldmVyYWwgdmFy
-aWF0aW9ucyBiZWZvcmUgYW5kIHNpbmNlIHdpdGggc3VidGxlIGRpZmZlcmVuY2VzLg0KUHJvYmFi
-bHkgY29uc3RfemVybygpIGNvbnN0X3RydWUoKSBjb25zdF9mYWxzZSgpIGFuZCBjb25zdF9leHBy
-KCkuDQoNCldoaWxlIHRoZSAnYmFzZScgZGVmaW5lIGlzIHJlYWxseSBjb25zdF96ZXJvKCkgd2l0
-aCBqdXN0IChsb25nKSh4KSB0aGF0DQp3aWxsIG1hc2sgaGlnaCBiaXRzIG9mZiAnbG9uZyBsb25n
-Jy4gDQpBIGNvbnN0X2ZhbHNlKCkgY291bGQgJ2ZpeCcgdGhhdCB1c2luZyAobG9uZykhISh4KSBi
-dXQgZXZlbiAhKHgpIHN0YXJ0cw0KZ2l2aW5nIGNvbXBpbGUgZXJyb3JzLg0KDQpJZiBjYWxsZWQg
-Zm9yIHBvaW50ZXJzIChsb25nKSgoeCkgPT0gMCkgaXMgYWxzbyBwcm9ibGVtYXRpYy4NCihQZXJo
-YXBzIHRoaXMgaXMgbGVzcyBsaWtlbHkgbm93IHRoYXQgbWluL21heCBkb24ndCB1c2UgaXQuKQ0K
-DQpTbyB3ZSBtYXkgZW5kIHVwIHdpdGggKGxvbmcpKCh4KSA/IDAgOiAxKSB3aGljaCByZWFsbHkg
-bWlnaHQgYXMNCndlbGwgYmUgd3JpdHRlbiAoKHgpID8gMEwgOiAxTCkuDQoNClRoZSB1c2UgaXMg
-bGlrZWx5IHRvIGJlIGNvbnN0X3RydWUoeCA+IHkpIHNvIHBlcmhhcHMgdGhlcmUgaXNuJ3QgYQ0K
-cmVhc29uIHRvIGhhdmUgY29uc3RfZmFsc2UoKSBzaW5jZSB0aGUgYm9vbGVhbiBvcGVyYXRvciBj
-YW4gYmUgaW52ZXJ0ZWQuDQoNCmNvbnN0X2V4cHIoKSBoYXMgcmVsaWVkIG9uICcqIDAnIHRvIG1h
-a2UgYWxsIGNvbnN0YW50IGV4cHJlc3Npb25zIHplcm8uDQpCdXQgaXQgaGFzIHRvIGhhbmRsZSBw
-b2ludGVycyAtIHNvIG5lZWRzIGEgY29uZGl0aW9uYWwuDQpTaW5jZSBpdCBpcyBvbmx5IG9uZSBs
-aW5lLCBtYXliZSBqdXN0IHJlcGxpY2F0ZSB0aGUgd2hvbGUgdGhpbmcgYXM6DQoNCiNkZWZpbmUg
-Y29uc3RfdHJ1ZSh4KSBfR2VuZXJpYygwID8gKHZvaWQgKikoKHgpID8gMEwgOiAxTCkgOiAoY2hh
-ciAqKTAsIGNoYXIgKjogMSwgdm9pZCAqOiAwKQ0KI2RlZmluZSBjb25zdF9leHByKHgpIF9HZW5l
-cmljKDAgPyAodm9pZCAqKSgoeCkgPyAwTCA6IDBMKSA6IChjaGFyICopMCwgY2hhciAqOiAxLCB2
-b2lkICo6IDApDQoNCk9yIG1heWJlIChtb3N0bHkgYmVjYXVzZSB0aGUgbGluZXMgYXJlIHNob3J0
-ZXIpOg0KI2RlZmluZSBjb25zdF9OVUxMKHgpIF9HZW5lcmljKDAgPyAoeCkgOiAoY2hhciAqKTAs
-IGNoYXIgKjogMSwgdm9pZCAqOiAwKQ0KI2RlZmluZSBjb25zdF90cnVlKHgpIGNvbnN0X05VTEwo
-KHZvaWQgKikoeCkgPyAwTCA6IDFMKSkNCiNkZWZpbmUgY29uc3RfZXhwcih4KSBjb25zdF9OVUxM
-KCh2b2lkICopKHgpID8gMEwgOiAwTCkpDQoNCk9yIGV2ZW46DQojZGVmaW5lIGNvbnN0X3RydWUo
-eCkgY29uc3RfTlVMTCgoeCkgPyBOVUxMIDogKHZvaWQgKikxTCkpDQojZGVmaW5lIGNvbnN0X2V4
-cHIoeCkgY29uc3RfTlVMTCgoeCkgPyBOVUxMIDogTlVMTCkpDQoNCglEYXZpZA0KDQotDQpSZWdp
-c3RlcmVkIEFkZHJlc3MgTGFrZXNpZGUsIEJyYW1sZXkgUm9hZCwgTW91bnQgRmFybSwgTWlsdG9u
-IEtleW5lcywgTUsxIDFQVCwgVUsNClJlZ2lzdHJhdGlvbiBObzogMTM5NzM4NiAoV2FsZXMpDQo=
+On Fri, 06 Dec 2024 08:33:11 +0000,
+richard clark <richard.xnu.clark@gmail.com> wrote:
+> 
+> Hi,
+> Currently seems the GICv3/4 irqchip configures all the interrupts as
+> the same priority, I am thinking about to minimize the latency of the
+> interrupt for a particular device, e.g, the arm arch_timer in the RTL
+> system. The question is,
+> 1. Why don't we provide a /proc or /sys interface for the enduser to
+> set the priority of a specific interrupt(SPI/PPI)?
 
+I'm afraid this really has nothing to do with any particular interrupt
+architecture.
+
+Before thinking of exposing the interrupt priority to userspace, you
+should look at what this translates into for the kernel once you allow
+interrupts to be preempted by another one with a higher priority.
+
+This means that at every point where you would normally see a
+local_irq_save(), spinlock_irqsave() or equivalent, you would need to
+explicitly specify the priority that you allow for preemption. You
+should then make sure that any code that can be run during an
+interrupt is reentrant. You need to define which data structures can
+be manipulated at which priority level... The list goes on.
+
+If you want a small taste of the complexity, just look at what
+handling NMIs (or even pseudo-NMIs in the case of GICv3) means, and
+generalise it to not just two, but an arbitrary range of priorities.
+
+If you want the full blown experience, look at the BSDs and their use
+of spl*(). I don't think anyone has any plan to get there, and the RT
+patches have shown that there is little need for it.
+
+> 2. Is there any way to verify the higher priority interrupt will have
+> more dominant to be selected to the CPU (IOW, the priority is really
+> working) in case of multiple different interrupts asserted to the GIC
+> at the same time(some debug registers of GIC like GICD_REEMPT_CNT :-)
+> to record higher priority wins)?
+
+The GIC architecture makes no promise that the interrupt you
+acknowledge is the highest priority pending interrupt, because this is
+by definition a very racy process.
+
+Also, even on busy systems, you will very rarely see two interrupts
+targeting the same CPU being made pending at the same time, so that
+the interrupt delivery system would have to arbitrate between the two.
+That's because interrupts are vanishingly rare in the grand scheme of
+things.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
