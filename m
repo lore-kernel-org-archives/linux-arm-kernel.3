@@ -4,68 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55552E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 18:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72359E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 18:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5djkSzgvcRhUsJUfE7u7JhGjk061MSHTTjG7mXapw+w=; b=RArCoTAwhm3r0SkXDkIB6gm47U
-	OKohTVF2v9BdvkBlBA0amRrsMmDLTh12Ykg/nOKvHcLEUc7cgXd4AQAcHt4fi/dDZ8mmCvBxOeMId
-	ldAL/zEUju6yRh6XbHgMG001OyalkrJmYD2z8B5aSIj/hxLmCUrs6lGJCKTczgO8NGu/bip9vh2F+
-	X0TP8f/ZcpMoSOnUg/t06nmlAaDNC5SUvj5x6BszsKBoLhb1Xe1b3f029j9W9nsz/Hsyl8kKDeLYW
-	9gArFRahEXASClDlr/vOjXROaVrgUEjzxi+q5OpK23ILiaXW6j38jqT0QR43+c/a9NA/xTvR9dNz0
-	4xZXWKVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mc4g+CAWRw0cVw8uxxeRObWkGCexj2GCcVT2pQdNGDk=; b=exdNjsxwsiV1/reZTuRUlx9X5i
+	JknDJlAYp1XTPFEt/j5fsK065IVrqC1XZ7kpPSivQcY6lkX4iUiWTPrthfkDykmylbdnccLYYSCln
+	XWxkxm0ngqTcMSvIADdqdWf2MIzfIJfUi1KjS4pnxGqddbKbJ29mQV2jlDed5Xrt9QcNLwdhjRDOh
+	I8z11g39jjoJgabRU2DKiJMEEdai9cL8bvuqWyhqnYkjYn+pXbuPFEMHUx385cKrFa0MsdzDJslRI
+	qaiIBK96F3TLBjxEXGVqDoJXjjmH4mA5OoX6jm5EE8jTvIJmKW/CUyBMlI7CEmZZci4QIX+uxzPch
+	2WLC5DdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJd29-00000002RXu-3Sjc;
-	Fri, 06 Dec 2024 18:26:33 +0000
+	id 1tJd4D-00000002Rp1-0vcs;
+	Fri, 06 Dec 2024 18:28:41 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJd17-00000002RRn-1w6C
+	id 1tJd3B-00000002Rhx-3UFq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 18:25:30 +0000
+	Fri, 06 Dec 2024 18:27:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ABB015C5A0C;
-	Fri,  6 Dec 2024 18:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0FBBC4CED1;
-	Fri,  6 Dec 2024 18:25:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733509528;
-	bh=6zPrOx2SudmgD/c40+Z4a9ztiOiUIdAL08zqV81/sfs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=tl5mKPRJ4qW6dAOX/AFyy4x6zWaRQy9Z/ra+AtEAYP1YS+8iNTK13pAz/lwHUFmuW
-	 vkO18VAW3gT75101h1AAzL4GWebmnOzOPe/RZUwWSkKQsPssck0zqGUeRH3vQU64G4
-	 0c+pwI61ZfzdDMUK+pur+1WXpU9i2vQiDL27LgnsflrBquDTI0N031EaWffY/x3z+G
-	 Uscw4QpmECno6h5u2jkEw7vFHzL45uDGHBkpiGnVt8TPbdmC/hS/tV+3JIOcQ9Zykk
-	 yKni9yZvcLdKsSbookP0Y5Omwi9ArnXRDmdyVX+u4bpc0kMVQW+enQNSLexJwbWOtH
-	 N7edetiR57TsQ==
-Date: Fri, 06 Dec 2024 12:25:26 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8C2EB5C572A;
+	Fri,  6 Dec 2024 18:26:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27B34C4CED1;
+	Fri,  6 Dec 2024 18:27:36 +0000 (UTC)
+Date: Fri, 6 Dec 2024 18:27:33 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 6.13-rc2
+Message-ID: <Z1NCFeR4iBm5Bxqg@arm.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Helge Deller <deller@gmx.de>, Lee Jones <lee@kernel.org>, 
- Hector Martin <marcan@marcan.st>, dri-devel@lists.freedesktop.org, 
- linux-leds@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-kernel@vger.kernel.org, Jingoo Han <jingoohan1@gmail.com>, 
- asahi@lists.linux.dev, Sven Peter <sven@svenpeter.dev>, 
- linux-arm-kernel@lists.infradead.org, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Pavel Machek <pavel@ucw.cz>, 
- Daniel Thompson <danielt@kernel.org>, linux-fbdev@vger.kernel.org
-To: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <20241206172735.4310-2-towinchenmi@gmail.com>
-References: <20241206172735.4310-1-towinchenmi@gmail.com>
- <20241206172735.4310-2-towinchenmi@gmail.com>
-Message-Id: <173350952667.3933863.13037602591337209524.robh@kernel.org>
-Subject: Re: [PATCH 1/3] dt-bindings: leds: backlight: apple,dwi-bl: Add
- bindings for Apple DWI backlight
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_102529_550375_2F6961E9 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20241206_102737_956192_67C413CA 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +59,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus,
 
-On Sat, 07 Dec 2024 01:24:33 +0800, Nick Chan wrote:
-> Add the device tree bindings for backlight controllers attached via Apple
-> DWI 2-wire interface.
-> 
-> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
-> ---
->  .../bindings/leds/backlight/apple,dwi-bl.yaml | 55 +++++++++++++++++++
->  1 file changed, 55 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
-> 
+Please pull the arm64 fixes below. Nothing major, some left-overs from
+the recent merging window (MTE, coco) and some newly found issues like
+the ptrace() ones. More details in the tag. Thanks.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-yamllint warnings/errors:
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
- 	 $id: http://devicetree.org/schemas/leds/backlight/apple,dwi.yaml
- 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
+are available in the Git repository at:
 
-doc reference errors (make refcheckdocs):
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241206172735.4310-2-towinchenmi@gmail.com
+for you to fetch changes up to d60624f72d15862a96965b945f6ddfee9a1359e7:
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+  arm64: ptrace: fix partial SETREGSET for NT_ARM_GCS (2024-12-05 18:05:51 +0000)
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+----------------------------------------------------------------
+arm64 fixes for 6.13-rc2:
 
-pip3 install dtschema --upgrade
+- MTE/hugetlbfs:
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+  - Set VM_MTE_ALLOWED in the arch code and remove it from the core code
+    for hugetlbfs mappings
 
+  - Fix copy_highpage() warning when the source is a huge page but not
+    MTE tagged, taking the wrong small page path
+
+- drivers/virt/coco:
+
+  - Add the pKVM and Arm CCA drivers under the arm64 maintainership
+
+  - Fix the pkvm driver to fall back to ioremap() (and warn) if the
+    MMIO_GUARD hypercall fails
+
+  - Keep the Arm CCA driver default 'n' rather than 'm'
+
+- A series of fixes for the arm64 ptrace() implementation, potentially
+  leading to the kernel consuming uninitialised stack variables when
+  PTRACE_SETREGSET is invoked with a length of 0
+
+- Fix zone_dma_limit calculation when RAM starts below 4GB and ZONE_DMA
+  is capped to this limit
+
+- Fix early boot warning with CONFIG_DEBUG_VIRTUAL=y triggered by a call
+  to page_to_phys() (from patch_map()) which checks pfn_valid() before
+  vmemmap has been set up
+
+- Do not clobber bits 15:8 of the ASID used for TTBR1_EL1 and TLBI ops
+  when the kernel assumes 8-bit ASIDs but running under a hypervisor on
+  a system that implements 16-bit ASIDs (found running Linux under
+  Parallels on Apple M4)
+
+- ACPI/IORT: Add PMCG platform information for HiSilicon HIP09A as it is
+  using the same SMMU PMCG as HIP09 and suffers from the same errata
+
+- Add GCS to cpucap_is_possible(), missed in the recent merge
+
+----------------------------------------------------------------
+Catalin Marinas (2):
+      arm64: Ensure bits ASID[15:8] are masked out when the kernel uses 8-bit ASIDs
+      arm64: mte: Fix copy_highpage() warning on hugetlb folios
+
+Mark Rutland (5):
+      arm64: patching: avoid early page_to_phys()
+      arm64: ptrace: fix partial SETREGSET for NT_ARM_TAGGED_ADDR_CTRL
+      arm64: ptrace: fix partial SETREGSET for NT_ARM_FPMR
+      arm64: ptrace: fix partial SETREGSET for NT_ARM_POE
+      arm64: ptrace: fix partial SETREGSET for NT_ARM_GCS
+
+Qinxin Xia (1):
+      ACPI/IORT: Add PMCG platform information for HiSilicon HIP09A
+
+Robin Murphy (1):
+      arm64: cpufeature: Add GCS to cpucap_is_possible()
+
+Suzuki K Poulose (1):
+      coco: virt: arm64: Do not enable cca guest driver by default
+
+Will Deacon (2):
+      drivers/virt: pkvm: Don't fail ioremap() call if MMIO_GUARD fails
+      MAINTAINERS: Add CCA and pKVM CoCO guest support to the ARM64 entry
+
+Yang Shi (2):
+      arm64: mte: set VM_MTE_ALLOWED for hugetlbfs at correct place
+      arm64: mm: Fix zone_dma_limit calculation
+
+ Documentation/arch/arm64/silicon-errata.rst   |  5 ++--
+ MAINTAINERS                                   |  2 ++
+ arch/arm64/include/asm/cpucaps.h              |  2 ++
+ arch/arm64/include/asm/cpufeature.h           |  3 +--
+ arch/arm64/include/asm/mman.h                 |  3 ++-
+ arch/arm64/kernel/patching.c                  | 21 +++++++---------
+ arch/arm64/kernel/ptrace.c                    | 36 +++++++++++++++++++++------
+ arch/arm64/mm/context.c                       |  4 +--
+ arch/arm64/mm/copypage.c                      |  8 +++---
+ arch/arm64/mm/init.c                          | 17 ++++++-------
+ drivers/acpi/arm64/iort.c                     |  2 ++
+ drivers/virt/coco/arm-cca-guest/Kconfig       |  1 -
+ drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |  6 +----
+ fs/hugetlbfs/inode.c                          |  2 +-
+ 14 files changed, 67 insertions(+), 45 deletions(-)
+
+-- 
+Catalin
 
