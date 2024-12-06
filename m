@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B909E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 01:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A422E77170
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 01:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jvGV4uV7dd9ya0e1OrNzeXExW0G1jrTQiEOMfyJbCNQ=; b=J2ojy132nAI9D95zDYMfjt7Tmf
-	DEgpmYoYBSIpIkQ3cHgBnBXMoEpsALYItnZhx8mLbdHdG4/ev2714h5UZix28qWQ0v+UFGk9Uc+Qa
-	iemKJNClIhhzeqDz5JMZrFOYzBbohj1Pq1OjK4+cO5P4jgA+pAeppLnXgfPBuMf2xi2eiPBwVVvX8
-	UP+2eSpeVv7XXTHq+kF4BXHsJf+y1t8TXARgH/6CAggEmr40ujVjPWF2F1hf6Br2CbSM6E962CdKm
-	iXHhfAknCdybZDBYihDyq5XRYA/C16avryWYaVER3VRNzcGsWT8gW1zvdVuAgaG6gsb5We7UuW0Vm
-	8R42r42g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dvMuO2LzOEcK6bZJDOQK5xJYTAbXjx0HM3xx7EXHDhI=; b=31i9VECguZXz9RauN3PiUHNpVB
+	eNUAkqT1R95q0f5QSk/LUs4k4RdN5VW0kR1TsQ49UeUMp01GEjWfQpDPU2UQEFs05mfwdncOuyf/z
+	l7Hc78X4JjqOMkCTd7zKMVJQsNrot5Xt48X5i2wev+uNBkWomQCdIkCUngR/BheU5HDHwfoICNNpU
+	juL0Pnu8ITTtcb5iigK0Q+NIEm65/s6VmBxwFc+tgX6PWR7bbYmm8ddGeX6SP9USi4OCI3sO8Xb/X
+	SlbQfXUYeKZt2tYBUL5uTLTi/pXPuKmIHF3ku+arcudGFOK7PzCkmPXrE2xlDS0Kx+snENgZqkX1o
+	bairo2Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJN4n-00000000CFF-2FY2;
-	Fri, 06 Dec 2024 01:24:13 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1tJNOp-00000000Dpr-0q1R;
+	Fri, 06 Dec 2024 01:44:55 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJN3m-00000000CAr-2gQb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 01:23:11 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-46679337c24so11810831cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Dec 2024 17:23:10 -0800 (PST)
+	id 1tJNNm-00000000Djf-3vUE;
+	Fri, 06 Dec 2024 01:43:52 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-215ac560292so15648065ad.2;
+        Thu, 05 Dec 2024 17:43:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733448188; x=1734052988; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jvGV4uV7dd9ya0e1OrNzeXExW0G1jrTQiEOMfyJbCNQ=;
-        b=hlxcK6/kdo4dt5A2IubG981l3qvyy/SsA7HvHTUcaHYwRAHO46WE5Tax5hLW9uTICY
-         MflfcVAo097GBiQeCaOKCVwHjnOZVdsk8TX1ootU+vZgwgHFhDlsnYmJv1WhaWmGcIt5
-         GKqMK00cZr+oKtKWpmDoCxFVYIC7/dkSI8z/rttLEtcbsgNzSZ/WxkTHHODOdzD90AqD
-         CWoXo0e5BFMvuIRkgi772CVRmSa//P2K/GIUN1GNmAa3egvbirGzUV6XsvpKW3C/z9Jt
-         Q8avrQVRFncfcQGaSHm/KaVHw0KyD3j7GWMhX29uhm0QcnNFpgsz1AdqeAE0gwiMCv+4
-         9Q8w==
+        d=gmail.com; s=20230601; t=1733449429; x=1734054229; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dvMuO2LzOEcK6bZJDOQK5xJYTAbXjx0HM3xx7EXHDhI=;
+        b=Or1o7xMGZp87FV9pDcDZlmOAXeHdeB5KMwaByyM0bXtHmTiaS3M8cQ6EitNZXgR/po
+         E8L0D+hqhppC6lJ1f9vpMx/gjioR+UF99cBn7kXq5NUqa+RSBeyW9Ar6m3g585LWm+V4
+         x5edPHieOow30XMmfOOVCkVcyGPPUgX/txXAng+0BGwwPjz95T141RdZ3SDPVrSNqlwy
+         WwekDD7ganW0NqmrAEPnoSX9u6jhhPZtWNKbtGlATP8tqBgpgpqyygkQFbWU2excOVM2
+         nOI/UepRsdI2ATnDWKTpeQ7JXfDjoW54mA3Z2SDQZpxmGFW0IzV0SjiqcHCbj9XGdI4x
+         hMPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733448188; x=1734052988;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jvGV4uV7dd9ya0e1OrNzeXExW0G1jrTQiEOMfyJbCNQ=;
-        b=NPBxCv+WeyckvFYtFOAXR6iyMMSp/VCVg6HIi8CdtfC8oRN6jakaWTHQrrSUWynzdG
-         M3vLy5HoTIlp2I+4FKpdZ/7QPNGzezY4f031sFn8wADizCqWkV72WUtiN1RttYcY+zhv
-         /bPh5aDOUfEjY4Q2CD/kB9WkoTuy2zOrjMyceQFgiGecRDW5UotEJcdgbo+F/NZ7KcMB
-         etFuJm3HvxLef2JE/2t1FuRW/rjJZBCWouf2e2MvLMzIE3Q4IZcyEQtgwqy9y9tcGZfw
-         uKy3D51uVGXdgeyRk5KKbdo9LbK6CdnhPs8cQQPAclhqSb1GGiGGb3UUcBbE2YinX3Q/
-         WCCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqmMeA4tIhXQ5/WtBQh8EHXyG5kuUl2/KpbT1y6pD18pWKRBdHRIt4f1K04ogY8+6BupkyoL74awLVzego9UD7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfQ1vIOqqzd6SlkUt3RGWnwMLRgx2cZhN6DnZZq7ErTswRZ7fa
-	nNMG2a0PKRvzpQ6zBw6bRpOoXAxIxA0BE/1RCrdi05rB89+lhe9e
-X-Gm-Gg: ASbGnctMQ+q7aoTm5y7wa7ImmfrkPHfy6cDI8UCLn9giAogaP8I+e8aWDLdm01HOiuF
-	cwrv/LFNM7Sk2MuSN5OkrhSH+t0JOdLGwNnHAyvADFe4buTmZVMnqpymUu/eRHzS6xjYrVaRQsE
-	kJ+url2XB6hWIvmdlQ3c112xVKiNqvyQ3/thKPQQupOS2UzahZr0/i87dGgtXtuG8QzkVMkmKI0
-	oKzQXjrn10FxXc6V2yDyPfq2cIBlHCoRRYGgjmhU5e2rqp6pIXlyTaIEjFmQw==
-X-Google-Smtp-Source: AGHT+IHK+wEHEpKWNH9K1+ZII620j8IfRKrpZnPMtL3z9CL/V1j63cap8ccn1cWykpj5ec/jt9vrgQ==
-X-Received: by 2002:ac8:5d12:0:b0:461:1fc4:1016 with SMTP id d75a77b69052e-46734cbf6b3mr19416161cf.7.1733448188457;
-        Thu, 05 Dec 2024 17:23:08 -0800 (PST)
-Received: from localhost.localdomain ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-467296d4d42sm14619631cf.32.2024.12.05.17.23.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Dec 2024 17:23:07 -0800 (PST)
-From: Mingwei Zheng <zmw12306@gmail.com>
-To: fabrice.gasnier@foss.st.com,
-	ukleinek@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	hierry.reding@gmail.com,
-	lee@kernel.org
-Cc: linux-pwm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mingwei Zheng <zmw12306@gmail.com>,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH V2] pwm: stm32-lp: Add check for clk_enable()
-Date: Thu,  5 Dec 2024 20:26:05 -0500
-Message-Id: <20241206012605.2877412-1-zmw12306@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1733449429; x=1734054229;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dvMuO2LzOEcK6bZJDOQK5xJYTAbXjx0HM3xx7EXHDhI=;
+        b=cNvkVTgCT+WNUDG6RejrNrZZw5sh+KjWJxC1cReSkduedGamuGobxPh2jKeUVTbRq1
+         wgiiZ1x0Go+Ehykdfk5qT/wmwshHAK4snrsR0W/77keTltO0d1ImclrDDhNwKEWV3Ymq
+         Qa+iWibqWTIyfgrNw5NeNm6gBXjbT81CcGY42PF95FGexVo66y3jZweYHQYUQ5VmTlVJ
+         CaWu8GNEt2k7n8COGyBsJEDiZRWofa+ArZZ2BWkB3gKZsQY3/2hiEkY4PKY+qQUKpoAR
+         VIR3cFS3MpkIvhG29cKkemOjZGXPFTX2ljqZqmR4X3cyICPQLKXDDYzcztEX/+bi0gdc
+         ANVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2lhM0nxgTomg/+hXM9X1tGnri66y5GRITUSVx8c3c559lt6DvFRH7wD2M9DuqUztfmx9rEanUych1bGoOnn9J@lists.infradead.org, AJvYcCXOz6hRjasaamvPLrqU50Zw7l7aV2va3lEqAQCr30xcwtlkAckP49IN/V8wCZtTqTxGF16dpjgR5FyK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoZWV0n0TQ+ZnapNVEH73vrGf9/shy4iCfk/6HmkkMLW5UiDl1
+	Z6fr6zKAQ5A06z5vMSB3FuFmJQoiMWdI372MqubT/HInMoHWxAFy2G0IkA==
+X-Gm-Gg: ASbGncupCjV4WiOUi13XoELunodWpVgcYJuXWTwzkEqmbwe3jA1JOtDmCLc5Vmtjj+4
+	TXF3bHpFzWtAwNkZKfPkJJ/UPDpCUsKMes/Bk7aHMOfpWYOuOWzeX9stK6KJ7a31X3ofkA/BOcN
+	Wy0nNSWVyi8DK97zaoZ9yHF8kLOUGB3sR8x479WLeoLbzD0UZP5kvbhgRhDkoG7J2GY6WmhoDl5
+	Z/tN8/FF1TqC03qp0aN/ulI+ewATCnlpKbNjn26XJlku/F4M4bkljfzGYdM6PMSzNJV/2Gxr6ki
+	2rsajMHB4xFHT8LI5ZCLlSJN
+X-Google-Smtp-Source: AGHT+IFYW2PobbERX0J/R0MGurhl+mv/yjucHbwp3t0d/Vn3DANq7WcMduBahQARhzIKRTXGHQSXBQ==
+X-Received: by 2002:a17:903:188:b0:215:5935:7eef with SMTP id d9443c01a7336-21614d68778mr17893035ad.22.1733449429330;
+        Thu, 05 Dec 2024 17:43:49 -0800 (PST)
+Received: from [172.19.1.53] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8e5f30fsm18793305ad.74.2024.12.05.17.43.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Dec 2024 17:43:49 -0800 (PST)
+Message-ID: <d41c9484-6192-462d-92e8-c200192d37f8@gmail.com>
+Date: Fri, 6 Dec 2024 09:43:45 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 0/2] Add support for nuvoton ma35 nand controller
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: richard@nod.at, vigneshr@ti.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nikita.shubin@maquefel.me, arnd@arndb.de,
+ vkoul@kernel.org, esben@geanix.com, linux-arm-kernel@lists.infradead.org,
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20241204025129.150525-1-hpchen0nvt@gmail.com>
+ <878qsuwhm1.fsf@bootlin.com>
+Content-Language: en-US
+From: Hui-Ping Chen <hpchen0nvt@gmail.com>
+In-Reply-To: <878qsuwhm1.fsf@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_172310_706711_5237E168 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20241205_174350_980582_E7D233EC 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +102,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return value of clk_enable() to catch the potential
-error.
+Dear Miquel,
 
-Fixes: e70a540b4e02 ("pwm: Add STM32 LPTimer PWM driver")
-Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
----
-Changelog:
+Thank you for your reply.
 
-v1 -> v2
 
-1. Move int ret declaration into if block.
----
- drivers/pwm/pwm-stm32-lp.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+On 2024/12/5 下午 06:26, Miquel Raynal wrote:
+> Hi,
+>
+> On 04/12/2024 at 02:51:27 GMT, Hui-Ping Chen <hpchen0nvt@gmail.com> wrote:
+>
+>> This patch series adds the mtd nand driver for the nuvoton ma35 ARMv8 SoC.
+>> It includes DT binding documentation and the ma35 mtd nand driver.
+>>
+>> v10:
+>>    - Update ma35d1 mtd nand driver
+>>      - Add unsupported write page handling.
+> I was about to apply it but...
+>
+>      [31m●[0m checkpatch.pl: 117: WARNING: please write a help paragraph that fully describes the config symbol
+>      [31m●[0m checkpatch.pl: 141: WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
+>      [31m●[0m checkpatch.pl: 348: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 352: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 352: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 429: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 465: CHECK: spaces preferred around that '*' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 465: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 466: CHECK: spaces preferred around that '*' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 466: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 467: CHECK: spaces preferred around that '*' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 467: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 468: CHECK: spaces preferred around that '*' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 468: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 479: CHECK: spaces preferred around that '*' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 479: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 481: CHECK: spaces preferred around that '*' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 481: CHECK: spaces preferred around that '+' (ctx:VxV)
+>      [31m●[0m checkpatch.pl: 514: CHECK: Unbalanced braces around else statement
+>      [31m●[0m checkpatch.pl: 611: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 650: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 665: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 675: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 689: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 699: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 715: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 756: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 805: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 935: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 950: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 953: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 975: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 1001: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 1018: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 1131: CHECK: Alignment should match open parenthesis
+>      [31m●[0m checkpatch.pl: 1159: WARNING: DT compatible string "nuvoton,ma35d1-nand" appears un-documented -- check ./Documentation/devicetree/bindings/
+>
+> Please fix these warnings and checks.
+>
+> You might want to use --strict by default.
 
-diff --git a/drivers/pwm/pwm-stm32-lp.c b/drivers/pwm/pwm-stm32-lp.c
-index 989731256f50..f09d097d6284 100644
---- a/drivers/pwm/pwm-stm32-lp.c
-+++ b/drivers/pwm/pwm-stm32-lp.c
-@@ -167,8 +167,12 @@ static int stm32_pwm_lp_get_state(struct pwm_chip *chip,
- 	regmap_read(priv->regmap, STM32_LPTIM_CR, &val);
- 	state->enabled = !!FIELD_GET(STM32_LPTIM_ENABLE, val);
- 	/* Keep PWM counter clock refcount in sync with PWM initial state */
--	if (state->enabled)
--		clk_enable(priv->clk);
-+	if (state->enabled) {
-+		int ret = clk_enable(priv->clk);
-+
-+		if (ret)
-+			return ret;
-+	}
- 
- 	regmap_read(priv->regmap, STM32_LPTIM_CFGR, &val);
- 	presc = FIELD_GET(STM32_LPTIM_PRESC, val);
--- 
-2.34.1
+I will fix it.
+
+
+>
+> Thanks,
+> Miquèl
+
+
+Best regards,
+
+Hui-Ping Chen
 
 
