@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22351E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C375E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 22:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBGOdW4oTTCa1JclPp8xkjljvgMUCVt9VuA0WKX1NwQ=; b=WI3S9NiTlGbSJIpdRkGHAC6u4n
-	xslSA2cFtcTI4SdcdEWconHRh4x4a5Nx/4ItD2qfzZK1lpKjpSjXXMYlL3ApJ0tiKQi9mzrxOfo6N
-	9YhflIXPtdpFVQEgNVQk2kq14+GvBzyFsDOJRgUFJjxYgwMxnMm+LRPNkRUmOJHvL9e7ECN+mR0Zl
-	jN6FEyf/rHTKv6Wdfjp6PBlAo+r4VTaVRHmNnDN7Ah35As0dMMzFMl0jMCH03BX2wwdF5GBAES9/K
-	MM49uk+dS7BdkwNK0qy1p+8Ic2qo6nNOnyG2ahuR0jrCoNBg6Wxfmg5F/FIYOlHr+yQTyfig2bSfI
-	lukNQBSg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rOyUqFAAS0zflcPNN+0p77vdHXLc7iOPZG8j4oesxak=; b=KvIX9xEWpSEWwG
+	8+BPyTp033f++/5GfnDYA/buvYZV8T4y2a//eTu4j26Ttrd/YLS+auDgitaE5nnHke0OOfCjYfkRj
+	yah84+Fh+lyJfBqwC8T5hK+Z88uij9G0iaTSedkk8YYCPPdJmyU4y+NyV4PKLuOkba1ktcNwqrdHH
+	BD/6r1ZC5+N3/IWzy6YXw2+D5/x5M7UTC6kysbQcm5Kmz3dWYAH4BwidLGrnYT1T0sFGcUMDM5qpZ
+	E+Hpl2ljkYq5LX18uKIeE0WD4vWdNZXPA5BgI4r1yBhd5fmvikd1+pdbkCDujvYj48NzC78ppzj6S
+	w54Hd8Tw9syJR0OE85og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgRb-00000002qwv-2xQi;
-	Fri, 06 Dec 2024 22:05:03 +0000
+	id 1tJgSb-00000002r7l-0fcm;
+	Fri, 06 Dec 2024 22:06:05 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJgQY-00000002qgd-3iZy;
-	Fri, 06 Dec 2024 22:04:00 +0000
+	id 1tJgQY-00000002qgX-3OXR;
+	Fri, 06 Dec 2024 22:04:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733522637;
-	bh=ocDDbVeLdHpMPiMcDE70Fk3emF/id8nLMdcCqc5xz28=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bBha6SS8RvYjJUKGyMU5idpglImf7IY01Mf33R5oAsYv8afU9xum3uaJDDgLmHmZe
-	 oK5o1cYoDpJN2eQgC1ee3PIY3iekV8nniKrAla6srAwkEEFIqanMYI5xjHtA6KH7x4
-	 o4c+FGnj6KxVLzNjl/pPKOuqwudz0akvZ7MrcWlWnZGFpyipC1eDkH8Xm00iaeSLq2
-	 9eSFzN7Gxe7mLNw72DReoM5slGcHZ8NRBfsXg4trPppJ4Lmc0M5QAM769aeLeQbNlK
-	 fkfF/VY+7ITVaSvFkJzUVzU5xP8jLQ1wnv35dta5tTBDd0KGLrY7KsBAOS29hNRGvV
-	 1+BK8RIROqKYw==
+	s=mail; t=1733522636;
+	bh=s2tNhONfJvsToFPtlcQMRNzdtAz7bW3fSRxtreTVedo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ZLXrpiIhMLNJ1b5bxOOjBF59nD8hOd3/GHloog4/fGIe5q+fNSBnKN40/+zzYjcOS
+	 6OWgLea08YCaioDX4rRalWK19tRA/v1+ckCp01MQGiMRwyenF5WxpkncfEf2S5tgbf
+	 t7HwqfP9iL75hyvqTcZ7eHGc/T/phYH/JePuno2lFZ2wFZ+t2EOPJh0ELbYrAVCbzE
+	 S+auEEYdPs7f5n4e2Q6xIospcA29YLAifIcIu23xPzrWns8D5TXeQT6VISyrAB/7UV
+	 3RKgTzeKd9ATRQkaMe/iCUawS3fq9XPM4YQu4j+5UqQwrwlTtSJGHrxw3s3eE22mR7
+	 7TfNDoxio4xaA==
 Received: from localhost (unknown [188.27.48.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3CB1B17E3807;
-	Fri,  6 Dec 2024 23:03:57 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6FA8517E3805;
+	Fri,  6 Dec 2024 23:03:56 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Sat, 07 Dec 2024 00:03:41 +0200
-Subject: [PATCH 1/4] phy: Add HDMI configuration options
+Subject: [PATCH 0/4] phy: rockchip: samsung-hdptx: Support high color depth
+ management
+Date: Sat, 07 Dec 2024 00:03:40 +0200
+Message-Id: <20241207-phy-sam-hdptx-bpc-v1-0-03c2e4d6d797@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241207-phy-sam-hdptx-bpc-v1-1-03c2e4d6d797@collabora.com>
-References: <20241207-phy-sam-hdptx-bpc-v1-0-03c2e4d6d797@collabora.com>
-In-Reply-To: <20241207-phy-sam-hdptx-bpc-v1-0-03c2e4d6d797@collabora.com>
+X-B4-Tracking: v=1; b=H4sIALx0U2cC/x3MQQqAIBBA0avErBswK4OuEi1Kx5xFJRphhHdPW
+ r7F/y9ECkwRxuqFQDdHPo+Cpq5Au+XYCNkUgxSya6RQ6N2DcdnRGX8lXL3GdhW9VnJQ1gxQOh/
+ Icvqf05zzB4GIvOJjAAAA
+X-Change-ID: 20241206-phy-sam-hdptx-bpc-3b05c6276fd7
 To: Vinod Koul <vkoul@kernel.org>, 
  Kishon Vijay Abraham I <kishon@kernel.org>, 
  Heiko Stuebner <heiko@sntech.de>
@@ -62,8 +65,9 @@ Cc: Sandor Yu <Sandor.yu@nxp.com>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_140359_075178_12C7D6A0 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20241206_140359_018790_99763FB4 
+X-CRM114-Status: UNSURE (   4.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sandor Yu <Sandor.yu@nxp.com>
+This series relies on the new HDMI PHY configuration options [1] (patch
+included here for convenience) to provide high color depth management
+for rockchip-samsung-hdptx, and to introduce a proper solution to setup
+the TMDS character rate on this PHY.
 
-Allow HDMI PHYs to be configured through the generic
-functions through a custom structure added to the generic union.
+[1] https://lore.kernel.org/all/43757beec6cd418fc17252283de38009d531c7c7.1732627815.git.Sandor.yu@nxp.com/
 
-The parameters added here are based on HDMI PHY
-implementation practices.  The current set of parameters
-should cover the potential users.
-
-Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Link: https://lore.kernel.org/r/43757beec6cd418fc17252283de38009d531c7c7.1732627815.git.Sandor.yu@nxp.com
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- include/linux/phy/phy-hdmi.h | 19 +++++++++++++++++++
- include/linux/phy/phy.h      |  7 ++++++-
- 2 files changed, 25 insertions(+), 1 deletion(-)
+Cristian Ciocaltea (3):
+      phy: hdmi: Add color depth configuration
+      phy: rockchip: samsung-hdptx: Setup TMDS char rate via phy_configure_opts_hdmi
+      phy: rockchip: samsung-hdptx: Add high color depth management
 
-diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..6a696922bc7f29af63d88646701b2c0fcee5c885
---- /dev/null
-+++ b/include/linux/phy/phy-hdmi.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright 2022,2024 NXP
-+ */
-+
-+#ifndef __PHY_HDMI_H_
-+#define __PHY_HDMI_H_
-+
-+/**
-+ * struct phy_configure_opts_hdmi - HDMI configuration set
-+ * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
-+ *
-+ * This structure is used to represent the configuration state of a HDMI phy.
-+ */
-+struct phy_configure_opts_hdmi {
-+	unsigned long long tmds_char_rate;
-+};
-+
-+#endif /* __PHY_HDMI_H_ */
-diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-index 03cd5bae92d3f189d739c453fe4c160dd2a5063e..4ac486b101fe4023b8f2a84e907e65a0ff0a5ede 100644
---- a/include/linux/phy/phy.h
-+++ b/include/linux/phy/phy.h
-@@ -17,6 +17,7 @@
- #include <linux/regulator/consumer.h>
- 
- #include <linux/phy/phy-dp.h>
-+#include <linux/phy/phy-hdmi.h>
- #include <linux/phy/phy-lvds.h>
- #include <linux/phy/phy-mipi-dphy.h>
- 
-@@ -42,7 +43,8 @@ enum phy_mode {
- 	PHY_MODE_MIPI_DPHY,
- 	PHY_MODE_SATA,
- 	PHY_MODE_LVDS,
--	PHY_MODE_DP
-+	PHY_MODE_DP,
-+	PHY_MODE_HDMI,
- };
- 
- enum phy_media {
-@@ -60,11 +62,14 @@ enum phy_media {
-  *		the DisplayPort protocol.
-  * @lvds:	Configuration set applicable for phys supporting
-  *		the LVDS phy mode.
-+ * @hdmi:	Configuration set applicable for phys supporting
-+ *		the HDMI phy mode.
-  */
- union phy_configure_opts {
- 	struct phy_configure_opts_mipi_dphy	mipi_dphy;
- 	struct phy_configure_opts_dp		dp;
- 	struct phy_configure_opts_lvds		lvds;
-+	struct phy_configure_opts_hdmi		hdmi;
- };
- 
- /**
+Sandor Yu (1):
+      phy: Add HDMI configuration options
 
--- 
-2.47.0
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 59 +++++++++++++++++++----
+ include/linux/phy/phy-hdmi.h                      | 21 ++++++++
+ include/linux/phy/phy.h                           |  7 ++-
+ 3 files changed, 77 insertions(+), 10 deletions(-)
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20241206-phy-sam-hdptx-bpc-3b05c6276fd7
 
 
