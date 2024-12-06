@@ -4,56 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56795E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774B4E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 12:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvLTWZpRGsJkfxm6VNOtMh2w2k7Qx13KcAIi5gDO1hU=; b=biIzChI3KpBfewUxQQlwLGndeH
-	pGixHVNZ7xtT6o+UVZ1E+HUX4OY2PY7b9EARkM8gW35GI5R2xFsKFKj5VoDmih45r/xs+LwORnLjs
-	jAjO7lKopRdBtUh9gr4hNA0873j1ieLyCK7Z2yEmUKQgySYjH+LLgyZ50s9dTnv4zWI6O1VyMUQ8y
-	/SodV0vxozKw0kmYp5Xnn8J/+1/fgphOmOx6tinV70jBHvmVcuN297tvz6dSLw2NLpmGWrNR+JABx
-	4JX0Xt0PM5fa/eLA350poNUm4o56pQUl0GXbtGxCdWJuFg771PaxsvfJ4AGQiwBVDsW10wMWtbxTj
-	9pdcajww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1aM73qPBkgat4pf2SiIS+1PMIz/kgM70Ny1A3v+G0Ls=; b=1f4BRqGw1p6NVsrr4ILz1wi/sN
+	c7mc+RFQQDs1ItS+yiRV1jV7NNPLidLkvrVhj2Pq8IrX+MFj6QewLuRKYea3erTWUwu3DDgWs7nVv
+	LUhdKrGqKizT7a5bZUiIyF6Glnd+z990gwn6HAd/Oafo7QYcArVrnotgd63fi0kDQYG/B1D6pmpKY
+	AJ0SRSCrh/6jArPv4JvATQ24PgMUQ01qq1m2QOSjGlrZbNNji7Lq7CayCPkJUKO/yR0r6KbKiq5la
+	2WHgeQg2w9cjqaQmN4jSiwBsz9Ayu+cmcxtKWzwtaSeNIaMuny6DD4AgfC5z28pimc3Uh4TcJ3wcB
+	HMl8zyow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJX4t-00000001WA7-2i3q;
-	Fri, 06 Dec 2024 12:04:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJX3s-00000001W6x-3pbx
+	id 1tJX6m-00000001WOR-0MjJ;
+	Fri, 06 Dec 2024 12:06:56 +0000
+Received: from mail-am6eur05on20627.outbound.protection.outlook.com ([2a01:111:f403:2612::627] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJX5k-00000001WGp-2knj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 12:03:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5F061474;
-	Fri,  6 Dec 2024 04:04:23 -0800 (PST)
-Received: from [10.57.90.152] (unknown [10.57.90.152])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B58F23F58B;
-	Fri,  6 Dec 2024 04:03:53 -0800 (PST)
-Message-ID: <7f58898d-b9a9-4e54-a198-70351fa51784@arm.com>
-Date: Fri, 6 Dec 2024 12:03:52 +0000
-MIME-Version: 1.0
+	Fri, 06 Dec 2024 12:05:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=twKYL/eazyGgLVlI2VLv4vpoEv7DGli49YJ+3D++mSwjRcqZ6SlgWzk447F/hb2hpPrq6GOBLY00I+nAmAJUZ0MLu+fJ2hqQ+VFFJAD/RyJcSjWbxFgGnZOb+dE2VvkmqT++LGZ/D9lv0dYWEyi9rLfHfyxxOvN4cEBPIMQ2XWN+U4ouD8ondCJuPk4vV919fuqQjvjmcZcPL5KSYYuwI1aAClq5GC5ZtJSXQzDZvCBCmaib8kH8Y/N9CIkrjDkJxo4RUB5mRDW4Jwwzq3y1pLVLg8h/M7bNRqP6PjcPomxRo5w1z+ENwIk6wGdn+cpFbxf31ylTdRiHiol3x8VgaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1aM73qPBkgat4pf2SiIS+1PMIz/kgM70Ny1A3v+G0Ls=;
+ b=CbgSaTkr5hOJppRTC6e5UTGxdzo5buM26gRdDj2HapNkvYC/rpLVk4S+c6Wu9MlCMIyLS4ReltgYoXn4Y/C33TZ+J9/n96naHbvqmf6Y9UWF3UxFhwQJXMwOr5q5MAgI5+A2ikKz8e/3zAgAGsePmpcsNg+QZ+w0yVIUkjiDfYT68G8N4C6Eq59XPUeJQ2GHLYkWumVx0KzHboKsj1/Qq8XaBimmjBifWq/DefVfjNBOxjwWIVYQNzcjRwvSGOIunhyYSlF/C6VKVMvug/bbODKW7rHWkGmkeWa5MCkgmZyOnCdgq56usCw+iMIjkZ/UuOfNKqFcHFk1IQ478OS2TA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1aM73qPBkgat4pf2SiIS+1PMIz/kgM70Ny1A3v+G0Ls=;
+ b=gq245yHaGPDBGnRWkoBMrIIlSA0OCosY7D/wUGmIsdarx2Fq58NlHkLE6/LowDfzO+lQLF9xFXQkv9DON2tNskhX+/Rzf8dc0rJ1dnyAdoz44boKy5CpQecUDjV/WSTvZhQwWXbX7avlEzKFGSwo43QwDmRfK6xBJvWWhRtXxlgZwby/ZSmW6m+I8vLoP2LDdLL81dzYZwKUF5HrVRGysYVEPX5a3u35WJCY83wnwX3pXy0OTDMjL5turgbiuWM5jj2nx2q+Ykak+ALZ/CqlvSPyO0N8CHumzlsmvqRGrcItj7mp1fh+XEk7xp9y77aAGGPxT12blKpjKRgGULELZQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by DU2PR04MB9147.eurprd04.prod.outlook.com (2603:10a6:10:2f6::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Fri, 6 Dec
+ 2024 12:05:44 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd%6]) with mapi id 15.20.8207.017; Fri, 6 Dec 2024
+ 12:05:44 +0000
+Message-ID: <6f4a0be8-4def-4066-9b44-d43059b7a90d@oss.nxp.com>
+Date: Fri, 6 Dec 2024 14:05:07 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Document SVA interaction with new
- pagetable features
-To: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Cc: will@kernel.org, catalin.marinas@arm.com, joro@8bytes.org,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- mark.rutland@arm.com, joey.gouly@arm.com, ryan.roberts@arm.com,
- broonie@kernel.org
-References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
- <20241205181404.GB664340@myrica>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241205181404.GB664340@myrica>
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: Re: [PATCH v6 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+To: Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, imx@lists.linux.dev,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>, Bogdan Hamciuc
+ <bogdan.hamciuc@nxp.com>, Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+References: <20241206070955.1503412-1-ciprianmarian.costea@oss.nxp.com>
+ <20241206070955.1503412-3-ciprianmarian.costea@oss.nxp.com>
+ <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
+Content-Language: en-US
+In-Reply-To: <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4PR09CA0030.eurprd09.prod.outlook.com
+ (2603:10a6:20b:5d4::20) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|DU2PR04MB9147:EE_
+X-MS-Office365-Filtering-Correlation-Id: 642adc40-ea76-4f64-6c94-08dd15ee4fdb
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VzRMUXZicXEwc0tpVDJDYXdrYWQ2Y3g5cEFqdlJqN1BsRnJScUF3cWNPM09x?=
+ =?utf-8?B?UW5IMG4xaXNMMjZJWjhVYkdpUVdTZlBRSGF1Yy8rczNoTVFyamZlMDVRd3ZN?=
+ =?utf-8?B?VVJXUm1ncDArdUdWRkxpenFGVzRPNG1XdkhkWjlIaHhtY01PZEFKZUZJSHpK?=
+ =?utf-8?B?VDFMWU5BM0o4M1cxQVVQdEpFYW5xRVJwN3N5MFFYV09QdGtWQ3d1U1FKbjRS?=
+ =?utf-8?B?b2NnMjNWVmpCUzBCTjdaZDRKRlptQjJOT2dKY1pFVmRDWGhudHpBekRrZS9S?=
+ =?utf-8?B?eG1zckpzWGdnd210MUxGcFgveDk4c3hXeFY2R2xCUGFBbHA4VEo2amZhUVdU?=
+ =?utf-8?B?eVpTVXc0bjFvSE1LdDZQME50aCs5VXVVdERjTDNJOUVTb3UvYSt0WWI5dU5V?=
+ =?utf-8?B?S25kQVlnS0pxOWtmQm9QcGhKZnRPVFQyMzg1eDJmam5WbVptbnhMSlUvWEtl?=
+ =?utf-8?B?MHlXZHgyRmYzVVJvK0dLOVFIaWNUdjlXTFlEMDcvZGtmL1lxa0RsaCtsNmx4?=
+ =?utf-8?B?RUJmeHBsb3hld1lvRFducncvYnBHS0liQjg5eWg1bWN2MEZTUlZNYTJmanR4?=
+ =?utf-8?B?bG9uQitYenRFMnl1Y01ETVc3bzBZQ3piQ0hrOHdBVnF1Y1NsK3hleURscmx3?=
+ =?utf-8?B?Y2t6TE0wcmxlU2IyK0YzaUxUMlBGdlk0ZTY1bFNiR21TWDVJSCsvUXRQRU9p?=
+ =?utf-8?B?QjNBTE5xL3VLSTJJRDUxcXVFRVBQaUZoZFhqYklVKzBJMjA4S0Z0LysxUGtr?=
+ =?utf-8?B?U0xVWk5VSWJXTXRmVS9EV2w0d20rMWRKVU16aWkwM2JLZWltUVh1ODQ5NWp4?=
+ =?utf-8?B?aVBkWFlwU1drZmMraE9Ic1ZKTVViWGhCTXhNTXhwUmtHM0RPclpWVzNJWVFL?=
+ =?utf-8?B?VUlBTjEwOFNPUEJBUkM2bGcxbURqVXZCeDl2ZHlmUmIvM2ZKY1hjQ1FEWVdi?=
+ =?utf-8?B?MThKRkFoZ3RFSytwYm43OENONWNFREViVEN1N29YbSt4RTRaT1orUnd6MHM3?=
+ =?utf-8?B?Y2JhYlFYcEk4a1JHemRKVXZuS2w3NzJmaXd5SWh4bU05UmNDVGpQQU80dWlj?=
+ =?utf-8?B?YTBUNVlqbko2WHBQY3FXeFAyQVBuVnpQaFhZa2s0MzBqWWlTeFVKaWFSVUFh?=
+ =?utf-8?B?R3kvWDVKVVlEeC9BdTNNUVNENHdpUFZJZGVYRHo0OUJ2YnlmUUROYWFlNFFo?=
+ =?utf-8?B?aGo3djI4SHVQY3dGVUY5bWxSKytHT1FNM3dVNW9qSmxGRUF0VDBlTkptZmZq?=
+ =?utf-8?B?VHU0WjNTOVN4Q1M1T2l3RGltbTY5UjQvVkhQSS8rYkV6K3JDeklFOGRqd29O?=
+ =?utf-8?B?YkRJQ1lMV0hjSDVBT0lPUnNtcHFzb3FTZ1lNMUlBcnNCNkJoOFg1TlJhaXU5?=
+ =?utf-8?B?ZlR5VFAwd2hoc0tEZlh6YzQxUktpWW5zMzNBM2g3TnNxYm9ncURTcWdtTnlt?=
+ =?utf-8?B?dFhTOXRxS2orQWI5M0dLSHJ4R2U5b041b0JZTkFxWTM4SGp1WHJ4THNMQ2tC?=
+ =?utf-8?B?MEJBL3VHSUZjSTJ5M2p1UUxpUW96VHJnNXdQdmlXYWhYWHRDMVRLazlFMnBy?=
+ =?utf-8?B?Qlg2clE3cGpMZnAwVTJqTFFvamFydEJtRmF3dVNwSzhQeEhjQTJHVmc3RGlY?=
+ =?utf-8?B?UStqQUtxbWdTMUxqenZYbDRPOTRLS2w3cnp2VzE2MUtBa24wVmQrZ2NVdkRl?=
+ =?utf-8?B?TVk3OWdmVHVwSVFvQmRIQWw4cHpwbHZzNUdCSUtpREY5KzNTWENnNEErdWZT?=
+ =?utf-8?B?N2lNd3Jkei92RGd6SExzTi9QbTFMY1k0ZGF1R3U1UXBWaGQzcVovcjVSN2xq?=
+ =?utf-8?B?aFdWUjdzZWlRM2hvK0NFUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bklrcGVjV05wbkpmd3NSSGFibFRGeGxtNVhZMGh0ZHVudmRHRDMxalZLRENv?=
+ =?utf-8?B?VkVGTnpJS01YNC9EZndxVGVFajJ6bFdWbURRVXgwTUlMaFoxQm1WUjJRb1Vy?=
+ =?utf-8?B?d3YzSGIrbHFxcUExTmVscU8yaERIMi9hNlBDckd5cGNQOG80T0NwZHUrVzdj?=
+ =?utf-8?B?azByMkN2dUlpa1UzWmpkTzVZNVNSeHg4WVNYTXZ6Y1cydWE3d0E4cnBoN0xk?=
+ =?utf-8?B?SXpzN3RJbHhEdzlkWjVyOEZjdkNxU2lONW9sVlhKTU9JYnlYTkRVcmJraS9z?=
+ =?utf-8?B?cktJSFlsQTFGdlRQMi82UktsSDRhWVhpOHJFYjlvQXpPVnhqSGxweDJYaUtC?=
+ =?utf-8?B?OFdLSkRkd2k0Mk5TeUFxRXZWazVvY1djWFlvNFZVdFdQdlhzMmNEVjd0QUtq?=
+ =?utf-8?B?dzNhYjZmSFE4dlhpUUVFRjFDSldZZ3Q0NVhYeEVCQ1lxNS82bnBvNlk2S0My?=
+ =?utf-8?B?TEowaklSZ1JsV2Z2ODRwc0ZaVmRBV1hHSFMxV0taT3JKbkd4NXcyQUY0NzND?=
+ =?utf-8?B?OE5YY2NBYVJ6UWpPam82NUJ2ckR4SVZaODJyYnJSZVF6N3h5Y21rMWlMbklY?=
+ =?utf-8?B?VVJZdXdkZ1Q2b05GYW04cEdGNGI2bDNGeEpUQU94OXBERXNVWjhaRVdRMnJh?=
+ =?utf-8?B?dlp5YUUxZnBwRlV2Q0JSWU1iNXFackNhMkhocTNHTDQzY2FaZFJad21vNDRl?=
+ =?utf-8?B?TUc0K2sxaFRJTG5SSk04eHhyU3ExRkZ0eWZaV1poRkpTejJ3Mjc2Z21LVjVP?=
+ =?utf-8?B?M2IzUmFRNUlTa29lWFovMm45Mmt1Z1JTeDB1Yjl6YWNRT3F4UUdlS0M5L0da?=
+ =?utf-8?B?SEV0SnNHeXhZRk1QTnMvTk4xbVJvZDNvZ21XRTJ4OWljUnpsWW51NitFRWll?=
+ =?utf-8?B?eXE0VnNlY01kZUI4WjM0MHEydzdWL3NMMzZpVFJ3ZzdhVDR2by9BTHR3Mkhs?=
+ =?utf-8?B?dk1iZzFSM2pMeGRKTG1rekt6Z2graFU3bzNVa3loYk0wQUpiSzlNV1VnUXI2?=
+ =?utf-8?B?L0tVYzc1K0ZYZTJvSjZtdnJrOGZTVlRLbTNXU1FrdUh3MWVYOHlNdUFiSjZV?=
+ =?utf-8?B?cVVrV1lUbUo4ZUtyMUluaG1WeTFYaTdabmNJdUZ4bVNSS2w4dzN6eGErOU1B?=
+ =?utf-8?B?TVMzeDdGMjVBcGlRZndoOTM0Rnc5eUlMUTY2alFNM016a3pPYVdORDhXVFhv?=
+ =?utf-8?B?SU5jbVZLK2VhVElhRkJSWFI3bitFb0NCeWUvSG5vYjBBdGhHc3RCN2x0UXQx?=
+ =?utf-8?B?NVU1amRqY2RkZTdiSWQ3T3FEVjFKTlQ0OEZQMzZ3NmNVRzA0S1lhVmpDR3Rn?=
+ =?utf-8?B?RDdrbU1XZTNkelU5K0NOaTVZcU9zS3pjazJnYnY5QWdtU3N5YTRNTEM5b3Jl?=
+ =?utf-8?B?V1Jxc3dhSGVKa1kwdUQyaHdzOStXWmZ2VGlHV3VOMFh1WisvMnR2bkp6M1RB?=
+ =?utf-8?B?bmFrbWFNTUpkU3RRak5kbng3V3JPYlBNU2VoNHRGLzRhUU90VTZqK0tkMDlR?=
+ =?utf-8?B?N3dqSTRBN2RyQ0NxQTJTek51enpDanErSjBkRjdIbk5KQVFaT1FvdjkyQ1F6?=
+ =?utf-8?B?TmNQSzN0NThGOTA3RE5hUUpiMnlUWW1yTlVjMytVOGQzZFBQTzRGRWNjSlZ3?=
+ =?utf-8?B?c05VcENYNUFxdVA5VnV4Z2NiVUJ0T2JPbXBJL2JZVGkreVpvZzhjNmsyS3Nk?=
+ =?utf-8?B?Q2FwbzlINmVkUDJFeWhSQk1yRU80UEwrOEhJWG16d1I1anp4bVZoS0lxWE5k?=
+ =?utf-8?B?VHFSckVhL0FFVEg0VnNUci81YWxaMlViRGtxaGNGZWxRd1VMT0RrRU9vMEdj?=
+ =?utf-8?B?ODFEV0xkUVBOd1hjaXFaenNnQ3V5dW5RZTdmWkhRRlR4YngwU25ZckIwUytZ?=
+ =?utf-8?B?T1p1M3NOaFphZ2RqMTFIOGFCY0Nsdk03M3RLdHVnMUFkOXZFYkE3bDRzYi9R?=
+ =?utf-8?B?eG5XYzMwazRaOTh1cmc5UEFDcVI3V3UxR3FobXA4SVlWeFdDR2NMaXhCN2JS?=
+ =?utf-8?B?YWVIQVVOMkpudEFXV3pEa3JjUXgycENnaGx3OGJDUVdVbEwzekNVcDNmdnQw?=
+ =?utf-8?B?clBvZ3ZnMmZuQ1pLT0pTVmhaQ1BiRVZlUWwwS0NGSXhQd1NYYXVWVmhKeWRQ?=
+ =?utf-8?B?NDJMUkFQVkxwK3dKK2JVdUI5ay9lWmJnNlFiTS96Zm1qS2VZRWt2Z1hTMVcv?=
+ =?utf-8?Q?vzwZUYh9U9+supB9x0RiawM=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 642adc40-ea76-4f64-6c94-08dd15ee4fdb
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2024 12:05:44.5100
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yb5Z3RKoE/3t1/zsuqbl19vNhXx1S67K2vmjJmJlglaigqhBDRt93njz23rhJHwddzuCzh+0o8KBDzq2gVYepJgUhK8khADtvtHJ36gI/hY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_040357_065946_8DAEA844 
-X-CRM114-Status: GOOD (  28.75  )
+X-CRM114-CacheID: sfid-20241206_040552_864548_C0238617 
+X-CRM114-Status: GOOD (  39.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,106 +186,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-12-05 6:14 pm, Jean-Philippe Brucker wrote:
-> On Thu, Dec 05, 2024 at 01:48:09PM +0000, Robin Murphy wrote:
->> Process pagetables may now be using new permission-indirection-based
->> features which an SMMU may not understand when given such a table for
->> SVA. Although SMMUv3.4 does add its own S1PIE feature, realistically
->> we're still going to have to cope with feature mismatches between CPUs
->> and SMMUs, so let's start simple and essentially just document the
->> expectations for what falls out as-is. Although it seems unlikely for
->> SVA applications to also depend on memory-hardening features, or
->> vice-versa,
+On 12/6/2024 10:04 AM, Arnd Bergmann wrote:
+> [You don't often get email from arnd@arndb.de. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> Hard to predict, but SVA could be indirectly enabled by some common
-> library: for example a libcrypto plugin that shares the address space with
-> an accelerator when one is available (see uadk_engine). I'm not familiar
-> with the POE use-cases, but I guess a common library could also enable
-> those memory-hardening features, such that unsuspecting applications have
-> everything enabled.
+> On Fri, Dec 6, 2024, at 08:09, Ciprian Costea wrote:
+>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>
+>> Add a RTC driver for NXP S32G2/S32G3 SoCs.
+>>
+>> RTC tracks clock time during system suspend. It can be a wakeup source
+>> for the S32G2/S32G3 SoC based boards.
+>>
+>> The RTC module from S32G2/S32G3 is not battery-powered and it is not kept
+>> alive during system reset.
+>>
+>> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+>> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+>> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+>> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+
+Hello Arnd,
+
+Thanks you for your review on this patchset.
+
 > 
->> the relative lifecycles make it tricky to enforce mutual
->> exclusivity. Thankfully our PIE index allocation makes it relatively
->> benign for an SMMU to keep interpreting them as direct permissions, the
->> only real implication is that an SVA application cannot harden itself
->> against its own devices with these features. Thus, inform the user about
->> that just in case they have other expectations.
->>
->> Also we don't (yet) support LPA2, so deny SVA entirely if we're going to
->> misunderstand the pagetable format altogether.
->>
->> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
->> ---
->>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 15 ++++++++++++++-
->>   1 file changed, 14 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->> index 1d3e71569775..9ba596430e7c 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->> @@ -112,6 +112,15 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
->>   	 * from the current CPU register
->>   	 */
->>   	target->data[3] = cpu_to_le64(read_sysreg(mair_el1));
+> I read through the driver and this looks all good to me, but there
+> are two fairly minor things I noticed:
+> 
+>> +     u64 rtc_hz;
+> 
+> I see the clock rate is a 64-bit value, which is clearly what
+> comes from the clk interface in the kernel
+> 
+>> +static u64 cycles_to_sec(u64 hz, u64 cycles)
+>> +{
+>> +     return div_u64(cycles, hz);
+>> +}
+> 
+> and you divide by the clk rate to convert the register value
+> to seconds (as expected)
+> 
+>> +     u32 delta_cnt;
 >> +
->> +	/*
->> +	 * Note that we don't bother with S1PIE on the SMMU, we just rely on
->> +	 * our default encoding scheme matching direct permissions anyway.
->> +	 * SMMU has no notion of S1POE nor GCS, so make sure that is clear if
->> +	 * either is enabled for CPUs, just in case anyone imagines otherwise.
->> +	 */
->> +	if (system_supports_poe() || system_supports_gcs())
->> +		dev_warn_once(master->smmu->dev, "SVA devices ignore permission overlays and GCS\n");
+>> +     if (!seconds || seconds > cycles_to_sec(priv->rtc_hz, RTCCNT_MAX_VAL))
+>> +             return -EINVAL;
 > 
-> If POE tightens the page permissions, enabling SVA on top lets the
-> application easily bypass the POE protection. Could we actually return
-> false in arm_smmu_sva_supported() instead of displaying a warning that
-> likely no one will notice?
+> However, the range of the register value is only 32 bits,
+> which means there is no need to ever divide it by a 64-bit
+> number, and with the 32kHz clock in the binding example,
+> you only have about 37 hours worth of range here.
+> 
 
-The difficulty with both features is that they're always unconditionally 
-*enabled* if present, but the SVA concern only arises if and when they 
-are *actively used*, and that can be a transient thing. It doesn't seem 
-reasonable to effectively make SVA unusable on newer CPUs (or at least 
-force users to boot with MMFR overrides to lose GCS/POE if they want to 
-use SVA), especially when it's far from clear how bothered anyone's 
-really going to be about this anyway. I just think we should do at least 
-*something* to remember and acknowledge that certain CPU features impact 
-SVA too.
+I am not sure what is the suggestion here. To cast 'cycles' variable to 
+32-bit ?
+If yes, indeed 'div_u64' converts 'cycles' (the divisor) to 32-bit so I 
+agree it should be u32 instead of u64.
+If not, I would prefer to keep using a 64-by-32 division and avoid 
+casting 'hz' to 32-bit.
 
-> I guess enforcing !(SVA & POE) on an address space would be too much work?
+> It would appear that this makes the rtc unsuitable for
+> storing absolute time across reboots, and only serve during
+> runtime, which is a limitation you should probably document.
+> 
 
-Yes, to attempt to do this "properly" I believe we'd need to keep track 
-of how many SVA attachments, overlays, and GCS pages (if the SMMU can't 
-support S1PIE) a process has at any given point in time, then check 
-those in all 3 places to deny individual usage calls if the "opposing" 
-feature is currently in use.
+Actually there is the option to use DIV512 and/or DIV32 hardware 
+divisors for the RTC clock. The driver uses a DIV512 divisor by default 
+in order to achieve higher RTC count ranges (by achieving a smaller RTC 
+freq). Therefore, the 37 hours become 37 * 512 => ~ 2 years.
 
-Thanks,
-Robin.
+However, the rtc limitation of not being persistent during reboot 
+remains, due to hardware RTC module registers present of NXP S32G2/S32G3 
+SoCs being reset during system reboot. On the other hand, during system 
+suspend, the RTC module will keep counting if a clock source is available.
+
+Currently, this limittion is documented as follows:
+"RTC tracks clock time during system suspend. It can be a wakeup source 
+for the S32G2/S32G3 SoC based boards.
+
+The RTC module from S32G2/S32G3 is not battery-powered and it is not 
+kept alive during system reset."
+
+>> +static s64 s32g_rtc_get_time_or_alrm(struct rtc_priv *priv,
+>> +                                  u32 offset)
+>> +{
+>> +     u32 counter;
+>> +
+>> +     counter = ioread32(priv->rtc_base + offset);
+>> +
+>> +     if (counter < priv->base.cycles)
+>> +             return -EINVAL;
+> 
+> If 'counter' wraps every 37 hours, this will inevitably fail,
+> right? E.g. if priv->base.cycles was already at a large
+> 32-bit number, even reading it shortly later will produce
+> a small value after the wraparound.
+> 
+> Using something like time_before() should address this,
+> but I think you may need a custom version that works on
+> 32-bit numbers.
+> 
+
+This is correct. Would the following change be acceptable ?
+
+-       if (counter < priv->base.cycles)
+-               return -EINVAL;
+-
+-       counter -= priv->base.cycles;
++       if (counter < priv->base.cycles) {
++               /* A rollover on RTCCTN has occurred */
++               counter += RTCCNT_MAX_VAL - priv->base.cycles;
++               priv->base.cycles = 0;
++       } else {
++               counter -= priv->base.cycles;
++       }
+
+
+>> +static int s32g_rtc_resume(struct device *dev)
+>> +{
+>> +     struct rtc_priv *priv = dev_get_drvdata(dev);
+>> +     int ret;
+>> +
+>> +     if (!device_may_wakeup(dev))
+>> +             return 0;
+>> +
+>> +     /* Disable wake-up interrupts */
+>> +     s32g_enable_api_irq(dev, 0);
+>> +
+>> +     ret = rtc_clk_src_setup(priv);
+>> +     if (ret)
+>> +             return ret;
+>> +
+>> +     /*
+>> +      * Now RTCCNT has just been reset, and is out of sync with priv->base;
+>> +      * reapply the saved time settings.
+>> +      */
+>> +     return s32g_rtc_set_time(dev, &priv->base.tm);
+>> +}
+> 
+> This also fails if the system has been suspended for more than
+> 37 hours, right?
+
+Actually, the system would not go into suspend (returning with error) if 
+the alarm setting passes the 32-bit / clk_freq range.
+The check is added in 'sec_to_rtcval' which is called from the suspend 
+routine.
 
 > 
-> Thanks,
-> Jean
+> One more minor comment: you are using ioread32()/iowrite32()
+> to access the MMIO registers, which is a bit unusual. I would
+> suggest changing those to the more common readl()/writel()
+> that do the exact same thing on arm64.
 > 
->>   }
->>   EXPORT_SYMBOL_IF_KUNIT(arm_smmu_make_sva_cd);
->>   
->> @@ -206,8 +215,12 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
->>   	unsigned long asid_bits;
->>   	u32 feat_mask = ARM_SMMU_FEAT_COHERENCY;
->>   
->> -	if (vabits_actual == 52)
->> +	if (vabits_actual == 52) {
->> +		/* We don't support LPA2 */
->> +		if (PAGE_SIZE != SZ_64K)
->> +			return false;
->>   		feat_mask |= ARM_SMMU_FEAT_VAX;
->> +	}
->>   
->>   	if ((smmu->features & feat_mask) != feat_mask)
->>   		return false;
->> -- 
->> 2.39.2.101.g768bb238c484.dirty
->>
+>          Arnd
+
+Makes sense. I will change to readl/writel in V7.
+
+Best Regards,
+Ciprian
 
 
