@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12039E7716F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 04:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1883E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 04:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9G/rQWXYepwrMwJ3z6Ob8LvDgrCzifINkjNGXZVuoE=; b=OVLWVrv5nEzio8+DZkJBO1aVfw
-	MyFHGX0L3rGsCCbLN+k1l2lDY2Ttzg179+iXeKRE3WoOiBzMgTgfnvmkyOpoA2sbbQH1kJpd/1sBd
-	CI0qLlD970zufsc7g8Lde7MnOqtglRJmYMPCr+0hpEO3hmUl47UXqHset/v35uzlTD9dsbVJ4per2
-	J1cIZX4ZX1fNEiKk7Jed9dJ/1JbTrjUpMSijXgMgVBe4SUFy/UF2kG7YtX/j86Z9F2QDqOV/egswO
-	GgNydWMN31MS2AWZOK8CN4SSuODtsaKULevf9ccYyoh7ltUQTiPL73F0YgoXjjfq4KkoUZHB94qeH
-	1s3KrqSQ==;
+	bh=AUxpj+QiidXRdwd8aw8YCFerLQNEwqQsKhXKavlQ1Jg=; b=H4x2JuruiD6qSTdP3E04+1b2mY
+	hPL/TSvoZvIDIm/gadSyi5+Yps5wMfwtLrKQ4ZgL7K+8o50lKe4RNXsGVFzmyEDopBjLUi9e9Oqc/
+	7pQdT0RgeKfhEhskjUviCdDHLvDKRbUw/2y5Z0+syGXuIF2kDfa7wr76ywc2PqiTZkeFJlTEb0Eus
+	cBR2Ct7neKbsnkEA+4nRzSGmykPva/9oSSeFBflNfBTCb3+a/1OfaghfTveJVCE+6pVYOlIflOg2P
+	DSzEER77ni1+Faplh90ML8NqOlNmF12AvClAjpOw2nkevlQ4+bWHabkjAUqpihQGYPBNFc3KzmPbo
+	NiXxgqMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJPzF-00000000VjD-0mA2;
-	Fri, 06 Dec 2024 04:30:41 +0000
+	id 1tJQA8-00000000YAR-06Ro;
+	Fri, 06 Dec 2024 04:41:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJPyC-00000000VbU-2wNa
+	id 1tJQ96-00000000Xu1-1GHh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 04:29:37 +0000
+	Fri, 06 Dec 2024 04:40:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A47F2169E;
-	Thu,  5 Dec 2024 20:30:02 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 03BDC169E;
+	Thu,  5 Dec 2024 20:41:19 -0800 (PST)
 Received: from [10.163.50.12] (unknown [10.163.50.12])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BDAD13F58B;
-	Thu,  5 Dec 2024 20:29:29 -0800 (PST)
-Message-ID: <03245d82-ad68-4ac2-a6f1-d8e4cc5397c3@arm.com>
-Date: Fri, 6 Dec 2024 09:59:27 +0530
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99B7B3F58B;
+	Thu,  5 Dec 2024 20:40:45 -0800 (PST)
+Message-ID: <c1f2ba9e-6f2d-4c7e-9956-6d3b183d3e05@arm.com>
+Date: Fri, 6 Dec 2024 10:10:43 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arm64: introduce rodata=noalias
+Subject: Re: [PATCH v2 2/4] arm64: remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
 To: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
  will@kernel.org
 Cc: patches@amperecomputing.com, paulmck@kernel.org,
@@ -47,15 +47,15 @@ Cc: patches@amperecomputing.com, paulmck@kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  cl@os.amperecomputing.com
 References: <20241126085647.4993-1-shijie@os.amperecomputing.com>
- <20241126085647.4993-4-shijie@os.amperecomputing.com>
+ <20241126085647.4993-3-shijie@os.amperecomputing.com>
 Content-Language: en-US
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20241126085647.4993-4-shijie@os.amperecomputing.com>
+In-Reply-To: <20241126085647.4993-3-shijie@os.amperecomputing.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_202936_786850_46B3EC60 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20241205_204052_410289_C6B37EB3 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,59 +70,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
 On 11/26/24 14:26, Huang Shijie wrote:
-> The rodata=noalias is the original rodata=on.
-> 
-> The rodata=noalias can provide us more block mappings and contiguous hits
-> to map the linear region which minimize the TLB footprint. And the
-> linear aliases of pages belonging to read-only mappings in vmalloc
-> region are also marked as read-only.
-> 
-> Also update kernel-parameters.txt for it:
->    change "full" to "noalias"
+> The default kernel is rodata=on which means
+
+Right but this is true only after the update in the series.
+
+        if (!strcmp(arg, "on")) {
+                rodata_enabled = rodata_full = true;
+                return true;
+        }
+
+rodata_full is always "true" via 'rodata=on' and does not depend
+on the config RODATA_FULL_DEFAULT_ENABLED anymore, so it can be
+dropped. Please update this commit message with these context as
+well.
+
+> CONFIG_RODATA_FULL_DEFAULT_ENABLED is always enabled by default.
+> So we can remove CONFIG_RODATA_FULL_DEFAULT_ENABLED now.
 > 
 > Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
 > ---
->  Documentation/admin-guide/kernel-parameters.txt | 2 +-
->  arch/arm64/include/asm/setup.h                  | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+>  arch/arm64/Kconfig       | 14 --------------
+>  arch/arm64/mm/pageattr.c |  2 +-
+>  2 files changed, 1 insertion(+), 15 deletions(-)
 > 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index dc663c0ca670..54b4df42e631 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -5894,7 +5894,7 @@
->  	rodata=		[KNL,EARLY]
->  		on	Mark read-only kernel memory as read-only (default).
->  		off	Leave read-only kernel memory writable for debugging.
-> -		full	Mark read-only kernel memory and aliases as read-only
-> +		noalias	Use more block mappings,may have better performance.
->  		        [arm64]
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 4316b1fe8bf8..a9ca305a31d8 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1653,20 +1653,6 @@ config MITIGATE_SPECTRE_BRANCH_HISTORY
+>  	  When taking an exception from user-space, a sequence of branches
+>  	  or a firmware call overwrites the branch history.
 >  
->  	rockchip.usb_uart
-> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
-> index 5ded3bd11476..3d96dde4d214 100644
-> --- a/arch/arm64/include/asm/setup.h
-> +++ b/arch/arm64/include/asm/setup.h
-> @@ -31,7 +31,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
->  		return true;
->  	}
+> -config RODATA_FULL_DEFAULT_ENABLED
+> -	bool "Apply r/o permissions of VM areas also to their linear aliases"
+> -	default y
+> -	help
+> -	  Apply read-only attributes of VM areas to the linear alias of
+> -	  the backing pages as well. This prevents code or read-only data
+> -	  from being modified (inadvertently or intentionally) via another
+> -	  mapping of the same memory page. This additional enhancement can
+> -	  be turned off at runtime by passing rodata=[off|on] (and turned on
+> -	  with rodata=full if this option is set to 'n')
+> -
+> -	  This requires the linear region to be mapped down to pages,
+> -	  which may adversely affect performance in some cases.
+> -
+>  config ARM64_SW_TTBR0_PAN
+>  	bool "Emulate Privileged Access Never using TTBR0_EL1 switching"
+>  	depends on !KCSAN
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 39fd1f7ff02a..6eef08d8451e 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -20,7 +20,7 @@ struct page_change_data {
+>  	pgprot_t clear_mask;
+>  };
 >  
-> -	if (!strcmp(arg, "full")) {
-> +	if (!strcmp(arg, "noalias")) {
->  		rodata_enabled = true;
->  		rodata_full = false;
->  		return true;
+> -bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
+> +bool rodata_full __ro_after_init = true;
+>  
+>  bool can_set_direct_map(void)
+>  {
 
-This patch should be folded back into [PATCH 1/4] ensuring that
-
-- "rodata=" processing gets updated completely i.e dropping 'full',
-  adding new 'noalias' and also updating the documentation at once
-
-- Avoids temporary the "full" option breakage as mentioned earlier
-
-Also please do add in code comment above arch_parse_debug_rodata()
-function explaining all the options after these update.
+This patch can still follow the first one but after folding in the
+third patch.
 
