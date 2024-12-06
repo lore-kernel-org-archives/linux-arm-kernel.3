@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9024FE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1E1E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 20:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LiTJuFS+dNTgIcQoNx6Hyyy1lnQZAl+DworWwvDmT1o=; b=aLaOanMRjPfNSmSaQJD8n3iTVS
-	Ef2u0eqZJD95KiJU5Dh01jB3U7ZEGHocGY7GcMX+HvOjZOEsWsSyTfGgvKV1OwM5Vt6oGubuStC6q
-	u9ItKLPuvsGchipIIXGWRO3offY3e3q4FuUGbZu/AP17kR9pglFJyLZ/jdb1bQwy/5kKkMVJ6bthi
-	iue+4FAEkIRJzH1t1hXQwg23DVvcft4ws1m78VxUYtPSsKyTU4OjpbpotrTfWA4jRdQTNBp21ovxX
-	a4TVxmn4kzGjO3pu0ALD692WOkYYZlZjlPVjRNDpbrWOf8UWUPrBeCFai+c5OACbxBi+BAtfTcIdl
-	+PuzKoGg==;
+	bh=ir/riqDN2qXj7hy1fQvbE53DJwKsomUSLs1LwXKTzIU=; b=PfOj7WTA/olzmwFECnUo3SaSo8
+	Cr+lOiQALVNww6yL8CRIRTcJsgtiL4wsUNnc3JNjqg638eRADu19gQMoildCLbi2ttgFd64DiYTM7
+	CyLvqaTWS8ynupzJNCQ1puRKQBCJmS7goIW/efARkj4FX69tflucrA3JM/6m3icQ/PphiKaT7Xs+y
+	/2ysGpE9NxaEfV4mVAoBKDpFF9KKNBD/EvU+kb+jeTYT/JU3sKLB3xPiR7ueNgWClIgzN3NKddOD3
+	F+WBT6fHNtl9YGztj/NDnNd3pp2HjNx3eExqn89+3/pYGexFxW+VKC/zsZn3QNoQj4IVpBymQvnjd
+	jhSvirhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJebr-00000002eG6-39we;
-	Fri, 06 Dec 2024 20:07:31 +0000
+	id 1tJecr-00000002eT6-1fWs;
+	Fri, 06 Dec 2024 20:08:33 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeVw-00000002cY4-370V
+	id 1tJeVw-00000002cZO-49c5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 20:01:25 +0000
+	Fri, 06 Dec 2024 20:01:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1733515284; x=1765051284;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=vxSjUj8/rpVfSBDOAIJy4d6AezOyQPahCixPSn8D4y4=;
-  b=XPQ323UjMb79Y4qWbR7Fq/MALAjSE255rXGMXODW+fjly+lU+CLoCJm0
-   Go8jufnFK5U8zCvsygpFaJ9Wz4SU6Fv5WLv8RAOQLIPeGaXspthc/eELo
-   Kjo5ezBIln535cqCIQJTMmxtIYkH8d5JvLfYQyvpMLTXo0yfLjRNBA6db
-   TFHQF7PxAbQXw9qft9TR60vlbfxdO41tfJJPLUiX8ML6BbVZIBeUySyJG
-   XFlOL5UrJ8pvDYtVl2O06J40FO9T/lkyVaLEXquTan+rwhw3w6dKd3N9C
-   B1HFuoGz3PyLYoCIPCz8+Ox2K8NGXDZ64HuLj46uxtb4T+Kec8JuImOc9
-   A==;
+  bh=BCyeqOoY+YLc7OOTB+1JsebdSOtDLOPlnU8NaRAIflg=;
+  b=l/037ETsZkQVLK3iHLk69tdXbc4eohAMjV4e8pF/d7oqYgCNByjuhDLa
+   Q61iKyBpzN1ajcxaqhaqTYDITzPesp8RpziiV64yOKHgH8OU3eyzTxP+4
+   D44kBjCl1JU7to6FttbjHq22VM3CJQTlaILDNyPU2KCelW9KJt+HU+ehk
+   bYas0X09DkdDRj3C/HyWF3I4QUx3Lo1FyfWtsJA85M1L3yCRmzDWDWN4T
+   9trZCQMiigJNzSXgh0NoPzTf/Q7ZxjO6dHO7XODWmnMzFoj8qlDndWKW5
+   MOalSSAMThDcJSfApqLUdn1Q+u79rIziELK95p6z70lLeFICC33ecN4nE
+   w==;
 X-CSE-ConnectionGUID: wHv5dacKTzaP3KMzdbJ8Aw==
-X-CSE-MsgGUID: /c8PheexSnqIMADne7aZhg==
+X-CSE-MsgGUID: NjvV5IrnTPebvbUWN1E1iA==
 X-IronPort-AV: E=Sophos;i="6.12,214,1728975600"; 
-   d="scan'208";a="202686983"
+   d="scan'208";a="202686985"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Dec 2024 13:01:21 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Dec 2024 13:01:22 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -64,10 +64,10 @@ CC: <dharma.b@microchip.com>, <mihai.sain@microchip.com>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-gpio@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-serial@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 01/13] dt-bindings: ARM: at91: Document Microchip SAMA7D65 Curiosity
-Date: Fri, 6 Dec 2024 12:59:46 -0700
-Message-ID: <d5a22763a2081daa0d2155e2c05b7dc0eb468610.1733505542.git.Ryan.Wanner@microchip.com>
+	<linux-serial@vger.kernel.org>
+Subject: [PATCH v3 03/13] dt-bindings: atmel-sysreg: add sama7d65 RAM and PIT
+Date: Fri, 6 Dec 2024 12:59:48 -0700
+Message-ID: <96e64f01eee264ad0ac4c720a7a1cab4f95c206b.1733505542.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1733505542.git.Ryan.Wanner@microchip.com>
 References: <cover.1733505542.git.Ryan.Wanner@microchip.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_120124_881742_F1635891 
-X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-CacheID: sfid-20241206_120125_100542_5C08E375 
+X-CRM114-Status: UNSURE (   7.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,37 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Romain Sioen <romain.sioen@microchip.com>
+From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-Document device tree binding of the Microchip SAMA7D65 Curiosity board.
+Add SAMA7D65 RAM controller, PIT64 DT bindings.
 
-Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/arm/atmel-at91.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../devicetree/bindings/arm/atmel-sysregs.txt      | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-index 7160ec80ac1b..0ec29366e6c2 100644
---- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-+++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-@@ -180,6 +180,13 @@ properties:
-           - const: atmel,sama5d4
-           - const: atmel,sama5
+diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+index 76e2b7978250..93c2a5a341f3 100644
+--- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
++++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+@@ -13,6 +13,7 @@ PIT Timer required properties:
+ PIT64B Timer required properties:
+ - compatible: Should be "microchip,sam9x60-pit64b" or
+ 			"microchip,sam9x7-pit64b", "microchip,sam9x60-pit64b"
++			"microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b"
+ - reg: Should contain registers location and length
+ - interrupts: Should contain interrupt for PIT64B timer
+ - clocks: Should contain the available clock sources for PIT64B timer.
+@@ -27,12 +28,13 @@ Its subnodes can be:
+ - watchdog: compatible should be "atmel,at91rm9200-wdt"
  
-+      - description: Microchip SAMA7D65 Curiosity Board
-+        items:
-+          - const: microchip,sama7d65-curiosity
-+          - const: microchip,sama7d65
-+          - const: microchip,sama7d6
-+          - const: microchip,sama7
-+
-       - items:
-           - const: microchip,sama7g5ek # SAMA7G5 Evaluation Kit
-           - const: microchip,sama7g5
+ RAMC SDRAM/DDR Controller required properties:
+-- compatible: Should be "atmel,at91rm9200-sdramc", "syscon"
+-			"atmel,at91sam9260-sdramc",
+-			"atmel,at91sam9g45-ddramc",
+-			"atmel,sama5d3-ddramc",
+-			"microchip,sam9x60-ddramc",
+-			"microchip,sama7g5-uddrc",
++- compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
++			"atmel,at91sam9260-sdramc" or
++			"atmel,at91sam9g45-ddramc" or
++			"atmel,sama5d3-ddramc" or
++			"microchip,sam9x60-ddramc" or
++			"microchip,sama7g5-uddrc" or
++			"microchip,sama7d65-uddrc","microchip,sama7g5-uddrc" or
+ 			"microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc".
+ - reg: Should contain registers location and length
+ 
 -- 
 2.43.0
 
