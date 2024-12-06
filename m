@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF39E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 14:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D06EE77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 14:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwHfTrGKe1Ng6qTTv8m18Y45pZvy2+0tveAWJarX1a0=; b=k1vF3RGWyuUu6QzXH6o9ckRVFL
-	VUErGJIh3tq62hrYQRwQp3g7ErMqdjd7y9truPKUCAPQcb03N2g8pqXPgVTIWXy/r/2z7O6o6EVXt
-	eBCHLTWjZfEZVOfACSHIBEgohmd5yMJJ5uCmYLZTR0gqA2JA54nDkF1bqrnLNq5Z+OOcOvPdUOIvg
-	8VxiMQMOrc4kFUvKLPdl/ZhhUAY+GwnFd8Fj71PiA4Phst4NZsONUzpqVpYU2nk5Vltu6qxVOGRIN
-	k91qzGkJQ0P+VnlhL6X9UjJQinB87Piz5n1VJCB5HEv0eXmNs3e37EysfPM6eMB2eTghblc/04OQy
-	Nx3Stp+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QPgOxK3JViDMf7WhC9Snx4pOrtMbKurIxIiWzL6DsPE=; b=HLdYLHgB43f3vY112TGxAyyFHl
+	4+obu3jg4sY/syeH8XswwGJIXXp60osrxrW/5s1/AcnJGXV99tD70WC/gS1zwKrOWZGlB5+kwvQjI
+	Ygv74lXE6AuJJjYiFDNvD48dzTupTl/exB73evfjdgvHxsWl1aj8qlAk7NWUrPQIW52ewGnjC/HJu
+	atjPoaxaEW492rw4opI55z/RnYUn1LntquhkjIp1vzzcCtxp01o9/pZWzNP7VZ1SkYh1AT43m0UmB
+	LqCTWSKmczyef3epGFQ3GDsqpCWJiYbjmZVOafKMeRZuZuVhcefob4jUverFJ7Cr0RtWGL+LnGolh
+	duzXeSKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJZGo-00000001rLc-3SWr;
-	Fri, 06 Dec 2024 14:25:26 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tJZR2-00000001sQJ-35IY;
+	Fri, 06 Dec 2024 14:36:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJZFn-00000001rCZ-2FVa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 14:24:24 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5d0bf77af4dso2188898a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 06:24:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1733495061; x=1734099861; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pwHfTrGKe1Ng6qTTv8m18Y45pZvy2+0tveAWJarX1a0=;
-        b=QB5XvvH1vY+2Sc8mixO37M50cnp7mmROA795jicaYhQ/XkhzEBVppxvP98EohiILBL
-         Z2n4Dko/OK1z6dgpelWWRR5HwDKJyYqnStL+xbkmQY+R/Yw+M7Zk2YQLWlFHGQbrC8sF
-         qJYhNKaE1XZO+e9L4B6q5SRQEimWczIvgcRmSyWdMWI3PUCe3IK2d24AdVQhrX/9SKq5
-         Ci0n55rNQb1lg1HWJKVECksZNarb4zuzt+MhQfWlMPlZKHuPWwOgpU29QNOdVlZzHDb0
-         wShnh0LyLM22I3kx8Ml28U9vnPzmOL+VRRSLSQbYMX3je7ptFXwc1g0QCG6dlUvo5vGF
-         kg9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733495061; x=1734099861;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pwHfTrGKe1Ng6qTTv8m18Y45pZvy2+0tveAWJarX1a0=;
-        b=cDkfzjet3IuxnCE2w7vxnkb/To6/9JvB9DB9LuYavLLTfn/HOuBed408EReJFnqvZO
-         bVApQWhro4LvTc8LzG0UqyZPcD5RTJfAWsQek+UuR3I+zGhfKjTnkFU64yGg4iAMT42O
-         8BrOTnMOgggp95NUkVdCny6UsrW8XoTNatNV7QANiwKCXLvqLTCYufNq7yauMG7NxuTF
-         YlWFSfKH55t07D+VmaHuG8nDMHwp1XIYTQrcHh69m0XVPm7nOuVaV6UrgOz1BsMigYg2
-         YMqQsonDE4BZpJfz0+scQYP1lu0QycTY3aYGjNxd034kjTwVh54aM4Z9m+YFnG8fs6Ch
-         3DxQ==
-X-Gm-Message-State: AOJu0YzYMZyLwiRCXH+9OpBghhc4B0dmCTNiKj87XST5QqkLsLphHUWP
-	uzSulP+DwDk/QZNn6YgdRY0VYctpVQCFaQ3UhNESY1UI7nXaOIvC2M3qtw8Hykg=
-X-Gm-Gg: ASbGncvzQD5bteq0ekmq8pPdCeOgt0agX8Hyq7jPLnr+u62EzWA9fzb6z3kXOjBSSXD
-	AKxmlF5Se2eh7jTy+NAUmJEMGtOp3FW53ioLrjUHK0+L7YM7aDPMcpKIM6Tqvd0o8ZeXsTzTA8S
-	ceMGo4KfEovFIa7aCKssU6JHeLm2ScOtKoZ6sn4zrAbCe7Y05/y80L51kuCEiNerZPW5mt80Aai
-	o0j4iGjfpFGedKPW0sEa8C40mIuEeMmSt84CxKxPYH7j/u9xVtvdoU1BRm1flQ=
-X-Google-Smtp-Source: AGHT+IEcTcffeDUZkl+nKBkgYPiYpxv1W8zJJQYjH/nBa4yD5QQ4BKGe/griAaUczS+I795ml4xtxA==
-X-Received: by 2002:a17:906:4c9:b0:aa5:d06:4578 with SMTP id a640c23a62f3a-aa63a15a016mr199717266b.28.1733495060824;
-        Fri, 06 Dec 2024 06:24:20 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.161])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625e92a58sm248149066b.48.2024.12.06.06.24.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Dec 2024 06:24:20 -0800 (PST)
-Message-ID: <9b9f5daa-2456-4ad0-9e56-a6978c35b197@tuxon.dev>
-Date: Fri, 6 Dec 2024 16:24:19 +0200
+	id 1tJZPz-00000001sEK-49sW;
+	Fri, 06 Dec 2024 14:34:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 845D55C6E72;
+	Fri,  6 Dec 2024 14:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A50DC4CED1;
+	Fri,  6 Dec 2024 14:34:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733495695;
+	bh=nF5LxKv8T81leJMO/CuStFlxQDPRXw0NlSd9f5JANYc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WgHxdjMuh7TGdSDG78OQk4528JQqnx5KRlevVafqybA+nndhgJb7Q70hQ36QphC7m
+	 5J5HKk9E6TZ9duXn4GHfgApO3OHuIlAXffiDZU129EnvSz9FhND87VGhejelBxsIvq
+	 sBLNi5O3GT4ArsiTXb+a95mquANa9oVe/eoZ27dirHsZm5LDxjFWrLYgljpvRikiYq
+	 MmlKV31TVnfvcurjE5rt1OKQoZIgxIH/EK+7WsaTtS1YWbu9imqs3Y+eKs3FPMTZX8
+	 Jx9N7bJkAiOxjE4cCX1Ke6WmOWBeRNiKX9xzpl/XzHbUaojbajwdOG+z2tSb05GFEz
+	 EBCHb6D1nP7SA==
+Date: Fri, 6 Dec 2024 15:34:52 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 09/10] drm/vc4: hdmi: stop rereading EDID in
+ get_modes()
+Message-ID: <20241206-caped-proficient-rattlesnake-c882f3@houat>
+References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
+ <20241206-drm-bridge-hdmi-connector-v6-9-50dc145a9c06@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: at91: pm: change BU Power Switch to automatic mode
-Content-Language: en-US
-To: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Cristian Birsan <cristian.birsan@microchip.com>
-References: <20241125165648.509162-1-nicolas.ferre@microchip.com>
- <34a5b77b-e732-4393-a469-d9c719afa879@tuxon.dev>
- <24069031-9ed4-4592-af98-ff53222caf03@microchip.com>
- <c7ad1f03-f2a9-4706-ae87-2843b93de040@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <c7ad1f03-f2a9-4706-ae87-2843b93de040@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="6occl6gdwf4rqri7"
+Content-Disposition: inline
+In-Reply-To: <20241206-drm-bridge-hdmi-connector-v6-9-50dc145a9c06@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_062423_577442_AA7DAD82 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20241206_063456_113047_BC2AA8B3 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,145 +91,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Nicolas,
 
-On 06.12.2024 16:14, Nicolas Ferre wrote:
-> Claudiu,
-> 
-> On 02/12/2024 at 17:44, Nicolas Ferre wrote:
->> On 02/12/2024 at 09:05, Claudiu Beznea wrote:
->>> Hi, Nicolas,
->>>
->>> On 25.11.2024 18:56, nicolas.ferre@microchip.com wrote:
->>>> From: Nicolas Ferre <nicolas.ferre@microchip.com>
->>>>
->>>> Change how the Backup Unit Power is configured and force the
->>>> automatic/hardware mode.
->>>> This change eliminates the need for software management of the power
->>>> switch, ensuring it transitions to the backup power source before
->>>> entering low power modes.
->>>>
->>>> This is done in the only locaton where this swich was configured. It's
->>>
->>> s/locaton/location
->>>
->>>> usually done in the bootloader.
->>>>
->>>> Previously, the loss of the VDDANA (or VDDIN33) power source was not
->>>> automatically compensated by an alternative power source. This resulted
->>>> in the loss of Backup Unit content, including Backup Self-refresh low
->>>> power mode information, OTP emulation configuration, and boot
->>>> configuration, for instance.
->>>
->>> Should we add a fixes for this?
->>
->> Not so easy to tell as there's a loose dependency with the bootloader.
->> But it's true that switching to automatic never harm. So probably yes.
->>
->>>> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
->>>> ---
->>>>    arch/arm/mach-at91/pm.c | 31 ++++++++++++++++++++-----------
->>>>    1 file changed, 20 insertions(+), 11 deletions(-)
->>>>
->>>> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
->>>> index b9b995f8a36e..05a1547642b6 100644
->>>> --- a/arch/arm/mach-at91/pm.c
->>>> +++ b/arch/arm/mach-at91/pm.c
->>>> @@ -598,7 +598,21 @@ static int at91_suspend_finish(unsigned long val)
->>>>         return 0;
->>>>    }
->>>>
->>>> -static void at91_pm_switch_ba_to_vbat(void)
->>>> +/**
->>>> + * at91_pm_switch_ba_to_auto() - Configure Backup Unit Power Switch
->>>> + * to automatic/hardware mode.
->>>> + *
->>>> + * The Backup Unit Power Switch can be managed either by software or
->>>> hardware.
->>>> + * Enabling hardware mode allows the automatic transition of power
->>>> between
->>>> + * VDDANA (or VDDIN33) and VDDBU (or VBAT, respectively), based on the
->>>> + * availability of these power sources.
->>>> + *
->>>> + * If the Backup Unit Power Switch is already in automatic mode, no
->>>> action is
->>>> + * required. If it is in software-controlled mode, it is switched to
->>>> automatic
->>>> + * mode to enhance safety and eliminate the need for toggling between
->>>> power
->>>> + * sources.
->>>> + */
->>>> +static void at91_pm_switch_ba_to_auto(void)
->>>>    {
->>>>         unsigned int offset = offsetof(struct at91_pm_sfrbu_regs, pswbu);
->>>>         unsigned int val;
->>>> @@ -609,24 +623,19 @@ static void at91_pm_switch_ba_to_vbat(void)
->>>>
->>>>         val = readl(soc_pm.data.sfrbu + offset);
->>>>
->>>> -     /* Already on VBAT. */
->>>> -     if (!(val & soc_pm.sfrbu_regs.pswbu.state))
->>>> +     /* Already on auto/hardware. */
->>>> +     if (!(val & soc_pm.sfrbu_regs.pswbu.ctrl))
->>>>                 return;
->>>>
->>>> -     val &= ~soc_pm.sfrbu_regs.pswbu.softsw;
->>>
->>> It seems that softsw and state members of at91_pm_sfrbu_regs.pswbu along
->>> with their initialization could be dropped. What do you think?
->>
->> I think that I tried when writing the patch but I think that there's a
->> little difference with sama5d2 register layout. Give me a couple more
->> days to come back to this and verify.
-> 
-> Ok, I remember now: I was wondering if I needed to remove the whole
-> sfrbu_regs.xxx mechanism and define more generically the content of
-> include/soc/at91/sama7-sfrbu.h for sama5d2, but if we need one day to use
-> the STATE bit or even the SMCTRL bit of sama5d2, then it should be kept.
-> 
-> So, now that the mechanism is in place, I would prefer that we keep it:
-> okay for you?
+--6occl6gdwf4rqri7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 09/10] drm/vc4: hdmi: stop rereading EDID in
+ get_modes()
+MIME-Version: 1.0
 
-OK
+Hi,
 
-> 
-> Do you want me to re-spin a v2 for the rest?
+On Fri, Dec 06, 2024 at 12:16:03PM +0200, Dmitry Baryshkov wrote:
+> The vc4_hdmi_connector_detect_ctx() via vc4_hdmi_handle_hotplug()
+> already reads EDID and propagates it to the drm_connector. Stop
+> rereading EDID as a part of the .get_modes() callback and just update
+> the list of modes. This matches the behaviour of the i915 driver.
+>=20
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
+>  drivers/gpu/drm/vc4/vc4_hdmi.c | 21 ---------------------
+>  1 file changed, 21 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdm=
+i.c
+> index e5ab42f72f618b90f956482db6c9c8074c1e3bf1..3364ef90968dad3074800f029=
+26300ffceb75c69 100644
+> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> @@ -470,31 +470,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm=
+_connector *connector,
+> =20
+>  static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
+>  {
+> -	struct vc4_hdmi *vc4_hdmi =3D connector_to_vc4_hdmi(connector);
+>  	struct vc4_dev *vc4 =3D to_vc4_dev(connector->dev);
+> -	const struct drm_edid *drm_edid;
+>  	int ret =3D 0;
+> =20
+> -	/*
+> -	 * NOTE: This function should really take vc4_hdmi->mutex, but doing so
+> -	 * results in reentrancy issues since cec_s_phys_addr() might call
+> -	 * .adap_enable, which leads to that funtion being called with our mutex
+> -	 * held.
+> -	 *
+> -	 * Concurrency isn't an issue at the moment since we don't share
+> -	 * any state with any of the other frameworks so we can ignore
+> -	 * the lock for now.
+> -	 */
+> -
+> -	drm_edid =3D drm_edid_read_ddc(connector, vc4_hdmi->ddc);
+> -	drm_edid_connector_update(connector, drm_edid);
+> -	cec_s_phys_addr(vc4_hdmi->cec_adap,
+> -			connector->display_info.source_physical_address, false);
+> -	if (!drm_edid)
+> -		return 0;
+> -
+>  	ret =3D drm_edid_connector_add_modes(connector);
+> -	drm_edid_free(drm_edid);
 
-No, I can handle the insignificant typo while applying.
+I don't think that works though, for mostly two reasons:
 
-Thank you,
-Claudiu
+ 1) We're not sure we'll even have an hotplug interrupt if the system
+    boots with the connector plugged in for example.
 
-> 
-> Best regards,
->   Nicolas
-> 
->>> I can do it while applying, if any.
->>>
->>> Thank you,
->>> Claudiu
->>>
->>>
->>>> -     val |= soc_pm.sfrbu_regs.pswbu.key | soc_pm.sfrbu_regs.pswbu.ctrl;
->>>> +     val &= ~soc_pm.sfrbu_regs.pswbu.ctrl;
->>>> +     val |= soc_pm.sfrbu_regs.pswbu.key;
->>>>         writel(val, soc_pm.data.sfrbu + offset);
->>>> -
->>>> -     /* Wait for update. */
->>>> -     val = readl(soc_pm.data.sfrbu + offset);
->>>> -     while (val & soc_pm.sfrbu_regs.pswbu.state)
->>>> -             val = readl(soc_pm.data.sfrbu + offset);
->>>>    }
->>>>
->>>>    static void at91_pm_suspend(suspend_state_t state)
->>>>    {
->>>>         if (soc_pm.data.mode == AT91_PM_BACKUP) {
->>>> -             at91_pm_switch_ba_to_vbat();
->>>> +             at91_pm_switch_ba_to_auto();
->>>>
->>>>                 cpu_suspend(0, at91_suspend_finish);
->>>>
->>
->>
-> 
+ 2) afaik, the get_modes ioctl directly calls get_modes too.
+
+Maxime
+
+--6occl6gdwf4rqri7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ1MLiwAKCRAnX84Zoj2+
+dtSXAX4hYRG+Z6tKfkagtuQh3eXutsb5V7CXdnzsxAuDpcnlgOGnrNWvE/pOo221
+IbNrcU0BgKUK8Zc+sRgjwT4hMHCUzqNxA3vJPT21KIFeOFWVKptImryaMUOS4zgh
+qNsNOpDWOQ==
+=07j8
+-----END PGP SIGNATURE-----
+
+--6occl6gdwf4rqri7--
 
