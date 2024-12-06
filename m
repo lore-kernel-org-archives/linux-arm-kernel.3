@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5284DE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 21:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41FAE77179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 21:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mzhTxfyer3pXCCutNPdBm4ebsOpNX+qmHb589hpJEA=; b=OvMfW9k2LF8S6kWYzooi27JL+r
-	wyWPVknK+YtKMhcWeVMWL1FTZTuEEWLriC2Aailqc/QtSfp+Vdg8rQqYbrqYFlTWnc0xpL7jyR6U+
-	GXmiI+5H1tdyFcKsDNf6MbwWZVQwmgGlAjJD5Rtyi/fw1qU+QeFsotrb/F6gPwAdYEKVFj0H1y7p2
-	k2dy+piX8UcUGoDrbf1zyy5uJcNCaoHU8vi9ZmLotOZmmRhZFeZe4odYLGnm9Nz6rCQxxP1Sfic/2
-	NJb3ayQNi7gJ1pmfALyj9CWnyUhOL4dWkrWql829pRvxzXlIm5Vqm6jZolagc5RDOuALmvlUcwK4b
-	ywNumjSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tIsQxVZOmSisxuVH5z4x+NyiZyPKlPsv2rD1mEtYR5Y=; b=gDh+Zodz1J65CJDbjT5DMiVGMm
+	LAER3uAS1u6VEMau5CeZoPNv6tWzERvnx43S6HxUdC5Z/OGC74fahrdpA1rV0n0Sbdq6OKgvtJnZc
+	UgU0TER0a/tFKyzwzLQtLRNhIhdKtIFCXwoM/kstE4kA74R7sqt77VmOBV7tg0MgIBwAYsZYKvQl6
+	2FW3Fr0Bh80wxQzUl+1bP+cA19yQw3VQUxkT6B1ppwf8sOEibGBS1E/G/SImE7NhtuLlu1qqhmJQx
+	FccIMXdjT/aEjQPu8p42Hz4U5SLSo96rOVP03mvVb+3qfAX/odvxRkxaTDY9TNedDNfIxph8Uy2f5
+	xCAEa5TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJfR8-00000002jSE-1i8u;
-	Fri, 06 Dec 2024 21:00:30 +0000
-Received: from mx.ssi.bg ([193.238.174.39])
+	id 1tJfWF-00000002k35-1hKI;
+	Fri, 06 Dec 2024 21:05:47 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJfPD-00000002j5e-2EKY
+	id 1tJfVD-00000002jxv-34p5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 20:58:33 +0000
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id A1A2821D95;
-	Fri,  6 Dec 2024 22:58:27 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=4mzhTxfyer3pXCCutNPdBm4ebsOpNX+qmHb589hpJEA=; b=t3UsSFDIjjo9
-	9YpFOYo1J/D81iTJz2RzrFXKfmaII/WXesh0Dc5N5on1An9bH1QWb8nB3oGH9Tg2
-	fkjTeWyzosNG0cbUqMOXnl2tGM4hYQ0Vcu1rBhT8A4LZDrdq9M5sQQ/RqQ6cnnSj
-	c0Bqv5LmmMCWq3vN1LqP+9trPWhMEgY2LVp6DkjdNYfgSVxLdoH/7v2lp0045qYk
-	0N+zLxweluiNWZaF98nN4XdK8VIfLEQtOK1+o0AP5utHqlCnK6lWeLGeFp1e9FFO
-	u9fteAPfLaSBSl9IundxYpH2Y/9QtA6MlBZ/3hGleSL6YA5NlgnuZKtlTLMQl2To
-	wTju1EWyMr6FY9eT5SxiEagKeC8mN+qwDD3e6eay06fnLTjqQur7NKPQaIe2fD6a
-	rdOkcJ+jf0moCEVA83RCsajcOJYcDtAqqnvtgyNkCiMD21mS5PkGLpFaNVt/Ks2/
-	+/lkEygRzXTllCnvCiZgSyWdAOMpcGauqlbJcBzyFTqw7dqEd1s//YcqSkCch8fB
-	BLoPR9dEG+4YKgDcyZCXmsHsmXc0Ax35NkPEvvCBSVIPY2vfrsMcHHfz63FshGaw
-	rr11pPRVHEk/KluC97orXlAvJJnCVtGwFl1sVwSGP2ZgfY0hIeRRhp4OKPGFJ+ng
-	1lc0gwoEI8v7LIG4fRcDT+rGr46d9Q0=
-Received: from ink.ssi.bg (ink.ssi.bg [193.238.174.40])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Fri,  6 Dec 2024 22:58:26 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by ink.ssi.bg (Postfix) with ESMTPSA id 34E4315F19;
-	Fri,  6 Dec 2024 22:58:17 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.1/8.17.1) with ESMTP id 4B6KwDGo064449;
-	Fri, 6 Dec 2024 22:58:14 +0200
-Date: Fri, 6 Dec 2024 22:58:13 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: David Laight <David.Laight@ACULAB.COM>
-cc: "'Andrew Morton'" <akpm@linux-foundation.org>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "'Naresh Kamboju'" <naresh.kamboju@linaro.org>,
-        "'Dan Carpenter'" <dan.carpenter@linaro.org>,
-        "'pablo@netfilter.org'" <pablo@netfilter.org>,
-        "'open list'" <linux-kernel@vger.kernel.org>,
-        "'lkft-triage@lists.linaro.org'" <lkft-triage@lists.linaro.org>,
-        "'Linux Regressions'" <regressions@lists.linux.dev>,
-        "'Linux ARM'" <linux-arm-kernel@lists.infradead.org>,
-        "'netfilter-devel@vger.kernel.org'" <netfilter-devel@vger.kernel.org>,
-        "'Arnd Bergmann'" <arnd@arndb.de>,
-        "'Anders Roxell'" <anders.roxell@linaro.org>,
-        "'Johannes Berg'" <johannes.berg@intel.com>,
-        "'toke@kernel.org'" <toke@kernel.org>,
-        "'Al Viro'" <viro@zeniv.linux.org.uk>,
-        "'kernel@jfarr.cc'" <kernel@jfarr.cc>,
-        "'kees@kernel.org'" <kees@kernel.org>
-Subject: RE: [PATCH net] Fix clamp() of ip_vs_conn_tab on small memory
- systems.
-In-Reply-To: <494a4dc2ba2041dfb9f45d86e972b953@AcuMS.aculab.com>
-Message-ID: <184af1fd-2bc4-11c1-9319-0ca879e53d99@ssi.bg>
-References: <33893212b1cc4a418cec09aeeed0a9fc@AcuMS.aculab.com> <5ec10e7c-d050-dab8-1f1b-d0ca2d922eef@ssi.bg> <2a91ee407ed64d24b82e5fc665971add@AcuMS.aculab.com> <c0a2ee53-f6ff-f4d4-e9ab-6a3bf850bec5@ssi.bg>
- <494a4dc2ba2041dfb9f45d86e972b953@AcuMS.aculab.com>
+	Fri, 06 Dec 2024 21:04:45 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6d8f65ef5abso2633136d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 13:04:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733519082; x=1734123882; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tIsQxVZOmSisxuVH5z4x+NyiZyPKlPsv2rD1mEtYR5Y=;
+        b=SN0EpVlX/kNkHa07pjhUoHmf/E6DUIjn7fM44JEseWu6OTS96pX9BncHSlQLpTqTJi
+         PFTohkrAx+Vo06fd3aEWR1Y8qI0XYgFI5HnqNDA1M+NX0X+Me89/na0BSIb7BbfFf16n
+         x3jCu6fkrQc3ftpKPrw9XqKoULLkBXhGMoFICv9alV+323ijGC5YJgHiC0oZevq/Rfmb
+         47T8EvUFnj0IwqREKrLMkZGfdNX1GHm3Vp80gzNE0EfnbjXph+ep88V/pxgtfeUWRirJ
+         29kpoS6WeKlR7hFJiNuBFSPGHHER3xR9XqfyDaePuJjKNhFYmrDrTcT9syX7CS2qw9oj
+         G6sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733519082; x=1734123882;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tIsQxVZOmSisxuVH5z4x+NyiZyPKlPsv2rD1mEtYR5Y=;
+        b=OCu/MO/ehkeJWVyvVO4e4gcuEpW0pcNE5FjByupIEu2Tr6IxMzYH4lIiDRXDQXXt9b
+         jl5e9gDmaYXq4TqWKZhw0b61qjhrlPK1UClaSOmOv8bilKC1Ekjy9/0Hy0YXT3mmcsF1
+         8ezMEMFWu6DxVo8x7N91FOHQVH5fpbI5Iwxb11MWTqaO++9drJQq8xs5wjkJLdCNSic+
+         EzZ73oqmMfNQ1HAxMLPa3Bx7k3OypNUz4R3m3HPXCzxVvK0REQr4k/XpLULJtHXyIKTX
+         omOJdnIze4vwhqZ7rKXwTZlqSW6xWECNSXIldbqQNKiS4tBke7fzRjvqW7uPHsXY0PM0
+         1NLA==
+X-Forwarded-Encrypted: i=1; AJvYcCV51HGKDeijMy7YCngbQ2XFkxQMDbIepkoxaDT5AuI48lzTc3oZPdQgICWibKHIFQY40n6lXFwXxFYe/cq55cR1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNlieUoCIuhBJTH05xoPLkYGgTDGhGYQop/aqJ2kO2HidB1PZI
+	fw6TZel+/mMb0R0vEXM7UrkvNrqrJQhq78CI2b17ddDejsZ6eYPU
+X-Gm-Gg: ASbGncvP04a+hm+QkOWcs81ll7J+O/e4lnx0Zu1+BNDO/NJdXbYVE2K4NSF67gu569n
+	uha3EfC2XQsKBvujm7GKoqRoqYzVFBAMvnhpqpwPjfzGyWXFAY9/7Ov/lNnVyuBRGTU4UjeoW4R
+	cSBp2BlTWfFQYkEVf25v4u2jHlgOE/fT2krBmucQteYx6n9M5DUlrEVfU51xMAWSNAyLv167z96
+	EwUl9KpJoPgStF2Hw9Z23uEbnvyfuRa572TsAAbkSO0G4dI5bz3vZcvjgrGpw==
+X-Google-Smtp-Source: AGHT+IEQdKZujTj7jjBxjOcAodQ9XvJwI3WBewZCeAsZZLW6wO5g4aM64JIpWh3fzo/92H8adS9G7Q==
+X-Received: by 2002:a05:6214:20c3:b0:6d4:36ff:4358 with SMTP id 6a1803df08f44-6d8e718552amr89532996d6.25.1733519082094;
+        Fri, 06 Dec 2024 13:04:42 -0800 (PST)
+Received: from localhost.localdomain ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d8da675214sm23068256d6.11.2024.12.06.13.04.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Dec 2024 13:04:41 -0800 (PST)
+From: Mingwei Zheng <zmw12306@gmail.com>
+To: marex@denx.de
+Cc: linus.walleij@linaro.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	make24@iscas.ac.cn,
+	peng.fan@nxp.com,
+	fabien.dessenne@foss.st.com,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mingwei Zheng <zmw12306@gmail.com>,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH v2] pinctrl: stm32: Add check for clk_enable()
+Date: Fri,  6 Dec 2024 16:08:00 -0500
+Message-Id: <20241206210800.3346579-1-zmw12306@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_125831_741717_3345194C 
-X-CRM114-Status: GOOD (  30.25  )
+X-CRM114-CacheID: sfid-20241206_130443_774755_48B64E0C 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +103,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the driver to clk_bulk*() API.
+Add check for the return value of clk_bulk_enable() to catch
+the potential error.
 
-	Hello,
+Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
+Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+Changelog:
 
-On Fri, 6 Dec 2024, David Laight wrote:
+v1 -> v2:
 
-> From: Julian Anastasov
-> > Sent: 06 December 2024 16:23
-> ...
-> > 	I'm not sure how much memory we can see in small system,
-> > IMHO, problem should not be possible in practice:
-> > 
-> > - nobody expects 0 from totalram_pages() in the code
-> > 
-> > - order_base_2(sizeof(struct ip_vs_conn)) is probably 8 on 32-bit
-> 
-> It is 0x120 bytes on 64bit, so 8 could well be right.
+1. Convert the driver to clk_bulk*() API.
+---
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
 
-	That is already for 9 :)
-
-> > > Is all stems from order_base_2(totalram_pages()).
-> > > order_base_2(n) is 'n > 1 ? ilog2(n - 1) + 1 : 0'.
-> > > And the compiler generates two copies of the code that follows
-> > > for the 'constant zero' and ilog2() values.
-> > > And the 'zero' case compiles clamp(20, 8, 0) which is errored.
-> > > Note that it is only executed if totalram_pages() is zero,
-> > > but it is always compiled 'just in case'.
-> > 
-> > 	I'm confused with these compiler issues,
-> 
-> The compiler is just doing its job.
-> Consider this expression:
-> 	(x >= 1 ? 2 * x : 1) - 1
-> It is likely to get converted to:
-> 	(x >= 1 ? 2 * x - 1 : 0)
-> to avoid the subtract when x < 1.
-> 
-> The same thing is happening here.
-> order_base_2() has a (condition ? fn() : 0) in it.
-> All the +/- constants get moved inside, on 64bit that is +12 -2 -1 -9 = 0.
-> Then the clamp() with constants gets moved inside:
-> 	(condition ? clamp(27, 8, fn() + 0) : clamp(27, 8, 0 + 0))
-> Now, at runtime, we know that 'condition' is true and (fn() >= 8)
-> so the first clamp() is valid and the second one never used.
-> But this isn't known by the compiler and clamp() detects the invalid
-> call and generates a warning.
-
-	I see, such optimizations are beyond my expectations,
-I used max_avail var to separate the operations between
-different macro calls but in the end they are mixed together...
-
-> > if you
-> > think we should go with the patch just decide if it is a
-> > net or net-next material. Your change is safer for bad
-> > max_avail values but I don't expect to see problem while
-> > running without the change, except the building bugs.
-> > 
-> > 	Also, please use nf/nf-next tag to avoid any
-> > confusion with upstreaming...
-> 
-> I've copied Andrew M - he's taken the minmax.h change into his mm tree.
-> This is one of the build breakages.
-> 
-> It probably only needs to go into next for now (via some route).
-> But I can image the minmax.h changes getting backported a bit.
-
-	OK, then can you send v2 with Fixes header, precised comments
-and nf tag, it fixes a recent commit, so it can be backported easily...
-
-Regards
-
---
-Julian Anastasov <ja@ssi.bg>
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 5b7fa77c1184..188de29ac281 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
+ 
+ struct stm32_gpio_bank {
+ 	void __iomem *base;
+-	struct clk *clk;
+ 	struct reset_control *rstc;
+ 	spinlock_t lock;
+ 	struct gpio_chip gpio_chip;
+@@ -108,6 +107,7 @@ struct stm32_pinctrl {
+ 	unsigned ngroups;
+ 	const char **grp_names;
+ 	struct stm32_gpio_bank *banks;
++	struct clk_bulk_data *clks;
+ 	unsigned nbanks;
+ 	const struct stm32_pinctrl_match_data *match_data;
+ 	struct irq_domain	*domain;
+@@ -1308,7 +1308,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	if (IS_ERR(bank->base))
+ 		return PTR_ERR(bank->base);
+ 
+-	err = clk_prepare_enable(bank->clk);
++	err = clk_prepare_enable(pctl->clks[pctl->nbanks].clk);
+ 	if (err) {
+ 		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
+ 		return err;
+@@ -1397,7 +1397,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	return 0;
+ 
+ err_clk:
+-	clk_disable_unprepare(bank->clk);
++	clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
+ 	return err;
+ }
+ 
+@@ -1631,11 +1631,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 			fwnode_handle_put(child);
+ 			return -EPROBE_DEFER;
+ 		}
+-
+-		bank->clk = of_clk_get_by_name(np, NULL);
+-		if (IS_ERR(bank->clk)) {
++		pctl->clks[i].clk = of_clk_get_by_name(np, NULL);
++		if (IS_ERR(pctl->clks[i].clk)) {
+ 			fwnode_handle_put(child);
+-			return dev_err_probe(dev, PTR_ERR(bank->clk),
++			return dev_err_probe(dev, PTR_ERR(pctl->clks[i].clk),
+ 					     "failed to get clk\n");
+ 		}
+ 		i++;
+@@ -1647,7 +1646,7 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 			fwnode_handle_put(child);
+ 
+ 			for (i = 0; i < pctl->nbanks; i++)
+-				clk_disable_unprepare(pctl->banks[i].clk);
++				clk_disable_unprepare(pctl->clks[i].clk);
+ 
+ 			return ret;
+ 		}
+@@ -1726,10 +1725,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
+ int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+-	int i;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_disable(pctl->banks[i].clk);
++	clk_bulk_disable(pctl->nbanks, pctl->clks);
+ 
+ 	return 0;
+ }
+@@ -1738,10 +1735,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+ 	struct stm32_pinctrl_group *g = pctl->groups;
+-	int i;
++	int i, ret;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_enable(pctl->banks[i].clk);
++	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
++	if (ret)
++		return ret;
+ 
+ 	for (i = 0; i < pctl->ngroups; i++, g++)
+ 		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
+-- 
+2.34.1
 
 
