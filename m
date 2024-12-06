@@ -4,95 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5686E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E3EE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgYtVUqUlEZ8VSuTq+I8ySRpCil6RgGzEne2MvLY5yE=; b=ZiBtuy7qLW2xDlnxeTdO++w2gG
-	VKUfDP73JpuiPEjHs5awfy83Q3yE423a54gCM70T+tHbbFtNAEKzm3Uwxsjcf+DLbLv6kVcBV+xVX
-	HZp1c7cg5TWNKSvAld3CsaQ/OnxlJ0TiedOfok+v5cbAq+mWTUIIfH6+WU/GhpETXCngFBYnGwIEB
-	NROr+YbJqYrmwQhoMEA1rKw2kigorWxI7fSLHh2yyFYznM9HibZaOkfMRC0eOGGlcgSR37+aKNw6V
-	tswHanHhiVA38xn77YoiUfaBtSE34qeh81eZEBE9juIHbftxPcNSHkqDnhqMgPqn462sfll7/6uQg
-	r6/+WPwQ==;
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I2owo1tpHzwbDp5wmgCJnqmc7fIeVQNphYE0r7zLuNQ=; b=c8AKB9uGPvBhWLMldVERjPiwVk
+	rLaFoZMTcj9WnCuvnJAdTxQjjKVSHb2hCirfgIyjfxEYxIkH3ry79t6hs0+S24IA2tZk/FIQYNulZ
+	Ef+hRJythR7lY1iBStk23+5XQPYLdVCIr03Kkw3lXLIK4cKZ6cA7cZ87aZ/NjHlnWs9ckeOBiSrDT
+	0p9caTJQk0sGIENTQkmDbvVNVvwZWkfOQrVxr3pgvOajfghNGKdtypDeQ691UmAyMClYxuBPdUVFG
+	n8p8dJmF/fj+MhLHc7jkBo83bK3tVp51R1JIgsIETChy/jXMvoRNpA3SedKL+SiveCnXb384Z04hC
+	Qg6vxW4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeMK-00000002bMm-25rM;
-	Fri, 06 Dec 2024 19:51:28 +0000
-Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJeLI-00000002bDx-1Mrd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 19:50:25 +0000
-Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-85c5a913cffso123921241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 11:50:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733514619; x=1734119419; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kgYtVUqUlEZ8VSuTq+I8ySRpCil6RgGzEne2MvLY5yE=;
-        b=tOg5YAeX05RN9H+tPc2tCn76cQqC81Hh4z0MY89mI6Oo1gb34sOBev+MIZXtvPK9pp
-         KpPL97fjxT6W0MsWlVR1INzYcfAwIvXAiMf+Bh9sCB15daBicR8IYMgsqAa8glV6ru8a
-         5/e5MfTPZGyO+S+ieRrYWZzX+LUjMxFYzs/eoIDPP5UpCikArltF63uFS2SIcyn4pivp
-         pmax2kqz7A/BlS5ku0WMfNQMvXg5PKzMr0KAcp2GJbWdCxiPlSfC3/Yx9McIzBOyvjwb
-         A45B0+btagsEtdxPZpgqACN+zLEUdAc51KrJ5WOWRPQH9OLAXJD2D3mAayhhCXk5vVNS
-         rw7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733514619; x=1734119419;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kgYtVUqUlEZ8VSuTq+I8ySRpCil6RgGzEne2MvLY5yE=;
-        b=bXvYdhLEQNS2ae3gj5NFS6BXKxf5t2L6/GvNB9IdTWaEQSFVzGENcItgM63wDsxE0A
-         GH0DlFCeBG8WLoWKX3XlTwsaP2gsXBe6BtIuJfv6BOWXIL5GhXTbAhT9vM6lYvHLUbDw
-         IDp6u5k/mESmlbYF6O2WrStAxd1IMRM+0wxRq/7VT3GmSipDV6dj1qDsjoKRaXjvvFlm
-         HgC7Ee3pHN6UujrubzUEcATvuVR/h+/nQVnGJptBE2Hg+7pvWb6Xd4js4j1EvobTEbNB
-         6aD2b37cgTadtK3WH9hQteWntMCzy5V76qxOM3ibT0TuOWDG5hGE9Tt1mhrWZ7buLS5g
-         EroQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWuKECHN2Iyg5D97l79qx4E/Y1tuqBsWShRRujE7o/9f9QvXAc0Qmdzz3V4GfURLuGReqqtHK9JaXHorK5JOutS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIJxZquLlNNqyHQ/HjW6Iw/2hMhy8JzFgFO1j0uQRPMV/qLUL8
-	IdfOcDuUIaiahoapKaeodNziVFtgd8ZwT5NYxE9jVrraaSOjQUDAvqyEUAcIvZA=
-X-Gm-Gg: ASbGncvUHerVkfBLEM65TZ2PyxlEH0s8ZYHYdJUsiAjv6xigAaN3fxB5bgRdKlyll9f
-	ykIlQRJWS7aKoRZj8gL/ep1GBavOWbEK7o1xVWJIo9R1enxXzECsrbZFrFnPzmqkxswN5MzlrlP
-	SVFrl1bhcxRcA6GGJ+iQTxqR7kXrJCIR/g2RDK6l/xh+4rbGdcj4sfGX2lAcXN5YHvdADfCjmxc
-	Qg7HdpNlWHMHpOmTZamjz/ie1dt1DG+Fd7gyK8LTXw/OnEn33USURgmZdeBm2mK8OOB05Rs9LWW
-	jXQuTVCa
-X-Google-Smtp-Source: AGHT+IEeWUUJbrxyEjeWWA+oNy8sSHBMGYhIlHk+x4xxBQvnZSCGxkbHgUu85h0IP51FdasOJcUIAQ==
-X-Received: by 2002:a05:6102:5486:b0:4af:4ccf:e99 with SMTP id ada2fe7eead31-4afcaacd044mr5735787137.22.1733514618823;
-        Fri, 06 Dec 2024 11:50:18 -0800 (PST)
-Received: from [192.168.1.124] (49.93.157.89.rev.sfr.net. [89.157.93.49])
-        by smtp.googlemail.com with ESMTPSA id a1e0cc1a2514c-85c2bd4f2fasm552887241.32.2024.12.06.11.50.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Dec 2024 11:50:18 -0800 (PST)
-Message-ID: <2eedbbe1-6b4c-427b-a369-5b08dc27deaf@linaro.org>
-Date: Fri, 6 Dec 2024 20:50:15 +0100
+	id 1tJeNL-00000002bU9-0mcR;
+	Fri, 06 Dec 2024 19:52:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJeLu-00000002bIQ-07RU;
+	Fri, 06 Dec 2024 19:51:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE32B12FC;
+	Fri,  6 Dec 2024 11:51:26 -0800 (PST)
+Received: from [192.168.0.16] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CF733F58B;
+	Fri,  6 Dec 2024 11:50:57 -0800 (PST)
+Message-ID: <1f2b3af4-2b7a-4ac8-ab95-c80120ebf44c@arm.com>
+Date: Fri, 6 Dec 2024 19:50:55 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] firmware: add exynos ACPM protocol driver
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- peter.griffin@linaro.org, javierm@redhat.com, tzimmermann@suse.de,
- vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
- <20241205175345.201595-3-tudor.ambarus@linaro.org>
- <ce757b8e-4e6c-4ba9-9483-b57e6e230fdf@linaro.org>
- <vxqi23hxw7bmtfs5wk3u7szganpv5aa74b26xrvpmbehkltodw@dpum7zrxdz44>
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <vxqi23hxw7bmtfs5wk3u7szganpv5aa74b26xrvpmbehkltodw@dpum7zrxdz44>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+To: Mark Brown <broonie@kernel.org>, heiko@sntech.de,
+ luis.dearquer@inertim.com
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+From: Christian Loehle <christian.loehle@arm.com>
+Subject: [PATCH] spi: rockchip: Fix PM runtime count on no-op cs
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_115024_377267_B7030262 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20241206_115102_115405_9B0E1E83 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,34 +63,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/6/24 14:28, Krzysztof Kozlowski wrote:
-> On Fri, Dec 06, 2024 at 12:39:56AM +0100, Daniel Lezcano wrote:
->>> +# SPDX-License-Identifier: GPL-2.0-only
->>> +
->>> +config EXYNOS_ACPM_PROTOCOL
->>> +	tristate "Exynos Alive Clock and Power Manager (ACPM) Message Protocol"
->>
->> Given the importance of this driver where a lot of PM services rely on, does
->> it really make sense to allow it as a module ?
->>
->> Some PM services may be needed very early in the boot process
->>
-> 
-> If it works as module e.g. on Android, it is beneficial. I think the
-> platform was booting fine without it, at least to some shell, so I can
-> imagine this can be loaded a bit later.
+The early bail out that caused an out-of-bounds write was removed with
+commit 5c018e378f91 ("spi: spi-rockchip: Fix out of bounds array
+access")
+Unfortunately that caused the PM runtime count to be unbalanced and
+underflowed on the first call. To fix that reintroduce a no-op check
+by reading the register directly.
 
-Usually the firmware sets the frequency to the maximum in order to boot 
-the kernel as fast as possible. That may lead to thermal issues at boot 
-time where the thermal framework won't be able to kick in as some 
-components will depends on ACPM while the system stays at its highest 
-performance state.
+Cc: stable@vger.kernel.org
+Fixes: 5c018e378f91 ("spi: spi-rockchip: Fix out of bounds array access")
+Signed-off-by: Christian Loehle <christian.loehle@arm.com>
+---
+Not particularly happy with it, it's just the most straightforward
+fix for the issue at hand. I couldn't quite convince myself that
+no-op rockchip_spi_set_cs() are 100% ruled out just from spi.c after
+the first call either, but maybe someone more familiar with the code
+can. I have only seen the issue for the first call / during boot FWIW.
+Any more elegant fix suggestions welcome! The other host controller
+drivers don't need the read before CS change, so this shouldn't really
+either.
 
+ drivers/spi/spi-rockchip.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
+diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+index 864e58167417..1bc012fce7cb 100644
+--- a/drivers/spi/spi-rockchip.c
++++ b/drivers/spi/spi-rockchip.c
+@@ -241,6 +241,20 @@ static void rockchip_spi_set_cs(struct spi_device *spi, bool enable)
+ 	struct spi_controller *ctlr = spi->controller;
+ 	struct rockchip_spi *rs = spi_controller_get_devdata(ctlr);
+ 	bool cs_asserted = spi->mode & SPI_CS_HIGH ? enable : !enable;
++	bool cs_actual;
++
++	/*
++	 * SPI subsystem tries to avoid no-op calls that would break the PM
++	 * refcount below. It can't however for the first time it is used.
++	 * To detect this case we read it here and bail out early for no-ops.
++	 */
++	if (spi_get_csgpiod(spi, 0))
++		cs_actual = !!(readl_relaxed(rs->regs + ROCKCHIP_SPI_SER) & 1);
++	else
++		cs_actual = !!(readl_relaxed(rs->regs + ROCKCHIP_SPI_SER) &
++			       BIT(spi_get_chipselect(spi, 0)));
++	if (unlikely(cs_actual == cs_asserted))
++		return;
+ 
+ 	if (cs_asserted) {
+ 		/* Keep things powered as long as CS is asserted */
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+2.34.1
 
