@@ -4,59 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E76E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 18:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3869E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/R4bAawksno7ieAxZVpetadTDV3wqAmgPjH1GgMrAk=; b=ccNsxSKAlN6R5iMfRlMROa7YfE
-	RkNEA8iBs+NINeLJtdzKL3TVoAi1IPS0zctRwe2NfVgO6n8GYAq8aayKh20YMq1fhNDnRQ8gibVFv
-	Oqi6I7jgmBvJ41RmE6oHXBEOGG4nMWY2K+17BV9MMaoJIgh+9iyQd6pzjqA/iST/DpiEF4Oeh3ZrI
-	lxE+zuJyjF2K3aYwsi6zUV/3+D95JNuYoCB+NHtD504ySGDb5PXgwH1oghjK73ZpTN5JRBMOAv37I
-	iN9zkBRJIPsTG18dmEE1gmnodhvS6mye3UddgcJJTZah8qw3LKV9VcU9jaOkSSf7ngJrkRwx/c05R
-	vP//6OjA==;
+	bh=WGtbOaTCTsAvyUDr9a4PNqlmY0QlpNlNkPLsZ0+zYxc=; b=eR+77v9dvhumsCph7+GdX7fBT9
+	G+n4vJqHD5h8MXgWCQa8A/ZxR41gtmcffSp8TwGIz5+wuDoThhuzFyIbbndknN6FZFPu02eG0YtJp
+	V4cPRBvmyjdoZwivKN5hJ/pohUtcLjgLBGKw/DQsDI1QQxYaw6pqn8ZyMdPrgLvnuFIsiseZjHSzU
+	DgE66He7SSTYpwvmc0LAX3CLD5ASDzvTdbMGMXtIsHqwLuAVdm2lN2IeKwXFyvFxHvtzLONBGz9sa
+	L55XDc+0C+zcH8vQrGm/iTwGqXfOhADEGpPpz21CiSkg4P8thBsw0XcjFURp5vtzlqiaRcxSbFjq0
+	b33tBRow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJdQd-00000002TwJ-45iM;
-	Fri, 06 Dec 2024 18:51:51 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tJdaM-00000002UuP-47e7;
+	Fri, 06 Dec 2024 19:01:54 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJdLm-00000002TBd-2vhC
+	id 1tJdZL-00000002UfB-1ZPF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 18:46:51 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=Omh4Ga+GjcOL80897LjMRz73t/mn3S95A0N+DVf3lwW2R7u9r9qw5XOP5jwEMAiT1htrKEY670BZ9iwT1Sw+co3ygbigCtazoASakzo9kyGYVDrg3Ylqy6+1fZOBEVEptzN+OZOoS4Gaj++CtMvHmwQVFZmBsLcGTXnIAxVRhy9l0CKv84LlkwObBtZ3gPYLjFGu4wFwNRIjpP14xgeiXheqADAjevcKROb7rCoCF1sSK4zSPDHrc7D4cuBsr8Lw9IKzA838GiDU8L2sQBslWJI9ix6oPrdwRCFm/RzMhsO7u9NmG+Dce8fgAnDL02SlGhBdUenjPFm1l58thQGivQ==; s=purelymail2; d=purelymail.com; v=1; bh=q+x1BGdI0w3COyvg4KRrsbK+Ulod4rmOEtx7JLr7qrA=; h=Feedback-ID:Received:From:To:Subject:Date;
-Feedback-ID: 68229:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1358913524;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Fri, 06 Dec 2024 18:46:26 +0000 (UTC)
-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v6 4/4] arm64: dts: exynos: Add initial support for Samsung Galaxy S20 (x1slte)
-Date: Fri,  6 Dec 2024 18:46:09 +0000
-Message-ID: <20241206184609.2437-5-umer.uddin@mentallysanemainliners.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241206184609.2437-1-umer.uddin@mentallysanemainliners.org>
-References: <20241206184609.2437-1-umer.uddin@mentallysanemainliners.org>
+	Fri, 06 Dec 2024 19:00:52 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aa629402b53so282030066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 11:00:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1733511649; x=1734116449; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WGtbOaTCTsAvyUDr9a4PNqlmY0QlpNlNkPLsZ0+zYxc=;
+        b=UVR4+XFsWbTFrzB3VfIYCf/hOyax2Lxk+OOPvruSe3E5WdN6zJdjqw5AXZNMfkM9rp
+         7aV+LWxepTTeYT10FVuwt6f2CTiCpwDOpw/VvAKWAM6QqASPW7V4D6q4syOmzBoxweBH
+         K9b87Rqr27urDcvFMkjWTgy+M1lw1Gxbpkck0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733511649; x=1734116449;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WGtbOaTCTsAvyUDr9a4PNqlmY0QlpNlNkPLsZ0+zYxc=;
+        b=gm8dwJ31xyyB/YbvLTlQ85g4btOhtBgqlJHXJa1Q9wzqP6cpLXKxve2kHEZ7N+ssjp
+         tJh+7OxXu7t5BONUdaKsFxedkGsvg69ZurRxdwmiU6eVZkEK5QD4HjNnbYbfF5WlQrp9
+         wYPpiCjeDXz35JcBzkHpST/N4gJ5OYnGXUxHm2GxyN+Sl7XuLAUQ7am7Eq7WSv6alkWH
+         xrkwDtjcjJrtFFaQSGVHnQPM0uFdI/f5aJAWD1fibtVsZKdcdwo2HHYkgxc/G1NrK+Tt
+         w8dzH8xhWr64hjkNVizUFuVzYEcQ5W6GTWgnHCruhe+dh0tAeyQe+hBrA2t8IjmKkXCi
+         hphA==
+X-Forwarded-Encrypted: i=1; AJvYcCUPiN+Ee+6d6xdYknDOXlN+IrZ/1EGTCVtjT/rfwmd8VEVny3op9hLvnKkf/fEaWPV//Ejry8vQFRMJW3I6TNOa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEsubsnnGAJAvBsTa0KtKW073Oe72DhBcysVyVbSA7mColZVzc
+	tJkeCemmcnaZkeScxijvW1Di1Hx6Z7EHnvAV6MHBaX+OioQQtngziPkHIUiji8k4uLGPuQq5npa
+	sKfh/5g==
+X-Gm-Gg: ASbGnct2T6HK/xRFy22t7P6cxTn++/9aRjt1SH2NxZ/ZnkEr2AqO+Clx5cGAJDpofNi
+	Hy0O/fdqF0McvdyQij/TlTlLH344xFqJ5zQKqs5RgENKB8unKCgrv+mBbRjc7MRDJp+rviXCg5l
+	24MW6iocZPdbvtV04MlSfNSVzhFq9nhm7pND669Yq4rK7qbekPZuiMIDVM5KfVReMHv+rjnh+st
+	+bYhM49t2TAZuDjQ/6dUOFCsQGqs8W0dwzvHw/3pGakw1rLxRUwaHaQE4lw3Zh24RLa3BjzLURA
+	FN43RkQQCtss76ApkTzuLkvW
+X-Google-Smtp-Source: AGHT+IGKgbPfZE3fRNooNpwUHYhj4uFiJmbQq578jV4UK8XKaIt3a3rypBSVsGGxR6K8s4xIGLAf0g==
+X-Received: by 2002:a17:907:950a:b0:aa6:2861:564b with SMTP id a640c23a62f3a-aa639fb232fmr248574866b.3.1733511649017;
+        Fri, 06 Dec 2024 11:00:49 -0800 (PST)
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com. [209.85.128.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6260a3a89sm276097666b.171.2024.12.06.11.00.48
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Dec 2024 11:00:48 -0800 (PST)
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-434a2f3bae4so24762915e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 11:00:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXZHWRjdx1sbR5/SAeITFzinTYSV73JgzlW3eyM9bNbYYh/5Yud8g58LXZWo+tDW5ufABUDVpFbFS1jBsc1nuR8@lists.infradead.org
+X-Received: by 2002:a17:906:1ba2:b0:aa5:451c:ce1e with SMTP id
+ a640c23a62f3a-aa63a0aa48amr290776466b.32.1733511169269; Fri, 06 Dec 2024
+ 10:52:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
-Content-Type: text/plain; charset=UTF-8
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+ <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com> <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+ <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com> <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+ <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
+In-Reply-To: <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 6 Dec 2024 10:52:32 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
+Message-ID: <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of __is_constexpr()
+To: Vincent Mailhol <vincent.mailhol@gmail.com>
+Cc: David Laight <David.Laight@aculab.com>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, uecker@tugraz.at
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_104650_808584_A31C9287 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20241206_110051_404363_A3F48D8C 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Samsung Galaxy S20 (x1slte/SM-G980F)
-phone. It was launched in 2020, and it's based on the Exynos 990 SoC. It
-has only one configuration with 8GB of RAM and 128GB of UFS 3.0 storage.
+On Fri, 6 Dec 2024 at 10:31, Vincent Mailhol <vincent.mailhol@gmail.com> wrote:
+>
+> > causes issues when 'x' is not an integer expression (think
+> > "is_const(NULL)" or "is_const(1 == 2)".
+>
+> But 1 == 2 already has an integer type as proven by:
 
-This device tree adds support for the following:
+Yeah, I was confused about exactly what triggers that odd
+'-Wint-in-bool-context'.
 
-- SimpleFB
-- 8GB RAM
-- Buttons
+It's not about some actual bool type, it's literally a random
+collection of integer operations used with logical ops.
 
-Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
----
- arch/arm64/boot/dts/exynos/Makefile           |  1 +
- .../boot/dts/exynos/exynos990-x1slte.dts      | 28 +++++++++++++++++++
- 2 files changed, 29 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
+So it's things like "!(var<<2)" that generate that warning, because
+some compiler person at some point went "maybe that left shift should
+have been just a comparison instead '<'".
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exyn=
-os/Makefile
-index fe47aafcd..ee73e1a2d 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -11,5 +11,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) +=3D \
- =09exynos990-c1s.dtb=09=09\
- =09exynos990-r8s.dtb               \
- =09exynos990-x1s.dtb=09=09\
-+=09exynos990-x1slte.dtb=09=09\
- =09exynosautov9-sadk.dtb=09=09\
- =09exynosautov920-sadk.dtb
-diff --git a/arch/arm64/boot/dts/exynos/exynos990-x1slte.dts b/arch/arm64/b=
-oot/dts/exynos/exynos990-x1slte.dts
-new file mode 100644
-index 000000000..7bca641e5
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/*
-+ * Samsung Galaxy S20 (x1slte/SM-G980F) device tree source
-+ *
-+ * Copyright (c) 2024, Umer Uddin <umer.uddin@mentallysanemainliners.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos990-hubble-common.dtsi"
-+
-+/ {
-+=09#address-cells =3D <2>;
-+=09#size-cells =3D <2>;
-+
-+=09model =3D "Samsung Galaxy S20";
-+=09compatible =3D "samsung,x1slte", "samsung,exynos990";
-+
-+=09memory@80000000 {
-+=09=09device_type =3D "memory";
-+=09=09reg =3D <0x0 0x80000000 0x0 0x3ab00000>,
-+=09=09      /* Memory hole */
-+=09=09      <0x0 0xc1200000 0x0 0x1ee00000>,
-+=09=09      /* Memory hole */
-+=09=09      <0x0 0xe1900000 0x0 0x1e700000>,
-+=09=09      /* Memory hole */
-+=09=09      <0x8 0x80000000 0x1 0x7ec00000>;
-+=09};
-+};
---=20
-2.47.1
+But it turns out that "(var <<2)?0:0" _also_ triggers that warning.
 
+End result: I have *no* idea how to shut that crazy warning up for
+this case, if we want to have some generic macro that says "is this
+constant". Because it damn well is perfectly sane to ask "is (a << 3)
+a constant expression".
+
+How very annoying.
+
+This may be a case of "we just need to disable that incorrect compiler
+warning". Or does anybody see a workaround?
+
+             Linus
+
+              Linus
 
