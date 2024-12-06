@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81501E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 14:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F66E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 14:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6806OZE9vFFUYK8A6okh7+f/a87Xg5Lx3D9OLh1jME=; b=dMicwQJOY/sRoKQ7tTklEh64SM
-	B0fvQmz38SHqezlPX6TBL76MzYVvPX4QI8cc7bEl4kxtYqGJXh35cNUdFUxBuFhdVJq/jKLEsIX6k
-	R3uviTkf7uBNolxBcxism3gPQLVSAm3ewGkCSa9ncVYNKjsH4SyBEqbYSFB0VmV2+VZfPP+yn20D+
-	HlAhIDRbcIzAdFh6uOpo5VasTG9PUfO1vyJi5s9STwvPefw3cBTdoQHIEWeinMBvSxQ8ZNwJTYJqZ
-	ZF6z2fYygOEwxachSrEER4hnbyxUE1QNHVeOxKRlNPC1hGTrqbxsXczp0HHd/MiyEjrhgOnpxN0EC
-	mRn63gDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Efiav3Pc6fLJoWeXk3xEu3V2Nc/AkgjH0ShhQvQUVv0=; b=wIbkDO6963xArJnkd+pLpAEQRE
+	ZNu40Umb5S470URjHJ4/7zMMZQytxGLPkAqVwIcgacMb4turAd36MP8rWd6uZWeGkItvxxG+3umZA
+	wzY0Pzc/KHovNOwJUehNR5RqT7IxUskX9pPFsUZnDy23jpLFiy2zIWe2auEVwJYZclYmJSRg34yhZ
+	xR9QYLBBmWNGy5assBUYNVy3X800JpBqtVYitf/g9MiL9AAXYPt96QAATbFRVzB1nWaOEuWVvfAkh
+	0efqvOE1Huj05KerKUQPnFkb9/0Q11sMT5jhSrDDtklrbThFG4ZZjwC/Mg3q9P3RpuVCorGWig3R8
+	OOCh/51w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJZ4s-00000001pv5-41LY;
-	Fri, 06 Dec 2024 14:13:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tJZ7T-00000001qI0-1cJr;
+	Fri, 06 Dec 2024 14:15:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJZ3r-00000001poj-1AvU;
-	Fri, 06 Dec 2024 14:12:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6A00FA4424D;
-	Fri,  6 Dec 2024 14:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82B15C4CED1;
-	Fri,  6 Dec 2024 14:11:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733494320;
-	bh=8FH5lBgWNIAEjsKX33NT40twbgY4YS5QRxCuJsZyGS8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SBuKNaNZWbu26ObvbPG20Bv759vrpLQnlotkOFx+diGx23XzE1XB2okn3vzE/iq9x
-	 8ZbsrDjAeiCs4pj4wMrB9ir/qWrSVOPrxDMYhDGoVOOD0W44IFlWaKAWduj1GrD+0L
-	 dSgOX/UY09zzMCI/xwoXBk+D3A+UZzLtomTwDhjfaK/rd0gjQa+ZS2+z1H00S1mE5U
-	 3HxhJtM6GL7MnpkwbiqEM7ctI62Oxq+93wd8Q+If5EkjWpr83Km+TDB+DQhteklwnc
-	 UDExjGvZYIKU+mtsTtt2/tG7abNwP/dqU2Z7gEojfnnxbolV13Z4We2lmldrp6jsso
-	 5KGUQ7bUcvhow==
-Date: Fri, 6 Dec 2024 15:11:57 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 8/9] drm/vc4: hdmi: switch to using generic HDMI Codec
- infrastructure
-Message-ID: <20241206-agile-tidy-avocet-c69bff@houat>
-References: <20241201-drm-bridge-hdmi-connector-v5-0-b5316e82f61a@linaro.org>
- <20241201-drm-bridge-hdmi-connector-v5-8-b5316e82f61a@linaro.org>
- <20241202-industrious-unnatural-beagle-7da5d4@houat>
- <e7jngrc4nljdsksekinbkir2h76ztsth2xj4yqcyapfv43uryh@356yrxv3j4x6>
+	id 1tJZ6R-00000001qB6-2rCI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Dec 2024 14:14:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733494483; x=1765030483;
+  h=message-id:date:mime-version:subject:from:to:cc:
+   references:in-reply-to:content-transfer-encoding;
+  bh=S9ZuMJHhQfi2ySmApw4QqUCGnkxfvXkwr5pJnt7ri04=;
+  b=j6gsVOIFfUeYzzjYr/v3kRtZOmIVjgKtYvN6LkzqZvzvzXO+nj50W0Is
+   aUji4fziRF57qEmWNbIf7jdo1RXCae2/mQBthph+C9ylIMSX/9D9V84Ws
+   xUR2fXhx7EjvhOkCRUZcbp5ZhibX5pR+cCgpQpRkFGEZguz22Jkzmj3tZ
+   n1JEpRv7xG0hk6m5XDbpCDpTt9IEMG8P2l+93GTBxprtD/SMn/0pP2Zep
+   TTAlkf7jo49iKa/3/2Is9mslCUq0LktctCgFi2G1EZjsDz1x/KfgRFfM/
+   GHZbLD7JQqdIizHCivZgH0U7IUluRKEzk41Od21evd/9YTMB+vYVNODyq
+   Q==;
+X-CSE-ConnectionGUID: LNqYZ07gQL+lqwuz+ksYkA==
+X-CSE-MsgGUID: +JKe+NVQQ1asrSyShs1RmQ==
+X-IronPort-AV: E=Sophos;i="6.12,213,1728975600"; 
+   d="scan'208";a="34914261"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Dec 2024 07:14:41 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 6 Dec 2024 07:14:01 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Fri, 6 Dec 2024 07:14:00 -0700
+Message-ID: <c7ad1f03-f2a9-4706-ae87-2843b93de040@microchip.com>
+Date: Fri, 6 Dec 2024 15:14:10 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="zlmn4u42a2hgjiwb"
-Content-Disposition: inline
-In-Reply-To: <e7jngrc4nljdsksekinbkir2h76ztsth2xj4yqcyapfv43uryh@356yrxv3j4x6>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: at91: pm: change BU Power Switch to automatic mode
+Content-Language: en-US, fr-FR
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Cristian Birsan <cristian.birsan@microchip.com>
+References: <20241125165648.509162-1-nicolas.ferre@microchip.com>
+ <34a5b77b-e732-4393-a469-d9c719afa879@tuxon.dev>
+ <24069031-9ed4-4592-af98-ff53222caf03@microchip.com>
+Organization: microchip
+In-Reply-To: <24069031-9ed4-4592-af98-ff53222caf03@microchip.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_061203_447477_3073B19D 
-X-CRM114-Status: GOOD (  30.93  )
+X-CRM114-CacheID: sfid-20241206_061443_876780_C203815E 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,110 +89,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Claudiu,
 
---zlmn4u42a2hgjiwb
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 8/9] drm/vc4: hdmi: switch to using generic HDMI Codec
- infrastructure
-MIME-Version: 1.0
+On 02/12/2024 at 17:44, Nicolas Ferre wrote:
+> On 02/12/2024 at 09:05, Claudiu Beznea wrote:
+>> Hi, Nicolas,
+>>
+>> On 25.11.2024 18:56, nicolas.ferre@microchip.com wrote:
+>>> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+>>>
+>>> Change how the Backup Unit Power is configured and force the
+>>> automatic/hardware mode.
+>>> This change eliminates the need for software management of the power
+>>> switch, ensuring it transitions to the backup power source before
+>>> entering low power modes.
+>>>
+>>> This is done in the only locaton where this swich was configured. It's
+>>
+>> s/locaton/location
+>>
+>>> usually done in the bootloader.
+>>>
+>>> Previously, the loss of the VDDANA (or VDDIN33) power source was not
+>>> automatically compensated by an alternative power source. This resulted
+>>> in the loss of Backup Unit content, including Backup Self-refresh low
+>>> power mode information, OTP emulation configuration, and boot
+>>> configuration, for instance.
+>>
+>> Should we add a fixes for this?
+> 
+> Not so easy to tell as there's a loose dependency with the bootloader.
+> But it's true that switching to automatic never harm. So probably yes.
+> 
+>>> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+>>> ---
+>>>    arch/arm/mach-at91/pm.c | 31 ++++++++++++++++++++-----------
+>>>    1 file changed, 20 insertions(+), 11 deletions(-)
+>>>
+>>> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
+>>> index b9b995f8a36e..05a1547642b6 100644
+>>> --- a/arch/arm/mach-at91/pm.c
+>>> +++ b/arch/arm/mach-at91/pm.c
+>>> @@ -598,7 +598,21 @@ static int at91_suspend_finish(unsigned long val)
+>>>         return 0;
+>>>    }
+>>>
+>>> -static void at91_pm_switch_ba_to_vbat(void)
+>>> +/**
+>>> + * at91_pm_switch_ba_to_auto() - Configure Backup Unit Power Switch
+>>> + * to automatic/hardware mode.
+>>> + *
+>>> + * The Backup Unit Power Switch can be managed either by software or hardware.
+>>> + * Enabling hardware mode allows the automatic transition of power between
+>>> + * VDDANA (or VDDIN33) and VDDBU (or VBAT, respectively), based on the
+>>> + * availability of these power sources.
+>>> + *
+>>> + * If the Backup Unit Power Switch is already in automatic mode, no action is
+>>> + * required. If it is in software-controlled mode, it is switched to automatic
+>>> + * mode to enhance safety and eliminate the need for toggling between power
+>>> + * sources.
+>>> + */
+>>> +static void at91_pm_switch_ba_to_auto(void)
+>>>    {
+>>>         unsigned int offset = offsetof(struct at91_pm_sfrbu_regs, pswbu);
+>>>         unsigned int val;
+>>> @@ -609,24 +623,19 @@ static void at91_pm_switch_ba_to_vbat(void)
+>>>
+>>>         val = readl(soc_pm.data.sfrbu + offset);
+>>>
+>>> -     /* Already on VBAT. */
+>>> -     if (!(val & soc_pm.sfrbu_regs.pswbu.state))
+>>> +     /* Already on auto/hardware. */
+>>> +     if (!(val & soc_pm.sfrbu_regs.pswbu.ctrl))
+>>>                 return;
+>>>
+>>> -     val &= ~soc_pm.sfrbu_regs.pswbu.softsw;
+>>
+>> It seems that softsw and state members of at91_pm_sfrbu_regs.pswbu along
+>> with their initialization could be dropped. What do you think?
+> 
+> I think that I tried when writing the patch but I think that there's a
+> little difference with sama5d2 register layout. Give me a couple more
+> days to come back to this and verify.
 
-On Tue, Dec 03, 2024 at 02:19:41PM +0200, Dmitry Baryshkov wrote:
-> On Mon, Dec 02, 2024 at 02:20:04PM +0100, Maxime Ripard wrote:
-> > Hi,
-> >=20
-> > Sorry, I've been drowning under work and couldn't review that series be=
-fore.
->=20
-> No worries, at this point I'm more concerned about my IGT series rather
-> than this one.
->=20
-> >=20
-> > I'll review the driver API for now, and we can focus on the exact
-> > implementation later on.
-> >=20
-> > On Sun, Dec 01, 2024 at 02:44:12AM +0200, Dmitry Baryshkov wrote:
-> > > Drop driver-specific implementation and use the generic HDMI Codec
-> > > framework in order to implement the HDMI audio support.
-> > >=20
-> > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > > ---
-> > >  drivers/gpu/drm/vc4/vc4_hdmi.c | 68 ++++++++++----------------------=
-----------
-> > >  drivers/gpu/drm/vc4/vc4_hdmi.h |  2 --
-> > >  2 files changed, 15 insertions(+), 55 deletions(-)
-> > >=20
-> > > diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4=
-_hdmi.c
-> > > index 7295834e75fb1ab0cd241ed274e675567e66870b..d0a9aff7ad43016647493=
-263c00d593296a1e3ad 100644
-> > > --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-> > > +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> > > @@ -595,6 +595,9 @@ static int vc4_hdmi_connector_init(struct drm_dev=
-ice *dev,
-> > >  	if (vc4_hdmi->variant->supports_hdr)
-> > >  		max_bpc =3D 12;
-> > > =20
-> > > +	connector->hdmi_codec.max_i2s_channels =3D 8;
-> > > +	connector->hdmi_codec.i2s =3D 1;
-> > > +
-> >=20
-> > I guess it's a similar discussion than we had with HDMI2.0+ earlier
-> > today, but I don't really like initializing by structs. Struct fields
-> > are easy to miss, and can be easily uninitialized by mistake.
-> >=20
-> > I think I'd prefer to have them as argument to the init function. And if
-> > they are optional, we can explicitly mark them as unused.
->=20
-> Do you mean drm_connector_hdmi_init()? I think it's overloaded already,
-> but I defintely can think about:
->=20
-> drmm_connector_hdmi_init(..., max_bpc, HDMI_CODEC_I2S_PLAYBACK(8) |
-> HDMI_CODEC_NO_CAPTURE | HDMI_CODEC_DAI_ID(4));
->=20
-> or
->=20
-> ... | HDMI_CODEC_NO_DAI_ID)
->=20
-> The default (0) being equivalent to:
->=20
-> HDMI_CODEC_NO_I2S | HDMI_CODEC_NO_SPDIF | HDMI_CODEC_NO_CAPTURE | HDMI_CO=
-DEC_NO_DAI_ID
->=20
-> WDYT?
+Ok, I remember now: I was wondering if I needed to remove the whole 
+sfrbu_regs.xxx mechanism and define more generically the content of 
+include/soc/at91/sama7-sfrbu.h for sama5d2, but if we need one day to 
+use the STATE bit or even the SMCTRL bit of sama5d2, then it should be kept.
 
-I know it's kind of contradictory, but it definitely looks overcrowded.
+So, now that the mechanism is in place, I would prefer that we keep it: 
+okay for you?
 
-A bit after we merged the HDMI infrastructure, Thomas commented that it
-might have been better to have a secondary init function instead of an
-alloc/init function.
+Do you want me to re-spin a v2 for the rest?
 
-https://lore.kernel.org/all/5934b4b2-3a99-4b6b-b3e3-e57eb82b9b16@suse.de/
+Best regards,
+   Nicolas
 
-It's still sitting in my inbox and haven't had the time to work on that,
-but maybe that's how we should deal with this?
+>> I can do it while applying, if any.
+>>
+>> Thank you,
+>> Claudiu
+>>
+>>
+>>> -     val |= soc_pm.sfrbu_regs.pswbu.key | soc_pm.sfrbu_regs.pswbu.ctrl;
+>>> +     val &= ~soc_pm.sfrbu_regs.pswbu.ctrl;
+>>> +     val |= soc_pm.sfrbu_regs.pswbu.key;
+>>>         writel(val, soc_pm.data.sfrbu + offset);
+>>> -
+>>> -     /* Wait for update. */
+>>> -     val = readl(soc_pm.data.sfrbu + offset);
+>>> -     while (val & soc_pm.sfrbu_regs.pswbu.state)
+>>> -             val = readl(soc_pm.data.sfrbu + offset);
+>>>    }
+>>>
+>>>    static void at91_pm_suspend(suspend_state_t state)
+>>>    {
+>>>         if (soc_pm.data.mode == AT91_PM_BACKUP) {
+>>> -             at91_pm_switch_ba_to_vbat();
+>>> +             at91_pm_switch_ba_to_auto();
+>>>
+>>>                 cpu_suspend(0, at91_suspend_finish);
+>>>
+> 
+> 
 
-Switch to using drm_connector_init, then drm_connector_hdmi_init would
-only take care of the video stuff, and we could have an additional
-drm_connector_hdmi_audio_init?
-
-That way, we could have both explicit stuff, and yet not overcrowd the
-arguments list too much?
-
-Maxime
-
---zlmn4u42a2hgjiwb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ1MGKAAKCRAnX84Zoj2+
-dsbFAYD9a9CbKAF5U+/Xm3fLE7a14J/XPBbuz9EMu0GYhSCDU8jSH+AV+9KU2ocR
-VKqXE0sBf3bndpAJ89NpeYGjJK6VbFoQ356f4QDu++x8FSywdfvKoLqiFOIjJWpk
-49TswdgyBg==
-=ehcm
------END PGP SIGNATURE-----
-
---zlmn4u42a2hgjiwb--
 
