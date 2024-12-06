@@ -4,95 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8767BE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09B4E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fXlyu23uzCV1zvNU4ik8S0jFn//AXqMi8qLmT+ntI0=; b=z2dtBpll9gasV/waYQDR78+iAk
-	h6d+FTh5fyZcLgYtJZa+MI7h3Mc6v6BkGkynrbEEkni+0r0GdBp7T/YnLxx3bWbhwEbNGyN3paV3y
-	Kxi35l8ArTzkVmwt1RrhhD3QYhDE5sCQg0pOnXFq845qOTzkcL1OqOdyoHXN1sYwCrj1CvqToptao
-	IeZF+yNnfkemaCNI73quYmP8P/KUKmg86ZP2avkcogiJn+nUvyRXn49bFRXsEsV0J+uSYwYAW7JrT
-	lXamxhzVgAhI28hH+Do1rC28VqBqph3QwT+utbcsjuYWvl3qy4d89kvRwUEumyUAx/EHr+g2dPkW9
-	YMkobutA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4kAPKRPq5lRZj3+w00sHuehEc06lXL6QAGg+wJWcK0Q=; b=TtO0TlNLoYF6xIKguI0IoObnhn
+	+BZEU2b3HVLZNo5he2D2wK3slHGfCyp3eju5jUEXqVFYCEg9ssxyKy2rZtzzhNoJ3Vvbbct+xJZei
+	KMHlFxRtH9QrF8OZsvjclLY4N3/yE2tH2LKTeKny+JdA6C0fJ2WJKrL6Q6q9nojZ9BXzZaD4Nbn1Q
+	aYQ2B9i5+H7XxX/NzfEDrVNz9Gr4Bj4nTQXslqhs5sG2MK6QkO6CDHCuqvgOBYSGmtK2106JlESpq
+	tJNEYpIvRaNXPVtRGMPR2nK5ygr4HCjjOUXeGhnly7gioog0iRLLfWWWf8krBe+00sFjruMD5BIj6
+	BYTRTaFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJe15-00000002YT0-1sjC;
-	Fri, 06 Dec 2024 19:29:31 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJdzn-00000002YFz-0IPc
+	id 1tJeBP-00000002a6G-3FPI;
+	Fri, 06 Dec 2024 19:40:11 +0000
+Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tJeAM-00000002Zph-1auw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 19:28:12 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B69bsAG026476;
-	Fri, 6 Dec 2024 19:28:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9fXlyu23uzCV1zvNU4ik8S0jFn//AXqMi8qLmT+ntI0=; b=PowscZaj37khuu0s
-	62HBbUIBT0ODKF3uddT5hn/mzNSqKQgiHT5KCrjXcQ4hCsOdSDZCMTRcPr08Vh9V
-	0P0Lwy6hi6ULdU2hMf1IfW0bG6LRvs7J1gbH2j17MGa+kMHFDULyEl8HB6+fy0sP
-	mYqZdAaEi0QM9w056bu4FzYF7N8DuUa9bwm5I1IjWyguEz7lhiaAQI1rxAbNmJav
-	YJxrE1+0YK/sodIsbmTTD/x2NiEXnouP3AD2fFN7NhoRMAWQpHzUAjZaA25FTTgB
-	qblC4kV175VvMmVqz4sgk0lBVCO5BZLjAhV/65QUxVhjPQydkAVGv8uvV+zAgDKN
-	HwL9lQ==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43bxtc9h4y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 06 Dec 2024 19:28:04 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B6JS24q028092
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 6 Dec 2024 19:28:03 GMT
-Received: from [10.50.60.239] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 6 Dec 2024
- 11:27:54 -0800
-Message-ID: <106b1945-e288-4522-8567-90cadcbc9148@quicinc.com>
-Date: Sat, 7 Dec 2024 00:57:50 +0530
+	Fri, 06 Dec 2024 19:39:08 +0000
+Received: (from willy@localhost)
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 4B6JcarQ027033;
+	Fri, 6 Dec 2024 20:38:36 +0100
+Date: Fri, 6 Dec 2024 20:38:36 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: David Laight <David.Laight@aculab.com>,
+        Vincent Mailhol <vincent.mailhol@gmail.com>,
+        Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rikard Falkeborn <rikard.falkeborn@gmail.com>,
+        "linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "llvm@lists.linux.dev" <llvm@lists.linux.dev>,
+        "linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>,
+        "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+        "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+        "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+        "uecker@tugraz.at" <uecker@tugraz.at>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+Message-ID: <20241206193836.GA26860@1wt.eu>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+ <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+ <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+ <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+ <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+ <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
+ <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
+ <d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com>
+ <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 4/5] arm64: dts: qcom: sc7280: Add support for camss
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, <rfoss@kernel.org>,
-        <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <kernel@quicinc.com>
-References: <20241204100003.300123-1-quic_vikramsa@quicinc.com>
- <20241204100003.300123-5-quic_vikramsa@quicinc.com>
- <e586b76f-50a7-47cc-9ce6-a37f9b53262f@oss.qualcomm.com>
-Content-Language: en-US
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-In-Reply-To: <e586b76f-50a7-47cc-9ce6-a37f9b53262f@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: wNoMre80uxiPQiEvO5v_7Teu6WAOSpeU
-X-Proofpoint-ORIG-GUID: wNoMre80uxiPQiEvO5v_7Teu6WAOSpeU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
- suspectscore=0 impostorscore=0 phishscore=0 mlxscore=0 bulkscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412060145
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_112811_236797_C4CC5369 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20241206_113907_039008_9283D33C 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +98,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 06, 2024 at 11:15:20AM -0800, Linus Torvalds wrote:
+> On Fri, 6 Dec 2024 at 11:07, David Laight <David.Laight@aculab.com> wrote:
+> >
+> > I'm missing the compiler version and options to generate the error.
+> 
+> Just -Wall with most recent gcc versions seems to do it. At least I
+> can repro it with gcc-14.2.1 and something silly like this:
+> 
+>   $ cat t.c
+>   int fn(int a) { return (a<<2)?1:2; }
+>   $ gcc -Wall -S t.c
+>   t.c: In function 'fn':
+>   t.c:1:26: warning: '<<' in boolean context, did you mean '<'?
+> [-Wint-in-bool-context]
+> 
+> > Does a '+ 0' help?  "(var << 2) + 0 ? 0 : 0"
+> 
+> Yeah, that actually works.
+> 
+> And "+0" is nice in that it should work in any context.
 
-On 12/5/2024 9:58 PM, Konrad Dybcio wrote:
-> On 4.12.2024 11:00 AM, Vikram Sharma wrote:
->> Add changes to support the camera subsystem on the SC7280.
->>
->> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
->> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->> ---
-> [...]
->
-> (isp@ as mentioned)
-Hi Konrad,
+I've already used "+0" to shut certain warnings, I don't really remember
+which one, but also remember it was OK everywhere I needed.
 
-Thanks for your review and comments.
-I have posted V8 addressing these comments.
+Another trick I've been using to shut up the compiler is a cast via typeof
+and an intermediary variable:
 
-Best Regards,
-Vikram
+  #define shut_up(expr)                           \
+          ({                                      \
+                  typeof(expr) _expr_ = expr;     \
+                  _expr_;                         \
+                  })
+  
+  int fn1(int a)
+  {
+          return shut_up(a << 2) ? 1 : 2;
+  }
+  
+  int fn2(int a)
+  {
+          return (a << 2) ? 1 : 2;
+  }
 
->
->> +			interconnects = <&gem_noc  MASTER_APPSS_PROC 0 &cnoc2 SLAVE_CAMERA_CFG 0>,
-> QCOM_ICC_TAG_ACTIVE_ONLY
->
->> +					<&mmss_noc MASTER_CAMNOC_HF  0 &mc_virt SLAVE_EBI1     0>;
-> QCOM_ICC_TAG_ALWAYS
->
->> +			interconnect-names = "ahb", "hf_0";
->> +
->> +			iommus = <&apps_smmu 0x800 0x4e0>;
->> +
->> +			power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
->> +					<&camcc CAM_CC_IFE_1_GDSC>,
->> +					<&camcc CAM_CC_IFE_2_GDSC>,
->> +					<&camcc CAM_CC_TITAN_TOP_GDSC>;
->> +			power-domain-names = "ife0", "ife1", "ife2", "top";
-> vertical list, please
->
-> Konrad
+  $ gcc -Wall -S t2.c
+  t2.c: In function 'fn2':
+  t2.c:15:19: warning: '<<' in boolean context, did you mean '<'? [-Wint-in-bool-context]
+     15 |         return (a << 2) ? 1 : 2;
+        |                ~~~^~~~~
+
+See ? It only complains on fn2() but not fn1(). Similarly I found it
+to be quite portable (at least I don't remember seeing it fail on me).
+It produces the exact same code, except at -O0 where it does really
+create a local variable.
+
+Willy
 
