@@ -4,54 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D16E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53A4E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 17:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EweIqVkLNnWFWe8flY8+DqF+grjHk/rnTSJtRHjg6VQ=; b=zK0Q1L/x1FxbAL5zrKt3j5FS9e
-	gLpfb2Pw1g5n/p48Rxu/m5/oHN4Jn/RAlkTp+pj8I/gkQt+OikdRuj0EfczybkcYYCumcBYYioIzc
-	TGby4Edi3kc0AwatW2Jt7KLOjVqfO7lgqFhFicSj6twj1CjodCe1aXVwbKRkNZ3zeSD1CIcciOrbC
-	Ut66CH5aVf/FrYq7LCBfI/gtAzEkQrcwOgc2vnGW8QGY3t/CbI3dtmfmcsu52cTxnC9fImz1TDTbm
-	6ldXk4KRWWqPluoRe6usjHcluEX09uosXOcx0njOq1xH3X4uVECIRCHThY/qLsDxCRZjxuWCo+qCS
-	ELBn/hRQ==;
+	bh=V52SU6z4mUrPNmuBCYnRZyOhqwTT/IVAD2aAkFpoqNM=; b=aLFTQIH3GtSSGLCnG8emNdL4J0
+	JIVF/Q/8t+TR+63YE3nha9lLP+YcNQIe96ywYYtgv1Vu+hylWfrgMN1IrX2emytUCCqL86U8CedhN
+	12yVzqNfoXepvI3qUdLzluePCb3cFDJgOWCAangf8Qqd/97hw66drQUW9KxtJ/U44DuVaDk5Z0pyV
+	nuuOkN4LOBo56Mp2eIC9gBfzCQ2OtQd1JKIduRYOEhDIpPAtzWcOKfPAg9j4YC5e2SAiKTDpyEohe
+	TqJBnyiRTY7pxuLCIDtewq9DazIqJmFa+pGDb2H1wBUIJTsJx6FB7K6p2+Zepjs6MbKUnpBkPvbQm
+	tYp3BKjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbvB-00000002Ilh-40F6;
-	Fri, 06 Dec 2024 17:15:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJbwB-00000002Irc-2Jrw;
+	Fri, 06 Dec 2024 17:16:19 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJbtB-00000002ISW-2PAW
+	id 1tJbtW-00000002IX8-1MJE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 17:13:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 59F7C5C6404;
-	Fri,  6 Dec 2024 17:12:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9357C4CED1;
-	Fri,  6 Dec 2024 17:13:09 +0000 (UTC)
-Date: Fri, 6 Dec 2024 17:13:07 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
-	mark.rutland@arm.com, joey.gouly@arm.com,
-	dave.hansen@linux.intel.com, akpm@linux-foundation.org,
-	chenfeiyang@loongson.cn, chenhuacai@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: mm: vmemmap populate to page level if not
- section aligned
-Message-ID: <Z1Mwo5OajFZQYlOg@arm.com>
-References: <20241121071256.487220-1-quic_zhenhuah@quicinc.com>
- <20241121071256.487220-2-quic_zhenhuah@quicinc.com>
+	Fri, 06 Dec 2024 17:13:36 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa5325af6a0so364738566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 09:13:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733505212; x=1734110012; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V52SU6z4mUrPNmuBCYnRZyOhqwTT/IVAD2aAkFpoqNM=;
+        b=mYaNmYUkyqN5WNlOj7qrCVYgDkZrmXX4Pe1zA+frN5D/jmt45ZnypmG5NNSpilLRYd
+         KYm9+RfL3zYkrGJ/wFBGIquCdEJrvkJnQ0APWggUQMklJhr39GyXKnuTg1s6paFD8SZO
+         +4JlZv+AUhDJfHbnRLvAE8r9Kmc3ebA6uevDe7AONLD+5qKfD4+IMacIA1GVPEnOnDh+
+         8twb95wzZuFloY5A/2s+yiKcFDIsoNOdqJVWf69B6fXuODNnWPd+shC0fc1TuUCrmVws
+         RoD1tilEndWWeXrcD5ExVuDdR+QTP59Dozj3jyzBE7xCnd71OXG0GcH1Th75pAEhDG2r
+         TNLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733505212; x=1734110012;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V52SU6z4mUrPNmuBCYnRZyOhqwTT/IVAD2aAkFpoqNM=;
+        b=te0QOo0h8zV5YbQh1K422+fn3eLdA6xDaL1mRrczoFgwJdZPDqu5VUw2tRKXrvYvns
+         10pr+kBakaOfxGj9gEZaPEJzXe5hY5ODM39Z6ZlfEJB7eghYN5W3HvVYfLEXxpiSS4HT
+         qF/xbE9ICk4dmhjAaA1MkfykosywnnPxOCc+IRThID5YUSr5TLOZhCiO5OBpWrbNOE3z
+         JqHGm/p2/Cj8tU6nQDuWb2OVBtbV6r8r6ry/U7PYFz+b5qPR1NWlH+go32/WtxCM2DVo
+         6lRcQFtBaiW/14Lz36JnMODecQMYqu3QVZpZzekzx6dBTvcaZY7fzovLUgo/dunId4+A
+         /oVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtwQLUbfDmkI3V8yORsdRjvcxMkXmbyFTMBONcvtMCFnuNbC/bfJFl1b8bFCqFduc5k5wyos5mikpCVoAOJAHc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIZrqZibyRyfZ9WeFs6iFQ1KR1iVbmt5cT6WqybDyC/kq09ApT
+	pjlnMJqOUhJcNxqMPS1SogWMQoOI8lrAXnuXVRdshf0ZmkZ36h0FNAYAtT9qwA==
+X-Gm-Gg: ASbGncufNKvb8qo3vjbPsBptwa5hb1zgAMbtXGtBVUEJxSl83PBEqoDIgPyKNI4rdBO
+	ud9CKHlMmTv4lTcNtM75QbMs7KGPGu6R8bompX1hISuchw39e2G7IEoLE2j/XLH3mCrK1Wd0FZI
+	nngAmn15PHHxWq1FzVlb+PN522WhdGOBlcmSmp3ax3KJGOIIla/92N9t+dRSyC2JMZW1ED0Ijis
+	DhsxSLD8IO2MSeVEJy285nJ5YoLhEmN3ENJ/TMRurmBbM72DTE8SCc4qn244FySMiyJHpW5Oynf
+	D9vPulCU
+X-Google-Smtp-Source: AGHT+IGVVuQrI2gV96PYQZo2nUQh6IhmbK76llKwDGJgy/lGFOBBWjh4tjYfJ2SWh7aGoxZm5SPXtA==
+X-Received: by 2002:a17:906:23ea:b0:aa6:2755:c185 with SMTP id a640c23a62f3a-aa63a0a676amr353073866b.31.1733505212192;
+        Fri, 06 Dec 2024 09:13:32 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa62601b62esm269659966b.104.2024.12.06.09.13.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Dec 2024 09:13:32 -0800 (PST)
+Date: Fri, 6 Dec 2024 17:13:29 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
+	kristina.martsenko@arm.com
+Subject: Re: [PATCH v4 05/14] KVM: arm64: Initialize feature id registers for
+ protected VMs
+Message-ID: <Z1MwuSh6jc94cem0@google.com>
+References: <20241202154742.3611749-1-tabba@google.com>
+ <20241202154742.3611749-6-tabba@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241121071256.487220-2-quic_zhenhuah@quicinc.com>
+In-Reply-To: <20241202154742.3611749-6-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_091313_654952_A7113E1A 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20241206_091334_384997_0C86F54E 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,34 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 21, 2024 at 03:12:55PM +0800, Zhenhua Huang wrote:
-> Commit 2045a3b8911b ("mm/sparse-vmemmap: generalise vmemmap_populate_hugepages()")
-> optimizes the vmemmap to populate at the PMD section level.
+On Monday 02 Dec 2024 at 15:47:32 (+0000), Fuad Tabba wrote:
+> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> index 59fb2f056177..1261da6a2861 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> @@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
+>  	return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
+>  }
+>  
+> -/* Read a sanitized cpufeature ID register by its encoding */
+> -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> +static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+>  {
+>  	switch (id) {
+>  	case SYS_ID_AA64PFR0_EL1:
+> @@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+>  	}
+>  }
+>  
+> +/* Read a sanitized cpufeature ID register by its encoding */
+> +u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+> +{
+> +	return pvm_calc_id_reg(vcpu, id);
+> +}
 
-Wasn't the above commit just a non-functional change making the code
-generic? If there was a functional change, it needs to be spelt out. It
-also implies that the code prior to the above commit needs fixing.
-
-> However, if start
-> or end is not aligned to a section boundary, such as when a subsection is hot
-> added, populating the entire section is inefficient and wasteful. In such
-> cases, it is more effective to populate at page granularity.
-
-Do you have any numbers to show how inefficient it is? We trade some
-memory for less TLB pressure by using huge pages for vmemmap.
-
-> This change also addresses misalignment issues during vmemmap_free(). When
-> pmd_sect() is true, the entire PMD section is cleared, even if only a
-> subsection is mapped. For example, if subsections pagemap1 and pagemap2 are
-> added sequentially and then pagemap1 is removed, vmemmap_free() will clear the
-> entire PMD section, even though pagemap2 is still active.
-
-What do you mean by a PMD section? The whole PAGE_SIZE *
-PAGES_PER_SECTION range or a single pmd entry? I couldn't see how the
-former happens in the core code but I only looked briefly. If it's just
-a pmd entry, I think it's fair to require a 2MB alignment of hotplugged
-memory ranges.
-
--- 
-Catalin
+That wrapper doesn't look particularly useful, perhaps we could drop it?
 
