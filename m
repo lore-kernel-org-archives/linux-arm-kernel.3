@@ -4,92 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BD7E77179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56BEE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 19:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v27jCqhCmow+PjUOjaPtRuFCU8RS49uid4AOIxJKOTA=; b=hs3aZZimNd8bBRNWon5aS2SJD9
-	iaYQb1tNo8bWqrGJTwo3bxa+Zs3c2Jc9zqoj8pEEM8DcYu5UcqjOQSaXWbeON4oFXeyN8mXP/zvUY
-	gESNDfr2Du1+cWxV6rilu2wHC1z7L7Q1m7EJ0ZGj1YcK6sjDzyvsRLdBOPHYikf8Oql9TSdSqSjm1
-	r/CiSV2MIEP00Q0XFDWQfclsWt8MI/rLehV0+1yUW+B9fKqs28yQ+1OfeNMP1/2X5KxoeURMRqhlQ
-	pKXCWJXF0wG4SAb7QTo7semtCKP1TtQl1N8reQxaYR8XMgF3WkjlRdWbZRixpagRnFMQZcW4ybtA6
-	dk5+2cIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X8JUvZDF8pZ0yrFE3tmHbXwwXfZImzkkNaXc3mj/tqA=; b=rzL9IjZvkuaH2UJ7SihMV43MWG
+	l17h4FT4E30WV+i+hzmk6pWM/svzirkV1y3jR5UyKHIwnaauDP8N06Is6SLlVYTDS3J3aYGh9nFGw
+	QuROTjSCkN+0MocGWEt/Jj2s9YQZabDV1mE9jdOUR/BgxUKfBbibj8JtENeKeYW8VpYQc2QZ+TUhQ
+	a40ZGTJFOMLaFB/Gy8AJMTvRUzY7yHnbk/qGq0cCFnA6YJI7ubphOqEZ+eByQf/hSqn/Vd2qwuMMt
+	eulsYBAgzn94b3WvVXZDLWCp+bJSdpWRyNXvkVrjUyqXqcQeUeL6GhzRLZhjogaZoxFdfYKYlepJr
+	YPCt9nKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJdxd-00000002Xt9-0sUD;
-	Fri, 06 Dec 2024 19:25:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tJdz4-00000002Y74-3vVP;
+	Fri, 06 Dec 2024 19:27:26 +0000
+Received: from mail-4322.protonmail.ch ([185.70.43.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJds3-00000002Wyi-18YH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 19:20:12 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B6AIMqK029233;
-	Fri, 6 Dec 2024 19:20:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	v27jCqhCmow+PjUOjaPtRuFCU8RS49uid4AOIxJKOTA=; b=BHliAXsi6We3BDei
-	D8gasZZRgDLHrH5MANDHYoE7etkdeE6ac75ibF9Ll/rLVm+n3WsRce2lTiyaT4SR
-	/CxxCbEuC+PPHFozIAU+SC4RXc09yCV0kGArsffA3XOXDLwv0/6Vol2pZJwDnohs
-	R2VFlhkP2jaIs/OBb2DpWVCKz+sgZN32BfVBZ0emtxd1xGQrQzvMwR7EoLbcs+Em
-	f1zn+4oJLPfMPgUtmfW49GHyedSSyZh1wRFQI3yI+mxxORL5WOXeAlwMkbTfxK2d
-	0N+U4xsROi0sJST2waQdp2tH91VEeJ+yONBzAQSEGyUGcbORICVUqs2ZN10TJCV6
-	YVEf8Q==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43byd81bu1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 06 Dec 2024 19:20:03 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B6JK2T7031985
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 6 Dec 2024 19:20:02 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 6 Dec 2024 11:19:52 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>
-Subject: [PATCH v8 5/5] arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Date: Sat, 7 Dec 2024 00:49:00 +0530
-Message-ID: <20241206191900.2545069-6-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241206191900.2545069-1-quic_vikramsa@quicinc.com>
-References: <20241206191900.2545069-1-quic_vikramsa@quicinc.com>
+	id 1tJdy1-00000002XwQ-28pD;
+	Fri, 06 Dec 2024 19:26:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1733513176; x=1733772376;
+	bh=X8JUvZDF8pZ0yrFE3tmHbXwwXfZImzkkNaXc3mj/tqA=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
+	 List-Unsubscribe:List-Unsubscribe-Post;
+	b=TgMB9PJiYp1AurePQcKDKKRhb5iu7GXqi7HXbRGra+wqFlXoUGGHvGPUG4I8EzHCf
+	 38EZb0oX8K8OOhPCN4JxOEvRaHBabV/nh+bAmgtOaYnwjW7K5p1scQueIbixupVC5H
+	 VUlhfcSyz/U8Kty3kKByJkbOUWkTGYIrcO1H3QI0FbuRidUd3yr6+ItKsqlPqydlTQ
+	 nLok/LZDKd4/3MCaC9ICWJt5kavTRXGtjt0Sh1r6Ksb87k2amfohwKGNr6ZtsfQcEe
+	 pfCYLGTLQlQAT0yQlrqSLzC5CBhMKMmJtWcJrEVNr5tCtfrDgsbBgmzhfDJ08byBhh
+	 pbK1JdFAXvUmQ==
+Date: Fri, 06 Dec 2024 19:26:10 +0000
+To: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Piotr Zalewski <pZ010001011111@proton.me>
+Cc: Piotr Zalewski <pZ010001011111@proton.me>
+Subject: [PATCH drm-misc-next] rockchip/drm: vop2: don't check color_mgmt_changed in atomic_enable
+Message-ID: <20241206192013.342692-3-pZ010001011111@proton.me>
+Feedback-ID: 53478694:user:proton
+X-Pm-Message-ID: eb3005eed4d313c0c579f9dbf9bb42fd9ad30527
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: uQhvWaSSPuZgZsiu1aFzqJ3bM9CYveJQ
-X-Proofpoint-ORIG-GUID: uQhvWaSSPuZgZsiu1aFzqJ3bM9CYveJQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
- malwarescore=0 bulkscore=0 mlxlogscore=999 mlxscore=0 suspectscore=0
- adultscore=0 phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412060144
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_112011_445549_1B592C1A 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20241206_112622_280737_663D52C8 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,162 +67,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-Enable the IMX577 on the vision mezzanine.
+Remove color_mgmt_changed check from vop2_crtc_atomic_try_set_gamma to
+allow gamma LUT rewrite during modeset when coming out of suspend. Add
+a check for color_mgmt_changed directly in vop2_crtc_atomic_flush.
 
-An example media-ctl pipeline for the imx577 is:
+This patch fixes the patch adding gamma LUT support for vop2 [1].
 
-media-ctl --reset
-media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+[1] https://lore.kernel.org/linux-rockchip/20241101185545.559090-3-pZ010001=
+011111@proton.me/
 
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-
-Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Suggested-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Piotr Zalewski <pZ010001011111@proton.me>
 ---
- arch/arm64/boot/dts/qcom/Makefile             |   4 +
- .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 109 ++++++++++++++++++
- 2 files changed, 113 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 4686f2a8ddd8..a7e88fcabded 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -115,6 +115,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-+
-+qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-+
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
-diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-new file mode 100644
-index 000000000000..7782c4aee576
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+/*
-+ * Camera Sensor overlay on top of rb3gen2 core kit.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/qcom,camcc-sc7280.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l10c_0p88>;
-+	vdda-pll-supply = <&vreg_l6b_1p2>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* The port index denotes CSIPHY id i.e. csiphy3 */
-+		port@3 {
-+			reg = <3>;
-+
-+			csiphy3_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	status = "okay";
-+};
-+
-+&cci1_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default", "suspend";
-+		pinctrl-0 = <&cam2_default>;
-+		pinctrl-1 = <&cam2_suspend>;
-+
-+		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		dovdd-supply  = <&vreg_l18b_1p8>;
-+		avdd-supply = <&vph_pwr>;
-+		dvdd-supply = <&vph_pwr>;
-+
-+		port {
-+			imx577_ep: endpoint {
-+				clock-lanes = <7>;
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy3_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam2_default: cam2-default-state {
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+	};
-+
-+	cam2_suspend: cam2-suspend-state {
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+		};
-+
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+			output-low;
-+		};
-+	};
-+};
--- 
-2.25.1
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm=
+/rockchip/rockchip_drm_vop2.c
+index 0c8ec7220fbe..d259f1c6571d 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1601,7 +1601,7 @@ static void vop2_crtc_atomic_try_set_gamma(struct vop=
+2 *vop2,
+ =09=09=09=09=09   struct drm_crtc *crtc,
+ =09=09=09=09=09   struct drm_crtc_state *crtc_state)
+ {
+-=09if (!vop2->lut_regs || !crtc_state->color_mgmt_changed)
++=09if (!vop2->lut_regs)
+ =09=09return;
+=20
+ =09if (!crtc_state->gamma_lut) {
+@@ -2669,7 +2669,7 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *c=
+rtc,
+ =09struct vop2 *vop2 =3D vp->vop2;
+=20
+ =09/* In case of modeset, gamma lut update already happened in atomic enab=
+le */
+-=09if (!drm_atomic_crtc_needs_modeset(crtc_state))
++=09if (!drm_atomic_crtc_needs_modeset(crtc_state) && crtc_state->color_mgm=
+t_changed)
+ =09=09vop2_crtc_atomic_try_set_gamma_locked(vop2, vp, crtc, crtc_state);
+=20
+ =09vop2_post_config(crtc);
+--=20
+2.47.1
+
 
 
