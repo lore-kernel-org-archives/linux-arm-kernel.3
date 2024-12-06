@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEB9E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 08:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A0FE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Dec 2024 08:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXWqEFWbAus/L7K0CZJmNjtR6DMZf69ywaWzkvNk5G4=; b=Oclljoq/jMxo85X+U/YXI6mBRN
-	7zQu1xzuhqSgIvr04A/TbTAY9hpK+whr+wgz37rGwpL4uRgkyPaaMzBDqmzNqUCQB1KTA4hTo7Keb
-	WM0dmGh1XeOUWeIYG/tpZtFKWkbUoxegEEXnHSxqruA1WsDrBecnBSx2CiZH3CvMQHrxRK6NRq0I/
-	QiNCZAAYNegMBvgU6GFVwSOMtsii7Ug+0xfqTiPVVTagQRRhtrvtoGGTZunGEKDaE0LzRaiKw/m9U
-	YUl9e4IDLHU3EE77ymUJQEP3Ev0DkwEZwf0piSLCVgw7CK1CJiLMudyWVTZ2IhMB1KWgbB/1ajl54
-	Elvx4e1g==;
+	bh=6MO22FIvMLadJtcEOdG5+QsjI/ODIZoNEE6qCL+bltY=; b=dHySPW4hvAip3uiB53Wf795ljk
+	j65oTEx329VA6acXfIXzn63Gb4ypsdH5EpacURFP2C4mJY0mt78OXkKVtJhoQh0g8XeQxC4B7y9MN
+	7Nchth9/s0yeksyVPF8LpR/aP/eTMlVQblI5uhZZ0w3kTV/7rv9gjtDWbYkUgDlCCCUANnCDn9F5H
+	VRtjTSuorw74cIcf8gWAazLORnchBXfJpze/fzWSkmWOjBtxsBLjy4ieBi4z1b9wRfn23pu2mSit0
+	ChQ0hVj/0br+MzUnRpBVdb6W8l+RVhNjF7WDhyl6+62YCGXiJv4blSE/JlAebixfS7fVX0godAJUF
+	K5hGLSuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJTq1-00000000wr5-3JXe;
-	Fri, 06 Dec 2024 08:37:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tJTr1-00000000x4m-1q3h;
+	Fri, 06 Dec 2024 08:38:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJTo1-00000000wSY-2j4t
+	id 1tJToo-00000000wcz-3Fm1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Dec 2024 08:35:22 +0000
+	Fri, 06 Dec 2024 08:36:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 994E1A4406D;
-	Fri,  6 Dec 2024 08:33:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A140DC4CED1;
-	Fri,  6 Dec 2024 08:35:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5D96B5C0782;
+	Fri,  6 Dec 2024 08:35:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E51C4CED1;
+	Fri,  6 Dec 2024 08:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733474120;
-	bh=EDg03OFGs4apDaHp6iemMW926EGHkRWDR38JWms23d4=;
+	s=k20201202; t=1733474169;
+	bh=biysX5rwD8h38rWK+RqAV3h7Q6xppH9Fd8isyf4rwIA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n8Ej1feCB6qzINjL4xqPekE/MiX1cbdFFBCL4hxUZK/kb97RPOkL5zDzDThImkDmV
-	 PmtlqHJzqj/aLdanj50OzC7llEMIQELruetkp45I/43mkmiPBKgMJJyog2R3Y7uAuT
-	 /dWNJTLbevGb5+aNEMMp+AETqKxWOr8BAvoXeeJIQufGxKFkHYxg/u+befpybaCU1G
-	 bDRTcwdHF6kT3jlZm7DzKiljpfFQ/oNs2d6h/bZ1mPqyD94aBG3e3ZgmvHJj5ihwSe
-	 7LEJYQWbn0sXc3WP9Y6SR0FHgmHzcuBjJeqa4pWStiQZYH+nMXPqCkKBGeGWgLt5pe
-	 DIaUSSHmCkVhA==
-Message-ID: <7d9523c4-ba97-496d-ae73-d349aaeb0cd5@kernel.org>
-Date: Fri, 6 Dec 2024 09:35:14 +0100
+	b=giCKlH7/IEm17aNGwxcd45BYEo43yvCcdkE2ZCCD9+Cr75eqsQIdB0MP+RyTdZfCC
+	 IXd9A33cmS/pXhQrVBiAZ0ETgPSzCiN/elKWzRwTjRns+lXFa4wYBzI/HnDlkKrF13
+	 3KqCfWjRHvK2azH2Xzw8HrHk4JyusN9H/tYQ016+gX2dVpFPmhRANAiPjJOTj6bPKf
+	 KwypQKNIv+4Nq95w3ObbrUJMwZmgMuqglGTnqz9HS5ZEtJuWKut4sWwreBZP2vA/QF
+	 ZVoELvq93YS9+TTltJW/EyPmH/bvN48hru7jYqhOT8YAIGf0qWjhbUAd3l1phUBMYP
+	 aQGJeD5/nN2Sg==
+Message-ID: <fdb4af16-468a-4c23-b8f4-ab60d4b535d2@kernel.org>
+Date: Fri, 6 Dec 2024 09:36:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/1] arm64: dts: exynos990: Add cmu nodes
+Subject: Re: [PATCH v1 1/1] arm64: dts: exynos990: Add clock management unit
+ nodes
 To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20241205194020.785846-1-igor.belwon@mentallysanemainliners.org>
+ <20241205194020.785846-2-igor.belwon@mentallysanemainliners.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,13 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241205194020.785846-1-igor.belwon@mentallysanemainliners.org>
+In-Reply-To: <20241205194020.785846-2-igor.belwon@mentallysanemainliners.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_003521_825283_E178A675 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241206_003610_922148_23D55D8A 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,25 +121,59 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 05/12/2024 20:40, Igor Belwon wrote:
-> Hi all,
+> Add CMU nodes for:
+> - cmu_top: provides clocks for other blocks
+> - cmu_hsi0: provides clocks for usb31
 > 
-> This patchset adds device tree nodes for Exynos990 CMUs (TOP and HSI0).
-> 
-> This patchset is compile-time and runtime dependent on [1], which adds
-> driver support for CMU.
-> 
-> [1] https://lore.kernel.org/linux-samsung-soc/20241205193423.783815-1-igor.
-> belwon@mentallysanemainliners.org/T/#t
-> 
-
-Don't wrap links.
-
-> Igor Belwon (1):
->   arm64: dts: exynos990: Add clock management unit nodes
-> 
+> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> ---
 >  arch/arm64/boot/dts/exynos/exynos990.dtsi | 27 +++++++++++++++++++++++
 >  1 file changed, 27 insertions(+)
 > 
+> diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> index c1986f00e443..49bb1e156843 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> @@ -5,6 +5,7 @@
+>   * Copyright (c) 2024, Igor Belwon <igor.belwon@mentallysanemainliners.org>
+>   */
+>  
+> +#include <dt-bindings/clock/samsung,exynos990.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  
+>  / {
+> @@ -199,6 +200,23 @@ pinctrl_peric1: pinctrl@10730000 {
+>  			interrupts = <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
+>  
+> +		cmu_hsi0: clock-controller@10a00000 {
+> +			compatible = "samsung,exynos990-cmu-hsi0";
+> +			reg = <0x10a00000 0x8000>;
+> +			#clock-cells = <1>;
+> +
+> +			clocks = <&oscclk>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_BUS>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_USB31DRD>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_USBDP_DEBUG>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_DPGTC>;
+> +			clock-names = "oscclk", "dout_cmu_hsi0_bus",
+
+One per line.
+
+> +						"dout_cmu_hsi0_usb31drd",
+
+Misaligned.
+
+> +						"dout_cmu_hsi0_usbdp_debug",
+> +						"dout_cmu_hsi0_dpgtc";
+> +
+
+Drop stray blank line.
+
+> +		};
+> +
+
+
 
 
 Best regards,
