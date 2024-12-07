@@ -4,104 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51E9E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 08:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A81E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 08:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDkgUwCcQtOfovebMtMEsFmujecvWxrMcPeoL9u2wnU=; b=j6Vxdpm6EiOIGZ4e3TP/RXXxVt
-	uo2ZsRR1t/CGjcqpE4QUZIDcZ7VTLdDgBVed+2wfM574uCHyiufDpoQ7sxL/e0fWCUS63wEaG9y+H
-	RUp1sZfV3hWoECznDKoY3i4zHzX22XUUMsPs+7BMEhjqz+3SwaEL4wTmI9tBO5Rz4Q4mGqbRHGFKk
-	ZhgNjwBQ/pkHv557Pw+Wb1bFvrIAxgkm6S4atOUwEd8B2Rdbvmf1TpLsceEIDfsIPwFkxx8iMxjNT
-	Wws9jOwSeAuUsdALRr58NGTbXT6QMHXXrXZNg34J8xpbfUqAHcJly9+Zmlx6zHozw7Q1FZTLkuyCE
-	zD7DfpFg==;
+	bh=Wb2cgo90VM0BZt3RlHOwC/RhEANvPqgEySvUWJGLHNk=; b=KyvUhWhE/8OlaCcpBB1XoZkhBJ
+	7wGcXjzC//XkpfnW+tml24Lht1HlglFSTM+jO4bSFB79KOcusgozEIt6RRRNf22Rse8z2Jccb8EY8
+	l9WCkTFgW9w7VwErEYI7EIV2P/Itqv4PNdo9PYlAJEbxE6yLwKi3r4//gp6IhH8/TWJc9x+G6RXoS
+	rMH3DYk+ic2lHupT9Or5YKw8Ylci3zIVarKFQ0rA+KPCTKZ/MolFxwLG1KmrQeVIS5awjm2oPyIgv
+	QQi/o8tkr4eLDI6jD1NAULhJcNxNdtjKEQMvXze2d8JkhvC3GQ3VIVKiaq1GaRASRWg5PE3MooP6q
+	lL6fXjDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJqNV-00000003eco-2uHT;
-	Sat, 07 Dec 2024 08:41:29 +0000
-Received: from mx-2023-1.gwdg.de ([134.76.10.21])
+	id 1tJqT6-00000003fIk-1Ypx;
+	Sat, 07 Dec 2024 08:47:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJqMS-00000003eUg-1uQ8
+	id 1tJqS1-00000003f0E-3Xnf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 08:40:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
-	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=eDkgUwCcQtOfovebMtMEsFmujecvWxrMcPeoL9u2wnU=; b=CiksJ+6m8UmWKFBUT4L/0cUbuN
-	C2UvpC0fRZA2CSeNutopy7iKy2C12ANDY6G6H0B/uxReaJNEIPaeY3ebCrxfeOzGx5pwqNVSmRPlU
-	o6FQjobun/MRucwBD2aNzNxLXFPoypwhurD6uMWTFg2q95Im/tq1I1E9+YMsU1PU04htPNWMRo4PV
-	ZBb0Av9a09UnWZyPJLeLOngtbpcJShTr8KzGy5biE/3Biekx7a6xEUh+7NgtwsXeC9dA9SeYs+RAi
-	Egh4AChbnI2w/jqtX55O0t+utYob6SjBTpHqckqcPhu1gzM9qe/ZUSHTtvwyZ7RgGwHWyswSJGdWZ
-	4yJRz9CQ==;
-Received: from xmailer.gwdg.de ([134.76.10.29]:40719)
-	by mailer.gwdg.de with esmtp (GWDG Mailer)
-	(envelope-from <muecker@gwdg.de>)
-	id 1tJqM3-004Jfy-1D;
-	Sat, 07 Dec 2024 09:39:59 +0100
-Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <muecker@gwdg.de>)
-	id 1tJqM3-000Qkk-0p;
-	Sat, 07 Dec 2024 09:39:59 +0100
-Received: from [192.168.0.221] (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
- (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Sat, 7 Dec
- 2024 09:39:51 +0100
-Message-ID: <9607300dfca5d71ca9570b1e1de0864e524f356b.camel@gwdg.de>
-Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-From: Martin Uecker <muecker@gwdg.de>
-To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-CC: David Laight <David.Laight@aculab.com>, Linus Torvalds
-	<torvalds@linux-foundation.org>, Luc Van Oostenryck
-	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
-	<jani.nikula@linux.intel.com>, Joonas Lahtinen
-	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
-	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
-	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
-	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
-	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
-	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
-	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Date: Sat, 7 Dec 2024 09:39:50 +0100
-In-Reply-To: <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
-	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
-	 <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
-	 <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
-	 <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-	 <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
-	 <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Sat, 07 Dec 2024 08:46:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BBD715C4A53;
+	Sat,  7 Dec 2024 08:45:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEDEEC4CECD;
+	Sat,  7 Dec 2024 08:46:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733561168;
+	bh=Wb2cgo90VM0BZt3RlHOwC/RhEANvPqgEySvUWJGLHNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rtLrQ+Rd+OhhRS4PtLyFkT1tEKWKZi1Q9Sx3ugJpZjnt1T+VqisNUYf5+KlvWwYdw
+	 XXvWQuFrevcUihZySaOXd3jF6YjssUqhHbtJIynYz8PtGI5k/vpyZMizToFTEM3t01
+	 nYMlEclv0vuS9WJtSFINB7e4dWb5JnkUQ+a+LyHH/wbYuoDeGoZhzSzA9H6s6pnHOq
+	 iGw9IEqC5GY45RlBJsVrtXsgiQ8sUSYO/hrgK7/Vd9v0edhF9gD0kVjbVMSbfRW7vj
+	 Iq/ykxKp4ZcEW2eldtsR5TpKxkI2PhKE1/jFN0GGtrEzauIK4l6mB7o2FbHAuW2ekh
+	 gTEZr7fBefx3g==
+Date: Sat, 7 Dec 2024 09:46:05 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Mingwei Zheng <zmw12306@gmail.com>
+Cc: fabrice.gasnier@foss.st.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, hierry.reding@gmail.com, lee@kernel.org, 
+	linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: Re: [PATCH v3] pwm: stm32-lp: Add check for clk_enable()
+Message-ID: <4wcwxgo5irzfvyec537ucm4e276fqq36hhw3l64qmoj43hjnmv@byi5mvb2wc2b>
+References: <20241206215318.3402860-1-zmw12306@gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: mbx19-fmz-02.um.gwdg.de (10.108.142.53) To
- MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
-X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:5, sv:1733541190, ts:1733560793
-X-Virus-Scanned: (clean) by clamav
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oj4rdulsaiobcffa"
+Content-Disposition: inline
+In-Reply-To: <20241206215318.3402860-1-zmw12306@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_004024_486505_E2D78C37 
-X-CRM114-Status: GOOD (  22.25  )
+X-CRM114-CacheID: sfid-20241207_004610_054335_EE45E94B 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,73 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, dem 06.12.2024 um 16:26 +0900 schrieb Vincent Mailhol:
-> > On Fri. 6 Dec. 2024 at 15:40, Martin Uecker <muecker@gwdg.de> wrote:
-> > > > Am Freitag, dem 06.12.2024 um 02:25 +0000 schrieb David Laight:
-> > > > > > From: Vincent Mailhol
-> > > > > > > > Sent: 05 December 2024 15:31
-> > > > > > > >=20
-> > > > > > > > -CC: Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
-> > > > > > > > +CC: Martin Uecker <muecker@gwdg.de>
-> > > > > > > > (seems that Martin changed his address)
-> > > >=20
-> > > > My current one is this: uecker@tugraz.at
-> >=20
-> > Ack
-> >=20
-> > (...)
-> >=20
-> > > > > > > > > > > > + *
-> > > > > > > > > > > > + * Glory to Martin Uecker <Martin.Uecker@med.uni-g=
-oettingen.de>
-> > > > > > > > > >=20
-> > > > > > > > > > IIRC Martin has agreed in the past that the accreditati=
-on can
-> > > > > > > > > > be removed - especially since it refers to the 'sizeof =
-(void)' trick.
-> > > > > > > >=20
-> > > > > > > > I tried to look for such message:
-> > > > > > > >=20
-> > > > > > > >   https://lore.kernel.org/all/?q=3Df%3A%22martin+uecker%22+=
-__is_constexpr
-> > > > > > > >=20
-> > > > > > > > but couldn't find it. Do you have the link?
-> > > > > > > >=20
-> > > > > > > > @Martin, do you agree that I remove the accreditation?
-> >=20
-> > So, do you agree to have the accreditation removed in compiler.h?
-> > Personally, I do not mind. I am also OK to remove you from the
-> > documentation and add you to the CREDITS file if you'd like to.
 
-Sorry, I somehow didn't read this part. Please do whatever you think is
-most appropriate (but please update my email to the new above if it
-still appears anywhere).
+--oj4rdulsaiobcffa
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3] pwm: stm32-lp: Add check for clk_enable()
+MIME-Version: 1.0
 
+Hello,
 
-I find it amazing how much time the Linux kernel community spends
-revising code to make it work perfectly.
+On Fri, Dec 06, 2024 at 04:53:18PM -0500, Mingwei Zheng wrote:
+> Changelog:
+>=20
+> v2 -> v3:
+>=20
+> 1. Add tool name in the commit log.
 
-Still, I am wondering whether some of this time and effort should not
-be targeted at C compilers and language work to make these macro
-hacks unnecessary?
+Thanks.
 
-I already found the original motivation for these macros very questionable.
-Removing VLAs at the cost having imprecise worst-case bounds strikes
-me as fundamentally misguided - at least if security is the motivation.
+Applied to
 
-So maybe there are other good reasons for this, e.g. bad code
-for VLAs or risk of jumping the guard page if the attacker can somehow
-influence its size (but for this there is -Wvla-larger-than). But even then=
-,
-wouldn't it be a more worthwhile and interesting investment of engineering
-resources to improving code generation / warnings at the compiler level?
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
 
-Also the fortification of strlen and co seems something which could be
-much better solved with annotations and proper compiler support.=20
+=2E
 
-Martin
+Best regards
+Uwe
 
+--oj4rdulsaiobcffa
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdUC0oACgkQj4D7WH0S
+/k6mqQf+JDo1gcCBjg9efkJzxZYhmArKsOw3oPJMdypsvvMVg3jtShekC41O0nIT
+HRSguGN0MitOyEYsGAV/ZMKr/NiKM8oxOrSa+PNzhikAhjPHpqrfvYAcVqcjtDla
+JSnwYVFDfNiI0BUs5ZEHLmB6KAwdiFJS80GumePqh8zQUfIrn55DIZWzpvg0ScAL
+Nv8FLKz7o+tO+OiZXSuKwqhl7JCaVh9zQXV5KZoMidQV9WTrmAEiC2HllMDQy+79
+Voekd71JC+DB3nE5NSlNEZTEAr5M6/GCgnd5KV+Sme4gK3tT+DFMF+AZuFSYCRlt
+g8UEcIcpkdOcrnXnfZ/7jepGVxRwhQ==
+=fMTD
+-----END PGP SIGNATURE-----
 
+--oj4rdulsaiobcffa--
 
