@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7401E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 21:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA66EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 21:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ch3gIZHoDIt+98R3lOpd8r6mTk5Wsv9w5cn/1IM8aB4=; b=w9bvNAIrxBdrK7osJenzM39/L+
-	OPa01UMcQm4VwVKL/3BsIfkwzEPKU4q7bF6fhKGHUG91nYvsqbrewjf7WzSmz2pCZubQAiqH3XoqD
-	BMKEdFnALUSpI1Y1Vk6fn+1beRSNDcVd6xI80DIKVmRT7TqKqGwWu6EK6jyt0uGQKcHDrKtAazRQH
-	ca/szFGRVE4uVAIen5fKVpRe9ufuuc5rWANz+VOXaAf51ZFiscqMKApDeujPvFtEh0Cp4JZ6OgRH3
-	ADAQcq64nCsTA/aUklxOiQ3LRqDPnBKtFO033YKuCBtp8BfwYoNCnRTwamAzfo64tQqAiQ+7kM9K4
-	bCrqzppA==;
+	bh=QMhgNfIpxqQDNYdGeuQohUR1HujC9RmLTbgdOuARmEk=; b=aDPlj4cK6nBZtCEPgdSQUbUrrO
+	7k4jsqT19n5H4y9KgvQhv51s1w7tJ1A8dn3f5wCUlej0AbWs/lx7okyRqtY+6ncDKVB359ZN56ZW/
+	sNWJrJOApfz4+gKOSwbxwJa9fwgL2T9hDEuRBLTBpXm4cRZInWHZ0RMr1reAQqsczxkI4ADiHnkNj
+	y7twehchRMWB1pEF3fssgl2T+e+6mrPM1Y7aCeoghNcPhnFcM/3XYa7rkCemu9F5wjZ2wPH2YhOfJ
+	KGRhsMRxekVxivOUqZvEXJdx/mGY1VNA8LCQ1AwJpgQ+6mxrRO4X1ClJEqbTuMz9MY54yYkjwk9yy
+	4oJ3qXFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK2VA-00000004SHw-1KKR;
-	Sat, 07 Dec 2024 21:38:12 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tK2c6-00000004Sgd-3Sjg;
+	Sat, 07 Dec 2024 21:45:22 +0000
+Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK2Q4-00000004RPf-3qGL;
-	Sat, 07 Dec 2024 21:32:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733607174;
-	bh=SCcXEr+KFbRx8TCn5PCWtq/V3Qw/KVqvlgOoYmZD3W0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=o+NFop28mM500kuvIyn5uKh7Rj4QxJjpNp7hffTFtXdprwLi0l6rdUmTL3xbvbyp2
-	 Xf5+kYrylwa/BUuH9Ctihrm3sRlElxK4/TDj4kYVJgWe3OkxXyM+WTAVtxMXRW5krc
-	 jepubeIiCpliycVLelRSWix216s9lQIx8WCoyiOHkUKrCRS7QBH76zckpS6YbUKXEU
-	 /tS+ySluGVWV78/KznNMy7QlhO8YU/MQjg4EpIBfvcYZhoNMnhxh/IXv8vn5Yx5Okk
-	 V/6rOYNTJuN2VvtGH2z40mZ/ZrpKZsNuIKv6kJfTOsULB9jlHf/yFp4U6btnAINWG7
-	 1qgiAcUA9IMjg==
-Received: from localhost (unknown [188.27.48.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B809B17E3806;
-	Sat,  7 Dec 2024 22:32:54 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Sat, 07 Dec 2024 23:32:27 +0200
-Subject: [PATCH 4/4] arm64: dts: rockchip: Enable HDMI1 on rock-5b
+	id 1tK2b5-00000004SdP-02i3;
+	Sat, 07 Dec 2024 21:44:20 +0000
+Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-5ee8eaa1694so1498086eaf.0;
+        Sat, 07 Dec 2024 13:44:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733607857; x=1734212657; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QMhgNfIpxqQDNYdGeuQohUR1HujC9RmLTbgdOuARmEk=;
+        b=cjL/jxXmZDGjbW5mEbG64VJiaVsuIG7ZK27Bd+V3oSZjkU88NRt3L3ssYYfD4CV+Id
+         DZdKzLqAHMqhJ3lsdZ195YMqJo1QArwka3gWYxr0ApYu9M+zoTcaaYEOasMykPodkApy
+         4UADyOazPMSj3Hk77Ead59QIB7sXNXWHh2gcApd6yMFgpWKiJYHZecwmNMGx+fzcZsA4
+         FI+XWJaNujA9ZP/2+uMNhUiUDhqrYu8XpZGk70XXixyDeUcPuH89QFMRMg5JAKnhwDmq
+         zadijiiPo0BKRttKo0TWRzUhIcfpCoPZ3LNHaeQsCiOndSBfQduDRMn57ilag6Qst30d
+         fG4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733607857; x=1734212657;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QMhgNfIpxqQDNYdGeuQohUR1HujC9RmLTbgdOuARmEk=;
+        b=LjnOVeUaECdi0zjLS+An4qLUd/AZQ7J+Kord0TU3mqfFqhY1z2tw5XIlLbIutWg/xN
+         sRE3awOgJmAS2XU1sJek+CILvN2M+lf8Eli+Ii507pqtNxcjRRzyMIp6ad97z2M0vrRU
+         WZH9734Gv9xUz6q8WA5cC9v6TMve7cOzH65mdF/J1HF1MdqZcvecnlfMToka0qw9pfXC
+         5znGt2JRyhc83txbOSX46hsaA5HpKI54PCXs2pLZP3NFFMIz91KtWC3ML7898vwnte0R
+         XWYYHsz1x2/ZnRVRv1hAmjTXpmWCnzqjK4iwj2XWkmgClu0aj0Rlz/zGl74Ub8qINQD+
+         Oxew==
+X-Forwarded-Encrypted: i=1; AJvYcCUUMxRxou11CgU/f1UrGpzCjXk1qx7JoyqMTcBKPiRSzM5PHBqj1xDIDxMhdd44i6DfPQymiD8JJm6dLZSOd4TR@lists.infradead.org, AJvYcCXOT375jdL+ez/z/bDHrxw3NAW9HYCuIYDPjSVKZaOXxYwHmH9U2wQFgcyvzVtkR1VyUGnKllFaXH91+NInEL8=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDLM0nENxm7zuf4tMP2wbqIXbrBcQ3VDI2XQVHe4t9sviciwbR
+	xLOD8Vcn2hVsfs3G1PG9ILoQaqPrMing4ohkBkXtQ1J4Fra2wzyQOrcafGBjSzv+DHG55bLq/2+
+	4vt5ZBH4Z6TDrkv1Epy22Ti+Ep3A=
+X-Gm-Gg: ASbGncumefjHaNuay67Pq5feQJLvgUFvIv4n8O01wNe1mPOplzwx6co1lVokujZNG1Q
+	VXdPXrBGafOqxEmBq/qaaTkDEssisMYJDWiySpmQ2nQmvZXolrvNrMMbvbjdiAQ==
+X-Google-Smtp-Source: AGHT+IG8ZycjJP/pPsbMbfgV+YwZuxy2dOx7QSYHn9/CySk4CHpxsuBci2qFQrdfOORTWwrBTmMFl/OjRx4jAcP/4rg=
+X-Received: by 2002:a05:6870:280d:b0:29e:5ffa:b769 with SMTP id
+ 586e51a60fabf-29f73860fe0mr4694069fac.29.1733607857405; Sat, 07 Dec 2024
+ 13:44:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241207-rk3588-hdmi1-v1-4-ca3a99b46a40@collabora.com>
-References: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
-In-Reply-To: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
+References: <20241111045408.1922-1-honyuenkwun@gmail.com> <20241111045408.1922-7-honyuenkwun@gmail.com>
+ <CAGJh8eDdj5zwENGWHHdZt8ejdVZ=d4GTNzW57rohyL2rvEA_hg@mail.gmail.com> <CALWfF7+7KSZ2UJUXgS_Pr3=xzMEyjKgZ4BPL47zkmfnM03HUqg@mail.gmail.com>
+In-Reply-To: <CALWfF7+7KSZ2UJUXgS_Pr3=xzMEyjKgZ4BPL47zkmfnM03HUqg@mail.gmail.com>
+From: Marco Schirrmeister <mschirrmeister@gmail.com>
+Date: Sat, 7 Dec 2024 22:44:06 +0100
+Message-ID: <CAGJh8eDJMXnjsZgdgsCj+jFp=0iK9kmrH88fFSXxYLevV8aV5A@mail.gmail.com>
+Subject: Re: [PATCH 3/3 v3] arm64: dts: rockchip: Add Orange Pi 5 Max board
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Ondrej Jirman <megi@xff.cz>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_133257_154552_CEEBD6E7 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241207_134419_049924_3B3470D9 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,97 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT changes to enable the second HDMI output port on
-Radxa ROCK 5B.
+Hello Jimmy,
 
-While at it, switch the position of &vop_mmu and @vop to maintain the
-alphabetical order.
+sorry for my late reply.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 42 +++++++++++++++++++++++--
- 1 file changed, 40 insertions(+), 2 deletions(-)
+On Fri, Nov 15, 2024 at 5:56=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com> w=
+rote:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index c44d001da16978bbbb8a93d652893a786e9ea79b..bf9e4dc601555050d8857e03b2f1fb5fe2cadaac 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -49,6 +49,17 @@ hdmi0_con_in: endpoint {
- 		};
- 	};
- 
-+	hdmi1-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi1_con_in: endpoint {
-+				remote-endpoint = <&hdmi1_out_con>;
-+			};
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
-@@ -220,10 +231,30 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
-+&hdmi1 {
-+	status = "okay";
-+};
-+
-+&hdmi1_in {
-+	hdmi1_in_vp1: endpoint {
-+		remote-endpoint = <&vp1_out_hdmi1>;
-+	};
-+};
-+
-+&hdmi1_out {
-+	hdmi1_out_con: endpoint {
-+		remote-endpoint = <&hdmi1_con_in>;
-+	};
-+};
-+
- &hdptxphy_hdmi0 {
- 	status = "okay";
- };
- 
-+&hdptxphy1 {
-+	status = "okay";
-+};
-+
- &i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c0m2_xfer>;
-@@ -891,11 +922,11 @@ &usb_host2_xhci {
- 	status = "okay";
- };
- 
--&vop_mmu {
-+&vop {
- 	status = "okay";
- };
- 
--&vop {
-+&vop_mmu {
- 	status = "okay";
- };
- 
-@@ -905,3 +936,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- 		remote-endpoint = <&hdmi0_in_vp0>;
- 	};
- };
-+
-+&vp1 {
-+	vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI1>;
-+		remote-endpoint = <&hdmi1_in_vp1>;
-+	};
-+};
+> If your primary focus is to only test eMMC support for the Orange Pi 5
+> Max, then apply the patches on top linux-rockchip for-next.
+> https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/=
+log/?h=3Dfor-next
+> That generated DTB should be able to run against an older kernel since
+> the Orange Pi 5 Plus already works.
 
--- 
-2.47.0
+applying v2 patches was working fine with this kernel. But I still had
+the same problem when booting, where it is stuck during hardware
+initialization.
+Need to check more on this and retry with the latest version.
 
+> Also, regarding v3, I rebased on top of linux-rockchip for-next to
+> include the updates for HDMI and GPU on the Orange Pi 5 Plus.
+>
+> For my development testing, I used Collabora's rk3588-test development
+> branch, so all the needed patches were already in one place (since
+> they test on a Radxa Rock 5B with the RK3588).
+> https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/co=
+mmits/rk3588-test/?ref_type=3Dheads
+>
+> So for v3, I had to first cherry-pick the Orange Pi 5 Plus changes
+> from linux-rockchip for-next.
+
+I was not successful with applying the patches yet with the Collabora
+branch you mentioned. I guess I did not cherry pick the right ones,
+yet.
+I will do some more testing to see if I can figure it out. Otherwise I
+will wait until the first version is merged and test then.
 
