@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E765E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 19:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91A1E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 19:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GS8tWLo5GitARN+fUNjDu5LYhf0oxjZUevAjNJvhb1M=; b=BWrKw46qYq9EtYTm3HB8HEOqQY
-	umP+Wnor4SQJPzdnuVlhvELEA7rOFosf/Vf5XEo4bMP9taD830sHxpoW93BHNeTVaxZXv7A77O2XR
-	cYABPAqvAIfEq88YMoEqj2JJ3e794gEChER7t0o1KDNidnv6IouJjTAb03Fn3mbcdmk3a0SuVkjiE
-	lPPXP2EXe0XNYq2yVaQ7XJDg0LihfBKOFrr/Cf3FILnfZJB9LTFYbxWVQpLuzbxRTjQ+DBnuEuKzv
-	IPWtYE6bwcP+ENWibOUn8VVq+MQRtOidrzK8L7Il2/v6VJ+0qx/uX2bflQkGDhXCGt+RXRB62IN3O
-	ILeexeog==;
+	bh=RZusazknTvRCKC9OsJXLvajHD+Zt9NLjrmB7oTXHVD0=; b=aiu+REyJWj4n5gIsbuq27kdCxm
+	Pg1ILD/3dTOvgRaXFOAPYKeKLpR147dx+1lDV3eBm9iSa1Y7XpV8ygQsdl7XmrC35o3TXIm5IOk9a
+	FOq+KZU68l2rwS7TZCVylLOS6ELENuOj6yUrHfaAGSEX5MLUoV/jUk6WqUKlgOC1JZeSwEkmv1oxX
+	BrKO4bHCHUVlf4Sg9s0MAVFYSM0lUfWILDngbl3e1d7g7ocrx18hydibEOYw2XCq07IPkeSHv19pj
+	htZR2MQttUWbex/C0DcNZZ8mBCcLrbdQzRV+rLiOMCLqHMdSHtN1GaxH/020Xc6CcGVmfx38tUFPF
+	Xn8jYecg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK0B0-00000004INz-2yYv;
-	Sat, 07 Dec 2024 19:09:14 +0000
+	id 1tK0C0-00000004ISx-1d1k;
+	Sat, 07 Dec 2024 19:10:16 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK09y-00000004IKV-0ftO
+	id 1tK09y-00000004IKX-0gUL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 19:08:11 +0000
+	Sat, 07 Dec 2024 19:08:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E5260A4084E;
-	Sat,  7 Dec 2024 19:06:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44791C4CEDC;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3CF18A40856;
+	Sat,  7 Dec 2024 19:06:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E789C4CEE0;
 	Sat,  7 Dec 2024 19:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733598488;
-	bh=cgaTsKTJrsLBacLMgbwEl37CvHQ9qS/dDCpL+E4tjsY=;
+	bh=ieCSJY6ovtV+5BP0KLjpV97miFo9w2jKSQmZAKncuJk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C5q0ZcgqvR+NGRZBYXM31n2aBNVJQriUjidaK5LP278aZZIbJ3aTupU8nYelYWFa7
-	 BmwbCw4+R2bHJmNQgjkbGca0y3z2oAjoW32fNDSPo2qTASpZy+va1oiCsv6u4yXVnt
-	 vDJy2UGomvGDTTLLyrVXpXOUCQT+OnZvle01Hd3Lm2QUt24qBmdVxyAjuanB5IZjqe
-	 V0dgQub3A23BX2G9pEv8FnzFpZhaEoFj1uiIAvcUWhkkuDTSndA6PfVGDQNNHvUtb6
-	 it29EB9PdzQPVwI9U0IZPvbIJjx1OvsCxDWPUWeIS70OZ2mzZqkk1iEWFa4rKjdRfg
-	 DRnU72gfcr5Gg==
+	b=mDstrgRc3DVnIPMquH9SUR5DmN++/RW9bLlH+EXnQNm1tPZjG/GQmwRUuD92yMN5Y
+	 /sZT5Qeu6XmbZ7Ur/xO29B5aGMrog2esOHQMsd/2dP/G6SxIO+E6Kw0cMuCjq7GoGm
+	 H2uV0V/DDrXYM0F5h3jTTgBUx4/2ydMw7befQBC16Lsjh+M6ta0VcvmlG/dgkP7g1o
+	 QZkuVHrncM9M4kEHlycnZWII0OW34n/jIJHAfTG6Y2dLHSkR1K5QtLpCbrtrHc3cv7
+	 nGGeGH8Wf8FFR0PFDwC2xGzTrpmHbe2SiivkHx/hL4INnUAAD5OCBuJpXNw6/lBPlK
+	 uZkMDzqLlbQRg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tK09u-001TOc-Fv;
+	id 1tK09u-001TOc-3X;
 	Sat, 07 Dec 2024 19:08:06 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
@@ -56,9 +56,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH 3/4] arm64/sysreg: Convert *_EL12 accessors to Mapping
-Date: Sat,  7 Dec 2024 19:07:39 +0000
-Message-Id: <20241207190740.2607673-4-maz@kernel.org>
+Subject: [PATCH 1/4] arm64/sysreg: Allow a 'Mapping' descriptor for system registers
+Date: Sat,  7 Dec 2024 19:07:37 +0000
+Message-Id: <20241207190740.2607673-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241207190740.2607673-1-maz@kernel.org>
 References: <20241207190740.2607673-1-maz@kernel.org>
@@ -69,9 +69,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_110810_355926_EF39C21D 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241207_110810_356123_138B65E8 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Perform a bulk convert of the remaining EL12 accessors to use the
-Mapping qualifier, which meakes things a bit clearer.
+*EL02 and *_EL12 system registers are actually only accessors for
+EL0 and EL1 registers accessed from EL2 when HCR_EL2.E2H==1. They
+do not have fields of their own.
+
+To that effect, introduce a 'Mapping' entry, describing which
+system register an _EL12 register maps to.
+
+Implementation wise, this is handled the same was as Fields,
+which ls only a comment.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ arch/arm64/tools/gen-sysreg.awk | 2 +-
+ arch/arm64/tools/sysreg         | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+index d1254a056114e..1a2afc9fdd42e 100755
+--- a/arch/arm64/tools/gen-sysreg.awk
++++ b/arch/arm64/tools/gen-sysreg.awk
+@@ -206,7 +206,7 @@ END {
+ 
+ # Currently this is effectivey a comment, in future we may want to emit
+ # defines for the fields.
+-/^Fields/ && block_current() == "Sysreg" {
++(/^Fields/ || /^Mapping/) && block_current() == "Sysreg" {
+ 	expect_fields(2)
+ 
+ 	if (next_bit != 63)
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 19d137d9c50ed..ad2f6265f7948 100644
+index b081b54d6d227..b6846c601df6c 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -2954,23 +2954,23 @@ Field	63:0	PhysicalOffset
- EndSysreg
+@@ -38,6 +38,13 @@
+ # Fields	<fieldsname>
+ # EndSysreg
  
- Sysreg	CPACR_EL12	3	5	1	0	2
--Fields	CPACR_ELx
-+Mapping	CPACR_EL1
- EndSysreg
- 
- Sysreg	ZCR_EL12	3	5	1	2	0
--Fields	ZCR_ELx
-+Mapping	ZCR_EL1
- EndSysreg
- 
- Sysreg	SMCR_EL12	3	5	1	2	6
--Fields	SMCR_ELx
-+Mapping	SMCR_EL1
- EndSysreg
- 
- Sysreg	GCSCR_EL12	3	5	2	5	0
--Fields	GCSCR_ELx
-+Mapping	GCSCR_EL1
- EndSysreg
- 
- Sysreg	GCSPR_EL12	3	5	2	5	1
--Fields	GCSPR_ELx
-+Mapping	GCSPR_EL1
- EndSysreg
- 
- Sysreg	FAR_EL12	3	5	6	0	0
-@@ -2982,7 +2982,7 @@ Fields	MPAM1_ELx
- EndSysreg
- 
- Sysreg	CONTEXTIDR_EL12	3	5	13	0	1
--Fields	CONTEXTIDR_ELx
-+Mapping	CONTEXTIDR_EL1
- EndSysreg
- 
- SysregFields TTBRx_EL1
-@@ -3087,7 +3087,7 @@ Fields	PIRx_ELx
- EndSysreg
- 
- Sysreg	PIRE0_EL12	3	5	10	2	2
--Fields	PIRx_ELx
-+Mapping	PIRE0_EL1
- EndSysreg
- 
- Sysreg	PIRE0_EL2	3	4	10	2	2
-@@ -3099,7 +3099,7 @@ Fields	PIRx_ELx
- EndSysreg
- 
- Sysreg	PIR_EL12	3	5	10	2	3
--Fields	PIRx_ELx
-+Mapping	PIR_EL1
- EndSysreg
- 
- Sysreg	PIR_EL2		3	4	10	2	3
-@@ -3119,7 +3119,7 @@ Fields	PIRx_ELx
- EndSysreg
- 
- Sysreg	POR_EL12	3	5	10	2	4
--Fields	PIRx_ELx
-+Mapping	POR_EL1
- EndSysreg
- 
- Sysreg	S2POR_EL1	3	0	10	2	5
++# For register names indicating a cross-EL access (*_EL12, *EL02),
++# a Mapping entry describes the register it actually accesses:
++
++# Sysreg 	<name_EL12>	<op0> 	<op1>	<crn>	<crm>	<op2>
++# Mapping	<name_EL1>
++# EndSysreg
++
+ # For ID registers we adopt a few conventions for translating the
+ # language in the ARM into defines:
+ #
 -- 
 2.39.2
 
