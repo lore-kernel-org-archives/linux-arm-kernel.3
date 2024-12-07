@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 549F8E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 15:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2A7E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 15:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ZQZ2P4X11XUh3/AmfJ9LodEYUGwzm9ljaljfQMxpC8=; b=zRhxu94RGLPG051zhPUYz8nj+j
-	D1piqVO3E3UFwUsfKFqb4mAwypvp7ytyXx6UWW4JvOcZGQRhwO+62lMI1q8yQgn8f4nd1HVghZWvx
-	w7xV8RdcZjksGTxvla4777v4TY1TxRHgvShD0hs0hNtV/+ecd09XNuZR04WQb/RbgpnnLvBlug//h
-	aqNIRTQ3205xeKF9ecqyT6W8779wYF0RRKk2wYO4iYNuC4jpxULSkGGkYRAkRYUHU5VOsZEXzse5S
-	1aJRnmCc8nB5dhAXxRUx7eYHhkOqGngKXeUgHkiuZb4LA+7lBkly1q4OjVaWjgPDT+lq134SBMGIC
-	2ldkNzJw==;
+	bh=DjAsF8rGOz50pw9dHufxGpGm6fT/5+Pfxa1ngA4zURE=; b=WLHXbHAt1T9IEZGkIWGKjtplIq
+	0GAaIJPuwNnWkqahGfl9YNEGVol6p0LdLtqX0d4H+huEr8rBpRtdgA4m7IBm7Aj7ek6jhsYS0QmdV
+	xkE1uCVBMo31JTLenFcZ9jBN7ew9YTcweoiOeVZXE6SEkcK2xP03Q0724jYWvpQpTlnmkn85LW76D
+	Tq16u1Sc82HEpDsdIs/xZhp4Ni4cWCF4XA+qg+yMoUKsJ4jlgTPpXoZloYv2X52OtHBWtArRKfP3d
+	qMALx9dgNe4nTrE6E8emukKkWq5b58T7qvPVaIEThmU9HHntyXDMtLQx1wfuPbgNPD3l7rVZn/IGN
+	teqi/b2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJwIP-000000043jQ-2W1v;
-	Sat, 07 Dec 2024 15:00:37 +0000
+	id 1tJwTD-000000044Jp-0OBi;
+	Sat, 07 Dec 2024 15:11:47 +0000
 Received: from mx-2023-1.gwdg.de ([134.76.10.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJwHN-000000043eI-3sye
+	id 1tJwSA-000000044Du-471j
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 14:59:35 +0000
+	Sat, 07 Dec 2024 15:10:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
 	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
 	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=1ZQZ2P4X11XUh3/AmfJ9LodEYUGwzm9ljaljfQMxpC8=; b=CbEoEgJJWkfk7etBghxPUIW3ao
-	jG9EXzXwhGOguUYccsOMcvF/dchUxm9KnfHzR0/ReGu/dSAUXjfNZHDirRMCj2Qkur15yeR4HMXZK
-	N3d5J8WClYuymxxW1Rc1oqjST4vSX35BORz1G6VQm5fjwc2ieDt8hVdLRDnEvhnD/RwkTrMo/yJLB
-	xZfTOtASEvh3e1Xd4RiprbqJeV3Ki8Q+uQy/1RkxdI7KodAv7UlV7fw7tHfPjt6EFJaoqcPD7pea3
-	9L72aSh4ZzpkLlAMZVXRJ3KPRAVcPAxnw0S/vRb6V41B+ESFwv0puOkZEJsajK9li/HGkAdbVg5R+
-	FkP++QEg==;
-Received: from xmailer.gwdg.de ([134.76.10.29]:39687)
+	bh=DjAsF8rGOz50pw9dHufxGpGm6fT/5+Pfxa1ngA4zURE=; b=NxJqX4GHTHAkvVvqWRYSblHpNx
+	xRORMBuWj52AYsJt7hsl+bNsLSbMJbQftZCU0GGaC/ggwlUkADRTL4RycoNy8UbRQXowZd8XTuKVH
+	A6g5k+b2fpGBmaekFaf47URPQJf9agf48U0FbAFTfwKhYvl21khhPJdAHlyLqGrDIWQenvNXnjmDi
+	4DzHK8DSoxEy32pR6/UzxeXJcSQf0Vzjgho5v3bqB8+DU/IHvQ4qUG0xALZPJVKaMmYT5kg/j0wx0
+	chjZmLJvxLvtY/Gz1TGkZ8JYqUocH+ZxNnOgZQ69jfYiCxSoRKspMST9B/0ORsfFRfWlsI6yA5Usp
+	VmhKOsLQ==;
+Received: from xmailer.gwdg.de ([134.76.10.29]:55546)
 	by mailer.gwdg.de with esmtp (GWDG Mailer)
 	(envelope-from <muecker@gwdg.de>)
-	id 1tJwH9-004NAS-1N;
-	Sat, 07 Dec 2024 15:59:19 +0100
+	id 1tJwS1-004NGV-2v;
+	Sat, 07 Dec 2024 16:10:33 +0100
 Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
 	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
 	(GWDG Mailer)
 	(envelope-from <muecker@gwdg.de>)
-	id 1tJwH9-000ADM-0y;
-	Sat, 07 Dec 2024 15:59:19 +0100
+	id 1tJwS1-000BiJ-2a;
+	Sat, 07 Dec 2024 16:10:33 +0100
 Received: from [192.168.0.221] (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
  (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Sat, 7 Dec
- 2024 15:59:17 +0100
-Message-ID: <470b5f46d45063fdc21e4e19eac68c18cb42db48.camel@gwdg.de>
+ 2024 16:10:32 +0100
+Message-ID: <b3bd6d4ef485dbb5db4c784f4e42f76adce502dc.camel@gwdg.de>
 Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
  __is_constexpr()
 From: Martin Uecker <muecker@gwdg.de>
@@ -81,7 +81,7 @@ CC: David Laight <David.Laight@aculab.com>, Linus Torvalds
 	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
 	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
 	<linux-arm-kernel@lists.infradead.org>
-Date: Sat, 7 Dec 2024 15:59:09 +0100
+Date: Sat, 7 Dec 2024 16:10:31 +0100
 In-Reply-To: <CAMZ6RqL+iS6GVsY20=O6GdQakRpp7XdewZJsUbmE5OCsKaHR6Q@mail.gmail.com>
 References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
 	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
@@ -99,13 +99,13 @@ Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: MBX19-FMZ-04.um.gwdg.de (10.108.142.63) To
+X-ClientProxiedBy: MBX19-GWD-04.um.gwdg.de (10.108.142.57) To
  MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
-X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:5, sv:1733541190, ts:1733583559
+X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:9, sv:1733541190, ts:1733584233
 X-Virus-Scanned: (clean) by clamav
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_065933_956654_C4F7D775 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20241207_071043_011169_BBA0AA8C 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,47 +122,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Am Samstag, dem 07.12.2024 um 22:50 +0900 schrieb Vincent Mailhol:
 > On Sat. 7 Dec. 2024 =C3=A0 22:19, Martin Uecker <muecker@gwdg.de> wrote:
-> > Am Samstag, dem 07.12.2024 um 21:45 +0900 schrieb Vincent Mailhol:
-> > > On Sat. 7 Dec. 2024 at 17:39, Martin Uecker <muecker@gwdg.de> wrote:
-> > > > Am Freitag, dem 06.12.2024 um 16:26 +0900 schrieb Vincent Mailhol:
-
+> >=20
 ...
 
-
-> > > But the core issue is that before getting this support in Linux, we
-> > > have to wait for this to be added to the C2Y draft, then implemented
-> > > in the compilers (probably just reusing the C++ constexpr functions)
-> > > and finally wait maybe one more decade for the C2Y support to reach
-> > > the kernel. For reference the kernel supports C11 only from 2022=E2=
-=80=A6 So
-> > > maybe we will see those in the kernel around 2037? Meanwhile, we have
-> > > to deal with those hacks.
-> >=20
-> > If we do not collaborate on proper solutions, then you might have
-> > to wait much longer.
 >=20
-> I was invited to WG14 this September.=C2=A0For now, I am only lurking. Th=
-e
+> I was invited to WG14 this September. For now, I am only lurking. The
 > thing I have in mind right now is to write a paper to allow the use of
 > static_assert() in expressions (i.e. make it return 0 on success).
 > That should be a relatively small change, but would bring a nice
 > quality of life improvement.
-
-Excellent, then I was complaining to the wrong person.=20
-
-
-Martin
-
 >=20
 > For context, look at this:
 >=20
 >   https://lore.kernel.org/all/CAHk-=3DwjLSEcZ5LdW+3C+9rtjvNPHZT6zdk0POj67=
 T5k2ZpDbgA@mail.gmail.com/T/#m1ba33a804b4041154b72a1d0333f90ec7204c461
->=20
-> And I will definitely follow the progress of constexpr functions in C2Y.
->=20
->=20
-> Yours sincerely,
-> Vincent Mailhol
 
+What one can do is put it into a structure.
+
+#define const_assert(x) \
+    (sizeof(struct { _Static_assert(x, ""); }))
+
+but yeah, also a hack to work around a limitation of the standard
+feature.
+
+Martin
 
