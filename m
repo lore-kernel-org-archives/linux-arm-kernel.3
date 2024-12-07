@@ -4,100 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A62E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 13:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0928E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 13:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFVSrkNiEMMJAigz7OiMiNZjcf3pYxRxO/MhDZIhBgc=; b=Rw/K/NJ85qKtAXeyHXWf1ju25E
-	ZwyzVbOSEuLasDbg7fguc9Ihrq4QU0B79q0axqfH6QrtxjzswrQcTyFug6ufD3wDtYB0FtkYAu2YT
-	wtSEKnPQw/4BT2X52Zk5jqvU7+gWm9xk+5+TbwodqMSlkV3b54V6TIQCKh30NENHB/VexuhnDNAzd
-	j+F2/E0wpYAb3SuPef39pPrYKL8DZSH3jzWBi/NKehDer1FAwLu4ygHaE8hq7wqDiOuo4F7B3VLu1
-	44Vj3tmOgsbJbTkhHX0ul3P0G0FmjQHwm77VcIM/k6YjVSU4n1tQkKcTMORf4MihKOhfg1AcmKDUj
-	dgZayg9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/uO1DmifJTy9zLn5kLoz0yWzTcVA7p32pVfQJYIukvo=; b=JEdYxvbKOUpE3cTwoGgJXUCy7x
+	jFSUsCulyAtZkgUxDlhWgTO2ePTqd86b34+9lipEzxvZY6kNT0M+jGhj6qbVFrSTP1hTxyyiw7YYg
+	+nEsczaUa61El67e79Ph7J4IxkQcJFUsOGWiE4/qk029Gopz++LZFFUFeV9Nx/t6maXgjiMTBP6ki
+	FE05DIhrWQ9EiVB1yg/HsCmtj9uGn/FIU9nqahS6rLvRhn0/WGX32t3B6r4gumSd6YlV2UjKaJs54
+	5UeGyk41onENs5d3Z90rH+Y/VN+j2PG0tZyw1yzxoqm2GUGiUYXAometCGihjxqVeyh/8DqjApr/d
+	9qo4IShQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJuYT-00000003yHg-0MKr;
-	Sat, 07 Dec 2024 13:09:05 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1tJuZS-00000003yNo-30aF;
+	Sat, 07 Dec 2024 13:10:06 +0000
+Received: from mx-2023-1.gwdg.de ([134.76.10.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJuUa-00000003xfn-2Blb
+	id 1tJuX1-00000003y7E-1TlP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 13:05:05 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7fd24730dadso1853821a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 05:05:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733576703; x=1734181503; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TFVSrkNiEMMJAigz7OiMiNZjcf3pYxRxO/MhDZIhBgc=;
-        b=fD1Ci6GbcgyPwW3q1zhZ9MWQBjCQcPUz21EhRth7umVdX9ihZbwyVyZ/W0vizK2C5t
-         +4kfC7Ot87rYsNeg5Xf5MCCTUblYxkZMVrUXdhEOv1qQqe3TJd07qOWFBhE12VJomqQV
-         6HVUDTzh9xl/bI31d62HWJPXg6O/KUCl1OcYOzfj9hVLeVqYP4Db9wUFOdtNj2ZZmCZ5
-         RHgNwvJitOP2iq8OfjRAMG+xehpyOL4DBPdp8wGAyYzp/W96XjsCIBTDD0GeLeIsRQu2
-         xUa+FnTh1Ig5fX45yA4S38FnFW1zGx/4Uli20cXBsQNO6gw31KPKXoHmuRzSprnn6UvO
-         JI7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733576703; x=1734181503;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TFVSrkNiEMMJAigz7OiMiNZjcf3pYxRxO/MhDZIhBgc=;
-        b=gb80Lzo5n8XJ0GCdUchtvghQIGj3KHpKGqZj2B4eqrDCa3DkGXaarac5PG0F9D6Kae
-         pxP5J5pFGT65DThIJjSImnGvZgJL25eSm8OErqo5BlgksmCatIlIdGhuDMzmtoAviqEn
-         DaQp0LvcNOCcsrux60JTF23rOXCk2SXMxeD5Sv7VOUebUX+ztK8ekpYZpxXtNvefaTZA
-         YXBS1WsF8yXlYwZInOXT3qLZvTxg9SvAchBdse3H4eRVZZZzaqeH+03IvLEa6xVds1Wc
-         4FG8t01i7qXCF9x9X5yE3FIz2Zf7qYFxaIPygP0PhMCG4yQOFm2d/IVeTSe31V8v6je/
-         Gdrg==
-X-Forwarded-Encrypted: i=1; AJvYcCWQTaNQx4px3zXS2RbzwThjCDIQDHNClOcNTsL0DBO1p/qlT0mZU9WYscl5j4JgIPF/kXnIOrK2I2tb5uazZXzb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhpo8x9NEug/6yYD6kdNYhnSxBckNmUiADTXx3C/4ICasC6MT9
-	jbezvFG3/7vCA9GBKE35ezHTI0PIyKjDaub92jtoifeBlizoicVCC98d4Q==
-X-Gm-Gg: ASbGncvSD9BtGOc/oZVdr+6YyrE/h9j4Dyk1aTQ73EF6x01Ckme4DtiwrLuNyQ1C+hq
-	7aflg5gy+8w+yT7v7Cxa4pkxVAmRY5KZ2uS89DRoQvCSeqpyrw0oBJ3kqGXK49UVZlKbYCHs9O6
-	AuKcI5Lsq8L5rPo8o07IAXC8gl9JvtAp6C7GnYzCX7sXLq2nadRcuiu8HF50syc8HBUg3qJ3kSs
-	hqO8TCu60BU/59jjftB3osqelaWj7lyZnHWYRr17uvz4M0Awg6zgEe9IUqVCD30iA==
-X-Google-Smtp-Source: AGHT+IH0D/Yd8zXEABvPSshTZ5GdofWvmFimE7bz/L0Dg8+hzOe7KfKe6Ge/tMmMUKD8ETbyZzILpQ==
-X-Received: by 2002:a17:902:e80b:b0:215:97c5:52b0 with SMTP id d9443c01a7336-21614dac17dmr93533435ad.38.1733576703350;
-        Sat, 07 Dec 2024 05:05:03 -0800 (PST)
-Received: from localhost.localdomain ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-21628c59730sm12779715ad.105.2024.12.07.05.04.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Dec 2024 05:05:03 -0800 (PST)
-From: Nick Chan <towinchenmi@gmail.com>
-To: Lee Jones <lee@kernel.org>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Pavel Machek <pavel@ucw.cz>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Nick Chan <towinchenmi@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 3/3] MAINTAINERS: Add entries for Apple DWI backlight controller
-Date: Sat,  7 Dec 2024 21:03:16 +0800
-Message-ID: <20241207130433.30351-4-towinchenmi@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241207130433.30351-1-towinchenmi@gmail.com>
-References: <20241207130433.30351-1-towinchenmi@gmail.com>
+	Sat, 07 Dec 2024 13:07:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
+	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=/uO1DmifJTy9zLn5kLoz0yWzTcVA7p32pVfQJYIukvo=; b=e2Qd1tABJB3so0uW5yOeFNTh2m
+	bAgdqHapE4ARaSqoPh0wuuYfkFJiN6fzQw25oMXqezvMZhvs8kwWkdhWJqA9wx2m+4uh5kl3iXXWR
+	qD1BX8N+9Bgie0PF2OleNUfi3Pzu330Smp9qtupvT+WFdjA4vpNd3x/Xo+pidd75LM2IrPPoiH1GB
+	j1+KANv8/8ZEscTVeL/Qrri3V1yz1nuRxuKe1Po4Gs3OK6ceQg9+p8OdFsiFDULdOuMsi2j2hC3oZ
+	Kfqzp1Os0LeI/3TSUiX2jy6rjZ0u8HpCdthdsHmWuIN/14fGhDhA8pFyO8Q9kdyTPMQYM4NuQwuzi
+	mi5Ys46A==;
+Received: from xmailer.gwdg.de ([134.76.10.29]:50730)
+	by mailer.gwdg.de with esmtp (GWDG Mailer)
+	(envelope-from <muecker@gwdg.de>)
+	id 1tJuWk-004M5Z-0k;
+	Sat, 07 Dec 2024 14:07:18 +0100
+Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
+	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(GWDG Mailer)
+	(envelope-from <muecker@gwdg.de>)
+	id 1tJuWk-000UX0-0P;
+	Sat, 07 Dec 2024 14:07:18 +0100
+Received: from [192.168.0.221] (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
+ (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Sat, 7 Dec
+ 2024 14:07:16 +0100
+Message-ID: <9a0c041b6143ba07c2b3e524572fccd841f5374b.camel@gwdg.de>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+From: Martin Uecker <muecker@gwdg.de>
+To: David Laight <David.Laight@ACULAB.COM>, Vincent Mailhol
+	<mailhol.vincent@wanadoo.fr>
+CC: Linus Torvalds <torvalds@linux-foundation.org>, Luc Van Oostenryck
+	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
+ Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
+	<jani.nikula@linux.intel.com>, Joonas Lahtinen
+	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
+	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
+	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
+	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
+	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
+	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Date: Sat, 7 Dec 2024 14:07:08 +0100
+In-Reply-To: <344b4cf41a474377b3d2cbf6302de703@AcuMS.aculab.com>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+	 <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+	 <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+	 <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+	 <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
+	 <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
+	 <9607300dfca5d71ca9570b1e1de0864e524f356b.camel@gwdg.de>
+	 <344b4cf41a474377b3d2cbf6302de703@AcuMS.aculab.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.250.9.200]
+X-ClientProxiedBy: MBX19-FMZ-04.um.gwdg.de (10.108.142.63) To
+ MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
+X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:5, sv:1733541190, ts:1733576838
+X-Virus-Scanned: (clean) by clamav
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_050504_553647_0912B394 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20241207_050735_533760_DB49F612 
+X-CRM114-Status: GOOD (  37.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +118,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MAINTAINERS entries for the driver.
+Am Samstag, dem 07.12.2024 um 10:33 +0000 schrieb David Laight:
+> From: Martin Uecker
+> > Sent: 07 December 2024 08:40
+> ...
+> > I find it amazing how much time the Linux kernel community spends
+> > revising code to make it work perfectly.
+> >=20
+> > Still, I am wondering whether some of this time and effort should not
+> > be targeted at C compilers and language work to make these macro
+> > hacks unnecessary?
+>=20
+> I'm probably not alone in thinking that sometimes the compiler writers
+> are doing their hardest to make life hard for people writing low level co=
+de.
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+GCC and Clang are open-source projects just like the kernel. One can=C2=A0
+go there and contribute.  I am not saying that it is always easy to
+find consensus and there also projects that have other requirements
+than the kernel. But I started to contribute to GCC (with very limited
+time) to address some of my own issues, and I found the community very
+welcoming.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1e930c7a58b1..36de76bc6fd4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2204,6 +2204,7 @@ F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
- F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
- F:	Documentation/devicetree/bindings/power/apple*
- F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-+F:	Documentation/devicetree/bindings/video/backlight/apple,dwi-bl.yaml
- F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
- F:	arch/arm64/boot/dts/apple/
- F:	drivers/bluetooth/hci_bcm4377.c
-@@ -2221,6 +2222,7 @@ F:	drivers/nvmem/apple-efuses.c
- F:	drivers/pinctrl/pinctrl-apple-gpio.c
- F:	drivers/pwm/pwm-apple.c
- F:	drivers/soc/apple/*
-+F:	drivers/video/backlight/dwi_bl.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
- F:	include/dt-bindings/pinctrl/apple.h
--- 
-2.47.1
+>=20
+> > I already found the original motivation for these macros very questiona=
+ble.
+> > Removing VLAs at the cost having imprecise worst-case bounds strikes
+> > me as fundamentally misguided - at least if security is the motivation.
+>=20
+> VLA basically cannot be allowed because of the very limited stack space.
+> Even the per-frame limits aren't a real solution - they just catch the
+> places that most likely to cause issues. Very deep call chains and any
+> recursion (that isn't tightly bounded) can cause grief.
+
+VLA use *less* stack than a fixed size arrays with fixed bound.
+>=20
+> > So maybe there are other good reasons for this, e.g. bad code
+> > for VLAs or risk of jumping the guard page if the attacker can somehow
+> > influence its size (but for this there is -Wvla-larger-than). But even =
+then,
+> > wouldn't it be a more worthwhile and interesting investment of engineer=
+ing
+> > resources to improving code generation / warnings at the compiler level=
+?
+>=20
+> This is kernel code, any access into a stack guard page is basically
+> unrecoverable for the entire system - a kernel lock/mutex could be held.
+>
+> With a list of (calling_fn, called_fn, stack_offset) it is possible
+> calculate an accurate maximum stack usage.
+> Indirect calls would need to use the (IIRC) FINE_IBT hashes to identify
+> the possible functions (and I'm not sure than has an attribute for a 'see=
+d'
+> so that 'int (*)(void *)' functions can be separated into groups.
+> I've not looked at whether objtool could generate the output - but is has
+> to be easier for the compiler to do it.
+>=20
+> I have done that calculation in the past (parsing a compiler listing file=
+)
+> and basically discovered the system didn't actually have enough memory
+> to allocate 'safe' stacks! The max stack was pretty much always (the
+> equivalent of) printf() inside an error path that never happens.
+> It might be interesting to see how bad linux is (after sorting out
+> how to handle recursive calls - hopefully there won't be too many
+> unexpected ones.
+
+Compiler and ISO C language support to guarantee bounded stack usage
+would indeed be a very interesting feature.
+
+>=20
+> > Also the fortification of strlen and co seems something which could be
+> > much better solved with annotations and proper compiler support.
+>=20
+> That might be nice, but kernel have to be buildable with relatively
+> old compilers.
+
+Yes, but it could make use of it at some point in the future (or
+optionally).
+
+> Some things might need language/ABI changes to better handle ptr+size.
+> The ability to return such a pair in registers would probably be useful
+> (without doing horrid games with a union and __int128).
+
+ptr + size is something we are looking into.
+
+You can already do quite a bit by using C99's syntax for variably modified
+types. For example, you would get UBSan trap for the following OOB access:
+
+int foo(int n, char (*buf)[n])
+{
+  (*buf)[n] =3D 1;
+}
+
+This does not require an ABI change.=20
+
+Martin
+
+
+
 
 
