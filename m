@@ -4,92 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF12DE7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 10:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BAAE7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 11:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFscs7fH90hM8XMoELo7T9NbLyoZ3UXoG7rlMcZyHVo=; b=XVeR6mvuEs70TenQmiS94luBa0
-	fA12HQIcu42ZJRKgqAZGfugYnUioK8QNAj5yT2rJokTpq+304uoDBSSYFYbwRF9gWzt+yBEWOYx+A
-	vQ5jt/w5lwkpAbcHGOcNZiaFY8sdA8cXz5faY53KOKPGhI+tBtWC0xhcZbUB+NPxA6Ctv6HSk8NBn
-	WlloORN82MLOyvtzHaR1Eu7wjAeZwnchMJMP6AHKR4wcekGZEWOseMQFPuZpcfW7VCTjAR8Q1qxMk
-	OKD/6CFcc+8jxmaD4vx4dn/hu1h9oamgMybDIMzr6KzDafu2AeW0PVXbLmVHhz8GKne8TjyIyHumI
-	4UfUhDcg==;
+	bh=Wt2ZHmxW6c/l0ZfetqXCLnlXK50FBLicV0IX1qwEeKI=; b=aDkovSNX7+/5Ap9v00Br2VLtbb
+	EAfUq8Rnro8MlAghSIZ9DKs8v0+ZToeSMYPVt6qi8LS1mY85TZ+w7wAfZ6yNpc8AW2oeveuNjCf5k
+	mVQ+OPIu75MdH0y6FN7TJ3E5aCdMIBbhxV/EUDAQHLRnQWnQo0N+7bOhn8tnRGDY177AUxf93kPLn
+	k4MIL9qGawvqy8C8Fw4u7iFia9PXqN3cMBZ7I0dwrxKsFecgvgklD4mmhMgT7IJgfF7xmCxH8eFdS
+	oUJrLQsy2KqnrDRonBptkzWp2DJEqakFD2J1XtNmVcpSQPMMyNLE5yXKssroP3E6mXYpbXltAeQW2
+	xGCDlyjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJsEe-00000003q7r-0EaZ;
-	Sat, 07 Dec 2024 10:40:28 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1tJsrv-00000003s9o-0sfT;
+	Sat, 07 Dec 2024 11:21:03 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJsDc-00000003q2P-2FA2
+	id 1tJsqs-00000003s3Q-1fGD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 10:39:25 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-725b93a59feso1383172b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 02:39:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733567963; x=1734172763; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yFscs7fH90hM8XMoELo7T9NbLyoZ3UXoG7rlMcZyHVo=;
-        b=XJGQgmUendquvd8Mya6w5sAaxnOX/nOBv4cyVW0yQVcyV06D7/mVTKe/giJorwE1sw
-         LuyNaTty27NpaYmYhjFk4rUrD8JL9IxJYeNJ21ARDfYmRl3UgV81MDAR5yX+rvz1xRX8
-         X+zFep/hEsuKCCNjZfSqfsbJn43BakDPYyQrOb3fR0lqObZkXcBUldEmkBhriwN8zSaH
-         U8sC5Cg8tIGllaRRCXcNrCbFBIU5eT5DnP2O1mk5ooMvl3d2ltiDU5vRxfxDNqtBrVYg
-         E7zNfZAML0xvwZmNqyDwSpDSf7Dm8XOZ2DjiiKnT4SBzDOMtMgR+92l+YvhErtBhKunR
-         yhsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733567963; x=1734172763;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yFscs7fH90hM8XMoELo7T9NbLyoZ3UXoG7rlMcZyHVo=;
-        b=gjBlh/ftwquaAhilYbnMZDZzSEO+2PxDw3c4RAM+t8YtkVxiy6hYFstCTtjpc4NwV5
-         8LJnfxFMSR3f3QZ9PYdLQ5cmfx95352irgrdqcxqJEihsuBaBOt/cuVcmBZ5gnbyHJEk
-         t41UBaBFMa/IRDGVPrQp5N1hOEPt/zv+/WNmof+doZW9vEAQhZUSshi+Aag8yJ2gSpHt
-         P5+hIVJvQ7wUy25RPnkBZ5ddPnzLB+xyQ+v9H8kNpOK14yuv3z7zC9nNStOffivxqX1w
-         HgrI4QmaA79uUIqUv77gVuGCBGdG+S6VgU48k+XMGvSBO/aWcuRN9bb2LohKg+ZqzE7T
-         zpfA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgyitLW4rSJRlHnjMJ+PLbuDVCohmSXnCwSugNZsU6qTqwnW4ib8T1a5c+dxHfqMUuYAETWjnIzPzgHtZd2tF/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJ1eSySSJ7xzhQBJ7YvVsXJiwCyh/golku7OPVwkvnzGv+8AfR
-	K1rHjcx1kkf7xIo5VpmV1TejeAm8l7uiAOdPveAeHu66FJaMMmU4
-X-Gm-Gg: ASbGnctPotIvapf+LuqSIKDZxZRUMnsvF8Dw3JLQTyUdvJw8YLSqfp1iIU0lCBBrv8n
-	aPpHtcMSsDA2FBaHAMihnSFNy9CQswwMdtqYgGAx2B7vVGYs75fnlpn1nxTI8xpX0V+MwVuZ0Mu
-	ffnfqtyLX35lCrbGnkAiiUhUcy5bMGbpE7Hz+zELS18H2ZsiBZkZT0uSE1J6LMzRL2HP0lBZaNE
-	sidUlEIcC8cf3eKsZMS7RDSzcHN5Eb+j//CsiIG4UJD184=
-X-Google-Smtp-Source: AGHT+IEysiOlJ9ETZ/Xxh9z0hjLaghuXzoMd9yG4NbBjqLdyrzHc4t//d+YwIv8aZJjTQdnU3t7pmg==
-X-Received: by 2002:a05:6a00:4c84:b0:725:d1d5:6d80 with SMTP id d2e1a72fcca58-725d1d577e8mr1656122b3a.7.1733567963483;
-        Sat, 07 Dec 2024 02:39:23 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725a2a1598asm4278372b3a.81.2024.12.07.02.39.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Dec 2024 02:39:23 -0800 (PST)
-Date: Sat, 7 Dec 2024 18:39:00 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v1] net: stmmac: Move extern declarations from
- common.h to hwif.h
-Message-ID: <20241207183900.00001fad@gmail.com>
-In-Reply-To: <Z1QfupFfg07jTMUc@shell.armlinux.org.uk>
-References: <20241207070248.4049877-1-0x1207@gmail.com>
-	<Z1QfupFfg07jTMUc@shell.armlinux.org.uk>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Sat, 07 Dec 2024 11:20:00 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-182-BmtRSwgZMaSkxWJpDbvf-w-1; Sat, 07 Dec 2024 11:19:55 +0000
+X-MC-Unique: BmtRSwgZMaSkxWJpDbvf-w-1
+X-Mimecast-MFC-AGG-ID: BmtRSwgZMaSkxWJpDbvf-w
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 7 Dec
+ 2024 11:19:05 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Sat, 7 Dec 2024 11:19:05 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Vincent Mailhol' <vincent.mailhol@gmail.com>, Linus Torvalds
+	<torvalds@linux-foundation.org>, "w@1wt.eu" <w@1wt.eu>
+CC: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor
+	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, "Bill
+ Wendling" <morbo@google.com>, Justin Stitt <justinstitt@google.com>, "Yury
+ Norov" <yury.norov@gmail.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Jani Nikula <jani.nikula@linux.intel.com>, Joonas Lahtinen
+	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
+	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
+	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
+	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
+	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
+	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "uecker@tugraz.at" <uecker@tugraz.at>
+Subject: RE: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+Thread-Topic: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+Thread-Index: AQHbROFPJXcuwP9wN0+yRzIQ2cx/pbLWa+gggAFf14CAACMqUIABpzoGgAAClHCAAAPoAIAAAwjggAANnsCAAMAogIAAM0Zw
+Date: Sat, 7 Dec 2024 11:19:05 +0000
+Message-ID: <b1ff4a65594a4d39b2e9b8b44770214e@AcuMS.aculab.com>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+ <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+ <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+ <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+ <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+ <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
+ <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
+ <d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com>
+ <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
+ <0f5c07b827c3468c8fa3928a93a98bfa@AcuMS.aculab.com>
+ <e806dd51b1ac4e289131297fbf30fc37@AcuMS.aculab.com>
+ <CAMZ6RqLOR3aCRW_js2agV+VFiHdazb4S2+NdT5G4=WbDKNB8bA@mail.gmail.com>
+In-Reply-To: <CAMZ6RqLOR3aCRW_js2agV+VFiHdazb4S2+NdT5G4=WbDKNB8bA@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: uRUfUU_HoSAqDmuahyqUzI0Ifa863LuDwdnCMDiiOF0_1733570393
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_023924_579837_1306D209 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20241207_031958_776779_0F7D2F12 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,16 +111,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 7 Dec 2024 10:13:14 +0000, "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+RnJvbTogVmluY2VudCBNYWlsaG9sDQo+IFNlbnQ6IDA3IERlY2VtYmVyIDIwMjQgMDc6NDMNCi4u
+Lg0KPiA+IFNvIG1heWJlIHRoZSBzbGlnaHRseSBsb25nIGxpbmVzOg0KPiA+ICNkZWZpbmUgY29u
+c3RfdHJ1ZSh4KSBfR2VuZXJpYygwID8gKHZvaWQgKikoKHgpICsgMCA/IDBMIDogMUwpIDogKGNo
+YXIgKikwLCBjaGFyICo6IDEsIHZvaWQgKjogMCkNCj4gPiAjZGVmaW5lIGNvbnN0X2V4cHIoeCkg
+X0dlbmVyaWMoMCA/ICh2b2lkICopKCh4KSArIDAgPyAwTCA6IDBMKSA6IChjaGFyICopMCwgY2hh
+ciAqOiAxLCB2b2lkICo6IDApDQoNCkNsZWFybHkgdGhleSBjYW4gYmUgaW1wbGVtZW50ZWQgaW4g
+dGVybXMgb2YgYSBjb21tb24gZGVmaW5lLg0KQnV0IEkgZG9uJ3Qgc2VlIGEgbmVlZCBmb3IgYSBj
+b25zdF96ZXJvKCkgYW5kIG5lc3RlZCBleHBhbnNpb25zIG1ha2UgZXh0cmENCndvcmsgZm9yIHRo
+ZSBjb21waWxlci4NCg0KPiANCj4gVGhpcyBzdGlsbCB0aHJvd3MgYSAtV251bGwtcG9pbnRlci1h
+cml0aG1ldGljIG9uIGNsYW5nIG9uIGNvbnN0X2V4cHIoTlVMTCk6DQo+ICAgaHR0cHM6Ly9nb2Ri
+b2x0Lm9yZy96L3ZvNVc3ZWZkRQ0KDQpJIHdhcyB3b3JyaWVkIGFib3V0IHRoYXQgb25lLg0KDQo+
+IEkganVzdCBkbyBub3Qgc2VlIGEgbWV0aG9kIHRvIHNpbGVuY2UgdGhhdCBvbmUuIFNvIHRocmVl
+IG9wdGlvbnM6DQo+IA0KPiAgIDEuIGlzX2NvbnN0KCkgZG9lcyBub3QgYWNjZXB0IHBvaW50ZXJz
+IGFuZCB0aHJvd3MgYSBjb25zdHJhaW50IHZpb2xhdGlvbjoNCj4gICAgICAgICNkZWZpbmUgaXNf
+Y29uc3QoeCkgX19pc19jb25zdF96ZXJvKDAgKiAoeCkpDQo+ICAgICAgVGhpcyBpcyBteSBjdXJy
+ZW50IHBhdGNoLg0KDQpJcyB0aGF0IGdvaW5nIHRvIGFmZmVjdCB0aGluZ3MgbGlrZSBjb25zdF90
+cnVlKHggPDwgeSk/DQpEaXNhbGxvd2luZyB0aGF0IHNlZW1zIGNvdW50ZXItcHJvZHVjdGl2ZS4N
+CihSZW1lbWJlciBpdCBtaWdodCBiZSBwYXNzZWQgaW50byBhICNkZWZpbmUgdGhhdCBpcyB0aGVu
+DQpjaGVja2luZyBpdHMgYXJndW1lbnQgZm9yIGJlaW5nIGNvbnN0YW50LikNCg0KPiAgIDIuIGlz
+X2NvbnN0KCkgYWNjZXB0IHBvaW50ZXJzIGJ1dCBpc19jb25zdChOVUxMKSByZXR1cm5zIGZhbHNl
+Og0KPiAgICAgICAgI2RlZmluZSBpc19jb25zdCh4KSBfX2lzX2NvbnN0X3plcm8oKHgpICE9ICh4
+KSkNCj4gICAgICBUaGlzIGtlZXBzIHRoZSBjdXJyZW50IF9faXNfY29uc3RleHByKCkgYmVoYXZp
+b3VyLg0KDQpObyBnb29kIC0gZXhwYW5kcyBldmVyeXRoaW5nIHR3aWNlLg0KDQo+ICAgMy4gaXNf
+Y29uc3QoKSBhY2NlcHRzIHBvaW50ZXJzIGFuZCBpc19jb25zdChOVUxMKSByZXR1cm4gdHJ1ZToN
+Cj4gDQo+ICAgICAgICAjZGVmaW5lIGNvbnN0X2V4cHIoeCkgX0dlbmVyaWMoMCA/ICh2b2lkICop
+KCh4KSArIDAgPyAwTCA6IDBMKQ0KPiA6IChjaGFyICopMCwgY2hhciAqOiAxLCB2b2lkICo6IDAp
+DQo+IA0KPiAgICAgIERhdmlkJ3MgbGF0ZXN0IHByb3Bvc2FsLCBpdCByZXF1aXJlcyB0byByZW1v
+dmUgdGhlDQo+ICAgICAgLVdudWxsLXBvaW50ZXItYXJpdGhtZXRpYyBjbGFuZyB3YXJuaW5nLg0K
+DQpPbmx5IGZvciBjb25zdF9leHByKE5VTEwpIC0gYW5kIHNpbmNlIGNsYW5nIGdldHMgdGhhdCB3
+cm9uZw0KbWF5YmUgdGhlIHdhcm5pbmcgaXMgYSBnb29kIHRoaW5nLg0KDQpZb3UgY2FuIGp1c3Qg
+YWRkOg0KI2RlZmluZSBjb25zdF9OVUxMKHB0cikgY29uc3RfdHJ1ZSghKHB0cikpDQpQcm9iYWJs
+eSB0aGUgb25seSBwbGFjZSB3aGVyZSB5b3UgYWN0dWFsbHkgd2FudCB0byB0ZXN0IGZvciB6ZXJv
+Lg0KDQo+IA0KPiBJIHZvdGUgZm9yIDEuIG9yIDIuICh3aXRoIGEgcHJlZmVyZW5jZSBmb3IgMS4p
+LiBJTUhPLCB3ZSBhcmUganVzdA0KPiBhZGRpbmcgYW4gdW5yZWFzb25hYmxlIGxldmVsIG9mIGNv
+bXBsZXhpdHkgZm9yIG1ha2luZyB0aGUgbWFjcm8gdHJlYXQNCj4gTlVMTCBhcyBhbiBpbnRlZ2Vy
+LiBXb3VsZCBzb21lb25lIGZpbmQgYSBzb2x1dGlvbiBmb3IgMy4gdGhhdCBkb2VzIG5vdA0KPiB5
+aWVsZCBhIHdhcm5pbmcsIHRoZW4gd2h5IG5vdC4gQnV0IGlmIHdlIGhhdmUgdG8gcmVtb3ZlIGEg
+Y29tcGlsZXINCj4gY2hlY2sgZm9yIGEgdGhlb3JldGljYWwgdXNlIGNhc2UgdGhhdCBkb2VzIG5v
+dCBldmVuIGV4aXN0IGluIHRoZQ0KPiBrZXJuZWwsIHRoZW4gaXQgaXMgbm90IHdvcnRoIHRoZSB0
+cmFkZSBvZmYuDQo+IA0KPiBDb25jZXJuaW5nIGlzX2NvbnN0KHZhciA8PCAyKSwgdGhlIHBhdGNo
+IEkgc3VibWl0dGVkIHdvcmtzIGZpbmUgYXMtaXMNCj4gd2l0aCBhbGwgc2NhbGFycyBpbmNsdWRp
+bmcgdGhhdCAodmFyIDw8IDIpOg0KPiANCj4gICBodHRwczovL2dvZGJvbHQub3JnL3oveGVyNGFN
+ZWVzDQo+IA0KPiBBbmQgY2FuIHdlIGlnbm9yZSB0aGUgY2FzZSAoISh2YXIgPDwgMikpPyBUaGlz
+IGlzIG5vdCBhIHdhcm5pbmcNCj4gYmVjYXVzZSBvZiB0aGUgbWFjcm8sIGJ1dCBiZWNhdXNlIG9m
+IHRoZSBjYWxsZXIhIElmIEkgZG8gYW55IG9mOg0KPiANCj4gICAgICAgICAgIGlmICghKHZhciA8
+PCAyKSkge30NCj4gICAgICAgICAgICh2b2lkKV9fYnVpbHRpbl9jb25zdGFudF9wKCEodmFyIDw8
+IDIpKTsNCj4gDQo+IEkgYWxzbyBnb3QgdGhlIHdhcm5pbmcuIFRoZSBwb2ludCBpcyB0aGF0IHRo
+ZSBtYWNybyBzaG91bGQgbm90DQo+IGdlbmVyYXRlICpuZXcqIHdhcm5pbmdzLiBJZiB0aGUgZ2l2
+ZW4gYXJndW1lbnQgYWxyZWFkeSByYWlzZXMgYQ0KPiB3YXJuaW5nLCBpdCBpcyB0aGUgY2FsbGVy
+J3MgcmVzcG9uc2liaWxpdHkgdG8gZml4Lg0KDQpFeGNlcHQgaXQgY291bGQgZWFzaWx5IGhhcHBl
+biB3YXkgaW5zaWRlIHNvbWUgb3RoZXIgZXhwYW5zaW9uLg0KUGVyaGFwcyBzb21lb25lIG9wdGlt
+aXNlcyBmcm9ibmljYXRlKHgpIGZvciBjb25zdGFudCBpbnB1dC4NClN1ZGRlbmx5IGZyb2JuaWNh
+dGUoISh2YXIgPDwgMikpIGdlbmVyYXRlcyBhIGNvbXBpbGUgZXJyb3IuDQoNCglEYXZpZA0KDQo+
+IA0KPiANCj4gWW91cnMgc2luY2VyZWx5LA0KPiBWaW5jZW50IE1haWxob2wNCg0KLQ0KUmVnaXN0
+ZXJlZCBBZGRyZXNzIExha2VzaWRlLCBCcmFtbGV5IFJvYWQsIE1vdW50IEZhcm0sIE1pbHRvbiBL
+ZXluZXMsIE1LMSAxUFQsIFVLDQpSZWdpc3RyYXRpb24gTm86IDEzOTczODYgKFdhbGVzKQ0K
 
-> 
-> So I think rather than bulk moving these to hwif.h, where some of them
-> remain out of place, maybe placing some in a more appropriate header
-> would be better.
-> 
-
-Totally agree.
-I am going to rework this patch into a bigger one.
-
-pw-bot: changes-requested
 
