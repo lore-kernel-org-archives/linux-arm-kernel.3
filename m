@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83609E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 18:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424B0E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 18:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/vNc5nALUWVUmfD8b/aC22BtPTbXjUkByw6MJHP530=; b=h9tBcWb7TXavNgI64rRZOBeodn
-	28FfO7nvhlr+2aoR9zMDJGNCmt6BUgjsK5MvybVuIenbb6ibTQxVfdmR5P14+alLXgxq2Ti+3UxAC
-	fjkjwYMbnbZk1AcD6sOJBrnow0UJLtP0U/T5ojoEpFESmDnSIkTqUfH2Jrxkh31WCuJauY0JMl9oo
-	M9zD/mPZR/fSuYMdXBZJNIp8S0xU4XiobVauzVFNV1+KCjVMj4siFOsMej9jxfXfNl1ReiNPBPO/m
-	nAbkHEzHV27KtEHijknKfxPymzo7On8ss5ju6j0vZhyGeLOAIEhR6mwqIrUd6spKdufSgIs++W2w7
-	61bKL2AQ==;
+	bh=hz+XAesKzHzZKAdlmXfk5ETHyOV9LQeE1EOaQCTU32k=; b=iLE4GTbFZaH3BYRKOtB/4wndQ/
+	xtUYbI/bF+O5QxJLyoLCEpS7Ka3h+JzOgrnli8XtZMF3jOjrRBDXCIks0my/ZvK0V/Irskn73wsn8
+	+YScdy5Gq5Fum08n33wIlVlDqYLY26+8MdB8AOyF1EHf9YH5/t69FhRcHcg4rGWBm5Tjo0lvsaXBq
+	74/KwMhJZ/fJSxN7I5H1AFYVolHUFUtR4PpHgA8347DCHUpNhTiZVFv/z6Nyr3fT09ueVLm2bBn90
+	UWC2ATd/w0PmmOtohZeZsy2efGG7DoMKwH2kJ6dAVeCk8fP95lR2zqTh2QebrUCCopLqAhUUfw8Gh
+	wlSHMQ/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJzWY-00000004GQy-00kj;
-	Sat, 07 Dec 2024 18:27:26 +0000
+	id 1tJzY7-00000004GYT-2rq4;
+	Sat, 07 Dec 2024 18:29:03 +0000
 Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJzVV-00000004GME-2rNl
+	id 1tJzX5-00000004GUT-1fmO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 18:26:22 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa560a65fd6so561935566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 10:26:20 -0800 (PST)
+	Sat, 07 Dec 2024 18:28:00 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a9e44654ae3so501423166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 10:27:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1733595979; x=1734200779; darn=lists.infradead.org;
+        d=linux-foundation.org; s=google; t=1733596078; x=1734200878; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=V/vNc5nALUWVUmfD8b/aC22BtPTbXjUkByw6MJHP530=;
-        b=PsBoOBojTLiVRW89MAN7l/GBAdJCxJbhV0dSu6o0CGB2Na9Nn4D1awJZ2OqwJ7bpUx
-         CWnzTPQguCL0MIGpJ0KgKcayHW64Z7JxCtUHVRNWPVpf/fP8coyuJtDszht6cq5t6Q3l
-         qPVvI7rNgrH+d3gDtQs5nIYi8kGXe2RnUK2ng=
+        bh=hz+XAesKzHzZKAdlmXfk5ETHyOV9LQeE1EOaQCTU32k=;
+        b=JVcZjO3bwjtO8Tcm6QanLe9qig4iyHSMP7VE5ttb75j+VGejU2MEDuzpBda9mtyS6p
+         qVhnEHccBOSQny89MtCmtdgHrxFXYgr1eJrq5eQezQtrEa/mjd/VTSjF1wRblLA0BPYI
+         So8B7k2t5cs8AF37UqLhvJ2yR7NRPiC6MxFOo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733595979; x=1734200779;
+        d=1e100.net; s=20230601; t=1733596078; x=1734200878;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=V/vNc5nALUWVUmfD8b/aC22BtPTbXjUkByw6MJHP530=;
-        b=VUhN19tLJtw53n9waOejhBGo/lLeBesHQzF7ch+tHoqW2C4YpMcSlH7APNTTMzSMHu
-         oJnkEvgRHkwXO6EsFjs2GspPpV1qOinkz7MHqiywnt2HzXNyJ2NyrwReB0ARD9XFbt/a
-         mFzfHtGrj2LtQ0w3Z1jubEDU+KlHfuE0mK4Kmo+h2Ux2itdbUMrFYT2MfnN6uPnz7hU0
-         QPf8YqmhIHO/rtcgrvTcBaw5WUWYYzqkGqLJLjbhNmEAYQTz+XBgNdsXzEla2qCfwvDR
-         0z1ZvfmGVCQ1+Bu3giP7gUtILh0j7QYmnkfr9u9+M7b13TXquuZHaGD+Ys0rHZS160Ja
-         U+yg==
-X-Forwarded-Encrypted: i=1; AJvYcCXyjDA7tcxX2iMIE/ucw0bI+XeGEgVHv+bLSYv9dx8WtVeRNLevrCM4alnsWcECM14iYFjnO8nDBKH1BEzTaU83@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy72yj/JqNC3MceWXbnAk3Pg+NMOHzI/yDSB4+4xFVPeA32sn+/
-	GnNYdYcxUbG/vH5ovjOFCRCxgMrt+i2UiHd66X7W+Rcdm4ajAix3GL/DQ7XIQsB+bXDYeaD3sLJ
-	6YVdxtw==
-X-Gm-Gg: ASbGncuLvklZr3+G1dm1iI4iKC7HV5T/em6/obxR7XnHwDX2L2rcrYvDDxFFp5yjN/R
-	BUqKL50NKvqZT4OSylJiKxWR3bgEYqzsKESFDK5bNBCFLVgI+hWX+zFwctgmlgBSjQ32VwcHJjV
-	BvaaBJS1ogHCwIrwH4voRkUEQ0YIfcFs4wmeGRv6Vfi+OLHMZno17zcVUhvku42ddvM5GP1c8V2
-	5T/3kvEeCXqnToQ8yTeTLF1qMw/7ObLpmKxO9AUqsaDfyimGRUMR6y3eD3D5RWhG6DQhe5ubOM/
-	xqxZQWEVR9l8Dzjpw9BzQFL+
-X-Google-Smtp-Source: AGHT+IHRS3Wjxn29H+QXdNShIsCbYV/ogM0XFwIxLqTIH36MZ8yRGYPUkSjDUHN5KmQtmNh9BI3pzw==
-X-Received: by 2002:a17:907:7e8d:b0:a9a:662f:ff4a with SMTP id a640c23a62f3a-aa61ff1fbf7mr1256942666b.0.1733595979566;
-        Sat, 07 Dec 2024 10:26:19 -0800 (PST)
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa625ea28c4sm413557866b.79.2024.12.07.10.26.18
+        bh=hz+XAesKzHzZKAdlmXfk5ETHyOV9LQeE1EOaQCTU32k=;
+        b=gj+y/5rfBteWs1eHNhW+umkrCo+l9XdO48JCyzYawtrao7VE73ln+VCTUbVjRYelK6
+         CJOI+h/jplkn4sCWMZ4T1kgvOtkoEYhF6s/UnsbX4FXQ3iC0f09NKrAN2s77G29m1oBA
+         fB4vsFrjinUAPW+xt91anutvU4kyzcI88GttaXC/4IctYLAjPK8jgc6ehCu2/v5ip6Xc
+         wVsqEG33HPBRdoR6ZkSl9bE7bcdAMqzMBRJY+5MtJObRp25kH0crEv+NCdZVozjp+lkM
+         Df5/YVug1kOj7SNLrC++mBCrvmcMA5CZkPc6HMWKbtKaxO90cszTHDdF4pDPkMaSRHLb
+         ivFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWzRBicFXPcX9C5ovdVryEaC0IyoZFPCiNkoR5QxVsK0BWnGnWrcUu6tbc6c8NZ2pQX4AzqwbrP4DReen2hoPTv@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb/6aFmDtKyuv0ai5nuRzWG24kEBOPHN0WiV0Pa20EZTdnTjx7
+	dEi4VJ/kGoJqlkBe54miFDk1lQgFoicCO2iJnam8yhDHENOy31T3DJ1+E3W408yTbUchz3VSH6o
+	oIG4eLQ==
+X-Gm-Gg: ASbGncshdtccDiGtRDauVhzDxuN+j570tTgXYQKDZ9ZQaidjVj/JuPiY5p+XlerEvCk
+	/hXmkKHXoxchnwjHhwgpJzNTv0kI8t7hxDGk9DSfIZ5AJs3wukO5KG5f+0D0relDYd7fLDzGj0J
+	QKJakKHstr4i4zAXOOF7jq07EtAWjFensaMcqitdAu8cxW5dvujO9iyVYLunG2VUCksIC/5dqAb
+	j86XL3g8y/zrASuGFF1u88FHoyCF4jDQq5yBw7bb++uxW5Rs12LFlkTdK1Pot7nIMLm4TPTQ6zJ
+	hLQT8XkzYX5m2ue/O64iDWVT
+X-Google-Smtp-Source: AGHT+IGacX54XgNTddBl2fQn4MrwkJZO3WkdhrT6uP0jaN7MkGSpOYuyx0Y+YaXlZgoLWqhq3KR2hQ==
+X-Received: by 2002:a17:907:90d5:b0:aa6:41ef:dcbf with SMTP id a640c23a62f3a-aa641efe925mr485504566b.35.1733596077921;
+        Sat, 07 Dec 2024 10:27:57 -0800 (PST)
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com. [209.85.221.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa673e7a132sm6233366b.11.2024.12.07.10.27.56
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 07 Dec 2024 10:26:18 -0800 (PST)
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-5d3e829ff44so690987a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 10:26:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWrNN8kntafbu9xjzKP+VTfc+TQZdK1Rk6q68wreYpZUoMjmz2a7Xh4NYmZ8j05Dd9Y8XEQC5wOeQw6VXbtGX/s@lists.infradead.org
-X-Received: by 2002:a17:906:32c2:b0:a9e:85f8:2a3a with SMTP id
- a640c23a62f3a-aa6373494a2mr765427966b.2.1733595978237; Sat, 07 Dec 2024
- 10:26:18 -0800 (PST)
+        Sat, 07 Dec 2024 10:27:56 -0800 (PST)
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-385e27c75f4so2418440f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 10:27:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWRODJiOhckWffFHgawytIzKXHvfl4Nmnn6JU6Ov0mlB3q7wmELxo2yC/p2dIeI2Czlx1Q2Z0Q4u7reu51P+3o8@lists.infradead.org
+X-Received: by 2002:a17:906:1db1:b0:aa6:3de7:f258 with SMTP id
+ a640c23a62f3a-aa63de7f394mr497786166b.37.1733595590996; Sat, 07 Dec 2024
+ 10:19:50 -0800 (PST)
 MIME-Version: 1.0
 References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
  <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
  <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com> <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
- <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com> <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
- <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
- <9607300dfca5d71ca9570b1e1de0864e524f356b.camel@gwdg.de> <344b4cf41a474377b3d2cbf6302de703@AcuMS.aculab.com>
- <9a0c041b6143ba07c2b3e524572fccd841f5374b.camel@gwdg.de>
-In-Reply-To: <9a0c041b6143ba07c2b3e524572fccd841f5374b.camel@gwdg.de>
+ <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com> <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+ <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
+ <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
+ <d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com> <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
+ <0f5c07b827c3468c8fa3928a93a98bfa@AcuMS.aculab.com> <e806dd51b1ac4e289131297fbf30fc37@AcuMS.aculab.com>
+ <CAMZ6RqLOR3aCRW_js2agV+VFiHdazb4S2+NdT5G4=WbDKNB8bA@mail.gmail.com>
+ <b1ff4a65594a4d39b2e9b8b44770214e@AcuMS.aculab.com> <CAMZ6RqJFReLJTd-O8s02oQNeB0SPQh3C-Mg+Nif5vMB9gFtQww@mail.gmail.com>
+In-Reply-To: <CAMZ6RqJFReLJTd-O8s02oQNeB0SPQh3C-Mg+Nif5vMB9gFtQww@mail.gmail.com>
 From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sat, 7 Dec 2024 10:26:01 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wjpVXEjX16PP=-hi4CgLqEGJ_U-WvKWq+J3C+FW-hSSfg@mail.gmail.com>
-Message-ID: <CAHk-=wjpVXEjX16PP=-hi4CgLqEGJ_U-WvKWq+J3C+FW-hSSfg@mail.gmail.com>
+Date: Sat, 7 Dec 2024 10:19:34 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wjpN4GWtnsWQ8XJvf=gBQ3UvBk512xK1S35=nGXA6yTiw@mail.gmail.com>
+Message-ID: <CAHk-=wjpN4GWtnsWQ8XJvf=gBQ3UvBk512xK1S35=nGXA6yTiw@mail.gmail.com>
 Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of __is_constexpr()
-To: Martin Uecker <muecker@gwdg.de>
-Cc: David Laight <David.Laight@aculab.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+To: Vincent Mailhol <vincent.mailhol@gmail.com>
+Cc: David Laight <David.Laight@aculab.com>, "w@1wt.eu" <w@1wt.eu>, 
 	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
 	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
 	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
@@ -106,11 +109,12 @@ Cc: David Laight <David.Laight@aculab.com>, Vincent Mailhol <mailhol.vincent@wan
 	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
 	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
 	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"uecker@tugraz.at" <uecker@tugraz.at>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_102621_731331_287B9061 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20241207_102759_434723_0D79EDC7 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,29 +129,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 7 Dec 2024 at 05:07, Martin Uecker <muecker@gwdg.de> wrote:
+On Sat, 7 Dec 2024 at 04:24, Vincent Mailhol <vincent.mailhol@gmail.com> wrote:
 >
-> VLA use *less* stack than a fixed size arrays with fixed bound.
+> > No good - expands everything twice.
+>
+> And? __is_const_zero() does not evaluate its arguments, so no side effect:
 
-Not really. You end up with tons of problems, not the least of which
-is how to actually analyze the stack size. It also gets *very* nasty
-to have code that declares the VLA size using an argument that is then
-checked afterwards - and if you have a strong preference for
-"declarations before code", you end up with *horrific* issues.
+No, the problem is literally the expansion.
 
-And even if you are super-careful, and you solved the analysis
-problem, in practice VLAs will cause huge stack issues simply due to
-code generation issues.  The compiler will end up doing extra
-alignment and extra frame handling and saving, to the point where any
-advantages the VLA would bring is completely dwarfed by all the
-disadvantages.
+Double expansion of these fundamental helpers gets exponential,
+because they are used in various nested ways in other fundamental
+helpers.
 
-We went through this. We are so *much* better off without VLAs that
-it's not even funny.
+That's why we then spent so much effort on trying to clean up the
+min/max macros, because a single line of code would expand to
+literally tens of megabytes of horrific expansions.
 
-Now when the compiler says "your stack size is big", you just look
-"Oh, that struct should be allocated with kmalloc, not on the stack".
-Boom. Done.
+And the problem with these things is that you can't make them inline
+functions, so they have to be macros, and then you build up other
+macros using them (like that "clamp()" macro), and it really gets
+horrendous and affects the build time.
+
+And yes, it is very sad. Particularly since a compiler would have a
+really easy time with some nice helper builtins.
+
+Of course, often the compiler *does* have helper builtins, but we
+can't use them, because they aren't *quite* the right thing. Like that
+"__builtin_constant_p()" not actually working for some situations
+where we absolutely need not just a constant value, but a constant
+_expression_ due to C parsing rules.
+
+Quite a lot of the pain we tend to have with these things is directly
+related to the fact that we often want to do these tests in contexts
+like global array initializers etc.
+
+If there is one feature of C I would have liked it is "allow inline
+functions and statement expressions with constant arguments as
+constant expressions". Other languages have done that, and it really
+does help. And yes, it means that you have to basically have a
+language interpreter in the compiler (you do want to allow loop
+constructions etc), but it really is very useful.
+
+Oh well. Even if compilers added that today, it would be years until
+we could take advantage of it.
+
+At one point I literally was thinking I'd do 'sparse' as a
+pre-processor for kernel code, in order to have extended language
+facilities like that.
 
             Linus
 
