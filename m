@@ -4,73 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3097E7717B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 19:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56D3E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 19:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvwRC6aTDdiXinAr1tDdLjcYkOsU8mbOtoL1YsoU7Do=; b=MvzPBJ9NqCNd/hAXFWNJQPxA3o
-	YN5HbD6pQ+JUkRW1NvjoMVYMAJF2x6ry5bMzDACTsq7PNMVxmgFffJu7PwgbtFy2QV3ul8ICYSQab
-	Ze5DCHdbN/WDldLUS2BG6WBNUaSEEvYHwu/f0cuU1zfT1NApLCvlZ/Jy5hCV0Pig/HEHadX7iqGQt
-	dQAM2qnn3IZEg8g99ExX4c0J9b4WYC8eVRtffEXcbvUgijWYmRqsgtQKIpxGQEtikemB0gJc+0iHD
-	vAo2oKvGglAVELmz0326PT17GEQuIPXC0JhMKD/0DjLW1QEf7GKa+ud0eD26rKZlbpwQAgYaWphKC
-	/JRFUqDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VLI5o7E+8tShU1ACGPkmXzIpglBiWJLz22UUIAyJ6QA=; b=psBb3OtW+nWPfFsPJWFkMjbNdM
+	rzjH2CtnUWQQKnotfy+0PMniQpl/DvYj+47m09sbd1mRk1VLfFzKtVrvG3jTyre/DWsNUgdxWtF8e
+	LFfKPwBI03fSL+LqTV+RvSi7/zv5oTUDI6syFsN7HdR6krUujmV1kBtngRU2NKnL3ZRx8G8Hzb3Mh
+	GUGxJwzqJB4MHG+eqZx+F7quVngh6JK/Igz5432AYL++Aez/mbTmVSDytQQM1N9U+Ub/8R9u7lXO8
+	Q3b7zv3RF3ErDOdEIvi2BuDIimkuIvpqu8VsQ09tF9qBgjXRPu90sCq/wi93nOrcmUdvWUr45N4/m
+	+jSABXcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK0Ez-00000004Inp-3is0;
-	Sat, 07 Dec 2024 19:13:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tK0MQ-00000004JKr-08kp;
+	Sat, 07 Dec 2024 19:21:02 +0000
+Received: from mx-2023-1.gwdg.de ([134.76.10.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK09y-00000004IKZ-0zWt
+	id 1tK0LN-00000004J8b-3jLc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 19:08:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 69A015C55F4;
-	Sat,  7 Dec 2024 19:07:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0BDEC4CEE6;
-	Sat,  7 Dec 2024 19:08:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733598488;
-	bh=Chf0Di4s8D6IQPhyI/EhTRClJE39bseDHk/ts+1q1us=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rUqFQiWARCCVm+xO6AVcEC0TMiELojveq1s75wg/z2YtQtLoXQ69WsEsVgoGDb8oJ
-	 c/NVm19j704laxZU9awSngNvdaXLWqeG/YKORz5znZdyZ5MYeiWgPYeRLSOITYF/+y
-	 F2UiWLosWhJNKxuC4Nup+xQugnjxX1pHZi+L01bLf6gtomt/77GfQz7tpQpRH3+wxV
-	 OaO6zLZUUlVg2ffchCFy2mIeAVLxZXy1e9DHaribj/5GTYVUoo4FxiQzNxYgbYuzgo
-	 FrnisFd+psjrXvwLWbodYjKIE2w0C6fBxH8zMFTcDtxX2jGPap7kmpGnOaRbV2pBa8
-	 yt1q3idfFdp2w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tK09u-001TOc-MB;
-	Sat, 07 Dec 2024 19:08:06 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH 4/4] arm64/sysreg: Get rid of CPACR_ELx SysregFields
-Date: Sat,  7 Dec 2024 19:07:40 +0000
-Message-Id: <20241207190740.2607673-5-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241207190740.2607673-1-maz@kernel.org>
-References: <20241207190740.2607673-1-maz@kernel.org>
+	Sat, 07 Dec 2024 19:19:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
+	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=VLI5o7E+8tShU1ACGPkmXzIpglBiWJLz22UUIAyJ6QA=; b=Q9ysbR4gICj/btwoBP2fH+9/Cd
+	gmWGKtblikgC46fJ9BqDsZpBMPUpBm3WcTgySgJ5/oXtkXw+kdmDi9yj9dIgaDymLeegTONA1SSFV
+	/O0aZSvLpHhXzKtGlgVeuIHNMvtJHQ1maoNQEvSg0aDGg3zzNq8vmDDAl7toC6KZgdEtbyJt0mPAr
+	mtbEoNf30WRN4j1CYvI5WO7oALtWMtB8EoC0zQxX4NKJqDL9vzG3+n2SZyH/R4W0FZXFtwKZsbMOI
+	ZrKSUe92mKsIU3IHx4iO29B0m4SR+W+bmuIUTjouN+ZhAHKEbWSGG58syyH6VDD0B5GrnN1CSS+FF
+	ueiRNJDw==;
+Received: from xmailer.gwdg.de ([134.76.10.29]:41724)
+	by mailer.gwdg.de with esmtp (GWDG Mailer)
+	(envelope-from <muecker@gwdg.de>)
+	id 1tK0L5-004PI2-2n;
+	Sat, 07 Dec 2024 20:19:39 +0100
+Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
+	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
+	(GWDG Mailer)
+	(envelope-from <muecker@gwdg.de>)
+	id 1tK0L5-0002tl-2T;
+	Sat, 07 Dec 2024 20:19:39 +0100
+Received: from [192.168.0.221] (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
+ (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Sat, 7 Dec
+ 2024 20:19:38 +0100
+Message-ID: <0a2996a7c63930b9d9a8d3792358dd9e494e27c1.camel@gwdg.de>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
+ __is_constexpr()
+From: Martin Uecker <muecker@gwdg.de>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+CC: David Laight <David.Laight@aculab.com>, Vincent Mailhol
+	<mailhol.vincent@wanadoo.fr>, Luc Van Oostenryck
+	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
+ Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
+	<jani.nikula@linux.intel.com>, Joonas Lahtinen
+	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
+	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
+	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
+	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
+	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
+	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Date: Sat, 7 Dec 2024 20:19:37 +0100
+In-Reply-To: <CAHk-=wjpVXEjX16PP=-hi4CgLqEGJ_U-WvKWq+J3C+FW-hSSfg@mail.gmail.com>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+	 <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
+	 <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+	 <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
+	 <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
+	 <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
+	 <9607300dfca5d71ca9570b1e1de0864e524f356b.camel@gwdg.de>
+	 <344b4cf41a474377b3d2cbf6302de703@AcuMS.aculab.com>
+	 <9a0c041b6143ba07c2b3e524572fccd841f5374b.camel@gwdg.de>
+	 <CAHk-=wjpVXEjX16PP=-hi4CgLqEGJ_U-WvKWq+J3C+FW-hSSfg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-Originating-IP: [10.250.9.200]
+X-ClientProxiedBy: MBX19-FMZ-05.um.gwdg.de (10.108.142.64) To
+ MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
+X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:9, sv:1733572982, ts:1733599179
+X-Virus-Scanned: (clean) by clamav
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_110810_370736_D7D3FE82 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20241207_111957_921438_5B9F0E2F 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,371 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no such thing as CPACR_ELx in the architecture.
-What we have is CPACR_EL1, for which CPTR_EL12 is an accessor.
+Am Samstag, dem 07.12.2024 um 10:26 -0800 schrieb Linus Torvalds:
+> On Sat, 7 Dec 2024 at 05:07, Martin Uecker <muecker@gwdg.de> wrote:
+> >=20
+> > VLA use *less* stack than a fixed size arrays with fixed bound.
+>=20
+> Not really. You end up with tons of problems, not the least of which
+> is how to actually analyze the stack size. It also gets *very* nasty
+> to have code that declares the VLA size using an argument that is then
+> checked afterwards - and if you have a strong preference for
+> "declarations before code", you end up with *horrific* issues.
+>=20
+> And even if you are super-careful, and you solved the analysis
+> problem, in practice VLAs will cause huge stack issues simply due to
+> code generation issues.  The compiler will end up doing extra
+> alignment and extra frame handling and saving, to the point where any
+> advantages the VLA would bring is completely dwarfed by all the
+> disadvantages.
 
-Rename CPACR_ELx_* to CPACR_EL1_*, and fix the bit of code using
-these names.
+But that all seem solvable issues on the compiler side.  If you=C2=A0
+said the maximum stack size for arrays we tolerate is X,
+then a compiler could=C2=A0tell you if=C2=A0
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/el2_setup.h      |  6 ++--
- arch/arm64/include/asm/kvm_arm.h        |  2 --
- arch/arm64/include/asm/kvm_emulate.h    | 40 ++++++++++++-------------
- arch/arm64/include/asm/kvm_nested.h     |  8 ++---
- arch/arm64/kernel/cpufeature.c          |  2 +-
- arch/arm64/kvm/emulate-nested.c         |  2 +-
- arch/arm64/kvm/fpsimd.c                 |  2 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h |  4 +--
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  4 +--
- arch/arm64/kvm/hyp/nvhe/pkvm.c          |  2 +-
- arch/arm64/kvm/hyp/nvhe/switch.c        |  6 ++--
- arch/arm64/kvm/hyp/vhe/switch.c         | 16 +++++-----
- arch/arm64/tools/sysreg                 |  6 +---
- 13 files changed, 47 insertions(+), 53 deletions(-)
+a) this is not guaranteed in a specific situation (-Wvla-larher-than)
+and=C2=A0
+b) transform the array automatically to fixed size array
+of size X *or* something smaller when it can show this.
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 85ef966c08cd2..cc39c57df7873 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -154,7 +154,7 @@
- /* Coprocessor traps */
- .macro __init_el2_cptr
- 	__check_hvhe .LnVHE_\@, x1
--	mov	x0, #CPACR_ELx_FPEN
-+	mov	x0, #CPACR_EL1_FPEN
- 	msr	cpacr_el1, x0
- 	b	.Lskip_set_cptr_\@
- .LnVHE_\@:
-@@ -332,7 +332,7 @@
- 
- 	// (h)VHE case
- 	mrs	x0, cpacr_el1			// Disable SVE traps
--	orr	x0, x0, #CPACR_ELx_ZEN
-+	orr	x0, x0, #CPACR_EL1_ZEN
- 	msr	cpacr_el1, x0
- 	b	.Lskip_set_cptr_\@
- 
-@@ -353,7 +353,7 @@
- 
- 	// (h)VHE case
- 	mrs	x0, cpacr_el1			// Disable SME traps
--	orr	x0, x0, #CPACR_ELx_SMEN
-+	orr	x0, x0, #CPACR_EL1_SMEN
- 	msr	cpacr_el1, x0
- 	b	.Lskip_set_cptr_sme_\@
- 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3e0f0de1d2da8..43e365fbff0b2 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -391,8 +391,6 @@
- 	ECN(SOFTSTP_CUR), ECN(WATCHPT_LOW), ECN(WATCHPT_CUR), \
- 	ECN(BKPT32), ECN(VECTOR32), ECN(BRK64), ECN(ERET)
- 
--#define CPACR_EL1_TTA		(1 << 28)
--
- #define kvm_mode_names				\
- 	{ PSR_MODE_EL0t,	"EL0t" },	\
- 	{ PSR_MODE_EL1t,	"EL1t" },	\
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index cf811009a33c9..4f1d99725f6b3 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -556,13 +556,13 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- 	({								\
- 		u64 cptr = 0;						\
- 									\
--		if ((set) & CPACR_ELx_FPEN)				\
-+		if ((set) & CPACR_EL1_FPEN)				\
- 			cptr |= CPTR_EL2_TFP;				\
--		if ((set) & CPACR_ELx_ZEN)				\
-+		if ((set) & CPACR_EL1_ZEN)				\
- 			cptr |= CPTR_EL2_TZ;				\
--		if ((set) & CPACR_ELx_SMEN)				\
-+		if ((set) & CPACR_EL1_SMEN)				\
- 			cptr |= CPTR_EL2_TSM;				\
--		if ((clr) & CPACR_ELx_TTA)				\
-+		if ((clr) & CPACR_EL1_TTA)				\
- 			cptr |= CPTR_EL2_TTA;				\
- 		if ((clr) & CPTR_EL2_TAM)				\
- 			cptr |= CPTR_EL2_TAM;				\
-@@ -576,13 +576,13 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- 	({								\
- 		u64 cptr = 0;						\
- 									\
--		if ((clr) & CPACR_ELx_FPEN)				\
-+		if ((clr) & CPACR_EL1_FPEN)				\
- 			cptr |= CPTR_EL2_TFP;				\
--		if ((clr) & CPACR_ELx_ZEN)				\
-+		if ((clr) & CPACR_EL1_ZEN)				\
- 			cptr |= CPTR_EL2_TZ;				\
--		if ((clr) & CPACR_ELx_SMEN)				\
-+		if ((clr) & CPACR_EL1_SMEN)				\
- 			cptr |= CPTR_EL2_TSM;				\
--		if ((set) & CPACR_ELx_TTA)				\
-+		if ((set) & CPACR_EL1_TTA)				\
- 			cptr |= CPTR_EL2_TTA;				\
- 		if ((set) & CPTR_EL2_TAM)				\
- 			cptr |= CPTR_EL2_TAM;				\
-@@ -595,13 +595,13 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- #define cpacr_clear_set(clr, set)					\
- 	do {								\
- 		BUILD_BUG_ON((set) & CPTR_VHE_EL2_RES0);		\
--		BUILD_BUG_ON((clr) & CPACR_ELx_E0POE);			\
--		__build_check_all_or_none((clr), CPACR_ELx_FPEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_FPEN);	\
--		__build_check_all_or_none((clr), CPACR_ELx_ZEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_ZEN);	\
--		__build_check_all_or_none((clr), CPACR_ELx_SMEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_SMEN);	\
-+		BUILD_BUG_ON((clr) & CPACR_EL1_E0POE);			\
-+		__build_check_all_or_none((clr), CPACR_EL1_FPEN);	\
-+		__build_check_all_or_none((set), CPACR_EL1_FPEN);	\
-+		__build_check_all_or_none((clr), CPACR_EL1_ZEN);	\
-+		__build_check_all_or_none((set), CPACR_EL1_ZEN);	\
-+		__build_check_all_or_none((clr), CPACR_EL1_SMEN);	\
-+		__build_check_all_or_none((set), CPACR_EL1_SMEN);	\
- 									\
- 		if (has_vhe() || has_hvhe())				\
- 			sysreg_clear_set(cpacr_el1, clr, set);		\
-@@ -624,16 +624,16 @@ static __always_inline u64 kvm_get_reset_cptr_el2(struct kvm_vcpu *vcpu)
- 	u64 val;
- 
- 	if (has_vhe()) {
--		val = (CPACR_ELx_FPEN | CPACR_EL1_ZEN_EL1EN);
-+		val = (CPACR_EL1_FPEN | CPACR_EL1_ZEN_EL1EN);
- 		if (cpus_have_final_cap(ARM64_SME))
- 			val |= CPACR_EL1_SMEN_EL1EN;
- 	} else if (has_hvhe()) {
--		val = CPACR_ELx_FPEN;
-+		val = CPACR_EL1_FPEN;
- 
- 		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
--			val |= CPACR_ELx_ZEN;
-+			val |= CPACR_EL1_ZEN;
- 		if (cpus_have_final_cap(ARM64_SME))
--			val |= CPACR_ELx_SMEN;
-+			val |= CPACR_EL1_SMEN;
- 	} else {
- 		val = CPTR_NVHE_EL2_RES1;
- 
-@@ -685,7 +685,7 @@ static inline bool ____cptr_xen_trap_enabled(const struct kvm_vcpu *vcpu,
- #define __guest_hyp_cptr_xen_trap_enabled(vcpu, xen)				\
- 	(!vcpu_has_nv(vcpu) ? false :						\
- 	 ____cptr_xen_trap_enabled(vcpu,					\
--				   SYS_FIELD_GET(CPACR_ELx, xen,		\
-+				   SYS_FIELD_GET(CPACR_EL1, xen,		\
- 						 vcpu_sanitised_cptr_el2(vcpu))))
- 
- static inline bool guest_hyp_fpsimd_traps_enabled(const struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 233e655227164..6cd08198bf195 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -33,14 +33,14 @@ static inline u64 translate_tcr_el2_to_tcr_el1(u64 tcr)
- 
- static inline u64 translate_cptr_el2_to_cpacr_el1(u64 cptr_el2)
- {
--	u64 cpacr_el1 = CPACR_ELx_RES1;
-+	u64 cpacr_el1 = CPACR_EL1_RES1;
- 
- 	if (cptr_el2 & CPTR_EL2_TTA)
--		cpacr_el1 |= CPACR_ELx_TTA;
-+		cpacr_el1 |= CPACR_EL1_TTA;
- 	if (!(cptr_el2 & CPTR_EL2_TFP))
--		cpacr_el1 |= CPACR_ELx_FPEN;
-+		cpacr_el1 |= CPACR_EL1_FPEN;
- 	if (!(cptr_el2 & CPTR_EL2_TZ))
--		cpacr_el1 |= CPACR_ELx_ZEN;
-+		cpacr_el1 |= CPACR_EL1_ZEN;
- 
- 	cpacr_el1 |= cptr_el2 & (CPTR_EL2_TCPAC | CPTR_EL2_TAM);
- 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 7712df48758e9..6e220da3a495b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2377,7 +2377,7 @@ static void cpu_enable_mops(const struct arm64_cpu_capabilities *__unused)
- static void cpu_enable_poe(const struct arm64_cpu_capabilities *__unused)
- {
- 	sysreg_clear_set(REG_TCR2_EL1, 0, TCR2_EL1_E0POE);
--	sysreg_clear_set(CPACR_EL1, 0, CPACR_ELx_E0POE);
-+	sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_E0POE);
- }
- #endif
- 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 1ffbfd1c3cf2e..f1b7287e1f3c3 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -494,7 +494,7 @@ static enum trap_behaviour check_cptr_tta(struct kvm_vcpu *vcpu)
- 	if (!vcpu_el2_e2h_is_set(vcpu))
- 		val = translate_cptr_el2_to_cpacr_el1(val);
- 
--	if (val & CPACR_ELx_TTA)
-+	if (val & CPACR_EL1_TTA)
- 		return BEHAVE_FORWARD_RW;
- 
- 	return BEHAVE_HANDLE_LOCALLY;
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index ea5484ce1f3ba..98718bd65bf15 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -169,7 +169,7 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
- 	if (has_vhe() && system_supports_sme()) {
- 		/* Also restore EL0 state seen on entry */
- 		if (vcpu_get_flag(vcpu, HOST_SME_ENABLED))
--			sysreg_clear_set(CPACR_EL1, 0, CPACR_ELx_SMEN);
-+			sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_SMEN);
- 		else
- 			sysreg_clear_set(CPACR_EL1,
- 					 CPACR_EL1_SMEN_EL0EN,
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 34f53707892df..abfa6ad92e91e 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -419,9 +419,9 @@ static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
- 
- 	/* First disable enough traps to allow us to update the registers */
- 	if (sve_guest || (is_protected_kvm_enabled() && system_supports_sve()))
--		cpacr_clear_set(0, CPACR_ELx_FPEN | CPACR_ELx_ZEN);
-+		cpacr_clear_set(0, CPACR_EL1_FPEN | CPACR_EL1_ZEN);
- 	else
--		cpacr_clear_set(0, CPACR_ELx_FPEN);
-+		cpacr_clear_set(0, CPACR_EL1_FPEN);
- 	isb();
- 
- 	/* Write out the host state if it's in the registers */
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 6aa0b13d86e58..6c90ef6736d63 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -68,7 +68,7 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
- 	if (!guest_owns_fp_regs())
- 		return;
- 
--	cpacr_clear_set(0, CPACR_ELx_FPEN | CPACR_ELx_ZEN);
-+	cpacr_clear_set(0, CPACR_EL1_FPEN | CPACR_EL1_ZEN);
- 	isb();
- 
- 	if (vcpu_has_sve(vcpu))
-@@ -481,7 +481,7 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- 		handle_host_smc(host_ctxt);
- 		break;
- 	case ESR_ELx_EC_SVE:
--		cpacr_clear_set(0, CPACR_ELx_ZEN);
-+		cpacr_clear_set(0, CPACR_EL1_ZEN);
- 		isb();
- 		sve_cond_update_zcr_vq(sve_vq_from_vl(kvm_host_sve_max_vl) - 1,
- 				       SYS_ZCR_EL2);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 01616c39a8107..a6638c4ecd32d 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -68,7 +68,7 @@ static void pvm_init_traps_aa64pfr0(struct kvm_vcpu *vcpu)
- 	/* Trap SVE */
- 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), feature_ids)) {
- 		if (has_hvhe())
--			cptr_clear |= CPACR_ELx_ZEN;
-+			cptr_clear |= CPACR_EL1_ZEN;
- 		else
- 			cptr_set |= CPTR_EL2_TZ;
- 	}
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index cc69106734ca7..0f6b01b3da5cf 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -48,14 +48,14 @@ static void __activate_traps(struct kvm_vcpu *vcpu)
- 	val |= has_hvhe() ? CPACR_EL1_TTA : CPTR_EL2_TTA;
- 	if (cpus_have_final_cap(ARM64_SME)) {
- 		if (has_hvhe())
--			val &= ~CPACR_ELx_SMEN;
-+			val &= ~CPACR_EL1_SMEN;
- 		else
- 			val |= CPTR_EL2_TSM;
- 	}
- 
- 	if (!guest_owns_fp_regs()) {
- 		if (has_hvhe())
--			val &= ~(CPACR_ELx_FPEN | CPACR_ELx_ZEN);
-+			val &= ~(CPACR_EL1_FPEN | CPACR_EL1_ZEN);
- 		else
- 			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
- 
-@@ -192,7 +192,7 @@ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
- 
- 		/* Re-enable SVE traps if not supported for the guest vcpu. */
- 		if (!vcpu_has_sve(vcpu))
--			cpacr_clear_set(CPACR_ELx_ZEN, 0);
-+			cpacr_clear_set(CPACR_EL1_ZEN, 0);
- 
- 	} else {
- 		__fpsimd_save_state(*host_data_ptr(fpsimd_state));
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 80581b1c39959..59d992455793d 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -77,12 +77,12 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
- 	 * VHE (HCR.E2H == 1) which allows us to use here the CPTR_EL2.TAM
- 	 * shift value for trapping the AMU accesses.
- 	 */
--	u64 val = CPACR_ELx_TTA | CPTR_EL2_TAM;
-+	u64 val = CPACR_EL1_TTA | CPTR_EL2_TAM;
- 
- 	if (guest_owns_fp_regs()) {
--		val |= CPACR_ELx_FPEN;
-+		val |= CPACR_EL1_FPEN;
- 		if (vcpu_has_sve(vcpu))
--			val |= CPACR_ELx_ZEN;
-+			val |= CPACR_EL1_ZEN;
- 	} else {
- 		__activate_traps_fpsimd32(vcpu);
- 	}
-@@ -122,13 +122,13 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
- 	 * hypervisor has traps enabled to dispel any illusion of something more
- 	 * complicated taking place.
- 	 */
--	if (!(SYS_FIELD_GET(CPACR_ELx, FPEN, cptr) & BIT(0)))
--		val &= ~CPACR_ELx_FPEN;
--	if (!(SYS_FIELD_GET(CPACR_ELx, ZEN, cptr) & BIT(0)))
--		val &= ~CPACR_ELx_ZEN;
-+	if (!(SYS_FIELD_GET(CPACR_EL1, FPEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_FPEN;
-+	if (!(SYS_FIELD_GET(CPACR_EL1, ZEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_ZEN;
- 
- 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR3_EL1, S2POE, IMP))
--		val |= cptr & CPACR_ELx_E0POE;
-+		val |= cptr & CPACR_EL1_E0POE;
- 
- 	val |= cptr & CPTR_EL2_TCPAC;
- 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index ad2f6265f7948..4e575c1b266f7 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1985,7 +1985,7 @@ Field	1	A
- Field	0	M
- EndSysreg
- 
--SysregFields	CPACR_ELx
-+Sysreg	CPACR_EL1	3	0	1	0	2
- Res0	63:30
- Field	29	E0POE
- Field	28	TTA
-@@ -1996,10 +1996,6 @@ Field	21:20	FPEN
- Res0	19:18
- Field	17:16	ZEN
- Res0	15:0
--EndSysregFields
--
--Sysreg	CPACR_EL1	3	0	1	0	2
--Fields	CPACR_ELx
- EndSysreg
- 
- Sysreg	SMPRI_EL1	3	0	1	2	4
--- 
-2.39.2
+Because now you do the exact same thing manually while losing
+precise bounds checking.
+
+Martin
+
+>=20
+> We went through this. We are so *much* better off without VLAs that
+> it's not even funny.
+>=20
+> Now when the compiler says "your stack size is big", you just look
+> "Oh, that struct should be allocated with kmalloc, not on the stack".
+> Boom. Done.
+>=20
+>             Linus
 
 
