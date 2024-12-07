@@ -4,107 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D567E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 12:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C86E7717B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 12:25:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MORvaT+pWKtn1cwQqnuWOdhU3VjTsfcB27db/IuY4zk=; b=QSk0qbzek5fD6lPfqxnOzNd1ru
-	A/v9RrITodAeq7++o0w/BN+WxDA3sEueuGpdAVHJze9Fpj/hJZElH8T4g4llWePv8j+dZi4G7JmSK
-	p08ub+meacRqn42sG1Q1IzjHLroLfcT+tTwZyfGRLMNnsIl/Q3AjCT08TviXnYH647ed5ZJsG1kdl
-	yzRq/9iRA/f1dzeNQt5bAoZCr8yVmkTVqjR/QfPQiPKOdJW+uTVIGhJbxEYYDHS5OwUP0enpBp30J
-	PhKesGGXcxZvEdg9HUWqT5xAEBa56ELs0b45XuLnocHq2qiV8+y/ZP3cH1RC49G2PCXU/D5ZBMace
-	IsSjlXhA==;
+	bh=nQ4RRhd2E6TY+Bu5fIbqEbAQEz1MRYR2VOuTBXdoN1w=; b=rpoQT9BSghNc/pQRAd/cAorDyS
+	RJHgEF/AUgzOHGsdvWvRcm8HHxX0fzmvxk6enFhpzxu+VUluDj+etnnNLo8lS6lgwBhi5tEiN3nZW
+	ZgIZ4hkF653yzpT6F30REM1ZibCBdkwtygIYOr/FklpYke66DAKaTjud/hAsRMuGluIxhmq0SWPa7
+	JO+yftlP0IeMmLDliK+ucmqsP85k0dSqMyai73WKbIf1LjUj9AEc59ewD2bcLTopzpa3b/E92MgnQ
+	y8Y/zxLmhrA/toL3qwIGOWs3MDEWMJojYoNNfZ1siiFB9WT0t9mFhiXadEpMAygOg3QS0PdEDw8vV
+	dP72lOag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJtfl-00000003uJv-2nIM;
-	Sat, 07 Dec 2024 12:12:33 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tJtsM-00000003v54-21so;
+	Sat, 07 Dec 2024 12:25:34 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJtej-00000003uEW-3Cbl;
-	Sat, 07 Dec 2024 12:11:30 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-385e0e224cbso1503593f8f.2;
-        Sat, 07 Dec 2024 04:11:29 -0800 (PST)
+	id 1tJtrJ-00000003uxV-2kRS
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 07 Dec 2024 12:24:30 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aa549f2fa32so550680266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Dec 2024 04:24:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733573488; x=1734178288; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=MORvaT+pWKtn1cwQqnuWOdhU3VjTsfcB27db/IuY4zk=;
-        b=VldUokEYQsoFBrhGJZ93fkRmigEawoeq3TWghKk/B3ytU0U2qnDeyGmwu/iQX8Yp7r
-         4xLHBBByEVyOzLYNDOdzJ+jBIuBA9Jsr3/Q57SsvUHz18DaOcYqFXWoaHjCYtwUixTMe
-         h7bkF07dxd6MIEDVwvvkkGlIm51J2xnh34J3hKq9d6EPSWj/P0m5xcaNvnypLIrJVket
-         dVxd027M52/4WQUWBSt3iNxjSeMvMfax9rlTnQDLZq0TiWEzeBCC7Y9oekCIRp76L5WW
-         vbcbno1VS/YLg1uzP/nCB9Lr8Ynt/HtcO6iOf/R28fExLeAjoed/ueht8kglXrtfWUaQ
-         5G8w==
+        d=gmail.com; s=20230601; t=1733574268; x=1734179068; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=nQ4RRhd2E6TY+Bu5fIbqEbAQEz1MRYR2VOuTBXdoN1w=;
+        b=kmsJ0TIx7SQao1yvzQoatY0eaNFUTuoGwVYbktJf0unApcYVFVGLfcBUk9io1VW/08
+         sunmrLH27Q+bdcZc/Fh1tkWjOtjB+OZ2iSV1yax6x9iuJJkonuvQrSET9A1Ls4rh3id9
+         F3ZzpCqSSzRsjlUQEehMFaIcakK4fMJ6AhNywHxubLjXuYX6NftoyYYDOsE2LzjdlWpm
+         g6G0K/7Sa3aDZtzxmTJgTzgVe1IOKNTNDReKRXOGnN7VkJY4XP3OvHiR2jvQxc6pIFlA
+         PRIpXwqQtHZUxQymc2fYQ+njaoN28BiNi7uaauOnLJIS3SjOgjuqx2zjGZepNGqjBWv9
+         rtyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733573488; x=1734178288;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MORvaT+pWKtn1cwQqnuWOdhU3VjTsfcB27db/IuY4zk=;
-        b=lbJ0RoihUBnS1lbI/pl2mh9aj//olJY+bdYnyJg3jzZoj8FOseChd66AZ3pAGrAOy7
-         BISkpIWEqY+qAVsysvcoLY05EzLgXhhLEa9mQ72cOY1JTQJMoFCKRJXSoRF/r0PzzZjV
-         v5Q7+wGx1OD3+3pReXXbSEaC/62+R0SIi/Ke4No9owVJvgAf7pUTJq++L+DPceQMC0hE
-         s0FP8S1gNFP1H1ERetH5rW/CXhtT9JsSceG7DPsLBL+axhTMZ88HvavBxrlGId5bQYXH
-         zbmS9htOY3qJaQKMwEENScJk0gOnjLQp6qbsRIY0T/I2DgYUzKGt0w3/4MTZtfYrXggf
-         02yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUHtb4mcmNlxEqM+8/Xt48KPxPXTRG84FpYIoYPOo0W97U/0+ELmddady9BktcKO0bHgmGweGPnB8K14HyE+Ukj@lists.infradead.org, AJvYcCXc2R9dXZTXWRf6hzMDmY32O0ceB+BTvkBOjsvNJScYb/mx5257AVF7xHwMqha4gp7YLvdrFlHotj98ZdidOkc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvccFRWZSGCemoHD/NKKDT4NfwLJxQUiVe/fbwTFcf0kOuPIME
-	6j6xFg2yNssyBCFZIlOw6PtDLtvDuuySXd6MMHd7DBLuzcAmX5se
-X-Gm-Gg: ASbGncvEm1GLNlgPlyMHhXLn9jQxyvhrsDLHwbp+YnfNU/LLdHUQ8T4hk9hIdlgxfRR
-	rG518pXEO3MPmbPgodBQmMapo4ADX7f5Qk1EhJM1Up1SnaIb/76RryNYT+a9t1X1gh9UWFcUKFS
-	uiMq8CJMc0A0x8LFTMw+mDbVyouxEqH+lRUj8RpZqBmX0u8ixbj2u00RGmvKyLsgrdnS+F9p8I9
-	9Y5Ya5K4cvtTW8FOmID787lFeiaKDbSy+UB7CVMOk5mJIbVSJ8yskFzeM/j/Glf4MTMTT+85RZE
-	vr58yg==
-X-Google-Smtp-Source: AGHT+IG33Fm+ZyGkThOkfC16QMazqsaLxNexJ9hkTK4zh70vD9SlLmtgBzspwk1FpP3/KlDXYVA1fg==
-X-Received: by 2002:a5d:64a2:0:b0:385:df2c:91aa with SMTP id ffacd0b85a97d-3862b33504dmr4201986f8f.7.1733573487595;
-        Sat, 07 Dec 2024 04:11:27 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3861fc514fcsm7212695f8f.48.2024.12.07.04.11.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 07 Dec 2024 04:11:27 -0800 (PST)
-Message-ID: <67543b6f.df0a0220.3bd32.6d5d@mx.google.com>
-X-Google-Original-Message-ID: <Z1Q7ay_pKE16yj-L@Ansuel-XPS.>
-Date: Sat, 7 Dec 2024 13:11:23 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v9 3/4] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-References: <20241205145142.29278-1-ansuelsmth@gmail.com>
- <20241205145142.29278-4-ansuelsmth@gmail.com>
- <20241205162759.pm3iz42bhdsvukfm@skbuf>
- <6751e023.5d0a0220.394b90.7bc9@mx.google.com>
- <6751e023.5d0a0220.394b90.7bc9@mx.google.com>
- <20241205180539.6t5iz2m3wjjwyxp3@skbuf>
- <6751f125.5d0a0220.255b79.7be0@mx.google.com>
- <20241205185037.g6cqejgad5jamj7r@skbuf>
- <675200c3.7b0a0220.236ac3.9edf@mx.google.com>
- <20241205235709.pa5shi7mh26cnjhn@skbuf>
+        d=1e100.net; s=20230601; t=1733574268; x=1734179068;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nQ4RRhd2E6TY+Bu5fIbqEbAQEz1MRYR2VOuTBXdoN1w=;
+        b=Su6kv5UK5MP7BG62oN8iaCzy6eZSuPT8ddO2+Z254ILgnw55eQh5yvVJZ0lsQd/rr1
+         TDGJvYHqZML2P6U9dLP+5qAglGulsYL6InPX/rr3gLJWX/Ep1vbpMVIzrcLJHhMtN8Me
+         mX1jB8gdH/hlQUaKGhUF7HSLqLMbmv8SAhm/FLw3UnmXUqEmVz2CGuPS3uXQnanGjOYz
+         qwGtlCmny+G7caFzJ4beogTgBhH3JCVtT3uP++pZYRQP6mMP8G0M8CfRXcmcvGWnUzIU
+         hgoqybG+PDgkbGqlzOpSy9d1Xa7d9sngWP1BwoBexRjRgt65FYFZN7SeBjkxy/KTX5vb
+         ThFA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhPyiJ6GeGbZ4i2SThZrHPXFkIpSLEEQoM2S64eh23s1bIUTzcKvnzdIkr3T10zvojfUiWgwyH0ud5m9F8tNnc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWnhWCRcYn35ynbncEAxnD2VDJYB6gPITtMMfnXijUmM1Cs20x
+	vTHc0qQACpyOlI11+MryRg59OneT8VbUdJbK4Bf1gc5XK+bAx8VaphxeBlHtCY+HUjbEYS0mJ8K
+	KMVzXLX3Mh+1vAAkycOKTIP9TFpU=
+X-Gm-Gg: ASbGnctvzFuVSepI4E66+aJ+44zLPcy5Lyfnd7kov+2jsCk43FqSW1JybDpsBsvwyJq
+	wgBAu5e+V6qm74DaJdWyNcbuYfKEF3fY=
+X-Google-Smtp-Source: AGHT+IGR0yviTsv6EI0Cf6ZzGRuPI9Rqzj5opuPmDdPb/4ZfUr5j5Og+KYs8tNZPu+yItNXL45088jAdwI3x7fjsYQI=
+X-Received: by 2002:a17:907:1de6:b0:aa6:59ef:ec with SMTP id
+ a640c23a62f3a-aa659ef01a8mr99491466b.1.1733574267541; Sat, 07 Dec 2024
+ 04:24:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241205235709.pa5shi7mh26cnjhn@skbuf>
+References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
+ <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
+ <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com> <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
+ <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com> <CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
+ <CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
+ <CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
+ <d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com> <CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
+ <0f5c07b827c3468c8fa3928a93a98bfa@AcuMS.aculab.com> <e806dd51b1ac4e289131297fbf30fc37@AcuMS.aculab.com>
+ <CAMZ6RqLOR3aCRW_js2agV+VFiHdazb4S2+NdT5G4=WbDKNB8bA@mail.gmail.com> <b1ff4a65594a4d39b2e9b8b44770214e@AcuMS.aculab.com>
+In-Reply-To: <b1ff4a65594a4d39b2e9b8b44770214e@AcuMS.aculab.com>
+From: Vincent Mailhol <vincent.mailhol@gmail.com>
+Date: Sat, 7 Dec 2024 21:24:16 +0900
+Message-ID: <CAMZ6RqJFReLJTd-O8s02oQNeB0SPQh3C-Mg+Nif5vMB9gFtQww@mail.gmail.com>
+Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of __is_constexpr()
+To: David Laight <David.Laight@aculab.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, "w@1wt.eu" <w@1wt.eu>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Rikard Falkeborn <rikard.falkeborn@gmail.com>, 
+	"linux-sparse@vger.kernel.org" <linux-sparse@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, 
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, 
+	"intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"uecker@tugraz.at" <uecker@tugraz.at>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_041129_802166_49731CA8 
-X-CRM114-Status: GOOD (  31.56  )
+X-CRM114-CacheID: sfid-20241207_042429_702357_0F462075 
+X-CRM114-Status: GOOD (  37.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,167 +117,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 01:57:09AM +0200, Vladimir Oltean wrote:
-> On Thu, Dec 05, 2024 at 08:36:30PM +0100, Christian Marangi wrote:
-> > > I guess the non-hack solution would be to permit MDIO buses to have
-> > > #size-cells = 1, and MDIO devices to acquire a range of the address
-> > > space, rather than just one address. Though take this with a grain of
-> > > salt, I have a lot more to learn.
-> > 
-> > I remember this was an idea when PHY Package API were proposed and was
-> > rejected as we wanted PHY to be single reg.
-> 
-> Would that effort have helped with MDIO devices, in the way it was proposed?
-> Why did it die out?
-> 
-> > > If neither of those are options, in principle the hack with just
-> > > selecting, randomly, one of the N internal PHY addresses as the central
-> > > MDIO address should work equally fine regardless of whether we are
-> > > talking about the DSA switch's MDIO address here, or the MFD device's
-> > > MDIO address.
-> > > 
-> > > With MFD you still have the option of creating a fake MDIO controller
-> > > child device, which has mdio-parent-bus = <&host_bus>, and redirecting
-> > > all user port phy-handles to children of this bus. Since all regmap I/O
-> > > of this fake MDIO bus goes to the MFD driver, you can implement there
-> > > your hacks with page switching etc etc, and it should be equally
-> > > safe.
-> > 
-> > I wonder if a node like this would be more consistent and descriptive?
-> > 
-> > mdio_bus: mdio-bus {
-> >     #address-cells = <1>;
-> >     #size-cells = <0>;
-> > 
-> >     ...
-> > 
-> >     mfd@1 {
-> >             compatible = "airoha,an8855-mfd";
-> >             reg = <1>;
-> > 
-> >             nvmem_node {
-> >                     ...
-> >             };
-> > 
-> >             switch_node {
-> >                 ports {
-> >                         port@0 {
-> >                                 phy-handle = <&phy>;
-> >                         };
-> > 
-> >                         port@1 {
-> >                                 phy-handle = <&phy_2>;
-> >                         }
-> >                 };
-> >             };
-> > 
-> >             phy: phy_node {
-> > 
-> >             };
-> >     };
-> > 
-> >     phy_2: phy@2 {
-> >         reg = <2>;
-> >     }
-> > 
-> >     phy@3 {
-> >         reg = <3>;
-> >     }
-> > 
-> >     ..
-> > };
-> > 
-> > No idea how to register that single phy in mfd... I guess a fake mdio is
-> > needed anyway... What do you think of this node example? Or not worth it
-> > and better have the fake MDIO with all the switch PHY in it?
-> 
-> Could you work with something like this? dtc seems to swallow it without
-> any warnings...
-> 
-> mdio_bus: mdio {
->         #address-cells = <1>;
->         #size-cells = <0>;
-> 
->         soc@1 {
->                 compatible = "airoha,an8855";
->                 reg = <1>, <2>, <3>, <4>;
->                 reg-names = "phy0", "phy1", "phy2", "phy3";
-> 
->                 nvmem {
->                         compatible = "airoha,an8855-nvmem";
->                 };
-> 
->                 ethernet-switch {
->                         compatible = "airoha,an8855-switch";
-> 
->                         ethernet-ports {
->                                 #address-cells = <1>;
->                                 #size-cells = <0>;
-> 
->                                 ethernet-port@0 {
->                                         reg = <0>;
->                                         phy-handle = <&phy0>;
->                                         phy-mode = "internal";
->                                 };
-> 
->                                 ethernet-port@1 {
->                                         reg = <1>;
->                                         phy-handle = <&phy1>;
->                                         phy-mode = "internal";
->                                 };
-> 
->                                 ethernet-port@2 {
->                                         reg = <2>;
->                                         phy-handle = <&phy2>;
->                                         phy-mode = "internal";
->                                 };
-> 
->                                 ethernet-port@3 {
->                                         reg = <3>;
->                                         phy-handle = <&phy3>;
->                                         phy-mode = "internal";
->                                 };
->                         };
->                 };
-> 
->                 mdio {
->                         compatible = "airoha,an8855-mdio";
->                         mdio-parent-bus = <&host_mdio>;
->                         #address-cells = <1>;
->                         #size-cells = <0>;
-> 
->                         phy0: ethernet-phy@1 {
->                                 reg = <1>;
->                         };
-> 
->                         phy1: ethernet-phy@2 {
->                                 reg = <2>;
->                         };
-> 
->                         phy2: ethernet-phy@3 {
->                                 reg = <3>;
->                         };
-> 
->                         phy3: ethernet-phy@4 {
->                                 reg = <4>;
->                         };
->                 };
->         };
-> };
+On Sat. 7 Dec. 2024 at 20:19, David Laight <David.Laight@aculab.com> wrote:
+> From: Vincent Mailhol
+> > Sent: 07 December 2024 07:43
+> ...
+> > > So maybe the slightly long lines:
+> > > #define const_true(x) _Generic(0 ? (void *)((x) + 0 ? 0L : 1L) : (char *)0, char *: 1, void *: 0)
+> > > #define const_expr(x) _Generic(0 ? (void *)((x) + 0 ? 0L : 0L) : (char *)0, char *: 1, void *: 0)
+>
+> Clearly they can be implemented in terms of a common define.
+> But I don't see a need for a const_zero() and nested expansions make extra
+> work for the compiler.
+>
+> >
+> > This still throws a -Wnull-pointer-arithmetic on clang on const_expr(NULL):
+> >   https://godbolt.org/z/vo5W7efdE
+>
+> I was worried about that one.
+>
+> > I just do not see a method to silence that one. So three options:
+> >
+> >   1. is_const() does not accept pointers and throws a constraint violation:
+> >        #define is_const(x) __is_const_zero(0 * (x))
+> >      This is my current patch.
+>
+> Is that going to affect things like const_true(x << y)?
 
-I finished testing and this works, I'm not using mdio-parent-bus tho as
-the mdio-mux driver seems overkill for the task and problematic for PAGE
-handling. (mdio-mux doesn't provide a way to give the current addr that
-is being accessed)
+No warnings for const_true(x << y). See by yourself:
 
-My big concern is dt_binding_check and how Rob might take this
-implementation. We recently had another case with a MFD node and Rob
-found some problems in having subnode with compatible but maybe for this
-particular complex case it will be O.K.
+  https://godbolt.org/z/v79x3dnor
 
-Still have to check if it's ok to have multiple reg in the mfd root node
-(for mdio schema)
+> Disallowing that seems counter-productive.
+> (Remember it might be passed into a #define that is then
+> checking its argument for being constant.)
 
--- 
-	Ansuel
+I understand how a static inline may use __builtin_constant_p() to
+check if its argument is NULL. But I am having a hard time
+understanding how this would look like with macros and with
+is_const().
+
+Do you know one real life example where you have to pass NULL to a
+function like macro which can not be written as a static inline
+function?
+
+And if that real life use case does not exist, then disallowing it
+looks sane: it will push the developper to do the right thing: write a
+static inline with __builting_constant_p().
+
+> >   2. is_const() accept pointers but is_const(NULL) returns false:
+> >        #define is_const(x) __is_const_zero((x) != (x))
+> >      This keeps the current __is_constexpr() behaviour.
+>
+> No good - expands everything twice.
+
+And? __is_const_zero() does not evaluate its arguments, so no side effect:
+
+  https://godbolt.org/z/W988P4v9e
+
+Or am I missing something else?
+
+> >   3. is_const() accepts pointers and is_const(NULL) return true:
+> >
+> >        #define const_expr(x) _Generic(0 ? (void *)((x) + 0 ? 0L : 0L)
+> > : (char *)0, char *: 1, void *: 0)
+> >
+> >      David's latest proposal, it requires to remove the
+> >      -Wnull-pointer-arithmetic clang warning.
+>
+> Only for const_expr(NULL) - and since clang gets that wrong
+> maybe the warning is a good thing.
+>
+> You can just add:
+> #define const_NULL(ptr) const_true(!(ptr))
+> Probably the only place where you actually want to test for zero.
+
+Which goes back to my first point: if we have to declare const_NULL(),
+then we probably do not want is_const() to accept NULL so that the
+user sees the mismatch (and I am not acknowledging that we need
+const_NULL(): as long as no use case arize, no need for it).
+
+> > I vote for 1. or 2. (with a preference for 1.). IMHO, we are just
+> > adding an unreasonable level of complexity for making the macro treat
+> > NULL as an integer. Would someone find a solution for 3. that does not
+> > yield a warning, then why not. But if we have to remove a compiler
+> > check for a theoretical use case that does not even exist in the
+> > kernel, then it is not worth the trade off.
+> >
+> > Concerning is_const(var << 2), the patch I submitted works fine as-is
+> > with all scalars including that (var << 2):
+> >
+> >   https://godbolt.org/z/xer4aMees
+> >
+> > And can we ignore the case (!(var << 2))? This is not a warning
+> > because of the macro, but because of the caller! If I do any of:
+> >
+> >           if (!(var << 2)) {}
+> >           (void)__builtin_constant_p(!(var << 2));
+> >
+> > I also got the warning. The point is that the macro should not
+> > generate *new* warnings. If the given argument already raises a
+> > warning, it is the caller's responsibility to fix.
+>
+> Except it could easily happen way inside some other expansion.
+> Perhaps someone optimises frobnicate(x) for constant input.
+> Suddenly frobnicate(!(var << 2)) generates a compile error.
+
+Then, that person will see that compile error and will modify
+frobnicate() to remove the compile error. End of the story.
+
+My point is simple: if the use case you are mentioning is valid, why
+did it never collide with __builtin_constant_p() that we have been
+using for many years?
+
+And I am sure that there are hundreds of examples of macro that will
+either pass their argument as-is to an if() or to the ternary operator
+without accounting for if their input is (!(var << 2)). So why did not
+these collide?
+
+
+Yours sincerely,
+Vincent Mailhol
 
