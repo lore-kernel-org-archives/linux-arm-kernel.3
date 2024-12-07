@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C97E7E7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 05:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA96E7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 06:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+IwYaynpcQ+9RTCAJedrXXepYT48CIPEoJXkJRmDR8=; b=nkHRfSofeeODekeQPuTdJKJwtc
-	S8zaxff4x/rsZ1jGDdaRoAapBCcYQBZcbr3JqIzqtqMnEazVLSJ6jB/5Qv7RaPQlyFLIerU1S6SlR
-	X41npeBSp4hApb12eeozRzikHegT1GYRLqRLiibWoAFT39ILCaZJXcyfw0QK9LFW71S+RtU1LXMhh
-	HFTc2jg+nZFYDuGP9Pg+1S5y78I8cICrRPstlt/9NSpHXkM/cBUnmNXwJQfL5cDrmtkmYEkLHQtib
-	Q5Ztw24tk1FedFfMN0HhOyUPuSfBoR7HeVdzNwJ84spmEXIF6BHZVU1+7eF9RcYkPA5Z7dd3cT0lM
-	UPX+xILw==;
+	bh=Hyvv07dz2xClz8g/D/ieatWI6gTW917CwYN97hFxrOE=; b=kqKhCpuW3LcsYjlipDnE8jCggx
+	fCwFhU7JCT5YZrsTNp973WUFLztg+Y2zv75ZD3camiSsgwBwXZIyF/BqHZ+C0CGAfRW185OgJiykv
+	TV6S1FWWKhHAWLadYYcVO0Px+gTfQu4LHPtvJd0ujkqlBfnTvsu3OwBQr8T210vXBVrx5xPM2v8eg
+	CBQQyvADWQjAmatSNpDuKrXzp8nbijdjPpVJUNlPoT/AWQ5eNxuCyHnc1xM4urtfSTpWvfGqLRUcH
+	nirQsFmgLcMjFzLqQhmBmxHEe2uX7kr76rtz/TPl/0ewl5q5Y/1yICWEsw3c1bAnKsWUxXJgEjLA/
+	rONFG5nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJnl4-00000003Swi-21tm;
-	Sat, 07 Dec 2024 05:53:38 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1tJo6a-00000003UD1-1hQi;
+	Sat, 07 Dec 2024 06:15:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJnk2-00000003SlO-00Z6
+	id 1tJo5Y-00000003U4L-4AZs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 05:52:35 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ee51d9ae30so1956432a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 21:52:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733550753; x=1734155553; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2+IwYaynpcQ+9RTCAJedrXXepYT48CIPEoJXkJRmDR8=;
-        b=lvhbvZgtBsCpE7AOVHN7s/WFaNcg0u9J0mBHt0V9zF7CB6JK7bKxUVwP8lXG63U4Nz
-         Fs+vEREwNL9Ij+v1MfXCam/Mypd2m3oqm8tfZz9+Hhq3sG86+71I00CV4wEGMCPgGatN
-         WWSKx3cbWftKsTvzHIaC6k5ak1DCCn0jpyGur3XLIC3nK6fofjNNLoxg3spWzxeDoUX5
-         eAUwJt0c/equokWzNUS3fAafrbFhJ5WeYbm5fSs/aZ3fpPXUZGgEE14AyevB2KPpFQpA
-         +Z9H62mlZqSjLMqBDkTzm17ovWRTd+masV2tCddmv67nd9FIHy3Z+acJnwPzrfuTdJlP
-         X2jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733550753; x=1734155553;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2+IwYaynpcQ+9RTCAJedrXXepYT48CIPEoJXkJRmDR8=;
-        b=w5KcOab4KkFuGhwZDMiPN7IDQc7zPR4PZWhUntuzq64OMeRTI8rPF/EQuP9My2yZAI
-         c9MZTYaysU+YwO2dR1CGj1J4Ecq7eE1xhdRfrJfvI9cwtXWm12it8IBPd3a4uQlg8QXb
-         aNkTIKnwQfb0uDESCUENuGGqOzWYIPdC0PlLY+YoOW2rLVy20pr/qM2/UyG/2+Qzzt+b
-         wkGFr3xz0H2+GX/mCO7OI+ao0kQeSnADKZknq6KdE4IRJwZu0eofZyt/g/HnHqh1x93b
-         /3BfRZkdoXTxUq9fNNhWnoMxUr1N+GW4Ts6kTtifVT8Dh/8XZbbMn+U2SlQPxB1+40al
-         hc/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUmW5pgTJWbULBeA6UImN8VlKOsa0gPJu86OnANaalpgk4nmomchWorEpLB/HspMe3fyplJfDlTh4yZyGV4lErQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCIWj99O9Lr2ZxCIBQckZ4/jk7WdLwDB6yVLQVzJ6e199lQcwT
-	5Z83OPPHhtuVBxJ3fo5DAQu0GUBEopUfI8WclSBGugvSOJ1qmIG0
-X-Gm-Gg: ASbGnctEWm8oQBdNFSEJSrzbWWMo1BhQwX7VnhHxFItRNYHjRhf6WWVYuCKI1YfYavg
-	glOq94Dr5Mt4v4nglRpONTXQ4rnA+Gx2cTJuCJ40aXz1U6m3+XW/4XjquFwUpdrPIQUbyL23gFX
-	GNaZU2nnJSoTJ+NU0DhbTrgBE3x6TbjQfSkSb4FqlpW3+zKAyjKqZf9zQFZNmpxCDAoaLSu0VAf
-	Hswzt75xqpUmxms0RsVvaRiHtvKCU837JIEYIoMvB6cqsc=
-X-Google-Smtp-Source: AGHT+IFd+wuygMRSPeO8wa52NvVHAGLuFfQ5jfbHspHxQMyW7jzkp1weeY7rmM4U0gg8Uv3suuUZQA==
-X-Received: by 2002:a05:6a21:3e04:b0:1e0:c3bf:7909 with SMTP id adf61e73a8af0-1e187132cf7mr8429490637.41.1733550752776;
-        Fri, 06 Dec 2024 21:52:32 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725a2a903a3sm3811288b3a.116.2024.12.06.21.52.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 21:52:32 -0800 (PST)
-Date: Sat, 7 Dec 2024 13:52:17 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, MaximeCoquelin <mcoquelin.stm32@gmail.com>,
- xfr@outlook.com, Jon Hunter <jonathanh@nvidia.com>, Thierry Reding
- <thierry.reding@gmail.com>, Simon Horman <horms@kernel.org>, Hariprasad
- Kelam <hkelam@marvell.com>
-Subject: Re: [PATCH net] net: stmmac: fix TSO DMA API usage causing oops
-Message-ID: <20241207135217.00000f0f@gmail.com>
-In-Reply-To: <E1tJXcx-006N4Z-PC@rmk-PC.armlinux.org.uk>
-References: <E1tJXcx-006N4Z-PC@rmk-PC.armlinux.org.uk>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
+	Sat, 07 Dec 2024 06:14:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5044F5C4A27;
+	Sat,  7 Dec 2024 06:14:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B3AAC4CECD;
+	Sat,  7 Dec 2024 06:14:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1733552087;
+	bh=FR4jyYVvGAc/QK1Xv+schhqBTtRlolGYuXRzbKnnX1c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fo46We9zcOKYJ5ZyyFgLQkHdqkJZ2+uqkkvcCqqRLfaeDplZY6Qd1+CTu6hOCmIck
+	 HDp8TfGzq2ACTP47vjooMiJJSDUk9puaZZWW034/K7AFWAOqYcrVaLOBH2jYNkth35
+	 adR74FV6p73bFYQYB/JZM9jMDrGxAiqfJV7HE9xU=
+Date: Fri, 6 Dec 2024 22:14:46 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
+ <ryan.roberts@arm.com>, <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+ <dave.hansen@linux.intel.com>, <chenfeiyang@loongson.cn>,
+ <chenhuacai@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/2] Fix subsection vmemmap_populate logic
+Message-Id: <20241206221446.e5e8ea4ed85d0f2884216b82@linux-foundation.org>
+In-Reply-To: <b2681eed-d4d5-43c9-90e0-3e706db3e201@quicinc.com>
+References: <20241121071256.487220-1-quic_zhenhuah@quicinc.com>
+	<eb4d6674-494a-4a84-bade-481b0c89eb93@quicinc.com>
+	<b2681eed-d4d5-43c9-90e0-3e706db3e201@quicinc.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_215234_076828_78D4C80D 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20241206_221449_081688_46B269B8 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Dec 2024 12:40:11 +0000, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
+On Fri, 6 Dec 2024 17:13:39 +0800 Zhenhua Huang <quic_zhenhuah@quicinc.com> wrote:
 
-> Commit 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap
-> for non-paged SKB data") moved the assignment of tx_skbuff_dma[]'s
-> members to be later in stmmac_tso_xmit().
 > 
-> The buf (dma cookie) and len stored in this structure are passed to
-> dma_unmap_single() by stmmac_tx_clean(). The DMA API requires that
-> the dma cookie passed to dma_unmap_single() is the same as the value
-> returned from dma_map_single(). However, by moving the assignment
-> later, this is not the case when priv->dma_cap.addr64 > 32 as "des"
-> is offset by proto_hdr_len.
 > 
-> This causes problems such as:
+> On 2024/11/28 15:26, Zhenhua Huang wrote:
+> > 
+> > 
+> > On 2024/11/21 15:12, Zhenhua Huang wrote:
+> >> To perform memory hotplug operations, the memmap (aka struct page) 
+> >> will be
+> >> updated. For arm64 with 4K page size, the typical granularity is 128M,
+> >> which corresponds to a 2M memmap buffer.
+> >> Commit 2045a3b8911b ("mm/sparse-vmemmap: generalise 
+> >> vmemmap_populate_hugepages()")
+> >> optimizes this 2M buffer to be mapped with PMD huge pages. However,
+> >> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> >> which supports 2M subsection hotplug granularity, causes other issues
+> >> (refer to the change log of patch #1). The logic is adjusted to populate
+> >> with huge pages only if the hotplug address/size is section-aligned.
+> > 
+> > Could any expert please help review ?
 > 
->   dwc-eth-dwmac 2490000.ethernet eth0: Tx DMA map failed
+> Gentle reminder for review..
 > 
-> and with DMA_API_DEBUG enabled:
-> 
->   DMA-API: dwc-eth-dwmac 2490000.ethernet: device driver tries to +free DMA memory it has not allocated [device address=0x000000ffffcf65c0] [size=66 bytes]
-> 
-> Fix this by maintaining "des" as the original DMA cookie, and use
-> tso_des to pass the offset DMA cookie to stmmac_tso_allocator().
-> 
-> Full details of the crashes can be found at:
-> https://lore.kernel.org/all/d8112193-0386-4e14-b516-37c2d838171a@nvidia.com/
-> https://lore.kernel.org/all/klkzp5yn5kq5efgtrow6wbvnc46bcqfxs65nz3qy77ujr5turc@bwwhelz2l4dw/
-> 
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Reported-by: Thierry Reding <thierry.reding@gmail.com>
-> Fixes: 66600fac7a98 ("net: stmmac: TSO: Fix unbalanced DMA map/unmap for non-paged SKB data")
 
-Much appreciated for this fix.
 
-Reviewed-by: Furong Xu <0x1207@gmail.com>
+MM developers work on the linux-mm mailing list, which was not cc'ed.
+
+Please address Catalin's review comment
+(https://lkml.kernel.org/r/Z1Mwo5OajFZQYlOg@arm.com) then resend a v2
+series with the appropriate cc's.
+
 
 
