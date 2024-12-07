@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C9EE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 21:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9345AE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 21:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qHSVTmSemZAH0vKdybIhMO/OmZ/jyzSnlYKbOcZC1/o=; b=29m/cOxgUr54jT
-	w32Aog4bptLeTw6g2346giHEE5ZX6TucYKIk4z6pmBv+Rt5ZLAGws5TZbKrSsju4tuG3l4lxoJuJV
-	geIuh22i3G8/NVW4LRAnfzEPtOB4ut6FzzR/3Ao/elFel/cdm8K0LjKRJjESLc3SHKdmwvuV+4peR
-	oHDfeEfsXBMuBkfYNDzDornpC9TmYFpdtTqpgnpk7NoYl0PhOJy5CMDDzWpnoU16T9lqfvEZ6Kew4
-	QplV+kzzX9X7hH/pVQQwfLe4ZPgMSYzPShMCP7L62jtQonhwuSOgkswm7evMruMDm+EnvGI8N0ocU
-	ZC62Be1+XCter9OOBDpg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xXTt+KzNk1q7FtPglvz/3tZwFDCxZSp++V/WG1iDBgI=; b=hV9voRsY0FLrUgMlYAK/jaaOd1
+	qVHQuRIbyKVcPehwEcVocOE3oBe8aJpl6GCAkZ0HC/6Sop+/6Onw4/l2csXA3uKMo6lirE+T/oYRq
+	ioMGubmC0c0/tjsrem3Poe2X8uKBCQapU/d2PEMq8onluclPS/0UpU7n4ku9ZuD88+US9+vunPnQh
+	uifIpqxTs0YPKWDP0GmJnYvoPTo5hqQLrxGtvSFxZli9DZyrGwUFgvWU3SlhWnq0c56Jg3fmS66q3
+	U/MOTBjUdnEYuiQeyZ/SaYMqdt/snrgqNiSjooC8hC8um5CSdyFmbUWljrSP9kvoK8SzgbqepTP5L
+	cqbSIYgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK2R5-00000004Rih-2Ek5;
-	Sat, 07 Dec 2024 21:33:59 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tK2S5-00000004Rs8-2A4q;
+	Sat, 07 Dec 2024 21:35:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK2Q2-00000004ROX-2eDN;
+	id 1tK2Q3-00000004ROp-0Ub8;
 	Sat, 07 Dec 2024 21:32:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733607171;
-	bh=e/F5YyK5MttfQZR5pjBEF/euITS0jR40bnuYvHJXw08=;
-	h=From:Subject:Date:To:Cc:From;
-	b=FuHnvg7p9ZFYZBs0s2l+Qp4zdmkfmcQyewSCFvqLzzSfDjhJfQ8h8L7HRYNtUFCVe
-	 QYMVe+Y97Fxscl1XjOasF8D8CmJCsXrD0gBU3TroAiMQILui7u4jSbq85oGY8ADPIj
-	 lQnKPq9737QDNcudJqNCNXtRhbSM0/YVmMczW6RRtxOKLO6ZLgT22xOQRiRIiC1AcH
-	 mWGJoSAWZvKoRU89qFyu6Xb+UPV4FqId5iG4s72Xm+PB31xZBcoFdemw1VfDsROBz9
-	 vh5cFeJ18IXv51kmgIH4fqEbzRzGrnbPmXkUkeYVnFlz6DPjbCla7feF93twdg7KTf
-	 j/58AyQV+Vchg==
+	s=mail; t=1733607173;
+	bh=DuquKXFrrFxNB+/27gdv/HCQ8M7uGVTRTKsJMPlOXKI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=h1J9Wef4KeKI4JXzeuvLmnYTV77d0z+0e53Y7dExy+ffZBBtoZ+ZWccb8AhIo4Tii
+	 /J197bavNgzrDkOI20AXfASZnQlasP92u3PtCqnRcl7Hyps77Xvqh2vlw1v0TuzQ5X
+	 ppU5eSnwsdlCgTVFPGi+q+obBOIiEikQQigUblX3soAZ4GEB7ektNn+z2atE1723rr
+	 H93k3dglMbnFiFcYeVb2Kw7KusCPdyOweoirhTqiyhiWsriyil2ScA/r5XbxV7D7MV
+	 8UPMCVrUZ6eTwEfvBcdkYpVsNtdxPIyJSeX6X4e5mk5AXLiZk0cpIb9aGfH5LcUNZs
+	 M5uXnb5ZqnfCQ==
 Received: from localhost (unknown [188.27.48.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 869D417E37FF;
-	Sat,  7 Dec 2024 22:32:51 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C53117E3803;
+	Sat,  7 Dec 2024 22:32:53 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH 0/4] Add support for HDMI1 output on RK3588 SoC
-Date: Sat, 07 Dec 2024 23:32:23 +0200
-Message-Id: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
+Date: Sat, 07 Dec 2024 23:32:25 +0200
+Subject: [PATCH 2/4] arm64: dts: rockchip: Add PHY node for HDMI1 TX port
+ on RK3588
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOe+VGcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDIwNz3aJsY1MLC92MlNxMQ11zA5PkpCTz5BRz0zQloJaCotS0zAqwcdG
- xtbUA1V/m1F4AAAA=
-X-Change-ID: 20241207-rk3588-hdmi1-704cbb7cd75f
+Message-Id: <20241207-rk3588-hdmi1-v1-2-ca3a99b46a40@collabora.com>
+References: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
+In-Reply-To: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -67,8 +66,9 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_133254_841710_19935B2A 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20241207_133255_301978_D14D9FF8 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patches provide the basic support to handle the second HDMI output
-port found on Rockchip RK3588 SoC.
-
-For now I enabled it on Radxa ROCK 5B only, the board I've been using to
-validate this.
-
-** IMPORTANT **
-
-The series has a runtime dependency on "phy: phy-rockchip-samsung-hdptx:
-Don't use dt aliases to determine phy-id", a patch submitted recently by
-Heiko [1].  Without applying it, the functionality on both HDMI TX ports
-will break.
-
-Furthermore, please note this is subject to the same limitations as
-HDMI0 when it comes to the supported display modes.  The fixes provided
-via [2] are not applicable to HDMI1, hence I will handle it separately
-as soon as all dependencies are merged.
-
-Thanks,
-Cristian
-
-[1] https://lore.kernel.org/lkml/20241206103401.1780416-3-heiko@sntech.de/
-[2] https://lore.kernel.org/all/20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com/
+In preparation to enable the second HDMI output port found on RK3588
+SoC, add the related PHY node.  This requires a GRF, hence add the
+dependent node as well.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Cristian Ciocaltea (4):
-      drm/rockchip: dw_hdmi_qp: Add support for RK3588 HDMI1 output
-      arm64: dts: rockchip: Add PHY node for HDMI1 TX port on RK3588
-      arm64: dts: rockchip: Add HDMI1 node on RK3588
-      arm64: dts: rockchip: Enable HDMI1 on rock-5b
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi  |  62 ++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts |  42 ++++++++-
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c  | 119 +++++++++++++++++++-----
- 3 files changed, 198 insertions(+), 25 deletions(-)
----
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-change-id: 20241207-rk3588-hdmi1-704cbb7cd75f
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index 0ce0934ec6b793af45585f67d5312434d80357de..68fa9806164776cef8732bb776e958003779ba28 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -67,6 +67,11 @@ u2phy1_otg: otg-port {
+ 		};
+ 	};
+ 
++	hdptxphy1_grf: syscon@fd5e4000 {
++		compatible = "rockchip,rk3588-hdptxphy-grf", "syscon";
++		reg = <0x0 0xfd5e4000 0x0 0x100>;
++	};
++
+ 	i2s8_8ch: i2s@fddc8000 {
+ 		compatible = "rockchip,rk3588-i2s-tdm";
+ 		reg = <0x0 0xfddc8000 0x0 0x1000>;
+@@ -395,6 +400,22 @@ sata-port@0 {
+ 		};
+ 	};
+ 
++	hdptxphy1: phy@fed70000 {
++		compatible = "rockchip,rk3588-hdptx-phy";
++		reg = <0x0 0xfed70000 0x0 0x2000>;
++		clocks = <&cru CLK_USB2PHY_HDPTXRXPHY_REF>, <&cru PCLK_HDPTX1>;
++		clock-names = "ref", "apb";
++		#phy-cells = <0>;
++		resets = <&cru SRST_HDPTX1>, <&cru SRST_P_HDPTX1>,
++			 <&cru SRST_HDPTX1_INIT>, <&cru SRST_HDPTX1_CMN>,
++			 <&cru SRST_HDPTX1_LANE>, <&cru SRST_HDPTX1_ROPLL>,
++			 <&cru SRST_HDPTX1_LCPLL>;
++		reset-names = "phy", "apb", "init", "cmn", "lane", "ropll",
++			      "lcpll";
++		rockchip,grf = <&hdptxphy1_grf>;
++		status = "disabled";
++	};
++
+ 	usbdp_phy1: phy@fed90000 {
+ 		compatible = "rockchip,rk3588-usbdp-phy";
+ 		reg = <0x0 0xfed90000 0x0 0x10000>;
+
+-- 
+2.47.0
 
 
