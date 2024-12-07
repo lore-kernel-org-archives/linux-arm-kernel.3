@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2966BE7716E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 07:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A05DE7716E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Dec 2024 07:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7VBksAF/T3d2c5+s8Bg+ubv6vEd7NOr/os/9LSHT35Y=; b=nF4br4hofO1XW7ZmK2QWC0BnLi
-	gw+8zQOR1V7DQCLgU+oQkbquhUCYFvkBT7Hlc6APCPh2kOShLuiA2NDQGfYO9vraWJ/iBXlhgkd/W
-	sqnpKYwQTail1uLRIlkMr9JOhgKzeldBleDqGlFEmXJPL8yJOTyCfg2ZaFDWkmOJnfEiNbRlsIhQe
-	nvQrc4EyL+P0Jxp9FZocWApab9Ab46NzzkMs9RCN6rBr0GxpRnn0Yc4DSDweuCQ62kFsg8Xz0Wxnt
-	YiqQVM2UCuQOh8ik0Tis7BsNgA2wPuSsC8Q+FHuTHj8yCP1Q4jJXsRCVoUTllOyD2U6QDZWLv3hJc
-	MXPglCuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mBxobFxKEHXoVlgDk9ZqTYzKuQcxbWceLVME3D5HUp0=; b=S1x8LGxlXvZIMNlTOVOLvzzmkP
+	EJ085v4TyBRgWc8De8OauZfGW9BC4hULlJdvP8mdbT9PeT3WB1M9ZL8Y4hrK0ovT6r+kqC2RjtKfx
+	VJZlWfXLiWcFYJCNnyt3GO/5N4hDDnSxc0f57huLth7DlfM0n9BSWlVKtMnOnKi9Gt5cLksCAOTmx
+	mhAWB3m+GKDB6YfcZc1SOY1UXoTmlbFNZDDo7vedglaYZdPjE0ei8pYsG0tAjLATO7i9e7DrZa7Fs
+	O0XtE5ILBBSGuitQL4EMI+eJWlUfAYXNuPivg4NrOjVVbw1GpQdpYIlIE8AM9Kz9oaqI9TnCuPDLn
+	VAiF33CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJorV-00000003X06-0FXY;
-	Sat, 07 Dec 2024 07:04:21 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tJpNa-00000003ZXJ-3gNd;
+	Sat, 07 Dec 2024 07:37:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJoqT-00000003Wu1-0RiL
+	id 1tJpMY-00000003ZOd-02rx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Dec 2024 07:03:18 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-215348d1977so23318145ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Dec 2024 23:03:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733554996; x=1734159796; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7VBksAF/T3d2c5+s8Bg+ubv6vEd7NOr/os/9LSHT35Y=;
-        b=JErlSDn6+3sMJBKK9m3VYoO//jwkhKYOG8kkzKJvhIeig36Loi0vEtKm3tAO3loefE
-         +l7aQS9hW/AuLksi0fzw41A7WfPpR7ISqdMJU9jc6deLrDfn4G7/bFuhBFLX9BCoQle7
-         7L3ZMYyX71MT70UfowWl1EEqHG/HrEb/FOZtjYOx2j9jPw5Z8QwUhjxYN9Jo/9Hwk1n+
-         iW5WjNezWasNS1yokluFtvf/foKnwYW5xofRKECJB7Fu0YwsDMDenh+RO6TtTIXmTk/o
-         PQKklc0DNenf6OEDUP8TbTnnP4thvluYDCARkPenmlwDPCiKGiezI681hVKpTXnM8KdJ
-         fAuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733554996; x=1734159796;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7VBksAF/T3d2c5+s8Bg+ubv6vEd7NOr/os/9LSHT35Y=;
-        b=OC94qmDcVDrOIg9nbST2Almr8bv29PTtAPkZGKGkjUMbtBEBfJ5jiyWe1Umwewqj1t
-         WvWtXc2plr0RYkDiLRmwq02tb/SEA2r7FBIYT9Zq8eTx/CGCJGeDQtbaW8MkhXys3CBv
-         fS2JsXHvXT+m5lJNbmPoChd35cK07mWElvL20ylA6Iv8XapqXZIAndj9INBRPcN0EO4P
-         PKhPQ56qcFmCzhFFmojxK+zh+NLKOfCJsqZCElYfl7HWXPTMoiDzmVSJC5vjQzEAs5ma
-         /A+qPKZ7KSUZycGhhVvBKgV4eMgA4Ok51rsKQse9rPUfrJwCR7kZeXkN9Ss+7XEea8rQ
-         6s5w==
-X-Forwarded-Encrypted: i=1; AJvYcCUIUk+tFPQUI0+NP38YlXRv6EBFcAvPU/RkOaDXykKyhPwHbt15bRFED3pbUcobhwfP1f6rNFwAS4CChugdqiKM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy59XfQAjxkZQLjNhzPeS+yKz+o8g7GZ3ksdL3W0zzAXZaWveRY
-	Ay7ld2mzatop6WkdBfxuYJnCjkHhfOzzJIQHCHx/v3epI8nD086r
-X-Gm-Gg: ASbGnctvO81JILpGdA7zo2CwHtArb3Un6A6UApfwivs/vV69UZ+oLsKHejTltSeVTam
-	U6nFfEhjbrKxgRnaC+3mGpHTPqaKHaAIdkMalJ8TGKtnGXTYog9TRLd1/pCUr4Ku/rJRfUOXJGy
-	Xsy4KrO8plWphl6jfGJ4Gdiy4W9Fgz+idoZHZggOerbiGJNxd/tO16F0NvXB52QBch1EbPAces8
-	RsdO8ulsG7AJu7KM3OnXOTvtJ2Nm/ZyVkWgHe1w9zPY2aPtuN2uYXF8C1TyrZE=
-X-Google-Smtp-Source: AGHT+IGRLV9tlr/2SHhgZD19JnwDMG0W/wwF7xuVg/N9Skwvi9GkZLfzfL0GTpIhC8/5P3oAOgPTeg==
-X-Received: by 2002:a17:902:f542:b0:215:a60d:bcc9 with SMTP id d9443c01a7336-21614d1ef83mr97323535ad.2.1733554996066;
-        Fri, 06 Dec 2024 23:03:16 -0800 (PST)
-Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-215f8efa2aesm38395105ad.142.2024.12.06.23.03.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Dec 2024 23:03:15 -0800 (PST)
-From: Furong Xu <0x1207@gmail.com>
-To: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	xfr@outlook.com,
-	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v1] net: stmmac: Move extern declarations from common.h to hwif.h
-Date: Sat,  7 Dec 2024 15:02:48 +0800
-Message-Id: <20241207070248.4049877-1-0x1207@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 07 Dec 2024 07:36:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7EB3A4038F;
+	Sat,  7 Dec 2024 07:34:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD36C4CECD;
+	Sat,  7 Dec 2024 07:36:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733556983;
+	bh=iLSvIrLPNNbchuaGZc83iW4IkW+Y9a/O2Ve94PJllHw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Hy3jnFxOn67Nm3tt98eEl+L6+gQUemFu+mQfWiFPk1oDVJeMkOGNTkwJHlRhBM1Ql
+	 ySciepeIlxYSytJ4h2NPtGNI5xe+Bbhrn4BOOQOwtUvHfEZAoYiJ/5N7uyezWfddMY
+	 spYQRwlko8yNSZ/0sC0V4DnuL8AGbAkDxPbAeCGO98/mxyTjLHk/bZgJnwipSWspAp
+	 6C37EZIPZCzM8LynC67ujfb2JskbefvqILPP3TnWEisjuiz/D7ro/8Fgk1FEcCbrzD
+	 di/ITVdbm5WdlWY5XjvZJ60dAg2ZbZPBBCDzzXQE90+zqKYNFXDnuL++ZAmYpJFi/S
+	 v4jvnhbgPC6Mw==
+Date: Sat, 7 Dec 2024 07:36:22 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	arnd@arndb.de, jinankjain@linux.microsoft.com,
+	muminulrussell@gmail.com, skinsburskii@linux.microsoft.com,
+	mukeshrathor@microsoft.com
+Subject: Re: [PATCH 1/2] hyperv: Move hv_current_partition_id to arch-generic
+ code
+Message-ID: <Z1P69tl2qMNH-xmg@liuwe-devbox-debian-v2>
+References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1733523707-15954-2-git-send-email-nunodasneves@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1733523707-15954-2-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_230317_340285_038E5046 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241206_233626_171882_E785C2DB 
+X-CRM114-Status: GOOD (  26.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +80,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These extern declarations are referenced in hwif.c only.
-Move them to hwif.h just like the other extern declarations.
+On Fri, Dec 06, 2024 at 02:21:46PM -0800, Nuno Das Neves wrote:
+> From: Nuno Das Neves <nudasnev@microsoft.com>
+> 
+> Make hv_current_partition_id available in both x86_64 and arm64.
+> This feature isn't specific to x86_64 and will be needed by common
+> code.
+> 
+> While at it, replace the BUG()s with WARN()s. Failing to get the id
+> need not crash the machine (although it is a very bad sign).
+> 
 
-Compile tested only.
-No functional change intended.
+A lot of things have changed since it was introduced. I don't remember
+why I decided to use BUG() instead of WARN() in the first place.
 
-Signed-off-by: Furong Xu <0x1207@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/common.h | 14 --------------
- drivers/net/ethernet/stmicro/stmmac/hwif.h   | 14 ++++++++++++++
- 2 files changed, 14 insertions(+), 14 deletions(-)
+If the system can still function without knowing its partition id, then
+can this be removed completely? We can always use the SELF id.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 1367fa5c9b8e..fbcf07d201cf 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -543,18 +543,8 @@ struct dma_features {
- #define STMMAC_VLAN_INSERT	0x2
- #define STMMAC_VLAN_REPLACE	0x3
- 
--extern const struct stmmac_desc_ops enh_desc_ops;
--extern const struct stmmac_desc_ops ndesc_ops;
--
- struct mac_device_info;
- 
--extern const struct stmmac_hwtimestamp stmmac_ptp;
--extern const struct stmmac_hwtimestamp dwmac1000_ptp;
--extern const struct stmmac_mode_ops dwmac4_ring_mode_ops;
--
--extern const struct ptp_clock_info stmmac_ptp_clock_ops;
--extern const struct ptp_clock_info dwmac1000_ptp_clock_ops;
--
- struct mac_link {
- 	u32 caps;
- 	u32 speed_mask;
-@@ -641,8 +631,4 @@ void stmmac_dwmac4_set_mac(void __iomem *ioaddr, bool enable);
- 
- void dwmac_dma_flush_tx_fifo(void __iomem *ioaddr);
- 
--extern const struct stmmac_mode_ops ring_mode_ops;
--extern const struct stmmac_mode_ops chain_mode_ops;
--extern const struct stmmac_desc_ops dwmac4_desc_ops;
--
- #endif /* __COMMON_H__ */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 64f8ed67dcc4..58a962e0b768 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -665,6 +665,20 @@ struct stmmac_regs_off {
- 	u32 est_off;
- };
- 
-+extern const struct stmmac_desc_ops ndesc_ops;
-+extern const struct stmmac_desc_ops enh_desc_ops;
-+extern const struct stmmac_desc_ops dwmac4_desc_ops;
-+
-+extern const struct stmmac_hwtimestamp stmmac_ptp;
-+extern const struct stmmac_hwtimestamp dwmac1000_ptp;
-+
-+extern const struct ptp_clock_info stmmac_ptp_clock_ops;
-+extern const struct ptp_clock_info dwmac1000_ptp_clock_ops;
-+
-+extern const struct stmmac_mode_ops ring_mode_ops;
-+extern const struct stmmac_mode_ops chain_mode_ops;
-+extern const struct stmmac_mode_ops dwmac4_ring_mode_ops;
-+
- extern const struct stmmac_ops dwmac100_ops;
- extern const struct stmmac_dma_ops dwmac100_dma_ops;
- extern const struct stmmac_ops dwmac1000_ops;
--- 
-2.34.1
+Thanks,
+Wei.
 
+> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
+> ---
+>  arch/arm64/hyperv/mshyperv.c    |  3 +++
+>  arch/x86/hyperv/hv_init.c       | 25 +------------------------
+>  arch/x86/include/asm/mshyperv.h |  2 --
+>  drivers/hv/hv_common.c          | 23 +++++++++++++++++++++++
+>  include/asm-generic/mshyperv.h  |  2 ++
+>  5 files changed, 29 insertions(+), 26 deletions(-)
+> 
+> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+> index b1a4de4eee29..5050e748d266 100644
+> --- a/arch/arm64/hyperv/mshyperv.c
+> +++ b/arch/arm64/hyperv/mshyperv.c
+> @@ -19,6 +19,9 @@
+>  
+>  static bool hyperv_initialized;
+>  
+> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+> +EXPORT_SYMBOL_GPL(hv_current_partition_id);
+> +
+>  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+>  {
+>  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+> index 95eada2994e1..950f5ccdb9d9 100644
+> --- a/arch/x86/hyperv/hv_init.c
+> +++ b/arch/x86/hyperv/hv_init.c
+> @@ -35,7 +35,7 @@
+>  #include <clocksource/hyperv_timer.h>
+>  #include <linux/highmem.h>
+>  
+> -u64 hv_current_partition_id = ~0ull;
+> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>  EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>  
+>  void *hv_hypercall_pg;
+> @@ -394,24 +394,6 @@ static void __init hv_stimer_setup_percpu_clockev(void)
+>  		old_setup_percpu_clockev();
+>  }
+>  
+> -static void __init hv_get_partition_id(void)
+> -{
+> -	struct hv_get_partition_id *output_page;
+> -	u64 status;
+> -	unsigned long flags;
+> -
+> -	local_irq_save(flags);
+> -	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
+> -	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
+> -	if (!hv_result_success(status)) {
+> -		/* No point in proceeding if this failed */
+> -		pr_err("Failed to get partition ID: %lld\n", status);
+> -		BUG();
+> -	}
+> -	hv_current_partition_id = output_page->partition_id;
+> -	local_irq_restore(flags);
+> -}
+> -
+>  #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>  static u8 __init get_vtl(void)
+>  {
+> @@ -606,11 +588,6 @@ void __init hyperv_init(void)
+>  
+>  	register_syscore_ops(&hv_syscore_ops);
+>  
+> -	if (cpuid_ebx(HYPERV_CPUID_FEATURES) & HV_ACCESS_PARTITION_ID)
+> -		hv_get_partition_id();
+> -
+> -	BUG_ON(hv_root_partition && hv_current_partition_id == ~0ull);
+> -
+>  #ifdef CONFIG_PCI_MSI
+>  	/*
+>  	 * If we're running as root, we want to create our own PCI MSI domain.
+> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+> index 5f0bc6a6d025..9eeca2a6d047 100644
+> --- a/arch/x86/include/asm/mshyperv.h
+> +++ b/arch/x86/include/asm/mshyperv.h
+> @@ -44,8 +44,6 @@ extern bool hyperv_paravisor_present;
+>  
+>  extern void *hv_hypercall_pg;
+>  
+> -extern u64 hv_current_partition_id;
+> -
+>  extern union hv_ghcb * __percpu *hv_ghcb_pg;
+>  
+>  bool hv_isolation_type_snp(void);
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index 7a35c82976e0..819bcfd2b149 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -278,11 +278,34 @@ static void hv_kmsg_dump_register(void)
+>  	}
+>  }
+>  
+> +static void __init hv_get_partition_id(void)
+> +{
+> +	struct hv_get_partition_id *output_page;
+> +	u64 status;
+> +	unsigned long flags;
+> +
+> +	local_irq_save(flags);
+> +	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
+> +	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
+> +	if (!hv_result_success(status)) {
+> +		local_irq_restore(flags);
+> +		WARN(true, "Failed to get partition ID: %lld\n", status);
+> +		return;
+> +	}
+> +	hv_current_partition_id = output_page->partition_id;
+> +	local_irq_restore(flags);
+> +}
+> +
+>  int __init hv_common_init(void)
+>  {
+>  	int i;
+>  	union hv_hypervisor_version_info version;
+>  
+> +	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+> +		hv_get_partition_id();
+> +
+> +	WARN_ON(hv_root_partition && hv_current_partition_id == HV_PARTITION_ID_SELF);
+> +
+>  	/* Get information about the Hyper-V host version */
+>  	if (!hv_get_hypervisor_version(&version))
+>  		pr_info("Hyper-V: Host Build %d.%d.%d.%d-%d-%d\n",
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+> index 8fe7aaab2599..8c4ff6e9aae7 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -60,6 +60,8 @@ struct ms_hyperv_info {
+>  extern struct ms_hyperv_info ms_hyperv;
+>  extern bool hv_nested;
+>  
+> +extern u64 hv_current_partition_id;
+> +
+>  extern void * __percpu *hyperv_pcpu_input_arg;
+>  extern void * __percpu *hyperv_pcpu_output_arg;
+>  
+> -- 
+> 2.34.1
+> 
 
