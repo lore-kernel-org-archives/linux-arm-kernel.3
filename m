@@ -4,112 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28377E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 09:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C97E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 11:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwaQAzddSYnu9vcLie6k6ok9qNzm4PTtfMoMlLyy2fg=; b=pdW62QNuzI/Y7gnNjZwc+aC/3k
-	hAfRD8htxZh9Bdn+0Y+TOPKT1Js0aJBUxFDZNf9GHPnBbGpMoiBGeLtyIFEdvmu332t41ka5NPuJk
-	irA/9IAWe+IjNKRKWLaMLPc0bh7KH9MLtihKNMfivXo7cSBRx9usuZZsCbD1nvneWU4BrS+JHONNj
-	GOSeuhRPm6vSeEQV5dDmmKfXFsm3JZT3d/lnDXpO8vlyShCTKsbRUDuXKl0j7UjF4K2Ox3Q/lMWvU
-	2gKGCvgkRoovHAmea0wHcXmIbt0eXJdPChmp7oKSdjOiXEg1nqeYZyqfa87qG7hNW9WO/hBhSBny+
-	/mBf/v9A==;
+	bh=MgmDh4KwwG/UnaAkdqryGTFKEgNCKuqZpZNBZIAjct8=; b=Jn6jTAcbGRaIWSb1l7/o5LQFIu
+	vSIZEfg6Da/lH+6l/XlzyA6zR0b8UOIN1JZyBMpbLYAGCREkoalALjvIuFyHV8mBtKRNenAQMCNza
+	31B6Mn//qsNJLZMFwmDGEPp2J8d0dleIwofXYtWafKjl+uFI1JY/ubzRnbfVavqZKO57w5Its/XXt
+	CcWLiuedNGKcxqjcmEdk8hNWanZ93p5Z5j5JJR3C3XsZkCVa27Lr03ntOJddkguvd5VK7QYcDn3yk
+	WQ18zD+h3zhGWHwFPGZGgl2mcRf3ugk5eiXI++bnuMgCYdl/hwCpi8Hh1M2YdBYtgjdWHnW9iUNkO
+	iIuOu2QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKDSW-000000054aJ-2xwK;
-	Sun, 08 Dec 2024 09:20:12 +0000
-Received: from mx-2023-1.gwdg.de ([134.76.10.21])
+	id 1tKF8p-00000005ABK-211Q;
+	Sun, 08 Dec 2024 11:07:59 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKDRU-000000054S2-46WJ
+	id 1tKF7l-00000005A47-0zfp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Dec 2024 09:19:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gwdg.de;
-	s=2023-rsa; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:CC:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=KwaQAzddSYnu9vcLie6k6ok9qNzm4PTtfMoMlLyy2fg=; b=NV4r6sre7Ok3wo0w1M1IjH9x5v
-	ilQNDn/XPZdX75phM23l8dDuOB1VNLxPMKKvbXXgd2p5V1uHMsRuNlgUvf3AeH+1FHymLdhoiVhYb
-	Ysg5PIEKxMJsc40fxHSui5EdG6IyQ779QS2vQL/KCo23F0ru06QpS7EqMxsnFyRsGJUOxjFPdQrFF
-	dMiLRhK4dzQ+XzC7th2Qi5Cn/nbNKPbxR8YQrAOeUvar7hboo1TVeI0RknC5cICOBS4weA5dqdt5G
-	klU9eXU4tnOo08f48hmQEaTj/tdZySI5WFrnz0HUUZJt7JKdf1ztGZMduj6rbs6dzv6RXPuDvBedP
-	Kjj2AMww==;
-Received: from xmailer.gwdg.de ([134.76.10.29]:43999)
-	by mailer.gwdg.de with esmtp (GWDG Mailer)
-	(envelope-from <muecker@gwdg.de>)
-	id 1tKDR4-004WKp-2q;
-	Sun, 08 Dec 2024 10:18:42 +0100
-Received: from mbx19-fmz-06.um.gwdg.de ([10.108.142.65] helo=email.gwdg.de)
-	by mailer.gwdg.de with esmtps (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(GWDG Mailer)
-	(envelope-from <muecker@gwdg.de>)
-	id 1tKDR4-000HH6-2Q;
-	Sun, 08 Dec 2024 10:18:42 +0100
-Received: from [192.168.0.221] (10.250.9.200) by MBX19-FMZ-06.um.gwdg.de
- (10.108.142.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1544.14; Sun, 8 Dec
- 2024 10:18:41 +0100
-Message-ID: <aeb1c27d320800dcd8375771022e11e8c27b0d1a.camel@gwdg.de>
-Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-From: Martin Uecker <muecker@gwdg.de>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-CC: David Laight <David.Laight@aculab.com>, Vincent Mailhol
-	<mailhol.vincent@wanadoo.fr>, Luc Van Oostenryck
-	<luc.vanoostenryck@gmail.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Jani Nikula
-	<jani.nikula@linux.intel.com>, Joonas Lahtinen
-	<joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rikard Falkeborn
-	<rikard.falkeborn@gmail.com>, "linux-sparse@vger.kernel.org"
-	<linux-sparse@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
-	<llvm@lists.linux.dev>, "linux-hardening@vger.kernel.org"
-	<linux-hardening@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
-	<intel-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "coresight@lists.linaro.org"
-	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Date: Sun, 8 Dec 2024 10:18:40 +0100
-In-Reply-To: <CAHk-=wgVGmj+nAju2XuWWD_FZHdeytRW2XX5D-L3MqDuRRciVg@mail.gmail.com>
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
-	 <20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
-	 <1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
-	 <CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
-	 <9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-	 <abdd7862f136aa676b2d2c324369f4a43ff9909c.camel@gwdg.de>
-	 <CAMZ6RqKzGiRNMeLsQKRNrxvW_bXB-kEi11udQ82kKX6tGCrqcg@mail.gmail.com>
-	 <9607300dfca5d71ca9570b1e1de0864e524f356b.camel@gwdg.de>
-	 <344b4cf41a474377b3d2cbf6302de703@AcuMS.aculab.com>
-	 <9a0c041b6143ba07c2b3e524572fccd841f5374b.camel@gwdg.de>
-	 <CAHk-=wjpVXEjX16PP=-hi4CgLqEGJ_U-WvKWq+J3C+FW-hSSfg@mail.gmail.com>
-	 <0a2996a7c63930b9d9a8d3792358dd9e494e27c1.camel@gwdg.de>
-	 <CAHk-=wjsfYYKBYuW8_6yKjdwHih0MMa2GwUJh_LHcuUNFR7-QA@mail.gmail.com>
-	 <9d9567dbdaf39688bbd0d240e29dec826a5931ee.camel@gwdg.de>
-	 <CAHk-=wgVGmj+nAju2XuWWD_FZHdeytRW2XX5D-L3MqDuRRciVg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Sun, 08 Dec 2024 11:06:56 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-53df19bf6a9so4010278e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Dec 2024 03:06:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733656011; x=1734260811; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MgmDh4KwwG/UnaAkdqryGTFKEgNCKuqZpZNBZIAjct8=;
+        b=vfTlVBoARQxL45HViaCN9YHLqp/W0xQqjVfvMWh7eeZBzLjxzCKTG2Tb+Kng5Bxsz+
+         tlXp6A5j4Oy6YihdOzlPhcaaGySiI/8DGXbapmDtBk0dOzBhP/yJMRDN1UyoLT/owhHK
+         NZbbR5ky2L5fJh2ECodOqbV6ugapzJf1cQGocIpqq+jR3on7WghPolJWYLYH4BHpoIeZ
+         WrnXe0ia/M3BCzqoxKKXWICjDF3N1TqFkpdL7Q4flhYVmLHEtl+xOZQ0RIYhARmUBMPK
+         YjHYO90XABy8Fzv1TEYPMesyTcj63NXbUXwnCvZq4yB7sFH6xHqFKL3s/OWjw6JAKu+b
+         kh7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733656011; x=1734260811;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MgmDh4KwwG/UnaAkdqryGTFKEgNCKuqZpZNBZIAjct8=;
+        b=FE14HdGLAEgz+VcLUgo20kOVZSNUZjSqLnVcTvKxLTDzkQVL3dfQX/CEt8tYIDPCVQ
+         35Wb0BdyeaTo0wZjf64n5WjZVtQH1ayFcLXdf5dwi0NjzJykMKOBVYKhPTglqIT8NFLb
+         NthwimNKl4dioo8Yow7lvt/DCXRtXnDtBRmepX7ypIz47pTiQil2ACgfd9p4cdBPJNNq
+         BhsPmrKklqA3HrxT9fzpoinoI4N6RnSpj6Vm8kAfn83TxKFpGh+bAD7pfZeE/k4q9Ete
+         34OIfSXwlJTXM2HAfPhmDO6WKLddQ7GyHQHnxx0OQF2flHn2Ez7154YPLrwfSBzaSdUM
+         RsYw==
+X-Forwarded-Encrypted: i=1; AJvYcCUAJzpUdjP2UrdF04ru42smVXAEQKWUD3QTty2Sf3Jnf86L7Cd38CFW1PcH1jU1P5PqgkvecIwyfS023khnmS+I@lists.infradead.org
+X-Gm-Message-State: AOJu0YykAPKHFV0EfiwFuyf2Ax+XDrnxu9VHbTUnrcZTZy/V3YiMQgLO
+	Y7ILeqljRo7jCZ6182AqB83nokufFuy5GeTOZV6CgO/vjbttbIlkCmuDb6mr1+E=
+X-Gm-Gg: ASbGnctaITAA5KN6A77DavleHcHceujdcCII3+zg/7f56FETGFOiS9AiPluXvrLngcI
+	i03JbBaWZYYnYrDbGULC10DW9I23Yzp/ArxwOhwbtu7AN/L2KadOafhopHUDzsWILhpMtkAmOFx
+	ucUaF1bE/U07KZ8fh1fYufVisnc2Lc3YNvexiyCE10t/w+2OquFHZCu6tfjB1f6GaBUgHJfu5WD
+	H8wh052aPvSuOEpFytYX0vkeks+FA7JKSeNNxRCgPJuvJMoz8f4kfTv9U+TUJNNRX509ln5QBBl
+	j8SwbT11DyT9b0+g3CrESMwCCWOI+w==
+X-Google-Smtp-Source: AGHT+IF5QEJjlcVoMCHYbEL9bkvB8NPE0fGP+5uB3Gu8Bcq90JNJIBJcqtP7X6LzerdMng+XvLTRkw==
+X-Received: by 2002:a05:6512:ac4:b0:53e:3a43:9245 with SMTP id 2adb3069b0e04-53e3a4393c1mr2104284e87.28.1733656010740;
+        Sun, 08 Dec 2024 03:06:50 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54019dc9a76sm309093e87.274.2024.12.08.03.06.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 08 Dec 2024 03:06:49 -0800 (PST)
+Date: Sun, 8 Dec 2024 13:06:46 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 09/10] drm/vc4: hdmi: stop rereading EDID in
+ get_modes()
+Message-ID: <73xdxb575n4ncmadffkwqzczoewbadq3forpvqt4vp7zfln2nq@o2wmbbbepwgg>
+References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
+ <20241206-drm-bridge-hdmi-connector-v6-9-50dc145a9c06@linaro.org>
+ <20241206-caped-proficient-rattlesnake-c882f3@houat>
 MIME-Version: 1.0
-X-Originating-IP: [10.250.9.200]
-X-ClientProxiedBy: mbx19-gwd-02.um.gwdg.de (10.108.142.51) To
- MBX19-FMZ-06.um.gwdg.de (10.108.142.65)
-X-EndpointSecurity-0xde81-EV: v:7.9.17.458, d:out, a:y, w:t, t:5, sv:1733619932, ts:1733649522
-X-Virus-Scanned: (clean) by clamav
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241206-caped-proficient-rattlesnake-c882f3@houat>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_011909_009636_B6996E3E 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20241208_030653_337968_075BD121 
+X-CRM114-Status: GOOD (  33.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,51 +117,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, dem 07.12.2024 um 17:58 -0800 schrieb Linus Torvalds:
-> On Sat, 7 Dec 2024 at 15:52, Martin Uecker <muecker@gwdg.de> wrote:
-> >=20
-> > Can you point me to some horror stories?
->=20
-> So the main issues tended to be about various static verification tools.
->=20
-> Ranging from things like the stackleak plugin for gcc, where handling
-> VLA's and alloca() (which are pretty much the same thing with
-> different syntax) was just very much added complexity, to perhaps
-> overly simplistic tools that literally just check the stack usage by
-> parsing "objdump --disassemble" output and then building up
-> approximate "this is the combined deepest stack" call chain
-> approximations.
->=20
-> And even in the *basic* infrastructure like gcc itself, VLA's simply
-> made -Wframe-larger-than=3D just simply not work.
->=20
-> I also have this memory of bad code generation (again, this is 5=3D
-> years ago, so take this with a pinch of salt: dim memories), where gcc
-> wouldn't end up re-using VLA stack slots, so VLA's made the frame
-> bigger for that reason or something like that.
->=20
-> We explicitly use "-fconserve-stack" to get gcc to reuse spill slots,
-> because gcc has been known to sometimes makes insanely piggish stack
-> frames when it just creates a spill slot for *everything*, even if the
-> spills aren't live at the same time (think big functions with lots of
-> case statements).
->=20
-> We also had several cases of the VLA's just being silly, when a simple
-> constant-sized allocation just worked fine and didn't generate
-> pointless extra code.
->=20
-> Pretty much none of the code core actually ever wanted VLA's, so the
-> end result was that we had these bad patterns mainly in random drivers
-> etc. Don't do that.
+On Fri, Dec 06, 2024 at 03:34:52PM +0100, Maxime Ripard wrote:
+> Hi,
+> 
+> On Fri, Dec 06, 2024 at 12:16:03PM +0200, Dmitry Baryshkov wrote:
+> > The vc4_hdmi_connector_detect_ctx() via vc4_hdmi_handle_hotplug()
+> > already reads EDID and propagates it to the drm_connector. Stop
+> > rereading EDID as a part of the .get_modes() callback and just update
+> > the list of modes. This matches the behaviour of the i915 driver.
+> > 
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > ---
+> >  drivers/gpu/drm/vc4/vc4_hdmi.c | 21 ---------------------
+> >  1 file changed, 21 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > index e5ab42f72f618b90f956482db6c9c8074c1e3bf1..3364ef90968dad3074800f02926300ffceb75c69 100644
+> > --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > @@ -470,31 +470,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
+> >  
+> >  static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
+> >  {
+> > -	struct vc4_hdmi *vc4_hdmi = connector_to_vc4_hdmi(connector);
+> >  	struct vc4_dev *vc4 = to_vc4_dev(connector->dev);
+> > -	const struct drm_edid *drm_edid;
+> >  	int ret = 0;
+> >  
+> > -	/*
+> > -	 * NOTE: This function should really take vc4_hdmi->mutex, but doing so
+> > -	 * results in reentrancy issues since cec_s_phys_addr() might call
+> > -	 * .adap_enable, which leads to that funtion being called with our mutex
+> > -	 * held.
+> > -	 *
+> > -	 * Concurrency isn't an issue at the moment since we don't share
+> > -	 * any state with any of the other frameworks so we can ignore
+> > -	 * the lock for now.
+> > -	 */
+> > -
+> > -	drm_edid = drm_edid_read_ddc(connector, vc4_hdmi->ddc);
+> > -	drm_edid_connector_update(connector, drm_edid);
+> > -	cec_s_phys_addr(vc4_hdmi->cec_adap,
+> > -			connector->display_info.source_physical_address, false);
+> > -	if (!drm_edid)
+> > -		return 0;
+> > -
+> >  	ret = drm_edid_connector_add_modes(connector);
+> > -	drm_edid_free(drm_edid);
+> 
+> I don't think that works though, for mostly two reasons:
+> 
+>  1) We're not sure we'll even have an hotplug interrupt if the system
+>     boots with the connector plugged in for example.
+> 
+>  2) afaik, the get_modes ioctl directly calls get_modes too.
 
-Thanks. This confirms that the tooling around VLAs is rather poor.
+I think both paths use .fill_modes, not get_modes. And fill_modes
+explicitly calls .detect / .detect_ctx. It would be nice if somebody can
+verify the change on the acual hw. But as I wrote, i915 driver does
+exactly the same: the EDID is read / updated in .detect_ctx(), while
+.get_modes() only performs drm_edid_connector_add_modes().
+Okay, there is one significant difference which we should probably patch
+out: the .force() is also implemented to update EDID in the forced case.
+I should probably do the same for the drivers being handled in this
+patchset.
 
-
-Martin
-
-
-
-
-
-
+-- 
+With best wishes
+Dmitry
 
