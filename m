@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F850E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 16:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC51E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 16:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Ja4iyQmAzISPsWmv2Yy+J9mTuONiwkR0YrQmpPL14U=; b=geDJZxOUlTBaVivxmqv14q7LOB
-	/lzGjiKeFOBWt2G8+KtusLM90y1RjDBf4+Q4MP+PB+pdqrrZnEo8kKWXynLMeCN1BZ7ZYwUcjvQYZ
-	dyejE1szQPXo77z9Z1I9OG0YZGYvGOj/HgJWFr1d/F+xRc9hjdohNaSF/XNpPQHt2Ww9wa1IGu//V
-	kp9XZlloHzRYvEqha/FmF+d6rZ4fii92hOF7K7774uqUeavEG3AP9C56CrimUyg6okq/W2iVK2c5E
-	oqqLY6lvLSMAPjfVYi8Y2lEO/YsYJEMqaKfcYHoXo+J4/E31VnVcdgPHassJzOW0BFjOLhjqQhC32
-	WM9VVZrw==;
+	bh=eh1CIoBeFUziJxoNrnv+29bhukgqRk2MFaYe/1KQX/o=; b=ShEIOQvhCJswHiNcFwak2rRt3x
+	9IfaUXKSCEB6K1vduOsz/NI0LosE9vfB3TRlbO9hcy152T2UiSyzNlGg2OYUfftm+OuiQvXVl2XZu
+	bxCiapmPAKZE0PG709kwefWzPf+kZl1W03D0cAgszOH+5iI6EjFn4/p19aZiYOov16J0OAgeBPH+u
+	t0GNpiae36Os/viUbB07gFHLO5V5m0zsRPUuC+DBqW2A5hmWMz6mX4TVuCzd9Gombaw6B5s/RI+A5
+	ZoDKuCEOkLtUgfip0OHuThVaBHLyYU01GfDftYzl9JutWhtDDb+cW9e5rqgutA58cpd9yeB/Sjjsb
+	y6RpEkEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKK56-00000005Xh3-25LV;
-	Sun, 08 Dec 2024 16:24:28 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tKK6F-00000005Xru-0Xx7;
+	Sun, 08 Dec 2024 16:25:39 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKK45-00000005XcN-0qj8
+	id 1tKK5D-00000005Xhi-0vTa
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Dec 2024 16:23:26 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5d3f65844deso560275a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Dec 2024 08:23:24 -0800 (PST)
+	Sun, 08 Dec 2024 16:24:36 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5d3e9a88793so1263376a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Dec 2024 08:24:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1733675003; x=1734279803; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1733675073; x=1734279873; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=2Ja4iyQmAzISPsWmv2Yy+J9mTuONiwkR0YrQmpPL14U=;
-        b=QBrVrfOfKYvkzqueLZ3PXKVooOstdznpv6WH8ttHDlSUmJkjaFfnKFeq+U7rpX/L0Y
-         xrqWMRAPFnd0DuhV/ZJYDn+Mdu90MAHSREakAkmEmzdCWeaDTq1qc0wdL1p5U3mYjG/z
-         YCPAB9ug7DyeRFFz6L7SvFy+pRo0NF02lA/MLw9QL65JO5Es13jw3Kn3b4lHe+7ME18q
-         eJM47AGzE22mOeTKOCprtHajedw0FFYxn6+xvXe9Ly/RCgS98I6cjXZqMdtzVdHIvaZE
-         hh/tE3mS4Q6ZNeXqS8jaZp8x83jji9LXvSzTfONdUm0UxkKKP3GA9HyVdHoo61kEuv6J
-         WUOg==
+        bh=eh1CIoBeFUziJxoNrnv+29bhukgqRk2MFaYe/1KQX/o=;
+        b=IxHs9vCaKipNzltapMi/FImJpA4sd02U/aOcMXv0s3heAJ/QHlCDMMxZuASkrqbOXD
+         Oh+JBxBoGULZy3Cy7nEXmTyi1sK0iiCHgRmluZIlsRGVOc0tC2aLpFGGTrz9pq6cLZ90
+         BKyHaOznZ445DtLgfWWJBbktysqf6TRdvNVibjSWpviy5S1OntAyvLb04IGD9tHL/xTS
+         ubcVicMIm05jf3ybSo8L6srBL8+tqweV2CouEXhS25+/RedFcE1IyXYalaeBtOzubT62
+         dBMNqsXz2KhwURzlMQmIm8HcMxsg72FAl4C2ERypTeUnB4aHlDdRJcllhRWqyDzbHuPZ
+         YNoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733675003; x=1734279803;
+        d=1e100.net; s=20230601; t=1733675073; x=1734279873;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2Ja4iyQmAzISPsWmv2Yy+J9mTuONiwkR0YrQmpPL14U=;
-        b=X/RC3Uq20BPg/PLg0GLIIVOFPpXSw4ZiHG15iVzGB3G4pxdJlyc48fQsluNDsROCPl
-         Ra6DyPYDfaG8qWzCnWq3EA0qlpqUiykYxuo8gRxQAb0yaQWhENzPhefatP8fLfE8wybi
-         gFuMiCEv7/Sd88I/xrNgvbiCS/sKDMmCS9JJc5jdmePrkne+iaqxXgVvGnDVbxCXLRH5
-         k6HnsL4OIsKl9Kk/bodaOZZG1L2y4HDP+ZjTmQptW7Wv2S+LWoaMjqXZtYF7ro/ZjIIU
-         Sz9i7jOSDeEhVg978ae1ipoIjuWuISqvlY6AqDeaIpitxCiFX/izW8hliVe5dZebHr/U
-         2hfA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+w7sTRv/4gMWf+Ld2cN1k4P32aNcEsRGh1JmwtkZv1oK7ZiOHBlcYFI1S8zp3akr15+YEsuv/vX6xERAD7qsk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeQ8Y/exzVLp3j2dRY0u6NEvybuSWwf7cgGASuexW7s9MVDB1q
-	pqkJjn4obL8g6iy9kKjVkrp0c07B6OwlShQB6fxtWMu8f4+YQhVBDPzHPEi3Ih8=
-X-Gm-Gg: ASbGncvbdb2tlPxsUy5WDJz09Lm23U/gzf/I7MqrcnZelhttLeZThdyaJ+m/NSDM3MC
-	ehLNhOkfI0XPVryi3Qnjz2ppDaadNaVd1uREImmqKgqaV+/VuUQnEwPbZsJDS4l8DWMpChkPnu4
-	qtxLNQyyXovaaZUh9ZdlKMIUkVC8NC5tEbEE94nZguNkJPu6WuxFV4zwsimVrrohfFxfLHwHAAE
-	vmJgDxIa7mMYTbBDVoAWCTznGMAWEJ82QNeoKaE59az585As/turd3tgehd5ME=
-X-Google-Smtp-Source: AGHT+IH86UBvGGnyAV0eg40dVkna/XfNJd8hDIG21j22U90IZW6G8d+OfAAcOP2EKLLK8RxyDrgbuA==
-X-Received: by 2002:a50:8e1d:0:b0:5d3:d7ae:a893 with SMTP id 4fb4d7f45d1cf-5d3d7aea934mr5930138a12.25.1733675003295;
-        Sun, 08 Dec 2024 08:23:23 -0800 (PST)
+        bh=eh1CIoBeFUziJxoNrnv+29bhukgqRk2MFaYe/1KQX/o=;
+        b=FThrWqFwz2oMaYecUn3LWHQoXRqWs6anSrA7/fQ0TZqb1E3Mli7vND1DTB5usWnm0h
+         O+5dclRLI57AEMu9AQOPHUtg7n72rXiisn9j+Y9sqrjpfzy0Pg4+jyCAsUwnOYedXQvn
+         l1EN+K6yqutzAslMPfpHGly/NsXXGKJRxqvgUMDkpCHyBQblDFuKQ0EwPTT4TqKH6pSO
+         vFPOARalV2ljmMbnXFuz5Y0x5QLYCOKpB4jFqvWor/xWdUW2LWBxHzdsI3oPhgahvFkT
+         Da25zwY+jW0i78mSut6Qcj/ND8v7qN3S7wI5lwq9J3QP8EaQHgMLcgKFNEKCFkkuQO6T
+         obuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXyqzVHBMEtb5h6diSevZ9WqJrbCJtY9mcZXiaauU6/TfBm2VCZ74lsKsHJD9u2tkrwm1pUcvGtzObC2cpDKrnl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRqW2w2RHPQ+RNCWlh6QHuxMgTOs+ffQulcVsmOUAA6Nk983gK
+	E/ki1WXPBPVkeGd/n/yIKyN+BrNZIaMKESZobGgFjGyZaDHO7deDB75jV9b1EBk=
+X-Gm-Gg: ASbGncs3Aq00+XcZY70c76YBIYDyKUrEpwRajfJbTc1y2zmQyntdRjxVpnz996fsTxs
+	VW7Em4DUB2UHLI0hdID2DI4BC0LVzvjl6sRe2GBTfZ1cAORc74JmkFaF6Us/2wO/BxMn9xeE7pI
+	Ui+1gBX8JVE84OpbHgjxMnuAQryK13Ltz8k8zWmkyx9Rz11MAJXJX2vVBeC34OaUY0Y+KEIlO7q
+	vqkW9PuU64a8kBthl035Atp6y/TLJQBfEhFXL9ITJoCvcrm0JhPJx9PzjI=
+X-Google-Smtp-Source: AGHT+IHRoC+uz24+SDiz4k1n+xkzf1xmfd4qsGqHEUgJq24njDiwFPRzIM3Y17oVpekHri48dC1Rtg==
+X-Received: by 2002:a05:6402:35cb:b0:5d4:5e4:1561 with SMTP id 4fb4d7f45d1cf-5d405e4170fmr164597a12.20.1733675073180;
+        Sun, 08 Dec 2024 08:24:33 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.161])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d149a49e48sm4883698a12.30.2024.12.08.08.23.19
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d149a49e48sm4883698a12.30.2024.12.08.08.24.29
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Dec 2024 08:23:22 -0800 (PST)
-Message-ID: <40084072-8581-49b1-b0b8-e3c63dd39f3a@tuxon.dev>
-Date: Sun, 8 Dec 2024 18:23:19 +0200
+        Sun, 08 Dec 2024 08:24:32 -0800 (PST)
+Message-ID: <e592e292-71df-4bf0-aa8e-88a53dfc2777@tuxon.dev>
+Date: Sun, 8 Dec 2024 18:24:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/13] dt-bindings: ARM: at91: Document Microchip
- SAMA7D65 Curiosity
+Subject: Re: [PATCH v3 03/13] dt-bindings: atmel-sysreg: add sama7d65 RAM and
+ PIT
 Content-Language: en-US
 To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, nicolas.ferre@microchip.com,
@@ -83,16 +83,16 @@ Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-serial@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+ linux-serial@vger.kernel.org
 References: <cover.1733505542.git.Ryan.Wanner@microchip.com>
- <d5a22763a2081daa0d2155e2c05b7dc0eb468610.1733505542.git.Ryan.Wanner@microchip.com>
+ <96e64f01eee264ad0ac4c720a7a1cab4f95c206b.1733505542.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <d5a22763a2081daa0d2155e2c05b7dc0eb468610.1733505542.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <96e64f01eee264ad0ac4c720a7a1cab4f95c206b.1733505542.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_082325_244635_EB0486E6 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20241208_082435_268851_9A7818D8 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +110,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 06.12.2024 21:59, Ryan.Wanner@microchip.com wrote:
-> From: Romain Sioen <romain.sioen@microchip.com>
+> From: Dharma Balasubiramani <dharma.b@microchip.com>
 > 
-> Document device tree binding of the Microchip SAMA7D65 Curiosity board.
+> Add SAMA7D65 RAM controller, PIT64 DT bindings.
 > 
-> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
-> Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 > Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
 > Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../devicetree/bindings/arm/atmel-sysregs.txt      | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+> index 76e2b7978250..93c2a5a341f3 100644
+> --- a/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+> +++ b/Documentation/devicetree/bindings/arm/atmel-sysregs.txt
+> @@ -13,6 +13,7 @@ PIT Timer required properties:
+>  PIT64B Timer required properties:
+>  - compatible: Should be "microchip,sam9x60-pit64b" or
+>  			"microchip,sam9x7-pit64b", "microchip,sam9x60-pit64b"
+> +			"microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b"
+>  - reg: Should contain registers location and length
+>  - interrupts: Should contain interrupt for PIT64B timer
+>  - clocks: Should contain the available clock sources for PIT64B timer.
+> @@ -27,12 +28,13 @@ Its subnodes can be:
+>  - watchdog: compatible should be "atmel,at91rm9200-wdt"
+>  
+>  RAMC SDRAM/DDR Controller required properties:
+> -- compatible: Should be "atmel,at91rm9200-sdramc", "syscon"
+> -			"atmel,at91sam9260-sdramc",
+> -			"atmel,at91sam9g45-ddramc",
+> -			"atmel,sama5d3-ddramc",
+> -			"microchip,sam9x60-ddramc",
+> -			"microchip,sama7g5-uddrc",
+> +- compatible: Should be "atmel,at91rm9200-sdramc", "syscon" or
+> +			"atmel,at91sam9260-sdramc" or
+> +			"atmel,at91sam9g45-ddramc" or
+> +			"atmel,sama5d3-ddramc" or
+> +			"microchip,sam9x60-ddramc" or
+> +			"microchip,sama7g5-uddrc" or
+> +			"microchip,sama7d65-uddrc","microchip,sama7g5-uddrc" or
+
+Missing space here --------------------------------^
+
+I'll adjust it while applying.
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-> ---
->  Documentation/devicetree/bindings/arm/atmel-at91.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> index 7160ec80ac1b..0ec29366e6c2 100644
-> --- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> +++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-> @@ -180,6 +180,13 @@ properties:
->            - const: atmel,sama5d4
->            - const: atmel,sama5
+>  			"microchip,sam9x7-ddramc", "atmel,sama5d3-ddramc".
+>  - reg: Should contain registers location and length
 >  
-> +      - description: Microchip SAMA7D65 Curiosity Board
-> +        items:
-> +          - const: microchip,sama7d65-curiosity
-> +          - const: microchip,sama7d65
-> +          - const: microchip,sama7d6
-> +          - const: microchip,sama7
-> +
->        - items:
->            - const: microchip,sama7g5ek # SAMA7G5 Evaluation Kit
->            - const: microchip,sama7g5
 
