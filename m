@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793AFE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 03:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CF3E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 05:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEsN1l7P0fXReds0HlBNmyPUj59315Ada/IGSl7+oDw=; b=PnFcDVoM4eEkX21BrrfusDPfpX
-	mX7Ke63sPXG183EsbOq50xzrsX1WrU5iNdwo9RPAkq72e6az0Y4sjs6IuFqyzlF7qxK9NPTq8Kcxf
-	/KHvaJvU3RymOQTVnpnDUz5ECfPq7IAOLzAw+nzTzmcyncx2WELyv1NQR9OlafcebcVx5Xx3ec3fk
-	5+3ZEZXEiQma6tj6Ra/cT4Q7K6ipQYCXRLsCN7IfwykIC+cYQsVImdxZ979MMKyL9PZn+ZRmkhLcz
-	0yt16xu+Avt0uiamdOXkGCqIFaOCGvZYsvYk0dsI3SdBv4I28n1sjjCP+ZTJxCTWc6Noa7uQ/8Fbu
-	7uJDY32A==;
+	bh=fTIMMaEabz2yNJ3BCGYu9dfy9Hdli7Hl5ja+ottT06c=; b=N+tO1tk3Zo1hLg18cnEi3vdM3v
+	hjnrjMr1Pcr6hv1qfG+IReezRAS0kbhHY9ggLrNyLyV0B1osI4sRWbeaKrOIqKDOYseuZa2aBCjgZ
+	9N+uLxyRXgCsK3DkayVlwNrzb4DmzbeS65zR6YjktK5+ETvUGUHNl0d6nwyvKQ4+zvVyc0f5kTEdp
+	fSGV+HRsT4rv+S1HyFW2u4ZGhvvJmJsb7q9XHqxMuLaNEVo0aJp61nCB9BBkmJY/zfoly7T8GARV/
+	an8CMboG6nx+wnHVezBpoTUZn8n4AOLCQnxxaNf+XGUiccBvJKdSIkZYQG/6bzEtwEhsG6K8o6Kin
+	YFyxrHlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK7aG-00000004l76-1pDY;
-	Sun, 08 Dec 2024 03:03:48 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1tK9Vj-00000004qsQ-1NEu;
+	Sun, 08 Dec 2024 05:07:15 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK7Yg-00000004kyu-0OQc;
-	Sun, 08 Dec 2024 03:02:11 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1tK7YL-000000006ze-18Ds;
-	Sun, 08 Dec 2024 03:01:49 +0000
-Date: Sun, 8 Dec 2024 03:01:38 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexander Couzens <lynxis@fe80.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next 2/3] net: pcs: pcs-mtk-lynxi: implement
- pcs_inband_caps() method
-Message-ID: <Z1UMEnlZ_ivTsru5@pidgin.makrotopia.org>
-References: <Z1F1b8eh8s8T627j@shell.armlinux.org.uk>
- <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
+	id 1tK9Uh-00000004qo6-0543
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 08 Dec 2024 05:06:12 +0000
+Date: Sun, 8 Dec 2024 13:38:39 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733634360;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fTIMMaEabz2yNJ3BCGYu9dfy9Hdli7Hl5ja+ottT06c=;
+	b=LadHdV6vwdbKRm7jeZ25s+fet1g1lR3mVmf2wE7L2H24h9YExw+OipKvMaZznsnoHt+iyS
+	sCqZ1kUDRr5hill6xow9tLd9LHnKkx5oPFjFdORxaE5tlsKr67GJIDhvm/JzBoy8Ll8F04
+	amkEA8ILyrepc15Wxs9ydplSmBDrLks=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Itaru Kitayama <itaru.kitayama@linux.dev>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com,
+	gshan@redhat.com, steven.price@arm.com, sami.mujawar@arm.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/1] arm64: rsi: Add automatic arm-cca-guest module
+ loading
+Message-ID: <Z1Uiz7Hn2XisyP-N@vm3>
+References: <20241207012128.247522-1-jeremy.linton@arm.com>
+ <20241207012128.247522-2-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20241207012128.247522-2-jeremy.linton@arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_190210_210246_57038341 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20241207_210611_546787_D5DC86D0 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,35 +71,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 09:42:29AM +0000, Russell King (Oracle) wrote:
-> Report the PCS in-band capabilities to phylink for the LynxI PCS.
+Hi Jeremy,
+
+On Fri, Dec 06, 2024 at 07:21:28PM -0600, Jeremy Linton wrote:
+> The TSM module provides guest identification and attestation when a
+> guest runs in CCA mode. By creating a dummy platform device, let's
+
+Perhaps could you spell out like; a guest runs in the Realm state?
+
+Thanks,
+Itaru.
+ 
+> ensure the module is automatically loaded. The udev daemon loads the
+> TSM module after it receives a device addition event. Once that
+> happens, it can be used earlier in the boot process to decrypt the
+> rootfs.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > ---
->  drivers/net/pcs/pcs-mtk-lynxi.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+>  arch/arm64/include/asm/rsi.h                    |  2 ++
+>  arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
+>  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  8 ++++++++
+>  3 files changed, 25 insertions(+)
 > 
-> diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
-> index 4f63abe638c4..7de804535229 100644
-> --- a/drivers/net/pcs/pcs-mtk-lynxi.c
-> +++ b/drivers/net/pcs/pcs-mtk-lynxi.c
-> @@ -88,6 +88,21 @@ static struct mtk_pcs_lynxi *pcs_to_mtk_pcs_lynxi(struct phylink_pcs *pcs)
->  	return container_of(pcs, struct mtk_pcs_lynxi, pcs);
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 188cbb9b23f5..b42aeac05340 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -10,6 +10,8 @@
+>  #include <linux/jump_label.h>
+>  #include <asm/rsi_cmds.h>
+>  
+> +#define RSI_PDEV_NAME "arm-cca-dev"
+> +
+>  DECLARE_STATIC_KEY_FALSE(rsi_present);
+>  
+>  void __init arm64_rsi_init(void);
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 3031f25c32ef..5434e5496ac2 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/psci.h>
+>  #include <linux/swiotlb.h>
+>  #include <linux/cc_platform.h>
+> +#include <linux/platform_device.h>
+>  
+>  #include <asm/io.h>
+>  #include <asm/mem_encrypt.h>
+> @@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
+>  	static_branch_enable(&rsi_present);
 >  }
 >  
-> +static unsigned int mtk_pcs_lynxi_inband_caps(struct phylink_pcs *pcs,
-> +					      phy_interface_t interface)
+> +static struct platform_device rsi_dev = {
+> +	.name = RSI_PDEV_NAME,
+> +	.id = PLATFORM_DEVID_NONE
+> +};
+> +
+> +static int __init rsi_init(void)
 > +{
-> +	switch (interface) {
-> +	case PHY_INTERFACE_MODE_1000BASEX:
-> +	case PHY_INTERFACE_MODE_2500BASEX:
-> +	case PHY_INTERFACE_MODE_SGMII:
-> +	case PHY_INTERFACE_MODE_QSGMII:
-
-QSGMII is not supported by this PCS.
-
-Apart from that looks good to me.
-
-Reviewed-by: Daniel Golle <daniel@makrotopia.org>
-
+> +	if (is_realm_world() &&
+> +	    platform_device_register(&rsi_dev))
+> +		pr_err("failed to register rsi platform device\n");
+> +	return 0;
+> +}
+> +
+> +arch_initcall(rsi_init)
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> index 488153879ec9..87f162736b2e 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/arm-smccc.h>
+>  #include <linux/cc_platform.h>
+>  #include <linux/kernel.h>
+> +#include <linux/mod_devicetable.h>
+>  #include <linux/module.h>
+>  #include <linux/smp.h>
+>  #include <linux/tsm.h>
+> @@ -219,6 +220,13 @@ static void __exit arm_cca_guest_exit(void)
+>  }
+>  module_exit(arm_cca_guest_exit);
+>  
+> +/* modalias, so userspace can autoload this module when RSI is available */
+> +static const struct platform_device_id arm_cca_match[] __maybe_unused = {
+> +	{ RSI_PDEV_NAME, 0},
+> +	{ }
+> +};
+> +
+> +MODULE_DEVICE_TABLE(platform, arm_cca_match);
+>  MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
+>  MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
+>  MODULE_LICENSE("GPL");
+> -- 
+> 2.46.0
+> 
 
