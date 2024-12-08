@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E71E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 16:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813CCE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 16:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qhusLfuIgsMbQqxPaQUwX3ow4Gf24/DeZxPYGalAiY=; b=NWzg/Oro5wUalmWPfCYGDHVRie
-	DM7ZYianKUNkdkDIf8wJZd/G6qa1Bo/h8kHEngX4ffiMfMrn3G/3+026Vdi16U0gGcTpTzV3Y2JOV
-	JxaK6iJ0MZZAE8P9Kh8Rk0giC/hppwYwsDJtxwpB2cQKdzJJv/IgkSjjJMp4BJJTLDRv8hLI6zOhn
-	Pi8NwHROpQc+eV2t3B49DxH2ov1IOGa/ezCFJSjCQfCN/xk6jaaR/+ObQx2AC2LVVcapEB3ihV1eN
-	pttExNXGi45K3vdsLDKFTdQwufqeZohyjq6Q2qc/9WrB+44sKSeraZkQAj/Uw7Zdn/7cOBe9PTq3G
-	P6/KBUMg==;
+	bh=5NqubRXx7yB7hllGexLKx/eAFws2OmJDZVjdgSdgh80=; b=aPxZc1V9oPm5xNR6HTETSDzbs7
+	zQibGQGczhs+GRVMHwQZcD4n8QVi/J0ze59P24+VtRW2lX2VXSSP3Lk6hA32o/A+gRD4sxH8/pDi8
+	ZfPil2FRTbLqKc0fehY341jxKu9xrVbFkQ/vY6LbybTc0f5+AeFsxbJxsD+LjNojhmjQHa9Z17V6k
+	UkKWK3Yl3tSSGpOHNvRdHqsbrLLx6K8lf/vCjioEU7KizDXYgB7pd5lgveXAzXE1bFouoBSHZWqO1
+	1t1EGAZ4rm5YcuuW25u+KidvB5LALv1VBI3QbpoM4mblMkcT+Wcc6fwM2Se4oxWbFm+ly0yWA3yPm
+	NkoNBl5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKKCa-00000005Yhr-0PrD;
-	Sun, 08 Dec 2024 16:32:12 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tKKEH-00000005Yud-3QRv;
+	Sun, 08 Dec 2024 16:33:57 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKKAw-00000005YVV-1B5y
+	id 1tKKDF-00000005YnB-1mXt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Dec 2024 16:30:31 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aa5f1909d6fso686298366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Dec 2024 08:30:30 -0800 (PST)
+	Sun, 08 Dec 2024 16:32:54 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a9ec267b879so691250366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Dec 2024 08:32:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1733675429; x=1734280229; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1733675572; x=1734280372; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8qhusLfuIgsMbQqxPaQUwX3ow4Gf24/DeZxPYGalAiY=;
-        b=MsvQfUrEFiMEV/w/cBnVIY3KmD4ZbrwfandmeF4Z/vqUsb4wFDiGeyKGeyZHt+LYBn
-         ZaDqT3A1nFHIu8cSkN5JEPyDWkLH+TzLF6Awn2gokMOlysamNNIswStrTD9K9PsMdorS
-         UkEEBnlVt453I5nwTFZVDYmMwkgPytkibC8r47CA5g//b6cTqzaqzwtyqeg6rorXY1h4
-         S0PBSN+mMBZxusKdj5JE2C/USE6oYnBQQPY13V4w//yPxobWqv4Mec47ROCZJIGLM98v
-         IXQi8eFxGYDYoShSB6Zh4BkrU8ZZ22WK2i6hnBf5p8y4WCE6DRBA7z7RWWmdAwjob6rF
-         R7Hg==
+        bh=5NqubRXx7yB7hllGexLKx/eAFws2OmJDZVjdgSdgh80=;
+        b=LEjRHWXy6Iu3u1Uv+2/DG6/dCBvL8/awAMnuTY1RLrWqn9m4asCaG33lSGG5Js27Ga
+         +QxOXtg1sHMUQi2Uhxf0vwx7dViLY4yK5Im9bMLNgtmJoemf7KLy37WlV6Jj3UYVuHoQ
+         fc3S+IGYbtcns4xv6DSiFdquaRFV+dW4VHZROOUiWbZj1uD2SrR20JxBAC66r38RhI2I
+         qbCOIbpaRmumBO1ozp1m1sxU0FXjxrys7IHcQosZFsFz7WlmKOAUwqxhsOAYIa/jQl+U
+         vXaOgsw9W2OpXiS9zfGCxrE7sMvqCAmrBKSwD90nX+a7CUp5rdZnGtNQLYBYu7v1teyK
+         F05w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733675429; x=1734280229;
+        d=1e100.net; s=20230601; t=1733675572; x=1734280372;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8qhusLfuIgsMbQqxPaQUwX3ow4Gf24/DeZxPYGalAiY=;
-        b=BslQYOsnj36nn5f64U+CzjluUjLCEaNgkhRNnE65vWVFIf3ZOAwNqRa9j97ToPNgDL
-         8ZV/KKIj4l3+DWewg/bgE9G79gRaL3XUCDriKuvJMLNVE2JuAKAq3zHZAFSXu3qAFj9a
-         o2cCbbF/5eCRDOzcw2gTR4mJA5iddMm/fsRWFlSAAO6LPHIP33ClwbR8wOvTMT0IXdod
-         x4DgQvcFlWu13pYC+0lZql/HDS83yguKVS1vL12906H0Tq4Y3QAp0OnRMxl6OXxKq9pG
-         IdKWq9yz/iaWxU3VfXBKvlLvCkI8OnNfnls+BXIp98FA45YI/AlelrG8prqE68je6Hh1
-         T4Kw==
-X-Forwarded-Encrypted: i=1; AJvYcCUg+0ydsWV1A064fSToR2UyQcRZo9X5SK4oq0PQrv1f8R+vGnfKjgm2Yt8nHmXr6gmedRABpSVh70Jo619vOr0/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/UnxpKAPBtNB16YziYQg6Rsu79EGzfdu65OSBmlw0AFWSXucm
-	Bm9WwWXmYYGCNvfc1aminQcQh8E+cSYPhIdGKbHXO3siCpsQgX6LNW9+bdA4OHg=
-X-Gm-Gg: ASbGncsRZ2UfehbI8z0JN7Nsi6MujK5z6Omo41jslYt50K0UrcMT2lq1Na35XPiEnNN
-	ojPvSbbm5ZChKt3aT9/4xRdkldTYHHDnqZ60Xx4bh2F98KhQ8ggMJE5DEKMWbPb6Ijd0GuWwu/z
-	mnvHOnRFAYykvl6rRvxnLRsg+po1cYPoVCnOtjlLib3oIWEDBmN9OuL0lFxoMObSsWFOm8TmweI
-	bnxwF2GvmUEH7ue2FKIsCSLfqm0vpLJsDpFci4eDqyX3LIBv07WtQJtoX4=
-X-Google-Smtp-Source: AGHT+IE7YDoN13k+KH8JOtiRLrAMtuSmlPV0i3qWniWezo/cHtHK2Sxr/2xiHf8TyJV2wCkaLPDXWg==
-X-Received: by 2002:a17:907:8315:b0:aa6:7148:91f8 with SMTP id a640c23a62f3a-aa67148942dmr286404966b.4.1733675427547;
-        Sun, 08 Dec 2024 08:30:27 -0800 (PST)
+        bh=5NqubRXx7yB7hllGexLKx/eAFws2OmJDZVjdgSdgh80=;
+        b=SFsVOXzV2fDlndf0+9KBCdNIrEyt1TNHJEswiIAtABpk30DvLPaT3IYmjmSe/E4HJ7
+         0Qo5uqczNsPJW7qJTj8WqIk/oafkPwaQklyOnh1ha5rxmlxwm5ChpanYlv3/LitKei0s
+         T/uH78AZsZZVfnca0tnw8kiKJqpek2yhiNWay0yxio1/UiBsB6I7k0xyUs9WVxqIAo+b
+         eneQUr4ogNvL/U8eMOPUeMumFpg3k5WJ8Y+j2eRVWjdwnG0zD+PiCGGugX4l+Sro7784
+         lN92JhVA1W7yBRQitLtrFY8/9M/8SDRqj+bOT88+E+mkTymCoi3+az1Ik06lBYP1zFbo
+         KpNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWWw0IFY1vhh+5arWFLNnDXC6xaPeg/d4VCRV4al40adYvI2MerC0qj3+r3pWS+ffN3fmnbIS2er0SaMGWVCrtZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2ln/M23HfNDLEUkKXL9IJAJXQ4WaUrchkbg+wDDijMPxCIMr8
+	Ixw9v8wZIp+QzcfDMfSZGSQ2Aiyek4prcwZGgXNKib+GJfO1PWzRpPuW03TNLeg=
+X-Gm-Gg: ASbGncsIy4I5GPMhWEASH0iVpFW9CCJKYDqZUwfu3vo1X4I81I2MADRIJ44s8911CVd
+	1fHQ43W6VmsrHIFyUZg34GQrhr0Yb8nM4Aaxi3n4nqic2D1nO1M/vFxhOFRd8JLqATVNcl2m+2R
+	V7zgqjZWok16zTVbCc89vQ7y+w35QB8r6V0ac4Q8Wgxh10YxZBiM9IaEX5uG0I89sViwS7uW3iT
+	arLV0QfxnEupP8ZqIyiVQP4CbBjiBbYIC/mMgJ4/mI0nOtKaJOQXzeVeos=
+X-Google-Smtp-Source: AGHT+IEUKJnEgo2CRNB3itUfMNJATZ2OLCvbnr9j7GstLcYIkSd9q+ba/XoJW8mC6JiCchqLDbOmSQ==
+X-Received: by 2002:a17:907:9556:b0:aa6:6ece:8eb1 with SMTP id a640c23a62f3a-aa66ece9010mr420788466b.54.1733675571952;
+        Sun, 08 Dec 2024 08:32:51 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.161])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa68a97498dsm5949966b.99.2024.12.08.08.30.25
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa67a4f8dc2sm113804466b.179.2024.12.08.08.32.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Dec 2024 08:30:27 -0800 (PST)
-Message-ID: <022a34e4-2a9e-4cb8-8998-d5decc4d9fdb@tuxon.dev>
-Date: Sun, 8 Dec 2024 18:30:25 +0200
+        Sun, 08 Dec 2024 08:32:51 -0800 (PST)
+Message-ID: <81c686e4-2671-4237-a4d4-cac6cf269d9f@tuxon.dev>
+Date: Sun, 8 Dec 2024 18:32:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 10/13] ARM: dts: at91: Add sama7d65 pinmux
+Subject: Re: [PATCH v3 11/13] ARM: dts: microchip: add support for
+ sama7d65_curiosity board
 Content-Language: en-US
 To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, nicolas.ferre@microchip.com,
@@ -84,15 +85,14 @@ Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
  linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org,
  linux-serial@vger.kernel.org
 References: <cover.1733505542.git.Ryan.Wanner@microchip.com>
- <a8f880b89cd4470526a2955a0b6aaaaa24ba65b8.1733505542.git.Ryan.Wanner@microchip.com>
+ <e47d8c8cdaec834ce080ef8c34b9976228223c8f.1733505542.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <a8f880b89cd4470526a2955a0b6aaaaa24ba65b8.1733505542.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <e47d8c8cdaec834ce080ef8c34b9976228223c8f.1733505542.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_083030_324947_25B3962E 
-X-CRM114-Status: UNSURE (   5.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241208_083253_472505_A0778007 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,11 +110,146 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 06.12.2024 21:59, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> From: Romain Sioen <romain.sioen@microchip.com>
 > 
-> Add sama7d65 pin descriptions.
+> Add device tree support for the SAMA7D65 Curiosity board.
+> Update the Makefile to include the new device tree file.
 > 
+> uart6 is related to flexcom6, hence not sorted in alphabetical order.
+> 
+> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 > Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  arch/arm/boot/dts/microchip/Makefile          |  3 +
+>  .../dts/microchip/at91-sama7d65_curiosity.dts | 89 +++++++++++++++++++
+>  2 files changed, 92 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> 
+> diff --git a/arch/arm/boot/dts/microchip/Makefile b/arch/arm/boot/dts/microchip/Makefile
+> index 470fe46433a9..79cd38fdc7da 100644
+> --- a/arch/arm/boot/dts/microchip/Makefile
+> +++ b/arch/arm/boot/dts/microchip/Makefile
+> @@ -12,6 +12,7 @@ DTC_FLAGS_at91-sama5d2_xplained := -@
+>  DTC_FLAGS_at91-sama5d3_eds := -@
+>  DTC_FLAGS_at91-sama5d3_xplained := -@
+>  DTC_FLAGS_at91-sama5d4_xplained := -@
+> +DTC_FLAGS_at91-sama7d65_curiosity := -@
+>  DTC_FLAGS_at91-sama7g54_curiosity := -@
+>  DTC_FLAGS_at91-sama7g5ek := -@
+>  dtb-$(CONFIG_SOC_AT91RM9200) += \
+> @@ -90,6 +91,8 @@ dtb-$(CONFIG_SOC_SAM_V7) += \
+>  	at91-sama5d4_xplained.dtb \
+>  	at91-sama5d4ek.dtb \
+>  	at91-vinco.dtb
+> +dtb-$(CONFIG_SOC_SAMA7D65) += \
+> +	at91-sama7d65_curiosity.dtb
+>  dtb-$(CONFIG_SOC_SAMA7G5) += \
+>  	at91-sama7g54_curiosity.dtb \
+>  	at91-sama7g5ek.dtb
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> new file mode 100644
+> index 000000000000..3aab2c542d98
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> @@ -0,0 +1,89 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + *  at91-sama7d65_curiosity.dts - Device Tree file for SAMA7D65 Curiosity board
+> + *
+> + *  Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries
+> + *
+> + *  Author: Romain Sioen <romain.sioen@microchip.com>
+> + *
+> + */
+> +/dts-v1/;
+> +#include "sama7d65-pinfunc.h"
+> +#include "sama7d65.dtsi"
+> +#include <dt-bindings/mfd/atmel-flexcom.h>
+> +#include <dt-bindings/pinctrl/at91.h>
+> +
+> +/ {
+> +	model = "Microchip SAMA7D65 Curiosity";
+> +	compatible = "microchip,sama7d65-curiosity", "microchip,sama7d65",
+> +		     "microchip,sama7d6", "microchip,sama7";
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	aliases {
+> +		serial0 = &uart6;
+> +	};
+> +
+> +	memory@60000000 {
+> +		device_type = "memory";
+> +		reg = <0x60000000 0x40000000>;
+> +	};
+> +};
+> +
+> +&flx6 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
+> +	status = "okay";
+> +};
+> +
+> +&uart6 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart6_default>;
+> +	status = "okay";
+> +};
+> +
+> +&main_xtal {
+> +	clock-frequency = <24000000>;
+> +};
+> +
+> +&pioA {
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Compilation fails for this:
+
+Error: ../arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts:50.1-6
+Label or path pioA not found
+FATAL ERROR: Syntax error parsing input tree
+
+Thank you,
+Claudiu
+
+> +	pinctrl_sdmmc1_default: sdmmc1-default {
+> +		cmd-data {
+> +			pinmux = <PIN_PB22__SDMMC1_CMD>,
+> +				 <PIN_PB24__SDMMC1_DAT0>,
+> +				 <PIN_PB25__SDMMC1_DAT1>,
+> +				 <PIN_PB26__SDMMC1_DAT2>,
+> +				 <PIN_PB27__SDMMC1_DAT3>;
+> +			slew-rate = <0>;
+> +			bias-disable;
+> +		};
+> +
+> +		ck-cd-rstn-vddsel {
+> +			pinmux = <PIN_PB23__SDMMC1_CK>,
+> +				 <PIN_PB21__SDMMC1_RSTN>,
+> +				 <PIN_PB30__SDMMC1_1V8SEL>,
+> +				 <PIN_PB29__SDMMC1_CD>,
+> +				 <PIN_PB28__SDMMC1_WP>;
+> +			slew-rate = <0>;
+> +			bias-disable;
+> +		};
+> +	};
+> +
+> +	pinctrl_uart6_default: uart6-default {
+> +		pinmux = <PIN_PD18__FLEXCOM6_IO0>,
+> +			<PIN_PD19__FLEXCOM6_IO1>;
+> +		bias-disable;
+> +	};
+> +};
+> +
+> +&sdmmc1 {
+> +	bus-width = <4>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_sdmmc1_default>;
+> +	status = "okay";
+> +};
+> +
+> +&slow_xtal {
+> +	clock-frequency = <32768>;
+> +};
 
