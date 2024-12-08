@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92046E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 15:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3A9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 16:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kx3jh0GE1/Dropfvo1pElPZ7xo029DSJLEgY7NpRbHo=; b=Ikb6cPv2qEQLeOozQwP2Dlebl8
-	+5F/fdb7dpaZBstnput5sUzb/x5RQtFsx7im53VBSn1LSBSlId0WnsCqUnFnrz0Etf9l6MhpgMtLZ
-	EhYZ3WNK3S3hiZ4XOhVbMudivPJth+s0EhmQzurGQwV5bBU7jFB0O8ZfzOiozjZXPGv4y+UFJnojq
-	IWB+pWiO3yq5laFdzDd8fmKF+5S8MDBLpWRTObj18FCHPQkjU+CTE1n3Q7lkb5NjEG2KnP2lMdvvG
-	vxs4N6h33a0Pxs1ohbIESeLVn1h9aPdGbz71pwEGJZGvpUQMInLdRayUdtYp3syOwGteuLUW9U0PR
-	p4cdzITg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VZ8VRmiKJwkt/GYZB70TA69WOCgOy6/6A6FCtWbmeu4=; b=aZNTX3OH0bIOFWc8i9t4Dm09c/
+	QErxxLgnbHqSs7VV9p9Ta385Ouokfm1Db64tQLVo7eChkFItbKSyS5qrV+yos5hTVyk5L5VZ7qNnr
+	fYswnvF7mB4jS+rUEGI0vsPSweJ60Cg1hbKIcexCmIFDdOdhKy8Gt/D7hDiqLh6UN/IOp6ScK3deO
+	a8E0cvJ+l5Rv4EyYS4eDPx+qfiI2oIYvotxfXQBTPxNqcfTQhXPM1+ar5zIUOGlkiGHqSQToyA+1f
+	l9g9BLiX5Tp0j0fA/zEKuYQCr0qFhygS8/Yj9yq8MYkAFWfEeibAvBImccndHNjHpdNAqNmcNnUSD
+	s3x4PxmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKJb6-00000005VIa-34Pp;
-	Sun, 08 Dec 2024 15:53:28 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tKJlT-00000005WSq-05pR;
+	Sun, 08 Dec 2024 16:04:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKJa3-00000005V6z-2e4A
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Dec 2024 15:52:24 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-434e84b65e7so13084155e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 08 Dec 2024 07:52:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1733673142; x=1734277942; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kx3jh0GE1/Dropfvo1pElPZ7xo029DSJLEgY7NpRbHo=;
-        b=bsdqN4NHmIN0unrcul2OSwaCHhroCEw5mK0wx2eI16d4CsXOr9G/gjWyDytB6NvEAi
-         J+7Zd401iBA+mOQy/izrG9gbQOKcYlTOGbUKkyRIwJetVWEK6F8631nRYFHZGo6WPwZt
-         JXkmanTIxR10CyC/fAexV+I/GySr+k660YtnMvRbgqC6b/NgZuhbpYSIr1ukoJLd465y
-         JUIOyE2sjseDtKiIXt8XL/PGSY/BUqfln6k2LtroG2EoQTXeK9AhWBLQJEHFh/cBd/WM
-         D72xpr2yHRkgFiNSHHpdHWDjVNjQlUjQyTdIA05Xs9VPRv0DsVcTkTgsvAhvuG1lbS9+
-         sKTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733673142; x=1734277942;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kx3jh0GE1/Dropfvo1pElPZ7xo029DSJLEgY7NpRbHo=;
-        b=Kgd80SLbiIQNgPjwqG2Kfy4T+IhfqydPnXvWpWPCIjUvO/apNsKRhIJGg5ojYasMA8
-         +Ve+0CfRPN0Z/93AOfRjZ3TA9GYk0peT1jltGzNf2kKPiOn7lpqbBdkItHwVnkJ5B+vf
-         4x57yszaCntMXpjKvnRyFkuEhvfT/bHXqsKLbOYjHVhcDZP2T3QmHYSnWmxZVYQpO/+H
-         c5WoL3aSAQmWAHzB3Ogc6XYjwpTDVLrL3+IclucCTC/0DCC2tn0UQEmkdqR0Mw0wrbhv
-         tc/jaFqwuCLfztRKL8EtE27jJU9QzaAlTs8cGLiffu6iucKvMGjm1LntAvJsWSWZDvQw
-         QnGg==
-X-Gm-Message-State: AOJu0YwbzKMr7IyEdJt8IkVyJw73zfkY+/0VwJGUnAT6wDlPSZY5Mf7V
-	5pfV3ATt37LPTNrM7TnW0RVVNEUWjFzkH27RX6wZZI0HHd/NOKGa8H7/IPRYY9M=
-X-Gm-Gg: ASbGncu8G9dShCoyJlcR9yk5aY+esX47AaIMTIbnEn/87zqvvy0YamKs9efso/nbx0o
-	uOszE+tH9lv9YH+x9uwNJYAkTuzXmscvukwahvnP12OV/b+wW1wvRnqAesyTixgjdNb0H+4sycB
-	R/+9tvZ8Isep31OQMZltKrmSkFKBCaRMgvoVav9TYNC1so76gSSbHZ0rEEp7WsIqbqh2pXt3v86
-	EAZNXwS6TQVWqLBDwSJp+BED3wgkfPwuOZs0azCA1kWdaNc5EE919jXv/c=
-X-Google-Smtp-Source: AGHT+IEHWXmOO6Qhxy2IR+e2zwqSa3oqeBDMkFmhJ9xKhEy7pcBF/DqwbtBN0uvcQlGuz1FIpzs6uQ==
-X-Received: by 2002:a05:600c:35ce:b0:434:ba13:e52b with SMTP id 5b1f17b1804b1-434dded2bedmr89096995e9.31.1733673141783;
-        Sun, 08 Dec 2024 07:52:21 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434d527eeedsm157997545e9.19.2024.12.08.07.52.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 08 Dec 2024 07:52:21 -0800 (PST)
-Message-ID: <afac0fe8-2854-43eb-a4fb-bcf5b6d194d0@tuxon.dev>
-Date: Sun, 8 Dec 2024 17:52:19 +0200
+	id 1tKJkR-00000005WLp-0WVs;
+	Sun, 08 Dec 2024 16:03:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=VZ8VRmiKJwkt/GYZB70TA69WOCgOy6/6A6FCtWbmeu4=; b=btlmEvN7EvWs2yI3x1wGfGlvQk
+	qNjp3GT9mYlIiZxcbrRufWO4s0XRmZRSM2zw+V+/0NGcA4ZJYh0ppcKvrXpEaXQ1Xl2Z/XX/2wocq
+	OOQJU9f56/RQCF3DfYx8ckJIZ7qOEJpn/GTtd3ImEInmC0s2HwuNLkqf64T/pcbXR+hI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tKJk8-00FZvL-Nc; Sun, 08 Dec 2024 17:02:48 +0100
+Date: Sun, 8 Dec 2024 17:02:48 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v10 2/9] dt-bindings: net: Document support for
+ Airoha AN8855 Switch Virtual MDIO
+Message-ID: <656c4f9d-ff6b-4c98-84f4-d20b6e562c13@lunn.ch>
+References: <20241208002105.18074-1-ansuelsmth@gmail.com>
+ <20241208002105.18074-3-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] soc: atmel: fix device_node release in
- atmel_soc_device_init()
-Content-Language: en-US
-To: Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241031-soc-atmel-soc-cleanup-v2-1-73f2d235fd98@gmail.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20241031-soc-atmel-soc-cleanup-v2-1-73f2d235fd98@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241208002105.18074-3-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_075223_729842_CCC2BA11 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241208_080307_161303_FBC2CE11 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,20 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 31.10.2024 14:33, Javier Carrasco wrote:
-> A device_node acquired via of_find_node_by_path() requires explicit
-> calls to of_node_put() when it is no longer needed to avoid leaking the
-> resource.
+On Sun, Dec 08, 2024 at 01:20:37AM +0100, Christian Marangi wrote:
+> Document support for Airoha AN8855 Virtual MDIO Passtrough. This is needed
+> as AN8855 require special handling as the same address on the MDIO bus is
+> shared for both Switch and PHY and special handling for the page
+> configuration is needed to switch accessing to Switch address space
+> or PHY.
 > 
-> Instead of adding the missing calls to of_node_put() in all execution
-> paths, use the cleanup attribute for 'np' by means of the __free()
-> macro, which automatically calls of_node_put() when the variable goes
-> out of scope.
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  .../bindings/net/airoha,an8855-mdio.yaml      | 86 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 87 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
 > 
-> Fixes: 960ddf70cc11 ("drivers: soc: atmel: Avoid calling at91_soc_init on non AT91 SoCs")
-> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+> diff --git a/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml b/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
+> new file mode 100644
+> index 000000000000..2211df3cc3b7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
+> @@ -0,0 +1,86 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/airoha,an8855-mdio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Airoha AN8855 MDIO Passtrough
+> +
+> +maintainers:
+> +  - Christian Marangi <ansuelsmth@gmail.com>
+> +
+> +description:
+> +  Airoha AN8855 Virtual MDIO Passtrough. This is needed as AN8855
+> +  require special handling as the same address on the MDIO bus is
+> +  shared for both Switch and PHY and special handling for the page
+> +  configuration is needed to switch accessing to Switch address space
+> +  or PHY.
+> +
+> +$ref: /schemas/net/mdio.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: airoha,an8855-mdio
+> +
+> +required:
+> +  - compatible
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    mdio {
+> +        compatible = "airoha,an8855-mdio";
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        internal_phy1: phy@1 {
+> +            reg = <1>;
+> +
+> +            nvmem-cells = <&shift_sel_port0_tx_a>,
+> +                <&shift_sel_port0_tx_b>,
+> +                <&shift_sel_port0_tx_c>,
+> +                <&shift_sel_port0_tx_d>;
+> +            nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
 
-Applied to at91-soc, thanks!
+
+For this example nvmem is not relevant. Those are PHY properties, not
+MDIO properties. So you could simplify this.
+
+	Andrew
 
