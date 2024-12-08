@@ -4,142 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149E9E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 02:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A45CE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 03:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dr1OozNAKDWcK53cPMeCfAh7pKZ6dopUYdnSBlciWUU=; b=QnAhPLA1sDhaDyoOj7S6s249Jb
-	uy5+BfJszKRnPq09bE/uaCdM1QffIlSu+j+R2/1xSnECEAfGMRh9463jyCVvS0U8OTD0usiHaZfG1
-	xB4tSwqsj/va9BS+R02RRiRJ2cPtk8GQ0WlHQY9pFGI1cOPDCSYad1KQZ4b/AS+r/AgJ+JVzca4n0
-	VETDbv7dX4D8rYZY4Lj1Ud4qR/xnnSMj356d5kp1YsSJpcz+JnEpNcSqmiP/LmH5yODQcYy8mX70J
-	/vWY2mk6zrmakCILaUMrb3Icexx5L/y0lplB/LaHGW1buL0ezv1Xiw+2vRlS4hifBybnUjOC83Tfm
-	B9yYRcJw==;
+	bh=bdu5uC0lzc8wPQk+gshdsrZMO90UwHOvaN8hs4yv7oo=; b=0CCoqlmm23p5wBalT3GJmBrklr
+	NX2nfzNRvoguxUwOKgrPOsZl7yQNJ1aR/QSmeNjYeXsGIgi4shK1l+d8EZoh5qYS84pNqICvgZGU1
+	BwB7EG6QzxZmyhL16PE0MdTwIIlN3+tCaBNa0HGl5RoQCzzccw1NpW2YYkuS3sOsTeRRnasiZPqAt
+	8zkKeRVyBq+bGoxnnVVEqsWCXWNv8/dLQ09QK4mDUpyqUPKMEh9k8zDZPRTKePHy+0/OAEX1+mOS5
+	HjjkCl/IyZ5sdnvxV6byy1w3SDkZhYqyyG0uumHbctBR4IdWqPUQbTBrog7MIrYB12BqTh09m6oKN
+	cUrWW+Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK76x-00000004j24-0F4s;
-	Sun, 08 Dec 2024 02:33:31 +0000
-Received: from mail-bn8nam04olkn20807.outbound.protection.outlook.com ([2a01:111:f403:2c08::807] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1tK7Xi-00000004kqm-2yVM;
+	Sun, 08 Dec 2024 03:01:10 +0000
+Received: from mail-bn7nam10olkn20823.outbound.protection.outlook.com ([2a01:111:f403:2804::823] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK75u-00000004iw6-3X9Y
+	id 1tK7Wh-00000004klM-14e7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Dec 2024 02:32:28 +0000
+	Sun, 08 Dec 2024 03:00:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=biajo9MNc/znrZjzdm5lz7MkCWXAIxO749WlNNrivfWnLO9k6oulENSkWh6Po+d83NetM7QlXZVCQxXDmLUEW7FQLLj672BP/2+VS01QQWmYO2CVg/rOUb82NyuP/6+shCRF0LWrwQq0GM8GbmGXgkkDJPJ+9UoAbOLTK92M/GBCVVoZe7hGR3AYuvNhQCkhFzt6Iafj6Pq1ulpdEhehBb7wAuYFStTGGur/V4dmDg0Va5V+t/d4jq3hL+nlNZgceTsJ2oOJ+4G+V4c1S3z3TmPaQ0CZKiRM2MqiyQq8d37DvfstWXu1b9ygMA2pl7smOTJrRcjoN+2ob9f+BiuS2A==
+ b=sMtX9Knjiy1ZrTenr+arZAdqmNWLBhub4pudy3Ma+dOst4IiM7/cichlK/2v5l8zy1QEIs8BOOrqWOuGt9nITWuiKOJqjxoBsfdArugdI9iSTlnm14h6te9WPXAhp7j8fG8C9c5LaWvx9nQrq6VwrB75Ywwz5NBXOTdRY67jlM5FxQSavAYMmvDFXy2TeKf98G4qMTKpYrGJdnvw1UC6cniqUZKjSLVSelKu1pLyYkjB5IZg6NRMmNoc9DHex2EdbZPC875m0i5d9EQvmADqYJsXhRm0RHFsL7B4++d46gp64gJo1vZAcutRciwoyttkPzfC5IGBA5h8H2U6vDGZOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dr1OozNAKDWcK53cPMeCfAh7pKZ6dopUYdnSBlciWUU=;
- b=v8AcJgqVwDICaTU8cLOZ3E0VllBRTIRpPZr0xd0WhrTzWTXuKJtSIxS4FKa0imW9RFJEhzNpR8s8haAmry1xzOCRz5d1Z5Tjly0Fn+yD4HAiIMF4VkC0/+cRho8gr+vtntRUA82qeuB2jYeKVnU62K6lC/fg+WkyUg1nXAH0til/36zehK+2+kA3s7uZ6EgiNuJzewwzxWfZsTAs9+1G6L/ljwqUMZcBh89LCGWl9jzU3+d1G7v9YFBll+kZexF49C+POJ1LLLKPas80cm7aoht50gfBqecuay0oC52deKVRQkNIYJxIfeU7iswN8gcC9h4maHF2k/Xv4d3q02ReHw==
+ bh=bdu5uC0lzc8wPQk+gshdsrZMO90UwHOvaN8hs4yv7oo=;
+ b=cHxXfWdqPRvx0KE4XM4taHC39F6jnjgY4zJliZFxiYJP+458PjiIA5e1dbHb2BCp5v8vU0NjEojRSZ1jc8d+Bl52ApJORFvWIeSu8RdRGZhzL1HQWEy2saccO9QgCNQcU8mXRws2tIIvNvrHKcxcoePZv8TkO1epC2rJSHcb709i558px/NveyVnuRH1AwKmWJ9bk2+S0NDHAMi0lAMSoPaG6bY+uPTMq58CAzLxmmxqlQ5rZ69vng/+3inZ4T9Tm65tsr1K2KId8g/L4CcamPpIq9wnjeJ25mqDaJTAWMAl2q73YSQiT4Q2A1U9iiR1B6TbQqzpI544gdOAB4Np6Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dr1OozNAKDWcK53cPMeCfAh7pKZ6dopUYdnSBlciWUU=;
- b=UkiUAd4c60ElxnTLkafE5dIjdWP6l/NumCYxCuOLL6WI1Xgm8RPm9LGfkUq2cv2ZApsRtEwpbkC7wR2lsorkEE/nbyjKJL2MMe8KtUPl9qxt+0FtCY3kRlboYmhlzjkNQ69f6oJmTuzgJn40YEr0OBoXdOTGdbVpz8NlMmBLihbXWMg2NoP90R2qvNi8TK5OhTE0QBMCndcZbLXzNDfAGh6g9ZhzXGCdSNmHQRRpBKWT9bomy0WYQtdwoAbt4hsPpnaswsEAxoYaTyWcQW4Ce1DycPpwCZa2nV6hld0xnGoytmJeYq6xEhVVabnnG6zTjoGwkfR0DFJ0oz+a9cBTew==
-Received: from SA2PR06MB7658.namprd06.prod.outlook.com (2603:10b6:806:148::6)
- by PH0PR06MB7606.namprd06.prod.outlook.com (2603:10b6:510:52::13) with
+ bh=bdu5uC0lzc8wPQk+gshdsrZMO90UwHOvaN8hs4yv7oo=;
+ b=H2Bep+HJYfoodXx39bmc/I183HkbI61h5Qxe3WUeIArRvC7zXus2s+wXsuPrHh6FbQZs3nu7WJDspfxONON3E9e7Ll0H05Bm0ym/XjqGRzQsZtipMzDOblP6DyfBQJ9206HDew7CJEZnKZPyB4cGS9BSuDVgaMk1psEOUH6pDsF/YzHhdW2bMMAHHFZNxr4vigELmWYK+xNBEMU/6napv0fCs33ogX8wxJ6sXTx1HcY/5fp9WHnLFGsLi2sMNv856mH5Jcxwjt077wJs6pNAxWv3aCVxTtFZexOo2eiG24Lp9dIXb3ItWNYXcAMIaqXSqpPW6wOk3xaAnYPoFILwYw==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by PH0PR02MB8485.namprd02.prod.outlook.com (2603:10b6:510:10e::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Sun, 8 Dec
- 2024 02:32:13 +0000
-Received: from SA2PR06MB7658.namprd06.prod.outlook.com
- ([fe80::26e0:1879:9fd6:d111]) by SA2PR06MB7658.namprd06.prod.outlook.com
- ([fe80::26e0:1879:9fd6:d111%6]) with mapi id 15.20.8230.010; Sun, 8 Dec 2024
- 02:32:13 +0000
-Date: Sat, 7 Dec 2024 20:32:09 -0600
-From: Chris Morgan <macromorgan@hotmail.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Philippe Simons <simons.philippe@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>,
-	Ryan Walklin <ryan@testtoast.com>
-Subject: Re: [PATCH] Update H700 opp values
-Message-ID: <SA2PR06MB7658AC3393BEB29D946EE508A5332@SA2PR06MB7658.namprd06.prod.outlook.com>
-References: <20241128154556.2743839-1-simons.philippe@gmail.com>
- <5b07cd47-868d-46a3-b365-ccac2a68b792@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5b07cd47-868d-46a3-b365-ccac2a68b792@arm.com>
-X-ClientProxiedBy: SA9P221CA0021.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:806:25::26) To SA2PR06MB7658.namprd06.prod.outlook.com
- (2603:10b6:806:148::6)
-X-Microsoft-Original-Message-ID: <Z1UFKfxGI8lca_vz@wintermute.localhost.fail>
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PR06MB7658:EE_|PH0PR06MB7606:EE_
-X-MS-Office365-Filtering-Correlation-Id: 108153a0-5112-4298-091e-08dd173085ae
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|5072599009|15080799006|7092599003|461199028|6090799003|19110799003|440099028|4302099013|3412199025|1602099012|10035399004;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pCdUwUvIdvlVMEomxGKMVmEto8j3IEhLsEpPDJaEhRxt7z0gwpVx9HOqvUvs?=
- =?us-ascii?Q?SQCA48QxzCmWVO6iCxnYiAF5EH35ADwXnL6dzvFCeFf/bT7gJEbjuggWpGLK?=
- =?us-ascii?Q?Yjs/Tk8IWTxWbSjVxNjknGSBrAWntj7vpCawWEN/ZRH/v1MUd6HDCIHd/fa1?=
- =?us-ascii?Q?Pmvezy/pEUbNhWyK+uN1ooj1qWS2399AFb1qtnr+NPB+Cwd+aDEECs4uDlPM?=
- =?us-ascii?Q?mc2060+K36eLFaXs0E5wOcKiklhT6/Hqb89P8NRWTHEN3tlpK5MCvZ2QQcbw?=
- =?us-ascii?Q?vCUhkp5sPdxnJ2LQNxq6p43JIfYTEatmKPBqMYePbsxjS9M8ybHENCKpKJX/?=
- =?us-ascii?Q?4LOKNHp77Az751Uq66ULxpm90mR1h4RAJ6Ap3iVVz2MYVuI0WS/ezvkGxn8W?=
- =?us-ascii?Q?LjSHLchQ8hiFWK8zDj8Ef7HZqxb5W5EoleyQKOndNe2dB1+NdKfjlBoEqyAq?=
- =?us-ascii?Q?UVkbQKDsFNKSeZVPlc/6yI1qyerKYhpnAR7SLCpWIwbXirLYluIzDtHpnlk/?=
- =?us-ascii?Q?4uBBidOm1r5KiZ24uuncaO5kYLPwui64FX5Nw9mXOfPfFrrmaK1+VO87FQa6?=
- =?us-ascii?Q?wDjWvBIhxjrdkpbzkIHz0sYbjX9/fLLqAwx35JvX8VlRuwlzVIvS13XW0177?=
- =?us-ascii?Q?woOgnORvSi0x+s0wYysEet4FjMXWn6U/xzAvYbp//TaiuCz4/p582bq/2jSi?=
- =?us-ascii?Q?GLPmrkilldlcbm8Qf/3U0WYC5Sb9n7a73PREJ6sY2FMFdZKA3VVgntkCgHjh?=
- =?us-ascii?Q?86Yg97u7lRzZbfzRaq8VSysGg81UI1AyI10mGZb5l2BpIy2D42HUUQj7T5uk?=
- =?us-ascii?Q?WYgJBRF6KZspQa6Fe8AnyjtSaEpujGfJrB6Hl2xrlhJQteuuEL9tswpuHp1B?=
- =?us-ascii?Q?7DsrBKNp9w4mPRqKWKwwfa2xN5JaFDIgkADr6KHOUjWYRB7Mfv+i7yGBCQ6K?=
- =?us-ascii?Q?N1SiO9bdqjVVZi/xiskru3F3+uCxiJlqWZiZTPbjuny1j+aANseGECILnLre?=
- =?us-ascii?Q?rixQHN+24NoJIQjlzyWUw2ucRfySOauo7Xslcggap4aogaOr6o9cdbA5O4N5?=
- =?us-ascii?Q?G5freg/ggZZi7ioX6PD0kCtb2jLHXLzF8IPaALKN0NIsuBRlpW8nSsLdLksd?=
- =?us-ascii?Q?rRji+/cuJziSnHQbyYpPXDvvpQ5zooq93CW8pxW2Vk3d7vIxSZpNwUdgIDZg?=
- =?us-ascii?Q?El32fWc+0BgRVNguwUlqoVULpbEWuKGE6uuVtYXRWvXZCRob9KxftXWteZY?=
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.12; Sun, 8 Dec
+ 2024 02:59:54 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8207.020; Sun, 8 Dec 2024
+ 02:59:54 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>
+CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org"
+	<x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "arnd@arndb.de"
+	<arnd@arndb.de>, "jinankjain@linux.microsoft.com"
+	<jinankjain@linux.microsoft.com>, "muminulrussell@gmail.com"
+	<muminulrussell@gmail.com>, "skinsburskii@linux.microsoft.com"
+	<skinsburskii@linux.microsoft.com>, "mukeshrathor@microsoft.com"
+	<mukeshrathor@microsoft.com>
+Subject: RE: [PATCH 0/2] hyperv: Move some features to common code
+Thread-Topic: [PATCH 0/2] hyperv: Move some features to common code
+Thread-Index: AQHbSC1So8GCRq0rV0qQjqDih6Q3h7La8lVA
+Date: Sun, 8 Dec 2024 02:59:54 +0000
+Message-ID: <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|PH0PR02MB8485:EE_
+x-ms-office365-filtering-correlation-id: e24deea0-5df7-4aad-5b08-08dd17346454
+x-microsoft-antispam: BCL:0;ARA:14566002|15080799006|8060799006|19110799003|8062599003|461199028|102099032|440099028|3412199025;
+x-microsoft-antispam-message-info: =?us-ascii?Q?HIfiFz+aNfgBKLN3SGo93LL8ll+oReKMj3vMe85tvDbJ/h2r6aB4BJOp0y+i?=
+ =?us-ascii?Q?uK2Ty/2oXR8PKvbAuIZv/OlnoyK/a2GbBYxiwKGGHm5kV5L1nYii4oOBXZ5D?=
+ =?us-ascii?Q?bXahJZjf4WN/PgkR82pSl/a4C1OAOXEVHs46R8qIhF3Kr5KhAT5XZ758EctU?=
+ =?us-ascii?Q?t04q1JW47bTsxJVWr1PvP8pEUacAYftgALxUl4k5scHdQynEeXOkArzyoBow?=
+ =?us-ascii?Q?rboFSWfiGd2vOWQAMosHmI1ELCcqFd/1/xHIAw0BjPloMzv/0XBkFDKuVnCB?=
+ =?us-ascii?Q?Cv3tl9j13+SU/knqvinpLWdTSx4BkFBGO07mkIwbSulbVOZLTPqdDZdI21dN?=
+ =?us-ascii?Q?SctiysWekHm9SCkUK2MrgORxV9S8SDhmYKFmJMLp3OK/h2on9VvInahcP7tw?=
+ =?us-ascii?Q?0OR8HTnsib1wh/lEp4jMBxAUaZ4nSsUuFzlqTOmRe9EiJZHdiVpQsjR97Rql?=
+ =?us-ascii?Q?LpNO56ZcjpexKfeG59DBbF/pFN2t9fT9XD/ZFmV45qrh/LxW+Zzs1uLyMSuH?=
+ =?us-ascii?Q?/J3cfDAclz3hGYEQgW2t/Qh0PhqKUatrfVe/VOkSZBMtWc9PdrYAiEyuEjZP?=
+ =?us-ascii?Q?UlSAoXCfr/jSCRrnmuxVTSHZJ1Euszuz1lDzZuyIDt+dVrsFZ8h/i4N0JGxM?=
+ =?us-ascii?Q?PJ0ng8wN3yXAFOTSJTFlV6boa3WSbDjt3Qv3jeGa9xPNxD2vwsVNkbX/6AYl?=
+ =?us-ascii?Q?IgCr4o7qnWE7BImkz+77xHLcpENNfPzuPVipC225HCcMKLQTq7Jptalero8X?=
+ =?us-ascii?Q?qShYuR0x4dpoh6o2m0OhMJPWr9RbCgNdhnJykXNqF5dGnn+Irlj/BMe57GZM?=
+ =?us-ascii?Q?ex4mKZxxcUpr8d7scbqDdwVh1UuPAXBAijniKoacqMIYhFGRIZeA/EeZGPpc?=
+ =?us-ascii?Q?vmodtH4vfY5aiUii7W/EtQ8h8/W+hwjpURspxvRHTExRyGfqUuhmSrZLazjL?=
+ =?us-ascii?Q?aYxMLJc4inAaMiWoJMVHZDKfFPCBTcldUl8bnOM9aDcu4weRWhbZhL9JEKt1?=
+ =?us-ascii?Q?hzzKBD442Adag2bHDY3qHe+tkw=3D=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Sf3+6hnCo0pS0TgIrMpf9qTGCF8Oq8NGSrRE13hfsdCm7ZyNw3Jjz8w5+i57?=
+ =?us-ascii?Q?9mPMHDbx85uHZXT7E8FVSAAXsKCZmsXW3nJMLxIZHKFKnTZKZHVAiGiD+F1h?=
+ =?us-ascii?Q?x92ChHxYQAbZkVy/NGwxjTGmuH8aNbAtrzQ3wJv30YD/J4QpsVEPmoyOi3EK?=
+ =?us-ascii?Q?go7N3t/ac1Og5EQ3HAfxCXduyodvpaftiv6uLKQGxotlbe4oqhFqe4flIAZ/?=
+ =?us-ascii?Q?0XuLgAp366+2wI0N/6k4qsmQMYRgbIViycUnMCiaHLTCaCEKPMHihhZNszPf?=
+ =?us-ascii?Q?ReozLmpo2FHADx63ZAWwmKc6N2POBECdl7/Wo04raaDPLVKPY+pd9gUPTPIG?=
+ =?us-ascii?Q?3aTtiXRNzbtxcbVufi0IOcchpUJJnWfzxe/AmgBvSYY76jq1pYI/dY2LRasR?=
+ =?us-ascii?Q?tFpJMtE4bVgk1jCtRnu8BtbCYlyFwV/Cc8Nawiqyly+yHm2Y6a3+cu7OAxWR?=
+ =?us-ascii?Q?Oz8LzGDi0fjEvlO5fon5WO5Q3cBwLs9sOQBUcpUGSFbDsqSACWn6F6CBNkea?=
+ =?us-ascii?Q?EH7Bh3SIFnVWvwWSdbjEz6jo3W9oxkfEwv4170hs4Oy9411n3tH2gPGoMph3?=
+ =?us-ascii?Q?OoiZizUGRtf7avKjOqlwP824wss8UqxtU7xPPpxHjrAjLnJKq+oyluVs8AUG?=
+ =?us-ascii?Q?or5SlAzVjg1H6MCn3tXQMk+yYJNJx+0g1DvAW7g0w5JfRzHg0iNQDQhtAOgh?=
+ =?us-ascii?Q?TWlN2tKyfAd7oWFjw8wMPKC4LQbxesiLibCnKd1/P1CToJTAJV+jD4jmtxtO?=
+ =?us-ascii?Q?qbRsS5AaR2E33RVpgDcgFsmhztnBfJ7t6g5jGSwaKycuQDIOvGlWUWfELGkM?=
+ =?us-ascii?Q?WfWO6dFt+Tc6W9FY/kerdGPhEZoHhfJb40Uv7A17urOFv3Tu2pTi3HUh7LKq?=
+ =?us-ascii?Q?n148t5Yibwt4qCDntMtbfusb5sR7zuFMWnS9dMa2UA0Q1/dUSGUo9MSSGDeG?=
+ =?us-ascii?Q?PiiBM0HIjIuYUu6KCZp2Yx+eHxP/suCdzQ9FH3c5E87t6GWrS6QkovtRWv0L?=
+ =?us-ascii?Q?+8+WMktEhBLWu1RkM7mFRhC16HPGd3SuAr6PmicRdmBu0HXZF0p1bmNmYQhf?=
+ =?us-ascii?Q?df8ZTVwdBxFNsQz60p6wcJspSm5+Ld44pat0DUmaKkN7GsXX+IbnZY6LNGGR?=
+ =?us-ascii?Q?RV8FUWjf+LFnlnt56dwnRKZIIGm/xssbmFGoFh5F5VCrdmbQYjYMXFp2Qz62?=
+ =?us-ascii?Q?h89WD3bKhOwUkq4Bzq4qoE2llIq6XcUVl0u5o3YiELnwixoWdJ21W/B/MzM?=
  =?us-ascii?Q?=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Mfv5ja97S+mQ696x8lnIETD+28xuJLfJ534xVaQEP23redKRvgNg38dK4HCc?=
- =?us-ascii?Q?BSbwtwOUlN7Bf5u9FsPjpHURAO0I/1LCoa6KmwI3EX1a9B0Kyu3B2GEt4S8B?=
- =?us-ascii?Q?A7BBDRMpKYN4aLe1u2fu9rXhUSYGIKuJxdb0IH3l0xa1isEn5s4gvA5XXRlW?=
- =?us-ascii?Q?zPXqKuJs9tfA+6H9GvvFVoDwU0e83wD6ezMuV06TFmg3i1PPhczZTL6q51he?=
- =?us-ascii?Q?/zbGMIyScoEM5lTLUpM5ueerbYkquf1pexM80znQefUQ7IGT6oMK866ydbhP?=
- =?us-ascii?Q?wyjn4eq6uAkI1vsVYox0Nz6WMMpL1Bvk11WFzapttYpOIQYrTlIqX9h2a0Rw?=
- =?us-ascii?Q?4mBCF2rWzmrtINL1FUBI1XSCyuMu+yJ1RnQuiT5ozYr1AIvb7bGG/bFi07s/?=
- =?us-ascii?Q?J8bBJhYrXBGNzFIPe/k4uD4ENeGaTLHX4tUG90l6HPx/pkQmckF2mSBsQylx?=
- =?us-ascii?Q?WR+xZsV4b32dPEvTBtVRFxZFozLB2hjkJgMbCHT2mhCIWc6vwD7pEXAh+hoI?=
- =?us-ascii?Q?VnJcDPjPm+8gHqBqaqct5IGgfrzbZIQQh9VcE5jZKLKt+HvOCPqG/Seh8pVw?=
- =?us-ascii?Q?U/lmgIejDsQZQemusMmtKEeaf0ejiZ04A/stRmks3IZu6aTjzxXB4eRRBC54?=
- =?us-ascii?Q?I0zBmKWJHQQZ9dv1kOqjRgI9mdrifLtL6me+WhXWmPpEOOPg/ZZKCwergarh?=
- =?us-ascii?Q?bweBtkPD3jWGI6/nZ0BXMASYdBw76MGb8YslDDPui7b0cprxOlv9cGmI3rwF?=
- =?us-ascii?Q?EiNPDCWjhxfFhf9N9kyJYHA9qV12T7xQULXh/W7309OauTe7w8dYZ4nxR6OZ?=
- =?us-ascii?Q?4Irp6A1qtQL0YYCVIA4XAiWjtidSuUlrPRTK6wsNzBJqHGV0IsXvAXGOgx4v?=
- =?us-ascii?Q?94LmgORfkGbrNFkDXieZcJL/WDlV0rlzjHAn16UqhicSN8oP2OuJRFEzofXX?=
- =?us-ascii?Q?kU9af1YqSuPfYFAfJjHrmjDsAIb8fgnfl4mbC5BJpajWuX4XOodMfx8sZvid?=
- =?us-ascii?Q?iRgxol8nDKDi1Ge+SDP0ceGplIcSOYtoHLc0IqQw9a4Mjw4c6AfF3ZWLW6dJ?=
- =?us-ascii?Q?bp7B28Mc6h3fa8FGwR5vIorDQehtulxBQEEvFO6VmagKN15LRwSw7ulL89wB?=
- =?us-ascii?Q?w/fVqa9dVQeL5xap38KXkiA3WoxqFaiQdZSNOUNz5VwTRVW9Hzg1pV/iNsEP?=
- =?us-ascii?Q?Cda/OFCLTNOOUamYMjNI5l4ZwXrIbdsBBYC8jhmMs3MISYRiw5NSaMgQzCji?=
- =?us-ascii?Q?JGk0kR5bm2sDLrXTk9VrV3wLK4D1/z7p7bUEJ4PRvd8GwfRPcr1vW5I640A3?=
- =?us-ascii?Q?dqA=3D?=
-X-OriginatorOrg: sct-15-20-7719-19-msonline-outlook-46441.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 108153a0-5112-4298-091e-08dd173085ae
-X-MS-Exchange-CrossTenant-AuthSource: SA2PR06MB7658.namprd06.prod.outlook.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2024 02:32:13.2727
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR06MB7606
+X-MS-Exchange-CrossTenant-Network-Message-Id: e24deea0-5df7-4aad-5b08-08dd17346454
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Dec 2024 02:59:54.5327
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR02MB8485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_183226_878535_2E961E25 
-X-CRM114-Status: GOOD (  28.11  )
+X-CRM114-CacheID: sfid-20241207_190007_319825_79200D12 
+X-CRM114-Status: GOOD (  28.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,121 +157,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 11:23:31PM +0000, Andre Przywara wrote:
-> Hi Philippe,
-> 
-> thanks for taking care of sending a patch!
-> You would need prefixes on the subject line to point to the right subsystem.
-> A "git log path/to/changed_file" would give you the prefix of previous
-> patches, for you to copy from. In this case it would be:
-> arm64: dts: allwinner: h616: update H700 OPP values
-> 
-> On 28/11/2024 15:45, Philippe Simons wrote:
-> > My H700 (RG35XX-H, RG40XX-V and RG CubeXX) devices are very unstable,
-> > especially with some OPPs.
-> > Crashes were fairly easy to reproduce with any dynamic cpufreq governor
-> > and some load on CPU, usually in matter of minutes.
-> > Crashes manifested randomly as simply hanging or various kernel oops
-> > 
-> > Manufacturer (Anbernic) is using more conservative mircrovolt values,
-> > so let's use these.
-> > While using performance gov seems stables at 1.5Ghz, it still crashes
-> > using a dynamic gov (even with Andre reparenting patch), so let's drop
-> > it for now, like manufacturer does.
-> > 
-> > Signed-off-by: Philippe Simons <simons.philippe@gmail.com
-> 
-> The change itself looks alright, bumping the OPP voltages by 50mV looks
-> reasonable, and is a no-brainer if it stops the issues you have seen.
-> 
-> The loss of the 1.5GHz top OPP is a bummer, but stability comes definitely
-> first, otherwise we will just fail faster ;-)
-> 
-> I would like to hear opinions from Ryan and Chris (both CC:ed). Did you see
-> similar issues with say the ondemand governor?
-> 
-> The patch itself looks correct, so for that:
-> 
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> 
-> Cheers,
-> Andre
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, Decem=
+ber 6, 2024 2:22 PM
+>=20
+> There are several bits of Hyper-V-related code that today live in
+> arch/x86 but are not really specific to x86_64 and will work on arm64
+> too.
+>=20
+> Some of these will be needed in the upcoming mshv driver code (for
+> Linux as root partition on Hyper-V).
 
-Issues I've seen with the crashes seem to have been resolved with this
-series here: https://lore.kernel.org/all/CADomA4-xTcPyFcX_qCYJwoi7y5vfYmzOfF9iO5MKgEzZdpbJCQ@mail.gmail.com/
+Previously, Linux as the root partition on Hyper-V was x86 only, which is
+why the code is currently under arch/x86. So evidently the mshv driver
+is being expanded to support both x86 and arm64, correct? Assuming
+that's the case, I have some thoughts about how the source code should
+be organized and built. It's probably best to get this right to start with =
+so
+it doesn't need to be changed again.
 
-That said, I've tested these changes too and noticed no issues with it.
-It didn't fix any of the issues I've observed but didn't appear to
-cause any new ones either. I'll add my tested-by since I don't see any
-new issues it introduces. I've been running them for the past week
-while I attempt to solve a new regression for the AXP717 in 6.13-rc1.
+* Patch 2 of this series moves hv_call_deposit_pages() and
+   hv_call_create_vp() to common code, but does not move
+   hv_call_add_logical_proc(). All three are used together, so
+   I'm wondering why hv_call_add_logical_proc() isn't moved.
 
-Tested-by: Chris Morgan <macromorgan@hotmail.com>
+* These three functions were originally put in a separate source
+   code file because of being specific to running in the root partition,
+   and not needed for generic Linux guest support. I think there's
+   value in keeping them in a separate file, rather than merging them
+   into hv_common.c. Maybe just move the entire hv_proc.c file?
+   And then later, perhaps move the entire irqdomain.c file as well?
+   There's also an interesting question of whether to move them into
+   drivers/hv, or create a new directory virt/hyperv. Hyper-V support
+   started out 15 years ago structured as a driver, hence "drivers/hv".
+   But over the time, the support has become significantly more than
+   just a driver, so "virt/hyperv" might be a better location for
+   non-driver code that had previously been under arch/x86 but is
+   now common to all architectures.
 
-> 
-> > ---
-> >   .../dts/allwinner/sun50i-h616-cpu-opp.dtsi    | 19 +++++++++----------
-> >   1 file changed, 9 insertions(+), 10 deletions(-)
-> > 
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi
-> > index dd10aaf47..ac13fe169 100644
-> > --- a/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-cpu-opp.dtsi
-> > @@ -50,24 +50,21 @@ opp-1008000000 {
-> >   			opp-microvolt-speed2 = <950000>;
-> >   			opp-microvolt-speed3 = <950000>;
-> >   			opp-microvolt-speed4 = <1020000>;
-> > -			opp-microvolt-speed5 = <900000>;
-> > +			opp-microvolt-speed5 = <950000>;
-> >   			clock-latency-ns = <244144>; /* 8 32k periods */
-> >   			opp-supported-hw = <0x3f>;
-> >   		};
-> >   		opp-1032000000 {
-> >   			opp-hz = /bits/ 64 <1032000000>;
-> > -			opp-microvolt = <900000>;
-> > +			opp-microvolt = <950000>;
-> >   			clock-latency-ns = <244144>; /* 8 32k periods */
-> >   			opp-supported-hw = <0x20>;
-> >   		};
-> >   		opp-1104000000 {
-> >   			opp-hz = /bits/ 64 <1104000000>;
-> > -			opp-microvolt-speed0 = <1000000>;
-> > -			opp-microvolt-speed2 = <1000000>;
-> > -			opp-microvolt-speed3 = <1000000>;
-> > -			opp-microvolt-speed5 = <950000>;
-> > +			opp-microvolt = <1000000>;			
-> >   			clock-latency-ns = <244144>; /* 8 32k periods */
-> >   			opp-supported-hw = <0x2d>;
-> >   		};
-> > @@ -79,7 +76,7 @@ opp-1200000000 {
-> >   			opp-microvolt-speed2 = <1050000>;
-> >   			opp-microvolt-speed3 = <1050000>;
-> >   			opp-microvolt-speed4 = <1100000>;
-> > -			opp-microvolt-speed5 = <1020000>;
-> > +			opp-microvolt-speed5 = <1050000>;
-> >   			clock-latency-ns = <244144>; /* 8 32k periods */
-> >   			opp-supported-hw = <0x3f>;
-> >   		};
-> > @@ -93,7 +90,10 @@ opp-1320000000 {
-> >   		opp-1416000000 {
-> >   			opp-hz = /bits/ 64 <1416000000>;
-> > -			opp-microvolt = <1100000>;
-> > +			opp-microvolt-speed0 = <1100000>;
-> > +			opp-microvolt-speed2 = <1100000>;
-> > +			opp-microvolt-speed3 = <1100000>;
-> > +			opp-microvolt-speed5 = <1160000>;
-> >   			clock-latency-ns = <244144>; /* 8 32k periods */
-> >   			opp-supported-hw = <0x2d>;
-> >   		};
-> > @@ -102,9 +102,8 @@ opp-1512000000 {
-> >   			opp-hz = /bits/ 64 <1512000000>;
-> >   			opp-microvolt-speed1 = <1100000>;
-> >   			opp-microvolt-speed3 = <1100000>;
-> > -			opp-microvolt-speed5 = <1160000>;
-> >   			clock-latency-ns = <244144>; /* 8 32k periods */
-> > -			opp-supported-hw = <0x2a>;
-> > +			opp-supported-hw = <0x0a>;
-> >   		};
-> >   	};
-> >   };
+* Today, the code for running in the root partition is built along
+   with the rest of the Hyper-V support, and so is present in kernels
+   built for normal Linux guests on Hyper-V. I haven't thought about
+   all the implications, but perhaps there's value in having a CONFIG
+   option to build for the root partition, so that code can be dropped
+   from normal kernels. There's a significant amount of new code still
+   to come for mshv that could be excluded from normal guests in this
+   way. Also, the tests of the hv_root_partition variable could be
+   changed to a function the compiler detects is always "false" in a
+   kernel built without the CONFIG option, in which case it can drop
+   the code for where hv_root_partition is "true".
+
+* The code currently in hv_proc.c is built for x86 only, and validly
+   assumes the page size is 4K. But when the code moves to be
+   common across architectures, that assumption is no longer
+   valid in the general case. Perhaps the intent is that kernels for
+   the root partition should always be built with page size 4K on
+   arm64, but nothing enforces that intent. Personally, I think the code
+   should be made to work with page sizes other than 4K so as to not
+   leave technical debt. But I realize you may have other priorities. If
+   there were a CONFIG option for building for the root partition,
+   that option could be setup to enforce the 4K page size on arm64.
+
+Anyway, thinking through these decisions up front could avoid
+the need for additional moves later on.
+
+Michael
+
+> So this is a good time to move
+> them to hv_common.c.
+>=20
+> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
+>=20
+> Nuno Das Neves (2):
+>   hyperv: Move hv_current_partition_id to arch-generic code
+>   hyperv: Move create_vp and deposit_pages hvcalls to hv_common.c
+>=20
+>  arch/arm64/hyperv/mshyperv.c    |   3 +
+>  arch/x86/hyperv/hv_init.c       |  25 +----
+>  arch/x86/hyperv/hv_proc.c       | 144 ---------------------------
+>  arch/x86/include/asm/mshyperv.h |   4 -
+>  drivers/hv/hv_common.c          | 168 ++++++++++++++++++++++++++++++++
+>  include/asm-generic/mshyperv.h  |   4 +
+>  6 files changed, 176 insertions(+), 172 deletions(-)
+>=20
+> --
+> 2.34.1
+
 
