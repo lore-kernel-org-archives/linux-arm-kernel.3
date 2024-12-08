@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5149EE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 15:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E814BE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Dec 2024 15:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:Cc:To:From:References:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYHyziBzei7Ds+fIuSTf10OdyGFX8eHRQWgID6llsSE=; b=geQEUmSkTyt2C6KHFEDqIaPxcC
-	q7MqTsxO3tNpYeLi7YKOV+9WfphRePNU3fH1+TV2l0Tmj4BIkt+amgnbqOTDepmq1hgNjENowAE+Q
-	vU5v4BPNhzt0yp+S8lWzFPRC4TBUO4LXRnfZ+xp6d2BM5OrVmo67rQe8/7Ko5lxEWh/Q30orkUtyd
-	BxYQbO18ImfAVr0pcY6H4dPqSYcbZ9fQilOuyQyMBZ6jc11NdNaWoG3AE1a5grQy7Xwm8aVj/Q17S
-	FCvi8yfFfUXx9bIiPtMJdz5Ec80UkqlibRF2AdE7HAsNDMdgB8pdFcHdRCPpcKWdK9Udetlw31Z7+
-	kqaYewgg==;
+	bh=VVlq2KdrmbfOW86CMGQBu5vttyCc5rsOJolnA5rzBIk=; b=bgOrkfOzqcWuCOYr1eaG5qZN3C
+	HQfCzWfDctT0f4p80dJp0zBt/t1DjpDj9V6DaCAlwIkcPkyr0OmPEz5OwvO+ytJxVORQdN6FMTHYL
+	rnA1zaZEGjrMLLqOLM83L6zL8O1BMVDbCMd02Kznj+B6rhub6ITt4/zdMd0KQ6mQ/b+vr8YcFz10b
+	xALtkEEffvK1xl0V1svdGvSXj09EQSJs3ALQ2KNODhqTEZyV/TvC85tuT6ASd9AxLmm8ZNULmKk36
+	1ybC8+d1KwosXz3ahHmRhqoG2BkOjGPgzHG33Jx3w/Wyg0kER4wKftPC177/hdCtDYOUN2WOEka+A
+	EcII8Gbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKJ3T-00000005SHy-0l0m;
-	Sun, 08 Dec 2024 15:18:43 +0000
-Received: from smtp-16.smtpout.orange.fr ([80.12.242.16] helo=smtp.smtpout.orange.fr)
+	id 1tKJCR-00000005TKH-1qSh;
+	Sun, 08 Dec 2024 15:27:59 +0000
+Received: from smtp-23.smtpout.orange.fr ([80.12.242.23] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKJ2Q-00000005SCR-0hon;
-	Sun, 08 Dec 2024 15:17:39 +0000
+	id 1tKJBO-00000005TCR-2RTr;
+	Sun, 08 Dec 2024 15:26:55 +0000
 Received: from [192.168.1.37] ([90.11.132.44])
 	by smtp.orange.fr with ESMTPA
-	id KJ2Gt4wpMshnBKJ2Htx9HX; Sun, 08 Dec 2024 16:17:36 +0100
+	id KJBGtwSuVqhuoKJBGtLLZl; Sun, 08 Dec 2024 16:26:50 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1733671056;
-	bh=sYHyziBzei7Ds+fIuSTf10OdyGFX8eHRQWgID6llsSE=;
+	s=t20230301; t=1733671610;
+	bh=VVlq2KdrmbfOW86CMGQBu5vttyCc5rsOJolnA5rzBIk=;
 	h=Message-ID:Date:MIME-Version:Subject:From:To;
-	b=NVD5R1ZaHNxedq1m7chVBNhs7hbkpp7jxcCRsxj/UN9WAhS72VWroeG3C2EuX9RAJ
-	 KGLNCyl18R3YkfyE5pftthLHGSm4jm2vyEJFAyy9kpk7v7ZMplXmt3kOQN5qrOwYvX
-	 H/gjeIPrEN3+AWVs8WJ6AVXkDJ43sjGwBD/FQBfJX0Y5dZOHOMELT9CZjN4EtZMshQ
-	 pL/wh0JKduCo01j9XPUktm8XSrOVoLdC4t37XsrhIGbWXcUJtipFU3QVhH8el3HFvn
-	 KsOzpGHZjHS37PMRyMnHLy2x+sg3tK/OnblTpTzX9yxeKMWJRXqfK657p+E0ZRUj74
-	 f4lPWNHmIUK3w==
+	b=Dn8KWRVsKQrdEj1cVfH9KGP3vdTtQX3bBcFfNlISnT2UtzDMpJ1PNPUBZRXixCQn+
+	 uJ6bIcL1s3iHJMSrpeOceQnsSc/jUwI0lGEG19YMIF5uumgfP0l2uLDh9trY/JYrfR
+	 FOim+Qk//jZBt/0TI2guKmq17F97VVeQNsq8Hmhc+YIaofT+qHTgaeIVV7j9p6aHfp
+	 4ITSpVrTgHUi7reH71c04BqTswwzfULvqb2n2FNTeRym+haSa/1jlGSE74DMPDBElA
+	 slfNd/JhiX2U34JgvwS8pBjx0zmVY3GDgoYpqRZ0Y9jmLgjPETZtysu6r61d9iBm4Y
+	 Fms4mMJ1oqjjw==
 X-ME-Helo: [192.168.1.37]
 X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Sun, 08 Dec 2024 16:17:36 +0100
+X-ME-Date: Sun, 08 Dec 2024 16:26:50 +0100
 X-ME-IP: 90.11.132.44
-Message-ID: <118552cc-e060-45fa-b93f-9187011f2c8c@wanadoo.fr>
-Date: Sun, 8 Dec 2024 16:17:28 +0100
+Message-ID: <d205aae9-68d5-41f1-8739-779b2d9a6664@wanadoo.fr>
+Date: Sun, 8 Dec 2024 16:26:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next PATCH v10 7/9] nvmem: an8855: Add support for Airoha
- AN8855 Switch EFUSE
+Subject: Re: [net-next PATCH v10 8/9] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
 References: <20241208002105.18074-1-ansuelsmth@gmail.com>
- <20241208002105.18074-8-ansuelsmth@gmail.com>
+ <20241208002105.18074-9-ansuelsmth@gmail.com>
 Content-Language: en-US, fr-FR
 From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 To: Christian Marangi <ansuelsmth@gmail.com>
@@ -67,12 +67,12 @@ Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, upstream@airoha.com
-In-Reply-To: <20241208002105.18074-8-ansuelsmth@gmail.com>
+In-Reply-To: <20241208002105.18074-9-ansuelsmth@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_071738_481660_39A9D4F6 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20241208_072654_755899_099B5124 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,103 +88,57 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Le 08/12/2024 à 01:20, Christian Marangi a écrit :
-> Add support for Airoha AN8855 Switch EFUSE. These EFUSE might be used
-> for calibration data for the internal switch PHYs.
+> Add Airoha AN8855 5-Port Gigabit DSA switch. Switch can support
+> 10M, 100M, 1Gb, 2.5G and 5G Ethernet Speed but 5G is currently error out
+> as it's not currently supported as requires additional configuration for
+> the PCS.
+> 
+> The switch is also a nvmem-provider as it does have EFUSE to calibrate
+> the internal PHYs.
 > 
 > Signed-off-by: Christian Marangi <ansuelsmth-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org>
 > ---
->   MAINTAINERS                  |  1 +
->   drivers/nvmem/Kconfig        | 11 +++++++
->   drivers/nvmem/Makefile       |  2 ++
->   drivers/nvmem/an8855-efuse.c | 63 ++++++++++++++++++++++++++++++++++++
->   4 files changed, 77 insertions(+)
->   create mode 100644 drivers/nvmem/an8855-efuse.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 38c7b2362c92..a67d147276a1 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -723,6 +723,7 @@ F:	Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
->   F:	Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
->   F:	drivers/mfd/airoha-an8855.c
->   F:	drivers/net/mdio/mdio-an8855.c
-> +F:	drivers/nvmem/an8855-efuse.c
->   
->   AIROHA ETHERNET DRIVER
->   M:	Lorenzo Bianconi <lorenzo-DgEjT+Ai2ygdnm+yROfE0A@public.gmane.org>
-> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> index 8671b7c974b9..599014970c22 100644
-> --- a/drivers/nvmem/Kconfig
-> +++ b/drivers/nvmem/Kconfig
-> @@ -28,6 +28,17 @@ source "drivers/nvmem/layouts/Kconfig"
->   
->   # Devices
->   
-> +config NVMEM_AN8855_EFUSE
-> +	tristate "Airoha AN8855 eFuse support"
-> +	depends on MFD_AIROHA_AN8855 || COMPILE_TEST
-> +	help
-> +	  Say y here to enable support for reading eFuses on Airoha AN8855
-> +	  Switch. These are e.g. used to store factory programmed
-> +	  calibration data required for the PHY.
-> +
-> +	  This driver can also be built as a module. If so, the module will
-> +	  be called nvmem-apple-efuse.
-
-nvmem-an8855-efuse?
-
-> +
->   config NVMEM_APPLE_EFUSES
->   	tristate "Apple eFuse support"
->   	depends on ARCH_APPLE || COMPILE_TEST
-> diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-> index 5b77bbb6488b..c732132c0e45 100644
-> --- a/drivers/nvmem/Makefile
-> +++ b/drivers/nvmem/Makefile
-> @@ -10,6 +10,8 @@ nvmem_layouts-y			:= layouts.o
->   obj-y				+= layouts/
->   
->   # Devices
-> +obj-$(CONFIG_NVMEM_AN8855_EFUSE)	+= nvmem-an8855-efuse.o
-> +nvmem-an8855-efuse-y 			:= an8855-efuse.o
->   obj-$(CONFIG_NVMEM_APPLE_EFUSES)	+= nvmem-apple-efuses.o
->   nvmem-apple-efuses-y 			:= apple-efuses.o
->   obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
 
 ...
 
-> +static int an8855_efuse_probe(struct platform_device *pdev)
+> +static int an8855_read_switch_id(struct an8855_priv *priv)
 > +{
-> +	struct nvmem_config an8855_nvmem_config = {
-> +		.name = "an8855-efuse",
-> +		.size = AN8855_EFUSE_CELL * sizeof(u32),
-> +		.stride = sizeof(u32),
-> +		.word_size = sizeof(u32),
-> +		.reg_read = an8855_efuse_read,
-> +	};
-> +	struct device *dev = &pdev->dev;
-> +	struct nvmem_device *nvmem;
+> +	u32 id;
+> +	int ret;
 > +
-> +	/* Assign NVMEM priv to MFD regmap */
-> +	an8855_nvmem_config.priv = dev_get_regmap(dev->parent, NULL);
-> +	an8855_nvmem_config.dev = dev;
-> +	nvmem = devm_nvmem_register(dev, &an8855_nvmem_config);
+> +	ret = regmap_read(priv->regmap, AN8855_CREV, &id);
+> +	if (ret)
+> +		return ret;
 > +
-> +	return PTR_ERR_OR_ZERO(nvmem);
+> +	if (id != AN8855_ID) {
+> +		dev_err(priv->dev,
+> +			"Switch id detected %x but expected %x",
+
+missing \n
+
+> +			id, AN8855_ID);
+> +		return -ENODEV;
+> +	}
+> +
+> +	return 0;
 > +}
+
+...
+
+> +static void an8855_switch_remove(struct platform_device *pdev)
+> +{
+> +	struct an8855_priv *priv = dev_get_drvdata(&pdev->dev);
 > +
-> +static const struct of_device_id an8855_efuse_of_match[] = {
-> +	{ .compatible = "airoha,an8855-efuse", },
-> +	{/* sentinel */},
+> +	if (!priv)
+> +		return;
 
-No need for the ending comma.
+I don't think this can happen. So it could be removed?
 
-> +};
-> +MODULE_DEVICE_TABLE(of, an8855_efuse_of_match);
+> +
+> +	dsa_unregister_switch(priv->ds);
+> +}
 
 ...
 
 CJ
-
-
 
