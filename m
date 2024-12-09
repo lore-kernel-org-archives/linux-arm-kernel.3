@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E309FE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8741E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dsfMH/ZSALXpEN4voA6LpATQIaUQxuOsLduoCMePKE4=; b=ry57X9fdS/eVyLc7YNQSSPVG7f
-	lUuq07QYP6QtgvluMQGKwKnTdO/mJZShe18Nopr/JtqRfeq/fhrTLvbBtYJmDTjH8PAnBzD//OKSO
-	UI+7EeHx9gF9n/KHkECFRCWxbSyuYBQA3MlAcU35I2pLw1Bv/hNne6yuGiaoAUMifxLleMDxOmv3J
-	1nXowazSy3LsiRujqvKEBCB3NPs0Cd08pffgZoWj4LobHEE1D9LFIw3rl3V9RvvfxDDPJYihu0whn
-	7F8rXnKx/S766KkpcGPE+QEaF3uRcWDb/KXM1kA4wu5PhGfEiDuLSTzvAXIDcPM3YAQwhML7KHbXt
-	i4c/VQOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bTrjZtnsr0f8sYU+43fbvMOXAZ9kPaU3gQvDVsaA/9M=; b=eVnRb9MayzzSQDEXcb1WvoOEx8
+	q/1vsuiWh+Ybsjp8P1OfR61FErgfSva9jH7QKX7Ef9Ohpx01Z6Ze1JcZfNvAPoQYiHUICweH6la9X
+	BFWlIoZXdKo5s4UUaMt7Tka9QPrkJJoP/3YFuF8adojMLmBCw5XQcF3BdaoIw6pDONw9S+8iBkqBt
+	lHZDeO/MgIFoZUSi8hR62EkDMaPEgqvKLkCe286OEhLC0tDZI7ZM928VCz6w9nMWLoqCtP6qUHA5Z
+	F61jF9ddJ2knrOcP3XJ/3sveqmqYs95qkpvDr1Xf6S9mX6HDpwOpmRvL/YSKFPhQyCmgdRuqTcqsS
+	x4z56B6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdgX-00000007wjl-3PyU;
-	Mon, 09 Dec 2024 13:20:25 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tKdhY-00000007wz7-2BmR;
+	Mon, 09 Dec 2024 13:21:28 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdOH-00000007qKV-2Mu7
+	id 1tKdPH-00000007qfN-2eiu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 13:01:35 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B9D1LrC092301;
-	Mon, 9 Dec 2024 07:01:21 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1733749281;
-	bh=dsfMH/ZSALXpEN4voA6LpATQIaUQxuOsLduoCMePKE4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=BthaL0N3RdSQRqdAZBAxyOUZzA4dGhXOYz9Z+GkWUkR22B/Fm4+KbkeUBKSEAi6y1
-	 4EfMTvGBuYMmBQTomF1w63mBHjOpD9Fs6eHJKcAzZrJQQErlFaAciewVxTaP7OShyL
-	 x4/1QPrqCTauuSaBnzLb03iJ2N2FCHzL9f3sUMcE=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B9D1LHB001529
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 9 Dec 2024 07:01:21 -0600
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 9
- Dec 2024 07:01:21 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 9 Dec 2024 07:01:21 -0600
-Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B9D1G6o001207;
-	Mon, 9 Dec 2024 07:01:17 -0600
-Message-ID: <b5118fd1-6532-4a5e-b762-2be7dd4d39b1@ti.com>
-Date: Mon, 9 Dec 2024 18:31:15 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: Roger Quadros <rogerq@kernel.org>, <vigneshr@ti.com>,
-        <jan.kiszka@siemens.com>, <javier.carrasco.cruz@gmail.com>,
-        <diogo.ivo@siemens.com>, <jacob.e.keller@intel.com>,
-        <horms@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <danishanwar@ti.com>
-References: <20241205082831.777868-1-m-malladi@ti.com>
- <20241205082831.777868-2-m-malladi@ti.com>
- <a86bc0b1-8bb4-477e-b7e1-13921bf47b53@kernel.org>
- <64621290-2488-474d-b2ed-597a1f4ac85f@ti.com>
- <badf6d7c-85a5-42a4-b834-f5cdbd8ff81f@kernel.org>
+	Mon, 09 Dec 2024 13:02:37 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9D2B0A004434;
+	Mon, 9 Dec 2024 14:02:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	bTrjZtnsr0f8sYU+43fbvMOXAZ9kPaU3gQvDVsaA/9M=; b=FqALfb43wGHL81wT
+	c4sIcZ3284A8HcGlizDub3eGdJI8khgK0mEGqyFwYGeDTYn3qgpc26nj7UDDSG0J
+	/kMOq/ERgjkq9Egw4Ll+Z1CUjx2U7+p6faLuYmvb4I3H+KoS/B8CZu2AhUq1xu0W
+	ILS7InWxhyISlTcQM8tBo77iVdjQvstw8mKYwU+30jP+8T2utV+fD3jvKU7nbcwj
+	sLQfTIG0u4pFilSQQRCOnFrPZ1ti9RSAB9/KwEi6MZ3YNpWf/JRc3eFy7MxLV4mV
+	/9hJ3Wi/e+gXm2ab9kxK3i6tJmC086S5/OoTBV90PCGLqiK9DmHB9T7glFnys+om
+	Bmt39w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43cek1qts4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 14:02:19 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 460C840047;
+	Mon,  9 Dec 2024 14:01:15 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9FC71277BFD;
+	Mon,  9 Dec 2024 13:59:58 +0100 (CET)
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 9 Dec
+ 2024 13:59:58 +0100
+Received: from SHFDAG1NODE1.st.com ([fe80::b848:dbeb:cd0:84a0]) by
+ SHFDAG1NODE1.st.com ([fe80::b848:dbeb:cd0:84a0%13]) with mapi id
+ 15.01.2507.037; Mon, 9 Dec 2024 13:59:58 +0100
+From: Etienne CARRIERE - foss <etienne.carriere@foss.st.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "Cristian
+ Marussi" <cristian.marussi@arm.com>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
+ discrete rates
+Thread-Topic: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
+ discrete rates
+Thread-Index: AQHbRapDtK1zP5F5+E+8H5T6eqOTIbLdsy4AgAAr30s=
+Date: Mon, 9 Dec 2024 12:59:58 +0000
+Message-ID: <ed164b6704ab4086b2fb22ae51658f31@foss.st.com>
+References: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
+ <20241203173908.3148794-3-etienne.carriere@foss.st.com>,<Z1bKlOeHJFHpe9ZU@bogus>
+In-Reply-To: <Z1bKlOeHJFHpe9ZU@bogus>
+Accept-Language: en-US
 Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <badf6d7c-85a5-42a4-b834-f5cdbd8ff81f@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.48.86.128]
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_050133_752275_28267715 
-X-CRM114-Status: GOOD (  30.48  )
+X-CRM114-CacheID: sfid-20241209_050236_143987_D7ECBDF9 
+X-CRM114-Status: GOOD (  33.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,371 +108,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Sudeep,
+
+ On Monday, December 9, 2024 11:46 AM, Sudeep Holla wrote:=20
+> On Tue, Dec 03, 2024 at 06:39:08PM +0100, Etienne Carriere wrote:
+> > Implement clock round_rate operation for SCMI clocks that describe a
+> > discrete rates list. Bisect into the supported rates when using SCMI
+> > message CLOCK_DESCRIBE_RATES to optimize SCMI communication transfers.
+>=20
+> Let me stop here and try to understand the requirement here. So you do
+> communicate with the firmware to arrive at this round_rate ? Does the
+> list of discreet clock rates changes at the run-time that enables the
+> need for it. Or will the initial list just include max and min ?
+
+I don't expect the list to change at run-time. The initial list is
+expected to describe all supported rates. But because this list may
+be big, I don't think arm_scmi/clock.c driver should store the full list
+of all supported rates for each of the SCMI clocks. It would cost to
+much memory. Therefore I propose to query it at runtime, when
+needed, and bisect to lower the number of required transactions
+between the agent and the firmware.
+
+>=20
+> > Parse the rate list array when the target rate fit in the bounds
+> > of the command response for simplicity.
+> >
+>=20
+> I don't understand what you mean by this.
+
+I meant here that we bisect into supported rates when communicating
+with the firmware but once the firmware response provides list portion
+when target rate fits into, we just scan into that array instead of bisecti=
+ng
+into. We could also bisect into that array but it is likely quite small
+(<128 byte in existing SCMI transport drivers) and that would add a bit
+more code for no much gain IMHO.
 
 
-On 09/12/24 18:09, Roger Quadros wrote:
-> 
-> 
-> On 09/12/2024 12:34, Meghana Malladi wrote:
->>
->>
->> On 05/12/24 18:38, Roger Quadros wrote:
->>> Hi,
->>>
->>> On 05/12/2024 10:28, Meghana Malladi wrote:
->>>> From: MD Danish Anwar <danishanwar@ti.com>
->>>>
->>>> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
->>>> and SLICE1. Currently whenever any ICSSG interface comes up we load the
->>>> respective firmwares to PRU cores and whenever interface goes down, we
->>>> stop the resective cores. Due to this, when SLICE0 goes down while
->>>> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
->>>> stopped. This results in clock jump for SLICE1 interface as the timesync
->>>> related operations are no longer running.
->>>>
->>>> As there are interdependencies between SLICE0 and SLICE1 firmwares,
->>>> fix this by running both PRU0 and PRU1 firmwares as long as at least 1
->>>> ICSSG interface is up. Add new flag in prueth struct to check if all
->>>> firmwares are running.
->>>>
->>>> Use emacs_initialized as reference count to load the firmwares for the
->>>> first and last interface up/down. Moving init_emac_mode and fw_offload_mode
->>>> API outside of icssg_config to icssg_common_start API as they need
->>>> to be called only once per firmware boot.
->>>>
->>>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
->>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->>>> ---
->>>>
->>>> Hi all,
->>>>
->>>> This patch is based on net-next tagged next-20241128.
->>>> v2:https://lore.kernel.org/all/20241128122931.2494446-2-m-malladi@ti.com/
->>>>
->>>> * Changes since v2 (v3-v2):
->>>> - error handling in caller function of prueth_emac_common_start()
->>>> - Use prus_running flag check before stopping the firmwares
->>>> Both suggested by Roger Quadros <rogerq@kernel.org>
->>>>
->>>>    drivers/net/ethernet/ti/icssg/icssg_config.c |  45 ++++--
->>>>    drivers/net/ethernet/ti/icssg/icssg_config.h |   1 +
->>>>    drivers/net/ethernet/ti/icssg/icssg_prueth.c | 157 ++++++++++++-------
->>>>    drivers/net/ethernet/ti/icssg/icssg_prueth.h |   5 +
->>>>    4 files changed, 140 insertions(+), 68 deletions(-)
->>>>
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>>> index 5d2491c2943a..342150756cf7 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>>> @@ -397,7 +397,7 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
->>>>        return 0;
->>>>    }
->>>>
->> [ ... ]
->>
->>>> +static int prueth_emac_common_start(struct prueth *prueth)
->>>> +{
->>>> +    struct prueth_emac *emac;
->>>> +    int ret = 0;
->>>> +    int slice;
->>>> +
->>>> +    if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
->>>> +        return -EINVAL;
->>>> +
->>>> +    /* clear SMEM and MSMC settings for all slices */
->>>> +    memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
->>>> +    memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
->>>> +
->>>> +    icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
->>>> +    icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
->>>> +
->>>> +    if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
->>>> +        icssg_init_fw_offload_mode(prueth);
->>>> +    else
->>>> +        icssg_init_emac_mode(prueth);
->>>> +
->>>> +    for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
->>>> +        emac = prueth->emac[slice];
->>>> +        if (emac) {
->>>> +            ret |= icssg_config(prueth, emac, slice);
->>>> +            if (ret)
->>>> +                return ret;
->>>> +        }
->>>> +        ret |= prueth_emac_start(prueth, slice);
->>>> +    }
->>>
->>> need newline?
->>>
->>
->> Yes I will add it.
->>
->>>> +    if (!ret)
->>>> +        prueth->prus_running = 1;
->>>> +    else
->>>> +        return ret;
->>>> +
->>>> +    emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
->>>> +           prueth->emac[ICSS_SLICE1];
->>>> +    ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
->>>> +                emac, IEP_DEFAULT_CYCLE_TIME_NS);
->>>> +    if (ret) {
->>>> +        dev_err(prueth->dev, "Failed to initialize IEP module\n");
->>>> +        return ret;
->>>> +    }
->>>> +
->>>> +    return 0;
->>>> +}
->>>> +
->>>> +static int prueth_emac_common_stop(struct prueth *prueth)
->>>> +{
->>>> +    struct prueth_emac *emac;
->>>> +    int slice;
->>>> +
->>>> +    if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
->>>> +        return -EINVAL;
->>>> +
->>>> +    icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
->>>> +    icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
->>>> +
->>>> +    for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
->>>> +        if (prueth->prus_running) {
->>>> +            rproc_shutdown(prueth->txpru[slice]);
->>>> +            rproc_shutdown(prueth->rtu[slice]);
->>>> +            rproc_shutdown(prueth->pru[slice]);
->>>> +        }
->>>> +    }
->>>> +    prueth->prus_running = 0;
->>>> +
->>>> +    emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
->>>> +           prueth->emac[ICSS_SLICE1];
->>>> +    icss_iep_exit(emac->iep);
->>>
->>> if icss_iep_init() failed at prueth_emac_common_start(), we should not be
->>> calling icss_iep_exit(). Maybe you need another flag for iep_init status?
->>>
->>
->> Yes I have thought of it as well. In icss_iep_init() does lot of iep register configuration and in the end it enables iep by setting IEP_CNT_ENABLE bit and ptp_clock_register(). Whereas in icss_iep_exit() it checks for ptp_clock and pps/perout. And calls icss_iep_disable() which again clears IEP_CNT_ENABLE.
->>
->> So I see no harm in calling icss_iep_exit() even if icss_iep_init() as it overwrites the existing configuration only. But if you think this doesn't look good I can definitely add new flag for iep as well. But IMO I think this flag would be redundant, please correct me if I am wrong. So which one sounds better?
-> 
-> But isn't icss_iep_exit() also calling ptp_clock_unregister()?
-> If it is safe to do that even in error condition then it doesn't matter.
-> 
+>=20
+> > If so some reason the sequence fails or if the SCMI driver has no
+> > round_rate SCMI clock handler, then fallback to the legacy strategy tha=
+t
+> > returned the target rate value.
+> >
+>=20
+> Hmm, so we perform some extra dance but we are okay to fallback to defaul=
+t.
+> I am more confused.
 
-It checks for iep->ptp_clock before, only if it is not NULL it will 
-unregister, so yeah it is safe.
+Here, I propose to preserve the exiting sequence in clk/clk-scmi.c in case
+arm_scmi/clock.c does not implement this new round_rate SCMI clock=20
+operation (it can be the case if these 2 drivers are .ko modules, not
+well known built-in drivers).
 
->>
->>> Is it better to call icss_iep_exit() at the top before icssg_class_disable()?
->>>
->>>> +
->>>> +    return 0;
->>>> +}
->>>> +
->>>>    /* called back by PHY layer if there is change in link state of hw port*/
->>>>    static void emac_adjust_link(struct net_device *ndev)
->>>>    {
->>>> @@ -369,12 +432,13 @@ static void prueth_iep_settime(void *clockops_data, u64 ns)
->>>>    {
->>>>        struct icssg_setclock_desc __iomem *sc_descp;
->>>>        struct prueth_emac *emac = clockops_data;
->>>> +    struct prueth *prueth = emac->prueth;
->>>>        struct icssg_setclock_desc sc_desc;
->>>>        u64 cyclecount;
->>>>        u32 cycletime;
->>>>        int timeout;
->>>>    -    if (!emac->fw_running)
->>>> +    if (!prueth->prus_running)
->>>>            return;
->>>>          sc_descp = emac->prueth->shram.va + TIMESYNC_FW_WC_SETCLOCK_DESC_OFFSET;
->>>> @@ -543,23 +607,17 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>    {
->>>>        struct prueth_emac *emac = netdev_priv(ndev);
->>>>        int ret, i, num_data_chn = emac->tx_ch_num;
->>>> +    struct icssg_flow_cfg __iomem *flow_cfg;
->>>>        struct prueth *prueth = emac->prueth;
->>>>        int slice = prueth_emac_slice(emac);
->>>>        struct device *dev = prueth->dev;
->>>>        int max_rx_flows;
->>>>        int rx_flow;
->>>>    -    /* clear SMEM and MSMC settings for all slices */
->>>> -    if (!prueth->emacs_initialized) {
->>>> -        memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
->>>> -        memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
->>>> -    }
->>>> -
->>>>        /* set h/w MAC as user might have re-configured */
->>>>        ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->>>>          icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>>> -    icssg_class_default(prueth->miig_rt, slice, 0, false);
->>>>        icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>>>          /* Notify the stack of the actual queue counts. */
->>>> @@ -597,18 +655,23 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>            goto cleanup_napi;
->>>>        }
->>>>    -    /* reset and start PRU firmware */
->>>> -    ret = prueth_emac_start(prueth, emac);
->>>> -    if (ret)
->>>> -        goto free_rx_irq;
->>>> +    if (!prueth->emacs_initialized) {
->>>> +        ret = prueth_emac_common_start(prueth);
->>>> +        if (ret)
->>>> +            goto stop;
->>>> +    }
->>>>    -    icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->>>> +    flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
->>>> +    writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
->>>> +    ret = emac_fdb_flow_id_updated(emac);
->>>>    -    if (!prueth->emacs_initialized) {
->>>> -        ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
->>>> -                    emac, IEP_DEFAULT_CYCLE_TIME_NS);
->>>> +    if (ret) {
->>>> +        netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
->>>> +        goto stop;
->>>>        }
->>>>    +    icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->>>> +
->>>>        ret = request_threaded_irq(emac->tx_ts_irq, NULL, prueth_tx_ts_irq,
->>>>                       IRQF_ONESHOT, dev_name(dev), emac);
->>>>        if (ret)
->>>> @@ -653,8 +716,7 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>    free_tx_ts_irq:
->>>>        free_irq(emac->tx_ts_irq, emac);
->>>>    stop:
->>>> -    prueth_emac_stop(emac);
->>>> -free_rx_irq:
->>>> +    prueth_emac_common_stop(prueth);
->>>>        free_irq(emac->rx_chns.irq[rx_flow], emac);
->>>>    cleanup_napi:
->>>>        prueth_ndev_del_tx_napi(emac, emac->tx_ch_num);
->>>> @@ -689,8 +751,6 @@ static int emac_ndo_stop(struct net_device *ndev)
->>>>        if (ndev->phydev)
->>>>            phy_stop(ndev->phydev);
->>>>    -    icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
->>>> -
->>>>        if (emac->prueth->is_hsr_offload_mode)
->>>>            __dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
->>>>        else
->>>> @@ -728,11 +788,9 @@ static int emac_ndo_stop(struct net_device *ndev)
->>>>        /* Destroying the queued work in ndo_stop() */
->>>>        cancel_delayed_work_sync(&emac->stats_work);
->>>>    -    if (prueth->emacs_initialized == 1)
->>>> -        icss_iep_exit(emac->iep);
->>>> -
->>>>        /* stop PRUs */
->>>> -    prueth_emac_stop(emac);
->>>> +    if (prueth->emacs_initialized == 1)
->>>> +        prueth_emac_common_stop(prueth);
->>>>          free_irq(emac->tx_ts_irq, emac);
->>>>    @@ -1069,16 +1127,10 @@ static void prueth_emac_restart(struct prueth *prueth)
->>>>        icssg_set_port_state(emac1, ICSSG_EMAC_PORT_DISABLE);
->>>>          /* Stop both pru cores for both PRUeth ports*/
->>>> -    prueth_emac_stop(emac0);
->>>> -    prueth->emacs_initialized--;
->>>> -    prueth_emac_stop(emac1);
->>>> -    prueth->emacs_initialized--;
->>>> +    prueth_emac_common_stop(prueth);
->>>>          /* Start both pru cores for both PRUeth ports */
->>>> -    prueth_emac_start(prueth, emac0);
->>>> -    prueth->emacs_initialized++;
->>>> -    prueth_emac_start(prueth, emac1);
->>>> -    prueth->emacs_initialized++;
->>>> +    prueth_emac_common_start(prueth);
->>>
->>> But this can fail? You need to deal with failure condition appropriately.
->>>
->>
->> I haven't added failure conditions for two reasons:
->> - Existing code also didn't have any error checks
->> - This func simply reloads a new firmware, given everything is already working with the old one.
->>
->> I can still handle error cases by changing this func to return int (currently it is void) and caller of the functions should print error and immediately return. Thoughts on this?
-> 
-> At least an error message somewhere will help to debug later.
-> 
+>=20
+> > Operation handle scmi_clk_determine_rate() is change to get the effecti=
+ve
+> > supported rounded rate when there is no clock re-parenting operation
+> > supported. Otherwise, preserve the implementation that assumed any
+> > clock rate could be obtained.
+> >
+>=20
+> OK, no I think I am getting some idea. Is this case where the parent has
+> changed and the describe rates can give a different result at run-time.
 
-Ok sure, I will add it then.
+This does not deal with whether parent has changed or not. I would expect
+the same request sent multiple times to provide the very same result. But
+as I said above, I don't think arm_scmi/clock.c should consume a possibly
+large array of memory to store all supported rate each of the SCMI clocks
+(that describe discrete rates).
 
->>
->>>>          /* Enable forwarding for both PRUeth ports */
->>>>        icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
->>>> @@ -1413,13 +1465,10 @@ static int prueth_probe(struct platform_device *pdev)
->>>>            prueth->pa_stats = NULL;
->>>>        }
->>>>    -    if (eth0_node) {
->>>> +    if (eth0_node || eth1_node) {
->>>>            ret = prueth_get_cores(prueth, ICSS_SLICE0, false);
->>>>            if (ret)
->>>>                goto put_cores;
->>>> -    }
->>>> -
->>>> -    if (eth1_node) {
->>>>            ret = prueth_get_cores(prueth, ICSS_SLICE1, false);
->>>>            if (ret)
->>>>                goto put_cores;
->>>> @@ -1618,14 +1667,12 @@ static int prueth_probe(struct platform_device *pdev)
->>>>        pruss_put(prueth->pruss);
->>>>      put_cores:
->>>> -    if (eth1_node) {
->>>> -        prueth_put_cores(prueth, ICSS_SLICE1);
->>>> -        of_node_put(eth1_node);
->>>> -    }
->>>> -
->>>> -    if (eth0_node) {
->>>> +    if (eth0_node || eth1_node) {
->>>>            prueth_put_cores(prueth, ICSS_SLICE0);
->>>>            of_node_put(eth0_node);
->>>> +
->>>> +        prueth_put_cores(prueth, ICSS_SLICE1);
->>>> +        of_node_put(eth1_node);
->>>>        }
->>>>          return ret;
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>>> index f5c1d473e9f9..b30f2e9a73d8 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>>> @@ -257,6 +257,7 @@ struct icssg_firmwares {
->>>>     * @is_switchmode_supported: indicates platform support for switch mode
->>>>     * @switch_id: ID for mapping switch ports to bridge
->>>>     * @default_vlan: Default VLAN for host
->>>> + * @prus_running: flag to indicate if all pru cores are running
->>>>     */
->>>>    struct prueth {
->>>>        struct device *dev;
->>>> @@ -298,6 +299,7 @@ struct prueth {
->>>>        int default_vlan;
->>>>        /** @vtbl_lock: Lock for vtbl in shared memory */
->>>>        spinlock_t vtbl_lock;
->>>> +    bool prus_running;
->>>
->>> I think you don't need fw_running flag anymore. Could you please remove it
->>> from struct prueth_emac?
->>>
->>
->> This flag is still being used by SR1, for which this patch doesn't apply. So I prefer not touching this flag for the sake of SR1.
-> 
-> ok let's leave it there then.
-> 
->>
->>>>    };
->>>>      struct emac_tx_ts_response {
->>>> @@ -361,6 +363,8 @@ int icssg_set_port_state(struct prueth_emac *emac,
->>>>                 enum icssg_port_state_cmd state);
->>>>    void icssg_config_set_speed(struct prueth_emac *emac);
->>>>    void icssg_config_half_duplex(struct prueth_emac *emac);
->>>> +void icssg_init_emac_mode(struct prueth *prueth);
->>>> +void icssg_init_fw_offload_mode(struct prueth *prueth);
->>>>      /* Buffer queue helpers */
->>>>    int icssg_queue_pop(struct prueth *prueth, u8 queue);
->>>> @@ -377,6 +381,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
->>>>                   u8 untag_mask, bool add);
->>>>    u16 icssg_get_pvid(struct prueth_emac *emac);
->>>>    void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
->>>> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->>>>    #define prueth_napi_to_tx_chn(pnapi) \
->>>>        container_of(pnapi, struct prueth_tx_chn, napi_tx)
->>>>    
->>>
-> 
+An alternate way could be to add an SCMI Clock protocol command in the
+spec allowing agent to query a closest supported rate, in 1 shot. Maybe
+this new command could return both rounded rate and the SCMI parent
+clock needed to reach that rounded rate, better fitting clk_determine_rate(=
+)
+expectations.
+
+>=20
+> I need to re-read the part of the spec, but we may need some clarity so
+> that this implementation is not vendor specific. I am yet to understand t=
+his
+> fully. I just need to make sure spec covers this aspect and anything we
+> add here is generic solution.
+>=20
+> I would like to avoid this extra query if not required which you seem to
+> have made an attempt but I just want to be thorough and make sure that's
+> what we need w.r.t the specification.
+
+Sure, I indeed prefer clear and robust implementation in the long term,
+being the one I propose here or another one.
+
+Regards,
+Etienne
+
+>=20
+> --
+> Regards,
+> Sudeep
+>=20
 
