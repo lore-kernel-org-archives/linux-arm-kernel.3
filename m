@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1731BE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A60E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fRioCcmJDy8djkmiyQ6PlnLYMCijDL6jrj6MyazB2/8=; b=X/3Db9VPqEo3mSH/Zj0gVHGRu2
-	Ntr43ESc+04ttmPnBNBtaCx/GH8xxlFXH4eT8DgugXwmq3LCOasL2J88WdXC2parTOnIW0OAoL9Dg
-	NfKCsd9LU+iwyXl8eVoDq172hxKkdeuULH1gq912xbC5pVdvEeC8d/PVqrt60h//8b6RYvKFYN2L2
-	E0HTc/wc9tUZ7cG5z2I0rVkQ6Y1ZIJ203n1tDFkxBb8n8V5ioo226+26bsUWmFpCG5F8ewSW/401U
-	f22G1pnbXLDgRvoo6mZ1x1PKQmHtKmHJ+qExJo4+lHBiHCi/ANcFOOG2uXLA/M17N2rLPU880SPFX
-	r16DphBw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=38xYmCBd/yHxA60HebMv1KUqXIVUks1klr7bSBDZuX8=; b=z6rtdXutU56Hj16W7w/LkcBcbS
+	BO9uWmIe/3hEko0jiEk8Nb4tMsFuP6mZwzfKRthaMzhltnF8HT/eC41F7fjJ6nCd09GbFeiLbScwV
+	J0I7qtM2p6ENsUc23pabvJDVZ+kFFx5e1evwHmwgqqIPaIpLUIWz5q8e10olkJa9gz62ozKKZ3anu
+	RQArU/xx1SbQcaWCY9l/qcmy3RirJIFnufrKjjsYdvC7SyVjNBzZr4ESsPYBHmLS4Z8izG4qg2DSp
+	0h00+zapxtL95vYqu8ANZx6RCkGkybZxNM7yyxYKHhxWuczvGg4IpVhzYj6s/yo/XJby1s1GlO/r4
+	K7c4if9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbO2-00000007O5x-1Sfe;
-	Mon, 09 Dec 2024 10:53:10 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tKbP2-00000007OF9-0Gu9;
+	Mon, 09 Dec 2024 10:54:12 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbL0-00000007NSz-14sR
+	id 1tKbNe-00000007O0G-3Uip
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 10:50:03 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-434fc523c4bso353675e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:50:01 -0800 (PST)
+	Mon, 09 Dec 2024 10:52:47 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2165cb60719so3843205ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:52:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733741400; x=1734346200; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fRioCcmJDy8djkmiyQ6PlnLYMCijDL6jrj6MyazB2/8=;
-        b=OPs8iCehDGLzyQwYp+uWf7F2ZvNEpU6/gK6EcgWchFhBWMK9/hvv3hJ1gULjnqc8mF
-         nMd3JiSxbpGIRq72WD0gv/D7QtYWMnnFZH9bxXMU/O0QxliuccKJT836yET4Fo+V40cu
-         KDlrKOrQU2YchmY63eennp//eh7RZVJepTmuLsus/CtE8eGch8vBQ5iCMyVp+6aUJYpI
-         yB8j6qd2byfw30VOkAC2UQwl4YQNFqJiVf8iiPod66Zb5qIBGjGZT8jyH3rFwUGK3/Y4
-         12mVTfn2mxu44A98iRbPJminstrygNcWeg8lYPGVUVW6BH55m7ZmZumOjQICnaG3eTdg
-         rJug==
+        d=gmail.com; s=20230601; t=1733741565; x=1734346365; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=38xYmCBd/yHxA60HebMv1KUqXIVUks1klr7bSBDZuX8=;
+        b=cGSEOLC+uMy4Zld2i/eU3dp+06d/CLOG1jHMYc0rQppTTvWHJuV+yOUxfR7H64/aYr
+         BDIadkK7rlO2FWvG9TvQMNTOxm2RD6IGiNuaF5LTXeE/PdRNi0GGLyW7KYT5HuPzuOMI
+         9yd1nhlpTW9KEvaDH/Boh50VKfIO8vaYKJ32eN5ReiSZ9iYFcvAiqkYK5RbDQzJ/vVVe
+         2O9hm/Gi/dKgdUkPDR70BASjPlI6KUhGHk+2ZhBCR4I+Cy+VI8aSICeJxBmiqW+6B70Q
+         cdcV6RfMUCTJMEW+P0tWL433L2pDw1hp4cd/4QIuRlji2GbNdpqBD6xpp4halx8XCzcF
+         sulQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733741400; x=1734346200;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fRioCcmJDy8djkmiyQ6PlnLYMCijDL6jrj6MyazB2/8=;
-        b=F7j1Cume0tZRAh/mM/N61bruMCoyD5i/OeejJywFOYPQTr+o9fc/3oXC7n/DdQG7Kh
-         e/ockxl0ZfcnnKdMEtkIaSAnKRRD7SNV4St2ZaYRB1FfEYBqkgMdjxBwFjaLvjVig+qu
-         YLtR/GEpL+obpzCBiAMYtR0Z7yGf/rtagBaBPgLRbpwRlJOLL+buHeutmgYzQGvy+SlV
-         B6U3CRRy6t4e5rbgLE79xHF4kCMHrJ64MJn32qALjlX0KuwsoIZZBAWY2iqR3oQkTtCp
-         enJmRsOHIFJLy6ckvRirc1Vbk72hO8mmXm6EXhynltSI/rmplusQPIWZckKF9Er2DSt7
-         tXLg==
-X-Forwarded-Encrypted: i=1; AJvYcCUbKM4A92K4B2shNKfQ74+U4xtINtTLDjmASkWj4zKR7/oIDS9r7az2LpWUhlIG5uJevYIeZaEe6iEZIBaM9Pef@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0ApozHRVe/MSq3Kx6qnnhek7mHgBGqf3f6Pnu7m0vgGCIT9ms
-	w0J9ZAffyUnO+l0DxIjET6dB7EnSND6NK7hHybjD477dUJbGHe+SLgxa2z5Xw4U=
-X-Gm-Gg: ASbGnct+NrmxItzbf1QjbnKd3jZ1vhhqFe86RyiLLHJTybbLw4nEdSuzoiHd8X+82Qg
-	HZYlVjcQRfevA/EjHg478tdg2RD24RSu/dsTjO48cNbN+ZOioFN7y2vHL82qhP7mIoRneZhkLM1
-	0v9A+jB3gDdb42HmYhw1pcNclig7rl/OUN+4u9s4qIkeazXoKEmBSHgt/iO7xPBRRMGxE8VYA7u
-	Nnd7vbBmLSvDlpxGxSFQr/h2GnpvEIqGtp5bHfsp65TDVVNKnqm9tXCq8KuqOLVlQ==
-X-Google-Smtp-Source: AGHT+IE/viVovSPI39lIWcVsezgqXa23ODao8hwSq2oIVnwoBrcfPb0n+9g7Mmj6cCGSK0ndX1fPlQ==
-X-Received: by 2002:a7b:c3d5:0:b0:434:f001:8680 with SMTP id 5b1f17b1804b1-434f00187bfmr20178805e9.2.1733741400471;
-        Mon, 09 Dec 2024 02:50:00 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434ea1ae415sm80301445e9.33.2024.12.09.02.49.59
+        d=1e100.net; s=20230601; t=1733741565; x=1734346365;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=38xYmCBd/yHxA60HebMv1KUqXIVUks1klr7bSBDZuX8=;
+        b=gZ+/3v7qa2JLRgs5EbZmdZw8c3b4NQqz21aSiXXBHvsb6ZhFrb8Gn3GGGML1df7mrB
+         S3iTj6pxzySrWyq6Uwu3h9MPTosPNJTfOxPoe8Ev6BjNAEeyX5OfkN9Mh6sfe8nf7Q/C
+         6VAzXR1UHcZWxOYctOGozvYoyH+cZvZiLO8OoOff1PUxUOiRK1AlfySTlekZ3RjbXo6O
+         2pZZL0w+bf3P/8dnQawrT6IIFTSElWZ32B5bF3025sqKYjGBmfhJvSnmPLTWTVxUI/6/
+         fAXq2Lr+ejcYrwxleoFTUTK2DC2JUMUmVxAHNf/bIThLCX0DsVIu+edaEDNc2WzwduWP
+         C9rQ==
+X-Gm-Message-State: AOJu0Yy3c5Y9BDENWgk9cig08KLbkYu4ZKrv0gEMzJaYRGQ0EJV4fmK9
+	kSxv71HOz/O80F7TyML6/5Fm4sNS1IQY7JXSx+DgHS9+VNA/XE/F
+X-Gm-Gg: ASbGncvXL7Yx+n4f5Psdl1kjh2EnD5rX4yxAWKU7epcv68OGRgEgnu3bVhHjikDAFsI
+	jwkMiTku/3AbHfwigaJbMLU4Qmh+4Ek2yqfajSWCnv5GqYI28Qfs6DjGyLlIkAh7js5g13zUCE5
+	X0KbCmH5RwTl8r+On4n1TbqYqE4tfPddmPmrwcBxbTHnPFuxnzERXHpxgXNg0OJFRHkdErnui19
+	UTVGExCVOuOd/OK8BtxwAeK73GhH8QDCuBf0bVRsNHI/jeaAcVOpgof
+X-Google-Smtp-Source: AGHT+IEreUug5wTKCz/c7KcglP+tWMz1wYrXf0knBCV2E6EAZCfQHAEP6KSMVBU1yeGylgbEmynL9g==
+X-Received: by 2002:a17:903:1ca:b0:215:6489:cfb8 with SMTP id d9443c01a7336-21669fd0edamr442795ad.10.1733741565013;
+        Mon, 09 Dec 2024 02:52:45 -0800 (PST)
+Received: from ownia.localdomain ([45.8.186.102])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8ef9f5bsm69928815ad.132.2024.12.09.02.52.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 02:49:59 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
-In-Reply-To: <20241203-gs101-maintainers-v1-1-f287036dbde5@linaro.org>
-References: <20241203-gs101-maintainers-v1-1-f287036dbde5@linaro.org>
-Subject: Re: [PATCH] MAINTAINERS: add myself and Tudor as reviewers for
- Google Tensor SoC
-Message-Id: <173374139927.46435.9500356182814320037.b4-ty@linaro.org>
-Date: Mon, 09 Dec 2024 11:49:59 +0100
+        Mon, 09 Dec 2024 02:52:44 -0800 (PST)
+From: Weizhao Ouyang <o451686892@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Weizhao Ouyang <o451686892@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] kselftest/arm64: abi: fix SVCR detection
+Date: Mon,  9 Dec 2024 18:52:37 +0800
+Message-ID: <20241209105237.10498-1-o451686892@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_025002_299369_EEB6A521 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_025246_867039_973C9E61 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +97,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When using svcr_in to check ZA and Streaming Mode, we should make sure
+that the value in x2 is correct, otherwise it may trigger an Illegal
+instruction if FEAT_SVE and !FEAT_SME.
 
-On Tue, 03 Dec 2024 13:03:52 +0000, André Draszik wrote:
-> Add myself and Tudor as reviewers for the Google Tensor SoC alongside
-> Peter.
-> 
-> While at it, also add our IRC channel.
-> 
-> 
+Fixes: 43e3f85523e4 ("kselftest/arm64: Add SME support to syscall ABI test")
+Signed-off-by: Weizhao Ouyang <o451686892@gmail.com>
+---
+ tools/testing/selftests/arm64/abi/syscall-abi-asm.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Applied, thanks!
-
-[1/1] MAINTAINERS: add myself and Tudor as reviewers for Google Tensor SoC
-      https://git.kernel.org/krzk/linux/c/da9ca3164d1794660d9ad650beb807b9a47fe18b
-
-Best regards,
+diff --git a/tools/testing/selftests/arm64/abi/syscall-abi-asm.S b/tools/testing/selftests/arm64/abi/syscall-abi-asm.S
+index df3230fdac39..98cde4f37abf 100644
+--- a/tools/testing/selftests/arm64/abi/syscall-abi-asm.S
++++ b/tools/testing/selftests/arm64/abi/syscall-abi-asm.S
+@@ -81,9 +81,9 @@ do_syscall:
+ 	stp	x27, x28, [sp, #96]
+ 
+ 	// Set SVCR if we're doing SME
+-	cbz	x1, 1f
+ 	adrp	x2, svcr_in
+ 	ldr	x2, [x2, :lo12:svcr_in]
++	cbz	x1, 1f
+ 	msr	S3_3_C4_C2_2, x2
+ 1:
+ 
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.45.2
 
 
