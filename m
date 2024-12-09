@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9A7E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A17EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VexgucUkKC3dW+9+1fSj/F49YE0/r3u0mmMQ3poEJac=; b=Swp6dpemLTxQ6YZrsrjlzqnd2o
-	NjLoD25jnNtlx7SDPsAvrMI46N+SSFAmAuYrs9vqWVOn/Iy96tbL37wNEWWkkkHfiAOJB6F+tAWjy
-	J0ETwlqOpTKJYW9I04ctiEi4PVW9FxCfurN29ggzKqSHVewV2bmuhoRGhDs/Ne2w2VzavdNWLuBkO
-	701+IBrgjGSJNgUAaOAemI6s3MbqsjfV6bM6CO0ZDOAcYJ8lNG3iLyQ0l8f/o6oTRPx/ORlNVHqgI
-	Wm0P6wwHwzga0N/P92MSK2Fa9o6gi015mG8DfHddGVx9jaQgzsxEBPG5KPxzqXFP3F+162+IZJpiZ
-	IIp9d56g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QbvJAK8CeaB2O9XIazN63jkXHsl6QMzYRIOD/43bDtM=; b=kODo5MMpDVxJw4vpDXz31Fm03x
+	WWW6yeM7cVCHR9Erf6N6jB3ihWn0kodHBMRF3zdaSQ7W+rSU0k7BlR1BhppxUWmzTZKQK7hakTCl+
+	PhsVhC00QdxhP/5QwXZAtcQ7uaKFgZcaADH7isaXarpc1Cn5ouUhGEikLJkvZGOkVHVE0ZCkOhuVj
+	kMvIcBdJ+nTRs3a+X02hP50gIsRkIw5Smd+7KXLkCcuelDMmAdhFNTI5+bkWILGaOt6RkgBzARzCT
+	EQsyxSN7dr751VBtxpG39g2u1xM6teuHy4Z02b2fsvnf8nN0D7BZHIO3tA9Wrv3czYmCaKOcwCsuA
+	Vwt/QYuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdZQ-00000007uRA-2fkw;
-	Mon, 09 Dec 2024 13:13:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdKE-00000007p9k-0LN5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 12:57:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6A21113E;
-	Mon,  9 Dec 2024 04:57:47 -0800 (PST)
-Received: from [10.57.68.240] (unknown [10.57.68.240])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A3DF3F720;
-	Mon,  9 Dec 2024 04:57:12 -0800 (PST)
-Message-ID: <8fc285a3-92af-47e1-a405-0adf573c57aa@arm.com>
-Date: Mon, 9 Dec 2024 13:57:09 +0100
+	id 1tKdaR-00000007upg-1F2w;
+	Mon, 09 Dec 2024 13:14:07 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKdKn-00000007pLL-2MRQ;
+	Mon, 09 Dec 2024 12:57:58 +0000
+Received: from mxbox4.masterlogin.de (unknown [192.168.10.79])
+	by mxout2.routing.net (Postfix) with ESMTP id 9AE375FC3D;
+	Mon,  9 Dec 2024 12:57:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1733749075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=QbvJAK8CeaB2O9XIazN63jkXHsl6QMzYRIOD/43bDtM=;
+	b=bQRrTd6mxV7EwfWBJIgGWFVMpkZQMZRxqYEtSQyW0yFy9QLWY0RDnM1Qyx1gvVDdlOg6uB
+	8+4j/vP7QThfGRND9MwAIDKjtb1pRCQ7N5Uy/9kbfWFOwnfR2l8SfdixiglOnS+gsHc4xT
+	Q6ezJm0M6ZJGDG746kkKEiDQm/GKgxE=
+Received: from frank-u24.. (fttx-pool-80.245.75.28.bambit.de [80.245.75.28])
+	by mxbox4.masterlogin.de (Postfix) with ESMTPSA id AD48D80483;
+	Mon,  9 Dec 2024 12:57:54 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sean Wang <sean.wang@kernel.org>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v6 0/5] Add pinctrl support for mt7988
+Date: Mon,  9 Dec 2024 13:57:34 +0100
+Message-ID: <20241209125742.9307-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/16] pkeys-based page table hardening
-To: Jann Horn <jannh@google.com>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
- aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, jeffxu@chromium.org, joey.gouly@arm.com,
- kees@kernel.org, maz@kernel.org, pierre.langlois@arm.com,
- qperret@google.com, ryan.roberts@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org
-References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
- <CAG48ez1b8BBquEB1BJEg+KsPdPyZLPuD7uToUH3ZdN8F0r+U9w@mail.gmail.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <CAG48ez1b8BBquEB1BJEg+KsPdPyZLPuD7uToUH3ZdN8F0r+U9w@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Mail-ID: a2e1c607-20e8-4b0b-9aec-6da01a38e817
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_045722_209464_C457BE90 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20241209_045757_741789_FD6D7308 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,60 +80,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/12/2024 20:14, Jann Horn wrote:
-> On Fri, Dec 6, 2024 at 11:13 AM Kevin Brodsky <kevin.brodsky@arm.com> wrote:
->> [...]
->>
->> Page tables were chosen as they are a popular (and critical) target for
->> attacks, but there are of course many others - this is only a starting
->> point (see section "Further use-cases"). It has become more and more
->> common for accesses to such target data to be mediated by a hypervisor
->> in vendor kernels; the hope is that kpkeys can provide much of that
->> protection in a simpler manner. No benchmarking has been performed at
->> this stage, but the runtime overhead should also be lower (though likely
->> not negligible).
-> Yeah, it isn't great that vendor kernels contain such invasive changes...
->
-> I guess one difference between this approach and a hypervisor-based
-> approach is that a hypervisor that uses a second layer of page tables
-> can also prevent access through aliasing mappings, while pkeys only
-> prevent access through a specific mapping? (Like if an attacker
-> managed to add a page that is mapped into userspace to a page
-> allocator freelist, allocate this page as a page table, and use the
-> userspace mapping to write into this page table. But I guess whether
-> that is an issue depends on the threat model.)
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Yes, that's correct. If an attacker is able to modify page tables then
-kpkeys are easily defeated. (kpkeys_hardened_pgtables does mitigate
-precisely that, though.) On the topic of aliases, it's worth noting that
-this isn't an issue with page table pages (only the linear mapping is
-used), but if we wanted to assigning a pkey to vmalloc areas we'd also
-have to amend the linear mapping.
+This series adds pinctrl driver, dt-bindings and dts node for pinctrl
+on mediatek mt7988 SoC.
 
->> [...]
->>
->> # Threat model
->>
->> The proposed scheme aims at mitigating data-only attacks (e.g.
->> use-after-free/cross-cache attacks). In other words, it is assumed that
->> control flow is not corrupted, and that the attacker does not achieve
->> arbitrary code execution. Nothing prevents the pkey register from being
->> set to its most permissive state - the assumption is that the register
->> is only modified on legitimate code paths.
-> Is the threat model that the attacker has already achieved full
-> read/write access to unprotected kernel data and should be stopped
-> from gaining write access to protected data? Or is the threat model
-> that the attacker has achieved some limited corruption, and this
-> series is intended to make it harder to either gain write access to
-> protected data or achieve full read/write access to unprotected data?
+changes in v6:
+- some fixes to binding
+- changed title and fixed typo in bpi-r4 patch
+- added RB's
 
-The assumption is that the attacker has acquired a write primitive that
-could potentially allow corrupting any kernel data. The objective is to
-make it harder to exploit that primitive by making critical data immune
-to it. Nothing stops the attacker to turn to another (unprotected)
-target, but this is no different from hypervisor-based protection - the
-hope is that removing the low-hanging fruits makes it too difficult to
-build a complete exploit chain.
+changes in v5:
+- rebased to 6.13-rc1
+- moved dt nodes with mutliple options to BPI-R4 board
+- changes suggested by angelo in v4
+- changed example in binding and dt node to not using const MTK_DRIVE_8mA
 
-- Kevin
+changes in v4:
+- fixed fixed string binding error
+
+changes in v3:
+- rebase on rafals dts patches
+- update binding to have mux subnode as fixed string and conf with optional suffix
+
+changes in v2:
+  binding:
+  - drop gpio-cells description
+  - move ref in mux subnode up
+  - order uart-functions alphanumeric and fix typo
+  dts:
+  - fix indentation of reg-values
+
+
+Daniel Golle (2):
+  pinctrl: mediatek: add support for MTK_PULL_PD_TYPE
+  pinctrl: mediatek: add MT7988 pinctrl driver
+
+Frank Wunderlich (3):
+  dt-bindings: pinctrl: add binding for MT7988 SoC
+  arm64: dts: mediatek: mt7988: Add pinctrl support
+  arm64: dts: mediatek: mt7988a-bpi-r4: Add pinctrl subnodes for bpi-r4
+
+ .../pinctrl/mediatek,mt7988-pinctrl.yaml      |  575 ++++++
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  |  189 ++
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi     |   54 +
+ drivers/pinctrl/mediatek/Kconfig              |    7 +
+ drivers/pinctrl/mediatek/Makefile             |    1 +
+ drivers/pinctrl/mediatek/pinctrl-mt7988.c     | 1556 +++++++++++++++++
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  |   73 +-
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.h  |    1 +
+ 8 files changed, 2445 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/mediatek/pinctrl-mt7988.c
+
+-- 
+2.43.0
+
 
