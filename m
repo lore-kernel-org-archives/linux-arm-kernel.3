@@ -4,157 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A772AE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 07:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A07E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 07:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7AL4BcXa+HmHafwP1jO8SG1fRRg2L2Q13y4RXZu+3o=; b=UoLcQ7AmH3p7BFEqHoPU/90Fgn
-	YzF/2tnew9zXgLrFvLMx2q0k5MrV9bCqbhBIvfPfCfRjqAgHUC5wc/7+SubQhrmeZ4YSuxeD6oFZN
-	qEA8yoK6JaTyASfTuCrfW9CbEzEwykgcAQ5Uw7igLnW08maen5h00jSHuN7HZXZ0tT3cWQWj6gPbC
-	8zEM1Y6HQkmyilA3ALOFFOzP/ratXCZtHslXveSJkCY4xKquXNahWCsh6jT5MOuXZZpUyXEQYs8cX
-	KOOluRUNrVEfpZPc7gSVN2jXAiyAAaix/gxNgpj4B9+qkL6cZQQSGP1ZQbxItmRKqt1G0txtH+3qo
-	is1s9XYA==;
+	bh=xM9xNbSN3ta65++Ey/AxywtMB5AQ4SZ5YB939ddLx2o=; b=4r7+7MJoIEta0w2Dzz0q70vPLC
+	zNod4KmnX0IvMtgR7kR3C/aTFbhDz7d5DAdTkmHEskjLJdWZRWR3GYxE0OEPmYaS84W4XmNI+474o
+	gEH2uURHrvhFcToPAwndbO52wHxaTTc3hGOxASDQk9FITC67awU2MorUqHSlE8Vr1XPGVx1RNOWw0
+	Ooc2TzJwYNW5Fv8xS4OqTRxoVG5FUXhqDGBs2zxrdfHJinRB7nO71ASdgQet60IBe3iegzKG9zd5h
+	Mdv4nsJadraDEymdeMEqXNH62RsGBgKEzQDBw6enU8XntzyOstbqW/hUxA3+V8QEOA5W46+9BVbW4
+	V+uF8wZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKY7j-00000006ikp-1x2j;
-	Mon, 09 Dec 2024 07:24:07 +0000
-Received: from mail-southcentralusazlp170110000.outbound.protection.outlook.com ([2a01:111:f403:c102::] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1tKY8k-00000006isn-0FXU;
+	Mon, 09 Dec 2024 07:25:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKY4m-00000006huQ-0pLP
+	id 1tKY6k-00000006ic7-0GjY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 07:21:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bh8f57Rv0YnLwB78STuNEbWVEezHd+boHjUCEX9SgFDvgrxPQYp92G1tOyTVnNRcYBJCdnX63dmdZlz7UhCH1ACWlP31+Q883gPYEne2lOjJyXyP/+mN8VKfuVDqd+K6g/N079uu4oYVrBwjZuhra9/9NRez4LuOFHichUFjvBnEt420vQp1DIgvnLSvmLyBsOkz7Kw6MIOwm/l0HeXxvoqdxD1mmUzYg52U8dPE6j+ZSIP5Ydoi7XR+G1biHUWP/d4svOEnDjw4eiYkbQfWnmHY5MGdir9bBt3nhzzYATU33nPxJA+9N+Gp9iW9a5LQz+VzvzBhySy6kVqtxDsS7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F7AL4BcXa+HmHafwP1jO8SG1fRRg2L2Q13y4RXZu+3o=;
- b=DNfCcYCMNhE1P9SNC36NpQUEHESEB8jXnV/EguIMo+jUTL1kzcs9Pdip2mR9z/O8Uvfpv3CYKIX4SSIBeAkkzyLLmA/1HUtqdBGpYeQ8pv93mOcefJyRpjW+xeSl3HMIoDI4DFWAw7QBOpxCiwQf8NIRrX2BfGUWoaVXqmxvzG8roquOXDfaeqx+XaaMpkY88QZTLPGZ3fcNuuSYVaZP7bD+YVyzIJmjXF6JxKk7QEviDb5wfKCn/3Aamut3KtCv+VkH+5t8AuADwHLoP9a7Zl9HPaSbpFmWQN8rzN39tjLklVsyHQER4gTTw5lQwBLEA6Q+xcmkX5oNVcjxL0GP2A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F7AL4BcXa+HmHafwP1jO8SG1fRRg2L2Q13y4RXZu+3o=;
- b=pF+pjtglaaa8U7M6yY2jbHyyed1C2mkocCUehec0wpfxkcyxNGiqmrgODOcLV0X6/gbQDl+NgRhwVg/DzAsRJGRK2SI++/K/H1NA/GjSMht3VClIr5KJj+1G48sUDvRpcJ/7L2vnzRYXLKsVXWTBh3mxsUbi1KMw8EgfxZ1h5Tg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- MN0PR01MB7876.prod.exchangelabs.com (2603:10b6:208:383::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.12; Mon, 9 Dec 2024 07:20:58 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Mon, 9 Dec 2024
- 07:20:58 +0000
-From: Huang Shijie <shijie@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	anshuman.khandual@arm.com,
-	corbet@lwn.net
-Cc: patches@amperecomputing.com,
-	cl@linux.com,
-	akpm@linux-foundation.org,
-	thuth@redhat.com,
-	rostedt@goodmis.org,
-	xiongwei.song@windriver.com,
-	ardb@kernel.org,
-	inux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Subject: [PATCH v3 2/2] arm64: remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
-Date: Mon,  9 Dec 2024 15:20:20 +0800
-Message-Id: <20241209072020.4743-3-shijie@os.amperecomputing.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241209072020.4743-1-shijie@os.amperecomputing.com>
-References: <20241209072020.4743-1-shijie@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0005.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::13) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
+	Mon, 09 Dec 2024 07:23:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9786BA40FB7;
+	Mon,  9 Dec 2024 07:21:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68FADC4CED1;
+	Mon,  9 Dec 2024 07:23:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733728984;
+	bh=zWnB+21XDuaXWNnPas1Gk4BTiZTPWMYj+mOQpE1WnBA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ogiAu8XPzZV81Qzz6X6Q+rKVAUFEE23UlRAstxaR6WI/JhMjK5UGaFKYeLSPEkaBc
+	 ojkCoDKj8WfBuYHN+QYad1AexINpmLCcSMnAV2L7RKDzl1nQaBKLhiBp+xTdD8nMbq
+	 eX+mZdNG8b3D9vGv1OSNvzBPbKBKstcBSPJFOIEIk+OmS9EUM/7UPrl1wXnyaJ7OvG
+	 DF4IbELM8I9Sg0fjp40d+cRKkOW1jubtyo/z43cMsjZijt+P43ovLE3dUAFijHocOl
+	 GM0QGR4rhWq6V6PnLtaBT2H2Ig1DqfOxSoqU6d8Sn7rLj/4CTmgXAoSMKhLDiRoNdC
+	 ErW2pCbyKDhWQ==
+Message-ID: <77ceeb16-12cd-4c2d-8155-b6bd45feb524@kernel.org>
+Date: Mon, 9 Dec 2024 08:22:59 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|MN0PR01MB7876:EE_
-X-MS-Office365-Filtering-Correlation-Id: b398abf3-6905-4243-118b-08dd1822072a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2O8uvrOx873GhmjM9I3AVL3xLoT/8U11kEE+MkWL1fcbxdFuCod1V9/g4XKP?=
- =?us-ascii?Q?1QSJ11LN/aQyrxDmoEfNKwfjvF39s82GWMtGyye2ICf2x2IjD05KSAVtg/Rf?=
- =?us-ascii?Q?JtCzF/g/PDd6oWA765Ul1JOw2YMI705eTV8IzCxOrmc//jmU6qEnhJgW9hxU?=
- =?us-ascii?Q?uLLC5l6z6QrXBFxiGDcTJKM+uqeQCy78v6adlZKSv6gCO4+Eg6A8pZghhGTZ?=
- =?us-ascii?Q?wjzlnPJ96EbdpGIzjHz73XFC6Dm64vsyBaYcKzPcpSnMq8s+X/eqwQJoQG+9?=
- =?us-ascii?Q?EN3IwlWHKNcF2SFXtJr3n9I/vGu65Egz9ZssFScZQ2oWmEK6y/3uw0rE36Ry?=
- =?us-ascii?Q?WmIMLg7I2AHyZrslkPOQf54Uv8DT4rBDEHnr8cQGicfjjcq4wVoXsrZDsQOC?=
- =?us-ascii?Q?iYEUifBgvVqlh4mWciWSRg7WR81d1zxY3lmx05YsoqUI4J9AZW44fGFmMd5w?=
- =?us-ascii?Q?w/y1HjXqjA+Pfgntt22aaDDPP9XvJCgJbNiyc4OiG9WEcUYcsq+Y61rjX8mM?=
- =?us-ascii?Q?oaP2bYrSExSsUhMFl5fc4aH1f/zIgxY8nBWiV0UWTtvxLHQb4Bc2NssXDAKY?=
- =?us-ascii?Q?p8I/QbK1j2uz6DVELdloYJ/Xd9Lzpvv3+Bw3N9u6LmwdBrUMUAIhgS6D5kgM?=
- =?us-ascii?Q?nbOSs+M6hnm1BMeEC7al82Uz6KcVbrJ4OrLB36iOrBrAcBXOb4JsImDPO1D6?=
- =?us-ascii?Q?NKqkdXRl3/rpHNziWhX5wAnwYjQz1yvSBC1Av3Pj4UDFdi9YL+hueFptNeQT?=
- =?us-ascii?Q?vYzHMA2SIldmprzAcaxCr4bxPMzuWKxuGjHERsQS0OjsyMi8TaN6bPc0GaDK?=
- =?us-ascii?Q?M4R+k+BlFg2Y6TJPG4xSW53FiddmiUzioi/Sf+Q3UTISPYpT9lUXNzMeb977?=
- =?us-ascii?Q?bAu8Kh8yIVWzfKVVzT5OgHNhVZd0sk0PDjOe5yIPkS5r1HfOjSEWlQW1b92S?=
- =?us-ascii?Q?4FnyGKP62AFZLdgj1iaDHmQMfIBaetMRl/zEdTR0vYzbpb0WiuK8+VMv7KSJ?=
- =?us-ascii?Q?PmaIUILjZy7lvDh7MLqd00uyyGdbX7wtF1crZTLc4derVRzP9bqF0KKbHTlg?=
- =?us-ascii?Q?vvSvwXJ5Ir4NkREPcI1OzQY6mMrii9xXdPWxZR3Id5rWN4+HsxtifgOykq1C?=
- =?us-ascii?Q?w4jUOkO/E0/uVUWv56WiUdMdxkaq3x8Ngugod/zUnGZEBgH0xc/WFRI0mqwI?=
- =?us-ascii?Q?XxYaYTxX0AuETl9PmWEDGq0MhPfiHWfwGScVOYcGF/prgnL/snXJjJua7zse?=
- =?us-ascii?Q?y7dyxlvVZh6TXuzMM92tc4Y1fjODyHLjk0RcOR6nsUfg3hUc8UagrpzAC5dV?=
- =?us-ascii?Q?yD5c7/TUz1NqesjCFSH2yydmKv93I+pl2yyQKk5t0+XWlhx/qipwqguVI7C2?=
- =?us-ascii?Q?Oz8ypuWGeYfbPTiNC5Amyz672C9j0aibp+4a/uSOj5x2avEySw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YB7YLhgy+i4Rtv4MF7Bgg27RxBjRkQkeUOHwTQHAMBNWcSLEWHxLShZqxYrh?=
- =?us-ascii?Q?Lnf2Bj4wAYmOm3/Tg36qTc/w9OUaNZx3OhPjgz8XHD4MGiLyAbnaAPY2w6Be?=
- =?us-ascii?Q?heBAXWgxFHU0BmK9TJ+qQbiVPVcLMj8FGv0uk5kqsf630XB8933n8Jg0S42V?=
- =?us-ascii?Q?VxWvydS7tR5WnRK86rpG80Z5Th7NasFOAvajXYgBLdZdYF+eF3EiYb8YjzDC?=
- =?us-ascii?Q?PBWHXTi4u7MsQBDj014i1DFl4wOvgK8I2hJStASXHClmEXoVim44Ytz/83Kd?=
- =?us-ascii?Q?UZT/K+OuduCDCQdBIpYT2MWOJKIOI1pnW5jlqRu9tHNV9cSNciM51y3nqt+k?=
- =?us-ascii?Q?3Ohv4RHmPX0FYiW5mEIaUE0b5RLvYfqmHvpJRNKxcMGoeKaW66LfRbjdmNSX?=
- =?us-ascii?Q?QsockmYeSKnOS/nHsiEnhdRs+0CINxwV8GrRJ8+ZEEpvGIN2RP0DZKzKwMa3?=
- =?us-ascii?Q?iYHVGFUi3FZJk3+snl8oIgPvw/yWb6MY7WUtxoL4b/uVsrmKxDfEF94Idl5I?=
- =?us-ascii?Q?+VdV/XNfgj/V1SHAYaVLeZHJvvaswXl4eIuHo2m/F5u3kbDuoWs8LDm0QyDE?=
- =?us-ascii?Q?ekg0AKImKYO2wPACupgfLXxBcL8KXWo7uSFoLNVWcun6+41hThKCdlMmu6QP?=
- =?us-ascii?Q?TSl0nh3hDg3yDAAnEsy7MnJgaaapms8MMt3wZIfE4LRtFpbnNkSY07w98uCn?=
- =?us-ascii?Q?tjS5eRXo9SuRbovnESA1vOzGcxPjAwWvEljrr0+Q8Gsb5f2AH9HSMLVW5tgG?=
- =?us-ascii?Q?Dm0OhdwT/PdJKSYBRjqqNluWQfJ7USIzU1SaRU6fJAbLtmB2jpkgk07BXiT+?=
- =?us-ascii?Q?d3wAuHbtJVSzwLg3So0jLg0oxLEw1I2YykImmyQBe+zVpE3PnLmY0WN07Yh3?=
- =?us-ascii?Q?ljXsfnP9Qo+My2dZGt8z+MNHVup/VZ6TPrqKtWoYBjccwxY+PzPtBbqHb6Bk?=
- =?us-ascii?Q?NGun9vxtB2C3M5BTYqefs+poxjj9Zg8Wi8Er93bOQfqo/xnTdAQDCv/6CZmt?=
- =?us-ascii?Q?o9xs0b3xeLq66A8zg5Y3VZ5DKamWt9AudESQn30T3rw4mUbsNhWIeQnRbavc?=
- =?us-ascii?Q?MOGP9exeGNKRyGWO+v5KlqI7cIB8r6iJUo38PCaINzfM9bRigN3gflt1lzdi?=
- =?us-ascii?Q?kgQKrQLwpq/+3S4aMIq+BPibuGSGsqOXETEBJiPUBfjflZlJmuxJ38viQGA1?=
- =?us-ascii?Q?2PL5W0EsoAFqZ+rmo1A4qPHCqJJXaKPYlRZAnhIXscCi2gJGJmmMkAUjkUpn?=
- =?us-ascii?Q?D2LONHomRTR3bJELPShoe9QaSuxzUW8TMWHVeTT4wy+JCnroNFX1VCYZYNO/?=
- =?us-ascii?Q?rLOYFu1Wb8tDy6KlvF9jYs1GPDKjYhNkcrrsRUFwUmQCpRuNTs7RYCAFvvlp?=
- =?us-ascii?Q?N1/yA9DMY9d+Bf2sv17EPQgJblDSqOu7RDizRP3ElXI608s+upPm1KKmlJn3?=
- =?us-ascii?Q?+TE+ZguIMZ48hxnJ71vcMpGhHmoXVDC10JIyLZ0Z44njRSELs0n3HOEiV88e?=
- =?us-ascii?Q?8Jp4E4oZWzoswupzwOpgVx4gKX8Ggvc5hxvwi97GknLhuaezeO7jeToCt/x3?=
- =?us-ascii?Q?20zIc7lIqJkFWJNnQi7ZPKppxBesK3tyHcGUt1+b25O79ah4HgezoBYEKruG?=
- =?us-ascii?Q?20sLjS2LKmhWiOmMA5vhfDQ=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b398abf3-6905-4243-118b-08dd1822072a
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 07:20:58.8408
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y/9yszKILYt9cpDTlDxw7izD+kBQb79fP9DrsscwFB61cFo0Ypy/4sDqUOYAqfibciX5V+bW6rP5xTbghEWny5jJZOl/1G4jPZPeQRV5lz23NArIcc1aPJwanoMBlu5x
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR01MB7876
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/4] Add minimal Samsung Galaxy S20 Series board,
+ SM-G981B and SM-G980F support
+To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ igor.belwon@mentallysanemainliners.org
+References: <20241206184609.2437-1-umer.uddin@mentallysanemainliners.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241206184609.2437-1-umer.uddin@mentallysanemainliners.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_232104_268748_33774DAB 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20241208_232306_234746_02ADF771 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,65 +120,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After patch "arm64: refacotr the rodata=xxx",
-the "rodata=on" becomes the default.
+On 06/12/2024 19:46, Umer Uddin wrote:
+> Hi folks,
+> 
+> This series adds initial support for the Samsung Galaxy S20 Series and also
+> initial board support for the Samsung Galaxy S20 5G (SM-G981B)
+> codenamed x1s and the Samsung Galaxy S20 (SM-G980F).
+> 
+> The S20 Series feature a lot of similarities in their configuration
+> and internally Samsung named the common devicetrees in their
+> downstream kernel 'hubble', please note hubble excludes the
+> S20 FE series and Note20 series. To accommodate this, I've
+> now named the device tree common's matching the codenames
+> (x1s-common).
+> The device trees have been tested with dtbs_check W=1
+> and results in no warnings.
+> 
+Patchset was not built.
 
-     ......................................
-	if (!strcmp(arg, "on")) {
-		rodata_enabled = rodata_full = true;
-		return true;
-	}
-     ......................................
-
-The rodata_full is always "true" via "rodata=on" and does not
-depend on the config RODATA_FULL_DEFAULT_ENABLED anymore,
-so it can be dropped.
-
-Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
----
- arch/arm64/Kconfig       | 14 --------------
- arch/arm64/mm/pageattr.c |  2 +-
- 2 files changed, 1 insertion(+), 15 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index cbfd357f94a6..1c69982302ed 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1666,20 +1666,6 @@ config MITIGATE_SPECTRE_BRANCH_HISTORY
- 	  When taking an exception from user-space, a sequence of branches
- 	  or a firmware call overwrites the branch history.
- 
--config RODATA_FULL_DEFAULT_ENABLED
--	bool "Apply r/o permissions of VM areas also to their linear aliases"
--	default y
--	help
--	  Apply read-only attributes of VM areas to the linear alias of
--	  the backing pages as well. This prevents code or read-only data
--	  from being modified (inadvertently or intentionally) via another
--	  mapping of the same memory page. This additional enhancement can
--	  be turned off at runtime by passing rodata=[off|on] (and turned on
--	  with rodata=full if this option is set to 'n')
--
--	  This requires the linear region to be mapped down to pages,
--	  which may adversely affect performance in some cases.
--
- config ARM64_SW_TTBR0_PAN
- 	bool "Emulate Privileged Access Never using TTBR0_EL1 switching"
- 	depends on !KCSAN
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 39fd1f7ff02a..6eef08d8451e 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -20,7 +20,7 @@ struct page_change_data {
- 	pgprot_t clear_mask;
- };
- 
--bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
-+bool rodata_full __ro_after_init = true;
- 
- bool can_set_direct_map(void)
- {
--- 
-2.40.1
-
+Best regards,
+Krzysztof
 
