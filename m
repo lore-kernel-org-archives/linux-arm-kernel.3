@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1849AE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFDD2E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDlwyDroBq6zcVrCDpDlItZdzZfKhDPhfE9JnSAIaJU=; b=rvmwsdLELxS0+yRrEGeHVHjwk0
-	bx3ABq2mDKv81UNAC33SI011EaWmjAVGSa83Aftdex1GP/ghU9QBRFGR3eGJTenl8knfGslt5RhrP
-	bqd4Oz3cNeD8a3eBDNwpUk9082dV3rOAS93B/ZmtypWGFUdCbloMDqVj49uBgeeRFNbZAdo4JIStH
-	kcR4LyE+wtckLjWuvM+wLfNurtq3YyzSFxLUYqi9SIynZzHOPPWBqgZbBHvvNQjyI61ouarVChdmy
-	vUqhNh25Y5MTXgVz1z8IebRW0bQOWhocr7gTpLVYzSaQ4684dhlzMwCXnnP3dKCabk0l80HZkhl6L
-	gcCj6QqQ==;
+	bh=u10Z7RsJ3SrsFacDql6F0JSeqSx6z9qL6lroTSMFehA=; b=WGnUdLq3J0bamqRIAiSYg/V+cO
+	il6HCsp6rX2rtyo6Yjux1jm4U09UpEBj3X8xTS5CzPCy6hK4kzdd9jNQgKp4LvfqPFkyOqEZmrTJj
+	Uc4OPJqqxUDx1QxIADCPU+1uY17evlyYXJeqses6iIl3ciNup9PZe61WRTTdm4UhG8Egla7W8XnoL
+	08172Od5IgWHGsTt8DUZUjylqulj7Pkbot8nWnZ4OCfqq3fQmvHIjpUUZcu63E2zKqcQEty0XBHEe
+	HCN1BcxfqvA92ur9B6W5AHl1Xzzi86VhUNTyeO+liUzhchNctTrcXGrFF9usozzWXD/s18WhEJTls
+	G5yoJJsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaxR-00000007HFx-3XuK;
-	Mon, 09 Dec 2024 10:25:41 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tKayS-00000007HTv-1qFm;
+	Mon, 09 Dec 2024 10:26:44 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaaM-00000007CFv-0QcM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 10:01:53 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-434ab938e37so26519725e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:01:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733738508; x=1734343308; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=wDlwyDroBq6zcVrCDpDlItZdzZfKhDPhfE9JnSAIaJU=;
-        b=B3tXNND12VAiDvPP7P8g54P9dFKvNAlcoHQ9nMQIkiqCoRoBNgr2ZaXjIHhxui25kN
-         Wf4D3yxwuVLWdF3+2x5E9E4cpIgW0h0geiLzJmkjpg79eS6GHiEY2ox4QehnDA8cFQTH
-         MNlp7DZjwcHOFmE232LOGiCCMZSwL6J4uuPi0ANG5muSEECGWnVXnK6hMV2vveX+5FCA
-         xB2zE/WdG1jQbAmNgPYBEltFb/BLC1HXMdj9kQv4N0W8bkLoTpHTVPnZEnGH4e8BsK6A
-         jT5QPWri0AbKnEjsRk/6xY43VxoZZaHBqaba978QEeUJSuh1AC8/nmFFIxpUPFI55vC0
-         4i3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733738508; x=1734343308;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wDlwyDroBq6zcVrCDpDlItZdzZfKhDPhfE9JnSAIaJU=;
-        b=gaLbYNtIDJRKBgknaQ515UBXEhn9nhg6oMa8m8qJ4Znwlfq4n9mcAcqJaYm3ajiVp2
-         WraY7WvrK36UClTNH/n6dWPDA4AHqNcP3pAGwEK0GaG6HxdWb5U98E1tgMg4Ud7uJyCM
-         4NBVZM+O9cz76jkTeZW7lq7Hmpb83yzb/G5NVTH/1F2PQokpj7p8YXe8Hm49DVyUhSOw
-         5dLjtWP0HAyY8V2451HCJBbFRrLe6cFDJb6FMdqdGs2sA0g7tEtlWGlAn+jxd0iBgYwu
-         uEK5/SfgRcSteMeQKB5F4ABqlS4JRoMmtwrHOb52+64/z9WjiVJOJk4orJ8BYy0CrpVL
-         gSyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUyzHqzb7Z8MpiNx2wmNEjizjLl0/aJB28Qtf2/nu5X3mfX2Yu4L9EWx21ctNEyoFje6VOaRD/5paoLfkoYjkTT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJC4eJ/PmQsJVnJ/oKNw2jQzKQo8+frFWWlD9FDTtVi6XtNpGA
-	m6t0hTTMLGGzUoq0jUhz7Rdz1s8OArEGomqlbgG7siI14GvA5K61sBVL/0CX13Y=
-X-Gm-Gg: ASbGncv7nUHTdNKQP31SPiVdLrdb1s5Dbws0O9GXY6hlR8+Kw9BF7Cpe1kCgMugmado
-	Msb4JlTbFXxPkoVL5ekEkywIALRzHY8dpx1lB3MD8aXpfieORLb2A3wXVoGN7/CTSftIxqdfq6N
-	HRSMu8WCSd19Qa2+g3VhKwz5+Y0nuNm3qZ6eXwZN/d9LX7CnjmypMzgw751k0B6ZURiGCBbqGje
-	A5SLLkJuXUXCjk0kAHBi8YR3yiph+FIlV0GrfrpwahDy9uOHVZuSQ32ubO2kA==
-X-Google-Smtp-Source: AGHT+IGwtp3FQpoGqZyO22hYjk1/F0qh54u6BpRMMDp3hLcMSs789LWDskm/IYygzHoEct0bsoKghQ==
-X-Received: by 2002:a05:600c:1f8c:b0:434:a1e7:27b0 with SMTP id 5b1f17b1804b1-434ddeb5379mr84518625e9.11.1733738507736;
-        Mon, 09 Dec 2024 02:01:47 -0800 (PST)
-Received: from [192.168.68.163] ([209.198.129.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434f2b08972sm57369755e9.27.2024.12.09.02.01.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Dec 2024 02:01:47 -0800 (PST)
-Message-ID: <ee89c235-a126-4874-994d-b2489eb1c00f@linaro.org>
-Date: Mon, 9 Dec 2024 10:01:45 +0000
+	id 1tKabv-00000007Ca1-1Yrq;
+	Mon, 09 Dec 2024 10:03:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733738604;
+	bh=uxDhJyLY3sygy6QpU5RBbCWc5T7HouoogqahrUoEgVQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qIiERnIv919/ESyVCG3CtCp2T2qIXTi3k40L/ZXlh5p7nfHQZ7Yk+8lR6/xjB6wVE
+	 3AkTXm61EaKoSdY9cBflFmGUoz/kE1gc0EP45KxaSUT+b/lND0VeAnOUwjnuGAa6OT
+	 LyN2sB3DdfIzAlWtQqHzzqnN1Wwg0lrGiW2hHKA0a0sNcuzVp3IdA/9vL/KOZH5dbR
+	 3o60pvkY6uXerlXMK0djbTSxzTSQarvHIyZ7FCt01xA7ka7HJ+4q2iI4sMfY8CN+tz
+	 uijQPuSyo9iuEeuzA3R3fc8X2pJhm/vMP6Lm/Wj0SPwjUtMq+1+GJGQArr4oNnl+YO
+	 9FVZFihrAB3cA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2474717E3625;
+	Mon,  9 Dec 2024 11:03:24 +0100 (CET)
+Message-ID: <c7407eef-d5dd-4380-ba5e-1defa37ee742@collabora.com>
+Date: Mon, 9 Dec 2024 11:03:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf vendor events arm64: Add FUJITSU-MONAKA pmu event
-To: Yoshihiro Furudera <fj5100bi@fujitsu.com>
-References: <20241111064843.3003093-1-fj5100bi@fujitsu.com>
+Subject: Re: [PATCH 0/5] MT8516/MT8167 dtsi fixes
+To: Val Packett <val@packett.cool>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Fabien Parent <fparent@baylibre.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241204190524.21862-1-val@packett.cool>
+ <7bf536a5-30c1-43d8-9ea3-3aaea65c6b0a@collabora.com>
+ <VVS3OS.MZCWW6ICFFUB3@packett.cool>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>,
- Ilkka Koskinen <ilkka@os.amperecomputing.com>, Xu Yang <xu.yang_2@nxp.com>,
- Jing Zhang <renyu.zj@linux.alibaba.com>, Lucas Stach
- <l.stach@pengutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- Akio Kakuno <fj3333bs@aa.jp.fujitsu.com>, nick.forrington@arm.com
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20241111064843.3003093-1-fj5100bi@fujitsu.com>
+In-Reply-To: <VVS3OS.MZCWW6ICFFUB3@packett.cool>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_020150_958196_7495D555 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20241209_020327_578028_A2BBED61 
+X-CRM114-Status: GOOD (  31.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,119 +79,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/11/2024 6:48 am, Yoshihiro Furudera wrote:
->      Add pmu events for FUJITSU-MONAKA.
->      And, also updated common-and-microarch.json and recommended.json.
+Il 07/12/24 04:11, Val Packett ha scritto:
 > 
->      FUJITSU-MONAKA Specification URL:
->      https://github.com/fujitsu/FUJITSU-MONAKA
+> On Thu, Dec 5 2024 at 01:27:01 PM +01:00:00, AngeloGioacchino Del Regno 
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>> I strongly suggest you to also send one that achieves basic boot with UART console
+>> as a first step for upstreaming your board, and then go for incremental changes
+>> everytime you get a new feature working.
 > 
-> Signed-off-by: Akio Kakuno <fj3333bs@aa.jp.fujitsu.com>
-> Signed-off-by: Yoshihiro Furudera <fj5100bi@fujitsu.com>
-> ---
-> Changes in v2:
-> - Change "SVE_INT64_DIV_SPEC" to "SVE_INT_DIV64_SPEC" in tools/perf/pmu-events/arch/arm64/fujitsu/monaka/sve.json.
-> - Link to v1: https://lore.kernel.org/all/20241111024529.2985894-1-fj5100bi@fujitsu.com/
+> Wanted to get the PMIC in first but sure, could try splitting out the initial 
+> version without the PMIC.
 > 
->   .../arch/arm64/common-and-microarch.json      | 858 ++++++++++++++++++
->   .../fujitsu/monaka/cycle_accounting.json      | 146 +++
->   .../arch/arm64/fujitsu/monaka/energy.json     |  20 +
->   .../arch/arm64/fujitsu/monaka/exception.json  |  32 +
->   .../arm64/fujitsu/monaka/fp_operation.json    | 194 ++++
->   .../arch/arm64/fujitsu/monaka/gcycle.json     | 116 +++
->   .../arch/arm64/fujitsu/monaka/general.json    |   8 +
->   .../arch/arm64/fujitsu/monaka/hwpf.json       |  62 ++
->   .../arch/arm64/fujitsu/monaka/l1d_cache.json  | 101 +++
->   .../arch/arm64/fujitsu/monaka/l1i_cache.json  |  47 +
->   .../arch/arm64/fujitsu/monaka/l2_cache.json   | 146 +++
->   .../arch/arm64/fujitsu/monaka/l3_cache.json   | 185 ++++
->   .../arch/arm64/fujitsu/monaka/ll_cache.json   |   8 +
->   .../arch/arm64/fujitsu/monaka/memory.json     |   8 +
->   .../arch/arm64/fujitsu/monaka/pipeline.json   | 230 +++++
->   .../arch/arm64/fujitsu/monaka/retired.json    |  29 +
->   .../arm64/fujitsu/monaka/spec_operation.json  | 158 ++++
->   .../arch/arm64/fujitsu/monaka/stall.json      |  83 ++
->   .../arch/arm64/fujitsu/monaka/sve.json        | 146 +++
->   .../arch/arm64/fujitsu/monaka/tlb.json        | 404 +++++++++
->   .../arch/arm64/fujitsu/monaka/trace.json      |  20 +
->   tools/perf/pmu-events/arch/arm64/mapfile.csv  |   1 +
->   .../pmu-events/arch/arm64/recommended.json    |   6 +
->   23 files changed, 3008 insertions(+)
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/cycle_accounting.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/energy.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/exception.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/fp_operation.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/gcycle.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/general.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/hwpf.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1d_cache.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l1i_cache.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l2_cache.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/l3_cache.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/ll_cache.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/memory.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pipeline.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/retired.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/spec_operation.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/stall.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/sve.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/tlb.json
->   create mode 100644 tools/perf/pmu-events/arch/arm64/fujitsu/monaka/trace.json
+
+We all want to get XYZ in first, but then, you'll see that sometimes having at
+least something will help you justify other changes....
+
+If there's nothing upstream, understanding your changes becomes increasingly
+difficult (depending on the nature of those changes, of course) - so... just
+take the advice: sending the initial DT will help you later in the process ;-)
+
+> Oh! One dts/dtsi question: pretty much all MTK devices so far have all pinctrl 
+> configurations defined per-device. But on this SoC, pin assignments have their 
+> "canonical" function in the pin name e.g.: MT8167_PIN_58_SDA0__FUNC_SDA0_0 and on 
+> this device they are used as-is. Would it be fine to place these default pinctrl 
+> configs for SD/MMC, I2C etc. in the SoC dtsi?
 > 
-> diff --git a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-> index 492083b99256..50fc4b2df361 100644
-> --- a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-> +++ b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-> @@ -533,6 +533,12 @@
->           "EventName": "SVE_INST_SPEC",
->           "BriefDescription": "SVE operations speculatively executed"
->       },
-> +    {
-> +        "PublicDescription": "This event counts architecturally executed Advanced SIMD and SVE operations.",
-> +        "EventCode": "0x8007",
-> +        "EventName": "ASE_SVE_INST_SPEC",
-> +        "BriefDescription": "This event counts architecturally executed Advanced SIMD and SVE operations."
-> +    },
 
-Hi Yoshihiro,
+No, because even though this is the default on many boards, it's still something
+board specific, as other boards may define different functions.
 
-You don't need to duplicate the descriptions if they are the same. Just 
-BriefDescription is enough and it will show for both normal and verbose 
-mode.
+Please define that in your board DT.
 
-Also in the common files, we're using the description strings from the 
-Arm ARM. I noticed that the ones from your spec are slightly different. 
-This is ok for now, but if we add any new Arm cores that use the same 
-events this description may get overwritten. For example 
-ASE_SVE_INST_SPEC in the Arm ARM is currently "Operation speculatively 
-executed, Advanced SIMD or SVE".
+>>> Generally, if the patches are only simple additions, you could send the original
+>> patches without any author variation (and fixing that MT6392_IRQ_numbers enum
+>> in the original ones because lower case please!) and then your patches on top
+>> with your additions.
+> 
+> Right, I was mostly unsure if the email workflow supported just sending someone 
+> else's patches, but I guess that was silly - of course git-send-email should do the 
+> right thing!
+> 
+>> The upstream driver just gained support for configuring the display paths
+>> entirely in the devicetree as those are obviously device specific.
+>>
+>> You can make use of that for upstreaming your tablet after adding the display
+>> nodes (and bindings, if required) as if you go for the default configuration
+>> that's probably not going to work because it's for the pumpkin boards which
+>> will most probably have a different display pipeline compared to your board.
+> 
+> The pipeline seems to be the same.. The pumpkin board was brought up with DSI as 
+> well, the main pipeline I can find in the Android source is the same (+ PWM).
+> 
+> I am still struggling to get it to work though: DSI command mode configuration gets 
+> acknowledged fine, but in burst mode, the vblank never arrives. Tried fiddling with 
+> various things (CMDQ or not, mutex as vblank source since there was an Android 
+> commit doing that, etc.), nothing helped.
+> 
 
-If you have any actual relevant details that are different from the 
-common string, you should put them in .../arch/arm64/fujitsu/monaka. But 
-if you are ok with the potential overwrite (which looks like it should 
-be ok) then you can leave them as is.
+DSI command mode is not supported upstream - only video mode... and that's why you
+can't get your display to work. There's no WDMA driver...
 
-[...]
+Convert it to video mode and it's gonna work just perfect :-)
 
-> diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/general.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/general.json
-> new file mode 100644
-> index 000000000000..80bf17fb8f4c
-> --- /dev/null
-> +++ b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/general.json
-> @@ -0,0 +1,8 @@
-> +[
-> +    {
-> +        "ArchStdEvent": "CPU_CYCLES"
-> +    },
+P.S.: Also check if your mmsys+mutex configuration is correct!
 
-Other cores put CPU_CYCLES in bus.json. For user friendlyness I would 
-put the common ones into the same existing groups. The same issue 
-applies for some other common events.
+>>> By the way, is anyone familiar with PSCI cpuidle/hot-unplug issues on
+>>> Mediatek Android devices from around this time? [..]
+>>
+>> I did have some issues with an older bootloader on the Xperia M5 smartphone
+>> and would even lock up at boot, because on the old firmwares the power
+>> domains for the CPUs are not managed automatically by FW.
+> 
+> Interesting, thanks for the pointer!
+> 
+> In the Android kernel sources I could find though, there are no CPU domains in the 
+> mtk-scpsys-mt8167 driver, and the only references I could even find to the related 
+> register bits are from code that *reads* the status of the CPU power domains to 
+> make decisions about sleep states (only_one_cpu_online in mtk_idle). Trying to add 
+> those to the driver anyway, did not succeed so far.
+> 
 
+Downstream, you will find references to "mtcmos" (or anyway cpu mtcmos) - that's
+how power domains are called there (I think. At least, in older downstream kernels
+that's how they're called - and that's the "real" hw name btw).
 
-Thanks
-James
+Cheers,
+Angelo
+
+> ~val
+> 
+> 
+> 
 
 
