@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4900E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 18:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4591E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 18:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vt1eQkp9pAQVTjzNi7SG9xZxFIH63Nwe6vPPAcwIYGQ=; b=CnjbCjUr/YJfBx
-	iKTZ5upmcC5h3y4BcUf6qNZlfe94psoUlui4PggGyIbH+hTePMoBvZjUT8JZlduHBvtcKXUUg65xS
-	yF8kYZButyFeIvak+koGpjfEdfdJE5bBjQ+/xYe8uK/NmuFQK7P8Go+4EwbuOZpamT40mnl7AkwsR
-	G9rcb5jZE6eG2KFdgqXrV7JYVkb7VcyJu4WOnkFi3kvPgiFL6ij/yzHNwRTonujHuX+Y36pU9563l
-	l3QRlIPYWRHuyMDxMMu5SjhswoV1EipOjhLkUe2wBgU00ZsykLaVCOPaKE9jOhZWIQrYNifs6DL2q
-	EFp9nA5ctaiqNvs1iSQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vnce7T7XEQrPlvinYVL/n1yhtcPoTTfoFaF2vz6MOmA=; b=nKYwLkvdzE4yJ2L12fkN3sao20
+	otx3hSF0GQaQvnOYVF9KdAuEpAdAvSmdS0ZomH4lP4My3LHF8lB/enzlNrRIL8/MnNckpBB03sQd+
+	/CfrFN1nCzNi6DsYJMpjVS2dy+kBM6qnv8L3ixd53I6rhXzxnGBBHwmhOtzijFxDXChi8wsn8L0Ry
+	RMQVBQi/WfCCSiwmOJX3BI842x4jOkmME2j416lEe87ffWDWpH0S/MP3KxlXu8hgrTn0zcV+KncmB
+	9yqLCq5K9y6jmYGimAUZ25QiLqptjf7jUWKbaum95c/r9LaQ28iH38BZbJgPdrNRv0YN5iQBU14fY
+	GrkEXV7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKi8L-00000008qG2-3HTB;
-	Mon, 09 Dec 2024 18:05:25 +0000
-Received: from mail-lf1-f51.google.com ([209.85.167.51])
+	id 1tKiKM-00000008rQ6-2oJU;
+	Mon, 09 Dec 2024 18:17:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKi6R-00000008prb-2Vmo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 18:03:28 +0000
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-540215984f0so987355e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 10:03:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733767403; x=1734372203;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Vt1eQkp9pAQVTjzNi7SG9xZxFIH63Nwe6vPPAcwIYGQ=;
-        b=PZ+QnweVEG/34YSzCD2ItYUDvBYnQ2O5HQpjWO5HpBOJy96zRZG/uGTEC+RXKaEoOv
-         J08EyQzHFpFmaX5ZjoD1R6xEjD3L2k2fno5XOkkwjlRaB/0zwI2mj8MBQzixQWmY8sKY
-         qx0JjJPpGBtqYEp//stokabzyDaOJGTJln2605I/8HESxVPkWY/xGvAUx4onpmUVuHGk
-         mM9I5N7XExnv0TCn0tw1nbUFLHXFzfbQpsCIfHQnvCl442yQbyEaC8/yX1YKNWVYp+Tp
-         FmmNlpdeOfnIVv2ku4ZF2mO8KNbOzveZi3R/OFBV286Kx9M8m3cM/9xfR/ERtmi0gh2s
-         AE5A==
-X-Forwarded-Encrypted: i=1; AJvYcCUlpXWtQvC+Qdk8ESTWPMsQ6nv7eH4z12e2lZd1tvXhl0PMpR+GHg4PjQ+ud3q24JJvEmpImvFH+RTPOBgqTv06@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfAW3I09LydGfVpBAvnqASg78QCU6jYl1P+SoR+TUhu+PIoKUq
-	XPVfNrowjcYs6ir+bYgFN3Vbr0+pzocVmRblWstkF7V4eQJdkCumGRWEQg==
-X-Gm-Gg: ASbGncsORJi/Pd7z1297Fe+VHx1rMUmzOrccF82NCJ5+h6eq4IgSPl90EF9ZmCsSaoy
-	AQLE8OiJ/OYIWo+791Wvg1onYn6puz3N4rbC2wxGz/oc0sbplDj/VtFKNO9V9z9R+cN/VKwdF9C
-	YB2jXtNnaSy0T9O05V2/Yd0UhaMEipUxDLiI204qMZS37/LiQ1Wri95maS6gaaLgmNl0NHel7wR
-	bzY3dcGS2fQqU+ziwR+/CE0eidNJE8DolBkDS9gGyK0mOXAArId8QZA/NZZu7OFroMBmukeNm6y
-	JlCYQlM=
-X-Google-Smtp-Source: AGHT+IGXgy50Qi9cHsbk7SCWwonCn9+DdrYRiXMsKKPDFPhHBfPLF1ROONA2Qyo6hK9UHD6xt501vA==
-X-Received: by 2002:a05:6512:1391:b0:53e:3a49:e6e8 with SMTP id 2adb3069b0e04-540240aacdemr624172e87.1.1733767402772;
-        Mon, 09 Dec 2024 10:03:22 -0800 (PST)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e39579e47sm957329e87.30.2024.12.09.10.03.22
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Dec 2024 10:03:22 -0800 (PST)
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2ffdbc0c103so42586211fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 10:03:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVqC6inyOxSaj56Mf1JvJubeBWVEpZpwDFhy38Do3sNwDL8ntv0kvGbnZ9jU1l1l1ZtbFIp5w1I0TWOIYaaQTEZ@lists.infradead.org
-X-Received: by 2002:a05:651c:509:b0:302:2cb3:bb25 with SMTP id
- 38308e7fff4ca-3022fd7da65mr6276521fa.29.1733767402058; Mon, 09 Dec 2024
- 10:03:22 -0800 (PST)
+	id 1tKiJK-00000008rJc-1YnB;
+	Mon, 09 Dec 2024 18:16:47 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9ATf0g028879;
+	Mon, 9 Dec 2024 18:16:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vnce7T7XEQrPlvinYVL/n1yhtcPoTTfoFaF2vz6MOmA=; b=W8l6J/lnj/iOlWol
+	s07T1SVbHXGzyHmG64Zd4inrJURiK72U72gYXc9e8fpEyVzeEhP4iplkYQOXL3sg
+	8349nMkhNTii7K4sgQOcBAyR5707y91w3cYHgQgwDBtroCs+Z8wF5hcx9i/PPojn
+	wyjuDDjlvD9L1pJhonMoiPXOXgTTJaACfkbOx7MPNSN8ugyZGkdWq0QcXy5VcJcc
+	Utjss5AjiQ5Ke2LUxkwlT52AasRu4i4/uDnoK2b4Td9GgQl2U658wS6UDOgZu+HS
+	6cal1upeuSIBekl9ZRczcJ7IQ64ZsWUwbx1mHfspTUM3R+vkpi6XZVxgE+k4nHIT
+	t+2jbw==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43cfhkdmt6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 18:16:40 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B9IGeCZ022605
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 9 Dec 2024 18:16:40 GMT
+Received: from [10.50.34.16] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 9 Dec 2024
+ 10:16:35 -0800
+Message-ID: <54ac6a4f-5ae0-409f-8401-d6e1326d4358@quicinc.com>
+Date: Mon, 9 Dec 2024 23:46:31 +0530
 MIME-Version: 1.0
-References: <20241205000137.187450-1-csokas.bence@prolan.hu>
- <20241205000137.187450-2-csokas.bence@prolan.hu> <20241209175637.283312fa@donnerap.manchester.arm.com>
-In-Reply-To: <20241209175637.283312fa@donnerap.manchester.arm.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Tue, 10 Dec 2024 02:03:08 +0800
-X-Gmail-Original-Message-ID: <CAGb2v644AgZvuOmvQCUXGWyJWYCgVnCkVohNdD-Z0FhgOrp1cQ@mail.gmail.com>
-Message-ID: <CAGb2v644AgZvuOmvQCUXGWyJWYCgVnCkVohNdD-Z0FhgOrp1cQ@mail.gmail.com>
-Subject: Re: [PATCH 1/3] ARM: dts: suniv: f1c100s: Add support for DMA
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: =?UTF-8?B?Q3PDs2vDoXMsIEJlbmNl?= <csokas.bence@prolan.hu>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Mesih Kilinc <mesihkilinc@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] i3c: master: Improve initialization of numbered I2C
+ adapters
+To: Defa Li <defa.li@mediatek.com>,
+        Alexandre Belloni
+	<alexandre.belloni@bootlin.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: <linux-i3c@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-mediatek@lists.infradead.org>, <wsd_upstream@mediatek.com>,
+        <mingchang.jia@mediatek.com>, <yuhan.wei@mediatek.com>,
+        <hao.lin@mediatek.com>
+References: <20241205132934.12110-1-defa.li@mediatek.com>
+Content-Language: en-US
+From: Mukesh Kumar Savaliya <quic_msavaliy@quicinc.com>
+In-Reply-To: <20241205132934.12110-1-defa.li@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: OSoeq6sK0chCG1sPbMn_4yX6vW5ijtBe
+X-Proofpoint-GUID: OSoeq6sK0chCG1sPbMn_4yX6vW5ijtBe
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 mlxlogscore=999 mlxscore=0 adultscore=0 lowpriorityscore=0
+ phishscore=0 clxscore=1011 priorityscore=1501 spamscore=0 bulkscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412090142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_100327_636974_07DEE76E 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20241209_101646_426959_1BF9F017 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,70 +102,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 1:56=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
-com> wrote:
->
-> On Thu, 5 Dec 2024 01:01:36 +0100
-> "Cs=C3=B3k=C3=A1s, Bence" <csokas.bence@prolan.hu> wrote:
->
-> > From: Mesih Kilinc <mesihkilinc@gmail.com>
-> >
-> > Allwinner suniv F1C100s now has DMA support. Enable it under device
-> > tree.
-> >
-> > Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
-> > [ csokas.bence: Rebased on current master ]
-> > Signed-off-by: Cs=C3=B3k=C3=A1s, Bence <csokas.bence@prolan.hu>
->
-> Compared against the manual:
->
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-These have already been merged. I picked them from their original
-series.
 
-ChenYu
+On 12/5/2024 6:59 PM, Defa Li wrote:
+> Add logic to initialize I2C adapters with a specific ID if available,
+> improving device identification and configuration.
+> 
+Could you also provide how exactly to define this into DT to have 
+numbering while registering the adapter ? Kind of sample to which can be 
+defined in DTSI.
+> Signed-off-by: Defa Li <defa.li@mediatek.com>
+> ---
+>   drivers/i3c/master.c | 11 +++++++++--
+>   1 file changed, 9 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
+> index 42310c9a00c2..a838cdbb897b 100644
+> --- a/drivers/i3c/master.c
+> +++ b/drivers/i3c/master.c
+> @@ -2486,7 +2486,7 @@ static int i3c_master_i2c_adapter_init(struct i3c_master_controller *master)
+>   	struct i2c_adapter *adap = i3c_master_to_i2c_adapter(master);
+>   	struct i2c_dev_desc *i2cdev;
+>   	struct i2c_dev_boardinfo *i2cboardinfo;
+> -	int ret;
+> +	int ret, id = -ENODEV;
+>   
+>   	adap->dev.parent = master->dev.parent;
+>   	adap->owner = master->dev.parent->driver->owner;
+> @@ -2497,7 +2497,14 @@ static int i3c_master_i2c_adapter_init(struct i3c_master_controller *master)
+>   	adap->timeout = 1000;
+>   	adap->retries = 3;
+>   
+> -	ret = i2c_add_adapter(adap);
+> +	if (master->dev.of_node)
+> +		id = of_alias_get_id(master->dev.of_node, "i2c");
+> +
+> +	if (id >= 0) {
+> +		adap->nr = id;
+> +		ret = i2c_add_numbered_adapter(adap);
+> +	} else
+> +		ret = i2c_add_adapter(adap);
+Please provide braces for else too.
+>   	if (ret)
+>   		return ret;
+>   
 
-> Cheers,
-> Andre
->
-> > ---
-> >  arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> >
-> > diff --git a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi b/arch/arm/=
-boot/dts/allwinner/suniv-f1c100s.dtsi
-> > index 3c61d59ab5f8..290efe026ceb 100644
-> > --- a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
-> > +++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
-> > @@ -6,6 +6,7 @@
-> >
-> >  #include <dt-bindings/clock/suniv-ccu-f1c100s.h>
-> >  #include <dt-bindings/reset/suniv-ccu-f1c100s.h>
-> > +#include <dt-bindings/dma/sun4i-a10.h>
-> >
-> >  / {
-> >       #address-cells =3D <1>;
-> > @@ -159,6 +160,15 @@ usbphy: phy@1c13400 {
-> >                       status =3D "disabled";
-> >               };
-> >
-> > +             dma: dma-controller@1c02000 {
-> > +                     compatible =3D "allwinner,suniv-f1c100s-dma";
-> > +                     reg =3D <0x01c02000 0x1000>;
-> > +                     interrupts =3D <18>;
-> > +                     clocks =3D <&ccu CLK_BUS_DMA>;
-> > +                     resets =3D <&ccu RST_BUS_DMA>;
-> > +                     #dma-cells =3D <2>;
-> > +             };
-> > +
-> >               ccu: clock@1c20000 {
-> >                       compatible =3D "allwinner,suniv-f1c100s-ccu";
-> >                       reg =3D <0x01c20000 0x400>;
->
->
 
