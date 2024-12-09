@@ -4,89 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E05E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F56E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6gzkDAhzXovMDqEI+9lRYWllf8EEHxno6K1iEAuLoM=; b=Y1ssuZtq8O1hmSJ8mhYXfPvJAG
-	k6ksHnS5wkq5Oh/W4HPAqlSmah+5CKgl5IaPiSIU3VHeQ8J3Nj3LMe0CTGr5npHykthFuNzC2YJSz
-	+3VPJZq7D7q+u5f47JTNLxgDYOKWIgC4mwj/q+BaiFC6DdOqqgYrDMAIISfLdpaFvorTS9MxR9gTJ
-	cmNtLZmq7X0OxK1gfczRJk9CgrvNN2UI4DcG3V/vCCzoT6fjEeCrLCW186VXM92e7zEUuXvl5uNgO
-	/Tu27VNK6ltUvl7/pmgz4ild7PMkQjEf1/FOuAZMwOXC8a4RFGBPMjQvQqoLvkY0PhMZayTrMyxIz
-	lPmTPESQ==;
+	bh=2d1epkqFH3jvvmJ4YNIHzTpA7APESqdOMC6Q17ONsSw=; b=p4W0t6VT2ZOlPS15Jmzcaf0FPw
+	t+/omjw+QypsnwOHLdQle8C+y75grP3PmY8y1QcESnqvqA3dBVtWJPrkehfkzBBoJz/2MyeNynXFW
+	VRBimhAYnUVDBizfZF29fLHsW+uj+hMJ8zxIUb6YfCDMp4oOhy1LeYGdRy99Gq3hhHSPyOAHrR7G6
+	aVHBW0VxHlO1T3VpLx/PIgOzg5XTpl102FyNrMNpt7M5/BDBu2n+bjdF+VJWq+RyVXjtBGIQ/Psrr
+	XSt37GrvuKOMR/v5nLUrmrCS5uVgH6vYZr4KaKCBOfUEKhWHV+tMJqWSis/6UPQ4WPtmVJ1Bs9hBr
+	jMwRX7dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcZz-00000007d8T-2HLe;
-	Mon, 09 Dec 2024 12:09:35 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tKcd0-00000007dst-3nsg;
+	Mon, 09 Dec 2024 12:12:42 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcYx-00000007cyh-2JLg
+	id 1tKcbx-00000007deE-2SPj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 12:08:32 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30037784fceso23960001fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 04:08:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1733746110; x=1734350910; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w6gzkDAhzXovMDqEI+9lRYWllf8EEHxno6K1iEAuLoM=;
-        b=CD3wR5fsoJ07YL9ViWpYj6PLLcL8tFxy4d3IeWnMqQU/6uRpJMrKR+0njjAgSiXJIQ
-         MGiptf/ynlADJPckO52eLMVKMK/MjzuKd6MuQyp0vH7c7yJBVqm/+dROz2qrre4ynyF0
-         5sz0GYm205zy9O6kei2vOKrLJ34qMi+0kOKVEV27hLkqvBtwThCDNUuIXIiHhCxCH0+a
-         k/AOBTpMInMA+xSxHeTo1VvX3l9IYTBv/1N3SdhrzkMaAoDlqMZc0ahlv5miZJweo5tS
-         6DrzdXaQ7TLsx7mz47sKqbwTdJvrKdPw5+//Yp+N9B53fZ3uJ3VUKhsAyq8oz9UW1gwX
-         Csjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733746110; x=1734350910;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w6gzkDAhzXovMDqEI+9lRYWllf8EEHxno6K1iEAuLoM=;
-        b=OHzu4zWMu8AOaHfoPM554pnRM5ZzkplDWiblrxAyPz/ugRXTk1rlXmZXrvK03VRwFi
-         64I4Q/12K2CRosLH67gsupPKgjUNexY9HBzanfXdyECKmHPt7Ez/p9SI9tx4Rn65eci8
-         h2L2Q+lhILYq/MQK3dX8RiWvabZ9GTcdmi3DSgI7iYYVETH/cAnf+2ZOnq242Mnpg911
-         Fv0m9MKZ3s4Jh0f2PwUDbhaSp/XwzH81unUPxUSAVeaRolXyKaI0tmct6UzB1+zcxkfo
-         z+rtYBeKR2fdWuDoSXTzT3HgcfT3Pc5dSLl1g1TJ3iGNx8iLV20RNSMslUyyhpRUh6cJ
-         pzaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQiGPJWJ5/NucHy6cy6T7yko8glJk2AWgX7Ej+Gh9s2QcE+WTey0Fgl71Ih269RY1om58QMUj+bAa+QXUxvrzz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxl/NF8cQ0Cv+RsMAv74jEAwekobcXUWcy4UjunQU1z+fgErNPT
-	qQBLu/XsqMrTX6gsJxZ2HgBHWAVZ9pyEVy8xj+IK0WLXTbqiofgTsBM4a/wR67Ung8y4XkKzlHa
-	GrZsxLYmPxMeUSRWmYj8LXrMV68c6+OxysZ6e+Q==
-X-Gm-Gg: ASbGncsw0k2zQLoediv06wkuWnWmEcbZdDcDccu1N0NkTn8xy2bDfw1lV8KX0JDn/vZ
-	iQEx2pTEjfUsGUkM6s6rViksSfKYlSih95Q==
-X-Google-Smtp-Source: AGHT+IE7s57c5CX5EN+0VrV/XwVhMQsRyEe4E1tm7jFdZ3xrCHKp5MnSIFcNY2K88pwSkR5p5gRdx23gp0eZz8tJNGY=
-X-Received: by 2002:a2e:b013:0:b0:300:33b1:f0cc with SMTP id
- 38308e7fff4ca-30033b1f3femr48347421fa.34.1733746109558; Mon, 09 Dec 2024
- 04:08:29 -0800 (PST)
+	Mon, 09 Dec 2024 12:11:38 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9Aaf9e023581;
+	Mon, 9 Dec 2024 12:11:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2d1epkqFH3jvvmJ4YNIHzTpA7APESqdOMC6Q17ONsSw=; b=AGBr6oI7A6/jsCi0
+	T8mbTgjMd8DGoZXsgdKP09BnXagrXpzPAVQVpewUYjiDAie8ByXqDmwjnH01+mp3
+	qMYMhtVRfztTjFVGJS89LkyE7sfx9iVxPesJMizSdzZuRzQ+qFRJc33jHkkzzDf5
+	kMMSIOu5vi5QnxOE1zbYJHf7A5qCO0llmCr19UiP413Umery9QlssZwbXAzyTMfA
+	T3PFz5uzRrapjYjr/z/MLj66Mk+84duX6kZlK9DoGGIZNYlVs4IhuFody7AxzQGL
+	3Nfhq038mC+E/U9fCsUzp30CXG/ine8sbZjc9KrIE4n4U0FihubHNde0jNJICtKy
+	oS3img==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43cfhkchys-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 12:11:07 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B9CB6Ma032414
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 9 Dec 2024 12:11:06 GMT
+Received: from [10.253.38.68] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 9 Dec 2024
+ 04:11:00 -0800
+Message-ID: <25619909-90c2-40a8-9e49-83ab26b6cf79@quicinc.com>
+Date: Mon, 9 Dec 2024 20:10:58 +0800
 MIME-Version: 1.0
-References: <20241208150711.297624-1-apatel@ventanamicro.com>
- <20241208150711.297624-2-apatel@ventanamicro.com> <875xnuq6dc.ffs@tglx>
-In-Reply-To: <875xnuq6dc.ffs@tglx>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 9 Dec 2024 17:38:18 +0530
-Message-ID: <CAK9=C2VqU2mdLL-R20bdgvDHi0WcuNyUSqRo7Pztsu-8X1wVvw@mail.gmail.com>
-Subject: Re: [PATCH 1/4] irqchip/riscv-imsic: Handle non-atomic MSI updates
- for device
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/5] Add CMN PLL clock controller driver for IPQ9574
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+        <dmitry.baryshkov@linaro.org>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>,
+        "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>
+References: <20241106-qcom_ipq_cmnpll-v6-0-9d398db2fe0f@quicinc.com>
+Content-Language: en-US
+From: Jie Luo <quic_luoj@quicinc.com>
+In-Reply-To: <20241106-qcom_ipq_cmnpll-v6-0-9d398db2fe0f@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: nB23Cp8rjEWwJoZ9YLt_mk0m4rYZYATy
+X-Proofpoint-GUID: nB23Cp8rjEWwJoZ9YLt_mk0m4rYZYATy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 mlxlogscore=999 mlxscore=0 adultscore=0 lowpriorityscore=0
+ phishscore=0 clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412090096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_040831_591983_977EFDC8 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20241209_041137_640717_CDDB568F 
+X-CRM114-Status: GOOD (  28.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,68 +114,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
 
-On Mon, Dec 9, 2024 at 1:44=E2=80=AFAM Thomas Gleixner <tglx@linutronix.de>=
- wrote:
->
-> On Sun, Dec 08 2024 at 20:37, Anup Patel wrote:
-> > +
-> > +                     tvec =3D vec->local_id =3D=3D mvec->local_id ?
-> > +                            NULL : &lpriv->vectors[mvec->local_id];
-> > +                     if (tvec && __imsic_id_read_clear_pending(tvec->l=
-ocal_id)) {
->
-> As I told you before:
->
-> I don't see a way how that can work remote with the IMSIC either even if
-> you can easily access the pending state of the remote CPU:
 
-For RISC-V IMSIC, a remote CPU cannot access the pending state
-of interrupts on some other CPU.
+On 11/6/2024 6:52 PM, Luo Jie wrote:
+> The CMN PLL clock controller in Qualcomm IPQ chipsets provides
+> the clocks to the networking hardware blocks that are internal
+> or external to the SoC, and to the GCC. This driver configures
+> the CMN PLL clock controller to enable the output clocks. The
+> networking blocks include the internal blocks such as PPE
+> (Packet Process Engine) and PCS blocks, and external hardware
+> such as Ethernet PHY or switch. The CMN PLL block also outputs
+> fixed rate clocks to GCC, such as 24 MHZ as XO clock and 32 KHZ
+> as sleep clock supplied to GCC.
+> 
+> The controller expects the input reference clock from the internal
+> Wi-Fi block acting as the clock source. The output clocks supplied
+> by the controller are fixed rate clocks.
+> 
+> The CMN PLL hardware block does not include any other function
+> other than enabling the clocks to the networking hardware blocks
+> and GCC.
+> 
+> The driver is being enabled to support IPQ9574 SoC initially, and
+> will be extended for other SoCs.
+> 
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+> ---
+> Changes in v6:
+> - Rename the reference clock of CMN PLL to ref_48mhz_clk.
+> - Add the patch to update xo_board_clk to use fixed factor clock.
+> - Link to v5: https://lore.kernel.org/r/20241028-qcom_ipq_cmnpll-v5-0-339994b0388d@quicinc.com
+> 
+> Changes in v5:
+> - Move the hardware configurations into set_rate() from determine_rate().
+> - Remove the dependency on IPQ_GCC_9574.
+> - Correct the header files included.
+> - Update reference clock of CMN PLL to use fixed factor clock.
+> - Link to v4: https://lore.kernel.org/r/20241015-qcom_ipq_cmnpll-v4-0-27817fbe3505@quicinc.com
+> 
+> Changes in v4:
+> - Rename driver file to ipq-cmn-pll.c
+> - Register CMN PLL as a 12 GHZ clock.
+> - Configure CMN PLL input ref clock using clk_ops::determine_rate().
+>    Add the additional output clocks to GCC and PCS.
+> - Update the same information in dtbindings.
+> - Use PM clock APIs for input clock enablement.
+> - Link to v3: https://lore.kernel.org/r/20240827-qcom_ipq_cmnpll-v3-0-8e009cece8b2@quicinc.com
+> 
+> Changes in v3:
+> - Update description of dt-binding to explain scope of 'CMN' in CMN PLL.
+> - Collect Reviewed-by tags for dtbindings and defconfig patches.
+> - Enable PLL_LOCKED check for the stability of output clocks.
+> - Link to v2: https://lore.kernel.org/r/20240820-qcom_ipq_cmnpll-v2-0-b000dd335280@quicinc.com
+> 
+> Changes in v2:
+> - Rename the dt-binding file with the compatible.
+> - Remove property 'clock-output-names' from dt-bindings and define
+>    names in the driver. Add qcom,ipq-cmn-pll.h to export the output
+>    clock specifier.
+> - Alphanumeric ordering of 'cmn_pll_ref_clk' node in DTS.
+> - Fix allmodconfig error reported by test robot.
+> - Replace usage of "common" to "CMN" to match the name with the
+>    hardware specification.
+> - Clarify in commit message on scope of CMN PLL function.
+> - Link to v1: https://lore.kernel.org/r/20240808-qcom_ipq_cmnpll-v1-0-b0631dcbf785@quicinc.com
+> 
+> ---
+> Luo Jie (5):
+>        dt-bindings: clock: qcom: Add CMN PLL clock controller for IPQ SoC
+>        clk: qcom: Add CMN PLL clock controller driver for IPQ SoC
+>        arm64: defconfig: Enable Qualcomm IPQ CMN PLL clock controller
+>        arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
+>        arm64: dts: qcom: Update IPQ9574 xo_board_clk to use fixed factor clock
+> 
+>   .../bindings/clock/qcom,ipq9574-cmn-pll.yaml       |  85 ++++
+>   arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi   |  23 +-
+>   arch/arm64/boot/dts/qcom/ipq9574.dtsi              |  27 +-
+>   arch/arm64/configs/defconfig                       |   1 +
+>   drivers/clk/qcom/Kconfig                           |   9 +
+>   drivers/clk/qcom/Makefile                          |   1 +
+>   drivers/clk/qcom/ipq-cmn-pll.c                     | 436 +++++++++++++++++++++
+>   include/dt-bindings/clock/qcom,ipq-cmn-pll.h       |  22 ++
+>   8 files changed, 601 insertions(+), 3 deletions(-)
+> ---
+> base-commit: d61a00525464bfc5fe92c6ad713350988e492b88
+> change-id: 20241014-qcom_ipq_cmnpll-bde0638f4116
+> 
+> Best regards,
 
->
-> CPU0                            CPU1                   Device
-> set_affinity()
->   write_msg(tmp)
->     write(addr); // CPU1
->     write(data); // vector 0x20
->                                                         raise IRQ (CPU1, =
-vector 0x20)
->                                 handle vector 0x20
->                                 (other device)
->
->     check_pending(CPU1, 0x20) =3D=3D false -> Interrupt is lost
->
-> There is no guarantee that set_affinity() runs on the original target
-> CPU (CPU 1). Your scheme only works, when CPU1 vector 0x20 is not used
-> by some other device. If it's used, you lost as CPU1 will consume the
-> vector and your pending check is not seeing anything.
->
-> x86 ensures CPU locality by deferring the affinity move to the next
-> device interrupt on the original target CPU (CPU1 in the above
-> example). See CONFIG_GENERIC_IRQ_PENDING.
+Hello Bjorn, Stephen, Dmitry,
 
-I agree with you.
-
-The IMSIC driver must do the affinity move upon the next device
-interrupt on the old CPU. I will update this patch in the next revision.
-
-BTW, I did not find CONFIG_GENERIC_IRQ_PENDING. Is the
-name correct ?
-
->
-> The interrupt domains which are not affected (remap) set the
-> IRQ_MOVE_PCNTXT flag to avoid that dance and don't use that affinity
-> setter code path at all.
-
-Yes, setting the IRQ_MOVE_PCNTXT flag in the remap domain
-makes perfect sense.
-
-I suggest adding IRQ_MOVE_PCNTXT usage as part of Drew's
-irqbypass series which adds a remap domain in the IOMMU
-driver. Unless you insist on having it as part of this series ?
-
-Regards,
-Anup
+Gentle reminder, to re-review the updated patch series V6 at your
+convenience to let me know if this patch series is fine to be merged.
+Thanks in advance.
 
