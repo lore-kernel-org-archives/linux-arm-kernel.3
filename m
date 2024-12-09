@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32448E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE46AE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YUMYQOIXLWXZ0xu21z8a2F/DBC+sSJEk31/h6id2njo=; b=ICqGYUDtOA6L5Z
-	Yx8BD8sXXIDRh0rPlGgP5GgAZDE9ItLwVLq8FslFaBpi6eX8FgOUC1OP6FfqHxgTAR8Mm53XWkCxp
-	HLqTixdT8iLqBcJzW/A0qO0/ONj/kiexLq1yqCMEBfwdYF5PRT7wGS2AbiFlIvOE5uBAvTJzHieWc
-	ePyvnyjdxsyW7un32/tOsAyvfMLv2cjrT38YCACKLkYQFGyHb3yXTm247vOblVN+yZnVegGUUEJmH
-	aXgFZXNfjmzbcSQBUspyAmK+zcRVLhFDeSZj5yC81KDfFYHzqBHO29Ok++r4MD7sHCsib1fg8LZdw
-	sBXQB8PiF2TWAIc3SotA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oo6qi32xliB1emk1pVOMd7Vf50zlJGgzdLuk8tsoDoU=; b=m6jr2sDZQDow56pdohudYm3tz9
+	ktftdnawpvr8LvdaezKBigsdPwQnbzN95BT5sWBQ96F7WXjqQAQ3lblc6iK9yVsT6hE7Or5lZdeVq
+	/V7NAzZAb9YAyYhEWhpqIFU0PjmhaiixL1KtiCjllfyCrFX7pN5qsLlCN7GF+UDTtx3DSiJANxQOb
+	gaCpSrIvgXypcAsF3vJZsDhgVpljhxHVy9v518WUQKnzTFbrHJpPhqnjR+5jlfio7wlfEE4KEc5l0
+	dib6jMXhxijFVugIEc8j7UrnpUlTSFy4DP2DBPBkRMQc6Nlp4EtMc6wJ/2zD5PK0Zwl4p0PGzPxni
+	vEKJUD8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKh8X-00000008e4C-2od2;
-	Mon, 09 Dec 2024 17:01:33 +0000
+	id 1tKh9Y-00000008eI9-2bLL;
+	Mon, 09 Dec 2024 17:02:36 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKh7S-00000008dZL-2xYD;
-	Mon, 09 Dec 2024 17:00:28 +0000
+	id 1tKh7W-00000008dba-29Bz;
+	Mon, 09 Dec 2024 17:00:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733763623;
-	bh=ysn17uQxkXzPtLZxnOMKYQsJkVa5vH4rdmQv56kQ19U=;
-	h=From:Subject:Date:To:Cc:From;
-	b=bHOtKjS1103e+9ea300h6Mz17GGWJIWxh41GOfvGOiUUrJ6ghWqieWRAU/xZXPP74
-	 DQ/V9z5EC2TUMDPKe9qLaCKTj04sK4F8gGEPgAAEigp0+aMtMGaQpEUPYW1NRhSpTl
-	 VtfLSj/k/tZqkldi+PH3AUbGwaTEiXxhpPoV8FvuFPTvps/q5MI5J97Ndjiqyx5yUM
-	 r01L6rhobmsLN9olbYcG92sMeXkb+szabyxGDekAkmeBfGrRI5PfifXXfXZXwos3Lo
-	 5e6mJlOk3FW/eAoygr9t/+jlEK0v7EYci1d8dsAKr2BgWK56GwzTJsipO2XQe3vZo3
-	 failmmYZYK5+A==
+	s=mail; t=1733763628;
+	bh=mgTvb+hAc3cxs6nEMw1GnF2VZ+CANYXvQu+M3IdY9/g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=LQQYN8soH/OC5ac9XKiI5FPJcjJxyYSnhmS0Rr8YfYhDkUaiGe3nYsof84vf0TINp
+	 gnaFc128Abf3bFPphaGf8+JYhqREzl+UguyJcPH+iHP+dK8X6pwoB6cr3YAzabvIBg
+	 xV+ZCpCzwhScCmvkMCntlNFSzug59VbGkcDMkHB5pqapt181SymqXdl/E57CPQ7Edv
+	 GHtm6tg/8x+fH5OScMko2txVzObzENN98RZMaxo1n+hMLnkjeJ7kHif7OY7SLmI2Mk
+	 WlUagobyYEMWc2UsSlTT/XwGZmM9Nq04q89ZtPhyYE0JVBx8hl6akkTnayYWkurQPj
+	 TTzXQRXnFL29Q==
 Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8A62317E37BF;
-	Mon,  9 Dec 2024 18:00:19 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2916617E37C3;
+	Mon,  9 Dec 2024 18:00:23 +0100 (CET)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v2 0/5] thermal/drivers/mediatek/lvts: Fixes for suspend
- and IRQ storm, and cleanups
-Date: Mon, 09 Dec 2024 14:00:01 -0300
-Message-Id: <20241209-mt8192-lvts-filtered-suspend-fix-v2-0-5b046a99baa9@collabora.com>
+Date: Mon, 09 Dec 2024 14:00:02 -0300
+Subject: [PATCH v2 1/5] thermal/drivers/mediatek/lvts: Disable monitor mode
+ during suspend
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIABEiV2cC/4WNQQ6CMBAAv0J6dk27gEFP/sNwKMsqTQolbW00p
- H+3knj2OHOY2URgbziIS7UJz8kE45YCeKgETXp5MJixsECJjVKoYI6dOiPYFAPcjY3seYTwDCs
- vYxEv0K2skXTHxIMomdVz0fvi1heeTIjOv/djUl/7i7f/40mBhAa5JtliRye6krNWD87rI7lZ9
- DnnD8dyvrHUAAAA
-X-Change-ID: 20241121-mt8192-lvts-filtered-suspend-fix-a5032ca8eceb
+Message-Id: <20241209-mt8192-lvts-filtered-suspend-fix-v2-1-5b046a99baa9@collabora.com>
+References: <20241209-mt8192-lvts-filtered-suspend-fix-v2-0-5b046a99baa9@collabora.com>
+In-Reply-To: <20241209-mt8192-lvts-filtered-suspend-fix-v2-0-5b046a99baa9@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
  Lukasz Luba <lukasz.luba@arm.com>, 
@@ -73,8 +70,8 @@ Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
  stable@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_090026_894560_4C5A9FF2 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20241209_090030_700964_27492AB2 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +86,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Patches 1 and 2 of this series fix the issue reported by Hsin-Te Yuan
-[1] where MT8192-based Chromebooks are not able to suspend/resume 10
-times in a row. Either one of those patches on its own is enough to fix
-the issue, but I believe both are desirable, so I've included them both
-here.
+When configured in filtered mode, the LVTS thermal controller will
+monitor the temperature from the sensors and trigger an interrupt once a
+thermal threshold is crossed.
 
-Patches 3-5 fix unrelated issues that I've noticed while debugging.
-Patch 3 fixes IRQ storms when the temperature sensors drop to 20
-Celsius. Patches 4 and 5 are cleanups to prevent future issues.
+Currently this is true even during suspend and resume. The problem with
+that is that when enabling the internal clock of the LVTS controller in
+lvts_ctrl_set_enable() during resume, the temperature reading can glitch
+and appear much higher than the real one, resulting in a spurious
+interrupt getting generated.
 
-To test this series, I've run 'rtcwake -m mem -d 60' 10 times in a row
-on a MT8192-Asurada-Spherion-rev3 Chromebook and checked that the wakeup
-happened 60 seconds later (+-5 seconds). I've repeated that test on 10
-separate runs. Not once did the chromebook wake up early with the series
-applied.
+Disable the temperature monitoring and give some time for the signals to
+stabilize during suspend in order to prevent such spurious interrupts.
 
-I've also checked that during those runs, the LVTS interrupt didn't
-trigger even once, while before the series it would trigger a few times
-per run, generally during boot or resume.
-
-Finally, as a sanity check I've verified that the interrupts still work
-by lowering the thermal trip point to 45 Celsius and running 'stress -c
-8'. Indeed they still do, and the temperature showed by the
-thermal_temperature ftrace event matched the expected value.
-
-[1] https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
-
+Cc: stable@vger.kernel.org
+Reported-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Closes: https://lore.kernel.org/all/20241108-lvts-v1-1-eee339c6ca20@chromium.org/
+Fixes: 8137bb90600d ("thermal/drivers/mediatek/lvts_thermal: Add suspend and resume")
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
-Changes in v2:
-- Renamed bitmasks for interrupt enable (added "INTEN" to the name)
-- Made read-only arrays static const
-- Changed sensor_filt_bitmap array from u32 to u8 to save memory
-- Rebased on next-20241209
-- Link to v1: https://lore.kernel.org/r/20241125-mt8192-lvts-filtered-suspend-fix-v1-0-42e3c0528c6c@collabora.com
+ drivers/thermal/mediatek/lvts_thermal.c | 36 +++++++++++++++++++++++++++++++--
+ 1 file changed, 34 insertions(+), 2 deletions(-)
 
----
-Nícolas F. R. A. Prado (5):
-      thermal/drivers/mediatek/lvts: Disable monitor mode during suspend
-      thermal/drivers/mediatek/lvts: Disable Stage 3 thermal threshold
-      thermal/drivers/mediatek/lvts: Disable low offset IRQ for minimum threshold
-      thermal/drivers/mediatek/lvts: Start sensor interrupts disabled
-      thermal/drivers/mediatek/lvts: Only update IRQ enable for valid sensors
+diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+index 07f7f3b7a2fb569cfc300dc2126ea426e161adff..a1a438ebad33c1fff8ca9781e12ef9e278eef785 100644
+--- a/drivers/thermal/mediatek/lvts_thermal.c
++++ b/drivers/thermal/mediatek/lvts_thermal.c
+@@ -860,6 +860,32 @@ static int lvts_ctrl_init(struct device *dev, struct lvts_domain *lvts_td,
+ 	return 0;
+ }
+ 
++static void lvts_ctrl_monitor_enable(struct device *dev, struct lvts_ctrl *lvts_ctrl, bool enable)
++{
++	/*
++	 * Bitmaps to enable each sensor on filtered mode in the MONCTL0
++	 * register.
++	 */
++	static const u8 sensor_filt_bitmap[] = { BIT(0), BIT(1), BIT(2), BIT(3) };
++	u32 sensor_map = 0;
++	int i;
++
++	if (lvts_ctrl->mode != LVTS_MSR_FILTERED_MODE)
++		return;
++
++	if (enable) {
++		lvts_for_each_valid_sensor(i, lvts_ctrl)
++			sensor_map |= sensor_filt_bitmap[i];
++	}
++
++	/*
++	 * Bits:
++	 *      9: Single point access flow
++	 *    0-3: Enable sensing point 0-3
++	 */
++	writel(sensor_map | BIT(9), LVTS_MONCTL0(lvts_ctrl->base));
++}
++
+ /*
+  * At this point the configuration register is the only place in the
+  * driver where we write multiple values. Per hardware constraint,
+@@ -1381,8 +1407,11 @@ static int lvts_suspend(struct device *dev)
+ 
+ 	lvts_td = dev_get_drvdata(dev);
+ 
+-	for (i = 0; i < lvts_td->num_lvts_ctrl; i++)
++	for (i = 0; i < lvts_td->num_lvts_ctrl; i++) {
++		lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], false);
++		usleep_range(100, 200);
+ 		lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], false);
++	}
+ 
+ 	clk_disable_unprepare(lvts_td->clk);
+ 
+@@ -1400,8 +1429,11 @@ static int lvts_resume(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	for (i = 0; i < lvts_td->num_lvts_ctrl; i++)
++	for (i = 0; i < lvts_td->num_lvts_ctrl; i++) {
+ 		lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], true);
++		usleep_range(100, 200);
++		lvts_ctrl_monitor_enable(dev, &lvts_td->lvts_ctrl[i], true);
++	}
+ 
+ 	return 0;
+ }
 
- drivers/thermal/mediatek/lvts_thermal.c | 103 ++++++++++++++++++++++----------
- 1 file changed, 72 insertions(+), 31 deletions(-)
----
-base-commit: d1486dca38afd08ca279ae94eb3a397f10737824
-change-id: 20241121-mt8192-lvts-filtered-suspend-fix-a5032ca8eceb
-
-Best regards,
 -- 
-Nícolas F. R. A. Prado <nfraprado@collabora.com>
+2.47.0
 
 
