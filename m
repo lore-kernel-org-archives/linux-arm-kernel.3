@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB5AE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FBDE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SSUQjXvXCX7n0zlIPB3T1YFCaCdLs1ofM4KWIMrWBKg=; b=DiZ3ZNL2Lpr7AeIGayZfGJ9Hnz
-	8Tho122725nJNet/1SvkoAdsn+fOLiZA6589tGkD0f8TGt3b4QmUZIJewyPl1++xuG8fOfdNfAuue
-	C8u05oXNa86OlKTfqNnRQ6FTu0pSUTLa5HNAK+Cmu90tz24URB/cCJOZjHBUKkhnV4pPRxOD2hDXa
-	Oqbsk5ELjbw52xzsz8AbN78ZWLQ7ETkIAc3SftCNFY65Q/4w0t3zTR/3UuoYiFt5vnHu4Zg0DLo+D
-	wVCC8x9pfUwFDnDTQmLN46+Y2cFhxBsL3y16fxXOQc534PFvpHoVAVjaxi8x4KoesH1HwMijcT6Qc
-	b5TeOaOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8pM7U1GSGMw58mKFSa/5KwQJ4aVmx/cTtBUSfrJJX6Q=; b=s6MCOuO00NOkEuW/xingmLTmTW
+	G3Y+Mj/WRKvpK9yhDhaUxaRNFjuRt2ug5AtOtHLQpjgLGzEymbz5B1c37aZuNnAHeLzr2FM3gXJRR
+	TH1VY2/pTVo3mt61Hucbh4e3nrF98bxoaaAFCzuFcrnnObq3r9kunKptPz3S0Usc0GmoIg9qWgTca
+	mAmLAKUaV0zP7MSjFv/q6ASbuCci42Pn0/U15f/RzuyMX6xZLiXjhsm9cIszrYyhm6pLwAzIbIL7q
+	Z6JaD0bVVCf5umBTmQB3p7IMeulFc01Uf3NEajq6HEITiNHCWHkdU7Qhhp4uWQ8RRkag7ikEx/aiN
+	dqN023+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnYb-00000009cmu-2bu1;
-	Mon, 09 Dec 2024 23:52:53 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1tKnZc-00000009cuS-0vDq;
+	Mon, 09 Dec 2024 23:53:56 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnXY-00000009cdo-3vIa
+	id 1tKnYW-00000009clx-0Oz4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 23:51:50 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee397a82f6so4397481a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 15:51:47 -0800 (PST)
+	Mon, 09 Dec 2024 23:52:50 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30039432861so32290731fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 15:52:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733788307; x=1734393107; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SSUQjXvXCX7n0zlIPB3T1YFCaCdLs1ofM4KWIMrWBKg=;
-        b=Cicjy+A/mBqFmOhXxrbN6l8ZHsqjl/SJeX5THRoq7ldRIHV7NszCImRKU2PHqHEWde
-         6gY3wlM48gUBU+WWCehEKcEBGa+UcLd8d1PL2Usw/qUwuIF7ypwC1XCsgOjCwIEjtlOo
-         2PYx1ov+zJWdkH4C7CNR6oqkGLCXvgtffnKY5H1T0BQndG+uFxxSkesIHx7ovKILmjct
-         sa1Jt2pAA15PI9TE3ETnlAdzBaJcYp6qubl7WPD7n5xQsyUku8lwL9VDqYt3M5/ZuchO
-         0F60zKiOMldX4xQYn7lXKWAmn071AQxLccPrj2SdBRK1Hp7WI3+8m1DF1z9hny2OvnEl
-         mguw==
+        d=linaro.org; s=google; t=1733788366; x=1734393166; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8pM7U1GSGMw58mKFSa/5KwQJ4aVmx/cTtBUSfrJJX6Q=;
+        b=jd2a4BgdiB4m0Yfdz38kVbFQ/RhdGJqPomvikK/1jsf/QfNXNsrINsy7XmQU3+ym2l
+         lAvP6ydK+uQHAEGR8i3c/g9DocouBGNksTh7SpefXYtZKJA7ySpmo8JcD1ZVl+fl4ADS
+         lp1WQVb6ZSEKWpL/IvTixMn0xX+MyybQqWIraY1DhqLYGxvySJymRPKZGJc/lHfjus9f
+         72jvJ04PWzGJiwgowzwbA0ogek5L4oFdTQB9Lv5PEPudJK0WWiiB85X5kyfY4Av8/eay
+         UGlK++C/yHfjkbtaXJC3rosGCFipwfz6OQXzGB98Xb6uR8BqTvw34TRuT91zisuNv6k7
+         UxTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733788307; x=1734393107;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SSUQjXvXCX7n0zlIPB3T1YFCaCdLs1ofM4KWIMrWBKg=;
-        b=wV/w8Dk1kMqGo6PQAUBnGftFwoxBKqOwRt2ln5wiWLYvlHOhFEEwjlifM5XeEZe44D
-         gL7P0l0OS560UDLIvXJVqybBAYv04VYBDzhbWFzSGn2DeHm8wf4YDjtzEJYhji+DhwF3
-         6KiBUMKrDHXpzBFAuAnOIE7WVL+ykfz4y56+H+nuyjvf1jKjV+YJeH8ntF+OXuQkliik
-         HwOvEVmD+7hD1v6Jphh1PYHuNWCHTeHAhrg8Sh6iiI6pqBOBfIECW28JvWim63S/UtKd
-         cgDcDORG48FkYG7AlhojNC1nHL9K6NK9Rq96Iq13EIkCP2Wd9zBxGsDHECjnfTnvETId
-         cHvA==
-X-Forwarded-Encrypted: i=1; AJvYcCVD/GZqvTcz99W7tnGB5PVE6NPtbI0GnKd+wHICGfIqfRQeJMzobUKegq3fEPJ9EhVRdKN7E887RROOllqVgj7j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/6LgXd34YDFvtxU6kWeLro4CDAS/MY0jXdtoXclms3OTu/g0p
-	Xm9dZRHvOT+eQV1GGxtW0h9h3LiBApk1ptiPKHWBMVlJ9+JA2fn+CauVV4eFIgGpQ5aZ4bcSBc1
-	OzZntycN4n1rhcmLq4vffEJI2WgfA5D/BxSM=
-X-Gm-Gg: ASbGncsrYZRCiko839UPza//xO1pNX9J8qxTs0q/TNAkPWwTfKArEZdaZua6Vq4DjMS
-	XdBMvnM8KmDRixXKpAQ9UZD40C5zByiChrg9jXhfEjnfvNOBmDJuv/yn4wp/wKocJ
-X-Google-Smtp-Source: AGHT+IH/zZbQB//HIrX1JNipWnHUi43H4PwqcC6flKakC4Wp5vy64rAYnKcCmJw4Ryeyp5nKhAclTMf/QPAcT0muhIo=
-X-Received: by 2002:a17:90b:4cce:b0:2ea:696d:732f with SMTP id
- 98e67ed59e1d1-2efcf29a179mr3714478a91.29.1733788307107; Mon, 09 Dec 2024
- 15:51:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733788366; x=1734393166;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8pM7U1GSGMw58mKFSa/5KwQJ4aVmx/cTtBUSfrJJX6Q=;
+        b=F65pL65lmk9UA/Eo5XlQAhgvWHCEQYehuFvfDYEoWdzOx95XEgrC6plYebcBTnKte+
+         XwF7PcVktxKvGzS44V5zZjCGUwGJSj0noVpHjCawM8QoOMMPYRUpbDqUVw+h44DHcWwJ
+         8nkGO/ttXXShutBsYgSqbdW4IaNRhmuK8qOOyHkDM/ZS495Xly29HF7vcpfzIyHzhkDi
+         LxeASJocmTGkIg6bgmIGBQLwD+U+rbRdyYGA5crWp1HiWOiYm/rEMrRUuZs2mDmwO8/P
+         KEVTOLNvx7U4o3eWgjdEyXJ3FDX6V3RN32m/lkV9wAAZVZWYgiJfDg+36JkOHoa+Datx
+         kWiw==
+X-Forwarded-Encrypted: i=1; AJvYcCWFxLpYbf6UOPoIBS7ebLGDTQmFrf8koVBXQwX6+qcbxFfthX7Ejo+CkiPq38NUi4XMikfpmSy4oDbdXNjQR6zt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4uTg2zKBBUUOENCE71UG3TK3e1tc9+xAKwaVaL7+uG5dpkUo2
+	NFYCROzeOqM8EUhvW9d3lc4VpgdPcnjC4i6WeVp1wJKy2A+cdvjWuzrK5FUh3jg=
+X-Gm-Gg: ASbGncvVUULuUloU7lxlqq6X78Ous9dw4f6mHM9kwVXDcCWvCj04Gmx2sf12D34j2f7
+	29a73Jff+5ohaDDBBcoqUMr2nSZQojKx7mE8fU4eb4ouL/o8cXcILNMzcf0BDfs6MhFj+1o9Ur5
+	dCSib/KLFACxS6Akbkbbv1g9U5LQEyPGpunrXDKUWUcDTcxZuBmEksOEr4FtIQNjgPam3w2OkAz
+	xOJXS8Bp3nicsI2b9nBi0t4D/vTPJ6nMeeUBGJdiOau8E7mnQcZ0lcMVCsWzCE0mdei7+JE5+F/
+	k4TxQU9PW8o/xSl0+2fMXRGfUV34a3PeKA==
+X-Google-Smtp-Source: AGHT+IHyF5rktCxD8kY/bacLUOJzx36QikPDeY4Bw3Za1LgYmjbnjgANCIKBZa1aDn+yZRzJ2gM1lA==
+X-Received: by 2002:a2e:b8d0:0:b0:2fb:5035:a03 with SMTP id 38308e7fff4ca-3022fd42e9amr6845101fa.14.1733788366224;
+        Mon, 09 Dec 2024 15:52:46 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3021a5fa257sm6740481fa.81.2024.12.09.15.52.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Dec 2024 15:52:44 -0800 (PST)
+Date: Tue, 10 Dec 2024 01:52:43 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Julius Werner <jwerner@chromium.org>
+Cc: Douglas Anderson <dianders@chromium.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
+	Roxana Bradescu <roxabee@google.com>, bjorn.andersson@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, Trilok Soni <quic_tsoni@quicinc.com>, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] arm64: errata: Add QCOM_KRYO_2XX_GOLD to the
+ spectre_bhb_firmware_mitigated_list
+Message-ID: <w725lby34vpavm3knq3ikz2wb4tzlfr4elbgf25mjbvgamtq5t@zgc52dc2wvsy>
+References: <20241209174430.2904353-1-dianders@chromium.org>
+ <20241209094310.2.Ia3dfc0afadbfbee81bb2efb0672262470973dd08@changeid>
+ <wx6qbdbcrvbq34snzkxawlbpxm6vogt5ccjmdqqyazukfbjy7t@qkvax7tr27bs>
+ <CAODwPW8mq-saJuTYnMhA6bCopcjQwBxEoyWhQB60Jg1m7wUZkw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20241118222540.27495-1-yabinc@google.com> <20241209162028.GD12428@willie-the-truck>
- <CAF1bQ=SiHi8oCyo5YnXGpQGofM1zAsnBdqSEet1mS-BYNKVU8A@mail.gmail.com> <20241209185623.GA13084@willie-the-truck>
-In-Reply-To: <20241209185623.GA13084@willie-the-truck>
-From: Yabin Cui <yabinc@google.com>
-Date: Mon, 9 Dec 2024 15:51:34 -0800
-X-Gm-Features: AZHOrDkYQ4V69Y7vLhOpgw-bfrlmqVn8MSQhz800aNeQq_Tq1k4ujC1njQBPuGU
-Message-ID: <CALJ9ZPNfUFF8OrpvziTnTvGU7OxEgyy9ZTc3aF-NhZ5hMbp7RQ@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
-To: Will Deacon <will@kernel.org>
-Cc: Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, workflows@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAODwPW8mq-saJuTYnMhA6bCopcjQwBxEoyWhQB60Jg1m7wUZkw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_155148_972894_E9B33640 
-X-CRM114-Status: GOOD (  27.43  )
+X-CRM114-CacheID: sfid-20241209_155248_143341_178ED7BC 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,73 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- On Mon, Dec 9, 2024 at 10:56=E2=80=AFAM Will Deacon <will@kernel.org> wrot=
-e:
->
-> (Aside: please try to avoid top-posting on the public lists as it messes =
-up
-> the flow of conversation; I'll try to piece this back together.)
->
-> On Mon, Dec 09, 2024 at 09:30:50AM -0800, Rong Xu wrote:
-> > On Mon, Dec 9, 2024 at 8:20=E2=80=AFAM Will Deacon <will@kernel.org> wr=
-ote:
-> > > On Mon, Nov 18, 2024 at 02:25:40PM -0800, Yabin Cui wrote:
-> > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > > index fd9df6dcc593..c3814df5e391 100644
-> > > > --- a/arch/arm64/Kconfig
-> > > > +++ b/arch/arm64/Kconfig
-> > > > @@ -103,6 +103,7 @@ config ARM64
-> > > >       select ARCH_SUPPORTS_PER_VMA_LOCK
-> > > >       select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
-> > > >       select ARCH_SUPPORTS_RT
-> > > > +     select ARCH_SUPPORTS_AUTOFDO_CLANG
-> > > >       select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-> > > >       select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
-> > > >       select ARCH_WANT_DEFAULT_BPF_JIT
-> > >
-> > > After this change, both arm64 and x86 select this option unconditiona=
-lly
-> > > and with no apparent support code being added. So what is actually
-> > > required in order to select ARCH_SUPPORTS_AUTOFDO_CLANG and why isn't
-> > > it just available for all architectures instead?
+On Mon, Dec 09, 2024 at 03:34:59PM -0800, Julius Werner wrote:
+> > > NOTE: presumably this patch won't actually do much on its own because
+> > > (I believe) it requires a firmware update to go with it.
+> >
+> > Why? is_spectre_bhb_fw_affected() returns true if (cpu in list OR fw
+> > mitigated)
+> 
+> That affects reporting, but the mitigation works by making an
+> ARM_SMCCC_ARCH_WORKAROUND_3 Secure Monitor Call to firmware, and that
+> only works if that call is implemented in firmware. Trusted-Firmware-A
+> is currently the only open source firmware I'm aware of that
+> implements this call, and it only supports Kryo 4 and 6 upstream (not
+> 2 or 3).
+> 
+> So in order for this patch to actually be able to do anything other
+> than report that the mitigation is missing, it would need to run on
+> devices that either use a downstream fork of TF-A with added Kryo 2/3
+> support (I doubt this exists because AFAIK Kryo 4 was Qualcomm's first
+> attempt to use TF-A) or use some other proprietary kind of Secure
+> Monitor firmware that has this SMC and mitigation implemented
+> separately. (It seems unlikely that Qualcomm did this in their QTEE
+> firmware, since if they had they would have probably also added the
+> MIDRs here to Linux to activate it.)
 
-I think it's similar to ARCH_SUPPORTS_LTO_CLANG, which also doesn't need an=
-y
-support code but requires testing to ensure it works on a specific architec=
-ture.
+Ack, thanks for the detailed explanation.
 
->
-> > Enabling an AutoFDO build requires users to explicitly set CONFIG_AUTOF=
-DO_CLANG.
-> > The support code is in Commit 315ad8780a129e82 (kbuild: Add AutoFDO
-> > support for Clang build).
->
-> Yes, that is precisely my point. The user has to enable
-> CONFIG_AUTOFDO_CLANG anyway, so what is the point in having
-> ARCH_SUPPORTS_AUTOFDO_CLANG. Why would an architecture _not_ want to
-> select that?
->
-> > We are not enabling this for all architectures because AutoFDO's optimi=
-zed build
-> > relies on Last Branch Records (LBR) which aren't available on all archi=
-tectures.
->
-> So? ETM isn't available on all arm64 machines and I doubt whether LBR is
-> available on _all_ x86 machines either. So there's a runtime failure
-> mode that needs to be handled anyway and I don't think the arch-specific
-> Kconfig option is really doing anything useful.
-
-My understanding of the benefits of ARCH_SUPPORTS_AUTOFDO_CLANG is:
-1. Generally, we don't prefer to collect an AutoFDO profile on one
-architecture and use it to build the kernel for another architecture.
-This is because the profile misses data for architecture-dependent
-code. ARCH_SUPPORTS_AUTOFDO_CLANG can partially prevent this from
-happening.
-
-2. Building a kernel with an AutoFDO profile involves using new
-optimization flags for clang.  Having ARCH_SUPPORTS_AUTOFDO_CLANG=3Dy
-for one architecture means someone has tested building a kernel with
-an AutoFDO profile on this architecture.
->
-> Will
+-- 
+With best wishes
+Dmitry
 
