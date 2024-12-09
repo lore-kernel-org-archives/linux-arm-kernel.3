@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B41E77181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4977E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m16HeTv0L0CtuYH/B+yfB6+rKUcSgAg6Vxdkd5F26V4=; b=Om44EpOc8kUGS5lUdWgxIqOe1n
-	hr7JexokmB4b0EUmX9dP0IWn/SIyqEP/dbUODz+wOPvXtG1D+jFOjC/PUwhBNNHnXYXXYBjzSoP2Z
-	jgoCClsxLh65XEXkz027dncbkhWwJpte3y3pRt9AVv2nn06BAa6sE+PfadClOkedp6jVB8cEBNn7u
-	k2sQiOhW2Yaj+4dd19/jkrqAiJQ2u77UAfXiUusSOs1h6IWt+OGToSC9IY+loDy4BuozJVHnsO6tp
-	G8gQ4+UlhNr+jsfHOvVRs99f09Wcbqvw4wTNYRYbUSFjJsUXbeeKSbADEbCn2dpDZ3Rh9N72jP5ij
-	rZQ650fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/dEgr6OpgHZjVc2Im78pfKS7HysoQJSF6iVpM5jFCQU=; b=KMX96bzWvi1kIYbhcSnyHWcYo7
+	JNOMQPzVFMUy9ApVw6Ef6L6CJCu6kCXQFm1C1Uk9eJmdch3To7lla/k2g4AO4cb5HlF2Xs4sNqX9Z
+	vB36QU7BElP10Af0ClOfrCVqY8rre5msGyuLZ3NiJn1BpYPJ1kKttuTh4kFO5QOmgyqKGIGtgLhpv
+	0HMQVTSlDVt+JPMsKMoE+UIyw0HIwYWKcEYeZlX7PkHcBzZr6MqrE4U9yKY7uDZsrfCSmp9GVvaXK
+	VOjGoRYlZyI2iZBTSMTOhS19Rs7aL8HIIzx9hsY7yh9A06CGuv0qV2zp0CeVN3HOde/aIxlXEa+ZR
+	1zXWnwpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKezZ-00000008FKa-0gWr;
-	Mon, 09 Dec 2024 14:44:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tKf1X-00000008Fs1-03zu;
+	Mon, 09 Dec 2024 14:46:11 +0000
+Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKeyV-00000008F0e-0jRC
+	id 1tKf0T-00000008Fd9-3qXW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 14:43:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=m16HeTv0L0CtuYH/B+yfB6+rKUcSgAg6Vxdkd5F26V4=; b=I645VjK9kvC67P7dLGOB/uZw3b
-	Z59qZlJPd6n9JOP3MaUmCm1uVX9YCDOmrEvMN7HxwtbMmcu78/hwOo6KzU/vqSYgyPKfZwZ1nR1if
-	dKPYNh9NyZoTYNr8pNjKZi+kA+T5QVf9o3bDGM593vNPHuO+p7tmg4+g5vrgJbo1oBYY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tKeyK-00FgPR-5B; Mon, 09 Dec 2024 15:42:52 +0100
-Date: Mon, 9 Dec 2024 15:42:52 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Felipe Balbi <balbi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
-	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-Message-ID: <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
-References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
- <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
+	Mon, 09 Dec 2024 14:45:08 +0000
+Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 202412091444589586e6f660f58efd0b
+        for <linux-arm-kernel@lists.infradead.org>;
+        Mon, 09 Dec 2024 15:44:59 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
+ d=siemens.com; i=diogo.ivo@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
+ bh=/dEgr6OpgHZjVc2Im78pfKS7HysoQJSF6iVpM5jFCQU=;
+ b=MpvFD+rCvxzx8xva5hr3nsUvs2LKTdXkzEfM04rBRDxpPIIPYXnkeC3YZFdVgfvEZdoAgw
+ z61x8EOUQjPlhsAanQBmDeesAimgmGKPZAnJAhXPKcrkXJqyCJ357X9C0PQ1fW/hI43vZyB/
+ ZF2dIWpjCBEya6UJ2O2qoCKKK4y89XUEpMfE10IShP8ruEVFsaVC3L9/0yz1HE0qc4iZwmI4
+ WROiTw8NYdq2c7bLB9mzW9/zOM+CgbO3bK440lUvbKTeriqZbsbdr6lRG4OE/vpWLYQ9yWFq
+ vQs3O/tT2BtR0TGsNSQpu6dl+6olTg95I8iGlJrsQnB32nM0UdIEsdFQ==;
+Message-ID: <320d8f96-fcff-48e7-9814-6586f7f642ca@siemens.com>
+Date: Mon, 9 Dec 2024 14:44:56 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
+Subject: Re: [PATCH net v3 1/2] net: ti: icssg-prueth: Fix firmware load
+ sequence.
+To: Meghana Malladi <m-malladi@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ vigneshr@ti.com, jan.kiszka@siemens.com, javier.carrasco.cruz@gmail.com,
+ jacob.e.keller@intel.com, horms@kernel.org, pabeni@redhat.com,
+ kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+ andrew+netdev@lunn.ch
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com, danishanwar@ti.com
+References: <20241205082831.777868-1-m-malladi@ti.com>
+ <20241205082831.777868-2-m-malladi@ti.com>
+ <a86bc0b1-8bb4-477e-b7e1-13921bf47b53@kernel.org>
+ <64621290-2488-474d-b2ed-597a1f4ac85f@ti.com>
+Content-Language: en-US
+From: Diogo Ivo <diogo.ivo@siemens.com>
+In-Reply-To: <64621290-2488-474d-b2ed-597a1f4ac85f@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-1328357:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_064303_210457_15191906 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20241209_064506_457544_114D39E3 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,86 +79,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 02:55:31PM +0100, Matthias Schiffer wrote:
-> On Mon, 2024-12-09 at 14:24 +0100, Andrew Lunn wrote:
-> > 
-> > > +&cpsw_port1 {
-> > > +	phy-mode = "rgmii-rxid";
-> > > +	phy-handle = <&cpsw3g_phy0>;
-> > > +};
-> > > +
-> > > +&cpsw_port2 {
-> > > +	phy-mode = "rgmii-rxid";
-> > > +	phy-handle = <&cpsw3g_phy3>;
-> > > +};
-> > 
-> > rgmii-rxid is very odd.
-> > 
-> > > +
-> > > +&cpsw3g_mdio {
-> > > +	status = "okay";
-> > > +	pinctrl-names = "default";
-> > > +	pinctrl-0 = <&main_mdio1_pins>;
-> > > +
-> > > +	cpsw3g_phy0: ethernet-phy@0 {
-> > > +		compatible = "ethernet-phy-ieee802.3-c22";
-> > > +		reg = <0x0>;
-> > > +		reset-gpios = <&main_gpio1 11 GPIO_ACTIVE_LOW>;
-> > > +		reset-assert-us = <1000>;
-> > > +		reset-deassert-us = <1000>;
-> > > +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> > 
-> > I guess this is the explanation.
-> > 
-> > What happens when you use rgmii-id, and don't have this delay here?
-> > That would be normal.
-> > 
-> > 	Andrew
-> 
-> 
-> This is normal for AM62-based boards, see the DTSI of the TI reference
-> starterkit for example:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi#n451
-> 
-> With rgmii-id, both ti,rx-internal-delay and ti,tx-internal-delay should be set.
-> As ti,*-internal-delay sets the delay on the PHY side, phy-mode "rgmii" is the
-> one that would not use either:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/net/ti,dp83867.yaml#n78
-> 
-> At the end of the day, does it really matter as long as MAC and PHY agree on the
-> used mode? We copied this part of the hardware design from the TI reference
-> board, and did our hardware qualification with these settings, so I think it
-> makes sense to use the same phy-mode configuration.
+Hi all,
 
-What i try to achieve is every board uses the same configuration. The
-PHY adds the delays, not the MAC. There are a few exceptions, because
-a few cheap PHYs don't support delays, and so the MAC needs to add
-them. But in general, any board i review, i always ask that the PHY
-does the delay.
+On 12/9/24 10:34 AM, Meghana Malladi wrote:
+> 
+> 
+> On 05/12/24 18:38, Roger Quadros wrote:
+>> Hi,
+>>
+>> On 05/12/2024 10:28, Meghana Malladi wrote:
+>>> From: MD Danish Anwar <danishanwar@ti.com>
+>>>
+>>> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
+>>> and SLICE1. Currently whenever any ICSSG interface comes up we load the
+>>> respective firmwares to PRU cores and whenever interface goes down, we
+>>> stop the resective cores. Due to this, when SLICE0 goes down while
+>>> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
+>>> stopped. This results in clock jump for SLICE1 interface as the timesync
+>>> related operations are no longer running.
+>>>
+>>> As there are interdependencies between SLICE0 and SLICE1 firmwares,
+>>> fix this by running both PRU0 and PRU1 firmwares as long as at least 1
+>>> ICSSG interface is up. Add new flag in prueth struct to check if all
+>>> firmwares are running.
+>>>
+>>> Use emacs_initialized as reference count to load the firmwares for the
+>>> first and last interface up/down. Moving init_emac_mode and 
+>>> fw_offload_mode
+>>> API outside of icssg_config to icssg_common_start API as they need
+>>> to be called only once per firmware boot.
+>>>
+>>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+>>> ---
+>>>
+>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/ 
+>>> net/ethernet/ti/icssg/icssg_prueth.h
+>>> index f5c1d473e9f9..b30f2e9a73d8 100644
+>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>>> @@ -257,6 +257,7 @@ struct icssg_firmwares {
+>>>    * @is_switchmode_supported: indicates platform support for switch 
+>>> mode
+>>>    * @switch_id: ID for mapping switch ports to bridge
+>>>    * @default_vlan: Default VLAN for host
+>>> + * @prus_running: flag to indicate if all pru cores are running
+>>>    */
+>>>   struct prueth {
+>>>       struct device *dev;
+>>> @@ -298,6 +299,7 @@ struct prueth {
+>>>       int default_vlan;
+>>>       /** @vtbl_lock: Lock for vtbl in shared memory */
+>>>       spinlock_t vtbl_lock;
+>>> +    bool prus_running;
+>>
+>> I think you don't need fw_running flag anymore. Could you please 
+>> remove it
+>> from struct prueth_emac?
+>>
+> 
+> This flag is still being used by SR1, for which this patch doesn't 
+> apply. So I prefer not touching this flag for the sake of SR1.
 
-Also, don't put too much value in vendor code. Vendors don't care
-about Linux has a whole, being uniform across all systems. Many
-vendors do the minimum to get their stuff working, sometimes Monkeys
-typing Shakespeare, and not a lot more.
+Currently for SR1.0 this flag is set but not used anywhere in the code, 
+so it can be removed.
 
-I also find a lot of developers don't really understand what phy-mode
-and PHY_INTERFACE_MODE_RGMII_* actually mean. phy-mode = 'rgmii' means
-the board has extra long clock lines, so the MAC/PHY does not need to
-add delays. rgmii-rxid means the board has an extra long rx clock
-line, but a normal length tx clock line. Now, i doubt your board is
-actually like this?
-
-You want to correctly describe your hardware in DT, which i guess is
-"rgmii-id". That means something, either the MAC or the PHY needs to
-add delays. PHY_INTERFACE_MODE_RGMII_* is what is passed to the
-PHY. To get it to add the 2ns delays, you pass
-PHY_INTERFACE_MODE_RGMII_ID, and you should not need any additional
-properties in DT, it should default to 2ns. If you need to tune the
-delay, 2ns does not work, but you actually need 1.8ns etc, then you
-can add additional parameters. But given you have
-DP83867_RGMIIDCTL_2_00_NS, i doubt you need this.
-
-	Andrew
+Best regards,
+Diogo
 
