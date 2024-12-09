@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C273E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 20:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943DBE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 20:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R4826thRCnzo9UT2dSVOhBPmXdFNnd0wF4KQbWcTe4g=; b=nJubSHkBXYyzQFCOe98IYpWnLh
-	OAE5Ir7Kpms9CnucSgvDYYZdndbPSHiWDfl6bMt0jr0QVNRuXhlS8xog1tW6C/N/3povc8qXmoFPf
-	ikEFKByhbeviNjHwMPY1biCoPsYQqOrmdktqOjSO9LMSxLIKWC8lF18FN1NQvHEql4l1CJQZJKBh6
-	9QgaKrd9Hh4kIKEvt0IKUbyrn/e+A4AtqqVmd26Alj43hYDOqtJzLRGkgiwkFJwRCO/nEC0iMQheB
-	7mmDXRtBu2rN27DEw33KXGpMIXLX1ZPrHct+dLoWcr9+CjGqy8Dg01diIGoMCzowO9ClGB72zJNDa
-	AAN5XaNA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PXvsuXMERf6df08VQWVzjea3IcYfHYsxE45+1XCwwhA=; b=or88cacnvKtj1H8HfFB3UzP29I
+	Ztj/BUPVjVxjSRDYldx17/XaQrmLmpZAmXTGJy/3ueluZy8owE9oPyHE9WK7owhTejvivC/2dR3PY
+	eyBvD2PeyIvbSng/Hd0JXJz+M1i/HnhMxVnHbylLGFYD317z/N7l3ZCwkiy7pcVliYmCyy5W8dlsb
+	UqwUh9L3KUtRoma9fVSQFLPo2d98+cjEKFd6VnEElF5deukuPfMpZSOtMoox4mea8AOjJj1m9gicq
+	w27Y4dRzcYC/lpl3ilagap6ihAzuxIwWhzDUcKTG7EQ0Vqwfe579TPqm0WjkiL8KSBv5tt87g/kan
+	zJQ/Pprw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKkFt-00000009A6H-1dCP;
-	Mon, 09 Dec 2024 20:21:21 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKkEq-000000099ve-2umV
+	id 1tKkZq-00000009CTi-0Pkr;
+	Mon, 09 Dec 2024 20:41:58 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKkYo-00000009CN2-0XXs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 20:20:17 +0000
-Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 453EB20CECB3;
-	Mon,  9 Dec 2024 12:20:15 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 453EB20CECB3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1733775615;
-	bh=R4826thRCnzo9UT2dSVOhBPmXdFNnd0wF4KQbWcTe4g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NsRSyzOIBWUwgsiQFGVRbC3/A2MikFgjENASO0p/8m5UcXCTUulPAsxip75CP4qsf
-	 ctzkCttrkZJZRspRzV/NEZllxMRMKtIgn9G1PLU5Yvlf9XL3FuOo7TSWu7X/hCgnoq
-	 ZKGVcXjSI6PhZ6rMAdjd9f15APVQTFTBH0Y/7p8k=
-Message-ID: <6cf69fbd-b6a0-4e88-85a6-749a4e2dbdaa@linux.microsoft.com>
-Date: Mon, 9 Dec 2024 12:20:14 -0800
+	Mon, 09 Dec 2024 20:40:55 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-725e71a11f7so1179834b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 12:40:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733776851; x=1734381651; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PXvsuXMERf6df08VQWVzjea3IcYfHYsxE45+1XCwwhA=;
+        b=bbdsTXkxzDzdvHrOLmOrm7bwkiX7LWro3ZW/jfcgbTimodFpC+BDhqTSk/nhgjf5H4
+         j3mGFosqhdEpMlXqhN+v0FqhnK6BzIF99kFSWFiWf2iBWbFzm+aXrvKG8KggbiF0yyrD
+         WujOqgBrtdGe7Cu2o7tN/NnhZH/2/XzZDxW5LQWRHeT+lz5edG1GraRjeDykSJlV9KZM
+         u1YCctaTYjaGRDUwtcChZgAhQsMmS5A57QPHmNVf5qT7T0HdxyQg+K86MGz7IJ12Senj
+         /OkCvOLQ+LGuutVuaBJiZuE2l22Rvp+KJMBgfa+jQvKqNFSN1Gphsav86xXkSxlQJ3On
+         0NRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733776851; x=1734381651;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PXvsuXMERf6df08VQWVzjea3IcYfHYsxE45+1XCwwhA=;
+        b=p0LMtZf1lqUsAdoMKGw+kEFFaA8Bc/QR6alZObO4jCqnhxYiDvWBFGl3Ozd2abv/Qf
+         XP9rwRMyjaMeNN64SbRytnB/UYeg+AsyyVW+ttz3qAx0jEkwO+HvqoFauudT0C6lf6o2
+         WeQwTO4jX9tbInde1uZ1Atx+ocVofNK2qMOHaVs4NAtnFPSu1BzTmDCBKWd61q/aC9za
+         RsqzCPLrR+K9AKVOQxAP7fcbuhP4iyfNDxZlV4H2rxuhOKVlIpXZQ+y9GsxqbcobNkBJ
+         yMBRH3TDZRDGUqQ3B7wQ7sehkHXsuhAGZaE5ogSwgrWsW8dfiS0hzdJecocAGx9KyTSQ
+         eACQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHi/gZua+xS/tWGXx7kDQDMvQsUCxQHRqjG08ZDitsM6e4hAsrQ67YmVr2Wij25Yftwrne1PRGbaYb73BAAVjG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3AWhibyHWrkNCb4SvLbU3nguWBTGfBOkQE2FOOCqgq3hMGBAM
+	WQtKPyhawUJDLFqt1TkXhABSUg5pMY7P56Vszu733Bl3Oa/agcAk
+X-Gm-Gg: ASbGncujE0dSfuG+8B8Q96oj2OAjPTTRyqYyGRIKF6WRUJUg446z2u6pdgz1pTROQPv
+	E5lUQLAlyLK+VqCNgr0QWltuKVy38Qj6IDQAgUtg6H6WtVUVIvQmIq9ekMt/uOJg/xfI1fZcYlx
+	+C4fxtP0mpfZ8cRnzVy22B58KkiiBw0qLyRBvfUPHg0IWkm75pRzBAb4TVayDqQ47h7TzbwoQ2E
+	PpD46rsmPV6CfRWJYomqTsbd/vMiso9zY3JgDX1WC4JhJNzJcafkBOHXEDYxXILi74=
+X-Google-Smtp-Source: AGHT+IFc2Lceg6DjJ7cqQKBERaygfwtBeBltRK5cwNCLJrhI05ONbYSi9ksuO0DeTsh5Sp/KeBQ1Aw==
+X-Received: by 2002:a05:6a20:729c:b0:1db:e327:dd82 with SMTP id adf61e73a8af0-1e1b43c4e93mr1397192637.5.1733776851595;
+        Mon, 09 Dec 2024 12:40:51 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:d7c4:c4a9:e35:ccbf])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fd5207528csm1707219a12.36.2024.12.09.12.40.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Dec 2024 12:40:51 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: neil.armstrong@linaro.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] dt-bindings: display: panel-lvds: Add compatible for AUO G084SN05 V9
+Date: Mon,  9 Dec 2024 17:40:02 -0300
+Message-Id: <20241209204003.1295503-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] hyperv: Move some features to common code
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
-References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_122016_789738_7DC0A7A2 
-X-CRM114-Status: GOOD (  42.82  )
+X-CRM114-CacheID: sfid-20241209_124054_169561_0078D996 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,126 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/7/2024 6:59 PM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, December 6, 2024 2:22 PM
->>
->> There are several bits of Hyper-V-related code that today live in
->> arch/x86 but are not really specific to x86_64 and will work on arm64
->> too.
->>
->> Some of these will be needed in the upcoming mshv driver code (for
->> Linux as root partition on Hyper-V).
-> 
-> Previously, Linux as the root partition on Hyper-V was x86 only, which is
-> why the code is currently under arch/x86. So evidently the mshv driver
-> is being expanded to support both x86 and arm64, correct? Assuming
-> that's the case, I have some thoughts about how the source code should
-> be organized and built. It's probably best to get this right to start with so
-> it doesn't need to be changed again.
+From: Fabio Estevam <festevam@denx.de>
 
-Yes, we plan on supporting both architectures (eventually). I completely agree
-that it's better to sort out these issues now rather than later.
+The AUO G084SN05 V9 is a 8.4" 800x600 LVDS display.
 
-> 
-> * Patch 2 of this series moves hv_call_deposit_pages() and
->    hv_call_create_vp() to common code, but does not move
->    hv_call_add_logical_proc(). All three are used together, so
->    I'm wondering why hv_call_add_logical_proc() isn't moved.
-> 
+Add a compatible entry for this LVDS display model.
 
-The only reason is that in our internal tree there's no common or arm64 code
-yet that uses it - there is no reason it can't also become common code!
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ Documentation/devicetree/bindings/display/panel/panel-lvds.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> * These three functions were originally put in a separate source
->    code file because of being specific to running in the root partition,
->    and not needed for generic Linux guest support. I think there's
->    value in keeping them in a separate file, rather than merging them
->    into hv_common.c. Maybe just move the entire hv_proc.c file?
-
-Agreed. I think it should be renamed too - this file will eventually
-contain some additional hypercall helper functions, some of which may also be
-shared by the driver code. Something like "hv_call_common.c"?
-
->    And then later, perhaps move the entire irqdomain.c file as well?
-Yes, may as well move it too.
-
->    There's also an interesting question of whether to move them into
->    drivers/hv, or create a new directory virt/hyperv. Hyper-V support
->    started out 15 years ago structured as a driver, hence "drivers/hv".
->    But over the time, the support has become significantly more than
->    just a driver, so "virt/hyperv" might be a better location for
->    non-driver code that had previously been under arch/x86 but is
->    now common to all architectures.
-> 
-I'd be fine with using "virt/hyperv", but I thought "virt" was only for
-KVM.
-
-Another option would be to create subdirectories in "drivers/hv" to
-organize the different modules more cleanly (i.e. when the /dev/mshv
-driver code is introduced).
-
-> * Today, the code for running in the root partition is built along
->    with the rest of the Hyper-V support, and so is present in kernels
->    built for normal Linux guests on Hyper-V. I haven't thought about
->    all the implications, but perhaps there's value in having a CONFIG
->    option to build for the root partition, so that code can be dropped
->    from normal kernels. There's a significant amount of new code still
->    to come for mshv that could be excluded from normal guests in this
->    way. Also, the tests of the hv_root_partition variable could be
->    changed to a function the compiler detects is always "false" in a
->    kernel built without the CONFIG option, in which case it can drop
->    the code for where hv_root_partition is "true".
-> 
-Using hv_root_partition is a good way to do it, since it won't require
-many #ifdefs or moving the existing code around too much.
-
-I can certainly give it a try, and create a separate patch series
-introducing the option. I suppose "CONFIG_HYPERV_ROOT" makes sense as a
-name?
-
-> * The code currently in hv_proc.c is built for x86 only, and validly
->    assumes the page size is 4K. But when the code moves to be
->    common across architectures, that assumption is no longer
->    valid in the general case. Perhaps the intent is that kernels for
->    the root partition should always be built with page size 4K on
->    arm64, but nothing enforces that intent. Personally, I think the code
->    should be made to work with page sizes other than 4K so as to not
->    leave technical debt. But I realize you may have other priorities. If
->    there were a CONFIG option for building for the root partition,
->    that option could be setup to enforce the 4K page size on arm64.
-> 
-That makes sense. I suppose this can be done by selecting PAGE_SIZE_4KB
-under HYPERV in drivers/hv/Kconfig?
-
-I'm not how easy it will be to make the code work with different page
-sizes, since we use alloc_page() and similar in a few places, assuming 4k.
-
-Thanks
-Nuno
-
-> Anyway, thinking through these decisions up front could avoid
-> the need for additional moves later on.
-> 
-> Michael
-> 
->> So this is a good time to move
->> them to hv_common.c.
->>
->> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
->>
->> Nuno Das Neves (2):
->>   hyperv: Move hv_current_partition_id to arch-generic code
->>   hyperv: Move create_vp and deposit_pages hvcalls to hv_common.c
->>
->>  arch/arm64/hyperv/mshyperv.c    |   3 +
->>  arch/x86/hyperv/hv_init.c       |  25 +----
->>  arch/x86/hyperv/hv_proc.c       | 144 ---------------------------
->>  arch/x86/include/asm/mshyperv.h |   4 -
->>  drivers/hv/hv_common.c          | 168 ++++++++++++++++++++++++++++++++
->>  include/asm-generic/mshyperv.h  |   4 +
->>  6 files changed, 176 insertions(+), 172 deletions(-)
->>
->> --
->> 2.34.1
+diff --git a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+index 5af2d6930075..fcb5834f799a 100644
+--- a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+@@ -42,6 +42,8 @@ properties:
+           # Admatec 9904379 10.1" 1024x600 LVDS panel
+           - admatec,9904379
+           - auo,b101ew05
++          # AUO G084SN05 V9 8.4" 800x600 LVDS panel
++          - auo,g084sn05
+           # Chunghwa Picture Tubes Ltd. 7" WXGA (800x1280) TFT LCD LVDS panel
+           - chunghwa,claa070wp03xg
+           # EDT ETML0700Z9NDHA 7.0" WSVGA (1024x600) color TFT LCD LVDS panel
+-- 
+2.34.1
 
 
