@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05CAE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13453E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rj+caK5aZ5/ftdKrJ3uKloxgjdNx6BJvn8vpkE+n4uw=; b=CrW1a6dEqPLk4JCMy2NDdwmBnU
-	waeeWLWFWjAhnxlYkj9ia5WJhebJSeeRwP3kdmWE6a6db1Gr8mKzICke34jMC1SJt8DlVQ4qG/HK3
-	YO3a/A7/5Wi3AwcaqeC4rwtNUqawB3OhnWdYkV9spoQfDcLYEJNaSol/vLuKj6/5R13m/JUtujMuR
-	ccOP6eFUmImeD8RYS5rVM2iGEEiqUIz1aPcEU82Zr8qIN0DpmA3nmbub+6n/5vfTpNgo6Zo5Ynsx4
-	RNMjAMWWBYzUzxp4qvtNHEY70R7IEWQvVBkaNHDuueM8l7QmTN3m58gs4Fz9iGehIMlE3fJLRZZo1
-	w2VnMahg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VWD1yxKAEOa4BZVU3SmpaQ4GGqSesWK0yp4xtOLXWZw=; b=T90z9syoABNOySd/DlcVXjYeis
+	Vy5Gt2x+61RNzuRjnjiI5wr235MmGO6vjTzDfgMR5F/npa+xrcUX0/tprRCTwRp3i7bNbrmQNDhu3
+	/sAKhJnlnlJxJAnb40S+jO533GPWphC/AqjXdkJrtYpMISdEU57Iv34BpndMsYijundPmAk4TvGmX
+	2HRoODtVTMGe1tu9rQjfbFYlqg4akEmM3WruaiY73X3jOxp7//PtH+6A6kevBQ6nztunaHWx0Rjiy
+	9FAv0bMbSY78cn2oQ26midrQLjWom15inBQwcip/8YSb6B70z41IBS7nadeHSxd+QRL7JFREz0voA
+	NEdCI1kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKc6q-00000007XIc-19yj;
-	Mon, 09 Dec 2024 11:39:28 +0000
+	id 1tKcAy-00000007XmN-1zTv;
+	Mon, 09 Dec 2024 11:43:44 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKc58-00000007X1p-0PmQ;
-	Mon, 09 Dec 2024 11:37:43 +0000
+	id 1tKc9v-00000007XZM-2dlC;
+	Mon, 09 Dec 2024 11:42:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733744260;
-	bh=bPplHq8MykZfKvlUO7uKwUjm+86UC7axUXzqSZ31mxo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=hga1gDpkDqkZoSHk77663quLfcvz1TXk0qzed7jAT9S58SAgpmGPgUOzpag+EZA/W
-	 xmfB/RPQVLkbTUIuXnxE7G0X5TRjRSkpz1exmsrHNsbqAefZ9JT550vdIK7pAC/aTq
-	 oFgdy3p8ZzlHJQJnyUG/UIFafVbQrjKN6CHSaWTGzdsoVPzbvrurRe8j99bO9uOc2O
-	 tFVX2lAgxw03LaWj9rixfe9uhlmj4uZ/bPZ+EjSQZVZ+x+CLKzlmhls/6OVt5aY/7x
-	 itkuqiLetGNghbpmfvu7I3zG1gHrV5gA4ph1zblDqvNs5ZD+leVqmeyo259VKy98G8
-	 6+kEHOBQydh2g==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	s=mail; t=1733744557;
+	bh=9b45M2aLM/tuKaAynX20c6dQe6KEzHWb4VICIeqr8Bw=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=V3DMr3smHOeMunv2y7xC+3oTzjuI+VIzjqhvPPOA6Zz78bLi2mdaWKU2hCjAZVj2S
+	 IuCAZq3uaIpN5yTsjLxrERj5xdCEKkrKZ5ZznMZ5tPpR1Dr6UZalDnnw2LgZTn7yTS
+	 1f42MvE5kucasAv3FnDsllunBjPC9E/LMazbsKFseY8VEVOb8bWYfvbN18+4TmRsKG
+	 PHMNyo/AZOFY++835mwVSb59VceodefJ0LcqU8HQEpSrDILAZt1o0q5QiOwLhS0me/
+	 XWmypPVFPK8AxPRNs4NfyIOLeWDK2CzM5cMt3uaaeqfmUmCaNCabpWKHpz6lv/HWSF
+	 cDSWAh6/x9Dag==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 14E5617E362F;
-	Mon,  9 Dec 2024 12:37:40 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>
-In-Reply-To: <20241209112920.70060-1-krzysztof.kozlowski@linaro.org>
-References: <20241209112920.70060-1-krzysztof.kozlowski@linaro.org>
-Subject: Re: [RESEND PATCH] arm64: dts: mediatek: mt8183-kukui: align
- thermal node names with bindings
-Message-Id: <173374425999.50169.9722221830954876718.b4-ty@collabora.com>
-Date: Mon, 09 Dec 2024 12:37:39 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1D04317E0E88;
+	Mon,  9 Dec 2024 12:42:37 +0100 (CET)
+Message-ID: <92328329-e1f4-40e5-b0e6-946a7500a313@collabora.com>
+Date: Mon, 9 Dec 2024 12:42:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: mediatek: mt8186: Add Starmie device
+To: Wojciech Macek <wmacek@chromium.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Chen-Yu Tsai <wenst@chromium.org>, Rafal Milecki <rafal@milecki.pl>,
+ Hsin-Yi Wang <hsinyi@chromium.org>, Sean Wang <sean.wang@mediatek.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241129055720.3328681-1-wmacek@chromium.org>
+ <20241129055720.3328681-3-wmacek@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241129055720.3328681-3-wmacek@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_033742_285489_51A85ED9 
-X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-CacheID: sfid-20241209_034239_840540_9769FAFA 
+X-CRM114-Status: UNSURE (   6.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,23 +80,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Dec 2024 12:29:20 +0100, Krzysztof Kozlowski wrote:
-> Bindings expect thermal zones node name to follow certain pattern.
-> This fixes dtbs_check warning:
+Il 29/11/24 06:57, Wojciech Macek ha scritto:
+> Add support for Starmie Chromebooks.
 > 
->   mt8183-kukui-jacuzzi-burnet.dtb: thermal-zones: 'tboard1', 'tboard2'
->     do not match any of the regexes: '^[a-zA-Z][a-zA-Z0-9\\-]{1,10}-thermal$', 'pinctrl-[0-9]+'
-> 
-> 
-> [...]
+> Signed-off-by: Wojciech Macek <wmacek@chromium.org>
 
-Applied to v6.13-next/dts64, thanks!
-
-[1/1] arm64: dts: mediatek: mt8183-kukui: align thermal node names with bindings
-      commit: 4604c989004006cc0c08a9cfe8d80e7544b8e808
-
-Cheers,
-Angelo
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
 
