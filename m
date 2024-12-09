@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF57E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 18:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3631E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 18:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ey2L68AupkBL1hedKU/FdBpt7KDlLS6aJdEZrYU/YPA=; b=4dR96WaQ8P7Wm0jSy4I57BM2Rq
-	iAHn+b+fyFFBo4QMbpvLJ1gvbNbQpv3zlqdHQJjjTh4t1xMT2GbAF+xjNnSkehgxez87FEk6PV7jY
-	NXa1GasixWlsq01sHls08+ggaZyeQRCorqN4uI+r+cWdfKnTdLOyS3AnCKLA6h+VQgZI8ug3l46hb
-	T+5IBgXDSF5JNVlbeAHgN/xB6YYEwUtqPRSFTvhcMhwj5wfAITqvTDJKx8ZHvn8cuY18yoN5TKG3r
-	9EHklxcF5rRg9nUHxu9vu/ZByrKF9VzEpIwja9u+J5KOSLGZ2PjmPV83DiN61fVRo4jVErrtMMgQ6
-	35b0ar9A==;
+	bh=B2ncnMYAC6mhoN0EC9UnhroKv8cA+8Vno3TBdl2TDz4=; b=WK65B66WWNj7aNN9z3hOrSdGeo
+	rZc5s2yCipHunw38XJwaKU3n7tlu+8+elK+cyZBNpzEUnqu4K+7zidI2nJRUp1I3/5hvkRokfTCZ6
+	5niu7JUO6GQVxN64zaVzhxc0649MZ8ud1QThLoV+RJOl2fjg2RKZX1V0A+T7bgXjIs46swSjZB8vI
+	hmyCeDceLoy7BehuFvIIzo1PjD2PAxaBggudLZ0ntKRa/4FqnOf7YRmsdEgBmYyauBYhKzmQXQuIo
+	rLJOmjH97HPnZAlNoUrSJs9J6Uqe6R904QpISfloWPwrskDcvalBHVbB/mZ9RYf8nI67pI2oA7OSQ
+	MmfiCf5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKijw-00000008uov-1sV4;
-	Mon, 09 Dec 2024 18:44:16 +0000
+	id 1tKikx-00000008uvA-0UUf;
+	Mon, 09 Dec 2024 18:45:19 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKiit-00000008uce-0hQF
+	id 1tKiiv-00000008ud6-0kTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 18:43:12 +0000
+	Mon, 09 Dec 2024 18:43:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 876655C555C;
-	Mon,  9 Dec 2024 18:42:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4D27C4CED1;
-	Mon,  9 Dec 2024 18:43:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 145755C5FCC;
+	Mon,  9 Dec 2024 18:42:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46ED7C4CED1;
+	Mon,  9 Dec 2024 18:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733769789;
-	bh=ojpEli5GutwJa5SYzbhkYSwq4mRUsfSiYSiGGNNLcFE=;
+	s=k20201202; t=1733769792;
+	bh=LC1SJgB4T+PNAWsHATcRZDo1/LyTAyEATO2d1JySzuo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Uq5xjWiKg17mNQZbTI4UExKm4udRvhgVqyduDyFXM/jmuDWl1KKPhcYxEtn3b1BT1
-	 /bVCzNbaasEZIWbTCCXfqIDK3NtAnSbYS7hwoZi9LoxKxLV2C93fuOyoQP9ObX3kPy
-	 AQqIB6iPupGWIGsv86Q0jclh58J5DO1d/wnKyr2YWNSMUSC/c1vjpRz4X5fmt4e2zo
-	 1RBdlDSqCnzhVHJhux7D15aR+3IdpYYHqOyr2/P6ML6/ps+YIHUf4egxDYrHSx3AGV
-	 qHa+gp+X52an0xmui4cHY44thmRWsZ0BsJhDBiJOUBpaaIbiSVCiRZ+IkysuCV2hzD
-	 WPt1yiFcJacjg==
+	b=T1rhfG23vpajMNXOrKBYnnv1IiN2DU3WYNZAZcNibospSmEVoOzqa1ZpXEzmTeTRK
+	 IW5Uh+PtXUh+Za/oXb3z4sOe8mQ2VeXvuQjfWJRqkTXiPgzsS5KlHLsnpmzIoEKP9x
+	 ABXBXbOwe8NR1IWlK0U9wYpMbSxbpj38ZCOIsRMwGKpyWB6kW9nPMjiy05QyfihCJi
+	 1YxdWU1wGRHpgykMhPNTpkTouVAf/9G2PnAGR7dyQ2TWq8VmgL0PjbFUjKrbm1s6Ys
+	 vQGG430LQ9jEhlnJngWEiYv4JQyBSd8wrwn259BiXFhqBb1j1GMvO4yMIRyqzYKVA6
+	 xmnn4qPpAgu5g==
 From: Will Deacon <will@kernel.org>
-To: suzuki.poulose@arm.com,
-	robin.murphy@arm.com,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	treding@nvidia.com,
-	jonathanh@nvidia.com,
-	vsethi@nvidia.com,
-	rwiley@nvidia.com,
-	rknight@nvidia.com,
-	ywan@nvidia.com
-Subject: Re: [PATCH v2 0/4] perf: arm_cspmu: nvidia: update event list and filter
-Date: Mon,  9 Dec 2024 18:43:01 +0000
-Message-Id: <173375687020.3268682.2167190065642330868.b4-ty@kernel.org>
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	bbhushan2@marvell.com,
+	gcherian@marvell.com,
+	sgoutham@marvell.com,
+	jonathan.cameron@huawei.com
+Subject: Re: [PATCH v10 0/5] Marvell Odyssey uncore performance monitor support
+Date: Mon,  9 Dec 2024 18:43:02 +0000
+Message-Id: <173375975929.1126639.3014797293095005520.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241031142118.1865965-1-bwicaksono@nvidia.com>
-References: <20241031142118.1865965-1-bwicaksono@nvidia.com>
+In-Reply-To: <20241108040619.753343-1-gthiagarajan@marvell.com>
+References: <20241108040619.753343-1-gthiagarajan@marvell.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_104311_247056_4B4E1EBF 
-X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-CacheID: sfid-20241209_104313_259305_722048FC 
+X-CRM114-Status: UNSURE (   8.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,28 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 14:21:14 +0000, Besar Wicaksono wrote:
-> This series update the list of supported events and filters in NVIDIA Grace
-> CoreSight PMUs.
+On Fri, 08 Nov 2024 09:36:14 +0530, Gowthami Thiagarajan wrote:
+> Odyssey is a 64 bit ARM based SoC with multiple performance monitor
+> units for various blocks.
 > 
-> Changes from v1:
->  * Split the change for setting default filter value.
->  * Add new patch to fix NVIDIA PMU sysfs path in kernel doc.
->  * Drop the patch for CNVLINK PMU events renaming from this series.
-> v1: https://lore.kernel.org/linux-arm-kernel/20240918215846.1424282-1-bwicaksono@nvidia.com/T/
+> This series of patches introduces support for uncore performance monitor
+> units (PMUs) on the Marvell Odyssey platform. The PMUs covered in this
+> series include the DDR PMU and LLC-TAD PMU.
 > 
 > [...]
 
 Applied to will (for-next/perf), thanks!
 
-[1/4] perf: arm_cspmu: nvidia: remove unsupported SCF events
-      https://git.kernel.org/will/c/ac4c52956f62
-[2/4] perf: arm_cspmu: nvidia: fix sysfs path in the kernel doc
-      https://git.kernel.org/will/c/5f7cd0dc98a6
-[3/4] perf: arm_cspmu: nvidia: enable NVLINK-C2C port filtering
-      https://git.kernel.org/will/c/ca26df4b1036
-[4/4] perf: arm_cspmu: nvidia: monitor all ports by default
-      https://git.kernel.org/will/c/bce61d5c5764
+[1/5] perf/marvell: Refactor to extract platform data - no functional change
+      https://git.kernel.org/will/c/349f77e10952
+[2/5] perf/marvell: Refactor to extract PMU operations
+      https://git.kernel.org/will/c/0045de7e8713
+[3/5] perf/marvell: Odyssey DDR Performance monitor support
+      https://git.kernel.org/will/c/d950c381dce1
+[4/5] perf/marvell : Refactor to extract platform data - no functional change
+      https://git.kernel.org/will/c/59731e231c6f
+[5/5] perf/marvell : Odyssey LLC-TAD performance monitor support
+      https://git.kernel.org/will/c/5fcccba11833
 
 Cheers,
 -- 
