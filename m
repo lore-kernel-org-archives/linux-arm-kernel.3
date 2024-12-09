@@ -4,178 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FC4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 21:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EB4E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 21:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgtMCLqyqGK1BODw+TI3oOGUb6f940l4cn1sIEKmyyU=; b=jLdEbWzfHKrs8EwT7TbOO4soXG
-	BgpyRPBJ9z8OZI8k7uU/vQJ9f77roFj9o0uLib1wU7HowlLhkMXU7fVwvJKOYqI7Zkopiwge9ZlR9
-	k3iugVxujgSFgOhSijX4UDZBpT7r4ZC3mxhKF7cUTLOq/JeJ8u/4DlmEXQuOwqRyQKgR6tzIV8iUQ
-	Un9v2jl2lvmlopL92SozxOuPNvXqQ5Gnbl3KKOQSPwO7xlhCKaor6cgdLegzhVjUBdSO0U57AcsCZ
-	UowsrQWvBEY00T1tU8hOCS5gpxue/WNrzPu5ctCE/HsGD4dCthk2hyrF0PvI2M8q2ktjfipwrbZ+q
-	GFP+Y6OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nUNHDJ6ILFxdRFiTOkLTRDjyDsyOaooQYqwkxtWBOZs=; b=RPCtcjpWticCxvaeEJTYAjjvjy
+	kncY1sptN8aJoc1z+OcmEymkydtiVoizTTX3J0Cg7+7qqNVApUrQ5Pjv8ThtNLEmtdeP0CBUoJiDl
+	Pmrg2rQPO5qnr9jpOWTXgNvo21M44wayMjHIaSQUatzw7E346D0xgiuA5GsDNMMc231Q+VJWso9l0
+	MhS9mlz8KlgN2uL1r5Kb5dGlBE5cSUwoPRRoeJxkPSu+h+Xz64N7hiXXuOeSdgLKvoQ9JH1JJRxhA
+	2ObFFB1vzeAsF6jWZIF/3n6XLgGKhwwcjGGHxWmF6zvjC4CSDj7ALinJI5oFsYelin/Kgg5B5Fe2v
+	Fqhq9ErQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKlkA-00000009MqR-0aYd;
-	Mon, 09 Dec 2024 21:56:42 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1tKllR-00000009N6L-3Mpy;
+	Mon, 09 Dec 2024 21:58:01 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKlhA-00000009MKo-02dd
+	id 1tKlkO-00000009MtE-3JCY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 21:53:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qNVJBQHFpR8N/k2RFpJiUVHaiPc72vxQog+t1WY3EKZ0+3ENSfmQ2jq0JUPTDELjtj0qQTnDdXJII+RIekJ8MfcrxHeicbVw8fPFOlLfF6aOWU3/31QKxfmV+dOFEwzZZckdSYwDztZlN+94Xhyt2RsbuxmT/0u21edQHmz1cN7nhUjrrQz2VGnpyqSp6tPT8o428XQASMp2QyPVfSYshZC8NbAXeU3nNa+itEu6fGEcWxSR2juKjOJiTniR7xEsOhDpJ8eTM2M+9dvE505BPfRrMvH8MwCv/5G/Kzpg7Hr+Z/7Gy8Hx7nWlRudDrYY276wrDqw8/jysrlaiIl8C0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bgtMCLqyqGK1BODw+TI3oOGUb6f940l4cn1sIEKmyyU=;
- b=m1eCSYlR0CwUVNcRoXId63gZjunGufWy8eJX4H84+SCNVvMmz0OB4C7QakpPC0MjOqpXgSp4/B61flve9VnBLqzWoOFcjQx6QWS7jny/RoOBNtUGbQbtwCJSXkFIL1uSFmoE6ZAT5G4lqmd229GRynaiOljnc+R2WE802Lnb34T+gGSNuV6BK2d9nnIDMPe+bPjMZSkzSs19Fh09/dum+fM94CyFaoaUJ2hZyAtylPQneR2H6JSvHMTsdPphUNT1GMQyzagB1u+l9Q8Ntc84Dy68XguhaU52mJ/z7mk+h1W0THlDttIO2iTGq0fgbwkrWHokiVEuHgs8xfOJih9TRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bgtMCLqyqGK1BODw+TI3oOGUb6f940l4cn1sIEKmyyU=;
- b=eeH6EBtgWzEafmvWonaYp8LeUG023nxwUedi/fkgUB97sHHflIwBOtZAeYBSnHeGvJpFRucuP/EzH7t5HsWpsOYWCD6bA1aI9OWLaYhviLjNpYN2U0WPcz6Z1tLJoIo7uTGExsXkNCVj2q3c2kxU98mhxo59GOyTQK0bD3VsJ9q5tdR5CiqQS8gpU+6ZK6xBgfMxmGwyDwVc0LBcSnx3FySOPcPsPIHppNAJ9uMGGeJtorF5qubSjfqxwm+IqJYBFEk3oLcG7IwDTPbTa/hDEWtwDfkYn4dcWpkufDrVZZAUjuTmayt1Xbv/p5Sx3Ox3roO066P5T2qTWAKFPNp9/Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB9PR04MB9818.eurprd04.prod.outlook.com (2603:10a6:10:4ef::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Mon, 9 Dec
- 2024 21:53:31 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8230.010; Mon, 9 Dec 2024
- 21:53:31 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Mon, 09 Dec 2024 16:53:05 -0500
-Subject: [PATCH 2/2] thermal: imx91: Add support for i.MX91 thermal
- monitoring unit
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241209-imx91tmu-v1-2-7859c5387f31@nxp.com>
-References: <20241209-imx91tmu-v1-0-7859c5387f31@nxp.com>
-In-Reply-To: <20241209-imx91tmu-v1-0-7859c5387f31@nxp.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pengfei Li <pengfei.li_1@nxp.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733781197; l=9745;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=nNhwjFBwQVTIDJisSK0WnxFeaeyXNS38R647unJN1/c=;
- b=oKDonfw2+8yyM63EMa1d/vz7hxajUM7XNdK7zgSes1nQEgHo8FtpgzPMgQ3vBPGoQV7wZbdbf
- bUBNxv9PS+QBO3Cq7FOIGonyDXvWMiyXspI2LGhmvX2ciFQuE6Gr8uP
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0158.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 09 Dec 2024 21:56:58 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3a9cee9d741so12392085ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 13:56:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733781416; x=1734386216; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nUNHDJ6ILFxdRFiTOkLTRDjyDsyOaooQYqwkxtWBOZs=;
+        b=EFo3S9BP9dfsM7T7WbBX9zPaSyF7wnz2bVFwPaJgIGeERoQuVZAOoXj9U6tOJzvTmb
+         6kfbRlptXbmkXVd4+b3eGdsYBbPiU6WJu7C8Jy7FdNSoz3d3byX4FnKRDRTD3xuHAC/K
+         ZpsDvVjZCePXi3eIgItECbHuo9907qpJnwafFPDqvyGole9YZb0XCMonj1qc6tn6pkHK
+         KL/JBNaFNhOrJgqJokxjNZRHUSoTQbJ3nH9EEbyXAD16JD5MozkClnyPs9YIEXbgxMao
+         hl/DadXdRljyAiW+OYY17++hu2oZQCz3x9UX9mqTPSEAz00O4nWKOwNfo0qow05EgYbc
+         UGQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733781416; x=1734386216;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nUNHDJ6ILFxdRFiTOkLTRDjyDsyOaooQYqwkxtWBOZs=;
+        b=h08+5T/DUkHsIYKuXl6NkCqM0I6RE9+lXUhX8AYe8Zv88QvW5++B/8ZpZqolDWTJTp
+         ZcpD5jVL6wUtxO/Qup0hlm9Hph2MPH59VNrLS4Z4Ent6IxANKVAnZ9mCChznxDIl99ac
+         GCEbbpb/xsjtwDkHOqGs1Ij9TIf5kgeVjCiYtx5kRE9Lx+7C1nR8g9x3tomdeng1XPO5
+         SuLCvNyrLxF4TRs5wu034ugOLA2gEy6A1X8rpGhsoKMAsZgFL8gh13O+aKM6QpJ6Ecji
+         ZO4kFnv7+ug96Uw5y/a/HB1iUuQPD2tE5CLwV160iH4eu9ld6Dzl1JwOmfMhkPn+oUOZ
+         BdPA==
+X-Forwarded-Encrypted: i=1; AJvYcCWvJuyi+nsrIaAuk/Wm9cta/kPWRBEKHs03ZgpidbTkWIvhy+fk7EV/frOit1Ae911g8XTDWhcYBZiOr59XOLS9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyScdUq9x5ln5gAOsiVXjdvQuDNdZZpSHxtKWU2XmN1QSIR3dLd
+	YPY9TMX/9qdJCCUweYa+S3yuZAguqQgS5uBweCQkQjmt1SNIyJz/cKskBb6fHg+OZRE+E7kogDq
+	0MDb7s1BpnbCaoCjJZqwPQTc4HsgSB6Tr
+X-Gm-Gg: ASbGncuOYERhKwTkvDN6zlEZdNir+EFzg6GsYNCZfBrQP6NpbAwUjoPCVNqHQ1Qd/cd
+	ap5MYcaeJSehKyrlvPxprt4LrpPSG+sJ0Z+jppQOmLcBvAlNS/4N/CUvjurVKFXqx/Q==
+X-Google-Smtp-Source: AGHT+IH7i9zLT2/3HS5RsXkA25gYc8CnkPrXffiXodQojiAfgigEq875VdgnrRDYd+CYD90qZDMyy0maoJBm25wbQSE=
+X-Received: by 2002:a05:6e02:3707:b0:3a7:9670:7abb with SMTP id
+ e9e14a558f8ab-3a811e073a4mr155617215ab.15.1733781415758; Mon, 09 Dec 2024
+ 13:56:55 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9818:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7df96c2b-6f5b-4b01-86c7-08dd189bebb0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?KzN2bXVua01mY2Q3UmxIcFplbThrd2hReFQ0V05aMktQU21WTTB4NUl6MkNx?=
- =?utf-8?B?Zlg2UE52Tk9kN1JhVlluQVh3dDdZWTBXNVZiaU5SYWlZVHJ1TWFnZ1JrbDVP?=
- =?utf-8?B?RURIbS9pUVJPODdqMUpGeXFnRnRzRm5mdmFtbXQydVlBdTNqSmx0Z0Y3ZDNC?=
- =?utf-8?B?VSt1M0tIdVN4RWxiRDZqa3lWS3JEM1gyM0FhZkJidFU2czcrdVBMTFRlZmdS?=
- =?utf-8?B?Vk9WdGdDbVFsRlNQM1NVZWpOWlVhb2xaVjdEdSs2bmJyZ0x3enltekJkak11?=
- =?utf-8?B?ZXRuclErVTJTQ0xQRFVHUWtIb2c4VHBWeXJ5emRoZi9ick4zbVFtQ0xBQ3VL?=
- =?utf-8?B?bmkveVNHLzVoYTFLSWxxNE9JNG91TGF6NXk4QUI4VlNSbTM1d0Z4U2tSL3Nx?=
- =?utf-8?B?MmNKL00vNHFkTVNaMm5IVjFnT0FsOXIyVnh6N1hSd2cvWEJrY3RUd2hNdkF1?=
- =?utf-8?B?SFF5TFk3ZjFqMWRRVHBhYlpDZFFDNTVWSmRkeXJYNU4wdDBUL3lFVk4wWjZS?=
- =?utf-8?B?YVYvZjlHdkZueGFDTFJDV1FsbjQyNXVFOUpiQTF4alNwYTdEZHRTNG05MTJa?=
- =?utf-8?B?WWFtRTJsY05lK2NteXpOWDJ3elBNS2RzWk5LRzZnRGZZVFJBK0JhbU80WTN6?=
- =?utf-8?B?YithbHpQMkUzaFE4TmdrZHdpR2FQZjYyeXRJRG5DTVorWVRVNHZ1VUtQbHQy?=
- =?utf-8?B?SUJhYnhaRzZmTGZNSnNaN2ZsRGJYR0VCdlArRUloQld4QmtOVG9jakdmb1Bm?=
- =?utf-8?B?K0JxSytzVkxuUFdVSUJVUlpiSVNpSEVmd3I4QXEweksydTN0QUdlVWwrV0s0?=
- =?utf-8?B?THRJa0MyUmxrQjRyWFh6ZDRlSzZTaC9sT2dUd0hRZ3Y2TjMwdFkxS2tvdmd4?=
- =?utf-8?B?TTI2bms2ck5VV3VZR0J5U0cwQUVGeHpmNFkvaTNvLzNUdlZ2d00xbWFFbGdr?=
- =?utf-8?B?MUd5NFFlYnV2UkR0WndVY1g1QkhpbGd3VmlxVGJ5YXI5ZzJ0MW9vanFUR3ZR?=
- =?utf-8?B?QmEyNU01T1A0am9NWHZUVXEzWjEyM2tBckhOM245MDVOMXFXYys4eUxHYzln?=
- =?utf-8?B?OUlaaEk4T2hCQXVzWWhLMGRFN2E1WU04QndrVUFOQnEvM0VxbW5ISnlZRGhQ?=
- =?utf-8?B?bjdIMWtJZWpDSFFKaGRaQWRsa3l0UWF2Ly9kdFVVRGdqTytMeERzbnFtRDla?=
- =?utf-8?B?RWtDSlhUU05UZXhIb2NDSHh1Uk5XUUlzejQ2Q1NUNG5yc1crYlZBb3pQcVRt?=
- =?utf-8?B?Q3kzQWhsREpQRUYxRkdsWWozd0lsYUhqR1NsWGhJYytaQjU4OUk0cys4V1U4?=
- =?utf-8?B?MW51VkRzd2pqZkpGdlozSjZ5MnhpWFg2QmVjeUJSSWpDSTlSUkR3b25LRXAv?=
- =?utf-8?B?TTJvZDBDUkhRWVZML0lZeUYwdE9yRXpaVEU2VTlsNnR3YUNiZXVFaU5oV01L?=
- =?utf-8?B?cDdwNE5TemZEYVpnZFhVTE5HWlRIV0piQTVTNUcxbFU3clBKQVp0SHZJRXpL?=
- =?utf-8?B?UUlnaU1hZklBM0NERXE2NThCbEFhaEwrSzJ5ejRyQjNSWkF1UnhpUVIrNG45?=
- =?utf-8?B?ai9oU0tQZ2VGU2tQU3Y5RkNJVjNQaVpyQVBrTTdpT1B3elg2SEZZbi85ZzZ3?=
- =?utf-8?B?MGg1RnVBWEtsQmxtbnNLa2V1OG1sOHZrRXFET3U0WjJOS2R1NC9rYzNDR215?=
- =?utf-8?B?VFdjTUQza2lVdjI0czd5Y2V6Vm1EVWF2Tm1NdFNjL1VXVitxbElGSDZpVzZ2?=
- =?utf-8?B?cVRmRHYxMkczbDVvVDZGeGVmdFNIOUN1SnNmZ0x2TWExVWRIWTgyUDZKdVVl?=
- =?utf-8?B?bXdOVGI4WVF2T3pra0hJL0xsdU1QYVVzZlFFQXNsb1FsT1RvcXFpcy9FVWFa?=
- =?utf-8?B?THlnMFJmMDRpUXh2Y2ZBMGpPSlhkTlVhYjZrNGhlNkNjTTJwOHV1RDM1aDRF?=
- =?utf-8?Q?i7f/2jxpAPg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHp1cHhzU3hGdkx3N0NyRkwrZjRQYnFUeXhTOENvWGgxKzFZbE90aFFITzM5?=
- =?utf-8?B?ZkNIdEljaWt0ZTZONG9XVi9BeVJnMzNLdWdNWlJiU2l0bEtocE44OVhUWTRK?=
- =?utf-8?B?d09aK3BuenBQVG9LK2NScUd3QjgvVEd3S01oZGZqNFBTMG83SGtvaFMvejFL?=
- =?utf-8?B?R2t0WkowTDBkZERrZDhiSUR2RjQ4WWpvWEt3Q043V1M5MkkwbFkwYnpudExQ?=
- =?utf-8?B?TFRSOXpESzFCQTd6WXNaR0FlWTF3MkJrYTNyTVI3SlpySG9KUlN2bDlrZVh0?=
- =?utf-8?B?aU5ENFMyNGEwM3B0WDFqZXA3RTR6R1RRVTBObWlYVUwwNEtIWW9jUzZnMzhX?=
- =?utf-8?B?ZGI2ZlRTc0xnNHo0STlkYnEzZWczTTFrRzBNTmtDRjVoSVNNbmZGbDltR3hl?=
- =?utf-8?B?NU41REhCNkJJQmdXYk9MSkJZTENmUmhjOGJPMXJtamgyWXdpUHRRc1pOWWlq?=
- =?utf-8?B?b1NBR05Mc3RjUDZaT2FtVUhTZUp4aUZIYWNhVnZKakhqVWpKUzJNRFRTdEpm?=
- =?utf-8?B?a0JDMGR3TnpmcWNZZXpFWlhWcDV1N240MnNxb0JlSE5qNi9kSVJxcy9UbndT?=
- =?utf-8?B?c1c2OTQvd2tnSEoyK1dONDcreFpySVZ3S2ZwdlMrKzMvN2djVHQ3djJONTQ5?=
- =?utf-8?B?Q3d2c2pRWW91eGcvcnJKTmM3aHdvR003TTczRWRnMVRLcU9kZzl0VEhNVFVh?=
- =?utf-8?B?dmJZTktucWw2b29FZFd5YTUvZ3pJc1NGazVROVA5VGZaQ2p1VGRiMGN1bmZS?=
- =?utf-8?B?dGR2VzdBd2x3M3Rya0NOZGdhL245ZVBUdkwwZldJcW9tTWhZN0ZiV3ZxZUdt?=
- =?utf-8?B?VnlHODk3TTBUOWtram53c1F6YjlxWmQrMDhYaEhNeXRsQ3l6cUJFZEY0OGIy?=
- =?utf-8?B?U2lwbjBQamNqQVlOZTl5MWF6czNzclhzb0wxQ0lsNFdqL29UMlBROW5OTlRw?=
- =?utf-8?B?Ukp3NTEvWFhqMTIrS3JRQlI4MjZsYjFqR016SFJDYVVVckZvR09EdnI5SWpW?=
- =?utf-8?B?WkNQZ280cEtSeVFBYW85a0kraGswbll2cWtaVXJiRHBvcDlrbHd0cWI5VUkw?=
- =?utf-8?B?ZHhDTExISXJqS2Mwb0dSWk9pRTlhNDZoS2ZrVWlrMm03OUE1dnpIUEZjbm1G?=
- =?utf-8?B?enAwcWs4R1JIWWMzVWlEcUd4czF3TWx3WDhQZVR2bVFFWTRXTTJlRWwzMnJY?=
- =?utf-8?B?Wm11clpZTVdrbjllRngrV2xjRzlSY1N2SVJqV0RuOFVwV2EvRGg2NVBCUjMy?=
- =?utf-8?B?Ui9jRTNOMmw5dnl0S21DNXNsMzFJczhnNmM2TDZkSWN0UnFlM0poT294WTZ0?=
- =?utf-8?B?cEJNYWNSdlI0bDZ4WVA4clJNaGYyYVV2QkxuOGhNcXB5RzRHeWxPdW1VY21N?=
- =?utf-8?B?SklxemExeldncDIrcGFYMm9sMzAxYTE0Qnc4Vlh2Tk1yOFBsRFJrVi9BQ2tG?=
- =?utf-8?B?NHJHV202NDBXdzFpRUZxMDZsNGx5b3F0WGJQSGtCZllzYkdld3J5QmZBQStO?=
- =?utf-8?B?V1h2OW1zU2FweG5RSjJDQWs3OXBCUy83L0VMd3RVTndkdldJTW1LalpFYmFJ?=
- =?utf-8?B?VklRVGE5ZlpIajFUdlRZVk0rcW50eHVLSmVyM0JHL1F1bzNNeUpMWHlRL3hC?=
- =?utf-8?B?OGNvYzYrN1dqVFhXd05ZMGtoNEFuYmZVN1UvaEFHVUEwOEhlOTdGWVd2Tk5T?=
- =?utf-8?B?K0QxYjR6S25GSHRUeUM5T0pqUTc1WlVTQ1pqUWF3RVZxQkh0enVVeXh4N216?=
- =?utf-8?B?M0I4UjNLdCt5OHZSM1hPZXg2c25vbkxQc09RZU4xdmZOangrQXJ2aTlHVkt2?=
- =?utf-8?B?ZGdMR1Ard3JDMWprZjVSbnlKanlRajkxMlZWd29VRk84aXQxUDZ4TmwrYjFP?=
- =?utf-8?B?cVdYWUt4OGNJQ0ZtaVE3c0pCb0c2K0NXdXRaVmdaV1F6WC9FTjhjeTBneFh6?=
- =?utf-8?B?L3lxeXhUKzNZRmZOdk5nYThTOWY1ZDlmSjR5blpYeHUrcTJrUkZqZzNZRG5U?=
- =?utf-8?B?SmFGOExiTFlTRnRFa3l2a3pNTTdBWG5LVDhRKy9HVkR5VUhuZ0p3djhNTDd6?=
- =?utf-8?B?TlRTQ0lycUZtUUdZQnlFQlk3RnQ1ZHJaMXR5dXRhOUJSeGs2aVFnUUVXZWRL?=
- =?utf-8?Q?VSoc=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7df96c2b-6f5b-4b01-86c7-08dd189bebb0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 21:53:31.0660
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XRFnw2C5Vy9xp75nQVlQ4B8PAnqI720i5vepGNA2E4lbgZTHy4aBFQPTBWJJfEY8iFV5U9fmsAoINxZ9Le95YQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9818
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+ <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com> <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
+In-Reply-To: <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
+From: Rob Clark <robdclark@gmail.com>
+Date: Mon, 9 Dec 2024 13:56:44 -0800
+Message-ID: <CAF6AEGvBU8mB5HHNK4nP5h9ouKfLNhCMFgF+PhrC77ZMfSOTkQ@mail.gmail.com>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+To: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Cc: Pavan Kondeti <quic_pkondeti@quicinc.com>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Elliot Berman <quic_eberman@quicinc.com>, 
+	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_135336_059855_ABFAEB9E 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20241209_135656_827651_C2AD577C 
+X-CRM114-Status: GOOD (  37.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,343 +99,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengfei Li <pengfei.li_1@nxp.com>
+On Mon, Dec 9, 2024 at 12:52=E2=80=AFPM Akhil P Oommen <quic_akhilpo@quicin=
+c.com> wrote:
+>
+> On 12/10/2024 1:24 AM, Rob Clark wrote:
+> > On Mon, Dec 9, 2024 at 12:20=E2=80=AFAM Akhil P Oommen <quic_akhilpo@qu=
+icinc.com> wrote:
+> >>
+> >> When kernel is booted in EL2, SECVID registers are accessible to the
+> >> KMD. So we can use that to switch GPU's secure mode to avoid dependenc=
+y
+> >> on Zap firmware. Also, we can't load a secure firmware without a
+> >> hypervisor that supports it.
+> >
+> > Shouldn't we do this based on whether zap node is in dtb (and not disab=
+led)?
+>
+> This is better, isn't it? Otherwise, multiple overlays should be
+> maintained for each soc/board since EL2 can be toggled from bootloader.
+> And this feature is likely going to be more widely available.
 
-Introduce support for the i.MX91 thermal monitoring unit, which features a
-single sensor for the CPU. The register layout differs from other chips,
-necessitating the creation of a dedicated file for this.
+I guess the first question is what the dt should look like.  I think
+it makes sense to not have a zap node when booting in EL2 (or at least
+disabling it) because that describes the hw+fw situation.  And in any
+case, so far it seems like we often need unrelated changes[1].  But
+maybe others have differing opinions.
 
-Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/thermal/Kconfig         |  10 ++
- drivers/thermal/Makefile        |   1 +
- drivers/thermal/imx91_thermal.c | 281 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 292 insertions(+)
+And depending on how much cooperation we get from the bootloader, it
+could be that our hand is forced.  I figured I should at least point
+out how we currently handle this.
 
-diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
-index d3f9686e26e71..da403ed86aeb1 100644
---- a/drivers/thermal/Kconfig
-+++ b/drivers/thermal/Kconfig
-@@ -296,6 +296,16 @@ config IMX8MM_THERMAL
- 	  cpufreq is used as the cooling device to throttle CPUs when the passive
- 	  trip is crossed.
- 
-+config IMX91_THERMAL
-+	tristate "Temperature sensor driver for NXP i.MX91 SoC"
-+	depends on ARCH_MXC || COMPILE_TEST
-+	depends on OF
-+	help
-+	  Support for Temperature sensor found on NXP i.MX91 SoC.
-+	  It supports one critical trip point and one passive trip point. The
-+	  cpufreq is used as the cooling device to throttle CPUs when the passive
-+	  trip is crossed.
-+
- config K3_THERMAL
- 	tristate "Texas Instruments K3 thermal support"
- 	depends on ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
-index 9abf43a74f2bb..08da241e6a598 100644
---- a/drivers/thermal/Makefile
-+++ b/drivers/thermal/Makefile
-@@ -50,6 +50,7 @@ obj-$(CONFIG_ARMADA_THERMAL)	+= armada_thermal.o
- obj-$(CONFIG_IMX_THERMAL)	+= imx_thermal.o
- obj-$(CONFIG_IMX_SC_THERMAL)	+= imx_sc_thermal.o
- obj-$(CONFIG_IMX8MM_THERMAL)	+= imx8mm_thermal.o
-+obj-$(CONFIG_IMX91_THERMAL)	+= imx91_thermal.o
- obj-$(CONFIG_MAX77620_THERMAL)	+= max77620_thermal.o
- obj-$(CONFIG_QORIQ_THERMAL)	+= qoriq_thermal.o
- obj-$(CONFIG_DA9062_THERMAL)	+= da9062-thermal.o
-diff --git a/drivers/thermal/imx91_thermal.c b/drivers/thermal/imx91_thermal.c
-new file mode 100644
-index 0000000000000..19c4dafe9c7a9
---- /dev/null
-+++ b/drivers/thermal/imx91_thermal.c
-@@ -0,0 +1,281 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright 2024 NXP.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/iopoll.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/thermal.h>
-+
-+#define CTRL0			0x0
-+
-+#define STAT0			0x10
-+#define STAT0_DRDY0_IF_MASK	BIT(16)
-+
-+#define DATA0			0x20
-+#define DATA_INT_MASK		GENMASK(14, 7)
-+#define DATA_FRAC_MASK		GENMASK(6, 0)
-+
-+#define THR_CTRL01		0x30
-+#define THR_CTRL23		0x40
-+
-+#define CTRL1			0x200
-+#define CTRL1_SET		0x204
-+#define CTRL1_CLR		0x208
-+#define CTRL1_EN		BIT(31)
-+#define CTRL1_START		BIT(30)
-+#define CTRL1_STOP		BIT(29)
-+#define CTRL1_RES_MASK		GENMASK(19, 18)
-+#define CTRL1_MEAS_MODE_MASK	GENMASK(25, 24)
-+
-+#define PERIOD_CTRL		0x270
-+#define MEAS_FREQ_MASK		GENMASK(23, 0)
-+
-+#define REF_DIV			0x280
-+#define DIV_EN			BIT(31)
-+#define DIV_MASK		GENMASK(23, 16)
-+
-+#define PUD_ST_CTRL		0x2B0
-+#define PUDL_MASK		GENMASK(23, 16)
-+
-+#define TRIM1			0x2E0
-+#define TRIM2			0x2F0
-+
-+#define TMU_TEMP_LOW_LIMIT	-40000
-+#define TMU_TEMP_HIGH_LIMIT	125000
-+
-+#define DEFAULT_TRIM1_CONFIG 0xB561BC2DU
-+#define DEFAULT_TRIM2_CONFIG 0x65D4U
-+
-+struct tmu_sensor {
-+	struct imx91_tmu *priv;
-+	struct thermal_zone_device *tzd;
-+};
-+
-+struct imx91_tmu {
-+	void __iomem *base;
-+	struct clk *clk;
-+	struct device *dev;
-+	struct tmu_sensor sensors;
-+};
-+
-+static void imx91_tmu_start(struct imx91_tmu *tmu, bool start)
-+{
-+	if (start)
-+		writel_relaxed(CTRL1_START, tmu->base + CTRL1_SET);
-+	else
-+		writel_relaxed(CTRL1_STOP, tmu->base + CTRL1_SET);
-+}
-+
-+static void imx91_tmu_enable(struct imx91_tmu *tmu, bool enable)
-+{
-+	if (enable)
-+		writel_relaxed(CTRL1_EN, tmu->base + CTRL1_SET);
-+	else
-+		writel_relaxed(CTRL1_EN, tmu->base + CTRL1_CLR);
-+}
-+
-+static int imx91_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
-+{
-+	struct tmu_sensor *sensor = thermal_zone_device_priv(tz);
-+	struct imx91_tmu *tmu = sensor->priv;
-+	int val;
-+	int ret;
-+
-+	ret = readl_relaxed_poll_timeout(tmu->base + STAT0, val,
-+					 val & STAT0_DRDY0_IF_MASK, 1000,
-+					 40000);
-+	if (ret)
-+		return -EAGAIN;
-+
-+	val = readl_relaxed(tmu->base + DATA0) & 0xffffU;
-+	*temp = val * 1000L / 64L;
-+	if (*temp < TMU_TEMP_LOW_LIMIT || *temp > TMU_TEMP_HIGH_LIMIT)
-+		return -EAGAIN;
-+
-+	return 0;
-+}
-+
-+static struct thermal_zone_device_ops tmu_tz_ops = {
-+	.get_temp = imx91_tmu_get_temp,
-+};
-+
-+static int imx91_init_from_nvmem_cells(struct imx91_tmu *tmu)
-+{
-+	struct device *dev = tmu->dev;
-+	int ret;
-+	u32 trim1, trim2;
-+
-+	ret = nvmem_cell_read_u32(dev, "trim1", &trim1);
-+	if (ret)
-+		return ret;
-+
-+	ret = nvmem_cell_read_u32(dev, "trim2", &trim2);
-+	if (ret)
-+		return ret;
-+
-+	if (trim1 == 0 || trim2 == 0)
-+		return -EINVAL;
-+
-+	writel_relaxed(trim1, tmu->base + TRIM1);
-+	writel_relaxed(trim2, tmu->base + TRIM2);
-+
-+	return 0;
-+}
-+
-+static int imx91_tmu_probe(struct platform_device *pdev)
-+{
-+	struct imx91_tmu *tmu;
-+	unsigned long rate;
-+	u32 div;
-+	int ret;
-+	int i = 0;
-+
-+	tmu = devm_kzalloc(&pdev->dev, sizeof(struct imx91_tmu), GFP_KERNEL);
-+	if (!tmu)
-+		return -ENOMEM;
-+
-+	tmu->dev = &pdev->dev;
-+
-+	tmu->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(tmu->base))
-+		return PTR_ERR(tmu->base);
-+
-+	tmu->clk = devm_clk_get_prepared(&pdev->dev, NULL);
-+	if (IS_ERR(tmu->clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(tmu->clk), "failed to get tmu clock\n");
-+
-+	tmu->sensors.priv = tmu;
-+	tmu->sensors.tzd = devm_thermal_of_zone_register(&pdev->dev, i, &tmu->sensors, &tmu_tz_ops);
-+	if (IS_ERR(tmu->sensors.tzd))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(tmu->sensors.tzd),
-+				     "failed to register thermal zone sensor\n");
-+
-+	platform_set_drvdata(pdev, tmu);
-+
-+	/* disable the monitor during initialization */
-+	imx91_tmu_enable(tmu, false);
-+	imx91_tmu_start(tmu, false);
-+
-+	ret = imx91_init_from_nvmem_cells(tmu);
-+	if (ret) {
-+		writel_relaxed(DEFAULT_TRIM1_CONFIG, tmu->base + TRIM1);
-+		writel_relaxed(DEFAULT_TRIM2_CONFIG, tmu->base + TRIM2);
-+	}
-+
-+	/* The typical conv clk is 4MHz, the output freq is 'rate / (div + 1)' */
-+	rate = clk_get_rate(tmu->clk);
-+	div = (rate / 4000000) - 1;
-+
-+	/* Set divider value and enable divider */
-+	writel_relaxed(DIV_EN | FIELD_PREP(DIV_MASK, div), tmu->base + REF_DIV);
-+
-+	/* Set max power up delay: 'Tpud(ms) = 0xFF * 1000 / 4000000' */
-+	writel_relaxed(FIELD_PREP(PUDL_MASK, 100U), tmu->base + PUD_ST_CTRL);
-+
-+	/*
-+	 * Set resolution mode
-+	 * 00b - Conversion time = 0.59325 ms
-+	 * 01b - Conversion time = 1.10525 ms
-+	 * 10b - Conversion time = 2.12925 ms
-+	 * 11b - Conversion time = 4.17725 ms
-+	 */
-+	writel_relaxed(FIELD_PREP(CTRL1_RES_MASK, 0x3), tmu->base + CTRL1_CLR);
-+	writel_relaxed(FIELD_PREP(CTRL1_RES_MASK, 0x1), tmu->base + CTRL1_SET);
-+
-+	/*
-+	 * Set measure mode
-+	 * 00b - Single oneshot measurement
-+	 * 01b - Continuous measurement
-+	 * 10b - Periodic oneshot measurement
-+	 */
-+	writel_relaxed(FIELD_PREP(CTRL1_MEAS_MODE_MASK, 0x3), tmu->base + CTRL1_CLR);
-+	writel_relaxed(FIELD_PREP(CTRL1_MEAS_MODE_MASK, 0x1), tmu->base + CTRL1_SET);
-+
-+	/*
-+	 * Set Periodic Measurement Frequency to 25Hz:
-+	 * tMEAS_FREQ = tCONV_CLK * PERIOD_CTRL[MEAS_FREQ]. ->
-+	 * PERIOD_CTRL(MEAS_FREQ) = (1000 / 25) / (1000 / 4000000);
-+	 * Where tMEAS_FREQ = Measurement period and tCONV_CLK = 1/fCONV_CLK.
-+	 * This field should have value greater than count corresponds
-+	 * to time greater than summation of conversion time, power up
-+	 * delay, and six times of conversion clock time.
-+	 * tMEAS_FREQ > (tCONV + tPUD + 6 * tCONV_CLK).
-+	 * tCONV is conversion time determined by CTRL1[RESOLUTION].
-+	 */
-+	writel_relaxed(FIELD_PREP(MEAS_FREQ_MASK, 0x27100), tmu->base + PERIOD_CTRL);
-+
-+	/* enable the monitor */
-+	imx91_tmu_enable(tmu, true);
-+	imx91_tmu_start(tmu, true);
-+
-+	return 0;
-+}
-+
-+static void imx91_tmu_remove(struct platform_device *pdev)
-+{
-+	struct imx91_tmu *tmu = platform_get_drvdata(pdev);
-+
-+	/* disable tmu */
-+	imx91_tmu_start(tmu, false);
-+	imx91_tmu_enable(tmu, false);
-+}
-+
-+static int __maybe_unused imx91_tmu_suspend(struct device *dev)
-+{
-+	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-+
-+	/* disable tmu */
-+	imx91_tmu_start(tmu, false);
-+	imx91_tmu_enable(tmu, false);
-+
-+	clk_disable_unprepare(tmu->clk);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused imx91_tmu_resume(struct device *dev)
-+{
-+	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(tmu->clk);
-+	if (ret)
-+		return ret;
-+
-+	imx91_tmu_enable(tmu, true);
-+	imx91_tmu_start(tmu, true);
-+
-+	return 0;
-+}
-+
-+static SIMPLE_DEV_PM_OPS(imx91_tmu_pm_ops,
-+			 imx91_tmu_suspend, imx91_tmu_resume);
-+
-+static const struct of_device_id imx91_tmu_table[] = {
-+	{ .compatible = "fsl,imx91-tmu", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, imx91_tmu_table);
-+
-+static struct platform_driver imx91_tmu = {
-+	.driver = {
-+		.name	= "i.MX91_thermal",
-+		.pm	= pm_ptr(&imx91_tmu_pm_ops),
-+		.of_match_table = imx91_tmu_table,
-+	},
-+	.probe = imx91_tmu_probe,
-+	.remove = imx91_tmu_remove,
-+};
-+module_platform_driver(imx91_tmu);
-+
-+MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
-+MODULE_DESCRIPTION("i.MX91 Thermal Monitor Unit driver");
-+MODULE_LICENSE("GPL");
+A further point, I suppose it is in theory possible that a device
+could have no secure playback support, despite booting in EL1?  So
+tying this to EL2 seems a bit contrived.
 
--- 
-2.34.1
+BR,
+-R
 
+[1] https://github.com/TravMurav/slbounce/blob/main/dtbo/x1e-el2.dtso
+
+> -Akhil.
+>
+> >
+> > slbounce applies some dtb overlays to disable the zap node when
+> > booting in EL2 (and make some other changes due to kernel being in
+> > control of the pci smmuv3, or something along those lines).
+> >
+> > BR,
+> > -R
+> >
+> >>
+> >> Tested following configurations on sa8775p chipset (Adreno 663 gpu):
+> >>
+> >> 1. Gunyah (No KVM) - Loads zap shader based on DT
+> >> 2. KVM in VHE - Skips zap shader load and programs SECVID register
+> >> 3. KVM in nVHE - Loads zap shader based on DT
+> >> 4. Kernel in EL2 with CONFIG_KVM=3Dn - Skips zap shader load and
+> >>         programs SECVID register
+> >>
+> >> For (1) and (3) configuration, this patch doesn't have any impact.
+> >> Driver loads secure firmware based on other existing hints.
+> >>
+> >> Signed-off-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
+> >> ---
+> >> ---
+> >>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 82 +++++++++++++++++++++++---=
+---------
+> >>  1 file changed, 54 insertions(+), 28 deletions(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/m=
+sm/adreno/a6xx_gpu.c
+> >> index 019610341df1..9dcaa8472430 100644
+> >> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> >> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> >> @@ -14,6 +14,10 @@
+> >>  #include <linux/pm_domain.h>
+> >>  #include <linux/soc/qcom/llcc-qcom.h>
+> >>
+> >> +#ifdef CONFIG_ARM64
+> >> +#include <asm/virt.h>
+> >> +#endif
+> >> +
+> >>  #define GPU_PAS_ID 13
+> >>
+> >>  static inline bool _a6xx_check_idle(struct msm_gpu *gpu)
+> >> @@ -998,6 +1002,54 @@ static int a6xx_zap_shader_init(struct msm_gpu *=
+gpu)
+> >>         return ret;
+> >>  }
+> >>
+> >> +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
+> >> +{
+> >> +       int ret;
+> >> +
+> >> +#ifdef CONFIG_ARM64
+> >> +       /*
+> >> +        * We can access SECVID_TRUST_CNTL register when kernel is boo=
+ted in EL2 mode. So, use it
+> >> +        * to switch the secure mode to avoid the dependency on zap sh=
+ader.
+> >> +        */
+> >> +       if (is_kernel_in_hyp_mode())
+> >> +               goto direct_switch;
+> >> +#endif
+> >> +
+> >> +       /*
+> >> +        * Try to load a zap shader into the secure world. If successf=
+ul
+> >> +        * we can use the CP to switch out of secure mode. If not then=
+ we
+> >> +        * have no resource but to try to switch ourselves out manuall=
+y. If we
+> >> +        * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL reg=
+ister will
+> >> +        * be blocked and a permissions violation will soon follow.
+> >> +        */
+> >> +       ret =3D a6xx_zap_shader_init(gpu);
+> >> +       if (ret =3D=3D -ENODEV) {
+> >> +               /*
+> >> +                * This device does not use zap shader (but print a wa=
+rning
+> >> +                * just in case someone got their dt wrong.. hopefully=
+ they
+> >> +                * have a debug UART to realize the error of their way=
+s...
+> >> +                * if you mess this up you are about to crash horribly=
+)
+> >> +                */
+> >> +               dev_warn_once(gpu->dev->dev,
+> >> +                       "Zap shader not enabled - using SECVID_TRUST_C=
+NTL instead\n");
+> >> +               goto direct_switch;
+> >> +       } else if (ret)
+> >> +               return ret;
+> >> +
+> >> +       OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
+> >> +       OUT_RING(gpu->rb[0], 0x00000000);
+> >> +
+> >> +       a6xx_flush(gpu, gpu->rb[0]);
+> >> +       if (!a6xx_idle(gpu, gpu->rb[0]))
+> >> +               return -EINVAL;
+> >> +
+> >> +       return 0;
+> >> +
+> >> +direct_switch:
+> >> +       gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
+> >> +       return 0;
+> >> +}
+> >> +
+> >>  #define A6XX_INT_MASK (A6XX_RBBM_INT_0_MASK_CP_AHB_ERROR | \
+> >>                        A6XX_RBBM_INT_0_MASK_RBBM_ATB_ASYNCFIFO_OVERFLO=
+W | \
+> >>                        A6XX_RBBM_INT_0_MASK_CP_HW_ERROR | \
+> >> @@ -1341,35 +1393,9 @@ static int hw_init(struct msm_gpu *gpu)
+> >>         if (ret)
+> >>                 goto out;
+> >>
+> >> -       /*
+> >> -        * Try to load a zap shader into the secure world. If successf=
+ul
+> >> -        * we can use the CP to switch out of secure mode. If not then=
+ we
+> >> -        * have no resource but to try to switch ourselves out manuall=
+y. If we
+> >> -        * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL reg=
+ister will
+> >> -        * be blocked and a permissions violation will soon follow.
+> >> -        */
+> >> -       ret =3D a6xx_zap_shader_init(gpu);
+> >> -       if (!ret) {
+> >> -               OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
+> >> -               OUT_RING(gpu->rb[0], 0x00000000);
+> >> -
+> >> -               a6xx_flush(gpu, gpu->rb[0]);
+> >> -               if (!a6xx_idle(gpu, gpu->rb[0]))
+> >> -                       return -EINVAL;
+> >> -       } else if (ret =3D=3D -ENODEV) {
+> >> -               /*
+> >> -                * This device does not use zap shader (but print a wa=
+rning
+> >> -                * just in case someone got their dt wrong.. hopefully=
+ they
+> >> -                * have a debug UART to realize the error of their way=
+s...
+> >> -                * if you mess this up you are about to crash horribly=
+)
+> >> -                */
+> >> -               dev_warn_once(gpu->dev->dev,
+> >> -                       "Zap shader not enabled - using SECVID_TRUST_C=
+NTL instead\n");
+> >> -               gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
+> >> -               ret =3D 0;
+> >> -       } else {
+> >> +       ret =3D a6xx_switch_secure_mode(gpu);
+> >> +       if (!ret)
+> >>                 return ret;
+> >> -       }
+> >>
+> >>  out:
+> >>         if (adreno_has_gmu_wrapper(adreno_gpu))
+> >>
+> >> ---
+> >> base-commit: f4a867a46862c1743501bbe8c813238456ec8699
+> >> change-id: 20241120-drm-msm-kvm-support-cd6e6744ced6
+> >>
+> >> Best regards,
+> >> --
+> >> Akhil P Oommen <quic_akhilpo@quicinc.com>
+> >>
+>
 
