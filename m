@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA213E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2D2E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X5GxAyEJ02mNywENRB0ow462CYy8FP4+RIO5DD9Q3DQ=; b=qV05KkSXQK2Bujs7vg+vF0C0cC
-	E3QHU91J366OmTThywHYl54e8fPP1kqN8hCDZdtPj2OteqWzOL/7H+RzAGcpwhP73lMqU1uNbXqjV
-	0K/37NCGLtxtr2Y1tzDkXtX15aeYzas+u1opJvnfugBfydukSfmuFIlFPpuVHQoy2g4nNykKmxwge
-	DgJyG0pSKlPrkligdQg1IMZeIUFzfaqH4lKl0ClemC7ONft7kYoeIMGGcBJBdPYEBSgBZdHR2py9u
-	ZU/dKufy3vf0J1OrtpnnbqXV7HzNOtyO11KQh+pAbInt/FhSdXZbjkdPCYtQJWvEMlTg/4ns01PsL
-	ZaDpBURg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8nQmkHAbwxQl1T/Kw4A2hwy2MJmGRj9oZcS+awgb4Gk=; b=BmjnEUuvMZIH8GTLJGKCxmvlfx
+	+3AXod2BiHD2OjL/aa/J8aCE/bBnNKzamTNAuRcW36h/1HpU/dss/WAoxgoPCqbm5tnpnnTANjye2
+	+GaoVrbgaOhORLQ1+A2lqYjt/4f/RKUinYwZ/BQkVOSg28GUFbsaRfRIEA5Z2w6hi4KEc34ha2z03
+	rKaimXchy2bi1rAQxNIZqHYv4+MTw/Ks5e/izFjs/YLaxUn+7s4vNyp9ScHbPRISpfUqGeEbSYINb
+	cEDHPIX0p0JSCWkKjeFl/eUtlHgpS6P7BG1I2Jq7RfEPL6Rn7g/9A8uEMvACOdAIqMKuIP+gfcNH/
+	6BUl5d3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKmu4-00000009WCS-2nP4;
-	Mon, 09 Dec 2024 23:11:00 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1tKmvJ-00000009WZr-1A53;
+	Mon, 09 Dec 2024 23:12:17 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKmt1-00000009W38-3oCq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 23:09:57 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53e3778bffdso3480431e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 15:09:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733785794; x=1734390594; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=X5GxAyEJ02mNywENRB0ow462CYy8FP4+RIO5DD9Q3DQ=;
-        b=v3nhpoyILeDB8oxbWuxwTtEhWyxAGONgu/sHgriuxZ+4H6Jo/iF7VIh5sKZt0cFex6
-         jhp7qbrO/TuiZTzPNZjS2GO5Y4kFq7vJqhDTa8Gw3Q7BjhJUq+n+64ZtGlm/FxE+3Svt
-         sipZakObRzCd3quDKK7VvnMFKjdwl6hXojJFY6esBnV6L0VHw0mbQFH4F4tVh0Lxfowm
-         hozCZZr39Bi/lnTav4VikclSlRAdbLIEwtMtHe/teNMywEhvOY4eH+7Obn4+THaunNPt
-         iH1ezYB7hikGlQrvmKn3PKrl6EaIRzorf/6yW7hpqHnt/teqb73JN5hGENblKRoMSMr/
-         Rr/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733785794; x=1734390594;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X5GxAyEJ02mNywENRB0ow462CYy8FP4+RIO5DD9Q3DQ=;
-        b=gqI1jHQtGoKwyAyRRV8rHYj+8F2w+MCrgH8Thw6DAZvO2xkrjEQnhAmQ95mEtYvb5Z
-         wEZHHt2SCLwXfw8umlqTylWR4zKvu06/i2a3O7NjGv3WQ2L9J2+ETJXuTM7uJTcxR6Mk
-         fbD0kAO5qPz/i8srajVrRh30AVgc3Cw7cWi72CxQYW0e6/+SHNFPEqowuwtrBT6jUCnA
-         5AQ6DinZltKjvIX3INjkN9wk+UKBIddWdRh4cJo8GRpwL0ddugNfCEPnmmS3GFEtvRsL
-         6cbS4/kgKIc4MVLo9vnNz7ll4ECCTb2193nypND18ecBhZk5cV8k2/EtA+oA0ZaISM3p
-         oqrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXsmejQAyjRcaU3OIuXTcgt0F/Tf5lb6Hy2V529urnWwMwxrQSfdBR8SgeI+x1eKHz/DnOhKQcl0+hIZoaH5+3N@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrTewDpK/PcGz3xeGvqojHnJ+xRQbp5oNpQnhIqSTxjDXCl1T0
-	e3Sv0C9FEjB8aPxwJeaQ/1xsSrrwTdxfC07ncDymXAZFRh0pfA9c1ONwISGkFiw=
-X-Gm-Gg: ASbGncung7vqhUcOkuMF0N/MfERtSsG6mQeNAPL9NEVEi63osdWGzpNjPEv6LXtlAcj
-	5Qogyc4RZFoBywyIALN4ruE57ZcQPcQtEJTcyk5PQX+b0iPt/x5uzQ47jWmXzQSOC0DDFUCt1+X
-	X5sEm9638z8kyrzl4UHUjYjS8MPzvCnxR6HRpaePEbm/w05SE/DDc0MOC/u3IF71xJOjx/P1o/J
-	wJcfBHyb+UpKc4DlVBKgVQfVCyfxrcKqP2At4ZpOC7jdQGaKrW92XIfPI7Qr2/ycBUl5NxUv8q2
-	livCmf+8WCMV8Rws1KAWwM4KhrgycW1sbg==
-X-Google-Smtp-Source: AGHT+IEWUgkaAToyp2VN/parQthrjJOBjUFhHTXot4xiCZm20ehVs3l2DKi/nv5nOESXxYx9J35VJQ==
-X-Received: by 2002:a05:6512:3990:b0:53d:a321:db74 with SMTP id 2adb3069b0e04-5402411a69cmr871586e87.50.1733785793813;
-        Mon, 09 Dec 2024 15:09:53 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e39fb61d3sm967973e87.22.2024.12.09.15.09.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 15:09:52 -0800 (PST)
-Date: Tue, 10 Dec 2024 01:09:50 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Julius Werner <jwerner@chromium.org>, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
-	Roxana Bradescu <roxabee@google.com>, bjorn.andersson@oss.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, Trilok Soni <quic_tsoni@quicinc.com>, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/6] arm64: errata: Add QCOM_KRYO_6XX_GOLD/PRIME to the
- spectre_bhb_k32_list
-Message-ID: <tx7vtur7yea6ruefrkpkccqptahgmxnsrudwdz5uzcfxnng25b@afrr5bmdk2xa>
-References: <20241209174430.2904353-1-dianders@chromium.org>
- <20241209094310.6.I722621804be859e4ae4b7479ce191c5e3367b37c@changeid>
+	id 1tKmuF-00000009WF1-06Zj;
+	Mon, 09 Dec 2024 23:11:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8nQmkHAbwxQl1T/Kw4A2hwy2MJmGRj9oZcS+awgb4Gk=; b=m9Vpyjm4A7yCco/EItYeeAYaBS
+	KNTUOD7wzwb6HUqPN8C/2AVPT18GyP06DkxOt/V4hhWl7kZKiisskvX5HKb4BIF3LQ5+xsTrhpryu
+	PCLSQ4EM93PKTPHOOldWRUygZsfyMf8AdaDM+UB9aaq+J0NiMh5Rbs7v91H5RVMPuH1+gFGJdQ467
+	/z4iVammCFdMWBoMhmdfBkox6wcX75y2wTGLHZW77DVJkUN0gJ3Gy8lQr728WZXpbL9DE3IJz3RSB
+	A7RrSyfxHyhs03+ZOwpyCO0eRtZoCReirZ4tc7N/3G62NDMC7ypcgp7BxMJ0c5HBK5/vWjenA0sgx
+	LpcU6AUg==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tKmtc-0005Ev-0o; Tue, 10 Dec 2024 00:10:32 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de
+Subject: [PATCH v4 0/3] drm/rockchip: Add driver for the new DSI2 controller
+Date: Tue, 10 Dec 2024 00:10:18 +0100
+Message-ID: <20241209231021.2180582-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241209094310.6.I722621804be859e4ae4b7479ce191c5e3367b37c@changeid>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_150955_958926_B4FDAF44 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20241209_151111_078737_C4E4DD4F 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 09:43:16AM -0800, Douglas Anderson wrote:
-> Qualcomm Kryo 600-series Gold cores appear to have a derivative of an
-> ARM Cortex A78 / ARM Cortex X1 in them. Since these need Spectre
-> mitigation then the Kyro 600-series Gold/Prime cores also should need
-> Spectre mitigation.
-> 
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> ---
-> Yes. I know. This patch DOESN'T COMPILE because
-> MIDR_QCOM_KRYO_6XX_GOLD and MIDR_QCOM_KRYO_6XX_PRIME are not
-> defined. Those value needs to come from Qualcomm or from testing on
-> hardware, which I don't have. Qualcomm needs to chime in to confirm
-> that this Spectre mitigation is correct anyway, though. I'm including
-> this patch so it's obvious that I think these cores also need the
-> mitigation.
+This series adds a bridge and glue driver for the DSI2 controller found
+in the rk3588 soc from Rockchip, that is based on a Synopsis IP block.
 
-SM8350 (Kryo 680) identifies itself as 0x41/0xd44 (Prime), 0x41/0xd41
-(Gold) and 0x41/0xd05 (Silver)
+As the manual states:
+The Display Serial Interface 2 (DSI-2) is part of a group of communication
+protocols defined by the MIPI Alliance. The MIPI DSI-2 Host Controller is
+a digital core that implements all protocol functions defined in the
+MIPI DSI-2 Specification.
 
-> 
->  arch/arm64/kernel/proton-pack.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index 212481726f04..67aa54017dea 100644
-> --- a/arch/arm64/kernel/proton-pack.c
-> +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -860,6 +860,8 @@ u8 spectre_bhb_loop_affected(int scope)
->  			MIDR_ALL_VERSIONS(MIDR_CORTEX_X2),
->  			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
->  			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
-> +			MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_6XX_GOLD),
-> +			MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_6XX_PRIME),
->  			{},
->  		};
->  		static const struct midr_range spectre_bhb_k24_list[] = {
-> -- 
-> 2.47.0.338.g60cca15819-goog
-> 
+
+While the driver structure is very similar to the previous DSI controller,
+the programming model of the core is quite different, with a completely
+new register set.
+
+Another notable difference is that the phy interface is variable now too
+in its width and some other settings.
+
+changes in v4:
+- Update binding example to use phy-type argument
+- Update commit description to use correctly spelled Synopsys
+- use devm_pm_runtime_enable()
+- drop pclk+sys_clk handling from the Rockchip glue-driver
+  (the bridge does that for us already)
+
+changes in v3:
+- remove double-empty line in bridge part (Neil)
+- add bitfield.h to both bridge and glue for FIELD_PROP
+  (reported by kernel test robot)
+- add Neil's Reviewed-by to bridge part
+- add Rob's Reviewed-by to binding
+
+changes in v2:
+- clean up includes (Diederik)
+- fix Kconfig description (Diederik)
+- constant naming (Diederik)
+- binding fixes (paths, sorting, labels) (Rob)
+- move to use regmap
+- drop custom UPDATE macro and use FIELD_PREP instead
+- use dev_err instead of DRM_DEV_ERROR
+
+Heiko Stuebner (3):
+  drm/bridge/synopsys: Add MIPI DSI2 host controller bridge
+  dt-bindings: display: rockchip: Add schema for RK3588 DW DSI2
+    controller
+  drm/rockchip: Add MIPI DSI2 glue driver for RK3588
+
+ .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   |  120 ++
+ drivers/gpu/drm/bridge/synopsys/Kconfig       |    6 +
+ drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
+ .../gpu/drm/bridge/synopsys/dw-mipi-dsi2.c    | 1030 +++++++++++++++++
+ drivers/gpu/drm/rockchip/Kconfig              |   10 +
+ drivers/gpu/drm/rockchip/Makefile             |    1 +
+ .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  |  487 ++++++++
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    2 +
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
+ include/drm/bridge/dw_mipi_dsi2.h             |   95 ++
+ 10 files changed, 1753 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
+ create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
+ create mode 100644 drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+ create mode 100644 include/drm/bridge/dw_mipi_dsi2.h
 
 -- 
-With best wishes
-Dmitry
+2.45.2
+
 
