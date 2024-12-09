@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19E4E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BFCE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fNQK0VC5hmdkf5xB9w2EQXUei7uJNRsiN8mjKgCeDE=; b=S59pJFgoVm4JlfWw4YCEiPOnB1
-	n9F2Q8yQT+SBDEmmv28QJc5+pG9++WZLLs6PyVmI1n6D7e9euTw800p2nXqioiaHV+X6f1gw8e9hW
-	zKtuUb3BE9aQ2IgTxe5nj46+EsH+KF44YNLFp2LmF6IELiAJcOOsCpqOq+WqojZBpoEmtqDilhj1B
-	jOWjVw/Nte97LyXXdsGWalBkhJdFUgP7xqj7W5VL4tHop8Uwt1mshkjEqEKOOhLj2qNZBqDj51Cts
-	pcQSmyDln6DxT6antZnzonPrlMHyhW6RkFSvWFqtEQXpJdLLu5saQCEHxfHKn7VEkr9duQRIDqEPX
-	M7zKYONg==;
+	bh=74SCFEhyKUBw3QujU7m2Ujgf98W8fbRXMPY5M8M5yjw=; b=X6hdhUzojk/a2fnjTpZ5sgffG8
+	w/OgAitd2o9QplQ13LpH3YrLhyLABb5BZoeFv7teWK72C0K6iYFM1Jpo2Hns3cBs0CvoRBZMKMpNF
+	nCqEm5nyMXwmLUu7gsUU5+6UhaBUEcVBmh8yQ8YarcjLMfOPRi38tQo4FTZ/QGaBXKpA9MO6+XH6F
+	mXWcqJ29WaQrU+8AUUaiDMtilN2b+uhgNBRuGjAGEhGNlGukF7gAiCt0DM2cOLS2JrO5B2ES3nICO
+	/1wSwjyHnnU5I/iXlN4Uq/DZz0mkC1FhPYb+zSzlrfTA6wFy1JV1fJskTvCNIe4z/I0/ADgZ3HFkc
+	345Izvmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKd8u-00000007lwS-0tAr;
-	Mon, 09 Dec 2024 12:45:40 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcwE-00000007hRy-36PS;
-	Mon, 09 Dec 2024 12:32:36 +0000
-Received: from mxbox1.masterlogin.de (unknown [192.168.10.88])
-	by mxout3.routing.net (Postfix) with ESMTP id 82C55605F0;
-	Mon,  9 Dec 2024 12:32:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1733747548;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2fNQK0VC5hmdkf5xB9w2EQXUei7uJNRsiN8mjKgCeDE=;
-	b=HmsVggyOYb4b6hCgAOoZTRkTYjnu9X2Mj1mGgv+WcHtMf7EKAtJCqImI3UsGf6tXhGFg+t
-	yPWIWYJFPaDQFS3dBLz0v0ImNUHd9OA/hadfZ4wSk8zROQZA1WP3y0nrw8YRG4uUlSTcXy
-	NiatFxMY57d2z2gD1NYj0tuRadkkGwo=
-Received: from webmail.hosting.de (unknown [134.0.26.148])
-	by mxbox1.masterlogin.de (Postfix) with ESMTPSA id D6DEF4003A;
-	Mon,  9 Dec 2024 12:32:27 +0000 (UTC)
+	id 1tKd9v-00000007mAP-0qFA;
+	Mon, 09 Dec 2024 12:46:43 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKcwL-00000007hVR-1f0v;
+	Mon, 09 Dec 2024 12:32:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=74SCF
+	EhyKUBw3QujU7m2Ujgf98W8fbRXMPY5M8M5yjw=; b=mMvkan7X9KHRjf/Ptn6XG
+	jdUYzygfkjFLheJg/EJzkjZGrYiefty2e+xeXzR+z/cMY+M7ZjHbkDmtxJOeU/yA
+	/v0KvJ3j2JAhUbiT13YjIVAsfRaaC5GBUDQ1Akzm131/c7+b/wr7yvLTbDXYxE7w
+	OPX+DFqnuzUCzQSUiyETyA=
+Received: from ProDesk.. (unknown [58.22.7.114])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wBHDaBQ41Zn269cMQ--.14778S2;
+	Mon, 09 Dec 2024 20:32:19 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v5 08/18] drm/rockchip: vop2: Add check for 32 bpp format
+Date: Mon,  9 Dec 2024 20:32:12 +0800
+Message-ID: <20241209123215.2781721-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241209122943.2781431-1-andyshrk@163.com>
+References: <20241209122943.2781431-1-andyshrk@163.com>
 MIME-Version: 1.0
-Date: Mon, 09 Dec 2024 13:32:27 +0100
-From: "Frank Wunderlich (linux)" <linux@fw-web.de>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Sean Wang
- <sean.wang@kernel.org>, Frank Wunderlich <frank-w@public-files.de>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 5/5] arm64: dts: mediatek: mt7988: add pinctrl subnodes
- for bpi-r4
-In-Reply-To: <9b1a385e-da1c-429b-91b9-d5b5d6d5abb7@collabora.com>
-References: <20241202110045.22084-1-linux@fw-web.de>
- <20241202110045.22084-6-linux@fw-web.de>
- <9b1a385e-da1c-429b-91b9-d5b5d6d5abb7@collabora.com>
-Message-ID: <4e0ace7c5a0766395f8801bdd2fcdbf9@fw-web.de>
-X-Sender: linux@fw-web.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Mail-ID: b6b2de20-0394-48f5-9719-e7ee90c90504
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBHDaBQ41Zn269cMQ--.14778S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZF45Xw1rZr1ktrWrurWUCFg_yoWDKwbEk3
+	4xZw1fWrs7uFn8AwnFga4fCFZFyan29F4UGayvyas5AF1kZw10qayIk3yUGasxGF4avFn7
+	Aayjqr1fuF13CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU166zUUUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqR6wXmdW3c3pJwACs0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_043234_954613_F0300CCA 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20241209_043241_753665_11C2F9EC 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,31 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 2024-12-09 12:52, schrieb AngeloGioacchino Del Regno:
-> Il 02/12/24 12:00, Frank Wunderlich ha scritto:
->> From: Frank Wunderlich <frank-w@public-files.de>
->> 
->> Add board specidic pinctrl configurations on Bananapi R4.
->> 
->> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> 
-> Can you change the title as suggested in the review for the other 
-> series?
-> So that we stay consistent.
+From: Andy Yan <andy.yan@rock-chips.com>
 
-already done in my tree (and fixed typo in commit message) ;)
+RK3588 only support DRM_FORMAT_XRGB2101010/XBGR2101010 in afbc mode.
 
-8e566779ee82 arm64: dts: mediatek: mt7988a-bpi-r4: Add pinctrl subnodes 
-for bpi-r4
+Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-> After which,
-> 
-> Reviewed-by: AngeloGioacchino Del Regno 
-> <angelogioacchino.delregno@collabora.com>
+---
 
-thx
+Changes in v5:
+-  Added in V5
 
-are parts 1+2 now ok?
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-regards Frank
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index bd8db45eeba6..1f101a3c3942 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1224,7 +1224,15 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+ 				return -EINVAL;
+ 			}
+ 		}
++	}
+ 
++	if (fb->format->format == DRM_FORMAT_XRGB2101010 || fb->format->format == DRM_FORMAT_XBGR2101010) {
++		if (vop2->data->soc_id == 3588) {
++			if (!rockchip_afbc(plane, fb->modifier)) {
++				drm_err(vop2->drm, "Unsupported linear 32 bpp for %s\n", win->data->name);
++				return -EINVAL;
++			}
++		}
+ 	}
+ 
+ 	/*
+-- 
+2.34.1
+
 
