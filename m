@@ -4,76 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D632E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC92E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0ACcEk1UOUwykRvtHfGsibvZAQHV7WF85gca/fgXtU=; b=LUb0bC/804gtSR8twaDJAemNaM
-	rvRPP85S0F05BxVZNyILSGTY2RHKHYVfKn2159wK3LOcBVyUobL8FnbIVKpRw6dlBN2mr+H8UqllB
-	mKUcCHdVef7+BQqSQLIFtPQe4H1DJ3n2m34hGnLLAZ5OPxNiG5Zl/EjAmXmeHDfGFiboXAr474Jdx
-	Ofo9Q4wBkG2eT1TKYy2Z+BvuazeYh/0kBvYjvrOhPceUT6TVdU98jjT4orVJ7wLe8SqlxIihcVrgv
-	Q92trdOmSOFBiO9Y4TR6+5yu6LxzfZwCW0CO8qCySB+3pr4qMtQkWmjCmbG455bqJatoJpAyfY+e2
-	hfcaMXqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H6T1jf9AjvCD4xrOeMK/zAuKY/nr6KMimt+D0cQm2C8=; b=C0c3QASc7fP1MZ8JsL94ic4Wvp
+	SAJtf0zdSEidS3ufHF5TgdvF/DYJvBek1ZtlwUSij4oUIMjY2HRNgTxHa8XzVfvzOjz3MYW3EXfvS
+	zm+FoiG9vFJFLuhA9nosZYTNcmuYbSRNPjFzcd0QTWdIZgXTxkRV38Fw5JDL6LBSUZtSSfmtMT85t
+	6oyFK90lG1y1BNfcNq5+iql2vfLHyWEbt6xNsZrHwpxILFmYqDV7IWeiavCdizc3GRYz2E58H6oU9
+	/X5GKD5igTSbzhrVew0vjd89JaTsRB92iu8nArMqibklh/4yj4F4gKGnWVnR+B0wwq9uT+2f32btI
+	Ct5FBCuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcNB-00000007aL1-3PaZ;
-	Mon, 09 Dec 2024 11:56:21 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcJk-00000007ZHU-3IIt
+	id 1tKcOC-00000007aZV-1cxt;
+	Mon, 09 Dec 2024 11:57:24 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKcKZ-00000007ZYN-0yEq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 11:52:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=u0ACcEk1UOUwykRvtHfGsibvZAQHV7WF85gca/fgXtU=;
-	b=e8BjV0Gdm8xg1RQT7gFdCEfIB2hmYXk2RxcjvizBiZwTERVncWc3lYh8fh7ESe
-	I4ZQ6uzmY2DIi9zRnUCR/Qt4MFonfQuPf5OjgM+0Ema9B1r/ofvoUvE7YtYjnTCP
-	dOdwwzXOYsSwA1QrysrBu3zXFFRxzHIA/8jqP6rFtl7yQ=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgBX33HV2VZnbrePBA--.47878S3;
-	Mon, 09 Dec 2024 19:51:51 +0800 (CST)
-Date: Mon, 9 Dec 2024 19:51:48 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, quic_bjorande@quicinc.com, geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
-	marex@denx.de
-Subject: Re: [PATCH v6 6/7] arm64: dts: imx8mp-evk: Add NXP LVDS to HDMI
- adapter cards
-Message-ID: <Z1bZ1FvPmjPr3LU5@dragon>
-References: <20241112100547.2908497-1-victor.liu@nxp.com>
- <20241112100547.2908497-7-victor.liu@nxp.com>
+	Mon, 09 Dec 2024 11:53:40 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Y6Krq3fC4z6GC3Q;
+	Mon,  9 Dec 2024 19:48:59 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5A73C140A30;
+	Mon,  9 Dec 2024 19:53:30 +0800 (CST)
+Received: from A2303104131.china.huawei.com (10.203.177.241) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Mon, 9 Dec 2024 12:53:23 +0100
+From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<cohuck@redhat.com>, <eric.auger@redhat.com>, <yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+Subject: [PATCH v3 0/3] KVM: arm64: Errata management for VM Live migration
+Date: Mon, 9 Dec 2024 11:53:08 +0000
+Message-ID: <20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com>
+X-Mailer: git-send-email 2.12.0.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112100547.2908497-7-victor.liu@nxp.com>
-X-CM-TRANSID: Ms8vCgBX33HV2VZnbrePBA--.47878S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tr45Cr4kuF4UCry7CrWruFg_yoW8JF4DpF
-	Wjg3y8Gw10vFZ5Aw1v9w18WwnYvan7Xry8XrnrJw1xGasFkFZ5JrsakF4vv3Wqv3ZxCw1k
-	Xwn8X34rGas8Cw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j7xhJUUUUU=
-X-Originating-IP: [114.218.218.187]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBAGwZWdWx209gQAAs3
+Content-Type: text/plain
+X-Originating-IP: [10.203.177.241]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_035249_138308_71CB6602 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_035339_413772_7155B490 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +70,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 06:05:46PM +0800, Liu Ying wrote:
-> One ITE IT6263 LVDS to HDMI converter is populated on NXP IMX-LVDS-HDMI
-> and IMX-DLVDS-HDMI adapter cards.
-> 
-> Card IMX-LVDS-HDMI supports single LVDS link(IT6263 link1).
-> Card IMX-DLVDS-HDMI supports dual LVDS links(IT6263 link1 and link2).
-> 
-> Only one card can be enabled with one i.MX8MP EVK.
-> 
-> Add dedicated overlays to support the below four connections:
-> 1) imx8mp-evk-lvds0-imx-lvds-hdmi.dtso:
->    i.MX8MP EVK LVDS0 connector <=> LVDS adapter card J6(IT6263 link1)
-> 
-> 2) imx8mp-evk-lvds1-imx-lvds-hdmi.dtso:
->    i.MX8MP EVK LVDS1 connector <=> LVDS adapter card J6(IT6263 link1)
-> 
-> 3) imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso:
->    i.MX8MP EVK LVDS0 connector <=> DLVDS adapter card channel0(IT6263 link1)
->    i.MX8MP EVK LVDS1 connector <=> DLVDS adapter card channel1(IT6263 link2)
-> 
-> 4) imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso:
->    i.MX8MP EVK LVDS1 connector <=> DLVDS adapter card channel0(IT6263 link1)
->    i.MX8MP EVK LVDS0 connector <=> DLVDS adapter card channel1(IT6263 link2)
-> 
-> Part links:
-> https://www.nxp.com/part/IMX-LVDS-HDMI
-> https://www.nxp.com/part/IMX-DLVDS-HDMI
-> 
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+Hi,
 
-Applied, thanks!
+Changes from RFC v2[1]:
+
+ -Addressed comments from Oliver(Thanks!).
+ -Using implementation CPUs MIDR/REVIDR when it is set for
+  _midr_range() functions(Patch 1 & 3)
+ -New hypercall for retrieving implementation CPUs(Patch #2).
+ -Dropped RFC.
+
+Sanity tested on a HiSilicon ARM64 platform using a hacked Qemu that can
+handle the above hypercall.
+
+Thanks,
+Shameer
+[1] https://lore.kernel.org/kvmarm/20241024094012.29452-1-shameerali.kolothum.thodi@huawei.com/
+
+Changes from RFC v1:
+ https://lore.kernel.org/kvmarm/20241011075053.80540-1-shameerali.kolothum.thodi@huawei.com/
+ -Introduced hypercalls to retrieve target CPUs info from user space VMM.
+  see patch #1 for details.
+ -Patch #2 uses the hypercall to retrieve the target CPU info if any.
+ -Use the target CPUs MIDR/REVIDR in errata enablement. See patch #3.
+
+Background from v1:
+
+On ARM64 platforms most of the errata workarounds are based on CPU
+MIDR/REVIDR values and a number of these workarounds need to be
+implemented by the Guest kernel as well. This creates a problem when
+Guest needs to be migrated to a platform that differs in these
+MIDR/REVIDR values even if the VMM can come up with a common minimum
+feature list for the Guest using the recently introduced "Writable
+ID registers" support.
+
+(This is roughly based on a discussion I had with Marc and Oliver
+at KVM forum. Marc outlined his idea for a solution and this is an
+attempt to implement it. Thanks to both and I take all the blame
+if this is nowhere near what is intended/required)
+
+Shameer Kolothum (3):
+  arm64: Modify _midr_range() functions to read MIDR/REVIDR internally
+  KVM: arm64: Introduce hypercall support for retrieving target
+    implementations
+  arm64: paravirt: Enable errata based on implementation CPUs
+
+ Documentation/virt/kvm/arm/hypercalls.rst | 30 +++++++++++++
+ arch/arm64/include/asm/cputype.h          | 51 ++++++++++++++++-------
+ arch/arm64/include/asm/mmu.h              |  3 +-
+ arch/arm64/include/asm/paravirt.h         |  3 ++
+ arch/arm64/kernel/cpu_errata.c            | 37 +++++++++++-----
+ arch/arm64/kernel/cpufeature.c            |  8 ++--
+ arch/arm64/kernel/image-vars.h            |  2 +
+ arch/arm64/kernel/paravirt.c              | 31 ++++++++++++++
+ arch/arm64/kernel/proton-pack.c           | 17 ++++----
+ arch/arm64/kvm/vgic/vgic-v3.c             |  2 +-
+ drivers/clocksource/arm_arch_timer.c      |  2 +-
+ include/linux/arm-smccc.h                 |  7 ++++
+ 12 files changed, 152 insertions(+), 41 deletions(-)
+
+-- 
+2.47.0
 
 
