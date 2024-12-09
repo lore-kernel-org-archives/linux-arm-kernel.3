@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0060E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 09:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E904E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 09:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wl+VQMYJUn5QHgUYQoA6wozPv+mNJ3JHc5ZwrQ66GXA=; b=krSar9VBw/Tb8/3GAAZaPzplQL
-	DuYd/g9PeUkOioEg7k76i9tND7pNKm4wnvCif0aEXwK0cI4a59b+jMRHMcatGj9aUsMggvPAo1JUJ
-	yHX8gvthZsOJDiyBBUNPNkbRBXr7OB4vW/p4C1liQEh3mIYPZFSBrEtMOu1CyShKMZEXHOPE4zDnQ
-	dJC4Leld5BVY6B6leVYoJyoBwq3VwYNAsrmGxia9qOrXxWZYqfebuxE8GJUAj4IloZU1N+OJXKGYK
-	c+t5xWXiaMFVOabgc/ZXCD0aNt6CP5vG3iFyZ6aVifUDHvzsVHjc7mBRIOltf0AZ74V+kKkUcOSVG
-	Ib/D2gsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tg9YDNE7NZL6QA341dAe3fFHFsuKrAmaQvYm2F6huJE=; b=WOXokqHNn0GKVLUPdHYE1Ke0LZ
+	WNsa9m/t420XIDKU6aKVojriOG/38vOyJhEcYqCaKONEkKPIXb78uc24kdROPy6b3d19H9cfuLMNV
+	iDU/vdf7tZj5SFBsFH1tVcrxMnp4KWheqNDCbSQ3DfseR44otYUSYmVfbx87ixRbmC8oyokA75LKm
+	WXLd8ONfpcfd5GadWNuXkwJWiwmwsXJNIuU6edSwxWNKwGm+iJvo4bdTu/TYHfQ5Hf1hST1kOTjC+
+	nNIAe7RNehkw9CEOiH0nAAVV07vTP79PGLaGB7m7YcnZc5YrB+O7qaVBh8RsuzMgwUY5w4+N3B9Vg
+	zRxSrZww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaRf-00000007A8L-0vMu;
-	Mon, 09 Dec 2024 09:52:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tKaSg-00000007ATS-2EeG;
+	Mon, 09 Dec 2024 09:53:54 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaO3-000000078nB-1Hmz;
-	Mon, 09 Dec 2024 09:49:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 40B4B5C57A7;
-	Mon,  9 Dec 2024 09:48:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F31B8C4CED1;
-	Mon,  9 Dec 2024 09:49:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733737746;
-	bh=y43p1uapSXC5fw7JnaqXHM4i71jrvsqwiDGw3bHTA2s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dhtR2TC0vGiWpVSG8A097r4XibOSL4QZQ5XbNoI0MtPIYnb8DsbqX7nfOt7/FgKN+
-	 +fFfWrFCmNKkBX+6W4V4trV1JxrqKKW4h79PaD+58P3Pz3ykbxtdGgYOoUiI8XgBQY
-	 9f8E1EFlAFVJ7o6u0SDu1yO9F3XFZekcP9k67Os+L/f+a6x/MOYwQLflHToYbWC7Fq
-	 SNYqL0RTPfrTZyPCs6PvFApCtCstKB9fYfHvjWiVJ6qvfQoemXOK77P8O/SF/Et+OK
-	 bbdfUtdEiyMxQ+aRuWe6u7LZvsSJpMxLi9mDq7phcfJYuiaTPHF6WEhhBwA9cYfdWI
-	 TU7K4YHRYO3Gw==
-Date: Mon, 9 Dec 2024 10:49:04 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>, kernel@collabora.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 2/5] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add
- compatible for mt8390 evk
-Message-ID: <mycrs2ekxznwcxkvthamvszftrt5t66shvopn5xpuhaldtsb4g@qv2kpx6yt2mv>
-References: <20241205-genio700-audio-output-v1-0-0e955c78c29e@collabora.com>
- <20241205-genio700-audio-output-v1-2-0e955c78c29e@collabora.com>
+	id 1tKaOa-000000078sM-14b2;
+	Mon, 09 Dec 2024 09:49:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733737770;
+	bh=vDVoR6QJHDbAwKUmHAbTLSwKdLlywl2nMTNdrlzT7ps=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gLAlzeCQfkpTQp2EmlKFXooBQiBUryzCmDJjPB+gfcQaqEw9EgdVaJvhwctpQkX/J
+	 Ob4ObKCYSBfEZ3dkPmuc9169HstBj8Ik0XVxy/ySYno8CqPJGYv60WspYpeKEoWNci
+	 MrsJaNcevihSx7KjRvZH0SRmaI9Yt4Nl+pgIep0xDJZYhpyoJ+/Fm4Jlmq77RVkBjI
+	 kmpgr6Ww4ESZP+Yr5sExjFYAKcqexK6sXrZm+aWPfdb4E/fcN5azk1XtffGLoF8cn7
+	 GTpBsrD7cM8xOqhgz6HUMcTXtlXvEIy11dXbFRfJIryJtBZoQw1fZGF5cvK+M0xd/i
+	 sdm6z27mHpq6Q==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8F2EB17E3615;
+	Mon,  9 Dec 2024 10:49:29 +0100 (CET)
+Message-ID: <b5a77637-64b0-4ed3-9619-e76d094505af@collabora.com>
+Date: Mon, 9 Dec 2024 10:49:28 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241205-genio700-audio-output-v1-2-0e955c78c29e@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/15] drm/mediatek: mtk_hdmi_common: Assign DDC
+ adapter pointer to bridge
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+ <jitao.shi@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
+References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+ <20241205114518.53527-14-angelogioacchino.delregno@collabora.com>
+ <c0e144b3a90881066d0974157e66ac23f09a0fc5.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <c0e144b3a90881066d0974157e66ac23f09a0fc5.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_014907_381698_E3D3C71D 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241209_014940_455867_6E59C261 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 09:13:55AM -0300, N=C3=ADcolas F. R. A. Prado wrote:
-> Add a compatible for the MT8390 EVK. It is compatible with
-> mediatek,mt8188-mt6359-evb so make that the fallback compatible.
->=20
-> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
->  .../devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml  | 14 ++++++++=
-+-----
->  1 file changed, 9 insertions(+), 5 deletions(-)
+Il 09/12/24 09:17, CK Hu (胡俊光) ha scritto:
+> Hi, Angelo:
+> 
+> On Thu, 2024-12-05 at 12:45 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until you have verified the sender or the content.
+>>
+>>
+>> In preparation for adding the new HDMI TX v2 IP driver, assign the
+>> pointer to the DDC adapter to struct drm_bridge during probe.
+>>
+>> This commit brings no functional changes.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>> index 1b23ab6969ec..4f708b04f5e8 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+>> @@ -410,6 +410,7 @@ struct mtk_hdmi *mtk_hdmi_common_probe(struct platform_device *pdev)
+>>          hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
+>>          hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+>>          hdmi->bridge.of_node = pdev->dev.of_node;
+>> +       hdmi->bridge.ddc = hdmi->ddc_adpt;
+> 
+> I don't know why only v2 driver need to assign this?
+> Could you point out the code where access this value?
+> 
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+v2 uses hdmi helpers, which make use of bridge->ddc.
+mtk_hdmi_v2_bridge_edid_read() calls drm_edid_read().
 
-Best regards,
-Krzysztof
+drm_edid.c -> drm_edid_read()
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/drivers/gpu/drm/drm_edid.c?h=next-20241209#n2704
+
+...while v1 feeds the (internal) ddc pointer to drm_edid_read_ddc() instead.
+
+Cheers,
+Angelo
+
+> Regards,
+> CK
+> 
+>>
+>>          ret = devm_drm_bridge_add(dev, &hdmi->bridge);
+>>          if (ret)
+>> --
+>> 2.47.0
+>>
+> 
+
 
 
