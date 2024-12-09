@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D28EE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF5FE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQiaE+JvK4g7UWmvAk+qy7K9dS4ykwXQnbxiADZaYvI=; b=OnJ1eBzKdjDD1UYqRQsxgYPCPG
-	RudMqc3p7hJ45zMZ3BfmmEzAxIpCgsanRX5V3W78rvYwVbGD9b8DVcmdJWgT2xvQG2xm3D5i+SGcc
-	eT3YzxNKY9XvK3Bqlr0UCoTQeYTfAG4vtmh1MgB0exBE/gwkTsxlIWgbzwN6TLEUBGKrwZBGw01YV
-	7tYKHy+RfdlOtZIwqPuAA7zselEoRb6gXU6dT6GyiDIwq9Pr4T1GntF2AfsxuooFMoBlgfHhBOzvv
-	wrpe7N4qJPjjxdfRkRU8odPt1w1u8biit2rQAMNYfox4z9PCCpOMscLqlkg5e/b0NzAJv0itvTLH9
-	PO2gkXAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0iv2sDYqhII/oUdzq8z/89H/h95qof5i2GIADRNucOE=; b=ExmqoR2akf/ZKVMJqlrNDL6xn8
+	wfGyZt5nFXxJbW+hKi51qXc9+sJ5zW1y4PgxBe/AgiDj6xruzD1FkPX2PSFSxKtdCVWqssbAj6BGR
+	lzACLW91SLdZrYn0IndZdFtsbyATvmx/BRavO0J/RT3/HuMwyudJ20A6ymdBYaYvu5mkH88/haCw3
+	LiKrdvyJyvhHnEwyR+tf8y/vZ3Y6TQhfOL+S2QqQrMy6suJ6AwJMygmrLFE40hUmMsqftfKNQb6oz
+	NNocwYNdQvYzzNV+6jHoAyFPUrAI686V/g+qYAY8say74OM6taqeaLsrdj8JxLFLWDEb0KEgibygv
+	vYz3DMyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKZ0u-00000006szC-2WGg;
-	Mon, 09 Dec 2024 08:21:08 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tKZ1v-00000006tDH-0zKn;
+	Mon, 09 Dec 2024 08:22:11 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYzT-00000006sfo-11pH
+	id 1tKYzi-00000006sja-0Oib
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 08:19:40 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-434fa6bf744so2456895e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 00:19:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733732377; x=1734337177; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xQiaE+JvK4g7UWmvAk+qy7K9dS4ykwXQnbxiADZaYvI=;
-        b=qDwfchxPCKSs8OkbiaHRR3S3XHhJHZw1HS0DUBBhPklt0YzggtZ4w+M+Cj0AvJpCCv
-         BnBIWvFwdxP/yCq3UnaoBSZ7ktUD2R8bawCAs40QnaeylHjJq8N3W7zULfSBKrS4hv0U
-         4lutmYCigjAe2dsXZZV11Vf/5BC+tL3jPEPrIlLShg5qOE+Zwyc0/KXw05L2RSvVHP0N
-         W0yG/4/w+db6ENaeWBW2fX15zv43lTRxli0ESmH1vrAdBgsDEbpcZHrjdAkD41NOtzXV
-         iYWBLrVJutFuRGPAS99PPaac30fcFe/v4LSdxbzGwCgY0ZuyfKmsoykc9IcMtTf7J/05
-         INIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733732377; x=1734337177;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xQiaE+JvK4g7UWmvAk+qy7K9dS4ykwXQnbxiADZaYvI=;
-        b=hbDiJMuwxLcxPQe3H0/HfDi9snar/ua01Ch6ULOIVQw1HB6hbM966ridMGu/PdKwi7
-         VYyWPd6dopxjTxFWs2UHiQ0Z4gYbPtfiBK8fu6950ERWtb6ZLIqLhthkDGx04lDyQUea
-         fAA3t5rBXC8OTHyz1h1QAsSp5SkoRX1i7kigIRn4Lg07ksLT8y659aeX8HSc8Vjz8RMn
-         kHlMYzcjqzBVTHVOnJyeS0JJmHraihZSaVqY9u/03a/heaXNRyQ+oc9qI0WXY2pSb7h4
-         zux7iroRwY/Ld7+946SkWqB1KfNB/3wTxh0SQAdLQ4tVxa3F4sJdykzQG48XV6tQ+PEe
-         y9AQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJX05AE4FFDgn3pTkj1ypnVwqu8PwsXsf5rkNflvRHWAYWCvdbT3CPRYEBOGft6vMrKYsRg2hfFdjoklrt3Me1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY36XrJ5z76kWx6H5D1wvuqzeD0in/tU5xVjAcvhlWmVGnEPZ8
-	SUwq0gtUx/rxmHGoCycQpxg+loaa6b1KEyYeLOHN8xmJuglMgPNlPaJkiqdo/7k=
-X-Gm-Gg: ASbGncvCn3OGLyYbGL5aMMSZDAOhLhYckB62YJfdsgIiwHPbD0zc2StMkz6pI19p1U0
-	TrGyVbfEhRg4fDypv7Igta5YqObBLXSzxCWdb3x62s3Akj2vuzsGSvmVaosOHy0Iu30MeE4ArFY
-	9YIjg5pvNaVTJkMvtYhlOFQdOXhmtWc3MVVsn+eh3FllgxmlsXI47epfM2Efh2+geO/Je6Z3uek
-	U7Bf/3WGuJBQxvV7sIlaeHRFPoJen5KP6GoyR0iHJuoJZisjIUWPjANKw==
-X-Google-Smtp-Source: AGHT+IHbzDErJOZQABXZyJP5tU7I2SyjaZPz5Bn/mEn+KluRKuUJnEKdIGQOObo2GOY0FS81Gw2PTQ==
-X-Received: by 2002:a05:6000:1846:b0:385:e8b0:df13 with SMTP id ffacd0b85a97d-3862b3d5c9amr8412126f8f.40.1733732377593;
-        Mon, 09 Dec 2024 00:19:37 -0800 (PST)
-Received: from [192.168.0.14] ([79.115.63.27])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434ea1ae415sm76326735e9.33.2024.12.09.00.19.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Dec 2024 00:19:37 -0800 (PST)
-Message-ID: <e36da496-04f3-4f00-aab1-f52aa0c1450f@linaro.org>
-Date: Mon, 9 Dec 2024 08:19:34 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: firmware: add samsung,exynos-acpm-ipc
- bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alim.akhtar@samsung.com, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
- kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org,
- javierm@redhat.com, tzimmermann@suse.de, daniel.lezcano@linaro.org,
- vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
- <20241205175345.201595-2-tudor.ambarus@linaro.org>
- <k2pnpu3ef2rgy6wre2qrearwmetzb4v4meiyqpy7oyg45hohlp@kmnzulhbmdk6>
+	Mon, 09 Dec 2024 08:19:55 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B97QH8Q002203;
+	Mon, 9 Dec 2024 09:19:37 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	0iv2sDYqhII/oUdzq8z/89H/h95qof5i2GIADRNucOE=; b=eX3dknxczKyW1cnH
+	DZ1ySSrixcO8k8S8b6PKSdq+TZz8rMS17tWlXesA6SuKEB0nDLsn2zC9BSb/jzqM
+	VDKonYX+0GosyUPUMpxNCfH+TqNhQnAGDe5xJo9QUNeaILC5PbC0iK4cdlTYCAVL
+	h70c8lBf54Mc1QzNSRu3fbAyOMZMQHjDI7sTbovdImu61tvuFr/tamuIr6i8QqkR
+	Df9SOQqriN9DYr2kDOEn3o6fGwFGLVyR+PZSbSl3KZOl5W8IE+xNXt3TcksH7o01
+	yQifRAXk3VvBGRXuTCcs2k7zNBLj95xtWY8N5YYAa+52pP11H61GZ5HcYrb5ClJ/
+	3HMXFw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccc8phmn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 09:19:37 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B889E40085;
+	Mon,  9 Dec 2024 09:18:19 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B4FFA24A484;
+	Mon,  9 Dec 2024 09:16:24 +0100 (CET)
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 9 Dec
+ 2024 09:16:24 +0100
+Received: from SHFDAG1NODE1.st.com ([fe80::b848:dbeb:cd0:84a0]) by
+ SHFDAG1NODE1.st.com ([fe80::b848:dbeb:cd0:84a0%13]) with mapi id
+ 15.01.2507.037; Mon, 9 Dec 2024 09:16:24 +0100
+From: Etienne CARRIERE - foss <etienne.carriere@foss.st.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "Sudeep
+ Holla" <sudeep.holla@arm.com>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
+ discrete rates
+Thread-Topic: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
+ discrete rates
+Thread-Index: AQHbRapDtK1zP5F5+E+8H5T6eqOTIbLZnqSAgAP4mXw=
+Date: Mon, 9 Dec 2024 08:16:24 +0000
+Message-ID: <4c39a5a437fa42d483d1f704ec7ab4ac@foss.st.com>
+References: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
+ <20241203173908.3148794-3-etienne.carriere@foss.st.com>,<7fe840af-d56d-4cb6-8d82-d42631409b2a@stanley.mountain>
+In-Reply-To: <7fe840af-d56d-4cb6-8d82-d42631409b2a@stanley.mountain>
+Accept-Language: en-US
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <k2pnpu3ef2rgy6wre2qrearwmetzb4v4meiyqpy7oyg45hohlp@kmnzulhbmdk6>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.48.86.128]
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_001939_331371_1FAA971C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20241209_001954_773083_85CD607D 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +108,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Dan,
 
+Thanks for looking at this change.
 
-On 12/9/24 8:03 AM, Krzysztof Kozlowski wrote:
->> +  initdata-base:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    description:
->> +      Base address of the configuration data in the shared memory.
-> If you really need this, then it should be rather encoded as part of
-> shemm phandle (phandle-array with describing items, just like syscon
-> phandles are done).
-> 
-> But OTOH, I don't see why this is needed at all so far - compatible
-> defines it.
+On Friday, December 6, 2024, Dan Carpenter wrote:
+>=20
+> On Tue, Dec 03, 2024 at 06:39:08PM +0100, Etienne Carriere wrote:
+> > diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
+> > index 09ccd6cea7f2..7bbb2ee55f4f 100644
+> > --- a/drivers/clk/clk-scmi.c
+> > +++ b/drivers/clk/clk-scmi.c
+> > @@ -61,13 +61,20 @@ static long scmi_clk_round_rate(struct clk_hw *hw, =
+unsigned long rate,
+> >       struct scmi_clk *clk =3D to_scmi_clk(hw);
+> >
+> >       /*
+> > -      * We can't figure out what rate it will be, so just return the
+> > +      * In case we can't figure out what rate it will be when the cloc=
+k
+> > +      * describes a list of discrete rates, then just return the
+> >        * rate back to the caller. scmi_clk_recalc_rate() will be called
+> >        * after the rate is set and we'll know what rate the clock is
+> >        * running at then.
+> >        */
+> > -     if (clk->info->rate_discrete)
+> > +     if (clk->info->rate_discrete) {
+> > +             ftmp =3D rate;
+>=20
+> No need for this assignment.
 
-Indeed, I shall move it to compatible. If firmware ever changes, and
-uses a different offset to the configuration data, then I can introduce
-a new compatible.
+It is needed. The round_rate handler in scmi clock protocol driver=20
+I added in drivers/firmware/arm_scmi/clock.c expects the argument
+to carry the target rate as input value and provide the closest reachable
+rate as output value, hence initializing @ftmp above. I needed to preserve
+the value @rate since used if this round_rate handle is not available
+or returns with an error.
 
-I agree with all the other comments as well, will address them in v4.
+Note that I could have changed scmi_proto_clk_ops->round_rate()=20
+function ABI to split input target rate and output rounded rate into
+2 separated explicit arguments.
 
-Thanks!
-ta
+Regards,
+Etienne
+
+>=20
+> > +             if (scmi_proto_clk_ops->round_rate &&
+> > +                 !scmi_proto_clk_ops->round_rate(clk->ph, clk->id, &ft=
+mp))
+> > +                     return ftmp;
+> > +
+> >               return rate;
+> > +     }
+> >
+> >       fmin =3D clk->info->range.min_rate;
+> >       fmax =3D clk->info->range.max_rate;
+>=20
+> regards,
+> dan carpenter
+> =
 
