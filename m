@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3E2E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EE8E77181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4J8jJJHEZp5k7pCfGlCabFqHA1ye2wNdFA0i4ey5Ts=; b=wxynV3/E8jroqsQSgwcnrFes0t
-	87qTPIak51e6uH5HLAnwk/QNoYWBDMyBoghTyswMZPa8wrZvVD3rtsNdFixuW2TtP06hkkDoM+65C
-	LGKjnZeiojSu1zrX8NWF+dYrMcgeW6s4KB1xffb7tYB0UIMs9E0CiyP6qp+C8loqVJ+AAzwNNAjK8
-	NWrMU3zRmcI+uXuAsquPhCjctWElbLRFvairYbM/0Om9DO5Q3pOYzfKHf4+5w12Jzvcmscmq5WrsY
-	A60y8hAYGxVPys6j6COeIH0SCfrcYp69carYCVtOS7agB1TG+Q5Jub22h30NDXUWrciES3KE5AUnC
-	ibbiRWxw==;
+	bh=asmkcQ/wm3Cy/mGLGCDAAH8u4aCdWeg/YQWDuNgYpK8=; b=TDbDQPkfHTk/vktfyY6ydP9PBM
+	s+thjSKddApt3giTpse2g5bmXrAYAEA72NbnT3FIInZZRoK8v2iGUPBQI0NOJHrxLYvBOkDMVkhec
+	yNTiH5iZQLiP3cnNPJv+vOHGL2wVELgUhPv+M/RrOFHguXDuoCj56kYbDBUgz10KO/er03tF+ZLLX
+	ko5Byu8vwVe/hgbkMlzsq7f4HMuSW9Oxy1MPHmuk4PqG9xozX85JxdJI2JSpW2bCQ00VcRrMXRGrJ
+	T6cu4joeWfYyguuwIMIyUHh5/nUsEpFwpgDIYVJG++a3mH1H8e+EXSvYTXL9oA6Jat08cuFjxozWL
+	iovQbB1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdld-00000007yIv-10z3;
-	Mon, 09 Dec 2024 13:25:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKdmd-00000007yeH-3eiB;
+	Mon, 09 Dec 2024 13:26:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdZK-00000007uOr-3UAp
+	id 1tKdeZ-00000007w7z-2HGe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 13:12:59 +0000
+	Mon, 09 Dec 2024 13:18:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85407A40321;
-	Mon,  9 Dec 2024 13:11:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BCCBC4CEE0;
-	Mon,  9 Dec 2024 13:12:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EC15E5C5BBB
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Dec 2024 13:17:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3898AC4CEE0
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Dec 2024 13:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733749977;
-	bh=wtt4YzjAc8RnxByK3Ro2ZvCNJOBCvnHq9hYtTBhLeOU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CJl7WhjDi/BWxqxPsHlk4v4npIJnpP1x4xwpteoef21w+K7CnesovMMWnbdTyIEho
-	 AfJTx8b78PjN/6tvL6nu+NrTUONSTznf841w5fTNAisJAZav0u+zlKrUTtv2nwKUIF
-	 ArSJyIFziJT7mJEg7hUprwIp8X9JTX3OiQ9LM08kbJxLF0jObClNE2gyxDEQyoAAAY
-	 gut6DotkQq5Ee57xa/+LUHv6l3onXN1p1BcOSgNT+z7nUI5G1bSOS/W9vQAAFeu50j
-	 FBK2VWjyekwx4VtnyKXWLTLOEFPKQlw1aOMlqKU8hgZMXt0h+o9s4VvqH8xOjZvakU
-	 ZFxSkDGeRN0qQ==
-Date: Mon, 9 Dec 2024 13:12:53 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Weizhao Ouyang <o451686892@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: abi: fix SVCR detection
-Message-ID: <c05f6ad8-2dc1-4ddb-b9c1-b2cddfe78819@sirena.org.uk>
-References: <20241209105237.10498-1-o451686892@gmail.com>
- <3279e669-1ee2-4792-9e10-8b40928de6b4@sirena.org.uk>
- <CAHk0Hov5k37=MtTBLWTj+Dwm4EXE0xGJS1Uc8xgyLtJxusqsww@mail.gmail.com>
+	s=k20201202; t=1733750302;
+	bh=IKpdyTxaL6MHQtXFHVt4rKA2u0Wimp9puiY3v89GaLE=;
+	h=References:In-Reply-To:From:Date:Subject:Cc:From;
+	b=b0MC7bdicccUdWj4HvtRFAm3v5BODcJAsqXp0HjMaRSaCz+m+lqx0XGgwCLyMmZYx
+	 3PCIMg6FrdiyHC8agM3Hy62Z3813iP5O1Cd2d5F7BAgjIHyP17HBrPRNAN5xHM7QKp
+	 hk+1lIbY6V3fPwotjtUj45r8aZBZ0p47kl1M/AARpk+qrHyon4SmFoPLKx9yXNmh3Z
+	 8yuDqp/zV3o/2BHH1DrD92IbgObnTWjxzq+EW67ZTJDbCWSgcLC9wIGXXF2RpH5VXF
+	 sUeBETRieXkd0JMj121y64BUa7/Zzap4Yc62kzzeMroJ1gEden+8AdYsq7aBEKokFG
+	 pjP3TPVrdKuZA==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3022c6155edso2747581fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 05:18:22 -0800 (PST)
+X-Gm-Message-State: AOJu0YwzJcZkFB0G8Pk4GXRhXFKW3TTTL3xZ4Fz+6U+seIr4TCbR38/s
+	Fa13AECca9amwxbL+9gl60BwRWhEJSHvYSCZNTA+cjCu8jJo/hjgbyGB4wfGjK3I7+IdTgPBkZG
+	/qf06k2NChu9dDxrOp4edQ2OMFwA=
+X-Received: by 2002:a05:651c:19a9:b0:300:33b1:f0e2 with SMTP id
+ 38308e7fff4ca-3022fb3859emt1236341fa.3.1733750300533; Mon, 09 Dec 2024
+ 05:18:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vxzs0bX2niMoeW8l"
-Content-Disposition: inline
-In-Reply-To: <CAHk0Hov5k37=MtTBLWTj+Dwm4EXE0xGJS1Uc8xgyLtJxusqsww@mail.gmail.com>
-X-Cookie: Lensmen eat Jedi for breakfast.
+References: <20241205150229.3510177-8-ardb+git@google.com> <20241205150229.3510177-9-ardb+git@google.com>
+In-Reply-To: <20241205150229.3510177-9-ardb+git@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 9 Dec 2024 14:18:09 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFUVS_TdQb_Q_ta1BfSMUnAtB7zJpxDDtkFX6Q3tiUtcA@mail.gmail.com>
+Message-ID: <CAMj1kXFUVS_TdQb_Q_ta1BfSMUnAtB7zJpxDDtkFX6Q3tiUtcA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/6] arm64/mm: Reduce PA space to 48 bits when LPA2 is
+ not enabled
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Quentin Perret <qperret@google.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_051258_933242_F88341E5 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20241209_051823_673048_C72764D4 
+X-CRM114-Status: GOOD (  26.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,49 +82,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 5 Dec 2024 at 16:03, Ard Biesheuvel <ardb+git@google.com> wrote:
+>
+> From: Ard Biesheuvel <ardb@kernel.org>
+>
+> Currently, LPA2 kernel support implies support for up to 52 bits of
+> physical addressing, and this is reflected in global definitions such as
+> PHYS_MASK_SHIFT and MAX_PHYSMEM_BITS.
+>
+> This is potentially problematic, given that LPA2 hardware support is
+> modeled as a CPU feature which can be overridden, and with LPA2 hardware
+> support turned off, attempting to map physical regions with address bits
+> [51:48] set (which may exist on LPA2 capable systems booting with
+> arm64.nolva) will result in corrupted mappings with a truncated output
+> address and bogus shareability attributes.
+>
+> This means that the accepted physical address range in the mapping
+> routines should be at most 48 bits wide when LPA2 support is configured
+> but not enabled at runtime.
+>
+> Fixes: 352b0395b505 ("arm64: Enable 52-bit virtual addressing for 4k and 16k granule configs")
+> Cc: <stable@vger.kernel.org>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm64/include/asm/pgtable-hwdef.h | 6 ------
+>  arch/arm64/include/asm/pgtable-prot.h  | 7 +++++++
+>  arch/arm64/include/asm/sparsemem.h     | 4 +++-
+>  3 files changed, 10 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+> index c78a988cca93..a9136cc551cc 100644
+> --- a/arch/arm64/include/asm/pgtable-hwdef.h
+> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
+> @@ -222,12 +222,6 @@
+>   */
+>  #define S1_TABLE_AP            (_AT(pmdval_t, 3) << 61)
+>
+> -/*
+> - * Highest possible physical address supported.
+> - */
+> -#define PHYS_MASK_SHIFT                (CONFIG_ARM64_PA_BITS)
+> -#define PHYS_MASK              ((UL(1) << PHYS_MASK_SHIFT) - 1)
+> -
+>  #define TTBR_CNP_BIT           (UL(1) << 0)
+>
+>  /*
+> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+> index 9f9cf13bbd95..a95f1f77bb39 100644
+> --- a/arch/arm64/include/asm/pgtable-prot.h
+> +++ b/arch/arm64/include/asm/pgtable-prot.h
+> @@ -81,6 +81,7 @@ extern unsigned long prot_ns_shared;
+>  #define lpa2_is_enabled()      false
+>  #define PTE_MAYBE_SHARED       PTE_SHARED
+>  #define PMD_MAYBE_SHARED       PMD_SECT_S
+> +#define PHYS_MASK_SHIFT                (CONFIG_ARM64_PA_BITS)
+>  #else
+>  static inline bool __pure lpa2_is_enabled(void)
+>  {
+> @@ -89,8 +90,14 @@ static inline bool __pure lpa2_is_enabled(void)
+>
+>  #define PTE_MAYBE_SHARED       (lpa2_is_enabled() ? 0 : PTE_SHARED)
+>  #define PMD_MAYBE_SHARED       (lpa2_is_enabled() ? 0 : PMD_SECT_S)
+> +#define PHYS_MASK_SHIFT                (lpa2_is_enabled() ? CONFIG_ARM64_PA_BITS : 48)
+>  #endif
+>
+> +/*
+> + * Highest possible physical address supported.
+> + */
+> +#define PHYS_MASK              ((UL(1) << PHYS_MASK_SHIFT) - 1)
+> +
+>  /*
+>   * If we have userspace only BTI we don't want to mark kernel pages
+>   * guarded even if the system does support BTI.
+> diff --git a/arch/arm64/include/asm/sparsemem.h b/arch/arm64/include/asm/sparsemem.h
+> index 8a8acc220371..035e0ca74e88 100644
+> --- a/arch/arm64/include/asm/sparsemem.h
+> +++ b/arch/arm64/include/asm/sparsemem.h
+> @@ -5,7 +5,9 @@
+>  #ifndef __ASM_SPARSEMEM_H
+>  #define __ASM_SPARSEMEM_H
+>
+> -#define MAX_PHYSMEM_BITS       CONFIG_ARM64_PA_BITS
+> +#include <asm/pgtable-prot.h>
+> +
+> +#define MAX_PHYSMEM_BITS       PHYS_MASK_SHIFT
+>
 
---vxzs0bX2niMoeW8l
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This needs
 
-On Mon, Dec 09, 2024 at 08:51:28PM +0800, Weizhao Ouyang wrote:
-> On Mon, Dec 9, 2024 at 8:36=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
-ote:
+--- a/arch/arm64/include/asm/sparsemem.h
++++ b/arch/arm64/include/asm/sparsemem.h
+@@ -7,7 +7,8 @@
 
-> > >       // Set SVCR if we're doing SME
-> > > -     cbz     x1, 1f
-> > >       adrp    x2, svcr_in
-> > >       ldr     x2, [x2, :lo12:svcr_in]
-> > > +     cbz     x1, 1f
-> > >       msr     S3_3_C4_C2_2, x2
+ #include <asm/pgtable-prot.h>
 
-> > This is against an older verison of the code so wouldn't apply now.
-> > It's not also checking the value of SVCR, this is checking the SME flag
-> > the check is against x1.
+-#define MAX_PHYSMEM_BITS       PHYS_MASK_SHIFT
++#define MAX_PHYSMEM_BITS               PHYS_MASK_SHIFT
++#define MAX_POSSIBLE_PHYSMEM_BITS      (52)
 
-> This patch aims to fix the second check (SVCR_ZA_SHIFT) instead of
-> the first one (the x1 SME flag you're referring to):
+ /*
+  * Section size must be at least 512MB for 64K base
 
-If we don't have SME we should be skipping over all the SME code and
-never even looking at the value of SVCR.  Looking at the current version
-of the code it does that, it branches to check_sve_in if SME is not
-enabled.
-
---vxzs0bX2niMoeW8l
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdW7NQACgkQJNaLcl1U
-h9Aq4Qf/Qg9p9l/NYKL8pF+MdwSLjxV0TtHVO294pRrIAlItPtbqpVocz9DV28ye
-+vJfxK0cNGHLqaL1gnR/uBSmfhx37MFt8JYwuBl7+bI7THOI5B5jvM4aYQX7Ohpa
-0RcrJak6NhWjaa7+Ro4GNl0Th9f6DrskXSrIkEWvuruiUfKzahUmed4WFVZM9mZK
-+UnQxxZ2U7Cp+vx+ZTPGB0WcKT4W3ojoctJ0rBOmZP7/DDyX3Mz/f3R+JYyFpJNw
-KaYtD6qeNsU2sRtOFDOytZ0534PeN2+rZOPJvfp7/wbW9V4C9Pz29YfbP47bUks7
-2nyIY1pfoOUmkB0MwY7sb1PTnWwBnw==
-=odYv
------END PGP SIGNATURE-----
-
---vxzs0bX2niMoeW8l--
+applied on top to make the ZSMALLOC code happy.
 
