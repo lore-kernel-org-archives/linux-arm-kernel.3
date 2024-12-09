@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1248E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C98E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gyJVyur4IyAHn8poAWBypTH6jYDB+Nwxko92c/qdMK4=; b=WnHBYFoz/LQ32WghoeiNmg6MAU
-	RjNXO+NU9j2DSS/hERucvugmFjt43+xUp/7dT32JsDBfoO8c7yTmOR3AeW0+6Q5AkVrCUu82lXK3U
-	4UIjI0W02D18HHTue0UIcRYT2IZlnuM9596sIZq0qrxSWxF3yBF+c2DwJssid1yq4Geq257JW9GGj
-	Dq8sanVfw1aGb/BOaAVVu8qojGgc/PsBBuXMYshe/TP8nUHOBND6Wj2Hg2L0EmZpg4D92cGW4bBu9
-	vBy810dfllZyAzT2NLeuWZO6Vx1kQ9UmGn4C0ZM3I1HsP6mRGVkCI+8MVEei3U9HDNn2yqN+9Vr4E
-	TGI+WmxA==;
+	bh=kO2asNsqNAL7eluvpkUku2CKoDCb8/glpml9Aw35CM0=; b=yp/r5FkykPqLy9rGd1kepSKDSC
+	3wZ+t12Bld6SfSlVcsCzyy+XpHQUXokvmpe1R4mFPQIYH+yTv6LdOZTfHI7huqULJuL2rUTeL844N
+	85s4P4wouh79ii0ToWxE4275UVrJTrHKXoh4JRxfiDc6Qc+DLnWflsw/xPTJ/PjDI+R2YOcyNwy7P
+	RY9WQFmo3zsBM9c/3iV+f1F6ZNf4gYAD2xLBhkME7v2PTMo1qz8yjrrOr//DO3N6sEPXbgx5XEJIQ
+	yNTGt2gXmWYL5IPEK1o5RkYjdPOXhwHOYoQ/PplwiPhKj3Ejz5qSIdVLrhViIoyA2/U+nDKBMnczU
+	Qw2MaMRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKmzN-00000009XRf-0HyO;
-	Mon, 09 Dec 2024 23:16:29 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tKn0N-00000009Xah-082Y;
+	Mon, 09 Dec 2024 23:17:31 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKmvm-00000009Wiv-2Xu7;
-	Mon, 09 Dec 2024 23:12:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gyJVyur4IyAHn8poAWBypTH6jYDB+Nwxko92c/qdMK4=; b=f8M1mNgQdC5wIM/8vQdHwqvNYz
-	UBUAZDSqr1Cx/7P6DJj40JCUWj7hqJcV9If4OpxdSUG+xbTvK67o9NxJk7uPNSpHuZoGU4SDBQNE9
-	w9Q5s7iDS7JKUA8T/LBsnfd5TDd9lkJ59Z66FeB36Yb8clf+39Pu6P2Jb/3dS+wcQj9rTvDDhAN91
-	pLSAIU8oxDl1HA7oAzSF/op5UCW/DGoOXk3HNtydhi3PK1q4DYpmedSiwqW7rE20MGeguXcVr2K08
-	6DO8lty+Naoovses0nzvGjkd/4oW5eHLIUukRjQ7a27FqoJ3OZajanfclUYYBt1iLOlbOc+N919Uv
-	7t7yk0Og==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tKmvT-0005Hj-UT; Tue, 10 Dec 2024 00:12:27 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Daniel Semkowicz <dse@thaumatec.com>,
- Diederik de Haas <didi.debian@cknow.org>, andy.yan@rock-chips.com
-Cc: Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com, jonas@kwiboo.se,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- neil.armstrong@linaro.org, quentin.schulz@cherry.de, rfoss@kernel.org,
- robh@kernel.org, tzimmermann@suse.de
-Subject: Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2 controller
-Date: Tue, 10 Dec 2024 00:12:26 +0100
-Message-ID: <2203458.KiezcSG77Q@diego>
-In-Reply-To: <D67AV178CEBD.3QA9VD4ZPRNQ1@cknow.org>
-References: <20241203165450.1501219-1-heiko@sntech.de>
- <20241209150619.33998-1-dse@thaumatec.com>
- <D67AV178CEBD.3QA9VD4ZPRNQ1@cknow.org>
+	id 1tKmwO-00000009Wqn-2gOD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Dec 2024 23:13:26 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53f757134cdso2380911e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 15:13:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733786003; x=1734390803; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kO2asNsqNAL7eluvpkUku2CKoDCb8/glpml9Aw35CM0=;
+        b=OUwW2CTBnUAYFuxZnREBhoLacEtjm5/5HSFfzFNLBR4uvPmIN5HAvl9ZmB4GRH+DY9
+         AvveTp/pOlgEyzUMC+c+pjRa9EGOwIve84ds0NVspLHkx5jUMsbA3nzfvNq1p5zlLIdh
+         yDr0p9OtINAqZd38YAq8/72FL9fpgAPtjTQSPvP1Dtq6sD6FN1RPOIwvXTlfj7mWLbC9
+         lsy+c/ePQag4sPO68W+TdxFjQwNpoDMJ6Q4rIi2NNeQZf6pWaCnu1Tjn7ybHy2Nl/ohK
+         9c8Y0mkX8BM1wLmaPVdqZZUXL6l7rDoxQJwtH+J3JdibH0DsCh5F4m2yV6bzCUOGo1aN
+         rBEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733786003; x=1734390803;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kO2asNsqNAL7eluvpkUku2CKoDCb8/glpml9Aw35CM0=;
+        b=DQpLp74jHsKu0dGq1Kd9SwbwiVJGFik4zUWJpK2J095Uodty3by5z/LQ0ze/FuBcUk
+         icrKFwZ2wHwteKvprxyLnM9WBuW2I9c6nhudbmpW78DEApSlScmHBxSmkWHPmZcAxiSL
+         BwYrl+3AebDi3pQRtUbRf58gMPnkVXcK7LOfpqN3jJCixgktFkSffO2UbIyFYxC2jyDH
+         TQyhjowdE6boAfH5uWS+u6bcjeLmPEjZiQqap+n7CKcTp9iYxzAJjj7sbWWpvOyMI/Ax
+         Lhc8rr41toJeNI3C1Bftkd1DBpajA5pPWO0DSnKWg4+6Tet89uBhCghylIArfuU73doI
+         w5EA==
+X-Forwarded-Encrypted: i=1; AJvYcCXqjv5aNFRmT3JSVKzaoeKY/JwDtCKbIVrr6R0PoHgo99h56OT5glvZIuJFSpEgtb7rFY2aZ020M64CzvRn9AAe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7Rl8NbyWlq6+ONn5ypGZmu5QDP15Hau1VQwaU/eYk3esEtF6k
+	YqCQXgXIjYrA3JVKxR6+3obkRhlE6KEwW3qHE/eWwFJO6JDrk954yR5AyjavLfo=
+X-Gm-Gg: ASbGncs7Q/eyRhjEm1ChWIx7nXRNFue61+FJxhpL/vY47p0+7oyuTqlonGqPqQeMbLB
+	MkuYSTgQshI3F/47//iHhBNAvOgOacsVg3sfWpBFYF/Yoo7CDTDK70LbmymxDq8KZpcShGLqk6g
+	8z6NRtqhSEDJaJCu3vR2M2AV3BGqhoqx/myt1bsbEPXmCRjp0/nOWACIcxNYvnNFkVh/ZfTg/SD
+	P3wKxxHoSsBGE0Hrdb/Z26qjQ7dHyt66xMbqEZIdbb/qkJ/T7qh76zaFrcci4nPEeEWR+8gzhgC
+	wzg3zrS8Crg2x9/X3xaKGqjDikj6Alr0ew==
+X-Google-Smtp-Source: AGHT+IFAS1Z5WHgZqwBvaxSaopm+k8xTxDSEi+kuRvqKIcQUqZkIivnLzU/azdEntpK3zuNH1hE4yw==
+X-Received: by 2002:a05:6512:ba9:b0:53f:afae:7367 with SMTP id 2adb3069b0e04-53fafae74c8mr2641232e87.38.1733786002822;
+        Mon, 09 Dec 2024 15:13:22 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5401b25b349sm687436e87.271.2024.12.09.15.13.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Dec 2024 15:13:21 -0800 (PST)
+Date: Tue, 10 Dec 2024 01:13:19 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Douglas Anderson <dianders@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Julius Werner <jwerner@chromium.org>, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
+	Roxana Bradescu <roxabee@google.com>, bjorn.andersson@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, Trilok Soni <quic_tsoni@quicinc.com>, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] arm64: errata: Add QCOM_KRYO_2XX_GOLD to the
+ spectre_bhb_firmware_mitigated_list
+Message-ID: <wx6qbdbcrvbq34snzkxawlbpxm6vogt5ccjmdqqyazukfbjy7t@qkvax7tr27bs>
+References: <20241209174430.2904353-1-dianders@chromium.org>
+ <20241209094310.2.Ia3dfc0afadbfbee81bb2efb0672262470973dd08@changeid>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241209094310.2.Ia3dfc0afadbfbee81bb2efb0672262470973dd08@changeid>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_151246_636490_30CCF50D 
-X-CRM114-Status: GOOD (  29.22  )
+X-CRM114-CacheID: sfid-20241209_151324_698442_919A3911 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 9. Dezember 2024, 17:11:03 CET schrieb Diederik de Haas:
-> Hi,
+On Mon, Dec 09, 2024 at 09:43:12AM -0800, Douglas Anderson wrote:
+> Qualcomm Kryo 200-series Gold cores appear to have a derivative of an
+> ARM Cortex A73 in them. Since A73 needs Spectre mitigation then the
+> Kyro 200-series Gold cores also should need Spectre mitigation.
 > 
-> On Mon Dec 9, 2024 at 4:06 PM CET, Daniel Semkowicz wrote:
-> > On 03.12.24 21:54, Heiko Stuebner wrote:
-> > > This series adds a bridge and glue driver for the DSI2 controller found
-> > > in the rk3588 soc from Rockchip, that is based on a Synopsis IP block.
-> > > 
-> >
-> > I did more tests with different LVDS displays. I tested following
-> > configurations with DSI/LVDS bridge:
-> > - 1024x600@60.01
-> > - 1024x768@60.02
-> > - 1280x800@60.07
-> > - 1366x768@60.06
-> >
-> > All of them worked without issues, except 1366x768.
-> > With this resolution, video is blurry, and offset incorrectly
-> > to the left. There are also repeating errors on the console:
-> >
-> >   rockchip-drm display-subsystem: [drm] *ERROR* POST_BUF_EMPTY irq err at vp3
-> >
-> > In correct operation with other resolutions, there is no error.
-> > I am not sure if this is a problem in your series or rather in VOP2
-> > driver.
+> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+> ---
+> I don't really have any good way to test this patch but it seems
+> likely it's needed. If nothing else the claim is that that Qualcomm
+> Kyro 280 CPU is vulnerable [1] but I don't see any mitigations in the
+> kernel for it.
+> 
+> NOTE: presumably this patch won't actually do much on its own because
+> (I believe) it requires a firmware update to go with it.
 
-This really sounds like something is wrong on the vop side.
-The interrupt is part of the vop, the divisable by 4 things likely too.
-
-
-Heiko
-
+Why? is_spectre_bhb_fw_affected() returns true if (cpu in list OR fw
+mitigated)
 
 > 
-> On my PineTab2 I got similar messages about 2 weeks ago:
-> rockchip-drm display-subsystem: [drm] *ERROR* POST_BUF_EMPTY irq err at vp1
+> [1] https://spectreattack.com/spectre.pdf
 > 
-> Preceding those, I got several panfrost related errors:
+>  arch/arm64/kernel/proton-pack.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> panfrost fde60000.gpu: get clock failed -517
-> panfrost fde60000.gpu: clk init failed -517
-> platform fde60000.gpu: deferred probe pending: (reason unknown)
-> platform cpufreq-dt: deferred probe pending: (reason unknown)
-> vdd_gpu_npu: disabling
-> 
-> But can also be that the PineTab2 (likely) needs regulator-always-on
-> and regulator-boot-on in its vdd_gpu_npu node.
-> 
-> > I tried to track down the problem, and it seems to be a generic issue
-> > when horizontal line width is not divisible by 4.
-> > Lowering line width to 1364px fixes the issue, but of course I have two
-> > vertical lines of black pixels on the right.
-> > I also made some tests with 720x1280 DSI display. Lowering horizontal
-> > line to 718px shows the same problem. With 720px and 716px it works
-> > correctly.
-> 
-> I haven't look further into it, but the PT2 has a 1280x800 resolution.
-> 
-> HTH,
->   Diederik
+> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+> index e149efadff20..0437be7c83bc 100644
+> --- a/arch/arm64/kernel/proton-pack.c
+> +++ b/arch/arm64/kernel/proton-pack.c
+> @@ -925,6 +925,7 @@ static bool is_spectre_bhb_fw_affected(int scope)
+>  	static const struct midr_range spectre_bhb_firmware_mitigated_list[] = {
+>  		MIDR_ALL_VERSIONS(MIDR_CORTEX_A73),
+>  		MIDR_ALL_VERSIONS(MIDR_CORTEX_A75),
+> +		MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_2XX_GOLD),
+>  		{},
+>  	};
+>  	bool cpu_in_list = is_midr_in_range_list(read_cpuid_id(),
+> -- 
+> 2.47.0.338.g60cca15819-goog
 > 
 
-
-
-
+-- 
+With best wishes
+Dmitry
 
