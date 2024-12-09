@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71306E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B11E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrBMF+uepwwER16iMh3Tc9DMPJGlXiQwEYl2Z21Ai0s=; b=AEfgJdFgr/X0QFvb6GgzHOWFJm
-	oXwgv9yFG+1LrrchO9ZCWRc2noY+YosgQWtLM3XfzpqFUy53KYuUM8Ykg/gvKYrdN6Bc0pyKwsuae
-	bB6pU8bKKVrgXSR4rtGzKs0QzXYqS1XUPL6Mz+8JWksYW0X7OAUPPR2xgranOXQb/UXlGCY+45e6I
-	GbBVCHmmP4WV7pRgOCYf5i9y4Yryv2a/c/sq4lSCEbUmB+vlomxBcj2jcbkvXRtJVD9w5YGcazEKd
-	M8ZRA7ioFtGfchrlyUgcwEegj62NlF8b2FPq8lkmrRy89u/59PuKgGlxNNxoLgP3NjqtwaNvg77rw
-	6Hzn8E3A==;
+	bh=kLrjxzIVn96+FbEmeJSRrF1ncZ62LbWRlJhGTdPCluc=; b=p0naId+6S3JBNgHDu533korD1V
+	l9ARu58kzLpX1M0nvjA0CDLfqT3SeL8KxHmDSmuOe+cHCAPbXnsQ5ZVp+diWiCD03/rzPhd23t4ia
+	W2OQe8De1jkdmtrUSXai1MAGXko/tJw6yfVMXb9+XaTXUddPBNX3fDXQ72/3B02l7MR2WfLin7aC8
+	7IAI4EzpesYVz2vAmnmldzYnlmEkdCIsmjegk6Oq8+ytJTorCwA5pqF1TaOHQLVXJcDpU2WKAXUMb
+	dCU9wUD8iN6sRLYLteOc1QhArwTD5s2oMcmjlG5QPYLBOhGVY7PitgNjAITEnrnkV3kg3/+DPtkpA
+	omLIr94Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKann-00000007FGo-3dES;
-	Mon, 09 Dec 2024 10:15:43 +0000
+	id 1tKaoo-00000007FW8-2PsC;
+	Mon, 09 Dec 2024 10:16:46 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaRO-00000007A1b-3Uz9
+	id 1tKaRT-00000007A1b-3Z7M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 09:52:36 +0000
+	Mon, 09 Dec 2024 09:52:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1733737954; x=1765273954;
+  t=1733737959; x=1765273959;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=ZrBMF+uepwwER16iMh3Tc9DMPJGlXiQwEYl2Z21Ai0s=;
-  b=egEzgqaJBallkxkTUmfahNYBhgKBB9TZmwIl5QtWWVTn2aDjW5B/XiTe
-   0OSyjlZ/oNPBhCQF04G0QOVgzg/szLXirukxsOQO0+qxzu/xI4bC9mVFu
-   AQarlh1eLpeQyAB4ZthnMiGLCkIHIWhbzGr90/A42K9pvPMelLZ6f/BDU
-   HF4dPMebqr07KS3TFfGY78TWBFCyxkwI2eFwDDTYaXXKF5+EeoTjTy003
-   G4v7AAyGbSRH6CxUwkIOOhui2QgjxDNBA033G2H9scs1FE2glLhJiV6iK
-   epFN8tmsFsPFZSoiuJpCsKbNRtMp8RZyMOWq/+J0w+07IRN1p3KLil1k6
-   g==;
-X-CSE-ConnectionGUID: oSYvtfyuSkupLwQwn2bcpA==
-X-CSE-MsgGUID: P736M27rRyyQwtveoRH5tg==
+  bh=kLrjxzIVn96+FbEmeJSRrF1ncZ62LbWRlJhGTdPCluc=;
+  b=l7xb1JeuzjUHLvHPMkR/b/Ak407fGr7qhGcOEaqBN94EO61hQNXDhEMz
+   BSH9n8hKH/DMIMST48VecZJ2F0HN6ZrIvecHmpYzu3LikzwHUO6Kmz+Xv
+   Uwn7xKWVCAfF8uiz78dxIZAWrhqP/o1e4PLj3QGiS6PfT7AK2Hq0ks5VF
+   Yj3G5gBb4X0kKqm0x0TrYaytiscfRjJOY83ye8/eqHmvxYax6cXmRseaE
+   YK9IwXt1+XIdR5Gvb02whzfI47BbJt0kSM6yGwl92KA1yY078ZipC5/eO
+   zmii7vH7AGMr6koYtUf3Y3a5c38vRnKTOUqTrgW1GDb6lTKUr17HHvwmW
+   Q==;
+X-CSE-ConnectionGUID: z5XlGf4cTO6Lf3vaQXJMSg==
+X-CSE-MsgGUID: qhAjyFzoQxqaRRGZWIIYyg==
 X-IronPort-AV: E=Sophos;i="6.12,219,1728943200"; 
-   d="scan'208";a="40481353"
+   d="scan'208";a="40481356"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 09 Dec 2024 10:52:34 +0100
-X-CheckPoint: {6756BDE2-3-90CD5875-E0265C0B}
-X-MAIL-CPID: 2739E13F82B87DEBC461CF3D2DF1E092_3
-X-Control-Analysis: str=0001.0A682F15.6756BDE2.0052,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BBB231665D3;
-	Mon,  9 Dec 2024 10:52:28 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 09 Dec 2024 10:52:39 +0100
+X-CheckPoint: {6756BDE7-2-90CD5875-E0265C0B}
+X-MAIL-CPID: 71BC7653E07C44C1F1C13074E1221AAF_3
+X-Control-Analysis: str=0001.0A682F1D.6756BDE7.0041,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DA6B51664AD;
+	Mon,  9 Dec 2024 10:52:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1733737949;
+	s=dkim; t=1733737954;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ZrBMF+uepwwER16iMh3Tc9DMPJGlXiQwEYl2Z21Ai0s=;
-	b=YPb8j5r8q9X7Ign/5O2ob7Dy1VXmGWAUQQq+svfw21q4+m5uV8xy3JCtN2xPuQqk6VsICE
-	mOrPfhxtI7pTm04JaXAh4oPOYYc8qOfvWRunVDyI49ajx3ZOZyfYII/6FMN8z9uZfuCBOR
-	kN+8PmWgq4w2jH3Xbw+Hkn/Gc5pmM+L+U99ibqvPo7bljuTR7b5Bai18KT3lj6d6d7bu0f
-	q6Ta9ndbaChjPQWD5gQ4Hr09XDRCTIUy1qHdbfcbFE66c6GKFU1LSd9U72SAmiMab50fAZ
-	g+O2TIzvenVSPVbPUutkUyyPH4HDL4JueFqinM3iO5LtfS4U+pyby4NgL9vSbQ==
+	bh=kLrjxzIVn96+FbEmeJSRrF1ncZ62LbWRlJhGTdPCluc=;
+	b=XiwUo0Hm5zbYAE2EQFKVKqMMsMEmTWgY4SRz71uMMtFRrz451qc5TodJQWnLzUouN9h0VO
+	EfRpbv852JBcRQ3uX7qEaxFUjgc4UR7154Ytqo1ZWl08jMV81PH9pInBNqW4B5uOqguwWJ
+	+NII1Qh3agM8rgjL7FuQQZD+SjfoJoT66lrdSJp3Gius3VHhZPyUt7XhE0l7qai97cjY6G
+	TnFCQ9NgtHHE3JWNLHv/qsz7l175w2llTJ7CdivUfu2p1Qs96iO8UUM8gy57HUAiCg5eKm
+	5ucZUvUg6UmJy1BvNI54mCpWMUo01cFnw0Si2chns24JYaYO7nx4IVkU/Nf2Rg==
 From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -83,11 +83,10 @@ Cc: Rob Herring <robh@kernel.org>,
 	Devarsh Thakkar <devarsht@ti.com>,
 	Hari Nagalla <hnagalla@ti.com>,
 	linux@ew.tq-group.com,
-	Dhruva Gole <d-gole@ti.com>,
 	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH v2 3/5] arm64: dts: ti: k3-am62: Add DM R5 ranges in cbass
-Date: Mon,  9 Dec 2024 10:51:34 +0100
-Message-ID: <641475ca5720fcd24bcb41af36b69781a0a86df4.1733737487.git.matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH v2 4/5] arm64: dts: ti: k3-am62-wakeup: Add R5F device node
+Date: Mon,  9 Dec 2024 10:51:35 +0100
+Message-ID: <87517cce567e1dda89c38f82db93ddff292c5c10.1733737487.git.matthias.schiffer@ew.tq-group.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
 References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
@@ -96,8 +95,8 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_015235_169385_8C6420FD 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20241209_015240_183474_587FEA54 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +111,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Devarsh Thakkar <devarsht@ti.com>
+From: Hari Nagalla <hnagalla@ti.com>
 
-Add DM R5F ATCM and BTCM ranges in cbass_wakeup and cbass_main.
+AM62 SoCs have a single core R5F core in wakeup domain. This core is also
+used as a device manager for the SoC.
 
-Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-Signed-off-by: Dhruva Gole <d-gole@ti.com>
+Co-authored-by: Devarsh Thakkar <devarsht@ti.com>
+Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+[Matthias Schiffer: Updated to match latest submitted version v5 of "arm64:
+dts: k3-am62a-wakeup: Add R5F device node"]
 Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62.dtsi | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62.dtsi b/arch/arm64/boot/dts/ti/k3-am62.dtsi
-index bfb55ca113239..f01a594ba7f89 100644
---- a/arch/arm64/boot/dts/ti/k3-am62.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62.dtsi
-@@ -86,7 +86,9 @@ cbass_main: bus@f0000 {
- 			 /* Wakeup Domain Range */
- 			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00002400>, /* VTM */
- 			 <0x00 0x2b000000 0x00 0x2b000000 0x00 0x00300400>,
--			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>;
-+			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>,
-+			 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM */
-+			 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM */
- 
- 		cbass_mcu: bus@4000000 {
- 			bootph-all;
-@@ -103,7 +105,9 @@ cbass_wakeup: bus@b00000 {
- 			#size-cells = <2>;
- 			ranges = <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00002400>, /* VTM */
- 				 <0x00 0x2b000000 0x00 0x2b000000 0x00 0x00300400>, /* Peripheral Window */
--				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>;
-+				 <0x00 0x43000000 0x00 0x43000000 0x00 0x00020000>,
-+				 <0x00 0x78000000 0x00 0x78000000 0x00 0x00008000>, /* DM R5 ATCM */
-+				 <0x00 0x78100000 0x00 0x78100000 0x00 0x00008000>; /* DM R5 BTCM */
- 		};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+index 9b8a1f85aa15c..619848e889cf9 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+@@ -106,6 +106,30 @@ wkup_rti0: watchdog@2b000000 {
+ 		status = "reserved";
  	};
  
++	wkup_r5fss0: r5fss@78000000 {
++		compatible = "ti,am62-r5fss";
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges = <0x78000000 0x00 0x78000000 0x8000>,
++			 <0x78100000 0x00 0x78100000 0x8000>;
++		power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
++
++		wkup_r5fss0_core0: r5f@78000000 {
++			compatible = "ti,am62-r5f";
++			reg = <0x78000000 0x00008000>,
++			      <0x78100000 0x00008000>;
++			reg-names = "atcm", "btcm";
++			resets = <&k3_reset 121 1>;
++			firmware-name = "am62-wkup-r5f0_0-fw";
++			ti,sci = <&dmsc>;
++			ti,sci-dev-id = <121>;
++			ti,sci-proc-ids = <0x01 0xff>;
++			ti,atcm-enable = <1>;
++			ti,btcm-enable = <1>;
++			ti,loczrama = <1>;
++		};
++	};
++
+ 	wkup_vtm0: temperature-sensor@b00000 {
+ 		compatible = "ti,j7200-vtm";
+ 		reg = <0x00 0xb00000 0x00 0x400>,
 -- 
 TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht München, HRB 105018
