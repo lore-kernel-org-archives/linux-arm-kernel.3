@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A648CE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92686E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2BGA9jU8VfghUQrUN6Yf64Ypr7lE8Oudb0vhFn8vD4=; b=GAIkDpQQYA9XSeL3UPNhubyb0g
-	x5CNtSoR/7V1eZF+2ulyWnwxsFRCe3jrvEu5Qe8fGmh1nLrcumQm9vdtwG5ENY0zPKYksAIdnQGzD
-	o0PjG5XkMUsXl+cgFklWa8Md2zass0KFG8MjeNCG2RsthTpj1Ih0xy474C9X65CVod6Pcrgyj+adI
-	Bkk6rYE/4KdBFY3fYwKIGP756O75hVo7vB3044QvOMUi71L5iyrFPs7LVb3Rtyqx+3YMeUH2rCe3E
-	S9wSwgjKnU6LeY6g2Q1nX3Ejube0fVJavYfb5K3hHRR8SAA6HNnHzYZR934j/mMqiqRRPj2WwE2cP
-	aoZQqWsQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7t8tuWm57sLbbvF9Is8tIuafHTVg4xWgJ7ckN7IcKD8=; b=sWRPKWDMppt0NRnzcfodOK45pf
+	jZi30nKOzdcoN6pPHX2h59+1qT9qP6zULjpPmP5dcdleu4kFJTVqchrx3Oj1vSgcyGrm5C2ZPgQUL
+	tLeXLOhuHQYRYgDdjQp0E1gbeIBfxyD9OywCFshcLfIk1tbkjAFzVkXfCCNH1wTMjlGV82I4JpdMB
+	9dqnBOH+Ip+xJ0OObAVxxdbSJbhNT+v3Hv61Cd16bTDFclINPe9Px46yflGtxrLTltulk/jNhDajS
+	K55VKfJUUoVAFajlW3gwpZ2wtMUbha1JLlqp1CFQfsOvifrr+uumeVvEJ/SFDAI71Y1l4NGo+Ytbk
+	drl5yDjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKhp1-00000008m3b-1roX;
-	Mon, 09 Dec 2024 17:45:27 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tKhq8-00000008mP7-0FCx;
+	Mon, 09 Dec 2024 17:46:36 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKhmb-00000008lWH-1JbN
+	id 1tKhp0-00000008m37-1XVH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 17:42:58 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9DaPDf014876;
-	Mon, 9 Dec 2024 18:42:44 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Y2BGA9jU8VfghUQrUN6Yf64Ypr7lE8Oudb0vhFn8vD4=; b=pLL2eUEcNSIPxR+Y
-	DYvWd4VIezOUREwXUmEvNLjuClUvdPgemUUajj84xw7U3VuY3+K3fiXGojGRZrDB
-	+cCihAc4j19/fVMYmxGkDoPbqh+8fTY0ZvyOivmQd6PaJfF/RJrN8ZE6I8NOlHDQ
-	L6cAx941WpCGlg5pPgEBONjjJSIV5lwUyHo8chwyNtu0tdpo4YMaJqof9lpfcSaj
-	1D20lDpg4388e2Ur0aMtUns9w1BVmu9n6277V2IFD8h+WFmghkkNQUMp0dx1rUaD
-	2maF9H/CKcMSuHV/2i2g5KKxqnn0SCbSBVupzm1yz80MtKHlIkJU1I9jn5PUnQoE
-	unLFeg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccnm1922-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 09 Dec 2024 18:42:44 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 874D740044;
-	Mon,  9 Dec 2024 18:41:39 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 348E72898EE;
-	Mon,  9 Dec 2024 18:41:03 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 9 Dec
- 2024 18:41:02 +0100
-Message-ID: <7b0b43c8-0396-4a61-b8fc-6bb277f3a63b@foss.st.com>
-Date: Mon, 9 Dec 2024 18:41:02 +0100
+	Mon, 09 Dec 2024 17:45:27 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7259d6ae0c8so3922235b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 09:45:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1733766325; x=1734371125; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7t8tuWm57sLbbvF9Is8tIuafHTVg4xWgJ7ckN7IcKD8=;
+        b=aiBlrp2ESrYQYyDy1Q2VG3OYwdsj3j202nyr77y7YnhWEiAu8MU2q5D2r7NsvVFijR
+         NjMDv6jHSbZKtpphG9FSggNZVieCZgYxMiQ/QggQFZp0bPUFX116KwTpn75qNHmSKPDq
+         xRMllgtS+jwhxGvVbYRERQN4gIjfr2nmQWAEc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733766325; x=1734371125;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7t8tuWm57sLbbvF9Is8tIuafHTVg4xWgJ7ckN7IcKD8=;
+        b=YExdjtWmdXDpHxpe36ctRTc1r/2J/3wO/lHGGUaZvW9QwJARkX54w03QarfXsEaAMW
+         6zbPY2KGtmSnw96cCET6IDzL8WwhrH4IvF+rMEIsrqr0Cye020rFf2LrMlLEOCXfrah6
+         6nlQ2PGxhKrhtKr6AXc0BNAWjaQoKvTF+wfcnUmWriFJJiX/wzDeOdE128m6pShjSuCe
+         joNI8XHSwZUaPF0fCiutePZN+Uw9hZTb1rcLUW9klx9ZLxcDDT+C/EhEfeQAyIqr/bHV
+         C21pAIo6ixj9DKfhrOYowe85QtpOZzGa4E2CLaK7NQ11CtlEUd9z+FRRM5vOHAbyglzs
+         o4NQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYpLU9XcIX9rii7VL4TPZ9tKcr6d1usEoJifhyBhJgN2oHpkoU5MPNE13rfsjJZm5qVRMIYGwdb/6GNv619/0u@lists.infradead.org
+X-Gm-Message-State: AOJu0YylZNOx7+UHoUc+z082Ku3JJskdvPp4XBxTbch2AZBOIZkHHILi
+	oT8gXPVuPKSkWqERWN7cvxXOR/iGKJxHji9TidlFAtcXaMmomgFcExCzpLl4DQ==
+X-Gm-Gg: ASbGnct8pL/lXaXxbTumBBPQ7Z9Vjnk/2kTshyhhzhxdjNKB1VdDpLS/BHX/fQ6/LUl
+	eettT79bUS4dJ7j/aiBgVkwewCErbvO+XajrCMKA3Uh4vCbXnYU/pyzYizPxZH2NfDi4rlML+qO
+	o7KaTUKmMR7B8q3rSvmgHHDroQBpXx7MbqONbQDA/758BTMPc9SvNS6rJNXdolmwrx8DaMTNmuY
+	IDf/5X+SvIiq4u1+rZv+bRdDxLOqlYHf8GLEMlzAET5taEjzZbDm4bAuHKFBayMjSFL2m5lQg==
+X-Google-Smtp-Source: AGHT+IG6QqGCciHu5uQwZvPGklBSE2Qs6v3qJYcrRCySA8PDMw81hd4m8jVC00rw+U2ObdTU7EE9Fg==
+X-Received: by 2002:a05:6a21:6d98:b0:1e1:ae4a:1d48 with SMTP id adf61e73a8af0-1e1ae4a217dmr3942870637.40.1733766325252;
+        Mon, 09 Dec 2024 09:45:25 -0800 (PST)
+Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:5dfc:4b08:57c5:2948])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fd53ff4900sm1397667a12.50.2024.12.09.09.45.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Dec 2024 09:45:24 -0800 (PST)
+From: Douglas Anderson <dianders@chromium.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: Julius Werner <jwerner@chromium.org>,
+	Jeffrey Hugo <quic_jhugo@quicinc.com>,
+	Roxana Bradescu <roxabee@google.com>,
+	bjorn.andersson@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Trilok Soni <quic_tsoni@quicinc.com>,
+	linux-arm-msm@vger.kernel.org,
+	Douglas Anderson <dianders@chromium.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>,
+	Easwar Hariharan <eahariha@linux.microsoft.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/6] arm64: errata: Add Qualcomm CPUs to the Spectre mitigation lists
+Date: Mon,  9 Dec 2024 09:43:10 -0800
+Message-ID: <20241209174430.2904353-1-dianders@chromium.org>
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: stm32: Increase CPU core voltage on STM32MP13xx
- DHCOR SoM
-To: Marek Vasut <marex@denx.de>, <linux-arm-kernel@lists.infradead.org>
-CC: Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Rob
- Herring <robh@kernel.org>, <devicetree@vger.kernel.org>,
-        <kernel@dh-electronics.com>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20241105224728.147384-1-marex@denx.de>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20241105224728.147384-1-marex@denx.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_094257_661453_5F793E0F 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20241209_094526_421350_6D1617E6 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek
 
-On 11/5/24 23:46, Marek Vasut wrote:
-> The STM32MP13xx DHCOR DHSBC is populated with STM32MP13xx part capable
-> of 1 GHz operation, increase the CPU core voltage to 1.35 V to make
-> sure the SoC is stable even if the blobs unconditionally force the CPU
-> to 1 GHz operation.
-> 
-> It is not possible to make use of CPUfreq on the STM32MP13xx because
-> the SCMI protocol 0x13 is not implemented by upstream OpTee-OS which
-> is the SCMI provider.
-> 
-> Fixes: 6331bddce649 ("ARM: dts: stm32: Add support for STM32MP13xx DHCOR SoM and DHSBC board")
-> Signed-off-by: Marek Vasut <marex@denx.de>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Marek Vasut <marex@denx.de>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> ---
->   arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-> index 07133bd82efa6..8630de147a52b 100644
-> --- a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-> @@ -85,8 +85,8 @@ regulators {
->   
->   			vddcpu: buck1 { /* VDD_CPU_1V2 */
->   				regulator-name = "vddcpu";
-> -				regulator-min-microvolt = <1250000>;
-> -				regulator-max-microvolt = <1250000>;
-> +				regulator-min-microvolt = <1350000>;
-> +				regulator-max-microvolt = <1350000>;
->   				regulator-always-on;
->   				regulator-initial-mode = <0>;
->   				regulator-over-current-protection;
+Since Qualcomm CPUs are all derivatives of ARM cores they all have
+unique MIDR values. This means that the tables listing necessary
+Spectre mitigations need special entries for them. However, those
+entries are not present and that means that some Spectre mitigations
+are lacking for Qualcomm CPUs.
+
+I've made an attempt at **GUESSING** what the right patches should be
+to enable mitigations for Qualcomm CPUs. This is mostly me searching
+the web to figure out what ARM cores various Qualcomm cores are based
+off of.
+
+These patches get more and more sketchy as the series progresses and I
+have noted that the later patces DON'T EVEN COMPILE. I have included
+them to make it obvious that I think these cores are affected even if
+I don't have all the right information to mitigate them. Hopefully
+Qualcomm can come and fix this mess for me.
+
+I'll note that I am certainly no expert on Spectre. Mostly I ended up
+here running `lscpu` on a device and noticing that it thought that it
+wasn't affected by Spectre v2 when I thought it was.
 
 
-Applied on stm32-next.
+Douglas Anderson (6):
+  arm64: errata: Add QCOM_KRYO_4XX_GOLD to the spectre_bhb_k24_list
+  arm64: errata: Add QCOM_KRYO_2XX_GOLD to the
+    spectre_bhb_firmware_mitigated_list
+  arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
+  arm64: errata: Add QCOM_KRYO_3XX_GOLD to the
+    spectre_bhb_firmware_mitigated_list
+  arm64: errata: Add QCOM_KRYO_5XX_GOLD to the spectre_bhb_k24_list
+  arm64: errata: Add QCOM_KRYO_6XX_GOLD/PRIME to the
+    spectre_bhb_k32_list
 
-Thanks!!
-Alex
+ arch/arm64/include/asm/cputype.h | 2 ++
+ arch/arm64/kernel/proton-pack.c  | 6 ++++++
+ 2 files changed, 8 insertions(+)
+
+-- 
+2.47.0.338.g60cca15819-goog
+
 
