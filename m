@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39A4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC99E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rkq8zF6A3kRJ4sJSqjBDGe4RzLUupi6rrrEohNdz9xI=; b=dEpAa3uJhTqITY62Lgb3RLkC4j
-	ELFmvJgs8dmyE50sqVQhyVzqfPzNem4I/8fXrKEDkFo3aMD33ZX8xS8vzioMlcVDmLyq/DiZl+DSZ
-	1DY533MsGw/5uLyvWkrBWAlTsJQNMY3Ba5jK4TuOk8CS8G/F1t4Eo07vRWL3rxe9wAq7atPs+ipK+
-	rAazCSv9hK5i/MWkpfWAB6Q+lv89CfIdDDSS4GG8zAdUVjWAPVnPjcKrLgFnG6+q8VVDcvv0hvlj3
-	FFzLnmPYVz1jfqgZK30bYQPa9Wy6qhczW92iUmS+UiR3NCJ/ZBz2pUjEL2y1xFBn/afb11RM+YiER
-	ipK8Vp9w==;
+	bh=ZJ7nOY4JZQnL45adJO0lC+Z9TbwWMhwmJf7E4yaDNec=; b=T2AaQA79sZ6U23sRm/XvWYdpqE
+	cQPiprH3ooUzau1jFmkRjryQtJeV7plzcdygAQ66dAzJ2UDP2owccvlpZDY/URKtzYxCJVmJ6izgq
+	eugArqjixYDE7ZsMnwNi6L6x0UvhA/nFpGsm//HgkR81Z4YnwFA0sph+OdgZeWOzyKU4GGg0/r+YR
+	SOkkHb/D6WB8NVRQbNQTcLK6r8SS2LuINcHAcf1u1sYJ5eiGd4FD5ClhC+X3yqWiRizSEFQUtNeUv
+	Nny5wGxL4iJRbLMdlXl2VpvobRJJZzqmDNdl7s2COvUf8QkC3R1uwPd2buJmd07Ts1grQYguBhSk1
+	9EYUKrSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdSF-00000007rdB-0OMX;
-	Mon, 09 Dec 2024 13:05:39 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tKdTF-00000007ryp-2GHD;
+	Mon, 09 Dec 2024 13:06:41 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKd7z-00000007lhJ-0x1v;
-	Mon, 09 Dec 2024 12:44:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733748281;
-	bh=aRM4AjETfxblgVQs2jCylFYpTFhBx0s71WVjQD11xxo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Bl3gop7Wy7pK0sFk0FHAjU48eqP/0utLBOC+nkcjHPhp/6Afq/lA2E7r0CMZ6MAvw
-	 kHdABAIbwOZ1FULOPWc8s68WIhxcO1Ui54KcduCBWNCiRun9u2y8ZWCRweC+UdlWAr
-	 nZzvNA6tBbubuSauaI0Ar6KNqIV4VG9torEgsN18lZERZw7MudJXQxuPg5n5kn/Rml
-	 b+VaP/IfHdFDXeI2BMTv4FSpo0KPUR8KKTuF/MRZa5tKGxecaHcXscJE3GoPnF6LV/
-	 QEZw1ULFSVlS33iex53SVVYFn3NbLYhlOrqzr6MIDc9EgClANQ2KvN1gDhZMU2IfCU
-	 p8SeUt/kLXuYA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B6B4E17E3750;
-	Mon,  9 Dec 2024 13:44:40 +0100 (CET)
-Message-ID: <d6be8228-3448-49a5-81a7-98acbdd19fbe@collabora.com>
-Date: Mon, 9 Dec 2024 13:44:40 +0100
+	id 1tKd8f-00000007lpV-3WmW;
+	Mon, 09 Dec 2024 12:45:27 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Y6M5p179vz9tBf;
+	Mon,  9 Dec 2024 13:45:18 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ad8aC7rBW98b; Mon,  9 Dec 2024 13:45:18 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Y6M5p0DxHz9tBd;
+	Mon,  9 Dec 2024 13:45:18 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id E8A068B766;
+	Mon,  9 Dec 2024 13:45:17 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id OUa8UHFVNS_8; Mon,  9 Dec 2024 13:45:17 +0100 (CET)
+Received: from [10.25.209.139] (unknown [10.25.209.139])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id A70C18B763;
+	Mon,  9 Dec 2024 13:45:17 +0100 (CET)
+Message-ID: <95a461ca-3ed6-4380-ad1a-da12e1109675@csgroup.eu>
+Date: Mon, 9 Dec 2024 13:45:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/5] pinctrl: mediatek: add MT7988 pinctrl driver
-To: Frank Wunderlich <linux@fw-web.de>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Sean Wang <sean.wang@kernel.org>
-Cc: Frank Wunderlich <frank-w@public-files.de>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Daniel Golle <daniel@makrotopia.org>, Sam Shih <sam.shih@mediatek.com>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>
-References: <20241202110045.22084-1-linux@fw-web.de>
- <20241202110045.22084-3-linux@fw-web.de>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241202110045.22084-3-linux@fw-web.de>
+Subject: Re: [PATCH v2 00/21] Converge on using secs_to_jiffies()
+To: Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, cocci@inria.fr,
+ linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-scsi@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-block@vger.kernel.org, linux-wireless@vger.kernel.org,
+ ath11k@lists.infradead.org, linux-mm@kvack.org,
+ linux-bluetooth@vger.kernel.org, linux-staging@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, ceph-devel@vger.kernel.org,
+ live-patching@vger.kernel.org, linux-sound@vger.kernel.org,
+ etnaviv@lists.freedesktop.org, oss-drivers@corigine.com,
+ linuxppc-dev@lists.ozlabs.org, Anna-Maria Behnsen <anna-maria@linutronix.de>
+References: <20241115-converge-secs-to-jiffies-v2-0-911fb7595e79@linux.microsoft.com>
+ <b9fcb12a-b7a4-4c33-836e-67109ce07deb@intel.com>
+ <dab77729-682f-4182-9fb2-cd522ac29b5f@linux.microsoft.com>
+ <72c8eb66-eb67-4f8b-b0c0-13f1aa001698@intel.com>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <72c8eb66-eb67-4f8b-b0c0-13f1aa001698@intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_044443_417977_26ED0118 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_044526_042429_D9B101E0 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +91,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 02/12/24 12:00, Frank Wunderlich ha scritto:
-> From: Daniel Golle <daniel@makrotopia.org>
-> 
-> Add pinctrl driver for the MediaTek MT7988 SoC.
-> 
-> Signed-off-by: Sam Shih <sam.shih@mediatek.com>
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> [correctly initialise for the function_desc structure]
-> Signed-off-by: Arınç ÜNAL <arinc.unal@arinc9.com>
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> 
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
+Le 09/12/2024 à 13:01, Przemek Kitszel a écrit :
+> On 12/6/24 9:58 PM, Easwar Hariharan wrote:
+>> On 11/29/2024 4:57 AM, Przemek Kitszel wrote:
+>>>
+>>> [removed most non-list recipients, it's just too much]
+>>>
+>>> On 11/15/24 10:26 PM, Easwar Hariharan wrote:
+>> <snip>
+> 
+>>>
+>>> Regarding code - you could also convert msecs_to_jiffies(const * HZ),
+>>> there are 10 that are greppable.
+>>>
+>>
+>> Those seem to be mistakes. const*HZ is a seconds-denominated timeout,
+>> being passed to msecs_to_jiffies() which will treat it as a
+>> millisecond-denominated timeout resulting in an excessively long
+>> timeout. I suppose that's better than a too-short timeout, and
+>> apparently it's been working fine all along since hardware responds
+>> before the too-long timeout expires. Half of them are in
+>> drivers/scsi/arcmsr/arcmsr_hba.c and the pattern has apparently been
+>> there since 2010.
+> 
+> my point was that, the default value of HZ is 1000, and most of the code
+> that is just `$value*HZ` was meant as "$value seconds, in ms unit".
+
+I can't follow you here. The default value of HZ is 250 as far as I can see.
+
+Regardless, HZ is the number of jiffies per second, nothing else.
+
+> 
+> Same for HZ/const, HZ/2 being 500ms.
+> 
+> HZ is awful in that it is not 1s but 1/s, but it was easy to abuse the
+> value in simple context.
+
+Why is that awful ?
+
+HZ is a nice macro that gives you the number of ticks per second, so 
+that you are able to easily calculate the number of ticks for a given 
+duration, regardless of the configured number of ticks per second.
+
+Christophe
 
