@@ -4,81 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FE6E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B0AE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFeocjNOUdIRJAXa/Rnba2ub2M7xywjcZC0gF4rAoMk=; b=eXm8quzILhdb8wZNPi0BP4ccX5
-	VelO08AWXMKOa77xzKi75HnhWPpvICnwihD+xAgYjl3iChSxaFx08SJzaWH0yG+4rReliVq1FcW2o
-	75pvZGNX/wZT+2Nwa1JGTaP/STIO6xGM5K4lM1Dd+iJmpvqgs6xjNdAx3aZB+Yk4GF8GW8EJl37h1
-	wSVtEL/NGyELbkqZ1alIMlUevIs51jrL5RZcMmQ3AETMVxhSezUKdfV1aHkoqV9zkYDQb5IEnx+Ec
-	ddO4yKJGFUBuS9zH42KhV39fCx3xl+R9MZERGYjgBX3H5dT716n1hC+La25wlgH5J6NhUlX+POgbT
-	JQp2A1pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BBS7QHnzjg71F8rIkaYZA5uHcvUEtc5erPnUZZ3lgNI=; b=a1GTeG4+IF6zQWm4FzkvGaKUhR
+	f3Xv5nuMGbYD696zuc4pVfVBLWAmWsAKN/y/xhbLOgZ4MXlv/54SijVp8j/4hJGj7MlaAXaLXte8u
+	jdJh0omNWBT/RH7mOvex6i5+8BKpTiOHiZa7QFsOcTCyFRCSDfbmu3KiXcd0+QdXQ+k1KzBuQr3l7
+	pEmQLGdpuoK0rlf8aj400C/lR4Hv39iJDvyz0xTNe1TqvxY7JO9Nzokv55084nR4KMjjObIPRgMf3
+	UICMgNDTmbzlw/2HmLLxs2bdLLSS6MPhAPcS+HlRSjX7I40yof3w540KGa4noPybefoKEl6kC2ssQ
+	CioeSIAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKZNz-00000006yLu-2HWH;
-	Mon, 09 Dec 2024 08:44:59 +0000
+	id 1tKZO0-00000006yMA-09mg;
+	Mon, 09 Dec 2024 08:45:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYH6-00000006jry-1x6p
+	id 1tKYI3-00000006jxk-2KlZ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 09 Dec 2024 07:33:48 +0000
+	Mon, 09 Dec 2024 07:34:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=DFeocjNOUdIRJAXa/Rnba2ub2M7xywjcZC0gF4rAoMk=; b=JcuMZoBQQqmqMVnKrKwn5E7v4C
-	dsXLkvWPMkRjXm3mi1YH1yo9I2xliCg7PLztczggHXAfb7IkqyaRPTxPS2c1CrxESnUelyF2qJva1
-	GTO3Fg1f3qtj4HxMIV9NKudU2vmk0E+Q2uBzej4f/eRLegao6ZtLEZ0h3dJdRQA/tA3rmJhjexbAO
-	o8cDuyvk9psE9FIhb3KrMPCYWVwNA/yI/HC6hYialeRrTIiNMqhfR5PY2tostD4d1lv39UHE9bxGN
-	eNTTif7ExIWDX5KObsd93EwJLUXwCFXXXNQmuxucnK+ZmFx2FMvlmM6mLBvnkjvTiX/kp0wJxmBwc
-	Vl/3jY9g==;
-Received: from [220.197.32.19] (helo=mail-m16.yeah.net)
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYH2-00000003UpM-3BuY
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BBS7QHnzjg71F8rIkaYZA5uHcvUEtc5erPnUZZ3lgNI=; b=kdNDdl0p4dhWo6qhpHB0rI6vAW
+	0SS/ffWTyKJk8lYdwjJcYB/fvghws6INCxMCWaGrVho/vSLxUAJuiHNVWhNxOHQsX7ECX0A1IgCaZ
+	/hGHhyyRD5MMj/QtjCrbxVXY384L88AAmClxWVS4HWanAt3ZhEVYQd8Dtqjhx8fhDptGUk69YmlkU
+	zUJx2NLEKXdYz25IVFlIO/aQiIx+30QxhAZBl8+tfx9cZsmoq6koKQpe2iFauWx8sW7t4QooKNqZE
+	Tk+XQHLPwLRoGZ9xui/VOSTsAtTeDXVzhoGCYlxxPV6RDZjLEomNo5TBaHe9JE7J9wtjvYLeYNVT5
+	BxVeo8Vg==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKYI0-00000003UqW-1jt7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 07:33:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=DFeocjNOUdIRJAXa/Rnba2ub2M7xywjcZC0gF4rAoMk=;
-	b=Hfayqua+CSqQlibYs6L8LzVaOkTNskyTk/hsL30DQNAY+UdzhKUb6IA9KyfpaV
-	YrOXfh6CNUcVk6Kd9nM7/eMj9INb1NO0QoObb/JG8m248rS5u9vHcgW0VT7uZu75
-	JPl3/pU5w0RFqF8w7O19h1wefCwXuC/0l/udP2qdJnIkM=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgAnpl1CnVZnpINvBA--.46282S3;
-	Mon, 09 Dec 2024 15:33:24 +0800 (CST)
-Date: Mon, 9 Dec 2024 15:33:22 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: imx8mq-zii-ultra: remove #address-cells
- of eeprom@a4
-Message-ID: <Z1adQsiNfYMuVgp+@dragon>
-References: <20241018183117.740439-1-Frank.Li@nxp.com>
+	Mon, 09 Dec 2024 07:34:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B42EBA40FB9;
+	Mon,  9 Dec 2024 07:32:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5823C4CED1;
+	Mon,  9 Dec 2024 07:34:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733729673;
+	bh=eJm6sPgxUntQ2123myJ74O4QKZrmsdqCdqHwho1ihUA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AWvqy8vqhCp4zh0noR7s+AiCvukEZhrgy6ED7KZ50lCzDshukylBpht6X8ssNnuSp
+	 s9MvGd5rAQYDGFFSh/WAMcbhobWZHT+CySdkeHlULfpaPZmYoClXKPXcgbe9zsCcvg
+	 DKP48+oZytzLLwxJ5evL0csDNTb4eHmkBQcvGJNoHqAJg9x9Ws7EcG2X8jQGGsP3s5
+	 SioM7cCsd8JuR7SilEpW5Dw95rWvApRzPAswdwiw5pvlrxCqPr8xoJTjmgXwwOyA99
+	 7wIocvS9whelQUAPHfmF0qvY6CmnhcV0poEVDPF4gnG/HfUTnH+jiFsT2Rhjpvr/IC
+	 2xGsFgV1On4KA==
+Message-ID: <0bac139b-c89c-43a7-978a-e5fe001d3dd2@kernel.org>
+Date: Mon, 9 Dec 2024 08:34:28 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241018183117.740439-1-Frank.Li@nxp.com>
-X-CM-TRANSID: M88vCgAnpl1CnVZnpINvBA--.46282S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU4Xo2UUUUU
-X-Originating-IP: [114.218.218.187]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCRWwZWdWeNqafwAAs-
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: exynosautov920: add DMA nodes
+To: Faraz Ata <faraz.ata@samsung.com>, devicetree@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, krzk+dt@kernel.org, robh@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, alim.akhtar@samsung.com,
+ rosa.pila@samsung.com
+References: <CGME20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83@epcas5p2.samsung.com>
+ <20241204122335.1578-1-faraz.ata@samsung.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241204122335.1578-1-faraz.ata@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_073345_421296_0140F81E 
-X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-CacheID: sfid-20241209_073444_719166_FA7F6B14 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,12 +134,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 18, 2024 at 02:31:16PM -0400, Frank Li wrote:
-> Remove #address-cells and #size-cells of eeprom@a4 because no children
-> nodes under eeprom@a4.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+On 04/12/2024 13:23, Faraz Ata wrote:
+> +
+> +		spdma1: dma-controller@10190000 {
+> +			compatible = "arm,pl330", "arm,primecell";
+> +			reg = <0x10190000 0x1000>;
+> +			interrupts = <GIC_SPI 917 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
+> +			clock-names = "apb_pclk";
+> +			#dma-cells = <1>;
+> +		};
+> +
+> +		pdma0: dma-controller@101A0000 {
 
-Applied, thanks!
+Please do not send downstream code directly, but fix it to match
+upstream. Lowercase hex everywhere.
 
+Best regards,
+Krzysztof
 
