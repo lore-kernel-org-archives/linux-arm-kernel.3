@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542F2E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 423ADE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJbTrtvGneL0K+ke9Gwc/0whnIda/bBfVk+UfsZChhU=; b=Qdl6GUc1kWumgLhnVIFddvlio6
-	NeNUJ9wTK6Ok4kktUDdpT29vTAirfQZKPZgOPWWgOjBFK8gZQ39tu/HGT5TWxyiX0MFshj4ptvhC8
-	7OvmBFgfszHdrlgOuYPcaQ0qMDLXm5q4aTRKFffglV/O2zyqiqHCNBOpC8WqhJBXor/LkT/aiGzjz
-	vDseQcvKSBaMMUBWTWl+Sz59wS3zr5mxcrNFJKFPuWZa6Ujs9YsKLrqnlFN+7rEVHf76+gYB7U2fe
-	dw2hNIh+oMdJbPy9szdnTPMeP8qUjrIORGsZX+oupJfrOn6hD6ItB/rCY1P2qxXaxqXPYlywAWwtm
-	zryEDgcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dTSM1ZL3lya31wOa2eA8/XL6JcurxnBBkRFyqfdvl2E=; b=mhK6GLzJK/160fu0rV45fa6ymj
+	gi72vJK9is8hUl5ccTquXbeq4S9hkhUTdIV1k7gWPvsHaHNxJzI6q+TuFHnw4wj50E0a0/uGcKn+7
+	ZWvwWNko8ViOYdaVVhOq2bZovpQn8n/Mzz1vmAoC4a7hNdKOqj1Nn0YIJZ7/TbswlerhZ0ld7Jh/J
+	tFl/wXGT8unqcv53XtVzNGPPsVOjIrYuQS+PjyYEU02/zfTvRD0MDFSKvUxVbIGCAWYO1CGPXNPmH
+	WI+KtPUApwLQTlLnMF8GF36G73pLLTYHiMmB9naeq+dqnqxST7fOlacNLvxkHWZjb0FiMFGlysH92
+	QhRi8ihw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYtH-00000006rTK-2VOq;
-	Mon, 09 Dec 2024 08:13:15 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tKYuI-00000006rd8-1rtZ;
+	Mon, 09 Dec 2024 08:14:18 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYqK-00000006qng-46oU
+	id 1tKYrj-00000006r6P-1ItT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 08:10:14 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434e5e71a08so71175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 00:10:12 -0800 (PST)
+	Mon, 09 Dec 2024 08:11:40 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-434b3e32e9dso45192595e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 00:11:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733731811; x=1734336611; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJbTrtvGneL0K+ke9Gwc/0whnIda/bBfVk+UfsZChhU=;
-        b=D8oHd9O3ElqTKuIImTeTIOtElZ5yoVQPXGi5rKWaUSZ2FfxYxllN5j3ympLKIVvfay
-         iVksMOPbdXvHguyxUBbb1lNKaXJZeN2TRe5BT1Ruia14bquRfGzGXyhX6sPEwfzmHJRn
-         YqX2HYKAXrG4k6uhsNLi2F6Rx/t3UpeDM5sckuzprD1Z/sjufpMNL6PkWQozVxcEYvkZ
-         29iRzBCS3Rq/hUrryOioOp9It2Q3BmR1QhRWLAy8o0CiQVM/W0m0vYegXc72b6TfOtiE
-         hS+hoOoX2KXxCy18qQBoZ5kSEbKrKvBLScJY7nm4A8TCeK1wcuzsolKUFGroiEUJqARx
-         Ek7w==
+        d=linaro.org; s=google; t=1733731898; x=1734336698; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dTSM1ZL3lya31wOa2eA8/XL6JcurxnBBkRFyqfdvl2E=;
+        b=CiKf2BPypLD+shmEbCPGmprH87r/FifffAcsO89lFbnkJ/Qxhb/SCViN5IPf9/gxQC
+         gJsm1n+vT5TJk7J/9+SdlTcBfgHPu++/iuMWV8NI1bmlXyGo5kw9quhjmOl6ymqEKpuT
+         r0L0L/CSpVyH1XN8wWRW5JXhY+CvlPH/0xZyYcjgNOwaj9w2/0KeFwEV8YbGOtDP66Do
+         VGFOUyhC4rbZlhrlx6K0kiJ7tf4Jihk8dS8tuZJ8JZ3N3UbbtZZ5z1mK7LcA0d3M/Kje
+         V/F7EgKcrqMkI+TtpCCZbTsIjWE2zWACEc5HTBoFdhcO59OD6rea1WwU3lO9bS0bwAEP
+         o1Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733731811; x=1734336611;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TJbTrtvGneL0K+ke9Gwc/0whnIda/bBfVk+UfsZChhU=;
-        b=wsZLT+PZMXnhRF9u/cfowPZ52ivosbUnNYEYtj6XS9hYD2Czr0pzbNDJKIF1s195d8
-         2lYLAG+5pj6Hli/tpotf5N9txQstYIF/wKN/gsWf8cp8WVLdVWK/nxQeM9EXn5l6dZgo
-         nUk25CtlMqZB/0Pp9mnd3IEG52fyzlPgr5z9ZaCRDtfktS9maCEMV5Z8MJ0ZTUDASnDq
-         zP371zlp1K/b6CjS3FG/pkFG8zcCA/IN2Zd9tXEjySLYQGoq+vqbIJvjaRp+UujAE6IF
-         xVw1Pju8RyCswHRPTas4iLnMKXZdLW19oPilIfVSQS0T/oX1O2RvJ7HMS2ur+qG/wkpR
-         Di2w==
-X-Forwarded-Encrypted: i=1; AJvYcCUImCA1PhXKCpCb+gP44oHsrzRQX8kgb80X6TiNCVbPHoMJZ1ugQKdOjRuAMb6FTNI3hp9Wjbvcz0XGsIoGNG55@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAttVKCYACyh3VcfN4Ffa/7+MIJD55kJVLfDHy2zs062OACq5/
-	AC9xSGNN4InJt6giAIE5Gf1Wby1KuASw4vILpshdNE2trQF5kUezcMsDVaOO8LIJmBTe28slWTr
-	z3drMJjFV29MGxYxzaDZ7g8VwmcaTJ8gTIasq
-X-Gm-Gg: ASbGncsiX0wWhpTlOv/fUsVhkUqyQZtA5HGanuFxUm0r0WmTBa7Qaenu374FwmqS4Xt
-	Fzxodl5A/7px4xUyoXlHMA9mYyg6MTQ==
-X-Google-Smtp-Source: AGHT+IHzonQzcQEPPJQ19YlDfCKStU1KuBNC12yGt6wg237N05KxGZu/6cvhmSjtaskyGSZGiX3jh152NoyInvIXc1I=
-X-Received: by 2002:a05:600c:6c4e:b0:434:9fac:3408 with SMTP id
- 5b1f17b1804b1-434e8347d19mr2392935e9.2.1733731811183; Mon, 09 Dec 2024
- 00:10:11 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733731898; x=1734336698;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dTSM1ZL3lya31wOa2eA8/XL6JcurxnBBkRFyqfdvl2E=;
+        b=ZKmJk+SPmJNIfHxklB3xHwzKE06XNsN/vKbyv+L8jFCW6NyHqROQJgQr+n1niMscFz
+         LR59WEAa3A+qBQkNGeGsR+vvEgmXc+WRGtd6hWEntEUIdxQk9SI6jZ49iNeUsDm8DT0b
+         4osSHF0RJb1V2TYcjpfrISRdfX/IE9J8sSmJqbQJ747DvZ5Uqb1jPtk+o7gTSuJW/jGp
+         v+RK0GfZ3UADPeal+DfiS9K9L42puxoOasRl0YpL5hIOu9xAPlHs9Ude7xnqUHmpFMJ0
+         dPcU3lHAHUHjiBS2RhGKyIZiKYoQlLDh2FFnUBtqmZKBuizjSmkpJGEXMVjD/rfqyVcv
+         izmw==
+X-Forwarded-Encrypted: i=1; AJvYcCW40VvuAL2WZDuBWD9uRBMbYHbkYOASYWlS3G7HGXPezfqLDrlwsnErnFoClpgiSjKWKNBYdQ5C7j1DTyMXaoL1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSYw6aIvhDEvO1zLNALQYhpW7oTpYW3QRlFnN78OL8zRi+INtY
+	R/2+XyJv/TBGdSI6gKzOrfLhouCqXplyjUEWAlISpMMr5ksqhN/eIRAcjf7VaUw=
+X-Gm-Gg: ASbGnctPS9mPK1aiT5BgW8GNgAL4JWR6yAAMzt58cu0i/uJPc6C1XA0he7GlLMD3v9y
+	+yBC2DSBiq86Utcr/q5i385o4HvX7onSdHzm1ZufIphpZeBKCvUXT4BFq+2qzHtrjMpPCn2u7Dg
+	g/ec2z7huEf5jHqGWfzuCrbw63+LICRiK4ea4vizrCZ0FFIFchl6wxQdINprNEWriTcI17x4MI/
+	j/xbkyhmu1oLT/uXKiJeCxjI7R4j2u7uScfJNa7PecZASIG7GMXQS/4Xg==
+X-Google-Smtp-Source: AGHT+IFX24cUkHhTSqFHYkRi7Ptj8ZcdXz5CIVRSOflj14yH1xBA/yL8IBUKGCaXaPHX5jvTE/xqpg==
+X-Received: by 2002:a05:600c:450d:b0:42c:b905:2bf9 with SMTP id 5b1f17b1804b1-434ddeb8ef7mr104821245e9.16.1733731897663;
+        Mon, 09 Dec 2024 00:11:37 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.27])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434da113508sm148897065e9.35.2024.12.09.00.11.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Dec 2024 00:11:37 -0800 (PST)
+Message-ID: <9886429b-1bf3-4dc3-b0d4-294a98e44ff2@linaro.org>
+Date: Mon, 9 Dec 2024 08:11:35 +0000
 MIME-Version: 1.0
-References: <20241202154742.3611749-1-tabba@google.com> <20241202154742.3611749-6-tabba@google.com>
- <Z1MwuSh6jc94cem0@google.com>
-In-Reply-To: <Z1MwuSh6jc94cem0@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 9 Dec 2024 08:09:34 +0000
-Message-ID: <CA+EHjTwSFW5hMFWhkOMBgO1QFq1t0LaGBns_-MnDZkzU6qdfXQ@mail.gmail.com>
-Subject: Re: [PATCH v4 05/14] KVM: arm64: Initialize feature id registers for
- protected VMs
-To: Quentin Perret <qperret@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
-	kristina.martsenko@arm.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: mailbox: add bindings for
+ samsung,exynos
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
+ kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org
+References: <20241205174137.190545-1-tudor.ambarus@linaro.org>
+ <20241205174137.190545-2-tudor.ambarus@linaro.org>
+ <2lkowhldq5i4otniijfw7cb3jm6ttatwji3npw5w7c5fyevnn5@ynojupmdyqy4>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <2lkowhldq5i4otniijfw7cb3jm6ttatwji3npw5w7c5fyevnn5@ynojupmdyqy4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_001013_018775_71CA70F5 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20241209_001139_446598_A48921CD 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +104,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Dec 2024 at 17:13, Quentin Perret <qperret@google.com> wrote:
->
-> On Monday 02 Dec 2024 at 15:47:32 (+0000), Fuad Tabba wrote:
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > index 59fb2f056177..1261da6a2861 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-> > @@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
-> >       return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
-> >  }
-> >
-> > -/* Read a sanitized cpufeature ID register by its encoding */
-> > -u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> > +static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> >  {
-> >       switch (id) {
-> >       case SYS_ID_AA64PFR0_EL1:
-> > @@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> >       }
-> >  }
-> >
-> > +/* Read a sanitized cpufeature ID register by its encoding */
-> > +u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
-> > +{
-> > +     return pvm_calc_id_reg(vcpu, id);
-> > +}
->
-> That wrapper doesn't look particularly useful, perhaps we could drop it?
+Thanks for the review, Krzysztof!
 
-It does get dropped in the next patch.
+On 12/9/24 7:52 AM, Krzysztof Kozlowski wrote:
+> On Thu, Dec 05, 2024 at 05:41:35PM +0000, Tudor Ambarus wrote:
+>> Add bindings for the Samsung Exynos Mailbox Controller.
+>>
+>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>> ---
+>>  .../bindings/mailbox/samsung,exynos.yaml      | 70 +++++++++++++++++++
+> 
+> Filename based on compatible, so:
+> google,gs101-acpm-mbox
+> 
+> but then entire binding seems for different device, so you most likely
+> miss here actual Exynos devices.
+> 
 
-Cheers,
-/fuad
+I need some guidance here, please. The mailbox controller can pass the
+mailbox messages either via its own data registers, or via SRAM (like it
+is used by the ACPM protocol).
+
+I'm thinking of using the same driver for both cases, and differentiate
+between the two by compatible and `of_device_id.data`. Thus I propose to
+have a "google,gs101-acpm-mbox" compatible for the ACPM SRAM case and in
+the future we may add a "google,gs101-mbox" compatible for the messages
+passed via the controller's data register case.
+
+Given this, I shall use the more generic name for the bindings, thus
+maybe "google,gs101-mbox.yaml"? But then exynos850 has the same
+controller, shouldn't we just use "samsung,exynos.yaml"?
+
+Thanks!
+ta
 
