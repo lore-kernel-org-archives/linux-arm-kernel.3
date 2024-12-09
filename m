@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF48E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D828E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hk2ii8RYr1XXVNys27bsSr8dA87e/0mQrw7DBTk62cs=; b=J4dMq6OiP7hKmrd3RJCaUtQj85
-	7G++KrMbDoqk/wGa3UNyBTbHGuCI83lLrzWijgOO8wor5KBnct7YgiADsiQkv7OwberPyty48nOHK
-	bLiPxJmzn9YjqYiXvukylgx2P/AQzYTQSPB42YDSyQJ4MbqWeYiHGWGcKAe5Vp9fnlAcIQrz7evQQ
-	cSaUMAaSRy06JFnVwfDav1lqfRb+6P1sbg90u9bj/LUk1rPHBqZM8vPMOjjzXfOIMmm7FfrmvE8Te
-	ENP18eC8Tc+EuYxs5Sq0zQvjkDB+Vc1cOH+Ph/dGQj967mO86l5/HYd2/RVUMD1B7qW7Ujins/oeW
-	YSq5Tj0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vm/TBp0Ce4O4LQiS6ttXnOUEbYFw8BKRqFJOuaIMtQc=; b=CKgcrnASDKjODVSYWa8n1e1gKR
+	U5FKm6OkyUcsZnEnVSWGccLoIqPxcvxesuJGr5F1dD3Qls7EiU3RFqbOUTem5VPkdOTQ43Ge+3eH7
+	XWfWeeDieJEmabzX7knkJVuQzCwi08D0rkqRqQY4GPBD9QepxMcNRRwasguscL720wB3V45ZcKfpV
+	tvsSB7BgTLdUMl352W6Lu3q/M2C2Yx/REgvbH3I1qee6VB7it/lD4T0LN+CnTN0vHCsq70Hi+IAsl
+	1//hvpJlFvdob02FIvBBSm2XHaG2laDBJN20eTZZkbkpb7gylHNU4V4bjLfI795S7IIJjQB5BWkXw
+	IOeWWNHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKeff-00000008Bk9-174Q;
-	Mon, 09 Dec 2024 14:23:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKeec-00000008BZ2-1Kdi
+	id 1tKehg-00000008CEH-045k;
+	Mon, 09 Dec 2024 14:25:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKegc-00000008C03-0PTI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 14:22:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 981E4A416D8;
-	Mon,  9 Dec 2024 14:20:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5283AC4CEDE;
-	Mon,  9 Dec 2024 14:22:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733754148;
-	bh=Hk2ii8RYr1XXVNys27bsSr8dA87e/0mQrw7DBTk62cs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eXeX3jTuvqP3UVfF8VrIE1fenbqYGh+4vZIaQfTXVAaF2DS4+GTfxT/MjpgvRFy1T
-	 31HsBqWW4MQCaEWIqspfc3/mwafSogObGqis17G3wpa5B+K+hSDU5C+RwuQsIBe1ID
-	 p8EnfcqMFt29bODXBllIfHVhDz/ogMRtd/aWatY9VAgQUMcrWdaLIqTk0ajSQyndBS
-	 ccttENwb5qyWy7GBNVA/LJ1BrC6yE3zmY0JYisKYme27Us/7fFr0AopW2qaNjU6bCX
-	 MSm3MDZp3By+xouIeS2DMuhvnp0t3SdjsRZ6dTMz6Bgr4bglgTpZ5YaZ/qV8zVYbSs
-	 z73EJ7KuNJ13A==
-Date: Mon, 9 Dec 2024 14:22:24 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>
-Subject: Re: [PATCH 3/4] arm64/sysreg: Convert *_EL12 accessors to Mapping
-Message-ID: <49a35d0c-7ed6-4b87-bbc2-02a35b5a9604@sirena.org.uk>
-References: <20241207190740.2607673-1-maz@kernel.org>
- <20241207190740.2607673-4-maz@kernel.org>
+	Mon, 09 Dec 2024 14:24:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69FD91650;
+	Mon,  9 Dec 2024 06:24:59 -0800 (PST)
+Received: from T9219K2H65.arm.com (unknown [10.119.39.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0FBC3F720;
+	Mon,  9 Dec 2024 06:24:30 -0800 (PST)
+From: Chase Conklin <chase.conklin@arm.com>
+To: maz@kernel.org
+Cc: andersson@kernel.org,
+	christoffer.dall@arm.com,
+	joey.gouly@arm.com,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH 00/11] KVM: arm64: Add NV timer support
+Date: Mon,  9 Dec 2024 08:24:29 -0600
+Message-Id: <20241209142429.882-1-chase.conklin@arm.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
+References: <20241202172134.384923-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="B9oMMmb8MLjHL9v5"
-Content-Disposition: inline
-In-Reply-To: <20241207190740.2607673-4-maz@kernel.org>
-X-Cookie: Lensmen eat Jedi for breakfast.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_062230_422120_F799338F 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_062434_175306_426ACEB4 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +69,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc,
 
---B9oMMmb8MLjHL9v5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, 2 Dec 2024 17:21:23 +0000, Marc Zyngier <maz@kernel.org> wrote: 
+> Here's another batch of NV-related patches, this time bringing in most
+> of the timer support for EL2 as well as nested guests.
+> 
+> The code is pretty convoluted for a bunch of reasons:
+> 
+> - FEAT_NV2 breaks the timer semantics by redirecting HW controls to
+>   memory, meaning that a guest could setup a timer and never see it
+>   firing until the next exit
+> 
+> - We go try hard to reflect the timer state in memory, but that's not
+>   great.
+> 
+> - With FEAT_ECV, we can finally correctly emulate the virtual timer,
+>   but this emulation is pretty costly
+> 
+> - As a way to make things suck less, we handle timer reads as early as
+>   possible, and only defer writes to the normal trap handling
+> 
+> - Finally, some implementations are badly broken, and require some
+>   hand-holding, irrespective of NV support. So we try and reuse the NV
+>   infrastructure to make them usable. This could be further optimised,
+>   but I'm running out of patience for this sort of HW.
+> 
+> What this is not implementing is support for CNTPOFF_EL2. It appears
+> that the architecture doesn't let you correctly emulate it, so I guess
+> this will be trap/emulate for the foreseeable future.
+> 
+> This series is on top of v6.13-rc1, and has been tested on my usual M2
+> setup, but also on a Snapdragon X1 Elite devkit. I would like to thank
+> Qualcomm for the free hardware with no strings (nor support) attached!
+> 
+> If you are feeling brave, you can run the whole thing from [1].
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/nv-next
+>
 
-On Sat, Dec 07, 2024 at 07:07:39PM +0000, Marc Zyngier wrote:
-> Perform a bulk convert of the remaining EL12 accessors to use the
-> Mapping qualifier, which meakes things a bit clearer.
+I was feeling brave, and I think I see an issue in the cpufeature change
+in the kvm-arm64/nv-e2h-select branch that's a part of
+kvm-arm64/nv-next. In d75a4820a897 ("arm64: cpufeature: Handle NV_frac as a synonym of NV2"),
+I don't see NV_frac being added to the FTR bits. I believe that means it
+will get sanitized out and consequently not seen by the NV feature
+detection code. Does that commit also need:
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9fa8bd77ae0..f97459e160b 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -480,6 +480,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr3[] = {
 
---B9oMMmb8MLjHL9v5
-Content-Type: application/pgp-signature; name="signature.asc"
+ static const struct arm64_ftr_bits ftr_id_aa64mmfr4[] = {
+        S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_E2H0_SHIFT, 4, 0),
++       S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_NV_frac_SHIFT, 4, 0),
+        ARM64_FTR_END,
+ };
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdW/R8ACgkQJNaLcl1U
-h9BvnQf8CDc+zo4lXTgr4kzGL3vkHBle8d0SVe3490in9rDummjt8l3/8zpiP4cI
-jlfq0PIGYLLy906pSFRHsJyvT7mKVLwlNZb/Bz3y2uX0YD0V99LSVTzoemNLBIjq
-rij5KXLlaOs90RmEIW6fTb5Of+ibaH+9k1L+npmblxSoCTlUV9vtST+VSZD2jCjq
-hOHIRkBTiJatGpRkaLJY1z4tKNC4yHSmonItysGh8YCdiqHsM5uYQT0eBRuIcM6p
-MZsEDC2ng9gr17YLqkgDD+iGO1v+6RcEGkvLezZmFPJXfre0JcT2s1I8ERc1oA6F
-z5yKM/IGxCLpenbZSwljSmapKNSYhA==
-=3jqe
------END PGP SIGNATURE-----
-
---B9oMMmb8MLjHL9v5--
+Thanks,
+Chase
 
