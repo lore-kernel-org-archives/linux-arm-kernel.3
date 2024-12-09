@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D73EE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 20:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C273E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 20:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=haXy6Pn/YyEod3vhtpY5A5WC+w3IxFAK0ooQa7nKgHo=; b=c4UrTbIiMlP1EKNmm+53Vwq2CC
-	P6baIl+B9jZV+fyNGgcicZg1PZQvEKzAsqEBCanU9Xzt80ukLWZoBqhkFT1meJHkV56Z2YBOsa0l+
-	nmX+lAudS7PFhg4OCIFkKEPKNKn6p5q7ehZ9oyo2AFz47CEzZdsyzVub8/ZIBiJWhZxUBWxjscGXJ
-	lWpUxLtWg+e/WRNmhGFQAd+QHFN7AsL5rxKNfh93kF538V9Iba0rgl08w0wjL7Tiyme+h4NO13w3r
-	Kw/9rmokS8095529dDNeD1b4kOj+65qSY/RmZjafRstA4rKnZs/y8QZV35idM3Y33g47rWCoghrRJ
-	Z2+kfWww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R4826thRCnzo9UT2dSVOhBPmXdFNnd0wF4KQbWcTe4g=; b=nJubSHkBXYyzQFCOe98IYpWnLh
+	OAE5Ir7Kpms9CnucSgvDYYZdndbPSHiWDfl6bMt0jr0QVNRuXhlS8xog1tW6C/N/3povc8qXmoFPf
+	ikEFKByhbeviNjHwMPY1biCoPsYQqOrmdktqOjSO9LMSxLIKWC8lF18FN1NQvHEql4l1CJQZJKBh6
+	9QgaKrd9Hh4kIKEvt0IKUbyrn/e+A4AtqqVmd26Alj43hYDOqtJzLRGkgiwkFJwRCO/nEC0iMQheB
+	7mmDXRtBu2rN27DEw33KXGpMIXLX1ZPrHct+dLoWcr9+CjGqy8Dg01diIGoMCzowO9ClGB72zJNDa
+	AAN5XaNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKk3Q-000000098oV-3W7G;
-	Mon, 09 Dec 2024 20:08:28 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKk2E-000000098bc-3qpW;
-	Mon, 09 Dec 2024 20:07:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733774832;
-	bh=XHeeybhj5u2b8BHEtLKC3hKJSOqzRrrU3o97MCDUjaY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nyw7V+wJ6jSPe9lIbRvVSihwC0AUWedhKPy2iBGsL6d971k2Cv/6CqVfA/rn9pXks
-	 GBLlqwLP+A+/gTn2Jlcep+CcN23rMmWU59KIeTpaDotz36jkfIzLUCetGU3u8pbAkH
-	 qEbiY/V9XJzWNyRKgF7flBQzbgxX0IVSycXr8NuBSqy5s4Nu+Ckud/8es/Fo2XZXrj
-	 FdHnxO72b+zm+J0v+pY7g8efUsCJqg2IIL+B56F5EvmlqmviWYfnvXIk+M9ZdJ+sMx
-	 JohnjPIyfrrjjCdyMglpioyR3Cjm4axQZ0pNNoXvTV/A7WkaW7ua0Uo20pFpZfkUDx
-	 XIBVs/9OzxmpQ==
-Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1002])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E0F5A17E3780;
-	Mon,  9 Dec 2024 21:07:09 +0100 (CET)
-Date: Mon, 9 Dec 2024 17:07:07 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Trevor Wu =?utf-8?B?KOWQs+aWh+iJryk=?= <Trevor.Wu@mediatek.com>
-Cc: "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"tiwai@suse.com" <tiwai@suse.com>,
-	"perex@perex.cz" <perex@perex.cz>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kernel@collabora.com" <kernel@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: Enable apll1 clock during reg rw
- to prevent hang
-Message-ID: <108d4187-26af-43f6-8b1e-0e48516524a4@notapiano>
-References: <20241203-mt8188-afe-fix-hang-disabled-apll1-clk-v1-1-07cdd7760834@collabora.com>
- <a10dbdf265194e77a69b6e40afa3df9636b3ab14.camel@mediatek.com>
- <a70a0521-985d-43a4-a1fa-36eb733d5ca9@collabora.com>
- <1d2ee55dde84bcab6f777525042c6789b9f2c1fc.camel@mediatek.com>
+	id 1tKkFt-00000009A6H-1dCP;
+	Mon, 09 Dec 2024 20:21:21 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKkEq-000000099ve-2umV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Dec 2024 20:20:17 +0000
+Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 453EB20CECB3;
+	Mon,  9 Dec 2024 12:20:15 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 453EB20CECB3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1733775615;
+	bh=R4826thRCnzo9UT2dSVOhBPmXdFNnd0wF4KQbWcTe4g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NsRSyzOIBWUwgsiQFGVRbC3/A2MikFgjENASO0p/8m5UcXCTUulPAsxip75CP4qsf
+	 ctzkCttrkZJZRspRzV/NEZllxMRMKtIgn9G1PLU5Yvlf9XL3FuOo7TSWu7X/hCgnoq
+	 ZKGVcXjSI6PhZ6rMAdjd9f15APVQTFTBH0Y/7p8k=
+Message-ID: <6cf69fbd-b6a0-4e88-85a6-749a4e2dbdaa@linux.microsoft.com>
+Date: Mon, 9 Dec 2024 12:20:14 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1d2ee55dde84bcab6f777525042c6789b9f2c1fc.camel@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] hyperv: Move some features to common code
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "arnd@arndb.de" <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
+References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB41573F55DBAAF124CFD92840D4332@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_120715_112477_BD020C66 
-X-CRM114-Status: GOOD (  48.82  )
+X-CRM114-CacheID: sfid-20241209_122016_789738_7DC0A7A2 
+X-CRM114-Status: GOOD (  42.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,180 +88,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 06:57:00AM +0000, Trevor Wu (吳文良) wrote:
-> On Thu, 2024-12-05 at 13:51 +0100, AngeloGioacchino Del Regno wrote:
-> > 
-> > 
-> > Il 04/12/24 13:17, Trevor Wu (吳文良) ha scritto:
-> > > On Tue, 2024-12-03 at 17:07 -0300, Nícolas F. R. A. Prado wrote:
-> > > 
-> > > > 
-> > > > Currently, booting the Genio 700 EVK board with the MT8188 sound
-> > > > platform driver configured as a module (CONFIG_SND_SOC_MT8188=m)
-> > > > results
-> > > > in a system hang right when the HW registers for the audio
-> > > > controller
-> > > > are read:
-> > > > 
-> > > >    mt8188-audio 10b10000.audio-controller: No cache defaults,
-> > > > reading
-> > > > back from HW
-> > > > 
-> > > > The hang doesn't occur with the driver configured as builtin as
-> > > > then
-> > > > the
-> > > > unused clocks are still enabled.
-> > > > 
-> > > > Enable the apll1 clock during register read/write to prevent the
-> > > > hang.
-> > > > 
-> > > > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> > > > ---
-> > > >   sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 4 ++++
-> > > >   1 file changed, 4 insertions(+)
-> > > > 
-> > > > diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > index
-> > > > e69c1bb2cb239596dee50b166c20192d5408be10..fb8cf286df3f02ac076528b
-> > > > 898f
-> > > > d0d7a708ec1ea 100644
-> > > > --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> > > > @@ -587,6 +587,8 @@ int mt8188_afe_enable_reg_rw_clk(struct
-> > > > mtk_base_afe *afe)
-> > > >          mt8188_afe_enable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
-> > > > 
-> > > >          mt8188_afe_enable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_AUD_A1SYS]);
-> > > > 
-> > > > +       mt8188_afe_enable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_APMIXED_APLL1]);
-> > > > 
-> > > > +
-> > > >          return 0;
-> > > >   }
-> > > 
-> > > Hi Nicolas,
-> > > 
-> > > If I understand correctly, APLL1 should be the parent clock of
-> > > AUD_A1SYS_HP and AUD_A1SYS, so it should be enabled automatically
-> > > by
-> > > CCF.
-> > > 
-> > > I'm not sure why you resolved the hang issue after enabling APLL1.
-> > > Could you share more details about the solution?
-> > > 
-> > 
-> > Hmm. Now I see what's happening here...
-> > 
-> > Nicolas, Trevor,
-> > 
-> > Possible parents for top_a1sys_hp are:
-> >   - clk26m
-> >   - apll1_d4
-> > 
-> > ...what's happening here most probably is that after the clock gets
-> > disabled as
-> > unused, it gets parented to clk26m by default as that is parent index
-> > 0... and
-> > something else in AFE needs APLL1 to feed a clock to .. something ..
-> > to allow
-> > register access.
-> > 
-> > Trevor, do you know why is this IP unaccessible when A1SYS is
-> > parented to clk26m?
+On 12/7/2024 6:59 PM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, December 6, 2024 2:22 PM
+>>
+>> There are several bits of Hyper-V-related code that today live in
+>> arch/x86 but are not really specific to x86_64 and will work on arm64
+>> too.
+>>
+>> Some of these will be needed in the upcoming mshv driver code (for
+>> Linux as root partition on Hyper-V).
 > 
-> Hi Angelo,
-> 
-> As far as I know, it should work even though the clock is parented to
-> clk26m.
-> 
-> Unfortunately, I have no idea about why APLL1 enabling can resolve the
-> hang issue. I'm also curious about how Nicolas found the solution to
-> resolve the problem.
-> 
-> From the description, it seems that the problem is related to register
-> r/w hang. If I remembered correctly, when the mtcmos of ADSP_INFRA is
-> ON, register r/w won't cause the cpu to hang. However, ADSP_INFRA has
-> been configured as ALWAYS_ON in the driver. I'm not sure if it doesn't
-> work correctly when the driver is configured as a module. Maybe Nicolas
-> can also check this.
+> Previously, Linux as the root partition on Hyper-V was x86 only, which is
+> why the code is currently under arch/x86. So evidently the mshv driver
+> is being expanded to support both x86 and arm64, correct? Assuming
+> that's the case, I have some thoughts about how the source code should
+> be organized and built. It's probably best to get this right to start with so
+> it doesn't need to be changed again.
 
-Indeed, as suggested by Angelo, adding 
-
-  assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP>;
-  assigned-clock-parents = <&topckgen CLK_TOP_APLL1_D4>;
-
-to the afe node also fixes this issue. 
-
-In mt8188.dtsi, we currently have
-
-  afe: audio-controller@10b10000 {
-  	...
-  	assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP>;
-  	assigned-clock-parents =  <&clk26m>;
-
-So the question is, do other MT8188 platforms need clk26m to be the parent of
-a1sys_hp? Depending on that I can either update the parent on the common
-mt8188.dtsi or on the genio700-evk.dts, which is where I observed the issue. I
-don't have access to other mt8188 platforms. Trevor, do you know?
-
-As for how I identified this issue, I noticed that when booting with the
-platform driver as a module the system would hang, and that passing
-clk_ignore_unused avoided the issue. Then I selectively ignored some unused
-clocks until I narrowed down to ignoring unused only the apll1 clock, meaning
-the apll1 clock needed to be left on during the platform driver probe for the
-system to not hang.
-
-Thanks,
-Nícolas
+Yes, we plan on supporting both architectures (eventually). I completely agree
+that it's better to sort out these issues now rather than later.
 
 > 
-> Thanks,
-> Trevor
+> * Patch 2 of this series moves hv_call_deposit_pages() and
+>    hv_call_create_vp() to common code, but does not move
+>    hv_call_add_logical_proc(). All three are used together, so
+>    I'm wondering why hv_call_add_logical_proc() isn't moved.
 > 
-> > 
-> > That might give Nicolas a definitive hint about how to resolve this
-> > issue.
-> > 
-> > Cheers,
-> > Angelo
-> > 
-> > > Thanks,
-> > > Trevor
-> > > 
-> > > > 
-> > > > @@ -594,6 +596,8 @@ int mt8188_afe_disable_reg_rw_clk(struct
-> > > > mtk_base_afe *afe)
-> > > >   {
-> > > >          struct mt8188_afe_private *afe_priv = afe-
-> > > > >platform_priv;
-> > > > 
-> > > > +       mt8188_afe_disable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_APMIXED_APLL1]);
-> > > > 
-> > > > +
-> > > >          mt8188_afe_disable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_AUD_A1SYS]);
-> > > > 
-> > > >          mt8188_afe_disable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
-> > > > 
-> > > >          mt8188_afe_disable_clk(afe, afe_priv-
-> > > > > clk[MT8188_CLK_AUD_AFE]);
-> > > > 
-> > > > ---
-> > > > base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
-> > > > change-id: 20241203-mt8188-afe-fix-hang-disabled-apll1-clk-
-> > > > b3c11782cbaf
-> > > > 
-> > > > Best regards,
-> > > > --
-> > > > Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> > > > 
-> > > > 
-> > 
-> > 
+
+The only reason is that in our internal tree there's no common or arm64 code
+yet that uses it - there is no reason it can't also become common code!
+
+> * These three functions were originally put in a separate source
+>    code file because of being specific to running in the root partition,
+>    and not needed for generic Linux guest support. I think there's
+>    value in keeping them in a separate file, rather than merging them
+>    into hv_common.c. Maybe just move the entire hv_proc.c file?
+
+Agreed. I think it should be renamed too - this file will eventually
+contain some additional hypercall helper functions, some of which may also be
+shared by the driver code. Something like "hv_call_common.c"?
+
+>    And then later, perhaps move the entire irqdomain.c file as well?
+Yes, may as well move it too.
+
+>    There's also an interesting question of whether to move them into
+>    drivers/hv, or create a new directory virt/hyperv. Hyper-V support
+>    started out 15 years ago structured as a driver, hence "drivers/hv".
+>    But over the time, the support has become significantly more than
+>    just a driver, so "virt/hyperv" might be a better location for
+>    non-driver code that had previously been under arch/x86 but is
+>    now common to all architectures.
+> 
+I'd be fine with using "virt/hyperv", but I thought "virt" was only for
+KVM.
+
+Another option would be to create subdirectories in "drivers/hv" to
+organize the different modules more cleanly (i.e. when the /dev/mshv
+driver code is introduced).
+
+> * Today, the code for running in the root partition is built along
+>    with the rest of the Hyper-V support, and so is present in kernels
+>    built for normal Linux guests on Hyper-V. I haven't thought about
+>    all the implications, but perhaps there's value in having a CONFIG
+>    option to build for the root partition, so that code can be dropped
+>    from normal kernels. There's a significant amount of new code still
+>    to come for mshv that could be excluded from normal guests in this
+>    way. Also, the tests of the hv_root_partition variable could be
+>    changed to a function the compiler detects is always "false" in a
+>    kernel built without the CONFIG option, in which case it can drop
+>    the code for where hv_root_partition is "true".
+> 
+Using hv_root_partition is a good way to do it, since it won't require
+many #ifdefs or moving the existing code around too much.
+
+I can certainly give it a try, and create a separate patch series
+introducing the option. I suppose "CONFIG_HYPERV_ROOT" makes sense as a
+name?
+
+> * The code currently in hv_proc.c is built for x86 only, and validly
+>    assumes the page size is 4K. But when the code moves to be
+>    common across architectures, that assumption is no longer
+>    valid in the general case. Perhaps the intent is that kernels for
+>    the root partition should always be built with page size 4K on
+>    arm64, but nothing enforces that intent. Personally, I think the code
+>    should be made to work with page sizes other than 4K so as to not
+>    leave technical debt. But I realize you may have other priorities. If
+>    there were a CONFIG option for building for the root partition,
+>    that option could be setup to enforce the 4K page size on arm64.
+> 
+That makes sense. I suppose this can be done by selecting PAGE_SIZE_4KB
+under HYPERV in drivers/hv/Kconfig?
+
+I'm not how easy it will be to make the code work with different page
+sizes, since we use alloc_page() and similar in a few places, assuming 4k.
+
+Thanks
+Nuno
+
+> Anyway, thinking through these decisions up front could avoid
+> the need for additional moves later on.
+> 
+> Michael
+> 
+>> So this is a good time to move
+>> them to hv_common.c.
+>>
+>> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
+>>
+>> Nuno Das Neves (2):
+>>   hyperv: Move hv_current_partition_id to arch-generic code
+>>   hyperv: Move create_vp and deposit_pages hvcalls to hv_common.c
+>>
+>>  arch/arm64/hyperv/mshyperv.c    |   3 +
+>>  arch/x86/hyperv/hv_init.c       |  25 +----
+>>  arch/x86/hyperv/hv_proc.c       | 144 ---------------------------
+>>  arch/x86/include/asm/mshyperv.h |   4 -
+>>  drivers/hv/hv_common.c          | 168 ++++++++++++++++++++++++++++++++
+>>  include/asm-generic/mshyperv.h  |   4 +
+>>  6 files changed, 176 insertions(+), 172 deletions(-)
+>>
+>> --
+>> 2.34.1
+
 
