@@ -4,182 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAF7E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A3DE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gKZ6DyLGscSAuAthfhVQuNWggzDufR5tnqxVrg3vmU8=; b=bN0cUkTJ++3Ezvf7bRRtcnH9qY
-	Nz8/tUF82bf/AqBn9MqyFlv2lCxMBpCl6CGW8silkaQM+CdZrXwDJJfLkZm9sVRtiw9wg2SG49SAf
-	3XL6shcDhFkAgXU0OtsTARhvRkb8OOfAEfpMNHbvzsMe6/mKzT2FaoqcMfwrt/WZddjES6qw0zmc3
-	3Kg8hLRBdOKRGplIqSIOL/ZSEMSLOEX0cc5QcNH5Nn01p59qeEiC4eo+Ohjm1AsQmaUKBFRJhul1Z
-	qxfshQNmK3wAIX1w+iEbtKmsx2z0Wc46PSWCryYOS9DvpaCvnC+2xhivF3YGyGGD/cXxJlZpnz40c
-	YuNh7CoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fZp+CFP7K7kOAlodAUCSCzM6XqjZQS3FtVdgKB9HjIU=; b=1l2VOzVmpNoYbJlPO+I2jY7Lai
+	wD6c0yqnqkCg4jTaD+iWROgoBgWEoONRvfVfOTdp+jCMu+tYTPivcPLWeEEn23G9IYbZiFIsVj50F
+	msAXSEefOoV294xaiPukF0cYWRXbhuF8tbPyXjfXXQ2Xoe4UIgICX0nY7G863898lCWegW61qDCcu
+	jTShtAhym1iOi1Hmkrpi7dCDv6QNjwJ2VefdyIXog+zpXQhjFKLrsDvsxl8MXd8i0r4rzXHzik2IF
+	aBl1fmJvTc22feAi4SSijP5FMg/Y2leHBvX7oRh+p6ejsQk5NfvUZQtkeZ+IC0iiwhLA1DeC33Jem
+	BxoU9Cyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaur-00000007GpM-41Sb;
-	Mon, 09 Dec 2024 10:23:01 +0000
-Received: from mail-am0eur02on20604.outbound.protection.outlook.com ([2a01:111:f403:2606::604] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tKawR-00000007H1x-10iC;
+	Mon, 09 Dec 2024 10:24:39 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaZ7-00000007C2P-2Ovr
+	id 1tKagM-00000007DVm-0MMu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 10:00:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YUbou6e+sK+S2Yj2BgQe5wbPxIGCuI8n4jokB0CW4uxJspO810SKC3nNvIEX4Zx6bntq6Zuj27KeMr7G4JH1HUy9regRxdP/ECdl1dGltKn5kUEBe3EUlxYudXHXcP/mNX4ZNS1dLNfGwjduIEli3W+aLXK/Hcf9RDoWHZ6RjApXKlmhA/ClzcIP3fkcFlY2+7CFpTDcQm4jcahJq87gsEkeaF6G7MuCJevVzC3m6tdHYQrFtEYfcUlajmQZCRiowYv8taGSZFv2kppt9gPEWt6aZpgi6xgvMHdw1B8ZkRzQd3hiqUfTcqJedsIdFoVdKjAYiqdjdLIL11gfyyDDdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gKZ6DyLGscSAuAthfhVQuNWggzDufR5tnqxVrg3vmU8=;
- b=NhMmy46po16F1eGYOvb3O6i5QDwLjVcf0RiVrvuDx0avPiA0gWjczh8F/+5uHK1k/mPTZHLgFQEL6OWoluBAyNwhAzQ73TQJwAUvijst79DP51YiJ0YzUK9BysxyrZhktDht78IEzs137I4WsSpCkISRYa16F3wcIOEXhfR7hElIGlUZgWuBZe7+RbTEoWC0kL5dRNAhCRrDqvzcOX7b0EOjcIRc74olzd87DyOHS++og61HpuCeYHhQam+e+28fy8WdOefjB6zpWvGRRw5AcEHZxhL0MMMIncotKt19Y9/mZHKCBnukoUztHyizt5w0h7Kvi5y/rKoRZdNa4DwgOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=prevas.dk; dmarc=pass action=none header.from=prevas.dk;
- dkim=pass header.d=prevas.dk; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prevas.dk;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gKZ6DyLGscSAuAthfhVQuNWggzDufR5tnqxVrg3vmU8=;
- b=JmeIoc+NiYCpj9lzPr7YzocWoOxlF8dVKSPacSd+t9z54gFX5bcdX+m1hyYGQ9v5nosNiZKa/jS91CCNNVt9kwA+SUpcZnbm7uVWWdteDeyAYHYcpO9+VgXMpBeiPMCvu7p1mbgLjv0IO14+eO8VrXN+2cSUmtTeDTHv4Vm5TwI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=prevas.dk;
-Received: from DB7PR10MB2475.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:41::17)
- by GVXPR10MB8863.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1de::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.12; Mon, 9 Dec
- 2024 09:59:48 +0000
-Received: from DB7PR10MB2475.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::7e2c:5309:f792:ded4]) by DB7PR10MB2475.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::7e2c:5309:f792:ded4%5]) with mapi id 15.20.8251.011; Mon, 9 Dec 2024
- 09:59:47 +0000
-From: Rasmus Villemoes <ravi@prevas.dk>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Vincent Mailhol <vincent.mailhol@gmail.com>,  David Laight
- <David.Laight@aculab.com>,  "w@1wt.eu" <w@1wt.eu>,  Luc Van Oostenryck
- <luc.vanoostenryck@gmail.com>,  Nathan Chancellor <nathan@kernel.org>,
-  Nick Desaulniers <ndesaulniers@google.com>,  Bill Wendling
- <morbo@google.com>,  Justin Stitt <justinstitt@google.com>,  Yury Norov
- <yury.norov@gmail.com>,  Kees Cook <kees@kernel.org>,  "Gustavo A. R.
- Silva" <gustavoars@kernel.org>,  Jani Nikula
- <jani.nikula@linux.intel.com>,  Joonas Lahtinen
- <joonas.lahtinen@linux.intel.com>,  Rodrigo Vivi <rodrigo.vivi@intel.com>,
-  Tvrtko Ursulin <tursulin@ursulin.net>,  David Airlie <airlied@gmail.com>,
-  Simona Vetter <simona@ffwll.ch>,  Suzuki K Poulose
- <suzuki.poulose@arm.com>,  Mike Leach <mike.leach@linaro.org>,  James
- Clark <james.clark@linaro.org>,  Alexander Shishkin
- <alexander.shishkin@linux.intel.com>,  Rikard Falkeborn
- <rikard.falkeborn@gmail.com>,  "linux-sparse@vger.kernel.org"
- <linux-sparse@vger.kernel.org>,  "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>,  "llvm@lists.linux.dev"
- <llvm@lists.linux.dev>,  "linux-hardening@vger.kernel.org"
- <linux-hardening@vger.kernel.org>,  "intel-gfx@lists.freedesktop.org"
- <intel-gfx@lists.freedesktop.org>,  "dri-devel@lists.freedesktop.org"
- <dri-devel@lists.freedesktop.org>,  "coresight@lists.linaro.org"
- <coresight@lists.linaro.org>,  "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,  "uecker@tugraz.at"
- <uecker@tugraz.at>
-Subject: Re: [PATCH 02/10] compiler.h: add is_const() as a replacement of
- __is_constexpr()
-In-Reply-To: <CAHk-=wjpN4GWtnsWQ8XJvf=gBQ3UvBk512xK1S35=nGXA6yTiw@mail.gmail.com>
-	(Linus Torvalds's message of "Sat, 7 Dec 2024 10:19:34 -0800")
-References: <20241203-is_constexpr-refactor-v1-0-4e4cbaecc216@wanadoo.fr>
-	<20241203-is_constexpr-refactor-v1-2-4e4cbaecc216@wanadoo.fr>
-	<1d807c7471b9434aa8807e6e86c964ec@AcuMS.aculab.com>
-	<CAMZ6RqLJLP+4d8f5gLfBdFeDVgqy23O+Eo8HRgKCthqBjSHaaw@mail.gmail.com>
-	<9ef03cebb4dd406885d8fdf79aaef043@AcuMS.aculab.com>
-	<CAHk-=wjmeU6ahyuwAymqkSpxX-gCNa3Qc70UXjgnxNiC8eiyOw@mail.gmail.com>
-	<CAMZ6Rq+SzTA25XcMZnMnOJcrrq1VZpeT1xceinarqbXgDDo8VA@mail.gmail.com>
-	<CAHk-=wiP8111QZZJNbcDNsYQ_JC-xvwRKr0qV9UdKn3HKK+-4Q@mail.gmail.com>
-	<d23fe8a5dbe84bfeb18097fdef7aa4c4@AcuMS.aculab.com>
-	<CAHk-=win8afdcergvJ6f2=rRrff8giGUW62qmYs9Ae6aw=wcnA@mail.gmail.com>
-	<0f5c07b827c3468c8fa3928a93a98bfa@AcuMS.aculab.com>
-	<e806dd51b1ac4e289131297fbf30fc37@AcuMS.aculab.com>
-	<CAMZ6RqLOR3aCRW_js2agV+VFiHdazb4S2+NdT5G4=WbDKNB8bA@mail.gmail.com>
-	<b1ff4a65594a4d39b2e9b8b44770214e@AcuMS.aculab.com>
-	<CAMZ6RqJFReLJTd-O8s02oQNeB0SPQh3C-Mg+Nif5vMB9gFtQww@mail.gmail.com>
-	<CAHk-=wjpN4GWtnsWQ8XJvf=gBQ3UvBk512xK1S35=nGXA6yTiw@mail.gmail.com>
-Date: Mon, 09 Dec 2024 10:59:44 +0100
-Message-ID: <87ldwpgorz.fsf@prevas.dk>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-Content-Type: text/plain
-X-ClientProxiedBy: MM0P280CA0066.SWEP280.PROD.OUTLOOK.COM (2603:10a6:190:8::9)
- To DB7PR10MB2475.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:41::17)
+	Mon, 09 Dec 2024 10:08:03 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-725c0dd1fbcso2705137b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:08:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733738881; x=1734343681; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fZp+CFP7K7kOAlodAUCSCzM6XqjZQS3FtVdgKB9HjIU=;
+        b=LS2eOD3MzwvI1iSG547UVCmIVDWEX/9zILM/88cgTC2Y7stKmc8m8XNhZ81D7NdGM3
+         apZFF90qJs76Efg9l6m/+WiIang41NAOWcuWgT9VdW+u23KVbwUG7W1QJBfD/5fTM2BA
+         7b2T/DVNIVOLnPbJ7ZZmCyywRTLB5x89egA943gvBnpLtJTPUCEm3CDCX1yWy+Yvnqw5
+         44bbOq5SWO/Huo9wAqkQBnHolrIYD3az1JVawqP4fSGTikXA2xBSZCE/olZeI5RuBv9M
+         wiAjij+0G/nrh6kUGBOGmdRLq0rBJNYXmWJ8mA9hq+rqVBqd8ijc31GUWRjRKGsJ2JZ6
+         9TKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733738881; x=1734343681;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fZp+CFP7K7kOAlodAUCSCzM6XqjZQS3FtVdgKB9HjIU=;
+        b=Mce75fXeS2bGPwqtoUEMTlS/DI7s6/HuUAzgNZQBJrMv8MU0PRtybB3wX3j8mbJzOQ
+         QJSx9/rwnJjvwBYq78K1TWpngLwRnj27EbMpmzr1gWzhxMi97iWDi7gTVkfCMSvBAB0y
+         63tudvZOqWKtwDwOPxgw7CokI9ApNLKJZGcBgf982Se5PxghiwfDFTKYXN8qNyKvoSSW
+         LrsBZlSUunUM336lV5eyzMzC05Yvoq1Fe+Hc/mHB6TER4Db5FqrWzkB6CXTbL4OtzmzX
+         TvsGPcxirWT4bJOoCTqdT3ozJIwZ5XSt77myPT0zXxbgpa2DDwboCKEgWnWBlO0NpW5X
+         RF+w==
+X-Forwarded-Encrypted: i=1; AJvYcCUudou8SNkWgGQ/Y0ppaAGJQf5kqLBLE+RerMDPjbq07q8gX2xFV+hL9PYc+VZB6/ALvumTzoZ6Ard5np2psDGS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfzSiYvXaYr9HLRhih/y7tTywYHuw46+3C2FtIZuFja2dC2DCP
+	4xqSRRFK8ThHM5AObVsRGCpYowHZE8HvBx7LNvgiZs4tW03hjZO/
+X-Gm-Gg: ASbGncu8BWXqgeeq/Fa53x2LNfgtqRX1NECuWi5z5lXYiPDp1sq98bcEivEYTzJ3hc9
+	4BslKv6nV2jmGO++NQVijyoUFSQ6Rve/FFCNndqlr1t2FZvHaOMSuimstUAeMcVXz9IrsF8Q/PU
+	fhxz0n24cQj5p4Jey6F9vJA9h/KfCZcFFouBWXsVyxzaLsAxvBsCN67/mKSzmEGz4IJkh26qGTQ
+	nMWJ5+h3DvV1UHembTN18FX30xOuIH4VHY6liOvFDTMPqNchPx9eBqLR/nkzwWAL9TG
+X-Google-Smtp-Source: AGHT+IE2AAunC8wmSSoVHJwvOzFoZYPvX4c5A5ejLO9bR6TnjihE9dezvHIlPn7G9UQ6/5A3kkQW9g==
+X-Received: by 2002:a05:6a00:a8c:b0:725:24c2:b794 with SMTP id d2e1a72fcca58-725b8188090mr18378334b3a.23.1733738881124;
+        Mon, 09 Dec 2024 02:08:01 -0800 (PST)
+Received: from [192.168.0.115] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725d9b98eb2sm3567122b3a.148.2024.12.09.02.07.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Dec 2024 02:08:00 -0800 (PST)
+Message-ID: <551941de-b9a4-4353-8bb2-0bfc3304ef87@gmail.com>
+Date: Mon, 9 Dec 2024 18:07:55 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB7PR10MB2475:EE_|GVXPR10MB8863:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea4590a2-863d-4110-87b1-08dd183836b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4B0ZrxED3OiHZsTFT9kC1l86G7YgQtZuDxnhH3SHqIIkVL03UDIURSkm+NNM?=
- =?us-ascii?Q?U0RgsT8nvJ+7ajYSlvk5GFiaanv5I4p8bicbc95VliPxLEJplS3/2zgw6GJl?=
- =?us-ascii?Q?hHMjSzgP7Jf6LB3gvQMeP05sIotkqeOI2MrqehGnwE0KnQXfjGHBydrIVdHA?=
- =?us-ascii?Q?US2YhKqSPWIR27X9uQHAguBq8/pcClCYuq5KFpgkfWyhGrbmUW+CtV1BWZru?=
- =?us-ascii?Q?lzJjwy/rDpOq4iYFqTHB/VxwH8lZkq10wUyUOo9Q6QZZZhqmDdvS9Q221iSY?=
- =?us-ascii?Q?+kEWg8aq5gUUbd5fCzdVCdxCMrirdrJWM/jCh+/te5cTGRdt+ibTMYh0Cbs4?=
- =?us-ascii?Q?MnlXevhVniSIPjC29PBM846Ue7Y2qdrFeBnpXFC0e8aijzZ28IaPKbVtbRa2?=
- =?us-ascii?Q?g4ijCttNOTqu/NiYt7S9huvQUGWV7dVJx6HUmAGUOBfE65g4/AngFaoCnEny?=
- =?us-ascii?Q?J8J4Aj7oNgWhE9PDZQYeMuI3SnoDpLCfcGit7GB0nCozGkBoMdHbuy6eQqao?=
- =?us-ascii?Q?L9h2LunAfgYFGsYS8mA0sdPyrOhFzMtnv5evz7Bl0Ftt6ie1Gut2fDJKXmWM?=
- =?us-ascii?Q?H0y8P9+3uEhoevDPWQmVWl7nJBjvB29LwQfS/d5qrOhbxeMyOAZQQkRBMHn3?=
- =?us-ascii?Q?D1otU9/ParlT0/SIlycFw4Lq5UYJ5hWJ9Mr5bN5/xak0YffQxUaBp+y9VwDR?=
- =?us-ascii?Q?Atl4h1DJrBPfYVWBLQ2inGW6J2whZzB4qaCqqSnjbzleX+ME9IkA2IWZrbZH?=
- =?us-ascii?Q?RoYshuxL4Ol7ReLOKWLczJRWIayHanuBYJO6MEl1Q4ipAfIfo2/K9KC1lEhD?=
- =?us-ascii?Q?TDfnU9NY6p0atFfoRxY63aRycLw6YvYQxUiaIt+k4+sZDlzaaX+CDUz5H8f0?=
- =?us-ascii?Q?yMg2Z3j58E30X9iWagczOmiDPjqNYoFi5L4YLby7s14PmrT1PBAevHERDJ9k?=
- =?us-ascii?Q?d4nXK9/YgSXUIO1NI+kKcDmcKp7bdOh3DjrkmMuwIrc4rK3zVDTnWiYgCybN?=
- =?us-ascii?Q?HiizSJlUPCvDnRQ21aZbuL2xZ96MuqhmplrlLVTik5+z6pZJpl0ZiiVIQKUh?=
- =?us-ascii?Q?2YtcC/n5HJA//zvx9VDXxMvezhV50sJOHh2dqMVpifCr3wXNgTMHnB1igOVB?=
- =?us-ascii?Q?LqSVI0MEGtMkzoDeeEPHHKNsp9sPogv3wkQdeYLwzdVIZCAkXHEDBUYGlimO?=
- =?us-ascii?Q?b/Yu9KldxrU4R/K5+DXwhvtXCkyUB2As9lW3pX4fzy31lKgKJ53x+9of9BnW?=
- =?us-ascii?Q?A9juIdm/Aifv5TlLSAdlcawpjphaolFNTJOaM/lXBp6EXTszgJc5v/jmR2KT?=
- =?us-ascii?Q?uDlbtTyQ2Q1oIOjmO0JSb3I4Nh3ULzFSyr8CtMsnkxhI7udqiofXwW+E94zk?=
- =?us-ascii?Q?50EuZFlRnHty5I7gwQHe5VeIm9FgBUNC0oLn87HB3vFEsVDbXg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB7PR10MB2475.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IKHc/f15B2xAJZtBJJOOMaNPOtnBNo8MVKYk+1LOo03j7A121MwxPeNtfnIE?=
- =?us-ascii?Q?DGWKjrilryPWn3POYUMa24MiElNyfk+kFiB/5mN2lSuBCC1gYbPlHPXsmPAw?=
- =?us-ascii?Q?6b2qjD4DU0djhWygfIxMFJazrjGnS5Qrw5ijTx3XDVT0WEhRMaRsw9myj7mi?=
- =?us-ascii?Q?EZY/fRBHigL4WXvwOmyTdzAMs2EUTezhFdqmCPvHxe8UVD4khLrxIFiyeUJ1?=
- =?us-ascii?Q?5KSz9thjGsA/Zbw6DciOeGCSdFG5cJdIBoeMo/q8j7xLeybSGjQa778BtO9i?=
- =?us-ascii?Q?sO+KkWxyqiE9s1OrJ7evONsyGk06nU9Ual1v4Ite0FRSR+1r2GJMlGyC/eje?=
- =?us-ascii?Q?o2VtByIPoRP+6vyLhA+HIK9sMCDzV6HI/XO6QS+fwTGbgi7dudILKMeuli/x?=
- =?us-ascii?Q?D/8Cm1xKHyOWaNoJIF1yxfVvrwilHa4aF/RGK2XgJ+34TRV+WSxXsvyN55Lm?=
- =?us-ascii?Q?IHdCsFKTC++/p9DG3qLYF9zac0GkzzFBzsGOiWuExVvjpaXrQyS1GIacst4W?=
- =?us-ascii?Q?d3NEzNOHNgFI5+dQ8OjjuLaiDfH/KVhoeDSCmnxe4UeLi/44NPvOdsQCohmO?=
- =?us-ascii?Q?nnt4qjNF32jqVWJeWzbHguJPmeCmFUMTEIXnsLHZf3lbfchrebEu57PZQ20Y?=
- =?us-ascii?Q?fATdNtaQzvb9sanLMc+x0F0w+xDoCzUsTVOSeNTkk9EKJYrDCg5w+GJGNy61?=
- =?us-ascii?Q?L1NKlHEE0m7KIKRXAEo9bu8zHKUdyiQNm6gi9cLfGyIk6KaTsTtDfaT4JRK4?=
- =?us-ascii?Q?JU3JpiZY88nm0EHqIBIQw5UNzp46RbDo0J5gVrSmPSIXv7Tl6KHtQfAq2xA0?=
- =?us-ascii?Q?4GSQ/tJtx6gtXZxuy5Jj+5OK9wQkVQ7qU74Y0mW1MJDQ/Z+IPMrPpD16gog1?=
- =?us-ascii?Q?o6Pi7x2tKL0ejdzSAMUsWheW5DeTY0d5OB+QzRlgVrGuHYpxEcoXCEQEW3Ky?=
- =?us-ascii?Q?T5x3FxLvUvOqPWUcgIR8T9UXkVw3hkKrs9d7i+/2muTWxT403JX6WiXP3DBt?=
- =?us-ascii?Q?+7W68ibymWlNyG12hAlNSUjoikRSFg6qUg1ZtAO/4kNrYT97UVozVNCVMVjj?=
- =?us-ascii?Q?rDXSRdA3IwRisV44val9pB/2LSgYWIM5/nN1EYxbS9RXgF392bRjVp+y7AN8?=
- =?us-ascii?Q?MrXvXyDUUf0TG/p3BrMG+Omy0wA6f1EQX/90wa+7qdoWQ/0S/IoqdUc/u9aM?=
- =?us-ascii?Q?buktPtIjZqxOn0iLO+Z3VGzFhwzHAsot12eEFd2CuMuigc8dVzeLkZS3UKCd?=
- =?us-ascii?Q?DVH1Fjm6IDnh44E6WSAOMaQjHRmewOH3mwV+w6fzCUzCScBU7V3U/teNfTdv?=
- =?us-ascii?Q?rnoP+Ds8bCemevOsDlHHJnP/EvXhqQ6344alJK7Dn3trAxcgueYKfhuH4ZzF?=
- =?us-ascii?Q?1fsY9PZdYboIOhKj39Jk2Q/BqoSUaqOP8hCSPakquraeM52BeHe7iProW/F4?=
- =?us-ascii?Q?SiV+zbgJSffH1hl1ee6B/tj4YT3VFCOafcKWUBTi5//5tmmyGSIa70Tt59lA?=
- =?us-ascii?Q?/c6WFa5G8sj7CL6aohz1MCH6AkmpQ4ghTDTxYe2fTnjl2fFIE/+lxZI7WC+j?=
- =?us-ascii?Q?jTT/DhvY7Kcgafy+Hk3s1HSEjkdF7gv54dO4QVIk2vzDRTt41U8t2QsOpQYL?=
- =?us-ascii?Q?bA=3D=3D?=
-X-OriginatorOrg: prevas.dk
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea4590a2-863d-4110-87b1-08dd183836b6
-X-MS-Exchange-CrossTenant-AuthSource: DB7PR10MB2475.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 09:59:47.8517
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d350cf71-778d-4780-88f5-071a4cb1ed61
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YW4gvq7Lmc552Yrwl1NChpyOiYc0/58yyyNk1GNo7S5rdHRqd+2DnGiDF1w8ptFhsGgzYD2NIrrCgTy/NcsPNsU5Si+L2VunuBCKtSish8w=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8863
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] backlight: dwi_bl: Add Apple DWI backlight driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, y@krzk-bin
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+ Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241207130433.30351-1-towinchenmi@gmail.com>
+ <20241207130433.30351-3-towinchenmi@gmail.com>
+ <bqn4tddl3kgle7zlamgaqlh45pizw6gf5qjwlmcsbkb6fx343l@tf5w63xursi2>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <bqn4tddl3kgle7zlamgaqlh45pizw6gf5qjwlmcsbkb6fx343l@tf5w63xursi2>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_020033_973214_2138F899 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20241209_020802_128181_87BEE9E6 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,91 +107,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 07 2024, Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-> On Sat, 7 Dec 2024 at 04:24, Vincent Mailhol <vincent.mailhol@gmail.com> wrote:
+
+Krzysztof Kozlowski 於 2024/12/9 下午5:22 寫道:
+> On Sat, Dec 07, 2024 at 09:03:15PM +0800, Nick Chan wrote:
+>> Add driver for backlight controllers attached via Apple DWI 2-wire
+>> interface, which is found on some Apple iPhones, iPads and iPod touches
+>> with a LCD display.
 >>
->> > No good - expands everything twice.
+>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>> ---
+>>  drivers/video/backlight/Kconfig  |  12 +++
+>>  drivers/video/backlight/Makefile |   1 +
+>>  drivers/video/backlight/dwi_bl.c | 124 +++++++++++++++++++++++++++++++
+>>  3 files changed, 137 insertions(+)
+>>  create mode 100644 drivers/video/backlight/dwi_bl.c
 >>
->> And? __is_const_zero() does not evaluate its arguments, so no side effect:
->
-> No, the problem is literally the expansion.
->
-> Double expansion of these fundamental helpers gets exponential,
-> because they are used in various nested ways in other fundamental
-> helpers.
->
-> That's why we then spent so much effort on trying to clean up the
-> min/max macros, because a single line of code would expand to
-> literally tens of megabytes of horrific expansions.
->
-> And the problem with these things is that you can't make them inline
-> functions, so they have to be macros, and then you build up other
-> macros using them (like that "clamp()" macro), and it really gets
-> horrendous and affects the build time.
->
-> And yes, it is very sad. Particularly since a compiler would have a
-> really easy time with some nice helper builtins.
->
-> Of course, often the compiler *does* have helper builtins, but we
-> can't use them, because they aren't *quite* the right thing.
+>> diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
+>> index 3614a5d29c71..e64cc3d51ac5 100644
+>> --- a/drivers/video/backlight/Kconfig
+>> +++ b/drivers/video/backlight/Kconfig
+>> @@ -166,6 +166,18 @@ config BACKLIGHT_EP93XX
+>>  	  To compile this driver as a module, choose M here: the module will
+>>  	  be called ep93xx_bl.
+>>  
+>> +config BACKLIGHT_APPLE_DWI
+>> +	tristate "Apple DWI 2-Wire Interface Backlight Driver"
+>> +	depends on ARCH_APPLE || COMPILE_TEST
+>> +	default y
+>> +	help
+>> +          Say Y to enable the backlight driver for backlight controllers
+>> +          attached via the Apple DWI 2-wire interface which is found in some
+>> +          Apple iPhones, iPads and iPod touches.
+> 
+> Mixed/messed indentation. Some spaces?
+Ack. Will be fixed for v4.
 
-One thing I've been thinking about when all this comes up is: What if
-the compilers gave us (and the same for _min):
+> 
+>> +
+>> +	  To compile this driver as a module, choose M here: the module will
+>> +	  be called dwi_bl.
+>> +
+>>  config BACKLIGHT_IPAQ_MICRO
+>>  	tristate "iPAQ microcontroller backlight driver"
+>>  	depends on MFD_IPAQ_MICRO
+>> diff --git a/drivers/video/backlight/Makefile b/drivers/video/backlight/Makefile
+>> index 8fc98f760a8a..0a569d7f0210 100644
+>> --- a/drivers/video/backlight/Makefile
+>> +++ b/drivers/video/backlight/Makefile
+>> @@ -28,6 +28,7 @@ obj-$(CONFIG_BACKLIGHT_BD6107)		+= bd6107.o
+>>  obj-$(CONFIG_BACKLIGHT_CLASS_DEVICE)	+= backlight.o
+>>  obj-$(CONFIG_BACKLIGHT_DA903X)		+= da903x_bl.o
+>>  obj-$(CONFIG_BACKLIGHT_DA9052)		+= da9052_bl.o
+>> +obj-$(CONFIG_BACKLIGHT_APPLE_DWI)	+= dwi_bl.o
+> 
+> Please do not introduce other sorting way - it is sorted by config name.
+> Which will also point you to apple_bl.o and need of explaining the
+> differences, e.g. why this cannot be one driver.
 
-  __builtin_max(T, e1, e2, ...)
-  __builtin_max(e1, e2, ...)
+apple_bl is a driver backlight controllers on a PCI bus on Intel Macs,
+which is
+completely different from the Samsung-derived DWI block this driver
+deals with.
+This will be explained in the commit message for v4.
 
-with T being a type, e1... expressions, the latter being the former with
-T being the result of usual promotion on the types of the expressions,
-and the former having these semantics:
+> 
+> 
+>>  obj-$(CONFIG_BACKLIGHT_EP93XX)		+= ep93xx_bl.o
+>>  obj-$(CONFIG_BACKLIGHT_GPIO)		+= gpio_backlight.o
+>>  obj-$(CONFIG_BACKLIGHT_HP680)		+= hp680_bl.o
+>> diff --git a/drivers/video/backlight/dwi_bl.c b/drivers/video/backlight/dwi_bl.c
+>> new file mode 100644
+>> index 000000000000..d4bfd74b3129
+>> --- /dev/null
+>> +++ b/drivers/video/backlight/dwi_bl.c
+>> @@ -0,0 +1,124 @@
+>> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+>> +/*
+>> + * Driver for backlight controllers attached via Apple DWI 2-wire interface
+>> + *
+>> + * Copyright (c) 2024 Nick Chan <towinchenmi@gmail.com>
+>> + */
+>> +
+>> +#include <linux/module.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/io.h>
+>> +#include <linux/backlight.h>
+>> +
+>> +#define DWI_BL_CTL			0x0
+>> +#define DWI_BL_CTL_SEND1		BIT(0)
+>> +#define DWI_BL_CTL_SEND2		BIT(4)
+>> +#define DWI_BL_CTL_SEND3		BIT(5)
+>> +#define DWI_BL_CTL_LE_DATA		BIT(6)
+>> +/* Only used on Apple A9 and later */
+>> +#define DWI_BL_CTL_SEND4		BIT(12)
+>> +
+>> +#define DWI_BL_CMD			0x4
+>> +#define DWI_BL_CMD_TYPE			GENMASK(31, 28)
+>> +#define DWI_BL_CMD_TYPE_SET_BRIGHTNESS	0xa
+>> +#define DWI_BL_CMD_DATA			GENMASK(10, 0)
+>> +
+>> +#define DWI_BL_CTL_SEND			(DWI_BL_CTL_SEND1 | \
+>> +					 DWI_BL_CTL_SEND2 | \
+>> +					 DWI_BL_CTL_SEND3 | \
+>> +					 DWI_BL_CTL_LE_DATA | \
+>> +					 DWI_BL_CTL_SEND4)
+>> +
+>> +#define DWI_BL_MAX_BRIGHTNESS		2047
+>> +
+>> +struct apple_dwi_bl {
+>> +	void __iomem *base;
+>> +};
+>> +
+>> +static int dwi_bl_update_status(struct backlight_device *bl)
+>> +{
+>> +	struct apple_dwi_bl *dwi_bl = bl_get_data(bl);
+>> +
+>> +	int brightness = backlight_get_brightness(bl);
+>> +
+>> +	u32 cmd = 0;
+>> +
+>> +	cmd |= FIELD_PREP(DWI_BL_CMD_DATA, brightness);
+>> +	cmd |= FIELD_PREP(DWI_BL_CMD_TYPE, DWI_BL_CMD_TYPE_SET_BRIGHTNESS);
+>> +
+>> +	writel(cmd, dwi_bl->base + DWI_BL_CMD);
+>> +	writel(DWI_BL_CTL_SEND, dwi_bl->base + DWI_BL_CTL);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int dwi_bl_get_brightness(struct backlight_device *bl)
+>> +{
+>> +	struct apple_dwi_bl *dwi_bl = bl_get_data(bl);
+>> +
+>> +	u32 cmd = readl(dwi_bl->base + DWI_BL_CMD);
+>> +
+>> +	return FIELD_GET(DWI_BL_CMD_DATA, cmd);
+>> +}
+>> +
+>> +static const struct backlight_ops dwi_bl_ops = {
+>> +	.options = BL_CORE_SUSPENDRESUME,
+>> +	.get_brightness = dwi_bl_get_brightness,
+>> +	.update_status	= dwi_bl_update_status
+>> +};
+>> +
+>> +static int dwi_bl_probe(struct platform_device *dev)
+>> +{
+>> +	struct apple_dwi_bl *dwi_bl;
+>> +	struct backlight_device *bl;
+>> +	struct backlight_properties props;
+>> +	struct resource *res;
+>> +
+>> +	dwi_bl = devm_kzalloc(&dev->dev, sizeof(struct apple_dwi_bl), GFP_KERNEL);
+> 
+> sizeof(*)
+> 
+>> +	if (!dwi_bl)
+>> +		return -ENOMEM;
+>> +
+>> +	res = platform_get_resource(dev, IORESOURCE_MEM, 0);
+>> +	if (!res)
+>> +		return -ENXIO;
+>> +
+>> +	dwi_bl->base = devm_ioremap_resource(&dev->dev, res);
+> 
+> Use helper for these two, devm_platform_get_and_ioremap_resource() or
+> similar.
+Ack. Will be fixed for v4.
 
-(1) If all the expressions are ICE, so is the whole thing.
+> 
+> Best regards,
+> Krzysztof
+> 
 
-(2) It's a compile-time error if the values of the expressions are not
-    guaranteed to fit in T (that also applies in case (1)), but this
-    should not be thrown by the front-end but only after optimizations
-    have had a chance.
-
-(3) Obviously: Every expression is evaluated exactly once and the result
-    is the maximum of those, of type T.
-
-For (2), I'd expect trivial value-range analysis to allow something like
-
-  int x;
-
-  ...
-  if (x < 0)
-    bail;
-  size_t y = max(x, sizeof(foo));
-
-Of course, specifying exactly which optimizations one can rely on having
-been applied is impossible, but it's the same with our current
-BUILD_BUG_ON() - many of them would trigger at -O0.
-
-Then we could just have _one_ simple #define max __builtin_max , which
-would work at file-scope, automatically have max3 etc. (because I'd
-imagine it would not be much harder for the compiler to just provide the
-variadic version if it has code to compute the max of two already), and
-none of the preprocessor issues would apply.
-
-Dear Santa: Pretty please?
-
-Rasmus
-
-Footnotes:
-
-This is of course very kernel-centric. A compiler developer
-doing this would probably have to think about "what if floating point
-types are in the mix". I wouldn't mind if that was just disallowed, but
-I can see how that might be a bit odd. I don't think it's hard to amend
-the rules to that case - rule 2 could probably be used as-is, and (3)
-could say "if any expr are NaN, so is the whole thing" (and if one cares
-which NaN, just the first among the expressions); inf values don't need
-special treatment wrt. min/max.
-
-With my math hat on, I'd want the zero-expressions variant
-__builtin_max(int) to evaluate to INT_MIN ('cause that's the neutral
-element for the binary max of two ints) and similarly for other types,
-but it's probably better to just require at least two expressions.
+Nick Chan
 
