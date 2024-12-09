@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F12BE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B49E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pidFoaRCFLNCXxMi5OStRFsvI+2wukij/plJgYo5QZk=; b=VU0l5xBL04jBQ//13BH8Iici18
-	zA3NY8EJE7Xm6ptXlxvt2CZ/gXz5tCLHbdu8R02/f2rG9J+NlW/i42iGItv5uzXXpP/bgM5cgU6bW
-	4JFeQjg9FVemc5J1UO8rkL8EN4mqjvoINOCCSKnrzwJstV7UuaHA4u8YN+hgxmUgQYHETg1Dcjmr2
-	FLx1Xz1pIgIR9FGV3iZPq6oYlO3SO9gz5UaHNQau0jd0vGxRZ7d5bfMGCv0t4LRYEBZIHUsIQNPMv
-	CVUGShYcCmThHk+VMZzHShnAp8y7fjFzlXPrA5Yu0fybHzzRCMLqjL1v2U0aD+YW/KXvVF9B6eimd
-	WnXKs8jg==;
+	bh=s4sbUPQNC9hAyQ6x4UVwsrJaPNSRNhT2z6caFe+bvU8=; b=zhb9ZhSEDXmqklJGYLRATeXZsX
+	m/y7sYsLaWp78UQVZGPLYViPa82f7VUmvJ7PyFv6pw0NXZUnTcZ7bAyHSnFGKZ/iZi8FQ7alWjyMi
+	m6XicyOLDmVS2eymPZdddHhkLNP3hpcNgjBK1IH3l0B209dpt+iTPO97D/hOTF90kDVqEEaW7DRlV
+	1E6SFi+8DyIrTUe8VhfN1G3Tkz+RNox4eklFXStDEp/d6CqiMouCMxceExfQ98CrMcF5knxnUBFVk
+	csruODvxiOZbqhYHf/u3SenKKXtDuhq51EBbis4mM1tCQykTGJy+3PYGymseHEq8lAGW/l4jDHTg6
+	Aw8pkfog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYpB-00000006qU0-41Mh;
-	Mon, 09 Dec 2024 08:09:01 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tKYqD-00000006qlT-2IP3;
+	Mon, 09 Dec 2024 08:10:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYiY-00000006oi6-2HwG
+	id 1tKYkA-00000006pAy-0Ixw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 08:02:11 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=EhZY/I7GA/HHyqXbJkfc0YlaLFMF5FikenFIcoZatxtR/t4RT/I9pXJJSiXNG528ixo3Xbmq5+gRdAuIowkKGTskbYLEBCNQCvm1RE1e2iDr8oBQAyD6weyhAYkQrSSM4nQdfbvYJKrKyZKasRuwxLJbPtqwuJqrFVQ7xKij+GLIG9ovLB5/tpg5zlV8JKboirUzsmLwyEMXqNZEbtm6iRBWsUwAf5P6oupciGWLn2I34x3lQT+Um+ACWNZjma2MGbb975AMvHuknre+knvd1vu5k3Ubzfz4qSCqmC5HTDgtF8JtjgzwtASeL6pFHZcgdIUOR3wC7Vu036tKqH5dZQ==; s=purelymail2; d=purelymail.com; v=1; bh=dv0IEtlj/sb10b0r+vjTZHiEAwycDAr94Z3JrfrRY0g=; h=Feedback-ID:Received:From:To:Subject:Date;
-Feedback-ID: 68229:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1477585645;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 09 Dec 2024 08:01:16 +0000 (UTC)
-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v7 3/4] arm64: dts: exynos: Add initial support for Samsung Galaxy S20 5G (x1s)
-Date: Mon,  9 Dec 2024 08:00:58 +0000
-Message-ID: <20241209080059.11891-4-umer.uddin@mentallysanemainliners.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241209080059.11891-1-umer.uddin@mentallysanemainliners.org>
-References: <20241209080059.11891-1-umer.uddin@mentallysanemainliners.org>
+	Mon, 09 Dec 2024 08:03:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BDBB1A4013E;
+	Mon,  9 Dec 2024 08:01:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 438B0C4CEE1;
+	Mon,  9 Dec 2024 08:03:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733731429;
+	bh=M1eR8jxcP0+FliXIViYEmIA5DCYCTpnmD97iR8K5UJ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gQ0qT04SiPOItYVGh8E2+jGDWnrCk0aQ9ZdN6XxZvtY11m5i3RHyRywMC/UO9W0fR
+	 CaDmJy9mj7xnkTGDuXsewAkhAYa+HMAmHwCogZ7+4TTmi4ZK9pBaxIvI+i9PKuPwI7
+	 v9JvsdPu8dLZlBEIcMTi08rAGcZtDAT6F1FiaIe5wFiLmf1F+bfinFfEEkfa3rX8Po
+	 0/196ou4YWtL3Yee3BZbi4nP9kemRbFeiXTtGnnj7/AGtKqRtcUw8qUaRH5yYn4W+4
+	 v+dCGpTdRAc5LfHBmtKcUg+WSNRYe0EhSF3d+TSdNInUkKYdT4Z2YS94PJq0lNYLi4
+	 zOYyCYt5W8c8A==
+Date: Mon, 9 Dec 2024 09:03:45 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	alim.akhtar@samsung.com, linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
+	kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org, 
+	javierm@redhat.com, tzimmermann@suse.de, daniel.lezcano@linaro.org, 
+	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+Subject: Re: [PATCH v3 1/3] dt-bindings: firmware: add
+ samsung,exynos-acpm-ipc bindings
+Message-ID: <k2pnpu3ef2rgy6wre2qrearwmetzb4v4meiyqpy7oyg45hohlp@kmnzulhbmdk6>
+References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
+ <20241205175345.201595-2-tudor.ambarus@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241205175345.201595-2-tudor.ambarus@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_000210_659399_7DA2D39A 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20241209_000350_254941_59325720 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +77,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the Samsung Galaxy S20 5G (x1s/SM-G981B)
-phone. It was launched in 2020, and it's based on the Exynos 990 SoC. It
-has only one configuration with 12GB of RAM and 128GB of UFS 3.0 storage.
+On Thu, Dec 05, 2024 at 05:53:43PM +0000, Tudor Ambarus wrote:
+> Add bindings for the samsung exynos ACPM mailbox protocol.
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+>  .../firmware/samsung,exynos-acpm-ipc.yaml     | 64 +++++++++++++++++++
+>  1 file changed, 64 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml b/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
+> new file mode 100644
+> index 000000000000..bfc9b4af9ea1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
 
-This device tree adds support for the following:
 
-- SimpleFB
-- 12GB RAM
-- Buttons
+Filename based on comaptible, so google,gs101-acpm-ipc.yaml
 
-Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
----
- arch/arm64/boot/dts/exynos/Makefile          |  1 +
- arch/arm64/boot/dts/exynos/exynos990-x1s.dts | 28 ++++++++++++++++++++
- 2 files changed, 29 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1s.dts
+> @@ -0,0 +1,64 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright 2024 Linaro Ltd.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/firmware/samsung,exynos-acpm-ipc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Samsung exynos ACPM mailbox protocol
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exyn=
-os/Makefile
-index 948a2c6cb..fe47aafcd 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -10,5 +10,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) +=3D \
- =09exynos8895-dreamlte.dtb=09=09\
- =09exynos990-c1s.dtb=09=09\
- =09exynos990-r8s.dtb               \
-+=09exynos990-x1s.dtb=09=09\
- =09exynosautov9-sadk.dtb=09=09\
- =09exynosautov920-sadk.dtb
-diff --git a/arch/arm64/boot/dts/exynos/exynos990-x1s.dts b/arch/arm64/boot=
-/dts/exynos/exynos990-x1s.dts
-new file mode 100644
-index 000000000..1ae881015
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos990-x1s.dts
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/*
-+ * Samsung Galaxy S20 5G (x1s/SM-G981B) device tree source
-+ *
-+ * Copyright (c) 2024, Umer Uddin <umer.uddin@mentallysanemainliners.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos990-x1s-common.dtsi"
-+
-+/ {
-+=09#address-cells =3D <2>;
-+=09#size-cells =3D <2>;
-+
-+=09model =3D "Samsung Galaxy S20 5G";
-+=09compatible =3D "samsung,x1s", "samsung,exynos990";
-+
-+=09memory@80000000 {
-+=09=09device_type =3D "memory";
-+=09=09reg =3D <0x0 0x80000000 0x0 0x3ab00000>,
-+=09=09      /* Memory hole */
-+=09=09      <0x0 0xc1200000 0x0 0x1ee00000>,
-+=09=09      /* Memory hole */
-+=09=09      <0x0 0xe1900000 0x0 0x1e700000>,
-+=09=09      /* Memory hole */
-+=09=09      <0x8 0x80000000 0x2 0x7e800000>;
-+=09};
-+};
---=20
-2.43.0
+s/exynos/Exynos/
+
+> +
+> +maintainers:
+> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
+> +
+> +description: |
+> +  ACPM (Alive Clock and Power Manager) is a firmware that operates on the
+> +  APM (Active Power Management) module that handles overall power management
+> +  activities. ACPM and masters regard each other as independent hardware
+> +  component and communicate with each other using mailbox messages and
+> +  shared memory.
+> +
+> +  This binding is intended to define the interface the firmware implementing
+> +  ACPM provides for OSPM in the device tree.
+> +
+> +properties:
+> +  $nodename:
+> +    const: acpm_ipc
+
+Drop, no schemas have anything like this.
+
+> +
+> +  compatible:
+> +    const: google,gs101-acpm-ipc
+> +
+> +  mboxes:
+> +    description:
+> +      List of phandle and mailbox channel specifiers.
+
+Drop description.
+
+> +    maxItems: 1
+> +
+> +  shmem:
+> +    description:
+> +      List of phandle pointing to the shared memory (SHM) area. The memory
+> +      contains channels configuration data and the TX/RX ring buffers that
+> +      are used for passing messages to/from the ACPM firmware.
+> +    maxItems: 1
+> +
+> +  initdata-base:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      Base address of the configuration data in the shared memory.
+
+If you really need this, then it should be rather encoded as part of
+shemm phandle (phandle-array with describing items, just like syscon
+phandles are done).
+
+But OTOH, I don't see why this is needed at all so far - compatible
+defines it.
+
+> +
+> +additionalProperties: false
+
+This should be placed after required block.
+
+> +
+> +required:
+> +  - compatible
+> +  - mboxes
+> +  - shmem
+> +  - initdata-base
+> +
+> +examples:
+> +  - |
+> +    firmware {
+
+Drop
+
+> +        acpm_ipc: acpm_ipc {
+
+Drop unused label.
+
+Node name: power-management (based on your binding description)
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+> +            compatible = "google,gs101-acpm-ipc";
+
+Best regards,
+Krzysztof
 
 
