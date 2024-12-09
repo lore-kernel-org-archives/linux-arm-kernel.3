@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C379FE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 04:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 286CBE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 04:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80PLbAhGqCxG+KQ1HTF5zbjF2bV393t4kLhzniWsmGo=; b=aTSPsj3959WFfXpb8p9Qk+rNeN
-	sY2QPzPvHSo92Ameccg/5d7mCAhdkbHvj+KtTvEO/6dClz7gfXze0MmBJNCb1Xd7GiZVyvtjEqNE5
-	dJu22g8mkeNeGYd84jI1KEZ+JBXPFiv+PF2nT7eSrBanymSVV63SMGAlU82segBX5nYCKqJRXuaPr
-	Pu0FykyEPm8IEOFU/E+cIOiSGTDcESmMmbBx9xvdOj/EVPrGSKcC3HNpDlcuFXuoAzn7l8x2bFM+9
-	P2m1v/IocoftKnUxnlcGIfTgZVdF9QOM5TNo/o7aLeqIKuGjx0bx6KVTNAuUVKJogKb03MsFoXpda
-	D3WJHV3g==;
+	bh=F/7YTBWWchufCln6WcdXo3s/jp9GBOGUEywKWM8gCII=; b=mcRjwyri/lq9TkXOi1TN7B6kCI
+	FCFHlMD39Lp0ESCOl/RYYQAjKQl8mx7jWxBe4W1imHUHcn9UrkYJFlGOXF8CdVTPwtfbPC7jiNhQk
+	rT4D7Ej/mN3GiAvm+Demrb2jFuOeSyeVF9WoDWOZPGKfgHaxBFe+kv+mYzwAfWfs+hlbUdzeSiC7v
+	8f05DKOzUzzD8oR1iUdpLpGm86EIA6SRfXp8Xp6EvUKbfeIEPmNqo1vNvNm2CCGhQ7Hy30ouIz/gj
+	1YcZg4w9Ed7MFPRfvtRNgp+hY/3jSA81KZqxEOzgF5U6qRo37wUFbT9AbxUG4zPnFvXNPfdIMTwwK
+	ZzR+2Okg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKVaS-00000006R3h-3NCj;
-	Mon, 09 Dec 2024 04:41:37 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tKVdX-00000006RQK-38Ek;
+	Mon, 09 Dec 2024 04:44:47 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKVZN-00000006QsA-3s23;
-	Mon, 09 Dec 2024 04:40:31 +0000
+	id 1tKVcV-00000006RF5-0ZJM;
+	Mon, 09 Dec 2024 04:43:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733719230; x=1765255230;
+  t=1733719423; x=1765255423;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=d5TxygKeLQVwmWX4ir2xJcbJDNYcHfp00n5X8scHlYc=;
-  b=GLr6rIEqSpwdBdymfginj1hc0r5TWO/WmJiN4aX17wm7K1dYEeDnoKGT
-   uPGRSQKL+f6PdEysHrxk6ggW2fc4+/J6vfsgZSOtCgTQ5pfv+zV8iMM/k
-   rPMFS8S9pyTKpW03CBZ073YT5+1bnuTStvaHp5hxrGBi0z6qRUwh87ZrT
-   c/H8y2gxMkfP3YSCjPmTbRT+8rjc48MJtGV7AeoUBbHjKGOVm1dvBIvuh
-   Rmc5XctbyYd645yypw2EfI5Tt/J3H+jFEG+0QHNY8AP/4FRtbN6VS9/uT
-   PZ0HVsnAaqqsFmtiilbd5IBi3VBPzSa9U6LE4xDiFTE4zRzayJr1+is7f
-   Q==;
-X-CSE-ConnectionGUID: DU6oc5RiQESmQynUJpFroA==
-X-CSE-MsgGUID: SOynj8jQT7qWSx683MmZzA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11280"; a="37931537"
+  bh=CnZh5PzuBjSJ5i81gB2eROtQAtISkclOyWpu/tX4BSo=;
+  b=N8zixdPSgzhXlBjoJWfsFKWyaeBfdnLr1RGY1GBrOaMpyH6izAZTDDf6
+   yh0sYCUHmViRR/lnG6R7/CxiiqnpuqptbYXE5w9LLHRLPprINUgdO8n/c
+   7xJpayptcTlM1L3FVksU0AINFewlAigSY1Ujr0OVocAwNYBGza6Ny9Xax
+   sfQBOYM8DXkueKOXsm1vP+obUMri1saWghRKwuuv6uYXUt/Q/nx67J9lW
+   DYgjeVhsEyPYf4nWy+xA9IiFAOVURBjldaDYD6hFtFFVopfyh+TxLBgNi
+   fbENRmzC+nxP5heX+qGfswzIkdztIF3DpHNcglK3g+37fm4+9YVfcwh/W
+   w==;
+X-CSE-ConnectionGUID: XhtbLf2cTViVt1M3WZeY/g==
+X-CSE-MsgGUID: As80V2tnSmerPyTwb3f90A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11280"; a="33348889"
 X-IronPort-AV: E=Sophos;i="6.12,218,1728975600"; 
-   d="scan'208";a="37931537"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2024 20:40:29 -0800
-X-CSE-ConnectionGUID: kHGDx7C3SYmhQCzLMVuOcA==
-X-CSE-MsgGUID: lYg68KfIQSi40c+WU75O+g==
+   d="scan'208";a="33348889"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2024 20:43:39 -0800
+X-CSE-ConnectionGUID: Flp2HtyeTY66gH19/gozDg==
+X-CSE-MsgGUID: brSxjW+KShqcUGtJAxw2Pw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,218,1728975600"; 
-   d="scan'208";a="94827028"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="99995074"
 Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 08 Dec 2024 20:40:24 -0800
+  by orviesa003.jf.intel.com with ESMTP; 08 Dec 2024 20:43:34 -0800
 Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1tKVZF-0003tR-1S;
-	Mon, 09 Dec 2024 04:40:21 +0000
-Date: Mon, 9 Dec 2024 12:39:54 +0800
+	id 1tKVcJ-0003u3-18;
+	Mon, 09 Dec 2024 04:43:31 +0000
+Date: Mon, 9 Dec 2024 12:42:57 +0800
 From: kernel test robot <lkp@intel.com>
 To: Christian Marangi <ansuelsmth@gmail.com>, Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -77,17 +77,17 @@ To: Christian Marangi <ansuelsmth@gmail.com>, Lee Jones <lee@kernel.org>,
 	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, upstream@airoha.com
 Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org
-Subject: Re: [net-next PATCH v10 9/9] net: phy: Add Airoha AN8855 Internal
- Switch Gigabit PHY
-Message-ID: <202412081155.xp97LlzV-lkp@intel.com>
-References: <20241208002105.18074-10-ansuelsmth@gmail.com>
+Subject: Re: [net-next PATCH v10 8/9] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+Message-ID: <202412081353.I0203taL-lkp@intel.com>
+References: <20241208002105.18074-9-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241208002105.18074-10-ansuelsmth@gmail.com>
+In-Reply-To: <20241208002105.18074-9-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_204029_972793_FEFA4AD6 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20241208_204343_189232_7D556EA8 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,152 +104,88 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Christian,
 
-kernel test robot noticed the following build errors:
+kernel test robot noticed the following build warnings:
 
-[auto build test ERROR on net-next/main]
+[auto build test WARNING on net-next/main]
 
 url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Marangi/dt-bindings-nvmem-Document-support-for-Airoha-AN8855-Switch-EFUSE/20241208-082533
 base:   net-next/main
-patch link:    https://lore.kernel.org/r/20241208002105.18074-10-ansuelsmth%40gmail.com
-patch subject: [net-next PATCH v10 9/9] net: phy: Add Airoha AN8855 Internal Switch Gigabit PHY
-config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20241208/202412081155.xp97LlzV-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241208/202412081155.xp97LlzV-lkp@intel.com/reproduce)
+patch link:    https://lore.kernel.org/r/20241208002105.18074-9-ansuelsmth%40gmail.com
+patch subject: [net-next PATCH v10 8/9] net: dsa: Add Airoha AN8855 5-Port Gigabit DSA Switch driver
+config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20241208/202412081353.I0203taL-lkp@intel.com/config)
+compiler: arceb-elf-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241208/202412081353.I0203taL-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412081155.xp97LlzV-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412081353.I0203taL-lkp@intel.com/
 
-All error/warnings (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
-   drivers/net/phy/air_an8855.c: In function 'an8855_probe':
->> drivers/net/phy/air_an8855.c:100:13: warning: unused variable 'ret' [-Wunused-variable]
-     100 |         int ret;
-         |             ^~~
-   drivers/net/phy/air_an8855.c: In function 'an8855_config_init':
->> drivers/net/phy/air_an8855.c:154:45: error: 'dev' undeclared (first use in this function); did you mean 'cdev'?
-     154 |                 ret = en8855_get_r50ohm_val(dev, "tx_a", &calibration_data[0]);
-         |                                             ^~~
-         |                                             cdev
-   drivers/net/phy/air_an8855.c:154:45: note: each undeclared identifier is reported only once for each function it appears in
+   drivers/net/dsa/an8855.c: In function 'an8855_switch_probe':
+   drivers/net/dsa/an8855.c:2227:34: error: invalid use of undefined type 'struct platform_device'
+    2227 |         priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+         |                                  ^~
+   drivers/net/dsa/an8855.c:2231:26: error: invalid use of undefined type 'struct platform_device'
+    2231 |         priv->dev = &pdev->dev;
+         |                          ^~
+   drivers/net/dsa/an8855.c: In function 'an8855_switch_remove':
+   drivers/net/dsa/an8855.c:2282:57: error: invalid use of undefined type 'struct platform_device'
+    2282 |         struct an8855_priv *priv = dev_get_drvdata(&pdev->dev);
+         |                                                         ^~
+   drivers/net/dsa/an8855.c: At top level:
+   drivers/net/dsa/an8855.c:2295:15: error: variable 'an8855_switch_driver' has initializer but incomplete type
+    2295 | static struct platform_driver an8855_switch_driver = {
+         |               ^~~~~~~~~~~~~~~
+   drivers/net/dsa/an8855.c:2296:10: error: 'struct platform_driver' has no member named 'probe'
+    2296 |         .probe = an8855_switch_probe,
+         |          ^~~~~
+   drivers/net/dsa/an8855.c:2296:18: warning: excess elements in struct initializer
+    2296 |         .probe = an8855_switch_probe,
+         |                  ^~~~~~~~~~~~~~~~~~~
+   drivers/net/dsa/an8855.c:2296:18: note: (near initialization for 'an8855_switch_driver')
+   drivers/net/dsa/an8855.c:2297:10: error: 'struct platform_driver' has no member named 'remove'
+    2297 |         .remove = an8855_switch_remove,
+         |          ^~~~~~
+   drivers/net/dsa/an8855.c:2297:19: warning: excess elements in struct initializer
+    2297 |         .remove = an8855_switch_remove,
+         |                   ^~~~~~~~~~~~~~~~~~~~
+   drivers/net/dsa/an8855.c:2297:19: note: (near initialization for 'an8855_switch_driver')
+   drivers/net/dsa/an8855.c:2298:10: error: 'struct platform_driver' has no member named 'driver'
+    2298 |         .driver = {
+         |          ^~~~~~
+   drivers/net/dsa/an8855.c:2298:19: error: extra brace group at end of initializer
+    2298 |         .driver = {
+         |                   ^
+   drivers/net/dsa/an8855.c:2298:19: note: (near initialization for 'an8855_switch_driver')
+   drivers/net/dsa/an8855.c:2298:19: warning: excess elements in struct initializer
+   drivers/net/dsa/an8855.c:2298:19: note: (near initialization for 'an8855_switch_driver')
+   drivers/net/dsa/an8855.c:2303:1: warning: data definition has no type or storage class
+    2303 | module_platform_driver(an8855_switch_driver);
+         | ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/net/dsa/an8855.c:2303:1: error: type defaults to 'int' in declaration of 'module_platform_driver' [-Werror=implicit-int]
+>> drivers/net/dsa/an8855.c:2303:1: warning: parameter names (without types) in function declaration
+   drivers/net/dsa/an8855.c:2295:31: error: storage size of 'an8855_switch_driver' isn't known
+    2295 | static struct platform_driver an8855_switch_driver = {
+         |                               ^~~~~~~~~~~~~~~~~~~~
+   drivers/net/dsa/an8855.c:2295:31: warning: 'an8855_switch_driver' defined but not used [-Wunused-variable]
+   cc1: some warnings being treated as errors
 
 
-vim +154 drivers/net/phy/air_an8855.c
+vim +2303 drivers/net/dsa/an8855.c
 
-    94	
-    95	static int an8855_probe(struct phy_device *phydev)
-    96	{
-    97		struct device *dev = &phydev->mdio.dev;
-    98		struct device_node *node = dev->of_node;
-    99		struct air_an8855_priv *priv;
- > 100		int ret;
-   101	
-   102		/* If we don't have a node, skip calib */
-   103		if (!node)
-   104			return 0;
-   105	
-   106		priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-   107		if (!priv)
-   108			return -ENOMEM;
-   109	
-   110		phydev->priv = priv;
-   111	
-   112		return 0;
-   113	}
-   114	
-   115	static int an8855_get_downshift(struct phy_device *phydev, u8 *data)
-   116	{
-   117		int val;
-   118	
-   119		val = phy_read_paged(phydev, AN8855_PHY_PAGE_EXTENDED_1, AN8855_PHY_EXT_REG_14);
-   120		if (val < 0)
-   121			return val;
-   122	
-   123		*data = val & AN8855_PHY_EN_DOWN_SHIFT ? DOWNSHIFT_DEV_DEFAULT_COUNT :
-   124							 DOWNSHIFT_DEV_DISABLE;
-   125	
-   126		return 0;
-   127	}
-   128	
-   129	static int an8855_set_downshift(struct phy_device *phydev, u8 cnt)
-   130	{
-   131		u16 ds = cnt != DOWNSHIFT_DEV_DISABLE ? AN8855_PHY_EN_DOWN_SHIFT : 0;
-   132	
-   133		return phy_modify_paged(phydev, AN8855_PHY_PAGE_EXTENDED_1,
-   134					AN8855_PHY_EXT_REG_14, AN8855_PHY_EN_DOWN_SHIFT,
-   135					ds);
-   136	}
-   137	
-   138	static int an8855_config_init(struct phy_device *phydev)
-   139	{
-   140		struct air_an8855_priv *priv = phydev->priv;
-   141		int ret;
-   142	
-   143		/* Enable HW auto downshift */
-   144		ret = an8855_set_downshift(phydev, DOWNSHIFT_DEV_DEFAULT_COUNT);
-   145		if (ret)
-   146			return ret;
-   147	
-   148		/* Apply calibration values, if needed.
-   149		 * AN8855_PHY_FLAGS_EN_CALIBRATION signal this.
-   150		 */
-   151		if (priv && phydev->dev_flags & AN8855_PHY_FLAGS_EN_CALIBRATION) {
-   152			u8 *calibration_data = priv->calibration_data;
-   153	
- > 154			ret = en8855_get_r50ohm_val(dev, "tx_a", &calibration_data[0]);
-   155			if (ret)
-   156				return ret;
-   157	
-   158			ret = en8855_get_r50ohm_val(dev, "tx_b", &calibration_data[1]);
-   159			if (ret)
-   160				return ret;
-   161	
-   162			ret = en8855_get_r50ohm_val(dev, "tx_c", &calibration_data[2]);
-   163			if (ret)
-   164				return ret;
-   165	
-   166			ret = en8855_get_r50ohm_val(dev, "tx_d", &calibration_data[3]);
-   167			if (ret)
-   168				return ret;
-   169	
-   170			ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_R500HM_RSEL_TX_AB,
-   171					     AN8855_PHY_R50OHM_RSEL_TX_A | AN8855_PHY_R50OHM_RSEL_TX_B,
-   172					     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_A, calibration_data[0]) |
-   173					     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_B, calibration_data[1]));
-   174			if (ret)
-   175				return ret;
-   176			ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_R500HM_RSEL_TX_CD,
-   177					     AN8855_PHY_R50OHM_RSEL_TX_C | AN8855_PHY_R50OHM_RSEL_TX_D,
-   178					     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_C, calibration_data[2]) |
-   179					     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_D, calibration_data[3]));
-   180			if (ret)
-   181				return ret;
-   182		}
-   183	
-   184		/* Apply values to reduce signal noise */
-   185		ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_TX_PAIR_DLY_SEL_GBE,
-   186				    FIELD_PREP(AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_A_GBE, 0x4) |
-   187				    FIELD_PREP(AN8855_PHY_CR_DA_TX_PAIR_DELKAY_SEL_C_GBE, 0x4));
-   188		if (ret)
-   189			return ret;
-   190		ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_CTRL,
-   191				    AN8855_PHY_RG_AD_SAMNPLE_PHSEL_A |
-   192				    AN8855_PHY_RG_AD_SAMNPLE_PHSEL_C);
-   193		if (ret)
-   194			return ret;
-   195		ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_REV_0,
-   196				    FIELD_PREP(AN8855_PHY_RG_AD_RESERVE0_A, 0x1));
-   197		if (ret)
-   198			return ret;
-   199		ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_REV_1,
-   200				    FIELD_PREP(AN8855_PHY_RG_AD_RESERVE0_C, 0x1));
-   201		if (ret)
-   202			return ret;
-   203	
-   204		return 0;
-   205	}
-   206	
+  2294	
+  2295	static struct platform_driver an8855_switch_driver = {
+  2296		.probe = an8855_switch_probe,
+  2297		.remove = an8855_switch_remove,
+  2298		.driver = {
+  2299			.name = "an8855-switch",
+  2300			.of_match_table = an8855_switch_of_match,
+  2301		},
+  2302	};
+> 2303	module_platform_driver(an8855_switch_driver);
+  2304	
 
 -- 
 0-DAY CI Kernel Test Service
