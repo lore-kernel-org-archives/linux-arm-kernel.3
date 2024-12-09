@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88113E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 20:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D73EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 20:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQl2j0rIZS5pSXIFVtnJBA0VqmUKUraYlxqzAKGAlDQ=; b=H+M72QVwYBvGDABDz1jfvw+oPA
-	A6nFZZ853NCUH/daYUyloumNBVX1ru8oMivhi5znG8iPbzF8F0rduBgrqFVcZuV+ZfalyZaGwUsI8
-	2g2nxDHkJ5RdoMwFAeMoE0sh7RYwzMSBeuOCieGzRVCCkSaycn49n3ZIaOC+gi69lrquMHpp98iEf
-	yS35Z1IBQsnwJD8V81qg35AjPLFqHp0h5KWe/OfguH/N32AxmjyYYhZxqb37/53k13/x2VAQq9/nB
-	4jsDpObdV6chGDPoTwrYpgkjhPv62NP18pn1CFiAJ5JyIsbxGtCZrYMbasJcug1y+FKlupqG6rWam
-	sa1TJ/YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=haXy6Pn/YyEod3vhtpY5A5WC+w3IxFAK0ooQa7nKgHo=; b=c4UrTbIiMlP1EKNmm+53Vwq2CC
+	P6baIl+B9jZV+fyNGgcicZg1PZQvEKzAsqEBCanU9Xzt80ukLWZoBqhkFT1meJHkV56Z2YBOsa0l+
+	nmX+lAudS7PFhg4OCIFkKEPKNKn6p5q7ehZ9oyo2AFz47CEzZdsyzVub8/ZIBiJWhZxUBWxjscGXJ
+	lWpUxLtWg+e/WRNmhGFQAd+QHFN7AsL5rxKNfh93kF538V9Iba0rgl08w0wjL7Tiyme+h4NO13w3r
+	Kw/9rmokS8095529dDNeD1b4kOj+65qSY/RmZjafRstA4rKnZs/y8QZV35idM3Y33g47rWCoghrRJ
+	Z2+kfWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKk2Q-000000098dC-0qNw;
-	Mon, 09 Dec 2024 20:07:26 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1tKk3Q-000000098oV-3W7G;
+	Mon, 09 Dec 2024 20:08:28 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKk1N-000000098Td-1G7u
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 20:06:23 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 691CB25400F5;
-	Mon,  9 Dec 2024 15:06:19 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Mon, 09 Dec 2024 15:06:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1733774779;
-	 x=1733861179; bh=nQl2j0rIZS5pSXIFVtnJBA0VqmUKUraYlxqzAKGAlDQ=; b=
-	WIN19bdzD56xXyRWMsO2UUJ+FlhyeSOyQLPFKa71SUIvNXv+OeNkYrS3BXmGMlgc
-	pbN+HsenpscHsTLaTx81YWIs3SUGFKQeAEbk/jdQKp6kLQ1x8G+/POnjIPs2dH9b
-	SP42MNg4fkuCGs1ZlAk7ltWLJMXa2/hxfVpK3bIRVfTBj1L2ymP9s/v2GSGEw3X2
-	6IL0OfViPHFwn8rmmSgmCz+sExdmJv0uMXqakA9pZ2CJzk247PWwsDxoiETGxdQ8
-	Hkx/Y6E94kmzkFzcWU79tRwR4URBLmjfcAMLDpZ7tn0bbjSXH5SEp5Mi/9+41CsC
-	ZOFaqbymwW8GgRiW9afWpg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733774779; x=
-	1733861179; bh=nQl2j0rIZS5pSXIFVtnJBA0VqmUKUraYlxqzAKGAlDQ=; b=y
-	4TCFzUCMe6tn+zDQgfsCokrK66uaNBH/Hqh/JQtHqG/slaaKMHBA5L4D7RYUNaqh
-	gmlcOmWq17vBCKNwtgQsKdncdZ/dkRg6AUVkK1AdK9KEC/r5jLSwb7XwkwCfu+UQ
-	I3rMziZ9BnVwOXx1VWqGzq3dyQRgAhhHvwXJqbzrcJlORP+EkC0hL96sGVPB9dQB
-	yU/gmWblB/uOYyRxp8gokl7aJ3gqURBF3HPyDnl5HJu45UKhUT0/4tcFO57uf8lY
-	fcI9SqMmpEO+89vrKelHJyyLDCRWNbcDNsPKfWHYwYo6AxSyC8zzhIqmduZFa5uI
-	YGA1tOYHM8ugGszEcFnag==
-X-ME-Sender: <xms:uk1XZ6vcs2UtQfs9wbfRvgp6kSq4mResAaIstypzD5GSvuBh_oBCGg>
-    <xme:uk1XZ_eycOXP0vXdGvybN45k1P_b8i3I7j5KAud7zezmxu5twsHB8x8I4xxCVxO8b
-    bR-wKEZDOPANBqTeFk>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrjeeigddutdeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohephedp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepnhgusegrrhhmrdgtohhmpdhrtghpth
-    htohepshhuuggvvghprdhhohhllhgrsegrrhhmrdgtohhmpdhrtghpthhtohephigvohhr
-    vghumhdrhihunhesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvg
-    hrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhn
-    uhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:uk1XZ1x12ha3nJFi19MH9wyCTZ_JDqlcGgSnizAu-fDVgk5iBtU9tA>
-    <xmx:uk1XZ1MMKD7X9Kp9z5tedZg1ShwWkOjfftCG5GWGNZnBZ7na6NEwHA>
-    <xmx:uk1XZ6-V5wTBRJVB3-WM2kXqhNoTsCUwN4DtZdoyZmu81k3KpRNIyQ>
-    <xmx:uk1XZ9WRUGdVW6aInTrxHycIDKmEIyko-Ps5-9740U-RN9kbY_qhFw>
-    <xmx:u01XZ-alTYOHvXfofMaf8IczHeuEhiTb7tYu4FprWje7BvXiR96yzWph>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C5B3C2220072; Mon,  9 Dec 2024 15:06:18 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tKk2E-000000098bc-3qpW;
+	Mon, 09 Dec 2024 20:07:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733774832;
+	bh=XHeeybhj5u2b8BHEtLKC3hKJSOqzRrrU3o97MCDUjaY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nyw7V+wJ6jSPe9lIbRvVSihwC0AUWedhKPy2iBGsL6d971k2Cv/6CqVfA/rn9pXks
+	 GBLlqwLP+A+/gTn2Jlcep+CcN23rMmWU59KIeTpaDotz36jkfIzLUCetGU3u8pbAkH
+	 qEbiY/V9XJzWNyRKgF7flBQzbgxX0IVSycXr8NuBSqy5s4Nu+Ckud/8es/Fo2XZXrj
+	 FdHnxO72b+zm+J0v+pY7g8efUsCJqg2IIL+B56F5EvmlqmviWYfnvXIk+M9ZdJ+sMx
+	 JohnjPIyfrrjjCdyMglpioyR3Cjm4axQZ0pNNoXvTV/A7WkaW7ua0Uo20pFpZfkUDx
+	 XIBVs/9OzxmpQ==
+Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1002])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E0F5A17E3780;
+	Mon,  9 Dec 2024 21:07:09 +0100 (CET)
+Date: Mon, 9 Dec 2024 17:07:07 -0300
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: Trevor Wu =?utf-8?B?KOWQs+aWh+iJryk=?= <Trevor.Wu@mediatek.com>
+Cc: "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"tiwai@suse.com" <tiwai@suse.com>,
+	"perex@perex.cz" <perex@perex.cz>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kernel@collabora.com" <kernel@collabora.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH] ASoC: mediatek: mt8188: Enable apll1 clock during reg rw
+ to prevent hang
+Message-ID: <108d4187-26af-43f6-8b1e-0e48516524a4@notapiano>
+References: <20241203-mt8188-afe-fix-hang-disabled-apll1-clk-v1-1-07cdd7760834@collabora.com>
+ <a10dbdf265194e77a69b6e40afa3df9636b3ab14.camel@mediatek.com>
+ <a70a0521-985d-43a4-a1fa-36eb733d5ca9@collabora.com>
+ <1d2ee55dde84bcab6f777525042c6789b9f2c1fc.camel@mediatek.com>
 MIME-Version: 1.0
-Date: Mon, 09 Dec 2024 21:04:30 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Sudeep Holla" <sudeep.holla@arm.com>
-Cc: "Yeoreum Yun" <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, nd@arm.com
-Message-Id: <0cb655ee-9401-41bb-b9cd-580e0aeef2be@app.fastmail.com>
-In-Reply-To: <Z1ch52AthTYVhtH4@bogus>
-References: <20241203143109.1030514-1-yeoreum.yun@arm.com>
- <20241203143109.1030514-3-yeoreum.yun@arm.com>
- <9e60e996-070e-43a7-80e9-efdfda9f6223@app.fastmail.com>
- <Z1ch52AthTYVhtH4@bogus>
-Subject: Re: [PATCH v2 2/2] firmware/arm_ffa: remove __le64_to_cpu() when set uuid for
- direct msg v2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1d2ee55dde84bcab6f777525042c6789b9f2c1fc.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_120622_209125_37C2F74C 
-X-CRM114-Status: GOOD (  30.98  )
+X-CRM114-CacheID: sfid-20241209_120715_112477_BD020C66 
+X-CRM114-Status: GOOD (  48.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,69 +86,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 9, 2024, at 17:59, Sudeep Holla wrote:
-> On Mon, Dec 09, 2024 at 04:27:14PM +0100, Arnd Bergmann wrote:
->
->> > That means, we don't need to swap the uuid when it send via direct
->> > message request version 2, just send it as saved in memory.
->>
->> "As saved in memory" does not sound like a useful description
->> when passing arguments through registers, as the register
->> contents are not defined in terms of byte offsets.
->>
->
-> Well I didn't know how to term it. The structure UUID is a raw buffer
-> and it provide helpers to import/export the data in/out of it. So in LE
-> kernel IIUC, it is stored in LE format itself which was my initial
-> confusion and hence though what you fixed was correct previously.
+On Fri, Dec 06, 2024 at 06:57:00AM +0000, Trevor Wu (吳文良) wrote:
+> On Thu, 2024-12-05 at 13:51 +0100, AngeloGioacchino Del Regno wrote:
+> > 
+> > 
+> > Il 04/12/24 13:17, Trevor Wu (吳文良) ha scritto:
+> > > On Tue, 2024-12-03 at 17:07 -0300, Nícolas F. R. A. Prado wrote:
+> > > 
+> > > > 
+> > > > Currently, booting the Genio 700 EVK board with the MT8188 sound
+> > > > platform driver configured as a module (CONFIG_SND_SOC_MT8188=m)
+> > > > results
+> > > > in a system hang right when the HW registers for the audio
+> > > > controller
+> > > > are read:
+> > > > 
+> > > >    mt8188-audio 10b10000.audio-controller: No cache defaults,
+> > > > reading
+> > > > back from HW
+> > > > 
+> > > > The hang doesn't occur with the driver configured as builtin as
+> > > > then
+> > > > the
+> > > > unused clocks are still enabled.
+> > > > 
+> > > > Enable the apll1 clock during register read/write to prevent the
+> > > > hang.
+> > > > 
+> > > > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> > > > ---
+> > > >   sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 4 ++++
+> > > >   1 file changed, 4 insertions(+)
+> > > > 
+> > > > diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > index
+> > > > e69c1bb2cb239596dee50b166c20192d5408be10..fb8cf286df3f02ac076528b
+> > > > 898f
+> > > > d0d7a708ec1ea 100644
+> > > > --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > @@ -587,6 +587,8 @@ int mt8188_afe_enable_reg_rw_clk(struct
+> > > > mtk_base_afe *afe)
+> > > >          mt8188_afe_enable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
+> > > > 
+> > > >          mt8188_afe_enable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_AUD_A1SYS]);
+> > > > 
+> > > > +       mt8188_afe_enable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_APMIXED_APLL1]);
+> > > > 
+> > > > +
+> > > >          return 0;
+> > > >   }
+> > > 
+> > > Hi Nicolas,
+> > > 
+> > > If I understand correctly, APLL1 should be the parent clock of
+> > > AUD_A1SYS_HP and AUD_A1SYS, so it should be enabled automatically
+> > > by
+> > > CCF.
+> > > 
+> > > I'm not sure why you resolved the hang issue after enabling APLL1.
+> > > Could you share more details about the solution?
+> > > 
+> > 
+> > Hmm. Now I see what's happening here...
+> > 
+> > Nicolas, Trevor,
+> > 
+> > Possible parents for top_a1sys_hp are:
+> >   - clk26m
+> >   - apll1_d4
+> > 
+> > ...what's happening here most probably is that after the clock gets
+> > disabled as
+> > unused, it gets parented to clk26m by default as that is parent index
+> > 0... and
+> > something else in AFE needs APLL1 to feed a clock to .. something ..
+> > to allow
+> > register access.
+> > 
+> > Trevor, do you know why is this IP unaccessible when A1SYS is
+> > parented to clk26m?
+> 
+> Hi Angelo,
+> 
+> As far as I know, it should work even though the clock is parented to
+> clk26m.
+> 
+> Unfortunately, I have no idea about why APLL1 enabling can resolve the
+> hang issue. I'm also curious about how Nicolas found the solution to
+> resolve the problem.
+> 
+> From the description, it seems that the problem is related to register
+> r/w hang. If I remembered correctly, when the mtcmos of ADSP_INFRA is
+> ON, register r/w won't cause the cpu to hang. However, ADSP_INFRA has
+> been configured as ALWAYS_ON in the driver. I'm not sure if it doesn't
+> work correctly when the driver is configured as a module. Maybe Nicolas
+> can also check this.
 
-The way I would phrase it, the UUID is never "stored" in
-big-endian or little-endian format, it's just remains a string
-of bytes. The endianess becomes a choice only when loading it
-into registers for passing the argument to firmware, and it's
-the firmware that mandates little-endian in the specification.
+Indeed, as suggested by Angelo, adding 
 
->> Can you describe what bug you found? If the byteorder on
->> big-endian kernels is wrong in the current version and your
->> patch fixes it, it sounds like the specification needs to
->> be updated describe both big-endian and little-endian
->> byte-order, and how the firmware detects which one is used.
->>
->
-> The firmware interface understands only LE format. And by default UUID
-> is stored in LE format itself in the structure which I got confused
-> initially. We may need endian conversion at places(found few when trying
-> to get it working with BE kernel).
->
-> I wanted to check with you about this. The current driver doesn't
-> work with BE. I tried to cook up patches but then the upstream user
-> of this driver OPTEE doesn't work in BE, so I hit a roadblock to fully
-> validate my changes. I don't see any driver adding endianness dependency
-> in the Kconfig if they can't work with BE, not sure if that
-> is intentional or just don't care. I was thinking if we can disable
-> it to build in BE kernel until the actual support was added.
+  assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP>;
+  assigned-clock-parents = <&topckgen CLK_TOP_APLL1_D4>;
 
-I think as long big-endian kernels remain an option on arm64, we
-should try to to write portable code and implement the specification
-The reality of course is that very few people care these days, and
-it's getting harder to test over time.
+to the afe node also fixes this issue. 
 
-> So the current FF-A driver just supports LE and the bug was found just
-> in LE kernel itself.
+In mt8188.dtsi, we currently have
 
-What is the bug and how was it found? The only thing I see in
-the patch here is to change the code from portable to nonportable,
-but not actually change behavior on little-endian 64-bit.
+  afe: audio-controller@10b10000 {
+  	...
+  	assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP>;
+  	assigned-clock-parents =  <&clk26m>;
 
-Looking through the other functions in drivers/firmware/arm_ffa/driver.c,
-I see that most of them just match the specification. One exception
-is ffa_notification_info_get(), which incorrectly casts the
-argument response arguments to an array of 'u16' values. Using
-the correct bit shifts according to the specification would
-make that work on big-endian and also more readable and
-robust. Another one is __ffa_partition_info_get_regs(), which
-does an incorrect memcpy() instead of decoding the values.
+So the question is, do other MT8188 platforms need clk26m to be the parent of
+a1sys_hp? Depending on that I can either update the parent on the common
+mt8188.dtsi or on the genio700-evk.dts, which is where I observed the issue. I
+don't have access to other mt8188 platforms. Trevor, do you know?
 
+As for how I identified this issue, I noticed that when booting with the
+platform driver as a module the system would hang, and that passing
+clk_ignore_unused avoided the issue. Then I selectively ignored some unused
+clocks until I narrowed down to ignoring unused only the apll1 clock, meaning
+the apll1 clock needed to be left on during the platform driver probe for the
+system to not hang.
 
-     Arnd
+Thanks,
+Nícolas
+
+> 
+> Thanks,
+> Trevor
+> 
+> > 
+> > That might give Nicolas a definitive hint about how to resolve this
+> > issue.
+> > 
+> > Cheers,
+> > Angelo
+> > 
+> > > Thanks,
+> > > Trevor
+> > > 
+> > > > 
+> > > > @@ -594,6 +596,8 @@ int mt8188_afe_disable_reg_rw_clk(struct
+> > > > mtk_base_afe *afe)
+> > > >   {
+> > > >          struct mt8188_afe_private *afe_priv = afe-
+> > > > >platform_priv;
+> > > > 
+> > > > +       mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_APMIXED_APLL1]);
+> > > > 
+> > > > +
+> > > >          mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_AUD_A1SYS]);
+> > > > 
+> > > >          mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
+> > > > 
+> > > >          mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > clk[MT8188_CLK_AUD_AFE]);
+> > > > 
+> > > > ---
+> > > > base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
+> > > > change-id: 20241203-mt8188-afe-fix-hang-disabled-apll1-clk-
+> > > > b3c11782cbaf
+> > > > 
+> > > > Best regards,
+> > > > --
+> > > > Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> > > > 
+> > > > 
+> > 
+> > 
 
