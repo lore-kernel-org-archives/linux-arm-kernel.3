@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDE4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7791E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a3VY6Wa8UWupTKdOmjgxvR4QZMFU22Ngdh8K0aSBRwE=; b=2TC0y+AySidWW6oc6zW80nVKHT
-	NJCjJIi6TcPEwk2ZZeHrZq/CUUzGH0OPHvbXfq0L00F0DC8PMSQi+XGGxCThYCgY6vNG7qUc6P+IJ
-	OTmyDGI3Tfd+SPZpeaYynG7srAe5GPug6MxBXOpr6w1cp0Bh4SZpfv/28H88fponxTZ7538DUleoX
-	v4+Dfm8Gdig2ypkxPTscEO6oHqQYSbh8Kgkqf5g1iJKf6uwzQXSebkHG4GS9rYtnx2ag40OIT4G5D
-	RbpSnx1q21VqaO97EMb+drWS/lwIhaeUBmHq+qI72n4ZHBG0lQ1RBiJfkmnfRU8KD8dXzLDXix9Ej
-	rnLAJptg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m1ychuMgbtf6HBk9QAqCURR+EL8nP7PZRN+A8aDs27U=; b=n9RDICL1198Pt7L+52uUFMy8LK
+	eNSTUqTyY/Ucz9IO+CCK1u8x6bueqjVFZNjNrh70ANZKxpA3emuB9ZyKYpsXw6ONnKP2I77cUJ+E2
+	mLRGeiECXscokhqYkv61DN3do0NnBwHr7hfRRnBP6GZvWtBkGA90L+lxXdTV4jk95cCKmqB8jcHeC
+	TfcFpGSFyl/fZzaHU5ByD0FVFJ9DwckJiauitrjMk/Pd+6YdgDlzBcKznGPzkdSf77QExYE1PzFxp
+	sglxVIOUM3OHNLZVVfV9MKFrkuGE2qtODRoRqg955zg9z4PV3gCc8zMwUEpyNkmPB+yJ3o5eNp1oS
+	8J5eV5uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKg4e-00000008RmA-2GLK;
-	Mon, 09 Dec 2024 15:53:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tKg5f-00000008S0t-0e6T;
+	Mon, 09 Dec 2024 15:54:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKg3c-00000008RgC-2H0l
+	id 1tKg4N-00000008Rjx-2DrZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 15:52:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A09295C5AD6;
-	Mon,  9 Dec 2024 15:51:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAB5C4CED1;
-	Mon,  9 Dec 2024 15:52:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733759542;
-	bh=jWxo2jIBvLBzYak18bM2E9DaATq5/K318coH0N0pg24=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cLhFS8irN0EUwo75llXUqSxyhAAENEyMQHEGjwfKgEd4be6y4ALUCa9voVNK3tWB+
-	 jNShTnrGPjlAqieQa/9JHZMZDkLepOxQhjSEge9Y0YWJSZytDZHsRnYcCpv0szfARy
-	 PjlbQ1MKIWpYOFLSNmE2ap+APsn5MhASWxx5fBAB2B4ipdaG7xouZ+wIAtOwevtcx7
-	 Aka/DYUNMBsHhbHGW+060x4ndT6ic9SqVajoM2jFtSfv21v7zGNtrwfu2QuUrbKrFb
-	 XBGeAvCuc8FX9cqBEc5iEKg0Y8tK3f1gTzN1nuxnXoHTM1yS6Y9Yl72YzDgSMNAxsT
-	 wBbgVPn+9lk4A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tKg3Y-001w6K-QD;
-	Mon, 09 Dec 2024 15:52:20 +0000
-Date: Mon, 09 Dec 2024 15:52:19 +0000
-Message-ID: <86zfl4svkc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: kvmarm <kvmarm@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
-References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
-	<867c89tc4q.wl-maz@kernel.org>
-	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
-	<865xntt2kv.wl-maz@kernel.org>
-	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 09 Dec 2024 15:53:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733759587;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=m1ychuMgbtf6HBk9QAqCURR+EL8nP7PZRN+A8aDs27U=;
+	b=L5WA/AU9yp+GWYgnkz+VD9GOreoUwM9SJdEwOi+QUqTbm0tt/4U04k7bjRdxD4G1ufkDMs
+	y+51h1TeO8DHv2BCzvW7kXa41n2AJhVflh/f2U1PIurZOnteaIoQPAL7E2bXKgZH5GZUHC
+	nbpTPhEo/0r67mLQ0ugn8x6Lw7IWyiY=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-669-zcUOwoK7OBW8ed8kVoJDGQ-1; Mon,
+ 09 Dec 2024 10:53:06 -0500
+X-MC-Unique: zcUOwoK7OBW8ed8kVoJDGQ-1
+X-Mimecast-MFC-AGG-ID: zcUOwoK7OBW8ed8kVoJDGQ
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E12EC1955F2D;
+	Mon,  9 Dec 2024 15:53:04 +0000 (UTC)
+Received: from [172.64.12.26] (unknown [10.30.33.24])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DCF7B1956089;
+	Mon,  9 Dec 2024 15:53:03 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL (MISSED 1 of 69): Test report for for-kernelci
+ (6.13.0-rc2, upstream-arm-next, fac04efc)
+Date: Mon, 09 Dec 2024 15:53:03 -0000
+To: linux-arm-kernel@lists.infradead.org, will@kernel.org, bgrech@redhat.com,
+ catalin.marinas@arm.com
+MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <71532.124120910530600980@us-mta-669.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7sxQ0Jy4nmuaFYTn8B944oZr3voApGvuUF0ZdW2uQvE_1733759585
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_075224_667238_FA32B54C 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20241209_075311_644973_33C93FA1 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Dec 2024 15:39:28 +0000,
-Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> 
-> 
-> 
-> On 09-12-2024 06:50 pm, Marc Zyngier wrote:
-> > On Mon, 09 Dec 2024 12:25:34 +0000,
-> > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> >>>> 
-> >>>> During automated testing of Nested Virtualization using avocado-vt,
-> >>> 
-> >>> Which is not merged upstream. So what branch are you using? Based on
-> >>> what kernel version? On what HW? With which virtualisation features?
-> >>> 
-> >> 
-> >> Testing is done on Ampere's AmpereOne platform using 6.10 based kernel
-> >> with NV patches from your repo.
-> > 
-> > Grmbl... *Which* patches? At least give me the SHA1 of the branch,
-> > because I have no idea what you are running. And 6.10 is definitely
-> > not something I care about. If you're using the NV patches, the
-> > *minimum* you should run is 6.13-rc1, because that's what the current
-> > code is based on.
-> > 
-> 
-> I tried 6.13-rc1 based nv-next branch today, which failed to boot
-> UEFI as L1. Yet to debug this.
+Hi, we tested your kernel and here are the results:
 
-Works nicely here with kvmtool as the VMM. From what I understand,
-EDK2 needs some surgery to correctly boot at EL2 without FEAT_E2H0.
+    Overall result: FAILED
+             Merge: OK
+           Compile: OK
+              Test: FAILED
 
-> We do have the FEAT_ECV on AmpereOne, I was the one reported/fixed bug
-> with FEAT_ECV(CNTPOFF offset issue) in the past.
 
-Sorry, I don't keep track of the feature set for machines I don't have
-access to.
+Kernel information:
+    Commit message: Linux 6.13-rc2
 
-	M.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1580192248
 
--- 
-Without deviation from the norm, progress is not possible.
+One or more kernel tests failed:
+    Unrecognized or new issues:
+        Reboot test
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:1580192248-aarch64-kernel_upt_53
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL /10_avc_check
+
+
+Tests that were not ran because of internal issues:=20
+    machineinfo [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
