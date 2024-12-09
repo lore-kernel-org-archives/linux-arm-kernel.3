@@ -4,172 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9280DE77181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6F5E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMTKW0qMxaoACm7ZczLtA+fplb6GaZXPO81Ex2dBXsk=; b=iqDWZKft2VaeJhcAI0jT9k4+zo
-	pFKq6aGFgLGWuku76yJzJB0hLIm7UjVXHuO17yMHgPQvWXluFgDoWfH+bb2kaR9RgnmaIeMSK97bI
-	rEFh0k9CKtR6GWAMxjremRMRz/sqdHV6dqHvB/Zkf5YTM4DRWLBlnuGUL72n2UVewcxc+KsPkBBCx
-	cZKYTlcKeHIuDYixdfhtiL+FaMDcaAkt43JlJ7LfChl8wv1mee3e+n121FZIugh5b2oWFjFTspooJ
-	Squg3SOQEllVplMA4Y34jgPlp5IYUyEBPKtWgh2p2/8tz/g7cGJB8cMMdRpItaMzZM2K02xl7q6X+
-	NYF1knjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uFBlrotvdBNp2OTJlNIy9zn9up4g2+5x045IS9OWlSM=; b=arwHSBaYpCP/rPFp0rIh+NM7Q2
+	Bx7me12nApbDtV/Y+/H9nDePqLq6oWBm2r7xn22b81WXCZNqVmsid/M7Qvraop+QBnW/tY4z182Rs
+	K9kOvDKH9aGnj1eV0jotAR+HUKhnyfBH9N74AGxmcwR35PSo3Ai4huyq91C8HeycXslw6SZmWL7Ab
+	PV9JGAo2LKM9b/Ydh8IgORYg6gBmO78W1Im8EbQhasIZA2VAuRmUhpCYTfBAj0qdmPA9y+QyKlNAT
+	epx+Ec/1beeK7GaX17n1IrZogJsNGMk6OFfJIz10zdAeM6SKoF4LPYryXM0sdsM//Y9sw+TGRKhYG
+	bXas785w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbzE-00000007VWl-0GKa;
-	Mon, 09 Dec 2024 11:31:36 +0000
-Received: from mail-vi1eur03on2061b.outbound.protection.outlook.com ([2a01:111:f403:260c::61b] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1tKc2e-00000007WSH-27Ma;
+	Mon, 09 Dec 2024 11:35:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKby1-00000007V8K-1TpJ;
-	Mon, 09 Dec 2024 11:30:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zj0PheTPu5aXcMp+e7mw2Kg7fyrqxkBrFV9puwnSH1z1gWqfD+2t3c92PbOcKaxr500D8igWIfeJwUHrREGeKZP0ejgpMWTvma6Y8xkzPV6YMQwOvcaScgbaeF0a1iHx+mj7W5NGg5vVPSagkPp/BzrDI/T9d/TEv7NEF1WNR3N/XD7/I/6HDyJpeGGWR6pJoyD7PYtwuYrJzjga0KALdJ8AIYQB8AP9DF0OfaJywsiI4mUX9DzpM2IHV/Ef+xeUoSiTJfLjuIH76qPwSBW/pHB5CIoEvlqSNw6tWjwBl15AKIDDaliWbD85oBf+Jt1Bc+KiakScg4HbZ0OX00a1tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uMTKW0qMxaoACm7ZczLtA+fplb6GaZXPO81Ex2dBXsk=;
- b=Ncc63UfgNb/R8MgVGNPPs9XB9kHyxuGywirMSGzTK9a8VVqf3UDb4b1GitNe9VY6lncsnIz0MeOVomNGmx7J7oQKdbwKFXEG8JbRoBKOgbvS42nSO0m2xXuqF1N/jO211t1f3lPtM/HVB+3jOH9impHx+OLHUCbse2GGBgOLV4Dq30CxZZ3UwlZ3w5gX54+d+eGtrGLcRDODx0bnkpX0+pIcYraf421QE+fsyevVI2Jm3xLBHob+GsYjUe+7JznytKjNN3i6humdRdv8EmtE7sMNeUnTLvGpyCabfEFnJ9YDgXZL7LBMO26xvuBcF0cDhN5fwcBivNiD90hDVm1hEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uMTKW0qMxaoACm7ZczLtA+fplb6GaZXPO81Ex2dBXsk=;
- b=RK663hqx2h3qiu2S/Rd5QQqYhLO2G+J5jcQAB5SazeAfexZO+v06fyy3/t/YqvQZIvSBbQEy4EzDA/70ezf5UdG8R3v5rGPBV9uLGcOw1HX6B/3EUH3OA6/zy/l5BajOpzCub4NOpCQWCP/JNGF2uMwLLtnRrVHL8bwC+UQu8hE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by DU0PR04MB9585.eurprd04.prod.outlook.com (2603:10a6:10:316::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.18; Mon, 9 Dec
- 2024 11:30:11 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8230.010; Mon, 9 Dec 2024
- 11:30:11 +0000
-Message-ID: <93b1101b-fb3f-40b2-a2a6-11c942a8ccd2@cherry.de>
-Date: Mon, 9 Dec 2024 12:30:09 +0100
+	id 1tKc1a-00000007WCs-2osd;
+	Mon, 09 Dec 2024 11:34:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733744040;
+	bh=puC0a1HybhHYI50l/dJN0ZjdLbflTz3vkquO7Jj+ESo=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=SgxywoBrL545srH0VFkevgKCoFOEubpM21G7VaHLpbIXbyLpuXB3uthwDhsS5HXcm
+	 HnnJiymvSXb9lbsjL7wnNM2b9iodDBVe3ayI9PRojZGOdRjFkoBX62bJykk5xgLcEO
+	 qJtt8nwU73mfGaSPUTSf/UXeuFcIj75PAEfFL0lk2g3UKcOOdXRefiykxjXRzcZ+2o
+	 wLHRoi7+JcExPm8MGQ3SuCmpd096YJ3Vt5QEdi2ZgXUV2JUee5QR1cjFtRwA5lHaDu
+	 47JhsUvD21EVzj/KLsp8IemdQyfK9Ox9Mde0qPysMd8dRlaVjXTYlMmWM0VgTh1h4l
+	 kz5UjWlHvDbDA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D8C0317E362F;
+	Mon,  9 Dec 2024 12:33:58 +0100 (CET)
+Message-ID: <3a0512de-bcc0-4253-a8c1-f2e43b5cbfba@collabora.com>
+Date: Mon, 9 Dec 2024 12:33:57 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: dts: rockchip: increase gmac rx_delay on
- rk3399-puma
-To: Jakob Unterwurzacher <jakobunt@gmail.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Iskander Amara <iskander.amara@theobroma-systems.com>,
- Sasha Levin <sashal@kernel.org>,
- Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
- Vahe Grigoryan <vahe.grigoryan@theobroma-systems.com>,
- Klaus Goger <klaus.goger@theobroma-systems.com>
-Cc: stable@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241205151827.282130-1-jakob.unterwurzacher@cherry.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
+ jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+ <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
+ <4lvsvo6vsc7bipcgftsq3mzunwxoka3wjqad42ptr37oz77zub@5uarhvjmcxnc>
+ <a4a74f96-29cc-4007-9b03-f634b84d9cc2@collabora.com>
+ <m7u6xzm2o4dmcjot4xfk6do4slikpsp6gi3uyiuw4d35kunbc5@jyzgkrp4xjwc>
 Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20241205151827.282130-1-jakob.unterwurzacher@cherry.de>
+In-Reply-To: <m7u6xzm2o4dmcjot4xfk6do4slikpsp6gi3uyiuw4d35kunbc5@jyzgkrp4xjwc>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR3P281CA0055.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:4b::18) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DU0PR04MB9585:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3132097b-28e7-4416-d91d-08dd1844d78f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?enNJVWNJS2tqU0UwTmhMcGNiVDhNLzFqbllXZk4zYzI4WmtDL0lPNktJN2hm?=
- =?utf-8?B?aG5uZVcrc21uTnRUajhnY1c0ZUtkSHcxUXljdHRTRExrazJKSkl1Z214ZzM5?=
- =?utf-8?B?RjVtbE82eVJUWmllTGNQTHZ0UEIrWEsybEkwVHBqM2VicWdxcHVOQ05xc3h2?=
- =?utf-8?B?amhheDRUVDZVRDcvbm1TNFl5L2JHazU0WEhXYU9nMFZEZjluYTl1ZU1KbGVR?=
- =?utf-8?B?bFhVb2RjQkdkTzB5a202VDlqYmpUVHZ0RkRFckZ0bjBYcUo1WkNhSzhRS2t5?=
- =?utf-8?B?QXBhUk9pQ1JkR3pjT2J4b0dadVY4Y2pyczFDYzZuVTdtTmtGOTBPd1YvM2ZG?=
- =?utf-8?B?RXZBbExqOVJCWEFWVHJUZmI3SW9FVG42aUltb3JaZ2VNa3ZUVm5EK1dhQUU4?=
- =?utf-8?B?ZjcrTHBhaVQyU2NUMnI0cy9lUXpoZ2xaSGF1LzNJWTJuSitCYk95NmhoQ0hp?=
- =?utf-8?B?bjN0SGd2bGI3U3VpNjd4dkhuektjTWJjZ1Y0YStTU1krdStyVVNqQzFSSnl5?=
- =?utf-8?B?MngvWVlvai9IMEJwU1RpaUNmRG95VnQvWG1Jbldrd09BRFFJUVpmdXNTVnQ3?=
- =?utf-8?B?KzZkanhGaHFIcUJlT3NXUlFkOGpGNzUrbmhMWUNsNWFKeDFQTWcrUDFmM2Iw?=
- =?utf-8?B?ZmN6NVY0SXdFbGh2RGhSTmd0WUJMRlkwa0JsTjdMM2lXWGh6blFlUXNhRTda?=
- =?utf-8?B?TFVwSHovN3lsa3lxdDdCbk1iZDUrT1k5Sm5wNEJ5YnFiTzM5ejNKT0RtODMz?=
- =?utf-8?B?cEhTM2treGl2c29ETmtyU3dTVU05L2Q0aVloT1dxdDdoR1F1UUJaNUMyK3Vy?=
- =?utf-8?B?NlU3TUgyNytVZGhRWHlWbXMvRXJER3UvV01VTGtya2dxYm8zemtDTG80QmNH?=
- =?utf-8?B?V2syZDgxT3A0Q0dFTmRVWGUrMU1Wby9CcTN3ZHhOaGp3TyszN2FFaFBYM2t6?=
- =?utf-8?B?ckxRYUpvS1B2RlJEOCtJK2JGYUM5N2ZkWTBsVjk1SHVPZVFCVjdXNi9PYnd1?=
- =?utf-8?B?bTloSTZyMWpvc09nYXgvNm9JbUx4S1ZJN29JR2Q3aE9PbVc0V3JKSG84eTdW?=
- =?utf-8?B?ek1RS3Y5QjhDZU40cVFQc0QvQkw4SlMvVldKSlNhKzJYOEFDbElUc25VYVV1?=
- =?utf-8?B?bENvYzBYMFAzZEF5ZDZ3ME9UOFcxaStqVjhrSnNvRGM0aXRHbUgrODRTWVpF?=
- =?utf-8?B?TTA2QWJVcWl6NjF6SHJHeGxoYWlya1VrSlhjQVpPbXprc3M0YzlpN2VvMXhJ?=
- =?utf-8?B?NG1hSVFhNjU1bzkzc3ppQmFubTVpQU4yc0tySFdYdW1oZzlmSDhFWEhwZkV4?=
- =?utf-8?B?UzY5TFlMdUdpejFMcEM5VVY5UldKRzIyNEdJdmxUZ3dxUmNxdzgwNnphVzJS?=
- =?utf-8?B?SW5sSUo3OS9zeEJLSm1FZXpvYmRsd3Z3ZW1LeGxSeHpGS1VUdGQwa1BJOTlE?=
- =?utf-8?B?OG52amFidnE0VjZkRnNIL0wrejd4cFkxVG04ZExVKzFRVGRTQjhNekNFQnJ6?=
- =?utf-8?B?Rm9CUWlNazVnT1kvcmNKRFF2MmkzV0FsQm1NYUxPOThoZkMwUkc0d3pyVXVo?=
- =?utf-8?B?OU03clE4dVdtQmNoVk91WG4zVFBGb0pjV1VQSnVCTk9LUjJCT3hjQU84cmda?=
- =?utf-8?B?QTV5RUNXaTNIL0FiS1k3VWhDTGIyWFJKSzNNQVV3QlZybWZzdjF0R0xVZ25R?=
- =?utf-8?B?a0NheHRpRTZMbzZXbkFINSswSm1objkxUXJ5SnJORE9kR3A5ZHZGcW9Welhq?=
- =?utf-8?B?b3ZpK2g0VU1mVmVQbXY5bjhyL3VTS2RjalJCelJ0bmRyNWtzdmlPVFlPOGVx?=
- =?utf-8?B?WW55WHBOSlVmTzJ6eUFJT0pjNnZrdG94RnJJdTJYU1BhWmg1Rks5YWdBbEZz?=
- =?utf-8?Q?RIxfc+5W2jwLp?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHVaSDlyNENWZEdHSXNYeHhiMGJSWGdLNDAxVEsvVy9pUkVTR0ZWZ2pLYVlB?=
- =?utf-8?B?RmViRktPRnc0Tk1HMXNnMDk3UWFEUzlzMGE1eVdzM3UvMlhvNXFIRG9Tcllo?=
- =?utf-8?B?em5hZ3ZLTjVqSFNTRGF2c3ViSTdTZXFLOFZhQVMwQ3FKbkUxTVQyd3ZPcGhC?=
- =?utf-8?B?QzVqQWxyc2svOVc2cTVRTG9seTRmK0s2aDhqZCs5cmQxTzVPcnlWS1c1aGRE?=
- =?utf-8?B?ZFVSWlR2TUhKdXBCcC9xYVdORVNORHUxSTVVajljVEc0bjdmQW1IYU8xYjR4?=
- =?utf-8?B?cVBEZjVtVkJyc3cvYy9lVmpLbyt2RGlYbE9xeHNGb0JTeHNpSFppc1I4akFW?=
- =?utf-8?B?Vmt4RnhnaUkyZEU3MXhTdENhcmc1RXQvN1BpN25qUWdwV2RlMGJBbjdTb2l1?=
- =?utf-8?B?TmkrbU9xbHlpT1pYL0Fxb2g3YjhERjh2c0JxK052L29zQ0hDRU16bWZNYzU3?=
- =?utf-8?B?UVZTUE5wZnZYV2lwNWc0dm0vbEdlWDdpdTZraHlROUZZRkpkcUJURUtObUMw?=
- =?utf-8?B?UFk5dUpIL2Z2Zm10V0Iram9YemVscnVMMU1EdEgwZmdBUUR2K1oyR0x6N3JD?=
- =?utf-8?B?aUF5ZUdXalhDcEh1c1ZHRG1abzhYYUVSRjVKOGY0RnRWRlFCRVFLRXlOTXdi?=
- =?utf-8?B?ZFNKSldVdkttZmQ4RXEyQVZHWTR0d2tUVFFuc0tSY2oyYlJVcm1QMWNTV1RI?=
- =?utf-8?B?NEs1Rms4K1YvZVpROFNuVzdscTAxWFpLRjFJNDJseStrODdOYlR3TzJsK1ov?=
- =?utf-8?B?R1p1Wm1CRzFlbDJNTUhUY2FNOTZlTk0xaDMzakJQK0IwS1JzVlRrRWU2am90?=
- =?utf-8?B?VnRhRTJyOWI4bkM1QXJQV1VhU21PbWxyUEhqMTVzL3JUQzZxaTlWQ25FK1Nu?=
- =?utf-8?B?M3ArdUZMbFFESW92Rkg3TlJMaXJjSnF2S29ZcW51V2R1TmxLWVdwakFWeFo3?=
- =?utf-8?B?aWQ5ZTA1TjFYNzVNQ0k2dDlBK1FkcDN4ckU2OXhVY1FFMWNsbCtNbjZUQVp1?=
- =?utf-8?B?L1I1Mm5KT1Q4TXlWYkRyTFpOV2J3M1ZSY2gxVjVjc1h3bTc4a2NsWWFyalll?=
- =?utf-8?B?ZFAvamJUVFA3ckg1Q1VGa2Vpcy9NWGRnU1V1M1hKd0E1aStxa2NQdmx2eWY0?=
- =?utf-8?B?M0s1RHFNMVJvWkxwZitWaUlNWGFqbmx4bFZ6ZWxjZHNleXlUQ3M4YmREVWpU?=
- =?utf-8?B?SWNwR2o3OFFsRlEreVJrNTNLTjBFdUZpSjhyVUJzVmtSdml5anoxa091Z1Fw?=
- =?utf-8?B?TVRYZmoxVlorb043RWcvTSt1SkZIZENDQ0RRaE1RUEFVZ0YrZzVLRXcwNjVB?=
- =?utf-8?B?TjUrblB1blFQSTZHYWVrWDd5QStaRzdrdTZpR1haYUo4MDAzaWtmZjUrOGZY?=
- =?utf-8?B?emxIQjhRQ0lneEZyMWR5Qi95eWdhakx6WnhuNUtsUUtlcml3Zjl0L1k0STBO?=
- =?utf-8?B?eHBGZDQzcGl4REZlcWNEZWZ6QmFsVm1GM1E0Qm05ZWc0OGFKWTI5dGFyUE1y?=
- =?utf-8?B?YnZrUk5UdTBhb0RzcDNWd0lKTk1pakE3MCtjR2diVGQ2bk9QUFBuNzVROHpH?=
- =?utf-8?B?aGRZOEY1bnlzZ2Vld3N2Yk81OWdiYkV6Y2ZxSUlGemt1M2dHVEc2aFk5NDNJ?=
- =?utf-8?B?V3FTU0ozaVJ6S1hreDNVSXBTZzlCK1pZemNGY0s2L2Erb25DN1pKRW45UFBZ?=
- =?utf-8?B?NUFMK3NDQS9KQWRlNzFoaEJqN3BkUnBvMVZNSk9nUDMwaFM2QTg2TkdxS2J2?=
- =?utf-8?B?OHZhZFEzM3MxZWd4dmg0TXJrK2NlaldnQUJqTUh1TFpQS3l6K3dYelU2M0s4?=
- =?utf-8?B?RjRobkY2YXZvN3c0dENUdHZRRUZkQUFOelZGaWd1akhHK2orL2xwUEQrTUtx?=
- =?utf-8?B?ZndMdk5uNjhLSE9mSmJtT1o2RlY1Mm5ZRTN6MUI3UmorVnJ2bFk1SXRIQXM3?=
- =?utf-8?B?MHp5cUlraUcrVlowTk5VTXp2OG95MUJtakRwSTY3cFdXb05zSjRUd3VsNUdG?=
- =?utf-8?B?eU8xUXJvS25XSU5SMHFVZG5wanJGcndkT0E5ZlJwQ0grb1EvVXBmb2tMMGl3?=
- =?utf-8?B?d2hUbGZFb3ZTbE5ZUWRnTVhWNVVPV3lQZkpiQWQxWXFBeDFUcHVNREc3ZFdJ?=
- =?utf-8?B?RFV4aXdPZjkwL1c1UnFHb00ySGdYVXBOdUV2UDhiSmJHcUNoczdqTDhYazRl?=
- =?utf-8?B?NEE9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3132097b-28e7-4416-d91d-08dd1844d78f
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 11:30:11.1399
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fqxY33de5UkKm5DiUOVbmkI/bGnlfEtJaDWv+S52Tw6jA3fbI/Phd4Cf0hH8QQF9UPWvL6J9CfzTf94YXawOCLZDiGUAPsoKPc4G77iXW/0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9585
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_033021_563599_5C0E96BF 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20241209_033403_024558_BCC910A9 
+X-CRM114-Status: GOOD (  59.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,59 +85,461 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakob,
-
-On 12/5/24 4:18 PM, Jakob Unterwurzacher wrote:
-> During mass manufacturing, we noticed the mmc_rx_crc_error counter,
-> as reported by "ethtool -S eth0 | grep mmc_rx_crc_error", to increase
-> above zero during nuttcp speedtests. Most of the time, this did not
-> affect the achieved speed, but it prompted this investigation.
+Il 05/12/24 20:35, Dmitry Baryshkov ha scritto:
+> On Thu, Dec 05, 2024 at 02:30:51PM +0100, AngeloGioacchino Del Regno wrote:
+>> Il 05/12/24 13:56, Dmitry Baryshkov ha scritto:
+>>> On Thu, Dec 05, 2024 at 12:45:17PM +0100, AngeloGioacchino Del Regno wrote:
+>>>> Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
+>>>> found in MediaTek's MT8195, MT8188 SoC and their variants, and
+>>>> including support for display modes up to 4k60 and for HDMI
+>>>> Audio, as per the HDMI 2.0 spec.
+>>>>
+>>>> HDCP and CEC functionalities are also supported by this hardware,
+>>>> but are not included in this commit and that also poses a slight
+>>>> difference between the V2 and V1 controllers in how they handle
+>>>> Hotplug Detection (HPD).
+>>>>
+>>>> While the v1 controller was using the CEC controller to check
+>>>> HDMI cable connection and disconnection, in this driver the v2
+>>>> one does not.
+>>>>
+>>>> This is due to the fact that on parts with v2 designs, like the
+>>>> MT8195 SoC, there is one CEC controller shared between the HDMI
+>>>> Transmitter (HDMI-TX) and Receiver (HDMI-RX): before eventually
+>>>> adding support to use the CEC HW to wake up the HDMI controllers
+>>>> it is necessary to have support for one TX, one RX *and* for both
+>>>> at the same time.
+>>>>
+>>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>>> ---
+>>>>    drivers/gpu/drm/mediatek/Kconfig            |    8 +
+>>>>    drivers/gpu/drm/mediatek/Makefile           |    4 +
+>>>>    drivers/gpu/drm/mediatek/mtk_hdmi_common.c  |    5 +
+>>>>    drivers/gpu/drm/mediatek/mtk_hdmi_common.h  |    1 +
+>>>>    drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c  |  403 +++++
+>>>>    drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h |  263 ++++
+>>>>    drivers/gpu/drm/mediatek/mtk_hdmi_v2.c      | 1488 +++++++++++++++++++
+>>>>    7 files changed, 2172 insertions(+)
+>>>>    create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c
+>>>>    create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
+>>>>    create mode 100644 drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+>>>>
+>>
+>> ..snip..
+>>
+>>>> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+>>>> new file mode 100644
+>>>> index 000000000000..05cbfc45be54
+>>>> --- /dev/null
+>>>> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+>>>> @@ -0,0 +1,1488 @@
+>>>> +// SPDX-License-Identifier: GPL-2.0
+>>>> +/*
+>>
+>> ..snip..
+>>
+>>>> +static int mtk_hdmi_v2_setup_audio_infoframe(struct mtk_hdmi *hdmi)
+>>>> +{
+>>>> +	struct hdmi_codec_params *params = &hdmi->aud_param.codec_params;
+>>>> +	struct hdmi_audio_infoframe frame;
+>>>> +	u8 buffer[14];
+>>>> +	ssize_t ret;
+>>>> +
+>>>> +	memcpy(&frame, &params->cea, sizeof(frame));
+>>>> +
+>>>> +	ret = hdmi_audio_infoframe_pack(&frame, buffer, sizeof(buffer));
+>>>> +	if (ret < 0)
+>>>> +		return ret;
+>>>> +
+>>>> +	mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
+>>>
+>>> This should be handled via HDMI Connector framework too. There is
+>>> already an interface to set / clear audio infoframes.
+>>> als I have been working on an interface to make HDMI codec
+>>> implementation more generic, see [1]. Your comments are appreciated.
+>>>
+>>> [1] https://patchwork.freedesktop.org/series/134927/
+>>>
+>>
+>> I didn't go for that because I was afraid that your series wouldn't actually
+>> land in the same window as this driver.
 > 
-> Cycling through the rx_delay range on six boards (see table below) of
-> various ages shows that there is a large good region from 0x12 to 0x35
-> where we see zero crc errors on all tested boards.
+> There were two points in my comment (sorry for being not explicit
+> enough). One is to point to the HDMI codec infra (and you are right,
+> it's not yet in the mergeable state). Second one is to use
+> drm_atomic_helper_connector_hdmi_update_audio_infoframe() and
+> drm_atomic_helper_connector_hdmi_clear_audio_infoframe() if possible (it
+> might be hard to do it - in fact it being hard kind of forced me to
+> work on the HDMI codec infra).
 > 
-> The old rx_delay value (0x10) seems to have always been on the edge for
-> the KSZ9031RNX that is usually placed on Puma.
+
+That *is* indeed hard and adding almost unnecessary complications to my submission.
+
+>> I am at this point puzzled to whether I should add a commit on top of this
+>> submission that switches this driver to using the generic HDMI Codec infra
+>> (which could also be helpful as guidance to others trying to do the same on
+>> other drivers, I guess), or if I should just rebase on top of that.
 > 
-> Choose "rx_delay = 0x23" to put us smack in the middle of the good
-> region. This works fine as well with the KSZ9131RNX PHY that was used
-> for a small number of boards during the COVID chip shortages.
+> I'd say, a completely separate patch might be even better, I can then
+> integrate it into the HDMI codec patchset, adding a soft dependency on
+> your series. If for some reason the codec lands earlier than your
+> patchset, the patch can be dropped and reintegrated into your series. Or
+> just committed separately.
+
+I'd rather get the audio part merged as-is with the old handling at this point...
+
+As you can see, once your HDMI Codec infra gets in a mergeable state the cleanup
+(or conversion, however you prefer to call it) in this driver will be mostly
+trivial.
+
+This means that whenever your series is ready to merge, I'll be able to send a
+(single, most probably) commit updating this driver to use the new helpers in a
+jiffy (or two).
+
 > 
-> 	Board S/N        PHY        rx_delay good region
-> 	---------        ---        --------------------
-> 	Puma TT0069903   KSZ9031RNX 0x11 0x35
-> 	Puma TT0157733   KSZ9031RNX 0x11 0x35
-> 	Puma TT0681551   KSZ9031RNX 0x12 0x37
-> 	Puma TT0681156   KSZ9031RNX 0x10 0x38
-> 	Puma 17496030079 KSZ9031RNX 0x10 0x37 (Puma v1.2 from 2017)
-> 	Puma TT0681720   KSZ9131RNX 0x02 0x39 (alternative PHY used in very few boards)
+>> I'd rather add a commit on top to mainly avoid risking to delay this driver,
+>> but if you're absolutely certain that you can get your series merged in the
+>> same window as this driver I have *zero* problems in just rebasing on top.
+>>
+>> Besides...
+>>
+>> I'll find the time to review your series - I'm sad it didn't land earlier as
+>> I would've written a bit less code otherwise :-)
+>>
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>
+>> ..snip..
+>>
+>>>> +
+>>>> +	/* Enable the controller at attach time for HPD/Pord feedback */
+>>>> +	ret = mtk_hdmi_v2_enable(hdmi);
+>>>> +	if (ret)
+>>>> +		return ret;
+>>>
+>>> This looks like a hack. Please use .hpd_enable() / .hpd_disable()
+>>> callbacks.
+>>>
+>>
+>> ...but there's no way to power on only the HPD - you can either power on
+>> the entire controller, or nothing.
+>>
+>> I can't call mtk_hdmi_v2_enable/disable() from the HPD callbacks.
 > 
-> 	Intersection of good regions = 0x12 0x35
-> 	Middle of good region = 0x23
+> Why? Add a powerup refcount if necessary.
 > 
-> Relates-to: PUMA-111
-> Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
-> Cc: <stable@vger.kernel.org>
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-> Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 
-I had reported errors on my v2.1 Puma (KSZ9031) but none on my v2.3 
-before that patch, and have 0 after applying this patch on both, so 
-improvement for v2.1 and no regression for v2.3.
+...but this means that I still have to keep the mtk_hdmi_v2_enable() call
+here, but I didn't understand the point of this until you made me think
+about...
 
-I ran the nuttcp test for an hour, failed after a minute on master 
-(without the patch) on v2.1 but not on v2.3 and it didn't report any 
-issue after an hour after applying this patch, thus:
+>>
+>> Perhaps the comment should have been
+>>
+>> "Enable the controller attach time also allows HPD/Pord feedback"?
+> 
+> I think it should still be explicit call from those callbacks. Consider
+> a platform using external GPIO to implement HPD. Then the HDMI
+> controller can stay disabled if it is not necessary.
 
-Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # Puma v2.1/v2.3 
-with KSZ9031
+...this case.
 
-I assume Krzysztof complained about their old email address appearing in 
-the Cc list (it was changed in 6.9 in MAINTAINERS file) which 
-highlighted you didn't develop on master (I did test on master though). 
-Please address their concern from their mail and send a v4.
+I'm still not sure whether I can actually do what you propose because this
+IP needs another IP (mtk_dpi) to be in a configured state before this one
+gets enabled, or you get a freeze.
 
-Thanks!
-Quentin
+I'll check - if that's feasible, I'll add the refcounting and will go for
+the hpd_{en,dis}able callbacks.
+
+> 
+>>
+>>>> +
+>>>> +	/* Enable Hotplug and Pord pins internal debouncing */
+>>>> +	regmap_set_bits(hdmi->regs, HPD_DDC_CTRL,
+>>>> +			HPD_DDC_HPD_DBNC_EN | HPD_DDC_PORD_DBNC_EN);
+>>>> +
+>>>> +	irq_clear_status_flags(hdmi->irq, IRQ_NOAUTOEN);
+>>>> +	enable_irq(hdmi->irq);
+>>>> +
+>>>> +	/*
+>>>> +	 * Check if any HDMI monitor was connected before probing this driver
+>>>> +	 * and/or attaching the bridge, without debouncing: if so, we want to
+>>>> +	 * notify the DRM so that we start outputting an image ASAP.
+>>>> +	 * Note that calling the ISR thread function will also perform a HW
+>>>> +	 * registers write that enables both the HPD and Pord interrupts.
+>>>> +	 */
+>>>> +	__mtk_hdmi_v2_isr_thread(hdmi);
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>
+>> ..snip..
+>>
+>>>> +static void mtk_hdmi_v2_bridge_pre_enable(struct drm_bridge *bridge,
+>>>> +					  struct drm_bridge_state *old_state)
+>>>> +{
+>>>> +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+>>>> +	struct drm_atomic_state *state = old_state->base.state;
+>>>> +	struct drm_connector_state *conn_state;
+>>>> +	union phy_configure_opts opts = {
+>>>> +		.dp = { .link_rate = hdmi->mode.clock * KILO }
+>>>> +	};
+>>>> +
+>>>> +	/* Retrieve the connector through the atomic state */
+>>>> +	hdmi->curr_conn = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+>>>> +
+>>>> +	conn_state = drm_atomic_get_new_connector_state(state, hdmi->curr_conn);
+>>>> +	if (WARN_ON(!conn_state))
+>>>> +		return;
+>>>> +
+>>>> +	/*
+>>>> +	 * Preconfigure the HDMI controller and the HDMI PHY at pre_enable
+>>>> +	 * stage to make sure that this IP is ready and clocked before the
+>>>> +	 * mtk_dpi gets powered on and before it enables the output.
+>>>> +	 */
+>>>> +	hdmi->dvi_mode = !hdmi->curr_conn->display_info.is_hdmi;
+>>>
+>>> Can you access display_info directly instead?
+>>>
+>>
+>> Nice catch. Yeah, I should've done that from the beginning. Fixed for v3.
+>>
+>>>> +	mtk_hdmi_v2_output_set_display_mode(hdmi, &hdmi->mode);
+>>>> +
+>>>> +	/* Reconfigure phy clock link with appropriate rate */
+>>>> +	phy_configure(hdmi->phy, &opts);
+>>>> +
+>>>> +	/* Power on the PHY here to make sure that DPI_HDMI is clocked */
+>>>> +	phy_power_on(hdmi->phy);
+>>>> +
+>>>> +	hdmi->powered = true;
+>>>> +}
+>>>> +
+>>>> +static void mtk_hdmi_v2_bridge_enable(struct drm_bridge *bridge,
+>>>> +				      struct drm_bridge_state *old_state)
+>>>> +{
+>>>> +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+>>>> +	struct drm_atomic_state *state = old_state->base.state;
+>>>> +	int ret;
+>>>> +
+>>>> +	ret = drm_atomic_helper_connector_hdmi_update_infoframes(hdmi->curr_conn, state);
+>>>> +	if (ret)
+>>>> +		dev_err(hdmi->dev, "Could not update infoframes: %d\n", ret);
+>>>> +
+>>>> +	mtk_hdmi_v2_hw_vid_mute(hdmi, false);
+>>>> +	mtk_hdmi_v2_hw_aud_mute(hdmi, false);
+>>>> +
+>>>> +	/* signal the connect event to audio codec */
+>>>> +	mtk_hdmi_v2_handle_plugged_change(hdmi, true);
+>>>
+>>> I think it was agreed that this should be called from the hotplug path,
+>>> see the (linked) HDMI codec infrastructure patchset and dicussions for
+>>> the previous revisions.
+>>>
+>>
+>> Okay, I'll check that out.
+>>
+>>>> +
+>>>> +	hdmi->enabled = true;
+>>>> +}
+>>>> +
+>>
+>> ..snip..
+>>
+>>>> +
+>>>> +static int mtk_hdmi_v2_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
+>>>> +						 const struct drm_display_mode *mode,
+>>>> +						 unsigned long long tmds_rate)
+>>>> +{
+>>>> +	if (mode->clock < MTK_HDMI_V2_CLOCK_MIN)
+>>>> +		return MODE_CLOCK_LOW;
+>>>> +	else if (mode->clock > MTK_HDMI_V2_CLOCK_MAX)
+>>>> +		return MODE_CLOCK_HIGH;
+>>>> +	else
+>>>> +		return MODE_OK;
+>>>> +}
+>>>> +
+>>>> +static enum drm_mode_status
+>>>> +mtk_hdmi_v2_bridge_mode_valid(struct drm_bridge *bridge,
+>>>> +			      const struct drm_display_info *info,
+>>>> +			      const struct drm_display_mode *mode)
+>>>> +{
+>>>> +	unsigned long long rate;
+>>>> +
+>>>> +	rate = drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
+>>>> +	return mtk_hdmi_v2_hdmi_tmds_char_rate_valid(bridge, mode, rate);
+>>>> +}
+>>>
+>>> Please rebase on top of https://patchwork.freedesktop.org/series/140193/
+>>> There should be no need to do this manually.
+>>>
+>>
+>> Oh finally there's a helper for this. Cool, will rebase! Thanks!
+> 
+> And it doesn't even add an extra dependency for you.
+> 
+
+... Which is even cool-er, yes :-)
+
+>>
+>>>> +
+>>>> +static int mtk_hdmi_v2_hdmi_clear_infoframe(struct drm_bridge *bridge,
+>>>> +					    enum hdmi_infoframe_type type)
+>>>> +{
+>>>> +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+>>>> +	u32 reg_start, reg_end;
+>>>> +
+>>>> +	switch (type) {
+>>>> +	case HDMI_INFOFRAME_TYPE_AUDIO:
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AUD_EN | AUD_EN_WR);
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AUD_RPT_EN);
+>>>> +		reg_start = TOP_AIF_HEADER;
+>>>> +		reg_end = TOP_AIF_PKT03;
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_AVI:
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AVI_EN_WR | AVI_EN);
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AVI_RPT_EN);
+>>>> +		reg_start = TOP_AVI_HEADER;
+>>>> +		reg_end = TOP_AVI_PKT05;
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_SPD:
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, SPD_EN_WR | SPD_EN);
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, SPD_RPT_EN);
+>>>> +		reg_start = TOP_SPDIF_HEADER;
+>>>> +		reg_end = TOP_SPDIF_PKT07;
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_VENDOR:
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, VSIF_EN_WR | VSIF_EN);
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, VSIF_RPT_EN);
+>>>> +		reg_start = TOP_VSIF_HEADER;
+>>>> +		reg_end = TOP_VSIF_PKT07;
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_DRM:
+>>>> +	default:
+>>>> +		return 0;
+>>>> +	};
+>>>> +
+>>>> +	for (; reg_start <= reg_end; reg_start += 4)
+>>>> +		regmap_write(hdmi->regs, reg_start, 0);
+>>>
+>>> Interesting. Usually sending of the infoframe is controlled by a
+>>> register of a kind.
+>>>
+>>
+>> "This callback clears the infoframes in the hardware during commit"
+>>
+>> ...and that's exactly what this function does: clears the infoframes
+>> in the HW and stops the RPT, making the HW ready for the "next round".
+>>
+>> Did I get the documentation wrong?
+>> Should this function *send* an all-zero infoframe to the external display?
+> 
+> No, it should stop sending the callback. My point was that usually there
+> is a separate register which controls the infoframes. You code just
+> clears the header (which probably is handled as disabling in the IP
+> core).
+> 
+
+No, my code is clearing everything, not just the header.
+
+The registers in this IP are sequential, I'm setting the code to start writing
+at HEADER, and stop writing at PKTxx, where PKTxx registers contain the infoframe.
+
+In any case, disabling in the IP core is managed by clearing the _EN and _EN_WR
+(where WR means "Write", and RPT_EN is "repeat write") bits in the xxx_INFO_EN
+register(s), and that's what I'm doing at the beginning, before actually cleaning
+the infoframe registers.
+
+Actually, I could've just cleared the EN bits and that would've been enough, but
+I wanted to leave the IP in a clean+known state and decided to zero out the entire
+infoframe header/data register set.
+
+....but anyway, what you just said before me explaining how this IP works means
+that I got it right, and that this function does exactly what it is supposed to do.
+
+
+Cheers!
+Angelo
+
+>>
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static int mtk_hdmi_v2_hdmi_write_infoframe(struct drm_bridge *bridge,
+>>>> +					    enum hdmi_infoframe_type type,
+>>>> +					    const u8 *buffer, size_t len)
+>>>> +{
+>>>> +	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+>>>> +
+>>>> +	switch (type) {
+>>>> +	case HDMI_INFOFRAME_TYPE_AUDIO:
+>>>> +		mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_AVI:
+>>>> +		mtk_hdmi_v2_hw_write_avi_infoframe(hdmi, buffer);
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_SPD:
+>>>> +		mtk_hdmi_v2_hw_write_spd_infoframe(hdmi, buffer);
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_VENDOR:
+>>>> +		mtk_hdmi_v2_hw_write_vendor_infoframe(hdmi, buffer);
+>>>> +		break;
+>>>> +	case HDMI_INFOFRAME_TYPE_DRM:
+>>>> +	default:
+>>>> +		dev_err(hdmi->dev, "Unsupported HDMI infoframe type %u\n", type);
+>>>> +		break;
+>>>> +	};
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static int mtk_hdmi_v2_bridge_atomic_check(struct drm_bridge *bridge,
+>>>> +					   struct drm_bridge_state *bridge_state,
+>>>> +					   struct drm_crtc_state *crtc_state,
+>>>> +					   struct drm_connector_state *conn_state)
+>>>> +{
+>>>> +	return drm_atomic_helper_connector_hdmi_check(conn_state->connector,
+>>>> +						      conn_state->state);
+>>>> +}
+>>>
+>>> Note to myself, probably we can move this to drm_bridge_connector too.
+>>>
+>>>> +
+>>>> +static int mtk_hdmi_v2_set_abist(struct mtk_hdmi *hdmi, bool enable)
+>>>> +{
+>>>> +	struct drm_display_mode *mode = &hdmi->mode;
+>>>> +	int abist_format = -EINVAL;
+>>>> +	bool interlaced;
+>>>> +
+>>>> +	if (!enable) {
+>>>> +		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
+>>>> +		return 0;
+>>>> +	}
+>>>> +
+>>>> +	if (!mode->hdisplay || !mode->vdisplay)
+>>>> +		return -EINVAL;
+>>>> +
+>>>> +	interlaced = mode->flags & DRM_MODE_FLAG_INTERLACE;
+>>>
+>>> The interlaced modes should be filtered, unless you also set
+>>> bridge->interlace_allowed to true.
+>>>
+>>
+>> Noted. Many Thanks for the review!
+>>
+>> I'll wait until next week for more feedback before sending a v3.
+> 
+
+
+-- 
+AngeloGioacchino Del Regno
+Senior Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
+Registered in England & Wales, no. 5513718
 
