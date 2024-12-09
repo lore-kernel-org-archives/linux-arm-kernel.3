@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F21E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 16:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26DEE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 16:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/XOXHUCFDal+7ZJpTKg2R4DEbgyt6V9kMbo0VrdFxQ=; b=rDf+zcJDx8hR0+lzl9XtEN6Nbj
-	ss8UZJ9b3beeTgHyFBym0tuqRohbs2Bj4IWEa5QmQyI+eh1MBhI7hOqNzyIgg4lnQt9zI6gzGnNYH
-	6hAXdBiYBgjbremfT1ky/6Puo/cgChiy7v59yJg2NEjl93MNBlHLUVcF/SPcx3t9mQJcga89N7oer
-	3fgrqIOGl7Cwbp/Dr5GNIMz/9//1gSDzQ9xFGhsJPNz9JSq/xSvHBkoFHeksblQjF9J82fvsakxT4
-	vRImPtlBQ2gZ5zlOK6nGP094OpINzmxTAIhRJ1DvhARRMQmYvhS5nyCb7ezagFSqBGfkbBb7zXCuu
-	N4O3O8fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tLYbGt0hoBREp9nuzUjHJqQgP5LBORvzofcGEX3ZeW4=; b=sF825ne5QFBBY/Jfz6nQTuykKr
+	QVM7ZUYL8ekSbAk8fhQxhTOiAz0P5qnJiRxBRua4T68xLNFhB5ATbAwOeGCv8jwjYM4/nC5f/eT95
+	lHM5cDvTvhwsuDfzlCoYrAFVp7ewpS4FwScpS//SwFvOHEJihEPXAkjSHyjei0Nv6LimJvm400XPE
+	MG70vHKhNOao2lRklJSkRjZOudemgpOqF6o1OuHHxXlnNq/TUT8/+3ufCuXtt2sjOSxJCw8KTM0PS
+	BU90ZdA6kJBhhS8vz+dUgcChNS4GY+L0sJaNUxjE/iaUsh16s7kXS/lZ4Gwly1YiW55qLhj6mOHZR
+	dyK19Zvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKgW3-00000008XFo-1lRP;
-	Mon, 09 Dec 2024 16:21:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tKgZM-00000008XwD-0jsT;
+	Mon, 09 Dec 2024 16:25:12 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKgUt-00000008Wra-2t3p
+	id 1tKgYJ-00000008Xnf-12jT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 16:20:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 93CCD5C5E42;
-	Mon,  9 Dec 2024 16:19:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C7FC4CEDE;
-	Mon,  9 Dec 2024 16:20:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733761235;
-	bh=A0khTX962w4Lj2UZnP6iKvULYKO5dZNtoX7UeansjzE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uK+HxU+7UrafZWQAtX1yFKqLzr3GhtOoQ/I9qjhOXe6jTLtmtJJG3KeIfN+pCl52V
-	 SuXy7P2d/WL1Ss8nzRAEHSimrk2PUmzwp7X26037XpdcMPYvmkYnE+sHgTIZsKrUK4
-	 U9WyfTktZYBoew26+tTqWCm5l9AYXYCGHqzGRRGKntCtlMy3M+waCF9Y3y9LNbokf/
-	 q6mQufLiMJrwhcZwa6S/tanQ6e/8jGJvZ54xMfKyei1YgNOLdvanuL4NyminJoySiF
-	 InqCHHwsyavoTXPiTXjGvEClQPvgvlbr9uJ6SsQ+FWCXJ6saHAT+Aavv2twnJoGIbv
-	 t9dq4WzA85JYg==
-Date: Mon, 9 Dec 2024 16:20:29 +0000
-From: Will Deacon <will@kernel.org>
-To: Yabin Cui <yabinc@google.com>
-Cc: Rong Xu <xur@google.com>, Han Shen <shenhan@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <kees@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
-Message-ID: <20241209162028.GD12428@willie-the-truck>
-References: <20241118222540.27495-1-yabinc@google.com>
+	Mon, 09 Dec 2024 16:24:08 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9F6MjX011896;
+	Mon, 9 Dec 2024 17:24:00 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	tLYbGt0hoBREp9nuzUjHJqQgP5LBORvzofcGEX3ZeW4=; b=RCt5nFu61IbB9R+d
+	uSSmR4Lb9COdG6D0DuY8PbS1DKv6DfZhdFesrw8Yyt1lt9zY5WPXoGr7hPQN5lNz
+	ul1540+f92YjOoVCBGPxZ+cR/eNpefCmy7v67QEoF4DPLUXYHPtKgrN+atv7SO3s
+	Z3DBU3X2ULqlPZ3a05HVH1MmtNqrpDKX2lymoTyffpSmk5TDbKFIww5EpPGCy8+J
+	TncOXwxMgDHbNUbm1JaXKgIYfHIijKlsw57WBW/c/TCzPutCIwc8AYdrnQMmFM/J
+	J0TkYZm6F6v6XHhnC+jedlzietvQyFSeBitLPXMa+oEX/5VoE2iFUQXHcPxiCmvj
+	9xyeWA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43e2w9ga1f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 17:24:00 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A94FF4005D;
+	Mon,  9 Dec 2024 17:23:01 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 70EC72A278D;
+	Mon,  9 Dec 2024 17:18:23 +0100 (CET)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 9 Dec
+ 2024 17:18:22 +0100
+Message-ID: <4075e04d-dab3-40f2-9a64-760081cf47ee@foss.st.com>
+Date: Mon, 9 Dec 2024 17:18:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241118222540.27495-1-yabinc@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] arm64: dts: st: add spdifrx support on stm32mp251
+To: Olivier Moysan <olivier.moysan@foss.st.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241105162141.712073-1-olivier.moysan@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20241105162141.712073-1-olivier.moysan@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_082035_819562_624957E9 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20241209_082407_571507_B4829C70 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +97,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 02:25:40PM -0800, Yabin Cui wrote:
-> Select ARCH_SUPPORTS_AUTOFDO_CLANG to allow AUTOFDO_CLANG to be
-> selected.
+Hi Oliver
+
+On 11/5/24 17:21, Olivier Moysan wrote:
+> Add S/PDIFRX support to STM32MP25 SoC family.
 > 
-> On ARM64, ETM traces can be recorded and converted to AutoFDO profiles.
-> Experiments on Android show 4% improvement in cold app startup time
-> and 13% improvement in binder benchmarks.
-> 
-> Signed-off-by: Yabin Cui <yabinc@google.com>
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
 > ---
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
 > 
-> Change-Logs in V2:
-> 
-> 1. Use "For ARM platforms with ETM trace" in autofdo.rst.
-> 2. Create an issue and a change to use extbinary format in instructions:
->    https://github.com/Linaro/OpenCSD/issues/65
->    https://android-review.googlesource.com/c/platform/system/extras/+/3362107
-> 
->  Documentation/dev-tools/autofdo.rst | 18 +++++++++++++++++-
->  arch/arm64/Kconfig                  |  1 +
->  2 files changed, 18 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/dev-tools/autofdo.rst b/Documentation/dev-tools/autofdo.rst
-> index 1f0a451e9ccd..a890e84a2fdd 100644
-> --- a/Documentation/dev-tools/autofdo.rst
-> +++ b/Documentation/dev-tools/autofdo.rst
-> @@ -55,7 +55,7 @@ process consists of the following steps:
->     workload to gather execution frequency data. This data is
->     collected using hardware sampling, via perf. AutoFDO is most
->     effective on platforms supporting advanced PMU features like
-> -   LBR on Intel machines.
-> +   LBR on Intel machines, ETM traces on ARM machines.
->  
->  #. AutoFDO profile generation: Perf output file is converted to
->     the AutoFDO profile via offline tools.
-> @@ -141,6 +141,22 @@ Here is an example workflow for AutoFDO kernel:
->  
->        $ perf record --pfm-events RETIRED_TAKEN_BRANCH_INSTRUCTIONS:k -a -N -b -c <count> -o <perf_file> -- <loadtest>
->  
-> +   - For ARM platforms with ETM trace:
+> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> index 6fe12e3bd7dd..34970be2e0b3 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> @@ -267,6 +267,20 @@ spi3: spi@400c0000 {
+>   				status = "disabled";
+>   			};
+>   
+> +			spdifrx: audio-controller@400d0000 {
+> +				compatible = "st,stm32h7-spdifrx";
+> +				#sound-dai-cells = <0>;
+> +				reg = <0x400d0000 0x400>;
+> +				clocks = <&rcc CK_KER_SPDIFRX>;
+> +				clock-names = "kclk";
+> +				interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&hpdma 71 0x43 0x212>,
+> +				       <&hpdma 72 0x43 0x212>;
+> +				dma-names = "rx", "rx-ctrl";
+> +				access-controllers = <&rifsc 30>;
+> +				status = "disabled";
+> +			};
 > +
-> +     Follow the instructions in the `Linaro OpenCSD document
-> +     https://github.com/Linaro/OpenCSD/blob/master/decoder/tests/auto-fdo/autofdo.md`_
-> +     to record ETM traces for AutoFDO::
-> +
-> +      $ perf record -e cs_etm/@tmc_etr0/k -a -o <etm_perf_file> -- <loadtest>
-> +      $ perf inject -i <etm_perf_file> -o <perf_file> --itrace=i500009il
-> +
-> +     For ARM platforms running Android, follow the instructions in the
-> +     `Android simpleperf document
-> +     <https://android.googlesource.com/platform/system/extras/+/main/simpleperf/doc/collect_etm_data_for_autofdo.md>`_
-> +     to record ETM traces for AutoFDO::
-> +
-> +      $ simpleperf record -e cs-etm:k -a -o <perf_file> -- <loadtest>
-> +
->  4) (Optional) Download the raw perf file to the host machine.
->  
->  5) To generate an AutoFDO profile, two offline tools are available:
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fd9df6dcc593..c3814df5e391 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -103,6 +103,7 @@ config ARM64
->  	select ARCH_SUPPORTS_PER_VMA_LOCK
->  	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
->  	select ARCH_SUPPORTS_RT
-> +	select ARCH_SUPPORTS_AUTOFDO_CLANG
->  	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
->  	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
->  	select ARCH_WANT_DEFAULT_BPF_JIT
+>   			usart2: serial@400e0000 {
+>   				compatible = "st,stm32h7-uart";
+>   				reg = <0x400e0000 0x400>;
 
-After this change, both arm64 and x86 select this option unconditionally
-and with no apparent support code being added. So what is actually
-required in order to select ARCH_SUPPORTS_AUTOFDO_CLANG and why isn't
-it just available for all architectures instead?
+Applied on stm32-next.
 
-Will
+Thanks!!
+Alex
 
