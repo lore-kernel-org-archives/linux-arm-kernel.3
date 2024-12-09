@@ -4,208 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD91BE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5BFE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F4B11m+j+SDYKHTWgiQ51I/BvybU5Pv0AqswYdCIzeM=; b=OCf9lGBXh9Z20gSqAeuqLiX4Eg
-	H1lNvLR56IPxt5vp4W6WcVfdP29uKeiFuqZBmabtXyWOvxSiwreboySscn08CzdEV+ztV88Yu274+
-	wAtuEvw5Jjq9rcxnEJ2/M5MqZp508khtr9zuwb+5E7qcgkqaHkRWNo1/zJnZb/k7cH2svxJJKKcur
-	z6zhaz4MIUuU6VDycD3+oLSx3tNHAzLMGxiX4i/BUJiUAAEf1QgsSS12v8MoO+JpcaIkFUCHaODNW
-	ZFjJoq/fDA9bv4DmOoRLVR7NLWudUYQgU59DZAnqPQ+gWfSG6KBy9UGC9sk/cJgO+h7uHejq871QN
-	TvEEHOXA==;
+	bh=vksvUByCwEXIhDlzgAmyb4aBjr3hSBbXTum0gcldopE=; b=E5fkQKzJTYbVAPGJx8TSVkr3Hk
+	iF3zC5R5azKh+nwvomiorch2iiKvOY2dLAuTjzTJGbLNWa6At5XsPXzRFY5UxdfaCTyCf5mOU04dU
+	wclG/tjkbUIHVooz/UPOPXqGH6bN8IRAhrFaQTpGCzZkkMuSBbU+k/VBSIvAG9JuPLWlRLfNbr+iD
+	8Hi2xrruQU/bkLHtuNplEIY58+uh8sHNYN1fdQYi60Hqiuo0TApjHJS/F1V16oa5EQc0wlTQ6y0b1
+	q2j52FQJmsmSQ+SN7AnNXRzsPSiBWYveJ24UdAcLcdxW8WqCCiRngRDZOaNkrxPEg4io1Y/SE5Wu3
+	/CggKSCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfKR-00000008K4D-3Wzb;
-	Mon, 09 Dec 2024 15:05:43 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tKfLi-00000008KLL-1oNe;
+	Mon, 09 Dec 2024 15:07:02 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfId-00000008Jg0-3mM4;
-	Mon, 09 Dec 2024 15:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733756632; x=1765292632;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=ojKY8VGrB0NUTTNKW1dlZ7YLMt791JXzjtxlmEN2aZU=;
-  b=Euk2ziyvUeaLsVOyXm3B0eQEC6Nw6dss4kUWdj9lUC8ItnitvMd5M3pU
-   ko40GB4QHOaCtCj1o6FANI8gajTC85cOxvO+7yEvu8ERh1pQ6LAl74z3u
-   Rnlwunv0GVPhQ1SDr5fEtHhx/Wnte5iiheXnDcQAv8yDhdMDUTILusu68
-   z1qCnWGPoJEwaBlCXh5QQBVp6Sm0SA9cO5wErtdXfQnU8RofWas0P8iSy
-   +sP0M7s96zctwVWO6HLegIJ7YZIjExbmM9h+mlc2e1jpnjK1n7kL0c1qr
-   FKS4RXekGQAIcC6sPccDgL+9OPEuW23xhHXsNSohqVZbJKGw2nArWVq1V
-   g==;
-X-CSE-ConnectionGUID: w6ipjNdQSQSj9eIJyhhnqQ==
-X-CSE-MsgGUID: 7MQdTNy4QICJd4gpEF69kQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11281"; a="37740430"
-X-IronPort-AV: E=Sophos;i="6.12,219,1728975600"; 
-   d="scan'208";a="37740430"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Dec 2024 07:03:45 -0800
-X-CSE-ConnectionGUID: HvJiLP3vSLae+wV9LKUE0Q==
-X-CSE-MsgGUID: 4qvw0x78RcOcXc7SMhO5wA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,219,1728975600"; 
-   d="scan'208";a="95297421"
-Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 09 Dec 2024 07:03:44 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 9 Dec 2024 07:03:43 -0800
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Mon, 9 Dec 2024 07:03:43 -0800
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.45) by
- edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 9 Dec 2024 07:03:42 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eEvqP/svuQHePq6kDJJha03hfHB1suI+0GkfdhwThGQ6lFfV58msKNuvw+o5ZTgpkLC6Z5/WQiSuaE9mMJ5JrF1Mk1RNY0Sujclvn8JEfeMlx4WpEqj0CqEe/qqBsgvG96TUQxMDVlSvS0/hRiwnSGEnBTlY8Q4crO0de30XvBmNpRgLAh/C/BcQzK4zxc5GjwNCP8DnWeVL6yZ5vs9hiPgIpIZFJcjza+zZGRZoDeFlREpnNUtBCvdvZ2D0+tlrh9rHIy9foG6CqaFR52O+iaUSws5a7Uk56X2ExeHRJ6bjswTCjGgOWxlt4F5ePn9c3wN15WrhEYtH2fgiJ9Djcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F4B11m+j+SDYKHTWgiQ51I/BvybU5Pv0AqswYdCIzeM=;
- b=yyGziDgGY3FQmopWALJEw4Iw8huHU9Iv6XqVZWe+cfsCqQwK3N1ZZwk+KXCOKa2VaX6vsGPqr0l+0lJhb5xq2i4UmuEMXXMsjMyB7druSe6IkQpjZNMwEQ5WG9w0jUSzyt6tG5dO8Ol3HwLsJAapsMmMlzkcBCMDViNeSRBwK3/c6W05/PsgrM22aEQT1T8XbDVJY2l1TwtpK1S2np9a+c1bJQQCnQvTvIdwMfkwpSXwWJ6SO4bklmimnteI6nwn1a6LWukzsJ3mkGth+SBMqfKkGIH41gP3v0dU7jYWjlmdod7kjepgCLHnEnvvKNKALvUT6m+hC/yo98t8nml8uQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from MN6PR11MB8102.namprd11.prod.outlook.com (2603:10b6:208:46d::9)
- by PH0PR11MB7633.namprd11.prod.outlook.com (2603:10b6:510:26c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Mon, 9 Dec
- 2024 15:03:39 +0000
-Received: from MN6PR11MB8102.namprd11.prod.outlook.com
- ([fe80::15b2:ee05:2ae7:cfd6]) by MN6PR11MB8102.namprd11.prod.outlook.com
- ([fe80::15b2:ee05:2ae7:cfd6%4]) with mapi id 15.20.8230.010; Mon, 9 Dec 2024
- 15:03:39 +0000
-Message-ID: <3113d4f4-4f8b-41d6-af89-f82cbc89da75@intel.com>
-Date: Mon, 9 Dec 2024 16:03:31 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/21] Converge on using secs_to_jiffies()
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, Easwar Hariharan
-	<eahariha@linux.microsoft.com>
-CC: <netfilter-devel@vger.kernel.org>, <coreteam@netfilter.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <intel-xe@lists.freedesktop.org>,
-	<linux-scsi@vger.kernel.org>, <xen-devel@lists.xenproject.org>,
-	<linux-block@vger.kernel.org>, <linux-wireless@vger.kernel.org>,
-	<ath11k@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linux-bluetooth@vger.kernel.org>, <linux-staging@lists.linux.dev>,
-	<ceph-devel@vger.kernel.org>, <live-patching@vger.kernel.org>,
-	<linux-sound@vger.kernel.org>, <etnaviv@lists.freedesktop.org>,
-	<oss-drivers@corigine.com>, <linuxppc-dev@lists.ozlabs.org>
-References: <20241115-converge-secs-to-jiffies-v2-0-911fb7595e79@linux.microsoft.com>
- <b9fcb12a-b7a4-4c33-836e-67109ce07deb@intel.com>
- <dab77729-682f-4182-9fb2-cd522ac29b5f@linux.microsoft.com>
- <72c8eb66-eb67-4f8b-b0c0-13f1aa001698@intel.com>
- <95a461ca-3ed6-4380-ad1a-da12e1109675@csgroup.eu>
-From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Content-Language: en-US
-In-Reply-To: <95a461ca-3ed6-4380-ad1a-da12e1109675@csgroup.eu>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: VI1PR10CA0100.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:803:28::29) To MN6PR11MB8102.namprd11.prod.outlook.com
- (2603:10b6:208:46d::9)
+	id 1tKfKe-00000008K7c-20rO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Dec 2024 15:05:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1733756756; x=1765292756;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=vksvUByCwEXIhDlzgAmyb4aBjr3hSBbXTum0gcldopE=;
+  b=YQTvtSW3zoWMr7kWa+Nj3SbHDQ+BLtPjCvvH+c0RRqfh7aWokqW1TpKy
+   YspcIqA6rBtjEeXeywzaERgBOMwgHJbxN4p0LgzHFitYK0f9/Abp4+R0B
+   cu/iTW0jCHsYAofyvCSP8BPCK2y1O7oBEDd3qJwJexPsxKd6qUYmxNIiR
+   fxHOc8gQrXBGv+aSKyqGj9yRvShrwZl3cBN8/lWmjEmjQ5espiX9/ix57
+   AkShtyMLMpl34YcLZjqFjB7oQ6aV/C3mbRCoRcvILL81Bwjs/0juX5ljX
+   WCHR16iKYLKC3ot7esyVlmJCSBQOXiJ8wxJFv/JVP+7OX+FDV7vfPEmpM
+   w==;
+X-CSE-ConnectionGUID: poYgBc8HRRGLk7FRHWt4dw==
+X-CSE-MsgGUID: J2pcjPvrRn+RzsTK4ZAeuw==
+X-IronPort-AV: E=Sophos;i="6.12,219,1728943200"; 
+   d="scan'208";a="40490430"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 09 Dec 2024 16:05:54 +0100
+X-CheckPoint: {67570752-B-1B231F50-D910A4E3}
+X-MAIL-CPID: 975DDE29B4A2D72A1889DEB0E7CA7530_5
+X-Control-Analysis: str=0001.0A682F19.67570752.0082,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 13AA0165653;
+	Mon,  9 Dec 2024 16:05:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1733756749;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vksvUByCwEXIhDlzgAmyb4aBjr3hSBbXTum0gcldopE=;
+	b=YiZMU+M2nnsaXHE2rANfrtKVcBhPqrpr0DG3Rno+5Vm0NEuDPNMUEMPXgQD/XP5fWG436O
+	MAN/yy3RkHSS8oQGZ9I1CYF9YNLut5rct3shpwTxz6UsIHMHgFBjnxTLXTlwSCmBlDGH0T
+	QtzQIn/z5fhGBs0HhVYsKrcjsU5mNGjxoPkqtzlrGFGo1RD9RJwJ4pLsSt/jlRto/5BJIj
+	y1UQjQKhA2vq9mYA/a6a2JVNO8mefvSjTfEYSwlMc2WdhsQpPrU8fddjQ7fho4Ecfa/Z+/
+	1hN6ENO+l+preBwwshGaJHyVFRGX5Bgn6/3VXfucEfJJTpsZQYJIunXRj22C0A==
+Message-ID: <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
+Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
+ MBa62xx carrier board Device Trees
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Felipe Balbi <balbi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>, Hari
+ Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
+Date: Mon, 09 Dec 2024 16:05:46 +0100
+In-Reply-To: <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
+References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
+	 <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
+	 <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
+	 <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
+	 <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN6PR11MB8102:EE_|PH0PR11MB7633:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19376c7c-35e3-4a5d-6282-08dd1862aa15
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dERZaitoL0pnZEQ4aWhRMnd6b1BqY2lkQW54U3lxKzZ5RjExZXkrWEVMV1Jw?=
- =?utf-8?B?RTRrVkgwZjcvMGFFYXJkNjFtUXJmMm5LM0tWY3pTbE5uUytJc3VCdUhwT1Uy?=
- =?utf-8?B?Ym0wZ010TXNNY2UzbW8zVXBXL1MycE0wQTg2eHJuL2hKTWFUNmdaTVhBNHVR?=
- =?utf-8?B?Mk1BN2o5YXBYd3hudTZDN1RCOUMyN0ZSR1ZENlF4UFZOUG5ROHlJNE1GekRE?=
- =?utf-8?B?RTBjNlB3WUZuV256SHY0R1h4MlFHeTN1aFRMcTNucnZEaGYrRzFJMFRNZUNE?=
- =?utf-8?B?SFU1WTZ0SCtHR1gvc0RBdXJURzNkQzV0eG82eVJFNjNSM2FTZEs5S1FYNzJV?=
- =?utf-8?B?ZjVUU3hiZGN5VWRTNDQxaCtIQVR4ZjdkSjVDVndkOERyemJyWnlHNDZvQlFl?=
- =?utf-8?B?OFRxVytXUmFjelMvRTI4WE9jRk5abHRTcHZWRzRJWDRwSDhQNkJaVUw3am9L?=
- =?utf-8?B?eWZyWGlEbXBnUm5Zaytwbk92MjF0K09FUmlvY0FCcnRzSXhUNUo3djNyejBh?=
- =?utf-8?B?SmpuRjRLQVRCZWR0bXVtbGRJRmdxVzlKSURDb2ViMzN3SHNtVTZlc0ZsVGlp?=
- =?utf-8?B?S09LWVp0eXVCNE45aVBWOGs1QnM3NXltRldGdDJFSFk4RnVFaC9Zd3J0WVp6?=
- =?utf-8?B?RnRhcUE1OFV1TkxTU21DMTFIemc1THp6YkRsQmlmZjM2aitsaEhtN1JGY1dB?=
- =?utf-8?B?bVQ2cEtOS2NkQ3c5RHlDUWkycUg2bzZwT20xemFQMW9aam1OdU9GWXZ0SU9j?=
- =?utf-8?B?M29GWm5mRHdpR3p0ZGRreTlHc2ttSkpvQWdwOFpIUTRYcUpvUzh3NXFCTC9X?=
- =?utf-8?B?RUlKMWNCd0dFdmN2YlQ5WDZNR3BiVkVVdkpFbFRkS01pWkl5ZFFTeGxBMlkv?=
- =?utf-8?B?d2I3T1ZIS0c3UkQ1YnUvaWFtbTBqa0h2Rm9MdGUvSW5WMGVsNGFlVmtJems2?=
- =?utf-8?B?YkMrdnQ2OEN0SUNFTzRPM05CT3hpMkEvT0dRd29oUDAzZ09NakV0YzBrZmVN?=
- =?utf-8?B?c1VDdDJzdmFiRXdjODlmazhTNUZ2dER3Y1B1N1BEQ0FPWGFsTWVwN1BHUnVR?=
- =?utf-8?B?MzAvbnJSNG13dXZTYUdsdzJBSXZzTEMxOVhEYUl2SFBheStwZXROQXh1RnYw?=
- =?utf-8?B?aFZzanhNRVNDaGJCdTRXeENNbW80NklMOUwyR2hoOFBYKzZOWEpsY3RQc1NB?=
- =?utf-8?B?S0NXSmhvNzdSZXhGQjA0ZXZ1Tm1BN054Ukd4Y3pnRFM0Z1ZmRzBiWVU3SmF1?=
- =?utf-8?B?TmpDL1lROGVkOXFVK1hEWDBsQ0h3L21nalVvV2U0VVdzRlAyYmFCRjdqWUFF?=
- =?utf-8?B?M1c3WHkwd0t5NXZTanZ6YmF5djc0VzczdFhQL1JvVENwdW5adFgzcW9CVUhr?=
- =?utf-8?B?NVdzcjJNUm9IWE9xUWxCUnVzOFFpMTNhbWhHZHAvTnp4NmlTUTFiYXg1eWlz?=
- =?utf-8?B?TDF2SzkzbkNnZ2pQWlJrSkpzNUVaUWRFL2ZDdDAzcnhaUEpyUXJUU3NPSnlS?=
- =?utf-8?B?RjFMenpsN1RNL1R3blV5OVovaWM1WUNPanV5U1BOaWREKzBRWnY1RERPdVVu?=
- =?utf-8?B?L0N0bXhqd1FlbzZjZ0VPY1BKTDhtVFREWitvZHUzM0ptdnplTFVERW13Wlph?=
- =?utf-8?B?Q1dVdG5yWTJYSDZocGo1aHZ6ekV5YmlGZzV5Nk9Fd29WYVRjSFRjd01yTy9y?=
- =?utf-8?B?cWV0SHZxckNwZm9ha1ErNDVmakdnRzhwVmp5YXA0N1kzNWVMT3NBcUlNVksy?=
- =?utf-8?Q?wEL9oZQB6wix6G1QjQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN6PR11MB8102.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NTJoTjRHL0s2QmFqVDNvRGtIMFhRaVIzd21tTG9VTVJpSW1zdDl5QjRDUW02?=
- =?utf-8?B?d3FnMjJnSUtxS2FmcitLT1RuNzdaYThaZFJMWE93TnhmVW05dDRNdERva0gv?=
- =?utf-8?B?a0F1dEtSb0hSRUZKYmxSaGIzbzVIanVwNXRZSHFac1JTOUtLS3pxQWtoci9n?=
- =?utf-8?B?d3dGY1czWEdLL2tIanpwK1pQdGNKN1FVcWxpb0hmME45aTNnTTVHSTRZUjNN?=
- =?utf-8?B?UnV3OFFWcGd4ZTBBWENkRytDc3ZnVTZqWGJ0MXZXOVlySTJCRDI0R3RQVUNq?=
- =?utf-8?B?QUpYOVdwQXorRkJLSGNISDRpSjU0OUFoa1I3TklEeTJGY3FTbG9WUk9sUmcw?=
- =?utf-8?B?L3dyZmJQZ3YyL211RFZLZW1zdE1xN0xyai82cjdHZ25LUkc5Z3B0cnhOZnpG?=
- =?utf-8?B?RS9pbElJdHZZVDJKMitsSE0xRitKdXlhelRzNEZWcnp5YXRNSjlZcU1WZUV3?=
- =?utf-8?B?c0ZXUlRrTE80Q1NVcUszWStFbm91TmpvWlp0NVhndjRVajk4S0NuNzdVODRT?=
- =?utf-8?B?T2FZZmIrRE1oMDJQdWwvUHFqditUWDhyWEZidjJkdHBFTnRQNk0xVVRvT093?=
- =?utf-8?B?a3l2cmFieUtHL3pRRkxjN1NVR0RuWS9HN1FvanFXUzIyaTZqTkR5SzkxUWFn?=
- =?utf-8?B?VEJ6V1QrNXBZZHRhdkQzd005SXZwY2Z3bWNoc3NPcng0T3kwcDBkRGtEKzV1?=
- =?utf-8?B?RlJRdytOWmllTzg4ZkpCU2xISVpMdm5oUDZHYXB5UTRwVmYwTGRzWDcvYXRr?=
- =?utf-8?B?bUVMczZGeS9seWMzMnp4RFNYZnZ4b09Jby9URzE5WmRNeWF4REZFN3RBazRM?=
- =?utf-8?B?ckYxOGJxdXczWFNCYUliN01VclBuRkpua0VxbFRlLy9ydHRycUJRM2Z5ZW0w?=
- =?utf-8?B?V1ROd2VZSHJuSm1STVJhMXNKRTI1QlVhTVR1R1RvdEw0UEJXWitxK0ZzWFhU?=
- =?utf-8?B?Zi9vS0lGekIvMzlHMVNFN2V0OW5Ka2JrR0ZQOWRRVXlEcTVlYU5wdjJ1RTR5?=
- =?utf-8?B?aDl3YVF6Zi9IUFhjM2lDOW9WeldPL3lHdnpEdkpwdTFDU1FJSnUza1IzK0Zi?=
- =?utf-8?B?WGpRbFFMLzhFbTEzNmJPWFRvQXhQcUY1R1hFdnA4ZytXU1F0cXV3cUpIdStG?=
- =?utf-8?B?M1Zmd1AvTzNsWFZBWDJoMmxPOTdmQUExL005SmxhS2dXQ0h1SWU5QXlEbnFH?=
- =?utf-8?B?eGtMVERzckVIbTBtZ2F1MmVVcy9SL1o5ZHNGeS9NbHFEUzdIUVZZek9nMkc3?=
- =?utf-8?B?aFFUdndzMFBsTW5pNjN0cC8wRHhRaEhVcllYays1NndzblR6N2ZxbVB4RlRm?=
- =?utf-8?B?a3RtUUpZc0JuM0srZkc3djJZOUs4ZW5OVkYyT2VRTFljVkdWcFg5eXppMzQy?=
- =?utf-8?B?bVp5S1o3OGhFNk1VMXIyMFVjdGIveHNsaDdad0ZybGxXUlE2NVVpR2ZjaFE1?=
- =?utf-8?B?TDZDRnBEZGhSL2Rid0lWQThuZENNWENDQ3hvSFhFbFV2YjZlK0hNR0RhbkhS?=
- =?utf-8?B?TXkxdUdPV0NDOFJvMzdETi8wU3JCK1ZuSjh1R2xESWtOZk1rVUd3ZXZxN0hl?=
- =?utf-8?B?OHhKZGJkSW4vdVovTEF4WjZmd1luNFd5Q0NSZWI2SDZDMmVpSWtTYnZXaTdP?=
- =?utf-8?B?WERvWHJxUFFSRlg4OXUySkVJRlFWY1ZqbEExUXBVN00zQ212SVp5QmJ6YTBH?=
- =?utf-8?B?cHloUVdUMkN0UTlIVFJRbkUwMzh2S1RIckhyNll6Z3NXbVlGaG1FUEdZSFgx?=
- =?utf-8?B?ZnlucFlnN3FKemNQSTlRRUtXYWN0SC8yTmtrcjNURWQxTXk1SFRiWGN6MjNS?=
- =?utf-8?B?RytPR3pseHBSMzBqeWFmSHBmMkpnTXMzTmIzQlJhdmdtWjBNVWgzRGUyUFcv?=
- =?utf-8?B?N3RleTZQWjFhNWpnN0IzSUM5aVZtTzNFelR1b0Y5Nnc5MlI4UzlVNHNsSDRV?=
- =?utf-8?B?S2pLQUZzdzNTQ1lUNHdOekhRYnoyMmdwTEJZTGQwY0VEbDhVbEpmcjh3S1Zr?=
- =?utf-8?B?ODFyMDhpMXk4R2VLVjIySTBGRkJMbm5xYWMrTVRNMHllNGdHVEI5UTFNenBh?=
- =?utf-8?B?UW96ak9xdm1RdTcxY3BmY1NBRExKL1IvNkVIQ3oyejh1RXpraWwvUjllOWY0?=
- =?utf-8?B?TC9mMnlkYjF4ZmVrWFVKZVU2NzVVdlZpT0JMZVVJMjBZU0lUUm8xRGgzNWli?=
- =?utf-8?B?VHc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19376c7c-35e3-4a5d-6282-08dd1862aa15
-X-MS-Exchange-CrossTenant-AuthSource: MN6PR11MB8102.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 15:03:39.7381
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aAwfYO53ax7O0HgtzbNHxDg4y4YIgk0CrCzgBW8cnkbVLdYnV/IAJaOB+cPgAGabZY4dGCuNoZovPhZ6+A3TkCFPUHvIA+3RncA26GujG54=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB7633
-X-OriginatorOrg: intel.com
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_070352_016034_E688C719 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20241209_070557_015133_BF59EAC3 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -220,74 +107,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/9/24 1:45 PM, Christophe Leroy wrote:
-> 
-> 
-> Le 09/12/2024 à 13:01, Przemek Kitszel a écrit :
->> On 12/6/24 9:58 PM, Easwar Hariharan wrote:
->>> On 11/29/2024 4:57 AM, Przemek Kitszel wrote:
->>>>
->>>> [removed most non-list recipients, it's just too much]
->>>>
->>>> On 11/15/24 10:26 PM, Easwar Hariharan wrote:
->>> <snip>
->>
->>>>
->>>> Regarding code - you could also convert msecs_to_jiffies(const * HZ),
->>>> there are 10 that are greppable.
+On Mon, 2024-12-09 at 15:42 +0100, Andrew Lunn wrote:
+>=20
+> On Mon, Dec 09, 2024 at 02:55:31PM +0100, Matthias Schiffer wrote:
+> > On Mon, 2024-12-09 at 14:24 +0100, Andrew Lunn wrote:
+> > >=20
+> > > > +&cpsw_port1 {
+> > > > +	phy-mode =3D "rgmii-rxid";
+> > > > +	phy-handle =3D <&cpsw3g_phy0>;
+> > > > +};
+> > > > +
+> > > > +&cpsw_port2 {
+> > > > +	phy-mode =3D "rgmii-rxid";
+> > > > +	phy-handle =3D <&cpsw3g_phy3>;
+> > > > +};
+> > >=20
+> > > rgmii-rxid is very odd.
+> > >=20
+> > > > +
+> > > > +&cpsw3g_mdio {
+> > > > +	status =3D "okay";
+> > > > +	pinctrl-names =3D "default";
+> > > > +	pinctrl-0 =3D <&main_mdio1_pins>;
+> > > > +
+> > > > +	cpsw3g_phy0: ethernet-phy@0 {
+> > > > +		compatible =3D "ethernet-phy-ieee802.3-c22";
+> > > > +		reg =3D <0x0>;
+> > > > +		reset-gpios =3D <&main_gpio1 11 GPIO_ACTIVE_LOW>;
+> > > > +		reset-assert-us =3D <1000>;
+> > > > +		reset-deassert-us =3D <1000>;
+> > > > +		ti,rx-internal-delay =3D <DP83867_RGMIIDCTL_2_00_NS>;
+> > >=20
+> > > I guess this is the explanation.
+> > >=20
+> > > What happens when you use rgmii-id, and don't have this delay here?
+> > > That would be normal.
+> > >=20
+> > > 	Andrew
+> >=20
+> >=20
+> > This is normal for AM62-based boards, see the DTSI of the TI reference
+> > starterkit for example:
+> >=20
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi#n451
+> >=20
+> > With rgmii-id, both ti,rx-internal-delay and ti,tx-internal-delay shoul=
+d be set.
+> > As ti,*-internal-delay sets the delay on the PHY side, phy-mode "rgmii"=
+ is the
+> > one that would not use either:
+> >=20
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/Documentation/devicetree/bindings/net/ti,dp83867.yaml#n78
+> >=20
+> > At the end of the day, does it really matter as long as MAC and PHY agr=
+ee on the
+> > used mode? We copied this part of the hardware design from the TI refer=
+ence
+> > board, and did our hardware qualification with these settings, so I thi=
+nk it
+> > makes sense to use the same phy-mode configuration.
+>=20
+> What i try to achieve is every board uses the same configuration. The
+> PHY adds the delays, not the MAC. There are a few exceptions, because
+> a few cheap PHYs don't support delays, and so the MAC needs to add
+> them. But in general, any board i review, i always ask that the PHY
+> does the delay.
+>=20
+> Also, don't put too much value in vendor code. Vendors don't care
+> about Linux has a whole, being uniform across all systems. Many
+> vendors do the minimum to get their stuff working, sometimes Monkeys
+> typing Shakespeare, and not a lot more.
+>=20
+> I also find a lot of developers don't really understand what phy-mode
+> and PHY_INTERFACE_MODE_RGMII_* actually mean. phy-mode =3D 'rgmii' means
+> the board has extra long clock lines, so the MAC/PHY does not need to
+> add delays. rgmii-rxid means the board has an extra long rx clock
+> line, but a normal length tx clock line. Now, i doubt your board is
+> actually like this?
 
-Thanks to Christope, I re-examined those ~10 cases, and that should be
-refactored by just dropping msec_to_jiffies() part, not replacing
-by sec_to_jiffies().
+Not our board, but the AM62 SoC. From the datasheet:
 
->>>>
->>>
->>> Those seem to be mistakes. const*HZ is a seconds-denominated timeout,
->>> being passed to msecs_to_jiffies() which will treat it as a
->>> millisecond-denominated timeout resulting in an excessively long
->>> timeout. I suppose that's better than a too-short timeout, and
->>> apparently it's been working fine all along since hardware responds
->>> before the too-long timeout expires. Half of them are in
->>> drivers/scsi/arcmsr/arcmsr_hba.c and the pattern has apparently been
->>> there since 2010.
->>
->> my point was that, the default value of HZ is 1000, and most of the code
->> that is just `$value*HZ` was meant as "$value seconds, in ms unit".
-> 
-> I can't follow you here. The default value of HZ is 250 as far as I can 
-> see.
+"TXC is delayed internally before being driven to the RGMII[x]_TXC pin. Thi=
+s
+internal delay is always enabled." So enabling the TX delay on the PHY side
+would result in a double delay.
 
-as default I understand "the value that is effective for those that
-don't tweak", not necessarily "the fallback that will be used when not
-set by any other means". On my RedHat and Fedora boxes it's 1000.
+>=20
+> You want to correctly describe your hardware in DT, which i guess is
+> "rgmii-id". That means something, either the MAC or the PHY needs to
+> add delays. PHY_INTERFACE_MODE_RGMII_* is what is passed to the
+> PHY. To get it to add the 2ns delays, you pass
+> PHY_INTERFACE_MODE_RGMII_ID, and you should not need any additional
+> properties in DT, it should default to 2ns. If you need to tune the
+> delay, 2ns does not work, but you actually need 1.8ns etc, then you
+> can add additional parameters. But given you have
+> DP83867_RGMIIDCTL_2_00_NS, i doubt you need this.
 
-> 
-> Regardless, HZ is the number of jiffies per second, nothing else.
+No such defaults exist in the DP83867 driver. If any rgmii-*id mode is used=
+, the
+corresponding delays *must* be specified in the DTB:
 
-That is true. But the name is wrong.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
+vers/net/phy/dp83867.c#n532
 
-> 
->>
->> Same for HZ/const, HZ/2 being 500ms.
->>
->> HZ is awful in that it is not 1s but 1/s, but it was easy to abuse the
->> value in simple context.
-> 
-> Why is that awful ?
+Best regards,
+Matthias
 
-so, 1Hertz = 1/1s == once per second,
-something happening twice per second, with freq of 2Hz, repeats
-each HZ/2 jiffies
-https://en.wikipedia.org/wiki/Hertz
 
-the #define name should be really JHZ -> JIFFIES_PER_SECOND
-
-> 
-> HZ is a nice macro that gives you the number of ticks per second, so 
-> that you are able to easily calculate the number of ticks for a given 
-> duration, regardless of the configured number of ticks per second.
-
-Again, technically true, but default being eq to number of msec in sec,
-causes it to bite.
-
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
