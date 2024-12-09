@@ -4,101 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8416E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57DAE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEhLMNTleL6gDMX+OMpFQyaTOOwXEej5ArGydUoWB/8=; b=fbYQ+K8opoa7vXd6GTs1K6rB4y
-	b4bH/Bbh+Mb80j8MnSPsli1Yi8sJ0vPQcGsi5RzGn7Ws3g+an/ec9ipmp17rTSSQ1cJna2kRzs4gi
-	Kg2QuQln1zd+l6eIrn0QyB0l+Ixt0XkPP7GW9fXGVBp76acHCgGikkO+VTlmNWizglFWuMbEls5ye
-	oUzw4WBKEBZtOrt/8Od9OXMfzMCwtwiXHbS6VUgm/dy2DDDbEQbdQ5LdGcnGzrycpe+FPLIMgEJXe
-	ST5mZVce+7TjllXoj9wNDCv8w+0y5kAotGpxPuBY3HMW7yx/HQ5Yc8UTW5XFrmVE3QE6OUrOUwIRW
-	uzZCasIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IsPw+LQRUnCnanH7t9Kuob0H3qrAiI/xNlXeOV0nBHI=; b=GMVUO1ak+aTfvtj06b4LIDRtF3
+	kDbIu3cwoMGtbyKAxObjASSXH5PNrr5Cl+EDhG1rBG5YWWRgQRsRdZlDNForjeWfK7eXb2hwKGokE
+	xYxvUdv0+X4XjkMp3K5OfAvcJTtTclj1NljkRcnumqKvLQTt/pONo4RC+SM2lNxikUG9YmuLBdVky
+	hgVpfYE34X5YpgXbDcDk4QpAVSfioT2YWgOtiGxVq0scOk4YiBj02Ffarb/1U/MemOc6sLsUFwmoT
+	exEgInqWnTCdE43a1AXIoInw7qxqX2AbhbXxCDPUnMrBKG5oB++vi0jnBI88mGQUdyf5fdrenm1oQ
+	6AmIgAxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbFg-00000007MBl-08Zm;
-	Mon, 09 Dec 2024 10:44:32 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tKbGg-00000007MSr-2s8G;
+	Mon, 09 Dec 2024 10:45:34 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKb5m-00000007JIU-3W4w
+	id 1tKb6U-00000007JWn-337g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 10:34:20 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3002c324e7eso30566151fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:34:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733740457; x=1734345257; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hEhLMNTleL6gDMX+OMpFQyaTOOwXEej5ArGydUoWB/8=;
-        b=WxHshEBw1nGZdFEKj4wIpG3ILOBIE7izX7wmgY3GGg0ExZZAZhxgAuyp/Y4efHGFyt
-         t17kVfrE9JGSLXTeI5IViSbc42eiOQIY+RnA2IbyepsdpIQmk+4OStnfbebYUScnwCzf
-         dL2AGelwufFCkoEr9OMQBPD1DSjJb+irehJ2O8fCwYzauOojdur+eaBKF6Mi9d10/4nK
-         Vwf9qkuETdAQ+imDuTsZZYg9y1nz7Pm1pemUflEn56KGwi5KuPeXCwQMMCDZP1xPx6Sb
-         rUpvkF0HhiuXl0RSauyy3uAaFkUw0qPJfwOw739TrorAsBGnu/4/e7lYNQWeFZtTOyZC
-         5bmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733740457; x=1734345257;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hEhLMNTleL6gDMX+OMpFQyaTOOwXEej5ArGydUoWB/8=;
-        b=Ohlp9zRLjby3l9heCai3sPH4HJd+iS9CohNTIUlYSyf5FoA4gilIDDONHdPfqZhHlE
-         VbOrTTP9pXHycjkI8/N6kyXObGE820mhr2UiJqv/wsUTCm7FI8KLQvMSaTnXdIQmdNLt
-         YKlzwUJ5cTyo0rEkgECM/GEawimB79D4zndJ6BuBjyAuT+lLumXULeJuGVm1kVnrGR8q
-         OiYCdGdNvhW1+WsLjqSxozJnnn1Cn9xZbNudGI89VgVxshRlHW6dq4szRL6CQegvisGK
-         itEkSPT0Fg7TexBBNWzAZi/7xKwErFWYudanejk5aMGj6mbGyxlLN6ImCsGm5HwwVlRM
-         BBfA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdDf+lQMAw4CIgPU2cgUigUIW4uoswxjT3DWzEAH1dqq/DSVV3Bbqzvq5CH8fxVaXgopc5Cp8RRlPZ+vRDUitD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYY4Mi/ae76QX9P8/uraIYU8Dik+/8mEcpYUYRmw96J7FD2LOp
-	NU7h04glzsC/5VCY58CVXA3fT2+vVdNxQXltcCuO/3SHOATiWMcR0GXNq642vNk=
-X-Gm-Gg: ASbGncvEJHPPKe+dS6kVGRacSCAXMsKnJXCc4fNf7YpClx3Una9T6v7H+jC6GHH91hK
-	UPv9vYjRhpcDga7bSsb28BsNRceHPGJgnEoafN/QJiMlku5OWjjfNa+eq7ktYQ18OWPKytzS219
-	kkxEkMqDXm1BwhWCmwKamranbLVUWohcVwwak13ZHdrHbv1swGGeBeRuWICCSWPUxmZ7sInnJhL
-	TqyS3ZNNynDbjPhYT3+9q+4q1qM1glzzcdyWhLlpNYhU4Yw3LKQCsaYDotlGDVviV0r3QYbWOxI
-	8FHQ30NTu5FVJTp40g2QLEWaYFO5aQ==
-X-Google-Smtp-Source: AGHT+IFNlBhxiOyHWAEAkiJz2Ehdp+m4AvAvGfaYvr8lFTl50vAiN44KAJkPfR3fGz840ZteQrXe4Q==
-X-Received: by 2002:a05:6512:1248:b0:540:1c8e:b3eb with SMTP id 2adb3069b0e04-5401c8eb587mr1854409e87.44.1733740456809;
-        Mon, 09 Dec 2024 02:34:16 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e336ca054sm975639e87.103.2024.12.09.02.34.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 02:34:15 -0800 (PST)
-Date: Mon, 9 Dec 2024 12:34:13 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sandor Yu <sandor.yu@nxp.com>
-Cc: "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>, 
-	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	"jonas@kwiboo.se" <jonas@kwiboo.se>, "jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, 
-	"airlied@gmail.com" <airlied@gmail.com>, "daniel@ffwll.ch" <daniel@ffwll.ch>, 
-	"robh+dt@kernel.org" <robh+dt@kernel.org>, 
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"vkoul@kernel.org" <vkoul@kernel.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, "mripard@kernel.org" <mripard@kernel.org>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, dl-linux-imx <linux-imx@nxp.com>, 
-	Oliver Brown <oliver.brown@nxp.com>, 
-	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>, "sam@ravnborg.org" <sam@ravnborg.org>
-Subject: Re: [PATCH v19 4/8] drm: bridge: Cadence: Add MHDP8501 DP/HDMI driver
-Message-ID: <fqrxw7yc7btvqccqy6mksqufcacm6o52xmk6drlqeeepuyfp62@gpjiox76h4cb>
-References: <cover.1732627815.git.Sandor.yu@nxp.com>
- <e32c909ea8744fc5ea89aa3b4eed501efbaad1c3.1732627815.git.Sandor.yu@nxp.com>
- <wk6w5ckor53mudcqfs2grnxryhg7zvsjjdmqatyfddyfgsdrwc@mxxoocsi5pe7>
- <PAXPR04MB944814380C7A72641C6002ADF43C2@PAXPR04MB9448.eurprd04.prod.outlook.com>
+	Mon, 09 Dec 2024 10:35:04 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4B9AYknv090518;
+	Mon, 9 Dec 2024 04:34:46 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733740486;
+	bh=IsPw+LQRUnCnanH7t9Kuob0H3qrAiI/xNlXeOV0nBHI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=ZIIrI962/DAEdDYaDYgVnnpsNxmI+8K+RXVCE7G589/gPvGKw17eYGqc/B+lVYs07
+	 Lk4QWL1aqvEfRzIZpS5HfKKEV/NEo5wT0mG8cJmYln/1FTMSIuyE6ijTyisN5Ooc5r
+	 JBBzTU2urshLjGVefvakwLO1tW0QUk6jrxpVXzL8=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4B9AYkGF109951
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 9 Dec 2024 04:34:46 -0600
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 9
+ Dec 2024 04:34:46 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 9 Dec 2024 04:34:46 -0600
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4B9AYfC2088003;
+	Mon, 9 Dec 2024 04:34:41 -0600
+Message-ID: <64621290-2488-474d-b2ed-597a1f4ac85f@ti.com>
+Date: Mon, 9 Dec 2024 16:04:40 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <PAXPR04MB944814380C7A72641C6002ADF43C2@PAXPR04MB9448.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 1/2] net: ti: icssg-prueth: Fix firmware load
+ sequence.
+To: Roger Quadros <rogerq@kernel.org>, <vigneshr@ti.com>,
+        <jan.kiszka@siemens.com>, <javier.carrasco.cruz@gmail.com>,
+        <diogo.ivo@siemens.com>, <jacob.e.keller@intel.com>,
+        <horms@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <danishanwar@ti.com>
+References: <20241205082831.777868-1-m-malladi@ti.com>
+ <20241205082831.777868-2-m-malladi@ti.com>
+ <a86bc0b1-8bb4-477e-b7e1-13921bf47b53@kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <a86bc0b1-8bb4-477e-b7e1-13921bf47b53@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_023418_905671_CE6227C5 
-X-CRM114-Status: GOOD (  48.85  )
+X-CRM114-CacheID: sfid-20241209_023503_072927_63BFD864 
+X-CRM114-Status: GOOD (  39.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,265 +92,380 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 08:38:01AM +0000, Sandor Yu wrote:
+
+
+On 05/12/24 18:38, Roger Quadros wrote:
+> Hi,
 > 
+> On 05/12/2024 10:28, Meghana Malladi wrote:
+>> From: MD Danish Anwar <danishanwar@ti.com>
+>>
+>> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
+>> and SLICE1. Currently whenever any ICSSG interface comes up we load the
+>> respective firmwares to PRU cores and whenever interface goes down, we
+>> stop the resective cores. Due to this, when SLICE0 goes down while
+>> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
+>> stopped. This results in clock jump for SLICE1 interface as the timesync
+>> related operations are no longer running.
+>>
+>> As there are interdependencies between SLICE0 and SLICE1 firmwares,
+>> fix this by running both PRU0 and PRU1 firmwares as long as at least 1
+>> ICSSG interface is up. Add new flag in prueth struct to check if all
+>> firmwares are running.
+>>
+>> Use emacs_initialized as reference count to load the firmwares for the
+>> first and last interface up/down. Moving init_emac_mode and fw_offload_mode
+>> API outside of icssg_config to icssg_common_start API as they need
+>> to be called only once per firmware boot.
+>>
+>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+>> ---
+>>
+>> Hi all,
+>>
+>> This patch is based on net-next tagged next-20241128.
+>> v2:https://lore.kernel.org/all/20241128122931.2494446-2-m-malladi@ti.com/
+>>
+>> * Changes since v2 (v3-v2):
+>> - error handling in caller function of prueth_emac_common_start()
+>> - Use prus_running flag check before stopping the firmwares
+>> Both suggested by Roger Quadros <rogerq@kernel.org>
+>>
+>>   drivers/net/ethernet/ti/icssg/icssg_config.c |  45 ++++--
+>>   drivers/net/ethernet/ti/icssg/icssg_config.h |   1 +
+>>   drivers/net/ethernet/ti/icssg/icssg_prueth.c | 157 ++++++++++++-------
+>>   drivers/net/ethernet/ti/icssg/icssg_prueth.h |   5 +
+>>   4 files changed, 140 insertions(+), 68 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+>> index 5d2491c2943a..342150756cf7 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+>> @@ -397,7 +397,7 @@ static int prueth_emac_buffer_setup(struct prueth_emac *emac)
+>>   	return 0;
+>>   }
+>>
+[ ... ]
+
+>> +static int prueth_emac_common_start(struct prueth *prueth)
+>> +{
+>> +	struct prueth_emac *emac;
+>> +	int ret = 0;
+>> +	int slice;
+>> +
+>> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
+>> +		return -EINVAL;
+>> +
+>> +	/* clear SMEM and MSMC settings for all slices */
+>> +	memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
+>> +	memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
+>> +
+>> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
+>> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
+>> +
+>> +	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
+>> +		icssg_init_fw_offload_mode(prueth);
+>> +	else
+>> +		icssg_init_emac_mode(prueth);
+>> +
+>> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
+>> +		emac = prueth->emac[slice];
+>> +		if (emac) {
+>> +			ret |= icssg_config(prueth, emac, slice);
+>> +			if (ret)
+>> +				return ret;
+>> +		}
+>> +		ret |= prueth_emac_start(prueth, slice);
+>> +	}
 > 
-> > -----Original Message-----
-> > From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > Sent: 2024年11月27日 3:21
-> > To: Sandor Yu <sandor.yu@nxp.com>
-> > Cc: andrzej.hajda@intel.com; neil.armstrong@linaro.org; Laurent Pinchart
-> > <laurent.pinchart@ideasonboard.com>; jonas@kwiboo.se;
-> > jernej.skrabec@gmail.com; airlied@gmail.com; daniel@ffwll.ch;
-> > robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org;
-> > shawnguo@kernel.org; s.hauer@pengutronix.de; festevam@gmail.com;
-> > vkoul@kernel.org; dri-devel@lists.freedesktop.org;
-> > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org;
-> > mripard@kernel.org; kernel@pengutronix.de; dl-linux-imx
-> > <linux-imx@nxp.com>; Oliver Brown <oliver.brown@nxp.com>;
-> > alexander.stein@ew.tq-group.com; sam@ravnborg.org
-> > Subject: [EXT] Re: [PATCH v19 4/8] drm: bridge: Cadence: Add MHDP8501
-> > DP/HDMI driver
-
-Please strip such headers from your response emails. They take a lot of
-space and are useless. See how it's usually handled by other email
-clients.
-
-> > 
-> > Caution: This is an external email. Please take care when clicking links or
-> > opening attachments. When in doubt, report the message using the 'Report
-> > this email' button
-> > 
-> > 
-> > On Tue, Nov 26, 2024 at 10:11:49PM +0800, Sandor Yu wrote:
-> > > Add a new DRM DisplayPort and HDMI bridge driver for Candence
-> > MHDP8501
-> > > used in i.MX8MQ SOC. MHDP8501 could support HDMI or DisplayPort
-> > > standards according embedded Firmware running in the uCPU.
-> > >
-> > > For iMX8MQ SOC, the DisplayPort/HDMI FW was loaded and activated by
-> > > SOC's ROM code. Bootload binary included respective specific firmware
-> > > is required.
-> > >
-> > > Driver will check display connector type and
-> > > then load the corresponding driver.
-> > >
-> > > Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-> > > ---
-
-[...]
-
-> > > +
-> > > +static int reset_pipe(struct drm_crtc *crtc)
-> > > +{
-> > > +     struct drm_atomic_state *state;
-> > > +     struct drm_crtc_state *crtc_state;
-> > > +     struct drm_modeset_acquire_ctx ctx;
-> > > +     int ret;
-> > > +
-> > > +     state = drm_atomic_state_alloc(crtc->dev);
-> > > +     if (!state)
-> > > +             return -ENOMEM;
-> > > +
-> > > +     drm_modeset_acquire_init(&ctx, 0);
-> > > +
-> > > +     state->acquire_ctx = &ctx;
-> > > +
-> > > +     crtc_state = drm_atomic_get_crtc_state(state, crtc);
-> > > +     if (IS_ERR(crtc_state)) {
-> > > +             ret = PTR_ERR(crtc_state);
-> > > +             goto out;
-> > > +     }
-> > > +
-> > > +     crtc_state->connectors_changed = true;
-> > > +
-> > > +     ret = drm_atomic_commit(state);
-> >  
-> > I'd say, this looks like a hack to me.
-> 
-> Basically, those code followed the sequence as vc4 HDMI and i915 according review comments in v15.
-> HDMI driver should " Reenabling the scrambler when a display is disconnected and reconnected".
-> 
-> To be honest, I'm not 100% convinced by this implementation, 
-> as the code doesn't seem to align perfectly with the current DRM framework. 
-> However, adding this feature would indeed address the issue of applications (like modetest) that don't handle HPD events 
-> but still require cable plug/unplug support when operating in scrambler-enabled video modes.
-
-Ack. This matches vc4's reset_pipe().
-
-> 
-> > 
-> > > +out:
-> > > +     drm_atomic_state_put(state);
-> > > +     drm_modeset_drop_locks(&ctx);
-> > > +     drm_modeset_acquire_fini(&ctx);
-> > > +
-> > > +     return ret;
-> > > +}
-> > > +
-> > > +void cdns_hdmi_reset_link(struct cdns_mhdp8501_device *mhdp)
-> > > +{
-> > > +     struct drm_connector *connector = mhdp->curr_conn;
-> > > +     const struct drm_edid *drm_edid;
-> > > +     struct drm_connector_state *conn_state;
-> > > +     struct drm_crtc_state *crtc_state;
-> > > +     struct drm_crtc *crtc;
-> > > +
-> > > +     if (!connector)
-> > > +             return;
-> > > +
-> > > +     drm_edid = drm_edid_read_custom(connector,
-> > cdns_hdmi_get_edid_block, mhdp);
-> > > +     drm_edid_connector_update(connector, drm_edid);
-> > 
-> > Why?
-> 
-> MHDP8501 HDMI support scrambling.low_rates.
-> The scrambler status can change when switching HDMI display monitors, even if the video mode stays the same. 
-> The MHDP8501's HDMI code updates the EDID data to accommodate displays with different scrambler capabilities.
-
-Ack. I'd suggest renaming cdns_hdmi_reset_link() to
-cdns_hdmi_handle_hotplug() or any other similar name.
-
-> 
-> > 
-> > > +
-> > > +     if (!drm_edid)
-> > > +             return;
-> > > +
-> > > +     drm_edid_free(drm_edid);
-> > > +
-> > > +     conn_state = connector->state;
-> > > +     crtc = conn_state->crtc;
-> > > +     if (!crtc)
-> > > +             return;
-> > > +
-> > > +     crtc_state = crtc->state;
-> > > +     if (!crtc_state->active)
-> > > +             return;
-> > > +
-> > > +     /*
-> > > +      * HDMI 2.0 says that one should not send scrambled data
-> > > +      * prior to configuring the sink scrambling, and that
-> > > +      * TMDS clock/data transmission should be suspended when
-> > > +      * changing the TMDS clock rate in the sink. So let's
-> > > +      * just do a full modeset here, even though some sinks
-> > > +      * would be perfectly happy if were to just reconfigure
-> > > +      * the SCDC settings on the fly.
-> > > +      */
-> > > +     reset_pipe(crtc);
-> > 
-> > We are not supposed to cause full-modeset flicker if we can avoid it. Is
-> > it the case here?
-> 
-> My implementation differs slightly from the VC4 HDMI in that it doesn't check if the current video mode requires enabling the scrambler. 
-> This is because we considered a scenario where the previous display was operating at 1080p60 with scrambling enabled, 
-> and then the cable was plugged into a display that doesn't support scrambling at low rates. 
-> This case also necessitates a full modeset.
-
-Well, if this is a part of the hotplug, then of course there are no
-flickering issues as it happens during hotplug.
-
-> 
-> I haven't found any video flickering issues in my actual tests.
-> 
-> > 
-> > > +}
-> > > +
-> > > +static int cdns_hdmi_i2c_write(struct cdns_mhdp8501_device *mhdp,
-> > > +                            struct i2c_msg *msgs)
-> > > +{
-> > > +     u8 msg[5], reg[5];
-> > > +     int ret;
-> > > +
-> > > +     msg[0] = msgs->addr;
-> > > +     msg[1] = msgs->buf[0];
-> > > +     msg[2] = 0;
-> > > +     msg[3] = 1;
-> > > +     msg[4] = msgs->buf[1];
-> > > +
-> > > +     ret = cdns_mhdp_mailbox_send_recv(&mhdp->base,
-> > > +
-> > MB_MODULE_ID_HDMI_TX, HDMI_TX_WRITE,
-> > > +                                       sizeof(msg), msg,
-> > sizeof(reg), reg);
-> > > +     if (ret) {
-> > > +             dev_err(mhdp->dev, "I2C write failed: %d\n", ret);
-> > > +             return ret;
-> > > +     }
-> > > +
-> > > +     if (reg[0] != 0)
-> > > +             return -EINVAL;
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > > +static int cdns_hdmi_i2c_read(struct cdns_mhdp8501_device *mhdp,
-> > > +                           struct i2c_msg *msgs, int num)
-> > > +{
-> > > +     u8 msg[4], reg[5];
-> > > +     u8 addr, offset, *buf, len;
-> > > +     int ret, i;
-> > > +
-> > > +     for (i = 0; i < num; i++) {
-> > > +             if (msgs[i].flags & I2C_M_RD) {
-> > > +                     addr = msgs[i].addr;
-> > > +                     buf = msgs[i].buf;
-> > > +                     len = msgs[i].len;
-> > > +             } else {
-> > > +                     offset = msgs[i].buf[0];
-> > > +             }
-> > > +     }
-> > > +
-> > > +     msg[0] = addr;
-> > > +     msg[1] = offset;
-> > > +     put_unaligned_be16(len, msg + 2);
-> > > +
-> > > +     ret = cdns_mhdp_mailbox_send_recv_multi(&mhdp->base,
-> > > +
-> > MB_MODULE_ID_HDMI_TX, HDMI_TX_READ,
-> > > +                                             sizeof(msg), msg,
-> > > +                                             HDMI_TX_READ,
-> > > +                                             sizeof(reg), reg,
-> > > +                                             len, buf);
-> > > +     if (ret) {
-> > > +             dev_err(mhdp->dev, "I2c Read failed: %d\n", ret);
-> > > +             return ret;
-> > > +     }
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > > +#define  SCDC_I2C_SLAVE_ADDRESS      0x54
-> > > +static int cdns_hdmi_i2c_xfer(struct i2c_adapter *adap,
-> > > +                           struct i2c_msg *msgs, int num)
-> > > +{
-> > > +     struct cdns_mhdp8501_device *mhdp = i2c_get_adapdata(adap);
-> > > +     struct cdns_hdmi_i2c *i2c = mhdp->hdmi.i2c;
-> > > +     int i, ret = 0;
-> > > +
-> > > +     /* Only support SCDC I2C Read/Write */
-> > > +     for (i = 0; i < num; i++) {
-> > > +             if (msgs[i].addr != SCDC_I2C_SLAVE_ADDRESS) {
-> > > +                     dev_err(mhdp->dev, "ADDR=%0x is not
-> > supported\n", msgs[i].addr);
-> > > +                     return -EINVAL;
-> > 
-> > Why?
-> 
-> MHDP FW offers mailbox APIs for SCDC register access but no direct I2C APIs. 
-> Individual I2C registers can be read/written using HDMI general register APIs, 
-> but block reads (e.g., EDID) are not supported, so it is not a full function I2C.
-> i2c_adapter was implemented only for reuse drm_scdc_XXX functions.
-
-Please put this info in the comment. From your 'Only support foo' it's
-not obvious if the hw/fw doesn't support it or if you are artifically
-limiting it on the driver's side.
-
+> need newline?
 > 
 
--- 
-With best wishes
-Dmitry
+Yes I will add it.
+
+>> +	if (!ret)
+>> +		prueth->prus_running = 1;
+>> +	else
+>> +		return ret;
+>> +
+>> +	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
+>> +	       prueth->emac[ICSS_SLICE1];
+>> +	ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
+>> +			    emac, IEP_DEFAULT_CYCLE_TIME_NS);
+>> +	if (ret) {
+>> +		dev_err(prueth->dev, "Failed to initialize IEP module\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int prueth_emac_common_stop(struct prueth *prueth)
+>> +{
+>> +	struct prueth_emac *emac;
+>> +	int slice;
+>> +
+>> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
+>> +		return -EINVAL;
+>> +
+>> +	icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
+>> +	icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
+>> +
+>> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
+>> +		if (prueth->prus_running) {
+>> +			rproc_shutdown(prueth->txpru[slice]);
+>> +			rproc_shutdown(prueth->rtu[slice]);
+>> +			rproc_shutdown(prueth->pru[slice]);
+>> +		}
+>> +	}
+>> +	prueth->prus_running = 0;
+>> +
+>> +	emac = prueth->emac[ICSS_SLICE0] ? prueth->emac[ICSS_SLICE0] :
+>> +	       prueth->emac[ICSS_SLICE1];
+>> +	icss_iep_exit(emac->iep);
+> 
+> if icss_iep_init() failed at prueth_emac_common_start(), we should not be
+> calling icss_iep_exit(). Maybe you need another flag for iep_init status?
+> 
+
+Yes I have thought of it as well. In icss_iep_init() does lot of iep 
+register configuration and in the end it enables iep by setting 
+IEP_CNT_ENABLE bit and ptp_clock_register(). Whereas in icss_iep_exit() 
+it checks for ptp_clock and pps/perout. And calls icss_iep_disable() 
+which again clears IEP_CNT_ENABLE.
+
+So I see no harm in calling icss_iep_exit() even if icss_iep_init() as 
+it overwrites the existing configuration only. But if you think this 
+doesn't look good I can definitely add new flag for iep as well. But IMO 
+I think this flag would be redundant, please correct me if I am wrong. 
+So which one sounds better?
+
+> Is it better to call icss_iep_exit() at the top before icssg_class_disable()?
+> 
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   /* called back by PHY layer if there is change in link state of hw port*/
+>>   static void emac_adjust_link(struct net_device *ndev)
+>>   {
+>> @@ -369,12 +432,13 @@ static void prueth_iep_settime(void *clockops_data, u64 ns)
+>>   {
+>>   	struct icssg_setclock_desc __iomem *sc_descp;
+>>   	struct prueth_emac *emac = clockops_data;
+>> +	struct prueth *prueth = emac->prueth;
+>>   	struct icssg_setclock_desc sc_desc;
+>>   	u64 cyclecount;
+>>   	u32 cycletime;
+>>   	int timeout;
+>>   
+>> -	if (!emac->fw_running)
+>> +	if (!prueth->prus_running)
+>>   		return;
+>>   
+>>   	sc_descp = emac->prueth->shram.va + TIMESYNC_FW_WC_SETCLOCK_DESC_OFFSET;
+>> @@ -543,23 +607,17 @@ static int emac_ndo_open(struct net_device *ndev)
+>>   {
+>>   	struct prueth_emac *emac = netdev_priv(ndev);
+>>   	int ret, i, num_data_chn = emac->tx_ch_num;
+>> +	struct icssg_flow_cfg __iomem *flow_cfg;
+>>   	struct prueth *prueth = emac->prueth;
+>>   	int slice = prueth_emac_slice(emac);
+>>   	struct device *dev = prueth->dev;
+>>   	int max_rx_flows;
+>>   	int rx_flow;
+>>   
+>> -	/* clear SMEM and MSMC settings for all slices */
+>> -	if (!prueth->emacs_initialized) {
+>> -		memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
+>> -		memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
+>> -	}
+>> -
+>>   	/* set h/w MAC as user might have re-configured */
+>>   	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
+>>   
+>>   	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+>> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
+>>   	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+>>   
+>>   	/* Notify the stack of the actual queue counts. */
+>> @@ -597,18 +655,23 @@ static int emac_ndo_open(struct net_device *ndev)
+>>   		goto cleanup_napi;
+>>   	}
+>>   
+>> -	/* reset and start PRU firmware */
+>> -	ret = prueth_emac_start(prueth, emac);
+>> -	if (ret)
+>> -		goto free_rx_irq;
+>> +	if (!prueth->emacs_initialized) {
+>> +		ret = prueth_emac_common_start(prueth);
+>> +		if (ret)
+>> +			goto stop;
+>> +	}
+>>   
+>> -	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
+>> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
+>> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
+>> +	ret = emac_fdb_flow_id_updated(emac);
+>>   
+>> -	if (!prueth->emacs_initialized) {
+>> -		ret = icss_iep_init(emac->iep, &prueth_iep_clockops,
+>> -				    emac, IEP_DEFAULT_CYCLE_TIME_NS);
+>> +	if (ret) {
+>> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
+>> +		goto stop;
+>>   	}
+>>   
+>> +	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
+>> +
+>>   	ret = request_threaded_irq(emac->tx_ts_irq, NULL, prueth_tx_ts_irq,
+>>   				   IRQF_ONESHOT, dev_name(dev), emac);
+>>   	if (ret)
+>> @@ -653,8 +716,7 @@ static int emac_ndo_open(struct net_device *ndev)
+>>   free_tx_ts_irq:
+>>   	free_irq(emac->tx_ts_irq, emac);
+>>   stop:
+>> -	prueth_emac_stop(emac);
+>> -free_rx_irq:
+>> +	prueth_emac_common_stop(prueth);
+>>   	free_irq(emac->rx_chns.irq[rx_flow], emac);
+>>   cleanup_napi:
+>>   	prueth_ndev_del_tx_napi(emac, emac->tx_ch_num);
+>> @@ -689,8 +751,6 @@ static int emac_ndo_stop(struct net_device *ndev)
+>>   	if (ndev->phydev)
+>>   		phy_stop(ndev->phydev);
+>>   
+>> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
+>> -
+>>   	if (emac->prueth->is_hsr_offload_mode)
+>>   		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
+>>   	else
+>> @@ -728,11 +788,9 @@ static int emac_ndo_stop(struct net_device *ndev)
+>>   	/* Destroying the queued work in ndo_stop() */
+>>   	cancel_delayed_work_sync(&emac->stats_work);
+>>   
+>> -	if (prueth->emacs_initialized == 1)
+>> -		icss_iep_exit(emac->iep);
+>> -
+>>   	/* stop PRUs */
+>> -	prueth_emac_stop(emac);
+>> +	if (prueth->emacs_initialized == 1)
+>> +		prueth_emac_common_stop(prueth);
+>>   
+>>   	free_irq(emac->tx_ts_irq, emac);
+>>   
+>> @@ -1069,16 +1127,10 @@ static void prueth_emac_restart(struct prueth *prueth)
+>>   	icssg_set_port_state(emac1, ICSSG_EMAC_PORT_DISABLE);
+>>   
+>>   	/* Stop both pru cores for both PRUeth ports*/
+>> -	prueth_emac_stop(emac0);
+>> -	prueth->emacs_initialized--;
+>> -	prueth_emac_stop(emac1);
+>> -	prueth->emacs_initialized--;
+>> +	prueth_emac_common_stop(prueth);
+>>   
+>>   	/* Start both pru cores for both PRUeth ports */
+>> -	prueth_emac_start(prueth, emac0);
+>> -	prueth->emacs_initialized++;
+>> -	prueth_emac_start(prueth, emac1);
+>> -	prueth->emacs_initialized++;
+>> +	prueth_emac_common_start(prueth);
+> 
+> But this can fail? You need to deal with failure condition appropriately.
+> 
+
+I haven't added failure conditions for two reasons:
+- Existing code also didn't have any error checks
+- This func simply reloads a new firmware, given everything is already 
+working with the old one.
+
+I can still handle error cases by changing this func to return int 
+(currently it is void) and caller of the functions should print error 
+and immediately return. Thoughts on this?
+
+>>   
+>>   	/* Enable forwarding for both PRUeth ports */
+>>   	icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
+>> @@ -1413,13 +1465,10 @@ static int prueth_probe(struct platform_device *pdev)
+>>   		prueth->pa_stats = NULL;
+>>   	}
+>>   
+>> -	if (eth0_node) {
+>> +	if (eth0_node || eth1_node) {
+>>   		ret = prueth_get_cores(prueth, ICSS_SLICE0, false);
+>>   		if (ret)
+>>   			goto put_cores;
+>> -	}
+>> -
+>> -	if (eth1_node) {
+>>   		ret = prueth_get_cores(prueth, ICSS_SLICE1, false);
+>>   		if (ret)
+>>   			goto put_cores;
+>> @@ -1618,14 +1667,12 @@ static int prueth_probe(struct platform_device *pdev)
+>>   	pruss_put(prueth->pruss);
+>>   
+>>   put_cores:
+>> -	if (eth1_node) {
+>> -		prueth_put_cores(prueth, ICSS_SLICE1);
+>> -		of_node_put(eth1_node);
+>> -	}
+>> -
+>> -	if (eth0_node) {
+>> +	if (eth0_node || eth1_node) {
+>>   		prueth_put_cores(prueth, ICSS_SLICE0);
+>>   		of_node_put(eth0_node);
+>> +
+>> +		prueth_put_cores(prueth, ICSS_SLICE1);
+>> +		of_node_put(eth1_node);
+>>   	}
+>>   
+>>   	return ret;
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> index f5c1d473e9f9..b30f2e9a73d8 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> @@ -257,6 +257,7 @@ struct icssg_firmwares {
+>>    * @is_switchmode_supported: indicates platform support for switch mode
+>>    * @switch_id: ID for mapping switch ports to bridge
+>>    * @default_vlan: Default VLAN for host
+>> + * @prus_running: flag to indicate if all pru cores are running
+>>    */
+>>   struct prueth {
+>>   	struct device *dev;
+>> @@ -298,6 +299,7 @@ struct prueth {
+>>   	int default_vlan;
+>>   	/** @vtbl_lock: Lock for vtbl in shared memory */
+>>   	spinlock_t vtbl_lock;
+>> +	bool prus_running;
+> 
+> I think you don't need fw_running flag anymore. Could you please remove it
+> from struct prueth_emac?
+> 
+
+This flag is still being used by SR1, for which this patch doesn't 
+apply. So I prefer not touching this flag for the sake of SR1.
+
+>>   };
+>>   
+>>   struct emac_tx_ts_response {
+>> @@ -361,6 +363,8 @@ int icssg_set_port_state(struct prueth_emac *emac,
+>>   			 enum icssg_port_state_cmd state);
+>>   void icssg_config_set_speed(struct prueth_emac *emac);
+>>   void icssg_config_half_duplex(struct prueth_emac *emac);
+>> +void icssg_init_emac_mode(struct prueth *prueth);
+>> +void icssg_init_fw_offload_mode(struct prueth *prueth);
+>>   
+>>   /* Buffer queue helpers */
+>>   int icssg_queue_pop(struct prueth *prueth, u8 queue);
+>> @@ -377,6 +381,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
+>>   		       u8 untag_mask, bool add);
+>>   u16 icssg_get_pvid(struct prueth_emac *emac);
+>>   void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
+>> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
+>>   #define prueth_napi_to_tx_chn(pnapi) \
+>>   	container_of(pnapi, struct prueth_tx_chn, napi_tx)
+>>   
+> 
 
