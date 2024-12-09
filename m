@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39ECCE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974EFE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8WWOcaQASX+3jJQLgEK7FH9yQNyk5gvheR7425uRTE=; b=Z3LJlIp4KPtaH4bKJ7mE6HD/4R
-	n8XeNODhOg7WB0/QeFYyUs2jnB9NcxJayriu3lYxPVsKuJFbaBG59bbwpSY8IizTCek3l3KWAARD/
-	HNr3LUEOuBtvEBWhboVfVvLgHLx3lQJfWui9DY3u2THkAxOM3pGR99593yqp09c6huZBX1kD67gtT
-	3+lWUziRfc5etBR7Mej5OGrN+T88m7qSe9/vTdvLwfQQ4Z1uEV5oe+5As6y7obUKjZbCk4hETK9M2
-	PBR8AFUDGdbOzR+K2yQ5daaAfe9a5Jqn5cnnIJkCwKMJp7frlN2fJd7Z3s0A+/RJ4TRtf1zyXoukG
-	zOey8fHw==;
+	bh=EpHHY2+sWOsUk3TlBUgacwmRiiegsqRts2YKRJr/mi8=; b=mhnzA6u5Xv+FwKLTmEGlGkwcfY
+	Hn7/uMKnJXfM8fq402zCFNiyCmZjal4cZDuSh3j5UUzRxCpFJmmX/9jsaG65/StGynJdakHRN0nhf
+	de9Fpzmps9gZvz9LyY19+8p6CkMVWiNOZaVBBN2b8l/XUfkloL+DvNnbBjjY1AjA0WkrC2KkUDfan
+	q88kxejmJdI8MaKywGOcYxnxeigTDY68+t99lhNhZ038ZG1P3F1yWTk4m9LiIn0aPQT/UdrU9cULY
+	r3foTefBtMErzHMFQM7UPQVeIuzSsYTako1q9qkrgEDR0YTbFhsgfrxiIH6cawZpfoOfhSh1A5unE
+	GkXCKkog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKftX-00000008Q7t-14F0;
-	Mon, 09 Dec 2024 15:41:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tKfww-00000008QYL-28EV;
+	Mon, 09 Dec 2024 15:45:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfrz-00000008Pqd-3gkF
+	id 1tKfvt-00000008QSd-47gL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 15:40:25 +0000
+	Mon, 09 Dec 2024 15:44:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25320A41778;
-	Mon,  9 Dec 2024 15:38:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FCA1C4CEDD;
-	Mon,  9 Dec 2024 15:40:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F805A41752;
+	Mon,  9 Dec 2024 15:42:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5722DC4CED1;
+	Mon,  9 Dec 2024 15:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733758822;
-	bh=NXv2kZ+6ea8xYm0jQ8k8JDr041Cwb8mryXemzF+bjlQ=;
+	s=k20201202; t=1733759064;
+	bh=R8gakXjOFzr18Msjlv7x86OREF32D5o5FO2PwvyoUBM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fdx6g1ojyc0L2SkxZDCTO002TVnWmRHi2OTGtVQUTYCnm5t7DqW3R973eYt6YB+CE
-	 4+D5iQcF1CPusPEkIL7gMYMQ6OxfKQkB/EaFfBaTEm9yhGCO9EQKCJ3WEw5A4ywqbk
-	 CVDP2H7AUD4lfGXJPs/Ydmoy0RVnQwfH6rBbqNs9Aw1AM2cbMOyW68QL/z9Zmlgvlm
-	 jixnZLjQF+PdlyNJTEuUX2XgNLxdeZ6TBUYV1ri0UyC+XhhnqjOWEoVuPwuK9aWoNv
-	 OuHkWmK8jJT0u0gd2mMAv8LmeYOCoKrbYTIf8WT/mPcFH7GWKwq4Aq/44r7pZp/7gR
-	 2sQ5F3I6SaS2g==
-Date: Mon, 9 Dec 2024 15:40:16 +0000
+	b=bjrC4V0qC4WIBxl6N0Y3m5rcxQsl1BfIrhsvpBgBWFlMQXQBu+bfgXOa+u+oASu5N
+	 qG31jsynbRm21VBvEMV/iR187vUF2xTQQ49CEjm1yI7WOsIQV/pdzcXUN0c6x+q6+y
+	 15rusoyBzN6eGgB1axdDnADEaUeQYM5CCbEkCr/eZtXo98KyZiB53L9TLRwidSOMIh
+	 XDEelyShmDLRX5ZALy2M+mThSJ9j/fyZaJVpTwbZkf5Wb8PbnlnL68XbeKU6KnRi3K
+	 +y+oxX6YHNWXbpbHiLJisqI9aMhE2gxsK/N33DiN17/+tjoQ2Uk7YEWqXVLhg1y4y/
+	 ixOfuhHnbA2Og==
+Date: Mon, 9 Dec 2024 15:44:20 +0000
 From: Will Deacon <will@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, ilkka@os.amperecomputing.com,
-	kaishen@linux.alibaba.com, yangyicong@huawei.com,
-	Jonathan.Cameron@huawei.com, baolin.wang@linux.alibaba.com,
-	robin.murphy@arm.com, chengyou@linux.alibaba.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, rdunlap@infradead.org,
-	mark.rutland@arm.com, zhuo.song@linux.alibaba.com,
-	renyu.zj@linux.alibaba.com
-Subject: Re: [PATCH v12 4/5] drivers/perf: add DesignWare PCIe PMU driver
-Message-ID: <20241209154015.GA12428@willie-the-truck>
-References: <20231208025652.87192-5-xueshuai@linux.alibaba.com>
- <20241206165457.GA3101599@bhelgaas>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Frank.li@nxp.com, mark.rutland@arm.com, shawnguo@kernel.org,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v2] perf: imx9_perf: Introduce AXI filter version to
+ refactor the driver and better extension
+Message-ID: <20241209154419.GB12428@willie-the-truck>
+References: <20241125104338.2433339-1-xu.yang_2@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241206165457.GA3101599@bhelgaas>
+In-Reply-To: <20241125104338.2433339-1-xu.yang_2@nxp.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_074024_051638_28E3AE34 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20241209_074426_146656_9E01B336 
+X-CRM114-Status: GOOD (  28.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,82 +74,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
-
-On Fri, Dec 06, 2024 at 10:54:57AM -0600, Bjorn Helgaas wrote:
-> On Fri, Dec 08, 2023 at 10:56:51AM +0800, Shuai Xue wrote:
-> > This commit adds the PCIe Performance Monitoring Unit (PMU) driver support
-> > for T-Head Yitian SoC chip. Yitian is based on the Synopsys PCI Express
-> > Core controller IP which provides statistics feature. The PMU is a PCIe
-> > configuration space register block provided by each PCIe Root Port in a
-> > Vendor-Specific Extended Capability named RAS D.E.S (Debug, Error
-> > injection, and Statistics).
+On Mon, Nov 25, 2024 at 06:43:38PM +0800, Xu Yang wrote:
+> The imx93 is the first supported DDR PMU that supports read transaction,
+> write transaction and read beats events which corresponding respecitively
+> to counter 2, 3 and 4.
 > 
-> > +#define DWC_PCIE_VSEC_RAS_DES_ID		0x02
+> However, transaction-based AXI match has low accuracy when get total bits
+> compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
+> So axi filter is not used widely on imx93. This could be regards as AXI
+> filter version 1.
 > 
-> > +static const struct dwc_pcie_vendor_id dwc_pcie_vendor_ids[] = {
-> > +	{.vendor_id = PCI_VENDOR_ID_ALIBABA },
-> > +	{} /* terminator */
-> > +};
+> To improve the AXI filter capability, imx95 supports 1 read beats and 3
+> write beats event which corresponding respecitively to counter 2-5. imx95
+> also detailed AXI_ID allocation so that most of the master could be count
+> individually. This could be regards as AXI filter version 2.
 > 
-> > +static bool dwc_pcie_match_des_cap(struct pci_dev *pdev)
-> > +{
-> > +	const struct dwc_pcie_vendor_id *vid;
-> > +	u16 vsec;
-> > +	u32 val;
-> > +
-> > +	if (!pci_is_pcie(pdev) || !(pci_pcie_type(pdev) == PCI_EXP_TYPE_ROOT_PORT))
-> > +		return false;
-> > +
-> > +	for (vid = dwc_pcie_vendor_ids; vid->vendor_id; vid++) {
-> > +		vsec = pci_find_vsec_capability(pdev, vid->vendor_id,
-> > +						DWC_PCIE_VSEC_RAS_DES_ID);
+> This will introduce AXI filter version to refactor the driver and support
+> better extension, such as coming imx943.
 > 
-> This looks wrong to me, and it promotes a misunderstanding of how VSEC
-> Capabilities work.  The VSEC ID is defined by the vendor, so we have
-> to check both the Vendor ID and the VSEC ID before we know what this
-> VSEC Capability is.
-
-Thanks for pointing this out! The code's been merged for a while now,
-so we'll need to fix what we have rather than revert it, I think.
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> 
+> ---
+> Changes in v2:
+>  - modify subject
+>  - add comments for AXI_FILTER version
+>  - type -> filter_ver
+> ---
+>  drivers/perf/fsl_imx9_ddr_perf.c | 33 ++++++++++++++++++++++++--------
+>  1 file changed, 25 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
+> index 3c856d9a4e97..e2c2c674b6d2 100644
+> --- a/drivers/perf/fsl_imx9_ddr_perf.c
+> +++ b/drivers/perf/fsl_imx9_ddr_perf.c
+> @@ -63,8 +63,21 @@
+>  
+>  static DEFINE_IDA(ddr_ida);
+>  
+> +/*
+> + * V1 support 1 read transaction, 1 write transaction and 1 read beats
+> + * event which corresponding respecitively to counter 2, 3 and 4.
+> + */
+> +#define DDR_PERF_AXI_FILTER_V1		0x1
+> +
+> +/*
+> + * V2 support 1 read beats and 3 write beats events which corresponding
+> + * respecitively to counter 2-5.
+> + */
+> +#define DDR_PERF_AXI_FILTER_V2		0x2
+> +
+>  struct imx_ddr_devtype_data {
+>  	const char *identifier;		/* system PMU identifier for userspace */
+> +	unsigned int filter_ver;	/* AXI filter version */
+>  };
+>  
+>  struct ddr_pmu {
+> @@ -83,24 +96,27 @@ struct ddr_pmu {
+>  
+>  static const struct imx_ddr_devtype_data imx91_devtype_data = {
+>  	.identifier = "imx91",
+> +	.filter_ver = DDR_PERF_AXI_FILTER_V1
+>  };
 
 [...]
 
-> I think the table should be extended to contain the Vendor ID, *and*
-> the VSEC ID, *and* the VSEC Rev used by that vendor, i.e., it should
-> look like this:
-> 
->   struct dwc_pcie_pmu_vsec {
->     u16 vendor_id;
->     u16 vsec_id;
->     u8 vsec_rev;
->   };
-> 
->   struct dwc_pcie_pmu_vsec dwc_pcie_pmu_vsec_ids[] = {
->     { .vendor_id = PCI_VENDOR_ID_ALIBABA,
->       .vsec_id = DWC_PCIE_VSEC_RAS_DES_ID, .vsec_rev = 0x4 },
->     { .vendor_id = PCI_VENDOR_ID_AMPERE,
->       .vsec_id = DWC_PCIE_VSEC_RAS_DES_ID, .vsec_rev = 0x4 },
->     { .vendor_id = PCI_VENDOR_ID_QCOM,
->       .vsec_id = DWC_PCIE_VSEC_RAS_DES_ID, .vsec_rev = 0x4 },
->     {}
->   };
-> 
-> This *looks* the same, but it's not, because it makes it obvious that
-> the VSEC ID and VSEC Rev are defined separately by each vendor.  It's
-> just a lucky coincidence that they happen to be the same for these
-> vendors.
+> -static inline bool is_imx93(struct ddr_pmu *pmu)
+> +static inline bool axi_filter_v1(struct ddr_pmu *pmu)
+>  {
+> -	return pmu->devtype_data == &imx93_devtype_data;
+> +	return pmu->devtype_data->filter_ver == DDR_PERF_AXI_FILTER_V1;
+>  }
 
 [...]
 
-> I suggest updating dwc_pcie_match_des_cap() to iterate through the
-> dwc_pcie_pmu_vsec_ids[] table and return the capability offset so you
-> can call it from here.
+> @@ -624,11 +641,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
+>  	hwc->idx = counter;
+>  	hwc->state |= PERF_HES_STOPPED;
+>  
+> -	if (is_imx93(pmu))
+> +	if (axi_filter_v1(pmu))
+>  		/* read trans, write trans, read beat */
+>  		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
 
-Any chance you could send a patch with those, please? I'm also not able
-to test this stuff, but I'm sure Ilkka would help us out.
-
-Cheers,
+Hmm, doesn't this change mean we now enable this for imx91 as well? My
+reading of the commit message is that imx93 was the first chip which
+supports this.
 
 Will
 
