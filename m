@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D828E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8818EE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vm/TBp0Ce4O4LQiS6ttXnOUEbYFw8BKRqFJOuaIMtQc=; b=CKgcrnASDKjODVSYWa8n1e1gKR
-	U5FKm6OkyUcsZnEnVSWGccLoIqPxcvxesuJGr5F1dD3Qls7EiU3RFqbOUTem5VPkdOTQ43Ge+3eH7
-	XWfWeeDieJEmabzX7knkJVuQzCwi08D0rkqRqQY4GPBD9QepxMcNRRwasguscL720wB3V45ZcKfpV
-	tvsSB7BgTLdUMl352W6Lu3q/M2C2Yx/REgvbH3I1qee6VB7it/lD4T0LN+CnTN0vHCsq70Hi+IAsl
-	1//hvpJlFvdob02FIvBBSm2XHaG2laDBJN20eTZZkbkpb7gylHNU4V4bjLfI795S7IIJjQB5BWkXw
-	IOeWWNHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z8XdFEqpvTx8cUZQaRLgDzSLnKQqy77sFCGLrBuNCbM=; b=gythMyqDLVtPorDycrVBWZkCPp
+	XS/ko/QWaZiEUOiZO/1QHQ0cQ299QahyEV7p0t0xx2rs1VbOV7rkIkI2VcrHDb1emeyhSsysY4sRl
+	GcobaYSkqF8ricazvckVlF+Zre7Qrzay7bzeurV32eMTfxgRpNenanuVjzhI4gb0jL/bjSh04LK0j
+	/UKqoUs1uVCQZHbq8H+NCFB0lF9lGcdX2ni7hDxuWuTi4N/yQFo3zBkJQy0nyDqB320Mbmoaz4EQB
+	KR8jJZgJNzptGa8ke3yWMXC0z/K5e5uOaDzmAgLeNvdOTdncr6EKBS5D6Zb4sAbHfxwLRVBT3QoRT
+	kmnKIbPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKehg-00000008CEH-045k;
-	Mon, 09 Dec 2024 14:25:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKegc-00000008C03-0PTI
+	id 1tKeo1-00000008DWt-3Pnd;
+	Mon, 09 Dec 2024 14:32:13 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKemy-00000008DNE-2ihZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 14:24:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69FD91650;
-	Mon,  9 Dec 2024 06:24:59 -0800 (PST)
-Received: from T9219K2H65.arm.com (unknown [10.119.39.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0FBC3F720;
-	Mon,  9 Dec 2024 06:24:30 -0800 (PST)
-From: Chase Conklin <chase.conklin@arm.com>
-To: maz@kernel.org
-Cc: andersson@kernel.org,
-	christoffer.dall@arm.com,
-	joey.gouly@arm.com,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH 00/11] KVM: arm64: Add NV timer support
-Date: Mon,  9 Dec 2024 08:24:29 -0600
-Message-Id: <20241209142429.882-1-chase.conklin@arm.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20241202172134.384923-1-maz@kernel.org>
-References: <20241202172134.384923-1-maz@kernel.org>
+	Mon, 09 Dec 2024 14:31:09 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tKemm-00057P-43; Mon, 09 Dec 2024 15:30:56 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tKemk-002Wue-0q;
+	Mon, 09 Dec 2024 15:30:55 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 8DD5C389BCE;
+	Mon, 09 Dec 2024 14:30:54 +0000 (UTC)
+Date: Mon, 9 Dec 2024 15:30:54 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
+Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and
+ add gen3 board
+Message-ID: <20241209-magenta-boobook-of-respect-14ec68-mkl@pengutronix.de>
+References: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zcg6nifetr3cb2sn"
+Content-Disposition: inline
+In-Reply-To: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_062434_175306_426ACEB4 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20241209_063108_684458_880B27CB 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,64 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
 
-On Mon, 2 Dec 2024 17:21:23 +0000, Marc Zyngier <maz@kernel.org> wrote: 
-> Here's another batch of NV-related patches, this time bringing in most
-> of the timer support for EL2 as well as nested guests.
-> 
-> The code is pretty convoluted for a bunch of reasons:
-> 
-> - FEAT_NV2 breaks the timer semantics by redirecting HW controls to
->   memory, meaning that a guest could setup a timer and never see it
->   firing until the next exit
-> 
-> - We go try hard to reflect the timer state in memory, but that's not
->   great.
-> 
-> - With FEAT_ECV, we can finally correctly emulate the virtual timer,
->   but this emulation is pretty costly
-> 
-> - As a way to make things suck less, we handle timer reads as early as
->   possible, and only defer writes to the normal trap handling
-> 
-> - Finally, some implementations are badly broken, and require some
->   hand-holding, irrespective of NV support. So we try and reuse the NV
->   infrastructure to make them usable. This could be further optimised,
->   but I'm running out of patience for this sort of HW.
-> 
-> What this is not implementing is support for CNTPOFF_EL2. It appears
-> that the architecture doesn't let you correctly emulate it, so I guess
-> this will be trap/emulate for the foreseeable future.
-> 
-> This series is on top of v6.13-rc1, and has been tested on my usual M2
-> setup, but also on a Snapdragon X1 Elite devkit. I would like to thank
-> Qualcomm for the free hardware with no strings (nor support) attached!
-> 
-> If you are feeling brave, you can run the whole thing from [1].
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/nv-next
->
+--zcg6nifetr3cb2sn
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and
+ add gen3 board
+MIME-Version: 1.0
 
-I was feeling brave, and I think I see an issue in the cpufeature change
-in the kvm-arm64/nv-e2h-select branch that's a part of
-kvm-arm64/nv-next. In d75a4820a897 ("arm64: cpufeature: Handle NV_frac as a synonym of NV2"),
-I don't see NV_frac being added to the FTR bits. I believe that means it
-will get sanitized out and consequently not seen by the NV feature
-detection code. Does that commit also need:
+Hello Alexandre,
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9fa8bd77ae0..f97459e160b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -480,6 +480,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr3[] = {
+On 19.11.2024 12:34:57, Marc Kleine-Budde wrote:
+> Hello,
+>=20
+> this series fixes some problems found in the lxa-tac generation 1 and
+> 2 boards and add support for the generation 3 board. It's based on an
+> STM32MP153c, while the generation 1 and 2 are based on the
+> STM32MP157c.
+>=20
+> regards,
+> Marc
+>=20
+> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+> ---
+> Leonard G=C3=B6hrs (6):
+>       ARM: dts: stm32: lxa-tac: disable the real time clock
+>       ARM: dts: stm32: lxa-tac: extend the alias table
+>       ARM: dts: stm32: lxa-tac: adjust USB gadget fifo sizes for multi fu=
+nction
+>       dt-bindings: arm: stm32: add compatible strings for Linux Automatio=
+n LXA TAC gen 3
+>       ARM: dts: stm32: lxa-tac: move adc and gpio{e,g} to gen{1,2} boards
+>       ARM: dts: stm32: lxa-tac: Add support for generation 3 devices
+>=20
+>  .../devicetree/bindings/arm/stm32/stm32.yaml       |   7 +
+>  arch/arm/boot/dts/st/Makefile                      |   1 +
+>  arch/arm/boot/dts/st/stm32mp153c-lxa-tac-gen3.dts  | 267 +++++++++++++++=
+++++++
+>  arch/arm/boot/dts/st/stm32mp157c-lxa-tac-gen1.dts  |  84 +++++++
+>  arch/arm/boot/dts/st/stm32mp157c-lxa-tac-gen2.dts  |  84 +++++++
+>  arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi      | 100 +-------
+>  6 files changed, 455 insertions(+), 88 deletions(-)
 
- static const struct arm64_ftr_bits ftr_id_aa64mmfr4[] = {
-        S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_E2H0_SHIFT, 4, 0),
-+       S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_NV_frac_SHIFT, 4, 0),
-        ARM64_FTR_END,
- };
+since the merge window is open, can you merge this series please.
 
-Thanks,
-Chase
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--zcg6nifetr3cb2sn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdW/xoACgkQKDiiPnot
+vG/URgf/dtYmL9iBc+SHfx64MvPmj6DNHBSLqZnmsOY7n3wqlr+iKYz+6cM33m7n
+mixEvaSXRcmbC/LnORRf2tRwJKu5d7P13lS88jWSyOPXhyfzcSYfFzKDYURjmNux
+UISMbF/3QA12/W11Kks7pl0FFzhSeuHSTek6BSFJ1CmTKYrIQnoZIYAV8MsytUej
+4P+MFT0SXYEMgMKObA7uxcSxWlwSFVKv3Kw8Zl8gj3SDsLWmuxdT5f1k/n+EIFmZ
+B4BTT4VKiI/aVicjk+Wfa/EE24YtsIZeg3RbR50o04xVlRWFRwzeIfOh2HwH5vmQ
+9v692jmzaPq3TR3977WzO0Hkxo+H4A==
+=P04U
+-----END PGP SIGNATURE-----
+
+--zcg6nifetr3cb2sn--
 
