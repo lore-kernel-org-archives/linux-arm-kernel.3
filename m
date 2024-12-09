@@ -4,71 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8818EE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A03EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8XdFEqpvTx8cUZQaRLgDzSLnKQqy77sFCGLrBuNCbM=; b=gythMyqDLVtPorDycrVBWZkCPp
-	XS/ko/QWaZiEUOiZO/1QHQ0cQ299QahyEV7p0t0xx2rs1VbOV7rkIkI2VcrHDb1emeyhSsysY4sRl
-	GcobaYSkqF8ricazvckVlF+Zre7Qrzay7bzeurV32eMTfxgRpNenanuVjzhI4gb0jL/bjSh04LK0j
-	/UKqoUs1uVCQZHbq8H+NCFB0lF9lGcdX2ni7hDxuWuTi4N/yQFo3zBkJQy0nyDqB320Mbmoaz4EQB
-	KR8jJZgJNzptGa8ke3yWMXC0z/K5e5uOaDzmAgLeNvdOTdncr6EKBS5D6Zb4sAbHfxwLRVBT3QoRT
-	kmnKIbPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W+xM5WWq5u6sfiL0jt9GQc/fci53X9ox5cvOA1IGELA=; b=TbDyEzXds2DYoLwonDZ7Q5EbSu
+	SXRNq01DQcEiy+eAhqNn4SzXHnJOOxxILyV93yTnXvG8s2wrJyCDkOhl+rdCaqOjpvDjw0dGK8+B/
+	h95mfY6fawGlSRHCi/gPzRK6UV8W/vc5NkK/kjUSABNCfeAl4MeMil9xe/dj2CpwMv4AI1DxmH+GV
+	66qW4gzxnr9IpeVrEPw3BwKWZxYMrbceM+vDVtrUsOqCdRmqZX8ifBDEVr9gOGVCuHmAUjBNPTgwS
+	Agrge8ZvsCztxF7m2TLhw4PRSaiuUTHWw6jm+NNk42ND2O7Jtaob7yHncfrTpyzK8p8GMjR0DijXr
+	4S8H77TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKeo1-00000008DWt-3Pnd;
-	Mon, 09 Dec 2024 14:32:13 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tKepW-00000008Dpq-1qBL;
+	Mon, 09 Dec 2024 14:33:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKemy-00000008DNE-2ihZ
+	id 1tKeoS-00000008Dfn-3hYr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 14:31:09 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tKemm-00057P-43; Mon, 09 Dec 2024 15:30:56 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tKemk-002Wue-0q;
-	Mon, 09 Dec 2024 15:30:55 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 8DD5C389BCE;
-	Mon, 09 Dec 2024 14:30:54 +0000 (UTC)
-Date: Mon, 9 Dec 2024 15:30:54 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: kernel@pengutronix.de, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
-Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and
- add gen3 board
-Message-ID: <20241209-magenta-boobook-of-respect-14ec68-mkl@pengutronix.de>
-References: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
+	Mon, 09 Dec 2024 14:32:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C7D2DA416F0;
+	Mon,  9 Dec 2024 14:30:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FBB6C4CED1;
+	Mon,  9 Dec 2024 14:32:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733754759;
+	bh=vNB6k/VFYlEh0znyD6fX/ZbG4kN5ZRN6Fh1umj/6p2o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ofTlJscpsvYH3Y1n10pQjkbuJwgu8bwe4m5myg7MnIddlsp2EE8BDnNHZocJbm06s
+	 xVHitM4Sdkmdp1KyM8zUzPvL1FBVYEteI4G9/qQBsDlgesUCg8pJaC5+OMMvfyBTjw
+	 frJmpFGbb3hJciScp68+VgoiyB8ckaoDfTlhLTAHq6CDaioKER0ZroZUpkzLAL6X+q
+	 lYU4lX+go/YkwFwMbDE4GyHTWBYnDDfz++EjkTqFU2KbWGbPv3JYwZWLvvl0JFkkpT
+	 mSmvfO4ZbmpCNftwIcJBCTx67kg0Ee+8STViJhR4erm9mZnDXOQ7LNqqFg7/iFUfNU
+	 1E0HljAU76T9A==
+Message-ID: <8698ccfc-9c16-4b4e-b526-66efd39c0134@kernel.org>
+Date: Mon, 9 Dec 2024 15:32:31 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zcg6nifetr3cb2sn"
-Content-Disposition: inline
-In-Reply-To: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: mailbox: add bindings for
+ samsung,exynos
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
+ kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org
+References: <20241205174137.190545-1-tudor.ambarus@linaro.org>
+ <20241205174137.190545-2-tudor.ambarus@linaro.org>
+ <2lkowhldq5i4otniijfw7cb3jm6ttatwji3npw5w7c5fyevnn5@ynojupmdyqy4>
+ <9886429b-1bf3-4dc3-b0d4-294a98e44ff2@linaro.org>
+ <58d62506-de89-40e4-a3c2-bd27da515a45@kernel.org>
+ <38e6687e-c2ee-414b-bba5-483150ba7baa@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <38e6687e-c2ee-414b-bba5-483150ba7baa@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_063108_684458_880B27CB 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20241209_063241_054665_0107EB5C 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +126,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 09/12/2024 15:19, Tudor Ambarus wrote:
+> 
+> 
+> On 12/9/24 8:33 AM, Krzysztof Kozlowski wrote:
+>>> I'm thinking of using the same driver for both cases, and differentiate
+>>> between the two by compatible and `of_device_id.data`. Thus I propose to
+>>> have a "google,gs101-acpm-mbox" compatible for the ACPM SRAM case and in
+>>> the future we may add a "google,gs101-mbox" compatible for the messages
+>>> passed via the controller's data register case.
+>> Good that you pointed it out, I was indeed wondering why this is
+>> "acpm-mbox", not "mbox in compatible.
+>>
+>> This needs to be fixed - you cannot have two compatibles for the same
+>> device.
+> 
+> Will fix. I followed arm,mhu, which differentiates the transfer mode,
+> data or doorbell, via compatible.
 
---zcg6nifetr3cb2sn
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and
- add gen3 board
-MIME-Version: 1.0
+There was a reasoning behind: different firmware.
 
-Hello Alexandre,
-
-On 19.11.2024 12:34:57, Marc Kleine-Budde wrote:
-> Hello,
->=20
-> this series fixes some problems found in the lxa-tac generation 1 and
-> 2 boards and add support for the generation 3 board. It's based on an
-> STM32MP153c, while the generation 1 and 2 are based on the
-> STM32MP157c.
->=20
-> regards,
-> Marc
->=20
-> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-> ---
-> Leonard G=C3=B6hrs (6):
->       ARM: dts: stm32: lxa-tac: disable the real time clock
->       ARM: dts: stm32: lxa-tac: extend the alias table
->       ARM: dts: stm32: lxa-tac: adjust USB gadget fifo sizes for multi fu=
-nction
->       dt-bindings: arm: stm32: add compatible strings for Linux Automatio=
-n LXA TAC gen 3
->       ARM: dts: stm32: lxa-tac: move adc and gpio{e,g} to gen{1,2} boards
->       ARM: dts: stm32: lxa-tac: Add support for generation 3 devices
->=20
->  .../devicetree/bindings/arm/stm32/stm32.yaml       |   7 +
->  arch/arm/boot/dts/st/Makefile                      |   1 +
->  arch/arm/boot/dts/st/stm32mp153c-lxa-tac-gen3.dts  | 267 +++++++++++++++=
-++++++
->  arch/arm/boot/dts/st/stm32mp157c-lxa-tac-gen1.dts  |  84 +++++++
->  arch/arm/boot/dts/st/stm32mp157c-lxa-tac-gen2.dts  |  84 +++++++
->  arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi      | 100 +-------
->  6 files changed, 455 insertions(+), 88 deletions(-)
-
-since the merge window is open, can you merge this series please.
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---zcg6nifetr3cb2sn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdW/xoACgkQKDiiPnot
-vG/URgf/dtYmL9iBc+SHfx64MvPmj6DNHBSLqZnmsOY7n3wqlr+iKYz+6cM33m7n
-mixEvaSXRcmbC/LnORRf2tRwJKu5d7P13lS88jWSyOPXhyfzcSYfFzKDYURjmNux
-UISMbF/3QA12/W11Kks7pl0FFzhSeuHSTek6BSFJ1CmTKYrIQnoZIYAV8MsytUej
-4P+MFT0SXYEMgMKObA7uxcSxWlwSFVKv3Kw8Zl8gj3SDsLWmuxdT5f1k/n+EIFmZ
-B4BTT4VKiI/aVicjk+Wfa/EE24YtsIZeg3RbR50o04xVlRWFRwzeIfOh2HwH5vmQ
-9v692jmzaPq3TR3977WzO0Hkxo+H4A==
-=P04U
------END PGP SIGNATURE-----
-
---zcg6nifetr3cb2sn--
+Best regards,
+Krzysztof
 
