@@ -4,68 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0394E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 18:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC10E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 19:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2AHMsU9C3aGdPeyC3kWWTvP8Q55SWIWb7sIWx3ma3k=; b=amcVY+3TOoNwkkS6TyPUxEWxt6
-	YgTwXaiudoGR6ivOyxSuh415nQuEw98FfrofO6wOKY1qqAPn98H563bb3b8SlrfhDVhFwvk2n955I
-	cXrcnjE8DczFC9nHCwrUN9d5W3OmAMDPo5b8yky3wJN1MCeCPU2nW+RQiCOsKi2H0iURG3L49SxuR
-	C0QPjyHKXMk3v7uA6+Ta7mYWrlF/XUX4JTihvGfKpfJC1LXFe40llLWmCn89wsggLnLheJs7rBCir
-	1NNqoL0TV4s6V/run3MF1zgtjIZOkPuyzdUs6Pd4Erc/KkONZ+clbe5kxPOWbOWbCL9QoGe58jsdb
-	kbeeS4sQ==;
+	bh=23xOGiDXy6NYcLE529NavOt7dzjIrFu9Sh/1RY3aUZA=; b=z0fA4z+fJt/h2Ve9a7OVYwT0ke
+	dwGSUWi9MK3YpdZRVUCl2kNhOV2R+/J5sVW/i4OqL/AY3hCbRJAMwyqRyZ1xcRQs188GWBdOcDV08
+	dnWEgJPKbzYYvuRCVDS65tgbDHc2hitn4721IjGJ2footVUVJtZGzzmkRvpzoeRs8yOF55w240jn3
+	YdacRBvtjiQVoeGZepfYztZPHjL9xcg+xojciQ8o9hyNjoqfhHFgAbECgvnRSjP5iwjWnvZTlijPp
+	FBfNHd+GMNC5gXBik+HT+SPfvvb3BI7JC+nJJzQm7/t4GBKXMtDzL5DRaIlCQT8nNjVKWEjNhzaN5
+	wlf90S1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKiwq-00000008x33-1Q2p;
-	Mon, 09 Dec 2024 18:57:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tKj3Z-00000008z6f-1t27;
+	Mon, 09 Dec 2024 19:04:33 +0000
+Received: from mail-dm6nam10on20621.outbound.protection.outlook.com ([2a01:111:f403:2413::621] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKivm-00000008wrC-3dJb
+	id 1tKj2U-00000008ykA-3lVr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 18:56:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CBD3E5C5ECF;
-	Mon,  9 Dec 2024 18:55:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6431C4CED1;
-	Mon,  9 Dec 2024 18:56:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733770590;
-	bh=jWitqbI3BToGLZp+6qWZmYRLd+6j/B93+eI3CbU4/Zc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p519Aw5jPWzqrzBFSTv91Bmk6wjee690Qpps0g/UQj0hE3dtph47dJtKsHJu+98dP
-	 jCjDpI3BYoG1hMUaaKN3RHQ0NXXJ3qZTnM4TeRBhQy6g25VjNT0oLUScszmLxFltJT
-	 OUhzlgSL4aSJQJLgUebHnoggFhyNsK8/RYe14LdK6F6fLXhg6T56JdTMy5VFSdNIeO
-	 FeWRcfUZ1XcLAJgDgx3ArhqhUzGwLECc8tZtQd1YVxOkgDfloR5vs9DSA5v2D5kdQB
-	 gzLxWWdQ7pi3w6K3MTRJNXGZFjN8NvG02r9Jy59wXvMAKlLoqzeBmNUowRndSdoJHy
-	 MdMjsFTSCEPxA==
-Date: Mon, 9 Dec 2024 18:56:24 +0000
-From: Will Deacon <will@kernel.org>
-To: Rong Xu <xur@google.com>
-Cc: Yabin Cui <yabinc@google.com>, Han Shen <shenhan@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <kees@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
-Message-ID: <20241209185623.GA13084@willie-the-truck>
-References: <20241118222540.27495-1-yabinc@google.com>
- <20241209162028.GD12428@willie-the-truck>
- <CAF1bQ=SiHi8oCyo5YnXGpQGofM1zAsnBdqSEet1mS-BYNKVU8A@mail.gmail.com>
+	Mon, 09 Dec 2024 19:03:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ogUGQ9VtCbaC4yMi+rlJSoT8BVI1TX7k1odJIwHhLz5PyoVIs+4YCM0M5k1nIRGAq7mSu+jTX7mbU8XfheGIBbo1eeZHLwcphgw9tchv3hwkH771iy9ozwK2AxEieMqqgGuF2ROwlltAP8RTRW4XAky3uVaqV0HWClM0+Yxlg7H0mZ+HOohydmqgxcbXoJTkGc3SAaniQjqHhQk1NnPht0B2pB+ksTwqg7sZWhPr9IQEGpdBPEjN2/JDohMCu1yo0skPTMTsuWLCfelC0QSv4JgvArQCropSp/haspiPLMAzgujMsELAgwLAEsjmYbvo1KoSZ6ed6CiCjFlLuqRZFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=23xOGiDXy6NYcLE529NavOt7dzjIrFu9Sh/1RY3aUZA=;
+ b=yqRZmqSeP10NeeoH79GDKwbaPZiews6w8yy2Dvj22d/rw72Lx9xzhIScjRP9YchTOlRNIUb6zbDgw9M1ZrflROiOPea9dFMfh/T5CYelBP76d9MBZL1GpY7LKhSBu4O/QzaYBh8ED0LBneU5iWuPEu4lOcMEZAWYr7FMeiASzHLIhRxyADTseqvNBLMhptYX57FsYRXtCFm7sM5SBGPvAVpJP33PWV1i16ahrTPSrF7RuTS+EshTP6fKo/bWdOExMhGTArl7pa9HcgW+uRiFWkwDoH1S40hx/U2V2uwwtqEMiOn1qssnRD2FetTd6hUSFGNJXOKDV+7niGQD4ENwGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=23xOGiDXy6NYcLE529NavOt7dzjIrFu9Sh/1RY3aUZA=;
+ b=HEPNurPeXzKmutiubwjAjjwthunpCLFEM0WGc3CgBlyCKl1k0P80cViwjOYkKCOgzUSILax8vaSpcuLkbf0ebagfw5vS+azkPLQnsur2rVBXPixeG0WyLQMi8k0FvRcviNycikzZ5sl1BrinaXLFQHIyur4sx3oKvYaqeMoR5bjsx7ZBXG3K+WmoKf+qB9tcxNQL8vXrWAB34CYvObsZMKr7Zj8+Mlb8kntMVanqacdXAVsBJnWdKrZVbvR+7t0zHHRqpVsUu4vbYCwu6RFsQsgN6bYRJe8P0Vm7lRXHlvfnHm0J+UJAIJNFJqU0hShmp6PI7ml7vSHm6qz+nQrP3g==
+Received: from MW4PR04CA0209.namprd04.prod.outlook.com (2603:10b6:303:86::34)
+ by DM4PR12MB6229.namprd12.prod.outlook.com (2603:10b6:8:a8::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.24; Mon, 9 Dec
+ 2024 19:03:19 +0000
+Received: from SJ5PEPF000001F2.namprd05.prod.outlook.com
+ (2603:10b6:303:86:cafe::d2) by MW4PR04CA0209.outlook.office365.com
+ (2603:10b6:303:86::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8230.13 via Frontend Transport; Mon,
+ 9 Dec 2024 19:03:18 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001F2.mail.protection.outlook.com (10.167.242.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8230.7 via Frontend Transport; Mon, 9 Dec 2024 19:03:18 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 9 Dec 2024
+ 11:03:03 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 9 Dec 2024
+ 11:03:03 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Mon, 9 Dec 2024 11:03:02 -0800
+Date: Mon, 9 Dec 2024 11:03:01 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+CC: Thierry Reding <thierry.reding@gmail.com>, Krishna Reddy
+	<vdumpa@nvidia.com>, Will Deacon <will@kernel.org>, Robin Murphy
+	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Jonathan Hunter
+	<jonathanh@nvidia.com>, <linux-kernel@vger.kernel.org>,
+	<iommu@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-tegra@vger.kernel.org>, Sebastian Andrzej Siewior
+	<bigeasy@linutronix.de>, Steven Rostedt <rostedt@goodmis.org>,
+	<linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH v2] iommu/tegra241-cmdqv: do not use smp_processor_id in
+ preemptible context
+Message-ID: <Z1c+5dI7fibEZZ/h@Asurada-Nvidia>
+References: <Z1L1mja3nXzsJ0Pk@uudg.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAF1bQ=SiHi8oCyo5YnXGpQGofM1zAsnBdqSEet1mS-BYNKVU8A@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <Z1L1mja3nXzsJ0Pk@uudg.org>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F2:EE_|DM4PR12MB6229:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e0dc13d-8373-47f6-5e44-08dd188424a4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?o6LKtvGDr6448uq8sOsVuQF6SebQb9+7w7BXa2GSvu2g0XvLny+Fa4m0onaH?=
+ =?us-ascii?Q?gB4KgIc3Fb0GT3a9WzOp89CMaaJUGlZ0lNgyD2BJRGqAppRpTE/SilAcGuaM?=
+ =?us-ascii?Q?b2uT15/LNsJOQLxtJr4sWYJoDLUKD/8VzccGfwdQgIGtIEny6tNTqttXk3Mv?=
+ =?us-ascii?Q?MS6FYbYAfKEJx99sNSB4TUzVHrEN216Clsx1eVsc4OvVEfgxH5dIkGaTAb/F?=
+ =?us-ascii?Q?EaKEQz1aLrGM0Q/LXLREX4TP9I/hwsqMJzqW304aiZ/EH8YRbOXfXgbcUq7O?=
+ =?us-ascii?Q?ClzF7Qp0XdMubS1ntqHEea+JlwyPH21t/SehBsg3dPVqzj5V3k70+AKUJ+Jv?=
+ =?us-ascii?Q?8YGiYzUSu6L6zqdvZoZio/gBmB38ZkhurRz66MA0oO5QxrbMp6IJYmQtmDhk?=
+ =?us-ascii?Q?Et7ji9avW15BcyaafcX5xGTO9FA0ZEohILTlWlemzzHUvs/U6tdG0LlNdU6v?=
+ =?us-ascii?Q?X06/hq2ca+QZxVdTmin5MMyS6432WINW9RzK4lgBTj71LF6PqqDcZx/vQbZ0?=
+ =?us-ascii?Q?i3jZ5yINhjUzOAdFe0vHQHrTl8V4PhHQH6vx0AulGuvHQOVGXIPDkV4HgQ7T?=
+ =?us-ascii?Q?2tOtLoeXu9K/Wx8O10bIhNbqh2nyP4+xxcj8tBwNoIQErcHpbdtEa0lJZT5d?=
+ =?us-ascii?Q?3shmtCzGNJYGmOgn0TaVCL3wpuTr4aInAJ6BZ8Vq5nCE+ZqV0/Z6fodF/OMg?=
+ =?us-ascii?Q?CHMU4oJGrwe1Bx8W/L8tOpzV3M7uQOZiRTp1NywGAPtgujFpI2cI+0Hyjdw5?=
+ =?us-ascii?Q?0hm8YbHMPtMxtowXAsKuUN3SRPhxekmKOHAqWTCi9sT9mTZzZs3Jqy9RZZOt?=
+ =?us-ascii?Q?BhyK4WRw7sSmJZUHEvE/U6ERWuVchIM7cUJ8683qsI8p6XxoHgpTSwn+yL3s?=
+ =?us-ascii?Q?d0pIVk6kpwWuJ055ia28/rVLMknuljtKdDcruiZCqm0qihoxSiajWPLYaTvV?=
+ =?us-ascii?Q?nlJQ1Bdl8HyOlcXeY5w5vC6ZUGA59/s/yrOspSel8YO3jpodYK17+k9rFREI?=
+ =?us-ascii?Q?Pi1xfZCdg1MBtsnaIaX5wMXiPJgYp+8djL0psh16gYH0TMW06rea94SNia2w?=
+ =?us-ascii?Q?lCkRHZNCm3VWlT7g5QspJ+9LHXSP38upsqwQSiGn8yz2VeBfQKW0RK6tArWl?=
+ =?us-ascii?Q?jB2HU/22IGu8RwGqNiSbNdo8vYD/7EmDYVrmy4dr2Va0vaVTIc2BK8XnRz4O?=
+ =?us-ascii?Q?Gb34fGjy4tGGTYs8v6kpiSBITwV7e+If6RAYBHXz+q49Ggy7AvUwUTPcBu3g?=
+ =?us-ascii?Q?O1V+F6e+jpTE59RcrvfFQfcZvt1pUQSelwKYnjR7PvX2l6KVb/pE5Gm0qgOo?=
+ =?us-ascii?Q?+zx62pSWqFnBiWqvfaAsKtM5YpgQwzSbe6AEuQWbA9RWhM/YyT76DrJ1QF8J?=
+ =?us-ascii?Q?iGgUFP17ZD0RJcrqSAsfxDCPI07mIpJz7RyaoN9sDQ+yHlzD74Se71CITk9G?=
+ =?us-ascii?Q?hoLgF6u8dRyT+8vGwcpLP4DtjLlat4bt?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 19:03:18.4729
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e0dc13d-8373-47f6-5e44-08dd188424a4
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6229
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_105630_953062_65BB4A46 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20241209_110326_935821_3EF45CB6 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +155,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(Aside: please try to avoid top-posting on the public lists as it messes up
-the flow of conversation; I'll try to piece this back together.)
+On Fri, Dec 06, 2024 at 10:01:14AM -0300, Luis Claudio R. Goncalves wrote:
+> During boot some of the calls to tegra241_cmdqv_get_cmdq() will happen
+> in preemptible context. As this function calls smp_processor_id(), if
+> CONFIG_DEBUG_PREEMPT is enabled, these calls will trigger a series of
+> "BUG: using smp_processor_id() in preemptible" backtraces.
 
-On Mon, Dec 09, 2024 at 09:30:50AM -0800, Rong Xu wrote:
-> On Mon, Dec 9, 2024 at 8:20 AM Will Deacon <will@kernel.org> wrote:
-> > On Mon, Nov 18, 2024 at 02:25:40PM -0800, Yabin Cui wrote:
-> > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > index fd9df6dcc593..c3814df5e391 100644
-> > > --- a/arch/arm64/Kconfig
-> > > +++ b/arch/arm64/Kconfig
-> > > @@ -103,6 +103,7 @@ config ARM64
-> > >       select ARCH_SUPPORTS_PER_VMA_LOCK
-> > >       select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
-> > >       select ARCH_SUPPORTS_RT
-> > > +     select ARCH_SUPPORTS_AUTOFDO_CLANG
-> > >       select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-> > >       select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
-> > >       select ARCH_WANT_DEFAULT_BPF_JIT
-> >
-> > After this change, both arm64 and x86 select this option unconditionally
-> > and with no apparent support code being added. So what is actually
-> > required in order to select ARCH_SUPPORTS_AUTOFDO_CLANG and why isn't
-> > it just available for all architectures instead?
+Confirmed the BUG prints. Should we CC stable tree?
 
-> Enabling an AutoFDO build requires users to explicitly set CONFIG_AUTOFDO_CLANG.
-> The support code is in Commit 315ad8780a129e82 (kbuild: Add AutoFDO
-> support for Clang build).
+> As tegra241_cmdqv_get_cmdq() only calls smp_processor_id() to use the
+> CPU number as a factor to balance out traffic on cmdq usage, it is safe
+> to use raw_smp_processor_id() here.
+> 
+> v2: Sebastian helped identify that the problem was not exclusive to kernels
+>     with PREEMPT_RT enabled. The delta between v1 and v2 is the description.
+> 
+> Signed-off-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
 
-Yes, that is precisely my point. The user has to enable
-CONFIG_AUTOFDO_CLANG anyway, so what is the point in having
-ARCH_SUPPORTS_AUTOFDO_CLANG. Why would an architecture _not_ want to
-select that?
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Tested-by: Nicolin Chen <nicolinc@nvidia.com>
 
-> We are not enabling this for all architectures because AutoFDO's optimized build
-> relies on Last Branch Records (LBR) which aren't available on all architectures.
-
-So? ETM isn't available on all arm64 machines and I doubt whether LBR is
-available on _all_ x86 machines either. So there's a runtime failure
-mode that needs to be handled anyway and I don't think the arch-specific
-Kconfig option is really doing anything useful.
-
-Will
+Thanks
+Nicolin
 
