@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AF7E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 04:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55193E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 04:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3c7UrkPwEJmNTYLKjTPwjQfK8kP5sLbyVZ2qJ+Q9acM=; b=ia7Tk5kv1VRLWHev56ARbTfsbP
-	rB01lI378t3V/BFr6NBHcijUBNDQ/oQC3qaA8Rk6THCHPwasH6Cf+baN4zxstvWLBt2fOIYl2LxhN
-	I8RwNUaj2mG7rh0ofFj3FQjHLV20XfuPsnfw7e0QJdaxFb0QyrWc4mCkoXdP8/ommkYSiW252rvVe
-	rxx8DJwg0jIxFJYBoA2TPdl/crbaVPtQ+aPYjvXwRY6fpn/svJhYSoPTCgPAVfw9pQ31LRmmiKps4
-	iu6/dRaomv4cfY3ArH3BA+CGBBhbEoZb8RoQbp6hUM2QkUpAZaCJMn5LlFz1CHLAx0h7UtpZv7sdw
-	1y2GYLXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kaF5tNMBN6R7KAucRu1XrV4n/h7v2QSAKRQ5x5/dKRs=; b=cBYKcpSYaHn0y/EdqU812I4ZhS
+	4HdfhDM5+xkc0Msgf0riTRHBHA/PelDmAZ459NuJpysiMnL3WNnyGaijVD2uNEWNEuOef7vtpJhQG
+	EiWNTgThB/smSUaoRjQ8vlHFcgeG9BXpxsbYH06495FqYKkCFNJsO8+yNFou9RsSvNQ0hewWVik02
+	akp3De1fdDIr+pJT577bEZbpwekj1daO+mMRzLJefCX4GHQTORl0GPa18UI8FJ7wGuKsXWVzSISuR
+	XRa4t7nUDA5f6egY58Q0Fi2QVz7FTI4By4oktYprQp/M3HNcAXXzXDTzJglXUftm4DR29KcHDtalu
+	FWcEVA5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKVQb-00000006Phq-0lW3;
-	Mon, 09 Dec 2024 04:31:25 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tKVTC-00000006Q2l-49Cm;
+	Mon, 09 Dec 2024 04:34:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKVPY-00000006PYF-32xZ
+	id 1tKVS9-00000006Pvw-30xz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 04:30:22 +0000
+	Mon, 09 Dec 2024 04:33:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733718620; x=1765254620;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=ZD8v5zLjBKPnmArvvG/i9Wzpgt6cbLYB/rU1FRThEXg=;
-  b=QvxChZvWoeijxn5TTkqjVQTIIF0g/tb4XKrizY7hmbJypXDyfzz8DzCY
-   hKmdN5tTU631vfGZ0m6x6m8NXGhvNKVVPZcYxPkZPtsExRWlrk+gwMIaF
-   Xp4/QTs2NqluaQLXtwrd3/IH7hmyH1FxPH7uTxcwdqRsbrkmdQVy0ee7Y
-   CwEnQaACSehI9A63YUEy4rVyFYZ2kDtf3QAYskqYIGiqddFT5KEqgO8VJ
-   vXLeSemKHDHzT2hWP8vuSQEhVePyC7e40y9RnO0p8ZPPOYfjJwg4yXnWh
-   ihHoXB+A5DWUzZsIi/MBgN4bbYPgqE8symK1g7TkS+Wq9GKloPfWqmX/q
-   A==;
-X-CSE-ConnectionGUID: mKb5T8UpT6CdudFuZQaI8w==
-X-CSE-MsgGUID: cCRa/ALfTniugVR2vjGQ+w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11280"; a="37930980"
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733718781; x=1765254781;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=LY3RsQ2MtH1nNBWndK3puTnO5aAq4/wJBReWAMNoQbQ=;
+  b=xY6o+J39apQ8OYT2eNLwDvCc4NkyRdPkac9/yTtJViJni63mQgRVRsd/
+   TN2tV7ZNa4pGj27Qrmjk95+BvH24zJtba2BqEY9Ou+rZRt/yGXCXzPa3N
+   Z+Ajz8HPfXde920TqTiSjv2iIs/PJDFkTMc39SPH5VjmbniujlgsTmNhZ
+   dc9aZaf0njkjAZZriBLJpSC/tfS8aZe3yal5SZxQXr2MBbmVPj+3oH5Ic
+   vMXdS9vfC6SvWhvZmZ0RpNqe00BL/uD/Qa5BLbYfuHqsbW2528iQ7SkJD
+   6/qNrUQsvLcrlcWdSUiik9uxTLAE+6MfK0z78lcCRmNUWGuUGMCwVoFvZ
+   g==;
+X-CSE-ConnectionGUID: 72IB33lgRjS11USK+WrWBA==
+X-CSE-MsgGUID: mBb2+HZpQcCgbtECVkhTjQ==
 X-IronPort-AV: E=Sophos;i="6.12,218,1728975600"; 
-   d="scan'208";a="37930980"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2024 20:30:19 -0800
-X-CSE-ConnectionGUID: gtwP+bBKQbe9rNGPn+1LNQ==
-X-CSE-MsgGUID: gAGa+rOfR2qDX21D1STTHw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,218,1728975600"; 
-   d="scan'208";a="95751349"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 08 Dec 2024 20:30:19 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tKVPU-0003rm-0E;
-	Mon, 09 Dec 2024 04:30:16 +0000
-Date: Mon, 9 Dec 2024 12:30:01 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:arm64/sysreg-el12 2/4] arch/arm64/mm/proc.S:504:
- Error: undefined symbol TCR2_EL1x_HAFT used as an immediate value
-Message-ID: <202412080512.D8NvzV7F-lkp@intel.com>
+   d="scan'208";a="266487019"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Dec 2024 21:32:59 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Sun, 8 Dec 2024 21:32:38 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Sun, 8 Dec 2024 21:32:34 -0700
+From: Dharma Balasubiramani <dharma.b@microchip.com>
+Date: Mon, 9 Dec 2024 10:02:30 +0530
+Subject: [PATCH v2] dt-bindings: mmc: atmel,hsmci: Convert to json schema
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241209-hsmci-v2-1-b5a6d7c59b67@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAN1yVmcC/13MQQ7CIBCF4as0sxZTRpHoynuYLsgwlVlQGjBE0
+ 3B3sUuX/8vLt0HhLFzgNmyQuUqRtPTAwwAU3PJkJb434IhnjaNRoUQSZR2d2F21sdZC/66ZZ3n
+ vzmPqHaS8Uv7sbNW/9V+oWmllHBq+IPqZ/T0K5URB1iOlCFNr7QvoOxkSngAAAA==
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Aubin Constans <aubin.constans@microchip.com>
+CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Dharma Balasubiramani <dharma.b@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733718754; l=5160;
+ i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
+ bh=LY3RsQ2MtH1nNBWndK3puTnO5aAq4/wJBReWAMNoQbQ=;
+ b=wul3xm8moixq7EJMj3Cr78cgKF6RGexFxWRTaDK16ghCA6IYsyHDynh8McreBentzrQrXVIWF
+ 0NkUoX9qcPMAHu4NGQFOig6bdl/dT9XYfkkcU8p9opbEZr+d/vdPwbw
+X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
+ pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_203020_781692_CA3702B8 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241208_203301_781078_DA8865BE 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +97,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git arm64/sysreg-el12
-head:   43aafbc40b7a211579f624bf594eaa42d7675daf
-commit: 9633732169ec11efc9e7aaa727feb3087c664832 [2/4] arm64/sysreg: Get rid of the TCR2_EL1x SysregFields
-config: arm64-randconfig-004-20241208 (https://download.01.org/0day-ci/archive/20241208/202412080512.D8NvzV7F-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241208/202412080512.D8NvzV7F-lkp@intel.com/reproduce)
+Convert atmel,hsmci documentation to yaml format. The new file will inherit
+from mmc-controller.yaml.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412080512.D8NvzV7F-lkp@intel.com/
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+---
+Changes in v2:
+- Drop the duplicate properties in the slot node.
+- Link to v1: https://lore.kernel.org/r/20241205-hsmci-v1-1-5a25e622dfed@microchip.com
+---
+ .../devicetree/bindings/mmc/atmel,hsmci.yaml       | 110 +++++++++++++++++++++
+ .../devicetree/bindings/mmc/atmel-hsmci.txt        |  73 --------------
+ 2 files changed, 110 insertions(+), 73 deletions(-)
 
-All errors (new ones prefixed by >>):
+diff --git a/Documentation/devicetree/bindings/mmc/atmel,hsmci.yaml b/Documentation/devicetree/bindings/mmc/atmel,hsmci.yaml
+new file mode 100644
+index 000000000000..26686ada6288
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mmc/atmel,hsmci.yaml
+@@ -0,0 +1,110 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mmc/atmel,hsmci.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Atmel High-Speed MultiMedia Card Interface (HSMCI)
++
++description:
++  The Atmel HSMCI controller provides an interface for MMC, SD, and SDIO memory
++  cards.
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++  - Aubin Constans <aubin.constans@microchip.com>
++
++allOf:
++  - $ref: mmc-controller.yaml
++
++properties:
++  compatible:
++    const: atmel,hsmci
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  dmas:
++    maxItems: 1
++
++  dma-names:
++    const: rxtx
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: mci_clk
++
++  "#address-cells":
++    const: 1
++    description: Used for slot IDs.
++
++  "#size-cells":
++    const: 0
++
++patternProperties:
++  "^slot@[0-9]+$":
++    type: object
++    description: A slot node representing an MMC, SD, or SDIO slot.
++
++    allOf:
++      - $ref: mmc-controller.yaml
++
++    properties:
++      reg:
++        description: Slot ID.
++        minimum: 0
++
++    required:
++      - reg
++      - bus-width
++
++    unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - "#address-cells"
++  - "#size-cells"
++
++anyOf:
++  - required:
++      - slot@0
++  - required:
++      - slot@1
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/at91.h>
++    mmc@f0008000 {
++      compatible = "atmel,hsmci";
++      reg = <0xf0008000 0x600>;
++      interrupts = <12 IRQ_TYPE_LEVEL_HIGH>;
++      clocks = <&mci0_clk>;
++      clock-names = "mci_clk";
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      slot@0 {
++        reg = <0>;
++        bus-width = <4>;
++        cd-gpios = <&pioD 15 0>;
++        cd-inverted;
++      };
++
++      slot@1 {
++        reg = <1>;
++        bus-width = <4>;
++      };
++    };
++...
+diff --git a/Documentation/devicetree/bindings/mmc/atmel-hsmci.txt b/Documentation/devicetree/bindings/mmc/atmel-hsmci.txt
+deleted file mode 100644
+index 07ad02075a93..000000000000
+--- a/Documentation/devicetree/bindings/mmc/atmel-hsmci.txt
++++ /dev/null
+@@ -1,73 +0,0 @@
+-* Atmel High Speed MultiMedia Card Interface
+-
+-This controller on atmel products provides an interface for MMC, SD and SDIO
+-types of memory cards.
+-
+-This file documents differences between the core properties described
+-by mmc.txt and the properties used by the atmel-mci driver.
+-
+-1) MCI node
+-
+-Required properties:
+-- compatible: should be "atmel,hsmci"
+-- #address-cells: should be one. The cell is the slot id.
+-- #size-cells: should be zero.
+-- at least one slot node
+-- clock-names: tuple listing input clock names.
+-	Required elements: "mci_clk"
+-- clocks: phandles to input clocks.
+-
+-The node contains child nodes for each slot that the platform uses
+-
+-Example MCI node:
+-
+-mmc0: mmc@f0008000 {
+-	compatible = "atmel,hsmci";
+-	reg = <0xf0008000 0x600>;
+-	interrupts = <12 4>;
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	clock-names = "mci_clk";
+-	clocks = <&mci0_clk>;
+-
+-	[ child node definitions...]
+-};
+-
+-2) slot nodes
+-
+-Required properties:
+-- reg: should contain the slot id.
+-- bus-width: number of data lines connected to the controller
+-
+-Optional properties:
+-- cd-gpios: specify GPIOs for card detection
+-- cd-inverted: invert the value of external card detect gpio line
+-- wp-gpios: specify GPIOs for write protection
+-
+-Example slot node:
+-
+-slot@0 {
+-	reg = <0>;
+-	bus-width = <4>;
+-	cd-gpios = <&pioD 15 0>
+-	cd-inverted;
+-};
+-
+-Example full MCI node:
+-mmc0: mmc@f0008000 {
+-	compatible = "atmel,hsmci";
+-	reg = <0xf0008000 0x600>;
+-	interrupts = <12 4>;
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	slot@0 {
+-		reg = <0>;
+-		bus-width = <4>;
+-		cd-gpios = <&pioD 15 0>
+-		cd-inverted;
+-	};
+-	slot@1 {
+-		reg = <1>;
+-		bus-width = <4>;
+-	};
+-};
 
-   arch/arm64/mm/proc.S: Assembler messages:
->> arch/arm64/mm/proc.S:504: Error: undefined symbol TCR2_EL1x_HAFT used as an immediate value
+---
+base-commit: feffde684ac29a3b7aec82d2df850fbdbdee55e4
+change-id: 20241205-hsmci-7ac3ea915777
 
-
-vim +504 arch/arm64/mm/proc.S
-
-dd006da21646f1 Ard Biesheuvel           2015-03-19  486  
-87366d8cf7b3f6 Radha Mohan Chintakuntla 2014-03-07  487  	/*
-787fd1d019b269 Kristina Martsenko       2017-12-13  488  	 * Set the IPS bits in TCR_EL1.
-87366d8cf7b3f6 Radha Mohan Chintakuntla 2014-03-07  489  	 */
-5cd6fa6de5e903 Mark Rutland             2021-03-26  490  	tcr_compute_pa_size tcr, #TCR_IPS_SHIFT, x5, x6
-2f4b829c625ec3 Catalin Marinas          2015-07-10  491  #ifdef CONFIG_ARM64_HW_AFDBM
-2f4b829c625ec3 Catalin Marinas          2015-07-10  492  	/*
-05abb595bbaccc Suzuki K Poulose         2018-03-26  493  	 * Enable hardware update of the Access Flags bit.
-05abb595bbaccc Suzuki K Poulose         2018-03-26  494  	 * Hardware dirty bit management is enabled later,
-05abb595bbaccc Suzuki K Poulose         2018-03-26  495  	 * via capabilities.
-2f4b829c625ec3 Catalin Marinas          2015-07-10  496  	 */
-2f4b829c625ec3 Catalin Marinas          2015-07-10  497  	mrs	x9, ID_AA64MMFR1_EL1
-efe72541355d4d Yicong Yang              2024-11-02  498  	ubfx	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_SHIFT, #4
-05abb595bbaccc Suzuki K Poulose         2018-03-26  499  	cbz	x9, 1f
-5cd6fa6de5e903 Mark Rutland             2021-03-26  500  	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
-efe72541355d4d Yicong Yang              2024-11-02  501  #ifdef CONFIG_ARM64_HAFT
-efe72541355d4d Yicong Yang              2024-11-02  502  	cmp	x9, ID_AA64MMFR1_EL1_HAFDBS_HAFT
-efe72541355d4d Yicong Yang              2024-11-02  503  	b.lt	1f
-efe72541355d4d Yicong Yang              2024-11-02 @504  	orr	tcr2, tcr2, TCR2_EL1x_HAFT
-efe72541355d4d Yicong Yang              2024-11-02  505  #endif /* CONFIG_ARM64_HAFT */
-05abb595bbaccc Suzuki K Poulose         2018-03-26  506  1:
-2f4b829c625ec3 Catalin Marinas          2015-07-10  507  #endif	/* CONFIG_ARM64_HW_AFDBM */
-776e49af6000ef Mark Rutland             2021-03-26  508  	msr	mair_el1, mair
-5cd6fa6de5e903 Mark Rutland             2021-03-26  509  	msr	tcr_el1, tcr
-9e9bb6ede00a84 Joey Gouly               2023-06-06  510  
-9e9bb6ede00a84 Joey Gouly               2023-06-06  511  	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-9e9bb6ede00a84 Joey Gouly               2023-06-06  512  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
-9e9bb6ede00a84 Joey Gouly               2023-06-06  513  	cbz	x1, .Lskip_indirection
-9e9bb6ede00a84 Joey Gouly               2023-06-06  514  
-60d043c101769b Ard Biesheuvel           2024-02-14  515  	/*
-60d043c101769b Ard Biesheuvel           2024-02-14  516  	 * The PROT_* macros describing the various memory types may resolve to
-60d043c101769b Ard Biesheuvel           2024-02-14  517  	 * C expressions if they include the PTE_MAYBE_* macros, and so they
-60d043c101769b Ard Biesheuvel           2024-02-14  518  	 * can only be used from C code. The PIE_E* constants below are also
-60d043c101769b Ard Biesheuvel           2024-02-14  519  	 * defined in terms of those macros, but will mask out those
-60d043c101769b Ard Biesheuvel           2024-02-14  520  	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
-60d043c101769b Ard Biesheuvel           2024-02-14  521  	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
-60d043c101769b Ard Biesheuvel           2024-02-14  522  	 */
-60d043c101769b Ard Biesheuvel           2024-02-14  523  
-
-:::::: The code at line 504 was first introduced by commit
-:::::: efe72541355d4d40a4f076af453f6533e98e058c arm64: Add support for FEAT_HAFT
-
-:::::: TO: Yicong Yang <yangyicong@hisilicon.com>
-:::::: CC: Catalin Marinas <catalin.marinas@arm.com>
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Dharma Balasubiramani <dharma.b@microchip.com>
+
 
