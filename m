@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35768E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F008BE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OwyB39CTHJItaPJMEkgmfbCR+5h4SkV01S+BaiaQNUE=; b=jHHITbuBiy9qfqt3MOUuB5ZNvz
-	6iWFMPqz3cBd60JmjDKbuhOlz/HMzvdOqhhueDH85+6NJMPqTTLChB9rjkLsvEpqJjrxL8PG8u+UW
-	0ICe4gcHMNu11t5aORk6J+fSewpL/wRX29tFntYBerCjZsBTzjI3klbdiQwDANbtkL94skaH8oAFE
-	wutz9G9qf4GqkUO1/npM/KaPdG+HisHifsONL645stoBsRGBimlivs+duO6qk7t29TdWySuclwc+b
-	hiq1xDF7hEbzaLkZhjEVQjlLL5UNvk53s6Uk6MCAHocapjMAA6p/FwKw9zBXkOco59y/6+hCMwiZQ
-	tPOf2kUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I3wcoNq78HZXyhFN5tFLNPu8Mr+r6U0dNK9UDSXUo4g=; b=r8npcQPMKunc1NuA5Urb0PN1Dw
+	GkIRif42a/RvLwH7a9mbil43Nhg/XZGPhLx/l26pYt0MfQpIRtREWam3tQ48Tv7RfAkW9KSULMQGh
+	QdGH9Cxrzh6CVgL/bkk6S50Xrr9fmJrJ/9MBJC3+pLRshX26nZSFEeb85gWKfxHKhXw5dIZ9GwEsg
+	3jBmMEeobJT8ey6luo5jpMame3auAXoQOtiJ2WnKwAUP1M3fTS8MDQ7lVFYYGS2F+G7ycvn0IXKjf
+	l7ioPupUUMeZZquiyDO9DQKy7wsZPQoNF6XOYr4fyQmw8a1Mdim9Q/ndNqFKKdLl426JwZEU7lvWC
+	jL+NYaZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKb6Y-00000007JYv-0wLb;
-	Mon, 09 Dec 2024 10:35:06 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tKb7Z-00000007Jvz-1EqV;
+	Mon, 09 Dec 2024 10:36:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKb0v-00000007HsO-38j2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 09 Dec 2024 10:29:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OwyB39CTHJItaPJMEkgmfbCR+5h4SkV01S+BaiaQNUE=; b=PweqRT0qTad9szFeFrP/3wFWgV
-	G+rE52BJVCWGEtJdcEJBF7uBGFl5C/3zBQqli1dXtNLe2xD/4Z/Z8ZBczPwm4W3lOM8RCjpCNNhNW
-	qU2qVTjAN4HhH05MMd3wu0PYTjIcZ+zor4GvWB5ZNXgLZGY7bV6/g7lnB0aeLjwBkstz40RxP6yBx
-	rM2jGPOQwECfIV0R7Dbq9aLER8Yf5o3vD7sao85/Z1l4M7howYVQajrqTSKreE5bxK7zWJnqWbKw0
-	iXGNpz+IWIJtQWmItGqr+ekrk9KBG2Ts94afNQXCL46iEgXlyn3N8E33vc6tZeQb1yEWpetdcTCYD
-	JJw8aUTw==;
-Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKb0s-00000001HHL-2aAc;
-	Mon, 09 Dec 2024 10:29:14 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id DFC9A3003FF; Mon,  9 Dec 2024 11:29:13 +0100 (CET)
-Date: Mon, 9 Dec 2024 11:29:13 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	aruna.ramakrishna@oracle.com, broonie@kernel.org,
-	catalin.marinas@arm.com, dave.hansen@linux.intel.com,
-	jannh@google.com, jeffxu@chromium.org, joey.gouly@arm.com,
-	kees@kernel.org, maz@kernel.org, pierre.langlois@arm.com,
-	qperret@google.com, ryan.roberts@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org
-Subject: Re: [RFC PATCH 13/16] arm64: mm: Reset pkey in __tlb_remove_table()
-Message-ID: <20241209102913.GJ21636@noisy.programming.kicks-ass.net>
-References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
- <20241206101110.1646108-14-kevin.brodsky@arm.com>
+	id 1tKb3F-00000007IN5-098Z
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Dec 2024 10:31:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733740299;
+	bh=5R7UJvpnNZvpK9L14WEHsC1kTWlkvqH3tZDrqX5OaAI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AsDRNMVZSOiJ1zMNL+H3MTL59YGIgcxr41pSwJBzP8V0OEBd7hAyOn5nMVaocM1up
+	 6TH9hACou9PFnPYdtFpahta0sBenIzXDvJF+IYtgQq/bZof/Dif8M+mvzhcYHdU59c
+	 BxO/9glV7TaWKyn1lc3seme6Iuu6jWR1A17RkaZzY6qOikd2Vl1TGG9ubHvTbHmeNt
+	 VeuicXVAdN1JRiDCNiEIUi3WZYwqF+1VmMnRPksd3f6Tk2n02Q2izlDZyo1lfT2Zm/
+	 7msumAgYdq6I6j0cROANvBPVKio8J29E2Rx3utlESZL948TILuwQHM1dCfHri0YcTN
+	 dXgldygaYP41g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4862E17E09BE;
+	Mon,  9 Dec 2024 11:31:38 +0100 (CET)
+Message-ID: <2484261d-5589-4707-b3f9-7df78b2935eb@collabora.com>
+Date: Mon, 9 Dec 2024 11:31:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241206101110.1646108-14-kevin.brodsky@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v5,08/10] drm/bridge: lontium-lt9611: drop TMDS char rate check
+ in mode_valid
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20241130-hdmi-mode-valid-v5-8-742644ec3b1f@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241130-hdmi-mode-valid-v5-8-742644ec3b1f@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241209_023141_250309_EE71D667 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +89,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 10:11:07AM +0000, Kevin Brodsky wrote:
-> Page table pages are typically freed via tlb_remove_table() and
-> friends. Ensure that the linear mapping for those pages is reset to
-> the default pkey when CONFIG_KPKEYS_HARDENED_PGTABLES is enabled.
+Il 30/11/24 02:52, Dmitry Baryshkov ha scritto:
+> Drop manual check of the TMDS char rate in the mode_valid callback. This
+> check is now being performed by the core.
 > 
-> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
-> (default).
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/include/asm/tlb.h | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
-> index a947c6e784ed..d1611ffa6d91 100644
-> --- a/arch/arm64/include/asm/tlb.h
-> +++ b/arch/arm64/include/asm/tlb.h
-> @@ -10,10 +10,14 @@
->  
->  #include <linux/pagemap.h>
->  #include <linux/swap.h>
-> +#include <linux/kpkeys.h>
->  
->  static inline void __tlb_remove_table(void *_table)
->  {
-> -	free_page_and_swap_cache((struct page *)_table);
-> +	struct page *page = (struct page *)_table;
-> +
-> +	kpkeys_unprotect_pgtable_memory((unsigned long)page_address(page), 1);
-> +	free_page_and_swap_cache(page);
->  }
+> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+> Reviewed-by: Maxime Ripard <mripard@kernel.org>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-Same as for the others, perhaps stick this in generic code instead of in
-the arch code?
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+
 
