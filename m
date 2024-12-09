@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08208E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB6AE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuMhiC0OhEfpPn44QIc8qMlaFvp2wk3+ZDJWj+PnNQI=; b=hJ/3HocdNua9F2itNafzHX/5W1
-	wrREI+2XR6/VUEONAc0vmXVw2ea+W7vEMnWfLbGz+kZthVQ6XNi5ir9za5bkEAQd34NEVMastnfHM
-	dYv2hLH0WYvUGhDb55Tvn79DX9vYp3BTvBPG2lfTrjMc/NbxrSjzPCKWzrJrEdO23wVw5rvINITx+
-	g8eWcUzc/bGhjnae/yd5Vp0tCQszRHs+TiR0bW50Wp0EZILcg3Wobk+ahJ60Yox3j9X9dd5xMwcon
-	6n+u4iri5VmFPpAEAJgvJeclRBIb34iwZ4kcY/kw62m5ZX2fGLSASZ0OGUmQoFA8hxkChByKGcUWl
-	AEdjSPoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k3vRqml1KschqrqQ0MliiBVEeoMW5PWCe2FzpUkVNkQ=; b=06Iayr5rpl3NqmA7G/YAjRg90h
+	mDXoDaGzfPj6v1gjTiP1wL6HkWgV0Jwm7zmwiazeUKWZlHMASPq8UD5CBpc2IciiLUbRwNQG/vQSy
+	zomfaZuRcJwwbjI8EbqcBo3FOIhnaux0+PVlJP614PYJrCXimtVf/PIMeKZL1ft6K+IHc0QSKmL6i
+	SyrInjQHJMks9E6q8/vLFa2DuQdE8QXnaKq0r1XjydEybWX6Sq6zKXrjfOB984kv9aKGnwlqZfKXe
+	XkmgiReQayZVUB8UtcNYgtGW3QKz9uzjXd15/JogZP3feAfp9Lw3CcHwtheq2+Uf2Q3xDZ8WxbydD
+	NUebjneg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKblX-00000007SnH-18E4;
-	Mon, 09 Dec 2024 11:17:27 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tKbsT-00000007U1D-1TjY;
+	Mon, 09 Dec 2024 11:24:37 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbkU-00000007Sb7-0CK6
+	id 1tKbrQ-00000007TqV-1okJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 11:16:23 +0000
-Received: from wsk (095160158109.dynamic-2-waw-k-4-2-0.vectranet.pl [95.160.158.109])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: lukma@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 7BDE6888D5;
-	Mon,  9 Dec 2024 12:16:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1733742980;
-	bh=BuMhiC0OhEfpPn44QIc8qMlaFvp2wk3+ZDJWj+PnNQI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=gkNTOy1idlOOFdrQ8uawL2OO6XsQ3+vYNDYjvlh5yAxwGmyL3ojcnrV880kfujf1o
-	 Oa6EjJ1p9HieoK3rQhHyB0hzjIkitFlBRJzm2CAaMIicc0ioQIrL9iRJTYq2RVktDm
-	 sSC7aCb4crgGekjuQbs9yhMI1rA+HuvyehXvi/oTJjgNM6EEARaAeSMwBQ9Lh/kcVh
-	 D+Lx6PdOWcGpX/ikTclmufyxRJYo47yAI0D0g6Uqi6jRa2/O5BA2LuimbuTqjn0zNT
-	 FvZTJU0YGZI76OJfALGsITRdJxH//e2mbjp8wqwEfu8TYztbI/fDxfQu7saINd2hco
-	 QmVZ+lobvzuoQ==
-Date: Mon, 9 Dec 2024 12:16:19 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 3/3] ARM: dts: mxs: Add descriptions for imx287
- based btt3-[012] devices
-Message-ID: <20241209121619.623886a4@wsk>
-In-Reply-To: <c8fd371f-fd36-48c4-ad49-1e8f8db01383@gmx.net>
-References: <20241107085705.490940-1-lukma@denx.de>
-	<20241107085705.490940-3-lukma@denx.de>
-	<20241119165236.69438f75@wsk>
-	<c8fd371f-fd36-48c4-ad49-1e8f8db01383@gmx.net>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Mon, 09 Dec 2024 11:23:33 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 687F120008;
+	Mon,  9 Dec 2024 11:23:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733743408;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=k3vRqml1KschqrqQ0MliiBVEeoMW5PWCe2FzpUkVNkQ=;
+	b=fh/kCLCn8aHeCuI/toH5XuqdwxkFSzlg92oSxTr2IhJT5l8MPjeYF/stySgowTq2k7wSUb
+	RHQQNz7CxTBObd6GSD+mSGJ7T/2LsoektcokLDYiWst7oElKJdwxiMm30Gz6rCzBnoPG0z
+	/ogUc3as+1GCzY1rxiqLEIAB0TQG8rplTbeGETQSX8eT33FldVrKueCyIzPq+FpvJFVZer
+	F72TCA+vd1ddSFCALW7NpxBhPIpwmxaZVBBofT/8FUUijq0uriWBfH2UwFGjuMuqpD7q6f
+	mtcxXLwMEb3xMd/t19z2GY/7tAdOLC5LFwnMoXhbJjKaD7U+GogjinWMJyxnCQ==
+From: Thomas Richard <thomas.richard@bootlin.com>
+To: vigneshr@ti.com,
+	s-vadapalli@ti.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	theo.lebrun@bootlin.com
+Cc: thomas.petazzoni@bootlin.com,
+	kwilczynski@kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	gregory.clement@bootlin.com,
+	u-kumar1@ti.com,
+	thomas.richard@bootlin.com
+Subject: [PATCH] PCI: j721e: In j721e_pcie_suspend_noirq() check reset_gpio before to use it
+Date: Mon,  9 Dec 2024 12:23:21 +0100
+Message-Id: <20241209112321.65320-1-thomas.richard@bootlin.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/jBN468d=YevV1Tnfk/xCbGe";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: thomas.richard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_031622_243342_EB88E1D6 
-X-CRM114-Status: GOOD (  22.78  )
+X-CRM114-CacheID: sfid-20241209_032332_758908_D1DC9E60 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,61 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/jBN468d=YevV1Tnfk/xCbGe
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+The reset_gpio is optional, so in j721e_pcie_suspend_noirq() check if it is
+not NULL before to use it.
 
-Hi Stefan,
+Fixes: c538d40f365b ("PCI: j721e: Add suspend and resume support")
+Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
+---
+ drivers/pci/controller/cadence/pci-j721e.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-> Am 19.11.24 um 16:52 schrieb Lukasz Majewski:
-> > Dear Community,
-> > =20
-> >> The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
-> >> some extend similar to already upstreamed XEA devices, hence are
-> >> using common imx28-lwe.dtsi file.
-> >>
-> >> New, imx28-btt3.dtsi has been added to embrace common DTS
-> >> properties for different HW revisions for this device.
-> >>
-> >> As a result - changes introduced in imx28-btt3-[012].dts are
-> >> minimal.
-> >> =20
-> > Are there any more comments / suggestions for this patch set? =20
-> I've send my RB for this patch on October 31th for V10, but it didn't
-> made it into V11.
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index 0341d51d6aed..5bc14dd70811 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -644,7 +644,9 @@ static int j721e_pcie_suspend_noirq(struct device *dev)
+ 	struct j721e_pcie *pcie = dev_get_drvdata(dev);
+ 
+ 	if (pcie->mode == PCI_MODE_RC) {
+-		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
++		if (pcie->reset_gpio)
++			gpiod_set_value_cansleep(pcie->reset_gpio, 0);
++
+ 		clk_disable_unprepare(pcie->refclk);
+ 	}
+ 
+-- 
+2.39.5
 
-Sorry, I've just noticed it.
-
-When the yaml patches are applied/accepted, I will either resend the
-dts patches with your Reviewed-by or maybe this tag can be added when
-applying the code by the maintainer (Shawn).
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/jBN468d=YevV1Tnfk/xCbGe
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmdW0YMACgkQAR8vZIA0
-zr2THAf+JgmJiwwSis3XQnIdKHJG+zMF3IYWmEQqljal+UWYz6CmPygErJFdSZI9
-p7Nj+OtF4Vnv4gCGw2WSRHiQD4tA1gjFXmLByhkaTke1vKEa6kSbQTb9kvFAT6Ss
-O95SBMZoePdu4c1uEYpSvuYNUVPkImpw+Is20TjrLHm/Jepxbpjh445DaKhNYQQR
-kC9Hb1i1uum13rH0gRwT0HRCXqlBwAYZTMXdqR4gwc3ogJVLsvuY0ujC+1JNNmmp
-BkYM22XM7CY5qeIa0PUEBwS9C2UQwsPWw1KQ4NgZ/1uEN+4iFkNNFGBgWzqeL+wn
-pmTLrePIuUqCthhv5c83HpXCfamRVQ==
-=8U55
------END PGP SIGNATURE-----
-
---Sig_/jBN468d=YevV1Tnfk/xCbGe--
 
