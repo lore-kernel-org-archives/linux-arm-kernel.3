@@ -4,122 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B0AE77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802A0E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBS7QHnzjg71F8rIkaYZA5uHcvUEtc5erPnUZZ3lgNI=; b=a1GTeG4+IF6zQWm4FzkvGaKUhR
-	f3Xv5nuMGbYD696zuc4pVfVBLWAmWsAKN/y/xhbLOgZ4MXlv/54SijVp8j/4hJGj7MlaAXaLXte8u
-	jdJh0omNWBT/RH7mOvex6i5+8BKpTiOHiZa7QFsOcTCyFRCSDfbmu3KiXcd0+QdXQ+k1KzBuQr3l7
-	pEmQLGdpuoK0rlf8aj400C/lR4Hv39iJDvyz0xTNe1TqvxY7JO9Nzokv55084nR4KMjjObIPRgMf3
-	UICMgNDTmbzlw/2HmLLxs2bdLLSS6MPhAPcS+HlRSjX7I40yof3w540KGa4noPybefoKEl6kC2ssQ
-	CioeSIAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6At0GdwrBbQRQtGqN9J/OMjpky8vIXhTBbHz6TrbWzE=; b=3c/CiNtOhjTYj1k0PYemgeGLbp
+	eCespGUUxtE5ajaoJYAeFpqIyqjZDtQvqIHuYuhSoHDgpLthfwmt5K+LZVt0C0fRJByYG1ufPy6Pc
+	UmPvRmUY68u3BpGTBEp6jC5LnfY89LGQOqBsnTmEtZp/oTvMSXw0kxqieoCQQS5sdt2GqZDq8RLMj
+	Y5T5NrWPFkqF+GjRXObyFE9+VgyKzr0uE5VUy3sc3HH4BgKtPL1MYqF0oYhyshnQ9RJjEb9eMLZrd
+	WPWJwJUXKjswoHtw15/xW1SpgQt6EubNuVjhragDyS21PdZu1CBqrOYdKrN7cSnBsBvXyX0v3w3n/
+	jb7t+adg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKZO0-00000006yMA-09mg;
-	Mon, 09 Dec 2024 08:45:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYI3-00000006jxk-2KlZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 09 Dec 2024 07:34:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BBS7QHnzjg71F8rIkaYZA5uHcvUEtc5erPnUZZ3lgNI=; b=kdNDdl0p4dhWo6qhpHB0rI6vAW
-	0SS/ffWTyKJk8lYdwjJcYB/fvghws6INCxMCWaGrVho/vSLxUAJuiHNVWhNxOHQsX7ECX0A1IgCaZ
-	/hGHhyyRD5MMj/QtjCrbxVXY384L88AAmClxWVS4HWanAt3ZhEVYQd8Dtqjhx8fhDptGUk69YmlkU
-	zUJx2NLEKXdYz25IVFlIO/aQiIx+30QxhAZBl8+tfx9cZsmoq6koKQpe2iFauWx8sW7t4QooKNqZE
-	Tk+XQHLPwLRoGZ9xui/VOSTsAtTeDXVzhoGCYlxxPV6RDZjLEomNo5TBaHe9JE7J9wtjvYLeYNVT5
-	BxVeo8Vg==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYI0-00000003UqW-1jt7
+	id 1tKZR1-00000006yvI-2CnQ;
+	Mon, 09 Dec 2024 08:48:07 +0000
+Received: from mail-m16.yeah.net ([1.95.21.16])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKZPz-00000006ymP-1shC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 07:34:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B42EBA40FB9;
-	Mon,  9 Dec 2024 07:32:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5823C4CED1;
-	Mon,  9 Dec 2024 07:34:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733729673;
-	bh=eJm6sPgxUntQ2123myJ74O4QKZrmsdqCdqHwho1ihUA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AWvqy8vqhCp4zh0noR7s+AiCvukEZhrgy6ED7KZ50lCzDshukylBpht6X8ssNnuSp
-	 s9MvGd5rAQYDGFFSh/WAMcbhobWZHT+CySdkeHlULfpaPZmYoClXKPXcgbe9zsCcvg
-	 DKP48+oZytzLLwxJ5evL0csDNTb4eHmkBQcvGJNoHqAJg9x9Ws7EcG2X8jQGGsP3s5
-	 SioM7cCsd8JuR7SilEpW5Dw95rWvApRzPAswdwiw5pvlrxCqPr8xoJTjmgXwwOyA99
-	 7wIocvS9whelQUAPHfmF0qvY6CmnhcV0poEVDPF4gnG/HfUTnH+jiFsT2Rhjpvr/IC
-	 2xGsFgV1On4KA==
-Message-ID: <0bac139b-c89c-43a7-978a-e5fe001d3dd2@kernel.org>
-Date: Mon, 9 Dec 2024 08:34:28 +0100
+	Mon, 09 Dec 2024 08:47:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=6At0GdwrBbQRQtGqN9J/OMjpky8vIXhTBbHz6TrbWzE=;
+	b=lPkb5FsQmQQdQWYcOzNMDtKfRo1KvT3RUdQ65WJyafYZMQH73wbDb4z/tBVvXp
+	EPf7uwabkJEdy02G4PoQDCh2m0gVWNxAAgU1Bx319nuoUnhIhRrY5ndrT1KBNsAt
+	janG84vU51iRqBU7JeilP008ItQrUcHMePQOX294kZG0A=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgAXPuxxrlZnKVSNBA--.47957S3;
+	Mon, 09 Dec 2024 16:46:43 +0800 (CST)
+Date: Mon, 9 Dec 2024 16:46:41 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>
+Subject: Re: [PATCH v11 3/3] ARM: dts: mxs: Add descriptions for imx287 based
+ btt3-[012] devices
+Message-ID: <Z1aucR3ueKIxOjSX@dragon>
+References: <20241107085705.490940-1-lukma@denx.de>
+ <20241107085705.490940-3-lukma@denx.de>
+ <20241119165236.69438f75@wsk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: exynosautov920: add DMA nodes
-To: Faraz Ata <faraz.ata@samsung.com>, devicetree@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, krzk+dt@kernel.org, robh@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, alim.akhtar@samsung.com,
- rosa.pila@samsung.com
-References: <CGME20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83@epcas5p2.samsung.com>
- <20241204122335.1578-1-faraz.ata@samsung.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241204122335.1578-1-faraz.ata@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241119165236.69438f75@wsk>
+X-CM-TRANSID: Ms8vCgAXPuxxrlZnKVSNBA--.47957S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU4CD7UUUUU
+X-Originating-IP: [114.218.218.187]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAgiwZWdWlR95wQAAsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_073444_719166_FA7F6B14 
-X-CRM114-Status: UNSURE (   6.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_004703_794071_7875292F 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,22 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2024 13:23, Faraz Ata wrote:
-> +
-> +		spdma1: dma-controller@10190000 {
-> +			compatible = "arm,pl330", "arm,primecell";
-> +			reg = <0x10190000 0x1000>;
-> +			interrupts = <GIC_SPI 917 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-> +			clock-names = "apb_pclk";
-> +			#dma-cells = <1>;
-> +		};
-> +
-> +		pdma0: dma-controller@101A0000 {
+On Tue, Nov 19, 2024 at 04:52:36PM +0100, Lukasz Majewski wrote:
+> Dear Community,
+> 
+> > The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
+> > some extend similar to already upstreamed XEA devices, hence are
+> > using common imx28-lwe.dtsi file.
+> > 
+> > New, imx28-btt3.dtsi has been added to embrace common DTS
+> > properties for different HW revisions for this device.
+> > 
+> > As a result - changes introduced in imx28-btt3-[012].dts are
+> > minimal.
+> > 
+> 
+> Are there any more comments / suggestions for this patch set?
 
-Please do not send downstream code directly, but fix it to match
-upstream. Lowercase hex everywhere.
+Patch #2 and #3 look good to me.  That said, I'm waiting #1 to be
+applied first.
 
-Best regards,
-Krzysztof
+Shawn
+
 
