@@ -4,84 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D82E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB46EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdIPjvnlF3Mwo/6XEjqWYb6FpbfvUDeAQpVQ0puOXiE=; b=yXfE+JNDGxuqfjGo6cfRrYGop6
-	w7pAkuHY+5PFUcn6DPVl9btnkt6WkdF/zMae3V/sJHxS4zXQMylr7S1lo3+lYXXihUn6vW4ELxuiN
-	hYorcgJCg40njk++GWWPjWNOzyYbK4z3ezxwLkFKEqBV8plkBxU887a0ov93UmsKdtqvub+ayYSPE
-	JlhfUwuEyTWBIVF9/BCd1oHCbBQZxoGnw+dFvb3IYAJ5IwiNRitomzpf4sNRwNYghw9mAiY3PF7IM
-	Yx9neS+80avocaHpNh+MZUFAu7qNiPI8TPjQzcRSUHG/I7zgN9M5H/m1bnEn/lIOAC0AaAipis2Po
-	r1LaQhig==;
+	bh=mvLYzgf0pTuOcyou9vYjqExC5QJxwloVljjSc64vKaI=; b=4Tgxxw0NvXiKa2mQkMuZQSG7FW
+	SvU+T+Tasx4gCwLQj3j9a5wSKfWluEa/9Vwh+2lN/zVhct/H4yPWE7ui+CoJszxHOLraJoOYzQ1Mq
+	Q+eIAl6B5AmbgfbsSX/hbYPMGp0R97iYtn6qPw/zQ2febqVvQmNBO6zjJxNVeiqHptF+3+6TtG54N
+	Ws5ZUjhIysxuz5oeQ+3lZ2PjgshZ3BrAy5oJ3f5zBFCtukPmwGunbrAbnsI3XiVdERS6gMDbHa9jc
+	9he2nhJJyfYpJWjaJomBxmMn/JVLOM9qJqdna4tAFgLj+o4v78Xn+1Dn5Ixea62dJllqzDCm2WmQ4
+	YhdGJuxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKhcL-00000008jyi-2t7h;
-	Mon, 09 Dec 2024 17:32:21 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1tKhfP-00000008kJP-3jB9;
+	Mon, 09 Dec 2024 17:35:31 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKhb6-00000008jhZ-1A2z
+	id 1tKheN-00000008kAX-1rj5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 17:31:05 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-467431402deso408851cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 09:31:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733765462; x=1734370262; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jdIPjvnlF3Mwo/6XEjqWYb6FpbfvUDeAQpVQ0puOXiE=;
-        b=wpJ96/Oz8fSfBzED9BYglaJUu3Iifn25Gq5/nldF8gJcdjj2TrhUn0e3RicSoybEOK
-         ZxnctZwQBUnNC9L/u6bGPiZVcdy7Pqm1Q5tBLfL+pZqfS3/oCRBJkMA+pfIr78IKvzPi
-         6W7XaQStLhUqkka4WM8kc1E+MMCJp35MpXOp6XY7sKeKtgzq9W28CDXmWp+ZPkG0cMGP
-         1MWho+JeLNUKPh8xx9nkUiQEeaVHfHHq7v6MlXuvt+Ykrf5zuxm0J4ofP+hQbeUCdOLx
-         CHnfKwpI3pIjqQU9WvyzuSH7/Fp4wUMs71ENBnwlgOEAJypIbkFwyjaOLWB4IIO9TQH7
-         e0IQ==
+	Mon, 09 Dec 2024 17:34:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733765665;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mvLYzgf0pTuOcyou9vYjqExC5QJxwloVljjSc64vKaI=;
+	b=HEad8kKhP45GQoMjYC8N12CZayqeJ44wyUBx+mi8ML5T1FhAUUiCQIsf+KNG5AxtluMxTx
+	49Nqnya4IP/0uNfDKjxA0J//4UybkRugQLrKvVHGcrkcFu6Dq2ud3pVTtZ07h9sH+sSCzj
+	PX+boTrsxKSQNhBApZaH2QrCkfc3F50=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-607-4HkRV4dpMOKHASlL8Pk8jQ-1; Mon, 09 Dec 2024 12:34:24 -0500
+X-MC-Unique: 4HkRV4dpMOKHASlL8Pk8jQ-1
+X-Mimecast-MFC-AGG-ID: 4HkRV4dpMOKHASlL8Pk8jQ
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6d88ccf14aeso73833946d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 09:34:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733765462; x=1734370262;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jdIPjvnlF3Mwo/6XEjqWYb6FpbfvUDeAQpVQ0puOXiE=;
-        b=Dw2XcAvxSUkGBUVHp8t3SvCK8ykQY7clnL3nsPdqYnNpi4dX9/IExGdMgpD0y2Z7y8
-         DKIIrZHjk5c+LwxaZMgUq07ttRiEJbcaW0brc8o0KRMktj84cR8ytqyFie3p3lrcOW+P
-         R+7axiPnZIoEWBM1mWD7N03f+bizy9LX9fuOoPVmxhLF8wL5I5SfcoPWU4xRt98882st
-         R14vKWdTyW0GiZic44Dkps7mznN10ezZMRVU60kU5V3514gFFQaafGtmG0kZ9ySR+Ibj
-         OI29Askji4wJh5nfwVZe5SHHVhjbNTidfb9ok+AuDblni1Sp8ha9ulyIm+6VRcqeWU5V
-         uTSg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFTsSPAWV7/6lnosrvIN+fJPJHFI5BmN+n3YyMADvg+xk3cSksSOBds0A1tkljpn8CBkRfVJU8jz6qubzsAfIw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBnnblQ9baP/jKAfHOAl+MdkHzv/lR1IzlXoOM8mfcDDxNfH3p
-	yaXRYetZSC/ldQjP7n7m8b0KmsupVi3Mf4MQS18tEfCnASRQD2Km3qpzrKcMi5+oxDzhd7/6A4v
-	Qi3GnVa4o2dUhzknSsyZlYRd0jfx/HJXvmfBU
-X-Gm-Gg: ASbGncs7Ktlf46IKBcAosToreTWJb9KGjVUmjMbWMUvw/zs4ldI872/zf/BASP3YIiH
-	2irorlF+Ag162ztLOP8Ggv5Q75pqojkkhRmggRrTWuzrd956WDm6qww8VMIzb
-X-Google-Smtp-Source: AGHT+IF5ueLy5f8bNH9OGIJWA3/VyL6MS9Y/vEuMpZ/PyvK3bYq6fAc9vv+YnYvtEhUGWeXouk6ewOJKmK8R1HNS3J0=
-X-Received: by 2002:a05:622a:2594:b0:462:b2f5:b24c with SMTP id
- d75a77b69052e-4674c9dbadamr7726181cf.29.1733765461817; Mon, 09 Dec 2024
- 09:31:01 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733765664; x=1734370464;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mvLYzgf0pTuOcyou9vYjqExC5QJxwloVljjSc64vKaI=;
+        b=iuQ+SGJG5kW8zZpYOA4N/ULIadfa9Sxl6anP62/oRQR/O+IFua1+wcF24FYraSjCYt
+         WcLVMYgHowBRN1sQLX3mJWCmYP6sQlt4va/ws88oCTBx9YPIksW3y5/fvFgxNQB9sK0L
+         f39GHPiGbjZ7A/6hmIEPI6wCdmT51ZDGnt3o5hnHY1vVs3AaNSSENP5n8RSY1XJqbULe
+         tIPzWbzI8yoS1+e75elaMROfT9WGIrDawfjB4HxivdS8QYhhFHuNQd56qM4LeKWFzkny
+         h0AW2QH+ueNtSM/CAFaUlg1oPXjy9kYKhMazDfgI9EytZeqgh927FpI78fgA+FtejbX/
+         SBUA==
+X-Forwarded-Encrypted: i=1; AJvYcCUk9iE19vSffkwpK3BnzZYOrrwn/NU28XBaPzZdgkkZg34L18vGMAyvKe96Xp9SXsel+Xp7AaCH/qoGo0NQVzS5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1RDhGRsbiBEk8qJZoDu8WGlH8Uompi/rITzhFTEaEoY2ynOra
+	ttXqolVgGrInJQlbQHIjw0B4dkKmbQTAZ4yPeC1O/c99x2Ox8Byp1c9F9PkoV31JQul83adazC8
+	OE4aTkWyBZHslew0Bw2CWD/2qGG6H3vhB4Kwaz9VGcZEpGsqCSWOAWwCTQ2b3V3PuR+X9nwFp
+X-Gm-Gg: ASbGnct/NqPPlXHyznIOh21m1Hvj61pm+DolOSrDY2/PtEkAvRkPHvGxk1ikeB1MN2p
+	1xDU9cicYYGRpGDLy8KswEv00tb+hVRg3xCTa5NwyXoAkJ0+10zuI47U9JPufm7uiFaj5TOlw8R
+	3uLqVemtKUd+Je16t9dOvPa+VnVxJ8hCH+s7EwCiqNBmqQk6vUHDoKaRhFMmlgze+gX5FIy9BN6
+	LK+MW1/O/APW8E4DVLWbnZMXTF7vm72ZOtOZcs5ECxzlPHezCYm8ksdB/Lh/cn22gAz7K2dUWms
+	6CvbDXAucAhAzgKP
+X-Received: by 2002:a05:6214:ac2:b0:6d8:8416:9c54 with SMTP id 6a1803df08f44-6d8e713a182mr276969536d6.16.1733765664129;
+        Mon, 09 Dec 2024 09:34:24 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEd0kpLM7VmFD3YLvHdqJXtgD3B//SGNjV7e+l6mN4D7B+QpL0ybvqRUy8gR/dnnBJyTZwPLg==
+X-Received: by 2002:a05:6214:ac2:b0:6d8:8416:9c54 with SMTP id 6a1803df08f44-6d8e713a182mr276969056d6.16.1733765663835;
+        Mon, 09 Dec 2024 09:34:23 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d9063fc63bsm20690816d6.103.2024.12.09.09.34.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Dec 2024 09:34:23 -0800 (PST)
+Message-ID: <4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+Date: Mon, 9 Dec 2024 18:34:18 +0100
 MIME-Version: 1.0
-References: <20241118222540.27495-1-yabinc@google.com> <20241209162028.GD12428@willie-the-truck>
-In-Reply-To: <20241209162028.GD12428@willie-the-truck>
-From: Rong Xu <xur@google.com>
-Date: Mon, 9 Dec 2024 09:30:50 -0800
-Message-ID: <CAF1bQ=SiHi8oCyo5YnXGpQGofM1zAsnBdqSEet1mS-BYNKVU8A@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: Allow CONFIG_AUTOFDO_CLANG to be selected
-To: Will Deacon <will@kernel.org>
-Cc: Yabin Cui <yabinc@google.com>, Han Shen <shenhan@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, workflows@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer
+ expired
+To: Marc Zyngier <maz@kernel.org>
+Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ kvmarm <kvmarm@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
+ christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org,
+ catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com,
+ yuzenghui@huawei.com, darren@os.amperecomputing.com,
+ vishnu@os.amperecomputing.com
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+ <867c89tc4q.wl-maz@kernel.org>
+ <c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+ <865xntt2kv.wl-maz@kernel.org>
+ <8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+ <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+ <86y10osr19.wl-maz@kernel.org>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <86y10osr19.wl-maz@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 5_PBVxqsDRBAoaJo7y323IIwBKOi3AQWjpnCWqD9ids_1733765664
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_093104_313967_173BFD8E 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20241209_093427_561261_AD840EEC 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,108 +121,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enabling an AutoFDO build requires users to explicitly set CONFIG_AUTOFDO_C=
-LANG.
-The support code is in Commit 315ad8780a129e82 (kbuild: Add AutoFDO
-support for Clang build).
+Hi Marc,
 
-The CONFIG_AUTOFDO_CLANG config, even if selected by the user, will
-not be enabled
-unless ARCH_SUPPORTS_AUTOFDO_CLANG is present.
+On 12/9/24 18:30, Marc Zyngier wrote:
+> On Mon, 09 Dec 2024 16:46:30 +0000,
+> Eric Auger <eauger@redhat.com> wrote:
+>>
+>> Hi,
+>>
+>> On 12/9/24 16:39, Ganapatrao Kulkarni wrote:
+>>>
+>>>
+>>> On 09-12-2024 06:50 pm, Marc Zyngier wrote:
+>>>> On Mon, 09 Dec 2024 12:25:34 +0000,
+>>>> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+>>>>>>>
+>>>>>>> During automated testing of Nested Virtualization using avocado-vt,
+>>>>>>
+>>>>>> Which is not merged upstream. So what branch are you using? Based on
+>>>>>> what kernel version? On what HW? With which virtualisation features?
+>>>>>>
+>>>>>
+>>>>> Testing is done on Ampere's AmpereOne platform using 6.10 based kernel
+>>>>> with NV patches from your repo.
+>>>>
+>>>> Grmbl... *Which* patches? At least give me the SHA1 of the branch,
+>>>> because I have no idea what you are running. And 6.10 is definitely
+>>>> not something I care about. If you're using the NV patches, the
+>>>> *minimum* you should run is 6.13-rc1, because that's what the current
+>>>> code is based on.
+>>>>
+>>>
+>>> I tried 6.13-rc1 based nv-next branch today, which failed to boot
+>>> UEFI as L1. Yet to debug this.
+>>
+>> I confirm am stuck with the same issue with nv-next on AmpereOne.
+> 
+> All I can say is that it Works For Me (TM) on M2 and Snapdragon, using
+> kvmtool, a fresh EDK2 built by Ard, and with the guest running purely
+> VHE (FEAT_E2H0 not implemented).
+> 
+> I haven't tried QEMU, I don't have an AmpereOne. I have also spent way
+> too much time on this recently. So I'm afraid people interested in
+> making this particular combination work will have to debug it.
 
-We are not enabling this for all architectures because AutoFDO's optimized =
-build
-relies on Last Branch Records (LBR) which aren't available on all architect=
-ures.
+yes I do agree. I am currently setting up kvmtool to double check and I
+will debug the qemu issue.
 
--Rong
+Thanks
 
+Eric
+> 
+> 	M.
+> 
 
-On Mon, Dec 9, 2024 at 8:20=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
->
-> On Mon, Nov 18, 2024 at 02:25:40PM -0800, Yabin Cui wrote:
-> > Select ARCH_SUPPORTS_AUTOFDO_CLANG to allow AUTOFDO_CLANG to be
-> > selected.
-> >
-> > On ARM64, ETM traces can be recorded and converted to AutoFDO profiles.
-> > Experiments on Android show 4% improvement in cold app startup time
-> > and 13% improvement in binder benchmarks.
-> >
-> > Signed-off-by: Yabin Cui <yabinc@google.com>
-> > ---
-> >
-> > Change-Logs in V2:
-> >
-> > 1. Use "For ARM platforms with ETM trace" in autofdo.rst.
-> > 2. Create an issue and a change to use extbinary format in instructions=
-:
-> >    https://github.com/Linaro/OpenCSD/issues/65
-> >    https://android-review.googlesource.com/c/platform/system/extras/+/3=
-362107
-> >
-> >  Documentation/dev-tools/autofdo.rst | 18 +++++++++++++++++-
-> >  arch/arm64/Kconfig                  |  1 +
-> >  2 files changed, 18 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/dev-tools/autofdo.rst b/Documentation/dev-to=
-ols/autofdo.rst
-> > index 1f0a451e9ccd..a890e84a2fdd 100644
-> > --- a/Documentation/dev-tools/autofdo.rst
-> > +++ b/Documentation/dev-tools/autofdo.rst
-> > @@ -55,7 +55,7 @@ process consists of the following steps:
-> >     workload to gather execution frequency data. This data is
-> >     collected using hardware sampling, via perf. AutoFDO is most
-> >     effective on platforms supporting advanced PMU features like
-> > -   LBR on Intel machines.
-> > +   LBR on Intel machines, ETM traces on ARM machines.
-> >
-> >  #. AutoFDO profile generation: Perf output file is converted to
-> >     the AutoFDO profile via offline tools.
-> > @@ -141,6 +141,22 @@ Here is an example workflow for AutoFDO kernel:
-> >
-> >        $ perf record --pfm-events RETIRED_TAKEN_BRANCH_INSTRUCTIONS:k -=
-a -N -b -c <count> -o <perf_file> -- <loadtest>
-> >
-> > +   - For ARM platforms with ETM trace:
-> > +
-> > +     Follow the instructions in the `Linaro OpenCSD document
-> > +     https://github.com/Linaro/OpenCSD/blob/master/decoder/tests/auto-=
-fdo/autofdo.md`_
-> > +     to record ETM traces for AutoFDO::
-> > +
-> > +      $ perf record -e cs_etm/@tmc_etr0/k -a -o <etm_perf_file> -- <lo=
-adtest>
-> > +      $ perf inject -i <etm_perf_file> -o <perf_file> --itrace=3Di5000=
-09il
-> > +
-> > +     For ARM platforms running Android, follow the instructions in the
-> > +     `Android simpleperf document
-> > +     <https://android.googlesource.com/platform/system/extras/+/main/s=
-impleperf/doc/collect_etm_data_for_autofdo.md>`_
-> > +     to record ETM traces for AutoFDO::
-> > +
-> > +      $ simpleperf record -e cs-etm:k -a -o <perf_file> -- <loadtest>
-> > +
-> >  4) (Optional) Download the raw perf file to the host machine.
-> >
-> >  5) To generate an AutoFDO profile, two offline tools are available:
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index fd9df6dcc593..c3814df5e391 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -103,6 +103,7 @@ config ARM64
-> >       select ARCH_SUPPORTS_PER_VMA_LOCK
-> >       select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
-> >       select ARCH_SUPPORTS_RT
-> > +     select ARCH_SUPPORTS_AUTOFDO_CLANG
-> >       select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-> >       select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
-> >       select ARCH_WANT_DEFAULT_BPF_JIT
->
-> After this change, both arm64 and x86 select this option unconditionally
-> and with no apparent support code being added. So what is actually
-> required in order to select ARCH_SUPPORTS_AUTOFDO_CLANG and why isn't
-> it just available for all architectures instead?
->
-> Will
 
