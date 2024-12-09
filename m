@@ -4,87 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EB4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 21:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2506BE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 22:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUNHDJ6ILFxdRFiTOkLTRDjyDsyOaooQYqwkxtWBOZs=; b=RPCtcjpWticCxvaeEJTYAjjvjy
-	kncY1sptN8aJoc1z+OcmEymkydtiVoizTTX3J0Cg7+7qqNVApUrQ5Pjv8ThtNLEmtdeP0CBUoJiDl
-	Pmrg2rQPO5qnr9jpOWTXgNvo21M44wayMjHIaSQUatzw7E346D0xgiuA5GsDNMMc231Q+VJWso9l0
-	MhS9mlz8KlgN2uL1r5Kb5dGlBE5cSUwoPRRoeJxkPSu+h+Xz64N7hiXXuOeSdgLKvoQ9JH1JJRxhA
-	2ObFFB1vzeAsF6jWZIF/3n6XLgGKhwwcjGGHxWmF6zvjC4CSDj7ALinJI5oFsYelin/Kgg5B5Fe2v
-	Fqhq9ErQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5AyjBIW/EPj4X02B3zCX8uNNsArmWWU8U6Mmccj0ix4=; b=CaT4O1qi5hLw+g7fMIGWyKk9g0
+	fAEP4QVgCYtc4oFJGG5jhGFIS9hnsYFwCnIx1GKC9+7s54rbCzAnhDsvUR2GT2TY9rElsoUoQMenZ
+	7QSx6V5iHMyosJH8AA9LOlMlO18PniTOXUFtNDv+iq+A0zf6fxoc30ex3UD5WLG/x/uUof8Z5y9Ir
+	cejgcybCDT32DbnwVYePGBpH4WKtBfMnv1idc226a2vhJEnPj0ty+2uvQzw2IF1JFQ/psb86CHsEQ
+	/Wcf+TNUcB9UK9ES6YafUM26GXPcTMAgvEh0yQBVUSoHMtAXrBPn7XxV0UJ4hK93ZDYpZIVUkUL7n
+	k/n0G45w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKllR-00000009N6L-3Mpy;
-	Mon, 09 Dec 2024 21:58:01 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
+	id 1tKm4S-00000009PSu-1GGc;
+	Mon, 09 Dec 2024 22:17:40 +0000
+Received: from mail-dbaeur03on2060e.outbound.protection.outlook.com ([2a01:111:f403:260d::60e] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKlkO-00000009MtE-3JCY
+	id 1tKm3P-00000009PEu-0O6W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 21:56:58 +0000
-Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3a9cee9d741so12392085ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 13:56:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733781416; x=1734386216; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nUNHDJ6ILFxdRFiTOkLTRDjyDsyOaooQYqwkxtWBOZs=;
-        b=EFo3S9BP9dfsM7T7WbBX9zPaSyF7wnz2bVFwPaJgIGeERoQuVZAOoXj9U6tOJzvTmb
-         6kfbRlptXbmkXVd4+b3eGdsYBbPiU6WJu7C8Jy7FdNSoz3d3byX4FnKRDRTD3xuHAC/K
-         ZpsDvVjZCePXi3eIgItECbHuo9907qpJnwafFPDqvyGole9YZb0XCMonj1qc6tn6pkHK
-         KL/JBNaFNhOrJgqJokxjNZRHUSoTQbJ3nH9EEbyXAD16JD5MozkClnyPs9YIEXbgxMao
-         hl/DadXdRljyAiW+OYY17++hu2oZQCz3x9UX9mqTPSEAz00O4nWKOwNfo0qow05EgYbc
-         UGQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733781416; x=1734386216;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nUNHDJ6ILFxdRFiTOkLTRDjyDsyOaooQYqwkxtWBOZs=;
-        b=h08+5T/DUkHsIYKuXl6NkCqM0I6RE9+lXUhX8AYe8Zv88QvW5++B/8ZpZqolDWTJTp
-         ZcpD5jVL6wUtxO/Qup0hlm9Hph2MPH59VNrLS4Z4Ent6IxANKVAnZ9mCChznxDIl99ac
-         GCEbbpb/xsjtwDkHOqGs1Ij9TIf5kgeVjCiYtx5kRE9Lx+7C1nR8g9x3tomdeng1XPO5
-         SuLCvNyrLxF4TRs5wu034ugOLA2gEy6A1X8rpGhsoKMAsZgFL8gh13O+aKM6QpJ6Ecji
-         ZO4kFnv7+ug96Uw5y/a/HB1iUuQPD2tE5CLwV160iH4eu9ld6Dzl1JwOmfMhkPn+oUOZ
-         BdPA==
-X-Forwarded-Encrypted: i=1; AJvYcCWvJuyi+nsrIaAuk/Wm9cta/kPWRBEKHs03ZgpidbTkWIvhy+fk7EV/frOit1Ae911g8XTDWhcYBZiOr59XOLS9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyScdUq9x5ln5gAOsiVXjdvQuDNdZZpSHxtKWU2XmN1QSIR3dLd
-	YPY9TMX/9qdJCCUweYa+S3yuZAguqQgS5uBweCQkQjmt1SNIyJz/cKskBb6fHg+OZRE+E7kogDq
-	0MDb7s1BpnbCaoCjJZqwPQTc4HsgSB6Tr
-X-Gm-Gg: ASbGncuOYERhKwTkvDN6zlEZdNir+EFzg6GsYNCZfBrQP6NpbAwUjoPCVNqHQ1Qd/cd
-	ap5MYcaeJSehKyrlvPxprt4LrpPSG+sJ0Z+jppQOmLcBvAlNS/4N/CUvjurVKFXqx/Q==
-X-Google-Smtp-Source: AGHT+IH7i9zLT2/3HS5RsXkA25gYc8CnkPrXffiXodQojiAfgigEq875VdgnrRDYd+CYD90qZDMyy0maoJBm25wbQSE=
-X-Received: by 2002:a05:6e02:3707:b0:3a7:9670:7abb with SMTP id
- e9e14a558f8ab-3a811e073a4mr155617215ab.15.1733781415758; Mon, 09 Dec 2024
- 13:56:55 -0800 (PST)
-MIME-Version: 1.0
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
- <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com> <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
-In-Reply-To: <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Mon, 9 Dec 2024 13:56:44 -0800
-Message-ID: <CAF6AEGvBU8mB5HHNK4nP5h9ouKfLNhCMFgF+PhrC77ZMfSOTkQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-To: Akhil P Oommen <quic_akhilpo@quicinc.com>
-Cc: Pavan Kondeti <quic_pkondeti@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Elliot Berman <quic_eberman@quicinc.com>, 
-	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	Mon, 09 Dec 2024 22:16:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GIP5aT7ipxdbOTQDiZEOUHoJvElMb5PXbljw86k5PXvywh5I0UdnKVGJ8yJOGNTYDaLSeQQVF8LeLxnYK83+g4TJKcUlxkpPj1AjZs8F4TcXNZ0Ul2ohnX91l7DF0nk228iPoejefdgXxxxgD4CqMHkTgCiVKUCjpeNeA6QMv+9MD1Ag44/y0BDRbX7SqlbG9XxtaXEiT6CIdLkT7jC4B3LG5tW3Oz3mcAfuQQGaWHTQub6EiYreYOCmsR1CzssAulSAzIHawdGVGUT61MSKsYORvTP24sMMb75SrgC8n2pmshOWbvHsDBbeJIveH/rZ/M/8yGrwByAuRxdnwq2TkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5AyjBIW/EPj4X02B3zCX8uNNsArmWWU8U6Mmccj0ix4=;
+ b=KuSCa8SHFr5fpk8jCF2IdREMry2GhnN0t1uZbstCM7XZ7epvuw7BMV4rXnONcY0uAI1O6mX2PD7UMYwVBER2Wge9J5t1C22fgORINk5lBgs4x8sXVr2Fubw+2If0HE2TvDD+vxzockDANk/CRLM8ZXJ88mP9hTAjN75jfgHhLD8bq48ggtY1f151jVyKzrj/iHGGAC+/q55Mtkf71/uYN6Zu4IbetIb30dHczgsuu1Vxm4jnab/q8IWY5VKdKzYK+uj7Gn0d2aze5veHnlGyzrd3U732RWjTwziti67DUiBewjig97PHRTn3KxQaJSYPtIIUjerF5kbkXBhmm0p9mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5AyjBIW/EPj4X02B3zCX8uNNsArmWWU8U6Mmccj0ix4=;
+ b=Qz7hsfiCwIZSHzmLCqR0LJOoCrtfJU6m4zuo9rPCt590c5RFYUpMMbYVdQ8mVAWG0bgcU/2ShghGzS3mT69vSxOw1HuLqcYhtqt8ehCHoozHLTuBPFRVZNqxfCigmir52Dt/EPTdXi6RFVTgpUbXMTjG+wIVlWGqZC2V76XMj1HtzY98EgVPROypOFcYKfwje9sTbD1+JmfBNv8wRL4j2oXB7eH8ccdJ1l3NqrjnFXolyf9thKt3/DquDiKoOYe+P8zByNX7WmCaOB+MAViZUIwvkzcwqebtETYDyEKn5amPpVnuIyLmWkiWfiOdLn6eGfTzngWC97sWcVn6zlyOKw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM8PR04MB7828.eurprd04.prod.outlook.com (2603:10a6:20b:24e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Mon, 9 Dec
+ 2024 22:16:30 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8230.010; Mon, 9 Dec 2024
+ 22:16:29 +0000
+Date: Mon, 9 Dec 2024 17:16:21 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>,
+	dlemoal@kernel.org, jdmason@kudzu.us,
 	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v11 3/7] PCI: endpoint: pci-ep-msi: Add MSI address/data
+ pair mutable check
+Message-ID: <Z1dsNbJxLA4NK8Us@lizhi-Precision-Tower-5810>
+References: <20241209-ep-msi-v11-0-7434fa8397bd@nxp.com>
+ <20241209-ep-msi-v11-3-7434fa8397bd@nxp.com>
+ <87h67cprc7.ffs@tglx>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87h67cprc7.ffs@tglx>
+X-ClientProxiedBy: BY5PR17CA0009.namprd17.prod.outlook.com
+ (2603:10b6:a03:1b8::22) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM8PR04MB7828:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6cbdd42-2600-4d53-5a03-08dd189f2182
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6O9YUK19yQNXqzoYs3Y9c+R/lubLJuOuFa+AUJSkU8GJUtZ+OYq44MAvV3P6?=
+ =?us-ascii?Q?QZh1qj63qLbkbSd2YM3HgZOj4rsa9i/JBMbZE9LvQ5L7LC2P0Waj43zBo3gh?=
+ =?us-ascii?Q?I33RW6DNlYtNN18O3eADjpe2ta0xjsoUJkEHZj2I53Jmn479enaIF5CPGr0g?=
+ =?us-ascii?Q?YQrUL/2y8oMUuJDlTWfg1pftmq/LYgyUqP/qAIGFxL+tfvGsr9AK4FKMRkZs?=
+ =?us-ascii?Q?FXMN9L2qyYwwBksjwRGcrzA2ytSJnf/iV+waZqmhm7E7qLkoM9rQI49oxjsA?=
+ =?us-ascii?Q?ZpQwTYu5iwAk7+Vweoo3UVLXkHvawpxcSWn0H9xXUBKHubULLsK1UjcNbL11?=
+ =?us-ascii?Q?bwgd69xNguszcRjbZi/LMe9V0kgtGWMWucEbU01aa3IHlAIbQicr+D7ISQw+?=
+ =?us-ascii?Q?LgmUYFtWG8MOu00P+gMj0J9mjfOBKwwCejOH8dGJUUYcuWgUFQOcq/6pSuzn?=
+ =?us-ascii?Q?a1bMTKcfDnVjDR2ogNZrkYomjCOcDSW2ygQ1LQlxJ3KxO6nNb07cPGQuny/D?=
+ =?us-ascii?Q?q/swRAsAFjfCj9qPIzNqAVxhQfAVS17NDQ1GbJk0TmGeLJY6PK6L782d0RVI?=
+ =?us-ascii?Q?14GoMPMuDXJoPva5hWXGMKNPRcH8cDeTXci9a9pvrCvnb5NTIkVr0mb2tMUV?=
+ =?us-ascii?Q?GlhR9k6PVfxlo/Rwm8h6DJI7+jo7FO3Z/pOP1PuAqakJx6nU+3oZRAt8Dyc1?=
+ =?us-ascii?Q?NGGQ5mX5mIUGbo/GKoBRGZtUg94krzSAY73asuQtMofPfIPtMT7wDEQPTTPh?=
+ =?us-ascii?Q?IvSN8LBT6oTMtTYnwsR4O80IElaEqNeXJN7wtI2LhH4qNjWzl7v2KEDg+Wc5?=
+ =?us-ascii?Q?SeLLKmSrVUmDM3dDFxLGIv+HjrFFjAxZiLmfbc1Xu+5cCFFH/6xoBdCWKQBq?=
+ =?us-ascii?Q?s78R5/2UAhxE+R8qZE6z1n20/5fmnok8eXN9dgz2/RyeXXpf0KCE4P2qzsST?=
+ =?us-ascii?Q?mVmUDq8qrSpZIZyjdY8XVRIV94tb/xTGGmTg4DfYGkWs4LMhLOvPNw7jrs+B?=
+ =?us-ascii?Q?9HjD9crpNQaxHI4sHXQppFKBfAv0p1RbCEBGpiorSaHlD1Bxhzp5g77PTrAA?=
+ =?us-ascii?Q?XyQrumJrCtf/dm3roO76mx+g/5PaE/0x+/RyE9pECzzukvEomIGgS/slnLEW?=
+ =?us-ascii?Q?GS8n/q1t6zLVUrQIzHeqtR6PRU7rnIFnWq5e1Pnz4hYFAA1x+YVpGRfXm0en?=
+ =?us-ascii?Q?Zpa4r1hk1QZ2gPkB9mu9eG6d3tkRYu2VkwZYybrNRTPRtoSbPtsPsW0kGLwh?=
+ =?us-ascii?Q?Ir6TBf4FxsBIryTU2H51kWFyDd+e/StTcPII8uIGMcEojrm9+7cAI3EW/5Wt?=
+ =?us-ascii?Q?iR4Y8hr6nGN+cwBoMQAFS6DsZhKCi1OhktsS32kSq6rCBZqaZJoMTgqzD8Zr?=
+ =?us-ascii?Q?gTEQ0lg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IMwf6EFyv0sJJQCizNmW3GuIh9JF0JVZFfy2BaobxhcfcXWz1Z9nTC1Net8e?=
+ =?us-ascii?Q?MZIAWx0HYYXQX/ZY8Fr3dhhxZNCvfrDyAJVGFuzivVCBva1TS9TMTCGMBqJW?=
+ =?us-ascii?Q?j4Nctn/yTxzfBApn6b5a4k8YdPFZRLveIgJr0BnF/13cxSkcPu+e4MeM8qx4?=
+ =?us-ascii?Q?ZLP4DnHoofAyxrfwQEaxr3OGA37CG/47aIt4l37xbrvTirlvsqD1a9yFGJC4?=
+ =?us-ascii?Q?M+GRlhoNNZmafwFMZBYbZs2nGN/PZuhdMqufUD9TKnTYbd4C1u9sAug+5mmw?=
+ =?us-ascii?Q?yjrlTlZxnsn1tLuasgn6axc9gED9do4jWjM2h9H0FRi/SxA1BuegAUYHhDkg?=
+ =?us-ascii?Q?Wx1DiJ5WiehEiw8NC9DYCie4+AFOha3ueG8lz1r7D/6UpkQTqYcnNfUZ9c8C?=
+ =?us-ascii?Q?8mjNiqUnvn36Iu8HLLpZVyzCv1ATLnFHAxCzzvOqDtwPEUDHXSf79dC1mZzW?=
+ =?us-ascii?Q?T8iqdirnEEZSMHinEGB+69WT6ZpQNk7xJHIist09Wj3mEKV5qo7yvJV9yws7?=
+ =?us-ascii?Q?YY1rIcHdE3YsDYWqAcFjsSA7atfwBAzzwWJw9ONkuhOp+UMpIrlT+pi005lY?=
+ =?us-ascii?Q?GqGa/2kpdvahe7E6FpGX3L5iqoMFbVtuGITv0ObnWqLTF+d0GVPAVKzkkma2?=
+ =?us-ascii?Q?UAL4calF8urrMBLUnmp8ZVIRvjb7iVfa2x+NCFlG8nliqS42D4tklZ72HDfy?=
+ =?us-ascii?Q?Tm34JWaowNidVKonk1XFQaAASwfYZEUyuV8KW4Dj6R9Tdte4FnuefiVEOsis?=
+ =?us-ascii?Q?cQAX882yVb+iT38uHgEw22Erx7zGE6J/Ou0CUoQQS1mDlC3hRILyAS1t7tBb?=
+ =?us-ascii?Q?osF+K3DfemoWuwD2Wf+w9lf9DqO0gcyp0QulEEfLaDffApPKN6kjokCFvCaU?=
+ =?us-ascii?Q?5vBYITv90ZKfLsRj/dmOvzRNbueLpyskQZQCkb1aRFh8QH5pc1BCZHmYS8/+?=
+ =?us-ascii?Q?tgJA3QbVwQDjdqxioMUFKuqV42y9BpCMpLtJFLMuDzFZ+KAMm+ZqbjGrGXHq?=
+ =?us-ascii?Q?ZlOnwyJCnCAUrKvotQiZHSWXelb5sB7v96u3rI0b+fCKnNzDqZSY6WsIGsLV?=
+ =?us-ascii?Q?NlvtixZedl8ZsvUFwNxx0SGMXVFG/m8rW2M0TqF84UsDkyRdwH1SESvb0rN7?=
+ =?us-ascii?Q?c6Pd84ejOmqLCS21ktHm89fJcceV8lM5uCF63/xo7udZ6AlmWuL4ShUp9RaF?=
+ =?us-ascii?Q?q6IQ1tKGcp8FfJIMZ6bobDrzpgk5g02/L+hYKF+7c7lXha0N3SciqoOkbFp4?=
+ =?us-ascii?Q?2DVIhRoXZlIqGaQxIJWXXSvOtMWmOQZZagTiuIY0fWs9aDNw/w/r6SsjWRPw?=
+ =?us-ascii?Q?cqerQp+PftRknoX0tVcUZOy1Q8Dax+BVfwtcMvEMRngWN98qSL9c6NeXTfbi?=
+ =?us-ascii?Q?AjWD9s2i/ThJJ3rY9sy9csO620bC1gQsbFnT8Bg5h/Ge9V7AZZkz8h/nbSSG?=
+ =?us-ascii?Q?8Of1lshFFIWVJM/TkWBKfuV22OYLFaqbMqSiH83F69Zkgz0oyB/eJXISxMYp?=
+ =?us-ascii?Q?P/F4RxhCxAQGlTdkMWfz+YXMDahrkKIMH1/0KzpFNkzegE3bec18p0jHNHo9?=
+ =?us-ascii?Q?ETP6y7mHCKlig5zKks0=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6cbdd42-2600-4d53-5a03-08dd189f2182
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 22:16:29.8705
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ugO+2Bk4q4+GdDkWWoHwWr8ZrLM58tH9WsU9sDSFgBTooRooq2n40U0O4qJBgUGIP7UQhfmTgoLhfsLnXfP2+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7828
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_135656_827651_C2AD577C 
-X-CRM114-Status: GOOD (  37.57  )
+X-CRM114-CacheID: sfid-20241209_141635_134514_6971DF4C 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,213 +166,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 9, 2024 at 12:52=E2=80=AFPM Akhil P Oommen <quic_akhilpo@quicin=
-c.com> wrote:
+On Mon, Dec 09, 2024 at 08:51:52PM +0100, Thomas Gleixner wrote:
+> Frank!
 >
-> On 12/10/2024 1:24 AM, Rob Clark wrote:
-> > On Mon, Dec 9, 2024 at 12:20=E2=80=AFAM Akhil P Oommen <quic_akhilpo@qu=
-icinc.com> wrote:
-> >>
-> >> When kernel is booted in EL2, SECVID registers are accessible to the
-> >> KMD. So we can use that to switch GPU's secure mode to avoid dependenc=
-y
-> >> on Zap firmware. Also, we can't load a secure firmware without a
-> >> hypervisor that supports it.
-> >
-> > Shouldn't we do this based on whether zap node is in dtb (and not disab=
-led)?
+> On Mon, Dec 09 2024 at 12:48, Frank Li wrote:
 >
-> This is better, isn't it? Otherwise, multiple overlays should be
-> maintained for each soc/board since EL2 can be toggled from bootloader.
-> And this feature is likely going to be more widely available.
+> > Some MSI controller change address/data pair when irq_set_affinity().
+> > Current PCI endpoint can't support this type MSI controller. So add flag
+> > MSI_FLAG_MSG_IMMUTABLE in include/linux/msi.h, set this flags in ARM GIC
+> > ITS MSI controller and check it when allocate doorbell.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > Change from v9 to v11
+> > - new patch
+> > ---
+> >  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 1 +
+> >  drivers/pci/endpoint/pci-ep-msi.c           | 8 ++++++++
+> >  include/linux/msi.h                         | 2 ++
+>
+> This is not how it works and I explained that you to more than once in
+> the past.
 
-I guess the first question is what the dt should look like.  I think
-it makes sense to not have a zap node when booting in EL2 (or at least
-disabling it) because that describes the hw+fw situation.  And in any
-case, so far it seems like we often need unrelated changes[1].  But
-maybe others have differing opinions.
+The below suggest is great and I will update at next version. But I want to
+know where I lost this.
 
-And depending on how much cooperation we get from the bootloader, it
-could be that our hand is forced.  I figured I should at least point
-out how we currently handle this.
+v10: https://lore.kernel.org/imx/20241204-ep-msi-v10-0-87c378dbcd6d@nxp.com/T/#m3060eeab5d5bac931db685d21755a827dfc7a8c7
+Talk about MUTABLE or IMPUTABLE
+v9: https://lore.kernel.org/imx/87v7w0s9a8.ffs@tglx/
+Talk about need add a imputable flags
 
-A further point, I suppose it is in theory possible that a device
-could have no secure playback support, despite booting in EL1?  So
-tying this to EL2 seems a bit contrived.
+v8: https://lore.kernel.org/imx/20241116-ep-msi-v8-0-6f1f68ffd1bb@nxp.com/
+v7: https://lore.kernel.org/imx/20241114-ep-msi-v7-0-d4ac7aafbd2c@nxp.com/
+v6: https://lore.kernel.org/all/20241112-ep-msi-v6-0-45f9722e3c2a@nxp.com/
+v5: https://lore.kernel.org/all/20241108-ep-msi-v5-0-a14951c0d007@nxp.com/
+v4: https://lore.kernel.org/all/20241031-ep-msi-v4-0-717da2d99b28@nxp.com/
+Have not found your comments at v4 - v8
 
-BR,
--R
+v3: https://lore.kernel.org/all/20241015-ep-msi-v3-0-cedc89a16c1a@nxp.com/
+Talk about
+msi_get_virq()
 
-[1] https://github.com/TravMurav/slbounce/blob/main/dtbo/x1e-el2.dtso
+Frank
 
-> -Akhil.
+>
+> The change to the interrupt code is standalone and has nothing to do
+> with PCI endpoint. The latter is just a user of this.
+>
+> So this want's to be split into several patches:
+>
+>    1) add the new flag and a helper function which checks for the flag.
+>
+>    2) add the flag to GICv3 ITS with a proper explanation
+>
+>    3) Check for it in the PCI endpoint code
 >
 > >
-> > slbounce applies some dtb overlays to disable the zap node when
-> > booting in EL2 (and make some other changes due to kernel being in
-> > control of the pci smmuv3, or something along those lines).
-> >
-> > BR,
-> > -R
-> >
-> >>
-> >> Tested following configurations on sa8775p chipset (Adreno 663 gpu):
-> >>
-> >> 1. Gunyah (No KVM) - Loads zap shader based on DT
-> >> 2. KVM in VHE - Skips zap shader load and programs SECVID register
-> >> 3. KVM in nVHE - Loads zap shader based on DT
-> >> 4. Kernel in EL2 with CONFIG_KVM=3Dn - Skips zap shader load and
-> >>         programs SECVID register
-> >>
-> >> For (1) and (3) configuration, this patch doesn't have any impact.
-> >> Driver loads secure firmware based on other existing hints.
-> >>
-> >> Signed-off-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
-> >> ---
-> >> ---
-> >>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 82 +++++++++++++++++++++++---=
----------
-> >>  1 file changed, 54 insertions(+), 28 deletions(-)
-> >>
-> >> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/m=
-sm/adreno/a6xx_gpu.c
-> >> index 019610341df1..9dcaa8472430 100644
-> >> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> >> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> >> @@ -14,6 +14,10 @@
-> >>  #include <linux/pm_domain.h>
-> >>  #include <linux/soc/qcom/llcc-qcom.h>
-> >>
-> >> +#ifdef CONFIG_ARM64
-> >> +#include <asm/virt.h>
-> >> +#endif
-> >> +
-> >>  #define GPU_PAS_ID 13
-> >>
-> >>  static inline bool _a6xx_check_idle(struct msm_gpu *gpu)
-> >> @@ -998,6 +1002,54 @@ static int a6xx_zap_shader_init(struct msm_gpu *=
-gpu)
-> >>         return ret;
-> >>  }
-> >>
-> >> +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
-> >> +{
-> >> +       int ret;
-> >> +
-> >> +#ifdef CONFIG_ARM64
-> >> +       /*
-> >> +        * We can access SECVID_TRUST_CNTL register when kernel is boo=
-ted in EL2 mode. So, use it
-> >> +        * to switch the secure mode to avoid the dependency on zap sh=
-ader.
-> >> +        */
-> >> +       if (is_kernel_in_hyp_mode())
-> >> +               goto direct_switch;
-> >> +#endif
-> >> +
-> >> +       /*
-> >> +        * Try to load a zap shader into the secure world. If successf=
-ul
-> >> +        * we can use the CP to switch out of secure mode. If not then=
- we
-> >> +        * have no resource but to try to switch ourselves out manuall=
-y. If we
-> >> +        * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL reg=
-ister will
-> >> +        * be blocked and a permissions violation will soon follow.
-> >> +        */
-> >> +       ret =3D a6xx_zap_shader_init(gpu);
-> >> +       if (ret =3D=3D -ENODEV) {
-> >> +               /*
-> >> +                * This device does not use zap shader (but print a wa=
-rning
-> >> +                * just in case someone got their dt wrong.. hopefully=
- they
-> >> +                * have a debug UART to realize the error of their way=
-s...
-> >> +                * if you mess this up you are about to crash horribly=
-)
-> >> +                */
-> >> +               dev_warn_once(gpu->dev->dev,
-> >> +                       "Zap shader not enabled - using SECVID_TRUST_C=
-NTL instead\n");
-> >> +               goto direct_switch;
-> >> +       } else if (ret)
-> >> +               return ret;
-> >> +
-> >> +       OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
-> >> +       OUT_RING(gpu->rb[0], 0x00000000);
-> >> +
-> >> +       a6xx_flush(gpu, gpu->rb[0]);
-> >> +       if (!a6xx_idle(gpu, gpu->rb[0]))
-> >> +               return -EINVAL;
-> >> +
-> >> +       return 0;
-> >> +
-> >> +direct_switch:
-> >> +       gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
-> >> +       return 0;
-> >> +}
-> >> +
-> >>  #define A6XX_INT_MASK (A6XX_RBBM_INT_0_MASK_CP_AHB_ERROR | \
-> >>                        A6XX_RBBM_INT_0_MASK_RBBM_ATB_ASYNCFIFO_OVERFLO=
-W | \
-> >>                        A6XX_RBBM_INT_0_MASK_CP_HW_ERROR | \
-> >> @@ -1341,35 +1393,9 @@ static int hw_init(struct msm_gpu *gpu)
-> >>         if (ret)
-> >>                 goto out;
-> >>
-> >> -       /*
-> >> -        * Try to load a zap shader into the secure world. If successf=
-ul
-> >> -        * we can use the CP to switch out of secure mode. If not then=
- we
-> >> -        * have no resource but to try to switch ourselves out manuall=
-y. If we
-> >> -        * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL reg=
-ister will
-> >> -        * be blocked and a permissions violation will soon follow.
-> >> -        */
-> >> -       ret =3D a6xx_zap_shader_init(gpu);
-> >> -       if (!ret) {
-> >> -               OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
-> >> -               OUT_RING(gpu->rb[0], 0x00000000);
-> >> -
-> >> -               a6xx_flush(gpu, gpu->rb[0]);
-> >> -               if (!a6xx_idle(gpu, gpu->rb[0]))
-> >> -                       return -EINVAL;
-> >> -       } else if (ret =3D=3D -ENODEV) {
-> >> -               /*
-> >> -                * This device does not use zap shader (but print a wa=
-rning
-> >> -                * just in case someone got their dt wrong.. hopefully=
- they
-> >> -                * have a debug UART to realize the error of their way=
-s...
-> >> -                * if you mess this up you are about to crash horribly=
-)
-> >> -                */
-> >> -               dev_warn_once(gpu->dev->dev,
-> >> -                       "Zap shader not enabled - using SECVID_TRUST_C=
-NTL instead\n");
-> >> -               gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
-> >> -               ret =3D 0;
-> >> -       } else {
-> >> +       ret =3D a6xx_switch_secure_mode(gpu);
-> >> +       if (!ret)
-> >>                 return ret;
-> >> -       }
-> >>
-> >>  out:
-> >>         if (adreno_has_gmu_wrapper(adreno_gpu))
-> >>
-> >> ---
-> >> base-commit: f4a867a46862c1743501bbe8c813238456ec8699
-> >> change-id: 20241120-drm-msm-kvm-support-cd6e6744ced6
-> >>
-> >> Best regards,
-> >> --
-> >> Akhil P Oommen <quic_akhilpo@quicinc.com>
-> >>
+> > +	if (!dom->msi_parent_ops)
+> > +		return -EINVAL;
 >
+> irq_domain_is_msi_parent()
+>
+> > +	if (!(dom->msi_parent_ops->supported_flags & MSI_FLAG_MSG_IMMUTABLE)) {
+>
+> Want's a helper.
+>
+> Thanks,
+>
+>         tglx
 
