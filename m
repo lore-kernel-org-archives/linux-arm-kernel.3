@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357E0E77181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B41E77181
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 14:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uk0pN8ozc59fohPWr70k8WrvZ2GZJumzrKYZFs4eCpA=; b=M5qzORWN/BVveq7FEvnxbodb27
-	0CSq+J5ZSGG7GE15tQNfSkcxpsaH10ywU2ay1NhteSKoDzFHTmpaIIiI60MeNSzyQMQLxb3cJRe9U
-	hv7CLn3uu6xSQJXw7dmKSrJqvQa02DrlnjMyWDBxZMUkOIiilCtwIvHZerpTiiBRi7rNJxM10KQXz
-	sqb1DriiEQqfuvfr1NhJ97wOJ9gPxtFrgyQkKZDuFXMt9r4eROJNNo5svOKkETGyQbLOyiEZ2yftp
-	U9+tKHdgORtqKYhfR12w/UAl1QEjRIHDSg6JuYTTkDvqBYU0Iekzjrc5gOfO03AtyXojGSLWNJGxy
-	hrtWYoow==;
+	bh=m16HeTv0L0CtuYH/B+yfB6+rKUcSgAg6Vxdkd5F26V4=; b=Om44EpOc8kUGS5lUdWgxIqOe1n
+	hr7JexokmB4b0EUmX9dP0IWn/SIyqEP/dbUODz+wOPvXtG1D+jFOjC/PUwhBNNHnXYXXYBjzSoP2Z
+	jgoCClsxLh65XEXkz027dncbkhWwJpte3y3pRt9AVv2nn06BAa6sE+PfadClOkedp6jVB8cEBNn7u
+	k2sQiOhW2Yaj+4dd19/jkrqAiJQ2u77UAfXiUusSOs1h6IWt+OGToSC9IY+loDy4BuozJVHnsO6tp
+	G8gQ4+UlhNr+jsfHOvVRs99f09Wcbqvw4wTNYRYbUSFjJsUXbeeKSbADEbCn2dpDZ3Rh9N72jP5ij
+	rZQ650fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKetz-00000008ENv-2iUa;
-	Mon, 09 Dec 2024 14:38:23 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tKezZ-00000008FKa-0gWr;
+	Mon, 09 Dec 2024 14:44:09 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKesx-00000008EFH-12Pm
+	id 1tKeyV-00000008F0e-0jRC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 14:37:20 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1tKesi-00068A-Ni; Mon, 09 Dec 2024 15:37:04 +0100
-Message-ID: <ea1ca102ab0ec5068d82935623fd9ffb0b9aade1.camel@pengutronix.de>
-Subject: Re: [PATCH] serial: imx: Use uart_port_lock_irqsave() instead of
- uart_port_lock()
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Xiaolei Wang <xiaolei.wang@windriver.com>, gregkh@linuxfoundation.org, 
-	jirislaby@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, esben@geanix.com, 
-	linux@rasmusvillemoes.dk, l.sanfilippo@kunbus.com, marex@denx.de, 
-	stefan.eichenberger@toradex.com, cniedermaier@dh-electronics.com, 
-	rickaran@axis.com, xiaoliei.wang@windriver.com
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-Date: Mon, 09 Dec 2024 15:37:01 +0100
-In-Reply-To: <20241209124732.693834-1-xiaolei.wang@windriver.com>
-References: <20241209124732.693834-1-xiaolei.wang@windriver.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	Mon, 09 Dec 2024 14:43:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=m16HeTv0L0CtuYH/B+yfB6+rKUcSgAg6Vxdkd5F26V4=; b=I645VjK9kvC67P7dLGOB/uZw3b
+	Z59qZlJPd6n9JOP3MaUmCm1uVX9YCDOmrEvMN7HxwtbMmcu78/hwOo6KzU/vqSYgyPKfZwZ1nR1if
+	dKPYNh9NyZoTYNr8pNjKZi+kA+T5QVf9o3bDGM593vNPHuO+p7tmg4+g5vrgJbo1oBYY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tKeyK-00FgPR-5B; Mon, 09 Dec 2024 15:42:52 +0100
+Date: Mon, 9 Dec 2024 15:42:52 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Felipe Balbi <balbi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
+	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
+Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
+ MBa62xx carrier board Device Trees
+Message-ID: <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
+References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
+ <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
+ <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
+ <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_063719_285313_C38837DD 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20241209_064303_210457_15191906 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,100 +81,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, dem 09.12.2024 um 20:47 +0800 schrieb Xiaolei Wang:
-> When executing 'ehco mem > /sys/power/state', the following
-> deadlock occurs. Since there is output during the serial
-> port entering the suspend process, the suspend will be
-> interrupted, resulting in the nesting of locks. Therefore,
-> use uart_port_lock_irqsave instead of uart_port_unlock.
->=20
-> WARNING: inconsistent lock state
-> 6.12.0-rc2-00002-g3c199ed5bd64-dirty #23 Not tainted
-> --------------------------------
-> inconsistent {IN-HARDIRQ-W} -> {HARDIRQ-ON-W} usage.
-> sh/494 [HC0[0]:SC0[0]:HE1:SE1] takes:
-> c4db5850 (&port_lock_key){?.-.}-{3:3}, at: imx_uart_enable_wakeup+0x14/0x=
-254
-> {IN-HARDIRQ-W} state was registered at:
->   lock_acquire+0x104/0x348
->   _raw_spin_lock+0x48/0x84
->   imx_uart_int+0x14/0x4dc
->   __handle_irq_event_percpu+0xac/0x2fc
->   handle_irq_event_percpu+0xc/0x40
->   handle_irq_event+0x38/0x8c
->   handle_fasteoi_irq+0xb4/0x1b8
->   handle_irq_desc+0x1c/0x2c
->   gic_handle_irq+0x6c/0xa0
->   generic_handle_arch_irq+0x2c/0x64
->   call_with_stack+0x18/0x20
->   __irq_svc+0x9c/0xbc
->   _raw_spin_unlock_irqrestore+0x2c/0x48
->   uart_write+0xd8/0x3a0
->   do_output_char+0x1a8/0x1e4
->   n_tty_write+0x224/0x440
->   file_tty_write.constprop.0+0x124/0x250
->   do_iter_readv_writev+0x100/0x1e0
->   vfs_writev+0xc4/0x448
->   do_writev+0x68/0xf8
->   ret_fast_syscall+0x0/0x1c
-> irq event stamp: 31593
-> hardirqs last  enabled at (31593): [<c1150e48>] _raw_spin_unlock_irqresto=
-re+0x44/0x48
-> hardirqs last disabled at (31592): [<c07f32f0>] clk_enable_lock+0x60/0x12=
-0
-> softirqs last  enabled at (30334): [<c012d1d4>] handle_softirqs+0x2cc/0x4=
-78
-> softirqs last disabled at (30325): [<c012d510>] __irq_exit_rcu+0x120/0x15=
-c
->=20
-> other info that might help us debug this:
->  Possible unsafe locking scenario:
->=20
->        CPU0
->        ----
->   lock(&port_lock_key);
->   <Interrupt>
->     lock(&port_lock_key);
->=20
-> Fixes: 3c199ed5bd64 ("serial: imx: Grab port lock in imx_uart_enable_wake=
-up()")
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-> ---
->  drivers/tty/serial/imx.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-> index 17f70e4bee43..4470bcb3ef19 100644
-> --- a/drivers/tty/serial/imx.c
-> +++ b/drivers/tty/serial/imx.c
-> @@ -2691,8 +2691,9 @@ static void imx_uart_save_context(struct imx_port *=
-sport)
->  static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
->  {
->  	u32 ucr3;
-> +	unsigned long flags;
-> =20
-> -	uart_port_lock(&sport->port);
-> +	uart_port_lock_irqsave(&sport->port, &flags);
+On Mon, Dec 09, 2024 at 02:55:31PM +0100, Matthias Schiffer wrote:
+> On Mon, 2024-12-09 at 14:24 +0100, Andrew Lunn wrote:
+> > 
+> > > +&cpsw_port1 {
+> > > +	phy-mode = "rgmii-rxid";
+> > > +	phy-handle = <&cpsw3g_phy0>;
+> > > +};
+> > > +
+> > > +&cpsw_port2 {
+> > > +	phy-mode = "rgmii-rxid";
+> > > +	phy-handle = <&cpsw3g_phy3>;
+> > > +};
+> > 
+> > rgmii-rxid is very odd.
+> > 
+> > > +
+> > > +&cpsw3g_mdio {
+> > > +	status = "okay";
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&main_mdio1_pins>;
+> > > +
+> > > +	cpsw3g_phy0: ethernet-phy@0 {
+> > > +		compatible = "ethernet-phy-ieee802.3-c22";
+> > > +		reg = <0x0>;
+> > > +		reset-gpios = <&main_gpio1 11 GPIO_ACTIVE_LOW>;
+> > > +		reset-assert-us = <1000>;
+> > > +		reset-deassert-us = <1000>;
+> > > +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+> > 
+> > I guess this is the explanation.
+> > 
+> > What happens when you use rgmii-id, and don't have this delay here?
+> > That would be normal.
+> > 
+> > 	Andrew
+> 
+> 
+> This is normal for AM62-based boards, see the DTSI of the TI reference
+> starterkit for example:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi#n451
+> 
+> With rgmii-id, both ti,rx-internal-delay and ti,tx-internal-delay should be set.
+> As ti,*-internal-delay sets the delay on the PHY side, phy-mode "rgmii" is the
+> one that would not use either:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/net/ti,dp83867.yaml#n78
+> 
+> At the end of the day, does it really matter as long as MAC and PHY agree on the
+> used mode? We copied this part of the hardware design from the TI reference
+> board, and did our hardware qualification with these settings, so I think it
+> makes sense to use the same phy-mode configuration.
 
-This function is only called from process context, so it should be fine
-to use uart_port_lock_irq().
+What i try to achieve is every board uses the same configuration. The
+PHY adds the delays, not the MAC. There are a few exceptions, because
+a few cheap PHYs don't support delays, and so the MAC needs to add
+them. But in general, any board i review, i always ask that the PHY
+does the delay.
 
-Regards,
-Lucas
+Also, don't put too much value in vendor code. Vendors don't care
+about Linux has a whole, being uniform across all systems. Many
+vendors do the minimum to get their stuff working, sometimes Monkeys
+typing Shakespeare, and not a lot more.
 
-> =20
->  	ucr3 =3D imx_uart_readl(sport, UCR3);
->  	if (on) {
-> @@ -2714,7 +2715,7 @@ static void imx_uart_enable_wakeup(struct imx_port =
-*sport, bool on)
->  		imx_uart_writel(sport, ucr1, UCR1);
->  	}
-> =20
-> -	uart_port_unlock(&sport->port);
-> +	uart_port_unlock_irqrestore(&sport->port, flags);
->  }
-> =20
->  static int imx_uart_suspend_noirq(struct device *dev)
+I also find a lot of developers don't really understand what phy-mode
+and PHY_INTERFACE_MODE_RGMII_* actually mean. phy-mode = 'rgmii' means
+the board has extra long clock lines, so the MAC/PHY does not need to
+add delays. rgmii-rxid means the board has an extra long rx clock
+line, but a normal length tx clock line. Now, i doubt your board is
+actually like this?
 
+You want to correctly describe your hardware in DT, which i guess is
+"rgmii-id". That means something, either the MAC or the PHY needs to
+add delays. PHY_INTERFACE_MODE_RGMII_* is what is passed to the
+PHY. To get it to add the 2ns delays, you pass
+PHY_INTERFACE_MODE_RGMII_ID, and you should not need any additional
+properties in DT, it should default to 2ns. If you need to tune the
+delay, 2ns does not work, but you actually need 1.8ns etc, then you
+can add additional parameters. But given you have
+DP83867_RGMIIDCTL_2_00_NS, i doubt you need this.
+
+	Andrew
 
