@@ -4,73 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E51CE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4A0E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YFBKvdle0l8WYYtUgX7JaCFYCO3nh7exjS+lwB+V18=; b=4Przfc1MxMvkx812r4ntROxNIm
-	MHo3/ATzyjVEP9b52wd9P2DvhdoCp+hL4Z0/Dm23K7zHJVcQ3nNEdXOnm0otJ5ESyHydoGDQyIjxE
-	dNbeYQLK/pOBdLPp/4FoiQiMz/Lb5luFgojWZv2vj5bRynPKutG/gnCyh3SacjsDxKqErbAuUoYc7
-	l9XgSygoLFfDuGWfUhFKEQl9BtwM81Ih5pc17ZV3KqtBxG3UZgNYSI51gFcg/M1Jw4JyqwkSrl2iE
-	LYTbrAakRv+oH4375hCIUtvGkQb0+acyY6oa0Wp3a3BF30T4hFWpRqabuKgcE4K51cxYFXOYmr33A
-	C+96I5pQ==;
+	bh=P/G0IOmAbAQi2nTdfAH/8Zx5tFZKQWmsijzPi6Xi0Kw=; b=bf/TSGqgPwclZJWZ7XsQ90cchg
+	CYJedXOOTCkKFoB19mt1sprr/AnG1JlEQq4fwEb4l7muxUpfYIF1h0ZH9DbkiuulvdEd1V3AXo//6
+	rFImeG3luHPVUQB6Le4n5cH4AMYtF9zmeZCWjI8HirsTUJaOQIds6RMQuTxTu+lq70brCWbjjjGWi
+	QPe3twUNOi9TCYsOjDANHUWCcy8/8pBcOnqV3GG+631KJAG2K3pqjIr84gtibB2BU0kKPqa0rgPwu
+	mGUnjP35sS5XzHZ8BbGcU/bbkuPppmrOzxhVNM1NQPHskCqncrWFEhAlM32hKooaubHe+lUf7/qpV
+	OHgFHsaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcTG-00000007br1-1AWc;
-	Mon, 09 Dec 2024 12:02:38 +0000
-Received: from mail-m16.yeah.net ([220.197.32.18])
+	id 1tKcUG-00000007c43-3i7h;
+	Mon, 09 Dec 2024 12:03:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcL3-00000007ZjO-33Io
+	id 1tKcLD-00000007ZmO-4Az5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 11:54:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=9YFBKvdle0l8WYYtUgX7JaCFYCO3nh7exjS+lwB+V18=;
-	b=pPMT6aczMRxqEoN5iIcFKQZ2Rcche8mg9BHFtGM2py0ENvhf5/YI66MtzJWYhL
-	hST/2Fz5B56swjXNtVHCH7Vf85j4ppB2zopIucpRaUrnM54v9ytADTRz07YKNPmt
-	rqiIVl1h/WdqYgeDDw6kQdKRmghczxih3miBe8rZU8lV0=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDHbODn2VZnjriPBA--.47417S3;
-	Mon, 09 Dec 2024 19:52:10 +0800 (CST)
-Date: Mon, 9 Dec 2024 19:52:07 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, quic_bjorande@quicinc.com, geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
-	marex@denx.de
-Subject: Re: [PATCH v6 7/7] arm64: defconfig: Enable ITE IT6263 driver
-Message-ID: <Z1bZ57fn/upwHWQ5@dragon>
-References: <20241112100547.2908497-1-victor.liu@nxp.com>
- <20241112100547.2908497-8-victor.liu@nxp.com>
+	Mon, 09 Dec 2024 11:54:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63FDE113E;
+	Mon,  9 Dec 2024 03:54:47 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 588123F5A1;
+	Mon,  9 Dec 2024 03:54:18 -0800 (PST)
+Date: Mon, 9 Dec 2024 11:54:15 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: aishwarya.tcv@arm.com, catalin.marinas@arm.com,
+	kent.overstreet@linux.dev, will@kernel.org
+Subject: Re: [PATCH] arm64: stacktrace: skip reporting LR at exception
+ boundaries
+Message-ID: <Z1baZ4kyFJarSCcY@J2N7QTR9R3>
+References: <20241209110351.1876804-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241112100547.2908497-8-victor.liu@nxp.com>
-X-CM-TRANSID: Ms8vCgDHbODn2VZnjriPBA--.47417S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUr2NtUUUUU
-X-Originating-IP: [114.218.218.187]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBAGwZWdWx209gQABs2
+In-Reply-To: <20241209110351.1876804-1-mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_035410_126988_16DAA919 
-X-CRM114-Status: UNSURE (   6.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_035420_124999_CB5A6A1C 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,14 +63,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 06:05:47PM +0800, Liu Ying wrote:
-> ITE IT6263 LVDS to HDMI converter is populated on NXP IMX-LVDS-HDMI
-> and IMX-DLVDS-HDMI adapter cards.  The adapter cards can connect to
-> i.MX8MP EVK base board to support video output through HDMI connectors.
-> Build the ITE IT6263 driver as a module.
+On Mon, Dec 09, 2024 at 11:03:51AM +0000, Mark Rutland wrote:
+> Recently the arm64 stacktrace code was modified to report the LR at
+> exception boundaries, which interacts poorly with fgraph tracing. It is
+> possible for the LR to contain the start address of return_to_handler()
+> even when the LR is not live, and in such cases attempts to recover the
+> return address via ftrace_graph_ret_addr() may fail, triggering a
+> WARN_ON_ONCE() in kunwind_recover_return_address() and aborting the
+> unwind. This has resulted in test failures and unexpected warnings, as
+> reported by Aishwarya and Kent.
+
+To clarify, the issue reported by Kent at:
+
+  http://lore.kernel.org/linux-arm-kernel/zbwbgkuvvciezpmigcp6gaahfxwm7cwhpzus7gtbfnbzsjb2n3@kfbdppbd74o4
+
+... seems to be a distinct issue, and I has misunderstood the report
+while writing up this commit message.
+
+Regardless of that, I think this patch is still justified, as it does
+address the issue that Aishwarya reported.
+
+Mark.
+
 > 
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-
-Applied, thanks!
-
+> Handling unreliable LR values in these cases is likely to require some
+> larger rework, so for the moment avoid this problem by restoring the old
+> behaviour of skipping the LR at exception boundaries, as we did prior to
+> commit:
+> 
+>   c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries")
+> 
+> This commit is effectively a partial revert, keeping the structures and
+> logic to explicitly identify exception boundaries while still skipping
+> reporting of the LR. The logic to explicitly identify exception
+> boundaries is still useful for general robustness and as a building
+> block for future support for reliably stacktracing.
+> 
+> Fixes: c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries")
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Reported-by: Aishwarya TCV <aishwarya.tcv@arm.com>
+> Reported-by: Kent Overstreet <kent.overstreet@linux.dev>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kernel/stacktrace.c | 24 ++----------------------
+>  1 file changed, 2 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
+> index caef85462acb6..4a08ad8158380 100644
+> --- a/arch/arm64/kernel/stacktrace.c
+> +++ b/arch/arm64/kernel/stacktrace.c
+> @@ -26,7 +26,6 @@ enum kunwind_source {
+>  	KUNWIND_SOURCE_CALLER,
+>  	KUNWIND_SOURCE_TASK,
+>  	KUNWIND_SOURCE_REGS_PC,
+> -	KUNWIND_SOURCE_REGS_LR,
+>  };
+>  
+>  union unwind_flags {
+> @@ -178,23 +177,8 @@ int kunwind_next_regs_pc(struct kunwind_state *state)
+>  	state->regs = regs;
+>  	state->common.pc = regs->pc;
+>  	state->common.fp = regs->regs[29];
+> -	state->source = KUNWIND_SOURCE_REGS_PC;
+> -	return 0;
+> -}
+> -
+> -static __always_inline int
+> -kunwind_next_regs_lr(struct kunwind_state *state)
+> -{
+> -	/*
+> -	 * The stack for the regs was consumed by kunwind_next_regs_pc(), so we
+> -	 * cannot consume that again here, but we know the regs are safe to
+> -	 * access.
+> -	 */
+> -	state->common.pc = state->regs->regs[30];
+> -	state->common.fp = state->regs->regs[29];
+>  	state->regs = NULL;
+> -	state->source = KUNWIND_SOURCE_REGS_LR;
+> -
+> +	state->source = KUNWIND_SOURCE_REGS_PC;
+>  	return 0;
+>  }
+>  
+> @@ -274,11 +258,8 @@ kunwind_next(struct kunwind_state *state)
+>  	case KUNWIND_SOURCE_FRAME:
+>  	case KUNWIND_SOURCE_CALLER:
+>  	case KUNWIND_SOURCE_TASK:
+> -	case KUNWIND_SOURCE_REGS_LR:
+> -		err = kunwind_next_frame_record(state);
+> -		break;
+>  	case KUNWIND_SOURCE_REGS_PC:
+> -		err = kunwind_next_regs_lr(state);
+> +		err = kunwind_next_frame_record(state);
+>  		break;
+>  	default:
+>  		err = -EINVAL;
+> @@ -436,7 +417,6 @@ static const char *state_source_string(const struct kunwind_state *state)
+>  	case KUNWIND_SOURCE_CALLER:	return "C";
+>  	case KUNWIND_SOURCE_TASK:	return "T";
+>  	case KUNWIND_SOURCE_REGS_PC:	return "P";
+> -	case KUNWIND_SOURCE_REGS_LR:	return "L";
+>  	default:			return "U";
+>  	}
+>  }
+> -- 
+> 2.30.2
+> 
 
