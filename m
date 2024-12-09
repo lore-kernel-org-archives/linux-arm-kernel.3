@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BFCE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AE3E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74SCFEhyKUBw3QujU7m2Ujgf98W8fbRXMPY5M8M5yjw=; b=X6hdhUzojk/a2fnjTpZ5sgffG8
-	w/OgAitd2o9QplQ13LpH3YrLhyLABb5BZoeFv7teWK72C0K6iYFM1Jpo2Hns3cBs0CvoRBZMKMpNF
-	nCqEm5nyMXwmLUu7gsUU5+6UhaBUEcVBmh8yQ8YarcjLMfOPRi38tQo4FTZ/QGaBXKpA9MO6+XH6F
-	mXWcqJ29WaQrU+8AUUaiDMtilN2b+uhgNBRuGjAGEhGNlGukF7gAiCt0DM2cOLS2JrO5B2ES3nICO
-	/1wSwjyHnnU5I/iXlN4Uq/DZz0mkC1FhPYb+zSzlrfTA6wFy1JV1fJskTvCNIe4z/I0/ADgZ3HFkc
-	345Izvmw==;
+	bh=9crP3SREKkSxx736sa2oKsa+sVCJo5aVxepzxEFcojE=; b=KyDGJyKybV1cPSTI9o48m66f+G
+	o3/PLzfQLP7q8KGcoFxcQ06jk9gvsbKC7BDp4H67JNXZ2yHkp+yOPfCxjYDsKXAdIc+dF4ExnOVSr
+	ah2dBUtCUqcjWMQdbQbfXkZG6RuMLBXt0pC9pxqLBx70mtsqo62n8rnnqQ6q6Vm2owsStLQ2Hgu9/
+	Ryg3Ikebyv1sgXXq9wwBAL6BLBcTe8IjPH2xGN5BQadFOBSzJlK1J7CYff8e7FPD1xQsPFo4c8Hcz
+	nx6FTJiNu23QnVEs+o7qrrImSPZ2xgFjrk3HrOGuSmV7fXYRiIoRLlxXFi9R/KNhRnLVK4YWsy+FI
+	U4/gwXnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKd9v-00000007mAP-0qFA;
-	Mon, 09 Dec 2024 12:46:43 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1tKdAw-00000007mNS-10Lj;
+	Mon, 09 Dec 2024 12:47:46 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcwL-00000007hVR-1f0v;
-	Mon, 09 Dec 2024 12:32:42 +0000
+	id 1tKcwM-00000007hVc-04TC;
+	Mon, 09 Dec 2024 12:32:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=74SCF
-	EhyKUBw3QujU7m2Ujgf98W8fbRXMPY5M8M5yjw=; b=mMvkan7X9KHRjf/Ptn6XG
-	jdUYzygfkjFLheJg/EJzkjZGrYiefty2e+xeXzR+z/cMY+M7ZjHbkDmtxJOeU/yA
-	/v0KvJ3j2JAhUbiT13YjIVAsfRaaC5GBUDQ1Akzm131/c7+b/wr7yvLTbDXYxE7w
-	OPX+DFqnuzUCzQSUiyETyA=
-Received: from ProDesk.. (unknown [58.22.7.114])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wBHDaBQ41Zn269cMQ--.14778S2;
-	Mon, 09 Dec 2024 20:32:19 +0800 (CST)
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=9crP3
+	SREKkSxx736sa2oKsa+sVCJo5aVxepzxEFcojE=; b=Uwdyts3niBP+DoyyQUiON
+	IyB9iWhjTwf0STLMebmZmXK4Mfs5safwqN5d0CQNgpJ+L7MRn7HsQyCBweAq/TOe
+	8qxfPNuj7XjjKu7RNv+QACzoeFWyB2b9V7Po5L4OdL/HjgnZQTycCo9MIhDSu997
+	0h7oiFFUgmNjqqPL17g5OU=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3fzdb41Znx6ziCA--.45968S2;
+	Mon, 09 Dec 2024 20:32:30 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -47,26 +47,26 @@ Cc: hjc@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	derek.foreman@collabora.com,
 	detlev.casanova@collabora.com,
+	Min-Hua Chen <minhuadotchen@gmail.com>,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v5 08/18] drm/rockchip: vop2: Add check for 32 bpp format
-Date: Mon,  9 Dec 2024 20:32:12 +0800
-Message-ID: <20241209123215.2781721-1-andyshrk@163.com>
+Subject: [PATCH v5 09/18] drm/rockchip: vop2: include rockchip_drm_drv.h
+Date: Mon,  9 Dec 2024 20:32:24 +0800
+Message-ID: <20241209123226.2781765-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241209122943.2781431-1-andyshrk@163.com>
 References: <20241209122943.2781431-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBHDaBQ41Zn269cMQ--.14778S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZF45Xw1rZr1ktrWrurWUCFg_yoWDKwbEk3
-	4xZw1fWrs7uFn8AwnFga4fCFZFyan29F4UGayvyas5AF1kZw10qayIk3yUGasxGF4avFn7
-	Aayjqr1fuF13CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU166zUUUUUU==
+X-CM-TRANSID: _____wD3fzdb41Znx6ziCA--.45968S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uFyxKw45Wr48JrWfuF4fAFb_yoW8CFW5pF
+	s8AFWUZrWxKayjqr1DAF9Iyr4Fy3ZrCayxG3Z3G3ZxZF12gF1DGwnrW3s5JrZrXr42vF42
+	krsxJ34UCF42vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uu89_UUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqR6wXmdW3c3pJwACs0
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqR6wXmdW3c3pJwADs1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_043241_753665_11C2F9EC 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_043242_434488_0842EDB6 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+From: Min-Hua Chen <minhuadotchen@gmail.com>
 
-RK3588 only support DRM_FORMAT_XRGB2101010/XBGR2101010 in afbc mode.
+Move rockchip_drm_drv.h in rockchip_drm_vop2.h to fix the follow
+sparse warning:
 
-Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
+ARCH=arm64 LLVM=1 make C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__'
+mrproper defconfig all  -j12
+
+drivers/gpu/drm/rockchip/rockchip_vop2_reg.c:502:24: sparse:
+warning: symbol 'vop2_platform_driver' was not declared. Should it
+be static?
+
+It is also beneficial for the upcoming support for rk3576.
+
+Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Min-Hua Chen <minhuadotchen@gmail.com>
 
 ---
 
-Changes in v5:
--  Added in V5
+(no changes since v3)
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes in v3:
+- Split it from 10/15, as it fix a exiting compile warning.
+
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 1 -
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h | 1 +
+ 2 files changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index bd8db45eeba6..1f101a3c3942 100644
+index 1f101a3c3942..106b164343ad 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1224,7 +1224,15 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
- 				return -EINVAL;
- 			}
- 		}
-+	}
+@@ -35,7 +35,6 @@
+ #include <uapi/linux/videodev2.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
  
-+	if (fb->format->format == DRM_FORMAT_XRGB2101010 || fb->format->format == DRM_FORMAT_XBGR2101010) {
-+		if (vop2->data->soc_id == 3588) {
-+			if (!rockchip_afbc(plane, fb->modifier)) {
-+				drm_err(vop2->drm, "Unsupported linear 32 bpp for %s\n", win->data->name);
-+				return -EINVAL;
-+			}
-+		}
- 	}
+-#include "rockchip_drm_drv.h"
+ #include "rockchip_drm_gem.h"
+ #include "rockchip_drm_vop2.h"
+ #include "rockchip_rgb.h"
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+index 0a3b22e8d14e..4cd4d17fe366 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+@@ -9,6 +9,7 @@
  
- 	/*
+ #include <linux/regmap.h>
+ #include <drm/drm_modes.h>
++#include "rockchip_drm_drv.h"
+ #include "rockchip_drm_vop.h"
+ 
+ #define VOP2_VP_FEATURE_OUTPUT_10BIT        BIT(0)
 -- 
 2.34.1
 
