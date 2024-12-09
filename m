@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED40E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 16:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AADE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 16:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jhuAePAZ8ZQ2jPG7JG2KWJmbb/vDD1kvHPakjiEM5uk=; b=QcNCliHLVE4Ecj4bBE3jhiklyp
-	VDeaMRvsguFKEZKAWlbJVUzByaxpZzBoOkqlAv/+GoYFgQib8oeyKQxaZetCkRtyTo8O1X1GyVMoA
-	VMepkh28FlgHsbNDLQ5XLNlJ+iBUDMClbBi+U8k6WkYayfCBUvGMlR7DOLRid1sSHSthRSg0nccvX
-	Sj8gI/94Zk+QCgu6/6NYWqMDO4gf8i69wzfSH3Hhem0h+JOKZ71dyUwsATvr0BPI68/dyIYS6+0r1
-	7eYG8dI5rliha2QqB//KxDe4i1QC3cNtqp7/ctr9xPOLFzKHERKX+xYT4+7w/WdZgb7Z4sJPDNrnD
-	WGZrde6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6gt6BiM0QgyBm6Yq6Z5iu8g08qp3vEHqvhnzyciWVbM=; b=dIJIKzBf3n45jNTHkF84mzYIiv
+	/YJC0Yyb/FwXlq0MPh5qHCW1fSxUoiIR9VhVrMbGbQwx1frXqxzzjkcWGg3bXEWZc56UXl67P0bEe
+	StJcI80RN0YVJiecpXMGoxe/1Lxg8wKyupbDw9E/WVYHNg24NHyvufsHhN09+Mbb89z3Jy/kx1kKy
+	dV4IyJ5hJ86CvaYiezekedLrRkuwqJotCotW5yvKOA1W8kkmfyZG6t2yDHOAsd+24acwaRLNcCfk2
+	7h1fdkcU3Xbtqvq9Kt0Ix53208zaJhPvL5MNo9aYl9/Z+D5MNguyFSi1BFpX9hiFVhk9dHx167h0Y
+	plJ0BMzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKgQi-00000008W5O-2I3Q;
-	Mon, 09 Dec 2024 16:16:16 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tKgRz-00000008WIa-0zn0;
+	Mon, 09 Dec 2024 16:17:35 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKgPe-00000008Vwl-3iKA
+	id 1tKgQv-00000008W7G-0kt0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 16:15:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=jhuAePAZ8ZQ2jPG7JG2KWJmbb/vDD1kvHPakjiEM5uk=; b=UwN/nAXdCbg5hTnPExU+Z7mgLx
-	SbL6GdW45VGT2qd8kBufCqrskyGXUAPznVedKM/Nix9MQKqUo8jM1R4t/QacwQNaahHbLwFAMd4Q/
-	oxoHwri9w986EdBfksTcBcYCVs6huLVOG0Ruq3+otfivHXk5tORU1pcn8jTKcVFwHHd0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tKgPR-00Fgw5-QG; Mon, 09 Dec 2024 17:14:57 +0100
-Date: Mon, 9 Dec 2024 17:14:57 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Felipe Balbi <balbi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
-	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-Message-ID: <a2a2f201-73a4-4a99-baef-0d593a88c872@lunn.ch>
-References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
- <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
- <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
- <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
+	Mon, 09 Dec 2024 16:16:30 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9G4lW9012527;
+	Mon, 9 Dec 2024 17:16:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	6gt6BiM0QgyBm6Yq6Z5iu8g08qp3vEHqvhnzyciWVbM=; b=wgaEos52tZiBCPeN
+	i0JXCrahbIonwvPX8eIV4gJfwtv08sIWTHofWdwonth4MPkaBiXmNtnXi0JUg1ZN
+	TY5//m6DHe3WEBYjkdKEh+749ssbGk5f0r6yDFw2IteVhuy1GloB3Qmeog33dVVM
+	uk/zXnEv11L03lxZI/tAcPs52nSxt6ajCJ3U7FLMr3wi8X4XnDsqAqnZvNRfns3K
+	iX7ofWljFic26qc/AduI1+e2IRdnbnJWNxEt+5emRnyehSZt+iHkvjthrSfP1Lst
+	21ubya6dSX9gaTjYw56ZFLkGRGdjPKl8HS+nIqhVh01EBdYoH1yi4fcuOZGlT3Yn
+	TuVebw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccc8rrd4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 17:16:22 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B6BB340061;
+	Mon,  9 Dec 2024 17:15:03 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E016A26D755;
+	Mon,  9 Dec 2024 17:14:30 +0100 (CET)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 9 Dec
+ 2024 17:14:30 +0100
+Message-ID: <d38f2ea1-17c3-466c-9537-0a5e31a5225e@foss.st.com>
+Date: Mon, 9 Dec 2024 17:14:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: st: add i2s support to stm32mp251
+To: Olivier Moysan <olivier.moysan@foss.st.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241113082510.2354924-1-olivier.moysan@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20241113082510.2354924-1-olivier.moysan@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_081510_930683_8B40CF38 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20241209_081629_513717_B38125F7 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,61 +97,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Not our board, but the AM62 SoC. From the datasheet:
+Hi Olivier
+
+On 11/13/24 09:25, Olivier Moysan wrote:
+> Add I2S support to STM32MP25 SoCs.
 > 
-> "TXC is delayed internally before being driven to the RGMII[x]_TXC pin. This
-> internal delay is always enabled." So enabling the TX delay on the PHY side
-> would result in a double delay.
-
-phy-mode describes the board. If the board does not have extra long
-clock lines, phy-mode should be rgmii-id.
-
-The fact the MAC is doing something which no other MAC does should be
-hidden away in the MAC driver, as much as possible.
-
-The MAC driver should return -EINVAL with phy-mode rgmii, or
-rmgii-rxid, because the MAC driver is physically incapable of being
-used on a board which has extra long TX clock lines, which 'rmgii' or
-rgmii-rxid would indicate.
-
-Since the MAC driver is forcing the TX delay, it needs to take the
-value returned from of_get_phy_mode() and mask out the TX bit before
-passing it to the PHY.
-
-Now, it could be that history has got in the way. There are boards out
-there which have broken DT but work. Fixing the MAC driver to do the
-correct thing will break those boards. Vendors with low quality code
-which works, but not really.
-
-~/linux/arch/arm64/boot/dts/ti$ grep rgmii k3-am625-*
-k3-am625-beagleplay.dts:	phy-mode = "rgmii-rxid";
-k3-am625-sk.dts:	phy-mode = "rgmii-rxid";
-
-Yep, these two have broken DT, they don't describe the board
-correctly.
-
-O.K. Can we fix this for you board? Yes, i think we can. If you take
-rmgii-rxid, aka PHY_INTERFACE_MODE_RGMII_RXID, and mask out the TX,
-you still get PHY_INTERFACE_MODE_RGMII_RXID. If you take rgmii-id,
-a.k.a. PHY_INTERFACE_MODE_RGMII_ID and mask out the TX, you get
-PHY_INTERFACE_MODE_RGMII_RXID, which is what you want.
-
-Please produce a patch to the MAC driver, explaining the horrible mess
-the vendor made, and how this fixes it, but should also not break
-other boards.
-
-> No such defaults exist in the DP83867 driver. If any rgmii-*id mode is used, the
-> corresponding delays *must* be specified in the DTB:
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> ---
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi | 45 ++++++++++++++++++++++++++
+>   1 file changed, 45 insertions(+)
 > 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/net/phy/dp83867.c#n532
+> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> index 6fe12e3bd7dd..8cc0b64e6a16 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> @@ -237,6 +237,21 @@ rifsc: bus@42080000 {
+>   			#access-controller-cells = <1>;
 
-That is bad, different to pretty every other PHY driver :-(
+Applied on stm32-next.
 
-If you want, you could patch this driver as well, make it default to
-2ns if delays are asked for.
-
-    Andrew
-
----
-pw-bot: cr
+Thanks!
+Alex
 
