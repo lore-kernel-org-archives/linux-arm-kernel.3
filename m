@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CC4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA213E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpfvxMNcE2evx4GUMkzffrViZXHtVJ3SlF17hKgOXT8=; b=vG8HxJWE+DTxEiorieZ1cFtJPQ
-	Gt0NdYN71K0aq1wZxGvrSy688KBe1yh1kHoLyA62C1y0nZRRFqqRmnKtfWAImkoFSwex6TlxWf39i
-	UXuX4Y8jgOUARio7fRORRMANl4an40eS00GDmlAxIZHi/UkeP4G0/wlk+5kL9T19dA07sm8f6ybOM
-	Gm55a/JeXcXP0Z2DvQQ28fqSZzAxAilPE7RMM87hIaNAdG1HgTmgF+5SQjyQ8Kzq5724jy5ZjT/CC
-	t3xk8/gw4fYyrUrAW5R+3zkdyHl8OBZe6OlimzmFoYX8z9f6wyNL1xBX8HcDU2th+0QZuj7CXWiGg
-	5EUvQbRQ==;
+	bh=X5GxAyEJ02mNywENRB0ow462CYy8FP4+RIO5DD9Q3DQ=; b=qV05KkSXQK2Bujs7vg+vF0C0cC
+	E3QHU91J366OmTThywHYl54e8fPP1kqN8hCDZdtPj2OteqWzOL/7H+RzAGcpwhP73lMqU1uNbXqjV
+	0K/37NCGLtxtr2Y1tzDkXtX15aeYzas+u1opJvnfugBfydukSfmuFIlFPpuVHQoy2g4nNykKmxwge
+	DgJyG0pSKlPrkligdQg1IMZeIUFzfaqH4lKl0ClemC7ONft7kYoeIMGGcBJBdPYEBSgBZdHR2py9u
+	ZU/dKufy3vf0J1OrtpnnbqXV7HzNOtyO11KQh+pAbInt/FhSdXZbjkdPCYtQJWvEMlTg/4ns01PsL
+	ZaDpBURg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKmrw-00000009Vwp-40rE;
-	Mon, 09 Dec 2024 23:08:48 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tKmu4-00000009WCS-2nP4;
+	Mon, 09 Dec 2024 23:11:00 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKmqu-00000009VpT-1Txi
+	id 1tKmt1-00000009W38-3oCq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 23:07:45 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-540215984f0so1229597e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 15:07:44 -0800 (PST)
+	Mon, 09 Dec 2024 23:09:57 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53e3778bffdso3480431e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 15:09:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733785662; x=1734390462; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733785794; x=1734390594; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NpfvxMNcE2evx4GUMkzffrViZXHtVJ3SlF17hKgOXT8=;
-        b=CUQDMyJm8R6TzYN3zIcd5zwoIqa1ccLGitbEei+40GCB9rCU8oUbhrv9Dw6/qoBht9
-         Vvn1/8riS/ruSse9ASMgxMPcQl0D41sxRGBqAlENakqlMhp11yF8+Nn8jF/jE5WmyDQD
-         tfBGcV2hnwDBuKOeHbDxJsz0zhlzM5L5xTGNYIbN/RqfG+ALYYz60CsdYKT+zr/WlI8U
-         0FRa7qtjVY3okWHMt2do+8LUvkb3YeNFBe9gDGrxvjI5a4kJu3B8OBIu2ly83dUcMcvC
-         5BmjqCrLQZYznR7YtjncI2UBvzkgB5hzzaG67/lfVPL1z2/MVOr5xHzn34V1XFOfPoTD
-         tGKQ==
+        bh=X5GxAyEJ02mNywENRB0ow462CYy8FP4+RIO5DD9Q3DQ=;
+        b=v3nhpoyILeDB8oxbWuxwTtEhWyxAGONgu/sHgriuxZ+4H6Jo/iF7VIh5sKZt0cFex6
+         jhp7qbrO/TuiZTzPNZjS2GO5Y4kFq7vJqhDTa8Gw3Q7BjhJUq+n+64ZtGlm/FxE+3Svt
+         sipZakObRzCd3quDKK7VvnMFKjdwl6hXojJFY6esBnV6L0VHw0mbQFH4F4tVh0Lxfowm
+         hozCZZr39Bi/lnTav4VikclSlRAdbLIEwtMtHe/teNMywEhvOY4eH+7Obn4+THaunNPt
+         iH1ezYB7hikGlQrvmKn3PKrl6EaIRzorf/6yW7hpqHnt/teqb73JN5hGENblKRoMSMr/
+         Rr/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733785662; x=1734390462;
+        d=1e100.net; s=20230601; t=1733785794; x=1734390594;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NpfvxMNcE2evx4GUMkzffrViZXHtVJ3SlF17hKgOXT8=;
-        b=qunMJF16+ktG12V6nVkgcL09FpA+K8no2HcOI5aNx/yxkhgCodq2VERnpqaKgGeBnm
-         BvZESNkCBWV/blTnZZkaXrw4ToZyDv1AQlhpnRnGGGHvalzRB0tGyGgwOXoyZjmQDfAt
-         BHC4hiTGU8xsdlXrUAAPN7VdWM2seFSBodV4kYitSgSYGr5HouTihdb3IBAn6VSqLk1X
-         LZfzZfTrlSeGXmPRuXNmXpGIuFZba58KkrmGcFEKTfGd0CVkMymLNYRqkoQ2o/6jrOb2
-         xffmaCCmN5jJNsdGclcp8Do0N1CUWPp5zy3Gm6ILWB9wvbJO9krWxte+NrTq22z4A6P/
-         xFYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqW0JOawAjmeOHeBybAfnaaJ2p8TQ39PUjgaYvraodqTBAcCh97Cx8E6Q1rSC6a3O5AwpLlZid+x90Wqk00uVt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpXxrIPj9oOLCddIFUJilRm8sgDlvgceDdjU4BBmh5q39bj7gx
-	BrbwXsRkYLEAJrf3g/j2krwtUxuzs5++Qx1T20kbrynFYChjR2G82MaXR8i17Tg=
-X-Gm-Gg: ASbGncsGdnX3gqN3/+jAK9cybOyvabK6vqUp/xQRU/eH6Y6cKyZ3XvbGWrIjz/MHlpN
-	WxX76iUBC6guiL3jXBicIlHYgquwp0DLtV+Xl1SGb4l1kOyM0Ibnbbt9eZf90S7U7X7kqlIX8HR
-	7EfK+z/7yRCw75Odh4VCZkuCQ0RPNmuemkL7zNa3VF5QRfQ90FJkW1jRKTLExyOHY2zT4EiKOZe
-	mWLExjZNqQ7Y2rg0/kGnfCnhJtTjlVr9HOUH6xBhT+TRF7I6exmNqWxbSb0Yx3tyWN2VT/2VGGK
-	NTUMtFuVNLXv7E+UzbGQ7YgOTWBkHSEqSQ==
-X-Google-Smtp-Source: AGHT+IH/GhAQu8ZUGtenaW6SKJAm4VqyvLWgGVL9JvGyxgiMhFhjNXvESpDyxAefkm3AWRhsFA+KBw==
-X-Received: by 2002:a05:6512:4024:b0:540:1ba5:75d with SMTP id 2adb3069b0e04-540240bd1afmr870079e87.20.1733785662363;
-        Mon, 09 Dec 2024 15:07:42 -0800 (PST)
+        bh=X5GxAyEJ02mNywENRB0ow462CYy8FP4+RIO5DD9Q3DQ=;
+        b=gqI1jHQtGoKwyAyRRV8rHYj+8F2w+MCrgH8Thw6DAZvO2xkrjEQnhAmQ95mEtYvb5Z
+         wEZHHt2SCLwXfw8umlqTylWR4zKvu06/i2a3O7NjGv3WQ2L9J2+ETJXuTM7uJTcxR6Mk
+         fbD0kAO5qPz/i8srajVrRh30AVgc3Cw7cWi72CxQYW0e6/+SHNFPEqowuwtrBT6jUCnA
+         5AQ6DinZltKjvIX3INjkN9wk+UKBIddWdRh4cJo8GRpwL0ddugNfCEPnmmS3GFEtvRsL
+         6cbS4/kgKIc4MVLo9vnNz7ll4ECCTb2193nypND18ecBhZk5cV8k2/EtA+oA0ZaISM3p
+         oqrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXsmejQAyjRcaU3OIuXTcgt0F/Tf5lb6Hy2V529urnWwMwxrQSfdBR8SgeI+x1eKHz/DnOhKQcl0+hIZoaH5+3N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrTewDpK/PcGz3xeGvqojHnJ+xRQbp5oNpQnhIqSTxjDXCl1T0
+	e3Sv0C9FEjB8aPxwJeaQ/1xsSrrwTdxfC07ncDymXAZFRh0pfA9c1ONwISGkFiw=
+X-Gm-Gg: ASbGncung7vqhUcOkuMF0N/MfERtSsG6mQeNAPL9NEVEi63osdWGzpNjPEv6LXtlAcj
+	5Qogyc4RZFoBywyIALN4ruE57ZcQPcQtEJTcyk5PQX+b0iPt/x5uzQ47jWmXzQSOC0DDFUCt1+X
+	X5sEm9638z8kyrzl4UHUjYjS8MPzvCnxR6HRpaePEbm/w05SE/DDc0MOC/u3IF71xJOjx/P1o/J
+	wJcfBHyb+UpKc4DlVBKgVQfVCyfxrcKqP2At4ZpOC7jdQGaKrW92XIfPI7Qr2/ycBUl5NxUv8q2
+	livCmf+8WCMV8Rws1KAWwM4KhrgycW1sbg==
+X-Google-Smtp-Source: AGHT+IEWUgkaAToyp2VN/parQthrjJOBjUFhHTXot4xiCZm20ehVs3l2DKi/nv5nOESXxYx9J35VJQ==
+X-Received: by 2002:a05:6512:3990:b0:53d:a321:db74 with SMTP id 2adb3069b0e04-5402411a69cmr871586e87.50.1733785793813;
+        Mon, 09 Dec 2024 15:09:53 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e378c4264sm1081287e87.239.2024.12.09.15.07.39
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e39fb61d3sm967973e87.22.2024.12.09.15.09.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 15:07:40 -0800 (PST)
-Date: Tue, 10 Dec 2024 01:07:38 +0200
+        Mon, 09 Dec 2024 15:09:52 -0800 (PST)
+Date: Tue, 10 Dec 2024 01:09:50 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Douglas Anderson <dianders@chromium.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -76,18 +76,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Roxana Bradescu <roxabee@google.com>, bjorn.andersson@oss.qualcomm.com, 
 	linux-arm-kernel@lists.infradead.org, Trilok Soni <quic_tsoni@quicinc.com>, 
 	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/6] arm64: errata: Add QCOM_KRYO_5XX_GOLD to the
- spectre_bhb_k24_list
-Message-ID: <l5rqbbxn6hktlcxooolkvi5n3arkht6zzhrvdjf6kis322nsup@5hsrak4cgteq>
+Subject: Re: [PATCH 6/6] arm64: errata: Add QCOM_KRYO_6XX_GOLD/PRIME to the
+ spectre_bhb_k32_list
+Message-ID: <tx7vtur7yea6ruefrkpkccqptahgmxnsrudwdz5uzcfxnng25b@afrr5bmdk2xa>
 References: <20241209174430.2904353-1-dianders@chromium.org>
- <20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384@changeid>
+ <20241209094310.6.I722621804be859e4ae4b7479ce191c5e3367b37c@changeid>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384@changeid>
+In-Reply-To: <20241209094310.6.I722621804be859e4ae4b7479ce191c5e3367b37c@changeid>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_150744_401185_BE28642C 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20241209_150955_958926_B4FDAF44 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,39 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 09:43:15AM -0800, Douglas Anderson wrote:
-> Qualcomm Kryo 500-series Gold cores appear to have a derivative of an
-> ARM Cortex A77 in them. Since A77 needs Spectre mitigation then the
-> Kyro 500-series Gold cores also should need Spectre mitigation.
+On Mon, Dec 09, 2024 at 09:43:16AM -0800, Douglas Anderson wrote:
+> Qualcomm Kryo 600-series Gold cores appear to have a derivative of an
+> ARM Cortex A78 / ARM Cortex X1 in them. Since these need Spectre
+> mitigation then the Kyro 600-series Gold/Prime cores also should need
+> Spectre mitigation.
 > 
 > Signed-off-by: Douglas Anderson <dianders@chromium.org>
 > ---
 > Yes. I know. This patch DOESN'T COMPILE because
-> MIDR_QCOM_KRYO_5XX_GOLD is not defined. That value needs to come from
-> Qualcomm or from testing on hardware, which I don't have. Qualcomm
-> needs to chime in to confirm that this Spectre mitigation is correct
-> anyway, though. I'm including this patch so it's obvious that I think
-> these cores also need the mitigation.
+> MIDR_QCOM_KRYO_6XX_GOLD and MIDR_QCOM_KRYO_6XX_PRIME are not
+> defined. Those value needs to come from Qualcomm or from testing on
+> hardware, which I don't have. Qualcomm needs to chime in to confirm
+> that this Spectre mitigation is correct anyway, though. I'm including
+> this patch so it's obvious that I think these cores also need the
+> mitigation.
 
-Kryo 5xx (SM8250) identify themselves as 0x41/0xd0d (Gold, Prime) and
-0x51/0x805 (Silver)
+SM8350 (Kryo 680) identifies itself as 0x41/0xd44 (Prime), 0x41/0xd41
+(Gold) and 0x41/0xd05 (Silver)
 
 > 
->  arch/arm64/kernel/proton-pack.c | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/kernel/proton-pack.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
 > diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index b1881964e304..212481726f04 100644
+> index 212481726f04..67aa54017dea 100644
 > --- a/arch/arm64/kernel/proton-pack.c
 > +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -867,6 +867,7 @@ u8 spectre_bhb_loop_affected(int scope)
->  			MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
->  			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
->  			MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
-> +			MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_5XX_GOLD),
+> @@ -860,6 +860,8 @@ u8 spectre_bhb_loop_affected(int scope)
+>  			MIDR_ALL_VERSIONS(MIDR_CORTEX_X2),
+>  			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
+>  			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
+> +			MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_6XX_GOLD),
+> +			MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_6XX_PRIME),
 >  			{},
 >  		};
->  		static const struct midr_range spectre_bhb_k11_list[] = {
+>  		static const struct midr_range spectre_bhb_k24_list[] = {
 > -- 
 > 2.47.0.338.g60cca15819-goog
 > 
