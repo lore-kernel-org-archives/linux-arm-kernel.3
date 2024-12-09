@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A28E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07163E77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8vI+mafQJICnkT4ByBE+HuAejFrqMpigPXyZ+V3gfk=; b=DJ06pQ2CgF1yexFvHXZi0sCdLG
-	vDgsTKRUHyWcqjU9vnA2DmY+AlQsTWvPIdnDzPYU1n14huFwBCWSUMrSa2IFwRGUDloI4Yq2laHZ0
-	bqyrHgrIsg/68Tfx6p+PuS657RqsKcEqdXqnm0oedrrOZw3/rTepTk3NVbW5jmuPu67fdV4rXJFCZ
-	AOSjVCBAtrGpLMkxNGghXQsgER793H+6T5QxiUmEi04dV0SCoQqqkahldrkdv9yMuANrY0snh5umE
-	op5DxWGOfSLGqrwgy/fA/zoeAprF01xvqS41XrxzkIh2NTy9eIxfozsESo4KgzNtVHW7JBGTo2u5T
-	XtOBK5WQ==;
+	bh=JK+YHbwbzYxN2fA6jQpylORDnONEVEdYkbUHx87yE3E=; b=VyRKvz27eZGSH6Dntu+X7VdQWW
+	2OCZRbB/DfKJebR8zNulxMUCrWJUJvVrpjLRgD3URnVqmi/2CiyaAwWrplOsqHBTdkC2AODvY6Fi9
+	U5obkJU94O3vEswK9GJaG2SoSwtfig20zxxW3D2IYuDNzNnxxKvV0XebGYgFqDxJlIeSJG2Sc7UVA
+	XnrGN1GtZ9mTu/LCx5ZVSVSIv7T2JFpgAaD2dbkHiQA3JpkeiRKv1yX8MuIp+C+V1pdt1Gt8yCGpA
+	q3AJKaNVimNfNIO7ydKGixt6fNOpfsZwY8PXWgjaT73/L4AoSv4kyoz4neDa9Ui5RGeTe9ss3F106
+	912HSf+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKb3V-00000007IVT-1Ris;
-	Mon, 09 Dec 2024 10:31:58 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1tKb4V-00000007Irs-1z1y;
+	Mon, 09 Dec 2024 10:32:59 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKang-00000007FDk-1SIb
+	id 1tKauH-00000007GeS-20BQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 10:15:37 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e3988fdb580so3403725276.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:15:36 -0800 (PST)
+	Mon, 09 Dec 2024 10:22:26 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-725ed193c9eso583254b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:22:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733739335; x=1734344135; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l8vI+mafQJICnkT4ByBE+HuAejFrqMpigPXyZ+V3gfk=;
-        b=scahdNtQV1hGM5ot0j7XGZo5oe+wv5gtjjmc3x8k6bcEudEjtWRd/hdNSvyjiY+x6X
-         Mp3Z75uKjd1VjKgsB+ROrwPBDtU9Xp7DO7qQHhdcqWUZJF6pBIzlsdRNdObLc+exOy30
-         qORwaJgvv9BaHjeA9Bwb+Wt6HnV6vQ2xHzwy1YTEZx/eQXfDM7GvK7tPFPZIi3djUtHX
-         FqI1VwnsaYiCD5VMRNg5HYAV0lxyxHUOpmCZFoqWdWgFXizCLKAGKGiz/2Z5dR3ltUi3
-         3yNei+CUuiTzhsuI2B3NMsEatAwyf2455b5gFkKMRbGGFY7yjatK4rfZpLb1zm2oX/8V
-         vgVw==
+        d=gmail.com; s=20230601; t=1733739744; x=1734344544; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JK+YHbwbzYxN2fA6jQpylORDnONEVEdYkbUHx87yE3E=;
+        b=jBotiQUmACjsmbADGmkowVDYyhoExsx5teSaGPdWo8+tm/EbNoMPmuo1SO1O0uLqlN
+         w7EIwpsMdx+xESIOnYJ57413fO2yUFe+yoaq1ifu6tNsAXZQSV4LxiP1uE9mOJBMx9/O
+         aTYXqFqNl3tn6I5w1ZKjSCpdm/xH0Ulw5FrMLpGOsWEXVNLXfM8dEQt20L+ExEr0u0jh
+         jKVwQtjuaaNrWAWZB1iFP901a98QlbMeMdmjj/kYBPEVoYBKW1KUxpGNqr7LEVoGE4qc
+         IEi8Wgi65KM+fqzT1Vny1sfx9U0nRwQz232/Ze3xmshIz5rQxCS3sPEOmSe60DEImD0F
+         5UnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733739335; x=1734344135;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l8vI+mafQJICnkT4ByBE+HuAejFrqMpigPXyZ+V3gfk=;
-        b=ciQc64sMYaiqwUWbjhHJgsxPgHXPOlSyvvhXORMHXr+k7NgkU/v3wDXlUFN+dsPjMA
-         /5p8JUcujN4a8/A6He19vmZin6W7Eyu5W6cGeqpBzoVAnZmxf04s2HHOtzzVaXyMf89T
-         HL/SguxacdkO6bn7lX1udbL7RBxBhducl/3et+yd56gOlWQ353g5gV/t4FHLReDjIfCA
-         SoaVjle2oF9qOR+fMnne5H5QmKQxHr720zsD/UAx9N91VzEqVfgo6dk9JlvEcBVQyEVc
-         swzMXubvbm6e4EUWzeiw8dEiqW+7+ANinhQXB+SFhXDhwDPKwBjlkAOF2+iWYEgeNSTc
-         5nEA==
-X-Forwarded-Encrypted: i=1; AJvYcCXkDTsF7vb30Jj5uTKvZl/mz6UDiZ838Rfbh4SlnWM/w06YSKF+HtLFIuVrE9cVkWdoQH91UmHQ0sC7UCG+dF8Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzuw7gQi+UKL1ddLHGvMAwa1ARg/uMWN+K/5mfOVErEd/SzuYJh
-	drDKA7CxYoaX2wKWQZjS+pwaS0/pz0QVveqKiPTubERaUxupFH+ICABKXBih2GUxV+ksQu/Ng7Y
-	7/JsaKeBTzNyZwXpCf7HtYWdEY91nv1FXjun8xg==
-X-Gm-Gg: ASbGncu/5gGkumZkllbpoSAvdR4TG0zuZtyl23MIlEdLxv71/BHkt8Mop1F9fdgjszw
-	B0Ui+GG6BxhdGVTv2iYQdkeGVD9J5Kjo=
-X-Google-Smtp-Source: AGHT+IEYOHT/dGfysgHNg+sIyk39rFclVXASjoPiptGYgkI+v6pr5kBeW++F6mbWR9LBKnALmvDk24OJ2+AqS/tovSY=
-X-Received: by 2002:a05:6902:727:b0:e3a:4f3f:af41 with SMTP id
- 3f1490d57ef6-e3a4f3fb32fmr656889276.17.1733739335239; Mon, 09 Dec 2024
- 02:15:35 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733739744; x=1734344544;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JK+YHbwbzYxN2fA6jQpylORDnONEVEdYkbUHx87yE3E=;
+        b=lTW+pG/eIDXuLO2Cc0RUbY5u23PztZH6X1TaRAtj9N+FzaehSQ7R4UBd8BQbne/FOA
+         sGB8X2ur3m4qh1EbzJKX7OC8CvCrnzVLQ9bKQ4kab5xqoTrsKM4qD+H81VNfYzLAKJUY
+         YcZCymw/oq+1VwA/a6Q1+wg3n9eD2BfCZBfKHlXNvgEHie9+LExrNeoqhWCNsxo5z9Ry
+         fdXK9EN7QjllW5cnXGGkrZpSUO7uoPGPavB9qj0SDJaMjVfj4rakrTDnC6O1W2Ye0XQF
+         KWdvlnuqyuvNInsLNWzvCZKx3Jn159bbINTUSib3rhvGTf0oLqIKTXWCL0I5g25PeNWm
+         rb2g==
+X-Forwarded-Encrypted: i=1; AJvYcCUV15WQckH2iN2J7pGRz+xhp0CCXHA24K3a8gWbjyVX84SsqEcsJqo79zYuKuQ2iqxLIJf7QeHJBQr3WaV6F2Zc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4MLWlQGqE+5MyNY346tstt6e5a5Qmq3wkyk5vXK87sHytM7MJ
+	fbioIZEuefqFTOrlS3KXaNfo/YL4yvJwWF6sllfOII30o9nkHI0f
+X-Gm-Gg: ASbGncv8IHDutFrTO3yosJDd0qWJz5Cg6RN5gNZYkjFH+3/z/XsGGvh+myaQ7oPQh0O
+	J49P3jpNGfaWb5GUKRPGDFw0SYOjgzVfjFO8A7INwDbBvbNSiOGniCY4cDXvNJJJ7ZS20PAG7Om
+	Y/A6Moae/qj9orC/LM3KHfqFwuEIVbDt27aJvDTVW+LqlLkPSpHUaGBBQ9EmVPVd4ow3XfmAyLW
+	Az2cwcKtcx8wiRaDIlGZfyrZF9wuucQwFIkKNYSdv7Yq1kDLP4Y7GXH0QXWLT+Edr2Q
+X-Google-Smtp-Source: AGHT+IGIMaQLW4wct1dsitCDskJol1qDWg2mfuDdPh8GMuIT847eTTcppJMdsxFJj7Ut8lRt0yTYLQ==
+X-Received: by 2002:a05:6a00:4fcc:b0:71d:e93e:f542 with SMTP id d2e1a72fcca58-725b820b43fmr19800743b3a.21.1733739744446;
+        Mon, 09 Dec 2024 02:22:24 -0800 (PST)
+Received: from [192.168.0.115] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725d6856bf7sm3620294b3a.192.2024.12.09.02.22.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Dec 2024 02:22:24 -0800 (PST)
+Message-ID: <e06c5d7c-de3c-46ff-b2ee-8ed794577e70@gmail.com>
+Date: Mon, 9 Dec 2024 18:22:17 +0800
 MIME-Version: 1.0
-References: <cover.1732627815.git.Sandor.yu@nxp.com> <4ef8252825d7a962b440519fb17fdcd5dd817672.1732627815.git.Sandor.yu@nxp.com>
- <slkpvbemsrz5jv4cafp7k4pdj3smpl575w2dtmjoheoqqrh32j@2wi5564jzawg> <PAXPR04MB94488CEFA54F8AA193DC2BBDF43C2@PAXPR04MB9448.eurprd04.prod.outlook.com>
-In-Reply-To: <PAXPR04MB94488CEFA54F8AA193DC2BBDF43C2@PAXPR04MB9448.eurprd04.prod.outlook.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Mon, 9 Dec 2024 12:15:26 +0200
-Message-ID: <CAA8EJpoKkOj2pBxi4QcVAVOwzaW=yVAyomOFv7-oAxPYamfa-A@mail.gmail.com>
-Subject: Re: [PATCH v19 6/8] phy: freescale: Add DisplayPort/HDMI Combo-PHY
- driver for i.MX8MQ
-To: Sandor Yu <sandor.yu@nxp.com>
-Cc: "andrzej.hajda@intel.com" <andrzej.hajda@intel.com>, 
-	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, "jonas@kwiboo.se" <jonas@kwiboo.se>, 
-	"jernej.skrabec@gmail.com" <jernej.skrabec@gmail.com>, "airlied@gmail.com" <airlied@gmail.com>, 
-	"daniel@ffwll.ch" <daniel@ffwll.ch>, "robh+dt@kernel.org" <robh+dt@kernel.org>, 
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>, 
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "vkoul@kernel.org" <vkoul@kernel.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, "mripard@kernel.org" <mripard@kernel.org>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, dl-linux-imx <linux-imx@nxp.com>, 
-	Oliver Brown <oliver.brown@nxp.com>, 
-	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>, "sam@ravnborg.org" <sam@ravnborg.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] backlight: dwi_bl: Add Apple DWI backlight driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, y@krzk-bin
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+ Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241207130433.30351-1-towinchenmi@gmail.com>
+ <20241207130433.30351-3-towinchenmi@gmail.com>
+ <bqn4tddl3kgle7zlamgaqlh45pizw6gf5qjwlmcsbkb6fx343l@tf5w63xursi2>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <bqn4tddl3kgle7zlamgaqlh45pizw6gf5qjwlmcsbkb6fx343l@tf5w63xursi2>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_021536_397148_0A737368 
-X-CRM114-Status: GOOD (  36.69  )
+X-CRM114-CacheID: sfid-20241209_022225_516736_26125CDB 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,134 +108,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 9 Dec 2024 at 10:38, Sandor Yu <sandor.yu@nxp.com> wrote:
->
->
->
-> > -----Original Message-----
-> > From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > Sent: 2024=E5=B9=B411=E6=9C=8826=E6=97=A5 22:43
-> > To: Sandor Yu <sandor.yu@nxp.com>
-> > Cc: andrzej.hajda@intel.com; neil.armstrong@linaro.org; Laurent Pinchar=
-t
-> > <laurent.pinchart@ideasonboard.com>; jonas@kwiboo.se;
-> > jernej.skrabec@gmail.com; airlied@gmail.com; daniel@ffwll.ch;
-> > robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org;
-> > shawnguo@kernel.org; s.hauer@pengutronix.de; festevam@gmail.com;
-> > vkoul@kernel.org; dri-devel@lists.freedesktop.org;
-> > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org;
-> > mripard@kernel.org; kernel@pengutronix.de; dl-linux-imx
-> > <linux-imx@nxp.com>; Oliver Brown <oliver.brown@nxp.com>;
-> > alexander.stein@ew.tq-group.com; sam@ravnborg.org
-> > Subject: [EXT] Re: [PATCH v19 6/8] phy: freescale: Add DisplayPort/HDMI
-> > Combo-PHY driver for i.MX8MQ
-> >
-> > Caution: This is an external email. Please take care when clicking link=
-s or
-> > opening attachments. When in doubt, report the message using the 'Repor=
-t
-> > this email' button
-> >
-> >
-> > On Tue, Nov 26, 2024 at 10:11:51PM +0800, Sandor Yu wrote:
-> > > Add Cadence HDP-TX DisplayPort and HDMI PHY driver for i.MX8MQ.
-> > >
-> > > Cadence HDP-TX PHY could be put in either DP mode or
-> > > HDMI mode base on the configuration chosen.
-> > > DisplayPort or HDMI PHY mode is configured in the driver.
-> > >
-> > > Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-> > > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > > ---
-> > > v18->v19:
-> > > - Simplify the PLL tables by removing unused and constant data
-> > > - Remove PHY power management, controller driver will handle them.
-> > > - Remove enum dp_link_rate
-> > > - Introduce read_pll_timeout.
-> > > - Update clock management as devm_clk_get_enabled() introduced.
-> > > - Remove cdns_hdptx_phy_init() and cdns_hdptx_phy_remove().
-> > >
-> > > v17->v18:
-> > > - fix build error as code rebase to latest kernel version.
-> > >
-> > >  drivers/phy/freescale/Kconfig                |   10 +
-> > >  drivers/phy/freescale/Makefile               |    1 +
-> > >  drivers/phy/freescale/phy-fsl-imx8mq-hdptx.c | 1237
-> > ++++++++++++++++++
-> > >  3 files changed, 1248 insertions(+)
-> > >  create mode 100644 drivers/phy/freescale/phy-fsl-imx8mq-hdptx.c
-> > >
-> > > diff --git a/drivers/phy/freescale/Kconfig b/drivers/phy/freescale/Kc=
-onfig
-> > > index dcd9acff6d01a..bbd17e9556cc3 100644
-> > > --- a/drivers/phy/freescale/Kconfig
-> > > +++ b/drivers/phy/freescale/Kconfig
-> > > @@ -35,6 +35,16 @@ config PHY_FSL_IMX8M_PCIE
-> > >         Enable this to add support for the PCIE PHY as found on
-> > >         i.MX8M family of SOCs.
-> > >
-> > > +config PHY_FSL_IMX8MQ_HDPTX
-> > > +     tristate "Freescale i.MX8MQ DP/HDMI PHY support"
-> > > +     depends on OF && HAS_IOMEM
-> > > +     depends on COMMON_CLK
-> > > +     depends on CDNS_MHDP_HELPER
-> >
-> > You should not be depending on the symbol that can not be selected by
-> > the user.
->
-> OK.
->
-> >
-> > > +     select GENERIC_PHY
-> > > +     help
-> > > +       Enable this to support the Cadence HDPTX DP/HDMI PHY driver
-> > > +       on i.MX8MQ SOC.
-> > > +
-> > >  config PHY_FSL_IMX8QM_HSIO
-> > >       tristate "Freescale i.MX8QM HSIO PHY"
-> > >       depends on OF && HAS_IOMEM
-> > > diff --git a/drivers/phy/freescale/Makefile b/drivers/phy/freescale/M=
-akefile
-> > > index 658eac7d0a622..a946b87905498 100644
-> > > --- a/drivers/phy/freescale/Makefile
-> > > +++ b/drivers/phy/freescale/Makefile
-> > > @@ -1,4 +1,5 @@
-> > >  # SPDX-License-Identifier: GPL-2.0-only
-> > > +obj-$(CONFIG_PHY_FSL_IMX8MQ_HDPTX)   +=3D phy-fsl-imx8mq-hdptx.o
-> > >  obj-$(CONFIG_PHY_FSL_IMX8MQ_USB)     +=3D phy-fsl-imx8mq-usb.o
-> > >  obj-$(CONFIG_PHY_MIXEL_LVDS_PHY)     +=3D
-> > phy-fsl-imx8qm-lvds-phy.o
-> > >  obj-$(CONFIG_PHY_MIXEL_MIPI_DPHY)    +=3D phy-fsl-imx8-mipi-dphy.o
-> > > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-hdptx.c
-> > b/drivers/phy/freescale/phy-fsl-imx8mq-hdptx.c
-> > > new file mode 100644
-> > > index 0000000000000..e99487622d43c
-> > > --- /dev/null
-> > > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-hdptx.c
-> > > @@ -0,0 +1,1237 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > +/*
-> > > + * Cadence DP/HDMI PHY driver
-> > > + *
-> > > + * Copyright (C) 2022-2024 NXP Semiconductor, Inc.
-> > > + */
-> > > +#include <drm/bridge/cdns-mhdp-helper.h>
-> >
-> > Still, I'd ask for drivers/soc instead.
->
-> If put it in drivers/soc, should I create a new directory called drivers/=
-soc/cadence or put it in drivers/soc/imx?
->
-> The mhdp helpers will share code between cdns-mhdp8501 and cdns-mhdp8546.
-> I prefer creating a new directory, drivers/soc/cadence, but the problem i=
-s that cadence not a real SoC.
 
-I think drivers/soc/cadence is fine. Please explain your decision in
-the cover letter and in the commit message, this will help other
-maintainers to understand you.
 
---=20
-With best wishes
-Dmitry
+Krzysztof Kozlowski 於 2024/12/9 下午5:22 寫道:
+>> diff --git a/drivers/video/backlight/dwi_bl.c b/drivers/video/backlight/dwi_bl.c
+>> new file mode 100644
+>> index 000000000000..d4bfd74b3129
+>> --- /dev/null
+>> +++ b/drivers/video/backlight/dwi_bl.c
+>> @@ -0,0 +1,124 @@
+[...]
+>> +
+>> +	dwi_bl = devm_kzalloc(&dev->dev, sizeof(struct apple_dwi_bl), GFP_KERNEL);
+> 
+> sizeof(*)
+
+Ack this change as well for v4.
+
+> 
+>> +	if (!dwi_bl)
+>> +		return -ENOMEM;
+[...]
+
+Nick Chan
 
