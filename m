@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402A3E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 00:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C65FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 01:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u23OnO0SqaMwX3ZNIieQ7xZ/JwcOd/jMwpkHUTV6Uw4=; b=K0HVaZsPZNR4dkn5/mXAw5o31b
-	ikrrapdGdX+uTm2P5CHGzX/RcojCshdsI1ZXphcSPDI+VdAvQGjf4x9BoM/PC971w/5TvTKt8nM54
-	SjWEztpTmDXvgF6WHeqi8dQ3F0aJXoq6rCQUpLdAvldfaK2Xb9bpnh3r8kxfL+7MklS8MMlXxUGZa
-	rZINicNu1P5cQSCNS6AyhRyw0ZkP+gAkiGv/v2RoMLfQNfZOdU3oNPXOd0ipoNv0hmEA1fpCz7XBj
-	FNI9CmuKVSk5T9ImSNJSsEFAuq4cHCFaPFl/VELDA9hiA6j0RjrfU9tbUpl75JvH7YtG4U1Z4zmgQ
-	s5RHVd4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mONfncm9hTek7jcougy3xSCm6rv4bmG3B6zaPol5p8s=; b=fB+ovcnmrWptZeTdUExhyFitS4
+	zmZ5/MFVkZh1L9agPCc0ZAXlBTaPc4fL8puf7fJbEWabNXAPI81ohENQwxEWxO42s3o2s6vf/LQQt
+	eV5AKpfwyhUBVswsI8T/OdzDuYNJKCkxXVsnjdgmiILPa65SvKHETCfcv1NZPuGkjM7yWNfBmrqhh
+	KFaJ+mnRBqdYPxLR60ub50fg6Fd5KJ2RKdMSU/Q/iTtY0W3RUc3ibMCjcz0gXDNEZpzRMwKcTEp3W
+	lCRME1xpjoBe89iiEJMvyd0gEDB/Kn1/TB8X0BVnKTkwgrsl4K7Wt8QpazS2UEDHDwl50weXlpwW9
+	XQQgqxPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKRK9-000000063Bx-2xUH;
-	Mon, 09 Dec 2024 00:08:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tKSqK-000000069W0-05nP;
+	Mon, 09 Dec 2024 01:45:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKRJ6-0000000630J-0Ec4
+	id 1tKSpH-000000069Pw-2jOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 00:07:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4413FA40DD0;
-	Mon,  9 Dec 2024 00:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2E74C4CED2;
-	Mon,  9 Dec 2024 00:07:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733702842;
-	bh=qQNrvfENV3cjN5xREbhZ7VhcAz/yAeIeQ9LRLJN97rw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iax8gMl+0GT3J8M4iZ9gQyDPrIu27a3sIyltOK6REilnDJPHdyhdVAXaRpTxxtOqB
-	 MuqYjX3mhFXSRTor5pSLAmTNhGqLX3rmQwUsVw1mIIQaMU8vd7TVVaPJGzHmpmf/D0
-	 daiD828J/LIghaf4mumgtHGdKuVOqThvGRQ1PTODlqAUQpPGSsDwLt9knC26SfKG8m
-	 WwmSMezcdQ82gahImT/PW3UM/9cgOCD2+zwAWFB94NzIC+EQ1lBvz5zRGeTOxXjn89
-	 QpSpbyWeYA4tGb+l7kxIZkDNWiRpm9eHgkMBH9Vmty7qgrQhdwOU8rrzaCbGYjrm8x
-	 /E28uEALgWPAg==
-Date: Mon, 9 Dec 2024 00:07:20 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	iommu@lists.linux.dev, netdev@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
-	virtualization@lists.linux.dev, kys@microsoft.com,
-	haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
-	decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
-	luto@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	seanjc@google.com, pbonzini@redhat.com, peterz@infradead.org,
-	daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
-	sgarzare@redhat.com, jinankjain@linux.microsoft.com,
-	muminulrussell@gmail.com, skinsburskii@linux.microsoft.com,
-	mukeshrathor@microsoft.com, vkuznets@redhat.com,
-	ssengar@linux.microsoft.com, apais@linux.microsoft.com,
-	eahariha@linux.microsoft.com, horms@kernel.org
-Subject: Re: [PATCH v3 1/5] hyperv: Move hv_connection_id to hyperv-tlfs.h
-Message-ID: <Z1Y0uJlVn-86KHE8@liuwe-devbox-debian-v2>
-References: <1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1732577084-2122-2-git-send-email-nunodasneves@linux.microsoft.com>
+	Mon, 09 Dec 2024 01:44:45 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9017xs012697;
+	Mon, 9 Dec 2024 01:44:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mONfncm9hTek7jcougy3xSCm6rv4bmG3B6zaPol5p8s=; b=CRdQVIiVJoyJvgfP
+	sNwJrCXjY0zLONqgfds4bqv3EyyGmMjgD45okpHdukbx7fb/MH9gXYxIcu0vHCgE
+	aeDkX90GyuwF1jPUR6M3EUuKD3VdqsFPKG7WmXXi1JcgtP7fcncdYF08ZZO6HN64
+	r/bvWnBERBZ4xPHX50JSRRhexDQ2+eNk6ni/dyM7j/gRou9MLLBI7M5anFUPhAdV
+	7ZYXBzbSOO0zabPL1Y7qvJFG150maTpp4OiMs/Cq2skBSQLpNHssfpC3Z6L1Jnjm
+	7ly3FVDqjZW6GfZn4scPciwGlimNLoIqBUDwrB8M56pB+P+0KhXS9q1fkqZo0Iog
+	2MgtFA==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43ceetk03m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Dec 2024 01:44:29 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B91iSBn020361
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 9 Dec 2024 01:44:28 GMT
+Received: from [10.64.16.151] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 8 Dec 2024
+ 17:44:22 -0800
+Message-ID: <afd00fdf-af62-46b5-9131-ed360a93e094@quicinc.com>
+Date: Mon, 9 Dec 2024 09:44:19 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1732577084-2122-2-git-send-email-nunodasneves@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/9] drm/msm/dpu: Add SM6150 support
+To: Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Rob Clark
+	<robdclark@gmail.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        "Sean
+ Paul" <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Li
+ Liu" <quic_lliu6@quicinc.com>,
+        Xiangxu Yin <quic_xiangxuy@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241122-add-display-support-for-qcs615-platform-v3-0-35252e3a51fe@quicinc.com>
+ <20241122-add-display-support-for-qcs615-platform-v3-5-35252e3a51fe@quicinc.com>
+ <c1b2fe04-e43e-4ab7-b0f8-2bb2ce6e1313@quicinc.com>
+Content-Language: en-US
+From: fange zhang <quic_fangez@quicinc.com>
+In-Reply-To: <c1b2fe04-e43e-4ab7-b0f8-2bb2ce6e1313@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: FwBFuB_mvjA8on_c0eMLzgSptP0zqSaY
+X-Proofpoint-ORIG-GUID: FwBFuB_mvjA8on_c0eMLzgSptP0zqSaY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 phishscore=0
+ spamscore=0 adultscore=0 clxscore=1015 impostorscore=0 mlxlogscore=999
+ bulkscore=0 suspectscore=0 lowpriorityscore=0 malwarescore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412090012
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_160724_169858_94DFBF8C 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241208_174443_821942_86FE14FB 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,24 +126,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 25, 2024 at 03:24:40PM -0800, Nuno Das Neves wrote:
-> This definition is in the wrong file; it is part of the TLFS doc.
+
+
+On 2024/12/7 4:17, Abhinav Kumar wrote:
 > 
-> Acked-by: Wei Liu <wei.liu@kernel.org>
-> Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> 
+> On 11/22/2024 1:56 AM, Fange Zhang wrote:
+>> From: Li Liu <quic_lliu6@quicinc.com>
+>>
+>> Add definitions for the display hardware used on the Qualcomm SM6150
+>> platform.
+>>
+>> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+>> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+>> ---
+>>   .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h | 263 +++++++++++ 
+>> ++++++++++
+>>   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
+>>   drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
+>>   drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
+>>   4 files changed, 266 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h b/ 
+>> drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
+>> new file mode 100644
+>> index 
+>> 0000000000000000000000000000000000000000..e8b7f694b885d69a9bbfaa85b0faf0c7af677a75
+>> --- /dev/null
+>> +++ b/drivers/gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_sm6150.h
+>> @@ -0,0 +1,263 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights 
+>> reserved.
+>> + */
+>> +
+>> +#ifndef _DPU_5_3_SM6150_H
+>> +#define _DPU_5_3_SM6150_H
+>> +
+>> +
+> 
+> <snip>
+> 
+>> +static const struct dpu_sspp_cfg sm6150_sspp[] = {
+>> +    {
+>> +        .name = "sspp_0", .id = SSPP_VIG0,
+>> +        .base = 0x4000, .len = 0x1f0,
+>> +        .features = VIG_SDM845_MASK,
+> 
+> This is not correct. Smartdma is supported on this chipset on both Vig 
+> and DMA SSPPs.
+> 
+> Please use VIG_SDM845_MASK_SDMA and DMA_SDM845_MASK_SDMA respectively.
+Got it, will replace them in next patch
+> 
+> 
+>> +        .sblk = &dpu_vig_sblk_qseed3_2_4,
+>> +        .xin_id = 0,
+>> +        .type = SSPP_TYPE_VIG,
+>> +        .clk_ctrl = DPU_CLK_CTRL_VIG0,
+>> +    }, {
+>> +        .name = "sspp_8", .id = SSPP_DMA0,
+>> +        .base = 0x24000, .len = 0x1f0,
+>> +        .features = DMA_SDM845_MASK,
+>> +        .sblk = &dpu_dma_sblk,
+>> +        .xin_id = 1,
+>> +        .type = SSPP_TYPE_DMA,
+>> +        .clk_ctrl = DPU_CLK_CTRL_DMA0,
+>> +    }, {
+>> +        .name = "sspp_9", .id = SSPP_DMA1,
+>> +        .base = 0x26000, .len = 0x1f0,
+>> +        .features = DMA_SDM845_MASK,
+>> +        .sblk = &dpu_dma_sblk,
+>> +        .xin_id = 5,
+>> +        .type = SSPP_TYPE_DMA,
+>> +        .clk_ctrl = DPU_CLK_CTRL_DMA1,
+>> +    }, {
+>> +        .name = "sspp_10", .id = SSPP_DMA2,
+>> +        .base = 0x28000, .len = 0x1f0,
+>> +        .features = DMA_CURSOR_SDM845_MASK_SDMA,
+>> +        .sblk = &dpu_dma_sblk,
+>> +        .xin_id = 9,
+>> +        .type = SSPP_TYPE_DMA,
+>> +        .clk_ctrl = DPU_CLK_CTRL_DMA2,
+>> +    }, {
+>> +        .name = "sspp_11", .id = SSPP_DMA3,
+>> +        .base = 0x2a000, .len = 0x1f0,
+>> +        .features = DMA_CURSOR_SDM845_MASK_SDMA,
+>> +        .sblk = &dpu_dma_sblk,
+>> +        .xin_id = 13,
+>> +        .type = SSPP_TYPE_DMA,
+>> +        .clk_ctrl = DPU_CLK_CTRL_DMA3,
+>> +    },
+>> +};
+>> +
+> 
+> <snip>
 
-One comment about the ordering of the tags. It is better to organize
-them in the following order:
-
-Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Acked-by: Wei Liu <wei.liu@kernel.org>
-Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-
-I've made the change for you while applying the patch.
-
-Thanks,
-Wei.
 
