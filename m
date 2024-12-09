@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974EFE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2D3E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EpHHY2+sWOsUk3TlBUgacwmRiiegsqRts2YKRJr/mi8=; b=mhnzA6u5Xv+FwKLTmEGlGkwcfY
-	Hn7/uMKnJXfM8fq402zCFNiyCmZjal4cZDuSh3j5UUzRxCpFJmmX/9jsaG65/StGynJdakHRN0nhf
-	de9Fpzmps9gZvz9LyY19+8p6CkMVWiNOZaVBBN2b8l/XUfkloL+DvNnbBjjY1AjA0WkrC2KkUDfan
-	q88kxejmJdI8MaKywGOcYxnxeigTDY68+t99lhNhZ038ZG1P3F1yWTk4m9LiIn0aPQT/UdrU9cULY
-	r3foTefBtMErzHMFQM7UPQVeIuzSsYTako1q9qkrgEDR0YTbFhsgfrxiIH6cawZpfoOfhSh1A5unE
-	GkXCKkog==;
+	bh=yymF14IHFbx6Jsz6O4G0JFLMmWt/rUozbAAoy+ol+eM=; b=BJHurR+4GyG0qE3/Yt5TeuMrj4
+	ri38uOnJbmZb31TvRjrc0UMGr2wnkne1oA8EWJnfeP4Z8TqNpM8gI63Dkj7/XoGPLIjuktOs4G/D9
+	MBCqP28Fv+U80btEsn6jOlXOqdGe4FV+0qu0she/y+gENOptE6ecWSNts2EYcZumNJ40L4gzAcOsq
+	Fq9nY6tgTahIeXEHvHmYendQFTZv4lfEVBAJ7CPxZOq2p3ECCkqLuwU0+385mtD7Ktcfhz2Yx68G6
+	u2qA5NocBcWy787wH1MFJUwRHdFRFGBgnXmHbDMNfU8UNeDb8Zpxx+5POJLkAzvem+hk2nT7L4ugp
+	EcdHau9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfww-00000008QYL-28EV;
-	Mon, 09 Dec 2024 15:45:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKfyH-00000008Qw2-0EzJ;
+	Mon, 09 Dec 2024 15:46:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfvt-00000008QSd-47gL
+	id 1tKfxD-00000008Qc8-06Rl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 15:44:27 +0000
+	Mon, 09 Dec 2024 15:45:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F805A41752;
-	Mon,  9 Dec 2024 15:42:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5722DC4CED1;
-	Mon,  9 Dec 2024 15:44:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E3CE25C5421;
+	Mon,  9 Dec 2024 15:45:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A145C4CED1;
+	Mon,  9 Dec 2024 15:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733759064;
-	bh=R8gakXjOFzr18Msjlv7x86OREF32D5o5FO2PwvyoUBM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bjrC4V0qC4WIBxl6N0Y3m5rcxQsl1BfIrhsvpBgBWFlMQXQBu+bfgXOa+u+oASu5N
-	 qG31jsynbRm21VBvEMV/iR187vUF2xTQQ49CEjm1yI7WOsIQV/pdzcXUN0c6x+q6+y
-	 15rusoyBzN6eGgB1axdDnADEaUeQYM5CCbEkCr/eZtXo98KyZiB53L9TLRwidSOMIh
-	 XDEelyShmDLRX5ZALy2M+mThSJ9j/fyZaJVpTwbZkf5Wb8PbnlnL68XbeKU6KnRi3K
-	 +y+oxX6YHNWXbpbHiLJisqI9aMhE2gxsK/N33DiN17/+tjoQ2Uk7YEWqXVLhg1y4y/
-	 ixOfuhHnbA2Og==
-Date: Mon, 9 Dec 2024 15:44:20 +0000
-From: Will Deacon <will@kernel.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Frank.li@nxp.com, mark.rutland@arm.com, shawnguo@kernel.org,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v2] perf: imx9_perf: Introduce AXI filter version to
- refactor the driver and better extension
-Message-ID: <20241209154419.GB12428@willie-the-truck>
-References: <20241125104338.2433339-1-xu.yang_2@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241125104338.2433339-1-xu.yang_2@nxp.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	s=k20201202; t=1733759146;
+	bh=waieXy8ZvxsddVWFcwGo31hwJetNKj8FiS3REo21d6Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Wy0dW8FJU/b3g+a3NoTzQQy5QfvRYg83SpSl2IkfWHKLsdU8GVlIQnSR98bc2Rz7p
+	 ZP0gDvMgrr8mRLd+fVqjO8omGS+87srdoEpk/GuBB1p22RyGBuAidKfrG7lptTWcTE
+	 L58g0xMfRP6ffdsizOq9rwtQ6Sl6GfrlFf/J/PbOTtLr2Cl04VXwiEOY7jE80GWTCC
+	 S9T04DA4w3qtEUgD4P6gdfn4kyHs+C9WWD8hOYie61trS35EK8QEnNiWOFAE1OdqgU
+	 a69Af1QJyAOAmgNFH6Q+PtE6nsdP3g9OdztWQRw5Ze58rD8/DSdbCUaLZL9m29CuTv
+	 ojk4tyWsRzD3Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tKfxA-001vzD-4z;
+	Mon, 09 Dec 2024 15:45:44 +0000
+Date: Mon, 09 Dec 2024 15:45:43 +0000
+Message-ID: <861pyguafs.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
+Cc: Cornelia Huck <cohuck@redhat.com>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org"
+	<will@kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>,
+	yuzenghui
+	<yuzenghui@huawei.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
+	jiangkunkun
+	<jiangkunkun@huawei.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Anthony Jebson <anthony.jebson@huawei.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	Linuxarm <linuxarm@huawei.com>
+Subject: Re: [PATCH v3 3/3] arm64: paravirt: Enable errata based on implementation CPUs
+In-Reply-To: <d92ea2dcc3b04ebb8bc5ba71bff448bc@huawei.com>
+References: <20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com>
+	<20241209115311.40496-4-shameerali.kolothum.thodi@huawei.com>
+	<875xnt10oj.fsf@redhat.com>
+	<d92ea2dcc3b04ebb8bc5ba71bff448bc@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: shameerali.kolothum.thodi@huawei.com, cohuck@redhat.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_074426_146656_9E01B336 
-X-CRM114-Status: GOOD (  28.85  )
+X-CRM114-CacheID: sfid-20241209_074547_147424_3F537AFA 
+X-CRM114-Status: GOOD (  29.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,91 +103,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 25, 2024 at 06:43:38PM +0800, Xu Yang wrote:
-> The imx93 is the first supported DDR PMU that supports read transaction,
-> write transaction and read beats events which corresponding respecitively
-> to counter 2, 3 and 4.
+On Mon, 09 Dec 2024 13:49:07 +0000,
+Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com> wrote:
 > 
-> However, transaction-based AXI match has low accuracy when get total bits
-> compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
-> So axi filter is not used widely on imx93. This could be regards as AXI
-> filter version 1.
 > 
-> To improve the AXI filter capability, imx95 supports 1 read beats and 3
-> write beats event which corresponding respecitively to counter 2-5. imx95
-> also detailed AXI_ID allocation so that most of the master could be count
-> individually. This could be regards as AXI filter version 2.
 > 
-> This will introduce AXI filter version to refactor the driver and support
-> better extension, such as coming imx943.
+> > -----Original Message-----
+> > From: Cornelia Huck <cohuck@redhat.com>
+> > Sent: Monday, December 9, 2024 12:49 PM
+> > To: Shameerali Kolothum Thodi
+> > <shameerali.kolothum.thodi@huawei.com>; kvmarm@lists.linux.dev;
+> > maz@kernel.org; oliver.upton@linux.dev
+> > Cc: catalin.marinas@arm.com; will@kernel.org; mark.rutland@arm.com;
+> > eric.auger@redhat.com; yuzenghui <yuzenghui@huawei.com>; Wangzhou
+> > (B) <wangzhou1@hisilicon.com>; jiangkunkun <jiangkunkun@huawei.com>;
+> > Jonathan Cameron <jonathan.cameron@huawei.com>; Anthony Jebson
+> > <anthony.jebson@huawei.com>; linux-arm-kernel@lists.infradead.org;
+> > Linuxarm <linuxarm@huawei.com>
+> > Subject: Re: [PATCH v3 3/3] arm64: paravirt: Enable errata based on
+> > implementation CPUs
+> > 
+> > On Mon, Dec 09 2024, Shameer Kolothum
+> > <shameerali.kolothum.thodi@huawei.com> wrote:
+> > 
+> > > Retrieve any migration target implementation CPUs using the hypercall
+> > > and enable associated errata.
+> > >
+> > > Signed-off-by: Shameer Kolothum
+> > <shameerali.kolothum.thodi@huawei.com>
+> > > ---
+> > > Note:
+> > >
+> > > One thing I am not sure here is how to handle the hypercall error.
+> > > Do we need to fail the Guest boot or just carry on without any
+> > > target implementation CPU support? At the moment it just carries on.
+> > >
+> > > Thanks,
+> > > Shameer
+> > > ---
+> > >  arch/arm64/include/asm/cputype.h  | 25 +++++++++++++++++++++++--
+> > >  arch/arm64/include/asm/paravirt.h |  3 +++
+> > >  arch/arm64/kernel/cpu_errata.c    | 20 +++++++++++++++++---
+> > >  arch/arm64/kernel/cpufeature.c    |  2 ++
+> > >  arch/arm64/kernel/image-vars.h    |  2 ++
+> > >  arch/arm64/kernel/paravirt.c      | 31
+> > +++++++++++++++++++++++++++++++
+> > >  6 files changed, 78 insertions(+), 5 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/cputype.h
+> > b/arch/arm64/include/asm/cputype.h
+> > > index dcf0e1ce892d..9e466f3ae9c6 100644
+> > > --- a/arch/arm64/include/asm/cputype.h
+> > > +++ b/arch/arm64/include/asm/cputype.h
+> > > @@ -265,6 +265,16 @@ struct midr_range {
+> > >  #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
+> > >  #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
+> > >
+> > > +#define MAX_TARGET_IMPL_CPUS 64
+> > > +
+> > > +struct target_impl_cpu {
+> > > +	u32 midr;
+> > > +	u32 revidr;
+> > > +};
+> > 
+> > Doesn't this need to be u64 for both (even if the upper bits for
+> > MIDR_EL1 are reserved?)
 > 
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> Yes, both are u64 as per specification with upper bits reserved. And the 
+> external hypercall interface has uint64.
 > 
-> ---
-> Changes in v2:
->  - modify subject
->  - add comments for AXI_FILTER version
->  - type -> filter_ver
-> ---
->  drivers/perf/fsl_imx9_ddr_perf.c | 33 ++++++++++++++++++++++++--------
->  1 file changed, 25 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
-> index 3c856d9a4e97..e2c2c674b6d2 100644
-> --- a/drivers/perf/fsl_imx9_ddr_perf.c
-> +++ b/drivers/perf/fsl_imx9_ddr_perf.c
-> @@ -63,8 +63,21 @@
->  
->  static DEFINE_IDA(ddr_ida);
->  
-> +/*
-> + * V1 support 1 read transaction, 1 write transaction and 1 read beats
-> + * event which corresponding respecitively to counter 2, 3 and 4.
-> + */
-> +#define DDR_PERF_AXI_FILTER_V1		0x1
-> +
-> +/*
-> + * V2 support 1 read beats and 3 write beats events which corresponding
-> + * respecitively to counter 2-5.
-> + */
-> +#define DDR_PERF_AXI_FILTER_V2		0x2
-> +
->  struct imx_ddr_devtype_data {
->  	const char *identifier;		/* system PMU identifier for userspace */
-> +	unsigned int filter_ver;	/* AXI filter version */
->  };
->  
->  struct ddr_pmu {
-> @@ -83,24 +96,27 @@ struct ddr_pmu {
->  
->  static const struct imx_ddr_devtype_data imx91_devtype_data = {
->  	.identifier = "imx91",
-> +	.filter_ver = DDR_PERF_AXI_FILTER_V1
->  };
+> But in kernel, AFAICS, at present all the _midr_range_() functions expect u32.
+> So not sure we gain much now by changing to u64.
 
-[...]
+For MIDR_EL1, I don't think that's a problem as long as we make sure
+this is a kernel-private representation, and that it doesn't leak to
+userspace or the PV interface.
 
-> -static inline bool is_imx93(struct ddr_pmu *pmu)
-> +static inline bool axi_filter_v1(struct ddr_pmu *pmu)
->  {
-> -	return pmu->devtype_data == &imx93_devtype_data;
-> +	return pmu->devtype_data->filter_ver == DDR_PERF_AXI_FILTER_V1;
->  }
+For REVIDR_EL1, it *is* a problem, as the whole register is IMPDEF,
+and an implementation could legitimately use the top bits.
 
-[...]
+So at this stage, it probably makes sense to keep both as 64bit
+values.
 
-> @@ -624,11 +641,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
->  	hwc->idx = counter;
->  	hwc->state |= PERF_HES_STOPPED;
->  
-> -	if (is_imx93(pmu))
-> +	if (axi_filter_v1(pmu))
->  		/* read trans, write trans, read beat */
->  		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
+Thanks,
 
-Hmm, doesn't this change mean we now enable this for imx91 as well? My
-reading of the commit message is that imx93 was the first chip which
-supports this.
+	M.
 
-Will
+-- 
+Without deviation from the norm, progress is not possible.
 
