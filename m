@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EE8E77181
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EEC9E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=asmkcQ/wm3Cy/mGLGCDAAH8u4aCdWeg/YQWDuNgYpK8=; b=TDbDQPkfHTk/vktfyY6ydP9PBM
-	s+thjSKddApt3giTpse2g5bmXrAYAEA72NbnT3FIInZZRoK8v2iGUPBQI0NOJHrxLYvBOkDMVkhec
-	yNTiH5iZQLiP3cnNPJv+vOHGL2wVELgUhPv+M/RrOFHguXDuoCj56kYbDBUgz10KO/er03tF+ZLLX
-	ko5Byu8vwVe/hgbkMlzsq7f4HMuSW9Oxy1MPHmuk4PqG9xozX85JxdJI2JSpW2bCQ00VcRrMXRGrJ
-	T6cu4joeWfYyguuwIMIyUHh5/nUsEpFwpgDIYVJG++a3mH1H8e+EXSvYTXL9oA6Jat08cuFjxozWL
-	iovQbB1A==;
+	bh=Tfyu6wXuSKh6w1EJsUmgewMNXyX7PpOXLCmp7G5BtTg=; b=bKYk7udJ/ohbZ6vzXbMmyzKJ2d
+	GdSut1NgkzT05bfyYukCwKzIgibiplA5Kw/CWyJr4ffcOhr6Px5WChciQ67YidXROmKC4e9Pyng+a
+	mr07PDLxDlAljF5imyPhqcRtjqtDS7gudyVoIM3U2EMMIY0JpAKPyi2HK8hngC5cV6sf2NvQqkaky
+	tUfPTelVsYMaxEHSLPlbOMhcKLSmpv0B4dcD8QuiyLtq6UK5AliCcdWZa4rCYe5alId11Kc4TN8KR
+	b3DnHtaO/wtaNJsNFYP2kpSxsaFgfdHLFSJf17uHAQ+0dRNxtcDVXY6F/F+XPS+smt6CElLxwr2FT
+	lKWdDqhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdmd-00000007yeH-3eiB;
-	Mon, 09 Dec 2024 13:26:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tKdnf-00000007yyH-0oPd;
+	Mon, 09 Dec 2024 13:27:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdeZ-00000007w7z-2HGe
+	id 1tKdgy-00000007wqp-2PKw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 13:18:24 +0000
+	Mon, 09 Dec 2024 13:20:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EC15E5C5BBB
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Dec 2024 13:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3898AC4CEE0
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Dec 2024 13:18:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5E6375C5A56;
+	Mon,  9 Dec 2024 13:20:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D6DC4CED1;
+	Mon,  9 Dec 2024 13:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733750302;
-	bh=IKpdyTxaL6MHQtXFHVt4rKA2u0Wimp9puiY3v89GaLE=;
-	h=References:In-Reply-To:From:Date:Subject:Cc:From;
-	b=b0MC7bdicccUdWj4HvtRFAm3v5BODcJAsqXp0HjMaRSaCz+m+lqx0XGgwCLyMmZYx
-	 3PCIMg6FrdiyHC8agM3Hy62Z3813iP5O1Cd2d5F7BAgjIHyP17HBrPRNAN5xHM7QKp
-	 hk+1lIbY6V3fPwotjtUj45r8aZBZ0p47kl1M/AARpk+qrHyon4SmFoPLKx9yXNmh3Z
-	 8yuDqp/zV3o/2BHH1DrD92IbgObnTWjxzq+EW67ZTJDbCWSgcLC9wIGXXF2RpH5VXF
-	 sUeBETRieXkd0JMj121y64BUa7/Zzap4Yc62kzzeMroJ1gEden+8AdYsq7aBEKokFG
-	 pjP3TPVrdKuZA==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3022c6155edso2747581fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 05:18:22 -0800 (PST)
-X-Gm-Message-State: AOJu0YwzJcZkFB0G8Pk4GXRhXFKW3TTTL3xZ4Fz+6U+seIr4TCbR38/s
-	Fa13AECca9amwxbL+9gl60BwRWhEJSHvYSCZNTA+cjCu8jJo/hjgbyGB4wfGjK3I7+IdTgPBkZG
-	/qf06k2NChu9dDxrOp4edQ2OMFwA=
-X-Received: by 2002:a05:651c:19a9:b0:300:33b1:f0e2 with SMTP id
- 38308e7fff4ca-3022fb3859emt1236341fa.3.1733750300533; Mon, 09 Dec 2024
- 05:18:20 -0800 (PST)
-MIME-Version: 1.0
-References: <20241205150229.3510177-8-ardb+git@google.com> <20241205150229.3510177-9-ardb+git@google.com>
-In-Reply-To: <20241205150229.3510177-9-ardb+git@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 9 Dec 2024 14:18:09 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFUVS_TdQb_Q_ta1BfSMUnAtB7zJpxDDtkFX6Q3tiUtcA@mail.gmail.com>
-Message-ID: <CAMj1kXFUVS_TdQb_Q_ta1BfSMUnAtB7zJpxDDtkFX6Q3tiUtcA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] arm64/mm: Reduce PA space to 48 bits when LPA2 is
- not enabled
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <keescook@chromium.org>, 
-	Quentin Perret <qperret@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	s=k20201202; t=1733750451;
+	bh=91tdhSY7xM7mkdFNUOpCJP2TVV2YyVS7eJKHp6LgdVY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X9Jhrp0f/U9Zt4EqZsbLXtwc1fYdoNN+sQ/pIn2vTEWARLbUNcUlxAuRqGcvUL2XP
+	 C/6mJyNo4qice1d83XIe+ULkiAj9cArmIcD7uqSwvZ0tExWyaFX1a2PkSDrmFlzUq8
+	 X3aSbZKnYMc+1kkWjF6D9A6hYTq9dQhMrzS9DSHEaQ9CTvSuL9Y3Q7uxjGmVBrbcJI
+	 +kVZqZZ6TA3pvomd2pOpRf6g/WZIuHHItU6IidxDH62OxWIwej63OG+r+8qspUyAws
+	 j1bOVRYQs0ds3la5g30oOU6cFl7KASxCNQ1m3LYL9y8wjKGxUqaYiCPxIN4gYnQZS0
+	 Mftf8hD3jeA8g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tKdgu-001svY-RL;
+	Mon, 09 Dec 2024 13:20:49 +0000
+Date: Mon, 09 Dec 2024 13:20:48 +0000
+Message-ID: <865xntt2kv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+	<867c89tc4q.wl-maz@kernel.org>
+	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_051823_673048_C72764D4 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20241209_052052_698290_CD85B182 
+X-CRM114-Status: GOOD (  62.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,107 +97,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 5 Dec 2024 at 16:03, Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Currently, LPA2 kernel support implies support for up to 52 bits of
-> physical addressing, and this is reflected in global definitions such as
-> PHYS_MASK_SHIFT and MAX_PHYSMEM_BITS.
->
-> This is potentially problematic, given that LPA2 hardware support is
-> modeled as a CPU feature which can be overridden, and with LPA2 hardware
-> support turned off, attempting to map physical regions with address bits
-> [51:48] set (which may exist on LPA2 capable systems booting with
-> arm64.nolva) will result in corrupted mappings with a truncated output
-> address and bogus shareability attributes.
->
-> This means that the accepted physical address range in the mapping
-> routines should be at most 48 bits wide when LPA2 support is configured
-> but not enabled at runtime.
->
-> Fixes: 352b0395b505 ("arm64: Enable 52-bit virtual addressing for 4k and 16k granule configs")
-> Cc: <stable@vger.kernel.org>
-> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/include/asm/pgtable-hwdef.h | 6 ------
->  arch/arm64/include/asm/pgtable-prot.h  | 7 +++++++
->  arch/arm64/include/asm/sparsemem.h     | 4 +++-
->  3 files changed, 10 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-> index c78a988cca93..a9136cc551cc 100644
-> --- a/arch/arm64/include/asm/pgtable-hwdef.h
-> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
-> @@ -222,12 +222,6 @@
->   */
->  #define S1_TABLE_AP            (_AT(pmdval_t, 3) << 61)
->
-> -/*
-> - * Highest possible physical address supported.
-> - */
-> -#define PHYS_MASK_SHIFT                (CONFIG_ARM64_PA_BITS)
-> -#define PHYS_MASK              ((UL(1) << PHYS_MASK_SHIFT) - 1)
-> -
->  #define TTBR_CNP_BIT           (UL(1) << 0)
->
->  /*
-> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-> index 9f9cf13bbd95..a95f1f77bb39 100644
-> --- a/arch/arm64/include/asm/pgtable-prot.h
-> +++ b/arch/arm64/include/asm/pgtable-prot.h
-> @@ -81,6 +81,7 @@ extern unsigned long prot_ns_shared;
->  #define lpa2_is_enabled()      false
->  #define PTE_MAYBE_SHARED       PTE_SHARED
->  #define PMD_MAYBE_SHARED       PMD_SECT_S
-> +#define PHYS_MASK_SHIFT                (CONFIG_ARM64_PA_BITS)
->  #else
->  static inline bool __pure lpa2_is_enabled(void)
->  {
-> @@ -89,8 +90,14 @@ static inline bool __pure lpa2_is_enabled(void)
->
->  #define PTE_MAYBE_SHARED       (lpa2_is_enabled() ? 0 : PTE_SHARED)
->  #define PMD_MAYBE_SHARED       (lpa2_is_enabled() ? 0 : PMD_SECT_S)
-> +#define PHYS_MASK_SHIFT                (lpa2_is_enabled() ? CONFIG_ARM64_PA_BITS : 48)
->  #endif
->
-> +/*
-> + * Highest possible physical address supported.
-> + */
-> +#define PHYS_MASK              ((UL(1) << PHYS_MASK_SHIFT) - 1)
-> +
->  /*
->   * If we have userspace only BTI we don't want to mark kernel pages
->   * guarded even if the system does support BTI.
-> diff --git a/arch/arm64/include/asm/sparsemem.h b/arch/arm64/include/asm/sparsemem.h
-> index 8a8acc220371..035e0ca74e88 100644
-> --- a/arch/arm64/include/asm/sparsemem.h
-> +++ b/arch/arm64/include/asm/sparsemem.h
-> @@ -5,7 +5,9 @@
->  #ifndef __ASM_SPARSEMEM_H
->  #define __ASM_SPARSEMEM_H
->
-> -#define MAX_PHYSMEM_BITS       CONFIG_ARM64_PA_BITS
-> +#include <asm/pgtable-prot.h>
-> +
-> +#define MAX_PHYSMEM_BITS       PHYS_MASK_SHIFT
->
+On Mon, 09 Dec 2024 12:25:34 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> >>
+> >> During automated testing of Nested Virtualization using avocado-vt,
+> >=20
+> > Which is not merged upstream. So what branch are you using? Based on
+> > what kernel version? On what HW? With which virtualisation features?
+> >=20
+>=20
+> Testing is done on Ampere's AmpereOne platform using 6.10 based kernel
+> with NV patches from your repo.
 
-This needs
+Grmbl... *Which* patches? At least give me the SHA1 of the branch,
+because I have no idea what you are running. And 6.10 is definitely
+not something I care about. If you're using the NV patches, the
+*minimum* you should run is 6.13-rc1, because that's what the current
+code is based on.
 
---- a/arch/arm64/include/asm/sparsemem.h
-+++ b/arch/arm64/include/asm/sparsemem.h
-@@ -7,7 +7,8 @@
+Also, does this machine have FEAT_ECV?
 
- #include <asm/pgtable-prot.h>
+>=20
+> >> it has been observed that during some boot test iterations,
+> >> the Guest-Hypervisor boot was getting crashed with a
+> >> synchronous exception while it is still booting EDK2.
+> >>=20
+> >> The test is launching Multiple instances of Guest-Hypervisor boot
+> >=20
+> > Is the multiple instance aspect really relevant to the reproduction of
+> > the problem?
+>=20
+> Not really, but it requires multiple attempts/iterations to hit the
+> issue. Even with automated test, it was seen at some iteration out of
+> 10 to 15 iterations.
+>=20
+> >=20
+> >> and while booting, QEMU monitor issued the command "info register"
+> >> at regular intervals to take a register dump. To execute this
+> >> command, QEMU stops the run and does the register read of various
+> >> registers. While resuming the run, the function kvm_arm_timer_write()
+> >> writes back the saved CNTV_CTL_EL0 register with ISTATUS cleared always
+> >=20
+> > It is userspace that causes this write-back, right? AFAICT, KVM never
+> > does that on its own.
+> >=20
+> >> and resulting in the loss of pending interrupt for emulated timers.
+> >=20
+> > How does a missing interrupt result in a synchronous exception in
+> > EDK2? In my experience, EDK2 panics if it sees spurious interrupts,
+> > not when it is missing interrupts (it just locks up, which is
+> > expected).
+>=20
+> Not sure, why it is hitting exception, rather than hang at EDK2.
+> However, EDK2 timer handler code is ignoring the interrupt since
+> ISTATUS is not set and not moving CVAL forward.
 
--#define MAX_PHYSMEM_BITS       PHYS_MASK_SHIFT
-+#define MAX_PHYSMEM_BITS               PHYS_MASK_SHIFT
-+#define MAX_POSSIBLE_PHYSMEM_BITS      (52)
+How is EDK2 getting this exception? Is this injected by KVM? Or is
+that some EDK2 bug?
 
- /*
-  * Section size must be at least 512MB for 64K base
+>=20
+> >=20
+> >> In hardware based timers, ISTATUS is a RO/WI bit and gets set by the
+> >> h/w, if the condition is still met. However, in Nested-Virtualization
+> >> case, the Guest-Hypervisor's=C2=A0EDK2 is using an emulated virtual ti=
+mer
+> >> and losing ISTATUS state and the interrupt forever.
+> >=20
+> > Why is this specific to NV? Can't the same thing happen to the
+> > physical timer in a non-VHE configuration?
+> >=20
+>=20
+> You mean, emulated v-timer in non-VHE boot?
 
-applied on top to make the ZSMALLOC code happy.
+Emulated *physical* timer.
+
+> It might impact non-VHE case as well, not tried though.
+
+Can you please try?
+
+[...]
+
+> > But overall, this very much looks like it is only papering over the
+> > real issue, which is that the *emulation* should regenerate the
+> > pending bit, and not rely on the userspace interface.
+> >=20
+> > As far as I can tell, we already correctly compute the status bit on
+> > read (read_timer_ctl()), so the guest should always observe something
+> > consistent when it traps. We also *never* use the status bit as an
+> > input to the emulation, and always recompute it from scratch (it is
+> > only there for the benefit of the guest or userspace).
+> >=20
+>=20
+> For emulated timers, we are not asserting again by calling
+> kvm_timer_update_irq in timer_emulate() until the level is down and
+> ready for trigger again. This was done to fix high rate of spurious
+> interrupts getting generated to V-Timer. Hence we are not able to
+> recover, if once ISTATUS is lost.
+
+Again, a trapping read should see the correct value, since we populate
+that bit at read time.
+
+> > So I can't see how upstream is broken in at the moment, and you need
+> > to explain how this actually triggers. Ideally, with a standalone
+> > reproducer or a selftest.
+>=20
+> We could reproduce the issue with the simple test/script.
+> On one shell, launch L1 using qemu with add-on option
+>=20
+> "-monitor unix:gh_monitor,server,nowait
+>=20
+> On another shell, while L1 boots and still in UEFI, run repeatedly the
+> command (or put in a while 1 loop script)
+>=20
+> "echo "info registers" | socat - unix-connect:gh_monitor >
+> /tmp/info_registers"
+>=20
+> With above steps we were able to hit the issue within few attempts.
+
+That's not a standalone reproducer. QEMU doesn't support NV, and
+kvmtool doesn't have this sort of interface. I was asking for a bit of
+C code that I could run directly, not something that requires me to
+drag even more experimental code.
+
+So here's my current guess, since you don't give me the needed
+information. For what you describe to happen, I can only see two
+possibilities:
+
+- either your HW doesn't have FEAT_ECV, in which case the guest
+  directly reads from memory
+
+- or you are running with something like this patch [1], and we serve
+  the guest by reading from memory very early, without returning to
+  the bulk of the emulation code
+
+In either case, we only publish the updated status if the current IRQ
+state is different from the computed output of the timer while
+performing the emulation.
+
+So if you were writing back a status bit set to 0 while the interrupt
+was already pending, we'd deliver an interrupt, but not recompute the
+status. The guest would consider the interrupt as spurious, not touch
+the timer, and we'd never make forward progress. Rinse, repeat.
+
+Assuming I got the analysis right, it would only be a matter of
+hoisting the publication of the status into timer_emulate(), so that
+it is made up to date on load.
+
+Please give the fixup below a go.
+
+	M.
+
+[1] https://lore.kernel.org/all/20241202172134.384923-6-maz@kernel.org/
+
+=46rom 2bbd6f9b41a20ad573376c20c158ff3c12db5009 Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Mon, 9 Dec 2024 10:58:08 +0000
+Subject: [PATCH] fixup! KVM: arm64: nv: Publish emulated timer interrupt st=
+ate
+ in the in-memory state
+
+---
+ arch/arm64/kvm/arch_timer.c | 32 +++++++++++++-------------------
+ 1 file changed, 13 insertions(+), 19 deletions(-)
+
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 895f09658ef83..91bda986c344b 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -432,25 +432,6 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu=
+, bool new_level,
+ {
+ 	int ret;
+=20
+-	/*
+-	 * Paper over NV2 brokenness by publishing the interrupt status
+-	 * bit. This still results in a poor quality of emulation (guest
+-	 * writes will have no effect until the next exit).
+-	 *
+-	 * But hey, it's fast, right?
+-	 */
+-	if (is_hyp_ctxt(vcpu) &&
+-	    (timer_ctx =3D=3D vcpu_vtimer(vcpu) || timer_ctx =3D=3D vcpu_ptimer(v=
+cpu))) {
+-		u32 ctl =3D timer_get_ctl(timer_ctx);
+-
+-		if (new_level)
+-			ctl |=3D ARCH_TIMER_CTRL_IT_STAT;
+-		else
+-			ctl &=3D ~ARCH_TIMER_CTRL_IT_STAT;
+-
+-		timer_set_ctl(timer_ctx, ctl);
+-	}
+-
+ 	timer_ctx->irq.level =3D new_level;
+ 	trace_kvm_timer_update_irq(vcpu->vcpu_id, timer_irq(timer_ctx),
+ 				   timer_ctx->irq.level);
+@@ -471,6 +452,19 @@ static void timer_emulate(struct arch_timer_context *c=
+tx)
+=20
+ 	trace_kvm_timer_emulate(ctx, should_fire);
+=20
++	/*
++	 * Paper over NV2 brokenness by publishing the interrupt status
++	 * bit. This still results in a poor quality of emulation (guest
++	 * writes will have no effect until the next exit).
++	 *
++	 * But hey, it's fast, right?
++	 */
++	if (is_hyp_ctxt(ctx->vcpu)) {
++		unsigned long val =3D timer_get_ctl(ctx);
++		__assign_bit(__ffs(ARCH_TIMER_CTRL_IT_STAT), &val, should_fire);
++		timer_set_ctl(ctx, val);
++	}
++
+ 	if (should_fire !=3D ctx->irq.level) {
+ 		kvm_timer_update_irq(ctx->vcpu, should_fire, ctx);
+ 		return;
+--=20
+2.39.2
+
+
+--=20
+Without deviation from the norm, progress is not possible.
 
