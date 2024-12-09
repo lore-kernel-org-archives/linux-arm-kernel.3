@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37137E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 16:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37B8E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 16:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SeT74qi39R67oGVYf/LuYuHg5gBTOzBb55wVwF13RH4=; b=GNPZlriQSRZ7/uf9gp/b7WRzA+
-	ud/cfwoxyS982HgODov5JRykC0KZGgsWZfOJWIzrOmmLoEQFukNycDO7Z3nksCIbD6ISfsAP0QAHt
-	nsWMOsN/Q2PtzoHz9SBdHkrXP6tdE6HHilQF/gHloKMFwOQbrcxJrsuYzsC5jABrGgAQPap419Rx0
-	FmL4dmY0DnEeV7fXT2O/z6kxBkX7fWBldVrMskyL8K+fmSQ+xUBgg8+3C2jLS23+Zm0I9sElXKBfm
-	s5hp7RWiG3kxcC4YAg/nFvgp47MJzIUfkPz+SdaC53nWmfC1vBeBI1eFG1VqHTd0F5HXZgmURWs2g
-	ilyJNonw==;
+	bh=SIEdj43BhgzaBILC0jHKlUDE1+HkZL900J5jKnUjVgc=; b=K5YXTMMm8vRMOtk8uDW2tJMpnB
+	nvV3LfI+1/gh0LL6pGthv6WaPaeBNcXYa16MkC9IhZYcq1BaSWI8pPXN1ujSP1rv269ym6KRLGWvw
+	xpy/eQ9uVCkvLlkrRK1fRs3aCZ6fg9r1kDHqdSG7N6he0Z+15q7lR2KdJF98f2nFJy/fdmExQcqS0
+	i/9rfAjr9uwqEFs/zJBPNWaYmJyR5EWJEkZkYJNb0rCOwSItgBWgijtH1h7wG0OFB+KCaunTe3DNl
+	UVict9H2YfXISDcia6AN+n5ufibYB5sBQabgXQDtlkbbSkZE4+HM14RNrxcRQnD+xWG90PX/uaVck
+	aev6u6jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKh0o-00000008c1p-36sX;
-	Mon, 09 Dec 2024 16:53:34 +0000
+	id 1tKh1o-00000008cBg-2WGA;
+	Mon, 09 Dec 2024 16:54:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKgxp-00000008baM-3cTk
+	id 1tKgxq-00000008baa-2KVg
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 09 Dec 2024 16:50:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E4D6168F;
-	Mon,  9 Dec 2024 08:50:55 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A07E175D;
+	Mon,  9 Dec 2024 08:50:58 -0800 (PST)
 Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AF623F720;
-	Mon,  9 Dec 2024 08:50:24 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 965393F720;
+	Mon,  9 Dec 2024 08:50:27 -0800 (PST)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -47,19 +47,18 @@ Cc: sudeep.holla@arm.com,
 	quic_sibis@quicinc.com,
 	dan.carpenter@linaro.org,
 	johan+linaro@kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v2 2/3] firmware: arm_scmi: Add module aliases to i.MX vendor protocols
-Date: Mon,  9 Dec 2024 16:49:56 +0000
-Message-ID: <20241209164957.1801886-3-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v2 3/3] firmware: arm_scmi: Add aliases to transport modules
+Date: Mon,  9 Dec 2024 16:49:57 +0000
+Message-ID: <20241209164957.1801886-4-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241209164957.1801886-1-cristian.marussi@arm.com>
 References: <20241209164957.1801886-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_085030_037726_C7412447 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20241209_085030_630114_765E6D81 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,75 +74,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using the pattern 'scmi-protocol-0x<PROTO_ID>-<VEND_ID>' as MODULE_ALIAS
-allows the SCMI core to autoload this protocol, if built as a module, when
-its protocol operations are requested by an SCMI driver.
+SCMI transports when built as loadable modules should be loaded by the
+subsystem they plug into, based on the related subsystem specific aliases.
 
-Cc: Peng Fan <peng.fan@nxp.com>
-Acked-by: Peng Fan <peng.fan@nxp.com>
+Add, where missing, the MODULE_DEVICE_TABLE() directives needed to generate
+the aliases required to enable autoloading for SCMI transports.
+
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c  | 5 +++--
- drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c | 5 +++--
- include/linux/scmi_imx_protocol.h                   | 9 +++++----
- 3 files changed, 11 insertions(+), 8 deletions(-)
+ drivers/firmware/arm_scmi/transports/mailbox.c | 1 +
+ drivers/firmware/arm_scmi/transports/smc.c     | 1 +
+ drivers/firmware/arm_scmi/transports/virtio.c  | 1 +
+ 3 files changed, 3 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-index 17799eacf06c..aa176c1a5eef 100644
---- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-+++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-@@ -374,10 +374,11 @@ static const struct scmi_protocol scmi_imx_bbm = {
- 	.ops = &scmi_imx_bbm_proto_ops,
- 	.events = &scmi_imx_bbm_protocol_events,
- 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
--	.vendor_id = "NXP",
--	.sub_vendor_id = "IMX",
-+	.vendor_id = SCMI_IMX_VENDOR,
-+	.sub_vendor_id = SCMI_IMX_SUBVENDOR,
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index b66df2981456..bd041c99b92b 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -378,6 +378,7 @@ static const struct of_device_id scmi_of_match[] = {
+ 	{ .compatible = "arm,scmi" },
+ 	{ /* Sentinel */ },
  };
- module_scmi_protocol(scmi_imx_bbm);
++MODULE_DEVICE_TABLE(of, scmi_of_match);
  
-+MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_IMX_BBM) "-" SCMI_IMX_VENDOR);
- MODULE_DESCRIPTION("i.MX SCMI BBM driver");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-index a86ab9b35953..83b69fc4fba5 100644
---- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-+++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-@@ -309,10 +309,11 @@ static const struct scmi_protocol scmi_imx_misc = {
- 	.ops = &scmi_imx_misc_proto_ops,
- 	.events = &scmi_imx_misc_protocol_events,
- 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
--	.vendor_id = "NXP",
--	.sub_vendor_id = "IMX",
-+	.vendor_id = SCMI_IMX_VENDOR,
-+	.sub_vendor_id = SCMI_IMX_SUBVENDOR,
+ DEFINE_SCMI_TRANSPORT_DRIVER(scmi_mailbox, scmi_mailbox_driver,
+ 			     scmi_mailbox_desc, scmi_of_match, core);
+diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
+index f632a62cfb3e..21abb571e4f2 100644
+--- a/drivers/firmware/arm_scmi/transports/smc.c
++++ b/drivers/firmware/arm_scmi/transports/smc.c
+@@ -301,6 +301,7 @@ static const struct of_device_id scmi_of_match[] = {
+ 	{ .compatible = "qcom,scmi-smc" },
+ 	{ /* Sentinel */ },
  };
- module_scmi_protocol(scmi_imx_misc);
++MODULE_DEVICE_TABLE(of, scmi_of_match);
  
-+MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_IMX_MISC) "-" SCMI_IMX_VENDOR);
- MODULE_DESCRIPTION("i.MX SCMI MISC driver");
- MODULE_LICENSE("GPL");
-diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
-index 066216f1357a..53b356a26414 100644
---- a/include/linux/scmi_imx_protocol.h
-+++ b/include/linux/scmi_imx_protocol.h
-@@ -13,10 +13,11 @@
- #include <linux/notifier.h>
- #include <linux/types.h>
+ DEFINE_SCMI_TRANSPORT_DRIVER(scmi_smc, scmi_smc_driver, scmi_smc_desc,
+ 			     scmi_of_match, core);
+diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
+index 41aea33776a9..cb934db9b2b4 100644
+--- a/drivers/firmware/arm_scmi/transports/virtio.c
++++ b/drivers/firmware/arm_scmi/transports/virtio.c
+@@ -921,6 +921,7 @@ static const struct virtio_device_id id_table[] = {
+ 	{ VIRTIO_ID_SCMI, VIRTIO_DEV_ANY_ID },
+ 	{ 0 }
+ };
++MODULE_DEVICE_TABLE(virtio, id_table);
  
--enum scmi_nxp_protocol {
--	SCMI_PROTOCOL_IMX_BBM = 0x81,
--	SCMI_PROTOCOL_IMX_MISC = 0x84,
--};
-+#define	SCMI_PROTOCOL_IMX_BBM	0x81
-+#define	SCMI_PROTOCOL_IMX_MISC	0x84
-+
-+#define SCMI_IMX_VENDOR		"NXP"
-+#define SCMI_IMX_SUBVENDOR	"IMX"
- 
- struct scmi_imx_bbm_proto_ops {
- 	int (*rtc_time_set)(const struct scmi_protocol_handle *ph, u32 id,
+ static struct virtio_driver virtio_scmi_driver = {
+ 	.driver.name = "scmi-virtio",
 -- 
 2.47.0
 
