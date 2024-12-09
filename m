@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CC8E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 19:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C3E4E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 19:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IuSpj/HsYjKUq+UsFvNv/TltZ5XFd6qk5tdowlJF1TM=; b=CuzYP/M4MZnutBRtRjB3de8xpF
-	j5ZFySfTkJhIshI5Oc3oOh4AXI2MN2XmQxAblwONWsHksu20OkbOZRs5DAm94cJUDD+rKrkCm+PGG
-	QvEoy/9GOpXswrsrvccRtq5gQgDy3d8DYazNuA/0EC+MWLXEO+nKuMq2w64vzNLht+Nt4KME2ZZ1q
-	oeViHuFiszVq6P7+f+AqgKHTXBcowjiLOvnz697QmLmkYuY7d2aL6VfUOlW0EJqhdawC887sAJiHP
-	Q5P5dE6C2M8zuGbXuEow4zy57YXrlBP0B9piqS9oxPAH1uUcFqifkYfwzefoub8RVkZ9lgiLHWdxT
-	fd93uL7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+C0wemJB3C/lSef0G0hoH7hA8RcjUdCGQTP82Vb41a4=; b=OTjD+BdrFdWhIoys8Bl9pVkP4+
+	bYDN+XgSI9n23jpSvpLBHhNYBd0Syju8vWTn3bjSKXZ0900wWuGZKUAboydKJIXPnoSJN4gJRLxMs
+	H+0Gi2W6BPr86rHxoSFVHnGND1CeKlo+I/jiuuMHWomT6q7hF//9zwPe03mjdmy+UYa70RKARRiX1
+	vdOQfmEhqbB4eoe4DU4in1tzzdVi7jzzzTSHYhQM0q4T9142Jq0UE0vbY8PHU1YkO/LxRfa1IIR4r
+	ZuwrgK5IvozEWuoX6aSXqPsY0N7jkrtOo/LUZmwiVsukstzq3bKa9qczyh/nsN0GjWuVaUvjWL+C6
+	o+gMH1Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKjTs-00000009401-3Jg4;
-	Mon, 09 Dec 2024 19:31:44 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tKja8-000000094hp-3ht7;
+	Mon, 09 Dec 2024 19:38:12 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKjR5-000000093HH-1Uk7
+	id 1tKjZ5-000000094ZF-2Y6q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 19:28:52 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-434f1e5e77dso1326865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 11:28:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733772529; x=1734377329; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IuSpj/HsYjKUq+UsFvNv/TltZ5XFd6qk5tdowlJF1TM=;
-        b=LYgy6vqwEElQCiCmpuhxshivr5cwJFKeM+qeDIS0LfG9nQi43E0vZg0fJZpDCNKxPZ
-         RP1QwjrDsuGNKepEAZH25fcKiFzfjpcpjlF3TKn6lzQ66vxtO32IWdIB8oNf2+JsijJn
-         SnqaAYKB1m6EBNcv8Wk1+4kCiMuNe/+GwCnjko7wVFAhzhzg+2ADGEtoUMoQML51ssWI
-         uiYq04n1fnEOVBR6dARuuQaItRnO4LRs10siRy9CWreIL29vewTQb8JFetAH0NSpMcME
-         baHZx4iuUO2XyHIBdctXzkfui2B/tG5UhGNvQXTHtJmutbFdjUOtN8KEhIeDjx+4BXhU
-         YpXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733772529; x=1734377329;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IuSpj/HsYjKUq+UsFvNv/TltZ5XFd6qk5tdowlJF1TM=;
-        b=sGX0ms3wRMAcw2/bczgqxah4csdZmEzqFhapWaZhPzw5q5W7HJVaUeWDMFeP4zlQr2
-         c2miLTq+tEv4habnGHOwnHyn/YxqHN6GHHXjSmZZcKFOfrus9OhW1DmaGYHf/T+8HFOr
-         z9Tf1YZ3ezpe4dd5dHfH/4G6tFGdttIlNNMLVhYPMdckBL68KuxhWXkQEKDR6Qpeq9+G
-         zjW6KXxiOunZF2LNh/TRKbbtZFR2HG0qOyPSj0HF0k7sXNK8LNwwGecePpfBG+e8SQZ6
-         GkyCfBpScV4EQjkqC7Mn7Cg8xcHEnIDnYj195pwqaR7cWk4OCBdX4AU7hwQnqfdahFAl
-         7Z9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUPgNvjR/SP7yeppyqGdq2ycmZxqqgzUtK7TF5b6/DycLR71HHH+iUw+F7XP5CRFS4tAdPPAdurt3WZT1S75+Gg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdxwKU1ltq8PeX23iSfpd/Sr5A8Q5K6H4orsLB79Wt2S5yJ4L6
-	6B6cDGtV0N592sewl2iuxR/4SxswjgD9f6+V44RrUBWEYIaezbUYIwJzQQhoPNY=
-X-Gm-Gg: ASbGncsK9NH5tl3ujwfknQ9hepjlI23QdT8D0SePySpcyZiYapz69DY26dEl03iKw3S
-	fkyQ3Q09PF6CRSLl7JsucxMxm6Mvr7ZBYwjoWKXIfIIbyE8foOD9DV/APHoop2jOgTUaGj5RQQ+
-	VoSaBWhVolUdhXFCk14/51gi3wQUkq5gsxn/XvKER6yxJTXJi8d0FJbt0b1SZzqgmUm8qGy2r+Y
-	i+otKwsK4SegAceeaeaOi86JS/jevWVInGH2s8nSDAY7l3iGcJ21r+jSFBjpdvg
-X-Google-Smtp-Source: AGHT+IHptp/TSN8ArgGPm9cywAb5bVkFu4G3aOR1tLTZhOcuZyzTX0x6rWRDIu6DPFmEx/1jW4oROQ==
-X-Received: by 2002:a05:600c:3502:b0:432:dc5a:b301 with SMTP id 5b1f17b1804b1-435019c8db0mr3209025e9.8.1733772529211;
-        Mon, 09 Dec 2024 11:28:49 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434f13f735csm80686325e9.16.2024.12.09.11.28.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 11:28:48 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	Will McVicker <willmcvicker@google.com>,
-	Roy Luo <royluo@google.com>,
-	kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/5] Google Pixel 6 (oriole): TCPCI enablement & USB updates
-Date: Mon,  9 Dec 2024 20:28:45 +0100
-Message-ID: <173377246177.140612.3507892014297013464.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
-References: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
+	Mon, 09 Dec 2024 19:37:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733773028; x=1765309028;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MReSg/ADihE6zgaGj+frthB/C+MsbysHrihWVPpu0pI=;
+  b=hs6/GhJiC6FMRVMnT9Gud9TFojMjWhLNB+CtQdIiAnsP/MIMISQ7Odhl
+   e8vP7ThzcMcNKWcWU0059vqMIhWdjvi3ZZefJ1gN4Z5YXUqaX9pXRfui/
+   vymb3oK0Z+Tzm2xedDjeD/gewPNbFE1U+ZxDAENkr/+qpb5a3zyBsZzl0
+   N3ybJJHj5vCLocyt4QFTJE7pJ2q+JC4JzA8fIFwmHbOm9B3hkA1HqF6/F
+   U2fk0HCBZmgutBf0PASWzRjAwln2k1q0RGyjqOt2JpMxzKiFVBxKuXnaE
+   MG2sOC+cI6s6/9lj/t1x7SrpHk1hab1JvFepcRhV/0LhAAnpr5ln7Ruq+
+   g==;
+X-CSE-ConnectionGUID: kRD4wIJQQKaBdPL1LyTAJQ==
+X-CSE-MsgGUID: 28WtoQXfRW+GUiT554as+g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11281"; a="44770049"
+X-IronPort-AV: E=Sophos;i="6.12,220,1728975600"; 
+   d="scan'208";a="44770049"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Dec 2024 11:37:02 -0800
+X-CSE-ConnectionGUID: ewzXBMAaRu+nvLnpHzj5Lw==
+X-CSE-MsgGUID: XfCJLZL/SWKU4aZ9z8kW3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,220,1728975600"; 
+   d="scan'208";a="126004877"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 09 Dec 2024 11:36:58 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tKjYt-0004lJ-1X;
+	Mon, 09 Dec 2024 19:36:55 +0000
+Date: Tue, 10 Dec 2024 03:36:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, maz@kernel.org,
+	oliver.upton@linux.dev, christoffer.dall@arm.com,
+	suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com,
+	darren@os.amperecomputing.com, gankulkarni@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If
+ timer expired
+Message-ID: <202412100311.HEYAT0bx-lkp@intel.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_112851_410732_DD91B966 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20241209_113707_688177_5BEB94D3 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,32 +94,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ganapatrao,
 
-On Tue, 03 Dec 2024 12:40:23 +0000, André Draszik wrote:
-> This series adds and enables the Maxim MAX77759 TCPCI for Google Pixel
-> 6 (Oriole).
-> 
-> It relies on the bindings updates proposed as part of
-> https://lore.kernel.org/all/20241203-dtbinding-max77759-v3-1-e1a1d86aca8e@linaro.org/
-> and
-> https://lore.kernel.org/all/20241203-gs101-phy-lanes-orientation-phy-v2-2-40dcf1b7670d@linaro.org/
-> 
-> [...]
+kernel test robot noticed the following build warnings:
 
-Applied, thanks!
+[auto build test WARNING on kvmarm/next]
+[also build test WARNING on arm64/for-next/core soc/for-next linus/master arm/for-next arm/fixes v6.13-rc2 next-20241209]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-[1/5] applied (but b4 lost rack)
-[2/5] arm64: dts: exynos: gs101: phy region for exynos5-usbdrd is larger
-      https://git.kernel.org/krzk/linux/c/527c9640e4f04044afa98f3ce18f8af89ac4a322
-[3/5] arm64: dts: exynos: gs101: allow stable USB phy Vbus detection
-      https://git.kernel.org/krzk/linux/c/95350c0ec27d906cd95375084ce343bc65421e70
+url:    https://github.com/intel-lab-lkp/linux/commits/Ganapatrao-Kulkarni/KVM-arm64-nv-Set-ISTATUS-for-emulated-timers-If-timer-expired/20241209-133651
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
+patch link:    https://lore.kernel.org/r/20241209053201.339939-1-gankulkarni%40os.amperecomputing.com
+patch subject: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20241210/202412100311.HEYAT0bx-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241210/202412100311.HEYAT0bx-lkp@intel.com/reproduce)
 
-!!! NOT applied - waiting for bindings to be picked up:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412100311.HEYAT0bx-lkp@intel.com/
 
-[4/5] arm64: dts: exynos: gs101-oriole: enable Maxim max77759 TCPCi
-[5/5] arm64: dts: exynos: gs101-oriole: add pd-disable and typec-power-opmode
+All warnings (new ones prefixed by >>):
 
-Best regards,
+>> arch/arm64/kvm/arch_timer.c:1202:3: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
+    1202 |                 struct timer_map map;
+         |                 ^
+   1 warning generated.
+
+
+vim +1202 arch/arm64/kvm/arch_timer.c
+
+  1190	
+  1191	static void kvm_arm_timer_write(struct kvm_vcpu *vcpu,
+  1192					struct arch_timer_context *timer,
+  1193					enum kvm_arch_timer_regs treg,
+  1194					u64 val)
+  1195	{
+  1196		switch (treg) {
+  1197		case TIMER_REG_TVAL:
+  1198			timer_set_cval(timer, kvm_phys_timer_read() - timer_get_offset(timer) + (s32)val);
+  1199			break;
+  1200	
+  1201		case TIMER_REG_CTL:
+> 1202			struct timer_map map;
+  1203	
+  1204			val &= ~ARCH_TIMER_CTRL_IT_STAT;
+  1205			get_timer_map(vcpu, &map);
+  1206			/* Set ISTATUS bit for emulated timers, if timer expired. */
+  1207			if (timer == map.emul_vtimer || timer == map.emul_ptimer) {
+  1208				if (!kvm_timer_compute_delta(timer))
+  1209					val |= ARCH_TIMER_CTRL_IT_STAT;
+  1210			}
+  1211			timer_set_ctl(timer, val);
+  1212			break;
+  1213	
+  1214		case TIMER_REG_CVAL:
+  1215			timer_set_cval(timer, val);
+  1216			break;
+  1217	
+  1218		case TIMER_REG_VOFF:
+  1219			*timer->offset.vcpu_offset = val;
+  1220			break;
+  1221	
+  1222		default:
+  1223			BUG();
+  1224		}
+  1225	}
+  1226	
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
