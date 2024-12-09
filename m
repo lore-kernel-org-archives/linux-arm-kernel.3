@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07163E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6794E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 10:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JK+YHbwbzYxN2fA6jQpylORDnONEVEdYkbUHx87yE3E=; b=VyRKvz27eZGSH6Dntu+X7VdQWW
-	2OCZRbB/DfKJebR8zNulxMUCrWJUJvVrpjLRgD3URnVqmi/2CiyaAwWrplOsqHBTdkC2AODvY6Fi9
-	U5obkJU94O3vEswK9GJaG2SoSwtfig20zxxW3D2IYuDNzNnxxKvV0XebGYgFqDxJlIeSJG2Sc7UVA
-	XnrGN1GtZ9mTu/LCx5ZVSVSIv7T2JFpgAaD2dbkHiQA3JpkeiRKv1yX8MuIp+C+V1pdt1Gt8yCGpA
-	q3AJKaNVimNfNIO7ydKGixt6fNOpfsZwY8PXWgjaT73/L4AoSv4kyoz4neDa9Ui5RGeTe9ss3F106
-	912HSf+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j5b/SzXNKy2u89kOS6863gKBjjhCX3NwQcbqPHiM23k=; b=Zm5jYULaxNhvZfI8q1vP1yh/4u
+	kE5oU8YZPUcT5kg9Banw8zXz3pUFzRJrb9FjHgzVRuRjxRUYUGbA2MBXL+rkeXPKhrui7apTaJzX2
+	/56vVWMy5LJnPsKSB5awWJBGdATPE7+mmhlIIPynN1wvUXMqGUn2SvHj83bq7BeGCe0jK4XHvCaPs
+	dds2U8M7ENukBqoeJ2gE9cah2KZ1fi77Q5VST2xkWizoOJchv+ItFvpEdll0MbfstdZmkus5cHTxq
+	mGg9eP4eu0nBxcXc2iBDWtg2L2nbI7gNXbsisofIQxt91Y7Re+2kaMzZhRzfxicV/xxE7t05e/w2X
+	H2dRBaCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKb4V-00000007Irs-1z1y;
-	Mon, 09 Dec 2024 10:32:59 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1tKb5X-00000007JDW-0WOp;
+	Mon, 09 Dec 2024 10:34:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKauH-00000007GeS-20BQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 10:22:26 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-725ed193c9eso583254b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 02:22:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733739744; x=1734344544; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JK+YHbwbzYxN2fA6jQpylORDnONEVEdYkbUHx87yE3E=;
-        b=jBotiQUmACjsmbADGmkowVDYyhoExsx5teSaGPdWo8+tm/EbNoMPmuo1SO1O0uLqlN
-         w7EIwpsMdx+xESIOnYJ57413fO2yUFe+yoaq1ifu6tNsAXZQSV4LxiP1uE9mOJBMx9/O
-         aTYXqFqNl3tn6I5w1ZKjSCpdm/xH0Ulw5FrMLpGOsWEXVNLXfM8dEQt20L+ExEr0u0jh
-         jKVwQtjuaaNrWAWZB1iFP901a98QlbMeMdmjj/kYBPEVoYBKW1KUxpGNqr7LEVoGE4qc
-         IEi8Wgi65KM+fqzT1Vny1sfx9U0nRwQz232/Ze3xmshIz5rQxCS3sPEOmSe60DEImD0F
-         5UnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733739744; x=1734344544;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JK+YHbwbzYxN2fA6jQpylORDnONEVEdYkbUHx87yE3E=;
-        b=lTW+pG/eIDXuLO2Cc0RUbY5u23PztZH6X1TaRAtj9N+FzaehSQ7R4UBd8BQbne/FOA
-         sGB8X2ur3m4qh1EbzJKX7OC8CvCrnzVLQ9bKQ4kab5xqoTrsKM4qD+H81VNfYzLAKJUY
-         YcZCymw/oq+1VwA/a6Q1+wg3n9eD2BfCZBfKHlXNvgEHie9+LExrNeoqhWCNsxo5z9Ry
-         fdXK9EN7QjllW5cnXGGkrZpSUO7uoPGPavB9qj0SDJaMjVfj4rakrTDnC6O1W2Ye0XQF
-         KWdvlnuqyuvNInsLNWzvCZKx3Jn159bbINTUSib3rhvGTf0oLqIKTXWCL0I5g25PeNWm
-         rb2g==
-X-Forwarded-Encrypted: i=1; AJvYcCUV15WQckH2iN2J7pGRz+xhp0CCXHA24K3a8gWbjyVX84SsqEcsJqo79zYuKuQ2iqxLIJf7QeHJBQr3WaV6F2Zc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4MLWlQGqE+5MyNY346tstt6e5a5Qmq3wkyk5vXK87sHytM7MJ
-	fbioIZEuefqFTOrlS3KXaNfo/YL4yvJwWF6sllfOII30o9nkHI0f
-X-Gm-Gg: ASbGncv8IHDutFrTO3yosJDd0qWJz5Cg6RN5gNZYkjFH+3/z/XsGGvh+myaQ7oPQh0O
-	J49P3jpNGfaWb5GUKRPGDFw0SYOjgzVfjFO8A7INwDbBvbNSiOGniCY4cDXvNJJJ7ZS20PAG7Om
-	Y/A6Moae/qj9orC/LM3KHfqFwuEIVbDt27aJvDTVW+LqlLkPSpHUaGBBQ9EmVPVd4ow3XfmAyLW
-	Az2cwcKtcx8wiRaDIlGZfyrZF9wuucQwFIkKNYSdv7Yq1kDLP4Y7GXH0QXWLT+Edr2Q
-X-Google-Smtp-Source: AGHT+IGIMaQLW4wct1dsitCDskJol1qDWg2mfuDdPh8GMuIT847eTTcppJMdsxFJj7Ut8lRt0yTYLQ==
-X-Received: by 2002:a05:6a00:4fcc:b0:71d:e93e:f542 with SMTP id d2e1a72fcca58-725b820b43fmr19800743b3a.21.1733739744446;
-        Mon, 09 Dec 2024 02:22:24 -0800 (PST)
-Received: from [192.168.0.115] ([59.188.211.160])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725d6856bf7sm3620294b3a.192.2024.12.09.02.22.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Dec 2024 02:22:24 -0800 (PST)
-Message-ID: <e06c5d7c-de3c-46ff-b2ee-8ed794577e70@gmail.com>
-Date: Mon, 9 Dec 2024 18:22:17 +0800
+	id 1tKawW-00000007H2s-09a2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 09 Dec 2024 10:24:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=j5b/SzXNKy2u89kOS6863gKBjjhCX3NwQcbqPHiM23k=; b=pcnhI720VIIC4iKguwPtrXJIUP
+	dcGVWxU5YQ9we2HgCEAG+o+Hn52tCwhG13DslCECqrt1O37IIsdo5FbxZo/C2nG4OJYQaVAWn1ptj
+	aIOTLCfTctvN1zGboZcDLDHoqbhNQzHjhhr5TmQVtb68YogacokkV1EIcYIRlNyCx7r6+IIX/IG+X
+	Ls3+5n3P8RvHu0NB1lmCE0DMCeSVvjo7Sbl12iCsdsjrXWSFcXkVvsICKXs9dZAYGX2B/c1CtTANL
+	es0zQobuvV2vlOPFUNs9yaVuLE0HaWjKO+XpQE9+H+B+6+5eUwXNxAjB2NHWClluO7bwnXYemZBr8
+	0ykOcbQw==;
+Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKawS-00000003WeE-3gW6;
+	Mon, 09 Dec 2024 10:24:41 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 331983003FF; Mon,  9 Dec 2024 11:24:40 +0100 (CET)
+Date: Mon, 9 Dec 2024 11:24:40 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	aruna.ramakrishna@oracle.com, broonie@kernel.org,
+	catalin.marinas@arm.com, dave.hansen@linux.intel.com,
+	jannh@google.com, jeffxu@chromium.org, joey.gouly@arm.com,
+	kees@kernel.org, maz@kernel.org, pierre.langlois@arm.com,
+	qperret@google.com, ryan.roberts@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Subject: Re: [RFC PATCH 12/16] arm64: mm: Map p4d/pgd with privileged pkey
+Message-ID: <20241209102440.GI21636@noisy.programming.kicks-ass.net>
+References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
+ <20241206101110.1646108-13-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] backlight: dwi_bl: Add Apple DWI backlight driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, y@krzk-bin
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
- Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org,
- linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241207130433.30351-1-towinchenmi@gmail.com>
- <20241207130433.30351-3-towinchenmi@gmail.com>
- <bqn4tddl3kgle7zlamgaqlh45pizw6gf5qjwlmcsbkb6fx343l@tf5w63xursi2>
-Content-Language: en-US
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <bqn4tddl3kgle7zlamgaqlh45pizw6gf5qjwlmcsbkb6fx343l@tf5w63xursi2>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_022225_516736_26125CDB 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241206101110.1646108-13-kevin.brodsky@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,27 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Krzysztof Kozlowski 於 2024/12/9 下午5:22 寫道:
->> diff --git a/drivers/video/backlight/dwi_bl.c b/drivers/video/backlight/dwi_bl.c
->> new file mode 100644
->> index 000000000000..d4bfd74b3129
->> --- /dev/null
->> +++ b/drivers/video/backlight/dwi_bl.c
->> @@ -0,0 +1,124 @@
-[...]
->> +
->> +	dwi_bl = devm_kzalloc(&dev->dev, sizeof(struct apple_dwi_bl), GFP_KERNEL);
+On Fri, Dec 06, 2024 at 10:11:06AM +0000, Kevin Brodsky wrote:
+> If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map p4d/pgd pages
+> using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that they can
+> only be written under guard(kpkeys_hardened_pgtables).
 > 
-> sizeof(*)
-
-Ack this change as well for v4.
-
+> The case where pgd is not page-sized is not currently handled -
+> this is pending support for pkeys in kmem_cache.
 > 
->> +	if (!dwi_bl)
->> +		return -ENOMEM;
-[...]
+> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+> (default).
 
-Nick Chan
+Should not this live in pagetable_*_[cd]tor() in generic code?
 
