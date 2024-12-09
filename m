@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE44AE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 362CEE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 17:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zL8Y/tWMEtn5CxeT9fH8qJG1kpmmtwPH29e6y9Z7Us0=; b=tWhB0cXAhjZ0C1oTu4hIEcW3/o
-	oxvhi7LqepI1IGlDVXxbn5pgM7mE0CIqF5ovoDTbe6HmZfM5epyIiOoWwseru7UVOoNgGdTn7YTKv
-	1spROePSQ2VQB6It128XSjyOZQL4aDEtv8MsxF4noM+IiY1sENZmxkRRJBNmU92WU+RYNV/C3JVcF
-	bond8oOUH8zvakVd1prQoHNSJMVqiPNb70KA9syX13nXyIFmSsTfWStz2plqkUgg8nkTco/KZf3Ia
-	mEAKdj8vBnDxtz+lI0QoAsMGAKm+ukQdr4TyBaAPFmWGvjuYFCWEr3kQR03Xb+Whd3N0Sn6/bPYXr
-	T4XKvHCw==;
+	bh=w053HDzeJoceX0UAdLDZfmalC9qVxGWs15WdZIxBXrw=; b=1aPGCTNW/XBgCk2Mv26LrKkuUF
+	qzsINlUjG0QyftcqEewiEzD3L3rswwGxKkI/6Hvety+UE1baoupM2ZZpvzp//1UN3/Za6dWigDvgb
+	+S1Ym3B/WM3kxx9b2Owrwwd/GxZPrdHTyh5UY+EZ2B1pVShL1Czz3aQ4yD8vy2yNK+wYl7nTrHmQN
+	l4Zxvjv79eFaADtjaY2olusajHqmcUisebzIKCSNHcXaPq30MOhiVOrIg1TnXohdnZMc8e03C4QPb
+	Qiwm6n9YnUKDmYenKYe6l2jMqt9YNaQr244ngrDApHnrTq3+KqgDa+G6ZsNsyDEkbxnlqYHP2DogR
+	EcvTtBPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKhJs-00000008hCu-3hRG;
-	Mon, 09 Dec 2024 17:13:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKhIp-00000008gpb-2ri4
+	id 1tKhLN-00000008hOY-2PEq;
+	Mon, 09 Dec 2024 17:14:49 +0000
+Received: from gentwo.org ([62.72.0.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKhKL-00000008hHo-0DXO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 17:12:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0EE6113E;
-	Mon,  9 Dec 2024 09:12:38 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 469FA3F720;
-	Mon,  9 Dec 2024 09:12:09 -0800 (PST)
-Date: Mon, 9 Dec 2024 17:12:06 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Etienne CARRIERE - foss <etienne.carriere@foss.st.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Cristian Marussi" <cristian.marussi@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
- discrete rates
-Message-ID: <Z1ck5tFkb41wReZP@bogus>
-References: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
- <20241203173908.3148794-3-etienne.carriere@foss.st.com>
- <Z1bKlOeHJFHpe9ZU@bogus>
- <ed164b6704ab4086b2fb22ae51658f31@foss.st.com>
+	Mon, 09 Dec 2024 17:13:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1733763904;
+	bh=NOQvmRjMxuixDwXhq0ZtvQv1134vT7qqg7jES3HNwME=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=rbVJR35wrs+kQ237ujRbc5WO8rAh1S++7Ll7LqO0QvG4J9kx30dlHYLCWlZ9l8Ko0
+	 ZU41JJrqsNP6C6YduE8yz18uNEwLp3+zD+ylA9UnkKNgO/jLPBw6Vr6DCXQU2/MAW+
+	 mgDEYqiYbFZDyuPrMAOsJo0qxIM3O/9PHevDVczc=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 4EF3140737; Mon,  9 Dec 2024 09:05:04 -0800 (PST)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 4D5E54018F;
+	Mon,  9 Dec 2024 09:05:04 -0800 (PST)
+Date: Mon, 9 Dec 2024 09:05:04 -0800 (PST)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Huang Shijie <shijie@os.amperecomputing.com>
+cc: catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com, 
+    corbet@lwn.net, patches@amperecomputing.com, akpm@linux-foundation.org, 
+    thuth@redhat.com, rostedt@goodmis.org, xiongwei.song@windriver.com, 
+    ardb@kernel.org, inux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] arm64: refactor the rodata=xxx
+In-Reply-To: <20241209072020.4743-2-shijie@os.amperecomputing.com>
+Message-ID: <83d01335-c6be-d17b-511a-378ce3ad0663@gentwo.org>
+References: <20241209072020.4743-1-shijie@os.amperecomputing.com> <20241209072020.4743-2-shijie@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ed164b6704ab4086b2fb22ae51658f31@foss.st.com>
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_091211_810727_2F6544B9 
-X-CRM114-Status: GOOD (  53.87  )
+X-CRM114-CacheID: sfid-20241209_091345_129531_AAC2E7B4 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,121 +70,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 12:59:58PM +0000, Etienne CARRIERE - foss wrote:
-> Hello Sudeep,
-> 
->  On Monday, December 9, 2024 11:46 AM, Sudeep Holla wrote: 
-> > On Tue, Dec 03, 2024 at 06:39:08PM +0100, Etienne Carriere wrote:
-> > > Implement clock round_rate operation for SCMI clocks that describe a
-> > > discrete rates list. Bisect into the supported rates when using SCMI
-> > > message CLOCK_DESCRIBE_RATES to optimize SCMI communication transfers.
-> > 
-> > Let me stop here and try to understand the requirement here. So you do
-> > communicate with the firmware to arrive at this round_rate ? Does the
-> > list of discreet clock rates changes at the run-time that enables the
-> > need for it. Or will the initial list just include max and min ?
-> 
-> I don't expect the list to change at run-time. The initial list is
-> expected to describe all supported rates. But because this list may
-> be big, I don't think arm_scmi/clock.c driver should store the full list
-> of all supported rates for each of the SCMI clocks. It would cost to
-> much memory. Therefore I propose to query it at runtime, when
-> needed, and bisect to lower the number of required transactions
-> between the agent and the firmware.
+On Mon, 9 Dec 2024, Huang Shijie wrote:
+
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -5901,7 +5901,7 @@
+>  	rodata=		[KNL,EARLY]
+>  		on	Mark read-only kernel memory as read-only (default).
+>  		off	Leave read-only kernel memory writable for debugging.
+> -		full	Mark read-only kernel memory and aliases as read-only
+> +		noalias	Use more block mappings,may have better performance.
+>  		        [arm64]
+
+Maybe use
+		noalias Do not check aliases in order to allow larger kernel page
+                        sizes on a platforms without FEAT_BBM2 support[arm64])
+
+instead?
+
 >
-
-Ah so, this is nothing to do with set_parent, but just an optimisation.
-This change optimises for space but some other platform may have all the
-space but the communication with SCMI platform is not good enough to make
-runtime calls like this change. How do we cater that then ?
-
-We need some spec-ed way or a unique way to identify what is best for
-the platform IMO. We can change the way you have done in this change set
-as someone else may complain in the future that it is costly to send
-such command every time a clock needs to be set. I am just guessing here
-may not be true.
-
-> > 
-> > > Parse the rate list array when the target rate fit in the bounds
-> > > of the command response for simplicity.
-> > >
-> > 
-> > I don't understand what you mean by this.
-> 
-> I meant here that we bisect into supported rates when communicating
-> with the firmware but once the firmware response provides list portion
-> when target rate fits into, we just scan into that array instead of bisecting
-> into. We could also bisect into that array but it is likely quite small
-> (<128 byte in existing SCMI transport drivers) and that would add a bit
-> more code for no much gain IMHO.
-> 
-> 
-> > 
-> > > If so some reason the sequence fails or if the SCMI driver has no
-> > > round_rate SCMI clock handler, then fallback to the legacy strategy that
-> > > returned the target rate value.
-> > >
-> > 
-> > Hmm, so we perform some extra dance but we are okay to fallback to default.
-> > I am more confused.
-> 
-> Here, I propose to preserve the exiting sequence in clk/clk-scmi.c in case
-> arm_scmi/clock.c does not implement this new round_rate SCMI clock 
-> operation (it can be the case if these 2 drivers are .ko modules, not
-> well known built-in drivers).
+>  	rockchip.usb_uart
+> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
+> index ba269a7a3201..b3063326b79a 100644
+> --- a/arch/arm64/include/asm/setup.h
+> +++ b/arch/arm64/include/asm/setup.h
+> @@ -13,6 +13,27 @@
+>  extern phys_addr_t __fdt_pointer __initdata;
+>  extern u64 __cacheline_aligned boot_args[4];
 >
-
-I don't think it would work if it is not built on the same kernel anyways.
-I don't work much about this use-case.
-
-> > 
-> > > Operation handle scmi_clk_determine_rate() is change to get the effective
-> > > supported rounded rate when there is no clock re-parenting operation
-> > > supported. Otherwise, preserve the implementation that assumed any
-> > > clock rate could be obtained.
-> > >
-> > 
-> > OK, no I think I am getting some idea. Is this case where the parent has
-> > changed and the describe rates can give a different result at run-time.
-> 
-> This does not deal with whether parent has changed or not. I would expect
-> the same request sent multiple times to provide the very same result. But
-> as I said above, I don't think arm_scmi/clock.c should consume a possibly
-> large array of memory to store all supported rate each of the SCMI clocks
-> (that describe discrete rates).
+> +/*
+> + * rodata=on (default):
+> + *    Apply read-only attributes of VM areas to the linear alias of
+> + *    the backing pages as well. This prevents code or read-only data
+> + *    from being modified (inadvertently or intentionally) via another
+> + *    mapping of the same memory page.
+> + *
+> + *    This requires the linear region to be mapped down to pages,
+> + *    which may adversely affect performance in some cases.
+> + *
+> + * rodata=off:
+> + *    It provides us more block mappings and contiguous hits
+> + *    to map the linear region which minimize the TLB footprint.
+> + *    Leave read-only kernel memory writable for debugging.
+> + *
+> + * rodata=noalias:
+> + *    It provides us more block mappings and contiguous hits
+> + *    to map the linear region which minimize the TLB footprint.
+> + *    And the linear aliases of pages belonging to read-only mappings
+> + *    in vmalloc region are also marked as read-only.
+> + */
+>  static inline bool arch_parse_debug_rodata(char *arg)
+>  {
+>  	extern bool rodata_enabled;
+> @@ -21,7 +42,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
+>  	if (!arg)
+>  		return false;
 >
-
-Right, my assumption was totally wrong. Thanks for confirming.
-
-> An alternate way could be to add an SCMI Clock protocol command in the
-> spec allowing agent to query a closest supported rate, in 1 shot. Maybe
-> this new command could return both rounded rate and the SCMI parent
-> clock needed to reach that rounded rate, better fitting clk_determine_rate()
-> expectations.
+> -	if (!strcmp(arg, "full")) {
+> +	if (!strcmp(arg, "on")) {
+>  		rodata_enabled = rodata_full = true;
+>  		return true;
+>  	}
+> @@ -31,7 +52,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
+>  		return true;
+>  	}
 >
-
-May be that would be ideal but you need to make a case for such a spec change.
-
-> > 
-> > I need to re-read the part of the spec, but we may need some clarity so
-> > that this implementation is not vendor specific. I am yet to understand this
-> > fully. I just need to make sure spec covers this aspect and anything we
-> > add here is generic solution.
-> > 
-> > I would like to avoid this extra query if not required which you seem to
-> > have made an attempt but I just want to be thorough and make sure that's
-> > what we need w.r.t the specification.
-> 
-> Sure, I indeed prefer clear and robust implementation in the long term,
-> being the one I propose here or another one.
-> 
-
-Good then, we can work towards achieving that. If you can specify how slow
-or memory hungry is it without these changes and how much this change helps
-your platform, we can take it up with spec authors and see if they are happy
-to provide some alternative to deal with this in a generic way.
-
---
-Regards,
-Sudeep
+> -	if (!strcmp(arg, "on")) {
+> +	if (!strcmp(arg, "noalias")) {
+>  		rodata_enabled = true;
+>  		rodata_full = false;
+>  		return true;
+>
 
