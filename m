@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7337BE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 09:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A1AE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 09:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LtABRAQ0YEr/CI1X8BieMgHVTu9h5oCNjef5fZpS0XE=; b=YhFTrbbYvvpavjHpDkYkqpV7kJ
-	W5gW9bQSuapD1pquG1Lqwn3aaCR8Ajk9r5k/xsFCHaODAlKKWIJLLN/+RFusaIZGLN7P/p8cgqOTd
-	iu1ol3jg2dpIGhZPuhwUungjYpBkm335t8uBRMHll/SJN5Eco9YGhAqJuY1GsQL2OdW+ojLxO1pPq
-	dwyTOVxQ3wogMzwHpk0Af7UOXlccSPN2DikrNSmuWZ8GVgqXk1Ty3QTpbcYtZoKIR2dpnA7bxSss+
-	7jyIMCa6tu8+pOrKEFCyGuH17fVte1x2laWwFo/CDA69pEpljTGURXcJuxQ8mGamw6X0MixP8iSkd
-	kPRHGglg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=He/giAmEHqNfp9S7J2TVvzS3qQ0ix2iFGgVJ7ep2j4w=; b=PVH7cTvUCmxLmDBrhmnri2yk5I
+	Z9zZb5/QhVtGxS22DDV7A/ydVOhPzssLL2KCjVkm8u2kUupFRx/qSpL0p8f+w4h/uxPUEXVhmy/yf
+	AzAtEiEk4dchpekS0qD0gQ4sJ4isZG8Y5g67GvaGJVmrDLBOsebcr62fglnxHTBihpNcwOUJhVXbT
+	q1EwjTnVmTroMBmX9nKYMLoVL+JV3afGVrg/UPub3+D7GPY91ijV4A73+F1wq75GbpOaXIiAhzrHP
+	C6g+7ZxeuPMGsmFslP40nykW3z9IRcsKiafuVXjYprerRn1IDQkioegC+Ffx03NhfEkh0kdreUaAk
+	/nYL93ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaLE-0000000784j-1Ttq;
-	Mon, 09 Dec 2024 09:46:12 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKaIL-000000077VA-3Kez
+	id 1tKaNc-000000078gX-2C6h;
+	Mon, 09 Dec 2024 09:48:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKaMY-000000078N1-3CDv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 09:43:14 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B8MMWYR012704;
-	Mon, 9 Dec 2024 09:43:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LtABRAQ0YEr/CI1X8BieMgHVTu9h5oCNjef5fZpS0XE=; b=c1hrRAJJUL8NJMcq
-	bM+hWcCgUlXoeumzTI0rTfVNnCGanA1GHZUX0iaNAVx0gTD65t7S2hVMHqz/1228
-	dxZWbR1IC0FpQGAERJJdktQWQDsyF0F5i6wFdOgAODynMMZvo+mtumH+Q2NXpomQ
-	FXfo3RfJbC2L7C9TBvfRz+7QpoiZwP0jDDftWf0hXY0xkjTfwmRWnu1Ra+Z62SgJ
-	7lS3wvzcfqJbggRwcMEsoh648vPKW9STcPvOHllQGBN14YKsCcA4uR468o5wsBG2
-	dcxSyy195O1lQyHJPTVumAWygsFdC3PEVuGLXChRKtJ+fvedB93NbkGUWuHVKh0k
-	4yPoKw==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43ceetm41g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 09 Dec 2024 09:43:04 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4B99h322017647
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 9 Dec 2024 09:43:03 GMT
-Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 9 Dec 2024 01:42:59 -0800
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
-        <ryan.roberts@arm.com>, <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>
-CC: <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Subject: [PATCH v2 2/2] arm64: mm: implement vmemmap_check_pmd for arm64
-Date: Mon, 9 Dec 2024 17:42:27 +0800
-Message-ID: <20241209094227.1529977-3-quic_zhenhuah@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
+	Mon, 09 Dec 2024 09:47:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15355113E;
+	Mon,  9 Dec 2024 01:47:59 -0800 (PST)
+Received: from udebian.localdomain (unknown [10.1.35.36])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91E573F720;
+	Mon,  9 Dec 2024 01:47:28 -0800 (PST)
+From: Yury Khrustalev <yury.khrustalev@arm.com>
+To: linux-arch@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Sandipan Das <sandipan@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	nd@arm.com,
+	Yury Khrustalev <yury.khrustalev@arm.com>
+Subject: [RESEND v4 0/3] mm/pkey: Add PKEY_UNRESTRICTED macro
+Date: Mon,  9 Dec 2024 09:47:16 +0000
+Message-Id: <20241209094719.2431126-1-yury.khrustalev@arm.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: gs-sJae984RW_OSNds3kolLIBqleNwa7
-X-Proofpoint-ORIG-GUID: gs-sJae984RW_OSNds3kolLIBqleNwa7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 phishscore=0
- spamscore=0 adultscore=0 clxscore=1015 impostorscore=0 mlxlogscore=497
- bulkscore=0 suspectscore=0 lowpriorityscore=0 malwarescore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412090075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_014313_937537_2FE2E97A 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241209_014734_847927_8E1AF04E 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vmemmap_check_pmd() is used to determine if needs to populate to base
-pages. Implement it for arm64 arch.
+Add PKEY_UNRESTRICTED macro to mman.h and use it in selftests.
 
-Fixes: 2045a3b8911b ("mm/sparse-vmemmap: generalise vmemmap_populate_hugepages()")
-Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+For context, this change will also allow for more consistent update of the
+Glibc manual which in turn will help with introducing memory protection
+keys on AArch64 targets.
+
+Applies to fac04efc5c79 (tag: v6.13-rc2).
+
+Note that I couldn't build ppc tests so I would appreciate if someone
+could check the 3rd patch. Thank you!
+
+Signed-off-by: Yury Khrustalev <yury.khrustalev@arm.com>
+
 ---
- arch/arm64/mm/mmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Changes in v4:
+ - Removed change to tools/include/uapi/asm-generic/mman-common.h as it is not
+   necessary.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index fd59ee44960e..41c7978a92be 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1169,7 +1169,8 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
- 				unsigned long addr, unsigned long next)
- {
- 	vmemmap_verify((pte_t *)pmdp, node, addr, next);
--	return 1;
-+
-+	return pmd_sect(*pmdp);
- }
- 
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+Link to v3: https://lore.kernel.org/all/20241028090715.509527-1-yury.khrustalev@arm.com/
+
+Changes in v3:
+ - Replaced previously missed 0-s tools/testing/selftests/mm/mseal_test.c
+ - Replaced previously missed 0-s in tools/testing/selftests/mm/mseal_test.c
+
+Link to v2: https://lore.kernel.org/linux-arch/20241027170006.464252-2-yury.khrustalev@arm.com/
+
+Changes in v2:
+ - Update tools/include/uapi/asm-generic/mman-common.h as well
+ - Add usages of the new macro to selftests.
+
+Link to v1: https://lore.kernel.org/linux-arch/20241022120128.359652-1-yury.khrustalev@arm.com/
+
+---
+
+Yury Khrustalev (3):
+  mm/pkey: Add PKEY_UNRESTRICTED macro
+  selftests/mm: Use PKEY_UNRESTRICTED macro
+  selftests/powerpc: Use PKEY_UNRESTRICTED macro
+
+ include/uapi/asm-generic/mman-common.h               | 1 +
+ tools/testing/selftests/mm/mseal_test.c              | 6 +++---
+ tools/testing/selftests/mm/pkey-helpers.h            | 3 ++-
+ tools/testing/selftests/mm/pkey_sighandler_tests.c   | 4 ++--
+ tools/testing/selftests/mm/protection_keys.c         | 2 +-
+ tools/testing/selftests/powerpc/include/pkeys.h      | 2 +-
+ tools/testing/selftests/powerpc/mm/pkey_exec_prot.c  | 2 +-
+ tools/testing/selftests/powerpc/mm/pkey_siginfo.c    | 2 +-
+ tools/testing/selftests/powerpc/ptrace/core-pkey.c   | 6 +++---
+ tools/testing/selftests/powerpc/ptrace/ptrace-pkey.c | 6 +++---
+ 10 files changed, 18 insertions(+), 16 deletions(-)
+
 -- 
-2.25.1
+2.39.5
 
 
