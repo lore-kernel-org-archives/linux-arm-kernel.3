@@ -4,161 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC19E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A281EE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fnjxn2z8p/evoXAd4w98tkv2eX8FMIKbXgB2dZ8XO88=; b=2kvrovbjBqZnOxsKYUTMH+94G4
-	7aJ/TtKlrkFfxH1SA/VbRpCNbAWcWGm0cuh4Zaj2fLbm7sJmFQIyJK7Je+wI+/BijvvW+QkfvWVxV
-	V8s1Xz1ab3Hxe4orgCCovVNLsBOqG3GWCvBEJWmXRiGSlO0oolWKATB6jZEFFvzspH8pVoVMB1oos
-	6pW3Sq7ewXtekzwRYtBgqgLY0w4/DqptA5MLjL43tFlCcY9DKUWnG0hNeBKzIy+X60gK2YIuE9+k7
-	zZYPVocC6B+oKXUh0pF8LxAHjkXJt7hayjP6+C3lc2T/rsyqR1HzYgR/L0lvCJxqk68ggOuzAgRgV
-	8nXE1SYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z+XKr+p6+d0vsEOub5KNiYEX8dUurRREKoGxPw+GDFI=; b=1Tj1oZ3lqMuwRnx2VF42ia8Qbp
+	Abs7jYr1O03mF+Gl0hgmAQJ4nL7wuC7HObF2rctkoDgkKCvGRU09gcdwitKmMhNIBwCl2kdoR7HRy
+	F8Zx8HPUuqfl4wThezW45TxYa5zXflVTiD38xOT+XyUdKCKZHdfxahbC79F0HtQY982gM7etkDpyN
+	ozBkm2tnvuGauP56qRMl+wDQhh4DyS3LgrZi2yxLsR2gBM3qH0S8oNSdgI6WYrG0q0GUgLH1wgFlQ
+	Z0MH5Oj9TK5oM6u3hn+7n9OMQ+Y2cO7h4P98LJacfVm9mOMo83xl6r99mYwn80AC+pUc6XGyigyCm
+	oz/+E9wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdWK-00000007t4Q-2amM;
-	Mon, 09 Dec 2024 13:09:52 +0000
-Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
+	id 1tKdXM-00000007tPw-0yaL;
+	Mon, 09 Dec 2024 13:10:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdBl-00000007mfC-1VIm
+	id 1tKdE8-00000007nJp-1LEZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 12:48:39 +0000
-Received: from pps.filterd (m0250809.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B958aQG030771;
-	Mon, 9 Dec 2024 04:47:56 -0800
-Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11lp2176.outbound.protection.outlook.com [104.47.57.176])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 43cwy1sceq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 09 Dec 2024 04:47:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wEa3KiemLoCYs1TBw4p5534bnJl6agKddE8BWb4Qa41gvJDDhIfF3e1b+tp2Wsjdb4/xWfX8Pxs8zaNRJVZ6w/21bszbb3jVeWzWwFmYapoI3wIGUxutu0+sXnHwYww62EiYoBZ4F0cKD7okyJtO3Wh2gbqe7VVCsqEyzMF2FSFsOlw6iKJG2Q00JERt9BgkR39d2GC88r9gfDi0eRSc+ty6A4KBzgzUvhOHpYTHERD9bxTPwHnyALzK0tWuC9Iaeze3btoc24WbuLssEkNDeNM4ygM4TFgc1eq2D8M0ecB3DVOf5qqah6lvsh1nS+gv9r5/Pmqc+cyZVfKFUrmkgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fnjxn2z8p/evoXAd4w98tkv2eX8FMIKbXgB2dZ8XO88=;
- b=xLylZcsAtUJZO3i3dXg/dVQ2b5jPTqC54W8yIc1vpJhtxjt5ky9q7BDx4YvBv8dGLJC7rKIpspbhRfzXXvNoP7oumlB/861qD6VgZ9jER5KwAcoE++8nVLk9xMh+sborfH8ijhjdobL2C46/Q0a5k/N0tYCKxVEhnvuKiFKJlbqyraFliCynzuwNKjx2kEgWtXcmS2zI8BC5Ut7/v6P0+vhB5zdFQDd4V9YibvMy2EME+wuWAyAysIHjFNFv6gKfzNtnMTjf3eXkyLrKPcQ+/0WhVJzUNFsLhVvmG5SgLln6HmlnrcKwgBDWujoiuH6M/8KrSAQbES/00ByhVkAgKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Received: from MW5PR11MB5764.namprd11.prod.outlook.com (2603:10b6:303:197::8)
- by IA1PR11MB6145.namprd11.prod.outlook.com (2603:10b6:208:3ef::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Mon, 9 Dec
- 2024 12:47:51 +0000
-Received: from MW5PR11MB5764.namprd11.prod.outlook.com
- ([fe80::3c2c:a17f:2516:4dc8]) by MW5PR11MB5764.namprd11.prod.outlook.com
- ([fe80::3c2c:a17f:2516:4dc8%7]) with mapi id 15.20.8230.010; Mon, 9 Dec 2024
- 12:47:51 +0000
-From: Xiaolei Wang <xiaolei.wang@windriver.com>
-To: gregkh@linuxfoundation.org, jirislaby@kernel.org, shawnguo@kernel.org,
-        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-        esben@geanix.com, linux@rasmusvillemoes.dk, l.sanfilippo@kunbus.com,
-        marex@denx.de, stefan.eichenberger@toradex.com,
-        cniedermaier@dh-electronics.com, rickaran@axis.com,
-        xiaoliei.wang@windriver.com
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] serial: imx: Use uart_port_lock_irqsave() instead of uart_port_lock()
-Date: Mon,  9 Dec 2024 20:47:32 +0800
-Message-Id: <20241209124732.693834-1-xiaolei.wang@windriver.com>
-X-Mailer: git-send-email 2.25.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0012.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::8) To MW5PR11MB5764.namprd11.prod.outlook.com
- (2603:10b6:303:197::8)
+	Mon, 09 Dec 2024 12:51:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1733748662;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z+XKr+p6+d0vsEOub5KNiYEX8dUurRREKoGxPw+GDFI=;
+	b=Qr0hzkW+2+1mRq6cfy+zwGcdCFLsz1xrzTrdfgig+MOkt8VVsUjYIPBuW4iBtVDgQwhl/w
+	N8fg52O18OY9RsHdcOZirSE5tfvukcSR7Wdn/5wXbPzia3w21t4T7NyFU5bmFHtGFZozz5
+	xCpOO2vtO0kC6OB1u5HxNbSVIQUFdCI=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-435-bTSuDVTEMgyIdvo-oQugcg-1; Mon,
+ 09 Dec 2024 07:49:25 -0500
+X-MC-Unique: bTSuDVTEMgyIdvo-oQugcg-1
+X-Mimecast-MFC-AGG-ID: bTSuDVTEMgyIdvo-oQugcg
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 31C661955DCA;
+	Mon,  9 Dec 2024 12:49:22 +0000 (UTC)
+Received: from localhost (dhcp-192-244.str.redhat.com [10.33.192.244])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A9627195605A;
+	Mon,  9 Dec 2024 12:49:19 +0000 (UTC)
+From: Cornelia Huck <cohuck@redhat.com>
+To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+ kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com,
+ jiangkunkun@huawei.com, jonathan.cameron@huawei.com,
+ anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org,
+ linuxarm@huawei.com
+Subject: Re: [PATCH v3 3/3] arm64: paravirt: Enable errata based on
+ implementation CPUs
+In-Reply-To: <20241209115311.40496-4-shameerali.kolothum.thodi@huawei.com>
+Organization: "Red Hat GmbH, Sitz: Werner-von-Siemens-Ring 12, D-85630
+ Grasbrunn, Handelsregister: Amtsgericht =?utf-8?Q?M=C3=BCnchen=2C?= HRB
+ 153243,
+ =?utf-8?Q?Gesch=C3=A4ftsf=C3=BChrer=3A?= Ryan Barnhart, Charles Cachera,
+ Michael O'Neill, Amy
+ Ross"
+References: <20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com>
+ <20241209115311.40496-4-shameerali.kolothum.thodi@huawei.com>
+User-Agent: Notmuch/0.38.3 (https://notmuchmail.org)
+Date: Mon, 09 Dec 2024 13:49:16 +0100
+Message-ID: <875xnt10oj.fsf@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW5PR11MB5764:EE_|IA1PR11MB6145:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3bb8ecf2-bbca-4d94-457a-08dd184fb136
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CPMztvMFq6tsXPCXQC+aVMhkiHr5/+/JkKS+0flqJUTcYzPv5Z4ONsXIrqEy?=
- =?us-ascii?Q?+QlScD0iOhdwTTHWUtbUCJN42KlolIN6/Kx6ZgWdLIEZOORNiKp45uZu/wdX?=
- =?us-ascii?Q?0XvnK67DhRE9NOe4PPD9mFxn1nQwBNhqBIy8bP4x8xBiS0sm6v2CLCb04HUe?=
- =?us-ascii?Q?I1EXcwElXDpMDwi6+t909jDFnWPQRmxbalXt8x+AZLovRk+1chW9VJW7jxB0?=
- =?us-ascii?Q?zX6iWhTGlgAvXq+Zutm7sELodcZ3sV9MiT4Q8CVqYcsfXAwJkqE8E7CviNk6?=
- =?us-ascii?Q?usyEaxW4zQjM6KoW2v4sXZ5AG91HZnbsjMMxld2OWerY3TAhxI5i1u7PkVXZ?=
- =?us-ascii?Q?t35Ae9n6PnMbjbfNNAOVqjFAIstbH/kCyQpOZSMpBdHg+ixaOM/nfl/uNMSb?=
- =?us-ascii?Q?K4fLoC66N6QT/HmvGlw9tCwqbEvYL8s03KrD4Pgjoqzmjm3mgb7vLpbdq8Or?=
- =?us-ascii?Q?qPfdhz4ORTeiz5Vsif8TRlO32ZOvuFz3JWv7eMFMJSIJUlNIMezmXNOmzunJ?=
- =?us-ascii?Q?Peb5pWvOZ4Ap3xrTmqTDyaB9Kn2A31tdhd4LzpoPbhB7igGoYjCk5QUByHOr?=
- =?us-ascii?Q?/KaI5ZIeQvCVWMisfOUmFWcuu6fw48VF7hwnZHpKmDHfFM56QRWdMCMH4sgi?=
- =?us-ascii?Q?Bi/mYxzKkd4Fh1J3GIpGqTGF39/BiZuw3qZ8GvymaM1gJltBB+Bd9pMgsEJe?=
- =?us-ascii?Q?Ji+tUbj+Zy9A4j2dTIo8TkltjKNjzFiqsLMdzNgpo7p2l39wuszoVz3XSkfl?=
- =?us-ascii?Q?CTtnSIkuPzzSfRCSaUeOb25DXCiitU2CUvFx1j3XnwDNrwGbENb7WGQfXMJG?=
- =?us-ascii?Q?gPOhdd/s+cyB5UiP7PMqz26kQa8DvAuEidYLaCjTZv1rEUA6zvXEpPSNTY+F?=
- =?us-ascii?Q?isveWXbHlmRuRdLNnHmgVwZppSHnEKQ28IVen98z/xLOYhUy+9fkxGVr75jN?=
- =?us-ascii?Q?DIKEsT0K233Oi+4YyT3HiS1QHHC2WGT1G+JDQB/AAaz9pmND6IYiL01i9dAH?=
- =?us-ascii?Q?1a1BgstGAatQjg0vKIYZdJzMGgF/2k7edJOicPf/9JgSpnuLIo+iFAhR3EEI?=
- =?us-ascii?Q?Tmx7OODjKVGIF/zkiXXDnjCRHQC/q9TLsdDlFXWrvElfJ6pDeuS3HOGWWIAd?=
- =?us-ascii?Q?K5l9A9NbX8f4wfoDHDe4h1fd/LFcnuAMhnwzhy6IPOD2GJqzD+P7eSw0kvAX?=
- =?us-ascii?Q?nwDbNuNBa2BYBfbEG5pIQ1VqQI5Gz1Q2ORvYKZqJsGIPwpCYTdUxHgVHVgV9?=
- =?us-ascii?Q?uYzMkTAXNWK9OnhJF8azjI+X5DNlKBU+U10gDKLwlKxOQZ4ULfmT+i0ox1/j?=
- =?us-ascii?Q?Ji2Oyt7XM/7TwWfpPZo5Gfh+aFMcIdeTw715HM6a2xdW8ch3c73Okf7bbPvx?=
- =?us-ascii?Q?GlqaCkdI/EhKY08UKnYRPaoO57sJOETfUC+kkWjzQhjAV9d7UTi2Tim9xST9?=
- =?us-ascii?Q?loaocvn8KjI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW5PR11MB5764.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gCZbb/WFM7dJRd/l0QQsD6FLoVngs+jrXuJc7Eg8F9z9GEgjh3i5ykw4FX06?=
- =?us-ascii?Q?HZV/sXJFrpqNiOXKbC9mn+VxAOnHa+b4xwFZs/95XyQw5shNovJj0ZAcLLfL?=
- =?us-ascii?Q?IilayikyZswDT9yqxk9PIkz4p85t1hoadeJ1TfYabjb1kZ7uean/027t0QnU?=
- =?us-ascii?Q?VuOp5o2my/CY0E8v6SVC0XVd8SBKFN7ZzYd3pGojYcwulQfa8Olgesle6UeQ?=
- =?us-ascii?Q?/R5QHqCwEvwQCpfafhWlEuxYei3Bb43SJsucG+9+8JYF3WsyvvssxR4PWeGb?=
- =?us-ascii?Q?DoyFz2hwD9OwwWKkG1EoTYBYCUBYfKnnC9wVLBbDJVxWxM0Lc3Wp7WiV2vwD?=
- =?us-ascii?Q?V+zh8MeK2d79CF+q22IbsdNWkXiYOwsCvpn4Xly0k0Vt+6n0U7zAdY+4uSFZ?=
- =?us-ascii?Q?PWipDGw8IreWWADQhZk/1k+d4wtqt30iAgb3VzwK0GRJ0SPQMWVI0q0B5ffh?=
- =?us-ascii?Q?O2/XGDW7G4r5C0EhT22/6vaZ+sLWD6eGnhjP3eLuiKJLHOhCf5FQ7lbjXagn?=
- =?us-ascii?Q?5Tid/m7UCSXd7b3Rv7bqjOXQyvgtrhLkIW7ayVtNAK+5cs1loXLk3V+ZGl/1?=
- =?us-ascii?Q?al5T6B3z/ri8FCn+jxFZLJtg2gUHJv3xEoiaLG9E5UUaw4D8oG7zq+RJtRxc?=
- =?us-ascii?Q?FnZQa3kz+Qk8b0qFD4Vmmd7akOq73pbSixe20PwX7rSDGed2IccuThQOE/Xw?=
- =?us-ascii?Q?xDxZKAh+qrzb+OugmiINFcjITnX53IueZ6mPnaxkDxUEzmMBQUVj8Okn9vZB?=
- =?us-ascii?Q?Qia2gdoHP+rd7B70UluNx59DY9iAfoYCXptPB2dKEymIJK0p5Yh8M8/i/ae/?=
- =?us-ascii?Q?ytaYIWa8VaOowMxkKSPgPfDd9R0oKfVsUVfWa/o2tZFo8hvfRSzYKXy8hIXk?=
- =?us-ascii?Q?+q/zBtHymBfNBSYfBbfQjGbDXz932T6oUGrrip1TgiDt3dLft5MZHTkT46Z6?=
- =?us-ascii?Q?WZRYwAadyWA+qbzj6R5E6loFzXul8k8LQlf9UCSAVHdE8UIGKSSswBWyBI5b?=
- =?us-ascii?Q?FksqnpZdwBM75eUsQBP5YzIh3axIOArfWGK2ikNVldFeJKYBkoLm5r/eOh7w?=
- =?us-ascii?Q?Bd8NYPmWmPVtbhoibYYOYn5nSNXSQrM/CK164Mrwm+mX2uBr9JHxlhDdeVRD?=
- =?us-ascii?Q?rwPmVOJ+MZsRJ5KyR+QFfTroDfLFxzWc0IbzNb3beRMsVO96g+BWQ5g5MCyE?=
- =?us-ascii?Q?pS36GgeME/R5VhjBcLI2yyxTD73a0CIgnfiaPY7Yb0ei/xe7CnIdEGWAgu7Q?=
- =?us-ascii?Q?i6GLJHgWqC5Sfg4lL5bVP/fe3mj0cuvFiK7fSx4NFBzZr9ZO+Igl6TihOu+W?=
- =?us-ascii?Q?ma4sXH2aC2j2bc6aoavn94qDJgqIksDp0yiRjClTcAhT8AGr9bAji0jkGmeQ?=
- =?us-ascii?Q?L7ilbYR3ymM1bB24xvmN57TP6Br+rdBjbysLY52P60n1xY8hL1ZhM0E3Uv2Z?=
- =?us-ascii?Q?cCFQtJP0y2IB5J1altSx/Shd6nJkclam/t6yTrPn8+8LJ5byyUrFyy93mAN0?=
- =?us-ascii?Q?7iRtn0o4gNT3+l6OUwAIRX2bUrrDwZYnN2dhx/0HEqj1VYxbEw/UcRPWRoLj?=
- =?us-ascii?Q?SzSa7vrr+wsUh6Fwvjf3sMWm2XKtU7PZy07PzKZ2vMDh+LfOiHVEPDndEapD?=
- =?us-ascii?Q?/w=3D=3D?=
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3bb8ecf2-bbca-4d94-457a-08dd184fb136
-X-MS-Exchange-CrossTenant-AuthSource: MW5PR11MB5764.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 12:47:51.3361
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /UzNGkd0B3GCnAxDhG9jSUklPpTlDpSt8GK0iOcvvSneSi/w2vaYr6ieuLy+hE9oAo8fqfEF9ASIN9dWE+dYnbfMaOyNO8pyIuUNScwmWTw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6145
-X-Proofpoint-ORIG-GUID: Px7yKHB3ymZlLA6LKN3Yt8TNQFfmxSax
-X-Authority-Analysis: v=2.4 cv=eePHf6EH c=1 sm=1 tr=0 ts=6756e6fc cx=c_pps a=Bc47kgIQ+uE7vzpOcRUeGA==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=RZcAm9yDv7YA:10 a=bRTqI5nwn0kA:10 a=t7CeM3EgAAAA:8
- a=A__u6bYh_LbSektZ6DAA:9 a=EgV5L4Ra9ea3rcF7PrT8:22 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-GUID: Px7yKHB3ymZlLA6LKN3Yt8TNQFfmxSax
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2024-12-09_09,2024-12-09_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 impostorscore=0
- lowpriorityscore=0 suspectscore=0 mlxlogscore=999 priorityscore=1501
- spamscore=0 phishscore=0 malwarescore=0 mlxscore=0 adultscore=0
- bulkscore=0 classifier=spam authscore=0 adjust=0 reason=mlx scancount=1
- engine=8.21.0-2411120000 definitions=main-2412090101
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: dOL09OlAXYj2gobNp5w4MkI4kryI-9fW1KV6d2H5TlQ_1733748563
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_044837_412030_D1D79612 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20241209_045104_429568_C5E9A8BD 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,86 +97,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When executing 'ehco mem > /sys/power/state', the following
-deadlock occurs. Since there is output during the serial
-port entering the suspend process, the suspend will be
-interrupted, resulting in the nesting of locks. Therefore,
-use uart_port_lock_irqsave instead of uart_port_unlock.
+On Mon, Dec 09 2024, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
 
-WARNING: inconsistent lock state
-6.12.0-rc2-00002-g3c199ed5bd64-dirty #23 Not tainted
---------------------------------
-inconsistent {IN-HARDIRQ-W} -> {HARDIRQ-ON-W} usage.
-sh/494 [HC0[0]:SC0[0]:HE1:SE1] takes:
-c4db5850 (&port_lock_key){?.-.}-{3:3}, at: imx_uart_enable_wakeup+0x14/0x254
-{IN-HARDIRQ-W} state was registered at:
-  lock_acquire+0x104/0x348
-  _raw_spin_lock+0x48/0x84
-  imx_uart_int+0x14/0x4dc
-  __handle_irq_event_percpu+0xac/0x2fc
-  handle_irq_event_percpu+0xc/0x40
-  handle_irq_event+0x38/0x8c
-  handle_fasteoi_irq+0xb4/0x1b8
-  handle_irq_desc+0x1c/0x2c
-  gic_handle_irq+0x6c/0xa0
-  generic_handle_arch_irq+0x2c/0x64
-  call_with_stack+0x18/0x20
-  __irq_svc+0x9c/0xbc
-  _raw_spin_unlock_irqrestore+0x2c/0x48
-  uart_write+0xd8/0x3a0
-  do_output_char+0x1a8/0x1e4
-  n_tty_write+0x224/0x440
-  file_tty_write.constprop.0+0x124/0x250
-  do_iter_readv_writev+0x100/0x1e0
-  vfs_writev+0xc4/0x448
-  do_writev+0x68/0xf8
-  ret_fast_syscall+0x0/0x1c
-irq event stamp: 31593
-hardirqs last  enabled at (31593): [<c1150e48>] _raw_spin_unlock_irqrestore+0x44/0x48
-hardirqs last disabled at (31592): [<c07f32f0>] clk_enable_lock+0x60/0x120
-softirqs last  enabled at (30334): [<c012d1d4>] handle_softirqs+0x2cc/0x478
-softirqs last disabled at (30325): [<c012d510>] __irq_exit_rcu+0x120/0x15c
+> Retrieve any migration target implementation CPUs using the hypercall
+> and enable associated errata.
+>
+> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> ---
+> Note:
+>
+> One thing I am not sure here is how to handle the hypercall error.
+> Do we need to fail the Guest boot or just carry on without any
+> target implementation CPU support? At the moment it just carries on.
+>
+> Thanks,
+> Shameer
+> ---
+>  arch/arm64/include/asm/cputype.h  | 25 +++++++++++++++++++++++--
+>  arch/arm64/include/asm/paravirt.h |  3 +++
+>  arch/arm64/kernel/cpu_errata.c    | 20 +++++++++++++++++---
+>  arch/arm64/kernel/cpufeature.c    |  2 ++
+>  arch/arm64/kernel/image-vars.h    |  2 ++
+>  arch/arm64/kernel/paravirt.c      | 31 +++++++++++++++++++++++++++++++
+>  6 files changed, 78 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+> index dcf0e1ce892d..9e466f3ae9c6 100644
+> --- a/arch/arm64/include/asm/cputype.h
+> +++ b/arch/arm64/include/asm/cputype.h
+> @@ -265,6 +265,16 @@ struct midr_range {
+>  #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
+>  #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
+>  
+> +#define MAX_TARGET_IMPL_CPUS 64
+> +
+> +struct target_impl_cpu {
+> +	u32 midr;
+> +	u32 revidr;
+> +};
 
-other info that might help us debug this:
- Possible unsafe locking scenario:
-
-       CPU0
-       ----
-  lock(&port_lock_key);
-  <Interrupt>
-    lock(&port_lock_key);
-
-Fixes: 3c199ed5bd64 ("serial: imx: Grab port lock in imx_uart_enable_wakeup()")
-Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
----
- drivers/tty/serial/imx.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 17f70e4bee43..4470bcb3ef19 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -2691,8 +2691,9 @@ static void imx_uart_save_context(struct imx_port *sport)
- static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
- {
- 	u32 ucr3;
-+	unsigned long flags;
- 
--	uart_port_lock(&sport->port);
-+	uart_port_lock_irqsave(&sport->port, &flags);
- 
- 	ucr3 = imx_uart_readl(sport, UCR3);
- 	if (on) {
-@@ -2714,7 +2715,7 @@ static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
- 		imx_uart_writel(sport, ucr1, UCR1);
- 	}
- 
--	uart_port_unlock(&sport->port);
-+	uart_port_unlock_irqrestore(&sport->port, flags);
- }
- 
- static int imx_uart_suspend_noirq(struct device *dev)
--- 
-2.25.1
+Doesn't this need to be u64 for both (even if the upper bits for
+MIDR_EL1 are reserved?)
 
 
