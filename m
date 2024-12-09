@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC99E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1885CE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJ7nOY4JZQnL45adJO0lC+Z9TbwWMhwmJf7E4yaDNec=; b=T2AaQA79sZ6U23sRm/XvWYdpqE
-	cQPiprH3ooUzau1jFmkRjryQtJeV7plzcdygAQ66dAzJ2UDP2owccvlpZDY/URKtzYxCJVmJ6izgq
-	eugArqjixYDE7ZsMnwNi6L6x0UvhA/nFpGsm//HgkR81Z4YnwFA0sph+OdgZeWOzyKU4GGg0/r+YR
-	SOkkHb/D6WB8NVRQbNQTcLK6r8SS2LuINcHAcf1u1sYJ5eiGd4FD5ClhC+X3yqWiRizSEFQUtNeUv
-	Nny5wGxL4iJRbLMdlXl2VpvobRJJZzqmDNdl7s2COvUf8QkC3R1uwPd2buJmd07Ts1grQYguBhSk1
-	9EYUKrSg==;
+	bh=68O/QV5YEbg31tyhJj3ek64H5Hv55tMkxFiDo3YEY1k=; b=FsZeXhwjATJzujgeTwFKkeIbU1
+	bXZJOWuMQFVjYNrX03DOe76qlBTYLwZGwSpLFdRKbu6CDSJNj0obiTBDr4InlXUbq45TV8GLd+bgV
+	LkqrmAy0DUoX8CQCfT5R2Qtjmpy38B3CFl3Yx+N5ZfjmGRo3AVQOqdjvPIaE/Fhr7J3wq6QiKhr4c
+	RoEDMicwCH9XOmEee4MDKxXe4p/f0BofjfUhwpLwWMuJQ1Qed+UpqqLQfST2iT/RTpcF7xZCMgqnN
+	PGcMppv0LVIUcZ2CUVPGkVN0shUnktkCuDZYbgQ2ZNajVmVL9GVw1C6HvcSlsQQgrDC6+qaJYg95H
+	LXcF9fxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdTF-00000007ryp-2GHD;
-	Mon, 09 Dec 2024 13:06:41 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1tKdUH-00000007sJG-1W1D;
+	Mon, 09 Dec 2024 13:07:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKd8f-00000007lpV-3WmW;
-	Mon, 09 Dec 2024 12:45:27 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4Y6M5p179vz9tBf;
-	Mon,  9 Dec 2024 13:45:18 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id ad8aC7rBW98b; Mon,  9 Dec 2024 13:45:18 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4Y6M5p0DxHz9tBd;
-	Mon,  9 Dec 2024 13:45:18 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id E8A068B766;
-	Mon,  9 Dec 2024 13:45:17 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id OUa8UHFVNS_8; Mon,  9 Dec 2024 13:45:17 +0100 (CET)
-Received: from [10.25.209.139] (unknown [10.25.209.139])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id A70C18B763;
-	Mon,  9 Dec 2024 13:45:17 +0100 (CET)
-Message-ID: <95a461ca-3ed6-4380-ad1a-da12e1109675@csgroup.eu>
-Date: Mon, 9 Dec 2024 13:45:17 +0100
+	id 1tKdBb-00000007max-18j4;
+	Mon, 09 Dec 2024 12:48:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733748505;
+	bh=6Esgob/eXCtbOdjh9toU3Ca+CaUbyN17vrQM4nXKqoE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nxlcorysF3qLOWqSN5xIktWcXP/FYoPk30xXSud8QdoE0/XElsvYF4EtYSC8ACZ08
+	 NV12Wd47dRS9nimVC20wluLMLcwRWJGgwbFJt5a3vXTsqMreP1ff3awsKeuvieqMqk
+	 dcW+f9d+sPWpZzd8GZ8YnBXpjQEYFPqlVp/sAWLlAetQkSDo1dvhcVZmlIym7n4CYO
+	 /GRO/hO8aoUNSVmdVxm9FlQfufzlGpypSg2v32fIIG1bWFXv1S9bwQnw4EfDrjyFVj
+	 eAn2f+Ues8EJfdGIGmG2vLIZp2K2YwiIOQqYvJSIJ38cqKP4AO8NJ30rxq2e1o0eRs
+	 uy67MYV93uapA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B515617E3750;
+	Mon,  9 Dec 2024 13:48:24 +0100 (CET)
+Message-ID: <94c80573-b18b-4328-8663-db9d6455fafd@collabora.com>
+Date: Mon, 9 Dec 2024 13:48:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/21] Converge on using secs_to_jiffies()
-To: Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Easwar Hariharan <eahariha@linux.microsoft.com>
-Cc: netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, cocci@inria.fr,
- linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
- dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-scsi@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-block@vger.kernel.org, linux-wireless@vger.kernel.org,
- ath11k@lists.infradead.org, linux-mm@kvack.org,
- linux-bluetooth@vger.kernel.org, linux-staging@lists.linux.dev,
- linux-rpi-kernel@lists.infradead.org, ceph-devel@vger.kernel.org,
- live-patching@vger.kernel.org, linux-sound@vger.kernel.org,
- etnaviv@lists.freedesktop.org, oss-drivers@corigine.com,
- linuxppc-dev@lists.ozlabs.org, Anna-Maria Behnsen <anna-maria@linutronix.de>
-References: <20241115-converge-secs-to-jiffies-v2-0-911fb7595e79@linux.microsoft.com>
- <b9fcb12a-b7a4-4c33-836e-67109ce07deb@intel.com>
- <dab77729-682f-4182-9fb2-cd522ac29b5f@linux.microsoft.com>
- <72c8eb66-eb67-4f8b-b0c0-13f1aa001698@intel.com>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <72c8eb66-eb67-4f8b-b0c0-13f1aa001698@intel.com>
+Subject: Re: [PATCH v5 1/5] pinctrl: mediatek: add support for
+ MTK_PULL_PD_TYPE
+To: Frank Wunderlich <linux@fw-web.de>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Sean Wang <sean.wang@kernel.org>
+Cc: Frank Wunderlich <frank-w@public-files.de>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Daniel Golle <daniel@makrotopia.org>
+References: <20241202110045.22084-1-linux@fw-web.de>
+ <20241202110045.22084-2-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241202110045.22084-2-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_044526_042429_D9B101E0 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20241209_044827_470051_22CA898B 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,49 +83,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 09/12/2024 à 13:01, Przemek Kitszel a écrit :
-> On 12/6/24 9:58 PM, Easwar Hariharan wrote:
->> On 11/29/2024 4:57 AM, Przemek Kitszel wrote:
->>>
->>> [removed most non-list recipients, it's just too much]
->>>
->>> On 11/15/24 10:26 PM, Easwar Hariharan wrote:
->> <snip>
+Il 02/12/24 12:00, Frank Wunderlich ha scritto:
+> From: Daniel Golle <daniel@makrotopia.org>
 > 
->>>
->>> Regarding code - you could also convert msecs_to_jiffies(const * HZ),
->>> there are 10 that are greppable.
->>>
->>
->> Those seem to be mistakes. const*HZ is a seconds-denominated timeout,
->> being passed to msecs_to_jiffies() which will treat it as a
->> millisecond-denominated timeout resulting in an excessively long
->> timeout. I suppose that's better than a too-short timeout, and
->> apparently it's been working fine all along since hardware responds
->> before the too-long timeout expires. Half of them are in
->> drivers/scsi/arcmsr/arcmsr_hba.c and the pattern has apparently been
->> there since 2010.
+> The MediaTek MT7988 SoC got some pins which only got configurable
+> pull-down but unlike previous designs there is no pull-up option.
+> Add new type MTK_PULL_PD_TYPE to support configuring such pins.
 > 
-> my point was that, the default value of HZ is 1000, and most of the code
-> that is just `$value*HZ` was meant as "$value seconds, in ms unit".
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-I can't follow you here. The default value of HZ is 250 as far as I can see.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Regardless, HZ is the number of jiffies per second, nothing else.
-
-> 
-> Same for HZ/const, HZ/2 being 500ms.
-> 
-> HZ is awful in that it is not 1s but 1/s, but it was easy to abuse the
-> value in simple context.
-
-Why is that awful ?
-
-HZ is a nice macro that gives you the number of ticks per second, so 
-that you are able to easily calculate the number of ticks for a given 
-duration, regardless of the configured number of ticks per second.
-
-Christophe
 
