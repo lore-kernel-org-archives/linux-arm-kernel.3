@@ -4,168 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92C4E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C305E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 12:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CAvOX41cUqcgAZKkpNmOArAIjiNnKnrkVnAZzwcYUpY=; b=TTYRSMkrRDcK5rh1Dm6I/FPLN3
-	UolG5qxm0202kjSr55asL+OKQxMx6DL/ke+kuWbLAE1owUiKszyJu+0/FfBfnQDzZVE+qgT80C4TY
-	4SmSkDbSPOziZ7i7p5hFIRo+EmZb9lIGeyCV6szCNcbRwrOZ3Vj44GpURVk7L3D6NpOyGb/A6QQXr
-	LdeGgXHQNG9xHYiRtEfFUZE+TslsL/YBkjBr7P7VBi+XIufn30/RUKpVDE2g69JXg5zhuXX0F3jjs
-	4VwcmodIzqv8G2M1sYXa5Dm255/Bx+ixTlPlz2eXTaWOde0YyfEnsqOWQrnkNNg8UtBqBJ/5LDBkq
-	xpb5AwTA==;
+	bh=c0w54vZT7PKG1XWtN+/uhpQiw/mRzqEusnhno0TxGLE=; b=zu1NbW1rDRwyi2RuMABdS8hpa9
+	/kBPxUGFziTy1cxr2Rn2aeJ/j3lxJXF5YBZEDFduHx5AR6nOw5hsfHqh2jc0IXguladRirPT60eK/
+	woTz8NbR31SLIgzfkbzFy7kYgrK07UB9np2ZgW3bSjpIaWND92obyNEjNR21OYaQavaYBUlJrmAlp
+	ElwZhEsVIvhEagk8brawo1wsP7k/l/WFf+N8nOiXhB4Dv8KFTWL/J70EUuGZi9QlbUO3PPpAUXf4E
+	KLPOGQkCYPaM7LRurXnnwSJxOEPCynG0CzcK8BXcFIus7Xs7n8SXixg/HpZvfTue2OvcKHxkFlwEp
+	wX+YXmMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcql-00000007fuK-1ErP;
-	Mon, 09 Dec 2024 12:26:55 +0000
-Received: from mail-bn8nam04on2072b.outbound.protection.outlook.com ([2a01:111:f403:2408::72b] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcpi-00000007fjY-38lQ
+	id 1tKcuf-00000007gwY-18Ws;
+	Mon, 09 Dec 2024 12:30:57 +0000
+Received: from mail-m16.yeah.net ([1.95.21.16])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKctb-00000007gY8-1q0v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 12:25:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cuzVZTVfzUQsb3TvjA38jDx9mjwu2CFuz7jQOIl53711SXTI/2uoHXt8p5d0oiZ3ZajE+44LiLqMUk4nW0XikrX+U/gyyctfY7tGbejOZdkUsc8qh0g/dnCV2mOYUdfbzOVmAICcYVLfiQ4RZJGpxrhPczL/LzU/mvr3GSrj7T/hXwtqd5bHNRqc4CZGvc4YJqF0UeNzq3s3PIdTELu2b1T/2RP+komFyzAcgtCpcDbKW4WWMizg1hKmEDE/CBBp6/npmDXEdM6esNetk+981v3RUrk6O+AQ9EfUXZ9q+/ed8fyJDpF2xbyhmTLH+cnGLgRId8db/8blcrz0XxBZaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CAvOX41cUqcgAZKkpNmOArAIjiNnKnrkVnAZzwcYUpY=;
- b=OKchjuXMIkrw5gIA2fa7LeNrq0fBCet8WMOaxWAa8z2WZJreUn7VWI1zpmSjHwaEWNfCizXk4JhamEkmQrsLyKUcNHDiXxb17B2R8NH/ETGYmXoqshbFcWoQHON9GuR5BtQSSgPeyhOnJz+TMo5xnTyskexuTo8zdyNomC921SiitGhzcQq0xPpmSW/++hZDicpGYwfaZbYejGZNmSPgdJK94EeushWWNqlyq+Tv+TFasMdPcz9FggCXwCfgu9IId0fAJOlbGOcbu34hi4gA+0nVU4queNzhcCs4bIpZWn9dJNX552LwR23di9U9WW1suKd0+NpDzIMVqICtiJREaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CAvOX41cUqcgAZKkpNmOArAIjiNnKnrkVnAZzwcYUpY=;
- b=iNlhRJvKtAf3W0O/Ij4F6PptUPE/m1BwuzsUY9gzGOgWHAa7VegVJjxSlbs1olRrAy95QllWokHgoiE/bTLlJYlW5UapZNfifDqDpr7fxgj48sVDTIwa7xHcxQzL0XwbfKzpDBXmbQpPkRsyEWLofZYfvT+C9sb5DykGtZS34II=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
- BL3PR01MB7193.prod.exchangelabs.com (2603:10b6:208:344::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.12; Mon, 9 Dec 2024 12:25:43 +0000
-Received: from SJ2PR01MB8101.prod.exchangelabs.com
- ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
- ([fe80::292:6d9c:eb9a:95c9%5]) with mapi id 15.20.8251.008; Mon, 9 Dec 2024
- 12:25:43 +0000
-Message-ID: <c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
-Date: Mon, 9 Dec 2024 17:55:34 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer
- expired
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm <kvmarm@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
- christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org,
- catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com,
- yuzenghui@huawei.com, darren@os.amperecomputing.com,
- vishnu@os.amperecomputing.com
-References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
- <867c89tc4q.wl-maz@kernel.org>
-Content-Language: en-US
-From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-In-Reply-To: <867c89tc4q.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA1PR01CA0156.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:71::26) To SJ2PR01MB8101.prod.exchangelabs.com
- (2603:10b6:a03:4f6::10)
+	Mon, 09 Dec 2024 12:29:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=c0w54vZT7PKG1XWtN+/uhpQiw/mRzqEusnhno0TxGLE=;
+	b=bI/DGTJRzhytnyCFnnV41Vgg5thANKUze3OAJoHEzQveY2ntPLmOtvUm0FYmYM
+	nI2pXExwzoqttNzaW7gMJxZd6Ntlt07qxUypqMX4pT+1yaBs4MWctSheD3e6Tgrm
+	Q9rjqNgsNE5l32YTxaJVdvBO7f6vibbzAtBQHXEVp6Frg=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgC3vzGp4lZnf959BA--.46916S3;
+	Mon, 09 Dec 2024 20:29:31 +0800 (CST)
+Date: Mon, 9 Dec 2024 20:29:29 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: freescale: Remove unused and undocumented
+ "cooling-(min|max)-state" properties
+Message-ID: <Z1biqf24yH6HCl8Y@dragon>
+References: <20241115193504.3619533-1-robh@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|BL3PR01MB7193:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5514d98b-0d73-4c87-3187-08dd184c99c4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q1RQcGg4ZUhrWTdicDFPT2htYWQ3djRJaWs4VG0vbFR5RXphMjZkUXZPZ0JF?=
- =?utf-8?B?VTdPVDkzcVpkSlloUXc5WkNud3pBRlZOZENtMWgvN3dPZHFFcVVTN2VQWU1V?=
- =?utf-8?B?eHdGSVQrZ0lobUhvOUxKR2VtRkE1VmhMVjFxd2pkL2NvS21YSklUR041QlM1?=
- =?utf-8?B?cENpSnoxRzVvSGE4Y1RBS0JZbzNrZ3Njai9vb2paeExnZFZkSDVWWGFYKzVX?=
- =?utf-8?B?Q2tsSSt3UGNWRENjcTgzelFhN2hIZzZJM1F1RFIwRWxnNjJwZGIrdVpuWUpJ?=
- =?utf-8?B?NVZwUUZsRkpnVkU5Q0NSNlZVUDBGY3Z5S2ZBZnphNVZGOUVnRnNZbG8yN0Vu?=
- =?utf-8?B?MmhDMU1veE92bzV1UjNacjhqRWtWWVZadkRidHFjUUg0RnZKM2IzK0pQcHc0?=
- =?utf-8?B?YUttcFRBWE0xdjk4aW9KK21wRGRRdmJ0TGNPdGFvMFhEOWlqVWM0WE4ySnc0?=
- =?utf-8?B?N2RUNUVQc3ZadjJtckM0SlovTS9PYUlpRnNOUDdDajVzRlVUeXdHbFhMWE1S?=
- =?utf-8?B?SmlzRGU4Sk1teFhXUWNBQlorOUZVclBMbUpVeXZMVDF5cTJyNmRIUWpQdjRu?=
- =?utf-8?B?aDRZLzVQNzhhazZlUEt2cHhObW1QZ2Vpd21abHlFdkxHZzBhcGdxcWFxdmo4?=
- =?utf-8?B?WG5ZKzdJWlhyQTlGeEwxRm5URC9lMUJKL3FZeHFTNEluZFVYYXQ3WEdmdnA1?=
- =?utf-8?B?VGM5S0dGNXBmSVNCVENUTkZodXZaTEhKdmtlQ1RXSGJ6dDlGcU1Vc0ZaT3BO?=
- =?utf-8?B?a1h6L3dVQjk4TDEzUW4vVWtKU0tlWG1zb3ZtMFoxeXQ2RmF4bW9obFJkVkpK?=
- =?utf-8?B?TlZyVHJpcDEyTzUrc0JlTnVyaC9SU1VSb0c1Mm1KY0NwdmZ1LzQ4V1F3MXUv?=
- =?utf-8?B?REk0cmdNMDIyc2NEUGlicTMzcFpreFcxVUdtQ3FkSXczMW5ucjNiT0xaWFNF?=
- =?utf-8?B?V1M3cU90eDlUT2IzVGwzOW1nZTBxbDdTeG9qOVRMd3FEUU5KR2hFbXhPU1Nn?=
- =?utf-8?B?My81dVRLa3lCZlZCaXRSOG10SEllSUR6czRtL1F2WThDY29uVGF2UlVRcUEx?=
- =?utf-8?B?VllUOUx1NGxiWkVua3F6QlIrc0hodm5VUGcyeFhRektReVNOU0x2T3VaVkEr?=
- =?utf-8?B?b3pjSUtxVU1nOXhHYlZ0MCt2RUZucTVvYzNmWHE0YWorTmQyVWhOTVNCdzBM?=
- =?utf-8?B?Qkk5WHZ5V3BKd2pTRU5JbFEyeGFIU3FCSlVpSjMyT3lBSzNPbXdjWTVkd2Jo?=
- =?utf-8?B?M0Q4T09FM2Z4NjZFQ2gyRStsRjRKWFZ2ZzE3UHFRbHdGbS95QlFjVmlLbkI2?=
- =?utf-8?B?U05KY3drOG45eTN0R29hS1h6LzNLSDJVZmtBNjRZQnJqU2hsL0FPT0hJcXVZ?=
- =?utf-8?B?b1pSRVZxNE5SVUFjVk1zdHhHNmo5YnBxMFROSU1ESlJzUDZ1bXlZdFNhZFJV?=
- =?utf-8?B?TGRYN2loVDFwYVhLdGNLekdsanhudlRxRUN1ejZ2WTBldkpxb2syU3hxMVhu?=
- =?utf-8?B?NFhOcTZScXpQeFZOZEwvb3JTeGdHMGFyK3V6Y3A4L2FIeDVlQXJFZjNVUlBM?=
- =?utf-8?B?TE1QdUFOQU1jYk85NVloT1gzVGZ3c2I3Wi9ZRXgzdnltdFpIRG1Nem5mVklt?=
- =?utf-8?B?K28xeGZNQlNLZkVxNjI0UXJUS29TNUgrZDRMYm41TFdWTnEyTVY1NjMxYnVY?=
- =?utf-8?B?TGtxNXluNCtadGJEa1NBUVZ1akYva04xejBjSmpsV1lMSVpaSyswZlpuM2dx?=
- =?utf-8?B?S3o4bnZrRVJDWnVwenFhTHg5aEhiVXFaME5MK3JLWFFtb3J4NWlCREJJNGtD?=
- =?utf-8?B?ejJDQTVrNWdiSzhzZUpyZz09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eXlodUk2SzBHU0lSL0g3ZzdvMStmYmNWSVc1L2xhd05MNmx5NGhqNDgwQ242?=
- =?utf-8?B?ZGczVGR6eGdNUVhFb1o5bXpYdVNuRzZ5M3prY1dBekZvMDBLRjN0UE9mbExI?=
- =?utf-8?B?a1JpYzRmOG5ST0d5Q2xNTHhQTSt4VVFuL1YwbkVLdjNLQVVHYWVyanpteDJ6?=
- =?utf-8?B?bGVlMW8rbUhQZmVtcGRVUi9lY2Z1ZjJRWTcyZWFiUnBJbk1hYjJ1MDJKdm5m?=
- =?utf-8?B?bE9oc01TQk9FVXNRRzg2dnFGcXJhdjN3VW1BUExyeWR1V25JTk9nQ0l1MWFo?=
- =?utf-8?B?Zi9kczhvV1FpbU02T2R3cU9yODlScE1LMmpYQlVZSk81bzJWZ3lSbllVckp4?=
- =?utf-8?B?YW9nZStvUWFsUmtUOXdScUU0ZGxiWU84amRJYUZTL3Z1RTYvbjdCMG1nejc0?=
- =?utf-8?B?eStGcE83UGdTLzYyWlBwRFkrNmF0RjdLUlBwU1lzM2I5aTNON0VESjhRYnl2?=
- =?utf-8?B?ODRRanJpOFdRK0VVR0lhQS9LTjBaaDdneTN1Ly8wMEhBNkRGRHlSbFE3b2VE?=
- =?utf-8?B?bU80Ulk4bldQcHVEcW1XZC9tOUZ0WkhydlN5MGg1cnZZSEVWM2MzRTRUbWx6?=
- =?utf-8?B?a3V6RFZRS1NvUWQwcU1RN2o0M1ZyT2w4RzhsTWtiSGdiSi9JTmN5KzhCVnhL?=
- =?utf-8?B?RnBXZlp5VWJGcnAraDZZd3NvYy95Unh0MU9RS3A0M2p2TU1UV3JDa2F0R1Zh?=
- =?utf-8?B?YnludEpSeDA2ZDVvdE5rcGkwdm8wbFN2UFNXQjJNaHZJYThqYkVoTVcvdHNu?=
- =?utf-8?B?THg4NGFCWFE2aXpjR1Zlb3EyUi9CUnNSUnNXRlhrd3oxZHdZQWNycnZwL1FN?=
- =?utf-8?B?cEpPMlZ5VkJtblA3NTFmem5vQjh1UEhETnpuSCs5WUtENXlYNlZYYitNdUlv?=
- =?utf-8?B?UThkdFJVNjlZWlYwUm1pd2E2eUt0WkQvWFcvbGFFL2xGSU5WRVZNd2VkQ1Fu?=
- =?utf-8?B?TXhHaGwyelNSaHJFMUs4c1Vtd2FMeDEyWCthR2tJWmd1K1RmRUR2QmZEZXFj?=
- =?utf-8?B?ak83WGRrRnpEVTdmMnRoODAwY0hOY0VyTWh1TjdoelQwbjBpb3BYMkpRbDRX?=
- =?utf-8?B?WmFrZnJZemNrY1NRTE5GUGlZY0ZaZHNjdmFIaFU2WEh6T1hkT1NQY1VYQ05p?=
- =?utf-8?B?eWlHU1JJVi9uK0lyWEU2K3VxeUt3QmJsRHJQbisrbW9Dejdia0ZRdXpCd2Q4?=
- =?utf-8?B?Ym1Jakx4emJvVEx2WjlJL1RsTTN5eUdzeGhBdUh3SjAramp6aHV3VVJXeWNH?=
- =?utf-8?B?RlFTdzVSZzdlYW56d1BZSStWU0YwOUxpUEprNExDOURINXEwZ0VHN3ozTE5Z?=
- =?utf-8?B?Y2lETFc1bFBFc0djUWEzRFBmVGVJTkM2MCsvS0tKTzFTZTd3L3dvZllFOGdr?=
- =?utf-8?B?QVB5QnpFbERLa2QvdC9sMEk1blFKaW1CNytqWW5BSzN0SERzVUNKQnYrcEpV?=
- =?utf-8?B?ZlBwQXBiekozSkxvamxjcE1QODg3NUtabmUza21DVHBWOFFRMXJtbWhPR3pL?=
- =?utf-8?B?dndhRzRqY05zemxHTXY3cFpZM011cFFmelZ4VmJhZEZxWTh2UW9EMzduNVFo?=
- =?utf-8?B?QzZtMTk2QzRFYklPSUUwTk03VW9sSit2MlJDTk1VdzdORTVzT0kwTDVSMHhP?=
- =?utf-8?B?dzA0TzhqY2J1dG1IZUYrT3VKc0hVSm9vWG9zWE1zMDRHdHZzd0pBTnU5S2E3?=
- =?utf-8?B?cFhoWHFyZi9IUzdLZzVRWFdlcDFZMUswQzA0enM2a3BqT2k0WmZCYWFZYnRa?=
- =?utf-8?B?ZThsS1JDRzhOcitNaWRtejErbDlzSVRVaXcyTUxJc3M3bjJSSzZ0dXhQS2Jj?=
- =?utf-8?B?QlJMbk9sT2dYUFFXRk81andOTE9tNHJKMVlzTUZLWFFOM2UrL3NuY3hDYmh2?=
- =?utf-8?B?V3h1YVpsYW5XUEtmb1liWWgxQXNQYy95SS9CUEkvSWxhT3kvMDRZeFQ2ZkY4?=
- =?utf-8?B?aFV0ekpKV0JrWGdQR2JRaXdjekdsWXVtVHhoQjlvMnVpZUJIMnlhQ0pqNEJ2?=
- =?utf-8?B?MTNuWFBQMEd5V2pwVHVXQ0FFdmdiVGNVTy9NVklhSFdBUDFFTENRT0Z2RjNJ?=
- =?utf-8?B?Nmd6RENNQlMvSmJXV2pHZENoUjVnZnFIcENxd1JVQUFuTnVXaWpXcTUzaUVy?=
- =?utf-8?B?dFQwT05rV04xaFpzRlA4bUwwUTQySGJOaWlQc1AreGlWd0NQZFFoc3VydTJH?=
- =?utf-8?Q?nDzKLY/wHdTzlxwixfk/p3SM8o1ZB2bNTwsYjLsWa7Ha?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5514d98b-0d73-4c87-3187-08dd184c99c4
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2024 12:25:43.4181
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: k+4zOcgwK19UjP1TCpJd/tCGyJJSzA1+BH6/VyZq4YqhA6eJsn+L5aBERw/U+W10JZ+FbRLwEFXRs6LbaLPs1amK3jHurgguiGGnDnyRhDG0aBMu6CUzaWzFT126GR4Y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR01MB7193
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241115193504.3619533-1-robh@kernel.org>
+X-CM-TRANSID: Mc8vCgC3vzGp4lZnf959BA--.46916S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZryxGF4kurWfCrWkKrykZrb_yoW8AF4kp3
+	WkZa95Wrs7WF1aya4qgr18Kryq9ws8JFn5ur1DWry3tr43Z3WjqryYk3Z3WF47ZF4fCw4F
+	gF1Fqr10vF1YqaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jaVbkUUUUU=
+X-Originating-IP: [114.218.218.187]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAh2wZWdWz70tEgABs3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_042550_877918_1E897A5C 
-X-CRM114-Status: GOOD (  41.98  )
+X-CRM114-CacheID: sfid-20241209_042952_075928_BA9F9481 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,191 +76,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Marc,
-
-On 09-12-2024 03:24 pm, Marc Zyngier wrote:
-> Ganapatrao,
+On Fri, Nov 15, 2024 at 01:35:03PM -0600, Rob Herring (Arm) wrote:
+> Remove "cooling-(min|max)-state" properties which are both unused in the
+> kernel and undocumented. Most likely they are leftovers from downstream.
 > 
-> Did you notice that the Columbia list was killed over two years ago,
-> as per ac107abef1976 ("KVM: arm64: Advertise new kvmarm mailing
-> list")? Consider that script/get_maintainer.pl is your friend.
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-My bad, copy paste issue!.
+A similar change from Frank [1] was applied, thanks!
+
+Shawn
+
+[1] https://lore.kernel.org/lkml/20241007220542.897605-1-Frank.Li@nxp.com/
+
+> ---
+>  .../boot/dts/freescale/fsl-ls1028a-kontron-sl28-var3-ads2.dts   | 2 --
+>  arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi             | 2 --
+>  2 files changed, 4 deletions(-)
 > 
-> Cc'ing the correct list instead,
-
-Thanks.
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-kontron-sl28-var3-ads2.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-kontron-sl28-var3-ads2.dts
+> index d9fac647f432..1d53b529af88 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-kontron-sl28-var3-ads2.dts
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-kontron-sl28-var3-ads2.dts
+> @@ -19,8 +19,6 @@ / {
+>  
+>  	pwm-fan {
+>  		compatible = "pwm-fan";
+> -		cooling-min-state = <0>;
+> -		cooling-max-state = <3>;
+>  		#cooling-cells = <2>;
+>  		pwms = <&sl28cpld_pwm0 0 4000000>;
+>  		cooling-levels = <1 128 192 255>;
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
+> index d32a52ab00a4..aef63a4f698c 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
+> @@ -94,8 +94,6 @@ i2c@1 {
+>  			fan-temperature-ctrlr@18 {
+>  				compatible = "ti,amc6821";
+>  				reg = <0x18>;
+> -				cooling-min-state = <0>;
+> -				cooling-max-state = <9>;
+>  				#cooling-cells = <2>;
+>  			};
+>  		};
+> -- 
+> 2.45.2
 > 
-> On Mon, 09 Dec 2024 05:32:01 +0000,
-> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
->>
->> During automated testing of Nested Virtualization using avocado-vt,
-> 
-> Which is not merged upstream. So what branch are you using? Based on
-> what kernel version? On what HW? With which virtualisation features?
-> 
-
-Testing is done on Ampere's AmpereOne platform using 6.10 based kernel 
-with NV patches from your repo.
-
->> it has been observed that during some boot test iterations,
->> the Guest-Hypervisor boot was getting crashed with a
->> synchronous exception while it is still booting EDK2.
->>
->> The test is launching Multiple instances of Guest-Hypervisor boot
-> 
-> Is the multiple instance aspect really relevant to the reproduction of
-> the problem?
-
-Not really, but it requires multiple attempts/iterations to hit the 
-issue. Even with automated test, it was seen at some iteration out of 10 
-to 15 iterations.
-
-> 
->> and while booting, QEMU monitor issued the command "info register"
->> at regular intervals to take a register dump. To execute this
->> command, QEMU stops the run and does the register read of various
->> registers. While resuming the run, the function kvm_arm_timer_write()
->> writes back the saved CNTV_CTL_EL0 register with ISTATUS cleared always
-> 
-> It is userspace that causes this write-back, right? AFAICT, KVM never
-> does that on its own.
-> 
->> and resulting in the loss of pending interrupt for emulated timers.
-> 
-> How does a missing interrupt result in a synchronous exception in
-> EDK2? In my experience, EDK2 panics if it sees spurious interrupts,
-> not when it is missing interrupts (it just locks up, which is
-> expected).
-
-Not sure, why it is hitting exception, rather than hang at EDK2.
-However, EDK2 timer handler code is ignoring the interrupt since ISTATUS 
-is not set and not moving CVAL forward.
-
-> 
->> In hardware based timers, ISTATUS is a RO/WI bit and gets set by the
->> h/w, if the condition is still met. However, in Nested-Virtualization
->> case, the Guest-Hypervisor's EDK2 is using an emulated virtual timer
->> and losing ISTATUS state and the interrupt forever.
-> 
-> Why is this specific to NV? Can't the same thing happen to the
-> physical timer in a non-VHE configuration?
-> 
-
-You mean, emulated v-timer in non-VHE boot?
-It might impact non-VHE case as well, not tried though.
-
->>
->> Adding fix in kvm_arm_timer_write to set ISTATUS for emulated
->> timers, if the timer expired already.
->>
->> Fixes: 81dc9504a700 ("KVM: arm64: nv: timers: Support hyp timer emulation")
-> 
-> Where is this coming from? This patch doesn't touch the code you are
-> changing, so how can it be the source of your problems? As far as I
-> can tell, this has been the case since 5c5196da4e966 ("KVM: arm/arm64:
-> Support EL1 phys timer register access in set/get reg").
-
-Thanks, 5c5196da4e966 seems more relevant!.
-
->> Co-developed-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
->> Signed-off-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
->> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
->> ---
->>   arch/arm64/kvm/arch_timer.c | 11 ++++++++++-
->>   1 file changed, 10 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
->> index 1215df590418..aca58113d790 100644
->> --- a/arch/arm64/kvm/arch_timer.c
->> +++ b/arch/arm64/kvm/arch_timer.c
->> @@ -1199,7 +1199,16 @@ static void kvm_arm_timer_write(struct kvm_vcpu *vcpu,
->>   		break;
->>   
->>   	case TIMER_REG_CTL:
->> -		timer_set_ctl(timer, val & ~ARCH_TIMER_CTRL_IT_STAT);
->> +		struct timer_map map;
->> +
->> +		val &= ~ARCH_TIMER_CTRL_IT_STAT;
->> +		get_timer_map(vcpu, &map);
->> +		/* Set ISTATUS bit for emulated timers, if timer expired. */
->> +		if (timer == map.emul_vtimer || timer == map.emul_ptimer) {
->> +			if (!kvm_timer_compute_delta(timer))
->> +				val |= ARCH_TIMER_CTRL_IT_STAT;
->> +		}
->> +		timer_set_ctl(timer, val);
->>   		break;
-> 
-> This really looks awfully complicated, when it is only a matter of
-> recomputing the interrupt state, something that is at the core of the
-> timer emulation. Why can't the following work:
-
-Added check to handle ISTATUS for emulated timers only, since it is RO 
-for hardware timers, thought it might confuse others(non-nv case).
-Otherwise below diff from you should work as well. I will try it out.
-
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 895f09658ef83..bd6efafbe7109 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -1298,13 +1298,17 @@ static void kvm_arm_timer_write(struct kvm_vcpu *vcpu,
->   				enum kvm_arch_timer_regs treg,
->   				u64 val)
->   {
-> +	unsigned long tmp = val;
-> +
->   	switch (treg) {
->   	case TIMER_REG_TVAL:
->   		timer_set_cval(timer, kvm_phys_timer_read() - timer_get_offset(timer) + (s32)val);
->   		break;
->   
->   	case TIMER_REG_CTL:
-> -		timer_set_ctl(timer, val & ~ARCH_TIMER_CTRL_IT_STAT);
-> +		__assign_bit(__ffs(ARCH_TIMER_CTRL_IT_STAT), &tmp,
-> +			     kvm_timer_should_fire(timer));
-> +		timer_set_ctl(timer, tmp);
->   		break;
->   
->   	case TIMER_REG_CVAL:
-> 
-> But overall, this very much looks like it is only papering over the
-> real issue, which is that the *emulation* should regenerate the
-> pending bit, and not rely on the userspace interface.
-> 
-> As far as I can tell, we already correctly compute the status bit on
-> read (read_timer_ctl()), so the guest should always observe something
-> consistent when it traps. We also *never* use the status bit as an
-> input to the emulation, and always recompute it from scratch (it is
-> only there for the benefit of the guest or userspace).
-> 
-
-For emulated timers, we are not asserting again by calling 
-kvm_timer_update_irq in timer_emulate() until the level is down and 
-ready for trigger again. This was done to fix high rate of spurious 
-interrupts getting generated to V-Timer. Hence we are not able to 
-recover, if once ISTATUS is lost.
-
-> So I can't see how upstream is broken in at the moment, and you need
-> to explain how this actually triggers. Ideally, with a standalone
-> reproducer or a selftest.
-
-We could reproduce the issue with the simple test/script.
-On one shell, launch L1 using qemu with add-on option
-
-"-monitor unix:gh_monitor,server,nowait
-
-On another shell, while L1 boots and still in UEFI, run repeatedly the 
-command (or put in a while 1 loop script)
-
-"echo "info registers" | socat - unix-connect:gh_monitor > 
-/tmp/info_registers"
-
-With above steps we were able to hit the issue within few attempts.
-
--- 
-Thanks,
-Ganapat/GK
 
 
