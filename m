@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E6EE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDE4E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ehJkuMga426CGN2hUyJhWL85NBKi9F+9i7V05St6jF4=; b=n+A3QrAa0qVTgOf+8mx0b98s4x
-	PWqubtWLf1BKWKW9coiwJPVxShkgRSS4i02ChmeStCJTaYOmx1yu2ORxC1Crk2shmWtPnlwaOcEXQ
-	aix0TZjQmDwLeEEYfHskXVHxczzDwzS9oZMfIaQ2+zIiNrOQW9P3Tqejlu6nSWRz4+GIaNogg0bV5
-	tJi6zXkzmSg5kHvYZkZ/iiria8BPVuEuJmr2BWIqLIB71DRLKoCPY68qLk2LSU/dWmC/IzBMVXXKj
-	1EwXfsutkT11csUUN26YHvkT+H1b9aGFKyPDqs73vRAV9pfxOo8/7nBDFFQrpWuBo+XClYYcMIrDQ
-	895Xofzg==;
+	bh=a3VY6Wa8UWupTKdOmjgxvR4QZMFU22Ngdh8K0aSBRwE=; b=2TC0y+AySidWW6oc6zW80nVKHT
+	NJCjJIi6TcPEwk2ZZeHrZq/CUUzGH0OPHvbXfq0L00F0DC8PMSQi+XGGxCThYCgY6vNG7qUc6P+IJ
+	OTmyDGI3Tfd+SPZpeaYynG7srAe5GPug6MxBXOpr6w1cp0Bh4SZpfv/28H88fponxTZ7538DUleoX
+	v4+Dfm8Gdig2ypkxPTscEO6oHqQYSbh8Kgkqf5g1iJKf6uwzQXSebkHG4GS9rYtnx2ag40OIT4G5D
+	RbpSnx1q21VqaO97EMb+drWS/lwIhaeUBmHq+qI72n4ZHBG0lQ1RBiJfkmnfRU8KD8dXzLDXix9Ej
+	rnLAJptg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKg0z-00000008RLu-2qXu;
-	Mon, 09 Dec 2024 15:49:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tKg4e-00000008RmA-2GLK;
+	Mon, 09 Dec 2024 15:53:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfzw-00000008RD0-3Fk2
+	id 1tKg3c-00000008RgC-2H0l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 15:48:37 +0000
+	Mon, 09 Dec 2024 15:52:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 65D46A40CA1;
-	Mon,  9 Dec 2024 15:46:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDBCBC4CED1;
-	Mon,  9 Dec 2024 15:48:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A09295C5AD6;
+	Mon,  9 Dec 2024 15:51:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAB5C4CED1;
+	Mon,  9 Dec 2024 15:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733759315;
-	bh=n94RWrYLM2f3wV2fEkioXHzMKrGMfSEIO328mG7Pu8w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IdZmPT0JlVKvRNrHjnH8eY03R64FM8g8psftS1dD1qCQx87NhLQ/alfgJF6z2pRyb
-	 3gy/kQM1w2/SUHXu4MDmRXyZzfTPtQycgoYwBcPn+xhvWQhB5G/dFzf2S0MdDCH8ng
-	 T4XZbnVooqUGITuWFk4cTx9KZwTn0WmZbKwj8hPlIPA2L5gCroNl1+pHV3j9XyPicR
-	 g9c1fGk5vRN4+UQBzECDsazDUDrPAbUX5+ytqm5nlzqkUanTwZEKodSTZt1QyzozVJ
-	 NDTM18wj2KAImyxfDBDxwd6Eelk8RDurC7+woVhzIGlAwaS1RuY9Iai2QUFj4d7wKL
-	 vvHgKn/fsY2iQ==
-Date: Mon, 9 Dec 2024 15:48:30 +0000
-From: Will Deacon <will@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: jonathan.cameron@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, yangyicong@hisilicon.com,
-	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
-	prime.zeng@hisilicon.com
-Subject: Re: [PATCH v4 08/10] drivers/perf: hisi: Export associated CPUs of
- each PMU through sysfs
-Message-ID: <20241209154830.GC12428@willie-the-truck>
-References: <20241203125049.39458-1-yangyicong@huawei.com>
- <20241203125049.39458-9-yangyicong@huawei.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241203125049.39458-9-yangyicong@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	s=k20201202; t=1733759542;
+	bh=jWxo2jIBvLBzYak18bM2E9DaATq5/K318coH0N0pg24=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cLhFS8irN0EUwo75llXUqSxyhAAENEyMQHEGjwfKgEd4be6y4ALUCa9voVNK3tWB+
+	 jNShTnrGPjlAqieQa/9JHZMZDkLepOxQhjSEge9Y0YWJSZytDZHsRnYcCpv0szfARy
+	 PjlbQ1MKIWpYOFLSNmE2ap+APsn5MhASWxx5fBAB2B4ipdaG7xouZ+wIAtOwevtcx7
+	 Aka/DYUNMBsHhbHGW+060x4ndT6ic9SqVajoM2jFtSfv21v7zGNtrwfu2QuUrbKrFb
+	 XBGeAvCuc8FX9cqBEc5iEKg0Y8tK3f1gTzN1nuxnXoHTM1yS6Y9Yl72YzDgSMNAxsT
+	 wBbgVPn+9lk4A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tKg3Y-001w6K-QD;
+	Mon, 09 Dec 2024 15:52:20 +0000
+Date: Mon, 09 Dec 2024 15:52:19 +0000
+Message-ID: <86zfl4svkc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+	<867c89tc4q.wl-maz@kernel.org>
+	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+	<865xntt2kv.wl-maz@kernel.org>
+	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_074836_881951_32860A63 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20241209_075224_667238_FA32B54C 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +98,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 08:50:47PM +0800, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Mon, 09 Dec 2024 15:39:28 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> Although the event of the uncore PMU can only be opened on a single
-> CPU, some PMU does have the affinity on a range of CPUs. For example
-> the L3C PMU is associated to the CPUs sharing the L3T it monitors.
-> Users may infer this affinity by the PMU name which may have SCCL ID
-> and CCL ID encoded (for L3C etc), but it's not that straightforward.
-> So export this information by adding an "associated_cpus" sysfs
-> attribute then user can get this directly.
 > 
-> Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> ---
->  Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
->  drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
->  2 files changed, 14 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-> index 5cc248d18c63..48992a0b8e94 100644
-> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
-> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-> @@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
->  SCCL ID #1.
->  
->  The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
-> -ID used to count the uncore PMU event.
-> +ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
-> +also provided to show the CPUs associated with this PMU. The "cpumask" indicates
-> +the CPUs to open the events, usually as a hint for userspaces tools like perf.
-> +It only contains one associated CPU from the "associated_cpus".
+> On 09-12-2024 06:50 pm, Marc Zyngier wrote:
+> > On Mon, 09 Dec 2024 12:25:34 +0000,
+> > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> >>>> 
+> >>>> During automated testing of Nested Virtualization using avocado-vt,
+> >>> 
+> >>> Which is not merged upstream. So what branch are you using? Based on
+> >>> what kernel version? On what HW? With which virtualisation features?
+> >>> 
+> >> 
+> >> Testing is done on Ampere's AmpereOne platform using 6.10 based kernel
+> >> with NV patches from your repo.
+> > 
+> > Grmbl... *Which* patches? At least give me the SHA1 of the branch,
+> > because I have no idea what you are running. And 6.10 is definitely
+> > not something I care about. If you're using the NV patches, the
+> > *minimum* you should run is 6.13-rc1, because that's what the current
+> > code is based on.
+> > 
+> 
+> I tried 6.13-rc1 based nv-next branch today, which failed to boot
+> UEFI as L1. Yet to debug this.
 
-What is userspace expected to do with this information? Can you point me
-to patches that add the corresponding support to the 'perf' tool, please?
+Works nicely here with kvmtool as the VMM. From what I understand,
+EDK2 needs some surgery to correctly boot at EL2 without FEAT_E2H0.
 
-Will
+> We do have the FEAT_ECV on AmpereOne, I was the one reported/fixed bug
+> with FEAT_ECV(CNTPOFF offset issue) in the past.
+
+Sorry, I don't keep track of the feature set for machines I don't have
+access to.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
