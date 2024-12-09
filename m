@@ -4,51 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED133E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036BCE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9ILvmy54JWA4zTvJTtPsNzaYB6nztcd2Ns/mns53N58=; b=KjlYWKdmltfnKJdro5/10bOLTB
-	qyRsPcR+Cq/sZJl/pUe6VcdDAlEtpanPvqJ4HLsPEehl+6CogBVTeOvR6xgH26gNqRD0FFwgIf5q2
-	Mpkidvl4u+yACdz46Kd35b1yxC13XLa/gQgijnTkyVEpi93tdI8Z1f3t2tNCKBChtcuddlkXmqaCl
-	szx2vgwpgf1YqKJZ80ofi1T2sjXzT59jlVMUssaU17RiY3wP+BKKsVIdcWW13QoMRxqlm31XLlosT
-	yRR6TnrHkyQYFfkg7NumcBpMO7QltMHWQdGch1cCgFK3aaPZa2BHfHhpGrnNT5f98OYkMxe/0lY/i
-	PXdCETPA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YJ9JUQ5bSEMgGsZqbZA+J2STml+1V04qdkGaF/nnd20=; b=ASbSVmFBRZMC/fJya9/jDAxYsj
+	8HkyjsUJHqC6d/gi+o4GUqqIV4Vz593v4Kr1fqA4//QmmWyT6X7PWfRpSvyD2l4pG5FUfSNTwNTSs
+	zmdTwbp8kZDuos94kbol6goHLpWmPhTHucvyjLsYBuKQSNKO2xsrK5oObN+mF1EXkLxqlytJofQ1K
+	ALMNHNSBjU/5/At2/4rRMIEFcwwQbATnoKyJwOyFC/maQPEeqBDGBnF/BxnXurfxd6Mn2Zo8FaVME
+	r+IIEFWmvyw0gEPl32kcddMOiT0v9gFnO3dyGvbRGm2eyWkxCpmyxSv1M1D8MJumbX0TU0bEs1Und
+	qCRTcnWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbZf-00000007Q9q-3ngA;
-	Mon, 09 Dec 2024 11:05:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbYc-00000007Ptv-1FqK
+	id 1tKbd8-00000007QuZ-3C3b;
+	Mon, 09 Dec 2024 11:08:46 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKbc5-00000007Qha-2mJH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 11:04:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E65D2113E;
-	Mon,  9 Dec 2024 03:04:31 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DEA383F5A1;
-	Mon,  9 Dec 2024 03:04:02 -0800 (PST)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: aishwarya.tcv@arm.com,
-	catalin.marinas@arm.com,
-	kent.overstreet@linux.dev,
-	mark.rutland@arm.com,
-	will@kernel.org
-Subject: [PATCH] arm64: stacktrace: skip reporting LR at exception boundaries
-Date: Mon,  9 Dec 2024 11:03:51 +0000
-Message-Id: <20241209110351.1876804-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+	Mon, 09 Dec 2024 11:07:42 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21628b3fe7dso18014625ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 03:07:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733742461; x=1734347261; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YJ9JUQ5bSEMgGsZqbZA+J2STml+1V04qdkGaF/nnd20=;
+        b=mLdBd88Iui/T3L+NiAfJNImgj3+ly3xi9baj+Em2kgybGgkJove+ei3aDen4xrzHEK
+         G+mrZEsagp0ypTQKG2QTqxmlGt5RRLOBRDF/TnluwNlouBg3apSgz8T9VeC2MpKjrA8E
+         a+m88z2S+9W84LFPf2aWpx+TszODklt5iE8PSzjbl/2aDHdiBofxMKfM8qmlRXOSKYAQ
+         QeqpQmuYvpmif0HXPJNV7Nd+4uajsLGyyI0i7EJBGIkV6ielMTrUTz6Vs1ZRjWhPmDdn
+         ighN6oUtPHL0zZ8aQgoZwDQhHARLnfwaUN5deAcxABtH5FL/Fc8xhqVc1ojYOfBHOdlB
+         /HeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733742461; x=1734347261;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YJ9JUQ5bSEMgGsZqbZA+J2STml+1V04qdkGaF/nnd20=;
+        b=dUVCIoOHv4id8KGPzCs/BnLo9PMogPY5ImNBdWrpeODe9tWmMOXG0nR4k7XLXm4DcH
+         2E0Q0jWVVpt4rJfUFop8FZhyRTMjhmVKMqB2udmSvs57UbHUCB3TA+yM34uBLpFWyA1O
+         9jqiNRgUV0S6J6XVmOTeolGwK5VXScIAXVGuE944+qv/umXmkQ5yTrmsYwrM3TVat8nJ
+         hsVWrVt5uGWiUGDoCIIfWUNVmkEsbPgVs+WfMKkrzKlUQvtT5qXbARPZ1+kXUjyrCGYR
+         FjhsnCzHgyfNLLXQ1A8wYPrePw9Wt8NByMp/wmML1rDtsuWbH/47R5nGPxl9wrxm7RSb
+         qRvA==
+X-Forwarded-Encrypted: i=1; AJvYcCWCHM5warvl09+tofV+bS69feWRzVS/66QXRyFj4znNXQWs6LyO3c3Ec08zAMmpE7Nc/cFN3ksAega2XzhWQ+Ju@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3UH8rzO3uV2DSMO0uOMJl4u1UYS46KI5DchazXDFTtC+bQEyr
+	xiuP1afuO+f8Y/vKAC68X9suL+OiroFaSCBnrtvs/A314lBPvJ/2
+X-Gm-Gg: ASbGnctq31nqGHlE4D93fd+9XI5dwD7Byv0ljpZumdcjwwYo61fxKhmjnvXR2VwBLWp
+	lEVBK8r/iNIG4bFcb/yRwYsGP1me+nFuIxDCe202p8BBnLGbnwG7D7L664GUaX8qQ1SrhaXS1tF
+	urBD6o6cS6eAfWEd4pzMUIO+NNk9EdTMem1VUl7qkVtE/ykEnUCdtQWKsXW8BSVQAXm999VCL2Q
+	qqcVjA8IGrn2TNd0AVKOsVoheA4QWwXZg0M10HrYA38rOVDbC3uhrXI3Q==
+X-Google-Smtp-Source: AGHT+IHE+t2Du1WqC/+jnVLPWSG0jQUPMDd8/py9w7+kgKS309UwwhMmDAhAU/gz6Yfj4oBXSzHyqA==
+X-Received: by 2002:a17:902:f607:b0:216:4883:fb43 with SMTP id d9443c01a7336-216488401a3mr47732355ad.32.1733742460654;
+        Mon, 09 Dec 2024 03:07:40 -0800 (PST)
+Received: from [192.168.0.122] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8f3188fsm70017745ad.265.2024.12.09.03.07.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Dec 2024 03:07:40 -0800 (PST)
+Message-ID: <494a944e-4088-463a-abbb-c0a8cf4455ec@gmail.com>
+Date: Mon, 9 Dec 2024 19:07:35 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: leds: backlight: apple,dwi-bl: Add
+ bindings for Apple DWI backlight
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+ Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241207130433.30351-1-towinchenmi@gmail.com>
+ <20241207130433.30351-2-towinchenmi@gmail.com>
+ <iwapssdmronnbtmlmynuarzmkd2oh3ssrmzvlobxx4ixrgwgcl@dnonaahib6jw>
+Content-Language: en-MW
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <iwapssdmronnbtmlmynuarzmkd2oh3ssrmzvlobxx4ixrgwgcl@dnonaahib6jw>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_030406_423649_8686A967 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20241209_030741_703696_BF6A5365 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,97 +109,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Recently the arm64 stacktrace code was modified to report the LR at
-exception boundaries, which interacts poorly with fgraph tracing. It is
-possible for the LR to contain the start address of return_to_handler()
-even when the LR is not live, and in such cases attempts to recover the
-return address via ftrace_graph_ret_addr() may fail, triggering a
-WARN_ON_ONCE() in kunwind_recover_return_address() and aborting the
-unwind. This has resulted in test failures and unexpected warnings, as
-reported by Aishwarya and Kent.
 
-Handling unreliable LR values in these cases is likely to require some
-larger rework, so for the moment avoid this problem by restoring the old
-behaviour of skipping the LR at exception boundaries, as we did prior to
-commit:
 
-  c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries")
+On 9/12/2024 17:16, Krzysztof Kozlowski wrote:
+> On Sat, Dec 07, 2024 at 09:03:14PM +0800, Nick Chan wrote:
+>> Add the device tree bindings for backlight controllers attached via Apple
+>> DWI 2-wire interface.
+[...]
 
-This commit is effectively a partial revert, keeping the structures and
-logic to explicitly identify exception boundaries while still skipping
-reporting of the LR. The logic to explicitly identify exception
-boundaries is still useful for general robustness and as a building
-block for future support for reliably stacktracing.
+Ack all the changes, will be in v4.
 
-Fixes: c2c6b27b5aa14fa2 ("arm64: stacktrace: unwind exception boundaries")
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reported-by: Aishwarya TCV <aishwarya.tcv@arm.com>
-Reported-by: Kent Overstreet <kent.overstreet@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/stacktrace.c | 24 ++----------------------
- 1 file changed, 2 insertions(+), 22 deletions(-)
-
-diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-index caef85462acb6..4a08ad8158380 100644
---- a/arch/arm64/kernel/stacktrace.c
-+++ b/arch/arm64/kernel/stacktrace.c
-@@ -26,7 +26,6 @@ enum kunwind_source {
- 	KUNWIND_SOURCE_CALLER,
- 	KUNWIND_SOURCE_TASK,
- 	KUNWIND_SOURCE_REGS_PC,
--	KUNWIND_SOURCE_REGS_LR,
- };
- 
- union unwind_flags {
-@@ -178,23 +177,8 @@ int kunwind_next_regs_pc(struct kunwind_state *state)
- 	state->regs = regs;
- 	state->common.pc = regs->pc;
- 	state->common.fp = regs->regs[29];
--	state->source = KUNWIND_SOURCE_REGS_PC;
--	return 0;
--}
--
--static __always_inline int
--kunwind_next_regs_lr(struct kunwind_state *state)
--{
--	/*
--	 * The stack for the regs was consumed by kunwind_next_regs_pc(), so we
--	 * cannot consume that again here, but we know the regs are safe to
--	 * access.
--	 */
--	state->common.pc = state->regs->regs[30];
--	state->common.fp = state->regs->regs[29];
- 	state->regs = NULL;
--	state->source = KUNWIND_SOURCE_REGS_LR;
--
-+	state->source = KUNWIND_SOURCE_REGS_PC;
- 	return 0;
- }
- 
-@@ -274,11 +258,8 @@ kunwind_next(struct kunwind_state *state)
- 	case KUNWIND_SOURCE_FRAME:
- 	case KUNWIND_SOURCE_CALLER:
- 	case KUNWIND_SOURCE_TASK:
--	case KUNWIND_SOURCE_REGS_LR:
--		err = kunwind_next_frame_record(state);
--		break;
- 	case KUNWIND_SOURCE_REGS_PC:
--		err = kunwind_next_regs_lr(state);
-+		err = kunwind_next_frame_record(state);
- 		break;
- 	default:
- 		err = -EINVAL;
-@@ -436,7 +417,6 @@ static const char *state_source_string(const struct kunwind_state *state)
- 	case KUNWIND_SOURCE_CALLER:	return "C";
- 	case KUNWIND_SOURCE_TASK:	return "T";
- 	case KUNWIND_SOURCE_REGS_PC:	return "P";
--	case KUNWIND_SOURCE_REGS_LR:	return "L";
- 	default:			return "U";
- 	}
- }
--- 
-2.30.2
-
+Nick Chan
 
