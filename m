@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A281EE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEF7E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 13:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+XKr+p6+d0vsEOub5KNiYEX8dUurRREKoGxPw+GDFI=; b=1Tj1oZ3lqMuwRnx2VF42ia8Qbp
-	Abs7jYr1O03mF+Gl0hgmAQJ4nL7wuC7HObF2rctkoDgkKCvGRU09gcdwitKmMhNIBwCl2kdoR7HRy
-	F8Zx8HPUuqfl4wThezW45TxYa5zXflVTiD38xOT+XyUdKCKZHdfxahbC79F0HtQY982gM7etkDpyN
-	ozBkm2tnvuGauP56qRMl+wDQhh4DyS3LgrZi2yxLsR2gBM3qH0S8oNSdgI6WYrG0q0GUgLH1wgFlQ
-	Z0MH5Oj9TK5oM6u3hn+7n9OMQ+Y2cO7h4P98LJacfVm9mOMo83xl6r99mYwn80AC+pUc6XGyigyCm
-	oz/+E9wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S0pYVI0rIMt/vUsXuEhU3q6EMT1SoyXTaXNYDyXxI18=; b=QCF8jYQ3CxERMN3203NTUOSskn
+	Dt2c2mm6rBjngMuwUvQbwAKOKV3zRMxJ3Q5zjMNDE1sL8/9wQoCZJ7QtY5tkSYRqgXYcMvOne66Gc
+	OqBrhXn0Mz7H4Sq4dKenqijCBMWsuvAHLUApgOmiaH4OhDjyRDD6i9jRgnoP8hPe2nRiMYrdhkY/o
+	XOcQ9QKLKC2pi64j1QOAfh7VxN0FSBeAynvCATgE8YAN1UEcJ+iX/bY92CwosKu/ffCRyE1J1pxzn
+	At7ebVMZVgIez6XElztx8fTAOJjL0bXMZFA2RJhdNIRThC5jB5vSkJa0G9HP/JIUZhc0yfiJGODiZ
+	srru+W9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdXM-00000007tPw-0yaL;
-	Mon, 09 Dec 2024 13:10:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tKdYN-00000007tnZ-2Y9o;
+	Mon, 09 Dec 2024 13:11:59 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKdE8-00000007nJp-1LEZ
+	id 1tKdEi-00000007nOx-3paV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 12:51:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1733748662;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z+XKr+p6+d0vsEOub5KNiYEX8dUurRREKoGxPw+GDFI=;
-	b=Qr0hzkW+2+1mRq6cfy+zwGcdCFLsz1xrzTrdfgig+MOkt8VVsUjYIPBuW4iBtVDgQwhl/w
-	N8fg52O18OY9RsHdcOZirSE5tfvukcSR7Wdn/5wXbPzia3w21t4T7NyFU5bmFHtGFZozz5
-	xCpOO2vtO0kC6OB1u5HxNbSVIQUFdCI=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-435-bTSuDVTEMgyIdvo-oQugcg-1; Mon,
- 09 Dec 2024 07:49:25 -0500
-X-MC-Unique: bTSuDVTEMgyIdvo-oQugcg-1
-X-Mimecast-MFC-AGG-ID: bTSuDVTEMgyIdvo-oQugcg
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 31C661955DCA;
-	Mon,  9 Dec 2024 12:49:22 +0000 (UTC)
-Received: from localhost (dhcp-192-244.str.redhat.com [10.33.192.244])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A9627195605A;
-	Mon,  9 Dec 2024 12:49:19 +0000 (UTC)
-From: Cornelia Huck <cohuck@redhat.com>
-To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
- kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com,
- jiangkunkun@huawei.com, jonathan.cameron@huawei.com,
- anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org,
- linuxarm@huawei.com
-Subject: Re: [PATCH v3 3/3] arm64: paravirt: Enable errata based on
- implementation CPUs
-In-Reply-To: <20241209115311.40496-4-shameerali.kolothum.thodi@huawei.com>
-Organization: "Red Hat GmbH, Sitz: Werner-von-Siemens-Ring 12, D-85630
- Grasbrunn, Handelsregister: Amtsgericht =?utf-8?Q?M=C3=BCnchen=2C?= HRB
- 153243,
- =?utf-8?Q?Gesch=C3=A4ftsf=C3=BChrer=3A?= Ryan Barnhart, Charles Cachera,
- Michael O'Neill, Amy
- Ross"
-References: <20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com>
- <20241209115311.40496-4-shameerali.kolothum.thodi@huawei.com>
-User-Agent: Notmuch/0.38.3 (https://notmuchmail.org)
-Date: Mon, 09 Dec 2024 13:49:16 +0100
-Message-ID: <875xnt10oj.fsf@redhat.com>
+	Mon, 09 Dec 2024 12:51:42 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3d14336f0so4335471a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 04:51:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733748699; x=1734353499; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S0pYVI0rIMt/vUsXuEhU3q6EMT1SoyXTaXNYDyXxI18=;
+        b=ZVfHMHU6wXFLEkXyPNh99n7TqAfuHNvJ97JN6bAbe2o4FBV8e6kTuZ2bmc0p1iBQ4o
+         qE/gZWJFvtP447kysTj7flAzy6CQqWUH65CYQIm1IdNCe9YN8PkDrTqpZo+YfiR0OeTY
+         l8J84KNaOr+VHt7mm7e9S/KKt0vRS/kD5oMX25zNWaUt2x7hKps8+cFD8Gn6N7ay9Kf6
+         siGL/RrAHHWF9121d12aXbj+0blE/qtvdn4cyzle7vvMaS/GXdBu6voFVa19k82zwwLp
+         IPbo6Ff0Ai+F16svoT5eiI1t9r1RI9KAVvE9CYsrrZs7t5Bw1NjdHCH1vdXs4qXQVO3l
+         31QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733748699; x=1734353499;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S0pYVI0rIMt/vUsXuEhU3q6EMT1SoyXTaXNYDyXxI18=;
+        b=oECAW/eBUhw7gKuq9NNRIA1ErEbLSp53YAdswMBhocPdDufKiTbGS3cDIzr7x/tJqE
+         P+3g2BMVaWD2F+mx9XYRHqWLZgVywPfJXEWeZ+Pf+L4oKHdKO3I1jMp8D2JIjpedkPYH
+         Lntk3tZEjQxbJZdUSiiuJwrPeS1BYYmniN8xzKBRJy7d8Uz27BPB4ima4bpEqnirYnMd
+         OJwQyymKXPwrh3nS58rKKlAZSLJiUwl7WWRDMVIqezb6GO43S8iVrNZvoc3UXSlMW0Yi
+         qoPSBcUBvvZV1QfIHnvXrO59p4mV0oY9/x5nMCe1iocv6xDbHomF+f0dR1aMXeUU+Yay
+         ELOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUIkvZRiTIeKaQQZnw7XlUnLF6P+FBO0IBOFlEIMXjKJv2BIoiqY/Vsuuawr1MVQJG8Jk0DAC6+HpXX5vgA/hNS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsAQpCc3byxdUY1/RItsbVtny6U0yiWJHiuWVgNFwhdjFX3ftb
+	xjkd+Ng0pWovpkin1NBjCWHry5ES1DYehLfWnYot1DlDMTJbTQStdpUtKMsCofHq9r5qWXnY5Gz
+	MuB0qCkEoK3gKNvgH3g3GTItWXyo=
+X-Gm-Gg: ASbGncv/ezV2n9ZW4cup9lhaMgoVbtf2vCBA+dRXjWzSZXq7fyR5oDhsGHYBUGEJ24U
+	WpVjW26DFdKRewHCcMdwW9dMIN6kfAiZxbNHeHHAPtSGHduXpbhICUmnZ7CYiMUOs
+X-Google-Smtp-Source: AGHT+IExZsuV9qZ60jM3CNxwtfATwtZMmIJq3uoo8pM6xbqf0trkd4ZMavUYr+ponHmxavZhf+YgUtsJjOzCmMrNzZU=
+X-Received: by 2002:a05:6402:2689:b0:5cf:e894:8de9 with SMTP id
+ 4fb4d7f45d1cf-5d4184f7b02mr641635a12.3.1733748699088; Mon, 09 Dec 2024
+ 04:51:39 -0800 (PST)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dOL09OlAXYj2gobNp5w4MkI4kryI-9fW1KV6d2H5TlQ_1733748563
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+References: <20241209105237.10498-1-o451686892@gmail.com> <3279e669-1ee2-4792-9e10-8b40928de6b4@sirena.org.uk>
+In-Reply-To: <3279e669-1ee2-4792-9e10-8b40928de6b4@sirena.org.uk>
+From: Weizhao Ouyang <o451686892@gmail.com>
+Date: Mon, 9 Dec 2024 20:51:28 +0800
+Message-ID: <CAHk0Hov5k37=MtTBLWTj+Dwm4EXE0xGJS1Uc8xgyLtJxusqsww@mail.gmail.com>
+Subject: Re: [PATCH] kselftest/arm64: abi: fix SVCR detection
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_045104_429568_C5E9A8BD 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20241209_045140_948917_C7B7DB2C 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09 2024, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
+On Mon, Dec 9, 2024 at 8:36=E2=80=AFPM Mark Brown <broonie@kernel.org> wrot=
+e:
+>
+> On Mon, Dec 09, 2024 at 06:52:37PM +0800, Weizhao Ouyang wrote:
+>
+> > When using svcr_in to check ZA and Streaming Mode, we should make sure
+> > that the value in x2 is correct, otherwise it may trigger an Illegal
+> > instruction if FEAT_SVE and !FEAT_SME.
+>
+> >       // Set SVCR if we're doing SME
+> > -     cbz     x1, 1f
+> >       adrp    x2, svcr_in
+> >       ldr     x2, [x2, :lo12:svcr_in]
+> > +     cbz     x1, 1f
+> >       msr     S3_3_C4_C2_2, x2
+>
+> This is against an older verison of the code so wouldn't apply now.
+> It's not also checking the value of SVCR, this is checking the SME flag
+> passed in via x1.  You can see that the SVCR value is loaded into x2 but
+> the check is against x1.
 
-> Retrieve any migration target implementation CPUs using the hypercall
-> and enable associated errata.
->
-> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> ---
-> Note:
->
-> One thing I am not sure here is how to handle the hypercall error.
-> Do we need to fail the Guest boot or just carry on without any
-> target implementation CPU support? At the moment it just carries on.
->
-> Thanks,
-> Shameer
-> ---
->  arch/arm64/include/asm/cputype.h  | 25 +++++++++++++++++++++++--
->  arch/arm64/include/asm/paravirt.h |  3 +++
->  arch/arm64/kernel/cpu_errata.c    | 20 +++++++++++++++++---
->  arch/arm64/kernel/cpufeature.c    |  2 ++
->  arch/arm64/kernel/image-vars.h    |  2 ++
->  arch/arm64/kernel/paravirt.c      | 31 +++++++++++++++++++++++++++++++
->  6 files changed, 78 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-> index dcf0e1ce892d..9e466f3ae9c6 100644
-> --- a/arch/arm64/include/asm/cputype.h
-> +++ b/arch/arm64/include/asm/cputype.h
-> @@ -265,6 +265,16 @@ struct midr_range {
->  #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
->  #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
->  
-> +#define MAX_TARGET_IMPL_CPUS 64
-> +
-> +struct target_impl_cpu {
-> +	u32 midr;
-> +	u32 revidr;
-> +};
+Hi Mark,
 
-Doesn't this need to be u64 for both (even if the upper bits for
-MIDR_EL1 are reserved?)
+This patch aims to fix the second check (SVCR_ZA_SHIFT) instead of
+the first one (the x1 SME flag you're referring to):
 
+// Load ZA and ZT0 if enabled - uses x12 as scratch due to SME LDR
+tbz x2, #SVCR_ZA_SHIFT, 1f
+mov w12, #0
+ldr x2, =3Dza_in
+2: _ldr_za 12, 2
+
+If SME disabled, x2 will not have an expected value.
+
+BR,
+Weizhao
 
