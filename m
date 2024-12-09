@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5A1E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F12BE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l0rK1nFmgsbVNDMc+aApgrQ2ZvF5piwqr497sUbBxco=; b=QpZ62TfhrKdTY7O0CmMMgFEhAn
-	doIZ/nEjj3pituvZilCDsKBwXXLtMbmWYDdzCdBPFwlfl8ICryiow++j33hTkO2nNYNsEUz9m3VVx
-	lyQdqM57sMLf7usYWF+XHS72TTK3HhM0shCNGL0PVbPfvoklbsf6VR1zzSaZSPeIE2Xw2PSStBvua
-	UhI+e182v8w0vz15q5KiwFMzASZnkVelMVyKvX9jpNGbTeskFDFVcD1+omd13u7qXCaybqm+AwzWD
-	JXk2SJAqAM8lRhBZf3UPwuMhOYDwlfc4jxNbDrzVcdGlO13PM2zt3H436u8/03uukSg0j1gzxEV0k
-	3Xc2CKrQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pidFoaRCFLNCXxMi5OStRFsvI+2wukij/plJgYo5QZk=; b=VU0l5xBL04jBQ//13BH8Iici18
+	zA3NY8EJE7Xm6ptXlxvt2CZ/gXz5tCLHbdu8R02/f2rG9J+NlW/i42iGItv5uzXXpP/bgM5cgU6bW
+	4JFeQjg9FVemc5J1UO8rkL8EN4mqjvoINOCCSKnrzwJstV7UuaHA4u8YN+hgxmUgQYHETg1Dcjmr2
+	FLx1Xz1pIgIR9FGV3iZPq6oYlO3SO9gz5UaHNQau0jd0vGxRZ7d5bfMGCv0t4LRYEBZIHUsIQNPMv
+	CVUGShYcCmThHk+VMZzHShnAp8y7fjFzlXPrA5Yu0fybHzzRCMLqjL1v2U0aD+YW/KXvVF9B6eimd
+	WnXKs8jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYoB-00000006qHb-3FkG;
-	Mon, 09 Dec 2024 08:07:59 +0000
+	id 1tKYpB-00000006qU0-41Mh;
+	Mon, 09 Dec 2024 08:09:01 +0000
 Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYiP-00000006ofA-3pUA
+	id 1tKYiY-00000006oi6-2HwG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 08:02:03 +0000
+	Mon, 09 Dec 2024 08:02:11 +0000
 Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=OXz1EUhfInN9iA8Qq++xZZ2u/3bfsrwlgrF0O1AKDGKfOx6o2IxkbV25Q0o/baYg6X8lbnd43Ajj66GqgLc8LSbE/rBx6mw/B+mnh9GZ3YawQSXuPK3GEk08d9jTnFRxyzR2jsKdqPcgi73I7k2frZ/cj8xD0sH4gzScKnNvwXUIyyaQqHF5wCGGKa18H9rKTrv41Q35QdSKD3dZ9hVLA2WaAiDR+avWsf7tEJICykxjzQCXwcMYKIr15V+KT5j7zPyFt6wQz+11lakrtwhsepEq2yQOUYFbfaTktie5nSWQPwDXOoXW1p7VVAUxwtOn8VEal2A3Xv7JWkhd3IgJ6A==; s=purelymail2; d=purelymail.com; v=1; bh=xv0g/k5RohMn5AP1WL+DpPUxCREfDHDlRdXwBYsOnJg=; h=Feedback-ID:Received:From:To:Subject:Date;
+DKIM-Signature: a=rsa-sha256; b=EhZY/I7GA/HHyqXbJkfc0YlaLFMF5FikenFIcoZatxtR/t4RT/I9pXJJSiXNG528ixo3Xbmq5+gRdAuIowkKGTskbYLEBCNQCvm1RE1e2iDr8oBQAyD6weyhAYkQrSSM4nQdfbvYJKrKyZKasRuwxLJbPtqwuJqrFVQ7xKij+GLIG9ovLB5/tpg5zlV8JKboirUzsmLwyEMXqNZEbtm6iRBWsUwAf5P6oupciGWLn2I34x3lQT+Um+ACWNZjma2MGbb975AMvHuknre+knvd1vu5k3Ubzfz4qSCqmC5HTDgtF8JtjgzwtASeL6pFHZcgdIUOR3wC7Vu036tKqH5dZQ==; s=purelymail2; d=purelymail.com; v=1; bh=dv0IEtlj/sb10b0r+vjTZHiEAwycDAr94Z3JrfrRY0g=; h=Feedback-ID:Received:From:To:Subject:Date;
 Feedback-ID: 68229:10037:null:purelymail
 X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
 Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1477585645;
           (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 09 Dec 2024 08:01:11 +0000 (UTC)
+          Mon, 09 Dec 2024 08:01:16 +0000 (UTC)
 From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
@@ -44,17 +44,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v7 0/4] Add minimal Samsung Galaxy S20 Series board, SM-G981B and SM-G980F support
-Date: Mon,  9 Dec 2024 08:00:55 +0000
-Message-ID: <20241209080059.11891-1-umer.uddin@mentallysanemainliners.org>
+Subject: [PATCH v7 3/4] arm64: dts: exynos: Add initial support for Samsung Galaxy S20 5G (x1s)
+Date: Mon,  9 Dec 2024 08:00:58 +0000
+Message-ID: <20241209080059.11891-4-umer.uddin@mentallysanemainliners.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241209080059.11891-1-umer.uddin@mentallysanemainliners.org>
+References: <20241209080059.11891-1-umer.uddin@mentallysanemainliners.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_000202_027832_72F2BC26 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20241209_000210_659399_7DA2D39A 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,88 +71,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+Add initial support for the Samsung Galaxy S20 5G (x1s/SM-G981B)
+phone. It was launched in 2020, and it's based on the Exynos 990 SoC. It
+has only one configuration with 12GB of RAM and 128GB of UFS 3.0 storage.
 
-This series adds initial support for the Samsung Galaxy S20 Series and also
-initial board support for the Samsung Galaxy S20 5G (SM-G981B)
-codenamed x1s and the Samsung Galaxy S20 (SM-G980F).
+This device tree adds support for the following:
 
-The S20 Series feature a lot of similarities in their configuration
-and internally Samsung named the common devicetrees in their
-downstream kernel 'hubble', please note hubble excludes the
-S20 FE series and Note20 series. To accommodate this, I've
-now named the device tree common's matching the codenames
-(x1s-common).
-The device trees have been tested with dtbs_check W=3D1
-and results in no warnings.
+- SimpleFB
+- 12GB RAM
+- Buttons
 
-This initial bringup consists of:
- * pinctrl
- * gpio-keys
- * simple-framebuffer
-
-This is enough to reach a shell in an initramfs. More platform support
-will be added in the future.
-
-Just like SM-N981B, the preferred way to boot the upstream kernel is
-by using a shim bootloader, called uniLoader [1], which works around
-some issues with the stock, non-replacable Samsung S-LK bootloader.
-For example, the stock bootloader leaves the decon trigger control
-unset, which causes the framebuffer not to refresh.
-
-Device functionality depends on the patch series from Igor Belwon:
-"Add minimal Exynos990 SoC and SM-N981B support"
-
-[1] https://github.com/ivoszbg/uniLoader
-
-Changes in v7:
- - Fix old reference to hubble-common
-   in x1slte.
-
-Changes in v6:
- - Fix indentations in dts makefile
-
-Changes in v5:
- - Fix dts makefile order
-
-Changes in v4:
- - Rebase from krzk's kernel tree to accommodate
-   for the merge of r8s
- - Rename exynos990-hubble-common.dtsi
-   to exynos990-x1s-common.dtsi
-
-Changes in v3:
- - Fix oversight in yaml
- - Decommonise memory map
-
-Changes in v2:
- - Add Samsung Galaxy S20 into device tree bindings
- - Add support for Samsung Galaxy S20 as well as the 5G variant now
- - Fix typo in Samsung Galaxy S20 5G commit message
-
-Kind regards,
-Umer
-
-Umer Uddin (4):
-  dt-bindings: arm: samsung: samsung-boards: Add bindings for SM-G981B
-    and SM-G980F board
-  arm64: dts: exynos: Add initial support for Samsung Galaxy S20 Series
-    boards (x1s-common)
-  arm64: dts: exynos: Add initial support for Samsung Galaxy S20 5G
-    (x1s)
-  arm64: dts: exynos: Add initial support for Samsung Galaxy S20
-    (x1slte)
-
- .../bindings/arm/samsung/samsung-boards.yaml  |  2 +
- arch/arm64/boot/dts/exynos/Makefile           |  2 +
- .../boot/dts/exynos/exynos990-x1s-common.dtsi | 98 +++++++++++++++++++
- arch/arm64/boot/dts/exynos/exynos990-x1s.dts  | 28 ++++++
- .../boot/dts/exynos/exynos990-x1slte.dts      | 28 ++++++
- 5 files changed, 158 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi
+Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
+---
+ arch/arm64/boot/dts/exynos/Makefile          |  1 +
+ arch/arm64/boot/dts/exynos/exynos990-x1s.dts | 28 ++++++++++++++++++++
+ 2 files changed, 29 insertions(+)
  create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1s.dts
- create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
 
+diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exyn=
+os/Makefile
+index 948a2c6cb..fe47aafcd 100644
+--- a/arch/arm64/boot/dts/exynos/Makefile
++++ b/arch/arm64/boot/dts/exynos/Makefile
+@@ -10,5 +10,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) +=3D \
+ =09exynos8895-dreamlte.dtb=09=09\
+ =09exynos990-c1s.dtb=09=09\
+ =09exynos990-r8s.dtb               \
++=09exynos990-x1s.dtb=09=09\
+ =09exynosautov9-sadk.dtb=09=09\
+ =09exynosautov920-sadk.dtb
+diff --git a/arch/arm64/boot/dts/exynos/exynos990-x1s.dts b/arch/arm64/boot=
+/dts/exynos/exynos990-x1s.dts
+new file mode 100644
+index 000000000..1ae881015
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/exynos990-x1s.dts
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
++/*
++ * Samsung Galaxy S20 5G (x1s/SM-G981B) device tree source
++ *
++ * Copyright (c) 2024, Umer Uddin <umer.uddin@mentallysanemainliners.org>
++ */
++
++/dts-v1/;
++#include "exynos990-x1s-common.dtsi"
++
++/ {
++=09#address-cells =3D <2>;
++=09#size-cells =3D <2>;
++
++=09model =3D "Samsung Galaxy S20 5G";
++=09compatible =3D "samsung,x1s", "samsung,exynos990";
++
++=09memory@80000000 {
++=09=09device_type =3D "memory";
++=09=09reg =3D <0x0 0x80000000 0x0 0x3ab00000>,
++=09=09      /* Memory hole */
++=09=09      <0x0 0xc1200000 0x0 0x1ee00000>,
++=09=09      /* Memory hole */
++=09=09      <0x0 0xe1900000 0x0 0x1e700000>,
++=09=09      /* Memory hole */
++=09=09      <0x8 0x80000000 0x2 0x7e800000>;
++=09};
++};
 --=20
 2.43.0
 
