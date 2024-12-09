@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2011E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 02:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A4DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 02:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LlnRR/ekzvfKFU0JIU5g10P2k1CrW7ToDOkJBkyI4mw=; b=NongaPQM2/XFQ4DhrK1XfYMJyY
-	Q/82etT7qck3ymTNP2Sj7syeEvZ+I5Pq0wypGsKGkdqjpTj9StPg87gw+3in9gtqYh8FkouruHYI1
-	JsDHFnuZl16/9+ZMniZzugsEVO1L2RYCU4BcdQ9kx4QuKxHTMzqeQSN62eJ5iDfD/XUDYZE+W9/ES
-	a8fQCTlgGwtucDKjyR664lXK1ubC5hZ5JYZqUlnBjqScNor2XVVxIDUyElDkT9itg7zE5YXo9MG+B
-	fSiEeCFESYj+BhRivP0tPfl7REbg5x74Zsl9eyQmPLqJUDEt/ho8782C2wWA3A+9t4PSxRagwsUzl
-	yXaN5WEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=20OY5Wca9v29+l5BtvCY5fuiV4sFMquFAGouScos9WA=; b=uRsUT7EjTyfEfbbuaefEqvjycn
+	4UCdrL0GEyelAbOhy5Uu8D9Z6q+lLN0ZN2CGAR0alTn3ASk9dOF0HNxmfkBDYfsiy8+SjLwGqBUu1
+	6sF0Xb8wbKiE+yI89TN5povHK5Ju7kfz+eKfSJUkq1ew/SYq9ghNNmuPH9HnDH+TQHY+OSrMpqLaI
+	fsmCDU7ckR3FMxaA4owXvR5HTEOrTVmV8FnecDVlSWhMZQQVWRyobvpeGi3jCqcw0PPHNi9Y3PSUo
+	ubJcfhrACrEbTl9eZu+25dXb8jckpQUQY45iXC7E/rUt8rixSjEjWS9RW4oB5w1irF0cvcthWIJIa
+	Vrhf/asw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKTlF-00000006E8H-0fUJ;
-	Mon, 09 Dec 2024 02:44:37 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1tKTmF-00000006EGN-3KAH;
+	Mon, 09 Dec 2024 02:45:39 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKTkA-00000006Dkf-49LI
+	id 1tKTkC-00000006Dke-3X4E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 02:43:33 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Y65jL32dzzRj4G;
-	Mon,  9 Dec 2024 10:41:42 +0800 (CST)
+	Mon, 09 Dec 2024 02:43:34 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Y65hS4kNBz2DhQD;
+	Mon,  9 Dec 2024 10:40:56 +0800 (CST)
 Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id F0128180102;
-	Mon,  9 Dec 2024 10:43:24 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 732081A016C;
+	Mon,  9 Dec 2024 10:43:19 +0800 (CST)
 Received: from localhost.localdomain (10.175.112.125) by
  kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 9 Dec 2024 10:43:22 +0800
+ 15.2.1544.11; Mon, 9 Dec 2024 10:43:17 +0800
 From: Tong Tiangen <tongtiangen@huawei.com>
 To: Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron
 	<Jonathan.Cameron@Huawei.com>, Mauro Carvalho Chehab
@@ -57,21 +57,19 @@ CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
 	<linuxppc-dev@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
 	<kasan-dev@googlegroups.com>, Tong Tiangen <tongtiangen@huawei.com>,
 	<wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-Subject: [PATCH v13 3/5] mm/hwpoison: return -EFAULT when copy fail in copy_mc_[user]_highpage()
-Date: Mon, 9 Dec 2024 10:42:55 +0800
-Message-ID: <20241209024257.3618492-4-tongtiangen@huawei.com>
+Subject: [PATCH v13 0/5]arm64: add ARCH_HAS_COPY_MC support
+Date: Mon, 9 Dec 2024 10:42:52 +0800
+Message-ID: <20241209024257.3618492-1-tongtiangen@huawei.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241209024257.3618492-1-tongtiangen@huawei.com>
-References: <20241209024257.3618492-1-tongtiangen@huawei.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="yes"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-Originating-IP: [10.175.112.125]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_184331_355247_8380C1E7 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20241208_184333_207380_AC483D8E 
+X-CRM114-Status: GOOD (  34.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +84,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, copy_mc_[user]_highpage() returns zero on success, or in case
-of failures, the number of bytes that weren't copied.
+Problem
+=========
+With the increase of memory capacity and density, the probability of memory
+error also increases. The increasing size and density of server RAM in data
+centers and clouds have shown increased uncorrectable memory errors.
 
-While tracking the number of not copied works fine for x86 and PPC, There
-are some difficulties in doing the same thing on ARM64 because there is no
-available caller-saved register in copy_page()(lib/copy_page.S) to save
-"bytes not copied", and the following copy_mc_page() will also encounter
-the same problem.
+Currently, more and more scenarios that can tolerate memory errors，such as
+COW[1,2], KSM copy[3], coredump copy[4], khugepaged[5,6], uaccess copy[7],
+etc.
 
-Consider the caller of copy_mc_[user]_highpage() cannot do any processing
-on the remaining data(The page has hardware errors), they only check if
-copy was succeeded or not, make the interface more generic by using an
-error code when copy fails (-EFAULT) or return zero on success.
+Solution
+=========
 
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Reviewed-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
----
- include/linux/highmem.h | 8 ++++----
- mm/khugepaged.c         | 4 ++--
- 2 files changed, 6 insertions(+), 6 deletions(-)
+This patchset introduces a new processing framework on ARM64, which enables
+ARM64 to support error recovery in the above scenarios, and more scenarios
+can be expanded based on this in the future.
 
-diff --git a/include/linux/highmem.h b/include/linux/highmem.h
-index 6e452bd8e7e3..0eb4b9b06837 100644
---- a/include/linux/highmem.h
-+++ b/include/linux/highmem.h
-@@ -329,8 +329,8 @@ static inline void copy_highpage(struct page *to, struct page *from)
- /*
-  * If architecture supports machine check exception handling, define the
-  * #MC versions of copy_user_highpage and copy_highpage. They copy a memory
-- * page with #MC in source page (@from) handled, and return the number
-- * of bytes not copied if there was a #MC, otherwise 0 for success.
-+ * page with #MC in source page (@from) handled, and return -EFAULT if there
-+ * was a #MC, otherwise 0 for success.
-  */
- static inline int copy_mc_user_highpage(struct page *to, struct page *from,
- 					unsigned long vaddr, struct vm_area_struct *vma)
-@@ -349,7 +349,7 @@ static inline int copy_mc_user_highpage(struct page *to, struct page *from,
- 	if (ret)
- 		memory_failure_queue(page_to_pfn(from), 0);
- 
--	return ret;
-+	return ret ? -EFAULT : 0;
- }
- 
- static inline int copy_mc_highpage(struct page *to, struct page *from)
-@@ -368,7 +368,7 @@ static inline int copy_mc_highpage(struct page *to, struct page *from)
- 	if (ret)
- 		memory_failure_queue(page_to_pfn(from), 0);
- 
--	return ret;
-+	return ret ? -EFAULT : 0;
- }
- #else
- static inline int copy_mc_user_highpage(struct page *to, struct page *from,
-diff --git a/mm/khugepaged.c b/mm/khugepaged.c
-index 6f8d46d107b4..c3cdc0155dcd 100644
---- a/mm/khugepaged.c
-+++ b/mm/khugepaged.c
-@@ -820,7 +820,7 @@ static int __collapse_huge_page_copy(pte_t *pte, struct folio *folio,
- 			continue;
- 		}
- 		src_page = pte_page(pteval);
--		if (copy_mc_user_highpage(page, src_page, src_addr, vma) > 0) {
-+		if (copy_mc_user_highpage(page, src_page, src_addr, vma)) {
- 			result = SCAN_COPY_MC;
- 			break;
- 		}
-@@ -2081,7 +2081,7 @@ static int collapse_file(struct mm_struct *mm, unsigned long addr,
- 		}
- 
- 		for (i = 0; i < nr_pages; i++) {
--			if (copy_mc_highpage(dst, folio_page(folio, i)) > 0) {
-+			if (copy_mc_highpage(dst, folio_page(folio, i))) {
- 				result = SCAN_COPY_MC;
- 				goto rollback;
- 			}
+In arm64, memory error handling in do_sea(), which is divided into two cases:
+ 1. If the user state consumed the memory errors, the solution is to kill
+    the user process and isolate the error page.
+ 2. If the kernel state consumed the memory errors, the solution is to
+    panic.
+
+For case 2, Undifferentiated panic may not be the optimal choice, as it can
+be handled better. In some scenarios, we can avoid panic, such as uaccess,
+if the uaccess fails due to memory error, only the user process will be
+affected, killing the user process and isolating the user page with
+hardware memory errors is a better choice.
+
+[1] commit d302c2398ba2 ("mm, hwpoison: when copy-on-write hits poison, take page offline")
+[2] commit 1cb9dc4b475c ("mm: hwpoison: support recovery from HugePage copy-on-write faults")
+[3] commit 6b970599e807 ("mm: hwpoison: support recovery from ksm_might_need_to_copy()")
+[4] commit 245f09226893 ("mm: hwpoison: coredump: support recovery from dump_user_range()")
+[5] commit 98c76c9f1ef7 ("mm/khugepaged: recover from poisoned anonymous memory")
+[6] commit 12904d953364 ("mm/khugepaged: recover from poisoned file-backed memory")
+[7] commit 278b917f8cb9 ("x86/mce: Add _ASM_EXTABLE_CPY for copy user access")
+
+------------------
+Test result:
+
+1. copy_page(), copy_mc_page() basic function test pass, and the disassembly
+   contents remains the same before and after refactor.
+
+2. copy_to/from_user() access kernel NULL pointer raise translation fault
+   and dump error message then die(), test pass.
+
+3. Test following scenarios: copy_from_user(), get_user(), COW.
+
+   Before patched: trigger a hardware memory error then panic.
+   After  patched: trigger a hardware memory error without panic.
+
+   Testing step:
+   step1. start an user-process.
+   step2. poison(einj) the user-process's page.
+   step3: user-process access the poison page in kernel mode, then trigger SEA.
+   step4: the kernel will not panic, only the user process is killed, the poison
+          page is isolated. (before patched, the kernel will panic in do_sea())
+
+------------------
+
+Benefits
+=========
+According to the statistics of our storage product, the memory errors triggered
+in kernel-mode by COW and page cache read (uaccess) scenarios account for more
+than 50%, with this patchset deployed, all the kernel panic caused by COW and
+page cache memory errors are eliminated, in addition, other scenarios that
+account for a small proportion will also benefit.
+
+Since v12:
+Thanks to the suggestions of Jonathan, Mark, and Mauro, the following modifications
+are made:
+1. Rebase to latest kernel version.
+2. Patch1, add Jonathan's and Mauro's review-by.
+3. Patch2, modified do_apei_claim_sea() according to Mark's and Jonathan's suggestions,
+   and optimized the commit message according to Mark's suggestions(Added description of
+   the impact on regular copy_to_user()).
+4. Patch3, optimized the commit message according to Mauro's suggestions and add Jonathan's
+   review-by.
+5. Patch4, modified copy_mc_user_highpage() and Optimized the commit message according to
+   Jonathan's suggestions(no functional changes).
+6. Patch5, optimized the commit message according to Mauro's suggestions.
+7. Patch4/5, FEAT_MOPS is added to the code logic. Currently, the fixup is not performed
+   on the MOPS instruction. 
+8. Remove patch6 in v12 according to Jonathan's suggestions.
+
+Since v11:
+1. Rebase to latest kernel version 6.9-rc1.
+2. Add patch 5, Since the problem described in "Since V10 Besides 3" has
+   been solved in a50026bdb867 ('iov_iter: get rid of 'copy_mc' flag').
+3. Add the benefit of applying the patch set to our company to the description of patch0.
+
+Since V10:
+ Accroding Mark's suggestion:
+ 1. Merge V10's patch2 and patch3 to V11's patch2.
+ 2. Patch2(V11): use new fixup_type for ld* in copy_to_user(), fix fatal
+    issues (NULL kernel pointeraccess) been fixup incorrectly.
+ 3. Patch2(V11): refactoring the logic of do_sea().
+ 4. Patch4(V11): Remove duplicate assembly logic and remove do_mte().
+
+ Besides:
+ 1. Patch2(V11): remove st* insn's fixup, st* generally not trigger memory error.
+ 2. Split a part of the logic of patch2(V11) to patch5(V11), for detail,
+    see patch5(V11)'s commit msg.
+ 3. Remove patch6(v10) “arm64: introduce copy_mc_to_kernel() implementation”.
+    During modification, some problems that cannot be solved in a short
+    period are found. The patch will be released after the problems are
+    solved.
+ 4. Add test result in this patch.
+ 5. Modify patchset title, do not use machine check and remove "-next".
+
+Since V9:
+ 1. Rebase to latest kernel version 6.8-rc2.
+ 2. Add patch 6/6 to support copy_mc_to_kernel().
+
+Since V8:
+ 1. Rebase to latest kernel version and fix topo in some of the patches.
+ 2. According to the suggestion of Catalin, I attempted to modify the
+    return value of function copy_mc_[user]_highpage() to bytes not copied.
+    During the modification process, I found that it would be more
+    reasonable to return -EFAULT when copy error occurs (referring to the
+    newly added patch 4). 
+
+    For ARM64, the implementation of copy_mc_[user]_highpage() needs to
+    consider MTE. Considering the scenario where data copying is successful
+    but the MTE tag copying fails, it is also not reasonable to return
+    bytes not copied.
+ 3. Considering the recent addition of machine check safe support for
+    multiple scenarios, modify commit message for patch 5 (patch 4 for V8).
+
+Since V7:
+ Currently, there are patches supporting recover from poison
+ consumption for the cow scenario[1]. Therefore, Supporting cow
+ scenario under the arm64 architecture only needs to modify the relevant
+ code under the arch/.
+ [1]https://lore.kernel.org/lkml/20221031201029.102123-1-tony.luck@intel.com/
+
+Since V6:
+ Resend patches that are not merged into the mainline in V6.
+
+Since V5:
+ 1. Add patch2/3 to add uaccess assembly helpers.
+ 2. Optimize the implementation logic of arm64_do_kernel_sea() in patch8.
+ 3. Remove kernel access fixup in patch9.
+ All suggestion are from Mark. 
+
+Since V4:
+ 1. According Michael's suggestion, add patch5.
+ 2. According Mark's suggestiog, do some restructuring to arm64
+ extable, then a new adaptation of machine check safe support is made based
+ on this.
+ 3. According Mark's suggestion, support machine check safe in do_mte() in
+ cow scene.
+ 4. In V4, two patches have been merged into -next, so V5 not send these
+ two patches.
+
+Since V3:
+ 1. According to Robin's suggestion, direct modify user_ldst and
+ user_ldp in asm-uaccess.h and modify mte.S.
+ 2. Add new macro USER_MC in asm-uaccess.h, used in copy_from_user.S
+ and copy_to_user.S.
+ 3. According to Robin's suggestion, using micro in copy_page_mc.S to
+ simplify code.
+ 4. According to KeFeng's suggestion, modify powerpc code in patch1.
+ 5. According to KeFeng's suggestion, modify mm/extable.c and some code
+ optimization.
+
+Since V2:
+ 1. According to Mark's suggestion, all uaccess can be recovered due to
+    memory error.
+ 2. Scenario pagecache reading is also supported as part of uaccess
+    (copy_to_user()) and duplication code problem is also solved. 
+    Thanks for Robin's suggestion.
+ 3. According Mark's suggestion, update commit message of patch 2/5.
+ 4. According Borisllav's suggestion, update commit message of patch 1/5.
+
+Since V1:
+ 1.Consistent with PPC/x86, Using CONFIG_ARCH_HAS_COPY_MC instead of
+   ARM64_UCE_KERNEL_RECOVERY.
+ 2.Add two new scenes, cow and pagecache reading.
+ 3.Fix two small bug(the first two patch).
+
+V1 in here:
+https://lore.kernel.org/lkml/20220323033705.3966643-1-tongtiangen@huawei.com/
+
+Tong Tiangen (5):
+  uaccess: add generic fallback version of copy_mc_to_user()
+  arm64: add support for ARCH_HAS_COPY_MC
+  mm/hwpoison: return -EFAULT when copy fail in
+    copy_mc_[user]_highpage()
+  arm64: support copy_mc_[user]_highpage()
+  arm64: introduce copy_mc_to_kernel() implementation
+
+ arch/arm64/Kconfig                   |  1 +
+ arch/arm64/include/asm/asm-extable.h | 31 +++++++--
+ arch/arm64/include/asm/asm-uaccess.h |  4 ++
+ arch/arm64/include/asm/extable.h     |  1 +
+ arch/arm64/include/asm/mte.h         |  9 +++
+ arch/arm64/include/asm/page.h        | 10 +++
+ arch/arm64/include/asm/string.h      |  5 ++
+ arch/arm64/include/asm/uaccess.h     | 18 +++++
+ arch/arm64/lib/Makefile              |  2 +
+ arch/arm64/lib/copy_mc_page.S        | 37 +++++++++++
+ arch/arm64/lib/copy_page.S           | 62 ++----------------
+ arch/arm64/lib/copy_page_template.S  | 70 ++++++++++++++++++++
+ arch/arm64/lib/copy_to_user.S        | 10 +--
+ arch/arm64/lib/memcpy_mc.S           | 98 ++++++++++++++++++++++++++++
+ arch/arm64/lib/mte.S                 | 29 ++++++++
+ arch/arm64/mm/copypage.c             | 75 +++++++++++++++++++++
+ arch/arm64/mm/extable.c              | 19 ++++++
+ arch/arm64/mm/fault.c                | 30 ++++++---
+ arch/powerpc/include/asm/uaccess.h   |  1 +
+ arch/x86/include/asm/uaccess.h       |  1 +
+ include/linux/highmem.h              | 16 +++--
+ include/linux/uaccess.h              |  8 +++
+ mm/kasan/shadow.c                    | 12 ++++
+ mm/khugepaged.c                      |  4 +-
+ 24 files changed, 472 insertions(+), 81 deletions(-)
+ create mode 100644 arch/arm64/lib/copy_mc_page.S
+ create mode 100644 arch/arm64/lib/copy_page_template.S
+ create mode 100644 arch/arm64/lib/memcpy_mc.S
+
 -- 
 2.25.1
 
