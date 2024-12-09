@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A630E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08208E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 11:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MnVRvutz+MB81qIbBeoAPpk5qPXvFK/vt+kslQ5zHcQ=; b=Wn12Cq0yrNFvUP7qxY/MPjECoY
-	lm4mYvFuzCcsrRUKLo60u6X41SBj9v86GOdBKlVwPzZYl1SkT94pwojBGjmgkxsQWL/V1U4yQjRhM
-	584xsdGiopX6w08OCFclcWVwQBmT/H7VmDukWOt+x+2AP76brnGgC9DNePaBhmAgVpY3GCeMFXOvD
-	ZhieAXu20CE/Myg6fRcKCdGzD5bq2Ql3alYMj+TXPEfXQOxJ/3xKkkXfxQOK3rUF2Ju46iJDPKYug
-	ld1bMJ9Rrgzykd3I+zOhvNOJp2AVbl4ujszCjl6BBSOrGfK8odF9tyYzo1QI45RnokJyI2SISisZf
-	6evTb9cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BuMhiC0OhEfpPn44QIc8qMlaFvp2wk3+ZDJWj+PnNQI=; b=hJ/3HocdNua9F2itNafzHX/5W1
+	wrREI+2XR6/VUEONAc0vmXVw2ea+W7vEMnWfLbGz+kZthVQ6XNi5ir9za5bkEAQd34NEVMastnfHM
+	dYv2hLH0WYvUGhDb55Tvn79DX9vYp3BTvBPG2lfTrjMc/NbxrSjzPCKWzrJrEdO23wVw5rvINITx+
+	g8eWcUzc/bGhjnae/yd5Vp0tCQszRHs+TiR0bW50Wp0EZILcg3Wobk+ahJ60Yox3j9X9dd5xMwcon
+	6n+u4iri5VmFPpAEAJgvJeclRBIb34iwZ4kcY/kw62m5ZX2fGLSASZ0OGUmQoFA8hxkChByKGcUWl
+	AEdjSPoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbih-00000007SCv-3FYM;
-	Mon, 09 Dec 2024 11:14:31 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1tKblX-00000007SnH-18E4;
+	Mon, 09 Dec 2024 11:17:27 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKbhe-00000007Rzt-1mZH
+	id 1tKbkU-00000007Sb7-0CK6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 11:13:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1733742802; x=1734347602; i=wahrenst@gmx.net;
-	bh=MnVRvutz+MB81qIbBeoAPpk5qPXvFK/vt+kslQ5zHcQ=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=op+Wk2Ump/EGK6A1hdCYJAbYRkIIrcWyKdZeSQ5x0rmamzRuQrIpTq/MkE2/u7pT
-	 2KbcMnCdYn0Up8Izb51hxcb4wr0HDs5i1Nn4ssKtpEh0rl2j9kc9xnNPWV6ofPc9V
-	 Mi76//VDBMjioaIXCXYS3ggWQw30PqOvXobkyevme430w+OaE3uot9qB2viY6+Zhj
-	 1Yv4FTj4bul6AquNPM0VLW83rqCdrgZgo/TtbHWd9ov1eBo7n5q0cTSmPS4LrsRNz
-	 dinI+gjd7ir1OXPeSPfEETXbtK24g2L9z6mZaYAcrLbKTsvGw52COZoHuLDBmwJDm
-	 /i3bDJVivKRt3vNwyA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MCKBm-1tStRQ0DC6-003nDs; Mon, 09
- Dec 2024 12:13:22 +0100
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Mark Brown <broonie@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH] spi: mxs: support effective_speed_hz
-Date: Mon,  9 Dec 2024 12:13:16 +0100
-Message-Id: <20241209111316.4767-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	Mon, 09 Dec 2024 11:16:23 +0000
+Received: from wsk (095160158109.dynamic-2-waw-k-4-2-0.vectranet.pl [95.160.158.109])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: lukma@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 7BDE6888D5;
+	Mon,  9 Dec 2024 12:16:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1733742980;
+	bh=BuMhiC0OhEfpPn44QIc8qMlaFvp2wk3+ZDJWj+PnNQI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gkNTOy1idlOOFdrQ8uawL2OO6XsQ3+vYNDYjvlh5yAxwGmyL3ojcnrV880kfujf1o
+	 Oa6EjJ1p9HieoK3rQhHyB0hzjIkitFlBRJzm2CAaMIicc0ioQIrL9iRJTYq2RVktDm
+	 sSC7aCb4crgGekjuQbs9yhMI1rA+HuvyehXvi/oTJjgNM6EEARaAeSMwBQ9Lh/kcVh
+	 D+Lx6PdOWcGpX/ikTclmufyxRJYo47yAI0D0g6Uqi6jRa2/O5BA2LuimbuTqjn0zNT
+	 FvZTJU0YGZI76OJfALGsITRdJxH//e2mbjp8wqwEfu8TYztbI/fDxfQu7saINd2hco
+	 QmVZ+lobvzuoQ==
+Date: Mon, 9 Dec 2024 12:16:19 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v11 3/3] ARM: dts: mxs: Add descriptions for imx287
+ based btt3-[012] devices
+Message-ID: <20241209121619.623886a4@wsk>
+In-Reply-To: <c8fd371f-fd36-48c4-ad49-1e8f8db01383@gmx.net>
+References: <20241107085705.490940-1-lukma@denx.de>
+	<20241107085705.490940-3-lukma@denx.de>
+	<20241119165236.69438f75@wsk>
+	<c8fd371f-fd36-48c4-ad49-1e8f8db01383@gmx.net>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Bj8yJBzEI0MpblqK6MWrpe0cW6O2NZ2heU9xB9UmFvuzqmoQQRL
- vAdXApwIuc8M7mF8iGZX29kVTdLXZujZjQBpl0Awunr0wIf5yTzBCMnCYZB+zxbwY569dxc
- fovlb2P8RjeeqP/6SlnGLUylOU9ncu2d62jsgjakElVTdAZsvgLeEXsxBiVHV/Zezk4oxK0
- lUUY9uyLYKj7OV5V/zyeQ==
-UI-OutboundReport: notjunk:1;M01:P0:enR62G6NnoA=;QejLnRU9XM4TSRSqTKMm20mgIod
- Xy+aVx626vtgNxajveMAVuUA/psRLHq7XIlqf4SBur/DJ0hE8igkW1QAtTrT+Fc7BrLJJ5tY0
- GEipAShUCBrtIeLyNDU5vuj/u+EyljD0mL3VPTIcfoO0ibT7i7ULCgdlRbg9Rdrfh5Sc2dcwP
- vyIw3cEjwgx8b/FILYY1bsyN+ZVlltPOrxnISf6aVD+FjBA/P66DBucrWD2FF8PgD+/wkrRWd
- oegNy3v0oLwuIdkTfe04w1TobkxnCBZ0n9YlaJw7aNABWyusF1l0QwpksFaAZgXYp33jI99EM
- DN98NzxjlivGAnkocCzFXSI+/U4nmWAgvy7UVU0yHaNrNf7OdORyyQ3JpOFMFt/XyeW03lCgZ
- OP+ygXYkzVm22TsiNE0BTT95EYBIP1pgAUBK5bkY+fHFxjYCUcsD15ZOdQTy/dL1VKtnWZqSO
- 289MQNaIQqX7JPj0rR+w2LAAk7ENC6OKmJb+yCqpd0pzS+Q/gyzz9PzNsRXDY/DY6qBu780EZ
- O4DiyOb6jpL+2Qu/EQGnv2xyBpPoGUwdsbVtoPm6yowcLfEbPaaJsz0tLO7ljnp6Mc2NTjcgT
- C4AxP66nmlKezrQ6eF8NYSdNgQtZRARfaOGWy8sJIXllJiCiFsLJy+Ps+sureu9V91Bsh1iWl
- 6aEhuVPdqxgLL26juL+S2uJjQcE8qYr4ULcwmikp5J1Zv8WBXFmhi7BQUmXXua+UFkZfnGI20
- bg003Qq8V7wnrOtwcZ8vve0s0zJhQvh/RQYdSiXki6JaAzHJfw49i4llEu+bqrh2kNd1NWuG5
- yRnlxa/853AeNgTQSuVq6Ay3LnMqn6H2816zP7Q+FLF3JHZaUBDgofsNEd4iv9uQreiJews2W
- fBJybYs4hfUVQ4WZ56UH8DUqn6DGJndE5vNNoMhoPDy2om6qWwNaaVgeFmRTWhKyXSvGLNJES
- mbi8O6UUPvaUtJfc/sgY8GHIZ4VwjxHFm0F9N2LzH8pGFxOCEGPGzwUnWnXznDzBzwvoj2HAp
- a1zuI0FR/f9jm4j15WdIm3Vx5V/6o4BjTw5E3zMFljvDgwjwk091yoGAi7dMg4xwtXazVTwlR
- PwaZOckV6yRqN4zAgvrI6rSGGHH+Ks
+Content-Type: multipart/signed; boundary="Sig_/jBN468d=YevV1Tnfk/xCbGe";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_031326_751496_94776C74 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_031622_243342_EB88E1D6 
+X-CRM114-Status: GOOD (  22.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Setting spi_transfer->effective_speed_hz in transfer_one_message so that
-SPI client driver can use it.
+--Sig_/jBN468d=YevV1Tnfk/xCbGe
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- drivers/spi/spi-mxs.c | 2 ++
- 1 file changed, 2 insertions(+)
+Hi Stefan,
 
-diff --git a/drivers/spi/spi-mxs.c b/drivers/spi/spi-mxs.c
-index e6d955d964f4..43455305fdf4 100644
-=2D-- a/drivers/spi/spi-mxs.c
-+++ b/drivers/spi/spi-mxs.c
-@@ -381,6 +381,8 @@ static int mxs_spi_transfer_one(struct spi_controller =
-*host,
- 		if (status)
- 			break;
+> Am 19.11.24 um 16:52 schrieb Lukasz Majewski:
+> > Dear Community,
+> > =20
+> >> The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
+> >> some extend similar to already upstreamed XEA devices, hence are
+> >> using common imx28-lwe.dtsi file.
+> >>
+> >> New, imx28-btt3.dtsi has been added to embrace common DTS
+> >> properties for different HW revisions for this device.
+> >>
+> >> As a result - changes introduced in imx28-btt3-[012].dts are
+> >> minimal.
+> >> =20
+> > Are there any more comments / suggestions for this patch set? =20
+> I've send my RB for this patch on October 31th for V10, but it didn't
+> made it into V11.
 
-+		t->effective_speed_hz =3D ssp->clk_rate;
-+
- 		/* De-assert on last transfer, inverted by cs_change flag */
- 		flag =3D (&t->transfer_list =3D=3D m->transfers.prev) ^ t->cs_change ?
- 		       TXRX_DEASSERT_CS : 0;
-=2D-
-2.34.1
+Sorry, I've just noticed it.
 
+When the yaml patches are applied/accepted, I will either resend the
+dts patches with your Reviewed-by or maybe this tag can be added when
+applying the code by the maintainer (Shawn).
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/jBN468d=YevV1Tnfk/xCbGe
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmdW0YMACgkQAR8vZIA0
+zr2THAf+JgmJiwwSis3XQnIdKHJG+zMF3IYWmEQqljal+UWYz6CmPygErJFdSZI9
+p7Nj+OtF4Vnv4gCGw2WSRHiQD4tA1gjFXmLByhkaTke1vKEa6kSbQTb9kvFAT6Ss
+O95SBMZoePdu4c1uEYpSvuYNUVPkImpw+Is20TjrLHm/Jepxbpjh445DaKhNYQQR
+kC9Hb1i1uum13rH0gRwT0HRCXqlBwAYZTMXdqR4gwc3ogJVLsvuY0ujC+1JNNmmp
+BkYM22XM7CY5qeIa0PUEBwS9C2UQwsPWw1KQ4NgZ/1uEN+4iFkNNFGBgWzqeL+wn
+pmTLrePIuUqCthhv5c83HpXCfamRVQ==
+=8U55
+-----END PGP SIGNATURE-----
+
+--Sig_/jBN468d=YevV1Tnfk/xCbGe--
 
