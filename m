@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B49E77173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53CCE77173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 08:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4sbUPQNC9hAyQ6x4UVwsrJaPNSRNhT2z6caFe+bvU8=; b=zhb9ZhSEDXmqklJGYLRATeXZsX
-	m/y7sYsLaWp78UQVZGPLYViPa82f7VUmvJ7PyFv6pw0NXZUnTcZ7bAyHSnFGKZ/iZi8FQ7alWjyMi
-	m6XicyOLDmVS2eymPZdddHhkLNP3hpcNgjBK1IH3l0B209dpt+iTPO97D/hOTF90kDVqEEaW7DRlV
-	1E6SFi+8DyIrTUe8VhfN1G3Tkz+RNox4eklFXStDEp/d6CqiMouCMxceExfQ98CrMcF5knxnUBFVk
-	csruODvxiOZbqhYHf/u3SenKKXtDuhq51EBbis4mM1tCQykTGJy+3PYGymseHEq8lAGW/l4jDHTg6
-	Aw8pkfog==;
+	bh=u2dYj5Y1qBZA90BsH2TSbGZFTLu8yxuGwSmgwkAGjIM=; b=uok0pmSBzSg/OwDmS2WLDOIKJa
+	go/z6tLEjbq567LYbfBM3y6kmkUKNj6CLBIeJv1feNT1WUmDaag6g+a7B35qazBCpChAyVK8Hw7rS
+	oQPSYCzSAn5Yj8wwElDjJpMmOSmDIKNllwzFKZZKJHSH/Q5sb5zUDQ9FM5+rhHGenRAeE5nNEpyEl
+	/vhzJ2Utftmpe8QJz9+QPga+pJxx367SVhci4Hf9/Jb9ZziQhaPw0+nVpIoMe6RL7+3mlfsUjwnzI
+	uznlPOx0eSdVX1k0Jwz/QpH4Kdik5Og7cFCHEfnZeWWCoHhjIqpRg1RQBYG62v4EqbSJOfS50hnRY
+	X0X41X2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYqD-00000006qlT-2IP3;
-	Mon, 09 Dec 2024 08:10:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKYrE-00000006r0N-2Y8b;
+	Mon, 09 Dec 2024 08:11:08 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKYkA-00000006pAy-0Ixw
+	id 1tKYkD-00000006pBh-1MpX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 08:03:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BDBB1A4013E;
-	Mon,  9 Dec 2024 08:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 438B0C4CEE1;
-	Mon,  9 Dec 2024 08:03:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733731429;
-	bh=M1eR8jxcP0+FliXIViYEmIA5DCYCTpnmD97iR8K5UJ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gQ0qT04SiPOItYVGh8E2+jGDWnrCk0aQ9ZdN6XxZvtY11m5i3RHyRywMC/UO9W0fR
-	 CaDmJy9mj7xnkTGDuXsewAkhAYa+HMAmHwCogZ7+4TTmi4ZK9pBaxIvI+i9PKuPwI7
-	 v9JvsdPu8dLZlBEIcMTi08rAGcZtDAT6F1FiaIe5wFiLmf1F+bfinFfEEkfa3rX8Po
-	 0/196ou4YWtL3Yee3BZbi4nP9kemRbFeiXTtGnnj7/AGtKqRtcUw8qUaRH5yYn4W+4
-	 v+dCGpTdRAc5LfHBmtKcUg+WSNRYe0EhSF3d+TSdNInUkKYdT4Z2YS94PJq0lNYLi4
-	 zOYyCYt5W8c8A==
-Date: Mon, 9 Dec 2024 09:03:45 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	alim.akhtar@samsung.com, linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
-	kernel-team@android.com, willmcvicker@google.com, peter.griffin@linaro.org, 
-	javierm@redhat.com, tzimmermann@suse.de, daniel.lezcano@linaro.org, 
-	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-Subject: Re: [PATCH v3 1/3] dt-bindings: firmware: add
- samsung,exynos-acpm-ipc bindings
-Message-ID: <k2pnpu3ef2rgy6wre2qrearwmetzb4v4meiyqpy7oyg45hohlp@kmnzulhbmdk6>
-References: <20241205175345.201595-1-tudor.ambarus@linaro.org>
- <20241205175345.201595-2-tudor.ambarus@linaro.org>
+	Mon, 09 Dec 2024 08:03:54 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-434e5e71a08so70815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 00:03:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733731431; x=1734336231; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=u2dYj5Y1qBZA90BsH2TSbGZFTLu8yxuGwSmgwkAGjIM=;
+        b=R+9BHpBWBOtRWyephb5JuLlGeSsq/ccODOrgqvLYDzyHiWyGerrijWxhQuu/bbmbuL
+         GP6aLXZtZNPwsIDemAV2orUxn4y5DcsMvYRPQkmZaukc7YFYuZyA9j+3i1u2PvcFR1ds
+         BK3Q4PVtUBbHqxmxDpTg8aQQgEzMV6PHoDHQlW/kNfo4T4vynPwNPr40DG0XU5UNmlhK
+         ZqcYgn8bPTGwWy3db0PdjyL2DDRzPSBI8xPFWlVrE9uou/Vvp46Q1s98v8r7bFhDLbpP
+         XHAyz1EmHkuxpT4KjPCNFX0g50o2U/ZEjpOXQku6SkNrTHntH/2AYIvmvILOUZERsVYH
+         9iwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733731431; x=1734336231;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u2dYj5Y1qBZA90BsH2TSbGZFTLu8yxuGwSmgwkAGjIM=;
+        b=itct3xh6kAL2wagJ8yRHDiOTgO0M1GMAym3B78EbV1lYiHPgKQyztrY2uSSUlKabIq
+         iTnhIwHTbaj1aHNZ+9BusCtckoE2F2gsqoTV5janrznU5dxdfUKh5tOUH0/Iv286zBMY
+         2tOviPIMIExhGe53mDdlVm/j/inKCfnjoa+uil2Mf1zSU9Rq1R2AB00pUGdNGLqEkSKH
+         Jaj5SniV7fRhpkv+mD5dMlJdR9Eyuise1T+ngh78JjF3KvmY5NJKGvt5DQzKZ/wKlzem
+         6uxrOwtWIiGuAv6cgoUIahpvYcTm7EA9bRZm38x68vlKcV1TvH3QF9uKyV/kn0TeFIWv
+         NidQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWJF+NKhVyzNfRxbo5+tPxil6dTptihZuAZp4MUDtSI26fbjIBrmCksUOchxZH1Jbl9CozkIUEKUIJEcuk3bvHE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw7DcQsBYANTrBVxS0C6IV8I5vFKNHxWQ+9TBq4uPpEhlilq0u
+	wQv+IbvWiKklF6YWbTezcAwkrNCnxsYDyB6FbdjnRyGlnIalebkHo81+oYzf/AXcpkuvTOzIA02
+	CzlLmIvN6iQOQtALm+Lrh8mK23Asdd1Dpveic
+X-Gm-Gg: ASbGncugUbbOO4KEtJ/sc8rTHvCIs2DxQhYlmNnqRRbyYgex4XyMpA3I8Aem5pLSBOC
+	tIWqmYzQ1v2Oi500VNBv1FfuRRbZFhw==
+X-Google-Smtp-Source: AGHT+IH67eWORsr+jQiiZGauYOoVdBjdmBrCOiv6ZkJPLXQX3gVK7771Zd+rTsGuMSZ+nHtM69u6cyCjbWXgGjzcgm0=
+X-Received: by 2002:a7b:c8cd:0:b0:434:a0fd:95d9 with SMTP id
+ 5b1f17b1804b1-434e92d5118mr2174695e9.5.1733731430538; Mon, 09 Dec 2024
+ 00:03:50 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241205175345.201595-2-tudor.ambarus@linaro.org>
+References: <20241202154742.3611749-1-tabba@google.com> <20241202154742.3611749-2-tabba@google.com>
+ <Z1MihH-aLq6lTccm@google.com>
+In-Reply-To: <Z1MihH-aLq6lTccm@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 9 Dec 2024 08:03:14 +0000
+Message-ID: <CA+EHjTyqLnXmkBp9yKGES8XXgChb6LNHS27uK+5iEWpSOU=iYg@mail.gmail.com>
+Subject: Re: [PATCH v4 01/14] KVM: arm64: Consolidate allowed and restricted
+ VM feature checks
+To: Quentin Perret <qperret@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
+	kristina.martsenko@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_000350_254941_59325720 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20241209_000353_362666_833B536B 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,117 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 05:53:43PM +0000, Tudor Ambarus wrote:
-> Add bindings for the samsung exynos ACPM mailbox protocol.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
->  .../firmware/samsung,exynos-acpm-ipc.yaml     | 64 +++++++++++++++++++
->  1 file changed, 64 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml b/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
-> new file mode 100644
-> index 000000000000..bfc9b4af9ea1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/samsung,exynos-acpm-ipc.yaml
+Hi Quentin,
 
+On Fri, 6 Dec 2024 at 16:12, Quentin Perret <qperret@google.com> wrote:
+>
+> On Monday 02 Dec 2024 at 15:47:28 (+0000), Fuad Tabba wrote:
+> > The definitions for features allowed and allowed with
+> > restrictions for protected guests, which are based on feature
+> > registers, were defined and checked for separately, even though
+> > they are handled in the same way. This could result in missing
+> > checks for certain features, e.g., pointer authentication,
+> > causing traps for allowed features.
+> >
+> > Consolidate the definitions into one. Use that new definition to
+> > construct the guest view of the feature registers for
+> > consistency.
+> >
+> > Fixes: 6c30bfb18d0b ("KVM: arm64: Add handlers for protected VM System Registers")
+> > Reported-by: Mostafa Saleh <smostafa@google.com>
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> >
+> > ---
+> >
+> > Note: This patch ends up being a no-op, since none of the changes
+> > in it survive the series. It's included because it makes the rest
+> > of the series flow more smoothly.
+>
+> Is the Fixes: tag above really needed then? It 'risks' being flagged as
+> a -stable candidate, but should it be?
 
-Filename based on comaptible, so google,gs101-acpm-ipc.yaml
+Makes sense. I'll remove the tag.
 
-> @@ -0,0 +1,64 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright 2024 Linaro Ltd.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/samsung,exynos-acpm-ipc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Samsung exynos ACPM mailbox protocol
-
-s/exynos/Exynos/
-
-> +
-> +maintainers:
-> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
-> +
-> +description: |
-> +  ACPM (Alive Clock and Power Manager) is a firmware that operates on the
-> +  APM (Active Power Management) module that handles overall power management
-> +  activities. ACPM and masters regard each other as independent hardware
-> +  component and communicate with each other using mailbox messages and
-> +  shared memory.
-> +
-> +  This binding is intended to define the interface the firmware implementing
-> +  ACPM provides for OSPM in the device tree.
-> +
-> +properties:
-> +  $nodename:
-> +    const: acpm_ipc
-
-Drop, no schemas have anything like this.
-
-> +
-> +  compatible:
-> +    const: google,gs101-acpm-ipc
-> +
-> +  mboxes:
-> +    description:
-> +      List of phandle and mailbox channel specifiers.
-
-Drop description.
-
-> +    maxItems: 1
-> +
-> +  shmem:
-> +    description:
-> +      List of phandle pointing to the shared memory (SHM) area. The memory
-> +      contains channels configuration data and the TX/RX ring buffers that
-> +      are used for passing messages to/from the ACPM firmware.
-> +    maxItems: 1
-> +
-> +  initdata-base:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      Base address of the configuration data in the shared memory.
-
-If you really need this, then it should be rather encoded as part of
-shemm phandle (phandle-array with describing items, just like syscon
-phandles are done).
-
-But OTOH, I don't see why this is needed at all so far - compatible
-defines it.
-
-> +
-> +additionalProperties: false
-
-This should be placed after required block.
-
-> +
-> +required:
-> +  - compatible
-> +  - mboxes
-> +  - shmem
-> +  - initdata-base
-> +
-> +examples:
-> +  - |
-> +    firmware {
-
-Drop
-
-> +        acpm_ipc: acpm_ipc {
-
-Drop unused label.
-
-Node name: power-management (based on your binding description)
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-> +            compatible = "google,gs101-acpm-ipc";
-
-Best regards,
-Krzysztof
-
+Thanks,
+/fuad
 
