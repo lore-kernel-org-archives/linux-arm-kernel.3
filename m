@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2D3E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E6EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 15:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yymF14IHFbx6Jsz6O4G0JFLMmWt/rUozbAAoy+ol+eM=; b=BJHurR+4GyG0qE3/Yt5TeuMrj4
-	ri38uOnJbmZb31TvRjrc0UMGr2wnkne1oA8EWJnfeP4Z8TqNpM8gI63Dkj7/XoGPLIjuktOs4G/D9
-	MBCqP28Fv+U80btEsn6jOlXOqdGe4FV+0qu0she/y+gENOptE6ecWSNts2EYcZumNJ40L4gzAcOsq
-	Fq9nY6tgTahIeXEHvHmYendQFTZv4lfEVBAJ7CPxZOq2p3ECCkqLuwU0+385mtD7Ktcfhz2Yx68G6
-	u2qA5NocBcWy787wH1MFJUwRHdFRFGBgnXmHbDMNfU8UNeDb8Zpxx+5POJLkAzvem+hk2nT7L4ugp
-	EcdHau9Q==;
+	bh=ehJkuMga426CGN2hUyJhWL85NBKi9F+9i7V05St6jF4=; b=n+A3QrAa0qVTgOf+8mx0b98s4x
+	PWqubtWLf1BKWKW9coiwJPVxShkgRSS4i02ChmeStCJTaYOmx1yu2ORxC1Crk2shmWtPnlwaOcEXQ
+	aix0TZjQmDwLeEEYfHskXVHxczzDwzS9oZMfIaQ2+zIiNrOQW9P3Tqejlu6nSWRz4+GIaNogg0bV5
+	tJi6zXkzmSg5kHvYZkZ/iiria8BPVuEuJmr2BWIqLIB71DRLKoCPY68qLk2LSU/dWmC/IzBMVXXKj
+	1EwXfsutkT11csUUN26YHvkT+H1b9aGFKyPDqs73vRAV9pfxOo8/7nBDFFQrpWuBo+XClYYcMIrDQ
+	895Xofzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfyH-00000008Qw2-0EzJ;
-	Mon, 09 Dec 2024 15:46:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tKg0z-00000008RLu-2qXu;
+	Mon, 09 Dec 2024 15:49:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKfxD-00000008Qc8-06Rl
+	id 1tKfzw-00000008RD0-3Fk2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 15:45:48 +0000
+	Mon, 09 Dec 2024 15:48:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E3CE25C5421;
-	Mon,  9 Dec 2024 15:45:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A145C4CED1;
-	Mon,  9 Dec 2024 15:45:46 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 65D46A40CA1;
+	Mon,  9 Dec 2024 15:46:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDBCBC4CED1;
+	Mon,  9 Dec 2024 15:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733759146;
-	bh=waieXy8ZvxsddVWFcwGo31hwJetNKj8FiS3REo21d6Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Wy0dW8FJU/b3g+a3NoTzQQy5QfvRYg83SpSl2IkfWHKLsdU8GVlIQnSR98bc2Rz7p
-	 ZP0gDvMgrr8mRLd+fVqjO8omGS+87srdoEpk/GuBB1p22RyGBuAidKfrG7lptTWcTE
-	 L58g0xMfRP6ffdsizOq9rwtQ6Sl6GfrlFf/J/PbOTtLr2Cl04VXwiEOY7jE80GWTCC
-	 S9T04DA4w3qtEUgD4P6gdfn4kyHs+C9WWD8hOYie61trS35EK8QEnNiWOFAE1OdqgU
-	 a69Af1QJyAOAmgNFH6Q+PtE6nsdP3g9OdztWQRw5Ze58rD8/DSdbCUaLZL9m29CuTv
-	 ojk4tyWsRzD3Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tKfxA-001vzD-4z;
-	Mon, 09 Dec 2024 15:45:44 +0000
-Date: Mon, 09 Dec 2024 15:45:43 +0000
-Message-ID: <861pyguafs.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-Cc: Cornelia Huck <cohuck@redhat.com>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org"
-	<will@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"eric.auger@redhat.com" <eric.auger@redhat.com>,
-	yuzenghui
-	<yuzenghui@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>,
-	jiangkunkun
-	<jiangkunkun@huawei.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Anthony Jebson <anthony.jebson@huawei.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	Linuxarm <linuxarm@huawei.com>
-Subject: Re: [PATCH v3 3/3] arm64: paravirt: Enable errata based on implementation CPUs
-In-Reply-To: <d92ea2dcc3b04ebb8bc5ba71bff448bc@huawei.com>
-References: <20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com>
-	<20241209115311.40496-4-shameerali.kolothum.thodi@huawei.com>
-	<875xnt10oj.fsf@redhat.com>
-	<d92ea2dcc3b04ebb8bc5ba71bff448bc@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: shameerali.kolothum.thodi@huawei.com, cohuck@redhat.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1733759315;
+	bh=n94RWrYLM2f3wV2fEkioXHzMKrGMfSEIO328mG7Pu8w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IdZmPT0JlVKvRNrHjnH8eY03R64FM8g8psftS1dD1qCQx87NhLQ/alfgJF6z2pRyb
+	 3gy/kQM1w2/SUHXu4MDmRXyZzfTPtQycgoYwBcPn+xhvWQhB5G/dFzf2S0MdDCH8ng
+	 T4XZbnVooqUGITuWFk4cTx9KZwTn0WmZbKwj8hPlIPA2L5gCroNl1+pHV3j9XyPicR
+	 g9c1fGk5vRN4+UQBzECDsazDUDrPAbUX5+ytqm5nlzqkUanTwZEKodSTZt1QyzozVJ
+	 NDTM18wj2KAImyxfDBDxwd6Eelk8RDurC7+woVhzIGlAwaS1RuY9Iai2QUFj4d7wKL
+	 vvHgKn/fsY2iQ==
+Date: Mon, 9 Dec 2024 15:48:30 +0000
+From: Will Deacon <will@kernel.org>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: jonathan.cameron@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, yangyicong@hisilicon.com,
+	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
+	prime.zeng@hisilicon.com
+Subject: Re: [PATCH v4 08/10] drivers/perf: hisi: Export associated CPUs of
+ each PMU through sysfs
+Message-ID: <20241209154830.GC12428@willie-the-truck>
+References: <20241203125049.39458-1-yangyicong@huawei.com>
+ <20241203125049.39458-9-yangyicong@huawei.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241203125049.39458-9-yangyicong@huawei.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_074547_147424_3F537AFA 
-X-CRM114-Status: GOOD (  29.20  )
+X-CRM114-CacheID: sfid-20241209_074836_881951_32860A63 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,92 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Dec 2024 13:49:07 +0000,
-Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com> wrote:
+On Tue, Dec 03, 2024 at 08:50:47PM +0800, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
 > 
+> Although the event of the uncore PMU can only be opened on a single
+> CPU, some PMU does have the affinity on a range of CPUs. For example
+> the L3C PMU is associated to the CPUs sharing the L3T it monitors.
+> Users may infer this affinity by the PMU name which may have SCCL ID
+> and CCL ID encoded (for L3C etc), but it's not that straightforward.
+> So export this information by adding an "associated_cpus" sysfs
+> attribute then user can get this directly.
 > 
+> Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>  Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
+>  drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
+>  2 files changed, 14 insertions(+), 1 deletion(-)
 > 
-> > -----Original Message-----
-> > From: Cornelia Huck <cohuck@redhat.com>
-> > Sent: Monday, December 9, 2024 12:49 PM
-> > To: Shameerali Kolothum Thodi
-> > <shameerali.kolothum.thodi@huawei.com>; kvmarm@lists.linux.dev;
-> > maz@kernel.org; oliver.upton@linux.dev
-> > Cc: catalin.marinas@arm.com; will@kernel.org; mark.rutland@arm.com;
-> > eric.auger@redhat.com; yuzenghui <yuzenghui@huawei.com>; Wangzhou
-> > (B) <wangzhou1@hisilicon.com>; jiangkunkun <jiangkunkun@huawei.com>;
-> > Jonathan Cameron <jonathan.cameron@huawei.com>; Anthony Jebson
-> > <anthony.jebson@huawei.com>; linux-arm-kernel@lists.infradead.org;
-> > Linuxarm <linuxarm@huawei.com>
-> > Subject: Re: [PATCH v3 3/3] arm64: paravirt: Enable errata based on
-> > implementation CPUs
-> > 
-> > On Mon, Dec 09 2024, Shameer Kolothum
-> > <shameerali.kolothum.thodi@huawei.com> wrote:
-> > 
-> > > Retrieve any migration target implementation CPUs using the hypercall
-> > > and enable associated errata.
-> > >
-> > > Signed-off-by: Shameer Kolothum
-> > <shameerali.kolothum.thodi@huawei.com>
-> > > ---
-> > > Note:
-> > >
-> > > One thing I am not sure here is how to handle the hypercall error.
-> > > Do we need to fail the Guest boot or just carry on without any
-> > > target implementation CPU support? At the moment it just carries on.
-> > >
-> > > Thanks,
-> > > Shameer
-> > > ---
-> > >  arch/arm64/include/asm/cputype.h  | 25 +++++++++++++++++++++++--
-> > >  arch/arm64/include/asm/paravirt.h |  3 +++
-> > >  arch/arm64/kernel/cpu_errata.c    | 20 +++++++++++++++++---
-> > >  arch/arm64/kernel/cpufeature.c    |  2 ++
-> > >  arch/arm64/kernel/image-vars.h    |  2 ++
-> > >  arch/arm64/kernel/paravirt.c      | 31
-> > +++++++++++++++++++++++++++++++
-> > >  6 files changed, 78 insertions(+), 5 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/include/asm/cputype.h
-> > b/arch/arm64/include/asm/cputype.h
-> > > index dcf0e1ce892d..9e466f3ae9c6 100644
-> > > --- a/arch/arm64/include/asm/cputype.h
-> > > +++ b/arch/arm64/include/asm/cputype.h
-> > > @@ -265,6 +265,16 @@ struct midr_range {
-> > >  #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
-> > >  #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
-> > >
-> > > +#define MAX_TARGET_IMPL_CPUS 64
-> > > +
-> > > +struct target_impl_cpu {
-> > > +	u32 midr;
-> > > +	u32 revidr;
-> > > +};
-> > 
-> > Doesn't this need to be u64 for both (even if the upper bits for
-> > MIDR_EL1 are reserved?)
-> 
-> Yes, both are u64 as per specification with upper bits reserved. And the 
-> external hypercall interface has uint64.
-> 
-> But in kernel, AFAICS, at present all the _midr_range_() functions expect u32.
-> So not sure we gain much now by changing to u64.
+> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+> index 5cc248d18c63..48992a0b8e94 100644
+> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
+> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+> @@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
+>  SCCL ID #1.
+>  
+>  The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
+> -ID used to count the uncore PMU event.
+> +ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
+> +also provided to show the CPUs associated with this PMU. The "cpumask" indicates
+> +the CPUs to open the events, usually as a hint for userspaces tools like perf.
+> +It only contains one associated CPU from the "associated_cpus".
 
-For MIDR_EL1, I don't think that's a problem as long as we make sure
-this is a kernel-private representation, and that it doesn't leak to
-userspace or the PV interface.
+What is userspace expected to do with this information? Can you point me
+to patches that add the corresponding support to the 'perf' tool, please?
 
-For REVIDR_EL1, it *is* a problem, as the whole register is IMPDEF,
-and an implementation could legitimately use the top bits.
-
-So at this stage, it probably makes sense to keep both as 64bit
-values.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Will
 
