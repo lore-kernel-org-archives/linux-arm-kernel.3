@@ -4,56 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C792E77181
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 07:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFA8E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 07:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GK7jNiQwXGq1HNLW5XdewC21FHArvyWIAyQgbmPZrMw=; b=nONfAYtVHrLVl2+i5+CWK/HulG
-	98Q/LXkmtrhU//KlNUEOEm7N9aAJdgTC/MMrF6XdPRDbmKkDfjS3dXCRQ481Dm9UYBpuxKfrONbpC
-	/jWtn7xSlrH1HrnQSE7FDKrcQKHt9vqJcGc/55JvXlOFo60gQx01Kr8BpISwkP7Hj1x/UWj+muOT3
-	oml/7O0WyGOEaEaDTlCg9SnZA81/1Oi+TZuPjTL1oIs40L0LORG2/4YQwGX7Otk8XmXe2Bu/vj0Mb
-	pKNGeZfrxLQDiTv0nnzSgJQ8WCfvkpWHJ7MjHDs/gmQWBSMO8XNJ9pd4rpoP06KdgiFsVcOV3CVPC
-	fjbGsa5g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HT5Vw1c5JsjdkFWM9Rgu+pVa9jSJRpnur3CjtgBsZuo=; b=ry+jKFV0ObnWlqJAmA6K4EUmox
+	lL96d9psQ6ma0IDnUMmsWqDpF66C//uDF742r/LUCaXnqL+h+7H1AYGJVsGzCkOKiQ0dsB+cWluCe
+	b0QCRRZrI+zjMSyheJ72SMMiPSu5fVWjiuogohE4EbWdPcGFezaxmfy+wDA7b5d1Ac5Ls0dH/2MXx
+	CYZCn3RJN4N0ms/E6Pm/3JhYVRT9MYMDQa1Cc5fY69w/aJSfVmuz+Sv4LZIm3XbgufyJhuRsnDLTm
+	CpP/TfipxdihkRTG8KFtXa2bRqMKAPhcGnkPwFf8oFL9Eey0d/XnnzZBjWg4kGmzqM9ky8j77Gtux
+	/4vZaUhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKufI-0000000AYUT-2IBH;
-	Tue, 10 Dec 2024 07:28:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKueF-0000000AYNl-1tef
+	id 1tKukG-0000000AZFs-3T0o;
+	Tue, 10 Dec 2024 07:33:24 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKujC-0000000AZ1z-41LA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 07:27:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E857EFEC;
-	Mon,  9 Dec 2024 23:27:38 -0800 (PST)
-Received: from [10.163.48.173] (unknown [10.163.48.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F04C83F720;
-	Mon,  9 Dec 2024 23:27:06 -0800 (PST)
-Message-ID: <767de5f8-a650-4acf-966e-528fd08b09bb@arm.com>
-Date: Tue, 10 Dec 2024 12:57:04 +0530
+	Tue, 10 Dec 2024 07:32:20 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-216426b0865so17889925ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 23:32:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1733815938; x=1734420738; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HT5Vw1c5JsjdkFWM9Rgu+pVa9jSJRpnur3CjtgBsZuo=;
+        b=QLc6cvVxNNm0HQyWqzH6YII3B+3IKdQklE+LSYU+r/0RkBFI0k6ku5C2A5pph83MMo
+         q2g95iAP0NPQyHCHd18soYXuk9bn2ScQjRwkKmfgkTUJ7IFyuFgk5YsBTFZ1KzS4ye9G
+         XAc6w7psqW2kYPZ3djXXo+NF8XJnQt+geyx7A=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733815938; x=1734420738;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HT5Vw1c5JsjdkFWM9Rgu+pVa9jSJRpnur3CjtgBsZuo=;
+        b=hmYzXEe4adr0XQE3Lh+ip12Pe3bZdR3EesJa8W2wE12VryD5VWRxOcfBFXBdqn2+35
+         YTiULI9y8g76fA77KCvjzyVAaVcjDspxidI6zY0/isBQtv4ZKfCoBXlJpwTALX/9RDPZ
+         RpY+j87lczK4cjiz9aVpRCIveymo4IqELC0nf4OeCxeoxZmCrH2NEASHUH1ZUfX8AFoi
+         LvfcMo1+iP6a3xgpUQSi3a4JZUHY/zbKjJk8D+BnrANa5w9mrtvjFMtiDZSLzHQEHyRr
+         RgaQUqTasyccm8x7Wk44hvBuHbQ2NbyQuhWioFuhWQMGgfwe2qjRc3ESCTqbVom2bJZL
+         RUTA==
+X-Forwarded-Encrypted: i=1; AJvYcCXGGhZb5PIK6VZECj60fsIMQplVocBPHG97zDxCv4L+gBI7YjCdrvkPeOMg0rpjY1nNHSfECwXzj4VV835RGrcu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza8IAizrhboWwnEIAl20O701Mld3HwlzIdg9IRIb+ZPdjaQaYi
+	dttyFK2GN+R6PSS7CyNMgxxtNhunlTm7Q6L88RnBaIx2w5hY5eEgHy54+WPyYg==
+X-Gm-Gg: ASbGncsdcHETINEY6BmGNuta62bHT9NAbPyfSGyn8BQzfb3892mREoGeBOyTncXt/FN
+	8/ndN+/0BJpnwZRvA6wT/dEp51iTP3WWrYwazsLoLX4fH9pUYVV5aWiVa1d0CNnJe8di2E6AN6J
+	AZ+keb3CKUB9yMuesrPRjNypqn+LFuCnZozp5pyD7dj2thj9v8BmFG++dMnyaQlOpwk1HVpyQI3
+	/1dlNTw1GpjAGqrW7U/QEmSni/0N3R4zfzpIg9zMz/qI8d5tADeWK1LtVhEqXl3j1asz5+v
+X-Google-Smtp-Source: AGHT+IG1WT2JNFtTZJQaCDx3/CWxE46vDhlGZZ513ZUlC7xM4jD1E01HlR26Ok2ltxq903JY3J5PNA==
+X-Received: by 2002:a17:902:d583:b0:216:53fa:634f with SMTP id d9443c01a7336-2166a063a7fmr51209325ad.48.1733815937970;
+        Mon, 09 Dec 2024 23:32:17 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:89ce:2db9:f7d5:156d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8f09146sm83693295ad.199.2024.12.09.23.32.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Dec 2024 23:32:17 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Chaotian Jing <chaotian.jing@mediatek.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Wenbin Mei <wenbin.mei@mediatek.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Andy-ld Lu <andy-ld.lu@mediatek.com>
+Subject: [PATCH v2 0/2] mmc: mtk-sd: Limit second register range to SoCs requiring it
+Date: Tue, 10 Dec 2024 15:32:09 +0800
+Message-ID: <20241210073212.3917912-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
-To: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net
-Cc: patches@amperecomputing.com, cl@linux.com, akpm@linux-foundation.org,
- thuth@redhat.com, rostedt@goodmis.org, xiongwei.song@windriver.com,
- ardb@kernel.org, inux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20241209072020.4743-1-shijie@os.amperecomputing.com>
- <20241209072020.4743-3-shijie@os.amperecomputing.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20241209072020.4743-3-shijie@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_232711_534822_9869E489 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20241209_233219_117467_3D55E92E 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,71 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A small nit:
+Changes since v1:
+- Added MT7988 compatible string to list that needs second register
+  range
+- Dropped comment about uncertainty of MT6779 from commit message
+- Picked up Angelo's Reviewed-by
 
-arm64/Kconfig: Remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
+Currently the usage of a second register range for MediaTek's MMC
+controller is seen only on a few platforms. However the driver tries
+to grab the register base regardless, and then ignores any errors.
+This makes all the other platforms that don't need it produce confusing
+error messages.
 
-On 12/9/24 12:50, Huang Shijie wrote:
-> After patch "arm64: refacotr the rodata=xxx",
-> the "rodata=on" becomes the default.
-> 
->      ......................................
-> 	if (!strcmp(arg, "on")) {
-> 		rodata_enabled = rodata_full = true;
-> 		return true;
-> 	}
->      ......................................
-> 
-> The rodata_full is always "true" via "rodata=on" and does not
-> depend on the config RODATA_FULL_DEFAULT_ENABLED anymore,
-> so it can be dropped.
-> 
-> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
-> ---
->  arch/arm64/Kconfig       | 14 --------------
->  arch/arm64/mm/pageattr.c |  2 +-
->  2 files changed, 1 insertion(+), 15 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index cbfd357f94a6..1c69982302ed 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1666,20 +1666,6 @@ config MITIGATE_SPECTRE_BRANCH_HISTORY
->  	  When taking an exception from user-space, a sequence of branches
->  	  or a firmware call overwrites the branch history.
->  
-> -config RODATA_FULL_DEFAULT_ENABLED
-> -	bool "Apply r/o permissions of VM areas also to their linear aliases"
-> -	default y
-> -	help
-> -	  Apply read-only attributes of VM areas to the linear alias of
-> -	  the backing pages as well. This prevents code or read-only data
-> -	  from being modified (inadvertently or intentionally) via another
-> -	  mapping of the same memory page. This additional enhancement can
-> -	  be turned off at runtime by passing rodata=[off|on] (and turned on
-> -	  with rodata=full if this option is set to 'n')
-> -
-> -	  This requires the linear region to be mapped down to pages,
-> -	  which may adversely affect performance in some cases.
-> -
->  config ARM64_SW_TTBR0_PAN
->  	bool "Emulate Privileged Access Never using TTBR0_EL1 switching"
->  	depends on !KCSAN
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 39fd1f7ff02a..6eef08d8451e 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -20,7 +20,7 @@ struct page_change_data {
->  	pgprot_t clear_mask;
->  };
->  
-> -bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
-> +bool rodata_full __ro_after_init = true;
->  
->  bool can_set_direct_map(void)
->  {
+Instead, make the driver only grab the register range for platforms that
+actually require it, and correctly handle the error. Also fix up the
+binding so that validation of the "reg" property is as strict as
+possible.
 
-Otherwise LGTM
+Please take a look.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
+Thanks
+ChenYu
+
+Chen-Yu Tsai (2):
+  dt-bindings: mmc: mtk-sd: Document compatibles that need two register
+    ranges
+  mmc: mtk-sd: Limit getting top_base to SoCs that require it
+
+ Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 10 +++++++++-
+ drivers/mmc/host/mtk-sd.c                         | 15 +++++++++++----
+ 2 files changed, 20 insertions(+), 5 deletions(-)
+
+-- 
+2.47.0.338.g60cca15819-goog
+
 
