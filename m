@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B788E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 17:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE308E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 17:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJuaBgZKrdv+RWQeMRVkYJY5tTLwVPt/ydvjKnt3MWk=; b=Jy7nx/4+/FsoUr8FCMGbtUwm/P
-	vtJ0kRW1+ea6eUPRoldnNM/DcHNNu68ChFPs/n/00i1SoW2zJzcxt/v+UPWKdfrB3xAHls8Zw3fBv
-	HBMwV/JG0e7DJ5NVq6qc0YqfbawLpebWs/Ier7dxqEfU2diTujtbS477gu2VDxQbFEu7GrXuCPBmU
-	H0YTJpWG5WJv7feVamzXke7eOdSh9fdNAEL01WU9IPh/SCNVWauPvsjkbUkTY9tLoi+MWONae39jv
-	nR234BMZceQgh5Gur5v8JqV3DbiQljXPszAP4RGkq4gisa22G4g2NfSU8tH6efHcHcX9y9Zq8hkHo
-	9GSwCwsQ==;
+	bh=EJuaBgZKrdv+RWQeMRVkYJY5tTLwVPt/ydvjKnt3MWk=; b=EKzxO6F4dHZIXCZ/c7t3EP6dty
+	SHq6o3a8XyWrfnLJW0AJ1CqUwaSmKHkESOMHV4GAeYoMKI18fbgp+eeDWA51Wn8rZ3Pb0TrOXOnPN
+	04ChtjH+SL57Gfx6zdP9C0AX/W+dSRtuBNETUqIX+0HBlp7KxJG6jnGrVTDoP+tIzMGHMKQrTKHAZ
+	kC9HNNDz55dTM/U1F/rDZuIvXjH4sIW7BBymD8rVga7VMXXQxSVGnxGqoGPewfUFu1B2XYNZ8JSDZ
+	Y6/2Th/8wE1Fpy0ShjcFP7rdQtw1hPh5nNSWG+20OFZn3DuiRGdK/qRqSUtBoVKpo7CTtmJWaE0xM
+	GsdQetSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL486-0000000CIBB-08RV;
-	Tue, 10 Dec 2024 17:34:38 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1tL497-0000000CINb-42Gc;
+	Tue, 10 Dec 2024 17:35:41 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL44B-0000000CHCH-35xV
+	id 1tL44J-0000000CHEY-2LkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 17:30:37 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6d933736380so1225336d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 09:30:35 -0800 (PST)
+	Tue, 10 Dec 2024 17:30:45 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6ef7640e484so67709177b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 09:30:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1733851834; x=1734456634; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1733851842; x=1734456642; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
         bh=EJuaBgZKrdv+RWQeMRVkYJY5tTLwVPt/ydvjKnt3MWk=;
-        b=MDOPcnCgdJNcAL8yD9Z8NnmYJvHIW/5bQyr2ZU1XXOwvv90Oa4DAlox4vD9E+7djzp
-         NfTQxWLdjWyqUsM/ViXLIpxaFY7zS+NEr9KCFhxs3K96nPsrRR0VKxO4ngEpKhYAnHHf
-         8oPHT+M0XyDRcMzStPPw2D/i6mZONfuiJbqLw=
+        b=Yo5KdLUSewousEy8WSpHqbuQUXr63HSucAqFajncHLpfADsD9o45A0w8VQd99CzxHB
+         SRumy/iaO1/iKKnpOh8CgtZIJFJbCUTlyY+H2ngAh/KDjiLO5rpojaEsF+mkHOP0RUWf
+         Dp1QLf2TRpJk85HGzVeBgWJnUjFcKQb3c+p18=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733851834; x=1734456634;
+        d=1e100.net; s=20230601; t=1733851842; x=1734456642;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=EJuaBgZKrdv+RWQeMRVkYJY5tTLwVPt/ydvjKnt3MWk=;
-        b=FxUaRhEwPVDTqJ5lKV1/fsU06QmJ9m8z8ZULupT8q+Duj2I6ITz9w38VnYU/81MpFX
-         HA7nV6cj04dkZoQ/cVizPZNkrwMNSWFp9esbihu+dGfdxNBo94sKhWreByIFg0h3S1g4
-         9aQh0XfggU+SCWPEnbNQs1KthWak0PmJOwiceOWfIINQ4UN0eHPltWgwImlXQ2lZs5xy
-         L/hOoQvAUSO8bhbcZSpOd6sMjBRvbYuuwS1DT2PTdi1yEFpZQW326juoOTDrT0BLVyOC
-         0rYL02J9Kgrycv7rzCdAmknTY08wFMevyWVDwVAFE9Q7qSVN6UOKoIHAzEPr0drOMkRh
-         hjVA==
-X-Forwarded-Encrypted: i=1; AJvYcCUHespwZNoRnDOrvHMzYytfCTGWredJPR7kp3fFRD1jYo8N3AMvnWM0h/maYbI/EHZqgsh0ibhBblC01Aw+wSn5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjeA4MyQdk0iAObm2R7WPme7gddWwOMwtpsSDKA6DNhEvRTjHK
-	We5julntvCTRwWO6LKpMypHsUqjOVhMpiyLZmJ7QORE4YbZc4+9VIEbxetH31Q==
-X-Gm-Gg: ASbGncvik5vEDJcVAb9reUDPpO2vTgounrhAl2OirOB7xyqft5Ho9F+YKyzkpWLao89
-	qmXLZ7GdJgqkCjIpejKoSuHYmg+OyQP3X4ptE9zzPaeblxe+I5ybZJpoGSDEUcqq2iFz7PLc9wT
-	ge+t/9M4XBTeosFQz+Ggo6sHaac9yogwdXW9iEHj5cR/nrXtV9wWVQ/VR7SGRUMgoRZ/ozolF6H
-	U2A7pKQBnX+8uB5Et2O1rL+FcTfwUpC81OMBxoiL1yJNM01CZy1R7lrLZ9bfqrQjm1tdMjtkalc
-	P8H5V0RuuOg44af5QQ==
-X-Google-Smtp-Source: AGHT+IE6XUMC4DYavb5+1QKRnRXxBw3DcgJT86nS/fMqAGO0LrolKsMBTfNYrj26qWBSVfQRCwVzHw==
-X-Received: by 2002:a05:6214:2aa7:b0:6d8:b097:fad3 with SMTP id 6a1803df08f44-6d91e422080mr88765546d6.35.1733851834188;
-        Tue, 10 Dec 2024 09:30:34 -0800 (PST)
+        b=wNMyJkDEknwP914ije9ZY465Qi2wNaq+WoSQZxHW1C9seRHVsMDSSDxjwKUHDGaDut
+         n5ch84U5vAa9hhZscPSk45fwKt6/k0c+cy8joPhiE+EuET028QPE6TubfKONoO0HSkd3
+         rKtZRdJCG1HelMnf8ObWKHu/FNXOJFuD1n6GhUqIQKn2IToiBLrFC6R7dZpaCS7gL7Oq
+         Y4PIr44wkCgZjlsaNZQ8Rw4Y/zJEZxMDhszmPVBHrs1Lh3I2Yu/CjvLtRrNLOILIAjuC
+         3Jg2KvQ9gFGwOVV+a1vdwyWki0vnubcPvWgoLnqtKkdu9g0K8M2IgU8RSHH08RAGdtuq
+         5WFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUYZA4EsA4XcZpz87+JuQ0Y8zGysRmloSCEmdp56/R/E0V1TXvL+/ZKDOZ2mhjywnm946iFNOJV3XFjkAXIgHNA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ6STipCFwOQQd3iggeqSDPMFoBq49XR3CXwyyM6wGTtotsITS
+	alqCXQih5P6ozInlAeqdmhWBFL+Log/o3YmqTkI2JndPSgWGyZRjo1OAJf553A==
+X-Gm-Gg: ASbGnctRjD+JZx1DzscESwwwIaLVZufdiZr0rzSa4a1wp39o/EEwHUr6WF87iIfd49u
+	Sd96Z4AcdXNbRqCH8WRh+hS0Z2N5Q8WqVybTUd5al+powld+9NjQ9ll6EjNHeU2JJtqOy99WAPI
+	0mGzCP1lV9vp9tuk98CYPw8sJL9eiGpZwnWxZ5k3FO/DWwXOnVFxNnWvJiRVju43lecNUJiIRtn
+	zuBF2W2MfqWaTOshWjx3iVdpSgjUpoe+nRwNnGlY6V2zLMgugs96wbDTR1ozxIVbsayA1olBa1S
+	1+Dqszzl35N4fFYZeA==
+X-Google-Smtp-Source: AGHT+IFAU801Dt6zTWCJn1TrhyNfAisMPlKuytisjokiJmnDVtGZDPAs0pqApy7yUxYxSg524ryRDA==
+X-Received: by 2002:a05:690c:62c2:b0:6ef:9dbe:9f82 with SMTP id 00721157ae682-6f022f74f6dmr65176287b3.29.1733851842073;
+        Tue, 10 Dec 2024 09:30:42 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d90299bccesm33827546d6.60.2024.12.10.09.30.21
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d90299bccesm33827546d6.60.2024.12.10.09.30.34
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Dec 2024 09:30:27 -0800 (PST)
-Message-ID: <d806f833-1801-4d99-8e35-7eb09108d549@broadcom.com>
-Date: Tue, 10 Dec 2024 09:30:21 -0800
+        Tue, 10 Dec 2024 09:30:40 -0800 (PST)
+Message-ID: <572fb811-c42f-45c5-9c76-2a25601192e2@broadcom.com>
+Date: Tue, 10 Dec 2024 09:30:31 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 6/9] net: dsa: qca8k: implement .support_eee()
- method
+Subject: Re: [PATCH net-next 7/9] net: dsa: mv88e6xxx: implement
+ .support_eee() method
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
 Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -84,7 +84,7 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
  Vladimir Oltean <olteanv@gmail.com>, Woojung Huh <woojung.huh@microchip.com>
 References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
- <E1tL14O-006cZg-VM@rmk-PC.armlinux.org.uk>
+ <E1tL14U-006cZm-2K@rmk-PC.armlinux.org.uk>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -119,12 +119,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <E1tL14O-006cZg-VM@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tL14U-006cZm-2K@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_093035_773774_312E90E8 
-X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-CacheID: sfid-20241210_093043_596288_B699D3B6 
+X-CRM114-Status: UNSURE (   6.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
