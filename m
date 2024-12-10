@@ -4,101 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A301E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ED6E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFyd1PgF3D2/xwv+F2WOR3tO3r6sjTbGoWT6Q3TM8dg=; b=Bb1FNmJPAtxWrbTAZTVvp5+RIh
-	vwM8oLgoiZun/JRl/Fjd4iqIOF0rboslmTClrQeLJh6V75v+8iLN/O6KcB3imh86gMP+mYL7c92YU
-	BWButGF+MDNp8KiT1hNxpOato1qnDc0+6AOeuuaR6tjwQye2sAQvzh2mClenAxLpWO1OXxL/rqflk
-	rHBJ2hNChjsnDXjtrV6HZhzBYH1TotgTJ9+ZmTgv0CKubstB3qxV8r+YozGSfTj9rreBbNPrFqDFn
-	Ihdc+ePqyLNIx/yJEfg2/6TUepx51Tx2FVTA9ZLXE614icnCVxZujmU9vm2ilCtygJIpoPU13tbXg
-	BcTlpogw==;
+	bh=ZcKuJfhX/Ve5UPNSYYBlcC61G/qM8OOE7m7h/NqoP64=; b=4yhh75RNkfevqmtvUBFGJocTmR
+	/hGZF/dWutFnUeJPSXEPsl+ZPT0cizh3uuqOQBSYlf+yNAX8GL7LPqVFU3v2GXRFCc5WlT6ITynta
+	C9OEDj2ZNQDCEV95HpITbHh9/i9UPvBiFI1/zoo2DfNzODBtxj69Ym2AzHgfxKxLi2RbfbmGScykV
+	Cv3B3+/2+dJ+OHZDQWtGZUIcvC6XyXqN765yLOBxspR5NgaK8cwVsmT4gHIZEdNZvQmPJLyk9hzhs
+	YGXJq3Lun3veDhD1Zldk2jHDwcF1d2GYgZHUYQDxagwot65wksO8KZB2S+I77YP404FGb2Bv8WGnT
+	DYN4RX6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzQS-0000000BRS9-1oAS;
-	Tue, 10 Dec 2024 12:33:17 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1tKzYN-0000000BSUG-3FPn;
+	Tue, 10 Dec 2024 12:41:27 +0000
+Received: from out-187.mta0.migadu.com ([2001:41d0:1004:224b::bb])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzPN-0000000BRDf-2XGW
+	id 1tKzXJ-0000000BSI6-0K32
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 12:32:11 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3022c6155edso11964121fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 04:32:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733833927; x=1734438727; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=xFyd1PgF3D2/xwv+F2WOR3tO3r6sjTbGoWT6Q3TM8dg=;
-        b=uZzlRtaR3RiOylC+xT3J3sBW4qOAR4MR5Vsu5gAL+ck96jpj9O9GxYDZmhg7mQ8nFR
-         k51oH6xUQK/GNaRzfFV1VSAGuqCgsoYQpi39wSk0IzAYLqbP3+q/5rlO6eVcIKkZNlmm
-         sreXuhc0l3gzGsp3EFIKOQtcDP/nUmEwHEmUGGiMIg9saN2Y7GhTMBLJCsHPvF1a1G7G
-         5cvPsdu0hTmgbdjXdpmyk4KsR5U4aeaUvxGl6lJ4qIbZ3A2FVTqGU0coC61ldGH/6aoJ
-         T3B3lJ9dk/6Hd40ACm+pqRv45pjI6gEz7VA8/naaUcGx3v+TJRODAK6tJx5on9X7gZC5
-         k28Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733833927; x=1734438727;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xFyd1PgF3D2/xwv+F2WOR3tO3r6sjTbGoWT6Q3TM8dg=;
-        b=F4XQnrxATRtU/qPhPvHq8Yd/KaQnBub2Tcu7jvBS0CnrFMZHnj4O4ImIyRV2gotK/o
-         ak0O9+/GAGQNQ0P60+BoWXuU7vYkdTNDbT7NDR/BJRUku7giaWc7eg8SV9MhizqFi20o
-         lHMKkh73MbMycEMHizr2XpqA5Krh4P1otOXo3f5gmz/5dTrHI4qQSsFGDuCKVvrrPjT4
-         BT1I6MsaJ534tpJcOTbQfMedodYW3zp8CgFOPT5bYSCfGr2MciAISa4kmtmutbEKrXdV
-         tmamjcTs+fo+dKn0/f9barDq71XqPbBKOog/zNb8FB0LoRGjscooq3RZ5gXE6TBYkp7D
-         yVzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbcFhEpVNz4lzm1uaTG6mBzfbttBAXF0Z49pI1hio1B0xtZ80bZ/lW2pb00hbr/Y/kVNMfFJPE9YbjJQiqJd0J@lists.infradead.org
-X-Gm-Message-State: AOJu0YyU3ZLte7+4vAmULWM6EYQkrrbPglk/iTYGeP0fldGNbn0zanvT
-	JgxyQv9tlk1iF12+CQlWYet/dECR5Tzj6ETKrpVyq5Ma+TWB0iLVgKwBjOxdjKg=
-X-Gm-Gg: ASbGncvk3df3UO1QU/CxlW/2qd6RTcZXan5YMC7xzr2NkzktMRb9UByNgAqztK/30uH
-	tcrPS0sJeW0C09STEgnlNuXzwJB2Wj/9jQ3FeLfz3MRhduEKnYG8zzheU6uYqPLb+YKo1bQaQ3P
-	u/AqOFQq/MWcHRDOzPdYxcYSbtcnlaYtO+fU9vNQtfozYBpX069YqJfwvwG1fKT5ah8XS5cDtPt
-	d4bF+/LOqZroV2KWnVukdDz+ZIPC68GGu9KeX5rsbliDIpbmhkqyziG4xqr51Vk0LCIN0Uyylfd
-	m7hl7/J22wPR90P12vQrGMvWFXksQYnSGQ==
-X-Google-Smtp-Source: AGHT+IFJ8BqRGzKbdRKo9sdokdyA13iJnEch3RCwabno4BEnD/wpduTivdAcQ64Maqs8TOr83ohZIw==
-X-Received: by 2002:a05:651c:1582:b0:302:2620:ecc7 with SMTP id 38308e7fff4ca-3022fd82956mr14279341fa.35.1733833927539;
-        Tue, 10 Dec 2024 04:32:07 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30216eb1013sm9110231fa.34.2024.12.10.04.32.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 04:32:06 -0800 (PST)
-Date: Tue, 10 Dec 2024 14:32:03 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Daniel Semkowicz <dse@thaumatec.com>, Diederik de Haas <didi.debian@cknow.org>, 
-	andy.yan@rock-chips.com, Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, 
-	conor+dt@kernel.org, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	jernej.skrabec@gmail.com, jonas@kwiboo.se, krzk+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, neil.armstrong@linaro.org, 
-	quentin.schulz@cherry.de, rfoss@kernel.org, robh@kernel.org, tzimmermann@suse.de
-Subject: Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2
- controller
-Message-ID: <jl5obi7rd4h6ywozeqruxq2vx62sx5yf4wwpksrq3prdleps2k@d3zbr5ttquvn>
-References: <20241203165450.1501219-1-heiko@sntech.de>
- <20241209150619.33998-1-dse@thaumatec.com>
- <D67AV178CEBD.3QA9VD4ZPRNQ1@cknow.org>
- <2203458.KiezcSG77Q@diego>
- <4e015ea9.960.193ae0c236a.Coremail.andyshrk@163.com>
- <ay5hbnqqjhopaqof6z7j2rzm2bc6xa2vbzan2ak3if6wzmyip2@kqh7gtrajnm2>
- <33e2c5db.1300.193ae284b6d.Coremail.andyshrk@163.com>
- <CAA8EJprLA09NP0KAztc5eoAMkGcrom84jg_pcbNcwN0FAaSLrw@mail.gmail.com>
- <2d68155e.1e5b.193ae4616b9.Coremail.andyshrk@163.com>
+	Tue, 10 Dec 2024 12:40:22 +0000
+Date: Tue, 10 Dec 2024 07:40:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1733834412;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZcKuJfhX/Ve5UPNSYYBlcC61G/qM8OOE7m7h/NqoP64=;
+	b=tnMhpc6aviml/dMEm+3MILIlN8t8FtLRPRqyubeTu9IR05BO2GS/UrzKhjTreAYbpN9aKo
+	Zg4QB9SiE9nr/lY3pthbYeF18JZAxW8TEZm5QIgxxacR59exy4RktwiF1O/TfBwceuz7GQ
+	pwn59T8kkWD4LNAVEH4BA7IIzURY8vA=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-bcachefs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: arm64: stacktrace: unwind exception boundaries
+Message-ID: <rxc57eg65sg4iayhj7gc7yl24w524lviedxnydl2mggqnatglq@iairj2ci7ioj>
+References: <36kx57aw46vwykgckr5cm4fafhw54tjuj4cqljrdnpfwvjl7if@a7znuhpfu54o>
+ <zbwbgkuvvciezpmigcp6gaahfxwm7cwhpzus7gtbfnbzsjb2n3@kfbdppbd74o4>
+ <Z1bWaGCvUrwrj2fZ@J2N7QTR9R3>
+ <Z1gll87-TkAqFwUz@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2d68155e.1e5b.193ae4616b9.Coremail.andyshrk@163.com>
+In-Reply-To: <Z1gll87-TkAqFwUz@J2N7QTR9R3>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_043209_650113_444CD06D 
-X-CRM114-Status: GOOD (  27.69  )
+X-CRM114-CacheID: sfid-20241210_044021_391368_E1F44D5C 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,75 +70,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 09:54:09AM +0800, Andy Yan wrote:
+On Tue, Dec 10, 2024 at 11:27:19AM +0000, Mark Rutland wrote:
+> On Mon, Dec 09, 2024 at 11:37:12AM +0000, Mark Rutland wrote:
+> > Hi Kent,
+> > 
+> > On Thu, Dec 05, 2024 at 01:04:59PM -0500, Kent Overstreet wrote:
+> > > On 6.13-rc1, I'm now seeing a ton of test failures due to this warning -
+> > > what gives?
+> > 
+> > Sorry about this; I just sent what I *thought* was a fix for this:
+> > 
+> >   https://lore.kernel.org/linux-arm-kernel/20241209110351.1876804-1-mark.rutland@arm.com/
+> > 
+> > ... but re-reading the below I see you're actually hitting a different
+> > issue.
+> > 
+> > > 00104 ========= TEST   generic/017
+> > > 00104        run fstests generic/017 at 2024-12-05 11:47:43
+> > > 00104 spectre-v4 mitigation disabled by command-line option
+> > > 00106 bcachefs (vdc): starting version 1.13: inode_has_child_snapshots
+> > > 00106 bcachefs (vdc): initializing new filesystem
+> > > 00106 bcachefs (vdc): going read-write
+> > > 00106 bcachefs (vdc): marking superblocks
+> > > 00106 bcachefs (vdc): initializing freespace
+> > > 00106 bcachefs (vdc): done initializing freespace
+> > > 00106 bcachefs (vdc): reading snapshots table
+> > > 00106 bcachefs (vdc): reading snapshots done
+> > > 00106 bcachefs (vdc): done starting filesystem
+> > > 00200 ------------[ cut here ]------------
+> > > 00200 WARNING: CPU: 8 PID: 12571 at arch/arm64/kernel/stacktrace.c:223 arch_stack_walk+0x2c0/0x388
+> > 
+> > Looking at v6.13-rc1, that's the warning in
+> > kunwind_next_frame_record_meta() for when the frame_record_meta::type is
+> > not a valid value, which likely implies one of the following:
+> > 
+> > (a) The logic to identify a frame_record_meta is wrong.
+> > 
+> > (b) The entry logic has failed to initilialize pt_regs::stackframe::meta
+> >     on an entry path somehow.
+> > 
+> > (c) The stack has been corrupted, and some frame record has been
+> >     clobbered to look like a frame_record_meta.
 > 
-> Hi Dmitry,
+> Looking some more, I see that bch2_btree_transactions_read() is trying
+> to unwind other tasks, and I believe what's happening here is that the
+> unwindee isn't actually blocked for the duration of the unwind, leading
+> to the unwinder encountering junk and consequently producing the
+> warning.
 > 
-> 在 2024-12-10 09:45:11，"Dmitry Baryshkov" <dmitry.baryshkov@linaro.org> 写道：
-> >On Tue, 10 Dec 2024 at 03:22, Andy Yan <andyshrk@163.com> wrote:
-> >>
-> >>
-> >> Hi Dmitry,
-> >>
-> >> 在 2024-12-10 09:01:38，"Dmitry Baryshkov" <dmitry.baryshkov@linaro.org> 写道：
-> >> >On Tue, Dec 10, 2024 at 08:50:51AM +0800, Andy Yan wrote:
-> >> >>
-> >> >>
-> >> >> Hi,
-> >> >>
-> >> >> At 2024-12-10 07:12:26, "Heiko Stübner" <heiko@sntech.de> wrote:
-> >> >> >Am Montag, 9. Dezember 2024, 17:11:03 CET schrieb Diederik de Haas:
-> >> >> >> Hi,
-> >> >> >>
-> >> >> >> On Mon Dec 9, 2024 at 4:06 PM CET, Daniel Semkowicz wrote:
-> >> >> >> > On 03.12.24 21:54, Heiko Stuebner wrote:
-> >> >> >> > > This series adds a bridge and glue driver for the DSI2 controller found
-> >> >> >> > > in the rk3588 soc from Rockchip, that is based on a Synopsis IP block.
-> >> >> >> > >
-> >> >> >> >
-> >> >> >> > I did more tests with different LVDS displays. I tested following
-> >> >> >> > configurations with DSI/LVDS bridge:
-> >> >> >> > - 1024x600@60.01
-> >> >> >> > - 1024x768@60.02
-> >> >> >> > - 1280x800@60.07
-> >> >> >> > - 1366x768@60.06
-> >> >> >> >
-> >> >> >> > All of them worked without issues, except 1366x768.
-> >> >> >> > With this resolution, video is blurry, and offset incorrectly
-> >> >> >> > to the left. There are also repeating errors on the console:
-> >> >> >> >
-> >> >> >> >   rockchip-drm display-subsystem: [drm] *ERROR* POST_BUF_EMPTY irq err at vp3
-> >> >> >> >
-> >> >> >> > In correct operation with other resolutions, there is no error.
-> >> >> >> > I am not sure if this is a problem in your series or rather in VOP2
-> >> >> >> > driver.
-> >> >> >
-> >> >> >This really sounds like something is wrong on the vop side.
-> >> >> >The interrupt is part of the vop, the divisable by 4 things likely too.
-> >> >>
-> >> >> This is a hardware limitation on vop side:
-> >> >> The horizontal resolution must be 4 pixel aligned.
-> >> >
-> >> >Then mode_valid() and atomic_check() must reject modes that don't fit.
-> >>
-> >> We round down to 4 pixel aligned in mode_fixup in our bsp kernel,
-> >
-> >What is meant by the "bsp kernel" here? I don't see it being present
+> As a test case, it's possible to trigger similar with a few parallel
+> instances of:
 > 
-> bsp kernel means downstream vendor kernel.
+> 	while true; do cat /proc/*/stack > /dev/null
 > 
-> >in the mainline kernel. So, if the mode is unsupported, it should be
+> The only thing we can do on the arm64 side is remove the WARN_ON_ONCE(),
+> which'll get rid of the splat. It seems we've never been unlucky enough
+> to hit a stale fgraph entry, or that would've blown up also.
 > 
-> Will it be acceptable to add this round down in the mainline mode_fixup?
+> Regardless of the way arm64 behaves here, the unwind performed by
+> bch2_btree_transactions_read() is going to contain garbage unless the
+> task is pinned in a blocked state. AFAICT the way
+> btree_trans::locking_wait::task is used is here is racy, and there's no
+> guarantee that the unwindee is actually blocked.
 
-I think so.
-
-> 
-> >rejected.
-> >
-> >> because sometimes, some boards do indeed choose a screen that is not 4 pixel aligned
-
--- 
-With best wishes
-Dmitry
+Occasionally returning garbage is completely fine, as long as the
+interface is otherwise safe. This is debug info; it's important that it
+be available and we can't impose additional synchronization for it.
 
