@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8587E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1256BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 15:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPwwSGhVOWXHBjvSfy9QVGaBSD0H0DxOIeEJkupGNUU=; b=k2JTs5IxHJWw579D2ZRW4I6CrM
-	mdUmH8NghvBjq0nNDHkDJxkmmKB397ZyA1rfEGqtmekiUmuehR77xiehUMLhClyMaKf0yvEqy8lKA
-	PbqEvbcZ6+zwpEQAZhOjRm2ed3a2PEGQn+z/QziAGG07FZDJVJG5J8PuV4eWZ8GFiRwN9bI67kLkw
-	EuN3muxpRU91SASLTDEDFNwr+S0FeNROfbeS6/QMfuBi+NMPUwy06h9JrfSbodOinnit8mD44jixv
-	eEjZQ64ckhRIESOBfNL52K3AsFf563yi4MkNyFRTGU8PcPUAFJA4NJODIVXxdPbhK1Bi/0KbqsWwh
-	yvYjQ6Pw==;
+	bh=odtBH0LCDjXXAC9EkbBCPzy/Jj9lMmjM6esmzhTWvMc=; b=ZognFTSj/6LJ8trgUfG0V+R5uv
+	D8OJxpHYx45eMCZYkXq9kE5e33unVCT/YyX7+W3tHMZ7xJe4kICdeantBhaaAJmlqG2RJdzDAKfd1
+	NP2SlkCmpmpXM51tcdz/cTl4UldDHZDGlesPly8yMfhzG8lQTPeRD43Ys2igxspyMxUpiua26Xtk7
+	yyHuS0tEXj2NbxingwfjQrI7dNOO6aweWZaMs5Ak4rh9s3cpN8Bl8TGpZCFl/Y5Vvou1BGDgM+d+D
+	scGD4WWfyUuOhvmY30mQJniXoEQIzk3pq5d8HrFzh26n1OS+m9hPw2OhFbUzwkEykcRpZUCidQsPg
+	iHSSsIDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1gO-0000000BsLM-2X7Z;
-	Tue, 10 Dec 2024 14:57:52 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tL1mi-0000000BtEa-3shO;
+	Tue, 10 Dec 2024 15:04:24 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1fI-0000000BsBq-3L8v
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 14:56:45 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-434f150e9b5so43065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 06:56:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733842602; x=1734447402; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=CPwwSGhVOWXHBjvSfy9QVGaBSD0H0DxOIeEJkupGNUU=;
-        b=pOJe0HGU45a1WqFKfc6onLZ/hSKkMizZlkofgSyNzQZyyywOX9w/qCWerSs1Dsqzxm
-         HAN/iqPde9nJPiIAoINCciLDr/n2esWasrfe9m4q7Yde2E8qrR9ocFzgvkZxjuP2imjl
-         n1zlnF/51keft+ko6l9Qcb+r9w5JotIk1xy42xc0dn/OXBIX/OVdF2aqBIfUm/o+Rten
-         /BoHrFqoX/mTlYik60wc4IUBDo3091pi2EwNmoaa3CRlruubrCzx9sctyA7tOWcUYvgi
-         hl17tt6G4WYwJ35v+UcRbPAQ1WjC+3s6yXqP0mYw13EZXQstnFYQvd/i1TLUzXCd0gJI
-         HfLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733842602; x=1734447402;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CPwwSGhVOWXHBjvSfy9QVGaBSD0H0DxOIeEJkupGNUU=;
-        b=G/vlJmOC1TX3R5VaEqneLhTcTEYAflagib6BjhJh4IhjKcdTLKt8vLkTbHrnU+qfZJ
-         MVvKkHZ2qQgGJ137ClByzg7D5t7Nh6ko+t0o8J/O4O2yIYNMo96jKJhnz0uZzbh2zT17
-         svXx9lOlqa8NsKbhlj8f5uEg60OR9PoUIBTO4ND20XmHANof+Kl0va+Jn1AP3clAW9Am
-         j5ZIdojY576gVS3gUCD5hRFiGB2CAZTLU7hhaBMXaEdfWR3mZ04+AXAA+o+uxR8kaWkX
-         qI282P7IqQN0S97CXSjQ9NQGq4yneNWFmlB8RgdSd38gdWV3eCVaI/VLpfwduSOhGvqi
-         wgdA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/p/rMfhhZojBJpPdfLVofit4K2VhMX297QIwbrvRHhrd5ZN+1vgUOC5amrgFj52qWEqhbuqQmz8Cr8uhes5uY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5VPduBB8c6I+7Be/LOyK2+RfKut6etN4erk1bw4zb8gn+eD4m
-	x4vWl9qEtziY+RloH+038dEAwa4copyhajIhE3EBzbCL+I/h6w/jLtVLTid0QO3o8RxiHTF4dpK
-	rU8fr8NvAgbTrCsaLxfvDG7terceLuNxKO4ta
-X-Gm-Gg: ASbGnctNuOtIwVUSurzMRSY0JC9iCGI4UKQuSJTRSBlBD0AQ5RW6ZGLItDpzRHpKo7Q
-	q33leg+h/dXdbm2apaQECzfB3z0DHusz3VNd9Bu4AXwlXSKL5kjMDVEzsL8M5bOvo
-X-Google-Smtp-Source: AGHT+IFrek7ZOXFjbieOK3Z+KiuRhmB/JQIfCUTikq2lGnXrH/9Y4kZOz9Oyane5oNuACjRRiOYBT3El9OhjG5oV6Sc=
-X-Received: by 2002:a05:600c:898:b0:436:1811:a79c with SMTP id
- 5b1f17b1804b1-4361811a993mr606625e9.5.1733842602227; Tue, 10 Dec 2024
- 06:56:42 -0800 (PST)
+	id 1tL1ld-0000000Bt0y-1iXZ;
+	Tue, 10 Dec 2024 15:03:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=odtBH0LCDjXXAC9EkbBCPzy/Jj9lMmjM6esmzhTWvMc=; b=bTt9MPRSsSxp9+UuhbHN5pkJiQ
+	2x/ygyfPuP7/tANxYvUYhUgX/bkSe86zdbbaK+jZEs1zNJ0lgx6qxd+ECV3Gm4eV6n5xooC5CycPp
+	KYpaZb8Dqt1CqDA0s26ryw8/0gS4UHUyhUnVI7KrceAm71GN9kCBeZkB1mQap4Dm5cd55JKSY2/+Q
+	C50DTqQeNTH/RRfe69p1WzgIpLLTswWfkq3rOPI43XnzdvLfXUTuCWwOTy7N9Q24qyaq9pb1eIWCU
+	2ov0n1vTa7dQ7dqc5JzgusiAVIIIeNdK45EcIxXem2c6C3WMTnbJ2rW+NeHchpVxak8PY9eAENja/
+	J9Ai0xiQ==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tL1lU-0006rU-7b; Tue, 10 Dec 2024 16:03:08 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: hjc@rock-chips.com, krzk+dt@kernel.org, s.hauer@pengutronix.de,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
+ detlev.casanova@collabora.com, Andy Yan <andy.yan@rock-chips.com>,
+ Michael Riesch <michael.riesch@wolfvision.net>
+Subject: Re: [PATCH v5 13/18] drm/rockchip: vop2: Introduce vop hardware version
+Date: Tue, 10 Dec 2024 16:03:06 +0100
+Message-ID: <8259618.JRmrKFJ9eK@diego>
+In-Reply-To: <20241209123330.2781991-1-andyshrk@163.com>
+References: <20241209122943.2781431-1-andyshrk@163.com>
+ <20241209123330.2781991-1-andyshrk@163.com>
 MIME-Version: 1.0
-References: <20241203103735.2267589-1-qperret@google.com> <20241203103735.2267589-13-qperret@google.com>
-In-Reply-To: <20241203103735.2267589-13-qperret@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 10 Dec 2024 14:56:05 +0000
-Message-ID: <CA+EHjTwNgf5fPuWMaPaN4mcdd5y4uydJsXi-zEBatFnbwoaLLQ@mail.gmail.com>
-Subject: Re: [PATCH v2 12/18] KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
-To: Quentin Perret <qperret@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
-	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_065644_838670_25D2AE25 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20241210_070317_465065_7CF1B8EB 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,134 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+Am Montag, 9. Dezember 2024, 13:33:29 CET schrieb Andy Yan:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> There is a version number hardcoded in the VOP VERSION_INFO
+> register, and the version number increments sequentially based
+> on the production order of the SOC.
+> 
+> So using this version number to distinguish different VOP features
+> will simplify the code.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+> Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
 
-On Tue, 3 Dec 2024 at 10:38, Quentin Perret <qperret@google.com> wrote:
->
-> Introduce a new hypercall allowing the host to relax the stage-2
-> permissions of mappings in a non-protected guest page-table. It will be
-> used later once we start allowing RO memslots and dirty logging.
->
-> Signed-off-by: Quentin Perret <qperret@google.com>
-> ---
->  arch/arm64/include/asm/kvm_asm.h              |  1 +
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 20 ++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 23 +++++++++++++++++++
->  4 files changed, 45 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index 0b6c4d325134..5d51933e44fb 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -67,6 +67,7 @@ enum __kvm_host_smccc_func {
->         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
->         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
->         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
-> +       __KVM_HOST_SMCCC_FUNC___pkvm_host_relax_guest_perms,
->         __KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
->         __KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
->         __KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index e528a42ed60e..db0dd83c2457 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -41,6 +41,7 @@ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
->  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
->  int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
->  int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
-> +int __pkvm_host_relax_guest_perms(u64 gfn, enum kvm_pgtable_prot prot, struct pkvm_hyp_vcpu *vcpu);
-
-The parameters are the same as __pkvm_host_share_guest, but in a
-different order. I looked ahead at later patches in the series, and similar
-issues regarding parameter type and ordering, so I won't mention it
-for the later patches.
-
-
->  bool addr_is_memory(phys_addr_t phys);
->  int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 04a9053ae1d5..60dd56bbd743 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -267,6 +267,25 @@ static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
->         cpu_reg(host_ctxt, 1) =  ret;
->  }
->
-> +static void handle___pkvm_host_relax_guest_perms(struct kvm_cpu_context *host_ctxt)
-> +{
-> +       DECLARE_REG(u64, gfn, host_ctxt, 1);
-> +       DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 2);
-> +       struct pkvm_hyp_vcpu *hyp_vcpu;
-> +       int ret = -EINVAL;
-> +
-> +       if (!is_protected_kvm_enabled())
-> +               goto out;
-> +
-> +       hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-> +       if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-> +               goto out;
-> +
-> +       ret = __pkvm_host_relax_guest_perms(gfn, prot, hyp_vcpu);
-> +out:
-> +       cpu_reg(host_ctxt, 1) = ret;
-> +}
-> +
->  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+> @@ -798,6 +798,7 @@ static void rk3588_vop2_power_domain_enable_all(struct vop2 *vop2)
+>  static void vop2_enable(struct vop2 *vop2)
 >  {
->         DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
-> @@ -478,6 +497,7 @@ static const hcall_t host_hcall[] = {
->         HANDLE_FUNC(__pkvm_host_unshare_hyp),
->         HANDLE_FUNC(__pkvm_host_share_guest),
->         HANDLE_FUNC(__pkvm_host_unshare_guest),
-> +       HANDLE_FUNC(__pkvm_host_relax_guest_perms),
->         HANDLE_FUNC(__kvm_adjust_pc),
->         HANDLE_FUNC(__kvm_vcpu_run),
->         HANDLE_FUNC(__kvm_flush_vm_context),
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index aa27a3e42e5e..d4b28e93e790 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -1480,3 +1480,26 @@ int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm)
->
->         return ret;
->  }
-> +
-> +int __pkvm_host_relax_guest_perms(u64 gfn, enum kvm_pgtable_prot prot, struct pkvm_hyp_vcpu *vcpu)
-> +{
-> +       struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
-> +       u64 ipa = hyp_pfn_to_phys(gfn);
-> +       u64 phys;
-> +       int ret;
-> +
-> +       if ((prot & KVM_PGTABLE_PROT_RWX) != prot)
-> +               return -EPERM;
+>  	int ret;
+> +	u32 version;
+>  
+>  	ret = pm_runtime_resume_and_get(vop2->dev);
+>  	if (ret < 0) {
+> @@ -817,10 +818,19 @@ static void vop2_enable(struct vop2 *vop2)
+>  		return;
+>  	}
+>  
+> +	version = vop2_readl(vop2, RK3568_VERSION_INFO);
+> +	if (version != vop2->version) {
+> +		drm_err(vop2->drm, "Hardware version(0x%08x) mismatch\n", version);
+> +		return;
+> +	}
 
-Why not
+style-nit: please add a blank line here.
 
-+       if (prot & ~KVM_PGTABLE_PROT_RWX)
+> +	/*
+> +	 * rk3566 share the same vop version with rk3568, so
+> +	 * wen need to use soc_id for identification here.
+> +	 */
+>  	if (vop2->data->soc_id == 3566)
+>  		vop2_writel(vop2, RK3568_OTP_WIN_EN, 1);
+>  
 
-Simpler and consistent with similar checks in the file (e.g.,
-__pkvm_host_share_guest)
+otherwise, looks good.
 
-Cheers,
-/fuad
+Thanks
+Heiko
 
 
-> +
-> +       host_lock_component();
-> +       guest_lock_component(vm);
-> +
-> +       ret = __check_host_unshare_guest(vm, &phys, ipa);
-> +       if (!ret)
-> +               ret = kvm_pgtable_stage2_relax_perms(&vm->pgt, ipa, prot, 0);
-> +
-> +       guest_unlock_component(vm);
-> +       host_unlock_component();
-> +
-> +       return ret;
-> +}
-> --
-> 2.47.0.338.g60cca15819-goog
->
 
