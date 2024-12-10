@@ -4,98 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD681E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B229E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNaXJ8JhPRuTmwTT3LTe+sP5Z8UoA760Vogy1s7z9Rk=; b=sXfs10sJmTCe0jjThush5xnqIR
-	1n7AEPVr8RdYnmIRLW4g0j2boLEPvd36o3J9q3jzbhqhmpaTluA36gRzO3C+EOnrriSeDAobD86ZR
-	avF+sHqFck0GRb/gs56/o/QHqNvpYoRqilWp790ha9uY+2RzG07j8nWmIMSHIFdlC4p84Y76bN1hh
-	Eph9bFU1F6gXLLgBng00c7P1vrVF1IYiI/J8NvxWODi5zwh69qmTnnEvECInQw0fv6vafuFwoPSx+
-	UFPaPixALaEQ2XJc1qt7rXNUdoBU+1GLvHn/J0KLXfjZqsHLkiHuSSyJXTir8o8EAikbd5PAqb1pa
-	2lSVpGmw==;
+	bh=EfP/1ndzy/lnII1TAGJrT83YJ8RnC+6DM6hX7bq8Bto=; b=BuS31h7cnKH4E3Nhf84Yuta88b
+	IcpnZC1uvVKCLe0RcAY8LUc0KScLP+ZnTcgVXhG4Gdhsi5tnb/xHqErpCVktGBtWyaYTdDknWfRdA
+	O1oud1zsi59eDIS9MOxnmfSWQdje/vvYk4Rl5b+GhOTUjoS9u8PmiAw8jsG6z9s5Lvpis3ul6fQze
+	J8z3s+WsEYJJh/Pv/C800u9bKYzXOefi6OlgFGyyUnN19XQR2XZFAOV67tdNJqcPygXkc1hGVZVGK
+	64JwLyF1IigB7jfE4VqOt8IAIXaNM2AgZql+r+vICZfHTgs1c4q6XhMtTeFwSXbZl03YIEMn6GrBs
+	9DIuC36A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7BI-0000000CiBm-0ckC;
-	Tue, 10 Dec 2024 20:50:08 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tL7Gh-0000000Cj7X-1lWS;
+	Tue, 10 Dec 2024 20:55:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7AD-0000000ChtJ-2TzO;
-	Tue, 10 Dec 2024 20:49:02 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3cfa1da14so473480a12.1;
-        Tue, 10 Dec 2024 12:49:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733863739; x=1734468539; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cNaXJ8JhPRuTmwTT3LTe+sP5Z8UoA760Vogy1s7z9Rk=;
-        b=GV3vo9evHn0UdCPBPWkznHL1y1DuJuR7phqxRB2XZi+lXZZcmfjPckJ8oKvp/Ujz31
-         e1US35u3H4Htl5ZzHPtnb4w3MOnG+Bs3ziVrBEKrSRv8Wxw27NO57DnCWiEgg5BGM6MH
-         haVEF6oAtg7hTERJTSyy4lXMbxL9iuvncQgtRiw8tSbJabPqtd68rhoyjWEzjIE2Ys85
-         nZQGSYyQBkn3OO2RkElWT/s/8/zddQGsIwV5RanKV3N/4vSooHezG9N+LDzFY2M3Ng0A
-         ltd9DXT3qVHShuQ/y47UTeGhSeNwQo62rkCXc91zWiAZNtZ5FF0ua7GVjtkcdco+P/T+
-         V6+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733863739; x=1734468539;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cNaXJ8JhPRuTmwTT3LTe+sP5Z8UoA760Vogy1s7z9Rk=;
-        b=bVNb+lZg6QbMYN1flBRo3BTHB+fJxmdQY93yCTp4ROvkQaBB4eUhm4+QDak2gQHpBx
-         ncLwrpPE5xxfoO9cftkQlNNbwbpDpIloast2Rj1oh+c7iqLNrpl6+HKrPnRLghwvZ+Jj
-         XfeFCIwds9IjR/ULAD4i+Oj/N5XhFNFarcO+J4sHc54Ume/ErSv1g6bvx0ghHVQbyoTb
-         klThV06tgQgbbSu3m4Sg1Baxb7qPjWxND4qFRjfZV8pOyEg0rOJ/KDD1/+gKiTlR4j+6
-         JqH0m2SBXMnOgFI69rJA0tr297UkaFGfg3q58x/Iv2+kWpmf7C/Fj0Sy4EVZtPXxsH7W
-         tSAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUcmmqxyeB4q4j67cWPHcBjQXT5FmZk0V2+70vkBe6ZniugvNdzKJyouvigwGlM3aDXPnhM6e10NE7g0PMoPyrn@lists.infradead.org, AJvYcCV60Y8sNPIXSjLG3IE/B4Lty98FYhCWxkji76R3AtP8j2+Xm/vIDqjYulLhO2RasANY2zSZgYdCBlsHMkOHXH4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5MMDZP2k5hXYy6xTRaUrMscEwlo/1R2HeeMVwxj3XXN5jL8Zt
-	/M8qN//4t7HBuryVEcQuAbKZVjM1/gKUrNkXSHoQLXXUAElqipjd
-X-Gm-Gg: ASbGnctEwzEr4BnoljtAjk4w3FVoOQj2ad/c91Ik+GbBdFat4F24kdv8fVW+DO4umtg
-	+N/uhTxXOIzZdYeX3vEotea1U2CYp0T0SaaEeBmcQwNKg5wzSI6y9wq5VMGXN/bznHTcQFCzWbN
-	1zFGvp+1Cswj0iGQ30SdHqmIDgmlrfmHQbD2U1QcD/677h/C34QA3AS1r+7UwSbkKkwre62DbD9
-	w5eoDrxUPmiAxrBxiKabYcB7cvpaZyN2RDpthTbqg==
-X-Google-Smtp-Source: AGHT+IGLMYMcvq7FgOuv7NZ8he4Vn2DR++ElkPFM38fkihjTAen52Se+4+I+zeFNB7FVdS9rJ+bpJw==
-X-Received: by 2002:a05:6402:40cd:b0:5d3:d4cf:feba with SMTP id 4fb4d7f45d1cf-5d43314d465mr45987a12.7.1733863739337;
-        Tue, 10 Dec 2024 12:48:59 -0800 (PST)
-Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d14c74c3d5sm8097292a12.52.2024.12.10.12.48.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 12:48:58 -0800 (PST)
-Date: Tue, 10 Dec 2024 22:48:55 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v11 3/9] dt-bindings: net: dsa: Document support
- for Airoha AN8855 DSA Switch
-Message-ID: <20241210204855.7pgvh74irualyxbn@skbuf>
-References: <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-4-ansuelsmth@gmail.com>
+	id 1tL7Fd-0000000Cit5-44Ko
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 20:54:39 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BADLm2r019669;
+	Tue, 10 Dec 2024 20:54:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=EfP/1ndzy/lnII1TAGJrT83Y
+	J8RnC+6DM6hX7bq8Bto=; b=VbuC8QARjSJGgj8niQgc38pgC6mulhotH31AREEy
+	6/Khq86Un1/oTjQf8n0Mn1s0ZeMEn5VDicE1mOqO0bhFziWleKewwm+/a/dCTzPB
+	TTS34D2bOy2ODyGsw+uGvncBkmaymF9gMIj4y7lJO9J33wsJsrvdy2+Y1nwDfTS/
+	/yJ33/EJLgiDDBWTTLG1yhHsxLjq6dwz8jJoa6+1W26/t5oD4rSZ2N5lP8HLSmbu
+	RrzdEZeTRlXDKC6NlRHNC+XtcsvUuZKb1YbuMvBLTbhVbPylhAvy8azYv12wy1R7
+	rSovL/ee5e0a0m1z+Qk9Q4g0/ZNGHQ80wakBynDyvDTExg==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43e341ch24-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Dec 2024 20:54:30 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BAKsTvU026919
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Dec 2024 20:54:29 GMT
+Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 10 Dec 2024 12:54:29 -0800
+Date: Tue, 10 Dec 2024 12:54:28 -0800
+From: Elliot Berman <quic_eberman@quicinc.com>
+To: Akhil P Oommen <quic_akhilpo@quicinc.com>
+CC: Rob Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>,
+        "Konrad
+ Dybcio" <konradybcio@kernel.org>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>,
+        Pavan Kondeti <quic_pkondeti@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+Message-ID: <20241210125012120-0800.eberman@hu-eberman-lv.qualcomm.com>
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20241209134459.27110-4-ansuelsmth@gmail.com>
+In-Reply-To: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: KcDNblzE7V94XKjvUeILn4LcMXt4kbQ8
+X-Proofpoint-ORIG-GUID: KcDNblzE7V94XKjvUeILn4LcMXt4kbQ8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ priorityscore=1501 suspectscore=0 mlxlogscore=999 clxscore=1011 mlxscore=0
+ spamscore=0 phishscore=0 malwarescore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412100151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_124901_630921_7789F4F1 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20241210_125438_023344_0B0B39F7 
+X-CRM114-Status: GOOD (  34.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,77 +106,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 02:44:20PM +0100, Christian Marangi wrote:
-> Document support for Airoha AN8855 5-port Gigabit Switch.
+On Mon, Dec 09, 2024 at 01:49:15PM +0530, Akhil P Oommen wrote:
+> When kernel is booted in EL2, SECVID registers are accessible to the
+> KMD. So we can use that to switch GPU's secure mode to avoid dependency
+> on Zap firmware. Also, we can't load a secure firmware without a
+> hypervisor that supports it.
 > 
-> It does expose the 5 Internal PHYs on the MDIO bus and each port
-> can access the Switch register space by configurting the PHY page.
-
-typo: configuring
-Also below.
-
+> Tested following configurations on sa8775p chipset (Adreno 663 gpu):
 > 
-> Each internal PHY might require calibration with the fused EFUSE on
-> the switch exposed by the Airoha AN8855 SoC NVMEM.
+> 1. Gunyah (No KVM) - Loads zap shader based on DT
+> 2. KVM in VHE - Skips zap shader load and programs SECVID register
+> 3. KVM in nVHE - Loads zap shader based on DT
 
-This paragraph should be irrelevant to the switch binding.
+I think this might be misleading. As I understand, KVM in nVHE doesn't
+support loading secure firmware. I'm not aware of any support added to
+make it work. So, the driver will try to load zap shader and it fails
+same as it does today.
 
+> 4. Kernel in EL2 with CONFIG_KVM=n - Skips zap shader load and
+> 	programs SECVID register
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> For (1) and (3) configuration, this patch doesn't have any impact.
+> Driver loads secure firmware based on other existing hints.
+> 
+> Signed-off-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
 > ---
->  .../net/dsa/airoha,an8855-switch.yaml         | 105 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  2 files changed, 106 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+> ---
+>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 82 +++++++++++++++++++++++------------
+>  1 file changed, 54 insertions(+), 28 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
-> new file mode 100644
-> index 000000000000..63bcbebd6a29
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
-> @@ -0,0 +1,105 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/dsa/airoha,an8855-switch.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> index 019610341df1..9dcaa8472430 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> @@ -14,6 +14,10 @@
+>  #include <linux/pm_domain.h>
+>  #include <linux/soc/qcom/llcc-qcom.h>
+>  
+> +#ifdef CONFIG_ARM64
+> +#include <asm/virt.h>
+> +#endif
 > +
-> +title: Airoha AN8855 Gigabit Switch
+>  #define GPU_PAS_ID 13
+>  
+>  static inline bool _a6xx_check_idle(struct msm_gpu *gpu)
+> @@ -998,6 +1002,54 @@ static int a6xx_zap_shader_init(struct msm_gpu *gpu)
+>  	return ret;
+>  }
+>  
+> +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
+> +{
+> +	int ret;
 > +
-> +maintainers:
-> +  - Christian Marangi <ansuelsmth@gmail.com>
+> +#ifdef CONFIG_ARM64
+> +	/*
+> +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
+> +	 * to switch the secure mode to avoid the dependency on zap shader.
+> +	 */
+> +	if (is_kernel_in_hyp_mode())
+> +		goto direct_switch;
+> +#endif
 > +
-> +description: >
-> +  Airoha AN8855 is a 5-port Gigabit Switch.
+> +	/*
+> +	 * Try to load a zap shader into the secure world. If successful
+> +	 * we can use the CP to switch out of secure mode. If not then we
+> +	 * have no resource but to try to switch ourselves out manually. If we
+> +	 * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL register will
+> +	 * be blocked and a permissions violation will soon follow.
+> +	 */
+> +	ret = a6xx_zap_shader_init(gpu);
+> +	if (ret == -ENODEV) {
+> +		/*
+> +		 * This device does not use zap shader (but print a warning
+> +		 * just in case someone got their dt wrong.. hopefully they
+> +		 * have a debug UART to realize the error of their ways...
+> +		 * if you mess this up you are about to crash horribly)
+> +		 */
+> +		dev_warn_once(gpu->dev->dev,
+> +			"Zap shader not enabled - using SECVID_TRUST_CNTL instead\n");
+> +		goto direct_switch;
+> +	} else if (ret)
+> +		return ret;
 > +
-> +  It does expose the 5 Internal PHYs on the MDIO bus and each port
-> +  can access the Switch register space by configurting the PHY page.
+> +	OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
+> +	OUT_RING(gpu->rb[0], 0x00000000);
 > +
-> +  Each internal PHY might require calibration with the fused EFUSE on
-> +  the switch exposed by the Airoha AN8855 SoC NVMEM.
+> +	a6xx_flush(gpu, gpu->rb[0]);
+> +	if (!a6xx_idle(gpu, gpu->rb[0]))
+> +		return -EINVAL;
 > +
-> +$ref: dsa.yaml#
+> +	return 0;
 > +
-> +properties:
-> +  compatible:
-> +    const: airoha,an8855-switch
+> +direct_switch:
+> +	gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
+> +	return 0;
+> +}
 > +
-> +  reset-gpios:
-> +    description:
-> +      GPIO to be used to reset the whole device
-> +    maxItems: 1
-
-Since this affects the whole device, the SoC node (handled by the
-MFD driver) should handle it. Otherwise you expose the code to weird
-race conditions where one child MFD device resets the whole chip after
-the other MFD children have probed, and this undoes their settings.
-
-> +
-> +  airoha,ext-surge:
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +    description:
-> +      Calibrate the internal PHY with the calibration values stored in EFUSE
-> +      for the r50Ohm values.
-
-Doesn't seem that this pertains to the switch.
+>  #define A6XX_INT_MASK (A6XX_RBBM_INT_0_MASK_CP_AHB_ERROR | \
+>  		       A6XX_RBBM_INT_0_MASK_RBBM_ATB_ASYNCFIFO_OVERFLOW | \
+>  		       A6XX_RBBM_INT_0_MASK_CP_HW_ERROR | \
+> @@ -1341,35 +1393,9 @@ static int hw_init(struct msm_gpu *gpu)
+>  	if (ret)
+>  		goto out;
+>  
+> -	/*
+> -	 * Try to load a zap shader into the secure world. If successful
+> -	 * we can use the CP to switch out of secure mode. If not then we
+> -	 * have no resource but to try to switch ourselves out manually. If we
+> -	 * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL register will
+> -	 * be blocked and a permissions violation will soon follow.
+> -	 */
+> -	ret = a6xx_zap_shader_init(gpu);
+> -	if (!ret) {
+> -		OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
+> -		OUT_RING(gpu->rb[0], 0x00000000);
+> -
+> -		a6xx_flush(gpu, gpu->rb[0]);
+> -		if (!a6xx_idle(gpu, gpu->rb[0]))
+> -			return -EINVAL;
+> -	} else if (ret == -ENODEV) {
+> -		/*
+> -		 * This device does not use zap shader (but print a warning
+> -		 * just in case someone got their dt wrong.. hopefully they
+> -		 * have a debug UART to realize the error of their ways...
+> -		 * if you mess this up you are about to crash horribly)
+> -		 */
+> -		dev_warn_once(gpu->dev->dev,
+> -			"Zap shader not enabled - using SECVID_TRUST_CNTL instead\n");
+> -		gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
+> -		ret = 0;
+> -	} else {
+> +	ret = a6xx_switch_secure_mode(gpu);
+> +	if (!ret)
+>  		return ret;
+> -	}
+>  
+>  out:
+>  	if (adreno_has_gmu_wrapper(adreno_gpu))
+> 
+> ---
+> base-commit: f4a867a46862c1743501bbe8c813238456ec8699
+> change-id: 20241120-drm-msm-kvm-support-cd6e6744ced6
+> 
+> Best regards,
+> -- 
+> Akhil P Oommen <quic_akhilpo@quicinc.com>
+> 
 
