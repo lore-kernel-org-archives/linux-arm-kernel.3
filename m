@@ -4,126 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE51CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF69FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CXsPS3KhA5/iDl1AWC3RfGMkwHSxxC2+KnC8nvz5Ku4=; b=t9grOcTFRWqfUf2Sqy5sR8Osh+
-	lyrSPxUGYZKTAOWLS6XQJ7xOtPuU5gS8FngtGDV0Y8vFe96CnF1YHAoCID2U8uEcOMPn+fEJ/jAlW
-	GfH2IhTOJHz5F7XQOCHilPAGVBM6JwamcZyQnglfuY+fC0EbbWdTLrdXKbWDLLRiz7sd+JUtNZtGI
-	2b7BnXiDrjWK/f5/sWPuseCR5Ah6ziiLj2Ak5QqP56XAJMx8xHpGaOLV0b9wFY4DBVEAc9a++ZC8C
-	INEwME+Q1/R3z6Pn8SzzJcLguOa6IR9yh3I3cUBhGMAQ+m8WN8hJmAQpJRWVKxbz8ds0r4CFq4boE
-	vzoeJzFA==;
+	bh=AzdJuUPXgsd+8k2HSMzcMHGonlQsEgs1Lrm1CL/U2eQ=; b=t2xaet/elM1MkOcbVe1l/OgEgS
+	f8416Es4AM+sS7gNB+cjGBim79VTm5BQAr5NiUEjg6jyOHSr4Qmv+hvQqg5NdiKCU0l5gQ9kkPwd2
+	FJOlAzcE0ASLALoiO1LMqaqJY1ojFJXS9wC9MDARL8rTwuAej6yRNwvIdzc2uC4q59ehP2bFJWcrz
+	K4KFKFl+O9v8G28WxaUsQeC61gbM4tvdAdU9oomNkEu5GuBCXgZojI+G2Lrxwt0MP3w95f+6b7SjC
+	To7vx7QKVK3Ux/jauLYkXAoIv0aKarFfOFXmEUyoTdrFdqNtkXE70kFKyWP98uy3/q5eBhk2VNi72
+	Xi0nWTYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKyvD-0000000BN8Y-1P9B;
-	Tue, 10 Dec 2024 12:00:59 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1tKyzc-0000000BNg9-15oD;
+	Tue, 10 Dec 2024 12:05:32 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKyu8-0000000BN2p-37ue
+	id 1tKyyX-0000000BNRZ-47iw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 11:59:54 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20241210115946epoutp04136c68a3a4187365c7e1cf3db4394e26~PzwGE81Vm2724127241epoutp04m
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 11:59:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20241210115946epoutp04136c68a3a4187365c7e1cf3db4394e26~PzwGE81Vm2724127241epoutp04m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733831987;
-	bh=CXsPS3KhA5/iDl1AWC3RfGMkwHSxxC2+KnC8nvz5Ku4=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=HGYq3ZnMYiY3Qs+aIcV52EOSHtBinJMFYLUEAKM+36RcuioihmUJwMR6Pu6TYCu2c
-	 PDC9ZYr84Kj3HQQDbvXQb7VDzpwpOFqd1dP0+k+OKQayeRyV/8ubA2dYT0YH8Vyoim
-	 5rb+g0QpIrJYhEQ0nOg78LjaFXe9NB99ikgzYU+k=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
-	20241210115946epcas5p16a0d95e855ad6cfa24c35a43529a3dc6~PzwFzviab0849908499epcas5p1u;
-	Tue, 10 Dec 2024 11:59:46 +0000 (GMT)
-Received: from epsmgec5p1-new.samsung.com (unknown [182.195.38.183]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4Y6y2n3FMDz4x9Pv; Tue, 10 Dec
-	2024 11:59:45 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmgec5p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	0C.69.29212.13D28576; Tue, 10 Dec 2024 20:59:45 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20241210115322epcas5p37a1410d0c91a1fa90b87b77a490bfef7~Pzqf8RmM70985109851epcas5p3S;
-	Tue, 10 Dec 2024 11:53:22 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241210115322epsmtrp1f5d56192c869dea1dfab559fd64d2c90~Pzqf7pFJh2065520655epsmtrp1B;
-	Tue, 10 Dec 2024 11:53:22 +0000 (GMT)
-X-AuditID: b6c32a50-801fa7000000721c-22-67582d31f8ff
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	75.5E.33707.2BB28576; Tue, 10 Dec 2024 20:53:22 +0900 (KST)
-Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20241210115321epsmtip2c057b84502f5e24c86df180706c4553d~Pzqet90oQ2043820438epsmtip2u;
-	Tue, 10 Dec 2024 11:53:21 +0000 (GMT)
-From: "Faraz Ata" <faraz.ata@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-samsung-soc@vger.kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>, <alim.akhtar@samsung.com>,
-	<rosa.pila@samsung.com>
-In-Reply-To: <0bac139b-c89c-43a7-978a-e5fe001d3dd2@kernel.org>
-Subject: RE: [PATCH] arm64: dts: exynosautov920: add DMA nodes
-Date: Tue, 10 Dec 2024 17:23:09 +0530
-Message-ID: <030f01db4afa$1cb672c0$56235840$@samsung.com>
+	Tue, 10 Dec 2024 12:04:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1733832261; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=AzdJuUPXgsd+8k2HSMzcMHGonlQsEgs1Lrm1CL/U2eQ=;
+	b=SPzv+b1SA37LakCHL+LgZHGmvO2CZrFgT2YwmEjkGFNG7T3LO+zTJUhezctnMD2nrGBuDXyOXS2AxQrAWS4A8ec/nTQo7Z/EH4qdUfl3eEChpEu1xNepS0+APhSLJVINEICLoGrUHUvN8OZ6mNRguggZYlpzzUwrr6aqCfm9B7g=
+Received: from 30.166.1.177(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLEroS4_1733832258 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 10 Dec 2024 20:04:19 +0800
+Message-ID: <5a1ef0d2-be24-4865-8e23-159d001ac6d6@linux.alibaba.com>
+Date: Tue, 10 Dec 2024 20:04:17 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQFjpTq5mUG5UMRch2oPlNEF/ignPQHSFX3YAc7cLEKzsaGa4A==
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprOJsWRmVeSWpSXmKPExsWy7bCmuq6hbkS6wcuJIhYP5m1js5h/5Byr
-	xctZ99gszp/fwG6x6fE1VosZ5/cxWfzfs4Pd4svPB8wOHB6bVnWyeWxeUu/Rt2UVo8fnTXIB
-	LFHZNhmpiSmpRQqpecn5KZl56bZK3sHxzvGmZgaGuoaWFuZKCnmJuam2Si4+AbpumTlAVygp
-	lCXmlAKFAhKLi5X07WyK8ktLUhUy8otLbJVSC1JyCkwK9IoTc4tL89L18lJLrAwNDIxMgQoT
-	sjOWTJrFXLCGo+L3hOXMDYx32boYOTkkBEwkPnd/ZOpi5OIQEtjDKNHe9pURJCEk8AnIWScE
-	Z2+7X9bFyAHW0H3TFqJ+J6PEke997BDOS0aJuxd+sII0sAloStz5/BRsqojAbEaJAx9Wgk1l
-	FkiQ2PCsE2w1p4CdxNHZW8FsYSB7TstvZhCbRUBV4sP2d2BxXgFLiTv3J7FA2IISJ2c+YYGY
-	Iy+x/e0cZogXFCR+Pl3GCnKdiICTxMcPbhAl4hIvjx4BO05CYCKHxPeuJYwQH7hIXN7jC9Eq
-	LPHq+BZ2CFtK4mV/G5TtIzH56Deo8gyJO2tFIML2EqsXnAHbxAz04vpd+hBhWYmpp9YxQWzl
-	k+j9/YQJIs4rsWMejK0scXLPHlYIW1Li0O0XrBMYlWYh+WsWkr9mIXlgFsK2BYwsqxilUguK
-	c9NTk00LDHXzUsvhsZ2cn7uJEZxCtQJ2MK7e8FfvECMTB+MhRgkOZiURXg7v0HQh3pTEyqrU
-	ovz4otKc1OJDjKbA0J7ILCWanA9M4nkl8YYmlgYmZmZmJpbGZoZK4ryvW+emCAmkJ5akZqem
-	FqQWwfQxcXBKNTAtncG26hr/nYB1v7Z80r3w2aP1W1e87kbXsxPyBFokg/pjZ9o+Z2j1Mme9
-	M9suimEFD9uTgreHA39+ZD+ZnzMtpVmmIsBs+ZkHq6bJeWyYys9Un2ZXty15hqT5Epn653yp
-	l9/NMlyY+vDC9ZAXR/4X7oqIzdrOn6pjc+u6im/ziS3nmyq3xj4MPtrtN3fGUU39gM7ARxy3
-	75WdUost812YbVS/ne+cYcVehqB7HrtsZmtahbe+XRP6h4GfuyWnuuBV9qUFK+6dnVEi5f2r
-	WPVT/LG2GzcSfdOv8SzxuKSpdW3im5dVrneDREvuz92gY/8o26xASej0zw1mrXbeP34ofdVk
-	6g+4Zr+cN2LD+x4lluKMREMt5qLiRAD3LgepKgQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrHLMWRmVeSWpSXmKPExsWy7bCSvO4m7Yh0g2X/RCwezNvGZjH/yDlW
-	i5ez7rFZnD+/gd1i0+NrrBYzzu9jsvi/Zwe7xZefD5gdODw2repk89i8pN6jb8sqRo/Pm+QC
-	WKK4bFJSczLLUov07RK4MpZMmsVcsIaj4veE5cwNjHfZuhg5OCQETCS6b9p2MXJxCAlsZ5TY
-	s3IqUxcjJ1BcUuLw07usELawxMp/z9khip4zSuz88IQFJMEmoClx5/NTJpCEiMBCRok5PVPA
-	OpgFkiQeNM9lhejYyyhx5OVyRpAEp4CdxNHZW9lAbGEge07Lb2YQm0VAVeLD9ndgcV4BS4k7
-	9yexQNiCEidnQmxjFtCW6H3Yyghhy0tsfzuHGeI8BYmfT5exgrwjIuAk8fGDG0SJuMTLo0fY
-	JzAKz0IyaRaSSbOQTJqFpGUBI8sqRtHUguLc9NzkAkO94sTc4tK8dL3k/NxNjOAo0grawbhs
-	/V+9Q4xMHIyHGCU4mJVEeDm8Q9OFeFMSK6tSi/Lji0pzUosPMUpzsCiJ8yrndKYICaQnlqRm
-	p6YWpBbBZJk4OKUamMqXXlU4qOJZ8eyM/okPB4SZc46uMJ8lt2dhs4z6v2rzGTL37qz1tahJ
-	sUgpOxL8I6be9w7zuhb9HSvOlEvFe7TGLPzgnTOfjenKaUOJFZdnhose51t2ePppk+PFuzvZ
-	3vLF7rw+o0LpW0CTzwbvdabmRayJe8584fLeMWmuHI+mzvaKJsNdjEySta4mN35eePp3pUjD
-	3aJHiZMYLHRuHCxfKGGQY6jU9Vwq4+S0OK+j1dVR9+cVN+aVTYw87Zb3O6gqOvDu/D+dhq3f
-	VOpU9n8VOSN3vGb/rNl9+98L1Mwpai7eYbzRaM+J1tMbrvNY53y+tqZDXe3sNt7Dc1QLr7TO
-	az9+15XVqiiwvjl/ixJLcUaioRZzUXEiAMtFP3cRAwAA
-X-CMS-MailID: 20241210115322epcas5p37a1410d0c91a1fa90b87b77a490bfef7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83
-References: <CGME20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83@epcas5p2.samsung.com>
-	<20241204122335.1578-1-faraz.ata@samsung.com>
-	<0bac139b-c89c-43a7-978a-e5fe001d3dd2@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf/dwc_pcie: Qualify RAS DES VSEC Capability by Vendor,
+ Revision
+To: Bjorn Helgaas <helgaas@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+ Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
+References: <20241209222938.3219364-1-helgaas@kernel.org>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20241209222938.3219364-1-helgaas@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_035953_361047_11AF9609 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20241210_040426_652065_7F131185 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,37 +69,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi, Bjorn,
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk@kernel.org>
-> Sent: Monday, December 9, 2024 1:04 PM
-> To: Faraz Ata <faraz.ata@samsung.com>; devicetree@vger.kernel.org; linux-
-> samsung-soc@vger.kernel.org; krzk+dt@kernel.org; robh@kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org; alim.akhtar@samsung.com;
-> rosa.pila@samsung.com
-> Subject: Re: [PATCH] arm64: dts: exynosautov920: add DMA nodes
+在 2024/12/10 06:29, Bjorn Helgaas 写道:
+> From: Bjorn Helgaas <bhelgaas@google.com>
 > 
-> On 04/12/2024 13:23, Faraz Ata wrote:
-> > +
-> > +		spdma1: dma-controller@10190000 {
-> > +			compatible = "arm,pl330", "arm,primecell";
-> > +			reg = <0x10190000 0x1000>;
-> > +			interrupts = <GIC_SPI 917 IRQ_TYPE_LEVEL_HIGH>;
-> > +			clocks = <&cmu_misc
-> CLK_MOUT_MISC_NOC_USER>;
-> > +			clock-names = "apb_pclk";
-> > +			#dma-cells = <1>;
-> > +		};
-> > +
-> > +		pdma0: dma-controller@101A0000 {
+> PCI Vendor-Specific (VSEC) Capabilities are defined by each vendor.
+> Devices from different vendors may advertise a VSEC Capability with the DWC
+> RAS DES functionality, but the vendors may assign different VSEC IDs.
 > 
-> Please do not send downstream code directly, but fix it to match upstream.
-> Lowercase hex everywhere.
+> Search for the DWC RAS DES Capability using the VSEC ID and VSEC Rev
+> chosen by the vendor.
 > 
-Thanks for your review,  will takecare in future patches. 
+> This does not fix a current problem because Alibaba, Ampere, and Qualcomm
+> all assigned the same VSEC ID and VSEC Rev for the DWC RAS DES Capability.
+> 
+> The potential issue is that we may add support for a device from another
+> vendor, where the vendor has already assigned DWC_PCIE_VSEC_RAS_DES_ID
+> (0x02) for an unrelated VSEC.  In that event, dwc_pcie_des_cap() would find
+> the unrelated VSEC and mistakenly assume it was a DWC RAS DES Capability.
+> 
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+> ---
+> Sample devices that advertise VSEC Capabilities with VSEC ID=0x02 that are
+> unrelated to the DWC RAS DES functionality:
+> 
+>    https://community.nxp.com/t5/S32G/S32G3-PCIe-compliance-mode-set-speed-to-5-8Gbit-s/m-p/1875346#M7024
+>      00:00.0 PCI bridge: Freescale Semiconductor Inc Device 4300 (prog-if 00 [Normal decode])
+>        Capabilities: [70] Express (v2) Root Port (Slot-), MSI 00
+>        Capabilities: [158 v1] Vendor Specific Information: ID=0002 Rev=4 Len=100 <?>
+> 
+>    https://github.com/google-coral/edgetpu/issues/743
+>      0000:00:00.0 PCI bridge: NVIDIA Corporation Device 1ad0 (rev a1) (prog-if 00 [Normal decode])
+>        Capabilities: [70] Express (v2) Root Port (Slot-), MSI 00
+>        Capabilities: [1d0 v1] Vendor Specific Information: ID=0002 Rev=4 Len=100
+> 
+>    https://www.linuxquestions.org/questions/linux-kernel-70/differences-in-'lspci-v'-output-4175495550/
+>      00:01.0 PCI bridge: Intel Corporation 5520/5500/X58 I/O Hub PCI Express Root Port 1 (rev 13) (prog-if 00 [Normal decode])
+>        Capabilities: [90] Express Root Port (Slot+), MSI 00
+>        Capabilities: [160] Vendor Specific Information: ID=0002 Rev=0 Len=00c <?>
+> 
+>    https://www.reddit.com/r/linuxhardware/comments/187u87b/the_correct_way_to_identify_the_kernel_driver/
+>      04:00.0 Network controller: Realtek Semiconductor Co., Ltd. Device c852 (rev 01)
+>        Capabilities: [70] Express Endpoint, MSI 00
+>        Capabilities: [170] Vendor Specific Information: ID=0002 Rev=4 Len=100 <?>
+> ---
+>   drivers/perf/dwc_pcie_pmu.c | 68 ++++++++++++++++++++-----------------
+>   1 file changed, 37 insertions(+), 31 deletions(-)
+> 
+> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+> index 9cbea9675e21..d022f498fa1a 100644
+> --- a/drivers/perf/dwc_pcie_pmu.c
+> +++ b/drivers/perf/dwc_pcie_pmu.c
+> @@ -20,7 +20,6 @@
+>   #include <linux/sysfs.h>
+>   #include <linux/types.h>
+>   
+> -#define DWC_PCIE_VSEC_RAS_DES_ID		0x02
+>   #define DWC_PCIE_EVENT_CNT_CTL			0x8
+>   
+>   /*
+> @@ -100,14 +99,23 @@ struct dwc_pcie_dev_info {
+>   	struct list_head dev_node;
+>   };
+>   
+> -struct dwc_pcie_vendor_id {
+> -	int vendor_id;
+> +struct dwc_pcie_pmu_vsec_id {
+> +	u16 vendor_id;
+> +	u16 vsec_id;
+> +	u8 vsec_rev;
+>   };
+>   
+> -static const struct dwc_pcie_vendor_id dwc_pcie_vendor_ids[] = {
+> -	{.vendor_id = PCI_VENDOR_ID_ALIBABA },
+> -	{.vendor_id = PCI_VENDOR_ID_AMPERE },
+> -	{.vendor_id = PCI_VENDOR_ID_QCOM },
+> +/*
+> + * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> + * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> + */
+> +static const struct dwc_pcie_pmu_vsec_id dwc_pcie_pmu_vsec_ids[] = {
+> +	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+>   	{} /* terminator */
+>   };
+>   
+> @@ -519,31 +527,28 @@ static void dwc_pcie_unregister_pmu(void *data)
+>   	perf_pmu_unregister(&pcie_pmu->pmu);
+>   }
+>   
+> -static bool dwc_pcie_match_des_cap(struct pci_dev *pdev)
+> +static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
+>   {
+> -	const struct dwc_pcie_vendor_id *vid;
+> -	u16 vsec = 0;
+> +	const struct dwc_pcie_pmu_vsec_id *vid;
+> +	u16 vsec;
+>   	u32 val;
+>   
+>   	if (!pci_is_pcie(pdev) || !(pci_pcie_type(pdev) == PCI_EXP_TYPE_ROOT_PORT))
+> -		return false;
+> +		return 0;
+>   
+> -	for (vid = dwc_pcie_vendor_ids; vid->vendor_id; vid++) {
+> +	for (vid = dwc_pcie_pmu_vsec_ids; vid->vendor_id; vid++) {
 
-> Best regards,
-> Krzysztof
+How about checking the pdev->vendor with vid->vendor_id before search the vesc cap?
 
++		if (pdev->vendor != vid->vendor_id)
++			continue;
+
+>   		vsec = pci_find_vsec_capability(pdev, vid->vendor_id,
+> -						DWC_PCIE_VSEC_RAS_DES_ID);
+> -		if (vsec)
+> -			break;
+> +						vid->vsec_id);
+> +		if (vsec) {
+> +			pci_read_config_dword(pdev, vsec + PCI_VNDR_HEADER,
+> +					      &val);
+> +			if (PCI_VNDR_HEADER_REV(val) == vid->vsec_rev) {
+> +				pci_dbg(pdev, "Detected PCIe Vendor-Specific Extended Capability RAS DES\n");
+> +				return vsec;
+> +			}
+> +		}
+>   	}
+> -	if (!vsec)
+> -		return false;
+> -
+> -	pci_read_config_dword(pdev, vsec + PCI_VNDR_HEADER, &val);
+> -	if (PCI_VNDR_HEADER_REV(val) != 0x04)
+> -		return false;
+> -
+> -	pci_dbg(pdev,
+> -		"Detected PCIe Vendor-Specific Extended Capability RAS DES\n");
+> -	return true;
+> +	return 0;
+>   }
+
+Best Regards,
+Shuai
 
