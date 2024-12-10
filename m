@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74367E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF5C8E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7r4xfSODKGy3g81bMhiMFOfk/EfRckjRbt+ZPVGFK4g=; b=BL298YwfIY8i77A14sIsm/KOvv
-	YNtKpYTSNX3OkBzConGCbvzRE0AN3T00Vg78n0h9Hb81LParLKuBj0jQPUdVQ7Ua6u1XSSeEc7IiI
-	/kY0+tjinOrOCepoW8s7sXLzZ+ShlIC6zYOzr4QynDTUiA/dEbHT8brzndYS+4QsEfPAgK4yBUkFu
-	tX9+/ysCDkKZUftQrsGqBIpYVEkdc0QvnCG/tRgSdNOwyb7myrFp21KlMsyS86RUdVaW+ppQES8OX
-	pxMQ5cxEXrMAvDxLCadXB6O47/3mJ+hN2IcdRSK/ofn1HePPndxnVcU08CGSm+H3zEJGyCjqrM+Hp
-	WKOdVnUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2CfpFkLkZqxgcX4QF5aNknnKi2/XJy2DSDzk2hxLc1o=; b=cTlln4sOmWw2NN+6M0qUHKP4CC
+	m+7JtySfg/RTWeUkJj2aJOVZVanUftKU8e0srr/dFkuDssXPUxPRz7mrJANlMDIMQiKSno+fpujWM
+	E9omjfOzxSmZ98v9sbxB0krFG3R1bC6cqXsNo0L7TJtgxe7+3inV+MsquNLUyr0fLciTU/5/M6Tlm
+	gFEoXHi2fGMXhXqZrFNO39gpa+S8VZgOgIuBV59bnKFwJPXEerC5C70KWAU7t03Q/lYkl2Fjs/UP3
+	TwnX0X9zsPXIuk6Ai22U273MyMxfyHGIgUgl+8Pp0f2PcLA5JBkWIv/7yDbNk/jWdCPsQWr9XgVOH
+	Q11OF3NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxEa-0000000B5XA-02Ld;
-	Tue, 10 Dec 2024 10:12:52 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tKxFc-0000000B5ly-0ER9;
+	Tue, 10 Dec 2024 10:13:56 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKx43-0000000B3d8-2Rnv;
-	Tue, 10 Dec 2024 10:02:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7r4xfSODKGy3g81bMhiMFOfk/EfRckjRbt+ZPVGFK4g=; b=PL/M6RXV0ShUZBMUNHiO5ZgItP
-	apLiD0XeIwBENg5C3YZHRvB7etdwsQkW62AKHgcAt5QqwRPGytnr5gjgh9b4FVMT+eIQj5q7oBbrF
-	PvMqnPXqlb8rMfX/A53ximn12OI8ob53r+fgcoasq6nZT0XjAHUyuQPUtbcMLjRe+y18yephfx3cE
-	emwHQ+w6sK7y0D9vOBkLXZqzDyvadoDStZb2HoeRAgXFRBc/BONNTJpmpPQYSFvp7jSb+8Emav+0W
-	Yt5NL6mUE9LpbcgYi1OhE2bpqvMCfT/nG9QC/Rdt5xM7r+gaw1PZGdpr5IP/ERpaobgInwSFN4nEj
-	qXJk9vIA==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tKx3g-0003mj-0a; Tue, 10 Dec 2024 11:01:36 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Andy Yan <andyshrk@163.com>
-Cc: Daniel Semkowicz <dse@thaumatec.com>,
- Diederik de Haas <didi.debian@cknow.org>, andy.yan@rock-chips.com,
- Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com, jonas@kwiboo.se,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- neil.armstrong@linaro.org, quentin.schulz@cherry.de, rfoss@kernel.org,
- robh@kernel.org, tzimmermann@suse.de
-Subject: Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2 controller
-Date: Tue, 10 Dec 2024 11:01:34 +0100
-Message-ID: <2117643.K71DO8KEF6@diego>
-In-Reply-To: <2d68155e.1e5b.193ae4616b9.Coremail.andyshrk@163.com>
-References: <20241203165450.1501219-1-heiko@sntech.de>
- <CAA8EJprLA09NP0KAztc5eoAMkGcrom84jg_pcbNcwN0FAaSLrw@mail.gmail.com>
- <2d68155e.1e5b.193ae4616b9.Coremail.andyshrk@163.com>
+	id 1tKx6f-0000000B4EW-3OqZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 10:04:43 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5187aa2c97dso531731e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 02:04:41 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733825078; x=1734429878;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2CfpFkLkZqxgcX4QF5aNknnKi2/XJy2DSDzk2hxLc1o=;
+        b=erDiWzNfuz7eFIxSQSojvwCh+boJCYyFylsPReN6NUsvAnkDhaUj6qnVW7Lr0S9ruA
+         6Eq2nftPYsp+zLTrzPLh6oQz4rsSE9qbotF0rOkgwqnBLl4fD+6djtyMeBIYXP/5KyRK
+         q2SqMqyYzxH0gHbIwf6IfK5+EZrjxKf6lcK0TLGZR0uHGKKOOBPHLZ8uUYg1nDWdhwLM
+         eJSQyfiqo6OTuL4Jy5I4FAd9AtncllVHqPuYCxPuquUOkNfD+Rqe3tJEkxn5pR2YwosC
+         hmFWqL/D2pXp3oV59ra8AxSa2bmkQ2tGHQkfe1ReBai6xFyFPOPzrAeTxp18HP3cf5cP
+         h9dA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+5w8DTyeiBwAkhqUDy+fjP43Rwjsvi3Mc5uHxaDX3ncc4IenZRRtY7G4cOjJStmMFi4+dlZrzE8jthoNEHii/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXOH8+td0ypX9iscHtcpuf/ubd4zLumXnXy6M+ODQx0vK26ujB
+	5ujVdcVoQnhkSns8MeMnog26XAy2b2TIfYYLWtQk9TINw+KQZPyXN8xYbJC1
+X-Gm-Gg: ASbGncvG0fp2Ax5sNSMMvfqIj6QfXQGihbzCxTB3j9gfS+oZ07rgzgOp6DmCbe2XrAQ
+	3N9cerZrivlJK9KtdR4UF1VwMjHQK2oAJDS7b8ezQBVOoGlT7jCFYmvGn03CyX6MQhonOHN+ejS
+	JKT3nuevLZo2nlwlWHfK7KCnXwtvJysTYNtsZQ2Nw/xHB3Wd+6Vy17GU+9ZFesnFR0tFrT3tOOV
+	zA3I6UZVpJCwp6ZzLu0MwrE9IqI61O13l+OZ1E7fbjvc+tUJYS80Tj1d15iDG8Ejq7L5wkhSyB3
+	u5wo6i6vFiV1c0TH
+X-Google-Smtp-Source: AGHT+IFiCnBy93qbWsE8+JMLzcXzWNdt6yqc12MbbR1OMSrGASeaMC8Llip4nQf1RL2m+3sTcF9s4g==
+X-Received: by 2002:a05:6122:17a3:b0:517:4d53:4272 with SMTP id 71dfb90a1353d-5188853fff4mr3661723e0c.7.1733825077595;
+        Tue, 10 Dec 2024 02:04:37 -0800 (PST)
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-51606dc43efsm722748e0c.32.2024.12.10.02.04.37
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Dec 2024 02:04:37 -0800 (PST)
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-85c4c9349b3so811795241.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 02:04:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW39MDGXmP4toL/DFbnPuWI4q5I/dBBm4osLJNRUeodDsxjfiUWc3M7SxFvICkAEaODnlt+vq43AzZ3Ub/mB66X@lists.infradead.org
+X-Received: by 2002:a05:6102:162c:b0:4af:f2e2:7b56 with SMTP id
+ ada2fe7eead31-4b11623a2c7mr3989869137.25.1733825076815; Tue, 10 Dec 2024
+ 02:04:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+References: <cover.1733156661.git.geert+renesas@glider.be> <87jzcg1d2f.wl-kuninori.morimoto.gx@renesas.com>
+ <CAMuHMdWF7NcmKYzvF4Dfjh3S5MccbJrpSphK5BhxXNnhxgtmYQ@mail.gmail.com>
+ <87y10tvhw1.wl-kuninori.morimoto.gx@renesas.com> <87y10pmjd6.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <87y10pmjd6.wl-kuninori.morimoto.gx@renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 10 Dec 2024 11:04:25 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVEdLvSRRUOwZR_jzpvjAM_zr++Bbxph21QzXLLsjY7mw@mail.gmail.com>
+Message-ID: <CAMuHMdVEdLvSRRUOwZR_jzpvjAM_zr++Bbxph21QzXLLsjY7mw@mail.gmail.com>
+Subject: Re: [PATCH 0/5] arm64: renesas: Add R8A779G3 White Hawk Single support
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_020159_615735_02F8AB7B 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20241210_020441_849029_C0001C05 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +97,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 10. Dezember 2024, 02:54:09 CET schrieb Andy Yan:
->=20
-> Hi Dmitry,
->=20
-> =E5=9C=A8 2024-12-10 09:45:11=EF=BC=8C"Dmitry Baryshkov" <dmitry.baryshko=
-v@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
-> >On Tue, 10 Dec 2024 at 03:22, Andy Yan <andyshrk@163.com> wrote:
-> >>
-> >>
-> >> Hi Dmitry,
-> >>
-> >> =E5=9C=A8 2024-12-10 09:01:38=EF=BC=8C"Dmitry Baryshkov" <dmitry.barys=
-hkov@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
-> >> >On Tue, Dec 10, 2024 at 08:50:51AM +0800, Andy Yan wrote:
-> >> >>
-> >> >>
-> >> >> Hi,
-> >> >>
-> >> >> At 2024-12-10 07:12:26, "Heiko St=C3=BCbner" <heiko@sntech.de> wrot=
-e:
-> >> >> >Am Montag, 9. Dezember 2024, 17:11:03 CET schrieb Diederik de Haas:
-> >> >> >> Hi,
-> >> >> >>
-> >> >> >> On Mon Dec 9, 2024 at 4:06 PM CET, Daniel Semkowicz wrote:
-> >> >> >> > On 03.12.24 21:54, Heiko Stuebner wrote:
-> >> >> >> > > This series adds a bridge and glue driver for the DSI2 contr=
-oller found
-> >> >> >> > > in the rk3588 soc from Rockchip, that is based on a Synopsis=
- IP block.
-> >> >> >> > >
-> >> >> >> >
-> >> >> >> > I did more tests with different LVDS displays. I tested follow=
-ing
-> >> >> >> > configurations with DSI/LVDS bridge:
-> >> >> >> > - 1024x600@60.01
-> >> >> >> > - 1024x768@60.02
-> >> >> >> > - 1280x800@60.07
-> >> >> >> > - 1366x768@60.06
-> >> >> >> >
-> >> >> >> > All of them worked without issues, except 1366x768.
-> >> >> >> > With this resolution, video is blurry, and offset incorrectly
-> >> >> >> > to the left. There are also repeating errors on the console:
-> >> >> >> >
-> >> >> >> >   rockchip-drm display-subsystem: [drm] *ERROR* POST_BUF_EMPTY=
- irq err at vp3
-> >> >> >> >
-> >> >> >> > In correct operation with other resolutions, there is no error.
-> >> >> >> > I am not sure if this is a problem in your series or rather in=
- VOP2
-> >> >> >> > driver.
-> >> >> >
-> >> >> >This really sounds like something is wrong on the vop side.
-> >> >> >The interrupt is part of the vop, the divisable by 4 things likely=
- too.
-> >> >>
-> >> >> This is a hardware limitation on vop side:
-> >> >> The horizontal resolution must be 4 pixel aligned.
-> >> >
-> >> >Then mode_valid() and atomic_check() must reject modes that don't fit.
-> >>
-> >> We round down to 4 pixel aligned in mode_fixup in our bsp kernel,
-> >
-> >What is meant by the "bsp kernel" here? I don't see it being present
->=20
-> bsp kernel means downstream vendor kernel.
->=20
-> >in the mainline kernel. So, if the mode is unsupported, it should be
->=20
-> Will it be acceptable to add this round down in the mainline mode_fixup?
+Hi Morimoto-san,
 
-personally I'd like that.
+On Mon, Dec 9, 2024 at 8:00=E2=80=AFAM Kuninori Morimoto
+<kuninori.morimoto.gx@renesas.com> wrote:
+> > > -              - renesas,r8a779g2
+> > > -              - renesas,r8a779g3
+> > > +              - renesas,r8a779g2 # ES2.x
+> > > +              - renesas,r8a779g3 # ES3.0
+> > >
+> > > but decided against doing so, as "ES3.0" would become stale as soon
+> > > as Renesas releases "ES3.1". Alternatively, I could use "ES3.x"
+> > > immediately.
+>
+> It seems using "ES3.x" is a good idea.
 
-I.e. the thing in the examoke above is an LVDS display, so has essentially
-fixed resolution. So adapting the resolution may or may not be possible
-(some for DSI or whatever) .
+Thanks for checking, I'll add these comments while applying.
 
-Doing that rounding-down AND emitting a dev_warn about that fact would
-be preferrable to me personally, though I don't know if there is some
-different precedent in other parts of DRM.
+Gr{oetje,eeting}s,
 
+                        Geert
 
-Heiko
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
-
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
