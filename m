@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B020CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 06:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0437E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 06:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81m06x+v5JVLxZgqRjaLI7MWsEUAWDKlvJzVbOHDUAM=; b=UDTO+M6IoasRWOXiJT3G645MGn
-	vngB9kCXIRxPkoMwKRHzd7ZK6+AM6ZjmgGxIL/kPjqy9KZpPi3B1B0dlIiVMq6dv5KiwrQ9yxdkIi
-	sTUbl7elPcuzJRlW7nlQGpXxEijrAPnwkrHOp6A4O5QgqLz9X6dAYu/z2qM/5UEXrjYe5W2vTgGEc
-	AXD7uJCrf/aZUstouppa0n8uDUs5ZRdqg5dL09DgJ4XrRUlnqj7d1g+3mOOyOoa5BpM/NtzHpjZIH
-	qsXCj1YFm3cDl9tYdugqSyqM0c+YfGNytfVLWIL1+aCX4sF3RuWYv9zrYRk0zWoMrQQnJ/0AQsXuI
-	vfrgQEYw==;
+	bh=nEDzQ8MvatQhwc5h8Myd/DnUOEKCS8Zfl73GlxOGOl4=; b=UcudEXMxWQNrzE5A1h0W7BApt0
+	2OjJ5xlOf9mqytS48YjaA7K2XfN+lOd0wEy49X+ff2+VTCp1TxM0Oa9JPhN1sDr0b5LqhbXaPGoZP
+	Op3g+lfdcfxmurbSNWm1yLQLPmM4+CGGuAmGDc99p59lhDl9urO+qMDnDxJpnMjub5vuacdwOhhJq
+	ABz5jsupOPgK3c1Ae2MJyxqiA+LbNyAUmQBeveuTYi2+MOCn+07cDeE+en4L0VIy+dh40j2dpN0xx
+	mpSNNO+4JFty9Kf/X1PequxlFIkKVU4hbttlNMXkqCXaFtGP02K26NfJao4HCGPQlaDVya6tyvbqb
+	SU1wG3JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKtdA-0000000AP5t-3xJ8;
-	Tue, 10 Dec 2024 06:22:00 +0000
+	id 1tKteC-0000000APHb-2Sso;
+	Tue, 10 Dec 2024 06:23:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKtDi-0000000AKIJ-42a7
+	id 1tKtDn-0000000AKJk-0D85
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 05:55:44 +0000
+	Tue, 10 Dec 2024 05:55:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF828113E;
-	Mon,  9 Dec 2024 21:56:10 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4F9E113E;
+	Mon,  9 Dec 2024 21:56:14 -0800 (PST)
 Received: from a077893.arm.com (unknown [10.163.48.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 02C403F58B;
-	Mon,  9 Dec 2024 21:55:38 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3375C3F58B;
+	Mon,  9 Dec 2024 21:55:42 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev,
@@ -46,17 +46,17 @@ Cc: ryan.roberts@arm.com,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH V2 26/46] arm64/sysreg: Add register fields for SPMOVSSET_EL0
-Date: Tue, 10 Dec 2024 11:22:51 +0530
-Message-Id: <20241210055311.780688-27-anshuman.khandual@arm.com>
+Subject: [PATCH V2 27/46] arm64/sysreg: Add register fields for SPMINTENCLR_EL1
+Date: Tue, 10 Dec 2024 11:22:52 +0530
+Message-Id: <20241210055311.780688-28-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241210055311.780688-1-anshuman.khandual@arm.com>
 References: <20241210055311.780688-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_215543_043532_260DC4A3 
-X-CRM114-Status: UNSURE (   6.05  )
+X-CRM114-CacheID: sfid-20241209_215547_214501_3507EFF8 
+X-CRM114-Status: UNSURE (   5.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,7 +72,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds register fields for SPMOVSSET_EL0 as per the definitions based
+This adds register fields for SPMINTENCLR_EL1 as per the definitions based
 on DDI0601 2024-09.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
@@ -86,14 +86,14 @@ Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
  1 file changed, 67 insertions(+)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 40de71614af7..c983c1360908 100644
+index c983c1360908..0942cd16a942 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -245,6 +245,73 @@ Field	1	P1
- Field	0	P0
+@@ -161,6 +161,73 @@ Field	15:8	Aff1
+ Field	7:0	Aff0
  EndSysreg
  
-+Sysreg	SPMOVSSET_EL0	2	3	9	14	3
++Sysreg	SPMINTENCLR_EL1	2	0	9	14	2
 +Field	63	P63
 +Field	62	P62
 +Field	61	P61
@@ -160,9 +160,9 @@ index 40de71614af7..c983c1360908 100644
 +Field	0	P0
 +EndSysreg
 +
- Sysreg	SPMSCR_EL1	2	7	9	14	7
- Field	63:32	IMP_DEF
- Field	31	RAO
+ Sysreg	PMCCNTSVR_EL1	2	0	14	11	7
+ Field	63:0	CCNT
+ EndSysreg
 -- 
 2.25.1
 
