@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F845E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E3FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkoRw9BarGGVCa4YcmvxLTgpRYyO516ABNKabA4DQpo=; b=M9EDlooqvd3GfhVgy/wG3l9Dxx
-	9rrXWDVa7rBCPsZa/ew2Vl8JzsE4Jwpb+p9Nppi89j4WtRRj7Pf7tLDhUrjmMjqBxVjpEvCDPBWTi
-	CEPB0nHMlwL+VmZBI6OMlnVDlStgsDjGHQ8ldGW8x36hBy7xjv11KX7ffC7IFywUGCQznx0GRqQ67
-	rh0E3xuS2OcXw86ohuagyd1Vb78rhbdPrZPjQbdfMweITYWgT9bYUoYulJ209G0oy2j497NXWj8Zb
-	jHhKHXemXKwwF5ZU25u0vnMdh9Rt/Ve6hWxJvJA6UB+ub08Rm8g3nDlJf92ZFb4cFOnPCGiB44LZd
-	i4BlE8Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gvsJcHnWFJkaRdXIOYYPtjthmV89MakBwrZsJYDK4Qk=; b=uQQF+kyfKQPSjGqajA/2CUj8jx
+	hUJCsAuX7Uml/76Pl0KzKfAI2L84Vb4PHKoUnYpe4xLCdjnbrPMpyrFgL5nqw8ytjICFFgmisaM1j
+	uYDlC/rZtYPy6JJAtZEO73Cy1PfGobmCoyZzDZf+a8Nu31oRdAIDCp4/7bjBQdRs0NNEJQg/z8QRy
+	sb/RvVN8E0OFoSlXCw8KSqFYBGi4fhUrAp2q8x5ZHsO2AekEyFpupNrL8aldPsBiwy43TUUY1Itf5
+	zkDFiqV2KQnorJ1xYmDqYzNM3TDqZlXTshF+x8ezSWnKFiV5JTrWg0EmVXRbl6h/kzwzz43cF/x2M
+	hlpTMiqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0em-0000000BdGy-2pOk;
-	Tue, 10 Dec 2024 13:52:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tL0g0-0000000BdWS-1ALm;
+	Tue, 10 Dec 2024 13:53:24 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0di-0000000Bd44-31SI
+	id 1tL0ev-0000000BdIY-3NxP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 13:51:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 57DB95C631C;
-	Tue, 10 Dec 2024 13:50:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46C58C4CED6;
-	Tue, 10 Dec 2024 13:50:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733838661;
-	bh=ZXg1bGozVdzn4a1tzlvDLtBv4mWbQKIU/XP6jeBIDvc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yf/VLn2IQhrXOEzbHiLZVrJssWuYF5wdEhW0xeWpZnpKA5ogq7bmRblmgPOoIPExb
-	 qDmFeAJsOhFmvg0N8uuL+IpFFeLdmUXKNtt3zQNIy5mHNEEXSYHX4BbLa6cxzh7SVM
-	 3Fj7X0jnC1pipSs1zsUOkP7Jd5r0jLEEEWudF1d+cH7SQwKvghPYc+4HEjGYEcxLC7
-	 TQ2GNtjGAnkN9RNJSFrEprr6Ri7FngS8zf38cVNimyVvSfa/GuCJZ2YleDRGEFoiGQ
-	 JUs7rG7AUMKGfPAIDS7ylefYJM5qU+wqsAWuURPi0BwNpx3MyzbEGtmMlYMWeSZ0e0
-	 nuu81ImImT/ng==
-Date: Tue, 10 Dec 2024 13:50:52 +0000
-From: Will Deacon <will@kernel.org>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-pm@vger.kernel.org, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, catalin.marinas@arm.com,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
-	daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
-	lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
-	mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
-	maz@kernel.org, misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
-	zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v9 05/15] arm64: barrier: add support for
- smp_cond_relaxed_timeout()
-Message-ID: <20241210135052.GB15607@willie-the-truck>
-References: <20241107190818.522639-1-ankur.a.arora@oracle.com>
- <20241107190818.522639-6-ankur.a.arora@oracle.com>
+	Tue, 10 Dec 2024 13:52:19 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-385e06af753so2467934f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 05:52:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733838736; x=1734443536; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gvsJcHnWFJkaRdXIOYYPtjthmV89MakBwrZsJYDK4Qk=;
+        b=deSvjZ7CQomyFbGmvSZKWefqwEHBSnqHaOjRP9sd6VcVQgVNt/R/NPR9EhZIsl/F0p
+         ffgT1YDCnczx2D4yL1Bo9Vzjki+p8rSPBlMx9WWsz0BOY17qPBZ3QSKgTuQnG5UrsdW8
+         1dV/nAAPHrlNEyFLSyDHSz9jNwa3TNm8u0Yymmg1xN/JHPnw9MynDNbtaEUbiUBoezAQ
+         qErKSD7zrGLrjJ7Ih9W2cmLLl5WnLA/Fr3iiYMoByBbGXCf7QSEimhNT4eXYa3OvroPx
+         xoU8EkdnvBOpsVZVDpu7GqGDNkep6Uo8bDg7xA+tyhOQle4kTN/KFvW1EA+MxNAOrYyu
+         T7bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733838736; x=1734443536;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gvsJcHnWFJkaRdXIOYYPtjthmV89MakBwrZsJYDK4Qk=;
+        b=LaE8dRwIEIANBUJAxvBx9HcQaozPzYceIjBy/QjKFyMngZfUrgAOw/pQO7VTvFxh0M
+         +lfRMsukNcK/CS8xVzXk9oVDVpZ7z2aXEGnYYgei83q3Y9Vd7mD/dwMUuwbh1VfBJiq7
+         4ckL9o1iWTcSvs3+e2at6PgJ1UzAfihU0MYuMCxQe90J3d4Q2jdHvoHVqZtXSCafrJje
+         4xnbE1KEvtypTOir+bHMxCoGbHm6cSdQqeFH8zHMknk9+H+wp5ovdEqjLV7dt/KGLPoZ
+         Ugxe7Krovv1o9psFiZWdWL1YCbi245dBhkZp3txahdmmjWgi3rvsjXEWZXwec5Q6vFXK
+         eRLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXZfRGHRl7+/VNRPGm9g0NH2LFsGMTQDq0/BuREcZ2Kd9uab95IYvEv1tPOG52MNDJJHWUmmarLKZVByS9gFOGK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1WWgxFVNV4ckqHYWh56QND9sgM9O6DxYFUSodm/oGxg6nScbq
+	AI2hs2Qb4wc5BW/LfZTODTJlhF40wHN1xKmGQgUqKgUeb4WVh8hx8xEK0fy6nbI=
+X-Gm-Gg: ASbGncvBWqcf8PWFgJp64uNROVVNeS/sb4wB+CBwE52Y4S1cbpIVJFg81C2dRPA6rOX
+	UUDL1Z0HjlSTkRC2nNg2UD0GX3g1GJhh1/URFbWklLp7vmILxCGqfzGOzxKlTCfL8k7EaHfx60W
+	o0tDDwRWk6lyIsypJMwaks55946qf4pPEtaZDbvZv/Hee2Iq4JEFZKxb3xvoZIW0rdVtsQYvqgd
+	sKVahaM9jCPzWu+h3jE/S61K4jeA3RgXZAjLwco2D4jHbbdhlfEbQLjix94EOfWeIt3oMNW
+X-Google-Smtp-Source: AGHT+IFQ6nYMzgv6s9MPm0QEXnXj8O3sBLDqM8CxTrOU96IG8xBvdz2PcHy2jFxRyvN3ca+1FwMClg==
+X-Received: by 2002:a05:6000:42c3:b0:385:f1f2:13f1 with SMTP id ffacd0b85a97d-386453e2a8cmr1917700f8f.22.1733838735834;
+        Tue, 10 Dec 2024 05:52:15 -0800 (PST)
+Received: from [192.168.68.114] ([5.133.47.210])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3861ecf4119sm15806378f8f.14.2024.12.10.05.52.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Dec 2024 05:52:15 -0800 (PST)
+Message-ID: <3e16b2f5-5aeb-4988-bf6f-63c7309f53a4@linaro.org>
+Date: Tue, 10 Dec 2024 13:52:14 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107190818.522639-6-ankur.a.arora@oracle.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] nvmem: imx-ocotp-ele: fix reading from ELE OCOTP
+To: Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peng Fan <peng.fan@nxp.com>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable <stable@kernel.org>
+References: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
+Content-Language: en-US
+From: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+In-Reply-To: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_055102_790753_7FE3BE6A 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20241210_055218_673634_11DE3EB3 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +101,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 11:08:08AM -0800, Ankur Arora wrote:
-> Support a waited variant of polling on a conditional variable
-> via smp_cond_relaxed_timeout().
+
+
+On 02/12/2024 11:22, Sascha Hauer wrote:
+> Commits b2ab0edaf484 ("arm64: dts: imx93: add nvmem property for fec1")
+> and 0d4fbaffbdca ("arm64: dts: imx93: add nvmem property for eqos")
+> introduced NVMEM cell bindings for reading MAC addresses from the ELE
+> OCOTP. This doesn't work as expected due to bugs in the driver:
 > 
-> This uses the __cmpwait_relaxed() primitive to do the actual
-> waiting, when the wait can be guaranteed to not block forever
-> (in case there are no stores to the waited for cacheline.)
-> For this we depend on the availability of the event-stream.
+> - imx_ocotp_reg_read() interprets the incoming offset as 32bit word
+>    offset, but it really is in bytes which means the driver reads bogus
+>    values whenever the offset is non zero
+> - imx_ocotp_reg_read() reads wrong results when the offset is not 32bit
+>    word aligned
+> - MAC addresses are stored in reverse byte order in the ELE OCOTP, we
+>    have to swap the order before passing them to the upper layer
 > 
-> For cases when the event-stream is unavailable, we fallback to
-> a spin-waited implementation which is identical to the generic
-> variant.
+> This likely went through unnoticed because the bootloader normally adds
+> the MAC addresses to the ethernet nodes and in this case they are
+> preferred over the NVMEM addresses.
 > 
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+> This series fixes these issues.
+> 
+> Sascha
+> 
+> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 > ---
->  arch/arm64/include/asm/barrier.h | 54 ++++++++++++++++++++++++++++++++
->  1 file changed, 54 insertions(+)
+> Changes in v2:
+> - Add Fixes: and Cc: stable tag as requested by Fabio
+> - Link to v1: https://lore.kernel.org/r/20241023-imx-ele-ocotp-fixes-v1-0-4adc00ce288f@pengutronix.de
 > 
-> diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-> index 1ca947d5c939..ab2515ecd6ca 100644
-> --- a/arch/arm64/include/asm/barrier.h
-> +++ b/arch/arm64/include/asm/barrier.h
-> @@ -216,6 +216,60 @@ do {									\
->  	(typeof(*ptr))VAL;						\
->  })
->  
-> +#define __smp_cond_load_timeout_spin(ptr, cond_expr,			\
-> +				     time_expr_ns, time_limit_ns)	\
-> +({									\
-> +	typeof(ptr) __PTR = (ptr);					\
-> +	__unqual_scalar_typeof(*ptr) VAL;				\
-> +	unsigned int __count = 0;					\
-> +	for (;;) {							\
-> +		VAL = READ_ONCE(*__PTR);				\
-> +		if (cond_expr)						\
-> +			break;						\
-> +		cpu_relax();						\
-> +		if (__count++ < smp_cond_time_check_count)		\
-> +			continue;					\
-> +		if ((time_expr_ns) >= time_limit_ns)			\
-> +			break;						\
-> +		__count = 0;						\
-> +	}								\
-> +	(typeof(*ptr))VAL;						\
-> +})
+> ---
+> Sascha Hauer (4):
+>        nvmem: imx-ocotp-ele: simplify read beyond device check
+>        nvmem: imx-ocotp-ele: fix reading from non zero offset
+>        nvmem: imx-ocotp-ele: fix MAC address byte order
+>        nvmem: imx-ocotp-ele: set word length to 1
 
-This is a carbon-copy of the asm-generic timeout implementation. Please
-can you avoid duplicating that in the arch code?
 
-Will
+Applied thanks,
+
+--srini
+> 
+>   drivers/nvmem/imx-ocotp-ele.c | 38 +++++++++++++++++++++++++++++++-------
+>   1 file changed, 31 insertions(+), 7 deletions(-)
+> ---
+> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+> change-id: 20241023-imx-ele-ocotp-fixes-f7b216171e1e
+> 
+> Best regards,
 
