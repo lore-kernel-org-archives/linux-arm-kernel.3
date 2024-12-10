@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60B3E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 02:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CED5E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 02:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plyHizQjFILOlGH5Iba1IrDdDMxWHhXvOcpLcYrtGxg=; b=2qj+FEh04qWjanWAw01hFkaPJ0
-	M+snQoxkV6BqFk8Til1KBI1XJZYti6qhD1lkbKekgb02r3N1fEWczwZNjGzEm/EoJmQCsr8LvyIEX
-	2kX6MIntgwaBcZOpgBzIkRHeFshkF9DVPv1qqkXcl5xYxSzmDIEPoEpHciPzMp09UM+zBgHBzq92Y
-	2TYvK+c0SwH9HqB9B2VivL5JfJi5j8QdE1/vzUM8rrOIV8xdq6yYFiWyS6ujyF1DOwOOMYX3xpvXs
-	myQ7++O19/6LAZAd9p+93pzxD3ClbzvoGqdhrRLPk4vT7EkfNS8Fw4cKLY6zEACNkKi7Tyce0xneN
-	bXYvw4CQ==;
+	bh=10lySyzZTVvC+S5oM1O6pINxMohBlWGSJurdKiLL+/8=; b=YhaqBmCPskA1tLoPauTj1lGJV6
+	C0hEFrjhJIRRZMnzmwAFrJ8EOL5H36uUPOPKuHGThDI73T4j2Nla0BmlaI2XnJs//G8hRhcI75oGr
+	yRT2ig9XdBViu1YjyZ/g2+OAmd4Hi/tK5qdzkVIKDl9UlhgCP4unFJiPOyswtSSW4SROLeR0TzYji
+	K0YvQNC1DPmTy+40OwCuJtnJUC3GNDzyaLNA1fjC08trC+e7VHw2m7R/mqWUUIvQkiItJD078DxxZ
+	BA3GoB7iHKafMLwgDPItYmGmjS30X+41bCwlIIanyJK1S9NBNp1JiexBuPYqHziooi2i/WgoZAZG3
+	xVWYDstA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqHr-0000000A1gR-1bRk;
-	Tue, 10 Dec 2024 02:47:47 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tKqIt-0000000A1sU-1S6i;
+	Tue, 10 Dec 2024 02:48:51 +0000
+Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqBq-00000009zak-0klQ
+	id 1tKqBs-00000009zc3-0Xpf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 02:41:35 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2efc3292021so1880775a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 18:41:33 -0800 (PST)
+	Tue, 10 Dec 2024 02:41:37 +0000
+Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-5f2b05e037dso1562982eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 18:41:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733798493; x=1734403293; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733798495; x=1734403295; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=plyHizQjFILOlGH5Iba1IrDdDMxWHhXvOcpLcYrtGxg=;
-        b=lmHn/p9sp7qR4UEF06UGklTWqS1XXlMMeyxO5WAYs1dH7h8zydt0sozDzjKjMPUmZh
-         hKh1zceg8a3e23Eqp3iDoKcBX+WuVbJDa1L+Zk9Jfrz5OZQLB33iz8rUabKmAyhcxd3X
-         pr706uyeiVYH5lb8+RKMdM696arEC8m7oo1nM7Zlrag2HyPdn78bNOnWe/AfqDOybx0D
-         uedNEy58ptbyBJNGXvvnMEA7UCvSKppCo+RWOGhL4pQT5NJTO6RkVWzoQlJbBYY8gZ2R
-         tC50mPJh1Rjb5wdz7AY31nRksKLyN4US8s0EAfJqUljrO2sJmIN0bHG4t21kPznOgjTb
-         HSmg==
+        bh=10lySyzZTVvC+S5oM1O6pINxMohBlWGSJurdKiLL+/8=;
+        b=rfrCZ2JmvamUidjdHw6ddztuPa9PU+vNkM45zozsBssYRN6NtCSDcnaGVx7kKdihvg
+         8Us2V+3M9ZSiXP3H0zbPXVdLuP8xZCEdXllgdchLJlOdhgnipVINVgOPet6H8MMJQhlO
+         Bpo0MzVTXLY63cvWa+ympDJ4LjPAeOtGuUDW3n5t0Yq6xnSXg55JhHnnygOceM9YDASB
+         m7YNA5b8mo7TNdrhRtFFMMiIfi7A4YcTxEn1w+jxV5TG3L5vfBPabN0FOfCITRfHbcQJ
+         apNXgZmgn9O00r1HbrAr47fUck4Fx6LfAdagUIcKaLlqeW7FoTToirWrrsTa2/G4zKGa
+         C+2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733798493; x=1734403293;
+        d=1e100.net; s=20230601; t=1733798495; x=1734403295;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=plyHizQjFILOlGH5Iba1IrDdDMxWHhXvOcpLcYrtGxg=;
-        b=A4LIpHM/mwzXiv4VVSLtiIFQzgb6m6zX4dvqpq+t95Gwr0/exKZco09PGUvnhfn7X4
-         MTCKZUgEMaXDhrHM5BdRTkTIjBPA/nqwP4bjyNI5yHJ2WfUGYzFmH1J0PD3sJSPFvA9/
-         OPeMYUVadnIGOKE9jZYCQy5+zK2Q3mgYoDnebOwH6T27WmxMBxXvkBfwIFnokFhwRtJ8
-         0IKaYdG5J25fkijRkoFqeiLYns2fmouikdvuy8WIPhQ4RABwiuSiYSwiKy1EkJ4Ae35D
-         TaOeyzUJuWSeDHXBFumEy2gDTKiDcUxXxlqFSBkZJPSx2LVxhTuQC8OD9MJPPgmdCBMu
-         TDLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNAbWN1RJOwReB+70yhNKHIFsOmIncjkUszl8zY+GvNP/z5Tx0ANief2TKrRgfi5nrtTIcKg89kEfIrgEN8OCj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSXF8a08RynwBkvLRYkDEp0oIIY9/UzmLetSxmV9TJfkefZ8YY
-	5apjMvdKHRs0s8COiZDLiF518hEOOJED+cM5VYT0G3+TMU3HH9GjyTDAmZp+NJ8Sy1Bl6ly90ff
-	UaDttMx7WDJVmhz5BLIGyjQ==
-X-Google-Smtp-Source: AGHT+IHwTbEIW/FAeU1sg3ure6LNMbce1+qfNwJ7QwjwcLyYjZmtwQZSOt2eORyWNRKplpOxNs0RywA1YRSDvXTeEQ==
-X-Received: from pjbsd7.prod.google.com ([2002:a17:90b:5147:b0:2ea:5c73:542c])
+        bh=10lySyzZTVvC+S5oM1O6pINxMohBlWGSJurdKiLL+/8=;
+        b=AW3FerAMJREhWN4bwYW1ZSTK9lno4X2kK9XHT2iEjRDwTlguMwm1rUSMfjmSfTvNtO
+         td0R67bjFwxJXs4pWkjZAb54Peiw13tYwTXflJPe4g3RAp8iF4REEOL1G13oElXz9kvz
+         BkOPwroJeKGuYInQYJrGI31JofWXetfzyrP6PUuOV8kPJfyPMrs/vpWyA5Jda+tF9khz
+         loaYCMYi5GnMBz83OaQ7xs1JFpoBD8HSGwPBHboPYK4haj/si59sNYnInGi6qbJp+f0G
+         DSvJyDv+XzEFcSegGBtOiaXkho4XnlTSht5sgkcPcEd0QPFYKBAnhZu37++96wJwlzls
+         mVzA==
+X-Forwarded-Encrypted: i=1; AJvYcCVsRcAzmHGdf4a/m0ajfHhiW6MAw0+b0+/jeHEwvNfh6ZOY5LNoJZa3Qa82pf5gvohSb7G+HRmn70G6bcWMO3ua@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxytf6MofVLiCe5BJ41smfJpBZcqPk/c33npPrf96QOTcQjRlIB
+	d+4Vmpz2PlrZQ/S99fvdPAJypq+tClCof1/uG9sEEHXvLPahTjt16yINHwNLgn2D5GIIVezxFeh
+	/PK+g0hOSf5V6g5051bb/9w==
+X-Google-Smtp-Source: AGHT+IGrVCmYvgbRZyJY6d84f+llUxgBN0sslSfR3tN174qad1011sAwn0+s/lhjeAWOT5E3i4gR4UE5Ru9TVnP2PA==
+X-Received: from oabfu21.prod.google.com ([2002:a05:6870:5d95:b0:29d:c6f7:1bb2])
  (user=kaleshsingh job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:3c0f:b0:2ee:ad18:b309 with SMTP id 98e67ed59e1d1-2efcf1700c3mr4344722a91.3.1733798492790;
- Mon, 09 Dec 2024 18:41:32 -0800 (PST)
-Date: Mon,  9 Dec 2024 18:41:07 -0800
+ 2002:a05:6870:5a9c:b0:29f:f4af:dc34 with SMTP id 586e51a60fabf-29ff4b0889emr667703fac.7.1733798494636;
+ Mon, 09 Dec 2024 18:41:34 -0800 (PST)
+Date: Mon,  9 Dec 2024 18:41:08 -0800
 In-Reply-To: <20241210024119.2488608-1-kaleshsingh@google.com>
 Mime-Version: 1.0
 References: <20241210024119.2488608-1-kaleshsingh@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241210024119.2488608-6-kaleshsingh@google.com>
-Subject: [PATCH mm-unstable 05/17] mm: arc: Use generic_mmap_hint()
+Message-ID: <20241210024119.2488608-7-kaleshsingh@google.com>
+Subject: [PATCH mm-unstable 06/17] mm: csky: Introduce arch_mmap_hint()
 From: Kalesh Singh <kaleshsingh@google.com>
 To: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com, 
 	riel@surriel.com, david@redhat.com
@@ -86,8 +86,8 @@ Cc: linux@armlinux.org.uk, tsbogend@alpha.franken.de,
 	Kalesh Singh <kaleshsingh@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_184134_208202_310145C8 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20241209_184136_164946_3D380B41 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +102,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use generic_mmap_hint() in arch arch_get_unmapped_area().
+Introduce csky arch_mmap_hint() and define HAVE_ARCH_MMAP_HINT.
+This is a preparatory patch, no functional change is introduced.
 
 Signed-off-by: Kalesh Singh <kaleshsingh@google.com>
 ---
- arch/arc/mm/mmap.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+ arch/csky/abiv1/inc/abi/pgtable-bits.h |  1 +
+ arch/csky/abiv1/mmap.c                 | 38 ++++++++++++++++++--------
+ 2 files changed, 27 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arc/mm/mmap.c b/arch/arc/mm/mmap.c
-index 2185afe8d59f..6b1fcea06779 100644
---- a/arch/arc/mm/mmap.c
-+++ b/arch/arc/mm/mmap.c
-@@ -27,7 +27,6 @@ arch_get_unmapped_area(struct file *filp, unsigned long addr,
+diff --git a/arch/csky/abiv1/inc/abi/pgtable-bits.h b/arch/csky/abiv1/inc/abi/pgtable-bits.h
+index ae7a2f76dd42..c346a9fcb522 100644
+--- a/arch/csky/abiv1/inc/abi/pgtable-bits.h
++++ b/arch/csky/abiv1/inc/abi/pgtable-bits.h
+@@ -51,5 +51,6 @@
+ 					((offset) << 10)})
+ 
+ #define HAVE_ARCH_UNMAPPED_AREA
++#define HAVE_ARCH_MMAP_HINT
+ 
+ #endif /* __ASM_CSKY_PGTABLE_BITS_H */
+diff --git a/arch/csky/abiv1/mmap.c b/arch/csky/abiv1/mmap.c
+index 1047865e82a9..184921a73856 100644
+--- a/arch/csky/abiv1/mmap.c
++++ b/arch/csky/abiv1/mmap.c
+@@ -13,6 +13,29 @@
+ 	((((addr)+SHMLBA-1)&~(SHMLBA-1)) +	\
+ 	 (((pgoff)<<PAGE_SHIFT) & (SHMLBA-1)))
+ 
++unsigned long arch_mmap_hint(struct file *filp, unsigned long addr,
++			     unsigned long len, unsigned long pgoff,
++			     unsigned long flags)
++{
++	int do_align = 0;
++
++	if (!addr)
++		return 0;
++
++	/*
++	 * We only need to do colour alignment if either the I or D
++	 * caches alias.
++	 */
++	do_align = filp || (flags & MAP_SHARED);
++
++	if (do_align)
++		addr = COLOUR_ALIGN(addr, pgoff);
++	else
++		addr = PAGE_ALIGN(addr);
++
++	return generic_mmap_hint(filp, addr, len, pgoff, flags);
++}
++
+ /*
+  * We need to ensure that shared mappings are correctly aligned to
+  * avoid aliasing issues with VIPT caches.  We need to ensure that
+@@ -27,7 +50,6 @@ arch_get_unmapped_area(struct file *filp, unsigned long addr,
  		unsigned long flags, vm_flags_t vm_flags)
  {
  	struct mm_struct *mm = current->mm;
 -	struct vm_area_struct *vma;
- 	struct vm_unmapped_area_info info = {};
- 
- 	/*
-@@ -43,14 +42,9 @@ arch_get_unmapped_area(struct file *filp, unsigned long addr,
+ 	int do_align = 0;
+ 	struct vm_unmapped_area_info info = {
+ 		.length = len,
+@@ -55,17 +77,9 @@ arch_get_unmapped_area(struct file *filp, unsigned long addr,
  	if (len > TASK_SIZE)
  		return -ENOMEM;
  
 -	if (addr) {
--		addr = PAGE_ALIGN(addr);
+-		if (do_align)
+-			addr = COLOUR_ALIGN(addr, pgoff);
+-		else
+-			addr = PAGE_ALIGN(addr);
 -
 -		vma = find_vma(mm, addr);
 -		if (TASK_SIZE - len >= addr &&
 -		    (!vma || addr + len <= vm_start_gap(vma)))
 -			return addr;
 -	}
-+	addr = generic_mmap_hint(filp, addr, len, pgoff, flags);
++	addr = arch_mmap_hint(filp, addr, len, pgoff, flags);
 +	if (addr)
 +		return addr;
  
- 	info.length = len;
- 	info.low_limit = mm->mmap_base;
+ 	info.align_mask = do_align ? (PAGE_MASK & (SHMLBA - 1)) : 0;
+ 	return vm_unmapped_area(&info);
 -- 
 2.47.0.338.g60cca15819-goog
 
