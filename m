@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C79FE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3B5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RbcVIH55l9rhghnmcM/KqdJss7FGrWsiTGYOLOJF8no=; b=HI8paEn95Orwrf6JqTW4mH08J/
-	ls52ySKQ7HCNU2N1Hg2E7tk/y6TQekAAFuKxvJEPsvhCi1Q98d5EQ8HPjmfWmCZq6aeJlpahX7PI/
-	pcRU0FaHKotaujWnLj9QDqOyVfTUBUO35ueZWNMHViPzN87ZqsmM8728OKFHNjBZdYjS9eaUIR+L+
-	lZXnaV+IIK9JN7FxaqMRfv1vU5NAzoBl1Cv7uWf6wB/jRU4hkfhRxcEN5F1kUPQqmCPv9kQEeIL50
-	htCO/wqgsZkzmlvA4YUnwQGoCP+PAf59cU+Xcxdg3KiJGE1OdqHYOisy3UQAlo1rXeq26CF95gaT3
-	qfcMhT+w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jrmNUEzHaPbfzPastsRVKoN7SSf1AJHpgCYDuVUBkcs=; b=ouKcspHBedvdbHBjivBsWP4zSg
+	DUrTAQOHWnWUwiTPjJJ0pJik7R0LJgLrl4akbTYGRT+lwnmjz74TpRY9iS2/aWIWLjV5f15lHh5p1
+	ywDVVUOHQ0ycwigfQf5bgw1ebLGyaWZDiv0OjgGIBiRiUgCE6VwAfmOzYTBc8y1Jk80SsCRMtsvqs
+	uEk/0rm0LrzvmFAh/QYjqM8s9r0ZdlAy91MbnZWeiX+ekcsTWXfSRFZp/7Ddqt6/hQXxeM9p4Nuxi
+	5GWkVpHN39sU4E07fkZkZ9clW0U0KOZy8+DMLg7+NVWKHR8CxUb/cfplhHS0VnfXb4E8O8Z0s0wDZ
+	NgRW4SXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL3FV-0000000C7dE-3n1U;
-	Tue, 10 Dec 2024 16:38:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL3Dh-0000000C7KM-3MDZ;
-	Tue, 10 Dec 2024 16:36:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733848577;
-	bh=7PWSSRiIWGZLnnL3Lzp634to7qJspcp+JF2rxRh0SOA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BjH9XQUnUbN+GmW1KUFXFFBcOaFN/Cm/xd6KanNCfmLwRC6/xNerGVsDOz3m3xWU5
-	 eTrd7X5LKcdhl6YekxmApK6ICnKhiFzNXnymH8vcgCwAwSKRAmAAP440IxOkC/xxzM
-	 sMqWoxzKOWXvxFrOTGtY6Dc+9G2AmXSV6WSVoP4aZP3AJGATZX78eHZIezpJMtyi9l
-	 eQ7W3vCphNMkDf78JU6auJJwhdOJyGUlhq6jWwYZ+HSxjfiSghMzeh6ez3nj9ouKcy
-	 YWC1zDlt7uVm4UfeL3BvEv/sFi8mq4lAFNO8eVWnrNgUOL1WDfxeRHlr/sXpZqZ66t
-	 myCmxrYeoRuvQ==
-Received: from jupiter.universe (dyndsl-091-248-190-127.ewe-ip-backbone.de [91.248.190.127])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9DCAC17E37AD;
-	Tue, 10 Dec 2024 17:36:17 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 2FF0A48CC8A; Tue, 10 Dec 2024 17:36:17 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	kernel@collabora.com
-Subject: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
-Date: Tue, 10 Dec 2024 17:36:01 +0100
-Message-ID: <20241210163615.120594-1-sebastian.reichel@collabora.com>
-X-Mailer: git-send-email 2.45.2
+	id 1tL3J7-0000000C8FX-0JYH;
+	Tue, 10 Dec 2024 16:41:57 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tL3I3-0000000C7y5-0fr8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 16:40:52 +0000
+Received: from [10.16.84.29] (unknown [131.107.8.93])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 564502047222;
+	Tue, 10 Dec 2024 08:40:49 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 564502047222
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1733848849;
+	bh=jrmNUEzHaPbfzPastsRVKoN7SSf1AJHpgCYDuVUBkcs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qaAvYq7lyqspuQZ7OkIAAqOTvmA+2X29R4IObrDpeT1/2dvBSeRobjCAh6lzuXTIB
+	 mCRwtak/ZzDJ5+IqnZv+ZWmlbSk5oi8gPenZI/luDYlvBia7HUu+Z7kvfxa3KjhD8E
+	 TnsRBHVn/f7nO8STVaJc0gW220fXwfN8VhaB3pdg=
+Message-ID: <fec1aeb7-ea07-4363-9e6a-50b0c778e855@linux.microsoft.com>
+Date: Tue, 10 Dec 2024 08:40:49 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] hyperv: Move hv_current_partition_id to arch-generic
+ code
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "arnd@arndb.de" <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
+References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1733523707-15954-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157E39FBEFB18EB9A695EECD4332@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157E39FBEFB18EB9A695EECD4332@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_083621_987874_5D603EB6 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20241210_084051_252573_30EFC90A 
+X-CRM114-Status: GOOD (  30.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,212 +90,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add hardware description for the USB-C port in the Radxa Rock 5 Model B.
-This describes the OHCI, EHCI and XHCI USB parts, but not yet the
-DisplayPort AltMode (bindings are not yet upstream).
+On 12/7/2024 7:01 PM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, December 6, 2024 2:22 PM
+>>
+>> Make hv_current_partition_id available in both x86_64 and arm64.
+>> This feature isn't specific to x86_64 and will be needed by common
+>> code.
+>>
+>> While at it, replace the BUG()s with WARN()s. Failing to get the id
+>> need not crash the machine (although it is a very bad sign).
+>>
+>> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
+>> ---
+>>  arch/arm64/hyperv/mshyperv.c    |  3 +++
+>>  arch/x86/hyperv/hv_init.c       | 25 +------------------------
+>>  arch/x86/include/asm/mshyperv.h |  2 --
+>>  drivers/hv/hv_common.c          | 23 +++++++++++++++++++++++
+>>  include/asm-generic/mshyperv.h  |  2 ++
+>>  5 files changed, 29 insertions(+), 26 deletions(-)
+>>
+>> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+>> index b1a4de4eee29..5050e748d266 100644
+>> --- a/arch/arm64/hyperv/mshyperv.c
+>> +++ b/arch/arm64/hyperv/mshyperv.c
+>> @@ -19,6 +19,9 @@
+>>
+>>  static bool hyperv_initialized;
+>>
+>> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>> +EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>> +
+> 
+> Instead of adding a definition of hv_current_partition_id on
+> the arm64 side, couldn't the definition on the x86 side in
+> hv_init.c be moved to hv_common.c (or maybe somewhere
+> else that is specific to running in the root partition, per my
+> comments in the cover letter), so there is only one definition
+> shared by both architectures?
+> 
+Yes, that's a better idea.
 
-The fusb302 node is marked with status "fail", since the board is usually
-powered through the USB-C port. Handling of errors can result in hard
-resets, which removed the bus power for some time resulting in a board
-reset.
+>>  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+>>  {
+>>  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+>> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+>> index 95eada2994e1..950f5ccdb9d9 100644
+>> --- a/arch/x86/hyperv/hv_init.c
+>> +++ b/arch/x86/hyperv/hv_init.c
+>> @@ -35,7 +35,7 @@
+>>  #include <clocksource/hyperv_timer.h>
+>>  #include <linux/highmem.h>
+>>
+>> -u64 hv_current_partition_id = ~0ull;
+>> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>>  EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>>
+>>  void *hv_hypercall_pg;
+>> @@ -394,24 +394,6 @@ static void __init hv_stimer_setup_percpu_clockev(void)
+>>  		old_setup_percpu_clockev();
+>>  }
+>>
+>> -static void __init hv_get_partition_id(void)
+>> -{
+>> -	struct hv_get_partition_id *output_page;
+>> -	u64 status;
+>> -	unsigned long flags;
+>> -
+>> -	local_irq_save(flags);
+>> -	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
+>> -	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
+>> -	if (!hv_result_success(status)) {
+>> -		/* No point in proceeding if this failed */
+>> -		pr_err("Failed to get partition ID: %lld\n", status);
+>> -		BUG();
+>> -	}
+>> -	hv_current_partition_id = output_page->partition_id;
+>> -	local_irq_restore(flags);
+>> -}
+>> -
+>>  #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>>  static u8 __init get_vtl(void)
+>>  {
+>> @@ -606,11 +588,6 @@ void __init hyperv_init(void)
+>>
+>>  	register_syscore_ops(&hv_syscore_ops);
+>>
+>> -	if (cpuid_ebx(HYPERV_CPUID_FEATURES) & HV_ACCESS_PARTITION_ID)
+>> -		hv_get_partition_id();
+>> -
+>> -	BUG_ON(hv_root_partition && hv_current_partition_id == ~0ull);
+>> -
+>>  #ifdef CONFIG_PCI_MSI
+>>  	/*
+>>  	 * If we're running as root, we want to create our own PCI MSI domain.
+>> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+>> index 5f0bc6a6d025..9eeca2a6d047 100644
+>> --- a/arch/x86/include/asm/mshyperv.h
+>> +++ b/arch/x86/include/asm/mshyperv.h
+>> @@ -44,8 +44,6 @@ extern bool hyperv_paravisor_present;
+>>
+>>  extern void *hv_hypercall_pg;
+>>
+>> -extern u64 hv_current_partition_id;
+>> -
+>>  extern union hv_ghcb * __percpu *hv_ghcb_pg;
+>>
+>>  bool hv_isolation_type_snp(void);
+>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>> index 7a35c82976e0..819bcfd2b149 100644
+>> --- a/drivers/hv/hv_common.c
+>> +++ b/drivers/hv/hv_common.c
+>> @@ -278,11 +278,34 @@ static void hv_kmsg_dump_register(void)
+>>  	}
+>>  }
+>>
+>> +static void __init hv_get_partition_id(void)
+>> +{
+>> +	struct hv_get_partition_id *output_page;
+>> +	u64 status;
+>> +	unsigned long flags;
+>> +
+>> +	local_irq_save(flags);
+>> +	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
+>> +	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
+>> +	if (!hv_result_success(status)) {
+>> +		local_irq_restore(flags);
+>> +		WARN(true, "Failed to get partition ID: %lld\n", status);
+>> +		return;
+>> +	}
+>> +	hv_current_partition_id = output_page->partition_id;
+>> +	local_irq_restore(flags);
+>> +}
+>> +
+>>  int __init hv_common_init(void)
+>>  {
+>>  	int i;
+>>  	union hv_hypervisor_version_info version;
+>>
+>> +	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+>> +		hv_get_partition_id();
+> 
+> hv_get_partition_id() uses the hyperv_pcpu_output_arg, and at
+> this point, hyperv_pcpu_output_arg isn't set. That setup
+> is done later in hv_common_init().
+> 
+>> +
+>> +	WARN_ON(hv_root_partition && hv_current_partition_id == HV_PARTITION_ID_SELF);
+>> +
+> 
+> Since the hypercall will fail cleanly if the calling VM doesn't
+> have the HV_ACCESS_PARTITION_ID privilege, could the
+> above be simplified to just this?
+> 
+> 	if (hv_root_partition)
+> 		hv_get_partition_id():
+> 
+> A non-root partition VM doesn't need to get the partition ID, while a
+> root partition should have the privilege. If the hypercall fails, there's
+> already a WARN, so there's no value in doing another WARN. Also if
+> the hypercall succeeds, it presumably returns a specific partitionID, not
+> HV_PARTITION_ID_SELF, so we know we have what we want.
+> 
+> There's already an "if (hv_root_partition)" statement for setting up
+> the hyperv_pcpu_output_arg. The call to hv_get_partition_id() could
+> go under that existing "if" *after* the hyperv_pcpu_output_arg is
+> set. :-)
+> 
+Thank you, that makes sense. I'll make the changes you suggested for v2.
 
-The main problem is that devices are supposed to interact with the
-power-supply within 5 seconds after the plug event according to the
-USB PD specification. This is more or less impossible to achieve when
-the kernel is the first software communicating with the power-supply.
+Nuno
 
-Recent U-Boot (v2025.01) will start doing USB-PD communication, which
-solves this issue. Upstream U-Boot doing USB-PD communication will also
-set the fusb302 node status to "okay". That way booting a kernel with
-the updated DT on an old U-Boot avoids a reset loop.
-
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- .../boot/dts/rockchip/rk3588-rock-5b.dts      | 121 ++++++++++++++++++
- 1 file changed, 121 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index d597112f1d5b..cb5990df6ccb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -5,6 +5,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
-+#include <dt-bindings/usb/pd.h>
- #include "rk3588.dtsi"
- 
- / {
-@@ -84,6 +85,15 @@ rfkill-bt {
- 		shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
- 	};
- 
-+	vcc12v_dcin: regulator-vcc12v-dcin {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc12v_dcin";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
- 	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -142,6 +152,7 @@ vcc5v0_sys: regulator-vcc5v0-sys {
- 		regulator-boot-on;
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc12v_dcin>;
- 	};
- 
- 	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-@@ -264,6 +275,67 @@ regulator-state-mem {
- 	};
- };
- 
-+&i2c4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c4m1_xfer>;
-+	status = "okay";
-+
-+	usbc0: usb-typec@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_int>;
-+		vbus-supply = <&vcc12v_dcin>;
-+		/*
-+		 * When the board is starting to send power-delivery messages
-+		 * too late (5 seconds according to the specification), the
-+		 * power-supply reacts with a hard-reset. That removes the
-+		 * power from VBUS for some time, which resets te whole board.
-+		 */
-+		status = "fail";
-+
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			power-role = "sink";
-+			try-power-role = "sink";
-+			op-sink-microwatt = <1000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
-+				<PDO_VAR(5000, 20000, 5000)>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					usbc0_role_sw: endpoint {
-+						remote-endpoint = <&dwc3_0_role_switch>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+					usbc0_orien_sw: endpoint {
-+						remote-endpoint = <&usbdp_phy0_orientation_switch>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+					dp_altmode_mux: endpoint {
-+						remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &i2c6 {
- 	status = "okay";
- 
-@@ -423,6 +495,10 @@ usb {
- 		vcc5v0_host_en: vcc5v0-host-en {
- 			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
-+
-+		usbc0_int: usbc0-int {
-+			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
- 	};
- };
- 
-@@ -835,6 +911,14 @@ &uart2 {
- 	status = "okay";
- };
- 
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	status = "okay";
-+};
-+
- &u2phy1 {
- 	status = "okay";
- };
-@@ -866,6 +950,29 @@ &usbdp_phy1 {
- 	status = "okay";
- };
- 
-+&usbdp_phy0 {
-+	mode-switch;
-+	orientation-switch;
-+	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		usbdp_phy0_orientation_switch: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&usbc0_orien_sw>;
-+		};
-+
-+		usbdp_phy0_dp_altmode_mux: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&dp_altmode_mux>;
-+		};
-+	};
-+};
-+
- &usb_host0_ehci {
- 	status = "okay";
- };
-@@ -874,6 +981,20 @@ &usb_host0_ohci {
- 	status = "okay";
- };
- 
-+&usb_host0_xhci {
-+	usb-role-switch;
-+	status = "okay";
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		dwc3_0_role_switch: endpoint {
-+			remote-endpoint = <&usbc0_role_sw>;
-+		};
-+	};
-+};
-+
- &usb_host1_ehci {
- 	status = "okay";
- };
--- 
-2.45.2
+> Michael
+> 
+>>  	/* Get information about the Hyper-V host version */
+>>  	if (!hv_get_hypervisor_version(&version))
+>>  		pr_info("Hyper-V: Host Build %d.%d.%d.%d-%d-%d\n",
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>> index 8fe7aaab2599..8c4ff6e9aae7 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -60,6 +60,8 @@ struct ms_hyperv_info {
+>>  extern struct ms_hyperv_info ms_hyperv;
+>>  extern bool hv_nested;
+>>
+>> +extern u64 hv_current_partition_id;
+>> +
+>>  extern void * __percpu *hyperv_pcpu_input_arg;
+>>  extern void * __percpu *hyperv_pcpu_output_arg;
+>>
+>> --
+>> 2.34.1
 
 
