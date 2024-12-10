@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D532E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BF9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwG46zvUnQw2m9oBPSyxLJojvCYh95qCe3Oj2S2XB08=; b=ANtMRGuK4pJbzCFY85bZoKYh46
-	354tnO9h4bTrNU6J6+ojavlsyaeKJOuGx5Oa+wDp+iId5wXBfVjoDCEwrQbKUS0J9ksKjavGK/0VX
-	l9yng3lTlUD1fMb93Rv/5kshB66PNEJKIps+PHRlELJwCbzgiSZhh/tpmFyCDcqFyZfvN7qbXt8Sy
-	ek1fZbqN0zz7jQCTqzIl0KcdOLOzHCwHxHwdMRy1aqJY55r+TNi9ITE6e1Q2F+JO+heuzqDOb4XAh
-	0LDbtpXU95AJUTdDJmhI4IZp/iWXyEonUkJK5ICCVUwLh0bXZjFJLa8ZCwUVg7kAhMAc8FYn31qzu
-	yJcPoKiw==;
+	bh=9IiwcG3N1ugBdkFig95nrPfsRqleGF0oTApMmnF7bcQ=; b=JV2cE7EjabATx+bEhsmtIUwnDy
+	qoNyETx9q4gFYgo+tpiLkou3bIv/EobcDouBCO9dMF6ceb7k0IEMvPhsVueQTASa1hYrbzt6DEWcf
+	4O5mSzEggJNYerqMtUgU+3orchaDAV5Stpi0R0c2oUIoqJLnjQ79Dt5nm48j6RTr58kLg7T9VmYJt
+	7ewIybHTAQF1mlhsEktkojierO4Sw0v0oZ1g/lOEF67zNEn0h09xcszEPB+ESKFXskz44rEMcj6OO
+	bx6CjDneUYMr7PJta//lpeqBfDjcQnKV2KXr/Y0f/6dUSdd5jjqO0Ny6ZLJ2ImhsG0c2yrrUFzAZd
+	uAhuGTcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2oO-0000000C2YD-41r0;
-	Tue, 10 Dec 2024 16:10:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tL2pP-0000000C2ln-2a8Q;
+	Tue, 10 Dec 2024 16:11:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2l5-0000000C1t2-1IeF
+	id 1tL2l9-0000000C1vd-0Z2M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 16:06:48 +0000
+	Tue, 10 Dec 2024 16:06:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E3725C4B5C;
-	Tue, 10 Dec 2024 16:06:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25C9DC4CEE2;
-	Tue, 10 Dec 2024 16:06:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 073FEA419A7;
+	Tue, 10 Dec 2024 16:04:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2AE5C4CEE1;
+	Tue, 10 Dec 2024 16:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733846806;
-	bh=wxcjY6Sxsaz2hTsZ9OLXJZ3XXXODa/UsYKOkty8coHs=;
+	s=k20201202; t=1733846810;
+	bh=IDAs66loD46ejrDZgcdhA2wj912kFUy5s0hoLSzyXSk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M1E8oc1U42hpuavRnkbvtANsKDn6k+Yz5tBBqHzq5EK5TUqUHa36DOjdsZtM9/Oah
-	 7Ob9TQmtp+TOGUxnPtTmLmpIqpnNroAzwnwmKUX1z2y5QJwZPjTBumWMwxlbxrJQSL
-	 XoGjjYk7/bX9yNbgOjxxo7jOVri9x8edVaTFuojVFYs2+5qimV28MQOYmCOpDoZ2hZ
-	 3WTBquHU2z6SE3hFNLNM85NRZOHnW3qjqYiCxnAFISoWZu2F1V4EvZJlQ1m0lTFihC
-	 7qBKTrXhoKxEhKdX/7Db81ANvpyxEUk+sFfpsf2DdNRV2wLjIJfc+yFATv/VLswlTx
-	 xiIo205ZM9XMQ==
+	b=ADJHIkfiTV0YsOu/HXMzwiS2RxR+5D0cCrNlcj00SQU1YljAfFMCaXaJUWQ2rdFOU
+	 iSq4zLD9LGm3Rf1r52f2jsvLRxJzbx4RHtht+B0YxK/e+1a1h1XYL9yntzNDQfQiSZ
+	 Z5x1beU4WJoE/X7BOoMoY//o1542eZPoiKgXvjzBiFVv4Ok1RdB5kWh7b1KHLRwzuJ
+	 mITMmSURfkPXvsQi08gl0RbQOPq87tCYfo9u81kCz3a8Z/pS/rAzarx8y7plmv+tHv
+	 W3QP4/mwCMHdaVN4qnm8tdWHIryJnxDxcvzoT7KBq3kTjX98PcHL4zfil8uaKsh099
+	 cHaTRkEQ4+Nsw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -59,17 +59,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Russell King <linux@armlinux.org.uk>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Steven Rostedt <rostedt@goodmis.org>
-Subject: [PATCH 2/4] ARM: Disable HIGHPTE on PREEMPT_RT kernels
-Date: Tue, 10 Dec 2024 17:05:54 +0100
-Message-Id: <20241210160556.2341497-3-arnd@kernel.org>
+Subject: [PATCH 3/4] ARM: drop CONFIG_HIGHPTE support
+Date: Tue, 10 Dec 2024 17:05:55 +0100
+Message-Id: <20241210160556.2341497-4-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20241210160556.2341497-1-arnd@kernel.org>
 References: <20241210160556.2341497-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_080647_380620_A703DE99 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20241210_080651_301018_23D7F29C 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +84,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+From: Arnd Bergmann <arnd@arndb.de>
 
-gup_pgd_range() is invoked with disabled interrupts and invokes
-__kmap_local_page_prot() via pte_offset_map(), gup_p4d_range().
-With HIGHPTE enabled, __kmap_local_page_prot() invokes kmap_high_get()
-which uses a spinlock_t via lock_kmap_any(). This leads to an
-sleeping-while-atomic error on PREEMPT_RT because spinlock_t becomes a
-sleeping lock and must not be acquired in atomic context.
+CONFIG_HIGHPTE was added in linux-2.6.32, a few years before 64-bit
+support. At the time it made sense, as the CONFIG_ARM_LPAE option allowed
+systems with 16GB of memory that made lowmem a particularly scarce
+resource, and the HIGHPTE implementation gave feature parity with 32-bit
+x86 and frv machines.
 
-The loop in map_new_virtual() uses wait_queue_head_t for wake up which
-also is using a spinlock_t.
+Since Arm is the last architecture remaining that uses this, and almost
+no 32-bit machines support more than 4GB of RAM, the cost of continuing
+to maintain HIGHPTE seems unjustified, so remove it here to allow
+simplifying the generic page table handling.
 
-Since HIGHPTE is rarely needed at all, turn it off for PREEMPT_RT
-to allow the use of get_user_pages_fast().
-
-[arnd: rework patch to turn off HIGHPTE instead of HAVE_PAST_GUP]
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Link: https://lore.kernel.org/lkml/20241204103042.1904639-8-arnd@kernel.org/T/#u
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-There is an open question about whether HIGHPTE is still needed
-at all, given how rare 32-bit machines with more than 4GB
-are on any architecture. If we instead decide to remove HIGHPTE
-altogether, this patch is no longer needed.
+I sent a patch to drop HIGHPTE support on x86 today, see
+https://lore.kernel.org/lkml/20241210144945.2325330-9-arnd@kernel.org/T/#u
+
+If that one gets merged, we can merge this one instead of the one
+that makes HIGHPTE depend on !PREEMPT_RT, but if we decide against
+the x86 change, then we probably don't want this one either.
 ---
- arch/arm/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/Kconfig               | 11 -----------
+ arch/arm/include/asm/pgalloc.h |  8 +-------
+ 2 files changed, 1 insertion(+), 18 deletions(-)
 
 diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index ed850cc0ed3c..4de4e5697bdf 100644
+index 4de4e5697bdf..e132effafd8b 100644
 --- a/arch/arm/Kconfig
 +++ b/arch/arm/Kconfig
-@@ -1231,7 +1231,7 @@ config HIGHMEM
+@@ -1229,17 +1229,6 @@ config HIGHMEM
  
- config HIGHPTE
- 	bool "Allocate 2nd-level pagetables from highmem" if EXPERT
--	depends on HIGHMEM
-+	depends on HIGHMEM && !PREEMPT_RT
- 	default y
- 	help
- 	  The VM uses one page of physical memory for each page table.
+ 	  If unsure, say n.
+ 
+-config HIGHPTE
+-	bool "Allocate 2nd-level pagetables from highmem" if EXPERT
+-	depends on HIGHMEM && !PREEMPT_RT
+-	default y
+-	help
+-	  The VM uses one page of physical memory for each page table.
+-	  For systems with a lot of processes, this can use a lot of
+-	  precious low memory, eventually leading to low memory being
+-	  consumed by page tables.  Setting this option will allow
+-	  user-space 2nd level page tables to reside in high memory.
+-
+ config ARM_PAN
+ 	bool "Enable privileged no-access"
+ 	depends on MMU
+diff --git a/arch/arm/include/asm/pgalloc.h b/arch/arm/include/asm/pgalloc.h
+index a17f01235c29..ef6cb3e6d179 100644
+--- a/arch/arm/include/asm/pgalloc.h
++++ b/arch/arm/include/asm/pgalloc.h
+@@ -85,18 +85,12 @@ pte_alloc_one_kernel(struct mm_struct *mm)
+ 	return pte;
+ }
+ 
+-#ifdef CONFIG_HIGHPTE
+-#define PGTABLE_HIGHMEM __GFP_HIGHMEM
+-#else
+-#define PGTABLE_HIGHMEM 0
+-#endif
+-
+ static inline pgtable_t
+ pte_alloc_one(struct mm_struct *mm)
+ {
+ 	struct page *pte;
+ 
+-	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER | PGTABLE_HIGHMEM);
++	pte = __pte_alloc_one(mm, GFP_PGTABLE_USER);
+ 	if (!pte)
+ 		return NULL;
+ 	if (!PageHighMem(pte))
 -- 
 2.39.5
 
