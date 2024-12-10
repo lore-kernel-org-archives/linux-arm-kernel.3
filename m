@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5EE0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC5C5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utTTuCvuh3w8J6nQIZy3AvdY9OBVE0hycTiZtgTEi6Y=; b=IvHGlOt1XK/fkTXMx244F6xH97
-	OUpjiFwOl+HgtDr70Zk/Ez6AOIfhdkT54xDwD8DS5nXLXvGLDemKxPHa0+ZZn9BbTTsMnd8EVMOvn
-	PN0cczw3cUCT70WfNpTh9/ULJGnSOh+p2juRlvvXgpi4v2YvYbljs6dZ5M9vPAZkiMmyRgEg0xIIx
-	kWSgK9f3SqLC6irIi8bBFzXc387YCfMvGg3FXi+xWRj9mi+c6zC+ud9LybE1rkZB+Lm268L3QFbUY
-	es7RTprBxF7kC/URumQB2oemiyHcQ0SUmrPxtmDNyYCtluxbgy+7n2J5oN09YTFQVCi5GBsVCz0Bd
-	mR3AUvWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Q2mjqK2utewnwz3SOQOMOSFMFJ6XlJSNAJslzIgiJI=; b=lzJLdoL02Ib0r4o7vTqndn/7hs
+	vHruRCJdO/GTALWhQKjjPOj9CAMjWXcMbaJmr4LMG+Ye3l3fDn9A6PKcmkDDZjDpPe+lpWv8UJzze
+	2cC1C8AqpUFHQP8U1oczQb5pR4B6znjbVwJbNe3rREm96xT8izJXEHJK5AhDjMyTqjxdEFaatHKmL
+	zGPcgFEdDr2HqSR3j8vAi7LZwUUzi1MKsNKp7q8JErJT5y0E8nffrxAUciEYCcpJG1QBdjBy5wD6v
+	QQd2GLcdZUSQLG7QADFH8ubM36CN4BTXt054rZsYCeRLStEFKffExRBlH/VriOZGEsnDvH+4/B4EK
+	MkxN6YGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxla-0000000BBWm-3pkq;
-	Tue, 10 Dec 2024 10:46:58 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tKxnL-0000000BBvy-3vqs;
+	Tue, 10 Dec 2024 10:48:47 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxkX-0000000BBFt-0vRB;
-	Tue, 10 Dec 2024 10:45:54 +0000
+	id 1tKxmH-0000000BBkb-2tnc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 10:47:43 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BAAlbqh2453885
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 10 Dec 2024 04:47:37 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733827657;
+	bh=0Q2mjqK2utewnwz3SOQOMOSFMFJ6XlJSNAJslzIgiJI=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=jZE1pnzR0Y7+n1EAHHaHZVWis7kL5hRKkEDugXvnvg3+fOUgbtObJbND0HWMn3GY+
+	 6gwDkM9zUoUNJtAmqx8ibu5bt2P1th+sdKw35QA8yWLSSLN+jjlOv8nYE8AVTsV5a0
+	 9Z2WYMkVizoD7QvC1tcxSyiIO4MskccTUIeBxpKA=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BAAlbiq077159
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 10 Dec 2024 04:47:37 -0600
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
+ Dec 2024 04:47:37 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 10 Dec 2024 04:47:36 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BAAla88122432;
+	Tue, 10 Dec 2024 04:47:36 -0600
+Date: Tue, 10 Dec 2024 16:17:35 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Kevin Hilman <khilman@baylibre.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, <linux-pm@vger.kernel.org>,
+        Nishanth
+ Menon <nm@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
+        Sebin Francis
+	<sebin.francis@ti.com>,
+        Markus Schneider-Pargmann <msp@baylibre.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 1/3] pmdomain: ti_sci: add per-device latency
+ constraint management
+Message-ID: <20241210104735.dtzdhdds6l7yjvgk@lcpd911>
+References: <20241206-lpm-v6-10-constraints-pmdomain-v6-0-833980158c68@baylibre.com>
+ <20241206-lpm-v6-10-constraints-pmdomain-v6-1-833980158c68@baylibre.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1733827551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=utTTuCvuh3w8J6nQIZy3AvdY9OBVE0hycTiZtgTEi6Y=;
-	b=XJbG1lW0Cdd/1WVz8664gHslMX0L0NGOdEauAEbidL2Gz+zZANyaa5m3Y7MF+Jwx1FK1wx
-	pqqqBhccPr0qh6EnZzwULif0FUZQ66Kxwgzs8vQB8yte7weND74C9EaecXpmqCgEglz0BF
-	qFpD2qwgBraLaXi75Xt3CbLWHoxlNT2gf2NBcVG0NPl8XRo0iAyxPXCf52e4vWk8401iYh
-	o9JK+th0SkNNtJx9t8m+GcLRSdvklGZGjF5jzws2NlAZxVD+uvUfVCoZb28YVZ2bhaxxxB
-	Ur1oPJd18Q8Rtn2REqhJNcictZvuw6q2QD1ubROxoc/dBFmPPYJzGwR097EJOg==
-Date: Tue, 10 Dec 2024 11:45:49 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Peter Geis <pgwipeout@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>,
- Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 6/6] arm64: dts: rockchip: Remove address aligned beats
- from rk3328-roc
-In-Reply-To: <20241210013010.81257-7-pgwipeout@gmail.com>
-References: <20241210013010.81257-1-pgwipeout@gmail.com>
- <20241210013010.81257-7-pgwipeout@gmail.com>
-Message-ID: <2b68c2dd3618e5904a4eac1ec87d29a7@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241206-lpm-v6-10-constraints-pmdomain-v6-1-833980158c68@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_024553_552536_DEEB1A67 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20241210_024741_892482_9DF5C99D 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,64 +90,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
-
-Thanks for the patch.  Please, see some comments below.
-
-On 2024-12-10 02:30, Peter Geis wrote:
-> Since commit 8a469ee35606 ("arm64: dts: rockchip: Add txpbl node for
-> RK3399/RK3328"), the snps,aal, snps,txpbl, and snps,rxpbl nodes have
-> been unnecessary in the separate device trees. There is also a
-> performance loss to using snps,aal. Remove these from the rk3328-roc
-> device tree.
+On Dec 06, 2024 at 14:12:50 -0800, Kevin Hilman wrote:
+> For each device in a TI SCI PM domain, check whether the device has
+> any resume latency constraints set via per-device PM QoS.  If
+> constraints are set, send them to DM via the new SCI constraints API.
 > 
-> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+> Checking for constraints happen for each device before system-wide
+> suspend (via ->suspend() hook.)
 > 
+> An important detail here is that the PM domain driver inserts itself
+> into the path of both the ->suspend() and ->resume() hook path
+> of *all* devices in the PM domain.  This allows generic PM domain code
+> to handle the constraint management and communication with TI SCI.
+> 
+> Further, this allows device drivers to use existing PM QoS APIs to
+> add/update constraints.
+> 
+> DM firmware clears constraints during its resume, so Linux has
+> to check/update/send constraints each time system suspends.
+> 
+> Also note that the PM QoS framework uses usecs as the units for
+> latency whereas the TI SCI firmware uses msecs, so a conversion is
+> needed before passing to TI SCI.
+> 
+> Co-developed-by: Vibhore Vardhan <vibhore@ti.com>
+> Signed-off-by: Vibhore Vardhan <vibhore@ti.com>
+> Reviewed-by: Markus Schneider-Pargmann <msp@baylibre.com>
+> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Tested-by: Dhruva Gole <d-gole@ti.com>
+> Signed-off-by: Kevin Hilman <khilman@baylibre.com>
 > ---
+>  drivers/pmdomain/ti/ti_sci_pm_domains.c | 55 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 55 insertions(+)
 > 
->  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 3 ---
->  1 file changed, 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> index 6984387ff8b3..0d476cc2144d 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> @@ -155,12 +155,9 @@ &gmac2io {
->  	phy-mode = "rgmii";
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&rgmiim1_pins>;
-> -	snps,aal;
+> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+> index 0e4bd749d067309654307484c5bb98711bf06daf..963fe1901c959197d5d8b5d34fd8420dfb180087 100644
+> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
+> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
+> @@ -13,6 +13,8 @@
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+>  #include <linux/slab.h>
+> +#include <linux/pm_qos.h>
+> +#include <linux/pm_runtime.h>
 
-Huh, I see that quite a few RK3328 board dts files specify
-the snps,aal node.  I wonder was it a "cargo cult" approach
-at play, :) or was there some real need for it?
+nit: Do we not need to sort these includes alphabetically?
 
-Actually, I see now that you added snps,aal to rk3328-roc-
-cc.dts in the commit 393f3875c385 ("arm64: dts: rockchip:
-improve rk3328-roc-cc rgmii performance."), so I guess that
-your further research and testing showed that it actually
-isn't needed for Ethernet stability?
+>  #include <linux/soc/ti/ti_sci_protocol.h>
+>  #include <dt-bindings/soc/ti,sci_pm_domain.h>
+>  
+> @@ -51,6 +53,32 @@ struct ti_sci_pm_domain {
+>  
+>  #define genpd_to_ti_sci_pd(gpd) container_of(gpd, struct ti_sci_pm_domain, pd)
+>  
+> +static inline bool ti_sci_pd_is_valid_constraint(s32 val)
+> +{
+> +	return val != PM_QOS_RESUME_LATENCY_NO_CONSTRAINT;
+> +}
+> +
+> +#ifdef CONFIG_PM_SLEEP
+> +static void ti_sci_pd_set_lat_constraint(struct device *dev, s32 val)
+> +{
+> +	struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
+> +	struct ti_sci_pm_domain *pd = genpd_to_ti_sci_pd(genpd);
+> +	const struct ti_sci_handle *ti_sci = pd->parent->ti_sci;
+> +	u16 val_ms;
+> +	int ret;
+> +
+> +	/* PM QoS latency unit is usecs, TI SCI uses msecs */
+> +	val_ms = val / USEC_PER_MSEC;
+> +	ret = ti_sci->ops.pm_ops.set_latency_constraint(ti_sci, val_ms, TISCI_MSG_CONSTRAINT_SET);
+> +	if (ret)
+> +		dev_err(dev, "ti_sci_pd: set latency constraint failed: ret=%d\n",
+> +			ret);
+> +	else
+> +		dev_dbg(dev, "ti_sci_pd: ID:%d set latency constraint %d\n",
+> +			pd->idx, val);
+> +}
+> +#endif
+> +
+>  /*
+>   * ti_sci_pd_power_off(): genpd power down hook
+>   * @domain: pointer to the powerdomain to power off
+> @@ -79,6 +107,26 @@ static int ti_sci_pd_power_on(struct generic_pm_domain *domain)
+>  		return ti_sci->ops.dev_ops.get_device(ti_sci, pd->idx);
+>  }
+>  
+> +#ifdef CONFIG_PM_SLEEP
+> +static int ti_sci_pd_suspend(struct device *dev)
+> +{
+> +	int ret;
+> +	s32 val;
+> +
+> +	ret = pm_generic_suspend(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	val = dev_pm_qos_read_value(dev, DEV_PM_QOS_RESUME_LATENCY);
+> +	if (ti_sci_pd_is_valid_constraint(val))
+> +		ti_sci_pd_set_lat_constraint(dev, val);
+> +
+> +	return 0;
+> +}
+> +#else
+> +#define ti_sci_pd_suspend		NULL
+> +#endif
+> +
+>  /*
+>   * ti_sci_pd_xlate(): translation service for TI SCI genpds
+>   * @genpdspec: DT identification data for the genpd
+> @@ -182,6 +230,13 @@ static int ti_sci_pm_domain_probe(struct platform_device *pdev)
+>  				pd->pd.flags |= GENPD_FLAG_ACTIVE_WAKEUP;
+>  				pd->idx = args.args[0];
+>  				pd->parent = pd_provider;
+> +				/*
+> +				 * If SCI constraint functions are present, then firmware
+> +				 * supports the constraints API.
+> +				 */
+> +				if (pd_provider->ti_sci->ops.pm_ops.set_device_constraint &&
+> +				    pd_provider->ti_sci->ops.pm_ops.set_latency_constraint)
+> +					pd->pd.domain.ops.suspend = ti_sci_pd_suspend;
 
->  	snps,reset-gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
->  	snps,reset-active-low;
->  	snps,reset-delays-us = <0 10000 50000>;
-> -	snps,rxpbl = <0x4>;
-> -	snps,txpbl = <0x4>;
+Rest looks good.
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
-Unless I'm missing something, the commit 8a469ee35606 ("arm64:
-dts: rockchip: Add txpbl node for RK3399/RK3328") doesn't add
-the snps,rxpbl node to the RK3328 SoC dtsi, and the respective
-driver does nothing about it when the snps,txpbl node is found.
-
-Though, I see that rk3328-rock-pi-e.dts is the only other
-RK3328 board dts file that specifies the snps,rxpbl node, so
-it seems that removing the snps,rxpbl node here should be safe,
-especially because it was you who added it in the same commit
-mentioned above.  If there were some SoC-level issues, all
-RK3328 boards would've needed it.
-
->  	tx_delay = <0x24>;
->  	rx_delay = <0x18>;
->  	status = "okay";
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
