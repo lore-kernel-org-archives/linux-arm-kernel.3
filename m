@@ -4,58 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ED6E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E8BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcKuJfhX/Ve5UPNSYYBlcC61G/qM8OOE7m7h/NqoP64=; b=4yhh75RNkfevqmtvUBFGJocTmR
-	/hGZF/dWutFnUeJPSXEPsl+ZPT0cizh3uuqOQBSYlf+yNAX8GL7LPqVFU3v2GXRFCc5WlT6ITynta
-	C9OEDj2ZNQDCEV95HpITbHh9/i9UPvBiFI1/zoo2DfNzODBtxj69Ym2AzHgfxKxLi2RbfbmGScykV
-	Cv3B3+/2+dJ+OHZDQWtGZUIcvC6XyXqN765yLOBxspR5NgaK8cwVsmT4gHIZEdNZvQmPJLyk9hzhs
-	YGXJq3Lun3veDhD1Zldk2jHDwcF1d2GYgZHUYQDxagwot65wksO8KZB2S+I77YP404FGb2Bv8WGnT
-	DYN4RX6g==;
+	bh=Dk1RMo53r9ASYI5n0vhHKP6XA98IE9bXr2M4SGqqujk=; b=bwTiwp08fNKdw+kRaX8cLdfWAi
+	u47PqJ+5XCg6Vir+66wqaYC7kd4MD3PWVXyHUNjmtJfQmDrlUcSSljrVe2VijqhBYKEiWg4ofjYL2
+	lnRSgORWkPJ7lXWV0GyOgHt/vMK94uj07gjcX8u3HY01fQ+t9OmVpmC/F9Vj7v+0+FSbh2OOocbpB
+	HPqa+8xDtgoKih6cXkvpmwmmcaG03cnpMeodPws5RSxTSqf9bhYmSC/Pjp+IHlLsvvkNv/4DUKuDi
+	NDUt52mILOsyI2eSs/lT4TcGb+1FsDf48SJHww9fhVrxsmP7cVU9N7w/trH3Hn4NR0eeiBudNmhOV
+	xcrKDrSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzYN-0000000BSUG-3FPn;
-	Tue, 10 Dec 2024 12:41:27 +0000
-Received: from out-187.mta0.migadu.com ([2001:41d0:1004:224b::bb])
+	id 1tKzam-0000000BSpV-2wLH;
+	Tue, 10 Dec 2024 12:43:56 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzXJ-0000000BSI6-0K32
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 12:40:22 +0000
-Date: Tue, 10 Dec 2024 07:40:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1733834412;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZcKuJfhX/Ve5UPNSYYBlcC61G/qM8OOE7m7h/NqoP64=;
-	b=tnMhpc6aviml/dMEm+3MILIlN8t8FtLRPRqyubeTu9IR05BO2GS/UrzKhjTreAYbpN9aKo
-	Zg4QB9SiE9nr/lY3pthbYeF18JZAxW8TEZm5QIgxxacR59exy4RktwiF1O/TfBwceuz7GQ
-	pwn59T8kkWD4LNAVEH4BA7IIzURY8vA=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Kent Overstreet <kent.overstreet@linux.dev>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-bcachefs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: arm64: stacktrace: unwind exception boundaries
-Message-ID: <rxc57eg65sg4iayhj7gc7yl24w524lviedxnydl2mggqnatglq@iairj2ci7ioj>
-References: <36kx57aw46vwykgckr5cm4fafhw54tjuj4cqljrdnpfwvjl7if@a7znuhpfu54o>
- <zbwbgkuvvciezpmigcp6gaahfxwm7cwhpzus7gtbfnbzsjb2n3@kfbdppbd74o4>
- <Z1bWaGCvUrwrj2fZ@J2N7QTR9R3>
- <Z1gll87-TkAqFwUz@J2N7QTR9R3>
+	id 1tKzZf-0000000BSgS-0hgX;
+	Tue, 10 Dec 2024 12:42:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733834568; x=1765370568;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2XWkD/yfjEhuZbsTfBejcrrLVZU1NcZkJQDTuM2rIMc=;
+  b=MAiXvQmH/7vMSA73y1A/67vTMtxx7SOlSsI8vsDix8xVMEsw8N7gvFND
+   WjJg6uA6/imuhK1bb3kDoCcZe0roxwUosjSdh9OhdJCUCBCa4XX0BKGkS
+   It2OWPaoiVGO9CFZh8s0poUf21Yy2EuJqXdPYTlhCgvrJfzDkebiqmXmM
+   FyNzRtbVIqDOI8zyr+YEXs69HkgqaJF2rvRBhVl4KKb8StCqwke/yXLJQ
+   gtiN4SwIwuG42hwucfyNdVHTXRXj4js/CChYPMmc0FjIvjw1XoPkgTGQT
+   OlR8S/BThz5Nt7uZ3iGftU7n1tOIWcGKhHSIhaVOPe7vcDBx0LtGEiExD
+   g==;
+X-CSE-ConnectionGUID: dX1sc1xZRxqap2m4CJif1g==
+X-CSE-MsgGUID: MbLLeeNEQ1+nE4TPReDukw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11278"; a="45557335"
+X-IronPort-AV: E=Sophos;i="6.12,214,1728975600"; 
+   d="scan'208";a="45557335"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 04:42:45 -0800
+X-CSE-ConnectionGUID: PNJK2U7TRI6GrhJMzjBjFw==
+X-CSE-MsgGUID: 1gEgitiCTumWExA1EmlaFA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
+   d="scan'208";a="95741297"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 10 Dec 2024 04:42:38 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tKzZT-0005Xl-2l;
+	Tue, 10 Dec 2024 12:42:35 +0000
+Date: Tue, 10 Dec 2024 20:41:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: Kalesh Singh <kaleshsingh@google.com>, akpm@linux-foundation.org,
+	vbabka@suse.cz, yang@os.amperecomputing.com, riel@surriel.com,
+	david@redhat.com
+Cc: oe-kbuild-all@lists.linux.dev, linux@armlinux.org.uk,
+	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
+	ysato@users.sourceforge.jp, dalias@libc.org,
+	glaubitz@physik.fu-berlin.de, davem@davemloft.net,
+	andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net,
+	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com,
+	leitao@debian.org, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org
+Subject: Re: [PATCH mm-unstable 11/17] mm: sh: Introduce arch_mmap_hint()
+Message-ID: <202412102044.uIAN0clk-lkp@intel.com>
+References: <20241210024119.2488608-12-kaleshsingh@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z1gll87-TkAqFwUz@J2N7QTR9R3>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20241210024119.2488608-12-kaleshsingh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_044021_391368_E1F44D5C 
-X-CRM114-Status: GOOD (  26.57  )
+X-CRM114-CacheID: sfid-20241210_044247_247937_7AA44B42 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,70 +99,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 11:27:19AM +0000, Mark Rutland wrote:
-> On Mon, Dec 09, 2024 at 11:37:12AM +0000, Mark Rutland wrote:
-> > Hi Kent,
-> > 
-> > On Thu, Dec 05, 2024 at 01:04:59PM -0500, Kent Overstreet wrote:
-> > > On 6.13-rc1, I'm now seeing a ton of test failures due to this warning -
-> > > what gives?
-> > 
-> > Sorry about this; I just sent what I *thought* was a fix for this:
-> > 
-> >   https://lore.kernel.org/linux-arm-kernel/20241209110351.1876804-1-mark.rutland@arm.com/
-> > 
-> > ... but re-reading the below I see you're actually hitting a different
-> > issue.
-> > 
-> > > 00104 ========= TEST   generic/017
-> > > 00104        run fstests generic/017 at 2024-12-05 11:47:43
-> > > 00104 spectre-v4 mitigation disabled by command-line option
-> > > 00106 bcachefs (vdc): starting version 1.13: inode_has_child_snapshots
-> > > 00106 bcachefs (vdc): initializing new filesystem
-> > > 00106 bcachefs (vdc): going read-write
-> > > 00106 bcachefs (vdc): marking superblocks
-> > > 00106 bcachefs (vdc): initializing freespace
-> > > 00106 bcachefs (vdc): done initializing freespace
-> > > 00106 bcachefs (vdc): reading snapshots table
-> > > 00106 bcachefs (vdc): reading snapshots done
-> > > 00106 bcachefs (vdc): done starting filesystem
-> > > 00200 ------------[ cut here ]------------
-> > > 00200 WARNING: CPU: 8 PID: 12571 at arch/arm64/kernel/stacktrace.c:223 arch_stack_walk+0x2c0/0x388
-> > 
-> > Looking at v6.13-rc1, that's the warning in
-> > kunwind_next_frame_record_meta() for when the frame_record_meta::type is
-> > not a valid value, which likely implies one of the following:
-> > 
-> > (a) The logic to identify a frame_record_meta is wrong.
-> > 
-> > (b) The entry logic has failed to initilialize pt_regs::stackframe::meta
-> >     on an entry path somehow.
-> > 
-> > (c) The stack has been corrupted, and some frame record has been
-> >     clobbered to look like a frame_record_meta.
-> 
-> Looking some more, I see that bch2_btree_transactions_read() is trying
-> to unwind other tasks, and I believe what's happening here is that the
-> unwindee isn't actually blocked for the duration of the unwind, leading
-> to the unwinder encountering junk and consequently producing the
-> warning.
-> 
-> As a test case, it's possible to trigger similar with a few parallel
-> instances of:
-> 
-> 	while true; do cat /proc/*/stack > /dev/null
-> 
-> The only thing we can do on the arm64 side is remove the WARN_ON_ONCE(),
-> which'll get rid of the splat. It seems we've never been unlucky enough
-> to hit a stale fgraph entry, or that would've blown up also.
-> 
-> Regardless of the way arm64 behaves here, the unwind performed by
-> bch2_btree_transactions_read() is going to contain garbage unless the
-> task is pinned in a blocked state. AFAICT the way
-> btree_trans::locking_wait::task is used is here is racy, and there's no
-> guarantee that the unwindee is actually blocked.
+Hi Kalesh,
 
-Occasionally returning garbage is completely fine, as long as the
-interface is otherwise safe. This is debug info; it's important that it
-be available and we can't impose additional synchronization for it.
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on akpm-mm/mm-everything]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Kalesh-Singh/mm-Introduce-generic_mmap_hint/20241210-104424
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+patch link:    https://lore.kernel.org/r/20241210024119.2488608-12-kaleshsingh%40google.com
+patch subject: [PATCH mm-unstable 11/17] mm: sh: Introduce arch_mmap_hint()
+config: sh-randconfig-001-20241210 (https://download.01.org/0day-ci/archive/20241210/202412102044.uIAN0clk-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241210/202412102044.uIAN0clk-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412102044.uIAN0clk-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/sh/mm/mmap.c: In function 'arch_get_unmapped_area':
+>> arch/sh/mm/mmap.c:79:32: warning: unused variable 'vma' [-Wunused-variable]
+      79 |         struct vm_area_struct *vma;
+         |                                ^~~
+>> arch/sh/mm/mmap.c:78:27: warning: unused variable 'mm' [-Wunused-variable]
+      78 |         struct mm_struct *mm = current->mm;
+         |                           ^~
+   arch/sh/mm/mmap.c: In function 'arch_get_unmapped_area_topdown':
+   arch/sh/mm/mmap.c:117:32: warning: unused variable 'vma' [-Wunused-variable]
+     117 |         struct vm_area_struct *vma;
+         |                                ^~~
+
+
+vim +/vma +79 arch/sh/mm/mmap.c
+
+2261b9c7c2357a0 Kalesh Singh      2024-12-09   73  
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   74  unsigned long arch_get_unmapped_area(struct file *filp, unsigned long addr,
+25d4054cc97484f Mark Brown        2024-09-04   75  	unsigned long len, unsigned long pgoff, unsigned long flags,
+25d4054cc97484f Mark Brown        2024-09-04   76  	vm_flags_t vm_flags)
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   77  {
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12  @78  	struct mm_struct *mm = current->mm;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12  @79  	struct vm_area_struct *vma;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   80  	int do_colour_align;
+b80fa3cbb78c0fb Rick Edgecombe    2024-03-25   81  	struct vm_unmapped_area_info info = {};
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   82  
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   83  	if (flags & MAP_FIXED) {
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   84  		/* We do not accept a shared mapping if it would violate
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   85  		 * cache aliasing constraints.
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   86  		 */
+e77414e0aad6a1b Al Viro           2009-12-05   87  		if ((flags & MAP_SHARED) &&
+e77414e0aad6a1b Al Viro           2009-12-05   88  		    ((addr - (pgoff << PAGE_SHIFT)) & shm_align_mask))
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   89  			return -EINVAL;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   90  		return addr;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   91  	}
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   92  
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   93  	if (unlikely(len > TASK_SIZE))
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   94  		return -ENOMEM;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   95  
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   96  	do_colour_align = 0;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   97  	if (filp || (flags & MAP_SHARED))
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   98  		do_colour_align = 1;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12   99  
+2261b9c7c2357a0 Kalesh Singh      2024-12-09  100  	addr = arch_mmap_hint(filp, addr, len, pgoff, flags);
+2261b9c7c2357a0 Kalesh Singh      2024-12-09  101  	if (addr)
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12  102  		return addr;
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12  103  
+b4265f12340f809 Michel Lespinasse 2012-12-11  104  	info.length = len;
+b4265f12340f809 Michel Lespinasse 2012-12-11  105  	info.low_limit = TASK_UNMAPPED_BASE;
+b4265f12340f809 Michel Lespinasse 2012-12-11  106  	info.high_limit = TASK_SIZE;
+b4265f12340f809 Michel Lespinasse 2012-12-11  107  	info.align_mask = do_colour_align ? (PAGE_MASK & shm_align_mask) : 0;
+b4265f12340f809 Michel Lespinasse 2012-12-11  108  	info.align_offset = pgoff << PAGE_SHIFT;
+b4265f12340f809 Michel Lespinasse 2012-12-11  109  	return vm_unmapped_area(&info);
+4a4a9be3ebdbf17 Paul Mundt        2008-11-12  110  }
+ee1acbfabd5270b Paul Mundt        2009-05-07  111  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
