@@ -4,162 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBD9E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 03:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDD6E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 04:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Aw++dKLPg9Vgms+SjHL6am0G8l2+BsA4sCRbdXZcATM=; b=jhHEf+vnDW4JvXqSwukYm27Tr1
-	HDaLf9Z9YTHwIi0oQp32FID6d3ezfmZmOWuE+taz8O/PzbfNPS8RahAkaurY3q9Q2AGlYol+Ko88/
-	PlqwsGcCsXangHXwXTQLFXSyDZpwhOkR5d6SL5/qQfARxUELoLS2vbdAbKe9cHrOQepQ5WgO/OyRY
-	J6mh+1Gw8GV/hj0AqbDneggwyZkjhH/HGyxUlJfsfWwJnbjyX0qG1m4Y6qsQTqDXATCKGnmf279AM
-	8Atk5o/ToLS6SWma0xPTxmFZeXXAEH/xZHvFrI/j1tdoFZ2uEq8a1i/V/lITASTTSy7zScRLLy7oS
-	l74rK1+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kVjyzJNZzUOHZ4xph7lTSEABYq06yQKkLnmVu5Ncc7M=; b=J+fGi/tF4Q8otQMd3wRxUJQbvx
+	Pa1JRu0c7HwIYOxhTxw1HZgICIEkkOBQ9aCc+WDAfUwuagCIwlo2V9BJa/XP1IQ7w/RuxpTFtZdPi
+	V+8N4h5hdWqI36x/xLH0bwDRjy1gZ6lkuwZK6zczlj0NNhO6O+cEdO0YHqlA05le73JgJiH7ZwsRO
+	MqhczVK+hPxlLjzQBguOW+nKVVlzrJrl+TrOStnuX4gIDcf94vrheJCOoDV7Q8MvgEcDeHqeqJzAJ
+	jCHZgko2bP/UWfJ2mLpHmha3d51qhW4gZHg0SPtK2C9StMGhPQcRYPLRPyroof+G0ZXE667zwPk51
+	T8KyeDNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKrAt-0000000A8D0-2jfB;
-	Tue, 10 Dec 2024 03:44:39 +0000
-Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
+	id 1tKrgj-0000000AB49-11US;
+	Tue, 10 Dec 2024 04:17:33 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKr9q-0000000A87r-0W9t
+	id 1tKrff-0000000AAxN-1B8i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 03:43:35 +0000
-Received: from pps.filterd (m0250810.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BA3UXuF026669;
-	Mon, 9 Dec 2024 19:42:47 -0800
-Received: from nam02-bn1-obe.outbound.protection.outlook.com (mail-bn1nam02lp2040.outbound.protection.outlook.com [104.47.51.40])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 43cx1u289c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 09 Dec 2024 19:42:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t8FxJ7lnvZCr1lhLVNXZV5NFH+T40tGOOlmQOXK/f1vIUm0suTRU22bj0mPLbkeN0oHQ8hQYSa6L+gdi5Q0JIgb8MSTHoixVu/6bXLM3ruIMyF/a0R4Hkueso4ZLOUyHL1FNDONVCV56UKQqpVqpU4MBPg6QOfkY89LPrUZu6ZrROrLX0ZxDJUtDjdbN3JCtlgkDE07D1ASJNDGrVwLDm/QMOEi39LImeeP0JfU7y+O8dzNAcE4P/SD4OhIwMdNScjI7czWnIzA6a7GIDATSZF0STsquazbhVPTeqSo2w7r7iPUeNT0VPSv9brNguv6/snkKKhWCQPHd6r1mS12Npw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Aw++dKLPg9Vgms+SjHL6am0G8l2+BsA4sCRbdXZcATM=;
- b=Xizao6MeJ5++wM+3Uu+SPmRMieyZUyjxRcg4pZVpKRnt7PMHRzJ5X2Ha6l4AkE8DG9b1igAyNUebbYq3eia6LmLrjICAXjr2eVhDtMpecmAVHeIK0u65AC8eKu1YG6407xo+RSUQxQyY4AQSJHLJLXB1q6Z1cl6/xs9RLRVW6ty1IndrnhLcFuu41bIUU6w0fWZ8/HW2DkkAhyQ7IvqpMGnreeSvU1WgUZ1YXtCZqRtwy+PZkMRClABih61Ikaprm1QnbpI0Cm0bHwqNxIDfpSPgSwSWnzfctnNJBPxEnvLPfISCadCb8qZKqKpUyu4lQGLEmlquEeY/NO23Bql0Xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Received: from MW5PR11MB5764.namprd11.prod.outlook.com (2603:10b6:303:197::8)
- by MW4PR11MB6981.namprd11.prod.outlook.com (2603:10b6:303:229::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.11; Tue, 10 Dec
- 2024 03:42:42 +0000
-Received: from MW5PR11MB5764.namprd11.prod.outlook.com
- ([fe80::3c2c:a17f:2516:4dc8]) by MW5PR11MB5764.namprd11.prod.outlook.com
- ([fe80::3c2c:a17f:2516:4dc8%7]) with mapi id 15.20.8230.010; Tue, 10 Dec 2024
- 03:42:42 +0000
-From: Xiaolei Wang <xiaolei.wang@windriver.com>
-To: l.stach@pengutronix.de, gregkh@linuxfoundation.org, jirislaby@kernel.org,
-        shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-        festevam@gmail.com, esben@geanix.com, marex@denx.de,
-        ilpo.jarvinen@linux.intel.com, linux@rasmusvillemoes.dk,
-        stefan.eichenberger@toradex.com, l.sanfilippo@kunbus.com,
-        cniedermaier@dh-electronics.com, rickaran@axis.com,
-        xiaolei.wang@windriver.com
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] serial: imx: Use uart_port_lock_irq() instead of uart_port_lock()
-Date: Tue, 10 Dec 2024 11:42:23 +0800
-Message-Id: <20241210034223.1493522-1-xiaolei.wang@windriver.com>
-X-Mailer: git-send-email 2.25.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0069.apcprd02.prod.outlook.com
- (2603:1096:4:54::33) To MW5PR11MB5764.namprd11.prod.outlook.com
- (2603:10b6:303:197::8)
+	Tue, 10 Dec 2024 04:16:29 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53e3778bffdso3641445e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 20:16:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1733804185; x=1734408985; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kVjyzJNZzUOHZ4xph7lTSEABYq06yQKkLnmVu5Ncc7M=;
+        b=dDOgLqsZO4ICbIkCgC9IAjOUuneHIvp+M+KVpV/GrPPg1o0FQGAhtSFKaJFHSL352+
+         pN97lbHvzX/VMVBbPkcryD/n6MhzA52J2XCl//+ped0T0MZwLkMxuOOV+7T0eeKkAwf7
+         Q9LK3SPRALA3GUFK6CSzg9lHQOrTbNgp8XoaQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733804185; x=1734408985;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kVjyzJNZzUOHZ4xph7lTSEABYq06yQKkLnmVu5Ncc7M=;
+        b=R6I2NcnclMOkdA01RlRQiRhyoocSbvS6v85rsroK1wYeb31zRbOG56QcM+yTcn7Cbz
+         CCjTxjWD8br7UQ8IAa6Gkdmejxp4w+Dswkf1PAGEmedF0uWJWaxZc5mUmf8imZ0BG4KX
+         m7DczusHw3WX8+y3LyWOgRgs2B7WyLqSZ7VKssWg53aZlSO1XbnKdyL/r3j4laure4sW
+         eOTBgw7080MAxDnw8vLZgvFUS9EUZ4xPumB4Kg5PAA9sHjIzm6i+5PKhXUKMAsdG4wJi
+         fQUP5ghY2P1R3Nc9RctpB+uYpFXRr5LBDB9dHdx8mizcp248Oh597LJPYcqUciXIGzeN
+         93wA==
+X-Forwarded-Encrypted: i=1; AJvYcCUF7y92qrn+g3hsYeRsEo6Gjgrkpvh674Ja1GH4GrO1tOVWoOVhnxuhfE6ffhomQamSaWyCpRSBBJBNvIZ0v0XW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzT6kAd104+yoBBZIhTlQWNwaoSWQgSXX+rymcaBT+wEzp2/1kJ
+	nrayxeZ/94FWpAkOVBBi/TQLzBjfNiP78OhquhsfoN4iofgxdjn6vLoIYOMvG7WkmIhAO8VMIH8
+	UJjfiVlMLPFaO8g8TJbLUERkbXRQp7P4asv/K
+X-Gm-Gg: ASbGnctWVNh78CY5PwnXnpkdYqUU8RJIW+7JayB04d8JlWXqFWoWdXpNCabNLiih4GU
+	5g8EBxy/n2nmweIYfxUvm97pV0dRf1aOt0FqUOWnQPhUGxDMdRCoLaSZ+DKDFf48=
+X-Google-Smtp-Source: AGHT+IFLm7BUs8MAU7wTXsZF4FUsJzFdNX0LJUGWf1hGpJQa8BMT4iC8QeVgWREJrgR+EdOW4ukZF7ZP90wiDT03Nq4=
+X-Received: by 2002:a05:6512:6cc:b0:53e:391c:e96c with SMTP id
+ 2adb3069b0e04-540240b0ff8mr1052794e87.8.1733804184782; Mon, 09 Dec 2024
+ 20:16:24 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW5PR11MB5764:EE_|MW4PR11MB6981:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5580fa6-d24c-4769-2448-08dd18ccb38e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t7Bi4LaC0OnStBgas5f7efVe8Tp7j09HE/qWuFXa/DdqTs9PTVowVt1+fMHg?=
- =?us-ascii?Q?notBCFlP/fCuGEhc+EYyD0jKw1k0S3dDTYwFuUkkoOcHjetimjvyUouQYsxF?=
- =?us-ascii?Q?NeK6sYVQUlAWsPfducwnrfjedI5exafzWGCi8XenC0FUAMAaMhD/GZGwi0PO?=
- =?us-ascii?Q?Yh8n1P3Jzl11nFXiKgKAq4Ra39nkXwqrXLiXsCfHPzJQ2f+FwE+xsGk//1Cv?=
- =?us-ascii?Q?TxYFfpHD4RljF+WD253db/4ykskIqESX40yQ7PMXj2AqLfB16nun/WD+545Z?=
- =?us-ascii?Q?2VFlPixEtKoUq376/TPZRuNDrTpe6tVo9Rl66q3qs15pGnrDrMzmQwBTD52m?=
- =?us-ascii?Q?bQuslDN0XUUPBg24vPhkTTzZ+V3+PpMYiCAF1N98QjmbmkQiyfjBN2I2mBSQ?=
- =?us-ascii?Q?spRR5w9UYa0jsfwgGUiGOad8w3PM4e38HnlW3CDbZqCG5gIiNjVT1fvl5HOW?=
- =?us-ascii?Q?cwAFuivaXNuZ/5jArXy54LJM75kj3hrxPAnx1W318dQIjy3VnmOpg1AzkCVE?=
- =?us-ascii?Q?Mpiue/P21s8W9LcRYsLWLkmrZLTaMHCFK6CkEOQPRa+2D8TvxvrUJfRdI3v1?=
- =?us-ascii?Q?QjZ+T7Llxcg4KwJIZCSHRbpSErMxAXS7gHMbJ7LX65nctwf+Pb3YzReUT5w6?=
- =?us-ascii?Q?R8mmp3pNB0AUNttr8ZCevNeetZa2Qpps5oJVjYZSvRM6HOSyd1yi+c6oFe8M?=
- =?us-ascii?Q?+TetwSOgrl/3Q21v3f0d5ZSw9t02RNE8kWXcjQeBSE5KwrQf40UyGiZ8dJvd?=
- =?us-ascii?Q?PGLf0BUr/agE0aV9zjgWSD0uOSJ9Jvx8kO26WeRG9BGJdPgnqtrAH2VTTyHc?=
- =?us-ascii?Q?e7uXMOKOpILsTgtUFARgkOtAQO6S+FZAzKhOXywwf2UAfbMn7SpPi4I3O3MN?=
- =?us-ascii?Q?WbEKSB9V6IyL6LI59Ygnmyi2zQh01VBwNnK1xWKmGmnkvgSBLHlWin3tNPIR?=
- =?us-ascii?Q?QhfO1O2s0PUEYlpDtJU/omXjln1eKTdb/PxCqUFOzw05WcRhHlklsbwmj39X?=
- =?us-ascii?Q?zP1YYdvD9vd10CtU7U4AOG/RiaQFSDNYqvyi9SfggE7YK5q3VzAIv8PmzFG4?=
- =?us-ascii?Q?Q3Ht9Vjl96Q5InEbJOf9/QN4HaAV1mDPa2SL376EbtuGz3aUBRcRyq/5ooMY?=
- =?us-ascii?Q?6ScYa58By1z3NJk/+CBfGVONYY5c/4iydWWis67zIvYbEQmvkagT/lkRb+Q3?=
- =?us-ascii?Q?BnhxUodS0fNP3bc+HsniLYBJjZouwwIiBEzyUhNXpvAQFj3M/nszdiTMv3oB?=
- =?us-ascii?Q?j+nMbPfuTFkmv+lluY75L39s16zJRsyGB3kBC7tDLuxkNuH07sCI198ArTWj?=
- =?us-ascii?Q?assfc7GS4T2AkS9icWYKh9BdqYt2Sx0KfK/zZgAcYJticOcyDpxf2m0GmzR7?=
- =?us-ascii?Q?NKKlTkaIyhjAtIhtA83rOYUJhTIjOwhFa5jlsjFo8MXrJvzzenInBSViLWfr?=
- =?us-ascii?Q?dlGj89KVIi8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW5PR11MB5764.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qBj1pwrYqBcooE3zOo0BlnbOASqk/YeLM46pfV/GlVewBr0AMEhxeaE4wnxn?=
- =?us-ascii?Q?q8YqDRGf5TgN7o0n+XDuyP8KO3LgZLjWXjNsRF8+neoNJAJOC4tn5/ysDYNv?=
- =?us-ascii?Q?pAumPTQ0RhpvtsLugeJOXBqe25XbrM2xz13Uk0X+x71KUATS6TJW/ew2foh0?=
- =?us-ascii?Q?7v8egHLWeEnfcZmFG1acUX9LLmUn1z19JijWrkFgiDcUsEYzmZmlw3q5zWpv?=
- =?us-ascii?Q?36WZitFoHVw78Sr7nsvRxu/q6Ezkv0tjRPqA0vUko35yYMdyOP5I37AB9mCF?=
- =?us-ascii?Q?e/Gf570p8QlMbEFpTl41Z92+bxr95olRHrtk85paRXyt1pKbnodgMaZMfRu7?=
- =?us-ascii?Q?xieDVwsoQXNVaOIVA4fkQTh7Y/P7okAXYl8v7sdjpUZvcFaPfulU1r9/BfM0?=
- =?us-ascii?Q?uRXjWU8bCDcpzroY8HlLc+c3Eh4eZgXT1zC7/xHb0RfEjGrNpAICBOpDbXzS?=
- =?us-ascii?Q?NO1mJORcugN9HYavlF8TyvncEt8kj/bzez8lyhwuqooUb3aiefIJ93h9fNxI?=
- =?us-ascii?Q?OqmLqdls6Im123OiXZm144klcsKZDqlRbElA2DTuBsmuNqCFAkoEPfQdtIy8?=
- =?us-ascii?Q?6YVVcIu2izs6J1QpF8tYDM2ikAak7FpC3nndMKykq1sFYCGfKFQTINKdE+Q4?=
- =?us-ascii?Q?e2HF9PfVIVo2yo2nhk3Rk+7qC02Speg/lsURyUZGLlWBzhSapatUdY5M4DWL?=
- =?us-ascii?Q?3dt06nagVDTNiReQTQnWILCPRqmncppO2JVtcqzFJA7F+RimYY3Rk3Bm4no2?=
- =?us-ascii?Q?xWT9Dq6fDT0ncL4JtGzcCDEIwJ3zGhHLBApihRkLVJ0vvA30fXvNEc9B23UE?=
- =?us-ascii?Q?RpD0FfYRG9q9uqVrt4n9KbbD8G/sxEte0zSXDavlwBYZPl6SPUqE/3L9IRIR?=
- =?us-ascii?Q?zZjTe5xn9ENS2XIcGW5X6bFRqQB251AV/DTFEbQdipV8gbaJbfXsoJcSYR2o?=
- =?us-ascii?Q?gJ0eNuRYhYGq5gS7UmhETHCqOX63FK2CE8xDNdrxnyVSabhxXJlVTDx8szNM?=
- =?us-ascii?Q?2MiueDTyDms/k1H1OL2/JBUAofbffKg718vLhhIyZBMCB3ZZVUAKoTTOCBb7?=
- =?us-ascii?Q?1E4wlHZWtIdTbwfmBMGLMxeyz5pi/8FGyXnJ/z2dwlq1q8Bqj+WjVxxk64DO?=
- =?us-ascii?Q?rEKM1ixeMJ/nkNAIZyYqiLdEDIkvXQfPaEumj5l0/SIYYqF7dT5SjzHYnp1W?=
- =?us-ascii?Q?V1q0K8yK0KlsOKPzJpYzah5V8E7qLPUv+7prRQeGBaFz0wkGdijSjiQMk5pd?=
- =?us-ascii?Q?wWiXZUfXPN26USINb9dyQiTclmmiZxEYjY1BppJCiW2M2bLcIg9sNHx63YPI?=
- =?us-ascii?Q?B3STgaWqq35nD7W6HgnpsF7fZGipI/xfxk9giaWfJWqCz6lH26vXE4W1WCqq?=
- =?us-ascii?Q?IVGfHVnTyRPQGd5avmv2QUXsF3xJ3yuK/mUWWrCSAITJmUMhg8MWFmtY7qq4?=
- =?us-ascii?Q?hwHgqpB7tuTUnZm99bPXV/2hTYrrus1KN/n6QZGxbi3Gq10/696FWbTu96CU?=
- =?us-ascii?Q?zF0zdWlENsLZfPnj5fOwNW5OOGIcxU1U+95gjX4wnYpQUhh87Rbj++P5r0LV?=
- =?us-ascii?Q?7qq+Vm8vfRS7WliafbQiCQcS9qX5ieTveAn5AVcQKTYTIGHnkjQuJB4R9aAv?=
- =?us-ascii?Q?yw=3D=3D?=
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5580fa6-d24c-4769-2448-08dd18ccb38e
-X-MS-Exchange-CrossTenant-AuthSource: MW5PR11MB5764.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 03:42:42.3837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wlyk7uEAQMohN/QxQZIqXJUUDtai7bRyPJYQIC9UYQpB73eKdI7tHlqPJDeDYPTFxNBc+3UP96qQxXZDdecS6UAlBFuuNYUkrTn/pSqeKIU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR11MB6981
-X-Authority-Analysis: v=2.4 cv=H/shw/Yi c=1 sm=1 tr=0 ts=6757b8b7 cx=c_pps a=UtaLnOzkojfj4BVWksq/2g==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=RZcAm9yDv7YA:10 a=bRTqI5nwn0kA:10 a=VwQbUJbxAAAA:8
- a=t7CeM3EgAAAA:8 a=A__u6bYh_LbSektZ6DAA:9 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-ORIG-GUID: 7FjK5ft-tOoluzcFAOCOEAlfM8ex3ziY
-X-Proofpoint-GUID: 7FjK5ft-tOoluzcFAOCOEAlfM8ex3ziY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2024-12-09_22,2024-12-09_05,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- phishscore=0 mlxlogscore=999 suspectscore=0 spamscore=0 clxscore=1011
- impostorscore=0 adultscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
- mlxscore=0 classifier=spam authscore=0 adjust=0 reason=mlx scancount=1
- engine=8.21.0-2411120000 definitions=main-2412100025
+References: <20241203-mt8188-afe-fix-hang-disabled-apll1-clk-v1-1-07cdd7760834@collabora.com>
+ <a10dbdf265194e77a69b6e40afa3df9636b3ab14.camel@mediatek.com>
+ <a70a0521-985d-43a4-a1fa-36eb733d5ca9@collabora.com> <1d2ee55dde84bcab6f777525042c6789b9f2c1fc.camel@mediatek.com>
+ <108d4187-26af-43f6-8b1e-0e48516524a4@notapiano>
+In-Reply-To: <108d4187-26af-43f6-8b1e-0e48516524a4@notapiano>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 10 Dec 2024 12:16:13 +0800
+Message-ID: <CAGXv+5Gi30-GSy_D+DHS_wz-A3F4qxuc7-6KpfBQ-iJwr3POtQ@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt8188: Enable apll1 clock during reg rw
+ to prevent hang
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: =?UTF-8?B?VHJldm9yIFd1ICjlkLPmlofoia8p?= <Trevor.Wu@mediatek.com>, 
+	"lgirdwood@gmail.com" <lgirdwood@gmail.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"broonie@kernel.org" <broonie@kernel.org>, "tiwai@suse.com" <tiwai@suse.com>, "perex@perex.cz" <perex@perex.cz>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kernel@collabora.com" <kernel@collabora.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_194334_164324_0EF75EF8 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20241209_201627_447615_797308EC 
+X-CRM114-Status: GOOD (  54.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,90 +100,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When executing 'ehco mem > /sys/power/state', the following
-deadlock occurs. Since there is output during the serial
-port entering the suspend process, the suspend will be
-interrupted, resulting in the nesting of locks. Therefore,
-use uart_port_lock_irq() instead of uart_port_unlock().
+On Tue, Dec 10, 2024 at 4:08=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
+<nfraprado@collabora.com> wrote:
+>
+> On Fri, Dec 06, 2024 at 06:57:00AM +0000, Trevor Wu (=E5=90=B3=E6=96=87=
+=E8=89=AF) wrote:
+> > On Thu, 2024-12-05 at 13:51 +0100, AngeloGioacchino Del Regno wrote:
+> > >
+> > >
+> > > Il 04/12/24 13:17, Trevor Wu (=E5=90=B3=E6=96=87=E8=89=AF) ha scritto=
+:
+> > > > On Tue, 2024-12-03 at 17:07 -0300, N=C3=ADcolas F. R. A. Prado wrot=
+e:
+> > > >
+> > > > >
+> > > > > Currently, booting the Genio 700 EVK board with the MT8188 sound
+> > > > > platform driver configured as a module (CONFIG_SND_SOC_MT8188=3Dm=
+)
+> > > > > results
+> > > > > in a system hang right when the HW registers for the audio
+> > > > > controller
+> > > > > are read:
+> > > > >
+> > > > >    mt8188-audio 10b10000.audio-controller: No cache defaults,
+> > > > > reading
+> > > > > back from HW
+> > > > >
+> > > > > The hang doesn't occur with the driver configured as builtin as
+> > > > > then
+> > > > > the
+> > > > > unused clocks are still enabled.
+> > > > >
+> > > > > Enable the apll1 clock during register read/write to prevent the
+> > > > > hang.
+> > > > >
+> > > > > Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.c=
+om>
+> > > > > ---
+> > > > >   sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 4 ++++
+> > > > >   1 file changed, 4 insertions(+)
+> > > > >
+> > > > > diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > > b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > > index
+> > > > > e69c1bb2cb239596dee50b166c20192d5408be10..fb8cf286df3f02ac076528b
+> > > > > 898f
+> > > > > d0d7a708ec1ea 100644
+> > > > > --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > > +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
+> > > > > @@ -587,6 +587,8 @@ int mt8188_afe_enable_reg_rw_clk(struct
+> > > > > mtk_base_afe *afe)
+> > > > >          mt8188_afe_enable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
+> > > > >
+> > > > >          mt8188_afe_enable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_AUD_A1SYS]);
+> > > > >
+> > > > > +       mt8188_afe_enable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_APMIXED_APLL1]);
+> > > > >
+> > > > > +
+> > > > >          return 0;
+> > > > >   }
+> > > >
+> > > > Hi Nicolas,
+> > > >
+> > > > If I understand correctly, APLL1 should be the parent clock of
+> > > > AUD_A1SYS_HP and AUD_A1SYS, so it should be enabled automatically
+> > > > by
+> > > > CCF.
+> > > >
+> > > > I'm not sure why you resolved the hang issue after enabling APLL1.
+> > > > Could you share more details about the solution?
+> > > >
+> > >
+> > > Hmm. Now I see what's happening here...
+> > >
+> > > Nicolas, Trevor,
+> > >
+> > > Possible parents for top_a1sys_hp are:
+> > >   - clk26m
+> > >   - apll1_d4
+> > >
+> > > ...what's happening here most probably is that after the clock gets
+> > > disabled as
+> > > unused, it gets parented to clk26m by default as that is parent index
+> > > 0... and
+> > > something else in AFE needs APLL1 to feed a clock to .. something ..
+> > > to allow
+> > > register access.
+> > >
+> > > Trevor, do you know why is this IP unaccessible when A1SYS is
+> > > parented to clk26m?
+> >
+> > Hi Angelo,
+> >
+> > As far as I know, it should work even though the clock is parented to
+> > clk26m.
+> >
+> > Unfortunately, I have no idea about why APLL1 enabling can resolve the
+> > hang issue. I'm also curious about how Nicolas found the solution to
+> > resolve the problem.
+> >
+> > From the description, it seems that the problem is related to register
+> > r/w hang. If I remembered correctly, when the mtcmos of ADSP_INFRA is
+> > ON, register r/w won't cause the cpu to hang. However, ADSP_INFRA has
+> > been configured as ALWAYS_ON in the driver. I'm not sure if it doesn't
+> > work correctly when the driver is configured as a module. Maybe Nicolas
+> > can also check this.
+>
+> Indeed, as suggested by Angelo, adding
+>
+>   assigned-clocks =3D <&topckgen CLK_TOP_A1SYS_HP>;
+>   assigned-clock-parents =3D <&topckgen CLK_TOP_APLL1_D4>;
+>
+> to the afe node also fixes this issue.
+>
+> In mt8188.dtsi, we currently have
+>
+>   afe: audio-controller@10b10000 {
+>         ...
+>         assigned-clocks =3D <&topckgen CLK_TOP_A1SYS_HP>;
+>         assigned-clock-parents =3D  <&clk26m>;
+>
+> So the question is, do other MT8188 platforms need clk26m to be the paren=
+t of
+> a1sys_hp? Depending on that I can either update the parent on the common
+> mt8188.dtsi or on the genio700-evk.dts, which is where I observed the iss=
+ue. I
+> don't have access to other mt8188 platforms. Trevor, do you know?
+>
+> As for how I identified this issue, I noticed that when booting with the
+> platform driver as a module the system would hang, and that passing
+> clk_ignore_unused avoided the issue. Then I selectively ignored some unus=
+ed
+> clocks until I narrowed down to ignoring unused only the apll1 clock, mea=
+ning
+> the apll1 clock needed to be left on during the platform driver probe for=
+ the
+> system to not hang.
 
-WARNING: inconsistent lock state
-6.12.0-rc2-00002-g3c199ed5bd64-dirty #23 Not tainted
---------------------------------
-inconsistent {IN-HARDIRQ-W} -> {HARDIRQ-ON-W} usage.
-sh/494 [HC0[0]:SC0[0]:HE1:SE1] takes:
-c4db5850 (&port_lock_key){?.-.}-{3:3}, at: imx_uart_enable_wakeup+0x14/0x254
-{IN-HARDIRQ-W} state was registered at:
-  lock_acquire+0x104/0x348
-  _raw_spin_lock+0x48/0x84
-  imx_uart_int+0x14/0x4dc
-  __handle_irq_event_percpu+0xac/0x2fc
-  handle_irq_event_percpu+0xc/0x40
-  handle_irq_event+0x38/0x8c
-  handle_fasteoi_irq+0xb4/0x1b8
-  handle_irq_desc+0x1c/0x2c
-  gic_handle_irq+0x6c/0xa0
-  generic_handle_arch_irq+0x2c/0x64
-  call_with_stack+0x18/0x20
-  __irq_svc+0x9c/0xbc
-  _raw_spin_unlock_irqrestore+0x2c/0x48
-  uart_write+0xd8/0x3a0
-  do_output_char+0x1a8/0x1e4
-  n_tty_write+0x224/0x440
-  file_tty_write.constprop.0+0x124/0x250
-  do_iter_readv_writev+0x100/0x1e0
-  vfs_writev+0xc4/0x448
-  do_writev+0x68/0xf8
-  ret_fast_syscall+0x0/0x1c
-irq event stamp: 31593
-hardirqs last  enabled at (31593): [<c1150e48>] _raw_spin_unlock_irqrestore+0x44/0x48
-hardirqs last disabled at (31592): [<c07f32f0>] clk_enable_lock+0x60/0x120
-softirqs last  enabled at (30334): [<c012d1d4>] handle_softirqs+0x2cc/0x478
-softirqs last disabled at (30325): [<c012d510>] __irq_exit_rcu+0x120/0x15c
+I don't know. The AFE driver supposedly enables all clocks that are
+required for register access on runtime PM resume using
+mt8188_afe_enable_reg_rw_clk().
 
-other info that might help us debug this:
- Possible unsafe locking scenario:
+Maybe try enabling debug printk in sound/soc/mediatek/mt8188/mt8188-afe-clk=
+.c
+and see what that gives you? There are already debug messages around the
+clk enable/disable calls.
 
-       CPU0
-       ----
-  lock(&port_lock_key);
-  <Interrupt>
-    lock(&port_lock_key);
+Either there's a bug or incorrect description of the clock tree,
+or the AFE device node is referencing the wrong clocks.
 
-Fixes: 3c199ed5bd64 ("serial: imx: Grab port lock in imx_uart_enable_wakeup()")
-Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
----
 
-v1:
-  https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241209124732.693834-1-xiaolei.wang@windriver.com/
-v2:
-  use uart_port_lock_irq() instead of uart_port_lock_irqsave()
+ChenYu
 
- drivers/tty/serial/imx.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 17f70e4bee43..9c59ec128bb4 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -2692,7 +2692,7 @@ static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
- {
- 	u32 ucr3;
- 
--	uart_port_lock(&sport->port);
-+	uart_port_lock_irq(&sport->port);
- 
- 	ucr3 = imx_uart_readl(sport, UCR3);
- 	if (on) {
-@@ -2714,7 +2714,7 @@ static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
- 		imx_uart_writel(sport, ucr1, UCR1);
- 	}
- 
--	uart_port_unlock(&sport->port);
-+	uart_port_unlock_irq(&sport->port);
- }
- 
- static int imx_uart_suspend_noirq(struct device *dev)
--- 
-2.25.1
-
+> Thanks,
+> N=C3=ADcolas
+>
+> >
+> > Thanks,
+> > Trevor
+> >
+> > >
+> > > That might give Nicolas a definitive hint about how to resolve this
+> > > issue.
+> > >
+> > > Cheers,
+> > > Angelo
+> > >
+> > > > Thanks,
+> > > > Trevor
+> > > >
+> > > > >
+> > > > > @@ -594,6 +596,8 @@ int mt8188_afe_disable_reg_rw_clk(struct
+> > > > > mtk_base_afe *afe)
+> > > > >   {
+> > > > >          struct mt8188_afe_private *afe_priv =3D afe-
+> > > > > >platform_priv;
+> > > > >
+> > > > > +       mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_APMIXED_APLL1]);
+> > > > >
+> > > > > +
+> > > > >          mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_AUD_A1SYS]);
+> > > > >
+> > > > >          mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_AUD_A1SYS_HP]);
+> > > > >
+> > > > >          mt8188_afe_disable_clk(afe, afe_priv-
+> > > > > > clk[MT8188_CLK_AUD_AFE]);
+> > > > >
+> > > > > ---
+> > > > > base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
+> > > > > change-id: 20241203-mt8188-afe-fix-hang-disabled-apll1-clk-
+> > > > > b3c11782cbaf
+> > > > >
+> > > > > Best regards,
+> > > > > --
+> > > > > N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> > > > >
+> > > > >
+> > >
+> > >
+>
 
