@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C41BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E96E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vm/SMvu/8EpKkDOC/meueBC9lfWEJCHJn3wNu3oS+nU=; b=TvmuT/TiWwW4vZhtvxaLLR5MoT
-	ATlO6mPkcAX4Xw1PSZMiiuYkTseDr3duCKr8hC2CntD1x4i2rrD0/TnW6PabE2MaONCJCnpvAQHg4
-	SHWOCC5v8oYrQnKt0SDNvqtWEif+N948AoLJy9bLu4a6q1z/1hWtcIcaeuXFzqY/tm6xMzcW++iwY
-	yaFuiiSVmLOCGmWHKSM8wJA+WVrmfygQZBNu/gRyd7EP+N0wi5jpISWhWbL8JflMOMNByiJqxATie
-	ZpqWFHwKSZyzi5/Mfx62xvybp7Hkh0qqx1ggFLqceopU/+YaEgUSeKUt3AZ0BZTaFbd0QsCzI73Ls
-	zq+JcPiA==;
+	bh=5fIIWMp7qjjozw0r8pKMUPB5DziYW5td3dF2oKjVLsg=; b=of5UjZXeOmMfm4TE4FPGdpaloj
+	O07+2OVEg2R06slRyAi2Iq3CHDHUeNf4STy/bn3D5HdP3QkiRdWLcLOexFTSaFPrmdSwnkjxkRzDU
+	/mM2oO9usQW3zjfDy6370bCP2SMxrUsOA8/jyIj+ApfkX7026+jHLdgwMOtBC4rwXPwFookz1ZRTy
+	3/e2PMu97kIMEM8Ko83EOxoEzWTRiuQ3Q3URj/cNbHFlFzIhLoikiIj9G692+XcWtWkj7RfpuQFe7
+	d7WU7kerivgmIZmzMstQevEXf07awDecxL3kxCIf4E8RDCzz3zf34Bn/m/u/v7RQUNi92uAwKzg0m
+	sc4EF8CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1S7-0000000Bp0i-0O8G;
-	Tue, 10 Dec 2024 14:43:07 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tL1TB-0000000BpNb-21TY;
+	Tue, 10 Dec 2024 14:44:13 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1MB-0000000BnHU-3Ke8;
-	Tue, 10 Dec 2024 14:37:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Vm/SMvu/8EpKkDOC/meueBC9lfWEJCHJn3wNu3oS+nU=; b=apGYPtk9B8cEHvRnlKnZRfyPlB
-	UjU0n9BxnezEUSJl9xr/rIS3CAWGyApMVmPm35fTQfK9Lg1qjH1CqrI3pEIUsgAH3IAqgLHXpIi+5
-	1Rn2C4tjKDlVc/d7X34Zq4zZ6HCNJYmUb07z1nntcDroUOFxB3djTFTLeug2S0rRYOYXLX1VKG3d7
-	wnlxrVKNe5R4q/9/UANNYjy5aP2n7mEi9uoUgwPSQFTqN5FNCUlgEBz+0dey58QWAUnSOtLtS+W6w
-	sowpUyWKnenxm2NVdRvHK4tS7iOstRm1QAWChyc+OKiUkXA6I87nkF1VdHmwPKgZxU/V0Fy5rB84E
-	//ZQ2gsg==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tL1Lk-0006dG-TS; Tue, 10 Dec 2024 15:36:32 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Andy Yan <andyshrk@163.com>
-Cc: Daniel Semkowicz <dse@thaumatec.com>,
- Diederik de Haas <didi.debian@cknow.org>, andy.yan@rock-chips.com,
- Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com, jonas@kwiboo.se,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- neil.armstrong@linaro.org, quentin.schulz@cherry.de, rfoss@kernel.org,
- robh@kernel.org, tzimmermann@suse.de
-Subject: Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2 controller
-Date: Tue, 10 Dec 2024 15:36:31 +0100
-Message-ID: <3104907.xgJ6IN8ObU@diego>
-In-Reply-To: <78e7b8e.b5ee.193b09ce46d.Coremail.andyshrk@163.com>
-References: <20241203165450.1501219-1-heiko@sntech.de>
- <jl5obi7rd4h6ywozeqruxq2vx62sx5yf4wwpksrq3prdleps2k@d3zbr5ttquvn>
- <78e7b8e.b5ee.193b09ce46d.Coremail.andyshrk@163.com>
+	id 1tL1Qs-0000000BoYj-3N3q
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 14:41:52 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-434e5e71a08so42045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 06:41:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733841709; x=1734446509; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=5fIIWMp7qjjozw0r8pKMUPB5DziYW5td3dF2oKjVLsg=;
+        b=wHGVT4oCZjvaaPYu1vXoUMcRaA7rQxMsr/jvGuQrlmBbVO5Na6mEdtM0qPF092s3vK
+         eJr4KLnsIYSG6vMZuxFvVsRA6Dy6fXHSzZK73PFeq0/9/AUy9SsIgriWVnYsCi25SK+i
+         11MCEZEMbOcQSwbyfv0Yk4UaOVY8IfOHWjBSwLG/Ny+JlTlwVcNvqUVcWJUYjT4MN0Ts
+         i7Fo2ZVthUirE7ftl18hGBkSN8YL94+u8atSLcGOUONg6YwgEJH5V/aigmvAWD5flKcJ
+         tYzplDi6e8Ez24QmypNFiqsYooWnjsYZJlGXBh1jO4IXdGNMOTv8A4291MF0JGZMJFP2
+         XmBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733841709; x=1734446509;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5fIIWMp7qjjozw0r8pKMUPB5DziYW5td3dF2oKjVLsg=;
+        b=eQmxv5c/lRqFZnd2FJZwubAXmulocgqL+5DaYZkYbZpnkh2aIjXwB2Q+OWsommxn5+
+         EE0JNMeZk9TcEZYkIhPIdk2TxYVbxeq5x11Uog1XHGNmCIeiz3k3B/VvrmSJdvmz1fmx
+         E5nlnwgLcjQNRt3zSGAPNYSzffISnqjsuRKt4uY62mRfZ5kXPry7BW8vFvK914mQEicb
+         ILKzdfAO0KVMgM2ltvpHylBEPaJNmj1sa9RyjuEKpcMmAhGVNZLHjKRYSM2uuovkSkYR
+         IX62OOMOgtJy2u50OyxddTQNNRKFdMrci7c4ThzxLU6FjiOE4HtfiBIwPu3aW95Z9NnH
+         fcOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUnAVO7rm/TMouDVa4wdR8bEZzSq3Dbj2ZJHhv6A2GsJK16LL5RPNt955r8Bf6quYocVGodYD+tqQ0dKJboFymx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz//luQ4/Zm2GPPZbga+UxnWQefHbRa0VjIItLEF5k7RCbhxrb
+	UKAFTuFaXgJGGiY1omSCsX5Grle/dzRSqHIfuGyX21j/Bgz1JeFaYpbBR3pIsCW+DxyaHtJs+f+
+	LVVs1DE5NbDAFK6/Y+ZBDCbT7ox7t+41IWRiP
+X-Gm-Gg: ASbGncvPAQAl8UlSesti2USuj61CX9SjatrcvOYqZ531xbolM0tfpPoCV4UVfnEvBMl
+	+vB/R0O9NNneBd1LKrz2BnBo5TLDIsJzt9IUGSsTOi+zNIp8JA/ZXmEx7m4Fgn8IT
+X-Google-Smtp-Source: AGHT+IGt3oMRotBPgAwrwV/rrRSOvtwIdVWe57J7beeBt9bYDDljWajSERju3lMmJnq6Z9ZrG8XVFNSEZ9oxYokNtW0=
+X-Received: by 2002:a05:600c:350b:b0:435:921b:3535 with SMTP id
+ 5b1f17b1804b1-435921b360amr969545e9.3.1733841708454; Tue, 10 Dec 2024
+ 06:41:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+References: <20241203103735.2267589-1-qperret@google.com> <20241203103735.2267589-12-qperret@google.com>
+In-Reply-To: <20241203103735.2267589-12-qperret@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 10 Dec 2024 14:41:12 +0000
+Message-ID: <CA+EHjTw48LTFt=sKtPwS1rmA=ma6Sj9O-D=17FXoMybqZ7+g5g@mail.gmail.com>
+Subject: Re: [PATCH v2 11/18] KVM: arm64: Introduce __pkvm_host_unshare_guest()
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_063659_823486_9AC2F111 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20241210_064150_845365_8919BE93 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +94,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Hi Quentin,
 
-Am Dienstag, 10. Dezember 2024, 13:48:12 CET schrieb Andy Yan:
-> =E5=9C=A8 2024-12-10 20:32:03=EF=BC=8C"Dmitry Baryshkov" <dmitry.baryshko=
-v@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
-> >On Tue, Dec 10, 2024 at 09:54:09AM +0800, Andy Yan wrote:
-> >> =E5=9C=A8 2024-12-10 09:45:11=EF=BC=8C"Dmitry Baryshkov" <dmitry.barys=
-hkov@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
-> >> >On Tue, 10 Dec 2024 at 03:22, Andy Yan <andyshrk@163.com> wrote:
-> >> >> =E5=9C=A8 2024-12-10 09:01:38=EF=BC=8C"Dmitry Baryshkov" <dmitry.ba=
-ryshkov@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
-> >> >> >On Tue, Dec 10, 2024 at 08:50:51AM +0800, Andy Yan wrote:
-> >> >> >> At 2024-12-10 07:12:26, "Heiko St=C3=BCbner" <heiko@sntech.de> w=
-rote:
-> >> >> >> >Am Montag, 9. Dezember 2024, 17:11:03 CET schrieb Diederik de H=
-aas:
-> >> >> >> >> On Mon Dec 9, 2024 at 4:06 PM CET, Daniel Semkowicz wrote:
-> >> >> >> >> > On 03.12.24 21:54, Heiko Stuebner wrote:
-> >> >> >> >This really sounds like something is wrong on the vop side.
-> >> >> >> >The interrupt is part of the vop, the divisable by 4 things lik=
-ely too.
-> >> >> >>
-> >> >> >> This is a hardware limitation on vop side:
-> >> >> >> The horizontal resolution must be 4 pixel aligned.
-> >> >> >
-> >> >> >Then mode_valid() and atomic_check() must reject modes that don't =
-fit.
-> >> >>
-> >> >> We round down to 4 pixel aligned in mode_fixup in our bsp kernel,
-> >> >
-> >> >What is meant by the "bsp kernel" here? I don't see it being present
-> >>=20
-> >> bsp kernel means downstream vendor kernel.
-> >>=20
-> >> >in the mainline kernel. So, if the mode is unsupported, it should be
-> >>=20
-> >> Will it be acceptable to add this round down in the mainline mode_fixu=
-p?
-> >
-> >I think so.
->=20
-> Then I can write a patch for it.
+On Tue, 3 Dec 2024 at 10:38, Quentin Perret <qperret@google.com> wrote:
+>
+> In preparation for letting the host unmap pages from non-protected
+> guests, introduce a new hypercall implementing the host-unshare-guest
+> transition.
+>
+> Signed-off-by: Quentin Perret <qperret@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_asm.h              |  1 +
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  5 ++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 24 +++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 67 +++++++++++++++++++
+>  5 files changed, 98 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 449337f5b2a3..0b6c4d325134 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -66,6 +66,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+>         __KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+>         __KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+>         __KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index a7976e50f556..e528a42ed60e 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -40,6 +40,7 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+> +int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
 
-thanks a lot for looking into that :-)
+The parameters of share_guest and unshare_guest are quite different. I
+think that the unshare makes more sense, that it uses the hyp_vm as
+opposed to the hyp_vcpu. Still, I think that one of the two should
+change.
+
+>  bool addr_is_memory(phys_addr_t phys);
+>  int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> index be52c5b15e21..5dfc9ece9aa5 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> @@ -64,6 +64,11 @@ static inline bool pkvm_hyp_vcpu_is_protected(struct pkvm_hyp_vcpu *hyp_vcpu)
+>         return vcpu_is_protected(&hyp_vcpu->vcpu);
+>  }
+>
+> +static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
+> +{
+> +       return kvm_vm_is_protected(&hyp_vm->kvm);
+> +}
+> +
+>  void pkvm_hyp_vm_table_init(void *tbl);
+>
+>  int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index d659462fbf5d..04a9053ae1d5 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -244,6 +244,29 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+>         cpu_reg(host_ctxt, 1) =  ret;
+>  }
+>
+> +static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
+> +{
+> +       DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+> +       DECLARE_REG(u64, gfn, host_ctxt, 2);
+> +       struct pkvm_hyp_vm *hyp_vm;
+> +       int ret = -EINVAL;
+> +
+> +       if (!is_protected_kvm_enabled())
+> +               goto out;
+> +
+> +       hyp_vm = get_pkvm_hyp_vm(handle);
+> +       if (!hyp_vm)
+> +               goto out;
+> +       if (pkvm_hyp_vm_is_protected(hyp_vm))
+> +               goto put_hyp_vm;
+
+bikeshedding: is -EINVAL the best return value, or might -EPERM be
+better if the VM is protected?
+
+> +
+> +       ret = __pkvm_host_unshare_guest(gfn, hyp_vm);
+> +put_hyp_vm:
+> +       put_pkvm_hyp_vm(hyp_vm);
+> +out:
+> +       cpu_reg(host_ctxt, 1) =  ret;
+> +}
+> +
+>  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+>  {
+>         DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+> @@ -454,6 +477,7 @@ static const hcall_t host_hcall[] = {
+>         HANDLE_FUNC(__pkvm_host_share_hyp),
+>         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+>         HANDLE_FUNC(__pkvm_host_share_guest),
+> +       HANDLE_FUNC(__pkvm_host_unshare_guest),
+>         HANDLE_FUNC(__kvm_adjust_pc),
+>         HANDLE_FUNC(__kvm_vcpu_run),
+>         HANDLE_FUNC(__kvm_flush_vm_context),
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index a69d7212b64c..aa27a3e42e5e 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -1413,3 +1413,70 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+>
+>         return ret;
+>  }
+> +
+> +static int __check_host_unshare_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ipa)
+
+nit: sometimes (in this and other patches) you use vm to refer to
+pkvm_hyp_vm, and other times you use hyp_vm. Makes grepping/searching
+a bit more tricky.
+
+Cheers,
+/fuad
 
 
-Heiko
-
-
+> +{
+> +       enum pkvm_page_state state;
+> +       struct hyp_page *page;
+> +       kvm_pte_t pte;
+> +       u64 phys;
+> +       s8 level;
+> +       int ret;
+> +
+> +       ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
+> +       if (ret)
+> +               return ret;
+> +       if (level != KVM_PGTABLE_LAST_LEVEL)
+> +               return -E2BIG;
+> +       if (!kvm_pte_valid(pte))
+> +               return -ENOENT;
+> +
+> +       state = guest_get_page_state(pte, ipa);
+> +       if (state != PKVM_PAGE_SHARED_BORROWED)
+> +               return -EPERM;
+> +
+> +       phys = kvm_pte_to_phys(pte);
+> +       ret = range_is_allowed_memory(phys, phys + PAGE_SIZE);
+> +       if (WARN_ON(ret))
+> +               return ret;
+> +
+> +       page = hyp_phys_to_page(phys);
+> +       if (page->host_state != PKVM_PAGE_SHARED_OWNED)
+> +               return -EPERM;
+> +       if (WARN_ON(!page->host_share_guest_count))
+> +               return -EINVAL;
+> +
+> +       *__phys = phys;
+> +
+> +       return 0;
+> +}
+> +
+> +int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm)
+> +{
+> +       u64 ipa = hyp_pfn_to_phys(gfn);
+> +       struct hyp_page *page;
+> +       u64 phys;
+> +       int ret;
+> +
+> +       host_lock_component();
+> +       guest_lock_component(hyp_vm);
+> +
+> +       ret = __check_host_unshare_guest(hyp_vm, &phys, ipa);
+> +       if (ret)
+> +               goto unlock;
+> +
+> +       ret = kvm_pgtable_stage2_unmap(&hyp_vm->pgt, ipa, PAGE_SIZE);
+> +       if (ret)
+> +               goto unlock;
+> +
+> +       page = hyp_phys_to_page(phys);
+> +       page->host_share_guest_count--;
+> +       if (!page->host_share_guest_count)
+> +               WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_OWNED));
+> +
+> +unlock:
+> +       guest_unlock_component(hyp_vm);
+> +       host_unlock_component();
+> +
+> +       return ret;
+> +}
+> --
+> 2.47.0.338.g60cca15819-goog
+>
 
