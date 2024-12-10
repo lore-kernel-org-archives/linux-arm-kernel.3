@@ -4,76 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB8BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC11E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E1k1NKAG0VAHn8y+herauQKsleTkHdP588nI/DUPH50=; b=QtGb5YYjv+5GMsVz7dd1bX8UMs
-	8urSe60Y/YzpZgBLWZ0/ijtChUAUu7VK3i+hqAQuddC00a6/z69G/ZlR5fqR2YmDyOX8IQzsi59w7
-	V7CR0f4Cl4znP4PiE0T7iRD1OI7SAn0GZlDT4BcG0NpoUAueosGJ5AA5ru+6xYRKkX3kNw+2VPap3
-	Mg1fdF+g4fLZ9GYMZVofXoO1wTjS5SVbDEM/Q0Qa48zrOGG1ILPVo1JNMA5INYyeLqFIsshDeAyho
-	EHXb7FNC3wNNKCYAjEnQLHdDI7OG4Zw4harByWAYqb2KjIXfi9fzAMtWPCgyU7RrocZsV6apUfBPo
-	gQuEts/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKiVCfGIPAGhmL4JLlI7UkbxVYsotBE0UKaH1ZtXpEU=; b=1fB9KRfKT0H8lecfgZQBl8IQvz
+	NozBWSai7AsuFtMajTPTR3hqQo6hvP55QtAhvtn5iHE2hPhbRSuZGGLSJoz5PqOXizPqJavSJ88o4
+	D7XtH94PLz3P2q7oNXYg6MWVhpgjmXWhor3/TQnc5tau8qjjvSlqU0bDgYTup9+FaN+uqwj5C0Trn
+	k5qpBaT+DkMbNwsMRHjpbkgGSP+O1xcIsEbYXlXCID5U6wN2VpxUaN/3ZeJNeOX0dgf+mdiTHe+eg
+	uZ/S6FbzsXhJWaOJFP6I1R5d3nFmnkAWPOmAIT5lwKBaGL9zBok9U4+BC8mHuOcba6zTYPOEKFj8n
+	7E2d35Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Ff-0000000BlZI-3W9w;
-	Tue, 10 Dec 2024 14:30:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tL1Gg-0000000Blpe-32CI;
+	Tue, 10 Dec 2024 14:31:18 +0000
+Received: from mail-dm6nam11on2060e.outbound.protection.outlook.com ([2a01:111:f403:2415::60e] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL13z-0000000Bigc-2FoD;
-	Tue, 10 Dec 2024 14:18:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=E1k1NKAG0VAHn8y+herauQKsleTkHdP588nI/DUPH50=; b=nd+65dSkyWy+Hb9E/SJk7+8tXl
-	E1WpfAUxa077/fD+yAFuIYs+J8Uqy0tXl1tvktTwvOghB/xgZMht3SH6XTx5BeaVp6XAZ9J3i9RR8
-	xuDRfcUJ1yV7igrOxM6swWEoyet/VP4OGdyRl8Vab0s/zx/pMcf4w+eaiS7+9rwe1hQjMudZvZV1G
-	3yqNLrJphwPaQyQ63t92mhzDBDNkB4lzTEX/QR1VsJBFOkaER3xj5/r0xBUUbn9eF4ss8J3KHs2xz
-	l59TafXWPoiFG0X2Zsf7Gtp8LD+Dkpg5AedIz/rd285jcX1xHwAIffrpdkWOsm3pwtml8bBksFvA6
-	pQsMwcPw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40906)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tL13l-0002SM-2n;
-	Tue, 10 Dec 2024 14:17:58 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tL13g-00031q-2T;
-	Tue, 10 Dec 2024 14:17:52 +0000
-Date: Tue, 10 Dec 2024 14:17:52 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Woojung Huh <woojung.huh@microchip.com>
-Subject: [PATCH net-next 0/9] net: dsa: cleanup EEE (part 1)
-Message-ID: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
-MIME-Version: 1.0
+	id 1tL146-0000000Bijg-0yS9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 14:18:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Npkht0ngNm3CKy9B8l4ECXf3frlwg6C2V3MDAFSN/VlBPxysLQuHeuouezVVv9wQN0Jiz/B0+9iU74AlbJW/cUuNtrxTX1dwu6mGnAA1RTs2OaRXzsuaJvv4x2fb3g95E0zYKZuF5EKgpdif63OHu39VLgFht+4CGBJLOD+bag3bpCr+SR6kciXYWv3GyhXWXCCmMqT8Nc0AXalSgH/RXE9W6Ws86d0vDgYDsM+QF6csKecz4cWodEvbFv7WkZoWLJvrKc3n3hHTTR8xktCu+ox1+dUYxNCywLx8hHQOR3fS+k0ciU49uYT8An+qEn+csNjBcHB/tH7KdXXhnZwtyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GKiVCfGIPAGhmL4JLlI7UkbxVYsotBE0UKaH1ZtXpEU=;
+ b=QDX2zV7JyoW/j5Xwoa2Cv7LiQzVV/3xuR4WjFTxR7aZ0k4XnQIRkIsNmLVWC5QuHf76+gV+QdxCf9J7nN2jo7Q1FajyjlkO5d/VvMCkeFX3qW10RNQU1XDpbNBuhhorkiNUeQkp2gTwqWECHmCPumu724eUK8O9PuyLIEz8sKYMBt+1PPGAaWckBgtMzdLcyqnAniHTv46oRqN8EWy8sAo5IcVZdkfTEhmdFqRMjDtdgLEo9P8EtEr2DmhoLuCAs/urwPQGzSPf6K8b0atdnINUNP/R7csETqMoysHvAbvxeHf64MWf3D5houndDRxjX4auHM27AsfRSI5Lj+bzmfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GKiVCfGIPAGhmL4JLlI7UkbxVYsotBE0UKaH1ZtXpEU=;
+ b=o64keJIvqVaCAhdS3UcT+6LZi0nSz0HsVg3noFLIbKO/2N7ucID7HeDL/Xy0q0iii7CT+Ag9iW2twr71dyCN/WvIFAJrYqbue4Xy4GDStDIfbpAe3caOcIsoNEBYusf22SuEFvAHmPH4rYe9JOkQ3mVuXZcHYlIx60h7Y0PrvDqhaVkp+5tgINwi47GLTah6eln/xIuWOD29JpDE2VzDg9XRnL8hE1uQx8dLm8gjBekOYJI10jk5bL4sB+4yPNXXj9DzjuAw0gUNrMoCKjR/TJwJ1fKwBSkOEEp0adNA9GaFSiNDttWs1MS8F4+rfy8ggwQZFNHu+Te6wWCx6vlvvg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DM6PR12MB4154.namprd12.prod.outlook.com (2603:10b6:5:21d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.19; Tue, 10 Dec
+ 2024 14:18:08 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%5]) with mapi id 15.20.8230.010; Tue, 10 Dec 2024
+ 14:18:08 +0000
+Date: Tue, 10 Dec 2024 10:18:06 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Will Deacon <will@kernel.org>
+Cc: ankita@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, ryan.roberts@arm.com, shahuang@redhat.com,
+	lpieralisi@kernel.org, aniketa@nvidia.com, cjia@nvidia.com,
+	kwankhede@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com,
+	acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com,
+	danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com,
+	udhoke@nvidia.com, dnigam@nvidia.com, alex.williamson@redhat.com,
+	sebastianene@google.com, coltonlewis@google.com,
+	kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org,
+	akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/1] KVM: arm64: Map GPU memory with no struct pages
+Message-ID: <20241210141806.GI2347147@nvidia.com>
+References: <20241118131958.4609-1-ankita@nvidia.com>
+ <20241210140739.GC15607@willie-the-truck>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20241210140739.GC15607@willie-the-truck>
+X-ClientProxiedBy: BN9P223CA0020.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:408:10b::25) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM6PR12MB4154:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d7bcc32-a9e9-4b37-7747-08dd19257884
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4PS/ENpRRXNMCPIqqal4Mk0RUBpxy294zFxse9hjeXsMsHfGvA8twrClTb2T?=
+ =?us-ascii?Q?3yNxCOjkwDWHwdCrKSM6bJCEwcXNMDIHFMZOImIqun39P6xBqsdTj2E8pPpT?=
+ =?us-ascii?Q?P36NUHKCpzn8IuMzCPgMj5gBl/6wVAdz5WfefGSPQXaZ9e8P9TfGskOJ+Wv5?=
+ =?us-ascii?Q?iU0zQyeOGm2MImdqIQyEsIRxG7ltPfnT0pmHKT0tT3ePjA/TPQK4N8sTbuvj?=
+ =?us-ascii?Q?WuvCdBgOcK5GY52Z8TSJF81cWqiA+Amqpl2Zg2Cpdhvn98ukDYM3MMCFSEor?=
+ =?us-ascii?Q?tIKP6zAxH0BBgj+cCnEfeMu9epBaVZd2eUNUqA7z3poqXduIQEifPjx+CinL?=
+ =?us-ascii?Q?uPTBOQYgrkVFJF/H3ONCt6SBpTcen2UGM7KZIj7Zdgb/xbcypy4ns9MTXaff?=
+ =?us-ascii?Q?THtXpkbovUgjPo7JWorjGAuxs47GM9AJsaGvGvaBEPEVYPo86lcRmys6CT0r?=
+ =?us-ascii?Q?ryEJyP7xEFSqlp/lQC0JbWsnx642FyZsIGm4thwjo3MS/mQmYwrjeUfOBWo0?=
+ =?us-ascii?Q?UOeyDqW1MY2uUGz4HJy0Ro5J+MAAUJzWB7K2L7bKV3e9DCElsA1Ee4fDKPMS?=
+ =?us-ascii?Q?StQFLRNmAB/WTpXu/t68g6X82uoj3vF4D57RcpuXTRgrA4hqRc6yz8FdJ3FA?=
+ =?us-ascii?Q?yXeC0Rrcs1fVtsV70Bn/Fmax2BEOvyzMOPRnN5koRQjmS1A9L+SsChd1yUdO?=
+ =?us-ascii?Q?1S7zoUroRe0YIRmsloXdB5yBWhzQ2BzMIwGgnauNvZ5fTM4krU281olNApxX?=
+ =?us-ascii?Q?Kd3PULnBDeIRcoYx0CKzVgdJHQhtQrkIiBhj64ie69RCgYLpbRf4nywSR6gy?=
+ =?us-ascii?Q?X5Zg4ZqBstNBAjBaqs+1T/GHK2f34FWbkljPiocIc3wEu6DLVU91zXJ+ymgy?=
+ =?us-ascii?Q?poumK2tV0blYzwZu/LcLFDGvVzzkEAHziFW0ny9NRMG3xwxivqePNtxo++Jk?=
+ =?us-ascii?Q?/4jrkgmeupYS8jijAc5HJ8Rd7uLuXTWnDXTP4rOh6ZXvpTjz5Oh06uRrGlIq?=
+ =?us-ascii?Q?9PQSKeKVm2dbZus9a1OE6/0p/tmhhOlNeTs2cnxy4ZtgghFHiGVGptba43Pc?=
+ =?us-ascii?Q?EDUQGtqe9RCVdUfkABVQrDSF5FOK1tNQBJzpoDYmZ8khCuwim5TvfERq0zIH?=
+ =?us-ascii?Q?oDoJ/8dJp43QDusiPKr7yqUbO1Z5PexmVL3283AIhxE2dOpbEPQsjN4pfPeO?=
+ =?us-ascii?Q?Lw9HGHWcLhYdrHeRYzTvL1sg4EPVQSkZKXZFjQ3FUFpjvbcwY086gXCWgrB/?=
+ =?us-ascii?Q?pE4GWN+IlMb1rXTEI2VaDxi8+h8m6r1iS9q25j7pevNr2jR0zzw7sVrY8TDT?=
+ =?us-ascii?Q?EHBfGur41V+fKy89Lv4FZOIf05xV7edZVb+Gtz0hGspB+Us+TAuOcCqealZy?=
+ =?us-ascii?Q?VldpsBA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eibW1OTnzZNRVa8OhzUibVDYbWkjj0OvvKKsCGPZvbQMq8yMFm8u4r9JIY0T?=
+ =?us-ascii?Q?P9mrRc1+kOeOhWI9fw5/C3MbitWqqVu6PTxHwTFaPNy6LBsSxQl/ce/jpAt+?=
+ =?us-ascii?Q?88RNOrx9DuZ3NiXVREk0b0Pb11MHIjKhs/1lFyUkGlHE/MCelbXHKHuimK7S?=
+ =?us-ascii?Q?G+JgLW0vKsDOt9ag4gOF2FVCDX5D/38VOfzWC+iklL/Md729h3kU3jp8db1m?=
+ =?us-ascii?Q?jcPdJgxALKXnGLp/af8ukcDBhQVqulbR+PHbhH7vfK1bl3YCCVjBosOVM4Zs?=
+ =?us-ascii?Q?uCkGxt0nuEIIWq2YWD0VD5GhAoFmK885ZAU1uHkvr3XoT95FwmJk5qTwU8/4?=
+ =?us-ascii?Q?r1NwwWG3MMmIDohDb6ofsxL853Pe087TY0fZGlzUCnLsmuuLWnmVR1Q6pi8W?=
+ =?us-ascii?Q?YkmhCZMug1a0nwk5p9bydDcXEkflQA/3iJ7LYjAsgM9v4F8ixe6VHE9i33At?=
+ =?us-ascii?Q?d3Ob5VX3soYCUAbLY8SH5emu3r4UzCYVQMJJaJynd4iOoDq4zsR/2nf1ftSB?=
+ =?us-ascii?Q?3oiE3mlITBV4nyBS6uzuSMFRvTTzCPF9VxzJlz4zkaL1mC53yeDnQsM7h5gG?=
+ =?us-ascii?Q?QZUAds79Zj30EfH8eD79Ayb9wZNNahG889D13h1KZX4rP9NXrF1TYPTADwx0?=
+ =?us-ascii?Q?t+qoKSWYAfIUmCyKWeXYkr1QlVxBoAQPm9NHQayF/3ab0cXFrPSXiSYJjlxw?=
+ =?us-ascii?Q?HRB/ZbUP/ql0KNibVdlR/x7PHfhP+FZ6HilZHs5iwRtDgomXHL8X/cwkcp4n?=
+ =?us-ascii?Q?2jpDKDeZgD8GRS6aVk0sgvX0pAjsIdIoEy84L9BO89mt6U/cV8rm64kJz7QT?=
+ =?us-ascii?Q?/gr4imxBeeLPIzxNy76L/LvLBXV5+4pINghwTfw5raKbiPdL+Uhab8Eut2r4?=
+ =?us-ascii?Q?0aNlvCf47R7ioKY0BRWSa5rTpTbkm2LwHAmbQSp7KULWPc5sXRxoPIVZPg8x?=
+ =?us-ascii?Q?rsDEm2KCtWGrBqZ5DwM5C7lrVdUuPnnf/VFN7iWUhDP5mI9J6bjh5dJgt7pL?=
+ =?us-ascii?Q?hJ+4+a2mNKVgTQfYT+8x1c8V6K8SHdsQZQZIBm0AxheGHc4s2JS/V2rwR6N+?=
+ =?us-ascii?Q?PFTAH52mlj2La2jpqSgKZTYVq7D3CRufokJlYPpSilKGEd1nPYB5xSTMMdnv?=
+ =?us-ascii?Q?Cglb3vQwKzDekJgvL8wCx6yJPo3hW8Xbo+ZvzsFu0JHuA9sWisrhuy1kvrLB?=
+ =?us-ascii?Q?/jSKWOuuYyhb6BR9DXOt1CwnyLuvnwXBGCw51izc3QjwpPVy9JT3lznSk1RA?=
+ =?us-ascii?Q?m2pH5pgTFtGSkkvQ+i2iOOFuDTUC26PAP6a9dE9gD8/HpAT4ZchW+NTw/PSO?=
+ =?us-ascii?Q?1ruG1fQ8ToNXGNSihdgkuGe5Lu12zczgPRgxk7sc1lSV5DW5QPkfST3FprB1?=
+ =?us-ascii?Q?tp8pGlsl/Etcw3loiUQzyhwcMV31C7VS5kuteyG675bQEKRYwk9iY32uplcv?=
+ =?us-ascii?Q?2Z3yXC1y+zE6ZEl5aH+XVb/x4HoA1hYrXkc8wIO0HfHj9rB6h3K7o6B45Dnv?=
+ =?us-ascii?Q?gjvspwYPY8RWzkaY61phvDDl3UV64ADC8TUmpKzc2NvWYzbCrKBfTprskC0D?=
+ =?us-ascii?Q?KFs4yJ0VCmhLg/9P5KCuTxtxMA+DVX+QeFuoSDtd?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d7bcc32-a9e9-4b37-7747-08dd19257884
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 14:18:08.5174
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +98Nje+IwCKP6wTKWk6wdpculf1mcOxX6crIVNhB22nWrz6N/miRBJcmU+h0qcjX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_061811_573794_993F1C26 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20241210_061818_270019_0630D815 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +167,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Dec 10, 2024 at 02:07:40PM +0000, Will Deacon wrote:
+> On Mon, Nov 18, 2024 at 01:19:57PM +0000, ankita@nvidia.com wrote:
+> > The changes are heavily influenced by the insightful discussions between
+> > Catalin Marinas and Jason Gunthorpe [1] on v1. Many thanks for their
+> > valuable suggestions.
+> > 
+> > Link: https://lore.kernel.org/lkml/20230907181459.18145-2-ankita@nvidia.com [1]
+> 
+> That's a different series, no? It got merged at v9:
 
-First part of DSA EEE cleanups.
+I was confused by this too. v1 of that series included this patch, as
+that series went along it became focused only on enabling WC
+(Normal-NC) in a VM for device MMIO and this patch for device cachable
+memory was dropped off.
 
-Patch 1 removes a useless test that is always false. dp->pl will always
-be set for user ports, so !dp->pl in the EEE methods will always be
-false.
+There are two related things:
+ 1) Device MMIO memory should be able to be Normal-NC in a VM. Already
+    merged
+ 2) Device Cachable memory (ie CXL and pre-CXL coherently attached
+    memory) should be Normal Cachable in a VM, even if it doesn't have
+    struct page/etc. (this patch)
 
-Patch 2 adds support for a new DSA support_eee() method, which tells
-DSA whether the DSA driver supports EEE, and thus whether the ethtool
-set_eee() and get_eee() methods should return -EOPNOTSUPP.
+IIRC this part was dropped off because of the MTE complexity that
+Catalin raised.
 
-Patch 3 adds a trivial implementation for this new method which
-indicates that EEE is supported.
-
-Patches 4..8 adds implementations for .supports_eee() to all drivers
-that support EEE in some form.
-
-Patch 9 switches the core DSA code to require a .supports_eee()
-implementation if DSA is supported. Any DSA driver that doesn't
-implement this method after this patch will not support the ethtool
-EEE methods.
-
-Part 2 will remove the (now) useless .get_mac_eee() DSA operation.
-
- drivers/net/dsa/b53/b53_common.c       | 13 +++++++------
- drivers/net/dsa/b53/b53_priv.h         |  1 +
- drivers/net/dsa/bcm_sf2.c              |  1 +
- drivers/net/dsa/microchip/ksz_common.c | 20 +++++---------------
- drivers/net/dsa/mt7530.c               |  1 +
- drivers/net/dsa/mv88e6xxx/chip.c       |  1 +
- drivers/net/dsa/qca/qca8k-8xxx.c       |  1 +
- include/net/dsa.h                      |  2 ++
- net/dsa/port.c                         | 16 ++++++++++++++++
- net/dsa/user.c                         | 12 ++++++++++--
- 10 files changed, 45 insertions(+), 23 deletions(-)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Jason
 
