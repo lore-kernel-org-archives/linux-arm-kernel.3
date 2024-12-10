@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76496E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0387FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGDjDmjaarnv2LRhR9yI+0cQdlmEnitFOz5zg2VCDVs=; b=SyDdU4fdtH/G2wO46P9XihQRA1
-	dgMjlVBSBHOSQHHLGd8gX8DZD3f5Stv3LRYGOoqcfHRKHjshuRUDMpyI5yhtePbqW07sa0OppXCc+
-	3KPusQR5vfPhV1MjZWbLpTp789gc5xLnKiSXqYdXgNIX4tU1nBK07DoIz8DrNspls/KknXi35CYfX
-	Y0kIlXPHCfdY2AEfOte1VXz60Sz44oYp4CeDO9Ljv4D6PUENMNAda82AKBEQXxo0P4q6JF3+YTslq
-	MPTMo4238SBqzwTev0A6wTJFkTCG5hEnHSi/XIk0oGwr8CMcide2McbCkMQEuf3bIvwe8fhY+DVCY
-	jMOpedGg==;
+	bh=besKoqTUl8UspqMzSV4i/1U3YcYukO65Us63dIVJlmo=; b=tAqa0cmkzZewDBDwKmMCthG0Ue
+	rrrBMLjPhhPQ0cIGVoU0hT6iB+Vkz35zd+ygPfpQPEW0hJcqHP/bcYFJpHvUu+vK/LS+xwC15XP+7
+	q+gofQJdKA1X5U3VV60V1Padf3DjF6tOsCNUS372BAd/UwvTtdAQ+OFAhRwN4GHFsxqv5qSy0YxxE
+	+ZBYaAfQClPYyms/WEm5hfCkLu3lYCT8QXkTfmj0y0eFXvV++O0ofMLs4AxmHuBxQY6Q4LqI1oLjN
+	ckuqbpY8O0e6+VtFG/NIarIbekgl56ozbJdGnBn5N3dmu4ewJtBf69tglAjUCShNBkfKkwq/vn9rm
+	DV/72B9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0ps-0000000BfiS-0NGs;
-	Tue, 10 Dec 2024 14:03:36 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1tL0qt-0000000BfxP-2qhs;
+	Tue, 10 Dec 2024 14:04:39 +0000
+Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0oh-0000000BfM3-3Hio
+	id 1tL0ou-0000000BfRg-3koh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 14:02:24 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e388503c0d7so4418266276.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 06:02:22 -0800 (PST)
+	Tue, 10 Dec 2024 14:02:38 +0000
+Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e3824e1adcdso4271991276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 06:02:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733839342; x=1734444142; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733839355; x=1734444155; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=GGDjDmjaarnv2LRhR9yI+0cQdlmEnitFOz5zg2VCDVs=;
-        b=L4Kow7IFQOKVPB3NFjvqH5HK6BCvUJtcyeRUAtE+77/bQyyAJoO/HRom+ZxNXX+w/i
-         tFsYBjmvbufCXX6r69deMcLpjTKjM58Zr9RY7MsKw4FRqnPEYDW3lFOVFQfMxgWg7kOp
-         Hz8jxsSEYlFRSbi5V1Gyiv9pC8/+WruyOcPrJQ3pJgdB412BTimfi60nFNCsJ3zIPdBe
-         MRaa5WDezl8E/708XLg8Z7nr6uPM/o5zWHZp3hZbkYFshP0UJUMlVzikXuiX1GccSi5D
-         p6Mh7BklltNKlAXpgUp4IU1vYf66PLli2d1Au+DEUfEQ0/uGksqwBMhYWLWjyL7EdWsX
-         uG7g==
+        bh=besKoqTUl8UspqMzSV4i/1U3YcYukO65Us63dIVJlmo=;
+        b=vBWjnmnKhrinlQrUoTRAm98tL3qru4st9hPj4Gt29HxSKs7zpBuXUkKU/Ym7WIuZ4y
+         8s2e+uApzm4zZTAZ9XhlyvFXKZnaP8bgDyG+iT5Mxehm33q3lwWdx72GZgWqQwk1N4ru
+         MY8yChkyXW+AQaQyn9KtiqYMENOHOOMiJbvsyhA1IDHa6vqtNlKmIaZcJD/oG6bUkyVc
+         xsynlsbok8ywzyPprtBru7YklUxQZL0NJ5PG7kD/jN80LOMbNEttBCed8S9jk/APdPvq
+         fzssgEq+43rtr0+L53ueHUAJlhF7D4mVf660KTGc+GvQ21fERJhGoJ76eZH5BOMCCyiu
+         2BeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733839342; x=1734444142;
+        d=1e100.net; s=20230601; t=1733839355; x=1734444155;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GGDjDmjaarnv2LRhR9yI+0cQdlmEnitFOz5zg2VCDVs=;
-        b=EJfe9QN3f2R3RFV3b95hr9xo6jkgpOkAgTbSZuT/BycfpDQffSk8Ch/57hdloOjD4d
-         bMbeLhcswtTy4iXqVq3Pw+97gVh68pHZvfWTn8wGwUqzg6WdxRFBp9T+a6qMsDXAaXzK
-         nxPGppnkGXvPvvRQEVHFSY1tAJxxRyjCKMexAls3OSb2UdTaXQ0j0aUxaAcNPEuQIy0R
-         +ZbPVqnusLQs8PWIutwN65/trsHmlxioMECAopGa8Qu3C32QEFs3IxVwryLPmz+YH7AR
-         c0AHcdBxQSScjZfWESGlyL0txx80G481APfmLWSrqTUQglB4Ulj1LpmhEGQ/z7btqeTY
-         xG1w==
-X-Forwarded-Encrypted: i=1; AJvYcCW2Nvuw2tkDCCYIzEvGNpxffZF6KZyhdJKcM00tXkyI2aMHb/t8a6R3hhRtRFa0eIzvaYghwxnV+sIp0ceLdcB9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5my9OSdM/6oPLFtnqibVD+X98ERhIb/C8gseK2SmfcOvpghqD
-	aIKEk7txfTTABriwmMrxedxXJr2Rnfutfnr/7oTGvFhmDZohRLOkGbCj75pyBDoAeHBOhwbLZKx
-	+Xtp9j1JtGo13gV1sjHzGEmR4geeVLBcvojwxkg==
-X-Gm-Gg: ASbGncuOnjtqkQi9fJTYRuHdxXLdWSB4SKVkZXkEt9RBmnBymDcN+ZgEv+r6sZUwIsk
-	0j+nk2ej2jF7i926tTGzN5qRsJ63Z9K9lOHyN
-X-Google-Smtp-Source: AGHT+IF8ODQGXD7UsXZFA398vKfIghJH5HEH16ZMuk46OLFWyEc2exSc7lgWOZZzJyVLz5Z9bI2L9Yz5Wky7WJz7dOY=
-X-Received: by 2002:a05:6902:200b:b0:e39:82aa:45a8 with SMTP id
- 3f1490d57ef6-e3a0b527cbcmr14579056276.53.1733839341586; Tue, 10 Dec 2024
- 06:02:21 -0800 (PST)
+        bh=besKoqTUl8UspqMzSV4i/1U3YcYukO65Us63dIVJlmo=;
+        b=gFbDS71g19MwGhxiIbHUdLVhA84X7VW+KeorLutFYglBNrL2ErFk4oD5Tx5qUuTYEi
+         M1hhOGAxPiNpFBwW0dTEvs5qkj/Q1x2+PRvUsNFtmAS+OsOeUVB0mDk9/ZPxejqjeDsV
+         VehCFxFqSX9yz7gWV52MGkYB32oNBm240AR2+V8YWeVsoU0GoLBMX2VaR1EL1KV0PPjs
+         E74PvOv5E4QwjwKWmU/l3GfJj87O9NrH4LsUlFnYMVs81aakInBHst3gomnUUlfgZ1CP
+         7flnHO46e2GwCDLBGWVaG7RteZgXk2JTOJd02093b8ODYn07o/I0wvCPz4LDF2PZvikS
+         nHjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXoFoaf+B0QX1RRF51VS0/3VbeQ/fEGUcPw5oyMzpNySFTGkB1Fks8mFKDJjN5Nwd9YHyRiuT7DqmOUJyyM1+xU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyq1hEHb3VXscVOsqAfYA6gxVmf8hz/RFdY/GQGmXHak5GturSW
+	Uonf0Sy5jiZR86fG4OLYDp0PU9A4vAje3MuVwYPnMkjkUB6D3JaocNVxgCAMvwjds9h0cyMGUIt
+	I6jl+BAq3l2w+mB2RtRLjkL9R+BPoEhvCdbY5lmLcBIF7tF/I
+X-Gm-Gg: ASbGncs1R3V8/1GqOdnRq8KrpyO19ZeRAGKQkVmIXy1TqSB914PKwV+EbKllS3n4F4/
+	7JsXFoxxy1zE1yPGL15/EwAawmhJZnaktNPa/
+X-Google-Smtp-Source: AGHT+IFN1yCbB7HlDLaJwtDy5HM3+UgGOrK5CihsW5CiH9M8fU1rwshFqKnyFZ0DMkKGTqWE5e1F/csj0lrK/77hhbM=
+X-Received: by 2002:a05:6902:2b86:b0:e30:d4df:4974 with SMTP id
+ 3f1490d57ef6-e3a59bdca97mr3979566276.40.1733839355475; Tue, 10 Dec 2024
+ 06:02:35 -0800 (PST)
 MIME-Version: 1.0
-References: <20241119141827.1.I6129b16ec6b558efc1707861db87e55bf7022f62@changeid>
-In-Reply-To: <20241119141827.1.I6129b16ec6b558efc1707861db87e55bf7022f62@changeid>
+References: <20241206112731.98244-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20241206112731.98244-1-peng.fan@oss.nxp.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 10 Dec 2024 15:01:45 +0100
-Message-ID: <CAPDyKFoghwa+x0Dc8RfWWdDpP-mD4qUBZKpXjy4pK0mQwf6gGg@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: psci: Activate GENPD_FLAG_ACTIVE_WAKEUP with OSI
-To: Patrick Delaunay <patrick.delaunay@foss.st.com>
-Cc: Alexandre TORGUE <alexandre.torgue@foss.st.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Date: Tue, 10 Dec 2024 15:01:58 +0100
+Message-ID: <CAPDyKFrM6wX5uWY8g0pgZNEZn8uG5hbD4JsAijBenOMWkEgD4w@mail.gmail.com>
+Subject: Re: [PATCH 1/2] pmdomain: imx8m[p]-blk-ctrl: Suppress bind attrs
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pm@vger.kernel.org, aford173@gmail.com, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_060223_818873_6AC33B6A 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20241210_060236_931517_2BA356CD 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,52 +92,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Nov 2024 at 14:21, Patrick Delaunay
-<patrick.delaunay@foss.st.com> wrote:
+On Fri, 6 Dec 2024 at 12:28, Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
 >
-> Set GENPD_FLAG_ACTIVE_WAKEUP flag for domain psci cpuidle when OSI
-> is activated, then when a device is set as the wake-up source using
-> device_set_wakeup_path, the PSCI power domain could be retained to allow
-> so that the associated device can wake up the system.
+> From: Peng Fan <peng.fan@nxp.com>
 >
-> With this flag, for S2IDLE system-wide suspend, the wake-up path is
-> managed in each device driver and is tested in the power framework:
-> a PSCI domain is only turned off when GENPD_FLAG_ACTIVE_WAKEUP is enabled
-> and the associated device is not in the wake-up path, so PSCI CPUIdle
-> selects the lowest level in the PSCI topology according to the wake-up
-> path.
+> The blk ctrl drivers on imx8m series are registered as platform
+> devices and this opens the possibility of reloading the driver
+> at runtime.
 >
-> This patch is a preliminary step to support PSCI OSI on the STM32MP25
-> platform with the D1 domain (power-domain-cluster) for the A35 cortex
-> cluster and for the associated peripherals including EXTI1 which manages
-> the wake-up interrupts for domain D1.
+> But this doesn't actually work. There are some hardware sequence
+> dependecy between blk ctrl and gpc, also power domains are used
+> by other peripherals, so fix this by explicitly suppressing bind
+> attrs.
 >
-> Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Makes perfect sense to me - so applied for next, thanks!
+Applied for next, thanks!
 
 Kind regards
 Uffe
 
 
 > ---
+>  drivers/pmdomain/imx/imx8m-blk-ctrl.c  | 1 +
+>  drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 1 +
+>  2 files changed, 2 insertions(+)
 >
->  drivers/cpuidle/cpuidle-psci-domain.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
-> index 146f97068022..5fb5228f6bf1 100644
-> --- a/drivers/cpuidle/cpuidle-psci-domain.c
-> +++ b/drivers/cpuidle/cpuidle-psci-domain.c
-> @@ -72,6 +72,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
->          */
->         if (use_osi) {
->                 pd->power_off = psci_pd_power_off;
-> +               pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
->                 if (IS_ENABLED(CONFIG_PREEMPT_RT))
->                         pd->flags |= GENPD_FLAG_RPM_ALWAYS_ON;
->         } else {
+> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> index 23db85b7aa9e..912802b5215b 100644
+> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> @@ -894,6 +894,7 @@ static struct platform_driver imx8m_blk_ctrl_driver = {
+>                 .name = "imx8m-blk-ctrl",
+>                 .pm = &imx8m_blk_ctrl_pm_ops,
+>                 .of_match_table = imx8m_blk_ctrl_of_match,
+> +               .suppress_bind_attrs = true,
+>         },
+>  };
+>  module_platform_driver(imx8m_blk_ctrl_driver);
+> diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> index e3a0f64c144c..411dd548c67c 100644
+> --- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> @@ -862,6 +862,7 @@ static struct platform_driver imx8mp_blk_ctrl_driver = {
+>                 .name = "imx8mp-blk-ctrl",
+>                 .pm = &imx8mp_blk_ctrl_pm_ops,
+>                 .of_match_table = imx8mp_blk_ctrl_of_match,
+> +               .suppress_bind_attrs = true,
+>         },
+>  };
+>  module_platform_driver(imx8mp_blk_ctrl_driver);
 > --
-> 2.25.1
+> 2.37.1
 >
 
