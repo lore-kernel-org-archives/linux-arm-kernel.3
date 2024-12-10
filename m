@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F625E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77922E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4nPD5E4Ad4U+hhhI8VaXA17x9Czn/JwL4gk7ChKoSXc=; b=ssYzn8asjA4fbhS5+7Iodu2mPY
-	KLq7BwGE6cH9VJ9bRz2QgprgiNJh8pQztviJ1jgHACVFjt9FeD9GVEyQx+Gj8JA78JjL087SFSNML
-	tyfcG58gqI0b4gpbjquURHYAWcmmW8UW0KC4Pu35DTN9mQvxvyhRzp0vNTXVSNy5mJAThcBjGJpNx
-	ngkMjIT/ApbueFeORaDem9yqKiClALDRhbpv/Bv1AYLqt0VpMlidvM4UjcaAt6VpAJA0Zx70Uaj3t
-	3bLFiD2b4mONjKEcCrlST8GpHW0hhVbwP6mhCsqa9a3ed3NhZ8ffV+KhfbfIDklNd6taEH+OOl9Lx
-	f+zabLIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kBCKmYeQtQXtJD2nS/OX7EenTXHyXCtFX8tV6++9Flc=; b=ZTa8neQmwT1Z0gH06KW2Lj4QM/
+	W0AIqhbir6W11xDBU5PXJ150bwxIjQF/fA4xNDu4/Gpy8Ws6lJSr7V8LsPAvDsvQo5vZY1jsCZied
+	MhnaWSjCZY10lRfLTwlUStt4jjx7vW+ph4vOVsJat4hLaHcnpCbpfe4AUjjdCnJJW+eJQS2yVg2dA
+	4pu3p4AvO+4nD3KB2A7FCizxd49doyJ5v3KmnDa2ViELuf67OzJpDMbPiEOWxOWqQ/nZGZxlgN3qW
+	qS9pNFSki1npZsu1tyOJs0sby7KQa5oPLi7iKeeHgZY6sM3w75lZ13j4/IRwRks+A53Vg6fGEGN9J
+	5pFL4I8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0HM-0000000BZvN-1YME;
-	Tue, 10 Dec 2024 13:27:56 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tL0IN-0000000BaEF-2FOj;
+	Tue, 10 Dec 2024 13:28:59 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0GI-0000000BZge-3fjT;
-	Tue, 10 Dec 2024 13:26:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733837211; x=1765373211;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=o3FwI02N8aqXF4xZIrONk/VReti3pvSzpyqhoYtREr8=;
-  b=IU94MwaLjRlfL7KjYwzpTGb8uK/bXra7dA2rfR0H26kn1pnKnJ2fCH6j
-   HVPaUA8N2bzY8GDeJ+nTvpQXHbIUiUcWnw7Ajh3eB+ufWI+Q4wo+bWUh6
-   SDj0uzaZqsZ4MO1VxPIt76OxPmqkk+JA1VynyPisHHXBrDALvohIIhFO0
-   J2e+wM6n34J7xzjrMQdahGsrXMUH7QAl+aJBfz5l8fE7Fo2DdX1aOq3Li
-   WYGNW0MY9k9vgPSQz8XUKk1OPtyFq3mrBKktqjpVMJ8VZDxLAk0giGMLL
-   xNPjXHf0H18wG/kt356AqDlHP9EmWdXkyjRacDvMMLyxLuB2kk+6lg+h6
-   A==;
-X-CSE-ConnectionGUID: Cpm6pNTuTtykbdmHp2oVQQ==
-X-CSE-MsgGUID: 027vLAGdQLa++3529Zt4MQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="37864859"
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="37864859"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 05:26:49 -0800
-X-CSE-ConnectionGUID: tUiZTf8LRc6BazYMUocLhA==
-X-CSE-MsgGUID: MAqDFBXxQs2A/WQFrE0SGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="95750103"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by fmviesa010.fm.intel.com with ESMTP; 10 Dec 2024 05:26:42 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1000)
-	id 0FF4D26B; Tue, 10 Dec 2024 15:26:40 +0200 (EET)
-Date: Tue, 10 Dec 2024 15:26:40 +0200
-From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-To: Borislav Petkov <bp@alien8.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexei Starovoitov <ast@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Tom Lendacky <thomas.lendacky@amd.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
- <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
+	id 1tL0Gq-0000000BZo4-3F1v;
+	Tue, 10 Dec 2024 13:27:26 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5d3e9f60bf4so4311579a12.3;
+        Tue, 10 Dec 2024 05:27:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733837243; x=1734442043; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kBCKmYeQtQXtJD2nS/OX7EenTXHyXCtFX8tV6++9Flc=;
+        b=KrOcK7Hp+8iu+N9lQqQ3zSKAEJeuvJiV1jTgTFUxxvVukQY+pPzLcvyg3RNCiBN1XF
+         qd2DO3p7HMfyrI0RaNUJMSGk7zjBrdW0ymH/KeKQaBTq+dqOCGbyQf4+lhwSRyPWLht3
+         ZMuvpC3JfAMvOKCZ8tYzt6+6si4E2GAW54wFWklBntYNL5jDpVFDYQa0U9WLgN9KZUeL
+         ikrO8wjP286tGHpjhScZ/WkK+nlNryXD61GlfDwONpnogT18DgOLUjQ2JZHcqu/yiOH4
+         EGyQ0/r137+6U5tQ5xDr6U5KPHyUnh7hUTy/puFVq+F83MWNTBfScY1UI/MuXFzwYKrZ
+         0cRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733837243; x=1734442043;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kBCKmYeQtQXtJD2nS/OX7EenTXHyXCtFX8tV6++9Flc=;
+        b=Gxuy02Gi2s6UtK4uPPUGl12Wci3Xkq025VVCLt0kbsBwZxqSrsptZT0TkprniQ4MWK
+         jfmpSRVj2edc3JyZxSoiMD9PodQ9BagnGH5hlmHHJiRZLVLxFLD89XAkZfDl8jOHQVox
+         YInEaAJFyiPffhtSn7lpRgvJMr9FwAErhtJR/QpmZL8+QyA7eYEZf/5RKOZym7RLn+Jj
+         fpsC89XYTP1TcV+wz8ZkugBUtORlqt9LlyMqZruwMxy37WIPQ6l4tzgqrDVaNAHHX1c/
+         h9iEWcGRU7X4XLf6/KAUBwpzhFylz6ZpenkedO0pfLT4fVFP6rM1YdI6ghUbJXTqQI3J
+         ZPjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU9Rl9nNRLP0V3pDhgyB29wGubvBGJvDbwStsuL8+BHovWTc7mWQojdKlRTj/3ojham0SCPvbOi/rnoN2kJnY4=@lists.infradead.org, AJvYcCWij2kgWxDPRj1rOT/JnYCa7gCZjItbS/sLrBopgsT89BV8NuwixSWLdXWV/YcaWMcwkEV+sgv/ZvpdRybyB2CW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6D6qPRH6RTdJkj5La5i6MulsX3jFSEk/aOJ4XPNVkRHTFEfdS
+	dbTrcBOEDijLOAdbhDq6A5YYJdxJ0go0t8WHTrolhyqCCQmQgoOmRfPTMYxcTIN/nGk+Q3CvGXw
+	3BD3Qi2dFqhpUAW6pdNYS1hWC8xtk5WOG+E0=
+X-Gm-Gg: ASbGnctylIUdypiTqJLT/6Rq7bMl5q3ihIxlDn4R/ravp3nh4aWfBglSjBlA1Jxu+fa
+	gKar+eqwxT8W/BPnKklh56ovlQK6wKwjNe0/wGNofSTkYZY8NhAqcVlZ+LPQ=
+X-Google-Smtp-Source: AGHT+IH4cq4eJMBBv9InVUxlo+TzZnHjLwzmvamweU5oP6kP+jJlPr/U3U9rCW2HNtHUYQxnPZCF1RFlpv5NCQEhnhU=
+X-Received: by 2002:a05:6402:5190:b0:5d0:feec:e15d with SMTP id
+ 4fb4d7f45d1cf-5d3be6d650cmr14520588a12.8.1733837242523; Tue, 10 Dec 2024
+ 05:27:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
+References: <20241210013010.81257-1-pgwipeout@gmail.com> <20241210013010.81257-3-pgwipeout@gmail.com>
+ <0d11705121f29ccfb7cfa342505a6e35@manjaro.org>
+In-Reply-To: <0d11705121f29ccfb7cfa342505a6e35@manjaro.org>
+From: Peter Geis <pgwipeout@gmail.com>
+Date: Tue, 10 Dec 2024 08:27:13 -0500
+Message-ID: <CAMdYzYqJLK6oJHCUVztth6mtJsYrRQSPzNYpR-ZmR7rNprZXfg@mail.gmail.com>
+Subject: Re: [PATCH 2/6] clk: rockchip: fix wrong clk_ref_usb3otg parent for rk3328
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Elaine Zhang <zhangqing@rock-chips.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_052650_965219_26F297A9 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20241210_052724_807026_3E023421 
+X-CRM114-Status: GOOD (  24.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,100 +94,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 21, 2024 at 12:49:52PM +0100, Borislav Petkov wrote:
-> On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
-> > Sure, we can workaround every place that touches such ranges.
-> 
-> Every place? Which every place? I thought this is only an EISA issue?
+On Tue, Dec 10, 2024 at 4:44=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> w=
+rote:
+>
+> Hello Peter,
+>
+> On 2024-12-10 02:30, Peter Geis wrote:
+> > Correct the clk_ref_usb3otg parent to fix clock control for the usb3
+> > controller on rk3328. Verified against the rk3328 trm and usb3 clock
+> > tree
+> > documentation.
+> >
+> > Fixes: fe3511ad8a1c ("clk: rockchip: add clock controller for rk3328")
+> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+> > ---
+> >
+> >  drivers/clk/rockchip/clk-rk3328.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/clk/rockchip/clk-rk3328.c
+> > b/drivers/clk/rockchip/clk-rk3328.c
+> > index 3bb87b27b662..cf60fcf2fa5c 100644
+> > --- a/drivers/clk/rockchip/clk-rk3328.c
+> > +++ b/drivers/clk/rockchip/clk-rk3328.c
+> > @@ -201,7 +201,7 @@ PNAME(mux_aclk_peri_pre_p)        =3D { "cpll_peri"=
+,
+> >                                   "gpll_peri",
+> >                                   "hdmiphy_peri" };
+> >  PNAME(mux_ref_usb3otg_src_p) =3D { "xin24m",
+> > -                                 "clk_usb3otg_ref" };
+> > +                                 "clk_ref_usb3otg_src" };
+> >  PNAME(mux_xin24m_32k_p)              =3D { "xin24m",
+> >                                   "clk_rtc32k" };
+> >  PNAME(mux_mac2io_src_p)              =3D { "clk_mac2io_src",
+>
+> Sorry, but I was unable to verify this in the part 1 of the
+> RK3328 TRM, in both versions 1.1 and 1.2, which is all I have
+> when it comes to the RK3328 TRM.  Is that maybe described in
+> the part 2, which I've been unable to locate for years?
+>
+> Moreover, the downstream kernel source from Rockchip does it
+> the way [1] it's currently done in the mainline kernel, which
+> makes me confused a bit?  Could you, please, provide more
+> details about the two references you mentioned in the patch
+> description, or maybe even you could provide the links to
+> those two references?
+>
+> [1]
+> https://raw.githubusercontent.com/rockchip-linux/kernel/refs/heads/develo=
+p-4.4/drivers/clk/rockchip/clk-rk3328.c
 
-I looked at other places where we call memremap(MEMREMAP_WB) such as
-acpi_wakeup_cpu(). We actually get encrypted/private mapping for this
-callsite despite __ioremap_caller() being called encrypted == false.
-This happens because of IORES_MAP_ENCRYPTED check in __ioremap_caller().
+It is unfortunate the TRM doesn't include the clock maps, because they
+are extremely helpful when one can acquire them. It also doesn't help
+that the TRM register definition only referred to this as "pll". I was
+sent specifically the usb3 phy clock map for my work on the driver,
+which had the location of each switch and divider along with the
+register and bit that controlled it. That combined with the TRM
+register map allowed me to find this error.
 
-So we depend on the BIOS here. The EISA problem happens because the
-target memory is in !IORES_MAP_ENCRYPTED memory.
-
-It's hard to say if any other memremap(MEMREMAP_WB) would trigger the
-issue. And what will happen after next BIOS update.
-
-> Then clearly your changelogs need to expand considerably more what we're
-> *really* addressing here.
-> 
-> > Or we can address problem at the root and make creating decrypted/shared
-> > mappings explicit.
-> 
-> What is the problem? That KVM implicitly converts memory to shared? Why does
-> KVM do that an can it be fixed not to?
-> 
-> Doesn't sound like the guest's problem.
-
-Well, the problem is on the both sides.
-
-VMM behaviour on such accesses is not specified in any spec. AFAIK all
-current VMM implementations do this implicit conversion.
-
-I think it has to be fixed. VMMs (not only KVM) should not silently
-convert memory to shared. But VMMs cannot make memory access to go away.
-The only option they have is to inject #VE instead indicating bogus
-access. At this point it becomes a guest problem.
-
-It will get fixed in VMMs naturally when TDX Connect gets enabled.
-With a secure device assigned to a TD, VMM would loose the ability to
-convert memory on its own. The guest would have to unlock the memory
-first. This will make implicit conversion impossible.
-
-But it also means guest should never initiate shared access without
-explicit conversion. Otherwise #VE will crash it.
-
-> Or maybe this needs a lot more explanation what we're fixing here.
-> 
-> > Such mappings have both functional (as we see here) and security
-> > implications (VMM can manipulate the guest memory range). We should not
-> > create decrypted mappings by default on legacy interfaces.
-> 
-> So we're getting closer.
-> 
-> The changes themselves are fine but your text is missing a lot about what
-> we're fixing here. When I asked, I barely scratched the surface. So can we
-> elaborate here pls?
-
-What about this:
-
-x86/mm: Make memremap(MEMREMAP_WB) map memory as encrypted by default
-
-Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
-
-memremap(MEMREMAP_WB)
-  arch_memremap_wb()
-    ioremap_cache()
-      __ioremap_caller(.encrytped = false)
-
-In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
-if the resulting mapping is encrypted or decrypted.
-
-Creating a decrypted mapping without explicit request from the caller is
-risky:
-
-  - It can inadvertently expose the guest's data and compromise the
-    guest.
-
-  - Accessing private memory via shared/decrypted mapping on TDX will
-    either trigger implicit conversion to shared or #VE (depending on
-    VMM implementation).
-
-    Implicit conversion is destructive: subsequent access to the same
-    memory via private mapping will trigger a hard-to-debug #VE crash.
-
-The kernel already provides a way to request decrypted mapping
-explicitly via the MEMREMAP_DEC flag.
-
-Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
-default unless MEMREMAP_DEC is specified.
-
-This change fixes the crash on kexec in TDX guests if CONFIG_EISA is
-enabled.
- 
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+Thanks!
+Peter
 
