@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720C7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31503E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kg5/FcAWuQpY0OP13w3mM1D0/LGF82jD15rwRjhct9Y=; b=wvWqe4vt4vd/9bRc8N7H1DUW2B
-	A8CruYxJ7plKIioTph5+0yZhE1OcjTEvcUDd5lw2gs5n8Ns7nc+QRjaBQ5ZtwCmqqT40cuAD1Dk5A
-	WsRYJR/BjTQcNxh6FjkxslCAxAnMqlqOJqqdI43/Nkil2EaLHCr/iKXGHADE4yRie+WgEL39wCgx/
-	iyVGWRpWIDAVR5oF24qMRDHxRF/J70ZqxNOdx9sB47EOogUoe2W1X3ZiD/YdOzhzbdzTPVZXiJ4SZ
-	UcKjP7MlqiPmUWrn4YWMHH/UPmoe1oOpPvab8uUYw2RcC2gayDnKFDmyZBPhlqTUT6sT4JdcRZWBX
-	gKbXedBg==;
+	bh=U7By0N7WUeTzZ1sIh4FFIqmADFydUIFOgeAVZX4ZkBQ=; b=gcr9XVOjZ/9xlcyE3yFzVI6Tqp
+	riIFwFYz8ZAP2ZfyMFW+72EOOKL5yaiiKCKlqARWVvEspVs8EcLshjI3fS7dRCZX5aHg4kfHQPMQx
+	yHEUzj87bqgAcG05XFTWFNy5TLP9cD7xEAIs/8TUmv9DRWypZvXFdY6RGFpSYahcesRN4AblRIKgh
+	m53/2VGYKNLpak14etr0q7wQ84WtHvdwgIWw/pfngKzxVttm0aG4WWvH7ZdKjE6TKcHqDvt1Bybrm
+	QYf3izHVZXXkZP+SWvSxaJwxGL9Kx0lbhFTTDyl4oW9kKj0ru6KJA6VjsaTDk8t3ZSGSvgvnaLH0Y
+	MLUQrVFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzx6-0000000BX5W-2LbA;
-	Tue, 10 Dec 2024 13:07:00 +0000
+	id 1tKzy7-0000000BXD3-0exB;
+	Tue, 10 Dec 2024 13:08:03 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzrF-0000000BVgp-2yhL
+	id 1tKzrH-0000000BVhS-1NxT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 13:00:58 +0000
+	Tue, 10 Dec 2024 13:01:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B3C1F5C62D9;
-	Tue, 10 Dec 2024 13:00:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 982D1C4CEDE;
-	Tue, 10 Dec 2024 13:00:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5AA785C5E64;
+	Tue, 10 Dec 2024 13:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EBAEC4CEDF;
+	Tue, 10 Dec 2024 13:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733835656;
-	bh=zEwmhiXWSNdbVox4v1ywGDTEkwYo+ZA+AQNMZDvtC0U=;
+	s=k20201202; t=1733835658;
+	bh=PscAXMBIQetj/AnKbhFQ+vclBqKg8Pff7HND8t1S3b4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=cZHyQRb09aVdckaqkajo4eVvvzHyNC8KLVkdZP6Yf6i4/uPqc7gFZGQ8MCOo7O2E/
-	 XSaNPzGv8jbL8bfjO6sZuNk65bMm4nqT/3u90zls+2YoVwfujB1EuyToPt09NU6ZHF
-	 JR0gAAp2xG2EF4+JI+W2TsEObUJjuioGJ1tI2WaD1nWBP6OXjgU1ON/KiyeDcibd8J
-	 /uOwC/lHNPX2J4RbKcQVp7DJrj0piWQ6OVXqrZj7nrbvPHNaeglnHhMCBYbiGbEzrD
-	 4R1NkJsJ0z5+R321AlES+nFWpAhpfzBlzvHU949s8THLJNUj2m2vyV8NJ5T4jPZftd
-	 qN4vUGUNWbwBw==
+	b=O9T4xDGuixTk6epsbO2omxilM0DXSGdDmcLNfTaTgUJOlcarSeotya7Mu7KXDmNOL
+	 yGXeB7TZRigpnsng+gtu9ZLhL4oiMYaRe0cwKN0o4ptDWx+MWaUp+3+2vRW3dBEvq7
+	 YtGSmxcXYdFueQ9j6FIPk31RrUzX4qfMsAkCyzXto1FwKxyqdTlgu9Tvte3GRYCBGR
+	 ur0sFkyl0cs+fam8qpUYR0r7y3n0+cCBgxQgTAKyYvVZA4uhwvmRWzVf/EvPs36u7G
+	 a/7kOakzdBzh6QUjAIO5FHyGR9d2IIa2r8MIz67YsiZMR9xyfHiIu4XWaWmzfij1Rx
+	 r+HhN+Hu1ExCA==
 From: Mark Brown <broonie@kernel.org>
 To: michal.simek@amd.com, linus.walleij@linaro.org, 
  Mingwei Zheng <zmw12306@gmail.com>
 Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Jiasheng Jiang <jiashengjiangcool@gmail.com>
-In-Reply-To: <20241207013258.3615645-1-zmw12306@gmail.com>
-References: <20241207013258.3615645-1-zmw12306@gmail.com>
-Subject: Re: [PATCH] spi: zynq-qspi: Add check for clk_enable()
-Message-Id: <173383565535.34030.14188162384074341857.b4-ty@kernel.org>
-Date: Tue, 10 Dec 2024 13:00:55 +0000
+In-Reply-To: <20241207015206.3689364-1-zmw12306@gmail.com>
+References: <20241207015206.3689364-1-zmw12306@gmail.com>
+Subject: Re: [PATCH v2] spi: zynq-qspi: Add check for clk_enable()
+Message-Id: <173383565712.34030.16922746389125728063.b4-ty@kernel.org>
+Date: Tue, 10 Dec 2024 13:00:57 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_050057_792652_250F80B6 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20241210_050059_415785_9290625A 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,7 +73,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Dec 2024 20:32:58 -0500, Mingwei Zheng wrote:
+On Fri, 06 Dec 2024 20:52:06 -0500, Mingwei Zheng wrote:
 > Add check for the return value of clk_enable() to catch the potential
 > error.
 > 
