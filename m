@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E3AE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87E91E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NRz9OTMGnwlJVqlv9bDUSem53lf1WuTdqRS0rBwuDSE=; b=uieoumiyW1W4kp0Yf16ETiXh1C
-	ta3gsMHXL6+kbNA/PAbSJ7ZXjGjVnDOByJ6eH43FPSv5kvlBlKxbsWhA3nIRBZ3yjS/yRSD4lwLyF
-	nWiW6wbexGR2MRpUJjKclfzo/cTzCO7x83RDra6I4r7JXhKSYzXhLaqfiM7XXGSzZmwuOMK1+CwZ3
-	uB+a8jHYGf3Zb12p5GeQOhuIA6S7eSG67WWhUOzg2Ut7b0wnhSC+huNvCWKklFwdvZTB82HBL+/vq
-	si7qJS5jApBWF2T7fSdeji141pHaDmtVx7alAUzPAhkn6SQzBhL7/c3i4UiuNBOJoquZhXzVe5fhq
-	DDMPpmCw==;
+	bh=w9ookae6CWwkYnTUQjafw60sQp6RGdJZafwRL5XMQxg=; b=F7aopI0YzL9Q+ZXmbr/K0OujL2
+	JSNeOYIjj4QBsZ6r6+gWJ2lJVKjQV9NBjn2GRyLI8Up+GsprbQgbntB9Jvk7IzV6v+k5XKi+CigOz
+	YuO5G/rUANhSGvdAnen4DZsR8qlUy2Afa2H6zOJMruN+owp1VAXyVr79CYkJKAXPU1r8y9UgjOLvs
+	bQ3+WI4AjFASNLC2i89BUzS4OelUlyP+4SkZmLQCq8wUFVLlZKoeUOEGy0dlBJXylA+tO2kOKqVgG
+	TQeR5vFANmR0pVAQFiF4k0ExA+DIjK2PCCwC6SJHITmnz9KMML4wMlzvXPIdL0c06ddv5cGNyg+3U
+	wUOL1Xtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL6AZ-0000000CYfm-0naC;
-	Tue, 10 Dec 2024 19:45:19 +0000
+	id 1tL6BZ-0000000CYpr-2ZnT;
+	Tue, 10 Dec 2024 19:46:21 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL66P-0000000CXzw-3LiD;
-	Tue, 10 Dec 2024 19:41:03 +0000
+	id 1tL66n-0000000CY5n-1Aw7;
+	Tue, 10 Dec 2024 19:41:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733859660;
-	bh=JsSMDgrRsjlUEEBw4cfo3sBgrN48B3LbiFcqeflM+UM=;
+	s=mail; t=1733859683;
+	bh=QBzH9CuLKr7HcYXPsbeS4iEFc6a5mvd6bQSm9OBbi/E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C5PRaJ0UJSTLEhkldbllVJZrXZ03Ns9AkRGYruGVwPyk+GghgB6hf3y6wHaZu5WG2
-	 +juJiAajfeJ0FVF2OgdR/1iJH6FyOdmVDKyZXyEhJXXGWIJ+dq2/j7Lpzodpd8dRKV
-	 AyHYw3cCWiBTq7u01SQRWF9yfSD3Jp8t1whT/4ql+kkiV1KmH3YbWlpnh/zImiB6j0
-	 ipja0fOpb8LxXl0jnc4MISceDL+ILGLXJN71khEg/V1jw+SIiFgaZvwzr2xvxTajSX
-	 falUaD02rePcanLayyiJurW867bkKClI6NM4I8L8wDQz9tiWARYUrG2tzvsCokXNju
-	 mPyiVZ0lS8YwQ==
+	b=CC7DBdBohw45kYyH2NCPwkhATSgGifwgYnDB6dd3dX8bRKYlPA2vbB3hIGwjnztN5
+	 G7Lcm6h64FmF18vtf2fQ2im7hPYz+xDoZ6UmVngXNLQWp/wwMz1CGBhtwV/FMcIaMv
+	 UsKtCiJcqqqvx80U+c7HQgSbTOidkbZDsi0f6rNjDb5z5sRzhT66BpSger4OG7EXHi
+	 ClQ75edyliXaJjtp/s0swVnUb4oyc4plIYwUTBJweWepy0LwTCEeSB3BJeK2p097NW
+	 TE5V+orACvlPzzM9atb9Kc2j2i1ISUwAMScODkusfWZN3NfsSS+MSg750DAn9jNfYL
+	 G5lxEe58EvZ8g==
 Received: from shreeya.shreeya (unknown [110.226.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: shreeya)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A685F17E37F1;
-	Tue, 10 Dec 2024 20:40:43 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A4BBB17E37EB;
+	Tue, 10 Dec 2024 20:41:04 +0100 (CET)
 From: Shreeya Patel <shreeya.patel@collabora.com>
 To: heiko@sntech.de,
 	mchehab@kernel.org,
@@ -65,20 +65,18 @@ Cc: kernel@collabora.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	shreeya.patel@collabora.com,
-	dmitry.osipenko@collabora.com,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: [RESEND PATCH v5 2/4] dt-bindings: media: Document bindings for HDMI RX Controller
-Date: Wed, 11 Dec 2024 01:09:02 +0530
-Message-Id: <20241210193904.883225-3-shreeya.patel@collabora.com>
+	dmitry.osipenko@collabora.com
+Subject: [RESEND PATCH v5 3/4] arm64: dts: rockchip: Add device tree support for HDMI RX Controller
+Date: Wed, 11 Dec 2024 01:09:03 +0530
+Message-Id: <20241210193904.883225-4-shreeya.patel@collabora.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241210193904.883225-1-shreeya.patel@collabora.com>
 References: <20241210193904.883225-1-shreeya.patel@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_114101_983189_228522BC 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20241210_114125_457148_8F974C4B 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,175 +91,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document bindings for the Synopsys DesignWare HDMI RX Controller.
+Add device tree support for Synopsys DesignWare HDMI RX
+Controller.
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
 Reviewed-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Tested-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Co-developed-by: Dingxian Wen <shawn.wen@rock-chips.com>
+Signed-off-by: Dingxian Wen <shawn.wen@rock-chips.com>
 Signed-off-by: Shreeya Patel <shreeya.patel@collabora.com>
 ---
 
 Changes in v5 :-
-- Correct the interrupt IRQ number
+- Add alignment property to ensure hdmi-receiver-cma
+  starts at a 64KB-aligned address
+- Correct one of the interrupt IRQ number
 
 Changes in v4 :-
-- No change
+- Remove DTS changes added to this patch
+- Remove the HDMI RX pin nodes as it's already present
+  in the rk3588-base-pinctrl.dtsi
 
 Changes in v3 :-
-- Rename hdmirx_cma to hdmi_receiver_cma
-- Add a Reviewed-by tag
+- Rename cma node and phandle names
+- Elaborate the comment to explain 160MiB calculation
+- Move &hdmi_receiver_cma to the rock5b dts file
 
 Changes in v2 :-
-- Add a description for the hardware
-- Rename resets, vo1 grf and HPD properties
-- Add a proper description for grf and vo1-grf phandles
-- Rename the HDMI Input node name to hdmi-receiver
-- Improve the subject line
-- Include gpio header file in example to fix dt_binding_check failure
+- Fix some of the checkpatch errors and warnings
+- Rename resets, vo1-grf and HPD
+- Move hdmirx_cma node to the rk3588.dtsi file
 
- .../bindings/media/snps,dw-hdmi-rx.yaml       | 132 ++++++++++++++++++
- 1 file changed, 132 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
+ .../dts/rockchip/rk3588-base-pinctrl.dtsi     | 14 +++++
+ .../arm64/boot/dts/rockchip/rk3588-extra.dtsi | 57 +++++++++++++++++++
+ 2 files changed, 71 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml b/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
-new file mode 100644
-index 000000000000..510e94e9ca3a
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
-@@ -0,0 +1,132 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Device Tree bindings for Synopsys DesignWare HDMI RX Controller
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+index 7f874c77410c..2d4b9986a177 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+@@ -594,6 +594,20 @@ hdmim0_tx1_hpd: hdmim0-tx1-hpd {
+ 				/* hdmim0_tx1_hpd */
+ 				<1 RK_PA6 5 &pcfg_pull_none>;
+ 		};
 +
-+---
-+$id: http://devicetree.org/schemas/media/snps,dw-hdmi-rx.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++		/omit-if-no-ref/
++		hdmim1_rx: hdmim1-rx {
++			rockchip,pins =
++				/* hdmim1_rx_cec */
++				<3 RK_PD1 5 &pcfg_pull_none>,
++				/* hdmim1_rx_scl */
++				<3 RK_PD2 5 &pcfg_pull_none_smt>,
++				/* hdmim1_rx_sda */
++				<3 RK_PD3 5 &pcfg_pull_none_smt>,
++				/* hdmim1_rx_hpdin */
++				<3 RK_PD4 5 &pcfg_pull_none>;
++		};
 +
-+title: Synopsys DesignWare HDMI RX Controller
+ 		/omit-if-no-ref/
+ 		hdmim1_rx_cec: hdmim1-rx-cec {
+ 			rockchip,pins =
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index ead151941e84..bde1efdf1824 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -7,6 +7,30 @@
+ #include "rk3588-extra-pinctrl.dtsi"
+ 
+ / {
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
 +
-+maintainers:
-+  - Shreeya Patel <shreeya.patel@collabora.com>
++		/*
++		 * The 4k HDMI capture controller works only with 32bit
++		 * phys addresses and doesn't support IOMMU. HDMI RX CMA
++		 * must be reserved below 4GB.
++		 * The size of 160MB was determined as follows:
++		 * (3840 * 2160 pixels) * (4 bytes/pixel) * (2 frames/buffer) / 10^6 = 66MB
++		 * To ensure sufficient support for practical use-cases,
++		 * we doubled the 66MB value.
++		 */
++		hdmi_receiver_cma: hdmi-receiver-cma {
++			compatible = "shared-dma-pool";
++			alloc-ranges = <0x0 0x0 0x0 0xffffffff>;
++			size = <0x0 (160 * 0x100000)>; /* 160MiB */
++			alignment = <0x0 0x40000>; /* 64K */
++			no-map;
++			status = "disabled";
++		};
++	};
 +
-+description:
-+  Synopsys DesignWare HDMI Input Controller preset on RK3588 SoCs
-+  allowing devices to receive and decode high-resolution video streams
-+  from external sources like media players, cameras, laptops, etc.
+ 	usb_host1_xhci: usb@fc400000 {
+ 		compatible = "rockchip,rk3588-dwc3", "snps,dwc3";
+ 		reg = <0x0 0xfc400000 0x0 0x400000>;
+@@ -135,6 +159,39 @@ i2s10_8ch: i2s@fde00000 {
+ 		status = "disabled";
+ 	};
+ 
++	hdmi_receiver: hdmi_receiver@fdee0000 {
++		compatible = "rockchip,rk3588-hdmirx-ctrler", "snps,dw-hdmi-rx";
++		reg = <0x0 0xfdee0000 0x0 0x6000>;
++		power-domains = <&power RK3588_PD_VO1>;
++		rockchip,grf = <&sys_grf>;
++		rockchip,vo1-grf = <&vo1_grf>;
++		interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 178 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 179 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "cec", "hdmi", "dma";
++		clocks = <&cru ACLK_HDMIRX>,
++			 <&cru CLK_HDMIRX_AUD>,
++			 <&cru CLK_CR_PARA>,
++			 <&cru PCLK_HDMIRX>,
++			 <&cru CLK_HDMIRX_REF>,
++			 <&cru PCLK_S_HDMIRX>,
++			 <&cru HCLK_VO1>;
++		clock-names = "aclk",
++			      "audio",
++			      "cr_para",
++			      "pclk",
++			      "ref",
++			      "hclk_s_hdmirx",
++			      "hclk_vo1";
++		resets = <&cru SRST_A_HDMIRX>, <&cru SRST_P_HDMIRX>,
++			 <&cru SRST_HDMIRX_REF>, <&cru SRST_A_HDMIRX_BIU>;
++		reset-names = "axi", "apb", "ref", "biu";
++		memory-region = <&hdmi_receiver_cma>;
++		pinctrl-0 = <&hdmim1_rx>;
++		pinctrl-names = "default";
++		status = "disabled";
++	};
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: rockchip,rk3588-hdmirx-ctrler
-+      - const: snps,dw-hdmi-rx
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 3
-+
-+  interrupt-names:
-+    items:
-+      - const: cec
-+      - const: hdmi
-+      - const: dma
-+
-+  clocks:
-+    maxItems: 7
-+
-+  clock-names:
-+    items:
-+      - const: aclk
-+      - const: audio
-+      - const: cr_para
-+      - const: pclk
-+      - const: ref
-+      - const: hclk_s_hdmirx
-+      - const: hclk_vo1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 4
-+
-+  reset-names:
-+    items:
-+      - const: axi
-+      - const: apb
-+      - const: ref
-+      - const: biu
-+
-+  memory-region:
-+    maxItems: 1
-+
-+  hpd-gpios:
-+    description: GPIO specifier for HPD.
-+    maxItems: 1
-+
-+  rockchip,grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      The phandle of the syscon node for the general register file
-+      containing HDMIRX PHY status bits.
-+
-+  rockchip,vo1-grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      The phandle of the syscon node for the Video Output GRF register
-+      to enable EDID transfer through SDAIN and SCLIN.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-names
-+  - clocks
-+  - clock-names
-+  - power-domains
-+  - resets
-+  - pinctrl-0
-+  - hpd-gpios
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/power/rk3588-power.h>
-+    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-+    hdmi_receiver: hdmi-receiver@fdee0000 {
-+      compatible = "rockchip,rk3588-hdmirx-ctrler", "snps,dw-hdmi-rx";
-+      reg = <0xfdee0000 0x6000>;
-+      interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH 0>,
-+                   <GIC_SPI 178 IRQ_TYPE_LEVEL_HIGH 0>,
-+                   <GIC_SPI 179 IRQ_TYPE_LEVEL_HIGH 0>;
-+      interrupt-names = "cec", "hdmi", "dma";
-+      clocks = <&cru ACLK_HDMIRX>,
-+               <&cru CLK_HDMIRX_AUD>,
-+               <&cru CLK_CR_PARA>,
-+               <&cru PCLK_HDMIRX>,
-+               <&cru CLK_HDMIRX_REF>,
-+               <&cru PCLK_S_HDMIRX>,
-+               <&cru HCLK_VO1>;
-+      clock-names = "aclk",
-+                    "audio",
-+                    "cr_para",
-+                    "pclk",
-+                    "ref",
-+                    "hclk_s_hdmirx",
-+                    "hclk_vo1";
-+      power-domains = <&power RK3588_PD_VO1>;
-+      resets = <&cru SRST_A_HDMIRX>, <&cru SRST_P_HDMIRX>,
-+               <&cru SRST_HDMIRX_REF>, <&cru SRST_A_HDMIRX_BIU>;
-+      reset-names = "axi", "apb", "ref", "biu";
-+      memory-region = <&hdmi_receiver_cma>;
-+      pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_5v_detection>;
-+      pinctrl-names = "default";
-+      hpd-gpios = <&gpio1 22 GPIO_ACTIVE_LOW>;
-+    };
+ 	pcie3x4: pcie@fe150000 {
+ 		compatible = "rockchip,rk3588-pcie", "rockchip,rk3568-pcie";
+ 		#address-cells = <3>;
 -- 
 2.39.2
 
