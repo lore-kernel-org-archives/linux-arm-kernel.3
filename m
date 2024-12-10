@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D2FE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DABE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNXvfug15XfoQwdKiIGBWtNC3tcA8qpMkETpkFfQs6Q=; b=KU7Jqh8GpRwVdhuHyxurL5UVtT
-	wVLhVW/OhKp1xu5uIV+9Ibk+AN6RJxtZPNaaFUQfQFxKHpJIMN1VXsniYVZA5EPOpzF7vErrFsu1e
-	SI2+r4fzJn6CjOxA0dgbIfpMrTeJdtWLDPHa+SR+0eCWJCJrXuckMlNAsI9Teii2yl9pRrTo6f/4d
-	Nr9gtr9gseXXqvJ6Kt9cEwFKzg5tLrBc8C0/U4NHm8ciRxnoVjnqZOw9DCAyCp5pv44q+QEaRr5pL
-	NC+dg5m50V6MzFhZN3iFGaAY4TIyOhr0y6J5mYXlxjqgraf3s4TsNK00jz3tH/haW0u75PL9hAWew
-	aDmA/w4w==;
+	bh=f0PnjnuFmwfGJ4/f1r00zdPmTrvRH6FRCjme7Zhxk+8=; b=tbYztB7vWNf6zPzlh+bHPl1sDd
+	DYj/4UDrX9ezy+I0Ae9xN97LzIx4mCClHyB3SjkCAgotvJlK+nyxrEZGbdc+Xdz6kI62grA1muUOL
+	dUiW9PtbAn4NDQsKfXf6ptm9nL1O1ScFeyCaQFLzH3/IDP+flUHRlZ3AI6xJVyhO+vr3AgeZKvHBC
+	+9BUGs37oqfBk7xOPvF0AN8MZ1NBfMZD+fO4WM5gfuIl8lf0ov0rxWNDHVbCftBrdqRiB9omptiw2
+	/FrUVwUqiz64dytSaBbr+9HS4tlGxgQ5e/4RzoTFfZAlfXedrA70ox5x+MtKczZN301r5pNlDJNQK
+	FqOmOa+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2tU-0000000C3Pn-0L8E;
-	Tue, 10 Dec 2024 16:15:28 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1tL2uV-0000000C3ex-0jt3;
+	Tue, 10 Dec 2024 16:16:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2oQ-0000000C2YV-3FIP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 16:10:16 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e3982e9278bso5075798276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 08:10:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733847013; x=1734451813; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HNXvfug15XfoQwdKiIGBWtNC3tcA8qpMkETpkFfQs6Q=;
-        b=EglYlCcUvbK5+9SIdzWa6X84cNs7jL+zhekHrNLQjflWhofO21g8KWRbvxz0iwr6OU
-         U+38R6fi5/kx5FKYf91js6FQ2Zw3bb0UWnOSTuiR5/ugk287w7g7LVatUFGma37m/Diw
-         V1Z9jsR3RQwtuKObFfuZbqQNiINrJeW0OmVSeiAZXIquLERo83eFML9WAUgJ1+909kfc
-         D6YWH9adSnTTzsuvZyxHG75nKtQKIz68ybyShffNp0lfj20UMoKMSx0PSNBRHbl15eTE
-         /9zi+js+Xe22ooKURWaFXOQQZv8LgVPadBrHe1OikjkVIQqEf/Dj4gs4QKEWKkOrNGt6
-         A0Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733847013; x=1734451813;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HNXvfug15XfoQwdKiIGBWtNC3tcA8qpMkETpkFfQs6Q=;
-        b=QfcpcsUbNqPVK56zgTiUXr9vjYkmVKKeex1/KmdxyHYiIg82zbSEF8DlEIx5tr6mJ2
-         Bf3AnPZC5gqzBeaIrL9UOYU5agkDtJss5TUUMSo/xB2+sjXzdHT/416UI4CXNK2RBJUQ
-         oVgf6/lEJnTajxAXkzq0V5QeJ5M/jIIIi2aQ6Y+tci49QUbjTu2GngT2QVCXC0/8vRsf
-         SXR9RdDoEe8AEIraZCgAfG1dxKLevR+2eBJl7OdoBZO5qCwvkaB4OftNYEhwGSouQ8jH
-         RX8NOyXrrZdHvNxoI0wrTB/K333qNH1UmCPNKG4/uieogkoBTg/nlznjJA5nfSP4/YXB
-         k4mA==
-X-Forwarded-Encrypted: i=1; AJvYcCVQgtKRRC1nBSv3M3VRthZhUDebPu/qLXX+8paLsBVEruVjzldDs1yRxqDqJMkhtBnu+ci60eEKoB3ocr70eZ8W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8rF9Wt1XeDHOIG+twB1v2ag7N4f7TvXRBzn4HJbqS/lwoF5sl
-	+HZGfnbC+gdtxcJpW1calHhT4MRgSTunjCseewgTApjeV8ofKnjnEv/KM7AVS+CTi/2SuBD/Q5Z
-	WBaPA6h9eQ/7VNujvuvfDLnme0MxPz6Ez/5nxxw==
-X-Gm-Gg: ASbGnctwL7bX5ZTAfUZiLGuo65CZUKDUm0AZ+4DeIrt1XnwCcyOMUoxxEOAumFMVuaL
-	dDuslyWxBbcHxt2XI0z+Er1uTEz06TL7NEmT0
-X-Google-Smtp-Source: AGHT+IELbJvk0NPV36M+fcncTTHMyREVObNbnHGvfeRgsIrYaGiOwpPdOwf890kyMOnEyS8+yJEfq/uf9mQc3jRotz8=
-X-Received: by 2002:a05:6902:2b0c:b0:e38:b889:7eff with SMTP id
- 3f1490d57ef6-e3a0b071e93mr15453171276.6.1733847013083; Tue, 10 Dec 2024
- 08:10:13 -0800 (PST)
+	id 1tL2qf-0000000C2xL-3xGx;
+	Tue, 10 Dec 2024 16:12:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4C1825C5486;
+	Tue, 10 Dec 2024 16:11:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38D41C4CED6;
+	Tue, 10 Dec 2024 16:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733847152;
+	bh=aeFcHfhyyi6Hrc1ORc56BM7zT3V7KDTDRrWatg2IVuM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tNyKLcLf9TBPZY/+magH1b8HAo631nln+OPc5sR6f4ayS8hvBfvwQPECC9oIm9ag5
+	 LCeTAGJ8duFEitSd1+oL2LJp9rHp5BH4DocBeF2Bv8BdcJtdCaHyWooP0i2kXRRUvq
+	 ZcLqGR+StgEpRHOLLCIw3mPcZElRJNRJuN6fbGm39WIn5xZ55aptvWyx9tlGVKz24c
+	 KMF8WTpz3g1u0nx65+IjO2ma/Pj0w759l4H3HgL3Uh0tj4dNNLLMonbl4+8bAZYCu6
+	 FTJJv/kq4mgaYBi6sPjghLxgc3fEXCou7AiLit1XNSNqte8p5C7RIE05x9BJ4RVNgS
+	 xlERbS1/Oj/2g==
+Date: Tue, 10 Dec 2024 11:12:30 -0500
+From: Sasha Levin <sashal@kernel.org>
+To: Saravana Kannan <saravanak@google.com>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Thierry Reding <treding@nvidia.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	matthias.bgg@gmail.com, elder@kernel.org, ricardo@marliere.net,
+	sumit.garg@linaro.org, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH AUTOSEL 6.11 08/15] drm: display: Set fwnode for aux bus
+ devices
+Message-ID: <Z1hobuvz2S03L9TF@sashalap>
+References: <20241204221726.2247988-1-sashal@kernel.org>
+ <20241204221726.2247988-8-sashal@kernel.org>
+ <CAGETcx8bhzGZKge4qfpNR8FaTWqbo0-5J9c7whc3pn-RECJs3Q@mail.gmail.com>
+ <CAGETcx-6yHV5xr1j7krY8LShCF5JATX0NSwjeRUL9+3TLCMq9w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
-In-Reply-To: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 10 Dec 2024 17:09:37 +0100
-Message-ID: <CAPDyKFon9-3U5Vn2i+WtarSAYQHnA_ho8CGQmiVoboq1tnt4fw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] dt-bindings: mmc: document mmc-slot and convert
- amlogic,meson-mx-sdio.txt to dtschema
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Maxime Ripard <mripard@kernel.org>, 
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGETcx-6yHV5xr1j7krY8LShCF5JATX0NSwjeRUL9+3TLCMq9w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_081014_829105_35C87895 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20241210_081234_066473_B0862B5D 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Nov 2024 at 16:16, Neil Armstrong <neil.armstrong@linaro.org> wrote:
+On Thu, Dec 05, 2024 at 04:07:45PM -0800, Saravana Kannan wrote:
+>On Thu, Dec 5, 2024 at 4:06 PM Saravana Kannan <saravanak@google.com> wrote:
+>>
+>> On Wed, Dec 4, 2024 at 3:29 PM Sasha Levin <sashal@kernel.org> wrote:
+>> >
+>> > From: Saravana Kannan <saravanak@google.com>
+>> >
+>> > [ Upstream commit fe2e59aa5d7077c5c564d55b7e2997e83710c314 ]
+>> >
+>> > fwnode needs to be set for a device for fw_devlink to be able to
+>> > track/enforce its dependencies correctly. Without this, you'll see error
+>> > messages like this when the supplier has probed and tries to make sure
+>> > all its fwnode consumers are linked to it using device links:
+>> >
+>> > mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) with backlight-lcd0
+>> >
+>> > Reported-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>> > Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
+>> > Tested-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>> > Signed-off-by: Saravana Kannan <saravanak@google.com>
+>> > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+>> > Reviewed-by: Thierry Reding <treding@nvidia.com>
+>> > Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> > Link: https://lore.kernel.org/r/20241024061347.1771063-2-saravanak@google.com
+>> > Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>> > Signed-off-by: Sasha Levin <sashal@kernel.org>
+>>
+>> As mentioned in the original cover letter:
+>>
+>> PSA: Do not pull any of these patches into stable kernels. fw_devlink
+>> had a lot of changes that landed in the last year. It's hard to ensure
+>> cherry-picks have picked up all the dependencies correctly. If any of
+>> these really need to get cherry-picked into stable kernels, cc me and
+>> wait for my explicit Ack.
+>>
+>> Is there a pressing need for this in 4.19?
 >
-> Document mmc-slot because used by amlogic,meson-mx-sdio.txt and
-> cavium-mmc.txt, so make it common.
->
-> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+>I copy pasted this into several replies. In all those cases I meant
+>the kernel version mentioned in the subject.
 
-Applied for next, thanks!
+I'll drop this and the other patch you've pointed out, thanks!
 
-Kind regards
-Uffe
-
-
-> ---
-> Changes in v4:
-> - Fixed address-cells description of mmc controller
-> - Cleanup '|' when not needed
-> - Added review tags
-> - Link to v3: https://lore.kernel.org/r/20241007-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v3-0-ad4eb22c2a8d@linaro.org
->
-> Changes in v3:
-> - Revert and insteads move common properties between slot and controller into mmc-controller-common.yaml
-> - Fix other comments on patch 2 & 3
-> - Link to v2: https://lore.kernel.org/r/20240920-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v2-0-5aa8bdfe01af@linaro.org
->
-> Changes in v2:
-> - Fixed description, limited to 3 slots
-> - Moved out mmc-slot in a separate common schema
-> - Link to v1: https://lore.kernel.org/r/20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v1-1-b7bfae886211@linaro.org
->
-> ---
-> Neil Armstrong (5):
->       dt-bindings: mmc: controller: clarify the address-cells description
->       dt-bindings: mmc: controller: move properties common with slot out to mmc-controller-common
->       dt-bindings: mmc: controller: remove '|' when not needed
->       dt-bindings: mmc: document mmc-slot
->       dt-bindings: mmc: convert amlogic,meson-mx-sdio.txt to dtschema
->
->  .../bindings/mmc/amlogic,meson-mx-sdio.txt         |  54 ----
->  .../bindings/mmc/amlogic,meson-mx-sdio.yaml        |  94 ++++++
->  .../bindings/mmc/mmc-controller-common.yaml        | 357 +++++++++++++++++++++
->  .../devicetree/bindings/mmc/mmc-controller.yaml    | 346 +-------------------
->  .../devicetree/bindings/mmc/mmc-slot.yaml          |  49 +++
->  5 files changed, 504 insertions(+), 396 deletions(-)
-> ---
-> base-commit: f486c8aa16b8172f63bddc70116a0c897a7f3f02
-> change-id: 20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-6fa70546ebb8
->
-> Best regards,
-> --
-> Neil Armstrong <neil.armstrong@linaro.org>
->
+-- 
+Thanks,
+Sasha
 
