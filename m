@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C0EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5BCE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aV9sf/eSogEcQS/z+WyC304R4iOFKUROL/tyAh3XdQk=; b=w32kKAwkovmsuJefH3y9CWWene
-	XRlI7YPTOgZLGqG3jethYdy5XQ5SKEUZNrKVZNhPjgHss4nBABmh3RbbhIeem9DdBabzGTFst1XpZ
-	2d04pl+AtX5PB/6GPrjwh/tW+2HBYRe2edSz9KCGh/zqPd2o2yo422ATf0wGBl3rN6t7c6d+CMScA
-	jmeswLaab/8/nbEBt/5FOzcUH2WnZt9xzlJQrmgWH+Vsz4T0U0PuC0js6GOzus7W+iQXA2yUER6O1
-	Eis5EO22JpSe40inJQ9UOl4MGTqj5I/h/h/44UI6+8a6vdzqQjfo7M3JHB+jfUupDKCjeTMsqQQa6
-	gxboNt1A==;
+	bh=HR985HiE65wAXM9O8QvXvTA1gJ8FNQIGOl/hU7K0iww=; b=LC31rMkHBZMHTDa7HgXloCGhxG
+	odCdEB/nXuRKFJaHASDke8RSP4hgit75NG+mg3VhWAvPG3fe83LOaF9QmfguKNhf+/jT4Pr06Fk7c
+	mMC+4iFT7ufnrSSC/+Lhn5IiEpSd042NuQJoGLdxLqw1IQetWSL9M3qLYaU8dfnSFmtmfxdipsAAF
+	g0HAolWwcshJIV+SO/gkOCYwv1xVZm7eRrbY4TXDOyILjfScbCf6k0CeW+8tCwmn3+v1mm+FBVs/U
+	NLmrB97QnQdtIZxiwp2UMrb/vZNQXwFL17sY3Tcw9vczyVbx0kfU4WFMUfhaT/RZseoW09T0tgbcS
+	dCLygcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0Wa-0000000Bc5G-3c9X;
-	Tue, 10 Dec 2024 13:43:40 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tL0YF-0000000BcIx-18dO;
+	Tue, 10 Dec 2024 13:45:23 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0VW-0000000Bbsn-3u2M;
-	Tue, 10 Dec 2024 13:42:36 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 6AF6421163;
-	Tue, 10 Dec 2024 13:42:31 +0000 (UTC)
-Authentication-Results: smtp-out1.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4B81D13A15;
-	Tue, 10 Dec 2024 13:42:30 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id cLoBD0ZFWGcfBgAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Tue, 10 Dec 2024 13:42:30 +0000
-Message-ID: <f9f49030-0518-4e30-91a7-3c088c31180b@suse.de>
-Date: Tue, 10 Dec 2024 15:42:21 +0200
+	id 1tL0XB-0000000BcAB-3rja;
+	Tue, 10 Dec 2024 13:44:19 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] PCI: brcmstb: Adjust PHY PLL setup to use a
- 54MHz input refclk
-To: James Quinlan <james.quinlan@broadcom.com>,
- Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1733838255;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HR985HiE65wAXM9O8QvXvTA1gJ8FNQIGOl/hU7K0iww=;
+	b=XFWjja7yGGHwKBg/bK2+h1h7SVh2fqrDrWxnE+tVJmxaRVJsqLZ3mtiwtJY3S2u7Z6nKni
+	bROXKcLWiD3kioD0yKVuF2TCPoCBR9+cXomUeftaxuwCex6/Y/dgyuAi8TeqGax9dwu438
+	rG6imA1HJIVtI7w/34QtStg9qUmod9UIuXm0LRhyS4NB8lE3OdlYk5U0MhYBvn93AReZnI
+	oZyJGqmJuQ6eEHbVQ/hplsYZz3OWa6Zt/GoaYA/ImRmI2sNDZIsjGjPoaS4ds1gu56WQTz
+	nsERVgGNpU2+SLEOWl468F+JYzPjJzuBxgZ1P/ycA6PDNX/FRoUqg+d9tJ+cqw==
+Date: Tue, 10 Dec 2024 14:44:14 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Peter Geis <pgwipeout@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>,
+ Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
-References: <20241025124515.14066-1-svarbanov@suse.de>
- <20241025124515.14066-9-svarbanov@suse.de>
- <4bbdf9ed-f429-411b-8f5f-e51857f0f9d0@broadcom.com>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <4bbdf9ed-f429-411b-8f5f-e51857f0f9d0@broadcom.com>
-Content-Type: text/plain; charset=UTF-8
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 6/6] arm64: dts: rockchip: Remove address aligned beats
+ from rk3328-roc
+In-Reply-To: <CAMdYzYpj3d7Rq0O0QjV4r6HEf_e07R0QAhPT2NheZdQV3TnQ6g@mail.gmail.com>
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-7-pgwipeout@gmail.com>
+ <2b68c2dd3618e5904a4eac1ec87d29a7@manjaro.org>
+ <CAMdYzYpj3d7Rq0O0QjV4r6HEf_e07R0QAhPT2NheZdQV3TnQ6g@mail.gmail.com>
+Message-ID: <6453e714b2a48572ff1e57cd74b0f6d3@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[];
-	TAGGED_RCPT(0.00)[dt]
-X-Rspamd-Queue-Id: 6AF6421163
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_054235_116520_88D66879 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20241210_054418_252540_A837D3C1 
+X-CRM114-Status: GOOD (  29.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,100 +78,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jim
+Hello Peter,
 
-On 12/10/24 12:52 AM, James Quinlan wrote:
-> On 10/25/24 08:45, Stanimir Varbanov wrote:
->> The default input reference clock for the PHY PLL is 100Mhz, except for
->> some devices where it is 54Mhz like bcm2712C1 and bcm2712D0.
->>
->> To implement this adjustments introduce a new .post_setup op in
->> pcie_cfg_data and call it at the end of brcm_pcie_setup function.
->>
->> The bcm2712 .post_setup callback implements the required MDIO writes that
->> switch the PLL refclk and also change PHY PM clock period.
->>
->> Without this RPi5 PCIex1 is unable to enumerate endpoint devices on
->> the expansion connector.
->>
->> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->> ---
->> v3 -> v4:
->>   - Improved patch description (Florian)
->>
->>   drivers/pci/controller/pcie-brcmstb.c | 42 +++++++++++++++++++++++++++
->>   1 file changed, 42 insertions(+)
->>
->> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/
->> controller/pcie-brcmstb.c
->> index d970a76aa9ef..2571dcc14560 100644
->> --- a/drivers/pci/controller/pcie-brcmstb.c
->> +++ b/drivers/pci/controller/pcie-brcmstb.c
->> @@ -55,6 +55,10 @@
->>   #define PCIE_RC_DL_MDIO_WR_DATA                0x1104
->>   #define PCIE_RC_DL_MDIO_RD_DATA                0x1108
->>   +#define PCIE_RC_PL_PHY_CTL_15                0x184c
->> +#define  PCIE_RC_PL_PHY_CTL_15_DIS_PLL_PD_MASK        0x400000
->> +#define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK    0xff
->> +
->>   #define PCIE_MISC_MISC_CTRL                0x4008
->>   #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_64B_MODE_MASK    0x80
->>   #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_MPS_MODE_MASK    0x400
->> @@ -251,6 +255,7 @@ struct pcie_cfg_data {
->>       u8 num_inbound_wins;
->>       int (*perst_set)(struct brcm_pcie *pcie, u32 val);
->>       int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
->> +    int (*post_setup)(struct brcm_pcie *pcie);
->>   };
->>     struct subdev_regulators {
->> @@ -826,6 +831,36 @@ static int brcm_pcie_perst_set_generic(struct
->> brcm_pcie *pcie, u32 val)
->>       return 0;
->>   }
->>   +static int brcm_pcie_post_setup_bcm2712(struct brcm_pcie *pcie)
->> +{
->> +    const u16 data[] = { 0x50b9, 0xbda1, 0x0094, 0x97b4, 0x5030,
->> 0x5030, 0x0007 };
->> +    const u8 regs[] = { 0x16, 0x17, 0x18, 0x19, 0x1b, 0x1c, 0x1e };
->> +    int ret, i;
->> +    u32 tmp;
->> +
->> +    /* Allow a 54MHz (xosc) refclk source */
->> +    ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0,
->> SET_ADDR_OFFSET, 0x1600);
->> +    if (ret < 0)
->> +        return ret;
->> +
->> +    for (i = 0; i < ARRAY_SIZE(regs); i++) {
->> +        ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0, regs[i],
->> data[i]);
->> +        if (ret < 0)
->> +            return ret;
->> +    }
->> +
->> +    usleep_range(100, 200);
->> +
->> +    /* Fix for L1SS errata */
->> +    tmp = readl(pcie->base + PCIE_RC_PL_PHY_CTL_15);
->> +    tmp &= ~PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK;
->> +    /* PM clock period is 18.52ns (round down) */
->> +    tmp |= 0x12;
->> +    writel(tmp, pcie->base + PCIE_RC_PL_PHY_CTL_15);
+On 2024-12-10 12:29, Peter Geis wrote:
+> On Tue, Dec 10, 2024 at 5:45 AM Dragan Simic <dsimic@manjaro.org> 
+> wrote:
+>> Thanks for the patch.  Please, see some comments below.
+>> 
+>> On 2024-12-10 02:30, Peter Geis wrote:
+>> > Since commit 8a469ee35606 ("arm64: dts: rockchip: Add txpbl node for
+>> > RK3399/RK3328"), the snps,aal, snps,txpbl, and snps,rxpbl nodes have
+>> > been unnecessary in the separate device trees. There is also a
+>> > performance loss to using snps,aal. Remove these from the rk3328-roc
+>> > device tree.
+>> >
+>> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+>> >
+>> > ---
+>> >
+>> >  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 3 ---
+>> >  1 file changed, 3 deletions(-)
+>> >
+>> > diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>> > b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>> > index 6984387ff8b3..0d476cc2144d 100644
+>> > --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>> > +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>> > @@ -155,12 +155,9 @@ &gmac2io {
+>> >       phy-mode = "rgmii";
+>> >       pinctrl-names = "default";
+>> >       pinctrl-0 = <&rgmiim1_pins>;
+>> > -     snps,aal;
+>> 
+>> Huh, I see that quite a few RK3328 board dts files specify
+>> the snps,aal node.  I wonder was it a "cargo cult" approach
+>> at play, :) or was there some real need for it?
+>> 
+>> Actually, I see now that you added snps,aal to rk3328-roc-
+>> cc.dts in the commit 393f3875c385 ("arm64: dts: rockchip:
+>> improve rk3328-roc-cc rgmii performance."), so I guess that
+>> your further research and testing showed that it actually
+>> isn't needed for Ethernet stability?
+>> 
+>> >       snps,reset-gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
+>> >       snps,reset-active-low;
+>> >       snps,reset-delays-us = <0 10000 50000>;
+>> > -     snps,rxpbl = <0x4>;
+>> > -     snps,txpbl = <0x4>;
+>> 
+>> Unless I'm missing something, the commit 8a469ee35606 ("arm64:
+>> dts: rockchip: Add txpbl node for RK3399/RK3328") doesn't add
+>> the snps,rxpbl node to the RK3328 SoC dtsi, and the respective
+>> driver does nothing about it when the snps,txpbl node is found.
+>> 
+>> Though, I see that rk3328-rock-pi-e.dts is the only other
+>> RK3328 board dts file that specifies the snps,rxpbl node, so
+>> it seems that removing the snps,rxpbl node here should be safe,
+>> especially because it was you who added it in the same commit
+>> mentioned above.  If there were some SoC-level issues, all
+>> RK3328 boards would've needed it.
 > 
-> Hi Stan,
+> Good Morning,
 > 
-> Can you please say more about where this errata came from?  I asked the
-> 7712 PCIe HW folks and they said that there best guess was that it was a
-> old workaround for a particular Broadcom Wifi endpoint.  Do you know its
-> origin?
+> You'll notice the author of that patch was me. Setting aal, txpbl, and
+> rxpbl was the original fix I came up with for the rk3328, which I
+> applied to the only board I had. Someone else later on isolated it
+> specifically isolated it to just the txpbl and applied it to both the
+> rk3328 and rk3399 directly.
+> 
+> This was just something that was left hanging after that result.
+> 
+> Looking at how rk356x was done, I suspect there's an even more elegant
+> solution. However I don't have the deep level knowledge nor
+> documentation to implement it.
 
-Unfortunately, I don't know the details. See the comments on previous
-series version [1]. My observation shows that MDIO writes are
-implemented in RPi platform firmware only for pcie2 (where RP1 south
-bridge is connected) but not for pcie1 expansion connector.
+Sure, I noticed that you authored the original Ethernet stability
+fix. :)  With all this in mind, please feel free to include
 
-~Stan
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
 
-[1] https://www.spinics.net/lists/linux-pci/msg160842.html
-
+and I'll prepare a patch or two that clean up any and all leftovers
+in other board dts(i) files.
 
