@@ -4,59 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD934E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87750E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rokwvd15tx22jCQeOHs72IzDSXOLszmzzO7e7L4pbHo=; b=y/Da0cesHgOKR840K9CAlTcRJ2
-	qB0RGD9o7nphH0JpKevk8u6etmpH9t3G1zf7kls0AFcZtJbxovArNrbWevYx4mxRA2scgj70BOQmd
-	ZvN31K721XOuhGorrGoQnlssltK3ASvvJWJi8RgKhM8FbQbCNMdGAHoEpti791M1il+1sdIna+vDc
-	16HuIWFQL5CYNHlaH1GLVFOjxERugKobzcYIAyQIi63Dbm3Mi4tFPv/50hu7faSLXEKKJNcZj89cL
-	N2RDJCycek61/JfItBfv5FnLd7WllVXrl/1mZDk4Es4+8tKC7YErLmhKYNuJvg3Y1qvkzRlI4UK0g
-	X9MxY3bg==;
+	bh=lLGNJTaE0IeDdRBSN5nklAb66/bE0PthV8TWw8s13Fo=; b=pzFvRwwIPfRSLaGtzxnEM+Sgaw
+	NOwxVu4i1F+YilIom2oHKmTXw2oAnJmNTjoFBgYvWuXa2XQKTShzj3gKE/otX7ZeDsYfNQwyYAY00
+	6rVM97OHajn5BWnyl3ZSfQJU0wLOy6TKchm5GlM1yPAkc5S/v8E4WSWAQ1hBjMPi+U//Yih+moC4z
+	J3IyUiL7Qws14iLfxSeFByfXBPsUALWHKLam5AH3rOdWExFZyC7aCDkWXuWm76aL88BIjfMdLk5iF
+	8uh+eLFJGj99rEslX8t3iggjqvzMAcj0yKz1iBWh59nzyu5WqT1wjaKCUVOyB4LLhpeseMdAAYQOF
+	UNZDX7Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Dd-0000000Bl6t-1U56;
-	Tue, 10 Dec 2024 14:28:09 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1tL1Ee-0000000BlL7-0wma;
+	Tue, 10 Dec 2024 14:29:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL12N-0000000BiHN-1Xhf
+	id 1tL13r-0000000Bif3-03hC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 14:16:34 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Y711j6stYzhZVb;
-	Tue, 10 Dec 2024 22:14:01 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id A4D251400FD;
-	Tue, 10 Dec 2024 22:16:25 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 10 Dec 2024 22:16:25 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <jonathan.cameron@huawei.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <yangyicong@hisilicon.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
-	<wangyushan12@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v5 09/10] drivers/perf: hisi: Fix incorrect variable name "hha_pmu" in DDRC PMU driver
-Date: Tue, 10 Dec 2024 22:15:24 +0800
-Message-ID: <20241210141525.37788-10-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20241210141525.37788-1-yangyicong@huawei.com>
-References: <20241210141525.37788-1-yangyicong@huawei.com>
+	Tue, 10 Dec 2024 14:18:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C5186A41796;
+	Tue, 10 Dec 2024 14:16:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0502C4CED6;
+	Tue, 10 Dec 2024 14:18:00 +0000 (UTC)
+Date: Tue, 10 Dec 2024 14:17:58 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] arm64/signal: Silence spurious sparse warning storing
+ GCSPR_EL0
+Message-ID: <Z1hNllCWa4u-IxrH@arm.com>
+References: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_061631_597277_1F42D2EA 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241210_061803_114228_A30E5765 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,41 +62,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Junhao He <hejunhao3@huawei.com>
+On Tue, Dec 10, 2024 at 12:42:53AM +0000, Mark Brown wrote:
+> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+> index 14ac6fdb872b9672e4b16a097f1b577aae8dec50..83ea7e5fd2b54566c6649b82b8570657a5711dd4 100644
+> --- a/arch/arm64/kernel/signal.c
+> +++ b/arch/arm64/kernel/signal.c
+> @@ -39,7 +39,7 @@
+>  #ifdef CONFIG_ARM64_GCS
+>  #define GCS_SIGNAL_CAP(addr) (((unsigned long)addr) & GCS_CAP_ADDR_MASK)
+>  
+> -static bool gcs_signal_cap_valid(u64 addr, u64 val)
+> +static bool gcs_signal_cap_valid(unsigned long __user *addr, u64 val)
+>  {
+>  	return val == GCS_SIGNAL_CAP(addr);
+>  }
+> @@ -1094,15 +1094,15 @@ static int gcs_restore_signal(void)
+>  	/*
+>  	 * Check that the cap is the actual GCS before replacing it.
+>  	 */
+> -	if (!gcs_signal_cap_valid((u64)gcspr_el0, cap))
+> +	if (!gcs_signal_cap_valid(gcspr_el0, cap))
+>  		return -EINVAL;
+>  
+>  	/* Invalidate the token to prevent reuse */
+> -	put_user_gcs(0, (__user void*)gcspr_el0, &ret);
+> +	put_user_gcs(0, gcspr_el0, &ret);
+>  	if (ret != 0)
+>  		return -EFAULT;
+>  
+> -	write_sysreg_s(gcspr_el0 + 1, SYS_GCSPR_EL0);
+> +	write_sysreg_s((unsigned long)(gcspr_el0 + 1), SYS_GCSPR_EL0);
 
-In the callback function write_evtype(), the variable name of struct
-hisi_pmu should be "ddrc_pmu" instead of "hha_pmu".
+Would we now get a warning here?
 
-Signed-off-by: Junhao He <hejunhao3@huawei.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-index 75f251a7b30c..fb309b8d5301 100644
---- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-@@ -111,14 +111,14 @@ static void hisi_ddrc_pmu_v2_write_counter(struct hisi_pmu *ddrc_pmu,
-  * so there is no need to write event type, while it is programmable counter in
-  * PMU v2.
-  */
--static void hisi_ddrc_pmu_write_evtype(struct hisi_pmu *hha_pmu, int idx,
-+static void hisi_ddrc_pmu_write_evtype(struct hisi_pmu *ddrc_pmu, int idx,
- 				       u32 type)
- {
- 	u32 offset;
- 
--	if (hha_pmu->identifier >= HISI_PMU_V2) {
-+	if (ddrc_pmu->identifier >= HISI_PMU_V2) {
- 		offset = DDRC_V2_EVENT_TYPE + 4 * idx;
--		writel(type, hha_pmu->base + offset);
-+		writel(type, ddrc_pmu->base + offset);
- 	}
- }
- 
 -- 
-2.24.0
-
+Catalin
 
