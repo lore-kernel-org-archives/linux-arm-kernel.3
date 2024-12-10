@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E3FE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D333E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvsJcHnWFJkaRdXIOYYPtjthmV89MakBwrZsJYDK4Qk=; b=uQQF+kyfKQPSjGqajA/2CUj8jx
-	hUJCsAuX7Uml/76Pl0KzKfAI2L84Vb4PHKoUnYpe4xLCdjnbrPMpyrFgL5nqw8ytjICFFgmisaM1j
-	uYDlC/rZtYPy6JJAtZEO73Cy1PfGobmCoyZzDZf+a8Nu31oRdAIDCp4/7bjBQdRs0NNEJQg/z8QRy
-	sb/RvVN8E0OFoSlXCw8KSqFYBGi4fhUrAp2q8x5ZHsO2AekEyFpupNrL8aldPsBiwy43TUUY1Itf5
-	zkDFiqV2KQnorJ1xYmDqYzNM3TDqZlXTshF+x8ezSWnKFiV5JTrWg0EmVXRbl6h/kzwzz43cF/x2M
-	hlpTMiqw==;
+	bh=4HuyGQ9BIUtmSl7RlIuvQXneAnQFAJ8SshLEhAtYpg4=; b=d0TSQRppWcoibWWyHbLEGmkzez
+	BaKw3j/w+LNGypb85rCyHHF2pzAcfJdhTdv8zFADuU7oLJ9x0TgbnjvzAI70uM2E+BxE0/Ujrsw+V
+	m6xx7dtMt35Odsh8+YhxVwW2BMsKaWhqS+YuTEp+4DKuoOS+Qi6Eg+isHnzrmFGq/3kHFIFGHsypT
+	393kxjzyzeeNREShV1m389KcujDWZu96r9lBNzfSPyj7Ajq5URueizLeRwXgDXBPWjec7YzAd3ByO
+	K3JoTnc9CokKH2YIXJFne3V9K+JHg/kwWDXQI2d1p/LAyduRxE1MUKKCX5uQOWEx72kap52VYILBj
+	JLoizBBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0g0-0000000BdWS-1ALm;
-	Tue, 10 Dec 2024 13:53:24 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tL0h0-0000000BdjS-3j3l;
+	Tue, 10 Dec 2024 13:54:27 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0ev-0000000BdIY-3NxP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 13:52:19 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-385e06af753so2467934f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 05:52:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733838736; x=1734443536; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gvsJcHnWFJkaRdXIOYYPtjthmV89MakBwrZsJYDK4Qk=;
-        b=deSvjZ7CQomyFbGmvSZKWefqwEHBSnqHaOjRP9sd6VcVQgVNt/R/NPR9EhZIsl/F0p
-         ffgT1YDCnczx2D4yL1Bo9Vzjki+p8rSPBlMx9WWsz0BOY17qPBZ3QSKgTuQnG5UrsdW8
-         1dV/nAAPHrlNEyFLSyDHSz9jNwa3TNm8u0Yymmg1xN/JHPnw9MynDNbtaEUbiUBoezAQ
-         qErKSD7zrGLrjJ7Ih9W2cmLLl5WnLA/Fr3iiYMoByBbGXCf7QSEimhNT4eXYa3OvroPx
-         xoU8EkdnvBOpsVZVDpu7GqGDNkep6Uo8bDg7xA+tyhOQle4kTN/KFvW1EA+MxNAOrYyu
-         T7bQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733838736; x=1734443536;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gvsJcHnWFJkaRdXIOYYPtjthmV89MakBwrZsJYDK4Qk=;
-        b=LaE8dRwIEIANBUJAxvBx9HcQaozPzYceIjBy/QjKFyMngZfUrgAOw/pQO7VTvFxh0M
-         +lfRMsukNcK/CS8xVzXk9oVDVpZ7z2aXEGnYYgei83q3Y9Vd7mD/dwMUuwbh1VfBJiq7
-         4ckL9o1iWTcSvs3+e2at6PgJ1UzAfihU0MYuMCxQe90J3d4Q2jdHvoHVqZtXSCafrJje
-         4xnbE1KEvtypTOir+bHMxCoGbHm6cSdQqeFH8zHMknk9+H+wp5ovdEqjLV7dt/KGLPoZ
-         Ugxe7Krovv1o9psFiZWdWL1YCbi245dBhkZp3txahdmmjWgi3rvsjXEWZXwec5Q6vFXK
-         eRLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXZfRGHRl7+/VNRPGm9g0NH2LFsGMTQDq0/BuREcZ2Kd9uab95IYvEv1tPOG52MNDJJHWUmmarLKZVByS9gFOGK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1WWgxFVNV4ckqHYWh56QND9sgM9O6DxYFUSodm/oGxg6nScbq
-	AI2hs2Qb4wc5BW/LfZTODTJlhF40wHN1xKmGQgUqKgUeb4WVh8hx8xEK0fy6nbI=
-X-Gm-Gg: ASbGncvBWqcf8PWFgJp64uNROVVNeS/sb4wB+CBwE52Y4S1cbpIVJFg81C2dRPA6rOX
-	UUDL1Z0HjlSTkRC2nNg2UD0GX3g1GJhh1/URFbWklLp7vmILxCGqfzGOzxKlTCfL8k7EaHfx60W
-	o0tDDwRWk6lyIsypJMwaks55946qf4pPEtaZDbvZv/Hee2Iq4JEFZKxb3xvoZIW0rdVtsQYvqgd
-	sKVahaM9jCPzWu+h3jE/S61K4jeA3RgXZAjLwco2D4jHbbdhlfEbQLjix94EOfWeIt3oMNW
-X-Google-Smtp-Source: AGHT+IFQ6nYMzgv6s9MPm0QEXnXj8O3sBLDqM8CxTrOU96IG8xBvdz2PcHy2jFxRyvN3ca+1FwMClg==
-X-Received: by 2002:a05:6000:42c3:b0:385:f1f2:13f1 with SMTP id ffacd0b85a97d-386453e2a8cmr1917700f8f.22.1733838735834;
-        Tue, 10 Dec 2024 05:52:15 -0800 (PST)
-Received: from [192.168.68.114] ([5.133.47.210])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3861ecf4119sm15806378f8f.14.2024.12.10.05.52.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Dec 2024 05:52:15 -0800 (PST)
-Message-ID: <3e16b2f5-5aeb-4988-bf6f-63c7309f53a4@linaro.org>
-Date: Tue, 10 Dec 2024 13:52:14 +0000
+	id 1tL0ff-0000000BdSO-0k1M;
+	Tue, 10 Dec 2024 13:53:04 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] nvmem: imx-ocotp-ele: fix reading from ELE OCOTP
-To: Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peng Fan <peng.fan@nxp.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable <stable@kernel.org>
-References: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
-Content-Language: en-US
-From: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-In-Reply-To: <20241202-imx-ele-ocotp-fixes-v2-0-3c021a97eb5d@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1733838781;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4HuyGQ9BIUtmSl7RlIuvQXneAnQFAJ8SshLEhAtYpg4=;
+	b=fzW4BzaSnzstzxXv1KEIfRoWbbgMFMx3sgsdnLgtZ4FDeGfdKq5w0JA9VsYNnk0IJ2Fm60
+	Y2MU7IQjSej2pP3bSUnfZzeMLIHYiWUKK9NzLA4y39egUYVqfBfd+f27g97u6tz8lsckWR
+	G7wUQsnhTqhWdFQ9kmCHAhzgkLYGCrPRd6XrD5k0PGjvbBksxnUS2hRFxqKf3m7/hTOsZS
+	iHegBt647qaaB+/ZQGP9OsG5rdbPT2wxWKuj38DMdxHWxUlNN4eYWSGGw8+Mw4dMuy1nvp
+	X5mgK8LBqyiUHtt/ll0uc4VxGYcfEbCFfQlt2lCYV5RyTtYtWwDgbw0jFGTeBw==
+Date: Tue, 10 Dec 2024 14:53:00 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Peter Geis <pgwipeout@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>, Conor
+ Dooley <conor+dt@kernel.org>, Diederik de Haas <didi.debian@cknow.org>,
+ Johan Jonker <jbx6244@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Liang Chen <cl@rock-chips.com>, Rob Herring
+ <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, shironeko <shironeko@tesaguri.club>
+Subject: Re: [PATCH 4/6] arm64: dts: rockchip: add hevc power domain clock to
+ rk3328
+In-Reply-To: <CAMdYzYquvGBzfWqvUOku7m1sM9qxmBHAL95cANDViUCT1oEEhQ@mail.gmail.com>
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-5-pgwipeout@gmail.com>
+ <e32fa593abfa6d08202b4f929e0b4bdb@manjaro.org>
+ <CAMdYzYp+MQVYr1tOMEOn62vXZGVEYrtd1p9vn6YQzXdrJgSdyA@mail.gmail.com>
+ <CAMdYzYquvGBzfWqvUOku7m1sM9qxmBHAL95cANDViUCT1oEEhQ@mail.gmail.com>
+Message-ID: <8c604ada27457698ad6d33d22a39b45a@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_055218_673634_11DE3EB3 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20241210_055303_502759_B550C155 
+X-CRM114-Status: GOOD (  30.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,53 +81,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Peter,
 
+On 2024-12-10 14:23, Peter Geis wrote:
+> On Tue, Dec 10, 2024 at 8:13 AM Peter Geis <pgwipeout@gmail.com> wrote:
+>> On Tue, Dec 10, 2024 at 5:04 AM Dragan Simic <dsimic@manjaro.org> 
+>> wrote:
+>> > On 2024-12-10 02:30, Peter Geis wrote:
+>> > > There is a race condition at startup between disabling power domains
+>> > > not
+>> > > used and disabling clocks not used on the rk3328. When the clocks are
+>> > > disabled first, the hevc power domain fails to shut off leading to a
+>> > > splat of failures. Add the hevc core clock to the rk3328 power domain
+>> > > node to prevent this condition.
+>> > >
+>> > > rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 3-....
+>> > > }
+>> > > 1087 jiffies s: 89 root: 0x8/.
+>> > > rcu: blocking rcu_node structures (internal RCU debug):
+>> > > Sending NMI from CPU 0 to CPUs 3:
+>> > > NMI backtrace for cpu 3
+>> > > CPU: 3 UID: 0 PID: 86 Comm: kworker/3:3 Not tainted 6.12.0-rc5+ #53
+>> > > Hardware name: Firefly ROC-RK3328-CC (DT)
+>> > > Workqueue: pm genpd_power_off_work_fn
+>> > > pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>> > > pc : regmap_unlock_spinlock+0x18/0x30
+>> > > lr : regmap_read+0x60/0x88
+>> > > sp : ffff800081123c00
+>> > > x29: ffff800081123c00 x28: ffff2fa4c62cad80 x27: 0000000000000000
+>> > > x26: ffffd74e6e660eb8 x25: ffff2fa4c62cae00 x24: 0000000000000040
+>> > > x23: ffffd74e6d2f3ab8 x22: 0000000000000001 x21: ffff800081123c74
+>> > > x20: 0000000000000000 x19: ffff2fa4c0412000 x18: 0000000000000000
+>> > > x17: 77202c31203d2065 x16: 6c6469203a72656c x15: 6c6f72746e6f632d
+>> > > x14: 7265776f703a6e6f x13: 2063766568206e69 x12: 616d6f64202c3431
+>> > > x11: 347830206f742030 x10: 3430303034783020 x9 : ffffd74e6c7369e0
+>> > > x8 : 3030316666206e69 x7 : 205d383738353733 x6 : 332e31202020205b
+>> > > x5 : ffffd74e6c73fc88 x4 : ffffd74e6c73fcd4 x3 : ffffd74e6c740b40
+>> > > x2 : ffff800080015484 x1 : 0000000000000000 x0 : ffff2fa4c0412000
+>> > > Call trace:
+>> > > regmap_unlock_spinlock+0x18/0x30
+>> > > rockchip_pmu_set_idle_request+0xac/0x2c0
+>> > > rockchip_pd_power+0x144/0x5f8
+>> > > rockchip_pd_power_off+0x1c/0x30
+>> > > _genpd_power_off+0x9c/0x180
+>> > > genpd_power_off.part.0.isra.0+0x130/0x2a8
+>> > > genpd_power_off_work_fn+0x6c/0x98
+>> > > process_one_work+0x170/0x3f0
+>> > > worker_thread+0x290/0x4a8
+>> > > kthread+0xec/0xf8
+>> > > ret_from_fork+0x10/0x20
+>> > > rockchip-pm-domain ff100000.syscon:power-controller: failed to get ack
+>> > > on
+>> > > domain 'hevc', val=0x88220
+>> > >
+>> > > Fixes: 52e02d377a72 ("arm64: dts: rockchip: add core dtsi file for
+>> > > RK3328 SoCs")
+>> > > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+>> >
+>> > While I was unable to formally verify this clock assignment,
+>> > i.e. by using the RK3328 TRM or the downstream kernel source
+>> > from Rockchip, it makes perfect sense to me.  Thanks for the
+>> > patch, and please feel free to include:
+>> >
+>> > Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+>> 
+>> It is unfortunate the TRM doesn't include the clock maps, because they
+>> are extremely helpful when one can acquire them. It also doesn't help
+>> that the TRM register definition only referred to this as "pll". I was
+>> sent specifically the usb3 phy clock map for my work on the driver,
+>> which had the location of each switch and divider along with the
+>> register and bit that controlled it. That combined with the TRM
+>> register map allowed me to find this error.
+> 
+> Apologies, that's the wrong response for this one.
 
-On 02/12/2024 11:22, Sascha Hauer wrote:
-> Commits b2ab0edaf484 ("arm64: dts: imx93: add nvmem property for fec1")
-> and 0d4fbaffbdca ("arm64: dts: imx93: add nvmem property for eqos")
-> introduced NVMEM cell bindings for reading MAC addresses from the ELE
-> OCOTP. This doesn't work as expected due to bugs in the driver:
-> 
-> - imx_ocotp_reg_read() interprets the incoming offset as 32bit word
->    offset, but it really is in bytes which means the driver reads bogus
->    values whenever the offset is non zero
-> - imx_ocotp_reg_read() reads wrong results when the offset is not 32bit
->    word aligned
-> - MAC addresses are stored in reverse byte order in the ELE OCOTP, we
->    have to swap the order before passing them to the upper layer
-> 
-> This likely went through unnoticed because the bootloader normally adds
-> the MAC addresses to the ethernet nodes and in this case they are
-> preferred over the NVMEM addresses.
-> 
-> This series fixes these issues.
-> 
-> Sascha
-> 
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> ---
-> Changes in v2:
-> - Add Fixes: and Cc: stable tag as requested by Fabio
-> - Link to v1: https://lore.kernel.org/r/20241023-imx-ele-ocotp-fixes-v1-0-4adc00ce288f@pengutronix.de
-> 
-> ---
-> Sascha Hauer (4):
->        nvmem: imx-ocotp-ele: simplify read beyond device check
->        nvmem: imx-ocotp-ele: fix reading from non zero offset
->        nvmem: imx-ocotp-ele: fix MAC address byte order
->        nvmem: imx-ocotp-ele: set word length to 1
+No worries.
 
+> This patch was the result of educated guess combined with testing. I
+> grabbed all of the clocks that looked like they could affect things,
+> then tested them one at a time until I isolated them to this clock. It
+> lives alone with cpll as the parent and has no children according to
+> the clock summary. (Though the writeup i mistakenly included above
+> proves the clock map isn't always accurate).
 
-Applied thanks,
+I see, thanks for all your work on this patch!  It surely took quite
+a lot of time to perform all the testing.
 
---srini
-> 
->   drivers/nvmem/imx-ocotp-ele.c | 38 +++++++++++++++++++++++++++++++-------
->   1 file changed, 31 insertions(+), 7 deletions(-)
-> ---
-> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-> change-id: 20241023-imx-ele-ocotp-fixes-f7b216171e1e
-> 
-> Best regards,
+>> > > ---
+>> > >
+>> > >  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 1 +
+>> > >  1 file changed, 1 insertion(+)
+>> > >
+>> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> > > b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> > > index 0597de415fe0..7d992c3c01ce 100644
+>> > > --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> > > +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>> > > @@ -333,6 +333,7 @@ power: power-controller {
+>> > >
+>> > >                       power-domain@RK3328_PD_HEVC {
+>> > >                               reg = <RK3328_PD_HEVC>;
+>> > > +                             clocks = <&cru SCLK_VENC_CORE>;
+>> > >                               #power-domain-cells = <0>;
+>> > >                       };
+>> > >                       power-domain@RK3328_PD_VIDEO {
 
