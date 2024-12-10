@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34F8E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D65E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3r0+SVHeDv0V/nwe3iMXDOSW8idVkaNDtQOwSdMocY=; b=KT/ZTOgo2FN2Wx/0fmQ/xEp3BF
-	V+XLWkmC7jEwB3E8Uq8UZhcgxTJY9iuf/VJmzdR7wREfM6PfQ2gS3kNonxXBwLIwNFSiXoDdu4jjp
-	dW1IAR7WzD3dwxx7D92xBMY/tE1Mj6mUzKji0XdBb/LdFEBfb+5g+9Tx2L6YPN0tCb2Hf5DatVBjo
-	q3p/ggo5TIOoMdZg97x9G0UzQx53K9nccDDWSx3vjmgW4SCtqmEFxI8PACp7yX4hgSqDROGFn0q/J
-	Oc2r1w55UTPOmaoT6rkoUsYb1/oAC69zKjmjGCXkG/fpvjYVmQwi3QI3TvQTCKB8PVNyxWqZ6gmRj
-	GxlQuIfA==;
+	bh=WnebCcvpPWpB99FLfLgxldGVUVeM8i5P2ktrW32JqXg=; b=gEmRizbmVM1JmEMIMtLS0OBU1k
+	2bMGp3d4q1KWNxRmqRSCIMjAIt2AtDDR3vw4aPGsz+cDW9/6jxXx76FEbzajwUMuzhwmcb+ZEDpjQ
+	42GNR18C9VmsI3tSc85HRVOmBm5JAmXuIIB1CIQ4+CBtmsbu82gnvgVn/d5Q+9Ff2sGmpXMFaJCxD
+	Pp+NuXRAvwAwhyWgQx3LHmt4BpgrmcIIFcQALlff3zjWaInGKdlQM4yV4b/CiGmcaahoVxKTu6EXc
+	H6s1/PrJk2E36Ns6TS2DT1FgjsY5NYjqiZ+zbNFD4H7hTLA/ZRh19tpcMR4E2KfBv07MRt9P1yU2d
+	CSULqyhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKo1g-00000009h4g-0Ojp;
-	Tue, 10 Dec 2024 00:22:56 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKo2g-00000009hD6-3355;
+	Tue, 10 Dec 2024 00:23:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnwl-00000009g4i-3Rbm
+	id 1tKnwo-00000009g5n-0abK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 00:17:53 +0000
+	Tue, 10 Dec 2024 00:17:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9B39AA41A79;
-	Tue, 10 Dec 2024 00:15:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD62C4CEE2;
-	Tue, 10 Dec 2024 00:17:49 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E6581A419FD;
+	Tue, 10 Dec 2024 00:16:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 453F9C4CEE0;
+	Tue, 10 Dec 2024 00:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733789870;
-	bh=BW1fpZ2eE11MnLUwuGiY1eXfukovEfxi8eg26Is0Po4=;
+	s=k20201202; t=1733789873;
+	bh=lHNoDuFE4BbrRmLOpkIFrKSiLXZ6f2Hc2Ut7zyg9UtI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Tf91pXqkgLOxZ1uTzpc09SuWes85x1ft5/rr1kHFH6lWkEMz2SgYPgu2oxFfAg3vX
-	 F0NTXSySKLgnUv2w/p6Ysxtb2KWA3G5P7KVnx7egsvIuojqJg+3yhNys+rdOEdAeQb
-	 FfS3w2b4gWueOY5ZCYb11OetdGRdWUFUnt2cXH8WhGtrolPJyPhqXBvpzHGH4aHxe/
-	 KqTUuasmVZTh9p5n0vL+aAgBYI1kHW8v48YaR96UBC9otc05cHIdDLtzRUFSJHw1IJ
-	 GeJzlDEEJ9TKpKCtxs0Mb325kjNMTiFnhpcqAuBtUsTHKHRUML6xwQot1DcshOpUDH
-	 j/CZ68/Qv7PxQ==
+	b=Y6UtlgPIxaWo/ZGTtJPcceN+J/l43TW5cZzV9b30cGzrC/rjk2NWg1Kd0u2BpF+Jn
+	 Z7CnVT+uKwbIdPeDNKEQf9YedUvQMf7bcT+36axwlROwWqIcYmBMF/Cv/wUWpbG1Np
+	 796e49XyclpypUFpHIAvKkMlKyuE5x1wZnBgSpYpZRJqTtpFrg3zaRZd0XDY3DnWIp
+	 3cq1JJ7PgJfbbLAVczN6d2wEu41P5ec5xBx0le/lVjpz5XIaCYg0Qx7F47RF9d0abO
+	 /nHaibAPFP4dIqMIEM0k6Bmda++dDaQdpDv30rqyEQtDboRjJGSXv7eraOSob7M3x8
+	 pUggVbXUPvrvw==
 From: Will Deacon <will@kernel.org>
-To: joro@8bytes.org,
-	Robin Murphy <robin.murphy@arm.com>
+To: linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Mostafa Saleh <smostafa@google.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	quic_pbrahma@quicinc.com
-Subject: Re: [PATCH v2 0/4] iommu/arm-smmu: Minor probe_device related improvements
-Date: Tue, 10 Dec 2024 00:17:31 +0000
-Message-Id: <173378441488.4186336.14522482976618451984.b4-ty@kernel.org>
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	Daniel Mentz <danielmentz@google.com>
+Subject: Re: [PATCH v2 0/2] Fix missing case for concatenation
+Date: Tue, 10 Dec 2024 00:17:32 +0000
+Message-Id: <173378764988.2164600.15198070609246396646.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <cover.1733406914.git.robin.murphy@arm.com>
-References: <cover.1733406914.git.robin.murphy@arm.com>
+In-Reply-To: <20241202140604.422235-1-smostafa@google.com>
+References: <20241202140604.422235-1-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_161751_919508_174E04F9 
-X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-CacheID: sfid-20241209_161754_241830_074F375A 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,26 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Dec 2024 16:33:54 +0000, Robin Murphy wrote:
-> v1: https://lore.kernel.org/linux-iommu/cover.1731088789.git.robin.murphy@arm.com
+On Mon, 02 Dec 2024 14:06:02 +0000, Mostafa Saleh wrote:
+> First patch fixes a missing case for 16K granule and 40 bits SMMUs
+> where concatenation is mandatory but ignored.
 > 
-> Hi all,
+> Second patch, imporves coverage of OAS in selftests to make it
+> possible to test all concatenation cases.
 > 
-> Here's what I probably should have sent instead of rushing v1 out
-> earlier, now rebased and polished :)
+> Cc: Daniel Mentz <danielmentz@google.com>
 > 
 > [...]
 
 Applied to will (for-joerg/arm-smmu/updates), thanks!
 
-[1/4] iommu/arm-smmu: Make instance lookup robust
-      https://git.kernel.org/will/c/7d835134d4e1
-[2/4] iommu/arm-smmu: Retire probe deferral workaround
-      https://git.kernel.org/will/c/97cb1fa02726
-[3/4] iommu/arm-smmu-v3: Clean up more on probe failure
-      https://git.kernel.org/will/c/fcbd62156742
-[4/4] iommu: Manage driver probe deferral better
-      https://git.kernel.org/will/c/46b3df8eb9bd
+[1/2] iommu/io-pgtable-arm: Fix stage-2 concatenation with 16K
+      https://git.kernel.org/will/c/4dcac8407fe1
+[2/2] iommu/io-pgtable-arm: Add coverage for different OAS in selftest
+      https://git.kernel.org/will/c/376ce8b35ed1
 
 Cheers,
 -- 
