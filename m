@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24CCE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 02:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98A8E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 03:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJfesLSvigtPKLpc5l88d8L2TdNCPAh9XHgD9Aaia2I=; b=aBKavYcHn4fZjgvaCUOi7Rx3J8
-	qu8ZN1ZzVBJG/6VP8M+t85u62LcWqRQEV5BMKSdf4Ykq8xZb5lPP+emvh/sHiHaNq0+NVPw4bkfuB
-	Be9nxdOBiwiSW+N4P14fP5tQm8cyfxmJHwBYV8KczlT+xrVHQ1RD7RXZTbOfb7++zV8h2mN7s11T/
-	Xpfm9jXUGuu4pV86wpmBs5ceCSLTzZJ3vuuCFGPySOVrkAkG4/al0BoH7zPABIXjPHyNw12Yn/glh
-	ejUL+8dASgYEmKoQ8dCPHH1GXcmzM96lMx/VwPGFsA0e99P6fJNXRGvkgnUOvzjDO+jcq3o1tNOVx
-	knuZf/CA==;
+	bh=7OiWBktXHvnpSQLcvIs2hf981HtU8PP2N6UjUFZYaM8=; b=qTBJnyRJrU4YOkrrnJ+CuO/WDr
+	dAC5gHo3Mg480V8s/AK5CvZh8nsgh50z+wNmAvL6HuObds7+S8wPChFVJDDj9xsAE4KgTq3HyrLg1
+	+sfr7BisaBOKzpOFL1dRBlxfTlu8kcE3EKoEgAFBb2auDaEzkaLMqchKgh+YsrXU/B3w6EIUYw9cY
+	ZzEBBfz06q1yFaUvIMgOWoID37DLG8kSWBzdEaCenJR/9J1oeR5v5jL5a+pW6db1zYB8STIOPYaj8
+	yOr3SSHrrcuf5pXoSqcFfvlp8f9az6AOcbRNwf+rWWudOQE/pTzgaP93LcdSDUa/ZZB/eek4elEFt
+	MD5xcu2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqT3-0000000A3Nl-0q08;
-	Tue, 10 Dec 2024 02:59:21 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1tKqU3-0000000A3bo-3NHf;
+	Tue, 10 Dec 2024 03:00:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqCB-00000009zvZ-2b40
+	id 1tKqCU-0000000A05r-2Vt9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Dec 2024 02:42:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7OiWBktXHvnpSQLcvIs2hf981HtU8PP2N6UjUFZYaM8=; b=Johhfwgwdkyx7yixXCezcGCCT5
+	fwvnB31JTTNeC/mJDExIXWF57uf7OrufDQyRvb8N60tjgYVMOqN/kgdBPPuziuS0XHP6A50O9gFFZ
+	iSnedmfdv4gezy06ke9jVfCaca4pRmgQeRNSMqWBCsl1mz3p1hL1BiH10PiaGBsuiYvq/v0TXBuhD
+	WTj4wsetX3b7Yb+3es59Ooy2gn1dHVPpEbccQA5RD7WyUcOn+zLlKcEro/kyALsdajjFTPqgHLEes
+	UAK5RISG12B84K9UvzHSN05yvqvaxz2uDmugKXUd/jmzbcYu/U2fLmbxKX7lFMKsuYymb0Tqfh1me
+	R7ThAlxA==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKqC2-00000003blb-2QHp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 02:41:56 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-725e8775611so1558900b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 18:41:55 -0800 (PST)
+	Tue, 10 Dec 2024 02:42:08 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ee6dccd3c9so4514888a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 18:41:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733798514; x=1734403314; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733798502; x=1734403302; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mJfesLSvigtPKLpc5l88d8L2TdNCPAh9XHgD9Aaia2I=;
-        b=kQ3gHxc6QpBoF+im7uWNRWVyGd29eNVIEB6yZvWKOi6PYDN8k9EIXrKAXvyFgPoTc5
-         HRrvT+hu9Kdt8IHjNZX1SPpikgsfXCbWFESICDo5fmR9ZlvrHpDMb9O5M0N5CYqlZbFa
-         J417HYe/jBBDstNo5CP5HunhTmQrH7g3UhJSBc2myYdgWQ9geZb2dFUy7O5I5OKxvTVy
-         thF4a/tt1vL38m/28gvWOIngPD9Bx+Fk0yaQRdZNm4rfWldbJeNtQgQWrQPhIIGkowWz
-         aN9zmexkqu9Rz4m4CTC9eN4dqmvJ1dLbaeKGei+u7C7h4bgqrFsUH+J1AF5jGHpGycDS
-         i+xg==
+        bh=7OiWBktXHvnpSQLcvIs2hf981HtU8PP2N6UjUFZYaM8=;
+        b=4X/JB0rnCQiRDk1w+JWUvhndqKjIEz/WH2bgTfM7IRiRCUJsXEOiLqjKcQFDxaVVRg
+         xv1m+1lQdfOq7MioBtTQUhnn3ne9htertPDm1+vkzSy5VLc6RKdw+y4abtk3iAg4K/lX
+         Ueyvjg1TMdjWuegJVtxP5NRDcBnqjxXApypMWkRJM+22QkwqKWldkYjJMF6TojR4Lmiw
+         QDGV8y2SOmNNJH0NSzZlK29rCsq+nNH/cmzTvgaKWM80prhOrXNmxPNhIT/1IuuMrDc6
+         eLTf7BEcIE/eKhgVtNWrITJrQ7mbppFwgtxFaBzbfYxZdZlKYp5bME92Wu4ioKo4JN2S
+         iVGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733798514; x=1734403314;
+        d=1e100.net; s=20230601; t=1733798502; x=1734403302;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mJfesLSvigtPKLpc5l88d8L2TdNCPAh9XHgD9Aaia2I=;
-        b=DQKUECErpM+MFLjJkOf3y8L1Qr+czqUBsEEbFL9hHJjmvHV9PCcnlIMQvIhvoNA3aT
-         MnJ0LsOB4kExWYiuv5a0MhHhwQGpXop6+ft264+cvUrLJkAlRxYaoW/iZmF/aFhZoHRF
-         cTIbI3JgEwIDcOLI3Mf1uWQneLkulHToHynP7KWZdFxVS5m87XvpyEWCxtLfC5rMdkeE
-         fMfWGAx9POVY+FaF5WM7ebk/gG1V3T+nvTWkyYXxiPUUK9YTCEMwOw2XvSIr1WfNFSkA
-         NV2YN18O81wxnojTVxzo/6kfM6TWkQyd4A4+gitSgihth8qU1cHxfCfOwX6YF8xvJ9mZ
-         aL0g==
-X-Forwarded-Encrypted: i=1; AJvYcCXT6j+hgwJL2Tu4KRjeyQGETxDMF6f6vXUmanw6VkV5Bo5dPxWn7lZtGhi8HljTw3BDaMq0TY4m8qnH7gzTvE9t@lists.infradead.org
-X-Gm-Message-State: AOJu0YybbTG9lR4gGDSANz+kyViUXVnrEzIeIF0mZiqK3NIaycGTS6xl
-	PbR8AXDakgoZ4ACJ06CcOGp6Z0j3/9FFUuwwvyGpghQXcP9onYkYGP2kftbyRQAW6guVtW+7jXQ
-	0rjmDCopyBLxXuQVQwK/wUw==
-X-Google-Smtp-Source: AGHT+IH7c/kAWkG1dgCDsYvw4E2EH4mgzAeRRpKy/JiEpi/blwtzY1No/+Nej6iG3SIgIjXbM8HkPN0PZclD3pT9zw==
-X-Received: from pfbf13.prod.google.com ([2002:a05:6a00:ad8d:b0:725:a760:4c72])
+        bh=7OiWBktXHvnpSQLcvIs2hf981HtU8PP2N6UjUFZYaM8=;
+        b=jeCGyBKZ2fmADb/GNMP/hiSmt9Nedgel+hZ+/L8vIkkPsoxn5lSEMgOXj8840qvjjx
+         6T6bWTzjvK9JtzhgCUy6tyOW3vyRue/Z9fWuZJh8eOLnnS2ZGMq60w6io+v2ZXBYjCeX
+         2dVLo3496OHmLD/5wa7ZWbL4+mE9QA61fDQejBxxqNOSbWNM0K9UmS013IS3A3npqbEw
+         Cn9JLeVpUh0JBg7W0EjhElfDKg2IjOOHBhb0idGVGmMA31DZ2SMVV5Ujxq2QCQtMWsqW
+         kYX2FLPQzH947PAHYnr4cL1wSyVV0cflSVghUC2VFrHlojPT4CE/aniTQr+iIyjgBGJ8
+         k5TA==
+X-Forwarded-Encrypted: i=1; AJvYcCUFoRUDINOxJZc3rf0Cwb/4UQ9ZgmHbMoY0c/cr3Xf4t09Qgrgqs4xW/h707PU1pE58fz2494y2Np5EHkDLVhuM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxijeXLpPYrXrfHvy9cVyY9QTlWu6UYEakOdCO/s/s1LfywxbXG
+	KUtROqFCoTPotN0OTUS28klj55YcCo0Z7a5sVqPVoHULwn5/ECmqnw1jjmOiSmyrmw0+ZVE8uhV
+	QzT34iiswsC29fyukl4rM2w==
+X-Google-Smtp-Source: AGHT+IHGYo+0xZ93dmqZHCUo2fH2lASnlYW3/982jLUqUj3uy5rS3NmT8SEwDvEmCBiRAIKAMZxd1Te/85r8WkWevA==
+X-Received: from pjbqi10.prod.google.com ([2002:a17:90b:274a:b0:2ea:3a1b:f493])
  (user=kaleshsingh job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:14d3:b0:725:f097:ed21 with SMTP id d2e1a72fcca58-7273cb1d8c2mr3121572b3a.15.1733798514446;
- Mon, 09 Dec 2024 18:41:54 -0800 (PST)
-Date: Mon,  9 Dec 2024 18:41:19 -0800
+ 2002:a17:90b:4a91:b0:2ea:a9ac:eee1 with SMTP id 98e67ed59e1d1-2efcf127449mr4419672a91.10.1733798501710;
+ Mon, 09 Dec 2024 18:41:41 -0800 (PST)
+Date: Mon,  9 Dec 2024 18:41:12 -0800
 In-Reply-To: <20241210024119.2488608-1-kaleshsingh@google.com>
 Mime-Version: 1.0
 References: <20241210024119.2488608-1-kaleshsingh@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241210024119.2488608-18-kaleshsingh@google.com>
-Subject: [PATCH mm-unstable 17/17] mm: Respect mmap hint before THP alignment
- if allocation is possible
+Message-ID: <20241210024119.2488608-11-kaleshsingh@google.com>
+Subject: [PATCH mm-unstable 10/17] mm: s390: Introduce arch_mmap_hint()
 From: Kalesh Singh <kaleshsingh@google.com>
 To: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com, 
 	riel@surriel.com, david@redhat.com
@@ -87,8 +101,8 @@ Cc: linux@armlinux.org.uk, tsbogend@alpha.franken.de,
 	Kalesh Singh <kaleshsingh@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_184155_691177_7599AEDE 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20241210_024147_147526_240BC94D 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,79 +117,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 249608ee4713 ("mm: respect mmap hint address when aligning for THP")
-fallsback to PAGE_SIZE alignment instead of THP alignment
-for anonymous mapping as long as a hint address is provided by the user
--- even if we weren't able to allocate the unmapped area at the hint
-address in the end.
-
-This was done to address the immediate regression in anonymous mappings
-where the hint address were being ignored in some cases; due to commit
-efa7df3e3bb5 ("mm: align larger anonymous mappings on THP boundaries").
-
-It was later pointed out that this issue also existed for file-backed
-mappings from file systems that use thp_get_unmapped_area() for their
-.get_unmapped_area() file operation.
-
-The same fix was not applied for file-backed mappings since it would
-mean any mmap requests that provide a hint address would be only
-PAGE_SIZE-aligned regardless of whether allocation was successful at
-the hint address or not.
-
-Instead, use arch_mmap_hint() to first attempt allocation at the hint
-address and fallback to THP alignment if that fails.
+Introduce s390 arch_mmap_hint() and define HAVE_ARCH_MMAP_HINT.
+This is a preparatory patch, no functional change is introduced.
 
 Signed-off-by: Kalesh Singh <kaleshsingh@google.com>
 ---
- mm/huge_memory.c | 15 ++++++++-------
- mm/mmap.c        |  1 -
- 2 files changed, 8 insertions(+), 8 deletions(-)
+ arch/s390/include/asm/pgtable.h |  1 +
+ arch/s390/mm/mmap.c             | 32 ++++++++++++++++----------------
+ 2 files changed, 17 insertions(+), 16 deletions(-)
 
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 137abeda8602..f070c89dafc9 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1097,6 +1097,14 @@ static unsigned long __thp_get_unmapped_area(struct file *filp,
- 	loff_t off_align = round_up(off, size);
- 	unsigned long len_pad, ret, off_sub;
+diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+index 48268095b0a3..eaecb558ab9b 100644
+--- a/arch/s390/include/asm/pgtable.h
++++ b/arch/s390/include/asm/pgtable.h
+@@ -1997,6 +1997,7 @@ extern void s390_reset_cmma(struct mm_struct *mm);
+ /* s390 has a private copy of get unmapped area to deal with cache synonyms */
+ #define HAVE_ARCH_UNMAPPED_AREA
+ #define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
++#define HAVE_ARCH_MMAP_HINT
  
-+	/*
-+	 * If allocation at the address hint succeeds; respect the hint and
-+	 * don't try to align to THP boundary.
-+	 */
-+	addr = arch_mmap_hint(filp, addr, len, off, flags);
-+	if (addr)
-+		return addr;
+ #define pmd_pgtable(pmd) \
+ 	((pgtable_t)__va(pmd_val(pmd) & -sizeof(pte_t)*PTRS_PER_PTE))
+diff --git a/arch/s390/mm/mmap.c b/arch/s390/mm/mmap.c
+index 33f3504be90b..3f82401b77cd 100644
+--- a/arch/s390/mm/mmap.c
++++ b/arch/s390/mm/mmap.c
+@@ -83,12 +83,21 @@ static int get_align_mask(struct file *filp, unsigned long flags)
+ 	return 0;
+ }
+ 
++unsigned long arch_mmap_hint(struct file *filp, unsigned long addr,
++			     unsigned long len, unsigned long pgoff,
++			     unsigned long flags)
++{
++	if (len > TASK_SIZE - mmap_min_addr)
++		return 0;
 +
- 	if (!IS_ENABLED(CONFIG_64BIT) || in_compat_syscall())
- 		return 0;
++	return generic_mmap_hint(filp, addr, len, pgoff, flags);
++}
++
+ unsigned long arch_get_unmapped_area(struct file *filp, unsigned long addr,
+ 				     unsigned long len, unsigned long pgoff,
+ 				     unsigned long flags, vm_flags_t vm_flags)
+ {
+ 	struct mm_struct *mm = current->mm;
+-	struct vm_area_struct *vma;
+ 	struct vm_unmapped_area_info info = {};
  
-@@ -1117,13 +1125,6 @@ static unsigned long __thp_get_unmapped_area(struct file *filp,
- 	if (IS_ERR_VALUE(ret))
- 		return 0;
+ 	if (len > TASK_SIZE - mmap_min_addr)
+@@ -97,13 +106,9 @@ unsigned long arch_get_unmapped_area(struct file *filp, unsigned long addr,
+ 	if (flags & MAP_FIXED)
+ 		goto check_asce_limit;
  
--	/*
--	 * Do not try to align to THP boundary if allocation at the address
--	 * hint succeeds.
--	 */
--	if (ret == addr)
--		return addr;
--
- 	off_sub = (off - ret) & (size - 1);
+-	if (addr) {
+-		addr = PAGE_ALIGN(addr);
+-		vma = find_vma(mm, addr);
+-		if (TASK_SIZE - len >= addr && addr >= mmap_min_addr &&
+-		    (!vma || addr + len <= vm_start_gap(vma)))
+-			goto check_asce_limit;
+-	}
++	addr = arch_mmap_hint(filp, addr, len, pgoff, flags);
++	if (addr)
++		goto check_asce_limit;
  
- 	if (test_bit(MMF_TOPDOWN, &current->mm->flags) && !off_sub)
-diff --git a/mm/mmap.c b/mm/mmap.c
-index 59bf7d127aa1..6bfeec80152a 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -807,7 +807,6 @@ __get_unmapped_area(struct file *file, unsigned long addr, unsigned long len,
- 	if (get_area) {
- 		addr = get_area(file, addr, len, pgoff, flags);
- 	} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) && !file
--		   && !addr /* no hint */
- 		   && IS_ALIGNED(len, PMD_SIZE)) {
- 		/* Ensures that larger anonymous mappings are THP aligned. */
- 		addr = thp_get_unmapped_area_vmflags(file, addr, len,
+ 	info.length = len;
+ 	info.low_limit = mm->mmap_base;
+@@ -123,7 +128,6 @@ unsigned long arch_get_unmapped_area_topdown(struct file *filp, unsigned long ad
+ 					     unsigned long len, unsigned long pgoff,
+ 					     unsigned long flags, vm_flags_t vm_flags)
+ {
+-	struct vm_area_struct *vma;
+ 	struct mm_struct *mm = current->mm;
+ 	struct vm_unmapped_area_info info = {};
+ 
+@@ -135,13 +139,9 @@ unsigned long arch_get_unmapped_area_topdown(struct file *filp, unsigned long ad
+ 		goto check_asce_limit;
+ 
+ 	/* requesting a specific address */
+-	if (addr) {
+-		addr = PAGE_ALIGN(addr);
+-		vma = find_vma(mm, addr);
+-		if (TASK_SIZE - len >= addr && addr >= mmap_min_addr &&
+-				(!vma || addr + len <= vm_start_gap(vma)))
+-			goto check_asce_limit;
+-	}
++	addr = arch_mmap_hint(filp, addr, len, pgoff, flags);
++	if (addr)
++		goto check_asce_limit;
+ 
+ 	info.flags = VM_UNMAPPED_AREA_TOPDOWN;
+ 	info.length = len;
 -- 
 2.47.0.338.g60cca15819-goog
 
