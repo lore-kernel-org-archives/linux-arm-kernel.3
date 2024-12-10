@@ -4,106 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B47E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 21:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E7AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 21:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yF3vBmNZS9MU6AYhmkZOCnnb/mhvQHCH0jIPUUHFQrU=; b=aGUEjMexbqbmOzrdqMtfd3F+C1
-	2C6JB05Aeqw7ohxwfY3RzTjUrSQtc4a5+bQPgHPrw8d/S+heWxyHVU1cw8u1YXghB8MmHt/saNWup
-	a3m89ZTtL0pA9VWmJmJ+KzjMQsDbK8Ha2AC3GElI9t/vXSt4d4bUBFqGhpb1F0My7YoQ6osBaCQ/t
-	X8f8DVOTy5y8QAK932woeC5OKwMByHMXL7vomzzyUcRatVPEjVPM29TEP8aMIHXTtgmqzvrJbVsY4
-	aX6EBfy2gJAqpmcZjyIo5BTfoOOk9N00fPHifBO5eNRAOLJ09QIwHrqgXk1POd9yHQCYbT+Xsj/tt
-	7kEYY85Q==;
+	bh=Q2qoFLdR/xIP85ix2Li0D4PJ+5Rd5stMHYwiWRLqhAI=; b=0C9vQrO1zhfJ6J5WAfWasQSQvw
+	qvygQMIGDE8+1lJJnOdbIvC4R+eaHxTRwQpkrvcP/5cOv04TlDLWksajrrJ+RYlSVrkUoBPiFMuxQ
+	xMdnbLD8UKBI7NmWr5xtiTpMnGBpQcUy8VLLBSTtxC3Z7aVliAhe32GG+gfaa2vOdaRfp8DRvItXT
+	ksIONLJj5lndRbavKq6EmdywGEKMzACp9pRcwWtMEm7ouYKmRMYyVr3Pwyt1swM3AhgaoI3YlwyBl
+	gU6plWzr2JQLywWqUYFFYy5qVm8TebgTW+doh3zLACQE0Dvi+Do6Hl0GlSv3rZmz7nqkUayzhfxrG
+	k0iNedBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7fn-0000000CnTT-0bXE;
-	Tue, 10 Dec 2024 21:21:39 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tL7jE-0000000CnpB-3rXo;
+	Tue, 10 Dec 2024 21:25:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7ei-0000000CnHC-1Uxy
+	id 1tL7iB-0000000Cnik-27Ap
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 21:20:34 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53ffaaeeb76so3337017e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 13:20:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733865630; x=1734470430; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yF3vBmNZS9MU6AYhmkZOCnnb/mhvQHCH0jIPUUHFQrU=;
-        b=T7oA3CTWkcfbH4p2/IdaE7oNibBZ2AaKaeGSt/BFBCLETdvZqahA5OdpqCSbGTOBbb
-         WWa2F9Od/e7V6LxTvoKDh4OWWfwruaJSe+bH6BZV++vE1uspxpAIOkf4sw9B14Jw7fTG
-         OmwvA2auaR+I+nB30cA6y7BYTkyKh6SJiACr/BGJpHNwJ2ZHoHtHn+DxVbQxfgr3xG6D
-         bcZTNh81pNKuwhneu/yq+kFBvRvLOIYEWKv5CtNJyYUt5ku28nstdD4ZpPGcbNLX3fDN
-         QN9uIy3KFHh9fWG8/Rx5R5C/rpf64Wyb4YYmaO/nHoPcjwM5wfrpJ9Gez07SU+84YkZ/
-         SzbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733865630; x=1734470430;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yF3vBmNZS9MU6AYhmkZOCnnb/mhvQHCH0jIPUUHFQrU=;
-        b=e6g/G6hvN++FQpD0k1IcK5UGScTy+HSLNAmTGNDgunrc9K0iZNKQ76cXnj5lyIMLQ3
-         L4wfg4VKcmBZHIOrywG2dDEUiSTY83R2AGgEi4W+cF179kuulIAtiyZM0beEAoJZ+VGE
-         ltcdhAknSxkctxHN7KNrJpOwcIPOPlS5gFE4j9CG0bxrgJ0ZpR3W4ofbbr0Wh/IdTa3r
-         bMRg0MWcZV71IuLsx/KaXE8LM12/WgDjPAKr+NYuSCuZ89k1Z9Ws+yVBzVpUCrjc/1/s
-         jqRxwPVbDx7MHrN0fYnvY/5O0k4/VWhEVs/Gfr2zu4gw4hvp7ayK4/srz5gnKKsCLJuu
-         8q2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXEIGKfyaFJTdNG/4nfU1q+DDTeGskVj+WAuUBj2wUfgxEeYQppTOkCM/4pygHbqLT1tWBbgCeHs46Inib3e3Nl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbvtDE5AQho9C6vvsnWZa8AEHFUv9/gv3+0qytX5pTm2CzPxJh
-	JbQBEDWzAIw329lACXWF6RMy6p6y43ClceV9yyMMLqW0V1PCX1fkZdhfmb5Mq2g=
-X-Gm-Gg: ASbGncuwDqwRmv9khcLNgo1k8iTYbcMxpE+0oIF1HLJBLkBchcEh7JLnTvED03Dr96S
-	xzndXr97Pt8xYy+2J6JgwJtC18CX4R61E+az5yo+MMz+tB8l4mtHS3aQuM96W+bdQdhhVbHGw19
-	B0KnQrGIIv0S4XXoQvbRWMhqRZFud/1Cq8Rdn6USLO49uT/KitEQf6XUlBUJ+eojp+CTbIgTGOA
-	SjGzhu1N4BM33uTVqcCo2Hh3Kui2rRXC1+dgEVF8nkDZe7XkFOpWq0AkbzZX/etEp+4TQhXtl/S
-	fIi15fNyIwBHmwUrtZbqsQzXPTw4iJB7cw==
-X-Google-Smtp-Source: AGHT+IHCODZIQ0z4mmWtV1wEX8j8zg9S/BNFluONyQd2XvnZpEGUwS4bPVxg3YoPJtWqjVmMgWar/A==
-X-Received: by 2002:a05:6512:3990:b0:53e:368c:ac4f with SMTP id 2adb3069b0e04-5402a5d3d6cmr107076e87.9.1733865629981;
-        Tue, 10 Dec 2024 13:20:29 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e34569209sm1395827e87.128.2024.12.10.13.20.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 13:20:28 -0800 (PST)
-Date: Tue, 10 Dec 2024 23:20:26 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Xinhui Pan <Xinhui.Pan@amd.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Phong LE <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v2 04/10] drm/amd/display: use eld_mutex to protect
- access to connector->eld
-Message-ID: <pgi7p3aemxm3db2k27vi5euh6q6ppayrw6y7tcfeq4g5z23hzr@xousag2qhobp>
-References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
- <20241206-drm-connector-eld-mutex-v2-4-c9bce1ee8bea@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241206-drm-connector-eld-mutex-v2-4-c9bce1ee8bea@linaro.org>
+	Tue, 10 Dec 2024 21:24:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 245B25C59DF;
+	Tue, 10 Dec 2024 21:23:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4674DC4CED6;
+	Tue, 10 Dec 2024 21:24:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733865846;
+	bh=Z5QvjqXjt7nt1q0SyE0Y+TbsCeMskbC5KMAyiIhNWlM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BqNi3BmZUbZUW6Zfk5jruHxc91Vc4ndIr/HQATGRfe4AEuzMXIuAGGUZM02wiCxcU
+	 BeyzmRVUEOWnu6w7P25Q3tNM6A5L7XIqjGQnbHR1Gh8i1sI/UNVYTxfvF/uFg7uBMq
+	 3bXhLuQF1VVtz5EtLDVeBpv1Mms4q3OVr21jfz+lABscBw7b1+N63WhnyUFDq8/6Md
+	 j9D8ka0190Ef4Bkbk5+KViXESKdYnWegZS3OIB2elS7T/8Dlesll/WZRpfygMKbR42
+	 hFjSfqkMPqCqor/LGEx1gO52loRWGpwHIWlgdTlszXXSCH9Ibrc0MwtdQ6O4+8rVlb
+	 uEL4n4cfioiIQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tL7i7-002QNJ-Ry;
+	Tue, 10 Dec 2024 21:24:03 +0000
+Date: Tue, 10 Dec 2024 21:24:03 +0000
+Message-ID: <87ed2fs03w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Cc: Rob Clark <robdclark@gmail.com>,
+	Sean Paul <sean@poorly.run>,
+	"Konrad\
+ Dybcio" <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten
+	<marijn.suijten@somainline.org>,
+	David Airlie <airlied@gmail.com>,
+	"Simona\
+ Vetter" <simona@ffwll.ch>,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	"Pavan\
+ Kondeti" <quic_pkondeti@quicinc.com>,
+	<linux-arm-msm@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>,
+	<freedreno@lists.freedesktop.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+In-Reply-To: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: quic_akhilpo@quicinc.com, robdclark@gmail.com, sean@poorly.run, konradybcio@kernel.org, quic_abhinavk@quicinc.com, dmitry.baryshkov@linaro.org, marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch, quic_eberman@quicinc.com, quic_pkondeti@quicinc.com, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_132032_442832_BEA33F60 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20241210_132407_630750_20DB250F 
+X-CRM114-Status: GOOD (  28.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,43 +100,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 11:43:07AM +0200, Dmitry Baryshkov wrote:
-> Reading access to connector->eld can happen at the same time the
-> drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
-> order to protect connector->eld from concurrent access.
+On Mon, 09 Dec 2024 08:19:15 +0000,
+Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
 > 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> When kernel is booted in EL2, SECVID registers are accessible to the
+> KMD. So we can use that to switch GPU's secure mode to avoid dependency
+> on Zap firmware. Also, we can't load a secure firmware without a
+> hypervisor that supports it.
+> 
+> Tested following configurations on sa8775p chipset (Adreno 663 gpu):
+> 
+> 1. Gunyah (No KVM) - Loads zap shader based on DT
+> 2. KVM in VHE - Skips zap shader load and programs SECVID register
+> 3. KVM in nVHE - Loads zap shader based on DT
+> 4. Kernel in EL2 with CONFIG_KVM=n - Skips zap shader load and
+> 	programs SECVID register
+>
+> For (1) and (3) configuration, this patch doesn't have any impact.
+> Driver loads secure firmware based on other existing hints.
+
+The moment the kernel is entered at EL2, this is a bare metal
+situation, and everything is accessible. So your distinction between
+VHE and nVHE (which would equally apply to hVHE and pKVM) makes no
+sense at all. Same thing for KVM being disabled, which has no bearing
+on what can be accessed.
+
+> 
+> Signed-off-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
 > ---
->  drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
->  1 file changed, 2 insertions(+)
-
-Harry, Leo, Rodrigo, Alex, Christian, Xinhui, any response to this one
-and to the radeon patches? I'd like to be able to pick the series for
-drm-misc and these two are not reviewed by you.
-
+> ---
+>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 82 +++++++++++++++++++++++------------
+>  1 file changed, 54 insertions(+), 28 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> index 19a58630e774029767bf2a27eb4ddf17e3c21129..04c68c320252b5ce9647f0606fb86fe57f347639 100644
-> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> @@ -1037,8 +1037,10 @@ static int amdgpu_dm_audio_component_get_eld(struct device *kdev, int port,
->  			continue;
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> index 019610341df1..9dcaa8472430 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> @@ -14,6 +14,10 @@
+>  #include <linux/pm_domain.h>
+>  #include <linux/soc/qcom/llcc-qcom.h>
 >  
->  		*enabled = true;
-> +		mutex_lock(&connector->eld_mutex);
->  		ret = drm_eld_size(connector->eld);
->  		memcpy(buf, connector->eld, min(max_bytes, ret));
-> +		mutex_unlock(&connector->eld_mutex);
+> +#ifdef CONFIG_ARM64
+> +#include <asm/virt.h>
+> +#endif
+
+How about 32bit ARM?
+
+> +
+>  #define GPU_PAS_ID 13
 >  
->  		break;
->  	}
-> 
-> -- 
-> 2.39.5
-> 
+>  static inline bool _a6xx_check_idle(struct msm_gpu *gpu)
+> @@ -998,6 +1002,54 @@ static int a6xx_zap_shader_init(struct msm_gpu *gpu)
+>  	return ret;
+>  }
+>  
+> +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
+> +{
+> +	int ret;
+> +
+> +#ifdef CONFIG_ARM64
+> +	/*
+> +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
+> +	 * to switch the secure mode to avoid the dependency on zap shader.
+> +	 */
+> +	if (is_kernel_in_hyp_mode())
+> +		goto direct_switch;
+
+No, please. To check whether you are *booted* at EL2, you need to
+check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
+none of the driver's business, really. This is still absolutely
+disgusting from an abstraction perspective, but I guess we don't have
+much choice here.
+
+In the future, for anything involving KVM, please Cc the maintainers,
+reviewers and mailing list listed in the MAINTAINERS file.
+
+Thanks,
+
+	M.
 
 -- 
-With best wishes
-Dmitry
+Without deviation from the norm, progress is not possible.
 
