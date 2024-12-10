@@ -4,91 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FEDE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 03:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D318E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 03:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zw8KjUeVLCoeUttHvlAE11LYFS9kka7RYPFB87xdCOo=; b=Se8k84dafU3OBzHG17a0dqSKT5
-	IOmGGOUmbrEWqQKQaKmQoFMP+ImpLl/+qTc+ybHNpHIYWR79QUUktPUVHLXS/EI74sb47cEZIcif3
-	VPsinfLsUYW+1CEQwVMgle3aKvdMxMIeWCYR7zX3XvNTR9FgCQEJE52KehsN2oShIDRVu/s0ki4hk
-	h+UFk3wR7V8VuMk5bK6s9WErdjyODl69rnnLCuT77dd8YyF6EX17tFrpLm87zZUaTXrzFfGHbIi3i
-	nfm55n9ZFbaxRNS4tLVW8fPvXt2PrL7MOWaiARS4sTtcoLJUYWl+Qyn5m10azC+7/d7keFFWanP7Y
-	tcbSHmVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wZvcyFRVkuqRr5SEg06ypecfiNx410N5+o6HRphjK58=; b=S+QUTzGts4307uqf6mCtu6N2Td
+	eBguu9EqJXrCVrTFMGls01xVS7fncRcC24To3mkTf2lI3ld1TRDrtEMUqkD0Y/umBkQBQqkYgkfic
+	DmFLemaEW21yHurJY0gmUINWDTkIeoPtj9UqdPGF9fN/+39M1cSlArhH1vUYXKNIVIMInWZb9AQ2c
+	qGX3iNaLgvtaahoL9sOwZeyrSEq4Gj0hPcskKhV07BRPrjbwmuDEfHM3wbgK3bL4s8d+1BtMccLql
+	azEBPiiunMQlHiZYVtwmAefl+1uvd3NnJl97L003hmx/xWeAptinB92DNntlVgNGTQZjZ8dQUI4jU
+	JFvhQvgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqv9-0000000A6Yf-1xuj;
-	Tue, 10 Dec 2024 03:28:23 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1tKqwJ-0000000A6os-1pHM;
+	Tue, 10 Dec 2024 03:29:35 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqu6-0000000A6O0-1BW5;
-	Tue, 10 Dec 2024 03:27:19 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5d3d14336f0so5584593a12.3;
-        Mon, 09 Dec 2024 19:27:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733801236; x=1734406036; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zw8KjUeVLCoeUttHvlAE11LYFS9kka7RYPFB87xdCOo=;
-        b=QiBoNjmmXB+8Wgaet8gybyKTeGDem1sSdsrt7S92O8XaRnR6rSNEQJgGREyT3lDEXi
-         xdxFI6YmeloZEZifSuSs0b15GGMBwdvnrYjbUDGXV1iVro7MO3m5HYR5xnZMV/Wm6toa
-         om949/tdSJcb2NA2+5m+FDxcpjhY7CrOuWrSNeezQZv1AQ9jvuzVSpfrKV7Q4H/YiidX
-         5aOImUJ7hasFyUE+oLpI3y/857MWM+tDAnvOVHFUhEyx3gmMBtonUZqL2ts0Vwg/ymVG
-         hkGCRPsei8TmiTl8KmzP1i5BtkL9MHjNi6ul2oRt8Op4idX/iZeGV7255RCCio9AUXxV
-         +zDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733801236; x=1734406036;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Zw8KjUeVLCoeUttHvlAE11LYFS9kka7RYPFB87xdCOo=;
-        b=GQCR2PW3mDxQ24qtKSXIf/0e/uzx9bvmu+FdzCHdryS2DSoylpDXsfOX4kzlvib1zN
-         lVKI9vGWq2sV2nKDUNQUBNBlEokM18gT9BkHEZ48OQhTLnxlXaa5pLqtNIMAq/hiEN19
-         mAWE0q8Eg7E7cJ3zQONkKSFDfAPT4ejmjWGOq/02TtDoVxefz7a1AKoWXLvskeZW/3Us
-         pcKgdOOY45ZV+e+qXDHLXHSgl2ZoVbL12CtIXYyHh582iINsvEvxlwUbQvuwnm1yQeT1
-         64Zptw9f0OpVdGQ18mhtGGZMUgogo36UpV7qXZjsBfmTNkxBPkAFnSoQHeVvBxUygyQu
-         sH+g==
-X-Forwarded-Encrypted: i=1; AJvYcCU4eeUmn+k/ILWvRmWZv0j3BgZHfpamG51L1lmoo4UcaDVfyS92trlNm79JkBSEwtEH5g1EbGV+UGd/c+M7UN0=@lists.infradead.org, AJvYcCUYacMT3je/nq2HFL0nfak3CStBP6Us/8cbhMjAhniWBTF+1DdGth65reAJxqrnEWeKj/7hZRnqiEHKCVuDa30C@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQxXonWJJMhfVIDYPgFPvenGqrk/eZDPwl7eSesMij7j9XP1AD
-	524KimA7/DhywCXKY9d61H+guK4GZUwDXrHmLajEDSaWnUAPx0SSICQfMnXe66Dyw+XxfWKaMat
-	Sdq0Jc1KoXEbtjBeIVrZbWo1vS6o=
-X-Gm-Gg: ASbGncvKEtixW7Tf1VCAdn1bfNbV0FygS86OXScZTbWDw8aehLHL7CDbD/PPCm4RuZZ
-	b/yq5ZE35ucmMpdEjSmwviR04tYSkaLLRJNxiiQ==
-X-Google-Smtp-Source: AGHT+IHf2Fi/42HQsEiQo6WzNdGmDcvEV4I1TbpQP4oAJiq1u3pQn+R3NnSbM/I4gmKvXuY9eOlF5eGp3h/ZPgrcEvo=
-X-Received: by 2002:a05:6402:278f:b0:5d0:fc80:c4d1 with SMTP id
- 4fb4d7f45d1cf-5d41852f140mr3377986a12.14.1733801235781; Mon, 09 Dec 2024
- 19:27:15 -0800 (PST)
+	id 1tKqvF-0000000A6aq-3zVI;
+	Tue, 10 Dec 2024 03:28:31 +0000
+X-UUID: cfc793e0b6a611ef9048ed6ed365623b-20241209
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=wZvcyFRVkuqRr5SEg06ypecfiNx410N5+o6HRphjK58=;
+	b=XKWJTHIX+M8HC8xACHbOsHwORGt72PsxDrKzS2cKGeQEVaXA9F7BvP5vQyb69VXsu/APh+TDHU0IwyH1q+XsyCJJ0z1didheHC3nT8R+Tyi0gAng/51NP+9s1KvWl7NiXQMbVz5Pjzr28lMadVISHc07G2oFUrVsf546cvsTjhk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:05995639-7432-4d3e-947b-6e31c421380e,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:0f379fa4-c699-437d-b877-50282f19c2c6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: cfc793e0b6a611ef9048ed6ed365623b-20241209
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2078005828; Mon, 09 Dec 2024 20:28:23 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Tue, 10 Dec 2024 11:28:21 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Tue, 10 Dec 2024 11:28:21 +0800
+From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<fshao@chromium.org>, "Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Singo
+ Chang <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Shawn
+ Sung <shawn.sung@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v3] drm/mediatek: Move mtk_crtc_finish_page_flip() to ddp_cmdq_cb()
+Date: Tue, 10 Dec 2024 11:28:20 +0800
+Message-ID: <20241210032820.10958-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-References: <20241210024119.2488608-1-kaleshsingh@google.com> <20241210024119.2488608-2-kaleshsingh@google.com>
-In-Reply-To: <20241210024119.2488608-2-kaleshsingh@google.com>
-From: Yang Shi <shy828301@gmail.com>
-Date: Mon, 9 Dec 2024 19:27:04 -0800
-Message-ID: <CAHbLzkpCRGF+-WXkHVEutkEGHSWydmpb1CwkvHZRTH-f773J-w@mail.gmail.com>
-Subject: Re: [PATCH mm-unstable 01/17] mm: Introduce generic_mmap_hint()
-To: Kalesh Singh <kaleshsingh@google.com>
-Cc: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com, 
-	riel@surriel.com, david@redhat.com, linux@armlinux.org.uk, 
-	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com, 
-	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
-	davem@davemloft.net, andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net, 
-	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com, 
-	leitao@debian.org, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org, 
-	kernel-team@android.com, android-mm@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_192718_326206_52F06EBD 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20241209_192829_996873_5A83A6DE 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,138 +86,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 9, 2024 at 6:41=E2=80=AFPM Kalesh Singh <kaleshsingh@google.com=
-> wrote:
->
-> Consolidate the hint searches from both direcitons (topdown and
-> bottomup) into generic_mmap_hint().
->
-> No functional change is introduced.
->
-> Signed-off-by: Kalesh Singh <kaleshsingh@google.com>
-> ---
->  include/linux/sched/mm.h |  4 ++++
->  mm/mmap.c                | 45 ++++++++++++++++++++++++----------------
->  2 files changed, 31 insertions(+), 18 deletions(-)
->
-> diff --git a/include/linux/sched/mm.h b/include/linux/sched/mm.h
-> index 928a626725e6..edeec19d1708 100644
-> --- a/include/linux/sched/mm.h
-> +++ b/include/linux/sched/mm.h
-> @@ -201,6 +201,10 @@ unsigned long mm_get_unmapped_area_vmflags(struct mm=
-_struct *mm,
->                                            unsigned long flags,
->                                            vm_flags_t vm_flags);
->
-> +unsigned long generic_mmap_hint(struct file *filp, unsigned long addr,
-> +                               unsigned long len, unsigned long pgoff,
-> +                               unsigned long flags);
-> +
->  unsigned long
->  generic_get_unmapped_area(struct file *filp, unsigned long addr,
->                           unsigned long len, unsigned long pgoff,
-> diff --git a/mm/mmap.c b/mm/mmap.c
-> index df9154b15ef9..e97eb8bf4889 100644
-> --- a/mm/mmap.c
-> +++ b/mm/mmap.c
-> @@ -620,6 +620,27 @@ unsigned long vm_unmapped_area(struct vm_unmapped_ar=
-ea_info *info)
->         return addr;
->  }
->
-> +unsigned long generic_mmap_hint(struct file *filp, unsigned long addr,
-> +                               unsigned long len, unsigned long pgoff,
-> +                               unsigned long flags)
-> +{
-> +       struct mm_struct *mm =3D current->mm;
-> +       struct vm_area_struct *vma, *prev;
-> +       const unsigned long mmap_end =3D arch_get_mmap_end(addr, len, fla=
-gs);
-> +
-> +       if (!addr)
-> +               return 0;
-> +
-> +       addr =3D PAGE_ALIGN(addr);
-> +       vma =3D find_vma_prev(mm, addr, &prev);
-> +       if (mmap_end - len >=3D addr && addr >=3D mmap_min_addr &&
-> +           (!vma || addr + len <=3D vm_start_gap(vma)) &&
-> +           (!prev || addr >=3D vm_end_gap(prev)))
-> +               return addr;
-> +
-> +       return 0;
-> +}
-> +
->  /* Get an address range which is currently unmapped.
->   * For shmat() with addr=3D0.
->   *
-> @@ -637,7 +658,6 @@ generic_get_unmapped_area(struct file *filp, unsigned=
- long addr,
->                           unsigned long flags, vm_flags_t vm_flags)
->  {
->         struct mm_struct *mm =3D current->mm;
-> -       struct vm_area_struct *vma, *prev;
->         struct vm_unmapped_area_info info =3D {};
->         const unsigned long mmap_end =3D arch_get_mmap_end(addr, len, fla=
-gs);
->
-> @@ -647,14 +667,9 @@ generic_get_unmapped_area(struct file *filp, unsigne=
-d long addr,
->         if (flags & MAP_FIXED)
->                 return addr;
+mtk_crtc_finish_page_flip() is used to notify userspace that a
+page flip has been completed, allowing userspace to free the frame
+buffer of the last frame and commit the next frame.
 
-It seems you also can move the MAP_FIXED case into generic_mmap_hint(), rig=
-ht?
+In MediaTek's hardware design for configuring display hardware by using
+GCE, `DRM_EVENT_FLIP_COMPLETE` should be notified to userspace after
+GCE has finished configuring all display hardware settings for each
+atomic_commit().
 
->
-> -       if (addr) {
-> -               addr =3D PAGE_ALIGN(addr);
-> -               vma =3D find_vma_prev(mm, addr, &prev);
-> -               if (mmap_end - len >=3D addr && addr >=3D mmap_min_addr &=
-&
-> -                   (!vma || addr + len <=3D vm_start_gap(vma)) &&
-> -                   (!prev || addr >=3D vm_end_gap(prev)))
-> -                       return addr;
-> -       }
-> +       addr =3D generic_mmap_hint(filp, addr, len, pgoff, flags);
-> +       if (addr)
-> +               return addr;
->
->         info.length =3D len;
->         info.low_limit =3D mm->mmap_base;
-> @@ -685,7 +700,6 @@ generic_get_unmapped_area_topdown(struct file *filp, =
-unsigned long addr,
->                                   unsigned long len, unsigned long pgoff,
->                                   unsigned long flags, vm_flags_t vm_flag=
-s)
->  {
-> -       struct vm_area_struct *vma, *prev;
->         struct mm_struct *mm =3D current->mm;
->         struct vm_unmapped_area_info info =3D {};
->         const unsigned long mmap_end =3D arch_get_mmap_end(addr, len, fla=
-gs);
-> @@ -698,14 +712,9 @@ generic_get_unmapped_area_topdown(struct file *filp,=
- unsigned long addr,
->                 return addr;
->
->         /* requesting a specific address */
-> -       if (addr) {
-> -               addr =3D PAGE_ALIGN(addr);
-> -               vma =3D find_vma_prev(mm, addr, &prev);
-> -               if (mmap_end - len >=3D addr && addr >=3D mmap_min_addr &=
-&
-> -                               (!vma || addr + len <=3D vm_start_gap(vma=
-)) &&
-> -                               (!prev || addr >=3D vm_end_gap(prev)))
-> -                       return addr;
-> -       }
-> +       addr =3D generic_mmap_hint(filp, addr, len, pgoff, flags);
-> +       if (addr)
-> +               return addr;
->
->         info.flags =3D VM_UNMAPPED_AREA_TOPDOWN;
->         info.length =3D len;
-> --
-> 2.47.0.338.g60cca15819-goog
->
->
+Currently, mtk_crtc_finish_page_flip() cannot guarantee that GCE has
+configured all the display hardware settings of the last frame.
+Therefore, to increase the accuracy of the timing for notifying
+`DRM_EVENT_FLIP_COMPLETE` to userspace, mtk_crtc_finish_page_flip()
+should be moved to ddp_cmdq_cb().
+
+Fixes: 7f82d9c43879 ("drm/mediatek: Clear pending flag when cmdq packet is done")
+Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+---
+ drivers/gpu/drm/mediatek/mtk_crtc.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index eb0e1233ad04..dabc2f8086b6 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -109,9 +109,14 @@ static void mtk_crtc_finish_page_flip(struct mtk_crtc *mtk_crtc)
+ static void mtk_drm_finish_page_flip(struct mtk_crtc *mtk_crtc)
+ {
+ 	unsigned long flags;
++	struct drm_crtc *crtc = &mtk_crtc->base;
++	struct mtk_drm_private *priv = crtc->dev->dev_private;
+ 
+ 	drm_crtc_handle_vblank(&mtk_crtc->base);
+ 
++	if (!priv->data->shadow_register)
++		return;
++
+ 	spin_lock_irqsave(&mtk_crtc->config_lock, flags);
+ 	if (!mtk_crtc->config_updating && mtk_crtc->pending_needs_vblank) {
+ 		mtk_crtc_finish_page_flip(mtk_crtc);
+@@ -284,10 +289,8 @@ static void ddp_cmdq_cb(struct mbox_client *cl, void *mssg)
+ 	state = to_mtk_crtc_state(mtk_crtc->base.state);
+ 
+ 	spin_lock_irqsave(&mtk_crtc->config_lock, flags);
+-	if (mtk_crtc->config_updating) {
+-		spin_unlock_irqrestore(&mtk_crtc->config_lock, flags);
++	if (mtk_crtc->config_updating)
+ 		goto ddp_cmdq_cb_out;
+-	}
+ 
+ 	state->pending_config = false;
+ 
+@@ -315,10 +318,15 @@ static void ddp_cmdq_cb(struct mbox_client *cl, void *mssg)
+ 		mtk_crtc->pending_async_planes = false;
+ 	}
+ 
+-	spin_unlock_irqrestore(&mtk_crtc->config_lock, flags);
+-
+ ddp_cmdq_cb_out:
+ 
++	if (mtk_crtc->pending_needs_vblank) {
++		mtk_crtc_finish_page_flip(mtk_crtc);
++		mtk_crtc->pending_needs_vblank = false;
++	}
++
++	spin_unlock_irqrestore(&mtk_crtc->config_lock, flags);
++
+ 	mtk_crtc->cmdq_vblank_cnt = 0;
+ 	wake_up(&mtk_crtc->cb_blocking_queue);
+ }
+@@ -584,6 +592,10 @@ static void mtk_crtc_update_config(struct mtk_crtc *mtk_crtc, bool needs_vblank)
+ 		mtk_mutex_acquire(mtk_crtc->mutex);
+ 		mtk_crtc_ddp_config(crtc, NULL);
+ 		mtk_mutex_release(mtk_crtc->mutex);
++
++		spin_lock_irqsave(&mtk_crtc->config_lock, flags);
++		mtk_crtc->config_updating = false;
++		spin_unlock_irqrestore(&mtk_crtc->config_lock, flags);
+ 	}
+ #if IS_REACHABLE(CONFIG_MTK_CMDQ)
+ 	if (mtk_crtc->cmdq_client.chan) {
+@@ -606,13 +618,14 @@ static void mtk_crtc_update_config(struct mtk_crtc *mtk_crtc, bool needs_vblank)
+ 		 */
+ 		mtk_crtc->cmdq_vblank_cnt = 3;
+ 
++		spin_lock_irqsave(&mtk_crtc->config_lock, flags);
++		mtk_crtc->config_updating = false;
++		spin_unlock_irqrestore(&mtk_crtc->config_lock, flags);
++
+ 		mbox_send_message(mtk_crtc->cmdq_client.chan, cmdq_handle);
+ 		mbox_client_txdone(mtk_crtc->cmdq_client.chan, 0);
+ 	}
+ #endif
+-	spin_lock_irqsave(&mtk_crtc->config_lock, flags);
+-	mtk_crtc->config_updating = false;
+-	spin_unlock_irqrestore(&mtk_crtc->config_lock, flags);
+ 
+ 	mutex_unlock(&mtk_crtc->hw_lock);
+ }
+-- 
+2.43.0
+
 
