@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772F3E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 15:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C187E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 15:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lccj5szcR2Loq0SLYGfcfm6VfqCNUTcb2r9ZMHJPtZI=; b=X+2jzBsKbdCXQvHiBtRwe3+wch
-	CCYNCvvL1slS5OTZlBqfIzGerXmSktQjRf1bKYK3OY2F7eyDxSeAAB8XW9LK0Uwek3nLO8HeBM3U1
-	aEZARf5uVhMCZjwr+H00t06XkZeouC1O4LFgjL35FoF6oFQUwZTECD/HFW9/2Wow+TH3ds3KgUzKv
-	KMe/lAalxCHTnRlZCwIAbFrng+/CKquZtnLJ5gn8RG9fsTVmSBNd+2PL8sM4nux2ckOckFLeWIw8f
-	mu+MrbBojTXJgU2h+njnHLmehzV8xYQS6pSnVJKB/4FWVEIi0Y89Kau2nIXBwmyJ7GU3NTqfzPrFa
-	S4Nfx+mg==;
+	bh=0FGmDG/56UxrJQSDRbh5h6XtcOYvVsfsQlg9xr0FPYs=; b=ViaiZDCgRvdYUsfLRu10d4iRfB
+	ZRA5OlDxO1dOY+w1Ej1hTZAZAvDth+ml8YOYJNw8lVMQz9qbF87/aig58sBbWDLrFR9D+d+RMBjPV
+	09sPVLmmmvmczuaVxAfOgTNRdM/Gp+Slkzhkd/31hOaPBgutWMu94X6ljiYRMJLnEYDpU5yUrvWZf
+	v6vgEZiEucn0dFCyCLLjXFgxQzPUI3fc6I6Dxwv0ZQDCxJ8rha0a1yLczx204EKx5yLyBMWZeT+vo
+	nr91KfXbTrClDD7IphTOcUu+S42fLSbC9RwLWD5SNjRNQeekwFZC4mTxxuiBdIdPMzXTDAIBck5FB
+	t3YGNPDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1z4-0000000Bug2-3b6i;
-	Tue, 10 Dec 2024 15:17:10 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tL26T-0000000Bw7s-1FjJ;
+	Tue, 10 Dec 2024 15:24:49 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1xx-0000000BuWs-1Lh2
+	id 1tL25N-0000000Bvsp-1SwZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 15:16:02 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a9e8522445dso1139586866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 07:15:59 -0800 (PST)
+	Tue, 10 Dec 2024 15:23:42 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-434fa6bf6e4so44815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 07:23:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733843758; x=1734448558; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lccj5szcR2Loq0SLYGfcfm6VfqCNUTcb2r9ZMHJPtZI=;
-        b=UFlcjq8inbHcZx9Z0At16ajmBYUTpS76PZS5JXFuJtZkZElgQIRP9jROWx1uxqI9bm
-         6fGQ4Yxx+dz/YIfo0olC4hQFgNhbPPjGbeJfxgjvb33GglshS/KfaIpDP+78Z9uEH9oS
-         aRCOG2obfoqaRd9/kBJIYfgRmJyrXuc1fxZgCDllJmwM4bbwkzc3C0G52rFBGFvL6r3G
-         xqnSdDbyk1EknyWjRDm2nVnvwp1O/DFpGfahC/y5QYx3OtdFyJO8cpGkpY4yoTIRBKNE
-         q9AtfaZa6YfdmVvUkP0MEn4SccGmhH3xcVgiyXzeQgA66cxeYRmKIDz+UaAQoRhOA9Cr
-         dqOg==
+        d=google.com; s=20230601; t=1733844219; x=1734449019; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=0FGmDG/56UxrJQSDRbh5h6XtcOYvVsfsQlg9xr0FPYs=;
+        b=ebQCEjfNS/fuuqA3f6ndcTAnfsmjgfz2sNqCXh72JGOR6E6bDqQRKxIRoCIMIRtqVT
+         z8vL8xbu0LyplQa5LQREK9XqFdcQKR/bkRR+p+9JtFqhtozFzaUhVHGcJHk6Z7i/QHkU
+         Mh3mSmRVON2DVmB8J51X/zYkXQT/XGfL5BdkAPenAP2NA1lSKCkUx9qFOQX0rbE2fDRO
+         Q43N8q6a4cHwx0po61SSHGh0BCmHvXEpo3jRw+AbERQSerfcLjUFmcJLOEBjneVXFPAE
+         hB69RR8bKx5cY3HUtEJA0x/XutgsTvwGPQc1VwS/ilYrY2yK2aEh+sIogwWRFIf+FPwg
+         y99w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733843758; x=1734448558;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lccj5szcR2Loq0SLYGfcfm6VfqCNUTcb2r9ZMHJPtZI=;
-        b=UXwxWzyqXW4twxpmDqE5P9POwLSSDqSrARtEMvNUwpkFJJAi+m9lNvh2qeqc8uvGiL
-         igvLVfz+93TmzpSEnebRoDAjI6lnZJmPC2C6xDAGt1sGXKfLDOppB0BAg2t/77t+BHeZ
-         t7xrF5J0R5m4PGjazaGLJLVjtek4TVzJMDbsepCHgE8PsI9pTUHIWQtmC9PpdVMlBGFx
-         sw+WTW5VLE1xU0p+dIgeqI9kKhAvtN63lOSXW0ZSrRC9KAjQFKFRIJILturKOy28QyhN
-         OBart2dNE9mkwDTOSm6htXvPFvQrEuagn8ysj6UHeDkAShjGccb0uKYhqFhw6lDOqZsI
-         bqeA==
-X-Forwarded-Encrypted: i=1; AJvYcCXAGt2L+rKJtxTUzRqfSbc6wkvebtwG9JmC+Il5I4Th+w5iwCGBY2beeWpAK6rfFx3ef11KdYSpRnbLyWnAXeXQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGUHOJ5+8MDXHC2x+skY0wfWUC0X4MX/SeTeuJEE4mj17lFnwk
-	FTPnvxb+LitIpaysHeyDRBsdqwCRbI6YJkDAvSD7Gn41VtSmwbWpQuAo4cOjmA==
-X-Gm-Gg: ASbGncsnlwxqGlCko+5PATWcfeVrWDgjoefNjdYSv4qkwjiVXQdlel7vpHXWoiJa2zs
-	y9i+J80QXocOdmhS7lLoRFKmblZk73sSSqoLkw76XAuDcEImogIDtof9O3mH/8OTxbRYrAmn25P
-	JTSK4dYM1BbuOmIrInGEZfr+MLrOuHWRyEUBppi3QCzC8AqPgEMAIbKUX0UfA4FE+cp332OazUp
-	A7Rs+Pbrrw3tLGlWZnpznm688z/5Axg6fb1SDB1jiMAxFCn2wGxgBu3CORb/KsLwiNNXaTZpBxZ
-	OQVznkzkHMm+
-X-Google-Smtp-Source: AGHT+IGQyoODgkoUO+Oc0opjizE3auLPjFl7HcIY2FHdwIvo4FWM24+WSW6gR/vIwAErqWTGt1UzGQ==
-X-Received: by 2002:a17:906:4d2:b0:aa6:aa89:6d5e with SMTP id a640c23a62f3a-aa6aa8971d4mr141516366b.18.1733843758225;
-        Tue, 10 Dec 2024 07:15:58 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa68f4eb962sm281095666b.3.2024.12.10.07.15.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 07:15:57 -0800 (PST)
-Date: Tue, 10 Dec 2024 15:15:54 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 01/18] KVM: arm64: Change the layout of enum
- pkvm_page_state
-Message-ID: <Z1hbKrUPXdEokXpP@google.com>
-References: <20241203103735.2267589-1-qperret@google.com>
- <20241203103735.2267589-2-qperret@google.com>
- <CA+EHjTxfchr+ggO_z_zrrFTrFpS3oTJXt13t-854xWxYY=oSQQ@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1733844219; x=1734449019;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0FGmDG/56UxrJQSDRbh5h6XtcOYvVsfsQlg9xr0FPYs=;
+        b=tzQI/gjtjfd61kaT1FCZPB2t2XKexNRa9Wv2WgZHCrPdq6+9dJHegZPTqvn1wvUbM+
+         PCMO1vHp6uwOfZZ312bjS5XVrDUd8RRrWcMX+se65FLE9VBD2vE5K90BN4OWPyJWeNQm
+         POrxTI8vQujrdBuaWtKPwIgZZGN2vMvripp17Sy/fyi0JiIhDKQUmhWixdShmSGLOTpc
+         zTzg5a/AWQJ6133vS6ZhNruqGh9C8uod8ePeQ3wcmhO8tFPCzt1orpTdB7tRnMcZKIQf
+         I4OKgfquywQ7OurGDNhSSy1FeLcSpItxDTnV23YbIwdcMAj1FcoQReekEoo6rl4ZoI0c
+         vcow==
+X-Forwarded-Encrypted: i=1; AJvYcCUbxRFSluofQrmzV59SGZmmKfGOqPIFJrwMbtmAsx2F+3v4Q0X0yF97kTxOnd1LMTxBpxSZyz/rXpbkhdGeboQK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLdzSzKITJfRdDMgv1DwBBRO2EO4NBQnNtQfqWQooKZDq7OM2F
+	3YbodzQ6FVt4v0mkvo2e7MyzAvNOJtJi/UhDYrHDqW62TyrAP3fWBczTcMEpDE8beJr+TEaZs3E
+	h8xr6K4eIqDOk+vi29/tb77d2MYbTFzCMTUoI
+X-Gm-Gg: ASbGncv7bSfQ9VfxwD417n3yIPSTVRgGJEOqQS4Eo80uu7peQxmrrRvwC0vY4VD2bgQ
+	ANf+azttgCNn8daB3+4OAUcBngKHorQU8GRthGzStV92CGt/hy73BV8Hv844NFSfI
+X-Google-Smtp-Source: AGHT+IFj7W2A21RB271zIBxfODIG5QjupA4LpBwsV5eHpgstVb386fYaxm2Qzwdq67LZ1kRn3fUqgoJOaB0IFBrg8ho=
+X-Received: by 2002:a05:600c:3b15:b0:42c:9e35:cde6 with SMTP id
+ 5b1f17b1804b1-435027477c0mr1476295e9.2.1733844219282; Tue, 10 Dec 2024
+ 07:23:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTxfchr+ggO_z_zrrFTrFpS3oTJXt13t-854xWxYY=oSQQ@mail.gmail.com>
+References: <20241203103735.2267589-1-qperret@google.com> <20241203103735.2267589-17-qperret@google.com>
+In-Reply-To: <20241203103735.2267589-17-qperret@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 10 Dec 2024 15:23:02 +0000
+Message-ID: <CA+EHjTw_e_q5TFkgxvVDKxwj-C5S0Hd1OfVO4_FitrB8_J2Rpw@mail.gmail.com>
+Subject: Re: [PATCH v2 16/18] KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_071601_378685_E7873256 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20241210_072341_390219_A6CE3F7A 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,81 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Fuad,
+Hi Quentin,
 
-On Tuesday 10 Dec 2024 at 12:59:44 (+0000), Fuad Tabba wrote:
-> Hi Quentin,
-> 
-> On Tue, 3 Dec 2024 at 10:37, Quentin Perret <qperret@google.com> wrote:
-> >
-> > The 'concrete' (a.k.a non-meta) page states are currently encoded using
-> > software bits in PTEs. For performance reasons, the abstract
-> > pkvm_page_state enum uses the same bits to encode these states as that
-> > makes conversions from and to PTEs easy.
-> >
-> > In order to prepare the ground for moving the 'concrete' state storage
-> > to the hyp vmemmap, re-arrange the enum to use bits 0 and 1 for this
-> > purpose.
-> >
-> > No functional changes intended.
-> >
-> > Signed-off-by: Quentin Perret <qperret@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 17 ++++++++++-------
-> >  1 file changed, 10 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> > index 0972faccc2af..ca3177481b78 100644
-> > --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> > +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> > @@ -24,25 +24,28 @@
-> >   */
-> >  enum pkvm_page_state {
-> >         PKVM_PAGE_OWNED                 = 0ULL,
-> > -       PKVM_PAGE_SHARED_OWNED          = KVM_PGTABLE_PROT_SW0,
-> > -       PKVM_PAGE_SHARED_BORROWED       = KVM_PGTABLE_PROT_SW1,
-> > -       __PKVM_PAGE_RESERVED            = KVM_PGTABLE_PROT_SW0 |
-> > -                                         KVM_PGTABLE_PROT_SW1,
-> > +       PKVM_PAGE_SHARED_OWNED          = BIT(0),
-> > +       PKVM_PAGE_SHARED_BORROWED       = BIT(1),
-> > +       __PKVM_PAGE_RESERVED            = BIT(0) | BIT(1),
-> >
-> >         /* Meta-states which aren't encoded directly in the PTE's SW bits */
-> > -       PKVM_NOPAGE,
-> > +       PKVM_NOPAGE                     = BIT(2),
-> >  };
-> > +#define PKVM_PAGE_META_STATES_MASK     (~(BIT(0) | BIT(1)))
-> >
-> >  #define PKVM_PAGE_STATE_PROT_MASK      (KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
-> >  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
-> >                                                  enum pkvm_page_state state)
-> >  {
-> > -       return (prot & ~PKVM_PAGE_STATE_PROT_MASK) | state;
-> > +       BUG_ON(state & PKVM_PAGE_META_STATES_MASK);
-> 
-> This is a slight change in functionality, having a BUG_ON instead of
-> just masking out illegal states. Is it necessary?
+On Tue, 3 Dec 2024 at 10:38, Quentin Perret <qperret@google.com> wrote:
+>
+> Introduce a new hypercall to flush the TLBs of non-protected guests. The
+> host kernel will be responsible for issuing this hypercall after changing
+> stage-2 permissions using the __pkvm_host_relax_guest_perms() or
+> __pkvm_host_wrprotect_guest() paths. This is left under the host's
+> responsibility for performance reasons.
+>
+> Note however that the TLB maintenance for all *unmap* operations still
+> remains entirely under the hypervisor's responsibility for security
+> reasons -- an unmapped page may be donated to another entity, so a stale
+> TLB entry could be used to leak private data.
+>
+> Signed-off-by: Quentin Perret <qperret@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_asm.h   |  1 +
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 17 +++++++++++++++++
+>  2 files changed, 18 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 6178e12a0dbc..df6237d0459c 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -87,6 +87,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___pkvm_teardown_vm,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+>  };
+>
+>  #define DECLARE_KVM_VHE_SYM(sym)       extern char sym[]
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index de0012a75827..219d7fb850ec 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -398,6 +398,22 @@ static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+>         __kvm_tlb_flush_vmid(kern_hyp_va(mmu));
+>  }
+>
+> +static void handle___pkvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+> +{
+> +       DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+> +       struct pkvm_hyp_vm *hyp_vm;
+> +
+> +       if (!is_protected_kvm_enabled())
+> +               return;
+> +
+> +       hyp_vm = get_pkvm_hyp_vm(handle);
+> +       if (!hyp_vm)
+> +               return;
+> +
+> +       __kvm_tlb_flush_vmid(&hyp_vm->kvm.arch.mmu);
+> +       put_pkvm_hyp_vm(hyp_vm);
+> +}
 
-Yep, this is arguably a bit zealous. Passing e.g. PKVM_NOPAGE to
-pkvm_mkstate() would be properly bogus, so having a WARN_ON() or
-BUG_ON() in there is still a good thing, but it should be done in a
-separate patch.
+Since this is practically the same as kvm_tlb_flush_vmid(), does it
+make sense to modify that instead (handle___kvm_tlb_flush_vmid()) to
+do the right thing depending on whether pkvm is enabled? Thinking as
+well for the future in case we want to support the rest of the
+kvm_tlb_flush_vmid_*().
 
-I'll rework in v3.
+Cheers,
+/fuad
 
-> > +       prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> > +       prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> > +       return prot;
-> >  }
-> >
-> >  static inline enum pkvm_page_state pkvm_getstate(enum kvm_pgtable_prot prot)
-> >  {
-> > -       return prot & PKVM_PAGE_STATE_PROT_MASK;
-> > +       return FIELD_GET(PKVM_PAGE_STATE_PROT_MASK, prot);
-> >  }
-> >
-> >  struct host_mmu {
-> > --
-> > 2.47.0.338.g60cca15819-goog
-> >
+> +
+>  static void handle___kvm_flush_cpu_context(struct kvm_cpu_context *host_ctxt)
+>  {
+>         DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+> @@ -582,6 +598,7 @@ static const hcall_t host_hcall[] = {
+>         HANDLE_FUNC(__pkvm_teardown_vm),
+>         HANDLE_FUNC(__pkvm_vcpu_load),
+>         HANDLE_FUNC(__pkvm_vcpu_put),
+> +       HANDLE_FUNC(__pkvm_tlb_flush_vmid),
+>  };
+>
+>  static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+> --
+> 2.47.0.338.g60cca15819-goog
+>
 
