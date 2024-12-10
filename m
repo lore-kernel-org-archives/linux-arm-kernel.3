@@ -4,73 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1982E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 07:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0F2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 07:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+w2LGhzYqZCXOMv9ifrXPQvEFWM1qsG020A9asbGYE=; b=y6gV6a1Zu8pF45oyC1InwIzWcy
-	Gk7WM4PViyyKwQiP0izFQ4f4ZQTObrQ1xDmlR/M4oyYbd6JkRpiscSEPw62+Igo6m0S/mEX5mC8T9
-	884MEY5jw8mwSHoTYBviSTqHA4a3hd+7Kij5M8S0w9vcnLwPHLo2FKvQ+cnve2NBnfpuSPJghMB4b
-	LVBcI3BSlfk0QxvK9rWTn8afj5KKfIrD5bAUyrmBvqqLXC31KPQWR0n83dikKDMdrz+YdaEQ17Cv8
-	F9qXJ0xmH/vI89ToZYsn2SxnRMsQDwXG7lLgBynWx0klbKeREqJid3GEL0DEXY5sOHGidNeT4TH4l
-	2W7mcdNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0Gmy6qV1LwE2yQztvuvN1VPxCtOB/HT8J2meQGlVOrg=; b=kCazmN2YFdScC4
+	KW64ThhDD9WsKNo5l5UwsnVHEHWPozmARseakrMv6seRe1liTWiKJxMYzVC1ZKyOoOUScVKsBmZWC
+	5SMrO6UrozGrSwU96QuEYXB4Q+eQ1/Zg4j0WMLz1GfIdDh26JV8Gvmw8kEHYujhMKnEkL4xpGIrkU
+	K3piA1vIIPk0QZ6dE+a327ny1pyHzLGmgxXT+15XYS6Xm2t2JoWZsVdaUGOWJtIrsxsh4OKMXKJWs
+	egwSELGSPnd1qlAZXkpWOPaBbiR5V4tvOI6Hot7t0qrQVpQq7ueqLMQlc0P5UZvUMFtVV2vx9/uv+
+	dQsnuXnKMhYQd+SsUkng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKuaS-0000000AXjw-1Lk0;
-	Tue, 10 Dec 2024 07:23:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tKucd-0000000AYCC-1D7a;
+	Tue, 10 Dec 2024 07:25:31 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKuZP-0000000AXcf-0eBc
+	id 1tKubX-0000000AY2Z-0orX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 07:22:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EBCFE5C55A8
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 07:21:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1741C4CEE1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 07:22:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733815329;
-	bh=JgANJvetXmjIIjl82nst3yjcT2gPPmG3hKpYbXFTbw0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Bz5thOH5IPWddXzzwNB46r6vG0rLlKo4aAw/dySHnhaZP++qrsZd0Kud/BLw+d/EF
-	 FGznmBYfh9lOuEDAH8un0Jsu+B/H7Iv5PNgmOEZqylWS0K9Rzm8WnlJ2BqikL6bwa+
-	 2FAqyeVJ/PGxPO2pbVYgzNi3NjuX42sEwGbpDf2yBgjYRcyIvKdPgNefR8//aPPT1q
-	 Kn0lLlRar1fMKZm30ihDfxzjBIjTonOAKeha6A7tsiVPDnZVhwYikD0xqWGUXl4JBz
-	 xjrkxOFAPhw1iWBjyJHZgsnaeTTQsHimH1ZfyjZeBPYtyXdklpuVVIQaVUuwLUhqV+
-	 J4/ynCSkykmnw==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-53e3a37ae07so2952444e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 23:22:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX46pK5Gzqsp+KWdbSgeGgdTUZQSwsEmCCAohVCc/iS87HXRY96+UvqYXdAXKPdCePNJTx8UiY1J8M6t+yCWWPe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWLOl/50ln1HLsO0mB1JyknlJcy/7sH0RRtvgbxF8kc789mtHn
-	/u1p0a69SUUc0qAklwzP42xPhEvAP9SN7naDyEeCxUk1pC0X9+MuTY8/oUClVgcYZASd4SaV+9F
-	9g8Re+Ze2zg/Ph5XtcPFZqwRmxxQ=
-X-Google-Smtp-Source: AGHT+IF5CuEdhlOn/D9CixIkKFmGHI+XYu1ntkKIj+2KqlMWLHpsTP53kTpyF4KcjlSBayaIjQoT95J9Mbji7/lO+o0=
-X-Received: by 2002:a05:6512:3e15:b0:53e:395c:688e with SMTP id
- 2adb3069b0e04-53e395c6941mr3861054e87.10.1733815328190; Mon, 09 Dec 2024
- 23:22:08 -0800 (PST)
+	Tue, 10 Dec 2024 07:24:25 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Tue, 10 Dec
+ 2024 15:24:12 +0800
+Received: from localhost.localdomain (192.168.10.10) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Tue, 10 Dec 2024 15:24:12 +0800
+From: Kevin Chen <kevin_chen@aspeedtech.com>
+To: <tglx@linutronix.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<kevin_chen@aspeedtech.com>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>
+Subject: [PATCH] dt-bindings: interrupt-controller: Fix the size-cells in ast2700-intc
+Date: Tue, 10 Dec 2024 15:24:09 +0800
+Message-ID: <20241210072409.1429725-1-kevin_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20241209072020.4743-1-shijie@os.amperecomputing.com>
- <20241209072020.4743-2-shijie@os.amperecomputing.com> <d13f1879-7fbc-458d-8fd3-4340b51165fd@arm.com>
-In-Reply-To: <d13f1879-7fbc-458d-8fd3-4340b51165fd@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 10 Dec 2024 08:21:56 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFJhFfhy=Gwm=QrdN6XPUd=7SKNKFBF_Z4eQ30r509BCg@mail.gmail.com>
-Message-ID: <CAMj1kXFJhFfhy=Gwm=QrdN6XPUd=7SKNKFBF_Z4eQ30r509BCg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] arm64: refactor the rodata=xxx
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com, will@kernel.org, 
-	corbet@lwn.net, patches@amperecomputing.com, cl@linux.com, 
-	akpm@linux-foundation.org, thuth@redhat.com, rostedt@goodmis.org, 
-	xiongwei.song@windriver.com, inux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_232211_240782_05368B6C 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20241209_232423_230176_17922DEB 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +65,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Dec 2024 at 08:17, Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
->
-...
->
-> Reformatted and cleaned up the above comment a bit but feel free to
-> improve it further.
->
-> /*
->  * rodata=on (default)
->  *
->  *    This applies read-only attributes to VM areas and to the linear
->  *    alias of the backing pages as well. This prevents code or read-
->  *    only data from being modified (inadvertently or intentionally),
->  *    via another mapping for the same memory page.
->  *
->  *    But this might cause linear map region to be mapped down to base
->  *    pages, which may adversely affect performance in some cases.
->  *
->  * rodata=off
->  *
->  *    This provides more block mappings and contiguous hints for linear
->  *    map region which would minimize TLB footprint. This also leaves
->  *    read-only kernel memory writable for debugging.
->  *
->  * rodata=noalias
->  *
->  *    This provides more block mappings and contiguous hints for linear
->  *    map region which would minimize TLB footprint. Linear aliases of
->  *    pages belonging to read-only mappings in vmalloc region are also
->  *    marked as read-only.
->
+It is no need to let size-cells to 2 for the ASPEED AST27XX INTC. Modify
+the ast2700-intc example usage.
 
-If linear aliases are marked as read-only, how does 'noalias' differ from 'on'?
+Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
+---
+ .../bindings/interrupt-controller/aspeed,ast2700-intc.yaml    | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+index 55636d06a674..69503aa638fb 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+@@ -69,11 +69,11 @@ examples:
+ 
+     bus {
+         #address-cells = <2>;
+-        #size-cells = <2>;
++        #size-cells = <1>;
+ 
+         interrupt-controller@12101b00 {
+             compatible = "aspeed,ast2700-intc-ic";
+-            reg = <0 0x12101b00 0 0x10>;
++            reg = <0 0x12101b00 0x10>;
+             #interrupt-cells = <2>;
+             interrupt-controller;
+             interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+-- 
+2.34.1
+
 
