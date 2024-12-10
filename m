@@ -4,128 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63459E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EDBE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OwV717DZF6jBbGmMqY4Lay6suGsxDvolISQzDQbt+mE=; b=OP8Mq8PasJtpahDsPkjXDyXzwy
-	n70oWBHtj7pesIUUEPFsxDmfu7y38yJK/OSOjlMAni7y5d5XcvkRYRGhSd+mtbvw9llzo/m9fmCEU
-	hx2AZfhuT85iSQNEsiAubbH0KsGqLnDwPmUnr4Oel8XLXCxnydvwWzcPcTTa3o3QVYYTLbMHLkg9l
-	4QdqK/SYj86q9vpHiijep93nchcPkGlZzbCRX/RRhqQ99gwAnOW/rz7lKe4VNPJXFvFT0xpC2kR4H
-	k/m+M6xCik1uUr7A4JiG8L/GdoQbrCpuVxLogOPYSGhbhMHeR7jSLtyikc3gxScRfEqBXFRwV4MvB
-	0cllbZCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6C+R+OmaQSfBiSVs1fcov+OgwEH54XQE839GPqKNBcg=; b=nlVORwRIVnVPnCn2EA3UR2KcN0
+	UT8EoMsNZqW8rMx0dG4EDU3QE3gai1VFuqtZvKC9wlgcs4eWr8/kdqZ1dM9y+NKnTnSmKEqvCDkp+
+	5E7NZo+b1vdgsoYXSchnQo/sQ6TWc+Ybxym3KTZf+2IEiXwcleDKtuM8Fp8/kldrPZBYfuostAMfq
+	QdfkwqSCpkyg3lJQDtw7Rdl2GFMIFstJFXyFDq0/7sRYFLj9mXtw9ivWtCL6XEMQd/qc8tvs+z3E6
+	cGeA12KSpq4Y8BMzan1gKrNwzzn6xFaDxn3YdSBJwqQtvBSiSui5AYYDFCSh1/iVkKEv11ZsDkyHO
+	/QybSUQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL61e-0000000CXIu-37mX;
-	Tue, 10 Dec 2024 19:36:06 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tL650-0000000CXeN-3hTa;
+	Tue, 10 Dec 2024 19:39:34 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL60a-0000000CX93-3lpX
+	id 1tL63y-0000000CXXt-3Uw0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 19:35:03 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2eec9b3a1bbso4366786a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 11:35:00 -0800 (PST)
+	Tue, 10 Dec 2024 19:38:31 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5d0d32cd31aso7011854a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 11:38:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1733859300; x=1734464100; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=OwV717DZF6jBbGmMqY4Lay6suGsxDvolISQzDQbt+mE=;
-        b=htl1+IhqJpUD32ERTOIRsw5tPU6EMW7yYxuX4NtDJFqOKW299I+f0+d+2za9WHUd45
-         gTRfS3FFM3k/WTMwRu0knoJ+eB2mI9srjppkM4XPaVH7tBFPuc04282GOd4ID3Ws/s7M
-         /Kbz+1HbrXJhkT+6o6Tg8kqygTHc922i2Z3uQ=
+        d=google.com; s=20230601; t=1733859509; x=1734464309; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6C+R+OmaQSfBiSVs1fcov+OgwEH54XQE839GPqKNBcg=;
+        b=IhquNo1F/ZoYSOr0YdnSJCMy39+4e2tkdZM3vQmJBiZZcoAGfn3A4Cqkqh6b4PVLHP
+         unJ0SsJtkZ/Tp7Hz0fNm0ZAi4xy6FY2y3M92lYNmuv+BrvreJaHIffBZjRrmCStZevR2
+         f+GQriecbFCgfMusI10ehS7ecWQftSCODooCYNUFpY4mG1YFNCZYsWzDVTKhZ+ZvyXrj
+         t2tKz/wVa6zSM87PwnwB8fLFDCZPqQG4mgQxHm5vpcGywtP5JZCHZCLxSpdJY4O/Thet
+         C/sHE3hY0UsVaSQ9cwUY1aI9qWxig3W7/CRQgkLncfjSA24M8goL7UM16Uc7PGCcKzVx
+         BUpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733859300; x=1734464100;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1733859509; x=1734464309;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OwV717DZF6jBbGmMqY4Lay6suGsxDvolISQzDQbt+mE=;
-        b=oIaY3MFxHNVVsmI+vdb7ul2OjELZ8my18JXudLZZewvIgZifmrDc3xL4dLwU55gJFw
-         YuGR2qnu936c+x1Kj4KH7HoNdo5UMsyG4aC1xH71mPpiAkfuC/O5l/k8vV3iOqxTBw9v
-         U95CSB0G4WAdrPZhx0aK8WVJFHLg+6ixLIpT3PrIYEOdg6pAh9f2DflUIfZ7KXi9cWOr
-         mcyHdaWQIe1lycJ4UyonFaNsDhKtwWtxi59BE8VZQauXXuj610J88I1EVvOgazlVkJAP
-         HOtVvgoy/WIz/0lBuoWm32XQicw9/dXv/yvtwNzMuvlbSvJZL0O3YeNLoJ9rVTkA4UJL
-         lANw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLlj6bvkukrXB1pVf7+27tfv9BuwmIlxKY599pJI897g+4dQc3ih+SP+yNnGMkYNS+Va4mzZ46W7jM4yIlCqYc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxXOUKUVzy7T9S9liUz5BEQ9iIlsq3qAuPLARYYlPrt+8bTic8
-	JjXAVAYwvS9WogJyQysR9sZQQBnj2qnI/XlUngeQBQ8LupWFrOp+liaxHCBWFQ==
-X-Gm-Gg: ASbGncs4VGdsMhKr2HG5MEqgPJKglG+0bUV8msVwAyUcIBslJAId5NdZHoQogUqmOLM
-	csy3XKtRK6S9hLTZ2E56V9HRxAJuPIqDmgsOz2faYtXX022x96D9oI1qPjyrZbzQGDA/MLzq0PA
-	XmvagKMtECTuUNY9H+7RfO7ugC1tQlucGSRyIYAix0npdXA2qN97RaM3D4eK6ZsBToGOaWjQymJ
-	BRKepE4H66eIVqeYAKf+CHIirZumVSdZmLw8PNsE2xa40/je20H+Zhb31wdraSITxOdXLe+BV2p
-	dC9/iRDIhVeKSG4VCg==
-X-Google-Smtp-Source: AGHT+IFBOs/F/U4/hLKU6kyWf8O6LlmYbxeJeYss/dK1iAbYGZxIT+jEyZtSoRHQ4kvolIcl2McsnQ==
-X-Received: by 2002:a17:90b:3a83:b0:2ee:e518:c1d8 with SMTP id 98e67ed59e1d1-2f12808c035mr266194a91.30.1733859299825;
-        Tue, 10 Dec 2024 11:34:59 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef45f958d6sm10127971a91.17.2024.12.10.11.34.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Dec 2024 11:34:58 -0800 (PST)
-Message-ID: <8a7bd584-d4e7-4a68-a562-08f2603ff49c@broadcom.com>
-Date: Tue, 10 Dec 2024 11:34:51 -0800
+        bh=6C+R+OmaQSfBiSVs1fcov+OgwEH54XQE839GPqKNBcg=;
+        b=LJi5ArIRqD2CDTLYJKhv8h70TcUHs0d6OXCKj+q7VIbwq7lkcoqt1gyrqJs3I3bJ28
+         WJ+8f5l+/FqAKAURw0i55Qu0Sk1xMUwJVuRlcnfRjwBzRITNrt0dcD1UJcjh2pVGcee+
+         tYNGlFuNLHqmGguvhvi2LZHsVvh1Tc5L30WL8kn88an/3QonljutqtFie1tNphq6P5ry
+         /Mb8Shoni4GrOjasnGembGuPVpsLqNiWigAdZUjF8V/jWMEIhHU2mKdFDcC0UhaKOcdR
+         PpQNXQ+uRYxLV9feLJF5l9doIV5R1T+YBxocyfD92GBGQ39EQ97yetK851V7H6cnGmKJ
+         Vl4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXo73K9qSadCkzL9Dii9AeArN1iZMAb/Onih4Nh03eLVfCOPJS6qhfphYujTN+fF7I+LSHt46twFhY6m/AFB8Bn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV3Siyw3qlvdVnhPcVXmfyXWYvtv5wH+7CUWHLI0HfiWGEzy8j
+	xKtm5Bp2AWb2hv9mILLrStXfnxppTv1rapIt2cf4JdlDXiPLu9drexlVx/iUfw==
+X-Gm-Gg: ASbGnct9B20KdHUqGNCMFtjZw4QRqDtXsHzRbc18Rwzl7galX5lNhLbCsQZ6+L4rnlQ
+	IT/a1xSZ7kjNPwPeCm1PQcf7w47l0kjuKbmAotfUhbW9I0r4voa7yY/KR7WR9Fe367cojZrtSQq
+	wSjgHJS+8CPZUfzQanCjHmzMn/J8lS3B3tCOW6vWpH3WlgcMbF10amm4RjEBjpl8liDHcUXzoHG
+	R9I6QmulvNlpMXJA9WlXJyGjZOF3YKH/rcv442E9AuVg3mCyECN5xu6WK12VHYcgN0T6fLAs39X
+	h59gqCJW9ByO
+X-Google-Smtp-Source: AGHT+IEIqsQNTEuyN6pw6/E5dLWj8qHZRilsuJXfDr6drx/4L726HT8V897DbxQWUpXL/uP7eRX+MQ==
+X-Received: by 2002:a05:6402:2712:b0:5d0:9054:b119 with SMTP id 4fb4d7f45d1cf-5d43314cfd3mr23651a12.21.1733859508811;
+        Tue, 10 Dec 2024 11:38:28 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3c1f99b84sm6775290a12.11.2024.12.10.11.38.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 11:38:28 -0800 (PST)
+Date: Tue, 10 Dec 2024 19:38:25 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 13/18] KVM: arm64: Introduce
+ __pkvm_host_wrprotect_guest()
+Message-ID: <Z1iYsVFgs1Cjwp2x@google.com>
+References: <20241203103735.2267589-1-qperret@google.com>
+ <20241203103735.2267589-14-qperret@google.com>
+ <CA+EHjTx-MZHKwkGYPU+yN-CDkNh1kxTXN8FWTeaPfM95OSkjcQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/9] net: dsa: add hook to determine whether EEE
- is supported
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ar__n__ __NAL <arinc.unal@arinc9.com>, Daniel Golle <daniel@makrotopia.org>,
- "David S. Miller" <davem@davemloft.net>, DENG Qingfang <dqfext@gmail.com>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
- Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
- Vladimir Oltean <olteanv@gmail.com>, Woojung Huh <woojung.huh@microchip.com>
-References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
- <E1tL144-006cZD-El@rmk-PC.armlinux.org.uk>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <E1tL144-006cZD-El@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTx-MZHKwkGYPU+yN-CDkNh1kxTXN8FWTeaPfM95OSkjcQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_113501_361608_5FA9BFB4 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_113830_888231_0FF04E74 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,15 +107,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/10/24 06:18, Russell King (Oracle) wrote:
-> Add a hook to determine whether the switch supports EEE. This will
-> return false if the switch does not, or true if it does. If the
-> method is not implemented, we assume (currently) that the switch
-> supports EEE.
+On Tuesday 10 Dec 2024 at 15:06:53 (+0000), Fuad Tabba wrote:
+> > +static void handle___pkvm_host_wrprotect_guest(struct kvm_cpu_context *host_ctxt)
+> > +{
+> > +       DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+> > +       DECLARE_REG(u64, gfn, host_ctxt, 2);
+> > +       struct pkvm_hyp_vm *hyp_vm;
+> > +       int ret = -EINVAL;
+> > +
+> > +       if (!is_protected_kvm_enabled())
+> > +               goto out;
+> > +
+> > +       hyp_vm = get_pkvm_hyp_vm(handle);
+> > +       if (!hyp_vm)
+> > +               goto out;
+> > +       if (pkvm_hyp_vm_is_protected(hyp_vm))
+> > +               goto put_hyp_vm;
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> These checks are (unsurprisingly) the same for all these functions.
+> Does it make sense to have a helper do these checks?
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+Yup, that makes sense and should simplify the error handling on all the
+call sites. I'll probably call that get_np_pkvm_hyp_vm() or something
+along those lines and shove in pkvm.c in v3.
 
