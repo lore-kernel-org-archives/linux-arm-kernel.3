@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90391E77182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 22:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E6EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 22:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnBS+k7wu7H0Sx3ToGFJQ5o/kPHFFB85Eg+xljEGHgM=; b=TmuEShosGNSzA46NhRm0+FNy8M
-	D/Sw3c3taPdBnqsYnexL8wrHgWUhtjNJIJyO6cOlGzP2LJ79uY92WivSiiq778GP1mdXYHycP5OEg
-	J5nFKFJdj5oyTgLp40tH19dui01ImYM+INv5SsUGurDwwegJv6zqVKvJwu5STd7iNHg7sUgwqFrlw
-	iN4eThP+16mBN2mcprppw7fXPenjOYBMnuOfkzTdBYLUTmUgfD2Zw7Sx3BKheCnwkyjZwLhI69yOk
-	QTog8cKA+6Pbnhmr26+AUU/FlbNKxkT0mOUPT//QiTej5P+/6t2/pwOkKqZEN85SJpexBjonyt7zh
-	Vr/hYPYw==;
+	bh=Mek5W+2DRa12CodhgWjGtQ3OZ8TM4EmFbwA2yovNbmE=; b=adTVW0wwqFzHEZdWJbbjD48H1x
+	xyBIvhdW02fprDpzebqY5BT2uPS2cCxfuVGVWiAdh04k1YIYV0BCEpdfco8znik2koc+1Xh95Hhjg
+	A6XuCHjEb40M3uOPVurzI7dDqQQEZ6Jf935bVSK7fHLh8PxYPOUJ2CV7ou72dWGNBCxoAjv9IbbwS
+	tq4FJc9PC1osp5ST2Py9ZbAq8YZS+P7veuNY4LyBNBOWQi5pHk4gzNloiuP7X7ZZqIQ64xd7BvUTv
+	i0gnpB1dWC12BIGGCA3W+Uk8dtsfwAOQO/UNVbQ5ZpdenftEUWdITSxFZvz51YzpyiW8oRAsw+2mV
+	m08HxKUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL99F-0000000D4ed-0lM5;
-	Tue, 10 Dec 2024 22:56:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tL9AH-0000000D4vq-1235;
+	Tue, 10 Dec 2024 22:57:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL97E-0000000D43e-0ZEJ;
-	Tue, 10 Dec 2024 22:54:05 +0000
+	id 1tL98H-0000000D4O9-1s6d;
+	Tue, 10 Dec 2024 22:55:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 08B1BA41AE0;
-	Tue, 10 Dec 2024 22:52:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD594C4CEDE;
-	Tue, 10 Dec 2024 22:54:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 58EDC5C6300;
+	Tue, 10 Dec 2024 22:54:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48D0CC4CED6;
+	Tue, 10 Dec 2024 22:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733871243;
-	bh=xHboJ6Nj+jUBjuysVSh5kzHiNcpv6miOBLy03WABifE=;
+	s=k20201202; t=1733871308;
+	bh=9J1aa/Yh3HudPCpHSSxjlghwlr0RlKDY/3giY0+oXAY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F6RNkTporGLhP919FrAvtVaRdlwD6OHKF9LVyCWvSPhS6/L86mghmTp3sWhxV6wNb
-	 QlFBLBsCx5p3BCADTSSJlGiZoVGQUxg0BvJZURibCzW7PEsrxr547c8BfR2mdkLGk9
-	 jxaD+B41ZsnY4nGwKXLpOJSOokz1SfQvjul3MYuG+BmUdjAfMYOfMCzqvxr7mfk3gD
-	 RfUh0l8GKGMp71ka3TfjDrVw0L/2n83cPMNl5jULVNenO4kzoUP92Oqil4RgXC7Abq
-	 10g9W6QDZj1WACB3tkQ++E5BONJ7jF+yNA9r5RaNIdkhA5tl3jpAH7Uvt55OeEaQRl
-	 lMW6sHikMq9hg==
-Date: Tue, 10 Dec 2024 16:54:01 -0600
+	b=cM/4VcruTmwaKzBl3kR1lSSTuI66cHreDK5675IsNhiplmDizdIGMfZ+nI44JMql5
+	 DH3X4ohXX3l/ep1vMlb7vIzPn9+2AU7LUII2O8Se2NtKiyCJXUMiAmF1f8W6U8gp9G
+	 FS8MX3tervSTGlzOXNvMVZt1tmwQCVgj3Rd4lZdFtqMVJJalSKAXgKeZpo2fLKXYNX
+	 N2znVb6+Nw+vmeaZl+nMgu0owQDAgr+5DaN49jhV8j22NoPIkhmIMTTMofMhYell/e
+	 ReYtTk5PNKoBXB+W/Jds/GnthHUuDkwvBz5wTKmYz9yPN9Hnpc/27Rseyz6KRVtDSV
+	 lSM7prZIWZ8vQ==
+Date: Tue, 10 Dec 2024 16:55:06 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Krzysztof Wilczynski <kw@linux.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+Cc: Stephen Boyd <sboyd@kernel.org>, Derek Kiernan <derek.kiernan@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	linux-pci@vger.kernel.org, linux-clk@vger.kernel.org,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	linux-kernel@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Derek Kiernan <derek.kiernan@amd.com>, linux-gpio@vger.kernel.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Herve Codina <herve.codina@bootlin.com>,
-	Will Deacon <will@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v5 03/10] dt-bindings: pci: Add common schema for devices
- accessible through PCI BARs
-Message-ID: <173387124038.751229.17185539657512592303.robh@kernel.org>
+	linux-kernel@vger.kernel.org, Krzysztof Wilczynski <kw@linux.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Will Deacon <will@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+	Saravana Kannan <saravanak@google.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-clk@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-rpi-kernel@lists.infradead.org, Andrew Lunn <andrew@lunn.ch>,
+	linux-pci@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>
+Subject: Re: [PATCH v5 04/10] dt-bindings: misc: Add device specific bindings
+ for RaspberryPi RP1
+Message-ID: <173387130632.752894.7048832305370106368.robh@kernel.org>
 References: <cover.1733136811.git.andrea.porta@suse.com>
- <92fe1c6eb3ae1e7e7c151423568be2d13f19b55a.1733136811.git.andrea.porta@suse.com>
+ <99c23bd584d7b1b998d2cafb7807e0650db73f20.1733136811.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <92fe1c6eb3ae1e7e7c151423568be2d13f19b55a.1733136811.git.andrea.porta@suse.com>
+In-Reply-To: <99c23bd584d7b1b998d2cafb7807e0650db73f20.1733136811.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_145404_240918_27370E19 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20241210_145509_527068_11F08547 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,20 +98,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 02 Dec 2024 12:19:27 +0100, Andrea della Porta wrote:
-> Common YAML schema for devices that exports internal peripherals through
-> PCI BARs. The BARs are exposed as simple-buses through which the
-> peripherals can be accessed.
-> 
-> This is not intended to be used as a standalone binding, but should be
-> included by device specific bindings.
+On Mon, 02 Dec 2024 12:19:28 +0100, Andrea della Porta wrote:
+> The RP1 is a MFD that exposes its peripherals through PCI BARs. This
+> schema is intended as minimal support for the clock generator and
+> gpio controller peripherals which are accessible through BAR1.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > ---
->  .../devicetree/bindings/pci/pci-ep-bus.yaml   | 58 +++++++++++++++++++
+>  .../devicetree/bindings/misc/pci1de4,1.yaml   | 73 +++++++++++++++++++
 >  MAINTAINERS                                   |  1 +
->  2 files changed, 59 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+>  2 files changed, 74 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/misc/pci1de4,1.yaml
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
