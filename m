@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FABE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34F8E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IPhvV7YLIhUy1iqnrEvgo6o/Cj/1fsbuKiGxw0m5kYs=; b=e7MxBINyH0VLc7IJJGluCL+p+C
-	9EBBt5aKaGiGp+wdwvT0cEM9vLSIGdtUyYnyheDA4t+jlZfa5D/9lHx3X/5rTJdGlwxk+8bPbYebM
-	tnTZOFPor9avrBAm/x0CAQqw/8lCS1oFNUPPOhoS87zJK4tkcrwJ4g6k2NtDePC2HYeZJ3gBP+Q4H
-	JefaRjWjmHjvuuGkxMzDKdKmKxuRy59P8urBOMiuwf5wOBuAyCWeopPFOTMtLiBmU+uINKdrlp61R
-	cEKLP3zVfFVVKNCLIKKSCJwIjV8kgOkjX0b7lYTs3hw/MdKBGd+UfZ/nmSrjBSA+OCerFImWj/TEi
-	rryERmVg==;
+	bh=C3r0+SVHeDv0V/nwe3iMXDOSW8idVkaNDtQOwSdMocY=; b=KT/ZTOgo2FN2Wx/0fmQ/xEp3BF
+	V+XLWkmC7jEwB3E8Uq8UZhcgxTJY9iuf/VJmzdR7wREfM6PfQ2gS3kNonxXBwLIwNFSiXoDdu4jjp
+	dW1IAR7WzD3dwxx7D92xBMY/tE1Mj6mUzKji0XdBb/LdFEBfb+5g+9Tx2L6YPN0tCb2Hf5DatVBjo
+	q3p/ggo5TIOoMdZg97x9G0UzQx53K9nccDDWSx3vjmgW4SCtqmEFxI8PACp7yX4hgSqDROGFn0q/J
+	Oc2r1w55UTPOmaoT6rkoUsYb1/oAC69zKjmjGCXkG/fpvjYVmQwi3QI3TvQTCKB8PVNyxWqZ6gmRj
+	GxlQuIfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKo0f-00000009gvH-1she;
-	Tue, 10 Dec 2024 00:21:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tKo1g-00000009h4g-0Ojp;
+	Tue, 10 Dec 2024 00:22:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnwj-00000009g3b-3mbQ
+	id 1tKnwl-00000009g4i-3Rbm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 00:17:51 +0000
+	Tue, 10 Dec 2024 00:17:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A47A0A41A7A;
-	Tue, 10 Dec 2024 00:15:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2995C4CEE1;
-	Tue, 10 Dec 2024 00:17:46 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9B39AA41A79;
+	Tue, 10 Dec 2024 00:15:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD62C4CEE2;
+	Tue, 10 Dec 2024 00:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733789868;
-	bh=+d/z7lM6Ty4nkhWISS9A4dpkXbJaiWaiwpS72Ypiu1Y=;
+	s=k20201202; t=1733789870;
+	bh=BW1fpZ2eE11MnLUwuGiY1eXfukovEfxi8eg26Is0Po4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QZM3wGonVFHWXCsEXoU3JNBXwF/BxX1+yWNISPgO6Aaqajo8aZwhZMCeQZNgKVlku
-	 NkGtQu3PvKpdjpmvwTf75EgWBGIZV9fsZTuObfTZMJyY4mG0YHkMXbHuwVuN/8DRuU
-	 0TMePcHK84LhDTBVvGQ73JbDPEAZ8YumGmm3ZMk4f+sTkql0ZBz2HalWpu+OYu3VDv
-	 vDX/7XkXFl6wdxJjnbEbh2jn/BMV6uHi2LjGgefRB0qxi2UNyPBseoqPJbbGwiU674
-	 qcXzJcsmnvuvDhogWlSMbB2TYiereFg9kf344BggKm/kY3Ng2GvYNmpEY5cMFvbFhI
-	 ZeixckeT2DNfg==
+	b=Tf91pXqkgLOxZ1uTzpc09SuWes85x1ft5/rr1kHFH6lWkEMz2SgYPgu2oxFfAg3vX
+	 F0NTXSySKLgnUv2w/p6Ysxtb2KWA3G5P7KVnx7egsvIuojqJg+3yhNys+rdOEdAeQb
+	 FfS3w2b4gWueOY5ZCYb11OetdGRdWUFUnt2cXH8WhGtrolPJyPhqXBvpzHGH4aHxe/
+	 KqTUuasmVZTh9p5n0vL+aAgBYI1kHW8v48YaR96UBC9otc05cHIdDLtzRUFSJHw1IJ
+	 GeJzlDEEJ9TKpKCtxs0Mb325kjNMTiFnhpcqAuBtUsTHKHRUML6xwQot1DcshOpUDH
+	 j/CZ68/Qv7PxQ==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
+To: joro@8bytes.org,
 	Robin Murphy <robin.murphy@arm.com>
-Cc: kernel-team@android.com,
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	joro@8bytes.org,
-	jean-philippe@linaro.org,
 	iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	ryan.roberts@arm.com,
-	broonie@kernel.org
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Document SVA interaction with new pagetable features
-Date: Tue, 10 Dec 2024 00:17:30 +0000
-Message-Id: <173378456062.4186718.3662609391353650164.b4-ty@kernel.org>
+	quic_pbrahma@quicinc.com
+Subject: Re: [PATCH v2 0/4] iommu/arm-smmu: Minor probe_device related improvements
+Date: Tue, 10 Dec 2024 00:17:31 +0000
+Message-Id: <173378441488.4186336.14522482976618451984.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
-References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
+In-Reply-To: <cover.1733406914.git.robin.murphy@arm.com>
+References: <cover.1733406914.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_161750_002500_7D468076 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20241209_161751_919508_174E04F9 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +78,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Dec 2024 13:48:09 +0000, Robin Murphy wrote:
-> Process pagetables may now be using new permission-indirection-based
-> features which an SMMU may not understand when given such a table for
-> SVA. Although SMMUv3.4 does add its own S1PIE feature, realistically
-> we're still going to have to cope with feature mismatches between CPUs
-> and SMMUs, so let's start simple and essentially just document the
-> expectations for what falls out as-is. Although it seems unlikely for
-> SVA applications to also depend on memory-hardening features, or
-> vice-versa, the relative lifecycles make it tricky to enforce mutual
-> exclusivity. Thankfully our PIE index allocation makes it relatively
-> benign for an SMMU to keep interpreting them as direct permissions, the
-> only real implication is that an SVA application cannot harden itself
-> against its own devices with these features. Thus, inform the user about
-> that just in case they have other expectations.
+On Thu, 05 Dec 2024 16:33:54 +0000, Robin Murphy wrote:
+> v1: https://lore.kernel.org/linux-iommu/cover.1731088789.git.robin.murphy@arm.com
+> 
+> Hi all,
+> 
+> Here's what I probably should have sent instead of rushing v1 out
+> earlier, now rebased and polished :)
 > 
 > [...]
 
-Applied SMMU change to will (for-joerg/arm-smmu/updates), thanks!
+Applied to will (for-joerg/arm-smmu/updates), thanks!
 
-[1/2] iommu/arm-smmu-v3: Document SVA interaction with new pagetable features
-      https://git.kernel.org/will/c/6e192214c6c8
+[1/4] iommu/arm-smmu: Make instance lookup robust
+      https://git.kernel.org/will/c/7d835134d4e1
+[2/4] iommu/arm-smmu: Retire probe deferral workaround
+      https://git.kernel.org/will/c/97cb1fa02726
+[3/4] iommu/arm-smmu-v3: Clean up more on probe failure
+      https://git.kernel.org/will/c/fcbd62156742
+[4/4] iommu: Manage driver probe deferral better
+      https://git.kernel.org/will/c/46b3df8eb9bd
 
 Cheers,
 -- 
