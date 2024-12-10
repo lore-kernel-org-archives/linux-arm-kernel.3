@@ -4,85 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB153E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 01:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB5DE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 01:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5lnOzUj92tNwAYe96qZDcz3FYlyRcurTdW3wXkywCY=; b=ZelNNCMFZpHlR3mOHtbZo0xPLv
-	WLsoSUHYKrxbw3WU2QfuZX0odNly/dxwmbKPeIUVMMXfa5NjePKL7SE9NyZCS/Wx9yRfjQobaTuRm
-	IzhDT8jtADY/vABKjOaxg4rkJMDsMcDRYCCR5NOvLBg5n+aN0CZYEboI71UaS3LwSiMVBSCqPnYWs
-	TazRpaOGBeO9X8r55pd3I1c/WXOlEgaGhnwjTlwgbMrowkwMUGce3uGXxbPgF5+mfO6DFSYus6OKQ
-	qEnhV/R9ABEqBnWCOKfs0oedvVO2I5Zzfxu5Qxk+GRsXahmCimIJLHtW25lUfBySLWN5fa7sEgIO1
-	He6qwEBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hwOz/3s+5rB6IRZt+uNZZmxy+vjj4hk+TORJT/mIsZw=; b=384aLyy7hnY3PryTaDp2UP5P35
+	YFQdkIQTZHiQQ+Lgw2fXP1CAz9xQS9+8WTphEIOno+JjL1hXFWhitQXE1nvTLZ1WAvrbu67J/+oIy
+	svXkJ7BKKzUm3MOwV38jkc07KJpRatrw+yjC5Mu1fFNjb54WuprlEkVIVQL9YloHi4K66wFAy6f9G
+	PtWh8zAeHkZgCKotDYUtUuaxBTE96izBpVl4GDy0r+8oTuQicVWww4U0ycj4PIA1lHczjvdiaAy5N
+	7v5NL1MZDtt+8382xC5jLjGMeJ1110cPedWDvx+Gh/EvywyHLFOZFqMbrHT0UFLA7LC3lnQbTiEfo
+	2hy8oc0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKoto-00000009nuR-2otm;
-	Tue, 10 Dec 2024 01:18:52 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1tKov1-00000009oGc-2FEc;
+	Tue, 10 Dec 2024 01:20:07 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKoru-00000009nU6-2uFF
+	id 1tKotx-00000009nxv-3lRr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 01:16:56 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-725db141410so1813138b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 17:16:54 -0800 (PST)
+	Tue, 10 Dec 2024 01:19:03 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53df6322ea7so5811738e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 17:19:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1733793414; x=1734398214; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l5lnOzUj92tNwAYe96qZDcz3FYlyRcurTdW3wXkywCY=;
-        b=RXifHSlb0nb9iQLbzxli3V670JUfa8kptTSmFYMQn0BJhlajfjeRA6pTOao9Y7+FYp
-         1rrYOcuV6Kp/eCVlCp4omu/OS1S50jrqctKOnbWsj6dtH04HtmmT78lTREspYXmE64s2
-         1PaTQm7doKZlPPRcps/lc60Xcz0Jjk81a67G9xPE6ORNh5KU7wpFYE2A5h5TTKUkWvCj
-         StAAx9HaDvNxeuAokACl+qZ9q6iNnX61h/FIoyq6I3x0MLEOO/tJ37X85xSN5A4q62UO
-         TVFvKOz0/PSFKRkX5wSRYtIFf0cFvoNg3mHdNHzSW9vn9jqv8ZR8B52ly+gBRwsjHhDS
-         pt7A==
+        d=linaro.org; s=google; t=1733793540; x=1734398340; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hwOz/3s+5rB6IRZt+uNZZmxy+vjj4hk+TORJT/mIsZw=;
+        b=MLBn9jl1htsbOvb/VrppL5Jb/tMkm0anLbMrsVnr4w9OgFhfpDlyOG6O1MeREbcgEX
+         4TFcECTK8hEUBglOykpTaY62CRaP5d/5aWMLqz1Ji1jwMXliM7nY3SW9MTxoKwb+CfBP
+         bK1j2whLszJiZCmVm2KKaufrCGX0pwt+aEOed4zMEAhX2HXABnN9slklhgmYgm0r/HZh
+         Rj9b/SXDxryiK54WSYmXvbIKQxEcxc5ioj5IjjOwDSWuMCHqGtkfXZiaVkvsFfqonX5z
+         yM6CZMJ4tqNNLa58mbvcn0KLeS86FjJ2plG7PreBK18an+lofcWRP956KcF/vyngz+tL
+         4c/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733793414; x=1734398214;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l5lnOzUj92tNwAYe96qZDcz3FYlyRcurTdW3wXkywCY=;
-        b=QXkSr7VVi2JmRKmN71jjw4Z7r1aZAbI3OAZsgg2mcv8FT9X6JHjnrtb58qNJwY0B/G
-         4FCx9/RlXaBW5b3vpTK51VXZR0rba+jIRX6tqlH+30Ys1gWuoS4WV0ueMH1w834oGfzq
-         myBPDxRxhFFRmtW+AjgzPoG7xqe1tW+Rr+DGBbc/ns7xMlRv4urCLWOur4F9JB/9FyuF
-         gyKnX8E6kG5IazACeZTv+2voVH7NeX92hSAA7BkJdSdR/jpDXmQ/l3Cq4UBGiPzFF541
-         MqS9Whk7zTu8thwfXR+p6H14UEUo9BzWNQOH5P1wAn3cB38Nh/pC+DxKQ5F3XJRH6edc
-         3+Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxEt++SYt9qC2ZDP84P74ZilrMiAFSDKuobJWIAidXwCJFApwcQ4RjdhvlcTNbf8LC7AN9hsaVcR/ko/m8OgDR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs43Tdy2l1aCxXzj0AMkssVmYirNuq9Gz0EVK48tlMn3zPAGda
-	jXPVuBPiRZ/mz+AOzX92gdXa2jMaCsymsm1/9pRFvKH/KMnT5jizX6Y+xsFauUKHJ2dqAKy39/8
-	Skkmd3Lt0fZcBs7u3gBs23ZpoV7vIEgKg0qQyAfPbE+wGykEu
-X-Gm-Gg: ASbGnctsCKFJFXI4pqf5FkAP/5C4J0ygduNUOpH4nXp3eUeA9mjxNX3Wg7K8lh19TPY
-	ZYjrZLhwGgMioXU7/w54cCEWMKU+t1ukdHw==
-X-Google-Smtp-Source: AGHT+IHNDxzVFx4Fjry46BXz1MibF2flAze+KQwgSpC0yKWv1F2kvwsfIv8wF0CgYV8avF+Sj0p+siSkN66OmJVbtO0=
-X-Received: by 2002:a05:6a00:174b:b0:725:e37d:cd36 with SMTP id
- d2e1a72fcca58-7273c8f4a8bmr3915070b3a.2.1733793413778; Mon, 09 Dec 2024
- 17:16:53 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733793540; x=1734398340;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hwOz/3s+5rB6IRZt+uNZZmxy+vjj4hk+TORJT/mIsZw=;
+        b=tA8A9LXnv+kITt+SnpSuxjf8r7HOJ0n9eJXkjo5spAbdmKqkgcpAfrQEv5Zhe+T2Dy
+         toskNx/kVQ2Nu7bVl8nO89YM2M4CNEVgyPetAzmwo3slDndrWq+H2O797GIgMwr/Q1Hs
+         9Z95eqmuPoLcm4sDWubCd5JS0kndaBydpr/YCPMHQQ42plE2LHvBlg4lg1Nceze+xLaV
+         L8ljWTbkx72AmjFTtApABQ9IBHvQKG2oXyCxGyE87L2JFVol5ZBKclpvadi0nCCHx8Eq
+         m7T5RYZfywkfw8RhIss/ixxMqJ5gfZLxpWzMCipQasRcozYfn0xVahpooZIRiGc36Oj5
+         HnyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVWpDc9z1ryoqXJj2lM/Qx/NOP7eOsSdvk4NakXO0aAR6DHnq2kGiLKXYofTUGgmr4p5QaI9oY7aEYsvzeMuNFx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0GA8Ahs2rbNmlGThPW6TITna5d5xdM/L+ZqaaWfUBWUjcO8nN
+	M3FA15cdx1wOvK+dMSEj00NhnHoz8/OLB9UPBEDuZc4/OImZmrwJe+72hMnhntA=
+X-Gm-Gg: ASbGncvbt1MpBvhIhxVzZ/aCGq0WEwBNg6Ac89s0nbpZqdc30ptmYabiRJq6E5UFfmA
+	VB0D8jlmSsVy/8prczNOTYCEPXx0cXpZtiz6PzIVzI8mYRfUviT/wv9Hi61sve1kppgyqdaWIkA
+	3NnxUcgj0nui+RIt1ZtawcMY6Uc4M4RybO0O/eesa+2GAtkVt4ixNxJWfSMonU3hCuzhgYQSkXX
+	5MB8GNjzhgqSdcHJbHmUJRKtfpv3/D1e2VEgt8C4T6CVlBQYWJNd9nOJ4n/4eJT1DAjJDU+E42p
+	EsSTEbqT82nT9pBg2SfSG/bGKwEZ+Cgqaw==
+X-Google-Smtp-Source: AGHT+IFhrbfBVLvwS8JtxYQvsf4ft/BOKHf1cBzqWj4YWhQkk8IVityumdfo4WZxOv1As/yfkbavcA==
+X-Received: by 2002:a05:6512:b96:b0:53f:8c46:42b6 with SMTP id 2adb3069b0e04-5402402ea2dmr922627e87.0.1733793540153;
+        Mon, 09 Dec 2024 17:19:00 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e3847565csm1090292e87.190.2024.12.09.17.18.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Dec 2024 17:18:58 -0800 (PST)
+Date: Tue, 10 Dec 2024 03:18:56 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Andrej Picej <andrej.picej@norik.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v4 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
+ optional properties
+Message-ID: <xkrk3vdw7yhj22ornqog7wovqctgrolfcxbl43u7ddgstjqsbl@h22hxlld6zqg>
+References: <20241205134021.2592013-1-andrej.picej@norik.com>
+ <20241205134021.2592013-3-andrej.picej@norik.com>
+ <nbumcptoi5hwehjbrynf6dh2wrz7a4ugqblrjxyswvj7udkf3u@6qikclizqfjr>
+ <e420579f-25b2-41ca-9627-130d67c51541@norik.com>
 MIME-Version: 1.0
-References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
- <20241119-pmu_event_info-v1-5-a4f9691421f8@rivosinc.com> <0a4a569e-dfab-4aed-90df-2fe9719a3803@sifive.com>
-In-Reply-To: <0a4a569e-dfab-4aed-90df-2fe9719a3803@sifive.com>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Mon, 9 Dec 2024 17:16:43 -0800
-Message-ID: <CAHBxVyGSxMVm5QO9TmSy6MBVtc6zX0ju6n2+PK-RXuX5=KLLjA@mail.gmail.com>
-Subject: Re: [PATCH 5/8] drivers/perf: riscv: Implement PMU event info function
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, Anup Patel <anup@brainfault.org>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e420579f-25b2-41ca-9627-130d67c51541@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_171654_729201_A6F9C2BF 
-X-CRM114-Status: GOOD (  35.18  )
+X-CRM114-CacheID: sfid-20241209_171902_034006_AE48CC86 
+X-CRM114-Status: GOOD (  46.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,208 +106,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 2, 2024 at 2:49=E2=80=AFPM Samuel Holland <samuel.holland@sifiv=
-e.com> wrote:
->
-> Hi Atish,
->
-> On 2024-11-19 2:29 PM, Atish Patra wrote:
-> > With the new SBI PMU event info function, we can query the availability
-> > of the all standard SBI PMU events at boot time with a single ecall.
-> > This improves the bootime by avoiding making an SBI call for each
-> > standard PMU event. Since this function is defined only in SBI v3.0,
-> > invoke this only if the underlying SBI implementation is v3.0 or higher=
-.
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/sbi.h |  7 +++++
-> >  drivers/perf/riscv_pmu_sbi.c | 71 ++++++++++++++++++++++++++++++++++++=
-++++++++
-> >  2 files changed, 78 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.=
-h
-> > index 3ee9bfa5e77c..c04f64fbc01d 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -134,6 +134,7 @@ enum sbi_ext_pmu_fid {
-> >       SBI_EXT_PMU_COUNTER_FW_READ,
-> >       SBI_EXT_PMU_COUNTER_FW_READ_HI,
-> >       SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
-> > +     SBI_EXT_PMU_EVENT_GET_INFO,
-> >  };
-> >
-> >  union sbi_pmu_ctr_info {
-> > @@ -157,6 +158,12 @@ struct riscv_pmu_snapshot_data {
-> >       u64 reserved[447];
-> >  };
-> >
-> > +struct riscv_pmu_event_info {
-> > +     u32 event_idx;
-> > +     u32 output;
-> > +     u64 event_data;
-> > +};
-> > +
-> >  #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
-> >  #define RISCV_PMU_PLAT_FW_EVENT_MASK GENMASK_ULL(61, 0)
-> >  /* SBI v3.0 allows extended hpmeventX width value */
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.=
-c
-> > index f0e845ff6b79..2a6527cc9d97 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -100,6 +100,7 @@ static unsigned int riscv_pmu_irq;
-> >  /* Cache the available counters in a bitmask */
-> >  static unsigned long cmask;
-> >
-> > +static int pmu_event_find_cache(u64 config);
->
-> This new declaration does not appear to be used.
->
+On Mon, Dec 09, 2024 at 08:56:29AM +0100, Andrej Picej wrote:
+> Hi Dmitry,
+> 
+> On 5. 12. 24 23:48, Dmitry Baryshkov wrote:
+> > On Thu, Dec 05, 2024 at 02:40:20PM +0100, Andrej Picej wrote:
+> > > Add a optional properties to change LVDS output voltage. This should not
+> > > be static as this depends mainly on the connected display voltage
+> > > requirement. We have three properties:
+> > > - "ti,lvds-termination-ohms", which sets near end termination,
+> > > - "ti,lvds-vod-swing-data-microvolt" and
+> > > - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
+> > > output voltage for data and clock lanes. They are defined as an array
+> > > with min and max values. The appropriate bitfield will be set if
+> > > selected constraints can be met.
+> > > 
+> > > If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
+> > > end termination will be used. Selecting only one:
+> > > "ti,lvds-vod-swing-data-microvolt" or
+> > > "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
+> > > constraint for only data/clock lanes will be met. Setting both is
+> > > recommended.
+> > > 
+> > > Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> > > ---
+> > > Changes in v4:
+> > > - fix typo in commit message bitfiled -> bitfield
+> > > - use arrays (lvds_vod_swing_conf and lvds_term_conf) in private data, instead
+> > > of separate variables for channel A/B
+> > > - add more checks on return value of "of_property_read_u32_array"
+> > > Changes in v3:
+> > > - use microvolts for default array values 1000 mV -> 1000000 uV.
+> > > Changes in v2:
+> > > - use datasheet tables to get the proper configuration
+> > > - since major change was done change the authorship to myself
+> > > ---
+> > >   drivers/gpu/drm/bridge/ti-sn65dsi83.c | 147 +++++++++++++++++++++++++-
+> > >   1 file changed, 144 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> > > index 57a7ed13f996..f724d2a6777b 100644
+> > > --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> > > +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> > > @@ -132,6 +132,16 @@
+> > >   #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
+> > >   #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
+> > > +enum sn65dsi83_channel {
+> > > +	CHANNEL_A,
+> > > +	CHANNEL_B
+> > > +};
+> > > +
+> > > +enum sn65dsi83_lvds_term {
+> > > +	OHM_100,
+> > > +	OHM_200
+> > > +};
+> > > +
+> > >   enum sn65dsi83_model {
+> > >   	MODEL_SN65DSI83,
+> > >   	MODEL_SN65DSI84,
+> > > @@ -147,6 +157,8 @@ struct sn65dsi83 {
+> > >   	struct regulator		*vcc;
+> > >   	bool				lvds_dual_link;
+> > >   	bool				lvds_dual_link_even_odd_swap;
+> > > +	int				lvds_vod_swing_conf[2];
+> > > +	int				lvds_term_conf[2];
+> > >   };
+> > >   static const struct regmap_range sn65dsi83_readable_ranges[] = {
+> > > @@ -237,6 +249,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
+> > >   	.max_register = REG_IRQ_STAT,
+> > >   };
+> > > +static const int lvds_vod_swing_data_table[2][4][2] = {
+> > > +	{	/* 100 Ohm */
+> > > +		{ 180000, 313000 },
+> > > +		{ 215000, 372000 },
+> > > +		{ 250000, 430000 },
+> > > +		{ 290000, 488000 },
+> > > +	},
+> > > +	{	/* 200 Ohm */
+> > > +		{ 150000, 261000 },
+> > > +		{ 200000, 346000 },
+> > > +		{ 250000, 428000 },
+> > > +		{ 300000, 511000 },
+> > > +	},
+> > > +};
+> > > +
+> > > +static const int lvds_vod_swing_clock_table[2][4][2] = {
+> > > +	{	/* 100 Ohm */
+> > > +		{ 140000, 244000 },
+> > > +		{ 168000, 290000 },
+> > > +		{ 195000, 335000 },
+> > > +		{ 226000, 381000 },
+> > > +	},
+> > > +	{	/* 200 Ohm */
+> > > +		{ 117000, 204000 },
+> > > +		{ 156000, 270000 },
+> > > +		{ 195000, 334000 },
+> > > +		{ 234000, 399000 },
+> > > +	},
+> > > +};
+> > > +
+> > >   static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
+> > >   {
+> > >   	return container_of(bridge, struct sn65dsi83, bridge);
+> > > @@ -435,12 +477,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
+> > >   		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
+> > >   	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
+> > > -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
+> > > +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
+> > > +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_A]) |
+> > > +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_B]));
+> > >   	regmap_write(ctx->regmap, REG_LVDS_LANE,
+> > >   		     (ctx->lvds_dual_link_even_odd_swap ?
+> > >   		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
+> > > -		     REG_LVDS_LANE_CHA_LVDS_TERM |
+> > > -		     REG_LVDS_LANE_CHB_LVDS_TERM);
+> > > +		     (ctx->lvds_term_conf[CHANNEL_A] ?
+> > > +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
+> > > +		     (ctx->lvds_term_conf[CHANNEL_B] ?
+> > > +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
+> > >   	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
+> > >   	le16val = cpu_to_le16(mode->hdisplay);
+> > > @@ -576,10 +622,101 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
+> > >   	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
+> > >   };
+> > > +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
+> > > +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
+> > > +{
+> > > +	int i;
+> > > +
+> > > +	for (i = 0; i <= 3; i++) {
+> > > +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
+> > > +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
+> > > +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
+> > > +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
+> > > +			return i;
+> > > +	}
+> > > +
+> > > +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
+> > > +	return -EINVAL;
+> > > +}
+> > > +
+> > > +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+> > > +{
+> > > +	struct device *dev = ctx->dev;
+> > > +	struct device_node *endpoint;
+> > > +	/* Set so the property can be freely selected if not defined */
+> > > +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
+> > > +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
+> > > +	u32 lvds_term = 200;
+> > > +	u8 lvds_term_conf;
+> > > +	int endpoint_reg;
+> > > +	int lvds_vod_swing_conf;
+> > > +	int ret = 0;
+> > > +	int ret_data;
+> > > +	int ret_clock;
+> > > +
+> > > +	if (channel == CHANNEL_A)
+> > > +		endpoint_reg = 2;
+> > > +	else
+> > > +		endpoint_reg = 3;
+> > > +
+> > > +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+> > > +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
+> > > +
+> > > +	if (lvds_term == 200)
+> > > +		lvds_term_conf = OHM_200;
+> > > +	else
+> > > +		lvds_term_conf = OHM_100;
+> > > +
+> > > +	ctx->lvds_term_conf[channel] = lvds_term_conf;
+> > > +
+> > > +	ret_data = of_property_read_u32_array(endpoint,
+> > > +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
+> > > +			ARRAY_SIZE(lvds_vod_swing_data));
+> > > +	if (ret_data != 0 && ret_data != -EINVAL) {
+> > > +		ret = ret_data;
+> > > +		goto exit;
+> > > +	}
+> > > +
+> > > +	ret_clock = of_property_read_u32_array(endpoint,
+> > > +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
+> > > +			ARRAY_SIZE(lvds_vod_swing_clk));
+> > > +	if (ret_clock != 0 && ret_clock != -EINVAL) {
+> > > +		ret = ret_clock;
+> > > +		goto exit;
+> > > +	}
+> > > +
+> > > +	/* If any of the two properties is defined. */
+> > > +	if (!ret_data || !ret_clock) {
+> > > +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
+> > > +			lvds_vod_swing_data, lvds_vod_swing_clk,
+> > > +			lvds_term_conf);
+> > > +		if (lvds_vod_swing_conf < 0) {
+> > > +			ret = lvds_vod_swing_conf;
+> > > +			goto exit;
+> > > +		}
+> > > +
+> > > +		ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
+> > > +	}
+> > > +	ret = 0;
+> > > +exit:
+> > > +	of_node_put(endpoint);
+> > > +	return ret;
+> > > +}
+> > > +
+> > >   static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+> > >   {
+> > >   	struct drm_bridge *panel_bridge;
+> > >   	struct device *dev = ctx->dev;
+> > > +	int ret;
+> > > +
+> > > +	ctx->lvds_vod_swing_conf[CHANNEL_A] = 0x1;
+> > > +	ctx->lvds_vod_swing_conf[CHANNEL_B] = 0x1;
+> > > +	ctx->lvds_term_conf[CHANNEL_A] = 0x1;
+> > > +	ctx->lvds_term_conf[CHANNEL_B] = 0x1;
+> > 
+> > These match the defaults in sn65dsi83_parse_lvds_endpoint(). Do we
+> > really need those?
+> 
+> Yes, I think we do. This ensures that defaults are used even when property
+> is not defined/LVDS channel is not used. So also LVDS channel B defaults are
+> set even for sn65dsi83 (single LVDS output). Keeping the same reg values as
+> before these changes.
 
-This is a forward declaration as  pmu_event_find_cache but it should
-be in the next patch instead of this patch.
-I have moved it to that patch.
+You can move sn65dsi83_parse_lvds_endpoint() out of the if() and get the
+same result. Duplicating data (or code) is a bad idea, because it's easy
+to update one point and miss another point. And then usually one has a
+nice debugging session, trying to understand why their changes didn't
+work out.
 
-> >  struct sbi_pmu_event_data {
-> >       union {
-> >               union {
-> > @@ -299,6 +300,68 @@ static struct sbi_pmu_event_data pmu_cache_event_m=
-ap[PERF_COUNT_HW_CACHE_MAX]
-> >       },
-> >  };
-> >
-> > +static int pmu_sbi_check_event_info(void)
-> > +{
-> > +     int num_events =3D ARRAY_SIZE(pmu_hw_event_map) + PERF_COUNT_HW_C=
-ACHE_MAX *
-> > +                      PERF_COUNT_HW_CACHE_OP_MAX * PERF_COUNT_HW_CACHE=
-_RESULT_MAX;
-> > +     struct riscv_pmu_event_info *event_info_shmem;
-> > +     phys_addr_t base_addr;
-> > +     int i, j, k, result =3D 0, count =3D 0;
-> > +     struct sbiret ret;
-> > +
-> > +     event_info_shmem =3D (struct riscv_pmu_event_info *)
-> > +                        kcalloc(num_events, sizeof(*event_info_shmem),=
- GFP_KERNEL);
->
-> Please drop the unnecessary cast.
->
+> 
+> Best regards,
+> Andrej
+> 
+> 
+> > 
+> > > +
+> > > +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
+> > > +	if (ret < 0)
+> > > +		return ret;
+> > >   	ctx->lvds_dual_link = false;
+> > >   	ctx->lvds_dual_link_even_odd_swap = false;
+> > > @@ -587,6 +724,10 @@ static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+> > >   		struct device_node *port2, *port3;
+> > >   		int dual_link;
+> > > +		ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
+> > > +		if (ret < 0)
+> > > +			return ret;
+> > > +
+> > >   		port2 = of_graph_get_port_by_id(dev->of_node, 2);
+> > >   		port3 = of_graph_get_port_by_id(dev->of_node, 3);
+> > >   		dual_link = drm_of_lvds_get_dual_link_pixel_order(port2, port3);
+> > > -- 
+> > > 2.34.1
+> > > 
+> > 
 
-Done.
-
-> > +     if (!event_info_shmem) {
-> > +             pr_err("Can not allocate memory for event info query\n");
->
-> Usually there's no need to print an error for allocation failure, since t=
-he
-> allocator already warns. And this isn't really an error, since we can (an=
-d do)
-> fall back to the existing way of checking for events.
->
-
-Fixed.
-
-> > +             return -ENOMEM;
-> > +     }
-> > +
-> > +     for (i =3D 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
-> > +             event_info_shmem[count++].event_idx =3D pmu_hw_event_map[=
-i].event_idx;
-> > +
-> > +     for (i =3D 0; i < ARRAY_SIZE(pmu_cache_event_map); i++) {
-> > +             for (int j =3D 0; j < ARRAY_SIZE(pmu_cache_event_map[i]);=
- j++) {
-> > +                     for (int k =3D 0; k < ARRAY_SIZE(pmu_cache_event_=
-map[i][j]); k++)
-> > +                             event_info_shmem[count++].event_idx =3D
-> > +                                                     pmu_cache_event_m=
-ap[i][j][k].event_idx;
-> > +             }
-> > +     }
-> > +
-> > +     base_addr =3D __pa(event_info_shmem);
-> > +     if (IS_ENABLED(CONFIG_32BIT))
-> > +             ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_EVENT_GET_INFO=
-, lower_32_bits(base_addr),
-> > +                             upper_32_bits(base_addr), count, 0, 0, 0)=
-;
-> > +     else
-> > +             ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_EVENT_GET_INFO=
-, base_addr, 0,
-> > +                             count, 0, 0, 0);
-> > +     if (ret.error) {
-> > +             result =3D -EOPNOTSUPP;
-> > +             goto free_mem;
-> > +     }
-> > +     /* Do we need some barriers here or priv mode transition will ens=
-ure that */
->
-> No barrier is needed -- the SBI implementation is running on the same har=
-t, so
-> coherency isn't even a consideration.
->
-> > +     for (i =3D 0; i < ARRAY_SIZE(pmu_hw_event_map); i++) {
-> > +             if (!(event_info_shmem[i].output & 0x01))
->
-> This bit mask should probably use a macro.
->
-> > +                     pmu_hw_event_map[i].event_idx =3D -ENOENT;
-> > +     }
-> > +
-> > +     count =3D ARRAY_SIZE(pmu_hw_event_map);
-> > +
-> > +     for (i =3D 0; i < ARRAY_SIZE(pmu_cache_event_map); i++) {
-> > +             for (j =3D 0; j < ARRAY_SIZE(pmu_cache_event_map[i]); j++=
-) {
-> > +                     for (k =3D 0; k < ARRAY_SIZE(pmu_cache_event_map[=
-i][j]); k++) {
-> > +                             if (!(event_info_shmem[count].output & 0x=
-01))
->
-> Same comment applies here.
->
-
-Done.
-
-
-> Regards,
-> Samuel
->
-> > +                                     pmu_cache_event_map[i][j][k].even=
-t_idx =3D -ENOENT;
-> > +                             count++;
-> > +                     }
-> > +             }
-> > +     }
-> > +
-> > +free_mem:
-> > +     kfree(event_info_shmem);
-> > +
-> > +     return result;
-> > +}
-> > +
-> >  static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
-> >  {
-> >       struct sbiret ret;
-> > @@ -316,6 +379,14 @@ static void pmu_sbi_check_event(struct sbi_pmu_eve=
-nt_data *edata)
-> >
-> >  static void pmu_sbi_check_std_events(struct work_struct *work)
-> >  {
-> > +     int ret;
-> > +
-> > +     if (sbi_v3_available) {
-> > +             ret =3D pmu_sbi_check_event_info();
-> > +             if (!ret)
-> > +                     return;
-> > +     }
-> > +
-> >       for (int i =3D 0; i < ARRAY_SIZE(pmu_hw_event_map); i++)
-> >               pmu_sbi_check_event(&pmu_hw_event_map[i]);
-> >
-> >
->
+-- 
+With best wishes
+Dmitry
 
