@@ -4,103 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB92E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 22:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B79CE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 22:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QnO56ocUjPfv+bgOKk5gIkhPUA621URHfVhC+NJz7p4=; b=k8qVxktDdQ/NhqbPaUq3ReWQTY
-	yJeczuwR9vJIrbXXrtN8qu+9Vgnd+xNj4nFQQVhBFacVCCve48sWJJiFJ3JcL+6pq3kU7YJhuGRJd
-	ceZCKxZhblCYnkDBfJ78lfv6h9oirX+CO7tgbSwc9jamypsnsiPdnuJlcIXaEH6S23dxlGNYxxCVJ
-	i1k6aPsJL+3S7zYMX9XGLcL2Ax7MuPRqSRVjiB26p3r7HdANxuT21+gWZl4mIZKSsDg8K+olEQm00
-	ZZKjIZGef7Lhe4kF6m20ZEPCYf01XS21rZk6H+qphn6dwKZIy/ChWpxs+pS9i2GjHDY100OxVcwie
-	ZNgrNURQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LlZ3ltUd05AU3gqlg1sknOU9k0i41di/HT0w3ULfpxw=; b=m0OqX8E/vCiL+vqaZkrinrXdQE
+	5mi/BSIO/lk+sDLjcU17Xe/AULZSSDi29a4+ZXjglDkOx8QzCDgejvS5+EFncuI1elnhqGcJR71kI
+	xHCneQ6vdKUfHLfKZ0xf6tksqhCNBGBISa/jJUWOhffDZHBKrIgTLvqB+H5hrNUpDoJF7uMh/0H7X
+	AurCcbRF6OwEsGOhbmFfIMxajv718Dq9/ibaKxE9TIUXFRA0pETqZLy9RkSzvwHp5bgGPMaqcgDp7
+	0KUUg3zztbdhV9YZaZ7OneJFwVwZuUl69thG9U4nNGTFxWsNJwoYurPzQNpfeM8NhUfRRWYDOsdQ+
+	9601AIUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL8nJ-0000000D0rp-1Pih;
-	Tue, 10 Dec 2024 22:33:29 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tL8wz-0000000D1qp-11xl;
+	Tue, 10 Dec 2024 22:43:29 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL8mG-0000000D0iy-02oW;
-	Tue, 10 Dec 2024 22:32:25 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3863703258fso47251f8f.1;
-        Tue, 10 Dec 2024 14:32:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733869942; x=1734474742; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=QnO56ocUjPfv+bgOKk5gIkhPUA621URHfVhC+NJz7p4=;
-        b=eegNGwbcBkdfJ0B5KSnw+LEyQn2CdHBWHj6pq/JNQ50cfaizHjxAnNqdjk7Xxp3CsY
-         Jj/2UDUbD85b+sg0izWQYI+AQFOhnvJ8iqdfPCbTuqUyRlc+BP3AkpvTTOPQ3DUeLySJ
-         dKoH9XyzfPUi+8wOQh1uh/IpyB7vxQC0QTrHvw0NOo6WDTOl80b1cclb7gG5lS/6x6Lj
-         tkH0LS7NPAVjutu3i+zxyTwLwB/eL3BN7Kw/JBpeGNEgA/hrrrhB3d9I6I80PWNkHPxT
-         qD+vrQdxu0krA0JJvxMbJqFV04GMqZJ6Piy3XeRancYNpaIGUGB1To1avI+6ymGo47yt
-         305Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733869942; x=1734474742;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QnO56ocUjPfv+bgOKk5gIkhPUA621URHfVhC+NJz7p4=;
-        b=byor2no+dT7wuIEUrZSBbpaerS4W9LvXhQKSm0HxGEUbhueOcZvz3gZ2yJVG1+zPBe
-         K6T0vZFw6R/f5u+Ht1uZ61xHCRFg0Zy1zn9O6VHt2dlihCSeN/L/P8Yx8YvUh6hARWiN
-         b0TaoM+VmhFbeRrmkWYkk2Bo3ZDxk5SGoJzIczcxAbt0AZIyY6e706wIv/MpYt0kGL9B
-         gzKTQHoDfZYBov1CzeJAwCDSoPaLr3qEUyN5b/TZha+Dz5/qOWB2Oi++StcM7OXO8W/X
-         jS9IbzZsxSKKaS3xA6bpE1ElWPMMMljyJENmgs9wu3cpo2ox/vELfRTPmtwGZZlSPUwR
-         PvaA==
-X-Forwarded-Encrypted: i=1; AJvYcCW07Lx45j4Kdc8YoxkN4Kk9g1zQ/CzW3W9tbw4BHc9a3ghn9BV1WmEWW2WT2E2ygNmduZ93wGE09yMYhkwRFFkF@lists.infradead.org, AJvYcCW90bKB7AUit90I42qqJtQU2IM0Koa1Uzl3ToMqhfCHTp3B8yATW3h6iqBR0/2ccynO7t/RqPfN9lYS9kbtvZw=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0mWiBRXXTdHodaIDyngfWcTgIp0YAS7EC5Ou/eGbSf5YNWRpc
-	ltLTdTBIQx6OI1vft7HuEiZYRPVSj+UCfywzoRJPLh/hCLB5mmne
-X-Gm-Gg: ASbGncucWFncyf3FKJb/IW72cZ6FGd5tDP3PqMhJHe7EYUC+m/mTKBlglZ4U7IoL5y0
-	Eu1u9pMiTgybuoaOrarJEtrs5KWfDqzaRD473Du/Ww6GJiF3iPHkt2Hk2QUW7uXd0E6edqbQby4
-	4m/mA5HX94eMIol6603mGfp3ENGQa2ByjnonMx2a9wpMZXX7GYgT5g9vps0Oio8Bf604ehGdDua
-	NZn7GMUPwnBHx4UC4/3sEmqCdz5G3xM/F/E7uux6bRyg5L1S9ngpFLufwjl7Cu30//7i0yukQoX
-	+2kc7STkXw==
-X-Google-Smtp-Source: AGHT+IG1bSXHS0bpB9SrnpgSiy3t2o7skv79APs7LVWlF3TOUod3SzTBdm60dVBBJHjBYfbo6u0icA==
-X-Received: by 2002:a05:6000:1a85:b0:386:3c93:70ff with SMTP id ffacd0b85a97d-3864de9e47emr286354f8f.8.1733869941960;
-        Tue, 10 Dec 2024 14:32:21 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434f8836dbbsm62231295e9.0.2024.12.10.14.32.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 14:32:20 -0800 (PST)
-Message-ID: <6758c174.050a0220.52a35.06bc@mx.google.com>
-X-Google-Original-Message-ID: <Z1jBccAhjYjXTNRV@Ansuel-XPS.>
-Date: Tue, 10 Dec 2024 23:32:17 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-References: <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-6-ansuelsmth@gmail.com>
- <20241209134459.27110-6-ansuelsmth@gmail.com>
- <20241210211529.osgzd54flq646bcr@skbuf>
+	id 1tL8vu-0000000D1bt-2g0p;
+	Tue, 10 Dec 2024 22:42:24 +0000
+X-QQ-mid: bizesmtpip3t1733870489tw0s2wi
+X-QQ-Originating-IP: vIcIl1VTwBCeBy2FbdiZkt97uz/iQYtqRMaaTUIjrkU=
+Received: from [IPV6:240f:10b:7440:1:9e54:d32d ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 11 Dec 2024 06:41:24 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16291552602694824972
+Message-ID: <8ABA1DC12C12F3A8+89687fc8-25ed-4217-9df9-696c907b49b3@radxa.com>
+Date: Wed, 11 Dec 2024 07:41:24 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241210211529.osgzd54flq646bcr@skbuf>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
+From: FUKAUMI Naoki <naoki@radxa.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20241210163615.120594-1-sebastian.reichel@collabora.com>
+ <6A24DF29AE2F3CDC+70602cc7-2c03-470d-955f-06b2db116e20@radxa.com>
+Content-Language: en-US
+In-Reply-To: <6A24DF29AE2F3CDC+70602cc7-2c03-470d-955f-06b2db116e20@radxa.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: NUbJ1FBQTTPugOujKzNnOMQ11qgp/STcOdNVnVRmNcoIjDRf7q14pMT7
+	QOqndzbF40aFLnkxepCskJX40h9FGX+gqGgZIheBJM8r/KWtTaH9e0Eam1Bqx3Zd8oWRCur
+	WNp0HVVaN5Ja+VLW4Ud8XAMQse/SWvNpx0ze2QpSajmxP9jq6YA7q3iQwSyVB4Fq2Oz6hIS
+	qXoRFviRFdTIcWgbhfKaxAcntR1ahdtYtIFcGDDJnbP1s1S0g+78KsIjOYFu/y/QdyZVCsd
+	/64TDGuM1PA4U+/D6GMOTUaFn9U4RgdlK6efduVSspX5zXAzCSqXvKUr5uWYqp+jYwmsRk0
+	U9rPieJnCPvH2taOPuj1MSCm9/RSAo0hNR7pg09utGqUIA3ERzWQKpLBzHbhE8cTwF/AGBR
+	rRzFVoQI2RPx6cpUcR4ZTh8w3IMZ1JhRnuZFPk5NOxUi5pXVaf5gSMJEaaifSTafRLVKXbm
+	0qR2hvuVxhxKsj11Q6FfvW+s2r1KC4ZIDsSn5csP4npEbdf73XN8tzNan9lRrGL98K04Fw0
+	8qLsyoFOISWSVyMfDh9OdeZraHmVnXbI+9bkAZxtuXMrpduK7IR7gQ24fLk6oZW/4ROBT+9
+	LSASzVjEuPa+3VlVHsJVjw78CMFRI2efQFujxlSp6TsJp6NfPnSycA/+eYlY20uGY6KyVID
+	jGeUtIvUdhFaUjYwnUrj1r34SDnv/0jrTOTBnjoXC5BrADeQEVTrAJSBKE7Gp4O/5MzlDwr
+	xkpJqUPh1t822g3iRWTNYcXaltUNvIxTk5fCiGTkCy/kOw4y9LON2/xQ22C7vi7yScZHx6w
+	s1MguiS8vwGPV6/urCgZzXbTnI/5CEfwef690PLVb5+MY00pcpzhMgN2RMIILYnxHz12cII
+	ri2DTQaBHLrOa42juO4Fe1fPFURV3UbadlyV0Fadux2rfZTppOgZ/aSeiTdmuhJDkTswsS2
+	d6K0ImI1kiCymG6hw8R7UPuDOGaENUPYbGEeoYeCoPOoFAoskLt+tXNTp
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_143224_054497_A02D9D8D 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20241210_144223_109147_3A48B114 
+X-CRM114-Status: GOOD (  27.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,48 +89,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 11:15:29PM +0200, Vladimir Oltean wrote:
-> On Mon, Dec 09, 2024 at 02:44:22PM +0100, Christian Marangi wrote:
-> > +int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
-> > +			u8 page) __must_hold(&priv->bus->mdio_lock)
-> > +{
-> > +	struct mii_bus *bus = priv->bus;
-> > +	int ret;
-> > +
-> > +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
-> > +	if (ret < 0)
-> > +		dev_err_ratelimited(&bus->dev,
-> > +				    "failed to set an8855 mii page\n");
-> > +
-> > +	/* Cache current page if next mii read/write is for switch */
-> > +	priv->current_page = page;
-> > +	return ret < 0 ? ret : 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(an8855_mii_set_page);
+Hi,
+
+two correction,
+
+On 12/11/24 07:10, FUKAUMI Naoki wrote:
+> Hi Sebastian,
 > 
-> You could keep the implementation more contained, and you could avoid
-> exporting an8855_mii_set_page() and an8855_mfd_priv to the MDIO
-> passthrough driver, if you implement a virtual regmap and give it to the
-> MDIO passthrough child MFD device.
+> Thank you very much for your work!
 > 
-> If this bus supports only clause 22 accesses (and it looks like it does),
-> you could expose a 16-bit regmap with a linear address space of 32 MDIO
-> addresses x 65536 registers. The bus->read() of the MDIO bus passthrough
-> just performs regmap_read(), and bus->write() just performs regmap_write().
-> The MFD driver decodes the regmap address into a PHY address and a regnum,
-> and performs the page switching locally, if needed.
+> $ cat /sys/class/power_supply/tcpm-source-psy-4-0022/ 
+> {current_max,current_now,online,type,usb_type,voltage_max,voltage_min,voltage_now}
+> 1500000
+> 1500000
+> 1
+> USB
+> C [PD] PD_PPS
+> 20000000
+> 20000000
+> 20000000
+> 
+> $ cat /sys/class/power_supply/tcpm-source-psy-4-0022/ 
+> {current_max,current_now,online,type,usb_type,voltage_max,voltage_min,voltage_now}
+> 5000000
+> 5000000
+> 1
+> USB
+> C PD [PD_PPS]
+> 20000000
+> 20000000
+> 20000000
+> 
+> $ ls /sys/class/udc/
+> fc000000.usb
+> 
+> I can configure it as CDC-NCM and host detects it.
+> But I could not use it as a HOST port. How to use it?
+> 
+> some minor nitpick is below:
+> 
+> On 12/11/24 01:36, Sebastian Reichel wrote:
+>> Add hardware description for the USB-C port in the Radxa Rock 5 Model B.
+>> This describes the OHCI, EHCI and XHCI USB parts, but not yet the
+>> DisplayPort AltMode (bindings are not yet upstream).
+>>
+>> The fusb302 node is marked with status "fail", since the board is usually
+>> powered through the USB-C port. Handling of errors can result in hard
+>> resets, which removed the bus power for some time resulting in a board
+>> reset.
+>>
+>> The main problem is that devices are supposed to interact with the
+>> power-supply within 5 seconds after the plug event according to the
+>> USB PD specification. This is more or less impossible to achieve when
+>> the kernel is the first software communicating with the power-supply.
+>>
+>> Recent U-Boot (v2025.01) will start doing USB-PD communication, which
+>> solves this issue. Upstream U-Boot doing USB-PD communication will also
+>> set the fusb302 node status to "okay". That way booting a kernel with
+>> the updated DT on an old U-Boot avoids a reset loop.
+>>
+>> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>> ---
+>>   .../boot/dts/rockchip/rk3588-rock-5b.dts      | 121 ++++++++++++++++++
+>>   1 file changed, 121 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/ 
+>> arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+>> index d597112f1d5b..cb5990df6ccb 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+>> @@ -5,6 +5,7 @@
+>>   #include <dt-bindings/gpio/gpio.h>
+>>   #include <dt-bindings/leds/common.h>
+>>   #include <dt-bindings/soc/rockchip,vop2.h>
+>> +#include <dt-bindings/usb/pd.h>
+>>   #include "rk3588.dtsi"
+>>   / {
+>> @@ -84,6 +85,15 @@ rfkill-bt {
+>>           shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
+>>       };
+>> +    vcc12v_dcin: regulator-vcc12v-dcin {
+>> +        compatible = "regulator-fixed";
+>> +        regulator-name = "vcc12v_dcin";
+> 
+> typec_vin by schematic.
+> 
+>> +        regulator-always-on;
+>> +        regulator-boot-on;
+>> +        regulator-min-microvolt = <12000000>;
+>> +        regulator-max-microvolt = <12000000>;
+>> +    };
+>> +
+>>       vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
+>>           compatible = "regulator-fixed";
+>>           enable-active-high;
+>> @@ -142,6 +152,7 @@ vcc5v0_sys: regulator-vcc5v0-sys {
+>>           regulator-boot-on;
+>>           regulator-min-microvolt = <5000000>;
+>>           regulator-max-microvolt = <5000000>;
+>> +        vin-supply = <&vcc12v_dcin>;
+> 
+> typec_vin.
+> 
+>>       };
+>>       vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
+>> @@ -264,6 +275,67 @@ regulator-state-mem {
+>>       };
+>>   };
+>> +&i2c4 {
+>> +    pinctrl-names = "default";
+>> +    pinctrl-0 = <&i2c4m1_xfer>;
+>> +    status = "okay";
+>> +
+>> +    usbc0: usb-typec@22 {
+> 
+> Is "usbc0" label necessary?
 
-Doesn't regmap add lots of overhead tho? Maybe I should really change
-the switch regmap to apply a save/restore logic?
+please ignore, I noticed it's necessary for my work ;)
 
-With an implementation like that current_page is not needed anymore.
-And I feel additional read/write are ok for switch OP.
+> 
+>> +        compatible = "fcs,fusb302";
+>> +        reg = <0x22>;
+>> +        interrupt-parent = <&gpio3>;
+>> +        interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
+>> +        pinctrl-names = "default";
+>> +        pinctrl-0 = <&usbc0_int>;
+> 
+> cc_int_l by schematic.
+> 
+>> +        vbus-supply = <&vcc12v_dcin>;
+> 
+> typec_vin
+> 
+>> +        /*
+>> +         * When the board is starting to send power-delivery messages
+>> +         * too late (5 seconds according to the specification), the
+>> +         * power-supply reacts with a hard-reset. That removes the
+>> +         * power from VBUS for some time, which resets te whole board.
+> 
+> ... resets "the" whole board.
+> 
+>> +         */
+>> +        status = "fail";
+>> +
+>> +        usb_con: connector {
+> 
+> Is "usb_con" label necessary?
 
-On mdio I can use the parent-mdio-bus property to get the bus directly
-without using MFD priv.
+it's necessary for my work, but I think "usbc0_con" is consistent with 
+others.
 
-What do you think?
+Best regards,
 
--- 
-	Ansuel
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+>> +            compatible = "usb-c-connector";
+>> +            label = "USB-C";
+>> +            data-role = "dual";
+>> +            power-role = "sink";
+>> +            try-power-role = "sink";
+>> +            op-sink-microwatt = <1000000>;
+>> +            sink-pdos =
+>> +                <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
+>> +                <PDO_VAR(5000, 20000, 5000)>;
+>> +
+>> +            ports {
+>> +                #address-cells = <1>;
+>> +                #size-cells = <0>;
+>> +
+>> +                port@0 {
+>> +                    reg = <0>;
+>> +                    usbc0_role_sw: endpoint {
+>> +                        remote-endpoint = <&dwc3_0_role_switch>;
+>> +                    };
+>> +                };
+>> +
+>> +                port@1 {
+>> +                    reg = <1>;
+>> +                    usbc0_orien_sw: endpoint {
+>> +                        remote-endpoint = 
+>> <&usbdp_phy0_orientation_switch>;
+>> +                    };
+>> +                };
+>> +
+>> +                port@2 {
+>> +                    reg = <2>;
+>> +                    dp_altmode_mux: endpoint {
+>> +                        remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
+>> +                    };
+>> +                };
+>> +            };
+>> +        };
+>> +    };
+>> +};
+>> +
+>>   &i2c6 {
+>>       status = "okay";
+>> @@ -423,6 +495,10 @@ usb {
+>>           vcc5v0_host_en: vcc5v0-host-en {
+>>               rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+>>           };
+>> +
+>> +        usbc0_int: usbc0-int {
+> 
+> cc_int_l
+> 
+> Best regards,
+> 
+> -- 
+> FUKAUMI Naoki
+> Radxa Computer (Shenzhen) Co., Ltd.
+> 
+>> +            rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+>> +        };
+>>       };
+>>   };
+>> @@ -835,6 +911,14 @@ &uart2 {
+>>       status = "okay";
+>>   };
+>> +&u2phy0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&u2phy0_otg {
+>> +    status = "okay";
+>> +};
+>> +
+>>   &u2phy1 {
+>>       status = "okay";
+>>   };
+>> @@ -866,6 +950,29 @@ &usbdp_phy1 {
+>>       status = "okay";
+>>   };
+>> +&usbdp_phy0 {
+>> +    mode-switch;
+>> +    orientation-switch;
+>> +    sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+>> +    sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
+>> +    status = "okay";
+>> +
+>> +    port {
+>> +        #address-cells = <1>;
+>> +        #size-cells = <0>;
+>> +
+>> +        usbdp_phy0_orientation_switch: endpoint@0 {
+>> +            reg = <0>;
+>> +            remote-endpoint = <&usbc0_orien_sw>;
+>> +        };
+>> +
+>> +        usbdp_phy0_dp_altmode_mux: endpoint@1 {
+>> +            reg = <1>;
+>> +            remote-endpoint = <&dp_altmode_mux>;
+>> +        };
+>> +    };
+>> +};
+>> +
+>>   &usb_host0_ehci {
+>>       status = "okay";
+>>   };
+>> @@ -874,6 +981,20 @@ &usb_host0_ohci {
+>>       status = "okay";
+>>   };
+>> +&usb_host0_xhci {
+>> +    usb-role-switch;
+>> +    status = "okay";
+>> +
+>> +    port {
+>> +        #address-cells = <1>;
+>> +        #size-cells = <0>;
+>> +
+>> +        dwc3_0_role_switch: endpoint {
+>> +            remote-endpoint = <&usbc0_role_sw>;
+>> +        };
+>> +    };
+>> +};
+>> +
+>>   &usb_host1_ehci {
+>>       status = "okay";
+>>   };
+> 
+
 
