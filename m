@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B229E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C012FE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EfP/1ndzy/lnII1TAGJrT83YJ8RnC+6DM6hX7bq8Bto=; b=BuS31h7cnKH4E3Nhf84Yuta88b
-	IcpnZC1uvVKCLe0RcAY8LUc0KScLP+ZnTcgVXhG4Gdhsi5tnb/xHqErpCVktGBtWyaYTdDknWfRdA
-	O1oud1zsi59eDIS9MOxnmfSWQdje/vvYk4Rl5b+GhOTUjoS9u8PmiAw8jsG6z9s5Lvpis3ul6fQze
-	J8z3s+WsEYJJh/Pv/C800u9bKYzXOefi6OlgFGyyUnN19XQR2XZFAOV67tdNJqcPygXkc1hGVZVGK
-	64JwLyF1IigB7jfE4VqOt8IAIXaNM2AgZql+r+vICZfHTgs1c4q6XhMtTeFwSXbZl03YIEMn6GrBs
-	9DIuC36A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vtsiNmh3x5mGNvD72bEl7vI7T1Sm04ahct4zug06QCc=; b=IY9dfWZypkqvxT
+	TMLGJwrxuUNDZBBFK7xkM/U+n0JgRbVHlQ2fmH+PKZN88qmRmVeVTPJeNwVyye6B8ByCEMqCsiVKV
+	NsDIT9MiPajHcmznftTaugxB14rsz38zD/Dfubf85/aTWEpXxHSydUVg77ucdZFz1UY6PmBZmBVMD
+	zdg+xlZ3hlYKFkRhNoLooAWGscfnzJQEktqtpyTf9cyRulsfBBSR589A2j7kZgSGDxxMbkAGiVqA7
+	45AsBwapq+ZJJ+dgurqSZnQrrlAgb4IS4k5Okm4edWupElO2LZ87+prF3p3esjImjo4G2MqLvzq4r
+	sB5AR9SpCh65gO4DFSlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7Gh-0000000Cj7X-1lWS;
-	Tue, 10 Dec 2024 20:55:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tL7Hj-0000000CjNM-039K;
+	Tue, 10 Dec 2024 20:56:47 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7Fd-0000000Cit5-44Ko
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 20:54:39 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BADLm2r019669;
-	Tue, 10 Dec 2024 20:54:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=EfP/1ndzy/lnII1TAGJrT83Y
-	J8RnC+6DM6hX7bq8Bto=; b=VbuC8QARjSJGgj8niQgc38pgC6mulhotH31AREEy
-	6/Khq86Un1/oTjQf8n0Mn1s0ZeMEn5VDicE1mOqO0bhFziWleKewwm+/a/dCTzPB
-	TTS34D2bOy2ODyGsw+uGvncBkmaymF9gMIj4y7lJO9J33wsJsrvdy2+Y1nwDfTS/
-	/yJ33/EJLgiDDBWTTLG1yhHsxLjq6dwz8jJoa6+1W26/t5oD4rSZ2N5lP8HLSmbu
-	RrzdEZeTRlXDKC6NlRHNC+XtcsvUuZKb1YbuMvBLTbhVbPylhAvy8azYv12wy1R7
-	rSovL/ee5e0a0m1z+Qk9Q4g0/ZNGHQ80wakBynDyvDTExg==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43e341ch24-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 20:54:30 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BAKsTvU026919
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 20:54:29 GMT
-Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 10 Dec 2024 12:54:29 -0800
-Date: Tue, 10 Dec 2024 12:54:28 -0800
-From: Elliot Berman <quic_eberman@quicinc.com>
-To: Akhil P Oommen <quic_akhilpo@quicinc.com>
-CC: Rob Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>,
-        "Konrad
- Dybcio" <konradybcio@kernel.org>,
-        Abhinav Kumar <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, "Simona
- Vetter" <simona@ffwll.ch>,
-        Pavan Kondeti <quic_pkondeti@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-Message-ID: <20241210125012120-0800.eberman@hu-eberman-lv.qualcomm.com>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+	id 1tL7Fo-0000000Ciul-3eoR;
+	Tue, 10 Dec 2024 20:54:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733864087;
+	bh=NDN0SnBLoWNiGYnla0Xah/O39AF4IpvBlJqD83Budgg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=X55KkPeFFbbC1PUtd8IqdC6yhu9RZlxMgJdIe5Gnb0ee9wLreXlu1HVHk6JqNxsAX
+	 OoFPQF7vhBVfG1TNLa15E3Z4YOaSdikSybexOAogUTaIpPphzgaLB0mrE0SbygcssL
+	 ZM++8Z9PXzFY7jf3qhS9Kc+hBrKRWlSOkMGIAw7AEQ8EA2U0AKdVJ7kp8BwzPwJ1lf
+	 PzeVxxTaRo2J5NZMJKQfaetDeHKPvJvEHI1sjD9jVh9pLMcHdrH7RewJYIwZLN3bfA
+	 Eq6bMJ/nRTzK2isBk+hUdaq1/VvCYmbK693akW0fngbtBUPQfUEUc/fPuqE9rbTRRl
+	 aFtXlQ/d9HIdw==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1976417E3802;
+	Tue, 10 Dec 2024 21:54:42 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v2 0/2] Enable audio output for Genio 700 EVK board
+Date: Tue, 10 Dec 2024 17:54:27 -0300
+Message-Id: <20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: KcDNblzE7V94XKjvUeILn4LcMXt4kbQ8
-X-Proofpoint-ORIG-GUID: KcDNblzE7V94XKjvUeILn4LcMXt4kbQ8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=999 clxscore=1011 mlxscore=0
- spamscore=0 phishscore=0 malwarescore=0 adultscore=0 impostorscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412100151
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAIOqWGcC/3WNQQqDMBBFryKz7pQkKGpXvUdxEeOoA9aRJEqLe
+ PemQpddvgf//R0CeaYAt2wHTxsHljmBuWTgRjsPhNwlBqNMro3KcaCZpVQK7dqxoKxxWSP2ra1
+ 6Q63ttIK0XTz1/Dq7jybxyCGKf583m/7aX7H4U9w0KlRUF4UrK2dqujuZJtuKt1cnT2iO4/gAM
+ dKh6L4AAAA=
+X-Change-ID: 20241204-genio700-audio-output-fba8f2ebad10
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Trevor Wu <trevor.wu@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Aary Patil <aary.patil@mediatek.com>, 
+ Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>, 
+ parkeryang <Parker.Yang@mediatek.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_125438_023344_0B0B39F7 
-X-CRM114-Status: GOOD (  34.73  )
+X-CRM114-CacheID: sfid-20241210_125449_081479_D366BEFF 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,150 +87,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 01:49:15PM +0530, Akhil P Oommen wrote:
-> When kernel is booted in EL2, SECVID registers are accessible to the
-> KMD. So we can use that to switch GPU's secure mode to avoid dependency
-> on Zap firmware. Also, we can't load a secure firmware without a
-> hypervisor that supports it.
-> 
-> Tested following configurations on sa8775p chipset (Adreno 663 gpu):
-> 
-> 1. Gunyah (No KVM) - Loads zap shader based on DT
-> 2. KVM in VHE - Skips zap shader load and programs SECVID register
-> 3. KVM in nVHE - Loads zap shader based on DT
+This series enables audio output support for the Genio 700 EVK board.
+Patch 1 adds the missing #sound-dai-cells property in the MT6359 node as
+a prerequisite, and patch 2 describes the audio DT nodes to get audio
+output working on the two audio jacks, Earphone and Speaker, present on
+the board.
 
-I think this might be misleading. As I understand, KVM in nVHE doesn't
-support loading secure firmware. I'm not aware of any support added to
-make it work. So, the driver will try to load zap shader and it fails
-same as it does today.
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Changes in v2:
+- Dropped merged/unnecessary patches (2, 3, 4)
+- Removed unnecessary mediatek,dai-link property
+- Link to v1: https://lore.kernel.org/r/20241205-genio700-audio-output-v1-0-0e955c78c29e@collabora.com
 
-> 4. Kernel in EL2 with CONFIG_KVM=n - Skips zap shader load and
-> 	programs SECVID register
-> 
-> For (1) and (3) configuration, this patch doesn't have any impact.
-> Driver loads secure firmware based on other existing hints.
-> 
-> Signed-off-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
-> ---
-> ---
->  drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 82 +++++++++++++++++++++++------------
->  1 file changed, 54 insertions(+), 28 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> index 019610341df1..9dcaa8472430 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> @@ -14,6 +14,10 @@
->  #include <linux/pm_domain.h>
->  #include <linux/soc/qcom/llcc-qcom.h>
->  
-> +#ifdef CONFIG_ARM64
-> +#include <asm/virt.h>
-> +#endif
-> +
->  #define GPU_PAS_ID 13
->  
->  static inline bool _a6xx_check_idle(struct msm_gpu *gpu)
-> @@ -998,6 +1002,54 @@ static int a6xx_zap_shader_init(struct msm_gpu *gpu)
->  	return ret;
->  }
->  
-> +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
-> +{
-> +	int ret;
-> +
-> +#ifdef CONFIG_ARM64
-> +	/*
-> +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
-> +	 * to switch the secure mode to avoid the dependency on zap shader.
-> +	 */
-> +	if (is_kernel_in_hyp_mode())
-> +		goto direct_switch;
-> +#endif
-> +
-> +	/*
-> +	 * Try to load a zap shader into the secure world. If successful
-> +	 * we can use the CP to switch out of secure mode. If not then we
-> +	 * have no resource but to try to switch ourselves out manually. If we
-> +	 * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL register will
-> +	 * be blocked and a permissions violation will soon follow.
-> +	 */
-> +	ret = a6xx_zap_shader_init(gpu);
-> +	if (ret == -ENODEV) {
-> +		/*
-> +		 * This device does not use zap shader (but print a warning
-> +		 * just in case someone got their dt wrong.. hopefully they
-> +		 * have a debug UART to realize the error of their ways...
-> +		 * if you mess this up you are about to crash horribly)
-> +		 */
-> +		dev_warn_once(gpu->dev->dev,
-> +			"Zap shader not enabled - using SECVID_TRUST_CNTL instead\n");
-> +		goto direct_switch;
-> +	} else if (ret)
-> +		return ret;
-> +
-> +	OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
-> +	OUT_RING(gpu->rb[0], 0x00000000);
-> +
-> +	a6xx_flush(gpu, gpu->rb[0]);
-> +	if (!a6xx_idle(gpu, gpu->rb[0]))
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +
-> +direct_switch:
-> +	gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
-> +	return 0;
-> +}
-> +
->  #define A6XX_INT_MASK (A6XX_RBBM_INT_0_MASK_CP_AHB_ERROR | \
->  		       A6XX_RBBM_INT_0_MASK_RBBM_ATB_ASYNCFIFO_OVERFLOW | \
->  		       A6XX_RBBM_INT_0_MASK_CP_HW_ERROR | \
-> @@ -1341,35 +1393,9 @@ static int hw_init(struct msm_gpu *gpu)
->  	if (ret)
->  		goto out;
->  
-> -	/*
-> -	 * Try to load a zap shader into the secure world. If successful
-> -	 * we can use the CP to switch out of secure mode. If not then we
-> -	 * have no resource but to try to switch ourselves out manually. If we
-> -	 * guessed wrong then access to the RBBM_SECVID_TRUST_CNTL register will
-> -	 * be blocked and a permissions violation will soon follow.
-> -	 */
-> -	ret = a6xx_zap_shader_init(gpu);
-> -	if (!ret) {
-> -		OUT_PKT7(gpu->rb[0], CP_SET_SECURE_MODE, 1);
-> -		OUT_RING(gpu->rb[0], 0x00000000);
-> -
-> -		a6xx_flush(gpu, gpu->rb[0]);
-> -		if (!a6xx_idle(gpu, gpu->rb[0]))
-> -			return -EINVAL;
-> -	} else if (ret == -ENODEV) {
-> -		/*
-> -		 * This device does not use zap shader (but print a warning
-> -		 * just in case someone got their dt wrong.. hopefully they
-> -		 * have a debug UART to realize the error of their ways...
-> -		 * if you mess this up you are about to crash horribly)
-> -		 */
-> -		dev_warn_once(gpu->dev->dev,
-> -			"Zap shader not enabled - using SECVID_TRUST_CNTL instead\n");
-> -		gpu_write(gpu, REG_A6XX_RBBM_SECVID_TRUST_CNTL, 0x0);
-> -		ret = 0;
-> -	} else {
-> +	ret = a6xx_switch_secure_mode(gpu);
-> +	if (!ret)
->  		return ret;
-> -	}
->  
->  out:
->  	if (adreno_has_gmu_wrapper(adreno_gpu))
-> 
-> ---
-> base-commit: f4a867a46862c1743501bbe8c813238456ec8699
-> change-id: 20241120-drm-msm-kvm-support-cd6e6744ced6
-> 
-> Best regards,
-> -- 
-> Akhil P Oommen <quic_akhilpo@quicinc.com>
-> 
+---
+Nícolas F. R. A. Prado (2):
+      arm64: dts: mt6359: Add #sound-dai-cells property
+      arm64: dts: mediatek: mt8390-genio-700-evk: Add sound output support
+
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi           |  1 +
+ .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 48 ++++++++++++++++++++++
+ 2 files changed, 49 insertions(+)
+---
+base-commit: d1486dca38afd08ca279ae94eb3a397f10737824
+change-id: 20241204-genio700-audio-output-fba8f2ebad10
+
+Best regards,
+-- 
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
 
