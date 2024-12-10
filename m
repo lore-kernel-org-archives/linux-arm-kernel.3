@@ -4,102 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52902E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D00E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f8UnOGblbQirPOg8RONWJpR4qniXeIU9augpkXN+BVE=; b=sUA7T2+F54ZKuw78/t2bZJmAnD
-	9OkeLDHpxbo1ntnxyVV7ITHa3iQospVCYds2V8xHb/H4iWLDfgBb3QHqRzetpxzSnj31DXVltmz8J
-	9IFx+8Qz8tz7dg0El2flP6+osVxRZFVv9z/04rtrhrJbiMyQf8/4xMyeDSL203ZwNhH21R92HRfgD
-	A9Z+IgkEBugzZx1Qx80ROcCObRwiU44qY8NLRikiod+X1rCJtE+RJaKp+skNi4QL7ZmB+/HhjkpdI
-	PLt6HCKQpBSmjEqCxjwJr3j6q5EBH7RHVooeBSbgWTbifLudCxhK/ItEdgyZ2MlUWrkfbDuoX7Voi
-	K1s+GCJA==;
+	bh=QaZTccrFdwBnijOAV+VQJ0MabSTqdmlDkCUExpbfNic=; b=EgpYBtKg7CzpcM3ru/b2J4/uvG
+	3FBCJKx5ZGFTE2dkU4UV0pRKPjbHTPdBZqvk3vTtiPBrY/zSp8b1KQZttiSKovktkztys0wSa1MY1
+	wJjADW4eyylHpuPCz2InEK2ZputkpbbtNTl6S0HKHoOmQnifPv8MCawWLdcVO/c5mhMAzfNgx0xgV
+	uvZ0WjA8iqZoTEEXIVLNGu61yy5G20PzP7nE2XZXZb0A7bAwIhjtnAl8oLnOu+19nMmftc1Tg4E4H
+	cF/3Y/S/P90ICtV0h/jXgjcVFpQnLkeb0a3I0KBlxMXnEBlGqe2T5cl8FbrfB7JUoLf67WFSUpkll
+	mNzKZZqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9ye-0000000DCSN-2Zwl;
-	Tue, 10 Dec 2024 23:49:16 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tLA5v-0000000DDCm-1SmS;
+	Tue, 10 Dec 2024 23:56:47 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9xa-0000000DCHL-47Ti;
-	Tue, 10 Dec 2024 23:48:12 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434e91ac3d4so2716965e9.0;
-        Tue, 10 Dec 2024 15:48:10 -0800 (PST)
+	id 1tLA4r-0000000DCyt-2mWl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 23:55:42 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53f22fd6832so3326442e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 15:55:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733874489; x=1734479289; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733874939; x=1734479739; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=f8UnOGblbQirPOg8RONWJpR4qniXeIU9augpkXN+BVE=;
-        b=ALSa18Y03LcvVQXdB5DSH38gp5OYCk8q8//eTl9u5+onRQJVTYUHTIFRR3LZhxuuxp
-         NdHmdasgsKxEN0wgijKsh34btalBDP5/fg8f6kQXbUHCCN3jwl/j0MEaWzhZN/iY9rP3
-         6SrCX8Ug1iVHkhmmqzfeCDC+F3PuCqXRNn5mDKrjbavZv0TUNk2GKqKIeWO3yhjGvt6Q
-         8smif8efjEOd7P/GfmygvVe/nULnamRCHEIb2IElj2bSwFa88/UOsH94Z3ZHhO7O6ygg
-         1+ByLR0c2qlkxnps1/tbe1oq/Yt1b9GVoZDZU1XR70uX+uk4iaqzwLJQoWKRkZ8QLBDF
-         mmUg==
+        bh=QaZTccrFdwBnijOAV+VQJ0MabSTqdmlDkCUExpbfNic=;
+        b=ZAbVpsauENlwEkh8LBeQJmZfY18P2B3+IwdVjObSKuc/kTtrSRQKL+ww+/KfHg+lJM
+         WSg5tPlsRfqI8pJPVRO1hSdSik9zOT9hepak8Mukrq4kjolSS40OvzLhmB5mbjj/RF7l
+         rz4hOmvQyF0zxDmRWgMxVyyCouQnjtEDgCxs0n4in24vbK4kWddYSA2f1oEBvlBL+f3N
+         PKQ6lyHcC4LSKHJhNbDQmMzfrCSUdEWCtPEyJDsPUrs8I4EPkInBTieyAsvqCCcbAAMT
+         6//inq5qUGGLAEJsoHaXGEsXAU7WenglbI9tAKOvg5Lm9AyNsXVJ1L8XDWoikkvwydKo
+         U7oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733874489; x=1734479289;
+        d=1e100.net; s=20230601; t=1733874939; x=1734479739;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=f8UnOGblbQirPOg8RONWJpR4qniXeIU9augpkXN+BVE=;
-        b=KWWrpfolGoEkuIdKT9NTltKqlFCidpw+KCmWp6E9UOjNhc5pznatJMzzVRvzqul4qz
-         SWBQc22VmK2hzXC/TorgF6MTSsEq6/SJ8JnQ9NvNzOlpMTtKM+elR3h+GFL4Vzvv+4UF
-         eI5zxpfVuB/ZcyoWl0giNrBNgd7bqim8QtZwU+JFGktp+wfC/LjUIagKYmoUS2y0sRHu
-         tEXdq22L2g95fDBC0bFNpuYkmmQwF2zuU2c49g7NuT1YnATUiUGr86DbCoZHtClJJQue
-         rP/ghIbsT7r1zH52d7BE1RqlKKRw9AslWyxfm+qDBa6pyBCDkVyAbr0il1rprFr9z/6c
-         Q7VQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUWXGxHB+vN1vt9GO50ZeYH6eWUFD/LBilQD04ffp/R7oTOWK9aPinrf3i1CTD12j/hJ/opwsEMQhxBjT6j5bS7@lists.infradead.org, AJvYcCVBJI25A6SIrYkLTOhFnbKIwDtj2qPkAocFMOagv0WxSJe3uuOZbPuwqg1a7r6hmu+FzHiP77kVZFBuEzjqoi4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3drr6+rlfYLaWClWRaaO9Vv9z6IP82hU9kdTKl2bA4Pk9+mXu
-	2LKcEz9r3w+sYGUnQ2PnV/L/EA+CJFcaAd7L4nmwn7T9Lu277sea
-X-Gm-Gg: ASbGncvisHXbXbPGGFgi84R7xhgELgjWMrnqofZu/YMOPMrcAK1bNk+OYPq+RC1f71Q
-	7CXdefAbtQuFDlLabNkBQdZb73Fio0E01eDJZPDROYo3TWSJeqYJzIYpsYknXaKe7OZJs5B4vBu
-	gkSHoWwxNpbN3Hm7C/qARG5HpVj5a6Tsm+8kk2xKtwRs6d+nnGoTc07m40AX/5iuNvQBwUg/4R2
-	VbCHhVir8acD/OD2uxcYbQdQpTWU2hdB6USgsb+GA==
-X-Google-Smtp-Source: AGHT+IGVFyqOsHq8vJbKENcE96HqDNgEWPNEGfHZbGGsVdmVNjmlG8KgXuPni26CXmKkrEf6w3YBNQ==
-X-Received: by 2002:a05:600c:35c9:b0:436:17f4:9b3d with SMTP id 5b1f17b1804b1-4361c434980mr1530815e9.4.1733874488791;
-        Tue, 10 Dec 2024 15:48:08 -0800 (PST)
-Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434da0d69dfsm203458605e9.14.2024.12.10.15.48.05
+        bh=QaZTccrFdwBnijOAV+VQJ0MabSTqdmlDkCUExpbfNic=;
+        b=wUSqiBsmxo1jyDc3cyh+YT7+MDOn5bR3HTyb8QIB1soUHR8Ipn4gytcMcfWaVWUPgM
+         8qtNn1+BrE0YuyMPf3XeGMSLQSZ1ALOrRLCJS8oSyv/RXJ30m1lZp4iT0tdywmo0jHzN
+         3weJoZ3KNf67fDsREChsZkwZH1yBIDWDH4kcTDOKJDHxwqJGlAX0XpFFpauL2N2ipmMQ
+         jbjQ7laBG7ZD1z+KYMDSnBXPpTCETEwHhLoQUpFf6J/Y/jRaJVsrxAljr8gCeOa32ThT
+         azxUfMDCzNrvIxfTnypN6yxwHKbxGoquNBthMfRMTDcSGbpQ+lPiIlcWT5kCwpm1j3vt
+         ec3A==
+X-Forwarded-Encrypted: i=1; AJvYcCXbjJo+vOI0k4m0yb8SxgBxRT6IGk+Xv8pLU1GnT7E9WnV9Nwt0Kf3CUcGyGzWKKJFXokiyfW8nCT++S8xyPgL1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKYgIff5pZy0Mw+DRl+3bqcQ0LH0LU54JJeh2KFtd1bI5KlcH/
+	rACbwxNRBijGEvz8Yue09IHj5B3y3clvfekkZfThoaG6F3qY2FCPf9Q6R+JsGzY=
+X-Gm-Gg: ASbGncudjKtg3fsZc89zCOf0Af8zKZZTS1qYquNh+MRhfNpmRm0hWmWr2B+8ThBO72o
+	kB5GpXK//dDY+90zL6qGWMLkqy92Gj0De6kERYeo1dBLfO6ljEWumRgwkqsfLV2BhISkPMWXZ+C
+	Dcb7Sh11GInmd0fSIWphBSniIqmgwNBnbYCoaHzDXmEGczHeU/8Q+AZD3cfpgEtV1hnCHhLUiOt
+	77v+SOpbSvLaj2qWtP3kWosRjLYP7iATcwvicl0Cy92SLF3ZVRbqnFdSI1ux4zL3wr4mQbQpkop
+	gRmSvTiVwH1zx7pmph/G52Ipv4LxjqT7GQ==
+X-Google-Smtp-Source: AGHT+IEqR0S7rTS9VZY7JOisSWbtpL7N6GcbvhCke9+P/tEVld1+jhG0IU1pO+4oYFJYfFY5K9gtWw==
+X-Received: by 2002:a05:6512:ac8:b0:540:1dac:c042 with SMTP id 2adb3069b0e04-5402a5d6c4bmr171539e87.8.1733874939550;
+        Tue, 10 Dec 2024 15:55:39 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5401a5360bcsm1065405e87.174.2024.12.10.15.55.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 15:48:07 -0800 (PST)
-Date: Wed, 11 Dec 2024 01:48:03 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-Message-ID: <20241210234803.pzm7fxrve4dastth@skbuf>
-References: <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-6-ansuelsmth@gmail.com>
- <20241209134459.27110-6-ansuelsmth@gmail.com>
- <20241210211529.osgzd54flq646bcr@skbuf>
- <6758c174.050a0220.52a35.06bc@mx.google.com>
+        Tue, 10 Dec 2024 15:55:38 -0800 (PST)
+Date: Wed, 11 Dec 2024 01:55:35 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexandre ARNOUD <aarnoud@me.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] drm/rockchip: dw_hdmi_qp: Add support for RK3588
+ HDMI1 output
+Message-ID: <vpy4foezirdhci4nvl5j4e7gf5dey3swj7xxzuzazzj6uhqnls@iyyhkpukb7yo>
+References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+ <20241211-rk3588-hdmi1-v2-1-02cdca22ff68@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6758c174.050a0220.52a35.06bc@mx.google.com>
+In-Reply-To: <20241211-rk3588-hdmi1-v2-1-02cdca22ff68@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_154811_018383_912D502B 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20241210_155541_694348_6268FAB9 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,26 +105,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 11:32:17PM +0100, Christian Marangi wrote:
-> Doesn't regmap add lots of overhead tho? Maybe I should really change
-> the switch regmap to apply a save/restore logic?
+On Wed, Dec 11, 2024 at 01:06:14AM +0200, Cristian Ciocaltea wrote:
+> Provide the basic support required to enable the second HDMI TX port
+> found on RK3588 SoC.
 > 
-> With an implementation like that current_page is not needed anymore.
-> And I feel additional read/write are ok for switch OP.
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 119 ++++++++++++++++++++-----
+>  1 file changed, 96 insertions(+), 23 deletions(-)
 > 
-> On mdio I can use the parent-mdio-bus property to get the bus directly
-> without using MFD priv.
-> 
-> What do you think?
 
-If performance is a relevant factor at all, it will be hard to measure it, other
-than with synthetic tests (various mixes of switch and PHY register access).
-Though since you mention it, it would be interesting to see a comparison of the
-3 arbitration methods. This could probably be all done from the an8855_mfd_probe()
-calling context: read a switch register and a PHY register 100K times and see how
-long it took, then read 2 switch registers and a PHY register 100K times, then
-3 switch registers.... At some point, we should start seeing the penalty of the
-page restoration in Andrew's proposal, because that will be done after each switch
-register read. Just curious to put it into perspective and see how soon it starts
-to make a difference. And this test will also answer the regmap overhead issue.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+-- 
+With best wishes
+Dmitry
 
