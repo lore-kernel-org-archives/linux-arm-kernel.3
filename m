@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9002BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2165AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqgJ06i6Y7xo25MnVPg+XILEuMsyhZtOxmam3qSlkFs=; b=yzhgxo+EaiH2NXFMC+fE8pKXD3
-	SN/9guSClSOnP9UBMZbn+cFJ4ZXyvwn0EAuQA5NxZVugNaM5SPGiTtdA/DWLmiHVW7ZsVVDMI5p8i
-	s1q+sK2MBQbK4aT9G7ycyXvJC5mxEP1dOz5QYxabFJg3cobUknIzehfa9rW4clwyCcMKret5hSPOX
-	dasoTCVrwFlAJosGSMdVLEzs+r8pIv84QUv/ah5SACNhSJiWH7wNCvT+/14Jy3itXgIhBYBCKNKQ5
-	P72obvnKqP1YvzqAhLLLGhY5S7WWG9B4n9SKjAXWu2T0eJ3IdJWy0Ro8xwQYaqyL+KaQyN9mJlaxH
-	chVvtExw==;
+	bh=wTMNPKp9Javw7QGcnqA0o3v+GDe3cl06vv45gRAkrrk=; b=Vk4fSDcEvP5JZvtpdVh+d1wzXp
+	I2ZXCPb3P7O9cf+uolmvtq/3FbbwUlkN7nsVgt2C/QyLrhaHaMxQuEO4Ixm34sJ0Wrv07P0OdPnO+
+	13y5g4o6P2zpy/2p9PBCB2qR1tcBxUmrkJWMQtNGUjQn2wDudT2xL2Pcd2K48ref6unXafr3katew
+	bWKR42hSlLF9nhhBtm+QzgGO4J2PBiRh4A4PTmA24JrpXbWBPm4Ousio2R+ijeqi1yJViWc+/IJDZ
+	MAMFdQ14/D/PLwu9Hi+JXyGuaHc61yBigEqiq/LGPpcdmy+teMhwsaHJng6k7e5cjtkOIZZFYO5cP
+	zChSKsBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvvI-0000000Am4d-0dhS;
-	Tue, 10 Dec 2024 08:48:52 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tKvwS-0000000AmJn-1Ljy;
+	Tue, 10 Dec 2024 08:50:04 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvtl-0000000AljX-1kei
+	id 1tKvvN-0000000Am6d-3uZv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 08:47:18 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2162c0f6a39so23604575ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 00:47:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733820436; x=1734425236; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yqgJ06i6Y7xo25MnVPg+XILEuMsyhZtOxmam3qSlkFs=;
-        b=AbQe3b0wO46FMmIWZoXmz6qr2MdTY5VDGQXZRdE6DPZ5x2ny/MISw3hgClgx9ybb9F
-         ssQEEyIywX4+ta9KUxGq50/CKBlIxKesZr5276QNpXmy4a7CQ0Mwb0x64O8q3Hj35om1
-         Q3WJpral0DK6YcYwp2RgCj/7c+lmHgikNdk0B3p5CGi6B+8DkPncO5wvGLsI3z6Jqi1E
-         3xqJyWx5jaDADJ05EvMkXhwodufUNc/akYfF0hfKoDXbbdmZDC9rHkOKg2kDV7o2qx+8
-         HG+5B9xW17Tl/ny99I1S/pW+avsnjAehP1DCLYQxOeSf32yp800XRUwNfAUiHUhDKKp6
-         YjeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733820436; x=1734425236;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yqgJ06i6Y7xo25MnVPg+XILEuMsyhZtOxmam3qSlkFs=;
-        b=o13/QVbMZJhoW3CCKBAqQkumTyErmEfE9Me4GDf1xUe/vnyNkfaJ/pHQ8DfpfJhM8U
-         oWfqYU+YCvXFqvJ8lRraZx5+2TrS5S8kIMtTIXiin2Ib6U77AbDtROW1swcrZcmt5fdr
-         5P73DPWQoM4TedXmSqpGx3YF/ZGao2rWUZP3nsWIAf+0W0JGBIB5feNiFuDRHEPscjEX
-         wX0ZsKeocUJ2IZc6dQERVKwaJGIpRH5IEFQcYVRX7cy+OG326oLwg112O09JJT9f8nKv
-         fdFrBj0JqxBxz7HLNS+krxnQ+g365dLaitz3WE11HtXaefNiAp7INOX5WyflK8+4W3ox
-         LRPg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjN1TjLm0Xm9aZxw9lFeArNFv+/iBf2IO9MseGztvNqy1DdyPh/SSjwF+pTJhkIEkHkApd2uW6B/bIckKGXyHS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbLe4S/zbthkX1SANpi6j8DM0xCtWMsIqyzjjXhTTL/ghZAfnF
-	UblFVQnAewgDugbOEouoDsuonN9K+kdqiSs79lX8leQMj+TCc7dq
-X-Gm-Gg: ASbGncvwtFuRl6d/Ai7QHfqAEoiX5AtHV8wV44nk3hRSVs82hn3nLLwhsyWLZ0plrC8
-	forEWRuiEzpqssf2Wf0JhowRwXVF6Tn2pim0lvo31l/pd3udeN/tP2x5Edz4LZoTfW5B7Z/9sQw
-	vJtGB114WXWJ160FUsWNMy0uInV5V2dRy7gr0oDhz330ztMnAc5tSukiZwE8UE72mlKOThuNzBo
-	pZ60JRm1RMxum/svhujLLmkdK6+yp81fKDgXyfNNonoNfMJiRU4JwMafKofgn7Vo9uOwEiMvaVt
-	Gg==
-X-Google-Smtp-Source: AGHT+IFyFx9u2Q8EBc+BBmDXtC22UJjW0IxAAzdnx72zpqdewbRBPV5UQPIkvDpar7059Mt3H6VwCQ==
-X-Received: by 2002:a17:903:187:b0:215:a808:61cf with SMTP id d9443c01a7336-21670a47b3dmr40495715ad.25.1733820435973;
-        Tue, 10 Dec 2024 00:47:15 -0800 (PST)
-Received: from [192.168.0.115] ([59.188.211.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8f26c6csm85230675ad.233.2024.12.10.00.47.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Dec 2024 00:47:15 -0800 (PST)
-Message-ID: <23e6d9c0-c3d6-40c1-b933-01c5a9ef43f8@gmail.com>
-Date: Tue, 10 Dec 2024 16:47:11 +0800
+	Tue, 10 Dec 2024 08:48:59 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BA4YK5t005427;
+	Tue, 10 Dec 2024 09:48:51 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	wTMNPKp9Javw7QGcnqA0o3v+GDe3cl06vv45gRAkrrk=; b=3CNt1mlFNJBQQrSq
+	8C+DRiW76FX6sGs18gKLWQF0izrAHU8JA7XbqwBgVOr4A9s1lss0r9KQNNNaHoqF
+	3cA3EZaWfbg0mIx5AiRT1Nf/waVQB036t5GEehmkhv2vuBAxBAXG3y42fKMUMXHr
+	jVKGcOvObJZlxPVHtdBZVl/1xZbWvun7OrPAOgnMgmlXWvNDWXt1T1d3L28Gxb9e
+	WYXUSwls9B2BRrNjgYED3Nqy3t0hjSpkrTncD79xb0vwpJj6m4Sd4Hu//wNbNc3x
+	r6ydB+pJgc6ifcjzUBMSEJeTHJzSGVlpYGhyQ5/Yes9IiJ8AmevTSAvz+9OLUwEB
+	ySLEtQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccc8uhgq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Dec 2024 09:48:51 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D0F0140090;
+	Tue, 10 Dec 2024 09:47:42 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EE05C22E20A;
+	Tue, 10 Dec 2024 09:46:34 +0100 (CET)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 10 Dec
+ 2024 09:46:34 +0100
+Message-ID: <8cda7859-523c-4850-8b89-9d9c9bf07cb6@foss.st.com>
+Date: Tue, 10 Dec 2024 09:46:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] backlight: dwi_bl: Add Apple DWI backlight driver
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
- Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org,
- linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241209075908.140014-1-towinchenmi@gmail.com>
- <20241209075908.140014-3-towinchenmi@gmail.com>
- <w5niokvjfwajnzz3muccb45jsvqzg7lql7g5tg5s6iat3mtqkk@qu2a5zcp3rs7>
+Subject: Re: [PATCH 0/6] ARM: dts: stm32: lxa-tac: fix gen{1,2} boards and add
+ gen3 board
+To: Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <kernel@pengutronix.de>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        =?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>
+References: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
 Content-Language: en-US
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <w5niokvjfwajnzz3muccb45jsvqzg7lql7g5tg5s6iat3mtqkk@qu2a5zcp3rs7>
-Content-Type: text/plain; charset=UTF-8
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20241119-lxa-tac-gen3-v1-0-e0ab0a369372@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_004717_453528_B6D3574F 
-X-CRM114-Status: UNSURE (   4.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_004858_260284_5E395677 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,14 +97,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc
 
+On 11/19/24 12:34, Marc Kleine-Budde wrote:
+> Hello,
+> 
+> this series fixes some problems found in the lxa-tac generation 1 and
+> 2 boards and add support for the generation 3 board. It's based on an
+> STM32MP153c, while the generation 1 and 2 are based on the
+> STM32MP157c.
+> 
+> regards,
+> Marc
+> 
+> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+> ---
+> Leonard Göhrs (6):
+>        ARM: dts: stm32: lxa-tac: disable the real time clock
+>        ARM: dts: stm32: lxa-tac: extend the alias table
+>        ARM: dts: stm32: lxa-tac: adjust USB gadget fifo sizes for multi function
+>        dt-bindings: arm: stm32: add compatible strings for Linux Automation LXA TAC gen 3
+>        ARM: dts: stm32: lxa-tac: move adc and gpio{e,g} to gen{1,2} boards
+>        ARM: dts: stm32: lxa-tac: Add support for generation 3 devices
+> 
+>   .../devicetree/bindings/arm/stm32/stm32.yaml       |   7 +
+>   arch/arm/boot/dts/st/Makefile                      |   1 +
+>   arch/arm/boot/dts/st/stm32mp153c-lxa-tac-gen3.dts  | 267 +++++++++++++++++++++
+>   arch/arm/boot/dts/st/stm32mp157c-lxa-tac-gen1.dts  |  84 +++++++
+>   arch/arm/boot/dts/st/stm32mp157c-lxa-tac-gen2.dts  |  84 +++++++
+>   arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi      | 100 +-------
+>   6 files changed, 455 insertions(+), 88 deletions(-)
+> ---
+> base-commit: b0191a5cbc222fc7af3f9511b44d1f330ef980e9
+> change-id: 20241112-lxa-tac-gen3-8dbc3481ce7a
+> 
+> Best regards,
 
-Krzysztof Kozlowski 於 2024/12/10 下午4:32 寫道:
+Series applied on stm32-next.
 
-> Nothing improved here.
-
-
-This is sent before you left any review, v4 will have improvements
-
-Nick Chan
+Thanks!
+Alex
 
