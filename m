@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18EBE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F625E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cID+icBwQVZ1cLeVHmwo+pX71ArOF+/a0tJhAyvJi3E=; b=X0QgFMWl9EEiWZNoVq18ZdApuJ
-	k7yhDJLFs7i+mu1DomfavZq2to3H9O25q7DQF9hJLCe8woGC3rNguogDCz9VaImyWIBBtgbayUBGo
-	A9XS34ToFQHNOLf42WGaN11ZtwGacRSFNlG7L/pNFWv0OpxpDjiEHc2ZNWshfqsFC4Z648Iiadd5l
-	uWHif3zRYZ/IQIXaQgv6UypK575aMTvz/OWKsRIHOeSy4wQXaB5BFoBHqqNH9gLOp7iBikGAfECQW
-	uxlGrho50ZRvD9KHCfJmjy58eUn6J5w5SHFEg+WFFdRo9luvAFFi5XkXIAKOO5ohro9cUAsRPtCb4
-	vfF/Xzzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4nPD5E4Ad4U+hhhI8VaXA17x9Czn/JwL4gk7ChKoSXc=; b=ssYzn8asjA4fbhS5+7Iodu2mPY
+	KLq7BwGE6cH9VJ9bRz2QgprgiNJh8pQztviJ1jgHACVFjt9FeD9GVEyQx+Gj8JA78JjL087SFSNML
+	tyfcG58gqI0b4gpbjquURHYAWcmmW8UW0KC4Pu35DTN9mQvxvyhRzp0vNTXVSNy5mJAThcBjGJpNx
+	ngkMjIT/ApbueFeORaDem9yqKiClALDRhbpv/Bv1AYLqt0VpMlidvM4UjcaAt6VpAJA0Zx70Uaj3t
+	3bLFiD2b4mONjKEcCrlST8GpHW0hhVbwP6mhCsqa9a3ed3NhZ8ffV+KhfbfIDklNd6taEH+OOl9Lx
+	f+zabLIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0EB-0000000BZMX-0nk0;
-	Tue, 10 Dec 2024 13:24:39 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tL0HM-0000000BZvN-1YME;
+	Tue, 10 Dec 2024 13:27:56 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0D8-0000000BZFA-1e9c;
-	Tue, 10 Dec 2024 13:23:35 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d3dce16a3dso5598150a12.1;
-        Tue, 10 Dec 2024 05:23:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733837012; x=1734441812; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cID+icBwQVZ1cLeVHmwo+pX71ArOF+/a0tJhAyvJi3E=;
-        b=DdZEdkKFiD13GPTBGNUX8CNuLzygmH1mBTaqnZEyZqQ4ypsCUeH6gHsRnpHkqwEphg
-         DGGTKqTFc43B6uV5kGwdDDU5hGuAZx1iJR4jP2SSnQ8fIjGkajK87aYAzhUzItEp51R1
-         bMXp9+CYhEBi16xplB7Ui2MfIM85EgLl5uzHKFJ4iXxyzazwkciWUu7p2qdGEZ50l+gY
-         mSprOcWq2Wx8BsnP5aJkOfYM5DDzM9MwUVVc9eCE1/jTw2i6fyPIbAAe3Hae6mID8lH7
-         QGDcXehF6npdc2zRLn6bygs4/kGlBvrXWi5u6HdPZ4dlOIgJf6XHbsWmvmgXD/ZNQT1k
-         4Q3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733837012; x=1734441812;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cID+icBwQVZ1cLeVHmwo+pX71ArOF+/a0tJhAyvJi3E=;
-        b=DCuSU6F0PQRiAaimehHiDuZw895MNy9xNeIXn4l0dAGR++Rr2MPEYupVPCc7SByyvl
-         XX0gN3FgZLMcBp5UZqW4oM5g2wmhG84+Tbtqhhc3e1LKnWIlgbxqu7XHi9XqfcntAUfj
-         FPxErlJzltoFCcHMQ8zSixDoqFerBto/PT2/06PjMftXf1chvpjddkyd9pWkMIa9A7Bj
-         nDL+62wp/9+q1kQl7UTyTROwvmYgDyfpi73LAwWVuDENuEeLCvGxbI2pU4/xEjcPJp60
-         NGxtqlFsvDnlT9/SQg7sMcnmWBF+55DJJbNpsT2O+hq+USl7WMeQ9eKDkwHpJfS/VWht
-         avAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWwzwvdHFav4Lsfm+VwYvyJzJ0vlnaZdfAOhGN9KlSyloY7P5LbtaYE9KxrsYH6fvHvtYEIiXA21K8Fx0AworrI@lists.infradead.org, AJvYcCXbjagKB6Gf919VX8i2zyOeE/5Q4YwR3hic9m3l22unoim53CJsLx2KIgc1qnc/XM0HYhVXJqbzKWQYkRQBrTw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsjVz12A65Ikhymr4rSSB8QkqVGaJpYY0RXcV20cx/HNAd+r8m
-	u7aVCUB0HmPviWecwRLzpEByjhRWLXZZiMh4JVnBpvlw7GfF/Auoe/OXVzHTBEW6JZ+/IOIKPHJ
-	nHgmB7yxLfRpSDPMSXgORvw11LOg=
-X-Gm-Gg: ASbGncsrK6eG+UlswftqHPK1YlxAWRB0Ar/v1h8k3HppNLGFFn9Jgg0jHUc3jLKuZY+
-	Lua+2sO6q4Octh2Kqk6nmlsJ5z1GSXtwcAN+MqrdFlzWlvAcIyM3Q2zWbD5A=
-X-Google-Smtp-Source: AGHT+IEiQZp+8ruy21+1lGoFTcEYaNOlU4Ihj6HejgjGDUx9L85LTtGqOVIO6IG1rybYdwfcnDlo7HnORY98CWMtsNI=
-X-Received: by 2002:a05:6402:1ecb:b0:5d0:9c3b:faf4 with SMTP id
- 4fb4d7f45d1cf-5d41e28eedbmr2927675a12.7.1733837012164; Tue, 10 Dec 2024
- 05:23:32 -0800 (PST)
+	id 1tL0GI-0000000BZge-3fjT;
+	Tue, 10 Dec 2024 13:26:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733837211; x=1765373211;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=o3FwI02N8aqXF4xZIrONk/VReti3pvSzpyqhoYtREr8=;
+  b=IU94MwaLjRlfL7KjYwzpTGb8uK/bXra7dA2rfR0H26kn1pnKnJ2fCH6j
+   HVPaUA8N2bzY8GDeJ+nTvpQXHbIUiUcWnw7Ajh3eB+ufWI+Q4wo+bWUh6
+   SDj0uzaZqsZ4MO1VxPIt76OxPmqkk+JA1VynyPisHHXBrDALvohIIhFO0
+   J2e+wM6n34J7xzjrMQdahGsrXMUH7QAl+aJBfz5l8fE7Fo2DdX1aOq3Li
+   WYGNW0MY9k9vgPSQz8XUKk1OPtyFq3mrBKktqjpVMJ8VZDxLAk0giGMLL
+   xNPjXHf0H18wG/kt356AqDlHP9EmWdXkyjRacDvMMLyxLuB2kk+6lg+h6
+   A==;
+X-CSE-ConnectionGUID: Cpm6pNTuTtykbdmHp2oVQQ==
+X-CSE-MsgGUID: 027vLAGdQLa++3529Zt4MQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="37864859"
+X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
+   d="scan'208";a="37864859"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 05:26:49 -0800
+X-CSE-ConnectionGUID: tUiZTf8LRc6BazYMUocLhA==
+X-CSE-MsgGUID: MAqDFBXxQs2A/WQFrE0SGQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
+   d="scan'208";a="95750103"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa010.fm.intel.com with ESMTP; 10 Dec 2024 05:26:42 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1000)
+	id 0FF4D26B; Tue, 10 Dec 2024 15:26:40 +0200 (EET)
+Date: Tue, 10 Dec 2024 15:26:40 +0200
+From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexei Starovoitov <ast@kernel.org>, Andrea Parri <parri.andrea@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Tom Lendacky <thomas.lendacky@amd.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
+References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
+ <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
+ <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
+ <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
+ <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
 MIME-Version: 1.0
-References: <20241210013010.81257-1-pgwipeout@gmail.com> <20241210013010.81257-5-pgwipeout@gmail.com>
- <e32fa593abfa6d08202b4f929e0b4bdb@manjaro.org> <CAMdYzYp+MQVYr1tOMEOn62vXZGVEYrtd1p9vn6YQzXdrJgSdyA@mail.gmail.com>
-In-Reply-To: <CAMdYzYp+MQVYr1tOMEOn62vXZGVEYrtd1p9vn6YQzXdrJgSdyA@mail.gmail.com>
-From: Peter Geis <pgwipeout@gmail.com>
-Date: Tue, 10 Dec 2024 08:23:22 -0500
-Message-ID: <CAMdYzYquvGBzfWqvUOku7m1sM9qxmBHAL95cANDViUCT1oEEhQ@mail.gmail.com>
-Subject: Re: [PATCH 4/6] arm64: dts: rockchip: add hevc power domain clock to rk3328
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Diederik de Haas <didi.debian@cknow.org>, 
-	Johan Jonker <jbx6244@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Liang Chen <cl@rock-chips.com>, Rob Herring <robh@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	shironeko <shironeko@tesaguri.club>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_052334_432923_C43B6E6C 
-X-CRM114-Status: GOOD (  29.43  )
+X-CRM114-CacheID: sfid-20241210_052650_965219_26F297A9 
+X-CRM114-Status: GOOD (  26.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,113 +100,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 8:13=E2=80=AFAM Peter Geis <pgwipeout@gmail.com> wr=
-ote:
->
-> On Tue, Dec 10, 2024 at 5:04=E2=80=AFAM Dragan Simic <dsimic@manjaro.org>=
- wrote:
-> >
-> > Hello Peter,
-> >
-> > On 2024-12-10 02:30, Peter Geis wrote:
-> > > There is a race condition at startup between disabling power domains
-> > > not
-> > > used and disabling clocks not used on the rk3328. When the clocks are
-> > > disabled first, the hevc power domain fails to shut off leading to a
-> > > splat of failures. Add the hevc core clock to the rk3328 power domain
-> > > node to prevent this condition.
-> > >
-> > > rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 3-...=
-.
-> > > }
-> > > 1087 jiffies s: 89 root: 0x8/.
-> > > rcu: blocking rcu_node structures (internal RCU debug):
-> > > Sending NMI from CPU 0 to CPUs 3:
-> > > NMI backtrace for cpu 3
-> > > CPU: 3 UID: 0 PID: 86 Comm: kworker/3:3 Not tainted 6.12.0-rc5+ #53
-> > > Hardware name: Firefly ROC-RK3328-CC (DT)
-> > > Workqueue: pm genpd_power_off_work_fn
-> > > pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
-> > > pc : regmap_unlock_spinlock+0x18/0x30
-> > > lr : regmap_read+0x60/0x88
-> > > sp : ffff800081123c00
-> > > x29: ffff800081123c00 x28: ffff2fa4c62cad80 x27: 0000000000000000
-> > > x26: ffffd74e6e660eb8 x25: ffff2fa4c62cae00 x24: 0000000000000040
-> > > x23: ffffd74e6d2f3ab8 x22: 0000000000000001 x21: ffff800081123c74
-> > > x20: 0000000000000000 x19: ffff2fa4c0412000 x18: 0000000000000000
-> > > x17: 77202c31203d2065 x16: 6c6469203a72656c x15: 6c6f72746e6f632d
-> > > x14: 7265776f703a6e6f x13: 2063766568206e69 x12: 616d6f64202c3431
-> > > x11: 347830206f742030 x10: 3430303034783020 x9 : ffffd74e6c7369e0
-> > > x8 : 3030316666206e69 x7 : 205d383738353733 x6 : 332e31202020205b
-> > > x5 : ffffd74e6c73fc88 x4 : ffffd74e6c73fcd4 x3 : ffffd74e6c740b40
-> > > x2 : ffff800080015484 x1 : 0000000000000000 x0 : ffff2fa4c0412000
-> > > Call trace:
-> > > regmap_unlock_spinlock+0x18/0x30
-> > > rockchip_pmu_set_idle_request+0xac/0x2c0
-> > > rockchip_pd_power+0x144/0x5f8
-> > > rockchip_pd_power_off+0x1c/0x30
-> > > _genpd_power_off+0x9c/0x180
-> > > genpd_power_off.part.0.isra.0+0x130/0x2a8
-> > > genpd_power_off_work_fn+0x6c/0x98
-> > > process_one_work+0x170/0x3f0
-> > > worker_thread+0x290/0x4a8
-> > > kthread+0xec/0xf8
-> > > ret_from_fork+0x10/0x20
-> > > rockchip-pm-domain ff100000.syscon:power-controller: failed to get ac=
-k
-> > > on
-> > > domain 'hevc', val=3D0x88220
-> > >
-> > > Fixes: 52e02d377a72 ("arm64: dts: rockchip: add core dtsi file for
-> > > RK3328 SoCs")
-> > > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
-> >
-> > While I was unable to formally verify this clock assignment,
-> > i.e. by using the RK3328 TRM or the downstream kernel source
-> > from Rockchip, it makes perfect sense to me.  Thanks for the
-> > patch, and please feel free to include:
-> >
-> > Reviewed-by: Dragan Simic <dsimic@manjaro.org>
->
-> It is unfortunate the TRM doesn't include the clock maps, because they
-> are extremely helpful when one can acquire them. It also doesn't help
-> that the TRM register definition only referred to this as "pll". I was
-> sent specifically the usb3 phy clock map for my work on the driver,
-> which had the location of each switch and divider along with the
-> register and bit that controlled it. That combined with the TRM
-> register map allowed me to find this error.
->
-> Thanks!
-> Peter
+On Thu, Nov 21, 2024 at 12:49:52PM +0100, Borislav Petkov wrote:
+> On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
+> > Sure, we can workaround every place that touches such ranges.
+> 
+> Every place? Which every place? I thought this is only an EISA issue?
 
-Apologies, that's the wrong response for this one.
-This patch was the result of educated guess combined with testing. I
-grabbed all of the clocks that looked like they could affect things,
-then tested them one at a time until I isolated them to this clock. It
-lives alone with cpll as the parent and has no children according to
-the clock summary. (Though the writeup i mistakenly included above
-proves the clock map isn't always accurate).
+I looked at other places where we call memremap(MEMREMAP_WB) such as
+acpi_wakeup_cpu(). We actually get encrypted/private mapping for this
+callsite despite __ioremap_caller() being called encrypted == false.
+This happens because of IORES_MAP_ENCRYPTED check in __ioremap_caller().
 
-Thanks,
-Peter
->
-> >
-> > > ---
-> > >
-> > >  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-> > > b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-> > > index 0597de415fe0..7d992c3c01ce 100644
-> > > --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-> > > +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-> > > @@ -333,6 +333,7 @@ power: power-controller {
-> > >
-> > >                       power-domain@RK3328_PD_HEVC {
-> > >                               reg =3D <RK3328_PD_HEVC>;
-> > > +                             clocks =3D <&cru SCLK_VENC_CORE>;
-> > >                               #power-domain-cells =3D <0>;
-> > >                       };
-> > >                       power-domain@RK3328_PD_VIDEO {
+So we depend on the BIOS here. The EISA problem happens because the
+target memory is in !IORES_MAP_ENCRYPTED memory.
+
+It's hard to say if any other memremap(MEMREMAP_WB) would trigger the
+issue. And what will happen after next BIOS update.
+
+> Then clearly your changelogs need to expand considerably more what we're
+> *really* addressing here.
+> 
+> > Or we can address problem at the root and make creating decrypted/shared
+> > mappings explicit.
+> 
+> What is the problem? That KVM implicitly converts memory to shared? Why does
+> KVM do that an can it be fixed not to?
+> 
+> Doesn't sound like the guest's problem.
+
+Well, the problem is on the both sides.
+
+VMM behaviour on such accesses is not specified in any spec. AFAIK all
+current VMM implementations do this implicit conversion.
+
+I think it has to be fixed. VMMs (not only KVM) should not silently
+convert memory to shared. But VMMs cannot make memory access to go away.
+The only option they have is to inject #VE instead indicating bogus
+access. At this point it becomes a guest problem.
+
+It will get fixed in VMMs naturally when TDX Connect gets enabled.
+With a secure device assigned to a TD, VMM would loose the ability to
+convert memory on its own. The guest would have to unlock the memory
+first. This will make implicit conversion impossible.
+
+But it also means guest should never initiate shared access without
+explicit conversion. Otherwise #VE will crash it.
+
+> Or maybe this needs a lot more explanation what we're fixing here.
+> 
+> > Such mappings have both functional (as we see here) and security
+> > implications (VMM can manipulate the guest memory range). We should not
+> > create decrypted mappings by default on legacy interfaces.
+> 
+> So we're getting closer.
+> 
+> The changes themselves are fine but your text is missing a lot about what
+> we're fixing here. When I asked, I barely scratched the surface. So can we
+> elaborate here pls?
+
+What about this:
+
+x86/mm: Make memremap(MEMREMAP_WB) map memory as encrypted by default
+
+Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
+
+memremap(MEMREMAP_WB)
+  arch_memremap_wb()
+    ioremap_cache()
+      __ioremap_caller(.encrytped = false)
+
+In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
+if the resulting mapping is encrypted or decrypted.
+
+Creating a decrypted mapping without explicit request from the caller is
+risky:
+
+  - It can inadvertently expose the guest's data and compromise the
+    guest.
+
+  - Accessing private memory via shared/decrypted mapping on TDX will
+    either trigger implicit conversion to shared or #VE (depending on
+    VMM implementation).
+
+    Implicit conversion is destructive: subsequent access to the same
+    memory via private mapping will trigger a hard-to-debug #VE crash.
+
+The kernel already provides a way to request decrypted mapping
+explicitly via the MEMREMAP_DEC flag.
+
+Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
+default unless MEMREMAP_DEC is specified.
+
+This change fixes the crash on kexec in TDX guests if CONFIG_EISA is
+enabled.
+ 
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
