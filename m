@@ -4,90 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DB4E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 21:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1B9E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 21:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/TEMZfbq0jaQ0Bvw7H8/whT9tQxinQCI6Wxd1hCr6Y=; b=I7pKmx+nxFQlArvGF3+ggT010f
-	peYG9ENFYSInoUL6T4k5kBiv6nCp4VxSNlQc28T95P9qIvPx52Q2RLl3kGXMhzstfrj+7O8vOzL4C
-	UqqgetrrTBeT8atJIbAJA4KHbvQhEq5EFQ1mESrm6O+ZoRO6l8OC54jjcaAaOX+94YZ6p5qy0RHWn
-	vJ5EcRwisYRZFgiISsl5BqjL1uwz0dztnMGr4f4emdUVOSMjEs6KpC4jn/qQZp5Dc7y7q/Y55DCca
-	BehP5/T5ooc+te4W4ZZR6S2i8WE3mrPDMt9j6a2/tOAk9tReGfBJ+pQkB0oseBJ0eWom5vTrfjUpx
-	+d/4PSdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H7QDnRhBemOiZezpHGKSoMKm4TcZsXptVa4lYZVMKw4=; b=ZAnfemyQ9Nx5U8zaQ1tpjGnfIN
+	l80JgcqQAjinXNaIox7O9xAlbNwTC0UJg6qj3fNRdah6WTwnTTifcjOf+kt3hoLYgDSTEUnYOnEjQ
+	5x4kSRcY1nNuaZgcVYih1S7tW4AKCpK7Tb6fnq/gZ10wjpRS+viZeZwwSvIJHphBKYeGuL4pdyilu
+	uFBJFashFsPaKuPhcSIKbaKdCgO0mWKoa7OJ8IPA/lH6VaGYq0OZxlJhX2eTshlGf3TIbcu3WxI6v
+	ISPAQ76n3xAHY6X6bjUd05WY6zK828lyS5ReXtkFguCCye6+AWEzN4+HmvCJZYG6Cg33/SrpopXuj
+	WgJ7xtAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7WQ-0000000CmMV-3iW6;
-	Tue, 10 Dec 2024 21:11:58 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tL7ay-0000000Cmt2-2eGH;
+	Tue, 10 Dec 2024 21:16:40 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7VN-0000000CmCP-0r61
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 21:10:54 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-3022598e213so22764721fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 13:10:52 -0800 (PST)
+	id 1tL7Zw-0000000Cmjz-0HnR;
+	Tue, 10 Dec 2024 21:15:37 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aa67bc91f87so47760266b.1;
+        Tue, 10 Dec 2024 13:15:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733865051; x=1734469851; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=i/TEMZfbq0jaQ0Bvw7H8/whT9tQxinQCI6Wxd1hCr6Y=;
-        b=XNge8uUbhag5blVLMH2a5LiQo04NAzAbv5OgLdqES9SZIPaPHH5yq/91anzB0mSkWp
-         Nl6/c5LVDWFmQ2fGDxbOFRJNY6xd5lEBUu0qsu/1r+iT9Ayybf2vKxNH7q4HHjw4zdb9
-         +0Y75Zml8HJ+BA+wKl/N429ELJ7S1mX8LLTlOsusNFUyVh+pmI30epG2+SrNoJLVv04T
-         QMAE26XNbI1yIU/8od4ox3B68ONuh/F6ZjJlgbqZ5SbPmzcLMnom/BrkHoX7K3YQ55Ix
-         bzFGpdTgqYmTk+SSdTExVdXx6iMBvGUetEXZni3uMw5PIeEdYHlztFPyKK9NqzawGBaK
-         uROw==
+        d=gmail.com; s=20230601; t=1733865334; x=1734470134; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=H7QDnRhBemOiZezpHGKSoMKm4TcZsXptVa4lYZVMKw4=;
+        b=GPQeFjA9qRRPs0fMbLEGml4wwCrtNrKG6b4EJxcj7ybqDz5MrD6U20cV8SFdun0sR0
+         mImjFAnU2+EjMUa0UOycmuoQqpZ6FLc1r8X7FeACJIaEI97hSCO+P0N7rQyS7O4M0Lfx
+         vf4XlXqwcf6Lg2P88iNNf7+PSoatI2x6YKCF4s6oqsuByfc7lTjiIALBoWVfhbt+Cdqw
+         cP6S1HKsVmFoTAMfrRz9JQVA5DtlgEbZMPDi7YWViHW1wvr6PmPEeY/VAyA7xVWSdvWr
+         gytLGVNVoTBD/yZdoJb+4PX6D6f/hvcf4HOLdnN/2QT85W7hkFy0NbuixeXX4OeFI6H+
+         WG2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733865051; x=1734469851;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=i/TEMZfbq0jaQ0Bvw7H8/whT9tQxinQCI6Wxd1hCr6Y=;
-        b=gKL26zLk8fhdZVPPf7TCLRZ4NZsZHyCSTnddorY8gIHJG6rMh2Mit2jRqfZX/c1Zzk
-         0zU9yONM+Byn1KAKVSLQbrEBtWnUaQ4bHjpALgOUcGikigFSZi64sUOKtSGGU8AsdR7F
-         FLd6wk0bg//ZoNayH2QsVv52ieDgEMpl8b0xJxizYLn/JKrslgm9N1VpdkeAq4QVA7Eo
-         oo6yGRc5/+MAljJQTsbcZEHUvAhhJd9M9xaVUbbiDy7u5FHBTZ4szlnLe13bBntE8pny
-         d2mAuROQusPpqLqGaBmXo/ghMxFmHteGXF4yT41P1XXwQp+M/zJDwQqWDHnFUE1cf2wJ
-         46LQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXV1BOAb926YnLTxpVy7ng7JjWgRHrza4PcCoBxHeaPHuRJwy+/ZoejdaT18D5wkWzbZQBYosryM8wN7vOmM37e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPoaC2z0u4YQL0m709ZxXWCYRWDpPOSsZq7z7HH3qePgNDW0Al
-	2V2f+fUWexCk0IOJABCApFoBYifCiyP3UNr29C2MFT1VFPMy9/gJ
-X-Gm-Gg: ASbGncssmGSRqIaFb3/Rq8vpq1vfp/rq+s50DhurZYnEwbZRsStI3S7xMYvd2JGe6o4
-	NQLzKSoDfpxovBj28rjOeM2Zn3EZRyap2NvO7ZQkcVDB7bE7/TELHhAsW6BfQUH0RG39j/hM91Z
-	/eWNzDwbhlS9FHdhAtnO1+DbrhYgE+OlqwO7lugExL3Wpn+CybH0UcxM2pcuWsCkE8gEra97cYU
-	ItlG2J+GqvBND3sjEn7yd6ofr2TKyZLURzqWONJQQAcePwOU2qHpftQ+4Pnl39OFQ==
-X-Google-Smtp-Source: AGHT+IHRit5K/PJSdYi1ezn9KV1uCZK9mQQ4OcVcnES9kI4Wftm++v7qYBkluI6PlbbxGtVfPWA5qw==
-X-Received: by 2002:a2e:9a14:0:b0:2fb:510c:7236 with SMTP id 38308e7fff4ca-30240d728a9mr2089651fa.40.1733865050350;
-        Tue, 10 Dec 2024 13:10:50 -0800 (PST)
-Received: from [192.168.31.111] ([194.39.226.133])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30220a14d61sm8014071fa.115.2024.12.10.13.10.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Dec 2024 13:10:50 -0800 (PST)
-Message-ID: <768b70d3-910a-42f2-a61a-6338a41f41b1@gmail.com>
-Date: Tue, 10 Dec 2024 23:10:46 +0200
+        d=1e100.net; s=20230601; t=1733865334; x=1734470134;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H7QDnRhBemOiZezpHGKSoMKm4TcZsXptVa4lYZVMKw4=;
+        b=LwFw+GVo4SbI7s9rAAly/w/RyVV+MUIda/85yqZEfP2aTradiSk19mnz+kcGiwtVfU
+         hv06PnZiRlcAjPcsS3OeB0tkITHGywVY+s0IjvUQdgY10uSkcCM+wkbXefapCXV4SXnq
+         vLXMgHDpHq0UGWL5Gjy5aXKPIYlFkN1UX/f2PGy670448TgWNSJr8rMYux8mih0cOZYU
+         jVEIqEHCEvrVHkSKlVzKAhOdVw8E0XpGzyPqVsmMvnEz2wAc0fxXLFyjCtkdpKqzMe4F
+         e/iipS0drOzREvL7Oek4hlm9aHCKQJWmMw9rz/jxjI7Tss2wsBClju96vN7AkdsaqgCB
+         kqtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVbfCrhRGQ4jc6Zp4f/i3qOK5c90Su4Jt/8QU1mgGVBb5O+wajbRcE7Y74sYIW5GKbk/ZDoz0pBHIX0Chs9r/Va@lists.infradead.org, AJvYcCWu1asHuuhnpVGXy9GqWI7Ob9UB8DQL6WBglaavefwUCjz0M5brkmFYi7rMgD7hury7o+crAX/c+3uiBVOvwT0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFefBevSqKbhIp07STS063Ec+qWoBygeZhkd5sWSzI1kjsW3Mx
+	5iyguBEj32by2QiaakHc1H8VUWrY/S6C0gpGlBvKb303X77qJIXN
+X-Gm-Gg: ASbGncvRptMT7FQ/qzyHFgvmPF8gVx5+EplFE3GyAtVaQi8OBFcIpbf8ZCJYfUvAlGU
+	EHLL0SQCqIrdkeDavsh8fmFFPRtnJXhlCItPjkmxILP+2KgPhpcGHpSkuxzZR4tr+hvgwgtRvwx
+	ZIIApJLOX5Q9uWDDa1+Ul+0pTlL2iDwCL0W2QOLxBTqB6TmQSw5Rp4H5c3xmOzwtnQBTvJL6zzz
+	/szmzg9Wrw8vZ5ujERkY11kYJgQDyEb4RoZnHevSw==
+X-Google-Smtp-Source: AGHT+IGxAjFXMAf+F8mEXMc+auUHpdwpbNPCA+k5jUjJE3/MSupwfdCkIxkoOyQU//98Mv9Et2opNA==
+X-Received: by 2002:a17:907:2cc6:b0:a9a:b50:1c4f with SMTP id a640c23a62f3a-aa6b13c92a2mr5523866b.13.1733865333794;
+        Tue, 10 Dec 2024 13:15:33 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa650ea7369sm596924566b.74.2024.12.10.13.15.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 13:15:32 -0800 (PST)
+Date: Tue, 10 Dec 2024 23:15:29 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <20241210211529.osgzd54flq646bcr@skbuf>
+References: <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: exynos8895: Add syscon-poweroff and
- syscon-reboot nodes
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241210180216.398165-1-ivo.ivanov.ivanov1@gmail.com>
- <20241210180216.398165-3-ivo.ivanov.ivanov1@gmail.com>
-Content-Language: en-US
-From: Markuss Broks <markuss.broks@gmail.com>
-In-Reply-To: <20241210180216.398165-3-ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_131053_247085_823122E6 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20241210_131536_110031_3A4354A7 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +113,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 12/10/24 8:02 PM, Ivaylo Ivanov wrote:
-> For Exynos8895, a reboot is handled by setting the bit(SWRESET_SYSTEM[1])
-> of SWRESET register(PMU + 0x400) and power-off is handled by setting
-> bit(DATA[8]) of PS_HOLD_CONTROL register (PMU + 0x330c).
->
-> Tested using "reboot" and "poweroff -p" commands.
->
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
->   arch/arm64/boot/dts/exynos/exynos8895.dtsi | 15 +++++++++++++++
->   1 file changed, 15 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-> index 90b318b2f..9eb89dd19 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-> @@ -388,6 +388,21 @@ pmu_system_controller: system-controller@16480000 {
->   			compatible = "samsung,exynos8895-pmu",
->   				     "samsung,exynos7-pmu", "syscon";
->   			reg = <0x16480000 0x10000>;
+On Mon, Dec 09, 2024 at 02:44:22PM +0100, Christian Marangi wrote:
+> +int an8855_mii_set_page(struct an8855_mfd_priv *priv, u8 phy_id,
+> +			u8 page) __must_hold(&priv->bus->mdio_lock)
+> +{
+> +	struct mii_bus *bus = priv->bus;
+> +	int ret;
 > +
-> +			poweroff: syscon-poweroff {
-> +				compatible = "syscon-poweroff";
-> +				regmap = <&pmu_system_controller>;
-> +				offset = <0x330c>; /* PS_HOLD_CONTROL */
-> +				mask = <0x100>; /* reset value */
-> +			};
+> +	ret = __mdiobus_write(bus, phy_id, AN8855_PHY_SELECT_PAGE, page);
+> +	if (ret < 0)
+> +		dev_err_ratelimited(&bus->dev,
+> +				    "failed to set an8855 mii page\n");
 > +
-> +			reboot: syscon-reboot {
-> +				compatible = "syscon-reboot";
-> +				regmap = <&pmu_system_controller>;
-> +				offset = <0x400>; /* SWRESET */
-> +				mask = <0x1>; /* SWRESET_SYSTEM */
-> +				value = <0x1>; /* reset value */
-> +			};
->   		};
-Aren't those already included with 
-arm/samsung/exynos-syscon-restart.dtsi? I can see that the values for 
-poweroff are different here though, does it not work with the value from 
-exynos-syscon-restart?
->   
->   		pinctrl_alive: pinctrl@164b0000 {
+> +	/* Cache current page if next mii read/write is for switch */
+> +	priv->current_page = page;
+> +	return ret < 0 ? ret : 0;
+> +}
+> +EXPORT_SYMBOL_GPL(an8855_mii_set_page);
 
+You could keep the implementation more contained, and you could avoid
+exporting an8855_mii_set_page() and an8855_mfd_priv to the MDIO
+passthrough driver, if you implement a virtual regmap and give it to the
+MDIO passthrough child MFD device.
 
-- Markuss
-
+If this bus supports only clause 22 accesses (and it looks like it does),
+you could expose a 16-bit regmap with a linear address space of 32 MDIO
+addresses x 65536 registers. The bus->read() of the MDIO bus passthrough
+just performs regmap_read(), and bus->write() just performs regmap_write().
+The MFD driver decodes the regmap address into a PHY address and a regnum,
+and performs the page switching locally, if needed.
 
