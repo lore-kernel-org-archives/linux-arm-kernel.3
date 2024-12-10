@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D762E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA549E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZeE9h1il+DsauaUC8/Tt9EQJI2HmML+xYXUzSuaNCE=; b=fnUBlmRVlHyA4S78d1UpDJ0RMO
-	YDTQcY8S0nA/fok/dniyE0+X1N0DUMJNebFGJ6ojIKLcD3Pwu6MelZyL/ZG4wDSdBR3exFQPdB9xt
-	I+zech2iF6XIMWTNexQN+5hFaqw3/1tKt3lZmb4qfEz1B/kqg22EhA5BWGEOkzntH+x9ZejWt0Be2
-	QT2ZUlZ/QjkbR3ml1OmtXBIa1cSpQDdxIhqddyAGDCBe0Kc4jV7cLamQ5uZrrsi/qTRbR9FXPDBX+
-	Z+hIspbAGMWY0ajVhEqh4IUnH7nOgrcLOYscaCBrgoSva7V2qVXWMxluvhsswEU0M48dX3UjUjcrJ
-	MdOqQHFw==;
+	bh=I/ecQv4FKuCtZE1AnEV/ijXpIAnWHT6qeI4gnhaOi3s=; b=pfwNLjA+FKT+vk3GfLfdo4LjPm
+	yrunMfXkS6bmtSbAjhTK1ApBx6BT9uWkr1I2iV4lZTcZSBA/kXymO0mJNNDLxmg9LiRSV5FmEZYB2
+	V24DIphYGfb36Hmk3v2YxUNPstnqYFUqlq/xYsJSlsen0Gf4cIAOtgeUseIvpdBXugzNfqWppiX7U
+	hwTDsm/Oa/pVaQnRBUyf6COxzRO7L4jaskLOwSoy8xIy1uaWGb6fesNvOlx4JjzwNe1KfaBm8v4qz
+	Pi5nOunS6esspG1Y7d0aooa01vrfvCd75wUx5X+5HlsduBD69K9FuPZzU42UbIwXUBecxTRLbCNiT
+	q0vHpFDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxvC-0000000BDjh-0zns;
-	Tue, 10 Dec 2024 10:56:54 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tKxwE-0000000BE5G-3iUK;
+	Tue, 10 Dec 2024 10:57:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxtG-0000000BDGH-2EPl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 10:54:56 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BA8JTPP013783;
-	Tue, 10 Dec 2024 11:54:39 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	IZeE9h1il+DsauaUC8/Tt9EQJI2HmML+xYXUzSuaNCE=; b=EBBDPnRmvTeMFUQu
-	rQueLTvQotmaBGL/Vz0IOHPGLDs8zB/PAqIIaqW1DOpPd1Y9gycxQMpKcf55xrbs
-	0JmP8oCcHGC9IDv3yKjpVFFcvduElckBzcfVYYawT3byQhbkDfrJ8LaJXU6KNEvq
-	It2RUdJES2aXkOTXrdBjW3/9s0jWMaHcFni5SXvkAsVi9fEkqrt/m6VPnbrsYRe3
-	13TIs+yRQqT/u7oaekZlZQsGehMmF1sclluGZJMoiJSnAOeBkwYH72XW0MKUGzFK
-	vznxqTmxJRe0x0oCmiweFQjaiGhGMTjsufsY2ju85kS3tMKq0pDISmOggB4QTmSm
-	GXmxpA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccnm4g0j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 11:54:38 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D4BBC40050;
-	Tue, 10 Dec 2024 11:53:41 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 81ED8244283;
-	Tue, 10 Dec 2024 11:52:15 +0100 (CET)
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 10 Dec
- 2024 11:52:15 +0100
-Received: from SHFDAG1NODE1.st.com ([fe80::b848:dbeb:cd0:84a0]) by
- SHFDAG1NODE1.st.com ([fe80::b848:dbeb:cd0:84a0%13]) with mapi id
- 15.01.2507.037; Tue, 10 Dec 2024 11:52:15 +0100
-From: Etienne CARRIERE - foss <etienne.carriere@foss.st.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "Cristian
- Marussi" <cristian.marussi@arm.com>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
- discrete rates
-Thread-Topic: [PATCH v2 2/2] firmware: arm_scmi: round rate bisecting in
- discrete rates
-Thread-Index: AQHbRapDtK1zP5F5+E+8H5T6eqOTIbLdsy4AgAAr30uAAD/MAIABMogo
-Date: Tue, 10 Dec 2024 10:52:15 +0000
-Message-ID: <aac4c00dc3ba4599aaa91392dac71d6d@foss.st.com>
-References: <20241203173908.3148794-1-etienne.carriere@foss.st.com>
- <20241203173908.3148794-3-etienne.carriere@foss.st.com>
- <Z1bKlOeHJFHpe9ZU@bogus>
- <ed164b6704ab4086b2fb22ae51658f31@foss.st.com>,<Z1ck5tFkb41wReZP@bogus>
-In-Reply-To: <Z1ck5tFkb41wReZP@bogus>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.48.86.128]
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1tKxtJ-0000000BDHz-1gwD;
+	Tue, 10 Dec 2024 10:54:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=I/ecQv4FKuCtZE1AnEV/ijXpIAnWHT6qeI4gnhaOi3s=; b=AEgkMytKAjtQ4a1u/MLo8pPK9r
+	lU+a/eCQz7xpnrtDWYQyayPmWoYDo1jY7H1LXJWbT+J4TInvHdQpMhnXnBCV5UUegjvDHswnupRVb
+	3qSvaVJsf7KZtNGiD/0RJ5oQbmC3hFcswx4DNN0KplCbrLNt9sNzvozb2frb6hbl1a5TRpCK9w4rY
+	0tMfIFPQo9bPUoWbDNlVV9r/l+uLkIE+duuQzU4Vr7sfLPyCkgpcSF1vKpy89NceO/xSh+RNPihof
+	iDdpism0coDEv0NrmMTaULx4L1dyPWqbFzSNFydHtLkRCU8nzx5RAeEqEJyUT17xVPYzLs1Ot8xrK
+	i7w7euVA==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tKxt2-0004QH-Ie; Tue, 10 Dec 2024 11:54:40 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Peter Geis <pgwipeout@gmail.com>
+Cc: Peter Geis <pgwipeout@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+ Diederik de Haas <didi.debian@cknow.org>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Levin Du <djw@t-chip.com.cn>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 5/6] arm64: dts: rockchip: correct rk3328-roc regulator map
+Date: Tue, 10 Dec 2024 11:54:39 +0100
+Message-ID: <14451790.lVVuGzaMjS@diego>
+In-Reply-To: <20241210013010.81257-6-pgwipeout@gmail.com>
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-6-pgwipeout@gmail.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_025454_879124_9B02D9D7 
-X-CRM114-Status: GOOD (  64.90  )
+X-CRM114-CacheID: sfid-20241210_025457_443621_A1AFF457 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,189 +77,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, December 9, 2024, Sudeep Holla wrote:
-> On Mon, Dec 09, 2024 at 12:59:58PM +0000, Etienne CARRIERE - foss wrote:
-> > Hello Sudeep,
-> >
-> >  On Monday, December 9, 2024 11:46 AM, Sudeep Holla wrote:
-> > > On Tue, Dec 03, 2024 at 06:39:08PM +0100, Etienne Carriere wrote:
-> > > > Implement clock round_rate operation for SCMI clocks that describe =
-a
-> > > > discrete rates list. Bisect into the supported rates when using SCM=
-I
-> > > > message CLOCK_DESCRIBE_RATES to optimize SCMI communication transfe=
-rs.
-> > >
-> > > Let me stop here and try to understand the requirement here. So you d=
-o
-> > > communicate with the firmware to arrive at this round_rate ? Does the
-> > > list of discreet clock rates changes at the run-time that enables the
-> > > need for it. Or will the initial list just include max and min ?
-> >
-> > I don't expect the list to change at run-time. The initial list is
-> > expected to describe all supported rates. But because this list may
-> > be big, I don't think arm_scmi/clock.c driver should store the full lis=
-t
-> > of all supported rates for each of the SCMI clocks. It would cost to
-> > much memory. Therefore I propose to query it at runtime, when
-> > needed, and bisect to lower the number of required transactions
-> > between the agent and the firmware.
-> >
->=20
-> Ah so, this is nothing to do with set_parent, but just an optimisation.
-> This change optimises for space but some other platform may have all the
-> space but the communication with SCMI platform is not good enough to make
-> runtime calls like this change. How do we cater that then ?
+Am Dienstag, 10. Dezember 2024, 02:30:09 CET schrieb Peter Geis:
+> The rk3328-roc-cc input power is sourced from a micro-usb port, while
+> the rk3328-roc-pc input power is sourced from a usb-c port. Both inputs
+> are 5vdc only. Remove the 12v input from the device tree.
 
-This change does not optimize memory. It implements a real clk_round_rate()
-operation for SCMI clocks that have a discrete supported rates list. The
-existing implementation does not support it, it behaves as if the
-requested clock is supported and let caller change the clock rate to
-find out which rounded rate it effectively gets. This does not suit=20
-audio and video clock constraints.
+full stop. Please don't do "While we are at it" commits.
 
-How to deal between platforms with large memory/slow SCMI=20
-communication and those with the opposite? I think the easiest way
-would be to have a dedicated SCMI Clock protocol command.
+> While we are at it, add missing voltages and supply to vcc_phy, missing
+> voltages to vcc_host1_5v, and standardize the order of regulator
+> properties among the fixed regulators.
 
->=20
-> We need some spec-ed way or a unique way to identify what is best for
-> the platform IMO. We can change the way you have done in this change set
-> as someone else may complain in the future that it is costly to send
-> such command every time a clock needs to be set. I am just guessing here
-> may not be true.
->=20
-> > >
-> > > > Parse the rate list array when the target rate fit in the bounds
-> > > > of the command response for simplicity.
-> > > >
-> > >
-> > > I don't understand what you mean by this.
-> >
-> > I meant here that we bisect into supported rates when communicating
-> > with the firmware but once the firmware response provides list portion
-> > when target rate fits into, we just scan into that array instead of bis=
-ecting
-> > into. We could also bisect into that array but it is likely quite small
-> > (<128 byte in existing SCMI transport drivers) and that would add a bit
-> > more code for no much gain IMHO.
-> >
-> >
-> > >
-> > > > If so some reason the sequence fails or if the SCMI driver has no
-> > > > round_rate SCMI clock handler, then fallback to the legacy strategy=
- that
-> > > > returned the target rate value.
-> > > >
-> > >
-> > > Hmm, so we perform some extra dance but we are okay to fallback to de=
-fault.
-> > > I am more confused.
-> >
-> > Here, I propose to preserve the exiting sequence in clk/clk-scmi.c in c=
-ase
-> > arm_scmi/clock.c does not implement this new round_rate SCMI clock
-> > operation (it can be the case if these 2 drivers are .ko modules, not
-> > well known built-in drivers).
-> >
->=20
-> I don't think it would work if it is not built on the same kernel anyways=
-.
-> I don't work much about this use-case.
+This second part wants to be its own commit :-) .
 
-Using the same kernel will not enforce the driver was not modified regardin=
-g
-the vanilla upstream version. This may be also true for built-in modules
-I guess.
+Thanks
+Heiko
 
->=20
-> > >
-> > > > Operation handle scmi_clk_determine_rate() is change to get the eff=
-ective
-> > > > supported rounded rate when there is no clock re-parenting operatio=
-n
-> > > > supported. Otherwise, preserve the implementation that assumed any
-> > > > clock rate could be obtained.
-> > > >
-> > >
-> > > OK, no I think I am getting some idea. Is this case where the parent =
-has
-> > > changed and the describe rates can give a different result at run-tim=
-e.
-> >
-> > This does not deal with whether parent has changed or not. I would expe=
-ct
-> > the same request sent multiple times to provide the very same result. B=
-ut
-> > as I said above, I don't think arm_scmi/clock.c should consume a possib=
-ly
-> > large array of memory to store all supported rate each of the SCMI cloc=
-ks
-> > (that describe discrete rates).
-> >
->=20
-> Right, my assumption was totally wrong. Thanks for confirming.
->=20
-> > An alternate way could be to add an SCMI Clock protocol command in the
-> > spec allowing agent to query a closest supported rate, in 1 shot. Maybe
-> > this new command could return both rounded rate and the SCMI parent
-> > clock needed to reach that rounded rate, better fitting clk_determine_r=
-ate()
-> > expectations.
-> >
->=20
-> May be that would be ideal but you need to make a case for such a spec ch=
-ange.
+> Fixes: 2171f4fdac06 ("arm64: dts: rockchip: add roc-rk3328-cc board")
+> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+> ---
+> 
+>  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 23 +++++++++++++-------
+>  1 file changed, 15 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+> index f782c8220dd3..6984387ff8b3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+> @@ -24,22 +24,23 @@ gmac_clkin: external-gmac-clock {
+>  		#clock-cells = <0>;
+>  	};
+>  
+> -	dc_12v: regulator-dc-12v {
+> +	/* fed from passive usb input connector */
+> +	dc_5v: regulator-dc-5v {
+>  		compatible = "regulator-fixed";
+> -		regulator-name = "dc_12v";
+> +		regulator-name = "dc_5v";
+>  		regulator-always-on;
+>  		regulator-boot-on;
+> -		regulator-min-microvolt = <12000000>;
+> -		regulator-max-microvolt = <12000000>;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+>  	};
+>  
+>  	vcc_sd: regulator-sdmmc {
+>  		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_sd";
+>  		gpio = <&gpio0 RK_PD6 GPIO_ACTIVE_LOW>;
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&sdmmc0m1_pin>;
+>  		regulator-boot-on;
+> -		regulator-name = "vcc_sd";
+>  		regulator-min-microvolt = <3300000>;
+>  		regulator-max-microvolt = <3300000>;
+>  		vin-supply = <&vcc_io>;
+> @@ -50,22 +51,25 @@ vcc_sdio: regulator-sdmmcio {
+>  		states = <1800000 0x1>, <3300000 0x0>;
+>  		regulator-name = "vcc_sdio";
+>  		regulator-type = "voltage";
+> +		regulator-always-on;
+>  		regulator-min-microvolt = <1800000>;
+>  		regulator-max-microvolt = <3300000>;
+> -		regulator-always-on;
+>  		vin-supply = <&vcc_sys>;
+>  	};
+>  
+>  	vcc_host1_5v: vcc_otg_5v: regulator-vcc-host1-5v {
+>  		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_host1_5v";
+>  		enable-active-high;
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&usb20_host_drv>;
+> -		regulator-name = "vcc_host1_5v";
+>  		regulator-always-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+>  		vin-supply = <&vcc_sys>;
+>  	};
+>  
+> +	/* sourced from usb input through 3A fuse */
+>  	vcc_sys: regulator-vcc-sys {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "vcc_sys";
+> @@ -73,7 +77,7 @@ vcc_sys: regulator-vcc-sys {
+>  		regulator-boot-on;
+>  		regulator-min-microvolt = <5000000>;
+>  		regulator-max-microvolt = <5000000>;
+> -		vin-supply = <&dc_12v>;
+> +		vin-supply = <&dc_5v>;
+>  	};
+>  
+>  	vcc_phy: regulator-vcc-phy {
+> @@ -81,6 +85,9 @@ vcc_phy: regulator-vcc-phy {
+>  		regulator-name = "vcc_phy";
+>  		regulator-always-on;
+>  		regulator-boot-on;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vcc_io>;
+>  	};
+>  
+>  	leds {
+> 
 
-We need effective round_rate support for STM32MP2 platforms where audio
-and video clocks are provided by a clock exposed by the SCMI server. These
-drivers detect the (possibly external) device needs at runtime and need
-to select an input clock that fits some constraints for quality reason.
-Audio quality is the most sensible to clock rate inaccuracy.
 
->=20
-> > >
-> > > I need to re-read the part of the spec, but we may need some clarity =
-so
-> > > that this implementation is not vendor specific. I am yet to understa=
-nd this
-> > > fully. I just need to make sure spec covers this aspect and anything =
-we
-> > > add here is generic solution.
-> > >
-> > > I would like to avoid this extra query if not required which you seem=
- to
-> > > have made an attempt but I just want to be thorough and make sure tha=
-t's
-> > > what we need w.r.t the specification.
-> >
-> > Sure, I indeed prefer clear and robust implementation in the long term,
-> > being the one I propose here or another one.
-> >
->=20
-> Good then, we can work towards achieving that. If you can specify how slo=
-w
-> or memory hungry is it without these changes and how much this change hel=
-ps
-> your platform, we can take it up with spec authors and see if they are ha=
-ppy
-> to provide some alternative to deal with this in a generic way.
 
-The platforms we target usually have plenty of RAM, lets say hundreds of MB=
-ytes.
-Not that much for some system but enough I guess to store a few hundreds of
-clock rates for a few dozen of clocks (few kByte of RAM).
 
-That said, thinking more and more about this, I really belive a dedicate SC=
-MI
-clock protocol command would better fit platform needs in the long term.
-
-BR,
-Etienne
-
->=20
-> --
-> Regards,
-> Sudeep
->=20
 
