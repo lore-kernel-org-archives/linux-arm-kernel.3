@@ -4,47 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF90AE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CB2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKNM3pp9IUHYH7M2emlK5V5jHr0x3xInkYl50IZN52A=; b=hS4ZuMPuvlu7CnQjHWonA9KzGH
-	7jvMe2F+5OlcFClkVLYWderDzZuyZugJFJas49LT62NDxa/1JblLi+HvKkirXOfmKIfFLc/Z7AlwJ
-	kwnIBamKm/gzsQ9hW7/gOmDUv0GHjhfu3f2VMZuQvQsXB3h2nx1ZJawhCqDpzie4ekmdeC6N+FebS
-	LwDqX+1fTap0wD9vHG0rJrE5MUAqmfsjP9/tF0S5QQlFZ2tnc6XVd9JrG0zHAJ1HTArnZL4aF0zm1
-	0FPlRX0SEBY5IaAowqaxe+fwDli83ZwwqaRJWAUB1XG1rslSkj3Y3mhbkEjeK2EZ4I+7zvPQsTpet
-	iPxn2DzA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=APM+1yhaJCH113HhvAVKgYmvJyXakNLD1enONsFKaVE=; b=ZeBXlhqW7MtGRtVLxAxcpfMHZr
+	x+SzujqxYNAHaC07/0ggVXWlxhxKjaKzBP0/oDT9VROGk1fyINGQUIpbn22WZ8hUDKkoBADgK2ois
+	KM43LsJN0UeWDRaMDHsUsWa8gmyQiQarStT721srCwRv72ux2Q55jVGf+9UCvnalwDIkdXyq3kJFN
+	qYhpIlqGCi0y9h0L/De5dQM21c1WwKDaRzcSD6agJnwlyE4RpB8GTqn/2aIQ002kbicyeNQ4zJv3Y
+	TKSOdZUabcR8kG5nKefePAymg84F3Q4tV6mzsBtlxlqqjnCNxsnSwID8RK/T2yrMkdsierDLSH/bJ
+	PmpIeK0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwTs-0000000ArOg-0ln6;
-	Tue, 10 Dec 2024 09:24:36 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1tKwUt-0000000Arat-3WPM;
+	Tue, 10 Dec 2024 09:25:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwQk-0000000Aqol-3GFU
+	id 1tKwQp-0000000Aqts-1TIH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Dec 2024 09:21:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=APM+1yhaJCH113HhvAVKgYmvJyXakNLD1enONsFKaVE=; b=CIeqgyD7GnCMGbGdXUgLfxDw/j
+	QjUQVhbphX+CkQw1d3W1CFXtMQQqCXCX2SnGFeBDZ7qbcWAYZgVeKVytK0/UHBqpmTmN/27ym9LAR
+	QH6EhibTYmutubDMsPbDPgUdqwQk4H2uzjVY+Sgx+Lqeiyk0QGsgjQt9c5wGxZvQR55AYnuRxipP+
+	290zPtuALZmsOUyO5Gf1OdORZ8B2PJ83MWAp4o215ir6RBBi3EDt1MvnJIznqB4ohHvC0jLkFizYM
+	IaqaKuvmufEXLMFaHZ6HpA5VmRguQPKlwb5hq0O5elluTQrMkT70/4khQ/WskDCcwt40WQb4dE/Nf
+	VgqvcgSg==;
+Received: from cpanel.siel.si ([46.19.9.99])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKwQl-00000003e43-1bEn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:21:24 +0000
+	Tue, 10 Dec 2024 09:21:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=mKNM3pp9IUHYH7M2emlK5V5jHr0x3xInkYl50IZN52A=; b=pMgwA/+x9Kcey3BIMOJ+eFLwuK
-	GTP66TPED3UNSmu8+7i9OzJ7F0J/7UQ6TvuJzexLzexQU4Lv3u/XxHUGdknpJ1OTDtHhtY5ZNRHEq
-	r54HhTJsLjXmMdtNWuRQ+bCIbAXecYLZ/Slh/ZygxHI5AUmr08e3OYoz6TLwhwYxSFJdfZRBBueBY
-	j5hajvECC2IRprXi1gc6cuSIVb8LAUlfsffIrubWmBKo0OqvNGp/roILxJgMv+FyviraUWrWDrZw0
-	5GRLhZZmHo+YxIcGx57vU/i8gi6PZysTESg1bVxQvGc/lzcJq0N6jWUCy54Mi5HBhTb/w0rmfqfbU
-	5yzub/+Q==;
+	bh=APM+1yhaJCH113HhvAVKgYmvJyXakNLD1enONsFKaVE=; b=XtQMU9MVlqL5uT8Cv5KUl1wp+1
+	k2Gyagp080pG7UY6rcUpFWYBZMfOvVApx8XVBbBNMnqyxOcUgMeDeoDqK1sxzgueFm95igY6MJoHp
+	xFEhF12S1qGrFmq4QgAsLn80arpFDsomBzweZ7KOr+aIoXtOpejLhe7HtuBYQUAWBTNZRUU4vNPWN
+	yQNddM/5EKnuCMgNdP1/MfePzTSlV/BCB5CQPatrIzz4uAqNEpxIjp699+GDiCkgANv8TL965X7wB
+	LfLzHbTQDk+JdQp9/HtgpT9s/JEqUO4aMvhu8VCgBJHQE99rtLYWNr/Dy+NVL+LYCbh8Zrm1n4CVj
+	+7QAG2KQ==;
 Received: from [89.212.21.243] (port=59230 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tKwQZ-001jvW-03;
-	Tue, 10 Dec 2024 10:21:11 +0100
+	id 1tKwQT-001jvW-1b;
+	Tue, 10 Dec 2024 10:21:05 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: andrzej.hajda@intel.com,
 	neil.armstrong@linaro.org,
@@ -71,12 +86,10 @@ Cc: dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v5 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing optional properties
-Date: Tue, 10 Dec 2024 10:19:00 +0100
-Message-Id: <20241210091901.83028-3-andrej.picej@norik.com>
+Subject: [PATCH v5 0/3] SN65DSI83/4 lvds_vod_swing properties
+Date: Tue, 10 Dec 2024 10:18:58 +0100
+Message-Id: <20241210091901.83028-1-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241210091901.83028-1-andrej.picej@norik.com>
-References: <20241210091901.83028-1-andrej.picej@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -90,8 +103,9 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_012122_967840_82A4516B 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20241210_092123_604495_AEB970F2 
+X-CRM114-Status: UNSURE (   5.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,230 +120,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a optional properties to change LVDS output voltage. This should not
-be static as this depends mainly on the connected display voltage
-requirement. We have three properties:
-- "ti,lvds-termination-ohms", which sets near end termination,
-- "ti,lvds-vod-swing-data-microvolt" and
-- "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
-output voltage for data and clock lanes. They are defined as an array
-with min and max values. The appropriate bitfield will be set if
-selected constraints can be met.
+Hi all,
 
-If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
-end termination will be used. Selecting only one:
-"ti,lvds-vod-swing-data-microvolt" or
-"ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
-constraint for only data/clock lanes will be met. Setting both is
-recommended.
+The LVDS differential voltage swing can be specified as arrays of min, max
+in microvolts. Two arrays, one for data-lanes and one for clock-lane can
+be specified. Additionally, because LVDS voltage swing depends on near-end
+termination this can now also be specified with separate property.
 
-Signed-off-by: Andrej Picej <andrej.picej@norik.com>
----
-Changes in v5:
-- specify default values in sn65dsi83_parse_lvds_endpoint,
-- move sn65dsi83_parse_lvds_endpoint for channel B up, outside if,
-Changes in v4:
-- fix typo in commit message bitfiled -> bitfield
-- use arrays (lvds_vod_swing_conf and lvds_term_conf) in private data, instead
-of separate variables for channel A/B
-- add more checks on return value of "of_property_read_u32_array"
-Changes in v3:
-- use microvolts for default array values 1000 mV -> 1000000 uV.
-Changes in v2:
-- use datasheet tables to get the proper configuration
-- since major change was done change the authorship to myself
----
- drivers/gpu/drm/bridge/ti-sn65dsi83.c | 142 +++++++++++++++++++++++++-
- 1 file changed, 139 insertions(+), 3 deletions(-)
+Driver goes through the tables, taken from datasheet [1] and selects the
+appropriate configuration. If appropriate configuration can not be found
+the probe fails. If these properties are not defined default values are
+used as before.
 
-diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-index 57a7ed13f996..f9578b38da28 100644
---- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-+++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-@@ -132,6 +132,16 @@
- #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
- #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
- 
-+enum sn65dsi83_channel {
-+	CHANNEL_A,
-+	CHANNEL_B
-+};
-+
-+enum sn65dsi83_lvds_term {
-+	OHM_100,
-+	OHM_200
-+};
-+
- enum sn65dsi83_model {
- 	MODEL_SN65DSI83,
- 	MODEL_SN65DSI84,
-@@ -147,6 +157,8 @@ struct sn65dsi83 {
- 	struct regulator		*vcc;
- 	bool				lvds_dual_link;
- 	bool				lvds_dual_link_even_odd_swap;
-+	int				lvds_vod_swing_conf[2];
-+	int				lvds_term_conf[2];
- };
- 
- static const struct regmap_range sn65dsi83_readable_ranges[] = {
-@@ -237,6 +249,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
- 	.max_register = REG_IRQ_STAT,
- };
- 
-+static const int lvds_vod_swing_data_table[2][4][2] = {
-+	{	/* 100 Ohm */
-+		{ 180000, 313000 },
-+		{ 215000, 372000 },
-+		{ 250000, 430000 },
-+		{ 290000, 488000 },
-+	},
-+	{	/* 200 Ohm */
-+		{ 150000, 261000 },
-+		{ 200000, 346000 },
-+		{ 250000, 428000 },
-+		{ 300000, 511000 },
-+	},
-+};
-+
-+static const int lvds_vod_swing_clock_table[2][4][2] = {
-+	{	/* 100 Ohm */
-+		{ 140000, 244000 },
-+		{ 168000, 290000 },
-+		{ 195000, 335000 },
-+		{ 226000, 381000 },
-+	},
-+	{	/* 200 Ohm */
-+		{ 117000, 204000 },
-+		{ 156000, 270000 },
-+		{ 195000, 334000 },
-+		{ 234000, 399000 },
-+	},
-+};
-+
- static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
- {
- 	return container_of(bridge, struct sn65dsi83, bridge);
-@@ -435,12 +477,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
- 		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
- 
- 	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
--	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
-+	regmap_write(ctx->regmap, REG_LVDS_VCOM,
-+			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_A]) |
-+			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_B]));
- 	regmap_write(ctx->regmap, REG_LVDS_LANE,
- 		     (ctx->lvds_dual_link_even_odd_swap ?
- 		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
--		     REG_LVDS_LANE_CHA_LVDS_TERM |
--		     REG_LVDS_LANE_CHB_LVDS_TERM);
-+		     (ctx->lvds_term_conf[CHANNEL_A] ?
-+			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
-+		     (ctx->lvds_term_conf[CHANNEL_B] ?
-+			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
- 	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
- 
- 	le16val = cpu_to_le16(mode->hdisplay);
-@@ -576,10 +622,100 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
- 	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
- };
- 
-+static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
-+	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
-+{
-+	int i;
-+
-+	for (i = 0; i <= 3; i++) {
-+		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
-+		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
-+		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
-+		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
-+			return i;
-+	}
-+
-+	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
-+	return -EINVAL;
-+}
-+
-+static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
-+{
-+	struct device *dev = ctx->dev;
-+	struct device_node *endpoint;
-+	int endpoint_reg;
-+	/* Set so the property can be freely selected if not defined */
-+	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
-+	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
-+	u32 lvds_term;
-+	u8 lvds_term_conf = 0x1;
-+	int lvds_vod_swing_conf = 0x1;
-+	int ret = 0;
-+	int ret_data;
-+	int ret_clock;
-+
-+	if (channel == CHANNEL_A)
-+		endpoint_reg = 2;
-+	else
-+		endpoint_reg = 3;
-+
-+	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
-+	if (!of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term)) {
-+		if (lvds_term == 100)
-+			lvds_term_conf = OHM_100;
-+		else
-+			lvds_term_conf = OHM_200;
-+	}
-+
-+	ctx->lvds_term_conf[channel] = lvds_term_conf;
-+
-+	ret_data = of_property_read_u32_array(endpoint,
-+			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
-+			ARRAY_SIZE(lvds_vod_swing_data));
-+	if (ret_data != 0 && ret_data != -EINVAL) {
-+		ret = ret_data;
-+		goto exit;
-+	}
-+
-+	ret_clock = of_property_read_u32_array(endpoint,
-+			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
-+			ARRAY_SIZE(lvds_vod_swing_clk));
-+	if (ret_clock != 0 && ret_clock != -EINVAL) {
-+		ret = ret_clock;
-+		goto exit;
-+	}
-+
-+	/* If any of the two properties is defined. */
-+	if (!ret_data || !ret_clock) {
-+		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
-+			lvds_vod_swing_data, lvds_vod_swing_clk,
-+			lvds_term_conf);
-+		if (lvds_vod_swing_conf < 0) {
-+			ret = lvds_vod_swing_conf;
-+			goto exit;
-+		}
-+	}
-+
-+	ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
-+	ret = 0;
-+exit:
-+	of_node_put(endpoint);
-+	return ret;
-+}
-+
- static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
- {
- 	struct drm_bridge *panel_bridge;
- 	struct device *dev = ctx->dev;
-+	int ret;
-+
-+	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
-+	if (ret < 0)
-+		return ret;
- 
- 	ctx->lvds_dual_link = false;
- 	ctx->lvds_dual_link_even_odd_swap = false;
+This patch series depends on the patch
+"[PATCH v2 11/15] arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10"
+(https://lore.kernel.org/all/20241202072052.2195283-12-andrej.picej@norik.com/)
+which is currently under review. Please apply the dependent series first before
+applying this one.
+
+v1 is at: https://lore.kernel.org/all/20241127103031.1007893-1-andrej.picej@norik.com/
+v2 is at: https://lore.kernel.org/all/20241203085822.2475138-1-andrej.picej@norik.com/
+v3 is at: https://lore.kernel.org/all/20241203110054.2506123-1-andrej.picej@norik.com/
+v4 is at: https://lore.kernel.org/all/20241205134021.2592013-1-andrej.picej@norik.com/
+
+[1] https://www.ti.com/lit/ds/symlink/sn65dsi83.pdf?ts=1732738773429&ref_url=https%253A%252F%252Fwww.mouser.co.uk%252F
+
+Best regards,
+Andrej
+
+Andrej Picej (3):
+  dt-bindings: drm/bridge: ti-sn65dsi83: Add properties for
+    ti,lvds-vod-swing
+  drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing optional properties
+  arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set lvds-vod-swing
+
+ .../bindings/display/bridge/ti,sn65dsi83.yaml |  34 ++++-
+ .../imx8mm-phyboard-polis-peb-av-10.dtso      |   2 +
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c         | 142 +++++++++++++++++-
+ 3 files changed, 173 insertions(+), 5 deletions(-)
+
 -- 
 2.34.1
 
