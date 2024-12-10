@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0F0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0D4E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqR4+EDOTOKUygjAju/GpX8orxXt5neI5PHSlKTEs2U=; b=b7vTh6SG5a5lm72xiiutX4W4CN
-	1q701xLno5lXR3mBp+NRrABHfpza0Fwvu3fNPC8mqXwT3pGgv/jqtwiJU/8lOymTKIQDqmmyOLfqg
-	etxpFtipPpCc97CGvSrD8S0JvPg4Apq4Os4jdlzkyOytVnguSZEmczVFsM+R3Q3axnGMIo5rt7X0Z
-	9Oo432mxWq7iQ0KKFuigCd3+BaFFA8KaEgpZWWVEiVYVQb+GfS6cdrNEvEcgqpsrh1O2dO/qQkJdW
-	HeWRLu+AShaZd1hd7TK+B5u1EZJoWaKMDSYVr6UnbW/f+v3yDyrUZ8omXRXBgFRRYY58LoAAfEpKw
-	jZTQMu+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o/qM869MCmQZkRsPpCevAXNj2FXSE3qMjToZGsvPE8I=; b=G6G3lgq4pHuauyjlPrVMtgpy8v
+	L3DyF0BHPQqbdM0UUnDMkJGm7Mkao42umqJqLqSJiBzKRYHMLvyBRAcX9+RxSZe4Jxpg/rdNT0hm2
+	BuPTQO8ZHqGDLmiS9yAAYQz11jLLuWrN9ZkFy4KyltLb/ZEpK71vE1/R/M3wT4i8inaYQ1UTT5Z+W
+	9C+N25TiQCTe9iImibW28QOBA+jnmjaW/KzzaWObRNlOaOvK/m3YGQ3/xH9nYj71c2NIEV7UZXuj9
+	pxU9PfbrLzzwSWojipxD57nuH7dv2Xm7Elbl3+8IXEQWTL/TMbj6vNuaqabu/sBfmtd4vClU7Sm12
+	GLhaEAAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL6KY-0000000CZw8-2SUx;
-	Tue, 10 Dec 2024 19:55:38 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tL6Oz-0000000Cb7t-1tP7;
+	Tue, 10 Dec 2024 20:00:13 +0000
+Received: from smtp-25.smtpout.orange.fr ([80.12.242.25] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL6JV-0000000CZo1-20v2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 19:54:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=qqR4+EDOTOKUygjAju/GpX8orxXt5neI5PHSlKTEs2U=; b=cAsno5oYRVseXjiVyM/UxIK07w
-	qtwmVLePT9tyGDCOACnIbCo40y4bTizPr6kk63/9XWmj/J55i3q114gzkNk4xoRKYXmQOOdNnUIwd
-	e0z5ZPxhUJZrzSP4ACjLwX4i6KMaSWHX+743h08HRYQNDmcTQeeK8YlV1y3hzlnQT+Iw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tL6JH-00FqUX-Bp; Tue, 10 Dec 2024 20:54:19 +0100
-Date: Tue, 10 Dec 2024 20:54:19 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Felipe Balbi <balbi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
-	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-Message-ID: <2953e10c-0a57-4d49-b831-3864a07eefd5@lunn.ch>
-References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
- <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
- <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
- <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
- <a2a2f201-73a4-4a99-baef-0d593a88c872@lunn.ch>
- <309052f3f69950fe43390505cc7254aee8c8f5c6.camel@ew.tq-group.com>
+	id 1tL5Ey-0000000CRUO-3cgc;
+	Tue, 10 Dec 2024 18:45:50 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id L5EotBIgE01M2L5EotfE5j; Tue, 10 Dec 2024 19:45:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1733856342;
+	bh=o/qM869MCmQZkRsPpCevAXNj2FXSE3qMjToZGsvPE8I=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=ZQr52uRj3DCZS904wPu9oO3He4yPgn4PkS2eoS14L924pm6/3GFbuRKA0gVxK62lE
+	 YcpeFbwShTcxSGCoFi59YGdorMjjicdzgbyRG1dMGBxyC0Bt3U9FNUm21MmcLUwSs5
+	 IW6mdXYyCnSEdO1ntkwjXE8H88rjXAbhoMLgm2kxBtZrca8nB2JlVpMujmDE2NDNeg
+	 fM1st214JoIHg3VdZR7yngsugauVnKWR9NMRVuLZSEaZgSnKKkF7tj5qwvIMHB5R/0
+	 dWCDEPJ4f0VCwTI8Z1MWhrwU0WqTYsdXly05mbhwOeKTRBRWDYNeYswTWNb33/mDAP
+	 UXAbWMjvBEO4A==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Tue, 10 Dec 2024 19:45:42 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <32201aec-f3d2-49a7-b0ca-2ede10fec103@wanadoo.fr>
+Date: Tue, 10 Dec 2024 19:45:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <309052f3f69950fe43390505cc7254aee8c8f5c6.camel@ew.tq-group.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/5] pinctrl: mediatek: add MT7988 pinctrl driver
+To: Frank Wunderlich <linux@fw-web.de>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sean Wang <sean.wang@kernel.org>
+Cc: Frank Wunderlich <frank-w@public-files.de>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Daniel Golle <daniel@makrotopia.org>, Sam Shih <sam.shih@mediatek.com>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>
+References: <20241202110045.22084-1-linux@fw-web.de>
+ <20241202110045.22084-3-linux@fw-web.de>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20241202110045.22084-3-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_115433_522303_9D87092A 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20241210_104549_306067_32A7B348 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +84,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 10:56:41AM +0100, Matthias Schiffer wrote:
-> On Mon, 2024-12-09 at 17:14 +0100, Andrew Lunn wrote:
-> > 
-> > > Not our board, but the AM62 SoC. From the datasheet:
-> > > 
-> > > "TXC is delayed internally before being driven to the RGMII[x]_TXC pin. This
-> > > internal delay is always enabled." So enabling the TX delay on the PHY side
-> > > would result in a double delay.
-> > 
-> > phy-mode describes the board. If the board does not have extra long
-> > clock lines, phy-mode should be rgmii-id.
-> > 
-> > The fact the MAC is doing something which no other MAC does should be
-> > hidden away in the MAC driver, as much as possible.
+Le 02/12/2024 à 12:00, Frank Wunderlich a écrit :
+> From: Daniel Golle <daniel@makrotopia.org>
 > 
-> Isn't it kind of a philosophical question whether a delay added by the SoC
-> integration is part of the MAC or not? One could also argue that the MAC IP core
-> is always the same, with some SoCs adding the delay and others not. (I don't
-> know if there are actually SoCs with the same IP core that don't add a delay;
-> I'm just not a big fan of hiding details in the driver that could easily be
-> described by the Device Tree, thus making the driver more generic)
-
-It is more about, what does phy-mode = "rgmii"; mean? It means the
-board provides the delay via extra long clock lines. Except for when
-some random MAC driver has a completely different meaning, it is not
-documented it means something else, you have to read the sources and
-the mailing lists, to find out what this particularly MAC driver is
-doing for phy-mode = "rgmii".
-
-Do we really want that. Or should we define that phy-mode = "rgmii"
-means the PCB provides the delay. End of story, no exceptions. And
-that "rgmii-id" means the MAC/PHY pair need to provide the delay? End
-of story, no exceptions.
-
-> > Since the MAC driver is forcing the TX delay, it needs to take the
-> > value returned from of_get_phy_mode() and mask out the TX bit before
-> > passing it to the PHY.
+> Add pinctrl driver for the MediaTek MT7988 SoC.
 > 
-> Hmm okay, this is what the similar ICSSG/PRUETH driver does. I've always found
-> that solution to be particularly confusing, but if that's how it's supposed to
-> work, I'll have to accept that.
-
-It has to be that why. If the MAC does the delay, the MAC needs to
-ensure the PHY does not do the delays and well, and it achieves that
-by setting PHY_INTERFACE_MODE to indicate the PHY should not add
-delays. Do you have a better idea how this can be done?
-
-> In my opinion the documentation Documentation/networking/phy.rst is not very
-> clear on this matter - the whole section "(RG)MII/electrical interface
-> considerations" talks about whether the PHY inserts the delay or not, so my
-> assumption was that phy-mode describes the PHY side of things and only that.
+> Signed-off-by: Sam Shih <sam.shih@mediatek.com>
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> [correctly initialise for the function_desc structure]
+> Signed-off-by: Arınç ÜNAL <arinc.unal@arinc9.com>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > 
-> It gets even more confusing when taking into account
-> Documentation/devicetree/bindings/net/ethernet-controller.yaml, which contains
-> comments like "RGMII with internal RX delay provided by the PHY, the MAC should
-> not add an RX delay in this case", which sounds like there are only the cases
-> "delay is added by the PHY" and "delay is added by the MAC" - the case "delay is
-> part of the board design, neither MAC nor PHY add it" doesn't even appear.
+> ---
 
-We have tried to improve the documentation. We have also been very
-rigid in reviewing DT bindings, and what these things mean. But it
-seems like many developers don't read reviews other developers get. Go
-search the email archive. How many times have i had this very same
-conversation?
+...
 
-Everybody gets pause wrong. Everybody gets EEE wrong. Everybody gets
-RGMII delays wrong, not matter how many times we tell developers they
-are getting it wrong.... phylink is helping with this, it takes it out
-of developers hands so they cannot get pause or soon EEE wrong.
+> +/* flash */
+> +static int mt7988_snfi_pins[] = { 22, 23, 24, 25, 26, 27 };
+> +static int mt7988_snfi_funcs[] = { 2, 2, 2, 2, 2, 2 };
+> +
+> +static int mt7988_emmc_45_pins[] = {
+> +	21, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+> +};
+> +static int mt7988_emmc_45_funcs[] = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 };
+> +
+> +static int mt7988_sdcard_pins[] = { 32, 33, 34, 35, 36, 37 };
+> +static int mt7988_sdcard_funcs[] = { 5, 5, 5, 5, 5, 5 };
+> +
+> +static int mt7988_emmc_51_pins[] = { 38, 39, 40, 41, 42, 43,
+> +				     44, 45, 46, 47, 48, 49 };
+> +static int mt7988_emmc_51_funcs[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
-	Andrew
+At least all the _pins arrays could be const.
+Maybe we could also make it possible to have _funcs const as well.
+
+...
+
+> +static struct mtk_pin_soc mt7988_data = {
+
+const?
+
+> +	.reg_cal = mt7988_reg_cals,
+> +	.pins = mt7988_pins,
+> +	.npins = ARRAY_SIZE(mt7988_pins),
+> +	.grps = mt7988_groups,
+> +	.ngrps = ARRAY_SIZE(mt7988_groups),
+> +	.funcs = mt7988_functions,
+> +	.nfuncs = ARRAY_SIZE(mt7988_functions),
+> +	.eint_hw = &mt7988_eint_hw,
+> +	.gpio_m = 0,
+> +	.ies_present = false,
+> +	.base_names = mt7988_pinctrl_register_base_names,
+> +	.nbase_names = ARRAY_SIZE(mt7988_pinctrl_register_base_names),
+> +	.bias_disable_set = mtk_pinconf_bias_disable_set,
+> +	.bias_disable_get = mtk_pinconf_bias_disable_get,
+> +	.bias_set = mtk_pinconf_bias_set,
+> +	.bias_get = mtk_pinconf_bias_get,
+> +	.pull_type = mt7988_pull_type,
+> +	.bias_set_combo = mtk_pinconf_bias_set_combo,
+> +	.bias_get_combo = mtk_pinconf_bias_get_combo,
+> +	.drive_set = mtk_pinconf_drive_set_rev1,
+> +	.drive_get = mtk_pinconf_drive_get_rev1,
+> +	.adv_pull_get = mtk_pinconf_adv_pull_get,
+> +	.adv_pull_set = mtk_pinconf_adv_pull_set,
+> +};
+
+...
+
+CJ
 
