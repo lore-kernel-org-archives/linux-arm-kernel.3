@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5BCE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F845E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HR985HiE65wAXM9O8QvXvTA1gJ8FNQIGOl/hU7K0iww=; b=LC31rMkHBZMHTDa7HgXloCGhxG
-	odCdEB/nXuRKFJaHASDke8RSP4hgit75NG+mg3VhWAvPG3fe83LOaF9QmfguKNhf+/jT4Pr06Fk7c
-	mMC+4iFT7ufnrSSC/+Lhn5IiEpSd042NuQJoGLdxLqw1IQetWSL9M3qLYaU8dfnSFmtmfxdipsAAF
-	g0HAolWwcshJIV+SO/gkOCYwv1xVZm7eRrbY4TXDOyILjfScbCf6k0CeW+8tCwmn3+v1mm+FBVs/U
-	NLmrB97QnQdtIZxiwp2UMrb/vZNQXwFL17sY3Tcw9vczyVbx0kfU4WFMUfhaT/RZseoW09T0tgbcS
-	dCLygcBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UkoRw9BarGGVCa4YcmvxLTgpRYyO516ABNKabA4DQpo=; b=M9EDlooqvd3GfhVgy/wG3l9Dxx
+	9rrXWDVa7rBCPsZa/ew2Vl8JzsE4Jwpb+p9Nppi89j4WtRRj7Pf7tLDhUrjmMjqBxVjpEvCDPBWTi
+	CEPB0nHMlwL+VmZBI6OMlnVDlStgsDjGHQ8ldGW8x36hBy7xjv11KX7ffC7IFywUGCQznx0GRqQ67
+	rh0E3xuS2OcXw86ohuagyd1Vb78rhbdPrZPjQbdfMweITYWgT9bYUoYulJ209G0oy2j497NXWj8Zb
+	jHhKHXemXKwwF5ZU25u0vnMdh9Rt/Ve6hWxJvJA6UB+ub08Rm8g3nDlJf92ZFb4cFOnPCGiB44LZd
+	i4BlE8Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0YF-0000000BcIx-18dO;
-	Tue, 10 Dec 2024 13:45:23 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tL0em-0000000BdGy-2pOk;
+	Tue, 10 Dec 2024 13:52:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL0XB-0000000BcAB-3rja;
-	Tue, 10 Dec 2024 13:44:19 +0000
+	id 1tL0di-0000000Bd44-31SI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 13:51:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 57DB95C631C;
+	Tue, 10 Dec 2024 13:50:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46C58C4CED6;
+	Tue, 10 Dec 2024 13:50:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733838661;
+	bh=ZXg1bGozVdzn4a1tzlvDLtBv4mWbQKIU/XP6jeBIDvc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yf/VLn2IQhrXOEzbHiLZVrJssWuYF5wdEhW0xeWpZnpKA5ogq7bmRblmgPOoIPExb
+	 qDmFeAJsOhFmvg0N8uuL+IpFFeLdmUXKNtt3zQNIy5mHNEEXSYHX4BbLa6cxzh7SVM
+	 3Fj7X0jnC1pipSs1zsUOkP7Jd5r0jLEEEWudF1d+cH7SQwKvghPYc+4HEjGYEcxLC7
+	 TQ2GNtjGAnkN9RNJSFrEprr6Ri7FngS8zf38cVNimyVvSfa/GuCJZ2YleDRGEFoiGQ
+	 JUs7rG7AUMKGfPAIDS7ylefYJM5qU+wqsAWuURPi0BwNpx3MyzbEGtmMlYMWeSZ0e0
+	 nuu81ImImT/ng==
+Date: Tue, 10 Dec 2024 13:50:52 +0000
+From: Will Deacon <will@kernel.org>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-pm@vger.kernel.org, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, catalin.marinas@arm.com,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	pbonzini@redhat.com, vkuznets@redhat.com, rafael@kernel.org,
+	daniel.lezcano@linaro.org, peterz@infradead.org, arnd@arndb.de,
+	lenb@kernel.org, mark.rutland@arm.com, harisokn@amazon.com,
+	mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
+	maz@kernel.org, misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
+	zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v9 05/15] arm64: barrier: add support for
+ smp_cond_relaxed_timeout()
+Message-ID: <20241210135052.GB15607@willie-the-truck>
+References: <20241107190818.522639-1-ankur.a.arora@oracle.com>
+ <20241107190818.522639-6-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1733838255;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HR985HiE65wAXM9O8QvXvTA1gJ8FNQIGOl/hU7K0iww=;
-	b=XFWjja7yGGHwKBg/bK2+h1h7SVh2fqrDrWxnE+tVJmxaRVJsqLZ3mtiwtJY3S2u7Z6nKni
-	bROXKcLWiD3kioD0yKVuF2TCPoCBR9+cXomUeftaxuwCex6/Y/dgyuAi8TeqGax9dwu438
-	rG6imA1HJIVtI7w/34QtStg9qUmod9UIuXm0LRhyS4NB8lE3OdlYk5U0MhYBvn93AReZnI
-	oZyJGqmJuQ6eEHbVQ/hplsYZz3OWa6Zt/GoaYA/ImRmI2sNDZIsjGjPoaS4ds1gu56WQTz
-	nsERVgGNpU2+SLEOWl468F+JYzPjJzuBxgZ1P/ycA6PDNX/FRoUqg+d9tJ+cqw==
-Date: Tue, 10 Dec 2024 14:44:14 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Peter Geis <pgwipeout@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>,
- Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 6/6] arm64: dts: rockchip: Remove address aligned beats
- from rk3328-roc
-In-Reply-To: <CAMdYzYpj3d7Rq0O0QjV4r6HEf_e07R0QAhPT2NheZdQV3TnQ6g@mail.gmail.com>
-References: <20241210013010.81257-1-pgwipeout@gmail.com>
- <20241210013010.81257-7-pgwipeout@gmail.com>
- <2b68c2dd3618e5904a4eac1ec87d29a7@manjaro.org>
- <CAMdYzYpj3d7Rq0O0QjV4r6HEf_e07R0QAhPT2NheZdQV3TnQ6g@mail.gmail.com>
-Message-ID: <6453e714b2a48572ff1e57cd74b0f6d3@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241107190818.522639-6-ankur.a.arora@oracle.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_054418_252540_A837D3C1 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20241210_055102_790753_7FE3BE6A 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,85 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
-
-On 2024-12-10 12:29, Peter Geis wrote:
-> On Tue, Dec 10, 2024 at 5:45 AM Dragan Simic <dsimic@manjaro.org> 
-> wrote:
->> Thanks for the patch.  Please, see some comments below.
->> 
->> On 2024-12-10 02:30, Peter Geis wrote:
->> > Since commit 8a469ee35606 ("arm64: dts: rockchip: Add txpbl node for
->> > RK3399/RK3328"), the snps,aal, snps,txpbl, and snps,rxpbl nodes have
->> > been unnecessary in the separate device trees. There is also a
->> > performance loss to using snps,aal. Remove these from the rk3328-roc
->> > device tree.
->> >
->> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
->> >
->> > ---
->> >
->> >  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 3 ---
->> >  1 file changed, 3 deletions(-)
->> >
->> > diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->> > b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->> > index 6984387ff8b3..0d476cc2144d 100644
->> > --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->> > +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->> > @@ -155,12 +155,9 @@ &gmac2io {
->> >       phy-mode = "rgmii";
->> >       pinctrl-names = "default";
->> >       pinctrl-0 = <&rgmiim1_pins>;
->> > -     snps,aal;
->> 
->> Huh, I see that quite a few RK3328 board dts files specify
->> the snps,aal node.  I wonder was it a "cargo cult" approach
->> at play, :) or was there some real need for it?
->> 
->> Actually, I see now that you added snps,aal to rk3328-roc-
->> cc.dts in the commit 393f3875c385 ("arm64: dts: rockchip:
->> improve rk3328-roc-cc rgmii performance."), so I guess that
->> your further research and testing showed that it actually
->> isn't needed for Ethernet stability?
->> 
->> >       snps,reset-gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
->> >       snps,reset-active-low;
->> >       snps,reset-delays-us = <0 10000 50000>;
->> > -     snps,rxpbl = <0x4>;
->> > -     snps,txpbl = <0x4>;
->> 
->> Unless I'm missing something, the commit 8a469ee35606 ("arm64:
->> dts: rockchip: Add txpbl node for RK3399/RK3328") doesn't add
->> the snps,rxpbl node to the RK3328 SoC dtsi, and the respective
->> driver does nothing about it when the snps,txpbl node is found.
->> 
->> Though, I see that rk3328-rock-pi-e.dts is the only other
->> RK3328 board dts file that specifies the snps,rxpbl node, so
->> it seems that removing the snps,rxpbl node here should be safe,
->> especially because it was you who added it in the same commit
->> mentioned above.  If there were some SoC-level issues, all
->> RK3328 boards would've needed it.
+On Thu, Nov 07, 2024 at 11:08:08AM -0800, Ankur Arora wrote:
+> Support a waited variant of polling on a conditional variable
+> via smp_cond_relaxed_timeout().
 > 
-> Good Morning,
+> This uses the __cmpwait_relaxed() primitive to do the actual
+> waiting, when the wait can be guaranteed to not block forever
+> (in case there are no stores to the waited for cacheline.)
+> For this we depend on the availability of the event-stream.
 > 
-> You'll notice the author of that patch was me. Setting aal, txpbl, and
-> rxpbl was the original fix I came up with for the rk3328, which I
-> applied to the only board I had. Someone else later on isolated it
-> specifically isolated it to just the txpbl and applied it to both the
-> rk3328 and rk3399 directly.
+> For cases when the event-stream is unavailable, we fallback to
+> a spin-waited implementation which is identical to the generic
+> variant.
 > 
-> This was just something that was left hanging after that result.
+> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+> ---
+>  arch/arm64/include/asm/barrier.h | 54 ++++++++++++++++++++++++++++++++
+>  1 file changed, 54 insertions(+)
 > 
-> Looking at how rk356x was done, I suspect there's an even more elegant
-> solution. However I don't have the deep level knowledge nor
-> documentation to implement it.
+> diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
+> index 1ca947d5c939..ab2515ecd6ca 100644
+> --- a/arch/arm64/include/asm/barrier.h
+> +++ b/arch/arm64/include/asm/barrier.h
+> @@ -216,6 +216,60 @@ do {									\
+>  	(typeof(*ptr))VAL;						\
+>  })
+>  
+> +#define __smp_cond_load_timeout_spin(ptr, cond_expr,			\
+> +				     time_expr_ns, time_limit_ns)	\
+> +({									\
+> +	typeof(ptr) __PTR = (ptr);					\
+> +	__unqual_scalar_typeof(*ptr) VAL;				\
+> +	unsigned int __count = 0;					\
+> +	for (;;) {							\
+> +		VAL = READ_ONCE(*__PTR);				\
+> +		if (cond_expr)						\
+> +			break;						\
+> +		cpu_relax();						\
+> +		if (__count++ < smp_cond_time_check_count)		\
+> +			continue;					\
+> +		if ((time_expr_ns) >= time_limit_ns)			\
+> +			break;						\
+> +		__count = 0;						\
+> +	}								\
+> +	(typeof(*ptr))VAL;						\
+> +})
 
-Sure, I noticed that you authored the original Ethernet stability
-fix. :)  With all this in mind, please feel free to include
+This is a carbon-copy of the asm-generic timeout implementation. Please
+can you avoid duplicating that in the arch code?
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-
-and I'll prepare a patch or two that clean up any and all leftovers
-in other board dts(i) files.
+Will
 
