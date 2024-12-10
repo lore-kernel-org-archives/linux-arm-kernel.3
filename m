@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF76E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 21:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676F2E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 21:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nm2Mjco+od8VJPNesv7f8taGbBUYsjl37SP0Hd6X4WI=; b=oDWz+QzMbbK+GNNfGaINVModwS
-	l2tffMfBo1RtG3cQDEtfhjkvHMoVNJC1rkqaGNT3MiGLpUHr0szM45Pt3ShWiJ5JLteOT8P8HfOqv
-	v2+hc0TK7c/ZNEBpESh5uliSL7wGhQxJn/yY+sbemLDvtuqRwekHjkMtm5yuKqN2VpiFhYZ9uwetR
-	+8oV47Bi8nJp/c+mUggVrRTtnE7IhYxuCYdqCkkRpzjmmzNcEY7Hm8nNrZ5CMFjjGOkhqo+2z2uK9
-	5cOOS4WjbJPQ3dGfLSnagcikdJ7JihvVFIsozjlj65NMenQvqY3xMFTnLoMSzC/o276QZQN9FDo1e
-	Fj0ySVXQ==;
+	bh=lCSUmM6tJtHk1cryES3nVKP4N3a8/9+7aIRBtf/l8Mg=; b=RtzZfIRp41AtI0WFMqBb16tfXj
+	Uvek4kv+W8hcUwmCBNWPOW5U70qZq0y09L2svvrLyxP9sLRyz2fVgIo/SrMY2uBba7JJC9dq5cWVR
+	M/c10dnA5DcOdKkh32p4INgj3/K3qBw7BprdmXymgbMwwjwQ+42IFs34d7AsVGmB+uukZwXtHydec
+	V1X08s6ORpxHiwq2sU5VoVj+5G9x5BIWaNU3x5QKAItyVN4jndOJ8eoosfZC02Gt4633sXLxRekw9
+	zIEZ+Chmc+0ItjQRK0M0PyXupcxMxz4Mx572nVltrpF++EywJ0LeJcRxhHbq9Ytnmu5MxdN+ORwE3
+	g/e5fy2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7Qx-0000000ClTl-38UJ;
-	Tue, 10 Dec 2024 21:06:19 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tL7Ry-0000000ClgQ-2eCR;
+	Tue, 10 Dec 2024 21:07:22 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL7Nz-0000000Ckvn-0QiY;
-	Tue, 10 Dec 2024 21:03:16 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434e3953b65so26272405e9.1;
-        Tue, 10 Dec 2024 13:03:14 -0800 (PST)
+	id 1tL7QQ-0000000ClNU-33XI;
+	Tue, 10 Dec 2024 21:05:47 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa676e4f36cso41603666b.2;
+        Tue, 10 Dec 2024 13:05:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733864593; x=1734469393; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=nm2Mjco+od8VJPNesv7f8taGbBUYsjl37SP0Hd6X4WI=;
-        b=M1zC7AKguLS2sJ5Sm/G43ehW9WD5lT2TmC8TAm4ykloj8fccl9U91AG5EM56m5nmkY
-         GhdtDKG5D115uxr5iUfK3w8K/79Ip/OhwChx9L2mjWj5UjIpUpa9QN8plXdr4bqd6YSW
-         U4rGoErluWiqNBrbOMcGXUsrf3sMPEbruGBFcdlopFpyju1PTMgeNA6dr6nexA/UtsZw
-         CbSVT6lmlK9MFnwqV9Pcaxnrbd1kavrlMMkdZjTkQ3ow/vfuLKxYgnzQmjbtPkRAPs7T
-         T+BbXSjEUOsiNL606UjnSdQCY4Xgi9C/YFVbhk+QiZ9Fg9kRsmaQOiMTYzF4a4CJTmUJ
-         jbQQ==
+        d=gmail.com; s=20230601; t=1733864745; x=1734469545; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lCSUmM6tJtHk1cryES3nVKP4N3a8/9+7aIRBtf/l8Mg=;
+        b=nXictbvstimug/X0/RkJ51DxClwSer51EAFjs4TB4P73Jx5Kk7LPXRVZcJI7B7uS/L
+         KFtdXAkAefLQl+lCiNcMI7d1PztWRf9npqdPJ7qtsw+OBy3yV7yf73V1+as06xtkndhB
+         9YLH1Mm13WQkfi0vcOY06rZ0qi8k3xzWpAxo51NFvwEoypufzfu1tQjB1T9pwp4ljJw4
+         rZ1srkzJXgYUZCXvekk8wQoWbWp9xpB3IPrxskDdJAviTiiLya2avuBYqEbUPA8AlPB7
+         8Sul7CMCzc/KDK1gO5r/N/rsShXGl1Va7CX1fXNYYS0uHhc0Qsk5Jd7GvV4uzuhK1JhV
+         q4kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733864593; x=1734469393;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1733864745; x=1734469545;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nm2Mjco+od8VJPNesv7f8taGbBUYsjl37SP0Hd6X4WI=;
-        b=qKbsfcNr6Ic78ppXnRD8E5eO7db4CtyvP/RJu4rirrU6W4fiv91Z2OFMy3RJds06q7
-         sNt5an6pOdLbMM/DyCu8+C9QfT//uf6PYXhEgnGqy8r0FIW8iGIAhCrim5jmkqF04kW9
-         bcwc8Z07010dqJmnqsRAaD2/ajDtXXUYeaDPT1uyJP3SKHXNE5SohPVJ+7oaqokTon0q
-         dXr3RdXlZavr51C4z261queURE10Ixggser3rA02TGvFpzvPwJ3nqvMUc7Oy8NlVy4J0
-         lw8DiRROJ2VX02KP6Z/JA4c50vt04JSfsOXOZxBg0v23/ekbwlJNwlRCo7asKVcoV7No
-         fzVA==
-X-Forwarded-Encrypted: i=1; AJvYcCV3m60rTvV57OE/8tlq1ZbbY7JEZtWmzgOu8VLUP4rnR8HREACZSGOeRk6ICloaz3e8t3RaHy1G6YY4gWrzLds=@lists.infradead.org, AJvYcCVNHRAXhn2T/SYKsBqQZMLv8kvV7+liW/o5HauKYKTYlqACSaKdrd8X2xl8+qFtI+WR6Ah2fL3q1VEAJ8StRuh6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVTMur7gXQpz1Hui/UV1w4Dw4tFS9AlH9F3jcrt4sjZ9Hp7BLq
-	oRXkbngYP9LLlX9/OniMm5tg/zDGSy9I4tBfUz6rNTI7ITz0wPEz
-X-Gm-Gg: ASbGncsO+fdN/Ut6p5OBG0seFGnJrQxG/Xou7ZZexMgxqQBFcVKrIF4MY7G1Hx0mZdt
-	S52sIrFd3w7brObjM3ut0VgChBrVu+GP0cpBx5VeJsAeDlVsIpdVTNNRJoLr7GEP7+TzlBCNFZX
-	kp11gXBeDbOvy38TDp9E+KmqmvLshXQqPYYutCH5ss9tGW2G/0lgZzkd5ZHqVM/JtQPgn8QjSEi
-	AjQbqku5vTyljN5m3kMjTaqn99rnOT88/cTjWQtjgQQu1meoltBCsD9g2KPAy9xUYwPF4LshIuV
-	1mCUFMKm1g==
-X-Google-Smtp-Source: AGHT+IEXtT2UlScHLsjoILK+fcmMLa5fdqey9hRCAZXHg3/61m4/0ewYioRKLrqpj0zjb4ItoNJGrg==
-X-Received: by 2002:a05:600c:358b:b0:434:f7e3:bfbd with SMTP id 5b1f17b1804b1-4361c3efb43mr2036915e9.23.1733864592696;
-        Tue, 10 Dec 2024 13:03:12 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38621fbbe15sm16620197f8f.92.2024.12.10.13.03.11
+        bh=lCSUmM6tJtHk1cryES3nVKP4N3a8/9+7aIRBtf/l8Mg=;
+        b=BOGeYDd3rKiXWdw3pMQNWJjgU1LSPJiNGSfeWBf22JGGWRlw61BAuoYOcRVJHQHmYO
+         0eGDKwfzl+d/nnmx/3jxKysWN4GM9bkGsPR7g0263qWvWQU/uxsE0IdrsYcur9yEp7W5
+         arf08gW6rAFhTjWVhihUN9Lm8XFcUlYoK4IsUgR55sw9UOCqO9GblLrvJLqP+VU27UNI
+         QyxEQ1lkJ4T+WI8FLMRI1V2W2IQl5EfRHx4/81QSpBcsIjiMwEXzvZA0q4rYtYtRGBog
+         To/Tmxdbybiqjx6+b31PO37XAYfKyTC1E6ESsMbJKHd2sSmSWWNDfDUy/oztK6sZDN1l
+         LMug==
+X-Forwarded-Encrypted: i=1; AJvYcCWUhgLYZGSEaG6SbWwvkEScLIDYUzShwm5NwGzhqMq8Q80YrzQFW9vLSH1bxVw3aephluTNnWWbBlNbwFJXgTAH@lists.infradead.org, AJvYcCWfByLiTpQvU6PRw3B9n3gs1cCt5cSi25OmyQETcYdLOq2/ZFwK/Ns8Yif7F16YsIdJZaGUsPY2bE9TWGVWVIQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywltj0r4BrdnGF3wdgzCZ191fHnfRC8xjyF+DnJ56ZFJvgFgGsY
+	KGyH/UgyJo96H00N9VOBo14QLjIh9zApQKYOPmdB4ouVOBY2MNZY
+X-Gm-Gg: ASbGncvNePiDsvTkm2BetJmSFQVl9K/yxMiYMyEjOhDPy0IcGm8hoZ+G5PpudIciwxL
+	uXsJsf2XKc+dRaKwt2DN4hE3gIiX3ewPNJBX/9d+DqsznTOSZcYSc232GDAu+k8UzpjRpFRlY20
+	cudYzN2yWRqcnXleIBpI6ujKqgr4tG+DTOmqLshG/m56BlPafUfBc1xv2um42aIuEc6tP6NUi/y
+	EpPpy+IWpv9EgBGdss+o4Qgw+CtdcQINzM8oj0/9g==
+X-Google-Smtp-Source: AGHT+IH6uzJqyl9gC3tF9Zg5rL20SJAzl4Fe1it808wM2vN5YRgy4x6E1uwD9tzrmWPmIFxFqiytkQ==
+X-Received: by 2002:a17:907:868a:b0:aa5:163c:69cb with SMTP id a640c23a62f3a-aa6b13ad3abmr7899166b.12.1733864744607;
+        Tue, 10 Dec 2024 13:05:44 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6a263efc1sm168094066b.68.2024.12.10.13.05.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 13:03:12 -0800 (PST)
-Message-ID: <6758ac90.df0a0220.20ca7f.df40@mx.google.com>
-X-Google-Original-Message-ID: <Z1isjbV2ypR2T2Bh@Ansuel-XPS.>
-Date: Tue, 10 Dec 2024 22:03:09 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vladimir Oltean <olteanv@gmail.com>
+        Tue, 10 Dec 2024 13:05:44 -0800 (PST)
+Date: Tue, 10 Dec 2024 23:05:40 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>
 Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
 	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
 	Russell King <linux@armlinux.org.uk>,
@@ -87,20 +84,20 @@ Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	upstream@airoha.com
-Subject: Re: [net-next PATCH v11 4/9] dt-bindings: mfd: Document support for
- Airoha AN8855 Switch SoC
+Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <20241210210540.jxhni4p2lrvdwoop@skbuf>
 References: <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-5-ansuelsmth@gmail.com>
- <20241209134459.27110-5-ansuelsmth@gmail.com>
- <20241210205544.g6y7vcyekyfebkoo@skbuf>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241209151813.106eda03@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241210205544.g6y7vcyekyfebkoo@skbuf>
+In-Reply-To: <20241209151813.106eda03@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_130315_209049_DA504E4A 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20241210_130546_799158_247349FD 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,61 +112,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 10:55:44PM +0200, Vladimir Oltean wrote:
-> On Mon, Dec 09, 2024 at 02:44:21PM +0100, Christian Marangi wrote:
-> > +properties:
-> > +  compatible:
-> > +    const: airoha,an8855-mfd
+On Mon, Dec 09, 2024 at 03:18:13PM -0800, Jakub Kicinski wrote:
+> On Mon,  9 Dec 2024 14:44:22 +0100 Christian Marangi wrote:
+> > +	regmap = devm_regmap_init(priv->dev, NULL, priv,
+> > +				  &an8855_regmap_config);
+> > +	if (IS_ERR(regmap))
+>             ^^^^^^^^^^^^^^
+> > +		dev_err_probe(priv->dev, PTR_ERR(priv->dev),
+>                                          ^^^^^^^^^^^^^^^^^^
+> > +			      "regmap initialization failed\n");
 > 
-> After assisting dt-binding reviews in the past, I get the impression
-> that "mfd" in a compatible string name is not going to be accepted.
-> The bindings should be OS-independent, MFD is a Linux implementation.
-> In principle this could be just "airoha,an8855" for the entire SoC.
->
+> wrong ptr?
+> -- 
+> pw-bot: cr
 
-Ok I will use an8855. The DSA switch has the suffix so it's not a
-problem being that generic.
-
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/gpio/gpio.h>
-> > +
-> > +    mdio {
-> > +        #address-cells = <1>;
-> > +        #size-cells = <0>;
-> > +
-> > +        mfd@1 {
-> 
-> And the node name could be just "soc@1".
-> 
-
-I tought there was a constraint with node name but this is not the case,
-will change to soc.
-
-> > +            compatible = "airoha,an8855-mfd";
-> > +            reg = <1>;
-> > +
-> > +            efuse {
-> ...
-> > +            };
-> > +
-> > +            ethernet-switch {
-> ...
-> > +            };
-> > +
-> > +            mdio {
-> ...
-> > +            };
-> > +        };
-> > +    };
-> 
-> I hope it's not mandatory to duplicate in the example also the bindings
-> of the children, especially since you link to their own schemas.
-
-I checked other example and some duplicate the example and some
-doesn't... My idea here is to try to add the most complete example
-possible. Especially to how to define efuse and how phy makes use of it.
-
--- 
-	Ansuel
+Also, why continue execution if devm_regmap_init() failed?
 
