@@ -4,108 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CB2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35ECFE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=APM+1yhaJCH113HhvAVKgYmvJyXakNLD1enONsFKaVE=; b=ZeBXlhqW7MtGRtVLxAxcpfMHZr
-	x+SzujqxYNAHaC07/0ggVXWlxhxKjaKzBP0/oDT9VROGk1fyINGQUIpbn22WZ8hUDKkoBADgK2ois
-	KM43LsJN0UeWDRaMDHsUsWa8gmyQiQarStT721srCwRv72ux2Q55jVGf+9UCvnalwDIkdXyq3kJFN
-	qYhpIlqGCi0y9h0L/De5dQM21c1WwKDaRzcSD6agJnwlyE4RpB8GTqn/2aIQ002kbicyeNQ4zJv3Y
-	TKSOdZUabcR8kG5nKefePAymg84F3Q4tV6mzsBtlxlqqjnCNxsnSwID8RK/T2yrMkdsierDLSH/bJ
-	PmpIeK0A==;
+	bh=kGRD0hSRVjDln2H041utB2MSY4gQ8R47O9Y5WYRUCMw=; b=fNHEpSdbFJin8oZE+uDS9VSXUK
+	vcjkDWERozAdOKJ/wuZrmwr+vOYnKDji2FYrpjgvMyF17L6lh2ifXtz7zo9S+25vQsRvEi7BXnsb/
+	whcnHtx7eQKT2PYY9QSWPFkkpnZ0XQ4Y42CkaHrntRYoNSVBbQNgBgNK9Gtcl/vSdQksC3MIHRIJH
+	xlToSgHCcwC0QTQzDp5zamTrZKsg9rm+c1wevxgZ/oeQY2mM2CW85B3TFo8vd9I7tjBKYJ2FSBfdm
+	cGeBi105ocQltA08nBDoEGQo5JJGOt35KIpRx5QXiQ/llPRoDkPxCRnUfagr7SY4Lpx4KnTkhJpDj
+	yJmH3rCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwUt-0000000Arat-3WPM;
-	Tue, 10 Dec 2024 09:25:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tKwWc-0000000As2d-1XXL;
+	Tue, 10 Dec 2024 09:27:26 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwQp-0000000Aqts-1TIH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Dec 2024 09:21:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=APM+1yhaJCH113HhvAVKgYmvJyXakNLD1enONsFKaVE=; b=CIeqgyD7GnCMGbGdXUgLfxDw/j
-	QjUQVhbphX+CkQw1d3W1CFXtMQQqCXCX2SnGFeBDZ7qbcWAYZgVeKVytK0/UHBqpmTmN/27ym9LAR
-	QH6EhibTYmutubDMsPbDPgUdqwQk4H2uzjVY+Sgx+Lqeiyk0QGsgjQt9c5wGxZvQR55AYnuRxipP+
-	290zPtuALZmsOUyO5Gf1OdORZ8B2PJ83MWAp4o215ir6RBBi3EDt1MvnJIznqB4ohHvC0jLkFizYM
-	IaqaKuvmufEXLMFaHZ6HpA5VmRguQPKlwb5hq0O5elluTQrMkT70/4khQ/WskDCcwt40WQb4dE/Nf
-	VgqvcgSg==;
-Received: from cpanel.siel.si ([46.19.9.99])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwQl-00000003e43-1bEn
+	id 1tKwVY-0000000Arq2-0tgU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:21:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=APM+1yhaJCH113HhvAVKgYmvJyXakNLD1enONsFKaVE=; b=XtQMU9MVlqL5uT8Cv5KUl1wp+1
-	k2Gyagp080pG7UY6rcUpFWYBZMfOvVApx8XVBbBNMnqyxOcUgMeDeoDqK1sxzgueFm95igY6MJoHp
-	xFEhF12S1qGrFmq4QgAsLn80arpFDsomBzweZ7KOr+aIoXtOpejLhe7HtuBYQUAWBTNZRUU4vNPWN
-	yQNddM/5EKnuCMgNdP1/MfePzTSlV/BCB5CQPatrIzz4uAqNEpxIjp699+GDiCkgANv8TL965X7wB
-	LfLzHbTQDk+JdQp9/HtgpT9s/JEqUO4aMvhu8VCgBJHQE99rtLYWNr/Dy+NVL+LYCbh8Zrm1n4CVj
-	+7QAG2KQ==;
-Received: from [89.212.21.243] (port=59230 helo=and-HP-Z4..)
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tKwQT-001jvW-1b;
-	Tue, 10 Dec 2024 10:21:05 +0100
-From: Andrej Picej <andrej.picej@norik.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	marex@denx.de
-Cc: dri-devel@lists.freedesktop.org,
+	Tue, 10 Dec 2024 09:26:21 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21619108a6bso27228855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 01:26:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1733822779; x=1734427579; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kGRD0hSRVjDln2H041utB2MSY4gQ8R47O9Y5WYRUCMw=;
+        b=Obt0EcBIlWBpdYQhKMF3eUBiDSYF+8bcBqZf3/ZEgE6xOgwhjBej5HG9GCiUxMtYTm
+         +3ADUMUNetzlxL/tquAK7slG7YYrm8+dy9Xl0iXlMEkaCFaiYuaM3AWfWwe3V83c1JVh
+         j1FdBM29UM9uQyiJZ3GRvWjguiur8MmkpNhOs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733822779; x=1734427579;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kGRD0hSRVjDln2H041utB2MSY4gQ8R47O9Y5WYRUCMw=;
+        b=evMYR06rr3bE+F4mf0FNx2WmvG3yHNHTFwvCPIGHiVTiFyu1ZE6r/zz2dIwUh4mHfx
+         DFjrhhrk4fgjetnyraufmNdBY1yiSOYP3PV4ZJI6JtN1bPExIth3jSuN1WuDY9HlWAce
+         /Fi/AMNL/A0MCpKb6VDTeh0btFcAX8E59RIuVeRq127r6ZFl3I9IRiaQPTn9fWh3P0sl
+         sIUEcW8bSXUDmFPdgidw4RkHkJ5N0RJnU8ZUQjvWE75LO2T9QJDnlH4uhfmKSEIleRUC
+         cXmxlsvwav2gQGKntW2dXIbSvrO8oURQA9XWd0pKvJ/u11ObimuvvI8Cmf/+lXoOpRo6
+         XkIw==
+X-Forwarded-Encrypted: i=1; AJvYcCV9rkJb3yl4mIPPKz87KKCA9hPzSrMPWZsHsESOnbTLfJNmrQm97jbMvKXwwjKClz72/YypHsi3IKExmh6XLqlT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHqgkUPe7ay4KGhGdXSv7Nviw6/YqxCFSnHEUX1R6VHoV4uhc3
+	ZO9MBzs26zmxJYpHDtq1K7eTrRrFijFIECKlTK/5rPq82l9qhv+0vgpk7CDRCg==
+X-Gm-Gg: ASbGncsjVv6jbfei6Cnp6MUxnwQN4ZsUKyS5zrPrPw0hxjhlz3EfEWMfvNZ1Hs7EGRu
+	+w02JRh7eLPgJDz1w3DC1tSCNa2F0EAAp4+AL0/kz8EerqnCOY8pzqR09kH8CqX3SLFizl5ryl4
+	pl5OphcKcNKA7lq1KU6jZtr7CsT0aAalqt2fKmHudO6kWUEa5yepTwOJ+xCoZAfvSSghZl6A9ge
+	BaTYP6xU9U4C2GRAl+NIa0pK5FMZ4ix/FWivXbs3bXJu848v0p4ryECl/IlgCsrIJtKBxk8
+X-Google-Smtp-Source: AGHT+IFppVkXUZtU5Ti/lKVHNrZcFZH/mEntPtAhtpRBAEfq5xqQx4M1XdryOoDpDNSLeE8I2hMSbw==
+X-Received: by 2002:a17:902:ce88:b0:215:a97a:c6bb with SMTP id d9443c01a7336-21669fca850mr59408385ad.12.1733822779591;
+        Tue, 10 Dec 2024 01:26:19 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:89ce:2db9:f7d5:156d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21632c4fc62sm49006905ad.194.2024.12.10.01.26.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 01:26:19 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	upstream@lists.phytec.de
-Subject: [PATCH v5 0/3] SN65DSI83/4 lvds_vod_swing properties
-Date: Tue, 10 Dec 2024 10:18:58 +0100
-Message-Id: <20241210091901.83028-1-andrej.picej@norik.com>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] arm64: dts: mediatek: mt8173-elm: Fix MT6397 PMIC sub-node names
+Date: Tue, 10 Dec 2024 17:26:12 +0800
+Message-ID: <20241210092614.3951748-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_092123_604495_AEB970F2 
-X-CRM114-Status: UNSURE (   5.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_012620_264314_DBFA323D 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The MT6397 PMIC bindings specify exact names for its sub-nodes. The
+names used in the current dts don't match, causing a validation error.
 
-The LVDS differential voltage swing can be specified as arrays of min, max
-in microvolts. Two arrays, one for data-lanes and one for clock-lane can
-be specified. Additionally, because LVDS voltage swing depends on near-end
-termination this can now also be specified with separate property.
+Fix up the names. Also drop the label for the regulators node, since
+any reference should be against the individual regulator sub-nodes.
 
-Driver goes through the tables, taken from datasheet [1] and selects the
-appropriate configuration. If appropriate configuration can not be found
-the probe fails. If these properties are not defined default values are
-used as before.
+Fixes: 689b937bedde ("arm64: dts: mediatek: add mt8173 elm and hana board")
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-This patch series depends on the patch
-"[PATCH v2 11/15] arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10"
-(https://lore.kernel.org/all/20241202072052.2195283-12-andrej.picej@norik.com/)
-which is currently under review. Please apply the dependent series first before
-applying this one.
-
-v1 is at: https://lore.kernel.org/all/20241127103031.1007893-1-andrej.picej@norik.com/
-v2 is at: https://lore.kernel.org/all/20241203085822.2475138-1-andrej.picej@norik.com/
-v3 is at: https://lore.kernel.org/all/20241203110054.2506123-1-andrej.picej@norik.com/
-v4 is at: https://lore.kernel.org/all/20241205134021.2592013-1-andrej.picej@norik.com/
-
-[1] https://www.ti.com/lit/ds/symlink/sn65dsi83.pdf?ts=1732738773429&ref_url=https%253A%252F%252Fwww.mouser.co.uk%252F
-
-Best regards,
-Andrej
-
-Andrej Picej (3):
-  dt-bindings: drm/bridge: ti-sn65dsi83: Add properties for
-    ti,lvds-vod-swing
-  drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing optional properties
-  arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set lvds-vod-swing
-
- .../bindings/display/bridge/ti,sn65dsi83.yaml |  34 ++++-
- .../imx8mm-phyboard-polis-peb-av-10.dtso      |   2 +
- drivers/gpu/drm/bridge/ti-sn65dsi83.c         | 142 +++++++++++++++++-
- 3 files changed, 173 insertions(+), 5 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+index b91072f4723f..b5d4b5baf478 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+@@ -931,7 +931,7 @@ pmic: pmic {
+ 		interrupt-controller;
+ 		#interrupt-cells = <2>;
+ 
+-		clock: mt6397clock {
++		clock: clocks {
+ 			compatible = "mediatek,mt6397-clk";
+ 			#clock-cells = <1>;
+ 		};
+@@ -942,7 +942,7 @@ pio6397: pinctrl {
+ 			#gpio-cells = <2>;
+ 		};
+ 
+-		regulator: mt6397regulator {
++		regulators {
+ 			compatible = "mediatek,mt6397-regulator";
+ 
+ 			mt6397_vpca15_reg: buck_vpca15 {
+@@ -1108,7 +1108,7 @@ mt6397_vibr_reg: ldo_vibr {
+ 			};
+ 		};
+ 
+-		rtc: mt6397rtc {
++		rtc: rtc {
+ 			compatible = "mediatek,mt6397-rtc";
+ 		};
+ 	};
 -- 
-2.34.1
+2.47.0.338.g60cca15819-goog
 
 
