@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE8FE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576EEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHLLYUb5aKmiYBywLpOydX2GHG7acjnCRadd5iwWBCE=; b=fhdvYvOYiiTB5wBE4dhcKXBnP+
-	/xjcnUNnAd0tG2z7wEBuyA6oa0krmhb9ApAxm/JHvMdMLW/tvMsGHxGujuDooq0E43s8bbgKUKFwf
-	0NY3pOuxfSBzpi6V2Dai3+gxUk/pJsb4sFH5cAco9bsyeJZ8vVJ6eNOHsJ/wmY4ajb3W4mj4Yh240
-	nfi/zlW8r+2aHFLVOumAe9HLcZ/YAbmJQA2JXFkl46wngnr7NJTZBWtO20kkmwyQ+ThUOnLzEmlon
-	BWcCMj/aT+5BsxZ0ptWBv688JzfPY67g+CXzwxZ3lzCc0kFRbgz1QBu7GU4t0LyFrSfysCZEqiZrI
-	UGXN4+Zw==;
+	bh=RrGX2P8h5S8FXjwp+GaR/VGtnUcUeOjvFRq4Jbh1vAE=; b=SMBcPAXEKSETJewVW61g0k2bIh
+	zsrJ7I9ZGPCjYgyWF8Y7KEN1k1P6XWt8NPU7gbTRSmvkEQOscsQsRUyugqRA7rffKG8ZW5hs5IJeH
+	g81eU8ovTnjqPpS2vBGa7THBT52Au7qQQteocSr/g2ZEqDhV7c+3kjMJIw81fB7vHhmsCs/7R2SVn
+	VBVWSECr4AiDsAZJESfa6FVKz5Qqc/zLGxmkVsJib2CPTRjZc3EoxJxn3yT9R4VvSuaaMM2zfrcPz
+	VMwHM1MYLX7Fx8uyfL0po1RIjYj4EAewOKiofODdbcTEzdcr+Weu5S2JXJ+jeGr0o38bMJao2gsR9
+	XSvk3/eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzz8-0000000BXMo-3G5J;
-	Tue, 10 Dec 2024 13:09:06 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1tL00A-0000000BXb0-1hvu;
+	Tue, 10 Dec 2024 13:10:10 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzro-0000000BVqw-32Yj;
-	Tue, 10 Dec 2024 13:01:33 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5d3f28881d6so3074808a12.1;
-        Tue, 10 Dec 2024 05:01:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733835690; x=1734440490; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bHLLYUb5aKmiYBywLpOydX2GHG7acjnCRadd5iwWBCE=;
-        b=Fl+1Qfjh0JVlUhoLD6Won7IgkcOtH1CX3Igxr0ogju3R/uwHe4gcHXbs2RXjINxoCi
-         JkYsf/TUz0VvDHZfvyXB+5QK9SND6hj3G8jpolOGEi05Cp/tfKFV9bhZyYiBwUUBdThb
-         NXPPWRhuH98rEGg1Snd6TYqZBiSX7sCEDrNP2lPsSnObUnlgL9omx0J7FW7RVmKO3bW8
-         tk3BiE1nQwnZ1iQQCI7mbd+E9qigd/IGEv7Om7bL4a1vrsUfK28LYOXrkoG+xhxJuxQV
-         9N86NW9DDmhbYLkE83DpzmvF/kIOtR5U3ocT53q42xe0CrONXjq021t5HA+DVNX6p0eV
-         WWNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733835690; x=1734440490;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bHLLYUb5aKmiYBywLpOydX2GHG7acjnCRadd5iwWBCE=;
-        b=CHesIzc9iIS5JK4qAR7rJirr0XCkHWQX5MUkuyUxgnJeYcRcfdvs1s36bM9K+4hG/K
-         E4QFzsmIkqScNlfd7ALfKFY3fZbuNlICixZfK78394Q4NUArGjVC5tvsUjeTQ8r4kTSy
-         /Yw4w7sgQHUGkQEIydnySKd5lCli3R44bykkEnLLgEzxuByIZoKa99xpSF+HJw6K7oue
-         JfZI4sTZ+8eN2vp0HizCVO4f7V9cTpYKJtMHIRs23lhDHsS9z3acRI4JXUX/3dOfwhRD
-         +8G6V3HhD+2eaP5XkshO99a0OQksgGjdOuhGrJ/b5Wzc3TnlwONcjI0IzJUrPa87QbUI
-         O15w==
-X-Forwarded-Encrypted: i=1; AJvYcCU5A8lC0qsngu3IlzUvWtF7iMR87xdNQLlvqfr5X5Vm9dWcVG+gJgcQbIuxbXpXKkUOwBFo8bLBOPGb95/HPkwV@lists.infradead.org, AJvYcCWVdUCygmOaWfLEclVQr/P8nXgeZzeitvrgL9Za73ttFi0EwSO0U4IXlg0FqctwHT7NBjE70FfuQ91AhHeHcXA=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxp6VdX6v1GZ+Z5mTIDPOpp1sB1eyUE1ly/MxrncrPc9Deui+T
-	PnLA+dHh6eo37yolXCX20NCh1dP3QBOC4K11SsGxZh6VQykyQwBzIOytuY0Sd2tRg6gXqxzlMgF
-	yw2h/1h4ptjLbEPUNtAlNXZnXxIY=
-X-Gm-Gg: ASbGncv34B/ZmpOMSWm8Osnd8HdU+zP95/Tj3IO+iu3mQSNWLeb/sXj6pDzL028Glc5
-	QIz3xf5lPoqCz+Yx3uBTBBmJaIKee+3FP+QhMuU5CjFCypyxUYRlDgafaiWQ=
-X-Google-Smtp-Source: AGHT+IE+3dBsg9ycaXlihQEkFOTl6FWUvTA1IQqCmYlgGVvNU9+J2ICqAS0Ely7TDkGOnJtbTgHRvmD88oh1lqiohSs=
-X-Received: by 2002:a05:6402:234f:b0:5d3:ba42:e9fa with SMTP id
- 4fb4d7f45d1cf-5d41853edb2mr10277905a12.16.1733835688916; Tue, 10 Dec 2024
- 05:01:28 -0800 (PST)
+	id 1tKzso-0000000BW9b-1jUy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 13:02:36 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Y6zP16pB8z21myt;
+	Tue, 10 Dec 2024 21:00:37 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id CF5F4140153;
+	Tue, 10 Dec 2024 21:02:21 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 10 Dec 2024 21:02:21 +0800
+CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
+	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
+	<prime.zeng@hisilicon.com>
+Subject: Re: [PATCH v4 08/10] drivers/perf: hisi: Export associated CPUs of
+ each PMU through sysfs
+To: Will Deacon <will@kernel.org>
+References: <20241203125049.39458-1-yangyicong@huawei.com>
+ <20241203125049.39458-9-yangyicong@huawei.com>
+ <20241209154830.GC12428@willie-the-truck>
+ <22a35ead-0f0b-39a8-16bd-333143081ea8@huawei.com>
+ <20241210113949.GE14735@willie-the-truck>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <b9f1eeef-e3db-415a-e8a2-0604ca1d6519@huawei.com>
+Date: Tue, 10 Dec 2024 21:02:20 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-References: <20241210013010.81257-1-pgwipeout@gmail.com> <20241210013010.81257-6-pgwipeout@gmail.com>
- <14451790.lVVuGzaMjS@diego>
-In-Reply-To: <14451790.lVVuGzaMjS@diego>
-From: Peter Geis <pgwipeout@gmail.com>
-Date: Tue, 10 Dec 2024 08:01:19 -0500
-Message-ID: <CAMdYzYquzAnwbUidBjif3OXOcLaGD+3GdB79Op94BCno2ZtBAQ@mail.gmail.com>
-Subject: Re: [PATCH 5/6] arm64: dts: rockchip: correct rk3328-roc regulator map
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Conor Dooley <conor+dt@kernel.org>, Diederik de Haas <didi.debian@cknow.org>, 
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Levin Du <djw@t-chip.com.cn>, Rob Herring <robh@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241210113949.GE14735@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_050132_759787_59241223 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20241210_050234_753564_00D63D04 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,128 +78,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 5:54=E2=80=AFAM Heiko St=C3=BCbner <heiko@sntech.de=
-> wrote:
->
-> Am Dienstag, 10. Dezember 2024, 02:30:09 CET schrieb Peter Geis:
-> > The rk3328-roc-cc input power is sourced from a micro-usb port, while
-> > the rk3328-roc-pc input power is sourced from a usb-c port. Both inputs
-> > are 5vdc only. Remove the 12v input from the device tree.
->
-> full stop. Please don't do "While we are at it" commits.
->
-> > While we are at it, add missing voltages and supply to vcc_phy, missing
-> > voltages to vcc_host1_5v, and standardize the order of regulator
-> > properties among the fixed regulators.
->
-> This second part wants to be its own commit :-) .
+On 2024/12/10 19:39, Will Deacon wrote:
+> On Tue, Dec 10, 2024 at 06:49:15PM +0800, Yicong Yang wrote:
+>> On 2024/12/9 23:48, Will Deacon wrote:
+>>> On Tue, Dec 03, 2024 at 08:50:47PM +0800, Yicong Yang wrote:
+>>>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>>
+>>>> Although the event of the uncore PMU can only be opened on a single
+>>>> CPU, some PMU does have the affinity on a range of CPUs. For example
+>>>> the L3C PMU is associated to the CPUs sharing the L3T it monitors.
+>>>> Users may infer this affinity by the PMU name which may have SCCL ID
+>>>> and CCL ID encoded (for L3C etc), but it's not that straightforward.
+>>>> So export this information by adding an "associated_cpus" sysfs
+>>>> attribute then user can get this directly.
+>>>>
+>>>> Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
+>>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>>>> ---
+>>>>  Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
+>>>>  drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
+>>>>  2 files changed, 14 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+>>>> index 5cc248d18c63..48992a0b8e94 100644
+>>>> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
+>>>> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+>>>> @@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
+>>>>  SCCL ID #1.
+>>>>  
+>>>>  The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
+>>>> -ID used to count the uncore PMU event.
+>>>> +ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
+>>>> +also provided to show the CPUs associated with this PMU. The "cpumask" indicates
+>>>> +the CPUs to open the events, usually as a hint for userspaces tools like perf.
+>>>> +It only contains one associated CPU from the "associated_cpus".
+>>>
+>>> What is userspace expected to do with this information? Can you point me
+>>> to patches that add the corresponding support to the 'perf' tool, please?
+>>>
+>>
+>> two attributes here, "cpumask" and "associated_cpus". For "cpumask" it's used in
+>> perf [1], this patch does no change to this attribute but only update the
+>> description in the doc.
+>>
+>> I think you're questioning about the "associated_cpus" introduced by this patch,
+>> which is not intended to be used by the perf tools but provides a hint for the
+>> user to know the CPUs monitored by which uncore PMU, for example which uncore
+>> L3C PMU's monitoring the events by the CPU(s) the application's running on, or
+>> if the counts is imbalanced among the L3C PMUs user can figure out what's running
+>> on the CPUs provided by the "associated_cpus". As described in the commit this
+>> can also inferred by the PMU name to map SICL ID and CCL ID to certain CPU cluster,
+>> but these ID's aren't readable enough and it'll be more straightforward and
+>> friendly to provide an "associated_cpus" information, considering we've already
+>> maintain it in the drvier.
+> 
+> Bah. I just noticed that there's precedent for this in the Arm CSPMU driver,
+> so I don't really have a leg to stand on despite my objections to funneling
+> firmware information through to userspace without a confirmed user.
+> 
 
-Thank you, you're right I was torn between doing not enough and doing
-too much and ended up doing both. Thinking about it now this should be
-at least three patches:
-- Power input
-- Drop the phy regulator (it's directly tied to vcc_io, not a separate devi=
-ce)
-- Cosmetic changes.
+it's bit complex to identify the uncore PMU in the system for better usage
+of monitoring or performance analyzing since there are many instances like L3C
+and DDRC PMU in the system. So this maybe an easier and cheaper way for the
+user to map the PMU to the CPUs where interested tasks' running on without
+much knowledge/documentation of the platform specific information like ID
+mapping which may varies from different products.
 
-Thanks again!
-Peter
+Thanks.
 
->
-> Thanks
-> Heiko
->
-> > Fixes: 2171f4fdac06 ("arm64: dts: rockchip: add roc-rk3328-cc board")
-> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
-> > ---
-> >
-> >  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 23 +++++++++++++-------
-> >  1 file changed, 15 insertions(+), 8 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/=
-boot/dts/rockchip/rk3328-roc.dtsi
-> > index f782c8220dd3..6984387ff8b3 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> > @@ -24,22 +24,23 @@ gmac_clkin: external-gmac-clock {
-> >               #clock-cells =3D <0>;
-> >       };
-> >
-> > -     dc_12v: regulator-dc-12v {
-> > +     /* fed from passive usb input connector */
-> > +     dc_5v: regulator-dc-5v {
-> >               compatible =3D "regulator-fixed";
-> > -             regulator-name =3D "dc_12v";
-> > +             regulator-name =3D "dc_5v";
-> >               regulator-always-on;
-> >               regulator-boot-on;
-> > -             regulator-min-microvolt =3D <12000000>;
-> > -             regulator-max-microvolt =3D <12000000>;
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> >       };
-> >
-> >       vcc_sd: regulator-sdmmc {
-> >               compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "vcc_sd";
-> >               gpio =3D <&gpio0 RK_PD6 GPIO_ACTIVE_LOW>;
-> >               pinctrl-names =3D "default";
-> >               pinctrl-0 =3D <&sdmmc0m1_pin>;
-> >               regulator-boot-on;
-> > -             regulator-name =3D "vcc_sd";
-> >               regulator-min-microvolt =3D <3300000>;
-> >               regulator-max-microvolt =3D <3300000>;
-> >               vin-supply =3D <&vcc_io>;
-> > @@ -50,22 +51,25 @@ vcc_sdio: regulator-sdmmcio {
-> >               states =3D <1800000 0x1>, <3300000 0x0>;
-> >               regulator-name =3D "vcc_sdio";
-> >               regulator-type =3D "voltage";
-> > +             regulator-always-on;
-> >               regulator-min-microvolt =3D <1800000>;
-> >               regulator-max-microvolt =3D <3300000>;
-> > -             regulator-always-on;
-> >               vin-supply =3D <&vcc_sys>;
-> >       };
-> >
-> >       vcc_host1_5v: vcc_otg_5v: regulator-vcc-host1-5v {
-> >               compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "vcc_host1_5v";
-> >               enable-active-high;
-> >               pinctrl-names =3D "default";
-> >               pinctrl-0 =3D <&usb20_host_drv>;
-> > -             regulator-name =3D "vcc_host1_5v";
-> >               regulator-always-on;
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> >               vin-supply =3D <&vcc_sys>;
-> >       };
-> >
-> > +     /* sourced from usb input through 3A fuse */
-> >       vcc_sys: regulator-vcc-sys {
-> >               compatible =3D "regulator-fixed";
-> >               regulator-name =3D "vcc_sys";
-> > @@ -73,7 +77,7 @@ vcc_sys: regulator-vcc-sys {
-> >               regulator-boot-on;
-> >               regulator-min-microvolt =3D <5000000>;
-> >               regulator-max-microvolt =3D <5000000>;
-> > -             vin-supply =3D <&dc_12v>;
-> > +             vin-supply =3D <&dc_5v>;
-> >       };
-> >
-> >       vcc_phy: regulator-vcc-phy {
-> > @@ -81,6 +85,9 @@ vcc_phy: regulator-vcc-phy {
-> >               regulator-name =3D "vcc_phy";
-> >               regulator-always-on;
-> >               regulator-boot-on;
-> > +             regulator-min-microvolt =3D <3300000>;
-> > +             regulator-max-microvolt =3D <3300000>;
-> > +             vin-supply =3D <&vcc_io>;
-> >       };
-> >
-> >       leds {
-> >
->
->
->
->
 
