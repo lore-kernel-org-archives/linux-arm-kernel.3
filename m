@@ -4,60 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAFFE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC6DE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b52Suyskub1G37wa43GjTwqWUtENWHK5RoKTPvElvkQ=; b=3f3LArmzVc1UnwTfTIRZKNN90G
-	NrT1St2lCkpVdh0LZG3BSzRykpVZGZyXuCWOluQuUcF27qeFwKaoBPwEpgIoWh0cbQmeLRQInbz5K
-	C/29LrOaqkiRDtZJ/LvYYUVShAvlLLW1yj62yoyuE7oK2WIFJnqzPewoImyh/Ix2ZsNIKYvkWqrY6
-	aaUYy22S3uUWZDvaFWLqxJvJtdsocPcpy88dOgxD8YFCsPGGYdIwXjcry9hyvel7Wspy8E+/0IhPG
-	J26byNoXk46VqmuL09CANeK/lAkfThKZTa8byNc4mjEZ2uTClWpP0eczwjI2LJig+g89hKvPy2hqv
-	4rL3aHTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ep5OKFJpfszekExX4/IRcefemdiT8s+lNUZhAL6lYhw=; b=qPSkC7dsM45hsHFjE3B2bdvBlV
+	OcdhWdMLjT/f5MdsZNhlNR6kYe086zpi/nT7jhGuVDGvxchgaZZXynntcgHIIuoxF4bdlpCge5xw7
+	aP45Jl6Zl+ozhumwXbwo57RFVbbR8EUBlmWl0ikCt6OILiQ4UeZ/BXxXLezEtq4WwjehdVXbpXQeu
+	6QW35CHaFtZBS0LHYq+Jg3EBXOguaGmqmITxZXugy5Cd/bkT25Rik28jel5EnJ0sx/ui9r2s/WH/I
+	sjuYwGWGpKQqJiY4J8iJohG9J2nUq3KfvAct/ZBnV3YXO2bSNRBbry9sLF0DITfMVp+ZmggMyo/tD
+	bRx5zMZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKw8c-0000000AnrF-2XnL;
-	Tue, 10 Dec 2024 09:02:38 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tKwCJ-0000000AoIj-1cWc;
+	Tue, 10 Dec 2024 09:06:27 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKw7Z-0000000AnkM-2oZr
+	id 1tKwBF-0000000Ao7S-1iKT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:01:34 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1tKw73-00051L-G9; Tue, 10 Dec 2024 10:01:01 +0100
-Message-ID: <b092fdec6fda26c56b4f2cc5927bbaa4a6d786f9.camel@pengutronix.de>
-Subject: Re: [PATCH v2] serial: imx: Use uart_port_lock_irq() instead of
- uart_port_lock()
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Xiaolei Wang <xiaolei.wang@windriver.com>, gregkh@linuxfoundation.org, 
- jirislaby@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
- kernel@pengutronix.de, festevam@gmail.com, esben@geanix.com, marex@denx.de,
-  ilpo.jarvinen@linux.intel.com, linux@rasmusvillemoes.dk, 
- stefan.eichenberger@toradex.com, l.sanfilippo@kunbus.com, 
- cniedermaier@dh-electronics.com, rickaran@axis.com
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Date: Tue, 10 Dec 2024 10:00:57 +0100
-In-Reply-To: <20241210034223.1493522-1-xiaolei.wang@windriver.com>
-References: <20241210034223.1493522-1-xiaolei.wang@windriver.com>
+	Tue, 10 Dec 2024 09:05:22 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434f0432089so21864075e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 01:05:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733821519; x=1734426319; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ep5OKFJpfszekExX4/IRcefemdiT8s+lNUZhAL6lYhw=;
+        b=QtEHjbDXzCFUh/5hRuyOlYR1lPjZ77yw4e7ok6GrKCGeDIOYrHd9Ky8avNjejmQ2Cp
+         xaSYKphSfGIy0qs+ahEaKuGktChLaIpyj7nQNwnWz5MJ93vTfBQMjHceMk7u0zItIjC/
+         WdM1wWob/ZC9aE1dAtrcEHfMjQW1mGVgc2PXSLtc73CrryrZMp5GeBYwVj4BJoqBYLfK
+         On54YV0RYpRZVihUGnZaaNUi2hjf6dApL41CH+qRFnzoood3xC0PAD3w4WTmM2XP3AG1
+         Ltv7psQbuCxC2bK8h0jKhy71Qb8WvkIodF7k6O/A+o6JmmZFjmTSJsbRNojm/JGEzEZ+
+         xJlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733821519; x=1734426319;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ep5OKFJpfszekExX4/IRcefemdiT8s+lNUZhAL6lYhw=;
+        b=Fi1P/RGDW9i8V7gHL1+bgzFUyGTaEspQkqo1LDiWl5acw5Gh+wjHLr+u69bbmp0O5/
+         IY8Ku+SebMpzu7jfALd/Za3r0LFfG9gW0AmG63ON1Emp+FI8utXW8hMV/DtDbj6YrHGL
+         Uvn3UK/frULTTEZUyztWY2kKbfPNmHKkl6GabWWla5La/7BoG+Wy6MZ0B7benpJapzBE
+         AnO0vLG9WJt1TTnfX9PGbMi4AsRmut93LCjbYQl6B/9cguvTeUpBNjuCeWNJ7RQaXZOR
+         cuwxjaWlTjzfo1h/viqcqSyBPt+2BJVaBMn2e4rPdyZtY4i7Ma+3jQlCQEPYYJZmCfp/
+         I8Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCUy5656Z4+x6gKWPeZtb1C4qU8tYm5IYSSsoCL+/yse7vJM/wzGuiTOeNQMHCubQuL7eUOjw1W8Ih102iCmrO/o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6Am4Of04v4OP0bzA3kVwj3WXXPOuqO27NfDDvYgq2u0qmtsF9
+	r+9DPle1HSSaU5+Ez0G03gKZpaC81rph3vFqJTar1ShhsK3RsU0WZcQZxZE7TnF7EGrXw79V47b
+	hdBLoxkkY0qPb3bGUzc4xk9IfeVY/WxQw/zBV
+X-Gm-Gg: ASbGnctZM2cAHgJyz/gA9MBQMs6d5sjyaLc4TVX9iAlMb2/sDDSyCR0o3HJVvFHTbL4
+	pdgzafXjgabCgSmYvWHF7b89ppE6HxRDOfom8ySof25bsKXebd/26OiIkjLfKe2mj5A==
+X-Google-Smtp-Source: AGHT+IGIVjgo6xFN35HYB1TgvILbI9Al6TSHNEWYp3ypNeyi+o9RjYaXrxzLsc97Z2zDVdAJ5OXIaoQOhG2vsZwboeY=
+X-Received: by 2002:a05:6000:156f:b0:374:c4e2:3ca7 with SMTP id
+ ffacd0b85a97d-3862b33e3cemr11655971f8f.5.1733821519043; Tue, 10 Dec 2024
+ 01:05:19 -0800 (PST)
+MIME-Version: 1.0
+References: <20241210001802.228725-1-fujita.tomonori@gmail.com> <20241210001802.228725-6-fujita.tomonori@gmail.com>
+In-Reply-To: <20241210001802.228725-6-fujita.tomonori@gmail.com>
+From: Alice Ryhl <aliceryhl@google.com>
+Date: Tue, 10 Dec 2024 10:05:07 +0100
+Message-ID: <CAH5fLgiShKMGo6AYWM-4S8JK+iDA+tUfz9uxkns82g0nLW--NQ@mail.gmail.com>
+Subject: Re: [PATCH v1 5/5] rust: Add warn_on and warn_on_once
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	x86@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org, 
+	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn, 
+	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com, 
+	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
+	benno.lossin@proton.me, a.hindborg@kernel.org, tmgross@umich.edu
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_010133_700858_20A545FE 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20241210_010521_447096_F64C111B 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,101 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, dem 10.12.2024 um 11:42 +0800 schrieb Xiaolei Wang:
-> When executing 'ehco mem > /sys/power/state', the following
-> deadlock occurs. Since there is output during the serial
-> port entering the suspend process, the suspend will be
-> interrupted, resulting in the nesting of locks. Therefore,
-> use uart_port_lock_irq() instead of uart_port_unlock().
->=20
-> WARNING: inconsistent lock state
-> 6.12.0-rc2-00002-g3c199ed5bd64-dirty #23 Not tainted
-> --------------------------------
-> inconsistent {IN-HARDIRQ-W} -> {HARDIRQ-ON-W} usage.
-> sh/494 [HC0[0]:SC0[0]:HE1:SE1] takes:
-> c4db5850 (&port_lock_key){?.-.}-{3:3}, at: imx_uart_enable_wakeup+0x14/0x=
-254
-> {IN-HARDIRQ-W} state was registered at:
->   lock_acquire+0x104/0x348
->   _raw_spin_lock+0x48/0x84
->   imx_uart_int+0x14/0x4dc
->   __handle_irq_event_percpu+0xac/0x2fc
->   handle_irq_event_percpu+0xc/0x40
->   handle_irq_event+0x38/0x8c
->   handle_fasteoi_irq+0xb4/0x1b8
->   handle_irq_desc+0x1c/0x2c
->   gic_handle_irq+0x6c/0xa0
->   generic_handle_arch_irq+0x2c/0x64
->   call_with_stack+0x18/0x20
->   __irq_svc+0x9c/0xbc
->   _raw_spin_unlock_irqrestore+0x2c/0x48
->   uart_write+0xd8/0x3a0
->   do_output_char+0x1a8/0x1e4
->   n_tty_write+0x224/0x440
->   file_tty_write.constprop.0+0x124/0x250
->   do_iter_readv_writev+0x100/0x1e0
->   vfs_writev+0xc4/0x448
->   do_writev+0x68/0xf8
->   ret_fast_syscall+0x0/0x1c
-> irq event stamp: 31593
-> hardirqs last  enabled at (31593): [<c1150e48>] _raw_spin_unlock_irqresto=
-re+0x44/0x48
-> hardirqs last disabled at (31592): [<c07f32f0>] clk_enable_lock+0x60/0x12=
-0
-> softirqs last  enabled at (30334): [<c012d1d4>] handle_softirqs+0x2cc/0x4=
-78
-> softirqs last disabled at (30325): [<c012d510>] __irq_exit_rcu+0x120/0x15=
-c
->=20
-> other info that might help us debug this:
->  Possible unsafe locking scenario:
->=20
->        CPU0
->        ----
->   lock(&port_lock_key);
->   <Interrupt>
->     lock(&port_lock_key);
->=20
-> Fixes: 3c199ed5bd64 ("serial: imx: Grab port lock in imx_uart_enable_wake=
-up()")
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+On Tue, Dec 10, 2024 at 1:19=E2=80=AFAM FUJITA Tomonori
+<fujita.tomonori@gmail.com> wrote:
+>
+> Add warn_on and warn_on_once macros. Wrapping the C's WARN_* and BUG_*
+> macros doesn't work so this uses the assembly code exported by the C
+> side via ARCH_WARN_ASM macro. Like the static branch code, this
+> generates the assembly code for rust dynamically by using the C
+> preprocessor.
+>
+> file()! macro doesn't work for the Rust inline assembly in the same
+> way as __FILE__ for the C inline assembly. So the code to handle a
+> file name is different from the C assembly code (similar to the
+> arm64/loongarch assembly).
+>
+> ASM_REACHABLE definition works in the same way to get objtool's
+> reachable asm code. The architectures which use objtool (x86 and
+> loongarch) needs it.
+>
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 
-Reviewed-by: Lucas Stach <l.stach@pengutronix.de>
+> +#[macro_export]
+> +#[doc(hidden)]
+> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
+> +#[cfg(any(target_arch =3D "x86_64", target_arch =3D "riscv64"))]
 
-> ---
->=20
-> v1:
->   https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241209124=
-732.693834-1-xiaolei.wang@windriver.com/
-> v2:
->   use uart_port_lock_irq() instead of uart_port_lock_irqsave()
->=20
->  drivers/tty/serial/imx.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-> index 17f70e4bee43..9c59ec128bb4 100644
-> --- a/drivers/tty/serial/imx.c
-> +++ b/drivers/tty/serial/imx.c
-> @@ -2692,7 +2692,7 @@ static void imx_uart_enable_wakeup(struct imx_port =
-*sport, bool on)
->  {
->  	u32 ucr3;
-> =20
-> -	uart_port_lock(&sport->port);
-> +	uart_port_lock_irq(&sport->port);
-> =20
->  	ucr3 =3D imx_uart_readl(sport, UCR3);
->  	if (on) {
-> @@ -2714,7 +2714,7 @@ static void imx_uart_enable_wakeup(struct imx_port =
-*sport, bool on)
->  		imx_uart_writel(sport, ucr1, UCR1);
->  	}
-> =20
-> -	uart_port_unlock(&sport->port);
-> +	uart_port_unlock_irq(&sport->port);
->  }
-> =20
->  static int imx_uart_suspend_noirq(struct device *dev)
+> +#[macro_export]
+> +#[doc(hidden)]
+> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
+> +#[cfg(any(target_arch =3D "aarch64", target_arch =3D "loongarch64"))]
 
+What's the reason for this arch-specific code? The file!()/line!()
+invocations? Could they be passed as an argument to the asm instead so
+that we don't need target_arch cfgs? I understand that they don't work
+exactly the same way, but maybe it could still work?
+
+> +#[macro_export]
+> +#[doc(hidden)]
+> +#[cfg(all(CONFIG_BUG, CONFIG_UML))]
+> +macro_rules! warn_flags {
+> +    ($flags:expr) =3D> {
+> +        // SAFETY: Just an FFI call.
+> +        unsafe {
+> +            $crate::bindings::warn_slowpath_fmt(
+> +                $crate::c_str!(::core::file!()).as_ptr() as *const ::cor=
+e::ffi::c_char,
+> +                line!() as i32,
+> +                $flags as u32,
+> +                ::core::ptr::null() as *const ::core::ffi::c_char,
+
+I wonder if this could be written to utilize Location::caller()
+instead so that `#[track_caller]` works?
+
+Alice
 
