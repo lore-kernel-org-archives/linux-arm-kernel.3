@@ -4,162 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA86E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52902E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y1E0+uIMwr90c6wyu3dMpH/74kw0d7Pg4ChP3iwymAI=; b=WX9CQSFEQFAugyjW+7Mddjy3bM
-	LLDC14Qe7CwVDuYwcEkbB/l1Aflxk7WTwwYmuvSy4DLZ8P4GUfVgs8nqGNun6fz2R7eaz0HaGc45I
-	c28vspIM2hrG0DO0ASF8LgZyrwvxsPlFyBfSGY/R1DFuVb6JQ0ZFrfMA3uLoZi5iNo5v3+h8A1SrI
-	NQX+VsuS259nmpnQ7tbOQWseNtb0kHXzM/mckW5z8JBeyctoguYIpdXgE7D2hIifegjnE/mH/QeTy
-	I0m7PiU83jPx34Sb3W343JTEi9OtU5guF0mCMDNEYKqG+ZKsmAQ9X581m7iXxjij3jWb0RfYALgU0
-	nVkhtfhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f8UnOGblbQirPOg8RONWJpR4qniXeIU9augpkXN+BVE=; b=sUA7T2+F54ZKuw78/t2bZJmAnD
+	9OkeLDHpxbo1ntnxyVV7ITHa3iQospVCYds2V8xHb/H4iWLDfgBb3QHqRzetpxzSnj31DXVltmz8J
+	9IFx+8Qz8tz7dg0El2flP6+osVxRZFVv9z/04rtrhrJbiMyQf8/4xMyeDSL203ZwNhH21R92HRfgD
+	A9Z+IgkEBugzZx1Qx80ROcCObRwiU44qY8NLRikiod+X1rCJtE+RJaKp+skNi4QL7ZmB+/HhjkpdI
+	PLt6HCKQpBSmjEqCxjwJr3j6q5EBH7RHVooeBSbgWTbifLudCxhK/ItEdgyZ2MlUWrkfbDuoX7Voi
+	K1s+GCJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9o8-0000000DBMh-1F7Q;
-	Tue, 10 Dec 2024 23:38:24 +0000
-Received: from mx0b-0064b401.pphosted.com ([205.220.178.238])
+	id 1tL9ye-0000000DCSN-2Zwl;
+	Tue, 10 Dec 2024 23:49:16 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9n3-0000000DBCj-2qfw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 23:37:20 +0000
-Received: from pps.filterd (m0250812.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BAHhb3u005554;
-	Tue, 10 Dec 2024 23:36:39 GMT
-Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2045.outbound.protection.outlook.com [104.47.70.45])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 43cwy3kgnf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 23:36:38 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WqdbMJnHco1rGsOw65WrKWo+llH84eCX7GEgUDNbgqrR4A+rDP/KmpstwxBoTfPNXlO0PI5HTdyDA1jszrqdCzCPtFQ0OuXsMRC+7+VeeHfViRGXlz8TeS+KH+qGXX9vbNRCdY842MbvyviBrhCXLMroDPs8M3QMqdbfoiuSRuQC8TyLtZHJCjdqsn4jOyX4vKGRLXtQeezZtH25jgaCtAR5TI2FSPtvts7D4ZqwkjGE4yHf2dDPUKMg7EeCiRp5+kbTTwIj+miObTfsty64rt8fr7sA8k9y858iR/WcOnBLmM563DfKyrrDOHOGfoGn9Iu7WU/DRxWMY7yVWnSn1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y1E0+uIMwr90c6wyu3dMpH/74kw0d7Pg4ChP3iwymAI=;
- b=c5wMwtGfd6uom7Uujhm/6DqfHR2gSJhkY7A573Mp7Z7e08qnSkn4aIebSaTTYIHuZfHHWyFEKHkFpScvcQuqAxTmHdq4EXH/pE5hBCNWWZypKC4YSHEj0zQ/IH5QohGfafzI8ANa685JOCa8uumxGPH+vRXw3BQY/ueDlzbeAc49O11gQnymbmbzP5CIzbqACrNjwebymqvC/sf0RcdWvcrYst12PzcENcj5oj+lAb8DTIBilvSlxPzn6SfbEZl7oRvQYI2zejVka9UNtxHExxQOwP7GL7jEs4l2BhWhn20kL3bzVpIS/I+vqZiA2QnB5bQBoHAvIq0gnYi3YViphQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Received: from MW5PR11MB5764.namprd11.prod.outlook.com (2603:10b6:303:197::8)
- by CH0PR11MB5284.namprd11.prod.outlook.com (2603:10b6:610:bf::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Tue, 10 Dec
- 2024 23:36:35 +0000
-Received: from MW5PR11MB5764.namprd11.prod.outlook.com
- ([fe80::3c2c:a17f:2516:4dc8]) by MW5PR11MB5764.namprd11.prod.outlook.com
- ([fe80::3c2c:a17f:2516:4dc8%7]) with mapi id 15.20.8230.010; Tue, 10 Dec 2024
- 23:36:35 +0000
-From: Xiaolei Wang <xiaolei.wang@windriver.com>
-To: l.stach@pengutronix.de, gregkh@linuxfoundation.org, jirislaby@kernel.org,
-        shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-        festevam@gmail.com, esben@geanix.com, marex@denx.de,
-        ilpo.jarvinen@linux.intel.com, linux@rasmusvillemoes.dk,
-        stefan.eichenberger@toradex.com, l.sanfilippo@kunbus.com,
-        cniedermaier@dh-electronics.com, rickaran@axis.com,
-        xiaolei.wang@windriver.com
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3] serial: imx: Use uart_port_lock_irq() instead of uart_port_lock()
-Date: Wed, 11 Dec 2024 07:36:13 +0800
-Message-Id: <20241210233613.2881264-1-xiaolei.wang@windriver.com>
-X-Mailer: git-send-email 2.25.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0064.apcprd02.prod.outlook.com
- (2603:1096:4:54::28) To MW5PR11MB5764.namprd11.prod.outlook.com
- (2603:10b6:303:197::8)
+	id 1tL9xa-0000000DCHL-47Ti;
+	Tue, 10 Dec 2024 23:48:12 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434e91ac3d4so2716965e9.0;
+        Tue, 10 Dec 2024 15:48:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733874489; x=1734479289; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f8UnOGblbQirPOg8RONWJpR4qniXeIU9augpkXN+BVE=;
+        b=ALSa18Y03LcvVQXdB5DSH38gp5OYCk8q8//eTl9u5+onRQJVTYUHTIFRR3LZhxuuxp
+         NdHmdasgsKxEN0wgijKsh34btalBDP5/fg8f6kQXbUHCCN3jwl/j0MEaWzhZN/iY9rP3
+         6SrCX8Ug1iVHkhmmqzfeCDC+F3PuCqXRNn5mDKrjbavZv0TUNk2GKqKIeWO3yhjGvt6Q
+         8smif8efjEOd7P/GfmygvVe/nULnamRCHEIb2IElj2bSwFa88/UOsH94Z3ZHhO7O6ygg
+         1+ByLR0c2qlkxnps1/tbe1oq/Yt1b9GVoZDZU1XR70uX+uk4iaqzwLJQoWKRkZ8QLBDF
+         mmUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733874489; x=1734479289;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f8UnOGblbQirPOg8RONWJpR4qniXeIU9augpkXN+BVE=;
+        b=KWWrpfolGoEkuIdKT9NTltKqlFCidpw+KCmWp6E9UOjNhc5pznatJMzzVRvzqul4qz
+         SWBQc22VmK2hzXC/TorgF6MTSsEq6/SJ8JnQ9NvNzOlpMTtKM+elR3h+GFL4Vzvv+4UF
+         eI5zxpfVuB/ZcyoWl0giNrBNgd7bqim8QtZwU+JFGktp+wfC/LjUIagKYmoUS2y0sRHu
+         tEXdq22L2g95fDBC0bFNpuYkmmQwF2zuU2c49g7NuT1YnATUiUGr86DbCoZHtClJJQue
+         rP/ghIbsT7r1zH52d7BE1RqlKKRw9AslWyxfm+qDBa6pyBCDkVyAbr0il1rprFr9z/6c
+         Q7VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUWXGxHB+vN1vt9GO50ZeYH6eWUFD/LBilQD04ffp/R7oTOWK9aPinrf3i1CTD12j/hJ/opwsEMQhxBjT6j5bS7@lists.infradead.org, AJvYcCVBJI25A6SIrYkLTOhFnbKIwDtj2qPkAocFMOagv0WxSJe3uuOZbPuwqg1a7r6hmu+FzHiP77kVZFBuEzjqoi4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3drr6+rlfYLaWClWRaaO9Vv9z6IP82hU9kdTKl2bA4Pk9+mXu
+	2LKcEz9r3w+sYGUnQ2PnV/L/EA+CJFcaAd7L4nmwn7T9Lu277sea
+X-Gm-Gg: ASbGncvisHXbXbPGGFgi84R7xhgELgjWMrnqofZu/YMOPMrcAK1bNk+OYPq+RC1f71Q
+	7CXdefAbtQuFDlLabNkBQdZb73Fio0E01eDJZPDROYo3TWSJeqYJzIYpsYknXaKe7OZJs5B4vBu
+	gkSHoWwxNpbN3Hm7C/qARG5HpVj5a6Tsm+8kk2xKtwRs6d+nnGoTc07m40AX/5iuNvQBwUg/4R2
+	VbCHhVir8acD/OD2uxcYbQdQpTWU2hdB6USgsb+GA==
+X-Google-Smtp-Source: AGHT+IGVFyqOsHq8vJbKENcE96HqDNgEWPNEGfHZbGGsVdmVNjmlG8KgXuPni26CXmKkrEf6w3YBNQ==
+X-Received: by 2002:a05:600c:35c9:b0:436:17f4:9b3d with SMTP id 5b1f17b1804b1-4361c434980mr1530815e9.4.1733874488791;
+        Tue, 10 Dec 2024 15:48:08 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434da0d69dfsm203458605e9.14.2024.12.10.15.48.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 15:48:07 -0800 (PST)
+Date: Wed, 11 Dec 2024 01:48:03 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <20241210234803.pzm7fxrve4dastth@skbuf>
+References: <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241210211529.osgzd54flq646bcr@skbuf>
+ <6758c174.050a0220.52a35.06bc@mx.google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW5PR11MB5764:EE_|CH0PR11MB5284:EE_
-X-MS-Office365-Filtering-Correlation-Id: e55a7377-2e87-4ca7-ea99-08dd19737c3e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|52116014|1800799024|38350700014|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BDQg1l12bBJs9E0F+0hAS6E/toJwFFAOAGPOCW6z3bB+8SFHe+Vb1wsCFs8A?=
- =?us-ascii?Q?FcFXn9Ue1IzZ1U+RaDce6tSopa5V3XJX0/ftf+/hOdivrIbvZZD5zDOQ70eV?=
- =?us-ascii?Q?C232xn1/ieu0ZDeUaPp4j5DGvXAWVEKWulKW4rYaE68GqIoI0+qoOLvigDvL?=
- =?us-ascii?Q?IwIbXhWCeN7IkcqxHBv9rJA0DNNcv2NYo4IXuuUfUNPjpPJvoAdG7/f10BBr?=
- =?us-ascii?Q?O94en288D+Xld1IdgEJds+G4O0OxC7iUflgYCva//z9pLKDPNiJixq7JPwZV?=
- =?us-ascii?Q?F+pAHoo954WuhlmEtAIsBJbryiNJY1d9avYNNwa3RIUDOm5T4vRAk5+ppbj7?=
- =?us-ascii?Q?8Df76bgoQ5wAQs9KSPQuuIzilvgB+IYWisbllgResOBDli/FsOi9z60btW6m?=
- =?us-ascii?Q?UVTVJF5nQHYFiIfSNuk++AQK3omoH3qwJ6T5ISD02xpj1/S7g+SzdERHTb1p?=
- =?us-ascii?Q?zCP+auCRbvuKg2bhNTot0DtGbMEgy8igjKxOXMerEvci5yOnZhWyfw/h6bHV?=
- =?us-ascii?Q?lRZsvK3Dy1DwsTxPwomqRutv7sQEBwteXGJlIhmLxjZmg8NF2w6I4TGh93X/?=
- =?us-ascii?Q?BvDYwnaS0clsOqvOtelPccGYz23x38o2MNJhPy9zyAtEx0eQ8ekofPG4PxLT?=
- =?us-ascii?Q?q/3nlYRIg3g/PovcT5+7AA2QbVwSj45Hrsk5Zyd+YRs+ib7xTtHdTUk7fub3?=
- =?us-ascii?Q?pbmB1sih1vAIk9MuvQabnr4kiTOgjiEvIi0IypKDQhSPYGe2qQNIfZ+hy4ue?=
- =?us-ascii?Q?HcMyALzF3AJeTLcMlcG1gFRuZ9bH9/SIjemMWpJrPbLt5DrrdU7VUevMGDWm?=
- =?us-ascii?Q?btU26gp4Y6/c09aVeNWgtUph60WwasAAWx49uhESYZbplsOgdok6fM7sfZTY?=
- =?us-ascii?Q?x+5s9Q+ZkKcrwAd/o78D3aVshUHySpCiyLxPLXDneFZlWGLOiXRIuKYY+Nv0?=
- =?us-ascii?Q?9IPqqK35IvX9wjrpBa+HT5WMlN19j2KORPmsSqpagg3GufjdhunPST2YMvOp?=
- =?us-ascii?Q?N7UE5xSS1glGKG/EoA9zaJan9mx0hwFfgNANA1YfZJeBryncfVn6UdiI0MZt?=
- =?us-ascii?Q?dow1utEc+obmjm0hyuN2PyHLc8Y2uQd7DBhCjxW8SfsV0v+BwH6Z+mjtgNY6?=
- =?us-ascii?Q?8rDrNcLwJkRUBaRLAKsKZFqT870UPRmYgJ8NVDlxfthD+Yfb0g6xv5dx8taX?=
- =?us-ascii?Q?fEx5+PmzSs4oYHoeKPe/CdZOn2V17oukt9NOxac3QwIFkyp3CYJj/CEoqqxz?=
- =?us-ascii?Q?P2Zd6oD7pHNv7cxbzlx+Cz5chCn8wnpINTmBC/sl/HS8Fqi8LD4IByriFiC4?=
- =?us-ascii?Q?2lu/Tjg1dutfpRjrl/9rpnXp2ENkjduPswK4Ffq3Wz/v80R6oXeQx9LBIySl?=
- =?us-ascii?Q?A7gaLPyQEetpFuNU6y4tWUgH8d6IWYw2PICN7xIM1SmWzB0DvV9LnebES1WZ?=
- =?us-ascii?Q?FL/kCGX2CAM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW5PR11MB5764.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(52116014)(1800799024)(38350700014)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gcXFon8SUKe31bHxMW9hp9JradQWd/KQQ9bUGfpjczVqq/jFLGBrWT3dMqvZ?=
- =?us-ascii?Q?vFOsqMgw9b5iSiazoFb6IMCU6E/11e8WUjLbln953Skqyc8Ap6KxhpYDjqJl?=
- =?us-ascii?Q?7i6PQZln1NBTfCjQZ0K3ziGCA3fU5FzMmY8wQO3r/8RTQHYIuLzEIevb53Y5?=
- =?us-ascii?Q?LPZBtjNIc4l08pv0tHUgj7doxeC7owU6rR/XbYv6uePMWvTFLCXLeW6aPx5U?=
- =?us-ascii?Q?qVRhiXXeyzsp/eDtnOD4396c96Kv1lrrQDZWq22oMWMhmTFDIZacaO09QUrv?=
- =?us-ascii?Q?MkQSjN5mkpVU42iawibfv9fEHev2x2YOcmm6rELpwmCxTsQ5Pl75mBB6Y5Wv?=
- =?us-ascii?Q?5zh9euIHVsUbCDHNcJDi+vLL+nWBRVqj/maMHZH9qQ0d6V0ZBILyuCG7mG/B?=
- =?us-ascii?Q?MvYYyfNpi8lhDdRK2RZxaelP1/b2dSzthuAsGoC/YLdCiokA4z5/W2Hk6Nyf?=
- =?us-ascii?Q?9K/8WmxHXxjDQ9k/lpanrHMljlOhje62kx0RfAvp4F2lRKZ42HL2AeyZ6CZr?=
- =?us-ascii?Q?Vsncs1YXZ6KS8Jsnf+tmZKMjHntIweIpOLgYcq0zoou/yNfiJcS4VLKi91x3?=
- =?us-ascii?Q?as5fcp/KV6IThzAAv3mgy9EZPtLXdWSpKZNBzXN+SJoFzd1blfD5hwxVJta2?=
- =?us-ascii?Q?IAiqh4QH/f701qwN8FVjwQj3FEDoA/oWf2kW7tIcWfxSbc9cd97pOtRK5FHg?=
- =?us-ascii?Q?IOkvYcB/RgKvKwHrvHOCo6kZpb1s9jR//soTjNnAWGJC0bUOhksyhgMLos1K?=
- =?us-ascii?Q?omuZKZNoYujjhlWxuZW3P03cqdd3CDmSJGCaOIOsrAcSUxE45N7XFnAe4Nxw?=
- =?us-ascii?Q?kjtCusXHe1qBD8f6Xz66vHQRa5DVpgt1MvbB4V4hke0IxoIWSQ2Emrmzp5qV?=
- =?us-ascii?Q?W5tCaQf869p4zs46Y2GlXUfk0kIQgpgUk52Cnj/VXg6NrHekiQ2Ad6sHOX9v?=
- =?us-ascii?Q?uD9OQ3+WSf+jjti/egPm38tQR61nxeKCnZ3h9Pp4I7BVoZg6rj9Zsf/sj53d?=
- =?us-ascii?Q?KWj1R4uHmCzbPgOFuxwkEm6tF+jUIJ/GNturZQATbYUvP9TUlH3hc9RblZRS?=
- =?us-ascii?Q?omwO0VVIFbOXlWwxyOkkTEWoX2owh4SAm4VRAPUkE0SYOJuC3lQE6y7/N31G?=
- =?us-ascii?Q?PlNDwv31CTj5Y8pAdOkspB2mjXO4DyoOg+4rDMDSWNFA80wwP2P4Qob7BrcT?=
- =?us-ascii?Q?q81rymxOsomr+O1I1yX9l0DYpEjHoXKJ7XtxWYVgS2/BQEo4P3lTN3+UN0Xi?=
- =?us-ascii?Q?DW6U8A4xNgoo1rkyJFnvG+WU6p1QN9Ps6Tp0mcKSHtDDsGtJqkxRp/gg564L?=
- =?us-ascii?Q?wB2YhGQKvLBQ88S5KAhRl32VR5a67jDGjSEuFcV8wi9aFaIrZg4q8JvMTaS6?=
- =?us-ascii?Q?AqT0RXCsbzKSX/rQB3yIfDCYaCyqGeY6gt8sBFG0TD9O8EJDcjW9vBEddrm+?=
- =?us-ascii?Q?WafzHqbhNuQ4KdAiN9+yCCOqc1DG5snaS9EkyYWMENCRihEX/FG77dy4iAJP?=
- =?us-ascii?Q?zABmqOv1fFake6a0IOWeelSCoGD4Mw4hjms4APySwKF58FtcnQgqkQlSvJlE?=
- =?us-ascii?Q?XKXnvZYTAMwbhP73GZLFGgw1bdBacQ5mR8QRHOyXDDWb3qlCcZ6b55KOzeG2?=
- =?us-ascii?Q?LA=3D=3D?=
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e55a7377-2e87-4ca7-ea99-08dd19737c3e
-X-MS-Exchange-CrossTenant-AuthSource: MW5PR11MB5764.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 23:36:35.4604
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Hg3P1WYVLuuoe/1mOhiQsVc1hrubDeVeW5ODXNDfT+pmpQprsk0yof8OeHT/ng05BNyuB89y8MoyNyjP+DJXA03I7yHrJrXOPD32EWAb/I8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5284
-X-Proofpoint-GUID: Gv-fkUBtERz3WJyB__ZYQekhBN1LyqMY
-X-Proofpoint-ORIG-GUID: Gv-fkUBtERz3WJyB__ZYQekhBN1LyqMY
-X-Authority-Analysis: v=2.4 cv=D7O9KuRj c=1 sm=1 tr=0 ts=6758d086 cx=c_pps a=WCFCujto17ieNoiWBJjljg==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=RZcAm9yDv7YA:10 a=bRTqI5nwn0kA:10 a=VwQbUJbxAAAA:8
- a=t7CeM3EgAAAA:8 a=pGLkceISAAAA:8 a=A__u6bYh_LbSektZ6DAA:9 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2024-12-10_13,2024-12-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- lowpriorityscore=0 bulkscore=0 mlxlogscore=999 spamscore=0 malwarescore=0
- adultscore=0 priorityscore=1501 mlxscore=0 impostorscore=0 phishscore=0
- clxscore=1015 classifier=spam authscore=0 adjust=0 reason=mlx scancount=1
- engine=8.21.0-2411120000 definitions=main-2412100169
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6758c174.050a0220.52a35.06bc@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_153717_833221_529C5160 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20241210_154811_018383_912D502B 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,94 +114,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When executing 'echo mem > /sys/power/state', the following
-deadlock occurs. Since there is output during the serial
-port entering the suspend process, the suspend will be
-interrupted, resulting in the nesting of locks. Therefore,
-use uart_port_lock_irq() instead of uart_port_unlock().
+On Tue, Dec 10, 2024 at 11:32:17PM +0100, Christian Marangi wrote:
+> Doesn't regmap add lots of overhead tho? Maybe I should really change
+> the switch regmap to apply a save/restore logic?
+> 
+> With an implementation like that current_page is not needed anymore.
+> And I feel additional read/write are ok for switch OP.
+> 
+> On mdio I can use the parent-mdio-bus property to get the bus directly
+> without using MFD priv.
+> 
+> What do you think?
 
-WARNING: inconsistent lock state
-6.12.0-rc2-00002-g3c199ed5bd64-dirty #23 Not tainted
---------------------------------
-inconsistent {IN-HARDIRQ-W} -> {HARDIRQ-ON-W} usage.
-sh/494 [HC0[0]:SC0[0]:HE1:SE1] takes:
-c4db5850 (&port_lock_key){?.-.}-{3:3}, at: imx_uart_enable_wakeup+0x14/0x254
-{IN-HARDIRQ-W} state was registered at:
-  lock_acquire+0x104/0x348
-  _raw_spin_lock+0x48/0x84
-  imx_uart_int+0x14/0x4dc
-  __handle_irq_event_percpu+0xac/0x2fc
-  handle_irq_event_percpu+0xc/0x40
-  handle_irq_event+0x38/0x8c
-  handle_fasteoi_irq+0xb4/0x1b8
-  handle_irq_desc+0x1c/0x2c
-  gic_handle_irq+0x6c/0xa0
-  generic_handle_arch_irq+0x2c/0x64
-  call_with_stack+0x18/0x20
-  __irq_svc+0x9c/0xbc
-  _raw_spin_unlock_irqrestore+0x2c/0x48
-  uart_write+0xd8/0x3a0
-  do_output_char+0x1a8/0x1e4
-  n_tty_write+0x224/0x440
-  file_tty_write.constprop.0+0x124/0x250
-  do_iter_readv_writev+0x100/0x1e0
-  vfs_writev+0xc4/0x448
-  do_writev+0x68/0xf8
-  ret_fast_syscall+0x0/0x1c
-irq event stamp: 31593
-hardirqs last  enabled at (31593): [<c1150e48>] _raw_spin_unlock_irqrestore+0x44/0x48
-hardirqs last disabled at (31592): [<c07f32f0>] clk_enable_lock+0x60/0x120
-softirqs last  enabled at (30334): [<c012d1d4>] handle_softirqs+0x2cc/0x478
-softirqs last disabled at (30325): [<c012d510>] __irq_exit_rcu+0x120/0x15c
-
-other info that might help us debug this:
- Possible unsafe locking scenario:
-
-       CPU0
-       ----
-  lock(&port_lock_key);
-  <Interrupt>
-    lock(&port_lock_key);
-
-Fixes: 3c199ed5bd64 ("serial: imx: Grab port lock in imx_uart_enable_wakeup()")
-Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-Reviewed-by: Lucas Stach <l.stach@pengutronix.de>
-Reviewed-by: Fabio Estevam <festevam@gmail.com>
----
-
-v1:
-  https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241209124732.693834-1-xiaolei.wang@windriver.com/
-v2:
-  use uart_port_lock_irq() instead of uart_port_lock_irqsave()
-v3:
-  update commit log 'ehco --> echo'
-
- drivers/tty/serial/imx.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 17f70e4bee43..9c59ec128bb4 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -2692,7 +2692,7 @@ static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
- {
- 	u32 ucr3;
- 
--	uart_port_lock(&sport->port);
-+	uart_port_lock_irq(&sport->port);
- 
- 	ucr3 = imx_uart_readl(sport, UCR3);
- 	if (on) {
-@@ -2714,7 +2714,7 @@ static void imx_uart_enable_wakeup(struct imx_port *sport, bool on)
- 		imx_uart_writel(sport, ucr1, UCR1);
- 	}
- 
--	uart_port_unlock(&sport->port);
-+	uart_port_unlock_irq(&sport->port);
- }
- 
- static int imx_uart_suspend_noirq(struct device *dev)
--- 
-2.25.1
-
+If performance is a relevant factor at all, it will be hard to measure it, other
+than with synthetic tests (various mixes of switch and PHY register access).
+Though since you mention it, it would be interesting to see a comparison of the
+3 arbitration methods. This could probably be all done from the an8855_mfd_probe()
+calling context: read a switch register and a PHY register 100K times and see how
+long it took, then read 2 switch registers and a PHY register 100K times, then
+3 switch registers.... At some point, we should start seeing the penalty of the
+page restoration in Andrew's proposal, because that will be done after each switch
+register read. Just curious to put it into perspective and see how soon it starts
+to make a difference. And this test will also answer the regmap overhead issue.
 
