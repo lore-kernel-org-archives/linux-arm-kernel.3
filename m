@@ -4,51 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D59E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D2FE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hNffYeP5s02VjGhpA/pyQQ2nDENNZocS+EyTfSNis/k=; b=sD7rW6JYIgLWKvyWwEQ9+pZRhX
-	l0wQAj1m4rsUJhaSGei+gvKCTY+dGMG3wDOZZELELhy7TlUWsd1NMNBwyq7PMlhqXeV4fOgX97Po4
-	ApQhfymuRMjlRpQjFhczo5b2MuNyv9ZjOKPxMpERLMXDkNsf4GusI2PwW4HCYTpm8qPafo0OKJSQw
-	tCZv3OsuFLt7IQsaLpNAoZADH0EeCaFpEiNd43aMHkKFlIwai4AejnE4iETYSQq3uZf6U7G/+uF1I
-	4dymtpsIX6xdC5bQEv0UXrlg07bLxGig1TwvVJFIVee/mchUTU472QQjLjOOwg8RC8BcbA5lL3qSN
-	D3whgMhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HNXvfug15XfoQwdKiIGBWtNC3tcA8qpMkETpkFfQs6Q=; b=KU7Jqh8GpRwVdhuHyxurL5UVtT
+	wVLhVW/OhKp1xu5uIV+9Ibk+AN6RJxtZPNaaFUQfQFxKHpJIMN1VXsniYVZA5EPOpzF7vErrFsu1e
+	SI2+r4fzJn6CjOxA0dgbIfpMrTeJdtWLDPHa+SR+0eCWJCJrXuckMlNAsI9Teii2yl9pRrTo6f/4d
+	Nr9gtr9gseXXqvJ6Kt9cEwFKzg5tLrBc8C0/U4NHm8ciRxnoVjnqZOw9DCAyCp5pv44q+QEaRr5pL
+	NC+dg5m50V6MzFhZN3iFGaAY4TIyOhr0y6J5mYXlxjqgraf3s4TsNK00jz3tH/haW0u75PL9hAWew
+	aDmA/w4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2sS-0000000C3GF-1uBe;
-	Tue, 10 Dec 2024 16:14:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2oC-0000000C2Wr-1duC
+	id 1tL2tU-0000000C3Pn-0L8E;
+	Tue, 10 Dec 2024 16:15:28 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tL2oQ-0000000C2YV-3FIP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 16:10:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 270FA106F;
-	Tue, 10 Dec 2024 08:10:25 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D85C3F5A1;
-	Tue, 10 Dec 2024 08:09:55 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	Dave.Martin@arm.com,
-	will@kernel.org
-Subject: [PATCH v2] arm64: signal: Ensure signal delivery failure is recoverable
-Date: Tue, 10 Dec 2024 16:09:40 +0000
-Message-ID: <20241210160940.2031997-1-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
+	Tue, 10 Dec 2024 16:10:16 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e3982e9278bso5075798276.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 08:10:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733847013; x=1734451813; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=HNXvfug15XfoQwdKiIGBWtNC3tcA8qpMkETpkFfQs6Q=;
+        b=EglYlCcUvbK5+9SIdzWa6X84cNs7jL+zhekHrNLQjflWhofO21g8KWRbvxz0iwr6OU
+         U+38R6fi5/kx5FKYf91js6FQ2Zw3bb0UWnOSTuiR5/ugk287w7g7LVatUFGma37m/Diw
+         V1Z9jsR3RQwtuKObFfuZbqQNiINrJeW0OmVSeiAZXIquLERo83eFML9WAUgJ1+909kfc
+         D6YWH9adSnTTzsuvZyxHG75nKtQKIz68ybyShffNp0lfj20UMoKMSx0PSNBRHbl15eTE
+         /9zi+js+Xe22ooKURWaFXOQQZv8LgVPadBrHe1OikjkVIQqEf/Dj4gs4QKEWKkOrNGt6
+         A0Ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733847013; x=1734451813;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HNXvfug15XfoQwdKiIGBWtNC3tcA8qpMkETpkFfQs6Q=;
+        b=QfcpcsUbNqPVK56zgTiUXr9vjYkmVKKeex1/KmdxyHYiIg82zbSEF8DlEIx5tr6mJ2
+         Bf3AnPZC5gqzBeaIrL9UOYU5agkDtJss5TUUMSo/xB2+sjXzdHT/416UI4CXNK2RBJUQ
+         oVgf6/lEJnTajxAXkzq0V5QeJ5M/jIIIi2aQ6Y+tci49QUbjTu2GngT2QVCXC0/8vRsf
+         SXR9RdDoEe8AEIraZCgAfG1dxKLevR+2eBJl7OdoBZO5qCwvkaB4OftNYEhwGSouQ8jH
+         RX8NOyXrrZdHvNxoI0wrTB/K333qNH1UmCPNKG4/uieogkoBTg/nlznjJA5nfSP4/YXB
+         k4mA==
+X-Forwarded-Encrypted: i=1; AJvYcCVQgtKRRC1nBSv3M3VRthZhUDebPu/qLXX+8paLsBVEruVjzldDs1yRxqDqJMkhtBnu+ci60eEKoB3ocr70eZ8W@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8rF9Wt1XeDHOIG+twB1v2ag7N4f7TvXRBzn4HJbqS/lwoF5sl
+	+HZGfnbC+gdtxcJpW1calHhT4MRgSTunjCseewgTApjeV8ofKnjnEv/KM7AVS+CTi/2SuBD/Q5Z
+	WBaPA6h9eQ/7VNujvuvfDLnme0MxPz6Ez/5nxxw==
+X-Gm-Gg: ASbGnctwL7bX5ZTAfUZiLGuo65CZUKDUm0AZ+4DeIrt1XnwCcyOMUoxxEOAumFMVuaL
+	dDuslyWxBbcHxt2XI0z+Er1uTEz06TL7NEmT0
+X-Google-Smtp-Source: AGHT+IELbJvk0NPV36M+fcncTTHMyREVObNbnHGvfeRgsIrYaGiOwpPdOwf890kyMOnEyS8+yJEfq/uf9mQc3jRotz8=
+X-Received: by 2002:a05:6902:2b0c:b0:e38:b889:7eff with SMTP id
+ 3f1490d57ef6-e3a0b071e93mr15453171276.6.1733847013083; Tue, 10 Dec 2024
+ 08:10:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
+In-Reply-To: <20241128-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v4-0-11d9f9200a59@linaro.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 10 Dec 2024 17:09:37 +0100
+Message-ID: <CAPDyKFon9-3U5Vn2i+WtarSAYQHnA_ho8CGQmiVoboq1tnt4fw@mail.gmail.com>
+Subject: Re: [PATCH v4 0/5] dt-bindings: mmc: document mmc-slot and convert
+ amlogic,meson-mx-sdio.txt to dtschema
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Maxime Ripard <mripard@kernel.org>, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_081000_518158_D1B8D350 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20241210_081014_829105_35C87895 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,131 +96,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit eaf62ce1563b ("arm64/signal: Set up and restore the GCS
-context for signal handlers") introduced a potential failure point
-at the end of setup_return(). This is unfortunate as it is too late
-to deliver a SIGSEGV: if that SIGSEGV is handled, the subsequent
-sigreturn will end up returning to the original handler, which is
-not the intention (since we failed to deliver that signal).
+On Thu, 28 Nov 2024 at 16:16, Neil Armstrong <neil.armstrong@linaro.org> wrote:
+>
+> Document mmc-slot because used by amlogic,meson-mx-sdio.txt and
+> cavium-mmc.txt, so make it common.
+>
+> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Make sure this does not happen by calling gcs_signal_entry()
-at the very beginning of setup_return(), and add a comment just
-after to discourage error cases being introduced from that point
-onwards.
+Applied for next, thanks!
 
-While at it, also take care of copy_siginfo_to_user(): since it may
-fail, we shouldn't be calling it after setup_return() either. Call
-it before setup_return() instead, and move the setting of X1/X2
-inside setup_return() where it belongs (after the "point of no
-failure").
+Kind regards
+Uffe
 
-Background: the first part of setup_rt_frame(), including
-setup_sigframe(), has no impact on the execution of the interrupted
-thread. The signal frame is written to the stack, but the stack
-pointer remains unchanged. Failure at this stage can be recovered by
-a SIGSEGV handler, and sigreturn will restore the original context,
-at the point where the original signal occurred. On the other hand,
-once setup_return() has updated registers including SP, the thread's
-control flow has been modified and we must deliver the original
-signal.
 
-Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
-v1..v2:
-* Added a short comment in setup_rt_frame() after the call to
-  setup_return() to discourage adding failure points there.
-  [Dave's suggestion]
-
-Cc: broonie@kernel.org
-Cc: catalin.marinas@arm.com
-Cc: Dave.Martin@arm.com
-Cc: will@kernel.org
----
- arch/arm64/kernel/signal.c | 48 ++++++++++++++++++++++++++------------
- 1 file changed, 33 insertions(+), 15 deletions(-)
-
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 14ac6fdb872b..37e24f1bd227 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -1462,10 +1462,33 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
- 			 struct rt_sigframe_user_layout *user, int usig)
- {
- 	__sigrestore_t sigtramp;
-+	int err;
-+
-+	if (ksig->ka.sa.sa_flags & SA_RESTORER)
-+		sigtramp = ksig->ka.sa.sa_restorer;
-+	else
-+		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
-+
-+	err = gcs_signal_entry(sigtramp, ksig);
-+	if (err)
-+		return err;
-+
-+	/*
-+	 * We must not fail from this point onwards. We are going to update
-+	 * registers, including SP, in order to invoke the signal handler. If
-+	 * we failed and attempted to deliver a nested SIGSEGV to a handler
-+	 * after that point, the subsequent sigreturn would end up restoring
-+	 * the (partial) state for the original signal handler.
-+	 */
- 
- 	regs->regs[0] = usig;
-+	if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
-+		regs->regs[1] = (unsigned long)&user->sigframe->info;
-+		regs->regs[2] = (unsigned long)&user->sigframe->uc;
-+	}
- 	regs->sp = (unsigned long)user->sigframe;
- 	regs->regs[29] = (unsigned long)&user->next_frame->fp;
-+	regs->regs[30] = (unsigned long)sigtramp;
- 	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
- 
- 	/*
-@@ -1506,14 +1529,7 @@ static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
- 		sme_smstop();
- 	}
- 
--	if (ksig->ka.sa.sa_flags & SA_RESTORER)
--		sigtramp = ksig->ka.sa.sa_restorer;
--	else
--		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
--
--	regs->regs[30] = (unsigned long)sigtramp;
--
--	return gcs_signal_entry(sigtramp, ksig);
-+	return 0;
- }
- 
- static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
-@@ -1537,14 +1553,16 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
- 
- 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
- 	err |= setup_sigframe(&user, regs, set, &ua_state);
--	if (err == 0) {
-+	if (ksig->ka.sa.sa_flags & SA_SIGINFO)
-+		err |= copy_siginfo_to_user(&frame->info, &ksig->info);
-+
-+	if (err == 0)
- 		err = setup_return(regs, ksig, &user, usig);
--		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
--			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
--			regs->regs[1] = (unsigned long)&frame->info;
--			regs->regs[2] = (unsigned long)&frame->uc;
--		}
--	}
-+
-+	/*
-+	 * We must not fail if setup_return() succeeded - see comment at the
-+	 * beginning of setup_return().
-+	 */
- 
- 	if (err == 0)
- 		set_handler_user_access_state();
-
-base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
--- 
-2.47.0
-
+> ---
+> Changes in v4:
+> - Fixed address-cells description of mmc controller
+> - Cleanup '|' when not needed
+> - Added review tags
+> - Link to v3: https://lore.kernel.org/r/20241007-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v3-0-ad4eb22c2a8d@linaro.org
+>
+> Changes in v3:
+> - Revert and insteads move common properties between slot and controller into mmc-controller-common.yaml
+> - Fix other comments on patch 2 & 3
+> - Link to v2: https://lore.kernel.org/r/20240920-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v2-0-5aa8bdfe01af@linaro.org
+>
+> Changes in v2:
+> - Fixed description, limited to 3 slots
+> - Moved out mmc-slot in a separate common schema
+> - Link to v1: https://lore.kernel.org/r/20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-v1-1-b7bfae886211@linaro.org
+>
+> ---
+> Neil Armstrong (5):
+>       dt-bindings: mmc: controller: clarify the address-cells description
+>       dt-bindings: mmc: controller: move properties common with slot out to mmc-controller-common
+>       dt-bindings: mmc: controller: remove '|' when not needed
+>       dt-bindings: mmc: document mmc-slot
+>       dt-bindings: mmc: convert amlogic,meson-mx-sdio.txt to dtschema
+>
+>  .../bindings/mmc/amlogic,meson-mx-sdio.txt         |  54 ----
+>  .../bindings/mmc/amlogic,meson-mx-sdio.yaml        |  94 ++++++
+>  .../bindings/mmc/mmc-controller-common.yaml        | 357 +++++++++++++++++++++
+>  .../devicetree/bindings/mmc/mmc-controller.yaml    | 346 +-------------------
+>  .../devicetree/bindings/mmc/mmc-slot.yaml          |  49 +++
+>  5 files changed, 504 insertions(+), 396 deletions(-)
+> ---
+> base-commit: f486c8aa16b8172f63bddc70116a0c897a7f3f02
+> change-id: 20240911-topic-amlogic-arm32-upstream-bindings-fixes-convert-meson-mx-sdio-6fa70546ebb8
+>
+> Best regards,
+> --
+> Neil Armstrong <neil.armstrong@linaro.org>
+>
 
