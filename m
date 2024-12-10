@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA09E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 18:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CED1E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 18:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jt4ObXFeKaTPtebjB43oDmCQ3IG87iutOYEfC+fEAUI=; b=BD7lhpXJdtn10s6MYqUEkwiMSs
-	guQbwD2eRUUsiJzXmFij3GC5bhMo6kqLmWX0nWjSBgDSSrtcAoJFEGiKgFQ+1yvXVLsj1npH2kBW0
-	GgOr7wl+ywqpuIzRMPWMZnbiOVEMiJYeuW3DQEldbBsGkt/No1EHCBkxW80atTuu19CHXI8qS+XJA
-	U1KR9dAN3naqnqCrG8Zw1o02xMvDA7JBO3S7KgNUyk3j6twHzljcGomk1kuvarPseYH6lURdBGqp1
-	+JPfa05N41pgCvI2Pa7o2x79fbeeMY0ZTGk8CvGMML2qo9cv51Dl/ZyJTFWwESF+BPMQdtv0NI8Pk
-	KLP1nz4A==;
+	bh=/07EqdT5veSVmQZ4ylSf3dwKFprXqnGXP1oqLEy0dYQ=; b=Usn6HE9MjWaYupT7R88LHFe3ME
+	qplfYoRjIdveNRcAz924OdQLvWtbzxE0aM6LbsZgIJSqJW7DdvUBbq1p7S7iDbXy3A/XaAJdzX5FZ
+	QY5AT5lHazm/VqARuE8fdIV4vIwy/BVOB//RUsMZBXtIr0XjrnSdh9GLfhPax5JfrtNVea/1qtVQ3
+	/1AKOBRTJgpe5mE+jroi3f5O8caYZ5Srblqy8pZsk/Aym6KAGHI1dEO/yrs39gPLe3lspz5NPgmmu
+	JCqTmjL8IMfhsjI7DOXUpnVr14ew4KOkZVKpF1gKpnV+eU9vZPRN0iTle2QJDlBIzPAJcrmc61Omj
+	5EllBvBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL59a-0000000CQIO-1Vla;
-	Tue, 10 Dec 2024 18:40:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tL5Ab-0000000CQUH-3yhq;
+	Tue, 10 Dec 2024 18:41:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL54a-0000000CPLg-0Yow
+	id 1tL54d-0000000CPMl-0DYy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 18:35:05 +0000
+	Tue, 10 Dec 2024 18:35:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 239E85C5CC0;
-	Tue, 10 Dec 2024 18:34:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39BF2C4CED6;
-	Tue, 10 Dec 2024 18:35:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC018A41737;
+	Tue, 10 Dec 2024 18:33:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE027C4CED6;
+	Tue, 10 Dec 2024 18:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733855703;
-	bh=KpNX0LGWmothl7OevAsTUynLiliavYKYsayyhEenfuc=;
+	s=k20201202; t=1733855706;
+	bh=RovpPnaWmHALyo/w43ic7RIcAU3sRkU89OsQBFOaozY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=da2UU67VP+hVbkEONEXmNgLdBCkho40CwdkbU828OMyjWTDFVPz7vskSB4T0y9DlP
-	 wFopAwqyp8HHOgz1qxBYaJ6y8JzmIEEAstvY2TEFUIlyg4A5G4NVm11aV4Z/4rMESQ
-	 hW80Pa0qum7q9EPK4RjV67yntZnv0VAjdH35YPEj53zcTbpQI9J5hXfGrJETPnArv3
-	 3DsI066Fz6f9LmSsrdLg3Pvoca26drs4AC62ujKY9XG6I8xqHyoXiJfURcRB2VClpE
-	 MnIhqDAgh4GhDMLZ6ZoBY7LPRUYye7gL+c4KR0ZyJD4VBJZJzPO4/KCJMNM4iLB8GX
-	 ULwuJGlkqn4HQ==
+	b=Bz/8bkf1d7m3EyjafkAMZRUyQ/8LtiJm9Yy0Butl2V/EYURk19Ck28p7yKdaJRdMd
+	 JPYpynHmW17rJ/T3EBDwjfWCjjbWcwLWZiAj/wb7NrO7Hiww9gCypTXhNl8aL8K6Xb
+	 njHKu5iuaUAhdipc6vMapqthcyeaLnWLENFprWqBWvT0qhE6y+pNLHALRkNX7eHSHG
+	 iXVit28PbqfKQ2tnu1esPTfXvGNktGP3QWYU+aSYv205KLWAxL1oK3xP9BKH8BvQTQ
+	 hdTqeJK1kEy/PxzdwtK55X3p8uNBhpHUlz21DUCip73AqcXmbqSMqSaqALsvZ3limG
+	 gWGdWRPdsAYUw==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
+To: jonathan.cameron@huawei.com,
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Yicong Yang <yangyicong@huawei.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm64: cpufeature: Add HAFT to cpucap_is_possible()
-Date: Tue, 10 Dec 2024 18:34:46 +0000
-Message-Id: <173383261011.2040857.1973906693856719881.b4-ty@kernel.org>
+	Will Deacon <will@kernel.org>,
+	yangyicong@hisilicon.com,
+	hejunhao3@huawei.com,
+	linuxarm@huawei.com,
+	wangyushan12@huawei.com,
+	prime.zeng@hisilicon.com
+Subject: Re: [PATCH v5 00/10] Refactor the common parts to the HiSilicon Uncore PMU core and cleanups
+Date: Tue, 10 Dec 2024 18:34:47 +0000
+Message-Id: <173384624655.550105.13843617535853493217.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20241209155948.2124393-1-mark.rutland@arm.com>
-References: <20241209155948.2124393-1-mark.rutland@arm.com>
+In-Reply-To: <20241210141525.37788-1-yangyicong@huawei.com>
+References: <20241210141525.37788-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_103504_210891_5B122948 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_103507_149741_A25AAE44 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Dec 2024 15:59:48 +0000, Mark Rutland wrote:
-> For consistency with other cpucaps, handle the configuration check for
-> ARM64_HAFT in cpucap_is_possible() rather than this being explicit in
-> system_supports_haft(). The configuration check will now happen
-> implicitly as cpus_have_final_cap() uses cpucap_is_possible() via
-> alternative_has_cap_unlikely().
+On Tue, 10 Dec 2024 22:15:15 +0800, Yicong Yang wrote:
+> This series mainly contains the refactor of the HiSilicon Uncore PMU by
+> extracting the common parts from each drivers into the core:
+> - the retrieving of the PMU topology ID
+> - the common sysfs attributes like cpumask and identifier
 > 
+> In order to achieve this, we need to do below preparation:
+> - refactor the detection of associated CPUs for PMUs locates on a SICL
+> - maintain the topology information in a dedicated data structure
+> - provides a generic implementation of cpumask/identifier attributes
 > 
 > [...]
 
-A patch so good, you signed it off twice! I dropped one of them.
+Applied to will (for-next/perf), thanks!
 
-Applied to arm64 (for-next/cpufeature), thanks!
-
-[1/1] arm64: cpufeature: Add HAFT to cpucap_is_possible()
-      https://git.kernel.org/arm64/c/264a593da60b
+[01/10] drivers/perf: hisi: Define a symbol namespace for HiSilicon Uncore PMUs
+        https://git.kernel.org/will/c/41729809ac85
+[02/10] drivers/perf: hisi: Don't update the associated_cpus on CPU offline
+        https://git.kernel.org/will/c/f2368a209a71
+[03/10] drivers/perf: hisi: Migrate to one online CPU if no associated one online
+        https://git.kernel.org/will/c/83037a47d3aa
+[04/10] drivers/perf: hisi: Refactor the detection of associated CPUs
+        https://git.kernel.org/will/c/6cd137088fdf
+[05/10] drivers/perf: hisi: Extract topology information to a separate structure
+        https://git.kernel.org/will/c/c192026ceea7
+[06/10] drivers/perf: hisi: Add a common function to retrieve topology from firmware
+        https://git.kernel.org/will/c/32528b165ea1
+[07/10] drivers/perf: hisi: Provide a generic implementation of cpumask/identifier
+        https://git.kernel.org/will/c/8688c01e313d
+[08/10] drivers/perf: hisi: Export associated CPUs of each PMU through sysfs
+        https://git.kernel.org/will/c/3b051bb7cb43
+[09/10] drivers/perf: hisi: Fix incorrect variable name "hha_pmu" in DDRC PMU driver
+        https://git.kernel.org/will/c/4e15bcffa19a
+[10/10] drivers/perf: hisi: Delete redundant blank line of DDRC PMU
+        https://git.kernel.org/will/c/f03241fbebdf
 
 Cheers,
 -- 
