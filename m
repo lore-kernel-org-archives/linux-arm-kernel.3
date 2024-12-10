@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145DDE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 01:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6C0E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 01:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5sUmnsMlb6+J2z+CZq/V8Utz5Q8oJwF2bHLJE2t/SHA=; b=YOHLWtH+K+7AwP6qyNdazLh6Q/
-	syIrVfHXGlUeRbNmB5kFE88Zw0l83D/MaoRNCEKoXlG4oNc4MjgDz9PZ2e2u7tylwe+HnF0HsuJvO
-	ZCQqblarKi8jDBDxNh61dpscea2VC9d+B9byoRM/RPEfS6vNlnpmj2qPulfm/twuaA1eMzKuQurqq
-	U2BaWsG2+2P+Z+Ov7J/UebSJrV7x1raUm1KnBPu0izXRHgcq9m58oTtpoOUgKwJDitRwxYlq8yq8y
-	adAFPWD9CmPc4CeepMG/NRletwH+ksEjqlw6bVMOEHon18x5mDJdYtAcbgdCVhmgZJ1xDgn3HLAt1
-	P9TK731w==;
+	bh=ZbMZ1XEGG9+iR89acIoDRWlRdmkKPe5qHYKAcY8LBOk=; b=kJzzHo8J59NGbLi4RFkAVqvEox
+	p0vsLiAHNhYHMEk1Zdvl8M0A362flg0xZYdiJeNPAnnFJgAb4IFcd6NtQI0FXKhDlGfFHygU9z8uP
+	/RJAD2f3N2s4QUg2jQC1rQi41ZEYgjI9oapMuFb1E51l4m2f2cq7VXLZ2D8pMmI+4Xcv0wvGIk+L8
+	MlpZK1aFdm3Fc56VPkEufAU6lyjbXPe9gog3/acJp7z4oLQ117EDHUb9f/frv1F4M99F9NZUcY6Le
+	JBJ1Rz67a98njUcxbgM5BxLSm4pb0QyhzsGCtgBQMp5b+eX9BL0VfOJyAByqbG9TsDWHW3gUcW79g
+	rQkIkHmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKp75-00000009qOL-1ABP;
-	Tue, 10 Dec 2024 01:32:35 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1tKp86-00000009qWQ-1u4J;
+	Tue, 10 Dec 2024 01:33:38 +0000
+Received: from mail-qv1-f54.google.com ([209.85.219.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKp51-00000009prv-3deJ;
-	Tue, 10 Dec 2024 01:30:28 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6d87ab49423so49438826d6.0;
-        Mon, 09 Dec 2024 17:30:27 -0800 (PST)
+	id 1tKp53-00000009pss-4ALQ;
+	Tue, 10 Dec 2024 01:30:31 +0000
+Received: by mail-qv1-f54.google.com with SMTP id 6a1803df08f44-6d87ab49423so49438986d6.0;
+        Mon, 09 Dec 2024 17:30:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733794226; x=1734399026; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1733794228; x=1734399028; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5sUmnsMlb6+J2z+CZq/V8Utz5Q8oJwF2bHLJE2t/SHA=;
-        b=OQq5cmxEsisnTo66N4MK6r3f6XGqT8Qarnln/KIY+N6X4F3SQDROy3elWlinvP9Uc4
-         rJDGmAF3ipJDQ9zWFTkj5wkBQTMCmzCVWSqgTDlriLUe1/MAtRLY2ikVZw4lVJygBE5A
-         d2yvW7vmAuZwTlr+z9jXh+tKE3JlXSVuWl6DCdQpHstmzdkfpRLJEYgdaI/NbC0WD0eL
-         tRuskhYEN5RQoDmrmMIqeWGgE+B4Fz27lNJ5l5B7Ae2YrENMxIYY+Vp9NEcWNW2ZozzD
-         +5f0qyCN2Qi5UMOYYmTHv8mS0hWcv1ayGr2+CFVcq3TihzTxyCEQ7yfafxGVK+6HwzXm
-         1yDQ==
+        bh=ZbMZ1XEGG9+iR89acIoDRWlRdmkKPe5qHYKAcY8LBOk=;
+        b=J14ImJTwPQ7M2FqqIbWQC06kaAXCdyBKecIb+X+UmID6ROQMu7hDZ83Kf/Jjd18nw0
+         8JiQxATkorkOSyhYbiMbJiouVXU7O6OJa2jmfjs34afejtAc1RBT4jBrxd039mPjIZtZ
+         g57HC8AFA9x/Ea9ksvAcXKlSS657q1jbSqoqwSSyq2PpEysNMYDdt94T00NkORH6Rmrv
+         kfHoj3QGoE3z6nfulDTt76GL3f/pfSMI+Rg6O1PUbPyh0+PbnGCAZc5YkJlYIVp3WxM0
+         Js2mC022G1ki7zZTE3Y4ZaIU40y6q+055xXEUdPFIh4ft1dNjZ6+4I6W8zLy4FqjuDef
+         v/SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733794226; x=1734399026;
+        d=1e100.net; s=20230601; t=1733794228; x=1734399028;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5sUmnsMlb6+J2z+CZq/V8Utz5Q8oJwF2bHLJE2t/SHA=;
-        b=YY82Se2+I6KOCV82J2S/CD2Jf/wkdRc3pwzKeK5YQqToU62L3AsLSHBUHIDNgMqgva
-         5SvxOkjWfA8n7ZzkPMR4EUPSb9gUxhAxKhFhqb/fr3CeQl1MKCUfrrs4xqJQVgeOXJDL
-         fdZzLpOXYOpVvrUrRRiVWiiewXiXIY1ul07cEncvkk4UnBmdqI+uGTWTYSkTyuJ/ghiX
-         kRFR39T3WBIDNbeRJ0I3fGqVSMP0AoQaWo/CD9/f6PoNdHb9WDhIGm29LC3gW7tCLwI4
-         baiIisE0AiAHUPWU/ckSLS1oS2pBlY+wa8hnZsIk9tZLhAU4xscK/jRyhKW0BPz8Xfh4
-         O5Vg==
-X-Forwarded-Encrypted: i=1; AJvYcCVU12Iud63yN3cDq59HkFGbDcCqyUXrs7CB5bk3pioZz/0fZj+2DqkajVMgWlV7bQFC4Rk6xliuQG5t8l63317A@lists.infradead.org, AJvYcCXKRtAZrHbmksuC/OEWDE9lk+9E5fWisnXbaWiCouSe1D2awP9lNdAtMm3vetYKtm259Upy3eNQevWDOLFTYpI=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7O+kEjyGUS0poeI6AKi3N0gxFUQ5FIAxsGV94SrT/rusurpKp
-	x8kwAJ7OEG069XTbjT6UyftkWZ519vFsZJQRdnvbtbtv87b9EjgV
-X-Gm-Gg: ASbGncvKAeeQX+MAIlvolqKuH3vhp5mIcGnyqh2k0wAgtn8Nw8k9TSEJtHOJHzuJRHp
-	FL8bB9d40pGskzvdTodanYguY2DFDP/uaMQOVqy7lwfWVbUYqiXP7k2MyUvOOZqSnkEgFaofvvz
-	N279+EyILQWVpu2elF9YS12y6Limwd5SPzX7+DFtqWdu08ot/KgvMlbZ8L3K8ToZCXww+Op+Pht
-	fD/8J9FxbQZilPethpZzTVR9iadahMEBpXY6snWU+O09JwMjyD/snpeXhIUCM9tlA==
-X-Google-Smtp-Source: AGHT+IE1D13JutVol/zUpThGrVNHALTvBXJmh1Qc3SYE16zwA1SMBc6vR4AEEi2kPGJtGcjxoFLleg==
-X-Received: by 2002:a05:6214:23c6:b0:6d8:960e:5785 with SMTP id 6a1803df08f44-6d91e314427mr51513186d6.13.1733794226579;
-        Mon, 09 Dec 2024 17:30:26 -0800 (PST)
+        bh=ZbMZ1XEGG9+iR89acIoDRWlRdmkKPe5qHYKAcY8LBOk=;
+        b=TGUAtrg/UnHHR3XQaYbnDkyQ7PzQr5HQ2yuufOjNU9RgsW4SMdcix/pTYy7Retg3eJ
+         Ry5lFWhg1C2C5e9kYdXooFa5lVwYmEf5amOgoY82Izy9ud3sfulYDf8O9R114Ntpc53k
+         hCKPGWCj2RhOPz6Wa3w1q+byLhxahT0HBUxeR2SAq8/otrGqp67A6WosUQO07fEV6pOz
+         wG0AI73kwsD1lq3E+R9f7hXtDOLggz/4SSFRCTYv/f0KEjaM7gpRB6ygfRNv4Gz2cHv1
+         b7nBcGc4lqZFU/ACSizqyF7vUJ0gRC8ug3hAOwkJzGnDiLdyN4dE2FB5D4XRkqnPCN9Z
+         tQLA==
+X-Forwarded-Encrypted: i=1; AJvYcCV/EaxKRYKFsoAYy7u6rZTvDoYML+6f7bdlRh3aJlF5WryPXL+/s/RySlVYQMrV9MXpfGRyMroWMoRj9zEXHkE=@lists.infradead.org, AJvYcCX4kZ0d9Q1O1xw1bk6a85Y/DoqcZTGKentnhNjfX8IYbj6uvXMMXZ6JvGfFMdntzT6JAyTll8FCTV9sglURutBo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrfK9U3uh192BddwOBwE0SlWCuxCaT7/Sv2FggfLQQpnxMQKB2
+	Lo7O0dTCLNDYtD/wixVgdv0e9FnXZCd/wcw7ga6Co/f2DbnZF/w0
+X-Gm-Gg: ASbGnct5Q4r3S7QZuE+v18O9St8DAN+DSc+8MJ7MWQqb36QVvAWOr74esah5AHAzQMq
+	j2TRVm+b5QWzrZwhyZbhcuXOvJIA0EynNlIPpkaiymu7nJx7kofnUd4+U55+n6L2n7dfc+bgrdV
+	kPOIjuPlnoKoPTYpZOKv2XSuurR8K9VB0UtLBU5ZGipazaK9BZtqO/FRIb9h0jxbP8KUAMsMHYV
+	VjyJOYXzqcr4pe0UaA+OMpTZCV6pGp52q521StQi2nvyTE+llQLtyfLBzqWDA0D9w==
+X-Google-Smtp-Source: AGHT+IHtWOPd4M5xIQAtOFMGvJ2WXw5oVrlCvjGb1M5Y3tJlywOZoegb0SMUWVqBgkFNZkQZZVQ7Og==
+X-Received: by 2002:a05:6214:d06:b0:6d8:850a:4d6a with SMTP id 6a1803df08f44-6d91e2d2bf2mr47042826d6.1.1733794228302;
+        Mon, 09 Dec 2024 17:30:28 -0800 (PST)
 Received: from master-x64.sparksnet ([204.111.53.234])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d8f429a79csm36834346d6.72.2024.12.09.17.30.24
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d8f429a79csm36834346d6.72.2024.12.09.17.30.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 17:30:26 -0800 (PST)
+        Mon, 09 Dec 2024 17:30:27 -0800 (PST)
 From: Peter Geis <pgwipeout@gmail.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Peter Geis <pgwipeout@gmail.com>,
-	Caesar Wang <wxt@rock-chips.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Kevin Hilman <khilman@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
 	linux-rockchip@lists.infradead.org
-Subject: [PATCH 1/6] pmdomain: rockchip: fix rockchip_pd_power error handling
-Date: Tue, 10 Dec 2024 01:30:05 +0000
-Message-Id: <20241210013010.81257-2-pgwipeout@gmail.com>
+Subject: [PATCH 2/6] clk: rockchip: fix wrong clk_ref_usb3otg parent for rk3328
+Date: Tue, 10 Dec 2024 01:30:06 +0000
+Message-Id: <20241210013010.81257-3-pgwipeout@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20241210013010.81257-1-pgwipeout@gmail.com>
 References: <20241210013010.81257-1-pgwipeout@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_173027_903600_137932B8 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20241209_173030_032422_EA5456C0 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,107 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The calls rockchip_pd_power makes to rockchip_pmu_set_idle_request lack
-any return error handling, causing device drivers to incorrectly believe
-the hardware idle requests succeed when they may have failed. This leads
-to software possibly accessing hardware that is powered off and the
-subsequent SError panic that follows.
+Correct the clk_ref_usb3otg parent to fix clock control for the usb3
+controller on rk3328. Verified against the rk3328 trm and usb3 clock tree
+documentation.
 
-Add error checking and return errors to the calling function to prevent
-such crashes.
-
-gst-launch-1.0 videotestsrc num-buffers=2000 ! v4l2jpegenc ! fakesink
-Setting pipeline to PAUSED ...er-x64
-Pipeline is PREROLLING ...
-Redistribute latency...
-rockchip-pm-domain ff100000.syscon:power-controller: failed to get ack on
-domain 'hevc', val=0x98260, idle = 0
-SError Interrupt on CPU2, code 0x00000000bf000002 -- SError
-CPU: 2 UID: 0 PID: 804 Comm: videotestsrc0:s Not tainted 6.12.0-rc5+ #54
-Hardware name: Firefly roc-rk3328-cc (DT)
-pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : rockchip_vpu2_jpeg_enc_run+0x168/0xbc8
-lr : device_run+0xb0/0x128
-sp : ffff800082143a20
-x29: ffff800082143a20 x28: 0000000000000140 x27: 0000000000000000
-x26: ffff582c47a313e8 x25: ffff582c53e95000 x24: ffff582c53e92800
-x23: ffff582c5bbe0000 x22: 0000000000000000 x21: ffff582c47a31080
-x20: ffffa0d78cfa4168 x19: ffffa0d78cfa4168 x18: ffffb755b0519000
-x17: 000000040044ffff x16: 00500072b5503510 x15: a7a6a5a4a3a29a99
-x14: 989796959493928a x13: 0000000051eb851f x12: 00000000000000ff
-x11: ffffa0d78d812880 x10: ffffa0d78d7fbca0 x9 : 000000000000003f
-x8 : 0000000000000063 x7 : 000000000000003f x6 : 0000000000000040
-x5 : ffff80008010d000 x4 : ffffa0d78cfa4168 x3 : ffffa0d78cfbfdd8
-x2 : ffff80008010d0f4 x1 : 0000000000000020 x0 : 0000000000000140
-Kernel panic - not syncing: Asynchronous SError Interrupt
-CPU: 2 UID: 0 PID: 804 Comm: videotestsrc0:s Not tainted 6.12.0-rc5+ #54
-Hardware name: Firefly roc-rk3328-cc (DT)
-Call trace:
-dump_backtrace+0xa0/0x128
-show_stack+0x20/0x38
-dump_stack_lvl+0xc8/0xf8
-dump_stack+0x18/0x28
-panic+0x3ec/0x428
-nmi_panic+0x48/0xa0
-arm64_serror_panic+0x6c/0x88
-do_serror+0x30/0x70
-el1h_64_error_handler+0x38/0x60
-el1h_64_error+0x7c/0x80
-rockchip_vpu2_jpeg_enc_run+0x168/0xbc8
-device_run+0xb0/0x128
-v4l2_m2m_try_run+0xac/0x230
-v4l2_m2m_ioctl_streamon+0x70/0x90
-v4l_streamon+0x2c/0x40
-__video_do_ioctl+0x194/0x400
-video_usercopy+0x10c/0x808
-video_ioctl2+0x20/0x80
-v4l2_ioctl+0x48/0x70
-__arm64_sys_ioctl+0xb0/0x100
-invoke_syscall+0x50/0x120
-el0_svc_common.constprop.0+0x48/0xf0
-do_el0_svc+0x24/0x38
-el0_svc+0x38/0x100
-el0t_64_sync_handler+0xc0/0xc8
-el0t_64_sync+0x1a8/0x1b0
-SMP: stopping secondary CPUs
-Kernel Offset: 0x20d70c000000 from 0xffff800080000000
-PHYS_OFFSET: 0xffffa7d3c0000000
-CPU features: 0x00,00000090,00200000,0200421b
-Memory Limit: none
----[ end Kernel panic - not syncing: Asynchronous SError Interrupt ]---
-
-Fixes: 7c696693a4f5 ("soc: rockchip: power-domain: Add power domain driver")
+Fixes: fe3511ad8a1c ("clk: rockchip: add clock controller for rk3328")
 Signed-off-by: Peter Geis <pgwipeout@gmail.com>
 ---
 
- drivers/pmdomain/rockchip/pm-domains.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ drivers/clk/rockchip/clk-rk3328.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index cb0f93800138..57e8fa25d2bd 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -590,14 +590,18 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
- 			rockchip_pmu_save_qos(pd);
- 
- 			/* if powering down, idle request to NIU first */
--			rockchip_pmu_set_idle_request(pd, true);
-+			ret = rockchip_pmu_set_idle_request(pd, true);
-+			if (ret < 0)
-+				return ret;
- 		}
- 
- 		rockchip_do_pmu_set_power_domain(pd, power_on);
- 
- 		if (power_on) {
- 			/* if powering up, leave idle mode */
--			rockchip_pmu_set_idle_request(pd, false);
-+			ret = rockchip_pmu_set_idle_request(pd, false);
-+			if (ret < 0)
-+				return ret;
- 
- 			rockchip_pmu_restore_qos(pd);
- 		}
+diff --git a/drivers/clk/rockchip/clk-rk3328.c b/drivers/clk/rockchip/clk-rk3328.c
+index 3bb87b27b662..cf60fcf2fa5c 100644
+--- a/drivers/clk/rockchip/clk-rk3328.c
++++ b/drivers/clk/rockchip/clk-rk3328.c
+@@ -201,7 +201,7 @@ PNAME(mux_aclk_peri_pre_p)	= { "cpll_peri",
+ 				    "gpll_peri",
+ 				    "hdmiphy_peri" };
+ PNAME(mux_ref_usb3otg_src_p)	= { "xin24m",
+-				    "clk_usb3otg_ref" };
++				    "clk_ref_usb3otg_src" };
+ PNAME(mux_xin24m_32k_p)		= { "xin24m",
+ 				    "clk_rtc32k" };
+ PNAME(mux_mac2io_src_p)		= { "clk_mac2io_src",
 -- 
 2.39.5
 
