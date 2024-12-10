@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F424E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC76E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVEQu2xu19P1lGZLHQqljN4wNAT5W0ftaiJlrxnbv3A=; b=TkPOKemwvy/JJhy/i0gQecUZXQ
-	iZqctQJBpji4O3UZlsPeaq9C/jVDbxrvCJIUuPtoXD18lBjMRdsAssLP2ii7cb6+Dy71g/mXBxc3H
-	3AYXaQ+8dF/+T6XxaeNzY6ZGcsrgjlQoYjvT6aJVXI2kOcmA5eiXtAegsWEdbR1t9OlXw8UyW5Ihz
-	HCSo6SyCkSZ5o79nVWzaGZrpZ6rYUd5JgGztlyUi42PMt6Rgq7Ptr2Sz+h4WHnyxhiv4jt0qVGmf+
-	wGea3ZYtM4g9pwWMn7J1v3BLYOhx+zd/RuhUJjdJQXqqqshJBm+o18Gq5U9WBPVddpHPMSCMzAkvD
-	rbB6L51A==;
+	bh=nsRWd4XpGmQt04H39BY5vEC82atw+VIlFLWx6YsWO/I=; b=IUgfzHaKOy4UwNKOfmU7n57vHI
+	XvuwemFv99mxzya+YZ5+IsXR8kYMdtAg82kVeGD8bM/Qs37zf7YF2tp4eCokuNDL8OThIXO5LsKcB
+	EnY0ott6MLtuDlTzvqUFLK83FO0bsoxwU12Ks//ZWCgEA/bHHFZNF6NObTW2fyREl8kcWjLnDTouy
+	U+i9b7q+aGNH/0lgwK8o72YUpmSM1MTOxaLhLWz0b3ees6+CD5lDQfhH6W5TA/RsHS5ksAT7eMOVQ
+	MYr2qMTMA7ZTb7y03opFPaCRSyYKGt7zxNkOSyx9Rk6K13dsmMQ0N9hyVpRcmtequArpqvS3d4chh
+	rG80hyuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1WI-0000000Bq4e-0wvu;
-	Tue, 10 Dec 2024 14:47:26 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1tL1XL-0000000BqJ0-3abK;
+	Tue, 10 Dec 2024 14:48:31 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Uh-0000000BplW-45jM
+	id 1tL1Us-0000000Bpo6-2Qiy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 14:45:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733841948; x=1765377948;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ACWubjbg/0OAMr73e1vjVeOan2O+yI5lU5+DUnXaa1c=;
-  b=JdCZz+k/WnhFWnypVo1j2iyejU/rM22LVmSmIW3qMqRej6cecVRIO6bQ
-   CRQa5gPozX0uzQ/ztd02o4InMNwVr2i7icKZZWw4YsLUw5GsEtvHB9nTd
-   3GTd3XU7d/UV7P10ev6+IX0NpDHretKPXVzydlW1e7R5OlQAwASRaDJZh
-   6E0LBhOWqJpBOpNptrBSE0Gql7HLdP4lvRQJmv+ER8JAxg6mjUlLIhwMz
-   LlV8iOrjy7oGxsedw34zQG/06DHwIpQubZS2oIQg5TdH1c2B9rflG3qAl
-   eiNeNNCWc6mb7MTTVFZMg5hvSIO/4pDpCa7oiIi454jyV0TPQz6K2FJGQ
-   A==;
-X-CSE-ConnectionGUID: N6TSWk3cSo+9JofFrAlrXQ==
-X-CSE-MsgGUID: xI2GCHGJTmO6nkLNX2DHEg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="33918492"
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="33918492"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 06:45:47 -0800
-X-CSE-ConnectionGUID: qT8wLg0PSEW6xc/uf1vFWA==
-X-CSE-MsgGUID: mHHXr/tqQRG98djWwKiR/g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="95904071"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 10 Dec 2024 06:45:44 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tL1Ub-0005fh-23;
-	Tue, 10 Dec 2024 14:45:41 +0000
-Date: Tue, 10 Dec 2024 22:45:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: Douglas Anderson <dianders@chromium.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: oe-kbuild-all@lists.linux.dev, Julius Werner <jwerner@chromium.org>,
-	Jeffrey Hugo <quic_jhugo@quicinc.com>,
-	Roxana Bradescu <roxabee@google.com>,
-	bjorn.andersson@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org,
-	Douglas Anderson <dianders@chromium.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/6] arm64: errata: Add QCOM_KRYO_5XX_GOLD to the
- spectre_bhb_k24_list
-Message-ID: <202412102250.hPlsx2c8-lkp@intel.com>
-References: <20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384@changeid>
+	Tue, 10 Dec 2024 14:45:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F5E6A41905;
+	Tue, 10 Dec 2024 14:44:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62E93C4CED6;
+	Tue, 10 Dec 2024 14:45:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733841957;
+	bh=GMYrMpfwKSGDucGIkOOyekDt9RHScYPq0EWm9Q8WkiE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JzXvF2eThXHwU3rAjHNMrf4VIL9uJpQDhOl+3xxAuzv394F+6QqczY9KtW4lWksJy
+	 wiv7nYvPWK6AGkcj0b3jw/d/7XvtOk750NzZUQlv0NCkJq+5paMdadCa6QkRLscnok
+	 dEvl3S1VDPLI4hULXsCecaLB0rrDBCQ2OTyNDOqUuBjBPr9TPpBAKQOPW3U+/YqZE/
+	 RWpato4HeAFvQYlbS9T3db0Ko+/v74iOttwWhHrlK0RH+6dcvoyYZ9PoL2gOveoumz
+	 SHlP9QI/1s4zGxUujQwbECbmvXhANkmGjBjaXEqm+m8xNwZnTRrM+fv94ZlfaYQds5
+	 v8TWkDxZMnKbw==
+Date: Tue, 10 Dec 2024 14:45:53 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] arm64/signal: Silence spurious sparse warning storing
+ GCSPR_EL0
+Message-ID: <755660a1-0536-4520-8c01-9c254b02fae0@sirena.org.uk>
+References: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
+ <Z1hNllCWa4u-IxrH@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ey7ko7zyVLfp6lHg"
 Content-Disposition: inline
-In-Reply-To: <20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384@changeid>
+In-Reply-To: <Z1hNllCWa4u-IxrH@arm.com>
+X-Cookie: Leave no stone unturned.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_064548_057875_99DB4C40 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20241210_064558_676872_FF6AFBBF 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,121 +75,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Douglas,
 
-kernel test robot noticed the following build errors:
+--ey7ko7zyVLfp6lHg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[auto build test ERROR on arm64/for-next/core]
-[also build test ERROR on arm-perf/for-next/perf kvmarm/next soc/for-next arm/for-next arm/fixes linus/master v6.13-rc2 next-20241210]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+On Tue, Dec 10, 2024 at 02:17:58PM +0000, Catalin Marinas wrote:
+> On Tue, Dec 10, 2024 at 12:42:53AM +0000, Mark Brown wrote:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Douglas-Anderson/arm64-errata-Add-QCOM_KRYO_4XX_GOLD-to-the-spectre_bhb_k24_list/20241210-014833
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384%40changeid
-patch subject: [PATCH 5/6] arm64: errata: Add QCOM_KRYO_5XX_GOLD to the spectre_bhb_k24_list
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20241210/202412102250.hPlsx2c8-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241210/202412102250.hPlsx2c8-lkp@intel.com/reproduce)
+> > -	write_sysreg_s(gcspr_el0 + 1, SYS_GCSPR_EL0);
+> > +	write_sysreg_s((unsigned long)(gcspr_el0 + 1), SYS_GCSPR_EL0);
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412102250.hPlsx2c8-lkp@intel.com/
+> Would we now get a warning here?
 
-All errors (new ones prefixed by >>):
+No, like the changelog mentions converting to an unsigned long is
+regarded by sparse as a (the AFAICT) valid way of discarding the
+__userness of a pointer so it's that change that silences the warning.
+It does the right thing with whatever sparse I have here.
 
-   In file included from arch/arm64/include/asm/cache.h:43,
-                    from include/linux/cache.h:6,
-                    from include/linux/jiffies.h:5,
-                    from include/linux/ktime.h:25,
-                    from include/linux/timer.h:6,
-                    from include/linux/workqueue.h:9,
-                    from include/linux/bpf.h:10,
-                    from arch/arm64/kernel/proton-pack.c:21:
-   arch/arm64/kernel/proton-pack.c: In function 'spectre_bhb_loop_affected':
->> arch/arm64/kernel/proton-pack.c:870:43: error: 'MIDR_QCOM_KRYO_5XX_GOLD' undeclared (first use in this function); did you mean 'MIDR_QCOM_KRYO_4XX_GOLD'?
-     870 |                         MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_5XX_GOLD),
-         |                                           ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/arm64/include/asm/cputype.h:251:26: note: in definition of macro 'MIDR_RANGE'
-     251 |                 .model = m,                                     \
-         |                          ^
-   arch/arm64/kernel/proton-pack.c:870:25: note: in expansion of macro 'MIDR_ALL_VERSIONS'
-     870 |                         MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_5XX_GOLD),
-         |                         ^~~~~~~~~~~~~~~~~
-   arch/arm64/kernel/proton-pack.c:870:43: note: each undeclared identifier is reported only once for each function it appears in
-     870 |                         MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_5XX_GOLD),
-         |                                           ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/arm64/include/asm/cputype.h:251:26: note: in definition of macro 'MIDR_RANGE'
-     251 |                 .model = m,                                     \
-         |                          ^
-   arch/arm64/kernel/proton-pack.c:870:25: note: in expansion of macro 'MIDR_ALL_VERSIONS'
-     870 |                         MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_5XX_GOLD),
-         |                         ^~~~~~~~~~~~~~~~~
+--ey7ko7zyVLfp6lHg
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-vim +870 arch/arm64/kernel/proton-pack.c
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdYVCAACgkQJNaLcl1U
+h9CsSgf/YtXlOQ/FWK5sRGxFr3DCs0csSiv0kz4bc8U5saalD7Tf7Z2hk/HyAcmM
+VQWiUCuKYnysyju9p2hKfQKM0PrWgZ5Fv52dMF5omVBLQpfSCrokqZTMpGlpOgqP
+zHfuKIcHC/Iby1wDzevxfHJUkmVr+MkdREIb+x67guEMewJF4eri8cE4n22kZtQJ
+2Lhky5EYP8TzS8qd6SAYGMRkGqF5RRjPlmuUghwlp3KBypsdEqhWN4sFFS5lnp9I
+EUKULrAuMWD4yI3T2o0X+M0iGF5OkZNWbrGnvzi4To674f0J29w4xS0hqFZEOyCC
+LmUYGWEdQe8Gd1NewbwdnuQgwDPoXQ==
+=UPH8
+-----END PGP SIGNATURE-----
 
-   843	
-   844	/*
-   845	 * This must be called with SCOPE_LOCAL_CPU for each type of CPU, before any
-   846	 * SCOPE_SYSTEM call will give the right answer.
-   847	 */
-   848	u8 spectre_bhb_loop_affected(int scope)
-   849	{
-   850		u8 k = 0;
-   851		static u8 max_bhb_k;
-   852	
-   853		if (scope == SCOPE_LOCAL_CPU) {
-   854			static const struct midr_range spectre_bhb_k32_list[] = {
-   855				MIDR_ALL_VERSIONS(MIDR_CORTEX_A78),
-   856				MIDR_ALL_VERSIONS(MIDR_CORTEX_A78AE),
-   857				MIDR_ALL_VERSIONS(MIDR_CORTEX_A78C),
-   858				MIDR_ALL_VERSIONS(MIDR_CORTEX_X1),
-   859				MIDR_ALL_VERSIONS(MIDR_CORTEX_A710),
-   860				MIDR_ALL_VERSIONS(MIDR_CORTEX_X2),
-   861				MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
-   862				MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
-   863				{},
-   864			};
-   865			static const struct midr_range spectre_bhb_k24_list[] = {
-   866				MIDR_ALL_VERSIONS(MIDR_CORTEX_A76),
-   867				MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
-   868				MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
-   869				MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
- > 870				MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_5XX_GOLD),
-   871				{},
-   872			};
-   873			static const struct midr_range spectre_bhb_k11_list[] = {
-   874				MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-   875				{},
-   876			};
-   877			static const struct midr_range spectre_bhb_k8_list[] = {
-   878				MIDR_ALL_VERSIONS(MIDR_CORTEX_A72),
-   879				MIDR_ALL_VERSIONS(MIDR_CORTEX_A57),
-   880				{},
-   881			};
-   882	
-   883			if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
-   884				k = 32;
-   885			else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k24_list))
-   886				k = 24;
-   887			else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k11_list))
-   888				k = 11;
-   889			else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k8_list))
-   890				k =  8;
-   891	
-   892			max_bhb_k = max(max_bhb_k, k);
-   893		} else {
-   894			k = max_bhb_k;
-   895		}
-   896	
-   897		return k;
-   898	}
-   899	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--ey7ko7zyVLfp6lHg--
 
