@@ -4,164 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982B8E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63459E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 19:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8OqrRZduymo8jwJmOoPyNZCYbrUlj1UCyo267MKydA=; b=o9kioPYV7O4ojtc3tcTZR8EUZr
-	9VYKeI5Nv37UYvWQNS7zbfgLjW40AKmDDp7/+ol62XUmJWg/gmYHjM6LGjVXHeul/c2lTwPXYqrDT
-	x9dW8LLm68NJ0O9ATWNtReo+IjMMQIZlZ7cTn/y7mj4UnXRMK+j4692tUFd26CSNG9bFwTJjYh9rp
-	ZUvO2tn03rf0FCQ49wl0muBc44yFPCG0vebqHZ0x+0EPgnnQLl9U0Bj3CtSaKSqXT7w22GE5lPy7H
-	1VEua2sh8L78XkdtBROYq5NnqsznuN9mPIK6HUNe4IuRohO+dprWbYmQlrNoZJs/E/SQFkznL2Vjg
-	QskhBvcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OwV717DZF6jBbGmMqY4Lay6suGsxDvolISQzDQbt+mE=; b=OP8Mq8PasJtpahDsPkjXDyXzwy
+	n70oWBHtj7pesIUUEPFsxDmfu7y38yJK/OSOjlMAni7y5d5XcvkRYRGhSd+mtbvw9llzo/m9fmCEU
+	hx2AZfhuT85iSQNEsiAubbH0KsGqLnDwPmUnr4Oel8XLXCxnydvwWzcPcTTa3o3QVYYTLbMHLkg9l
+	4QdqK/SYj86q9vpHiijep93nchcPkGlZzbCRX/RRhqQ99gwAnOW/rz7lKe4VNPJXFvFT0xpC2kR4H
+	k/m+M6xCik1uUr7A4JiG8L/GdoQbrCpuVxLogOPYSGhbhMHeR7jSLtyikc3gxScRfEqBXFRwV4MvB
+	0cllbZCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL607-0000000CX4D-3RCh;
-	Tue, 10 Dec 2024 19:34:31 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1tL61e-0000000CXIu-37mX;
+	Tue, 10 Dec 2024 19:36:06 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL5z5-0000000CWxk-3rqf
+	id 1tL60a-0000000CX93-3lpX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 19:33:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Lnjjrss+Lzj9tK5jnBDA2szZVsF+UQBGJprK+dpqGIc/dukh5H8vgbaaxpybM+kuISyuYo3end+k8o1AJCP1XIqtgliT7UUco+JTZHpHoG4C00Osf/dBUtOkU+UwIFtlYYXoYtqG1s6LlQWKvLqP9FTtBEIk5Nau8vAuFPYSj2A3SyJ0XvGeUWh8UPL7whmPu1gbQlLHMvwXedAxgt8XwQEpFnHKmu8IM3rZRFqO6pB9dQdYgUSYruJjLnoHtIUeK13ma6lUpxE2vGbMs6nqiFJLxQrN5u8D07Cyl/zw+50kMKc/wa3peZmb8fg4BP9o+U1SSn8iRm1ZID6wgnwn8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m8OqrRZduymo8jwJmOoPyNZCYbrUlj1UCyo267MKydA=;
- b=LTa/vbDcGeHp5MaPNj9OLfwjAl+REUlZ0Zr6BvWY8ILtC2p0W0IGMB+kMPB9NpaA+80hraFbvDGCdb5GAHm3N5ACpmTe/PIcDXFxeQkPHNyJ8n9rcAquMG8zIDGYkp2nLHHwtbOqRIK0qOP0ZzYYdCb7mtCzn7/1l8AmMHBw6iq+5u5fEJrBeV2hlNIrTn9XzcQUcTW2XDupaqbe0OFS6FVqxpAK9vEyL5wevIiE+d9+nQ22h+7syApb79wjcGAp6wC19EqX0wc2nKKNrbl/sNET0gV6mSjLUVaIy3FDlJehkuX/XdXDRQ5+kXP8feSj/28aOgXqT3WHX3jezHLabw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Tue, 10 Dec 2024 19:35:03 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2eec9b3a1bbso4366786a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 11:35:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m8OqrRZduymo8jwJmOoPyNZCYbrUlj1UCyo267MKydA=;
- b=DW2Iw69zebXKq5qITmVGeb02n8ZADzaMb5zKGlhIMpTmRgIvEgRgIPSaolbHu3Fs2+Mxyh4P49CTAkOalIfoDeVIuZ4mCQ7D4NIZ5cQrN4tt79Cx7GzEy3ILWp2A0KJ7VpOS6TQTWD1wSeB4NKZFKHh1LCLJm8IPvp59BSLNEz8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- BN0PR01MB7199.prod.exchangelabs.com (2603:10b6:408:15a::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.14; Tue, 10 Dec 2024 19:33:21 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.8251.008; Tue, 10 Dec 2024
- 19:33:20 +0000
-Message-ID: <414b3388-c2e5-45ae-9f1d-c35310fdbf8b@os.amperecomputing.com>
-Date: Tue, 10 Dec 2024 11:33:16 -0800
+        d=broadcom.com; s=google; t=1733859300; x=1734464100; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=OwV717DZF6jBbGmMqY4Lay6suGsxDvolISQzDQbt+mE=;
+        b=htl1+IhqJpUD32ERTOIRsw5tPU6EMW7yYxuX4NtDJFqOKW299I+f0+d+2za9WHUd45
+         gTRfS3FFM3k/WTMwRu0knoJ+eB2mI9srjppkM4XPaVH7tBFPuc04282GOd4ID3Ws/s7M
+         /Kbz+1HbrXJhkT+6o6Tg8kqygTHc922i2Z3uQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733859300; x=1734464100;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OwV717DZF6jBbGmMqY4Lay6suGsxDvolISQzDQbt+mE=;
+        b=oIaY3MFxHNVVsmI+vdb7ul2OjELZ8my18JXudLZZewvIgZifmrDc3xL4dLwU55gJFw
+         YuGR2qnu936c+x1Kj4KH7HoNdo5UMsyG4aC1xH71mPpiAkfuC/O5l/k8vV3iOqxTBw9v
+         U95CSB0G4WAdrPZhx0aK8WVJFHLg+6ixLIpT3PrIYEOdg6pAh9f2DflUIfZ7KXi9cWOr
+         mcyHdaWQIe1lycJ4UyonFaNsDhKtwWtxi59BE8VZQauXXuj610J88I1EVvOgazlVkJAP
+         HOtVvgoy/WIz/0lBuoWm32XQicw9/dXv/yvtwNzMuvlbSvJZL0O3YeNLoJ9rVTkA4UJL
+         lANw==
+X-Forwarded-Encrypted: i=1; AJvYcCVLlj6bvkukrXB1pVf7+27tfv9BuwmIlxKY599pJI897g+4dQc3ih+SP+yNnGMkYNS+Va4mzZ46W7jM4yIlCqYc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxXOUKUVzy7T9S9liUz5BEQ9iIlsq3qAuPLARYYlPrt+8bTic8
+	JjXAVAYwvS9WogJyQysR9sZQQBnj2qnI/XlUngeQBQ8LupWFrOp+liaxHCBWFQ==
+X-Gm-Gg: ASbGncs4VGdsMhKr2HG5MEqgPJKglG+0bUV8msVwAyUcIBslJAId5NdZHoQogUqmOLM
+	csy3XKtRK6S9hLTZ2E56V9HRxAJuPIqDmgsOz2faYtXX022x96D9oI1qPjyrZbzQGDA/MLzq0PA
+	XmvagKMtECTuUNY9H+7RfO7ugC1tQlucGSRyIYAix0npdXA2qN97RaM3D4eK6ZsBToGOaWjQymJ
+	BRKepE4H66eIVqeYAKf+CHIirZumVSdZmLw8PNsE2xa40/je20H+Zhb31wdraSITxOdXLe+BV2p
+	dC9/iRDIhVeKSG4VCg==
+X-Google-Smtp-Source: AGHT+IFBOs/F/U4/hLKU6kyWf8O6LlmYbxeJeYss/dK1iAbYGZxIT+jEyZtSoRHQ4kvolIcl2McsnQ==
+X-Received: by 2002:a17:90b:3a83:b0:2ee:e518:c1d8 with SMTP id 98e67ed59e1d1-2f12808c035mr266194a91.30.1733859299825;
+        Tue, 10 Dec 2024 11:34:59 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef45f958d6sm10127971a91.17.2024.12.10.11.34.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Dec 2024 11:34:58 -0800 (PST)
+Message-ID: <8a7bd584-d4e7-4a68-a562-08f2603ff49c@broadcom.com>
+Date: Tue, 10 Dec 2024 11:34:51 -0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/3] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, cl@gentwo.org, scott@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241118181711.962576-1-yang@os.amperecomputing.com>
- <20241210113151.GC14735@willie-the-truck>
+Subject: Re: [PATCH net-next 2/9] net: dsa: add hook to determine whether EEE
+ is supported
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ar__n__ __NAL <arinc.unal@arinc9.com>, Daniel Golle <daniel@makrotopia.org>,
+ "David S. Miller" <davem@davemloft.net>, DENG Qingfang <dqfext@gmail.com>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+ Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
+ Vladimir Oltean <olteanv@gmail.com>, Woojung Huh <woojung.huh@microchip.com>
+References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
+ <E1tL144-006cZD-El@rmk-PC.armlinux.org.uk>
 Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <20241210113151.GC14735@willie-the-truck>
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <E1tL144-006cZD-El@rmk-PC.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SN7PR04CA0234.namprd04.prod.outlook.com
- (2603:10b6:806:127::29) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BN0PR01MB7199:EE_
-X-MS-Office365-Filtering-Correlation-Id: 173a7b04-c757-4b97-6b56-08dd195180e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YVQ4azhlRXRVdXNmOEs5VGJIUFpRR01kT3FJVkwwNTFnak5LMDVYNUprMGlQ?=
- =?utf-8?B?aUhZN1ZKUDhhU2I4VWw1Mytua2xaK21XNGwzVVQzT1JTSmNPb1JvaXF3VzU3?=
- =?utf-8?B?UytPQWJlMm83eVhGdDEyWWlCWjgvcDMwR2w2NEFKOXdBWW91UGkrS0RTcDFs?=
- =?utf-8?B?T2FWQUhkbWE4OFZFYkpOVXFQMkQrZ2FGUUkzNXg4dDNwZVB1ZFlPU0R2NWpO?=
- =?utf-8?B?U052TVdxWlEwRFBza2NveGV4emc3bFhpRytGYUNRdkJXdm1pYlZ4emU5TnlD?=
- =?utf-8?B?MmlYcnQ2dlpJNWRrU0ZMZWJLci9pZkt5Mkt2NEJlejBpNWh5SFlPbVQvd0hV?=
- =?utf-8?B?bHZqSzdSZE45cVgyRFpjWFJYdGNrbG9tK0NqRFlsSFo4RjlGMllWK01mQ3BV?=
- =?utf-8?B?MVJkdUNpM0xCa292WHU3aTBDRzkwUG1XQUR3ZnlFZ1JQOWNhdkNJOWFHTDdJ?=
- =?utf-8?B?UzdEOGxMU2Ftc3lrNHF0Qm5HUzFvaG96cm5DcVhtNHF0UTR2ZjV2NHFINDgr?=
- =?utf-8?B?OW9JVXdsK1cwbXpaVEYyeXJXcGhyVVoxOXRmM21NN1JWL1RNNW9rRDB6b1ZB?=
- =?utf-8?B?eU5LOXNza3VvRDJpNFFvRWFPQzhBeW9RY0pYS2xPMGU4M0phM1NqUmdqTjNx?=
- =?utf-8?B?MGZlT1ZWMGF4bWp5dVI3Zm5vNDNKNEpSN0YrU2p4aUhXcVVuMXNCaHhoOHBD?=
- =?utf-8?B?OHJVdWhBM25kRGExamZwem96bzVCRHFKc04rTHdwMzhOUk5RYkNMbVlhcStH?=
- =?utf-8?B?c3phNjBpdDd3SnRSblNoQ3pIbS84TWlHRkVVUlhIbWZSYzhXM095K0hjcHBL?=
- =?utf-8?B?ajRuV1VzUEJpakdDem1peUNaZlVIOEcwcDIvNnA4bGdFbUR4Vkx3REVpZ1pF?=
- =?utf-8?B?ejBMR2VxUkt5OHhXaExlYnBrbnBOaGhFTkpFVDRaTE1xTlJ6ZEtBd2krZ1d6?=
- =?utf-8?B?bnNMRTRDMEwvTFdDeHd3NUE2Wlc3bEFNOHhxQnd5VUxoYlB5UUw5TEY4UGVp?=
- =?utf-8?B?b0ozNlVKZjVCTXBxNitrcnp2MG9McGZyWE9pQlNaMUx1MmJOcjhzQUJnZm9H?=
- =?utf-8?B?RlNiSjIyeTdIQ1pFM3FtSXFKZUxZaTNEbUZoOUtaenJBdk8xZC9LZ3IxN1kx?=
- =?utf-8?B?OS9UckljR0oyYm16SjY5NXM4QjlKSlRhREIwNHc4dVhHYitwTWRUejh5S1Q2?=
- =?utf-8?B?QWRONXJDU0xyN21NMjhVeTFXYjd5b0pyVjhWR0Jicm1nbXpIQWdXaXVZZ1Q2?=
- =?utf-8?B?ZnpGcUxhK2xnMjFqejUwZXFGdHBlSHlpMHRIUXlIUnllcXNQQXJPbU1kc1Av?=
- =?utf-8?B?VjBELzJoYi9mNWxOQmdiRk5rU2ZxVzIvV1lyZnRhejNPSmdXSWdoNEZwM2NB?=
- =?utf-8?B?TTVaRHAvSDQxMVhFWUtWSnFOV0hrWXF0Ly9DWXFNdXlYdkFjcG9Pdm9qZ01m?=
- =?utf-8?B?aXBrSFFxZTJ3OFdIbncxQ0tmWnZjNFRoTEJyMkd0N29jdWZBQ3grZW5OTCsy?=
- =?utf-8?B?eEtDNWVYU05pN3pIZndXZmUwTFNmVWl2U21FUCswWHJHb0lxdWlucEhEREwz?=
- =?utf-8?B?UUdFVVNGWm9KaFFUOGpmSVdOS1JwVWRZZlVYNmtBbmRvVDduQzREeUhKdTh2?=
- =?utf-8?B?T0hMSVdxVTNVOU1raHlMVktudklYYzdiZHFOTjBoNjBDOS9FRWFFZmpkcVRE?=
- =?utf-8?B?YmlkTDFMWDcxdVVMd2hFdmpjZFhKY3RKV3JPMmd3VzdjMkdCR21WaDVjV25T?=
- =?utf-8?B?YURDdkQ0UXdBSkZuaVYxS0IxNkV4YzBWODdEcTd1UVR2Szllcno5SWZyRisr?=
- =?utf-8?Q?DwadXs/gWWHIr2JrqI+HpngD4jkwv2woLUcSA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TkRjMnYwSlB0Yjlpa2FNRUFxekdWaGgvT2U4bGloNEd6dHR4MWNCTU9tVDc0?=
- =?utf-8?B?bk50YTE0aThUSDd2ZGZ6QjdtdFF0ZGxrNUVZcmlVYlVONFlSSWRTTitTb3Rw?=
- =?utf-8?B?bXdFVzRkdGx2MXBNbnJqV0hORk5uWFh6L3BSNlFGSUVxdnIyNER6WTk1VXdx?=
- =?utf-8?B?VFphM3V4K1B2WHJzYktBK0JJcDdxRnN1RHNLa0MwSnllbHJtMDRwZ1JsTzFS?=
- =?utf-8?B?NUp1MVd1eXlidklUOGdZVjZLeU04TkFNT1FBdGljRjRuTVhpL0tkN1RSeHpS?=
- =?utf-8?B?VmkrZWRFZjV2UmYyY3RkemUreUlRcHZtNFN5Z1JCdjJueUc0ZmJOSFdvN0tF?=
- =?utf-8?B?VkFFY3N0UFRuM25UVWt1SlNZa29zbUM4MzdYbWFmR29xUHRUc21ma01PMU1N?=
- =?utf-8?B?eStpV1l2aWQ0QVRieTI2MnVWQk9YaHZPYW5HWUNjQU91ZmtqelZ0cnppRHNV?=
- =?utf-8?B?SUlvcmJLa1luR1NLUmQxaHAxN1FSdWU3T2ZvTDZXNVFablloREZLVVJwOStK?=
- =?utf-8?B?YXl6MUN4UitERjFhNThtcDFCYUxUMVl2V21JS2hSZnJUNDY0c3FJemFWMXIx?=
- =?utf-8?B?cnlpN1pwUEJVbnpFRFdXMU8xU3ZCUE1MT1lOR25ucUJELzdPQ09mMUovZHJE?=
- =?utf-8?B?dVNjdlVIVlkrRE5kWm1neGJPMTlSMTRUNkdiZkNMeWJqNFdzc1ZvcW5lelpP?=
- =?utf-8?B?TWwrMUlRNlhIZ0hHV3g4ZFJDbE1BYWlhMElKSE1KMVpnbE5tVTNCeWhpSmJ3?=
- =?utf-8?B?eDdDRVF0S0VCQUJ3ZjkwcGk3MmVlYmtqaXpIbmZWMVArNGkxczdsWUl4YzZj?=
- =?utf-8?B?ZTRWN0o5Kzl2Nmt2b1lWM0ZraEtEY2YyaHhGYjdEcmd5czVuQmNpODl6TmlH?=
- =?utf-8?B?NHhGVFhIbXBHUXhUbEJwTnROUmc5SHVtVXFYbEhpeEpVQnZSbFEvcDB4QzQy?=
- =?utf-8?B?OGVleXMrL0FyK1krVEdacllFTjZ1YnNIcVNtQ0NFbjB2b2NHVHZLR3g4MzRZ?=
- =?utf-8?B?RmU0RU5kN2hISWFDMHVtN0RXMmhSTUdlUHVWbkZZUkRZSlBzU0NnZ1lVM1pv?=
- =?utf-8?B?Z21GVTRBMTdaRHpYQXFPc1pEeG9TU3NPeGlZUVF6YnVMNXZkZ3A4cmdGNUE2?=
- =?utf-8?B?QWtVZk9QWkVxdmxHWHBWQi9LM0JNVnQvczV2S0FtRkx5QVBnc0RDaWozZ2lQ?=
- =?utf-8?B?MGZWMmtPSHpjOFBTYUsvVE9teDNJNkY5NEhGVkVaZ3VOMWFuTDNRc251QTRl?=
- =?utf-8?B?angyOUN4aFZFS21tZFl1MGJRSFd0S2JVajk0ZlpFTU1td2dwVWlhbWo5a1lQ?=
- =?utf-8?B?MmM0QnpPQm5nWXZXR0I1THRSOU9kNm9DUTVHTU9md2taTHQyZEJvTDNjV2dJ?=
- =?utf-8?B?MURQRDBlcGMwQnVpSzREVjNHMTlUd3FNMGxRSnM2Ym93MzcrMlZNR2ZySFRZ?=
- =?utf-8?B?UDEyd1pUWDJac3d1Y3NRSm5sNUk1Ulp5Nnc3clg4Y1pBWWFqVExmZFlLNFd5?=
- =?utf-8?B?V0ozdHBOL3BHSW55Q3k0Vm56SFFkaUJqR1V4Ym5maDBKcDhiOWF0elI3SlNi?=
- =?utf-8?B?LzljWXJwbWJFR2hVcmlnOFZNTjRaQmlucVdBVis0bEc3Ymt1N3Y2KzY3UGZB?=
- =?utf-8?B?dENBUEsvcHp0M2NNK3lyQW9GREJuMFlubERCOEl6RzExV2lEY0x2NzFyWkFG?=
- =?utf-8?B?STJmdHBHa0tFbVozcjg4L0pFSWpUc2tTL3NPOU82NU51bkdpdTJEeDdYMi9w?=
- =?utf-8?B?ZDNFR2hJZEQwQU9aaWZSc1o0dGNBRXFlWHEzb3o0aDNXRkJPbU1Bc1cwNUxO?=
- =?utf-8?B?bjJaQmNNWGlFY1MvdnJqMVU5b3RlRUo4ajlKQ2pQaFg2bmFmYUdZZmUydnl4?=
- =?utf-8?B?c3h3YTNQc3FrYndQNjhqMXJZMy9kTFdJSTZSdnRuaDFLbkE1UUtBR2pPRTFW?=
- =?utf-8?B?OWZGUUs5VGw1ZlpmKzJHa3F5OGgyeDQyV05aYjQzOWpkMXJzMXhVdmw5Nmp3?=
- =?utf-8?B?cGZMdStxa1hUYUtPS0xSOWxtZXFBb0lTelhiT0p6akZjODBZcTFZMnIvcXBi?=
- =?utf-8?B?bE12VTdpK0tPazEyNWd0N1RuR3kxT2FCMmVSbnpzdG4xQkIzeVQ2bHhFMHB3?=
- =?utf-8?B?d08rVVZDeG5jTVBGNTdZWnpWY2NZSlNiZnR5WElKMlA1cFZBK0d2UU50YVVO?=
- =?utf-8?Q?qlWNMMXCwPNAOz7e/FWWwLM=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 173a7b04-c757-4b97-6b56-08dd195180e9
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 19:33:20.4171
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4hhj9PEeYpgK1/pVfC5jVsW/SZ1N59eki2BlFAzwwRTH5WUweqtf9KBo8NxcaHH7w0QWSZ25lBxAT9oabgC9O0F5EEM++X3AeQKA0OlIl8o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR01MB7199
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_113327_982515_0A3C98A5 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20241210_113501_361608_5FA9BFB4 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,53 +140,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/10/24 06:18, Russell King (Oracle) wrote:
+> Add a hook to determine whether the switch supports EEE. This will
+> return false if the switch does not, or true if it does. If the
+> method is not implemented, we assume (currently) that the switch
+> supports EEE.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-
-On 12/10/24 3:31 AM, Will Deacon wrote:
-> On Mon, Nov 18, 2024 at 10:16:07AM -0800, Yang Shi wrote:
->> When rodata=full kernel linear mapping is mapped by PTE due to arm's
->> break-before-make rule.
->>
->> This resulted in a couple of problems:
->>    - performance degradation
->>    - more TLB pressure
->>    - memory waste for kernel page table
->>
->> There are some workarounds to mitigate the problems, for example, using
->> rodata=on, but this compromises the security measurement.
->>
->> With FEAT_BBM level 2 support, splitting large block page table to
->> smaller ones doesn't need to make the page table entry invalid anymore.
->> This allows kernel split large block mapping on the fly.
-> I think you can still get TLB conflict aborts in this case, so this
-> doesn't work. Hopefully the architecture can strengthen this in the
-> future to give you what you need.
-
-Hi Will,
-
-Thanks for responding. This is a little bit surprising. I thought 
-FEAT_BBM level 2 can handle the TLB conflict gracefully. At least its 
-description made me assume so. And Catalin also mentioned FEAT_BBM level 
-2 can be used to split vmemmap page table in HVO patch discussion 
-(https://lore.kernel.org/all/Zo68DP6siXfb6ZBR@arm.com/).
-
-It sounds a little bit contradicting if the TLB conflict still can 
-happen with FEAT_BBM level 2. It makes the benefit of FEAT_BBM level 2 
-much less than expected.
-
-Is it out of question to handle the TLB conflict aborts? IIUC we should 
-just need flush TLB then resume, and it doesn't require to hold any 
-locks as well.
-
-And I chatted with our architects, I was told the TLB conflict abort 
-doesn't happen on AmpereOne. Maybe this is why I didn't see the problem 
-when I tested the patches.
-
-Thanks,
-Yang
-
-
->
-> Will
-
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
