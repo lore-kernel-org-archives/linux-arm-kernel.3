@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8BAE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A773E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2FDyzQaVBJmBdWgi+flPumHn5fgNwsPGMW4DJuw0nzM=; b=uGJiLOIGxlQq8aNiTC7ATjRk0k
-	01K2/XeggoGPhZ37PhSksKSbUKh1aesvVUbzfGyQCWT3Q6wo60hMtWOG0dEQd2JpInkTnOrZmOevp
-	4a3TqYeg1JKnM4T0AULk8us88Cn/MCW0zo1EGGBqEEAL9yR5axPAS2T/azufeWWQWnbPvY4PwChcU
-	tw49rKXTAW+zuO11BGb7/j74TcfSO3ghtlu8Jv5dlxVSQ4tMbACdDTi1ZrjYxiM78ZQwm6G49Eulu
-	LrzIK9YlRNC45v0hyANr0yncaMmHe1M1HGMi9yzXQOe5/zU5ScNp8eFizJq+ehol2NVi45oZvG1ow
-	k74+8UyA==;
+	bh=3YiF7ThrDbAWeKuRCOAFsJKBbN+BqrzeViLR+WJYBGs=; b=yWtmZe75OkQV+m+LoVGCGYcXDC
+	74kkPvX0kT+UrxS8OczZ7EXBj2AuSVYUvgCbdRA8iC3xlsz4YPBH4PB43QPsf8IMLoRFmg8SGE8ek
+	ouBWKlCvu72x2XRcHu75s748wiTHMSIs8m552f8rQZ+tgoCOiuvhhgPhBBFv5uWlnxXJWPQxsOfQO
+	BrGwt7NdJDzsI5k7HEq5OEdsp/qn4AWBQ3J1olaVOf8I+6RvnZ8YgraPMV66of8rgH3LNUxBJpkr/
+	CJWe1B81fMQZoCUbmesYdeuDRxv4FR1VgiVrXavR8qFheePbPW2etZiioHI5I4PNxY6q74bLlmCQR
+	V4+Vks+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwk2-0000000Ay1A-3jRq;
-	Tue, 10 Dec 2024 09:41:18 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1tKwoP-0000000Az4a-3Qm3;
+	Tue, 10 Dec 2024 09:45:49 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwiz-0000000Axpw-3HvZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:40:14 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4675936f333so102431cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 01:40:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733823611; x=1734428411; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2FDyzQaVBJmBdWgi+flPumHn5fgNwsPGMW4DJuw0nzM=;
-        b=hJ3Oo/9TWsqzynZpErZPIe1io8uEyoRynstcfsG/3WOWDbRB7tBtQqpPOQgzTQs4az
-         UjD3OUMBjhkYWWDBE3wRl4oeMNj1ic7jZrlMPKStlldhamyIv/W7nixd7ysppKuzdDD4
-         NCrQaCPaI0L/tG4RZYT8iKCfaEl2eXvCuGuIQBZek9CXiYMVmA4yeVd9DTG4fscIDLor
-         Ok3DOFqRBI9scTJfHsRTmM51HCE/h8uH1aYfwjLKwujE+du28aqHRJwdt5DlSECDQNY+
-         yo1oNdurWyZjlRljri4vWvuyeq1s71ow3LYTh12NFBAKHhFyVdG6DQZ+rhiHIsOCLaJc
-         zPLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733823611; x=1734428411;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2FDyzQaVBJmBdWgi+flPumHn5fgNwsPGMW4DJuw0nzM=;
-        b=tKXxPGc15FMrthc3K91Zw3wHkIvb98G+asmocekcbvwDjGuY7y/BweM7Z61eO0eFnZ
-         Eyxqqec+oQX2GsFUq9XjAfMbS85ZuGxkGzbAl3kzeNtve5ZMDTvnruwHbBGlrhbGEiZM
-         uR9A+iTWXsGbk66t7I/+q++klKgFUVyCptYik1cLIp0YyJyWLUddQVsLWIoaQ9SSj8Sv
-         YLLfA9GwyqM7Nvo/i6Sy7IMfiQlAKD7ApFV8wE1iTNNFnwNU/buPyPWB+I/wbs9OrUx7
-         5FWDPmdr8sJxM2hCS3MzyW091JzNtlBOh73c2r3bnLia2vxPjUiXNWfU4GR2dNodRk59
-         e2xg==
-X-Forwarded-Encrypted: i=1; AJvYcCVf4ClSVQwm/IqcuavI0m8AxERexq+T4gkmV3Z0f3+eTdlxg8D/E/BM7tSHwIeCTXLqs7JSltB1xlH2jcc2yTKQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfbXPIIT8SoboJOUKXvEi8a0znSSJx6BiYPitztE7QbIoC15sM
-	Eu6tVkCyf/ijjxwqX9DEfp6G4T0uMhbe1PcAnrb49vooYmgxEH3+Ny+bMIHg2jgo8Zc3MF684em
-	neOcNb7AjLskkz2A6hjZM5R9IqLRRLqjXjGXK
-X-Gm-Gg: ASbGncsnIDFK/P/yQNHjmLf4LSOiuOzI2f1zADw3qxaNT41jD9DrO8qPPqaFId8ViXQ
-	cOC5syaK2WqlycKgA79WlOGkWmA7EhE56oA==
-X-Google-Smtp-Source: AGHT+IH7V4UKeLrvjNkOyGEOEUYHbY8QYbuKts1kktkzSbiMR6UVtyJWD2Q0aBvHWwJs5sF1JPgPGTYIeXHNZCK6L4o=
-X-Received: by 2002:a05:622a:5186:b0:466:8a29:9de7 with SMTP id
- d75a77b69052e-46776158637mr3576401cf.12.1733823611360; Tue, 10 Dec 2024
- 01:40:11 -0800 (PST)
+	id 1tKwnL-0000000Ayo8-1OPR;
+	Tue, 10 Dec 2024 09:44:44 +0000
 MIME-Version: 1.0
-References: <20241202140604.422235-1-smostafa@google.com> <20241202140604.422235-2-smostafa@google.com>
- <20241209235804.GA14069@willie-the-truck>
-In-Reply-To: <20241209235804.GA14069@willie-the-truck>
-From: Mostafa Saleh <smostafa@google.com>
-Date: Tue, 10 Dec 2024 09:40:00 +0000
-Message-ID: <CAFgf54peN1fGOpr4Q4eihRTYFi1prT3LaQvH-K5x5KO50gmacw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] iommu/io-pgtable-arm: Fix stage-2 concatenation
- with 16K
-To: Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, robin.murphy@arm.com, joro@8bytes.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1733823881;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3YiF7ThrDbAWeKuRCOAFsJKBbN+BqrzeViLR+WJYBGs=;
+	b=vPqeDVKo1NuK++72WGjDs5Xgi2ccTif6seKQoz8N1jraAKbxWjh1xsj9p9fKxk5kBtjak2
+	Y0B1KqAk1QaPGV5y0Bqd+soG2AtWYXWIrJbmta/TgRIVhvZLJ/ns29XXX8SWyYB7M+Eflw
+	Da005oSFEzy3hU2FQv23SHrYlsihCE7MeEh7+AKgmGUOiXjJT8EgskvFMQlIGAd3+yf0Wf
+	b7SRLYf8BrVNeZ0qWQUWqtPK7qyN8LE8sTA9K6E1DEIYEumta8tQ9J9vcdFHl1w8n1mhPA
+	DVS2QvvTyoYO25N25eQKgyPZkp6KJX8sDp5iBtSU+UY+4VusU/zoSF7GvfrqJQ==
+Date: Tue, 10 Dec 2024 10:44:40 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Peter Geis <pgwipeout@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Elaine Zhang
+ <zhangqing@rock-chips.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 2/6] clk: rockchip: fix wrong clk_ref_usb3otg parent for
+ rk3328
+In-Reply-To: <20241210013010.81257-3-pgwipeout@gmail.com>
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-3-pgwipeout@gmail.com>
+Message-ID: <0d11705121f29ccfb7cfa342505a6e35@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_014013_840828_ADDBE94D 
-X-CRM114-Status: GOOD (  24.35  )
+X-CRM114-CacheID: sfid-20241210_014443_528572_33ECC275 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 9, 2024 at 11:58=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Mon, Dec 02, 2024 at 02:06:03PM +0000, Mostafa Saleh wrote:
-> > At the moment, io-pgtable-arm uses concatenation only if it is
-> > possible at level 0, which misses a case where concatenation is
-> > mandatory at level 1 according to R_SRKBC in Arm spec DDI0487 K.a.
-> >
-> > Also, that means concatenation can be used when not mandated,
-> > contradicting the comment on the code. However, these cases can only
-> > happen if the SMMUv3 driver is changed to use ias !=3D oas for stage-2.
-> >
-> > This patch re-writes the code to use concatenation only if mandatory,
-> > fixing the missing case for level-1 and granule 16K with PA =3D 40 bits=
-.
-> >
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  drivers/iommu/io-pgtable-arm.c | 45 +++++++++++++++++++++++++---------
-> >  1 file changed, 33 insertions(+), 12 deletions(-)
-> >
-> > diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-=
-arm.c
-> > index 6b9bb58a414f..0055876b3527 100644
-> > --- a/drivers/iommu/io-pgtable-arm.c
-> > +++ b/drivers/iommu/io-pgtable-arm.c
-> > @@ -223,6 +223,33 @@ static inline int arm_lpae_max_entries(int i, stru=
-ct arm_lpae_io_pgtable *data)
-> >       return ptes_per_table - (i & (ptes_per_table - 1));
-> >  }
-> >
-> > +/*
-> > + * Check if concatenated PGDs are mandatory according to Arm DDI0487 (=
-K.a)
-> > + * 1) R_DXBSH: For 16KB, and 48-bit input size, use level 1 instead of=
- 0.
-> > + * 2) R_SRKBC: After de-ciphering the table for PA size and valid init=
-ial lookup
-> > + *   a) 40 bits PA size with 4K: use level 1 instead of level 0 (2 tab=
-les for ias =3D oas)
-> > + *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 t=
-ables for ias =3D oas)
-> > + *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tab=
-les for ias =3D oas)
-> > + *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 ta=
-bles for ias =3D oas)
-> > + */
-> > +static inline bool arm_lpae_concat_mandatory(struct arm_lpae_io_pgtabl=
-e *data)
-> > +{
-> > +     unsigned int ias =3D data->iop.cfg.ias;
-> > +     unsigned int oas =3D data->iop.cfg.oas;
-> > +
-> > +     /* Covers 1  and 2.d */
-> > +     if ((ARM_LPAE_GRANULE(data) =3D=3D SZ_16K) && (data->start_level =
-=3D=3D 0))
-> > +             return (oas =3D=3D 48) || (ias =3D 48);
->
-> I'm guessing the second disjunct here should be:
->
->         (ias =3D=3D 48);
->
+Hello Peter,
 
-Ouch, my bad.
+On 2024-12-10 02:30, Peter Geis wrote:
+> Correct the clk_ref_usb3otg parent to fix clock control for the usb3
+> controller on rk3328. Verified against the rk3328 trm and usb3 clock 
+> tree
+> documentation.
+> 
+> Fixes: fe3511ad8a1c ("clk: rockchip: add clock controller for rk3328")
+> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+> ---
+> 
+>  drivers/clk/rockchip/clk-rk3328.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/rockchip/clk-rk3328.c
+> b/drivers/clk/rockchip/clk-rk3328.c
+> index 3bb87b27b662..cf60fcf2fa5c 100644
+> --- a/drivers/clk/rockchip/clk-rk3328.c
+> +++ b/drivers/clk/rockchip/clk-rk3328.c
+> @@ -201,7 +201,7 @@ PNAME(mux_aclk_peri_pre_p)	= { "cpll_peri",
+>  				    "gpll_peri",
+>  				    "hdmiphy_peri" };
+>  PNAME(mux_ref_usb3otg_src_p)	= { "xin24m",
+> -				    "clk_usb3otg_ref" };
+> +				    "clk_ref_usb3otg_src" };
+>  PNAME(mux_xin24m_32k_p)		= { "xin24m",
+>  				    "clk_rtc32k" };
+>  PNAME(mux_mac2io_src_p)		= { "clk_mac2io_src",
 
-> I'll make that change when applying...
->
-> Will
+Sorry, but I was unable to verify this in the part 1 of the
+RK3328 TRM, in both versions 1.1 and 1.2, which is all I have
+when it comes to the RK3328 TRM.  Is that maybe described in
+the part 2, which I've been unable to locate for years?
+
+Moreover, the downstream kernel source from Rockchip does it
+the way [1] it's currently done in the mainline kernel, which
+makes me confused a bit?  Could you, please, provide more
+details about the two references you mentioned in the patch
+description, or maybe even you could provide the links to
+those two references?
+
+[1] 
+https://raw.githubusercontent.com/rockchip-linux/kernel/refs/heads/develop-4.4/drivers/clk/rockchip/clk-rk3328.c
 
