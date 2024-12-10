@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E275E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CC5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NnuH/9/xnjRyN5Pv24zBq6aBDEJUzR3LDoLQU0MG8q8=; b=aWLX3HYZ6c+rjxBL13P2xBEPSq
-	pDDY3Vv6fvZsacsjWzYwlQGkaKx4cxoNh/wp3GRTcZLeg0gq58/Q3HFTcrP03StvWCmyHDWGN9HTZ
-	T5RUi9olATfdAkyapKVofK0z4xRC/IGPKVFAPtaT9HsfS4ZgT+1VL8nvpJXtLWgo1mxseVV3PE+AW
-	BFlVoII9i+XgCGpxN1J3zVBuq1VG8B1mTN7ZztmSLdtJ2rBRttwkbQdKjWgvahX4aSfObcY0OrLH+
-	KupCigaqmYYg4+mNSd2JcNyzk3R0mx16MAKruym1FIPGQj2BKQKMlmUKRdhh71NpGS1yApmeUIbfZ
-	3DFUzYrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PWU2eVhMhcb/iJGFd+VmNM2XsfhPsakUhRt7/wk/dGA=; b=1o9UeMJTDd4rHa1ofv/HCuJI+o
+	wiE2k90Ou2laCgJ4lPvRfamKdoaomq80DUQ0h1TyEVRMdDBEW1dR+q2IrlC12KY5E+oaUaMqfBc8L
+	UA1xge6QkrCRwpArqjnZeO3cfiwe+E668lgmsFM3+gVVnd6rimDHvHM9/FOZO1o62I5GSN9DpFqyl
+	8MzzsWiS6e+DtmNdtizQU6zXW2F+5nPA8B9hK4GFZ9HtN51u0RX1Z67s0rxz8vAizlJdxjCygEeIr
+	11A08rN04B0u82qAhUv6jM9VJZ/VgAi6eHzycL6vrFe8fSBBMQ7xV4yr+RWc08TMroKPZlxTeiHX6
+	zavsvp7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1bn-0000000BrT2-3QGh;
-	Tue, 10 Dec 2024 14:53:07 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tL1cr-0000000Brl2-12C9;
+	Tue, 10 Dec 2024 14:54:13 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Yo-0000000BqZF-2tbk
+	id 1tL1Zz-0000000BqyU-0Aey
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 14:50:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tL1YR-0005u5-Pz; Tue, 10 Dec 2024 15:49:39 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tL1YQ-002hu8-0r;
-	Tue, 10 Dec 2024 15:49:39 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tL1YQ-008Y8G-2u;
-	Tue, 10 Dec 2024 15:49:38 +0100
-Date: Tue, 10 Dec 2024 15:49:38 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengfei Li <pengfei.li_1@nxp.com>, devicetree@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>, imx@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] thermal: imx91: Add support for i.MX91 thermal
- monitoring unit
-Message-ID: <20241210144938.zf3dkiubqhcxguqv@pengutronix.de>
-References: <20241209-imx91tmu-v1-0-7859c5387f31@nxp.com>
- <20241209-imx91tmu-v1-2-7859c5387f31@nxp.com>
- <20241210103646.7gblp7mzxbna5gas@pengutronix.de>
- <Z1hLlm75iGMogltc@lizhi-Precision-Tower-5810>
+	Tue, 10 Dec 2024 14:51:17 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-385f06d0c8eso2648152f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 06:51:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733842272; x=1734447072; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PWU2eVhMhcb/iJGFd+VmNM2XsfhPsakUhRt7/wk/dGA=;
+        b=aZb1jVVLHLo/g1MGAv5dXKlRENXaPVb8qn7pUSo842qmda0fUW9bwzSqijqdjZNqOO
+         Im8sPTa4JUem52r25Tt6oxF7yCg0gBP4oUPM6baFA8m0WZFwtKlhk0PJFy9czpFPqbzP
+         hler6HD3s4/cLEWfSXkcNUaYiF1IT9mYc0a/R5waSzsHZ2WbveDdmfXKzfgMdZ6FSPqw
+         mkO67Joxx4SL2fvWEae0Rury5ME28awY25BpQqGjr6cUVQ01WX+uAvoLqNycYYr5vZFN
+         itNH1iCj1rpuIWAAhZQFgwM24P9mC8r4xSVpzGXcNWWDQNlg9fWW3EEyVkHTqjr9m/PU
+         Io9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733842272; x=1734447072;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PWU2eVhMhcb/iJGFd+VmNM2XsfhPsakUhRt7/wk/dGA=;
+        b=qdA6fE8cJaGw3p3YvVGbntH4SF7xewkuDRRcsae4zVLwLHMfU148sf/lBtjaBaxTUA
+         EMsS6YFfx/m6ECPiJjbkT5V3/QHQV77D76VRABUUnMpytVUhlSoX3vm+cQ2511ZaAYK0
+         lQqCA5fKQ4aPcmYXmrm91PgIoZPEj9P8K4GIqTIPXXuBjhGllw+GYZ33hvGvAhqKAtOm
+         MbLx1Gv4wqKQGk1ixIKztrbJTyg+F5lKme7VWYBY9W5x4AEv1dSWBcgXfwzJ8R0lKTQV
+         0nr5RNjHDC1FYPpri9q/lAGkAssXc9c45vrCdwwMjLhh4KzW/r7zOn9ipplYfl/hR/AQ
+         pIlg==
+X-Forwarded-Encrypted: i=1; AJvYcCXhqDtwm0GwflX0TyWQH7HD2zsvZyMjogRfenj+JgzWo61DfXExHCV56V+XXPNx5mp2b2occt4qtnwJf4gaE9Nm@lists.infradead.org
+X-Gm-Message-State: AOJu0YypRyZ2lTPMltnPWLL3oX7LOcqLiq+fjYfY2YYeSEOu5Z0bhvzG
+	c9Ylon72Envc/PZ0Ad9K9HOr13xx+NtQ3le4ls04/Ci/ip83TI1d+jhoqQZww24=
+X-Gm-Gg: ASbGnctDQ2ypQQLvVHLHKWqO7MPS+thJ60I6/CGRVCuhWvv5u3r+hvbA6YbZs1KMyKo
+	RRzPdgvBJRUO4AIgBeLEqnHWxkhF8wb2nnHKP5FzqShLkXx2avP85leroENTXfifxSjI/xl4QoP
+	X3zfX9OyGn6CAU7GEBcWBaG4v+LLHJSshXXzQw0ZhmDBXCTvCO69njTWhkxTq2F4RjNk+MK2TiT
+	tKpc3bwxyY3k5y+pbF/QUJMgedBmoTgN6g3U03iHmGpFCVOjyuJO4w=
+X-Google-Smtp-Source: AGHT+IG40tI08nse8JUwHqIkYlScp+nI0cpXGiTCqsdS3M7WqGX1DoAKZIPNJ0b6mJGMqFr9aOshZw==
+X-Received: by 2002:a05:6000:1862:b0:386:62f:cf18 with SMTP id ffacd0b85a97d-386453fbdd6mr3663152f8f.49.1733842272254;
+        Tue, 10 Dec 2024 06:51:12 -0800 (PST)
+Received: from pop-os.. ([209.198.129.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38637445f13sm9879198f8f.35.2024.12.10.06.51.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 06:51:11 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+To: coresight@lists.linaro.org
+Cc: yeoreum.yun@arm.com,
+	James Clark <james.clark@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Leo Yan <leo.yan@linux.dev>,
+	Namhyung Kim <namhyung@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] coresight: docs: Remove target sink from examples
+Date: Tue, 10 Dec 2024 14:49:28 +0000
+Message-Id: <20241210144933.295798-1-james.clark@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z1hLlm75iGMogltc@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_065002_742527_7F32878A 
-X-CRM114-Status: GOOD (  35.85  )
+X-CRM114-CacheID: sfid-20241210_065115_905013_089FF444 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,187 +101,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-12-10, Frank Li wrote:
-> On Tue, Dec 10, 2024 at 11:36:46AM +0100, Marco Felsch wrote:
-> > Hi,
-> >
-> > On 24-12-09, Frank Li wrote:
+Previously the sink had to be specified, but now it auto selects one by
+default. Including a sink in the examples causes issues when copy
+pasting the command because it might not work if that sink isn't
+present. Remove the sink from all the basic examples and create a new
+section specifically about overriding the default one.
 
-...
+Make the text a but more concise now that it's in the advanced section,
+and similarly for removing the old kernel advice.
 
-> > > +	/* disable the monitor during initialization */
-> > > +	imx91_tmu_enable(tmu, false);
-> > > +	imx91_tmu_start(tmu, false);
-> >
-> > Make use of pm_runtime?
-> 
-> thermal is always on after probe. continue measure tempature. So pm_runtime
-> is not suitable for this case.
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ Documentation/trace/coresight/coresight.rst   | 41 ++++++++-----------
+ .../userspace-api/perf_ring_buffer.rst        |  4 +-
+ 2 files changed, 18 insertions(+), 27 deletions(-)
 
-There are at least 3 drivers which use pm-runtime including the i.MX6/7
-imx_thermal.c driver.
+diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
+index d4f93d6a2d63..806699871b80 100644
+--- a/Documentation/trace/coresight/coresight.rst
++++ b/Documentation/trace/coresight/coresight.rst
+@@ -462,44 +462,35 @@ queried by the perf command line tool:
+ 
+ 		cs_etm//                                    [Kernel PMU event]
+ 
+-	linaro@linaro-nano:~$
+-
+ Regardless of the number of tracers available in a system (usually equal to the
+ amount of processor cores), the "cs_etm" PMU will be listed only once.
+ 
+ A Coresight PMU works the same way as any other PMU, i.e the name of the PMU is
+-listed along with configuration options within forward slashes '/'.  Since a
+-Coresight system will typically have more than one sink, the name of the sink to
+-work with needs to be specified as an event option.
+-On newer kernels the available sinks are listed in sysFS under
++provided along with configuration options within forward slashes '/' (see
++`Config option formats`_).
++
++Advanced Perf framework usage
++-----------------------------
++
++Sink selection
++~~~~~~~~~~~~~~
++
++An appropriate sink will be selected automatically for use with Perf, but since
++there will typically be more than one sink, the name of the sink to use may be
++specified as a special config option prefixed with '@'.
++
++The available sinks are listed in sysFS under
+ ($SYSFS)/bus/event_source/devices/cs_etm/sinks/::
+ 
+ 	root@localhost:/sys/bus/event_source/devices/cs_etm/sinks# ls
+ 	tmc_etf0  tmc_etr0  tpiu0
+ 
+-On older kernels, this may need to be found from the list of coresight devices,
+-available under ($SYSFS)/bus/coresight/devices/::
+-
+-	root:~# ls /sys/bus/coresight/devices/
+-	 etm0     etm1     etm2         etm3  etm4      etm5      funnel0
+-	 funnel1  funnel2  replicator0  stm0  tmc_etf0  tmc_etr0  tpiu0
+ 	root@linaro-nano:~# perf record -e cs_etm/@tmc_etr0/u --per-thread program
+ 
+-As mentioned above in section "Device Naming scheme", the names of the devices could
+-look different from what is used in the example above. One must use the device names
+-as it appears under the sysFS.
+-
+-The syntax within the forward slashes '/' is important.  The '@' character
+-tells the parser that a sink is about to be specified and that this is the sink
+-to use for the trace session.
+-
+ More information on the above and other example on how to use Coresight with
+ the perf tools can be found in the "HOWTO.md" file of the openCSD gitHub
+ repository [#third]_.
+ 
+-Advanced perf framework usage
+------------------------------
+-
+ AutoFDO analysis using the perf tools
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+@@ -508,7 +499,7 @@ perf can be used to record and analyze trace of programs.
+ Execution can be recorded using 'perf record' with the cs_etm event,
+ specifying the name of the sink to record to, e.g::
+ 
+-    perf record -e cs_etm/@tmc_etr0/u --per-thread
++    perf record -e cs_etm//u --per-thread
+ 
+ The 'perf report' and 'perf script' commands can be used to analyze execution,
+ synthesizing instruction and branch events from the instruction trace.
+@@ -572,7 +563,7 @@ sort example is from the AutoFDO tutorial (https://gcc.gnu.org/wiki/AutoFDO/Tuto
+ 	Bubble sorting array of 30000 elements
+ 	5910 ms
+ 
+-	$ perf record -e cs_etm/@tmc_etr0/u --per-thread taskset -c 2 ./sort
++	$ perf record -e cs_etm//u --per-thread taskset -c 2 ./sort
+ 	Bubble sorting array of 30000 elements
+ 	12543 ms
+ 	[ perf record: Woken up 35 times to write data ]
+diff --git a/Documentation/userspace-api/perf_ring_buffer.rst b/Documentation/userspace-api/perf_ring_buffer.rst
+index bde9d8cbc106..dc71544532ce 100644
+--- a/Documentation/userspace-api/perf_ring_buffer.rst
++++ b/Documentation/userspace-api/perf_ring_buffer.rst
+@@ -627,7 +627,7 @@ regular ring buffer.
+ AUX events and AUX trace data are two different things.  Let's see an
+ example::
+ 
+-        perf record -a -e cycles -e cs_etm/@tmc_etr0/ -- sleep 2
++        perf record -a -e cycles -e cs_etm// -- sleep 2
+ 
+ The above command enables two events: one is the event *cycles* from PMU
+ and another is the AUX event *cs_etm* from Arm CoreSight, both are saved
+@@ -766,7 +766,7 @@ only record AUX trace data at a specific time point which users are
+ interested in.  E.g. below gives an example of how to take snapshots
+ with 1 second interval with Arm CoreSight::
+ 
+-  perf record -e cs_etm/@tmc_etr0/u -S -a program &
++  perf record -e cs_etm//u -S -a program &
+   PERFPID=$!
+   while true; do
+       kill -USR2 $PERFPID
+-- 
+2.34.1
 
-> > > +	ret = imx91_init_from_nvmem_cells(tmu);
-> > > +	if (ret) {
-> > > +		writel_relaxed(DEFAULT_TRIM1_CONFIG, tmu->base + TRIM1);
-> > > +		writel_relaxed(DEFAULT_TRIM2_CONFIG, tmu->base + TRIM2);
-> > > +	}
-> > > +
-> > > +	/* The typical conv clk is 4MHz, the output freq is 'rate / (div + 1)' */
-> > > +	rate = clk_get_rate(tmu->clk);
-> > > +	div = (rate / 4000000) - 1;
-> >
-> > Would be nice to validate the div value before passing to the HW and if
-> > the target rate of 4MHz can't be reached by the div you you should
-> > return -EINVAL.
-> >
-> > > +
-> > > +	/* Set divider value and enable divider */
-> > > +	writel_relaxed(DIV_EN | FIELD_PREP(DIV_MASK, div), tmu->base + REF_DIV);
-> > > +
-> > > +	/* Set max power up delay: 'Tpud(ms) = 0xFF * 1000 / 4000000' */
-> > > +	writel_relaxed(FIELD_PREP(PUDL_MASK, 100U), tmu->base + PUD_ST_CTRL);
-> > > +
-> > > +	/*
-> > > +	 * Set resolution mode
-> > > +	 * 00b - Conversion time = 0.59325 ms
-> > > +	 * 01b - Conversion time = 1.10525 ms
-> > > +	 * 10b - Conversion time = 2.12925 ms
-> > > +	 * 11b - Conversion time = 4.17725 ms
-> > > +	 */
-> > > +	writel_relaxed(FIELD_PREP(CTRL1_RES_MASK, 0x3), tmu->base + CTRL1_CLR);
-> > > +	writel_relaxed(FIELD_PREP(CTRL1_RES_MASK, 0x1), tmu->base + CTRL1_SET);
-> > > +
-> > > +	/*
-> > > +	 * Set measure mode
-> > > +	 * 00b - Single oneshot measurement
-> > > +	 * 01b - Continuous measurement
-> > > +	 * 10b - Periodic oneshot measurement
-> > > +	 */
-> >
-> > For the resolution it's fine to have the values directly coded without a
-> > define, but here we can definitly use a define and drop the comment.
-> >
-> > > +	writel_relaxed(FIELD_PREP(CTRL1_MEAS_MODE_MASK, 0x3), tmu->base + CTRL1_CLR);
-> > > +	writel_relaxed(FIELD_PREP(CTRL1_MEAS_MODE_MASK, 0x1), tmu->base + CTRL1_SET);
-> >
-> > Why do we set it to periodic mode instead of the single-shot? At the
-> > moment the device doesn't have IRQ support, and so there is no need to
-> > run the measurements in background.
-> 
-> It is "continous measurement".  first clean MODE_MASK, then then 01.
-
-Still, why? You return the temp value upon a request (get_temp). There
-is no async notification from this driver to others. So it can be left
-to single-shot and do the measurement on request (get_temp).
-
-> _CLR means clean bits according to mask
-> _SET means set bits according to mask.
-
-I know.
-
-Regards,
-  Marco
-
-> 
-> Frank
-> 
-> >
-> > > +
-> > > +	/*
-> > > +	 * Set Periodic Measurement Frequency to 25Hz:
-> > > +	 * tMEAS_FREQ = tCONV_CLK * PERIOD_CTRL[MEAS_FREQ]. ->
-> > > +	 * PERIOD_CTRL(MEAS_FREQ) = (1000 / 25) / (1000 / 4000000);
-> > > +	 * Where tMEAS_FREQ = Measurement period and tCONV_CLK = 1/fCONV_CLK.
-> > > +	 * This field should have value greater than count corresponds
-> > > +	 * to time greater than summation of conversion time, power up
-> > > +	 * delay, and six times of conversion clock time.
-> > > +	 * tMEAS_FREQ > (tCONV + tPUD + 6 * tCONV_CLK).
-> > > +	 * tCONV is conversion time determined by CTRL1[RESOLUTION].
-> > > +	 */
-> > > +	writel_relaxed(FIELD_PREP(MEAS_FREQ_MASK, 0x27100), tmu->base + PERIOD_CTRL);
-> >
-> > With the single-shot measurements we could remove this part and..
-> >
-> > > +
-> > > +	/* enable the monitor */
-> > > +	imx91_tmu_enable(tmu, true);
-> > > +	imx91_tmu_start(tmu, true);
-> >
-> > this part as well.
-> >
-> > Regards,
-> >   Marco
-> >
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static void imx91_tmu_remove(struct platform_device *pdev)
-> > > +{
-> > > +	struct imx91_tmu *tmu = platform_get_drvdata(pdev);
-> > > +
-> > > +	/* disable tmu */
-> > > +	imx91_tmu_start(tmu, false);
-> > > +	imx91_tmu_enable(tmu, false);
-> > > +}
-> > > +
-> > > +static int __maybe_unused imx91_tmu_suspend(struct device *dev)
-> > > +{
-> > > +	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-> > > +
-> > > +	/* disable tmu */
-> > > +	imx91_tmu_start(tmu, false);
-> > > +	imx91_tmu_enable(tmu, false);
-> > > +
-> > > +	clk_disable_unprepare(tmu->clk);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int __maybe_unused imx91_tmu_resume(struct device *dev)
-> > > +{
-> > > +	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-> > > +	int ret;
-> > > +
-> > > +	ret = clk_prepare_enable(tmu->clk);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	imx91_tmu_enable(tmu, true);
-> > > +	imx91_tmu_start(tmu, true);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static SIMPLE_DEV_PM_OPS(imx91_tmu_pm_ops,
-> > > +			 imx91_tmu_suspend, imx91_tmu_resume);
-> > > +
-> > > +static const struct of_device_id imx91_tmu_table[] = {
-> > > +	{ .compatible = "fsl,imx91-tmu", },
-> > > +	{ },
-> > > +};
-> > > +MODULE_DEVICE_TABLE(of, imx91_tmu_table);
-> > > +
-> > > +static struct platform_driver imx91_tmu = {
-> > > +	.driver = {
-> > > +		.name	= "i.MX91_thermal",
-> > > +		.pm	= pm_ptr(&imx91_tmu_pm_ops),
-> > > +		.of_match_table = imx91_tmu_table,
-> > > +	},
-> > > +	.probe = imx91_tmu_probe,
-> > > +	.remove = imx91_tmu_remove,
-> > > +};
-> > > +module_platform_driver(imx91_tmu);
-> > > +
-> > > +MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
-> > > +MODULE_DESCRIPTION("i.MX91 Thermal Monitor Unit driver");
-> > > +MODULE_LICENSE("GPL");
-> > >
-> > > --
-> > > 2.34.1
-> > >
-> > >
-> > >
-> 
 
