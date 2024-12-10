@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DABE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9253E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0PnjnuFmwfGJ4/f1r00zdPmTrvRH6FRCjme7Zhxk+8=; b=tbYztB7vWNf6zPzlh+bHPl1sDd
-	DYj/4UDrX9ezy+I0Ae9xN97LzIx4mCClHyB3SjkCAgotvJlK+nyxrEZGbdc+Xdz6kI62grA1muUOL
-	dUiW9PtbAn4NDQsKfXf6ptm9nL1O1ScFeyCaQFLzH3/IDP+flUHRlZ3AI6xJVyhO+vr3AgeZKvHBC
-	+9BUGs37oqfBk7xOPvF0AN8MZ1NBfMZD+fO4WM5gfuIl8lf0ov0rxWNDHVbCftBrdqRiB9omptiw2
-	/FrUVwUqiz64dytSaBbr+9HS4tlGxgQ5e/4RzoTFfZAlfXedrA70ox5x+MtKczZN301r5pNlDJNQK
-	FqOmOa+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rfks6ZTiwp1kxRzHwe4qrzjZlR1gfefb3q3lO/fYtDA=; b=3PEjdVGIWEk1znRYmxH+3zmWwQ
+	uk8r0wJZQGavcJtq8LIXoB0J+AZtOrfm0e0sTT2JDmitluqoswj6Jb+tZIZdXnHPo3V+YrrYARgeY
+	G3UthEtqPSAYq5rqGtyX1GHShA03NW7BUnFu/IUd4q6JQfEVVG6/LATlXEsMQT9DJ0HPxBR0zhXpq
+	MMjlBPJnWBLey7Zirj+HJWFEhhY6pSWy8l3vE7flQt5Hyg8AD9MgdBWIAlkZH8r2mbU8b2h1myO5o
+	G70K6fc5mCPY7eCyflQVFJRLT3YjTt+31HKCztO6Mfr267nU99P4HVpHTAvHKIJtc5Ry35bKCOJ0A
+	0vu/SbOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2uV-0000000C3ex-0jt3;
-	Tue, 10 Dec 2024 16:16:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tL34c-0000000C5k6-0nCb;
+	Tue, 10 Dec 2024 16:26:58 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2qf-0000000C2xL-3xGx;
-	Tue, 10 Dec 2024 16:12:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C1825C5486;
-	Tue, 10 Dec 2024 16:11:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38D41C4CED6;
-	Tue, 10 Dec 2024 16:12:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733847152;
-	bh=aeFcHfhyyi6Hrc1ORc56BM7zT3V7KDTDRrWatg2IVuM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tNyKLcLf9TBPZY/+magH1b8HAo631nln+OPc5sR6f4ayS8hvBfvwQPECC9oIm9ag5
-	 LCeTAGJ8duFEitSd1+oL2LJp9rHp5BH4DocBeF2Bv8BdcJtdCaHyWooP0i2kXRRUvq
-	 ZcLqGR+StgEpRHOLLCIw3mPcZElRJNRJuN6fbGm39WIn5xZ55aptvWyx9tlGVKz24c
-	 KMF8WTpz3g1u0nx65+IjO2ma/Pj0w759l4H3HgL3Uh0tj4dNNLLMonbl4+8bAZYCu6
-	 FTJJv/kq4mgaYBi6sPjghLxgc3fEXCou7AiLit1XNSNqte8p5C7RIE05x9BJ4RVNgS
-	 xlERbS1/Oj/2g==
-Date: Tue, 10 Dec 2024 11:12:30 -0500
-From: Sasha Levin <sashal@kernel.org>
-To: Saravana Kannan <saravanak@google.com>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Thierry Reding <treding@nvidia.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	matthias.bgg@gmail.com, elder@kernel.org, ricardo@marliere.net,
-	sumit.garg@linaro.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH AUTOSEL 6.11 08/15] drm: display: Set fwnode for aux bus
- devices
-Message-ID: <Z1hobuvz2S03L9TF@sashalap>
-References: <20241204221726.2247988-1-sashal@kernel.org>
- <20241204221726.2247988-8-sashal@kernel.org>
- <CAGETcx8bhzGZKge4qfpNR8FaTWqbo0-5J9c7whc3pn-RECJs3Q@mail.gmail.com>
- <CAGETcx-6yHV5xr1j7krY8LShCF5JATX0NSwjeRUL9+3TLCMq9w@mail.gmail.com>
+	id 1tL33S-0000000C5MR-2xxA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 16:25:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1733847942;
+ bh=Rfks6ZTiwp1kxRzHwe4qrzjZlR1gfefb3q3lO/fYtDA=;
+ b=yurxfwQ7unIjEb47s7vUlZ5nmET+d0VFLe6GN+5yltcPCDp55mdq2yk34tDlbS1JKKK26E+6Q
+ BuA01kE/9Q2TbpPFlrERXB1zdYKsJMIxjHKT11m/ehftMhBLy3ywdXesujxDSIlMk4auO5xK/IX
+ IoihvM5L/pGdCuFof4QVP2sKMBuQ7TALx9EzorM+fdc9WgSrMpoJXwXqQRXGPUV3qEp0e5MjGAL
+ GOwHoJVAXmn1NpbS9KXfk3et5WGdZ8iCMmm70veO9F+NN55Q+rfvPYdC652EjICEVx1lejT3FQm
+ K64+FyWCPm6yF+6fHKu4ptB2KpLyvQWFpgssZ/GmBhXA==
+Message-ID: <304fd668-0e61-4f5e-a12c-36fd7e54ab6e@kwiboo.se>
+Date: Tue, 10 Dec 2024 17:25:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] clk: rockchip: fix wrong clk_ref_usb3otg parent for
+ rk3328
+To: Peter Geis <pgwipeout@gmail.com>, Dragan Simic <dsimic@manjaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Elaine Zhang
+ <zhangqing@rock-chips.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-3-pgwipeout@gmail.com>
+ <0d11705121f29ccfb7cfa342505a6e35@manjaro.org>
+ <CAMdYzYqJLK6oJHCUVztth6mtJsYrRQSPzNYpR-ZmR7rNprZXfg@mail.gmail.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <CAMdYzYqJLK6oJHCUVztth6mtJsYrRQSPzNYpR-ZmR7rNprZXfg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGETcx-6yHV5xr1j7krY8LShCF5JATX0NSwjeRUL9+3TLCMq9w@mail.gmail.com>
+X-Report-Abuse-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-ForwardEmail-Version: 0.4.40
+X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-ForwardEmail-ID: 67586b83ce9f514b1380d1a4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_081234_066473_B0862B5D 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20241210_082546_786861_D23F2525 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 05, 2024 at 04:07:45PM -0800, Saravana Kannan wrote:
->On Thu, Dec 5, 2024 at 4:06 PM Saravana Kannan <saravanak@google.com> wrote:
+On 2024-12-10 14:27, Peter Geis wrote:
+> On Tue, Dec 10, 2024 at 4:44 AM Dragan Simic <dsimic@manjaro.org> wrote:
 >>
->> On Wed, Dec 4, 2024 at 3:29 PM Sasha Levin <sashal@kernel.org> wrote:
->> >
->> > From: Saravana Kannan <saravanak@google.com>
->> >
->> > [ Upstream commit fe2e59aa5d7077c5c564d55b7e2997e83710c314 ]
->> >
->> > fwnode needs to be set for a device for fw_devlink to be able to
->> > track/enforce its dependencies correctly. Without this, you'll see error
->> > messages like this when the supplier has probed and tries to make sure
->> > all its fwnode consumers are linked to it using device links:
->> >
->> > mediatek-drm-dp 1c500000.edp-tx: Failed to create device link (0x180) with backlight-lcd0
->> >
->> > Reported-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> > Closes: https://lore.kernel.org/all/7b995947-4540-4b17-872e-e107adca4598@notapiano/
->> > Tested-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> > Signed-off-by: Saravana Kannan <saravanak@google.com>
->> > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->> > Reviewed-by: Thierry Reding <treding@nvidia.com>
->> > Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> > Link: https://lore.kernel.org/r/20241024061347.1771063-2-saravanak@google.com
->> > Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->> > Signed-off-by: Sasha Levin <sashal@kernel.org>
+>> Hello Peter,
 >>
->> As mentioned in the original cover letter:
+>> On 2024-12-10 02:30, Peter Geis wrote:
+>>> Correct the clk_ref_usb3otg parent to fix clock control for the usb3
+>>> controller on rk3328. Verified against the rk3328 trm and usb3 clock
+>>> tree
+>>> documentation.
+>>>
+>>> Fixes: fe3511ad8a1c ("clk: rockchip: add clock controller for rk3328")
+>>> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+>>> ---
+>>>
+>>>  drivers/clk/rockchip/clk-rk3328.c | 2 +-
+>>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/clk/rockchip/clk-rk3328.c
+>>> b/drivers/clk/rockchip/clk-rk3328.c
+>>> index 3bb87b27b662..cf60fcf2fa5c 100644
+>>> --- a/drivers/clk/rockchip/clk-rk3328.c
+>>> +++ b/drivers/clk/rockchip/clk-rk3328.c
+>>> @@ -201,7 +201,7 @@ PNAME(mux_aclk_peri_pre_p)        = { "cpll_peri",
+>>>                                   "gpll_peri",
+>>>                                   "hdmiphy_peri" };
+>>>  PNAME(mux_ref_usb3otg_src_p) = { "xin24m",
+>>> -                                 "clk_usb3otg_ref" };
+>>> +                                 "clk_ref_usb3otg_src" };
+>>>  PNAME(mux_xin24m_32k_p)              = { "xin24m",
+>>>                                   "clk_rtc32k" };
+>>>  PNAME(mux_mac2io_src_p)              = { "clk_mac2io_src",
 >>
->> PSA: Do not pull any of these patches into stable kernels. fw_devlink
->> had a lot of changes that landed in the last year. It's hard to ensure
->> cherry-picks have picked up all the dependencies correctly. If any of
->> these really need to get cherry-picked into stable kernels, cc me and
->> wait for my explicit Ack.
+>> Sorry, but I was unable to verify this in the part 1 of the
+>> RK3328 TRM, in both versions 1.1 and 1.2, which is all I have
+>> when it comes to the RK3328 TRM.  Is that maybe described in
+>> the part 2, which I've been unable to locate for years?
 >>
->> Is there a pressing need for this in 4.19?
->
->I copy pasted this into several replies. In all those cases I meant
->the kernel version mentioned in the subject.
+>> Moreover, the downstream kernel source from Rockchip does it
+>> the way [1] it's currently done in the mainline kernel, which
+>> makes me confused a bit?  Could you, please, provide more
+>> details about the two references you mentioned in the patch
+>> description, or maybe even you could provide the links to
+>> those two references?
+>>
+>> [1]
+>> https://raw.githubusercontent.com/rockchip-linux/kernel/refs/heads/develop-4.4/drivers/clk/rockchip/clk-rk3328.c
+> 
+> It is unfortunate the TRM doesn't include the clock maps, because they
+> are extremely helpful when one can acquire them. It also doesn't help
+> that the TRM register definition only referred to this as "pll". I was
+> sent specifically the usb3 phy clock map for my work on the driver,
+> which had the location of each switch and divider along with the
+> register and bit that controlled it. That combined with the TRM
+> register map allowed me to find this error.
 
-I'll drop this and the other patch you've pointed out, thanks!
+I can also confirm that the changes in this patch matches Fig. 3-8
+RK3228H Clock Architecture Diagram 7 for the USB3OTG block.
 
--- 
-Thanks,
-Sasha
+                                    XIN24M -\
+                                             S45_8 - ref_clk_usb3otg
+S45_7 (2PLL) / G4_9 / S45_0 (DivFree 1~64) -/
+
+Regards,
+Jonas
+
+> 
+> Thanks!
+> Peter
+> 
+
 
