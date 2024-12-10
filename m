@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DF7E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F44E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbsUv2uSUD6IdLlUiwGe9UBfCIFkso55xH3tnUJICTk=; b=LEw5zNqEbskDMIYU2elGEp1423
-	b6wdX1y52I2/pWVi8uty63mGOXNLMhPDNY+86FDfSYq4xaAg6P/b9QqWJ9WgC43SK67wtWnCM/Obr
-	tnelRE8vQkt9QH6HbfGLideSHwucjE0peen6JlKqYQE+jNo/WAH/4DYG2XxiwN2RJBZQILMVEjrhg
-	YbUdGC1PCBUsDpSrgk2g4yPUpA2sufx3VFZBP0KEGqSXVMq//iIqst5Dc0Yw6YDRmi/m4X2CJjzKq
-	6CvBMn6nIxezQMp0u5M8/ZuOrRK/hjEywK4snnTrIX8vGd04ts9GbnI1zLobBx2GrY1rigOWTtBqO
-	qrazvDbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pTBNI+/X0hqMp+wiWSZrGDN3HHRyBoh0U7yQfak30Ek=; b=hGFkR3/ek9KmveZNL3UkK+seHw
+	0CtEbMXqk6gQPRwNeInXg2hGsH5fCwf6ikf1MuMZVyIVhhNVh4cqdKjKaH7KOwTMvFG3iTS+Q+ANV
+	NdETdyf8VdTRFs4iCrAsDUVL7m1zVNZXmGTpiMFvVkY5LpOv6XCueZz2M2OKKu4IRQuRLpqxrTv9y
+	rhq2HT73BCafHjGH3K2z5Pg3gjghrv1j9slOegDIBDa/0GIbPh+BBk7SU2UZbZl2++0G/uEk4xnTn
+	P4nCk2Offu1KvXnUJbsuIfLKsEAQ5zvEu8O35WkwAwf4GUOEaI7ZShPscu0hNnNwN/ntb7B8ncJOj
+	x6Q90b5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9VI-0000000D8pb-2Psl;
-	Tue, 10 Dec 2024 23:18:56 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tL9WL-0000000D9OR-069F;
+	Tue, 10 Dec 2024 23:20:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9M5-0000000D75K-3kLU;
-	Tue, 10 Dec 2024 23:09:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=WbsUv2uSUD6IdLlUiwGe9UBfCIFkso55xH3tnUJICTk=; b=qnbA+GWZqDmQmtnEbp1wOfXfHH
-	pcMnTWVPMbmvNcTfsE2f5MuCJ3dgfqz+B8U379AMx4Y20MfXo1GMEY8LN5qpWX4C4kPOy+WZimTvW
-	MtvfBXRoXlIQYZ0p1y/81CD4wwrDty/fKRZ9a7DBkU1tQov4BN1UpkDzaxwJWogNK3Y+38mjFvqMw
-	VYVeyXC//lnGcdzqCkxOwGIkjrR/u9krKlx25+tt2O4IBqAIX+E5NDDJF9ZXW6oAwo635lLwxUXnT
-	J8lNtS5ohd7eTI3XB+5kJIU6NpITTL+9VqA++HW78eN1x0G1xrb/konDNe4q9inch0FALGCg0lgmw
-	JW35Zeng==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tL9Lu-0007Hr-QO; Wed, 11 Dec 2024 00:09:14 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: hjc@rock-chips.com, krzk+dt@kernel.org, s.hauer@pengutronix.de,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
- detlev.casanova@collabora.com, Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v5 04/18] drm/rockchip: vop2: Fix the windows switch between
- different layers
-Date: Wed, 11 Dec 2024 00:09:13 +0100
-Message-ID: <5109751.mvXUDI8C0e@phil>
-In-Reply-To: <20241209122943.2781431-8-andyshrk@163.com>
-References: <20241209122943.2781431-1-andyshrk@163.com>
- <20241209122943.2781431-8-andyshrk@163.com>
+	id 1tL9Uo-0000000D8kZ-05NG;
+	Tue, 10 Dec 2024 23:18:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733872703;
+	bh=2xopEnnq5/pPO8ebcQ2iA7v0L/YlJ7nHPQG7P9WTTEk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=EZsp/FYRIFSmUXEd2TZUjJHZYAZKXEk2H2eiauaA0UN8wgqFeaCBYlQWGoSEpQnD7
+	 jFdNMcnVS6J7H5pUohRFkpVLEQ3EReBmUlNwzAusaBjaYdyLNuZCWTNBgyM3VIq0Z8
+	 S19sh8M7d4kWUgDkqyOWx+khUgj4v2HjctQeWzq4l20nLNfx3UKplW1DPBlbhw7QGD
+	 v3DW2aS/3Xy+tUXoANx3jX/1fWYreKuRbMQy7a3yyQrinMdlewtfJG1VvhnHRjkQNZ
+	 ysMuhjr/vY3P1KqZSsSCTcGJJ01iIKq60GEsMS3pPaLnC5+VULo9xk5YO8yQLcklB/
+	 3LYr+AHwfXYbQ==
+Received: from [192.168.1.90] (unknown [188.27.48.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DDF7317E0B54;
+	Wed, 11 Dec 2024 00:18:22 +0100 (CET)
+Message-ID: <b15c0a3b-36dc-49f8-9dfc-4bac5beece9a@collabora.com>
+Date: Wed, 11 Dec 2024 01:18:22 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add support for HDMI1 output on RK3588 SoC
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_150925_956679_84B8A2CF 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20241210_151828_046570_00B4AF27 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-Am Montag, 9. Dezember 2024, 13:29:17 CET schrieb Andy Yan:
-> From: Andy Yan <andy.yan@rock-chips.com>
+On 12/7/24 11:32 PM, Cristian Ciocaltea wrote:
+> The patches provide the basic support to handle the second HDMI output
+> port found on Rockchip RK3588 SoC.
 > 
-> Every layer of vop2 should bind a window, and we also need to make
-> sure that this window is not used by other layer.
-> 
-> 0x5 is a reserved layer sel value on rk3568, but it will select
-> Cluster3 on rk3588, configure unused layers to 0x5  will lead
-> alpha blending error on rk3588.
-> 
-> When we bind a window from layerM to layerN, we move the old window
-> on layerN to layerM.
-> 
-> Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
-> Tested-by: Derek Foreman <derek.foreman@collabora.com>
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> For now I enabled it on Radxa ROCK 5B only, the board I've been using to
+> validate this.
 
-> +		/*
-> +		 * Find the win bind to this layer in old state
-> +		 */
-> +		for (i = 0; i < vop2->data->win_size; i++) {
-> +			old_win = &vop2->win[i];
-> +			layer_sel_id = (layer_sel >> (4 * (plane->state->normalized_zpos + ofs))) & 0xf;
+Please ignore this revision and use v2 [1] instead, as it fixes a pin 
+conflict issue occurring when having CONFIG_SPI_ROCKCHIP_SFC enabled.
 
-checkpatch is unhappy about the length of this line (104 characters).
-Could you please restructure it (helper var or line break)
-so that it gets below the 100 character mark please?
+Thanks,
+Cristian
 
-Thanks a lot
-Heiko
-
-
+[1] https://lore.kernel.org/all/20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com/
 
