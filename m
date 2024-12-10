@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8900DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 11:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15F9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 11:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6hUkLVtF66QQER7V3+GdEecSz+7kjq+OhC0nkFNMUk=; b=cDvV8fAQCKKPnbNmDuA8ubAzLf
-	aApp8xcyr+NpzvjM3oBypwyjJkGnrG1GHQ2XYFp6XD9L+CWZTqvW1cNoKOIbBefG++EGdkEhTb8+X
-	oXNNt3Az4CkSaEynEaIzWuLIvx4Lnh37RrdjPfB1ZahulRUWlS8EHnFCTFEWvFO0lvwHdh2nVLyVi
-	dsXFVQCgK4Y+xq2UiarLPICqQsATNhVbM8cJ3YogRtfuZ7iauB8I+tKeioWz3vcZ64+cGK2+DaLtD
-	tKqHJovKMxdKAV+1CWeOg8tTv0pPg4HfLOVtyCzFLT5IKZvpiIIvF5k4l+U1sk/AxGdZi1Yysel7i
-	fzh2D6fg==;
+	bh=JpW7m5uuICtFPgspxDlv3wWrFtnVJieor8nqxD00z6A=; b=KpDkHt05HfvlFiLJmxc/WLnT4+
+	jnX68bJXUuvOaO2Crjz2VZpkRNkAVQOxdI2Ad3OA+wXSP7e8YQbGjDmy5Oke/Jyivfg53MA7n18Hq
+	4HhaWK+UOV2t50l3v34tD5HEoG9l1dsRKm/LHWnnvLmDBpTQKJrr7Gz2Q/TUc8tTWIThhmYsw6A8s
+	ETWsoKjGSeCD5LpPci6DtLTtlEI1uIuIVF21HQoauVyvK0cFVh9xugWRb1MCaXdQLfXRGy3jDZayS
+	3UngWEWRzwuyXMQ4BILsYIz3QY3ZJxTJ+HpvD1ABWTV4UkybUrvm13CxXVF35EsH8Ic9rSSDr1cfO
+	xLH1b58A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKyXn-0000000BKom-2AQH;
-	Tue, 10 Dec 2024 11:36:47 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tKybt-0000000BLCq-1q3M;
+	Tue, 10 Dec 2024 11:41:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKyWj-0000000BKbY-2K0a;
-	Tue, 10 Dec 2024 11:35:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733830542; x=1765366542;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WHDSe6EUA5S0A1igiIW2WwLpfRxVDyrjbYLfxWAG7Ls=;
-  b=kS5a3FpQS3yFw4HrwEl82bxYq6D0BRLo7+g5IMTeZfcA4coEDy+fifJC
-   qSmyQRFE2t4RRc0ZBu0nLj6ndRfi6FSrbob5jcAHHfMS/12YrQUofb7Ob
-   NO3XKTDeFdUwmP83tw9ksT3vd1p2jjOQ8RJPn3Kbh+RKKrFELFxcQTRbg
-   PFRrxOSNmsBzISnq72IrCxZLkMzg9XP32/bQ48mxsCY4UKFX1AgD90wSH
-   sAx+YXJEtqwYJSY+PLM6Z7wUo6rVjea02jC9/guX5fpF/jow1pugR6NSy
-   +uuqkkEeRJ4aJxPQ+1x4JLs08lehLh8a/4kF+zXDinOYDNu16IowxqaIC
-   A==;
-X-CSE-ConnectionGUID: EBORkPDnSFi7qRR0TjaXwQ==
-X-CSE-MsgGUID: 4t7EhK++TjSyjnMRkvvQIw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11281"; a="37953228"
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="37953228"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 03:35:39 -0800
-X-CSE-ConnectionGUID: KnbZnJbTTp+ogeuAnZR5Lw==
-X-CSE-MsgGUID: YdwH9kWVRUewkGlVt+S9DQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="95206413"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 10 Dec 2024 03:35:32 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tKyWX-0005TR-0J;
-	Tue, 10 Dec 2024 11:35:29 +0000
-Date: Tue, 10 Dec 2024 19:35:09 +0800
-From: kernel test robot <lkp@intel.com>
-To: Kalesh Singh <kaleshsingh@google.com>, akpm@linux-foundation.org,
-	vbabka@suse.cz, yang@os.amperecomputing.com, riel@surriel.com,
-	david@redhat.com
-Cc: oe-kbuild-all@lists.linux.dev, linux@armlinux.org.uk,
-	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
-	ysato@users.sourceforge.jp, dalias@libc.org,
-	glaubitz@physik.fu-berlin.de, davem@davemloft.net,
-	andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net,
-	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com,
-	leitao@debian.org, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org
-Subject: Re: [PATCH mm-unstable 04/17] mm: alpha: Introduce arch_mmap_hint()
-Message-ID: <202412102123.Db7EAmhx-lkp@intel.com>
-References: <20241210024119.2488608-5-kaleshsingh@google.com>
+	id 1tKyaq-0000000BL75-1nM2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 11:39:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4D098A412FF;
+	Tue, 10 Dec 2024 11:38:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1436C4CED6;
+	Tue, 10 Dec 2024 11:39:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733830795;
+	bh=5dBiAPqZNKfTXC1kDarzjcPYvBYZxN9i53zu014mgCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mGH0IhuWGevmvsRAlJmmRZdaUzAideSV4DdnhT02eCimPu1AD/etEsVMGhZbfPnpx
+	 ChF+daCu8iEUNb+wEuiixnwCeAjugqISPJPr9uWNYX4ajEuMGWBgfWpSBjf4ArT21h
+	 ed8cp6o8gmUG3cIoDoZxtl2vbC/77jeIEVGbW/+xViTIpxJVd4g0E5bnBfAseQc+Gu
+	 GwTBQYM7085MiqjmoMTDyeeCPuW9cUbsZg4TUVvMkzeRM6VSYeevXJ4iI98HBjrQXS
+	 CWse3CqU16vKw5HUmVMTNTE7RlxL8DjmRh7uVCEgmUiovi3uPUGUBYD2aNFkAkCO6M
+	 RtC9QAyZRnDUw==
+Date: Tue, 10 Dec 2024 11:39:50 +0000
+From: Will Deacon <will@kernel.org>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: yangyicong@hisilicon.com, jonathan.cameron@huawei.com,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
+	prime.zeng@hisilicon.com
+Subject: Re: [PATCH v4 08/10] drivers/perf: hisi: Export associated CPUs of
+ each PMU through sysfs
+Message-ID: <20241210113949.GE14735@willie-the-truck>
+References: <20241203125049.39458-1-yangyicong@huawei.com>
+ <20241203125049.39458-9-yangyicong@huawei.com>
+ <20241209154830.GC12428@willie-the-truck>
+ <22a35ead-0f0b-39a8-16bd-333143081ea8@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241210024119.2488608-5-kaleshsingh@google.com>
+In-Reply-To: <22a35ead-0f0b-39a8-16bd-333143081ea8@huawei.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_033541_638632_CDC7F925 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20241210_033956_590640_175A8566 
+X-CRM114-Status: GOOD (  34.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,85 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kalesh,
+On Tue, Dec 10, 2024 at 06:49:15PM +0800, Yicong Yang wrote:
+> On 2024/12/9 23:48, Will Deacon wrote:
+> > On Tue, Dec 03, 2024 at 08:50:47PM +0800, Yicong Yang wrote:
+> >> From: Yicong Yang <yangyicong@hisilicon.com>
+> >>
+> >> Although the event of the uncore PMU can only be opened on a single
+> >> CPU, some PMU does have the affinity on a range of CPUs. For example
+> >> the L3C PMU is associated to the CPUs sharing the L3T it monitors.
+> >> Users may infer this affinity by the PMU name which may have SCCL ID
+> >> and CCL ID encoded (for L3C etc), but it's not that straightforward.
+> >> So export this information by adding an "associated_cpus" sysfs
+> >> attribute then user can get this directly.
+> >>
+> >> Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
+> >> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> >> ---
+> >>  Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
+> >>  drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
+> >>  2 files changed, 14 insertions(+), 1 deletion(-)
+> >>
+> >> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+> >> index 5cc248d18c63..48992a0b8e94 100644
+> >> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
+> >> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+> >> @@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
+> >>  SCCL ID #1.
+> >>  
+> >>  The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
+> >> -ID used to count the uncore PMU event.
+> >> +ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
+> >> +also provided to show the CPUs associated with this PMU. The "cpumask" indicates
+> >> +the CPUs to open the events, usually as a hint for userspaces tools like perf.
+> >> +It only contains one associated CPU from the "associated_cpus".
+> > 
+> > What is userspace expected to do with this information? Can you point me
+> > to patches that add the corresponding support to the 'perf' tool, please?
+> > 
+> 
+> two attributes here, "cpumask" and "associated_cpus". For "cpumask" it's used in
+> perf [1], this patch does no change to this attribute but only update the
+> description in the doc.
+> 
+> I think you're questioning about the "associated_cpus" introduced by this patch,
+> which is not intended to be used by the perf tools but provides a hint for the
+> user to know the CPUs monitored by which uncore PMU, for example which uncore
+> L3C PMU's monitoring the events by the CPU(s) the application's running on, or
+> if the counts is imbalanced among the L3C PMUs user can figure out what's running
+> on the CPUs provided by the "associated_cpus". As described in the commit this
+> can also inferred by the PMU name to map SICL ID and CCL ID to certain CPU cluster,
+> but these ID's aren't readable enough and it'll be more straightforward and
+> friendly to provide an "associated_cpus" information, considering we've already
+> maintain it in the drvier.
 
-kernel test robot noticed the following build errors:
+Bah. I just noticed that there's precedent for this in the Arm CSPMU driver,
+so I don't really have a leg to stand on despite my objections to funneling
+firmware information through to userspace without a confirmed user.
 
-[auto build test ERROR on akpm-mm/mm-everything]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Kalesh-Singh/mm-Introduce-generic_mmap_hint/20241210-104424
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-patch link:    https://lore.kernel.org/r/20241210024119.2488608-5-kaleshsingh%40google.com
-patch subject: [PATCH mm-unstable 04/17] mm: alpha: Introduce arch_mmap_hint()
-config: alpha-allmodconfig (https://download.01.org/0day-ci/archive/20241210/202412102123.Db7EAmhx-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241210/202412102123.Db7EAmhx-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412102123.Db7EAmhx-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/alpha/kernel/osf_sys.c: In function 'arch_get_unmapped_area':
->> arch/alpha/kernel/osf_sys.c:1280:24: error: 'hint' undeclared (first use in this function); did you mean 'uint'?
-    1280 |                 return hint;
-         |                        ^~~~
-         |                        uint
-   arch/alpha/kernel/osf_sys.c:1280:24: note: each undeclared identifier is reported only once for each function it appears in
-
-
-vim +1280 arch/alpha/kernel/osf_sys.c
-
-  1248	
-  1249	unsigned long
-  1250	arch_get_unmapped_area(struct file *filp, unsigned long addr,
-  1251			       unsigned long len, unsigned long pgoff,
-  1252			       unsigned long flags, vm_flags_t vm_flags)
-  1253	{
-  1254		unsigned long limit;
-  1255	
-  1256		/* "32 bit" actually means 31 bit, since pointers sign extend.  */
-  1257		if (current->personality & ADDR_LIMIT_32BIT)
-  1258			limit = 0x80000000;
-  1259		else
-  1260			limit = TASK_SIZE;
-  1261	
-  1262		if (len > limit)
-  1263			return -ENOMEM;
-  1264	
-  1265		if (flags & MAP_FIXED)
-  1266			return addr;
-  1267	
-  1268		/* First, see if the given suggestion fits.
-  1269	
-  1270		   The OSF/1 loader (/sbin/loader) relies on us returning an
-  1271		   address larger than the requested if one exists, which is
-  1272		   a terribly broken way to program.
-  1273	
-  1274		   That said, I can see the use in being able to suggest not
-  1275		   merely specific addresses, but regions of memory -- perhaps
-  1276		   this feature should be incorporated into all ports?  */
-  1277	
-  1278		addr = arch_mmap_hint(filp, addr, len, pgoff, flags);
-  1279		if (addr)
-> 1280			return hint;
-  1281	
-  1282		/* Next, try allocating at TASK_UNMAPPED_BASE.  */
-  1283		addr = arch_get_unmapped_area_1 (PAGE_ALIGN(TASK_UNMAPPED_BASE),
-  1284						 len, limit);
-  1285		if (addr != (unsigned long) -ENOMEM)
-  1286			return addr;
-  1287	
-  1288		/* Finally, try allocating in low memory.  */
-  1289		addr = arch_get_unmapped_area_1 (PAGE_SIZE, len, limit);
-  1290	
-  1291		return addr;
-  1292	}
-  1293	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Will
 
