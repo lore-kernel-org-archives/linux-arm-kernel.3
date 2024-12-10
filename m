@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B79CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 22:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA157E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 22:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LlZ3ltUd05AU3gqlg1sknOU9k0i41di/HT0w3ULfpxw=; b=m0OqX8E/vCiL+vqaZkrinrXdQE
-	5mi/BSIO/lk+sDLjcU17Xe/AULZSSDi29a4+ZXjglDkOx8QzCDgejvS5+EFncuI1elnhqGcJR71kI
-	xHCneQ6vdKUfHLfKZ0xf6tksqhCNBGBISa/jJUWOhffDZHBKrIgTLvqB+H5hrNUpDoJF7uMh/0H7X
-	AurCcbRF6OwEsGOhbmFfIMxajv718Dq9/ibaKxE9TIUXFRA0pETqZLy9RkSzvwHp5bgGPMaqcgDp7
-	0KUUg3zztbdhV9YZaZ7OneJFwVwZuUl69thG9U4nNGTFxWsNJwoYurPzQNpfeM8NhUfRRWYDOsdQ+
-	9601AIUQ==;
+	bh=V/nmeGnzAeZFS/kUeVmy+bCkCE+hhczCm+5+dNvYEPs=; b=FAhQQ+TTQXy3jWDMpcJybv0jyT
+	EhCuCSfG504XbcI53UVnXf1LMejBRjnXq5yOBrqRPn5eUpjDvTpjRxI70PT40bSXW42WLNbzcWnhU
+	JXiniOoKt+HTxeOc1SBSMevlxoUHCfwKV7+P7wWmMIc1ZHBw6WVUJ9NIp3yVTqhPT3z343pPE6c2A
+	udzAD9yL4PNX2cNTaVpW733MV1/DwN4f8vEWw4RdLHJuyMKRJZYCk/NVOowrI9/RNVfxVD9N3KjOe
+	Ces6X6yYTedycAgOcF+bUb0cOKoqlme2HZeIsNQWjmHpEc2NUfTFSspZgCYvkWz5dFkRCL3MdeNHJ
+	dNPBtgsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL8wz-0000000D1qp-11xl;
-	Tue, 10 Dec 2024 22:43:29 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1tL8yt-0000000D2D5-2Wqf;
+	Tue, 10 Dec 2024 22:45:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL8vu-0000000D1bt-2g0p;
-	Tue, 10 Dec 2024 22:42:24 +0000
-X-QQ-mid: bizesmtpip3t1733870489tw0s2wi
-X-QQ-Originating-IP: vIcIl1VTwBCeBy2FbdiZkt97uz/iQYtqRMaaTUIjrkU=
-Received: from [IPV6:240f:10b:7440:1:9e54:d32d ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Dec 2024 06:41:24 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16291552602694824972
-Message-ID: <8ABA1DC12C12F3A8+89687fc8-25ed-4217-9df9-696c907b49b3@radxa.com>
-Date: Wed, 11 Dec 2024 07:41:24 +0900
+	id 1tL8xq-0000000D221-47rD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 22:44:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 802F1A41BF3;
+	Tue, 10 Dec 2024 22:42:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DCD1C4CED6;
+	Tue, 10 Dec 2024 22:44:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733870661;
+	bh=HP4MsNw/hXG7nhPJ0xWXWHKylFCTW4+JsqUQHNFKB2k=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=G0KXdhbbJ5rvvoDZqYRO6wYCU/J0eN/NtedIKQgZEPd2HdA2GPfsSOitJG8EW5ruE
+	 DxH6lGL9Jr28NBCy+ZXrSsNn4DVjD0FvcBq1IHIi8pNEFXKvR0PCQrZT9C7+C2x+Zt
+	 cxr1ixqZFf4slma0NhtmDYZ3q3DJxoHTkAmgxWTDbL8Ev4br2lExKoFXnGeQAGzVOf
+	 HzJ+oAHkfu/VaOcs5R0EREvFKR/EWDek4d7n6ZYmLXnQjDdqPaxB/vwJBhXM+eu9jo
+	 EIMrcVv9FF1sRyIKhwGu/JpCsHIZIhFmBYk/dVCi+OK6hJLpBpte73ViEaZLFrwE81
+	 CWJLj4Z6TEJOg==
+Message-ID: <fd2b473bc7c3c70ae0e85b2a6315d9e8.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
-From: FUKAUMI Naoki <naoki@radxa.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-References: <20241210163615.120594-1-sebastian.reichel@collabora.com>
- <6A24DF29AE2F3CDC+70602cc7-2c03-470d-955f-06b2db116e20@radxa.com>
-Content-Language: en-US
-In-Reply-To: <6A24DF29AE2F3CDC+70602cc7-2c03-470d-955f-06b2db116e20@radxa.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NUbJ1FBQTTPugOujKzNnOMQ11qgp/STcOdNVnVRmNcoIjDRf7q14pMT7
-	QOqndzbF40aFLnkxepCskJX40h9FGX+gqGgZIheBJM8r/KWtTaH9e0Eam1Bqx3Zd8oWRCur
-	WNp0HVVaN5Ja+VLW4Ud8XAMQse/SWvNpx0ze2QpSajmxP9jq6YA7q3iQwSyVB4Fq2Oz6hIS
-	qXoRFviRFdTIcWgbhfKaxAcntR1ahdtYtIFcGDDJnbP1s1S0g+78KsIjOYFu/y/QdyZVCsd
-	/64TDGuM1PA4U+/D6GMOTUaFn9U4RgdlK6efduVSspX5zXAzCSqXvKUr5uWYqp+jYwmsRk0
-	U9rPieJnCPvH2taOPuj1MSCm9/RSAo0hNR7pg09utGqUIA3ERzWQKpLBzHbhE8cTwF/AGBR
-	rRzFVoQI2RPx6cpUcR4ZTh8w3IMZ1JhRnuZFPk5NOxUi5pXVaf5gSMJEaaifSTafRLVKXbm
-	0qR2hvuVxhxKsj11Q6FfvW+s2r1KC4ZIDsSn5csP4npEbdf73XN8tzNan9lRrGL98K04Fw0
-	8qLsyoFOISWSVyMfDh9OdeZraHmVnXbI+9bkAZxtuXMrpduK7IR7gQ24fLk6oZW/4ROBT+9
-	LSASzVjEuPa+3VlVHsJVjw78CMFRI2efQFujxlSp6TsJp6NfPnSycA/+eYlY20uGY6KyVID
-	jGeUtIvUdhFaUjYwnUrj1r34SDnv/0jrTOTBnjoXC5BrADeQEVTrAJSBKE7Gp4O/5MzlDwr
-	xkpJqUPh1t822g3iRWTNYcXaltUNvIxTk5fCiGTkCy/kOw4y9LON2/xQ22C7vi7yScZHx6w
-	s1MguiS8vwGPV6/urCgZzXbTnI/5CEfwef690PLVb5+MY00pcpzhMgN2RMIILYnxHz12cII
-	ri2DTQaBHLrOa42juO4Fe1fPFURV3UbadlyV0Fadux2rfZTppOgZ/aSeiTdmuhJDkTswsS2
-	d6K0ImI1kiCymG6hw8R7UPuDOGaENUPYbGEeoYeCoPOoFAoskLt+tXNTp
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-X-QQ-RECHKSPAM: 0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241121-ge-ian-debug-imx8-clk-tree-v1-4-0f1b722588fe@bootlin.com>
+References: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com> <20241121-ge-ian-debug-imx8-clk-tree-v1-4-0f1b722588fe@bootlin.com>
+Subject: Re: [PATCH 4/5] clk: Add flag to prevent frequency changes when walking subtrees
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Abel Vesa <abel.vesa@linaro.org>, Herve Codina <herve.codina@bootlin.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Ian Ray <ian.ray@ge.com>, Miquel Raynal <miquel.raynal@bootlin.com>
+To: Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, Michael Turquette <mturquette@baylibre.com>, Miquel Raynal <miquel.raynal@bootlin.com>, Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Ying Liu <victor.liu@nxp.com>
+Date: Tue, 10 Dec 2024 14:44:19 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_144223_109147_3A48B114 
-X-CRM114-Status: GOOD (  27.34  )
+X-CRM114-CacheID: sfid-20241210_144423_149928_5F159A62 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,286 +71,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Quoting Miquel Raynal (2024-11-21 09:41:14)
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index adfc5bfb93b5a65b6f58c52ca2c432d651f7dd7d..94d93470479e77769e63e9746=
+2b176261103b552 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -1927,7 +1927,6 @@ long clk_get_accuracy(struct clk *clk)
+>  }
+>  EXPORT_SYMBOL_GPL(clk_get_accuracy);
+> =20
+> -__maybe_unused
+>  static unsigned long clk_determine(struct clk_core *core, unsigned long =
+rate)
+>  {
+>         struct clk_rate_request req =3D {};
 
-two correction,
+Please add functions in the same patch that uses them. It is hard to
+review this patch when half the context is in another patch.
 
-On 12/11/24 07:10, FUKAUMI Naoki wrote:
-> Hi Sebastian,
-> 
-> Thank you very much for your work!
-> 
-> $ cat /sys/class/power_supply/tcpm-source-psy-4-0022/ 
-> {current_max,current_now,online,type,usb_type,voltage_max,voltage_min,voltage_now}
-> 1500000
-> 1500000
-> 1
-> USB
-> C [PD] PD_PPS
-> 20000000
-> 20000000
-> 20000000
-> 
-> $ cat /sys/class/power_supply/tcpm-source-psy-4-0022/ 
-> {current_max,current_now,online,type,usb_type,voltage_max,voltage_min,voltage_now}
-> 5000000
-> 5000000
-> 1
-> USB
-> C PD [PD_PPS]
-> 20000000
-> 20000000
-> 20000000
-> 
-> $ ls /sys/class/udc/
-> fc000000.usb
-> 
-> I can configure it as CDC-NCM and host detects it.
-> But I could not use it as a HOST port. How to use it?
-> 
-> some minor nitpick is below:
-> 
-> On 12/11/24 01:36, Sebastian Reichel wrote:
->> Add hardware description for the USB-C port in the Radxa Rock 5 Model B.
->> This describes the OHCI, EHCI and XHCI USB parts, but not yet the
->> DisplayPort AltMode (bindings are not yet upstream).
->>
->> The fusb302 node is marked with status "fail", since the board is usually
->> powered through the USB-C port. Handling of errors can result in hard
->> resets, which removed the bus power for some time resulting in a board
->> reset.
->>
->> The main problem is that devices are supposed to interact with the
->> power-supply within 5 seconds after the plug event according to the
->> USB PD specification. This is more or less impossible to achieve when
->> the kernel is the first software communicating with the power-supply.
->>
->> Recent U-Boot (v2025.01) will start doing USB-PD communication, which
->> solves this issue. Upstream U-Boot doing USB-PD communication will also
->> set the fusb302 node status to "okay". That way booting a kernel with
->> the updated DT on an old U-Boot avoids a reset loop.
->>
->> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
->> ---
->>   .../boot/dts/rockchip/rk3588-rock-5b.dts      | 121 ++++++++++++++++++
->>   1 file changed, 121 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/ 
->> arm64/boot/dts/rockchip/rk3588-rock-5b.dts
->> index d597112f1d5b..cb5990df6ccb 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
->> @@ -5,6 +5,7 @@
->>   #include <dt-bindings/gpio/gpio.h>
->>   #include <dt-bindings/leds/common.h>
->>   #include <dt-bindings/soc/rockchip,vop2.h>
->> +#include <dt-bindings/usb/pd.h>
->>   #include "rk3588.dtsi"
->>   / {
->> @@ -84,6 +85,15 @@ rfkill-bt {
->>           shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
->>       };
->> +    vcc12v_dcin: regulator-vcc12v-dcin {
->> +        compatible = "regulator-fixed";
->> +        regulator-name = "vcc12v_dcin";
-> 
-> typec_vin by schematic.
-> 
->> +        regulator-always-on;
->> +        regulator-boot-on;
->> +        regulator-min-microvolt = <12000000>;
->> +        regulator-max-microvolt = <12000000>;
->> +    };
->> +
->>       vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
->>           compatible = "regulator-fixed";
->>           enable-active-high;
->> @@ -142,6 +152,7 @@ vcc5v0_sys: regulator-vcc5v0-sys {
->>           regulator-boot-on;
->>           regulator-min-microvolt = <5000000>;
->>           regulator-max-microvolt = <5000000>;
->> +        vin-supply = <&vcc12v_dcin>;
-> 
-> typec_vin.
-> 
->>       };
->>       vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
->> @@ -264,6 +275,67 @@ regulator-state-mem {
->>       };
->>   };
->> +&i2c4 {
->> +    pinctrl-names = "default";
->> +    pinctrl-0 = <&i2c4m1_xfer>;
->> +    status = "okay";
->> +
->> +    usbc0: usb-typec@22 {
-> 
-> Is "usbc0" label necessary?
+> @@ -2272,7 +2271,13 @@ static void clk_calc_subtree(struct clk_core *core)
+>  {
+>         struct clk_core *child;
+> =20
+> -       core->new_rate =3D clk_recalc(core, core->parent->new_rate);
+> +       if (core->flags & CLK_NO_RATE_CHANGE_DURING_PROPAGATION) {
+> +               core->new_rate =3D clk_determine(core, core->rate);
+> +               if (!core->new_rate)
+> +                       core->new_rate =3D clk_recalc(core, core->parent-=
+>new_rate);
+> +       } else {
+> +               core->new_rate =3D clk_recalc(core, core->parent->new_rat=
+e);
+> +       }
+> =20
+>         hlist_for_each_entry(child, &core->children, child_node)
+>                 clk_calc_subtree(child);
+> diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+> index 200135e0f6d00d48b10e843259333b9733c97f38..baef0b442ac1d36ee935cbcaa=
+aa4e2d95fe7654c 100644
+> --- a/include/linux/clk-provider.h
+> +++ b/include/linux/clk-provider.h
+> @@ -38,6 +38,8 @@
+>  #define CLK_OPS_PARENT_ENABLE  BIT(12)
+>  /* duty cycle call may be forwarded to the parent clock */
+>  #define CLK_DUTY_CYCLE_PARENT  BIT(13)
+> +/* do not passively change this clock rate during subtree rate propagati=
+on */
+> +#define CLK_NO_RATE_CHANGE_DURING_PROPAGATION BIT(14)
 
-please ignore, I noticed it's necessary for my work ;)
-
-> 
->> +        compatible = "fcs,fusb302";
->> +        reg = <0x22>;
->> +        interrupt-parent = <&gpio3>;
->> +        interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
->> +        pinctrl-names = "default";
->> +        pinctrl-0 = <&usbc0_int>;
-> 
-> cc_int_l by schematic.
-> 
->> +        vbus-supply = <&vcc12v_dcin>;
-> 
-> typec_vin
-> 
->> +        /*
->> +         * When the board is starting to send power-delivery messages
->> +         * too late (5 seconds according to the specification), the
->> +         * power-supply reacts with a hard-reset. That removes the
->> +         * power from VBUS for some time, which resets te whole board.
-> 
-> ... resets "the" whole board.
-> 
->> +         */
->> +        status = "fail";
->> +
->> +        usb_con: connector {
-> 
-> Is "usb_con" label necessary?
-
-it's necessary for my work, but I think "usbc0_con" is consistent with 
-others.
-
-Best regards,
-
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
->> +            compatible = "usb-c-connector";
->> +            label = "USB-C";
->> +            data-role = "dual";
->> +            power-role = "sink";
->> +            try-power-role = "sink";
->> +            op-sink-microwatt = <1000000>;
->> +            sink-pdos =
->> +                <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
->> +                <PDO_VAR(5000, 20000, 5000)>;
->> +
->> +            ports {
->> +                #address-cells = <1>;
->> +                #size-cells = <0>;
->> +
->> +                port@0 {
->> +                    reg = <0>;
->> +                    usbc0_role_sw: endpoint {
->> +                        remote-endpoint = <&dwc3_0_role_switch>;
->> +                    };
->> +                };
->> +
->> +                port@1 {
->> +                    reg = <1>;
->> +                    usbc0_orien_sw: endpoint {
->> +                        remote-endpoint = 
->> <&usbdp_phy0_orientation_switch>;
->> +                    };
->> +                };
->> +
->> +                port@2 {
->> +                    reg = <2>;
->> +                    dp_altmode_mux: endpoint {
->> +                        remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
->> +                    };
->> +                };
->> +            };
->> +        };
->> +    };
->> +};
->> +
->>   &i2c6 {
->>       status = "okay";
->> @@ -423,6 +495,10 @@ usb {
->>           vcc5v0_host_en: vcc5v0-host-en {
->>               rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
->>           };
->> +
->> +        usbc0_int: usbc0-int {
-> 
-> cc_int_l
-> 
-> Best regards,
-> 
-> -- 
-> FUKAUMI Naoki
-> Radxa Computer (Shenzhen) Co., Ltd.
-> 
->> +            rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
->> +        };
->>       };
->>   };
->> @@ -835,6 +911,14 @@ &uart2 {
->>       status = "okay";
->>   };
->> +&u2phy0 {
->> +    status = "okay";
->> +};
->> +
->> +&u2phy0_otg {
->> +    status = "okay";
->> +};
->> +
->>   &u2phy1 {
->>       status = "okay";
->>   };
->> @@ -866,6 +950,29 @@ &usbdp_phy1 {
->>       status = "okay";
->>   };
->> +&usbdp_phy0 {
->> +    mode-switch;
->> +    orientation-switch;
->> +    sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
->> +    sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
->> +    status = "okay";
->> +
->> +    port {
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +
->> +        usbdp_phy0_orientation_switch: endpoint@0 {
->> +            reg = <0>;
->> +            remote-endpoint = <&usbc0_orien_sw>;
->> +        };
->> +
->> +        usbdp_phy0_dp_altmode_mux: endpoint@1 {
->> +            reg = <1>;
->> +            remote-endpoint = <&dp_altmode_mux>;
->> +        };
->> +    };
->> +};
->> +
->>   &usb_host0_ehci {
->>       status = "okay";
->>   };
->> @@ -874,6 +981,20 @@ &usb_host0_ohci {
->>       status = "okay";
->>   };
->> +&usb_host0_xhci {
->> +    usb-role-switch;
->> +    status = "okay";
->> +
->> +    port {
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +
->> +        dwc3_0_role_switch: endpoint {
->> +            remote-endpoint = <&usbc0_role_sw>;
->> +        };
->> +    };
->> +};
->> +
->>   &usb_host1_ehci {
->>       status = "okay";
->>   };
-> 
-
+Why doesn't rate locking work?
 
