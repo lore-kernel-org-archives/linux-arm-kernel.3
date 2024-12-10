@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3CAE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74367E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0IIgAVDEROYOZ854gBlewqgUDJIXw12hHa8cvM2nTUQ=; b=ou4ahzQatq+l7d1hYzIamNEs1r
-	FCX5fX5bo71Wcxjl+237p5E2FuaiUtadcllXRxku2TizJEIuZBX+NquFFnvx5rCLyIgunuZM6RuIb
-	ViuENshSjtn36tIUy3uwMIQpil37j/B37lBR93ahxrMSRmFlybp3bq97TuLBS9pbzqClAwRJVERq4
-	8J7YrPlPixL9SuOxacijQ5V3SfA0In1eCqYgD6r/Ag3YCIKGi7/XKLL81ByYxYhpZSm40BvLhRXCj
-	coIas23mRWxxcNKWYxJrLHfPVDebzPWU1LeZG65uiNMErb1VjdqOowldv4I7BljvxM1HnaRGftKRA
-	EAzVCcmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7r4xfSODKGy3g81bMhiMFOfk/EfRckjRbt+ZPVGFK4g=; b=BL298YwfIY8i77A14sIsm/KOvv
+	YNtKpYTSNX3OkBzConGCbvzRE0AN3T00Vg78n0h9Hb81LParLKuBj0jQPUdVQ7Ua6u1XSSeEc7IiI
+	/kY0+tjinOrOCepoW8s7sXLzZ+ShlIC6zYOzr4QynDTUiA/dEbHT8brzndYS+4QsEfPAgK4yBUkFu
+	tX9+/ysCDkKZUftQrsGqBIpYVEkdc0QvnCG/tRgSdNOwyb7myrFp21KlMsyS86RUdVaW+ppQES8OX
+	pxMQ5cxEXrMAvDxLCadXB6O47/3mJ+hN2IcdRSK/ofn1HePPndxnVcU08CGSm+H3zEJGyCjqrM+Hp
+	WKOdVnUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxDY-0000000B5NG-1YdA;
-	Tue, 10 Dec 2024 10:11:48 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1tKxEa-0000000B5XA-02Ld;
+	Tue, 10 Dec 2024 10:12:52 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKx3p-0000000B3aJ-2g2J
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 10:01:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733824905; x=1765360905;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=UxNGTFxLzH5h1Q1qNa96VXFgW2TmHFKNGLlWyoa7Vy4=;
-  b=ef+A9CNS93SPt0LAgn+i3M6HMiqqUKTb6Ph/Jns3LHSG4rNZ2Yc0LpQ9
-   lwafy0aI0U1V23rWt/SKcs2zH+hiCz2Iuq2Tsm57JlZ6PYMJyVOFFwPg/
-   fkMoz4sww9gjtYjRxhpJIHLycX/LJfU72he7nvZ6VZbyshM1VzbtI5Aik
-   xoaNyXdKzu3bIrqk3mnaWLBcfVxmIg8pzPlYbhHSYiOYBu9hN7ZaM+z2w
-   +JM1aQlRwIJh7MWLUOQcqcaLoYiUeSzBs/TeuSxYgBtjzJ8pI+hqAG/vW
-   Evw83Fg96/exkjZj2Og+RMRHQFc7ytRSHT1neHd9xzZd1MbjGB0S/fRKi
-   A==;
-X-CSE-ConnectionGUID: Qf9Fpx6BRw+PZTIH1ciBjw==
-X-CSE-MsgGUID: Us80xMELTWSKHDfYGwQt+w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11281"; a="33496478"
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="33496478"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 02:01:44 -0800
-X-CSE-ConnectionGUID: B9ayLaQ6RNOVAX+XyLV+DA==
-X-CSE-MsgGUID: u18wOnXHTYOIuzqcp+PPJQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
-   d="scan'208";a="100399525"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 10 Dec 2024 02:01:42 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tKx3j-0005N7-2O;
-	Tue, 10 Dec 2024 10:01:39 +0000
-Date: Tue, 10 Dec 2024 18:00:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:pci/xgene-fixes-6.13 8/18]
- drivers/iommu/amd/iommu.c:3810:3: error: field designator 'bus_token' does
- not refer to any field in type 'const struct msi_parent_ops'
-Message-ID: <202412101701.Uu0dEEE7-lkp@intel.com>
+	id 1tKx43-0000000B3d8-2Rnv;
+	Tue, 10 Dec 2024 10:02:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7r4xfSODKGy3g81bMhiMFOfk/EfRckjRbt+ZPVGFK4g=; b=PL/M6RXV0ShUZBMUNHiO5ZgItP
+	apLiD0XeIwBENg5C3YZHRvB7etdwsQkW62AKHgcAt5QqwRPGytnr5gjgh9b4FVMT+eIQj5q7oBbrF
+	PvMqnPXqlb8rMfX/A53ximn12OI8ob53r+fgcoasq6nZT0XjAHUyuQPUtbcMLjRe+y18yephfx3cE
+	emwHQ+w6sK7y0D9vOBkLXZqzDyvadoDStZb2HoeRAgXFRBc/BONNTJpmpPQYSFvp7jSb+8Emav+0W
+	Yt5NL6mUE9LpbcgYi1OhE2bpqvMCfT/nG9QC/Rdt5xM7r+gaw1PZGdpr5IP/ERpaobgInwSFN4nEj
+	qXJk9vIA==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tKx3g-0003mj-0a; Tue, 10 Dec 2024 11:01:36 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Andy Yan <andyshrk@163.com>
+Cc: Daniel Semkowicz <dse@thaumatec.com>,
+ Diederik de Haas <didi.debian@cknow.org>, andy.yan@rock-chips.com,
+ Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com, jonas@kwiboo.se,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ neil.armstrong@linaro.org, quentin.schulz@cherry.de, rfoss@kernel.org,
+ robh@kernel.org, tzimmermann@suse.de
+Subject: Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2 controller
+Date: Tue, 10 Dec 2024 11:01:34 +0100
+Message-ID: <2117643.K71DO8KEF6@diego>
+In-Reply-To: <2d68155e.1e5b.193ae4616b9.Coremail.andyshrk@163.com>
+References: <20241203165450.1501219-1-heiko@sntech.de>
+ <CAA8EJprLA09NP0KAztc5eoAMkGcrom84jg_pcbNcwN0FAaSLrw@mail.gmail.com>
+ <2d68155e.1e5b.193ae4616b9.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_020145_692202_6906EEB5 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_020159_615735_02F8AB7B 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +83,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git pci/xgene-fixes-6.13
-head:   32627e010975ae9817552c5e21d1860ce9c9bdfa
-commit: 3c9773aab9b801ba71766b264e859785309b13ba [8/18] iommu/amd: Convert to msi_create_parent_irq_domain() helper
-config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20241210/202412101701.Uu0dEEE7-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241210/202412101701.Uu0dEEE7-lkp@intel.com/reproduce)
+Am Dienstag, 10. Dezember 2024, 02:54:09 CET schrieb Andy Yan:
+>=20
+> Hi Dmitry,
+>=20
+> =E5=9C=A8 2024-12-10 09:45:11=EF=BC=8C"Dmitry Baryshkov" <dmitry.baryshko=
+v@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
+> >On Tue, 10 Dec 2024 at 03:22, Andy Yan <andyshrk@163.com> wrote:
+> >>
+> >>
+> >> Hi Dmitry,
+> >>
+> >> =E5=9C=A8 2024-12-10 09:01:38=EF=BC=8C"Dmitry Baryshkov" <dmitry.barys=
+hkov@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
+> >> >On Tue, Dec 10, 2024 at 08:50:51AM +0800, Andy Yan wrote:
+> >> >>
+> >> >>
+> >> >> Hi,
+> >> >>
+> >> >> At 2024-12-10 07:12:26, "Heiko St=C3=BCbner" <heiko@sntech.de> wrot=
+e:
+> >> >> >Am Montag, 9. Dezember 2024, 17:11:03 CET schrieb Diederik de Haas:
+> >> >> >> Hi,
+> >> >> >>
+> >> >> >> On Mon Dec 9, 2024 at 4:06 PM CET, Daniel Semkowicz wrote:
+> >> >> >> > On 03.12.24 21:54, Heiko Stuebner wrote:
+> >> >> >> > > This series adds a bridge and glue driver for the DSI2 contr=
+oller found
+> >> >> >> > > in the rk3588 soc from Rockchip, that is based on a Synopsis=
+ IP block.
+> >> >> >> > >
+> >> >> >> >
+> >> >> >> > I did more tests with different LVDS displays. I tested follow=
+ing
+> >> >> >> > configurations with DSI/LVDS bridge:
+> >> >> >> > - 1024x600@60.01
+> >> >> >> > - 1024x768@60.02
+> >> >> >> > - 1280x800@60.07
+> >> >> >> > - 1366x768@60.06
+> >> >> >> >
+> >> >> >> > All of them worked without issues, except 1366x768.
+> >> >> >> > With this resolution, video is blurry, and offset incorrectly
+> >> >> >> > to the left. There are also repeating errors on the console:
+> >> >> >> >
+> >> >> >> >   rockchip-drm display-subsystem: [drm] *ERROR* POST_BUF_EMPTY=
+ irq err at vp3
+> >> >> >> >
+> >> >> >> > In correct operation with other resolutions, there is no error.
+> >> >> >> > I am not sure if this is a problem in your series or rather in=
+ VOP2
+> >> >> >> > driver.
+> >> >> >
+> >> >> >This really sounds like something is wrong on the vop side.
+> >> >> >The interrupt is part of the vop, the divisable by 4 things likely=
+ too.
+> >> >>
+> >> >> This is a hardware limitation on vop side:
+> >> >> The horizontal resolution must be 4 pixel aligned.
+> >> >
+> >> >Then mode_valid() and atomic_check() must reject modes that don't fit.
+> >>
+> >> We round down to 4 pixel aligned in mode_fixup in our bsp kernel,
+> >
+> >What is meant by the "bsp kernel" here? I don't see it being present
+>=20
+> bsp kernel means downstream vendor kernel.
+>=20
+> >in the mainline kernel. So, if the mode is unsupported, it should be
+>=20
+> Will it be acceptable to add this round down in the mainline mode_fixup?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412101701.Uu0dEEE7-lkp@intel.com/
+personally I'd like that.
 
-All errors (new ones prefixed by >>):
+I.e. the thing in the examoke above is an LVDS display, so has essentially
+fixed resolution. So adapting the resolution may or may not be possible
+(some for DSI or whatever) .
 
-   In file included from drivers/iommu/amd/iommu.c:12:
-   In file included from include/linux/pci.h:1644:
-   In file included from include/linux/dmapool.h:14:
-   In file included from include/linux/scatterlist.h:8:
-   In file included from include/linux/mm.h:2223:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
->> drivers/iommu/amd/iommu.c:3810:3: error: field designator 'bus_token' does not refer to any field in type 'const struct msi_parent_ops'
-    3810 |         .bus_token              = DOMAIN_BUS_AMDVI,
-         |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   4 warnings and 1 error generated.
+Doing that rounding-down AND emitting a dev_warn about that fact would
+be preferrable to me personally, though I don't know if there is some
+different precedent in other parts of DRM.
 
 
-vim +3810 drivers/iommu/amd/iommu.c
+Heiko
 
-  3807	
-  3808	static const struct msi_parent_ops amdvi_msi_parent_ops = {
-  3809		.supported_flags	= X86_VECTOR_MSI_FLAGS_SUPPORTED | MSI_FLAG_MULTI_PCI_MSI,
-> 3810		.bus_token		= DOMAIN_BUS_AMDVI,
-  3811		.prefix			= "IR-",
-  3812		.init_dev_msi_info	= msi_parent_init_dev_msi_info,
-  3813	};
-  3814	
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
