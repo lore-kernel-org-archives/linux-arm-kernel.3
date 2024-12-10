@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39293E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E251AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hXgN7N+sfvyWYJUrx20Eam6+/moqssT/bJkQiBA9Rqc=; b=PqM+KWNmxuc1lTv701dqs90slp
-	YSoaksLeJrCpjf/jMwnB3aA619B1G2OY8nqGkAnPZ285DyczOEtHDn032TCMvdB0sFz2bmCpTtB9J
-	Re43pNov/cQGwj1j+Y2TJk5uj39IIW0IM7PKqj4WOmfibMfjhOM5t8CA+ltTUSl3rjgDp4sSYHIvD
-	VeyIp5PbvMH7f1nDYM1xxhnInhnUxoE6xIbPU571SrSb5SSKuZU2hx3+AE2c0tJoQ6slNJ4fsGWE9
-	aALwIWT2pm9sfqvDYSbu4SrWLuv2wIoimghMBZnxSevCx/qRC81sGyM+57mipSUNc8ztpvZojdfu6
-	SbVsb7QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6s1Y6p3w5g9RObkM06oK2W80+/bjnjpN96L0wHyxeJs=; b=hq3GjMlHz+75auuXG1kbMZrNHE
+	Cz8FSegpHB7bPRO4/wRoci6/PMqbdbESxDuUYyrv9vPdWM7Mc56xb/IqNS3JEMOl3sKP6Rvjv0WIM
+	gByLZlOBCZc2991BweENcotx6BYr1tAvKt3u+/HZWRA9qVewo+sr3BddCMnaRRqLcSxON3npQ5k+y
+	1I28L+uX3Uhu7Ktsu3hM/zU8iCTsadG9D2s9JvincMEl3bB39fDj70oqvucrRrojia6cb2Ad967xE
+	/vOJtap5SnifcZsu82R7je/dALrMzUO250rjRRn3/YC3/yoJZew9j2kWtMdctwakqVOtwDonRmCrZ
+	MYg/k0YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzt1-0000000BWCY-0dGu;
-	Tue, 10 Dec 2024 13:02:47 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tKzu2-0000000BWRO-3Bt2;
+	Tue, 10 Dec 2024 13:03:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzqj-0000000BVX0-0R7T
+	id 1tKzrA-0000000BVeI-2Rd2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 13:00:26 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-434fa6bf6e4so33905e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 05:00:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733835622; x=1734440422; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hXgN7N+sfvyWYJUrx20Eam6+/moqssT/bJkQiBA9Rqc=;
-        b=vwNS+dNjxg8IffZYDN+tDUVG2XW+5XmRnBfgVd3Bjo/vEDiX3I15Iv3XoaLVIv8U1X
-         VFjv6AnfXirUcMqCzy1BOJBg5GiL/MhfW4F0G110MK0ozcriCUHxc0s9u3hascAd91fo
-         /7k3EGWsW9WDxDLeNXUWi9g/9JGyyG7BEN5YXDRvrKhX171gW/DRanZjdEMvyCAna+UM
-         mQF9g0LVKSnqmfnskKeUkcuXrog6zoJnB1B1bZaa7U4VBCvt+3E3eWsfvXszerjzMGSA
-         dkINi3+Tshn1+ppxvS/XdUStJwjPO+IFQx0FSef5oAJuMgjat8DPicI+SnJAfUrMIANC
-         H/qQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733835622; x=1734440422;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hXgN7N+sfvyWYJUrx20Eam6+/moqssT/bJkQiBA9Rqc=;
-        b=pKXbsnRqXDjADRhwZUUKrL+0VdBfeVXKcYRAmARbm18vjnQLpyot7KqYpOyz6Xi71v
-         h9KinNyOgqb7MCZcnalcgmwZZGxmw6NZvVqsZTKSfxuII5YlBQLrdwito80eV+vdRyDA
-         8lMMcso1NIzYzL7lg2vc2GopyQmVXTxysiUjDXn2Yi2gUTRdBJfr1PtcpH2kyhkF8xgq
-         0r0mYwkYZj8o9Zz5E3lWmb18n/NGf0QxNvlaSOLlWWxnCeLXSzA1yaJdqsvsNmEszhp1
-         ZRB21oud1/nPNfKmAWh7lLGkh7B6fvIUxoK4GgyH9s7x/ETa+e3W0X/MI1KoYZKmZvyy
-         q24Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXPT/7f/6bv5oSanmWg2V3KiIVUzlhacMbbf6LP1DMYGrDBJSvvGse2EAmOb5TFleJnHgi/mfxhi7ev6/l9US2m@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqfVIdmSi9Zal+N/TK/e/7BlmLtLACZFsaFg3p054Noba08SIS
-	epzle9OHBX7sxwZlJnrExmb4Xzqi9XDsjY+jSG5150Ywn7FC0IXw7zNzUjgspGuFzlaZ2IZmVPX
-	nfV+HD7CJXo6YvU3iPgv0nVL4oKMsamSLWUYK
-X-Gm-Gg: ASbGnctHS+rRlIVORFReJy2r9JUR7krLckunwlPS9o5dXglzOcwIKazBjThBi6e8JiY
-	8gpJteoqpD6A+nsPrvMtCHE/6qLCRDsaEZFbB98S9PHqfc1sfVEFza5lYgHfTQV7a
-X-Google-Smtp-Source: AGHT+IGaGhDWDnawra1F1/dbQTTbNMD9zXwWoIQ2OEhqZyNYqK9fVKTHmmaCrYxgr29shZgJAAHaKKezDZL8LZSStsI=
-X-Received: by 2002:a05:600c:6b06:b0:434:9e1d:44ef with SMTP id
- 5b1f17b1804b1-43539dd9773mr1029035e9.7.1733835621326; Tue, 10 Dec 2024
- 05:00:21 -0800 (PST)
+	Tue, 10 Dec 2024 13:00:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2BD2F5C5E64;
+	Tue, 10 Dec 2024 13:00:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63526C4CEDF;
+	Tue, 10 Dec 2024 13:00:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733835651;
+	bh=jaThpRIjcCNZ0lQjQ42i7rnft7gfMtJKkGlTrJdutek=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=kF8HjOEOVQLLfosqKYy2yxSmojOUK9dE5AA0qn5ypsIUCqMuvvubvy0hKGiYQ8Xor
+	 6795C5de8kjVFtlMwiiO0yvBtylBAJx9uLg2QTrUhj5LBT5gc8YXjxO05YOmVhg8W+
+	 0qJh03WHF00pbCa0+Watf5W+S8lygjvV2SzdapZuYoYrn+0OOjY1V3FxUylPh8QjU0
+	 tQ9Jme+ujIAPmykTpGt7yA/94UwUvxyAPnO5Ouf8L27JwQK3ismNTAfGbIb5IlDVlR
+	 n239MCpWHdhRAvcEwbC2K+wkt+X/bK8qXG3Qxvsbgm9FBdOXG0wlyWlvBl9AnIxSYy
+	 Fj80hDpsJ6ALQ==
+From: Mark Brown <broonie@kernel.org>
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
+ =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
+ linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <4052aa2f9a9ea342fa6af83fa991b55ce5d5819e.1732051814.git.christophe.jaillet@wanadoo.fr>
+References: <4052aa2f9a9ea342fa6af83fa991b55ce5d5819e.1732051814.git.christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH] spi: aspeed: Fix an error handling path in
+ aspeed_spi_[read|write]_user()
+Message-Id: <173383564913.34030.1229101307217258864.b4-ty@kernel.org>
+Date: Tue, 10 Dec 2024 13:00:49 +0000
 MIME-Version: 1.0
-References: <20241203103735.2267589-1-qperret@google.com> <20241203103735.2267589-2-qperret@google.com>
-In-Reply-To: <20241203103735.2267589-2-qperret@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 10 Dec 2024 12:59:44 +0000
-Message-ID: <CA+EHjTxfchr+ggO_z_zrrFTrFpS3oTJXt13t-854xWxYY=oSQQ@mail.gmail.com>
-Subject: Re: [PATCH v2 01/18] KVM: arm64: Change the layout of enum pkvm_page_state
-To: Quentin Perret <qperret@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
-	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_050025_161945_65292F0C 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20241210_050052_664315_EF5D0883 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +77,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+On Tue, 19 Nov 2024 22:30:29 +0100, Christophe JAILLET wrote:
+> A aspeed_spi_start_user() is not balanced by a corresponding
+> aspeed_spi_stop_user().
+> Add the missing call.
+> 
+> 
 
-On Tue, 3 Dec 2024 at 10:37, Quentin Perret <qperret@google.com> wrote:
->
-> The 'concrete' (a.k.a non-meta) page states are currently encoded using
-> software bits in PTEs. For performance reasons, the abstract
-> pkvm_page_state enum uses the same bits to encode these states as that
-> makes conversions from and to PTEs easy.
->
-> In order to prepare the ground for moving the 'concrete' state storage
-> to the hyp vmemmap, re-arrange the enum to use bits 0 and 1 for this
-> purpose.
->
-> No functional changes intended.
->
-> Signed-off-by: Quentin Perret <qperret@google.com>
-> ---
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 0972faccc2af..ca3177481b78 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -24,25 +24,28 @@
->   */
->  enum pkvm_page_state {
->         PKVM_PAGE_OWNED                 = 0ULL,
-> -       PKVM_PAGE_SHARED_OWNED          = KVM_PGTABLE_PROT_SW0,
-> -       PKVM_PAGE_SHARED_BORROWED       = KVM_PGTABLE_PROT_SW1,
-> -       __PKVM_PAGE_RESERVED            = KVM_PGTABLE_PROT_SW0 |
-> -                                         KVM_PGTABLE_PROT_SW1,
-> +       PKVM_PAGE_SHARED_OWNED          = BIT(0),
-> +       PKVM_PAGE_SHARED_BORROWED       = BIT(1),
-> +       __PKVM_PAGE_RESERVED            = BIT(0) | BIT(1),
->
->         /* Meta-states which aren't encoded directly in the PTE's SW bits */
-> -       PKVM_NOPAGE,
-> +       PKVM_NOPAGE                     = BIT(2),
->  };
-> +#define PKVM_PAGE_META_STATES_MASK     (~(BIT(0) | BIT(1)))
->
->  #define PKVM_PAGE_STATE_PROT_MASK      (KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
->  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
->                                                  enum pkvm_page_state state)
->  {
-> -       return (prot & ~PKVM_PAGE_STATE_PROT_MASK) | state;
-> +       BUG_ON(state & PKVM_PAGE_META_STATES_MASK);
+Applied to
 
-This is a slight change in functionality, having a BUG_ON instead of
-just masking out illegal states. Is it necessary?
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Cheers,
-/fuad
+Thanks!
 
+[1/1] spi: aspeed: Fix an error handling path in aspeed_spi_[read|write]_user()
+      commit: c84dda3751e945a67d71cbe3af4474aad24a5794
 
-> +       prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> +       prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> +       return prot;
->  }
->
->  static inline enum pkvm_page_state pkvm_getstate(enum kvm_pgtable_prot prot)
->  {
-> -       return prot & PKVM_PAGE_STATE_PROT_MASK;
-> +       return FIELD_GET(PKVM_PAGE_STATE_PROT_MASK, prot);
->  }
->
->  struct host_mmu {
-> --
-> 2.47.0.338.g60cca15819-goog
->
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
