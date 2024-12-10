@@ -4,50 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87750E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB8BE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLGNJTaE0IeDdRBSN5nklAb66/bE0PthV8TWw8s13Fo=; b=pzFvRwwIPfRSLaGtzxnEM+Sgaw
-	NOwxVu4i1F+YilIom2oHKmTXw2oAnJmNTjoFBgYvWuXa2XQKTShzj3gKE/otX7ZeDsYfNQwyYAY00
-	6rVM97OHajn5BWnyl3ZSfQJU0wLOy6TKchm5GlM1yPAkc5S/v8E4WSWAQ1hBjMPi+U//Yih+moC4z
-	J3IyUiL7Qws14iLfxSeFByfXBPsUALWHKLam5AH3rOdWExFZyC7aCDkWXuWm76aL88BIjfMdLk5iF
-	8uh+eLFJGj99rEslX8t3iggjqvzMAcj0yKz1iBWh59nzyu5WqT1wjaKCUVOyB4LLhpeseMdAAYQOF
-	UNZDX7Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E1k1NKAG0VAHn8y+herauQKsleTkHdP588nI/DUPH50=; b=QtGb5YYjv+5GMsVz7dd1bX8UMs
+	8urSe60Y/YzpZgBLWZ0/ijtChUAUu7VK3i+hqAQuddC00a6/z69G/ZlR5fqR2YmDyOX8IQzsi59w7
+	V7CR0f4Cl4znP4PiE0T7iRD1OI7SAn0GZlDT4BcG0NpoUAueosGJ5AA5ru+6xYRKkX3kNw+2VPap3
+	Mg1fdF+g4fLZ9GYMZVofXoO1wTjS5SVbDEM/Q0Qa48zrOGG1ILPVo1JNMA5INYyeLqFIsshDeAyho
+	EHXb7FNC3wNNKCYAjEnQLHdDI7OG4Zw4harByWAYqb2KjIXfi9fzAMtWPCgyU7RrocZsV6apUfBPo
+	gQuEts/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Ee-0000000BlL7-0wma;
-	Tue, 10 Dec 2024 14:29:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tL1Ff-0000000BlZI-3W9w;
+	Tue, 10 Dec 2024 14:30:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL13r-0000000Bif3-03hC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 14:18:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C5186A41796;
-	Tue, 10 Dec 2024 14:16:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0502C4CED6;
-	Tue, 10 Dec 2024 14:18:00 +0000 (UTC)
-Date: Tue, 10 Dec 2024 14:17:58 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] arm64/signal: Silence spurious sparse warning storing
- GCSPR_EL0
-Message-ID: <Z1hNllCWa4u-IxrH@arm.com>
-References: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
+	id 1tL13z-0000000Bigc-2FoD;
+	Tue, 10 Dec 2024 14:18:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=E1k1NKAG0VAHn8y+herauQKsleTkHdP588nI/DUPH50=; b=nd+65dSkyWy+Hb9E/SJk7+8tXl
+	E1WpfAUxa077/fD+yAFuIYs+J8Uqy0tXl1tvktTwvOghB/xgZMht3SH6XTx5BeaVp6XAZ9J3i9RR8
+	xuDRfcUJ1yV7igrOxM6swWEoyet/VP4OGdyRl8Vab0s/zx/pMcf4w+eaiS7+9rwe1hQjMudZvZV1G
+	3yqNLrJphwPaQyQ63t92mhzDBDNkB4lzTEX/QR1VsJBFOkaER3xj5/r0xBUUbn9eF4ss8J3KHs2xz
+	l59TafXWPoiFG0X2Zsf7Gtp8LD+Dkpg5AedIz/rd285jcX1xHwAIffrpdkWOsm3pwtml8bBksFvA6
+	pQsMwcPw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40906)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tL13l-0002SM-2n;
+	Tue, 10 Dec 2024 14:17:58 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tL13g-00031q-2T;
+	Tue, 10 Dec 2024 14:17:52 +0000
+Date: Tue, 10 Dec 2024 14:17:52 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Woojung Huh <woojung.huh@microchip.com>
+Subject: [PATCH net-next 0/9] net: dsa: cleanup EEE (part 1)
+Message-ID: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_061803_114228_A30E5765 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20241210_061811_573794_993F1C26 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,39 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 12:42:53AM +0000, Mark Brown wrote:
-> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-> index 14ac6fdb872b9672e4b16a097f1b577aae8dec50..83ea7e5fd2b54566c6649b82b8570657a5711dd4 100644
-> --- a/arch/arm64/kernel/signal.c
-> +++ b/arch/arm64/kernel/signal.c
-> @@ -39,7 +39,7 @@
->  #ifdef CONFIG_ARM64_GCS
->  #define GCS_SIGNAL_CAP(addr) (((unsigned long)addr) & GCS_CAP_ADDR_MASK)
->  
-> -static bool gcs_signal_cap_valid(u64 addr, u64 val)
-> +static bool gcs_signal_cap_valid(unsigned long __user *addr, u64 val)
->  {
->  	return val == GCS_SIGNAL_CAP(addr);
->  }
-> @@ -1094,15 +1094,15 @@ static int gcs_restore_signal(void)
->  	/*
->  	 * Check that the cap is the actual GCS before replacing it.
->  	 */
-> -	if (!gcs_signal_cap_valid((u64)gcspr_el0, cap))
-> +	if (!gcs_signal_cap_valid(gcspr_el0, cap))
->  		return -EINVAL;
->  
->  	/* Invalidate the token to prevent reuse */
-> -	put_user_gcs(0, (__user void*)gcspr_el0, &ret);
-> +	put_user_gcs(0, gcspr_el0, &ret);
->  	if (ret != 0)
->  		return -EFAULT;
->  
-> -	write_sysreg_s(gcspr_el0 + 1, SYS_GCSPR_EL0);
-> +	write_sysreg_s((unsigned long)(gcspr_el0 + 1), SYS_GCSPR_EL0);
+Hi,
 
-Would we now get a warning here?
+First part of DSA EEE cleanups.
+
+Patch 1 removes a useless test that is always false. dp->pl will always
+be set for user ports, so !dp->pl in the EEE methods will always be
+false.
+
+Patch 2 adds support for a new DSA support_eee() method, which tells
+DSA whether the DSA driver supports EEE, and thus whether the ethtool
+set_eee() and get_eee() methods should return -EOPNOTSUPP.
+
+Patch 3 adds a trivial implementation for this new method which
+indicates that EEE is supported.
+
+Patches 4..8 adds implementations for .supports_eee() to all drivers
+that support EEE in some form.
+
+Patch 9 switches the core DSA code to require a .supports_eee()
+implementation if DSA is supported. Any DSA driver that doesn't
+implement this method after this patch will not support the ethtool
+EEE methods.
+
+Part 2 will remove the (now) useless .get_mac_eee() DSA operation.
+
+ drivers/net/dsa/b53/b53_common.c       | 13 +++++++------
+ drivers/net/dsa/b53/b53_priv.h         |  1 +
+ drivers/net/dsa/bcm_sf2.c              |  1 +
+ drivers/net/dsa/microchip/ksz_common.c | 20 +++++---------------
+ drivers/net/dsa/mt7530.c               |  1 +
+ drivers/net/dsa/mv88e6xxx/chip.c       |  1 +
+ drivers/net/dsa/qca/qca8k-8xxx.c       |  1 +
+ include/net/dsa.h                      |  2 ++
+ net/dsa/port.c                         | 16 ++++++++++++++++
+ net/dsa/user.c                         | 12 ++++++++++--
+ 10 files changed, 45 insertions(+), 23 deletions(-)
 
 -- 
-Catalin
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
