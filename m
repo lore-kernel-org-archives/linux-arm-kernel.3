@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3B5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F113E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jrmNUEzHaPbfzPastsRVKoN7SSf1AJHpgCYDuVUBkcs=; b=ouKcspHBedvdbHBjivBsWP4zSg
-	DUrTAQOHWnWUwiTPjJJ0pJik7R0LJgLrl4akbTYGRT+lwnmjz74TpRY9iS2/aWIWLjV5f15lHh5p1
-	ywDVVUOHQ0ycwigfQf5bgw1ebLGyaWZDiv0OjgGIBiRiUgCE6VwAfmOzYTBc8y1Jk80SsCRMtsvqs
-	uEk/0rm0LrzvmFAh/QYjqM8s9r0ZdlAy91MbnZWeiX+ekcsTWXfSRFZp/7Ddqt6/hQXxeM9p4Nuxi
-	5GWkVpHN39sU4E07fkZkZ9clW0U0KOZy8+DMLg7+NVWKHR8CxUb/cfplhHS0VnfXb4E8O8Z0s0wDZ
-	NgRW4SXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QMWLza5xRt+SErU35cIUGde4WH3Kl75rNlMr7596lF0=; b=3ZD+g4iUkd5mSbeuf3HPIoCemu
+	Y1DGVQHHUGXstm+gtUWoE9ZDl4WM/VJK6DwMc/vLvQ7Ds7W1gmDeh5j+Gl8nZzQtCLZdyTIhaCc8r
+	eA2q4T/tG4gBQXiXJc3a/JoC8wJX0ADZqRiKn9oTD+B0aBnP8FcsjLavgDN7Qg8JDEAXDcwKkQrZU
+	bdyGmAapdJBa3eIccrXmQHLAv36SNb66te9kmtyUeUv2LSTBpbDZuzzLgHJ15NprtDjTBsC9c8JmQ
+	rgqX+fMN4ByKjcj+YUt59gS8PvZG+BIcbmsPzFrDtt78MFh6NCIX89sv2JBXjdh44+jx9mmopZqM/
+	QfCVGa6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL3J7-0000000C8FX-0JYH;
-	Tue, 10 Dec 2024 16:41:57 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL3I3-0000000C7y5-0fr8
+	id 1tL3K7-0000000C8SB-36FZ;
+	Tue, 10 Dec 2024 16:42:59 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tL3J1-0000000C8Dx-2OCV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 16:40:52 +0000
-Received: from [10.16.84.29] (unknown [131.107.8.93])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 564502047222;
-	Tue, 10 Dec 2024 08:40:49 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 564502047222
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1733848849;
-	bh=jrmNUEzHaPbfzPastsRVKoN7SSf1AJHpgCYDuVUBkcs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qaAvYq7lyqspuQZ7OkIAAqOTvmA+2X29R4IObrDpeT1/2dvBSeRobjCAh6lzuXTIB
-	 mCRwtak/ZzDJ5+IqnZv+ZWmlbSk5oi8gPenZI/luDYlvBia7HUu+Z7kvfxa3KjhD8E
-	 TnsRBHVn/f7nO8STVaJc0gW220fXwfN8VhaB3pdg=
-Message-ID: <fec1aeb7-ea07-4363-9e6a-50b0c778e855@linux.microsoft.com>
-Date: Tue, 10 Dec 2024 08:40:49 -0800
+	Tue, 10 Dec 2024 16:41:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5DA0EA40873;
+	Tue, 10 Dec 2024 16:39:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D716C4CED6;
+	Tue, 10 Dec 2024 16:41:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733848910;
+	bh=xaA23xB16z/5D+tNHd073yTElA75DnnIwElqjGk2tNM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GITZ7eJpcEZSY5m72sNsQhL6soXf+boRvXJVnxzGeJDi6RRIB5aBNRe46mdySblN0
+	 N4jZXZk21kCMZ9dOZRGYOghk4n8ZZbDD0HtMffn5aj5X3jvdzEbecK3j9Qlnatd9xl
+	 Q0QRYGVFeFebnrC8lU07p9YtawyXrpQS/f1AXZhTCJoiqfs5zkvUSDvezrMGh4DSZT
+	 1Wv2IVYaNlKKZQH6QoYqyGxZq7lj5M9+GXtkcYnnBvNu0CM3L9+09G4H6e7B9qOFJu
+	 aAIc4JulW9babXWjiqksRWYyd1yCLlxjY+ucD+qJTWmwh8iZwEUmfE7q8Ij77FLTVC
+	 VukvPPeSrbsWA==
+Date: Tue, 10 Dec 2024 16:41:44 +0000
+From: Will Deacon <will@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, kvmarm@lists.linux.dev
+Subject: Re: [PATCH V2 5/7] arm64/cpufeature: Add field details for
+ ID_AA64DFR1_EL1 register
+Message-ID: <20241210164144.GA16039@willie-the-truck>
+References: <20241028053426.2486633-1-anshuman.khandual@arm.com>
+ <20241028053426.2486633-6-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] hyperv: Move hv_current_partition_id to arch-generic
- code
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
-References: <1733523707-15954-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1733523707-15954-2-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB4157E39FBEFB18EB9A695EECD4332@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157E39FBEFB18EB9A695EECD4332@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028053426.2486633-6-anshuman.khandual@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_084051_252573_30EFC90A 
-X-CRM114-Status: GOOD (  30.83  )
+X-CRM114-CacheID: sfid-20241210_084151_731944_CD76CA6F 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,195 +80,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/7/2024 7:01 PM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, December 6, 2024 2:22 PM
->>
->> Make hv_current_partition_id available in both x86_64 and arm64.
->> This feature isn't specific to x86_64 and will be needed by common
->> code.
->>
->> While at it, replace the BUG()s with WARN()s. Failing to get the id
->> need not crash the machine (although it is a very bad sign).
->>
->> Signed-off-by: Nuno Das Neves <nudasnev@microsoft.com>
->> ---
->>  arch/arm64/hyperv/mshyperv.c    |  3 +++
->>  arch/x86/hyperv/hv_init.c       | 25 +------------------------
->>  arch/x86/include/asm/mshyperv.h |  2 --
->>  drivers/hv/hv_common.c          | 23 +++++++++++++++++++++++
->>  include/asm-generic/mshyperv.h  |  2 ++
->>  5 files changed, 29 insertions(+), 26 deletions(-)
->>
->> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
->> index b1a4de4eee29..5050e748d266 100644
->> --- a/arch/arm64/hyperv/mshyperv.c
->> +++ b/arch/arm64/hyperv/mshyperv.c
->> @@ -19,6 +19,9 @@
->>
->>  static bool hyperv_initialized;
->>
->> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
->> +EXPORT_SYMBOL_GPL(hv_current_partition_id);
->> +
+On Mon, Oct 28, 2024 at 11:04:24AM +0530, Anshuman Khandual wrote:
+> This adds required field details for ID_AA64DFR1_EL1, and also drops dummy
+> ftr_raz[] array which is now redundant. These register fields will be used
+> to enable increased breakpoint and watchpoint registers via FEAT_Debugv8p9
+> later.
 > 
-> Instead of adding a definition of hv_current_partition_id on
-> the arm64 side, couldn't the definition on the x86 side in
-> hv_init.c be moved to hv_common.c (or maybe somewhere
-> else that is specific to running in the root partition, per my
-> comments in the cover letter), so there is only one definition
-> shared by both architectures?
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> cc: Mark Brown <broonie@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/kernel/cpufeature.c | 21 ++++++++++++++++-----
+>  1 file changed, 16 insertions(+), 5 deletions(-)
 > 
-Yes, that's a better idea.
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 718728a85430..bd4d85f5dd92 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -530,6 +530,21 @@ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
+>  	ARM64_FTR_END,
+>  };
+>  
+> +static const struct arm64_ftr_bits ftr_id_aa64dfr1[] = {
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ABL_CMPs_SHIFT, 8, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_DPFZS_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_EBEP_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ITE_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ABLE_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_PMICNTR_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_SPMU_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_CTX_CMPs_SHIFT, 8, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_WRPs_SHIFT, 8, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_BRPs_SHIFT, 8, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_SYSPMUID_SHIFT, 8, 0),
+> +	ARM64_FTR_END,
+> +};
 
->>  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
->>  {
->>  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
->> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
->> index 95eada2994e1..950f5ccdb9d9 100644
->> --- a/arch/x86/hyperv/hv_init.c
->> +++ b/arch/x86/hyperv/hv_init.c
->> @@ -35,7 +35,7 @@
->>  #include <clocksource/hyperv_timer.h>
->>  #include <linux/highmem.h>
->>
->> -u64 hv_current_partition_id = ~0ull;
->> +u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
->>  EXPORT_SYMBOL_GPL(hv_current_partition_id);
->>
->>  void *hv_hypercall_pg;
->> @@ -394,24 +394,6 @@ static void __init hv_stimer_setup_percpu_clockev(void)
->>  		old_setup_percpu_clockev();
->>  }
->>
->> -static void __init hv_get_partition_id(void)
->> -{
->> -	struct hv_get_partition_id *output_page;
->> -	u64 status;
->> -	unsigned long flags;
->> -
->> -	local_irq_save(flags);
->> -	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
->> -	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
->> -	if (!hv_result_success(status)) {
->> -		/* No point in proceeding if this failed */
->> -		pr_err("Failed to get partition ID: %lld\n", status);
->> -		BUG();
->> -	}
->> -	hv_current_partition_id = output_page->partition_id;
->> -	local_irq_restore(flags);
->> -}
->> -
->>  #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
->>  static u8 __init get_vtl(void)
->>  {
->> @@ -606,11 +588,6 @@ void __init hyperv_init(void)
->>
->>  	register_syscore_ops(&hv_syscore_ops);
->>
->> -	if (cpuid_ebx(HYPERV_CPUID_FEATURES) & HV_ACCESS_PARTITION_ID)
->> -		hv_get_partition_id();
->> -
->> -	BUG_ON(hv_root_partition && hv_current_partition_id == ~0ull);
->> -
->>  #ifdef CONFIG_PCI_MSI
->>  	/*
->>  	 * If we're running as root, we want to create our own PCI MSI domain.
->> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
->> index 5f0bc6a6d025..9eeca2a6d047 100644
->> --- a/arch/x86/include/asm/mshyperv.h
->> +++ b/arch/x86/include/asm/mshyperv.h
->> @@ -44,8 +44,6 @@ extern bool hyperv_paravisor_present;
->>
->>  extern void *hv_hypercall_pg;
->>
->> -extern u64 hv_current_partition_id;
->> -
->>  extern union hv_ghcb * __percpu *hv_ghcb_pg;
->>
->>  bool hv_isolation_type_snp(void);
->> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
->> index 7a35c82976e0..819bcfd2b149 100644
->> --- a/drivers/hv/hv_common.c
->> +++ b/drivers/hv/hv_common.c
->> @@ -278,11 +278,34 @@ static void hv_kmsg_dump_register(void)
->>  	}
->>  }
->>
->> +static void __init hv_get_partition_id(void)
->> +{
->> +	struct hv_get_partition_id *output_page;
->> +	u64 status;
->> +	unsigned long flags;
->> +
->> +	local_irq_save(flags);
->> +	output_page = *this_cpu_ptr(hyperv_pcpu_output_arg);
->> +	status = hv_do_hypercall(HVCALL_GET_PARTITION_ID, NULL, output_page);
->> +	if (!hv_result_success(status)) {
->> +		local_irq_restore(flags);
->> +		WARN(true, "Failed to get partition ID: %lld\n", status);
->> +		return;
->> +	}
->> +	hv_current_partition_id = output_page->partition_id;
->> +	local_irq_restore(flags);
->> +}
->> +
->>  int __init hv_common_init(void)
->>  {
->>  	int i;
->>  	union hv_hypervisor_version_info version;
->>
->> +	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
->> +		hv_get_partition_id();
-> 
-> hv_get_partition_id() uses the hyperv_pcpu_output_arg, and at
-> this point, hyperv_pcpu_output_arg isn't set. That setup
-> is done later in hv_common_init().
-> 
->> +
->> +	WARN_ON(hv_root_partition && hv_current_partition_id == HV_PARTITION_ID_SELF);
->> +
-> 
-> Since the hypercall will fail cleanly if the calling VM doesn't
-> have the HV_ACCESS_PARTITION_ID privilege, could the
-> above be simplified to just this?
-> 
-> 	if (hv_root_partition)
-> 		hv_get_partition_id():
-> 
-> A non-root partition VM doesn't need to get the partition ID, while a
-> root partition should have the privilege. If the hypercall fails, there's
-> already a WARN, so there's no value in doing another WARN. Also if
-> the hypercall succeeds, it presumably returns a specific partitionID, not
-> HV_PARTITION_ID_SELF, so we know we have what we want.
-> 
-> There's already an "if (hv_root_partition)" statement for setting up
-> the hyperv_pcpu_output_arg. The call to hv_get_partition_id() could
-> go under that existing "if" *after* the hyperv_pcpu_output_arg is
-> set. :-)
-> 
-Thank you, that makes sense. I'll make the changes you suggested for v2.
+I think I mentioned this on an earlier series, but it would be useful to
+see some justification in the commit message as to why some of these
+features are considered STRICT vs NONSTRICT and why LOWER_SAFE is
+preferred over EXACT.
 
-Nuno
+For example, why is EBEP strict whereas other PMU-related fields aren't?
+Why is the CTX_CMPs field treated differently to the same field in DFR0?
 
-> Michael
-> 
->>  	/* Get information about the Hyper-V host version */
->>  	if (!hv_get_hypervisor_version(&version))
->>  		pr_info("Hyper-V: Host Build %d.%d.%d.%d-%d-%d\n",
->> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
->> index 8fe7aaab2599..8c4ff6e9aae7 100644
->> --- a/include/asm-generic/mshyperv.h
->> +++ b/include/asm-generic/mshyperv.h
->> @@ -60,6 +60,8 @@ struct ms_hyperv_info {
->>  extern struct ms_hyperv_info ms_hyperv;
->>  extern bool hv_nested;
->>
->> +extern u64 hv_current_partition_id;
->> +
->>  extern void * __percpu *hyperv_pcpu_input_arg;
->>  extern void * __percpu *hyperv_pcpu_output_arg;
->>
->> --
->> 2.34.1
+I'm not saying the above table is wrong, it just looks arbitrary without
+the justification.
 
+Will
 
