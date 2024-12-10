@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA549E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24A5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/ecQv4FKuCtZE1AnEV/ijXpIAnWHT6qeI4gnhaOi3s=; b=pfwNLjA+FKT+vk3GfLfdo4LjPm
-	yrunMfXkS6bmtSbAjhTK1ApBx6BT9uWkr1I2iV4lZTcZSBA/kXymO0mJNNDLxmg9LiRSV5FmEZYB2
-	V24DIphYGfb36Hmk3v2YxUNPstnqYFUqlq/xYsJSlsen0Gf4cIAOtgeUseIvpdBXugzNfqWppiX7U
-	hwTDsm/Oa/pVaQnRBUyf6COxzRO7L4jaskLOwSoy8xIy1uaWGb6fesNvOlx4JjzwNe1KfaBm8v4qz
-	Pi5nOunS6esspG1Y7d0aooa01vrfvCd75wUx5X+5HlsduBD69K9FuPZzU42UbIwXUBecxTRLbCNiT
-	q0vHpFDw==;
+	bh=vGD6VvVesz9TaXvUHr+lSG6yCgGJWZjixEBsCx87FF8=; b=MczJiBsgjrzr/pyHdDarik+aW0
+	rzXCOLpeLmR48O/0FFP6xwBYYIPB2sYWqUjq3P19mqK6OM8GnQ1hXClmxkdoWiP3FV3VswikS0ZYY
+	M7kXYVolcvudkZTCuPQd8BdpFajVNUMSDi3Km1r2OtVIXLUjV8/BteChd2TAhz8P/Mu0P93ELzp6h
+	vrFyidofudOqBnn7jg68rDX+2x/mEumH7/KEygbWspEDWDJKalzWN5lo9PmBkCelg1IGVId6sGCKm
+	eKvpvulMu+AKIIuotGsh+St9vEOjoMIpVqitdfEE0jqX5Ee12HhZVLKCKLhWS1j9ikZu5EsuWeV4U
+	K9d64Cgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxwE-0000000BE5G-3iUK;
-	Tue, 10 Dec 2024 10:57:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tKxxG-0000000BEQC-3hiM;
+	Tue, 10 Dec 2024 10:59:02 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxtJ-0000000BDHz-1gwD;
-	Tue, 10 Dec 2024 10:54:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=I/ecQv4FKuCtZE1AnEV/ijXpIAnWHT6qeI4gnhaOi3s=; b=AEgkMytKAjtQ4a1u/MLo8pPK9r
-	lU+a/eCQz7xpnrtDWYQyayPmWoYDo1jY7H1LXJWbT+J4TInvHdQpMhnXnBCV5UUegjvDHswnupRVb
-	3qSvaVJsf7KZtNGiD/0RJ5oQbmC3hFcswx4DNN0KplCbrLNt9sNzvozb2frb6hbl1a5TRpCK9w4rY
-	0tMfIFPQo9bPUoWbDNlVV9r/l+uLkIE+duuQzU4Vr7sfLPyCkgpcSF1vKpy89NceO/xSh+RNPihof
-	iDdpism0coDEv0NrmMTaULx4L1dyPWqbFzSNFydHtLkRCU8nzx5RAeEqEJyUT17xVPYzLs1Ot8xrK
-	i7w7euVA==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tKxt2-0004QH-Ie; Tue, 10 Dec 2024 11:54:40 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Peter Geis <pgwipeout@gmail.com>
-Cc: Peter Geis <pgwipeout@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
- Diederik de Haas <didi.debian@cknow.org>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Levin Du <djw@t-chip.com.cn>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 5/6] arm64: dts: rockchip: correct rk3328-roc regulator map
-Date: Tue, 10 Dec 2024 11:54:39 +0100
-Message-ID: <14451790.lVVuGzaMjS@diego>
-In-Reply-To: <20241210013010.81257-6-pgwipeout@gmail.com>
-References: <20241210013010.81257-1-pgwipeout@gmail.com>
- <20241210013010.81257-6-pgwipeout@gmail.com>
+	id 1tKxti-0000000BDNm-1rnx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 10:55:23 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BAAtJTT2917336
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 10 Dec 2024 04:55:19 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733828119;
+	bh=vGD6VvVesz9TaXvUHr+lSG6yCgGJWZjixEBsCx87FF8=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=PtkbDjAIFQTn/KknoTTMTajSadc+BjNpBnn50RyFBICj6naI3yd2dR3JXLqVai3yI
+	 H+SmziJtbpX1Ir0fHJ9GW0m02BqFrL0xlde6G8j/8WURHvLHQHJgrhK7In5NCAHCGt
+	 mlQaLq9q9IaBTE/0dY0NPCTpoKOSfT57hLAj5EBA=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BAAtJRm114297
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 10 Dec 2024 04:55:19 -0600
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
+ Dec 2024 04:55:18 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 10 Dec 2024 04:55:18 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BAAtHMZ130180;
+	Tue, 10 Dec 2024 04:55:18 -0600
+Date: Tue, 10 Dec 2024 16:25:17 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Kevin Hilman <khilman@baylibre.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, <linux-pm@vger.kernel.org>,
+        Nishanth
+ Menon <nm@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
+        Sebin Francis
+	<sebin.francis@ti.com>,
+        Markus Schneider-Pargmann <msp@baylibre.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 3/3] pmdomain: ti_sci: handle wake IRQs for IO daisy
+ chain wakeups
+Message-ID: <20241210105517.ms7twggosr2rs72m@lcpd911>
+References: <20241206-lpm-v6-10-constraints-pmdomain-v6-0-833980158c68@baylibre.com>
+ <20241206-lpm-v6-10-constraints-pmdomain-v6-3-833980158c68@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241206-lpm-v6-10-constraints-pmdomain-v6-3-833980158c68@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_025457_443621_A1AFF457 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20241210_025522_524600_B4E1DF65 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,112 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 10. Dezember 2024, 02:30:09 CET schrieb Peter Geis:
-> The rk3328-roc-cc input power is sourced from a micro-usb port, while
-> the rk3328-roc-pc input power is sourced from a usb-c port. Both inputs
-> are 5vdc only. Remove the 12v input from the device tree.
-
-full stop. Please don't do "While we are at it" commits.
-
-> While we are at it, add missing voltages and supply to vcc_phy, missing
-> voltages to vcc_host1_5v, and standardize the order of regulator
-> properties among the fixed regulators.
-
-This second part wants to be its own commit :-) .
-
-Thanks
-Heiko
-
-> Fixes: 2171f4fdac06 ("arm64: dts: rockchip: add roc-rk3328-cc board")
-> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+On Dec 06, 2024 at 14:12:52 -0800, Kevin Hilman wrote:
+> When a device supports IO daisy-chain wakeups, it uses a dedicated
+> wake IRQ.  Devices with IO daisy-chain wakeups enabled should not set
+> wakeup constraints since these can happen even from deep power states,
+> so should not prevent the DM from picking deep power states.
+> 
+> Wake IRQs are set with dev_pm_set_wake_irq() or
+> dev_pm_set_dedicated_wake_irq().  The latter is used by the serial
+> driver used on K3 platforms (drivers/tty/serial/8250/8250_omap.c)
+> when the interrupts-extended property is used to describe the
+> dedicated wakeup interrupt.
+> 
+> Detect these wake IRQs in the suspend path, and if set, skip sending
+> constraint.
+> 
+> Tested-by: Dhruva Gole <d-gole@ti.com>
+> Signed-off-by: Kevin Hilman <khilman@baylibre.com>
 > ---
-> 
->  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 23 +++++++++++++-------
->  1 file changed, 15 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> index f782c8220dd3..6984387ff8b3 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> @@ -24,22 +24,23 @@ gmac_clkin: external-gmac-clock {
->  		#clock-cells = <0>;
->  	};
->  
-> -	dc_12v: regulator-dc-12v {
-> +	/* fed from passive usb input connector */
-> +	dc_5v: regulator-dc-5v {
->  		compatible = "regulator-fixed";
-> -		regulator-name = "dc_12v";
-> +		regulator-name = "dc_5v";
->  		regulator-always-on;
->  		regulator-boot-on;
-> -		regulator-min-microvolt = <12000000>;
-> -		regulator-max-microvolt = <12000000>;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
->  	};
->  
->  	vcc_sd: regulator-sdmmc {
->  		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_sd";
->  		gpio = <&gpio0 RK_PD6 GPIO_ACTIVE_LOW>;
->  		pinctrl-names = "default";
->  		pinctrl-0 = <&sdmmc0m1_pin>;
->  		regulator-boot-on;
-> -		regulator-name = "vcc_sd";
->  		regulator-min-microvolt = <3300000>;
->  		regulator-max-microvolt = <3300000>;
->  		vin-supply = <&vcc_io>;
-> @@ -50,22 +51,25 @@ vcc_sdio: regulator-sdmmcio {
->  		states = <1800000 0x1>, <3300000 0x0>;
->  		regulator-name = "vcc_sdio";
->  		regulator-type = "voltage";
-> +		regulator-always-on;
->  		regulator-min-microvolt = <1800000>;
->  		regulator-max-microvolt = <3300000>;
-> -		regulator-always-on;
->  		vin-supply = <&vcc_sys>;
->  	};
->  
->  	vcc_host1_5v: vcc_otg_5v: regulator-vcc-host1-5v {
->  		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_host1_5v";
->  		enable-active-high;
->  		pinctrl-names = "default";
->  		pinctrl-0 = <&usb20_host_drv>;
-> -		regulator-name = "vcc_host1_5v";
->  		regulator-always-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
->  		vin-supply = <&vcc_sys>;
->  	};
->  
-> +	/* sourced from usb input through 3A fuse */
->  	vcc_sys: regulator-vcc-sys {
->  		compatible = "regulator-fixed";
->  		regulator-name = "vcc_sys";
-> @@ -73,7 +77,7 @@ vcc_sys: regulator-vcc-sys {
->  		regulator-boot-on;
->  		regulator-min-microvolt = <5000000>;
->  		regulator-max-microvolt = <5000000>;
-> -		vin-supply = <&dc_12v>;
-> +		vin-supply = <&dc_5v>;
->  	};
->  
->  	vcc_phy: regulator-vcc-phy {
-> @@ -81,6 +85,9 @@ vcc_phy: regulator-vcc-phy {
->  		regulator-name = "vcc_phy";
->  		regulator-always-on;
->  		regulator-boot-on;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vcc_io>;
->  	};
->  
->  	leds {
-> 
+
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
 
-
-
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
