@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CE3E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162F5E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8U9OITzuCGVbUE4VFrB21WXXS4XhHNs8SP2M8B7r1S8=; b=VjBAu8erqMO6O+eSWBYrw/0dVh
-	r0KUpa4ggNt1unqk4h235A/9+StetLH7hgVJaAx8uD32Ej7bK/imOGMRQZedlwsTbnDUsaka01TeE
-	5AnR5GCDQnct38ceY4NI3IeD6oUjryLzj1Ep6i6vzGvFrcZf+mNnaV7YbcCnw77po3JcstvaUzqt1
-	F317PbPDJgVM/i4w82dDH8/WI/475FPNGhDDauOf7ebiQjO81k3asd3UjlgucYB54CCbIpJZnlkEi
-	6yyCZEwMLuo0tTOb6nNFxLmjRrp3sNbTjpxzR5JFOZ+XyFnXnC4VivA5oRWAVz685XFERmTEZke/Z
-	PPRFF5ig==;
+	bh=le3OLdPi+7GqsRwhpvl3VmgjOmVOxgI+O0m7XZZIEOI=; b=qffggZKsCKVgPq3R9Cdj9GCO9g
+	ek3f36kGtSB/NsmLYli9xmQeSd955rttaTnmYHWnSpz8bnXPktSB8ghKw/A258j5J3sdm0kpJprak
+	okFpYQaSSycnXDQ+/U+d1LQ/YwJVKBo789+VNwbSgZPLD4aSphnAhVHzMU3+YZA//QyMrC8lwpwz3
+	rOqaAVP8+eC+O9k9vVOHsuX1JZEjLjwxLnyDYSgJNcargVJMOsQSx7Re9rMwb8m5EYkxepF3zTVAZ
+	p51sHWCXQccPqSV78BKyonAnV4rH9ZoK1yOVGoeiT2k4Ao/5RtdAyZ0OBlOXsSz/w8PHgTxVQbbel
+	d2Q2IVtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnyd-00000009gXA-1ANp;
-	Tue, 10 Dec 2024 00:19:47 +0000
+	id 1tKnzd-00000009goY-3aNm;
+	Tue, 10 Dec 2024 00:20:49 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnwb-00000009g1h-29zC
+	id 1tKnwe-00000009g2d-3Jsa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 00:17:42 +0000
+	Tue, 10 Dec 2024 00:17:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 55C71A41A79;
-	Tue, 10 Dec 2024 00:15:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F623C4CEE0;
-	Tue, 10 Dec 2024 00:17:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 97833A41A77;
+	Tue, 10 Dec 2024 00:15:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B4FC4CEE1;
+	Tue, 10 Dec 2024 00:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733789860;
-	bh=NP473M91KfDU5hAbkVpyFF0JS9tQapuKfRqfLoOzGtA=;
+	s=k20201202; t=1733789863;
+	bh=Ic7pQ6LFiHXt2WB/ccfFedVbtDdhbJCjtpNtWFW7Hv4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WDVfORutvSU532Nrnz9oMLZZaXBASMmecU6EPI6cu2iXUWjbffC2s3iSrc0eA3ikK
-	 t6IB70kecdz6wQE2MX2hAcBXkc4O7J45203xCTKOyVzXVgiThv41/QYWP2D/H8qQru
-	 SP7JbB1IrEWZ/5GD4mbwNpF1lrAiLkINqaFEe1BKUq7gYqT5JvhjfRg9cNUZP1gfSN
-	 yEPYpidYlxkzYCHbFvZn7pd7v5gp2Q85jVNTATtmZCceilAjiA8tY5frxs6aP87wNA
-	 sSIneVYRs52/17P0h6txb97tvz8tWYr3ck0KDQAmwi/ErsP8fc1WlJEqw7gFuB6wbX
-	 3a5YcFMbi6Wxw==
+	b=MsLnSa+kTuZstB4a0MCCjDVlb9Aw5v5GLa2QCZNUie4W5WfvA4TBDCS5iaEIooPPK
+	 JIR1qOmLAgNI3XSoNqrcxCZuWTRSleD35V8mXgEKXNJXdeTpZuncFRSI6H2W8GVzJE
+	 A1RCMrbJsamp3Xa+w2WMYiC/+5RpHKZhmbjuDR2D0XNFlTVzwboaPmu2DQLH+VypEi
+	 xCvpkVEfbp0Z+EgQO387qr6Xebv45C9SeetLLFoourQcLqtIRsGPlKyFtjcU54RvGP
+	 I856sozAvHe5F5BHRcod4RO7mmj6IHN8jn5nd3FYyCBvZY8LjhmCnVCQA8qZohz3/V
+	 CbLqsN+5rsbbg==
 From: Will Deacon <will@kernel.org>
-To: iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org,
+To: Thierry Reding <thierry.reding@gmail.com>,
+	Krishna Reddy <vdumpa@nvidia.com>,
 	Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>
+	Joerg Roedel <joro@8bytes.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-rt-devel@lists.linux.dev,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	patches@lists.linux.dev,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Subject: Re: [PATCH] iommu/arm-smmuv3: Update comments about ATS and bypass
-Date: Tue, 10 Dec 2024 00:17:27 +0000
-Message-Id: <173378410349.4185561.4875058023954953472.b4-ty@kernel.org>
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2] iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context
+Date: Tue, 10 Dec 2024 00:17:28 +0000
+Message-Id: <173378751166.2164111.11293401851587446576.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <0-v1-f27174f44f39+27a33-smmuv3_ats_note_jgg@nvidia.com>
-References: <0-v1-f27174f44f39+27a33-smmuv3_ats_note_jgg@nvidia.com>
+In-Reply-To: <Z1L1mja3nXzsJ0Pk@uudg.org>
+References: <Z1L1mja3nXzsJ0Pk@uudg.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_161741_612155_FC8B69CD 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20241209_161744_888103_555863E9 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,22 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Dec 2024 11:40:15 -0400, Jason Gunthorpe wrote:
-> The SMMUv3 spec has a note that BYPASS and ATS don't work together under
-> the STE EATS field definition. However there is another section "13.6.4
-> Full ATS skipping stage 1" that explains under certain conditions BYPASS
-> and ATS do work together if the STE is using S1DSS to select BYPASS and
-> the CD table has the possibility for a substream.
+On Fri, 06 Dec 2024 10:01:14 -0300, Luis Claudio R. Goncalves wrote:
+> During boot some of the calls to tegra241_cmdqv_get_cmdq() will happen
+> in preemptible context. As this function calls smp_processor_id(), if
+> CONFIG_DEBUG_PREEMPT is enabled, these calls will trigger a series of
+> "BUG: using smp_processor_id() in preemptible" backtraces.
 > 
-> When these comments were written the understanding was that all forms of
-> BYPASS just didn't work and this was to be a future problem to solve.
+> As tegra241_cmdqv_get_cmdq() only calls smp_processor_id() to use the
+> CPU number as a factor to balance out traffic on cmdq usage, it is safe
+> to use raw_smp_processor_id() here.
 > 
 > [...]
 
-Applied to will (for-joerg/arm-smmu/updates), thanks!
+Applied to will (for-joerg/arm-smmu/fixes), thanks!
 
-[1/1] iommu/arm-smmuv3: Update comments about ATS and bypass
-      https://git.kernel.org/will/c/9b640ae7fbba
+[1/1] iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context
+      https://git.kernel.org/will/c/1f806218164d
 
 Cheers,
 -- 
