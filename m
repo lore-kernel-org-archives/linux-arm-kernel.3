@@ -4,108 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F61AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 15:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3AAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 15:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O6COf3Hkk0aQA9lsD0i2AqUa4d4P/34xWsXqJ5E4hUk=; b=hoC3c/cv/B4qJkZbHsR3R8tuLT
-	C1pVOho9h7sEsoJZDpWEPm1Oe8Kmmwo/Tmb0NBPFKz9c81yVoGAHrZ9ywxqOB7Eiekbwg20GniPMu
-	Kn3yoYxJzD8HGf4yPEjih11BKvbBmgYLi4b1vTqTSblOWOgLOaW62HZwLKFE0A4Rqq0EjvCHLV6/u
-	n7bIBQ4Akdw89nnjnjWthmVcLiv990O51rCauobK4aGvxexmnLeJsOhH8wSBBc1SNAmaaEki2bIDB
-	O+nB272aUcWVBwmWRf9u0z42Arq5M3YSlxFGRDJeAfr3Uv+g4xC9nvl7fBt/qBH6cLi2avNDWvgK7
-	kl2IDACw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gog3UmjAGM8ds1F2V/1cTPHpF/LSt2pJ8Fb+2K5pOrQ=; b=Imo04CaXEU+ZUkmOtfF1KuUOt/
+	H+YlAfEf//gmyxVUbydXEOWspV8B7q/cTlQEK0uCwNIEtXqYaZfPX4Rri7CQR9Il1jtHosLdQfetT
+	ww/ot6qCa0L2kspxbKUANLxQmWchTt03Tu9+WVMZ1HXJQzIceaaA8fOz6U2g9U4CAKZ3wupqSnoLG
+	lK9du0xoSETcMJwzYICmVeUunyinFNFuAZdLOsJtittHDKdTOpVttwDeQPVYqYhjDFHdIT/0YR5XO
+	qilIUkTQok/TaarUUnnYabtIER80HeNsUQAbV2aZRIKaLSEAswzcJuhQ0tm8m468pYD27jg3T2p/r
+	2e29qSng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2ct-0000000C0fH-2w2F;
-	Tue, 10 Dec 2024 15:58:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tL2eF-0000000C0sL-1YO1;
+	Tue, 10 Dec 2024 15:59:43 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2bU-0000000C0Pv-2c0t
+	id 1tL2dB-0000000C0hT-3Ytk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 15:56:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1733846210;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O6COf3Hkk0aQA9lsD0i2AqUa4d4P/34xWsXqJ5E4hUk=;
-	b=UZrZtxPjCjPRW6xbNd4MwTM/dlqj1XceBn3Lwr5nXV9lCQZ3Dx6cmuh/QIqd6/Ch314NZy
-	qkX0Aft0OL1nUih5hsb7Muc2n3oGcexzzqntGqx/pENcl3OOI7+5OkZ+1KT3HH0EmHUp/6
-	qcKXvPNpQUI1r+ShT5j0Rr8rfjFPhFU=
-Received: from mail-io1-f71.google.com (mail-io1-f71.google.com
- [209.85.166.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-694-n5hhgecXPICdsPRbfkfxYg-1; Tue, 10 Dec 2024 10:56:48 -0500
-X-MC-Unique: n5hhgecXPICdsPRbfkfxYg-1
-X-Mimecast-MFC-AGG-ID: n5hhgecXPICdsPRbfkfxYg
-Received: by mail-io1-f71.google.com with SMTP id ca18e2360f4ac-83e5dd390bfso605345839f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 07:56:48 -0800 (PST)
+	Tue, 10 Dec 2024 15:58:39 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-435b0df5dbdso44455e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 07:58:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733846316; x=1734451116; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=gog3UmjAGM8ds1F2V/1cTPHpF/LSt2pJ8Fb+2K5pOrQ=;
+        b=SgDmfL5LvVn0vnK6Y3JMG6uRMbZbVEs0CQgm10kY9dqa8e5c1y7qDOGBGwjts5mg8p
+         4OqH5hzBy+BXHLV2SoRCe+kHZCOahI5JwZTWXRrCjQtKkdXl3uLOo8Sv32GTtWVdXNXx
+         P0sLYAGfsKDYImj2k4tZaoCjlwn9wGUjigPLbtuvQDLdz93H2zPysNAqQUOATjAuzlQS
+         YZW+2/gg3g67M18Q1uNdb+x+m6Ra4c3YAuqOZ8Sqn9rLsve0PzJdEikgCHZ9QoVbSoID
+         aho/T0UPWW86tpa6SrWJ9aJT2fV97yEnvQJF1qWsVe0M3YFjOtts+nt+u1R2mG9iM8cx
+         tQXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733846208; x=1734451008;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O6COf3Hkk0aQA9lsD0i2AqUa4d4P/34xWsXqJ5E4hUk=;
-        b=nalF5ptY2AquRU02d3LBVwrua4ce+9OGa1IMN9Qo7eQV7ONJomjpgp4yY4eK0qb5/6
-         hi7o+ln35mDC56Fi3DW9C9wemnoNPx/Est7LNOu8HHayigA5FUv+uqwhMU1+OzaTfjkK
-         ZFJRb+eOdqDmEQHFBHx9fTT7JFWRM6xvnor6kTw6zvBV4lZXONHMvQdslzD62jd3MJjq
-         RkORzCaAUilZucKu4m7TFPnZAqaIN6bjTAiTc91JSbvlapPk8IBStPH3zzBv91jyCgmB
-         DoQ+hHhLNQR0LZ0amG7NcyLJfPt3FAYjJJu3771qlatUmeOFauyK/SZYYSpAWTu/TWIj
-         N2Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCXh8on4lG3QJH8gQaFQfIEAaiKUIBr84Y2NlgPuo83CVsUzrWTshhuuv/ikr/C6QBRH9MMkR5W9Jtg+ItkLws3z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9PMNt/F4lFCp4f+E56bAIdA9MD/kVCYqxbyqC5Wjx3vKoeHoh
-	ngjZls6ddvsz4+7FEv8IkzCyHEEk3ZppLV6F9WipNAx2xqQWAE+XgJUaikDaFuLcCB74bbKvfai
-	otWMToybfdGhuj/qOoxKLqs+j0sXTKJPB3BqkqWsNOXLMPqhWjE99gKQNXJr0cEX3P+lZs7/V
-X-Gm-Gg: ASbGnctpOsEduJVTP/XuXJFgfYg4m77EGA9OpHd70VEqiUHeEc3Ic2OyCsnoT5qeY0b
-	JUHG2tx4JOSHm3ca1Rf4dW7FwZ7YapFdQGaOAtkwPZKwf41xTAS/P2XvQX+HxEVJvrMtkIHOLwc
-	UahZgZd6dOU9fPBW2VvSmotpu0o8EAFN+8F0xZkElJgifnVZ4o7KITwIDJyNPou6dY7IEpy3n9R
-	QEpqBn8Dg0p09B2jAWaA88jIUmr7pdXoUfDaWxvf5mRcQijUsQObsk=
-X-Received: by 2002:a05:6602:a108:b0:83a:943d:a280 with SMTP id ca18e2360f4ac-844b87f7863mr300000939f.1.1733846208055;
-        Tue, 10 Dec 2024 07:56:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGO/en2fuAvQyTs2jHHMl4LqDZEtajqMB/Su9iQAs0bW7stQDAwQKFTzGD6u5DQDQ+uVMvWSg==
-X-Received: by 2002:a05:6602:a108:b0:83a:943d:a280 with SMTP id ca18e2360f4ac-844b87f7863mr299997739f.1.1733846207687;
-        Tue, 10 Dec 2024 07:56:47 -0800 (PST)
-Received: from [192.168.40.164] ([70.105.235.240])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e2bf67d125sm1155622173.96.2024.12.10.07.56.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Dec 2024 07:56:47 -0800 (PST)
-Message-ID: <0723d890-1f90-463b-a814-9f7bb7e2200b@redhat.com>
-Date: Tue, 10 Dec 2024 10:56:43 -0500
+        d=1e100.net; s=20230601; t=1733846316; x=1734451116;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gog3UmjAGM8ds1F2V/1cTPHpF/LSt2pJ8Fb+2K5pOrQ=;
+        b=V+nNWjX/X2SjgnDWfOC9g2mqRkQx/OIGMnzomwxoQ+AmdSiky5Qd8QYoVWzrSJ2duG
+         TQoGEpdZbDGrSMtzvGp6TdomZOZjOaNJiJydORiPsB2ORVFoVo8PM7A8Xsli3icIZkme
+         P8WmXMLI6rhFlqJ2lsab6E91ZHhSNG09O9IgYk59ZkXXIKhkqL0WD/8ONht5kMVtQmX0
+         3x5aRZE5ybMP+VNx85nnjuK8cfP6dJ3sviMlaviMPELjAIFpEas2g49X9VxLNZ21FlQJ
+         i7svMIiTMnQisxA0xNtQqWJnsVwJFacNtSkYLuOBQpNenexwcJROs0zWMnjddSXahmSH
+         jZiw==
+X-Forwarded-Encrypted: i=1; AJvYcCUH7RncmWW56cZlWenOlcYvxRvNTmMpOZTdb5dtKUOTm3pB7j0jUS02yI5MihIjf7bxAgfPyOmgXL6ohgl9vHmb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgdtvmFONVRyqcm0uj+5lQig6aIz0qkzc8UPvAzXNYdBSxyAIt
+	XTLRCHxLlUtb6AudZcIiRF7PG/Tn+DX/agdjZknQ9tQ/GbnAdl+K07ZIqSaNmC9UCGO+zQ2ElVy
+	de6OUY8E+OEVQNR90OBfBQ80cxi7i/dKLA0Zn
+X-Gm-Gg: ASbGncsLVvzul6677lfaz1FZLKQui81WTrkM2PBnN6LVe1ZDQjp69vbCz8T4uqXvHmw
+	qcK97VgXtq7o76wsUfNrKPEYcT5bn1hXkPhWI5YQDX6/VjkUls1HR+3ZlfV0oNww=
+X-Google-Smtp-Source: AGHT+IG1wUJvyZIRJh+38xWa/njtBgPsxPwQ2fBa2yZ2tXxaoHhgOC8RH8xcoYG60iakVpmgn1JWxhQdZW1hCXmryOM=
+X-Received: by 2002:a05:600c:4312:b0:434:c967:e4b5 with SMTP id
+ 5b1f17b1804b1-43539dcfd43mr1228115e9.1.1733846316052; Tue, 10 Dec 2024
+ 07:58:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/1] KVM: arm64: Map GPU memory with no struct pages
-To: Jason Gunthorpe <jgg@nvidia.com>, Will Deacon <will@kernel.org>
-Cc: ankita@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- catalin.marinas@arm.com, ryan.roberts@arm.com, shahuang@redhat.com,
- lpieralisi@kernel.org, aniketa@nvidia.com, cjia@nvidia.com,
- kwankhede@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com,
- acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com,
- danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com,
- dnigam@nvidia.com, alex.williamson@redhat.com, sebastianene@google.com,
- coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com,
- ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com,
- linux-mm@kvack.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20241118131958.4609-1-ankita@nvidia.com>
- <20241210140739.GC15607@willie-the-truck>
- <20241210141806.GI2347147@nvidia.com>
-From: Donald Dutile <ddutile@redhat.com>
-In-Reply-To: <20241210141806.GI2347147@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4W_S3UCzf_8gdckgbJOkIVKw7hgwmFip-6GxEFzNIlc_1733846208
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20241203103735.2267589-1-qperret@google.com> <20241203103735.2267589-12-qperret@google.com>
+ <CA+EHjTw48LTFt=sKtPwS1rmA=ma6Sj9O-D=17FXoMybqZ7+g5g@mail.gmail.com> <Z1hj49tuma2zZ1zv@google.com>
+In-Reply-To: <Z1hj49tuma2zZ1zv@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 10 Dec 2024 15:57:59 +0000
+Message-ID: <CA+EHjTxWQJYWjjcagqwZ2_B7yoUq7OJNwfWkvB_mX35bJLPJXQ@mail.gmail.com>
+Subject: Re: [PATCH v2 11/18] KVM: arm64: Introduce __pkvm_host_unshare_guest()
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_075652_734380_38307AB1 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20241210_075837_924088_9BF4AE21 
+X-CRM114-Status: GOOD (  36.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +95,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Quentin,
 
+On Tue, 10 Dec 2024 at 15:53, Quentin Perret <qperret@google.com> wrote:
+>
+> On Tuesday 10 Dec 2024 at 14:41:12 (+0000), Fuad Tabba wrote:
+> > Hi Quentin,
+> >
+> > On Tue, 3 Dec 2024 at 10:38, Quentin Perret <qperret@google.com> wrote:
+> > >
+> > > In preparation for letting the host unmap pages from non-protected
+> > > guests, introduce a new hypercall implementing the host-unshare-guest
+> > > transition.
+> > >
+> > > Signed-off-by: Quentin Perret <qperret@google.com>
+> > > ---
+> > >  arch/arm64/include/asm/kvm_asm.h              |  1 +
+> > >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+> > >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  5 ++
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 24 +++++++
+> > >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 67 +++++++++++++++++++
+> > >  5 files changed, 98 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > > index 449337f5b2a3..0b6c4d325134 100644
+> > > --- a/arch/arm64/include/asm/kvm_asm.h
+> > > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > > @@ -66,6 +66,7 @@ enum __kvm_host_smccc_func {
+> > >         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+> > >         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+> > >         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+> > > +       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+> > >         __KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+> > >         __KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+> > >         __KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > > index a7976e50f556..e528a42ed60e 100644
+> > > --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > > @@ -40,6 +40,7 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+> > >  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+> > >  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> > >  int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+> > > +int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
+> >
+> > The parameters of share_guest and unshare_guest are quite different. I
+> > think that the unshare makes more sense, that it uses the hyp_vm as
+> > opposed to the hyp_vcpu. Still, I think that one of the two should
+> > change.
+>
+> Hmm, so that is actually a bit difficult. __pkvm_host_share_guest() is
+> guaranteed to always be called when a vCPU is loaded, and it needs to
+> use the per-vCPU memcache so we can't just give it the pkvm_hyp_vm as
+> is.
+>
+> And on the other hand, __pkvm_host_unshare_guest() can end up being
+> called from MMU notifier where no vCPU is loaded, so it's not clear
+> which vCPU it should be using. We also just don't need to access
+> per-vCPU data-structures on that path (the unmap call can only free
+> page-table pages, which are always put back into the per-guest pool
+> directly, not in a memcache).
 
-On 12/10/24 9:18 AM, Jason Gunthorpe wrote:
-> On Tue, Dec 10, 2024 at 02:07:40PM +0000, Will Deacon wrote:
->> On Mon, Nov 18, 2024 at 01:19:57PM +0000, ankita@nvidia.com wrote:
->>> The changes are heavily influenced by the insightful discussions between
->>> Catalin Marinas and Jason Gunthorpe [1] on v1. Many thanks for their
->>> valuable suggestions.
->>>
->>> Link: https://lore.kernel.org/lkml/20230907181459.18145-2-ankita@nvidia.com [1]
->>
->> That's a different series, no? It got merged at v9:
-> 
-> I was confused by this too. v1 of that series included this patch, as
-> that series went along it became focused only on enabling WC
-> (Normal-NC) in a VM for device MMIO and this patch for device cachable
-> memory was dropped off.
-> 
-> There are two related things:
->   1) Device MMIO memory should be able to be Normal-NC in a VM. Already
->      merged
->   2) Device Cachable memory (ie CXL and pre-CXL coherently attached
->      memory) should be Normal Cachable in a VM, even if it doesn't have
->      struct page/etc. (this patch)
-> 
-> IIRC this part was dropped off because of the MTE complexity that
-> Catalin raised.
-> 
-> Jason
-> 
-Jason & Catalin: Thanks for the filler for the splitting.
+I understand. That makes sense.
 
-So, I'm not sure I read what is needed to resolve this patch.
-I read Will's reply to split it further and basically along what logical lines of functionality;
-is there still an MTE complexity that has to be resolved/included in the series?
+> > >  bool addr_is_memory(phys_addr_t phys);
+> > >  int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > > index be52c5b15e21..5dfc9ece9aa5 100644
+> > > --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > > @@ -64,6 +64,11 @@ static inline bool pkvm_hyp_vcpu_is_protected(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > >         return vcpu_is_protected(&hyp_vcpu->vcpu);
+> > >  }
+> > >
+> > > +static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
+> > > +{
+> > > +       return kvm_vm_is_protected(&hyp_vm->kvm);
+> > > +}
+> > > +
+> > >  void pkvm_hyp_vm_table_init(void *tbl);
+> > >
+> > >  int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index d659462fbf5d..04a9053ae1d5 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -244,6 +244,29 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+> > >         cpu_reg(host_ctxt, 1) =  ret;
+> > >  }
+> > >
+> > > +static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
+> > > +{
+> > > +       DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+> > > +       DECLARE_REG(u64, gfn, host_ctxt, 2);
+> > > +       struct pkvm_hyp_vm *hyp_vm;
+> > > +       int ret = -EINVAL;
+> > > +
+> > > +       if (!is_protected_kvm_enabled())
+> > > +               goto out;
+> > > +
+> > > +       hyp_vm = get_pkvm_hyp_vm(handle);
+> > > +       if (!hyp_vm)
+> > > +               goto out;
+> > > +       if (pkvm_hyp_vm_is_protected(hyp_vm))
+> > > +               goto put_hyp_vm;
+> >
+> > bikeshedding: is -EINVAL the best return value, or might -EPERM be
+> > better if the VM is protected?
+>
+> -EINVAL makes the code marginally simpler, especially given that we have
+> this pattern all across hyp-main.c, so I have a minor personal
+> preference for keeping it as-is, but no strong opinion really. This
+> really shouldn't ever hit at run-time, modulo major bugs or a malicious
+> host, so probably not a huge deal if EINVAL isn't particularly accurate.
 
-IOW, I'm looking for a complete, clear (set of) statement(s) that Ankit can implement to get this (requested) series moving forward, sooner than later;
-it's already been a year+ to get to this point, and I don't want further ambiguity/uncertainty to drag it out more than needed.
+That's fine.
 
-Thanks... Don
+> > > +
+> > > +       ret = __pkvm_host_unshare_guest(gfn, hyp_vm);
+> > > +put_hyp_vm:
+> > > +       put_pkvm_hyp_vm(hyp_vm);
+> > > +out:
+> > > +       cpu_reg(host_ctxt, 1) =  ret;
+> > > +}
+> > > +
+> > >  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+> > >  {
+> > >         DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+> > > @@ -454,6 +477,7 @@ static const hcall_t host_hcall[] = {
+> > >         HANDLE_FUNC(__pkvm_host_share_hyp),
+> > >         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+> > >         HANDLE_FUNC(__pkvm_host_share_guest),
+> > > +       HANDLE_FUNC(__pkvm_host_unshare_guest),
+> > >         HANDLE_FUNC(__kvm_adjust_pc),
+> > >         HANDLE_FUNC(__kvm_vcpu_run),
+> > >         HANDLE_FUNC(__kvm_flush_vm_context),
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > index a69d7212b64c..aa27a3e42e5e 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > @@ -1413,3 +1413,70 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+> > >
+> > >         return ret;
+> > >  }
+> > > +
+> > > +static int __check_host_unshare_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ipa)
+> >
+> > nit: sometimes (in this and other patches) you use vm to refer to
+> > pkvm_hyp_vm, and other times you use hyp_vm. Makes grepping/searching
+> > a bit more tricky.
+>
+> Ack, I'll do a pass on the series to improve the consistency.
 
+Thanks!
+/fuad
+
+> > > +{
+> > > +       enum pkvm_page_state state;
+> > > +       struct hyp_page *page;
+> > > +       kvm_pte_t pte;
+> > > +       u64 phys;
+> > > +       s8 level;
+> > > +       int ret;
+> > > +
+> > > +       ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
+> > > +       if (ret)
+> > > +               return ret;
+> > > +       if (level != KVM_PGTABLE_LAST_LEVEL)
+> > > +               return -E2BIG;
+> > > +       if (!kvm_pte_valid(pte))
+> > > +               return -ENOENT;
+> > > +
+> > > +       state = guest_get_page_state(pte, ipa);
+> > > +       if (state != PKVM_PAGE_SHARED_BORROWED)
+> > > +               return -EPERM;
+> > > +
+> > > +       phys = kvm_pte_to_phys(pte);
+> > > +       ret = range_is_allowed_memory(phys, phys + PAGE_SIZE);
+> > > +       if (WARN_ON(ret))
+> > > +               return ret;
+> > > +
+> > > +       page = hyp_phys_to_page(phys);
+> > > +       if (page->host_state != PKVM_PAGE_SHARED_OWNED)
+> > > +               return -EPERM;
+> > > +       if (WARN_ON(!page->host_share_guest_count))
+> > > +               return -EINVAL;
+> > > +
+> > > +       *__phys = phys;
+> > > +
+> > > +       return 0;
+> > > +}
+> > > +
+> > > +int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm)
+> > > +{
+> > > +       u64 ipa = hyp_pfn_to_phys(gfn);
+> > > +       struct hyp_page *page;
+> > > +       u64 phys;
+> > > +       int ret;
+> > > +
+> > > +       host_lock_component();
+> > > +       guest_lock_component(hyp_vm);
+> > > +
+> > > +       ret = __check_host_unshare_guest(hyp_vm, &phys, ipa);
+> > > +       if (ret)
+> > > +               goto unlock;
+> > > +
+> > > +       ret = kvm_pgtable_stage2_unmap(&hyp_vm->pgt, ipa, PAGE_SIZE);
+> > > +       if (ret)
+> > > +               goto unlock;
+> > > +
+> > > +       page = hyp_phys_to_page(phys);
+> > > +       page->host_share_guest_count--;
+> > > +       if (!page->host_share_guest_count)
+> > > +               WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_OWNED));
+> > > +
+> > > +unlock:
+> > > +       guest_unlock_component(hyp_vm);
+> > > +       host_unlock_component();
+> > > +
+> > > +       return ret;
+> > > +}
+> > > --
+> > > 2.47.0.338.g60cca15819-goog
+> > >
 
