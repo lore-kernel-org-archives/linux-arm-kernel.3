@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162F5E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FABE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=le3OLdPi+7GqsRwhpvl3VmgjOmVOxgI+O0m7XZZIEOI=; b=qffggZKsCKVgPq3R9Cdj9GCO9g
-	ek3f36kGtSB/NsmLYli9xmQeSd955rttaTnmYHWnSpz8bnXPktSB8ghKw/A258j5J3sdm0kpJprak
-	okFpYQaSSycnXDQ+/U+d1LQ/YwJVKBo789+VNwbSgZPLD4aSphnAhVHzMU3+YZA//QyMrC8lwpwz3
-	rOqaAVP8+eC+O9k9vVOHsuX1JZEjLjwxLnyDYSgJNcargVJMOsQSx7Re9rMwb8m5EYkxepF3zTVAZ
-	p51sHWCXQccPqSV78BKyonAnV4rH9ZoK1yOVGoeiT2k4Ao/5RtdAyZ0OBlOXsSz/w8PHgTxVQbbel
-	d2Q2IVtg==;
+	bh=IPhvV7YLIhUy1iqnrEvgo6o/Cj/1fsbuKiGxw0m5kYs=; b=e7MxBINyH0VLc7IJJGluCL+p+C
+	9EBBt5aKaGiGp+wdwvT0cEM9vLSIGdtUyYnyheDA4t+jlZfa5D/9lHx3X/5rTJdGlwxk+8bPbYebM
+	tnTZOFPor9avrBAm/x0CAQqw/8lCS1oFNUPPOhoS87zJK4tkcrwJ4g6k2NtDePC2HYeZJ3gBP+Q4H
+	JefaRjWjmHjvuuGkxMzDKdKmKxuRy59P8urBOMiuwf5wOBuAyCWeopPFOTMtLiBmU+uINKdrlp61R
+	cEKLP3zVfFVVKNCLIKKSCJwIjV8kgOkjX0b7lYTs3hw/MdKBGd+UfZ/nmSrjBSA+OCerFImWj/TEi
+	rryERmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnzd-00000009goY-3aNm;
-	Tue, 10 Dec 2024 00:20:49 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKo0f-00000009gvH-1she;
+	Tue, 10 Dec 2024 00:21:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnwe-00000009g2d-3Jsa
+	id 1tKnwj-00000009g3b-3mbQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 00:17:46 +0000
+	Tue, 10 Dec 2024 00:17:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 97833A41A77;
-	Tue, 10 Dec 2024 00:15:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B4FC4CEE1;
-	Tue, 10 Dec 2024 00:17:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A47A0A41A7A;
+	Tue, 10 Dec 2024 00:15:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2995C4CEE1;
+	Tue, 10 Dec 2024 00:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733789863;
-	bh=Ic7pQ6LFiHXt2WB/ccfFedVbtDdhbJCjtpNtWFW7Hv4=;
+	s=k20201202; t=1733789868;
+	bh=+d/z7lM6Ty4nkhWISS9A4dpkXbJaiWaiwpS72Ypiu1Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MsLnSa+kTuZstB4a0MCCjDVlb9Aw5v5GLa2QCZNUie4W5WfvA4TBDCS5iaEIooPPK
-	 JIR1qOmLAgNI3XSoNqrcxCZuWTRSleD35V8mXgEKXNJXdeTpZuncFRSI6H2W8GVzJE
-	 A1RCMrbJsamp3Xa+w2WMYiC/+5RpHKZhmbjuDR2D0XNFlTVzwboaPmu2DQLH+VypEi
-	 xCvpkVEfbp0Z+EgQO387qr6Xebv45C9SeetLLFoourQcLqtIRsGPlKyFtjcU54RvGP
-	 I856sozAvHe5F5BHRcod4RO7mmj6IHN8jn5nd3FYyCBvZY8LjhmCnVCQA8qZohz3/V
-	 CbLqsN+5rsbbg==
+	b=QZM3wGonVFHWXCsEXoU3JNBXwF/BxX1+yWNISPgO6Aaqajo8aZwhZMCeQZNgKVlku
+	 NkGtQu3PvKpdjpmvwTf75EgWBGIZV9fsZTuObfTZMJyY4mG0YHkMXbHuwVuN/8DRuU
+	 0TMePcHK84LhDTBVvGQ73JbDPEAZ8YumGmm3ZMk4f+sTkql0ZBz2HalWpu+OYu3VDv
+	 vDX/7XkXFl6wdxJjnbEbh2jn/BMV6uHi2LjGgefRB0qxi2UNyPBseoqPJbbGwiU674
+	 qcXzJcsmnvuvDhogWlSMbB2TYiereFg9kf344BggKm/kY3Ng2GvYNmpEY5cMFvbFhI
+	 ZeixckeT2DNfg==
 From: Will Deacon <will@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-kernel@vger.kernel.org,
+To: catalin.marinas@arm.com,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	joro@8bytes.org,
+	jean-philippe@linaro.org,
 	iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2] iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context
-Date: Tue, 10 Dec 2024 00:17:28 +0000
-Message-Id: <173378751166.2164111.11293401851587446576.b4-ty@kernel.org>
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	ryan.roberts@arm.com,
+	broonie@kernel.org
+Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Document SVA interaction with new pagetable features
+Date: Tue, 10 Dec 2024 00:17:30 +0000
+Message-Id: <173378456062.4186718.3662609391353650164.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <Z1L1mja3nXzsJ0Pk@uudg.org>
-References: <Z1L1mja3nXzsJ0Pk@uudg.org>
+In-Reply-To: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
+References: <68a37b00a720f0827cac0e4f40e4d3a688924054.1733406275.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_161744_888103_555863E9 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241209_161750_002500_7D468076 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +81,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Dec 2024 10:01:14 -0300, Luis Claudio R. Goncalves wrote:
-> During boot some of the calls to tegra241_cmdqv_get_cmdq() will happen
-> in preemptible context. As this function calls smp_processor_id(), if
-> CONFIG_DEBUG_PREEMPT is enabled, these calls will trigger a series of
-> "BUG: using smp_processor_id() in preemptible" backtraces.
-> 
-> As tegra241_cmdqv_get_cmdq() only calls smp_processor_id() to use the
-> CPU number as a factor to balance out traffic on cmdq usage, it is safe
-> to use raw_smp_processor_id() here.
+On Thu, 05 Dec 2024 13:48:09 +0000, Robin Murphy wrote:
+> Process pagetables may now be using new permission-indirection-based
+> features which an SMMU may not understand when given such a table for
+> SVA. Although SMMUv3.4 does add its own S1PIE feature, realistically
+> we're still going to have to cope with feature mismatches between CPUs
+> and SMMUs, so let's start simple and essentially just document the
+> expectations for what falls out as-is. Although it seems unlikely for
+> SVA applications to also depend on memory-hardening features, or
+> vice-versa, the relative lifecycles make it tricky to enforce mutual
+> exclusivity. Thankfully our PIE index allocation makes it relatively
+> benign for an SMMU to keep interpreting them as direct permissions, the
+> only real implication is that an SVA application cannot harden itself
+> against its own devices with these features. Thus, inform the user about
+> that just in case they have other expectations.
 > 
 > [...]
 
-Applied to will (for-joerg/arm-smmu/fixes), thanks!
+Applied SMMU change to will (for-joerg/arm-smmu/updates), thanks!
 
-[1/1] iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context
-      https://git.kernel.org/will/c/1f806218164d
+[1/2] iommu/arm-smmu-v3: Document SVA interaction with new pagetable features
+      https://git.kernel.org/will/c/6e192214c6c8
 
 Cheers,
 -- 
