@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E251AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C58E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 13:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6s1Y6p3w5g9RObkM06oK2W80+/bjnjpN96L0wHyxeJs=; b=hq3GjMlHz+75auuXG1kbMZrNHE
-	Cz8FSegpHB7bPRO4/wRoci6/PMqbdbESxDuUYyrv9vPdWM7Mc56xb/IqNS3JEMOl3sKP6Rvjv0WIM
-	gByLZlOBCZc2991BweENcotx6BYr1tAvKt3u+/HZWRA9qVewo+sr3BddCMnaRRqLcSxON3npQ5k+y
-	1I28L+uX3Uhu7Ktsu3hM/zU8iCTsadG9D2s9JvincMEl3bB39fDj70oqvucrRrojia6cb2Ad967xE
-	/vOJtap5SnifcZsu82R7je/dALrMzUO250rjRRn3/YC3/yoJZew9j2kWtMdctwakqVOtwDonRmCrZ
-	MYg/k0YA==;
+	bh=ac2l8o1SrvJRgDxLDRPHtHLNs4gHiv6dELLkDytkxA4=; b=Mg43R4JeihozWGk0yPgNzx38rD
+	Hr72SG/c5LahoF0kEZH3MKOC1vns9DqXyBOL62QUKAj6g8EEYKOs0+BHmF0LBp2+X8EAt0M9bO8rs
+	4ZeSN5AdmWNzIrjbJu3Zgio4hpvmZ9j4H/S20PMhJKAXYkXd5VIMkHznh3FJbz5pt9cD6lE/BQPk9
+	zMVsQdaUhW73xldYGiuKwzzY5vnNbU17VchGT30VTI2XAItzRJw5AGm/nDRCX0Tc5CdowQQ/F1juO
+	tP6A0T10OedjG3G5xOfIZyFJBj17zzcFt95SWbbPGZxlzNOFYjkUN8PTv6uKCCMa47MVo1IV7Dk9C
+	SpZkA/pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzu2-0000000BWRO-3Bt2;
-	Tue, 10 Dec 2024 13:03:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tKzv4-0000000BWhJ-1uSq;
+	Tue, 10 Dec 2024 13:04:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzrA-0000000BVeI-2Rd2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 13:00:53 +0000
+	id 1tKzrB-0000000BVeo-42Sg;
+	Tue, 10 Dec 2024 13:00:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2BD2F5C5E64;
-	Tue, 10 Dec 2024 13:00:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63526C4CEDF;
-	Tue, 10 Dec 2024 13:00:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E9EC25C5FCD;
+	Tue, 10 Dec 2024 13:00:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4104C4CED6;
+	Tue, 10 Dec 2024 13:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733835651;
-	bh=jaThpRIjcCNZ0lQjQ42i7rnft7gfMtJKkGlTrJdutek=;
+	s=k20201202; t=1733835653;
+	bh=MIAxjIrD/lQ/XU1a7Wha9ESXrTCJKMU1xX6Hab/QdPQ=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kF8HjOEOVQLLfosqKYy2yxSmojOUK9dE5AA0qn5ypsIUCqMuvvubvy0hKGiYQ8Xor
-	 6795C5de8kjVFtlMwiiO0yvBtylBAJx9uLg2QTrUhj5LBT5gc8YXjxO05YOmVhg8W+
-	 0qJh03WHF00pbCa0+Watf5W+S8lygjvV2SzdapZuYoYrn+0OOjY1V3FxUylPh8QjU0
-	 tQ9Jme+ujIAPmykTpGt7yA/94UwUvxyAPnO5Ouf8L27JwQK3ismNTAfGbIb5IlDVlR
-	 n239MCpWHdhRAvcEwbC2K+wkt+X/bK8qXG3Qxvsbgm9FBdOXG0wlyWlvBl9AnIxSYy
-	 Fj80hDpsJ6ALQ==
+	b=ikJS7Vp/nie0FJ5JFNlxCSZpO3Splxs5tL1yMayfWaVGdQpsABgrAx6wDO8Yv/c3H
+	 DbU+1yG+/4HF3e5e+WE+m1/5fWOV9DBynRekfkp6DTGg2ArspwKBnfQfjQl6lgUmLk
+	 3J54ZheUj9qzsq7+J8CcWP7vuAz4y9eRjb3DTb55AKz96E9gPy4boitPH+KS/uOY/U
+	 CEVE4dUwjrB2JDwwJJwEh4vUYUMAFml5O5v64p5/6FHCvFwzqz3FJeOWwnRBOhzwsn
+	 IExFIKQlhgh/ECiO8Ig1m2g9ZBGAlDhuXFCAWWCY22TGVKeVK0+QMdHCi+M6uM4sRF
+	 YfFIhPymfuo6g==
 From: Mark Brown <broonie@kernel.org>
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
- =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <4052aa2f9a9ea342fa6af83fa991b55ce5d5819e.1732051814.git.christophe.jaillet@wanadoo.fr>
-References: <4052aa2f9a9ea342fa6af83fa991b55ce5d5819e.1732051814.git.christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH] spi: aspeed: Fix an error handling path in
- aspeed_spi_[read|write]_user()
-Message-Id: <173383564913.34030.1229101307217258864.b4-ty@kernel.org>
-Date: Tue, 10 Dec 2024 13:00:49 +0000
+To: heiko@sntech.de, luis.dearquer@inertim.com, 
+ Christian Loehle <christian.loehle@arm.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <1f2b3af4-2b7a-4ac8-ab95-c80120ebf44c@arm.com>
+References: <1f2b3af4-2b7a-4ac8-ab95-c80120ebf44c@arm.com>
+Subject: Re: [PATCH] spi: rockchip: Fix PM runtime count on no-op cs
+Message-Id: <173383565160.34030.9711673452793299443.b4-ty@kernel.org>
+Date: Tue, 10 Dec 2024 13:00:51 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_050052_664315_EF5D0883 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241210_050054_050447_8014B478 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,12 +72,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Nov 2024 22:30:29 +0100, Christophe JAILLET wrote:
-> A aspeed_spi_start_user() is not balanced by a corresponding
-> aspeed_spi_stop_user().
-> Add the missing call.
+On Fri, 06 Dec 2024 19:50:55 +0000, Christian Loehle wrote:
+> The early bail out that caused an out-of-bounds write was removed with
+> commit 5c018e378f91 ("spi: spi-rockchip: Fix out of bounds array
+> access")
+> Unfortunately that caused the PM runtime count to be unbalanced and
+> underflowed on the first call. To fix that reintroduce a no-op check
+> by reading the register directly.
 > 
-> 
+> [...]
 
 Applied to
 
@@ -90,8 +88,8 @@ Applied to
 
 Thanks!
 
-[1/1] spi: aspeed: Fix an error handling path in aspeed_spi_[read|write]_user()
-      commit: c84dda3751e945a67d71cbe3af4474aad24a5794
+[1/1] spi: rockchip: Fix PM runtime count on no-op cs
+      commit: 0bb394067a792e7119abc9e0b7158ef19381f456
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
