@@ -4,189 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90264E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ACEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 20:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAtSV4hnYHtksUDHbrKgTUdsSmwz/sbq0Nfhrup685M=; b=pGQfmnJYhHvw0zUgXyp+/UpkwH
-	C5GndNcvYTY/EqnWYDv2NonuhdeB/M/xiQksKADVZ/cgaiu8pySA+Vy+5ZcG4IpTWhpvfhHvR9EPO
-	K/0NNmUeVlWpxyGuBIi9WlDcXFNoYtrOZII5KXk7V2TbCvFLpCM7cEhHt9Lip58K90Iw+ZnL4MsBz
-	3Lo3kV/HO5AyF7DalciIsoqO1ZLNN1+TCPzoy66R6iaRge3HpozvSezH0lPbb6I0ZC1KFG3WOG/5t
-	VEvXad5ya7H/UR7xiH/02/A3DGLRCLenu4NsmEv0CM59yYWS2ulgB692/djcyhd/zaevR1bPXu33s
-	H+eNCH+w==;
+	bh=WudyUJe63c8JFxkj8fmVFDLqePx04Jr1Dyl2u8hD8a0=; b=e+oUplke1s+rZYphVaAjfEZPts
+	C4oTnd4WYOSXC60Hxd/YnhpDJqonLR5rp8vLQGr+TdJEnWTkH1gMbn7Xs97VVOjKw67gverh6hcZg
+	5gNUltES9WHy1YX1c6FEBd1lzUIjTVGaR67txPpYuRA/slBgP5X7ngNnXrXQWlKsQadw3YKa7gkfu
+	3tLgZMV2jpMjb1KEWRoQOlXdsIt79fr9/UnlBpvLLwPnUdELaqArwaVUGqeGLjooqtjEcZ793ZW7I
+	V7pHEiyH/GU9O7/cuL70CAnshmwOx0kFlA6Uw0Tzm+lQkAHXj2cEe4Ibd7HFsfhtx1u1nQqao0855
+	PwggAaMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL6eI-0000000Ce9Z-41IN;
-	Tue, 10 Dec 2024 20:16:02 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1tL6kH-0000000CfBb-474r;
+	Tue, 10 Dec 2024 20:22:13 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL6d3-0000000CdbY-3709
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 20:14:46 +0000
-Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BAJJJKi019123;
-	Tue, 10 Dec 2024 20:14:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2023-11-20; bh=EAtSV4hnYHtksUDHbr
-	KgTUdsSmwz/sbq0Nfhrup685M=; b=ixC3Uco/RQ8aW0rrS9BjXyx9f16fjdYygo
-	OP0Fv8dMdcMJ6N3Mvo1YpXnc4Fw42JLCc7uNlUEsSsLsyTrnoNZylbeiLF/NOU9X
-	obYciIE6WHHp6jzIhB+CL8B45OAb9SaLNzBj4T+R7WNWVsgBQFbGYhm3rJ/X9Oyb
-	mc6Og7wLJVHJlqL1Blr3XiZzyXUU7Cl/qo1jfPmtfwv8F0i+3Vr7PJbdG8SAVHKd
-	95VgcOLbyrjdQkjJ7dbQzZKTqDi/hOuFWzCFRIPNE3c5Ix0SWry4bF+PDHFRylA/
-	ZmOI4hTJGltTS86wjV+hkRn+AtHXgu2ugoY3ClVjdgdaIFOcpKDQ==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 43cewt6udt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 10 Dec 2024 20:14:06 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 4BAJALqD008623;
-	Tue, 10 Dec 2024 20:14:05 GMT
-Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11lp2169.outbound.protection.outlook.com [104.47.56.169])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 43cct8uy0t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 10 Dec 2024 20:14:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DRafTKZ5Wl0XyiB1KmoMLHiQ0mu8woYmLW6pX8blkD6fTzyc6ofLahV+gYWl71a3qxIYET7miUCiUhETZfQoKJCUF9AoyoXYZWXDqj/+Je91Q7Rc+d42XLFFlvb2jYI9xiiGgtXG8i3A+XJdjXAy92u63Dma2+ZeTARdk+xzUxvdD/A4ENMreuL4/4r/ss5kdyfMk7+lJjIJufq/dMjoqG6QkAwBe+TBIE9jJZnbFljbtOSRNE5i3CDGBkoNNU3dTJeyIqllGBJh7zv7kFVv0uyYQQQ5Nlcob6+JfJp9KI3jmI8PW1aNos6d/lOpgNy3Z6KcOiXQByzRfsrZHEGypQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EAtSV4hnYHtksUDHbrKgTUdsSmwz/sbq0Nfhrup685M=;
- b=zIYr6FQWNzeLwMj0HIIuV2HPEihOitUdx1gFu2r/muszLDExP2NmX/BXI5FTUWvstQlr/tnZxpu1j0SQDzlGn4ynhY4wCRLLZeIfpTKrrCi9Dkf0Q2d7bf+b6QD6uGeq4dDB4oOZuNXqIiBBW5S7bGVeu0u1spX8xxchngxhe+DqCGu3uaRMrA0O41gGFviqAd9QicLSoRJ+nbYnaav3iBlHYRASKwb5X6fuu9vSgXU2TBA3HcclhC0fgJERKA7ZrXP4OlLtij6M5FrQoDeTHq+PuRsULVQ4Z8pU6kb/P0cWjpye/8hOpYFWwZ9gE81eCm9DHaYHUhltOI7JA8He+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	id 1tL6j9-0000000CewF-2tLa;
+	Tue, 10 Dec 2024 20:21:08 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa67bc91f88so57703866b.0;
+        Tue, 10 Dec 2024 12:21:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EAtSV4hnYHtksUDHbrKgTUdsSmwz/sbq0Nfhrup685M=;
- b=DxG2UiSVX3g9D/UQM0NcggvE6eLlUAn7lXojJD3ZqPVH5AjetZmVQU+/X/aV5zF7jgaa0evf11cI0YnuEb9WlblxFwQ7ma2BUtzFp7HcytSGVTCN9NfcihLtz6lZjXLTXBT6dl1fpZlmb3dvlEnJJef4Gaa4FBw9uy8H1nZ158s=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by MW4PR10MB6536.namprd10.prod.outlook.com (2603:10b6:303:22d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Tue, 10 Dec
- 2024 20:14:02 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::25a9:32c2:a7b0:de9e%3]) with mapi id 15.20.8230.016; Tue, 10 Dec 2024
- 20:14:02 +0000
-References: <20241107190818.522639-1-ankur.a.arora@oracle.com>
- <20241107190818.522639-6-ankur.a.arora@oracle.com>
- <20241210135052.GB15607@willie-the-truck>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Will Deacon <will@kernel.org>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-pm@vger.kernel.org,
-        kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        catalin.marinas@arm.com, tglx@linutronix.de, mingo@redhat.com,
-        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-        hpa@zytor.com, pbonzini@redhat.com, vkuznets@redhat.com,
-        rafael@kernel.org, daniel.lezcano@linaro.org, peterz@infradead.org,
-        arnd@arndb.de, lenb@kernel.org, mark.rutland@arm.com,
-        harisokn@amazon.com, mtosatti@redhat.com, sudeep.holla@arm.com,
-        cl@gentwo.org, maz@kernel.org, misono.tomohiro@fujitsu.com,
-        maobibo@loongson.cn, zhenglifeng1@huawei.com,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: Re: [PATCH v9 05/15] arm64: barrier: add support for
- smp_cond_relaxed_timeout()
-In-reply-to: <20241210135052.GB15607@willie-the-truck>
-Date: Tue, 10 Dec 2024 12:14:00 -0800
-Message-ID: <878qsn9tyv.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0307.namprd04.prod.outlook.com
- (2603:10b6:303:82::12) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+        d=gmail.com; s=20230601; t=1733862061; x=1734466861; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WudyUJe63c8JFxkj8fmVFDLqePx04Jr1Dyl2u8hD8a0=;
+        b=XQQWYQYuDnamXkyrkRY+zm7krWWrA1S2Vq0OPZHrZ2dnXihKx3SIvQ/sx7IEt3ogtS
+         3PjxBeNH/Rg9q/lTk8n7Mkf27IGGuvjISbVgPNWJw2jn2OTDOFxUeo3msshSg9DwNuNj
+         0wWvkg9HfLvSLHmtUrWrL9NG6VqZW6QBLWaScvmZMqn9Fr/wR3s1nzjTkDNK5cweBKnQ
+         +Qulq0xfUzquU62EARfUmgNhmWgmNz0Z3uGBqjyPiUzg0dHoCx9vJE1564bEqvOe7gdH
+         5lMwGxARYQc8x57PezXgU8/oFa+PRAajPbnW5B2ZRZhf1pKs4sgKieegis80OsiOaYC6
+         c8AQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733862061; x=1734466861;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WudyUJe63c8JFxkj8fmVFDLqePx04Jr1Dyl2u8hD8a0=;
+        b=xRcAE/fFJaQk1OLZ1Y06zS3Gdjff0DQekGKmLmmbG13lklcNc4OBHP1Y6XkENtl4Y8
+         o4fOD95n0XatQ9nhQKNiVltTLJ3xVKqiPETAENKc0Ba4nAZrrRWfCki7zpykUks1uesj
+         /TNyKpesnX3tsI8AA5riuTjudwVxifVOHL2OIYNyauHloeggmAfzDNbLmM0hfTjHch9v
+         CfiVx5TA4eGaBz4x+uLN3b8LbA47V3Ve6Cn+Wze7gitvcrmomo2rFd1Gn/U35LUSznR9
+         nd5Ml0m9iA8eEnP9Bs8Um2LPrauU68ZCbjtvu8RdF0t7UDB+7PAxrcb7iKMQw04lWFlL
+         afzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEuL4oj+achiblznEyI8J7OHneENY1mAPFhD4DU5vtw+fZzB4Av/6H+a89d5zXvmVi0DYQFcsD90F8KyV9ZFi5@lists.infradead.org, AJvYcCWISLtzhmjrojd4dkvTw8t3c1VwD0Boz4cbe2Q4g0F7R1voYJBvBlPWE3qqUhhuZomxvK0UwBR/RUOU9pXx/iA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiCrj8wKggsk7wCrbgkhwT8MCFsmDwhFdZqZIev6rEosiJmehb
+	SVN2nIO4TMHNH4D+V+m/G3mIJvp5P0JC2NnT50BEa/EXhi1Rzhrs
+X-Gm-Gg: ASbGncvko5kHuWhiaCiNFZjeLWVW4ciXWzzcw8T8nDQPn42VcbFDCQK5dFBH08z43Qb
+	t1oNmMS3vEI5cDD06SBh1rUVDh8u3PD6VVcIUlmRwzjUTTQG0Cee00WpdL2FaX4j/IwfZ/5pP8U
+	tPjByN8hlXfS+ruI3/72mEJksmN6Lp1bYPzRASCTIa7xT+D7vgPCHjrsbd2opeBfEWeP1iLc2yA
+	TIgI/5WLcz7RghDWfVe20dw51EwL/GSjZ1XIMDkyw==
+X-Google-Smtp-Source: AGHT+IGjcxHC/a2dd358/yErtbhd4ej5DXUjk12poPR/JpWsRTPDUnrfaJH4uV6DTzTNXMcURT/RxA==
+X-Received: by 2002:a17:907:1ca7:b0:aa6:9407:34d3 with SMTP id a640c23a62f3a-aa6b133c966mr3485266b.9.1733862061023;
+        Tue, 10 Dec 2024 12:21:01 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6696acc74sm540561666b.134.2024.12.10.12.20.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 12:21:00 -0800 (PST)
+Date: Tue, 10 Dec 2024 22:20:57 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v11 0/9] net: dsa: Add Airoha AN8855 support
+Message-ID: <20241210202057.x2tds77popzdcak6@skbuf>
+References: <20241209134459.27110-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|MW4PR10MB6536:EE_
-X-MS-Office365-Filtering-Correlation-Id: 913b8812-344e-4139-7342-08dd19573068
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nsTiJP5J3oiQ79cPgTzoo+pBMdaRg8ciC1lGvtYgXwH2mGfrN3TqcI8o5n7M?=
- =?us-ascii?Q?5zB4ZsGlUc/7NfHhut0ojdO1DhRa1TR4brV/DD7m40YTexsnoQ0Q8nHflqfX?=
- =?us-ascii?Q?yRgLGVFYr52WEW0sVr2UozMUo8jNWZalboMgKICs81atr3Cug4M/xzJ5FWM2?=
- =?us-ascii?Q?wZZCVvJhHtdjwZKXM6X+JtTIBAN2GTjYpd/8FRacQFNyfvlNpN2Itn1cgCeA?=
- =?us-ascii?Q?bv9u2YLTvguCOB/ENR02u9lPNrQft5OMX9MjWQ5NhDhFz/gcVpBzLNWryRfb?=
- =?us-ascii?Q?M19MZREESU4/4YN+QmmbvtGoThr8CUvBvUdWK5pdPW95CFCdi2UdQhMbykNT?=
- =?us-ascii?Q?735EjzAPjHvo8vnfQCNBNX0+TcvjwVwh2tFn3L2sHO3NY4ZnwgFapDWoUGs6?=
- =?us-ascii?Q?L+hDZcu6f3JAoPqdPSGXD3IRxdqmuqgXHnbsU1Ffu0y24dyK379gNMpiXLgB?=
- =?us-ascii?Q?8lNkrYzSEw9tpZov374LI7v/cjOQ8hYYH4QICqXFNV+eMbNwoLyeAfAUhWgW?=
- =?us-ascii?Q?xkNyGcFQzjDGyTNBpgu+6MPzDOCLeTvSndKXHG8bTi+6XQeiqNHmZ2E4vAfd?=
- =?us-ascii?Q?EL9wQVLsiH4vQYlXwwZP+RBLk6NC5o/Oz0ofg/f6hTqyswbVkCGQYzvtbbQb?=
- =?us-ascii?Q?ARKiBsNHIZAF/7b8zU1o7wtUrQY5eomd0rFG6B1j1a8Abopujnw30MWmd5VL?=
- =?us-ascii?Q?xLn02ubrq3TJesyXkIvf63li1ZWYxhvkz6HpObuWd2eUTjgCCfOm6zqxUVi5?=
- =?us-ascii?Q?BavpIw8+r12+kbuNw3XzT5dx6YLXCWtjfVMp6OGsQwjXgRT5V5M/6tiov4WE?=
- =?us-ascii?Q?iivloFUpPfZNwqxoVnukLgR/Ubgxk7CHM27U5X0+0KQywTAWvs8Svp/tb6XT?=
- =?us-ascii?Q?fEUceyetYm7yjFkrx8FCDaF1liLwV4N1Ma2i6YHVvvWaP0sszXTW9hepslgO?=
- =?us-ascii?Q?weMgsbNrDxQiALJZ0YfO9iIlRdPPIlAJuSTgGwlDGUsisAloB89ewz5KklOP?=
- =?us-ascii?Q?HBVQaWIRVAFUb24dv5hpqxwRQiRMZTxtwgPjy3Ua2eZqzkDGlG+YEmNuJ+li?=
- =?us-ascii?Q?Pne+TKFpKWhajF5U5tuB84Q1cxe2acuJyDImbhMijHtKalSzyQmdBDf/J8sc?=
- =?us-ascii?Q?Cmb+BWdeCWgJWaA/nq+DlZiSzamxziuQY3jKf5Y6pbpx2pkKGn0lcTmQZdHn?=
- =?us-ascii?Q?eMhidw5V/2VNB7HmOTsCo/RcecvrvVhTnMSIRlSZybZM2WHxADp/S+uDZ/6r?=
- =?us-ascii?Q?/QfQC3bGxrlcIWCJqpzhhcJHrLKKZnxpe7bENZxzJs3chGVZYSpSkWHPtBDH?=
- =?us-ascii?Q?OnRmbRmbkuXIiXqF200qLbuQPJEeYwrjeShUAmrH7VjBKg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DbNxkzWUpKSJIpNsMSr17iDWBKZ2JScky9WoDGv6WJm29vwTGGJXSZZE5cMj?=
- =?us-ascii?Q?TMxxH857zibensz6DNtqX2DWchj32Rq97MJtgcPNl4+3APLppknGCF2LpdFV?=
- =?us-ascii?Q?czBkax3ClGSAFGSFX1vrRwHsg658OD3wSqcpAfaDxvYLjNkW0EEFPhddqa14?=
- =?us-ascii?Q?DaGCr6kZzR2XgAb8zQbfHGdnATaB69M/CKK00uw4k1ND0qag9tjESWNXukke?=
- =?us-ascii?Q?5Bc1Fl694WHm00aFm8kpU2yApUNvWzdR0i1b7nvRmnDHYlp6KdV83HMoW6bP?=
- =?us-ascii?Q?7EHr/sUWFMM+5eMNjCjTIwZuucs0JqZ7411Mqjt0JiS2wR3LQ5+bx+SRmDwY?=
- =?us-ascii?Q?OusklLFN0+eA3+aAR6TDWRPzkawAKSzDKPlfOE4pwqOjpGUpjvGq3vxCfLn5?=
- =?us-ascii?Q?braa/oSJlFySh2jcqh4wLKlc5WA5qcBOXIvYFUk0ORl+hehk7+VZmsDuDJQd?=
- =?us-ascii?Q?3lxvARVbeTBq+FVXWXFF5NOs/08mIZSQCY6+Rm8DX5sY5VibTzKljSGbzP7X?=
- =?us-ascii?Q?ofLaVD9Ded9rtlh/KMv+t7VSgVgZMq/FaqEODPk7K/HfX7r4E/9ZreKruzeK?=
- =?us-ascii?Q?qQ3TBNPYEBRPEpLIbmg0RdUnIXheUw1MWcF8jaDvP2YZs1k1YwnEkjDwLDxT?=
- =?us-ascii?Q?Er5nVWxRz+ALGwQmxRfu8Gw/hT8fl+N064NyQv0R1DMuz3W2rzCpF/9PA5Qi?=
- =?us-ascii?Q?VjaJmcTyMlWEOJ+4YuDInxrV/DDw9agek1QqfYHqslVjM2//64EzFzd8N8Xt?=
- =?us-ascii?Q?sNqRAoszMfjYNwMR6r8BwA/wnI6/Ro8e3XWzL/3MSEnJqw9afL7/LTlRqUp/?=
- =?us-ascii?Q?9R2BBrmIqAkvUftGBZJ2FK6Hxkiwf3WHOgI2OGAVIkbXbx3RzzdDz13ksX1r?=
- =?us-ascii?Q?4hn55HUBHnaAkKYLpNgyfOjdZYCktcvSlEce73QH9X8pOXzhR1HsUzWieH9a?=
- =?us-ascii?Q?yF+cudpa2x6zQKr8MGW4bvtpDoDYYBcfHbIE8Hi/cjmczOhsabjiFUlXDO5/?=
- =?us-ascii?Q?jVeLkAhdmmQEYQZsQf4ScJ+oen53KdusMmvb8UrpNFjQyWJ2Xfq95zNNUbGh?=
- =?us-ascii?Q?cNBV5Ed5dZQ7s7m3V0AMmAgdCy/cGqgPUgy+jr8huCjQYig7gL3nMybG+2aW?=
- =?us-ascii?Q?kwHZcP5iU9esBGi//9Pk0ijB4qnDcRFyLDVP04JfOHdBuv+Ht/9vhuUiAbVY?=
- =?us-ascii?Q?DnXJtcvKuGgFsZIvD3gM2iR5fD+xudnCg18NW++ak7q5jpUQTMI7LIz48xpI?=
- =?us-ascii?Q?2J4q1pjQbk+KABRM517y7yroQRWjqR4r9hooGBA0SSbW11FRk5Qd2o2+w9nu?=
- =?us-ascii?Q?jWTPEA113NeQC429jcc34HQpup0Tj8UdIJliMpr6ALligaeh179TzfxE7NfM?=
- =?us-ascii?Q?Q2Hc17mZ7gMmxX2zkoWSnWzSfKLbNyEvsoLxnLE5bUugqK0Y5jAB0fCdYP31?=
- =?us-ascii?Q?vgmh3bnzbA1Xxu9LnGld+y5rSzvqySi7am36C53ygUGEehxEt9tqs1DoMCP9?=
- =?us-ascii?Q?yBu+RHa3fRVSe4eLgnVfV6YAUo8GIS56Px8TUzftPM8elSat56QlxahSdrwE?=
- =?us-ascii?Q?03DLV0fIdrTnp9atmMSMLaeNh5g0QoVYp/5yLvqNOwqPSBOdZ/2eONFrfoTq?=
- =?us-ascii?Q?aw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: +OK7gZLyT1frRWLApURgZ8W3y9oT7MRTLKsIphI1NIZV7I9Og+AVnX+RzEK7sC2WEuOQSLNdO6delg7iRBE2Q2ZULOimewYC0buc52y4V3naNarhXKVZJLSPlulQnBVT+okkN45aBbnuQcMWVfSLErE7wbcKQEPpPhFVnJtYLOcF9yfaYp9lNWQ9mGg9F6pIF9v0m6O+0rv8sSFO+uQNOGKlEtJ5G+Dv8CiMFrb8Hams9e9CzxTempviG9Eev14qAblPfULrn9A/Q8k9eJDC47eKoaw2/H237nrOfslhP323dHEIV4PwZyRH30W3Ml/CJiSA6mb2gXZ7Rm4988urC8SZ0v1XG0VZDdldE7e28IeFuemWWkQPYZFYMYdE6xO7bDHkQ+hq51+R8aYQquKG2vtjVVlX3ardeXc/qAetJAGYWXfve+X0PkMWOM4VncjKLixALBDHQ77Xid0F8GfsqV8PlufVrBYxPO202uTWKBSYSrtyZRSjy4DetlwttKmdgGS7CDwb5xP2yABcHuwvFLE4GlBw6IiWMdYUF7EAPasV+VLe8b1529kxVldNL5IsI9fSczpScn5EYtblsRQv/ihWlG0oUosVSDqcNUBbHyo=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 913b8812-344e-4139-7342-08dd19573068
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 20:14:02.4027
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8UVZCt9G9Wt35o/epmYd5pDQ0ywXCYGZFpwnoZzSr7GhW/wuiauus8zenVqsiYH9UgDrXoUThogLHzk92H3oNEDwf1/jNeytX6ENV9FEun0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6536
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2024-12-10_12,2024-12-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxscore=0 adultscore=0
- malwarescore=0 mlxlogscore=999 bulkscore=0 spamscore=0 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2411120000
- definitions=main-2412100146
-X-Proofpoint-ORIG-GUID: 1vZraNKsAPDauMQ976n2SqP_3dtihJd5
-X-Proofpoint-GUID: 1vZraNKsAPDauMQ976n2SqP_3dtihJd5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241209134459.27110-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_121445_780077_B0686779 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20241210_122103_728136_F854F8CF 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,63 +108,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Dec 09, 2024 at 02:44:17PM +0100, Christian Marangi wrote:
+> TEST: lan2: 1588v2 over IPv4, Sync                                  [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv4, Follow-Up                             [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv4, Peer Delay Request                    [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv6, Sync                                  [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv6, Follow-Up                             [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv6, Peer Delay Request                    [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over L2 transport, Follow-Up               [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv4, Sync                            [FAIL]
+>         reception failed
+> ;TEST: VLAN upper: 1588v2 over IPv4, Follow-Up                       [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv4, Peer Delay Request              [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv6, Sync                            [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv6, Follow-Up                       [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv6, Peer Delay Request              [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Peer Delay Request   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Peer Delay Request   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Peer Delay Request   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Peer Delay Request   [FAIL]
+>         reception failed
 
-Will Deacon <will@kernel.org> writes:
+Why do these fail? They are dropped on transmit? Could you see with
+ethtool -S where they are dropped? (DSA conduit, CPU port or user port)
 
-> On Thu, Nov 07, 2024 at 11:08:08AM -0800, Ankur Arora wrote:
->> Support a waited variant of polling on a conditional variable
->> via smp_cond_relaxed_timeout().
->>
->> This uses the __cmpwait_relaxed() primitive to do the actual
->> waiting, when the wait can be guaranteed to not block forever
->> (in case there are no stores to the waited for cacheline.)
->> For this we depend on the availability of the event-stream.
->>
->> For cases when the event-stream is unavailable, we fallback to
->> a spin-waited implementation which is identical to the generic
->> variant.
->>
->> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
->> ---
->>  arch/arm64/include/asm/barrier.h | 54 ++++++++++++++++++++++++++++++++
->>  1 file changed, 54 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
->> index 1ca947d5c939..ab2515ecd6ca 100644
->> --- a/arch/arm64/include/asm/barrier.h
->> +++ b/arch/arm64/include/asm/barrier.h
->> @@ -216,6 +216,60 @@ do {									\
->>  	(typeof(*ptr))VAL;						\
->>  })
->>
->> +#define __smp_cond_load_timeout_spin(ptr, cond_expr,			\
->> +				     time_expr_ns, time_limit_ns)	\
->> +({									\
->> +	typeof(ptr) __PTR = (ptr);					\
->> +	__unqual_scalar_typeof(*ptr) VAL;				\
->> +	unsigned int __count = 0;					\
->> +	for (;;) {							\
->> +		VAL = READ_ONCE(*__PTR);				\
->> +		if (cond_expr)						\
->> +			break;						\
->> +		cpu_relax();						\
->> +		if (__count++ < smp_cond_time_check_count)		\
->> +			continue;					\
->> +		if ((time_expr_ns) >= time_limit_ns)			\
->> +			break;						\
->> +		__count = 0;						\
->> +	}								\
->> +	(typeof(*ptr))VAL;						\
->> +})
->
-> This is a carbon-copy of the asm-generic timeout implementation. Please
-> can you avoid duplicating that in the arch code?
+> TEST: VLAN over vlan_filtering=1 bridged port: Unicast IPv4 to unknown MAC address   [FAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN over vlan_filtering=1 bridged port: Unicast IPv4 to unknown MAC address, allmulti   [FAIL]
+>         reception succeeded, but should have failed
 
-Yeah I realized a bit late that I could avoid the duplication quite
-simply. Will fix.
+It is unexpected that these fail. The vlan_over_bridged_port() selftest
+sets has_unicast_flt to true or false, depending on whether the driver
+declares IFF_UNICAST_FLT, and depending on that, sets the expectation on
+whether unknown packets should be received.
 
-Thanks
+There may be a bug in the selftest, but I doubt it.
 
---
-ankur
+I haven't looked at the patches yet, but from this behavior, it looks
+like you mechanically satisfied the requirements of dsa_switch_supports_uc_filtering()
+such that DSA will set IFF_UNICAST_FLT, but host addresses aren't
+actually correctly handled, or CPU flooding isn't turned off when it
+should (ds->ops->port_set_host_flood?).
+
+> TEST: FDB entry in PVID for VLAN-tagged with other TPID             [FAIL]
+>         FDB entry was not learned when it should
+> TEST: Reception of VLAN with other TPID as untagged                 [FAIL]
+>         Packet was not forwarded when it should
+> TEST: Reception of VLAN with other TPID as untagged (no PVID)       [FAIL]
+>         Packet was forwarded when should not
+
+We discussed off-list about this, a special configuration needs to exist
+to consider as VLAN-tagged only those packets with TPID == bridge vlan_protocol
+(i.e. 802.1Q).
 
