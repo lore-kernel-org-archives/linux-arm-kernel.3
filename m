@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EA5E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 03:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7971E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 03:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vz5/kcDxtEOju7Z676DeiXJmEA1JXEODXPhijTBJr1U=; b=W1bmsPRRMO3DfYSDmWov4md1i5
-	6d9npy93iMeGPRWmc8GWyB0BQ/HFHqPilmZUiaqiD0dcD2coaxdhfd3FKGM22vL47Y1HG9EV6ljFQ
-	mfNIjGcLTvD7tUlHFYAo4Cy5GuhYa6czJAD14vYqcpuBHo4w9La8yYhFpCagfOGfar5E1N/tnicyV
-	Q4WWyQuoyqGU4624zsPVuzo84TNZXqoTK6FQWp+RO790ioECGbsdDX+vUWFEWv3HX5x5yBt1LvCRP
-	4RjWxgsi32rqev8QewT495+w6I8iQp8WwyZPe1JHs1Bt5E2/ZGmDcQIaiV22O+LJHp0miCaCbUJii
-	wkojdSMA==;
+	bh=9T6vDCQgh1gIYQoLsdnmEUZ+H4oulTkXaYpu8/f4F1Q=; b=odbxh8tKlZec6IDMbd2CrFLwai
+	8IaYQyU0JCW0oKAIHcaYqss1iL4QGD7ydQlmUmztH2HUzLIa4zyg2Erx/n05U5KicH+wJPrCbOGIv
+	FtOkIth9Omdua51M0L4z7jKtkKGMrOSgJOod0fP9CtlRuQa/A4zaGmpxV+R4MpmpR7BGIAzT7fy9Q
+	ONKz50fmUDdePVrp2tR4qWHHhxcIisnuMX4ZxPckPbHo5EeXJh8tzRz09rWsqtjAACAQEJ7L486P0
+	rt3IdJtsvzCuGUwirroOvevH9lVOPHVfHUC19zXgw8ggmWcjsD6Pv3bGPIikm1rnwkKj4S9TRz5AM
+	0/YRmG6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqmn-0000000A5N3-10qz;
-	Tue, 10 Dec 2024 03:19:45 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tKqno-0000000A5Wv-3auQ;
+	Tue, 10 Dec 2024 03:20:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKqjh-0000000A4mc-3zWG
+	id 1tKqjk-0000000A4nJ-3sc9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 03:16:35 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9HbNnD002655;
-	Tue, 10 Dec 2024 03:16:22 GMT
+	Tue, 10 Dec 2024 03:16:38 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4B9KqxgN027708;
+	Tue, 10 Dec 2024 03:16:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Vz5/kcDxtEOju7Z676DeiXJmEA1JXEODXPhijTBJr1U=; b=ZuGUM9TuBaPb2wOF
-	2dbkYIEgGR/yMN1SrEiHCMAFwSx3Yredm/uPWlq1OBzAmnxd2GRKh1R5mzKDCqxO
-	6qvhq5/9u7lzxJcHBM8S/6k4kgG/TBvkogv5VHr7NBJyG2fGLhH/B0dZBJkk1r4P
-	Hj01tBbzv76gsQyviN5n+BXkxq4CSMfVf88uNzKJnjs1Ybz643ie0cTs4yHRlWe2
-	ph6YVqaBnSOITZ5oceBHGRwHZHVTrEp8MfEO2tKK6ylOwjg53b9IyY2kJTauCuNk
-	CF/3JPVF0cBURrZ5NNBuFphHFJl7tTuR6jiayaxq002y3BmHWlLm9NhpSp2KIHNB
-	vFVemg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43dxw42pqn-1
+	9T6vDCQgh1gIYQoLsdnmEUZ+H4oulTkXaYpu8/f4F1Q=; b=VV9SoshW/3M43CDt
+	qRWk01LosX8ko7x0TvG2m1plR/XEJmuj50FHM1vQcMw8Sh30iuxtr2yLiavGrYDZ
+	sm3kesardSkAHBpAUrt3sBAMOOZ/BxsTQWpnZioZaXUZAnMDxo8gjNkrkwxBC2ZY
+	kltLx7cN3OzUhWKbD9lwmN1huVNee+biVEGjuEbTxFW13jVStHKfe0rAdrQVytLl
+	XM93IiKvbj7wJ9amRTSZK6ALn6Ei80+e33HDzBW4j/l4EIKbH28eGSj/urPaINkb
+	g0dAe6UwOiYtBy0cmiSCXhPzBBweywKY5CayIn5ilc+BFu304tzdecNF/vA6B/4r
+	b/t4RQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43cek1xv4w-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 03:16:21 +0000 (GMT)
+	Tue, 10 Dec 2024 03:16:27 +0000 (GMT)
 Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BA3GFsq005374
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BA3GQIs032053
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 03:16:15 GMT
+	Tue, 10 Dec 2024 03:16:26 GMT
 Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
  nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 9 Dec 2024 19:16:09 -0800
+ 15.2.1544.9; Mon, 9 Dec 2024 19:16:21 -0800
 From: Jie Gan <quic_jiegan@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach
@@ -73,9 +73,9 @@ CC: Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
         Tingwei Zhang <quic_tingweiz@quicinc.com>,
         <linux-arm-msm@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>
-Subject: [PATCH v7 1/5] Coresight: Add support for new APB clock name
-Date: Tue, 10 Dec 2024 11:15:40 +0800
-Message-ID: <20241210031545.3468561-2-quic_jiegan@quicinc.com>
+Subject: [PATCH v7 3/5] dt-bindings: arm: Add Coresight TMC Control Unit hardware
+Date: Tue, 10 Dec 2024 11:15:42 +0800
+Message-ID: <20241210031545.3468561-4-quic_jiegan@quicinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241210031545.3468561-1-quic_jiegan@quicinc.com>
 References: <20241210031545.3468561-1-quic_jiegan@quicinc.com>
@@ -87,19 +87,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01c.na.qualcomm.com (10.47.97.35)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 449w4optM0W5w1URuLITbgi8CvNuM1v2
-X-Proofpoint-GUID: 449w4optM0W5w1URuLITbgi8CvNuM1v2
+X-Proofpoint-GUID: tLkIis_PuvRqCJca3qpzcEt_hXOVAoBb
+X-Proofpoint-ORIG-GUID: tLkIis_PuvRqCJca3qpzcEt_hXOVAoBb
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
- suspectscore=0 priorityscore=1501 adultscore=0 mlxlogscore=917
- clxscore=1015 spamscore=0 mlxscore=0 lowpriorityscore=0 phishscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 impostorscore=0
+ mlxscore=0 adultscore=2 clxscore=1015 malwarescore=0 phishscore=0
+ spamscore=0 mlxlogscore=999 lowpriorityscore=0 priorityscore=1501
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2411120000 definitions=main-2412100022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_191634_106157_927A1986 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20241209_191636_969285_482BAEAA 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +114,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for new APB clock-name. If the function fails
-to obtain the clock with the name "apb_pclk", it will
-attempt to acquire the clock with the name "apb".
+Add binding file to specify how to define a Coresight TMC
+Control Unit device in device tree.
 
+It is responsible for controlling the data filter function
+based on the source device's Trace ID for TMC ETR device.
+The trace data with that Trace id can get into ETR's buffer
+while other trace data gets ignored.
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
 ---
- include/linux/coresight.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ .../bindings/arm/qcom,coresight-ctcu.yaml     | 84 +++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
 
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index c13342594278..497d2206419d 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -454,8 +454,11 @@ static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
- 	int ret;
- 
- 	pclk = clk_get(dev, "apb_pclk");
--	if (IS_ERR(pclk))
--		return NULL;
-+	if (IS_ERR(pclk)) {
-+		pclk = clk_get(dev, "apb");
-+		if (IS_ERR(pclk))
-+			return NULL;
-+	}
- 
- 	ret = clk_prepare_enable(pclk);
- 	if (ret) {
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+new file mode 100644
+index 000000000000..843b52eaf872
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+@@ -0,0 +1,84 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-ctcu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: CoreSight TMC Control Unit
++
++maintainers:
++  - Yuanfang Zhang <quic_yuanfang@quicinc.com>
++  - Mao Jinlong <quic_jinlmao@quicinc.com>
++  - Jie Gan <quic_jiegan@quicinc.com>
++
++description: |
++  The Trace Memory Controller(TMC) is used for Embedded Trace Buffer(ETB),
++  Embedded Trace FIFO(ETF) and Embedded Trace Router(ETR) configurations.
++  The configuration mode (ETB, ETF, ETR) is discovered at boot time when
++  the device is probed.
++
++  The Coresight TMC Control unit controls various Coresight behaviors.
++  It works as a helper device when connected to TMC ETR device.
++  It is responsible for controlling the data filter function based on
++  the source device's Trace ID for TMC ETR device. The trace data with
++  that Trace id can get into ETR's buffer while other trace data gets
++  ignored.
++
++properties:
++  compatible:
++    enum:
++      - qcom,sa8775p-ctcu
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb
++
++  in-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    patternProperties:
++      '^port(@[0-1])?$':
++        description: Input connections from CoreSight Trace bus
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - in-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    ctcu@1001000 {
++        compatible = "qcom,sa8775p-ctcu";
++        reg = <0x1001000 0x1000>;
++
++        clocks = <&aoss_qmp>;
++        clock-names = "apb";
++
++        in-ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++                ctcu_in_port0: endpoint {
++                    remote-endpoint = <&etr0_out_port>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++                ctcu_in_port1: endpoint {
++                    remote-endpoint = <&etr1_out_port>;
++                };
++            };
++        };
++    };
 -- 
 2.34.1
 
