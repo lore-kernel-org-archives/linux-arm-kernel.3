@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD25DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB6DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8wn0GSYmONmbslt7dO8ydqzTbIRd55hIrQYVYc6W7YU=; b=kEUY9egfLAt82/g69jKsD9F9xc
-	481lCIy7ppCuP/ABnccrSZabCX7pVJVHLZq1/9MSKRjC2NKCqaA+2Dl+jJPuHLVvkqrpH4EOYC1cK
-	qqusE7p/YAEk4XnummYm832xRtFo1KyzpP+NnEEYCm8cvsjRQ2AlNhneFg/e4fXqSCnXgA+uawGoj
-	+ORiCHciYjmEZ3USmGv1XhxQwgbncD+A8A7KdqG0SVkiQ3USIhHT+TknGDXKT94PFIWdBq6CEy5Ba
-	n9yzGEEDwIjfs323ao08ugeFiGLpkj4TajavuRT0vTZep1qS++PIV2ttpXdgdRcNwPimKtxtePg2f
-	3FgbqdMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E1tVYYNqdW40wZOm1cKHGkmvF4570D3DznXRZkS2frs=; b=FXWbXnys8OkoCN9nvIyKdUwPgN
+	ArIOlUYCSmFBcMbdCfKAtatAmK0naAP7bMmFAAn+icSXkAdqqF9pY16Jpd/7CYWQi9hMrC+N9US9X
+	vaUL9MK2wffyTBwde1wwACd3qfVesWHd1lChoUVk7dOxYCOWgBrLEke+PnYo8wLPZnyNnjSgZnGqQ
+	7JLXmomkFRRhJMptAS1Kag1AxV/2yW7BNI9fzDxFA8zZjooaLC+LUs4sF8JNHxbBDdmHTycX5OMPR
+	il7BNFzEn7nVmUMm2T72j2rq4ueNm2hiGbJ0YclqxYdNOh5y1nfyH0PIkvx72x5fNilX0hiwwJHJw
+	TOTm8L0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvii-0000000AjKa-3zML;
-	Tue, 10 Dec 2024 08:35:52 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tKvjk-0000000AjXd-1sIr;
+	Tue, 10 Dec 2024 08:36:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvdR-0000000AiII-0P47;
-	Tue, 10 Dec 2024 08:30:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733819422;
-	bh=D/akYzP1UwzneFmaGWcaSpwJggtt+UsOpmWeS6mis/c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OtaEKcFobIeglbDwbkmFobtAfnmBovLhDxJUjjWL/t6PVvSZuaXLtSI52sIOfl4cC
-	 UtbFmBpoY+yxn4c8d1awEsyTc9Kdcth6HFh0F1y/u4R8CaksvsMz4RvNHL2RrHhX57
-	 R1yxriioWrVYsJPnfSOV4DKmdVltVeho0r3k3M8FsMNW03tJlKqku+I7YB1FGxVm8F
-	 1SClMyOrznX+s7HdGlCiHVPv7vOiRtSAlsixBXyO+i+yxTHf5IlPyetUcBArbByBgp
-	 Hb8dlc39gcCQllZNMZ/XLD8FqbJQx4zan8YaIzkhqbPdSBV7dXoVCDltf7oKH+/hGv
-	 wjV2Oa0q/wdog==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE24217E14EA;
-	Tue, 10 Dec 2024 09:30:21 +0100 (CET)
-Message-ID: <ad1ac38c-6a04-4f84-a8fc-998d97c542e5@collabora.com>
-Date: Tue, 10 Dec 2024 09:30:21 +0100
+	id 1tKveg-0000000AiYz-3G8s
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 08:31:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7247EA40C04;
+	Tue, 10 Dec 2024 08:29:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBF6FC4CED6;
+	Tue, 10 Dec 2024 08:31:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733819501;
+	bh=IqvKMQWSIXJGAccIjtznu0gLl18o7vkKcnIk+pvfNsU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DLfoiTtu9dVkcxrI2fiP4olwKnTPyIpwXDzUpCFZRWrqiycSB9OYhYhsafMyKWGXL
+	 2m+PvncE+Whi0J1BQkp4cjeqUDdo8Tg9T4bdtk6yOR2OxV5Ma71vhaanLX2N/hCrlx
+	 C8M5jso6qT2ocFzgFPhWKwPwGLHeD/JPlYi0qtj0WggqgIVUjdm74I9RiwjOxCfWqV
+	 RsHMbMBWS7gUVfyxHsrqkWEVn+fnAANYJ3JoLgM3mYk5YRQUBg42KMMePzRD1mwsIW
+	 BSZsWuwJfAvmLSMd7luXH4ANGCxASyljcXha8B1VFhPVSY+x4fhOM90iPNLLt/V2Ss
+	 4QQLByiWA3LFw==
+Date: Tue, 10 Dec 2024 09:31:38 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: leds: backlight: apple,dwi-bl: Add
+ bindings for Apple DWI backlight
+Message-ID: <okhsrlpr6qu6crzzhqzbvgwoqwcxefynceje6pyttb3x57vrsf@hyilj6xo23t7>
+References: <20241209075908.140014-1-towinchenmi@gmail.com>
+ <20241209075908.140014-2-towinchenmi@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] soc: mediatek: Add command for APU SMC call
-To: "Karl.Li" <karl.li@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Chungying Lu
- <chungying.lu@mediatek.com>,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- chien-chih.tseng@mediatek.com, andy.teng@mediatek.com
-References: <20241030013533.855696-1-karl.li@mediatek.com>
- <20241030013533.855696-2-karl.li@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241030013533.855696-2-karl.li@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241209075908.140014-2-towinchenmi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_003025_305776_4AE37CE6 
-X-CRM114-Status: UNSURE (   5.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_003142_877405_98694A06 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 30/10/24 02:35, Karl.Li ha scritto:
-> From: Karl Li <karl.li@mediatek.com>
+On Mon, Dec 09, 2024 at 03:58:33PM +0800, Nick Chan wrote:
+> Add the device tree bindings for backlight controllers attached via Apple
+> DWI 2-wire interface.
 > 
-> Add command for APU SMC call.
-> The APU microprocess's start and stop sequence will process in ATF.
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> ---
+>  .../bindings/leds/backlight/apple,dwi-bl.yaml | 54 +++++++++++++++++++
+>  1 file changed, 54 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
 > 
-> Signed-off-by: Karl Li <karl.li@mediatek.com>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+<form letter>
+This is a friendly reminder during the review process.
+
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
+
+Thank you.
+</form letter>
+
+Best regards,
+Krzysztof
 
 
