@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4A4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Dec 2024 23:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CE3E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/V/M8m5vnVqkNBk5lcKbrcMSb1/XSdr4T7UP5BmN4QU=; b=peVwTStuNEwTk35FisONlxE/Xq
-	JKDCFaXWYrFFGOGkjiuDqbHJhOxZStpmateO/Uh6Mp5LCDezQcZqebXBKMzDd12beTcZMnhNaNiVN
-	Kn3Pk7/b114HVN2UYCnxchV86tB3c49a0RU3PnjlS4lXXTCS7cLGZp3az/l1RcLclHWeJDxi+hKWr
-	Zlz246uSlEdoR0NxualGB51XxOu3pv5bcUAOr2J9Bbm/MaZaNEuwpdkv3JJpCZ1ocuLn3qVcHvSmx
-	MT5BcIcIEXunFH8EK73MYbU/uHMeOUY8+TPqkTE2kruxs8FJt9u1kXpytN9AugZaZSSB4X0Jndvb4
-	1Z8L5dAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8U9OITzuCGVbUE4VFrB21WXXS4XhHNs8SP2M8B7r1S8=; b=VjBAu8erqMO6O+eSWBYrw/0dVh
+	r0KUpa4ggNt1unqk4h235A/9+StetLH7hgVJaAx8uD32Ej7bK/imOGMRQZedlwsTbnDUsaka01TeE
+	5AnR5GCDQnct38ceY4NI3IeD6oUjryLzj1Ep6i6vzGvFrcZf+mNnaV7YbcCnw77po3JcstvaUzqt1
+	F317PbPDJgVM/i4w82dDH8/WI/475FPNGhDDauOf7ebiQjO81k3asd3UjlgucYB54CCbIpJZnlkEi
+	6yyCZEwMLuo0tTOb6nNFxLmjRrp3sNbTjpxzR5JFOZ+XyFnXnC4VivA5oRWAVz685XFERmTEZke/Z
+	PPRFF5ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKnek-00000009dMx-207T;
-	Mon, 09 Dec 2024 23:59:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tKnyd-00000009gXA-1ANp;
+	Tue, 10 Dec 2024 00:19:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKndi-00000009dHO-2en0
+	id 1tKnwb-00000009g1h-29zC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Dec 2024 23:58:11 +0000
+	Tue, 10 Dec 2024 00:17:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9442F5C5F26;
-	Mon,  9 Dec 2024 23:57:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A48ECC4CED1;
-	Mon,  9 Dec 2024 23:58:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 55C71A41A79;
+	Tue, 10 Dec 2024 00:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F623C4CEE0;
+	Tue, 10 Dec 2024 00:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733788689;
-	bh=PNBJ7bGJrJaQBHaIWZFvWw8CJ1fG1cKVlwr8kkw2luc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sd67anHUFKDXOnpMU2dHVFW1iDKUgEISLcQZ2ZxgyEnEZuQjG2mFQUk/I6JXupDWm
-	 ie6z7VrS+ezcDHyrqtj10GBt8X6cl7sJe0QkyGRxfi5UTFlucJWCOlMaOTIFeZJbwa
-	 EC//o/yZjqWjbZ0tvYNbfQMz4Y+mZS+s3V3K4SI8LFBBvjzTl+DbE/ndW03b7GNhWG
-	 F3blFf5ctZUfBbTeUTl8/I0OcEw53Q4c6oRKSjw+nrJwpSvfw0x6cs8jO2O76oWehV
-	 ZoGKVcqgqLM/kC5pkvkL2lyUi+wbqRu/3n64ihGHENh/xsD8mjL1H2dAspgiip1rgE
-	 dlwtSzJrvdlIA==
-Date: Mon, 9 Dec 2024 23:58:05 +0000
+	s=k20201202; t=1733789860;
+	bh=NP473M91KfDU5hAbkVpyFF0JS9tQapuKfRqfLoOzGtA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WDVfORutvSU532Nrnz9oMLZZaXBASMmecU6EPI6cu2iXUWjbffC2s3iSrc0eA3ikK
+	 t6IB70kecdz6wQE2MX2hAcBXkc4O7J45203xCTKOyVzXVgiThv41/QYWP2D/H8qQru
+	 SP7JbB1IrEWZ/5GD4mbwNpF1lrAiLkINqaFEe1BKUq7gYqT5JvhjfRg9cNUZP1gfSN
+	 yEPYpidYlxkzYCHbFvZn7pd7v5gp2Q85jVNTATtmZCceilAjiA8tY5frxs6aP87wNA
+	 sSIneVYRs52/17P0h6txb97tvz8tWYr3ck0KDQAmwi/ErsP8fc1WlJEqw7gFuB6wbX
+	 3a5YcFMbi6Wxw==
 From: Will Deacon <will@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, robin.murphy@arm.com,
-	joro@8bytes.org
-Subject: Re: [PATCH v2 1/2] iommu/io-pgtable-arm: Fix stage-2 concatenation
- with 16K
-Message-ID: <20241209235804.GA14069@willie-the-truck>
-References: <20241202140604.422235-1-smostafa@google.com>
- <20241202140604.422235-2-smostafa@google.com>
+To: iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Michael Shavit <mshavit@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	patches@lists.linux.dev,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Subject: Re: [PATCH] iommu/arm-smmuv3: Update comments about ATS and bypass
+Date: Tue, 10 Dec 2024 00:17:27 +0000
+Message-Id: <173378410349.4185561.4875058023954953472.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <0-v1-f27174f44f39+27a33-smmuv3_ats_note_jgg@nvidia.com>
+References: <0-v1-f27174f44f39+27a33-smmuv3_ats_note_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202140604.422235-2-smostafa@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_155810_711761_D4F1F4B4 
-X-CRM114-Status: GOOD (  22.02  )
+X-CRM114-CacheID: sfid-20241209_161741_612155_FC8B69CD 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 02:06:03PM +0000, Mostafa Saleh wrote:
-> At the moment, io-pgtable-arm uses concatenation only if it is
-> possible at level 0, which misses a case where concatenation is
-> mandatory at level 1 according to R_SRKBC in Arm spec DDI0487 K.a.
+On Thu, 05 Dec 2024 11:40:15 -0400, Jason Gunthorpe wrote:
+> The SMMUv3 spec has a note that BYPASS and ATS don't work together under
+> the STE EATS field definition. However there is another section "13.6.4
+> Full ATS skipping stage 1" that explains under certain conditions BYPASS
+> and ATS do work together if the STE is using S1DSS to select BYPASS and
+> the CD table has the possibility for a substream.
 > 
-> Also, that means concatenation can be used when not mandated,
-> contradicting the comment on the code. However, these cases can only
-> happen if the SMMUv3 driver is changed to use ias != oas for stage-2.
+> When these comments were written the understanding was that all forms of
+> BYPASS just didn't work and this was to be a future problem to solve.
 > 
-> This patch re-writes the code to use concatenation only if mandatory,
-> fixing the missing case for level-1 and granule 16K with PA = 40 bits.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  drivers/iommu/io-pgtable-arm.c | 45 +++++++++++++++++++++++++---------
->  1 file changed, 33 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index 6b9bb58a414f..0055876b3527 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -223,6 +223,33 @@ static inline int arm_lpae_max_entries(int i, struct arm_lpae_io_pgtable *data)
->  	return ptes_per_table - (i & (ptes_per_table - 1));
->  }
->  
-> +/*
-> + * Check if concatenated PGDs are mandatory according to Arm DDI0487 (K.a)
-> + * 1) R_DXBSH: For 16KB, and 48-bit input size, use level 1 instead of 0.
-> + * 2) R_SRKBC: After de-ciphering the table for PA size and valid initial lookup
-> + *   a) 40 bits PA size with 4K: use level 1 instead of level 0 (2 tables for ias = oas)
-> + *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 tables for ias = oas)
-> + *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables for ias = oas)
-> + *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables for ias = oas)
-> + */
-> +static inline bool arm_lpae_concat_mandatory(struct arm_lpae_io_pgtable *data)
-> +{
-> +	unsigned int ias = data->iop.cfg.ias;
-> +	unsigned int oas = data->iop.cfg.oas;
-> +
-> +	/* Covers 1  and 2.d */
-> +	if ((ARM_LPAE_GRANULE(data) == SZ_16K) && (data->start_level == 0))
-> +		return (oas == 48) || (ias = 48);
+> [...]
 
-I'm guessing the second disjunct here should be:
+Applied to will (for-joerg/arm-smmu/updates), thanks!
 
-	(ias == 48);
+[1/1] iommu/arm-smmuv3: Update comments about ATS and bypass
+      https://git.kernel.org/will/c/9b640ae7fbba
 
-I'll make that change when applying...
-
+Cheers,
+-- 
 Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
