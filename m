@@ -4,158 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9B2E77182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8BAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M2eesSLVrGqvwAXCsGKjIszKMAd3pbGkwZgkFT5kWY0=; b=d6fnHL6H+j2dejhLZYPmwT622R
-	LPsTxbInjEdRLZZYLEp28ZMdi66uiUtvlfggpIMxXrhR1Uc5SalxIymj3DT8p+arDROvm5pTvfXrS
-	gno7bKMqK4s3dOtR+oA9uIV85RcXpi1mMWcOYUHiPRnoaDTA9sZmXLV14e0vr4ENOXhW+cEM82a8L
-	QKBBB2B7ePublCRN4MWYJN9zve1iz9kuUhNQdw1YcsR3QWKnEOJQPvKijkOL8DOxn+1G8s/4Yye9g
-	VXUaxWew++Qxga6Hfbq56dIUYYZWrpqNSlpgyvfvDO//mNZ3hzKymGqcfYZrrZOhZaRllk+A/O7g8
-	/WsosCew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2FDyzQaVBJmBdWgi+flPumHn5fgNwsPGMW4DJuw0nzM=; b=uGJiLOIGxlQq8aNiTC7ATjRk0k
+	01K2/XeggoGPhZ37PhSksKSbUKh1aesvVUbzfGyQCWT3Q6wo60hMtWOG0dEQd2JpInkTnOrZmOevp
+	4a3TqYeg1JKnM4T0AULk8us88Cn/MCW0zo1EGGBqEEAL9yR5axPAS2T/azufeWWQWnbPvY4PwChcU
+	tw49rKXTAW+zuO11BGb7/j74TcfSO3ghtlu8Jv5dlxVSQ4tMbACdDTi1ZrjYxiM78ZQwm6G49Eulu
+	LrzIK9YlRNC45v0hyANr0yncaMmHe1M1HGMi9yzXQOe5/zU5ScNp8eFizJq+ehol2NVi45oZvG1ow
+	k74+8UyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwgj-0000000AvZ6-1Rdn;
-	Tue, 10 Dec 2024 09:37:53 +0000
-Received: from mail-vi1eur05on20611.outbound.protection.outlook.com ([2a01:111:f403:2613::611] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tKwk2-0000000Ay1A-3jRq;
+	Tue, 10 Dec 2024 09:41:18 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwdE-0000000AuE1-1H8J
+	id 1tKwiz-0000000Axpw-3HvZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:34:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JUGzfUhSJIFRwa8GYfoi/mgUgv+M1mhvM5ZZ1BbGzvf4fSNINuoYU5fDLYjTKWImUjQBVkXbiOIQMmyx4PF8p9XGQAumSa7Qbbtx8kuR0XJbbt2NCmQTi0H2p/DVJFrDw8mS76muf/cFaWinORqK80tr/EbqW3IB7MsdgkqVTUBFRhpRpjGikqPYgTW6FyBwyFuKVPeTjQboIPOVMqPedp+IwwrICduUdfks3ITKawugsok2qtu5/EVf5CgbArWm7GALkeoKys0djm5g9NSvT6CpmlT7WAN7KXCZtzVLQ4T3iBlzFb8Wrl3JDgJKuNb6uDJKh8cOE3pg40TX/8CUZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M2eesSLVrGqvwAXCsGKjIszKMAd3pbGkwZgkFT5kWY0=;
- b=ML23WQ9/i3FiTEJC0xegNW346LMAopNFzMpvcy746zACASSLH+0hvP12taoG+6NXUP1ZENJSNkNMmrPv3dn5sQXqDZVtaL/GGFB6z29Xg8R2ZaSne19/OckcLx1b64fQUVWn3663WFXpRzb1PeXcHxjTqRuQVijnMm+yO8mQ+1hvk2gO7oAlNndpO7juwBUb5Uxf/UDrREj4GG1pgFLJemCBuhQ8vRQILFTmjDqk8ECx1aD+5GY9Ha8BzPLzlArfAhrewVy5HW6xnPOp2iHdA17ni0mQ5BjFUPpDMfzF3goLpd7gfjls+F21aKTmB0u3HD1v+NXL++Cyhnf7qt9MiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M2eesSLVrGqvwAXCsGKjIszKMAd3pbGkwZgkFT5kWY0=;
- b=tvIsBlIjtWLIrQ8MGOUZDTzUggBa0nXN2KBVb1oukfPY8ntFDXsbUkx4bwcmSatYP642+DKTZ/Lo4bB8tziVlKhJPJKB2Ifm4eN+cmcque/CwblBmnPkpdrKmZvpaFD3RdmB51LQOfgHRDwoP0BXYxsaO7MIV0fLUeYkEk4/lsIkBBCSxeXgbpS2qOqYaLtNMDUSlasHqZKnnKpP68tHLRKumWtNtt1T9KHK2ExYBjckB3/3A6HGbJ3miu+2NqjYxZ5YncKrnP/wEk2uZ+9Tv/nW/mYc8mDxhW1z+NkEHJiBd/RHUC0z6/pAezTJkiTHsvUy4NAGXJOHCIP6AyFbOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by PA2PR04MB10513.eurprd04.prod.outlook.com (2603:10a6:102:416::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.19; Tue, 10 Dec
- 2024 09:34:07 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%6]) with mapi id 15.20.8230.016; Tue, 10 Dec 2024
- 09:34:07 +0000
-From: Ming Qian <ming.qian@oss.nxp.com>
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl
-Cc: nicolas@ndufresne.ca,
-	shawnguo@kernel.org,
-	robh+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-imx@nxp.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	tao.jiang_2@nxp.com,
-	ming.qian@oss.nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] media: amphion: Add H264 and HEVC profile and level control
-Date: Tue, 10 Dec 2024 18:33:37 +0900
-Message-ID: <20241210093337.3779686-1-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0-rc1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR03CA0089.apcprd03.prod.outlook.com
- (2603:1096:4:7c::17) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Tue, 10 Dec 2024 09:40:14 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4675936f333so102431cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 01:40:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733823611; x=1734428411; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2FDyzQaVBJmBdWgi+flPumHn5fgNwsPGMW4DJuw0nzM=;
+        b=hJ3Oo/9TWsqzynZpErZPIe1io8uEyoRynstcfsG/3WOWDbRB7tBtQqpPOQgzTQs4az
+         UjD3OUMBjhkYWWDBE3wRl4oeMNj1ic7jZrlMPKStlldhamyIv/W7nixd7ysppKuzdDD4
+         NCrQaCPaI0L/tG4RZYT8iKCfaEl2eXvCuGuIQBZek9CXiYMVmA4yeVd9DTG4fscIDLor
+         Ok3DOFqRBI9scTJfHsRTmM51HCE/h8uH1aYfwjLKwujE+du28aqHRJwdt5DlSECDQNY+
+         yo1oNdurWyZjlRljri4vWvuyeq1s71ow3LYTh12NFBAKHhFyVdG6DQZ+rhiHIsOCLaJc
+         zPLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733823611; x=1734428411;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2FDyzQaVBJmBdWgi+flPumHn5fgNwsPGMW4DJuw0nzM=;
+        b=tKXxPGc15FMrthc3K91Zw3wHkIvb98G+asmocekcbvwDjGuY7y/BweM7Z61eO0eFnZ
+         Eyxqqec+oQX2GsFUq9XjAfMbS85ZuGxkGzbAl3kzeNtve5ZMDTvnruwHbBGlrhbGEiZM
+         uR9A+iTWXsGbk66t7I/+q++klKgFUVyCptYik1cLIp0YyJyWLUddQVsLWIoaQ9SSj8Sv
+         YLLfA9GwyqM7Nvo/i6Sy7IMfiQlAKD7ApFV8wE1iTNNFnwNU/buPyPWB+I/wbs9OrUx7
+         5FWDPmdr8sJxM2hCS3MzyW091JzNtlBOh73c2r3bnLia2vxPjUiXNWfU4GR2dNodRk59
+         e2xg==
+X-Forwarded-Encrypted: i=1; AJvYcCVf4ClSVQwm/IqcuavI0m8AxERexq+T4gkmV3Z0f3+eTdlxg8D/E/BM7tSHwIeCTXLqs7JSltB1xlH2jcc2yTKQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfbXPIIT8SoboJOUKXvEi8a0znSSJx6BiYPitztE7QbIoC15sM
+	Eu6tVkCyf/ijjxwqX9DEfp6G4T0uMhbe1PcAnrb49vooYmgxEH3+Ny+bMIHg2jgo8Zc3MF684em
+	neOcNb7AjLskkz2A6hjZM5R9IqLRRLqjXjGXK
+X-Gm-Gg: ASbGncsnIDFK/P/yQNHjmLf4LSOiuOzI2f1zADw3qxaNT41jD9DrO8qPPqaFId8ViXQ
+	cOC5syaK2WqlycKgA79WlOGkWmA7EhE56oA==
+X-Google-Smtp-Source: AGHT+IH7V4UKeLrvjNkOyGEOEUYHbY8QYbuKts1kktkzSbiMR6UVtyJWD2Q0aBvHWwJs5sF1JPgPGTYIeXHNZCK6L4o=
+X-Received: by 2002:a05:622a:5186:b0:466:8a29:9de7 with SMTP id
+ d75a77b69052e-46776158637mr3576401cf.12.1733823611360; Tue, 10 Dec 2024
+ 01:40:11 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA2PR04MB10513:EE_
-X-MS-Office365-Filtering-Correlation-Id: befa00e1-d83f-444c-d9a1-08dd18fdcb0c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QiBJTBDuv80Qt5XH1azb1vATTr5KnsD9gmptLN+n2TwWdT7RhacL8nNNspkQ?=
- =?us-ascii?Q?9OXeIcVhivebveFiJ9BD/g2qdF9wsovRVuv34i8rIb55mfqFBD7dwI84oDrn?=
- =?us-ascii?Q?QgOPzkpksaNGTpzHvHATPcxVTzHJ65uujr8qvTwj7GxquKyfFt46gO8n7sGN?=
- =?us-ascii?Q?B34DJxFa/IeBIV9R3BWRnXXvJs3oqnblX6jpCch5AiWQ8WS2svsVnN+zoXqD?=
- =?us-ascii?Q?BdimqvEp1OVtJbIylxmqKgtbFo++FPN6nvMXamwGl9Xu5xgLQtrS8IMgdmA2?=
- =?us-ascii?Q?hJ3dArF5V2q9pCjI/iHHN4+7c1FzlstZ66GTx57JIEWiXzpL3KrBs3vp+scG?=
- =?us-ascii?Q?JZDZhPLI2xdbmVGFHkFkPT41nivC2ebt8EW4baXcA1qA1I1GD4K+oi7MXlge?=
- =?us-ascii?Q?YfDTM3koriEH1OTq+72tnpoEUsLrwvWVcsIRjveqdkI/HKx9llOY8/O0MrP/?=
- =?us-ascii?Q?6DHv2HLPB0CSiMDU4JzjnT1uMc/7Ke2HCEHe9wridkp0jp6MUz5ZI6tK6c9f?=
- =?us-ascii?Q?c4+UgSWBhkD14vmeh4qrMlZ+67iTs/0MFuekLf/BfNqZZoywmIJvitJ9zxd+?=
- =?us-ascii?Q?3WBVZ3f/Nbfv7Y7LQzKYVzaK0Jmk7Nx7DgP3kw6+NTVQPX2xp/aE+/cSQ9S2?=
- =?us-ascii?Q?ABKwF1O0vWPFmSYOegMCDkzUn5Oabe7lKtnElnXofBy4cOxtc7TK3sAlQ9Dw?=
- =?us-ascii?Q?AUneMAacHVkp/hqm4EDmrW31q339efCbwrfU18qa41n1C4XWFH8nzcRANlJ7?=
- =?us-ascii?Q?cT0nJ25kSAgdQhPzjQrXFmQeP923UhDaeI6A/5G3XqXOZaqY/YUeJu9fK1Z9?=
- =?us-ascii?Q?2kgbxC49ndYVUFNU5+fAF+fX+4P4EIqj4B8S7mq95JSddK3cfu2eb9W9TSNG?=
- =?us-ascii?Q?4pAZJ2+7Fe4+jc+arNu8NaX71FMYim0ZToTVf9znGo30tzw3RkYrJTEXBCB2?=
- =?us-ascii?Q?wwUUl1HoM8WvRSOqpDSyfFMwNn+SC5MUtVsHcyrSq4juZPUkIoqbVV8eItNs?=
- =?us-ascii?Q?RMj+Odz9Gvc0QiKqxFcioyPB0bSg/MpXkJ9TqEaSqnOSgd0u6b9AS/zSZRdI?=
- =?us-ascii?Q?M4x8y3VX+X4TRQOqmS38ynRGhrd4wisk+9+TzE6WT1ETyJYV6vGVPM/9D9ZB?=
- =?us-ascii?Q?KD6+RSpkeItrontqOci+oRjzuxi2GZBZML24I0MW23Cj2WYS3QSPFtcfjXBC?=
- =?us-ascii?Q?GyVFyPYU+NB1j/pk1n6XSyYGoepZ1Hy/DyAseA8g1/NCvnFgj7seaTfIH2UK?=
- =?us-ascii?Q?s6xqv5yEWA+nG3y23uSRQT3Hpm6hx2ITUqIyscTU0SOFxid4pOR7TOXi8yqo?=
- =?us-ascii?Q?ephGlui/riMzFV+7cvzKWaj0YasypSNhQyiXOpYksqfo5aa+iZ1f4yw+UN6g?=
- =?us-ascii?Q?lk+byg3qhbj5Tkso+RDztuV+rLyEN8oKxHH1zm1H/XkJ+u6sWw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6CtcJ3+CxGepPPp36j88PGzUWdJCeikYefbEBWb9oag7SekpGYr2UrlOK7zL?=
- =?us-ascii?Q?+6nagNFKoaCSaLdtjHsWPfCxfGgZZo5BZyL1VjmT6/SGxULX+SprqXs8lK6A?=
- =?us-ascii?Q?lljy4QLKnxalr76MZdfIbcSx0o25bJcUxg6vXxcfXSYsY1fXSo9zWda6KkMF?=
- =?us-ascii?Q?K4au0ufaLPUTRQwHIhUbtv3Dz18vOqGgQ0/fazrzfwDY+wJ7V0dBaRFGHJXr?=
- =?us-ascii?Q?e127hKi/4mm0Ubhp8/T57iQyN++wADGzeg2TcUir/O8R6b0qXXMYnggcDyNV?=
- =?us-ascii?Q?zLD1yW2Hvvx8DYb2ivrVUIMgruqI3BV863NlvXaLXV7lIrT4kFMUhdMGEiCg?=
- =?us-ascii?Q?uWGA9m/wI071hPySGZBdtUisJUQG6WjGnDxlUeqHo4lSXq4Ldl+GBanDj+tj?=
- =?us-ascii?Q?GMTamQJvn3erxwbQZCAeELf3QCTuZudCPcA+fa+RRgeonoCPIxWUmtVRskHc?=
- =?us-ascii?Q?deESufV9iRV+1FtgA0JYESo3NeJDkkyGv64TFwjIJ83/HUfrmv0S+xTGldih?=
- =?us-ascii?Q?RjLWfPZ4OVul3gMwpbAKTFqhH/pG/uLpQ335TumAQNkzelLHz1emDSXm2tfA?=
- =?us-ascii?Q?dV5PdJ5jSmqud901icuUtfIvQcE5VQmwqGquXLHY9ctGf4UIa8h3QnZwSV9z?=
- =?us-ascii?Q?zEHQty2LZ9KsZwfkvo5+/LPNOcZ3N5N6axnabVjBCVFkx8qJcBrxZuRoLRGd?=
- =?us-ascii?Q?lvgNyCcVDtlAvpewSatTd3sMzccZ5sjHWqR1FPF3i1pliXx1XVdbePw0Ed+r?=
- =?us-ascii?Q?irPCtL66Pw6ITDPeSR+9xZybUOYa8yh2juH9rDb/1gy/F9x1eLN5Y1txFINI?=
- =?us-ascii?Q?poe/ehN/iecmWtlVJV9zeZOV0IW4Tar0XcudvKdocg7KlmzDMKKXX5i/uAf1?=
- =?us-ascii?Q?q3Fdv0WzaAcqSlXtobk8vY+sNwynPw9QlcX0yxZwTQ0NUK4g4hxPZ+2+WWTj?=
- =?us-ascii?Q?dIRFcmy+LpT67nffuuyL+NurwZFfNCkSWv4Ksox0sUGy0gGtPHPB0vbFDdp2?=
- =?us-ascii?Q?DcYYwp30Mv7gdn+xuDtKVU6rmXYtCoZlSR+1k68HdD7tg2CJaub+gEXxZuee?=
- =?us-ascii?Q?AY8hyhhwzSWtIE8iKT6YnpVmtjNSQGtxKWpO4pFJAGhuXBInmqloUB+2vfgM?=
- =?us-ascii?Q?0NDrNkEWQP7mFjN3d7xg63/hvpEwHRTC9V8cJSaufTdE+S67iLcOhpcLgzxx?=
- =?us-ascii?Q?UPaSaL+TcfvHNbPinCR5mmBaWD6H6x9LPZ8jiaN/jFeQFoqUTod8LO4K3VxJ?=
- =?us-ascii?Q?wR/3pfx4/2tcbgSjVyxS/cDIpkJ7WKqUSQPnkGZXXjWuXfIqltk9ve74tIZU?=
- =?us-ascii?Q?zvVNlotB3Kh+STvCZOa9L0ELTo5Vwv95prOcEmRuS96lPQQfqq7gcBirNBPA?=
- =?us-ascii?Q?VPXGZf/hvKq/++kOT35v5LEnqM9PilES3RjhwEsmetRvs8He7yxPsdZr2k9S?=
- =?us-ascii?Q?pRKrwbSqiqf/fN9NmbX/TOtGR6Ywf2FLuPgjmZRWbgaPnoiqq+W5Z0U/o5ry?=
- =?us-ascii?Q?RBR2Em2wqSfzhHU7T7I95ZL4m0Se1KL2pmmPdMJgGJMUwCyPERJR/gb+o+Aw?=
- =?us-ascii?Q?o9+BOJOb968ZTR/i7Oj/EIoLzxLhJ92kvIxhx0+x?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: befa00e1-d83f-444c-d9a1-08dd18fdcb0c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 09:34:07.1089
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LNW/CpAVbrYIeoyPpFxqnm6wRX6VZiZ+u0dfeN0BCTYpfgoguYmeWvkdRDG25+onHnlZRMLgkUVclub6yyyIJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10513
+References: <20241202140604.422235-1-smostafa@google.com> <20241202140604.422235-2-smostafa@google.com>
+ <20241209235804.GA14069@willie-the-truck>
+In-Reply-To: <20241209235804.GA14069@willie-the-truck>
+From: Mostafa Saleh <smostafa@google.com>
+Date: Tue, 10 Dec 2024 09:40:00 +0000
+Message-ID: <CAFgf54peN1fGOpr4Q4eihRTYFi1prT3LaQvH-K5x5KO50gmacw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] iommu/io-pgtable-arm: Fix stage-2 concatenation
+ with 16K
+To: Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, robin.murphy@arm.com, joro@8bytes.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_013416_501096_E7C9C57B 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20241210_014013_840828_ADDBE94D 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,252 +94,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@nxp.com>
+On Mon, Dec 9, 2024 at 11:58=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
+:
+>
+> On Mon, Dec 02, 2024 at 02:06:03PM +0000, Mostafa Saleh wrote:
+> > At the moment, io-pgtable-arm uses concatenation only if it is
+> > possible at level 0, which misses a case where concatenation is
+> > mandatory at level 1 according to R_SRKBC in Arm spec DDI0487 K.a.
+> >
+> > Also, that means concatenation can be used when not mandated,
+> > contradicting the comment on the code. However, these cases can only
+> > happen if the SMMUv3 driver is changed to use ias !=3D oas for stage-2.
+> >
+> > This patch re-writes the code to use concatenation only if mandatory,
+> > fixing the missing case for level-1 and granule 16K with PA =3D 40 bits=
+.
+> >
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  drivers/iommu/io-pgtable-arm.c | 45 +++++++++++++++++++++++++---------
+> >  1 file changed, 33 insertions(+), 12 deletions(-)
+> >
+> > diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-=
+arm.c
+> > index 6b9bb58a414f..0055876b3527 100644
+> > --- a/drivers/iommu/io-pgtable-arm.c
+> > +++ b/drivers/iommu/io-pgtable-arm.c
+> > @@ -223,6 +223,33 @@ static inline int arm_lpae_max_entries(int i, stru=
+ct arm_lpae_io_pgtable *data)
+> >       return ptes_per_table - (i & (ptes_per_table - 1));
+> >  }
+> >
+> > +/*
+> > + * Check if concatenated PGDs are mandatory according to Arm DDI0487 (=
+K.a)
+> > + * 1) R_DXBSH: For 16KB, and 48-bit input size, use level 1 instead of=
+ 0.
+> > + * 2) R_SRKBC: After de-ciphering the table for PA size and valid init=
+ial lookup
+> > + *   a) 40 bits PA size with 4K: use level 1 instead of level 0 (2 tab=
+les for ias =3D oas)
+> > + *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 t=
+ables for ias =3D oas)
+> > + *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tab=
+les for ias =3D oas)
+> > + *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 ta=
+bles for ias =3D oas)
+> > + */
+> > +static inline bool arm_lpae_concat_mandatory(struct arm_lpae_io_pgtabl=
+e *data)
+> > +{
+> > +     unsigned int ias =3D data->iop.cfg.ias;
+> > +     unsigned int oas =3D data->iop.cfg.oas;
+> > +
+> > +     /* Covers 1  and 2.d */
+> > +     if ((ARM_LPAE_GRANULE(data) =3D=3D SZ_16K) && (data->start_level =
+=3D=3D 0))
+> > +             return (oas =3D=3D 48) || (ias =3D 48);
+>
+> I'm guessing the second disjunct here should be:
+>
+>         (ias =3D=3D 48);
+>
 
-For format H264 and HEVC, the firmware can report the parsed profile idc
-and level idc to driver, the information may be useful.
-Implement the H264 and HEVC profile and level control to report them.
+Ouch, my bad.
 
-Signed-off-by: Ming Qian <ming.qian@nxp.com>
----
-v2
--- add support for V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE
-
- drivers/media/platform/amphion/vdec.c        | 61 +++++++++++++
- drivers/media/platform/amphion/vpu_defs.h    |  1 +
- drivers/media/platform/amphion/vpu_helpers.c | 93 ++++++++++++++++++++
- drivers/media/platform/amphion/vpu_helpers.h |  5 ++
- drivers/media/platform/amphion/vpu_malone.c  |  3 +-
- 5 files changed, 162 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
-index ca8f7319503a..61d5598ee6a1 100644
---- a/drivers/media/platform/amphion/vdec.c
-+++ b/drivers/media/platform/amphion/vdec.c
-@@ -232,6 +232,37 @@ static int vdec_ctrl_init(struct vpu_inst *inst)
- 			  V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE,
- 			  0, 1, 1, 0);
- 
-+	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-+			       V4L2_CID_MPEG_VIDEO_H264_PROFILE,
-+			       V4L2_MPEG_VIDEO_H264_PROFILE_MULTIVIEW_HIGH,
-+			       ~((1 << V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE) |
-+				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE) |
-+				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_MAIN) |
-+				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_EXTENDED) |
-+				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_HIGH) |
-+				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_MULTIVIEW_HIGH) |
-+				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_STEREO_HIGH)),
-+			       V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE);
-+
-+	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-+			       V4L2_CID_MPEG_VIDEO_H264_LEVEL,
-+			       V4L2_MPEG_VIDEO_H264_LEVEL_6_2,
-+			       0,
-+			       V4L2_MPEG_VIDEO_H264_LEVEL_4_0);
-+
-+	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-+			       V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
-+			       V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
-+			       ~((1 << V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN) |
-+				 (1 << V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10)),
-+			       V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN);
-+
-+	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-+			       V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
-+			       V4L2_MPEG_VIDEO_HEVC_LEVEL_6_2,
-+			       0,
-+			       V4L2_MPEG_VIDEO_HEVC_LEVEL_4);
-+
- 	ctrl = v4l2_ctrl_new_std(&inst->ctrl_handler, &vdec_ctrl_ops,
- 				 V4L2_CID_MIN_BUFFERS_FOR_CAPTURE, 1, 32, 1, 2);
- 	if (ctrl)
-@@ -1166,6 +1197,35 @@ static void vdec_clear_slots(struct vpu_inst *inst)
- 	}
- }
- 
-+static void vdec_update_v4l2_ctrl(struct vpu_inst *inst, u32 id, u32 val)
-+{
-+	struct v4l2_ctrl *ctrl = v4l2_ctrl_find(&inst->ctrl_handler, id);
-+
-+	if (ctrl)
-+		v4l2_ctrl_s_ctrl(ctrl, val);
-+}
-+
-+static void vdec_update_v4l2_profile_level(struct vpu_inst *inst, struct vpu_dec_codec_info *hdr)
-+{
-+	switch (inst->out_format.pixfmt) {
-+	case V4L2_PIX_FMT_H264:
-+	case V4L2_PIX_FMT_H264_MVC:
-+		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_H264_PROFILE,
-+				      vpu_get_h264_v4l2_profile(hdr->profile_idc));
-+		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_H264_LEVEL,
-+				      vpu_get_h264_v4l2_level(hdr->level_idc));
-+		break;
-+	case V4L2_PIX_FMT_HEVC:
-+		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
-+				      vpu_get_hevc_v4l2_profile(hdr->profile_idc));
-+		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
-+				      vpu_get_hevc_v4l2_level(hdr->level_idc));
-+		break;
-+	default:
-+		return;
-+	}
-+}
-+
- static void vdec_event_seq_hdr(struct vpu_inst *inst, struct vpu_dec_codec_info *hdr)
- {
- 	struct vdec_t *vdec = inst->priv;
-@@ -1189,6 +1249,7 @@ static void vdec_event_seq_hdr(struct vpu_inst *inst, struct vpu_dec_codec_info
- 	vdec_init_crop(inst);
- 	vdec_init_mbi(inst);
- 	vdec_init_dcp(inst);
-+	vdec_update_v4l2_profile_level(inst, hdr);
- 	if (!vdec->seq_hdr_found) {
- 		vdec->seq_tag = vdec->codec_info.tag;
- 		if (vdec->is_source_changed) {
-diff --git a/drivers/media/platform/amphion/vpu_defs.h b/drivers/media/platform/amphion/vpu_defs.h
-index 428d988cf2f7..606f9d61a265 100644
---- a/drivers/media/platform/amphion/vpu_defs.h
-+++ b/drivers/media/platform/amphion/vpu_defs.h
-@@ -134,6 +134,7 @@ struct vpu_dec_codec_info {
- 	u32 decoded_height;
- 	struct v4l2_fract frame_rate;
- 	u32 dsp_asp_ratio;
-+	u32 profile_idc;
- 	u32 level_idc;
- 	u32 bit_depth_luma;
- 	u32 bit_depth_chroma;
-diff --git a/drivers/media/platform/amphion/vpu_helpers.c b/drivers/media/platform/amphion/vpu_helpers.c
-index d12310af9ebc..108b75ceb4ae 100644
---- a/drivers/media/platform/amphion/vpu_helpers.c
-+++ b/drivers/media/platform/amphion/vpu_helpers.c
-@@ -509,3 +509,96 @@ const char *vpu_codec_state_name(enum vpu_codec_state state)
- 	}
- 	return "<unknown>";
- }
-+
-+struct codec_id_mapping {
-+	u32 id;
-+	u32 v4l2_id;
-+};
-+
-+static struct codec_id_mapping h264_profiles[] = {
-+	{66,  V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE},
-+	{77,  V4L2_MPEG_VIDEO_H264_PROFILE_MAIN},
-+	{88,  V4L2_MPEG_VIDEO_H264_PROFILE_EXTENDED},
-+	{100, V4L2_MPEG_VIDEO_H264_PROFILE_HIGH},
-+	{118, V4L2_MPEG_VIDEO_H264_PROFILE_MULTIVIEW_HIGH},
-+	{128, V4L2_MPEG_VIDEO_H264_PROFILE_STEREO_HIGH}
-+};
-+
-+static struct codec_id_mapping h264_levels[] = {
-+	{10,  V4L2_MPEG_VIDEO_H264_LEVEL_1_0},
-+	{9,   V4L2_MPEG_VIDEO_H264_LEVEL_1B},
-+	{11,  V4L2_MPEG_VIDEO_H264_LEVEL_1_1},
-+	{12,  V4L2_MPEG_VIDEO_H264_LEVEL_1_2},
-+	{13,  V4L2_MPEG_VIDEO_H264_LEVEL_1_3},
-+	{20,  V4L2_MPEG_VIDEO_H264_LEVEL_2_0},
-+	{21,  V4L2_MPEG_VIDEO_H264_LEVEL_2_1},
-+	{22,  V4L2_MPEG_VIDEO_H264_LEVEL_2_2},
-+	{30,  V4L2_MPEG_VIDEO_H264_LEVEL_3_0},
-+	{31,  V4L2_MPEG_VIDEO_H264_LEVEL_3_1},
-+	{32,  V4L2_MPEG_VIDEO_H264_LEVEL_3_2},
-+	{40,  V4L2_MPEG_VIDEO_H264_LEVEL_4_0},
-+	{41,  V4L2_MPEG_VIDEO_H264_LEVEL_4_1},
-+	{42,  V4L2_MPEG_VIDEO_H264_LEVEL_4_2},
-+	{50,  V4L2_MPEG_VIDEO_H264_LEVEL_5_0},
-+	{51,  V4L2_MPEG_VIDEO_H264_LEVEL_5_1},
-+	{52,  V4L2_MPEG_VIDEO_H264_LEVEL_5_2},
-+	{60,  V4L2_MPEG_VIDEO_H264_LEVEL_6_0},
-+	{61,  V4L2_MPEG_VIDEO_H264_LEVEL_6_1},
-+	{62,  V4L2_MPEG_VIDEO_H264_LEVEL_6_2}
-+};
-+
-+static struct codec_id_mapping hevc_profiles[] = {
-+	{1,   V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN},
-+	{2,   V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10}
-+};
-+
-+static struct codec_id_mapping hevc_levels[] = {
-+	{30,  V4L2_MPEG_VIDEO_HEVC_LEVEL_1},
-+	{60,  V4L2_MPEG_VIDEO_HEVC_LEVEL_2},
-+	{63,  V4L2_MPEG_VIDEO_HEVC_LEVEL_2_1},
-+	{90,  V4L2_MPEG_VIDEO_HEVC_LEVEL_3},
-+	{93,  V4L2_MPEG_VIDEO_HEVC_LEVEL_3_1},
-+	{120, V4L2_MPEG_VIDEO_HEVC_LEVEL_4},
-+	{123, V4L2_MPEG_VIDEO_HEVC_LEVEL_4_1},
-+	{150, V4L2_MPEG_VIDEO_HEVC_LEVEL_5},
-+	{153, V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1},
-+	{156, V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2},
-+	{180, V4L2_MPEG_VIDEO_HEVC_LEVEL_6},
-+	{183, V4L2_MPEG_VIDEO_HEVC_LEVEL_6_1},
-+	{186, V4L2_MPEG_VIDEO_HEVC_LEVEL_6_2}
-+};
-+
-+static u32 vpu_find_v4l2_id(u32 id, struct codec_id_mapping *array, u32 array_sz)
-+{
-+	u32 i;
-+
-+	if (!array || !array_sz)
-+		return 0;
-+
-+	for (i = 0; i < array_sz; i++) {
-+		if (id == array[i].id)
-+			return array[i].v4l2_id;
-+	}
-+
-+	return 0;
-+}
-+
-+u32 vpu_get_h264_v4l2_profile(u32 idc)
-+{
-+	return vpu_find_v4l2_id(idc, h264_profiles, ARRAY_SIZE(h264_profiles));
-+}
-+
-+u32 vpu_get_h264_v4l2_level(u32 idc)
-+{
-+	return vpu_find_v4l2_id(idc, h264_levels, ARRAY_SIZE(h264_levels));
-+}
-+
-+u32 vpu_get_hevc_v4l2_profile(u32 idc)
-+{
-+	return vpu_find_v4l2_id(idc, hevc_profiles, ARRAY_SIZE(hevc_profiles));
-+}
-+
-+u32 vpu_get_hevc_v4l2_level(u32 idc)
-+{
-+	return vpu_find_v4l2_id(idc, hevc_levels, ARRAY_SIZE(hevc_levels));
-+}
-diff --git a/drivers/media/platform/amphion/vpu_helpers.h b/drivers/media/platform/amphion/vpu_helpers.h
-index 0eaddb07190d..dc5fb1ca2d33 100644
---- a/drivers/media/platform/amphion/vpu_helpers.h
-+++ b/drivers/media/platform/amphion/vpu_helpers.h
-@@ -70,4 +70,9 @@ int vpu_color_get_default(u32 primaries, u32 *ptransfers, u32 *pmatrix, u32 *pfu
- 
- int vpu_find_dst_by_src(struct vpu_pair *pairs, u32 cnt, u32 src);
- int vpu_find_src_by_dst(struct vpu_pair *pairs, u32 cnt, u32 dst);
-+
-+u32 vpu_get_h264_v4l2_profile(u32 idc);
-+u32 vpu_get_h264_v4l2_level(u32 idc);
-+u32 vpu_get_hevc_v4l2_profile(u32 idc);
-+u32 vpu_get_hevc_v4l2_level(u32 idc);
- #endif
-diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
-index 4769c053c6c2..5c6b2a841b6f 100644
---- a/drivers/media/platform/amphion/vpu_malone.c
-+++ b/drivers/media/platform/amphion/vpu_malone.c
-@@ -889,7 +889,8 @@ static void vpu_malone_unpack_seq_hdr(struct vpu_rpc_event *pkt,
- 	info->frame_rate.numerator = 1000;
- 	info->frame_rate.denominator = pkt->data[8];
- 	info->dsp_asp_ratio = pkt->data[9];
--	info->level_idc = pkt->data[10];
-+	info->profile_idc = (pkt->data[10] >> 8) & 0xff;
-+	info->level_idc = pkt->data[10] & 0xff;
- 	info->bit_depth_luma = pkt->data[13];
- 	info->bit_depth_chroma = pkt->data[14];
- 	info->chroma_fmt = pkt->data[15];
--- 
-2.43.0-rc1
-
+> I'll make that change when applying...
+>
+> Will
 
