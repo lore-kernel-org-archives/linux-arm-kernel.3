@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5560E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 01:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 747C1E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 01:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BR2mdtTaoSEy+8fSRGvh/KqzQFMgidQP+WKmP5iDzus=; b=CS8psRSvdBEMC98omhFsWMli75
-	yyKqjKyAGUpUGbW50vbVMmIicDkrB4TGEPL9Bk5ZIFe+9jTBXiZX/TsB3TAW5SG5eyWUfIIcoRNXg
-	4sPsN/uxD5DKp/MWMQbNvAREdwlfBQcopXfePzBQ+pwsCSPPOq7//fj9u2hGV39sXxSIM7BgCSW/R
-	YvS4ek6GKhgs3hHPSMOaNnBF8b+aq7rmUBTII7mNPK2uv3ni0VjUJVtlMCg01uIEpxDo08d60zowH
-	TE5WVOiJefgpbl4i0AOstsaODP0Sal9JksvVTGZ5DYlQAVDCoyD2WeurkPcpnlN5m/MxeTKF7VZUq
-	tMIN+YMg==;
+	bh=bDeSzNmG0r25Rn5nUf/295MidZQ+oiAWsebYRxIgxz4=; b=zzOQd2yA+MihG35ri2ACBuIngu
+	dK4hjjl1Kp+bOPtZ7NaoWIBWpx80X2704irhN9pEDULTqz7P6NKiK7/wnSpMpHVR6a+/uCVS+1y/W
+	efV4kHUEmualf28HRrx9wzRHoYYRMcEzVGvHGN+i9wm24azvNjETxjM6/5IV8biilnZGLRxebov7M
+	ei0I2/xQEG8eWCqGHoZDdJTBBv+FaiEpTRYzxM73jvZ4/kn86VBlMWoOb6LcI+ejAJhtTwN2n14Ui
+	24QU0K5pBpOUQT0pmdirvEQ/WtvPJH1vTUW8P3knoTb68dci3mbRTNATks6Kfo8q7NBDBgPdL9mhp
+	Gg2wZSYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKpEO-00000009rOz-1NFV;
-	Tue, 10 Dec 2024 01:40:08 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1tKpKY-00000009s0l-1VT2;
+	Tue, 10 Dec 2024 01:46:30 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKpDK-00000009rFW-2CbI
+	id 1tKpJU-00000009rno-17P7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 01:39:04 +0000
+	Tue, 10 Dec 2024 01:45:26 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e3a5125c024so935955276.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 17:45:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1733794738; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=BR2mdtTaoSEy+8fSRGvh/KqzQFMgidQP+WKmP5iDzus=;
-	b=kyuBoOg2zwbob9EbO3IAPw+fXVmI1FNzg2IpY+2D1X4Y/uKQ0jAvRIjsbkYNf7L03tp0zLLiGAokmhKX/1D/zuEUu9vmwoLmt7tGoA11dkh3uPoRdMZSjkZ529KggZgiKtfd3+caR3plIXA+aS0HqL/kr7EqczZjibMZ/lydC2Y=
-Received: from 30.166.1.177(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLCyrkm_1733794735 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 10 Dec 2024 09:38:56 +0800
-Message-ID: <5139818d-8e1b-44ff-bfb4-18a1aca8afed@linux.alibaba.com>
-Date: Tue, 10 Dec 2024 09:38:54 +0800
+        d=linaro.org; s=google; t=1733795123; x=1734399923; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bDeSzNmG0r25Rn5nUf/295MidZQ+oiAWsebYRxIgxz4=;
+        b=iJTRixxELwHlvqumVPCRHsESWu/UftTwzWUDonlNatUCL8qyXZf6X/UduvgG4FezSl
+         6+zR7dlBVXryCkEasv3d+VgNTAPNz/m8aW9l2CoctTt2jB1dMzsBdweyinBjuc2g7ixZ
+         7DBvGa95VwXe4y50gP8VbOGh7bygayHs1OhvSRVp4zCS8fGTR4FTrHjh/QmvkOmH/cch
+         NghhXtYNuzXONSFi/WE7U8/67YUlYjE3mi9oX7X0ZaEu3UBBYHkt1J9lCG9xbHnabwjo
+         7cPau7XhRvs7cPWOY69M2prdvlfk3wxEwYevATezfK9z7ODQexcEf56PyVqd6TAiS75s
+         K9Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733795123; x=1734399923;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bDeSzNmG0r25Rn5nUf/295MidZQ+oiAWsebYRxIgxz4=;
+        b=bG6Pmb4DJS5apVIcr62zMR0HRogrEZBtbta2cGboW5h24ycl+3nskbcdgR/PPYXzxU
+         WKtU+nsuZWsOaKA8OrW5uJ+4Yt46WmXHhqSEeNyfbkgdimWzVd0USmYT3x8k3Yo44aiH
+         J0bcZdVWlHyoFxa8uqIfNupoUz3sYsWoYbBPJHX8Im634J0RiPQNygAbNld9mc9/vz4T
+         a8p0HxJgnzFCpaUQWP3iF9feMvZVo7t/5jsBQ2j5v+8jCi9H12ekPYPVPnImbjtoDh/i
+         cEh7HAAgUW+i+n6A/XGfij5RQlAZ+Cr7vmD4H3GcWz8JW90zxEWpKlL2FTOnvOMs84mU
+         sBEw==
+X-Forwarded-Encrypted: i=1; AJvYcCUq7G+fOd5fRa3zg2JzKCYwYIPiqBRdQHhQ0Y8DnPXqqAvwGsRViDnGBpigFDAPZIneR16d4ePIeOwl37oqpyYL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAR8at76iPQPKxnTpNh2ty6+k9A8E7pPaogOzfZCY60NVfYxMp
+	HV15MG7xprska4WDWC33Yaw+8g1RcnoUJpy66ELBB82yyfENWJLWitMMXyari3TTIl7RuB1qaB6
+	tMlzPnQlxjl3DDqimXuh3ZwT6h+oEifSeTm4bmw==
+X-Gm-Gg: ASbGncvyqXsb+8U6RCf2QnTgyEamjkmbdCCkT2FUqeZ1xp3RcM1nWoRycbfdYtwMUQt
+	JHwAIYOgSD1GRVuo5hqZTXN+Ozkc60rZOjO+l
+X-Google-Smtp-Source: AGHT+IH9FYdZyuYf6+rQs47uyzndT1wVwnYcReW2ltFVfptMntuMiqQM909xz0QThYmGJkZYxK5rC55WkYQfh3JUnOo=
+X-Received: by 2002:a05:6902:150b:b0:e38:b2fb:f57d with SMTP id
+ 3f1490d57ef6-e3a0b12a8c7mr11436978276.28.1733795122949; Mon, 09 Dec 2024
+ 17:45:22 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 4/5] drivers/perf: add DesignWare PCIe PMU driver
-To: Bjorn Helgaas <helgaas@kernel.org>, Will Deacon <will@kernel.org>
-Cc: ilkka@os.amperecomputing.com, kaishen@linux.alibaba.com,
- yangyicong@huawei.com, Jonathan.Cameron@huawei.com,
- baolin.wang@linux.alibaba.com, robin.murphy@arm.com,
- chengyou@linux.alibaba.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- rdunlap@infradead.org, mark.rutland@arm.com, zhuo.song@linux.alibaba.com,
- renyu.zj@linux.alibaba.com
-References: <20241209224741.GA3206765@bhelgaas>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20241209224741.GA3206765@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20241203165450.1501219-1-heiko@sntech.de> <20241209150619.33998-1-dse@thaumatec.com>
+ <D67AV178CEBD.3QA9VD4ZPRNQ1@cknow.org> <2203458.KiezcSG77Q@diego>
+ <4e015ea9.960.193ae0c236a.Coremail.andyshrk@163.com> <ay5hbnqqjhopaqof6z7j2rzm2bc6xa2vbzan2ak3if6wzmyip2@kqh7gtrajnm2>
+ <33e2c5db.1300.193ae284b6d.Coremail.andyshrk@163.com>
+In-Reply-To: <33e2c5db.1300.193ae284b6d.Coremail.andyshrk@163.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Tue, 10 Dec 2024 03:45:11 +0200
+Message-ID: <CAA8EJprLA09NP0KAztc5eoAMkGcrom84jg_pcbNcwN0FAaSLrw@mail.gmail.com>
+Subject: Re: Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2 controller
+To: Andy Yan <andyshrk@163.com>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Daniel Semkowicz <dse@thaumatec.com>, Diederik de Haas <didi.debian@cknow.org>, andy.yan@rock-chips.com, 
+	Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com, jonas@kwiboo.se, 
+	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	neil.armstrong@linaro.org, quentin.schulz@cherry.de, rfoss@kernel.org, 
+	robh@kernel.org, tzimmermann@suse.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_173902_984900_C18E8D3B 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20241209_174525_162841_746AACE1 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,63 +103,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 10 Dec 2024 at 03:22, Andy Yan <andyshrk@163.com> wrote:
+>
+>
+> Hi Dmitry,
+>
+> =E5=9C=A8 2024-12-10 09:01:38=EF=BC=8C"Dmitry Baryshkov" <dmitry.baryshko=
+v@linaro.org> =E5=86=99=E9=81=93=EF=BC=9A
+> >On Tue, Dec 10, 2024 at 08:50:51AM +0800, Andy Yan wrote:
+> >>
+> >>
+> >> Hi,
+> >>
+> >> At 2024-12-10 07:12:26, "Heiko St=C3=BCbner" <heiko@sntech.de> wrote:
+> >> >Am Montag, 9. Dezember 2024, 17:11:03 CET schrieb Diederik de Haas:
+> >> >> Hi,
+> >> >>
+> >> >> On Mon Dec 9, 2024 at 4:06 PM CET, Daniel Semkowicz wrote:
+> >> >> > On 03.12.24 21:54, Heiko Stuebner wrote:
+> >> >> > > This series adds a bridge and glue driver for the DSI2 controll=
+er found
+> >> >> > > in the rk3588 soc from Rockchip, that is based on a Synopsis IP=
+ block.
+> >> >> > >
+> >> >> >
+> >> >> > I did more tests with different LVDS displays. I tested following
+> >> >> > configurations with DSI/LVDS bridge:
+> >> >> > - 1024x600@60.01
+> >> >> > - 1024x768@60.02
+> >> >> > - 1280x800@60.07
+> >> >> > - 1366x768@60.06
+> >> >> >
+> >> >> > All of them worked without issues, except 1366x768.
+> >> >> > With this resolution, video is blurry, and offset incorrectly
+> >> >> > to the left. There are also repeating errors on the console:
+> >> >> >
+> >> >> >   rockchip-drm display-subsystem: [drm] *ERROR* POST_BUF_EMPTY ir=
+q err at vp3
+> >> >> >
+> >> >> > In correct operation with other resolutions, there is no error.
+> >> >> > I am not sure if this is a problem in your series or rather in VO=
+P2
+> >> >> > driver.
+> >> >
+> >> >This really sounds like something is wrong on the vop side.
+> >> >The interrupt is part of the vop, the divisable by 4 things likely to=
+o.
+> >>
+> >> This is a hardware limitation on vop side:
+> >> The horizontal resolution must be 4 pixel aligned.
+> >
+> >Then mode_valid() and atomic_check() must reject modes that don't fit.
+>
+> We round down to 4 pixel aligned in mode_fixup in our bsp kernel,
+
+What is meant by the "bsp kernel" here? I don't see it being present
+in the mainline kernel. So, if the mode is unsupported, it should be
+rejected.
+
+> because sometimes, some boards do indeed choose a screen that is not 4 pi=
+xel aligned
+> >
+> >>
+> >>
+> >>
+> >
+> >--
+> >With best wishes
+> >Dmitry
 
 
-在 2024/12/10 06:47, Bjorn Helgaas 写道:
-> On Mon, Dec 09, 2024 at 03:40:16PM +0000, Will Deacon wrote:
->> On Fri, Dec 06, 2024 at 10:54:57AM -0600, Bjorn Helgaas wrote:
->>> On Fri, Dec 08, 2023 at 10:56:51AM +0800, Shuai Xue wrote:
->>>> This commit adds the PCIe Performance Monitoring Unit (PMU) driver support
->>>> for T-Head Yitian SoC chip. Yitian is based on the Synopsys PCI Express
->>>> Core controller IP which provides statistics feature. The PMU is a PCIe
->>>> configuration space register block provided by each PCIe Root Port in a
->>>> Vendor-Specific Extended Capability named RAS D.E.S (Debug, Error
->>>> injection, and Statistics).
->>>
->>>> +#define DWC_PCIE_VSEC_RAS_DES_ID		0x02
->>>
->>>> +static const struct dwc_pcie_vendor_id dwc_pcie_vendor_ids[] = {
->>>> +	{.vendor_id = PCI_VENDOR_ID_ALIBABA },
->>>> +	{} /* terminator */
->>>> +};
->>>
->>>> +static bool dwc_pcie_match_des_cap(struct pci_dev *pdev)
->>>> +{
->>>> +	const struct dwc_pcie_vendor_id *vid;
->>>> +	u16 vsec;
->>>> +	u32 val;
->>>> +
->>>> +	if (!pci_is_pcie(pdev) || !(pci_pcie_type(pdev) == PCI_EXP_TYPE_ROOT_PORT))
->>>> +		return false;
->>>> +
->>>> +	for (vid = dwc_pcie_vendor_ids; vid->vendor_id; vid++) {
->>>> +		vsec = pci_find_vsec_capability(pdev, vid->vendor_id,
->>>> +						DWC_PCIE_VSEC_RAS_DES_ID);
->>>
->>> This looks wrong to me, and it promotes a misunderstanding of how VSEC
->>> Capabilities work.  The VSEC ID is defined by the vendor, so we have
->>> to check both the Vendor ID and the VSEC ID before we know what this
->>> VSEC Capability is.
->>
->> Thanks for pointing this out! The code's been merged for a while now,
->> so we'll need to fix what we have rather than revert it, I think.
-> 
-> Yep, for sure.
-> 
->> Any chance you could send a patch with those, please? I'm also not able
->> to test this stuff, but I'm sure Ilkka would help us out.
-> 
-> Posted at https://lore.kernel.org/linux-pci/20241209222938.3219364-1-helgaas@kernel.org
-> 
-> Bjorn
 
-Hi, Bjorn and Will,
-
-Thanks for pointing this out and fix it so quickly, I will also test this patch
-on our platform later.
-
-Best Regards,
-Shuai
-
-
+--=20
+With best wishes
+Dmitry
 
