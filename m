@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A2FE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C26E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 14:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Th5XEizCnNqXk/EU9TbVjgdn9a5uFSC3a1KiqRYzn6I=; b=2niSCX+LablilDS37+Fy6fjpRP
-	+2a1L1OZKx81mISTAAszlUjQ00rqr5ImalIFWUghuwHq/Y2bHCa/2tAI15iL3/qsckYfNm+zD5Poe
-	MDBlHcJHTR7jzwoxgM0c1hpzml5a20kCOCyZWsI+55/YI7RS8q6a0rBc/Rtn7cirtZ4FsmkAippEo
-	9HHddElPSX8IyJoLIPSTGFQA8y1xg9b2hmk7SnAAXH+DWnNlREelLUYKYoWzk2yO1AfFgYaYNm+xs
-	XUaHF5P4R0DtTYulsbNGuCjNrXXvWpZ5EzzfiHf9/R8koulHDB6NYuVPp68ZLtY9xXYc37qfvmMcK
-	m1XcO0YQ==;
+	bh=QBw3kdsWfeaYZY+i94PpsY0B716chNrcMQ64CIsLjkM=; b=cEXbQz0SQJYfZvFynrnbej4Mmi
+	ak4AUDtianWlzHaeY+usSQX0xjh8uKsYJwh07XpsYijrYEvuBXsf91K1cLUXXqU8Z68us3wBzoyoa
+	kgXmQwdv9N10K+toHNm/Tuq3OVQ8JEI96v14OyZZjImTxQ/XJwskgHhosPCh4ttRD3byRXorGDJpg
+	Zx1FPXMn56o1pksVlNOpbhkFX+u44scqZKvgcvG4fi3gwjoFAgNap5lIbpdfwIw10upuLDs2QDRhC
+	7hkH4s0rXcDh4NJ8Q8YW5DGvHB9EQkFxp2F4RiHLNwEbzthCK6BSM5p74MjxwIP6DZOfFQSVxuL6S
+	95hTCKhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Mq-0000000BnQv-1zas;
-	Tue, 10 Dec 2024 14:37:40 +0000
+	id 1tL1Ns-0000000Bnif-1mWq;
+	Tue, 10 Dec 2024 14:38:44 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL14a-0000000Biug-0W6H;
-	Tue, 10 Dec 2024 14:18:49 +0000
+	id 1tL14g-0000000Biwa-3SY3;
+	Tue, 10 Dec 2024 14:18:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Th5XEizCnNqXk/EU9TbVjgdn9a5uFSC3a1KiqRYzn6I=; b=ZM6p6TDRWaV0ZE8tcw6N+7Pwzb
-	KPMUeIePfCWn5BdsGFHhy3PKXcvYk482vE4KRNu4KN0eugE1aWFlZnQUZ7OagJTUhsz445CFDprcj
-	0rZHAElR5JObUH95IgZHYdJi8aF/un4IcsYEoIJFCJzFrnLtxZ8bV0+L8MrLyY8a73XQ0bOwFh90H
-	LU6782MH2C8oXadoLRoEA3s1vrzAcDu1HyP7YLptQ0SZOlA6LZVWV95jte1qZ7fUTbO3CcbDlEk8U
-	tYOZhikzTHnmqMC/4FkyYM7x8krS718+AJuKZbfpV08ggsbuytY/QQe7yi+YNI9PIgo1wxnktsOpN
-	2Rah7UvQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40604 helo=rmk-PC.armlinux.org.uk)
+	bh=QBw3kdsWfeaYZY+i94PpsY0B716chNrcMQ64CIsLjkM=; b=WitDPj1uZ6qfMyG2e/kmTBIFSF
+	z3PCrbIaELDiXrxUlqOzbsYB7iij6/iWzIDUHQ7QWehO9qPLxRi9BNzz9xRC4bBVu7o8AdfIZdYtk
+	ppN0idufkyDYuLTnCQ8kvNi5i5CyGP1j/6JRS9fIMMkcb3Hfedl4b8AVW+ByTeJIVBQsPbGOuuGs9
+	WZnBTom1ErgdEoEn5eNAfphyKHlTP0KGg1ZRJR5ehZrnZ113beNaHGXGmTI+8XII+fCcF2pxGGE6f
+	PRIFmZfuKCEsf2ltdGIWl9r7j0Iw7pE3Tis1W3e7yk300+4MN35vZuo25V1T77fIsgG6hGs0iwStJ
+	fh7hSEsg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40608 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tL14Q-0002U8-2E;
-	Tue, 10 Dec 2024 14:18:39 +0000
+	id 1tL14W-0002UU-0R;
+	Tue, 10 Dec 2024 14:18:44 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tL14O-006cZg-VM; Tue, 10 Dec 2024 14:18:36 +0000
+	id 1tL14U-006cZm-2K; Tue, 10 Dec 2024 14:18:42 +0000
 In-Reply-To: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
 References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -70,15 +70,16 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	UNGLinuxDriver@microchip.com,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Woojung Huh <woojung.huh@microchip.com>
-Subject: [PATCH net-next 6/9] net: dsa: qca8k: implement .support_eee() method
+Subject: [PATCH net-next 7/9] net: dsa: mv88e6xxx: implement .support_eee()
+ method
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tL14O-006cZg-VM@rmk-PC.armlinux.org.uk>
-Date: Tue, 10 Dec 2024 14:18:36 +0000
+Message-Id: <E1tL14U-006cZm-2K@rmk-PC.armlinux.org.uk>
+Date: Tue, 10 Dec 2024 14:18:42 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_061848_158602_E64177B9 
+X-CRM114-CacheID: sfid-20241210_061854_860173_F0C93448 
 X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -100,21 +101,21 @@ user ports support EEE.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/dsa/qca/qca8k-8xxx.c | 1 +
+ drivers/net/dsa/mv88e6xxx/chip.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/dsa/qca/qca8k-8xxx.c b/drivers/net/dsa/qca/qca8k-8xxx.c
-index 59b4a7240b58..ec74e3c2b0e9 100644
---- a/drivers/net/dsa/qca/qca8k-8xxx.c
-+++ b/drivers/net/dsa/qca/qca8k-8xxx.c
-@@ -2016,6 +2016,7 @@ static const struct dsa_switch_ops qca8k_switch_ops = {
- 	.get_ethtool_stats	= qca8k_get_ethtool_stats,
- 	.get_sset_count		= qca8k_get_sset_count,
- 	.set_ageing_time	= qca8k_set_ageing_time,
+diff --git a/drivers/net/dsa/mv88e6xxx/chip.c b/drivers/net/dsa/mv88e6xxx/chip.c
+index 3a792f79270d..1d78974ea2a3 100644
+--- a/drivers/net/dsa/mv88e6xxx/chip.c
++++ b/drivers/net/dsa/mv88e6xxx/chip.c
+@@ -7074,6 +7074,7 @@ static const struct dsa_switch_ops mv88e6xxx_switch_ops = {
+ 	.get_sset_count		= mv88e6xxx_get_sset_count,
+ 	.port_max_mtu		= mv88e6xxx_get_max_mtu,
+ 	.port_change_mtu	= mv88e6xxx_change_mtu,
 +	.support_eee		= dsa_supports_eee,
- 	.get_mac_eee		= qca8k_get_mac_eee,
- 	.set_mac_eee		= qca8k_set_mac_eee,
- 	.port_enable		= qca8k_port_enable,
+ 	.get_mac_eee		= mv88e6xxx_get_mac_eee,
+ 	.set_mac_eee		= mv88e6xxx_set_mac_eee,
+ 	.get_eeprom_len		= mv88e6xxx_get_eeprom_len,
 -- 
 2.30.2
 
