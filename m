@@ -4,95 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE492E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBA6E77182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbVmZ6HK9dcqzLToTV+hRf2v00ulze3+7nHmp0caKxo=; b=AeUzRBtOikJqRCzTVubCbgIrcZ
-	LDCRzElshv6A0JnIavRWLcS5ITnLIqumL3gsEndz6KffCcqD61WPZoRZkX6KpJbgO4y1N3XlQoGPX
-	ztU55JWGTzF6z9PpqTn7SBrswdT5/DgNkHVLsCHFz/c3ul+VLr1hcS7khCVWhMU2XB+xwdPqE0o1z
-	Cwn/t+NwREsAX1lLkGL8r5ZLYQ6FAqRJxw6pfx1a/SWzcg/SaEUqG/JJ7fY2JGQoDV+6DDje1YSzn
-	vBSQ3MsApcJ10Y/ALpxplkv4c58i5UlT1v8K2l/RAcB2n6np0I5ojnkrBKUd+lR0l8WAv3Y3x57ok
-	GCOBSmBQ==;
+	bh=f/eUtBAHx6MS1dX7eeAudCi0CALBCFNE6mgKA9s28LY=; b=qundz3QZBPiWhaX4TIDT/suiAV
+	3YUVoHNvbd/sG0FEK51o9+GQzpzceMk5raZollcZSX7fX+wcSWOsDuVs3XD3qd/aS5mlPHifCM3P7
+	g5g7Apq1zwyed7zUuFhDIpGPb38ag/nG3MgiPLDtx5WUqVjWVtWp3b+ApbmQ/FGTf8ztQ/7zn5/o3
+	zaY1LfsxyvGAJqqiB6H1TdH1jltztq/WwLGG3c1Xw1qQGEi5enRsv4uOG2Sw0vUV0VigQ2jMlqCUx
+	Bi0plMGXdX+pNMPj1JsjLDH7WnzF09+FUef3Kg+ClOuQPjm/t0RMjjSgTtAQn43d7puvkTK1z8ZBb
+	KYjccMfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzK2-0000000BQGF-135F;
-	Tue, 10 Dec 2024 12:26:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tKzL2-0000000BQRW-3zc4;
+	Tue, 10 Dec 2024 12:27:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKzH3-0000000BPfk-2PeT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 12:23:34 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BA8ombQ027535;
-	Tue, 10 Dec 2024 12:23:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=pbVmZ6HK9dcqzLToTV+hRf2v
-	00ulze3+7nHmp0caKxo=; b=Ra7FzKHsJ9lFY7iqUid4cW+ItkxNTgm+t84rOTdv
-	IgJqB3kdWyoj0+IUd/obl89xDCw7n4Ns9Vv8YJdC75ov27OQFSb2UWUeiaDzA3B3
-	VtAcjTFiBffPLIsfVyb7oxN6PCs1372Uq2m8HPnxynNwUnEXIlMMZZ7mWAqXiAWa
-	ibSV12F5w7kP7vopjkY9rxW3E6L/nFGpiggW9WpWza3WS5OtlyRLaRyKBZIK9M4g
-	Qr9HFIk2Tp3fB9fyvwSTRNtws+QlnVQlMJpVPJwwZDaQAwVr5wzokKUt0Ns2uD8Y
-	QSi/pwteaie7qPtDuFO/OYts4aFijm61B0LNdR6Ewo7KNw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43cdxxg98a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 12:23:26 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BACNPQ9022580
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Dec 2024 12:23:25 GMT
-Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 10 Dec 2024 04:23:21 -0800
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-Subject: [PATCH v5 2/2] coresight: Add label sysfs node support
-Date: Tue, 10 Dec 2024 20:22:53 +0800
-Message-ID: <20241210122253.31926-3-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20241210122253.31926-1-quic_jinlmao@quicinc.com>
-References: <20241210122253.31926-1-quic_jinlmao@quicinc.com>
+	id 1tKzHT-0000000BPlY-3hDM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Dec 2024 12:23:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=f/eUtBAHx6MS1dX7eeAudCi0CALBCFNE6mgKA9s28LY=; b=qdfGUwAvEEQV2wUx348q6k4+P9
+	VCkjJ7pobieCqHDS74H/oP4A6dG3+QbaIJB7hrqGzA8iynjLbRkjSrMSVu3U6YeTsH+LJFo0b8XMe
+	7wSDCiuHwKTcIZEstwTFf/2dX7bnDTeQ6tsdGnxpAAP+4YrguPKw9vi1RANyIPzpqi8YyfZWXDOXi
+	nYz68Gi833sXAbtAYn8DHqTr6b02NpKIy+aeX2r2e7G/oZjdUn6XQ4zQXpmnHNvOO/mbeAmIMi6qz
+	McIYLZeit79p2zVsxFhWP6Gyk7DxAyUrSBPmPks9wuocCjvCEqN7W8BEGfLzb2dYwvGfpFYnAYCsC
+	R+7uT24Q==;
+Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKzHQ-00000003fnB-0fBo;
+	Tue, 10 Dec 2024 12:23:56 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id AB96230035F; Tue, 10 Dec 2024 13:23:55 +0100 (CET)
+Date: Tue, 10 Dec 2024 13:23:55 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	aruna.ramakrishna@oracle.com, broonie@kernel.org,
+	catalin.marinas@arm.com, dave.hansen@linux.intel.com,
+	jannh@google.com, jeffxu@chromium.org, joey.gouly@arm.com,
+	kees@kernel.org, maz@kernel.org, pierre.langlois@arm.com,
+	qperret@google.com, ryan.roberts@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Subject: Re: [RFC PATCH 12/16] arm64: mm: Map p4d/pgd with privileged pkey
+Message-ID: <20241210122355.GN8562@noisy.programming.kicks-ass.net>
+References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
+ <20241206101110.1646108-13-kevin.brodsky@arm.com>
+ <20241209102440.GI21636@noisy.programming.kicks-ass.net>
+ <75a345d4-78ea-4434-a4cd-3f2095ce2b31@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 5c1Xb9FQdpsr97abkP4ImlQKGrLKw_gq
-X-Proofpoint-GUID: 5c1Xb9FQdpsr97abkP4ImlQKGrLKw_gq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 spamscore=0
- phishscore=0 mlxlogscore=999 priorityscore=1501 clxscore=1015
- malwarescore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 mlxscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412100092
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_042333_744829_2965B475 
-X-CRM114-Status: GOOD (  17.28  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <75a345d4-78ea-4434-a4cd-3f2095ce2b31@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,139 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For some coresight components like CTI and TPDM, there could be
-numerous of them. From the node name, we can only get the type and
-register address of the component. We can't identify the HW or the
-system the component belongs to. Add label sysfs node support for
-showing the intuitive name of the device.
+On Tue, Dec 10, 2024 at 10:27:56AM +0100, Kevin Brodsky wrote:
+> On 09/12/2024 11:24, Peter Zijlstra wrote:
+> > On Fri, Dec 06, 2024 at 10:11:06AM +0000, Kevin Brodsky wrote:
+> >> If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map p4d/pgd pages
+> >> using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that they can
+> >> only be written under guard(kpkeys_hardened_pgtables).
+> >>
+> >> The case where pgd is not page-sized is not currently handled -
+> >> this is pending support for pkeys in kmem_cache.
+> >>
+> >> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+> >> (default).
+> > Should not this live in pagetable_*_[cd]tor() in generic code?
+> 
+> This would certainly be preferable but it doesn't look like such helpers
+> exist for p4d/pgd. For p4d, we could potentially handle this in the
+> generic __p4d_alloc(), but I'm not sure we can assume that
+> p4d_alloc_one() won't be called from somewhere else. pgd_alloc() is
+> entirely arch-specific so not much we can do there.
 
-Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
----
- .../testing/sysfs-bus-coresight-devices-cti   |  6 ++++
- .../sysfs-bus-coresight-devices-funnel        |  6 ++++
- .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++++
- drivers/hwtracing/coresight/coresight-sysfs.c | 32 +++++++++++++++++++
- 4 files changed, 50 insertions(+)
-
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-index bf2869c413e7..631999571197 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-@@ -239,3 +239,9 @@ Date:		March 2020
- KernelVersion	5.7
- Contact:	Mike Leach or Mathieu Poirier
- Description:	(Write) Clear all channel / trigger programming.
-+
-+What:           /sys/bus/coresight/devices/<cti-name>/label
-+Date:           Dec 2024
-+KernelVersion   6.13
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-index d75acda5e1b3..6497756a5ced 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-@@ -10,3 +10,9 @@ Date:		November 2014
- KernelVersion:	3.19
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Defines input port priority order.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
-+Date:           Dec 2024
-+KernelVersion   6.13
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-index bf710ea6e0ef..31dbf37a8754 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-@@ -257,3 +257,9 @@ Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_t
- Description:
- 		(RW) Set/Get the MSR(mux select register) for the CMB subunit
- 		TPDM.
-+
-+What:           /sys/bus/coresight/devices/<tpdm-name>/label
-+Date:           Dec 2024
-+KernelVersion   6.13
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index a01c9e54e2ed..4af40cd7d75a 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -7,6 +7,7 @@
- #include <linux/device.h>
- #include <linux/idr.h>
- #include <linux/kernel.h>
-+#include <linux/property.h>
- 
- #include "coresight-priv.h"
- #include "coresight-trace-id.h"
-@@ -366,18 +367,47 @@ static ssize_t enable_source_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(enable_source);
- 
-+static ssize_t label_show(struct device *dev,
-+		struct device_attribute *attr, char *buf)
-+{
-+
-+	const char *str;
-+	int ret = 0;
-+
-+	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
-+	if (ret == 0)
-+		return scnprintf(buf, PAGE_SIZE, "%s\n", str);
-+	else
-+		return ret;
-+}
-+static DEVICE_ATTR_RO(label);
-+
- static struct attribute *coresight_sink_attrs[] = {
- 	&dev_attr_enable_sink.attr,
-+	&dev_attr_label.attr,
- 	NULL,
- };
- ATTRIBUTE_GROUPS(coresight_sink);
- 
- static struct attribute *coresight_source_attrs[] = {
- 	&dev_attr_enable_source.attr,
-+	&dev_attr_label.attr,
- 	NULL,
- };
- ATTRIBUTE_GROUPS(coresight_source);
- 
-+static struct attribute *coresight_link_attrs[] = {
-+	&dev_attr_label.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(coresight_link);
-+
-+static struct attribute *coresight_helper_attrs[] = {
-+	&dev_attr_label.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(coresight_helper);
-+
- const struct device_type coresight_dev_type[] = {
- 	[CORESIGHT_DEV_TYPE_SINK] = {
- 		.name = "sink",
-@@ -385,6 +415,7 @@ const struct device_type coresight_dev_type[] = {
- 	},
- 	[CORESIGHT_DEV_TYPE_LINK] = {
- 		.name = "link",
-+		.groups = coresight_link_groups,
- 	},
- 	[CORESIGHT_DEV_TYPE_LINKSINK] = {
- 		.name = "linksink",
-@@ -396,6 +427,7 @@ const struct device_type coresight_dev_type[] = {
- 	},
- 	[CORESIGHT_DEV_TYPE_HELPER] = {
- 		.name = "helper",
-+		.groups = coresight_helper_groups,
- 	}
- };
- /* Ensure the enum matches the names and groups */
--- 
-2.17.1
-
+Can't we add the missing pagetable_{p4d,pgd}_[cd]tor() functions. Yes,
+it will mean touching a bunch of arch code, but it shouldn't be hard.
 
