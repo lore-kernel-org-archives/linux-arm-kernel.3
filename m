@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA717E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51E4E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 23:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Gd7Ac/D1accfyx3iwX5MBjpcDTGTM3je2nHHQvLSHmg=; b=zZq54L3dDyVdoz
-	LsgP/pYegil4luZAvLdGYVC0jiOscTMhgq0L4X8mC+NurcW0knyHxU6HPenvwDNSrA+V0FsRm/qgA
-	mrxH8g4GKpGjZ9t3KW+zS57pZmi3Lo65xEKETRVnyTx3xDIvRs7WByu4+xTT9kzQ78RdMIicX+HF7
-	7f3DQdXls+jzZo2miOoy1wFjCl1N7mGRLIKCth8BT5Xb+exfUWJxkqsXVwmK89vnbf+0wNNmPh5Su
-	zalzSOB+DZsY5vysGHJn43Zq0laU0smA6mf4r11CsCcQACAEvdZEd04ARo/J17XCpLOCSe2SeDXqS
-	FSN3sVgv3FzD5aS8Rm+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HGTyWKeaqpgaFreUyKa0aH25Hi/v3Cj4vXEIXprtCFM=; b=KvlqUTvmJGn6fp+jaU93QWBaOf
+	r6mCCN36V5bdevgZmNzusVT69hn4Xm6JADq2kychO7V29Ncg96GHZ/MLIkhSQtBS9i2v3AxrSfmHT
+	dOLrui9iMuOq2JRzAtNH2Hhuv6qvRMRkS/RhCY9jwz0xQUkT1VWTtQO8pmTv74c0jDJnn1m9DUa48
+	S/JXTq8XDnas/g7F/tsWL34DqapFLTX8mfg5ilLENHY2lf41WjneOiKs/a8+frsFUg+Ytu5MuM4xT
+	X4FZtite9ktM5aOgWjrQFd89TzNNTh2yxmgAK1TispWe5bHSsa/jfRjCaLadmLvI6ktlPwZd2JXF0
+	AtdQpglg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9P9-0000000D7iP-3EDF;
-	Tue, 10 Dec 2024 23:12:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tL9QB-0000000D7y0-3379;
+	Tue, 10 Dec 2024 23:13:39 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL9K0-0000000D6Nr-27nb;
-	Tue, 10 Dec 2024 23:07:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733872031;
-	bh=tG+zEB9hq2JUdiypa3J0UW/bkrCDojHcflJ5SShtQyU=;
-	h=From:Subject:Date:To:Cc:From;
-	b=N0sZit+XfJbADE8Df1vccR7w7qaJ0F2CVsi5uewEobNB/2/N5dLLjdxhmASn5OgTg
-	 BJpvHwJRGPCvc1RcML7+PabPEXUgZ0AkTJhc3qTp62ispPwA5BN9OOwxtVAMVgKPYm
-	 5LgB9LlsgSY0RzqBmYLktzuzPaoM8BwrWcOZQz1iePLHs+KFQDbunm33vbs6mr2U4G
-	 lYpyoTFLsPGI+WIm7aJGYoHDi0ItzxkSQ6G2T48u1cHXe9LlgK4bh5E8V8JS8qrqZb
-	 9ansLj0NeBkKnZwL7FaX1GHS+jJpOpQjMjJ4a5MAQGko92RlnlLokWvcp185F1pxQz
-	 qqp/C7bX8VW3w==
-Received: from localhost (unknown [188.27.48.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 747F317E09AF;
-	Wed, 11 Dec 2024 00:07:11 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v2 0/4] Add support for HDMI1 output on RK3588 SoC
-Date: Wed, 11 Dec 2024 01:06:13 +0200
-Message-Id: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+	id 1tL9Ke-0000000D6gj-3bZj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 23:07:58 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id CB0BBFF803;
+	Tue, 10 Dec 2024 23:07:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1733872071;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HGTyWKeaqpgaFreUyKa0aH25Hi/v3Cj4vXEIXprtCFM=;
+	b=gyKWVwnqKbRaoX0upPim472Cpbmf2O0rHbDzM6EEVlW6qRq09fDeahyI2JK9aEVEemo4qI
+	YpXLLX8VNmRi2FuNePdwVEh20d0ny8Qq5a4FbwoYbvsTTHnQBfNtJU6JKkw+htK5WKnwGy
+	aAUhxtvhr+jiEy4ureB4zI0q22gO3+JNOYwBpr1terhGligsQsOf6fux/uXpdmjz0eUB3t
+	2txE31+sOI88Lf+CdpOHlg090HvBw6WMZ0c3khuwU/YwkPkg6dkk9ryKb+GYGHyg8sNnvC
+	glbT104wfrUFsSiqBj4Nu6bOiXHncN9+6YA7xeIQR+xPN4wDo/hNFaam3QbhQg==
+Date: Wed, 11 Dec 2024 00:07:50 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>, imx@lists.linux.dev,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH v6 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+Message-ID: <20241210230750dc03a1d5@mail.local>
+References: <20241206070955.1503412-1-ciprianmarian.costea@oss.nxp.com>
+ <20241206070955.1503412-3-ciprianmarian.costea@oss.nxp.com>
+ <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
+ <6f4a0be8-4def-4066-9b44-d43059b7a90d@oss.nxp.com>
+ <94cba886-86cb-41f1-96ee-501623add7db@app.fastmail.com>
+ <42d39f8e-0b59-4185-af1f-f778522608d2@oss.nxp.com>
+ <fc50d8a7-cc59-42dd-aafd-7da49fadee45@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGXJWGcC/3XMSw7CIBSF4a00dywGKJW2I/dhOuBVubEtBgzRN
- Oxd7Nzhf5Lz7ZBcRJdgbHaILmPCsNXgpwaMV9vdEbS1gVMuGKeSxEfb9T3xdkVGJBVGa2ms7Ga
- ol2d0M74P7jbV9pheIX4OPbPf+gfKjFBiVKuGQYuLEvRqwrIoHaI6m7DCVEr5ArNct7SsAAAA
-X-Change-ID: 20241207-rk3588-hdmi1-704cbb7cd75f
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Alexandre ARNOUD <aarnoud@me.com>, kernel@collabora.com, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fc50d8a7-cc59-42dd-aafd-7da49fadee45@app.fastmail.com>
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_150716_722901_8842B443 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20241210_150757_209369_529E7C25 
+X-CRM114-Status: GOOD (  40.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +90,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patches provide the basic support to handle the second HDMI output
-port found on Rockchip RK3588 SoC.
+On 10/12/2024 09:22:51+0100, Arnd Bergmann wrote:
+> On Mon, Dec 9, 2024, at 18:17, Ciprian Marian Costea wrote:
+> > On 12/6/2024 2:41 PM, Arnd Bergmann wrote:
+> 
+> >> I think storing 'rtc_hz' as a u32 variable and adding a range
+> >> check when filling it would help, mainly to save the next reader
+> >> from having to understand what is going on.
+> >> 
+> >
+> > The confusion on my end is that I cannot see where 'div_u64() implicitly 
+> > casts the dividend 'hz' from 64-bit to 32-bit' by following the method's 
+> > implementation [1]
+> 
+> I mean passing a 64-bit variable into a function that takes a
+> 32-bit argument truncates the range.
+> 
+> > But I agree that 'rtc_hz' can be stored into a 32-bit variable with a 
+> > range check added when it is taken from the Linux clock API to avoid any
+> > unneeded abstractions.
+> 
+> ok
+> 
+> >> 
+> >> This is the same as just removing the error handling and
+> >> relying on unsigned integer overflow semantics.
+> >> 
+> >> The usual check we do in time_before()/time_after instead
+> >> checks if the elapsed time is less than half the available
+> >> range:
+> >> 
+> >> #define time_after(a,b)         \
+> >>          (typecheck(unsigned long, a) && \
+> >>           typecheck(unsigned long, b) && \
+> >>           ((long)((b) - (a)) < 0))
+> >> 
+> >
+> > Ok. Thanks for the suggestion. I will look into using 
+> > 'time_before()/time_after()' API instead of directly checking via 
+> > comparison operators.
+> 
+> To be clear: you can't directly use time_before() here because
+> that takes an 'unsigned long' argument, so you want the
+> same logic, but for u32 values. I have not found an existing
+> helper for that, but it's possible I missed it.
+> 
+> >> Who sets that alarm though? Are you relying on custom userspace
+> >> for this, or is that something that the kernel already does
+> >> that I'm missing?
+> >
+> > The test usage is via 'rtcwake' [2] userspace tool.
+> > I've detailed a bit the testing scenario in the cover letter for this 
+> > patchset [3]:
+> >
+> > "
+> > Following is an example of Suspend to RAM trigger on S32G2/S32G3 SoCs,
+> > using userspace tools such as rtcwake:
+> > # rtcwake -s 2 -m mem
+> > # rtcwake: assuming RTC uses UTC ...
+> > # rtcwake: wakeup from "mem" using /dev/rtc0 at Wed Feb  6 06:28:36 2036
+> 
+> Got it. I feel this also needs either some documentation in
+> the source code, or some infrastructure in the rtc layer if
+> this is a common problem in other drivers as well. If there
+> is a maximum time that the system can be suspended for without
+> a wakeup, why not just set an earlier wakeup in the kernel
+> when you have all the information for it?
+> 
+> Or maybe this should not actually be an 'rtc' driver at all?
+> In the old days, we used drivers like
+> arch/arm/mach-omap1/timer32k.c to register a handler
+> for read_persistent_clock64(), which completely bypasses
+> the RTC layer and provides both automatic wakeup and more
+> accurate accounting of sleep time. 
+> 
+> Another example was the tegra clocksource driver, which used
+> to use read_persistent_clock64() but changed to being
+> a CLOCK_SOURCE_SUSPEND_NONSTOP source in 95170f0708f2
+> ("clocksource/drivers/tegra: Rework for compensation of
+> suspend time"). The same seems true for timer-ti-32k.c and
+> timer-sprd.c.
+> 
+> Alexandre, Daniel, any recommendations here?
+>
 
-For now I enabled it on Radxa ROCK 5B only, the board I've been using to
-validate this.
+We have a few driver for timers that are not actual RTCs but need the
+common alarm and wakeup API so they can use alarmtimers for example.
+The limitation is not super common as RTCs will generally have the same
+range support for alarm as what they have for time and date.
 
-** IMPORTANT **
+However, I'm still super confused by how complex this driver is. There
+are only 3 interesting registers in this IP, one of those being read
+only...
 
-The series has a runtime dependency on "phy: phy-rockchip-samsung-hdptx:
-Don't use dt aliases to determine phy-id", a patch submitted recently by
-Heiko [1].  Without applying it, the functionality on both HDMI TX ports
-will break.
-
-Furthermore, please note this is subject to the same limitations as
-HDMI0 when it comes to the supported display modes.  The fixes provided
-via [2] are not applicable to HDMI1, hence I will handle it separately
-as soon as all dependencies are merged.
-
-Thanks,
-Cristian
-
-[1] https://lore.kernel.org/lkml/20241206103401.1780416-3-heiko@sntech.de/
-[2] https://lore.kernel.org/all/20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com/
-
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
-Changes in v2:
-- Override hdmi1 pinctrl-0 on rock-5b as it requires hdmim0_tx1_cec
-  instead of hdmim2_tx1_cec (fixes a pin conflict when enabling
-  CONFIG_SPI_ROCKCHIP_SFC)
-- Link to v1: https://lore.kernel.org/r/20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com
-
----
-Cristian Ciocaltea (4):
-      drm/rockchip: dw_hdmi_qp: Add support for RK3588 HDMI1 output
-      arm64: dts: rockchip: Add PHY node for HDMI1 TX port on RK3588
-      arm64: dts: rockchip: Add HDMI1 node on RK3588
-      arm64: dts: rockchip: Enable HDMI1 on rock-5b
-
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi  |  62 ++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts |  44 ++++++++-
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c  | 119 +++++++++++++++++++-----
- 3 files changed, 200 insertions(+), 25 deletions(-)
----
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-change-id: 20241207-rk3588-hdmi1-704cbb7cd75f
-
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
