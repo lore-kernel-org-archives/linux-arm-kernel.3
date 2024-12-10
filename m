@@ -4,102 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5AEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA716E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46aYL8Qujac4/4V9g8K6BMoI6Lwj7kmEE7LxrwnxQWE=; b=tmDGnL5vAJX0xtkmrTA541DItl
-	CFkrzkxQ1v+C68Ft2aa7qB2MyU70KZ+vsI27zZ3QLccdi+MFs1L03PctnZ86QnXZesHBXcpzLGVpL
-	3UHpgRVGEGY/zFrnt4c2p/4poxUiMoZJKbg7MULqrviqHgPfQtjhZ5t+Fz/ehPWyg8/VeyCJ6lKXJ
-	qmmBlpQ2vkPbpdHyXDZrT6xNU9wQ9w7iTZhxAHVSO1wrJd2GOHjbxnkQGg7Qg/GWwBd6YlRmUxAUx
-	SvP7IhUDm6qco/VMfnvD/xfiDrVCrdXxw1vTXZPdsga0lzE1d6bvRj3Pj0b43MUuVEVYSzcxTu+gG
-	+Rr8R6OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UNhtfmSoqk3uRMBLbhlytuiXOUrc3m7F5/pCnzIUpbg=; b=K4q/szyfvqGVx0AxDpbYouTeVW
+	8n6em62ahmN/GnQg+YYrsYPI6i2b1sOG5cFgy6/aIRNwLPgAa5IEZwR/KqZ3lk4KlZz0dKvuZyeAO
+	TsxOFrnaJs/dxLwIsVZIuPVs9FCb6oYAZykrb9AgYH6AYbD474B9sF7tTpAKoCDy5L7n+PuOIihVv
+	Cf+eaYddakYNXlMuEtiqI+YvVQpaKqOXprVRiDp1ORpfquSHVvMjx9skQdef5ZaAKdXnngDEW/KSa
+	ZwWOR3O8wx/UlPbus4Bmci2b/aMijgYfpuOZBSxc5gPqIBPLEztUCAv2CIkkzeOEbhH8kq6Gy/6b5
+	+aOzBj8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKz2C-0000000BO9O-2BpG;
-	Tue, 10 Dec 2024 12:08:12 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tKz3D-0000000BOJ2-1pJ6;
+	Tue, 10 Dec 2024 12:09:15 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKz0f-0000000BNrF-1KSU;
-	Tue, 10 Dec 2024 12:06:38 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-434f74e59c7so23979405e9.3;
-        Tue, 10 Dec 2024 04:06:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733832395; x=1734437195; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=46aYL8Qujac4/4V9g8K6BMoI6Lwj7kmEE7LxrwnxQWE=;
-        b=C+S2AlyDohevSrmSV8BeUdF74fiHG+dzHysMU/VJqmGBPVOd9ITL835qyglRETaVhq
-         5iboPKev0kQYX5DptQrUHSDphj/THJzLlWc7VRoFMQIv9a0LBZZwOELAAmDjBvBasuLl
-         qsWP62fx0p7rcKgWoC7AYrUfwNG74xHbsxccco+Z667hITcDcMyMftOv1nt+pSy3QxNB
-         cN4FuqouXjo2s98MFONlKtJbjl2DkhMoka/H4n9Pnb0ucD5evEZyJppbAM6cT2FRzU4A
-         YVPKM/OSHBwM6A7LAz0PEjhkE/W/x5jUKDLy5U8LEOtl8VnIPDrB3zrGWGgg5Xi2fk4A
-         KVdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733832395; x=1734437195;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=46aYL8Qujac4/4V9g8K6BMoI6Lwj7kmEE7LxrwnxQWE=;
-        b=ll4Hgjc9IJJCMlwxHRpSbvyIJBlgvIsmI+Nt6mX6BYMYPNUSzpqIfTrrwQDsDJna7b
-         uorWRK0JWE66/lbii9vNqch6PNodrhT4SsUlHTljMta/6jbi57zdEAneRprd86mJor6m
-         4NaEc1N7apkqbowN+MHEWPwUaM89IQcAsBQcOLqk9+dXv7ytCzqpvk90ZrTrFJlLLBJM
-         iE/63kAbsRkydsKNQ29hwr1OTYaKYEcVnnIjCe9+fypi1vN18BwowjN9rL3RaZ+un3yc
-         PTfwvMu7X2p6Np5W3SnqfLZF8+ryIxdwJlSI5+CSR3btZQ1GfRhv40X1hE17UJZJDE3H
-         rnAw==
-X-Forwarded-Encrypted: i=1; AJvYcCW9Uio/4QiOLFSxlxYEqFskT7D3msd+Ufv35/5XsjJQXduoEAPcg8OvDq72t9eAF4Orru/piKDHeVHk5HctHrgg@lists.infradead.org, AJvYcCXN7pjdWc5o08RCdeVmXZeVDBknlaLv7cqR9DEpTRtAXwQAq24yIl5IBVAn+EJsoZ/F5AweFvT3G1D//UEwguI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPSAdhgdhuy5rnODBIsWrRnx335/8yM0ddbaw0R5OQrM0L6WwP
-	kgJtCGI77nShoKKFEz/w84tfnRVfrdchEeqHryK/LlrwVDeqykXT
-X-Gm-Gg: ASbGncvQ9blaDvQ+2K7EpWyyVJGMz2Jb3PfGN+IBxpnawYVTTN+LX/nC+GonKsIRkPf
-	Ag01ubsSbwJEtHBQnuk0OWK0IzkTh077f9RMI6vzDVlne6luOfjQ9mtO6mnEZRJqa0sJ7ak99vm
-	QZvywz9TcsAoVoaXqF2ln41HId6uvEfk4lYw2MO0f5d20XX/YcQr64TK6FjfS0cQ4abktJU8HCp
-	gC53uU3Wkgf6Wl3E/hKrg94k8IftQWkgPkHAoFad69/nT4GY2Es8IE29JA2hjEIUMQ0j49lBFpK
-	VSiJEc8ing==
-X-Google-Smtp-Source: AGHT+IGpcC8Z7oXmbBOkKTQCK7YHx0j6xObP8W63hf6oMmuAzbltOfilbIotkhxBgXfUoy6iy3NP7Q==
-X-Received: by 2002:a05:600c:3b04:b0:434:a706:c0fb with SMTP id 5b1f17b1804b1-434fff3dcfbmr51803755e9.10.1733832395127;
-        Tue, 10 Dec 2024 04:06:35 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-386394dd379sm8026747f8f.24.2024.12.10.04.06.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 04:06:34 -0800 (PST)
-Message-ID: <67582eca.050a0220.3b9b85.2de4@mx.google.com>
-X-Google-Original-Message-ID: <Z1guxUhVSGLHUVUh@Ansuel-XPS.>
-Date: Tue, 10 Dec 2024 13:06:29 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v11 6/9] net: mdio: Add Airoha AN8855 Switch
- MDIO Passtrough
-References: <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-7-ansuelsmth@gmail.com>
- <5aec4a94-3cea-41a4-8500-71472fae51d4@lunn.ch>
+	id 1tKz24-0000000BO7X-0G3v
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 12:08:05 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20241210120757epoutp0218ac306cc83d12f6815e1fd1445163b5~Pz3PBH1di0318603186epoutp02K
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 12:07:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20241210120757epoutp0218ac306cc83d12f6815e1fd1445163b5~Pz3PBH1di0318603186epoutp02K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1733832477;
+	bh=UNhtfmSoqk3uRMBLbhlytuiXOUrc3m7F5/pCnzIUpbg=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=OxgXmU0MVnKFWVcieWorC6RhJ0tjrGuhS4Th+ttjilFU/vMVO64A3kh9NDoj6LUbP
+	 GJzhUVgf6/0mUUOptKrsAjHeh1Vxbf6yPwk0vh6Ww4IGLi1uM3ufQnc487psV1Vkqp
+	 uNVmN8MNTnW0r93xen3OY/kznHBd8G8HUSAHqbX8=
+Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20241210120757epcas5p2e893ed27fb4f5ffc88aa96c1a5359874~Pz3Okkq5u0595105951epcas5p2C;
+	Tue, 10 Dec 2024 12:07:57 +0000 (GMT)
+Received: from epsmges5p1new.samsung.com (unknown [182.195.38.177]) by
+	epsnrtp3.localdomain (Postfix) with ESMTP id 4Y6yDD0NT6z4x9Pt; Tue, 10 Dec
+	2024 12:07:56 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	95.35.20052.B1F28576; Tue, 10 Dec 2024 21:07:55 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20241210115917epcas5p3912e9f7bb6e797d93e69f86cd8d1babf~PzvqP84oY0995609956epcas5p3F;
+	Tue, 10 Dec 2024 11:59:17 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20241210115917epsmtrp2df26d7b110ff24eb78634bb1a18b6ff4~PzvqPDZi41861918619epsmtrp2L;
+	Tue, 10 Dec 2024 11:59:17 +0000 (GMT)
+X-AuditID: b6c32a49-3d20270000004e54-f3-67582f1bbf36
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	36.5C.18729.41D28576; Tue, 10 Dec 2024 20:59:16 +0900 (KST)
+Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20241210115915epsmtip103ecaa17a7dc8d127af390ed9619b3c5~PzvogUm9_0683806838epsmtip1R;
+	Tue, 10 Dec 2024 11:59:15 +0000 (GMT)
+From: "Faraz Ata" <faraz.ata@samsung.com>
+To: "'Tudor Ambarus'" <tudor.ambarus@linaro.org>,
+	<devicetree@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+	<krzk+dt@kernel.org>, <robh@kernel.org>
+Cc: <linux-arm-kernel@lists.infradead.org>, <alim.akhtar@samsung.com>,
+	<rosa.pila@samsung.com>, "'Peter Griffin'" <peter.griffin@linaro.org>,
+	=?UTF-8?Q?'Andr=C3=A9_Draszik'?= <andre.draszik@linaro.org>, "'William
+ McVicker'" <willmcvicker@google.com>, <kernel-team@android.com>
+In-Reply-To: <07a4942c-023f-495e-a4b0-e451c949ad80@linaro.org>
+Subject: RE: [PATCH] arm64: dts: exynosautov920: add DMA nodes
+Date: Tue, 10 Dec 2024 17:29:13 +0530
+Message-ID: <031001db4afa$f01614e0$d0423ea0$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5aec4a94-3cea-41a4-8500-71472fae51d4@lunn.ch>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFjpTq5mUG5UMRch2oPlNEF/ignPQHSFX3YAXFF3b2ztI8qcA==
+Content-Language: en-us
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrBJsWRmVeSWpSXmKPExsWy7bCmhq60fkS6wZ4zFhYP5m1js9jyajOL
+	xfwj51gtdmwXsXg56x6bxabH11gtZpzfx2SxYcY/Fov/e3awW3z5+YDZ4tOtOItVn/4zOvB4
+	bNu9jdVjwaZSj02rOtk87lzbw+axeUm9R9+WVYwenzfJBbBHZdtkpCampBYppOYl56dk5qXb
+	KnkHxzvHm5oZGOoaWlqYKynkJeam2iq5+AToumXmAF2ppFCWmFMKFApILC5W0rezKcovLUlV
+	yMgvLrFVSi1IySkwKdArTswtLs1L18tLLbEyNDAwMgUqTMjOmPSVvWC3QMW8W5eZGhjv8Hcx
+	cnJICJhI/Gr4wN7FyMUhJLCbUWLFhseMEM4nRonGT/uhnG+MElsOnmeHaXm+9CUbRGIvo8SJ
+	bfuhnJeMEjs39bKBVLEJaErc+fyUCcQWEVgAlPifA1LELDCLSeLR4+2sXYwcHJwCdhJ7/sWB
+	1AgDmXNafjOD2CwCqhKN226AbeMVsJQ48+kjG4QtKHFy5hMWEJtZQFti2cLXzBAXKUj8fLoM
+	bKSIgJPEmklWECXiEi+PHgH7TULgBIfEuwUfGCHqXSSu77nPBGELS7w6vgXqMymJz+/2skHY
+	PhKTj35jBJkpIZAhcWetCETYXmL1gjNgq5iBXly/Sx8iLCsx9dQ6Joi1fBK9v59ATeeV2DEP
+	xlaWOLlnDyuELSlx6PYL1gmMSrOQPDYLyWOzkHwwC2HbAkaWVYySqQXFuempxaYFhnmp5fDo
+	Ts7P3cQITsJanjsY7z74oHeIkYmD8RCjBAezkggvh3douhBvSmJlVWpRfnxRaU5q8SFGU2Bo
+	T2SWEk3OB+aBvJJ4QxNLAxMzMzMTS2MzQyVx3tetc1OEBNITS1KzU1MLUotg+pg4OKUamBrZ
+	C06HaXuEnPJIP1l9/PMvoXCryaG+erqmn4t8dr+75WKwp6h+3csdATNCBPgKOFfbCX073ndE
+	MfXOPnPOXQ0fLt1/tbc9x9DtVnjY2c2sPZy19rEn0zzy95Vl1zz58qVUNpvP+rXzpB2Z5yTP
+	scVU/349xaeH4f7zwuRnn1875h886Lpj+aPLl841uj71ShI48fliR4aiWvHujMmqDPsvl5nG
+	lzkr/9JyKvAVnhbwT63c/GLc1jShNy91IlkUJMJijm74ce589RGZ3eeb5hyrEdzEafUlYx7D
+	ltts84vn/LMU7/KtMtvzQTVs3YPjd84Ys9XtW3Hm6KbvAatmP7aq/fKZNfe02xaNyz+SeJVY
+	ijMSDbWYi4oTAVdRMm1LBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrEIsWRmVeSWpSXmKPExsWy7bCSnK6IbkS6weY/1hYP5m1js9jyajOL
+	xfwj51gtdmwXsXg56x6bxabH11gtZpzfx2SxYcY/Fov/e3awW3z5+YDZ4tOtOItVn/4zOvB4
+	bNu9jdVjwaZSj02rOtk87lzbw+axeUm9R9+WVYwenzfJBbBHcdmkpOZklqUW6dslcGVMabvA
+	XLCSp6L1+Q/GBsapXF2MnBwSAiYSz5e+ZOti5OIQEtjNKHH3xF9GiISkxOGnd1khbGGJlf+e
+	s0MUPWeU2Nu/iQ0kwSagKXHn81MmkISIwBJGiTmzpjCBJJgFFjBJzDxQBtGxl1Fi57Q3LF2M
+	HBycAnYSe/7FgdQIA5lzWn4zg9gsAqoSjdtusIPYvAKWEmc+fWSDsAUlTs58wgIxU1ui92Er
+	I4y9bOFrZojrFCR+Pl3GCjJeRMBJYs0kK4gScYmXR4+wT2AUnoVk0iwkk2YhmTQLScsCRpZV
+	jJKpBcW56bnFhgWGeanlesWJucWleel6yfm5mxjB0ailuYNx+6oPeocYmTgYDzFKcDArifBy
+	eIemC/GmJFZWpRblxxeV5qQWH2KU5mBREucVf9GbIiSQnliSmp2aWpBaBJNl4uCUamCSv7dZ
+	Yp2IAJ/4qr2Rza43r1SeKL63nc3yTf6m5mnSJrFz7+sGKZ41FeoOuxPwlUNtbt/Rbq1HCaZa
+	K628LW7+dFT5FRl9f82Fq82zJdJO7SyYpMPE2hj1fM1jd0ELAW0dc86IvaYSzc5xgcYxOZqn
+	fuz4KLtLYg3rjE8lGx4vzalYEvmO8ZHD9herHh191rDb/smNNV7lV7wEJh5pcubrc/Xj0+MU
+	fT+vQSRASM+vvtNkUtXb3atvGL/5uP/uTw2ZrQpzXtwsmemWUbv/gFoIW1bAqZdd7odLnm7s
+	/LJzZrT5gZ+TqxYKWtS/jpm7fLfx2lhdg7mfj7Lf0GBI8BYLUD8W+H6a8oaD58UWJFsqsRRn
+	JBpqMRcVJwIALprQCjUDAAA=
+X-CMS-MailID: 20241210115917epcas5p3912e9f7bb6e797d93e69f86cd8d1babf
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83
+References: <CGME20241204122402epcas5p2412733eb46d495fadfa30e5af3c5ce83@epcas5p2.samsung.com>
+	<20241204122335.1578-1-faraz.ata@samsung.com>
+	<07a4942c-023f-495e-a4b0-e451c949ad80@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_040637_354506_B988F94D 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20241210_040804_560697_6927AEB3 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,60 +143,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 02:53:34AM +0100, Andrew Lunn wrote:
-> > +static int an855_phy_restore_page(struct an8855_mfd_priv *priv,
-> > +				  int phy) __must_hold(&priv->bus->mdio_lock)
-> > +{
-> > +	/* Check PHY page only for addr shared with switch */
-> > +	if (phy != priv->switch_addr)
-> > +		return 0;
-> > +
-> > +	/* Don't restore page if it's not set to switch page */
-> > +	if (priv->current_page != FIELD_GET(AN8855_PHY_PAGE,
-> > +					    AN8855_PHY_PAGE_EXTENDED_4))
-> > +		return 0;
-> > +
-> > +	/* Restore page to 0, PHY might change page right after but that
-> > +	 * will be ignored as it won't be a switch page.
-> > +	 */
-> > +	return an8855_mii_set_page(priv, phy, AN8855_PHY_PAGE_STANDARD);
-> > +}
-> 
-> I don't really understand what is going on here. Maybe the commit
-> message needs expanding, or the function names changing.
-> 
-> Generally, i would expect a save/restore action. Save the current
-> page, swap to the PHY page, do the PHY access, and then restore to the
-> saved page.
->
+Hi Tudor
 
-Idea is to save on extra read/write on subsequent write on the same
-page.
-
-Idea here is that PHY will receive most of the read (for status
-poll) hence in 90% of the time page will be 0.
-
-And switch will receive read/write only on setup or fdb/vlan access on
-configuration so it will receive subsequent write on the same page.
-(page 4)
-
-PHY might also need to write on page 1 on setup but never on page 4 as
-that is reserved for switch.
-
-Making the read/swap/write/restore adds 2 additional operation that can
-really be skipped 90% of the time.
-
-Also curret_page cache is indirectly protected by the mdio lock.
-
-So in short this function makes sure PHY for port 0 is configured on the
-right page based on the prev page set.
-
-An alternative way might be assume PHY is always on page 0 and any
-switch operation save and restore the page.
-
-Hope it's clear now why this is needed. Is this ok or you prefer the
-alternative way? 
-
--- 
-	Ansuel
+> -----Original Message-----
+> From: Tudor Ambarus <tudor.ambarus=40linaro.org>
+> Sent: Monday, December 9, 2024 1:13 PM
+> To: Faraz Ata <faraz.ata=40samsung.com>; devicetree=40vger.kernel.org; li=
+nux-
+> samsung-soc=40vger.kernel.org; krzk+dt=40kernel.org; robh=40kernel.org
+> Cc: linux-arm-kernel=40lists.infradead.org; alim.akhtar=40samsung.com;
+> rosa.pila=40samsung.com; Peter Griffin <peter.griffin=40linaro.org>; Andr=
+=C3=A9=0D=0A>=20Draszik=20<andre.draszik=40linaro.org>;=20William=20McVicke=
+r=0D=0A>=20<willmcvicker=40google.com>;=20kernel-team=40android.com=0D=0A>=
+=20Subject:=20Re:=20=5BPATCH=5D=20arm64:=20dts:=20exynosautov920:=20add=20D=
+MA=20nodes=0D=0A>=20=0D=0A>=20=0D=0A>=20=0D=0A>=20On=2012/4/24=2012:23=20PM=
+,=20Faraz=20Ata=20wrote:=0D=0A>=20>=20ExynosAutov920=20SoC=20has=207=20DMA=
+=20controllers.=20Two=20secure=20DMAC=0D=0A>=20>=20(SPDMA0=20&=20SPDMA1)=20=
+and=20five=20non-secure=20DMAC=20(PDMA0=20to=20PDMA4).=0D=0A>=20>=20Adds=20=
+the=20required=20dt=20node=20for=20the=20same.=0D=0A>=20=0D=0A>=20typos:=20=
+s/adds/add,=20s/node/nodes=0D=0A>=20=0D=0AThanks=20for=20your=20review,=20w=
+ill=20correct=20in=20the=20v2=0D=0A=0D=0A>=20Hi,=20Faraz=21=0D=0A>=20=0D=0A=
+>=20Have=20you=20tested=20DMA=20on=20ExynosAutov920,=20did=20it=20work=20wi=
+th=20the=20upstream=0D=0A>=20driver=20code?=0D=0A>=20=0D=0AYes,=20I=20teste=
+d=20with=20dmatest=20for=20M2M=20for=20all=20channel,=20it=20is=20working=
+=20as=20expected=20with=20mainline=20PL330=20driver.=20=0D=0A=0D=0A>=20I=20=
+tried=20enabling=20it=20for=20GS101=20and=20I=20had=20some=20questions=20th=
+at=20I=20couldn't=20answer,=0D=0A>=20and=20I=20moved=20forward=20in=20the=
+=20meantime.=20Would=20you=20mind=20taking=20a=20look=20at:=0D=0A>=20=0D=0A=
+>=20https://lore.kernel.org/linux-arm-kernel/e4089855-aca9-4993-bac6-=0D=0A=
+>=20e59370cf7954=40linaro.org/=0D=0A>=20=0D=0AI=20am=20not=20sure=20about=
+=20GS101=20architecture,=20will=20try=20to=20reachout=20internally=20to=20p=
+eople=20who=20might=20be=20aware=20of=20this.=0D=0A=0D=0A>=20Thanks=20a=20t=
+on=21=0D=0A>=20ta=0D=0A=0D=0A
 
