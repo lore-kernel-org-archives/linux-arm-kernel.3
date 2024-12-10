@@ -4,118 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA853E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D3AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lh11GirIpc36ixloYI6B6okGKgksZrMkp+1sP3UkiYk=; b=NeYPH+1uRJpiUkST01VCwJBGEK
-	9mfs/N+solvcocc0TXOTDxYhGSvz0EsRccYD5kZr8eOXENu0aW4OjYx/8oIrAceSI35m5pYlXLW7M
-	3vlm3AivyZXbczXAruXfeuroDJIIUpmjG7Plrp1/x9AUvFSl5PbVyhEo1HiUJSUd/xeYv7g4ggxLE
-	jDtn3Qx46hsy7/u7zK0Ies6SXm8WYmq9t/7YBSFgi2Crpe+qK4wAMmdfLUrbS1bFlfvudHBITfkoW
-	uhSHSUOWpG10QSg/UUxuFkYy8A2m3H2AU5EAKJNWOupiP9qxGhSf/RNbpXwHm+W2r0FbRRDGCL3+e
-	3uN21FTA==;
+	bh=e8rvyg+nlfaC27AfpiFrEfyzoUuw2U8sHPYRBq7Z5Kg=; b=0vA7L+y4GztADPj4J+X0EWUD9h
+	bskKIf2cIgu5oUVUW82YVxJMN2VS/o2Th9YLtEpTLD37eSJDemvksvs/oycDaqkob4aQKsofJfZbY
+	ChpEVDkzJTFs7KAVpHrMUFU240YvFo5iXHYoDY1oK3kmorQWsLSNNukwv6uhVmHPBp+M7DRPhJzPw
+	m9cz70lopVHikvUJ/BRRqicdYC8c8TQz3zd4tQgN17Sh+cC1YS0rQDDxQOFg6qG2xyliLkK31M+xC
+	cIK5RW8Gw7WtxP2AKnHmyIo1EOetrW45+N6XiOhvTPM5XLu1DRB40S25qavm5Toq8pVJkJrRLm+CI
+	bWWkrGmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvY4-0000000Ah5u-30GG;
-	Tue, 10 Dec 2024 08:24:52 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1tKvbJ-0000000Ahm6-1gDk;
+	Tue, 10 Dec 2024 08:28:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvWz-0000000Agyk-43E5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 08:23:47 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 335A51140204;
-	Tue, 10 Dec 2024 03:23:44 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Tue, 10 Dec 2024 03:23:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1733819024;
-	 x=1733905424; bh=Lh11GirIpc36ixloYI6B6okGKgksZrMkp+1sP3UkiYk=; b=
-	QFGKfGD+A8rKAR13pKORswcxTw9SnwNxmAAZ4wC8SAifKGaTqHsotTz2is93+7aw
-	ADLblieYHx/utleucoO14oYvAncjzLEf5UUqPsJC/vfKqlrw6tC6bBIf9J0a6vej
-	Rtl4A7+wZQSbdKLCp3XGE+DFK1bwk4o536TFuRlJyeZ/WbrCTMG9oIrmh0Vwhfr4
-	hLeKzZWt6tiujPluiMJWTqguiQSfhrrCroHH/AhzSrvV6F4KJPN7TILdDsVxOHGd
-	Ij45K9mxCvFW3GE+zFnmWSgc5ztneYzJi0WWQQ1+VGhPxFvnVA7QPGIS7SiWluNH
-	u17YYD60Co1OWJ2psTnr5w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733819024; x=
-	1733905424; bh=Lh11GirIpc36ixloYI6B6okGKgksZrMkp+1sP3UkiYk=; b=f
-	Hah57zAk/ZZ4SxJPpjSWbq9T1cuqnAKG4SYp0aHu5EztfkT3HngOn0y/Qnlgfix9
-	FZ2aHMxxdnCq7X8nHU7ylq+DLyeW4HTmwHyZ+nuwfqWFv6ZiGAm+h8aMDbo7KoOB
-	mL9LAWxz7jC/W91uyrJc2nzoDDDfkHwXWEUlOU7g9Fy5wcTqS6XOhylTA0n5wNOb
-	zuUqyJKcztGdsd6zBrc6AeWMVGzI3W1usyiIUCQiTMos3jl1ecW/5ZE1NAvZqPl9
-	mqk733IIC04/yx9GWhb1EoLHvsoEuz2lTci34p4S4WU1zkL8vrebBywPyhJiZo5Q
-	lJRz2koPjGIU053aJ2+SA==
-X-ME-Sender: <xms:j_pXZ6PuD4arYOKoBscVLl4X0wkAvOAXttHkWDA3d8K6U4KyqYO5Ew>
-    <xme:j_pXZ48paQXknmb5gR4N4EfmlHosoTxGnNhk5E_q0Rc9XYPGyG7gFF3CTXwSwG3k_
-    hiCdDi7LXz7OX8BWsE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrjeejgdduvddtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddt
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrg
-    hssegrrhhmrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihes
-    sghoohhtlhhinhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    oheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdr
-    ohhrghdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtth
-    hopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdr
-    ohhrgh
-X-ME-Proxy: <xmx:j_pXZxSEURJ9ytKBAcBumtrHG4TM7RJcBtLu8MwDgiNFrDNxBiaJsg>
-    <xmx:j_pXZ6ugsmhZSPlyiKLeX0-IQ40r5tWpoiWTqgsiWI580ukWrcdnJQ>
-    <xmx:j_pXZyfPT7Rq8P5vA9Plx-ANsVDtpLtwkL_HduNlXSneQdX92GrLjA>
-    <xmx:j_pXZ-3Z8sSe1nsFK-ShJS1KGNxx8MPyk2ewgadZYxbBvDZoqiuSDQ>
-    <xmx:kPpXZ_CDy2tvt9Ylh2Gumxy5Lz5CEXqiTnTZKEPbzSW4ZZXnfBTvvx4I>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 58C1F2220072; Tue, 10 Dec 2024 03:23:43 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tKvaE-0000000AhbG-46ff;
+	Tue, 10 Dec 2024 08:27:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733819224;
+	bh=diwroXgDfFNnxf4klVn8zrbSRkjG62ZAQpvqL6XtdtE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IG0T+9XfaeyS+RmWBZiQT/og+j3HPF9nFz6CK4NPsOHhgFpI8wvAvqhLY2+AfcFnI
+	 XX3ruDPm/UTsUq9lRFNIrr0laPOLcOAGjFrrjPs3FUH6V1E9hqct5pmHaqcFYb8dkd
+	 6qV4wYMsn0UGuIaSffJVdGrrS7RkAD05iZfEZeAuycO7fFudr600psv6F8GSBFjKjk
+	 4oev1p2SP6tFhqSYtMW818wP6QFxPSdt73LQ7pXlzqyOAiimNfZVX+YUbX++aANZxg
+	 Yz1u6Upz3+nsCf0PG3yhvzHNL40Ij5bWmtoG4nsHgMl7lsvtgkIEk3T0bn5rTHkwsQ
+	 0T6RsQFSn/uHw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C026417E1323;
+	Tue, 10 Dec 2024 09:27:03 +0100 (CET)
+Message-ID: <35392d9d-56a3-4db8-b500-6272d0bd275c@collabora.com>
+Date: Tue, 10 Dec 2024 09:27:02 +0100
 MIME-Version: 1.0
-Date: Tue, 10 Dec 2024 09:22:51 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ciprian Costea" <ciprianmarian.costea@oss.nxp.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "NXP S32 Linux Team" <s32@nxp.com>, imx@lists.linux.dev,
- "Christophe Lizzi" <clizzi@redhat.com>, "Alberto Ruiz" <aruizrui@redhat.com>,
- "Enric Balletbo" <eballetb@redhat.com>,
- "Bogdan Hamciuc" <bogdan.hamciuc@nxp.com>,
- "Ghennadi Procopciuc" <Ghennadi.Procopciuc@nxp.com>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Thomas Gleixner" <tglx@linutronix.de>
-Message-Id: <fc50d8a7-cc59-42dd-aafd-7da49fadee45@app.fastmail.com>
-In-Reply-To: <42d39f8e-0b59-4185-af1f-f778522608d2@oss.nxp.com>
-References: <20241206070955.1503412-1-ciprianmarian.costea@oss.nxp.com>
- <20241206070955.1503412-3-ciprianmarian.costea@oss.nxp.com>
- <2005af5d-bdb7-4675-8f0e-82cb817801af@app.fastmail.com>
- <6f4a0be8-4def-4066-9b44-d43059b7a90d@oss.nxp.com>
- <94cba886-86cb-41f1-96ee-501623add7db@app.fastmail.com>
- <42d39f8e-0b59-4185-af1f-f778522608d2@oss.nxp.com>
-Subject: Re: [PATCH v6 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] arm64: dts: mediatek: mt8183-kukui-jacuzzi: Drop
+ pp3300_panel voltage settings
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+References: <20241030070224.1006331-1-wenst@chromium.org>
+ <20241030070224.1006331-2-wenst@chromium.org>
+ <CAGXv+5HVy41qee6kwVUeLV_DfA0=wk2X77kv81rBKAZDGE6mww@mail.gmail.com>
+ <bbaa0c8f-9702-4252-a674-e46fb51f0a2a@collabora.com>
+ <CAGXv+5GHP1M1rKwR8j+bN8GmpxWtpkfLTnvBdkg5wOvWanc-kw@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5GHP1M1rKwR8j+bN8GmpxWtpkfLTnvBdkg5wOvWanc-kw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_002346_785844_92C3F2A8 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20241210_002707_177265_12D7850B 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,87 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 9, 2024, at 18:17, Ciprian Marian Costea wrote:
-> On 12/6/2024 2:41 PM, Arnd Bergmann wrote:
+Il 04/11/24 14:47, Chen-Yu Tsai ha scritto:
+> On Mon, Nov 4, 2024 at 9:19 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 04/11/24 14:00, Chen-Yu Tsai ha scritto:
+>>> On Wed, Oct 30, 2024 at 3:02 PM Chen-Yu Tsai <wenst@chromium.org> wrote:
+>>>>
+>>>> The pp3300_panel fixed regulator is just a load switch. It does not have
+>>>> any regulating capabilities. Thus having voltage constraints on it is
+>>>> wrong.
+>>>>
+>>>> Remove the voltage constraints.
+>>>>
+>>>> Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+>>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>>
+>>> I see that the other three patches were merged and included in the pull
+>>> request, but not this one. Were there any concerns?
+>>>
+>>
+>> Sorry I forgot to actually provide an explanation for that - yes, I do have some
+>> comment about this one.
+>>
+>> Despite this being a load switch, it's still switching power from regulator A to
+>> target device X, so this is technically still providing 3.3V to device X.
+>>
+>> Think about how a "regular" full-fledged regulator works: you can (sometimes) set
+>> a voltage, and then you can ENABLE the VOUT for said regulator (/rail): this kind
+>> of "load switch" does exactly the same as the ENABLE switch for a full-fledged
+>> regulator.
+> 
+> But it does not provide regulation. One cannot "set" the voltage on a load
+> switch; one can only set it on its upstream supply, if that supply provides
+> regulation.
+> 
+> IIRC Mark said some years ago that if a regulator doesn't regulate the
+> voltage, then the voltage constraints should not be given. The constraints
+> are then derived from its upstream supply.
+> 
+> That's the guideline I've followed for all the regulator related changes
+> I've done over the years. Does that work for you?
+> 
 
->> I think storing 'rtc_hz' as a u32 variable and adding a range
->> check when filling it would help, mainly to save the next reader
->> from having to understand what is going on.
->> 
->
-> The confusion on my end is that I cannot see where 'div_u64() implicitly 
-> casts the dividend 'hz' from 64-bit to 32-bit' by following the method's 
-> implementation [1]
+Ok, let's go with that then.
 
-I mean passing a 64-bit variable into a function that takes a
-32-bit argument truncates the range.
+There's only one problem - patches 2 to 4 don't apply for whatever reason, is there
+any dependency?
 
-> But I agree that 'rtc_hz' can be stored into a 32-bit variable with a 
-> range check added when it is taken from the Linux clock API to avoid any
-> unneeded abstractions.
+Cheers,
+Angelo
 
-ok
+>> So, this is switching on and off a power rail that is derived from a source rail,
+>> practically creating... well, a "new" rail, with...
+>>
+>>    VIN=somewhere-3.3v,
+>>    VOUT=somewhere-still-3.3v
+>>
+>> Any objections/doubts/etc? :-)
+> 
+> I agree with most of it, except the part that I laid out above about the
+> load switch not providing regulation.
+> 
+>> P.S.: I'm writing fast, sorry if anything appears unclear, feel free to shoot more
+>>         questions in case :-)
+> 
+> No, it's pretty clear, and I believe one of the common interpretations
+> I see. Thank you for the quick response.
+> 
+> 
+> Thanks
+> ChenYu
+> 
+>> Cheers,
+>> Angelo
+>>
+>>>
+>>> ChenYu
+>>>
+>>>> ---
+>>>>    arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi | 2 --
+>>>>    1 file changed, 2 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+>>>> index 783c333107bc..7bbafe926558 100644
+>>>> --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+>>>> +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+>>>> @@ -35,8 +35,6 @@ pp1800_mipibrdg: pp1800-mipibrdg {
+>>>>           pp3300_panel: pp3300-panel {
+>>>>                   compatible = "regulator-fixed";
+>>>>                   regulator-name = "pp3300_panel";
+>>>> -               regulator-min-microvolt = <3300000>;
+>>>> -               regulator-max-microvolt = <3300000>;
+>>>>                   pinctrl-names = "default";
+>>>>                   pinctrl-0 = <&pp3300_panel_pins>;
+>>>>
+>>>> --
+>>>> 2.47.0.163.g1226f6d8fa-goog
+>>>>
+>>
 
->> 
->> This is the same as just removing the error handling and
->> relying on unsigned integer overflow semantics.
->> 
->> The usual check we do in time_before()/time_after instead
->> checks if the elapsed time is less than half the available
->> range:
->> 
->> #define time_after(a,b)         \
->>          (typecheck(unsigned long, a) && \
->>           typecheck(unsigned long, b) && \
->>           ((long)((b) - (a)) < 0))
->> 
->
-> Ok. Thanks for the suggestion. I will look into using 
-> 'time_before()/time_after()' API instead of directly checking via 
-> comparison operators.
 
-To be clear: you can't directly use time_before() here because
-that takes an 'unsigned long' argument, so you want the
-same logic, but for u32 values. I have not found an existing
-helper for that, but it's possible I missed it.
-
->> Who sets that alarm though? Are you relying on custom userspace
->> for this, or is that something that the kernel already does
->> that I'm missing?
->
-> The test usage is via 'rtcwake' [2] userspace tool.
-> I've detailed a bit the testing scenario in the cover letter for this 
-> patchset [3]:
->
-> "
-> Following is an example of Suspend to RAM trigger on S32G2/S32G3 SoCs,
-> using userspace tools such as rtcwake:
-> # rtcwake -s 2 -m mem
-> # rtcwake: assuming RTC uses UTC ...
-> # rtcwake: wakeup from "mem" using /dev/rtc0 at Wed Feb  6 06:28:36 2036
-
-Got it. I feel this also needs either some documentation in
-the source code, or some infrastructure in the rtc layer if
-this is a common problem in other drivers as well. If there
-is a maximum time that the system can be suspended for without
-a wakeup, why not just set an earlier wakeup in the kernel
-when you have all the information for it?
-
-Or maybe this should not actually be an 'rtc' driver at all?
-In the old days, we used drivers like
-arch/arm/mach-omap1/timer32k.c to register a handler
-for read_persistent_clock64(), which completely bypasses
-the RTC layer and provides both automatic wakeup and more
-accurate accounting of sleep time. 
-
-Another example was the tegra clocksource driver, which used
-to use read_persistent_clock64() but changed to being
-a CLOCK_SOURCE_SUSPEND_NONSTOP source in 95170f0708f2
-("clocksource/drivers/tegra: Rework for compensation of
-suspend time"). The same seems true for timer-ti-32k.c and
-timer-sprd.c.
-
-Alexandre, Daniel, any recommendations here?
-
-     Arnd
 
