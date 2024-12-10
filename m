@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FAFE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3CAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 10:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPh0yVGEQ9vWISI1i/TYH0JhPJ9KKecMDH0Xpu48hcc=; b=FLtBtTu2A1cKKR+++3UlSaHTax
-	qYwil5S3S7lnNprmj2EFI6i1XtIRaqY9BQhjiDOB29yhbZFrTV1gmBcEkt70eE9qFlx2GicMV5+z7
-	YAQ6CcNXgSqFIN15ULUJPS10+dRuOxXwU1/CEYayprBp/vCReWZsuO0KGcMt33yj9mj4TgIxXMWWk
-	Q0rQxSsS4xmXh9IMFfffhUvcNO+g0xjnNLqcoi4Xr8sgIdc6Eb45BDMcDyCpTZp/R6QBwpOj11kd0
-	Y86SBfZhYTEloBwFuv7au/WYZ8LnMgI9niT7Dt+9pwSq9UV8IS6+iVUVtjtybyMWXlxe1dlJP3cYr
-	+ylbFvfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0IIgAVDEROYOZ854gBlewqgUDJIXw12hHa8cvM2nTUQ=; b=ou4ahzQatq+l7d1hYzIamNEs1r
+	FCX5fX5bo71Wcxjl+237p5E2FuaiUtadcllXRxku2TizJEIuZBX+NquFFnvx5rCLyIgunuZM6RuIb
+	ViuENshSjtn36tIUy3uwMIQpil37j/B37lBR93ahxrMSRmFlybp3bq97TuLBS9pbzqClAwRJVERq4
+	8J7YrPlPixL9SuOxacijQ5V3SfA0In1eCqYgD6r/Ag3YCIKGi7/XKLL81ByYxYhpZSm40BvLhRXCj
+	coIas23mRWxxcNKWYxJrLHfPVDebzPWU1LeZG65uiNMErb1VjdqOowldv4I7BljvxM1HnaRGftKRA
+	EAzVCcmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKxCW-0000000B5Ap-2I7P;
-	Tue, 10 Dec 2024 10:10:44 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tKxDY-0000000B5NG-1YdA;
+	Tue, 10 Dec 2024 10:11:48 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwz8-0000000B2AX-14bh
+	id 1tKx3p-0000000B3aJ-2g2J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:56:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1733824614; x=1765360614;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=LPh0yVGEQ9vWISI1i/TYH0JhPJ9KKecMDH0Xpu48hcc=;
-  b=d5qLl4fct/OS4k4YJDNLws5KWIOA115eLzRWjwYPoP3OZWjvo5whHBL7
-   vjFOfZyV2EQnhap3FGmBgOCOvbMkmbbDmszaI3ekJBq8cO04jvn7RB/Uf
-   rFBgjJZu8E9hz/Wd6n0lm2VvVmGAMeRyyytcg0XbbkF0mB1cuYIupx/X6
-   8R7U6QR/XJiE+jcG2OK/GgoYsunztu8R7G349HwRhqJCcjFvQ3YYftxaF
-   zOGIG3mRa+7zsOoLkxNLIQJ3a35D/WuzJmvu+8jGKni8t3Jb9Aw59U9nT
-   A7Pqs8zFWqIk8jOix4DK91cQjvzQBE1ekzZ84k4lYuFsHR+qFMAN5ckQl
+	Tue, 10 Dec 2024 10:01:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733824905; x=1765360905;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=UxNGTFxLzH5h1Q1qNa96VXFgW2TmHFKNGLlWyoa7Vy4=;
+  b=ef+A9CNS93SPt0LAgn+i3M6HMiqqUKTb6Ph/Jns3LHSG4rNZ2Yc0LpQ9
+   lwafy0aI0U1V23rWt/SKcs2zH+hiCz2Iuq2Tsm57JlZ6PYMJyVOFFwPg/
+   fkMoz4sww9gjtYjRxhpJIHLycX/LJfU72he7nvZ6VZbyshM1VzbtI5Aik
+   xoaNyXdKzu3bIrqk3mnaWLBcfVxmIg8pzPlYbhHSYiOYBu9hN7ZaM+z2w
+   +JM1aQlRwIJh7MWLUOQcqcaLoYiUeSzBs/TeuSxYgBtjzJ8pI+hqAG/vW
+   Evw83Fg96/exkjZj2Og+RMRHQFc7ytRSHT1neHd9xzZd1MbjGB0S/fRKi
    A==;
-X-CSE-ConnectionGUID: L4jbIdFJRearAlIyQVVXcQ==
-X-CSE-MsgGUID: pmEQQ7tuSc27gjXA3zX56g==
-X-IronPort-AV: E=Sophos;i="6.12,222,1728943200"; 
-   d="scan'208";a="40507636"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 10 Dec 2024 10:56:50 +0100
-X-CheckPoint: {67581062-5-98002871-E6E29D66}
-X-MAIL-CPID: 3E6B7F7F1FE94745951728CD9D1DD495_3
-X-Control-Analysis: str=0001.0A682F1A.67581062.0054,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5BA3D167FF3;
-	Tue, 10 Dec 2024 10:56:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1733824605;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LPh0yVGEQ9vWISI1i/TYH0JhPJ9KKecMDH0Xpu48hcc=;
-	b=lLSEVIYs5+7Y+CXHWwxGjqyRow8kmqPCwwfsqJRbU0dGB3uPArrRjNJZIt8AQsDkjzL/s8
-	GKke8uKjGNfjS2wkeVbymV+A15exlcdlbbXcWEYCAxm4iQAV3x5DUbCZqllq3Y6WQtzpWe
-	ijW/PsTwD08MBNJc36SVETUAei4hL92vI2Wl/lfM9LJHE3CPe/8t1C9fQM/joAekRntcJG
-	zkKg4f26O8tuJ7dZHeLkJBhKbkjt38lr98UbV6CvVJbrxfP4L77DjDqe6tWjYe4qARu9ot
-	4+XqcHL6rmyYfckuo8ljhOet1+EiN43ItM5YUOXUWzWMrQyw/2q37MCyoyW8AA==
-Message-ID: <309052f3f69950fe43390505cc7254aee8c8f5c6.camel@ew.tq-group.com>
-Subject: Re: [PATCH v2 5/5] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Felipe Balbi <balbi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
- linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>, Hari
- Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Date: Tue, 10 Dec 2024 10:56:41 +0100
-In-Reply-To: <a2a2f201-73a4-4a99-baef-0d593a88c872@lunn.ch>
-References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
-	 <95ff66ca2c89f69d893c2ce9eed9a0c677633c7b.1733737487.git.matthias.schiffer@ew.tq-group.com>
-	 <a9c5cfda-e3e3-436a-8d05-b2f096157cfe@lunn.ch>
-	 <c902a56cf34838f60cee67624bb923e91d74e9e0.camel@ew.tq-group.com>
-	 <d25b1447-c28b-4998-b238-92672434dc28@lunn.ch>
-	 <e16076d16349e929af82fa987a658bff1d9804c4.camel@ew.tq-group.com>
-	 <a2a2f201-73a4-4a99-baef-0d593a88c872@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+X-CSE-ConnectionGUID: Qf9Fpx6BRw+PZTIH1ciBjw==
+X-CSE-MsgGUID: Us80xMELTWSKHDfYGwQt+w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11281"; a="33496478"
+X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
+   d="scan'208";a="33496478"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 02:01:44 -0800
+X-CSE-ConnectionGUID: B9ayLaQ6RNOVAX+XyLV+DA==
+X-CSE-MsgGUID: u18wOnXHTYOIuzqcp+PPJQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,222,1728975600"; 
+   d="scan'208";a="100399525"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 10 Dec 2024 02:01:42 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tKx3j-0005N7-2O;
+	Tue, 10 Dec 2024 10:01:39 +0000
+Date: Tue, 10 Dec 2024 18:00:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:pci/xgene-fixes-6.13 8/18]
+ drivers/iommu/amd/iommu.c:3810:3: error: field designator 'bus_token' does
+ not refer to any field in type 'const struct msi_parent_ops'
+Message-ID: <202412101701.Uu0dEEE7-lkp@intel.com>
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_015654_815074_D59F4888 
-X-CRM114-Status: GOOD (  35.48  )
+X-CRM114-CacheID: sfid-20241210_020145_692202_6906EEB5 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,129 +87,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2024-12-09 at 17:14 +0100, Andrew Lunn wrote:
->=20
-> > Not our board, but the AM62 SoC. From the datasheet:
-> >=20
-> > "TXC is delayed internally before being driven to the RGMII[x]_TXC pin.=
- This
-> > internal delay is always enabled." So enabling the TX delay on the PHY =
-side
-> > would result in a double delay.
->=20
-> phy-mode describes the board. If the board does not have extra long
-> clock lines, phy-mode should be rgmii-id.
->=20
-> The fact the MAC is doing something which no other MAC does should be
-> hidden away in the MAC driver, as much as possible.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git pci/xgene-fixes-6.13
+head:   32627e010975ae9817552c5e21d1860ce9c9bdfa
+commit: 3c9773aab9b801ba71766b264e859785309b13ba [8/18] iommu/amd: Convert to msi_create_parent_irq_domain() helper
+config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20241210/202412101701.Uu0dEEE7-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241210/202412101701.Uu0dEEE7-lkp@intel.com/reproduce)
 
-Isn't it kind of a philosophical question whether a delay added by the SoC
-integration is part of the MAC or not? One could also argue that the MAC IP=
- core
-is always the same, with some SoCs adding the delay and others not. (I don'=
-t
-know if there are actually SoCs with the same IP core that don't add a dela=
-y;
-I'm just not a big fan of hiding details in the driver that could easily be
-described by the Device Tree, thus making the driver more generic)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412101701.Uu0dEEE7-lkp@intel.com/
 
+All errors (new ones prefixed by >>):
 
->=20
-> The MAC driver should return -EINVAL with phy-mode rgmii, or
-> rmgii-rxid, because the MAC driver is physically incapable of being
-> used on a board which has extra long TX clock lines, which 'rmgii' or
-> rgmii-rxid would indicate.
->=20
-> Since the MAC driver is forcing the TX delay, it needs to take the
-> value returned from of_get_phy_mode() and mask out the TX bit before
-> passing it to the PHY.
-
-Hmm okay, this is what the similar ICSSG/PRUETH driver does. I've always fo=
-und
-that solution to be particularly confusing, but if that's how it's supposed=
- to
-work, I'll have to accept that.
-
-In my opinion the documentation Documentation/networking/phy.rst is not ver=
-y
-clear on this matter - the whole section "(RG)MII/electrical interface
-considerations" talks about whether the PHY inserts the delay or not, so my
-assumption was that phy-mode describes the PHY side of things and only that=
-.
-
-It gets even more confusing when taking into account
-Documentation/devicetree/bindings/net/ethernet-controller.yaml, which conta=
-ins
-comments like "RGMII with internal RX delay provided by the PHY, the MAC sh=
-ould
-not add an RX delay in this case", which sounds like there are only the cas=
-es
-"delay is added by the PHY" and "delay is added by the MAC" - the case "del=
-ay is
-part of the board design, neither MAC nor PHY add it" doesn't even appear.
-
->=20
-> Now, it could be that history has got in the way. There are boards out
-> there which have broken DT but work. Fixing the MAC driver to do the
-> correct thing will break those boards. Vendors with low quality code
-> which works, but not really.
->=20
-> ~/linux/arch/arm64/boot/dts/ti$ grep rgmii k3-am625-*
-> k3-am625-beagleplay.dts:	phy-mode =3D "rgmii-rxid";
-> k3-am625-sk.dts:	phy-mode =3D "rgmii-rxid";
->=20
-> Yep, these two have broken DT, they don't describe the board
-> correctly.
->=20
-> O.K. Can we fix this for you board? Yes, i think we can. If you take
-> rmgii-rxid, aka PHY_INTERFACE_MODE_RGMII_RXID, and mask out the TX,
-> you still get PHY_INTERFACE_MODE_RGMII_RXID. If you take rgmii-id,
-> a.k.a. PHY_INTERFACE_MODE_RGMII_ID and mask out the TX, you get
-> PHY_INTERFACE_MODE_RGMII_RXID, which is what you want.
->=20
-> Please produce a patch to the MAC driver, explaining the horrible mess
-> the vendor made, and how this fixes it, but should also not break
-> other boards.
-
-I can make this change, but "am65-cpsw-nuss" currently supports 6 different
-compatible strings, many of which are used for multiple SoC families.
-
-Maybe someone from TI could chime in and say whether all of these have the =
-fixed
-TXC delay, or at least the current compatible strings are already specific
-enough to tell whether the SoC adds a delay?
+   In file included from drivers/iommu/amd/iommu.c:12:
+   In file included from include/linux/pci.h:1644:
+   In file included from include/linux/dmapool.h:14:
+   In file included from include/linux/scatterlist.h:8:
+   In file included from include/linux/mm.h:2223:
+   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     505 |                            item];
+         |                            ~~~~
+   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     512 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     525 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/iommu/amd/iommu.c:3810:3: error: field designator 'bus_token' does not refer to any field in type 'const struct msi_parent_ops'
+    3810 |         .bus_token              = DOMAIN_BUS_AMDVI,
+         |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   4 warnings and 1 error generated.
 
 
->=20
-> > No such defaults exist in the DP83867 driver. If any rgmii-*id mode is =
-used, the
-> > corresponding delays *must* be specified in the DTB:
-> >=20
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers/net/phy/dp83867.c#n532
->=20
-> That is bad, different to pretty every other PHY driver :-(
->=20
-> If you want, you could patch this driver as well, make it default to
-> 2ns if delays are asked for.
+vim +3810 drivers/iommu/amd/iommu.c
 
-Makes sense, I'll write a patch for that as well.
+  3807	
+  3808	static const struct msi_parent_ops amdvi_msi_parent_ops = {
+  3809		.supported_flags	= X86_VECTOR_MSI_FLAGS_SUPPORTED | MSI_FLAG_MULTI_PCI_MSI,
+> 3810		.bus_token		= DOMAIN_BUS_AMDVI,
+  3811		.prefix			= "IR-",
+  3812		.init_dev_msi_info	= msi_parent_init_dev_msi_info,
+  3813	};
+  3814	
 
-Best regards,
-Matthias
-
-
->=20
->     Andrew
->=20
-> ---
-> pw-bot: cr
-
---=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-https://www.tq-group.com/
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
