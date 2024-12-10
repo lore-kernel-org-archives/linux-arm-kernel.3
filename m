@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B23E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C79FE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrU+gMarlKkRFflJ9DUPukPSCJaH9rK2BG9w/YU4poU=; b=YSIw8P1DxCyTPg+3U9cGhi/rWY
-	CAalVTJklCnRDT/exZbnlNSyJMWOlFU/El5/OW26e84xee3hsd9jxhADiqmyXQsaqernlOzRhV+GD
-	AxEleP1D3VvqxmdLDrp1oXW4hDEJCWa+gAAZb4EZ8EM6ttXjbSkeMYT/+BkhFhhoF9PVAMbAMmVqC
-	jSRz7IqRiqIM6HZEo1d348w3dZo0fciQXrny+zdduuDBb4FHuAw6SnQfYt9j8cI+q/lTe1ChCa5M8
-	GEaiFacWkZ27HifG0qV3aUTDM6IDsvHtFJCi3wQj4Zcga3COQaYnnVJ/dfNYnj/y1Wn3zXU489e6z
-	zTX1Pvpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RbcVIH55l9rhghnmcM/KqdJss7FGrWsiTGYOLOJF8no=; b=HI8paEn95Orwrf6JqTW4mH08J/
+	ls52ySKQ7HCNU2N1Hg2E7tk/y6TQekAAFuKxvJEPsvhCi1Q98d5EQ8HPjmfWmCZq6aeJlpahX7PI/
+	pcRU0FaHKotaujWnLj9QDqOyVfTUBUO35ueZWNMHViPzN87ZqsmM8728OKFHNjBZdYjS9eaUIR+L+
+	lZXnaV+IIK9JN7FxaqMRfv1vU5NAzoBl1Cv7uWf6wB/jRU4hkfhRxcEN5F1kUPQqmCPv9kQEeIL50
+	htCO/wqgsZkzmlvA4YUnwQGoCP+PAf59cU+Xcxdg3KiJGE1OdqHYOisy3UQAlo1rXeq26CF95gaT3
+	qfcMhT+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL3EU-0000000C7Ph-1JNr;
-	Tue, 10 Dec 2024 16:37:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL3DR-0000000C7Hi-33HI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 16:36:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4A18497;
-	Tue, 10 Dec 2024 08:36:32 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD03F3F5A1;
-	Tue, 10 Dec 2024 08:36:03 -0800 (PST)
-Date: Tue, 10 Dec 2024 16:35:57 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] arm64/signal: Silence spurious sparse warning storing
- GCSPR_EL0
-Message-ID: <Z1ht7X2LRw34pMJK@J2N7QTR9R3>
-References: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
- <Z1hU0Ii-Sm9NHnhj@J2N7QTR9R3>
- <20c12aac-193e-43ae-9418-39db1af4ede9@sirena.org.uk>
+	id 1tL3FV-0000000C7dE-3n1U;
+	Tue, 10 Dec 2024 16:38:13 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tL3Dh-0000000C7KM-3MDZ;
+	Tue, 10 Dec 2024 16:36:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733848577;
+	bh=7PWSSRiIWGZLnnL3Lzp634to7qJspcp+JF2rxRh0SOA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BjH9XQUnUbN+GmW1KUFXFFBcOaFN/Cm/xd6KanNCfmLwRC6/xNerGVsDOz3m3xWU5
+	 eTrd7X5LKcdhl6YekxmApK6ICnKhiFzNXnymH8vcgCwAwSKRAmAAP440IxOkC/xxzM
+	 sMqWoxzKOWXvxFrOTGtY6Dc+9G2AmXSV6WSVoP4aZP3AJGATZX78eHZIezpJMtyi9l
+	 eQ7W3vCphNMkDf78JU6auJJwhdOJyGUlhq6jWwYZ+HSxjfiSghMzeh6ez3nj9ouKcy
+	 YWC1zDlt7uVm4UfeL3BvEv/sFi8mq4lAFNO8eVWnrNgUOL1WDfxeRHlr/sXpZqZ66t
+	 myCmxrYeoRuvQ==
+Received: from jupiter.universe (dyndsl-091-248-190-127.ewe-ip-backbone.de [91.248.190.127])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9DCAC17E37AD;
+	Tue, 10 Dec 2024 17:36:17 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 2FF0A48CC8A; Tue, 10 Dec 2024 17:36:17 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	kernel@collabora.com
+Subject: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
+Date: Tue, 10 Dec 2024 17:36:01 +0100
+Message-ID: <20241210163615.120594-1-sebastian.reichel@collabora.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20c12aac-193e-43ae-9418-39db1af4ede9@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_083605_851513_E85B7AC9 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20241210_083621_987874_5D603EB6 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,103 +80,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 03:44:29PM +0000, Mark Brown wrote:
-> On Tue, Dec 10, 2024 at 02:48:48PM +0000, Mark Rutland wrote:
-> > On Tue, Dec 10, 2024 at 12:42:53AM +0000, Mark Brown wrote:
-> > > We are seeing a false postive sparse warning in gcs_restore_signal()
-> > > 
-> > > arch/arm64/kernel/signal.c:1054:9: sparse: sparse: cast removes address space '__user' of expression
-> 
-> > This isn't a false positive; this is a cross-address space cast that
-> > sparse is accurately warning about. That might be *benign*, but the tool
-> > is doing exactly what it is supposed to.
-> 
-> The spuriousness is arguable, from my point of view it's spurious in
-> that we don't have the type of the system register we're writing to.
+Add hardware description for the USB-C port in the Radxa Rock 5 Model B.
+This describes the OHCI, EHCI and XHCI USB parts, but not yet the
+DisplayPort AltMode (bindings are not yet upstream).
 
-All that I'm asking for here is a trivial rewording; make the title say
-something like:
+The fusb302 node is marked with status "fail", since the board is usually
+powered through the USB-C port. Handling of errors can result in hard
+resets, which removed the bus power for some time resulting in a board
+reset.
 
-  arm64/signal: Avoid sparse warning when manipulating GCSPR_EL0
+The main problem is that devices are supposed to interact with the
+power-supply within 5 seconds after the plug event according to the
+USB PD specification. This is more or less impossible to achieve when
+the kernel is the first software communicating with the power-supply.
 
-... and in the commit message, say something like:
+Recent U-Boot (v2025.01) will start doing USB-PD communication, which
+solves this issue. Upstream U-Boot doing USB-PD communication will also
+set the fusb302 node status to "okay". That way booting a kernel with
+the updated DT on an old U-Boot avoids a reset loop.
 
-  Sparse complains about the manipulation of the GCSPR_EL0 value in
-  gcs_restore_signal(), because we cast to/from the __user address space
-  without a __force cast. Silence this warning by ${DOING_THING}.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      | 121 ++++++++++++++++++
+ 1 file changed, 121 insertions(+)
 
-... which clearly explains what's actually going wrong, rather than
-making spurious complaints about the tool that may mislead a reader of
-the commit message.
-
-> > > +	write_sysreg_s((unsigned long)(gcspr_el0 + 1), SYS_GCSPR_EL0);
-> 
-> > Only one line here wants a __user pointer, so wouldn't it be simpler to
-> > pass 'gcspr_el0' as an integer type, and cast it at the point it's used
-> > as an actual pointer, rather than the other way around?
-> 
-> > Then you could also simplify gcs_restore_signal(), etc.
-> 
-> I find it both safer and clearer to keep values which are userspace
-> pointers as userspace pointers rather than working with them as
-> integers, using integers just sets off alarm bells.  
-
-Having casts strewn throughout the code sets off more alarm bells for
-me.
-
-> > Similarly in map_shadow_stack(), it'd be simpler to treat cap_ptr as an
-> > integer type.
-> 
-> With map_shadow_stack() it's a bit of an issue with letting users
-> specify a size but yeah, we could do better there.
-
-I don't follow. The only place where size interacts with cap_ptr is when
-we initialize cap_ptr, and there we're adding size to an integer type:
-
-	cap_ptr = (unsigned long __user *)(addr + size -
-					   (cap_offset * sizeof(unsigned long)));
-
-I was suggesting something along the lines of the diff below.
-
-Mark.
-
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 5c46ec527b1cd..096add5f2ddb2 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -71,10 +71,7 @@ unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
- SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsigned int, flags)
- {
-        unsigned long alloc_size;
--       unsigned long __user *cap_ptr;
--       unsigned long cap_val;
-        int ret = 0;
--       int cap_offset;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index d597112f1d5b..cb5990df6ccb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -5,6 +5,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
++#include <dt-bindings/usb/pd.h>
+ #include "rk3588.dtsi"
  
-        if (!system_supports_gcs())
-                return -EOPNOTSUPP;
-@@ -106,17 +103,16 @@ SYSCALL_DEFINE3(map_shadow_stack, unsigned long, addr, unsigned long, size, unsi
-         * can be switched to.
-         */
-        if (flags & SHADOW_STACK_SET_TOKEN) {
-+               unsigned long cap_addr = addr + size - sizeof(unsigned long);
-+               unsigned long cap_val;
+ / {
+@@ -84,6 +85,15 @@ rfkill-bt {
+ 		shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
+ 	};
+ 
++	vcc12v_dcin: regulator-vcc12v-dcin {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc12v_dcin";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <12000000>;
++		regulator-max-microvolt = <12000000>;
++	};
 +
-                /* Leave an extra empty frame as a top of stack marker? */
-                if (flags & SHADOW_STACK_SET_MARKER)
--                       cap_offset = 2;
--               else
--                       cap_offset = 1;
-+                       cap_addr -= sizeof(unsigned long)
+ 	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -142,6 +152,7 @@ vcc5v0_sys: regulator-vcc5v0-sys {
+ 		regulator-boot-on;
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc12v_dcin>;
+ 	};
  
--               cap_ptr = (unsigned long __user *)(addr + size -
--                                                  (cap_offset * sizeof(unsigned long)));
--               cap_val = GCS_CAP(cap_ptr);
-+               cap_val = GCS_CAP(cap_addr);
+ 	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
+@@ -264,6 +275,67 @@ regulator-state-mem {
+ 	};
+ };
  
--               put_user_gcs(cap_val, cap_ptr, &ret);
-+               put_user_gcs(cap_val, (unsigned long __user *)cap_addr, &ret);
-                if (ret != 0) {
-                        vm_munmap(addr, size);
-                        return -EFAULT;
++&i2c4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c4m1_xfer>;
++	status = "okay";
++
++	usbc0: usb-typec@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usbc0_int>;
++		vbus-supply = <&vcc12v_dcin>;
++		/*
++		 * When the board is starting to send power-delivery messages
++		 * too late (5 seconds according to the specification), the
++		 * power-supply reacts with a hard-reset. That removes the
++		 * power from VBUS for some time, which resets te whole board.
++		 */
++		status = "fail";
++
++		usb_con: connector {
++			compatible = "usb-c-connector";
++			label = "USB-C";
++			data-role = "dual";
++			power-role = "sink";
++			try-power-role = "sink";
++			op-sink-microwatt = <1000000>;
++			sink-pdos =
++				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
++				<PDO_VAR(5000, 20000, 5000)>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++					usbc0_role_sw: endpoint {
++						remote-endpoint = <&dwc3_0_role_switch>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++					usbc0_orien_sw: endpoint {
++						remote-endpoint = <&usbdp_phy0_orientation_switch>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++					dp_altmode_mux: endpoint {
++						remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
++					};
++				};
++			};
++		};
++	};
++};
++
+ &i2c6 {
+ 	status = "okay";
+ 
+@@ -423,6 +495,10 @@ usb {
+ 		vcc5v0_host_en: vcc5v0-host-en {
+ 			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
++
++		usbc0_int: usbc0-int {
++			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
+ 	};
+ };
+ 
+@@ -835,6 +911,14 @@ &uart2 {
+ 	status = "okay";
+ };
+ 
++&u2phy0 {
++	status = "okay";
++};
++
++&u2phy0_otg {
++	status = "okay";
++};
++
+ &u2phy1 {
+ 	status = "okay";
+ };
+@@ -866,6 +950,29 @@ &usbdp_phy1 {
+ 	status = "okay";
+ };
+ 
++&usbdp_phy0 {
++	mode-switch;
++	orientation-switch;
++	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
++	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usbdp_phy0_orientation_switch: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&usbc0_orien_sw>;
++		};
++
++		usbdp_phy0_dp_altmode_mux: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&dp_altmode_mux>;
++		};
++	};
++};
++
+ &usb_host0_ehci {
+ 	status = "okay";
+ };
+@@ -874,6 +981,20 @@ &usb_host0_ohci {
+ 	status = "okay";
+ };
+ 
++&usb_host0_xhci {
++	usb-role-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		dwc3_0_role_switch: endpoint {
++			remote-endpoint = <&usbc0_role_sw>;
++		};
++	};
++};
++
+ &usb_host1_ehci {
+ 	status = "okay";
+ };
+-- 
+2.45.2
+
 
