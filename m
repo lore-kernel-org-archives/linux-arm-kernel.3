@@ -4,169 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75BB0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240FAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 16:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEwW8lOtXiS7iADVCJvq/FumlKQgikPyknfwN4og1xo=; b=snrWdbGC2HQlS7Hc9RbWhu2c0h
-	58ESnoN0QtBBZi8+srfO1QVjabvVvbyKEUzsLpoK9vO6PTPi0eTu82A5CaOerikxuQJDX0ggJwj5y
-	bK9CjpLnWm+aZYzlwnU4Xx0GN4gaGTwA5ZTwcYez3jFw6Ru1x3fu+08q5xIqfTUi32ChtQNjJjQWA
-	J9tEYt3gVQlrT2t0b5YElwAYAFj3dPpP8ocx+ox5he8+hHj7fzCmSqfhTdu8BSG6Md1UnVEvMCGX0
-	fWxNu0vkoGap6DqAsVJ7jOSmw6kx0lTlh92xyviIs8KAAWbmKd8xi61pC5z8PAN8OFb3EMXqwNU6D
-	oqBOjf5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PyFDOAJVNrvBIfRJIJW+BVdBfeFkP4zy0JFDJEjFdMQ=; b=Xx+VydbZb/e+WNdqbC/UtUAvmw
+	NeJqXoPhTIpBTLq+Yui60uXgBq6Ib6o1ahrWk0wwB5OpaYcMpRmC8AHTFE0zvcrjdKuPF6Nk0CJMh
+	uE+Kbp52GSGnDItfovmEqS8RkuIisjJmKdESZHQKcTKAnbMkOeG0qPmwl7ewwPazzXoM/NZ5AgmVX
+	9BS9AOH4O9/KSEG+Z1Jur5q8sIEGQO8nZF74IRUeTWTj51xg39RczvneS6ngUTDIPT3dZp18VU75X
+	Xf5o41EJ0oWIVdZQgeyViJKNdMFLnbw5cUNFLXU2vjRvLOx60FFKPq8/JuYndhhv2S1M9wQY8AXOi
+	Ejlmjgpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2fG-0000000C17F-1mi2;
-	Tue, 10 Dec 2024 16:00:46 +0000
-Received: from mail-am6eur05on2072e.outbound.protection.outlook.com ([2a01:111:f403:2612::72e] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tL2lK-0000000C20Y-3Xbm;
+	Tue, 10 Dec 2024 16:07:02 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL2e6-0000000C0q0-2Hvm
+	id 1tL2kG-0000000C1jj-40Tn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 15:59:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=In06InbvmEoSFWnyiXBXx0ey24HnOmy+wslmNfBUCqR2cTXWWXzw0aO2U7SXAeB7jxmOjiWmM9Xysy7UXrovD+iizg7K51pa1jz6mWaDy5/RVU2HHWIvasLUtaQ2xNP45xLDk+/KF7iTihI1FBGRozNCJu5uaAGsEWtiz2aOtAwc234whFL6D0CVrSUrFonD42kAf6izdSQBbWCtbOEP7MJRgOCKKwcSfkH7ZThy8WJrHXsxz7aLxNgAai1QyCpbPkHD5JipK8ZbbJYHlWYLqdxMPNJIRwvIe5urIj5tpD+RXvKZUq8OryuJM6GI+Wyj1rMuo9+DDJXcM3SGoljtaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NEwW8lOtXiS7iADVCJvq/FumlKQgikPyknfwN4og1xo=;
- b=INe0ex4tWVAbb1cNfr3OIIVIpadZEfDBspC5+MJ3EO+q3rMfagv/Pqq5xfon/Tmtk786F3uwrek+2vNtRWVp6A35/0BNemjHTxW5vYAGjQtS+EMmcC51P2CtltJ7+zMjKmXuhILJafPoo/lh4UnuVg5UC/tguME7WOkvaokODn2cSo7sq4lCxnmJ7A+iz8Ox1NKQDbDnZRqGZ9pUj16wCddv6zaMt46mWRMQncUnn3cErttVNaGnV40PVJHca5abLO61k9gzyMVldtbC5DxZWP0DNw9Ip9IyKu55XbsUSJw48ey/uEO5Jq5rvRD4A4oycLV/fmWsvWK5I3rdiRpyJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mysnt.onmicrosoft.com;
- s=selector2-mysnt-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NEwW8lOtXiS7iADVCJvq/FumlKQgikPyknfwN4og1xo=;
- b=fp20a2RKyBfp2nDol8z1P18y0gIF61Zg2bUzFDCA0aBWN+nQ1QdogQIipyrYXbEc5+xqOC8pade8ADuF5daolMUanBaDhhmdnUvturhaCsilyUn9WE97WsrGZFkxTBCx+sBoAKGeFmePRdpu+HHHH2lFwRC/OzMkrVin9MK5UPc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10)
- by GVXPR10MB5886.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:7::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.14; Tue, 10 Dec
- 2024 15:59:07 +0000
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19]) by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19%5]) with mapi id 15.20.8251.008; Tue, 10 Dec 2024
- 15:59:07 +0000
-Message-ID: <b5456480-a68f-4e71-831b-f145453e2646@kontron.de>
-Date: Tue, 10 Dec 2024 16:59:06 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/11] Revert "regulator: pca9450: Add sd-vsel GPIO"
-To: Conor Dooley <conor@kernel.org>, Frieder Schrempf <frieder@fris.de>
-Cc: linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@denx.de>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Liam Girdwood
- <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Robin Gong <yibin.gong@nxp.com>, Joy Zou <joy.zou@nxp.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20241127164337.613915-1-frieder@fris.de>
- <20241127164337.613915-2-frieder@fris.de>
- <20241128-candle-guzzler-b7ea4e5ce643@spud>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20241128-candle-guzzler-b7ea4e5ce643@spud>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0084.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cd::6) To PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:263::10)
+	Tue, 10 Dec 2024 16:05:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1733846731;
+ bh=PyFDOAJVNrvBIfRJIJW+BVdBfeFkP4zy0JFDJEjFdMQ=;
+ b=Bi8vYp15V5c6DrK4kJEoLAlz6GFQchHBV0HK1B6WT1UufcqheYHZKJ8Wmrpwo+xy2ljBDeDPI
+ NUOxblhdG2BHD+f8ZOGeIU7+9YBcPu2EfX3X9rB4Jn6Cxm/C4w1dbJ3+mTp6rPQtFXQWv1kTlYl
+ dKelZbYFAiPAQFRFYfvhl5grfExg3y/L5ZnHwt/bwb5jzQQhY2szBBX2PETvs1yzSLSyRWQ8E4/
+ CbWzA8G6SEJ9DdhOymW2GMOWYakEjlJz4eT4oQlVG/Sv6T6D8RzVinPszojapGiZcF3eKVpb3Wp
+ LPJZVy31yxaSILrpzMYFL2EP7y9h1c4s/4jJ8cRaUAHA==
+Message-ID: <f16b3688-91e1-4760-ac2b-ce53db98ed68@kwiboo.se>
+Date: Tue, 10 Dec 2024 17:05:22 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR10MB5681:EE_|GVXPR10MB5886:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44ade5b6-c553-45fa-0620-08dd19339401
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MGJ2d25TaHA2V2haSS8yUnRqYTFQVG84ejk0NXJmYTJYSXlqV1ljYTBqU05j?=
- =?utf-8?B?VVhacVcyYXoxcXFzd1piMU5QZWg4LzZLcXNEbzV3K0ErQkZ5V0FjdVJqaWY5?=
- =?utf-8?B?N2c1V0RTeXFYSkVRVG9XbS83OVljK1ozTmtueFlldW13d1U4Y3dvaGRNUVFF?=
- =?utf-8?B?N3hna0c1WHM0ZElOdUFSSXdRbmtZT2M5T2RCbTF0M3ExM29Yb3I0d2ZMNjF5?=
- =?utf-8?B?b2Q2citRMnZMOWs5N2ZKWThncUFYZW93SlhOSEtyc0NrbHBpTDRzMGNycFFP?=
- =?utf-8?B?Uk5YZDBPTnZja2h2RjNIWnU1NmJwV0xGUENYemkrTlhJS3A3YklWOFBrYTBO?=
- =?utf-8?B?V0VPMFB5azN2bG8zMVM5VGdGSVFsMUkvN2YxUzY5K2hMSW9xc0UwL0dId1g3?=
- =?utf-8?B?UVdpOFpBYzdNSGRyQTc4aVlVN1NFY3FFOHJLNkNiZC9kQmNCQjNsZlBtRm05?=
- =?utf-8?B?aXQ3eUt6bkV6RXFDbWoydGE4dnFvZjJLRGVIaTlDb0VJbGJyQm1Ca1o3MkZv?=
- =?utf-8?B?bEFwek5KaDhFZHJ1MkJHNERQditpdGloQlkwYld6TkNTVVo1c2Q0djZPenJF?=
- =?utf-8?B?ZXhRVkJDZWlGc0Y3UVNYZkJtRUFMOU96dUJYVGRjY3BUTG4rRUFYUmVjQmor?=
- =?utf-8?B?RUtqREFiazluL0NsSStVS05EWkZLcUpqZGVVeXk1YkFVaXJ1ZkdUZ1lpUUh1?=
- =?utf-8?B?Z3ZRajd3UHRkM0xDZmcvVTlNalQ2Y0I0TmtBRFVJTlc3YkE3N0pPRkhDNVc3?=
- =?utf-8?B?d0U0dE1ZbldOU3JxWEg5N3JBcHpQRUNqL2dvY0E5Tm0vQjVnYnhab085VzJU?=
- =?utf-8?B?YlB1ejJrenRYYS9iUWJ1Z2hjZmhBMHBORHREN2JlOEg1T1YvUjA1ZnBtUDda?=
- =?utf-8?B?bGdxTDh1WlB3aUhvN3FXM1dPTkMyVEgvRXJIaTBHa2FDKzE5L0dHb3hRZUYy?=
- =?utf-8?B?Q1JJSkhnaHRnUHdiQ05CRytCL3ppNi9xYW5Yc3N2SzVLV203V2RDTWVDYW5t?=
- =?utf-8?B?NndNS3pLU3FuSnBTMG9kdTR1L0hqYzhPU1dOQXhEL2g0NWg2MmtqVTNVSTMv?=
- =?utf-8?B?VWg5WVBXVmRUMFlzd0JwODZ1Z1pmQ2lZK1RxVWNLL01mbDU3Y0V0RHQvU2ZH?=
- =?utf-8?B?WFhSUnQyQ2JMWTU1YVR3Vk1ZeFMveS95UC9KVzMzck8yeUVhZGcwa3M3YnJv?=
- =?utf-8?B?RXNJNlU1NCtBcTk1Z1BNb3BEd0J2MGxweWJzRUZKeVh0b0psWUpkdUZCQXI0?=
- =?utf-8?B?ZzFjcUM2MFp1NDVIaUpmWWpoYzZRNXNZY2o4RGs1SmxwRlV2MlR3c2hKdWs2?=
- =?utf-8?B?cExTMEpCVTRsMlNId3lOdXRpbzg2YWJpZmdWa3BMVHh1eU1RN0ZHQjZQN1ZB?=
- =?utf-8?B?YTlSampvWW1YOVQxcnFhZ0VFYXVBb1NlbUp4RDRmMTVKZ3VVR0dYbXRJSlI0?=
- =?utf-8?B?cDBheTJFeklOeDdVMHZuWGtpQVlYTy9TS1JEMDk0RjkvWEVNbmpBVDZwZ1Jz?=
- =?utf-8?B?b2FSb0FiZXB2dXg2YkQyZWZ5VHZjRElXT2lxaE5scXlsTFd5YXhkYW9QaXRF?=
- =?utf-8?B?Z1hiVk8vNnBSU2xvZ1hFcGZFbURXNDJpZndIbnozekpQTGNraEJpRE9qQkMw?=
- =?utf-8?B?R3BKSTlHbnRMUDlkeGxDVUI0NFFxbXZnOVNLVllEMXRtblRJQ28wbkxvdlpV?=
- =?utf-8?B?MWU3SHdpS1hQdlRWcE9HZFFMRDlvdFFXcjJWSTBFWHQ4d01idFkrMHNWT3kr?=
- =?utf-8?B?L3FhSHJtWEdBYXk0VjMxTVpOVXJqL0IzZXlMMEpSUjNNaTUxNnk2ZEtaWWQ1?=
- =?utf-8?B?ZGxCbFFyYkd1OTdXTU9Cdz09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VldTZ2ZORWxjbWErQ0pZWmExQS94YkdscldZQ2toMVRyMFF5L3FRM2E3OW1a?=
- =?utf-8?B?UTR1Zk9NQTJEV2hiWXUwZEhGVXJjeEY1b3VqNW5JOHFUY3ZGVmVsRjZISEpv?=
- =?utf-8?B?eXlJTitkbnUwL2pEU2hEZnpWZS95MURjSmlRUkVnRW1TZDF5SGppd05aOGpm?=
- =?utf-8?B?c2JTSjNZZDBGWGx1MGF3LzhSaEpyS1RwNSszeGJjalgzbVJaQ3R6SUJJdExh?=
- =?utf-8?B?eG1BTk9GK1BiM2FhZGp1OTlhZi95ZytpU1pvbEwxZWRVQ0NNeXlUYlN0eFg2?=
- =?utf-8?B?dkU5ZkE1eDFEVmtwUkFwMWN2a3BUaGp2eXJOM0hnU1cxTTdqeEZ0TU1LajlN?=
- =?utf-8?B?NmgrV1hFZUhQWFNoRnBIZ2tjWjh2SVFiZURySnRHL3laNzdIdWI4WDNuUFdk?=
- =?utf-8?B?Uk5tdVJoV0FTZTdPYjhGNi9VQWt2S2J0a2VKY2RxZHlXU3lMZnhJZUI1UDRO?=
- =?utf-8?B?Q0U5RnA3WGJvbzFOYTYwZnVEbHNEMkVYc0tLdmRKemVQbVk2SHpRZ0pkVlla?=
- =?utf-8?B?dGFEa2hCcEpPMExmYy9UNEdlbXcwYXRPWW44WmlmMzY2Q3BRbXF6S0c2KzQw?=
- =?utf-8?B?UVZXcmNPR01mazNyOXMwalMrcGo1aytuRHJ3SHJNTVVINUN1RWxFMUVZZWZn?=
- =?utf-8?B?VEpCc3lnUkxTTitoQ1JJRFBkT3NwSzh6aDRNM3RwMEhtWjY2SExGcWNDeXJm?=
- =?utf-8?B?eUVHTDN1ZHZIajNVU0tUWm1WMjEwc2NqMS81Ym95SXFyOTNUaGdMT25YL1lR?=
- =?utf-8?B?VFpXWHZzekNEVi8vM2xlWFNiSzB2WTFWZDF2bFVqNE5vWlovVSs3dnA2WDhB?=
- =?utf-8?B?a3ZIVFRSamJpelExNlhoVjdPUWRpTGNxcWo4ZUVpLzZuczExR291U2RnSXBu?=
- =?utf-8?B?R3l2RWhzZytMWHI0RUJja0VlUDBLbC9lVmdFL0k5c1Z6RCt4c2hYZWI1bzZP?=
- =?utf-8?B?VVZpYkVBUXQrS1RyQkxxQ2hOemlGMEZFT21IY1ZyMnNWV2g1U3VUMDB0blk2?=
- =?utf-8?B?bTFkbUZ3Rk8ya2hmZU9Ga25sUTBxaFFyQm1wbEFlTEhnRXdaQjZIeFhOVEVn?=
- =?utf-8?B?Y3dmaFluN0JhdDJUaVpWWmlENWMxQ3d5bEJ1VzZHc2RoS1liV3R2bE9sMDRk?=
- =?utf-8?B?b01KMXE5Z213UnlBOTFHVXdlMC9VaTJwS2hLZG1scG1ZMnBEZGpJN1MwYzh5?=
- =?utf-8?B?Rm9wOHpCNW4xV1JaT2tnVVdaWUNFSndjcmdNUVd6ZTM3Y2xnUytaLzYzbXV2?=
- =?utf-8?B?TzB2RTRKS0VucTVHU2k4cVpRajdTTlFxNHd3dHpkTTd6YXA5VHpkSzY0RzVN?=
- =?utf-8?B?TkhQcHkwbi9qY2hWZDZUR0czQmtZWERrK2cvTWVVbXdmVlJ4cWthL25saUEy?=
- =?utf-8?B?TFRhMUE0cUxWT21yeDMvZjFqQmd5RkE5QW9tUFQ2VFR6UGlVVmMwWTBOVDdv?=
- =?utf-8?B?eW0xOWdZOEpVTUN0VkdZWWNQcnJHYWlqSGNua0dmL2lSSWk0bzNuNmFpWWVY?=
- =?utf-8?B?ZW1NWSt4U2p3cmR1WlIrRmxoMnA1Q3drMkpibkk3Qm43RTNkdlFVSFptajM0?=
- =?utf-8?B?dEszUUR5bXBqUTlPQk5OM3prVm1QcnppbGpIdUgray9tOGN2S1lrMkF6MWRM?=
- =?utf-8?B?R05JbGVLOXJ6R0xGRGF6V3gwRnRuNVhndXBJWWxEN05Vc0VkeEdTUDBaUVNX?=
- =?utf-8?B?Tk9OR21PNHNuNkFpVzlEZkQxRmZUa01jMk5JZFltbVJKeUx5dzNCdjQ1VERo?=
- =?utf-8?B?bmVYay91d0RjbHQxWDdLdk9RTFU1U3ZSbzhxSm9OK0pmVWQ4U1FZb3VIUHVn?=
- =?utf-8?B?MHgrUHhCQk04OWpyQ1Q2OWtEVXdmMnF5SmxvY09UOWY4bE1tdXZwaFF5SU1T?=
- =?utf-8?B?Y3kvaHczVVdFdGtjYW1wNy9MYnY3aHAzUXNQZHgwOGJrSVR0SUZ2Y0x6ZjU5?=
- =?utf-8?B?KzFhTXJ1ZUFpbUpLOXZ3di9samhCM1dJN1BpbmRqT3QvdStUV1U5MnZtMXIv?=
- =?utf-8?B?WFdOVThSM0I5MUplTCtVdFllcXMvSjBnM2ZuRXIvOFp3U21HNk1PbFZrM29n?=
- =?utf-8?B?cXBJNVFvem50U0t4ZGFiaG5GQlBkeUpyRTl4YmRiWjBxWFdmTVEzVEFxWUov?=
- =?utf-8?B?KzZYWm4rSGZIU2lJOEozT011R3hDYnNYZC9NcEp1R1RSS3NrcER5NFVQN2JO?=
- =?utf-8?B?K2c9PQ==?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44ade5b6-c553-45fa-0620-08dd19339401
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2024 15:59:07.4810
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lARlK2zTrlQCQiNgNPvjAhLNiRiNdVOIaxMlOGoGxph2h2SxQErYW88fOvWpcbMEMAn1LFSMb8/OzG57OE9foBsg712gMcfL7PSiBR6Giyw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB5886
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] arm64: dts: rockchip: add hevc power domain clock to
+ rk3328
+To: Peter Geis <pgwipeout@gmail.com>
+Cc: Dragan Simic <dsimic@manjaro.org>, Heiko Stuebner <heiko@sntech.de>,
+ Alex Bee <knaerzche@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+ Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Liang Chen <cl@rock-chips.com>,
+ Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, shironeko <shironeko@tesaguri.club>
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-5-pgwipeout@gmail.com>
+ <e32fa593abfa6d08202b4f929e0b4bdb@manjaro.org>
+ <CAMdYzYp+MQVYr1tOMEOn62vXZGVEYrtd1p9vn6YQzXdrJgSdyA@mail.gmail.com>
+ <CAMdYzYquvGBzfWqvUOku7m1sM9qxmBHAL95cANDViUCT1oEEhQ@mail.gmail.com>
+ <8c604ada27457698ad6d33d22a39b45a@manjaro.org>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <8c604ada27457698ad6d33d22a39b45a@manjaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Report-Abuse-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-ForwardEmail-Version: 0.4.40
+X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-ForwardEmail-ID: 675866c8ce9f514b1380cc1f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_075934_587840_E64B9FE1 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20241210_080557_329619_1A38BDA5 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,72 +86,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28.11.24 6:37 PM, Conor Dooley wrote:
-> On Wed, Nov 27, 2024 at 05:42:17PM +0100, Frieder Schrempf wrote:
->> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->>
->> This reverts commit 27866e3e8a7e93494f8374f48061aa73ee46ceb2.
->>
->> It turned out that this feature was implemented based on
->> the wrong assumption that the SD_VSEL signal needs to be
->> controlled as GPIO in any case.
->>
->> In fact the straight-forward approach is to mux the signal
->> as USDHC_VSELECT and let the USDHC controller do the job.
->>
->> Most users never even used this property and the few who
->> did have been or are getting migrated to the alternative
->> approach.
->>
->> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->> ---
->> Changes for v2:
->> * split revert into separate patch
->> ---
->>  .../devicetree/bindings/regulator/nxp,pca9450-regulator.yaml | 5 -----
->>  1 file changed, 5 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml b/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml
->> index f8057bba747a5..79fc0baf5fa2f 100644
->> --- a/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml
->> +++ b/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulator.yaml
->> @@ -77,11 +77,6 @@ properties:
->>  
->>      additionalProperties: false
->>  
->> -  sd-vsel-gpios:
->> -    description: GPIO that is used to switch LDO5 between being configured by
->> -      LDO5CTRL_L or LDO5CTRL_H register. Use this if the SD_VSEL signal is
->> -      connected to a host GPIO.
+Hi Peter,
+
+On 2024-12-10 14:53, Dragan Simic wrote:
+> Hello Peter,
 > 
-> Your driver side of this, that I wasn't sent and cba downloading an
-> mbox of is not backwards compatible. The code has been there for a few
-> years, are you sure that there are no out of tree users or other OSes
-> that use the property?
-
-Yes, this is not backwards compatible. I introduced the original meaning
-for the sd-vsel-gpios property based on some misunderstanding of how the
-hardware actually works. Therefore I'm quite sure that except for the
-cases where someone copied my erroneous implementation into their
-devicetree, nobody has really any reason to actually use this.
-
-In-tree all users have been removed (one fix still included in this
-series). Of course we can't be fully sure that there isn't someone out
-there having non-standard hardware (SD_VSEL not connected to
-USDHC_VSELECT but to GPIO only) and using the old sd-vsel-gpios, but the
-probability is very, very low.
-
-IMHO taking the small risk here is better than keeping the misleading
-implementation which will likely cause confusion and failures in the
-future. But of course that's not up to me to decide.
-
+> On 2024-12-10 14:23, Peter Geis wrote:
+>> On Tue, Dec 10, 2024 at 8:13 AM Peter Geis <pgwipeout@gmail.com> wrote:
+>>> On Tue, Dec 10, 2024 at 5:04 AM Dragan Simic <dsimic@manjaro.org> 
+>>> wrote:
+>>>> On 2024-12-10 02:30, Peter Geis wrote:
+>>>>> There is a race condition at startup between disabling power domains
+>>>>> not
+>>>>> used and disabling clocks not used on the rk3328. When the clocks are
+>>>>> disabled first, the hevc power domain fails to shut off leading to a
+>>>>> splat of failures. Add the hevc core clock to the rk3328 power domain
+>>>>> node to prevent this condition.
+>>>>>
+>>>>> rcu: INFO: rcu_sched detected expedited stalls on CPUs/tasks: { 3-....
+>>>>> }
+>>>>> 1087 jiffies s: 89 root: 0x8/.
+>>>>> rcu: blocking rcu_node structures (internal RCU debug):
+>>>>> Sending NMI from CPU 0 to CPUs 3:
+>>>>> NMI backtrace for cpu 3
+>>>>> CPU: 3 UID: 0 PID: 86 Comm: kworker/3:3 Not tainted 6.12.0-rc5+ #53
+>>>>> Hardware name: Firefly ROC-RK3328-CC (DT)
+>>>>> Workqueue: pm genpd_power_off_work_fn
+>>>>> pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>>>> pc : regmap_unlock_spinlock+0x18/0x30
+>>>>> lr : regmap_read+0x60/0x88
+>>>>> sp : ffff800081123c00
+>>>>> x29: ffff800081123c00 x28: ffff2fa4c62cad80 x27: 0000000000000000
+>>>>> x26: ffffd74e6e660eb8 x25: ffff2fa4c62cae00 x24: 0000000000000040
+>>>>> x23: ffffd74e6d2f3ab8 x22: 0000000000000001 x21: ffff800081123c74
+>>>>> x20: 0000000000000000 x19: ffff2fa4c0412000 x18: 0000000000000000
+>>>>> x17: 77202c31203d2065 x16: 6c6469203a72656c x15: 6c6f72746e6f632d
+>>>>> x14: 7265776f703a6e6f x13: 2063766568206e69 x12: 616d6f64202c3431
+>>>>> x11: 347830206f742030 x10: 3430303034783020 x9 : ffffd74e6c7369e0
+>>>>> x8 : 3030316666206e69 x7 : 205d383738353733 x6 : 332e31202020205b
+>>>>> x5 : ffffd74e6c73fc88 x4 : ffffd74e6c73fcd4 x3 : ffffd74e6c740b40
+>>>>> x2 : ffff800080015484 x1 : 0000000000000000 x0 : ffff2fa4c0412000
+>>>>> Call trace:
+>>>>> regmap_unlock_spinlock+0x18/0x30
+>>>>> rockchip_pmu_set_idle_request+0xac/0x2c0
+>>>>> rockchip_pd_power+0x144/0x5f8
+>>>>> rockchip_pd_power_off+0x1c/0x30
+>>>>> _genpd_power_off+0x9c/0x180
+>>>>> genpd_power_off.part.0.isra.0+0x130/0x2a8
+>>>>> genpd_power_off_work_fn+0x6c/0x98
+>>>>> process_one_work+0x170/0x3f0
+>>>>> worker_thread+0x290/0x4a8
+>>>>> kthread+0xec/0xf8
+>>>>> ret_from_fork+0x10/0x20
+>>>>> rockchip-pm-domain ff100000.syscon:power-controller: failed to get ack
+>>>>> on
+>>>>> domain 'hevc', val=0x88220
+>>>>>
+>>>>> Fixes: 52e02d377a72 ("arm64: dts: rockchip: add core dtsi file for
+>>>>> RK3328 SoCs")
+>>>>> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+>>>>
+>>>> While I was unable to formally verify this clock assignment,
+>>>> i.e. by using the RK3328 TRM or the downstream kernel source
+>>>> from Rockchip, it makes perfect sense to me.  Thanks for the
+>>>> patch, and please feel free to include:
+>>>>
+>>>> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+>>>
+>>> It is unfortunate the TRM doesn't include the clock maps, because they
+>>> are extremely helpful when one can acquire them. It also doesn't help
+>>> that the TRM register definition only referred to this as "pll". I was
+>>> sent specifically the usb3 phy clock map for my work on the driver,
+>>> which had the location of each switch and divider along with the
+>>> register and bit that controlled it. That combined with the TRM
+>>> register map allowed me to find this error.
+>>
+>> Apologies, that's the wrong response for this one.
 > 
-> tbh, I think all 3 of your dt-binding patches should be squashed rather
-> than drip-feeding the conversion. It makes more sense as a single
-> change, rather than splitting the rationales across 3 patches.
+> No worries.
+> 
+>> This patch was the result of educated guess combined with testing. I
+>> grabbed all of the clocks that looked like they could affect things,
+>> then tested them one at a time until I isolated them to this clock. It
+>> lives alone with cpll as the parent and has no children according to
+>> the clock summary. (Though the writeup i mistakenly included above
+>> proves the clock map isn't always accurate).
+> 
+> I see, thanks for all your work on this patch!  It surely took quite
+> a lot of time to perform all the testing.
+> 
+>>>>> ---
+>>>>>
+>>>>>  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 1 +
+>>>>>  1 file changed, 1 insertion(+)
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>>>>> b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>>>>> index 0597de415fe0..7d992c3c01ce 100644
+>>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
+>>>>> @@ -333,6 +333,7 @@ power: power-controller {
+>>>>>
+>>>>>                       power-domain@RK3328_PD_HEVC {
+>>>>>                               reg = <RK3328_PD_HEVC>;
+>>>>> +                             clocks = <&cru SCLK_VENC_CORE>;
 
-Ok, if you like this better in one change I can squash these for the
-next version.
+Do we also need to include one or all of the following clocks?
 
-Thanks!
+According to Fig. 3-6 RK3228H Clock Architecture Diagram 5 following
+clocks point to the H265 block:
+
+S51_6 (4PLL) / G6_3 / S51_0 (DivFree 1~32) / D4 ---- aclk_h265
+                                                 \-- pclk_h265
+S51_14 (4PLL) / G6_4 / S51_8 (DivFree 1~32) / D4 - clk_venc_core
+S52_14 (4PLL) / G6_7 / S52_8 (DivFree 1~32) / D4 - clk_venc_dsp
+
+Regards,
+Jonas
+
+>>>>>                               #power-domain-cells = <0>;
+>>>>>                       };
+>>>>>                       power-domain@RK3328_PD_VIDEO {
+
 
