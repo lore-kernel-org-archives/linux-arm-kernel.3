@@ -4,64 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFCEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5AEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 12:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1+yRGBwPfGnb+EMVLsYMgGZR1S7zUQhuHKZuzoGenI=; b=qAEoAgexnbbC7WO5luJrGz0LF4
-	SMGZTt7MZEMjPndl77JBwXg3FnnqSFOE8kdTHHQS/GD/U603TpFOJi2IvlDYG25pwxUP6WIjSiDdO
-	g7CdiVInpA6fFVMvGM9X11xyW58O8oSRTQImrYO/KeqziHHFoB22lAUxQe7gRVY/qrhVld6SRivno
-	STRoE3Govg4UKoh0WKuNsXBGmGzDUUlZ3zo5PZ1cP33dEqVTonTBfbOpGNZCQH6EdjhSVNw6nGiDE
-	hoGTBun85B6CcVnqeOjyH3uFBxlQheZQxtr8iru5yaHikvr0eS+vOqwbCVwkIE4uRuGMipupdIUmX
-	edV6un3Q==;
+	bh=46aYL8Qujac4/4V9g8K6BMoI6Lwj7kmEE7LxrwnxQWE=; b=tmDGnL5vAJX0xtkmrTA541DItl
+	CFkrzkxQ1v+C68Ft2aa7qB2MyU70KZ+vsI27zZ3QLccdi+MFs1L03PctnZ86QnXZesHBXcpzLGVpL
+	3UHpgRVGEGY/zFrnt4c2p/4poxUiMoZJKbg7MULqrviqHgPfQtjhZ5t+Fz/ehPWyg8/VeyCJ6lKXJ
+	qmmBlpQ2vkPbpdHyXDZrT6xNU9wQ9w7iTZhxAHVSO1wrJd2GOHjbxnkQGg7Qg/GWwBd6YlRmUxAUx
+	SvP7IhUDm6qco/VMfnvD/xfiDrVCrdXxw1vTXZPdsga0lzE1d6bvRj3Pj0b43MUuVEVYSzcxTu+gG
+	+Rr8R6OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKz1A-0000000BNzT-3nrF;
-	Tue, 10 Dec 2024 12:07:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tKz2C-0000000BO9O-2BpG;
+	Tue, 10 Dec 2024 12:08:12 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKz06-0000000BNla-3OMd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 12:06:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B09685C5B44;
-	Tue, 10 Dec 2024 12:05:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38AA4C4CEE0;
-	Tue, 10 Dec 2024 12:06:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733832361;
-	bh=FvFZp70ctGDvp4To62uUbmitx5iXeIthOprZf+Eo9ns=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CrKm4v+fpaoBW8zdmjdPmVeatZyfGVXqELBMAguUuedNBKVhvsLjypQLQo84VWjs6
-	 1xk0j+MsGMDed1a7Psc3QLxrC4WMPf0drfc5V6PS02Ae+TybErh7ve9o8W0REBey0q
-	 Up1McXyr0PzECJQlPrK3UsBxCsHBTtursPjc2hn1YDOkt3mlAncM6vA5gfaMbg+D6v
-	 eOoooHP2D1dGh8jLWIxqAanLco+unTdedrakjAsmxInOYt+Id+pCqMpXQixSCj3jCE
-	 yOHWdtrwVTnkfDs6v00s5UKFQGcsZTFVvBaKVSUsmmS/sdmk2l71WaNLkldUiPoQcL
-	 CTv48f9M5/w0g==
-Date: Tue, 10 Dec 2024 12:05:57 +0000
-From: Will Deacon <will@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: jonathan.cameron@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, yangyicong@hisilicon.com,
-	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
-	prime.zeng@hisilicon.com
-Subject: Re: [PATCH v4 00/10] Refactor the common parts to the HiSilicon
- Uncore PMU core and cleanups
-Message-ID: <20241210120556.GA15398@willie-the-truck>
-References: <20241203125049.39458-1-yangyicong@huawei.com>
+	id 1tKz0f-0000000BNrF-1KSU;
+	Tue, 10 Dec 2024 12:06:38 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-434f74e59c7so23979405e9.3;
+        Tue, 10 Dec 2024 04:06:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733832395; x=1734437195; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=46aYL8Qujac4/4V9g8K6BMoI6Lwj7kmEE7LxrwnxQWE=;
+        b=C+S2AlyDohevSrmSV8BeUdF74fiHG+dzHysMU/VJqmGBPVOd9ITL835qyglRETaVhq
+         5iboPKev0kQYX5DptQrUHSDphj/THJzLlWc7VRoFMQIv9a0LBZZwOELAAmDjBvBasuLl
+         qsWP62fx0p7rcKgWoC7AYrUfwNG74xHbsxccco+Z667hITcDcMyMftOv1nt+pSy3QxNB
+         cN4FuqouXjo2s98MFONlKtJbjl2DkhMoka/H4n9Pnb0ucD5evEZyJppbAM6cT2FRzU4A
+         YVPKM/OSHBwM6A7LAz0PEjhkE/W/x5jUKDLy5U8LEOtl8VnIPDrB3zrGWGgg5Xi2fk4A
+         KVdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733832395; x=1734437195;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=46aYL8Qujac4/4V9g8K6BMoI6Lwj7kmEE7LxrwnxQWE=;
+        b=ll4Hgjc9IJJCMlwxHRpSbvyIJBlgvIsmI+Nt6mX6BYMYPNUSzpqIfTrrwQDsDJna7b
+         uorWRK0JWE66/lbii9vNqch6PNodrhT4SsUlHTljMta/6jbi57zdEAneRprd86mJor6m
+         4NaEc1N7apkqbowN+MHEWPwUaM89IQcAsBQcOLqk9+dXv7ytCzqpvk90ZrTrFJlLLBJM
+         iE/63kAbsRkydsKNQ29hwr1OTYaKYEcVnnIjCe9+fypi1vN18BwowjN9rL3RaZ+un3yc
+         PTfwvMu7X2p6Np5W3SnqfLZF8+ryIxdwJlSI5+CSR3btZQ1GfRhv40X1hE17UJZJDE3H
+         rnAw==
+X-Forwarded-Encrypted: i=1; AJvYcCW9Uio/4QiOLFSxlxYEqFskT7D3msd+Ufv35/5XsjJQXduoEAPcg8OvDq72t9eAF4Orru/piKDHeVHk5HctHrgg@lists.infradead.org, AJvYcCXN7pjdWc5o08RCdeVmXZeVDBknlaLv7cqR9DEpTRtAXwQAq24yIl5IBVAn+EJsoZ/F5AweFvT3G1D//UEwguI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPSAdhgdhuy5rnODBIsWrRnx335/8yM0ddbaw0R5OQrM0L6WwP
+	kgJtCGI77nShoKKFEz/w84tfnRVfrdchEeqHryK/LlrwVDeqykXT
+X-Gm-Gg: ASbGncvQ9blaDvQ+2K7EpWyyVJGMz2Jb3PfGN+IBxpnawYVTTN+LX/nC+GonKsIRkPf
+	Ag01ubsSbwJEtHBQnuk0OWK0IzkTh077f9RMI6vzDVlne6luOfjQ9mtO6mnEZRJqa0sJ7ak99vm
+	QZvywz9TcsAoVoaXqF2ln41HId6uvEfk4lYw2MO0f5d20XX/YcQr64TK6FjfS0cQ4abktJU8HCp
+	gC53uU3Wkgf6Wl3E/hKrg94k8IftQWkgPkHAoFad69/nT4GY2Es8IE29JA2hjEIUMQ0j49lBFpK
+	VSiJEc8ing==
+X-Google-Smtp-Source: AGHT+IGpcC8Z7oXmbBOkKTQCK7YHx0j6xObP8W63hf6oMmuAzbltOfilbIotkhxBgXfUoy6iy3NP7Q==
+X-Received: by 2002:a05:600c:3b04:b0:434:a706:c0fb with SMTP id 5b1f17b1804b1-434fff3dcfbmr51803755e9.10.1733832395127;
+        Tue, 10 Dec 2024 04:06:35 -0800 (PST)
+Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-386394dd379sm8026747f8f.24.2024.12.10.04.06.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 04:06:34 -0800 (PST)
+Message-ID: <67582eca.050a0220.3b9b85.2de4@mx.google.com>
+X-Google-Original-Message-ID: <Z1guxUhVSGLHUVUh@Ansuel-XPS.>
+Date: Tue, 10 Dec 2024 13:06:29 +0100
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v11 6/9] net: mdio: Add Airoha AN8855 Switch
+ MDIO Passtrough
+References: <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-7-ansuelsmth@gmail.com>
+ <5aec4a94-3cea-41a4-8500-71472fae51d4@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241203125049.39458-1-yangyicong@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <5aec4a94-3cea-41a4-8500-71472fae51d4@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_040602_931904_59DD55D4 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20241210_040637_354506_B988F94D 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,124 +114,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 08:50:39PM +0800, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Tue, Dec 10, 2024 at 02:53:34AM +0100, Andrew Lunn wrote:
+> > +static int an855_phy_restore_page(struct an8855_mfd_priv *priv,
+> > +				  int phy) __must_hold(&priv->bus->mdio_lock)
+> > +{
+> > +	/* Check PHY page only for addr shared with switch */
+> > +	if (phy != priv->switch_addr)
+> > +		return 0;
+> > +
+> > +	/* Don't restore page if it's not set to switch page */
+> > +	if (priv->current_page != FIELD_GET(AN8855_PHY_PAGE,
+> > +					    AN8855_PHY_PAGE_EXTENDED_4))
+> > +		return 0;
+> > +
+> > +	/* Restore page to 0, PHY might change page right after but that
+> > +	 * will be ignored as it won't be a switch page.
+> > +	 */
+> > +	return an8855_mii_set_page(priv, phy, AN8855_PHY_PAGE_STANDARD);
+> > +}
 > 
-> This series mainly contains the refactor of the HiSilicon Uncore PMU by
-> extracting the common parts from each drivers into the core:
-> - the retrieving of the PMU topology ID
-> - the common sysfs attributes like cpumask and identifier
+> I don't really understand what is going on here. Maybe the commit
+> message needs expanding, or the function names changing.
 > 
-> In order to achieve this, we need to do below preparation:
-> - refactor the detection of associated CPUs for PMUs locates on a SICL
-> - maintain the topology information in a dedicated data structure
-> - provides a generic implementation of cpumask/identifier attributes
-> 
-> Besides also include below changes/cleanups in this patchset
-> - add one new sysfs attributes for better describing the topology information
->   of the associated CPUs of the PMU.
-> - define a symbol namespace for HiSilicon Uncore PMUs to avoid pollute the
->   common ones
-> - two minor nonfunctional cleanups of DDRC PMU
-> 
-> Change since v3:
-> - Split the associated_cpus refactor patches according to the functions, hope
->   will be easier to review
-> - Drop the use of cpu_online_mask out of cpuhp
-> Link: https://lore.kernel.org/linux-arm-kernel/20241026072424.29887-1-yangyicong@huawei.com/
+> Generally, i would expect a save/restore action. Save the current
+> page, swap to the PHY page, do the PHY access, and then restore to the
+> saved page.
+>
 
-This doesn't build on top of -rc2 (see log below). I suspect this is because
-of the recent MODULE_IMPORT_NS() changes to use string literals [1].
+Idea is to save on extra read/write on subsequent write on the same
+page.
 
-Please can you send a v5?
+Idea here is that PHY will receive most of the read (for status
+poll) hence in 90% of the time page will be 0.
 
-Will
+And switch will receive read/write only on setup or fdb/vlan access on
+configuration so it will receive subsequent write on the same page.
+(page 4)
 
-[1] cdd30ebb1b9f ("module: Convert symbol namespace to string literal")
+PHY might also need to write on page 1 on setup but never on page 4 as
+that is reserved for switch.
 
---->8
+Making the read/swap/write/restore adds 2 additional operation that can
+really be skipped 90% of the time.
 
-In file included from ./include/linux/module.h:22,
-                 from ./include/linux/device/driver.h:21,
-                 from ./include/linux/device.h:32,
-                 from ./include/linux/acpi.h:14,
-                 from drivers/perf/hisilicon/hisi_uncore_hha_pmu.c:11:
-drivers/perf/hisilicon/hisi_uncore_hha_pmu.c:559:18: error: expected ‘,’ or ‘;’ before ‘HISI_PMU’
-  559 | MODULE_IMPORT_NS(HISI_PMU);
-      |                  ^~~~~~~~
-./include/linux/moduleparam.h:26:47: note: in definition of macro ‘__MODULE_INFO’
-   26 |   = __MODULE_INFO_PREFIX __stringify(tag) "=" info
-      |                                               ^~~~
-./include/linux/module.h:299:30: note: in expansion of macro ‘MODULE_INFO’
-  299 | #define MODULE_IMPORT_NS(ns) MODULE_INFO(import_ns, ns)
-      |                              ^~~~~~~~~~~
-drivers/perf/hisilicon/hisi_uncore_hha_pmu.c:559:1: note: in expansion of macro ‘MODULE_IMPORT_NS’
-  559 | MODULE_IMPORT_NS(HISI_PMU);
-      | ^~~~~~~~~~~~~~~~
-make[5]: *** [scripts/Makefile.build:194: drivers/perf/hisilicon/hisi_uncore_hha_pmu.o] Error 1
-make[5]: *** Waiting for unfinished jobs....
-In file included from ./include/linux/module.h:22,
-                 from ./include/linux/device/driver.h:21,
-                 from ./include/linux/device.h:32,
-                 from ./include/linux/acpi.h:14,
-                 from drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c:11:
-drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c:595:18: error: expected ‘,’ or ‘;’ before ‘HISI_PMU’
-  595 | MODULE_IMPORT_NS(HISI_PMU);
-      |                  ^~~~~~~~
-./include/linux/moduleparam.h:26:47: note: in definition of macro ‘__MODULE_INFO’
-   26 |   = __MODULE_INFO_PREFIX __stringify(tag) "=" info
-      |                                               ^~~~
-./include/linux/module.h:299:30: note: in expansion of macro ‘MODULE_INFO’
-  299 | #define MODULE_IMPORT_NS(ns) MODULE_INFO(import_ns, ns)
-      |                              ^~~~~~~~~~~
-drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c:595:1: note: in expansion of macro ‘MODULE_IMPORT_NS’
-  595 | MODULE_IMPORT_NS(HISI_PMU);
-      | ^~~~~~~~~~~~~~~~
-make[5]: *** [scripts/Makefile.build:194: drivers/perf/hisilicon/hisi_uncore_l3c_pmu.o] Error 1
-/tmp/ccKFrDMm.s: Assembler messages:
-/tmp/ccKFrDMm.s:7: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:8: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:9: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:10: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:11: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:12: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:13: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:14: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:15: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:16: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:17: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:18: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:19: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:20: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:21: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:22: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:23: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:24: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:25: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:26: Error: junk at end of line, first unrecognized character is `H'
-/tmp/ccKFrDMm.s:27: Error: junk at end of line, first unrecognized character is `H'
-make[5]: *** [scripts/Makefile.build:194: drivers/perf/hisilicon/hisi_uncore_pmu.o] Error 1
-In file included from ./include/linux/module.h:22,
-                 from ./include/linux/device/driver.h:21,
-                 from ./include/linux/device.h:32,
-                 from ./include/linux/acpi.h:14,
-                 from drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c:11:
-drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c:556:18: error: expected ‘,’ or ‘;’ before ‘HISI_PMU’
-  556 | MODULE_IMPORT_NS(HISI_PMU);
-      |                  ^~~~~~~~
-./include/linux/moduleparam.h:26:47: note: in definition of macro ‘__MODULE_INFO’
-   26 |   = __MODULE_INFO_PREFIX __stringify(tag) "=" info
-      |                                               ^~~~
-./include/linux/module.h:299:30: note: in expansion of macro ‘MODULE_INFO’
-  299 | #define MODULE_IMPORT_NS(ns) MODULE_INFO(import_ns, ns)
-      |                              ^~~~~~~~~~~
-drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c:556:1: note: in expansion of macro ‘MODULE_IMPORT_NS’
-  556 | MODULE_IMPORT_NS(HISI_PMU);
-      | ^~~~~~~~~~~~~~~~
-make[5]: *** [scripts/Makefile.build:194: drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.o] Error 1
-make[4]: *** [scripts/Makefile.build:440: drivers/perf/hisilicon] Error 2
-make[4]: *** Waiting for unfinished jobs....
-make[3]: *** [scripts/Makefile.build:440: drivers/perf] Error 2
-make[3]: *** Waiting for unfinished jobs....
-make[2]: *** [scripts/Makefile.build:440: drivers] Error 2
+Also curret_page cache is indirectly protected by the mdio lock.
+
+So in short this function makes sure PHY for port 0 is configured on the
+right page based on the prev page set.
+
+An alternative way might be assume PHY is always on page 0 and any
+switch operation save and restore the page.
+
+Hope it's clear now why this is needed. Is this ok or you prefer the
+alternative way? 
+
+-- 
+	Ansuel
 
