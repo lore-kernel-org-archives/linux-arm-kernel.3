@@ -4,64 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B075EE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C600E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8GJywCfHdvdwHDP5uXNzefsQ0GJ0yUR4X2Zmb8a5Y6g=; b=4xlT+nIOKWkiT3jv4U3hzH3Ca/
-	T4NRX0hfgk0sohHmJPdkxmIwzbizeKZF8Q7QMiwTytXKfGWFmwGC2hOa19kx1rYnFxzLSYw02aIjr
-	GvUdHWJvmgR7zGwDKD/SfwH+aI9/rLRI/4cpG6I9GlWj9QO2m2i9r7eHH5y2tMc1wCL7DjQpGDjuJ
-	erIrgp1uPCCrrqDYjyVNce9WvM/qqMT+4nRB869aMTnstI4M0DNvMFiMhv33aqTfYqg4US4JESvXN
-	tPG/3wImlCPdkbCcJ4ypsSm7PrhJB2mxbuGnCjSs5sAJYsMEnRJxyrTajkv8USnOydfRYOmg4SAn3
-	ya8M4cmA==;
+	bh=jRzPBeNoDd8fIjJqfXOLjPmwwP4iWssBb0kRWNEAzWs=; b=izb8Q7qKCxr37tdC6gYtE+nBIQ
+	ntoj8Wx/qd/TI0utqjBUO/V+ULRFVPJDUH8vbrZPOehFc0cX6iA+naEz1lavf+MkhjCMKol2sqTSM
+	GrmIRQA4fEHED5H1SGWQYpHlo4DgvLdHoxI/DRe8UVtBl7wXMDzoGPCIJbM636VVvtvfXnqoQ0Vv3
+	2Ybr3HuCM3ZrfSbIR4JUfAaxNjTZ0ECfgcwiSTI+o3Xt5z+QSsGQJkJxWbMZpIO4i+TFNg5mXARhR
+	TZf3WkemTkNMALfDOT8svOCVvjd47nR5/FSSiKg/y+laBOkPndB/SgoF/HKh8OtkaREzsYNP30KXA
+	yrz0q3fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvCw-0000000Ae2Y-1GwZ;
-	Tue, 10 Dec 2024 08:03:02 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tKvH8-0000000AenI-00X8;
+	Tue, 10 Dec 2024 08:07:22 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvBs-0000000AdvD-3aOL;
-	Tue, 10 Dec 2024 08:01:58 +0000
+	id 1tKvG2-0000000Aebg-3Prx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Dec 2024 08:06:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jRzPBeNoDd8fIjJqfXOLjPmwwP4iWssBb0kRWNEAzWs=; b=Jflf3ByVJ/f8HNj9bef+gwyLLc
+	1fWSPaU7ptt5mKJz3e2Uz1bQ5KZDT9/jXnl4L1mp0QaCFL9LDtdpESRckf0OjBQKdVq2hEXJkMCLw
+	CIwfizz0+izYAQZ3R/igKxG3aEqR1f2pKBpGRwBSvPd1tHxOh6+0TyNO4O9Cwm30RizOnvRWuRJPL
+	Sgq5dsIY57EsYhUE+xbSJNmk6Rzzf1XpyHtJB2hSHlMnB6t2oKdqA8vwOrqZR6eeUvFZ25qlM+aV2
+	ieuRwRGt8LH8jbMO+VJeTwHiR2Z8eujHgQl6q7PC2NZwgGopBzuX4oiFQ+wcKW9580Ig1pqyo6UhF
+	7zSrEfOw==;
+Received: from [89.212.21.243] (port=38704 helo=[192.168.69.52])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tKvFy-001XcI-25;
+	Tue, 10 Dec 2024 09:06:10 +0100
+Message-ID: <4a0b3e4e-c791-43cd-8f82-8d25fae71d64@norik.com>
+Date: Tue, 10 Dec 2024 09:06:07 +0100
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1733817714;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8GJywCfHdvdwHDP5uXNzefsQ0GJ0yUR4X2Zmb8a5Y6g=;
-	b=BsEW4Zpc7tYFRnA/eaiEQ3pYNQXqR0g71UhiABbge+ZG1g8Gc3Yi5Rd+DE0SxCB4hzsVjF
-	6eKOaixnFsoB8OUAYmXfkOG9/+xxvqtobm7vp7ca/5tXkpqaSrDNEMPV/Vi8MGe39ahPUm
-	qC5nTFVc0Vuyrd+5ycS1z6m+rHOIMcf3YtcfUMS4JFB5JWQdMb24AcViZQTjUNJN/GaSL5
-	/X4Z8W5X3/3gcM8GsVY/k5fSFFMyKBs5+tA1H17JatXHIRM6n3A8rYCY8bkUXvhdXePG1G
-	NEEvUIBJMSqDfrmyWQvKDrdA32lh2MVR1l61YeKmrZ+d7BT9ydUEbpQtTxiGIg==
-Date: Tue, 10 Dec 2024 09:01:53 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Peter Geis <pgwipeout@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>,
- Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 3/6] arm64: dts: rockchip: remove ethernet alias from
- rk3328-roc
-In-Reply-To: <20241210013010.81257-4-pgwipeout@gmail.com>
-References: <20241210013010.81257-1-pgwipeout@gmail.com>
- <20241210013010.81257-4-pgwipeout@gmail.com>
-Message-ID: <20693a7b7cb1aaed2c21b84fd57c4b72@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
+ optional properties
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ upstream@lists.phytec.de
+References: <20241205134021.2592013-1-andrej.picej@norik.com>
+ <20241205134021.2592013-3-andrej.picej@norik.com>
+ <nbumcptoi5hwehjbrynf6dh2wrz7a4ugqblrjxyswvj7udkf3u@6qikclizqfjr>
+ <e420579f-25b2-41ca-9627-130d67c51541@norik.com>
+ <xkrk3vdw7yhj22ornqog7wovqctgrolfcxbl43u7ddgstjqsbl@h22hxlld6zqg>
+Content-Language: en-US
+From: Andrej Picej <andrej.picej@norik.com>
+Autocrypt: addr=andrej.picej@norik.com; keydata=
+ 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
+ xtT/8OxBOVSHvA==
+In-Reply-To: <xkrk3vdw7yhj22ornqog7wovqctgrolfcxbl43u7ddgstjqsbl@h22hxlld6zqg>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_000157_167392_3F58FD8F 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20241210_000615_465860_AF9B98E5 
+X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +133,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
 
-On 2024-12-10 02:30, Peter Geis wrote:
-> Remove the ethernet alias added back in during the rk3328-roc dtsi
-> conversion.
 
-I just checked again the dtsi parent conversion I performed in
-the commit f3c6526d6fb2 ("arm64: dts: rockchip: Convert dts files
-used as parents to dtsi files"), and both rk3328-roc-cc.dts and
-rk3328-roc-pc.dts had the ethernet0 alias defined before the
-conversion.  Thus, the alias wasn't added back by mistake during
-the conversion, it was there before.
-
-Moreover, I don't see why would we want to delete the ethernet0
-alias(es) in the first place?  It's usual for Rockchip board dts
-files to have ethernetX aliases defined, and both ROC-RK3328-CC
-and ROC-RK3328-PC have their gmac2io DT nodes enabled, and the
-boards have wired Ethernet ports, so they should also have the
-ethernet0 alias(es) defined.
-
-Am I missing something?
-
-> Fixes: f3c6526d6fb2 ("arm64: dts: rockchip: Convert dts files used as
-> parents to dtsi files")
-> Signed-off-by: Peter Geis <pgwipeout@gmail.com>
-> ---
+On 10. 12. 24 02:18, Dmitry Baryshkov wrote:
+> On Mon, Dec 09, 2024 at 08:56:29AM +0100, Andrej Picej wrote:
+>> Hi Dmitry,
+>>
+>> On 5. 12. 24 23:48, Dmitry Baryshkov wrote:
+>>> On Thu, Dec 05, 2024 at 02:40:20PM +0100, Andrej Picej wrote:
+>>>> Add a optional properties to change LVDS output voltage. This should not
+>>>> be static as this depends mainly on the connected display voltage
+>>>> requirement. We have three properties:
+>>>> - "ti,lvds-termination-ohms", which sets near end termination,
+>>>> - "ti,lvds-vod-swing-data-microvolt" and
+>>>> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
+>>>> output voltage for data and clock lanes. They are defined as an array
+>>>> with min and max values. The appropriate bitfield will be set if
+>>>> selected constraints can be met.
+>>>>
+>>>> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
+>>>> end termination will be used. Selecting only one:
+>>>> "ti,lvds-vod-swing-data-microvolt" or
+>>>> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
+>>>> constraint for only data/clock lanes will be met. Setting both is
+>>>> recommended.
+>>>>
+>>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+>>>> ---
+>>>> Changes in v4:
+>>>> - fix typo in commit message bitfiled -> bitfield
+>>>> - use arrays (lvds_vod_swing_conf and lvds_term_conf) in private data, instead
+>>>> of separate variables for channel A/B
+>>>> - add more checks on return value of "of_property_read_u32_array"
+>>>> Changes in v3:
+>>>> - use microvolts for default array values 1000 mV -> 1000000 uV.
+>>>> Changes in v2:
+>>>> - use datasheet tables to get the proper configuration
+>>>> - since major change was done change the authorship to myself
+>>>> ---
+>>>>    drivers/gpu/drm/bridge/ti-sn65dsi83.c | 147 +++++++++++++++++++++++++-
+>>>>    1 file changed, 144 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+>>>> index 57a7ed13f996..f724d2a6777b 100644
+>>>> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+>>>> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+>>>> @@ -132,6 +132,16 @@
+>>>>    #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
+>>>>    #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
+>>>> +enum sn65dsi83_channel {
+>>>> +	CHANNEL_A,
+>>>> +	CHANNEL_B
+>>>> +};
+>>>> +
+>>>> +enum sn65dsi83_lvds_term {
+>>>> +	OHM_100,
+>>>> +	OHM_200
+>>>> +};
+>>>> +
+>>>>    enum sn65dsi83_model {
+>>>>    	MODEL_SN65DSI83,
+>>>>    	MODEL_SN65DSI84,
+>>>> @@ -147,6 +157,8 @@ struct sn65dsi83 {
+>>>>    	struct regulator		*vcc;
+>>>>    	bool				lvds_dual_link;
+>>>>    	bool				lvds_dual_link_even_odd_swap;
+>>>> +	int				lvds_vod_swing_conf[2];
+>>>> +	int				lvds_term_conf[2];
+>>>>    };
+>>>>    static const struct regmap_range sn65dsi83_readable_ranges[] = {
+>>>> @@ -237,6 +249,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
+>>>>    	.max_register = REG_IRQ_STAT,
+>>>>    };
+>>>> +static const int lvds_vod_swing_data_table[2][4][2] = {
+>>>> +	{	/* 100 Ohm */
+>>>> +		{ 180000, 313000 },
+>>>> +		{ 215000, 372000 },
+>>>> +		{ 250000, 430000 },
+>>>> +		{ 290000, 488000 },
+>>>> +	},
+>>>> +	{	/* 200 Ohm */
+>>>> +		{ 150000, 261000 },
+>>>> +		{ 200000, 346000 },
+>>>> +		{ 250000, 428000 },
+>>>> +		{ 300000, 511000 },
+>>>> +	},
+>>>> +};
+>>>> +
+>>>> +static const int lvds_vod_swing_clock_table[2][4][2] = {
+>>>> +	{	/* 100 Ohm */
+>>>> +		{ 140000, 244000 },
+>>>> +		{ 168000, 290000 },
+>>>> +		{ 195000, 335000 },
+>>>> +		{ 226000, 381000 },
+>>>> +	},
+>>>> +	{	/* 200 Ohm */
+>>>> +		{ 117000, 204000 },
+>>>> +		{ 156000, 270000 },
+>>>> +		{ 195000, 334000 },
+>>>> +		{ 234000, 399000 },
+>>>> +	},
+>>>> +};
+>>>> +
+>>>>    static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
+>>>>    {
+>>>>    	return container_of(bridge, struct sn65dsi83, bridge);
+>>>> @@ -435,12 +477,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
+>>>>    		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
+>>>>    	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
+>>>> -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
+>>>> +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
+>>>> +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_A]) |
+>>>> +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_B]));
+>>>>    	regmap_write(ctx->regmap, REG_LVDS_LANE,
+>>>>    		     (ctx->lvds_dual_link_even_odd_swap ?
+>>>>    		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
+>>>> -		     REG_LVDS_LANE_CHA_LVDS_TERM |
+>>>> -		     REG_LVDS_LANE_CHB_LVDS_TERM);
+>>>> +		     (ctx->lvds_term_conf[CHANNEL_A] ?
+>>>> +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
+>>>> +		     (ctx->lvds_term_conf[CHANNEL_B] ?
+>>>> +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
+>>>>    	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
+>>>>    	le16val = cpu_to_le16(mode->hdisplay);
+>>>> @@ -576,10 +622,101 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
+>>>>    	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
+>>>>    };
+>>>> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
+>>>> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
+>>>> +{
+>>>> +	int i;
+>>>> +
+>>>> +	for (i = 0; i <= 3; i++) {
+>>>> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
+>>>> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
+>>>> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
+>>>> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
+>>>> +			return i;
+>>>> +	}
+>>>> +
+>>>> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
+>>>> +	return -EINVAL;
+>>>> +}
+>>>> +
+>>>> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+>>>> +{
+>>>> +	struct device *dev = ctx->dev;
+>>>> +	struct device_node *endpoint;
+>>>> +	/* Set so the property can be freely selected if not defined */
+>>>> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
+>>>> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
+>>>> +	u32 lvds_term = 200;
+>>>> +	u8 lvds_term_conf;
+>>>> +	int endpoint_reg;
+>>>> +	int lvds_vod_swing_conf;
+>>>> +	int ret = 0;
+>>>> +	int ret_data;
+>>>> +	int ret_clock;
+>>>> +
+>>>> +	if (channel == CHANNEL_A)
+>>>> +		endpoint_reg = 2;
+>>>> +	else
+>>>> +		endpoint_reg = 3;
+>>>> +
+>>>> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+>>>> +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
+>>>> +
+>>>> +	if (lvds_term == 200)
+>>>> +		lvds_term_conf = OHM_200;
+>>>> +	else
+>>>> +		lvds_term_conf = OHM_100;
+>>>> +
+>>>> +	ctx->lvds_term_conf[channel] = lvds_term_conf;
+>>>> +
+>>>> +	ret_data = of_property_read_u32_array(endpoint,
+>>>> +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
+>>>> +			ARRAY_SIZE(lvds_vod_swing_data));
+>>>> +	if (ret_data != 0 && ret_data != -EINVAL) {
+>>>> +		ret = ret_data;
+>>>> +		goto exit;
+>>>> +	}
+>>>> +
+>>>> +	ret_clock = of_property_read_u32_array(endpoint,
+>>>> +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
+>>>> +			ARRAY_SIZE(lvds_vod_swing_clk));
+>>>> +	if (ret_clock != 0 && ret_clock != -EINVAL) {
+>>>> +		ret = ret_clock;
+>>>> +		goto exit;
+>>>> +	}
+>>>> +
+>>>> +	/* If any of the two properties is defined. */
+>>>> +	if (!ret_data || !ret_clock) {
+>>>> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
+>>>> +			lvds_vod_swing_data, lvds_vod_swing_clk,
+>>>> +			lvds_term_conf);
+>>>> +		if (lvds_vod_swing_conf < 0) {
+>>>> +			ret = lvds_vod_swing_conf;
+>>>> +			goto exit;
+>>>> +		}
+>>>> +
+>>>> +		ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
+>>>> +	}
+>>>> +	ret = 0;
+>>>> +exit:
+>>>> +	of_node_put(endpoint);
+>>>> +	return ret;
+>>>> +}
+>>>> +
+>>>>    static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+>>>>    {
+>>>>    	struct drm_bridge *panel_bridge;
+>>>>    	struct device *dev = ctx->dev;
+>>>> +	int ret;
+>>>> +
+>>>> +	ctx->lvds_vod_swing_conf[CHANNEL_A] = 0x1;
+>>>> +	ctx->lvds_vod_swing_conf[CHANNEL_B] = 0x1;
+>>>> +	ctx->lvds_term_conf[CHANNEL_A] = 0x1;
+>>>> +	ctx->lvds_term_conf[CHANNEL_B] = 0x1;
+>>>
+>>> These match the defaults in sn65dsi83_parse_lvds_endpoint(). Do we
+>>> really need those?
+>>
+>> Yes, I think we do. This ensures that defaults are used even when property
+>> is not defined/LVDS channel is not used. So also LVDS channel B defaults are
+>> set even for sn65dsi83 (single LVDS output). Keeping the same reg values as
+>> before these changes.
 > 
->  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 1 -
->  1 file changed, 1 deletion(-)
+> You can move sn65dsi83_parse_lvds_endpoint() out of the if() and get the
+> same result. Duplicating data (or code) is a bad idea, because it's easy
+> to update one point and miss another point. And then usually one has a
+> nice debugging session, trying to understand why their changes didn't
+> work out.
+
+Ok I see what you are trying to accomplish. I'll set default values in 
+sn65dsi83_parse_lvds_endpoint() in v5 like you suggested. Thanks.
+
+Best regards,
+Andrej
+
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> index b5bd5e7d5748..f782c8220dd3 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
-> @@ -9,7 +9,6 @@
+>>
+>> Best regards,
+>> Andrej
+>>
+>>
+>>>
+>>>> +
+>>>> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
+>>>> +	if (ret < 0)
+>>>> +		return ret;
+>>>>    	ctx->lvds_dual_link = false;
+>>>>    	ctx->lvds_dual_link_even_odd_swap = false;
+>>>> @@ -587,6 +724,10 @@ static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+>>>>    		struct device_node *port2, *port3;
+>>>>    		int dual_link;
+>>>> +		ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
+>>>> +		if (ret < 0)
+>>>> +			return ret;
+>>>> +
+>>>>    		port2 = of_graph_get_port_by_id(dev->of_node, 2);
+>>>>    		port3 = of_graph_get_port_by_id(dev->of_node, 3);
+>>>>    		dual_link = drm_of_lvds_get_dual_link_pixel_order(port2, port3);
+>>>> -- 
+>>>> 2.34.1
+>>>>
+>>>
 > 
->  / {
->  	aliases {
-> -		ethernet0 = &gmac2io;
->  		mmc0 = &sdmmc;
->  		mmc1 = &emmc;
->  	};
 
