@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFA8E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 07:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54239E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 07:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HT5Vw1c5JsjdkFWM9Rgu+pVa9jSJRpnur3CjtgBsZuo=; b=ry+jKFV0ObnWlqJAmA6K4EUmox
-	lL96d9psQ6ma0IDnUMmsWqDpF66C//uDF742r/LUCaXnqL+h+7H1AYGJVsGzCkOKiQ0dsB+cWluCe
-	b0QCRRZrI+zjMSyheJ72SMMiPSu5fVWjiuogohE4EbWdPcGFezaxmfy+wDA7b5d1Ac5Ls0dH/2MXx
-	CYZCn3RJN4N0ms/E6Pm/3JhYVRT9MYMDQa1Cc5fY69w/aJSfVmuz+Sv4LZIm3XbgufyJhuRsnDLTm
-	CpP/TfipxdihkRTG8KFtXa2bRqMKAPhcGnkPwFf8oFL9Eey0d/XnnzZBjWg4kGmzqM9ky8j77Gtux
-	/4vZaUhg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fU9h1qciZfo1eCFrj9RBOWdEPoZjJk9V1VI96TtLyqU=; b=01X5XB3A9zmIUMzqCJLrKleRLp
+	MnyD5+fUh2jKjEqqI+g4gayrAD/8qTG40XuLWPTftdorECBCm6NQGeN8JOap45Lv8C9iRBuAuI82S
+	jpPkYK1zWseAtmYooed+snCoe5NkM1J1SFn9raeT2KqWAO1sE16Hu02qIaNh1iL2CfwjaIiKGG3Xu
+	OFtSQAsFHJe4uaxTEZQc8a9L7aGXLQmeI4nXOxEVhJpjelT2OdCMzJm5pOs4s3cMV73xS0JG+NHRD
+	ciiUHGu90JHLr3RvRTtJXzIN+y+fVM6MtSyesh9Y81xB9P1qUBdYmyi5TgJrvELtXbi63wSve7Wg4
+	5JvVUseg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKukG-0000000AZFs-3T0o;
-	Tue, 10 Dec 2024 07:33:24 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tKulH-0000000AZOF-2vZW;
+	Tue, 10 Dec 2024 07:34:27 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKujC-0000000AZ1z-41LA
+	id 1tKujF-0000000AZ2j-1tNN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 07:32:20 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-216426b0865so17889925ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 23:32:18 -0800 (PST)
+	Tue, 10 Dec 2024 07:32:23 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2164b1f05caso18573565ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Dec 2024 23:32:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733815938; x=1734420738; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HT5Vw1c5JsjdkFWM9Rgu+pVa9jSJRpnur3CjtgBsZuo=;
-        b=QLc6cvVxNNm0HQyWqzH6YII3B+3IKdQklE+LSYU+r/0RkBFI0k6ku5C2A5pph83MMo
-         q2g95iAP0NPQyHCHd18soYXuk9bn2ScQjRwkKmfgkTUJ7IFyuFgk5YsBTFZ1KzS4ye9G
-         XAc6w7psqW2kYPZ3djXXo+NF8XJnQt+geyx7A=
+        d=chromium.org; s=google; t=1733815941; x=1734420741; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fU9h1qciZfo1eCFrj9RBOWdEPoZjJk9V1VI96TtLyqU=;
+        b=MxjpQU/P+tH+/qA5gojpF8fPehzNXiIYikaCOf/HspvSJfh9vRkLI6V1W0ikO6Wm9w
+         XjzH2yJwaPBnfXRDW19HSmbGt2j3dgKXfK9+G7uQltAKcqvLE7I3l1CM1KmSZC6eSx3q
+         2r3JnaGHsiUnbXJEXEpefiy1dTw7SlD2GaRf0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733815938; x=1734420738;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HT5Vw1c5JsjdkFWM9Rgu+pVa9jSJRpnur3CjtgBsZuo=;
-        b=hmYzXEe4adr0XQE3Lh+ip12Pe3bZdR3EesJa8W2wE12VryD5VWRxOcfBFXBdqn2+35
-         YTiULI9y8g76fA77KCvjzyVAaVcjDspxidI6zY0/isBQtv4ZKfCoBXlJpwTALX/9RDPZ
-         RpY+j87lczK4cjiz9aVpRCIveymo4IqELC0nf4OeCxeoxZmCrH2NEASHUH1ZUfX8AFoi
-         LvfcMo1+iP6a3xgpUQSi3a4JZUHY/zbKjJk8D+BnrANa5w9mrtvjFMtiDZSLzHQEHyRr
-         RgaQUqTasyccm8x7Wk44hvBuHbQ2NbyQuhWioFuhWQMGgfwe2qjRc3ESCTqbVom2bJZL
-         RUTA==
-X-Forwarded-Encrypted: i=1; AJvYcCXGGhZb5PIK6VZECj60fsIMQplVocBPHG97zDxCv4L+gBI7YjCdrvkPeOMg0rpjY1nNHSfECwXzj4VV835RGrcu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza8IAizrhboWwnEIAl20O701Mld3HwlzIdg9IRIb+ZPdjaQaYi
-	dttyFK2GN+R6PSS7CyNMgxxtNhunlTm7Q6L88RnBaIx2w5hY5eEgHy54+WPyYg==
-X-Gm-Gg: ASbGncsdcHETINEY6BmGNuta62bHT9NAbPyfSGyn8BQzfb3892mREoGeBOyTncXt/FN
-	8/ndN+/0BJpnwZRvA6wT/dEp51iTP3WWrYwazsLoLX4fH9pUYVV5aWiVa1d0CNnJe8di2E6AN6J
-	AZ+keb3CKUB9yMuesrPRjNypqn+LFuCnZozp5pyD7dj2thj9v8BmFG++dMnyaQlOpwk1HVpyQI3
-	/1dlNTw1GpjAGqrW7U/QEmSni/0N3R4zfzpIg9zMz/qI8d5tADeWK1LtVhEqXl3j1asz5+v
-X-Google-Smtp-Source: AGHT+IG1WT2JNFtTZJQaCDx3/CWxE46vDhlGZZ513ZUlC7xM4jD1E01HlR26Ok2ltxq903JY3J5PNA==
-X-Received: by 2002:a17:902:d583:b0:216:53fa:634f with SMTP id d9443c01a7336-2166a063a7fmr51209325ad.48.1733815937970;
-        Mon, 09 Dec 2024 23:32:17 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733815941; x=1734420741;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fU9h1qciZfo1eCFrj9RBOWdEPoZjJk9V1VI96TtLyqU=;
+        b=AUYX1vgxH6csnCBRCLTeiMboNEoFavpZQFDMXuafV3jkydDzk4Wf/hwnVutKfmYbu5
+         5CmbiwWWHlzT8EpkaFCknyqRBn8elJ8Lne9l//IJh6JrFG492v+dms+glpVmrwRB/LGd
+         rO6D9I7ZRbQR+s18BgHgDAoaNlonqUwsqa4z75JdxO7ynyxyAm5JnFpQl5YrOqez+fd3
+         IZhrQjbrrsw8iVvPIM+xMP0BsFRsBkvLTUp4BQxiHbtEx/yssmzcPqBwN4tYrqPqJoYD
+         DZKnYplrPcWXex/C/EwaYynB6zevjdfq7Cwkm++UMxZOTzDVH4ev/nf+a1y+gCsUJnHV
+         LY9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVIyn3f5GaBk7eZ7eNg2E2T/5AEUmuznaWRd6HYA8ULu/1MrwGwHK/s26+t1noIyr+krWLOk9FyNmh0rBVVWTwK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeP+b4lfhPGJI1eLDcDg1pJruym42PcGVHdJKGD5zuLeOKOxmd
+	1fRYQOL/1L7ZVsLLjbAj868TsIqDVlIis7OU0KGjR8zo12Tc+ETTUBujxHwsmA==
+X-Gm-Gg: ASbGncv1Bg3CwQMHu2h53pqo/MY9v6FWLndAy4JPUeVqRO1KgP/K+l6zGPJGbjanaCD
+	oC1+Bao7Uw2FnnF48v6EBjKEtLM1S49gc5G9Q8hINdZB5e7L/6K3F/GwLIymGKOPlHDqOVp64KJ
+	FCs5wtkBC9G9/0h8xkUTaHOA1eBZNfiB0QFdRYWhOV5yHsZmnK9Y6GbfVEPPceKVXcWs7seRU3K
+	hiTFNmoKnVwBlpGOCu9dcoEH4DMpEm4+m6UWnJ7wzhRDq9fkT4WtGQNUY0XtxdZED9ASgKF
+X-Google-Smtp-Source: AGHT+IHPmON+PwbNAPPZYDE53KwGnbvTApGQhaNGbUZe2uB605PBpV+ZcftSN2qQ7es0oLZxPl5QBA==
+X-Received: by 2002:a17:902:ecc1:b0:216:3876:2cff with SMTP id d9443c01a7336-21638762fcamr152395915ad.54.1733815940983;
+        Mon, 09 Dec 2024 23:32:20 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:89ce:2db9:f7d5:156d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8f09146sm83693295ad.199.2024.12.09.23.32.15
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8f09146sm83693295ad.199.2024.12.09.23.32.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Dec 2024 23:32:17 -0800 (PST)
+        Mon, 09 Dec 2024 23:32:20 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Chaotian Jing <chaotian.jing@mediatek.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
@@ -80,15 +81,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	devicetree@vger.kernel.org,
 	Frank Wunderlich <frank-w@public-files.de>,
 	Andy-ld Lu <andy-ld.lu@mediatek.com>
-Subject: [PATCH v2 0/2] mmc: mtk-sd: Limit second register range to SoCs requiring it
-Date: Tue, 10 Dec 2024 15:32:09 +0800
-Message-ID: <20241210073212.3917912-1-wenst@chromium.org>
+Subject: [PATCH v2 1/2] dt-bindings: mmc: mtk-sd: Document compatibles that need two register ranges
+Date: Tue, 10 Dec 2024 15:32:10 +0800
+Message-ID: <20241210073212.3917912-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+In-Reply-To: <20241210073212.3917912-1-wenst@chromium.org>
+References: <20241210073212.3917912-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_233219_117467_3D55E92E 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20241209_233221_481566_A5059870 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes since v1:
-- Added MT7988 compatible string to list that needs second register
-  range
-- Dropped comment about uncertainty of MT6779 from commit message
-- Picked up Angelo's Reviewed-by
+Besides the MT8183's MMC controller and all its compatible derivatives,
+the recently added MT7986 and MT8196 also require two register ranges.
+This is based on the actual device trees.
 
-Currently the usage of a second register range for MediaTek's MMC
-controller is seen only on a few platforms. However the driver tries
-to grab the register base regardless, and then ignores any errors.
-This makes all the other platforms that don't need it produce confusing
-error messages.
+Properly enforce this in the binding.
 
-Instead, make the driver only grab the register range for platforms that
-actually require it, and correctly handle the error. Also fix up the
-binding so that validation of the "reg" property is as strict as
-possible.
-
-Please take a look.
-
-
-Thanks
-ChenYu
-
-Chen-Yu Tsai (2):
-  dt-bindings: mmc: mtk-sd: Document compatibles that need two register
-    ranges
-  mmc: mtk-sd: Limit getting top_base to SoCs that require it
-
+Fixes: 4a8bd2b07d88 ("dt-bindings: mmc: mtk-sd: Add mt7988 SoC")
+Fixes: 58927c9dc4ab ("dt-bindings: mmc: mtk-sd: Add support for MT8196")
+Cc: Frank Wunderlich <frank-w@public-files.de>
+Cc: Andy-ld Lu <andy-ld.lu@mediatek.com>
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
  Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 10 +++++++++-
- drivers/mmc/host/mtk-sd.c                         | 15 +++++++++++----
- 2 files changed, 20 insertions(+), 5 deletions(-)
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
+diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+index f86ebd81f5a5..0debccbd6519 100644
+--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
++++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+@@ -235,11 +235,19 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: mediatek,mt8183-mmc
++            enum:
++              - mediatek,mt7986-mmc
++              - mediatek,mt7988-mmc
++              - mediatek,mt8183-mmc
++              - mediatek,mt8196-mmc
+     then:
+       properties:
+         reg:
+           minItems: 2
++    else:
++      properties:
++        reg:
++          maxItems: 1
+ 
+   - if:
+       properties:
 -- 
 2.47.0.338.g60cca15819-goog
 
