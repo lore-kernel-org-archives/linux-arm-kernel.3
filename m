@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1A4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9E4E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 00:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iNlVsXLwGZKN2AC/gvuWwQs8wsgSrzfnTEtF33Qa/oU=; b=l3cj/r+XO2VJY09mlFgiU7O3H7
-	Qk+3hgevGHLAMeEhHOJPHSykk35zItOg0Jj0/QEm7XwD912aLVWxVTBuMYVbdZad3uCwr+8fAjEhM
-	3D5fbRAjReeu5kVhuvUKkPuRdaiASE6Q7UGBu4y/dtfAMqpKQ+fFTRJwqTNH8lhoCqUPHn7LSZ9hC
-	MfbS45SK6lMorCpSFDicHCEaZ1ZM/J8wrzZOXglFasjF6SCHdARRssvhOsKbhS4WC4vOxeiZww09E
-	AB4BDSWoTw+oHwfVPSJS6eIOAjKQnkknpFSYNzPigsi+qQn/KYtrgD8j1xD7RV1vQ3fn3XqeWk+zS
-	vvvmJZNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mq7QxHqpmP8050zkcHctxYMYPkqICTjonbkVU/Kk+wM=; b=3EAmvA5GpdMw0D3wdLRMK5GGbE
+	xWKbuUDsCplVWQYuCZAA+yyp6YJBnl3azZFTf9xbufjhI1XDb6Q/vnI3AXjaKNwGfgZvHbeBA3b8W
+	ielt1zhvOJ48rXvwTcwJUnVgd2hq+ESfqWIGq7dxShz8xO1mXst2+QgzYVgL2EcvIv2C6yzxdr7Ia
+	dvNMCHksJRgi3/WTq5Jzm/sgEJ2oTFIciijMa2ApPgsljQIHIh8q3nNqriXNH8X4hb3fKBN42k8oD
+	dMWy/RC9M/gUw/mc2Xab5e4Bnq/TA0bIXAzz7YcCyRsFdtXbkAaY8uEiLFZiU4+BZ8LDX3GynQTjn
+	IsPmry+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKoME-00000009jTp-2Eor;
-	Tue, 10 Dec 2024 00:44:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKoLB-00000009jMv-1O8O
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 00:43:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE5B25C5B97;
-	Tue, 10 Dec 2024 00:42:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8A6DC4CED1;
-	Tue, 10 Dec 2024 00:43:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733791384;
-	bh=RuCcFUDLbLjGKs6CmeSz+8foqRR83dy3HBN8E1REPgw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=XwiLlCX3NpbW5Hm/QQaTrLYAbO7u1kk/ba5Q3+Yi9NKQHeeHQlFTMFOnvybDWQWoO
-	 QIjJL986KmJ5TO5M8tlvosJ8aohW0UDGsglBpne1uU/BORySyjPoJeqmx42JoJChNM
-	 o9ASe1zqgDbELymkdd5Hj/ylXasRwfI/pCj4jD0OnkmSAPNe2C54yAPRC6f4Ds9yPG
-	 nnDsszJGXHV5SV5l+c2uO9YjyJNRXqlHrLThjRqCmXhNPQbPL74IkpdmZMqMQkGM82
-	 8ecaEsVJrDaW0SEWBTRVJkOW+ZeKRc3YBX0n+ivxQpQdrlG+coQIDHwFWJMpidPnCm
-	 N1SFD/qSqmF1g==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 10 Dec 2024 00:42:53 +0000
-Subject: [PATCH] arm64/signal: Silence spurious sparse warning storing
- GCSPR_EL0
+	id 1tKoV6-00000009kzk-3AAz;
+	Tue, 10 Dec 2024 00:53:20 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tKoU3-00000009kkD-1Q8D;
+	Tue, 10 Dec 2024 00:52:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=FhW3RxWuSa2qtZWnSfHCog3V8YUyYEUWMbSHUEDeJ6Y=; b=H
+	4dZEI47ysOkjq2nt2vaVeH59o2igH7ym38HY80DnZ+V4Gzm0/3n4KSbUVTVOSsEz
+	4QUoO+0/MtDdhh9xjY6g8CXb8BHECm3+l7pXUrU1amejdQe6oqpYNMts7amWtABu
+	VabSbjvfTfU2NOMwuZTekoLsz8h24rxTfSR5gIeExI=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-102 (Coremail) ; Tue, 10 Dec 2024 08:50:51 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Tue, 10 Dec 2024 08:50:51 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: "Daniel Semkowicz" <dse@thaumatec.com>, 
+	"Diederik de Haas" <didi.debian@cknow.org>, andy.yan@rock-chips.com, 
+	Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, jernej.skrabec@gmail.com, 
+	jonas@kwiboo.se, krzk+dt@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	neil.armstrong@linaro.org, quentin.schulz@cherry.de, 
+	rfoss@kernel.org, robh@kernel.org, tzimmermann@suse.de
+Subject: Re:Re: [PATCH v3 0/3] drm/rockchip: Add driver for the new DSI2
+ controller
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2024 www.mailtech.cn 163com
+In-Reply-To: <2203458.KiezcSG77Q@diego>
+References: <20241203165450.1501219-1-heiko@sntech.de>
+ <20241209150619.33998-1-dse@thaumatec.com>
+ <D67AV178CEBD.3QA9VD4ZPRNQ1@cknow.org> <2203458.KiezcSG77Q@diego>
+X-NTES-SC: AL_Qu2YAfuSvkAu5yOeZOkZnEobh+Y5UcK2s/ki2YFXN5k0tCTI0SYQW29KGUD2y86DDiKsoAirUQVL5MpFRpJHY460ozr25CzPaQGPdj10sTtO
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAIyOV2cC/x3MQQqEMAxA0atI1hOoVSvOVQYXoaY1oB1JYBgQ7
- 25x+Rb/n2Cswgbv5gTln5h8S0X7aiCuVDKjLNXgne9b7yYk3UOPORqa5EIb2kFqjEOXaIq0hDG
- NUOtDOcn/OX/m67oBZlzzEmkAAAA=
-X-Change-ID: 20241209-arm64-gcs-signal-sparse-53fa9cad67f7
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel test robot <lkp@intel.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2301; i=broonie@kernel.org;
- h=from:subject:message-id; bh=RuCcFUDLbLjGKs6CmeSz+8foqRR83dy3HBN8E1REPgw=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnV46Vtms1HDkXqNTBQOpNkKXM/NwnEd+RWOX8aUVV
- AbjDp5yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ1eOlQAKCRAk1otyXVSH0Nf2B/
- 46IZKbsXIhvCH3YKyKwJdChGOWpXTBf6YEHh8T/jS05DXa9vZNHU+B/U9TxDHM1CRUdPUaDQbcPXRn
- Cav5lk1kZUrdoXnHYm/rOR9zaX0z1TLE+u9NuSeLglpLyzQyBfkdbLpQ5YgNt3I0Fm8RAnBl6zDPER
- L1Vch0wPxEUNOIpID45ry1unNSmMG5StXBNkYURQ18PTCDuQ+5ACgoY1lJifvm+MchS8oIzmzV9WzU
- RKhqAjUYSPe0PDDKklWHuCPCHqq6GrMtc2q7jCQGQ242brIFmQyTJ+SEs0GRzkCxwckTmOwjGRv8ix
- 5JPpPWdYRqvVCKFWKwVyszinhF2iSX
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Message-ID: <4e015ea9.960.193ae0c236a.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: ZigvCgAXlJxrkFdn5vA6AA--.43974W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMwmxXmdXikRb2gADsp
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_164305_458933_01088BBC 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20241209_165215_687137_0A5675E7 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +85,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We are seeing a false postive sparse warning in gcs_restore_signal()
-
-arch/arm64/kernel/signal.c:1054:9: sparse: sparse: cast removes address space '__user' of expression
-
-when storing the final GCSPR_EL0 value back into the register, caused by
-the fact that write_sysreg_s() casts the value it writes to a u64 which
-sparse sees as discarding the __userness of the pointer. The magic for
-handling such situations with sparse is to cast the value to an unsigned
-long which sparse sees as a valid thing to do with __user pointers so add
-such a cast.
-
-While we're at it also remove spurious casts of the gcspr_el0 value as we
-manipulate it which were the result of bitrot as the code was tweaked in
-the long period it was out of tree.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202412082005.OBJ0BbWs-lkp@intel.com/
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/kernel/signal.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 14ac6fdb872b9672e4b16a097f1b577aae8dec50..83ea7e5fd2b54566c6649b82b8570657a5711dd4 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -39,7 +39,7 @@
- #ifdef CONFIG_ARM64_GCS
- #define GCS_SIGNAL_CAP(addr) (((unsigned long)addr) & GCS_CAP_ADDR_MASK)
- 
--static bool gcs_signal_cap_valid(u64 addr, u64 val)
-+static bool gcs_signal_cap_valid(unsigned long __user *addr, u64 val)
- {
- 	return val == GCS_SIGNAL_CAP(addr);
- }
-@@ -1094,15 +1094,15 @@ static int gcs_restore_signal(void)
- 	/*
- 	 * Check that the cap is the actual GCS before replacing it.
- 	 */
--	if (!gcs_signal_cap_valid((u64)gcspr_el0, cap))
-+	if (!gcs_signal_cap_valid(gcspr_el0, cap))
- 		return -EINVAL;
- 
- 	/* Invalidate the token to prevent reuse */
--	put_user_gcs(0, (__user void*)gcspr_el0, &ret);
-+	put_user_gcs(0, gcspr_el0, &ret);
- 	if (ret != 0)
- 		return -EFAULT;
- 
--	write_sysreg_s(gcspr_el0 + 1, SYS_GCSPR_EL0);
-+	write_sysreg_s((unsigned long)(gcspr_el0 + 1), SYS_GCSPR_EL0);
- 
- 	return 0;
- }
-
----
-base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
-change-id: 20241209-arm64-gcs-signal-sparse-53fa9cad67f7
-
-Best regards,
--- 
-Mark Brown <broonie@kernel.org>
-
+CgpIaSwKCkF0IDIwMjQtMTItMTAgMDc6MTI6MjYsICJIZWlrbyBTdMO8Ym5lciIgPGhlaWtvQHNu
+dGVjaC5kZT4gd3JvdGU6Cj5BbSBNb250YWcsIDkuIERlemVtYmVyIDIwMjQsIDE3OjExOjAzIENF
+VCBzY2hyaWViIERpZWRlcmlrIGRlIEhhYXM6Cj4+IEhpLAo+PiAKPj4gT24gTW9uIERlYyA5LCAy
+MDI0IGF0IDQ6MDYgUE0gQ0VULCBEYW5pZWwgU2Vta293aWN6IHdyb3RlOgo+PiA+IE9uIDAzLjEy
+LjI0IDIxOjU0LCBIZWlrbyBTdHVlYm5lciB3cm90ZToKPj4gPiA+IFRoaXMgc2VyaWVzIGFkZHMg
+YSBicmlkZ2UgYW5kIGdsdWUgZHJpdmVyIGZvciB0aGUgRFNJMiBjb250cm9sbGVyIGZvdW5kCj4+
+ID4gPiBpbiB0aGUgcmszNTg4IHNvYyBmcm9tIFJvY2tjaGlwLCB0aGF0IGlzIGJhc2VkIG9uIGEg
+U3lub3BzaXMgSVAgYmxvY2suCj4+ID4gPiAKPj4gPgo+PiA+IEkgZGlkIG1vcmUgdGVzdHMgd2l0
+aCBkaWZmZXJlbnQgTFZEUyBkaXNwbGF5cy4gSSB0ZXN0ZWQgZm9sbG93aW5nCj4+ID4gY29uZmln
+dXJhdGlvbnMgd2l0aCBEU0kvTFZEUyBicmlkZ2U6Cj4+ID4gLSAxMDI0eDYwMEA2MC4wMQo+PiA+
+IC0gMTAyNHg3NjhANjAuMDIKPj4gPiAtIDEyODB4ODAwQDYwLjA3Cj4+ID4gLSAxMzY2eDc2OEA2
+MC4wNgo+PiA+Cj4+ID4gQWxsIG9mIHRoZW0gd29ya2VkIHdpdGhvdXQgaXNzdWVzLCBleGNlcHQg
+MTM2Nng3NjguCj4+ID4gV2l0aCB0aGlzIHJlc29sdXRpb24sIHZpZGVvIGlzIGJsdXJyeSwgYW5k
+IG9mZnNldCBpbmNvcnJlY3RseQo+PiA+IHRvIHRoZSBsZWZ0LiBUaGVyZSBhcmUgYWxzbyByZXBl
+YXRpbmcgZXJyb3JzIG9uIHRoZSBjb25zb2xlOgo+PiA+Cj4+ID4gICByb2NrY2hpcC1kcm0gZGlz
+cGxheS1zdWJzeXN0ZW06IFtkcm1dICpFUlJPUiogUE9TVF9CVUZfRU1QVFkgaXJxIGVyciBhdCB2
+cDMKPj4gPgo+PiA+IEluIGNvcnJlY3Qgb3BlcmF0aW9uIHdpdGggb3RoZXIgcmVzb2x1dGlvbnMs
+IHRoZXJlIGlzIG5vIGVycm9yLgo+PiA+IEkgYW0gbm90IHN1cmUgaWYgdGhpcyBpcyBhIHByb2Js
+ZW0gaW4geW91ciBzZXJpZXMgb3IgcmF0aGVyIGluIFZPUDIKPj4gPiBkcml2ZXIuCj4KPlRoaXMg
+cmVhbGx5IHNvdW5kcyBsaWtlIHNvbWV0aGluZyBpcyB3cm9uZyBvbiB0aGUgdm9wIHNpZGUuCj5U
+aGUgaW50ZXJydXB0IGlzIHBhcnQgb2YgdGhlIHZvcCwgdGhlIGRpdmlzYWJsZSBieSA0IHRoaW5n
+cyBsaWtlbHkgdG9vLgoKVGhpcyBpcyBhIGhhcmR3YXJlIGxpbWl0YXRpb24gb24gdm9wIHNpZGU6
+ClRoZSBob3Jpem9udGFsIHJlc29sdXRpb24gbXVzdCBiZSA0IHBpeGVsIGFsaWduZWQuCgoKCj4K
+Pgo+SGVpa28KPgo+Cj4+IAo+PiBPbiBteSBQaW5lVGFiMiBJIGdvdCBzaW1pbGFyIG1lc3NhZ2Vz
+IGFib3V0IDIgd2Vla3MgYWdvOgo+PiByb2NrY2hpcC1kcm0gZGlzcGxheS1zdWJzeXN0ZW06IFtk
+cm1dICpFUlJPUiogUE9TVF9CVUZfRU1QVFkgaXJxIGVyciBhdCB2cDEKPj4gCj4+IFByZWNlZGlu
+ZyB0aG9zZSwgSSBnb3Qgc2V2ZXJhbCBwYW5mcm9zdCByZWxhdGVkIGVycm9yczoKPj4gCj4+IHBh
+bmZyb3N0IGZkZTYwMDAwLmdwdTogZ2V0IGNsb2NrIGZhaWxlZCAtNTE3Cj4+IHBhbmZyb3N0IGZk
+ZTYwMDAwLmdwdTogY2xrIGluaXQgZmFpbGVkIC01MTcKPj4gcGxhdGZvcm0gZmRlNjAwMDAuZ3B1
+OiBkZWZlcnJlZCBwcm9iZSBwZW5kaW5nOiAocmVhc29uIHVua25vd24pCj4+IHBsYXRmb3JtIGNw
+dWZyZXEtZHQ6IGRlZmVycmVkIHByb2JlIHBlbmRpbmc6IChyZWFzb24gdW5rbm93bikKPj4gdmRk
+X2dwdV9ucHU6IGRpc2FibGluZwo+PiAKPj4gQnV0IGNhbiBhbHNvIGJlIHRoYXQgdGhlIFBpbmVU
+YWIyIChsaWtlbHkpIG5lZWRzIHJlZ3VsYXRvci1hbHdheXMtb24KPj4gYW5kIHJlZ3VsYXRvci1i
+b290LW9uIGluIGl0cyB2ZGRfZ3B1X25wdSBub2RlLgo+PiAKPj4gPiBJIHRyaWVkIHRvIHRyYWNr
+IGRvd24gdGhlIHByb2JsZW0sIGFuZCBpdCBzZWVtcyB0byBiZSBhIGdlbmVyaWMgaXNzdWUKPj4g
+PiB3aGVuIGhvcml6b250YWwgbGluZSB3aWR0aCBpcyBub3QgZGl2aXNpYmxlIGJ5IDQuCj4+ID4g
+TG93ZXJpbmcgbGluZSB3aWR0aCB0byAxMzY0cHggZml4ZXMgdGhlIGlzc3VlLCBidXQgb2YgY291
+cnNlIEkgaGF2ZSB0d28KPj4gPiB2ZXJ0aWNhbCBsaW5lcyBvZiBibGFjayBwaXhlbHMgb24gdGhl
+IHJpZ2h0Lgo+PiA+IEkgYWxzbyBtYWRlIHNvbWUgdGVzdHMgd2l0aCA3MjB4MTI4MCBEU0kgZGlz
+cGxheS4gTG93ZXJpbmcgaG9yaXpvbnRhbAo+PiA+IGxpbmUgdG8gNzE4cHggc2hvd3MgdGhlIHNh
+bWUgcHJvYmxlbS4gV2l0aCA3MjBweCBhbmQgNzE2cHggaXQgd29ya3MKPj4gPiBjb3JyZWN0bHku
+Cj4+IAo+PiBJIGhhdmVuJ3QgbG9vayBmdXJ0aGVyIGludG8gaXQsIGJ1dCB0aGUgUFQyIGhhcyBh
+IDEyODB4ODAwIHJlc29sdXRpb24uCj4+IAo+PiBIVEgsCj4+ICAgRGllZGVyaWsKPj4gCj4KPgo+
+Cg==
 
