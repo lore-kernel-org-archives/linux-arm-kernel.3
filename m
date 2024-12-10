@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC6DE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF3CE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 09:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ep5OKFJpfszekExX4/IRcefemdiT8s+lNUZhAL6lYhw=; b=qPSkC7dsM45hsHFjE3B2bdvBlV
-	OcdhWdMLjT/f5MdsZNhlNR6kYe086zpi/nT7jhGuVDGvxchgaZZXynntcgHIIuoxF4bdlpCge5xw7
-	aP45Jl6Zl+ozhumwXbwo57RFVbbR8EUBlmWl0ikCt6OILiQ4UeZ/BXxXLezEtq4WwjehdVXbpXQeu
-	6QW35CHaFtZBS0LHYq+Jg3EBXOguaGmqmITxZXugy5Cd/bkT25Rik28jel5EnJ0sx/ui9r2s/WH/I
-	sjuYwGWGpKQqJiY4J8iJohG9J2nUq3KfvAct/ZBnV3YXO2bSNRBbry9sLF0DITfMVp+ZmggMyo/tD
-	bRx5zMZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zx95Q1ecyRH9NKqfCQ6XjI4BdeRA8YxW5ySonXq8vw0=; b=TpOfXhcFG08HMZxqtemltRx5KL
+	utkqWVIRwDlfcLzIbVAEkdwTA6jSTkRvNyLuPBSHbZPa4YRJ6X1Id15abqlf2Gomws4bfrEk8Ls1K
+	eGdKKDfJqcmMv//Vxg7zJwCmNHcXpE7M049az+R92AE4u0NwZYQc+tH99AnPeJ0d+jgnATf7kxO7O
+	4P05t9+ZrxWCGEt+FW9+pbqCy3aabzmx72WgvD4DmwoBoled4E8n/jrub51f20vUIoWEfw76jB473
+	YnUS3HU5v+HtWAKdgb3Ql8uc4lKzOD5Tf9lQJcBzrNmnBg7Gk1LV1/ZL4ac1rD8J2MGHsF3hw9Tc9
+	TIkk0t2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwCJ-0000000AoIj-1cWc;
-	Tue, 10 Dec 2024 09:06:27 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tKwDL-0000000Aoaq-2Jra;
+	Tue, 10 Dec 2024 09:07:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKwBF-0000000Ao7S-1iKT
+	id 1tKwBx-0000000AoGi-38Ue
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 09:05:22 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434f0432089so21864075e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 01:05:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733821519; x=1734426319; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ep5OKFJpfszekExX4/IRcefemdiT8s+lNUZhAL6lYhw=;
-        b=QtEHjbDXzCFUh/5hRuyOlYR1lPjZ77yw4e7ok6GrKCGeDIOYrHd9Ky8avNjejmQ2Cp
-         xaSYKphSfGIy0qs+ahEaKuGktChLaIpyj7nQNwnWz5MJ93vTfBQMjHceMk7u0zItIjC/
-         WdM1wWob/ZC9aE1dAtrcEHfMjQW1mGVgc2PXSLtc73CrryrZMp5GeBYwVj4BJoqBYLfK
-         On54YV0RYpRZVihUGnZaaNUi2hjf6dApL41CH+qRFnzoood3xC0PAD3w4WTmM2XP3AG1
-         Ltv7psQbuCxC2bK8h0jKhy71Qb8WvkIodF7k6O/A+o6JmmZFjmTSJsbRNojm/JGEzEZ+
-         xJlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733821519; x=1734426319;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ep5OKFJpfszekExX4/IRcefemdiT8s+lNUZhAL6lYhw=;
-        b=Fi1P/RGDW9i8V7gHL1+bgzFUyGTaEspQkqo1LDiWl5acw5Gh+wjHLr+u69bbmp0O5/
-         IY8Ku+SebMpzu7jfALd/Za3r0LFfG9gW0AmG63ON1Emp+FI8utXW8hMV/DtDbj6YrHGL
-         Uvn3UK/frULTTEZUyztWY2kKbfPNmHKkl6GabWWla5La/7BoG+Wy6MZ0B7benpJapzBE
-         AnO0vLG9WJt1TTnfX9PGbMi4AsRmut93LCjbYQl6B/9cguvTeUpBNjuCeWNJ7RQaXZOR
-         cuwxjaWlTjzfo1h/viqcqSyBPt+2BJVaBMn2e4rPdyZtY4i7Ma+3jQlCQEPYYJZmCfp/
-         I8Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCUy5656Z4+x6gKWPeZtb1C4qU8tYm5IYSSsoCL+/yse7vJM/wzGuiTOeNQMHCubQuL7eUOjw1W8Ih102iCmrO/o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6Am4Of04v4OP0bzA3kVwj3WXXPOuqO27NfDDvYgq2u0qmtsF9
-	r+9DPle1HSSaU5+Ez0G03gKZpaC81rph3vFqJTar1ShhsK3RsU0WZcQZxZE7TnF7EGrXw79V47b
-	hdBLoxkkY0qPb3bGUzc4xk9IfeVY/WxQw/zBV
-X-Gm-Gg: ASbGnctZM2cAHgJyz/gA9MBQMs6d5sjyaLc4TVX9iAlMb2/sDDSyCR0o3HJVvFHTbL4
-	pdgzafXjgabCgSmYvWHF7b89ppE6HxRDOfom8ySof25bsKXebd/26OiIkjLfKe2mj5A==
-X-Google-Smtp-Source: AGHT+IGIVjgo6xFN35HYB1TgvILbI9Al6TSHNEWYp3ypNeyi+o9RjYaXrxzLsc97Z2zDVdAJ5OXIaoQOhG2vsZwboeY=
-X-Received: by 2002:a05:6000:156f:b0:374:c4e2:3ca7 with SMTP id
- ffacd0b85a97d-3862b33e3cemr11655971f8f.5.1733821519043; Tue, 10 Dec 2024
- 01:05:19 -0800 (PST)
-MIME-Version: 1.0
-References: <20241210001802.228725-1-fujita.tomonori@gmail.com> <20241210001802.228725-6-fujita.tomonori@gmail.com>
-In-Reply-To: <20241210001802.228725-6-fujita.tomonori@gmail.com>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Tue, 10 Dec 2024 10:05:07 +0100
-Message-ID: <CAH5fLgiShKMGo6AYWM-4S8JK+iDA+tUfz9uxkns82g0nLW--NQ@mail.gmail.com>
-Subject: Re: [PATCH v1 5/5] rust: Add warn_on and warn_on_once
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	x86@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org, 
-	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn, 
-	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com, 
-	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-	benno.lossin@proton.me, a.hindborg@kernel.org, tmgross@umich.edu
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 10 Dec 2024 09:06:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C3CF5C5EFA;
+	Tue, 10 Dec 2024 09:05:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFBD1C4CEDD;
+	Tue, 10 Dec 2024 09:06:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733821564;
+	bh=UxzPXa/tKxoJipIPRU020pEKj1v70WB+y8JGomD9bMY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=J5ADtMNDjrv8Tdc3EOhcbscAr7atYG+YukrITjlrjnZUe4HyauiBujzjNZ1UujMfJ
+	 VWwFd4rr8iegccUzExq269wO9mHT/OtKtuHcMcGDdpw7YSIhyAitvYNIXgroTtutW3
+	 CSvd7zFO3bnn5qQE0SrtzQGuelkde7EeBJ733US3Ee6iU4BNzgIhqsLzG5n7+z6a7g
+	 unJF6imCcuLorACsmysFxRdFvmjmze0jga2+ZchNVmNrnNpaJHvIE1Y68uvORR63Bm
+	 TIpdbMCYMcUHwW+oAduOLEM8ddnSybG4WTa6peRrfTLoA1rYA8Ej752Fqc+WwUkEUY
+	 3APjn6YR47Duw==
+Received: from 82-132-225-50.dab.02.net ([82.132.225.50] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tKwBu-002CXk-9o;
+	Tue, 10 Dec 2024 09:06:02 +0000
+Date: Tue, 10 Dec 2024 09:05:59 +0000
+Message-ID: <87frmvsya0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	ryan.roberts@arm.com,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH V2 46/46] KVM: arm64: nv: Add trap forwarding for FEAT_FGT2 described registers
+In-Reply-To: <20241210055311.780688-47-anshuman.khandual@arm.com>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+	<20241210055311.780688-47-anshuman.khandual@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.225.50
+X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_010521_447096_F64C111B 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20241210_010605_867713_8A52AE63 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +92,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 1:19=E2=80=AFAM FUJITA Tomonori
-<fujita.tomonori@gmail.com> wrote:
->
-> Add warn_on and warn_on_once macros. Wrapping the C's WARN_* and BUG_*
-> macros doesn't work so this uses the assembly code exported by the C
-> side via ARCH_WARN_ASM macro. Like the static branch code, this
-> generates the assembly code for rust dynamically by using the C
-> preprocessor.
->
-> file()! macro doesn't work for the Rust inline assembly in the same
-> way as __FILE__ for the C inline assembly. So the code to handle a
-> file name is different from the C assembly code (similar to the
-> arm64/loongarch assembly).
->
-> ASM_REACHABLE definition works in the same way to get objtool's
-> reachable asm code. The architectures which use objtool (x86 and
-> loongarch) needs it.
->
-> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
+On Tue, 10 Dec 2024 05:53:11 +0000,
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+> 
+> Describe remaining MDCR_EL2 register, and associate that with all FEAT_FGT2
+> exposed system registers it allows to trap.
 
-> +#[macro_export]
-> +#[doc(hidden)]
-> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
-> +#[cfg(any(target_arch =3D "x86_64", target_arch =3D "riscv64"))]
+MDCR_EL2 register *bits*? How is that related to FGT2 at all?
 
-> +#[macro_export]
-> +#[doc(hidden)]
-> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
-> +#[cfg(any(target_arch =3D "aarch64", target_arch =3D "loongarch64"))]
+> 
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: kvmarm@lists.linux.dev
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> Changes in V2:
+> 
+> - Dropped check_cntr_accessible_N and CGT_CNTR_ACCESSIBLE_N constructs
+> - SYS_PMEVCNTSVR_EL1(N) access traps have been forwarded to CGT_MDCR_HPMN
+> - Updated check_mdcr_hpmn() to handle SYS_PMEVCNTSVR_EL1(N) registers
+> - Changed behaviour as BEHAVE_FORWARD_RW for CGT_MDCR_EnSPM
+> 
+>  arch/arm64/include/asm/kvm_host.h |   2 +
+>  arch/arm64/kvm/emulate-nested.c   | 158 ++++++++++++++++++++++++++++++
+>  2 files changed, 160 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index c80c07be3358..4cdce62642d1 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -441,6 +441,7 @@ enum vcpu_sysreg {
+>  	PMINTENSET_EL1,	/* Interrupt Enable Set Register */
+>  	PMOVSSET_EL0,	/* Overflow Flag Status Set Register */
+>  	PMUSERENR_EL0,	/* User Enable Register */
+> +	SPMSELR_EL0,	/* System PMU Select Register */
 
-What's the reason for this arch-specific code? The file!()/line!()
-invocations? Could they be passed as an argument to the asm instead so
-that we don't need target_arch cfgs? I understand that they don't work
-exactly the same way, but maybe it could still work?
+How could a system PMU be relevant to a VM?  What is the point of
+bloating the vcpu for something that we will hopefully *never* make
+visible to guests?
 
-> +#[macro_export]
-> +#[doc(hidden)]
-> +#[cfg(all(CONFIG_BUG, CONFIG_UML))]
-> +macro_rules! warn_flags {
-> +    ($flags:expr) =3D> {
-> +        // SAFETY: Just an FFI call.
-> +        unsafe {
-> +            $crate::bindings::warn_slowpath_fmt(
-> +                $crate::c_str!(::core::file!()).as_ptr() as *const ::cor=
-e::ffi::c_char,
-> +                line!() as i32,
-> +                $flags as u32,
-> +                ::core::ptr::null() as *const ::core::ffi::c_char,
+>  
+>  	/* Pointer Authentication Registers in a strict increasing order. */
+>  	APIAKEYLO_EL1,
+> @@ -501,6 +502,7 @@ enum vcpu_sysreg {
+>  	CNTHP_CVAL_EL2,
+>  	CNTHV_CTL_EL2,
+>  	CNTHV_CVAL_EL2,
+> +	SPMACCESSR_EL2, /* System PMU Access Register */
 
-I wonder if this could be written to utilize Location::caller()
-instead so that `#[track_caller]` works?
+Same here. It is pretty striking that these registers are never
+saved/restored or handled as traps, which is a good indication that
+this is pretty pointless.
 
-Alice
+>  
+>  	/* Anything from this can be RES0/RES1 sanitised */
+>  	MARKER(__SANITISED_REG_START__),
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index 6c63cbfc11ea..c7d6d2034f27 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -79,6 +79,7 @@ enum cgt_group_id {
+>  	CGT_MDCR_TDRA,
+>  	CGT_MDCR_E2PB,
+>  	CGT_MDCR_TPMS,
+> +	CGT_MDCR_EnSPM,
+>  	CGT_MDCR_TTRF,
+>  	CGT_MDCR_E2TB,
+>  	CGT_MDCR_TDCC,
+> @@ -125,6 +126,7 @@ enum cgt_group_id {
+>  	CGT_CNTHCTL_EL1PCTEN = __COMPLEX_CONDITIONS__,
+>  	CGT_CNTHCTL_EL1PTEN,
+>  
+> +	CGT_SPMSEL_SPMACCESS,
+>  	CGT_CPTR_TTA,
+>  	CGT_MDCR_HPMN,
+>  
+> @@ -351,6 +353,12 @@ static const struct trap_bits coarse_trap_bits[] = {
+>  		.mask		= MDCR_EL2_TPMS,
+>  		.behaviour	= BEHAVE_FORWARD_RW,
+>  	},
+> +	[CGT_MDCR_EnSPM] = {
+> +		.index		= MDCR_EL2,
+> +		.value		= MDCR_EL2_EnSPM,
+> +		.mask		= MDCR_EL2_EnSPM,
+> +		.behaviour	= BEHAVE_FORWARD_RW,
+> +	},
+>  	[CGT_MDCR_TTRF] = {
+>  		.index		= MDCR_EL2,
+>  		.value		= MDCR_EL2_TTRF,
+> @@ -509,6 +517,7 @@ static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
+>  	switch (sysreg) {
+>  	case SYS_PMEVTYPERn_EL0(0) ... SYS_PMEVTYPERn_EL0(30):
+>  	case SYS_PMEVCNTRn_EL0(0) ... SYS_PMEVCNTRn_EL0(30):
+> +	case SYS_PMEVCNTSVR_EL1(0) ... SYS_PMEVCNTSVR_EL1(30):
+>  		idx = (sys_reg_CRm(sysreg) & 0x3) << 3 | sys_reg_Op2(sysreg);
+>  		break;
+>  	case SYS_PMXEVTYPER_EL0:
+> @@ -528,6 +537,22 @@ static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
+>  	return BEHAVE_HANDLE_LOCALLY;
+>  }
+>  
+> +static enum trap_behaviour check_spmsel_spmaccess(struct kvm_vcpu *vcpu)
+> +{
+> +	u64 spmaccessr_el2, spmselr_el2;
+> +	int syspmusel;
+> +
+> +	if (__vcpu_sys_reg(vcpu, MDCR_EL2) & MDCR_EL2_EnSPM) {
+
+I don't mind the test, but I don't see any sanitising of MDCR_EL2 to
+make EnSPM as RES0 when FEAT_SPMU is not implemented, which will be
+100% of the cases.
+
+> +		spmselr_el2 = __vcpu_sys_reg(vcpu, SPMSELR_EL0);
+> +		spmaccessr_el2 = __vcpu_sys_reg(vcpu, SPMACCESSR_EL2);
+
+So these two values are *guaranteed* to be zero. At this stage, what
+is the point?
+
+> +		syspmusel = FIELD_GET(SPMSELR_EL0_SYSPMUSEL_MASK, spmselr_el2);
+> +
+> +		if (((spmaccessr_el2 >> (syspmusel * 2)) & 0x3) == 0x0)
+> +			return BEHAVE_FORWARD_RW;
+
+What about value 0b01, which causes *writes* to be trapped?
+
+> +	}
+> +	return BEHAVE_HANDLE_LOCALLY;
+
+And then what? How do we handle this locally?
+
+Honestly, short of any additional handling, we would be better off
+just injecting an UNDEF back into the guest.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
