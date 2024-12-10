@@ -4,105 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2A7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9002BE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85LRYKUeIbL3UcQvmEcS0/dbZ7pj+vVRPWkht8UMN7g=; b=2CJao7kCR0CzMFPdCcGVq7HiW7
-	BNmH5Q5etkAXXqxjf7idIJUxrEmv1F6oM7TO298KLMWPTLc8+Mwd3+Lb/YUreoQ46vWTIJf4bRqHy
-	I5G6Ssw7EeGgQgXp7RxX3MdhafjLqvmC4W1WOkGpP+Nx2WwJ84Tmll3wfkqM/0V5dImKZyG1bMJgc
-	F6fbexykMTZj6tSWu7qDr7iyJmN6jn9rHhI2U3dqN44dZ6S6nprx8sqyIZxCvbsJLyDVKrP2+0d4y
-	v8GjP8qPxayBBBOhBeOQvneIJAjIYPPZQstb40Y+kGHlPUq3ExWCrUZTHP1Fmq3cNLtg9d/7AeGgz
-	lKeU0NSA==;
+	bh=yqgJ06i6Y7xo25MnVPg+XILEuMsyhZtOxmam3qSlkFs=; b=yzhgxo+EaiH2NXFMC+fE8pKXD3
+	SN/9guSClSOnP9UBMZbn+cFJ4ZXyvwn0EAuQA5NxZVugNaM5SPGiTtdA/DWLmiHVW7ZsVVDMI5p8i
+	s1q+sK2MBQbK4aT9G7ycyXvJC5mxEP1dOz5QYxabFJg3cobUknIzehfa9rW4clwyCcMKret5hSPOX
+	dasoTCVrwFlAJosGSMdVLEzs+r8pIv84QUv/ah5SACNhSJiWH7wNCvT+/14Jy3itXgIhBYBCKNKQ5
+	P72obvnKqP1YvzqAhLLLGhY5S7WWG9B4n9SKjAXWu2T0eJ3IdJWy0Ro8xwQYaqyL+KaQyN9mJlaxH
+	chVvtExw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvuG-0000000Alsh-2Evk;
-	Tue, 10 Dec 2024 08:47:48 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
+	id 1tKvvI-0000000Am4d-0dhS;
+	Tue, 10 Dec 2024 08:48:52 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvt9-0000000AlVp-0x6C
+	id 1tKvtl-0000000AljX-1kei
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 08:46:40 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id C45D31381D88;
-	Tue, 10 Dec 2024 03:46:37 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Tue, 10 Dec 2024 03:46:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1733820397;
-	 x=1733906797; bh=85LRYKUeIbL3UcQvmEcS0/dbZ7pj+vVRPWkht8UMN7g=; b=
-	BcU/kg5E19YhIVE1aCBA9Qbwu/wol6eaRPiPiSlJH7BI28RvoTR6M/AEQyKWkAj7
-	CR7f6JBy/Vzao1ZVwvrIslxbDrn//duoqn0A5cOzsPr+el1Q6+A/3SK4t0Kdppjn
-	BLyLiNU1d87AZSfdeClY7wzSk6G9l9DhSlcor1Boxn4YHsCYwBd5CumZFCtuz+hG
-	JQmWpk3ZCsuFNGogYIMi2VL+weHjRX901p/FoN7aM79EnPfyvSwVT1d+TbD4hz/H
-	2mRNjzov6NweuxpSB1teThKDkX6yUvmoxWIbbr8NDEVMHNwH8+4gN5DsBCiOmX+z
-	jv7V0NhlunsW69pRop2hUg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733820397; x=
-	1733906797; bh=85LRYKUeIbL3UcQvmEcS0/dbZ7pj+vVRPWkht8UMN7g=; b=O
-	3Skgj/XKrzu1v5ERSTy3GR+o5Jg7u0HGga27Az1k3kGVzbyqASbenx84XWalyG1c
-	tskzb+l6gM2Pza1WHjk5XTuc2QnrOL8FjcoXfQM6N6xj6ep4po+QTwzB0egzENN+
-	fJC/j738ryWmG/EETVJ8nij8C7TB4KVK/itUF6f3Y/TyCAV5UhVy/G6o1r0Kx+da
-	AEa4VbGICJqxQ+YUame2P1j27kkPyAwCK7oF0QY48P6AFBT5UTB8Te5nhIaw8pMK
-	9QzL+P3KAj0/QiGum2D4uy6C8zJdCBHJv6tKBMzBJL0N8CWIwK9Kh6JncygTVBOG
-	a6keOVdfxWtDeicKEldBg==
-X-ME-Sender: <xms:7f9XZ50rdLGghJi6cVkt-Ia-9j_5lbvIjQyXBKFAuTnScZBcCtPUSQ>
-    <xme:7f9XZwG8V5DGo8ql5QmAeZshShSiwNN6T8D95ceh74cxAkbbE4zus03NQDRE3qkHI
-    CQ-zPacZzcZcrY4s6o>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrjeejgdduvdehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohephedp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepnhgusegrrhhmrdgtohhmpdhrtghpth
-    htohepshhuuggvvghprdhhohhllhgrsegrrhhmrdgtohhmpdhrtghpthhtohephigvohhr
-    vghumhdrhihunhesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvg
-    hrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhn
-    uhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:7f9XZ55KkG43CufokNv_1iaFKmxmWAAEHBQLXbFvLWu_jszg2qEtkw>
-    <xmx:7f9XZ20lBcmeRkYZbtb1uRQgA5SKynlxQb8quDxv-KGw1hnLbR6ZBw>
-    <xmx:7f9XZ8GhkHnY1hGgePXp0CVuu-IIofGN7FIxITANgKSwT1FLPhS0cA>
-    <xmx:7f9XZ3_hurDHfKdbl6BV7l7YTLugMv2qKT9qFbqgbZuzGKb_NXM7Yg>
-    <xmx:7f9XZ4gX0SAhp00-_1_jM268_u791VYrVwQGChoWA1NunWtI_YWnKqVZ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 7B1282220072; Tue, 10 Dec 2024 03:46:37 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 10 Dec 2024 08:47:18 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2162c0f6a39so23604575ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 00:47:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733820436; x=1734425236; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yqgJ06i6Y7xo25MnVPg+XILEuMsyhZtOxmam3qSlkFs=;
+        b=AbQe3b0wO46FMmIWZoXmz6qr2MdTY5VDGQXZRdE6DPZ5x2ny/MISw3hgClgx9ybb9F
+         ssQEEyIywX4+ta9KUxGq50/CKBlIxKesZr5276QNpXmy4a7CQ0Mwb0x64O8q3Hj35om1
+         Q3WJpral0DK6YcYwp2RgCj/7c+lmHgikNdk0B3p5CGi6B+8DkPncO5wvGLsI3z6Jqi1E
+         3xqJyWx5jaDADJ05EvMkXhwodufUNc/akYfF0hfKoDXbbdmZDC9rHkOKg2kDV7o2qx+8
+         HG+5B9xW17Tl/ny99I1S/pW+avsnjAehP1DCLYQxOeSf32yp800XRUwNfAUiHUhDKKp6
+         YjeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733820436; x=1734425236;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yqgJ06i6Y7xo25MnVPg+XILEuMsyhZtOxmam3qSlkFs=;
+        b=o13/QVbMZJhoW3CCKBAqQkumTyErmEfE9Me4GDf1xUe/vnyNkfaJ/pHQ8DfpfJhM8U
+         oWfqYU+YCvXFqvJ8lRraZx5+2TrS5S8kIMtTIXiin2Ib6U77AbDtROW1swcrZcmt5fdr
+         5P73DPWQoM4TedXmSqpGx3YF/ZGao2rWUZP3nsWIAf+0W0JGBIB5feNiFuDRHEPscjEX
+         wX0ZsKeocUJ2IZc6dQERVKwaJGIpRH5IEFQcYVRX7cy+OG326oLwg112O09JJT9f8nKv
+         fdFrBj0JqxBxz7HLNS+krxnQ+g365dLaitz3WE11HtXaefNiAp7INOX5WyflK8+4W3ox
+         LRPg==
+X-Forwarded-Encrypted: i=1; AJvYcCWjN1TjLm0Xm9aZxw9lFeArNFv+/iBf2IO9MseGztvNqy1DdyPh/SSjwF+pTJhkIEkHkApd2uW6B/bIckKGXyHS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbLe4S/zbthkX1SANpi6j8DM0xCtWMsIqyzjjXhTTL/ghZAfnF
+	UblFVQnAewgDugbOEouoDsuonN9K+kdqiSs79lX8leQMj+TCc7dq
+X-Gm-Gg: ASbGncvwtFuRl6d/Ai7QHfqAEoiX5AtHV8wV44nk3hRSVs82hn3nLLwhsyWLZ0plrC8
+	forEWRuiEzpqssf2Wf0JhowRwXVF6Tn2pim0lvo31l/pd3udeN/tP2x5Edz4LZoTfW5B7Z/9sQw
+	vJtGB114WXWJ160FUsWNMy0uInV5V2dRy7gr0oDhz330ztMnAc5tSukiZwE8UE72mlKOThuNzBo
+	pZ60JRm1RMxum/svhujLLmkdK6+yp81fKDgXyfNNonoNfMJiRU4JwMafKofgn7Vo9uOwEiMvaVt
+	Gg==
+X-Google-Smtp-Source: AGHT+IFyFx9u2Q8EBc+BBmDXtC22UJjW0IxAAzdnx72zpqdewbRBPV5UQPIkvDpar7059Mt3H6VwCQ==
+X-Received: by 2002:a17:903:187:b0:215:a808:61cf with SMTP id d9443c01a7336-21670a47b3dmr40495715ad.25.1733820435973;
+        Tue, 10 Dec 2024 00:47:15 -0800 (PST)
+Received: from [192.168.0.115] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8f26c6csm85230675ad.233.2024.12.10.00.47.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Dec 2024 00:47:15 -0800 (PST)
+Message-ID: <23e6d9c0-c3d6-40c1-b933-01c5a9ef43f8@gmail.com>
+Date: Tue, 10 Dec 2024 16:47:11 +0800
 MIME-Version: 1.0
-Date: Tue, 10 Dec 2024 09:45:51 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Yeoreum Yun" <yeoreum.yun@arm.com>
-Cc: "Sudeep Holla" <sudeep.holla@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- nd@arm.com
-Message-Id: <d750f114-8a25-4c84-912e-b6fb407a5150@app.fastmail.com>
-In-Reply-To: <Z1fvkpYvqpnjPZA8@e129823.arm.com>
-References: <20241203143109.1030514-1-yeoreum.yun@arm.com>
- <20241203143109.1030514-3-yeoreum.yun@arm.com>
- <9e60e996-070e-43a7-80e9-efdfda9f6223@app.fastmail.com>
- <Z1ch52AthTYVhtH4@bogus>
- <0cb655ee-9401-41bb-b9cd-580e0aeef2be@app.fastmail.com>
- <Z1fvkpYvqpnjPZA8@e129823.arm.com>
-Subject: Re: [PATCH v2 2/2] firmware/arm_ffa: remove __le64_to_cpu() when set uuid for
- direct msg v2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] backlight: dwi_bl: Add Apple DWI backlight driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+ Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241209075908.140014-1-towinchenmi@gmail.com>
+ <20241209075908.140014-3-towinchenmi@gmail.com>
+ <w5niokvjfwajnzz3muccb45jsvqzg7lql7g5tg5s6iat3mtqkk@qu2a5zcp3rs7>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <w5niokvjfwajnzz3muccb45jsvqzg7lql7g5tg5s6iat3mtqkk@qu2a5zcp3rs7>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_004639_338043_A6666901 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20241210_004717_453528_B6D3574F 
+X-CRM114-Status: UNSURE (   4.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,53 +109,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024, at 08:36, Yeoreum Yun wrote:
->> On Mon, Dec 9, 2024, at 17:59, Sudeep Holla wrote:
->> > On Mon, Dec 09, 2024 at 04:27:14PM +0100, Arnd Bergmann wrote:
->>
->> Looking through the other functions in drivers/firmware/arm_ffa/driver.c,
->> I see that most of them just match the specification. One exception
->> is ffa_notification_info_get(), which incorrectly casts the
->> argument response arguments to an array of 'u16' values. Using
->> the correct bit shifts according to the specification would
->> make that work on big-endian and also more readable and
->> robust. Another one is __ffa_partition_info_get_regs(), which
->> does an incorrect memcpy() instead of decoding the values.
->>
-> Conclusionly, Yes. But the RFC 4122 said with network byte order.
-> to describe how uuid is saved.
->
-> but I think the endianess to load the register is not a choice.
-> because the spec says:
->
->     UUID Lo  x2  Bytes[0...7] of UUID with byte 0 in the low-order bits.
->     UUID Hi  x3  Bytes[8...15] of UUID with byte 8 in the low-order bits.
->
-> this means UUID.bytes[0] should be loaded to x2.bytes[0].
->            UUID.bytes[1] should be loaded to x2,bytes[1]
->            ...
 
-I meant they had the choice and chose to specify little-endian
-64-bit word to encode the sequence of bytes of the standard
-in-memory representation of UUIDs. 
 
-> That's why other software spec (i.e tf-a) doesn't loads UUID from register
-> wihtout swapping byte with endianess but just copy it.
+Krzysztof Kozlowski 於 2024/12/10 下午4:32 寫道:
 
-If the uuid is transferred in memory, you obviously don't want to
-swap it. If they pass it in registers across different endianess
-code without specifying the byteorder in the caller, then they
-would have the same bug.
+> Nothing improved here.
 
-> The bug is "not send UUID according to spec" in kernel side
-> That's why it fails when I send message  with direct message version 2.
-> So, it''s not change code unportable to portable but it fixes according
-> to spec (load UUID as it is in register wihtout endianess).
 
-Sorry, but you are not making sense here.
+This is sent before you left any review, v4 will have improvements
 
-Sudeep, should I just cherry-pick your other fix from the pull
-request and ignore this patch?
-
-      Arnd
+Nick Chan
 
