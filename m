@@ -4,121 +4,223 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C600E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA426E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 08:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRzPBeNoDd8fIjJqfXOLjPmwwP4iWssBb0kRWNEAzWs=; b=izb8Q7qKCxr37tdC6gYtE+nBIQ
-	ntoj8Wx/qd/TI0utqjBUO/V+ULRFVPJDUH8vbrZPOehFc0cX6iA+naEz1lavf+MkhjCMKol2sqTSM
-	GrmIRQA4fEHED5H1SGWQYpHlo4DgvLdHoxI/DRe8UVtBl7wXMDzoGPCIJbM636VVvtvfXnqoQ0Vv3
-	2Ybr3HuCM3ZrfSbIR4JUfAaxNjTZ0ECfgcwiSTI+o3Xt5z+QSsGQJkJxWbMZpIO4i+TFNg5mXARhR
-	TZf3WkemTkNMALfDOT8svOCVvjd47nR5/FSSiKg/y+laBOkPndB/SgoF/HKh8OtkaREzsYNP30KXA
-	yrz0q3fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xMOExD/YyDJcJj2S5oaTg8saARv53vAb0D+cjkK3GMw=; b=YHU8hZBZLW1D03pHUo5LeaFcqs
+	1OHZS1AbjKvaQIpXu7ObErU9xWRPB6lxX33MN5trKFKjlvDFDrfJJT3mNGyHnLHDOK6xGWNwFogTc
+	eg1W97MTM6DrKOKIAAcOrsmOhnM4DyiZz/rCbR9k6UrRHw/PEqe4FWVPAVuYXXPj05LE0YPRotcQ0
+	vwAzuEl7tubZWxdtGovrSN/vlc6QGduV6yD8yglT4PpAh0ZRX7rNi7F9CKzma4h0IkPw/4KU1F05a
+	5WuebP9mEJJ9VawJpq5QgfSMcrs5ypOMgKb5Nlif3mvqKejb84kan+kiO6LRmdtOY2+TM4LDmuzmb
+	n+JOfGsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvH8-0000000AenI-00X8;
-	Tue, 10 Dec 2024 08:07:22 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1tKvKF-0000000AfEu-3vxb;
+	Tue, 10 Dec 2024 08:10:35 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvG2-0000000Aebg-3Prx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 08:06:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jRzPBeNoDd8fIjJqfXOLjPmwwP4iWssBb0kRWNEAzWs=; b=Jflf3ByVJ/f8HNj9bef+gwyLLc
-	1fWSPaU7ptt5mKJz3e2Uz1bQ5KZDT9/jXnl4L1mp0QaCFL9LDtdpESRckf0OjBQKdVq2hEXJkMCLw
-	CIwfizz0+izYAQZ3R/igKxG3aEqR1f2pKBpGRwBSvPd1tHxOh6+0TyNO4O9Cwm30RizOnvRWuRJPL
-	Sgq5dsIY57EsYhUE+xbSJNmk6Rzzf1XpyHtJB2hSHlMnB6t2oKdqA8vwOrqZR6eeUvFZ25qlM+aV2
-	ieuRwRGt8LH8jbMO+VJeTwHiR2Z8eujHgQl6q7PC2NZwgGopBzuX4oiFQ+wcKW9580Ig1pqyo6UhF
-	7zSrEfOw==;
-Received: from [89.212.21.243] (port=38704 helo=[192.168.69.52])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tKvFy-001XcI-25;
-	Tue, 10 Dec 2024 09:06:10 +0100
-Message-ID: <4a0b3e4e-c791-43cd-8f82-8d25fae71d64@norik.com>
-Date: Tue, 10 Dec 2024 09:06:07 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
- optional properties
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- upstream@lists.phytec.de
-References: <20241205134021.2592013-1-andrej.picej@norik.com>
- <20241205134021.2592013-3-andrej.picej@norik.com>
- <nbumcptoi5hwehjbrynf6dh2wrz7a4ugqblrjxyswvj7udkf3u@6qikclizqfjr>
- <e420579f-25b2-41ca-9627-130d67c51541@norik.com>
- <xkrk3vdw7yhj22ornqog7wovqctgrolfcxbl43u7ddgstjqsbl@h22hxlld6zqg>
+	id 1tKvJB-0000000Af4m-3Tro;
+	Tue, 10 Dec 2024 08:09:30 +0000
+X-UUID: 109c4c18b6ce11ef82ff63e91e7eb18c-20241210
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=xMOExD/YyDJcJj2S5oaTg8saARv53vAb0D+cjkK3GMw=;
+	b=f64P9xvZPOhOiTeQ763sO59SC9TI6htf5zcgzBPWsdLB7exP+NIzil66Ka3ADBvZrFgxF/o/70XIWaY3giiD5UhAlAofy4VZoWqbpOoFzOyu8luoper3vDc/2DR6VoNBn+ueShlTFu1JeMa31IkjJYdPV2bddwUqF6srEdb/dvw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:e278ad95-7c0e-45a8-b131-d2cdf6c65ebf,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:b856b93b-e809-4df3-83cd-88f012b9e9ba,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0,EDM
+	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 109c4c18b6ce11ef82ff63e91e7eb18c-20241210
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1238754284; Tue, 10 Dec 2024 01:09:22 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Tue, 10 Dec 2024 16:09:19 +0800
+Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Tue, 10 Dec 2024 16:09:19 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Uom7XVffwRx4NgY/GciwcHraQKifHNOoV7pL2TEHQKxgJ96wqFQYtXgF4X/B9WN8+TATiSKdCXYs7pcZudYXPkbcQ2+ES3WBXvauEvsw47BJ4JPyBUbHHr0PiG4louoFiuCdkJDqoc7ISzubtODUh52jI6BrKR7hFaasJ8avhLAUYBQgIWTc5kdsomarXJU+jVh7Hck/iohI/ugmzma5HpBX2BtIWJup/yixZ+4ItM9wpxg9bzDz/Ux0z4NIJqhg2N6cMkvnLXGxBDLQpPhnyQCM5kmvgDepwIedR2zTCBd0eszmowA0335DhAILSpeZRJfQiW95FQcXVKKHHcpBug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xMOExD/YyDJcJj2S5oaTg8saARv53vAb0D+cjkK3GMw=;
+ b=GovAZpm5T+EmbTs68WI+cdrcAKiY5twRhHOIfPnskf+IJm5pfrVVy+qxmB/oZHlpiK2AqPNP1EAFG8tHpxprBSqTfjqmmlCNKsr+PkYDJ1hbLx73pujrn+KBxiGiI6z/LSMyvKIAEevVLnCdvaTbbNooUjQuRwHAGiKHTyrISvLJx0FbHyta273NWoI2gXUvsHJ2jXsu29Y2bB67U+QI6ODjqDG1KVCIPVniZlUemHjguXiehg6jU7iNR2bpKfF2RMTr75QvzMHFNyNP4G0mBTZa1rfP19RUWRrCqut58t8yNAj7roe1vitY6sJM4m0q7f3S9Y8lt9Dl6UbzqfADcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xMOExD/YyDJcJj2S5oaTg8saARv53vAb0D+cjkK3GMw=;
+ b=shZRf/cHElsKmH2nKVee6tx7xzj3YuKImVlzUd2dltY8sQBVOnBGp2+YGK0qxVdFU7Yiyrs5RYVDotBWRYmieWzxoKhb728hQF1GlGUDtofKMfmU/bcZLPleaeCqCB3qbt2z4USEOUOcchSJxOA9dBX21GsaCs1XrI7PJuqKTfw=
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
+ by TYZPR03MB7154.apcprd03.prod.outlook.com (2603:1096:400:342::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.12; Tue, 10 Dec
+ 2024 08:09:16 +0000
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8207.014; Tue, 10 Dec 2024
+ 08:09:16 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "jie.qiu@mediatek.com"
+	<jie.qiu@mediatek.com>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
+	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+	<mripard@kernel.org>, =?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+	<jitao.shi@mediatek.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"airlied@gmail.com" <airlied@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "junzhi.zhao@mediatek.com"
+	<junzhi.zhao@mediatek.com>
+Subject: Re: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+Thread-Topic: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
+ MT8195/MT8188
+Thread-Index: AQHbRwuJJIpw1RNG4k2Br44bBPRYWbLfJ4SA
+Date: Tue, 10 Dec 2024 08:09:16 +0000
+Message-ID: <ae0a17c93131c22c18f0722c43d4770a652e2923.camel@mediatek.com>
+References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
+	 <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Andrej Picej <andrej.picej@norik.com>
-Autocrypt: addr=andrej.picej@norik.com; keydata=
- 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
- xtT/8OxBOVSHvA==
-In-Reply-To: <xkrk3vdw7yhj22ornqog7wovqctgrolfcxbl43u7ddgstjqsbl@h22hxlld6zqg>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYZPR03MB7154:EE_
+x-ms-office365-filtering-correlation-id: d92e66e8-3c14-43d7-b2b1-08dd18f1f0b4
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?emIxbUJyalB3TU9rSnd3NVZ0RnFkR3FHMExkWk85alB6TUZWcHFyQzM1Y25P?=
+ =?utf-8?B?RnNxVG1yQnFTQkFrYkV0Z21LWlNtTWFldzdFR2ZQQ3VqRHR3MTRZNzNtaDlG?=
+ =?utf-8?B?azhqazY4aWIvR3VSTUlxUGtZSk4vWUV5ZDZNM0FZeS9PbnNsNE04bnJqb2Rq?=
+ =?utf-8?B?eUVEUGFQd3habFdxQUtKc1pwVDMxa0xLTHdGWG9mTkFZd21MUlFtb3JBS29W?=
+ =?utf-8?B?bE1BUWx3RjZmOHEwVUZqODk5WHUrT2tVZXROeitxOFR4UWwweFRqTmpHMVdh?=
+ =?utf-8?B?QVlwbDB1ZU85VnI2YStoQXNMYkJEb2xSWlJXL0MycURUekxIUWNnWktwUEhM?=
+ =?utf-8?B?ckt2enNoRjNla25Ibys3STdjNXhxaHZQbStVdWxBVWJZN0hicnVKR3Fvd3Zo?=
+ =?utf-8?B?K2J6a2RnQ3hKY280U1VoU3ZibTZzclVHeHF5SnpyMFJiUGh5VFVodERQQkRU?=
+ =?utf-8?B?SUZBdHFqQUFTaVBvTE1LZm81SVZ1WUoxTkdXcFNmOFQxS0J4R2JHRVhsdEFH?=
+ =?utf-8?B?WWd6ZSt2K0NFdzFCNnZhUzVjMG1lMGx3dkZDcEl6cnQvRjJ0VGEzcDZyTVJu?=
+ =?utf-8?B?M2k2cmVuZURyM3lXY1lIN3M4cThGWS83c0RneFFlWWpWV2YzWEFHdVgwdU9s?=
+ =?utf-8?B?SGdJR1dqajBQOVdBS09MR3czeWdrVHFqL01oWGRWV3ZXVnRSVjR6ZkJYTHZU?=
+ =?utf-8?B?bU8vQUIxT1d5SFpZaGFMWkRTS2RNTmRxMFFhb2QyUGZuZnJ1MTRpVVBVdm9N?=
+ =?utf-8?B?MkYzaGs4ZEVSdSs1amdzVWpjbDFQQWNtM05CcU4yRVBXcDlhTE5wQ2hZS0xo?=
+ =?utf-8?B?WXFJeTRVNms1bFhKUUZJb2xjZmJsNVdnMStCY0tNY0NWMzRTM3VCL1NyTTUz?=
+ =?utf-8?B?N3B3YTFUVHJUMUc2TlRNb21jUHBDUGV6ZDlWYnV1c3BORDJkNEVTU0FaeVVS?=
+ =?utf-8?B?OEVQbVVJRXpWWEdJd0Z4b25qek9HT3FkNWx6b0lKakxHOTdQWUJ2WmpSb01l?=
+ =?utf-8?B?ZU5Ic0NBK2Vxbm5FSUlvSEpjUWRUVUFtTkVweUJZdlJibjgwNVkwTE9UUkpS?=
+ =?utf-8?B?QWI4MlpGeWhpRmpiSWFTZms5NjJVRHh1ZDhkUmRqMFk5VEZsbERhL04rMGJm?=
+ =?utf-8?B?ZVl5U3ZIVkZjUXg3dkVVQjQwODhpSENJL2NaZFBTRmJpV2s1b3FsQXBZVjZ6?=
+ =?utf-8?B?MHk1RmhhREdnSkFJTnhzWHJrTXEwT3hyRWJTcm5IUnZHMHhlVlBhbGhTcTlx?=
+ =?utf-8?B?YzhBZzF5S1hEVEJYc0svakcwWDVJUDJnbEZ0YWZGRW9IYzBnMjJxTnNDTFNJ?=
+ =?utf-8?B?MnRrTEtUMk10QUZtRUFvVTkyQ2Y4aUhGS0ZzYThEWGthenNHM0htV1JSUzZK?=
+ =?utf-8?B?ZGJDck1lYmZXMzhkYmpSTWtWdXNUWEJLQjUrNmN5dFN3TVJBb0lYRVNmYks4?=
+ =?utf-8?B?S00zNUlCTW5ZaXRSSDduL1RMOXgyUlYreVlCV0NlR3lrQVV3U2dPWUZNbkJF?=
+ =?utf-8?B?V2t0ME53ckZRMTVrem1XaTcydXduczlFblE1QmFnb1JubC85RE5VVHBvN3Nn?=
+ =?utf-8?B?aHFUejBsaEFJTlNHZXZMR1JMRGhIN2lYM281dmx5d3NvQ1hweThCQnd6TURn?=
+ =?utf-8?B?cGdOYTBBaGNMdlF2eVN0RENhdnBGdjFNQ3pCYmJwTGgxdmMvakRiZlRzWkZT?=
+ =?utf-8?B?cGkrWHNXWkN3WVFBTXdTTFJCNExiQjdSTUg5eUdEVm9ENysvU0RxM1ZoZEVR?=
+ =?utf-8?B?Y2IyRVlrOTYyUUNCTnBKVWtLalhQeTY1dEZZWktXbUwzVEU0Y2s3Z1BNS2Zk?=
+ =?utf-8?B?NFIyUXRCZDlEeDBGbGNCd0l6WE9LTmVCTVJIT0Z1SU5MVXBDS2xyYnpSTEZ4?=
+ =?utf-8?B?aFFVdXRpM0Z4c3UvU3lGT2sydlNGQVlmbUt0dnVLbnBteXc9PQ==?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V1FlcTBiTG9DcTNqejR2V2daR1U2RlFsekMrWmM4cFZCN1RNNTZBRHVMejU2?=
+ =?utf-8?B?QndpeVNPaFc0bCszaHFsSlptbjVvWmpWZ1BFd2RyTEJpVlI2cDdOb3RjQWQ2?=
+ =?utf-8?B?c3RwNVNueFZkQ2Rick5RV3BqMzFYM2EzL3FsS3U3cnFwN0tBWTRRN1U5b05G?=
+ =?utf-8?B?Q2lwazdOdlJkdDdUYkNEdkJJbjkyUkVJSTMzMUdHUlphWjMvN0VsU0FGTDJ4?=
+ =?utf-8?B?OWdVMEIyZkhiemhqSGVBMDJrUmhJSDhKS2ZWT29YWVNuL3dJVzAyU21uTHh2?=
+ =?utf-8?B?Z0pQdjliVTJaTnBiUmZWWEtSRllWNGw3YmpXVUxYclV1dGtGaEZudGxjNU9k?=
+ =?utf-8?B?cFRuSDdsUkFyRndVWS9NUEdwSjRmY0ZDcGtDNllwM2t2bjVJODNDSFBYaitJ?=
+ =?utf-8?B?NXBlWnRXME1WaDg1cDN1Vmw5U3FYVGdQUm5EaHM4YTJScGVvMnVBYzFUbm9B?=
+ =?utf-8?B?eFI2bm1rbVpSdEI2WmNuUEJaWUIveCtQZWlqOEFSVGZhdUZidlhYMFV4NjRm?=
+ =?utf-8?B?TXE5SXJuOGdXWFhmR0pmdG96NjB5RWRwZmZRdG9ISGRXNHR2bVIyc2hKV0Rt?=
+ =?utf-8?B?UjdvWFplYUF5dGJtc0V3eWROYjdUTnUyR0Y5dGNHeXdkQ1psQkNJQ1BYYnls?=
+ =?utf-8?B?Ukc4Z1k2QlVjT2hLYzZXSnMveHIweElxbmV6UGJJcm1EaXpUUVBMSnVtZUV5?=
+ =?utf-8?B?MUw0WFpEYzljcHNhRzZkTUNIMkphNGg1VzN2K01aZWVvblhQWENqbzBrTkpZ?=
+ =?utf-8?B?R0MzU0pMaHpRc0psWW45UGpGTktPcHVRRkxadFY5NUJ5TGc0V2ZDY2dkVk9E?=
+ =?utf-8?B?OUlXZ1M2ejIvTzdiOXUwZ1Z0elh5cVU1RElaTDMrcmU4aDNJYlVkeHVzS2VR?=
+ =?utf-8?B?d3FJWUxjS0VBbmFrNUNoOVlrTTg5MVlzVEM3cTJwNVFNblRQdmt2dDM2TzhH?=
+ =?utf-8?B?NS9HM3RuM01QOFhWVFZxdCtaU2VWYVpFRDU2a2c5V0k1bWJZTVF1Mm1UNDJX?=
+ =?utf-8?B?TDcrTXUyNVdXb1owSjE3TnpBT0ZxNUJCRFNweGxUQ3h0QVl4UUtDaFJYQnYw?=
+ =?utf-8?B?dDdYbWhkMWp3ZFhwWTRzTGZWMzFhamEwakQ0c1ZsUk5leHNqUXBLbjBsZEdO?=
+ =?utf-8?B?R0RSOHFQd21wY21xSEpXNm53NGpPcTZDUWtOOW5iWXFUZE0zdE1WTFN6ejJm?=
+ =?utf-8?B?RW01ZzQzZFNtd0E2WWpNbFh2THZKTlpaZ3ZSZUdMYnNxS3ZDeWRIVWNod3pJ?=
+ =?utf-8?B?a0VERGpxYXNDaWZhazJKNVVrUUl3Y0pOdHE2U2ZRRnhuVkZvOWpmdFJJN3BJ?=
+ =?utf-8?B?azZ5SU95cUoyUjRwRWtyclF4Skd2NWRRb1VCNWVSaFhhRjhRNjljalFrNTFp?=
+ =?utf-8?B?R2ZuOWhGTHdrSDRHTmREUVlrTWtPdlc4OHlLZjBSSjBSV1BEZTdNT3hMcTFD?=
+ =?utf-8?B?bUlmR0EvcjVSNzJOazdxekc4Qmk5MTVFZGZwUXpaTUZnazNmYmU0bXh6WEx1?=
+ =?utf-8?B?NnNLU2g0ZWRTYWprbWJlNEdNR1Q0aG1GQ0x6QkNDbVVyMWVDTmxocDVZSmVJ?=
+ =?utf-8?B?VHNpOGdGZXhtck5kT05XVjgrV20xdnFMckFsbG1WZXZmMGZISWVzTGdZYjJy?=
+ =?utf-8?B?elJlbUtYbWdSU3FGL2xjc1ZHMXh6UzdXbEt4SEJOZnk0Mms2c1dudURMNUVN?=
+ =?utf-8?B?TGk5MzY1b0hqRzVidWxvaVZFLzg1RzAySDNvbXBGZFA3dVFZRFFyQmw5aHh0?=
+ =?utf-8?B?TElQQVMwYWI1OS9rUWh4ZU9iZ1l0WlN4WEhoRU9mQW5vUVV3WnJ3Tzd6eXBx?=
+ =?utf-8?B?aEl1dE8xVDFFQkNJTlVCUlYzbTF0bnlYeVlYQzMwdUMvaUJ1a2NzbXV1TktD?=
+ =?utf-8?B?Q1RiZUxsT2NHN0poQmM3dU9WaFU2VHBaZGFBWWp1bk5RYytvblBSR09VdElW?=
+ =?utf-8?B?U0xibkRoTDhlRUJ4V2cxTVBHUDJ4aVI3RGNDRXd3ZDBKV3ZGdXVxNjNGOWxv?=
+ =?utf-8?B?aVJrUXd2L1RkL3g2YVRDWktOcUVWc01iemt3SjBQdjNPS3pIQXI4QWdJUXJY?=
+ =?utf-8?B?cW9nRlM5azhjT3NxcHlQLzUya0xnTmU2YXhLS1J0SlFVSUpQbllWaXFCUVg4?=
+ =?utf-8?Q?aYlFVBtWnIvPPoYODtd1hH/n4?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <F6B3A1165866C74EB411EB7B51BA631C@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d92e66e8-3c14-43d7-b2b1-08dd18f1f0b4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Dec 2024 08:09:16.0485
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: VRLTFpt4o0IoGcE2VxBYZdKM3jQlajEV6uuH4704eHpe3seVmGLYeRdDb7+ok4l6KJkLExZ1gl36FqsZoFY+Og==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7154
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--16.190600-8.000000
+X-TMASE-MatchedRID: L8tZF6zWW2oNtKv7cnNXnSa1MaKuob8PCJpCCsn6HCHBnyal/eRn3gzR
+	CsGHURLuwpcJm2NYlPAF6GY0Fb6yCsME2BsoiKJMBfVY7O+c8KYiActr2yXJYt9zZd3pUn7KEAi
+	HpwMlPnM2GwJiqvFBX9qspQ7EuDzT0//3OV6Cj+ZH+PTjR9EWkiEdaywSZvzO+Cckfm+bb6AcaY
+	+iIPlpkgHXJ8eVIgKFtauPEYeMK/Xlb2fVWad3hB3EEAbn+GRbvJ9Xvh5CmT6bKItl61J/yfmS+
+	aPr0Ve8oTCA5Efyn8CNo+PRbWqfRDsAVzN+Ov/st+0OLrJ65qzItxL1o9AfcgM0jJwy7YaaFtBd
+	4rTyjt9gT2HdxMWcrg==
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--16.190600-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: A6A88503F9CF8B6D487CB1DC8C4420BB0AAFA4A7F0E25B248B52A2B5B3AF54092000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_000615_465860_AF9B98E5 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20241210_000929_888274_7D2B050C 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,270 +235,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10. 12. 24 02:18, Dmitry Baryshkov wrote:
-> On Mon, Dec 09, 2024 at 08:56:29AM +0100, Andrej Picej wrote:
->> Hi Dmitry,
->>
->> On 5. 12. 24 23:48, Dmitry Baryshkov wrote:
->>> On Thu, Dec 05, 2024 at 02:40:20PM +0100, Andrej Picej wrote:
->>>> Add a optional properties to change LVDS output voltage. This should not
->>>> be static as this depends mainly on the connected display voltage
->>>> requirement. We have three properties:
->>>> - "ti,lvds-termination-ohms", which sets near end termination,
->>>> - "ti,lvds-vod-swing-data-microvolt" and
->>>> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
->>>> output voltage for data and clock lanes. They are defined as an array
->>>> with min and max values. The appropriate bitfield will be set if
->>>> selected constraints can be met.
->>>>
->>>> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
->>>> end termination will be used. Selecting only one:
->>>> "ti,lvds-vod-swing-data-microvolt" or
->>>> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
->>>> constraint for only data/clock lanes will be met. Setting both is
->>>> recommended.
->>>>
->>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
->>>> ---
->>>> Changes in v4:
->>>> - fix typo in commit message bitfiled -> bitfield
->>>> - use arrays (lvds_vod_swing_conf and lvds_term_conf) in private data, instead
->>>> of separate variables for channel A/B
->>>> - add more checks on return value of "of_property_read_u32_array"
->>>> Changes in v3:
->>>> - use microvolts for default array values 1000 mV -> 1000000 uV.
->>>> Changes in v2:
->>>> - use datasheet tables to get the proper configuration
->>>> - since major change was done change the authorship to myself
->>>> ---
->>>>    drivers/gpu/drm/bridge/ti-sn65dsi83.c | 147 +++++++++++++++++++++++++-
->>>>    1 file changed, 144 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
->>>> index 57a7ed13f996..f724d2a6777b 100644
->>>> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
->>>> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
->>>> @@ -132,6 +132,16 @@
->>>>    #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
->>>>    #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
->>>> +enum sn65dsi83_channel {
->>>> +	CHANNEL_A,
->>>> +	CHANNEL_B
->>>> +};
->>>> +
->>>> +enum sn65dsi83_lvds_term {
->>>> +	OHM_100,
->>>> +	OHM_200
->>>> +};
->>>> +
->>>>    enum sn65dsi83_model {
->>>>    	MODEL_SN65DSI83,
->>>>    	MODEL_SN65DSI84,
->>>> @@ -147,6 +157,8 @@ struct sn65dsi83 {
->>>>    	struct regulator		*vcc;
->>>>    	bool				lvds_dual_link;
->>>>    	bool				lvds_dual_link_even_odd_swap;
->>>> +	int				lvds_vod_swing_conf[2];
->>>> +	int				lvds_term_conf[2];
->>>>    };
->>>>    static const struct regmap_range sn65dsi83_readable_ranges[] = {
->>>> @@ -237,6 +249,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
->>>>    	.max_register = REG_IRQ_STAT,
->>>>    };
->>>> +static const int lvds_vod_swing_data_table[2][4][2] = {
->>>> +	{	/* 100 Ohm */
->>>> +		{ 180000, 313000 },
->>>> +		{ 215000, 372000 },
->>>> +		{ 250000, 430000 },
->>>> +		{ 290000, 488000 },
->>>> +	},
->>>> +	{	/* 200 Ohm */
->>>> +		{ 150000, 261000 },
->>>> +		{ 200000, 346000 },
->>>> +		{ 250000, 428000 },
->>>> +		{ 300000, 511000 },
->>>> +	},
->>>> +};
->>>> +
->>>> +static const int lvds_vod_swing_clock_table[2][4][2] = {
->>>> +	{	/* 100 Ohm */
->>>> +		{ 140000, 244000 },
->>>> +		{ 168000, 290000 },
->>>> +		{ 195000, 335000 },
->>>> +		{ 226000, 381000 },
->>>> +	},
->>>> +	{	/* 200 Ohm */
->>>> +		{ 117000, 204000 },
->>>> +		{ 156000, 270000 },
->>>> +		{ 195000, 334000 },
->>>> +		{ 234000, 399000 },
->>>> +	},
->>>> +};
->>>> +
->>>>    static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
->>>>    {
->>>>    	return container_of(bridge, struct sn65dsi83, bridge);
->>>> @@ -435,12 +477,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
->>>>    		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
->>>>    	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
->>>> -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
->>>> +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
->>>> +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_A]) |
->>>> +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_B]));
->>>>    	regmap_write(ctx->regmap, REG_LVDS_LANE,
->>>>    		     (ctx->lvds_dual_link_even_odd_swap ?
->>>>    		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
->>>> -		     REG_LVDS_LANE_CHA_LVDS_TERM |
->>>> -		     REG_LVDS_LANE_CHB_LVDS_TERM);
->>>> +		     (ctx->lvds_term_conf[CHANNEL_A] ?
->>>> +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
->>>> +		     (ctx->lvds_term_conf[CHANNEL_B] ?
->>>> +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
->>>>    	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
->>>>    	le16val = cpu_to_le16(mode->hdisplay);
->>>> @@ -576,10 +622,101 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
->>>>    	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
->>>>    };
->>>> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
->>>> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
->>>> +{
->>>> +	int i;
->>>> +
->>>> +	for (i = 0; i <= 3; i++) {
->>>> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
->>>> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
->>>> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
->>>> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
->>>> +			return i;
->>>> +	}
->>>> +
->>>> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
->>>> +	return -EINVAL;
->>>> +}
->>>> +
->>>> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
->>>> +{
->>>> +	struct device *dev = ctx->dev;
->>>> +	struct device_node *endpoint;
->>>> +	/* Set so the property can be freely selected if not defined */
->>>> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
->>>> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
->>>> +	u32 lvds_term = 200;
->>>> +	u8 lvds_term_conf;
->>>> +	int endpoint_reg;
->>>> +	int lvds_vod_swing_conf;
->>>> +	int ret = 0;
->>>> +	int ret_data;
->>>> +	int ret_clock;
->>>> +
->>>> +	if (channel == CHANNEL_A)
->>>> +		endpoint_reg = 2;
->>>> +	else
->>>> +		endpoint_reg = 3;
->>>> +
->>>> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
->>>> +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
->>>> +
->>>> +	if (lvds_term == 200)
->>>> +		lvds_term_conf = OHM_200;
->>>> +	else
->>>> +		lvds_term_conf = OHM_100;
->>>> +
->>>> +	ctx->lvds_term_conf[channel] = lvds_term_conf;
->>>> +
->>>> +	ret_data = of_property_read_u32_array(endpoint,
->>>> +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
->>>> +			ARRAY_SIZE(lvds_vod_swing_data));
->>>> +	if (ret_data != 0 && ret_data != -EINVAL) {
->>>> +		ret = ret_data;
->>>> +		goto exit;
->>>> +	}
->>>> +
->>>> +	ret_clock = of_property_read_u32_array(endpoint,
->>>> +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
->>>> +			ARRAY_SIZE(lvds_vod_swing_clk));
->>>> +	if (ret_clock != 0 && ret_clock != -EINVAL) {
->>>> +		ret = ret_clock;
->>>> +		goto exit;
->>>> +	}
->>>> +
->>>> +	/* If any of the two properties is defined. */
->>>> +	if (!ret_data || !ret_clock) {
->>>> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
->>>> +			lvds_vod_swing_data, lvds_vod_swing_clk,
->>>> +			lvds_term_conf);
->>>> +		if (lvds_vod_swing_conf < 0) {
->>>> +			ret = lvds_vod_swing_conf;
->>>> +			goto exit;
->>>> +		}
->>>> +
->>>> +		ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
->>>> +	}
->>>> +	ret = 0;
->>>> +exit:
->>>> +	of_node_put(endpoint);
->>>> +	return ret;
->>>> +}
->>>> +
->>>>    static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
->>>>    {
->>>>    	struct drm_bridge *panel_bridge;
->>>>    	struct device *dev = ctx->dev;
->>>> +	int ret;
->>>> +
->>>> +	ctx->lvds_vod_swing_conf[CHANNEL_A] = 0x1;
->>>> +	ctx->lvds_vod_swing_conf[CHANNEL_B] = 0x1;
->>>> +	ctx->lvds_term_conf[CHANNEL_A] = 0x1;
->>>> +	ctx->lvds_term_conf[CHANNEL_B] = 0x1;
->>>
->>> These match the defaults in sn65dsi83_parse_lvds_endpoint(). Do we
->>> really need those?
->>
->> Yes, I think we do. This ensures that defaults are used even when property
->> is not defined/LVDS channel is not used. So also LVDS channel B defaults are
->> set even for sn65dsi83 (single LVDS output). Keeping the same reg values as
->> before these changes.
-> 
-> You can move sn65dsi83_parse_lvds_endpoint() out of the if() and get the
-> same result. Duplicating data (or code) is a bad idea, because it's easy
-> to update one point and miss another point. And then usually one has a
-> nice debugging session, trying to understand why their changes didn't
-> work out.
-
-Ok I see what you are trying to accomplish. I'll set default values in 
-sn65dsi83_parse_lvds_endpoint() in v5 like you suggested. Thanks.
-
-Best regards,
-Andrej
-
-> 
->>
->> Best regards,
->> Andrej
->>
->>
->>>
->>>> +
->>>> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
->>>> +	if (ret < 0)
->>>> +		return ret;
->>>>    	ctx->lvds_dual_link = false;
->>>>    	ctx->lvds_dual_link_even_odd_swap = false;
->>>> @@ -587,6 +724,10 @@ static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
->>>>    		struct device_node *port2, *port3;
->>>>    		int dual_link;
->>>> +		ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
->>>> +		if (ret < 0)
->>>> +			return ret;
->>>> +
->>>>    		port2 = of_graph_get_port_by_id(dev->of_node, 2);
->>>>    		port3 = of_graph_get_port_by_id(dev->of_node, 3);
->>>>    		dual_link = drm_of_lvds_get_dual_link_pixel_order(port2, port3);
->>>> -- 
->>>> 2.34.1
->>>>
->>>
-> 
+SGksIEFuZ2VsbzoNCg0KT24gVGh1LCAyMDI0LTEyLTA1IGF0IDEyOjQ1ICswMTAwLCBBbmdlbG9H
+aW9hY2NoaW5vIERlbCBSZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8g
+bm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZp
+ZWQgdGhlIHNlbmRlciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBBZGQgc3VwcG9ydCBmb3Ig
+dGhlIG5ld2VyIEhETUktVFggKEVuY29kZXIpIHYyIGFuZCBEREMgdjIgSVBzDQo+IGZvdW5kIGlu
+IE1lZGlhVGVrJ3MgTVQ4MTk1LCBNVDgxODggU29DIGFuZCB0aGVpciB2YXJpYW50cywgYW5kDQo+
+IGluY2x1ZGluZyBzdXBwb3J0IGZvciBkaXNwbGF5IG1vZGVzIHVwIHRvIDRrNjAgYW5kIGZvciBI
+RE1JDQo+IEF1ZGlvLCBhcyBwZXIgdGhlIEhETUkgMi4wIHNwZWMuDQo+IA0KPiBIRENQIGFuZCBD
+RUMgZnVuY3Rpb25hbGl0aWVzIGFyZSBhbHNvIHN1cHBvcnRlZCBieSB0aGlzIGhhcmR3YXJlLA0K
+PiBidXQgYXJlIG5vdCBpbmNsdWRlZCBpbiB0aGlzIGNvbW1pdCBhbmQgdGhhdCBhbHNvIHBvc2Vz
+IGEgc2xpZ2h0DQo+IGRpZmZlcmVuY2UgYmV0d2VlbiB0aGUgVjIgYW5kIFYxIGNvbnRyb2xsZXJz
+IGluIGhvdyB0aGV5IGhhbmRsZQ0KPiBIb3RwbHVnIERldGVjdGlvbiAoSFBEKS4NCj4gDQo+IFdo
+aWxlIHRoZSB2MSBjb250cm9sbGVyIHdhcyB1c2luZyB0aGUgQ0VDIGNvbnRyb2xsZXIgdG8gY2hl
+Y2sNCj4gSERNSSBjYWJsZSBjb25uZWN0aW9uIGFuZCBkaXNjb25uZWN0aW9uLCBpbiB0aGlzIGRy
+aXZlciB0aGUgdjINCj4gb25lIGRvZXMgbm90Lg0KPiANCj4gVGhpcyBpcyBkdWUgdG8gdGhlIGZh
+Y3QgdGhhdCBvbiBwYXJ0cyB3aXRoIHYyIGRlc2lnbnMsIGxpa2UgdGhlDQo+IE1UODE5NSBTb0Ms
+IHRoZXJlIGlzIG9uZSBDRUMgY29udHJvbGxlciBzaGFyZWQgYmV0d2VlbiB0aGUgSERNSQ0KPiBU
+cmFuc21pdHRlciAoSERNSS1UWCkgYW5kIFJlY2VpdmVyIChIRE1JLVJYKTogYmVmb3JlIGV2ZW50
+dWFsbHkNCj4gYWRkaW5nIHN1cHBvcnQgdG8gdXNlIHRoZSBDRUMgSFcgdG8gd2FrZSB1cCB0aGUg
+SERNSSBjb250cm9sbGVycw0KPiBpdCBpcyBuZWNlc3NhcnkgdG8gaGF2ZSBzdXBwb3J0IGZvciBv
+bmUgVFgsIG9uZSBSWCAqYW5kKiBmb3IgYm90aA0KPiBhdCB0aGUgc2FtZSB0aW1lLg0KPiANCj4g
+U2lnbmVkLW9mZi1ieTogQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8gPGFuZ2Vsb2dpb2FjY2hp
+bm8uZGVscmVnbm9AY29sbGFib3JhLmNvbT4NCj4gLS0tDQoNCltzbmlwXQ0KDQo+ICtzdGF0aWMg
+dTggbXRrX2hkbWlfdjJfZ2V0X2kyc19jaF9tYXBwaW5nKHN0cnVjdCBtdGtfaGRtaSAqaGRtaSwg
+dTggY2hhbm5lbF90eXBlKQ0KDQpwYXJhbWV0ZXIgaGRtaSBpcyByZWR1bmRhbnQsIHNvIGRyb3Ag
+aXQuDQoNClJlZ2FyZHMsDQpDSw0KDQo+ICt7DQo+ICsgICAgICAgc3dpdGNoIChjaGFubmVsX3R5
+cGUpIHsNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV8xXzE6DQo+ICsgICAgICAg
+Y2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfMl8xOg0KPiArICAgICAgICAgICAgICAgcmV0dXJuIDB4
+MDE7DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfM18wOg0KPiArICAgICAgICAg
+ICAgICAgcmV0dXJuIDB4MDI7DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfM18x
+Og0KPiArICAgICAgICAgICAgICAgcmV0dXJuIDB4MDM7DQo+ICsgICAgICAgY2FzZSBIRE1JX0FV
+RF9DSEFOX1RZUEVfM18wX0xSUzoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV80
+XzA6DQo+ICsgICAgICAgICAgICAgICByZXR1cm4gMHgwODsNCj4gKyAgICAgICBjYXNlIEhETUlf
+QVVEX0NIQU5fVFlQRV81XzE6DQo+ICsgICAgICAgICAgICAgICByZXR1cm4gMHgwYjsNCj4gKyAg
+ICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV80XzFfQ0xSUzoNCj4gKyAgICAgICBjYXNlIEhE
+TUlfQVVEX0NIQU5fVFlQRV82XzA6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVf
+Nl8wX0NTOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzZfMF9DSDoNCj4gKyAg
+ICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV82XzBfT0g6DQo+ICsgICAgICAgY2FzZSBIRE1J
+X0FVRF9DSEFOX1RZUEVfNl8wX0NIUjoNCj4gKyAgICAgICAgICAgICAgIHJldHVybiAweDBlOw0K
+PiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzFfMDoNCj4gKyAgICAgICBjYXNlIEhE
+TUlfQVVEX0NIQU5fVFlQRV8yXzA6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVf
+M18xX0xSUzoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV80XzE6DQo+ICsgICAg
+ICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfNV8wOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURf
+Q0hBTl9UWVBFXzRfMF9DTFJTOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzZf
+MToNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV82XzFfQ1M6DQo+ICsgICAgICAg
+Y2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfNl8xX0NIOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURf
+Q0hBTl9UWVBFXzZfMV9PSDoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV82XzFf
+Q0hSOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMDoNCj4gKyAgICAgICBj
+YXNlIEhETUlfQVVEX0NIQU5fVFlQRV83XzBfTEhfUkg6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FV
+RF9DSEFOX1RZUEVfN18wX0xTUl9SU1I6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZ
+UEVfN18wX0xDX1JDOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMF9MV19S
+VzoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV83XzBfTFNEX1JTRDoNCj4gKyAg
+ICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV83XzBfTFNTX1JTUzoNCj4gKyAgICAgICBjYXNl
+IEhETUlfQVVEX0NIQU5fVFlQRV83XzBfTEhTX1JIUzoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVE
+X0NIQU5fVFlQRV83XzBfQ1NfQ0g6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVf
+N18wX0NTX09IOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMF9DU19DSFI6
+DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfN18wX0NIX09IOg0KPiArICAgICAg
+IGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMF9DSF9DSFI6DQo+ICsgICAgICAgY2FzZSBIRE1J
+X0FVRF9DSEFOX1RZUEVfN18wX09IX0NIUjoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5f
+VFlQRV83XzBfTFNTX1JTU19MU1JfUlNSOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9U
+WVBFXzhfMF9MSF9SSF9DUzoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV83XzE6
+DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfN18xX0xIX1JIOg0KPiArICAgICAg
+IGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMV9MU1JfUlNSOg0KPiArICAgICAgIGNhc2UgSERN
+SV9BVURfQ0hBTl9UWVBFXzdfMV9MQ19SQzoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5f
+VFlQRV83XzFfTFdfUlc6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfN18xX0xT
+RF9SU0Q6DQo+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfN18xX0xTU19SU1M6DQo+
+ICsgICAgICAgY2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfN18xX0xIU19SSFM6DQo+ICsgICAgICAg
+Y2FzZSBIRE1JX0FVRF9DSEFOX1RZUEVfN18xX0NTX0NIOg0KPiArICAgICAgIGNhc2UgSERNSV9B
+VURfQ0hBTl9UWVBFXzdfMV9DU19PSDoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQ
+RV83XzFfQ1NfQ0hSOg0KPiArICAgICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMV9DSF9P
+SDoNCj4gKyAgICAgICBjYXNlIEhETUlfQVVEX0NIQU5fVFlQRV83XzFfQ0hfQ0hSOg0KPiArICAg
+ICAgIGNhc2UgSERNSV9BVURfQ0hBTl9UWVBFXzdfMV9PSF9DSFI6DQo+ICsgICAgICAgY2FzZSBI
+RE1JX0FVRF9DSEFOX1RZUEVfN18xX0xTU19SU1NfTFNSX1JTUjoNCj4gKyAgICAgICBkZWZhdWx0
+Og0KPiArICAgICAgICAgICAgICAgcmV0dXJuIDA7DQo+ICsgICAgICAgfQ0KPiArDQo+ICsgICAg
+ICAgcmV0dXJuIDA7DQo+ICt9DQo+ICsNCg0KDQo=
 
