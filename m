@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15F9E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 11:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBBAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Dec 2024 11:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JpW7m5uuICtFPgspxDlv3wWrFtnVJieor8nqxD00z6A=; b=KpDkHt05HfvlFiLJmxc/WLnT4+
-	jnX68bJXUuvOaO2Crjz2VZpkRNkAVQOxdI2Ad3OA+wXSP7e8YQbGjDmy5Oke/Jyivfg53MA7n18Hq
-	4HhaWK+UOV2t50l3v34tD5HEoG9l1dsRKm/LHWnnvLmDBpTQKJrr7Gz2Q/TUc8tTWIThhmYsw6A8s
-	ETWsoKjGSeCD5LpPci6DtLTtlEI1uIuIVF21HQoauVyvK0cFVh9xugWRb1MCaXdQLfXRGy3jDZayS
-	3UngWEWRzwuyXMQ4BILsYIz3QY3ZJxTJ+HpvD1ABWTV4UkybUrvm13CxXVF35EsH8Ic9rSSDr1cfO
-	xLH1b58A==;
+	bh=bDuD4vOJTu/+TNrDw776dXillG1+SO1nfewpcnHal5U=; b=IPK1C1EB390WwkX2FVl0jRzc/U
+	Qm3DJlfCHQc4Dm4/e/dn/LSWnOwdV+XrWPzFqpAoO6ya5ZPCNfr/NH87m1WuO1/gDT2v/N92U+9az
+	/8MqAlAQdEI1XFEwuV9Y2ZqltZGT2N0SLGBia9N1jANg6sGDYhHJLv5vrnMC2KwNW4rP/v4c79SXR
+	+gHK1JCEXWU2QU++kArA4IVcv2dkYDv0f3jOqZUsqT1BTncOUCypqSBau7raGslN8LtumKadgeSzD
+	ey6waL1/HrbrCDvDF8bG0w6mIx9wBtnkT0UAaB6SjmoMiYG9PlGKIzL7zXTYzU1cPB1cVdzROwuEM
+	kjPmWWxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKybt-0000000BLCq-1q3M;
-	Tue, 10 Dec 2024 11:41:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKyfF-0000000BLYn-0s6X;
+	Tue, 10 Dec 2024 11:44:29 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKyaq-0000000BL75-1nM2
+	id 1tKyeC-0000000BLPs-1e83
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Dec 2024 11:39:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4D098A412FF;
-	Tue, 10 Dec 2024 11:38:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1436C4CED6;
-	Tue, 10 Dec 2024 11:39:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733830795;
-	bh=5dBiAPqZNKfTXC1kDarzjcPYvBYZxN9i53zu014mgCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mGH0IhuWGevmvsRAlJmmRZdaUzAideSV4DdnhT02eCimPu1AD/etEsVMGhZbfPnpx
-	 ChF+daCu8iEUNb+wEuiixnwCeAjugqISPJPr9uWNYX4ajEuMGWBgfWpSBjf4ArT21h
-	 ed8cp6o8gmUG3cIoDoZxtl2vbC/77jeIEVGbW/+xViTIpxJVd4g0E5bnBfAseQc+Gu
-	 GwTBQYM7085MiqjmoMTDyeeCPuW9cUbsZg4TUVvMkzeRM6VSYeevXJ4iI98HBjrQXS
-	 CWse3CqU16vKw5HUmVMTNTE7RlxL8DjmRh7uVCEgmUiovi3uPUGUBYD2aNFkAkCO6M
-	 RtC9QAyZRnDUw==
-Date: Tue, 10 Dec 2024 11:39:50 +0000
-From: Will Deacon <will@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: yangyicong@hisilicon.com, jonathan.cameron@huawei.com,
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
-	prime.zeng@hisilicon.com
-Subject: Re: [PATCH v4 08/10] drivers/perf: hisi: Export associated CPUs of
- each PMU through sysfs
-Message-ID: <20241210113949.GE14735@willie-the-truck>
-References: <20241203125049.39458-1-yangyicong@huawei.com>
- <20241203125049.39458-9-yangyicong@huawei.com>
- <20241209154830.GC12428@willie-the-truck>
- <22a35ead-0f0b-39a8-16bd-333143081ea8@huawei.com>
+	Tue, 10 Dec 2024 11:43:25 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5401fb9fa03so1738524e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 03:43:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733831002; x=1734435802; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bDuD4vOJTu/+TNrDw776dXillG1+SO1nfewpcnHal5U=;
+        b=HPTWwNm7MZoRtP7CPnUfk/6qmNy130Q9aL2Y8T2mv8FUAUdnF2aQPgpfePbnEHvGOU
+         IGyMQgX0dfLvWHVT6WDDBG+3CFKG1BBUsE1A3yMIqhQkfNocgIhNy450K80cUrsdLYe9
+         TRK7mv/2b+ZlmJI98vspoegT4FEf43shBzY+3sCewrC/Xny2gxPyKQYAwg3R5/R2fCmM
+         6oaYIQ8U+De0zvIIrA2DpyrLCZRZYoNiRAiDtLzD++Fi9ANh6jtH0IbgiqjAj3saboZc
+         PyULL5maKc8GX/i1Z/GLDk1lQC4hV25FYvwPaZS+A+u9k0igPTrPxS2/PkPQg2gsEKWS
+         mdMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733831002; x=1734435802;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bDuD4vOJTu/+TNrDw776dXillG1+SO1nfewpcnHal5U=;
+        b=OxsQ8zBkf5ln8J9q/ucI8bnfrKSJ5eN73adE5TM857o0CZ3yDtjXEMCqbgLFlWiI6B
+         EqfBDHSakepEVKiuSORGBjFohKwVFds7G/AX7RMJ+FjpuTg6PK3ydhYj5kMQg+3bZYyF
+         XYEms6RcPxYty0ye/Kfll1v1tS6rbavHv0oZ+PnphDTaHQX+04ya4bCPIWgk2lBp8Ohv
+         JyyvECng0dXT7dwjLs0OVdGVdkjxIpEp+IpL/B2Ei6oOqjkdX15FNskTG/bAnuavCPm/
+         WNVDJ7tKud666iEJlNXjcqnbGJUJcEPCd7eVw9CKeuPGU056iAPzsR3ODxHkEZeMguHd
+         qGtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUORZrsOqjqYMZjjl4L9XHLQq7/SI7UzCG7VrMVgfhkWIvc5eSBtwg3GQhO7dyW74P1u5BGgtzHluoDEHN9ePlP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKSvPqLDM2/aeoI71RTlNhtHK19UYkP/nRdk7C5rpFGdykL2AB
+	KFzxcIhdSQiVeGfX/iapuNzaWRAXqJxJfCpAhOBp8RkvMLt2PEReFQLiLlrTVIk=
+X-Gm-Gg: ASbGnct+kVmxLdG1osmoXShE2IJJLWh879Ix/JwLjTc4a6nDfUgr/0zVLvDjmTx4WNj
+	3V3Rr6wyMG3kvK1VHEN67E0ghDiFThl1rmMJDVO8QJPRaIBM35lBMO3NazWfMQRTUPpMjxuKzcU
+	3menjOq64lFBp2hUj2R7RoU5FCebAnx0ltMX3YDbsrFqx2m8ZeP1T1/X9Nms5KZgPf03wl+ZZkS
+	TwEmaUQHJcwAZ9UnIyLKnSRff4WWFu5Yxzl/i+CFMJew1tKl2d1jdrq2Qj71tMUXIKLjailv7gS
+	8QCUoj09v4nw2geLro3WfmU1TuZ6yxzwfg==
+X-Google-Smtp-Source: AGHT+IHlLpHoQkMoGAXULRnbsa1CNz7DxSd8e5Kk0AkHyX98cxKn2C9E6+kb+xX37fsZPZiAJHZ8UA==
+X-Received: by 2002:a05:6512:3a8e:b0:53e:2246:c262 with SMTP id 2adb3069b0e04-54024f87ef1mr883959e87.0.1733831002365;
+        Tue, 10 Dec 2024 03:43:22 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e3a36ee3fsm1127765e87.107.2024.12.10.03.43.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 03:43:21 -0800 (PST)
+Date: Tue, 10 Dec 2024 13:43:19 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Andrej Picej <andrej.picej@norik.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v5 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
+ optional properties
+Message-ID: <irpmhq7vxjra6vhmdh7p63ajj57n3h2c4br3ija2jmwtoewist@zyxfmx6k5m4e>
+References: <20241210091901.83028-1-andrej.picej@norik.com>
+ <20241210091901.83028-3-andrej.picej@norik.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <22a35ead-0f0b-39a8-16bd-333143081ea8@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20241210091901.83028-3-andrej.picej@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_033956_590640_175A8566 
-X-CRM114-Status: GOOD (  34.65  )
+X-CRM114-CacheID: sfid-20241210_034324_441409_274BA1D0 
+X-CRM114-Status: GOOD (  38.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +104,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 06:49:15PM +0800, Yicong Yang wrote:
-> On 2024/12/9 23:48, Will Deacon wrote:
-> > On Tue, Dec 03, 2024 at 08:50:47PM +0800, Yicong Yang wrote:
-> >> From: Yicong Yang <yangyicong@hisilicon.com>
-> >>
-> >> Although the event of the uncore PMU can only be opened on a single
-> >> CPU, some PMU does have the affinity on a range of CPUs. For example
-> >> the L3C PMU is associated to the CPUs sharing the L3T it monitors.
-> >> Users may infer this affinity by the PMU name which may have SCCL ID
-> >> and CCL ID encoded (for L3C etc), but it's not that straightforward.
-> >> So export this information by adding an "associated_cpus" sysfs
-> >> attribute then user can get this directly.
-> >>
-> >> Reviewed-by: Jonathan Cameron <Joanthan.Cameron@huawei.com>
-> >> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> >> ---
-> >>  Documentation/admin-guide/perf/hisi-pmu.rst |  5 ++++-
-> >>  drivers/perf/hisilicon/hisi_uncore_pmu.c    | 10 ++++++++++
-> >>  2 files changed, 14 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-> >> index 5cc248d18c63..48992a0b8e94 100644
-> >> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
-> >> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-> >> @@ -35,7 +35,10 @@ e.g. hisi_sccl1_hha0/rx_operations is RX_OPERATIONS event of HHA index #0 in
-> >>  SCCL ID #1.
-> >>  
-> >>  The driver also provides a "cpumask" sysfs attribute, which shows the CPU core
-> >> -ID used to count the uncore PMU event.
-> >> +ID used to count the uncore PMU event. An "associated_cpus" sysfs attribute is
-> >> +also provided to show the CPUs associated with this PMU. The "cpumask" indicates
-> >> +the CPUs to open the events, usually as a hint for userspaces tools like perf.
-> >> +It only contains one associated CPU from the "associated_cpus".
-> > 
-> > What is userspace expected to do with this information? Can you point me
-> > to patches that add the corresponding support to the 'perf' tool, please?
-> > 
+On Tue, Dec 10, 2024 at 10:19:00AM +0100, Andrej Picej wrote:
+> Add a optional properties to change LVDS output voltage. This should not
+> be static as this depends mainly on the connected display voltage
+> requirement. We have three properties:
+> - "ti,lvds-termination-ohms", which sets near end termination,
+> - "ti,lvds-vod-swing-data-microvolt" and
+> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
+> output voltage for data and clock lanes. They are defined as an array
+> with min and max values. The appropriate bitfield will be set if
+> selected constraints can be met.
 > 
-> two attributes here, "cpumask" and "associated_cpus". For "cpumask" it's used in
-> perf [1], this patch does no change to this attribute but only update the
-> description in the doc.
+> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
+> end termination will be used. Selecting only one:
+> "ti,lvds-vod-swing-data-microvolt" or
+> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
+> constraint for only data/clock lanes will be met. Setting both is
+> recommended.
 > 
-> I think you're questioning about the "associated_cpus" introduced by this patch,
-> which is not intended to be used by the perf tools but provides a hint for the
-> user to know the CPUs monitored by which uncore PMU, for example which uncore
-> L3C PMU's monitoring the events by the CPU(s) the application's running on, or
-> if the counts is imbalanced among the L3C PMUs user can figure out what's running
-> on the CPUs provided by the "associated_cpus". As described in the commit this
-> can also inferred by the PMU name to map SICL ID and CCL ID to certain CPU cluster,
-> but these ID's aren't readable enough and it'll be more straightforward and
-> friendly to provide an "associated_cpus" information, considering we've already
-> maintain it in the drvier.
+> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> ---
+> Changes in v5:
+> - specify default values in sn65dsi83_parse_lvds_endpoint,
+> - move sn65dsi83_parse_lvds_endpoint for channel B up, outside if,
+> Changes in v4:
+> - fix typo in commit message bitfiled -> bitfield
+> - use arrays (lvds_vod_swing_conf and lvds_term_conf) in private data, instead
+> of separate variables for channel A/B
+> - add more checks on return value of "of_property_read_u32_array"
+> Changes in v3:
+> - use microvolts for default array values 1000 mV -> 1000000 uV.
+> Changes in v2:
+> - use datasheet tables to get the proper configuration
+> - since major change was done change the authorship to myself
+> ---
+>  drivers/gpu/drm/bridge/ti-sn65dsi83.c | 142 +++++++++++++++++++++++++-
+>  1 file changed, 139 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> index 57a7ed13f996..f9578b38da28 100644
+> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> @@ -132,6 +132,16 @@
+>  #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
+>  #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
+>  
+> +enum sn65dsi83_channel {
+> +	CHANNEL_A,
+> +	CHANNEL_B
+> +};
+> +
+> +enum sn65dsi83_lvds_term {
+> +	OHM_100,
+> +	OHM_200
+> +};
+> +
+>  enum sn65dsi83_model {
+>  	MODEL_SN65DSI83,
+>  	MODEL_SN65DSI84,
+> @@ -147,6 +157,8 @@ struct sn65dsi83 {
+>  	struct regulator		*vcc;
+>  	bool				lvds_dual_link;
+>  	bool				lvds_dual_link_even_odd_swap;
+> +	int				lvds_vod_swing_conf[2];
+> +	int				lvds_term_conf[2];
+>  };
+>  
+>  static const struct regmap_range sn65dsi83_readable_ranges[] = {
+> @@ -237,6 +249,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
+>  	.max_register = REG_IRQ_STAT,
+>  };
+>  
+> +static const int lvds_vod_swing_data_table[2][4][2] = {
+> +	{	/* 100 Ohm */
+> +		{ 180000, 313000 },
+> +		{ 215000, 372000 },
+> +		{ 250000, 430000 },
+> +		{ 290000, 488000 },
+> +	},
+> +	{	/* 200 Ohm */
+> +		{ 150000, 261000 },
+> +		{ 200000, 346000 },
+> +		{ 250000, 428000 },
+> +		{ 300000, 511000 },
+> +	},
+> +};
+> +
+> +static const int lvds_vod_swing_clock_table[2][4][2] = {
+> +	{	/* 100 Ohm */
+> +		{ 140000, 244000 },
+> +		{ 168000, 290000 },
+> +		{ 195000, 335000 },
+> +		{ 226000, 381000 },
+> +	},
+> +	{	/* 200 Ohm */
+> +		{ 117000, 204000 },
+> +		{ 156000, 270000 },
+> +		{ 195000, 334000 },
+> +		{ 234000, 399000 },
+> +	},
+> +};
+> +
+>  static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
+>  {
+>  	return container_of(bridge, struct sn65dsi83, bridge);
+> @@ -435,12 +477,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
+>  		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
+>  
+>  	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
+> -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
+> +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
+> +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_A]) |
+> +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_B]));
+>  	regmap_write(ctx->regmap, REG_LVDS_LANE,
+>  		     (ctx->lvds_dual_link_even_odd_swap ?
+>  		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
+> -		     REG_LVDS_LANE_CHA_LVDS_TERM |
+> -		     REG_LVDS_LANE_CHB_LVDS_TERM);
+> +		     (ctx->lvds_term_conf[CHANNEL_A] ?
+> +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
+> +		     (ctx->lvds_term_conf[CHANNEL_B] ?
+> +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
+>  	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
+>  
+>  	le16val = cpu_to_le16(mode->hdisplay);
+> @@ -576,10 +622,100 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
+>  	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
+>  };
+>  
+> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
+> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i <= 3; i++) {
+> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
+> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
+> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
+> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
+> +			return i;
+> +	}
+> +
+> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
+> +	return -EINVAL;
+> +}
+> +
+> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+> +{
+> +	struct device *dev = ctx->dev;
+> +	struct device_node *endpoint;
+> +	int endpoint_reg;
+> +	/* Set so the property can be freely selected if not defined */
+> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
+> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
+> +	u32 lvds_term;
+> +	u8 lvds_term_conf = 0x1;
+> +	int lvds_vod_swing_conf = 0x1;
 
-Bah. I just noticed that there's precedent for this in the Arm CSPMU driver,
-so I don't really have a leg to stand on despite my objections to funneling
-firmware information through to userspace without a confirmed user.
+Magic values
 
-Will
+> +	int ret = 0;
+> +	int ret_data;
+> +	int ret_clock;
+> +
+> +	if (channel == CHANNEL_A)
+> +		endpoint_reg = 2;
+> +	else
+> +		endpoint_reg = 3;
+> +
+> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+> +	if (!of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term)) {
+
+The code has been better before:
+provide default for lvds_term, read the property (keeping the default in
+case of an error), then use the lvds_term to set up lvds_term_conf, as
+expected.
+
+> +		if (lvds_term == 100)
+> +			lvds_term_conf = OHM_100;
+> +		else
+> +			lvds_term_conf = OHM_200;
+> +	}
+> +
+> +	ctx->lvds_term_conf[channel] = lvds_term_conf;
+> +
+> +	ret_data = of_property_read_u32_array(endpoint,
+> +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
+> +			ARRAY_SIZE(lvds_vod_swing_data));
+> +	if (ret_data != 0 && ret_data != -EINVAL) {
+> +		ret = ret_data;
+> +		goto exit;
+> +	}
+> +
+> +	ret_clock = of_property_read_u32_array(endpoint,
+> +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
+> +			ARRAY_SIZE(lvds_vod_swing_clk));
+> +	if (ret_clock != 0 && ret_clock != -EINVAL) {
+> +		ret = ret_clock;
+> +		goto exit;
+> +	}
+> +
+> +	/* If any of the two properties is defined. */
+> +	if (!ret_data || !ret_clock) {
+> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
+> +			lvds_vod_swing_data, lvds_vod_swing_clk,
+> +			lvds_term_conf);
+> +		if (lvds_vod_swing_conf < 0) {
+> +			ret = lvds_vod_swing_conf;
+> +			goto exit;
+> +		}
+> +	}
+> +
+> +	ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
+> +	ret = 0;
+> +exit:
+> +	of_node_put(endpoint);
+> +	return ret;
+> +}
+> +
+>  static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+>  {
+>  	struct drm_bridge *panel_bridge;
+>  	struct device *dev = ctx->dev;
+> +	int ret;
+> +
+> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
+> +	if (ret < 0)
+> +		return ret;
+>  
+>  	ctx->lvds_dual_link = false;
+>  	ctx->lvds_dual_link_even_odd_swap = false;
+> -- 
+> 2.34.1
+> 
+
+-- 
+With best wishes
+Dmitry
 
