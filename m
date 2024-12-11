@@ -4,67 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B30E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB44E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gz2g2xIWCKvpFm2gjUfw/XeL0J0V+9S7un6UZm1EU7U=; b=QTfyS9FomUOqcJAiHSY8ycaqbS
-	Q4v3WLMdz5TJClSVkRhXZnuCEtx2Z9HGpeZk6/7lni9VG1NmQ04/e49WmenlYVJHcxKqdYcNRFLBG
-	DKtaWFPgwh7nvbJmpiCKdL7Dr1Y6gu+gpmHV7k0l15ZqksbPY2w157BRTRf7LecyX5t6vsJ0FeEJV
-	TVI8/0TeMbNLVBVTbfWUZouivSRsiA76/a2i4Xbs7/WZgaBCnLnQdxBIwBcrwwjWzEHaQ40lO7o7h
-	OKXUgqYdI4a3Kcvc0uX1LNzhcDkD6xrOLyy5YHgqLzmflgzgKlGuzghf2Mk1g0FZ0eeSD9aB3gQvX
-	ak2UdH4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ApkyV010oEBw1KPZSHLnLAdIS0MyeeyKe4GabfFW3g=; b=wIt/k4IFN6OCD7AA1fzDLKL6QC
+	X/s2g2e1j/6S6R6A7breQiHq7y8WxkF2lQMX/w4cXEL/I0+CTEIP9c2gK3BRZIAWCH0PmkbTXzL0J
+	s1nwomqHmUnSFEstQzP4DmAN5qzCwZKnhzEgCX3sxig+JGfJkJg30NQhI1RSR1mtgCnPIPEAzVw6B
+	P7Sg0vUfOq6ELvquLZULvScQrQnkcbeZnqSA2IRHnHeF1vYZAboOh3C0ihJeHurByMn1rx33ZM6oA
+	ohfI/i4jPKXDmxETBNl/15isI79EvuxOGEwdERAOyVT9PHV72qwv3CIzpzYvStHL/DhyIkkbb+lFj
+	geRjea+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHEV-0000000E4Ih-2Goh;
-	Wed, 11 Dec 2024 07:34:07 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tLHIY-0000000E4o3-0I37;
+	Wed, 11 Dec 2024 07:38:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHDS-0000000E4Bm-0oeC;
-	Wed, 11 Dec 2024 07:33:03 +0000
+	id 1tLHHV-0000000E4cV-0XgB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 07:37:14 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BB2FnWq020687;
+	Wed, 11 Dec 2024 07:37:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2ApkyV010oEBw1KPZSHLnLAdIS0MyeeyKe4GabfFW3g=; b=Ts7abG4VA6zZ1hpF
+	7myPQyZBx5yd/EuxcsQusfTeEyPgWNZXg1yPR1CELL355J8xSnsMnaH3Vo5t6cc+
+	3k/Dt/ZH6EnCaeQtlNAsSg2gL3RBC4Qiv7geoSNFSCvwoXnBl/Ni+eDs8zK5kAil
+	VV9knBRWDhVGw6a/iFBO7CXN156zNkMVKjdCuTdmmB7KEOgCU+27EzQHYg28e12O
+	mnBIyjlxFw+aeUxIxq2G3yLXVHRlEor1aSFi4BhCOAMflDxpi4AEUknXU24Inhxw
+	EaAKGSUS9UwBVHEUtYoerDSbQeYYWlH895VbO6PXM4BtPeuPtmifWS1fJO9Ebq4e
+	Yhd2Yg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43e341e1qe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Dec 2024 07:37:07 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BB7b64l019213
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Dec 2024 07:37:06 GMT
+Received: from hu-pkondeti-hyd (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 10 Dec
+ 2024 23:37:01 -0800
+Date: Wed, 11 Dec 2024 13:06:58 +0530
+From: Pavan Kondeti <quic_pkondeti@quicinc.com>
+To: Rob Clark <robdclark@gmail.com>
+CC: Akhil P Oommen <quic_akhilpo@quicinc.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Pavan Kondeti <quic_pkondeti@quicinc.com>,
+        Sean Paul
+	<sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Elliot Berman
+	<quic_eberman@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+Message-ID: <b47d44cc-77b7-4137-97e3-b245e1394580@quicinc.com>
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+ <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com>
+ <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
+ <iyknardi445n4h74am22arpgc4vlchh6z6cvkbff2xg76pd655@nozwz7snt476>
+ <1219b46d-2aea-4377-a8ca-024039ee1499@quicinc.com>
+ <CAF6AEGs4EebrwyQZviNXqB2=3h2wgZpmbrdGHuEU4z1D014GRA@mail.gmail.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1733902380;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gz2g2xIWCKvpFm2gjUfw/XeL0J0V+9S7un6UZm1EU7U=;
-	b=AGNzhKLHPaRUqC8zvMa2lNnnBRGsufL9vRHOj2JBd+HHGLWgwbudx7p/s4W8CbwlrA/1sl
-	oI27U/WZOQtaKal39CTZbi/YBfzcMrOxE/U8UHSNnbT6sQHX+qYIcgDjhPQtS21Gytn8V9
-	H5JHgbyhH1jkOdEOKOpg8oeWRDvJ23VHTJfoZvp3vF97Xk7U+uXdz0UVJ/g2J8+Kutlr8y
-	PfO4R5+xakcYmM4tNKkv/QOBTiFJkQyyy27T9YjOA++rqLiau5Y9uflW3fed2Kt6olmyvK
-	Uc8qBcPvCiU0xnGyJjn3KyrpJ2XJIrX+gHO5iWkN3twWVVN4wDV4u3XQm0iVDw==
-Date: Wed, 11 Dec 2024 08:33:00 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Peter Geis <pgwipeout@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>,
- Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 6/6] arm64: dts: rockchip: Remove address aligned beats
- from rk3328-roc
-In-Reply-To: <6453e714b2a48572ff1e57cd74b0f6d3@manjaro.org>
-References: <20241210013010.81257-1-pgwipeout@gmail.com>
- <20241210013010.81257-7-pgwipeout@gmail.com>
- <2b68c2dd3618e5904a4eac1ec87d29a7@manjaro.org>
- <CAMdYzYpj3d7Rq0O0QjV4r6HEf_e07R0QAhPT2NheZdQV3TnQ6g@mail.gmail.com>
- <6453e714b2a48572ff1e57cd74b0f6d3@manjaro.org>
-Message-ID: <e30217fec525af2a3b0e9752b0d1ea31@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+In-Reply-To: <CAF6AEGs4EebrwyQZviNXqB2=3h2wgZpmbrdGHuEU4z1D014GRA@mail.gmail.com>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: nyRwFXNdLr3D4MyGX4UnRiE7tbAfjMpJ
+X-Proofpoint-ORIG-GUID: nyRwFXNdLr3D4MyGX4UnRiE7tbAfjMpJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ priorityscore=1501 suspectscore=0 mlxlogscore=999 clxscore=1011 mlxscore=0
+ spamscore=0 phishscore=0 malwarescore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412110056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_233302_534465_812F923F 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20241210_233713_177399_40208882 
+X-CRM114-Status: GOOD (  34.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,89 +117,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-12-10 14:44, Dragan Simic wrote:
-> On 2024-12-10 12:29, Peter Geis wrote:
->> On Tue, Dec 10, 2024 at 5:45 AM Dragan Simic <dsimic@manjaro.org> 
->> wrote:
->>> Thanks for the patch.  Please, see some comments below.
->>> 
->>> On 2024-12-10 02:30, Peter Geis wrote:
->>> > Since commit 8a469ee35606 ("arm64: dts: rockchip: Add txpbl node for
->>> > RK3399/RK3328"), the snps,aal, snps,txpbl, and snps,rxpbl nodes have
->>> > been unnecessary in the separate device trees. There is also a
->>> > performance loss to using snps,aal. Remove these from the rk3328-roc
->>> > device tree.
->>> >
->>> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
->>> >
->>> > ---
->>> >
->>> >  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 3 ---
->>> >  1 file changed, 3 deletions(-)
->>> >
->>> > diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->>> > b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->>> > index 6984387ff8b3..0d476cc2144d 100644
->>> > --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->>> > +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
->>> > @@ -155,12 +155,9 @@ &gmac2io {
->>> >       phy-mode = "rgmii";
->>> >       pinctrl-names = "default";
->>> >       pinctrl-0 = <&rgmiim1_pins>;
->>> > -     snps,aal;
->>> 
->>> Huh, I see that quite a few RK3328 board dts files specify
->>> the snps,aal node.  I wonder was it a "cargo cult" approach
->>> at play, :) or was there some real need for it?
->>> 
->>> Actually, I see now that you added snps,aal to rk3328-roc-
->>> cc.dts in the commit 393f3875c385 ("arm64: dts: rockchip:
->>> improve rk3328-roc-cc rgmii performance."), so I guess that
->>> your further research and testing showed that it actually
->>> isn't needed for Ethernet stability?
->>> 
->>> >       snps,reset-gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
->>> >       snps,reset-active-low;
->>> >       snps,reset-delays-us = <0 10000 50000>;
->>> > -     snps,rxpbl = <0x4>;
->>> > -     snps,txpbl = <0x4>;
->>> 
->>> Unless I'm missing something, the commit 8a469ee35606 ("arm64:
->>> dts: rockchip: Add txpbl node for RK3399/RK3328") doesn't add
->>> the snps,rxpbl node to the RK3328 SoC dtsi, and the respective
->>> driver does nothing about it when the snps,txpbl node is found.
->>> 
->>> Though, I see that rk3328-rock-pi-e.dts is the only other
->>> RK3328 board dts file that specifies the snps,rxpbl node, so
->>> it seems that removing the snps,rxpbl node here should be safe,
->>> especially because it was you who added it in the same commit
->>> mentioned above.  If there were some SoC-level issues, all
->>> RK3328 boards would've needed it.
->> 
->> Good Morning,
->> 
->> You'll notice the author of that patch was me. Setting aal, txpbl, and
->> rxpbl was the original fix I came up with for the rk3328, which I
->> applied to the only board I had. Someone else later on isolated it
->> specifically isolated it to just the txpbl and applied it to both the
->> rk3328 and rk3399 directly.
->> 
->> This was just something that was left hanging after that result.
->> 
->> Looking at how rk356x was done, I suspect there's an even more elegant
->> solution. However I don't have the deep level knowledge nor
->> documentation to implement it.
-> 
-> Sure, I noticed that you authored the original Ethernet stability
-> fix. :)  With all this in mind, please feel free to include
-> 
-> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-> 
-> and I'll prepare a patch or two that clean up any and all leftovers
-> in other board dts(i) files.
++devicetree
 
-For future reference, to help anyone going through the mailing-list
-archive, here's a link to the above-mentioned cleanup patch:
+On Tue, Dec 10, 2024 at 07:43:19PM -0800, Rob Clark wrote:
+> On Tue, Dec 10, 2024 at 7:08 PM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
+> >
+> > On 12/11/2024 6:43 AM, Bjorn Andersson wrote:
+> > > On Tue, Dec 10, 2024 at 02:22:27AM +0530, Akhil P Oommen wrote:
+> > >> On 12/10/2024 1:24 AM, Rob Clark wrote:
+> > >>> On Mon, Dec 9, 2024 at 12:20 AM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
+> > >>>>
+> > >>>> When kernel is booted in EL2, SECVID registers are accessible to the
+> > >>>> KMD. So we can use that to switch GPU's secure mode to avoid dependency
+> > >>>> on Zap firmware. Also, we can't load a secure firmware without a
+> > >>>> hypervisor that supports it.
+> > >>>
+> > >>> Shouldn't we do this based on whether zap node is in dtb (and not disabled)?
+> > >>
+> > >> This is better, isn't it? Otherwise, multiple overlays should be
+> > >> maintained for each soc/board since EL2 can be toggled from bootloader.
+> > >> And this feature is likely going to be more widely available.
+> > >>
+> > >
+> > > The DeviceTree passed to the OS needs to describe the world that said OS
+> > > is going to operate in. If you change the world you need to change the
+> > > description.
+> > > There are several other examples where this would be necessary
+> > > (remoteproc and watchdog to name two examples from the Qualcomm upstream
+> > > world).
+> >
+> > But basic things work without those changes, right? For eg: Desktop UI
+> 
+> It isn't really so much about whether certain use-cases can work with
+> a sub-optimal description of the hw (where in this case "hw" really
+> means "hw plus how the fw allows things to look to the HLOS").. It is
+> more about the hw/fw/whatever providing an accurate description of
+> what things look like to the HLOS.
+> 
+> I'm leaning more towards the hw+fw providing HLOS an accurate view...
+> and the fact that that carries over into other areas of dtb (ie. it
+> isn't the only thing that slbounce needs to patch, as I previously
+> mentioned) reinforces my view there.  This seems like a thing to fix
+> in fw/bootloader tbh.
+> 
 
-https://lore.kernel.org/linux-rockchip/e00f08d2351e82d6acd56271a68c7ed05b3362e8.1733901896.git.dsimic@manjaro.org/T/#u
+Thanks Rob and Bjorn for your inputs. At the moment, we don't have
+capability in our bootloader to apply a *specific* overlay when Linux
+kernel is starteed in EL, this is making GPU non-functional. This patch
+from Akhil fixes the problem without depending on the bootloader.
+
+From this discussion, I understand that it is recommended to provide
+HW+FW view in dT correctly instead of doing runtime checks in the
+kernel. We can take this as a requirement to the bootloader.
+
+I would like to check how we should proceed with overlay. Should we
+submit dtso upstream and let bootloader apply the overlay at runtime or
+this whole overlay needs to be maintained in the bootloader. Also,
+Should we build all board dtb for EL2 as well or just leave it at compiling
+the EL2 dtbo (one per SoC)?
+
+Thanks,
+Pavan
 
