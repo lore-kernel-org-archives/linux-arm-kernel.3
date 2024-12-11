@@ -4,147 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24C4E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 05:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEC8E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 05:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cpzp/90CPQpudCDxYLJrLS3ijqZAQaydAz5hFjliG2I=; b=SESnOEf62mytPl849R56wx9b4E
-	XNoKf9lnco/Wb/jCLxfXTWtO15n3hStltX48WgF2Q+4mRy3onwNFhZMYsg3QN8qocYAQ2sZ7jhTi1
-	I9Zz6aHdEvw/mVaIK7lAJxDXqeNzR4gxA/8E0ttcJEEoIvi/Q8o9fdKl+SmvZhCbygPvqlZhJHcN4
-	bzBeIgEqZ6T3bGVB9+DFj35YD1jK8MmgLaSpUAccf4LHeCgmkBQ82l6fCs/jWdGbs7oCaolpBXS/D
-	h4HeqpLNjQWkUs40ug7v659m17e4xJL8ttPBpogUhac6xHvJ6r0lQW6lMg+FUMXiXRtS7BrX2sFy0
-	pRD+ZrbQ==;
+	bh=elDffjx4OH6SRJ4sYrMr/jtN2gDKhRQX2JMdW7ThPak=; b=yY3gkH8l8n08srZ7+XryCS9LY7
+	hUbqeDT+XqlQMlT1cUtn1of7hl5YDm+nh+3EL9cvJvBLxDYtsRd1+nvrOea66gESefNAz3RMHq/PA
+	yow1TZsGbYG0BRi2vMQMMjxrE4v1Knuy7T73bxdZfEWqb+j/mxiT4rWcgJ4KJDOsyj839qibnx38S
+	6WWOsTGOfQnXGiYl7WILSa2MJxCjYNmp4agqZh9Cfou73K7NlLK601EbuQx/w/TXh41nosPeSSHe8
+	BN+6KIOl3tDCnGTy4Xf7ekxb6bNoMHxbvFac40X5g3IwlWUc+JY1IH1+0sU0Fe7BlPzcUwAqB/Bbk
+	jAZOy50Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLFRO-0000000Dr9h-0Tdg;
-	Wed, 11 Dec 2024 05:39:18 +0000
-Received: from mail-vi1eur05on2060e.outbound.protection.outlook.com ([2a01:111:f403:2613::60e] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tLFdv-0000000DsFQ-0xpI;
+	Wed, 11 Dec 2024 05:52:15 +0000
+Received: from [198.47.19.245] (helo=fllvem-ot03.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLFQK-0000000Dr6m-19Qg
+	id 1tLFcr-0000000DsAh-1Iv7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 05:38:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W9wlMZ44HmYhSdINMAa1qA4tCn04I6kdmsd70BmhvrckspYkohQcD4Ly/tEuHWKezS+yJUGSXHEtsrtPxiVI+y6/70+gdFy2GfTLiD6A39VQCPIThoD8sR9fV4P27K87J+wWenNEAkL4jipjySBYvu9pqPUyEtha62pwBwMJTKwaNAT18dd1+pScwpQmbuNQi1jG2o84X01Xwo0ri5ZqR3JMJB5y4iNKYyTYd4IYzPwOc97ItXsWTbbjPIfj70LhSs6+N3mVusfyF+kn7irLkolgStPLtNqIzPXOUlY28yJLF8cVCPEgHQU4lHe2i/bNPQVB997XfsLsIDqc6jru1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cpzp/90CPQpudCDxYLJrLS3ijqZAQaydAz5hFjliG2I=;
- b=dnGqcMraqiZ5IK4jX6NYh4sSfpMos07VAQCkEXqR3zP2gAs3z+i1BaT6+8joAHim273y+zjfezV7YIpwGKcgd/y4KWEh1HYqFeO12VzvxFh8lltchGULRN2uAwabcMnLNCpUp8oq7aveqjQGOibBD52qGRgM4pgs5FQjvwVkHz1rMH1A0HxhnfJZ20xK8uvIChxdIS8IV/oh4S8byZwO+MAks/Zbb+5ViV3pjFlZZMyWLsmsT30B3G6soRgVDz2fuk9xdAMvzPZ0CP/hO9O+QsKp3A/iTmKQSy0N6zDTIWLvtUVj/zXX0OFVmPw4HqxEQIpWpKqB/oIQnbSwghz+bQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cpzp/90CPQpudCDxYLJrLS3ijqZAQaydAz5hFjliG2I=;
- b=hvt83H/+Dyy00nkDEru5gSXqlsqFPphM9AkVoEZaJz/rU+faLLpLdmdh4JZoGCxyPiKaUruGS4OqZ6A2IeH2BxflmgYg2N54Xj6VYIbf7RC0v8ieOBYjVzLR9yrpnqSWe/jCCtweGFNmIJZKO0oDUV6YxwESGlfLoOkVpgs8BSClW+XZZnyuaoA3BjrCn9yvz9iuEk+PLoZpax7LAuvY7pWjyaA/OACM90ttOMqNxkkZQkpOlJ1uzJ+axZFGKGIwMMUumhJdDrxIeE8GeRCtZ2EgJjF4S7iBMiSUaG4JOnorSse/U0i+ZGwDTkBmnpF/DWlhKGl6jLEbZPFcS7PClw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by GV1PR04MB10944.eurprd04.prod.outlook.com (2603:10a6:150:210::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Wed, 11 Dec
- 2024 05:38:00 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8230.016; Wed, 11 Dec 2024
- 05:38:00 +0000
-Date: Wed, 11 Dec 2024 13:35:16 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Will Deacon <will@kernel.org>
-Cc: Frank.li@nxp.com, mark.rutland@arm.com, shawnguo@kernel.org,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v2] perf: imx9_perf: Introduce AXI filter version to
- refactor the driver and better extension
-Message-ID: <20241211053455.z5zzawfacpyv2dlt@hippo>
-References: <20241125104338.2433339-1-xu.yang_2@nxp.com>
- <20241209154419.GB12428@willie-the-truck>
- <20241210020212.yz3xowvdk27zmgsl@hippo>
- <20241210133732.GA15607@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241210133732.GA15607@willie-the-truck>
-X-ClientProxiedBy: AM0PR04CA0040.eurprd04.prod.outlook.com
- (2603:10a6:208:1::17) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Wed, 11 Dec 2024 05:51:10 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BB5orHM2575121
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 10 Dec 2024 23:50:54 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1733896254;
+	bh=elDffjx4OH6SRJ4sYrMr/jtN2gDKhRQX2JMdW7ThPak=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=MiX1K6rANJ762nagAgnOCCends7HgNQkNptdpkG7a3hwItvApyoEsDjp+dr89XRnt
+	 FVREdbLDKIxd5coDOkbMcyLhRD7P7KlAlXrTs1QDKunL1oue5yQepiCBZeoqRpEbuK
+	 kbmvJB5pEaErrB7Kv3ayv/AxKv2VreL/sTRpOQiw=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BB5orpZ103007
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 10 Dec 2024 23:50:53 -0600
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
+ Dec 2024 23:50:53 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 10 Dec 2024 23:50:53 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BB5oqsI039946;
+	Tue, 10 Dec 2024 23:50:53 -0600
+Date: Wed, 11 Dec 2024 11:20:52 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Vivek yadav <linux.ninja23@gmail.com>
+CC: <linux-newbie@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        <daniel.lezcano@linaro.org>, <lpieralisi@kernel.org>,
+        <krzk@kernel.org>, <christian.loehle@arm.com>, <sudeep.holla@arm.com>,
+        <quic_sibis@quicinc.com>, <cristian.marussi@arm.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <vigneshr@ti.com>, <khilman@ti.com>, <sebin.francis@ti.com>,
+        <d-gole@ti.com>
+Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
+ then WFI
+Message-ID: <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
+References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
+ <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV1PR04MB10944:EE_
-X-MS-Office365-Filtering-Correlation-Id: 92d0e675-1d97-4f73-5b10-08dd19a5f96b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?T3KXeV2PiRBFkJKN4+0nheNfIL8sa+OKXTXVvHUoG6bis7PTAOhmxh+38B/J?=
- =?us-ascii?Q?NJcBXIcr5DLMPjFKRvVtaohHI4M8J/fqzeRvMyZQvjvqLgyMlt30j8rWe5Qa?=
- =?us-ascii?Q?t7TF0CAR7rn9XrF/uUBzOdNTeKqmLcHAZIPv7ZgUY4qsco4/Doy0GpPYofsp?=
- =?us-ascii?Q?470vhw00Mnggi45p0uhl/sUCyCLtvPmGpm70umlDYiDa4GQ+mqVqZzGK5iUf?=
- =?us-ascii?Q?N8N4IUsXVq1OOgKM3rXRlKq7xEsfH/D9CsfWEhY/plPD7a2fUWEcFAl2UVmp?=
- =?us-ascii?Q?LB8jgabuBpFwLtyMgzL5w2JNeMZeMkYpamv8JQDbpc1+Pm3zRXTQY0JxxqBr?=
- =?us-ascii?Q?yD/KbLf432s9AMA0nUXQUict1z+PbPNMdRxASru8caV0e6QLTE9B5zN7bFui?=
- =?us-ascii?Q?D7EuWrfknsY5l/G9olk2n6OI+zypkjpUOceVc/6ycnG8yIk6s91PqZ+debbA?=
- =?us-ascii?Q?gAZHvQM+Bz6OkKY2RsjDc3GUjyDOKhHmgJTcQqKXN3+QUYsdaczGoRDobz/f?=
- =?us-ascii?Q?ZeWdCmPg0wxo9aueLIT/8FqoA4cs4mV/QCyHY4WzF0rEDX4HkOg+lVGgR5TY?=
- =?us-ascii?Q?NJY5bXIWLGjCUttNlaZc1NZWNUIhhTHRdJO5hU8RhlA6vpc3oiMjWBt+gdMv?=
- =?us-ascii?Q?+P5662yl8EjxiQvaKjkvTkVEiE3ygodc/NzUXBlBRHSlAChiA3wSJzTiWlZf?=
- =?us-ascii?Q?DhDZqPgA49Nq2JB0w1pgWex2dNggnWlPVNNHnxGKogRMNjzte/I+GsmVw7Hu?=
- =?us-ascii?Q?+rGzg6MJSYGpi+hC8lLVNLlM0B4MaugO+MOXKipuW3JO4Xb5ukZcEDb96/wP?=
- =?us-ascii?Q?2qfhngflri47PjsdR0Ztn6Muvmnk57+ZYGBP8QyPOeD84Ds+6g/Ed+dLipyu?=
- =?us-ascii?Q?j/wUO85pU+pVT/uoswd2tuaGKQEkjNLmV/gWnwig0ONk1gFC0r7mCjW3DMoS?=
- =?us-ascii?Q?z4PpqASUFB+T1SqPXRIRcktkC5STWZh0diV+padfkzRBgeFs5y6kt5Q6Ja/N?=
- =?us-ascii?Q?gZk2UByhCXV1cTtggMnMihgwj+iD2Eug9DWmf1mSZgw5xAd9APVi8zCcEbqc?=
- =?us-ascii?Q?m8cb9mn4PMbXbw0E7GWP7vxfhNpa9ksBjlPbEIVVHRILt26EUAYqkJMhsHOH?=
- =?us-ascii?Q?qsJsYpmkFDWXLmQjLs7T9bRqf2z8iqinP7DMipswqb6mLJdkxA3Y6eH5MGsU?=
- =?us-ascii?Q?jSw6zsL+qI7G/LxOWN7dHPRYq6o43UzguX27tFdP4VgY10BMA6OsSiZVfH4I?=
- =?us-ascii?Q?s1Hz+q/r2iQk5GPxqotvgPDCmPvXUJOQrU+qWrfWgxVQPa4HimEYRPTMJJhz?=
- =?us-ascii?Q?n9fGbuADDL3FzpPUUaG+GvogPRyFL9L9TqpqxS5R67ID4q8rpBpkYYrysQxP?=
- =?us-ascii?Q?q46Pv3bVd2Erf0YrcTI62yt2ybm2xpDMLNXe7Z3YRnUKOhInuA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d32U6W9YwLIIICKxNm2tKO/hu8JXM0lQhJCLmVPC/yDms+cU95UtvLday6xh?=
- =?us-ascii?Q?aCuWIeNI+TBzKaberBxbA4Rid2ywhNDulFfT05+u/Io70FI+5aTbFcxGFV/p?=
- =?us-ascii?Q?Lt1Mn1KfR91kFU7qzXtDWuM8JUy/oaZ8HMX78tDBjMPTArpjei83pC5mOnlg?=
- =?us-ascii?Q?Baw0P0AeW9YYFnmgFseon6rQXOOCINnXaJjMFvJsdsRrixCJ4oVSQ3XA8OUr?=
- =?us-ascii?Q?zaPD4OwYEHXIiNFHPuCVF4qPMdFE7CHdmpEXLjCQzpbJrM+Xtq6AdEKok75K?=
- =?us-ascii?Q?p/cCEWRHNUnxqIaGZbC1AxBN/FCprDaRRu1aF3zXrva8IRqnHabgb2GpTrqX?=
- =?us-ascii?Q?V5LC8XhoSzkMU3TAPYm/jgLHeDeEUIdGsv9JX5HcvGXVEsduMCP1DQcefbwA?=
- =?us-ascii?Q?F/N2vjGBFK8CkcjSYBtmJM7BbUyIytO4oBA9TemL7LtozvlSWAT7S+82hJlo?=
- =?us-ascii?Q?4O73Rssx7OkYA3nuPTuYXLQL151SRx31T5siOQa/AOcOPXVCdAmMxulijnf7?=
- =?us-ascii?Q?Wox4uxagU5E3pAmInH8PTX8YxMyCeNOlTFO5c7WnACJR6Sj3r9RD/VQbSgsF?=
- =?us-ascii?Q?Wxf2DtA2P+OyXGcWrmlf8v6tXtzRXQ0V8st0urFAzZgg3qv0ckf5L6u/7e6w?=
- =?us-ascii?Q?XolLGUsZIgLy0GX8EgUVhKP+kQ0mLsWBsCrgcYU6DH/gnEjzCWaJAQ1JOhIM?=
- =?us-ascii?Q?hA/WEtnHwz4LQok2HkckqPrMr5An6/69gGOPRRW1lC26QD471IYsdZW+DW44?=
- =?us-ascii?Q?gLu5/iLP7bWBWYXUxJalg4pcx3MH6eMs9jpU4P6eiZpF5aQ8tY0YN5GGN3b+?=
- =?us-ascii?Q?grmarBVE5B7xYOMFzteocPqLhhhexoDSLaEJlIh+vQWC/SFml4mLIPEgoWpm?=
- =?us-ascii?Q?S0D7IyfN4w+XvZxgpIuIRrrUDpTcPzkgEZnLC+a2kp2YuwfMkA5hyavxIWDd?=
- =?us-ascii?Q?W/xZHan3gPpCLaGTpqyH9hcneyb5kBzFPEw4Ja5JHG17P8qou7s3DOTmPQh7?=
- =?us-ascii?Q?3NLcQTuYMRZfZgJ7QVlyIoQ4AYCwIREaPv/g10o3Z4BlfjJWGWvLS3WOW4Tn?=
- =?us-ascii?Q?FGHx5vRbGHMRKfsbSxicbaoyyCTUpsvcY28plNmXA6OixUCIvhic3rZcERXr?=
- =?us-ascii?Q?x2Y9QdkiMZM8fctD9AFxNCB/QgGuT3Cvq07vB5wSr4MQh2eVrILy4z2DBn/N?=
- =?us-ascii?Q?Pkg9LWM5VbWuOHw8khYfEuaEafPq8TF7K3OdAnttDYlYJKppdi5eqhmp7Ngw?=
- =?us-ascii?Q?q26H25iDnypmftocEDLjvtsxE9CzkeFygpGyEa+J68vFjhmp9I62tAxhHBRR?=
- =?us-ascii?Q?NpB7HJvPI/OgsbtLsSQNjB5jrnvuKNu5nN+Wrvz/FeBVCcJV9Qiv9jw7jZM3?=
- =?us-ascii?Q?MEOoiWGjspY9nqYirAnpDQv1HG7nA5dzBJK+XFdcDWFwKa0qUfaAGqMo0Jga?=
- =?us-ascii?Q?jcGpZG45dmjr5WBu/qs37/0yJQIInzkAW7oQ+MW45ZxKh0MxXO3inpKVH80Q?=
- =?us-ascii?Q?EpxFtqLo7H9Zuvj0ng2X+qb0baQixPXfWJgOikdYK0seLZr8mQgC9CArQhdx?=
- =?us-ascii?Q?4nT7uJasDK8LNKvrSAyU8kc8DdobiiU2Z9iQfa3l?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92d0e675-1d97-4f73-5b10-08dd19a5f96b
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2024 05:38:00.4411
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WZexYYfbhXtaiRcE0IR2xhywQSFo8eqiSRCrr9H68iYWpcPhyMIzs73YKuQ5q4rZbinvFF8u9VXHN/2OL/N7CA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10944
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_213812_347742_22DBF400 
-X-CRM114-Status: GOOD (  34.64  )
+X-CRM114-CacheID: sfid-20241210_215109_539774_640AE4C4 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,76 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 01:37:32PM +0000, Will Deacon wrote:
-> On Tue, Dec 10, 2024 at 10:02:12AM +0800, Xu Yang wrote:
-> > On Mon, Dec 09, 2024 at 03:44:20PM +0000, Will Deacon wrote:
-> > > On Mon, Nov 25, 2024 at 06:43:38PM +0800, Xu Yang wrote:
-> > > > The imx93 is the first supported DDR PMU that supports read transaction,
-> > > > write transaction and read beats events which corresponding respecitively
-> > > > to counter 2, 3 and 4.
-> > > > 
-> > > > However, transaction-based AXI match has low accuracy when get total bits
-> > > > compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
-> > > > So axi filter is not used widely on imx93. This could be regards as AXI
-> > > > filter version 1.
-> > > > 
-> > > > To improve the AXI filter capability, imx95 supports 1 read beats and 3
-> > > > write beats event which corresponding respecitively to counter 2-5. imx95
-> > > > also detailed AXI_ID allocation so that most of the master could be count
-> > > > individually. This could be regards as AXI filter version 2.
-> > > > 
-> > > > This will introduce AXI filter version to refactor the driver and support
-> > > > better extension, such as coming imx943.
-> > > > 
-> > > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> > > > 
-> > > > ---
-> > > > Changes in v2:
-> > > >  - modify subject
-> > > >  - add comments for AXI_FILTER version
-> > > >  - type -> filter_ver
-> > > > ---
-> > > >  drivers/perf/fsl_imx9_ddr_perf.c | 33 ++++++++++++++++++++++++--------
-> > > >  1 file changed, 25 insertions(+), 8 deletions(-)
-> 
-> [...]
-> 
-> > > > @@ -624,11 +641,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
-> > > >  	hwc->idx = counter;
-> > > >  	hwc->state |= PERF_HES_STOPPED;
-> > > >  
-> > > > -	if (is_imx93(pmu))
-> > > > +	if (axi_filter_v1(pmu))
-> > > >  		/* read trans, write trans, read beat */
-> > > >  		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
-> > > 
-> > > Hmm, doesn't this change mean we now enable this for imx91 as well? My
-> > > reading of the commit message is that imx93 was the first chip which
-> > > supports this.
-> > 
-> > Yes, it's enabled for imx91 too. In fact, imx91 is compatible with imx93.
-> > They use same configuration for axi filter.
-> 
-> Ok, but my worry is that the above code looks like userspace now _must_
-> provide valid values for the config1 (axi_id) and config2 (axi_mask)
-> fields on imx91, whereas before I think they were ignored by the driver.
-> 
-> In fact, without this change, how were the PMCFGn registers configured
-> on imx91? It looks to me like they were left uninitialised...
+Hi Vivek,
 
-Before this change, PMCFGn registers are indeed not configured on imx91.
-However, they should be configured as imx93. I notice this thing when
-make this patch. First thing I tried is to add is_imx91(), then check it
-and is_imx93() by "||" operator. However, this way seems not scalable as
-more imx9x Soc comes out. Basically, AXI filter version will keep at V2
-unless big changes due to new features. However, perf tool need export
-correct MetricName via identifier in sysfs. So I made this patch, then
-PMCFGn will be configured based on axi filter version rather than pmu
-name.
+On Oct 14, 2024 at 16:06:34 +0530, Vivek yadav wrote:
+> ---------- Forwarded message ---------
+> From: Vivek yadav <linux.ninja23@gmail.com>
+> Date: Fri, Oct 11, 2024 at 3:14 PM
+> Subject: ARM64: CPUIdle driver is not select any Idle state other then WFI
+> To: <linux-pm@vger.kernel.org>
 
-Thanks,
-Xu Yang
++ Kevin, Vignesh and few colleagues at TI who have been working on this as
+well.
 
 > 
-> Will
+> 
+> Hi @all,
+> 
+> I am working on one custom SoC. Where I add one CPUIdle state for
+> ``arm,cortex-a55`` processor.
+
+Any further luck on this?
+
+I have also been working on something similar[1] but on an A53 core on
+TI-K3 AM62x processor.
+
+> 
+> idle-states {
+>       entry-method = "psci";
+>        cpu_ret_l: cpu-retention-l {
+>          compatible = "arm,idle-state";
+>          arm,psci-suspend-param = <0x00010001>;
+>          local-timer-stop;
+>          entry-latency-us = <55>;
+>           exit-latency-us = <140>;
+>           min-residency-us = <780>;
+>     };
+> };
+> 
+> I am using ``Menu governor`` with the ``psci_idle driver`` in its original form.
+> After booting Linux I find out that the CPUIdle core is never going
+> inside the ``cpu-retention`` state.
+> To check time spent by CPU in any state. I am using the below command.
+> 
+> ``cat /sys/devices/system/cpu/cpu*/cpuidle/state*/time``
+
+What I was seeing is in a multi core system (2 or more) all cores don't
+enter the idle-state simultaneously. There's something keeping atleast 1
+core always busy. However I could definitely see entry into TF-A from 1
+core at a time.
+I then switched to a single core system to see if we were atall able to
+enter TF-A when only 1 core was available for linux, it turned out that
+with the "local-timer-stop" property that we have, this is never
+possible.
+
+See this chunk in the kernel cpuidle driver:
+	if (broadcast && tick_broadcast_enter()) {
+
+When I dug deeper into tick_broadcast_enter it always returns something
+non zero and hence in my case it was entering the if block and tried to
+find a deepest state. Then the deepest state would always return WFI and
+not the idle-state I had added.
+
+What we found out was on our kernel we end up using 
+
+kernel/time/tick-broadcast-hrtimer.c 
+
+This always seems to be keeping atleast 1 CPU busy and prevents idle.
+If we remove the local-timer-stop it was helping us, but we still need
+to dig into the full impact of what that entails and I am still
+interested in finding out how so many other users of similar idle-state
+implementation are able to do so without trouble.
+
+Arm64 recommends to use arch_timer instead of external timers. Once we
+enter el3, timer interrupts to el1 is blocked and hence it's equivalent
+to local-timer-stop, so it does make sense to keep this property, but
+then how are others able to enter idle-states for all plugged CPUs at
+the same time?
+
+> 
+> OUTPUT:
+> 0 ===>CPU0 state0 (WFI)
+> 0 ===>CPU0 state1 (cpu-retention)
+> 
+> increasing some time value ===>CPU1 state0 (WFI)
+> 0 ===>CPU1 state1 (cpu-retention)
+> 
+> increasing some time value
+> 0
+> 
+> increasing some time value
+> 0
+> 
+> What am I doing wrong? Why does ``cpu-retention`` state time not increase?
+> Any pointer will be helpful.
+
+I had asked a similar qn. on IRC [2], but didn't get much response. I
+am still interested in finding out what the right thing to do here is.
+
+[1] https://github.com/DhruvaG2000/v-linux/commit/0fd088d624276a2e72b8dc6660d261ab6d194f4b#diff-34369928f669d14776f8f5bdbe3fc3d75306196a2ac28b1a4d7e17402b9c3995R160
+[2] https://libera.irclog.whitequark.org/armlinux/2024-08-23 
+
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
