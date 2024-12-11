@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687A7E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 12:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792BDE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 12:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=guSYvKx4mndllR6GD3MH3bmFmQytH3ODmZYWOudP6g8=; b=dnWopG9BlSF+HOOTqLxsjKYuCC
-	zFS+E41awkgQ7jz+r6d3fEzBLn7ihClK9AMhRMrpvJc5eLwqtm143QF7GW3Jo7fvdYSR+1W+dne60
-	ws3ID0T/SCPRwhHaMzSw0fnUccBVqF8WUFnxmjU849DuhD2KiSP/E0miM20zxFZMQsM/L+wHhATiF
-	GWQIF1NM4iRQdEWKwChyaeR6+7/CsYKJcW1QVwflkPNBfTy+EEaiSGimhYB1SuFbV4Nsy38vRLLb+
-	iesByy35mnCkM3XPrERA8MFjnt5X1pnge2sDmGtGdnMAADP67iUdJ8V1PqMlDAsIM87+yRJgQqpbg
-	8a9v3K2g==;
+	bh=Tia9vB659w6sJFo+z8gVVhw9SCVZDEDlbolaVohvnm0=; b=cdplMd5XqTFyLhUEve7sXqSnyP
+	zR9hc/9MPe0LhAeevsN58mYKHzguk7umUOfZQTCqbP9ZE+r7hqUqGVvSpI3Tupb4cDS8ODB3s2QBL
+	4AUWynn1yKAeFfHdVMtSUw7zZY+9C3ZZjNIDX4tELWw1WDwXneG/qJysUKTRuZODaB8HdCrwCnEAt
+	Rxw3sydJ7cQf5qcEU95SUycvT6+ACduVOCDBlAD9L7/VqzHSUyIruNdjrF2XemcHfGg6J4yL2IjHV
+	DWgZVez4knNfcENMEHxcMDZ4E8C1RjOoWnPrS4elyVYuq+e6/8N33Z59F0sQyKjrYrIBgwdzjF/XG
+	VTFxfVhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLLmp-0000000EorR-2gLH;
-	Wed, 11 Dec 2024 12:25:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLLwH-0000000Epzj-1Zx0;
+	Wed, 11 Dec 2024 12:35:37 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLLlm-0000000EojN-0v2o;
-	Wed, 11 Dec 2024 12:24:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F01A75C66CF;
-	Wed, 11 Dec 2024 12:24:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D61FC4CEDE;
-	Wed, 11 Dec 2024 12:24:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733919885;
-	bh=Ixe+0zlB0lslc06XHD6I5fHFiNcsd+/enywfypzEH6o=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=XiTFHF0Gio4QQBgKDhi02XZ6TrhhfqCQ4XjLKCuxPGw8w1e44rrWC56dhj2L5ClFG
-	 uYA5axPUtkLuAJ1YETjMesPjrEuRNplG1r68SDUgie088ONVMUXiniZRhfAv7prR6k
-	 PC8xg96LxqBzejT37TlCFNpoqcOzPVcDEcmgIQg2Ye7jNB88MbtUg0GRLMzny7S5YE
-	 xXhxL3lRE2jmJTnGZtU9vtwCvKucR5rYviNGlUtgA54Dj4sENYskwh3G1o4h4fFll6
-	 9V7fGE7FY74Tb35nlw51qNWXlpRtaqVITWJIt5q1HcyQsqknJmje/ZZxDRbe7Vs8w+
-	 pgBk0Ivd4UKIQ==
-Date: Wed, 11 Dec 2024 13:24:42 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: Lee Jones <lee@kernel.org>
-cc: =?ISO-8859-15?Q?Heiko_St=FCbner?= <heiko@sntech.de>, jic23@kernel.org, 
-    robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-    jdelvare@suse.com, linux@roeck-us.net, srinivas.pandruvada@linux.intel.com, 
-    bentiss@kernel.org, dmitry.torokhov@gmail.com, pavel@ucw.cz, 
-    ukleinek@debian.org, devicetree@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-    linux-input@vger.kernel.org, linux-iio@vger.kernel.org, 
-    linux-leds@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale platform-data
- on remove
-In-Reply-To: <20241211120844.GD7139@google.com>
-Message-ID: <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
-References: <20241107114712.538976-1-heiko@sntech.de> <20241107114712.538976-2-heiko@sntech.de> <nycvar.YFH.7.76.2411071358210.20286@cbobk.fhfr.pm> <4934964.GXAFRqVoOG@diego> <nycvar.YFH.7.76.2411071534110.20286@cbobk.fhfr.pm> <20241112143732.GG8552@google.com>
- <20241211120844.GD7139@google.com>
+	id 1tLLvA-0000000EprX-2V5s
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 12:34:29 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aa68b513abcso584022166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 04:34:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733920467; x=1734525267; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tia9vB659w6sJFo+z8gVVhw9SCVZDEDlbolaVohvnm0=;
+        b=XgyCwm9xzY4kvTWd50L6Dks7Q3JUHz/WC2fOEPSV/TP0fU6xnY09K17OWcBtnj7G6s
+         nvKs7De/aXP+KNCsMeaM07konkAVTTHOzMwABRdmndp6LAt/JQuqp2R+D/X+y5yhm5Cv
+         /xmhqm5eVrmenh9XjV0ai108wqjJ1w3BdSnvJhxwerQT79Rj9LmI6j3W87i+CfX1g7H1
+         GJJXKIq/wSw0ZS1NcgiZnuR7nvS50ETwiwBDQEZtX0/k/iG5aD4Bh5yq4tdmjIvJ9kdC
+         f2eNmR06Ha4+DdhMYKtooFt5phJecHCajOk7HIJRGsa5AHUiUl+QOOPRS8aXUfusYufL
+         QY/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733920467; x=1734525267;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Tia9vB659w6sJFo+z8gVVhw9SCVZDEDlbolaVohvnm0=;
+        b=eCgbOVu3spgfuKtYAePSo2BqZxjF4kyeOl9C0/yZ45xyS3edrPX6JNND3xkn5hIOKu
+         wl0+0oe4LqdoMOZxhblleWg3enCzVVsAoBL/LMUsMvNCi7HrR+8d62Uzz300rUyH8TUX
+         5ZrvYELYArdb2hDtvoKdJuactyqKEf4vuFscggx6MyzP8KRMMWNmH/pbYjxpGxVZ8O5l
+         3lxgVUWSm2q/hyLka87+bvNgcidAy+ldWPoZzFcFHD26utD/JGCeo53LAoda5g3MZxaO
+         U7LSedhZgfiqk/VHe8MHfHoTAJ/9c/FyWkKCMF7Fqkvn9TikMEEmZa+mKxqOl+YEFLB/
+         pkNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX/PW6y3s+kFSum8f5YCR2x1SgKApeyNAIQ388g8JNhZSEz7mj72Oc68alDcfYd5IVcfCxOZdB/olMq6bDZta1q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEOwVU6K0sX482agxFU2gD7BjMZo3n1zj3M5e1rgAfK5iKPRh6
+	2Ii8Yl2ZDtfTkxobKnPzSSUBcoYTLqyN0+XAAD2z++Ppp/dn7d2jXa8y8O/Mgg==
+X-Gm-Gg: ASbGnctqHMsqIB1z2y8B7V14H1tTXkRGEf73cFQaV+K9RSjV1dzePBE/KeL/WyhK+vq
+	uVv/Ue54bcfsLcpO08YEYVkLWD+3ACb/HFgjYQsEcFEOhOnm+GdW1yFHJRZKrR+XtiycK+FX9Pd
+	o8mFE5niPd/Mf7O3M7AU2x42Rj7VHX5xqCvzD+/w3FqdP5P2l8pVokMSLPrF6Pcmb7h80puPnF8
+	Sk5L6jYmYHJlQVhsSvCHVzxlaZRnFLeHMJkyA/9gLI+kCtOgRUH+ivEh81RqtmRJgizowSD1D/D
+	mBL4IZ5mSM+r
+X-Google-Smtp-Source: AGHT+IGfijMMKjuLwCN4FI28W1IXgWX5yc3a7561qwngrsOIMBdubzqnGhrHwul9v673IkWy4GJKZg==
+X-Received: by 2002:a17:906:599c:b0:aa6:b5d8:d5c2 with SMTP id a640c23a62f3a-aa6b5d8d624mr173985366b.41.1733920466577;
+        Wed, 11 Dec 2024 04:34:26 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa683a0a736sm487811566b.142.2024.12.11.04.34.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 04:34:26 -0800 (PST)
+Date: Wed, 11 Dec 2024 12:34:23 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
+	kristina.martsenko@arm.com
+Subject: Re: [PATCH v4 07/14] KVM: arm64: Rework specifying restricted
+ features for protected VMs
+Message-ID: <Z1mGzwZqVQCWWSTX@google.com>
+References: <20241202154742.3611749-1-tabba@google.com>
+ <20241202154742.3611749-8-tabba@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241202154742.3611749-8-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_042446_300048_025C8125 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20241211_043428_634399_7FE64DE2 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +101,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Dec 2024, Lee Jones wrote:
+On Monday 02 Dec 2024 at 15:47:34 (+0000), Fuad Tabba wrote:
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index f333b189fb43..230b0638f0c2 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1422,6 +1422,7 @@ static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
+>  	return test_bit(feature, ka->vcpu_features);
+>  }
+>  
+> +#define kvm_vcpu_has_feature(k, f)	__vcpu_has_feature(&(k)->arch, (f))
+>  #define vcpu_has_feature(v, f)	__vcpu_has_feature(&(v)->kvm->arch, (f))
 
-> > > > This change was more or less a surprise find, because I wanted to make
-> > > > the platform_data pointer in the mfd_cell struct const and this the hid
-> > > > sensor hub stood out as doing something strange ;-) .
-> > > > 
-> > > > So patch 2 of this series actually depends on this change to not cause
-> > > > build errors.
-> > > 
-> > > Ah, right.
-> > > 
-> > > > But seeing that we're after -rc6 alredy, I would assume the brunt of the 
-> > > > mcu series might need to wait after 6.13-rc1 anyway - but I guess that 
-> > > > depends on how Lee sees things ;-) .
-> > > 
-> > > OK, I am keeping my hands off it for the time being.
-> > 
-> > I can take it now with an Ack.
-> 
-> Looking to apply this set now.
-> 
-> Ack please.
-
-I'd preferer if Srinivas could ack this as the more specific maintainer. 
-Srinivas, please? 
-
-Thanks,
-
--- 
-Jiri Kosina
-SUSE Labs
-
+Nit: I see nested uses the raw __vcpu_has_feature() helper, so I guess
+we should try and be consistent. Either way works, we can do the same
+thing in sys_regs.c, or convert nested.c to use kvm_vcpu_has_feature().
 
