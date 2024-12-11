@@ -4,103 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB50CE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 14:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 495CAE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 14:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TO+YB/Y/4TCTstWKm/S0FbmmY68P0DKD/Yt8QeePxEs=; b=sfUQV44e19wavatGaDJtMT2Sz2
-	s9fKvxJ7bPhK/eEWfsdTkZ3sWMBRe+c34A2sGt2d2wF8JboBcWeFg8qjKf+0LdwIqElN+//KIyNYc
-	ql8YCs/g3o16iZlbQTMldsCm2WruFTSB3lh+6F9aRHa852HyXRynf7jWjKsWlno8E5Wba6uso6T2c
-	c53OyCqI8EnXP0lRrK/uxsMUEby38ZFTCKxQeJyB7Dn+H7n41laHl9sjG01bL0PSmRoWXfpRC0J4m
-	pIMtfENMGC+hlQPMsA+AjIUv9dMyiaU5Q2eNFrTbdKPo7YLzMw04unuXVy6f3RcZ/UxEk+f9D+fon
-	T+Q25uPQ==;
+	bh=JniKxZaKIckwpZT/I3NSeEVGJX/9DihSJgU5m9ylrJY=; b=H5z0j0cHKjGadocu1F4nxgfgHE
+	5kw7ULj9Vw4PZnklHJSf+oez/za2CGvEcCEb7oCj99fcBoqFAWLeqtWMurAl7NbjCXjTpw1vFE6oi
+	K2hYc8Y9mU+DkOVZ9Q0CsPTN8Q8rEWIgj9OsjiJyG+/w8dQAl0QmUI29Tukhhz8N/tAqDyMT8ot8Q
+	SgWKjLaP1NPWT1zTtoJXQbXQ12Q4+yWN6C9x70qFt46fsOO7sNAmawGxNNxx8AvKR8PQZMGN4vghl
+	ur3mAnSIOTHnrE1AJ8BZ0uYOre8Bj/Sm1aOdeHzDgmhSclh8J7kRBb4h/rFvxWenu75TfAE6Dlhz9
+	06VXOWwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLNfI-0000000F8Kn-3fiI;
-	Wed, 11 Dec 2024 14:26:12 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tLNgK-0000000F8Rg-3INi;
+	Wed, 11 Dec 2024 14:27:16 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLNeF-0000000F8BI-1Xlw;
-	Wed, 11 Dec 2024 14:25:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733927107; x=1765463107;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=TO+YB/Y/4TCTstWKm/S0FbmmY68P0DKD/Yt8QeePxEs=;
-  b=QM18a+FfwzKc59yDbqNShEEtNJq6QfLdIgmL89MMFpQbYQtg02wQSfTQ
-   MxkadcVhW2J5FcS06M+N0g1YWXlDgOAXDO5iWLz1fN3KRWgWY7NpSyiVU
-   zFwVW21VHtpjVQ8K/K6Et+DGSZWQ5Jwd1hnOrx1dV5GnphFZm5i1ZCZ0M
-   jwXIw504BBY0nNiUb0eDWKPbFBZ472tdZc/17fvSdv0hr/PCHnBmmlZ7E
-   kMg416MhUM4ywadceHiiDDOhYj4hNEHCltgqch1ztOqjzlW8qSRPAo7Oo
-   HGkq8TocxL13E0HVsE7BaShJu33AuMMHAs0k5IqcD0yHDjHH31DrplCI3
-   g==;
-X-CSE-ConnectionGUID: zErREWsQTXy1wu/SDAnGUw==
-X-CSE-MsgGUID: AItb2DdpSo6uZ36Aj2TTyA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11283"; a="44979298"
-X-IronPort-AV: E=Sophos;i="6.12,225,1728975600"; 
-   d="scan'208";a="44979298"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2024 06:25:03 -0800
-X-CSE-ConnectionGUID: Kd1QKuo+QR6IoKNW4XOJAw==
-X-CSE-MsgGUID: kCNsvwGPQyyYK8GHI13fsQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="99920819"
-Received: from spandruv-desk1.amr.corp.intel.com ([10.125.109.242])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2024 06:23:41 -0800
-Message-ID: <8d736607552e88f28672ef5217431f61951df126.camel@linux.intel.com>
-Subject: Re: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale
- platform-data on remove
-From: srinivas pandruvada <srinivas.pandruvada@linux.intel.com>
-To: Jiri Kosina <jikos@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>, jic23@kernel.org, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- jdelvare@suse.com,  linux@roeck-us.net, bentiss@kernel.org,
- dmitry.torokhov@gmail.com, pavel@ucw.cz,  ukleinek@debian.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-input@vger.kernel.org, 
- linux-iio@vger.kernel.org, linux-leds@vger.kernel.org,
- stable@vger.kernel.org
-Date: Wed, 11 Dec 2024 06:23:40 -0800
-In-Reply-To: <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
-References: <20241107114712.538976-1-heiko@sntech.de>
-	 <20241107114712.538976-2-heiko@sntech.de>
-	 <nycvar.YFH.7.76.2411071358210.20286@cbobk.fhfr.pm>
-	 <4934964.GXAFRqVoOG@diego>
-	 <nycvar.YFH.7.76.2411071534110.20286@cbobk.fhfr.pm>
-	 <20241112143732.GG8552@google.com> <20241211120844.GD7139@google.com>
-	 <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
-Autocrypt: addr=srinivas.pandruvada@linux.intel.com; prefer-encrypt=mutual;
- keydata=mQGNBGYHNAsBDAC7tv5u9cIsSDvdgBBEDG0/a/nTaC1GXOx5MFNEDL0LWia2p8Asl7igx
- YrB68fyfPNLSIgtCmps0EbRUkPtoN5/HTbAEZeJUTL8Xdoe6sTywf8/6/DMheEUzprE4Qyjt0HheW
- y1JGvdOA0f1lkxCnPXeiiDY4FUqQHr3U6X4FPqfrfGlrMmGvntpKzOTutlQl8eSAprtgZ+zm0Jiwq
- NSiSBOt2SlbkGu9bBYx7mTsrGv+x7x4Ca6/BO9o5dIvwJOcfK/cXC/yxEkr1ajbIUYZFEzQyZQXrT
- GUGn8j3/cXQgVvMYxrh3pGCq9Q0Q6PAwQYhm97ipXa86GcTpP5B2ip9xclPtDW99sihiL8euTWRfS
- TUsEI+1YzCyz5DU32w3WiXr3ITicaMV090tMg9phIZsjfFbnR8hY03n0kRNWWFXi/ch2MsZCCqXIB
- oY/SruNH9Y6mnFKW8HSH762C7On8GXBYJzH6giLGeSsbvis2ZmV/r+LmswwZ6ACcOKLlvvIukAEQE
- AAbQ5U3Jpbml2YXMgUGFuZHJ1dmFkYSA8c3Jpbml2YXMucGFuZHJ1dmFkYUBsaW51eC5pbnRlbC5j
- b20+iQHRBBMBCAA7FiEEdki2SeUi0wlk2xcjOqtdDMJyisMFAmYHNAsCGwMFCwkIBwICIgIGFQoJC
- AsCBBYCAwECHgcCF4AACgkQOqtdDMJyisMobAv+LLYUSKNuWhRN3wS7WocRPCi3tWeBml+qivCwyv
- oZbmE2LcxYFnkcj6YNoS4N1CHJCr7vwefWTzoKTTDYqz3Ma0D0SbR1p/dH0nDgN34y41HpIHf0tx0
- UxGMgOWJAInq3A7/mNkoLQQ3D5siG39X3bh9Ecg0LhMpYwP/AYsd8X1ypCWgo8SE0J/6XX/HXop2a
- ivimve15VklMhyuu2dNWDIyF2cWz6urHV4jmxT/wUGBdq5j87vrJhLXeosueRjGJb8/xzl34iYv08
- wOB0fP+Ox5m0t9N5yZCbcaQug3hSlgp9hittYRgIK4GwZtNO11bOzeCEMk+xFYUoa5V8JWK9/vxrx
- NZEn58vMJ/nxoJzkb++iV7KBtsqErbs5iDwFln/TRJAQDYrtHJKLLFB9BGUDuaBOmFummR70Rbo55
- J9fvUHc2O70qteKOt5A0zv7G8uUdIaaUHrT+VOS7o+MrbPQcSk+bl81L2R7TfWViCmKQ60sD3M90Y
- oOfCQxricddC
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	id 1tLNeT-0000000F8EA-0N1R
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 14:25:22 +0000
+Date: Wed, 11 Dec 2024 15:25:17 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1733927119;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JniKxZaKIckwpZT/I3NSeEVGJX/9DihSJgU5m9ylrJY=;
+	b=oZ3V66Sew7gClffQOrHqY78VWXJUbUzqFXHLdb6mAJUHtN2lM53BRX0HxOUm21QQDlSmIH
+	r2Ka4+RbT0M60LM3aE+tOiVwbNWJptwi+foi/VMCODdUgV60nNKhYtMPiBiCZJ3+Aadwuo
+	n01zz9i0K1crpJHShTz83I6JmdMyw76zmLNbbqUPBDHmCbydd0cDAwFVRnHT9NOxM7++77
+	4oZN6WBmzSPwKY2UPo38UjvNSx5un1kF5593+Ab9mC3RoZghFEXjR8kahVmgPkknbVNrBA
+	kmZuBQiND+pNNb/1mE+4GpqyYThyVarfjAaNZ4VxZKr30fb19DyElD/6DjObXQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1733927119;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JniKxZaKIckwpZT/I3NSeEVGJX/9DihSJgU5m9ylrJY=;
+	b=d7+F9tU81J6PP0W/cr25Ib9q5pTZelDPbjs7enEICI6UojHUyU8/5vvl8k9YB0rsU4bX1d
+	LahZ3EQ1IsluJFAA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org,
+	linux-rt-devel@lists.linux.dev, Ard Biesheuvel <ardb@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH 3/4] ARM: drop CONFIG_HIGHPTE support
+Message-ID: <20241211142517.fhnOz46I@linutronix.de>
+References: <20241210160556.2341497-1-arnd@kernel.org>
+ <20241210160556.2341497-4-arnd@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241210160556.2341497-4-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_062507_419450_A84BF6AD 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20241211_062521_273111_2598CEDE 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,53 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2024-12-11 at 13:24 +0100, Jiri Kosina wrote:
-> On Wed, 11 Dec 2024, Lee Jones wrote:
->=20
-> > > > > This change was more or less a surprise find, because I
-> > > > > wanted to make
-> > > > > the platform_data pointer in the mfd_cell struct const and
-> > > > > this the hid
-> > > > > sensor hub stood out as doing something strange ;-) .
-> > > > >=20
-> > > > > So patch 2 of this series actually depends on this change to
-> > > > > not cause
-> > > > > build errors.
-> > > >=20
-> > > > Ah, right.
-> > > >=20
-> > > > > But seeing that we're after -rc6 alredy, I would assume the
-> > > > > brunt of the=20
-> > > > > mcu series might need to wait after 6.13-rc1 anyway - but I
-> > > > > guess that=20
-> > > > > depends on how Lee sees things ;-) .
-> > > >=20
-> > > > OK, I am keeping my hands off it for the time being.
-> > >=20
-> > > I can take it now with an Ack.
-> >=20
-> > Looking to apply this set now.
-> >=20
-> > Ack please.
->=20
-> I'd preferer if Srinivas could ack this as the more specific
-> maintainer.=20
-> Srinivas, please?=20
-My ACK is already in the patch:
+On 2024-12-10 17:05:55 [+0100], Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> CONFIG_HIGHPTE was added in linux-2.6.32, a few years before 64-bit
+> support. At the time it made sense, as the CONFIG_ARM_LPAE option allowed
+> systems with 16GB of memory that made lowmem a particularly scarce
+> resource, and the HIGHPTE implementation gave feature parity with 32-bit
+> x86 and frv machines.
+> 
+> Since Arm is the last architecture remaining that uses this, and almost
+> no 32-bit machines support more than 4GB of RAM, the cost of continuing
+> to maintain HIGHPTE seems unjustified, so remove it here to allow
+> simplifying the generic page table handling.
+> 
+> Link: https://lore.kernel.org/lkml/20241204103042.1904639-8-arnd@kernel.org/T/#u
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> I sent a patch to drop HIGHPTE support on x86 today, see
+> https://lore.kernel.org/lkml/20241210144945.2325330-9-arnd@kernel.org/T/#u
+> 
+> If that one gets merged, we can merge this one instead of the one
+> that makes HIGHPTE depend on !PREEMPT_RT, but if we decide against
+> the x86 change, then we probably don't want this one either.
 
-Fixes: e651a1da442a ("HID: hid-sensor-hub: Allow parallel synchronous
-reads")
-Cc: stable@vger.kernel.org
-Acked-by: Benjamin Tissoires <bentiss@kernel.org>
-Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Based on what I have written in 20241211140402.yf7gMExr@linutronix.de it
+makes sense.
 
+Acked-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-Thanks,
-Srinivas
-
->=20
-> Thanks,
->=20
-
+Sebastian
 
