@@ -4,113 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE745E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4143FE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xB5r9kydVIqnBRAMDCkOGkgedHDkV0hfMj0qi1a7a8=; b=qIZwnyZZ/r/UyRDiQCckur5pI0
-	6yOzqqTSwwYDx2unPWe1wqqUD295gjpgs8psQXPXJze2uoItkj/TE1fHwJcFBS3/7+1EPv/ESK0OS
-	un2Ae+bMpXshj68sZu7m1kbxnQbNEFVXsY4m3kWMpWaT6ZPqj8z0R+Ph/8UOliUrB0HBXumQXITRq
-	wS5i9OEzWn53tCbleywMjNbmybuXfefTT4c1Cxu2JzHsxxUSFX8ffSJRfVxmzu9deY8vV7bmX91P4
-	330TbHT6a4TIYOgxrywx75rp12XwekQ0v6c+MMcJJ69QeAG6IIR4NQPLkRX84f9Us72PyIU2gQpg7
-	hhaD7Q2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hN2ejgxwTopXoTdMXO2eZ6jbTHvD1vhZ5VFskldaUqg=; b=3wqDq50PIZ0a1w4xqdPucs0Gjx
+	QWkcE9C/m9oqg5ea3J6csq6CGeGzhDm7JPFdfoBoFWaRrsTiHc7k4J6VEK2lVaUmuFEifZMI2OikG
+	y/SL789Qu6knFlQSkLKucTX4vfZHrGefmMu9FsKEvWMV+dMB4cxt6THK4XN8NVJTQ6qjdIYNvCVEn
+	KRjad7jzdFJOF/NwDua6jRTZ1o68rs+NhtVYslyGXpnHdiOHNSYfzmp/msKUQZ35sIcD+DapZJ3y5
+	REhvk+tcF6QI1IfAY37U6aiiUydBXEU6QPk7pOAH2A/Goa3K6l7iqKH/d9n/7bauUIMsdYcOLwN4e
+	iDDrsb1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKyQ-0000000EiQn-1XRP;
-	Wed, 11 Dec 2024 11:33:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLKzT-0000000Eikc-1p2K;
+	Wed, 11 Dec 2024 11:34:51 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKu1-0000000EhWW-2Lu5
+	id 1tLKvN-0000000Ehnb-2GGe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 11:29:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5CDEF5C65E1;
-	Wed, 11 Dec 2024 11:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0602C4CED2;
-	Wed, 11 Dec 2024 11:29:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733916552;
-	bh=BaV6qQnBNX5zfLvctmeCPNjfcIxwBcTpE+8jy0ByVjk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pcDZHljc062sGHRJq2M7d9YYoVhdIU8vnNzBs8t2UoXT/z/0B03wZj6LWWNUZt59l
-	 iLH6zbeDrw2oah/h1A04mwkIhWRo4rx9ohMZ8YyOpxsRaDJ1i/xCUAfu26LNuf2Uoc
-	 dFLuuWFwBQ5pY5cr1hKuiwF1h7fXXp//20MUlitB3Hn/Tru4D6FuisJjQ2yb8YoDrv
-	 zyJr1JPrDhTD/CAAOXcb0w1zzA/3BAekRlM4dxQRXpZ4KiWR86sMAzLhcdSPVowAIW
-	 vyHYWGQdfKBd1aZXKNLNEHD1zZ4lrXLEwvAj4NyD9/u2/YKLQWg/q1htPLMN5/Xarl
-	 6Z5G2FUufa0Kw==
-Message-ID: <0358a6ac-4037-444b-8e65-4e5afa29e8c3@kernel.org>
-Date: Wed, 11 Dec 2024 12:29:05 +0100
+	Wed, 11 Dec 2024 11:30:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733916637; x=1765452637;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=iPOrmQo40/Y6+1KGTiFI9GGLEnsZAFtFPdeZ4AoSdPk=;
+  b=w0083qfkdsmZT2MGSriA/eaJANxhbwNSkl3F3z3aE/GKSkTsoP2kz9It
+   8aUjlTYNwRhbsHKWVM28KxivKFZg0cWozzNuWglleHJVHj2NrX/vhA752
+   7LjlZczGTmo78qWifPkpNbMo1a1epvrBtQ5f+mfWQdWJVTtDSduF+AGUb
+   Q1e1b4ffcVTwHP8T6A47Oe8Xbl0p/6HCpNfU+OkQrrKHKhH2/ob63K8dK
+   MlzTg+ZwqpuaxrFN/EtrpnmGuyRW66eY+ZZ93OgH+2bDBauEUPpIjV+BX
+   xyiq9I6WjYifNxh3F5jeezXQUZL07TsLJPt/ck8GoSJi4ltEMgJRrCv5o
+   g==;
+X-CSE-ConnectionGUID: z6mtNcPgQSWb4wbULwIckA==
+X-CSE-MsgGUID: PZhcstPRSaC5msD+A2iNsg==
+X-IronPort-AV: E=Sophos;i="6.12,225,1728975600"; 
+   d="scan'208";a="35084913"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Dec 2024 04:30:34 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 11 Dec 2024 04:30:03 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Wed, 11 Dec 2024 04:29:59 -0700
+From: Charan Pedumuru <charan.pedumuru@microchip.com>
+Date: Wed, 11 Dec 2024 16:59:22 +0530
+Subject: [PATCH] dt-bindings: mfd: atmel,at91sam9260: Convert to json
+ schema
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ASoC: dt-bindings: sound: atmel-at91sam9g20ek: convert
- to json-schema
-To: Balakrishnan Sambath <balakrishnan.s@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Andrei Simion <andrei.simion@microchip.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20241211-matrix-v1-1-5ef0104a3af4@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAJF3WWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDI0MD3dzEkqLMCl1jAwMjQzNzs7QkszQloOKCotS0zAqwQdGxtbUAbCM
+ x6VgAAAA=
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Nicolas
+ Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Charan Pedumuru
+	<charan.pedumuru@microchip.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_032913_688780_9B902C60 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_033037_662026_C109EB05 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,38 +90,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/2024 10:46, Balakrishnan Sambath wrote:
-> +properties:
-> +  compatible:
-> +    const: atmel,at91sam9g20ek-wm8731-audio
-> +
-> +  atmel,model:
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    description: The user-visible name of this sound complex.
-> +
-> +  atmel,audio-routing:
-> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
-> +    description: A list of the connections between audio components.
-> +    items:
-> +      enum:
-> +        # Board Connectors
-> +        - Ext Spk
-> +        - Int Mic
-> +
-> +        # CODEC Pins
-> +        - LOUT
-> +        - ROUT
-> +        - LHPOUT
-> +        - RHPOUT
-> +        - LLINEIN
-> +        - RLINEIN
-> +        - MICIN
+Convert old text based binding to json schema.
+Changes during conversion:
+Add a fallback for all compatibles as the IP core is compatible
+with `syscon`.
 
-As previously questioned, I don't think you can create infinite amount
-of pairs out of it. Assuming you always connect board with codec
-(because codec-codec are already defined inside the codec), you can have
-max 14 pairs, but most likely less in practice.
+Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+---
+ .../bindings/mfd/atmel,at91sam9260-matrix.yaml     | 54 ++++++++++++++++++++++
+ .../devicetree/bindings/mfd/atmel-matrix.txt       | 26 -----------
+ 2 files changed, 54 insertions(+), 26 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml
+new file mode 100644
+index 000000000000..0e827882823f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/atmel,at91sam9260-matrix.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Microchip AT91 Bus Matrix
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++
++description:
++  The Bus Matrix (MATRIX) implements a multi-layer AHB, based on the
++  AHB-Lite protocol, that enables parallel access paths between multiple
++  masters and slaves in a system, thus increasing the overall bandwidth.
++
++properties:
++  compatible:
++    anyOf:
++      - items:
++          - enum:
++              - atmel,at91sam9260-matrix
++              - atmel,at91sam9261-matrix
++              - atmel,at91sam9263-matrix
++              - atmel,at91sam9rl-matrix
++              - atmel,at91sam9g45-matrix
++              - atmel,at91sam9n12-matrix
++              - atmel,at91sam9x5-matrix
++              - atmel,sama5d3-matrix
++          - const: syscon
++      - items:
++          - const: microchip,sam9x60-matrix
++          - const: atmel,at91sam9x5-matrix
++          - const: syscon
++      - items:
++          - const: microchip,sam9x7-matrix
++          - const: atmel,at91sam9x5-matrix
++          - const: syscon
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    matrix@ffffec00 {
++        compatible = "atmel,sama5d3-matrix", "syscon";
++        reg = <0xffffec00 0x200>;
++    };
+diff --git a/Documentation/devicetree/bindings/mfd/atmel-matrix.txt b/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
+deleted file mode 100644
+index 6e5f83614e83..000000000000
+--- a/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
++++ /dev/null
+@@ -1,26 +0,0 @@
+-* Device tree bindings for Atmel Bus Matrix
+-
+-The Bus Matrix registers are used to configure Atmel SoCs internal bus
+-behavior (master/slave priorities, undefined burst length type, ...)
+-
+-Required properties:
+-- compatible:		Should be one of the following
+-			"atmel,at91sam9260-matrix", "syscon"
+-			"atmel,at91sam9261-matrix", "syscon"
+-			"atmel,at91sam9263-matrix", "syscon"
+-			"atmel,at91sam9rl-matrix", "syscon"
+-			"atmel,at91sam9g45-matrix", "syscon"
+-			"atmel,at91sam9n12-matrix", "syscon"
+-			"atmel,at91sam9x5-matrix", "syscon"
+-			"atmel,sama5d3-matrix", "syscon"
+-			"microchip,sam9x60-matrix", "syscon"
+-			"microchip,sam9x7-matrix", "atmel,at91sam9x5-matrix", "syscon"
+-- reg:			Contains offset/length value of the Bus Matrix
+-			memory region.
+-
+-Example:
+-
+-matrix: matrix@ffffec00 {
+-	compatible = "atmel,sama5d3-matrix", "syscon";
+-	reg = <0xffffec00 0x200>;
+-};
+
+---
+base-commit: 1b2ab8149928c1cea2d7eca30cd35bb7fe014053
+change-id: 20241210-matrix-30021676fb6f
 
 Best regards,
-Krzysztof
+-- 
+Charan Pedumuru <charan.pedumuru@microchip.com>
+
 
