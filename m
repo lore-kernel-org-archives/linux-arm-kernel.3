@@ -4,71 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A53DEE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E98FE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kjn6aUGUgpiL19WemLVc8m96tM7UiF4dlOoftxFOxPI=; b=nHJmCfoBrgioQ7mcZJ9O0fEPGV
-	Rk7EwrUi7vPKfyfk65Vp/c5SjF2mMhTC2hDEFwPNY7Zymh+5IGtZ3SraidJZwNus4j3c8y/VyruXZ
-	TJUmovSHkGAOh0UhQxL0Xa8jFr0bQXJiil/U1E8hBKfjPibozgXTpnbxj9XgenRu6GDUwK9IFnNno
-	8QfDsXfP6BLOcRn5JcN9kCwmOZpa26VYEkWpnIuhOvG/2yir+w2seTmVpmJfpdQW6D8ILP5D+cRvV
-	o8+6LNQe/W01Du3vlpniz9Vkkz3ZNfh8H6qPtRbWWR8CeUG1lYO9m8F5AvQsIubmcOLhU+TIkVZf3
-	eDzAaZNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ihYDcY3LWn4CcltGS+7wcqEJGOYARfyiPsaNarrTPi4=; b=Rnq8qDPNlJRkjRQf7EMgwiYp7W
+	oCRJRbnlBgLQ4ScTbYkoZsZPwBBadDGOqlwuMTB38nqBD6snZZYnKqtDmV6YxHjlI/OwObNmXPeA9
+	IUPA6Z3XvlTyn0DrFAQ5z1VRlzgspzYMhC03gyJPg2LfEM399/MqwMsZZ8ngdzHPGhhWRYQ0Q2lkT
+	dWd8Y3I8glVo50i8lsQCB58/+OISY9ffLN0UBaoTe2+kDK3ME1PwhXsDxzUA1hygIB6WmPs4ZNbbr
+	cQ3ds2nt9n9upn/Tu8oH7thqsUaBJNKWDzuQ9IEnHVrf4son4CaYWH5R1L0oLH1O1mOenockEshv4
+	HR5UNPPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLJrN-0000000EZ06-1s6B;
-	Wed, 11 Dec 2024 10:22:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tLJsP-0000000EZ9u-1pgj;
+	Wed, 11 Dec 2024 10:23:29 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLJki-0000000EXaJ-397B;
-	Wed, 11 Dec 2024 10:15:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733912131;
-	bh=hessQfIJrJwj7BggoR6tvCjhK3ojBPXzkTn2YrM9Boc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=deZCx1L/6GVRi5qf05X08/Szk3Opa8lESlzJN1F5kSPq6e0CztF47VYvlNzgzOnXs
-	 ObX2dHAjvpGGxgfiqqNjmU92RZh1d6ujkpiCyZX8sMF2zJ+tMV9X1GnYTaYmu8ggk4
-	 A1QcKjEqeobV5jARkrmXeXARvtheTvJotZK0VKyQXcm7mMdGJzYIK8f1vGrxoMvfYb
-	 uMt9nMM8s8owhbf9vHAHA3+POXj9Jgl/iZdkalg5+ehjKSGM8p2AfIrpWdmwANShds
-	 psQvrD04B8ko7oprwJowUMZND3+AAgCCQbisf+KTURKJ89KbqZqbVzR+92eKoIGeMj
-	 PYu0QpONCRoSA==
-Received: from localhost (unknown [188.27.48.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DD47E17E360F;
-	Wed, 11 Dec 2024 11:15:30 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 11 Dec 2024 12:15:09 +0200
-Subject: [PATCH v2 5/5] arm64: dts: rockchip: Add HDMI0 PHY PLL clock
- source to VOP2 on RK3588
+	id 1tLJns-0000000EYG7-2wWN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 10:18:49 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aa69251292dso523666366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 02:18:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733912327; x=1734517127; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ihYDcY3LWn4CcltGS+7wcqEJGOYARfyiPsaNarrTPi4=;
+        b=2+eqEUJr6mKRfKYzmrdjeRDSQru2nxwVP83RQtpRY91QAKUtRGoVuGzFIcWD3Hi48H
+         9Bvzpu1rFvTFHrGhi9k+TIB3g/z+NxzHxrDyP8xAsUpkqlPtK9RRL6Ir11uk4ck7N8CO
+         Rn3EoO2YYcIWQoRegZ42xbwG6c7fqMn+snKh/2x+GNmqgD2I6fPbdDF1qZMkSn0C8C0y
+         G+gZZIkg/6MDczsGKj1zh865Yg5C4eO/03dZb98SXQ3d3oJda4GWHPceCspthG5Clhtt
+         +BrwQGyLwMO9PMzwGOCkyhTUxNF+/ZRnZtXoiqmPvoI/+JC8qlSlb+qBPwtjyJUvVFJ8
+         dGOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733912327; x=1734517127;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ihYDcY3LWn4CcltGS+7wcqEJGOYARfyiPsaNarrTPi4=;
+        b=hdkJt1UmzwMh/SpXUcdrU80bcSLSmPgl1vtvC2hNiBXrmtJhE8IxYFY8bKGvQfUlfT
+         rLCRL1EE86aBNajKojIIaHvRFEis5/24cyTCTyokzLWlIHOEi/E4NMezv8swb6TiEuQ6
+         G+wbqy2HAOdHIdhfTXShEQwcYRNW3FL+d2o5uepgUwA3EQOa2/keVwmSF3dlBdKpvacr
+         vzzQV9EbIomb0btT72d/bXW33M6U/LLTiEQc68OVgMN4HswVqc4Zh1xqNg+q+gaxVLW2
+         QFjmAqeNj1YIhM+HVOXddOtZ/2UI5I802GNjLp6hfbHp9bU2cqqKCfaK874UaJkILjN2
+         WFKA==
+X-Forwarded-Encrypted: i=1; AJvYcCVUftm2Lok8Lx3mR/Cqc1rwOHnSDIUtmWy/+lPvLjP1Q3zOM/MNReOoBaOw4kuxhrMvOhRivK92lS2GP5bAymNi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWB7ZOi6UMSBD1ckwX8rjBcrNoOjv8d+QMgIQDhQA50IqIgMJg
+	XTizJMZwquGUYkBLNjtU0R2qe3n8Jy8VXSTIrP77IDaZmUDekZ1db+EWjNH13g==
+X-Gm-Gg: ASbGncuRuS70zaSgd7ZkV3ojFyGw7PukiVp/Rii47o/ZyAcp63qeb+guD4fOO+4Tf+z
+	QXNmXK+yvWCSt7M7kDS70C8tU42tjgrr6yfXn4Ttc/v6J+vTFxWxHFaIJN0FAGm+mJD8iyTMQZd
+	vBHlWA9j4d8ILNLR+RDmbsCfMfKM/E8nQcqdMhNVD3lcAsy2jObOclPVjn8MqPSDpUM0nQwFgCs
+	/AK1po4M+O+eTHrFzA0Ks4RkM2sYYrfYnoytpumYptCyEHtfHRg+z+6Eyhcoi8QYPIEdF184S6+
+	q7K33sy8zuIB
+X-Google-Smtp-Source: AGHT+IHm02VkP/5m/qDW5G8yxXRC3oyr+fzt3izQJU/H+8B1ChDswIr+GMq6gipyIZLTGIZO6CUeqA==
+X-Received: by 2002:a17:906:3cb1:b0:aa6:66eb:9c06 with SMTP id a640c23a62f3a-aa6b1141c94mr206656266b.5.1733912327068;
+        Wed, 11 Dec 2024 02:18:47 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa665119a06sm641148666b.121.2024.12.11.02.18.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 02:18:46 -0800 (PST)
+Date: Wed, 11 Dec 2024 10:18:44 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 15/18] KVM: arm64: Introduce
+ __pkvm_host_mkyoung_guest()
+Message-ID: <Z1lnBDBNq_PKKN4l@google.com>
+References: <20241203103735.2267589-1-qperret@google.com>
+ <20241203103735.2267589-16-qperret@google.com>
+ <CA+EHjTzOjwNyUkS5_zSUiAbiCauLKKgkKU6TM_-+Wsh9A0FdRQ@mail.gmail.com>
+ <Z1iaof2DgZfZxc4l@google.com>
+ <CA+EHjTyzh_tqH-M4zSDEQ9meK_W_c-sQDvJ6H4kBd4e_MCmLfA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241211-vop2-hdmi0-disp-modes-v2-5-471cf5001e45@collabora.com>
-References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
-In-Reply-To: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- FUKAUMI Naoki <naoki@radxa.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTyzh_tqH-M4zSDEQ9meK_W_c-sQDvJ6H4kBd4e_MCmLfA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_021532_976161_27CE8678 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20241211_021848_741892_8ABCE824 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +109,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VOP2 on RK3588 is able to use the HDMI PHY PLL as an alternative and
-more accurate pixel clock source to improve handling of display modes up
-to 4K@60Hz on video ports 0, 1 and 2.
+On Wednesday 11 Dec 2024 at 10:11:17 (+0000), Fuad Tabba wrote:
+> Hi Quentin,
+> 
+> On Tue, 10 Dec 2024 at 19:46, Quentin Perret <qperret@google.com> wrote:
+> >
+> > On Tuesday 10 Dec 2024 at 15:14:03 (+0000), Fuad Tabba wrote:
+> > > > +int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu)
+> > > > +{
+> > > > +       struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+> > > > +       u64 ipa = hyp_pfn_to_phys(gfn);
+> > > > +       u64 phys;
+> > > > +       int ret;
+> > > > +
+> > > > +       host_lock_component();
+> > > > +       guest_lock_component(vm);
+> > > > +
+> > > > +       ret = __check_host_unshare_guest(vm, &phys, ipa);
+> > >
+> > > While I'm bikeshedding some more, does the name
+> > > __check_host_unshare_guest() make sense? Should it be something like
+> > > __check_host_changeperm_guest(), or something along those lines? (feel
+> > > free to ignore this :) )
+> >
+> > I understand the comment, but not a huge fan of 'changeperm' as that
+> > sounds like we're only allowing permission changes while we use this
+> > all over the place. Maybe __check_host_is_shared_guest()? Naming is
+> > hard, so happy to take suggestions :-)
+> 
+> I've gone and done it now :) I almost like that, it's the *is* part I
+> don't like since it implied a boolean return. Maybe just
+> __check_host_shared_guest(), no is?
 
-For now only HDMI0 output is supported, hence add the related PLL clock.
+Deal!
 
-Tested-by: FUKAUMI Naoki <naoki@radxa.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 22462e86f48027ab7c5e270f2fa04df7afcc1d24..d07be2a81f28b4cbfe314992c662d8cfb3d3d344 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1262,14 +1262,16 @@ vop: vop@fdd90000 {
- 			 <&cru DCLK_VOP1>,
- 			 <&cru DCLK_VOP2>,
- 			 <&cru DCLK_VOP3>,
--			 <&cru PCLK_VOP_ROOT>;
-+			 <&cru PCLK_VOP_ROOT>,
-+			 <&hdptxphy_hdmi0>;
- 		clock-names = "aclk",
- 			      "hclk",
- 			      "dclk_vp0",
- 			      "dclk_vp1",
- 			      "dclk_vp2",
- 			      "dclk_vp3",
--			      "pclk_vop";
-+			      "pclk_vop",
-+			      "pll_hdmiphy0";
- 		iommus = <&vop_mmu>;
- 		power-domains = <&power RK3588_PD_VOP>;
- 		rockchip,grf = <&sys_grf>;
-
--- 
-2.47.0
-
+Cheers,
+Quentin
 
