@@ -4,92 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5124EE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C624EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZ8WmE2oVMcuY+D5rgASzXIuAkJx2FsjYv4FOWBBAgs=; b=ZZOSfzCYemLQwyioehhDDi6Zaw
-	stHV54izz4t56ElA7h6mULhLNuNDIbzYxn3ktWii38+/K6n+1gRpsWsEUT0FWAB2zfJteuG4DT1/n
-	VE1KUWjFzSO8ZbPBM3n3ryY0aVbQRRaqtwAjnRyEHCq41ZzT6CSg0lddTbRC6LRFNN4UX8/LYtXRg
-	oLukq05PP8+/1SsSrPBx9AHALo/daF4HsxLpxxGZFSpBvAmDqxSxAc55E/rZDfuCclMYhbLpGwBh+
-	HwLtE8WHUD4AAtKUBrwDayOk0YkEfLhw/cbk+9F38inxiTcTT26oWvyij2C/uEyTIjBkJ58JiyXD+
-	FMziv8OA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u7zPCRbNobZB2rLY4klNUfuL4Nc1TSS5AqwC+M05YI8=; b=FwZ3NogsZbYVHRcNoj431gQGnU
+	8+itDxUPfxOaXleSIPfAjcb6FwgUMGHzJFC8i3S2BGO2HcLr8RvYQRlAnij1rjqYpP6mrxBvlJmvK
+	+45lEevrICUXEQgNSzxHbDK6t1KTMQuK6Wci1ubC7EDoHHaEh09qK1eLgcsN+BIjAE4zyj6vlmMUs
+	+GaXye+4fOfACRdORKbrl1yEpfg18+JkHj0QaaaXv2QyBNC7dW7JocFhx+QfhCV7e/d/iP+LaxODv
+	UcLOzmKxC8KpYgSRgeeKbMQXhvba9shnYQ2+QIZ7EY4nxB89K2Cu32iRkZm+j0lhQjKwre5OCXR3Z
+	MabgJ/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMnU-0000000Eyze-33vF;
-	Wed, 11 Dec 2024 13:30:36 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tLMoW-0000000EzCZ-1IH0;
+	Wed, 11 Dec 2024 13:31:40 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMmQ-0000000Eypb-3vis
+	id 1tLMmc-0000000EyqJ-2UPo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 13:29:32 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa66e4d1d5aso637800066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 05:29:30 -0800 (PST)
+	Wed, 11 Dec 2024 13:29:44 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53e3a5fa6aaso723251e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 05:29:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733923769; x=1734528569; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pZ8WmE2oVMcuY+D5rgASzXIuAkJx2FsjYv4FOWBBAgs=;
-        b=Aj8n02mVGBIJKiiAQRHJyhZkZHueLnc+rmJcacI1XHfnWSs4om5/3B95PPXLW+z8te
-         EQgzNdx3/BPRxnPkBzHWvGi1oMH92a7SdCsh0Wqcz/DHwMdXSyYhUnWNTinZ0lTkrH8O
-         jCTZ+CfI1znvXPcjV0hvUHbmLrjZppKE5ss/hS4xmMd/w3uCksi7pGqL4ARx2Njvkpbk
-         BgIe2IcyxN0BXziwRtq9VqGr28y6d9rqmhU9q1arK9XNzhb4VKWP5ANexC1FhM3PvcW0
-         ut9+PItI3LzyuuJuKUOXuQqgjZr1gd0EeXOa0gK5GosfXuQEPBR5v+BZSfbSMrBVfflq
-         folw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733923769; x=1734528569;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1733923781; x=1734528581; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pZ8WmE2oVMcuY+D5rgASzXIuAkJx2FsjYv4FOWBBAgs=;
-        b=jH4y1ZO8CqIlzbzk3xXmXDkGW4mji+IwZTKxGiU/ZZ3TkIYb3hZJgOws68+8otE+KQ
-         JSCAiuSUwjco7N9+fItZtfAzBnfdQad3zje9IEMKFjmMvYOIWBLD7jNTunPxrh2K/zEG
-         acG0EW2mIzrrKmFyAge3ri40AxmxoKf1pdXO8zhIL99+PeNd2RRD5HKlSdyvjdslzwTu
-         uf9UU/nc2H3g4UmGQufeAiHQo8p8z41kTfw0ILe226Wc6dRHgs7zV18Xc39wD8vcqf4B
-         OlSyEf08Fb1652aeb/tFAXtXWmA4aeLlFbpRrvawSWGfCIvEysGerxmyZ4qT9EUqNgmN
-         0jSg==
-X-Forwarded-Encrypted: i=1; AJvYcCUt68FFC5GKgwy25QnZXgm4oT5SrZoRpm4KTM3eA90E6JoPDMtEQsH9O4IbFYDkENHIvh5IQIipDSUqq4htQDbW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoLQoxg+ulPF/6kqZxOL4mvLk+qKsvX+r34WRiCmQygoZsX63F
-	xH3a3YqhxTv0zC0WXcO/Ip5YQ5rztpzWKtPa87OBAQQLOwsTtrHg20JHId37s0zJp7kUg5dJ2Nm
-	lkzB/
-X-Gm-Gg: ASbGncsGNI3bi9cCN0EEPOWtAZhAzJ2RzgIEAoOrwbg2jlGF+4CwUM7rdeVYk+ryLBI
-	EmFjlS1AffrPIGDU977bIAHQIs/cVRZijiiVF5Xu708WjDnEY9TvJV9uCdN38I6S1jmQ0yUKMDm
-	1xLBiHU/5+Rs6rTuHETgtjbF10IMAa7LTwIYWoAeXN2U3WuGr7fk0/9KnoHNl1gWwSl9iSH3+z2
-	/bHowqdokmYRFByjb8HuL5EnCp3/uJV5L9Ds+qSalAgKyUwqBsY9RTJQPyAgP5d1AywukfQOv5A
-	RQ9vfADFm+ar
-X-Google-Smtp-Source: AGHT+IHHtuhS5qRK2Vs4YR08EkU42S9jU4/gGJNdMqiKWPhEwaUH1bEnXVsl3kwAZG7CQUix98OaLQ==
-X-Received: by 2002:a17:907:7703:b0:aa6:74a9:ce6e with SMTP id a640c23a62f3a-aa6b1179ab6mr244042966b.16.1733923769090;
-        Wed, 11 Dec 2024 05:29:29 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa685669acesm483241866b.189.2024.12.11.05.29.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 05:29:28 -0800 (PST)
-Date: Wed, 11 Dec 2024 13:29:25 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
-	kristina.martsenko@arm.com
-Subject: Re: [PATCH v4 04/14] KVM: arm64: Use KVM extension checks for
- allowed protected VM capabilities
-Message-ID: <Z1mTtS9nGvVM-BIq@google.com>
-References: <20241202154742.3611749-1-tabba@google.com>
- <20241202154742.3611749-5-tabba@google.com>
- <Z1MwAomiLhnMn--k@google.com>
- <CA+EHjTy6Y6w9RyU2Vn8O+DDviSJf=P-Y4c+xVFqY-3GmHBv3kQ@mail.gmail.com>
+        bh=u7zPCRbNobZB2rLY4klNUfuL4Nc1TSS5AqwC+M05YI8=;
+        b=Dh4LpkartsyVlqMXoXxFnAA9IfXiJ3XMW6YHTV9kgZd9aDyGOU+2hf9Eul1NkA7OZe
+         V3lzDHwD+f3R7DayukXbecyKv9Nmikb/8WNHqFwTHr7dA4MlBj6IJ+NOloqFG+wHQ7XH
+         uijbJ7kpOBiHs/Oy/5uvyHSb68kTz64crPOjkcvJYsr803L9Qyn0Kq1iPaPDmpG0f3fj
+         4onbyDQkxgj2M4ZFhJ7bQEYX/wB4tEL4oSP/kxuHtmbJM8CyrzParA83R3YVNwq0+O+s
+         eWtf2VQYLCT7FnzYKh3o/TMFMBV1HCRGBtAc+YMoKQvCDBxdpxq0wpmZjJlf5SGluUGK
+         xV6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733923781; x=1734528581;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=u7zPCRbNobZB2rLY4klNUfuL4Nc1TSS5AqwC+M05YI8=;
+        b=P2kwFPifIJluChc/IlU0JNNQYcjcfrwBue8GrMi0bOzhFoTDXA3GqieHBnLTgJYsW+
+         +kKmrHGwJz2n4+zhj3LYlx+sVuArlPMzbMjpYpp1d4ZsVQ0rt3v7hCaAbWh0P9fE80Eg
+         yMIHiCgpF+ojs5eWo4WFWBdL+CpIZcNckii82sDWkwO1PBOWPAJgvfzXKhWEAn9pq7OO
+         x/kL0KmDwrq6C2zBJJtOUdUpQRi1lydGWT7/Bq/TPox9OgAarhHyBktoaOURcdaWJJaw
+         EMu479iFLaMKDJ9cS77Z8r6XeK+U3QRo2Kz+XYLJAD0ur20xwcRIBaOAL8RwkEJzwDq1
+         Mj5Q==
+X-Gm-Message-State: AOJu0Yz3BbKs2/gb5rX47OgtJcr0f6bI9M8FuZFKiJ8BGUOmxEkjmGn9
+	4n3GHqX+nu36dJE0qqXOFxt1Q9LxGCNak9Wh6M7/5UBY5X7vIiJpIuAV/pbDl+rYnTLQBdrH7tK
+	LHNFPjUXrYe9WsiNfLjY9Rxrw9stG0MHr58qcgw==
+X-Gm-Gg: ASbGnctvfmvt9FEJp2D+PuSvTjqvupzBYWHrm6EG41euLCjckZ5CIYJ4uxowbVerkgJ
+	6ltJKZ+uIIdbA0YRjBh8bS/6xY0k+AfX0RA==
+X-Google-Smtp-Source: AGHT+IFgSwAzChMV6MPtTrzqAT5fEZJhpVqpZ7rEneJDnxJfXq2+f607r/zOzxJe6hnLdIwQ0jSdAOyNE+c9jLtr2FA=
+X-Received: by 2002:a05:6512:3d9e:b0:53e:2246:c262 with SMTP id
+ 2adb3069b0e04-5402a6ba964mr927083e87.0.1733923780650; Wed, 11 Dec 2024
+ 05:29:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTy6Y6w9RyU2Vn8O+DDviSJf=P-Y4c+xVFqY-3GmHBv3kQ@mail.gmail.com>
+References: <20241210160556.2341497-1-arnd@kernel.org> <20241210160556.2341497-3-arnd@kernel.org>
+In-Reply-To: <20241210160556.2341497-3-arnd@kernel.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 11 Dec 2024 14:29:29 +0100
+Message-ID: <CACRpkdZaoD2vqbCi1AFUa6mF2_=c3Nu4R0CvxFAep0VMgtMtOQ@mail.gmail.com>
+Subject: Re: [PATCH 2/4] ARM: Disable HIGHPTE on PREEMPT_RT kernels
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org, linux-rt-devel@lists.linux.dev, 
+	Ard Biesheuvel <ardb@kernel.org>, Clark Williams <clrkwllms@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Matthew Wilcox <willy@infradead.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Russell King <linux@armlinux.org.uk>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Steven Rostedt <rostedt@goodmis.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_052930_976794_D59726A3 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20241211_052942_649500_790303B8 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,33 +96,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday 09 Dec 2024 at 08:14:15 (+0000), Fuad Tabba wrote:
-> Hi Quentin,
-> 
-> On Fri, 6 Dec 2024 at 17:10, Quentin Perret <qperret@google.com> wrote:
-> >
-> > On Monday 02 Dec 2024 at 15:47:31 (+0000), Fuad Tabba wrote:
-> > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > > index fb733b36c6c1..59ff6aac514c 100644
-> > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > > @@ -329,34 +329,20 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
-> > >
-> > >       bitmap_zero(allowed_features, KVM_VCPU_MAX_FEATURES);
-> > >
-> > > -     /*
-> > > -      * For protected VMs, always allow:
-> > > -      * - CPU starting in poweroff state
-> > > -      * - PSCI v0.2
-> > > -      */
-> > > -     set_bit(KVM_ARM_VCPU_POWER_OFF, allowed_features);
-> >
-> > For my understanding, why do we drop this bit?
-> 
-> Since the hypervisor is responsible for the power state of protected
-> VMs. This should either be a separate patch or I should explain it in
-> the commit message. Any preference?
+On Tue, Dec 10, 2024 at 5:06=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
+te:
 
-Gotcha, perhaps make that its own patch so we have a commit message
-motivating the change?
+> From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+>
+> gup_pgd_range() is invoked with disabled interrupts and invokes
+
+There is no gup_pgd_range() in the kernel, is this patch a bit
+old?
+
+There is gup_fast_pgd_range().
+See 23babe1934d7637b598e4c9d9f3876e318fa63a4
+gup.c contains:
+
+  get_user_pages_fast attempts to pin user pages by
+  walking the page tables directly and avoids taking locks.
+(...)
+   Let's consistently call the "fast-only" part of GUP "GUP-fast"
+   and rename all relevant internal functions to start with
+   "gup_fast", to make it clearer that this is not ordinary GUP.
+   The current mixture of "lockless",  "gup" and "gup_fast" is
+   confusing.
+
+So fast GUP is supposed to be lockless, and should just not
+have this problem. So it can't be addressing gup_fast_pgd_range()
+right?
+
+> __kmap_local_page_prot() via pte_offset_map(), gup_p4d_range().
+> With HIGHPTE enabled, __kmap_local_page_prot() invokes kmap_high_get()
+> which uses a spinlock_t via lock_kmap_any(). This leads to an
+> sleeping-while-atomic error on PREEMPT_RT because spinlock_t becomes a
+> sleeping lock and must not be acquired in atomic context.
+
+I think this needs to be inspected by David Hildenbrand, if he consistently
+rename the GPU functions to be "fast" and there is a lock somewhere
+deep in there, something must be wrong and violating the API
+contract.
+
+> The loop in map_new_virtual() uses wait_queue_head_t for wake up which
+> also is using a spinlock_t.
+>
+> Since HIGHPTE is rarely needed at all, turn it off for PREEMPT_RT
+> to allow the use of get_user_pages_fast().
+>
+> [arnd: rework patch to turn off HIGHPTE instead of HAVE_PAST_GUP]
+
+HAVE_FAST_GUP
+
+I'm still confused, how can something that is supposed to be
+lockless "fast" acquire a spinlock? Something is odd here.
+
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> ---
+> There is an open question about whether HIGHPTE is still needed
+> at all, given how rare 32-bit machines with more than 4GB
+> are on any architecture. If we instead decide to remove HIGHPTE
+> altogether, this patch is no longer needed.
+
+I'm more asking if HIGHPTE even acquires a spinlock anymore
+as it is supposed to be "fast"/lockless. If it does, it is clearly violatin=
+g
+the "fast" promise of the fast GUP API and should not exist.
+
+Yours,
+Linus Walleij
 
