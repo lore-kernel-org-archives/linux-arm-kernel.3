@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11510E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679EEE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMRrLT8PBkUb9uwSo3UZOKSbeLIunajxVCGqM67QreU=; b=NF4VkIGfPnI8DOq93lyOxtBECA
-	N3xKXNWK6OLrCJ3t+DhFPZG/0GP9LLQD0yKzZczojXQWVJpyV5K0BBkgR6kYQaewNKYfPatayQ7qX
-	V9y8N9+Fd2w/QhTF138SfXizrXuDywQ5+3m4gHRFmxCXe1HOnOpCb6SxrExt0NFn+UyPTjzGVlolj
-	4ElN5X+zMlv6qL7dUbQIYtXyGgk1G2LxaZTxcNJQpsmN0umYloKlHCs9LvwjHZVc2uhn3/ZXjCmk1
-	v48KPe1vZB9P9/+xhIJkBue4MDF47FvXii3PVHKZvRRQIJ8ntABTsxgSdUJyNaBJbP15htfRAOkyN
-	dZmv1TnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=271uW+1xPv7CJCNe7w9FZ47bv8k49aJ9mD3ELi0uLgg=; b=Xy2jm8HCUmitvTDrJvNTFUgYRj
+	/K5sZgxz+sGUpWvlv3+rTpOBT3Q2VNjLbaiEqXUIuBAR6fHyaEDzifsK8WDfTq3Dx4QRnfJxW4QRY
+	tEzNjHp3YY5Dbk3WVcOjkwYZdtrnwEfBurglNQfD7uACnha2WQx2P0rcnbSZI7CbYZbxXCmlu8LVZ
+	D7hArF5BV2BsIfhl8sJfkfCsC0MP6MkNGfpA0HSYuAp1JSkUjQXhEbrAmI01chQ8va6As2W2Z7HGZ
+	XNLnRKR7t2g75JswcPbhLDvlH4q+LggesWmpcePwBz5ovmUbXs0IMi7xlPpedpJifnHyfybABFrrn
+	8e7SFQdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMLq-0000000Euhb-2Cvt;
-	Wed, 11 Dec 2024 13:02:02 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tLMMs-0000000Ev2V-3nyL;
+	Wed, 11 Dec 2024 13:03:06 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLM6j-0000000Es2Q-2BJ6
+	id 1tLMCk-0000000EtGB-3YrN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 12:46:26 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-300479ca5c6so37152421fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 04:46:24 -0800 (PST)
+	Wed, 11 Dec 2024 12:52:40 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4361d5730caso36235e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 04:52:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1733921183; x=1734525983; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fMRrLT8PBkUb9uwSo3UZOKSbeLIunajxVCGqM67QreU=;
-        b=dS+gsRwbge/wtGp7zAfAPtwdImjkRgAViX/CXeZMLCZ3pFxeJcvFFEqZbNx6eTZ0Yh
-         BE92MnIEqcgfSgTmN5BLWYcgZZUYoV4Yhve00qq94joPxWZAUOOrKhUOClh6ONSq1RVC
-         ovhPIpZGKX+VXb02Z+cTVvqYKcf7NvPy9dXjAlQztw8ddUvvZXJZNiXneXUGtSaCJHcm
-         bh8spYscoxVrSldf8HME1a/nTYoEZHQWd8VyfqdrmZsgJbiYI7LvuuyOzNMmxZA/q16k
-         PRlYpJ0OB8z7OYp26MmwfXwpZITAONYhFv8YLy4Bn4l+UJosqbduksD9rGLGlyrxEhHu
-         yo1w==
+        d=google.com; s=20230601; t=1733921557; x=1734526357; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=271uW+1xPv7CJCNe7w9FZ47bv8k49aJ9mD3ELi0uLgg=;
+        b=ekD4qOOe/jH39ShGjCX1NsYixmXHql1X9TA0y+BVB+u11njBECACXioq3TAY/F1GkC
+         8fpmP4fubK6voOMFGQU2qizCb9peeGrf+jkCAEfSbGvCSB6duzeofRu3tEXmqSQyx7Gn
+         qpLKQxKcRlR7Fng6rsgSt0XVIlTLmIpMI/LDj6YA9rlNC6nf0thQYAzrxu8cqKGAuDVU
+         5lBhj7tLSz3CS4c0HMS1V+fkslJ76A/68qNtYu24qumJgro2zp7Yw5zggOcAwVm6bO8O
+         02Iu2p06HkXA2LsPi8//TmKdqXa4qhQbmkai/i9T5m+1dNrptdXP8PLB5KGFK/VNNKUP
+         vFBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733921183; x=1734525983;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fMRrLT8PBkUb9uwSo3UZOKSbeLIunajxVCGqM67QreU=;
-        b=oGNwEnyHmnzLfYs5lZwCU2efn9vKGWcZcTNyXYeLE8tvsvSW61cy1bc/jYu3ia2eZ2
-         vftZUNk2Gg/cNUNPu5gygFzh51Ds0Y0njMdr73PIqTEpcLP6NRo1CapbWFltl3VKgegC
-         YiUmRrXDhIBSiGZdJwAX2MxWntJ78qky9RDoP4rU3IYjVCWwex6Bj5HHsyzsDEi1s65D
-         1E6A4EsAzkDvojOBbMkG5vISa+sBlr0Xy+8b81VhJo8Xf4HSN7Bmv2Wvbaz/NNNafiMr
-         Auvj4neCE7I9on558mQB5oM9ecK2y/sJvWlc9WoCauJ6btAb7aQdhChPXH394yxrFYfZ
-         1cGw==
-X-Forwarded-Encrypted: i=1; AJvYcCWrkqH48hJipdLdCLQFS5UYsm4xm7EbEMe74jt3AIGnWNIGOcO2SADF+eYAnX6VeKiPOyaDdf8R4IKprB9g7s5o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq1vE9zO0rMxqcoXVa1Ekgku9HjbwAaeTwOQltnVSrNtMXCKyZ
-	JTNRo4bXBSosMPjeTR1l1vQwYx2gp5duxmCnLvUeXFV6Ex8MjNIttaNG+Gg/RG14aGuodK8L4Lr
-	DX+VLdatMqzuPmSivjSFilM91LBY+ZFGkPaXkoA==
-X-Gm-Gg: ASbGncudwS/60I4ZlRVCc2zU6qpPTqVIKqylsl0zw16+wgCtVMA9XSWfXcZVvcw1huH
-	P7qWzQdpNKMOxcOnOFPxqEppHaWq/hYpHSGWFcSavJVfulhD1Nvtx2PyRcB0KfHdvQm91Uw==
-X-Google-Smtp-Source: AGHT+IGSGpq67S3KPhxv0QaGyYpi7Ds7VIRtelTKmN8kUlCb5EZQ5DwEZ8oJuL//LObkvog2EV/g3poagrgtfeFDHng=
-X-Received: by 2002:a2e:9fcb:0:b0:302:2620:ec89 with SMTP id
- 38308e7fff4ca-30240cfb673mr9672121fa.19.1733921182952; Wed, 11 Dec 2024
- 04:46:22 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733921557; x=1734526357;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=271uW+1xPv7CJCNe7w9FZ47bv8k49aJ9mD3ELi0uLgg=;
+        b=sZC+JuJBxNdQnVpvQwS7Kfi/eF8UManfRqvg9mgxtHaWGOHfnlhlv6iGSqVVqU43bO
+         +gqPRc/EhbcZmT14X7ilxX7BKJogLSDkFhZCBwAY7f6zY4Ngz5HAmgmkd4zgHIJmUqFn
+         EB9cwUJxIaZQ7j7W1mQ1WDSKvgWuATU5P4zJviQtQEsTMfoO7/8jYRls3/Jj78LwLI2S
+         mo+pH4Z/yhaonUJAQQdpwWnwiqSqgaQhl/K6DNexjDm7a3ENd0De6/HvRNy7XcMDEUuX
+         wiGzR+Nk/nzAU+PPr+2zN8Xni6gMBr+Jz6C8VAOYj85nUYokTrcoROOgMDVdw0HAxFLd
+         zJMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUFsRubsNn4VRvl+6iPQ4CcQkfiKGOHc+TJnA+7HWSCtmQRFtl7bZD6D0onH7ZjwxpN8mFrkbpqt2B14l5MpdjF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1CbjeZOEeM/U/FgCA2HM/rD6JGLcKTBRXPQSaO2cMq5DVozxu
+	lprgQPbUOMwA4R0SFfBMW3XHWRm0Tah94N8B/MZ+L4wHLvkludmFlEHGcARVfhaK4L+rNb+ADI4
+	MeBusL/JbFsJ/Si2lYihsyl00SMnXNZnEEOq0
+X-Gm-Gg: ASbGncs9gcfmATsyxIMqoYAW0vwBJlDSJaWsECNffa/1xzOh8WkwTXcKfiAlHqQSH3+
+	RCgi3e2yVmhxBkSjWrnh5fEM3SGCsU/rIoE7gq/syeExJekpx9ykn8bk6K9bfl9xw
+X-Google-Smtp-Source: AGHT+IEJ5Z7J4T0pbtdb1XaT/LEsMpdnN+BaxN1Eg8jcKGqq6J6SI3/cA/Q4epYOeBKzFi9FCsCU+huAtx1SIzewIrk=
+X-Received: by 2002:a05:600c:2105:b0:434:9fac:3408 with SMTP id
+ 5b1f17b1804b1-4361c0f4f80mr1201685e9.2.1733921557222; Wed, 11 Dec 2024
+ 04:52:37 -0800 (PST)
 MIME-Version: 1.0
-References: <CA+G9fYsT34UkGFKxus63H6UVpYi5GRZkezT9MRLfAbM3f6ke0g@mail.gmail.com>
- <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain> <CA+G9fYv5gW1gByakU1yyQ__BoAKWkCcg=vGGyNep7+5p9_2uJA@mail.gmail.com>
- <bd95d7249ff94e31beb11b3f71a64e87@AcuMS.aculab.com>
-In-Reply-To: <bd95d7249ff94e31beb11b3f71a64e87@AcuMS.aculab.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 11 Dec 2024 13:46:11 +0100
-Message-ID: <CAMRc=Mf8CmKs-_FddnLFU7aoOAPU6Xv8MqyZo8x9Uv-Eu+hs_g@mail.gmail.com>
-Subject: Re: arm64: include/linux/compiler_types.h:542:38: error: call to
- '__compiletime_assert_1050' declared with attribute error: clamp() low limit
- min greater than high limit max_avail
-To: David Laight <David.Laight@aculab.com>
-Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"lkft-triage@lists.linaro.org" <lkft-triage@lists.linaro.org>, 
-	Linux Regressions <regressions@lists.linux.dev>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Anders Roxell <anders.roxell@linaro.org>, Johannes Berg <johannes.berg@intel.com>, 
-	"toke@kernel.org" <toke@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, 
-	"kernel@jfarr.cc" <kernel@jfarr.cc>, "kees@kernel.org" <kees@kernel.org>
+References: <20241202154742.3611749-1-tabba@google.com> <20241202154742.3611749-10-tabba@google.com>
+ <Z1mHtVJ4f7_N_wk4@google.com>
+In-Reply-To: <Z1mHtVJ4f7_N_wk4@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 11 Dec 2024 12:52:00 +0000
+Message-ID: <CA+EHjTy=zpDx6OhcQFAk7uxcqQmsVUgB=DuZUppszr0KVPGZhA@mail.gmail.com>
+Subject: Re: [PATCH v4 09/14] KVM: arm64: Remove redundant setting of HCR_EL2
+ trap bit
+To: Quentin Perret <qperret@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
+	kristina.martsenko@arm.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_044625_763278_09ACBA11 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20241211_045238_902181_25532AD5 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +95,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 6, 2024 at 3:20=E2=80=AFAM David Laight <David.Laight@aculab.co=
-m> wrote:
+On Wed, 11 Dec 2024 at 12:38, Quentin Perret <qperret@google.com> wrote:
 >
-> From: Naresh Kamboju
-> > Sent: 05 December 2024 18:42
-> >
-> > On Thu, 5 Dec 2024 at 20:46, Dan Carpenter <dan.carpenter@linaro.org> w=
-rote:
-> > >
-> > > Add David to the CC list.
-> >
-> > Anders bisected this reported issue and found the first bad commit as,
-> >
-> > # first bad commit:
-> >   [ef32b92ac605ba1b7692827330b9c60259f0af49]
-> >   minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+> On Monday 02 Dec 2024 at 15:47:36 (+0000), Fuad Tabba wrote:
+> > In hVHE mode, HCR_E2H should be set for both protected and
+> > non-protected VMs. Since commit 23c9d58cb458 ("KVM: arm64: Fix
 >
-> That 'just' changed the test to use __builtin_constant_p() and
-> thus gets checked after the optimiser has run.
->
-> I can paraphrase the code as:
-> unsigned int fn(unsigned int x)
-> {
->         return clamp(10, 5, x =3D=3D 0 ? 0 : x - 1);
-> }
-> which is never actually called with x <=3D 5.
-> The compiler converts it to:
->         return x < 0 ? clamp(10, 5, 0) : clamp(10, 5, x);
-> (Probably because it can see that clamp(10, 5, 0) is constant.)
-> And then the compile-time sanity check in clamp() fires.
->
-> The order of the arguments to clamp is just wrong!
->
->         David
->
+> I'm not finding that sha upstream, in which branch is it?
 
-The build is still failing with today's next, should the offending
-commit be reverted?
+The whole commit is wrong, not just the hash, which refers to
+something I have locally. It should be
+b56680de9c64 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
 
-Bartosz
+I'll fix on the respin. Thanks!
+/fuad
+
+
+> > initializing traps in protected mode"), this has been fixed, and
+> > the setting of the flag here is redundant.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c | 3 ---
+> >  1 file changed, 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index ffa500b500f2..cede527a59d4 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -57,9 +57,6 @@ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
+> >       /* No support for AArch32. */
+> >       val |= HCR_RW;
+> >
+> > -     if (has_hvhe())
+> > -             val |= HCR_E2H;
+> > -
+> >       /*
+> >        * Always trap:
+> >        * - Feature id registers: to control features exposed to guests
+> > --
+> > 2.47.0.338.g60cca15819-goog
+> >
 
