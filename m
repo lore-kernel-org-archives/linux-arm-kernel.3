@@ -4,107 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2361FE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C03E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91tSj/3okSiHcSM2laKUyzJ823bUsY2ekNnBETs7EdU=; b=XsUGLw690ls0qDLhCKS2cClWyo
-	knQpU/kCt1rc/PUytevnuWqBHpjxN4Vkz8bN7b4GFrJgfps/YwAeUoQGgBEw0f6UszgycTImlu/vv
-	xXuwrN1izp6vxQsL5YcJXB+YIffW+h2lycxxDFG4q7ZNZFMkABSej7ITfg871uQE+zaytY6YGZwHK
-	Y1R1Wl/Fhdqtm96wAUQUbzdSXG4cDSxzaysnhG2InRbjaVZeEnAvA29DCJxTQZApBszVp5fiueKFb
-	H0GjLScXY/jPESuAwr4A3oSqkf/zyN8YPQ7+2jkFqCZ1PvdclC5aAyz2qLm5Mn8fguLY14U8FIZBI
-	69pVdHtA==;
+	bh=WXHIBVyZHRhc24ewhgU1WZ1VKDKdYKj0hqAHO5q1aY4=; b=zU2H67eN6dsMmOXFdmnFL7fFY1
+	RBcBW5f7Hiw2CD10Zqv2DvwhIGXLySUyaIGaBkOd2gnsmV/MtWj5az/i3YVN/saRVOhvhiKJOT3m6
+	UMfT79UiW/DAsGfc0zpIBQi9xCM+goD+g96OdJYXG3e02js6HwNgCT6ew6g7IHuAKroLwyDI8tyU5
+	CdOS3f8JbTL4ov+tRj40YltytSvyY9V9A1RHjyHUZtOI+lSa+dsOKEvgy81/ueDF5PwonmyFhVyRJ
+	xUsV5tM92h8Cjecrhbcr1IuaY5S/d6SA9ndHcHuCtmDdTKmUlxzVleyEx3UQevw/l3LsvUxmW/huh
+	TVvG1QqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHcp-0000000E8Hm-2MLu;
-	Wed, 11 Dec 2024 07:59:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLHcq-0000000E8IA-1gcP;
+	Wed, 11 Dec 2024 07:59:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHaL-0000000E7ic-3ilX;
-	Wed, 11 Dec 2024 07:56:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DCB705C5B83;
-	Wed, 11 Dec 2024 07:55:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AAC2C4CED2;
-	Wed, 11 Dec 2024 07:56:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733903801;
-	bh=J60Zu7bSnYFHO396Do1QTQrSrzlbTFrIHnigijT//ME=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WCegzRnHTjGCRzENBnoUrTn1D3xtBB8zWbAOFj8xU0K5aplTLIf+vYK6n6DE3Uhxh
-	 1+YVIn5B6FuHj8NKHXB5EK3IHMawOqf/WNo3rC+fhLWiUlWOYYykfy4QxXCIokbDoy
-	 77UchrBvT6xF5b67Is1eLu0KnuuMXQESCEUbX2dcuWhfYEPLCoVEkjVDVl4PjJLuK4
-	 YUqNxUuG+uT0PA2c51j0SN5YEWJtnCfa+DqEHxC2l+0IL3g8JF7kOlqiVyrw2KrT/V
-	 JNo0Fxu50xApzam6rORxDSTXlz97J0f2Ckz79wtEBcjHkdKDrak846Gq7xTkGW7pfn
-	 eQRckg4w+wIQA==
-Message-ID: <2a773ddb-2836-40cf-a08b-ac47430aeb78@kernel.org>
-Date: Wed, 11 Dec 2024 08:56:34 +0100
+	id 1tLHbK-0000000E7vd-13uR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Dec 2024 07:57:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=WXHIBVyZHRhc24ewhgU1WZ1VKDKdYKj0hqAHO5q1aY4=; b=MJbuq1uwMp/R1QO47eLSB3GshN
+	wTaFIrRcTxBVwNh9sMhb62MvhkOLCn41qvuV6dQHB0XXeYzY1l79HuybiCyqlD+fq8nyM30cnf/Mv
+	oZA7qsvKXbODny6coGKCMaRf+4d5zS0YEcqNxPDELe959hj26zc1b7IdGcAbTh1rovjov2k0M8ChT
+	nnIsxffrApZqYqi9jVxXObjwBPs0Qy7RxMv1quZSKgmSNY7a9+Gdh47W/YNxtu64qf0iJI2gA1Z09
+	FTTA5/Ghzz+lmQ1n4UNiGxLz3kHgjcHEsZ76Xw34W++P3R7vsalO6huDdzUuVqMylcmXTubG4wiX/
+	YqlRbq7w==;
+Received: from cpanel.siel.si ([46.19.9.99])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLHbF-00000003n86-2cVm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 07:57:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WXHIBVyZHRhc24ewhgU1WZ1VKDKdYKj0hqAHO5q1aY4=; b=LCRwp+nwHC5NUeiY58g3+jasR+
+	4vs7ZbtJGraUL5dxGxAhZEhHKJPfymXAHxnuVdurliUy8lfEKjtjiDO4kpEDqeZooaFpTbQQAhp8d
+	oA2DCWfXe0UDfrTZneGYqWnemZ5yCocP/rRtWqOa8aUc/o++6H4NsoT2D3NggMYNrLY5JHgoB9jBR
+	3A3+xEkepYW/P6kmJZdYi5eyh4b8pOMHE3KwywiSgF8CyXu4dG3Qfl9Ft29n+MkuY43ZGmCjQnfVL
+	p5wBdN+xQbzsAuz8rvXn6I2hIroTLy3JFnvEg8kqPFSz9FqosPDqwDTlIAN8oLRq7qzcbrL64vTQT
+	658EwENw==;
+Received: from [89.212.21.243] (port=34294 helo=[192.168.69.52])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tLHay-005Z0C-1R;
+	Wed, 11 Dec 2024 08:57:20 +0100
+Message-ID: <519cc025-0782-4f96-a169-1fe87b280173@norik.com>
+Date: Wed, 11 Dec 2024 08:57:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: mediatek: Add support for MT8196
-To: ot907280 <ot_cathy.xu@mediatek.com>, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, sean.wang@kernel.org,
- linus.walleij@linaro.org
-Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Guodong Liu <guodong.liu@mediatek.corp-partner.google.com>,
- Guodong Liu <guodong.liu@mediatek.com>
-References: <20241211055454.17120-3-ot_cathy.xu@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v5 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
+ optional properties
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, marex@denx.de, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ upstream@lists.phytec.de
+References: <20241210091901.83028-1-andrej.picej@norik.com>
+ <20241210091901.83028-3-andrej.picej@norik.com>
+ <irpmhq7vxjra6vhmdh7p63ajj57n3h2c4br3ija2jmwtoewist@zyxfmx6k5m4e>
+ <aa2de99d-21f4-4843-83b7-5d2db78be86f@norik.com>
+ <qhmsobin3fsmoc7ic2jtancowfscoauyroruxdpwhmqwlogtkz@6by3s2ruwzwp>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241211055454.17120-3-ot_cathy.xu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
+From: Andrej Picej <andrej.picej@norik.com>
+Autocrypt: addr=andrej.picej@norik.com; keydata=
+ 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
+ xtT/8OxBOVSHvA==
+In-Reply-To: <qhmsobin3fsmoc7ic2jtancowfscoauyroruxdpwhmqwlogtkz@6by3s2ruwzwp>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_235642_021688_3FB02284 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20241211_075738_143018_DBA75264 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,146 +148,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/2024 06:54, ot907280 wrote:
-> From: Guodong Liu <guodong.liu@mediatek.corp-partner.google.com>
+
+
+On 10. 12. 24 14:59, Dmitry Baryshkov wrote:
+> On Tue, Dec 10, 2024 at 02:41:01PM +0100, Andrej Picej wrote:
+>>
+>>
+>> On 10. 12. 24 12:43, Dmitry Baryshkov wrote:
+>>> On Tue, Dec 10, 2024 at 10:19:00AM +0100, Andrej Picej wrote:
+>>>> Add a optional properties to change LVDS output voltage. This should not
+>>>> be static as this depends mainly on the connected display voltage
+>>>> requirement. We have three properties:
+>>>> - "ti,lvds-termination-ohms", which sets near end termination,
+>>>> - "ti,lvds-vod-swing-data-microvolt" and
+>>>> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
+>>>> output voltage for data and clock lanes. They are defined as an array
+>>>> with min and max values. The appropriate bitfield will be set if
+>>>> selected constraints can be met.
+>>>>
+>>>> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
+>>>> end termination will be used. Selecting only one:
+>>>> "ti,lvds-vod-swing-data-microvolt" or
+>>>> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
+>>>> constraint for only data/clock lanes will be met. Setting both is
+>>>> recommended.
+>>>>
+>>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+>>>> ---
+>>>> Changes in v5:
+>>>> - specify default values in sn65dsi83_parse_lvds_endpoint,
+>>>> - move sn65dsi83_parse_lvds_endpoint for channel B up, outside if,
+>>>> Changes in v4:
+>>>> - fix typo in commit message bitfiled -> bitfield
+>>>> - use arrays (lvds_vod_swing_conf and lvds_term_conf) in private data, instead
+>>>> of separate variables for channel A/B
+>>>> - add more checks on return value of "of_property_read_u32_array"
+>>>> Changes in v3:
+>>>> - use microvolts for default array values 1000 mV -> 1000000 uV.
+>>>> Changes in v2:
+>>>> - use datasheet tables to get the proper configuration
+>>>> - since major change was done change the authorship to myself
+>>>> ---
+>>>>    drivers/gpu/drm/bridge/ti-sn65dsi83.c | 142 +++++++++++++++++++++++++-
+>>>>    1 file changed, 139 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+>>>> index 57a7ed13f996..f9578b38da28 100644
+>>>> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+>>>> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+>>>> @@ -132,6 +132,16 @@
+>>>>    #define  REG_IRQ_STAT_CHA_SOT_BIT_ERR		BIT(2)
+>>>>    #define  REG_IRQ_STAT_CHA_PLL_UNLOCK		BIT(0)
+>>>> +enum sn65dsi83_channel {
+>>>> +	CHANNEL_A,
+>>>> +	CHANNEL_B
+>>>> +};
+>>>> +
+>>>> +enum sn65dsi83_lvds_term {
+>>>> +	OHM_100,
+>>>> +	OHM_200
+>>>> +};
+>>>> +
+>>>>    enum sn65dsi83_model {
+>>>>    	MODEL_SN65DSI83,
+>>>>    	MODEL_SN65DSI84,
+>>>> @@ -147,6 +157,8 @@ struct sn65dsi83 {
+>>>>    	struct regulator		*vcc;
+>>>>    	bool				lvds_dual_link;
+>>>>    	bool				lvds_dual_link_even_odd_swap;
+>>>> +	int				lvds_vod_swing_conf[2];
+>>>> +	int				lvds_term_conf[2];
+>>>>    };
+>>>>    static const struct regmap_range sn65dsi83_readable_ranges[] = {
+>>>> @@ -237,6 +249,36 @@ static const struct regmap_config sn65dsi83_regmap_config = {
+>>>>    	.max_register = REG_IRQ_STAT,
+>>>>    };
+>>>> +static const int lvds_vod_swing_data_table[2][4][2] = {
+>>>> +	{	/* 100 Ohm */
+>>>> +		{ 180000, 313000 },
+>>>> +		{ 215000, 372000 },
+>>>> +		{ 250000, 430000 },
+>>>> +		{ 290000, 488000 },
+>>>> +	},
+>>>> +	{	/* 200 Ohm */
+>>>> +		{ 150000, 261000 },
+>>>> +		{ 200000, 346000 },
+>>>> +		{ 250000, 428000 },
+>>>> +		{ 300000, 511000 },
+>>>> +	},
+>>>> +};
+>>>> +
+>>>> +static const int lvds_vod_swing_clock_table[2][4][2] = {
+>>>> +	{	/* 100 Ohm */
+>>>> +		{ 140000, 244000 },
+>>>> +		{ 168000, 290000 },
+>>>> +		{ 195000, 335000 },
+>>>> +		{ 226000, 381000 },
+>>>> +	},
+>>>> +	{	/* 200 Ohm */
+>>>> +		{ 117000, 204000 },
+>>>> +		{ 156000, 270000 },
+>>>> +		{ 195000, 334000 },
+>>>> +		{ 234000, 399000 },
+>>>> +	},
+>>>> +};
+>>>> +
+>>>>    static struct sn65dsi83 *bridge_to_sn65dsi83(struct drm_bridge *bridge)
+>>>>    {
+>>>>    	return container_of(bridge, struct sn65dsi83, bridge);
+>>>> @@ -435,12 +477,16 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
+>>>>    		val |= REG_LVDS_FMT_LVDS_LINK_CFG;
+>>>>    	regmap_write(ctx->regmap, REG_LVDS_FMT, val);
+>>>> -	regmap_write(ctx->regmap, REG_LVDS_VCOM, 0x05);
+>>>> +	regmap_write(ctx->regmap, REG_LVDS_VCOM,
+>>>> +			REG_LVDS_VCOM_CHA_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_A]) |
+>>>> +			REG_LVDS_VCOM_CHB_LVDS_VOD_SWING(ctx->lvds_vod_swing_conf[CHANNEL_B]));
+>>>>    	regmap_write(ctx->regmap, REG_LVDS_LANE,
+>>>>    		     (ctx->lvds_dual_link_even_odd_swap ?
+>>>>    		      REG_LVDS_LANE_EVEN_ODD_SWAP : 0) |
+>>>> -		     REG_LVDS_LANE_CHA_LVDS_TERM |
+>>>> -		     REG_LVDS_LANE_CHB_LVDS_TERM);
+>>>> +		     (ctx->lvds_term_conf[CHANNEL_A] ?
+>>>> +			  REG_LVDS_LANE_CHA_LVDS_TERM : 0) |
+>>>> +		     (ctx->lvds_term_conf[CHANNEL_B] ?
+>>>> +			  REG_LVDS_LANE_CHB_LVDS_TERM : 0));
+>>>>    	regmap_write(ctx->regmap, REG_LVDS_CM, 0x00);
+>>>>    	le16val = cpu_to_le16(mode->hdisplay);
+>>>> @@ -576,10 +622,100 @@ static const struct drm_bridge_funcs sn65dsi83_funcs = {
+>>>>    	.atomic_get_input_bus_fmts = sn65dsi83_atomic_get_input_bus_fmts,
+>>>>    };
+>>>> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
+>>>> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
+>>>> +{
+>>>> +	int i;
+>>>> +
+>>>> +	for (i = 0; i <= 3; i++) {
+>>>> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
+>>>> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
+>>>> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
+>>>> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
+>>>> +			return i;
+>>>> +	}
+>>>> +
+>>>> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
+>>>> +	return -EINVAL;
+>>>> +}
+>>>> +
+>>>> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+>>>> +{
+>>>> +	struct device *dev = ctx->dev;
+>>>> +	struct device_node *endpoint;
+>>>> +	int endpoint_reg;
+>>>> +	/* Set so the property can be freely selected if not defined */
+>>>> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
+>>>> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
+>>>> +	u32 lvds_term;
+>>>> +	u8 lvds_term_conf = 0x1;
+>>>> +	int lvds_vod_swing_conf = 0x1;
+>>>
+>>> Magic values
+>>
+>> Can you please elaborate.
+>>
+>> I can use:
+>> u8 lvds_term_conf = OHM_200;
+>>
+>> What about lvds_vod_swing_conf? Should I create additional define for it?
+>> But this doesn't solve a hidden meaning? Maybe additional comment above?
+>> Would like to avoid using voltages for it, since then we are reverse
+>> engineering the table in datasheet to match the default reg value.
 > 
-> Add pinctrl driver for mt8196
+> I think the following example solves both problems:
 > 
-> Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
-> Signed-off-by: ot907280 <ot_cathy.xu@mediatek.com>
+> lvds_term = 200;
+> of_property_read_u32(..., &lvds_term);
+> 
+> if (lvds_term == 100)
+> 	ctx->lvds_term_conf[channel] = OHM_100;
+> else if (lvds_term == 200)
+> 	ctx->lvds_term_conf[channel] = OHM_200;
+> else
+> 	return -EINVAL;
+> 
+> The same approach can be applied to lvds_vod_swing_conf, resulting in
+> removal of magic values.
 
+Sorry, but I think it is not that easy when it comes to the 
+lvds_vod_swing_conf. We should assign default value if 
+"ti,lvds-vod-swing-data-microvolt" and 
+"ti,lvds-vod-swing-clock-microvolt" are not defined. Default value of 
+the lvds_vod_swing_conf is 0x1, but this doesn't have any straight 
+forward meaning like OHM_200 for example.
 
-Please use real names, not logins.
+What we can do in that case is that we copy the values from defined 
+datasheet tables to the "lvds_vod_swing_data[2]" and 
+"lvds_vod_swing_clk[2]" arrays and then run the
+sn65dsi83_select_lvds_vod_swing with it, which will return the default 
+value (0x1).
 
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
+/* If both properties are not defined assign default limits */
+if (ret_data && ret_clock) {
+	memcpy(lvds_vod_swing_data,
+	     lvds_vod_swing_data_table[ctx->lvds_term_conf[channel]][1],
+	     sizeof(lvds_vod_swing_data));
+	memcpy(lvds_vod_swing_clk,
+	    lvds_vod_swing_clock_table[ctx->lvds_term_conf[channel]][1],
+	    sizeof(lvds_vod_swing_clk));
+}
+lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
+	lvds_vod_swing_data, lvds_vod_swing_clk,
+	ctx->lvds_term_conf[channel]);
+if (lvds_vod_swing_conf < 0) {
+	ret = lvds_vod_swing_conf;
+	goto exit;
+}
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
+ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
 
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
+I'm not sure if using this approach gets rid of the problem with magic 
+values.
+Or maybe I'm not seeing the obvious solution so please bear with me.
 
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
-
-
-> ---
->  drivers/pinctrl/mediatek/Kconfig              |   12 +
->  drivers/pinctrl/mediatek/Makefile             |    1 +
->  drivers/pinctrl/mediatek/pinctrl-mt8196.c     | 1757 +++++++++++
->  drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h | 2791 +++++++++++++++++
->  include/dt-bindings/pinctrl/mt8196-pinfunc.h  | 1572 ++++++++++
->  5 files changed, 6133 insertions(+)
->  create mode 100644 drivers/pinctrl/mediatek/pinctrl-mt8196.c
->  create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h
->  create mode 100644 include/dt-bindings/pinctrl/mt8196-pinfunc.h
-
-Please run scripts/checkpatch.pl and fix reported warnings. Then please
-run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-Some warnings can be ignored, especially from --strict run, but the code
-here looks like it needs a fix. Feel free to get in touch if the warning
-is not clear.
-
-
-
-> +static const char * const mt8196_pinctrl_register_base_names[] = {
-> +	"iocfg0", "iocfg_rt", "iocfg_rm1", "iocfg_rm2",
-> +	"iocfg_rb", "iocfg_bm1", "iocfg_bm2", "iocfg_bm3",
-> +	"iocfg_lt", "iocfg_lm1", "iocfg_lm2", "iocfg_lb1",
-> +	"iocfg_lb2", "iocfg_tm1", "iocfg_tm2", "iocfg_tm3",
-> +};
-> +
-> +static const struct mtk_pin_soc mt8196_data = {
-> +	.reg_cal	= mt8196_reg_cals,
-> +	.pins	= mtk_pins_mt8196,
-> +	.npins	= ARRAY_SIZE(mtk_pins_mt8196),
-> +	.ngrps	= ARRAY_SIZE(mtk_pins_mt8196),
-> +	.nfuncs	= 8,
-> +	.gpio_m	= 0,
-> +	.base_names	= mt8196_pinctrl_register_base_names,
-> +	.nbase_names	= ARRAY_SIZE(mt8196_pinctrl_register_base_names),
-> +	.pull_type = mt8196_pull_type,
-> +	.bias_set_combo	= mtk_pinconf_bias_set_combo,
-> +	.bias_get_combo	= mtk_pinconf_bias_get_combo,
-> +	.drive_set	= mtk_pinconf_drive_set_rev1,
-> +	.drive_get	= mtk_pinconf_drive_get_rev1,
-> +	.adv_drive_get	= mtk_pinconf_adv_drive_get_raw,
-> +	.adv_drive_set	= mtk_pinconf_adv_drive_set_raw,
-> +};
-> +
-> +static const struct of_device_id mt8196_pinctrl_of_match[] = {
-> +	{ .compatible = "mediatek,mt8196-pinctrl", .data = &mt8196_data },
-
-
-Please run scripts/checkpatch.pl and fix reported warnings. Then please
-run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-Some warnings can be ignored, especially from --strict run, but the code
-here looks like it needs a fix. Feel free to get in touch if the warning
-is not clear.
-
-> +	{ }
-> +};
-> +
-> +static struct platform_driver mt8196_pinctrl_driver = {
-> +	.driver = {
-> +		.name = "mt8196-pinctrl",
-> +		.of_match_table = mt8196_pinctrl_of_match,
-> +		.pm = &mtk_paris_pinctrl_pm_ops,
-> +	},
-> +	.probe = mtk_paris_pinctrl_probe,
-> +};
-> +
-> +static int __init mt8196_pinctrl_init(void)
-> +{
-> +	return platform_driver_register(&mt8196_pinctrl_driver);
-> +}
-> +arch_initcall(mt8196_pinctrl_init);
-> +
-> +MODULE_LICENSE("GPL");
-
-
-...
-
-> +#endif /* __PINCTRL_MTK_MT8196_H */
-> diff --git a/include/dt-bindings/pinctrl/mt8196-pinfunc.h b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
-> new file mode 100644
-> index 000000000000..717351b12255
-> --- /dev/null
-> +++ b/include/dt-bindings/pinctrl/mt8196-pinfunc.h
-> @@ -0,0 +1,1572 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Copyright (C) 2024 Mediatek Inc.
-> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
-> + */
-> +
-> +#ifndef __MT8196_PINFUNC_H
-> +#define __MT8196_PINFUNC_H
-> +
-> +#include <dt-bindings/pinctrl/mt65xx.h>
-> +
-> +#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
-> +#define PINMUX_GPIO0__FUNC_DMIC1_CLK (MTK_PIN_NO(0) | 1)
-> +#define PINMUX_GPIO0__FUNC_SPI3_A_MO (MTK_PIN_NO(0) | 3)
-> +#define PINMUX_GPIO0__FUNC_FMI2S_B_LRCK (MTK_PIN_NO(0) | 4)
-> +#define PINMUX_GPIO0__FUNC_SCP_DMIC1_CLK (MTK_PIN_NO(0) | 5)
-> +#define PINMUX_GPIO0__FUNC_TP_GPIO14_AO (MTK_PIN_NO(0) | 6)
-
-
-These aren't really bindings. If you disagree, point me to the usage in
-the driver.
-
-
-
-Best regards,
-Krzysztof
+> 
+>>
+>>>
+>>>> +	int ret = 0;
+>>>> +	int ret_data;
+>>>> +	int ret_clock;
+>>>> +
+>>>> +	if (channel == CHANNEL_A)
+>>>> +		endpoint_reg = 2;
+>>>> +	else
+>>>> +		endpoint_reg = 3;
+>>>> +
+>>>> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+>>>> +	if (!of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term)) {
+>>>
+>>> The code has been better before:
+>>> provide default for lvds_term, read the property (keeping the default in
+>>> case of an error), then use the lvds_term to set up lvds_term_conf, as
+>>> expected.
+>>
+>> Ok, will revert back.
+>>
+>>>
+>>>> +		if (lvds_term == 100)
+>>>> +			lvds_term_conf = OHM_100;
+>>>> +		else
+>>>> +			lvds_term_conf = OHM_200;
+>>>> +	}
+>>>> +
+>>>> +	ctx->lvds_term_conf[channel] = lvds_term_conf;
+>>>> +
+>>>> +	ret_data = of_property_read_u32_array(endpoint,
+>>>> +			"ti,lvds-vod-swing-data-microvolt", lvds_vod_swing_data,
+>>>> +			ARRAY_SIZE(lvds_vod_swing_data));
+>>>> +	if (ret_data != 0 && ret_data != -EINVAL) {
+>>>> +		ret = ret_data;
+>>>> +		goto exit;
+>>>> +	}
+>>>> +
+>>>> +	ret_clock = of_property_read_u32_array(endpoint,
+>>>> +			"ti,lvds-vod-swing-clock-microvolt", lvds_vod_swing_clk,
+>>>> +			ARRAY_SIZE(lvds_vod_swing_clk));
+>>>> +	if (ret_clock != 0 && ret_clock != -EINVAL) {
+>>>> +		ret = ret_clock;
+>>>> +		goto exit;
+>>>> +	}
+>>>> +
+>>>> +	/* If any of the two properties is defined. */
+>>>> +	if (!ret_data || !ret_clock) {
+>>>> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev,
+>>>> +			lvds_vod_swing_data, lvds_vod_swing_clk,
+>>>> +			lvds_term_conf);
+>>>> +		if (lvds_vod_swing_conf < 0) {
+>>>> +			ret = lvds_vod_swing_conf;
+>>>> +			goto exit;
+>>>> +		}
+>>>> +	}
+>>>> +
+>>>> +	ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
+>>>> +	ret = 0;
+>>>> +exit:
+>>>> +	of_node_put(endpoint);
+>>>> +	return ret;
+>>>> +}
+>>>> +
+>>>>    static int sn65dsi83_parse_dt(struct sn65dsi83 *ctx, enum sn65dsi83_model model)
+>>>>    {
+>>>>    	struct drm_bridge *panel_bridge;
+>>>>    	struct device *dev = ctx->dev;
+>>>> +	int ret;
+>>>> +
+>>>> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_A);
+>>>> +	if (ret < 0)
+>>>> +		return ret;
+>>>> +
+>>>> +	ret = sn65dsi83_parse_lvds_endpoint(ctx, CHANNEL_B);
+>>>> +	if (ret < 0)
+>>>> +		return ret;
+>>>>    	ctx->lvds_dual_link = false;
+>>>>    	ctx->lvds_dual_link_even_odd_swap = false;
+>>>> -- 
+>>>> 2.34.1
+>>>>
+>>>
+> 
 
