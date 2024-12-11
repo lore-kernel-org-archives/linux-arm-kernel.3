@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D789E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EF5E77182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCb5dB9nLbwKSRYivA6WFY06vS0OrqZOGay4lpKE3uk=; b=tW7mnCt7wFmn5YKDfMJinSjAms
-	1trtdCBqzeGDIEt8bEBkXFRy0h1u/LhFSCG/cciNUC1OSkp6PbkThlO0c+sR2eG1JNcU8TbzPFMCN
-	DWFaZFr83w1rgSFWzoxp3pdlkF5pagtRiDT54+G+ZXbytN27YN5159nC8rXCw1WnzXJsNLQgditk+
-	CKJG2p1H1msEm3Dy4a6Ap8Cxjo2xhyv+HjaghKV4JOAlDy4uD0qFzwIruojaBfdvAnavs5okAliRn
-	MvB3eohgU0Tv2vJXgJeHNIt8pvyuuLsOCDcesvj2cL8bpJZ5yP43cvs7QLkVsKdO8wP5fXMyxld8d
-	5CakHDZQ==;
+	bh=Pn1vKLoEhp3dMmHo1GlRl6XpB6aqXjCl5nt7IETPCw0=; b=RYEQFAthgWnclZZ1jGinwaD7R7
+	0VRFjCPa2te43jO8f1hS376zhVMtmCFLw31eZYtC5TKZa9TZDOGvyOmLX3q7dwIL99aoteLzeIfVB
+	9lPZmbX9cUtkkWvWrwZZX/PICWQh402k2urcpkXY8+dTOhkP6mD+YkH+McPUu0VqIAwy+FJQplB5X
+	131XlU+MDO4YDlmk7wH0O1U9bh3Bca9egJ2UyoMTMYU+Nr8gxRzEaWe4p4fkGpyqRSxsA822fe6bj
+	d48qNOD0Bt+JB/EsSHamEkhSRZVA2jiNt707gJfuI8snOUMRl4ADGIaPfjHOlxdY+3vDr39W3muy5
+	xvMFD3Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUIt-0000000GBMV-0QFN;
-	Wed, 11 Dec 2024 21:31:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLUMd-0000000GC3K-3k4O;
+	Wed, 11 Dec 2024 21:35:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUHp-0000000GBGV-1Xii
+	id 1tLULa-0000000GBou-0mvR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 21:30:26 +0000
+	Wed, 11 Dec 2024 21:34:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2C021A41ADE;
-	Wed, 11 Dec 2024 21:28:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 908B7C4CED2;
-	Wed, 11 Dec 2024 21:30:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B9D05C64D4;
+	Wed, 11 Dec 2024 21:33:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 731DAC4CED2;
+	Wed, 11 Dec 2024 21:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733952624;
-	bh=QN8NBE9T0l0nCy54fFLmu4grxTxcGTtywbY3oxKo6UE=;
+	s=k20201202; t=1733952857;
+	bh=A4SsJa/gV21qeqY5SupSQf+YT6zTnX33XWVSHXjPKLE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PC8DBxKalTNKHRhRVXaSE/yFsEjc+YW4RbWfxHE0BR1b9eP3a2njMOJn5fYcbSCoe
-	 ooW91OXTRT6KncknkwC6hoWj9dBA+sItCvq7jg7hNwWYoXald+Q+4pJ/yxiEsETqfn
-	 uapoIAnfpIYPrOojg1dYGuGRYV4z7YCJW/gbAtP1I8MkYK+/Y1WnkZy+HKo5wajWdT
-	 AaDJwo637rLffLECJHItB/Tr7TtXAYQLG7Cp7iuXgFoRjUAhEzUlsqiT/781+T6W8j
-	 pl8xlTcd+RObcJK3UubhkyJJbyGe5cUDn163l8ri/uauY7aJ+2WqQYI7GQ5KTWSkRj
-	 eCHBDqBQqULgg==
-Date: Wed, 11 Dec 2024 21:30:19 +0000
+	b=qGiodUnETIVdlukXlYOxY5nBS8nYII7/A7aVBVY0mCY7ks8RUzNdDi2051tUWc4hF
+	 bPRduByAPOoINo6L1VyQZ2taADNS5SmUeRduni+lqMGoh6+yUeohi8GT7H8na9Z6KK
+	 TWlIrR6x6m6GyWWu1/5jZTQDAygYOW9JDWjWnUlFBomEFP695vOa2HD2Shjn5785ki
+	 qMdh0zoevPYStzIF9xFofWBQKwOREhsFfowu4PBQNtHPpGethamkGVgvV6aOWkH9aU
+	 jqvlfkBU0cxj4M/JyAWIzQKxAjWrVPJd7e+TwGGrvKQeeJv9XXlWBN/UYJFGzCIF1a
+	 Qz20EKMWmRrDw==
+Date: Wed, 11 Dec 2024 21:34:11 +0000
 From: Will Deacon <will@kernel.org>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com,
-	gshan@redhat.com, steven.price@arm.com, sami.mujawar@arm.com,
-	catalin.marinas@arm.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/1] arm64: rsi: Add automatic arm-cca-guest module
- loading
-Message-ID: <20241211213018.GA17486@willie-the-truck>
-References: <20241207012128.247522-1-jeremy.linton@arm.com>
- <20241207012128.247522-2-jeremy.linton@arm.com>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Julius Werner <jwerner@chromium.org>,
+	Jeffrey Hugo <quic_jhugo@quicinc.com>,
+	Roxana Bradescu <roxabee@google.com>,
+	bjorn.andersson@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>,
+	Easwar Hariharan <eahariha@linux.microsoft.com>,
+	Oliver Upton <oliver.upton@linux.dev>, linux-kernel@vger.kernel.org,
+	james.morse@arm.com
+Subject: Re: [PATCH 0/6] arm64: errata: Add Qualcomm CPUs to the Spectre
+ mitigation lists
+Message-ID: <20241211213410.GB17486@willie-the-truck>
+References: <20241209174430.2904353-1-dianders@chromium.org>
+ <20241210155604.GA15918@willie-the-truck>
+ <CAD=FV=U5xraosVuDGXxBN5Ajo0n=s50JZqtgQGPs1C9jM3YaFw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241207012128.247522-2-jeremy.linton@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD=FV=U5xraosVuDGXxBN5Ajo0n=s50JZqtgQGPs1C9jM3YaFw@mail.gmail.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_133025_478399_0AA673F5 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20241211_133418_309816_1781FBF2 
+X-CRM114-Status: GOOD (  35.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,72 +88,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 06, 2024 at 07:21:28PM -0600, Jeremy Linton wrote:
-> The TSM module provides guest identification and attestation when a
-> guest runs in CCA mode. By creating a dummy platform device, let's
-> ensure the module is automatically loaded. The udev daemon loads the
-> TSM module after it receives a device addition event. Once that
-> happens, it can be used earlier in the boot process to decrypt the
-> rootfs.
+On Tue, Dec 10, 2024 at 08:53:46AM -0800, Doug Anderson wrote:
+> On Tue, Dec 10, 2024 at 7:56 AM Will Deacon <will@kernel.org> wrote:
+> > On Mon, Dec 09, 2024 at 09:43:10AM -0800, Douglas Anderson wrote:
+> > >
+> > > Since Qualcomm CPUs are all derivatives of ARM cores they all have
+> > > unique MIDR values. This means that the tables listing necessary
+> > > Spectre mitigations need special entries for them. However, those
+> > > entries are not present and that means that some Spectre mitigations
+> > > are lacking for Qualcomm CPUs.
+> > >
+> > > I've made an attempt at **GUESSING** what the right patches should be
+> > > to enable mitigations for Qualcomm CPUs. This is mostly me searching
+> > > the web to figure out what ARM cores various Qualcomm cores are based
+> > > off of.
+> > >
+> > > These patches get more and more sketchy as the series progresses and I
+> > > have noted that the later patces DON'T EVEN COMPILE. I have included
+> > > them to make it obvious that I think these cores are affected even if
+> > > I don't have all the right information to mitigate them. Hopefully
+> > > Qualcomm can come and fix this mess for me.
+> > >
+> > > I'll note that I am certainly no expert on Spectre. Mostly I ended up
+> > > here running `lscpu` on a device and noticing that it thought that it
+> > > wasn't affected by Spectre v2 when I thought it was.
+> >
+> > Whilst only Qualcomm can say definitively whether or not they are
+> > affected (and what values of 'k' are required for the loop-based
+> > workarounds), I can't help but wonder whether the current mitigation
+> > code is structured the wrong way around in this case.
+> >
+> > It looks to me like we don't have a way to identify a "vulnerable" CPU
+> > for Spectre-BHB; either a CPU has some sort of mitigation or it's
+> > unaffected. That means that there's very little incentive for vendors
+> > to add their CPUs to one of the lists -- if they do nothing, userspace
+> > is told that everything is golden and they don't pay the performance
+> > hit of a workaround!
+> >
+> > So I think we should consider turning this on its head and assume that
+> > CPUs we don't know about are vulnerable, having a list of unaffected
+> > cores that predate the introduction of CSV2.3 which can be queried by
+> > is_spectre_bhb_affected(). We can do that without the assistance of the
+> > CPU vendors.
+> >
+> > Does that make sense, or did I miss something?
 > 
-> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
->  arch/arm64/include/asm/rsi.h                    |  2 ++
->  arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
->  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  8 ++++++++
->  3 files changed, 25 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-> index 188cbb9b23f5..b42aeac05340 100644
-> --- a/arch/arm64/include/asm/rsi.h
-> +++ b/arch/arm64/include/asm/rsi.h
-> @@ -10,6 +10,8 @@
->  #include <linux/jump_label.h>
->  #include <asm/rsi_cmds.h>
->  
-> +#define RSI_PDEV_NAME "arm-cca-dev"
-> +
->  DECLARE_STATIC_KEY_FALSE(rsi_present);
->  
->  void __init arm64_rsi_init(void);
-> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-> index 3031f25c32ef..5434e5496ac2 100644
-> --- a/arch/arm64/kernel/rsi.c
-> +++ b/arch/arm64/kernel/rsi.c
-> @@ -8,6 +8,7 @@
->  #include <linux/psci.h>
->  #include <linux/swiotlb.h>
->  #include <linux/cc_platform.h>
-> +#include <linux/platform_device.h>
->  
->  #include <asm/io.h>
->  #include <asm/mem_encrypt.h>
-> @@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
->  	static_branch_enable(&rsi_present);
->  }
->  
-> +static struct platform_device rsi_dev = {
-> +	.name = RSI_PDEV_NAME,
-> +	.id = PLATFORM_DEVID_NONE
-> +};
-> +
-> +static int __init rsi_init(void)
-> +{
-> +	if (is_realm_world() &&
-> +	    platform_device_register(&rsi_dev))
-> +		pr_err("failed to register rsi platform device\n");
-> +	return 0;
-> +}
-> +
-> +arch_initcall(rsi_init)
+> It makes sense to me. I'm not sure I'd be the best person to actually
+> implement that, though. Maybe someone CCed on this thread could take a
+> stab at it? It seems like folks from ARM would know the most about the
+> various mitigations and which pre-CSV2.3 cores were safe.
 
-This file already has an arm64_rsi_init()... Ideally, we'd hang this
-off the end of that instead of the initcall but I suspect you're going
-to tell me that platform_device_register() doesn't like being called
-that early?
-
-If so, perhaps arm64_create_dummy_rsi_dev() might be better?
+I think we could start with an empty list tbh. If you take a stab at it,
+I'm happy to review it. Folks with knowledge about the specific CPUs
+can send patches on top.
 
 Will
 
