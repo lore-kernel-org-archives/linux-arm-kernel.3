@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B86E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D85E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xejb4B30VvRcDJwNO3f4C7XdZV+B2J5itS09MkCZKps=; b=S3axLc0oBnqvXt/vPhoYfLUeb5
-	QddmngBTTEWW397Gc2FKdKOse7J2THzaWfWOgyh14czXSp1PI/ilxHudJb7WqQE3/oHOGIg4qJL7/
-	Wz4EHybX3rX/YPi1MVdoBFNFbhgJJXlicam3uuCNL7xp3Un6iCVZCUhT3wGGhhy+6bsmzmuxuk9Zy
-	HRbD78/asgK+DTzmPtk8QpOGESuntPPKOac58c3E33ocxZW3gbynWaI/ffFSkn+sgzJcYtmFBILzG
-	KlwwNU7D0abqjkrUMnOUJRTV1GnqfWOsldNtYbM2OJ+Vppcj3HCWGQf6jSf1zxMW14w7NNT7WJCAT
-	DU/VgYdg==;
+	bh=LYz2oD1GvZxiBdRKqGeDxYYjgBv1s8ZfC+L3kuTem+U=; b=DP+jcc4GprWIIfnqnGdNbL4hp2
+	G8Q7rWuGavafaIIDRc1T0j5y95S8BM+CLPVq3hfpswmvAQpPV8ld0++CvMBY2m46Fv8ZEkAOHDea3
+	qr5KawgJayhZktlD/6CZqEebr4ObEY9+zQUlpdd0rp3A9AY0sucKklrsZo9ish/NpK/gCVZQihkIf
+	x0K1ErTXte0Nkfv6osSnzpL960ch/HBiXpTXjcY/N18aIMzeypEVmIY13hp2lzBaoc5L/mrWSeYlj
+	ruSeAs+6QDwlqcgG/hu3dYxcAN7UrQ0pP0AiEBU7Dh1qcdjs3U03C8oHyad8kQ5v9TkUdzRRFw8Ij
+	oX94j7Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLK3C-0000000Eatg-1hyj;
-	Wed, 11 Dec 2024 10:34:38 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tLK9Y-0000000Ebux-3xwh;
+	Wed, 11 Dec 2024 10:41:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLK28-0000000Eak7-3EpC
+	id 1tLK8W-0000000EbpF-05ja
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 10:33:34 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-434fa6bf6e4so29285e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 02:33:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733913211; x=1734518011; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xejb4B30VvRcDJwNO3f4C7XdZV+B2J5itS09MkCZKps=;
-        b=JDiiJSreihKerpbfw9c2TjgoT1z/xyteaahYtPgNzH8iFArPgNYPw+XhrkcBkQBHSj
-         rnn/J9OlGoP31sNu1lzoFJQrsJkVncWKIdLVLiJwOHiIswqzvz9mxNFEo2UPZ26DeewQ
-         lEh6jzUecZRNKqGCbAWtnae/e7aBxk5bDwv3J/Xe6Gj0ZqUyJlx7Jdva5zV/emlOQMoh
-         WXbNB+/t/FvEB1c2m88qCHBBLzbnps/YrqZyb1mq6sCQejkwZcXa6meaXExHOFIe+M5M
-         BjR6wUsMLSFYjL7vH1KhIcQN5HkhgPUnPIbgjS3dDKkjqMDUeFZsYTvkFCJ0r4UVmEgq
-         GnxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733913211; x=1734518011;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xejb4B30VvRcDJwNO3f4C7XdZV+B2J5itS09MkCZKps=;
-        b=A4K3MZDMlhJn2SWgc4gAWiCTog/Rd+ar0HLXay/d5Bih9184mARLexdV7vOu55ITAy
-         JugCTHXBR0HBbglKZUNXMh+IWdcg4hP0CH3xGrmm/vANnZPjsu/EB8BybesMrI9uYQ14
-         QYD4CAYeTkv1iA2eK0CTdzG+JE5oKR66BUG7isPl3yD0cor7U9EUBqFwhvmSORFGsbmQ
-         34fbudKQRqpqDDDmdfzDTOpTLR8P8z/M5UHZNWrGzHlsCyykcIYnpFCka7FqSSYdIhzi
-         HpTp5iW/s5XSs7e9HewGv5IFO+muNP3FBE+0zVU7I97gkZxlA6WpGzekjVRSp44sbccN
-         fZKw==
-X-Forwarded-Encrypted: i=1; AJvYcCVqhU6UMu8RNkEROqZ5LHrUKFqhNopOyItfsQuZpn8o6h2dFYSIGqFzfMRu65gW5EMDGwfIJhO+hObrjPf1Vosc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKkeH0DCYmf9lv88T27BzUzlEFiA/HEs8YsFlf7ZJ3GrqPEH7P
-	qKRsjX+K2fAmrVnSptAWzxz0eiyLA2vWdOslYKM4HMXwdQ7nxgst90+MXWAaHAlxgStnh7abkEr
-	h74vZXUUrXU9jZ1xqurAqr5XLTFc2GHzgeYpM
-X-Gm-Gg: ASbGncvHV0znrrcK797Pc/2V63sEN+SGOH1nFuByW7KxcGrq1WZgX643Z5JiCNsZMNs
-	oVXAGXGZEaRuonDRHlQN0oVgkB+jcXDMj0eZkDN7iQraXcY/LdBnzQHXGuWUiBOZP
-X-Google-Smtp-Source: AGHT+IEPQlrax4O3EDsziNcytBk/dvrQmghx9+yaCRsduLcL2uYnUAAv4LiQBh3FRM86KVDBUO7qSFBLmZPR9owFjyU=
-X-Received: by 2002:a05:600c:490a:b0:42c:9e35:cde6 with SMTP id
- 5b1f17b1804b1-4361c0e320bmr1012235e9.2.1733913211090; Wed, 11 Dec 2024
- 02:33:31 -0800 (PST)
-MIME-Version: 1.0
-References: <20241203103735.2267589-1-qperret@google.com> <20241203103735.2267589-11-qperret@google.com>
- <CA+EHjTwHSyQ1FJc7axbLNuBxSWpRVE6brb34nO+F59=QRmfQEg@mail.gmail.com>
- <Z1hhHRdpCZcLs046@google.com> <CA+EHjTw4GX3j_ssN-tWnf780xkvyKO5mBN6fnvXeWvQcBDmcNg@mail.gmail.com>
- <Z1liL3BtoPnSyvlh@google.com> <CA+EHjTw+3oAcp3ujjPmbcu42=95nw8WA=rZHYFL91ZK_Wfs_vA@mail.gmail.com>
- <Z1lmG-3KnOZrOCCa@google.com> <Z1lnwZPrx9GzgFCG@google.com>
-In-Reply-To: <Z1lnwZPrx9GzgFCG@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 11 Dec 2024 10:32:54 +0000
-Message-ID: <CA+EHjTzrL9v3DBGRht_-JPpfpd0eW1xYAMcbeNA83B1K64oPgg@mail.gmail.com>
-Subject: Re: [PATCH v2 10/18] KVM: arm64: Introduce __pkvm_host_share_guest()
-To: Quentin Perret <qperret@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
-	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 11 Dec 2024 10:40:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F5F75C628A;
+	Wed, 11 Dec 2024 10:39:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C48C4CED2;
+	Wed, 11 Dec 2024 10:40:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733913606;
+	bh=t82GYym6sYXkwYHFKbUNwczVpT4+Pzss6XRP9JPCUDE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=noWAWngNql9dKYob5AyZaw+cnVxhtwRWgj7TNoC3MNkQsrMRf0Vbtn4h8dWUm74DS
+	 M7j4LakUfAzAMmoDNGrLUncUpWpLx0UvGrFfEeRBdfCZgaxFnzUeXt+KqMGGMWiOMp
+	 uWyyT/znJEgzytqre2pLme5qhFkeFR9SVT0GJnm72utdHL6i2yxO9ARzlw0uzsZ7KW
+	 96n60qZtP038+EwpjwmwaoShJFGu9HUl3WEMa+0Icq3UGhLPFMPUmG3QJpmaTI0FDD
+	 11yaeyZMCWZ1bjCOob1r0yCUXj/hHOzgGQrAfXmjBaLJ9DDI54qGcaimfTDKj683IS
+	 6xU9zsG00FZWQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLK8R-002dSW-Hv;
+	Wed, 11 Dec 2024 10:40:03 +0000
+Date: Wed, 11 Dec 2024 10:40:02 +0000
+Message-ID: <86sequsdtp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Pavan Kondeti <quic_pkondeti@quicinc.com>
+Cc: Akhil P Oommen <quic_akhilpo@quicinc.com>,
+	Rob Clark
+	<robdclark@gmail.com>,
+	Sean Paul <sean@poorly.run>,
+	Konrad Dybcio
+	<konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	"Dmitry\
+ Baryshkov" <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten
+	<marijn.suijten@somainline.org>,
+	David Airlie <airlied@gmail.com>,
+	"Simona\
+ Vetter" <simona@ffwll.ch>,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	<linux-arm-msm@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>,
+	<freedreno@lists.freedesktop.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+In-Reply-To: <92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+	<87ed2fs03w.wl-maz@kernel.org>
+	<92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: quic_pkondeti@quicinc.com, quic_akhilpo@quicinc.com, robdclark@gmail.com, sean@poorly.run, konradybcio@kernel.org, quic_abhinavk@quicinc.com, dmitry.baryshkov@linaro.org, marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch, quic_eberman@quicinc.com, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_023332_808153_D656E043 
-X-CRM114-Status: GOOD (  45.34  )
+X-CRM114-CacheID: sfid-20241211_024008_149180_73AC6B98 
+X-CRM114-Status: GOOD (  33.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,86 +104,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Dec 2024 at 10:21, Quentin Perret <qperret@google.com> wrote:
->
-> On Wednesday 11 Dec 2024 at 10:14:51 (+0000), Quentin Perret wrote:
-> > On Wednesday 11 Dec 2024 at 10:07:16 (+0000), Fuad Tabba wrote:
-> > > On Wed, 11 Dec 2024 at 09:58, Quentin Perret <qperret@google.com> wrote:
-> > > >
-> > > > On Tuesday 10 Dec 2024 at 15:51:01 (+0000), Fuad Tabba wrote:
-> > > > > On Tue, 10 Dec 2024 at 15:41, Quentin Perret <qperret@google.com> wrote:
-> > > > > > > Initially I thought the comment was related to the warning below,
-> > > > > > > which confused me.
-> > > > > >
-> > > > > > It actually is about the warning below :-)
-> > > > > >
-> > > > > > > Now I think what you're trying to say is that we'll
-> > > > > > > allow the share, and the (unrelated to the comment) warning is to
-> > > > > > > ensure that the PKVM_PAGE_SHARED_OWNED is consistent with the share
-> > > > > > > count.
-> > > > > >
-> > > > > > So, the only case where the host should ever attempt do use
-> > > > > > __pkvm_host_share_guest() on a page that is already shared is for a page
-> > > > > > already shared *with an np-guest*. The page->host_share_guest_count being
-> > > > > > elevated is the easiest way to check that the page is indeed in that
-> > > > > > state, hence the warning.
-> > > > > >
-> > > > > > If for example the host was trying to share with an np-guest a page that
-> > > > > > is currently shared with the hypervisor, that check would fail. We can
-> > > > > > discuss whether or not we would want to allow it, but for now there is
-> > > > > > strictly no need for it so I went with the restrictive option. We can
-> > > > > > relax that constraint later if need be.
-> > > > > >
-> > > > > > > I think what you should have here, which would work better with the
-> > > > > > > comment, is something like:
-> > > > > > >
-> > > > > > >                 /* Only host to np-guest multi-sharing is tolerated */
-> > > > > > > +               if (pkvm_hyp_vcpu_is_protected(vcpu))
-> > > > > > > +                       return -EPERM;
-> > > > > > >
-> > > > > > > That would even make the comment unnecessary.
-> > > > > >
-> > > > > > I would prefer not adding this here, handle___pkvm_host_share_guest() in
-> > > > > > hyp-main.c already does that for us.
-> > > > >
-> > > > > I understand now, and I agree that an additional check isn't
-> > > > > necessary. Could you clarify the comment though? It's the word "only"
-> > > > > that threw me off, since to me it implied that the check was enforcing
-> > > > > the word "only". Maybe:
-> > > > >
-> > > > > >                 /* Tolerate host to np-guest multi-sharing. */
-> > > >
-> > > > I guess 'only' is somewhat important, it is the _only_ type of
-> > > > multi-sharing that we allow and the check enforces precisely that. The
-> > > > WARN_ON() will be triggered for any other type of multi-sharing, so we
-> > > > are really checking that _only_ np-guest multi-sharing goes through.
-> > > >
-> > > > Perhaps the confusing part is that the code as-is relies on WARN_ON()
-> > > > being fatal for the enforcement. Would it help if I changed the 'break'
-> > > > statement right after to 'fallthrough' so we proceed to return -EPERM?
-> > > > In practice we won't return anything as the hypervisor will panic, but
-> > > > I presume it is better from a logic perspective.
-> > >
-> > > It would, but then we wouldn't be tolerating np-guest multisharing,
-> > > but like you said, it's not like we're tolerating it now anyway.
-> > >
-> > > I wonder if it would be better simply not to allow multisharing at all for now.
-> >
-> > That would mean turning off MMU notifiers in the host and taking
-> > long-term GUP pins on np-guest pages I think. Multi-sharing can be
-> > caused by many things, KSM, the zero page ... so we we'd need to turn
-> > all of that off (IOW, no MMU notifiers).
-> >
-> > That's more or less the status quo in Android, but I vote for not going
-> > down that path upstream. pKVM should ideally be transparent for np-guest
-> > support if at all possible.
->
-> And to clarify my suggestion above, we should fallthrough IFF
-> host_share_guest_count is 0, but break otherwise to retain multi-sharing
-> support. So it's not a simple s/break/fallthrough change, that needs a
-> tiny bit of added logic.
+On Wed, 11 Dec 2024 00:37:34 +0000,
+Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
+>=20
+> On Tue, Dec 10, 2024 at 09:24:03PM +0000, Marc Zyngier wrote:
+> > > +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
+> > > +{
+> > > +	int ret;
+> > > +
+> > > +#ifdef CONFIG_ARM64
+> > > +	/*
+> > > +	 * We can access SECVID_TRUST_CNTL register when kernel is booted i=
+n EL2 mode. So, use it
+> > > +	 * to switch the secure mode to avoid the dependency on zap shader.
+> > > +	 */
+> > > +	if (is_kernel_in_hyp_mode())
+> > > +		goto direct_switch;
+> >=20
+> > No, please. To check whether you are *booted* at EL2, you need to
+> > check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
+> > none of the driver's business, really. This is still absolutely
+> > disgusting from an abstraction perspective, but I guess we don't have
+> > much choice here.
+> >=20
+>=20
+> Thanks Marc. Any suggestions on how we can make is_hyp_mode_available()
+> available for modules? Do you prefer exporting
+> kvm_protected_mode_initialized and __boot_cpu_mode symbols directly or
+> try something like [1]?
 
-I think this would make things clearer. Thanks.
+Ideally, neither. These were bad ideas nine years ago, and they still
+are. The least ugly hack I can come up with is the patch below, and
+you'd write something like:
 
-/fuad
+	if (cpus_have_cap(ARM64_HAS_EL2_OWNERSHIP))
+		blah();
+
+This is obviously completely untested.
+
+It also doesn't solve the problem of the kernel booted on bare-metal
+at EL1, or with a hypervisor that doesn't change the programming
+interface of the device under the guest's feet. Eventually, someone
+will have to address these cases.
+
+Thanks,
+
+	M.
+
+=46rom 4823e7bb868d3ac2b938ecc4c3dbbdd460656af1 Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Wed, 11 Dec 2024 10:02:25 +0000
+Subject: [PATCH] arm64: Expose kernel ownership of EL2 via a capability
+
+It appears that some drivers have to jump through a lot of hoops
+to initialise correctly when running under a particular hypervisor,
+while they can directly do it when running bare-metal.
+
+Unfortunately, said hypervisor cannot be directly identified as it
+doesn't implement the correct SMCCC interface, leaving the driver
+with a certain amount of guesswork.
+
+Being booted at EL2 provides at least an indication that there is no
+non-nesting hypervisor, which is good enough to discriminate the
+humpy hypervisor.
+
+For this purpose, expose a new system-wide CPU capability aptly named
+ARM64_HAS_EL2_OWNERSHIP, which said driver can check.
+
+Note that this doesn't solve the problem of a kernel booted at EL1
+without a hypervisor, or with a hypervisor that doesn't break the
+device programming interface.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kernel/cpufeature.c | 11 +++++++++++
+ arch/arm64/tools/cpucaps       |  1 +
+ 2 files changed, 12 insertions(+)
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 36c7b29ddf9e8..8fdc3ef23d9dc 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1868,6 +1868,11 @@ static bool has_nv1(const struct arm64_cpu_capabilit=
+ies *entry, int scope)
+ 		  is_midr_in_range_list(read_cpuid_id(), nv1_ni_list)));
+ }
+=20
++static bool has_el2_ownership(const struct arm64_cpu_capabilities *entry, =
+int scope)
++{
++	return is_hyp_mode_available();
++}
++
+ #if defined(ID_AA64MMFR0_EL1_TGRAN_LPA2) && defined(ID_AA64MMFR0_EL1_TGRAN=
+_2_SUPPORTED_LPA2)
+ static bool has_lpa2_at_stage1(u64 mmfr0)
+ {
+@@ -3012,6 +3017,12 @@ static const struct arm64_cpu_capabilities arm64_fea=
+tures[] =3D {
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
+ 	},
+ #endif
++	{
++		.desc =3D "Kernel owns EL2",
++		.capability =3D ARM64_HAS_EL2_OWNERSHIP,
++		.type =3D ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches =3D has_el2_ownership,
++	},
+ 	{},
+ };
+=20
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 1e65f2fb45bd1..94ce3462e6298 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -24,6 +24,7 @@ HAS_DIT
+ HAS_E0PD
+ HAS_ECV
+ HAS_ECV_CNTPOFF
++HAS_EL2_OWNERSHIP
+ HAS_EPAN
+ HAS_EVT
+ HAS_FPMR
+--=20
+2.39.2
+
+
+--=20
+Without deviation from the norm, progress is not possible.
 
