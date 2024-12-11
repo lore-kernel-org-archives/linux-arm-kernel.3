@@ -4,198 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829A8E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B30E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Fx2H6vZgWZJeBKcmMIyxfSiLkxvzDloKN7644NaU+k=; b=fd14V0Cynnz3pOIQy2S/Y0Aijl
-	9jlbKFq4VWT5YxcXwwh4oRt+yu+a5zJs0Xl6EUwjy+Ffjgk0UvRLeKBAlJy26qBwk9RIpbxxnQ5nO
-	p3Y0UHmhPX802aJ+ybPfyJnXbqHvrK+446tcUeiQlo5oIgy6z720AVvEg7L0GzuhPgB8JFtPGBiUS
-	fEQZVckw4Z5vERssHd0bgA8TISL+4tyZnoRiwNIsUXbchJZQpIbB38rU83mF+n1NTpoHVSxwzVqat
-	GI3WlfxqUN/5882MGtdDrWxAoTQ1IaDtbdOIIoyaUBxKRWbhdhSMceAjYGGC3SYlPGi/k3dikcThP
-	MBF0OJNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gz2g2xIWCKvpFm2gjUfw/XeL0J0V+9S7un6UZm1EU7U=; b=QTfyS9FomUOqcJAiHSY8ycaqbS
+	Q4v3WLMdz5TJClSVkRhXZnuCEtx2Z9HGpeZk6/7lni9VG1NmQ04/e49WmenlYVJHcxKqdYcNRFLBG
+	DKtaWFPgwh7nvbJmpiCKdL7Dr1Y6gu+gpmHV7k0l15ZqksbPY2w157BRTRf7LecyX5t6vsJ0FeEJV
+	TVI8/0TeMbNLVBVTbfWUZouivSRsiA76/a2i4Xbs7/WZgaBCnLnQdxBIwBcrwwjWzEHaQ40lO7o7h
+	OKXUgqYdI4a3Kcvc0uX1LNzhcDkD6xrOLyy5YHgqLzmflgzgKlGuzghf2Mk1g0FZ0eeSD9aB3gQvX
+	ak2UdH4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHCJ-0000000E43A-3Kdq;
-	Wed, 11 Dec 2024 07:31:51 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1tLHEV-0000000E4Ih-2Goh;
+	Wed, 11 Dec 2024 07:34:07 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHB5-0000000E3jl-0Xus
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 07:30:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733902235; x=1765438235;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=1Fx2H6vZgWZJeBKcmMIyxfSiLkxvzDloKN7644NaU+k=;
-  b=kS+i1BL3EZA4u4shFEsc6qzgl/gWe/WH8fi+Wjeu3cXMXnmPC83iZ8G2
-   HVX7KbrNc0wBK29VjGF4bPDmceD7V6Re4mpKoEj7Z0MYzxPdnFRS/LQae
-   3T5E0oHfF76sDKBF9SEcvrfLTkt9AC6kNkJZIsglNvark3mcAm13nHLf9
-   lmDQBImTqIKIYYdhvOXoiOB9EQGyQmgVrtArKXidd93YMLBXMBl1mXW35
-   47L5Y0qV8pUgf7PpEC3uHPLopwFLX0I/7TbqN2WpmGVf3FadEukBw9P95
-   1XeD+UOlRKu++SJEfvLbmHOjbFuOq8AbNHdKgiXACxLB262Mx7+9khSlJ
-   w==;
-X-CSE-ConnectionGUID: S4+WrtGRSLiP9XGktqpgyA==
-X-CSE-MsgGUID: /UgfdlMvQXKcivIgMEr9Uw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="34517105"
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="34517105"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 23:30:34 -0800
-X-CSE-ConnectionGUID: odfaosmVSLSnKyuSQbhpsQ==
-X-CSE-MsgGUID: Uh1zA6H2TNeuWjVuE4AuyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="100645706"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by orviesa005.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 10 Dec 2024 23:30:34 -0800
-Received: from orsmsx603.amr.corp.intel.com (10.22.229.16) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Tue, 10 Dec 2024 23:30:33 -0800
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39 via Frontend Transport; Tue, 10 Dec 2024 23:30:33 -0800
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.171)
- by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 10 Dec 2024 23:30:33 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zGieTgtbgaf5wwyQ7h/+wxsitfFF234r96Vkpb07Q5LhSDffOADJjZLlLKmEPb6X1B1QnLp+hwkcxproRQRcFpRxjEFJD9PBPm2UOYEZJtY8HfUKHzkPsvT+xa29jAEu8fYXHQP9DA/baha4xjKF3yC4OCNlLJI6Vw5R8RlGQlV7pthcn+Hms+caTWkWBSatLaySsWs/8ZxnInipQR+yaGgi5YfWqJIKTq+vo7kywlxvCs0eTqvH7INN6lfrcC/cbEJGtjMOFvePknkdqfrukrMiVnnv305Tsv38+M1O7fi9Eg9MLKwI0DTWgdc96RwzU5QynaaCu/mtlPzxYXrvIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1Fx2H6vZgWZJeBKcmMIyxfSiLkxvzDloKN7644NaU+k=;
- b=fQ10hM1cPgX264ueNxuv2Svj+FEOs818Jhf7TcNRfxMUDahAcgQ3wbNX2k0eikfZackfui/yM8KwiFOVgU8dpgXbYFemUhbxctUvP+0Mda5ec/R5JHs7pbcDPfdcSDekas3q6M29nU1KlHWUjhkrUHi3hhD2GxY6LoptnAIoaklGIqxInMOwu20BsC29qypEGVUdXDFbIhIowgyVWYI1kQYcie2zWOdvtd1txio8/2gDF298OxGmCANgx3NGVwKJyfJlkfb+ovcEpm3cNoQdl/pFW2meyJ7Bh/vCyySR+bNvoB/Jj4G2dRXj5C6QFiRZjCxJvXVA1WkAXcMmQOvpjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by IA1PR11MB6537.namprd11.prod.outlook.com (2603:10b6:208:3a3::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.14; Wed, 11 Dec
- 2024 07:30:31 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::b576:d3bd:c8e0:4bc1%5]) with mapi id 15.20.8251.008; Wed, 11 Dec 2024
- 07:30:31 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>
-CC: "corbet@lwn.net" <corbet@lwn.net>, "joro@8bytes.org" <joro@8bytes.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
-	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
-	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com"
-	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
-	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>
-Subject: RE: [PATCH v2 02/13] iommufd/fault: Move iommufd_fault_iopf_handler()
- to header
-Thread-Topic: [PATCH v2 02/13] iommufd/fault: Move
- iommufd_fault_iopf_handler() to header
-Thread-Index: AQHbRdBR2pNouE6VZkaq2J0bR83fVbLgsWTQ
-Date: Wed, 11 Dec 2024 07:30:31 +0000
-Message-ID: <BN9PR11MB5276473A92C8EA6C973415628C3E2@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1733263737.git.nicolinc@nvidia.com>
- <137e3357f00b30a08c2b49c00b968a88af8cb5d1.1733263737.git.nicolinc@nvidia.com>
-In-Reply-To: <137e3357f00b30a08c2b49c00b968a88af8cb5d1.1733263737.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|IA1PR11MB6537:EE_
-x-ms-office365-filtering-correlation-id: f37e9152-1d9d-4563-6268-08dd19b5b151
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?2CLGdEvgdKSViSXf9M8nFZ3iHnwub7+s6OnJEYdgQGF0VvvABZ6HcrnCeEeb?=
- =?us-ascii?Q?9lohKoTvK2LSC9PbI6QRCRKhr3IY2c7TBe7ZUx3wCUBfbEQQKA8sW986RCYE?=
- =?us-ascii?Q?YjYECwEoRpbvcvpJCaqQaS6sJ8YEBAC42/bgh948SBKuAsMghWW1WG95zbbb?=
- =?us-ascii?Q?5GE7CGfnymezh3yHiOMTXA5cjjXopodtcPfirSBANJJ2lf0n+zH+SUutU/p6?=
- =?us-ascii?Q?/JlwH6CWAdigttjeIG4t/HJMuPO1pQeitB66rLWmc8KEPJtby6ZpCYmjCH4M?=
- =?us-ascii?Q?aIVp6NQgAu56Aq7GgJEITJ8tEydpMCAzXu6iM/iXU9elN1Xy375t9dDa2H6x?=
- =?us-ascii?Q?n06stZUC8T9VOIofs9JpRNtortRsc9OmukrW1cxv9Q0C0RzkL57O2PamqSUT?=
- =?us-ascii?Q?Po5FewU+YsDXC1HLjIT3mQbmsB5MX4ECSfD2b6pHp5/Ff1IPdhnT2Yuq0JlS?=
- =?us-ascii?Q?leL9DUz1xvy3BUeZiCGlo2UTzBBxPlQznFPGksaewr6enP3diUyPUpBn22yJ?=
- =?us-ascii?Q?RE7QyDQkmYpD8CAcTKUmEs6KIGOSGVWteDoFE+QSK/FoHvuvHmcCmZ2LXRUJ?=
- =?us-ascii?Q?f9bA13pYS4/5Mtd5UDJBdKwoKTWVOoVeTPd4tl+R9B+U9F8YxnJduxKUYOb/?=
- =?us-ascii?Q?1ZNTUajlhUY/N4A2NcWaqMAMqKi4dI8oNsduwsWyOha80H0lSuDz3LrArofO?=
- =?us-ascii?Q?jrI2eZtR4vLQkKognQ0yHPiCAAFQR+sRGqc3qH0Uac3i5BY7NYwX4RPIFtZ9?=
- =?us-ascii?Q?s4GeQE2/M3gM8TLqRPG9y8OCpxb77AnroUwzIxTzLJVbYj2dspP0jiACPRRE?=
- =?us-ascii?Q?vHNtQahRqhi9iE1UqhJ1gTEyneug7DS+3Pg6oYK8GKp6UHyniZ+kUYKVCLzd?=
- =?us-ascii?Q?IFeWVgbSoyPMAf6bvEMhS4Y/ars3wuBrLRVwRuKhlT1qs55i7NgH3RoQRmsg?=
- =?us-ascii?Q?80kM9DWlUlyjn/K7T2UPbwMXB9znLmRc7CfMLjyiGAX7GGH2g98kLHVd9lGk?=
- =?us-ascii?Q?p4aV9tHt9swYgqgpQOv2+FNbdq/txxaxV5SArSaHtwdt7/dnts9/AFvQskcO?=
- =?us-ascii?Q?CusI7N7nCeXaH3D5qzRGL4WdDl+4/FJp0f+e2SoTMKDqvneUvHIhmKYXjeyb?=
- =?us-ascii?Q?9vbYWZfls5NlxeaTl4EFndUdKWq/DlAjynZI3RWCpfwf/N+Mw/jp2ifwZrEq?=
- =?us-ascii?Q?aS4VtwiapRZuhbhkQO3OujL6rDL64OA8uA56s25anujY1bxB+R5Vi345qbvN?=
- =?us-ascii?Q?KJzX3KH3XsRQg5py3Lt7ssD0dXBf3dt5wl1y+/p8OMGe/sm/MRhRhezuOxp2?=
- =?us-ascii?Q?wDwxe0kuyfHGnWsTF1s+bzK2uC34RpMVstm7pbM9v7B4L3xIC1eeZ1M0YXGW?=
- =?us-ascii?Q?5gJb+Z52NqNrWc3J5tx5CEGNlo3M3k5R2nRSBTHKVWnU234WLg=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zszIOmjl97y1th+Qxe7gVTX795YS1fXk+23wXUIETA6u/PSqbZ4SM5wt+yNR?=
- =?us-ascii?Q?bhBL0GupPpxfd5Kg+3UYX5iyai8XkWgnPWnAiloNS13uye52yFEuHCoXSObp?=
- =?us-ascii?Q?NzPZsBnq/NtSSGKcP2UmsT3GQ9t9vVPsSLxPVIbEp3/Cd9hMGbUIkA08ybbu?=
- =?us-ascii?Q?uuqQQoq5uiMXvQogymOaupiLVRQKiGAGOyrQsGa5/M9JIjWkC7NzxhV9fHyJ?=
- =?us-ascii?Q?mM6H4POzmZ3X0jAGahNZv+8QdD1A43wmAKpHWrgx7ZmGiXV7L3PW0IDW/A3g?=
- =?us-ascii?Q?iSywjULDFvMsirW+jDAPCSMHZqBa4qOlsJrGK7aZBACz4QS0DSakTqnIF122?=
- =?us-ascii?Q?5OBITXmnQ/N1VS88AI8pgCA4W+GVobgwrZKkDKpoq18c6Nu2NXgmLWY8qPuR?=
- =?us-ascii?Q?c3a3Tt9iIKRtyp/qSaNOIPoF0wd6ImpbmQlKiN03UK9Hq+04v3kU6kC2Wd/A?=
- =?us-ascii?Q?WacaHuRMhnwHpZAABffvHM073iK9cy45nAUqBXQCli/bQLV6DSO9h6NZHxGJ?=
- =?us-ascii?Q?2d869jPu/29et15KHZZuAk0z4Au7G92pR5mZ4fd/kVGNZe+itfkzq05XiukQ?=
- =?us-ascii?Q?bLLAbrwTEvtoiQwvGN2mmn4nY91ZYlc6gKlDfo4KY5nykFN0zdaLDa17iZzY?=
- =?us-ascii?Q?6bh7rc6eR3Z40HwDeAEKEbbCHkLpgKsXdQgR5a4tIi9yyA1+5fsn92DPwOrO?=
- =?us-ascii?Q?bv/q8m/QMAojGgb/0atTb6sULN02gV9eHtYmQ/m4JmNq1/zWViFRC0MitLOG?=
- =?us-ascii?Q?PIKwxVK4XChkDNG9Dhmram3gfRP5saBHWO6Iyg7Y3OhOCkUpoDMVDZO9uO5b?=
- =?us-ascii?Q?i0/mBr19rG44li9L43EBH77xqfUilkVNY5kSkFCbHhhPv6A4IA7puiGZP9J5?=
- =?us-ascii?Q?eM8ZR0/mkZZK8ChvH0AZdGfeQRAXAQ+DiZUBfdHeTglEKzQccrk5cO0j9syb?=
- =?us-ascii?Q?sQYznA0qpG/z5smi2sWhjajed8po8jpeAbDoMWJbSO7SDd3r6xCkv0Z7yvYk?=
- =?us-ascii?Q?XbKmw8nxwWWL3eBhFrRspJKsBn0uHtnd9vk/TZvmQUdY+1nNFih4sIGEbXqo?=
- =?us-ascii?Q?G4I8b2vdXZnlme4aUPPFJ0vE35CZaBOIQISfW0tfZXA8hkh5G/NmVxkcv0/H?=
- =?us-ascii?Q?bUAg7U/ht89RVpnzd05VjENk7IbqkcYWa1GnYxy/iyyY2ZPebVogzwFKtyVw?=
- =?us-ascii?Q?FQ1IJLiAhpKdkKbGBsC0d1yfn3BOOATo0KJZyMVZCpjMfx+ek+/fyYYXyqTn?=
- =?us-ascii?Q?qDk2YudlPrdzV/PolaJ7Cbrc1BxKf/sAXpcqX86ZMQIzLMxogGUaqob+BZrb?=
- =?us-ascii?Q?40lVCNZ/XYLp8n3LubqOyS63amEuyF+Sws9vw+E4il0J3D+rPJ5A0XUcYXeV?=
- =?us-ascii?Q?VrsRWXREcNvoOXAGG6Gksb4XTleXhTA/6Cm5lexHDQ9kLk2zuE8Rk4pKb8cv?=
- =?us-ascii?Q?1ry68SNDu4815Oyb/iUEByosg87IchTliHXz/HUQ3EfkQO09TYqhhkzNiql9?=
- =?us-ascii?Q?ax6MxkxYqdxXOv1MWxS8ae+IUHkTnVP1tJlkqAqY+9VDDORD8YCHf+NX46Ms?=
- =?us-ascii?Q?3sAwvCDggCgpQx1yyjk/Dghn4mXet5DroTdXAUfj?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tLHDS-0000000E4Bm-0oeC;
+	Wed, 11 Dec 2024 07:33:03 +0000
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f37e9152-1d9d-4563-6268-08dd19b5b151
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Dec 2024 07:30:31.0841
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +sfP55zwdd7SjhFvJ6VzaurxLNzZhc2YmKklcpHS/s8qgihC/vDck2tDzJH00qVxAYC6PUjsqRxzZMSD6DBM6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6537
-X-OriginatorOrg: intel.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1733902380;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gz2g2xIWCKvpFm2gjUfw/XeL0J0V+9S7un6UZm1EU7U=;
+	b=AGNzhKLHPaRUqC8zvMa2lNnnBRGsufL9vRHOj2JBd+HHGLWgwbudx7p/s4W8CbwlrA/1sl
+	oI27U/WZOQtaKal39CTZbi/YBfzcMrOxE/U8UHSNnbT6sQHX+qYIcgDjhPQtS21Gytn8V9
+	H5JHgbyhH1jkOdEOKOpg8oeWRDvJ23VHTJfoZvp3vF97Xk7U+uXdz0UVJ/g2J8+Kutlr8y
+	PfO4R5+xakcYmM4tNKkv/QOBTiFJkQyyy27T9YjOA++rqLiau5Y9uflW3fed2Kt6olmyvK
+	Uc8qBcPvCiU0xnGyJjn3KyrpJ2XJIrX+gHO5iWkN3twWVVN4wDV4u3XQm0iVDw==
+Date: Wed, 11 Dec 2024 08:33:00 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Peter Geis <pgwipeout@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>,
+ Diederik de Haas <didi.debian@cknow.org>, Johan Jonker <jbx6244@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 6/6] arm64: dts: rockchip: Remove address aligned beats
+ from rk3328-roc
+In-Reply-To: <6453e714b2a48572ff1e57cd74b0f6d3@manjaro.org>
+References: <20241210013010.81257-1-pgwipeout@gmail.com>
+ <20241210013010.81257-7-pgwipeout@gmail.com>
+ <2b68c2dd3618e5904a4eac1ec87d29a7@manjaro.org>
+ <CAMdYzYpj3d7Rq0O0QjV4r6HEf_e07R0QAhPT2NheZdQV3TnQ6g@mail.gmail.com>
+ <6453e714b2a48572ff1e57cd74b0f6d3@manjaro.org>
+Message-ID: <e30217fec525af2a3b0e9752b0d1ea31@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_233035_180580_9BF073BC 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20241210_233302_534465_812F923F 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,21 +79,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Wednesday, December 4, 2024 6:10 AM
->=20
-> The new vIRQ object will need a similar function for drivers to report th=
-e
-> vIOMMU related interrupts. Split the common part out to a smaller helper,
-> and place it in the header so that CONFIG_IOMMUFD_DRIVER_CORE can
-> include
-> that in the driver.c file for drivers to use.
->=20
-> Then keep iommufd_fault_iopf_handler() in the header too, since it's quit=
-e
-> simple after all.
->=20
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+On 2024-12-10 14:44, Dragan Simic wrote:
+> On 2024-12-10 12:29, Peter Geis wrote:
+>> On Tue, Dec 10, 2024 at 5:45 AM Dragan Simic <dsimic@manjaro.org> 
+>> wrote:
+>>> Thanks for the patch.  Please, see some comments below.
+>>> 
+>>> On 2024-12-10 02:30, Peter Geis wrote:
+>>> > Since commit 8a469ee35606 ("arm64: dts: rockchip: Add txpbl node for
+>>> > RK3399/RK3328"), the snps,aal, snps,txpbl, and snps,rxpbl nodes have
+>>> > been unnecessary in the separate device trees. There is also a
+>>> > performance loss to using snps,aal. Remove these from the rk3328-roc
+>>> > device tree.
+>>> >
+>>> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+>>> >
+>>> > ---
+>>> >
+>>> >  arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi | 3 ---
+>>> >  1 file changed, 3 deletions(-)
+>>> >
+>>> > diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>>> > b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>>> > index 6984387ff8b3..0d476cc2144d 100644
+>>> > --- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>>> > +++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+>>> > @@ -155,12 +155,9 @@ &gmac2io {
+>>> >       phy-mode = "rgmii";
+>>> >       pinctrl-names = "default";
+>>> >       pinctrl-0 = <&rgmiim1_pins>;
+>>> > -     snps,aal;
+>>> 
+>>> Huh, I see that quite a few RK3328 board dts files specify
+>>> the snps,aal node.  I wonder was it a "cargo cult" approach
+>>> at play, :) or was there some real need for it?
+>>> 
+>>> Actually, I see now that you added snps,aal to rk3328-roc-
+>>> cc.dts in the commit 393f3875c385 ("arm64: dts: rockchip:
+>>> improve rk3328-roc-cc rgmii performance."), so I guess that
+>>> your further research and testing showed that it actually
+>>> isn't needed for Ethernet stability?
+>>> 
+>>> >       snps,reset-gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
+>>> >       snps,reset-active-low;
+>>> >       snps,reset-delays-us = <0 10000 50000>;
+>>> > -     snps,rxpbl = <0x4>;
+>>> > -     snps,txpbl = <0x4>;
+>>> 
+>>> Unless I'm missing something, the commit 8a469ee35606 ("arm64:
+>>> dts: rockchip: Add txpbl node for RK3399/RK3328") doesn't add
+>>> the snps,rxpbl node to the RK3328 SoC dtsi, and the respective
+>>> driver does nothing about it when the snps,txpbl node is found.
+>>> 
+>>> Though, I see that rk3328-rock-pi-e.dts is the only other
+>>> RK3328 board dts file that specifies the snps,rxpbl node, so
+>>> it seems that removing the snps,rxpbl node here should be safe,
+>>> especially because it was you who added it in the same commit
+>>> mentioned above.  If there were some SoC-level issues, all
+>>> RK3328 boards would've needed it.
+>> 
+>> Good Morning,
+>> 
+>> You'll notice the author of that patch was me. Setting aal, txpbl, and
+>> rxpbl was the original fix I came up with for the rk3328, which I
+>> applied to the only board I had. Someone else later on isolated it
+>> specifically isolated it to just the txpbl and applied it to both the
+>> rk3328 and rk3399 directly.
+>> 
+>> This was just something that was left hanging after that result.
+>> 
+>> Looking at how rk356x was done, I suspect there's an even more elegant
+>> solution. However I don't have the deep level knowledge nor
+>> documentation to implement it.
+> 
+> Sure, I noticed that you authored the original Ethernet stability
+> fix. :)  With all this in mind, please feel free to include
+> 
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+> 
+> and I'll prepare a patch or two that clean up any and all leftovers
+> in other board dts(i) files.
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+For future reference, to help anyone going through the mailing-list
+archive, here's a link to the above-mentioned cleanup patch:
+
+https://lore.kernel.org/linux-rockchip/e00f08d2351e82d6acd56271a68c7ed05b3362e8.1733901896.git.dsimic@manjaro.org/T/#u
 
