@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A140E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 03:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD5EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 03:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYsVxPJwUafvgN3ouBHNxY+jbFDGOPc1851ZkHUAz0Q=; b=lNCCGFMHwn5IwwtSown7aynWMt
-	qsKL+I+o2JeXj9h2gUxZz1spGRpCOwEStER5wgAWMtoF7AaxS8AP2soupwR051SSxG1ppIWt5bBVp
-	aEVj0RsmO44U3m5m9zBznap5AeR3HiJp1ZE6QeiTOSq/lxG3rGzkRzxiYyjXOGJzrhMlK1fBdksZS
-	SMtxfy/Kx0nr4AyyI9Gi8hKCAYxoAt/5+lEcIDVxAZspXaTYuyYd0365cPS3L0Ri/+5EEWMDD9TyQ
-	VOIH5eI3Hb5hAw+GJj3Cgo1ADi4N137g5JdfhQv/+yDLzh6TL8/9paMCxo62PcQwKgrmfzxP7l6ew
-	9CLuqnDw==;
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0KJPkukya59nfR1aGhl7T2oGpeA9UVjg5hfMTy1E8j0=; b=IGeliJJRVFOfZ0S8b0jATPEm/v
+	DW+YOmudsmUOV0X9edjH0s5Cnv9ui3g+B3NyuKQzW0GD3kn9w7hrDAq9cGEJudwf9fupAc7Tf04Ts
+	D8gFXgrrJxZH3lXmPV0vXFifMmTWfTDhzJflMrsAVBdGZ+koG+b5gFCibUp2sF1gvrn5YFwLijXz8
+	gscxgdMUzhTnopOPuRGCGcdXpM8h742is71w1tvEBnmhNzGwDWCuF3ErMUdI/PZEmcVDLA2LtHYGP
+	atspXalAS4lImFcrRuJ8RRlb1rybGeOCbKZBM4jddS1XQZC3wsLnBvavAZtCen7YBNv0SMZ9Zgoed
+	RgwynDog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLDNo-0000000Ddmn-0vsX;
-	Wed, 11 Dec 2024 03:27:28 +0000
+	id 1tLDOp-0000000Ddy5-0oSh;
+	Wed, 11 Dec 2024 03:28:31 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLDJd-0000000DceN-47Br;
+	id 1tLDJd-0000000Dcd1-19tJ;
 	Wed, 11 Dec 2024 03:23:11 +0000
-X-UUID: 3a236872b76f11ef9048ed6ed365623b-20241210
+X-UUID: 39f13582b76f11ef9048ed6ed365623b-20241210
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=iYsVxPJwUafvgN3ouBHNxY+jbFDGOPc1851ZkHUAz0Q=;
-	b=V6LPiguFT4E8FB8jyLD1HxN+MwnOdmr0KRNRIWiJr2eul4F3IDZJuwELwngCcrCqk8KmxFKgN8OZ+061WQvDtezZaYdJyBtlS5dk5DRAM+voJ2Uu1UoYB66dWIKqvzjySjUacBcpfuMSX5ZT0V1pLnl6n5Zcxue62ypItt1XzTc=;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=0KJPkukya59nfR1aGhl7T2oGpeA9UVjg5hfMTy1E8j0=;
+	b=kApDiNmBd/kpFvYlEry3Htj7EsXzUt92K2V4SVCXWUA55Wl4bT22N9270juSlHuZWT+CGKjVSBBGCxk8sYZF1VsZEMANEprAU4FRRn+DS8pnxQVggfhsFZQrK9eUrtIZFbbrpxsmGahE/gYmefLS9KyzDgukFLm9dTvLJbWl4g0=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:cf360cc9-d8df-4176-b0ad-c6b710af61f1,IP:0,U
-	RL:0,TC:0,Content:54,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:54
-X-CID-META: VersionHash:6493067,CLOUDID:7c532dc1-1c82-4420-82d9-d6eb228f5c4a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|801,TC:nil,Content:3,EDM:-
-	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
-	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
+X-CID-O-INFO: VERSION:1.1.45,REQID:990b36eb-937e-4e89-856a-cc2b238278d2,IP:0,U
+	RL:0,TC:0,Content:36,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:6
+X-CID-META: VersionHash:6493067,CLOUDID:3367c53b-e809-4df3-83cd-88f012b9e9ba,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:3,EDM:2,IP:nil,UR
+	L:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,S
+	PR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 3a236872b76f11ef9048ed6ed365623b-20241210
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+X-UUID: 39f13582b76f11ef9048ed6ed365623b-20241210
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 226871192; Tue, 10 Dec 2024 20:23:01 -0700
+	with ESMTP id 608441325; Tue, 10 Dec 2024 20:23:01 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1118.26; Wed, 11 Dec 2024 11:22:58 +0800
 Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
@@ -67,19 +67,18 @@ CC: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
 	"Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Singo Chang
 	<singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Moudy Ho
 	<moudy.ho@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v2 2/8] dt-bindings: mailbox: mediatek: Add MT8196 support for gce-mailbox
-Date: Wed, 11 Dec 2024 11:22:50 +0800
-Message-ID: <20241211032256.28494-3-jason-jh.lin@mediatek.com>
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jason-jh Lin
+	<jason-jh.lin@mediatek.corp-partner.google.com>
+Subject: [PATCH v2 0/8] Add GCE support for MT8196
+Date: Wed, 11 Dec 2024 11:22:48 +0800
+Message-ID: <20241211032256.28494-1-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20241211032256.28494-1-jason-jh.lin@mediatek.com>
-References: <20241211032256.28494-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_192310_015580_4DBAFF4F 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20241210_192309_330228_EEB3E677 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +93,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible name and iommus property for MT8196.
+From: Jason-jh Lin <jason-jh.lin@mediatek.corp-partner.google.com>
 
-Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+This patch series adds support for the MediaTek MT8196 SoC in the CMDQ
+driver and related subsystems. The changes include adding compatible
+names and properties, updating driver data to accommodate hardware
+changes, and modifying the usage of CMDQ API to support non-subsys ID
+hardware.
+
 ---
- .../devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml     | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
-index cef9d7601398..73d6db34d64a 100644
---- a/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml
-@@ -25,6 +25,7 @@ properties:
-           - mediatek,mt8188-gce
-           - mediatek,mt8192-gce
-           - mediatek,mt8195-gce
-+          - mediatek,mt8196-gce
-       - items:
-           - const: mediatek,mt6795-gce
-           - const: mediatek,mt8173-gce
-@@ -49,6 +50,9 @@ properties:
-     items:
-       - const: gce
- 
-+  iommus:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - "#mbox-cells"
+Change in v2:
+1. Remove the constant and fix warning in dt-bindings.
+2. Remove the pa_base parameter of CMDQ APIs and related modification.
+3. Move subsys checking to client drivers and use 2 alternative
+   CMDQ APIs to achieve the same functionality.
+
+---
+
+Jason-JH.Lin (8):
+  dt-bindings: mailbox: mediatek: Add GCE header file for MT8196
+  dt-bindings: mailbox: mediatek: Add MT8196 support for gce-mailbox
+  mailbox: mtk-cmdq: Add driver data to support for MT8196
+  soc: mediatek: mtk-cmdq: Add pa_base parsing for unsupported subsys ID
+    hardware
+  soc: mediatek: mtk-cmdq: Add mminfra_offset compatibility for DRAM
+    address
+  soc: mediatek: Add programming flow for unsupported subsys ID hardware
+  drm/mediatek: Add programming flow for unsupported subsys ID hardware
+  media: mediatek: mdp3: Add programming flow for unsupported subsys ID
+    hardware
+
+ .../mailbox/mediatek,gce-mailbox.yaml         |    4 +
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c       |   34 +-
+ drivers/mailbox/mtk-cmdq-mailbox.c            |  107 +-
+ .../platform/mediatek/mdp3/mtk-mdp3-cmdq.c    |   26 +-
+ .../platform/mediatek/mdp3/mtk-mdp3-comp.h    |   41 +-
+ drivers/soc/mediatek/mtk-cmdq-helper.c        |   53 +-
+ drivers/soc/mediatek/mtk-mmsys.c              |   16 +-
+ drivers/soc/mediatek/mtk-mutex.c              |   12 +-
+ .../dt-bindings/mailbox/mediatek,mt8196-gce.h | 1439 +++++++++++++++++
+ include/linux/mailbox/mtk-cmdq-mailbox.h      |    3 +
+ include/linux/soc/mediatek/mtk-cmdq.h         |    1 +
+ 11 files changed, 1701 insertions(+), 35 deletions(-)
+ create mode 100644 include/dt-bindings/mailbox/mediatek,mt8196-gce.h
+
 -- 
 2.43.0
 
