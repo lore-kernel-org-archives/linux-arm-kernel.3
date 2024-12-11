@@ -4,69 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 680C2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 02:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C1DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 03:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1mx7XJOCZkqOCUMCxhvevt017R9j4FbeUmXeUiyYms=; b=tM1fzVuol13kBlXXCC6CV/G7zr
-	YR/k8Y0ixQdmJqdtkgUh1d1UOkY3cuStinO2cim7GernQK3uW3ZB3+/mfIAagfBNczj1pt/HuAvkN
-	+bri8f6hndR2bTxFvjJJVf09cX8p8HDoxVRpERwOIbWf7tHYsx9pffjaoyImxu6HyRXnsFv5Wl+h5
-	eP3pIpLHd2jLb1aquR7sM4NimTljkB8SGXTpjB1HrzGrqYSOD8yWgwkd8yCogxm4RNOhwBuVt9HOK
-	d3ndpzSwpnWM+tdnurwDLXGqnMb7/chq5uUaFptbHnGaVxE3ejc1kHDwcZVeDNdVNhcyxVKVmrs2Y
-	JlQ8qP2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fyjHBv4td4+Ael9pFbhPXxJFEvgvvveboZlnmo8QkTQ=; b=gpv6QUac1O7L45lRiUQdeqBaJP
+	oyAfz7+MsXoavyjxRR985yVWCpHZSB1LCUYisl8yPtJMM/3gmPQ3goDoZMOqi4UX75iQRlpeJd+1K
+	HR6HvLDIqxD/wFC7btFP4vlpYEjNjynTCYnUMdYRnpskk4Kc8QwjB+pht6fJSg7ZPrf2Ig3l0C6Sr
+	e+bYgaiTtBddn8+X/c7vNu8JH96c0zhu0yRFo8e/toxONxR3T+hi2o2tKLJV6TGuR2vYU6MRGSPbw
+	R8o8YxhMpNY+j+lG4iQe0pcoPE0rTMKdE1zKyYBC4P//UsyIqDokI4CAR9HNJgWBR+MoOsoiQOm5X
+	Jd6f28Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLCsx-0000000DYY0-1hlh;
-	Wed, 11 Dec 2024 02:55:35 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tLCx6-0000000DZMR-03AC;
+	Wed, 11 Dec 2024 02:59:52 +0000
+Received: from mail-bn8nam12on2062a.outbound.protection.outlook.com ([2a01:111:f403:2418::62a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLCrs-0000000DYPb-1lTv;
-	Wed, 11 Dec 2024 02:54:31 +0000
+	id 1tLCw2-0000000DZ7h-3lHh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 02:58:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JogQRrLyujIr6KHvgxEnXFxtLCIK85r8ZLwpTAs+FkWuwgYrx3pEmqws1aj1GaXtQT3GMPNK8qOqfc9e4EWQMis6vesBl6nyNJa7z1I3spFx/xnujM1NvUs/sf/RvPV1vuAmc7AcsRO++IQfO/3YpJmW5LWQiID04Y/O/hl+UNcNCxGfSociiPygvaSwoYsZt+VQ8Yk22Nks0uVpD7/UYrjoONQ0QpmZ23acDoyfutDBeSJNMZk2ZadEWA7fK1iC0ZxP0G58OLpqoukspRwjF1XHdEVtSKNXiZCtjpMcVDe+0Uo0IB/TeU16hjufA7nhJ67u9p50YZZlfmOYYAm7cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fyjHBv4td4+Ael9pFbhPXxJFEvgvvveboZlnmo8QkTQ=;
+ b=GyLGhwuKWM5FMjZbHew4Cyp2qUK4IeSyv9s7OTe42Z2V1z2qtxS4gs1csNqapkVe+9qNpREN2pbJgp8lL1IXMOurBs7E/SfTlfBHX7+occVgiN06Yy+d2VaGn053fgHxZDcPmgHFXZG1gifa5xbakSu0yKaMzat+TuTo3H4sMByC8ROCW5ZiB/CfZ6qjnnGS510JPRMEHZMb/JTZ+BLViubldEr5fHQbyU09o4oJXXF9pxN2M7n8gDSk9IGpE0MyzRmcsZx9XAKg15uwfes4JyKCdxiz3GqHAE4j9HQ07CIHyw9WIS+bZiU9G2ekkFFjSVsvomNXO1uOfhPQ6udSIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fyjHBv4td4+Ael9pFbhPXxJFEvgvvveboZlnmo8QkTQ=;
+ b=KPKU+JxD4y31uhD2IufCrh8EkJ7jrBpqtFGoKUN2cqm+Mnw/FCCpqWe3orKVvtjYaTuorWZjPvXrsJGhbFOjH2lf5qmxmaIHn8lV6oH4mRHDQFfVnZfdiF2JDywwKw1aT3w9o1DOuuNcqCPowU/1odUz7EJESVdhCTYj9s64RjRQtc0/Nu+5SaO01UL99Szapvl0Wk9Su121VzqNdZLB8PREbmKDZBYjxOj0bNzM5AVsaSAuiFUjkaxS6kMtib8f/D7KVaB4ti21K5XTUhu08+NFwjz9aZsK2zPQ+Bs3Yqj1YtQaOLPYoIcvdNXAvjQZ8mmJP3aeyuuflcI3TrOUvg==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by SJ2PR12MB8928.namprd12.prod.outlook.com (2603:10b6:a03:53e::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.14; Wed, 11 Dec
+ 2024 02:58:38 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8207.014; Wed, 11 Dec 2024
+ 02:58:38 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: Jason Gunthorpe <jgg@nvidia.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "joey.gouly@arm.com"
+	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, Aniket Agashe <aniketa@nvidia.com>, Neo Jia
+	<cjia@nvidia.com>, Kirti Wankhede <kwankhede@nvidia.com>, "Tarun Gupta
+ (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
+ Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
+ Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
+	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
+	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
+	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Topic: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Index: AQHbObyY4gofHx3CJE6tGYAUqrUkhLLfp+2AgADUH40=
+Date: Wed, 11 Dec 2024 02:58:38 +0000
+Message-ID: <SA1PR12MB71991EC85E8EEDD1C5115886B03E2@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20241118131958.4609-1-ankita@nvidia.com>
+ <20241118131958.4609-2-ankita@nvidia.com>
+ <20241210141334.GD15607@willie-the-truck>
+In-Reply-To: <20241210141334.GD15607@willie-the-truck>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|SJ2PR12MB8928:EE_
+x-ms-office365-filtering-correlation-id: 358bb3a9-bfa7-4874-0331-08dd198fb619
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?l3YHN8EWlLMDQHRHTY17HNQBoe2zFW7bFRYDrGoR+1mleZss/F4QZXTMOP?=
+ =?iso-8859-1?Q?hQoWErDiOg3WksUi9Z4tO+1HYAvTtugTrG+cOD5lA2SB0eTFx55Ak+xW6U?=
+ =?iso-8859-1?Q?WRhs4qRdR9ndCj4jeBunXScGuZpoPRDBsE+A9E/OYaPLT1faH0VPHsm0Yl?=
+ =?iso-8859-1?Q?wgb9XRzWDTeR1AZHvjE1mNl4oxUTNU5JIJKhLyaZShQAYChwPgel2j9uuB?=
+ =?iso-8859-1?Q?yz0FcSt79AR9fXXfUskq0uijxZb/peAOPzDBjuv5AguL7/Us6jVjcyx4Mj?=
+ =?iso-8859-1?Q?BbitEj+94wbTE9ih+FmMjb6ZllwG3Nlz3zCRcFoAVNKvkLu2UVVH+xFtIw?=
+ =?iso-8859-1?Q?DiJlxt302ZS8fkLdeShPLmfA1R37ahwQZ+UJ36JgQDk/Lm3EQsg+v0Ca8j?=
+ =?iso-8859-1?Q?jSop9R4A99uzyLvF5v4+zhj8lKdKgsjR8H2b/+pUm4Ho6Aq/elOqsORmXU?=
+ =?iso-8859-1?Q?TK2MfvGOQTDnLKZrsdWJ6PTfsUJLuOnruI1xaPUtQFYRAZfp4e7O7BXSCI?=
+ =?iso-8859-1?Q?D6TMn3zDsybM2+lGYCnpPFXjHEDKRYGC8Z46OJ5GFzCK9Z5qfF120w8JjK?=
+ =?iso-8859-1?Q?zXxXgA7FtsKc8ob4iZsNpN6mVL7lgrpyudF77JwO/TN7MpBjH37KAxq2sG?=
+ =?iso-8859-1?Q?Zw+piOkC4TThnlASk1tdB+cgf/5JaNi9Wjb0KuiilJsDUnr6BPR1vbmW4d?=
+ =?iso-8859-1?Q?K7roSwQMwzCW1mok4HvE4gokntZRLlwYrVFDFMdjRIrw2u/1sHy6EYcsfH?=
+ =?iso-8859-1?Q?SZdSfxZtNM88GBFNKh9zSktZ/N3AYg09WMLjCxGfFVEkxLXtIHddvjVJ+W?=
+ =?iso-8859-1?Q?w5swkS2sdK6e32r63b7IokqzkFRW/pb0Nst6P+cy/ML8/YIgXr5ctqncXA?=
+ =?iso-8859-1?Q?83uLhRd9R/n0pKM4gKM7yqOA+RYSg3mJztCP+b5Yxtc77MdyhuIRMYU+CA?=
+ =?iso-8859-1?Q?uZ4DiC30cUi/4DZ3qe3BpEhkIFyuCr2JSikbYbTfwg3QgUavw+v+C+Bb/r?=
+ =?iso-8859-1?Q?YcCqsO7GvcEfEuDgXgKoYUAIVBbLF/IH8/He+T3EjzzpqqAZCPrsTzsAxn?=
+ =?iso-8859-1?Q?tTODvJz2PtNjA1UAl5bP2DHQ2MO9X/n/fyeJ/bqNLqO6QjQWyi+Fya1YJf?=
+ =?iso-8859-1?Q?EuVPB4G9bsGp+Rmi9KAqaLo+j4PN14/Unp+29tImbKFlRO4MbEHDamhzRD?=
+ =?iso-8859-1?Q?DC8pVQlowz9oEOiOPcIGZLH8Qbjjy87wXIp0VW1HQ34YLG/oi+4J22h66U?=
+ =?iso-8859-1?Q?UyhKTAEyyVC93Cq3eWBpgKxkdoYiwSsP2lsG7N2KfgZjQM6M18kIPmvWKz?=
+ =?iso-8859-1?Q?MYRnvQQHGLFtmEHcZiY3yujG69hrwAzc6kNMiHDnl65N3s+k1jYnS9H4dh?=
+ =?iso-8859-1?Q?EvSFrXfm6qBp/tb//0BskSZXTHSu2kj552r95pXHngtJ/rSbObToEOIO35?=
+ =?iso-8859-1?Q?noZ9Wr/PCSHPeSvBvRhnN/r0GGjx1iU9fmBlVA=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?t/8guk6HaRFWo8RVePZM14mgSojFu3yG1D8cEVxOf8XhvkDhsgug6w2e6Z?=
+ =?iso-8859-1?Q?kx1oMnWy8IHN3piSeDtIzHINA0q5pcpi7+LNvOJSsH1ycbDhoMjP5Tg3W6?=
+ =?iso-8859-1?Q?3JF2O8iSPsd1fEoycm1qUJr915fbVk7sSOWKv1Mh9V6S0JmzfYaiMfi4L6?=
+ =?iso-8859-1?Q?7xLwYwgGIqKX0xPQyTgrQcFhFGsM1Kn1bILVWChHpIa1FBVvZmbq4gEeIK?=
+ =?iso-8859-1?Q?1+nILxqgY14YNbHYdjyYbbCsOdewhXwKcDre4XQGe8WRWMamdX8N3QoZIx?=
+ =?iso-8859-1?Q?HjssEoI1niyIBK5cQyjPWnbBs57VJmjXovyzhWiLglNhIntxz9jZ50HNp4?=
+ =?iso-8859-1?Q?7siGhOO1kOZMqOBdV0yI5X+/PMi4NTkFbYlwbDEcGfNsHLE68uUa7DJNt1?=
+ =?iso-8859-1?Q?n4aFlzLg1+sjlI+4Ggr7GgxvBNszTsk1QBLAq+HWvItBupZzq+Q1oDopWp?=
+ =?iso-8859-1?Q?HC77yo1bEdFfByqmcE/rf1xuSerXb8/YoldWuiHztusc4Zr4EhVMTU6u47?=
+ =?iso-8859-1?Q?JVSv25PR8hKbZV/SSufjp8pj8Mqod2Bnbi+4ebgJQJZWnnXG/dHdx9RWMD?=
+ =?iso-8859-1?Q?+ZKnyucLsxANy93ithph+MxVsH7XXeEMm7b3PBIliaHJQN3pY9tWrCFJ79?=
+ =?iso-8859-1?Q?nRiKTki5l1dBCjT07Iq6gwffpu24YfiZNp68PNXS42reurJVzu1Cbw7qN6?=
+ =?iso-8859-1?Q?9fTAeg9wniJcQ3KgvDKeozDpJA2azR64OFdb+0oP6Y9VSFCXfgblxNn++s?=
+ =?iso-8859-1?Q?k68PUpieumjYrHcHfqXoyi8Ug7ydF3nOsWtCezC10bWxtejuHRlChxZTeb?=
+ =?iso-8859-1?Q?QDZi2QVrEp0Uv16lkWFSynnMp0b//L7UJziIyl2eCDRUz43Xp36N8XQ8q5?=
+ =?iso-8859-1?Q?WScQAvVjSJuTxbyt0VT/cCZG5jmvxbmNtcmStkysoai25L+yZSnlHI+lcI?=
+ =?iso-8859-1?Q?MxY0P89qu+Xo3xTgxbQSLR7OMmq7zlH0dpfh06tuMwyWoeoTiZ7uV2W1Wr?=
+ =?iso-8859-1?Q?HvjREJWzqwjEgPerZwlQFV1rDJ21WLadXTUmY/vvwLIysKuHIznIJZP4GB?=
+ =?iso-8859-1?Q?lVxAVEzE0WTl/9/EMK3F6ugA124brxD+4nba85rxRbGSgGGgQOU4kc0Mrw?=
+ =?iso-8859-1?Q?RqRSoyq3HQ6rBlwhaHAuA6L9tjozwbM3x2bxf4epp1bDukBWtU4Vkbb/vT?=
+ =?iso-8859-1?Q?OkAe5KXIliUnfv+hih/yaWUmlazADKz/I6ocbssHE9brn2BueoVlsF8E8S?=
+ =?iso-8859-1?Q?RrbkG6sItLQpvxBRhVsJdnubHS6TNqeCpMdUih/O8e18/4PeKtOuN+suoi?=
+ =?iso-8859-1?Q?ZNbqEjFwFfUHGP5TiQvtzo/KRRt5vjURHWJMssuqD03xtfW3lyLv072D4g?=
+ =?iso-8859-1?Q?obho+FSd6Yt2/9gVWxWhJoN+SzVp2IebL0Mj50Av5oJSiMxumqSpYvWUkN?=
+ =?iso-8859-1?Q?FgTUd7FbcCyqmUaB/YPEJpNx0OAG415/iEg/q49WntF00Qm33IP7sbMv1g?=
+ =?iso-8859-1?Q?Qt/37+PQVbNjpasG9h9+xJoRol9fx/gk568V9tOSVCz5ehsjhZmHXTEx0j?=
+ =?iso-8859-1?Q?/eMJrWoDMMc3cyCxRBm/CNwCzsYfESl8VBDuEuDdy0oeTg4kJVPB/k/l+k?=
+ =?iso-8859-1?Q?hAYgQfdeE5Pf8=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1733885663;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q1mx7XJOCZkqOCUMCxhvevt017R9j4FbeUmXeUiyYms=;
-	b=ZO8zNfFTykNreqEzIRyE5Ap7GtT0s2YdYkUvSOpbnDysUwZoFWMP6yDRD/JFgoab5aMsea
-	x2lQX2y+B1TJZqbfm+HGF71Oj6ZHAdWcZ03tPBqlnWvdtY7FP9fCbtfcK62bjP6c3Teg7e
-	6UE94FgCXY0JAMKrMcAPFWawnnxZP46b84BgfJ1K6HFMMB/ZvVZBYl0vWxCn5TYs9CK1fR
-	mqfhQlClJrB4XDrB3a0GvH7lK8/rQJ3gWfAUrTaS2AX5JnFkKO9S6uQWWLT3L8sjB09Ahr
-	w2jv/Wi02GxnpYhtQlOKd0lvpn1d/sTJIxyfF+iLLESO49TVxb35S5pgbhVB8w==
-Date: Wed, 11 Dec 2024 03:54:22 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Peter Geis <pgwipeout@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Caesar Wang <wxt@rock-chips.com>,
- Detlev Casanova <detlev.casanova@collabora.com>, Finley Xiao
- <finley.xiao@rock-chips.com>, Jonathan Cameron
- <Jonathan.Cameron@huawei.com>, Kevin Hilman <khilman@linaro.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>, Ulf Hansson
- <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/6] pmdomain: rockchip: fix rockchip_pd_power error
- handling
-In-Reply-To: <CAMdYzYqmn0UktNfz7L352zcjgmxf4tsRs2fwiFXF7NbfPY4zSg@mail.gmail.com>
-References: <20241210013010.81257-1-pgwipeout@gmail.com>
- <20241210013010.81257-2-pgwipeout@gmail.com>
- <1b323d6e9ef873bfc770e9d54b7a3a64@manjaro.org>
- <CAMdYzYqmn0UktNfz7L352zcjgmxf4tsRs2fwiFXF7NbfPY4zSg@mail.gmail.com>
-Message-ID: <821c348ef4b8e199e662d6a49430d1e7@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 358bb3a9-bfa7-4874-0331-08dd198fb619
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Dec 2024 02:58:38.2044
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jKYxk+oOeQi/IL0QyfdByvrYitVdTY1K9E3eue3MLorytYViiFnikTfBmPaprEORA1HQcmRs83HujjxNcdmYzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_185428_761496_81D42DE9 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20241210_185846_940367_D8890CA1 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,148 +186,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
-
-On 2024-12-10 21:12, Peter Geis wrote:
-> On Tue, Dec 10, 2024 at 3:18 AM Dragan Simic <dsimic@manjaro.org> 
-> wrote:
->> On 2024-12-10 02:30, Peter Geis wrote:
->> > The calls rockchip_pd_power makes to rockchip_pmu_set_idle_request lack
->> > any return error handling, causing device drivers to incorrectly
->> > believe
->> > the hardware idle requests succeed when they may have failed. This
->> > leads
->> > to software possibly accessing hardware that is powered off and the
->> > subsequent SError panic that follows.
->> >
->> > Add error checking and return errors to the calling function to prevent
->> > such crashes.
->> >
->> > gst-launch-1.0 videotestsrc num-buffers=2000 ! v4l2jpegenc ! fakesink
->> > Setting pipeline to PAUSED ...er-x64
->> > Pipeline is PREROLLING ...
->> > Redistribute latency...
->> > rockchip-pm-domain ff100000.syscon:power-controller: failed to get ack
->> > on
->> > domain 'hevc', val=0x98260, idle = 0
->> > SError Interrupt on CPU2, code 0x00000000bf000002 -- SError
->> > CPU: 2 UID: 0 PID: 804 Comm: videotestsrc0:s Not tainted 6.12.0-rc5+
->> > #54
->> > Hardware name: Firefly roc-rk3328-cc (DT)
->> > pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->> > pc : rockchip_vpu2_jpeg_enc_run+0x168/0xbc8
->> > lr : device_run+0xb0/0x128
->> > sp : ffff800082143a20
->> > x29: ffff800082143a20 x28: 0000000000000140 x27: 0000000000000000
->> > x26: ffff582c47a313e8 x25: ffff582c53e95000 x24: ffff582c53e92800
->> > x23: ffff582c5bbe0000 x22: 0000000000000000 x21: ffff582c47a31080
->> > x20: ffffa0d78cfa4168 x19: ffffa0d78cfa4168 x18: ffffb755b0519000
->> > x17: 000000040044ffff x16: 00500072b5503510 x15: a7a6a5a4a3a29a99
->> > x14: 989796959493928a x13: 0000000051eb851f x12: 00000000000000ff
->> > x11: ffffa0d78d812880 x10: ffffa0d78d7fbca0 x9 : 000000000000003f
->> > x8 : 0000000000000063 x7 : 000000000000003f x6 : 0000000000000040
->> > x5 : ffff80008010d000 x4 : ffffa0d78cfa4168 x3 : ffffa0d78cfbfdd8
->> > x2 : ffff80008010d0f4 x1 : 0000000000000020 x0 : 0000000000000140
->> > Kernel panic - not syncing: Asynchronous SError Interrupt
->> > CPU: 2 UID: 0 PID: 804 Comm: videotestsrc0:s Not tainted 6.12.0-rc5+
->> > #54
->> > Hardware name: Firefly roc-rk3328-cc (DT)
->> > Call trace:
->> > dump_backtrace+0xa0/0x128
->> > show_stack+0x20/0x38
->> > dump_stack_lvl+0xc8/0xf8
->> > dump_stack+0x18/0x28
->> > panic+0x3ec/0x428
->> > nmi_panic+0x48/0xa0
->> > arm64_serror_panic+0x6c/0x88
->> > do_serror+0x30/0x70
->> > el1h_64_error_handler+0x38/0x60
->> > el1h_64_error+0x7c/0x80
->> > rockchip_vpu2_jpeg_enc_run+0x168/0xbc8
->> > device_run+0xb0/0x128
->> > v4l2_m2m_try_run+0xac/0x230
->> > v4l2_m2m_ioctl_streamon+0x70/0x90
->> > v4l_streamon+0x2c/0x40
->> > __video_do_ioctl+0x194/0x400
->> > video_usercopy+0x10c/0x808
->> > video_ioctl2+0x20/0x80
->> > v4l2_ioctl+0x48/0x70
->> > __arm64_sys_ioctl+0xb0/0x100
->> > invoke_syscall+0x50/0x120
->> > el0_svc_common.constprop.0+0x48/0xf0
->> > do_el0_svc+0x24/0x38
->> > el0_svc+0x38/0x100
->> > el0t_64_sync_handler+0xc0/0xc8
->> > el0t_64_sync+0x1a8/0x1b0
->> > SMP: stopping secondary CPUs
->> > Kernel Offset: 0x20d70c000000 from 0xffff800080000000
->> > PHYS_OFFSET: 0xffffa7d3c0000000
->> > CPU features: 0x00,00000090,00200000,0200421b
->> > Memory Limit: none
->> > ---[ end Kernel panic - not syncing: Asynchronous SError Interrupt ]---
->> >
->> > Fixes: 7c696693a4f5 ("soc: rockchip: power-domain: Add power domain
->> > driver")
->> > Signed-off-by: Peter Geis <pgwipeout@gmail.com>
->> 
->> This patch is obviously correct, because not checking what
->> rockchip_pmu_set_idle_request() returns was simply wrong.
->> Thanks for the patch!
->> 
->> Though, shouldn't we improve further the way proper error
->> handling is performed in rockchip_do_pmu_set_power_domain(),
->> by "rolling back" what rockchip_do_pmu_set_power_domain()
->> did after powering up fails?
-> 
-> Eventually, but the reality is if we hit this path the hardware is
-> already broken. I wanted to provide a fix with the least amount of
-> risk of breaking things further. I'm open to suggestions for further
-> improvements here.
-
-Perhaps a good approach, at the moment, would be to add no more
-code for the "rollback", but to add a TODO note about the need for
-that addition.  That way we'd keep the amount of changes at the
-minimum, to hopefully not cause any regressions, while leaving
-a note for the second round of improvements in the future.
-
-> Current behavior with this patch with the example above causes
-> gstreamer to wait indefinitely. I'll trace the return path and see if
-> returning an error other than -ETIMEDOUT triggers more robust
-> handling.
-
-Sounds like a plan to me.  Thanks for working on this!
-
->> 
->> > ---
->> >
->> >  drivers/pmdomain/rockchip/pm-domains.c | 8 ++++++--
->> >  1 file changed, 6 insertions(+), 2 deletions(-)
->> >
->> > diff --git a/drivers/pmdomain/rockchip/pm-domains.c
->> > b/drivers/pmdomain/rockchip/pm-domains.c
->> > index cb0f93800138..57e8fa25d2bd 100644
->> > --- a/drivers/pmdomain/rockchip/pm-domains.c
->> > +++ b/drivers/pmdomain/rockchip/pm-domains.c
->> > @@ -590,14 +590,18 @@ static int rockchip_pd_power(struct
->> > rockchip_pm_domain *pd, bool power_on)
->> >                       rockchip_pmu_save_qos(pd);
->> >
->> >                       /* if powering down, idle request to NIU first */
->> > -                     rockchip_pmu_set_idle_request(pd, true);
->> > +                     ret = rockchip_pmu_set_idle_request(pd, true);
->> > +                     if (ret < 0)
->> > +                             return ret;
->> >               }
->> >
->> >               rockchip_do_pmu_set_power_domain(pd, power_on);
->> >
->> >               if (power_on) {
->> >                       /* if powering up, leave idle mode */
->> > -                     rockchip_pmu_set_idle_request(pd, false);
->> > +                     ret = rockchip_pmu_set_idle_request(pd, false);
->> > +                     if (ret < 0)
->> > +                             return ret;
->> >
->> >                       rockchip_pmu_restore_qos(pd);
->> >               }
+Thanks Will for taking a look.=0A=
+=0A=
+>> The device memory such as on the Grace Hopper systems is interchangeable=
+=0A=
+>> with DDR memory and retains its properties. Allow executable faults=0A=
+>> on the memory determined as Normal cacheable.=0A=
+>=0A=
+> Sorry, but a change this subtle to the arch code is going to need a _much=
+_=0A=
+> better explanation than the rambling text above.=0A=
+=0A=
+Understood, I'll work on the text and try to make it coherent.=0A=
+=0A=
+=0A=
+> I also suspect that you're trying to do too many things in one patch.=0A=
+> In particular, the changes to execute permission handling absolutely=0A=
+> need to be discussed as a single patch in the series.=0A=
+>=0A=
+> Please can you split this up in to a set of changes with useful commit=0A=
+> messages so that we can review them?=0A=
+=0A=
+Yes. I'll take out the execute permission part to a separate patch.=0A=
+=0A=
+=0A=
+> Jason knows how to do this so you could ask him for help if you're stuck.=
+=0A=
+> Otherwise, there are plenty of examples of well-written commit messages=
+=0A=
+> on the mailing list and in the git history.=0A=
+=0A=
+Ack.=0A=
+=0A=
 
