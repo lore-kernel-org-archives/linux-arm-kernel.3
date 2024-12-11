@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25BDE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D789E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uYlOt8elByKXPK9GORjQgONkmgmYlAjU2y3ruhIiIQ=; b=ITCBD1Bo67Ya4WoYgOA/2FgNCA
-	g12e6BOcJOwrrZeQLlc6vXcd+Sj6duPjoJhTkKbhTy+ZmFhkW4x11888Vad5b6YAhocxWqVNXkkMn
-	th+nBHBXPGVTo4UPJDLBD19O4wiEIq4bMWEZ8LoqArbnf/Fq/bmglZTmbO74KOqUlkjBi8sr3DrgC
-	/Ntt7iXpkKdLpT6YGn1s6djU/BVQYCNv43aA774Ubvzs5TlnAN+/uZ15qQJAEbw/MEkKMUYOdfe+M
-	Ec3iCbeUci0vnwYOyfNd5Yh7JB182MUyrT2qQvQsg27zrbSx7yH3iXrHBjJNlETL7CTgWQdjSyjhI
-	EWF6e0qw==;
+	bh=hCb5dB9nLbwKSRYivA6WFY06vS0OrqZOGay4lpKE3uk=; b=tW7mnCt7wFmn5YKDfMJinSjAms
+	1trtdCBqzeGDIEt8bEBkXFRy0h1u/LhFSCG/cciNUC1OSkp6PbkThlO0c+sR2eG1JNcU8TbzPFMCN
+	DWFaZFr83w1rgSFWzoxp3pdlkF5pagtRiDT54+G+ZXbytN27YN5159nC8rXCw1WnzXJsNLQgditk+
+	CKJG2p1H1msEm3Dy4a6Ap8Cxjo2xhyv+HjaghKV4JOAlDy4uD0qFzwIruojaBfdvAnavs5okAliRn
+	MvB3eohgU0Tv2vJXgJeHNIt8pvyuuLsOCDcesvj2cL8bpJZ5yP43cvs7QLkVsKdO8wP5fXMyxld8d
+	5CakHDZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLU1W-0000000G92v-4BdE;
-	Wed, 11 Dec 2024 21:13:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLUIt-0000000GBMV-0QFN;
+	Wed, 11 Dec 2024 21:31:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLTr9-0000000G6x6-3cK5
+	id 1tLUHp-0000000GBGV-1Xii
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 21:02:53 +0000
+	Wed, 11 Dec 2024 21:30:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 929A85C5508;
-	Wed, 11 Dec 2024 21:02:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9029FC4CED2;
-	Wed, 11 Dec 2024 21:02:47 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2C021A41ADE;
+	Wed, 11 Dec 2024 21:28:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 908B7C4CED2;
+	Wed, 11 Dec 2024 21:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733950969;
-	bh=UuL6Tkk1/zyeCvpCEaNjww627w5GXUASRKbJM/voC/s=;
+	s=k20201202; t=1733952624;
+	bh=QN8NBE9T0l0nCy54fFLmu4grxTxcGTtywbY3oxKo6UE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sgWLhRqwtYaMdcOGWwKKyWGeq8ACgIw3/x30NSZ/jdF7Yw3u3GL0TqGKaSLlTdVWl
-	 qGZjbhDa1lnMmACXqPjcTSn/9IgUj74wxP8/meoBl8bPqpemIYuXMDfP+T8UKItV7I
-	 ZZ/VETi3pYoCGZnHXXO9sMFPp990bXpRdbg7mAwRBmFvc5Q/MQ+bscn/drmbiIYojf
-	 kSLEAEBNNplgxpdDp22F1Dy6UnHF6TP30sNfFVZluvqFR1uQzgNtE5cz+/2sG0CNmK
-	 5Cc53VTpAXU8FziYet1gYfskQcuiFEsHUbbltSx0M671uXwbU3yLaj5hYp5yDWklqe
-	 RRCkJ3rL8bcjQ==
-Date: Wed, 11 Dec 2024 21:02:44 +0000
+	b=PC8DBxKalTNKHRhRVXaSE/yFsEjc+YW4RbWfxHE0BR1b9eP3a2njMOJn5fYcbSCoe
+	 ooW91OXTRT6KncknkwC6hoWj9dBA+sItCvq7jg7hNwWYoXald+Q+4pJ/yxiEsETqfn
+	 uapoIAnfpIYPrOojg1dYGuGRYV4z7YCJW/gbAtP1I8MkYK+/Y1WnkZy+HKo5wajWdT
+	 AaDJwo637rLffLECJHItB/Tr7TtXAYQLG7Cp7iuXgFoRjUAhEzUlsqiT/781+T6W8j
+	 pl8xlTcd+RObcJK3UubhkyJJbyGe5cUDn163l8ri/uauY7aJ+2WqQYI7GQ5KTWSkRj
+	 eCHBDqBQqULgg==
+Date: Wed, 11 Dec 2024 21:30:19 +0000
 From: Will Deacon <will@kernel.org>
-To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-Cc: catalin.marinas@arm.com, corbet@lwn.net, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	liunx-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvmarm@vger.kernel.org
-Subject: Re: [RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20241211210243.GA17155@willie-the-truck>
-References: <20241211154611.40395-1-miko.lenczewski@arm.com>
- <20241211154611.40395-3-miko.lenczewski@arm.com>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com,
+	gshan@redhat.com, steven.price@arm.com, sami.mujawar@arm.com,
+	catalin.marinas@arm.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/1] arm64: rsi: Add automatic arm-cca-guest module
+ loading
+Message-ID: <20241211213018.GA17486@willie-the-truck>
+References: <20241207012128.247522-1-jeremy.linton@arm.com>
+ <20241207012128.247522-2-jeremy.linton@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241211154611.40395-3-miko.lenczewski@arm.com>
+In-Reply-To: <20241207012128.247522-2-jeremy.linton@arm.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_130251_984920_7BC32605 
-X-CRM114-Status: GOOD (  33.75  )
+X-CRM114-CacheID: sfid-20241211_133025_478399_0AA673F5 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,114 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 03:45:03PM +0000, Mikołaj Lenczewski wrote:
-> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> and this commit adds a dedicated BBML2 cpufeature to test against
-> support for.
+On Fri, Dec 06, 2024 at 07:21:28PM -0600, Jeremy Linton wrote:
+> The TSM module provides guest identification and attestation when a
+> guest runs in CCA mode. By creating a dummy platform device, let's
+> ensure the module is automatically loaded. The udev daemon loads the
+> TSM module after it receives a device addition event. Once that
+> happens, it can be used earlier in the boot process to decrypt the
+> rootfs.
 > 
-> In supporting BBM level 2, we open ourselves up to potential TLB
-> Conflict Abort Exceptions during expected execution, instead of only
-> in exceptional circumstances. In the case of an abort, it is
-> implementation defined at what stage the abort is generated, and
-> the minimal set of required invalidations is also implementation
-> defined. The maximal set of invalidations is to do a `tlbi vmalle1`
-> or `tlbi vmalls12e1`, depending on the stage.
-> 
-> Such aborts should not occur on Arm hardware, and were not seen in
-> benchmarked systems, so unless performance concerns arise, implementing
-> the abort handlers with the worst-case invalidations seems like an
-> alright hack.
-> 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > ---
->  arch/arm64/include/asm/cpufeature.h | 14 ++++++++++++++
->  arch/arm64/kernel/cpufeature.c      |  7 +++++++
->  arch/arm64/mm/fault.c               | 27 ++++++++++++++++++++++++++-
->  arch/arm64/tools/cpucaps            |  1 +
->  4 files changed, 48 insertions(+), 1 deletion(-)
+>  arch/arm64/include/asm/rsi.h                    |  2 ++
+>  arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
+>  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  8 ++++++++
+>  3 files changed, 25 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index 8b4e5a3cd24c..a9f2ac335392 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -866,6 +866,20 @@ static __always_inline bool system_supports_mpam_hcr(void)
->  	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 188cbb9b23f5..b42aeac05340 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -10,6 +10,8 @@
+>  #include <linux/jump_label.h>
+>  #include <asm/rsi_cmds.h>
+>  
+> +#define RSI_PDEV_NAME "arm-cca-dev"
+> +
+>  DECLARE_STATIC_KEY_FALSE(rsi_present);
+>  
+>  void __init arm64_rsi_init(void);
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 3031f25c32ef..5434e5496ac2 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/psci.h>
+>  #include <linux/swiotlb.h>
+>  #include <linux/cc_platform.h>
+> +#include <linux/platform_device.h>
+>  
+>  #include <asm/io.h>
+>  #include <asm/mem_encrypt.h>
+> @@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
+>  	static_branch_enable(&rsi_present);
 >  }
 >  
-> +static inline bool system_supports_bbml2(void)
+> +static struct platform_device rsi_dev = {
+> +	.name = RSI_PDEV_NAME,
+> +	.id = PLATFORM_DEVID_NONE
+> +};
+> +
+> +static int __init rsi_init(void)
 > +{
-> +	/* currently, BBM is only relied on by code touching the userspace page
-> +	 * tables, and as such we are guaranteed that caps have been finalised.
-> +	 *
-> +	 * if later we want to use BBM for kernel mappings, particularly early
-> +	 * in the kernel, this may return 0 even if BBML2 is actually supported,
-> +	 * which means unnecessary break-before-make sequences, but is still
-> +	 * correct
-> +	 */
-> +
-> +	return alternative_has_cap_unlikely(ARM64_HAS_BBML2);
-> +}
-> +
->  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->  bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
->  
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 6ce71f444ed8..7cc94bd5da24 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2917,6 +2917,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		.matches = has_cpuid_feature,
->  		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
->  	},
-> +	{
-> +		.desc = "BBM Level 2 Support",
-> +		.capability = ARM64_HAS_BBML2,
-> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.matches = has_cpuid_feature,
-> +		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, BBM, 2)
-> +	},
->  	{
->  		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
->  		.capability = ARM64_HAS_LPA2,
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index ef63651099a9..dc119358cbc1 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -844,6 +844,31 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
->  	return 0;
->  }
->  
-> +static int do_conflict_abort(unsigned long far, unsigned long esr,
-> +			     struct pt_regs *regs)
-> +{
-> +	if (!system_supports_bbml2())
-> +		return do_bad(far, esr, regs);
-> +
-> +	/* if we receive a TLB conflict abort, we know that there are multiple
-> +	 * TLB entries that translate the same address range. the minimum set
-> +	 * of invalidations to clear these entries is implementation defined.
-> +	 * the maximum set is defined as either tlbi(vmalls12e1) or tlbi(alle1).
-> +	 *
-> +	 * if el2 is enabled and stage 2 translation enabled, this may be
-> +	 * raised as a stage 2 abort. if el2 is enabled but stage 2 translation
-> +	 * disabled, or if el2 is disabled, it will be raised as a stage 1
-> +	 * abort.
-> +	 *
-> +	 * local_flush_tlb_all() does a tlbi(vmalle1), which is enough to
-> +	 * handle a stage 1 abort.
-> +	 */
-> +
-> +	local_flush_tlb_all();
-> +
+> +	if (is_realm_world() &&
+> +	    platform_device_register(&rsi_dev))
+> +		pr_err("failed to register rsi platform device\n");
 > +	return 0;
 > +}
+> +
+> +arch_initcall(rsi_init)
 
-Can we actually guarantee that we make it this far without taking another
-abort? Given that I'm yet to see one of these things in the wild, I'm
-fairly opposed to pretending that we can handle them. We'd be much better
-off only violating BBM on CPUs that are known to handle the conflict
-gracefully. Judging by your later patch, this is practically keyed off
-the MIDR _anyway_...
+This file already has an arm64_rsi_init()... Ideally, we'd hang this
+off the end of that instead of the initcall but I suspect you're going
+to tell me that platform_device_register() doesn't like being called
+that early?
+
+If so, perhaps arm64_create_dummy_rsi_dev() might be better?
 
 Will
 
