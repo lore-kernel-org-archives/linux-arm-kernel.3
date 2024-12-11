@@ -4,96 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D29FE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD783E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2eiLZxyAdC236sk/Nqx7Ju43ISHYNk16b5WIFQxB0EE=; b=WljduPIk9qYspfbV+u1M3DPMUd
-	cakh5CCr174w1ZHGtuXjYc8jXyq1Evq24Pk/a3g0h49mjQgwRA9DaQ6ceWlOmI+v5GF8E9ZqwQO7v
-	sfyPrdoO7L3Znm4w5gyV3uP7Y9u97gmg+zrtOQv4gQn50UpMAd98g9cZrcuJ14utsVWwNHgvSYKs5
-	xFn4+jEFefjk6WmhySgPdBdTY8BE6ePSs9VRc6ZG3MikUurKbnOjX1pEMv5UCQvRq8sbpgTshzS6c
-	4oANqBp9dqj+7Lt6EXy7jU8FascU89r0Mj+e88mZkSAl7FRL+n7O65L7t6d9jQiTu4sRuXHoNMfS/
-	ORiqWeAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u4j+iNOuE80b5cF1isLUMFrawlYtjdat+uShb0WBEyY=; b=IYZUTGBOfYjJK1DNP4GshBUWBs
+	kUk3JTgHwmdyV1mEVYM3QoqDfFXbntuAUhOnPbl1HvHw1UarqAu0BZj90VsCrWUYJqRoGDQYOOqpN
+	K4Ns8RGEDH9AKx/tzsWlbfEOovIqlg6QPu8DFV+LhKAK1xag7ik1fm58FjJJaZcOYUhhfgaf3SOjs
+	lC94uWTSFc5LBmFzTDqVSDTzdTIYeIZil6pgieg228uskPYmqyO/sY9wmGTM5qAY5/CaRVpNTZL3b
+	d8eyXIbi+bqI7uFMzc/UaesVnwtY6495xom9gDqxPDJSDlK4SCDy/5gFMqS5euoZFI2HtwUaRJPhz
+	ziF5wNhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPCZ-0000000FNlv-3KS6;
-	Wed, 11 Dec 2024 16:04:39 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLP98-0000000FMva-0Y8a;
-	Wed, 11 Dec 2024 16:01:07 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5d3cd821c60so594983a12.3;
-        Wed, 11 Dec 2024 08:01:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733932864; x=1734537664; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2eiLZxyAdC236sk/Nqx7Ju43ISHYNk16b5WIFQxB0EE=;
-        b=khD/yiXZCRfJfsvJqgTf2Ug3Eu39GFSywYbquLHQSFsHTar38mBDS5DjJAvJKWdrvD
-         7pqByShOGGUWDchdh/UT6IDZcECv3ts8xlBNZEb7RHZqWAts8Rft6jDBgTQ0XyNTs4AS
-         6bA8Oj5G86d1FDLA1mFt9yx9nQnhOxGw5RTIA7o83LCqGiQ5dh54rYxjg7viwxCbGSfI
-         8kfB4t52w/dYKi5R6+UYJ3v94MwFfp+xcBhKnz9TPlCAu10b/jdzkGmP/Li+LZKFa/gJ
-         4qD7Gtmue9K+4Ly/JE7Ifx1p4MN/Tq0oL3V21/+XhwQq8tQS0dLs2uTFQLcTtfdvC6no
-         7BrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733932864; x=1734537664;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2eiLZxyAdC236sk/Nqx7Ju43ISHYNk16b5WIFQxB0EE=;
-        b=sTO1k++ao1m2kf6R2VVONCtx+Dqh0BqeJGaaihAwMBVNjr6YORoJqCQE3vJrKFS0dI
-         +m0fbdIzfjrg9ARK0f1DBSW7xtpBSvdHxLtP0tozIVN4V6EXM4jQkwOJng0NikuRCYfv
-         gxGkW4voP38+ke0omkGPGA991k1T41wk77vKsocW/PkNGb0eSySvPLOTVZwU0msZFFAM
-         FY5T7mHWpol5O/fgixpyUsFbnW/x+y9ziaYVALeCB/CJZcTgT+JC2Nly6RI17ktqaUbI
-         h5NIr+rXwYwNmhlH56QEerWyoRxoj2ylinpYmu6zLuu4mHS+j6j9hGSFRKBLhvylFgNP
-         5hRg==
-X-Forwarded-Encrypted: i=1; AJvYcCVbKb99PJKi3S7tjd+CAOZ7Qhfl7udm3kPNYLLVZ5EyG9FW4//YIrM9b6NNgE4k2umzKCR/2G7+EuGEJ6RjstbC@lists.infradead.org, AJvYcCWIAiaHxauq7rf78qOqcPMHDzEzpn7soatJnll+7adfAEARa2lY8Ffj+pQYr3qUTh8L7/Qhm4GQdh3LKIGMzIw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyMvvzr3GwC836wiHEJq58Y0xb+HkR45RES4A7FtONCzEk5HZb
-	/JU6LcPWf/zRsJiuE3xytZSDTdrSLcie9adFT4TD+P3K5uyyuI2G
-X-Gm-Gg: ASbGnctZwH4PBtBgSn5DF2rLU3wE3GbcWNxwbi+2aIY/0UShKczoyBcHWWSj8nmKUsF
-	iinppolqYsrclFkjKdfvIPPiLZn0prr/fmfEnN9bdfpBMvIFz4slCELw8KQmd/ypzPyFLHV1eMs
-	2MFLpxeYd51yaHcB62siO4eHCwNgRMljnOBSE/Hgpc0nlOe3Uume88DVTm0nyX9xswuyW7hfKcB
-	3FEAVQGtw9SKIIEVawDNrnpFX0CpFeQKQ4su4Lrmw==
-X-Google-Smtp-Source: AGHT+IGpHZ7duPMWiLF14rljsFoBTbUsF6ObaJbe99GJ62pMOFoPQ178gwFizB5Dr+oYjlRztVrq1w==
-X-Received: by 2002:a05:6402:5193:b0:5d0:bf79:e925 with SMTP id 4fb4d7f45d1cf-5d43314d34cmr1136018a12.6.1733932863555;
-        Wed, 11 Dec 2024 08:01:03 -0800 (PST)
-Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3e7349b44sm6244827a12.71.2024.12.11.08.01.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 08:01:02 -0800 (PST)
-Date: Wed, 11 Dec 2024 18:00:59 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	id 1tLPDq-0000000FOBB-3r82;
+	Wed, 11 Dec 2024 16:05:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLPAz-0000000FNK8-0W2x
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 16:03:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BEB415A1;
+	Wed, 11 Dec 2024 08:03:28 -0800 (PST)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED4963F5A1;
+	Wed, 11 Dec 2024 08:02:57 -0800 (PST)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: ryan.roberts@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Matthias Brugger <matthias.bgg@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
-	Woojung Huh <woojung.huh@microchip.com>
-Subject: Re: [PATCH net-next 0/9] net: dsa: cleanup EEE (part 1)
-Message-ID: <20241211160059.ypcydtoenlfc2wog@skbuf>
-References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: [RESEND RFC PATCH v1 1/5] arm64: Add TLB Conflict Abort Exception handler to KVM
+Date: Wed, 11 Dec 2024 16:01:37 +0000
+Message-ID: <20241211160218.41404-2-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241211160218.41404-1-miko.lenczewski@arm.com>
+References: <20241211160218.41404-1-miko.lenczewski@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_080106_166942_671DF358 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_080301_196332_CAF5D93F 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,9 +74,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 02:17:52PM +0000, Russell King (Oracle) wrote:
-> Part 2 will remove the (now) useless .get_mac_eee() DSA operation.
+Currently, KVM does not handle the case of a stage 2 TLB conflict abort
+exception. The Arm ARM specifies that the worst-case handling of such an
+exception requires a `tlbi vmalls12e1`. Perform such an invalidation
+when this exception is encountered.
 
-Thanks for the work. For part 2, could you also include changes to
-Documentation/networking/dsa/ to explain the new usage pattern?
+Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+---
+ arch/arm64/include/asm/esr.h | 8 ++++++++
+ arch/arm64/kvm/mmu.c         | 6 ++++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index d1b1a33f9a8b..8a66f81ca291 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -121,6 +121,7 @@
+ #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
+ #define ESR_ELx_FSC_SECC	(0x18)
+ #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
++#define ESR_ELx_FSC_TLBABT	(0x30)
+ 
+ /* Status codes for individual page table levels */
+ #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
+@@ -464,6 +465,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
+ 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
+ }
+ 
++static inline bool esr_fsc_is_tlb_conflict_abort(unsigned long esr)
++{
++	esr = esr & ESR_ELx_FSC;
++
++	return esr == ESR_ELx_FSC_TLBABT;
++}
++
+ /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
+ static inline bool esr_iss_is_eretax(unsigned long esr)
+ {
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index c9d46ad57e52..c8c6f5a97a1b 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1756,6 +1756,12 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
+ 	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+ 
++	if (esr_fsc_is_tlb_conflict_abort(esr)) {
++		// does a `tlbi vmalls12e1is`
++		__kvm_tlb_flush_vmid(&vcpu->kvm->arch.mmu);
++		return 1;
++	}
++
+ 	if (esr_fsc_is_translation_fault(esr)) {
+ 		/* Beyond sanitised PARange (which is the IPA limit) */
+ 		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
+-- 
+2.45.2
+
 
