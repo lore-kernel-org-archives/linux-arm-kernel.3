@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29888E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 08:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D83E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 08:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uG2zljt/qHOjxH52ocGMOmYm70qQ6Jm1vSHHeh/qu3s=; b=3KOjWSNCsQE/u29+d56w/ffTVm
-	hiYS0maXO7x2mhyUlBc6dSq6ixB6Da4TtkrtVCwpLAn5bJe6orRe5Wjv1az7Z15gNsoA4NaF212WC
-	R4rvBZsyJ+MVaK3OTGEOu/RaIN7XoqEf6c6x8woyrZy7RhCa5ZKbX6fiQUodjbfB+yD8HjcsNpQ/e
-	2aNxxo8Ic9r3yT/zfkSsFvP5CudUCsKhDIcq2ckvi1d24MIYGQWzrxdCNducNPXA+IXRkmbDJt9jE
-	ok136L/SpeckoGPTGlZdz2KRcZqIosJATW6LFi9bzNKNV16ujnmw5E3CX3YtH8TEGagmXhu6sbiqM
-	RmL5MGyw==;
+	bh=TOB+Fxp49rSShIZTVjtd1jIBj8qsd4mGBRlOc0nOjoY=; b=Y7cVA/gqWFFe0rjthDRro+ri7I
+	NTR8ssRWm6EOajD02vD2+Zhn/Z9hh2AhfAq00xMf2zGZdo5YzygtkQQagwuFAsIgeAuslJMKLiGuT
+	EPaV5qpc/+HAi2UZJkH8/etvkC8iXTsk6I5YqhFbk9GBX86/ftlYh2c8NWAUAuW2/l3AMcisL+jkx
+	vmG7iYoM0VczpPmVhE+tasQ8AU7P6RoEQ/WYdnSKJvKYcSiVGgwM9QV2thULdF/vFCv9pe+7maXUn
+	1l0ejKq4nBojGaRCI9Pz2luFCXaMwkrDMr2vHH3MG4FpUzP5V7kwVWJ1X1NwXbbXgURImz3ZyjPFU
+	GoF9SQPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLIO5-0000000EH71-2k8Y;
-	Wed, 11 Dec 2024 08:48:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tLIP7-0000000EHPI-2mIN;
+	Wed, 11 Dec 2024 08:49:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLIN1-0000000EGpu-29JL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 08:47:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 51942A41F88;
-	Wed, 11 Dec 2024 08:45:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B37E6C4CED2;
-	Wed, 11 Dec 2024 08:46:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733906818;
-	bh=u8rE7HesJK8eF5rDPer2tx63YrHUDJD+InQWPlIuiJM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QT+Yv2qqqJhSilnfM65d4CMKFJnqvOBRkF2DD3rjqRZa61MnzFLQ3NCrLj1DlS7Dr
-	 qH+lwJr/qaUS7a+GRf/CIH/+nZDZORnBlnDNoLdUld05XDGNyDyi9MzBzNbRUR4At7
-	 sFxXAlerQgzcPc6J5G+Oqy3ffV6clGOj4dNcwH53OPd2c4kO7xlo7o42hupYPJtxeN
-	 i6lRTKIZy8XXW/5PHq9bw5ELxLUTcjRK6YvVgGwZhuA5z3wdgHBS8Nq4Nlzo8w9oDF
-	 SWiGsYL8wpvTk+C6TvrABsFYs13N9ZkTdTLxG0tJ9i6sduul9sc1Bgsam3AaWRcA9e
-	 XbSSL3r6iVO6g==
-Date: Wed, 11 Dec 2024 09:46:54 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] coresight: Add label sysfs node support
-Message-ID: <avimk3fdjal6ohezktrexnbguxf6wj5tv6jbcqy5r4bnuww6kz@3xjt3mutne7n>
-References: <20241210122253.31926-1-quic_jinlmao@quicinc.com>
+	id 1tLINS-0000000EGwI-15Zh;
+	Wed, 11 Dec 2024 08:47:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=TOB+Fxp49rSShIZTVjtd1jIBj8qsd4mGBRlOc0nOjoY=; b=fFDwsdp22wcbCT+bR3kubCHU7P
+	RgjeyO2qzR2mrXOHIzbvyXNyJmiTtyixsDWmkL+7GTA458f+BQtAlLKGR5M0koTY12SzYatQzcfAT
+	KVFy/duNKx3RB/Ay3zxnrJX+o9QFscjXydr3HfVAiNkVEWgy0R6uIce38V3EsH2n3WpWN7rkr1YGS
+	G29nCmuM0v4Ss6poRMfMmEd6faZJrAEpe7in/bMwYsBCZy1lNZqzTmHebq2W/HjDUbaka33acg0HH
+	T3kBCi086tPHtknNMKNEtd+jjETUR+6Nl5NdgwcVJf7OunvqLCf4v1iMWTNzGHjDeZFCVM+Xkx90y
+	xhDC3BFQ==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tLIN0-0000Bg-N9; Wed, 11 Dec 2024 09:46:58 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Alexandre ARNOUD <aarnoud@me.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] Add support for HDMI1 output on RK3588 SoC
+Date: Wed, 11 Dec 2024 09:46:57 +0100
+Message-ID: <12942826.iMDcRRXYNz@diego>
+In-Reply-To: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241210122253.31926-1-quic_jinlmao@quicinc.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_004659_612342_226F8525 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20241211_004726_342668_B4D8D8C1 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +80,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 08:22:51PM +0800, Mao Jinlong wrote:
-> With current design, the name of the non-cpu bounded coresight
-> component is the device type with the number. And with 'ls' command
-> we can get the register address of the component. But from these
-> information, we can't know what the HW or system the component belongs
-> to. Add label in DT and show the hw information by reading label sysfs
-> node.
+Hi Cristian,
+
+Am Mittwoch, 11. Dezember 2024, 00:06:13 CET schrieb Cristian Ciocaltea:
+> The patches provide the basic support to handle the second HDMI output
+> port found on Rockchip RK3588 SoC.
 > 
-> cti_sys0 -> ../../../devices/platform/soc@0/138f0000.cti/cti_sys0
-> cti_sys1 -> ../../../devices/platform/soc@0/13900000.cti/cti_sys1
-> tpdm0 -> ../../../devices/platform/soc@0/10b0d000.tpdm/tpdm0
-> tpdm1 -> ../../../devices/platform/soc@0/10c28000.tpdm/tpdm1
-> tpdm2 -> ../../../devices/platform/soc@0/10c29000.tpdm/tpdm2
+> For now I enabled it on Radxa ROCK 5B only, the board I've been using to
+> validate this.
 > 
-> /sys/bus/coresight/devices # cat cti*/label
-> cti_dlct_0
-> cti_dlct_1
-> cti_apss_0
-> cti_apss_1
-> cti_apss_2
+> ** IMPORTANT **
 > 
-> Change since V4:
-> 1. Add label in DT and add label sysfs node for each coresight device. 
+> The series has a runtime dependency on "phy: phy-rockchip-samsung-hdptx:
+> Don't use dt aliases to determine phy-id", a patch submitted recently by
+> Heiko [1].  Without applying it, the functionality on both HDMI TX ports
+> will break.
 
-This is v5, no links to previous versions (I really suggest to start
-using b4 if you want to make your process easier for you), no other
-changes so subject is obviously the same and looking for this patchset
-previous versions gives me 0 results:
+Looking at the drm/rockchip patch, that should not cause disruptions on
+its own, right?
 
-https://lore.kernel.org/all/?q=%22coresight%3A+Add+label+sysfs+node+support%22
-
-OK, let's try b4 diff:
-
-b4 diff '20241210122253.31926-1-quic_jinlmao@quicinc.com'
-Grabbing thread from lore.kernel.org/all/20241210122253.31926-1-quic_jinlmao@quicinc.com/t.mbox.gz
-Checking for older revisions
-Grabbing search results from lore.kernel.org
-Nothing matching that query.
----
-Analyzing 3 messages in the thread
-Could not find lower series to compare against.
+Only with the dts-parts enabled would we run into phy-issue.
+(Asking, because things go through different trees and the drm
+part looks ready)
 
 
-So how do you expect us to do any meaningful review?
+Heiko
 
-Best regards,
-Krzysztof
+
+> Furthermore, please note this is subject to the same limitations as
+> HDMI0 when it comes to the supported display modes.  The fixes provided
+> via [2] are not applicable to HDMI1, hence I will handle it separately
+> as soon as all dependencies are merged.
+> 
+> Thanks,
+> Cristian
+> 
+> [1] https://lore.kernel.org/lkml/20241206103401.1780416-3-heiko@sntech.de/
+> [2] https://lore.kernel.org/all/20241116-vop2-hdmi0-disp-modes-v1-0-2bca51db4898@collabora.com/
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> Changes in v2:
+> - Override hdmi1 pinctrl-0 on rock-5b as it requires hdmim0_tx1_cec
+>   instead of hdmim2_tx1_cec (fixes a pin conflict when enabling
+>   CONFIG_SPI_ROCKCHIP_SFC)
+> - Link to v1: https://lore.kernel.org/r/20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com
+> 
+> ---
+> Cristian Ciocaltea (4):
+>       drm/rockchip: dw_hdmi_qp: Add support for RK3588 HDMI1 output
+>       arm64: dts: rockchip: Add PHY node for HDMI1 TX port on RK3588
+>       arm64: dts: rockchip: Add HDMI1 node on RK3588
+>       arm64: dts: rockchip: Enable HDMI1 on rock-5b
+> 
+>  arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi  |  62 ++++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts |  44 ++++++++-
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c  | 119 +++++++++++++++++++-----
+>  3 files changed, 200 insertions(+), 25 deletions(-)
+> ---
+> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+> change-id: 20241207-rk3588-hdmi1-704cbb7cd75f
+> 
+> 
+
+
+
 
 
