@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24EFE77182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 08:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F1CE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 08:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OcTZJffRKJFLQ0fKlKmrd75g6mQ38s5WcS/uLYuZ4Jk=; b=RiWOiuGVmIFHS+jM+RSmRk0tVU
-	h9BxBxg8XtpNMe5WO8Mf8Ov09mOTTB+jz5N/r6kv/1w5F5M5IGV0XNe07dNB1+HPXiXm+9XjqHBtz
-	EOc/rQrrmDloSGAVqB8Mv20PpYMwQV31Ih8UYEyfrj3Mwgt9NRU7CA8hZE8Nokvhyb5Do1zHcHMIU
-	mcXj29Viw2nxabIgY2nH0Fvc/BPQNyvhLgDWixbnKMGBh4qHSkBIMQ7y0nmixYMOiJjU3B6Fhmd18
-	/PIE/4Uh/lEOPxSHnUQ+MIVupmufgTseRJOYi8b1Cu4bdXQPSGXMC4wOpFqZJnjY/HwtgXjCGTEIz
-	p4fjFF3g==;
+	bh=WUoipqwINErtScImQT/pK8ikFLW9WxsFyv2aWgrTKQU=; b=fojg2zTKRvrgYTd5d9H+CZhQND
+	WSkktgJOcZVmlrPgw58phe6HxEtBzqKAJgaTYN4pOz2SYTTOFlo6VIMu8NrMRAyXEcuTzV9LTm/jT
+	2Bt1Y+PSSc+olTbpKNbK5R/oKhbDFBe5E5njcdxmX8HfBJJEzXOVoqV5rC8Z/SsOcP11M68fguwXD
+	L2+Ujqk6FAykMQdhYfTH6dBI792rXAeDZfTklhvTf7yLpZCCvvJkgIv5nzgQTMuOutl2LQJXn9pww
+	JCRfWEA9kWf3UIDPMGjJnYjUmrW+dS3z1XwAubW1W+9eLlzPsh5gEH4dRUf4T3YTxfmmY0WxwDMSD
+	lSH3ZkCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLIJD-0000000EFyl-3TUK;
-	Wed, 11 Dec 2024 08:43:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tLILG-0000000EGTJ-08x6;
+	Wed, 11 Dec 2024 08:45:10 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLIIA-0000000EFpN-0T3n;
-	Wed, 11 Dec 2024 08:41:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8B83DA41FD3;
-	Wed, 11 Dec 2024 08:40:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 519F9C4CEEE;
-	Wed, 11 Dec 2024 08:41:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733906516;
-	bh=11k4EF5OtV96AkBGLTd+hH0qKo61NlPe3GiJ6SKgOkU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pm8GQBRyxvJBdkrJvB5xqnkaQDK3pQH87o2d08mKRohKRhHeZREIXkL0k4nqUt2cm
-	 hPk5xQc3DdC83EUlt0uuVyRLixOlSM/eq/88PsXvN7dVJqm/xljHvKMIBC1C/gFBHQ
-	 P8aJVl5g1ko3s6+ndoUJmGaN+L+ce0g8sKQS3+1C6YhCPXYds31oE4aUehqq1aqt3U
-	 rq15OYEnt6oohrzKUah8SL1L/YUO6y2qYlI1J5WAyK9LQzlpbzO/tP8WJBI/FgEn3F
-	 ndJ1ytAS7pYHzrUy+wcnCubZp+bJEiXgPYiWJqv5+94lJqn7J9A9Qwoszdch4dNaPq
-	 LIrJbvVowJqtg==
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-5d3d479b1e6so5819948a12.2;
-        Wed, 11 Dec 2024 00:41:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU9q4IUn55RxgjZ3L65mRpduz7b8RQRFfda1ic16uwzgAt2QacylYZMyc0b7NmfJqnejhR7ecna25+f2+Q=@lists.infradead.org, AJvYcCWvVcKNNsjCV+oDJUESxvyt8OzWL9S1JmY8wSgfEq89IO/DccsVirtLhIHf0ACdPceRV9EjSsL6ItrI+TBIphF2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi5ZDDFomjZX3SaMf7zhFT7Xz9RwpVyPEkZMPJAD5q1HMXe2R2
-	XUWPrcjpvMe+DfXPJOVNTBNw4jXk/Dev6yEhF4D9RoTaUOzhKa7DtQd+V4z2gisAfxGX4k1PNzB
-	VqoyRXPXJSHejl8lEGINUylzPSPI=
-X-Google-Smtp-Source: AGHT+IGBqIIVL8M8gd1swf2r/NXYFCJNyY0lS3KZFrZ3efUdXDZaZlzPpq5HkoxLe8d8jwzVBsIy563EXgXKfOfsJeo=
-X-Received: by 2002:a05:6402:2105:b0:5d0:cfad:f71 with SMTP id
- 4fb4d7f45d1cf-5d43316510amr4128041a12.32.1733906514580; Wed, 11 Dec 2024
- 00:41:54 -0800 (PST)
+	id 1tLIKB-0000000EGBX-1Qp3;
+	Wed, 11 Dec 2024 08:44:04 +0000
+Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
+	by mxout1.routing.net (Postfix) with ESMTP id 13DE340349;
+	Wed, 11 Dec 2024 08:43:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1733906639;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WUoipqwINErtScImQT/pK8ikFLW9WxsFyv2aWgrTKQU=;
+	b=fET0avlRfjFvv6n1c4Q7Byb5prAb2b6BY2o49YLKT3+i/tNGTqN5LxuMYxmsigTLJ5WuZf
+	TduRVyFFyJpATin75Ah4YgvM0WSqzgGn1JPEQJEAfgVGQdO/sSNxB9HZ4U1CYfVH+ihB2k
+	LOvt0BkmZZ0UPpSCW1ka4m2JJZ+PhY8=
+Received: from webmail.hosting.de (unknown [134.0.26.148])
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id 46180360076;
+	Wed, 11 Dec 2024 08:43:58 +0000 (UTC)
 MIME-Version: 1.0
-References: <20241210001802.228725-1-fujita.tomonori@gmail.com> <20241210001802.228725-5-fujita.tomonori@gmail.com>
-In-Reply-To: <20241210001802.228725-5-fujita.tomonori@gmail.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Wed, 11 Dec 2024 16:41:42 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H7BxE7xeA982Pr4PFxgfNpgXs6H4OZ2LydmYAtYjvYNaw@mail.gmail.com>
-Message-ID: <CAAhV-H7BxE7xeA982Pr4PFxgfNpgXs6H4OZ2LydmYAtYjvYNaw@mail.gmail.com>
-Subject: Re: [PATCH v1 4/5] loongarch/bug: Add ARCH_WARN_ASM macro for
- BUG/WARN asm code sharing with Rust
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	x86@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	catalin.marinas@arm.com, will@kernel.org, kernel@xen0n.name, 
-	tangyouling@loongson.cn, hejinyang@loongson.cn, yangtiezhu@loongson.cn, 
-	ojeda@kernel.org, alex.gaynor@gmail.com, boqun.feng@gmail.com, 
-	gary@garyguo.net, bjorn3_gh@protonmail.com, benno.lossin@proton.me, 
-	a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Wed, 11 Dec 2024 09:43:58 +0100
+From: "Frank Wunderlich (linux)" <linux@fw-web.de>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean
+ Wang <sean.wang@kernel.org>, Frank Wunderlich <frank-w@public-files.de>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Daniel Golle <daniel@makrotopia.org>,
+ Sam Shih <sam.shih@mediatek.com>, =?UTF-8?Q?Ar=C4=B1n=C3=A7_=C3=9CNAL?=
+ <arinc.unal@arinc9.com>
+Subject: Re: [PATCH v5 2/5] pinctrl: mediatek: add MT7988 pinctrl driver
+In-Reply-To: <32201aec-f3d2-49a7-b0ca-2ede10fec103@wanadoo.fr>
+References: <20241202110045.22084-1-linux@fw-web.de>
+ <20241202110045.22084-3-linux@fw-web.de>
+ <32201aec-f3d2-49a7-b0ca-2ede10fec103@wanadoo.fr>
+Message-ID: <598f595589d061bf314d942095cd5dc6@fw-web.de>
+X-Sender: linux@fw-web.de
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+X-Mail-ID: f7caaa60-9ba2-4071-927a-9434349a1399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_004158_273712_90744152 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20241211_004403_550972_20D1F40E 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,85 +84,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, FUJITA,
+Am 2024-12-10 19:45, schrieb Christophe JAILLET:
+> Le 02/12/2024 à 12:00, Frank Wunderlich a écrit :
+>> From: Daniel Golle <daniel@makrotopia.org>
+>> 
+>> Add pinctrl driver for the MediaTek MT7988 SoC.
+>> 
+>> Signed-off-by: Sam Shih <sam.shih@mediatek.com>
+>> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+>> [correctly initialise for the function_desc structure]
+>> Signed-off-by: Arınç ÜNAL <arinc.unal@arinc9.com>
+>> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+>> 
+>> ---
+> 
+> ...
+> 
+>> +/* flash */
+>> +static int mt7988_snfi_pins[] = { 22, 23, 24, 25, 26, 27 };
+>> +static int mt7988_snfi_funcs[] = { 2, 2, 2, 2, 2, 2 };
+>> +
+>> +static int mt7988_emmc_45_pins[] = {
+>> +	21, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+>> +};
+>> +static int mt7988_emmc_45_funcs[] = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 
+>> };
+>> +
+>> +static int mt7988_sdcard_pins[] = { 32, 33, 34, 35, 36, 37 };
+>> +static int mt7988_sdcard_funcs[] = { 5, 5, 5, 5, 5, 5 };
+>> +
+>> +static int mt7988_emmc_51_pins[] = { 38, 39, 40, 41, 42, 43,
+>> +				     44, 45, 46, 47, 48, 49 };
+>> +static int mt7988_emmc_51_funcs[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+>> 1, 1 };
+> 
+> At least all the _pins arrays could be const.
+> Maybe we could also make it possible to have _funcs const as well.
+> 
+> ...
+> 
+>> +static struct mtk_pin_soc mt7988_data = {
+> 
+> const?
 
-On Tue, Dec 10, 2024 at 8:19=E2=80=AFAM FUJITA Tomonori
-<fujita.tomonori@gmail.com> wrote:
->
-> Add new ARCH_WARN_ASM macro for BUG/WARN assembly code sharing with
-> Rust to avoid the duplication.
->
-> No functional changes.
->
-> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
-> ---
->  arch/loongarch/include/asm/bug.h | 31 ++++++++++++++++++++++++++++---
->  1 file changed, 28 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/loongarch/include/asm/bug.h b/arch/loongarch/include/as=
-m/bug.h
-> index 08388876ade4..2343c4226595 100644
-> --- a/arch/loongarch/include/asm/bug.h
-> +++ b/arch/loongarch/include/asm/bug.h
-> @@ -21,14 +21,21 @@
->  #ifndef CONFIG_GENERIC_BUG
->  #define __BUG_ENTRY(flags)
->  #else
-> -#define __BUG_ENTRY(flags)                                     \
-> +
-> +#define __BUG_ENTRY_START                                      \
->                 .pushsection __bug_table, "aw";                 \
->                 .align 2;                                       \
->         10000:  .long 10001f - .;                               \
-> -               _BUGVERBOSE_LOCATION(__FILE__, __LINE__)        \
-> -               .short flags;                                   \
-> +
-> +#define __BUG_ENTRY_END                                                \
->                 .popsection;                                    \
->         10001:
-> +
-> +#define __BUG_ENTRY(flags)                                     \
-> +               __BUG_ENTRY_START                       \
-> +               _BUGVERBOSE_LOCATION(__FILE__, __LINE__)        \
-> +               .short flags;                                   \
-> +               __BUG_ENTRY_END
->  #endif
->
->  #define ASM_BUG_FLAGS(flags)                                   \
-> @@ -55,6 +62,24 @@ do {                                                  =
-       \
->         unreachable();                                          \
->  } while (0)
->
-> +#ifdef CONFIG_DEBUG_BUGVERBOSE
-> +#define __BUG_LOCATION_STRING(file, line)              \
-> +               ".long " file "- .;"                    \
-> +               ".short " line ";"
-> +#else
-> +#define __BUG_LOCATION_STRING(_file, _line)
-> +#endif
-Can we use file and line instead of _file and _line, which is the same
-as the CONFIG_DEBUG_BUGVERBOSE case?
+can do, but for funcs i see no clear way
 
-> +
-> +#define __BUG_ENTRY_STRING(file, line, flags)          \
-> +               __stringify(__BUG_ENTRY_START)          \
-> +               __BUG_LOCATION_STRING(file, line)       \
-> +               ".short " flags ";"                     \
-> +               __stringify(__BUG_ENTRY_END)
-> +
-> +#define ARCH_WARN_ASM(file, line, flags, size)         \
-> +       __BUG_ENTRY_STRING(file, line, flags)           \
-> +       __stringify(break BRK_BUG) ";"
-> +
-Can we use the same indentation in this file?
+angelo, can i keep the RB, when changing pins/mtk_pin_soc to const 
+(without changing macro in drivers/pinctrl/mediatek/pinctrl-moore.h)?
 
-Huacai
-
->  #define HAVE_ARCH_BUG
->
->  #include <asm-generic/bug.h>
-> --
-> 2.43.0
->
+>> +	.reg_cal = mt7988_reg_cals,
+>> +	.pins = mt7988_pins,
+>> +	.npins = ARRAY_SIZE(mt7988_pins),
+>> +	.grps = mt7988_groups,
+>> +	.ngrps = ARRAY_SIZE(mt7988_groups),
+>> +	.funcs = mt7988_functions,
+>> +	.nfuncs = ARRAY_SIZE(mt7988_functions),
+>> +	.eint_hw = &mt7988_eint_hw,
+>> +	.gpio_m = 0,
+>> +	.ies_present = false,
+>> +	.base_names = mt7988_pinctrl_register_base_names,
+>> +	.nbase_names = ARRAY_SIZE(mt7988_pinctrl_register_base_names),
+>> +	.bias_disable_set = mtk_pinconf_bias_disable_set,
+>> +	.bias_disable_get = mtk_pinconf_bias_disable_get,
+>> +	.bias_set = mtk_pinconf_bias_set,
+>> +	.bias_get = mtk_pinconf_bias_get,
+>> +	.pull_type = mt7988_pull_type,
+>> +	.bias_set_combo = mtk_pinconf_bias_set_combo,
+>> +	.bias_get_combo = mtk_pinconf_bias_get_combo,
+>> +	.drive_set = mtk_pinconf_drive_set_rev1,
+>> +	.drive_get = mtk_pinconf_drive_get_rev1,
+>> +	.adv_pull_get = mtk_pinconf_adv_pull_get,
+>> +	.adv_pull_set = mtk_pinconf_adv_pull_set,
+>> +};
+> 
+> ...
+> 
+> CJ
 
