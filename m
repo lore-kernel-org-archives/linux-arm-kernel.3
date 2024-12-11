@@ -4,91 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98121E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAB4E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NR5y5SI21qqr719CHt05ra6RVhCy3LYtwxpSH0rstSA=; b=v9S624yH/CXDLR/fv4Hcjz/tDU
-	9mj30qTrHLX2rHyfntBN7r0cl+I9dMJH6tlYw4z6pbC1LbHN7JVDYmBLLXbvCKiRzEALdlwFcUt4Q
-	MLUFcbOyEOwc7F7P/iZNK26EXoI8TIdI0AwB3j9BrDeBGUTKJaSqqTW4SsEREDoizTB7HTI5UjK+x
-	p1ReT9F1fA1eXc9ZXInv14iQ/BPliWUrDMAW9WNM2dmXxXcnNRTjTOpXd2BgbY9UqVvjQpt3JYkf9
-	JOiDdhzXYouY71TEveQ15oosdU/p6PU0gwPILkDZ6Zfgdh8Tx3xvcYl/HGb1Ar6XBav/X6OrcqhNZ
-	0Pvn2n3g==;
+	bh=kcLcxbrWQd8TMWwTYxYHUtC3prC69luhzpuUr34dQPc=; b=WW6iniS6WS0F56r6W9evz/MHMw
+	UU3BUFKw29nJuymnkMSbPa4aAjx3SHunvQhQQTT2gMKTNJ6ZXngfsSgczmrdK4EPoZqz2Ug5HIWJs
+	SoGkzU/7kNY56IzFo/zQk93eP0nceSsceAIhK4MocLDFCS88MIRORBJxZJnsetsxjEyJL4lbLWVH8
+	fnKA433WIAQpshSOrP24leYkw0dpND4c2U7000B/N3fKZgSLkwNOIepaOb7JGxBcmE2hvI79c+MXP
+	LsdhemThjf5v3oDfpEb+5n8WjjWHMtyUMy7worSMhkeUrH124THHWsTKteORIs7YEsoUIhwFsVRcO
+	DxBsNflw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHV2-0000000E6lV-1Pbv;
-	Wed, 11 Dec 2024 07:51:13 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tLHW3-0000000E6ro-35nf;
+	Wed, 11 Dec 2024 07:52:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHTy-0000000E6X7-1LBt
+	id 1tLHUJ-0000000E6cz-1Y1T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 07:50:07 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43616bf3358so1533095e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 23:50:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733903404; x=1734508204; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NR5y5SI21qqr719CHt05ra6RVhCy3LYtwxpSH0rstSA=;
-        b=fs79geai2FIGUdvmKZnqJ/SfIiUbK2jBjn0Q90hGCKiP/M1IDZ+mlb/rH+5RWNhNbd
-         9XGBDZWSaRSFwQ2BOUSYrd7yI6B7BrF7oqf11cV3tMjHh8sZj6AK3Phs9/RcqKNwiii3
-         WDlhZA+JXqtG/EkAeVkbf4Y3FCKE3yLvBZyxlwTa4p16tuajQw8OrYeEXV/lyDlaS/jv
-         Kz31hMaxUcGLNxHjWHqMouUB1WOh4NDHkHsKtNvVl5SHPJL1fe0xiVPrVAWVWjEqxkQI
-         hDMLU7+DKsdWni/VXcMdrZlFX8i+KGBXnAZ9QU9pnG54y2TXgb5/q4/Obo7u+DU3PsCv
-         Arag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733903404; x=1734508204;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NR5y5SI21qqr719CHt05ra6RVhCy3LYtwxpSH0rstSA=;
-        b=QQgg5Zsyze4YSrod1SqR8JTnljpBtzcXs2l2fCE2SJN+2mO+LP8gQCscHquvfAheAe
-         KjOCK4rOrQ/O0PF+aUdwICvJH3xjVujBFu+SbY6wGNhY4HpvNTBW3A8iEOwiBh8Md+oy
-         b/fRKWOfzn0pFIiTJK4E5vR2dVfYYMJW+8qdE/plT5ByKSdDPe4hZQ+7Yp5m2//KKt/1
-         XO36Uk1FVy+pxPuDebXNadiaI26FflTm9LFfjFlLFZK44mrL3X9e2XlO0CFwjn+tuwd2
-         dcm/oeSDleW7L0w3VVuQ7ybn2UbvXtU5vn+kGwLW1OD5Nq2/D9rcqiUbGMJ206lLbG8t
-         NYEw==
-X-Forwarded-Encrypted: i=1; AJvYcCViO5uA9wG7YDWCKdYhW517G+6D/RWCND+bab84n/jpACZml9VsQMjYehB2zakj+X/LnI+fFOiIKCT7zN8di1za@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeaXzfPbge+DYZB7fcaJ8SGFbpoFlUMilY7YWxit+n2C3wc6zv
-	SjoJDOU1LL6q6I0PAna1P6Ja/pQzONdHzfklfhk32OnK8JwCUr5y88dvAf2Hw5Y=
-X-Gm-Gg: ASbGncsAjrLr5TTK9Bb4y/yss2Iy8V8YhaOtphOyLGOvWIzYE/rEiQSpiXflsJSozq5
-	Nhuk3prCAQCe13hASXbzM3RL8kVry+cups4YTiW+i+Fz1O3d7Bsmhd+OklD82eWvl11IC4RRdLz
-	u7EG5AQC0b9fWLh8FWlVjzkxjuHWBU2kP5PeCJjfv7Cr1QwhWboJlvXnfUGWB7OA/NvJSueRtJl
-	I4KJ2Jkf1/a8D0/1bpN1NMsUKESffjnRbaO/qlOYhIeFS8DDjLiyYchnrNjTHg9HFfmmA==
-X-Google-Smtp-Source: AGHT+IHzOkWDq3KGGPDZsVQbPi+YFqSrAVZOEWrnqAZJZ2wtM0+/RjpL+t5H9Or+bcHPIqDSNw5ORQ==
-X-Received: by 2002:a05:600c:1d20:b0:430:52ec:1e2a with SMTP id 5b1f17b1804b1-4361c441982mr4065105e9.7.1733903404111;
-        Tue, 10 Dec 2024 23:50:04 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4361b6d6ea0sm22222385e9.16.2024.12.10.23.50.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 23:50:03 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Taewan Kim <trunixs.kim@samsung.com>
-Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
-In-Reply-To: <20241206025139.2148833-1-trunixs.kim@samsung.com>
-References: <CGME20241206025156epcas2p3e1ce9ff35589d821735a7c038b9ac9da@epcas2p3.samsung.com>
- <20241206025139.2148833-1-trunixs.kim@samsung.com>
-Subject: Re: [PATCH v4 0/1] support watchdog for exynosautov920
-Message-Id: <173390340180.16989.11837691973342827218.b4-ty@linaro.org>
-Date: Wed, 11 Dec 2024 08:50:01 +0100
+	Wed, 11 Dec 2024 07:50:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1244BA419FD;
+	Wed, 11 Dec 2024 07:48:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC20CC4CED2;
+	Wed, 11 Dec 2024 07:50:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733903426;
+	bh=MmPHj0pwv2OtXI3VvPcYeeP6Dhxai8bzgo8E4r5hKls=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rO4+xvLwar3oyiZPO6sG1lctWzE1npoy0MkUKR+QbCYw8/wwW2J5lMVlNc6PqawUH
+	 XjiqjbnoZPJi7fx95io9DrVM54SdVuCz91VKk+H/GbZMeOJKFxrPwcjtTQmoYCmHKQ
+	 4i6qqoU8axpFrNNP3Njr7FSOUpou9WI/ondknOpKugPw0RlFeu2M+alg76ZjNSdrqT
+	 dAhBMd/8ak0BxBdkyArw9fGw6H1I3ovwscdxHs7syHZeca3Czg8PhTdwWhQPnkRyru
+	 vWGpC5ZzX5/aTUSfkR8wZEVTG9j+hE/BBuO5I6KZd5eiDPJ+7DDiz/MdJkDlMe3IVg
+	 S86c7UgHKk5GQ==
+Message-ID: <5ac02c0e-d245-4c05-a4df-2cd2ba9065ad@kernel.org>
+Date: Wed, 11 Dec 2024 08:50:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/1] arm64: dts: exynosautov920: add watchdog DT node
+To: =?UTF-8?B?6rmA7YOc7JmE?= <trunixs.kim@samsung.com>,
+ 'Wim Van Sebroeck' <wim@linux-watchdog.org>,
+ 'Guenter Roeck' <linux@roeck-us.net>, 'Rob Herring' <robh@kernel.org>,
+ 'Krzysztof Kozlowski' <krzk+dt@kernel.org>,
+ 'Conor Dooley' <conor+dt@kernel.org>, 'Alim Akhtar' <alim.akhtar@samsung.com>
+Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, 'Byoungtae Cho' <bt.cho@samsung.com>
+References: <20241206025139.2148833-1-trunixs.kim@samsung.com>
+ <CGME20241206025156epcas2p4c55f230accc4354e6f4bf324ab9a5833@epcas2p4.samsung.com>
+ <20241206025139.2148833-2-trunixs.kim@samsung.com>
+ <510e826d-a434-437d-8d2e-3f2618c28b7f@kernel.org>
+ <000101db4b6f$0d31c460$27954d20$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <000101db4b6f$0d31c460$27954d20$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_235006_364829_A72EC735 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20241210_235027_539134_7347E853 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,25 +125,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 06 Dec 2024 11:51:37 +0900, Taewan Kim wrote:
-> Add support for the ExynosAutoV920 SoC. Basically this is almost
-> similar to ExynosAuto V9 or Exynos850 such as two watchdog instance for
-> each cluster but some CPU configuration are quite different.
-> Therefore device tree, compatibles and drvdata should be added.
+On 11/12/2024 02:50, 김태완 wrote:
+> on 11/12/2024 01:50 UTC+09:00, Taewan Kim wrote:
+>>> From: Byoungtae Cho <bt.cho@samsung.com>
+>>>
+>>> Adds two watchdog devices for ExynosAutoV920 SoC.
+>>>
+>>> Signed-off-by: Byoungtae Cho <bt.cho@samsung.com>
+>>> Signed-off-by: Taewan Kim <trunixs.kim@samsung.com>
+>>> ---
+>>>  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 20 +++++++++++++++++++
+>>>  1 file changed, 20 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>> b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>>> index c759134c909e..7b9591255e91 100644
+>>> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>>> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>>> @@ -183,6 +183,26 @@ cmu_misc: clock-controller@10020000 {
+>>>  				      "noc";
+>>>  		};
+>>>
+>>> +		watchdog_cl0: watchdog@10060000 {
+>>
+>> You need to do careful rebase, not just accept whatever tools shown you.
+>>
+>> This is now placed in incorrect order - not keeping sorting by unit address.
 > 
-> In v3, the first and second patches were approved by watchdog maintainer and added as next-git.
-> - Link: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=grep&q=bt.cho
+> I seems to me that the addresses are sorted correctly in order. 
+> Could you kindly check again?
 > 
-> [...]
+>         clock-controller@1002_0000
+>                   watchdog@1006_0000 
+>                   watchdog@1007_0000
+>     interrupt-controller@1040_0000
+> 
+> And if there are any rules I might not be aware of, please let me know.
 
-Applied, thanks!
 
-[1/1] arm64: dts: exynosautov920: add watchdog DT node
-      https://git.kernel.org/krzk/linux/c/41979b81b22a35322817733b15407167164be58e
+You are right, I got impression last was 1004, but that's 1040. Thanks
+for correcting me. I applied now.
+
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Krzysztof
 
