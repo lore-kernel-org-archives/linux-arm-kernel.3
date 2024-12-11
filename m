@@ -4,58 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F09E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B11E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2RY+bbzrqmx4mjq27m52T9s+vjb/19nkKYhCQN5i768=; b=MsIeGQtC++lI4KvAX8PNvgoIss
-	v5xYfyK68R0J524jug190Yd/qyi0jZg0AbzI1pZRXmduMeS/O1POUSZmQVs9QtxtRePYHGS3J2LxO
-	QGcxITeJ4MXwpTNVF8MA6GEL+LNENdaPOnLCDFna0ReiJl8JGAri6NGkhIC8WHwbq/WUeoNGh0umM
-	Sf09+/5lZ+EUPWgLYxtEV/tJV6kiQJTplRMr5UOYYPxUV+ZCK+skmTS1wF3U95ho+5h5Y1QCQe5ua
-	M1cCxdx9CMNTrf47+ChQea2y73TSgYGCE3duI4y9aHYBDIiF+IPxJUnhFjSJD0HATvemqmux/7CPQ
-	vG5fSRrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W2fBpF4DPgk8VjYpxJsEGAE8QpoFNbBTEEgsMSm8FzQ=; b=B35Nr7ILifufa1Bnw3rClqMtSU
+	YccTuUaznCPZVTU3aoNSOIKQpSfBhCfyG36+qYXLf5NdzagNbUXrGcFwLKZ2LVAFGGMmZRH8wemUz
+	tteeB+4dV9Wm0hEZUHh9euUMhVAyKHh8Sy8e33xf/hlrmO8G795L6qzdJ1U4l0TCq1/8CHd5PKWle
+	93tfu5Mcqfld/pTFzIoKLbgDlyqTyzHBrMCnXFrSrlmag6GGt5NyLfCItM0FvjAkR5Zzvldd7hN94
+	BimWrtvuOs9RJkXS3VQYx72b1+aqKNmtdv3xUF/krrZ/LUEgFE2U8rl+BxqzHe+OivG23slgX+w82
+	qOaa4WpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKnk-0000000EgAy-0TWa;
-	Wed, 11 Dec 2024 11:22:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tLKp9-0000000EgX0-3JK7;
+	Wed, 11 Dec 2024 11:24:11 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKmg-0000000Eg3C-40oG
+	id 1tLKo4-0000000EgDm-4AWB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 11:21:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96363A420C1;
-	Wed, 11 Dec 2024 11:19:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 699FFC4CED2;
-	Wed, 11 Dec 2024 11:21:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733916097;
-	bh=DgftItvKwlAqV6VUxDwhJgPamO/iGIKYe2fBSGOS2dQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=S+kRs9zSROEKEbuf6pQXp6LKyYNbAyiEMMZeR6T/IukOtp0WJTxya8pmJRrBkU/hi
-	 2lH22ehLWYRh4Rsj3/gsS2NMFEM9yPi1QlYwwYRe+PRP+8L2UOb2Kh9TP7TGKsBtmp
-	 NxaDphjfl/zlxLraM34B2C+YcI8T29Pq4ha3IOXKS+NBgyyulYz0TO3LbNbdUpSc5O
-	 aQGQPRYru60pQkeCjqkECmgTuvYte+ovXbs43B5/8aJdhqusyPPeuLiIViQNpInzaJ
-	 ugJ0e99xDBPASPvYEaj5slqOQ2yBuvJM6EtmKW4uZU6qnNpyJlZdeaY6p7eMAeUSEh
-	 nicQ5MB2EUedA==
-Date: Wed, 11 Dec 2024 05:21:35 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 11 Dec 2024 11:23:06 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2165cb60719so24501855ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 03:23:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733916183; x=1734520983; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W2fBpF4DPgk8VjYpxJsEGAE8QpoFNbBTEEgsMSm8FzQ=;
+        b=FSfvJV93vLOQNDhdDktHGBDaKk1m1fgZ6c6nrGa/of1L4lPrj6+hNFdCdWwAnpYKst
+         p4BoaqalQuK3Zyafv0x20GmGyXKMlrNisSS5ATPbY9g0Ilvgs6OhKnW8yabDnZMbs06f
+         SqWuE7wbBocNPqkKsM6THpEIJRkZo3I7t//OxEbAXP74s255HsKnngiG6Gt20jsOUP0D
+         VsAGBap88Qp82d97BWhNtbldpqpLRnwhxh+iWjp/cywbq6cOHshHdzk206UkUkgAJpjK
+         br81q6vChRcG3es/Wry2vn9DKnScRn9NKXp/oOhoUdKPD9pc3SJXZ2m4CeAAhvbkQynM
+         1XPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733916183; x=1734520983;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=W2fBpF4DPgk8VjYpxJsEGAE8QpoFNbBTEEgsMSm8FzQ=;
+        b=TntPn5CQ6rR2PGKdVPzs7ycIwRL2w35JINZ/B+cRr0bd/Mxi4EmmRZLeuqVp9Xiqq4
+         7oqsFABu5ItkErq2pzzoXLIQxpWcqJrHbMqwLn2cTr3BEV8gHuSLHPUyv6lWajEfBZyD
+         3p4rjtl1Xj7zNH/czKSJJtIOLHHlsmbGUvBXSbCIE/3LgxT21gikqYjv9wBjWrc/jaTo
+         Glf1NkRrr+MvZid6yBTWBaOnj3zq5scONj+0csY4HTeKVnPZO9wSdN3c9peVP8mRBhci
+         4oTlWiIWKg3bSRUt+/7AZ6OMXbUfI0g2ivBJ1gyBlEgFK29TF6OCca/GFBA/2RF81Y4Y
+         mEBw==
+X-Forwarded-Encrypted: i=1; AJvYcCWGMTBlEeJMomeQXS38QrrxSoGqNLPOw7qSscxwcaifUizvmF2KLuqy1rAP4XPtRlgflmqHBdIV32DUo+qw8dR9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzwv/eG+MMNbDEXP3DmGSaMrZN6IrMJc1roPA5VNNM4UfDAX5n9
+	K5UrA4am1bM0Pa3RESCJxQwWe8EHjSz2hya2C7OtFL2zYNNDe/gH
+X-Gm-Gg: ASbGncsRQ+e40B8mAoQhmwgklAjSACTa7/qTwCuUXtIQ9nAAL0Hk+/jb+OFYneqsHOf
+	E06P2pdmVkVnG++4Hby0+Db+tBjCVsXKDIPcMnI8Cdin9U1gapwJhT/tlOH7PSgnd78Jw5MEZF5
+	z/jDUBdAVWA4aFCeCsFoIoNLjqaleber3uho2jAVBjdNqEooAB/1ziBw3c3Wi6wCtO39vK1G2DT
+	ds/rmt30ycygRciJQz2Fp/MQSl2pcvuI6lwc0wiXGiFglAygpfYochBV7CQh0jsAD8R7w==
+X-Google-Smtp-Source: AGHT+IFQ2IW9tilUc4WqlMVThxJsWeAViNnNodENYGpepZHa2B/aZBLf4geEEAiOuYgDZKDGadI7tA==
+X-Received: by 2002:a17:902:cecc:b0:216:2b14:b625 with SMTP id d9443c01a7336-2177853690emr44032965ad.31.1733916183466;
+        Wed, 11 Dec 2024 03:23:03 -0800 (PST)
+Received: from localhost.localdomain ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-21650ccdc7esm48956615ad.133.2024.12.11.03.23.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 03:23:03 -0800 (PST)
+From: Nick Chan <towinchenmi@gmail.com>
+To: Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Nick Chan <towinchenmi@gmail.com>
+Subject: [PATCH 0/7] Apple A7-A11, T2 SoC cpufreq support
+Date: Wed, 11 Dec 2024 19:19:27 +0800
+Message-ID: <20241211112244.18393-1-towinchenmi@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Balakrishnan Sambath <balakrishnan.s@microchip.com>
-In-Reply-To: <20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com>
-References: <20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com>
-Message-Id: <173391609559.2340929.13321693035546295768.robh@kernel.org>
-Subject: Re: [PATCH v2] ASoC: dt-bindings: sound: atmel-at91sam9g20ek:
- convert to json-schema
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_032139_060453_96F34170 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20241211_032305_033237_A51795E0 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,53 +102,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrei Simion <andrei.simion@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series add driver support for cpufreq Apple A7-A11, T2 SoCs.
+Device Tree nodes will be included in another series.
 
-On Wed, 11 Dec 2024 15:16:15 +0530, Balakrishnan Sambath wrote:
-> Convert atmel-at91sam9g20ek-wm8731-audio DT binding to yaml
-> based json-schema.Change file name to match json-scheme naming.
-> 
-> Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
-> ---
-> Changes in v2:
-> - Add missing CODEC pin options to 'atmel,audio-routing' items.
-> - Drop 'minItems' from 'atmel,audio-routing' since enum defines valid connections.
-> - Add subsystem tag to subject.
-> - Add blank line between properties and fix typo.
-> - Add audio complex description.
-> - Link to v1: https://lore.kernel.org/lkml/20240214-at91sam9g20ek-wm8731-yaml-v1-1-33333e17383b@microchip.com
-> ---
->  .../bindings/sound/atmel,at91sam9g20ek-wm8731.yaml | 70 ++++++++++++++++++++++
->  .../sound/atmel-at91sam9g20ek-wm8731-audio.txt     | 26 --------
->  2 files changed, 70 insertions(+), 26 deletions(-)
-> 
+Nick Chan
 
-My bot found errors running 'make dt_binding_check' on your patch:
+---
 
-yamllint warnings/errors:
+Hector Martin (1):
+  cpufreq: apple-soc: Drop setting the PS2 field on M2+
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/sound/atmel,at91sam9g20ek-wm8731.example.dtb: sound: atmel,audio-routing:2: 'Int MIC' is not one of ['Ext Spk', 'Int Mic', 'LOUT', 'ROUT', 'LHPOUT', 'RHPOUT', 'LLINEIN', 'RLINEIN', 'MICIN']
-	from schema $id: http://devicetree.org/schemas/sound/atmel,at91sam9g20ek-wm8731.yaml#
+Nick Chan (6):
+  dt-bindings: cpufreq: apple,cluster-cpufreq: Add A7-A11, T2
+    compatibles
+  cpufreq: apple-soc: Allow per-SoC configuration of APPLE_DVFS_CMD_PS1
+  cpufreq: apple-soc: Use 32-bit read for status register
+  cpufreq: apple-soc: Increase cluster switch timeout to 400us
+  cpufreq: apple-soc: Set fallback transition latency to
+    APPLE_DVFS_TRANSITION_TIMEOUT
+  cpufreq: apple-soc: Add Apple A7-A8X SoC cpufreq support
 
-doc reference errors (make refcheckdocs):
+ .../cpufreq/apple,cluster-cpufreq.yaml        | 10 +++-
+ drivers/cpufreq/apple-soc-cpufreq.c           | 56 +++++++++++++++----
+ 2 files changed, 54 insertions(+), 12 deletions(-)
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
+-- 
+2.47.1
 
 
