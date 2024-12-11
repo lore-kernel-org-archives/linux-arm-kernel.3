@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A16E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF059E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtx+6xhbU+aJko5pr1DHS1R6Jad78CfllVKF9uhKB3I=; b=hZGPEhrrJRHcFlUT9k1IuK23dK
-	3mHLwcMjRqj7bI7nv9RpipSaqXNqGz78fRSbhEks6C3n4EmBeLoJWoTEF5O7I9zZgoo64ztHEF8NQ
-	BREjXwQoR4ysRKZH0NrNSwTBdFT6IgErB3KEO4ZOzqoEVPUCK3yyCkbQOvM3TCKbvr3xuEkDbqDCy
-	1wYnebe9Z5Z7e65XByBQiesHABrjta7y/c46SkPxvI8MkMqxs3bq8PKYLi/RegNbO16kIJboqbKXD
-	NopE/06CUdNUME18fybfDxlFYejcdKo7NpAvyhP8VRzUsnVM6gPwV4oOow2HDZCaTrm7/RJ+l8XDj
-	Fb1lYH5g==;
+	bh=Jkmc+0iMxSsuraunK1hN8Fbs31rpvecJZuCVn+Hdq70=; b=W4+1jOMLBPANW3gbn9pKxJ/kD2
+	8yNYNngue7+eYSIHKle/Lms27q5DcUHaX/ByGXGyvwMuBvpCp2mYb7Z+D403t8UELj0UDERqbYqxj
+	N4BkIxpWQ/Hut0esDx9W3zFtYblRDnSXuPnUO8ar5ziWNmZcRu1oQ/ADwfA43Vxx5J6PPyZJAQdyd
+	NFRCq0JdjA8+jeqKrjYUjfGZkuAeZXWAvK99ACZXuZ+F31ZF0AqFDj/Tq4bsu7+w9f84T350MMhK4
+	Lht7jPJwu3BQUE3cEGx2i7gXbe1tsn0jXP0vjDcR0kyhqqzP84fBCXd5jRquh9fSLB2cIXWd7g5s7
+	iaXjE9xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMOw-0000000EvbI-1KW4;
-	Wed, 11 Dec 2024 13:05:14 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tLMPz-0000000Evo7-3pZP;
+	Wed, 11 Dec 2024 13:06:19 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMJq-0000000EuDG-2zIN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 12:59:59 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8746C83D;
-	Wed, 11 Dec 2024 13:59:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1733921959;
-	bh=9vwQ4DTXUQXSYuiFSuO8qJgz9ksaOqF3dLukB/AVSGo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pw6/B1pigVl9UzRrAM00Ngki8vn4ZwCcifeQhyI1zN7yc6c+epaLp/4sOFBVdQ5/p
-	 i00g9RUf2XLbBvUtQHWwHflqmAnkq1REab8IgOPL64krLJHd86czRbqNl2JyHrockm
-	 uToREKoBgRGMaEsnQ0Zt7m5W5XrL1D7AW+LICakY=
-Date: Wed, 11 Dec 2024 14:59:36 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Karol Przybylski <karprzy7@gmail.com>
-Cc: tomi.valkeinen@ideasonboard.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, michal.simek@amd.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm: zynqmp_dp: Fix integer overflow in
- zynqmp_dp_rate_get()
-Message-ID: <20241211125936.GA23711@pendragon.ideasonboard.com>
-References: <20241211122026.797511-1-karprzy7@gmail.com>
+	id 1tLMM8-0000000Euo9-2bfz;
+	Wed, 11 Dec 2024 13:02:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Jkmc+0iMxSsuraunK1hN8Fbs31rpvecJZuCVn+Hdq70=; b=2EAp0vPV9U9VTzLQIBFoBNm3wm
+	wZi0Eggw03q+26nYB020dRYGjGIj1liBjiypzd55QnC7v5a+CyphFgnHfLRnru551jrqhGFMkFQg/
+	ZCbtrjpajxf9gFv40AJhXC+S2kNyDU39e8ckE3DgCmhpmY621QxHg3oC6P4H94nCJAPpb6PmHvQrd
+	0pA7NsaCoQ9cQ9XZxUtCsbT3RPORl4vo29LOiCS/o0MG9oNROg4xuR95xELFIO1x3vUv5eMGSStmf
+	nqmoN/uFxYXq36yG90YlKaLE8mkKbJaqjed7tWq9hjJCwu4r8gxYiWe9z+dK+LSrleaxEX0oBd0HG
+	xMlS/E2w==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tLMLd-0003DO-Li; Wed, 11 Dec 2024 14:01:49 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Lee Jones <lee@kernel.org>, Jiri Kosina <jikos@kernel.org>
+Cc: jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, jdelvare@suse.com, linux@roeck-us.net,
+ srinivas.pandruvada@linux.intel.com, bentiss@kernel.org,
+ dmitry.torokhov@gmail.com, pavel@ucw.cz, ukleinek@debian.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-input@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-leds@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale platform-data on
+ remove
+Date: Wed, 11 Dec 2024 14:01:48 +0100
+Message-ID: <3196449.TQGk6oTFT5@diego>
+In-Reply-To: <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
+References: <20241107114712.538976-1-heiko@sntech.de> <20241211120844.GD7139@google.com>
+ <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241211122026.797511-1-karprzy7@gmail.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_045958_881554_DAB7A3C7 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20241211_050220_682092_0BB9AEEA 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,52 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Karol,
-
-Thank you for the patch.
-
-On Wed, Dec 11, 2024 at 01:20:26PM +0100, Karol Przybylski wrote:
-> This patch fixes a potential integer overflow in the zynqmp_dp_rate_get() function.
+Am Mittwoch, 11. Dezember 2024, 13:24:42 CET schrieb Jiri Kosina:
+> On Wed, 11 Dec 2024, Lee Jones wrote:
 > 
-> The issue comes up when the expression drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000 is evaluated using 32-bit arithmetic.
-
-Please wrap your commit message text to 82 columns.
-
+> > > > > This change was more or less a surprise find, because I wanted to make
+> > > > > the platform_data pointer in the mfd_cell struct const and this the hid
+> > > > > sensor hub stood out as doing something strange ;-) .
+> > > > > 
+> > > > > So patch 2 of this series actually depends on this change to not cause
+> > > > > build errors.
+> > > > 
+> > > > Ah, right.
+> > > > 
+> > > > > But seeing that we're after -rc6 alredy, I would assume the brunt of the 
+> > > > > mcu series might need to wait after 6.13-rc1 anyway - but I guess that 
+> > > > > depends on how Lee sees things ;-) .
+> > > > 
+> > > > OK, I am keeping my hands off it for the time being.
+> > > 
+> > > I can take it now with an Ack.
+> > 
+> > Looking to apply this set now.
+> > 
+> > Ack please.
 > 
-> Now the constant is casted to compatible u64 type.
-> 
-> Resolves CID 1636340 and CID 1635811
-> 
+> I'd preferer if Srinivas could ack this as the more specific maintainer. 
+> Srinivas, please? 
 
-Does this need a Fixes: tag ? How about 'Cc: stable@vger.kernel.org' to
-get it backported to stable kernels ?
+The patch already includes the
+   Ack from Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+from a previous version, so I guess it should be ok already?
 
-> Signed-off-by: Karol Przybylski <karprzy7@gmail.com>
-> ---
->  drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> index 25c5dc61e..55e92344b 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> @@ -2190,7 +2190,7 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
->  	struct zynqmp_dp *dp = data;
->  
->  	mutex_lock(&dp->lock);
-> -	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000;
-> +	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * (u64)10000;
 
-You can also make the integer a 64-bit constant with
 
-	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
-
->  	mutex_unlock(&dp->lock);
->  	return 0;
->  }
-
--- 
-Regards,
-
-Laurent Pinchart
 
