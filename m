@@ -4,92 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B35DE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30754E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkNQtWhZUGtyJ2fxKJJU0zr4TXNwZCZlRe3ObHUcd9Y=; b=xzZUjKQuUMIt2mKzrsjl380wJi
-	VEi1rYfcDurd1QPuGjG0KkxjhDqcV5x+/KlZrThNjfFrjf8+b5JD5CoPgiouWPU5MQHI6wajyehDi
-	3RPPV7xkxHbVPUZl0jHW7W869t3ZbrrmZEbBkGvocqdKvxwjxneSe2B0O+tAtGxx52vLEfaXlf+Hi
-	E9gWLpRJ6WUa37hvMVNuO2oLV1utUIGILTHxjcuh7bhiZiKOzpTFKMsOdEFI9evXn+wH8weRN+qQg
-	8BtKXr8Y0WdqFyi9BP2a8iD6SLkUZ38onVBiyD4REz2EX2tPuk3jelkN+Y58zmHrrx9Qu1YlQ0KKM
-	tlc4QsAQ==;
+	bh=P07CcM0j24rO5yaWfifB/LJiPYFjbC+FS5OWgIO/84s=; b=kqjXD6XVM9l5fvJhhD4q+p9WDf
+	kjMD0JD2Pkm2r+QH/bTYq3J8hLrQiziHQdaK1myGqLdKzM5bObxanr5E7Dkaa08YQNWaigYpEMexA
+	fBDjDk9Ym1BGOozciYnwWW1U+P399r8rt1SUMC3mAyqF+XvqbSfB8Uy/5NkUN+93D4QzgL+ykJACi
+	FWOfTCh763dzmN9MCQN2mUj/7Dx+lc+Ge2R9U+hL4sFwvmSdBwA54juSCSSJC6ExvWpaWQWVwIPfj
+	cqSqK4KZCZna7619/chNgwhwm67NkxXFnmUCGC7+TX5BZA1dBtr8ZNtM3Lt08UNWDIXawmVQnM24s
+	Wb9XGs0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUbg-0000000GEQQ-1mCq;
-	Wed, 11 Dec 2024 21:51:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tLUdW-0000000GEfw-3wdo;
+	Wed, 11 Dec 2024 21:52:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUac-0000000GEGg-2VzE
+	id 1tLUcT-0000000GEYb-1lRp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 21:49:51 +0000
+	Wed, 11 Dec 2024 21:51:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 84FFAA41C12;
-	Wed, 11 Dec 2024 21:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35920C4CED2;
-	Wed, 11 Dec 2024 21:49:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 63E79A407D7;
+	Wed, 11 Dec 2024 21:49:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74365C4CED2;
+	Wed, 11 Dec 2024 21:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733953789;
-	bh=9dEs7Uv/W3GFIdvWXNgPv9/RG/WPitz2vsK5/eV8epM=;
+	s=k20201202; t=1733953904;
+	bh=cSH2O8frG5d2QiJhETKP8cWkp6z1/BXTqpOoUrUdmyU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MFaITdJIkZ1IZ7UigB5f9EhJDAqOApX0es7WvCaYIyDxpBqxTVztnpMhTSDhYdiPb
-	 257hY2WpAkUzycQO10r8/Juah4PjhQt6ojA1tYClva3aSLV1cs3T9c33RHHemnCeLG
-	 4nCMZiKzpKXK9A/lDjeS1hNe3FMwIvwkeLblSVCM0LBMFZ5Na32iXF4BXNO6e0sSrP
-	 gqwHbYpID10NcowjpWJQQtu9fsCV+/MbUb/pWJ75dwC+UsqPiCuGljkzXcJK7QuY+P
-	 nA1ASb4a6HJcJxjUGb6tz3ue79ctd/UDZJ0VkUZknepBmN5hjzG7ppeQ8vOnHJlsHq
-	 dsot4KoUZvQCA==
-Date: Wed, 11 Dec 2024 21:49:40 +0000
+	b=GxZRUj9G5p/KTgkfBT+7j9WIScBKKoo85LkgLJSVu4/GMdiwVHuAnlOxd5ZYt4mzj
+	 3Wi0qLaHcBZ1Ymfy5g3WMgB0u8KqnhpzE0YsIOPmuFraUZcZsMNTic429l4u7DASDZ
+	 8Tt4aJCt8+K9qbNK2+cPGWQEbwARm7oZR6lO0LmM3ZDRsrsNBMAFml4MGPdQtyiVAh
+	 N0a5zdqK0l1xDkf0Y7Yddfw6FqAou0lAK2yoCTOvR41lQpHC0MMSVbhpv0LL8D9dds
+	 fyW2haBRcHnD7Oibmt1ahSSvV/SjEgq27SvvAMSc+FueZ+kMVXowNV7zsCWeSVkybA
+	 mbItvsZQTdI4Q==
+Date: Wed, 11 Dec 2024 21:51:40 +0000
 From: Will Deacon <will@kernel.org>
-To: Ankit Agrawal <ankita@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Message-ID: <20241211214939.GD17486@willie-the-truck>
-References: <20241118131958.4609-1-ankita@nvidia.com>
- <20241118131958.4609-2-ankita@nvidia.com>
- <20241210141334.GD15607@willie-the-truck>
- <SA1PR12MB71991EC85E8EEDD1C5115886B03E2@SA1PR12MB7199.namprd12.prod.outlook.com>
+To: Robin Murphy <robin.murphy@arm.com>, ilkka@os.amperecomputing.com
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] perf/arm-cmn: Permit more exhaustive groups
+Message-ID: <20241211215139.GE17486@willie-the-truck>
+References: <bdfd1e58dac449e407c5cacfd6bf8577dc0a5899.1733943898.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <SA1PR12MB71991EC85E8EEDD1C5115886B03E2@SA1PR12MB7199.namprd12.prod.outlook.com>
+In-Reply-To: <bdfd1e58dac449e407c5cacfd6bf8577dc0a5899.1733943898.git.robin.murphy@arm.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_134950_698868_8C0B95DF 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20241211_135145_520063_7C2E5704 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +71,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 02:58:38AM +0000, Ankit Agrawal wrote:
-> Thanks Will for taking a look.
-> 
-> >> The device memory such as on the Grace Hopper systems is interchangeable
-> >> with DDR memory and retains its properties. Allow executable faults
-> >> on the memory determined as Normal cacheable.
-> >
-> > Sorry, but a change this subtle to the arch code is going to need a _much_
-> > better explanation than the rambling text above.
-> 
-> Understood, I'll work on the text and try to make it coherent.
+[+ Ilkka for comments/testing]
 
-Heh, I thought it was the patch trying to make things coherent :p
-
-Will
+On Wed, Dec 11, 2024 at 07:04:58PM +0000, Robin Murphy wrote:
+> The group validation logic still somewhat assumes the original CMN-600
+> case of events counting globally, such that if one tries to group 9
+> events where the first 8 target a single DTC domain, the 9th will be
+> rejected because *a* DTC domain is full, even though it might only
+> target other non-overlapping domains and thus still be schedulable.
+> Improve matters by only counting the DTCs that the new event actually
+> needs (as arm_cmn_val_add_event() was already clever enough to do).
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>  drivers/perf/arm-cmn.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index edefb51ac90a..b49e353e10ab 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -1779,8 +1779,8 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
+>  		goto done;
+>  	}
+>  
+> -	for (i = 0; i < CMN_MAX_DTCS; i++)
+> -		if (val->dtc_count[i] == CMN_DT_NUM_COUNTERS)
+> +	for_each_hw_dtc_idx(hw, dtc, idx)
+> +		if (val->dtc_count[dtc] == CMN_DT_NUM_COUNTERS)
+>  			goto done;
+>  
+>  	for_each_hw_dn(hw, dn, i) {
+> -- 
+> 2.39.2.101.g768bb238c484.dirty
+> 
 
