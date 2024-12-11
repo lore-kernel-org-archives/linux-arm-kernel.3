@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B502E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 01:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432EAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 01:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HU9lX2UcHoXHx+eblYPMWmc0zAYSbERvbK5TxRCkS5I=; b=WS8mCc07WiBn3JkcLlWsHrC2Ic
-	Yn95LcgU28w2EZIvOAOZ3uPeCY9OBXZZo88biRGi06OZDANA2Qi06FivbhFfgPrvvOyn0cdQKIORo
-	VXiyJv7dTkHoA7abfSjCo1xwnXiGX2iVKoUdPx92avhWepMZj+Oud7ai1NEUtwr26yKsoInJ/dN73
-	JI0B+Kdp+pLslytvWcphcFkx6G1UFZlnUT0/W86gyOn42MIAL4RZTJDPGfwe/WsBXXtRunQOfstfb
-	7b64XMxai/8PUEU5kpuutC0V2vxIABTNKuJgNTtO34GvmTh+5+qEwB+qj2+zUqWOz2k/uXjMW4FxE
-	jaFhhiog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLiF3+1wxeQNn+Qj/FRUqScT1++3cQ1MFzbwCBVRb9c=; b=kgU9M4fY3zK7a2APuvelPCxO2G
+	nfQPUHJiUCVU2xjElupsI1j1lF9Q5Q6gRZ8uv2bgYTvtJuwNVVG/mGZhA0ewg+DfpDB8kvOk7lS0p
+	B89g0nhQuqsJ9QSpzCY3zFOPUfyjZCEHvTVr80PryMaJxmBwRrLFhvodoj1LHlJv+9GYmI0E4I8Ht
+	oZksEDrOAdmpcFJoH2AfW3fbqXb5tbtuOiWF6mFxmZgfqP0MRMReXkFmaGBYQKsY6gt995p/C5UV0
+	gMC68zQ/po7aL48V8d6PvGMN6H38kKWJAUYLYQGp22TtTMnG6mZxq5XXNNco+SDYs9+aa/urP5X2C
+	9NWLuO+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLBKf-0000000DOIT-1P49;
-	Wed, 11 Dec 2024 01:16:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tLBTg-0000000DPqk-1frh;
+	Wed, 11 Dec 2024 01:25:24 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLBIc-0000000DO1b-0oJu
+	id 1tLBSb-0000000DPZG-3nhR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 01:13:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1903A41D2C;
-	Wed, 11 Dec 2024 01:12:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91169C4CED6;
-	Wed, 11 Dec 2024 01:13:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733879635;
-	bh=WXYFL2lzpahBm9B+v7DU3pKQd5XfIBdEGGOSasUIPzI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iS/3PWM9TNlHS7RGLrXMkZAdwOkldLNzoXEaOeoqgBMx5ECYOict+BBcv0x/hvTYJ
-	 4+N5Jv0yQTjXHhbj7h3A0h7YsYbbnYIg6B2GI584k/gTZd94F72j47lunKkC/DGK0m
-	 5E9yQokf1WvYnWUltojmWOiab1zudFtSzncq1sQ8T7o79V5iGjAjddaa6r1DsDCmHM
-	 j8EDEhMAf71gMbVt0NY9r55TRtxtYbetNeJBxWBozJIOKi/86G10z+mka3ccWpMWT4
-	 CsLknvFUygFyYVCakkAfqMcUNKGKcFegooKAU+uMGGCMdFfjWeZBx5dHpRkB0cwQJx
-	 VvXsLHYhlowdA==
-Date: Tue, 10 Dec 2024 19:13:52 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Akhil P Oommen <quic_akhilpo@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, 
-	Pavan Kondeti <quic_pkondeti@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Elliot Berman <quic_eberman@quicinc.com>, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-Message-ID: <iyknardi445n4h74am22arpgc4vlchh6z6cvkbff2xg76pd655@nozwz7snt476>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
- <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com>
- <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
+	Wed, 11 Dec 2024 01:24:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1733880253; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=QLiF3+1wxeQNn+Qj/FRUqScT1++3cQ1MFzbwCBVRb9c=;
+	b=mmJTHp6SIl74KtwtumuyWrStw3W3xv5XBzCSnfaDgmI1+KM/gconQdcZaK6SIt9B5ssLdQszXZqrGXBnyvcDV3PwnvjFyoVng5a6t1p+rC4QGzMJet4Ievyus7xGjWdHC174t62VFq3vYqnyz9f6W8G4iXku3kSLEajVexLKG6U=
+Received: from 30.166.1.177(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLGFXUW_1733880251 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 11 Dec 2024 09:24:11 +0800
+Message-ID: <f8786f53-eff0-4fd7-9c4d-c5733f648c6e@linux.alibaba.com>
+Date: Wed, 11 Dec 2024 09:24:09 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf/dwc_pcie: Qualify RAS DES VSEC Capability by Vendor,
+ Revision
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+ Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
+References: <20241210145335.GA3239578@bhelgaas>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20241210145335.GA3239578@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_171358_295580_EE4677F5 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20241210_172418_435325_17865BC0 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +70,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 02:22:27AM +0530, Akhil P Oommen wrote:
-> On 12/10/2024 1:24 AM, Rob Clark wrote:
-> > On Mon, Dec 9, 2024 at 12:20 AM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
-> >>
-> >> When kernel is booted in EL2, SECVID registers are accessible to the
-> >> KMD. So we can use that to switch GPU's secure mode to avoid dependency
-> >> on Zap firmware. Also, we can't load a secure firmware without a
-> >> hypervisor that supports it.
-> > 
-> > Shouldn't we do this based on whether zap node is in dtb (and not disabled)?
+
+
+在 2024/12/10 22:53, Bjorn Helgaas 写道:
+> On Tue, Dec 10, 2024 at 08:04:17PM +0800, Shuai Xue wrote:
+>> 在 2024/12/10 06:29, Bjorn Helgaas 写道:
+>>> From: Bjorn Helgaas <bhelgaas@google.com>
+>>>
+>>> PCI Vendor-Specific (VSEC) Capabilities are defined by each vendor.
+>>> Devices from different vendors may advertise a VSEC Capability with the DWC
+>>> RAS DES functionality, but the vendors may assign different VSEC IDs.
+>>>
+>>> Search for the DWC RAS DES Capability using the VSEC ID and VSEC Rev
+>>> chosen by the vendor.
 > 
-> This is better, isn't it? Otherwise, multiple overlays should be
-> maintained for each soc/board since EL2 can be toggled from bootloader.
-> And this feature is likely going to be more widely available.
+>>> -	for (vid = dwc_pcie_vendor_ids; vid->vendor_id; vid++) {
+>>> +	for (vid = dwc_pcie_pmu_vsec_ids; vid->vendor_id; vid++) {
+>>
+>> How about checking the pdev->vendor with vid->vendor_id before
+>> search the vesc cap?
+>>
+>> +		if (pdev->vendor != vid->vendor_id)
+>> +			continue;
 > 
+> Every user of VSEC needs to specify the (Vendor ID, VSEC ID) and
+> verify that the Vendor ID matches the device Vendor ID, so
+> pci_find_vsec_capability() does this check internally, so I don't
+> think we need to do it here.
 
-The DeviceTree passed to the OS needs to describe the world that said OS
-is going to operate in. If you change the world you need to change the
-description.
-There are several other examples where this would be necessary
-(remoteproc and watchdog to name two examples from the Qualcomm upstream
-world).
 
-So, if we can cover this by zap-shader being enabled or disabled, that
-sounds like a clean and scaleable solution.
+I see. LGTM. Also, I quickly tested it on Yitian 710 and it works as expected.
 
-Regards,
-Bjorn
+Reviewed-and-tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks.
+
+Best Regards,
+Shuai
 
