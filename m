@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6AA4E77182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B20E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXPkCuR2SivnRYq9dCkjsf2KZvGLOYoks6cx+5KrVNI=; b=0s7iNglncVYajcTPxz75pSUn7B
-	0LvK2kLX2Mx53t0JtMuxuqbaxNuKUfuwteb1zVvo/6sobbPBf3nzErB2UtTza+FpJjGYrdvFcaVsZ
-	kM4TNi5D6QfBJjo2MrcTEiEQkoU1x25ePpHY9s/u2zXB3syZlgxiMDyz5sYeZ9tGJNONNAOf+eb+F
-	k8wO8vJz2khkglj3Q/talCvT040uCjONoib3SoWH4Khh607uhJJI5BeA52lxm1IAIiwP+jDhZB/UB
-	mAIiI6fBNr2P5hFBh09UrkgWelF0zr/IpwS68QP8FjEp1ITNgo6hkr5GcC38R5tPPOKN5k1xkAat1
-	0K/NuV9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=405Zc2ogFoII5Y01YYxw+4oVDyF8t9rieF12fX6F/10=; b=lne3CFNi6eNNgVnnkuCYgaCd/Y
+	WoB0oJxPMb0TzxBKdrb8bSxZRGRDNZv7wC98/TmCJy9WHnvJFFY+XexGpJ0E4G6GtQbwPMXH8v3ZV
+	9vF0Ha1A4cpt1HSNfIcqJYnOwwXAB156AiIEl3XqUoHuDckStstuyupWIqAC109pleYC2butwc7ih
+	kXIkeu641e9qsPLiKleuSNsnPkiocTaXES1UvbpsJeAIwe3tK7H/PQ/mbcL9DfTuC0umPWCxQesBZ
+	mY5XUCQfncAGAzNbwVKHDV+xwfXXSi24CeiwlI+9APGkCVsH9B7gZldWgy+5EIFg2MHbcf5ww3bEb
+	3SIApMIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPab-0000000FSPB-3RdS;
-	Wed, 11 Dec 2024 16:29:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLPby-0000000FSqQ-1sof;
+	Wed, 11 Dec 2024 16:30:54 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPZX-0000000FS0b-3ezX
+	id 1tLPat-0000000FSTa-2y3J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 16:28:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CAF37A40E24;
-	Wed, 11 Dec 2024 16:26:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94745C4CEDF;
-	Wed, 11 Dec 2024 16:28:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733934502;
-	bh=LXPkCuR2SivnRYq9dCkjsf2KZvGLOYoks6cx+5KrVNI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K/6DagzcvgXPGBIjb2VKXo5Vd8TVb2h1SAsb2coJAuauL0I658hRF/AzJdyz48E8P
-	 1K/CnVd+HuPTKt3MQkX58EdS+Bh3LX5JcgRSTN0phemolAyHs/DJ4F85mbJWxRugN1
-	 oEDBhekCL491PJ74fmsNYkY4Yn2holKMFnBPC5LwI45s+C02d33+2wuzJplt0iFHD6
-	 Dc2N2yCquH//fIvkOMHXVGZEAofYIAtuguXiiAkrTECRHH09TIzwyBArW/mZsU2nGG
-	 xu8zW4wKPDP/H4wwacscWTNaTtPQW3Ycks7C+3RGTzF001nmUCjb5fPwqjfdwE0EZz
-	 cMA3o+jQ/xKhw==
-Date: Wed, 11 Dec 2024 16:28:17 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH V2 02/46] arm64/sysreg: Update register fields for
- ID_AA64MMFR4_EL1
-Message-ID: <f27091f1-879a-4434-8124-2d1e27241078@sirena.org.uk>
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-3-anshuman.khandual@arm.com>
+	Wed, 11 Dec 2024 16:29:48 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa679ad4265so168340066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 08:29:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733934586; x=1734539386; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=405Zc2ogFoII5Y01YYxw+4oVDyF8t9rieF12fX6F/10=;
+        b=kiV4F0xEntUKXGQySbrmg1xXnChoMvwr8ILQJYVzlgnsBYwrMGq70pzSuc54RQ1WUB
+         l2YZ8O1KrZVtojnyEZZ9u1a9LGH9wLRz14Xq+lHM/Tx2mujBgLBtMZepXHwKK2Eg4MUl
+         AA6Beh4F8O6WbP0e7e8ZUHrYhzuKRl6wWHq/ih6uXiuIZUl7ThTPPSk+LM2OPZIqBZu7
+         pHRgijC/dkyGQVlOQmY2UpOtokS5N/eyXm71uZjgcSmUOXvMY43TEdzX40ZivtYMA0dE
+         fZLuPPX3cdsB9wLuV2dKDSVmz+/uudUcsy8D+QJhDfOSMYaqB4zpvHniYhPfYNSn2HU9
+         hN5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733934586; x=1734539386;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=405Zc2ogFoII5Y01YYxw+4oVDyF8t9rieF12fX6F/10=;
+        b=TZQYxRHWu9dQApUjVtPXG1W5cTsZvG7jq03soRT6N45DaojnR49Up79vtDcVb5a+nU
+         1rvj7nE7CDRigxG4mThBus0N9mpOs3gtqSxgAQRja+4KSGzT7JzkAnA+ZXy/sDr3pJwl
+         FtRhSN0GJCNCx3k282vyrnI/qAM3WQK8t5iIrYhmImpuoW1OB8fCMV5nPBiazZDJ6kQJ
+         k4gskJ3r+kMngd6RlDfpTWUEjaOYK6rX8yZ2rKN+3sHLVrmUL5P1cD/uemLLOxqKDrKx
+         fC5J9Ej9rIDXmXC4/u7vik8mn+B7CUCYJlkACE8UdIifvYURjiveWu64KaSJ0w4eBgk8
+         HC+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXfe0RWapgLT5FaoWo/N5M0w8/MqVGBGAn411vBNKz/tqlpE8vEfKPwSss2kd/7mvZQdr/FAxOEJP3ymiGefC+1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZo4IP7+QQUunMfFi2rwkiOzekcefrZtKhYDF0RgjKA7B2RZvZ
+	I9gPVnRPtduhfCxyJrYaMqz/RzeEY3RQtlkv2TvC8Xfhu5mJxsMMCF1I/fiG
+X-Gm-Gg: ASbGncsCMRhM2jwqR9q70B1YZJBE/xQ9nZ1aFFOJNRwK1+ZEEXbDelTclR7GHcr4Xrk
+	4EJQkQhDEYAFMKFmRypJm620jY7toolEEFnxHe6PrzaGX2vote+9JoCJF7KWgFT53IJWDKE8WAj
+	0AmYZARlGpIaASaMi8v0HvYQRx96Wpn523tnwF1NIwEcM5ZO4B3r3toMRLFfecjtl3h4imYFA4z
+	RMSzqLVAVh3aqwNPax9KXF+I9vHI4fnIUThcbbBWNrj9SrFWA9xOQd6LmzTsxeDKEALxW1CZSHJ
+	onbKLQg5p40UCyJ8iQQBes3uJgy8DQ==
+X-Google-Smtp-Source: AGHT+IG8EM4U9gXsydrmKtBKna4oLCf4D8jj5BSeT0g27VN2a1zcPacXb4mK43JDxCcRqpqcGwZUuQ==
+X-Received: by 2002:a17:907:268e:b0:aa6:ad4c:7d55 with SMTP id a640c23a62f3a-aa6b15cc7ccmr349512066b.14.1733934585452;
+        Wed, 11 Dec 2024 08:29:45 -0800 (PST)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa663334906sm678451866b.72.2024.12.11.08.29.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 08:29:45 -0800 (PST)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/1] arm64: dts: exynos8895: Add m2-pmu, poweroff and reboot
+Date: Wed, 11 Dec 2024 18:29:41 +0200
+Message-ID: <20241211162942.450525-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AuImAyBVAiYKZd95"
-Content-Disposition: inline
-In-Reply-To: <20241210055311.780688-3-anshuman.khandual@arm.com>
-X-Cookie: Every path has its puddle.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_082823_970661_EAAA6ECC 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_082947_741697_6ADF8DF2 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,31 +99,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hey folks,
 
---AuImAyBVAiYKZd95
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This series adds support for the mongoose cluster PMU in DT hence
+a compatible for that was recently added.
 
-On Tue, Dec 10, 2024 at 11:22:27AM +0530, Anshuman Khandual wrote:
-> This updates ID_AA64MMFR4_EL1 register as per the definitions based on
-> DDI0601 2024-09.
+After this patchset, I'm planning to submit patches for more hardware
+support.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Kind regards,
+Ivo.
 
---AuImAyBVAiYKZd95
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes since v2:
+ - Dropped the poweroff and reboot patch, since it works as-is with the
+   included dtsi.
 
------BEGIN PGP SIGNATURE-----
+Ivaylo Ivanov (1):
+  arm64: dts: exynos8895: Add a PMU node for the second cluster
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdZvaEACgkQJNaLcl1U
-h9Dt8wf/Xkj06W8/tQXbtUdCh+cZdMzvCYsmFjs77GpeWcGAMwMMXAakKXLvdIaZ
-Y8MeZMkUNJbkjjQHFfvq769HABUCe5pvxstBlcm5RwkLw779YKyPfHhKBj804gnP
-ygoSQuth62S2cQ98ZxCS0X1uKsLuMO7bufZc7FH8OeBCBSY2pm9TnqAMbnpXyb01
-/0po6atZiUVhyFENAG12VmiVbyFN2xH5ePDRmvwV6OlGLkuHfnxYBbnxhyTDhwp7
-24tWFW+aSQKpCHgfwIndNpqkXtdEFjc+LE8S4T1i1KEd877lYfPn5oe39LeEZCou
-FvWw3dF3ew82JkVHikP0R6DqLMWRhg==
-=jJAi
------END PGP SIGNATURE-----
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
---AuImAyBVAiYKZd95--
+-- 
+2.43.0
+
 
