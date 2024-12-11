@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE6DE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82941E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEBINFMezgkT8kFwn0hqoIa1/VcW9GASEhKC5a7WGaY=; b=lOFt3kG2ImIY5lad1siiPSnT39
-	BqhpI4j/Lq3E2vmdeCqGcGEfTeajTzbt2iCuf6Z/PD4qFAz3kZVJmW6TolPdjBlJKeuIDQcyXsbqe
-	L5sWjmwog2G8/cveiVgSosDNKGEGMi8t9vNUve2u8SjfWxVRnwKIbkUkwRkiQDlgoeeROe51sr7SI
-	KwhNJoqu+M9Xd2DCrjn3q6CotS8fWafghttskm7mRrhXmsIdaZp5hfWEd4bvPxZhyEbnNjxIMpI5g
-	5FSQUu2UOKS036bdVv/k9V3kNQy5OmHj2TUwBEpwJxSoitHDOGpoGvR8Kprn+rrX5ZCYwDyjejslw
-	AqtlIlEQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ITETtXYs2RuPBQjD/ZQ3S2/BEHPuHJ2nAfRrmxcJLxI=; b=GMUqrXRvzhxBpI+sgRw9WTVn+K
+	FKIhULzUOQdK2rt/UE6zs1NajZTYEz2v2gBcnb8uoPD5dgyW3Hm0RvNnPrz7XS5Xybrs2GkW6PgMX
+	ga7Y/NKUio58d27YTmNEroXNzD4OOBsl+d7jDrzYi37sgolebBb6mq88UWzQeufFRCYBbsPukWsAb
+	dMtej2AbCZcm3ylGG9DglI55Ic3MUhsoqzdYkjY6hrSrimEKjWqTV+1q7+Cw7lOEUGlvTeU2141YI
+	BMtvQmPL1LFkXywZCdiLE3bG5YWT3DWOLoptO2AMpgorfXJTdZPSUBB7y/M93A3ZV7aALLLgE9mdq
+	bxfkrdxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPHx-0000000FOzp-2Jaw;
-	Wed, 11 Dec 2024 16:10:13 +0000
+	id 1tLPIz-0000000FP82-1mas;
+	Wed, 11 Dec 2024 16:11:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPB8-0000000FNNL-0P6P
+	id 1tLPAw-0000000FNJQ-1xtf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 16:03:11 +0000
+	Wed, 11 Dec 2024 16:02:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C32071713;
-	Wed, 11 Dec 2024 08:03:37 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3B4F1063;
+	Wed, 11 Dec 2024 08:03:25 -0800 (PST)
 Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A0CF63F5A1;
-	Wed, 11 Dec 2024 08:03:07 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D7383F5A1;
+	Wed, 11 Dec 2024 08:02:55 -0800 (PST)
 From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
 To: ryan.roberts@arm.com,
 	catalin.marinas@arm.com,
@@ -48,19 +48,16 @@ Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Subject: [RESEND RFC PATCH v1 5/5] arm64/mm: Elide tlbi in contpte_convert() under BBML2
-Date: Wed, 11 Dec 2024 16:01:41 +0000
-Message-ID: <20241211160218.41404-6-miko.lenczewski@arm.com>
+Subject: [RESEND RFC PATCH v1 0/5] Initial BBML2 support for contpte_convert()
+Date: Wed, 11 Dec 2024 16:01:36 +0000
+Message-ID: <20241211160218.41404-1-miko.lenczewski@arm.com>
 X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241211160218.41404-1-miko.lenczewski@arm.com>
-References: <20241211160218.41404-1-miko.lenczewski@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_080310_174217_F6FD3A06 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_080258_592777_88CCC9B8 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +72,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If we support BBM level 2, we can potentially avoid an intermediate
-TLB invalidation, as hardware is capable of managing the TLB itself
-in this situation. Hardware will either silently clear out the
-offending entry, or will take a TLB Conflict Abort Exception.
+Resending as had wrong address for linux-doc and kvmarm. Apologies for
+spam.
 
-Note that such aborts should not occur on Arm hardware and indeed
-were not seen on any of the benchmarked systems.
+Hi All,
 
-Eliding the invalidation results in a 12% improvement on a
-microbenchmark which targeted the worst case of contpte_convert(), which
-represents an 80% reduction in the overhead of contpte_convert().
+This patch series seeks to gather feedback on adding initial support
+for level 2 of the Break-Before-Make arm64 architectural feature,
+specifically to contpte_convert().
 
-Note also that this patch is pending review to ensure that it is
-architecturally valid, and we are working with Arm architects to
-validate this patch.
+This support reorders a TLB invalidation in contpte_convert(), and
+optionally elides said invalidation completely which leads to a 12%
+improvement when executing a microbenchmark designed to force the
+pathological path where contpte_convert() gets called. This
+represents an 80% reduction in the cost of calling contpte_convert().
 
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
----
- arch/arm64/mm/contpte.c | 3 ---
- 1 file changed, 3 deletions(-)
+However, the elision of the invalidation is still pending review to
+ensure it is architecturally valid. Without it, the reodering also
+represents a performance improvement due to reducing thread contention,
+as there is a smaller time window for racing threads to see an invalid
+pagetable entry (especially if they already have a cached entry in their
+TLB that they are working off of).
 
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index fc927be800ee..009690770415 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -72,9 +72,6 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
- 		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
- 
- 	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
--
--	if (system_supports_bbml2())
--		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
- }
- 
- void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
+This series is based on v6.13-rc2 (fac04efc5c79).
+
+Break-Before-Make Level 2
+=========================
+
+Break-Before-Make (BBM) sequences ensure a consistent view of the
+page tables. They avoid TLB multi-hits and ensure atomicity and
+ordering guarantees. BBM level 0 simply defines the current use
+of page tables. When you want to change certain bits in a pte,
+you need to:
+
+- clear the pte
+- dsb()
+- issue a tlbi for the pte
+- dsb()
+- repaint the pte
+- dsb()
+
+When changing block size, or toggling the contiguous bit, we
+currently use this BBM level 0 sequence. With BBM level 2 support,
+however, we can relax the BBM sequence and benefit from a performance
+improvement. The hardware would then either automatically handle the
+TLB invalidations, or would take a TLB Conflict Abort Exception.
+
+This exception can either be a stage 1 or stage 2 exception, depending
+on whether stage 1 or stage 2 translations are in use. The architecture
+currently mandates a worst-case invalidation of vmalle1 or vmalls12e1,
+when stage 2 translation is not in-use and in-use respectively.
+
+Outstanding Questions and Remaining TODOs
+=========================================
+
+Patch 4 moves the tlbi so that the window where the pte is invalid is
+significantly smaller. This reduces the chances of racing threads
+accessing the memory during the window and taking a fault. This is
+confirmed to be architecturally sound.
+
+Patch 5 removes the tlbi entirely. This has the benefit of
+significantly reducing the cost of contpte_convert(). While testing
+has demonstrated that this works as expected on Arm-designed CPUs, we
+are still in the process of confirming whether it is architecturally
+correct. I am requesting review while that process is on-going. Patch 5
+would be dropped if it turns out to be architecturally unsound.
+
+Another note is that the stage 2 TLB conflict handling is included as
+patch 1 of this series. This patch could (and probably should) be sent
+separately as it may be useful outside this series, but is included for
+reference.
+
+Thanks,
+Miko
+
+Mikołaj Lenczewski (5):
+  arm64: Add TLB Conflict Abort Exception handler to KVM
+  arm64: Add BBM Level 2 cpu feature
+  arm64: Add errata and workarounds for systems with broken BBML2
+  arm64/mm: Delay tlbi in contpte_convert() under BBML2
+  arm64/mm: Elide tlbi in contpte_convert() under BBML2
+
+ Documentation/arch/arm64/silicon-errata.rst |  32 ++++
+ arch/arm64/Kconfig                          | 164 ++++++++++++++++++++
+ arch/arm64/include/asm/cpufeature.h         |  14 ++
+ arch/arm64/include/asm/esr.h                |   8 +
+ arch/arm64/kernel/cpufeature.c              |  37 +++++
+ arch/arm64/kvm/mmu.c                        |   6 +
+ arch/arm64/mm/contpte.c                     |   3 +-
+ arch/arm64/mm/fault.c                       |  27 +++-
+ arch/arm64/tools/cpucaps                    |   1 +
+ 9 files changed, 290 insertions(+), 2 deletions(-)
+
 -- 
 2.45.2
 
