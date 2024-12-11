@@ -4,105 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB44E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F068E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ApkyV010oEBw1KPZSHLnLAdIS0MyeeyKe4GabfFW3g=; b=wIt/k4IFN6OCD7AA1fzDLKL6QC
-	X/s2g2e1j/6S6R6A7breQiHq7y8WxkF2lQMX/w4cXEL/I0+CTEIP9c2gK3BRZIAWCH0PmkbTXzL0J
-	s1nwomqHmUnSFEstQzP4DmAN5qzCwZKnhzEgCX3sxig+JGfJkJg30NQhI1RSR1mtgCnPIPEAzVw6B
-	P7Sg0vUfOq6ELvquLZULvScQrQnkcbeZnqSA2IRHnHeF1vYZAboOh3C0ihJeHurByMn1rx33ZM6oA
-	ohfI/i4jPKXDmxETBNl/15isI79EvuxOGEwdERAOyVT9PHV72qwv3CIzpzYvStHL/DhyIkkbb+lFj
-	geRjea+Q==;
+	bh=Yc3TEMVSYktMmEsAW4oOAYqJjE3TwHFZUXmmDWFt4Bk=; b=d8UbNG//BL1ru/xWb5dOoyf7TA
+	KHXneTFMKxNu4BqjxblVmxii6NBFejHdt6Rrt7J99S9gDK6PLlfjiJrrWiGywIXKOuhyElg+mOIZz
+	nQvYlkPrJpLy+LuIbB1cGPdMLF585q3fQaO+4BD1mDJuQObKZo33qyHAkRiXSjCiQgwr6Y/aOcKFZ
+	PG/hZiTUx/sanzbfsU1GudaGYaF7P+OQwrejaxTp26g4VQg2q/yq4jqged5ihhBydpC0pKtYLc+bu
+	SPSVzQjVjgzLtDXYu6yJ7zI6W4Qf5MJ+2NO/XCUm9hstOOFiT0Y/Q4Ef3J59BgEU71cD9ZB5m9AUr
+	6riKYk/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHIY-0000000E4o3-0I37;
-	Wed, 11 Dec 2024 07:38:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tLHMq-0000000E5I3-2LC7;
+	Wed, 11 Dec 2024 07:42:44 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLHHV-0000000E4cV-0XgB
+	id 1tLHLl-0000000E551-42d1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 07:37:14 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BB2FnWq020687;
-	Wed, 11 Dec 2024 07:37:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2ApkyV010oEBw1KPZSHLnLAdIS0MyeeyKe4GabfFW3g=; b=Ts7abG4VA6zZ1hpF
-	7myPQyZBx5yd/EuxcsQusfTeEyPgWNZXg1yPR1CELL355J8xSnsMnaH3Vo5t6cc+
-	3k/Dt/ZH6EnCaeQtlNAsSg2gL3RBC4Qiv7geoSNFSCvwoXnBl/Ni+eDs8zK5kAil
-	VV9knBRWDhVGw6a/iFBO7CXN156zNkMVKjdCuTdmmB7KEOgCU+27EzQHYg28e12O
-	mnBIyjlxFw+aeUxIxq2G3yLXVHRlEor1aSFi4BhCOAMflDxpi4AEUknXU24Inhxw
-	EaAKGSUS9UwBVHEUtYoerDSbQeYYWlH895VbO6PXM4BtPeuPtmifWS1fJO9Ebq4e
-	Yhd2Yg==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43e341e1qe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 07:37:07 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BB7b64l019213
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 07:37:06 GMT
-Received: from hu-pkondeti-hyd (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 10 Dec
- 2024 23:37:01 -0800
-Date: Wed, 11 Dec 2024 13:06:58 +0530
-From: Pavan Kondeti <quic_pkondeti@quicinc.com>
-To: Rob Clark <robdclark@gmail.com>
-CC: Akhil P Oommen <quic_akhilpo@quicinc.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Pavan Kondeti <quic_pkondeti@quicinc.com>,
-        Sean Paul
-	<sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Elliot Berman
-	<quic_eberman@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-Message-ID: <b47d44cc-77b7-4137-97e3-b245e1394580@quicinc.com>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
- <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com>
- <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
- <iyknardi445n4h74am22arpgc4vlchh6z6cvkbff2xg76pd655@nozwz7snt476>
- <1219b46d-2aea-4377-a8ca-024039ee1499@quicinc.com>
- <CAF6AEGs4EebrwyQZviNXqB2=3h2wgZpmbrdGHuEU4z1D014GRA@mail.gmail.com>
+	Wed, 11 Dec 2024 07:41:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733902898; x=1765438898;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=BZQI3Xg77ZhH5P9A5CS7kA2hpO4ybDLUOiphwIJyR54=;
+  b=DCV4HF0t/yO2CEbBPYWeJ6k8ewWCvwcsTK6NW3bk6DkMIjmEh78tlb+K
+   7dFi8v1Rd7g9HEfP2fLMRkUuiWAx0/KLiWtntIugvVvQaNjBrjge8VE81
+   ioYVVD9f0x1mjwr81QqitPHP0t6HnEKdivmdGHihJMKdTbHFpeQJfqR4R
+   qWt1bz5rpHyHbnHA5S8WqLDDW4Nmp+av3tCN3EVPy1oqhLfYT/p1xCQe+
+   XvlQWeSMioFUePGPT6qGvafugynPt+wEpp8dHx7qO1UJwou7wQVJ3QTcO
+   waO3tanIC0UFr2MnFpF4cyWXkqLPbYojmZBizFHxNfTnWy8NNkhkoDNTv
+   g==;
+X-CSE-ConnectionGUID: 0JLWYWCtRXiIDLpmZYTO5w==
+X-CSE-MsgGUID: 5gyN6EFrRr2pfmDjHjc5cw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="34173058"
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="34173058"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 23:41:37 -0800
+X-CSE-ConnectionGUID: zsXWb5/+TeWMelfWlG2g7w==
+X-CSE-MsgGUID: oW69JUBjSLuePRpguQV2QQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="100524672"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 10 Dec 2024 23:41:36 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Tue, 10 Dec 2024 23:41:36 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Tue, 10 Dec 2024 23:41:36 -0800
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.45) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 10 Dec 2024 23:41:35 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W4vQ9fjQzV9oykqqyjoynmkcVPA+DF8G8909HjhfeqxIpY8Tt9ktFYP8BrdemGxyowUd5fvcJ88iBP6qKLQmv1CkRMQuyvMkfsJ2k+9IbC0WTPmNYC/7+CpBhSDCgQUTieAGicSsBa6lbbG4Ofyu6jjQbyt6Tix3kHXFwXK5Qh4p0q/e9LSLq+D/3Ck5sCZy+kVvS5ozu+lnPPEsmrjp6D1kwmrb6wgF5cH1KEsorh+ux2GP+Y1nZwBDwUhHLeUiECVr9PfNwp+iTFys83sQxJUgMPByjvq8tMWHA8UCyD+r7m+/QXVauT4qdHBf1idwQzWRBwdc7cpnibg5Bz7xRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yc3TEMVSYktMmEsAW4oOAYqJjE3TwHFZUXmmDWFt4Bk=;
+ b=T2QZd4a1rl0tLWHr6SRaZqtdlVpzq1UFHOe46bC7iWnXjKxAKB7X7gEnl0hNnmRsTH3QcTzXD+VjOZOVzNTwzxv4TamnQzWxhU8LT/BS2c0SYyWY/ObBs6uoNnyifWFD1KwuXIozCysKcF8nlI2lC9uSdqKrQLjTei08QqaGGzhfIk5gp9PPqNTSRaOgmcvKbp/yZrC13VgGkVo+VJtGW2YFWtnEvxs3uYV/e5eOpgVk9RbkFCcGtG25gJoR89A831yrwi+FzfdcSiiuqiyUwufQXjtSjGy7bCVKRprrWlGKAM41avzvvVLntGqZ3nCZMR/jW920e30OUBn8Pmp1yQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by DS0PR11MB7925.namprd11.prod.outlook.com (2603:10b6:8:f8::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.22; Wed, 11 Dec
+ 2024 07:40:52 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%5]) with mapi id 15.20.8251.008; Wed, 11 Dec 2024
+ 07:40:52 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "corbet@lwn.net" <corbet@lwn.net>, "joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
+	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
+	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
+	<yi.l.liu@intel.com>
+Subject: RE: [PATCH v2 03/13] iommufd: Rename IOMMUFD_OBJ_FAULT to
+ IOMMUFD_OBJ_EVENTQ_IOPF
+Thread-Topic: [PATCH v2 03/13] iommufd: Rename IOMMUFD_OBJ_FAULT to
+ IOMMUFD_OBJ_EVENTQ_IOPF
+Thread-Index: AQHbRdB5m863GO/NIkK43O5c/RJOl7LgsgcQ
+Date: Wed, 11 Dec 2024 07:40:52 +0000
+Message-ID: <BN9PR11MB5276F92171A516C2A17839458C3E2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1733263737.git.nicolinc@nvidia.com>
+ <2e2dc5c9cd8013147d4a8ee0d6c9d59c9ebe1954.1733263737.git.nicolinc@nvidia.com>
+In-Reply-To: <2e2dc5c9cd8013147d4a8ee0d6c9d59c9ebe1954.1733263737.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DS0PR11MB7925:EE_
+x-ms-office365-filtering-correlation-id: 19850998-f959-49bd-a54d-08dd19b723b0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?zdNnWqb1mE+8JmfS+NNGSXKSkb3WIo8MuP0vkB9XtpSYJLMEjuSqzwRkPHp2?=
+ =?us-ascii?Q?q+zzY+JjSOpYQUukJY31BOMH9WX1XcwwaATEPk9QyDA5xa4/Lq0uP7dLO7X/?=
+ =?us-ascii?Q?mHk37Hl8lZ74Mw3RFpF/E2MM5rH8Xvz8pQLTiKJCT7AOfxXyknBjbgvCO0jH?=
+ =?us-ascii?Q?AoSp162xek+qGYgN4ErokBNjwbgdmFOF3Pu/IHArNUiBhQp1rOeb7Ugd1cJT?=
+ =?us-ascii?Q?07NXPkwfQ2Xmgci+FjS7jIFwiMqC7O0g5tafrL7ouqJD7p1kVbOge5BstuT+?=
+ =?us-ascii?Q?VCGay+aBDvkOJLoS4oqYiAJceIxEgtJspXuosXmnGfGqeD+5449EyLuR/EQl?=
+ =?us-ascii?Q?llh5RQJaVtFPUM9YFaHbAzpACJtJjL/RZl4iIet5sIkFP3FsE4gdwsmLMhIl?=
+ =?us-ascii?Q?ncwnWqRMYILfHxMHVQ9xngqaRb6zuHJNT0bk0op2VQn1TPurjoVfaGiK2m60?=
+ =?us-ascii?Q?dRVov1/9/ckW9YjH+geOAATMxFBhad48M/Q6r6pvcHNEzBLxDn5xv9iOTKaH?=
+ =?us-ascii?Q?lQL5UM/p01sWwx34zL5VqI99ZGVfLYlm4c4/7OcTFM7xoJr77dvUPOBcR8sI?=
+ =?us-ascii?Q?pWo2LgbQH0hrtBE9EP3iTflFkll5DfsXAy/FUyMtKDct15gCSqgaiLd/k3mj?=
+ =?us-ascii?Q?7tvlKnynbqZodoMFBUbHV+zyJKorkXhOSwCBVz6KvYT1ydkAsCPrjL2haQpT?=
+ =?us-ascii?Q?ZQU1dBAahER/YhV4NoLQbYXBAqGK3G7V3hHPuvJBNcHoLF+ecYVPRjJNwCpD?=
+ =?us-ascii?Q?WebQmwZD05w9ZhK1pnmYvRAFBLp/GXD6jgxsxzbaVORMN7JEVITvzg2LFZZO?=
+ =?us-ascii?Q?TVcutHOR7nN9Iq2wzEnDTjtZGeriaJj3y5Xex/CmgIM/IWVGt5gnlK/etTq/?=
+ =?us-ascii?Q?ZuZXj1bR8X6cTayxIc8BYS8ihxjEt2iuhwGmGSycIEZ8QZDcfpv9/lqSu82A?=
+ =?us-ascii?Q?heBSAXerY9//42Vn+MXcYlD9lk31aPGMB43DL63Iuxsk/tTNMKAP3ZAD2DEi?=
+ =?us-ascii?Q?SmUUVh6o2QVkp9DW3H1xCtlPvfN5idWztaPaS+b4FhJB/Jjlaf9VJpZdc+FZ?=
+ =?us-ascii?Q?P/9KFu1fF3NJ8hJbZtsYBjV9Dc+AyG7ojvTG8EVRe3ORO1EsAmVXQ7lR0Go0?=
+ =?us-ascii?Q?Yxi7ztsvCDNAwdJFbA25+yka2nY2jdlbPs7dQZaf0XtHSBZMswOFF7npI8Xe?=
+ =?us-ascii?Q?Wo32ZO2zSgNjs0CM5qxCjuzfS1N4TTXdlE4l6+iLnKXt9/ORqNGeaBzijmWc?=
+ =?us-ascii?Q?FluZZ9xgcax1aNmg6gdNSfqoOzvYqooTvYHbMoAXuvMYdfa3ozKrBN+AKGLP?=
+ =?us-ascii?Q?RC51pdnUe34713UkWgtOTy5Ap9x6U5Hzgu0A5pzLUR01KP8iGD3qbLnYeUMj?=
+ =?us-ascii?Q?bbRcg2Egmhze9WlAnixHI9tUCx5pgVDxtjbpPd8o292kAUV+KQ=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?nAoml2LF/tdK+eDRlCVMredaYK0j8l+hw2poOvBVGkI981G4PhDNlgHlSexK?=
+ =?us-ascii?Q?2SZ9oQLqukBGUvOzwSUfPvfSf0YwzO8uHEuHPk5VWC1xYPQFLuqPV24JjWvq?=
+ =?us-ascii?Q?zYUa64+A46O1QSUiMP4HB/kgXhPtBjQlN7nRNX0uZq4GVIux0UeVZyjOurWN?=
+ =?us-ascii?Q?l/vm8rZCfJty4jTD0aQHhQnHR9PeUmLGdzcSMbQIPeZEgZGBZjHhznAr+qzo?=
+ =?us-ascii?Q?+mx1ELORbnG1U0S5XkGLpDwmCGaj/tOfwsWYSEIQGUR/K0NW84Wqf+osqE0i?=
+ =?us-ascii?Q?5ffx51pKon64eNY6ayGV9wbaRITexWKUtrkOvcWvZo7IK7BmxfDapli3Crem?=
+ =?us-ascii?Q?4OV83LMfNbKfRx+AFjTmn97+sCdMTaLBRpRNPw3V2Tr5JIlbXzp0ZneaI5Xw?=
+ =?us-ascii?Q?ZUx48IH/e+34ihrh6SWkLGxgWupqByuTvNfsCtJC4XdDA5/HawcaoHDIWOAF?=
+ =?us-ascii?Q?LaHF4FaFXKLCOq2F61SHex1/Ae/gOEHySAc3XQKJKFz25mIIc8QKxI38jM/d?=
+ =?us-ascii?Q?tJ26XMHOT0Jt8AtDS/OAJi45RNBQ6H4ffItCzDQrB5j1I64cLn0ojC4l2Vef?=
+ =?us-ascii?Q?2Gp92gzsIEwqiAb1LsEC6ne9AIcIWhtLvKStxtALeeNRR1oJ2RMEda3UKjDC?=
+ =?us-ascii?Q?W0U1W249VSwWTIyTWR9ZEzKWFgplnZE07+EhfHqsPYPfvf/DZ272iZu+axm9?=
+ =?us-ascii?Q?TIdfS3gM85utqYrGAE7wU/xGinOcfXmcY3Po0PaU0AxzUBxPkLgOZ8jb4GdB?=
+ =?us-ascii?Q?wLLpn/MaWJ3ycZ1fP155GTmWhvWnABJ+QlKPb1CdOBAok6KHLwYB8t+96T0B?=
+ =?us-ascii?Q?0br2l2ze3Y2KN5yUh+qugCwuhIl1O6n1B3tzRbIm+xM7aYrABcd78vp4XGxQ?=
+ =?us-ascii?Q?LVwW4F7ezrMzMtW49svFnAsFjhvfmq4MDHUjwzVsaJHp/n7px4E1etma8UvE?=
+ =?us-ascii?Q?Okemwgnojy9ttrHcmHUaceD554DpLmpwHl4sHmAlepz4Xi/jsO97YKPdtpda?=
+ =?us-ascii?Q?CKmom9r0gibgSwFp93tWBLnKm8wGPMBpG7DD94pqxTAH5mFTctDociWgohLl?=
+ =?us-ascii?Q?Jfw6xwQL4Oc5RPk9YP2rdI6smpW12Cm6gjaHqNyFotYDXBR5AR/tyAKyPICf?=
+ =?us-ascii?Q?BOsbN3wVJTLCGqsf5wctPiaRWi8Dq9nJhQ2/HLAgl74Mtu6fwQ3F29pjTQxj?=
+ =?us-ascii?Q?amZB0J+7qdWUAaysY6rVWk8hipr3cEEJejZBWOlIQO3s7sEgUcGP2K8oRJjL?=
+ =?us-ascii?Q?A/l0xfZ1eNM6NPU9arzA2CnYdSqfDtpwjTIYKMzOv9WcBHY4bDmyByclp/Q9?=
+ =?us-ascii?Q?Fg8/y+z0u1ttfJu7cfYLnqp9SZjob3FOQLlAx4ccTAZXzJHnxDF/v0MUXj1S?=
+ =?us-ascii?Q?J/IFx1dR6gaZinpr35KejERfw9+7xiP5V9HSfLswgEG9jTvR/pvULStQ0qv5?=
+ =?us-ascii?Q?kbMGUZ5FqS9K6asAp6ixMRWXLjQDhfE3C1HXWA9kTLb9HXn62cBBmb7hKtzR?=
+ =?us-ascii?Q?Kn06VD6MQR7NeH0y35eDILm/o3xtSGc+qOUjhdjr8ynGAGnRHSq/Aeu0nge+?=
+ =?us-ascii?Q?J68HVdr2tCniUZ+0adHJeshEsEfgcf6/1pUmbcC1?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAF6AEGs4EebrwyQZviNXqB2=3h2wgZpmbrdGHuEU4z1D014GRA@mail.gmail.com>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: nyRwFXNdLr3D4MyGX4UnRiE7tbAfjMpJ
-X-Proofpoint-ORIG-GUID: nyRwFXNdLr3D4MyGX4UnRiE7tbAfjMpJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=999 clxscore=1011 mlxscore=0
- spamscore=0 phishscore=0 malwarescore=0 adultscore=0 impostorscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412110056
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19850998-f959-49bd-a54d-08dd19b723b0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Dec 2024 07:40:52.4620
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7zAKF4xffwYDrS9pEeUZi7r6cPt1/7FOBtx14OIQV4MZLl5FMJWOtx9QwokQj8zKgjXgprAR5gbkrbLXGqlgew==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7925
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_233713_177399_40208882 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20241210_234138_013289_A49EEBEE 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,65 +210,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+devicetree
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Wednesday, December 4, 2024 6:10 AM
+>=20
+> The fault object was designed exclusively for hwpt's IO page faults (PRI)=
+.
+> But its implementation can actually be reused for other purposes too, suc=
+h
+> as hardware IRQ and event injections to user space.
+>=20
+> Meanwhile, a fault object holds a list of faults. So it's more accurate t=
+o
+> call it a "fault queue". Combining the reusing idea above, a "fault queue=
+"
+> can further rephrase to an "Event Queue for IOPF".
+>=20
+> Rename the struct iommufd_fault to struct iommufd_eventq_iopf that holds
+> a
+> common Event Queue struct, similar to hwpt_paging holding a common
+> hwpt.
+>=20
+> Roll out a minimal level of renamings to all the related functions.
 
-On Tue, Dec 10, 2024 at 07:43:19PM -0800, Rob Clark wrote:
-> On Tue, Dec 10, 2024 at 7:08 PM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
-> >
-> > On 12/11/2024 6:43 AM, Bjorn Andersson wrote:
-> > > On Tue, Dec 10, 2024 at 02:22:27AM +0530, Akhil P Oommen wrote:
-> > >> On 12/10/2024 1:24 AM, Rob Clark wrote:
-> > >>> On Mon, Dec 9, 2024 at 12:20 AM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
-> > >>>>
-> > >>>> When kernel is booted in EL2, SECVID registers are accessible to the
-> > >>>> KMD. So we can use that to switch GPU's secure mode to avoid dependency
-> > >>>> on Zap firmware. Also, we can't load a secure firmware without a
-> > >>>> hypervisor that supports it.
-> > >>>
-> > >>> Shouldn't we do this based on whether zap node is in dtb (and not disabled)?
-> > >>
-> > >> This is better, isn't it? Otherwise, multiple overlays should be
-> > >> maintained for each soc/board since EL2 can be toggled from bootloader.
-> > >> And this feature is likely going to be more widely available.
-> > >>
-> > >
-> > > The DeviceTree passed to the OS needs to describe the world that said OS
-> > > is going to operate in. If you change the world you need to change the
-> > > description.
-> > > There are several other examples where this would be necessary
-> > > (remoteproc and watchdog to name two examples from the Qualcomm upstream
-> > > world).
-> >
-> > But basic things work without those changes, right? For eg: Desktop UI
-> 
-> It isn't really so much about whether certain use-cases can work with
-> a sub-optimal description of the hw (where in this case "hw" really
-> means "hw plus how the fw allows things to look to the HLOS").. It is
-> more about the hw/fw/whatever providing an accurate description of
-> what things look like to the HLOS.
-> 
-> I'm leaning more towards the hw+fw providing HLOS an accurate view...
-> and the fact that that carries over into other areas of dtb (ie. it
-> isn't the only thing that slbounce needs to patch, as I previously
-> mentioned) reinforces my view there.  This seems like a thing to fix
-> in fw/bootloader tbh.
-> 
+could we keep iommufd_fault? Internally it will use the new eventq
+common struct but external facing names are all still around fault.
+the size of changed lines will be much smaller.
 
-Thanks Rob and Bjorn for your inputs. At the moment, we don't have
-capability in our bootloader to apply a *specific* overlay when Linux
-kernel is starteed in EL, this is making GPU non-functional. This patch
-from Akhil fixes the problem without depending on the bootloader.
+Then later for virq it could be iommufd_viommu_virq instead of
+iommufd_eventq_virq to explicitly draw its connection to viommu.
 
-From this discussion, I understand that it is recommended to provide
-HW+FW view in dT correctly instead of doing runtime checks in the
-kernel. We can take this as a requirement to the bootloader.
+this is unlike hwpt where 'paging' or 'nested' is just decorative while
+'fault' or 'virq' is noun on its own.=20
 
-I would like to check how we should proceed with overlay. Should we
-submit dtso upstream and let bootloader apply the overlay at runtime or
-this whole overlay needs to be maintained in the bootloader. Also,
-Should we build all board dtb for EL2 as well or just leave it at compiling
-the EL2 dtbo (one per SoC)?
+> +static ssize_t iommufd_eventq_fops_read(struct file *filep, char __user =
+*buf,
+> +					size_t count, loff_t *ppos)
+> +{
+> +	struct iommufd_eventq *eventq =3D filep->private_data;
+> +
+> +	if (!eventq->ops || !eventq->ops->read)
+> +		return -EOPNOTSUPP;
+> +	return eventq->ops->read(eventq, buf, count, ppos);
+> +}
 
-Thanks,
-Pavan
+the check on ops can be done in iommufd_eventq_init()
 
