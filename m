@@ -4,90 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE2DE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1692FE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2rrjtFYCNa+l0opUFsEhFJAlzA2QKbBJlwN52j4330=; b=coqCj7v+7EUqL8Gv4UhYyVkRzG
-	AUpB10lE5JEzKch9D5NfhrnO3e3QufxtXRtpAsoyYh6vIafnv2JecTu/hux9BtYapvsMYc090yrWS
-	W11j/ALY8Nimwh05RGmhjldM9g82xhN/yk7Mh1l0BP0gFLhn6m61ebUUadrXboDI28VsO0IEYVER7
-	HozIlcrqwOHH0KjFGxRyMqBwxKZ13pK4RAfLTA7JwljN73rg8j9cDKRI3nmxiTtgdnBFtrmGCQDue
-	W10zjWb3hJlPZCn99hB0mZL8hImcx7G0Ug8TaUon7S/b19SRVDuX6KXmtG/TOIveeRWDg6T+QRqJF
-	KqnSPJcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kA97xxd5d4gp0FHjFss+hicaxJbTX8izqRdrOvaixUQ=; b=m6ZsNxMwTf6wo92Lex52iErOw5
+	mkLOnHw2DAMFEWf5d0xbXWGeu6XYen5YsB01w11QofWuKogfeIkk5ENYdUbM+wDdzDT7oRd46XH6H
+	s9B5+pvDzjOnh5QMc24kAr9TLTPvsI7KHO3El/g3V3fMfGwA+NF0Ag1x9QoeZBGZ219UKL7+8nad5
+	2+8kBtT2XOzx/ptUZcLqLmgKF6VYwRSHEdlkS8rfpoRGhC8wtmAp6NaNDu2AvEDxbc7WJ8v2OpnMe
+	Lgn8ZFy57heaCpcDJwFx0yH/acaQFR54cR+r8nepaqSDTAu9K5mGp8K18c95ltM6Ps2qSltpPV3UT
+	rrX7rvaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOwl-0000000FK9y-0tht;
-	Wed, 11 Dec 2024 15:48:19 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOur-0000000FJeu-0Ti8
+	id 1tLOxn-0000000FKPR-3oYE;
+	Wed, 11 Dec 2024 15:49:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLOvC-0000000FJjA-3yl7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 15:46:22 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-435004228c0so30526285e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 07:46:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733931979; x=1734536779; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=B2rrjtFYCNa+l0opUFsEhFJAlzA2QKbBJlwN52j4330=;
-        b=I6T2D+Oa6HZqo8L9/QuFcAVwsDoGNdJLp/pOcnLbMZ2tGx9FUpgbUqc3AVBbh0vwRe
-         pOXuc7SAQ0NIdBFgNJUSOd0z7wVZWuRESvrDq3uhbwIsL5UQYJLQCqtFvHrnRZx+JaqI
-         tqbdgjclC+nzeATorYsZEiEzuBDC/Y0++tGKyXGETaUwb5yAsVekWnzNy7dmHkWj4G5g
-         pdcIBV1BZNNsxBFrW6d6NW5IoEEb1WVbtZEiqbQLPX9duPoFbS5etjHcb06Sus/+Ckbk
-         OPe+mMg1cInXZbSQrQdmcfum2tn5Z9YQn8CZ3oKcWjiZZNSLQiQJq+Yq40st9bLQ7Fth
-         aAmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733931979; x=1734536779;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B2rrjtFYCNa+l0opUFsEhFJAlzA2QKbBJlwN52j4330=;
-        b=B/TcOIMzMjrk/LtKDOM+NGMQqH2GTjLpf4mdcAIsAYTRC4kn2gLKqlK+HlUBWtJAZN
-         00sxLNotH4oWGyTZtGYPpRQPLirgO5VSY5dEjtERMoqbdaq/SxXWhFmQaSYnvfqBC436
-         Zq17Y4z0/WiMBOkSgaokaRBGV655UNycRSVmZdGq/mXVQJjfZ16Jb7XzKdWJVDiY86Eu
-         JrzobBNEZuqEzd8x36DousTbno3a6oOOr9jCgwEkOTHEumL0AKY00RYHV+DgVPsOTrvz
-         R2UWdrXzCDbHg70jid7Zh4ZzFUF4adDViBAOAOeB6pZgwsrEWhFSoPbmAFT/xi//6Yst
-         aIaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWwSVja80H43ToZVjJ9oAMMKHAnTPXegYuKIwrkwZXaWm4Hu1FbcCnaVsHMzWlr/vNDkbQs+mzvOpoGcQf0RMGD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyrlbe9VU1mx70LF8X4csnmkpTOy7h83dNuQwxYYMWXEqIsYJ1R
-	H7ax8n0HzEPcBAAaBIURIFhPjgxW3FBnP6yc8qUgNpfl/0CrIyLQeKoZpc66nks=
-X-Gm-Gg: ASbGncvNNDCz97ZgtFymJY9sjRIotKfQVTuIic8jEnjkE+crjirebOicAbYhSmyqVtV
-	SPsPbvdoQ4/bfawaiLzV+GXhtsBNueCragHt1ORvUksCx6LMprl8YslP3Y4HMqLqLhRoqinFoGx
-	z5sbK0q/yV1OvVNg1k2MgHsurXatVIbD4rIYy7B7Zdv932gkw2HkHZnNbzyMUVMGzS5gUuZmFkC
-	5mcBD2XZvZPft3j6X9oh1tLebvFQN3gVOC3zuMkix+MnksP32uZtnzf+YY=
-X-Google-Smtp-Source: AGHT+IElAjFrQA1BOKFF5sD8uSomr+adDjCh2fxba5+aLmeIQZ30HWVdJYlj+iWlHcRAJRttZ0NMfA==
-X-Received: by 2002:a05:6000:1ac8:b0:386:3213:5ba1 with SMTP id ffacd0b85a97d-3864ce97262mr3126317f8f.24.1733931979554;
-        Wed, 11 Dec 2024 07:46:19 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3878251dba9sm1532151f8f.98.2024.12.11.07.46.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 07:46:18 -0800 (PST)
-Date: Wed, 11 Dec 2024 18:46:15 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: vigneshr@ti.com, matthias.schiffer@ew.tq-group.com, robh@kernel.org,
-	u.kleine-koenig@baylibre.com, javier.carrasco.cruz@gmail.com,
-	diogo.ivo@siemens.com, horms@kernel.org, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com, Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-Subject: Re: [PATCH net v4 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-Message-ID: <304870d9-10c7-43b3-8255-8f2b0422d759@stanley.mountain>
-References: <20241211135941.1800240-1-m-malladi@ti.com>
- <20241211135941.1800240-2-m-malladi@ti.com>
+	Wed, 11 Dec 2024 15:46:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 097F7FEC;
+	Wed, 11 Dec 2024 07:47:08 -0800 (PST)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63A5E3F5A1;
+	Wed, 11 Dec 2024 07:46:38 -0800 (PST)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	liunx-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@vger.kernel.org
+Subject: [RFC PATCH v1 0/5] Initial BBML2 support for contpte_convert()
+Date: Wed, 11 Dec 2024 15:45:01 +0000
+Message-ID: <20241211154611.40395-1-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241211135941.1800240-2-m-malladi@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_074621_151389_776A26AE 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20241211_074643_086437_3B8B55DC 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,115 +71,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 07:29:40PM +0530, Meghana Malladi wrote:
-> -static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
-> +static int prueth_emac_start(struct prueth *prueth, int slice)
->  {
->  	struct icssg_firmwares *firmwares;
->  	struct device *dev = prueth->dev;
-> -	int slice, ret;
-> +	int ret;
->  
->  	if (prueth->is_switch_mode)
->  		firmwares = icssg_switch_firmwares;
-> @@ -177,16 +177,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
->  	else
->  		firmwares = icssg_emac_firmwares;
->  
-> -	slice = prueth_emac_slice(emac);
-> -	if (slice < 0) {
-> -		netdev_err(emac->ndev, "invalid port\n");
-> -		return -EINVAL;
-> -	}
-> -
-> -	ret = icssg_config(prueth, emac, slice);
-> -	if (ret)
-> -		return ret;
-> -
->  	ret = rproc_set_firmware(prueth->pru[slice], firmwares[slice].pru);
->  	ret = rproc_boot(prueth->pru[slice]);
+Hi All,
 
-This isn't introduced by this patch but eventually Colin King is going to
-get annoyed with you for setting ret twice in a row.
+This patch series seeks to gather feedback on adding initial support
+for level 2 of the Break-Before-Make arm64 architectural feature,
+specifically to contpte_convert().
 
->  	if (ret) {
-> @@ -208,7 +198,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
->  		goto halt_rtu;
->  	}
->  
-> -	emac->fw_running = 1;
->  	return 0;
->  
->  halt_rtu:
-> @@ -220,6 +209,78 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
->  	return ret;
->  }
->  
-> +static int prueth_emac_common_start(struct prueth *prueth)
-> +{
-> +	struct prueth_emac *emac;
-> +	int ret = 0;
-> +	int slice;
-> +
-> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
-> +		return -EINVAL;
-> +
-> +	/* clear SMEM and MSMC settings for all slices */
-> +	memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
-> +	memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
-> +
-> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
-> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
-> +
-> +	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
-> +		icssg_init_fw_offload_mode(prueth);
-> +	else
-> +		icssg_init_emac_mode(prueth);
-> +
-> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
-> +		emac = prueth->emac[slice];
-> +		if (emac) {
-> +			ret |= icssg_config(prueth, emac, slice);
-> +			if (ret)
-> +				return ret;
+This support reorders a TLB invalidation in contpte_convert(), and
+optionally elides said invalidation completely which leads to a 12%
+improvement when executing a microbenchmark designed to force the
+pathological path where contpte_convert() gets called. This
+represents an 80% reduction in the cost of calling contpte_convert().
 
-Here we return directly.
+However, the elision of the invalidation is still pending review to
+ensure it is architecturally valid. Without it, the reodering also
+represents a performance improvement due to reducing thread contention,
+as there is a smaller time window for racing threads to see an invalid
+pagetable entry (especially if they already have a cached entry in their
+TLB that they are working off of).
 
-> +		}
-> +		ret |= prueth_emac_start(prueth, slice);
+This series is based on v6.13-rc2 (fac04efc5c79).
 
-Here we continue.  Generally, I would expect there to be some clean up
-on this error path like this:
+Break-Before-Make Level 2
+=========================
 
-		ret = prueth_emac_start(prueth, slice);
-		if (ret)
-			goto unwind_slices;
+Break-Before-Make (BBM) sequences ensure a consistent view of the
+page tables. They avoid TLB multi-hits and ensure atomicity and
+ordering guarantees. BBM level 0 simply defines the current use
+of page tables. When you want to change certain bits in a pte,
+you need to:
 
-	...
+- clear the pte
+- dsb()
+- issue a tlbi for the pte
+- dsb()
+- repaint the pte
+- dsb()
 
-	return 0;
+When changing block size, or toggling the contiguous bit, we
+currently use this BBM level 0 sequence. With BBM level 2 support,
+however, we can relax the BBM sequence and benefit from a performance
+improvement. The hardware would then either automatically handle the
+TLB invalidations, or would take a TLB Conflict Abort Exception.
 
-unwind_slices:
-	while (--slice >= 0)
-		prueth_emac_stop(prueth, slice);
+This exception can either be a stage 1 or stage 2 exception, depending
+on whether stage 1 or stage 2 translations are in use. The architecture
+currently mandates a worst-case invalidation of vmalle1 or vmalls12e1,
+when stage 2 translation is not in-use and in-use respectively.
 
-	return ret;
+Outstanding Questions and Remaining TODOs
+=========================================
 
-I dread to see how the cleanup is handled on this path...
+Patch 4 moves the tlbi so that the window where the pte is invalid is
+significantly smaller. This reduces the chances of racing threads
+accessing the memory during the window and taking a fault. This is
+confirmed to be architecturally sound.
 
-Ok.  I've looked at it and, nope, it doesn't work.  This is freed in
-prueth_emac_common_stop() but partial allocations are not freed.
-Also the prueth_emac_stop() is open coded as three calls to
-rproc_shutdown() which is ugly.
+Patch 5 removes the tlbi entirely. This has the benefit of
+significantly reducing the cost of contpte_convert(). While testing
+has demonstrated that this works as expected on Arm-designed CPUs, we
+are still in the process of confirming whether it is architecturally
+correct. I am requesting review while that process is on-going. Patch 5
+would be dropped if it turns out to be architecturally unsound.
 
-I've written a blog which describes a system for writing error
-handling code.  If each function cleans up after itself by freeing
-its own partial allocations then you don't need to have a variable
-like "prueth->prus_running = 1;" to track how far the allocation
-process went before failing.
-https://staticthinking.wordpress.com/2022/04/28/free-the-last-thing-style/
+Another note is that the stage 2 TLB conflict handling is included as
+patch 1 of this series. This patch could (and probably should) be sent
+separately as it may be useful outside this series, but is included for
+reference.
 
-regards,
-dan carpenter
+Thanks,
+Miko
+
+Mikołaj Lenczewski (5):
+  arm64: Add TLB Conflict Abort Exception handler to KVM
+  arm64: Add BBM Level 2 cpu feature
+  arm64: Add errata and workarounds for systems with broken BBML2
+  arm64/mm: Delay tlbi in contpte_convert() under BBML2
+  arm64/mm: Elide tlbi in contpte_convert() under BBML2
+
+ Documentation/arch/arm64/silicon-errata.rst |  32 ++++
+ arch/arm64/Kconfig                          | 164 ++++++++++++++++++++
+ arch/arm64/include/asm/cpufeature.h         |  14 ++
+ arch/arm64/include/asm/esr.h                |   8 +
+ arch/arm64/kernel/cpufeature.c              |  37 +++++
+ arch/arm64/kvm/mmu.c                        |   6 +
+ arch/arm64/mm/contpte.c                     |   3 +-
+ arch/arm64/mm/fault.c                       |  27 +++-
+ arch/arm64/tools/cpucaps                    |   1 +
+ 9 files changed, 290 insertions(+), 2 deletions(-)
+
+-- 
+2.45.2
 
 
