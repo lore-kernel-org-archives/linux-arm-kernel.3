@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8028E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 22:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C52E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 22:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GWI4BclBEwi8c7CnutzEsogHCRFOOVdxaZjrlfD5DqM=; b=320S6FwV7fCf7aJhiMZw1Hx1zt
-	4sQDZy4JCULYOboD+uAHVd1rmbIl5jKfzyoiDIUYUw9WYbs97P5+WFWyt/O/kf12usGouyXiylcox
-	iurwCrja9AbNsTEF8+SIeb9lqomEjvbJI+rgFc3LyuOibEmqb9poBX9VuqUF3IcSGXU7tks7/kLEK
-	X3ZgtGhC9Pxevsb4l+OP8aunPrWAL6/NLL6GLz5F5hksi3T/Xsx1Tmg1pwpEw0U8RVtPFqc2lLXjd
-	zwtH/+wkG/3TrFeLES6BwCp5Vgw3BrNSr9SktolToDc+AJzAjqGCi3HD/s9TtvvlOYSHjOmfENrI/
-	hnz9rgdw==;
+	bh=BVtE64flcFMdAxL4WT68V1LwmueRtNSMbpset8i6nwU=; b=WPMTODE0YZK46p7avJywjXT5n4
+	wB10gcr8Z4+3ndfKzHoK6osh+SF3myu9enXec6pvQbm9zlqCT4bcDNeuUY5iYS3UCPGnSeSqt4/Jb
+	QgXXtMlbesR7ctN84Y10nLxtuB4O1WC0SWveX2eqr5I8HzfNcJGac8GhsUoz9S/RsZiUuVzjc/gil
+	D/SCApIFS1LWMy5JjTq43IQt8OWO2e/lkRKc2ycR1VH3Rcj3mJJ+AObaCiUMpTj2l6RNzmgw1rJPu
+	RoUYvhUkiHxkIMpwoXq4FYLJDCZs4Zanh4zyTrzLrix5hC8tyALPlcDy/eegGW3D3T6JcEqKuIYqK
+	FYxdFmZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUzh-0000000GHu6-1fS2;
-	Wed, 11 Dec 2024 22:15:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLV3L-0000000GILK-0BiA;
+	Wed, 11 Dec 2024 22:19:31 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUyd-0000000GHls-1Jrk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 22:14:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1750DA41BC0;
-	Wed, 11 Dec 2024 22:12:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0556EC4CED2;
-	Wed, 11 Dec 2024 22:14:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733955278;
-	bh=ujediMw0TOstHDqQ4ofl4N4ln4S6/UT8wG3QPLJUwnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tvgc3+ykVPQJjeZiDDPCAOUUxdcVCqUGXxD1JCBw8OmFDY6LTvIDIQ2g2Hxunbvtu
-	 T0QEPB5173T5k98uaK0WbHFInkcntyKlyr8JFTY3RiRzL9J4cdItxDTvzIqBJ78H9I
-	 RSxqtdrVQRAJ4Y86PoFEf+Umjt9OqPPdtz73HTulR3FJeroFE6gRyJyx30Ogk/iz7M
-	 StjJi86/QGxuucEJ1l2gcG4LbooKw5Zwb9+1uysOvE7TAVGuyFQVA/EEkvDYTVkU3y
-	 6A3cekqTwwNWrzq0JIoZtD06iw8yLKOEJotWpjWdQbxmPof2s2E3NjachGtGX5CEPI
-	 YeYl4v+eGLbWw==
-Date: Wed, 11 Dec 2024 22:14:32 +0000
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH v2 4/6] arm64/kvm: Avoid invalid physical addresses to
- signal owner updates
-Message-ID: <20241211221431.GG17486@willie-the-truck>
-References: <20241205150229.3510177-8-ardb+git@google.com>
- <20241205150229.3510177-12-ardb+git@google.com>
+	id 1tLV2G-0000000GI9m-09cA;
+	Wed, 11 Dec 2024 22:18:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733955504; x=1765491504;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RU7JEwDXb/NNK1SC/cKVBh0dMOSbGzWgfg2o+0Wox24=;
+  b=LbthixgFxOh2h7GwF2RBDqdyovTLv/oMB4CpxNrd7fNCfFD3EA9Qs7wn
+   49uwQu8cFdGxg9/lyQ/x1CIRZJo+07kIa7KD3q+DH+DerEqcXoOzkalLS
+   MA8qCEA9TO9kzkivMKDGbVBe0/f0ILAn+sMbPbWKG+I4cE4nKTKTcXBXz
+   OusWkYD3UlElRWEcRMePm3DywUH9w0qJ1A8aWwi+EDXBdogcZaYk/cvro
+   uXMel6/ntHAQ0IRv2UOe5f5/yapo7j9tqR0rQt+qi6RP74xCTQVsnnTqx
+   0H0Nv1zbczP+742RUrjTkUGSKgMNT/TjlXnRdnwSXq8ma5/PYbWbpvR2U
+   g==;
+X-CSE-ConnectionGUID: bdPJtvEBRbqfRhc7BLeahw==
+X-CSE-MsgGUID: GChjpwnkSAOZTiiLktRtyA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11283"; a="34483475"
+X-IronPort-AV: E=Sophos;i="6.12,226,1728975600"; 
+   d="scan'208";a="34483475"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2024 14:18:23 -0800
+X-CSE-ConnectionGUID: mVW+lHN2RmWm9oEd/Ls7ag==
+X-CSE-MsgGUID: kdgG+cDmR8qMoXCWeM0NPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="96792761"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 11 Dec 2024 14:18:17 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tLV26-00079T-1j;
+	Wed, 11 Dec 2024 22:18:14 +0000
+Date: Thu, 12 Dec 2024 06:17:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-media@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	"Jason-JH . Lin" <jason-jh.lin@mediatek.com>,
+	Singo Chang <singo.chang@mediatek.com>,
+	Nancy Lin <nancy.lin@mediatek.com>,
+	Moudy Ho <moudy.ho@mediatek.com>,
+	Xavier Chang <xavier.chang@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v2 6/8] soc: mediatek: Add programming flow for
+ unsupported subsys ID hardware
+Message-ID: <202412120633.avM5EfRz-lkp@intel.com>
+References: <20241211032256.28494-7-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241205150229.3510177-12-ardb+git@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20241211032256.28494-7-jason-jh.lin@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_141439_497509_A0D7377F 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20241211_141824_086190_5DCA6661 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
+Hi Jason-JH.Lin,
 
-On Thu, Dec 05, 2024 at 04:02:34PM +0100, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The pKVM stage2 mapping code relies on an invalid physical address to
-> signal to the internal API that only the owner_id fields of descriptors
-> should be updated, and these are stored in the high bits of invalid
-> descriptors covering memory that has been donated to protected guests,
-> and is therefore unmapped from the host stage-2 page tables.
-> 
-> Given that these invalid PAs are never stored into the descriptors, it
-> is better to rely on an explicit flag, to clarify the API and to avoid
-> confusion regarding whether or not the output address of a descriptor
-> can ever be invalid to begin with (which is not the case with LPA2).
-> 
-> That removes a dependency on the logic that reasons about the maximum PA
-> range, which differs on LPA2 capable CPUs based on whether LPA2 is
-> enabled or not, and will be further clarified in subsequent patches.
-> 
-> Cc: Quentin Perret <qperret@google.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/kvm/hyp/pgtable.c | 33 ++++++--------------
->  1 file changed, 10 insertions(+), 23 deletions(-)
+kernel test robot noticed the following build errors:
 
-Sorry that I didn't reply again on v1, but I have an annoying request
-that would make this a little easier for me to follow (since I'm tainted
-with the pKVM stack in Android that we're gradually landing upstream):
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.13-rc2 next-20241211]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index 40bd55966540..0569e1d97c38 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -35,14 +35,6 @@ static bool kvm_pgtable_walk_skip_cmo(const struct kvm_pgtable_visit_ctx *ctx)
->  	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_CMO);
->  }
->  
-> -static bool kvm_phys_is_valid(u64 phys)
-> -{
-> -	u64 parange_max = kvm_get_parange_max();
-> -	u8 shift = id_aa64mmfr0_parange_to_phys_shift(parange_max);
-> -
-> -	return phys < BIT(shift);
-> -}
-> -
->  static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
->  {
->  	u64 granule = kvm_granule_size(ctx->level);
-> @@ -53,7 +45,7 @@ static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx,
->  	if (granule > (ctx->end - ctx->addr))
->  		return false;
->  
-> -	if (kvm_phys_is_valid(phys) && !IS_ALIGNED(phys, granule))
-> +	if (!IS_ALIGNED(phys, granule))
->  		return false;
->  
->  	return IS_ALIGNED(ctx->addr, granule);
-> @@ -587,6 +579,9 @@ struct stage2_map_data {
->  
->  	/* Force mappings to page granularity */
->  	bool				force_pte;
-> +
-> +	/* Walk should update owner_id only */
-> +	bool				owner_update;
+url:    https://github.com/intel-lab-lkp/linux/commits/Jason-JH-Lin/dt-bindings-mailbox-mediatek-Add-GCE-header-file-for-MT8196/20241211-112605
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20241211032256.28494-7-jason-jh.lin%40mediatek.com
+patch subject: [PATCH v2 6/8] soc: mediatek: Add programming flow for unsupported subsys ID hardware
+config: arm64-randconfig-002-20241212 (https://download.01.org/0day-ci/archive/20241212/202412120633.avM5EfRz-lkp@intel.com/config)
+compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241212/202412120633.avM5EfRz-lkp@intel.com/reproduce)
 
-Can you rename this to "annotation", please? We'll eventually land other
-types of invalid pte than ownership (e.g. MMIO_GUARD) and, given that
-the ownership walker is caught by the 'force_pte' flag, it's a little
-more generic.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412120633.avM5EfRz-lkp@intel.com/
 
-Again, apologies I didn't ask for this earlier.
+All errors (new ones prefixed by >>):
 
-Will
+>> ld.lld: error: undefined symbol: cmdq_subsys_is_valid
+   >>> referenced by mtk-mmsys.c:173 (drivers/soc/mediatek/mtk-mmsys.c:173)
+   >>>               drivers/soc/mediatek/mtk-mmsys.o:(mtk_mmsys_update_bits) in archive vmlinux.a
+   >>> referenced by mtk-mutex.c:976 (drivers/soc/mediatek/mtk-mutex.c:976)
+   >>>               drivers/soc/mediatek/mtk-mutex.o:(mtk_mutex_enable_by_cmdq) in archive vmlinux.a
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
