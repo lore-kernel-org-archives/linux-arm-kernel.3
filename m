@@ -4,98 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC9E8E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 23:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32171E77182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 23:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShXp0MbnAr4ggsRDnYhR5uR6lsM/ajKdCXbVIq5oTug=; b=umZXlsQwmha3eMfKttvJl4Kymp
-	FL1PkIlSos0PTwirSFzxzLmDl258O4PNacyq+SBPmVtVpt2diPQ7qorIICZG2teWLSrS2Ud7QO/mm
-	3kiWpL5p+vzKxv1822X5IUQEuY9A+VsHXhFNBdVZZxQLYUzU6K/LR0TNGP3vQVwge58VROqnN4BHU
-	swac7OqVI1fdVZdtXFWbNmEox0eDiy1hRoQ36XHi/C5oSHJ0e7/po8FHomweISKzf1cReSFBbYx6h
-	6tbrrsJ7nkCH4WWN/7d43H8y6qvJzq/EPrWEt/P55TrqIV5rnrOAoSuZKYEdBmn/Rihvkh7TXFlO2
-	qAWakckg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5Y13tezS9osfEyeZZhDu0hB4QwVrkWFM3vdAGWXDL0s=; b=Xwq48U/i0HDZtzIZsGIeaErx25
+	gQdO0RfD79Rm9N/A+11eCBG8KRfBNa3xc5435GUDIublO83qxRXbayUc83THTro0oZNTc5nHYlkoz
+	MvsG7a7Wi+fdcUoB6OrT9ZhxFfH10hUqCIyBEOxbkOsLNXLm4kVywQPHB06QHYo2nhjedjRVyP7wM
+	gsAlA+VmgJttyLWSwkVzb2qN/A5qfFdjw9HkCeGApNvlLQIBkYiYdw7DJrSgNlO+5BizF414tSvPP
+	ykYvGhehnHqIs2xpQRYGojrQ7S0EaNt0bk36OUmEjGvzMesYhaPV62bTeeBAGPotSK2fcJSj5YsMu
+	53y0xXkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVxz-0000000GRld-0QhT;
-	Wed, 11 Dec 2024 23:18:03 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1tLW8g-0000000GStf-1wm7;
+	Wed, 11 Dec 2024 23:29:06 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVwu-0000000GRbj-1k8p;
-	Wed, 11 Dec 2024 23:16:57 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-725ef0397aeso7139b3a.2;
-        Wed, 11 Dec 2024 15:16:55 -0800 (PST)
+	id 1tLW7b-0000000GSRx-3o20
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 23:28:01 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-7f80959f894so1058138a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 15:27:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733959015; x=1734563815; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ShXp0MbnAr4ggsRDnYhR5uR6lsM/ajKdCXbVIq5oTug=;
-        b=bW3P2gHnl8RrY0M9uzM92GW+HMopYq41zUfXTZ14c0qk9GHgAucXivEGdweLmMR7c9
-         uliN81jWriuP9mj0cVGi0imCqbgV6dhMAYMmue4KKU7d2BQ8pldPta9d/oOUL2pULBpZ
-         g33oCiu6YgR9s42khKk12WTp96O3br+WvBXAXy7C1LZ+pxU/5d09ZxjIXbpBuANyWKxv
-         zem+9M8prEaqrAfSS3spJz1qTPuOTOG2zhMCXRSXbMpsF+CAPl3Le372C8zZXfNpmRQp
-         v8zJGCXpynb5VtEoVo1awPXm34w2rzQYyn4uIfmREjEMT76f7ddcHJKqtpNNCDQ1BWKs
-         8Dvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733959015; x=1734563815;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
+        d=google.com; s=20230601; t=1733959678; x=1734564478; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=ShXp0MbnAr4ggsRDnYhR5uR6lsM/ajKdCXbVIq5oTug=;
-        b=RYJyQa08Oton9mT+M41fEsZbhCMREMXdlEkVJTBRN8tnYyqBJVODbH5ubZWOs4UoU/
-         zOio5tet0JlpaX26Db2GljnVSPzvQCRbBaipWf72/vlKb4iwl2b5jm6cJzm3gLylFuw2
-         ZSKG7cTsSbhMpHlV9mgg+Zapuu39yjq/I+Z8YGQonZyspN89vCSW6CuQlbRlhy8TnhW4
-         w5zZ+w4f3XW7h8fnvW7Q1Ww0tswXkp1f9C7QnHq03SbI+w1gP2sFbPqCuuCN9aqqrOc0
-         tOddyVDMvQZkrndYfZregLVQrnvfKhtsA+nJ18EOsUJX3DPfHRpl/LsO7Ajue7BpBG79
-         wVKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWh0cZQr5hr/4G6WB4vsf2ysWg6R1MKEeVNb0F+TU0GFGEZ1rAKbYRMv/8FN81AbcUEm+AqXy+MDlqKb6Y=@lists.infradead.org, AJvYcCXtYiB7FzQKC9xCqO08OH405A7LL4XrDuUbEnZ9cUU9EncqvaaoLQN4cgFUYhiaQhEkKwIH2I7OSZ7URardJX9l@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBAeXX6VSvCi5s3bk+BqZEiE6taF22KmYTLmgY7gGut2ON0lan
-	H+RL9wysZyjJ8QcbcqUk/hxGAoIb3eMMw7pG0r604DyJ3FCTLQfP
-X-Gm-Gg: ASbGncsGxaJtARFN7TLv7Bvnd/J0wpTb/39Me5jT0QRIs/+U4exOD+Jav7+bIvP8sYi
-	0ygXZcF1D6ljRU83Wbxk359HrflU1brqDNNWfkm5sdvemVhJ/szrUtbzQSQ7BghnF/KzMbRsxZC
-	io90H6uAvlwJ4EBmn4csBUXBxneIjT24Ol2VbnbT697rH7b0zlM+hA6HfAoLRB0wT9+ORCj7tsW
-	42OW/wYBiVYDHxlG09g1sB02EHDvpBrEhKTtlgTRAs2EJXAdhc4XGuGoHD60fj2/4ZqfkyAlVBq
-	sVyCDvPqiV7I9foA99Hrz+Vjj0jUj02swewH
-X-Google-Smtp-Source: AGHT+IHiOZwkIkfA6zUyxiG0lm10+eI/mHdViFN+Pz4GPmJYmGkPLqez5E4FZA5uA6Zaeh8N3oG8TQ==
-X-Received: by 2002:a05:6a00:92a6:b0:725:f18a:da42 with SMTP id d2e1a72fcca58-728fa9bf4abmr1705891b3a.2.1733959015026;
-        Wed, 11 Dec 2024 15:16:55 -0800 (PST)
-Received: from localhost (p4007189-ipxg22601hodogaya.kanagawa.ocn.ne.jp. [180.53.81.189])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725cf238777sm8304590b3a.47.2024.12.11.15.16.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 15:16:54 -0800 (PST)
-Date: Thu, 12 Dec 2024 08:16:39 +0900 (JST)
-Message-Id: <20241212.081639.1353664129364117890.fujita.tomonori@gmail.com>
-To: chenhuacai@kernel.org
-Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
- hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
- kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn,
- yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com,
- boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
- benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu
-Subject: Re: [PATCH v1 4/5] loongarch/bug: Add ARCH_WARN_ASM macro for
- BUG/WARN asm code sharing with Rust
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <CAAhV-H7BxE7xeA982Pr4PFxgfNpgXs6H4OZ2LydmYAtYjvYNaw@mail.gmail.com>
-References: <20241210001802.228725-1-fujita.tomonori@gmail.com>
-	<20241210001802.228725-5-fujita.tomonori@gmail.com>
-	<CAAhV-H7BxE7xeA982Pr4PFxgfNpgXs6H4OZ2LydmYAtYjvYNaw@mail.gmail.com>
+        bh=5Y13tezS9osfEyeZZhDu0hB4QwVrkWFM3vdAGWXDL0s=;
+        b=005YUguGRwxsPz7RxssW6j3WdFTxdi2KvGm+FJxDmyTN5lFMRvkwP4XfgmbloMI1dM
+         qLrBEkQ2NBHedrYe072QyxyYrI24eu17D7T9fB4MlJk8cBoDtLZ40i2JSOHYVmzYUWHn
+         ZiSgIemQ9TpOVNO9pb1B0fSG4UstqHvwPjqxM/3faHkm0KO+/OdRAr91qyT73kv3TVRQ
+         LTUnDQSzc6riAvAajVt4FpYqw+zfUXFZx2nb9qhL+c0yLhVjK+gjDbWLDg0AuclkxJ1M
+         SIeyrjW/UA7QrhA9q8NC0lASFQV30CZSO7lfWxnETfVZ8hYpY89j8FOjVxVDtNyulp3/
+         jr/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733959678; x=1734564478;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5Y13tezS9osfEyeZZhDu0hB4QwVrkWFM3vdAGWXDL0s=;
+        b=Q3/3I9+e7Sql7jXrE/oq8o505hMszkmGSLTB3uYxg0RJbmEl/uquI0lo5yxVXKDZjt
+         nBPLtEJwHasMz42pjWU6p1EOB/QsP9pmOtBZLEX2iGnrcpq49pZQQs4q66t5Tcmlwfj7
+         23lkz/LiYzw/mlV3GIZsHgvrtLk12JTsWGxvcOqyc9ek/Y4LS4dlTQQt5ul6kKmqvsG2
+         zKYxGvVMZetHVEZ5Ru7EHZUUHjCjckRHpMXbqiYxjH/mjABIi/eOUIcoxoZaMg3PdlDD
+         fpRLNiezrJXVYnIzDVT5PTf1Q0hGCjnKDG0DBP8UaTvkkw5vjSTZYMTYlt+/zmmhWpgg
+         HhzA==
+X-Forwarded-Encrypted: i=1; AJvYcCVPjoGEZ+G8+rlGGDmz267O0R2KK5K1kRbZ4/0AOMWkXtnU/Yzo28dzmSUCZqkCCMStCLzrszwV54EIh2zOQYTQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ73iRaENk8WIwOtRgflJ94OP/vW6fTwLDd6Gx2LiG1+RNvhRL
+	LfT23EmGf7bOAC5sBiRFYknSRpTAN2MmnAps8psHrwNWNyDXMUvcJs3f9m0CUkFJKfqtihTpUQU
+	+Ngw7FOp8+pWuo97OofN7jA==
+X-Google-Smtp-Source: AGHT+IH+hxwnbTejsd5rMe6ZdiiLsQVYXh76CpSNZ1O0EO7ZME4Z+uiov/c6u6U8sBeYTnWqfHb7LFZNMZjeMUedcw==
+X-Received: from pjj11.prod.google.com ([2002:a17:90b:554b:b0:2ef:9866:6155])
+ (user=kaleshsingh job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:1f81:b0:2e2:c2b0:d03e with SMTP id 98e67ed59e1d1-2f13abc6e43mr1624666a91.5.1733959677870;
+ Wed, 11 Dec 2024 15:27:57 -0800 (PST)
+Date: Wed, 11 Dec 2024 15:27:38 -0800
 Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+Message-ID: <20241211232754.1583023-1-kaleshsingh@google.com>
+Subject: [PATCH mm-unstable v2 00/16] mm: Introduce arch_mmap_hint()
+From: Kalesh Singh <kaleshsingh@google.com>
+To: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com, 
+	riel@surriel.com, david@redhat.com, minchan@kernel.org, jyescas@google.com
+Cc: linux@armlinux.org.uk, tsbogend@alpha.franken.de, 
+	James.Bottomley@HansenPartnership.com, ysato@users.sourceforge.jp, 
+	dalias@libc.org, glaubitz@physik.fu-berlin.de, davem@davemloft.net, 
+	andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net, 
+	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com, 
+	leitao@debian.org, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org, 
+	kernel-team@android.com, android-mm@google.com, 
+	Kalesh Singh <kaleshsingh@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_151656_454538_55B57DC5 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_152759_939415_BCFB3A82 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +100,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Dec 2024 16:41:42 +0800
-Huacai Chen <chenhuacai@kernel.org> wrote:
+Hi all,
 
->> +#ifdef CONFIG_DEBUG_BUGVERBOSE
->> +#define __BUG_LOCATION_STRING(file, line)              \
->> +               ".long " file "- .;"                    \
->> +               ".short " line ";"
->> +#else
->> +#define __BUG_LOCATION_STRING(_file, _line)
->> +#endif
-> Can we use file and line instead of _file and _line, which is the same
-> as the CONFIG_DEBUG_BUGVERBOSE case?
+This is v2 othe the arch_mmap_hint() series.
 
-Of course, I'll fix in v2. I should have done that.
+Changes in v2:
+  - MAP_FIXED case is also handled in arch_mmap_hint() since this is just a
+    special case of the hint addr being "enforced", per Yang Shi.
+  - Consolidate most of the error handling in arch_mmap_hint().
+  - Patch 16 ("mm: Fallback to generic_mmap_hint()") was folded into
+    Patch 2 ("mm: x86: Introduce arch_mmap_hint()")
 
->> +
->> +#define __BUG_ENTRY_STRING(file, line, flags)          \
->> +               __stringify(__BUG_ENTRY_START)          \
->> +               __BUG_LOCATION_STRING(file, line)       \
->> +               ".short " flags ";"                     \
->> +               __stringify(__BUG_ENTRY_END)
->> +
->> +#define ARCH_WARN_ASM(file, line, flags, size)         \
->> +       __BUG_ENTRY_STRING(file, line, flags)           \
->> +       __stringify(break BRK_BUG) ";"
->> +
-> Can we use the same indentation in this file?
+v1: https://lore.kernel.org/r/20241210024119.2488608-1-kaleshsingh@google.com/
 
-Oops, I'll fix in v2.
+=======
 
-Thanks!
+This series introduces arch_mmap_hint() to handle allocating VA space
+for the hint address.
+
+Patches 1-16 introduce this new helper and Patch 17 uses it to fix the
+issue of mmap hint being ignored in some cases due to THP alignment [1]
+
+[1] https://lore.kernel.org/r/20241118214650.3667577-1-kaleshsingh@google.com/
+
+Thanks,
+Kalesh
+
+
+Kalesh Singh (16):
+  mm: Introduce generic_mmap_hint()
+  mm: x86: Introduce arch_mmap_hint()
+  mm: arm: Introduce arch_mmap_hint()
+  mm: alpha: Introduce arch_mmap_hint()
+  mm: arc: Use generic_mmap_hint()
+  mm: csky: Introduce arch_mmap_hint()
+  mm: loongarch: Introduce arch_mmap_hint()
+  mm: mips: Introduce arch_align_mmap_hint()
+  mm: parisc: Introduce arch_align_mmap_hint()
+  mm: s390: Use generic_mmap_hint()
+  mm: sh: Introduce arch_mmap_hint()
+  mm: sparc32: Introduce arch_mmap_hint()
+  mm: sparc64: Introduce arch_mmap_hint()
+  mm: xtensa: Introduce arch_mmap_hint()
+  mm: powerpc: Introduce arch_mmap_hint()
+  mm: Respect mmap hint before THP alignment if allocation is possible
+
+ arch/alpha/include/asm/pgtable.h           |   1 +
+ arch/alpha/kernel/osf_sys.c                |  31 +++---
+ arch/arc/include/asm/pgtable.h             |   1 +
+ arch/arc/mm/mmap.c                         |  43 +++++----
+ arch/arm/include/asm/pgtable.h             |   1 +
+ arch/arm/mm/mmap.c                         | 107 +++++++++------------
+ arch/csky/abiv1/inc/abi/pgtable-bits.h     |   1 +
+ arch/csky/abiv1/mmap.c                     |  68 +++++++------
+ arch/loongarch/include/asm/pgtable.h       |   1 +
+ arch/loongarch/mm/mmap.c                   |  49 +++++-----
+ arch/mips/include/asm/pgtable.h            |   1 +
+ arch/mips/mm/mmap.c                        |  50 +++++-----
+ arch/parisc/include/asm/pgtable.h          |   1 +
+ arch/parisc/kernel/sys_parisc.c            |  53 +++++-----
+ arch/powerpc/include/asm/book3s/64/slice.h |   1 +
+ arch/powerpc/mm/book3s64/slice.c           |  31 ++++++
+ arch/s390/include/asm/pgtable.h            |   1 +
+ arch/s390/mm/mmap.c                        |  51 +++++-----
+ arch/sh/include/asm/pgtable.h              |   1 +
+ arch/sh/mm/mmap.c                          |  83 ++++++----------
+ arch/sparc/include/asm/pgtable_32.h        |   1 +
+ arch/sparc/include/asm/pgtable_64.h        |   1 +
+ arch/sparc/kernel/sys_sparc_32.c           |  33 ++++---
+ arch/sparc/kernel/sys_sparc_64.c           |  96 +++++++-----------
+ arch/x86/include/asm/pgtable_64.h          |   1 +
+ arch/x86/kernel/sys_x86_64.c               |  64 ++++++------
+ arch/xtensa/kernel/syscall.c               |  31 ++++--
+ include/linux/sched/mm.h                   |   9 ++
+ mm/huge_memory.c                           |  17 ++--
+ mm/mmap.c                                  |  86 +++++++++++------
+ 30 files changed, 491 insertions(+), 424 deletions(-)
+
+-- 
+2.47.0.338.g60cca15819-goog
+
 
