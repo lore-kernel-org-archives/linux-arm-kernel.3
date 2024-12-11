@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655E4E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 03:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CA8E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 03:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v+SqWvKMXn53ySqihikLvjixvoulHaOpfvaW+kjjCzk=; b=1yd0zjXpfEbngTQPUwe28a55nT
-	S7APsMg3Hrogh4MzTFDur3bAmmUKL1azkTkVT1v6e2zCvo4kMgB4hIIl/AYLinroAzAFbWr/i/dQc
-	GiDufxeTdImjKjtkkeWFnshgeXLmkmLpSrwVRO7rQBgy9hC7VhzNc6/oqmM/Mc6BYDlMRDgDGIrUl
-	fv6xJWHlLRYWRx0d9x4N+AwtJW1630mYUOEtZYhY4vL88m6qCkHegr4XRlRcqBoMCys9JaGnfo8hw
-	RuG/4c3GiBr46SiC2XCoD5j7guSDzvlynBwj11sMp9xZNTXHWrDP4VY0md1QChRaqfZs61rY/5u8/
-	9eBJcyNg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4cH1mM7zgDjQ29maw8yzbllsYQuAR43E0lxlHNTTv4o=; b=mf3inZeBzZ/7Pfac6NKxBvOxqX
+	xg90jlJXGcn1J2UZbvle2AMEDVW+bz0lc1glO2DSaLqmMGYpNAfLbPL29CfrzFWauI0EgWaSpZfsn
+	YmAWQBb1+1R30rCohFX/POvmAOKlnwnWkUwAnydql5aNJ5CAfNVmrD8YlQgdEa2t02A+DOC4Ynqaj
+	Aek4nwfPWC4OVMgchSxvzYh2ZUqOY+uRxeAl1G89FC19eGgJBJbbJqkWPxke9YdqtmhDrLuZimhHg
+	9W0APqVp8DCYKWuqufsOLyXCRbJAmSk+SAN0geccefKGXJdoZ5z3dbXY45ZhVmlPFTn1svloT2cYf
+	0fRRYjjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLDUz-0000000DewK-27gG;
-	Wed, 11 Dec 2024 03:34:53 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1tLDeQ-0000000Dfz1-3J9U;
+	Wed, 11 Dec 2024 03:44:38 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLDQk-0000000DeIf-31hz
+	id 1tLDdM-0000000DfkV-3Swu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 03:30:32 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-71e0351311eso491449a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 19:30:29 -0800 (PST)
+	Wed, 11 Dec 2024 03:43:34 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3a815ed5acfso17669385ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 19:43:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733887829; x=1734492629; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=v+SqWvKMXn53ySqihikLvjixvoulHaOpfvaW+kjjCzk=;
-        b=baH4xirCnn6arO1bDk9n5BpnDnrlWsXtdJwcgi8xCSQYwsm5P/93V2wPzrqgmQgmjr
-         kH60+PVkXpAkKepnILyhbBc++XOF/u08omicWOGK5oVAr/RcM3sXYABADUq+6x/BMxNo
-         WWInk6nbeeTrYlRVPLvy2rq+q5bkkZSMi9nMD880e8zq16aYflaATYnRQ2SKvWr5dxYR
-         /Zd73aTRcbQF7J+R5Fna7N4AD+W3eaHUUqH1Jn4EsmyTdss96DqDTAusOX8qxIVG45Ny
-         /L0gBpoLosEmETLU4rCDSoVOKihaQjBUROvTAQrWD3/fBsb7cHglL0XqO5MlAYoZGD3k
-         K7ew==
+        d=gmail.com; s=20230601; t=1733888611; x=1734493411; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4cH1mM7zgDjQ29maw8yzbllsYQuAR43E0lxlHNTTv4o=;
+        b=IVh5/X/XHpq54Wy8EVWeevsdjVUntQsytw0TwmtBruzCchjzzhlewINvIcyhkxu39u
+         nEkgWcPP8DkjC4bbXm3cCTdhhYQx6U1PEYyyaHZv0Tvtjvb63BMyVlJvLk85eioHNbmo
+         0foZCbbSCy7vR3PusPWQt3ZHDmSsiMpTmzmilQxNoZn/8kMA3SFUztpPX08xkiWXVGbE
+         x/L/7k9lgMVQzUlPQJMJJqWCq7F8NiCgvZ+sC/qHdRbHbsibZPaZgCBgonNIh0VHiMXL
+         OUjIabc+afdebta8CMLUiDZBrAKlFsG5PpX8Y2gjm8Dg4y0rcD1qg1S4aErs3cVHdzc5
+         uO/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733887829; x=1734492629;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=v+SqWvKMXn53ySqihikLvjixvoulHaOpfvaW+kjjCzk=;
-        b=BftLWNsMZQhljRiJd363PUgxnx2pmVIvjTpNCUSLZUdEyz7ERR9rXxc/ce8R5GJbla
-         uCGOOAAFKZijaHkN8h89KFA75I02vWVMdvj92XPRcds4hoP5pT52avo1VHZOrlgRh4SN
-         Jj8avgRdPVsHBDtFvh8a+/RuYwRoJMu5Ch8XxR6OQuv/7FBa/sJpVtPtmgq0LzbtJSWn
-         sQiYBH4YV7hr4UMTAK9r8Sqy9DaSuJUbK+WbImGrgpQAtveSN+QjU3Ef+8XKXl/tcu4d
-         tyMRsMIgPlvfgAuPHe+LYlDu8sZ+/9saHSccFOeU/51ZHTROh7Dvpp9vUvTE3X2ykc5d
-         NPHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVmFZBCu/f9ejqs1ktqbncPA9eNjSbl/NYmQYlClYr/ktiS210OOxbHllsHeJt9klvkNB6knjJLgYZet+sWFBoH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcAssdSoNA9L/tvWQlAGRB1dZNur/XYPQp9XfkwMEmZK3yCHzP
-	Drr4V096MV2uYjzXv1ZpG8DYrRc0VOQoVG64Pd4edpzw/G+sH4Oiw3c/NkjcmGQ=
-X-Gm-Gg: ASbGncsSpTMWsuGBIrZg2orGGbgjPYWWQPWSOvB6f5XQTUCEXtJyNis7NCP0bY1lCKn
-	LJEs5MQ2DrwuVrrWlBHpsHugb7wnZ1NwRxZokfv7sFob10dNre960fQFbHSpkcj0E1Uem6Abuao
-	tEvxp4siroIyPqhNi0hVDKlpk+UlMq5kfb1zinRLfVuviPngGmiFPmC6ogbYE4GuO0ENqvNyeqS
-	l3VqUTti2OSMKuu2XBN95fejPID3BWpKAnMoc6XKx31uUI2I0jwTqq2xPM=
-X-Google-Smtp-Source: AGHT+IFxuwtOuX7RSi7QuMnWBVAHW2v93lQ0WBBx/aGpBUEB+zUeX9kV14JIgbiv2kahMG99yLppvg==
-X-Received: by 2002:a05:6830:25d4:b0:717:f701:4842 with SMTP id 46e09a7af769-71e19b5ac55mr619830a34.28.1733887829115;
-        Tue, 10 Dec 2024 19:30:29 -0800 (PST)
-Received: from localhost ([136.62.192.75])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5f2c472a028sm996004eaf.33.2024.12.10.19.30.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 19:30:28 -0800 (PST)
-From: Sam Protsenko <semen.protsenko@linaro.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: exynos: Specify reserved secure memory explicitly
-Date: Tue, 10 Dec 2024 21:30:27 -0600
-Message-Id: <20241211033027.12985-1-semen.protsenko@linaro.org>
-X-Mailer: git-send-email 2.39.5
+        d=1e100.net; s=20230601; t=1733888611; x=1734493411;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4cH1mM7zgDjQ29maw8yzbllsYQuAR43E0lxlHNTTv4o=;
+        b=QdPL5mPYjweUsiFGwqsDqrlCri5kM7X+PcVoLMy4RNjiFz+kG93BRwZfSsyw0Rv+lP
+         H/E6R6OoDs0uu45UEg08VXdFyCyFx8tXUYrCZQKHw2Nqpx965Ap9H6AfTHbgFBUAGW8i
+         8NB8QBZiJkGNuUOwkjIV6xyYRKzFf+fiSotL47dh4Y8kO9BU8I6a9/omrC7VRQ/aCIvu
+         NXP5GpyHLx2dawCUpmyXxoDtm5xEgdX8lYgD9GolMcOfQPvOXuWOBjq+M9Kon5WYwlA8
+         CfOcwQZFKWUnybZ8Vb69fi9oJ7EACt2gyeISzCU92j8sCo5ufAmIWZjTaMjnYqUrHCgc
+         rlRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXe+9j/8+b8Q5ZqpVcLVlVJC9EgvPPZalbByJcMp1VoK41wZN85qpJjExXeBgLoWEU2gnddpUyjJVnVALl/h+yI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIb6zeooJ4y3SyPiMAFLH56q3E9S1oqssvmAhHQ6uTNiCF2a1A
+	nmzVApz6ZqbHVDWbH7BzAhOL28N2KngstXuJRsB/j0dGVxpEU937rbHUqY8jF7iN31ZXzpH9Eud
+	NzCmr6T1o5F6HPp4huLhsCFrQHMg=
+X-Gm-Gg: ASbGncsr5xrDZeQyTSRrF2P8IOISf0ReopkBCOFtUjmTGvscIuUYIC8twDRoWDJnamI
+	va5dovjhtKElfHZeW1F5dWBgeN7QhRETHCYQ=
+X-Google-Smtp-Source: AGHT+IGyFs2ybV2TpGqUFfLsmDGPrsekx8uabC3DOBZW5+y8ecKLujGvlTe7kk+e78b8/IN04qEwyEGNin5DhKkcZs4=
+X-Received: by 2002:a05:6e02:1d8a:b0:3a7:1a65:2fbc with SMTP id
+ e9e14a558f8ab-3aa0933d97dmr15169745ab.23.1733888611229; Tue, 10 Dec 2024
+ 19:43:31 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+ <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com>
+ <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com> <iyknardi445n4h74am22arpgc4vlchh6z6cvkbff2xg76pd655@nozwz7snt476>
+ <1219b46d-2aea-4377-a8ca-024039ee1499@quicinc.com>
+In-Reply-To: <1219b46d-2aea-4377-a8ca-024039ee1499@quicinc.com>
+From: Rob Clark <robdclark@gmail.com>
+Date: Tue, 10 Dec 2024 19:43:19 -0800
+Message-ID: <CAF6AEGs4EebrwyQZviNXqB2=3h2wgZpmbrdGHuEU4z1D014GRA@mail.gmail.com>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+To: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Pavan Kondeti <quic_pkondeti@quicinc.com>, 
+	Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Abhinav Kumar <quic_abhinavk@quicinc.com>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Elliot Berman <quic_eberman@quicinc.com>, 
+	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_193030_925888_43910B2A 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20241210_194332_879193_6B5B84D0 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,55 +101,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of carving out the secure area in 'memory' node, let's describe
-it in 'reserved-memory'. That makes it easier to understand both RAM
-regions and particular secure world memory region. Originally the device
-tree was created in a way to make sure it was well aligned with the way
-LittleKernel bootloader modified it. But later it was found the
-LittleKernel works fine with properly described reserved regions, so
-it's possible now to define those in a cleaner way.
+On Tue, Dec 10, 2024 at 7:08=E2=80=AFPM Akhil P Oommen <quic_akhilpo@quicin=
+c.com> wrote:
+>
+> On 12/11/2024 6:43 AM, Bjorn Andersson wrote:
+> > On Tue, Dec 10, 2024 at 02:22:27AM +0530, Akhil P Oommen wrote:
+> >> On 12/10/2024 1:24 AM, Rob Clark wrote:
+> >>> On Mon, Dec 9, 2024 at 12:20=E2=80=AFAM Akhil P Oommen <quic_akhilpo@=
+quicinc.com> wrote:
+> >>>>
+> >>>> When kernel is booted in EL2, SECVID registers are accessible to the
+> >>>> KMD. So we can use that to switch GPU's secure mode to avoid depende=
+ncy
+> >>>> on Zap firmware. Also, we can't load a secure firmware without a
+> >>>> hypervisor that supports it.
+> >>>
+> >>> Shouldn't we do this based on whether zap node is in dtb (and not dis=
+abled)?
+> >>
+> >> This is better, isn't it? Otherwise, multiple overlays should be
+> >> maintained for each soc/board since EL2 can be toggled from bootloader=
+.
+> >> And this feature is likely going to be more widely available.
+> >>
+> >
+> > The DeviceTree passed to the OS needs to describe the world that said O=
+S
+> > is going to operate in. If you change the world you need to change the
+> > description.
+> > There are several other examples where this would be necessary
+> > (remoteproc and watchdog to name two examples from the Qualcomm upstrea=
+m
+> > world).
+>
+> But basic things work without those changes, right? For eg: Desktop UI
 
-Signed-off-by: Sam Protsenko <semen.protsenko@linaro.org>
----
- arch/arm64/boot/dts/exynos/exynos850-e850-96.dts | 15 ++++++---------
- 1 file changed, 6 insertions(+), 9 deletions(-)
+It isn't really so much about whether certain use-cases can work with
+a sub-optimal description of the hw (where in this case "hw" really
+means "hw plus how the fw allows things to look to the HLOS").. It is
+more about the hw/fw/whatever providing an accurate description of
+what things look like to the HLOS.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850-e850-96.dts b/arch/arm64/boot/dts/exynos/exynos850-e850-96.dts
-index f074df8982b3..7d70a32e75b2 100644
---- a/arch/arm64/boot/dts/exynos/exynos850-e850-96.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos850-e850-96.dts
-@@ -45,17 +45,9 @@ usb_dr_connector: endpoint {
- 		};
- 	};
- 
--	/*
--	 * RAM: 4 GiB (eMCP):
--	 *   - 2 GiB at 0x80000000
--	 *   - 2 GiB at 0x880000000
--	 *
--	 * 0xbab00000..0xbfffffff: secure memory (85 MiB).
--	 */
- 	memory@80000000 {
- 		device_type = "memory";
--		reg = <0x0 0x80000000 0x3ab00000>,
--		      <0x0 0xc0000000 0x40000000>,
-+		reg = <0x0 0x80000000 0x80000000>,
- 		      <0x8 0x80000000 0x80000000>;
- 	};
- 
-@@ -146,6 +138,11 @@ reserved-memory {
- 		#size-cells = <1>;
- 		ranges;
- 
-+		secure_mem: memory@bab00000 {
-+			reg = <0x0 0xbab00000 0x5500000>;
-+			no-map;
-+		};
-+
- 		ramoops@f0000000 {
- 			compatible = "ramoops";
- 			reg = <0x0 0xf0000000 0x200000>;
--- 
-2.39.5
+I'm leaning more towards the hw+fw providing HLOS an accurate view...
+and the fact that that carries over into other areas of dtb (ie. it
+isn't the only thing that slbounce needs to patch, as I previously
+mentioned) reinforces my view there.  This seems like a thing to fix
+in fw/bootloader tbh.
 
+BR,
+-R
+
+
+>
+> >
+> > So, if we can cover this by zap-shader being enabled or disabled, that
+> > sounds like a clean and scaleable solution.
+>
+> I think we are focusing too much on zap shader. If the driver can
+> determine itself about access to its register, shouldn't it be allowed
+> to use that?
+>
+> -Akhil
+>
+> >
+> > Regards,
+> > Bjorn
+>
 
