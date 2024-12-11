@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CF5E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C29AE77186
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hUEjsdsK5sfW+WU0cV/OJN+y9IF7umfVVUFeM2GVr84=; b=XJ0JDI4MLXhETEwipa+f0qArq/
-	vaUAvhL5fIHB0N3JAZUMnJw2KU2FNHOn7j4f2dX+XzN8wipfuszPSikYvd6ka8/tCJWy9mCuwu3d6
-	tzftWcutWwT0ds9euvW2xt3cbX9d1NAI4UNWtkabO9vgiHEkhExzl2HVhEcq+bHNO09tOAzXV3HCr
-	2iNF15Fnjlgftylykvlg+KVfoLPygcXI+n/kvaCkMqjMPVShkVuqbhel1Wz6YQtuIBAUAxv39i/Ks
-	BMMpHAtoC6/HKRtk7lV/tz6kUpJ3IZ8auzafG412qYlDvlhbkgdyHPjxZLyMaIqTH86gIVQjaFe6V
-	tEjkGPww==;
+	bh=o4ptZloOfFwNLV1nxYbKIFIsGukxF2nm3f5nBiNdcUE=; b=W/Vjm6HT01y1NqzHK+T+vMhM22
+	8r/hZrhoCv+xR8QcKGIuIpReAk42poRceiI3TzTu7PsInDHIJPhuSki2zu/WskXthAT4TiiLcMfwx
+	Be6FgWcCaLQvdiTw0zrmyLnn6jgaRNcCotyHHquo1CcTe8sM94JBDWhkAXnO7UcAyhKKfEGQB4BKA
+	rST4A11dcOiKF5zLcaDQ5/rOdoyBn7V3LhUwR3z9hr6AzoeYYwlCV5nj4FoK7IUurcuCLkhyQhqBJ
+	ktO2Ia+BGmIfzEDSkLPcQ2FeOZatwnVQRGt8jY0h7UQA/KDPdX2gw/pxKTCNpuWwacNU91AQ+6SbR
+	B99Nj0oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOR-0000000GWVl-3yz9;
-	Wed, 11 Dec 2024 23:45:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLWOT-0000000GWXG-36xr;
+	Wed, 11 Dec 2024 23:45:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFt-0000000GKUf-27c7;
-	Wed, 11 Dec 2024 22:32:30 +0000
+	id 1tLVFv-0000000GKVG-09Z2;
+	Wed, 11 Dec 2024 22:32:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7FB125C67E6;
-	Wed, 11 Dec 2024 22:31:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2AB6C4CED2;
-	Wed, 11 Dec 2024 22:32:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0C2945C678F;
+	Wed, 11 Dec 2024 22:31:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ABF1C4CED2;
+	Wed, 11 Dec 2024 22:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956348;
-	bh=BsLL13WVfc3NzEKIjd52mjnoMrC/Et1GCt0kRWiLCQo=;
+	s=k20201202; t=1733956350;
+	bh=Lj6m1KGdu6A9P37ePkeHmGhpEOYrC07Re+9IHx97taY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qv6gvZPdDzbdVPybtFSPx8+F0xql/LHjAUoa61PxHbq7BiNILQmSVN3xV/Fk+jm3l
-	 eRj2euKpGQwhzha10D0yvWpJ5jdjr8+V1iYsps4/RL/90xpWyAoPlqxLTgT8H2p1Qr
-	 znxHE8HzGGVb3bxCyQgvVT/2hoGKZW56OU+GylgAoSP4eq7TpXB3MZRt3VoyD522af
-	 qGwcNNMDDsGqYKHkYodSX7oguHOLk4TTwi/8Q8fATZ6k5VUR9Dw7CkfxIhk8aSQAz0
-	 q46lv24Cq5nGqzFQZkxa8IXK7+L/Hgf8e5dM0N1jW5ubxUNiav+to559ZbObo4j7v8
-	 24oLtA9z8Jf7w==
+	b=Q+h6JdhYbgWkkJZKxxBpvzzMrsNxkGoEdza4YFJyky6PGRqvTppB4WWSHpF2XbZEp
+	 3RmwDTIJ+IWZiPF6URzM7AFAUrovMRw7D8NbXB+92TG9vVWaXrcU/MsgUuSOZ3vPex
+	 o0MaFjihetIadNNvJTpEn+nlZctZbXnS0fVYRMWoku2hOngBPg/UbRT+WKkxpgNf2d
+	 SwvyT1mNlDgHbiMNbtlfPoLzmzqTgNvTIuq+Jo3m/NabxJ757iMFljbIUWU4KxUn8N
+	 5ID5hDIVQ1/ODfWBnJSI9qXoWm4SM9dKAfh3gfNA/Y4dMt1mVhzEjFLVbDxspwHNRS
+	 2u3nMpWh8Eo9Q==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAFBE380A965;
-	Wed, 11 Dec 2024 22:32:45 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C81380A965;
+	Wed, 11 Dec 2024 22:32:47 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 1/2] asm-generic: provide generic page_to_phys and
- phys_to_page implementations
+Subject: Re: [PATCH] kernel/irq/proc: performance: replace seq_printf with
+ seq_put_decimal_ull_width
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395636448.1729195.13128530873311699126.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:44 +0000
-References: <20241023053644.311692-2-hch@lst.de>
-In-Reply-To: <20241023053644.311692-2-hch@lst.de>
-To: Christoph Hellwig <hch@lst.de>
-Cc: linux-riscv@lists.infradead.org, arnd@arndb.de,
- linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+Message-Id: <173395636600.1729195.17930169527159894833.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:46 +0000
+References: <20241103080552.4787-1-00107082@163.com>
+In-Reply-To: <20241103080552.4787-1-00107082@163.com>
+To: David Wang <00107082@163.com>
+Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de,
+ richard.henderson@linaro.org, linux@armlinux.org.uk, catalin.marinas@arm.com,
+ will@kernel.org, guoren@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
+ James.Bottomley@HansenPartnership.com, deller@gmx.de, mpe@ellerman.id.au,
+ paul.walmsley@sifive.com, ysato@users.sourceforge.jp, dalias@libc.org,
+ glaubitz@physik.fu-berlin.de, davem@davemloft.net, andreas@gaisler.com,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ chris@zankel.net, jcmvbkbc@gmail.com, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
  linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-arch@vger.kernel.org
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143229_581455_0A385D32 
-X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-CacheID: sfid-20241211_143231_114866_8ADBB58E 
+X-CRM114-Status: UNSURE (   6.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,26 +87,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Arnd Bergmann <arnd@arndb.de>:
+This patch was applied to riscv/linux.git (fixes)
+by Michael Ellerman <mpe@ellerman.id.au>:
 
-On Wed, 23 Oct 2024 07:36:36 +0200 you wrote:
-> page_to_phys is duplicated by all architectures, and from some strange
-> reason placed in <asm/io.h> where it doesn't fit at all.
+On Sun,  3 Nov 2024 16:05:52 +0800 you wrote:
+> seq_printf is costy, when stress reading /proc/interrupts, profiling indicates
+> seq_printf takes about ~47% of show_interrupts samples:
 > 
-> phys_to_page is only provided by a few architectures despite having a lot
-> of open coded users.
-> 
-> Provide generic versions in <asm-generic/memory_model.h> to make these
-> helpers more easily usable.
+>     show_interrupts(94.495% 5166019/5466991)
+> 	seq_printf(47.429% 2450210/5166019)
+> 	    vsnprintf(89.232% 2186366/2450210)
+> 		format_decode(24.005% 524831/2186366)
+> 		number(19.488% 426084/2186366)
+> 		memcpy_orig(3.739% 81753/2186366)
+> 		...
+> 	_raw_spin_unlock_irqrestore(26.643% 1376379/5166019)
+> 	mtree_load(8.059% 416304/5166019)
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/2] asm-generic: provide generic page_to_phys and phys_to_page implementations
-    https://git.kernel.org/riscv/c/c5c3238d9b8c
-  - [2/2] asm-generic: add an optional pfn_valid check to page_to_phys
-    https://git.kernel.org/riscv/c/3e25d5a49f99
+  - kernel/irq/proc: performance: replace seq_printf with seq_put_decimal_ull_width
+    https://git.kernel.org/riscv/c/5b881c1f8379
 
 You are awesome, thank you!
 -- 
