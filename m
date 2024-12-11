@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E9C0E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 09:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA124E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 09:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1nZewObnpmidSPs24J/C8qQRTp3QXqgI7zisl0ya9zU=; b=Twzpg0IhONdwi8cnfi3GXwA4OJ
-	BETgnXt49+IME+l7Re1P7yTSC9EqUx2q8SdzlhTC0UBALBi4UZXJFQfl+EZ7yM4EVac1OjgL/mSLE
-	+/kVF5Up2EMzv0Fb+65ejxa39tGU0/5TH77J7bYOeTyBu17I51vEJnZCEEIK9rjP/TiCxPvbOWKIw
-	0iAAGaClzsS4S3zW1WSDaeBOhQ6BdKzTwvwSMD/OYpTrl7mmWC34/rG7KkQDh1GHdk2l6tU8QXoQZ
-	SiB8i8/L27f3Y2MP9kUUs6NQkCFS7Kp9A0Ikbq9m1JnrAxtgekQcsvjAxk/WtWdKAjJY+rJ9fuBK0
-	Wn0Raiaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NoxTFED1OV6IIvC50S+pNWi2oVo0JYbWqlKUFL/WbNs=; b=RoTTXqS1u4FlZ4/4knz1KKx3QP
+	oxhVmP8P8EEWe2+Gs+95bImy6nNOpKMofQit9eGWKGXecSLPSL69MUUaVECdSFfIHk3J7ephO50ux
+	KHg2/ddUTFW/e/VAi52S+5oPXTBj8cD1dCsz1bFfTGYud9dy7ozLaKANamkcFZ0z7WQrwmWaMauEx
+	B3AVOwiAA1hoyehyWPOupnrj9cJrHrRVSbPSt9IhYDo07Jxmfd6TPGAGZ2ZlTcAFKx0STSMfZPErI
+	Wk9By35nnoOqIvUF0yV94+p1QSyOFXMjnYpf0J9Hcp+U4/lKi23PYiGHUU4W5I3lBiWqDoI20VGUg
+	JFKwPKSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLJPY-0000000EUrc-1GRX;
-	Wed, 11 Dec 2024 09:53:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tLJV0-0000000EVYX-3kdm;
+	Wed, 11 Dec 2024 09:59:18 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLJO6-0000000EUZF-2tfV;
-	Wed, 11 Dec 2024 09:52:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733910727;
-	bh=KQa0YljSDyn4f2yMLEHD4sXJuIGsikdtCBRivJW4u+8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pyixXY4yVLNRRp7l8Dm2uhUoxDDMaLYCUO/5v86h/IyllVT8vjBOMCX7DXuOpUAUV
-	 0DiTqMQFUF2iKae6huS8FOqPbSGjvqbXXSYXEpNoF74EpubmiSiAFF0tDOXL+Pzy64
-	 hjPHIg8LQgSXNytwthlq5gegWpuD04K6LxjhrAm5xxN8VmSzXc3osGt3F9arUiVWXn
-	 TDf7tlcvO/ehpOBt0tcB4n+szHA9ZC8FtmPBe5AbwafWyKSBz1SRmxSnsNfdWnzapp
-	 nOqs6NXyz7v9TzFul8L1vc7qt8e+D/vNUXds0ggK1usjzDbbao1yzT1M9wJvU3Ogku
-	 lMCUxeCWJYozA==
-Received: from [192.168.1.90] (unknown [188.27.48.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 228AB17E35EA;
-	Wed, 11 Dec 2024 10:52:07 +0100 (CET)
-Message-ID: <a0cf9b40-8ac2-4d6a-a26c-bafa85096440@collabora.com>
-Date: Wed, 11 Dec 2024 11:52:06 +0200
+	id 1tLJTx-0000000EVRB-0miQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 09:58:14 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a9a68480164so953193666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 01:58:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733911091; x=1734515891; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NoxTFED1OV6IIvC50S+pNWi2oVo0JYbWqlKUFL/WbNs=;
+        b=bDFX/xx/AJ1+Ap15fi/MSwuFixxodgUkiGZNqt3ssCIcRFodhWnQRD7ErvDAkYnL4b
+         RCcO7FFMs43RCnsqbD9EZWzsUBNNju4Cj5o2+K/LpqMFxs3O/k2EtdScugT82I6c+UF/
+         6gs6dmUtz3eIR6nyTDL7TcLt+GsdjNt+PNEZBrQuEdFPPOGvmI2/nb9saaD4iX1919g+
+         YfdEo0T+Ju5p6cEKVR4oMRurD1KOGNOe5LlteuD8RUBfSNjQ/YaLa9tlssQeBL/qWflC
+         Guir/TVE0dIWrxRM9qsa3jmZzRu/uFCzDVJ/k2hz3XblO+CJeRTo4tG8F2XAGsThtDID
+         FMLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733911091; x=1734515891;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NoxTFED1OV6IIvC50S+pNWi2oVo0JYbWqlKUFL/WbNs=;
+        b=Xf3greKU/AZPPG6k8OK/AU2pKbZzPaVr2MjUI5VHkiUxq4T75/xNBE+crnzoR6t7NU
+         gGGYwkTHHCsscyUvLfMxk1kZ1B86k0C2UTE5bIbvOdb7spqg0KcNh8YYP1A6Nwke/9SA
+         B5U7lfktXlKmaL+bZU7UXwoqL2caCQqXvWNJnzxiwbDVpGx7hXclQZwn4obT9TzXJxCX
+         2SnXmmH322+mIoHTTKQnTc06ZzYKpoAi+zyFmE8B9CxEhyt61TIyvAXDjomWwPP37hc9
+         rKf8mu1HMlpBSmQlUU9z+IUhG237UpBm4m5cJ9ASad99Z0CslI7hrnP0N5KE2pDG/pyO
+         K8Sg==
+X-Forwarded-Encrypted: i=1; AJvYcCUngEsNyc9Hc0YZ6zlzLZ6QN/13bFS2lMH/bb9BApEYnc5uVj/aVBe88ABAyv6PxfCbymBiHxLwPILr8kQiJFBi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0OFQP6GaWGDyr4fLe8lyeoqsTJgvNH6H4UY98sVcI3jgiGqcD
+	zgtt+QcNyXuRvXh3+w5E+7Tn5NiYF9bK4dHdmMgfLKJ5FAjXQorDMfoCzRBKyw==
+X-Gm-Gg: ASbGncu3WbJpPblKTHRFoQxDJ+5yMaE1T2LPa5oLZBfWUsYpOP+ba5rKcL8/0v23UZZ
+	eL5LRAnMYJx7XJWFWF2VcGlq9wc+5f6eyF0U/YfSVHf1op81VoKHoFHzvpGxca5cqz27LA1enTq
+	8ApZKyDtAiBzkYKR6LO09+nyhqYZdWpqSLN5sCz8ANZ5NM5xeKA0/dd8KcQlbdy3GQf/DiQBXcr
+	3VD7XPNsn1Bnz3iATcMS/tGBndKD34TScnai8rxF/4wQsVmOqqPvY3+Wz2ybzrWGhE8jX0WZUap
+	xLIUqdtt+0I5
+X-Google-Smtp-Source: AGHT+IF/0ntKZsypMhJqLoHZz7Y4KeXzGESSzQOBIbmcxUlmHH3DEZpbKATmONAsAAvwZztD3FrYtg==
+X-Received: by 2002:a17:907:7707:b0:aa6:79fa:b483 with SMTP id a640c23a62f3a-aa6b0f1f0c0mr192342966b.0.1733911090953;
+        Wed, 11 Dec 2024 01:58:10 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa68880b3f7sm432885166b.92.2024.12.11.01.58.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 01:58:10 -0800 (PST)
+Date: Wed, 11 Dec 2024 09:58:07 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 10/18] KVM: arm64: Introduce __pkvm_host_share_guest()
+Message-ID: <Z1liL3BtoPnSyvlh@google.com>
+References: <20241203103735.2267589-1-qperret@google.com>
+ <20241203103735.2267589-11-qperret@google.com>
+ <CA+EHjTwHSyQ1FJc7axbLNuBxSWpRVE6brb34nO+F59=QRmfQEg@mail.gmail.com>
+ <Z1hhHRdpCZcLs046@google.com>
+ <CA+EHjTw4GX3j_ssN-tWnf780xkvyKO5mBN6fnvXeWvQcBDmcNg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] Add support for HDMI1 output on RK3588 SoC
-To: Alexandre ARNOUD <aarnoud@me.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
- <BC29D61C-317D-4F82-AF42-EA3D705B0632@me.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <BC29D61C-317D-4F82-AF42-EA3D705B0632@me.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTw4GX3j_ssN-tWnf780xkvyKO5mBN6fnvXeWvQcBDmcNg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_015210_865355_EE18BB65 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20241211_015813_222082_8459C7C3 
+X-CRM114-Status: GOOD (  32.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +108,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
-
-On 12/11/24 11:42 AM, Alexandre ARNOUD wrote:
-> Hello Cristian,
+On Tuesday 10 Dec 2024 at 15:51:01 (+0000), Fuad Tabba wrote:
+> On Tue, 10 Dec 2024 at 15:41, Quentin Perret <qperret@google.com> wrote:
+> > > Initially I thought the comment was related to the warning below,
+> > > which confused me.
+> >
+> > It actually is about the warning below :-)
+> >
+> > > Now I think what you're trying to say is that we'll
+> > > allow the share, and the (unrelated to the comment) warning is to
+> > > ensure that the PKVM_PAGE_SHARED_OWNED is consistent with the share
+> > > count.
+> >
+> > So, the only case where the host should ever attempt do use
+> > __pkvm_host_share_guest() on a page that is already shared is for a page
+> > already shared *with an np-guest*. The page->host_share_guest_count being
+> > elevated is the easiest way to check that the page is indeed in that
+> > state, hence the warning.
+> >
+> > If for example the host was trying to share with an np-guest a page that
+> > is currently shared with the hypervisor, that check would fail. We can
+> > discuss whether or not we would want to allow it, but for now there is
+> > strictly no need for it so I went with the restrictive option. We can
+> > relax that constraint later if need be.
+> >
+> > > I think what you should have here, which would work better with the
+> > > comment, is something like:
+> > >
+> > >                 /* Only host to np-guest multi-sharing is tolerated */
+> > > +               if (pkvm_hyp_vcpu_is_protected(vcpu))
+> > > +                       return -EPERM;
+> > >
+> > > That would even make the comment unnecessary.
+> >
+> > I would prefer not adding this here, handle___pkvm_host_share_guest() in
+> > hyp-main.c already does that for us.
 > 
->> On 11 Dec 2024, at 12:06 AM, Cristian Ciocaltea <cristian.ciocaltea@collabora.com> wrote:
->>
->> Changes in v2:
->> - Override hdmi1 pinctrl-0 on rock-5b as it requires hdmim0_tx1_cec
->>  instead of hdmim2_tx1_cec (fixes a pin conflict when enabling
->>  CONFIG_SPI_ROCKCHIP_SFC)
->> - Link to v1: https://lore.kernel.org/r/20241207-rk3588-hdmi1-v1-0-ca3a99b46a40@collabora.com
->>
->> ---
->> Cristian Ciocaltea (4):
->>      drm/rockchip: dw_hdmi_qp: Add support for RK3588 HDMI1 output
->>      arm64: dts: rockchip: Add PHY node for HDMI1 TX port on RK3588
->>      arm64: dts: rockchip: Add HDMI1 node on RK3588
->>      arm64: dts: rockchip: Enable HDMI1 on rock-5b
->>
->> arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi  |  62 ++++++++++++
->> arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts |  44 ++++++++-
->> drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c  | 119 +++++++++++++++++++-----
->> 3 files changed, 200 insertions(+), 25 deletions(-)
->> ---
->> base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
->> change-id: 20241207-rk3588-hdmi1-704cbb7cd75f
+> I understand now, and I agree that an additional check isn't
+> necessary. Could you clarify the comment though? It's the word "only"
+> that threw me off, since to me it implied that the check was enforcing
+> the word "only". Maybe:
 > 
-> Tested-by: Alexandre ARNOUD <aarnoud@me.com>
-> 
-> Works perfectly on Rock-5B, thanks for your work.
+> >                 /* Tolerate host to np-guest multi-sharing. */
 
-Thanks for your quick test report on the series, which helped
-identifying the pin conflict issue which I missed initially.
+I guess 'only' is somewhat important, it is the _only_ type of
+multi-sharing that we allow and the check enforces precisely that. The
+WARN_ON() will be triggered for any other type of multi-sharing, so we
+are really checking that _only_ np-guest multi-sharing goes through.
 
-Regards,
-Cristian
+Perhaps the confusing part is that the code as-is relies on WARN_ON()
+being fatal for the enforcement. Would it help if I changed the 'break'
+statement right after to 'fallthrough' so we proceed to return -EPERM?
+In practice we won't return anything as the hypervisor will panic, but
+I presume it is better from a logic perspective.
+
+Cheers,
+Quentin
 
