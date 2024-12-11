@@ -4,75 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB335E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 14:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E0CE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 14:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VOYpxZqhqq/1CTP1KVnyG6EjZzQVJC8nCc0zAYnT2Ps=; b=22dW/TbD+Hp8BR4Fm5+x8s9f4b
-	xd39lAF6jQNHeI+/a8YzTGHTiqXwTL/DTfCGYVhYJA+Tdj+Tqg/LwWJFutTNLjaxwKH5VU68AKeqy
-	G1XkLK38seeRG+rsbIun5vi+R5CAwSJ3XkkIHREX/+QzJmYrUzyyJPOgoTWgBgFfzghpHHPazxuMN
-	OifyV5v7NrOy+qW3X5AaconUsVw1IF0ur9TQOpUa4dj077gEgqjDRzk2h3EzXZWpPZLaUhKBnKZGC
-	0q3+QFtTqgSc5RGq19+YCHD8Hn1TDbCRCn9Ckob21ig/+JQW7en7nTgXj9QBPKAb49jYgRErRs3Ti
-	8866R4OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JTP3OPECQyV1SzxOkgeH7HPscSun1SYrJfiExm+YsY0=; b=jeui+c4gnqmejkZKvdjXAS4AVn
+	HNFE35Y3Y9I+TDL/0MnEn3ppd9KbMW5C24zJ3vI8aQtS/FgkdGe5LgLomwJVzRZVmbOknIZ/DwhIY
+	6ijcCH8M7/FOPrYPESjtsY1V2mbiOm5VhESEEtKhrFWpfjNDKnPN0Z3d5+sgzFnMe6IXo1ZA66eN7
+	y4GRrWpscpwEyCnUeRwv2ABhIuheoUmDzFGHAVHHoh79WjySpi1HbEpAi5MvkQ57fc/LnE9fvdnUh
+	AYvSxzI8RXpfzgaKGIRv3J+sipauQp11oMdy3LBlUF8ZKgdMx4gq2EJc1cTJUhnKttpQq7fMNOXGQ
+	P88k3+xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLNjo-0000000F8yy-1eFt;
-	Wed, 11 Dec 2024 14:30:52 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tLNkq-0000000F9Hv-0FS5;
+	Wed, 11 Dec 2024 14:31:56 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLNik-0000000F8mk-0p8c
+	id 1tLNji-0000000F8vV-3CYj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 14:29:47 +0000
-Date: Wed, 11 Dec 2024 15:29:43 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733927384;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VOYpxZqhqq/1CTP1KVnyG6EjZzQVJC8nCc0zAYnT2Ps=;
-	b=oaorEDpZ5pd/zIm5/szMN1cUc953JQSng7kwU3JeVF8zP9wfx/dfGjVKrqAYgCpYOA3LYv
-	+VmluxpmYYG2DYuK44a13pjzQ0w4wH68F4v1juE/Vy0sb4S5U0MkSRimdlecca2Afh31Zf
-	wzRGzagYDThICL3GF6836nP0YQbKMyq94EeEfmKSMvZ8/0gIJYIkL9jIM01t6nAh5Z5YRG
-	uu/9J+/R663w+MBQqVVTLbCpYETvho0i91WGOCEKnt/xaKMjVLyqutG8W0oBZXUuoolEr7
-	Aj7igL5KExaO10gulUVR7UxAvoez8118eazQwB5vdSus5OAYy/ytygrgjMllsw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733927384;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VOYpxZqhqq/1CTP1KVnyG6EjZzQVJC8nCc0zAYnT2Ps=;
-	b=BFwD8ZtmoJb0Q7PAOBgonmnOLnsQK4bfFGatcd76wYSBrZPXGpwZB45nz6+f+aH2Bxs4lD
-	HibuAKfKRRMPIrDQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org,
-	linux-rt-devel@lists.linux.dev, Ard Biesheuvel <ardb@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH 4/4] mm: drop HIGHPTE support altogether
-Message-ID: <20241211142943.cp0Wcuxk@linutronix.de>
-References: <20241210160556.2341497-1-arnd@kernel.org>
- <20241210160556.2341497-5-arnd@kernel.org>
+	Wed, 11 Dec 2024 14:30:48 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 2578311400FC;
+	Wed, 11 Dec 2024 09:30:45 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 11 Dec 2024 09:30:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1733927445;
+	 x=1734013845; bh=JTP3OPECQyV1SzxOkgeH7HPscSun1SYrJfiExm+YsY0=; b=
+	d2UhremKMqQVpwt6dyUivFCbkKlUlacN/Jj8tBNZUZpfjb30SHVTyDAO+mByeNW4
+	L+jaR/IMTbVTWsnB3yIQqu5Su75C8ukqiB8sXIQw6E/fhy3i6yO1zcDcKGu1Oo+I
+	XCcYtjt3lTSTHj/Ti3zfkHoV+za2l7oOaOd3JZx8yuhIIs58Gh9UTWOBtXH4z/rL
+	6Ndx8oPwj2HTXN78FQYbF8vvFcFs0WQW//djqA8s523Jm2CJvNhibKHBUd14ddGq
+	+v/P7NUerMYuF1ZhjV4TYxLhPgYTu3QFChsidL15hsO64AKnH9TRMJx3AqyHHsss
+	9v3x1QwW2zrkWkmb+rzkUw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733927445; x=
+	1734013845; bh=JTP3OPECQyV1SzxOkgeH7HPscSun1SYrJfiExm+YsY0=; b=I
+	bNGuJt/s/P57Ze0tDP3fn+4FGvy6B5p80I01viN8974e6ojcYGJCF2VSnijDXbSl
+	Ds4uRJ5aguHht9qZwsffxSblj7r76loA+HT/5JRO0lyDpoSdFn+mbQYbUZH/vUVP
+	2XWjfkgrvEXQLXRYl4DGRrz/rWtByARlgXz4Akiqb/3soT7OoFeuYE6/WDyw4e+m
+	JBxaIjdEGgk0LrG2G5mA377wRFoKQye3Eo2ZrfLxnbcBgkCdamIfwTV8UHkhVaF6
+	MNCMj46+HOAPGTR2qaRpWeH7tGWrnvJtevDcJf1pi7I3Y1DjHkxZsfDO7L2Hsst6
+	kYygU3dgk/SI0oTq8UAXw==
+X-ME-Sender: <xms:E6JZZ_NQVjENYuzeFTohShHOJo8Got9K40_LwokaBkglNcmxGHwWZw>
+    <xme:E6JZZ5_ldDCeofx5bz0NorjCgVK7MxBG7qxOZ68pDXk38HuD2n8ZDJkVmD4Zzscsi
+    dhYly-hu2DCxbxeH3Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrkedtgdeigecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
+    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
+    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeduiedp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhgsrghrohhnsegrkhgrmhgrihdrtg
+    homhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphht
+    thhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprhhosh
+    htvgguthesghhoohgumhhishdrohhrghdprhgtphhtthhopehpvghtvghriiesihhnfhhr
+    rgguvggrugdrohhrghdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorh
+    hgpdhrtghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrrhhn
+    ugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghlrhhkfihllhhmsheskhgvrhhnvg
+    hlrdhorhhg
+X-ME-Proxy: <xmx:E6JZZ-T2BjCydPWt6oWqZLp-rQiQV0uMfUtI8DK90S3TYLJUbxpUQw>
+    <xmx:E6JZZztj20v4pEJoF3ZkKz-ERhZAMh1eLbtvSjNKQdagyvZqsnjCWA>
+    <xmx:E6JZZ3cGOEjSXWtKvcpTTvL2_3mFVUB0mY-kjvcOK3Ds_vlTaUnAzQ>
+    <xmx:E6JZZ_1GRL69c-IehVNSHabYfG-X8-3MtOazQOmbm6otd98ppqcC_A>
+    <xmx:FaJZZ_8Zgn6NGJZ0rSNeuiLDxSQ0Y5mvclfAi3bSug8TSC_du8v0bUeh>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 4EA812220075; Wed, 11 Dec 2024 09:30:43 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241210160556.2341497-5-arnd@kernel.org>
+Date: Wed, 11 Dec 2024 15:30:22 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
+ "Arnd Bergmann" <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-rt-devel@lists.linux.dev,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Clark Williams" <clrkwllms@kernel.org>,
+ "Jason Baron" <jbaron@akamai.com>, "Josh Poimboeuf" <jpoimboe@kernel.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Matthew Wilcox" <willy@infradead.org>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Steven Rostedt" <rostedt@goodmis.org>
+Message-Id: <001c1d0e-a0fd-47f4-be35-0fd808f3b01a@app.fastmail.com>
+In-Reply-To: <20241211140402.yf7gMExr@linutronix.de>
+References: <20241210160556.2341497-1-arnd@kernel.org>
+ <20241210160556.2341497-3-arnd@kernel.org>
+ <20241211134811.wM_UADhQ@linutronix.de>
+ <20241211140402.yf7gMExr@linutronix.de>
+Subject: Re: [PATCH 2/4] ARM: Disable HIGHPTE on PREEMPT_RT kernels
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_062946_376233_1D916538 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_063047_267773_60847956 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +125,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-12-10 17:05:56 [+0100], Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> With both x86 and arm having dropped CONFIG_HIGHPTE support, no
-> architecture is left using it, so remove the remnants in common code.
-> 
-> It is likely that further cleanups are possible in the page table
-> code but those are not obvious from the config options.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Wed, Dec 11, 2024, at 15:04, Sebastian Andrzej Siewior wrote:
+> On 2024-12-11 14:48:11 [+0100], To Arnd Bergmann wrote:
+>> I guess if you have boxes with 4GiB+ and can proof that the performance
+>> improves without HIGHPTE (since you don't have to map the page table).
+>> The question is then how much of low mem has to be used instead and when
+>> does it start to hurt.
+>
+> Some numbers have been been documented in commit
+>    14315592009c1 ("x86, mm: Allow highmem user page tables to be 
+> disabled at boot time")
+>
+> and I would like cite:
+> | We could probably handwave up an argument for a threshold at 16G of total
+> | RAM.
+>
+> which means HIGHPTE would make sense with >= 16GiB of memory.
 
-Acked-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Very useful, thanks!
 
-Sebastian
+On x86, that means we can definitely remove HIGHPTE along with
+CONFIG_HIGHMEM64G on x86.
+
+On 32-bit ARM, we still need to support LPAE for systems that
+require 64-bit addressing. LPAE supports 36 bits of addressing
+(up to 64GB), but the largest actual size I've seen mentioned
+is 16GB (Hisilicon HiP04, Calxeda Midway servers) and I'm
+certain nobody actually requires these to perform well
+given that they are no longer useful for the workloads they
+were designed for.
+
+There are also a small number of embedded systems with 8GB
+(Ti Keystone2, NVidia Tegra3, Marvell Armada XP), but they
+are rare enough that turning off HIGHPTE is completely safe.
+
+      Arnd
 
