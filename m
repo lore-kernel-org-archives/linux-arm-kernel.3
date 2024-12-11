@@ -4,106 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F09E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 09:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB131E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 09:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nG6R5m3TbsxOExdeYY0EPOkpsbKldLlzDZAyjMX604c=; b=oUnYNTvqjYFNxkSvhw5yuTAaoi
-	9ZERgIAyN5gDSzKMUHqUS1HD6AgtZqN0vtMzNwgZjlG8aIuR0bO1mBqB5RlRGMhpXEek+VMKqkUfT
-	LDVH3I0IaYVmyRdPgiNIXxg59+2lSvMZVnMpPIUTwYKvVX6vSZXCZm+687G/QkZgG9p2zM7Pl5eF9
-	3CAG7YyGKRtaSmZTEpQlk7Ndlxa+ie29gTZC8UETR6PeuVPO9JcyOeV4iM9YVFwcix6l3HdTsIv3+
-	m/0m5o8Ge9BZCYE+f+kMWAfeix/bcH+0sczI9iNQNPj9mXmBwT2Gjf7zwnnCqK1WX2J7HLvmglztD
-	RQfYK42Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JVWhcdluQn/FeGJzOFzMGBVEMEf9xzbqzGk72elgCUI=; b=y9M6zBkjKS5aCFMIxEMbRkwQdW
+	hkx3Ogm4tXh3mddE4+8Rb26Gc2rRE0rRvWcoueSiDClpgQSV+LY8MylGH9t0QgUzcQe1mSAqpoEsx
+	de34z7XFACC1k6cZRnMDOu6tMov4Avwh/TK6d/DR9PuT78tiPKEWrhIf6XKcz9f6e2EGaNzbgUl8G
+	sHnghdfcxFajfu13e62FQyAmPBASqy+W1egecXM89Fue1203KGotaFF/4wQ8mTTb76BrYFOCbcX3o
+	URDE7dqlDu5myW+1oPVJdz+/S4c7DUwls8i5M2Wa3nvB2fJpnbkliT9/mtnxi/FY++mj1OpujPyU9
+	8VAqCxdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLIbM-0000000EKFY-1s1P;
-	Wed, 11 Dec 2024 09:01:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tLIfH-0000000EL13-3qMD;
+	Wed, 11 Dec 2024 09:05:51 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLIZR-0000000EJoU-3d4D
+	id 1tLIeD-0000000EKpG-09bV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 08:59:51 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BB7vsv4010227;
-	Wed, 11 Dec 2024 08:59:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	Wed, 11 Dec 2024 09:04:47 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BB8NwD6022707;
+	Wed, 11 Dec 2024 10:04:37 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	nG6R5m3TbsxOExdeYY0EPOkpsbKldLlzDZAyjMX604c=; b=n97gKmpg00Pz3/AY
-	AB6gcGwUTj6Z7EAWWjqtjBaROli4UqVx66/Ylj4TzY3SncIOjQdeX49zhiJuDT0W
-	zFBnlSFFu8Ti061aG+9Ms9BabQL3esMSmcdKjN6mgWvhL6wb0CygOuoPqVJ998lp
-	44ZLxdXvgWQvrNBmTdogbFLlwb6V+LqjS114G/yoHRSX87Vr9vaWY/PBXScGOtnB
-	cWhQYUxK+kD8G5PrHZvm+EZM4Z2lwfVo03V/zyzgGthQHcZvE6pekReCPUMYa+Ma
-	jlaPjocI9FnWYAsVSbVU6Jco/lDQK/4fIpFCMs01T83x97fHrhxFZQFzH9pAM4He
-	mi+1cQ==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43f6tf85ac-1
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	JVWhcdluQn/FeGJzOFzMGBVEMEf9xzbqzGk72elgCUI=; b=b0A9E4AuMNTnvg0I
+	wkXfLf5kOc1qMYjpI+7kMEvKiCLeWQ/tTfDobuCf8sJiWEzTcSvlIe4c6/Y6m60j
+	+8H64t25TQsnAYMDPAhDFtdoUX+fYSW+8sEHjUyPZzQEqy8lsD/zN+dW4+n4RDN1
+	yh0Gzt0r50ahgltqWcfUL93VHZNLuZ6j7nyCag/Ewn+gDA5qhow+UDvyDPsJB8Ei
+	z/Pu78ZlxuZN8ZbUIJCm7EVUI+9j1y87d6ISz+lv0p0ulFgg0EfEn/O4WAUoDHB8
+	IGv9C6nxkj6MqS1XlJZOPXlXS+mtsoEyPCsxMxH69uDpZjPh724dpIAGjrVGO+/I
+	ra/fCA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43d0t5f4b8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 08:59:44 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BB8xhBP029507
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 08:59:43 GMT
-Received: from hu-pkondeti-hyd (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Dec
- 2024 00:59:38 -0800
-Date: Wed, 11 Dec 2024 14:29:35 +0530
-From: Pavan Kondeti <quic_pkondeti@quicinc.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Pavan Kondeti <quic_pkondeti@quicinc.com>,
-        Rob Clark
-	<robdclark@gmail.com>,
-        Akhil P Oommen <quic_akhilpo@quicinc.com>,
-        "Bjorn
- Andersson" <andersson@kernel.org>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Abhinav Kumar <quic_abhinavk@quicinc.com>,
-        "Marijn
- Suijten" <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-Message-ID: <d788a810-1d54-48d5-a8f5-19a8e7a64313@quicinc.com>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
- <CAF6AEGtKfWOGpd1gMfJ96BjCqwERZzBVmj5GzmjKxw8_vmSrJg@mail.gmail.com>
- <f4813046-5952-4d16-bae6-37303f22ad1a@quicinc.com>
- <iyknardi445n4h74am22arpgc4vlchh6z6cvkbff2xg76pd655@nozwz7snt476>
- <1219b46d-2aea-4377-a8ca-024039ee1499@quicinc.com>
- <CAF6AEGs4EebrwyQZviNXqB2=3h2wgZpmbrdGHuEU4z1D014GRA@mail.gmail.com>
- <b47d44cc-77b7-4137-97e3-b245e1394580@quicinc.com>
- <pndxbcduiwytfwkortyxpdqgwa4bm3ajnjpa5nedjtgndq6z5v@mziv5z36zeqr>
+	Wed, 11 Dec 2024 10:04:37 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 93AC640074;
+	Wed, 11 Dec 2024 10:03:17 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BDF5227FEF5;
+	Wed, 11 Dec 2024 10:02:18 +0100 (CET)
+Received: from [10.48.86.108] (10.48.86.108) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 11 Dec
+ 2024 10:02:17 +0100
+Message-ID: <49ccec07-4d4c-4582-814b-d4a60adbbfe1@foss.st.com>
+Date: Wed, 11 Dec 2024 10:02:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] watchdog: stm32_iwdg: Add pretimeout support
+To: Marek Vasut <marex@denx.de>, <linux-watchdog@vger.kernel.org>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Guenter Roeck
+	<linux@roeck-us.net>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Wim Van
+ Sebroeck <wim@linux-watchdog.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20240415134903.8084-1-marex@denx.de>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <20240415134903.8084-1-marex@denx.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <pndxbcduiwytfwkortyxpdqgwa4bm3ajnjpa5nedjtgndq6z5v@mziv5z36zeqr>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: N7UqCPrrAVxCRDIW18JhXYZ9FjDkJpzW
-X-Proofpoint-ORIG-GUID: N7UqCPrrAVxCRDIW18JhXYZ9FjDkJpzW
+X-Originating-IP: [10.48.86.108]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 suspectscore=0
- mlxlogscore=999 malwarescore=0 spamscore=0 lowpriorityscore=0
- impostorscore=0 adultscore=0 bulkscore=0 phishscore=0 priorityscore=1501
- clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412110067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_005949_907882_02664B44 
-X-CRM114-Status: GOOD (  45.51  )
+X-CRM114-CacheID: sfid-20241211_010445_381115_8A4319A0 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,78 +97,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 10:52:51AM +0200, Dmitry Baryshkov wrote:
-> On Wed, Dec 11, 2024 at 01:06:58PM +0530, Pavan Kondeti wrote:
-> > +devicetree
-> > 
-> > On Tue, Dec 10, 2024 at 07:43:19PM -0800, Rob Clark wrote:
-> > > On Tue, Dec 10, 2024 at 7:08 PM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
-> > > >
-> > > > On 12/11/2024 6:43 AM, Bjorn Andersson wrote:
-> > > > > On Tue, Dec 10, 2024 at 02:22:27AM +0530, Akhil P Oommen wrote:
-> > > > >> On 12/10/2024 1:24 AM, Rob Clark wrote:
-> > > > >>> On Mon, Dec 9, 2024 at 12:20 AM Akhil P Oommen <quic_akhilpo@quicinc.com> wrote:
-> > > > >>>>
-> > > > >>>> When kernel is booted in EL2, SECVID registers are accessible to the
-> > > > >>>> KMD. So we can use that to switch GPU's secure mode to avoid dependency
-> > > > >>>> on Zap firmware. Also, we can't load a secure firmware without a
-> > > > >>>> hypervisor that supports it.
-> > > > >>>
-> > > > >>> Shouldn't we do this based on whether zap node is in dtb (and not disabled)?
-> > > > >>
-> > > > >> This is better, isn't it? Otherwise, multiple overlays should be
-> > > > >> maintained for each soc/board since EL2 can be toggled from bootloader.
-> > > > >> And this feature is likely going to be more widely available.
-> > > > >>
-> > > > >
-> > > > > The DeviceTree passed to the OS needs to describe the world that said OS
-> > > > > is going to operate in. If you change the world you need to change the
-> > > > > description.
-> > > > > There are several other examples where this would be necessary
-> > > > > (remoteproc and watchdog to name two examples from the Qualcomm upstream
-> > > > > world).
-> > > >
-> > > > But basic things work without those changes, right? For eg: Desktop UI
-> > > 
-> > > It isn't really so much about whether certain use-cases can work with
-> > > a sub-optimal description of the hw (where in this case "hw" really
-> > > means "hw plus how the fw allows things to look to the HLOS").. It is
-> > > more about the hw/fw/whatever providing an accurate description of
-> > > what things look like to the HLOS.
-> > > 
-> > > I'm leaning more towards the hw+fw providing HLOS an accurate view...
-> > > and the fact that that carries over into other areas of dtb (ie. it
-> > > isn't the only thing that slbounce needs to patch, as I previously
-> > > mentioned) reinforces my view there.  This seems like a thing to fix
-> > > in fw/bootloader tbh.
-> > > 
-> > 
-> > Thanks Rob and Bjorn for your inputs. At the moment, we don't have
-> > capability in our bootloader to apply a *specific* overlay when Linux
-> > kernel is starteed in EL, this is making GPU non-functional. This patch
-> > from Akhil fixes the problem without depending on the bootloader.
-> > 
-> > From this discussion, I understand that it is recommended to provide
-> > HW+FW view in dT correctly instead of doing runtime checks in the
-> > kernel. We can take this as a requirement to the bootloader.
-> > 
-> > I would like to check how we should proceed with overlay. Should we
-> > submit dtso upstream and let bootloader apply the overlay at runtime or
-> > this whole overlay needs to be maintained in the bootloader. Also,
-> > Should we build all board dtb for EL2 as well or just leave it at compiling
-> > the EL2 dtbo (one per SoC)?
+On 4/15/24 15:48, Marek Vasut wrote:
+> The STM32MP15xx IWDG adds registers which permit this IP to generate
+> pretimeout interrupt. This interrupt can also be used to wake the CPU
+> from suspend. Implement support for generating this interrupt and let
+> userspace configure the pretimeout. In case the pretimeout is not
+> configured by user, set pretimeout to 3/4 of the WDT timeout cycle.
 > 
-> It doesn't have to be a dtbo. Instead you might just patch the DT
-> (Ideally via the https://github.com/U-Boot-EFI/EFI_DT_FIXUP_PROTOCOL).
-> I think the bootloader already changes the DT (by fixing memory sizes,
-> etc), so enabling or disabling ZAP & fixing several other bits and
-> pieces sounds logical.
+> Reviewed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Tested-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Signed-off-by: Marek Vasut <marex@denx.de>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Guenter Roeck <linux@roeck-us.net>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> Cc: linux-watchdog@vger.kernel.org
+> ---
+> V2: - Subtract the pretimeout value from timeout value before writing it
+>        into the IWDG pretimeout register, because the watchdog counter
+>        register is counting down, and the pretimeout interrupt triggers
+>        when watchdog counter register matches the pretimeout register
+>        content.
+>      - Set default pretimeout to 3/4 of timeout .
+> V3: - Use dev instead of pdev->dev
+>      - Swap order of ret/return 0
+>      - Split this from the DT changes, which are orthogonal
+>      - Uh, this patch got stuck in upstreaming queue, sorry
+> V4: - Update commit message to match V2 default pretimeout to 3/4
+>      - Add RB/TB from Clément
+> ---
+>   drivers/watchdog/stm32_iwdg.c | 95 ++++++++++++++++++++++++++++++++++-
+>   1 file changed, 94 insertions(+), 1 deletion(-)
 > 
+> diff --git a/drivers/watchdog/stm32_iwdg.c b/drivers/watchdog/stm32_iwdg.c
+> index 5404e03876202..d700e0d49bb95 100644
+> --- a/drivers/watchdog/stm32_iwdg.c
+> +++ b/drivers/watchdog/stm32_iwdg.c
+>  
+>  [.....]
+>  
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq <= 0)
+> +		return 0;
 
-Yes, that would mean maintaining this completely outside upstream
-kernel. As you said, this is currently happening for bootargs, memory
-etc.
+Hi Marek,
 
-Thanks,
-Pavan
+After re-evaluating this patch, it seems it lacks of a dt-bindings 
+update that tackles the 'interrupts' property you are adding.
+
+That said, the interrupt line should not be mandatory for the driver to 
+probe. For backward compatibility with existing DT, I recommend to use 
+the 'platform_get_irq_optional()' API to not fail during the probe of 
+the driver.
+
+Best regards,
+
+Clément
 
