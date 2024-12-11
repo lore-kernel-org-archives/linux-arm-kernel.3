@@ -4,64 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714BAE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 14:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB50CE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 14:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9GFGBRoKYbX3/BHaisqy6VQSKKdmiRV5MR8dYdoSLoQ=; b=4Imh/LqaOmi1C5UYqbhKFJYvFl
-	nRQeqfGkIj75NGXfZhvFOAZ7c1nsOil3z1pFSDeidNaLTknyYoxcXXzClUQ5+A8KsjVxEHK9YLBWV
-	5zhrcGHEpR9+NLM37Y4xb3XK1PLCfeWw97vlJQKJ9jn/86XHCgcBeAan+IxKd8j2TEmE2KGz1rF2i
-	nhl+DTuPlA1J4lg0Rq3HtrjRnXsK7bQF6e+VTRJAME1SFcbdtDH1VJTUX7ac40IWf82Xq8SVjNtmd
-	WSjGhiyyfT1ptYC15D3tmZ6AzU8fa7W/Zj+NekpjrnOgPhNR8mj5/s0EjtFiOV12jReDvRGs6xm3Q
-	ORq/sV9w==;
+	bh=TO+YB/Y/4TCTstWKm/S0FbmmY68P0DKD/Yt8QeePxEs=; b=sfUQV44e19wavatGaDJtMT2Sz2
+	s9fKvxJ7bPhK/eEWfsdTkZ3sWMBRe+c34A2sGt2d2wF8JboBcWeFg8qjKf+0LdwIqElN+//KIyNYc
+	ql8YCs/g3o16iZlbQTMldsCm2WruFTSB3lh+6F9aRHa852HyXRynf7jWjKsWlno8E5Wba6uso6T2c
+	c53OyCqI8EnXP0lRrK/uxsMUEby38ZFTCKxQeJyB7Dn+H7n41laHl9sjG01bL0PSmRoWXfpRC0J4m
+	pIMtfENMGC+hlQPMsA+AjIUv9dMyiaU5Q2eNFrTbdKPo7YLzMw04unuXVy6f3RcZ/UxEk+f9D+fon
+	T+Q25uPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLNd9-0000000F833-0ppx;
-	Wed, 11 Dec 2024 14:23:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLNfI-0000000F8Kn-3fiI;
+	Wed, 11 Dec 2024 14:26:12 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLNbm-0000000F7ob-2cVW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 14:22:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D82D25C5B31;
-	Wed, 11 Dec 2024 14:21:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82021C4CED2;
-	Wed, 11 Dec 2024 14:22:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733926953;
-	bh=9GFGBRoKYbX3/BHaisqy6VQSKKdmiRV5MR8dYdoSLoQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uIBTgR/4TwdzUGIzjJSjfptLWKWzXyBwEpMSwF8RNgMfq2JFTt/M6QzE04K8Hp1wL
-	 I0WIipmMKes18WEkjok3ZQ5SWfpPmE06iyPG29rVDOL/3xVqNowImTU9/X6+xmr8Ba
-	 ikCj4U1w1OZ6iy5gwnFgR0OsTZlu0J5mfpGAjgIN4JMOtDOLgkxRwy+wZNUbLfz/8J
-	 8OKCWMqd29XdE1DKkryYzrkkZS5CNN3LZDcXrgcc6UKcParRnqg033OEOSX8rGorX0
-	 ypPzlLLmo399cFBB3ZbtyCKIFwdHuw+TFVx5B9Gz+chr91XWfpTxeN5ALv/e8vPl4P
-	 nz+UNpDYVZILA==
-Date: Wed, 11 Dec 2024 14:22:28 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Weizhao Ouyang <o451686892@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] kselftest/arm64: abi: fix SVCR detection
-Message-ID: <804c336a-30c7-4d4c-b8dd-24912de39808@sirena.org.uk>
-References: <20241211111639.12344-1-o451686892@gmail.com>
+	id 1tLNeF-0000000F8BI-1Xlw;
+	Wed, 11 Dec 2024 14:25:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733927107; x=1765463107;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=TO+YB/Y/4TCTstWKm/S0FbmmY68P0DKD/Yt8QeePxEs=;
+  b=QM18a+FfwzKc59yDbqNShEEtNJq6QfLdIgmL89MMFpQbYQtg02wQSfTQ
+   MxkadcVhW2J5FcS06M+N0g1YWXlDgOAXDO5iWLz1fN3KRWgWY7NpSyiVU
+   zFwVW21VHtpjVQ8K/K6Et+DGSZWQ5Jwd1hnOrx1dV5GnphFZm5i1ZCZ0M
+   jwXIw504BBY0nNiUb0eDWKPbFBZ472tdZc/17fvSdv0hr/PCHnBmmlZ7E
+   kMg416MhUM4ywadceHiiDDOhYj4hNEHCltgqch1ztOqjzlW8qSRPAo7Oo
+   HGkq8TocxL13E0HVsE7BaShJu33AuMMHAs0k5IqcD0yHDjHH31DrplCI3
+   g==;
+X-CSE-ConnectionGUID: zErREWsQTXy1wu/SDAnGUw==
+X-CSE-MsgGUID: AItb2DdpSo6uZ36Aj2TTyA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11283"; a="44979298"
+X-IronPort-AV: E=Sophos;i="6.12,225,1728975600"; 
+   d="scan'208";a="44979298"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2024 06:25:03 -0800
+X-CSE-ConnectionGUID: Kd1QKuo+QR6IoKNW4XOJAw==
+X-CSE-MsgGUID: kCNsvwGPQyyYK8GHI13fsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="99920819"
+Received: from spandruv-desk1.amr.corp.intel.com ([10.125.109.242])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2024 06:23:41 -0800
+Message-ID: <8d736607552e88f28672ef5217431f61951df126.camel@linux.intel.com>
+Subject: Re: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale
+ platform-data on remove
+From: srinivas pandruvada <srinivas.pandruvada@linux.intel.com>
+To: Jiri Kosina <jikos@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>, jic23@kernel.org, 
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ jdelvare@suse.com,  linux@roeck-us.net, bentiss@kernel.org,
+ dmitry.torokhov@gmail.com, pavel@ucw.cz,  ukleinek@debian.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-input@vger.kernel.org, 
+ linux-iio@vger.kernel.org, linux-leds@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Wed, 11 Dec 2024 06:23:40 -0800
+In-Reply-To: <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
+References: <20241107114712.538976-1-heiko@sntech.de>
+	 <20241107114712.538976-2-heiko@sntech.de>
+	 <nycvar.YFH.7.76.2411071358210.20286@cbobk.fhfr.pm>
+	 <4934964.GXAFRqVoOG@diego>
+	 <nycvar.YFH.7.76.2411071534110.20286@cbobk.fhfr.pm>
+	 <20241112143732.GG8552@google.com> <20241211120844.GD7139@google.com>
+	 <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
+Autocrypt: addr=srinivas.pandruvada@linux.intel.com; prefer-encrypt=mutual;
+ keydata=mQGNBGYHNAsBDAC7tv5u9cIsSDvdgBBEDG0/a/nTaC1GXOx5MFNEDL0LWia2p8Asl7igx
+ YrB68fyfPNLSIgtCmps0EbRUkPtoN5/HTbAEZeJUTL8Xdoe6sTywf8/6/DMheEUzprE4Qyjt0HheW
+ y1JGvdOA0f1lkxCnPXeiiDY4FUqQHr3U6X4FPqfrfGlrMmGvntpKzOTutlQl8eSAprtgZ+zm0Jiwq
+ NSiSBOt2SlbkGu9bBYx7mTsrGv+x7x4Ca6/BO9o5dIvwJOcfK/cXC/yxEkr1ajbIUYZFEzQyZQXrT
+ GUGn8j3/cXQgVvMYxrh3pGCq9Q0Q6PAwQYhm97ipXa86GcTpP5B2ip9xclPtDW99sihiL8euTWRfS
+ TUsEI+1YzCyz5DU32w3WiXr3ITicaMV090tMg9phIZsjfFbnR8hY03n0kRNWWFXi/ch2MsZCCqXIB
+ oY/SruNH9Y6mnFKW8HSH762C7On8GXBYJzH6giLGeSsbvis2ZmV/r+LmswwZ6ACcOKLlvvIukAEQE
+ AAbQ5U3Jpbml2YXMgUGFuZHJ1dmFkYSA8c3Jpbml2YXMucGFuZHJ1dmFkYUBsaW51eC5pbnRlbC5j
+ b20+iQHRBBMBCAA7FiEEdki2SeUi0wlk2xcjOqtdDMJyisMFAmYHNAsCGwMFCwkIBwICIgIGFQoJC
+ AsCBBYCAwECHgcCF4AACgkQOqtdDMJyisMobAv+LLYUSKNuWhRN3wS7WocRPCi3tWeBml+qivCwyv
+ oZbmE2LcxYFnkcj6YNoS4N1CHJCr7vwefWTzoKTTDYqz3Ma0D0SbR1p/dH0nDgN34y41HpIHf0tx0
+ UxGMgOWJAInq3A7/mNkoLQQ3D5siG39X3bh9Ecg0LhMpYwP/AYsd8X1ypCWgo8SE0J/6XX/HXop2a
+ ivimve15VklMhyuu2dNWDIyF2cWz6urHV4jmxT/wUGBdq5j87vrJhLXeosueRjGJb8/xzl34iYv08
+ wOB0fP+Ox5m0t9N5yZCbcaQug3hSlgp9hittYRgIK4GwZtNO11bOzeCEMk+xFYUoa5V8JWK9/vxrx
+ NZEn58vMJ/nxoJzkb++iV7KBtsqErbs5iDwFln/TRJAQDYrtHJKLLFB9BGUDuaBOmFummR70Rbo55
+ J9fvUHc2O70qteKOt5A0zv7G8uUdIaaUHrT+VOS7o+MrbPQcSk+bl81L2R7TfWViCmKQ60sD3M90Y
+ oOfCQxricddC
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bJ96iDhLkg2PwTh5"
-Content-Disposition: inline
-In-Reply-To: <20241211111639.12344-1-o451686892@gmail.com>
-X-Cookie: Every path has its puddle.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_062234_700419_B2BF3BB1 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_062507_419450_A84BF6AD 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +115,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 2024-12-11 at 13:24 +0100, Jiri Kosina wrote:
+> On Wed, 11 Dec 2024, Lee Jones wrote:
+>=20
+> > > > > This change was more or less a surprise find, because I
+> > > > > wanted to make
+> > > > > the platform_data pointer in the mfd_cell struct const and
+> > > > > this the hid
+> > > > > sensor hub stood out as doing something strange ;-) .
+> > > > >=20
+> > > > > So patch 2 of this series actually depends on this change to
+> > > > > not cause
+> > > > > build errors.
+> > > >=20
+> > > > Ah, right.
+> > > >=20
+> > > > > But seeing that we're after -rc6 alredy, I would assume the
+> > > > > brunt of the=20
+> > > > > mcu series might need to wait after 6.13-rc1 anyway - but I
+> > > > > guess that=20
+> > > > > depends on how Lee sees things ;-) .
+> > > >=20
+> > > > OK, I am keeping my hands off it for the time being.
+> > >=20
+> > > I can take it now with an Ack.
+> >=20
+> > Looking to apply this set now.
+> >=20
+> > Ack please.
+>=20
+> I'd preferer if Srinivas could ack this as the more specific
+> maintainer.=20
+> Srinivas, please?=20
+My ACK is already in the patch:
 
---bJ96iDhLkg2PwTh5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Fixes: e651a1da442a ("HID: hid-sensor-hub: Allow parallel synchronous
+reads")
+Cc: stable@vger.kernel.org
+Acked-by: Benjamin Tissoires <bentiss@kernel.org>
+Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 
-On Wed, Dec 11, 2024 at 07:16:39PM +0800, Weizhao Ouyang wrote:
-> When using svcr_in to check ZA and Streaming Mode, we should make sure
-> that the value in x2 is correct, otherwise it may trigger an Illegal
-> instruction if FEAT_SVE and !FEAT_SME.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Thanks,
+Srinivas
 
-Thanks for spotting this.
+>=20
+> Thanks,
+>=20
 
---bJ96iDhLkg2PwTh5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdZoCMACgkQJNaLcl1U
-h9BIUQf6A/rU3f0f91Pf47ZodZLzOxU/d/asQ8duMWLaCfvdxZLW1fzCLXCl85tn
-2ExRdxuvM9yNmk//Wi/Tvs2aRebFCS/m5H5GUdaelrDDFFamRaLD263wPPg6CF8E
-Yi06wd4eQdzm8m9THHEqno2sluJIwfUJbaoF6F/ne8VYSUWROVE4Wr3UY4OWU+Un
-Z+8jIecDVaxSCeAlcwGDQR6po6YDopwXqmcOcZ87YndXecqnIBFPuhVD/zYQpNAL
-XEW1GVqElH8THyIuOk7cNmZ5dgQ9p002FPW6fQ5FlM6HhX0AA/8wlPK/yPoE+URN
-HBPjGuZ+8xKYm7AADFPoYvqjuPrdZw==
-=xbKO
------END PGP SIGNATURE-----
-
---bJ96iDhLkg2PwTh5--
 
