@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9628E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 19:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5EBE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 20:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iIB7OgclvuXmXcCb+7ry5WHS9m+ub2PzlVh4AHBJ290=; b=ec/Wn5sE6b+4DlrcN4XPEK/DI1
-	et3C4jsZnG8krjgh0gJ+mxUEEq4M/aH73aS+rMwXG1N/FoECShYwQV0lv7rFs2Lnocix8thqBIo4H
-	o0K5YRC74pOlZcNmn2XigFOMYyk/3G1XR3hwpC4MqrKB69Jr33/DMkvNsOIY1PDEcDYb1nfW9sCjl
-	djflJ3J95M5eUK9Oa5TpPrXfOyCrddpGuOMTZJJzaglOqG/6k057vqeFhI1ZmlQ4vKFV3RzJbr93Y
-	/Kmebh2cEq4auL8D7jZI20iGkm4rWFpXGCyUFU1eJu5IEAlNZKgknhzOlXPS+vf1PjZRzVy+Em6V6
-	EwwcXAeQ==;
+	bh=RF+SgaA8A4yu1/WtuO/9GkUtQsQvHRuIDWUMOSCXiAk=; b=eYAYAQca2/JskWp5EmUjn30dFw
+	x9D+6ieo4o2Iy9XdxRevn+PBlORI9pjO6Mj8u1oygiztGH7zqcbfq1s3ji+2GeFjmAZvvBI42neO8
+	NrbEB2iKy3qLzjbXsweJJaWWXsgLWJwdqZk26869GJUBtefm22sFmUmrYr8r8oSQM/1u+fsDprdI9
+	cwmkg/z5IZPrYJ+t9U7dPEZ+3oO48vIgq818nAiINh8Xs9MsxdpgBRc13RpLnDBDgk2C4HS7vDgd4
+	USDWs5eB0ePRdorf7WDg04hc0Sq8on2mH/KUA4T8JsIyDZtZgjS1RpuXNTvkMCB7e47CRTdHZRXyp
+	ZGWOB6bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLSZq-0000000Fwnb-0kzK;
-	Wed, 11 Dec 2024 19:40:54 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1tLSv6-0000000FzeY-39Im;
+	Wed, 11 Dec 2024 20:02:52 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLSYl-0000000FwUt-0V7X
+	id 1tLSu0-0000000FzK4-2RU0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 19:39:48 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4675118f591so10072411cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 11:39:46 -0800 (PST)
+	Wed, 11 Dec 2024 20:01:47 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4678664e22fso15100561cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 12:01:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1733945985; x=1734550785; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1733947303; x=1734552103; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=iIB7OgclvuXmXcCb+7ry5WHS9m+ub2PzlVh4AHBJ290=;
-        b=P2u+LcVAb4vENgx+hj2a/Ifza9l5Scq6s1kcjpw6REqn99sP8gKfLLgPGM6w2n1nkB
-         /w2X4yGJLtTtTN4W+LgIvPqD8AumQVxqPIIgPZLXcELXLIURcwjUhThCXbIfFG0ihLMm
-         MPICeSMG74ilTiFahmZF4Lqz2AZT3BqrckhQk=
+        bh=RF+SgaA8A4yu1/WtuO/9GkUtQsQvHRuIDWUMOSCXiAk=;
+        b=Nl+gGm/qJ+ULcjZsIPMlgR1Ipr0LBSiX0b3FawyOKHqc5/JJpZaGNNQCByJBOJkWoU
+         3IWT9nWVrPMMqCND44HTFgsNThA9Qcx3P/xqrkr4uiNBdwC+E6q46jBypcXGcklisupA
+         GezzZ9CiGhnKPKLVt1H0azCebDgEcKiFPXJc8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733945985; x=1734550785;
+        d=1e100.net; s=20230601; t=1733947303; x=1734552103;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iIB7OgclvuXmXcCb+7ry5WHS9m+ub2PzlVh4AHBJ290=;
-        b=AOy7CCh0y2zyiJ7HMEvsKwMQN2OwkLf/zHNTePbYigqE/VGco/BUCbob5g1ySJ5qNA
-         tZj+5TRYWpvRr/9dIAKj2EGbcwOtXRkTWtIbc0tWCaTulF5hIJCDbxw8livWaMGcXulY
-         XEa8Lld9zUctttVbN6JB5zcISibprT6YP6/A6G9sq1rMLbPn2vsIISB6nof4zJIODhvt
-         557Wf94qWH+WXtEDJTRNF3eH+K4ivObHboK4+G+T+KF3tSQPqy5O+4+d7E9J1YoEasCY
-         rEg1jspnAzCiCOieIJQLNuOyfQDUdmP1fM61Aes14NQurMo5jkzMy+PPoOfBj6hGLEtq
-         6gLA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/joEegTQ9FH8xPy2b9QjlnfURFkp6eUWzcCt116uUnjh947LNeIo3HMqvmUaecBO6lfB6smzhuHNQLbdiP4QO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmwnLbrVqiLKYvDtqca6peKm07BxpCXsc+gUkXhaqB58oyCwSv
-	Rzdxm0ImODIyJnB0ZfyhoyBh9+Idd4tQ4y2lWdFkdpUDLdimamsyY5SuW5f73Q==
-X-Gm-Gg: ASbGnctGsfvEBIizcRv146JVY9sGS5FeTB0CPqkKtU1SRx/kXzRy7mTpga5luA+su1X
-	rLQVKCTL6hCy08RVEO8B7o/pStfrc0yLifHIKmU+ybXOwP3Gc171IDrGfYx3qgeaogJAQtUH+Ve
-	b0iKydQAbtiMdq/hoUHM8IV7YgsgnbFjlfA7gRHcjT8dRTgqDpTo5XnSVrEwOK+TnkqEdT4KdDN
-	Y+vm+/yKYTZS4SY2I5WCDMCg3rOP/Vofo8tScZk6xX2ik5dZPAF1vFPm4e2eRAoC873vFF6y4+U
-	BtZ7VCEpGcwrwU4=
-X-Google-Smtp-Source: AGHT+IE7tWa/E0nByPLL7S0B6qviBPi3v4T4dJLWOaG0p2vZl2++JiBW87VesGV7kVDu4s3AD+/ezQ==
-X-Received: by 2002:a05:622a:1102:b0:467:6703:d469 with SMTP id d75a77b69052e-46796810483mr6964701cf.2.1733945985176;
-        Wed, 11 Dec 2024 11:39:45 -0800 (PST)
+        bh=RF+SgaA8A4yu1/WtuO/9GkUtQsQvHRuIDWUMOSCXiAk=;
+        b=sp9NSRgoVl5Xin79VXfedrhYZZQ3aYRKqaMUuFfuDtUqPG8r+U18EfyU6/ciDkjp39
+         hERAaTqR2NpEhw1/6VesgY/xjAfvKZctVv5a5fj8HrOhDqfSj0oDgKDZvBbTCTT2U1q8
+         GcihIz6v/cz+sQafbLostrPeQ6h25xvNLxHomOglWWeImCZ1Cb8RgzvdSZbPxydHL1m6
+         IyGH1e5h/4fSwB2S7rI8I+I6U+EUWPnnpgsASNmCl8HcopikVA6Og4/bacW5qjewBwN4
+         lJslmP9p7Whc34IVAtGkGa4Fex5bdbLb3CYNrlxJEQa3EkQpy5JpSoG1W9nEJ+JTJpCA
+         wrsA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNFf7AL7Q2nTVhAOP7MMDAkk3wwdnAMzAB8pxzPkNEVk5jR0G2wnVJ4XXNmqAsdXGzJOa8/XKT9jzHACx8Ie6x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd2bUZ8Rb5Uke5Z6i3fbyd8yvn5tlYt8S0dxMTfujkp04EtD4e
+	4bHT7VJat/0c7eUwAVDa2eTRfHUVneFin+m4seCjOphoBjx6ld4NLQRyxvXuOQ==
+X-Gm-Gg: ASbGncvDhHmH+pTfyQDOxXIsapCsJcoGsiKPLNTgrJH/+JYDmYfBF1vVSXWgongRCzM
+	3o64c+1xDEKvR8x91/zLsrZp92FK/CwJIBPOc746p6h7yIjFUBeDvXu08N3lMnfRm0corYsjiLG
+	I82JFTl8Sb+Q18hDPSQMw3rWIoAJCsrATlXSQiJ2cM6ACG8D0QUwJL+ccTpGaW9N6SzvHyUyGEi
+	AsXuy4zSIL+ObYSqzImU6mBZGyOdOOIk67+JgiXbTppMYD3+31lPwWEfHOngDQFmawXKWgRISvP
+	ZMV/3rui4HdpiFs=
+X-Google-Smtp-Source: AGHT+IH1EItEhDF0PhWzxH0hzNi2adGVkl/4FI0Nh7NmAubh3vPiMk36HkqtIjpl2KFJLYurfshIMQ==
+X-Received: by 2002:ac8:7f42:0:b0:467:59a3:b44a with SMTP id d75a77b69052e-467962a741dmr12907131cf.56.1733947303166;
+        Wed, 11 Dec 2024 12:01:43 -0800 (PST)
 Received: from [10.28.17.173] ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4672978dd2asm75448881cf.60.2024.12.11.11.39.43
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-467583c1b6asm43931021cf.44.2024.12.11.12.01.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Dec 2024 11:39:44 -0800 (PST)
-Message-ID: <474e5e38-37a4-439b-b25a-fe60df03f25b@broadcom.com>
-Date: Wed, 11 Dec 2024 14:39:42 -0500
+        Wed, 11 Dec 2024 12:01:42 -0800 (PST)
+Message-ID: <f0a734d9-6bf6-4d28-b30b-99b6be9f62dc@broadcom.com>
+Date: Wed, 11 Dec 2024 15:01:40 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v4 08/10] PCI: brcmstb: Adjust PHY PLL setup to use a
- 54MHz input refclk
+Subject: Re: [PATCH v4 06/10] PCI: brcmstb: Enable external MSI-X if available
 To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
@@ -87,9 +86,7 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
  Andrea della Porta <andrea.porta@suse.com>,
  Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
 References: <20241025124515.14066-1-svarbanov@suse.de>
- <20241025124515.14066-9-svarbanov@suse.de>
- <4bbdf9ed-f429-411b-8f5f-e51857f0f9d0@broadcom.com>
- <f9f49030-0518-4e30-91a7-3c088c31180b@suse.de>
+ <20241025124515.14066-7-svarbanov@suse.de>
 Content-Language: en-US
 From: James Quinlan <james.quinlan@broadcom.com>
 Autocrypt: addr=james.quinlan@broadcom.com; keydata=
@@ -123,12 +120,12 @@ Autocrypt: addr=james.quinlan@broadcom.com; keydata=
  PqNP1eFNUMF2Tozk4haiOvnOOSw/U6QY8zIklF1N/NomnlmD5z063WrOnmonCJ+j9YDaucWm
  XFBxUJewmGLGnXHlR+lvHUjHLIRxNzHgpJDocGrwwZ+FDaUJQTTayQ9ZgzRLd+/9+XRtFGF7
  HANaeMFDm07Hev5eqDLLgTADdb85prURmV59Rrgg8FgBWw==
-In-Reply-To: <f9f49030-0518-4e30-91a7-3c088c31180b@suse.de>
+In-Reply-To: <20241025124515.14066-7-svarbanov@suse.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_113947_259266_EC528D4C 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20241211_120144_619332_D2997646 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,114 +140,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/10/24 08:42, Stanimir Varbanov wrote:
-> Hi Jim
+On 10/25/24 08:45, Stanimir Varbanov wrote:
+> On RPi5 there is an external MIP MSI-X interrupt controller
+> which can handle up to 64 interrupts.
 >
-> On 12/10/24 12:52 AM, James Quinlan wrote:
->> On 10/25/24 08:45, Stanimir Varbanov wrote:
->>> The default input reference clock for the PHY PLL is 100Mhz, except for
->>> some devices where it is 54Mhz like bcm2712C1 and bcm2712D0.
->>>
->>> To implement this adjustments introduce a new .post_setup op in
->>> pcie_cfg_data and call it at the end of brcm_pcie_setup function.
->>>
->>> The bcm2712 .post_setup callback implements the required MDIO writes that
->>> switch the PLL refclk and also change PHY PM clock period.
->>>
->>> Without this RPi5 PCIex1 is unable to enumerate endpoint devices on
->>> the expansion connector.
->>>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>> ---
->>> v3 -> v4:
->>>    - Improved patch description (Florian)
->>>
->>>    drivers/pci/controller/pcie-brcmstb.c | 42 +++++++++++++++++++++++++++
->>>    1 file changed, 42 insertions(+)
->>>
->>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/
->>> controller/pcie-brcmstb.c
->>> index d970a76aa9ef..2571dcc14560 100644
->>> --- a/drivers/pci/controller/pcie-brcmstb.c
->>> +++ b/drivers/pci/controller/pcie-brcmstb.c
->>> @@ -55,6 +55,10 @@
->>>    #define PCIE_RC_DL_MDIO_WR_DATA                0x1104
->>>    #define PCIE_RC_DL_MDIO_RD_DATA                0x1108
->>>    +#define PCIE_RC_PL_PHY_CTL_15                0x184c
->>> +#define  PCIE_RC_PL_PHY_CTL_15_DIS_PLL_PD_MASK        0x400000
->>> +#define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK    0xff
->>> +
->>>    #define PCIE_MISC_MISC_CTRL                0x4008
->>>    #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_64B_MODE_MASK    0x80
->>>    #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_MPS_MODE_MASK    0x400
->>> @@ -251,6 +255,7 @@ struct pcie_cfg_data {
->>>        u8 num_inbound_wins;
->>>        int (*perst_set)(struct brcm_pcie *pcie, u32 val);
->>>        int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
->>> +    int (*post_setup)(struct brcm_pcie *pcie);
->>>    };
->>>      struct subdev_regulators {
->>> @@ -826,6 +831,36 @@ static int brcm_pcie_perst_set_generic(struct
->>> brcm_pcie *pcie, u32 val)
->>>        return 0;
->>>    }
->>>    +static int brcm_pcie_post_setup_bcm2712(struct brcm_pcie *pcie)
->>> +{
->>> +    const u16 data[] = { 0x50b9, 0xbda1, 0x0094, 0x97b4, 0x5030,
->>> 0x5030, 0x0007 };
->>> +    const u8 regs[] = { 0x16, 0x17, 0x18, 0x19, 0x1b, 0x1c, 0x1e };
->>> +    int ret, i;
->>> +    u32 tmp;
->>> +
->>> +    /* Allow a 54MHz (xosc) refclk source */
->>> +    ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0,
->>> SET_ADDR_OFFSET, 0x1600);
->>> +    if (ret < 0)
->>> +        return ret;
->>> +
->>> +    for (i = 0; i < ARRAY_SIZE(regs); i++) {
->>> +        ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0, regs[i],
->>> data[i]);
->>> +        if (ret < 0)
->>> +            return ret;
->>> +    }
->>> +
->>> +    usleep_range(100, 200);
->>> +
->>> +    /* Fix for L1SS errata */
->>> +    tmp = readl(pcie->base + PCIE_RC_PL_PHY_CTL_15);
->>> +    tmp &= ~PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK;
->>> +    /* PM clock period is 18.52ns (round down) */
->>> +    tmp |= 0x12;
->>> +    writel(tmp, pcie->base + PCIE_RC_PL_PHY_CTL_15);
->> Hi Stan,
->>
->> Can you please say more about where this errata came from?  I asked the
->> 7712 PCIe HW folks and they said that there best guess was that it was a
->> old workaround for a particular Broadcom Wifi endpoint.  Do you know its
->> origin?
-> Unfortunately, I don't know the details. See the comments on previous
-> series version [1]. My observation shows that MDIO writes are
-> implemented in RPi platform firmware only for pcie2 (where RP1 south
-> bridge is connected) but not for pcie1 expansion connector.
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> ---
+> v3 -> v4:
+>   - no changes.
+>
+>   drivers/pci/controller/pcie-brcmstb.c | 63 +++++++++++++++++++++++++--
+>   1 file changed, 59 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index c01462b07eea..af01a7915c94 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -1318,6 +1318,52 @@ static int brcm_pcie_start_link(struct brcm_pcie *pcie)
+>   	return 0;
+>   }
+>   
+> +static int brcm_pcie_enable_external_msix(struct brcm_pcie *pcie,
+> +					  struct device_node *msi_np)
+> +{
+> +	struct inbound_win inbound_wins[PCIE_BRCM_MAX_INBOUND_WINS];
+> +	u64 msi_pci_addr, msi_phys_addr;
+> +	struct resource r;
+> +	int mip_bar, ret;
+> +	u32 val, reg;
+> +
+> +	ret = of_property_read_reg(msi_np, 1, &msi_pci_addr, NULL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = of_address_to_resource(msi_np, 0, &r);
+> +	if (ret)
+> +		return ret;
+> +
+> +	msi_phys_addr = r.start;
+> +
+> +	/* Find free inbound window for MIP access */
+> +	mip_bar = brcm_pcie_get_inbound_wins(pcie, inbound_wins);
+> +	if (mip_bar < 0)
+> +		return mip_bar;
+> +
+> +	mip_bar += 1;
+> +	reg = brcm_bar_reg_offset(mip_bar);
+> +
+> +	val = lower_32_bits(msi_pci_addr);
+> +	val |= brcm_pcie_encode_ibar_size(SZ_4K);
+> +	writel(val, pcie->base + reg);
+> +
+> +	val = upper_32_bits(msi_pci_addr);
+> +	writel(val, pcie->base + reg + 4);
+> +
+> +	reg = brcm_ubus_reg_offset(mip_bar);
+> +
+> +	val = lower_32_bits(msi_phys_addr);
+> +	val |= PCIE_MISC_UBUS_BAR1_CONFIG_REMAP_ACCESS_EN_MASK;
+> +	writel(val, pcie->base + reg);
+> +
+> +	val = upper_32_bits(msi_phys_addr);
+> +	writel(val, pcie->base + reg + 4);
 
-Well, I think my concern is more about the comment "Fix for L1SS errata" 
-rather than the code.  If this is a bonafide errata it should have an 
-identifier and some documentation somewhere. Declaring it to be an 
-unknown errata provides little info.
+Hi Stan,
 
-Code-wise, you could use u32p_replace_bits(..., PM_CLK_PERIOD_MASK) to 
-do the field value insertion.
-
-All the above being said, I have no objection since this code is 
-specific to the RPi platform.
+It looks like all this is doing is setting up an identity-mapped inbound 
+window, is that correct?  If so, couldn't you get the same effect by 
+adding an identity-mapped dma-range in the PCIe DT node?
 
 Jim Quinlan  Broadcom STB/CM
 
->
-> ~Stan
->
-> [1] https://www.spinics.net/lists/linux-pci/msg160842.html
->
+> +
+> +	return 0;
+> +}
+> +
+>   static const char * const supplies[] = {
+>   	"vpcie3v3",
+>   	"vpcie3v3aux",
+> @@ -1879,11 +1925,20 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+>   		goto fail;
+>   	}
+>   
+> -	msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
+> -	if (pci_msi_enabled() && msi_np == pcie->np) {
+> -		ret = brcm_pcie_enable_msi(pcie);
+> +	if (pci_msi_enabled()) {
+> +		msi_np = of_parse_phandle(pcie->np, "msi-parent", 0);
+> +		const char *str;
+> +
+> +		if (msi_np == pcie->np) {
+> +			str = "internal MSI";
+> +			ret = brcm_pcie_enable_msi(pcie);
+> +		} else {
+> +			str = "external MSI-X";
+> +			ret = brcm_pcie_enable_external_msix(pcie, msi_np);
+> +		}
+> +
+>   		if (ret) {
+> -			dev_err(pcie->dev, "probe of internal MSI failed");
+> +			dev_err(pcie->dev, "enable of %s failed\n", str);
+>   			goto fail;
+>   		}
+>   	}
+
 
 
