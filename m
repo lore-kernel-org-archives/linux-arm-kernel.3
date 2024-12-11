@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAA2E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D29FE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQo4kdQdviaktJTQUjcJ0e30Lwbr9lUNmT2EWPAUaSA=; b=m970c1lDz4FHcWtZNlaCUbUxck
-	uem0CvO+9sIMOVcZ/pK2XbMHF7D0EE61ryUgi/NO6mjBVRV5SVBXX+j2TloRFDAeDz4zk/qi/S3jm
-	wpUCPR2fAMPdr2RUVhzX/8gWzG6mDp03tykS7JD+xwBBRM91XKSnUmtkwGNYHRc+JGFWiZj1h5dTD
-	Tq5PndQ32aZS/CDZxikKNf1aU0R11rtcFrPS596UbNUdKxnIrFNRVYu06Ad2yYOkF+ArcKwWE45kY
-	v2Fh677zCZuLKGVUvsT6hlGDM+TxVVopjRYqfCCRtnAaZwUAhe6z6llhTMBVxq/onj2OSwW5v6tUd
-	pB1CGlWQ==;
+	bh=2eiLZxyAdC236sk/Nqx7Ju43ISHYNk16b5WIFQxB0EE=; b=WljduPIk9qYspfbV+u1M3DPMUd
+	cakh5CCr174w1ZHGtuXjYc8jXyq1Evq24Pk/a3g0h49mjQgwRA9DaQ6ceWlOmI+v5GF8E9ZqwQO7v
+	sfyPrdoO7L3Znm4w5gyV3uP7Y9u97gmg+zrtOQv4gQn50UpMAd98g9cZrcuJ14utsVWwNHgvSYKs5
+	xFn4+jEFefjk6WmhySgPdBdTY8BE6ePSs9VRc6ZG3MikUurKbnOjX1pEMv5UCQvRq8sbpgTshzS6c
+	4oANqBp9dqj+7Lt6EXy7jU8FascU89r0Mj+e88mZkSAl7FRL+n7O65L7t6d9jQiTu4sRuXHoNMfS/
+	ORiqWeAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPBY-0000000FNTp-0D3l;
-	Wed, 11 Dec 2024 16:03:36 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tLPCZ-0000000FNlv-3KS6;
+	Wed, 11 Dec 2024 16:04:39 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLP7W-0000000FMdN-1Syu;
-	Wed, 11 Dec 2024 15:59:27 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa6b500a685so14411066b.2;
-        Wed, 11 Dec 2024 07:59:25 -0800 (PST)
+	id 1tLP98-0000000FMva-0Y8a;
+	Wed, 11 Dec 2024 16:01:07 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5d3cd821c60so594983a12.3;
+        Wed, 11 Dec 2024 08:01:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733932764; x=1734537564; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1733932864; x=1734537664; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XQo4kdQdviaktJTQUjcJ0e30Lwbr9lUNmT2EWPAUaSA=;
-        b=Y3brJSA9JMt6HXUekavHgQyCFnMwc+IWqcpte+GcKdmx2L2G3H/GqJbrN+f98ThA+H
-         MeMFeOXEsqiiBi/tlXJcjf7NHZPVsOQqmQCdctbtcZJiSvYCxWN/fks4Y1u2BitlBS5z
-         ZLnCyA84FXAXkKKK4a7ougUxYfXrg89tlZo3KL3Quny7IjmeDaYJ/vl3FO0z0IK3nnl/
-         8QmQzUlFJs3czwahXfmVX3E6Ztn2YmNAb8PdrnMONq1YOsjAm//VEJIbv89VlZrzPnuO
-         8eBmrzEViskRVsFz3TklVYqj615WEYc6GZnW9kWwcv6LbTC9zR/eOdKFZKsvv7Qpziwz
-         zIMA==
+        bh=2eiLZxyAdC236sk/Nqx7Ju43ISHYNk16b5WIFQxB0EE=;
+        b=khD/yiXZCRfJfsvJqgTf2Ug3Eu39GFSywYbquLHQSFsHTar38mBDS5DjJAvJKWdrvD
+         7pqByShOGGUWDchdh/UT6IDZcECv3ts8xlBNZEb7RHZqWAts8Rft6jDBgTQ0XyNTs4AS
+         6bA8Oj5G86d1FDLA1mFt9yx9nQnhOxGw5RTIA7o83LCqGiQ5dh54rYxjg7viwxCbGSfI
+         8kfB4t52w/dYKi5R6+UYJ3v94MwFfp+xcBhKnz9TPlCAu10b/jdzkGmP/Li+LZKFa/gJ
+         4qD7Gtmue9K+4Ly/JE7Ifx1p4MN/Tq0oL3V21/+XhwQq8tQS0dLs2uTFQLcTtfdvC6no
+         7BrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733932764; x=1734537564;
+        d=1e100.net; s=20230601; t=1733932864; x=1734537664;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XQo4kdQdviaktJTQUjcJ0e30Lwbr9lUNmT2EWPAUaSA=;
-        b=tcSriBxsi7hWEBfr8D3aEEjFQRAqZMjlk8B3ZQ9iGglEVSm6QtJB2Uxdp1xeKJpcBQ
-         zRcGT5pVjM5tpE4dEYUZUVRxk5afdvDVWvQc+GA4eOcRBNu9XfxF1YTUEDlEO1LuPWBW
-         A0A7JQEtUZ4qdHP/wySGSDiAAX+aYfeAjk3Gz+pAbdNPGYVXIRNpEYRa72BabKUwCdYu
-         8yOe9FpAexsGX/weOWauemukdqG6OioYUO0fQtdOV0YPuILQX4puSqXS4kk39hec2fbv
-         Crpaus/jmorqkGKw8Gyv0cKdYFzj3Tx10K6N+KLbIQdFn+RlgHWEidOI5v9RyX1mYBwS
-         0Niw==
-X-Forwarded-Encrypted: i=1; AJvYcCXW+gl8uQoxQYwFDZZ7b1ASs7f9qbfjPJBeRXAJv1y7jO4WCuurZCOL1poUk62dKj1Ivie7+k/rod/P2HSFKyw=@lists.infradead.org, AJvYcCXrcvwH59WwYIjhynnPz6dXgsFy7rlrbNvDW30BvlKw+xFs7qu/F9km1dh/WqVgdZtGmZOGYDRJe2GLpezACvDt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpOJY1vBs13DGAMgTAGEkW5ZXgN8fcbITcdTYgB2Zj4aPOytxK
-	KqAbJ6P7duZmBCFOJ3E4OWzHaZ3YjwKt6mbaMkLKcZHVLS3jbCstwBx4fcKf
-X-Gm-Gg: ASbGncvoxAbXn6WAe5/adHDw000e53yzYp+881NdHaN/rJfoT/lsa9Tew+ZWkAdMJcT
-	L7IlbPS3L29zRQ9a9Qm3Uh3DAqj3jp8ozMzUHiTENCq7AiuI/gLtquPk5dRk0XpBG4kbOOLArMy
-	pBmmSnm9lEMvVmvuuzgPZwn+t17yIKunejZn5g9apGVChTJBA4zGw3IbiGMdRqXafUq5an8Thrb
-	yaI5tc+g5qiJoKwFcR4ene0zArpSnbBRRaaE6eiig==
-X-Google-Smtp-Source: AGHT+IFyV3iDXmmlLsNjwIKP7/kQgODUrCUnsTuF51JTS71xaSEMaMEtAZkpdveeiZdMK/ulibo79Q==
-X-Received: by 2002:a17:907:94c7:b0:aa5:a36c:88f0 with SMTP id a640c23a62f3a-aa6b13b9a75mr119197466b.12.1733932763509;
-        Wed, 11 Dec 2024 07:59:23 -0800 (PST)
+        bh=2eiLZxyAdC236sk/Nqx7Ju43ISHYNk16b5WIFQxB0EE=;
+        b=sTO1k++ao1m2kf6R2VVONCtx+Dqh0BqeJGaaihAwMBVNjr6YORoJqCQE3vJrKFS0dI
+         +m0fbdIzfjrg9ARK0f1DBSW7xtpBSvdHxLtP0tozIVN4V6EXM4jQkwOJng0NikuRCYfv
+         gxGkW4voP38+ke0omkGPGA991k1T41wk77vKsocW/PkNGb0eSySvPLOTVZwU0msZFFAM
+         FY5T7mHWpol5O/fgixpyUsFbnW/x+y9ziaYVALeCB/CJZcTgT+JC2Nly6RI17ktqaUbI
+         h5NIr+rXwYwNmhlH56QEerWyoRxoj2ylinpYmu6zLuu4mHS+j6j9hGSFRKBLhvylFgNP
+         5hRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVbKb99PJKi3S7tjd+CAOZ7Qhfl7udm3kPNYLLVZ5EyG9FW4//YIrM9b6NNgE4k2umzKCR/2G7+EuGEJ6RjstbC@lists.infradead.org, AJvYcCWIAiaHxauq7rf78qOqcPMHDzEzpn7soatJnll+7adfAEARa2lY8Ffj+pQYr3qUTh8L7/Qhm4GQdh3LKIGMzIw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyMvvzr3GwC836wiHEJq58Y0xb+HkR45RES4A7FtONCzEk5HZb
+	/JU6LcPWf/zRsJiuE3xytZSDTdrSLcie9adFT4TD+P3K5uyyuI2G
+X-Gm-Gg: ASbGnctZwH4PBtBgSn5DF2rLU3wE3GbcWNxwbi+2aIY/0UShKczoyBcHWWSj8nmKUsF
+	iinppolqYsrclFkjKdfvIPPiLZn0prr/fmfEnN9bdfpBMvIFz4slCELw8KQmd/ypzPyFLHV1eMs
+	2MFLpxeYd51yaHcB62siO4eHCwNgRMljnOBSE/Hgpc0nlOe3Uume88DVTm0nyX9xswuyW7hfKcB
+	3FEAVQGtw9SKIIEVawDNrnpFX0CpFeQKQ4su4Lrmw==
+X-Google-Smtp-Source: AGHT+IGpHZ7duPMWiLF14rljsFoBTbUsF6ObaJbe99GJ62pMOFoPQ178gwFizB5Dr+oYjlRztVrq1w==
+X-Received: by 2002:a05:6402:5193:b0:5d0:bf79:e925 with SMTP id 4fb4d7f45d1cf-5d43314d34cmr1136018a12.6.1733932863555;
+        Wed, 11 Dec 2024 08:01:03 -0800 (PST)
 Received: from skbuf ([86.127.124.81])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa672d377fbsm596189266b.75.2024.12.11.07.59.21
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3e7349b44sm6244827a12.71.2024.12.11.08.01.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 07:59:22 -0800 (PST)
-Date: Wed, 11 Dec 2024 17:59:19 +0200
+        Wed, 11 Dec 2024 08:01:02 -0800 (PST)
+Date: Wed, 11 Dec 2024 18:00:59 +0200
 From: Vladimir Oltean <olteanv@gmail.com>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
@@ -84,15 +84,16 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	Simon Horman <horms@kernel.org>, UNGLinuxDriver@microchip.com,
 	Woojung Huh <woojung.huh@microchip.com>
 Subject: Re: [PATCH net-next 0/9] net: dsa: cleanup EEE (part 1)
-Message-ID: <20241211155919.rv3gglwnuuy4rn4y@skbuf>
+Message-ID: <20241211160059.ypcydtoenlfc2wog@skbuf>
 References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_075926_389667_C467DD74 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20241211_080106_166942_671DF358 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +109,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue, Dec 10, 2024 at 02:17:52PM +0000, Russell King (Oracle) wrote:
-> Hi,
-> 
-> First part of DSA EEE cleanups.
-> 
-> Patch 1 removes a useless test that is always false. dp->pl will always
-> be set for user ports, so !dp->pl in the EEE methods will always be
-> false.
-> 
-> Patch 2 adds support for a new DSA support_eee() method, which tells
-> DSA whether the DSA driver supports EEE, and thus whether the ethtool
-> set_eee() and get_eee() methods should return -EOPNOTSUPP.
-> 
-> Patch 3 adds a trivial implementation for this new method which
-> indicates that EEE is supported.
-> 
-> Patches 4..8 adds implementations for .supports_eee() to all drivers
-> that support EEE in some form.
-> 
-> Patch 9 switches the core DSA code to require a .supports_eee()
-> implementation if DSA is supported. Any DSA driver that doesn't
-> implement this method after this patch will not support the ethtool
-> EEE methods.
-> 
 > Part 2 will remove the (now) useless .get_mac_eee() DSA operation.
 
-Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
+Thanks for the work. For part 2, could you also include changes to
+Documentation/networking/dsa/ to explain the new usage pattern?
 
