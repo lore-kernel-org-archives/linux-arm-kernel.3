@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B53E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337AAE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YLacmmQOff+oT4ZIe+wvYVJYKWjSDhRMK864cvAg1II=; b=GZd4oCOLga94yJPV+Fdqy7EPqi
-	qLAfppZmPgo+1JI4YUBS8ZxgrbwBB4zJh07olHHfnmMqjjWpSTD71xhloeI+DXArqatWQCPW8U/4b
-	eGj4CJ0tfDC4NkyPwimYTuQCUgWUC/3SL79R7mARA4uhJBtlTp8WIIO82ibUqBEx77mXPNvWe7avH
-	WSii+Sj7hq6unpJpKL0ZMdmX7pe1tyG/HQXkgSy1nCZ+avLuPfC884M7bcwXwcwpBJLXkT3zMNCEZ
-	y816Kt0i/qpve97ck5B9xJmTe4CiPLxMjzCqDZuRBJxpOR7JyID/NqJzJmzxJuwglshABvheEUkgB
-	ZPYBHoAA==;
+	bh=K60QhhIQzV/URywF5BGDyeDpIbT7S09TCbdpsCT/rGQ=; b=YNZLaa/It+xgxCCK7we2ayF7bi
+	eykBf0aRKTE0ywd3qlrnFzDYF4OS4TZrw8x1xm6GlL4FnhNSAeIeinOZoxa2P3PhExibUXQt+cV79
+	fCwQXsDCq/JnJOAJcHQLspqlcBFFzjoNagNvn6L9ENrnv8c4MpgUEOna0gWDsXXiCXOqyD/nR6qj+
+	cbkvYD8df8T47GsYOjcBV5yNeO6dA83iTriHFa9IKKevNN5DcmOh4g525lMfmgJq2bcK3LdzxNeTn
+	uYuACvN8BAdTI6EBl60i2j0yP5rBi79poWuenctW8MBMZr9fAnVBlh8xYvpMiuXbls8YHGo9SqTo+
+	v3Zqvfgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLP7Q-0000000FMbu-2sI8;
-	Wed, 11 Dec 2024 15:59:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLP8T-0000000FMpK-17xD;
+	Wed, 11 Dec 2024 16:00:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOwj-0000000FK9e-1BkH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 15:48:18 +0000
+	id 1tLP2w-0000000FLRO-1B6Q;
+	Wed, 11 Dec 2024 15:54:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 36621A40C07;
-	Wed, 11 Dec 2024 15:46:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC480C4AF09;
-	Wed, 11 Dec 2024 15:48:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D9F25C64CE;
+	Wed, 11 Dec 2024 15:53:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E53FC4CED4;
+	Wed, 11 Dec 2024 15:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733932096;
-	bh=YLacmmQOff+oT4ZIe+wvYVJYKWjSDhRMK864cvAg1II=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pfOojM+cAe7XzR10RosCRkC50GMmSbyW0dbLpej6mH2vmg4uwZVX9ZDpNGnPsOL+o
-	 XdeuXZ9KznvEy4yZxxn0/wnA6Up6vIxsSiYm7ri9S8RJlYvKP5wQfAAicfBiV7+wHx
-	 zXDm6p8yGY3807+VpDrcLF3vN6wsvoS1IO2K75wkIRaknG3jFOQabXBMo3oeJpN5iz
-	 flgkpkAfVyLDtvI0UTf9k64Fi9vV0fWBIciyDkZMmR0Z8hfMEW0MK1o1MPP5nGYz4P
-	 +MUa56R9TjQrDPb7xU3fsCxT9n4cUt4sB1UoIW15IpH8dqNR14YPuz9IMDrTqS6d4g
-	 UdUjjqSZWvoxA==
-Date: Wed, 11 Dec 2024 15:48:10 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH V2 01/46] arm64/sysreg: Update register fields for
- ID_AA64MMFR0_EL1
-Message-ID: <409a5ef5-5237-41d9-9cf6-274c010ab2d8@sirena.org.uk>
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-2-anshuman.khandual@arm.com>
+	s=k20201202; t=1733932481;
+	bh=Z/nbk/8Kb/p1U+kHAubTcn5qOKR0MEKHfLVov/7+cCE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=MJyw/KlC9PsR8A7QmwQl+ECfyQDa36GtAov7ute6Lb2pDzGHI5s/CwO+Tjxcj9RBV
+	 Udh7zF5KgAcRYZgQWVLyZmx1JcBUuZluIh8ocAWasByBGAN41rh1Rm3f9hOXj3NXvZ
+	 8al3tAu6BklmNPMeIAeiizXMaMqtPnH13o0j7Nk2vtvVw89epNoshB+UmLQYR89W4B
+	 5t26PWGXLee/eytjtQHHRutRJoWxTP8TQHCRCuink5FyoU+Zm7ifMAV/jFBxQRLxuS
+	 HgunMtvv8bIqCzO5OLNeEDpGpPti3RzSWDElNMWyi7+owwUELExnEV5/wcZtVyLuld
+	 m/UKl145tSb4w==
+Date: Wed, 11 Dec 2024 09:54:39 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2I+DX9YYFLWygnpT"
-Content-Disposition: inline
-In-Reply-To: <20241210055311.780688-2-anshuman.khandual@arm.com>
-X-Cookie: Every path has its puddle.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: kernel@collabora.com, Aary Patil <aary.patil@mediatek.com>, 
+ Conor Dooley <conor+dt@kernel.org>, parkeryang <Parker.Yang@mediatek.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, linux-mediatek@lists.infradead.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+ Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>
+To: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+In-Reply-To: <20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com>
+References: <20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com>
+Message-Id: <173393224281.3090994.9490420905071029981.robh@kernel.org>
+Subject: Re: [PATCH v2 0/2] Enable audio output for Genio 700 EVK board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_074817_385880_4B458E83 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_075442_403480_AF247EAB 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +79,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---2I+DX9YYFLWygnpT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Tue, 10 Dec 2024 17:54:27 -0300, Nícolas F. R. A. Prado wrote:
+> This series enables audio output support for the Genio 700 EVK board.
+> Patch 1 adds the missing #sound-dai-cells property in the MT6359 node as
+> a prerequisite, and patch 2 describes the audio DT nodes to get audio
+> output working on the two audio jacks, Earphone and Speaker, present on
+> the board.
+> 
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+> Changes in v2:
+> - Dropped merged/unnecessary patches (2, 3, 4)
+> - Removed unnecessary mediatek,dai-link property
+> - Link to v1: https://lore.kernel.org/r/20241205-genio700-audio-output-v1-0-0e955c78c29e@collabora.com
+> 
+> ---
+> Nícolas F. R. A. Prado (2):
+>       arm64: dts: mt6359: Add #sound-dai-cells property
+>       arm64: dts: mediatek: mt8390-genio-700-evk: Add sound output support
+> 
+>  arch/arm64/boot/dts/mediatek/mt6359.dtsi           |  1 +
+>  .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 48 ++++++++++++++++++++++
+>  2 files changed, 49 insertions(+)
+> ---
+> base-commit: d1486dca38afd08ca279ae94eb3a397f10737824
+> change-id: 20241204-genio700-audio-output-fba8f2ebad10
+> 
+> Best regards,
+> --
+> Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> 
+> 
 
-On Tue, Dec 10, 2024 at 11:22:26AM +0530, Anshuman Khandual wrote:
-> This updates ID_AA64MMFR0_EL1.FGT and ID_AA64MMFR0_EL1.PARANGE register
-> fields as per the definitions based on DDI0601 2024-09.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
---2I+DX9YYFLWygnpT
-Content-Type: application/pgp-signature; name="signature.asc"
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
------BEGIN PGP SIGNATURE-----
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdZtDkACgkQJNaLcl1U
-h9B72Af/d+gjIUWdLm18k49dviMnY4a321sGjl9OHJTUhuUbdXMekpz9ytDLvG1u
-Nc510KWK2itLqRJxSA/At6y9HgJ7UHCbzx6pdiB6I9EPrw1yR/LKSLPz7ErzR6hY
-4meDA9QAX/63Qj0HEOyD8iBXmQq3gIjpIRvQyOmTcm934hit2phWeFRLZ4/u9wWr
-2wR4BVWVxM+JpV61uV0h7IkU62WPdzhuI7UcCcdnQhvmZxUhzaJ7a8QtQhHiBZ1t
-cAzSst4Ngq1wIbkr3cYdlfXtRsNTdb5G2afCOoJUWeK/jhZ9i52ayCtrtgRWuTus
-3JX3K7bRXz9ek3InC7zvffHfagA0uQ==
-=p2f7
------END PGP SIGNATURE-----
+  pip3 install dtschema --upgrade
 
---2I+DX9YYFLWygnpT--
+
+New warnings running 'make CHECK_DTBS=y mediatek/mt8390-genio-700-evk.dtb' for 20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com:
+
+arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb: pmic: '#sound-dai-cells', 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb: jpeg-decoder@1a040000: iommus: [[124, 685], [124, 686], [124, 690], [124, 691], [124, 692], [124, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+
+
+
+
+
 
