@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343B2E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE2DE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OHdp4oLrGWXBegQfCTP9oaUHfCcRbALc/9btYKwbm/g=; b=xG9y4s4s60Jf0rt483HcCoSpVA
-	iMpWDyDeLXgcOVi/479ICI2dhB22KvK+YkEqIC0t0inMosMAUuxMRb8uRdRlO0AbhlzfXlcasSH9V
-	+C8lxLY2MvSON1ONrwV4IoQG/8qgMmlGr2RR7LbCGcxiFdxXRcr4qOzpezllUf0tOOqAvla7Z1K7M
-	0wvNEYb8Hi2BGajQDfBsezeASBIOIY3EAMH0Mh+wI53SCmvbbZ9msNcWivKKt3BLsXJwCVN99n6MK
-	uI/bpG1nqQIa0vnVBUds2teCr29YulMgax+b5JlHFKu7mutdAEJGa3bHPG+EQP/LqddpcaDdYFR+G
-	CQv2aBmg==;
+	bh=B2rrjtFYCNa+l0opUFsEhFJAlzA2QKbBJlwN52j4330=; b=coqCj7v+7EUqL8Gv4UhYyVkRzG
+	AUpB10lE5JEzKch9D5NfhrnO3e3QufxtXRtpAsoyYh6vIafnv2JecTu/hux9BtYapvsMYc090yrWS
+	W11j/ALY8Nimwh05RGmhjldM9g82xhN/yk7Mh1l0BP0gFLhn6m61ebUUadrXboDI28VsO0IEYVER7
+	HozIlcrqwOHH0KjFGxRyMqBwxKZ13pK4RAfLTA7JwljN73rg8j9cDKRI3nmxiTtgdnBFtrmGCQDue
+	W10zjWb3hJlPZCn99hB0mZL8hImcx7G0Ug8TaUon7S/b19SRVDuX6KXmtG/TOIveeRWDg6T+QRqJF
+	KqnSPJcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOvj-0000000FJsG-156t;
-	Wed, 11 Dec 2024 15:47:15 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tLOwl-0000000FK9y-0tht;
+	Wed, 11 Dec 2024 15:48:19 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOty-0000000FJUr-0vjl;
-	Wed, 11 Dec 2024 15:45:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1733931906; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GTxSzouE/mJE+KcWqIisOlkVG9j+OotNYODT4LEZjRPdaSYKc7i1d0Crd7pyMjvDqdU5eLTRAX/5IeTigPpE5dHS8QXY1M4Jrn3NnjBVtKwOEaAb5Z5EktNEONCh+XYNOQCPSC6Br72m6UZTTrYsbjK8gBMsPTsLpkfFRVXWgDc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1733931906; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=OHdp4oLrGWXBegQfCTP9oaUHfCcRbALc/9btYKwbm/g=; 
-	b=RRnoLm5el6MLEoSqg88YRisYqGEx4pCOHZTWeSIdwTFwAa5e9+bRtwp+6zz1NaoPvMj8ouM9AxoI9MRiqTrYbcGY2YhARM/0SC6JpRC2Avt10K4KSe+oPS1dJog8rJ8+3gtXha+sFsmrpps0DAq2Xo7RzrcUJZ8Mv6SCxeWHqo4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1733931906;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=OHdp4oLrGWXBegQfCTP9oaUHfCcRbALc/9btYKwbm/g=;
-	b=Pt7bzOnOJxObbbrVV2c8d+mjSfJf2B1OyEdq1aUsl6K6KJ04U4xsbT8gez0v24Bu
-	R1VLpZQv362bO7DGcB5tjH/VGBBwZcXzaLjyJk1HH+zdCKborvP0hG7Tr1kl96XVi8e
-	FGuQlhU9cF2G4AfJVjHSIeh8h5wbkRjmyJArBfG8=
-Received: by mx.zohomail.com with SMTPS id 1733931903262633.7303262296845;
-	Wed, 11 Dec 2024 07:45:03 -0800 (PST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
- s.hauer@pengutronix.de, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- derek.foreman@collabora.com, Andy Yan <andy.yan@rock-chips.com>,
- kernel@collabora.com
-Subject: Re: [PATCH v5 05/18] drm/rockchip: vop2: Set AXI id for rk3588
-Date: Wed, 11 Dec 2024 10:45:01 -0500
-Message-ID: <5843712.DvuYhMxLoT@bootstrap>
-In-Reply-To: <2d381563.5e54.193b46d2f30.Coremail.andyshrk@163.com>
-References: <20241209122943.2781431-1-andyshrk@163.com> <5839604.DvuYhMxLoT@trenzalore>
- <2d381563.5e54.193b46d2f30.Coremail.andyshrk@163.com>
+	id 1tLOur-0000000FJeu-0Ti8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 15:46:22 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-435004228c0so30526285e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 07:46:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733931979; x=1734536779; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=B2rrjtFYCNa+l0opUFsEhFJAlzA2QKbBJlwN52j4330=;
+        b=I6T2D+Oa6HZqo8L9/QuFcAVwsDoGNdJLp/pOcnLbMZ2tGx9FUpgbUqc3AVBbh0vwRe
+         pOXuc7SAQ0NIdBFgNJUSOd0z7wVZWuRESvrDq3uhbwIsL5UQYJLQCqtFvHrnRZx+JaqI
+         tqbdgjclC+nzeATorYsZEiEzuBDC/Y0++tGKyXGETaUwb5yAsVekWnzNy7dmHkWj4G5g
+         pdcIBV1BZNNsxBFrW6d6NW5IoEEb1WVbtZEiqbQLPX9duPoFbS5etjHcb06Sus/+Ckbk
+         OPe+mMg1cInXZbSQrQdmcfum2tn5Z9YQn8CZ3oKcWjiZZNSLQiQJq+Yq40st9bLQ7Fth
+         aAmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733931979; x=1734536779;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B2rrjtFYCNa+l0opUFsEhFJAlzA2QKbBJlwN52j4330=;
+        b=B/TcOIMzMjrk/LtKDOM+NGMQqH2GTjLpf4mdcAIsAYTRC4kn2gLKqlK+HlUBWtJAZN
+         00sxLNotH4oWGyTZtGYPpRQPLirgO5VSY5dEjtERMoqbdaq/SxXWhFmQaSYnvfqBC436
+         Zq17Y4z0/WiMBOkSgaokaRBGV655UNycRSVmZdGq/mXVQJjfZ16Jb7XzKdWJVDiY86Eu
+         JrzobBNEZuqEzd8x36DousTbno3a6oOOr9jCgwEkOTHEumL0AKY00RYHV+DgVPsOTrvz
+         R2UWdrXzCDbHg70jid7Zh4ZzFUF4adDViBAOAOeB6pZgwsrEWhFSoPbmAFT/xi//6Yst
+         aIaA==
+X-Forwarded-Encrypted: i=1; AJvYcCWwSVja80H43ToZVjJ9oAMMKHAnTPXegYuKIwrkwZXaWm4Hu1FbcCnaVsHMzWlr/vNDkbQs+mzvOpoGcQf0RMGD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyrlbe9VU1mx70LF8X4csnmkpTOy7h83dNuQwxYYMWXEqIsYJ1R
+	H7ax8n0HzEPcBAAaBIURIFhPjgxW3FBnP6yc8qUgNpfl/0CrIyLQeKoZpc66nks=
+X-Gm-Gg: ASbGncvNNDCz97ZgtFymJY9sjRIotKfQVTuIic8jEnjkE+crjirebOicAbYhSmyqVtV
+	SPsPbvdoQ4/bfawaiLzV+GXhtsBNueCragHt1ORvUksCx6LMprl8YslP3Y4HMqLqLhRoqinFoGx
+	z5sbK0q/yV1OvVNg1k2MgHsurXatVIbD4rIYy7B7Zdv932gkw2HkHZnNbzyMUVMGzS5gUuZmFkC
+	5mcBD2XZvZPft3j6X9oh1tLebvFQN3gVOC3zuMkix+MnksP32uZtnzf+YY=
+X-Google-Smtp-Source: AGHT+IElAjFrQA1BOKFF5sD8uSomr+adDjCh2fxba5+aLmeIQZ30HWVdJYlj+iWlHcRAJRttZ0NMfA==
+X-Received: by 2002:a05:6000:1ac8:b0:386:3213:5ba1 with SMTP id ffacd0b85a97d-3864ce97262mr3126317f8f.24.1733931979554;
+        Wed, 11 Dec 2024 07:46:19 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3878251dba9sm1532151f8f.98.2024.12.11.07.46.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 07:46:18 -0800 (PST)
+Date: Wed, 11 Dec 2024 18:46:15 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: vigneshr@ti.com, matthias.schiffer@ew.tq-group.com, robh@kernel.org,
+	u.kleine-koenig@baylibre.com, javier.carrasco.cruz@gmail.com,
+	diogo.ivo@siemens.com, horms@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+	andrew+netdev@lunn.ch, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com, Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
+Subject: Re: [PATCH net v4 1/2] net: ti: icssg-prueth: Fix firmware load
+ sequence.
+Message-ID: <304870d9-10c7-43b3-8255-8f2b0422d759@stanley.mountain>
+References: <20241211135941.1800240-1-m-malladi@ti.com>
+ <20241211135941.1800240-2-m-malladi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241211135941.1800240-2-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_074526_334262_F9F0F397 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20241211_074621_151389_776A26AE 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,100 +102,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 11 December 2024 01:34:34 EST Andy Yan wrote:
-> Hi Detlev,
->=20
-> At 2024-12-11 02:40:14, "Detlev Casanova" <detlev.casanova@collabora.com>=
-=20
-wrote:
-> >Hi Andy,
-> >
-> >On Monday, 9 December 2024 07:29:18 EST Andy Yan wrote:
-> >> From: Andy Yan <andy.yan@rock-chips.com>
-> >>=20
-> >> There are two AXI bus in vop2, windows attached on the same bus must
-> >> have a unique channel YUV and RGB channel ID.
-> >>=20
-> >> The default IDs will conflict with each other on the rk3588, so they
-> >> need to be reassigned.
-> >>=20
-> >> Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
-> >> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> >> Tested-by: Derek Foreman <derek.foreman@collabora.com>
-> >>=20
-> >> ---
-> >>=20
-> >> Changes in v5:
-> >> - Added in V5
-> >>=20
-> >>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 14 +++++++++++
-> >>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  9 +++++++
-> >>  drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 26 +++++++++++++++++++-
-> >>  3 files changed, 48 insertions(+), 1 deletion(-)
-> >>=20
-> >> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> >> b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c index
-> >> dc4edd65bc9e..8b9ca046eeeb 100644
-> >> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> >> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> >> @@ -1426,6 +1426,12 @@ static void vop2_plane_atomic_update(struct
-> >> drm_plane *plane, &fb->format->format,
-> >>=20
-> >>  		afbc_en ? "AFBC" : "", &yrgb_mst);
-> >>=20
-> >> +	if (vop2->data->soc_id > 3568) {
-> >
-> >Shouldn't this be done only for rk3588, as specified in the comments bel=
-ow
-> >? The test we did before showed that it is failing on rk3576 and 3576 is=
- >
-> >3588.
-> I think this is because you tested before with the patch I gave Derek=20
-> without axi id assigned for rk3576.
-> I assigned axi id for rk3576 in this version 18/18=EF=BC=88The new ID ass=
-ignment can
-> adapt to more application scenarios.=EF=BC=89, can you test it with the w=
-hole V5
-> version again?
+On Wed, Dec 11, 2024 at 07:29:40PM +0530, Meghana Malladi wrote:
+> -static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+> +static int prueth_emac_start(struct prueth *prueth, int slice)
+>  {
+>  	struct icssg_firmwares *firmwares;
+>  	struct device *dev = prueth->dev;
+> -	int slice, ret;
+> +	int ret;
+>  
+>  	if (prueth->is_switch_mode)
+>  		firmwares = icssg_switch_firmwares;
+> @@ -177,16 +177,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+>  	else
+>  		firmwares = icssg_emac_firmwares;
+>  
+> -	slice = prueth_emac_slice(emac);
+> -	if (slice < 0) {
+> -		netdev_err(emac->ndev, "invalid port\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	ret = icssg_config(prueth, emac, slice);
+> -	if (ret)
+> -		return ret;
+> -
+>  	ret = rproc_set_firmware(prueth->pru[slice], firmwares[slice].pru);
+>  	ret = rproc_boot(prueth->pru[slice]);
 
-Yes, I will do that. But patch 18 mentions:
-+       /* Read only bit on rk3576*/
-+       [VOP2_WIN_AXI_BUS_ID] =3D REG_FIELD(RK3568_CLUSTER_CTRL, 13, 13),
+This isn't introduced by this patch but eventually Colin King is going to
+get annoyed with you for setting ret twice in a row.
 
-And the bit is being written here. If it is indeed writable, then I would d=
-rop=20
-that comment.
+>  	if (ret) {
+> @@ -208,7 +198,6 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+>  		goto halt_rtu;
+>  	}
+>  
+> -	emac->fw_running = 1;
+>  	return 0;
+>  
+>  halt_rtu:
+> @@ -220,6 +209,78 @@ static int prueth_emac_start(struct prueth *prueth, struct prueth_emac *emac)
+>  	return ret;
+>  }
+>  
+> +static int prueth_emac_common_start(struct prueth *prueth)
+> +{
+> +	struct prueth_emac *emac;
+> +	int ret = 0;
+> +	int slice;
+> +
+> +	if (!prueth->emac[ICSS_SLICE0] && !prueth->emac[ICSS_SLICE1])
+> +		return -EINVAL;
+> +
+> +	/* clear SMEM and MSMC settings for all slices */
+> +	memset_io(prueth->msmcram.va, 0, prueth->msmcram.size);
+> +	memset_io(prueth->shram.va, 0, ICSSG_CONFIG_OFFSET_SLICE1 * PRUETH_NUM_MACS);
+> +
+> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
+> +	icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
+> +
+> +	if (prueth->is_switch_mode || prueth->is_hsr_offload_mode)
+> +		icssg_init_fw_offload_mode(prueth);
+> +	else
+> +		icssg_init_emac_mode(prueth);
+> +
+> +	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
+> +		emac = prueth->emac[slice];
+> +		if (emac) {
+> +			ret |= icssg_config(prueth, emac, slice);
+> +			if (ret)
+> +				return ret;
 
-> >I suggest
-> >
-> >	if (vop2->data->soc_id =3D=3D 3588) {
-> >
-> >Regards,
-> >Detlev
-> >
-> >> +		vop2_win_write(win, VOP2_WIN_AXI_BUS_ID, win->data-
-> >>
-> >>axi_bus_id);
-> >>
-> >> +		vop2_win_write(win, VOP2_WIN_AXI_YRGB_R_ID, win->data-
-> >>
-> >>axi_yrgb_r_id);
-> >>
-> >> +		vop2_win_write(win, VOP2_WIN_AXI_UV_R_ID, win->data-
-> >>
-> >>axi_uv_r_id);
-> >>
-> >> +	}
-> >> +
-> >>=20
-> >>  	if (vop2_cluster_window(win))
-> >>  =09
-> >>  		vop2_win_write(win, VOP2_WIN_AFBC_HALF_BLOCK_EN,
-> >
-> >half_block_en);
-> >
+Here we return directly.
 
-Detlev.
+> +		}
+> +		ret |= prueth_emac_start(prueth, slice);
 
+Here we continue.  Generally, I would expect there to be some clean up
+on this error path like this:
+
+		ret = prueth_emac_start(prueth, slice);
+		if (ret)
+			goto unwind_slices;
+
+	...
+
+	return 0;
+
+unwind_slices:
+	while (--slice >= 0)
+		prueth_emac_stop(prueth, slice);
+
+	return ret;
+
+I dread to see how the cleanup is handled on this path...
+
+Ok.  I've looked at it and, nope, it doesn't work.  This is freed in
+prueth_emac_common_stop() but partial allocations are not freed.
+Also the prueth_emac_stop() is open coded as three calls to
+rproc_shutdown() which is ugly.
+
+I've written a blog which describes a system for writing error
+handling code.  If each function cleans up after itself by freeing
+its own partial allocations then you don't need to have a variable
+like "prueth->prus_running = 1;" to track how far the allocation
+process went before failing.
+https://staticthinking.wordpress.com/2022/04/28/free-the-last-thing-style/
+
+regards,
+dan carpenter
 
 
