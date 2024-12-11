@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEC8E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 05:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC12DE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 06:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elDffjx4OH6SRJ4sYrMr/jtN2gDKhRQX2JMdW7ThPak=; b=yY3gkH8l8n08srZ7+XryCS9LY7
-	hUbqeDT+XqlQMlT1cUtn1of7hl5YDm+nh+3EL9cvJvBLxDYtsRd1+nvrOea66gESefNAz3RMHq/PA
-	yow1TZsGbYG0BRi2vMQMMjxrE4v1Knuy7T73bxdZfEWqb+j/mxiT4rWcgJ4KJDOsyj839qibnx38S
-	6WWOsTGOfQnXGiYl7WILSa2MJxCjYNmp4agqZh9Cfou73K7NlLK601EbuQx/w/TXh41nosPeSSHe8
-	BN+6KIOl3tDCnGTy4Xf7ekxb6bNoMHxbvFac40X5g3IwlWUc+JY1IH1+0sU0Fe7BlPzcUwAqB/Bbk
-	jAZOy50Q==;
+	bh=s8IoPSQMtEEL6HOp9R3MHt1lyYtmF6QVYbrckRmNW8I=; b=Df2Fyw25+cw7f6K+p9fz9XtpVt
+	IS3s7U/0qSRcs7IaCSTHpCHJIBmYu5DJ8ujonw35RFr2+Iaaj6FFjEgbMSab2NCw7fg327dM8oJBN
+	kKSP4EDKEolLQggtvgVhSnW8Fq8RJUCkV4ouO51S84v9PZ0kHSzOOpR2OuwLINApudwfvEXETNdEm
+	3iClksgPwey9GFpfQhpFjMB7OzWzPJTNpcIspn56x+PudzVLMST9jqYYbSC4uAg5zHellpnfZBf4u
+	/uWXfaUNC9hj8ucbia7ok8+xYbir5Drht9huC6V/Q4r2lIRK/JC+0dn782bWWsPb7zoAVZgfVpJuR
+	/aOYQ/PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLFdv-0000000DsFQ-0xpI;
-	Wed, 11 Dec 2024 05:52:15 +0000
-Received: from [198.47.19.245] (helo=fllvem-ot03.ext.ti.com)
+	id 1tLFqs-0000000DtSx-1cSc;
+	Wed, 11 Dec 2024 06:05:38 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLFcr-0000000DsAh-1Iv7
+	id 1tLFpo-0000000DtIB-3D71
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 05:51:10 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BB5orHM2575121
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 10 Dec 2024 23:50:54 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1733896254;
-	bh=elDffjx4OH6SRJ4sYrMr/jtN2gDKhRQX2JMdW7ThPak=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=MiX1K6rANJ762nagAgnOCCends7HgNQkNptdpkG7a3hwItvApyoEsDjp+dr89XRnt
-	 FVREdbLDKIxd5coDOkbMcyLhRD7P7KlAlXrTs1QDKunL1oue5yQepiCBZeoqRpEbuK
-	 kbmvJB5pEaErrB7Kv3ayv/AxKv2VreL/sTRpOQiw=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BB5orpZ103007
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 10 Dec 2024 23:50:53 -0600
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
- Dec 2024 23:50:53 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 10 Dec 2024 23:50:53 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BB5oqsI039946;
-	Tue, 10 Dec 2024 23:50:53 -0600
-Date: Wed, 11 Dec 2024 11:20:52 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Vivek yadav <linux.ninja23@gmail.com>
-CC: <linux-newbie@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <daniel.lezcano@linaro.org>, <lpieralisi@kernel.org>,
-        <krzk@kernel.org>, <christian.loehle@arm.com>, <sudeep.holla@arm.com>,
-        <quic_sibis@quicinc.com>, <cristian.marussi@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <vigneshr@ti.com>, <khilman@ti.com>, <sebin.francis@ti.com>,
-        <d-gole@ti.com>
-Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
- then WFI
-Message-ID: <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
-References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
- <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
+	Wed, 11 Dec 2024 06:04:34 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-20cf3e36a76so55724165ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 22:04:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733897072; x=1734501872; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=s8IoPSQMtEEL6HOp9R3MHt1lyYtmF6QVYbrckRmNW8I=;
+        b=fCSjyj3v5LG7MSECjDfnQ2i4arXo8m0KWH9HB2+UQhsWgtugKWmLpAEkzdBI/NQ9j9
+         gL/UJ0KQYQzhQzKZWFWApbQhoiLeL3uZagAsts2UOqCIuLvDiQ+coW9ag9XGK08A1axE
+         i454E4FB4sRr7o9VDMb8kaYdqN5mV+wBcrZKLaTVXYM1xGuk7uTj1CgOmcgAIYeMli5I
+         4LUvxcCE2iNXqBPVH98RM33hjj4anTbqgtEtFeJy65Y8c0Lj2vdhsooEeZqTej3Dnyv2
+         iDiCxWtraIRg3i6u6Ra4dyFm36yG/Upec0lglE6zrtswFgWGTlabc2p8MF/PWqOuY2BS
+         ARbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733897072; x=1734501872;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s8IoPSQMtEEL6HOp9R3MHt1lyYtmF6QVYbrckRmNW8I=;
+        b=OyGzQvMrJJIJvBDK2sRC1KHOf2mJrskj2zWLxsEPWrhMGL+03D4aTDMH991L+OIISG
+         KpxswhzlzTDRJ6h88fwbpwFbvC1OVovWdiCzxPeGKnCRCnTvOYeSSCAmvexjZk38u3zX
+         PHWNKmTAs/cIvJadh2yEZlLvs7anjmfDJBmHqG1BV/ggyXxhVYmuVsz6kxWC3lirfWZd
+         f/JHqRkqzBy4mG60pvEpXeNoV/fbgKB9ZDTWi8lo5HnpkkS4vi4u3Pmfwwfa8c9uTZR+
+         f69S/IPwgnMDsHJpxMdG5NIBw3RqvBjvuNy45M6JkyhGFErxLSX1ith1efdOIC2aldVL
+         uWlw==
+X-Forwarded-Encrypted: i=1; AJvYcCUd2BQskA3ISugY+QHtz8XgvLXgkYNKGwU6rqlCIScy4uBYdRXhBc/4zTc5z5/Y3jSCfPLizC3jB4LILAQIbv68@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1ZGyB1FjuyypLgUYDivc42mUkdHk1aHk/fiHkNI/3npGy8Ga+
+	VDZs0mv7AceU9FMawvgjv9QlkJMOnL2NnG1Ah8Euiq9AlVFuyyDV6YOYsJ4aLg==
+X-Gm-Gg: ASbGncvWgyNeQcCOx+ifGzOYlxtu3d9PceChzIeS3LmfBgIUBZsL9nYFeJw44fAYjD3
+	bn7YRL+JjcnRFF+XomaGpoCn3Tk1gEeMvPeyKpNjV5H1C+mrj26wKjTD2qer3tLRY3M9p4BzmkA
+	gCcOog1uIz8lga1L3B22fTIxRvzask6XQVpAy1nfpfBwEE9BPF92+3Cc+jCfEY+9P623HfINY41
+	RsZncB2rLXaUM1hMS7hJibrd9OL3qARLguplCjwEm1bYcdzForb5H7KJf0XTj0=
+X-Google-Smtp-Source: AGHT+IGMQiw9EMReovhZtxJ046XhcMh5S83+xfJNwDeGQ8QcJ07MPY4YZJkgMpDk8inAJw3ApdVzrA==
+X-Received: by 2002:a17:902:e74e:b0:215:9d29:9724 with SMTP id d9443c01a7336-21778590f41mr29160785ad.38.1733897071869;
+        Tue, 10 Dec 2024 22:04:31 -0800 (PST)
+Received: from thinkpad ([120.60.55.53])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21618d9beafsm81832105ad.6.2024.12.10.22.04.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Dec 2024 22:04:31 -0800 (PST)
+Date: Wed, 11 Dec 2024 11:34:18 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 0/2] PCI: Convert the Apple controller to host bridge
+ hooks
+Message-ID: <20241211060418.gpepptv6wlbv7fwt@thinkpad>
+References: <20241204150145.800408-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20241204150145.800408-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_215109_539774_640AE4C4 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20241210_220432_849592_8EA6C769 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,108 +103,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vivek,
-
-On Oct 14, 2024 at 16:06:34 +0530, Vivek yadav wrote:
-> ---------- Forwarded message ---------
-> From: Vivek yadav <linux.ninja23@gmail.com>
-> Date: Fri, Oct 11, 2024 at 3:14 PM
-> Subject: ARM64: CPUIdle driver is not select any Idle state other then WFI
-> To: <linux-pm@vger.kernel.org>
-
-+ Kevin, Vignesh and few colleagues at TI who have been working on this as
-well.
-
+On Wed, Dec 04, 2024 at 03:01:43PM +0000, Marc Zyngier wrote:
+> The Apple PCIe controller requires some additional attention when
+> enabling an endpoint device, so that the RID gets correctly mapped to
+> a SID on its way to the IOMMU.
 > 
+> So far, we have need relying on a custom bus notifier to perform this
+> task, but Frank Li's series [1] is a better approach as it puts the
+> complexity in the core code instead of the host controller driver, and
+> this series builds on that:
 > 
-> Hi @all,
+> - allow the new {en,dis}able_device() to be provided via pci_ecam_ops
 > 
-> I am working on one custom SoC. Where I add one CPUIdle state for
-> ``arm,cortex-a55`` processor.
-
-Any further luck on this?
-
-I have also been working on something similar[1] but on an A53 core on
-TI-K3 AM62x processor.
-
+> - convert the Apple PCIe driver to that infrastructure
 > 
-> idle-states {
->       entry-method = "psci";
->        cpu_ret_l: cpu-retention-l {
->          compatible = "arm,idle-state";
->          arm,psci-suspend-param = <0x00010001>;
->          local-timer-stop;
->          entry-latency-us = <55>;
->           exit-latency-us = <140>;
->           min-residency-us = <780>;
->     };
-> };
+> Patches on top of 6.13-rc1, plus Frank's v7 series.
 > 
-> I am using ``Menu governor`` with the ``psci_idle driver`` in its original form.
-> After booting Linux I find out that the CPUIdle core is never going
-> inside the ``cpu-retention`` state.
-> To check time spent by CPU in any state. I am using the below command.
+> [1] https://lore.kernel.org/r/20241203-imx95_lut-v7-0-d0cd6293225e@nxp.com
 > 
-> ``cat /sys/devices/system/cpu/cpu*/cpuidle/state*/time``
 
-What I was seeing is in a multi core system (2 or more) all cores don't
-enter the idle-state simultaneously. There's something keeping atleast 1
-core always busy. However I could definitely see entry into TF-A from 1
-core at a time.
-I then switched to a single core system to see if we were atall able to
-enter TF-A when only 1 core was available for linux, it turned out that
-with the "local-timer-stop" property that we have, this is never
-possible.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-See this chunk in the kernel cpuidle driver:
-	if (broadcast && tick_broadcast_enter()) {
+- Mani
 
-When I dug deeper into tick_broadcast_enter it always returns something
-non zero and hence in my case it was entering the if block and tried to
-find a deepest state. Then the deepest state would always return WFI and
-not the idle-state I had added.
-
-What we found out was on our kernel we end up using 
-
-kernel/time/tick-broadcast-hrtimer.c 
-
-This always seems to be keeping atleast 1 CPU busy and prevents idle.
-If we remove the local-timer-stop it was helping us, but we still need
-to dig into the full impact of what that entails and I am still
-interested in finding out how so many other users of similar idle-state
-implementation are able to do so without trouble.
-
-Arm64 recommends to use arch_timer instead of external timers. Once we
-enter el3, timer interrupts to el1 is blocked and hence it's equivalent
-to local-timer-stop, so it does make sense to keep this property, but
-then how are others able to enter idle-states for all plugged CPUs at
-the same time?
-
+> Marc Zyngier (2):
+>   PCI: host-generic: Allow {en,dis}able_device() to be provided via
+>     pci_ecam_ops
+>   PCI: apple: Convert to {en,dis}able_device() callbacks
 > 
-> OUTPUT:
-> 0 ===>CPU0 state0 (WFI)
-> 0 ===>CPU0 state1 (cpu-retention)
+>  drivers/pci/controller/pci-host-common.c |  2 +
+>  drivers/pci/controller/pcie-apple.c      | 75 +++++-------------------
+>  include/linux/pci-ecam.h                 |  4 ++
+>  3 files changed, 21 insertions(+), 60 deletions(-)
 > 
-> increasing some time value ===>CPU1 state0 (WFI)
-> 0 ===>CPU1 state1 (cpu-retention)
+> -- 
+> 2.39.2
 > 
-> increasing some time value
-> 0
-> 
-> increasing some time value
-> 0
-> 
-> What am I doing wrong? Why does ``cpu-retention`` state time not increase?
-> Any pointer will be helpful.
-
-I had asked a similar qn. on IRC [2], but didn't get much response. I
-am still interested in finding out what the right thing to do here is.
-
-[1] https://github.com/DhruvaG2000/v-linux/commit/0fd088d624276a2e72b8dc6660d261ab6d194f4b#diff-34369928f669d14776f8f5bdbe3fc3d75306196a2ac28b1a4d7e17402b9c3995R160
-[2] https://libera.irclog.whitequark.org/armlinux/2024-08-23 
 
 -- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+மணிவண்ணன் சதாசிவம்
 
