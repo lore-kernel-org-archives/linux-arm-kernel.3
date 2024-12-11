@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6586BE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5124EE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2cC0jtNFF2OB7EPEgIvbsGCXy7/YyEZDKndIQ+GkiRE=; b=BGnavP4QTp3wYvu+VHuJtqXtn3
-	OEb9l0K8gG1iW3VyshRY/XSD/YwQ4Kb9PN0Z6eVJgdpaAFeg5/dTYumnFtOc7TB2YAAIWqJxboIRS
-	kQBiV2mUQIlfn3jHlD7WK2/Gm8Bi4YdxBUd7DCd76isAfYjpC2G8cDVAkiybvUX0GA0l/qD+TCNQl
-	/W87BTAY1TuleJiKmwKpaU/Nzrd6WqX36XFaVYi685EbuvWdiU+DzMK+wbNjNo+32iwgrwe7P+uet
-	ep71dFSpEk2LuPt85+i+8mtikyqwuydBhkc9rFDeWyvkb88g7uiyU3IB/osAJRHLBYnmQ5Pr5xRXl
-	TLQm6JXA==;
+	bh=pZ8WmE2oVMcuY+D5rgASzXIuAkJx2FsjYv4FOWBBAgs=; b=ZZOSfzCYemLQwyioehhDDi6Zaw
+	stHV54izz4t56ElA7h6mULhLNuNDIbzYxn3ktWii38+/K6n+1gRpsWsEUT0FWAB2zfJteuG4DT1/n
+	VE1KUWjFzSO8ZbPBM3n3ryY0aVbQRRaqtwAjnRyEHCq41ZzT6CSg0lddTbRC6LRFNN4UX8/LYtXRg
+	oLukq05PP8+/1SsSrPBx9AHALo/daF4HsxLpxxGZFSpBvAmDqxSxAc55E/rZDfuCclMYhbLpGwBh+
+	HwLtE8WHUD4AAtKUBrwDayOk0YkEfLhw/cbk+9F38inxiTcTT26oWvyij2C/uEyTIjBkJ58JiyXD+
+	FMziv8OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMkI-0000000EyZn-4AO5;
-	Wed, 11 Dec 2024 13:27:18 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tLMnU-0000000Eyze-33vF;
+	Wed, 11 Dec 2024 13:30:36 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMjF-0000000EyQT-1xUP
+	id 1tLMmQ-0000000Eypb-3vis
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 13:26:14 +0000
-Date: Wed, 11 Dec 2024 14:26:07 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733923569;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2cC0jtNFF2OB7EPEgIvbsGCXy7/YyEZDKndIQ+GkiRE=;
-	b=g3QuKsaQef6e6PeMK+2oy3noWjaNhgRV6gXBjaotK0lO44SUXfa0MTZpNhHcq16gz+qlVh
-	PN8w+U8BTzrMD0xY6Au9o2yGSnpKt9H2DtoVk4Dc+3Rf4bAtt2eWYbu5Xmjf/rJg6A+KKw
-	DowFb+Ip/fqTB+MOql8BHL9HcrugxZeAXRzp4gnmPRaUtwONCu4O3MNVUzSmfFEPE6aOJ+
-	bVSiv4nmWM4r9C6KV3w1RMoMq/hazNgGNMiNlZxCpGixcaXJrKgY0Pe6JZ7wYH5aYnYqTc
-	4syQuoDYqxu9xGeFhtBThSDQgJA/mXzLVCjK7ybGuftIy28Wb7EmgjLiovNzSg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733923569;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2cC0jtNFF2OB7EPEgIvbsGCXy7/YyEZDKndIQ+GkiRE=;
-	b=oZyZKAzopi3biPeXNdIzMu7nkbrftsiKhCO4QLn9NSke2ZXhslY9IaxLL2rMo1dfnCMIfX
-	ScXi8cERdOFVpFBQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org,
-	linux-rt-devel@lists.linux.dev, Ard Biesheuvel <ardb@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH 1/4] ARM: Disable jump-label on PREEMPT_RT
-Message-ID: <20241211132607.z1zDTk89@linutronix.de>
-References: <20241210160556.2341497-1-arnd@kernel.org>
- <20241210160556.2341497-2-arnd@kernel.org>
+	Wed, 11 Dec 2024 13:29:32 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa66e4d1d5aso637800066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 05:29:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1733923769; x=1734528569; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pZ8WmE2oVMcuY+D5rgASzXIuAkJx2FsjYv4FOWBBAgs=;
+        b=Aj8n02mVGBIJKiiAQRHJyhZkZHueLnc+rmJcacI1XHfnWSs4om5/3B95PPXLW+z8te
+         EQgzNdx3/BPRxnPkBzHWvGi1oMH92a7SdCsh0Wqcz/DHwMdXSyYhUnWNTinZ0lTkrH8O
+         jCTZ+CfI1znvXPcjV0hvUHbmLrjZppKE5ss/hS4xmMd/w3uCksi7pGqL4ARx2Njvkpbk
+         BgIe2IcyxN0BXziwRtq9VqGr28y6d9rqmhU9q1arK9XNzhb4VKWP5ANexC1FhM3PvcW0
+         ut9+PItI3LzyuuJuKUOXuQqgjZr1gd0EeXOa0gK5GosfXuQEPBR5v+BZSfbSMrBVfflq
+         folw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733923769; x=1734528569;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pZ8WmE2oVMcuY+D5rgASzXIuAkJx2FsjYv4FOWBBAgs=;
+        b=jH4y1ZO8CqIlzbzk3xXmXDkGW4mji+IwZTKxGiU/ZZ3TkIYb3hZJgOws68+8otE+KQ
+         JSCAiuSUwjco7N9+fItZtfAzBnfdQad3zje9IEMKFjmMvYOIWBLD7jNTunPxrh2K/zEG
+         acG0EW2mIzrrKmFyAge3ri40AxmxoKf1pdXO8zhIL99+PeNd2RRD5HKlSdyvjdslzwTu
+         uf9UU/nc2H3g4UmGQufeAiHQo8p8z41kTfw0ILe226Wc6dRHgs7zV18Xc39wD8vcqf4B
+         OlSyEf08Fb1652aeb/tFAXtXWmA4aeLlFbpRrvawSWGfCIvEysGerxmyZ4qT9EUqNgmN
+         0jSg==
+X-Forwarded-Encrypted: i=1; AJvYcCUt68FFC5GKgwy25QnZXgm4oT5SrZoRpm4KTM3eA90E6JoPDMtEQsH9O4IbFYDkENHIvh5IQIipDSUqq4htQDbW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoLQoxg+ulPF/6kqZxOL4mvLk+qKsvX+r34WRiCmQygoZsX63F
+	xH3a3YqhxTv0zC0WXcO/Ip5YQ5rztpzWKtPa87OBAQQLOwsTtrHg20JHId37s0zJp7kUg5dJ2Nm
+	lkzB/
+X-Gm-Gg: ASbGncsGNI3bi9cCN0EEPOWtAZhAzJ2RzgIEAoOrwbg2jlGF+4CwUM7rdeVYk+ryLBI
+	EmFjlS1AffrPIGDU977bIAHQIs/cVRZijiiVF5Xu708WjDnEY9TvJV9uCdN38I6S1jmQ0yUKMDm
+	1xLBiHU/5+Rs6rTuHETgtjbF10IMAa7LTwIYWoAeXN2U3WuGr7fk0/9KnoHNl1gWwSl9iSH3+z2
+	/bHowqdokmYRFByjb8HuL5EnCp3/uJV5L9Ds+qSalAgKyUwqBsY9RTJQPyAgP5d1AywukfQOv5A
+	RQ9vfADFm+ar
+X-Google-Smtp-Source: AGHT+IHHtuhS5qRK2Vs4YR08EkU42S9jU4/gGJNdMqiKWPhEwaUH1bEnXVsl3kwAZG7CQUix98OaLQ==
+X-Received: by 2002:a17:907:7703:b0:aa6:74a9:ce6e with SMTP id a640c23a62f3a-aa6b1179ab6mr244042966b.16.1733923769090;
+        Wed, 11 Dec 2024 05:29:29 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa685669acesm483241866b.189.2024.12.11.05.29.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 05:29:28 -0800 (PST)
+Date: Wed, 11 Dec 2024 13:29:25 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
+	kristina.martsenko@arm.com
+Subject: Re: [PATCH v4 04/14] KVM: arm64: Use KVM extension checks for
+ allowed protected VM capabilities
+Message-ID: <Z1mTtS9nGvVM-BIq@google.com>
+References: <20241202154742.3611749-1-tabba@google.com>
+ <20241202154742.3611749-5-tabba@google.com>
+ <Z1MwAomiLhnMn--k@google.com>
+ <CA+EHjTy6Y6w9RyU2Vn8O+DDviSJf=P-Y4c+xVFqY-3GmHBv3kQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241210160556.2341497-2-arnd@kernel.org>
+In-Reply-To: <CA+EHjTy6Y6w9RyU2Vn8O+DDviSJf=P-Y4c+xVFqY-3GmHBv3kQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_052613_651658_75EB15BB 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20241211_052930_976794_D59726A3 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-12-10 17:05:53 [+0100], Arnd Bergmann wrote:
-> From: Thomas Gleixner <tglx@linutronix.de>
+On Monday 09 Dec 2024 at 08:14:15 (+0000), Fuad Tabba wrote:
+> Hi Quentin,
 > 
-> jump-labels are used to efficiently switch between two possible code
-> paths. To achieve this, stop_machine() is used to keep the CPU in a
-> known state while the opcode is modified. The usage of stop_machine()
-> here leads to large latency spikes which can be observed on PREEMPT_RT.
+> On Fri, 6 Dec 2024 at 17:10, Quentin Perret <qperret@google.com> wrote:
+> >
+> > On Monday 02 Dec 2024 at 15:47:31 (+0000), Fuad Tabba wrote:
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > index fb733b36c6c1..59ff6aac514c 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > @@ -329,34 +329,20 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+> > >
+> > >       bitmap_zero(allowed_features, KVM_VCPU_MAX_FEATURES);
+> > >
+> > > -     /*
+> > > -      * For protected VMs, always allow:
+> > > -      * - CPU starting in poweroff state
+> > > -      * - PSCI v0.2
+> > > -      */
+> > > -     set_bit(KVM_ARM_VCPU_POWER_OFF, allowed_features);
+> >
+> > For my understanding, why do we drop this bit?
 > 
-> Jump labels may change the target during runtime and are not restricted
-> to debug or "configuration/ setup" part of a PREEMPT_RT system where
-> high latencies could be defined as acceptable.
-> 
-> On 64-bit Arm, it is possible to use jump labels without the
-> stop_machine() call, which architecturally provides a way to atomically
-> change one 32-bit instruction word while keeping maintaining consistency,
-> but this is not generally the case on 32-bit, in particular in thumb2
-> mode.
-> 
-> Disable jump-label support on a PREEMPT_RT system when SMP is enabled.
-> 
-> [bigeasy: Patch description.]
-> [arnd: add !SMP case, extend changelog]
-> 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Link: https://lkml.kernel.org/r/20220613182447.112191-2-bigeasy@linutronix.de
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> I slightly changed the patch from the version currently in linux-rt.git
-> to leave jump labels enabled on single-CPU kernels that are still
-> fairly common on 32-bit arm.
+> Since the hypervisor is responsible for the power state of protected
+> VMs. This should either be a separate patch or I should explain it in
+> the commit message. Any preference?
 
-So HOTPLUG_CPU depends on SMP and without SMP there no HOTPLUG_CPU so
-the patch function will be invoked directly. So we patch and flush.
-Well, okay.
-
-> If there are no additional concerns about this version, I will
-> forward it to Russell's patch system
-
-I'm fine with it, thank you.
-
-Sebastian
+Gotcha, perhaps make that its own patch so we have a commit message
+motivating the change?
 
