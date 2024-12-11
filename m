@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81DEE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 12:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AF9E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 12:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKhqV/Kbp5XDa7jO5EboUSXTM142twzk6b4NXk7dVAU=; b=lsWq8S0uhN/D6b4p2oAhJ17+xs
-	hRORjCiyrJRPx80KLhq13ExF4HWRX0wZQgK8V/mBPx72pMKRo5IyFiZ2jhWIUmLR4Xc/IlhoPW9Zy
-	7wyLcYr2sBbEy3RlfLxu4fXCka9X7l1yReA6TJL0imkBPvdCvxf0/AEZsTwjJWcme7SMg2Tgn6Hhf
-	yu5FA0xRu+0DlomD10zpXLVGAPb5sDfpLj+3UKQZxDq4Ba4kSYNKJe+hRG1FWmeoYhCck+SP+oMkO
-	8yKM4ZJMbki5GD9L1Uu1AGJcrLN+aoFL9dVKbqqwcdU1CSreD3EJOS5ezU52oKukFqD7am46eJJqJ
-	iGtSPk7g==;
+	bh=UhixRDcNji+IuqOD6ViXUy131PEz1AOyp9MD1FZ4nx4=; b=HWGAPmwSOzbHgZRviLs5rRhoVR
+	kNITfF3EuIFe8ARQ0Qo4glzEkeOFBiZ7fcSYB77/54fRKSnpzNi5yU2ukWWUVeep64f5Wzs00MpDb
+	Cf7BblGLAIWDPqorqR8BPHYCHkEU+LAO1rwjerM3NAgLSBwdIAChJBVSPUyTMymX8/2jovgyQar2U
+	RRIY7IBIM3qPE5QZ2j62fxHQ1ooIpIOEmzTfgxsS4B1TFr7p8puu4q6mqoKixxSD2sGJYNVhyInjB
+	WvkcL71eq9LK8kwEtztzTodnPrMsf2Bec1xYC7qY9gmUdoC0GwzI9rWk8bPKIXRpS4WK5MydaFCPp
+	xf20z9YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLM8X-0000000EsR3-10pw;
-	Wed, 11 Dec 2024 12:48:17 +0000
-Received: from mail-dm6nam12on20628.outbound.protection.outlook.com ([2a01:111:f403:2417::628] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1tLM9Y-0000000Esei-3bjx;
+	Wed, 11 Dec 2024 12:49:20 +0000
+Received: from mail-mw2nam12on20606.outbound.protection.outlook.com ([2a01:111:f403:200a::606] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLM2W-0000000Eqmv-3lYV
+	id 1tLM2j-0000000Eqrc-1Bwe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 12:42:06 +0000
+	Wed, 11 Dec 2024 12:42:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nMM6OOA18Uz6AKxDuvU2RGlvgzWGhLhrKc2QjZ+2crZx5mlL4rwSum0yBDvk6Z++8uPlDGIq7qXugS+uqj/3AWeaUbodFAtNVcjX+WMDddcnig27rqBvzpHfdDNeFJ5fkBS56JY5ZZIBGCX0HKDzxcwBu58Cv2/CQYpRCEEYt+V5bxnKWURjFlfFoYiYt01unTRPsQ9Yt+AeZPrt48MrDx8oozRut9wjDRXUD+FyrR3NfgrUgssmfZihza01AGA49Srhh6GpnZ1jb5NNOnWcvdKEmYTvpK3IkqSfb07SGAaUy3hXXk+NC/DOSBEeEdKZqAXWNhY5cZxkAdUSuOikhw==
+ b=kNDjaNpOTChzuSoy2ofuulZ6ywUaPGuYy+AVeLljZXpSlPt3F4XnKq0OtboimH7pcLLXE8LCywMpZJUC42Hs6W04VgMHHPKQyQYQ6AtDoaysKO9Hu/4tUh9ij1ClgOOpQxxQ4OOHv67p0IB1r1R6mYQ3oM/cXBhZbkdRLT8dz9b9YIjhCHPwPvBJhZNz/YikCbEsvPxFGmQuv3P2qhTz2QDHDqWvp19nDqwP/4C+LwYv4xiCFymZ2HA3u3suggCu+4LAF8zc3TDXNPRUUYgGN01xix6ZXOXHqppjhn6/2jgjwN3VMJ2mQOuaZLzmddGo958e2lgS3yv/bKrt9YvOKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NKhqV/Kbp5XDa7jO5EboUSXTM142twzk6b4NXk7dVAU=;
- b=KbsTr8dy4mZme7JFKEuIlypfr+0OQGsH9mvXWaNnt5umG66szg4Gxp9bIsHS5g0XuSm55OoYfYve6Yg6xwc49hOGRBF+E9u+q72WlEN0Cj2fvUAObeX0xBVAgXw5Qn2B8cSjIeFOkkx5Oszx9pg6pto/+P2kDfbpiqV0q+/d8mkyFr0Ka0kZ2Hc7yhJeJQOZABgmqIRH3I1JE9ptSLNDX+4IR8yRWZtfRvoLRiOlEWnZpiawXaH8I5iYwsh05q2JNk4SPBleFokdiJpNTe94tA9xgfSU6SDorfHDfrUYSr9u3ZpnelOh4fXiqF2itS84ap2H15/bGMgF3IyGH66YCw==
+ bh=UhixRDcNji+IuqOD6ViXUy131PEz1AOyp9MD1FZ4nx4=;
+ b=jGI28nfVkG1P8rItG9XxOW9nP++de25xSzR84mU+NXDTu1j9chA2cy83cU5wIvJc9k+bO+DDWceUbpVj3B21PRVRpYcOACkVUQY2w+ghEi9ne5BX/4/pfsBEgyEFcLq+FFIlinEkU/FhOepTBkcsgk725fuY+rOqobeHNdNWoKsfEs0L9/fWvexgugPLxaYv1qOcItJhVb8nd2Tep3MgrHImy8tAbRm9AHLh/AmBd78UfZacMLoj3dG6L2FZBfkCDExki6tuHxCiYcA5kJLpKt8yr6jshhriy2TqrYXy6Fk3opdcJ/refmN017zKfp1SWqzcnrEA9m489PzrpApPRw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NKhqV/Kbp5XDa7jO5EboUSXTM142twzk6b4NXk7dVAU=;
- b=ra2PTpwMphNDHwIzXDMTqmPMcY6jMNWXQ4H+HgfOmslrEeYLLc6Nw2ZdJEHDUHYKOe+kJ89RaJ/HZQRkCbM51UbAqjmss/D+Pu2NerKUAEkISZAfdNMZ+8iMs4Upm91UyjPAd12CWWf2Rc/I/fkB8AkLatTIC0N+nE8ha3+esHw=
-Received: from BN0PR03CA0030.namprd03.prod.outlook.com (2603:10b6:408:e6::35)
- by SJ2PR12MB8720.namprd12.prod.outlook.com (2603:10b6:a03:539::17) with
+ bh=UhixRDcNji+IuqOD6ViXUy131PEz1AOyp9MD1FZ4nx4=;
+ b=UCP6PVquZlu2k9j1OnU6N6U3o1uzPA8/7r9g0n1EeL4yfXVstsULPCplj4ykYILdcEwl6O6m06pun2sTlj7B6EvKWzEeA3wm77ZEJ9MqQXOX4Mlku/oTVaWo/f3hBZKtNfPsa/xhBbsLQKpvRFQH2904tcldAtWUTm7Z5SlQIoY=
+Received: from BN0PR03CA0017.namprd03.prod.outlook.com (2603:10b6:408:e6::22)
+ by IA1PR12MB7566.namprd12.prod.outlook.com (2603:10b6:208:42e::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.18; Wed, 11 Dec
- 2024 12:42:00 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8230.22; Wed, 11 Dec
+ 2024 12:42:11 +0000
 Received: from BL6PEPF0001AB56.namprd02.prod.outlook.com
- (2603:10b6:408:e6:cafe::a1) by BN0PR03CA0030.outlook.office365.com
- (2603:10b6:408:e6::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8207.28 via Frontend Transport; Wed,
- 11 Dec 2024 12:42:00 +0000
+ (2603:10b6:408:e6:cafe::bc) by BN0PR03CA0017.outlook.office365.com
+ (2603:10b6:408:e6::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8230.12 via Frontend Transport; Wed,
+ 11 Dec 2024 12:42:11 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,11 +61,11 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from SATLEXMB04.amd.com (165.204.84.17) by
  BL6PEPF0001AB56.mail.protection.outlook.com (10.167.241.8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8251.15 via Frontend Transport; Wed, 11 Dec 2024 12:42:00 +0000
+ 15.20.8251.15 via Frontend Transport; Wed, 11 Dec 2024 12:42:11 +0000
 Received: from localhost (10.180.168.240) by SATLEXMB04.amd.com
  (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 11 Dec
- 2024 06:41:57 -0600
+ 2024 06:42:04 -0600
 From: Michal Simek <michal.simek@amd.com>
 To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
 	<michal.simek@xilinx.com>, <git@xilinx.com>
@@ -73,14 +73,14 @@ CC: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
 	<krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, "open list:OPEN FIRMWARE
  AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "moderated
  list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 05/15] ARM: zynq: Do not define address/size-cells for nand-controller
-Date: Wed, 11 Dec 2024 13:41:24 +0100
-Message-ID: <37057526d8ee14416f61fb6e2b82bed65bde5d3c.1733920873.git.michal.simek@amd.com>
+Subject: [PATCH 07/15] ARM: zynq: Add ethernet phy reset information to DT(zc702)
+Date: Wed, 11 Dec 2024 13:41:26 +0100
+Message-ID: <9e18d59ca339804320d2a5e3c7362aefa3bb7c99.1733920873.git.michal.simek@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1733920873.git.michal.simek@amd.com>
 References: <cover.1733920873.git.michal.simek@amd.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=711; i=michal.simek@amd.com; h=from:subject:message-id; bh=usR7Cq/gLig5rw4mEBEJjPc0IIipydLk/618u4l3Qkc=; b=owGbwMvMwCR4yjP1tKYXjyLjabUkhvTIjuqsx0x+ea6GdglzpqS3bG8ys5+zfssxjuPblj65v kPJ3ta6I5aFQZCJQVZMkUXa5sqZvZUzpghfPCwHM4eVCWQIAxenAEzk+RuGeeoq31855R4RtgyY Lb/eq6Eg/QXTHYb5eQ+YvNYee6b4xiwy4q562v3L74MnAQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=676; i=michal.simek@amd.com; h=from:subject:message-id; bh=ryTe0ccOewfhtxznZZWZKkJZm6f6ZAD4pusPVNgRNJI=; b=owGbwMvMwCR4yjP1tKYXjyLjabUkhvTIjurc6ulvQqR8DkRaVxldM8ut3/SnY/PEbcGOS9/E2 S9N8P/aEcvCIMjEICumyCJtc+XM3soZU4QvHpaDmcPKBDKEgYtTACbC4MAwP3BXhP7m0w/CFQ7v Otnvs+vkkq5b2xnmOwSICnz5EfTpuZZ07oSV15Y+3FVnDQA=
 X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -89,50 +89,50 @@ X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
  (10.181.40.145)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB56:EE_|SJ2PR12MB8720:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffa73253-d60a-41d4-8455-08dd19e134dc
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB56:EE_|IA1PR12MB7566:EE_
+X-MS-Office365-Filtering-Correlation-Id: f903e11c-ab85-49db-62a5-08dd19e13b8c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qbav/Jyihrbq4mNWylOqJ6WhywEwNME3rMw3VK4JhSsUBvQbtw/vb+UBM+C5?=
- =?us-ascii?Q?rKvYo8xEcuFSZcJo9NMOEuXwAYJzyBBDNI7Fo6NbIWLtfcDRd8yo+kIEEsVx?=
- =?us-ascii?Q?7GmpokuqtTm3G8mWSpYz3hTZ7Z/157TFIRnCbqda8oAuHUU4+BgZRb+jRtKx?=
- =?us-ascii?Q?/qYGUkVJhGBrpb017NHAfSsLOwlVDIPiy9uIjkgtwToKXx800jizdhhq5fgv?=
- =?us-ascii?Q?13z2PxiRQL4FysGcNS+OMdeS0TGAUkjT7ywpeueypv5NUMVN1O6NtliLZkM8?=
- =?us-ascii?Q?q/WZx5HK1Od/vjQvAQooTFmHz9+8VzsgIgMli+mLqvA9y+zcTJDAMrqrZ709?=
- =?us-ascii?Q?RzcL89cLJLzP/Ny8NHYOQDziuL9PxCjp/YGsp6V8tgIURsYIQI/j82y0zGqR?=
- =?us-ascii?Q?XCC4VS6b4Y/GVeAI+YxOEDK6ogYjUlcfoj6JPyk9Jh8nqiiO5jSss6ZFqIef?=
- =?us-ascii?Q?siMsQCPUVPR2s9I/51r7e5gSRycsPWnlxtYwZdN2dvOM2MXvUPlsl7fFvsHM?=
- =?us-ascii?Q?yogBJThVOLhonDFb47FAfihaZ/+M+GS2wSbkdRFCKPcY11o8zj6cqqtoAQuJ?=
- =?us-ascii?Q?d+3Tcq+vRjYZluZhAkauVHev2UYUdCWjY/c78kxpC1vE7p0YMUw3o4fTp+Cu?=
- =?us-ascii?Q?hT1mr9WplJD1UL3moURpK9olpvixzrq69i0O9sqDVhYjICN6sfXFQhvi1fzO?=
- =?us-ascii?Q?PvMc3vc6GPgQ4HhfvZolOx19Jq9qQl8RB6wObZp/diClKyAb+na0dLp0s0nC?=
- =?us-ascii?Q?w45aDi5i00dzRUbDAH32jue0iU8b5fLQlXKHI/6FLSWQP1tSFIwIgKM1+bPF?=
- =?us-ascii?Q?OB+Q/SheKONa6fWYi3W8wqOhIKVZ/5M/CZDLPt8rmXJ77kqb42Euof3FNBaS?=
- =?us-ascii?Q?WyHt8wkZrwUXZntepA3Y3CEYjvufIR2JVtRUs1Y/RNVJEBdl3JZEd3Kcqz2+?=
- =?us-ascii?Q?0FwWaOKYW/Xf8XG/Wilu5JCguOG1egMEXqTiaFgX9WwwRFCNPIhqiv64rzlO?=
- =?us-ascii?Q?SrRhz3Ccbr5fdRqpUtbiP4x60E9zG0UOP6tjjI9cUEtz6LQhsrfL839Jqf1B?=
- =?us-ascii?Q?KeHHfkwpfdCQcMFL7J7K5amF/tMzh/CESri2l3+UGjE1itvXu3KltDerHmJ8?=
- =?us-ascii?Q?wJ+N4Btwuq+eqQjW/+ZMK5UK0+7ewSEp/PCp4t65t5w/3aOgakl7fYKRgOuK?=
- =?us-ascii?Q?ztfTC2xhxnBY21P756guLqgwB1aK01rnAjRSIIjQCykyHMiaA0CuE9ItfCNh?=
- =?us-ascii?Q?IRKwJkyWF2n0QvxUqCYgcwfuh5KSTjDjRhNOdql0AoLFIHHfaNAD7zls3mtC?=
- =?us-ascii?Q?l18RWq7uSqEkoCLBka9pU1CuJra4dr0N26CFaHSBDtrm1gdWC2k4AxZYsVTU?=
- =?us-ascii?Q?I8EO+K4bTvSIdvhLS+X84tQXdQFHS9V4uoY49EmeJFkxHKYDVHXftn2p9hUX?=
- =?us-ascii?Q?GGohpDSRh4LQWnHRgqf8eEKOb9ej/g7T?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SJgJ/b4Q7t6LqjV6uvU06HxbBmW2mFfTrw+EBkFRvGEKMbpcKU/YfwH47OTF?=
+ =?us-ascii?Q?GgKO/Jjp+SYGDuNFhI805UyvP9hNdZa0yjRsCHSM+45wAN+Cnti1T+6sCT3q?=
+ =?us-ascii?Q?ncqExoJeNw0cl3vnsmXIMSpTgV2O5nBqy3ClBeBUdx33CDCS3Db/tA3t0BDB?=
+ =?us-ascii?Q?6JMkwO6poYEbXvhEq1WWiopdKnmTOIDDj3Xg5897nduOdR8Qo3HmecOFYgrt?=
+ =?us-ascii?Q?QTxFC78sOK2JwhtyWVdx18NSiCIW+rcqkd+XyZLmqQurV9BwehC8hgnZzLro?=
+ =?us-ascii?Q?i6fbCA1ij6QkmR61p+C999iaFWlDX7e4Hxrhj1/GveQ596NgDu+LDXQF3rmz?=
+ =?us-ascii?Q?RI9eBdCzFbAYrNH0I7UmD6PLdgiCtMpTMkF2MyeW44Qf+WumVmOHoF8u+R7J?=
+ =?us-ascii?Q?Ub2cJ6Dh6S4exWkV1leL41Srau766gOtZoDYJDWZ1NX+eXMslsrCQeFaHlLC?=
+ =?us-ascii?Q?8I1VgyIpPnE+t8sd37I73fZoW9C8e9oHNIg/kFOtqvJVC5G+whbh+e2sH9Is?=
+ =?us-ascii?Q?w1DlUkwvLg0lFYW+7q2JtFmWKENNX31ZSR7Dz7IchJIqCnuYucXuv74HSIsx?=
+ =?us-ascii?Q?NC7DwTYM6eYqsTk5Vg6V+vdMLxvTbj1pqejLnq4WL2r8XLyagJb7gq8Od31M?=
+ =?us-ascii?Q?s4AQUqu3v0HHUIODFdbvoUSpvFi//y/TAXIahxQvUU74ydyxWEvaHRfcH3P6?=
+ =?us-ascii?Q?6y/Mj2HHzhSFJbDXsieQXDwcYKAOUYv7Yu0WYoMUDpzKrZjVVRcJJO2f4xtv?=
+ =?us-ascii?Q?C+R+ph7J/krvXdY0Jo2LLAQQincpZ9vYID75AYOEqBs+Oww4nN/n9ggTnTTb?=
+ =?us-ascii?Q?gKH71bd5iyJymObK67B4lZTzh7YLFXHLTAmtCCJ/Cx/siIVgOzlc6zBG/fKI?=
+ =?us-ascii?Q?ZJeUykz7pq+CPrZUw4Za31JXS5u6f4WrIPVK+5rOqTSj1LPQWBCWgPupeENV?=
+ =?us-ascii?Q?UAN1X8AkSgTwPKIT+44+5LH6T4litTgkUhkJ7Z+OuV6S8znU7EETZA7vzfVF?=
+ =?us-ascii?Q?bFBoO3rxy07WhvYa+KVoI82LFmLYRPkuqDFaHnvSqNHbO0WL9X9YSiXH443p?=
+ =?us-ascii?Q?imN2yHa7ab1LzQ1vO8wYV7Rvbxdd3sbpEOt50Hai9iv6g6ellBN6xgo76SK2?=
+ =?us-ascii?Q?DDloAFNtpoAp4kqntnU+HncU+FqpR9cCzVybv8gzdz6t/X8VSz8FfFgvcBrg?=
+ =?us-ascii?Q?uO1ixObr5NCmjNNLUhCIGeXNDujIy67IuC2KkmCCF0rsLY9n6eY4W5UizuRF?=
+ =?us-ascii?Q?/JuIyDlw9p+7fFIm8ca3mphFpWDWlwh7+PD4Dd7RAp48CvoqiFnCZkVAmpFv?=
+ =?us-ascii?Q?D1Tqm1EUtyaV/b9xSocWUI81Trm73VyOW1yFSumfTPQyeCZsZ8cUlrFB83aO?=
+ =?us-ascii?Q?36hyvw87lPtRh7RVNHq57/ShoEh0x3GcWEqyVHcEqh3F7p3bU17GnGbnKe97?=
+ =?us-ascii?Q?3GAPyvJfhzux68YNIQczHeWCrS+dOPG5?=
 X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2024 12:42:00.1056
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2024 12:42:11.3245
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffa73253-d60a-41d4-8455-08dd19e134dc
+X-MS-Exchange-CrossTenant-Network-Message-Id: f903e11c-ab85-49db-62a5-08dd19e13b8c
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB56.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8720
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7566
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_044204_957571_C397BC2A 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241211_044217_336459_32031F00 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,28 +147,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no reason to define address/size-cells without defining child
-nodes. That's why remove them.
+Added phy reset gpio information for gem0.
 
 Signed-off-by: Michal Simek <michal.simek@amd.com>
 ---
 
- arch/arm/boot/dts/xilinx/zynq-7000.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm/boot/dts/xilinx/zynq-zc702.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/boot/dts/xilinx/zynq-7000.dtsi b/arch/arm/boot/dts/xilinx/zynq-7000.dtsi
-index 0dfe2ddd0b5f..d334b5f75c8e 100644
---- a/arch/arm/boot/dts/xilinx/zynq-7000.dtsi
-+++ b/arch/arm/boot/dts/xilinx/zynq-7000.dtsi
-@@ -294,8 +294,6 @@ nfc0: nand-controller@0,0 {
- 				compatible = "arm,pl353-nand-r2p1";
- 				reg = <0 0 0x1000000>;
- 				status = "disabled";
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 		};
+diff --git a/arch/arm/boot/dts/xilinx/zynq-zc702.dts b/arch/arm/boot/dts/xilinx/zynq-zc702.dts
+index 424e78f6c148..975385f4ac01 100644
+--- a/arch/arm/boot/dts/xilinx/zynq-zc702.dts
++++ b/arch/arm/boot/dts/xilinx/zynq-zc702.dts
+@@ -79,6 +79,8 @@ &gem0 {
+ 	phy-handle = <&ethernet_phy>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gem0_default>;
++	phy-reset-gpio = <&gpio0 11 0>;
++	phy-reset-active-low;
  
+ 	ethernet_phy: ethernet-phy@7 {
+ 		reg = <7>;
 -- 
 2.43.0
 
