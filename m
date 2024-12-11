@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D85E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC40E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYz2oD1GvZxiBdRKqGeDxYYjgBv1s8ZfC+L3kuTem+U=; b=DP+jcc4GprWIIfnqnGdNbL4hp2
-	G8Q7rWuGavafaIIDRc1T0j5y95S8BM+CLPVq3hfpswmvAQpPV8ld0++CvMBY2m46Fv8ZEkAOHDea3
-	qr5KawgJayhZktlD/6CZqEebr4ObEY9+zQUlpdd0rp3A9AY0sucKklrsZo9ish/NpK/gCVZQihkIf
-	x0K1ErTXte0Nkfv6osSnzpL960ch/HBiXpTXjcY/N18aIMzeypEVmIY13hp2lzBaoc5L/mrWSeYlj
-	ruSeAs+6QDwlqcgG/hu3dYxcAN7UrQ0pP0AiEBU7Dh1qcdjs3U03C8oHyad8kQ5v9TkUdzRRFw8Ij
-	oX94j7Bw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EV0DzN/aRpIaOzSPvYfCHGoC2ttPbO09aHLQyIdly64=; b=thNVQOxVJH5uQr7MDu0/wNSC1Z
+	fOfC0GX8rlJ15jBLLzpWu/PvZoZqQjUL4HTIDrUNJ8wsqt7mbXYncvmK7TLJuEi2s1lndmCemBqXx
+	pHYVi54azWPiiV7Kv++SByd1YRmWyThi5WUzrGPGY62fwukBHjF54RSdbqSUREZoeAMViglkgs8gi
+	Gg13WgVi190boVLPQBIjDhoGnDeMC9Q+lMP1Jn66Wmhvaq5pnzC9pbDJoumY7dDhsLh7ZGr4kB2ZH
+	jmwbXfnB/yWKwek2q7R8InLek78of9/FmIaWAdoCYikI5vd1fYqvDj60WFpIO+W6E+aNjGOLQP9Qd
+	SA3RegFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLK9Y-0000000Ebux-3xwh;
-	Wed, 11 Dec 2024 10:41:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLKDX-0000000EcCZ-3Dod;
+	Wed, 11 Dec 2024 10:45:19 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLK8W-0000000EbpF-05ja
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 10:40:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6F5F75C628A;
-	Wed, 11 Dec 2024 10:39:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C48C4CED2;
-	Wed, 11 Dec 2024 10:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733913606;
-	bh=t82GYym6sYXkwYHFKbUNwczVpT4+Pzss6XRP9JPCUDE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=noWAWngNql9dKYob5AyZaw+cnVxhtwRWgj7TNoC3MNkQsrMRf0Vbtn4h8dWUm74DS
-	 M7j4LakUfAzAMmoDNGrLUncUpWpLx0UvGrFfEeRBdfCZgaxFnzUeXt+KqMGGMWiOMp
-	 uWyyT/znJEgzytqre2pLme5qhFkeFR9SVT0GJnm72utdHL6i2yxO9ARzlw0uzsZ7KW
-	 96n60qZtP038+EwpjwmwaoShJFGu9HUl3WEMa+0Icq3UGhLPFMPUmG3QJpmaTI0FDD
-	 11yaeyZMCWZ1bjCOob1r0yCUXj/hHOzgGQrAfXmjBaLJ9DDI54qGcaimfTDKj683IS
-	 6xU9zsG00FZWQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tLK8R-002dSW-Hv;
-	Wed, 11 Dec 2024 10:40:03 +0000
-Date: Wed, 11 Dec 2024 10:40:02 +0000
-Message-ID: <86sequsdtp.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Pavan Kondeti <quic_pkondeti@quicinc.com>
-Cc: Akhil P Oommen <quic_akhilpo@quicinc.com>,
-	Rob Clark
-	<robdclark@gmail.com>,
-	Sean Paul <sean@poorly.run>,
-	Konrad Dybcio
-	<konradybcio@kernel.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	"Dmitry\
- Baryshkov" <dmitry.baryshkov@linaro.org>,
-	Marijn Suijten
-	<marijn.suijten@somainline.org>,
+	id 1tLKCU-0000000Ec64-0tAq;
+	Wed, 11 Dec 2024 10:44:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=EV0DzN/aRpIaOzSPvYfCHGoC2ttPbO09aHLQyIdly64=; b=GPXVlF94a82JRfXo0MuftR38+o
+	EPuKL7i9Bbdnlhjixyj/tPflX+n7eqReFh5PEE3ff4jbMdHlhRqNRovWS13UH3kY/aqf80tj5sCv4
+	FkUaHkdorBrYAWxiVC2uLb1m50H/TloWhkQffIkRc0kAoAD4E4vv1tz5xBU6e5fCnlRZ4UM3SFM67
+	wVJ9yp5ioiYBDStUdfNR41mtofEe27i+4qfV7uyEP5tR3JgWNl/VKTAa7nLLxR4xanoMIkvqibB0J
+	wI4uYmjgn/93sKeen5ecCOF/05jNdGISz0yYyTrljgIlO/k14nMlVGlgerWbUTAZLAOvjvVqnfg90
+	on7vqbcw==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tLKC8-0001Vg-Hx; Wed, 11 Dec 2024 11:43:52 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
-	"Simona\
- Vetter" <simona@ffwll.ch>,
-	Elliot Berman <quic_eberman@quicinc.com>,
-	<linux-arm-msm@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>,
-	<freedreno@lists.freedesktop.org>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-In-Reply-To: <92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
-	<87ed2fs03w.wl-maz@kernel.org>
-	<92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: quic_pkondeti@quicinc.com, quic_akhilpo@quicinc.com, robdclark@gmail.com, sean@poorly.run, konradybcio@kernel.org, quic_abhinavk@quicinc.com, dmitry.baryshkov@linaro.org, marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch, quic_eberman@quicinc.com, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Alexandre ARNOUD <aarnoud@me.com>,
+	kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/4] Add support for HDMI1 output on RK3588 SoC
+Date: Wed, 11 Dec 2024 11:43:42 +0100
+Message-ID: <173391381115.2426313.13144345816370660962.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_024008_149180_73AC6B98 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20241211_024414_268015_DD4620D7 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,132 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Dec 2024 00:37:34 +0000,
-Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
->=20
-> On Tue, Dec 10, 2024 at 09:24:03PM +0000, Marc Zyngier wrote:
-> > > +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
-> > > +{
-> > > +	int ret;
-> > > +
-> > > +#ifdef CONFIG_ARM64
-> > > +	/*
-> > > +	 * We can access SECVID_TRUST_CNTL register when kernel is booted i=
-n EL2 mode. So, use it
-> > > +	 * to switch the secure mode to avoid the dependency on zap shader.
-> > > +	 */
-> > > +	if (is_kernel_in_hyp_mode())
-> > > +		goto direct_switch;
-> >=20
-> > No, please. To check whether you are *booted* at EL2, you need to
-> > check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
-> > none of the driver's business, really. This is still absolutely
-> > disgusting from an abstraction perspective, but I guess we don't have
-> > much choice here.
-> >=20
->=20
-> Thanks Marc. Any suggestions on how we can make is_hyp_mode_available()
-> available for modules? Do you prefer exporting
-> kvm_protected_mode_initialized and __boot_cpu_mode symbols directly or
-> try something like [1]?
 
-Ideally, neither. These were bad ideas nine years ago, and they still
-are. The least ugly hack I can come up with is the patch below, and
-you'd write something like:
+On Wed, 11 Dec 2024 01:06:13 +0200, Cristian Ciocaltea wrote:
+> The patches provide the basic support to handle the second HDMI output
+> port found on Rockchip RK3588 SoC.
+> 
+> For now I enabled it on Radxa ROCK 5B only, the board I've been using to
+> validate this.
+> 
+> ** IMPORTANT **
+> 
+> [...]
 
-	if (cpus_have_cap(ARM64_HAS_EL2_OWNERSHIP))
-		blah();
+Applied, thanks!
 
-This is obviously completely untested.
+[1/4] drm/rockchip: dw_hdmi_qp: Add support for RK3588 HDMI1 output
+      commit: 0f818db20c77506ddd870761785740f8230a4207
 
-It also doesn't solve the problem of the kernel booted on bare-metal
-at EL1, or with a hypervisor that doesn't change the programming
-interface of the device under the guest's feet. Eventually, someone
-will have to address these cases.
-
-Thanks,
-
-	M.
-
-=46rom 4823e7bb868d3ac2b938ecc4c3dbbdd460656af1 Mon Sep 17 00:00:00 2001
-From: Marc Zyngier <maz@kernel.org>
-Date: Wed, 11 Dec 2024 10:02:25 +0000
-Subject: [PATCH] arm64: Expose kernel ownership of EL2 via a capability
-
-It appears that some drivers have to jump through a lot of hoops
-to initialise correctly when running under a particular hypervisor,
-while they can directly do it when running bare-metal.
-
-Unfortunately, said hypervisor cannot be directly identified as it
-doesn't implement the correct SMCCC interface, leaving the driver
-with a certain amount of guesswork.
-
-Being booted at EL2 provides at least an indication that there is no
-non-nesting hypervisor, which is good enough to discriminate the
-humpy hypervisor.
-
-For this purpose, expose a new system-wide CPU capability aptly named
-ARM64_HAS_EL2_OWNERSHIP, which said driver can check.
-
-Note that this doesn't solve the problem of a kernel booted at EL1
-without a hypervisor, or with a hypervisor that doesn't break the
-device programming interface.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kernel/cpufeature.c | 11 +++++++++++
- arch/arm64/tools/cpucaps       |  1 +
- 2 files changed, 12 insertions(+)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 36c7b29ddf9e8..8fdc3ef23d9dc 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1868,6 +1868,11 @@ static bool has_nv1(const struct arm64_cpu_capabilit=
-ies *entry, int scope)
- 		  is_midr_in_range_list(read_cpuid_id(), nv1_ni_list)));
- }
-=20
-+static bool has_el2_ownership(const struct arm64_cpu_capabilities *entry, =
-int scope)
-+{
-+	return is_hyp_mode_available();
-+}
-+
- #if defined(ID_AA64MMFR0_EL1_TGRAN_LPA2) && defined(ID_AA64MMFR0_EL1_TGRAN=
-_2_SUPPORTED_LPA2)
- static bool has_lpa2_at_stage1(u64 mmfr0)
- {
-@@ -3012,6 +3017,12 @@ static const struct arm64_cpu_capabilities arm64_fea=
-tures[] =3D {
- 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
- 	},
- #endif
-+	{
-+		.desc =3D "Kernel owns EL2",
-+		.capability =3D ARM64_HAS_EL2_OWNERSHIP,
-+		.type =3D ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches =3D has_el2_ownership,
-+	},
- 	{},
- };
-=20
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 1e65f2fb45bd1..94ce3462e6298 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -24,6 +24,7 @@ HAS_DIT
- HAS_E0PD
- HAS_ECV
- HAS_ECV_CNTPOFF
-+HAS_EL2_OWNERSHIP
- HAS_EPAN
- HAS_EVT
- HAS_FPMR
---=20
-2.39.2
-
-
---=20
-Without deviation from the norm, progress is not possible.
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
