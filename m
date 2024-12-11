@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D46E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9322DE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFHlJce+tj0dKx9Nr0h2tu85fnxZTCB9b2AakTaYe38=; b=ocMH9jSU79LRuCcwoZV0kQsdQB
-	iQTMZoaJ7UU+DiDb1FmGs0pJIig+C87+wW2cIrWLmBbHQvO2OaiwrEbDdUG2ThebdQhcOc4OfgEA6
-	q2XFhk4QGYJqKEs2gX74ueWGF1oVatRl1wvJO1tSDAYo2lb9Yn33oxU1I98R8r5+eRhn6I7G327ha
-	KXFS15Xznthn9MiJG+FBVupEsDrPLipNGlI8OzLCxVrEr4s1aUCGeCExO+52/7uA9LtflKT+nVmkL
-	kup4T4cVguzBKazXUYImen+Qx2QaRnhoxsHUVd1bUtId2uAvUy/VnensKnvezqdDE46DHquXhCacB
-	z9Qd2RFQ==;
+	bh=s3eDRjN3R1R/qE+YcnQ+B8dkQ53mAOcpHT0ga65i/Dk=; b=eqgxjHCVqWCnZevuDWN2ctNiQi
+	YstMUCeu3SN5HV8/cNghh5opTmWBExjZAHylMBqh61Lef+xPLw2FnFr5PM4RcURth7UFFgwQImLhU
+	OLzUOg6uLlCqZNwViaAByRgLnNnS5sqErU0VUeGohsbOw+kzlFOZFPpa+MjFzbkIbA02MG0rZGCVO
+	wJfIhDlnRuZSe8cwH78hYHHDjdFvYBOJCuqhZfomsF84ae35g/I7opYKNMj5ABFAFfEYBfp9vyvkj
+	YU76IJDM18pRjw3UXPEkqOrCz+lWi5/qkFOzt36WKhZJgDksee9K654CkQyuM9beCHk4jNgjf7vCz
+	/8AQWDGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMtR-0000000F0Hb-1cWT;
-	Wed, 11 Dec 2024 13:36:45 +0000
+	id 1tLMvU-0000000F0o1-34e6;
+	Wed, 11 Dec 2024 13:38:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMsL-0000000Ezzr-2pBf
+	id 1tLMuQ-0000000F0ZO-41Or
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 13:35:39 +0000
+	Wed, 11 Dec 2024 13:37:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 557CC1063;
-	Wed, 11 Dec 2024 05:36:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 588FD1063;
+	Wed, 11 Dec 2024 05:38:14 -0800 (PST)
 Received: from [10.57.70.51] (unknown [10.57.70.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0238C3F720;
-	Wed, 11 Dec 2024 05:35:31 -0800 (PST)
-Message-ID: <8aedf3db-d1a5-4cc6-974b-a3d9fffe4f52@arm.com>
-Date: Wed, 11 Dec 2024 14:35:28 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D18793F720;
+	Wed, 11 Dec 2024 05:37:41 -0800 (PST)
+Message-ID: <a8fea276-152f-4cf3-a87f-e48ae6e5c024@arm.com>
+Date: Wed, 11 Dec 2024 14:37:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 12/16] arm64: mm: Map p4d/pgd with privileged pkey
+Subject: Re: [RFC PATCH 13/16] arm64: mm: Reset pkey in __tlb_remove_table()
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
@@ -46,18 +46,18 @@ Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  pierre.langlois@arm.com, qperret@google.com, ryan.roberts@arm.com,
  will@kernel.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org
 References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
- <20241206101110.1646108-13-kevin.brodsky@arm.com>
- <20241209102440.GI21636@noisy.programming.kicks-ass.net>
- <75a345d4-78ea-4434-a4cd-3f2095ce2b31@arm.com>
- <20241210122355.GN8562@noisy.programming.kicks-ass.net>
+ <20241206101110.1646108-14-kevin.brodsky@arm.com>
+ <20241209102913.GJ21636@noisy.programming.kicks-ass.net>
+ <7124d7f4-1d4c-4497-94d8-243af2ed071a@arm.com>
+ <20241210122706.GO8562@noisy.programming.kicks-ass.net>
 Content-Language: en-GB
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <20241210122355.GN8562@noisy.programming.kicks-ass.net>
+In-Reply-To: <20241210122706.GO8562@noisy.programming.kicks-ass.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_053537_766409_5A41903A 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20241211_053747_032002_71D1C4AB 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +72,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/12/2024 13:23, Peter Zijlstra wrote:
-> On Tue, Dec 10, 2024 at 10:27:56AM +0100, Kevin Brodsky wrote:
->> On 09/12/2024 11:24, Peter Zijlstra wrote:
->>> On Fri, Dec 06, 2024 at 10:11:06AM +0000, Kevin Brodsky wrote:
->>>> If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map p4d/pgd pages
->>>> using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that they can
->>>> only be written under guard(kpkeys_hardened_pgtables).
+On 10/12/2024 13:27, Peter Zijlstra wrote:
+> On Tue, Dec 10, 2024 at 10:28:44AM +0100, Kevin Brodsky wrote:
+>> On 09/12/2024 11:29, Peter Zijlstra wrote:
+>>> On Fri, Dec 06, 2024 at 10:11:07AM +0000, Kevin Brodsky wrote:
+>>>> [...]
 >>>>
->>>> The case where pgd is not page-sized is not currently handled -
->>>> this is pending support for pkeys in kmem_cache.
->>>>
->>>> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
->>>> (default).
->>> Should not this live in pagetable_*_[cd]tor() in generic code?
->> This would certainly be preferable but it doesn't look like such helpers
->> exist for p4d/pgd. For p4d, we could potentially handle this in the
->> generic __p4d_alloc(), but I'm not sure we can assume that
->> p4d_alloc_one() won't be called from somewhere else. pgd_alloc() is
->> entirely arch-specific so not much we can do there.
-> Can't we add the missing pagetable_{p4d,pgd}_[cd]tor() functions. Yes,
-> it will mean touching a bunch of arch code, but it shouldn't be hard.
+>>>> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+>>>> index a947c6e784ed..d1611ffa6d91 100644
+>>>> --- a/arch/arm64/include/asm/tlb.h
+>>>> +++ b/arch/arm64/include/asm/tlb.h
+>>>> @@ -10,10 +10,14 @@
+>>>>  
+>>>>  #include <linux/pagemap.h>
+>>>>  #include <linux/swap.h>
+>>>> +#include <linux/kpkeys.h>
+>>>>  
+>>>>  static inline void __tlb_remove_table(void *_table)
+>>>>  {
+>>>> -	free_page_and_swap_cache((struct page *)_table);
+>>>> +	struct page *page = (struct page *)_table;
+>>>> +
+>>>> +	kpkeys_unprotect_pgtable_memory((unsigned long)page_address(page), 1);
+>>>> +	free_page_and_swap_cache(page);
+>>>>  }
+>>> Same as for the others, perhaps stick this in generic code instead of in
+>>> the arch code?
+>> This should be doable, with some refactoring. __tlb_remove_table() is
+>> currently called from two functions in mm/mmu_gather.c, I suppose I
+>> could create a wrapper there that calls
+>> kpkeys_unprotect_pgtable_memory() and then __tlb_remove_table(). Like in
+>> the p4d case I do however wonder how robust this is, as
+>> __tlb_remove_table() could end up being called from other places.
+> I don't foresee other __tlb_remove_table() users, this is all rather
+> speicific code. But if there ever were to be new users, it is something
+> they would have to take into consideration.
 
-It does look doable. The p4d level shouldn't be an issue, it's unclear
-why it doesn't follow the same pattern as pud already. pgd will be more
-involved (no generic layer at all) but as you say it should just be
-about some churn in arch code.
-
-An extra complication is that the pgd level may be smaller than a page,
-at least on arm64 (see pgd_alloc() in arch/arm64/mm/pgd.c). I suppose
-affected architectures will have to define their own pgd_alloc_one().
-
-I'll give it a try and post something separately if it looks sensible.
+Fair enough, I'll handle that in mm/mmu_gather.c then.
 
 - Kevin
 
