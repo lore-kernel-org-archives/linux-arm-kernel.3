@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 539A0E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3762E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u003TtXLqRdl21a2NWcQiJL7JcZsNB0P9eljCYzTzjc=; b=3gOyiqkjVxWfoBsRH6Q+6aW482
-	85+XBI5zA7PHhjEY9SkHELSPhlqBkv1RKTEgd4e1eASGFCVfU8NTlytsgQEaJuCZuSrkxhohwnBBl
-	rKHvlU0rvFCYMG/sXf+W3T/zUimaUvd/sj/Fq/TC7H83f+xVmmGuJGT25cThG4M16gdvIGd+mDRWt
-	gSY/Q5VJJ02LwUoKFBiGNZ4RbGFqc5iQaQlSKcU87mZu9/bfu+BCUe51DAHhzCt0ZNOINXlW+WQxK
-	l/FxLs57FKXfgOx8TNWxauOpdBYdZu1WwAxr3M5+3lorqIDN7igCTNRtAW8vQ9mVDl+bBnqbZqwA7
-	tJcgjsvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xImzGzANXk5DxjlwcfseHJU01hxo/jjlwQJDD52qyl0=; b=1lG+hOKhGLA3nwvNjobif+bOjW
+	BzPEAzuosYYq8SHjKfzpoXAyC5Kf0LTxhY1AXS4SOTPhRHa91dsRzA/GVNZdOOKiLIw5xOo8LuNVB
+	8Gx61LIzACcU9ftQ6gI8v0S4EqZgL7HlfTr5Vk1uHXdaJKuX55nm9M+0+xZxB61fyl20fGaLV4/zW
+	AH8CGjgT/nM7N0XTYeseoC5/1TXTXYn4SOSp/6ih9pQ45uWBofopj3Cby90sSeT7dtQ8qJnDtie9d
+	AuVqq4lfYiZLVDpCqWfRLLzGooebAKyyTtDANKcF2gEirv09+Ito4/8jrghIsWblQFd71YIXDeAGr
+	j7oDmGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQRy-0000000FaXo-0giw;
-	Wed, 11 Dec 2024 17:24:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tLQT0-0000000Faym-2G4h;
+	Wed, 11 Dec 2024 17:25:42 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQQt-0000000FaFt-1FsS;
-	Wed, 11 Dec 2024 17:23:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=u003TtXLqRdl21a2NWcQiJL7JcZsNB0P9eljCYzTzjc=; b=2W5Hs4dExuwoJVN6KAAy7vsVT8
-	q8ibUEy9c8pdKQrMtX4D57ESDxDZMe9l6EsD9jXwvIsbgUT5878dNDDjXO3Dw+O/7w7Bq/hP9jOkX
-	wX2Zs3uIAu/MV2PAAw5nEzIpkIvvq0UR07OAuOONfXY1lXVt64sh/sgrk2c20vi3XVmkEP2ulBfog
-	E2wpfVvR4vypUbQiDtJDA1t2K8gUR00uMBbUPxlOgWkHF6oQWSyd50veAACWTqlcN6DfKStMmFgCm
-	0K5cg/n4Ex8wYoFM9fUkBAmqTnMxHK1dsV5jg2g6Jt+QW5GCpZnjltNrlFvWnbkX5jtPVfrSf6usd
-	FyEOxEQg==;
-Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tLQQS-00063M-PG; Wed, 11 Dec 2024 18:23:04 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Maxime Ripard <mripard@kernel.org>
-Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- FUKAUMI Naoki <naoki@radxa.com>
-Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes handling on
- RK3588 HDMI0
-Date: Wed, 11 Dec 2024 18:23:03 +0100
-Message-ID: <1820767.5KxKD5qtyk@diego>
-In-Reply-To: <64vc5pkj44w3qxf5wkcxgghpwhvoagzemcsfqmi7fhsxt7vlqd@yfcgloi45ygh>
-References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
- <20241211-vop2-hdmi0-disp-modes-v2-3-471cf5001e45@collabora.com>
- <64vc5pkj44w3qxf5wkcxgghpwhvoagzemcsfqmi7fhsxt7vlqd@yfcgloi45ygh>
+	id 1tLQRJ-0000000FaMH-2aqg;
+	Wed, 11 Dec 2024 17:23:58 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5d3f28881d6so4729545a12.1;
+        Wed, 11 Dec 2024 09:23:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733937835; x=1734542635; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xImzGzANXk5DxjlwcfseHJU01hxo/jjlwQJDD52qyl0=;
+        b=bnGaG3KejsKThKKeEv/62785hCzLsx7ZODikn7FzjaH3oFkXfGoIRyETJCQutl/+il
+         Mo4yrGCw+dlWwO7dt+S3LouezpdGrfVwDEMsekIKa/bDS1QMjcnbH0I7WMlnCKd/FQdd
+         r6RITb+7g3ASDqbXmT17sis6ZYxTBURHMBfhDHSe+5eddjFQpPvOmIgLnVCTBWrHq6ui
+         EfGspM/CYF+ErzCeJp+Olyq8Z5pA1rA3WF5gE+ySvD1ywmN3BJovnjD8vPxYRF1Wj3Gc
+         z3WYcmc41tlW8IEw0e2mF4aGIdM5Tm2IICPWKhKg49Z0cBMEGcB5rNA1NBLcbGK8MFLX
+         OnYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733937835; x=1734542635;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xImzGzANXk5DxjlwcfseHJU01hxo/jjlwQJDD52qyl0=;
+        b=KBn4A8LtDHE/rkoiImNR33QSxO/LAwQV1zezO2uZ7wy27BY496ccYNLDdwtwDqFdtI
+         zfHX+AIDlm6Ns77n7ix10VzeNKq35b1ShQ53cNTR+mcbpEoOnd1HeYtZwa871e8wvRUz
+         plscn0m+Qq2qU3lBrBs/Q8MwhIdj8UspqdEZtzFsfqxwm048l7skm341rpyi7CVmGEoV
+         PzgCAFv+lVxtflTBh5jDkKfM9kVfHAmTAeqsIvpHuHr6YJqZHb5M7kamRWEa20GFNnHz
+         V1u1Jm9+7a/+uwq5CO6luK7nMkcmqwv/LXJddjzw8WoqNRUvLOwgHwENk5qruntAn9Bu
+         PZSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUOeM7jdI9Mvoez655rHgaSCZ/Gvw4B//I3dN6B6mPcKFlv07dMH+9SVuqVKkSBgJU3WHn+XY4VU2hwAlFbKBai@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdiKcM7zQrfJMUNMzl0TF5i39yKp9UOlEgU1g/7ftytP96NaUW
+	edehNynoTrnXLR0+P4Tn7fXz6OpLvDHjCnk7NxxMpckk1yuZ7M4K
+X-Gm-Gg: ASbGnctvxNhnGZaB5iUHxFJymXP7KNb3jBl5FFehcpIITrukziJhe1THISybHqQn04+
+	koq3ByPAfYVDIwjgatvUTIz5qgGTzFswxR210f12t87wnpn8wAVJf9UslA4vd4MXbO7Cv3xL9Z4
+	1+gnn0o++x5PiqWxxebhcibIM94fzbnKwyedsxHQ9wo+D469pTT97IhKIn+6oykTVVSpMTQKtFE
+	DVaKGeVzXC+eHhCP1caG7I1UHEx9HJKMJUqnXH8WxY1GQFUFDb3aWFYNdxvdCkJEyt7uMXETbSv
+	9Wlpi8gp81TD53qIFCqaNKxi0p6tubW/
+X-Google-Smtp-Source: AGHT+IH0RIu4uq5umvRtCi0hsAZI3eC3FhPsXctvlNPCuDi9NspA8MfTgjbIzEfgLbI6zohVlTLE5A==
+X-Received: by 2002:a05:6402:5207:b0:5d0:c697:1f02 with SMTP id 4fb4d7f45d1cf-5d4330a49f1mr7965722a12.17.1733937835207;
+        Wed, 11 Dec 2024 09:23:55 -0800 (PST)
+Received: from [192.168.1.107] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6a3537ea9sm285032666b.58.2024.12.11.09.23.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 11 Dec 2024 09:23:54 -0800 (PST)
+Message-ID: <f395a019-800f-49a4-a3cc-28efafc4faa9@gmail.com>
+Date: Wed, 11 Dec 2024 19:23:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] dt-bindings: power: actions,owl-sps: convert to YAML
+Content-Language: en-US
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
+ <afaerber@suse.de>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: linux-actions@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241103123917.2890436-1-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20241103123917.2890436-1-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_092331_360867_0F096F36 
-X-CRM114-Status: GOOD (  33.42  )
+X-CRM114-CacheID: sfid-20241211_092357_655435_6BEE6AC2 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,105 +100,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 11. Dezember 2024, 18:07:57 CET schrieb Maxime Ripard:
-> On Wed, Dec 11, 2024 at 12:15:07PM +0200, Cristian Ciocaltea wrote:
-> > The RK3588 specific implementation is currently quite limited in terms
-> > of handling the full range of display modes supported by the connected
-> > screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
-> > few of them.
-> > 
-> > Additionally, it doesn't cope well with non-integer refresh rates like
-> > 59.94, 29.97, 23.98, etc.
-> > 
-> > Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
-> > all display modes up to 4K@60Hz.
-> > 
-> > Tested-by: FUKAUMI Naoki <naoki@radxa.com>
-> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> > ---
-> >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++++++++++
-> >  1 file changed, 34 insertions(+)
-> > 
-> > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > index 8b2f53ffefdbf1cc8737b3a86e630a03a7fd9348..393fe6aa170aaee9663c4a6d98c1cd6a5ef79392 100644
-> > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > @@ -158,6 +158,7 @@ struct vop2_video_port {
-> >  	struct drm_crtc crtc;
-> >  	struct vop2 *vop2;
-> >  	struct clk *dclk;
-> > +	struct clk *dclk_src;
-> >  	unsigned int id;
-> >  	const struct vop2_video_port_data *data;
-> >  
-> > @@ -212,6 +213,7 @@ struct vop2 {
-> >  	struct clk *hclk;
-> >  	struct clk *aclk;
-> >  	struct clk *pclk;
-> > +	struct clk *pll_hdmiphy0;
-> >  
-> >  	/* optional internal rgb encoder */
-> >  	struct rockchip_rgb *rgb;
-> > @@ -220,6 +222,8 @@ struct vop2 {
-> >  	struct vop2_win win[];
-> >  };
-> >  
-> > +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
-> > +
-> >  #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
-> >  					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
-> >  
-> > @@ -1033,6 +1037,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
-> >  
-> >  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
-> >  
-> > +	if (vp->dclk_src)
-> > +		clk_set_parent(vp->dclk, vp->dclk_src);
-> > +
-> >  	clk_disable_unprepare(vp->dclk);
-> >  
-> >  	vop2->enable_count--;
-> > @@ -2049,6 +2056,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
-> >  
-> >  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
-> >  
-> > +	/*
-> > +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
-> > +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
-> > +	 */
-> > +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <= VOP2_MAX_DCLK_RATE) {
-> > +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
-> > +			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
-> > +
-> > +			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
-> > +				if (!vp->dclk_src)
-> > +					vp->dclk_src = clk_get_parent(vp->dclk);
-> > +
-> > +				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
-> > +				if (ret < 0)
-> > +					drm_warn(vop2->drm,
-> > +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
-> > +				break;
-> > +			}
-> > +		}
-> > +	}
-> > +
-> 
-> It seems pretty fragile to do it at atomic_enable time, even more so
-> since you don't lock the parent either.
-> 
-> Any reason not to do it in the DRM or clock driver probe, and make sure
-> you never change the parent somehow?
+On 11/3/24 14:39, Ivaylo Ivanov wrote:
+> Convert the Actions Semi Owl Smart Power System (SPS) bindings to DT
+> schema.
+>
+> Changes during conversion:
+>  - Add a description
+>
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+> ---
+> v2: add r-b tag from Krzysztof Kozlowski <krzk@kernel.org>
+> v2: update commit message to be accurate (Krzysztof)
+> v2: don't preserve formatting in the description (Krzysztof)
+> v2: add a blank line after additionalProperties (Krzysztof)
+> ---
+>  .../bindings/power/actions,owl-sps.txt        | 21 --------
+>  .../bindings/power/actions,owl-sps.yaml       | 51 +++++++++++++++++++
+>  MAINTAINERS                                   |  2 +-
+>  3 files changed, 52 insertions(+), 22 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.txt
+>  create mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.txt b/Documentation/devicetree/bindings/power/actions,owl-sps.txt
 
-On rk3588 we have 3 dclk_s and 2 hdmi controllers. Each video-port can
-use the clock generated from either the hdmi0phy or hdmi1phy, depending
-on which hdmi-controller it uses.
+BUMP - what happened with the patch? Been a month now and
+all the other ones have been applied.
 
-So you actually need to know which vpX will output to which hdmiY to then
-reparent that dclk to the hdmiphy output.
+Best regards, Ivo.
 
-
-
-
+> deleted file mode 100644
+> index a3571937b..000000000
+> --- a/Documentation/devicetree/bindings/power/actions,owl-sps.txt
+> +++ /dev/null
+> @@ -1,21 +0,0 @@
+> -Actions Semi Owl Smart Power System (SPS)
+> -
+> -Required properties:
+> -- compatible          :  "actions,s500-sps" for S500
+> -                         "actions,s700-sps" for S700
+> -                         "actions,s900-sps" for S900
+> -- reg                 :  Offset and length of the register set for the device.
+> -- #power-domain-cells :  Must be 1.
+> -                         See macros in:
+> -                          include/dt-bindings/power/owl-s500-powergate.h for S500
+> -                          include/dt-bindings/power/owl-s700-powergate.h for S700
+> -                          include/dt-bindings/power/owl-s900-powergate.h for S900
+> -
+> -
+> -Example:
+> -
+> -		sps: power-controller@b01b0100 {
+> -			compatible = "actions,s500-sps";
+> -			reg = <0xb01b0100 0x100>;
+> -			#power-domain-cells = <1>;
+> -		};
+> diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.yaml b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+> new file mode 100644
+> index 000000000..0855d82f3
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/power/actions,owl-sps.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Actions Semi Owl Smart Power System (SPS)
+> +
+> +maintainers:
+> +  - Andreas Färber <afaerber@suse.de>
+> +
+> +description:
+> +  Actions Semi Owl SoCs feature a Smart Power System (SPS) that manages power
+> +  domains to optimize power usage across various hardware blocks. Each power
+> +  domain corresponds to a specific hardware block and is represented by a bit
+> +  in the power control register and an acknowledgment bit, which is then
+> +  translated into a corresponding voltage on a rail.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - actions,s500-sps
+> +      - actions,s700-sps
+> +      - actions,s900-sps
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#power-domain-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#power-domain-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/power/owl-s500-powergate.h>
+> +    soc {
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      sps: power-controller@b01b0100 {
+> +        compatible = "actions,s500-sps";
+> +        reg = <0xb01b0100 0x100>;
+> +        #power-domain-cells = <1>;
+> +      };
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 76ea65128..420d06d37 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2023,7 +2023,7 @@ F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
+>  F:	Documentation/devicetree/bindings/mmc/owl-mmc.yaml
+>  F:	Documentation/devicetree/bindings/net/actions,owl-emac.yaml
+>  F:	Documentation/devicetree/bindings/pinctrl/actions,*
+> -F:	Documentation/devicetree/bindings/power/actions,owl-sps.txt
+> +F:	Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+>  F:	Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+>  F:	arch/arm/boot/dts/actions/
+>  F:	arch/arm/mach-actions/
 
 
