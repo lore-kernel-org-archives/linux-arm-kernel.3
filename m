@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA034E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B38E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 15:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bj3HLfAaTEgLybrOE17CqojJW6/IovPwqNCEJh+a3x8=; b=TsdJbvT7QsM9pINOHaWrectAry
-	9IGNxzj0Tiqfb3dT/H66I1qcHMXNq3Xf6JDDmTbvqUxO2fucjlDCkahwW8YYQhgZznNRFb823zoUb
-	P1AjtXxIa5ilrUaYroC2jI0xDgd+sPQmRCSKmIrOtkEMO9IfgS/CNMKLvKSvtf6vaNE6Sa8QUjMMH
-	kvEHxAArp7O2ZyBd/mSCUsqRQSw7rFi6eS/49UZzeQA09JFVcwg3AdZ7ka2ayNXUChwrizo0uJ/zm
-	40MtcmsmkOB6u65LZt2VKg+IZX588aS6FVzYCoXBIDSgRU6+Hk4XTE6QUpV5ADEeGNk/LOuztvq67
-	BrimEDeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+6jOe4StafxMUoKvvwb8Eh0q1rYN865XW7Bj6X9Dj7o=; b=iHtR+QD/nveX2K
+	yiozMok2T9jqJMF4gLNJxzOVTbLROQ3Hh1yNNh6hhRETP/FbgOmuihaJcJUdNpa7s5pIMlbtclxfB
+	s6RmkHBRQf0SBMCcC8yIroAMro/kMJNSEHquXJGhN2gR1Nq1xJ99uYC17KbKpyeWpdc/egbFttYRl
+	TlZ+KZzKU8DoWBfubH8omhTxgBhpjSQik9lesBlS0AeB7DNXBgfsit5q7Lv7P4Ybr8pkOMtKFg4aR
+	jqpAvknBLJyFbGgNi27nhTS6gBcEjPgju5zFjAqSK+MkmhlfzT2Nqm3UPySWAPzTfwe3t/pfxDGuF
+	Zx2n2HOx87Yr/fIURTtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOaf-0000000FFpT-33NR;
-	Wed, 11 Dec 2024 15:25:29 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tLOc0-0000000FG49-3pQ3;
+	Wed, 11 Dec 2024 15:26:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLOYH-0000000FFLP-2iEm
+	id 1tLOax-0000000FFsh-1h9G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 15:23:02 +0000
-Date: Wed, 11 Dec 2024 16:22:57 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733930578;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Bj3HLfAaTEgLybrOE17CqojJW6/IovPwqNCEJh+a3x8=;
-	b=jPnbSjYAsa/3sIBGYkpSL+Hfi0cotmj+NqQRjX4DYUGn8NA2Dv7MggsijYQ99IwrFB74T+
-	K8xRV5yft1JGhjyBEH3ObAy0L4yqTDuCFEMoNcVa76sj1lRTOK/iFuiL7gASoGENOwzdTV
-	hwOwiZLw1sP4f3iWyIx/91rA0DRySeA7gdLeYSCkM+nlBHlAXltDBaA73jP6DdV406N2Xk
-	1+4CQwja+N77cYhux6O95ozJxvA1wARSq+kGfBF0LVPsk0RhoCZvCfTvHvMSL8Y8+fUUDw
-	INuFoRhQeiJY4KK9u9xEWaq6Of5d+cljh99nfxZVkc0NPwJUsSNTnq7AqKARXQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733930578;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Bj3HLfAaTEgLybrOE17CqojJW6/IovPwqNCEJh+a3x8=;
-	b=2CAw6C3I9ByddGJoOgM225O/zgyu2W/7Ypk8MHxeGq8x/Shuiv2hVVY7QAANWiEVmyaF1u
-	VXD6kQ4mJJ1TNfDQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Arnd Bergmann <arnd@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH 2/4] ARM: Disable HIGHPTE on PREEMPT_RT kernels
-Message-ID: <20241211152257.Igx3aT2Y@linutronix.de>
-References: <20241210160556.2341497-1-arnd@kernel.org>
- <20241210160556.2341497-3-arnd@kernel.org>
- <CACRpkdZaoD2vqbCi1AFUa6mF2_=c3Nu4R0CvxFAep0VMgtMtOQ@mail.gmail.com>
+	Wed, 11 Dec 2024 15:25:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733930747; x=1765466747;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=PX0Dak1GrNxWpNhFmQrRSn4HhzzLwAXXKZWfOHdy07c=;
+  b=TbYcAdY3tKmudDYCfKe9oXUKb4pswZN+fxPDCrJwkG0Nw4+oLhXQUS5l
+   GBYAhHExNXhaKlAiPKTBFYGHlK9I7RM5fZyQv69XcfBo54E+lwWzttD2b
+   oWy8ds9COVH6EQORlXogSzIyfHRMF0agr739sHbls92zRwvKOI2bNLfJd
+   Pb1TK3RoYOpsR/m0vPozy5wgDRSPUm0F33PklWtSUoHmfN2UF+n2MuPSM
+   A/f9sy+23aeW2fxhgP9VsKSgG3hbkg4KC11OERwY3Q07w/JgFIWApbMRw
+   1FAWoV1aXwltIbNqdcQt6HrBtzJly8RZgpvrmsGW/J1guUufM4T6hl0hX
+   A==;
+X-CSE-ConnectionGUID: qgV54QVtS8C7rcxkisT06g==
+X-CSE-MsgGUID: PyP866H5QiSc3zjJIIYzAA==
+X-IronPort-AV: E=Sophos;i="6.12,225,1728975600"; 
+   d="scan'208";a="35876300"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Dec 2024 08:25:44 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 11 Dec 2024 08:25:31 -0700
+Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Wed, 11 Dec 2024 08:25:31 -0700
+Message-ID: <fb11338b-986f-4a9a-a0dd-e8f4e63941aa@microchip.com>
+Date: Wed, 11 Dec 2024 08:25:32 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <CACRpkdZaoD2vqbCi1AFUa6mF2_=c3Nu4R0CvxFAep0VMgtMtOQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/13] dt-bindings: clock: Add SAMA7D65 PMC compatible
+ string
+To: Rob Herring <robh@kernel.org>
+References: <cover.1733505542.git.Ryan.Wanner@microchip.com>
+ <5252a28531deaee67af1edd8e72d45ca57783464.1733505542.git.Ryan.Wanner@microchip.com>
+ <20241210164638.GA3770349-robh@kernel.org>
+From: Ryan Wanner <ryan.wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <20241210164638.GA3770349-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_072301_823434_1CDCDC8A 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20241211_072547_517834_F4B50359 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +83,28 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, arnd@arndb.de, alexandre.belloni@bootlin.com, sboyd@kernel.org, linux-kernel@vger.kernel.org, mturquette@baylibre.com, linux-spi@vger.kernel.org, claudiu.beznea@tuxon.dev, mihai.sain@microchip.com, linux-gpio@vger.kernel.org, dharma.b@microchip.com, linux-serial@vger.kernel.org, varshini.rajendran@microchip.com, krzk+dt@kernel.org, romain.sioen@microchip.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-12-11 14:29:29 [+0100], Linus Walleij wrote:
-> So fast GUP is supposed to be lockless, and should just not
-> have this problem. So it can't be addressing gup_fast_pgd_range()
-> right?
-=E2=80=A6
-> I'm more asking if HIGHPTE even acquires a spinlock anymore
-> as it is supposed to be "fast"/lockless. If it does, it is clearly violat=
-ing
-> the "fast" promise of the fast GUP API and should not exist.
-
-This is lockless on x86. The problem is ARM's
-arch_kmap_local_high_get(). This is where the lock is from.
-
-> Yours,
-> Linus Walleij
-
-Sebastian
+On 12/10/24 09:46, Rob Herring wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> On Fri, Dec 06, 2024 at 12:59:52PM -0700, Ryan.Wanner@microchip.com wrote:
+>> From: Dharma Balasubiramani <dharma.b@microchip.com>
+>>
+>> Add the `microchip,sama7d65-pmc` compatible string to the existing binding,
+>> since the SAMA7D65 PMC shares the same properties and clock requirements
+>> as the SAMA7G5.
+>>
+>> Export MCK3 and MCK5 to be accessed and referenced in DT to assign to
+>> the clocks property for sama7d65 SoC.
+>>
+>> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Missing Conor's ack.
+I removed the ack because I have changed the original patch that was
+acked. Should the ack not have been removed even though the original
+patch as been changed?
 
