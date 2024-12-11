@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D7EEE77182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3702BE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbzFAeUuXXanJwe/RhcZGcox5IaVXp9hGHM//yffMwQ=; b=H3cEu2h9vVjgksbx9mlXHfhoZc
-	DVCBANmiKp6FZg9Og9kplPqQ3KsF87nX4WyJ8IYQXLEPLFZiJSiXr2CZNBX8qv6s1yGDdLCgAUdvh
-	NOpF10Z6RQs7qU60iOroMLGCXdMCWfXZqe1yxFQre2YjvYMejuHBQJsLdY55uGDCLAS/LjjnOTA6x
-	rTTywjF6hXTbd1eIGD2dtOgQb295LtLRaVp2Ret4IjH6SUA3JFQ8udJBzuJJWh62mxpLz2j+xnvD7
-	+ORG+UV8qpyK5fcfzLxwEEBYx8gFe4IAZij/2Cy7h0/brgQF3yweUxyKIB+V6EvcRvjLhYFw6OVba
-	vuzKoc3Q==;
+	bh=11W4ToO5h1HZTorB4p+IfX/arkj3h4R3MbzsYg+yGqg=; b=Ii50drj5gJLlfmVCdE91xwrRzh
+	xwGFhxM/A+nG73MlPkN4QGLcbbsiNv+Y9Hzvj757MagsPklLQHkQ+dJFpx7Bo3VW+2BRUowJK5owR
+	K4UJOAobvELjsqHp104PILOoOIuv49rStAU0GSDU8c1l6OmFUy1gukGFBDJxzuT27YL7b5KVFdl7p
+	r52jvuRpDvbj3p7zS+NjhANjuj8SqfEX/gTjJ2o1wfo2mpngOKUjWL+vsAyyZjERIp6XY6kf0j0za
+	OdGV/mbrvZlvz36fxOLRq+0D53p/PrpW5HYTeUfVTO7S56qlfVEWA5tXwvqLGM1UhG7Aod0U10wkz
+	/pZWhg6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKtG-0000000EhQi-3ZAk;
-	Wed, 11 Dec 2024 11:28:26 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tLKuJ-0000000EhbX-29uB;
+	Wed, 11 Dec 2024 11:29:31 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKoH-0000000EgHI-2AoW
+	id 1tLKoK-0000000EgIW-0HTX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 11:23:18 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2156e078563so49519885ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 03:23:17 -0800 (PST)
+	Wed, 11 Dec 2024 11:23:21 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-216426b0865so31074615ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 03:23:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733916196; x=1734520996; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1733916199; x=1734520999; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WbzFAeUuXXanJwe/RhcZGcox5IaVXp9hGHM//yffMwQ=;
-        b=Yu58ZCmC1o6LMEXUlEy+jwxzSVULPwdjNY7aC3bzE+k6WvTcSamkFfc7rN7rSkKS3w
-         f6JkiFEZ9AqlrV/z/g2iq+IqslnQi/1NC//Wn87q4Wxgru1IK01Bh1D7CxOjDqhLTs4B
-         Mta01CrFChm35S3rcyPYZcA0vaBc+gnM2eaK5AUbfwJmxUw5BZqsMuK2LoNPH+ZyjuDP
-         dGD/txOWGo9yrvvgbw2vJ1OrOH8Q0nKMtx4VuEBnUSvXRYHo3Hn+GvHa1z117tA/LZUQ
-         DxFQuWVaOZiBwSI4cgrz+EaIALvbkaFjmNBh9lu9BZ8jXjUfP8pdZuYx+UoJX870YBSB
-         vu5w==
+        bh=11W4ToO5h1HZTorB4p+IfX/arkj3h4R3MbzsYg+yGqg=;
+        b=fmvCD77lyxCr7hY7X00jSyZou615JdrqRYZ05YM3MWlQ3//Sm8U2AkWGKxIrrvb8nL
+         rj82QdNc5O5HbynFp1w2pPkUkjbJBxGOgV3At/Gq29x4LQi5Y11Pfe+4HVupdhQj3KLv
+         cuCrtAa7m3ZclfOBAjXn3SPFLSOIb1k363nzUjJX6fliC1XqcraQnTepgrjgThu5AhVW
+         Bx0qHSJTHZi+2nDRF3Te+n6VhAcwGIt4OS2ccKCY8gnMxq9aQfg2LlXLknn4kVNNYw/m
+         bTk5o4cRrTDA4M79/Inriq91S+e4QD18nPtb0qO0KlhFDXoRgRWWgTiYLP0ccqXnbVjD
+         GqGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733916196; x=1734520996;
+        d=1e100.net; s=20230601; t=1733916199; x=1734520999;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=WbzFAeUuXXanJwe/RhcZGcox5IaVXp9hGHM//yffMwQ=;
-        b=s2g4x46rhEinRomt5OWOImZKLpugZloK1Lenp3k5vbKO2yD277ofeNqJmtNtYchyS/
-         zveHEx/Q9kxXotnN+nZ248hBxBStHyfRQR4Tpc5k88WXy/6iBSkfC1JDvuj8+Akqu09H
-         h9bc3/BCfxube6fmHPGovsvg2mjS7POg2dq1/K+23V5hy9Syf0iTDnpHWlv3khmmZKPf
-         xjGb4PfpYGe/penbq3Mz9eKJH7mbWQOSVD0GumX7WkNa0z2nk+Rq88J2ixF/70HMTJsb
-         W74MMjU4VQizAZMStSdRMfU+ykHpHxRU79MNARTYHSa6ir75u3bNbZgNXW9no818t36/
-         C10Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX0aiQF5VdC03gW/UuykiOvPLha6xdJCGCEsRmOG6fDmS5z8UT/1nmxndKamTWdMawP7tnro2oGJ0kZFiyfldfW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnLZsxw+A7HYQyVdDydJARuiX6gDddie9+dqDSP3md6IMnAqio
-	b8UvKhaa/84DDtdTyntg8hJKgHPQplE7v9NhF1WEG5SJnVj6FgzwAZho2LzY
-X-Gm-Gg: ASbGncvSyOvQ++5ZB+cUW6dTJo2BWUyJB9KQah4yoLUmhXf/pSWtfJYwvm+4Ff84iu0
-	la4asJt1tGiMKsLd7Pj0d52lqFoj4tF+sjCfT1tC5OeBNlaxpxTywHDxqGIIpPIUNcbQbkoVhrx
-	PEQ98WucdzymMRUb00ARsWiUBJZkFjeDU3p0RWgcXaLDajurGSsI0GyUSczXsDA3fBVVaa9gMji
-	S942phtAzU0ZTEtrzhln9sZNWJW11r5cNUeqszsOxf5sUaobFhlQ4dr9yvCps1YihJZPQ==
-X-Google-Smtp-Source: AGHT+IH1hLAgeQvAxnVwe+D4VMDsSZTriCt++kQ7emPExGGKhpzABy5H4MFcc6Iy+zePAn8dZNzF/Q==
-X-Received: by 2002:a17:902:d503:b0:216:6c88:efd9 with SMTP id d9443c01a7336-2177851dec4mr41331435ad.15.1733916196279;
-        Wed, 11 Dec 2024 03:23:16 -0800 (PST)
+        bh=11W4ToO5h1HZTorB4p+IfX/arkj3h4R3MbzsYg+yGqg=;
+        b=FUSRBxGrcqTV01fV8FGgAJbjIaxkaO+IcPDLaLM5U/IwBbq8c6GnQlEb4c9B4D4AgN
+         hlegrdlycx/XeCbNWU9eEvHaTnRnN/+1/wmECTxv1I2eAh9ar/Gn7uBwqz9phAMH6mZI
+         XxKfQhsPTlUPjxML5hanrgiKTOPya956iqcUt39QTNRqALee/VrDMpI1AmE3ZNIatOw9
+         vvTSXX8cR3HAuSisajq7UBQWOcm0EQ1KQszNg0P+Qxb1vb4tZUQBLRsOiNGQLVLMza2i
+         voMZrudbcW1xch3FmN9jHeknCDIw0nlZfXZFdQOcu8mJTuZWZSSlAYhLPWNBAIWZmky/
+         AfdA==
+X-Forwarded-Encrypted: i=1; AJvYcCX3eA5RZn6jicePx+ZwkVqvEfm5Z7LR0lCHDEb5ALIKqYvabGF4nXd7e8Yl6mcOo4zWG82i6vAnPTk3Djvdfd5N@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXi+MINHShsW4bv3LyKQoGNu9QkGb9JlKSQvL7HVgvvQaubuQc
+	xJFZy1Qmn7G2nDMx4pfaYW9GYwDCOVUp3lPqdT4yoJE2Uws4ocDE
+X-Gm-Gg: ASbGncuz3wnxJNESvJq5fcX32pQ/4He7ZmkfN0me2SnGZh9MWB2r4gdjerBUMNiCe1X
+	Sq2WZvJHFhHsl1ETYLxcDeXdNux+LGLUR5UN+inOnj500cHn+pMUtGllUOK78XnhEYZOw/rUVcU
+	DmWbf9jacAObAxNNujRMNyKCyCvSiYMhrzPRM+cehL3eTHQQw38+xKtu8cmWkXFQt5h5dKYR5m/
+	9EaFPS7i0Q0cK0ZL5rZXThFUZs9NUEgJh6hMK8213/rwv6+5YGyQbkSPFy6RpeCiqgyUw==
+X-Google-Smtp-Source: AGHT+IHo+Kzzu1G9jRKGQEFBse9aRUgQJuEW2pdF7vw9TKlIsPyr1dSWpP9Ey4Q+GR2YFuS1mJUrIg==
+X-Received: by 2002:a17:902:c946:b0:215:3849:9275 with SMTP id d9443c01a7336-21778562d49mr36068865ad.49.1733916199490;
+        Wed, 11 Dec 2024 03:23:19 -0800 (PST)
 Received: from localhost.localdomain ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-21650ccdc7esm48956615ad.133.2024.12.11.03.23.13
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-21650ccdc7esm48956615ad.133.2024.12.11.03.23.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 03:23:15 -0800 (PST)
+        Wed, 11 Dec 2024 03:23:19 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
 To: Hector Martin <marcan@marcan.st>,
 	Sven Peter <sven@svenpeter.dev>,
@@ -82,17 +82,17 @@ To: Hector Martin <marcan@marcan.st>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH 4/7] cpufreq: apple-soc: Use 32-bit read for status register
-Date: Wed, 11 Dec 2024 19:19:31 +0800
-Message-ID: <20241211112244.18393-5-towinchenmi@gmail.com>
+Subject: [PATCH 5/7] cpufreq: apple-soc: Increase cluster switch timeout to 400us
+Date: Wed, 11 Dec 2024 19:19:32 +0800
+Message-ID: <20241211112244.18393-6-towinchenmi@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241211112244.18393-1-towinchenmi@gmail.com>
 References: <20241211112244.18393-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_032317_554695_0E99F6D2 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20241211_032320_100857_5734BC8C 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,8 +107,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple A7-A9(X) SoCs requires 32-bit reads on the status register. Newer
-SoCs accepts 32-bit reads on the status register as well.
+Apple A11 SoC takes a long time to switch. Maximum switch time
+observed is 345us, so increase the cluster switch timeout to 400us
+to be safe.
 
 Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
@@ -116,18 +117,18 @@ Signed-off-by: Nick Chan <towinchenmi@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
-index 90e34105b50b..b27d261fe5a6 100644
+index b27d261fe5a6..94e57f055a5f 100644
 --- a/drivers/cpufreq/apple-soc-cpufreq.c
 +++ b/drivers/cpufreq/apple-soc-cpufreq.c
-@@ -122,7 +122,7 @@ static unsigned int apple_soc_cpufreq_get_rate(unsigned int cpu)
- 	unsigned int pstate;
+@@ -53,7 +53,7 @@
+ #define APPLE_DVFS_PLL_FACTOR_MULT	GENMASK(31, 16)
+ #define APPLE_DVFS_PLL_FACTOR_DIV	GENMASK(15, 0)
  
- 	if (priv->info->cur_pstate_mask) {
--		u64 reg = readq_relaxed(priv->reg_base + APPLE_DVFS_STATUS);
-+		u32 reg = readl_relaxed(priv->reg_base + APPLE_DVFS_STATUS);
+-#define APPLE_DVFS_TRANSITION_TIMEOUT 100
++#define APPLE_DVFS_TRANSITION_TIMEOUT 400
  
- 		pstate = (reg & priv->info->cur_pstate_mask) >>  priv->info->cur_pstate_shift;
- 	} else {
+ struct apple_soc_cpufreq_info {
+ 	bool has_ps2;
 -- 
 2.47.1
 
