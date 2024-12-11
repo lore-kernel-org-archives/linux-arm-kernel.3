@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F9BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 00:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2AEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 00:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8vaxIk8bsQjgk5yjNiP0JNz+iONffbTffraCJQLo3gg=; b=pW49BfQXB01RRMSNTpyyLBYylL
-	Tgskxts5ek+MbiAg85c24JGCfinPC0iC8RnO8XFKtZPSZXprm0HHELWgmMkpSxC2U0VqjqBBFGNp+
-	0lIqL9yAKVxU+7d7v46hyDjEFJjaDk9/A2tQlLyyFvMXuK8aKf13i+c+4qb9czzDFpvEnKePMY+0P
-	RwFzU/uOza3VBrrc4iAVZDGRxNABySHYOtd/g0izcr7yKA6ck84sNlJsp1s4a5HFN+Mnm+7TMQC8x
-	AAowBTJxNWY5ma9IRzH5jchOMqk7UpWC3bCDSZveOZXmXcbrQONpNsGpN26/m5ofXmtReXk8uuZyX
-	T23at7+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bmIRd3iGai9B8GwQnitcTjV6mPEycuUXQCqAtqWaspI=; b=VBilV6nrT32mXWatsnBb33kGpb
+	ctGrpE3EH+3bxV9qmERNTUg0GzqL+LEnlbALOkimH2JWU/WbtVeLA1WKOnvQNkL1H9mYLXUAIQ8sW
+	XcEPbdLi+4Sdvehzox880hHo5DMzVpWwqSxxflxBahwYWrZLXdJn7q5JNQV4c0n8JH5lI/giKjIx9
+	HxCedutKf1gKXugmiqjl0+ZiZVzUCsgMJmd0YSlibenwrXo3lwPD+Nhqmi8ktinyElmt3UzvcPun1
+	9KivU9EGlNS5aiep7OWNOkFWHz0Vo2hR69JDxYb4vKuZfDyghXdFBLQxBRya+woqqhXol5gnVZn0a
+	XeujlhhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLAHd-0000000DEen-02Sn;
-	Wed, 11 Dec 2024 00:08:53 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1tLAkg-0000000DJSk-44jL;
+	Wed, 11 Dec 2024 00:38:54 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLAGZ-0000000DEVm-0xwG;
-	Wed, 11 Dec 2024 00:07:48 +0000
-X-QQ-mid: bizesmtpip4t1733875606t5783zp
-X-QQ-Originating-IP: +QpbvVfji3FgQlhoNaZ9PZUgVU6r82YCc3DKa8pNyw8=
-Received: from [IPV6:240f:10b:7440:1:9e54:d32d ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Dec 2024 08:06:40 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8105054081483660745
-Message-ID: <FFD6E87BED20DB1B+38b8064e-9945-4cd8-a30e-7800a8c6f37b@radxa.com>
-Date: Wed, 11 Dec 2024 09:06:40 +0900
+	id 1tLAje-0000000DJNQ-0TcN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 00:37:51 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BAGa3Uh024768;
+	Wed, 11 Dec 2024 00:37:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=bmIRd3iGai9B8GwQnitcTjV6
+	mPEycuUXQCqAtqWaspI=; b=cwx5GojoORS34usLwO6coUU47gO6SMjRDwh+Gz0Q
+	7xzGgYSS22GTCw0bCquQtxw6NunQm/Cudm5yjax4Cvcgit3494QMcWMac89qE0sv
+	MUmFU+3hvVHIWDao1AnK/b9v/4TVaGqs8x+sGoXL9uWH7fmKsTdYGnsIvPZqXbO+
+	DBBR09U0cAmS14/2+l6Hogn8wNtSxsUQ14kuLpvXC5QUCz9EBfui1p5dosR3i1jn
+	W5Wzgy47NK0Y8X7GfkNegIxG95AgIemN7Hmg2GQUNspvaRo8DYr6Fw2zYCplJxyd
+	fE83H/3y5cfYHAm4Qf9Wkelfxgt3KYeAgkZ2VjJsPUju3g==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43ceettc8w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Dec 2024 00:37:43 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BB0bgdg009896
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Dec 2024 00:37:42 GMT
+Received: from hu-pkondeti-hyd (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 10 Dec
+ 2024 16:37:37 -0800
+Date: Wed, 11 Dec 2024 06:07:34 +0530
+From: Pavan Kondeti <quic_pkondeti@quicinc.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: Akhil P Oommen <quic_akhilpo@quicinc.com>,
+        Rob Clark
+	<robdclark@gmail.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        "Dmitry
+ Baryshkov" <dmitry.baryshkov@linaro.org>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        "Pavan
+ Kondeti" <quic_pkondeti@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+Message-ID: <92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+ <87ed2fs03w.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-References: <20241210163615.120594-1-sebastian.reichel@collabora.com>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <20241210163615.120594-1-sebastian.reichel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NcmC868q55ANP+uVZNkM4pMFhRBlor2mlxbV8ObJX+7lHSYHJne0ObUx
-	ekj4K3hwhdGQjed/nOw30TNneRm3xgju2neuzjBv55y0OQFnSYR3OVzlpC2n1ZPD04qtPT8
-	92NSebK8f9nV/eS7D2F5smysS2xrhfr/II6LjfaiVCa2gFjLxNVv1eYAq2T+Jo58HUqDpCn
-	Dt8/7U5UUcYIQof672lhI15VK0oEyeODpw0FXvKPyXzjGXWMiHVb7Al0HkWkun2sV3HUoIU
-	ZMGCfhi5CHmaqFQbtcnT0KfzxasFxWfRTWG7S+k7b8EMwB8jvSN5Gl3419gxmggFYxiqTCg
-	/Q38grkhqhTAb2RKhZFqNNHE35ivN7ewmdNAlTUoGrPaF/aKIvdunx4AkTh+CiEyzFoPhT8
-	tWE6QSMVfNoGFDumsik0GdQm1iOfeu194dNf8yle8ocHjEqxRNRlOCQMsHY7H4XQ7QkhXYR
-	RvFMaJ7YO7NW7UvvEE7fZrmN71Fmitc4FKrjOEea+mYB2OPnwitf02CBAEYT5zU+/NBuS9n
-	O4TVx+n3XmGUw8vFpMhXL3NHylBM+ieNkUz0NrAE1RCgkawPGcMgmeNsCND997BIcvRCnfm
-	z0MPJFBLgOEZRIzf1AATq/StNl5S4naoox/Ow9AtDarbU9b3xT5/pZkJtONnfLYkcKhnaY+
-	fBH2JFkv9x8OJRrFXL1+2cDerJ2AzZNlLI+pe7Sb2rBOfgTRtUOfiKcxpdyagCuUN5S9rJo
-	v7tHlPkWOnDRKVXG7eTmDEn715Zm18ErbJJEjxfGM5DEK2SHhseSIoASZyUvUjuuFsaaNQA
-	lYF7uIqrQzMyhWxg/BaLeXtsA6U5Hf7Ets5/Gfc8+pLfYqdbX3zYm3ZV3SRR4vpHJlkmeYv
-	7o/ItojUTH4z/j46dmbMilFPWY6WSBs2KYajHi6fNElWTHowIeSSiuP7gqO5s2Cd0Uldp7s
-	mBpIouJY/kD+IfcxURXF656Ke7k9M3wSeDV8/NM0f9kcjDXPJjghT/M8bJcuLEot8r+Y=
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <87ed2fs03w.wl-maz@kernel.org>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: ZVxb1h32_u863zORd3fXSAbJrr3RcbYa
+X-Proofpoint-ORIG-GUID: ZVxb1h32_u863zORd3fXSAbJrr3RcbYa
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 phishscore=0
+ spamscore=0 adultscore=0 clxscore=1011 impostorscore=0 mlxlogscore=839
+ bulkscore=0 suspectscore=0 lowpriorityscore=0 malwarescore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412110002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_160747_749103_1E249147 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20241210_163750_279394_15C48774 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,220 +112,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry, I forgot to write one thing...
-
-On 12/11/24 01:36, Sebastian Reichel wrote:
-> Add hardware description for the USB-C port in the Radxa Rock 5 Model B.
-> This describes the OHCI, EHCI and XHCI USB parts, but not yet the
-> DisplayPort AltMode (bindings are not yet upstream).
+On Tue, Dec 10, 2024 at 09:24:03PM +0000, Marc Zyngier wrote:
+> > +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
+> > +{
+> > +	int ret;
+> > +
+> > +#ifdef CONFIG_ARM64
+> > +	/*
+> > +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
+> > +	 * to switch the secure mode to avoid the dependency on zap shader.
+> > +	 */
+> > +	if (is_kernel_in_hyp_mode())
+> > +		goto direct_switch;
 > 
-> The fusb302 node is marked with status "fail", since the board is usually
-> powered through the USB-C port. Handling of errors can result in hard
-> resets, which removed the bus power for some time resulting in a board
-> reset.
+> No, please. To check whether you are *booted* at EL2, you need to
+> check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
+> none of the driver's business, really. This is still absolutely
+> disgusting from an abstraction perspective, but I guess we don't have
+> much choice here.
 > 
-> The main problem is that devices are supposed to interact with the
-> power-supply within 5 seconds after the plug event according to the
-> USB PD specification. This is more or less impossible to achieve when
-> the kernel is the first software communicating with the power-supply.
-> 
-> Recent U-Boot (v2025.01) will start doing USB-PD communication, which
-> solves this issue. Upstream U-Boot doing USB-PD communication will also
-> set the fusb302 node status to "okay". That way booting a kernel with
-> the updated DT on an old U-Boot avoids a reset loop.
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+Thanks Marc. Any suggestions on how we can make is_hyp_mode_available()
+available for modules? Do you prefer exporting
+kvm_protected_mode_initialized and __boot_cpu_mode symbols directly or
+try something like [1]?
 
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
+[1]
+https://lore.kernel.org/lkml/1443649252-10702-1-git-send-email-ralf@ramses-pyramidenbau.de/#t
 
-> ---
->   .../boot/dts/rockchip/rk3588-rock-5b.dts      | 121 ++++++++++++++++++
->   1 file changed, 121 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> index d597112f1d5b..cb5990df6ccb 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> @@ -5,6 +5,7 @@
->   #include <dt-bindings/gpio/gpio.h>
->   #include <dt-bindings/leds/common.h>
->   #include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/usb/pd.h>
->   #include "rk3588.dtsi"
->   
->   / {
-> @@ -84,6 +85,15 @@ rfkill-bt {
->   		shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
->   	};
->   
-> +	vcc12v_dcin: regulator-vcc12v-dcin {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc12v_dcin";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-> +	};
-> +
->   	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
->   		compatible = "regulator-fixed";
->   		enable-active-high;
-> @@ -142,6 +152,7 @@ vcc5v0_sys: regulator-vcc5v0-sys {
->   		regulator-boot-on;
->   		regulator-min-microvolt = <5000000>;
->   		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc12v_dcin>;
->   	};
->   
->   	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-> @@ -264,6 +275,67 @@ regulator-state-mem {
->   	};
->   };
->   
-> +&i2c4 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c4m1_xfer>;
-> +	status = "okay";
-> +
-> +	usbc0: usb-typec@22 {
-> +		compatible = "fcs,fusb302";
-> +		reg = <0x22>;
-> +		interrupt-parent = <&gpio3>;
-> +		interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&usbc0_int>;
-> +		vbus-supply = <&vcc12v_dcin>;
-> +		/*
-> +		 * When the board is starting to send power-delivery messages
-> +		 * too late (5 seconds according to the specification), the
-> +		 * power-supply reacts with a hard-reset. That removes the
-> +		 * power from VBUS for some time, which resets te whole board.
-> +		 */
-> +		status = "fail";
-> +
-> +		usb_con: connector {
-> +			compatible = "usb-c-connector";
-> +			label = "USB-C";
-> +			data-role = "dual";
-> +			power-role = "sink";
-> +			try-power-role = "sink";
-> +			op-sink-microwatt = <1000000>;
-> +			sink-pdos =
-> +				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
-> +				<PDO_VAR(5000, 20000, 5000)>;
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +					usbc0_role_sw: endpoint {
-> +						remote-endpoint = <&dwc3_0_role_switch>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +					usbc0_orien_sw: endpoint {
-> +						remote-endpoint = <&usbdp_phy0_orientation_switch>;
-> +					};
-> +				};
-> +
-> +				port@2 {
-> +					reg = <2>;
-> +					dp_altmode_mux: endpoint {
-> +						remote-endpoint = <&usbdp_phy0_dp_altmode_mux>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
->   &i2c6 {
->   	status = "okay";
->   
-> @@ -423,6 +495,10 @@ usb {
->   		vcc5v0_host_en: vcc5v0-host-en {
->   			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
->   		};
-> +
-> +		usbc0_int: usbc0-int {
-> +			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
->   	};
->   };
->   
-> @@ -835,6 +911,14 @@ &uart2 {
->   	status = "okay";
->   };
->   
-> +&u2phy0 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0_otg {
-> +	status = "okay";
-> +};
-> +
->   &u2phy1 {
->   	status = "okay";
->   };
-> @@ -866,6 +950,29 @@ &usbdp_phy1 {
->   	status = "okay";
->   };
->   
-> +&usbdp_phy0 {
-> +	mode-switch;
-> +	orientation-switch;
-> +	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-> +	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
-> +	status = "okay";
-> +
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		usbdp_phy0_orientation_switch: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&usbc0_orien_sw>;
-> +		};
-> +
-> +		usbdp_phy0_dp_altmode_mux: endpoint@1 {
-> +			reg = <1>;
-> +			remote-endpoint = <&dp_altmode_mux>;
-> +		};
-> +	};
-> +};
-> +
->   &usb_host0_ehci {
->   	status = "okay";
->   };
-> @@ -874,6 +981,20 @@ &usb_host0_ohci {
->   	status = "okay";
->   };
->   
-> +&usb_host0_xhci {
-> +	usb-role-switch;
-> +	status = "okay";
-> +
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		dwc3_0_role_switch: endpoint {
-> +			remote-endpoint = <&usbc0_role_sw>;
-> +		};
-> +	};
-> +};
-> +
->   &usb_host1_ehci {
->   	status = "okay";
->   };
-
+Thanks,
+Pavan
 
