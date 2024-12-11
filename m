@@ -4,85 +4,199 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87006E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3145E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 07:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/cb20aQBdVO9cyiblKIOeV0cEljjD8IS2jrvpmrNd1k=; b=2F/3FgOOHFqH/MkWxsGFU4ht3k
-	3BQkMeXXTdv4HcOUwO2Ay8Y5C21Fp5kQFFy3dSIzeL6Hkjda6cqqdCVU/dt1Ye9bvhkhhs8dMqWXa
-	GcLIkVHT3dl19Tmr5Yg2Z7MCn3cGIJo+1K9WChroedHM0BLJdR45cFJZpiEIFf/jrtvQf/MhDfiey
-	M2uCSf+gg8eJsV5pgTLyQb3k1ZsBCYYXx70OlY3+lXWz7wL2MN9fEsf4OOOYay+1QuwCPk/D7bLl7
-	AXYcq2cq1OADeE9XRGBR5fNK4sMtw45HBMdh9cLWXhCUuDLkJa0lgDtP/O66U5AcuDtTl2iRo/uIe
-	BtqK1NEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YlylXyVD1Ev4BGnT8q3VBcyrXHmTIsC5wfGjOxlyauA=; b=Qx4tjRVeSM03W8FfDVLyoToZee
+	2hH9wS1esdJrrc605lkRMh/I7/TO/Zb03T6aHwNyTKK9ERkVtf1O3HA7yR+YkD8VwV2slYhFYr5AU
+	4MzPyVVCsiNcMv5J19N3bAh4V/YSUgUL4FJLeZCVVGMEGsAxyV7lVVLMi+qLb65j0EaUoYj/SowZa
+	m0SapQHUyDa2SVCqrMYb5hT2/WLUqgk35i3l/t0RGu9KYBh/GjjCLJ705xAsbPxZTtZrB9BxYo/eS
+	/opzGQjlM0dwbzpg7GmcJqH8x+PXzczKJ72z2YP1P3P5G8y4elwz/COBFpQPv7dk7jTniZVFnk/K2
+	sDghBC1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLH27-0000000E2Pc-45s8;
-	Wed, 11 Dec 2024 07:21:19 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tLH9f-0000000E3RJ-0NGm;
+	Wed, 11 Dec 2024 07:29:07 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLH14-0000000E2DF-2urO
+	id 1tLH8a-0000000E3Er-2L9t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 07:20:15 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21631789fcdso2602215ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 23:20:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1733901613; x=1734506413; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/cb20aQBdVO9cyiblKIOeV0cEljjD8IS2jrvpmrNd1k=;
-        b=KCQ/KyMEKQbqQ442Y7Q+CdEjixXbcXgqBzRNiFp89aNVPC6iFBsxtQ+uKjmGLY5+oN
-         d0JsyiUkJW2r+sc/Lh16ItcHvnNDiKR01uQG/01JumxX3aQv9y9OyXR0O5VzP4s6pOVd
-         FSrm1yzwvW8YA8zBBnAeZ2CkHIt5js/83Lh78=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733901613; x=1734506413;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/cb20aQBdVO9cyiblKIOeV0cEljjD8IS2jrvpmrNd1k=;
-        b=ZPRTwZMiFNgSt7douLzap8WBV7UvS2+F6YWAVh4LECNyCCHtqCIn5tvMtT7Y8JQqDe
-         l2R2YY4YFLrgq+x4zf6oS3Cka4Z4u4lM/i2EgogxJa4AuGynPL+U6A70cBfgqjOmeDJV
-         c+2Y5Mxn42DjU79SBW9cVsZuTCS5xJkgXPL6bmUq1M/ATlvepmTSMbuarT28Pd4kvwwK
-         C7zSWFBeqIxXuGVa1GeIOXtvsHEJL2FB/D21MpbPglHq9HZLVfb8i+rFk+iFmGVSzjRH
-         Y/Idx7cJLLXuN/o1jMbvQHVtIoZMAyoYPIotFJM4Xp27ZwxjQ8c8tIydYsHKOg5Z7mog
-         Qjiw==
-X-Forwarded-Encrypted: i=1; AJvYcCVpR2UC+j9P1W6dhq0QSzgdjHMVzGmwdW4d7QG7ONpwI/NcQ3Vcb9kDbqwsxswmHAJ52UQrk0ugLH/Rk1Quf5P4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLus0Bn9Z3PPArRWE7D3E2zQXg1sO0hTkhEKQvmNNnH4WeWvqm
-	M9t40Uk3tAB9N+6qPY7fGiL6TepbUvC4e4+Ey4z+34WKQh4wwyk3skZmpDKI8Q==
-X-Gm-Gg: ASbGncsLY8FyNUBpwsdNgJPGx1vvVgC0xH86jVXy1gdGN2Yf/COluCP+gNLMCWx1mdG
-	amAUXkq+NAlyMmT0NWKljZVpgr/je4t8WpEsety9dSIwo4iysxnGquHL0cvCy6gXIayGXeJu0d3
-	3cLpeEranFhYn5zAIzWYVwDZCNtVPJBuh3ZeFz0IYwrtce82ICJAUcU/QOAzYRfJPurIrQE7Kt1
-	bUAxZs4rJ0wTMa6cocPKXP/TG9929dtFmOlZa02g678hro1TcOWVP+wWO+p8X3SHM1z+WWn
-X-Google-Smtp-Source: AGHT+IFb/j40l8RyXKKBP91IUhP6PaUxTTbrpQWP3pPlzKpxqE854bcUMGQOoZq9SqoelV4WQPakhQ==
-X-Received: by 2002:a17:903:230f:b0:215:b1e3:c051 with SMTP id d9443c01a7336-21779e450e3mr25924325ad.11.1733901613656;
-        Tue, 10 Dec 2024 23:20:13 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:4dfb:c0ae:6c93:d01e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-215f8e41e52sm100214925ad.3.2024.12.10.23.20.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 23:20:13 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Tinghan Shen <tinghan.shen@mediatek.com>
-Subject: [PATCH v2] remoteproc: mtk_scp: Only populate devices for SCP cores
-Date: Wed, 11 Dec 2024 15:20:07 +0800
-Message-ID: <20241211072009.120511-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+	Wed, 11 Dec 2024 07:28:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733902080; x=1765438080;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=DuNNXy9lgd56pCoejvfMh83rXfFG3Pn1MxuaqFFtgv8=;
+  b=k1bOJhmGNBuisSepv+DPKu7dPolMxbhVtlUNjTwU/ARQGSXncRSlEBAw
+   xXwpfv/ckRxnCbdLThNKRYB3VeqZc0LdMistFcKmpP0l4LUyFH7o554Qy
+   LE/8FxGUvNxPSCUD1uyq387qcj2NftRfcvgfd42MHZGcM7XK+H0NZnb/a
+   OcQyPnDC0MxfIZ+jcbZcZ7UHysO7DGFcDj9KDah0VKIm+SC4rd8WM05I/
+   fzX3MAIgBVBsEHBHxTbr+slLTR9QtqqliQYlzORVEZjXyUZk5c1G2+ep3
+   6aHuKDvFUJzt/Y62Z6xxMvxg7fs8xeiBv1sMIYC993G3ukPHfsyNrDSsk
+   A==;
+X-CSE-ConnectionGUID: +gSWDM1YSGe0x8A0O7F1og==
+X-CSE-MsgGUID: 4FM2m0mATNGm6T+hcv34wg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="21854751"
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="21854751"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 23:27:58 -0800
+X-CSE-ConnectionGUID: 1GgazKeMQp2l+WrGdmyTug==
+X-CSE-MsgGUID: 1B1+XgIJQc+3Rnz8FqEynw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="126619530"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmviesa001.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 10 Dec 2024 23:27:58 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Tue, 10 Dec 2024 23:27:57 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39 via Frontend Transport; Tue, 10 Dec 2024 23:27:57 -0800
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.49) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Tue, 10 Dec 2024 23:27:56 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VUQBWhC2tvRqok6MVshW0EEDB1o1i6hkBM452saEDKJWIZOF2tTIosL0wRoztki+qgeTzBGEY/uYZAEyyNgogT1gT+cDM77iAc5O3AOma+uRNyTdi7rxhYHPWk2ThI7ETXCdIq1/g+c0oe4ushXcGk7ROKEywx5/SDqHgJG95r/0Uq8JL8Y1DQ94tPQR2L7OMu1XaDjt76+6SbY5n1AomBMAAZyC9V+2CyKKIlghc6ap6Bqh6ZySXg9AdFbWGVyhW0ZHzHWjYr1nBThHP+Z0gADB3FYKHQpnFilbqbyUIkq4KhZ/410vgXgi3UtihItZ4ZVN+GdCjKF4E/QBHdtpmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YlylXyVD1Ev4BGnT8q3VBcyrXHmTIsC5wfGjOxlyauA=;
+ b=Co5+oQGZyANGGuS37uvdq4crDzBizlQ+Dfomak7PVWgSoVZI6lOBUr7la9U9wUpSCXmioRexrV8106l5uaj3msBnhUaRhogHv9+N1DiqwxwZfEmDrCmO4dg52QLBtuePQFMBbFnm2YI7uPP/uVnLCiU6qAoulHk8CMhcr3ZtuWyacJ2W4hX5i7zSrDANcmhL5CVIprRW+rHPs1wUOMaUTcXfx/7UkzC+vVCkjIidL/53n1vtoYKvZeCjC9MiWruY2KGHDpwrH/oSISRGF0mXLMDLkmbSm4IIxSOOOMUxsY371TJttENWDczstGH5w/CjrfuEc4aHbUYvDTO2Ebq89A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by IA1PR11MB6537.namprd11.prod.outlook.com (2603:10b6:208:3a3::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.14; Wed, 11 Dec
+ 2024 07:27:41 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%5]) with mapi id 15.20.8251.008; Wed, 11 Dec 2024
+ 07:27:40 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "corbet@lwn.net" <corbet@lwn.net>, "joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
+	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
+	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
+	<yi.l.liu@intel.com>
+Subject: RE: [PATCH v2 01/13] iommufd/fault: Add an iommufd_fault_init()
+ helper
+Thread-Topic: [PATCH v2 01/13] iommufd/fault: Add an iommufd_fault_init()
+ helper
+Thread-Index: AQHbRdBGeLxaINfdSk2XKhoLewYkS7LgsEXw
+Date: Wed, 11 Dec 2024 07:27:40 +0000
+Message-ID: <BN9PR11MB5276A65935F9E6339FBA49918C3E2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1733263737.git.nicolinc@nvidia.com>
+ <3bc49512a42b88130cf447a7ac10acf5c02e056c.1733263737.git.nicolinc@nvidia.com>
+In-Reply-To: <3bc49512a42b88130cf447a7ac10acf5c02e056c.1733263737.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|IA1PR11MB6537:EE_
+x-ms-office365-filtering-correlation-id: dacc7a16-fbe9-44c3-d81f-08dd19b54bc1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?WQN8e7dlXYNQ7KWHoLut1yMeW1IPtw0Km9DlNnT+eUlAvCjvmQNOTJQol/2a?=
+ =?us-ascii?Q?IvWuR8cxzga2MTtcJYqLwIZws2nB8RgY4R0VyczFNhqClzS7yT8GYz7JqtNz?=
+ =?us-ascii?Q?UGqohIkNouJlUH/ejaGnlztTtfrBnSbM/YeeVSfYHmPIHUfpmllwDShNdWjN?=
+ =?us-ascii?Q?AINC3sJOdNrEDF59iGZYb2aWVMzh2QCawhWXexzbBfklRAqmRyXQ9MhEkgGX?=
+ =?us-ascii?Q?+E85cUOhGFsv5g9K7fnuacn+DnwJYClB6DV39Vxkybp8yHFQc3idgT1v7RfW?=
+ =?us-ascii?Q?rAbtDECkxgG7EblYJF18AisS1Y1xcETbieT3m6Y1/I7t9oG6Z7MjekiuAtcF?=
+ =?us-ascii?Q?r0yqOO6mQ7QL48VKj5ne5DdaEru37yv3MO3iamRxFqJubFBkc2bXQFDGby39?=
+ =?us-ascii?Q?QhY9ycCqqYuJjxzT3HGFdtIN1ex7JgjTYDdgYFvVSBKEWYwTHJbw0wN4nt0S?=
+ =?us-ascii?Q?hgT9V4ipm/RUcxFF6E4EiWE5OZiGYoeSLwDUH/DzG1w1+PpiFiwJNlC3wmf5?=
+ =?us-ascii?Q?Mg6hk/cMTpmLr1leQ+g/F5GOj/DHGafkaDk0Dgsqq2TT3uroe4OqXUeLHb4K?=
+ =?us-ascii?Q?Tf8UwrD8TbeFPhWlWJECvus30yF9wPd2yP+/ySvF8ghzW6o0duSU/nMO2ccX?=
+ =?us-ascii?Q?yv4mIcgYO5vaHbf7r0K226pfzc/ZbMVtCHK7x2baHymv6r+rzP+kmhEPWRO3?=
+ =?us-ascii?Q?ZOXyvdhYF9O5fcEtrJmwG6f2ujB9mOjXKIFCO9gDgggwQgf6/7WngJ/O60iD?=
+ =?us-ascii?Q?uxdsDVTc3QomMfOhTJN0O7EV7EdZyOQ+vJztuk2OOG3vYyMR7QWEIM3Rx3an?=
+ =?us-ascii?Q?olOY/p+hn0B3Gxu/0pppqczMl3b2LwNDv3wWnsDxnjuYCblJel6cjGCvyjAg?=
+ =?us-ascii?Q?WP3ltG4jfrzceH72sJsBus0kriZ0+Q/mbpE/eUDgwYi+q0IgKJ3svO+HcnwN?=
+ =?us-ascii?Q?LOowPJ0MAvHHmdzAsrAORoRkW0FU21vAJiCu5Nu23D9qr1KnpzR8qEfSVg2U?=
+ =?us-ascii?Q?2BLNxqn4VgGcajE4oSqcckCfUgoBARDHrVy+Wyi3+6LOscbNaLOX3McKM/u2?=
+ =?us-ascii?Q?nnR+d8728k7e0G/VgoyfeR2qiNJde+Oam6sMWwi/tLReAzy+nei2FVNROkom?=
+ =?us-ascii?Q?H8bXHJP38w1QzTaE9h7BhWzEkxLGO/AwaMEucz/ui62VK4/jVj7iLR6vU2Oa?=
+ =?us-ascii?Q?4hUb7hzQWq8OujVwiAlgTgj3ZGnPYowaawPx5VKbvJzvndcyvadp1NnrlnbY?=
+ =?us-ascii?Q?i9GG0R9Gh84+VQcEI6vcnPk8OcUCCkKt+TEvuY30V9zP0OB+q2KxLxKjYlba?=
+ =?us-ascii?Q?R/kM0E/xRLtqRktk4VJmYChprXJY/w9nMKOJZIALo0n60tyhmxXvQJMuWaBw?=
+ =?us-ascii?Q?kLIKeo5OK6PQPemuB///AVn14cUQgTR7609MEcdyptYz1p9Hug=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OtRCASdD84lL/gcEcd2VX6o+AHyClCZ9c01sDFJLewN7i27r35YZ33JrGNZy?=
+ =?us-ascii?Q?2srnVovV3JOCGVhvXPb+usIrBg+5SejaULT94z4MzTGzTdr0d1jESBxjVA6e?=
+ =?us-ascii?Q?NfVMr5BT1jn6majHCZkzm9C9VZ+bDnpOpdqgT5+kWJlEfAPdFmZlgtbevfYr?=
+ =?us-ascii?Q?hQv+ZEeheSCT9shV85vBsthlgcI0u8CaiCjTEqaKMmvCQ6VWTO39/aXcIBJL?=
+ =?us-ascii?Q?Fd8qWHtSsJF3DCCMeHf2TwikB0PuQ2GqyRYb6K53Rh+nDR51yEwRW/A+2bic?=
+ =?us-ascii?Q?I1KszGjFDWaRAv1vHX+7kXKgVNzdpeifFbA9vnDSfRMpOZwk9Gd406VpMRTJ?=
+ =?us-ascii?Q?vvXK2l3DoV3GMk6dqMirGLRktj394+rYsNqtibb6dQLW5Zn62kSV6h6qiloB?=
+ =?us-ascii?Q?vaIOkrudnhIhS+t9kV24xbnNtImrb8v2n2ykWq4FXDSA8fPacqP1pvjjSAc3?=
+ =?us-ascii?Q?wHrdhjSe1bM5TPow5cYC1tDIvom7OI0jI8V4do3jFa/aEt1Uxc+7JyUl7hHL?=
+ =?us-ascii?Q?GbqyJ9QhaUIH9cuM0Tl7jKPEVcWdaW3QiphWGNr1W2EHzuL8Jj/cD9WqRcbh?=
+ =?us-ascii?Q?mR9IKGubwZSL5pOkAbYHXwJENlVwE0mrOAl+vkN+9Nl1Zm/2i7YN6Vt6G7VN?=
+ =?us-ascii?Q?gUzQOmP1kb3Yhb7Jnf+K10ypYl4sVPxHMYjLTeV8ff2yHWLH461rvw7wE8oE?=
+ =?us-ascii?Q?gEMuN479ZDmnNJge55u/XkoX7gONExYnqvIkKar8xJ8PYN2wf3VK006BOQlB?=
+ =?us-ascii?Q?xn9e3ZV66z7vvi5Kkc/7VlZnjObOiRFPaZi27aw/Z/uvADLEFtAceNVv/0by?=
+ =?us-ascii?Q?nZVtMMu73dQjfa79luZo1CKzkbFDgPylWWll566qnKS/19WxAZ/OuJx3f2VL?=
+ =?us-ascii?Q?SOyjStDONHwxgRndF+BFpnfkGJiE/Ny1KpS97qoJQGEWkeMxvyOpUPxxTJVB?=
+ =?us-ascii?Q?MsnfxxFaEDdbdkFVjavZyn4dW/VrEbtWT0IWLxILtXA8Wq8JGpAwhH2RmMsl?=
+ =?us-ascii?Q?NmYPhF2oUTtWAa76BYeFGTxQdFKUQM4jjzKlMK5P7Q++oHYBdKVIyCH/tYFt?=
+ =?us-ascii?Q?H1iTd1+MSrPwuoMPCE10DpXt7RW3Wje+f8SrYLewG/UgtPG8Yg26oLBKwPQL?=
+ =?us-ascii?Q?ovyTeBrXChD/9ybG6NugN2//q/Hsea5JRsis1fGWlEaGgSKKJXbjfpKq345o?=
+ =?us-ascii?Q?oxi51SfMA/f5j3mtJbqq036cxpfhcbijgTmTlJaCNGfiPKRvv6UHZZB4Ibp/?=
+ =?us-ascii?Q?d5MRlffZfEEVUA/paKGwYbrEjmqC5HiKLHx8Qy5NcXFLFdbgCY3BJyR3zgR0?=
+ =?us-ascii?Q?i1VrywUBGSb+95me0bfMfS3lFXe34ncZMxW/HkYg8KJdKjdGbQSMlx3eoI67?=
+ =?us-ascii?Q?0DnvrBQ5ZTG9lOpD2vUcqnwKZXT5TUrEmIfoQy1tRlBEPguooebVPjWh/4Fv?=
+ =?us-ascii?Q?AaCGDJs42Vyl0DP0LpjcPezly2NsKUuDT8m+5CkzP6R/pwStR/eFuepkaqkb?=
+ =?us-ascii?Q?v7BVePZmBWyZ3jVhBIF3MJbHK/FLHOnfq14pJAp+0dyGVo+n6FsdBig11jHp?=
+ =?us-ascii?Q?7AD7KSBoVW3BW3UJydI9LV7qANxo+D9LU4zZ/5Iy?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dacc7a16-fbe9-44c3-d81f-08dd19b54bc1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Dec 2024 07:27:40.6978
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rAtu+tHgoJsmMaYAOM/Fx7phPopqYDvG5GlxfGfidClxp/yMN3Z9nt8KxlqVkE6nSbxKyOwllqdKxxF/T5e8Sg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6537
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_232014_760743_3385E322 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20241210_232800_646156_5C0F756C 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +211,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When multi-core SCP support was added, the driver was made to populate
-platform devices for all the sub-nodes. This ended up adding platform
-devices for the rpmsg sub-nodes as well, which never actually get used,
-since rpmsg devices are registered through the rpmsg interface.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Wednesday, December 4, 2024 6:10 AM
+>=20
+> +static int iommufd_fault_init(struct iommufd_fault *fault, char *name,
+> +			      struct iommufd_ctx *ictx)
+> +{
+> +	struct file *filep;
+> +	int fdno;
+> +
+> +	fault->ictx =3D ictx;
 
-Limit of_platform_populate() to just populating the SCP cores with a
-compatible string match list.
+while at it could you move this line behind iommufd_ctx_get(fault->ictx).
+usually we want the two together.
 
-Fixes: 1fdbf0cdde98 ("remoteproc: mediatek: Probe SCP cluster on multi-core SCP")
-Cc: Tinghan Shen <tinghan.shen@mediatek.com>
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v1:
-- Fix commit subject: populate devices *for* SCP cores
----
- drivers/remoteproc/mtk_scp.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 0f4a7065d0bd..8206a1766481 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -1326,6 +1326,11 @@ static int scp_cluster_init(struct platform_device *pdev, struct mtk_scp_of_clus
- 	return ret;
- }
- 
-+static const struct of_device_id scp_core_match[] = {
-+	{ .compatible = "mediatek,scp-core" },
-+	{}
-+};
-+
- static int scp_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -1357,13 +1362,15 @@ static int scp_probe(struct platform_device *pdev)
- 	INIT_LIST_HEAD(&scp_cluster->mtk_scp_list);
- 	mutex_init(&scp_cluster->cluster_lock);
- 
--	ret = devm_of_platform_populate(dev);
-+	ret = of_platform_populate(dev_of_node(dev), scp_core_match, NULL, dev);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to populate platform devices\n");
- 
- 	ret = scp_cluster_init(pdev, scp_cluster);
--	if (ret)
-+	if (ret) {
-+		of_platform_depopulate(dev);
- 		return ret;
-+	}
- 
- 	return 0;
- }
-@@ -1379,6 +1386,7 @@ static void scp_remove(struct platform_device *pdev)
- 		rproc_del(scp->rproc);
- 		scp_free(scp);
- 	}
-+	of_platform_depopulate(&pdev->dev);
- 	mutex_destroy(&scp_cluster->cluster_lock);
- }
- 
--- 
-2.47.0.338.g60cca15819-goog
-
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
