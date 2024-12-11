@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB9CE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8625E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 10:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAYNlgaGtbIb3faMoAC6BM9L0RPwmWJIn6sYTEEwFWM=; b=NDkOlvD/OnLgFIyx6UdvEP+9P4
-	R4kN+tB2RTZe4l3jglgn/fybIDbDoOCvW/RgeToGcU3rWS721SVAEDmuCjNPsBIL9J3u0+DFm1Dk5
-	CRKbqQrKAZNOV+jv0MDDZWKicD+bvdgIP6RSMvJgQMTjsknW6PWlkidMV99ghey5RYjOgUz8Q4ayj
-	Fl9ReSGP7GgzkllidE+YWBpV0mQYloW30jwjDtOJS3qYmgqEfzj5eFB1oD5k1x4S0fleOaL6y7Huh
-	G/kkWLbaeGtbbZ1iIW9V9xvkYw8FDOJoXkECHFMYTaGs5aeT3T2kkFht9U0fYDxRbLTREGmfAY+vB
-	3b20uN5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vOeLOQDBBawVTWkd947Dpb5M9r7TNTr8AtGL0MxXHC8=; b=fk9ZFoyOI61kT2kVLYnwWcfNTq
+	7VDxLXrkuvel3xHiFg3ofDn83z2ct7ijAnDawUNT9bOoJZ90cwPAji538M6fw4hWmaegDwewVFyyE
+	NuvavOWQpiJAaSRZ9EAXUbNwE0NslYt6/8qjplMIN/sRkIPkvn2GXIBN7bCdKEohCrpfJheSAyPsl
+	Pg69Nqs6W02mWJw+cc9lonCAaC45Rh6zc6q3oQrAJw4uoIoFGPtzeyODuyVXZqMw00iea+DhY44oC
+	ogTohtW1728uEIB5tH3ItBqQA04W/+MwrzW1JGLaZuUn/19Mj7Zx0OmLOMTCLQjLdq3qGaYzteSvE
+	UevcBB4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLJlC-0000000EXmM-2G0i;
-	Wed, 11 Dec 2024 10:16:02 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tLJmE-0000000EXzO-1X48;
+	Wed, 11 Dec 2024 10:17:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLJk8-0000000EXTx-2lsr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 10:14:57 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa66ead88b3so698285566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 02:14:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733912095; x=1734516895; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aAYNlgaGtbIb3faMoAC6BM9L0RPwmWJIn6sYTEEwFWM=;
-        b=W3lJzfJAXg+npikLPJwXPpUgBX4wVPK0hyq51OeizR4c33vVnlZVUdOwd22SlPUdbU
-         hv9Q7ldTsl1HwG/R9V1hCbswIKA3Zf5kOoXxD3bMby5QM7fp8qRr6GSUNDr1VSep29YI
-         TOFVVs3tnWx+pffR1BFy417GeDRyhiUN+nq4QaCxmhbtmI50a/T4ebGR6HMDKPCICyi2
-         3U5DyOp2G+BiaSwnKTJ6CpY286WZVil6iW/ehzRWELehmfleNrsZzBS4Rx7xJaUsazYa
-         vYFCXKgEGKQz/uKsCg28W3e7CK50M8kIJ4pRALNBoWbseA4NqLeXZZs5d/JpM8kfDsMh
-         eG1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733912095; x=1734516895;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aAYNlgaGtbIb3faMoAC6BM9L0RPwmWJIn6sYTEEwFWM=;
-        b=VFytml3peNnUtD8SfG1d9X1seZgea8eGWQ8s1njUPqdpTQOMjqHvaozhzkYDO2v/dT
-         CiZ2xpdJBM2HvnWnb9hHqps2PpS1cGQnebCVPM2B1UW1oM+RXj3QyhnE0p58tEiMBjNL
-         rlW7TzcHzGD2jBh28Mgj5k2gGDgnsxHkCLOeg4husC8pc2ThGg9282vkUvaa68bgHfdh
-         GAeXT5Ist4v5qSywPbi7dAXp3LlJVQrmZdzCfrhBza3u++HIBsNw/6t+jZ0bYY1OqK/s
-         zSR2lLsTOSXGonKF+qIXNUryr89pI0SgoBI2iL8ez+QUWhPVhqgtyiTEUtpEDgtTtucE
-         mciA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmX179/NgXZ6d3o2HbjAjVF85vwwTUMkFgCCR//ZROaWE2wQQQcqjJOyB5f5fV2g8nTSjHcnvZBWlYujlP2zU9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxHf8QBgg7tZyuiVcUZsqFeOMmWm82kCwDtwC13hR6k9YntZ1Y
-	pvtLLjbenkJvYYFZr+VfzpFx5zT4g+NvwwoAPxmdlDhz0UI9JlBimWQlPc4dwg==
-X-Gm-Gg: ASbGncste2S9fmqbxa4DSuM8xchBffXoG0OZg1ic9fSD2QRVnUYvuutqUI0wG163830
-	uqpUTlmRPtnz4q8qMockNuhebHCoBxkI8smTeiV3xFGyket6g/DwSEDfREUojGxXnl+sc174oRt
-	HdZPXQIaUS3JegRqyYJgx+YHeMxbd6l5awp8BXJbOqfpiVYon4eexdmVqBZJRWwqU7DiuU4BoOx
-	AWVhn8OVtX3XopAaVxI/SwchysFdU/f13Lih3rNJSxYRkXaAU9pvVtyXXvK5AEgffc92BPRwiLU
-	s8E2Idmy5NQv
-X-Google-Smtp-Source: AGHT+IFMcTlkeGboQKqbrDdMcECPHEth8gqU16Ievc6ebB6cHKDKOmVuqDalLIEjr7JcNgbRfs9Dnw==
-X-Received: by 2002:a17:907:1587:b0:aa6:6e02:e885 with SMTP id a640c23a62f3a-aa6b13b1375mr155243166b.47.1733912095003;
-        Wed, 11 Dec 2024 02:14:55 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa67557f0desm553688466b.144.2024.12.11.02.14.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 02:14:54 -0800 (PST)
-Date: Wed, 11 Dec 2024 10:14:51 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 10/18] KVM: arm64: Introduce __pkvm_host_share_guest()
-Message-ID: <Z1lmG-3KnOZrOCCa@google.com>
-References: <20241203103735.2267589-1-qperret@google.com>
- <20241203103735.2267589-11-qperret@google.com>
- <CA+EHjTwHSyQ1FJc7axbLNuBxSWpRVE6brb34nO+F59=QRmfQEg@mail.gmail.com>
- <Z1hhHRdpCZcLs046@google.com>
- <CA+EHjTw4GX3j_ssN-tWnf780xkvyKO5mBN6fnvXeWvQcBDmcNg@mail.gmail.com>
- <Z1liL3BtoPnSyvlh@google.com>
- <CA+EHjTw+3oAcp3ujjPmbcu42=95nw8WA=rZHYFL91ZK_Wfs_vA@mail.gmail.com>
+	id 1tLJkf-0000000EXYc-436J;
+	Wed, 11 Dec 2024 10:15:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733912128;
+	bh=eAufraMFMnfi2IGWNJkkS7Jvw+zFLnnar89/NtNbjiw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Yvnsj5DWio7ojSsr0PD02rfB0+uMYYEQE5WOnSyNKDR2HjXw2rK0L6TOU2DEitxH0
+	 WCmWJy+dRCAtn4kkAO2idsGzsYbsk4bSeexucu0C/CtgEMa7ntvSaBmuWJna1s3IIh
+	 t42y5gLCjbp0Oo8wiRKOWdoSKuyn2HUNlZW9kgHbJ/nrdpECJWYlWXnfvKEWa/lCVm
+	 DMrsT5+7ZE/NSQZHXmWAgh3XwHYe1o+XKAzO75BOtACPE0m88HHHrIjxCp7s0CCdji
+	 6LedlVG9x8WnqtBB3ySrHevu/oYhsIa37BhZ9WjgmbvSfSfwKtOJq+tqHrTRE0RCBh
+	 fBXjJd1cKBCOg==
+Received: from localhost (unknown [188.27.48.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CD64417E35FC;
+	Wed, 11 Dec 2024 11:15:27 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Wed, 11 Dec 2024 12:15:05 +0200
+Subject: [PATCH v2 1/5] dt-bindings: display: vop2: Add optional PLL clock
+ properties
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTw+3oAcp3ujjPmbcu42=95nw8WA=rZHYFL91ZK_Wfs_vA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241211-vop2-hdmi0-disp-modes-v2-1-471cf5001e45@collabora.com>
+References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
+In-Reply-To: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_021456_699255_01025869 
-X-CRM114-Status: GOOD (  40.44  )
+X-CRM114-CacheID: sfid-20241211_021530_182750_66AC82D0 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,77 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday 11 Dec 2024 at 10:07:16 (+0000), Fuad Tabba wrote:
-> On Wed, 11 Dec 2024 at 09:58, Quentin Perret <qperret@google.com> wrote:
-> >
-> > On Tuesday 10 Dec 2024 at 15:51:01 (+0000), Fuad Tabba wrote:
-> > > On Tue, 10 Dec 2024 at 15:41, Quentin Perret <qperret@google.com> wrote:
-> > > > > Initially I thought the comment was related to the warning below,
-> > > > > which confused me.
-> > > >
-> > > > It actually is about the warning below :-)
-> > > >
-> > > > > Now I think what you're trying to say is that we'll
-> > > > > allow the share, and the (unrelated to the comment) warning is to
-> > > > > ensure that the PKVM_PAGE_SHARED_OWNED is consistent with the share
-> > > > > count.
-> > > >
-> > > > So, the only case where the host should ever attempt do use
-> > > > __pkvm_host_share_guest() on a page that is already shared is for a page
-> > > > already shared *with an np-guest*. The page->host_share_guest_count being
-> > > > elevated is the easiest way to check that the page is indeed in that
-> > > > state, hence the warning.
-> > > >
-> > > > If for example the host was trying to share with an np-guest a page that
-> > > > is currently shared with the hypervisor, that check would fail. We can
-> > > > discuss whether or not we would want to allow it, but for now there is
-> > > > strictly no need for it so I went with the restrictive option. We can
-> > > > relax that constraint later if need be.
-> > > >
-> > > > > I think what you should have here, which would work better with the
-> > > > > comment, is something like:
-> > > > >
-> > > > >                 /* Only host to np-guest multi-sharing is tolerated */
-> > > > > +               if (pkvm_hyp_vcpu_is_protected(vcpu))
-> > > > > +                       return -EPERM;
-> > > > >
-> > > > > That would even make the comment unnecessary.
-> > > >
-> > > > I would prefer not adding this here, handle___pkvm_host_share_guest() in
-> > > > hyp-main.c already does that for us.
-> > >
-> > > I understand now, and I agree that an additional check isn't
-> > > necessary. Could you clarify the comment though? It's the word "only"
-> > > that threw me off, since to me it implied that the check was enforcing
-> > > the word "only". Maybe:
-> > >
-> > > >                 /* Tolerate host to np-guest multi-sharing. */
-> >
-> > I guess 'only' is somewhat important, it is the _only_ type of
-> > multi-sharing that we allow and the check enforces precisely that. The
-> > WARN_ON() will be triggered for any other type of multi-sharing, so we
-> > are really checking that _only_ np-guest multi-sharing goes through.
-> >
-> > Perhaps the confusing part is that the code as-is relies on WARN_ON()
-> > being fatal for the enforcement. Would it help if I changed the 'break'
-> > statement right after to 'fallthrough' so we proceed to return -EPERM?
-> > In practice we won't return anything as the hypervisor will panic, but
-> > I presume it is better from a logic perspective.
-> 
-> It would, but then we wouldn't be tolerating np-guest multisharing,
-> but like you said, it's not like we're tolerating it now anyway.
-> 
-> I wonder if it would be better simply not to allow multisharing at all for now.
+On RK3588, HDMI PHY PLL can be used as an alternative and more accurate
+pixel clock source for VOP2 video ports 0, 1 and 2.
 
-That would mean turning off MMU notifiers in the host and taking
-long-term GUP pins on np-guest pages I think. Multi-sharing can be
-caused by many things, KSM, the zero page ... so we we'd need to turn
-all of that off (IOW, no MMU notifiers).
+Document the optional PLL clock properties corresponding to the two HDMI
+PHYs available on the SoC.
 
-That's more or less the status quo in Android, but I vote for not going
-down that path upstream. pKVM should ideally be transparent for np-guest
-support if at all possible.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Thanks,
-Quentin
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 2531726af306bd388c00c3c0a1785b2c7367e2bd..46d956e63338e196361483a668fbf5597ebce24f 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -53,6 +53,8 @@ properties:
+       - description: Pixel clock for video port 2.
+       - description: Pixel clock for video port 3.
+       - description: Peripheral(vop grf/dsi) clock.
++      - description: Alternative pixel clock provided by HDMI0 PHY PLL.
++      - description: Alternative pixel clock provided by HDMI1 PHY PLL.
+ 
+   clock-names:
+     minItems: 5
+@@ -64,6 +66,8 @@ properties:
+       - const: dclk_vp2
+       - const: dclk_vp3
+       - const: pclk_vop
++      - const: pll_hdmiphy0
++      - const: pll_hdmiphy1
+ 
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+
+-- 
+2.47.0
+
 
