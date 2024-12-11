@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC91E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE6FE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCKblsfnLtcX1asQexHyotD6xp0ti25yYqYvOyshEL4=; b=j365r4/420y5YqzH/4ytLToe9g
-	BHJ3/E41Rf4tirgwGn9rvpVLPRTikpwRlw3gK5oPBywCprJuTzPI//G6oCWtXoPM+6TWtMqqiOlxa
-	So7MJmmTQ2HfozKLeYuubkjZh82Mu2IV4xr+S74mOSJ6FMTx+eCSnXw8g0XvTRafEZPC52gFrY+1g
-	XUqfkoh0yCMOFmgdbmegNO9W4n7cKQbnc0VWvmFfmQb5MCTaw4loa50XtI3jLszwPMw8BWWnjYRZb
-	6+cn2VVm6+twwICjSKlDWXBTOXv3OVbtv4KAbgx/yvzcQ0eFeDE7jB+Mzg8es/8747QKDPZTDjpOS
-	hLyWw0+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBAUUgHHCorAYYhe1b/RpcaSfhfVVFDNGT3lM1F0Fxg=; b=1b6zk5jYliAR/inW6JVQUFqam4
+	avwm9jCvRBPB5ymbJcVUeDINpN0Snu2GB5V5Af9bM7YVBYr2yEzgLo7aEnC7+gawPgj8BpGEe3fgp
+	cKzBYQU6cGkCl436833JK5HR7jWcIRtGa2MBtFmYnB9f6Zi8QcYuE0ZFGwfSTATW0GJQ+iuWNaI7B
+	cP+RQAubt2k2hQHjg8wXZ91626U4nwb7HjVDGbdtjdljgiYykWOxr0NQ22QD3t1qT1b2IGt56KrFq
+	jfLdmwokoKX+P2wmV/zRRKBOCMK4m9QttuaokK8ZiLpzYnXcR6Us969xkrHHCjqosvXPMtVeYuj4f
+	GlaX0nlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQpd-0000000Feg6-17lI;
-	Wed, 11 Dec 2024 17:49:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLQvc-0000000FffK-3d0e;
+	Wed, 11 Dec 2024 17:55:16 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQoZ-0000000FeWq-0Ryi;
-	Wed, 11 Dec 2024 17:48:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10753A416E5;
-	Wed, 11 Dec 2024 17:46:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F11EC4CED2;
-	Wed, 11 Dec 2024 17:47:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733939278;
-	bh=TOa90gglsAMWtT4I7yLrFSBUAjraBKJ6HPeTieiLqG8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FG49E3Q+siZrzENpjbDA5cUgsmXhazVqIjDVHOf9bsfRStdHLCDI4TGKszxLN2qLX
-	 Onlce2Ey9PKE1nO4Vc9b7KbXea6Scgvl7hM2ep1lwi5cQEnhSCfPYCNCZLVIOjkZuc
-	 frmDm1MmUoHkzeaJvUim9z5DPDoRwl5Rt/rnXUc6vkgX2LdW0KwJ+FdBVvdjHcCJmw
-	 uGcNSUdi0WeUziTsaZ+Og8pPJRWDxf9SqpGTNBVrSzj7r9Fb4V6HUsQ2d6+bmy16Xf
-	 8KR6T5t/U/h7HhwdgZJ/aTTgOcPxWQBCBNaqsG/hDozq01Cc3Vl1kIH+GDhFbiNQ6f
-	 xY4ajavOL0nyQ==
-Date: Wed, 11 Dec 2024 18:47:44 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, FUKAUMI Naoki <naoki@radxa.com>
-Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes
- handling on RK3588 HDMI0
-Message-ID: <a4ex3s23r4k6wehyoaw3aylpcexfrclrxxykjpabhdfne2jgmu@ii6riiiga2zj>
-References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
- <20241211-vop2-hdmi0-disp-modes-v2-3-471cf5001e45@collabora.com>
- <64vc5pkj44w3qxf5wkcxgghpwhvoagzemcsfqmi7fhsxt7vlqd@yfcgloi45ygh>
- <1820767.5KxKD5qtyk@diego>
+	id 1tLQuZ-0000000FfSe-0mOx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 17:54:12 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3eb87127854so288308b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 09:54:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733939650; x=1734544450; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SBAUUgHHCorAYYhe1b/RpcaSfhfVVFDNGT3lM1F0Fxg=;
+        b=qKV2stB/dYUVqrY8dOGfMhycNzx5L1yaQiTCjhYZSA4dbqoiAzQeiLEuLA5lxwJgAX
+         v3/NU3CuriYjXT81bw3mtjdDCgRYdmHw6CpMbjq3kllAwIePUs4AIh15xy1qlwWCoXpU
+         yx1dvttWpAVGtLmfGhNhDGRNpm34CUU386QvfCUnRdB0foSXWESAi26Ptltuq2XH4i2B
+         1wlwToB6O2v9otLZTwUbYY6umy7w4PNrExW2B/c3GNGKqUyoq0HZbTAh6Ma4nYixyrBC
+         TIXOchTsGx0QTrFgMQ3rwH0dstwcqhwYkzOqQFLSXbfPu5oIM0OV/HfP8JEj8M+fzcaj
+         vp/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733939650; x=1734544450;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SBAUUgHHCorAYYhe1b/RpcaSfhfVVFDNGT3lM1F0Fxg=;
+        b=ZXOpRQ92Uo9PXaFoBd1mkeBWVlce8y8Jqcjs9Hy5UHrULPL4DqWdfRYvvv5l5ir6D1
+         vfsiYlkzy8ymB3CT1QW3hN+ZfnUtylR3YyFZVq2R1EVp52LZXoXLtrrZBDj+KIsETe+x
+         dW9V7vQaT/rWCI/Jx4aNYsMRNrbtx1oHpBx1XHZmQOWHxsuezAADkY+dDUNMnj4tI/Xb
+         kx8I5dzetuBiJNwKzy8GI17FyDch7imP9jb40t9fl73EginOlrdKFcON7Os0DYsF4HR9
+         iNXCnTyvpwv+LS62C8sOdg03ybX+jJtU/vbALw61FUqW/DIaMriG3O3/HR4waIiOU0KX
+         XZvw==
+X-Forwarded-Encrypted: i=1; AJvYcCX6KRTXqnVVMUTEfl8l3YWMd85mfK1x4pB7wYeMxa1MMjMyKpddmwHjeMclj4ORpWySB/5WspdUStm/Yd4eIKw3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzA1L6hsc76kirJVFCviEnPoDNV7xKtkLb6YAdKIWyvTy/1rbX
+	Xdkn2EuFfc3a61ieJ2PstM49XcN7oJWpe8d2OAKI0aYD6JQvr1ofwpSo9LZ6vJzH+rc1sOxjFf6
+	tjgcPi2n0+AwK2otvEmTzdfxtM+iP1oKwGTp5RA==
+X-Gm-Gg: ASbGncsSNKyyiJvk1g+98zkw6/fAMjuoV3xJ782Fzc7jC/8g/nEh2cWRKbAFfY+LejD
+	mV4giXwH4q4xhGKKpRIJVSS90T7FVq0IwpRc=
+X-Google-Smtp-Source: AGHT+IFfj39z5VsWFUtc547a2JiE2gqj7fMrc6Hgv7LJC75wfYKzbNhVcat1Y4z8nTrgUp65iUPhRZVJvBmlgSE3NeQ=
+X-Received: by 2002:a05:6808:1304:b0:3eb:3cca:8829 with SMTP id
+ 5614622812f47-3eb85d14a42mr2424138b6e.34.1733939649689; Wed, 11 Dec 2024
+ 09:54:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="u3dawvlh3uphzrsa"
-Content-Disposition: inline
-In-Reply-To: <1820767.5KxKD5qtyk@diego>
+References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
+ <20241206-gs101-phy-lanes-orientation-phy-v4-7-f5961268b149@linaro.org> <CADrjBPrz1qUxbEVFR8OT785xLPwWmu3_ZThSne+EtpS8_NHEEg@mail.gmail.com>
+In-Reply-To: <CADrjBPrz1qUxbEVFR8OT785xLPwWmu3_ZThSne+EtpS8_NHEEg@mail.gmail.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 11 Dec 2024 17:53:57 +0000
+Message-ID: <CADrjBPqW81kaK=Wco7wMg50APTXGRwhnfFjbnogrSQ-T_mWnUQ@mail.gmail.com>
+Subject: Re: [PATCH v4 7/7] phy: exynos5-usbdrd: allow DWC3 runtime suspend
+ with UDC bound (E850+)
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Sam Protsenko <semen.protsenko@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	Roy Luo <royluo@google.com>, kernel-team@android.com, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_094759_280447_C4BD957B 
-X-CRM114-Status: GOOD (  35.18  )
+X-CRM114-CacheID: sfid-20241211_095411_244585_48A85C74 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,139 +100,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andr=C3=A9,
 
---u3dawvlh3uphzrsa
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes
- handling on RK3588 HDMI0
-MIME-Version: 1.0
+On Sat, 7 Dec 2024 at 22:03, Peter Griffin <peter.griffin@linaro.org> wrote=
+:
+>
+> Hi Andr=C3=A9,
+>
+> On Fri, 6 Dec 2024 at 16:31, Andr=C3=A9 Draszik <andre.draszik@linaro.org=
+> wrote:
+> >
+> > To make USB runtime suspend work when a UDC has been bound, the phy
+> > needs to inform the USBDRD controller (DWC3) that Vbus and bvalid are
+> > gone, so that it can in turn raise the respective gadget interrupt with
+> > event =3D=3D DWC3_DEVICE_EVENT_DISCONNECT, which will cause the USB sta=
+ck
+> > to clean up, allowing DWC3 to enter runtime suspend.
+> >
+> > On e850 and gs101 this isn't working, as the respective signals are not
+> > directly connected, and instead this driver uses override bits in the
+> > PHY IP to set those signals. It currently forcefully sets them to 'on',
+> > so the above mentioned interrupt will not be raised, preventing runtime
+> > suspend.
+> >
+> > To detect that state, update this driver to act on the TCPC's
+> > orientation signal - when orientation =3D=3D NONE, Vbus is gone and we =
+can
+> > clear the respective bits. Similarly, for other orientation values we
+> > re-enable them.
+> >
+> > This makes runtime suspend work on platforms with a TCPC (like Pixel6),
+> > while keeping compatibility with platforms without (e850-96).
+> >
+> > With runtime suspend working, USB-C cable orientation detection now
+> > also fully works on such platforms, and the link comes up as Superspeed
+> > as expected irrespective of the cable orientation and whether UDC /
+> > gadget are configured and active.
+> >
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+>
+> As mentioned on the last patch, in my testing cable orientation
+> detection is working, but Pixel is detected as a superspeed device in
+> one orientation, and high speed device in the other orientation. So
+> you should either change the wording of the last paragraph in the
+> commit message (assuming you get the same results as me) or make it
+> detect as superspeed in both orientations.
 
-On Wed, Dec 11, 2024 at 06:23:03PM +0100, Heiko St=FCbner wrote:
-> Am Mittwoch, 11. Dezember 2024, 18:07:57 CET schrieb Maxime Ripard:
-> > On Wed, Dec 11, 2024 at 12:15:07PM +0200, Cristian Ciocaltea wrote:
-> > > The RK3588 specific implementation is currently quite limited in terms
-> > > of handling the full range of display modes supported by the connected
-> > > screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
-> > > few of them.
-> > >=20
-> > > Additionally, it doesn't cope well with non-integer refresh rates like
-> > > 59.94, 29.97, 23.98, etc.
-> > >=20
-> > > Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
-> > > all display modes up to 4K@60Hz.
-> > >=20
-> > > Tested-by: FUKAUMI Naoki <naoki@radxa.com>
-> > > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> > > ---
-> > >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++=
-++++++++++
-> > >  1 file changed, 34 insertions(+)
-> > >=20
-> > > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/g=
-pu/drm/rockchip/rockchip_drm_vop2.c
-> > > index 8b2f53ffefdbf1cc8737b3a86e630a03a7fd9348..393fe6aa170aaee9663c4=
-a6d98c1cd6a5ef79392 100644
-> > > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > > @@ -158,6 +158,7 @@ struct vop2_video_port {
-> > >  	struct drm_crtc crtc;
-> > >  	struct vop2 *vop2;
-> > >  	struct clk *dclk;
-> > > +	struct clk *dclk_src;
-> > >  	unsigned int id;
-> > >  	const struct vop2_video_port_data *data;
-> > > =20
-> > > @@ -212,6 +213,7 @@ struct vop2 {
-> > >  	struct clk *hclk;
-> > >  	struct clk *aclk;
-> > >  	struct clk *pclk;
-> > > +	struct clk *pll_hdmiphy0;
-> > > =20
-> > >  	/* optional internal rgb encoder */
-> > >  	struct rockchip_rgb *rgb;
-> > > @@ -220,6 +222,8 @@ struct vop2 {
-> > >  	struct vop2_win win[];
-> > >  };
-> > > =20
-> > > +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
-> > > +
-> > >  #define vop2_output_if_is_hdmi(x)	((x) =3D=3D ROCKCHIP_VOP2_EP_HDMI0=
- || \
-> > >  					 (x) =3D=3D ROCKCHIP_VOP2_EP_HDMI1)
-> > > =20
-> > > @@ -1033,6 +1037,9 @@ static void vop2_crtc_atomic_disable(struct drm=
-_crtc *crtc,
-> > > =20
-> > >  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
-> > > =20
-> > > +	if (vp->dclk_src)
-> > > +		clk_set_parent(vp->dclk, vp->dclk_src);
-> > > +
-> > >  	clk_disable_unprepare(vp->dclk);
-> > > =20
-> > >  	vop2->enable_count--;
-> > > @@ -2049,6 +2056,27 @@ static void vop2_crtc_atomic_enable(struct drm=
-_crtc *crtc,
-> > > =20
-> > >  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
-> > > =20
-> > > +	/*
-> > > +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
-> > > +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
-> > > +	 */
-> > > +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <=3D VOP2_MAX_DCLK_RATE)=
- {
-> > > +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_=
-mask) {
-> > > +			struct rockchip_encoder *rkencoder =3D to_rockchip_encoder(encode=
-r);
-> > > +
-> > > +			if (rkencoder->crtc_endpoint_id =3D=3D ROCKCHIP_VOP2_EP_HDMI0) {
-> > > +				if (!vp->dclk_src)
-> > > +					vp->dclk_src =3D clk_get_parent(vp->dclk);
-> > > +
-> > > +				ret =3D clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
-> > > +				if (ret < 0)
-> > > +					drm_warn(vop2->drm,
-> > > +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
-> > > +				break;
-> > > +			}
-> > > +		}
-> > > +	}
-> > > +
-> >=20
-> > It seems pretty fragile to do it at atomic_enable time, even more so
-> > since you don't lock the parent either.
-> >=20
-> > Any reason not to do it in the DRM or clock driver probe, and make sure
-> > you never change the parent somehow?
->=20
-> On rk3588 we have 3 dclk_s and 2 hdmi controllers. Each video-port can
-> use the clock generated from either the hdmi0phy or hdmi1phy, depending
-> on which hdmi-controller it uses.
->=20
-> So you actually need to know which vpX will output to which hdmiY to then
-> reparent that dclk to the hdmiphy output.
+You can disregard this point, I had a typo in my test setup :( I just
+confirmed that it is detected as SuperSpeed in both orientations.
 
-The Rockchip nomenclature isn't super obvious to me, sorry. Is there a
-datasheet for this somewhere? Also, does this vpX -> HDMI-Y mapping need
-to be dynamic?
+Thanks,
 
-Maxime
-
---u3dawvlh3uphzrsa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ1nQOgAKCRAnX84Zoj2+
-dpISAYCKW2fMrHXRE79PeBqD3AHvy8GHUKEwGGeX3BAas8xqO9fecnaVOhTd/jgF
-aHFKnB0BfiU6mRKoWOuEJkaaWPp04WJJkVX8YXQRkPWfKNs3xRzzajcAb5TYSDLW
-8BxwZc4ZsA==
-=vWbG
------END PGP SIGNATURE-----
-
---u3dawvlh3uphzrsa--
+Peter
 
