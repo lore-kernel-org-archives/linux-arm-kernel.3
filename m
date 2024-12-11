@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C129E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 12:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687A7E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 12:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dZg1Qv/4mtP2MMB22o2pEVgK6OLFDKWOSAkJVQZ+VCc=; b=niPRnkDKNRT6+sFbm7NWQTzhCM
-	T/8JPjyKqri4JjWL8eY6Qvp3ThV+208VTBMqrmbJH36HCh1Sd/650wsfeiL8D5Z8Lyf5lF4m2bk2I
-	abjP6aSVwrRHZJ8NUWo1m+WqvRljzYVKIP4Td9zqmDwPqni2v/ziZM6Oe3sVDz+avpWCmkpqYiuSh
-	/HCzZ9WKLMoJw4j+tZ5vFrLR2P2TMcAQDQ1AqBnnsLIbG/A7/pN09YlI740pjZXTHAXhX6JT98ZzE
-	m29baUZwstiz2rM79t+n8YQXHpm5ikkGO3RE+9pXvv6yj5dkPWdirRye5AZEFHnmgI/5N+oux5prT
-	gOmvp/+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=guSYvKx4mndllR6GD3MH3bmFmQytH3ODmZYWOudP6g8=; b=dnWopG9BlSF+HOOTqLxsjKYuCC
+	zFS+E41awkgQ7jz+r6d3fEzBLn7ihClK9AMhRMrpvJc5eLwqtm143QF7GW3Jo7fvdYSR+1W+dne60
+	ws3ID0T/SCPRwhHaMzSw0fnUccBVqF8WUFnxmjU849DuhD2KiSP/E0miM20zxFZMQsM/L+wHhATiF
+	GWQIF1NM4iRQdEWKwChyaeR6+7/CsYKJcW1QVwflkPNBfTy+EEaiSGimhYB1SuFbV4Nsy38vRLLb+
+	iesByy35mnCkM3XPrERA8MFjnt5X1pnge2sDmGtGdnMAADP67iUdJ8V1PqMlDAsIM87+yRJgQqpbg
+	8a9v3K2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLLij-0000000EoGd-2DlV;
-	Wed, 11 Dec 2024 12:21:37 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tLLmp-0000000EorR-2gLH;
+	Wed, 11 Dec 2024 12:25:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLLhf-0000000Eo8c-2SwA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 12:20:32 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a9f1c590ecdso1281843466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 04:20:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733919629; x=1734524429; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dZg1Qv/4mtP2MMB22o2pEVgK6OLFDKWOSAkJVQZ+VCc=;
-        b=fpOSW/UAlp4kk7VIEZVU2+nVUWhRc5wX5VanE1NM2JFqnQLOrwUvzZgLxPS1RLQ4bo
-         oAjR5Odl/jo70zzyeXPdabNfMTC3kfjE8eL5IstVagJAyGkPVIZr+JaYpZsweFtKQZ9G
-         1zC9jDfdDkJAq6yC9hG9rmztXdbmutTb7MALoqx03pq/1oolkNyKfMjvMyGkIB7LwxbZ
-         uKvJjFen2Nad0ZTgofvgqlRKaLLgl4vFW7ZLsWafkxibCAmofG3cj19WL0f8FPjtrspg
-         HQ4zvVgvykZfughB3Um2wdJK17Wl2ddtru0bCF1JBBPrl1/IR1h0MbF35K+MTmRD+pO6
-         Fa8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733919629; x=1734524429;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dZg1Qv/4mtP2MMB22o2pEVgK6OLFDKWOSAkJVQZ+VCc=;
-        b=gOjy/Aea49A7xXdiAHS+V2xaBy8CqhCBGnx6nysOKFB/SfGd/8iZWSVi2DMODyPPoR
-         djbeNtsN0xibb3etuYdWfFigXdsleXzTC7ZM5UKb2CXZCnWT3Siq1XZ1mSjYDG5hYS/w
-         lbZFFUcHyXZi2McSqY9HEaUMryQFgf2Ui/CyF+s0kfwA5Ak6PUOIt3NPwlAQxsBja7bS
-         0L00OFKvJTJqxUmCHtoj2PUeoUhgLMNiLOMYckGXWvgxaiGq6Ni7HDvnLzr36S5dReou
-         dxoqChY07wmFC1OABf8eGWud3eQayaq+zQGVLbC0GnCBBfcsPAV54XsYcgD7GgKWjz10
-         3bfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW8uX/4cgjwZ2HOTDrWxrjluCoVZNreR+3vDCfTlWIy4L4HQ+CTB4+Bt5n8H4eEFONJC6kjeUcP/Cehc6Lt5VTm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwECaCNFYd6xu5hJFeLg+uj0MKTZ1hnUEmXI40qIhcaumfjs2QB
-	IKoEciKKz0V44XBLr8hFEBw6z+C8MTMJq8wNaTleEjtZEYAdQ6Mv
-X-Gm-Gg: ASbGnct2NyD2BWWp2UN8+xiLxTE7KGj1vq++pzgPdnBUSwBzfQdDqlLovs9ZASt7Se1
-	ujvcJa6STIzLqWLUw9WZ4sqXvpedwoMNFcGj0gaJ1y6GS3e5Oq6ilx/4/Pveh0b6d1RboI/BElF
-	tgLi56FJmWakJHazK2b5Aj9x3WfVJ7osdMaBozK7dkcQYCtw40bw+vxJpQJMmSQ66ECAuKd5r5K
-	NEYRKIcdbDxVzBpTDdT2vgpCZfEgSh4MLvH+2Adnk8/3syyAhAmNfOSTNquTFwTnA==
-X-Google-Smtp-Source: AGHT+IEcp829lZqDsm7lXw0MRlclUKlA4nHlWQBjQ5jFpBUMws73Uc9UVaybAO+Oqfzvd+n0cqJv2g==
-X-Received: by 2002:a17:907:944c:b0:aa6:6ece:8eb1 with SMTP id a640c23a62f3a-aa6b13f7d49mr232417966b.54.1733919629132;
-        Wed, 11 Dec 2024 04:20:29 -0800 (PST)
-Received: from C-KP-LP15v.consult.red ([83.168.79.145])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa658614e26sm672713366b.100.2024.12.11.04.20.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 04:20:28 -0800 (PST)
-From: Karol Przybylski <karprzy7@gmail.com>
-To: karprzy7@gmail.com,
-	laurent.pinchart@ideasonboard.com,
-	tomi.valkeinen@ideasonboard.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	michal.simek@amd.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm: zynqmp_dp: Fix integer overflow in zynqmp_dp_rate_get()
-Date: Wed, 11 Dec 2024 13:20:26 +0100
-Message-Id: <20241211122026.797511-1-karprzy7@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tLLlm-0000000EojN-0v2o;
+	Wed, 11 Dec 2024 12:24:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F01A75C66CF;
+	Wed, 11 Dec 2024 12:24:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D61FC4CEDE;
+	Wed, 11 Dec 2024 12:24:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733919885;
+	bh=Ixe+0zlB0lslc06XHD6I5fHFiNcsd+/enywfypzEH6o=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=XiTFHF0Gio4QQBgKDhi02XZ6TrhhfqCQ4XjLKCuxPGw8w1e44rrWC56dhj2L5ClFG
+	 uYA5axPUtkLuAJ1YETjMesPjrEuRNplG1r68SDUgie088ONVMUXiniZRhfAv7prR6k
+	 PC8xg96LxqBzejT37TlCFNpoqcOzPVcDEcmgIQg2Ye7jNB88MbtUg0GRLMzny7S5YE
+	 xXhxL3lRE2jmJTnGZtU9vtwCvKucR5rYviNGlUtgA54Dj4sENYskwh3G1o4h4fFll6
+	 9V7fGE7FY74Tb35nlw51qNWXlpRtaqVITWJIt5q1HcyQsqknJmje/ZZxDRbe7Vs8w+
+	 pgBk0Ivd4UKIQ==
+Date: Wed, 11 Dec 2024 13:24:42 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Lee Jones <lee@kernel.org>
+cc: =?ISO-8859-15?Q?Heiko_St=FCbner?= <heiko@sntech.de>, jic23@kernel.org, 
+    robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+    jdelvare@suse.com, linux@roeck-us.net, srinivas.pandruvada@linux.intel.com, 
+    bentiss@kernel.org, dmitry.torokhov@gmail.com, pavel@ucw.cz, 
+    ukleinek@debian.org, devicetree@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+    linux-input@vger.kernel.org, linux-iio@vger.kernel.org, 
+    linux-leds@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale platform-data
+ on remove
+In-Reply-To: <20241211120844.GD7139@google.com>
+Message-ID: <n914pn7o-pr9n-5ss0-p744-73402nnn843p@xreary.bet>
+References: <20241107114712.538976-1-heiko@sntech.de> <20241107114712.538976-2-heiko@sntech.de> <nycvar.YFH.7.76.2411071358210.20286@cbobk.fhfr.pm> <4934964.GXAFRqVoOG@diego> <nycvar.YFH.7.76.2411071534110.20286@cbobk.fhfr.pm> <20241112143732.GG8552@google.com>
+ <20241211120844.GD7139@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_042031_628523_5ACE9FD2 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20241211_042446_300048_025C8125 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch fixes a potential integer overflow in the zynqmp_dp_rate_get() function.
+On Wed, 11 Dec 2024, Lee Jones wrote:
 
-The issue comes up when the expression drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000 is evaluated using 32-bit arithmetic.
+> > > > This change was more or less a surprise find, because I wanted to make
+> > > > the platform_data pointer in the mfd_cell struct const and this the hid
+> > > > sensor hub stood out as doing something strange ;-) .
+> > > > 
+> > > > So patch 2 of this series actually depends on this change to not cause
+> > > > build errors.
+> > > 
+> > > Ah, right.
+> > > 
+> > > > But seeing that we're after -rc6 alredy, I would assume the brunt of the 
+> > > > mcu series might need to wait after 6.13-rc1 anyway - but I guess that 
+> > > > depends on how Lee sees things ;-) .
+> > > 
+> > > OK, I am keeping my hands off it for the time being.
+> > 
+> > I can take it now with an Ack.
+> 
+> Looking to apply this set now.
+> 
+> Ack please.
 
-Now the constant is casted to compatible u64 type.
+I'd preferer if Srinivas could ack this as the more specific maintainer. 
+Srinivas, please? 
 
-Resolves CID 1636340 and CID 1635811
+Thanks,
 
-Signed-off-by: Karol Przybylski <karprzy7@gmail.com>
----
- drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-index 25c5dc61e..55e92344b 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-@@ -2190,7 +2190,7 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
- 	struct zynqmp_dp *dp = data;
- 
- 	mutex_lock(&dp->lock);
--	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000;
-+	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * (u64)10000;
- 	mutex_unlock(&dp->lock);
- 	return 0;
- }
 -- 
-2.34.1
+Jiri Kosina
+SUSE Labs
 
 
