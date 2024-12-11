@@ -4,78 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BCAE77182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45651E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BsqAVGRVtN7IvQG7hD+SDFUGpEQJ+euBRQSBpwnKYF0=; b=Ima6REvGJ21ftgt4dvvhXenqb2
-	VFuJv/S6avFMvXfkS6jozjoiTl+uJHJr6iL8ES9hFRZLSqNRAkdu27t1hy2n4zfwBI5eQoXaTciyl
-	slBiv4ljsqCQaMRWhd+WKKBxusI3BAarIGpo8dUP0X3eSbc1YUp6Rte/JOd8TtAS03PCxoJJluM1o
-	4eBFHZeSuhynach5W9QenEIWggzAhTK+bUIOBX8xgGuo3w9r0dGYjw8L2UGkyLj1DVLHeQ6o5z2rB
-	M5dJS2aFLoHBwMSowT9LqtfpZmfj39yJ6qWx0gWtyQFxygQlFEA8QCIbP5/9fDNmkoSsC6F5zrr6u
-	cGVk2ILQ==;
+	bh=9eKaWxEhhuVWvBsU53E8KZ6fOQTi8MzTOfznqa4xjH0=; b=KvuHbmto6RpErAa7u/u5fxbmj1
+	Nmdt4N9nWcX/TEXpFvOeLgqDVPKtnR4JBKHHAqNASw5fVSEw9CBwBm5X/XUo6nX5gcLxIJf907O2a
+	KJkk3cyxXZs9TPP1NrZ/VvKSRTB1/fmDtGpy25my2v/GWffm0oxW63Bq2T8jxdtuBv6g1WQeC8Yuf
+	3DFxzVhHOwNpUxC9Vt1ufsrYzlBJIj3rm5h+tacpusZcmvtid+MlmmJ88fZ6ZFjPNO/iisa7N7QLZ
+	DvX6XpF9LCDMiX55RQqXlaoHAHLLbdZIYAxZ7zMBmtseunXCWOFxMLH+B9pnoyPhyzQoYb+gZ7ij3
+	5DsM5kRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMci-0000000Exg5-3xis;
-	Wed, 11 Dec 2024 13:19:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tLMfz-0000000Ey5n-0K4g;
+	Wed, 11 Dec 2024 13:22:51 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMbD-0000000ExHf-3BdU;
-	Wed, 11 Dec 2024 13:17:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1733923070; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=FzvZ9vsnFE8JzCyYwN4aLGg2OJMY5cChGxYQKjgnm8TZnC3sivb2D3NQe5AGWFNmfGXvWOhnxlMn9E1wjH88RWTkmxIPE59+cUy8brBq6BLbII2Sf2HejM76PfdtbcXrmHUtPtk4bVXpxDB/fzyVXM7PEwCROi22piNRfSqGnFQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1733923070; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=BsqAVGRVtN7IvQG7hD+SDFUGpEQJ+euBRQSBpwnKYF0=; 
-	b=YyoevzDEhEBD9I0uOZRY1MfqT+sxvkk4ejbLqJgAA9jh/Uvf8ELD0IjayI+vpxsulbTibKcr12gzxnoXg/2l+ExlFqQmeVVlkIfhvhzWBX7LJ0GDJ1+bvHj/Me2ouYAHDJwwPOOZ1WTHCSLHHs4PC5NnA56tYmO9fY0DDFRfFUI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
-	dmarc=pass header.from=<sebastian.fricke@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1733923069;
-	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=BsqAVGRVtN7IvQG7hD+SDFUGpEQJ+euBRQSBpwnKYF0=;
-	b=i8gtEjfnc1uU6Wn4uJYSxg7l+sdRaVL1IsuPriyvQJj1bILMotZUQVomKAxwnTYo
-	Ijnox4tIspXC/FI7aiWy0tTSWGKqRh3umARJVSIf7rF+3WsZm5RDoWmofwMOBzPerng
-	BqQZjXcxUnRRpUvIA+603sbS00M15OmUn1yvYMWo=
-Received: by mx.zohomail.com with SMTPS id 173392306724954.317217262560916;
-	Wed, 11 Dec 2024 05:17:47 -0800 (PST)
-Date: Wed, 11 Dec 2024 14:17:40 +0100
-From: Sebastian Fricke <sebastian.fricke@collabora.com>
-To: Yunfei Dong <yunfei.dong@mediatek.com>
-Cc: =?utf-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4=?= Prado <nfraprado@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Nathan Hebert <nhebert@chromium.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Hsin-Yi Wang <hsinyi@chromium.org>,
-	Fritz Koenig <frkoenig@chromium.org>,
-	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v6 1/3] media: mediatek: vcodec: remove vsi operation in
- common interface
-Message-ID: <20241211131740.x6lrlamgi5ogdq7b@basti-XPS-13-9310>
-References: <20241116031616.15656-1-yunfei.dong@mediatek.com>
- <20241116031616.15656-2-yunfei.dong@mediatek.com>
+	id 1tLMew-0000000Exzv-04e5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Dec 2024 13:21:47 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-434ab938e37so43830535e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 05:21:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1733923304; x=1734528104; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=9eKaWxEhhuVWvBsU53E8KZ6fOQTi8MzTOfznqa4xjH0=;
+        b=bu8//OAx1FnvQl2QKsCK2QCiLDdCvnVkf+t0IC/rcwjkCqgnt3o1ftkFRd/MCqUZQW
+         QZY3n5f2AHwE2zB0R/2D7KnhZCOSDyuZRyXl9bUg1a6GC0Qf3uA2A8ZdmxEA+SDN6n32
+         mIraZr+YgWFKUCa++TyDq26sjVzrmZWFiPA2UwwpIdvwx1yrSZDRQBHGLumqgbq6yK4t
+         WFEJYjMpRt+ydNyV874Kmbmnli+aITFmcPP7AuiATdmHZc0srXFxJPhlZQlAcZmQyAw0
+         aeePcx7isyLRYLkOPd3xeR3xliJdyNE0ApKmlsw/PgEUXBYONV5pjE+cjZ+HbZPXVz2k
+         wC7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733923304; x=1734528104;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9eKaWxEhhuVWvBsU53E8KZ6fOQTi8MzTOfznqa4xjH0=;
+        b=LNV3YTDCJl3aTGlV+ZEc6qK/b68lEvcglCcZ+7kbZJv2++GHgsjNxaHv4N9makZTNH
+         mlChLijvblyjQ93Qp6YEnWABYgURhfdybKolD+qPxiQhbL53Wft3Ht/n+ee8NCsVkiQx
+         ZrkhtsldDkpJ47fsJO7L3McOFirddSRFYnChdtDeyuE00bAvmK7oqKwSCHgEU+gRiB1i
+         S+yzMw8UJG5rSpUhf15HG/CxfLjaiEmR4zcCfCrsb2EAQZawaGRGRysKg6YRt7h6ny7i
+         VBnSc+ODKQvT5fg2RrLWvAU1k19EjY6NvnS9Vsw7AbWoW9ctFnNrnHWgT1o8qV7wO0Oa
+         iDLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU0wgiZc0ZSNSVK4U33SxmKzZ/3U/TcdXAJVxj/J/LDFOWMdW4Si6EsdmCnXIi19G8J+k7IUyqPUh4LrlkLeaq5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIDXGFdUhvVuGART35zXpZqe1fUiePNM1dzPPt45ehJAehVHQz
+	3+D1aVG7zOstYm8nY5Y2IlRaWqvdJNPO3Ma61+plchDJPrgeIfcJBqq0nnum6mY=
+X-Gm-Gg: ASbGncvNilX8mgeCvEk5SJ0cD0issu89ff5LDfsG8CtgxodKJqNquc1Bwr1QkqoN3DY
+	HAZzdSLTa3ZnP+YaaWqXvSQemwerOezBOi6t3TejnJlw6TmD7zFxa+9rZhw9o6b2Bx/qh4hYma9
+	NFQGJun7bSyxAxHiOwOGx1lz95+/qXzg+CdCiCDIrAxTZTFls0uT+8owfmivvvdvV0j1UarrBIY
+	iDePMSVnmzcrXmFXMmlUv7RA60Rqm4za9dLPXr5+j3ifB6p48syKQumwSU=
+X-Google-Smtp-Source: AGHT+IFfC29j6czTll9rOLSqjnFeJosj8hGWZx1V8FqolEsDfwkRoQYubFcSENWm0L8tfipl6WqLzA==
+X-Received: by 2002:a5d:6486:0:b0:386:4a60:6650 with SMTP id ffacd0b85a97d-3864cec5bd0mr2542328f8f.42.1733923303738;
+        Wed, 11 Dec 2024 05:21:43 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38782514d97sm1260997f8f.64.2024.12.11.05.21.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 05:21:43 -0800 (PST)
+Date: Wed, 11 Dec 2024 16:21:40 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: David Laight <David.Laight@aculab.com>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"lkft-triage@lists.linaro.org" <lkft-triage@lists.linaro.org>,
+	Linux Regressions <regressions@lists.linux.dev>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	"netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Johannes Berg <johannes.berg@intel.com>,
+	"toke@kernel.org" <toke@kernel.org>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	"kernel@jfarr.cc" <kernel@jfarr.cc>,
+	"kees@kernel.org" <kees@kernel.org>
+Subject: Re: arm64: include/linux/compiler_types.h:542:38: error: call to
+ '__compiletime_assert_1050' declared with attribute error: clamp() low limit
+ min greater than high limit max_avail
+Message-ID: <49a14c12-a452-4877-aedf-94bac6ed2b7b@stanley.mountain>
+References: <CA+G9fYsT34UkGFKxus63H6UVpYi5GRZkezT9MRLfAbM3f6ke0g@mail.gmail.com>
+ <8dde5a62-4ce6-4954-86c9-54d961aed6df@stanley.mountain>
+ <CA+G9fYv5gW1gByakU1yyQ__BoAKWkCcg=vGGyNep7+5p9_2uJA@mail.gmail.com>
+ <bd95d7249ff94e31beb11b3f71a64e87@AcuMS.aculab.com>
+ <CAMRc=Mf8CmKs-_FddnLFU7aoOAPU6Xv8MqyZo8x9Uv-Eu+hs_g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241116031616.15656-2-yunfei.dong@mediatek.com>
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Mf8CmKs-_FddnLFU7aoOAPU6Xv8MqyZo8x9Uv-Eu+hs_g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_051755_820700_C361E74F 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20241211_052146_084510_75078094 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,83 +115,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Yunfei,
+On Wed, Dec 11, 2024 at 01:46:11PM +0100, Bartosz Golaszewski wrote:
+> On Fri, Dec 6, 2024 at 3:20 AM David Laight <David.Laight@aculab.com> wrote:
+> >
+> > From: Naresh Kamboju
+> > > Sent: 05 December 2024 18:42
+> > >
+> > > On Thu, 5 Dec 2024 at 20:46, Dan Carpenter <dan.carpenter@linaro.org> wrote:
+> > > >
+> > > > Add David to the CC list.
+> > >
+> > > Anders bisected this reported issue and found the first bad commit as,
+> > >
+> > > # first bad commit:
+> > >   [ef32b92ac605ba1b7692827330b9c60259f0af49]
+> > >   minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+> >
+> > That 'just' changed the test to use __builtin_constant_p() and
+> > thus gets checked after the optimiser has run.
+> >
+> > I can paraphrase the code as:
+> > unsigned int fn(unsigned int x)
+> > {
+> >         return clamp(10, 5, x == 0 ? 0 : x - 1);
+> > }
+> > which is never actually called with x <= 5.
+> > The compiler converts it to:
+> >         return x < 0 ? clamp(10, 5, 0) : clamp(10, 5, x);
+> > (Probably because it can see that clamp(10, 5, 0) is constant.)
+> > And then the compile-time sanity check in clamp() fires.
+> >
+> > The order of the arguments to clamp is just wrong!
+> >
+> >         David
+> >
+> 
+> The build is still failing with today's next, should the offending
+> commit be reverted?
+> 
 
-On 16.11.2024 11:16, Yunfei Dong wrote:
->Extend struct video shared information (vsi) to send different
->parameters to scp for mt8188 architecture is changed.
->Remove vsi related operation in common interface to make sure the
->interface can be called by extended and non extended architecture
->at the same time. The new extended interfaces with new vsi will
->be introduced in later patches.
+It's a simple fix.  I've sent a patch.
 
-My recommendation:
+regards,
+dan carpenter
 
-Extend the VSI (video shared information) struct to allow sending slice
-parameters to SCP, as the parameters have changed on MT8188
-architecture. Remove VSI related information from the common interface
-to ensure, that the interface is usable by architectures with and
-without the extended parameters. The new VSI extensions will be
-introduced in later patches.
-
-The rest looks good to me.
-
-Regards,
-Sebastian Fricke
-
->Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-
->Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->---
-> .../vcodec/decoder/vdec/vdec_h264_req_multi_if.c    | 13 +++++++------
-> 1 file changed, 7 insertions(+), 6 deletions(-)
->
->diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
->index 1ed0ccec5665..ab192ce0b851 100644
->--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
->+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
->@@ -171,9 +171,9 @@ struct vdec_h264_slice_inst {
-> };
->
-> static int vdec_h264_slice_fill_decode_parameters(struct vdec_h264_slice_inst *inst,
->-						  struct vdec_h264_slice_share_info *share_info)
->+						  struct vdec_h264_slice_share_info *share_info,
->+						  struct vdec_h264_slice_lat_dec_param *slice_param)
-> {
->-	struct vdec_h264_slice_lat_dec_param *slice_param = &inst->vsi->h264_slice_params;
-> 	const struct v4l2_ctrl_h264_decode_params *dec_params;
-> 	const struct v4l2_ctrl_h264_scaling_matrix *src_matrix;
-> 	const struct v4l2_ctrl_h264_sps *sps;
->@@ -266,9 +266,6 @@ static int get_vdec_sig_decode_parameters(struct vdec_h264_slice_inst *inst)
-> 	mtk_vdec_h264_get_ref_list(b0_reflist, v4l2_b0_reflist, reflist_builder.num_valid);
-> 	mtk_vdec_h264_get_ref_list(b1_reflist, v4l2_b1_reflist, reflist_builder.num_valid);
->
->-	memcpy(&inst->vsi_ctx.h264_slice_params, slice_param,
->-	       sizeof(inst->vsi_ctx.h264_slice_params));
->-
-> 	return 0;
-> }
->
->@@ -608,7 +605,8 @@ static int vdec_h264_slice_lat_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
-> 	lat_buf->src_buf_req = src_buf_info->m2m_buf.vb.vb2_buf.req_obj.req;
-> 	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb, &lat_buf->ts_info, true);
->
->-	err = vdec_h264_slice_fill_decode_parameters(inst, share_info);
->+	err = vdec_h264_slice_fill_decode_parameters(inst, share_info,
->+						     &inst->vsi->h264_slice_params);
-> 	if (err)
-> 		goto err_free_fb_out;
->
->@@ -749,6 +747,9 @@ static int vdec_h264_slice_single_decode(void *h_vdec, struct mtk_vcodec_mem *bs
-> 	if (err)
-> 		goto err_free_fb_out;
->
->+	memcpy(&inst->vsi_ctx.h264_slice_params, &inst->h264_slice_param,
->+	       sizeof(inst->vsi_ctx.h264_slice_params));
->+
-> 	buf = (unsigned char *)bs->va;
-> 	nal_start_idx = mtk_vdec_h264_find_start_code(buf, bs->size);
-> 	if (nal_start_idx < 0) {
->-- 
->2.46.0
 
