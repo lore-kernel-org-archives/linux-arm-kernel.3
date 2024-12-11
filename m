@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7380BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D46E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 13:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOQcwnwJSdFL36S0cYmgulVJqIFn4KDwKugZv4rxk6w=; b=R7hgcYrZlTef9HgrSAZnvdMeC7
-	cGvgH9FslTu+0+VJDL4HgcpnTTPBbc8aFYqZ+AUQTnGX7LQ1g+ae4vVpbXXHKdGtaH+Syr4iVupct
-	Ecd+ybrXMIv5N0ejjFKhfHdDKuII1AhdyXH3aaBr8OyglpbQ/0EjVZx8VB9+dc91W98cKxwBcVc3n
-	RBXZu03nMMmZYMBtV1MUDVWeQbqe53/dLhSlZBF2UjM7aglJ1qfXRBjUNLthfbr4Ns2wuPbY4pks2
-	9Ck/TvwudXtU1hxB88VsJGLyK9/fr+B/nygpJu/6GXUPVXm8rOrPQWDCMzCj9ui6apeAjkEjTbpud
-	sIt7hftA==;
+	bh=iFHlJce+tj0dKx9Nr0h2tu85fnxZTCB9b2AakTaYe38=; b=ocMH9jSU79LRuCcwoZV0kQsdQB
+	iQTMZoaJ7UU+DiDb1FmGs0pJIig+C87+wW2cIrWLmBbHQvO2OaiwrEbDdUG2ThebdQhcOc4OfgEA6
+	q2XFhk4QGYJqKEs2gX74ueWGF1oVatRl1wvJO1tSDAYo2lb9Yn33oxU1I98R8r5+eRhn6I7G327ha
+	KXFS15Xznthn9MiJG+FBVupEsDrPLipNGlI8OzLCxVrEr4s1aUCGeCExO+52/7uA9LtflKT+nVmkL
+	kup4T4cVguzBKazXUYImen+Qx2QaRnhoxsHUVd1bUtId2uAvUy/VnensKnvezqdDE46DHquXhCacB
+	z9Qd2RFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMrb-0000000EzkV-2nRO;
-	Wed, 11 Dec 2024 13:34:51 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLMps-0000000EzNA-0vhB
+	id 1tLMtR-0000000F0Hb-1cWT;
+	Wed, 11 Dec 2024 13:36:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLMsL-0000000Ezzr-2pBf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 13:33:05 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53df80eeeedso6423571e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 05:33:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733923983; x=1734528783; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kOQcwnwJSdFL36S0cYmgulVJqIFn4KDwKugZv4rxk6w=;
-        b=L3A9T9oBsZOZjUkARCuNBT+yKjLIYiHc02KpowKBBSo/mO7d5vmMhRq38Wz0mDWnBT
-         gsuE5jt4r3Nd23VVAa9YsQXjXmrsStRMG85vjEnXUwocTJmmkZqHDSteZwxpQ/3h6tZf
-         d+5/+DKjxSd0tLHrVwmW+UjEqi/Qf8lIg5SZNASWTACPFzCBitLSeNo8BQ9j7S7lrMJm
-         cWK9GJzYebJJrfvMHWNDwM/hMOkdcFwk5xpnP0vAMoFRTBCqZaBjjbuI6FXUsyFg1NMx
-         0Tb8FI9mazbDgSnebuBw+iFF9t83JOdMyUxcVHxFxT21KLlkq8LqDVYB8l/wvnD7NAW+
-         z5bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733923983; x=1734528783;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kOQcwnwJSdFL36S0cYmgulVJqIFn4KDwKugZv4rxk6w=;
-        b=G2B/GcrW8IAnzFaOngB2zVv2Z4CSJeNft/5FHyRIZHqyisoX+HLfM0bzQ60BrYB/r/
-         iQGMbF6gl7iaIkC84bOHX+Ow9owpwLt3t77030SavENHi/Ha6Qh8k2dklSUzUEEQRjCR
-         Eq2xiu8QYJIsPvuFu6laztxeEC1GZTDZXRY8hyeI6XYQN7nraTrd07YZovRRevrAMaIr
-         qi4ARlN9xjV34QeD/leMT9+C6Z3xCg//OLZpioECyLzq/mDu2YvNiQB6wj9JtS0mjR2H
-         Z52WxXCTFQIJLBM7iaE5710Z/Z9rgdpk461dOnpSLP6VUmlRH769Sic2JvNnN0CA+Zuj
-         lI2Q==
-X-Gm-Message-State: AOJu0YwHMcX/xLldqID0Ke1IO4+A1SfxPxQcrQsUjLGXEz+d/G339FPc
-	m7p8BEailPaarYRjXulMvRfoaWZ6x/CcQOMFg6XuSt5PrZPPdvybfxAiATvACDldUK+qDrydI3j
-	Y54v0BnDyyKO4y5iyuizZA/36wXQ7MguPdGo7Zw==
-X-Gm-Gg: ASbGncvUEpTnm+NkYeEIZBnzUsdA9bJ32vDQGSiF4/eQ6JPyEma8pNco+CYZ0wdlUOL
-	Pt+nbUSVSJ/ysva3vdoVMiu66Y8i+pkOlxw==
-X-Google-Smtp-Source: AGHT+IFSR1UjhXcHcy5k6a2CNcZJuWgxkaipEQM/YpWhqPeqodiJy0P57HJau7brIqv2XFjLP5RpxZwdcMO+4TzEqjo=
-X-Received: by 2002:a05:6512:10d5:b0:540:2223:9b20 with SMTP id
- 2adb3069b0e04-5402a609ac9mr779864e87.53.1733923982633; Wed, 11 Dec 2024
- 05:33:02 -0800 (PST)
+	Wed, 11 Dec 2024 13:35:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 557CC1063;
+	Wed, 11 Dec 2024 05:36:04 -0800 (PST)
+Received: from [10.57.70.51] (unknown [10.57.70.51])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0238C3F720;
+	Wed, 11 Dec 2024 05:35:31 -0800 (PST)
+Message-ID: <8aedf3db-d1a5-4cc6-974b-a3d9fffe4f52@arm.com>
+Date: Wed, 11 Dec 2024 14:35:28 +0100
 MIME-Version: 1.0
-References: <20241210160556.2341497-1-arnd@kernel.org> <20241210160556.2341497-4-arnd@kernel.org>
-In-Reply-To: <20241210160556.2341497-4-arnd@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 11 Dec 2024 14:32:51 +0100
-Message-ID: <CACRpkdZoRbJ4DwRpZQMKbEAvzg4AAdp4B+94SFLm1ssiQmjUwQ@mail.gmail.com>
-Subject: Re: [PATCH 3/4] ARM: drop CONFIG_HIGHPTE support
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org, linux-rt-devel@lists.linux.dev, 
-	Ard Biesheuvel <ardb@kernel.org>, Clark Williams <clrkwllms@kernel.org>, Jason Baron <jbaron@akamai.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Matthew Wilcox <willy@infradead.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Russell King <linux@armlinux.org.uk>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Steven Rostedt <rostedt@goodmis.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 12/16] arm64: mm: Map p4d/pgd with privileged pkey
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ aruna.ramakrishna@oracle.com, broonie@kernel.org, catalin.marinas@arm.com,
+ dave.hansen@linux.intel.com, jannh@google.com, jeffxu@chromium.org,
+ joey.gouly@arm.com, kees@kernel.org, maz@kernel.org,
+ pierre.langlois@arm.com, qperret@google.com, ryan.roberts@arm.com,
+ will@kernel.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org
+References: <20241206101110.1646108-1-kevin.brodsky@arm.com>
+ <20241206101110.1646108-13-kevin.brodsky@arm.com>
+ <20241209102440.GI21636@noisy.programming.kicks-ass.net>
+ <75a345d4-78ea-4434-a4cd-3f2095ce2b31@arm.com>
+ <20241210122355.GN8562@noisy.programming.kicks-ass.net>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <20241210122355.GN8562@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_053304_268922_38ACB879 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20241211_053537_766409_5A41903A 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +72,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 5:06=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
-te:
+On 10/12/2024 13:23, Peter Zijlstra wrote:
+> On Tue, Dec 10, 2024 at 10:27:56AM +0100, Kevin Brodsky wrote:
+>> On 09/12/2024 11:24, Peter Zijlstra wrote:
+>>> On Fri, Dec 06, 2024 at 10:11:06AM +0000, Kevin Brodsky wrote:
+>>>> If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map p4d/pgd pages
+>>>> using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that they can
+>>>> only be written under guard(kpkeys_hardened_pgtables).
+>>>>
+>>>> The case where pgd is not page-sized is not currently handled -
+>>>> this is pending support for pkeys in kmem_cache.
+>>>>
+>>>> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+>>>> (default).
+>>> Should not this live in pagetable_*_[cd]tor() in generic code?
+>> This would certainly be preferable but it doesn't look like such helpers
+>> exist for p4d/pgd. For p4d, we could potentially handle this in the
+>> generic __p4d_alloc(), but I'm not sure we can assume that
+>> p4d_alloc_one() won't be called from somewhere else. pgd_alloc() is
+>> entirely arch-specific so not much we can do there.
+> Can't we add the missing pagetable_{p4d,pgd}_[cd]tor() functions. Yes,
+> it will mean touching a bunch of arch code, but it shouldn't be hard.
 
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> CONFIG_HIGHPTE was added in linux-2.6.32, a few years before 64-bit
-> support. At the time it made sense, as the CONFIG_ARM_LPAE option allowed
-> systems with 16GB of memory that made lowmem a particularly scarce
-> resource, and the HIGHPTE implementation gave feature parity with 32-bit
-> x86 and frv machines.
->
-> Since Arm is the last architecture remaining that uses this, and almost
-> no 32-bit machines support more than 4GB of RAM, the cost of continuing
-> to maintain HIGHPTE seems unjustified, so remove it here to allow
-> simplifying the generic page table handling.
->
-> Link: https://lore.kernel.org/lkml/20241204103042.1904639-8-arnd@kernel.o=
-rg/T/#u
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+It does look doable. The p4d level shouldn't be an issue, it's unclear
+why it doesn't follow the same pattern as pud already. pgd will be more
+involved (no generic layer at all) but as you say it should just be
+about some churn in arch code.
 
-I'm in favor of this if the x86 patch goes in. We need to get rid
-of highmem anyway and this will need to happen sooner or later
-either way.
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+An extra complication is that the pgd level may be smaller than a page,
+at least on arm64 (see pgd_alloc() in arch/arm64/mm/pgd.c). I suppose
+affected architectures will have to define their own pgd_alloc_one().
 
-Yours,
-Linus Walleij
+I'll give it a try and post something separately if it looks sensible.
+
+- Kevin
 
