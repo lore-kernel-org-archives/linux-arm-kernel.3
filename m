@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA23E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73762E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 18:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6NxV4GoHK/ahyIflRv/mOazvo62QwExn028Ncg5fkKE=; b=dMZEticjRGVhkfutkEuXnnAxOc
-	NzzPcz4SMRC2HEUny8iOOqlK8xvteFSP0fl0p/AFZSx4FtUjjU61VEd+fpM+nBtdepdtUk+ips33e
-	96UuPDU/xCIUjf6pEXE7G2cLTzB/EJWt5ivHtoYU5OTO5P7uT7NNKRBaSegEJQpgw4cA0Zd+qSbCS
-	b0DSAoFh4ZTBo4afypyuWHHxzYqGsJuuAqN11UBUQtxmdWNDRSLc2l2vCk3rz19sl0a2JR519xtKB
-	AQoeyT1mRNwXDX2ResMC+XEps4PQWFUzuNhWokftJ0UO7NZ+h7NCWmJAHD6Bq68snsNxRpDjQnkc+
-	xzE2WjRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IVHnpLKAbs1P9zKMMrgIzagDvO+w36oIPk+2jsToDwg=; b=Rj+HZgvaphoTvE+0wgyn0Tlpej
+	LbcRqgM9t5LiurArv8YLOHpRNTRp9tbNMWvUgXuJyISLKr19jfydmGh98plJyr3a6yf018R7oJEVg
+	d9AwFiSmvWiP5qPQfLhc8ffYl9Bs83Fcq30TLKSOYEj49cUtYllPNwZBzx/IPM/pI7IH68GMgd3qM
+	0Nc5G4RRlXLbc93pcbkJGVRQcn5IGJxG4TLgA9RKdb+XRetjRh9qzXA6AhWQ0aSTxJEqNIYcR8spE
+	Z556LWT7jL41glbvjRyR1Mk036wiB/dhaHFikShw/+3xCA/4QvKKHl2KcTvmMgxEanT9BMvvUQGdH
+	PgdYz+eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQx0-0000000Ffyr-1xxH;
-	Wed, 11 Dec 2024 17:56:42 +0000
-Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
+	id 1tLR2q-0000000FhBA-35YL;
+	Wed, 11 Dec 2024 18:02:44 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQvw-0000000Ffky-0lRr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 17:55:37 +0000
-Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3eb687d96e9so1305350b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 09:55:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733939735; x=1734544535; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6NxV4GoHK/ahyIflRv/mOazvo62QwExn028Ncg5fkKE=;
-        b=eY9wxNKH3NBKgKBVSeVGtvfRzlP7FUpbHQznWFxmnRwXHgWL4WpOYRFudwlPm3HqpR
-         zsZ3BaOp8HApsbMhDcvNar2eWsa/otUHMfH71dIHlOFeDXbP3FwA0VZuw0VNJnrWTb1A
-         F40brZM1Zsbwk00nKa/QDZHaJumwe16haGKp3XfNdDUkhq8YBjaqH34QAYmXxNs9+PcK
-         QV0CIpxvlRSkUiTCD03H+HQDqOmqxD5mNeNna+I7MBuOSl7vEJ56TO25maHcHrUbwKzY
-         dN/u9B7YH7ybj3dL5fA6uuFVLxxNLBrT9ZVnXM4qUggrgQzlmF5/VsNfyDno1iW6oQqe
-         YjUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733939735; x=1734544535;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6NxV4GoHK/ahyIflRv/mOazvo62QwExn028Ncg5fkKE=;
-        b=nQ62vnGjihGDfBKY7YEynIxJ5oB+2LdA9yXSWuPw73/Y6nfQgtl2ArnuwjiH4hmEpP
-         qGj/sQU13DnFMmj6QwaH7ebFcD8aRIWAk4Ik4goPrdtKdckOCwcvEMBlWhIyAfFUZDjM
-         W55/C7+KGy8POho2tEeHze/j1AaB7g3AQABuqz/GaSL6ZY5VmpkeukIoeglrvYvAupB8
-         QVK8zUNK9V5eHcUboFHWTGljpqdtVhtsWExyfj2CidwZt4Ob23vDKdZkQMJhwnCPjlS0
-         xogjf6DBvJYhdk13pxX7ffvsEEUunm7ZhsFUdfpym3M9hoA0ALlNKPAoSCsGNmVQDhrW
-         F7VQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXvxPi1DWNgVcxI4WLMUEZeSZR5zS/tbobCn516sCH2Mn/2h26UF+3iof27EX08Wvmq+3RrGx8lLfbC03o9Q6dc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSZH2h1qTqLH4tQQnwmVw5hv//X5bFLMwW7ExOn8iiCVodJg0U
-	L6cxAVfaKF/pgHb65s462jwnjJpPqwfeiUlVTRy+uv7S0ihxQZlSSUHjRjyHBm6tpldkp1QMnwK
-	ADAje8e5e6+1VCV8q1hhJyKGifFdp6Qu0cMlBhg==
-X-Gm-Gg: ASbGncsQNxEfew2sHGxnEEZT4yklAeqVksduJS9gxJWwBmztyE0YEMoaxD6hDdXTK8l
-	IKEA7OdMMjj2CMbYX/opPzbk+/x/Hv1TIxxM=
-X-Google-Smtp-Source: AGHT+IF4vtTjbxANqGCquCOW86vWqQwnJkVwBIy0+PKUY3mXo9+jIK2tbaAnXdNFAA6ijnfwpTtlzsC6XGNl2/h4Y9Q=
-X-Received: by 2002:a05:6808:189c:b0:3e6:6097:847d with SMTP id
- 5614622812f47-3eb85a8b199mr2732633b6e.7.1733939734907; Wed, 11 Dec 2024
- 09:55:34 -0800 (PST)
+	id 1tLR1m-0000000FgxJ-1ffh;
+	Wed, 11 Dec 2024 18:01:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IVHnpLKAbs1P9zKMMrgIzagDvO+w36oIPk+2jsToDwg=; b=0C83S1fq97gn53rq0T/CVl46e6
+	3XCpKkwcn/RffyjiKXUeijI3P7o0clz7e3okpsFw+Vu+NCkLJtwSAQvZ4+pzDUFo4yKl3xs0VJ+pI
+	Dk+Uysaeqc9JOI8qAO9pxQag0R8KtNHGxBwxgzYuVBhvPBsH8kTBk3Q0BAPFGYWv+bujjBFQI++PW
+	oIixUfFkDdQYMLwKE49C/PyMKq6aMutb6tM0MobIhmmsiP8Auqs81KTEz1sKxv2GMwLNRVLw5ODwZ
+	fVe/rxSQtnmMUNIKqgLKz8+7/BJ678z81Stnzhk78oncTkAdB4KsVT8Hc9g+8H+WBZVYaDJ1PN5F6
+	83mXfeyg==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tLR1Q-0006Ul-Ql; Wed, 11 Dec 2024 19:01:16 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ FUKAUMI Naoki <naoki@radxa.com>
+Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes handling on
+ RK3588 HDMI0
+Date: Wed, 11 Dec 2024 19:01:15 +0100
+Message-ID: <1756448.izSxrag8PF@diego>
+In-Reply-To: <a4ex3s23r4k6wehyoaw3aylpcexfrclrxxykjpabhdfne2jgmu@ii6riiiga2zj>
+References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
+ <1820767.5KxKD5qtyk@diego>
+ <a4ex3s23r4k6wehyoaw3aylpcexfrclrxxykjpabhdfne2jgmu@ii6riiiga2zj>
 MIME-Version: 1.0
-References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
- <20241206-gs101-phy-lanes-orientation-phy-v4-6-f5961268b149@linaro.org> <CADrjBPoZqbAM=2zOdgXD_dTrgh-J7yE+OX_JSVJ42Lmzb-DPEw@mail.gmail.com>
-In-Reply-To: <CADrjBPoZqbAM=2zOdgXD_dTrgh-J7yE+OX_JSVJ42Lmzb-DPEw@mail.gmail.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 11 Dec 2024 17:55:23 +0000
-Message-ID: <CADrjBPpv7Y-v4w-ZjsM52wPXM1G=v028BxmJA=_zb4ksDq21EQ@mail.gmail.com>
-Subject: Re: [PATCH v4 6/7] phy: exynos5-usbdrd: subscribe to orientation
- notifier if required
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	Roy Luo <royluo@google.com>, kernel-team@android.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_095536_219132_D1816F30 
-X-CRM114-Status: GOOD (  31.92  )
+X-CRM114-CacheID: sfid-20241211_100138_430189_103F8B8A 
+X-CRM114-Status: GOOD (  38.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,72 +83,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andr=C3=A9,
+Am Mittwoch, 11. Dezember 2024, 18:47:44 CET schrieb Maxime Ripard:
+> On Wed, Dec 11, 2024 at 06:23:03PM +0100, Heiko St=FCbner wrote:
+> > Am Mittwoch, 11. Dezember 2024, 18:07:57 CET schrieb Maxime Ripard:
+> > > On Wed, Dec 11, 2024 at 12:15:07PM +0200, Cristian Ciocaltea wrote:
+> > > > The RK3588 specific implementation is currently quite limited in te=
+rms
+> > > > of handling the full range of display modes supported by the connec=
+ted
+> > > > screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are jus=
+t a
+> > > > few of them.
+> > > >=20
+> > > > Additionally, it doesn't cope well with non-integer refresh rates l=
+ike
+> > > > 59.94, 29.97, 23.98, etc.
+> > > >=20
+> > > > Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
+> > > > all display modes up to 4K@60Hz.
+> > > >=20
+> > > > Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+> > > > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> > > > ---
+> > > >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++=
+++++++++++++
+> > > >  1 file changed, 34 insertions(+)
+> > > >=20
+> > > > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers=
+/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > > > index 8b2f53ffefdbf1cc8737b3a86e630a03a7fd9348..393fe6aa170aaee9663=
+c4a6d98c1cd6a5ef79392 100644
+> > > > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > > > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > > > @@ -158,6 +158,7 @@ struct vop2_video_port {
+> > > >  	struct drm_crtc crtc;
+> > > >  	struct vop2 *vop2;
+> > > >  	struct clk *dclk;
+> > > > +	struct clk *dclk_src;
+> > > >  	unsigned int id;
+> > > >  	const struct vop2_video_port_data *data;
+> > > > =20
+> > > > @@ -212,6 +213,7 @@ struct vop2 {
+> > > >  	struct clk *hclk;
+> > > >  	struct clk *aclk;
+> > > >  	struct clk *pclk;
+> > > > +	struct clk *pll_hdmiphy0;
+> > > > =20
+> > > >  	/* optional internal rgb encoder */
+> > > >  	struct rockchip_rgb *rgb;
+> > > > @@ -220,6 +222,8 @@ struct vop2 {
+> > > >  	struct vop2_win win[];
+> > > >  };
+> > > > =20
+> > > > +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
+> > > > +
+> > > >  #define vop2_output_if_is_hdmi(x)	((x) =3D=3D ROCKCHIP_VOP2_EP_HDM=
+I0 || \
+> > > >  					 (x) =3D=3D ROCKCHIP_VOP2_EP_HDMI1)
+> > > > =20
+> > > > @@ -1033,6 +1037,9 @@ static void vop2_crtc_atomic_disable(struct d=
+rm_crtc *crtc,
+> > > > =20
+> > > >  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
+> > > > =20
+> > > > +	if (vp->dclk_src)
+> > > > +		clk_set_parent(vp->dclk, vp->dclk_src);
+> > > > +
+> > > >  	clk_disable_unprepare(vp->dclk);
+> > > > =20
+> > > >  	vop2->enable_count--;
+> > > > @@ -2049,6 +2056,27 @@ static void vop2_crtc_atomic_enable(struct d=
+rm_crtc *crtc,
+> > > > =20
+> > > >  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
+> > > > =20
+> > > > +	/*
+> > > > +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
+> > > > +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
+> > > > +	 */
+> > > > +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <=3D VOP2_MAX_DCLK_RAT=
+E) {
+> > > > +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encode=
+r_mask) {
+> > > > +			struct rockchip_encoder *rkencoder =3D to_rockchip_encoder(enco=
+der);
+> > > > +
+> > > > +			if (rkencoder->crtc_endpoint_id =3D=3D ROCKCHIP_VOP2_EP_HDMI0) {
+> > > > +				if (!vp->dclk_src)
+> > > > +					vp->dclk_src =3D clk_get_parent(vp->dclk);
+> > > > +
+> > > > +				ret =3D clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
+> > > > +				if (ret < 0)
+> > > > +					drm_warn(vop2->drm,
+> > > > +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
+> > > > +				break;
+> > > > +			}
+> > > > +		}
+> > > > +	}
+> > > > +
+> > >=20
+> > > It seems pretty fragile to do it at atomic_enable time, even more so
+> > > since you don't lock the parent either.
+> > >=20
+> > > Any reason not to do it in the DRM or clock driver probe, and make su=
+re
+> > > you never change the parent somehow?
+> >=20
+> > On rk3588 we have 3 dclk_s and 2 hdmi controllers. Each video-port can
+> > use the clock generated from either the hdmi0phy or hdmi1phy, depending
+> > on which hdmi-controller it uses.
+> >=20
+> > So you actually need to know which vpX will output to which hdmiY to th=
+en
+> > reparent that dclk to the hdmiphy output.
+>=20
+> The Rockchip nomenclature isn't super obvious to me, sorry. Is there a
+> datasheet for this somewhere? Also, does this vpX -> HDMI-Y mapping need
+> to be dynamic?
 
-On Sat, 7 Dec 2024 at 21:31, Peter Griffin <peter.griffin@linaro.org> wrote=
-:
->
-> Hi Andr=C3=A9,
->
-> Firstly, thanks for all your work getting USB on Pixel 6 / gs101
-> working upstream :)
->
-> On Fri, 6 Dec 2024 at 16:31, Andr=C3=A9 Draszik <andre.draszik@linaro.org=
-> wrote:
-> >
-> > gs101's SS phy needs to be configured differently based on the
-> > connector orientation, as the SS link can only be established if the
-> > mux is configured correctly.
-> >
-> > The code to handle programming of the mux is in place already, this com=
-mit
-> > now adds the missing pieces to subscribe to the Type-C orientation
-> > switch event.
-> >
-> > Note that for this all to work we rely on the USB controller
-> > re-initialising us. It should invoke our .exit() upon cable unplug, and
-> > during cable plug we'll receive the orientation event after which we
-> > expect our .init() to be called.
-> >
-> > Above reinitialisation happens if the DWC3 controller can enter runtime
-> > suspend automatically. For the DWC3 driver, this is an opt-in:
-> >     echo auto > /sys/devices/.../11110000.usb/power/control
-> > Once done, things work as long as the UDC is not bound as otherwise it
-> > stays busy because it doesn't cancel / stop outstanding TRBs. For now
-> > we have to manually unbind the UDC in that case:
-> >      echo "" > sys/kernel/config/usb_gadget/.../UDC
-> >
-> > Note that if the orientation-switch property is missing from the DT,
-> > the code will behave as before this commit (meaning for gs101 it will
-> > work in SS mode in one orientation only). Other platforms are not
-> > affected either way.
-> >
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
->
-> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-> Tested-by: Peter Griffin <peter.griffin@linaro.org>
->
-> Notes on testing:
->
-> I tested this series with the corresponding DT using a Pixel 6 device
-> with 2 different USB hubs and also plugging directly into my laptop.
-> I've tried various combinations of plugging / unplugging from both
-> ends of the USB cable and changing cable orientation. With the latest
-> series the disconnect/reconnect always seems robustly detected and
-> Pixel is enumerated as a USB device by the host, adb connection to the
-> phone is possible even with the cable orientation changing between
-> disconnect/reconnect.
->
-> One thing I did notice during testing is that in one cable orientation
-> Pixel is detected as a `SuperSpeed USB device` by the host and in the
-> other cable orientation it is detected as a `high-speed USB device`.
-> Which suggests there is still a latent bug in the phy
-> re-configuration.
+VPs are CRTCs in drm-language and each of them can drive a differing
+number of output encoders. Those video-ports also have differing output
+characteristics in terms of supported resolution and other properties.
 
-You can disregard this last point, I had a typo in my test setup :( I
-just confirmed that it is detected as SuperSpeed in both orientations.
+The rk3588 TRM has leaked in a number of places, and if you find a
+TRM-part2, there is a section labeled "Display Output Interface Description"
+that has a nice graphic for that.
 
-Thanks,
+Or in short:
+=2D CRTC(VP)0 supports 8K resolution and can drive DP0+1, HDMI0+1, eDP0+1
+  [if I'm reading things correctly, 8K together with CRTC1 somehow)
+=2D CRTC(VP)1 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP0+1
+=2D CRTC(VP)2 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP01, D=
+SI0+1
+=2D CRTC(VP)3 supports 2K resolution and can drive DSI0+1 and some BT1120,B=
+T656
 
-Peter
+so for the 3 higher resolution CRTCs there are essentially 6 or 8 output op=
+tions
+depending on the board design
+
+
 
