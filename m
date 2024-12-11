@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7FEE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA7FE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZvQtbSsuf4cyUl5HvKiz6fhbwwd7A/7LU8qzOzgTbu4=; b=RD2s90kOZnPXKa/k5de1TtZ8SO
-	k3R6+T2xxyZB63aCu6AbdsjCA+M2AMLraqnebMcK+Uwu9mK58+dJpsPz6JTl5NCxhQkW45b17at1/
-	LW1ZpYlq+LyszbZAw/4+I99yj6fWD8QcwdEBBROY4yDmEjL4HmRa+bjWSkKwnIiL2pq+8RD0Anyg0
-	coS6nsXgj0iFNO1gelVYBEoePkBWl5Io3ZSv7vbC7LNByQaqW3K7AFpdXyctm3BYDxgDupp+xMeho
-	rVmD0x2nWiPcFiDv6HwSJdgbxQar3OP6p9Qil6zlWnKwj2gv7LDXjIGcsdqmLhBh1HSDqQ+jyicTR
-	Ru98mRyw==;
+	bh=qCUz4EPmZaE7vP+ZlBjxRLQxrvpznxUDXVXIJb/OFMY=; b=NiQzGGv6iT6EkTV/hv8aohwQ5R
+	IAhQFRYb5T+BUmtNpcgG0H6Ph96/cN3iPn66bGUvkgJFJg5jJoLCnKoehq+qRFcFMm92kRaeAgsN6
+	Wqat5tgkY+r+hrNHdK6DkPT8Yt8q+c4mp4fP9tUzXKUdZKtpe/eu4OvAkkHFVjYC9+Y6mLP9AwlGw
+	tTyE/578OjuyRfk+9KfwurzaWDwpSOkCuxCsz6vNzR8ipHzQZAnTEXNWUUteZEwYJ9QKcb3Asfbui
+	aUYTuCWArPOHsLIoMcquVyfTlWnV5jhp+zPbTL1BLkfqo7DmnL9uo17P1Nuhi96kAg1FEoryp0FC0
+	akEguZcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOV-0000000GWa6-2dhr;
-	Wed, 11 Dec 2024 23:45:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLWOd-0000000GWkf-2Sgd;
+	Wed, 11 Dec 2024 23:45:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFy-0000000GKWy-0NYx;
-	Wed, 11 Dec 2024 22:32:35 +0000
+	id 1tLVGJ-0000000GKpV-3BVN;
+	Wed, 11 Dec 2024 22:32:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F3C85C67F1;
-	Wed, 11 Dec 2024 22:31:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D537C4CED2;
-	Wed, 11 Dec 2024 22:32:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 975595C67E0;
+	Wed, 11 Dec 2024 22:32:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C1BC4CED2;
+	Wed, 11 Dec 2024 22:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956353;
-	bh=RRuLfKZeC8+vc2RY1vIgr2/93ygrFKjc9DELDSjP76w=;
+	s=k20201202; t=1733956374;
+	bh=29u5B09z/mNiOUipvbCAR8d/HfuJKD9vMPDnfCmrneU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cdV8cioAnhLMhQZutiHWY+WBHtcIFtIO7iItL4IlV2Bzx7Yz/2CAAoAyrasboVtnp
-	 xh4aWdm0kZuPQSolZrnbAUGw58tQb9l0Y6cZv6qcNqH8mEbq27Z0Hj5HfIMVysNzfG
-	 bt2GP1vrfXVtkoYpM3nXRqlvBz9JAVp3o9t7nLPrNR/hywSHGgtYtz49Ec8FaDxkXM
-	 Sga9jYw2unkD8pN1JCnG8Za6O16kvgH+Xjjav4mmvgMOyS48Nr/1w81nw8RgHTtPDy
-	 oqPIBVAWpJujhC6gFG/yhxP5XJsGd/+zZ39jvKK7QfWZLenlfexA1w3IMUz2AUcXE8
-	 4fEPvRXqWfT2g==
+	b=dnrDcNkOoxwSBjPjDdUGrvVokaL8PbY/29PjhRdPkvydqw8DxYooD5ABeBk3HzL/N
+	 76xby5lMWnFghEv7vC3hF+lPCP97eOVPUwp3+ZSkE4SEdqJhuc4M4tsMuMgquf/1Sh
+	 MR1GipeeO24AReN6/ejtJZElR5CRC8RyZljN784IO+9YPc2RBnMzEXA7w+OQ/yoYqa
+	 adhGvjnBGfHafNdP3219wtIr4V6sPs3ti0dnt0aZa1Z6WSjl0+E+Zb5OzErlTpRYgu
+	 UkzyIpABUuFP1nVewt4cL6HBuOiiJYxbTNdocbttNyq8XlE99Zmw+EmsHH8rPlCKUB
+	 H5x4fe1dWfyKw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D41380A965;
-	Wed, 11 Dec 2024 22:32:50 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD93380A965;
+	Wed, 11 Dec 2024 22:33:11 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
+Subject: Re: [PATCH v3] ftrace: Consolidate ftrace_regs accessor functions for
+ archs using pt_regs
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395636900.1729195.10506266683827384224.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:49 +0000
-References: <20241107162035.52206-1-irogers@google.com>
-In-Reply-To: <20241107162035.52206-1-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: linux-riscv@lists.infradead.org, john.g.garry@oracle.com, will@kernel.org,
- james.clark@linaro.org, mike.leach@linaro.org, leo.yan@linux.dev,
- peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- adrian.hunter@intel.com, kan.liang@linux.intel.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, chenhuacai@kernel.org,
- maobibo@loongson.cn, atrajeev@linux.vnet.ibm.com, ben717@andestech.com,
- alexghiti@rivosinc.com, sandipan.das@amd.com, bgray@linux.ibm.com,
- xu.yang_2@nxp.com, ravi.bangoria@amd.com, clement.legoffic@foss.st.com,
- yangyicong@hisilicon.com, mhiramat@kernel.org, dima@secretsauce.net,
- linux@treblig.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <173395639050.1729195.18342749493985130890.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:10 +0000
+References: <20241010202114.2289f6fd@gandalf.local.home>
+In-Reply-To: <20241010202114.2289f6fd@gandalf.local.home>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, x86@kernel.org,
+ mhiramat@kernel.org, mathieu.desnoyers@efficios.com, mark.rutland@arm.com,
+ catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, mpe@ellerman.id.au, npiggin@gmail.com,
+ christophe.leroy@csgroup.eu, naveen@kernel.org, maddy@linux.ibm.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
+ mingo@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143234_209761_2367370B 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20241211_143255_848233_9E8DB788 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +86,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-On Thu,  7 Nov 2024 08:20:27 -0800 you wrote:
-> Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
-> lookup:
-> https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
-> These patches remove a lot of the logic relating CPUIDs to PMUs so
-> that the PMU isn't part of the question when finding a metric table.
-> For time reasons, it doesn't go as far as allowing system metrics
-> without a metric table as a metric table is needed for metrics to
-> refer to other metrics, and the refactoring of that resolution is a
-> hassle.
+On Thu, 10 Oct 2024 20:21:14 -0400 you wrote:
+> From: Steven Rostedt <rostedt@goodmis.org>
+> 
+> Most architectures use pt_regs within ftrace_regs making a lot of the
+> accessor functions just calls to the pt_regs internally. Instead of
+> duplication this effort, use a HAVE_ARCH_FTRACE_REGS for architectures
+> that have their own ftrace_regs that is not based on pt_regs and will
+> define all the accessor functions, and for the architectures that just use
+> pt_regs, it will leave it undefined, and the default accessor functions
+> will be used.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/8] perf jevents: fix breakage when do perf stat on system metric
-    https://git.kernel.org/riscv/c/4a159e6049f3
-  - [v2,2/8] perf header: Move is_cpu_online to numa bench
-    https://git.kernel.org/riscv/c/c6fafe36bab3
-  - [v2,3/8] perf header: Refactor get_cpuid to take a CPU for ARM
-    https://git.kernel.org/riscv/c/cec0d6572a44
-  - [v2,4/8] perf arm64 header: Use cpu argument in get_cpuid
-    https://git.kernel.org/riscv/c/538737da9625
-  - [v2,5/8] perf header: Avoid transitive PMU includes
-    https://git.kernel.org/riscv/c/7463ee17a740
-  - [v2,6/8] perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
-    https://git.kernel.org/riscv/c/494c403ff159
-  - [v2,7/8] perf jevents: Add map_for_cpu
-    https://git.kernel.org/riscv/c/0434410fa45c
-  - [v2,8/8] perf pmu: Move pmu_metrics_table__find and remove ARM override
-    https://git.kernel.org/riscv/c/8f997865ee9e
+  - [v3] ftrace: Consolidate ftrace_regs accessor functions for archs using pt_regs
+    https://git.kernel.org/riscv/c/e4cf33ca4812
 
 You are awesome, thank you!
 -- 
