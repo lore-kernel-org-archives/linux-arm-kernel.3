@@ -4,176 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E8DE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25BDE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 21:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQ34FODL+rWvjEXX2BjWCcNtXyZaoeDOc5977Me123c=; b=klORyufT+WdwxAVSTSECeCanUY
-	koV/f0pBqd6xKe5i5SVi0yY6gDDQW9nslFbFGKYR+GpTgoqScZnWFz7tGwSOxtSNGjPmtRpdHsk+b
-	fEaZXUbzl1x+CE1edqkGdN6M6MdgbmqgnN1QiI+f71gHq4i/bCrivtBMWXzpb0AzHcTkApIgHnSvj
-	eZmnkIdGtAxrTPYY1JnfDhe9Z+guUfUiiOPQHp42D6gwTI+Ib48Ym7WEiBhpmvBWNqbV29nrmno8/
-	N62V+gtOWnSk9s6d1gYXIRzoWUSurDIzM6Ttvj6JkAS6xYHuK76pW0CshQFRFb9XA65YeHHaT3g0o
-	aCuE2/cg==;
+	bh=7uYlOt8elByKXPK9GORjQgONkmgmYlAjU2y3ruhIiIQ=; b=ITCBD1Bo67Ya4WoYgOA/2FgNCA
+	g12e6BOcJOwrrZeQLlc6vXcd+Sj6duPjoJhTkKbhTy+ZmFhkW4x11888Vad5b6YAhocxWqVNXkkMn
+	th+nBHBXPGVTo4UPJDLBD19O4wiEIq4bMWEZ8LoqArbnf/Fq/bmglZTmbO74KOqUlkjBi8sr3DrgC
+	/Ntt7iXpkKdLpT6YGn1s6djU/BVQYCNv43aA774Ubvzs5TlnAN+/uZ15qQJAEbw/MEkKMUYOdfe+M
+	Ec3iCbeUci0vnwYOyfNd5Yh7JB182MUyrT2qQvQsg27zrbSx7yH3iXrHBjJNlETL7CTgWQdjSyjhI
+	EWF6e0qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLU0V-0000000G8ta-1aMu;
-	Wed, 11 Dec 2024 21:12:31 +0000
-Received: from mail-dbaeur03on2060c.outbound.protection.outlook.com ([2a01:111:f403:260d::60c] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tLU1W-0000000G92v-4BdE;
+	Wed, 11 Dec 2024 21:13:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLTmv-0000000G5n5-3MZ7
+	id 1tLTr9-0000000G6x6-3cK5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 20:58:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ogpN0wttNWCz5UQFWsjrq73gWObgToDadaTKTQfrS2mYPAFkXY15I1LLrdHhllhOVWtNyi6GhRaPZd5RS/eDwxXSgKUGI9jsi9GMKUUb7M+UMVNg+RS/B7X1AYijs1gmrTrWM1VrHpD8Kpj6xw6S4XONH0w806AS2DO+IzCcV++ULB95jk8Ipla7ERaLEVi+8HmDcURLRx/2IsWcbh/C8O+K9XdSUAUbbOKyX7CoVNbN2pnWNxS8VdoaR3xZPTWyKGz48l58PGeSmt3WH6pcz1RmKmTp6cPk4e/13QIC9VtIiVIer3R4+w6e5uuJ77iq/i/RGPuq4p64Q5hdp7Hktg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MQ34FODL+rWvjEXX2BjWCcNtXyZaoeDOc5977Me123c=;
- b=sMnXMwAvjNR+QWA1x0aDUGzcj+cYparvKTQENJ0ACnv9muExQHt9tlVPsh50j/68n4Dmjes6IsE2W9gOmH6O7pKYJnlPco9To6U8XeXNKmo+ARxp8+HTcmARM7MqnOdzY8a2RR6Wyonu9FjpmKjfBMSRDymXdhEQFai7GOtjHFmWdcoxVc+PHksSuC8Y0k72wfO7loKI+A5PLPHXd1DJF4T7nNisZZuhRrOnla+FESwNnZ6lFsqEAYJvdxm/3aGUO18oZFW1W6/sTwakYjLfeQHEAsFbD/FdZm/6iQKmxwlg9vjk/EQrux96BVXvu7PvSEHtp+sxLn+dYcYnoyBuiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MQ34FODL+rWvjEXX2BjWCcNtXyZaoeDOc5977Me123c=;
- b=mL1ASNKso2qgrThMujzMRmg+cHSGlTax23hthvA3EiC9T2qwR7H6c3hl6t4/RBdkQ5ZYo4kbndtP4Jm+coknIwOV6F8gGuCcrDwawGg3VGXLYXl6dPAtN11gNdo4m7Aa3GTECQI4QS9KSjDOYPFRt9nRLo7oiyQekGmZ58ALZt4MFKDH3IB0BGLgqtsQitmAPLOJWmc8YogLN6YMdYLQrSoToAnsTplcobE5A7KYn09H7Q1JICHpRaCV3ifyRKONYBzOwrTVGFN7J/B50OYh8DiK2PN/PsvwXYwIO4NW4tjCkU+HtV6V/6Qth+QCtxhmMEhKJyZllOXuObXcmw3NNg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM0PR04MB7139.eurprd04.prod.outlook.com (2603:10a6:208:19d::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Wed, 11 Dec
- 2024 20:58:26 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8230.010; Wed, 11 Dec 2024
- 20:58:26 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 11 Dec 2024 15:57:37 -0500
-Subject: [PATCH v12 9/9] tools: PCI: Add 'B' option for test doorbell
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241211-ep-msi-v12-9-33d4532fa520@nxp.com>
-References: <20241211-ep-msi-v12-0-33d4532fa520@nxp.com>
-In-Reply-To: <20241211-ep-msi-v12-0-33d4532fa520@nxp.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
- Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
- imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, 
- jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733950663; l=1851;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=mJBGb3x/IT3kU6QxbS0pDIxty8JwWoRws5fh7D2yIVI=;
- b=QFLvfupamU6j1m6GC7+ti6gAF9Lji2I/ymk1eSE3p5fzudCDf3+vupHDN3ZmLnRNTbtBXTsSI
- 3K+V2/zfZ5zBNOmUiQmemeCheOGXGKqBO+y2GZeNxfCCsQtQZgB5XU9
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BYAPR01CA0037.prod.exchangelabs.com (2603:10b6:a03:94::14)
- To PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+	Wed, 11 Dec 2024 21:02:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 929A85C5508;
+	Wed, 11 Dec 2024 21:02:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9029FC4CED2;
+	Wed, 11 Dec 2024 21:02:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733950969;
+	bh=UuL6Tkk1/zyeCvpCEaNjww627w5GXUASRKbJM/voC/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sgWLhRqwtYaMdcOGWwKKyWGeq8ACgIw3/x30NSZ/jdF7Yw3u3GL0TqGKaSLlTdVWl
+	 qGZjbhDa1lnMmACXqPjcTSn/9IgUj74wxP8/meoBl8bPqpemIYuXMDfP+T8UKItV7I
+	 ZZ/VETi3pYoCGZnHXXO9sMFPp990bXpRdbg7mAwRBmFvc5Q/MQ+bscn/drmbiIYojf
+	 kSLEAEBNNplgxpdDp22F1Dy6UnHF6TP30sNfFVZluvqFR1uQzgNtE5cz+/2sG0CNmK
+	 5Cc53VTpAXU8FziYet1gYfskQcuiFEsHUbbltSx0M671uXwbU3yLaj5hYp5yDWklqe
+	 RRCkJ3rL8bcjQ==
+Date: Wed, 11 Dec 2024 21:02:44 +0000
+From: Will Deacon <will@kernel.org>
+To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+Cc: catalin.marinas@arm.com, corbet@lwn.net, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+	liunx-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kvmarm@vger.kernel.org
+Subject: Re: [RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
+Message-ID: <20241211210243.GA17155@willie-the-truck>
+References: <20241211154611.40395-1-miko.lenczewski@arm.com>
+ <20241211154611.40395-3-miko.lenczewski@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB7139:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83310109-7cd7-4036-3e4d-08dd1a268edb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dkZWVjBvOUhxMWRMTU9yUXdMTEhSZnJITVVvdTd2TmJBWllKamp5VlVwcjVZ?=
- =?utf-8?B?UStJMVQ4UFlHdytUK1pvZlEzYnBiL3BEY0hlOTZnY21pTHdoUFB1OURFSW9a?=
- =?utf-8?B?WEg0YjRsa3F0MTZGNldyWmlibTc2V1V3K0ZxMGpRT1BkZzBvcmRlNk9zbTJ6?=
- =?utf-8?B?WlNkSDZBQ3JpYUI5YUkxcjNTNDlJL3BoV3JhVnpQYUl3b3lxcjJyek5pandF?=
- =?utf-8?B?b3hHYVhiL3pXNW94bTV0aUF6eUV3VmxQQkRWRWRQS0RwcXpTN2VYa2V4aGdG?=
- =?utf-8?B?ZE1YYXFBTmE1OU00VUFodHE3NVVLUmJqY01hdGkyTWVyMlFvSHFsZ0dkUjhk?=
- =?utf-8?B?YTZaU25PNTZTamJINjhXeWFlRWRFM3JLOEwzdzBJdExmTWtYUE5EUDN1bTNM?=
- =?utf-8?B?enp6NGlsU0VXazlCcUdrcnNNZ0ZXWHhtV2k3cFFuVlZIWWdCN094M01VY1Bx?=
- =?utf-8?B?ZHBhU0dENTFUNmRDVTRJeXRqR3V6dnpHRU9XRnVjd0JrVEhML0d6aGZKOWp2?=
- =?utf-8?B?TEJONGhjUGw0bU9Mc250aGVOTGlwMUJrVWpqR2dNVjdYSjM4cmhObHp1bUYv?=
- =?utf-8?B?SVdOaHN5ajRVY25mOExUbFFNZXcvWUR1cUszaVhMTExPSXdUckdtWFFrNENC?=
- =?utf-8?B?Q1g0a2ZvdEM4K1hkczBLQkYxMkVtVTI2OGVvZHM1Qi9IYmlHYXQySk9RWTFo?=
- =?utf-8?B?TktTOHdCZy9TY2xYaVQ3YUh1elAzVGsxc1o4WGRSbDFXQ0FwZ1ZvczM1dDFz?=
- =?utf-8?B?NVBsZFBXZzlTN0tQME5ZTEVRWDR1dTEybGMwMCtoaVpiTXVEZDBkR2NUdHRj?=
- =?utf-8?B?czF0WDdqV2xGWTF6YXc4ellKVENBdS9oVDJzbEdjTFdQeW9yZlpMNUxuTXZ5?=
- =?utf-8?B?K3Fjc3pucEdxWTdwcjJvbHJwdndhOHQyYzJQSVRjYWhsdnJVK0xHaDV5NDMr?=
- =?utf-8?B?OUYrY1VLbGRZb2laZFdVMExQNzdzYk1QblFzL2xkdjVjL2kxU0FoVW9FaW9p?=
- =?utf-8?B?WEpYc0NkejdjM0k3a21JTGIwTTBzY0JlaVVrNkhCUVk3b3lDbEkrc3VnMDdn?=
- =?utf-8?B?aWF0Yjkycy9aY3JwMHAwWkowcVJTbDliWVBXcXFBd0xMa1BNTGlSQkl5bzUr?=
- =?utf-8?B?TWVDR3hZcXZwZm41dG4zTnVyQ2o3UUdRUStDaTltWXVibDNYSWN0MmN0Y28y?=
- =?utf-8?B?SndLcXNGcjg0V291anAveVpaNXN0L2tjaURPQ2lkc1JObURGVGlzaG5Qdyt2?=
- =?utf-8?B?NzVPbC81aWNkS1dyWWJhNnlYL1ptWjVBZHdmaWVGWFRHWUFaYWllQ2tRNGJX?=
- =?utf-8?B?dGdkYUNGRFhnMXlMY1hlZzJqc0RUaU1rdlgxMTFTeGlUYzY5cThsdmEyK1Q4?=
- =?utf-8?B?VkdKNERsUjlpQldGbUNLbEZYa2R3L084b1NjMExCb1NWL1FwMjVJd3RuaWlj?=
- =?utf-8?B?OWVGcUx3ODBXR1REMldveXQrMzJPMUw0TWdzS0VrTlUrQVIrb1NPNXA2cXg5?=
- =?utf-8?B?Y0o4Smd5dzFjVjEwdFFyVnhiNTR5UmVzcTh0dkpGR2E3N3ZJNlEvSVUvNUZh?=
- =?utf-8?B?ZDNTdzVuWjIzL1JPK1Y1NHBkUktxQVRIQlZIbHJ2RjJCNWNzSTE4Q2lWVitN?=
- =?utf-8?B?ajA5K1RMWVorY0ljcDh3Z1p4M1hIQUYyc1h0RjBaV01DTms1Z2VhemFodlFT?=
- =?utf-8?B?MVpuRVZmVDNKYjY1dHhZSC96SHBObWNyc0llU05DRGhqTStXU2ZLaDBDSkdu?=
- =?utf-8?B?Rk1TeHJUYTF4aHpRQ0hqc2Y4amh6QThScldSQUNSaTUzc044NVlEc0xzQUZL?=
- =?utf-8?B?eUVTMTBVR25wbXRjZUVIVm1XSzVtNUQvRGxiUHp1b3ZHNFdZYW5CcTBsalZS?=
- =?utf-8?B?YlFqbzNSbkhwS3ZSemFHbFFsSlVCaGc2aWovU1RnejZJV2h4aysyZHNtbDB4?=
- =?utf-8?Q?kfmKhjRFLT4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFFiamFzRnYxNFZOWmhNOXF1eFBRUjJxQXd4c1pCY1JZeDQySTdxTHdqbnUr?=
- =?utf-8?B?cll4Tnh6VmpSWU9nN0U3dysrU0JKNVNONHZpaXR1NmZTVEFOOTVYUkJJbTVV?=
- =?utf-8?B?Y2hhUnJkeXEwc0lQbnpGdnN0dGNxdEo4RGx1UjZpR25BVkVNSTBSVzNYMFZD?=
- =?utf-8?B?T2doS1ZrdnpCY1ZWSWJtWVJxajBjeGVrU0poVU5mTlFnakdZTnViOW1OVnVy?=
- =?utf-8?B?V1ZhTlF2ckcwN3JvVEs2eG9obFVFeHhQcDF1RnU5T1JlZFYxbG5uYmp3ZGxu?=
- =?utf-8?B?MVFucTJMOEk5Z1hCb1NOeXlVNGlrN2Fzd1A3ZnovTlRJZnVRRllGamxsK3VF?=
- =?utf-8?B?aU40Mks5TWlnVEUzbjl5VWFFY2lBM1JWUFdHTXU4WWE2ZCtQUTNQdkNlWVp3?=
- =?utf-8?B?THVEOC9XM210eUc0bEgvdVJxR0hvR1ZyK2tQa2g0VzlNU0NuT1BETFJ6cTNq?=
- =?utf-8?B?SEhvZnJwODl1WkRGM3hIQ3ZuN2t5cjIwVDMwdy8yaXI3YXdBRWt6YTFSZjRG?=
- =?utf-8?B?WWRmbWk5R1ptWGhaR1N3NGt6NzJSY2kycHJ5U1B4SWZJb2RiSktTVkFhUGlj?=
- =?utf-8?B?SjRjSVk5TkFsalZrdjFvWStNUEtrb2lzb2NwOUlJQkY1N21xV2MrZ3RzckFY?=
- =?utf-8?B?T0h4ZVFuUFhmQlU4aU5JMjI1U2syaUFyUm9YSkVyTXJsS2crL05IWnZhaVJM?=
- =?utf-8?B?NzU1WFdBTHVreFNGVm00QVRnMWUwRHRRRE40NThIZE9BRlQ4MENNRUJZVDYr?=
- =?utf-8?B?bmFFbHUvaERKTCtBc3NtcXNZQ1ZjUUFPYUlIK2trYzRiNjJrclVaYmRQWGRT?=
- =?utf-8?B?Z0pId0xqeCthaWRsREtFeVQ5TDlheFlFZGorRy9mWGtyNnFvZWg2eVJxTXor?=
- =?utf-8?B?L3lwZ3BVRFNDMHhoSW0wUGx5anpxa05IN0IxdUlRMFFYUldPcXVtUEdsRzR2?=
- =?utf-8?B?OW5NMWJPU2NwQVJyYVpsZm16aDltbk9wT01LNDQ5eEt1a1pFdGRhVlNTbWRp?=
- =?utf-8?B?WFJaeDJ5RnNEMW1KZmcveXBuQkFIMHk4QlJoTXF6czIrVE9JSGwyZDQ5UGNF?=
- =?utf-8?B?RnJ1d2k3ZzVkU2QwZUwwZzNwaW1nZlAwSktjRXg0VklLREk1dmxlVkI0blEr?=
- =?utf-8?B?eDA3eDF4NEtoTEg2SGhyckFnR2phUGdsWEExKytvUEthSm5ta2pqMlFmMHFt?=
- =?utf-8?B?eHJqNXI5QkpIWmtJV2FGV2RMN2tFdGVFZjdnQ1BrR1lVOGJBbk5tQmlBTmE0?=
- =?utf-8?B?d3JEYTc3OTZjNTROam84SHpqWnZMU1g1czhPQ2pYb3BKYzBydzZXUGtRQnUx?=
- =?utf-8?B?ODM5MjRQaVR6VWRNWlBUbHB1dHI4WVdHTnRiRnpUWlZFektuQk5vK3RYUTFE?=
- =?utf-8?B?Z3d5TUlWelVBTTBhMHdmdGdUUENkOTdmSWx0K0V0WExWeDArU0dNQ0U4ZjRr?=
- =?utf-8?B?SkFmTmpEYjRPZHR4K2pyck1IdURQcGVBeDhlcGpNL2hOQnh0QjMwNUgxRGhr?=
- =?utf-8?B?Z1JJLzc2T3k0TjFoY25qQ2oxOWJaUWQwaERnM3F0NEI1Ty9qQU9Vbjl2ZDFv?=
- =?utf-8?B?aW9FMHZvWHZRSzB5elRBNGpjVlV2bEZPTWhwUGtwUi9ZUm9uK3pnK0FMeEp5?=
- =?utf-8?B?U1JIa1pqU0dTK3VOV0dONWJOR1MrbnZpbjhPZG1wVnE3ZnRZaVg5bCtVclRV?=
- =?utf-8?B?RGtJRHlRUGdQcUMxbitFQ1o0a0YxUUpZUlE4M3hJUnA0cGVsL3ZMVHdGeGZY?=
- =?utf-8?B?cXRuUndCM0NjbmEvdk1ITVo2QkpMQnNzc2lsZFduYlNwUnJVVEYyby93bmVl?=
- =?utf-8?B?V2t3MUd6eUhmVXNFVWlrY3dUTXJubkNVNzBjRkswaDNJZ3VFT2NGTWlYOS96?=
- =?utf-8?B?Yno4RGJWNWhLM3dpQ2V2dUxTbTBkRE5sYVFVUEluUTFSeFMvaFFrejFvUyts?=
- =?utf-8?B?Qm53eStiMCs2NEI0bFRQanIxMVJ3c1MwVXRzSVIwaWpwc2JzVTM1TmUvUXpk?=
- =?utf-8?B?bGV0bHluK3lnOWtwc1ZpYmdNMnZGK1B2bElSOExoS2pGeVF4K1g5b3dpRy9t?=
- =?utf-8?B?K1hubUhoNWpUNDVrQTBoY2g3U0U5T01ZaHgvN0lHeHhyZ0wzUVloaC9mM2xV?=
- =?utf-8?Q?WvVraTNsV7uA5o19gN/9cL2gz?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83310109-7cd7-4036-3e4d-08dd1a268edb
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2024 20:58:26.6438
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1mlrP60UE2o5Qo0UxGw6QTaE2cUh1weyHkujOFprdYB/Gh5oHGN2aI1ypgSurTzsokoymrsBfiUUQwmBvana6g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7139
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241211154611.40395-3-miko.lenczewski@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_125829_845590_D423F617 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20241211_130251_984920_7BC32605 
+X-CRM114-Status: GOOD (  33.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,74 +77,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add doorbell test support.
+On Wed, Dec 11, 2024 at 03:45:03PM +0000, Mikołaj Lenczewski wrote:
+> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
+> and this commit adds a dedicated BBML2 cpufeature to test against
+> support for.
+> 
+> In supporting BBM level 2, we open ourselves up to potential TLB
+> Conflict Abort Exceptions during expected execution, instead of only
+> in exceptional circumstances. In the case of an abort, it is
+> implementation defined at what stage the abort is generated, and
+> the minimal set of required invalidations is also implementation
+> defined. The maximal set of invalidations is to do a `tlbi vmalle1`
+> or `tlbi vmalls12e1`, depending on the stage.
+> 
+> Such aborts should not occur on Arm hardware, and were not seen in
+> benchmarked systems, so unless performance concerns arise, implementing
+> the abort handlers with the worst-case invalidations seems like an
+> alright hack.
+> 
+> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+> ---
+>  arch/arm64/include/asm/cpufeature.h | 14 ++++++++++++++
+>  arch/arm64/kernel/cpufeature.c      |  7 +++++++
+>  arch/arm64/mm/fault.c               | 27 ++++++++++++++++++++++++++-
+>  arch/arm64/tools/cpucaps            |  1 +
+>  4 files changed, 48 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 8b4e5a3cd24c..a9f2ac335392 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -866,6 +866,20 @@ static __always_inline bool system_supports_mpam_hcr(void)
+>  	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+>  }
+>  
+> +static inline bool system_supports_bbml2(void)
+> +{
+> +	/* currently, BBM is only relied on by code touching the userspace page
+> +	 * tables, and as such we are guaranteed that caps have been finalised.
+> +	 *
+> +	 * if later we want to use BBM for kernel mappings, particularly early
+> +	 * in the kernel, this may return 0 even if BBML2 is actually supported,
+> +	 * which means unnecessary break-before-make sequences, but is still
+> +	 * correct
+> +	 */
+> +
+> +	return alternative_has_cap_unlikely(ARM64_HAS_BBML2);
+> +}
+> +
+>  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
+>  bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
+>  
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 6ce71f444ed8..7cc94bd5da24 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2917,6 +2917,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>  		.matches = has_cpuid_feature,
+>  		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
+>  	},
+> +	{
+> +		.desc = "BBM Level 2 Support",
+> +		.capability = ARM64_HAS_BBML2,
+> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.matches = has_cpuid_feature,
+> +		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, BBM, 2)
+> +	},
+>  	{
+>  		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
+>  		.capability = ARM64_HAS_LPA2,
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index ef63651099a9..dc119358cbc1 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -844,6 +844,31 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+>  	return 0;
+>  }
+>  
+> +static int do_conflict_abort(unsigned long far, unsigned long esr,
+> +			     struct pt_regs *regs)
+> +{
+> +	if (!system_supports_bbml2())
+> +		return do_bad(far, esr, regs);
+> +
+> +	/* if we receive a TLB conflict abort, we know that there are multiple
+> +	 * TLB entries that translate the same address range. the minimum set
+> +	 * of invalidations to clear these entries is implementation defined.
+> +	 * the maximum set is defined as either tlbi(vmalls12e1) or tlbi(alle1).
+> +	 *
+> +	 * if el2 is enabled and stage 2 translation enabled, this may be
+> +	 * raised as a stage 2 abort. if el2 is enabled but stage 2 translation
+> +	 * disabled, or if el2 is disabled, it will be raised as a stage 1
+> +	 * abort.
+> +	 *
+> +	 * local_flush_tlb_all() does a tlbi(vmalle1), which is enough to
+> +	 * handle a stage 1 abort.
+> +	 */
+> +
+> +	local_flush_tlb_all();
+> +
+> +	return 0;
+> +}
 
-Tested-by: Niklas Cassel <cassel@kernel.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Change from v3 to v12
-- none
----
- tools/pci/pcitest.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+Can we actually guarantee that we make it this far without taking another
+abort? Given that I'm yet to see one of these things in the wild, I'm
+fairly opposed to pretending that we can handle them. We'd be much better
+off only violating BBM on CPUs that are known to handle the conflict
+gracefully. Judging by your later patch, this is practically keyed off
+the MIDR _anyway_...
 
-diff --git a/tools/pci/pcitest.c b/tools/pci/pcitest.c
-index 7b530d838d408..fcff0224a3381 100644
---- a/tools/pci/pcitest.c
-+++ b/tools/pci/pcitest.c
-@@ -34,6 +34,7 @@ struct pci_test {
- 	bool		copy;
- 	unsigned long	size;
- 	bool		use_dma;
-+	bool		doorbell;
- };
- 
- static int run_test(struct pci_test *test)
-@@ -147,6 +148,15 @@ static int run_test(struct pci_test *test)
- 			fprintf(stdout, "%s\n", result[ret]);
- 	}
- 
-+	if (test->doorbell) {
-+		ret = ioctl(fd, PCITEST_DOORBELL, 0);
-+		fprintf(stdout, "Ringing doorbell on the EP\t\t");
-+		if (ret < 0)
-+			fprintf(stdout, "TEST FAILED\n");
-+		else
-+			fprintf(stdout, "%s\n", result[ret]);
-+	}
-+
- 	fflush(stdout);
- 	close(fd);
- 	return (ret < 0) ? ret : 1 - ret; /* return 0 if test succeeded */
-@@ -172,7 +182,7 @@ int main(int argc, char **argv)
- 	/* set default endpoint device */
- 	test->device = "/dev/pci-endpoint-test.0";
- 
--	while ((c = getopt(argc, argv, "D:b:m:x:i:deIlhrwcs:")) != EOF)
-+	while ((c = getopt(argc, argv, "D:b:m:x:i:BdeIlhrwcs:")) != EOF)
- 	switch (c) {
- 	case 'D':
- 		test->device = optarg;
-@@ -222,6 +232,9 @@ int main(int argc, char **argv)
- 	case 'd':
- 		test->use_dma = true;
- 		continue;
-+	case 'B':
-+		test->doorbell = true;
-+		continue;
- 	case 'h':
- 	default:
- usage:
-@@ -241,6 +254,7 @@ int main(int argc, char **argv)
- 			"\t-w			Write buffer test\n"
- 			"\t-c			Copy buffer test\n"
- 			"\t-s <size>		Size of buffer {default: 100KB}\n"
-+			"\t-B			Doorbell test\n"
- 			"\t-h			Print this help message\n",
- 			argv[0]);
- 		return -EINVAL;
-
--- 
-2.34.1
-
+Will
 
