@@ -4,58 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432EAE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 01:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523F0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 01:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLiF3+1wxeQNn+Qj/FRUqScT1++3cQ1MFzbwCBVRb9c=; b=kgU9M4fY3zK7a2APuvelPCxO2G
-	nfQPUHJiUCVU2xjElupsI1j1lF9Q5Q6gRZ8uv2bgYTvtJuwNVVG/mGZhA0ewg+DfpDB8kvOk7lS0p
-	B89g0nhQuqsJ9QSpzCY3zFOPUfyjZCEHvTVr80PryMaJxmBwRrLFhvodoj1LHlJv+9GYmI0E4I8Ht
-	oZksEDrOAdmpcFJoH2AfW3fbqXb5tbtuOiWF6mFxmZgfqP0MRMReXkFmaGBYQKsY6gt995p/C5UV0
-	gMC68zQ/po7aL48V8d6PvGMN6H38kKWJAUYLYQGp22TtTMnG6mZxq5XXNNco+SDYs9+aa/urP5X2C
-	9NWLuO+Q==;
+	bh=cYwHho9KcGwqfLq7T2him2vuLSNJFKniJMfHJ4dX97Q=; b=HqMtAHB/7UgFZZQoNRNfPofB+w
+	592E2Q0jWSOo64Cke13INmKdyJkA5gJfdktaCr5rZ9IYKXU+nJH1RPg7AKeEAmuUv19lTFWkMbERA
+	Q6j52JUqqhFpwzB6gT9KzjfEwFKEtF5n9aUr/ri9mcD0bHzZR2+T+RUXgfelvBqp+f0ZiDKVK5O/Q
+	vE1wl1YVeL+s1RWeGtETjhauIMiG+kAWFfaWazike7Hd6tdIz3uEqHZARvozNEnt235HRaevQP4Ds
+	A01Op/Sp4U/7hQczayeT/LCv5Yh0dmbRrYyZtCoXvehIoAu1sDUWos9iFNLj12AJMUCLVmbQWxCnh
+	yuRxb7Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLBTg-0000000DPqk-1frh;
-	Wed, 11 Dec 2024 01:25:24 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1tLBtB-0000000DSCy-45Up;
+	Wed, 11 Dec 2024 01:51:45 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLBSb-0000000DPZG-3nhR
+	id 1tLBs7-0000000DS7L-0BQE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 01:24:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1733880253; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=QLiF3+1wxeQNn+Qj/FRUqScT1++3cQ1MFzbwCBVRb9c=;
-	b=mmJTHp6SIl74KtwtumuyWrStw3W3xv5XBzCSnfaDgmI1+KM/gconQdcZaK6SIt9B5ssLdQszXZqrGXBnyvcDV3PwnvjFyoVng5a6t1p+rC4QGzMJet4Ievyus7xGjWdHC174t62VFq3vYqnyz9f6W8G4iXku3kSLEajVexLKG6U=
-Received: from 30.166.1.177(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLGFXUW_1733880251 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 11 Dec 2024 09:24:11 +0800
-Message-ID: <f8786f53-eff0-4fd7-9c4d-c5733f648c6e@linux.alibaba.com>
-Date: Wed, 11 Dec 2024 09:24:09 +0800
+	Wed, 11 Dec 2024 01:50:41 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20241211015028epoutp035de3e852efc76844b50070d1da70cc94~P-FY_R-su0315603156epoutp03J
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 01:50:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20241211015028epoutp035de3e852efc76844b50070d1da70cc94~P-FY_R-su0315603156epoutp03J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1733881828;
+	bh=cYwHho9KcGwqfLq7T2him2vuLSNJFKniJMfHJ4dX97Q=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=GV3urSPVUE80D6bhP7O2kI0nytv6yYuU1/DbdmsiH3WxLAhNlbdm8VcFcygkhTvlz
+	 gyd/u/ZOLdEPA7ILtiW4VB0vUxzFnRwZS8OPuemXEEi9MSMMKvhRwMHpTDmxH6a1er
+	 N1zj8HWMFggKur+OoKaSDKRHqBFh5HTJNhH5o91Q=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTP id
+	20241211015028epcas2p1117c5ae9b0a21a62e5b25c293d5dd7d2~P-FYo2o_b0996709967epcas2p1e;
+	Wed, 11 Dec 2024 01:50:28 +0000 (GMT)
+Received: from epsmges2p2.samsung.com (unknown [182.195.36.89]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4Y7JTJ19Nlz4x9Px; Wed, 11 Dec
+	2024 01:50:28 +0000 (GMT)
+Received: from epcas2p2.samsung.com ( [182.195.41.54]) by
+	epsmges2p2.samsung.com (Symantec Messaging Gateway) with SMTP id
+	94.65.22094.4EFE8576; Wed, 11 Dec 2024 10:50:28 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20241211015027epcas2p34d588c74f1db0da0880d2a2a2c49a007~P-FXu9WJZ2078920789epcas2p3E;
+	Wed, 11 Dec 2024 01:50:27 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20241211015027epsmtrp1979b564e95793b0897958f8df6cd14d8~P-FXuDubQ2416624166epsmtrp1u;
+	Wed, 11 Dec 2024 01:50:27 +0000 (GMT)
+X-AuditID: b6c32a46-d31d72400000564e-86-6758efe4b990
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	AC.2A.18729.3EFE8576; Wed, 11 Dec 2024 10:50:27 +0900 (KST)
+Received: from KORCO119526 (unknown [10.229.8.143]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20241211015027epsmtip21cd2b237883ed62838960ab799b7c5ba~P-FXgetpC0407204072epsmtip2S;
+	Wed, 11 Dec 2024 01:50:27 +0000 (GMT)
+From: =?utf-8?B?6rmA7YOc7JmE?= <trunixs.kim@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Wim Van Sebroeck'"
+	<wim@linux-watchdog.org>, "'Guenter Roeck'" <linux@roeck-us.net>, "'Rob
+ Herring'" <robh@kernel.org>, "'Krzysztof Kozlowski'" <krzk+dt@kernel.org>,
+	"'Conor Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'"
+	<alim.akhtar@samsung.com>
+Cc: <linux-watchdog@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, "'Byoungtae Cho'" <bt.cho@samsung.com>
+In-Reply-To: <510e826d-a434-437d-8d2e-3f2618c28b7f@kernel.org>
+Subject: RE: [PATCH v4 1/1] arm64: dts: exynosautov920: add watchdog DT node
+Date: Wed, 11 Dec 2024 10:50:27 +0900
+Message-ID: <000101db4b6f$0d31c460$27954d20$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf/dwc_pcie: Qualify RAS DES VSEC Capability by Vendor,
- Revision
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Ilkka Koskinen <ilkka@os.amperecomputing.com>,
- Krishna chaitanya chundru <quic_krichai@quicinc.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
-References: <20241210145335.GA3239578@bhelgaas>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20241210145335.GA3239578@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQGRpYUbE1kmIx7vVDERT7TS+PBmVwKCnclrAeE4rOgCHZavxLM/hzKQ
+Content-Language: ko
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrOJsWRmVeSWpSXmKPExsWy7bCmme6T9xHpBlf62S0ezNvGZnH/Ux+T
+	xZq955gs5h85x2rxctY9Novz5zewW2x6fI3V4vKuOWwWM87vY7K4sW4fu8WThWeYLP7v2cFu
+	8fjlP2YHXo9NqzrZPFauWcPqsXlJvcfO7w3sHn1bVjF6fN4kF8AWlW2TkZqYklqkkJqXnJ+S
+	mZduq+QdHO8cb2pmYKhraGlhrqSQl5ibaqvk4hOg65aZA3SokkJZYk4pUCggsbhYSd/Opii/
+	tCRVISO/uMRWKbUgJafAvECvODG3uDQvXS8vtcTK0MDAyBSoMCE7Y9rMJpaCVVwV3a0rWBsY
+	l3F0MXJySAiYSCx618raxcjFISSwg1Gi8clbRgjnE6PEwVMdbBDON0aJS/92McG0LD73lhki
+	sZdRonfTcijnBaPEwtbJrCBVbAIWEkuufWACSYgIbGCSmHrmJliCWeA2o8TO98YgNqeAncSy
+	u5/B4sICPhKtG1YDNXBwsAioSvx9GggS5hWwlFh+dxsbhC0ocXLmExaIMfIS29/OYYa4SEHi
+	59NlYGNEBNwkrs6dxQRRIyIxu7MN7DgJgTMcEk/XrWIEmS8h4CIxYVYdRK+wxKvjW9ghbCmJ
+	l/1tUHa+xMqVJ6A+rpG417aLBcK2l1h05ic7yBhmAU2J9bv0ISYqSxy5BXUZn0TH4b/sEGFe
+	iY42IQhTVWL6sgCIGdISE2esZZvAqDQLyVuzkLw1C8n5sxBWLWBkWcUollpQnJueWmxUYASP
+	6uT83E2M4BSs5baDccrbD3qHGJk4GA8xSnAwK4nwcniHpgvxpiRWVqUW5ccXleakFh9iNAWG
+	80RmKdHkfGAWyCuJNzSxNDAxMzM0NzI1MFcS573XOjdFSCA9sSQ1OzW1ILUIpo+Jg1OqgalN
+	7cyXPKa/alGnDBt/s6w3/ROiHL4x0qneU1d7+uyrp15fY2HX49+tx1p9TX128epzJu/vLHHI
+	csyu43G0edVsvmZhqfCBs4oVkqubphucO7HZKGx9mWne+Y9Hg1rCWo0vnlBttvtZVsHw8MGP
+	vzG3VX2qdzdeZeK/Ny02YkNgmbWl38WDnv/sXp6YpVis6P+gXdLV/0VP0JG7fQxcrWnFSc65
+	rxVONqxfvqdlTdOJM8xTlAuvTUsKk45Z7eL0btfGl5YqzDxbNs9cfepL1b8HE1ujyisbJovt
+	WPGxVOTWlcdlt+NObGaLnigQdvXQtpdGzU4FJTsL1b5fMPpbeeXVHdZVD2eczav4+65u9gUl
+	luKMREMt5qLiRABkj4wBSgQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrOIsWRmVeSWpSXmKPExsWy7bCSvO7j9xHpBncuyVg8mLeNzeL+pz4m
+	izV7zzFZzD9yjtXi5ax7bBbnz29gt9j0+BqrxeVdc9gsZpzfx2RxY90+dosnC88wWfzfs4Pd
+	4vHLf8wOvB6bVnWyeaxcs4bVY/OSeo+d3xvYPfq2rGL0+LxJLoAtissmJTUnsyy1SN8ugStj
+	2swmloJVXBXdrStYGxiXcXQxcnJICJhILD73lrmLkYtDSGA3o0Rnz1VGiIS0xJHfL9ggbGGJ
+	+y1HWCGKnjFKPN/4lhUkwSZgIbHk2gcmkISIwBYmiemvTjGCOMwCDxkl/r86ANXylVFi5rfT
+	zCAtnAJ2EsvufgZrFxbwkWjdsBqonYODRUBV4u/TQJAwr4ClxPK729ggbEGJkzOfsIDYzALa
+	Ek9vPoWy5SW2v53DDHGegsTPp8vARooIuElcnTuLCaJGRGJ2ZxvzBEbhWUhGzUIyahaSUbOQ
+	tCxgZFnFKJlaUJybnltsWGCYl1quV5yYW1yal66XnJ+7iREcl1qaOxi3r/qgd4iRiYPxEKME
+	B7OSCC+Hd2i6EG9KYmVValF+fFFpTmrxIUZpDhYlcV7xF70pQgLpiSWp2ampBalFMFkmDk6p
+	BqZJzSc+S13kXM/p/WW+QnLokwN7j0/n3npw7ZOKzf0bebNOnzfSediTtdW/NK/yuZWmnN7S
+	1q8RjztvttSfjdo7VaujSqt/4kmPDQIKOwpOWnH0WQYX9fDobbQwVZdaXjt94e0Hn/etMDlm
+	tnV3xm12d8b39msZ1Ke2RqQve7zuRsH8FdL8hrdb7PcanLVU1DD35Dna/fyxscz+q9urrFoP
+	hjyNeyuksZ/zk5hF6x6ubwfK2xte3BA4+ED6oUPi3gxr8WKJpzns3b2KYueOxLy0XJJiJ9U8
+	R+T57qPP/wWl/fUxlYwO2bWzvILDlfOSveSdU9NiM1XenQ9Ma1d03pHzWdw/q8FDIfLDhwOs
+	7EosxRmJhlrMRcWJAAO9CHY6AwAA
+X-CMS-MailID: 20241211015027epcas2p34d588c74f1db0da0880d2a2a2c49a007
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20241206025156epcas2p4c55f230accc4354e6f4bf324ab9a5833
+References: <20241206025139.2148833-1-trunixs.kim@samsung.com>
+	<CGME20241206025156epcas2p4c55f230accc4354e6f4bf324ab9a5833@epcas2p4.samsung.com>
+	<20241206025139.2148833-2-trunixs.kim@samsung.com>
+	<510e826d-a434-437d-8d2e-3f2618c28b7f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_172418_435325_17865BC0 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241210_175040_456950_ECC85782 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +145,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2024/12/10 22:53, Bjorn Helgaas 写道:
-> On Tue, Dec 10, 2024 at 08:04:17PM +0800, Shuai Xue wrote:
->> 在 2024/12/10 06:29, Bjorn Helgaas 写道:
->>> From: Bjorn Helgaas <bhelgaas@google.com>
->>>
->>> PCI Vendor-Specific (VSEC) Capabilities are defined by each vendor.
->>> Devices from different vendors may advertise a VSEC Capability with the DWC
->>> RAS DES functionality, but the vendors may assign different VSEC IDs.
->>>
->>> Search for the DWC RAS DES Capability using the VSEC ID and VSEC Rev
->>> chosen by the vendor.
-> 
->>> -	for (vid = dwc_pcie_vendor_ids; vid->vendor_id; vid++) {
->>> +	for (vid = dwc_pcie_pmu_vsec_ids; vid->vendor_id; vid++) {
+on 11/12/2024 01:50 UTC+09:00, Taewan Kim wrote:
+>> From: Byoungtae Cho <bt.cho@samsung.com>
 >>
->> How about checking the pdev->vendor with vid->vendor_id before
->> search the vesc cap?
+>> Adds two watchdog devices for ExynosAutoV920 SoC.
 >>
->> +		if (pdev->vendor != vid->vendor_id)
->> +			continue;
-> 
-> Every user of VSEC needs to specify the (Vendor ID, VSEC ID) and
-> verify that the Vendor ID matches the device Vendor ID, so
-> pci_find_vsec_capability() does this check internally, so I don't
-> think we need to do it here.
+>> Signed-off-by: Byoungtae Cho <bt.cho@samsung.com>
+>> Signed-off-by: Taewan Kim <trunixs.kim@samsung.com>
+>> ---
+>>  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 20 +++++++++++++++++++
+>>  1 file changed, 20 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>> index c759134c909e..7b9591255e91 100644
+>> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+>> @@ -183,6 +183,26 @@ cmu_misc: clock-controller@10020000 {
+>>  				      "noc";
+>>  		};
+>>
+>> +		watchdog_cl0: watchdog@10060000 {
+>
+>You need to do careful rebase, not just accept whatever tools shown you.
+>
+>This is now placed in incorrect order - not keeping sorting by unit address.
 
+I seems to me that the addresses are sorted correctly in order. 
+Could you kindly check again?
 
-I see. LGTM. Also, I quickly tested it on Yitian 710 and it works as expected.
+        clock-controller@1002_0000
+                  watchdog@1006_0000 
+                  watchdog@1007_0000
+    interrupt-controller@1040_0000
 
-Reviewed-and-tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
+And if there are any rules I might not be aware of, please let me know.
 
-Thanks.
+Best regards,
+Taewan Kim
 
-Best Regards,
-Shuai
 
