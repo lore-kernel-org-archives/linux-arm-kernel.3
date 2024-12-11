@@ -4,99 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D751E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF6CE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 11:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BH2B/0le3yWwufp60i2sfpfytwxxHzleO8u4wmCzBqo=; b=M9zdDpn8uDfCr6RDrRLMSrfg5M
-	wxRh3FObvVbggVeEwZKyz89HSrJy4079mUvbLgMy+Vq3bSdmQ7stTnu+piK3mMA2zbSiS+Pt+4cJQ
-	XYq/rDssMjPFC5dhgrNKS5tE5NPxTLkBh1O4PojfBiN0E1V5I5VylpN+v2mBhnS8cPXXa7FcwrPz/
-	r9Fq12tkFronVLzoLvIwXyfIZdys0CuiCPKH9pM6jKMXXLmuBLz1ZquJrtN45Ih2IN2ma8zjPCFO8
-	bZrGuEiBZLpsJrxOkrqwHjN3Qz1JQdfU5xLKO6n7YKHLf+nZdkv9VIXHWiBXFazpRLFIQRWquhGHZ
-	dBOZyDzg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wmIZwPmlDItBIvSBStS3M9me7k3FbH6ZwGmimj0cflw=; b=EDLnNljII+damkgsmpesWmacq9
+	4STAMLaskTOJMUwqeHQPJNztnskWebBL0IX/dds/pgA9tvonIzbtWiGZM/YTCqLFecHjdD0ygHosu
+	xmvxIUwXf5VmnSTf51TlNJJ4bDs5viFOAgbKsx46BpESuqMlr7TfP2hUJNl3OWjR1DJMa585yXj+z
+	10NA8/t86KfbQJ9lNRzKGiRccilaVDyug7P2Hu//iVs+pcT2JvTOezpv5G+KdFjlhkVmP+6n2EVjz
+	sSuqzxrNC51xgFXPGRipd+BbCnP+XenGsLqG91rH2ZxG4sPfqIKJpOg1g8D7odfrnLfY9uCEKd9++
+	PjTpBQwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKgY-0000000EfPd-1kaR;
-	Wed, 11 Dec 2024 11:15:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tLKjF-0000000EfjN-11rz;
+	Wed, 11 Dec 2024 11:18:05 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLKfU-0000000EfGv-2UqD
+	id 1tLKiB-0000000EfYk-2n6b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 11:14:14 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BB81Gh0017424;
-	Wed, 11 Dec 2024 11:14:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BH2B/0le3yWwufp60i2sfpfytwxxHzleO8u4wmCzBqo=; b=ICw7lIe0eAhR1jwS
-	M/OMY1x+JmCh709+7Ftb/jkm7mETYqnzUTwfgq5rGpHncSXibIhKygvPbYMcJLwu
-	SdhQtGFjyUPCp7hZoX00hJmL/G9DTTa7qN5MPBemdcwWFv4UOznCwGBt37vGO21i
-	0BZQwpcBHfvsWiylnDnXNq6rVC6MGTNx0GN7hAbMbnQGOpTjT95GEh9A4wSiQ8sY
-	hQ/46bJy/P7zdK8Gaz0/2TVehYCAXma0oG7t3RT+/rLW/V9EAkIH0nJgIQ9LUthI
-	t8NxBlz5O9Hp5zF5jy5rNBIJ9vlnGfIg6kuRb8QaV1Z3MTNCrAIsrmErTLLVPJZT
-	YhThuQ==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43eak3deh6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 11:14:04 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BBBE4f0011415
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 11:14:04 GMT
-Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Dec
- 2024 03:14:00 -0800
-Message-ID: <7bdaa38a-c114-4538-8fbb-85e0f326f436@quicinc.com>
-Date: Wed, 11 Dec 2024 19:13:58 +0800
+	Wed, 11 Dec 2024 11:17:00 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-728e729562fso1262876b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 03:16:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733915818; x=1734520618; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wmIZwPmlDItBIvSBStS3M9me7k3FbH6ZwGmimj0cflw=;
+        b=KGpYJ5luWhEkjzTpqAWrmUoFkEQqR22QNG1/b39e1QMTRapnz8zKLt7rFs1t3sQnxs
+         z75EiiUfR3+6Ue/kWZWTQsV+WnSabqPkrnrG8LcQz29MGLsjlGgaQtWVNYHK/GJHqIoZ
+         jf/qtIbSmtJHxBsa9MVs74pCxZgK2oJ7CarbABc6JUVMaiSHjalxy1+0Hf04kQOwd8BZ
+         VUYQJVi5KrWPrrdm09XJ08Xo08JUUUEd14Qk3XeT2l01jJ9pPLJxXbuYRemmX4pevBHc
+         1lLY6WIJ063c2j6eU6wMoNCyoXRwIRyb+1XTdLF2uxroVOGsE6v/9Kt4bxbeZNKFNw56
+         V1jA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733915818; x=1734520618;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wmIZwPmlDItBIvSBStS3M9me7k3FbH6ZwGmimj0cflw=;
+        b=UdFnNuE9HxqDj4XtaGQ5Ig5tZjyY44Rug6KlHQfNui6h23RhMkzJVadU3nvS5Mwl2Y
+         4km8fWMLHRKVKhkbw7MR6B7lsQnfNvay0NqSW0Kc2KB2VVht0dwTV2fN19cxFbKk+c0C
+         oikR+oVsmZ+3xPOy8xzPUymCqSVJNdHAd+d/MOH8uEPFBXDuzCp0ZqYmnobhJoUV644M
+         wzZKeE4r5ypYwRMy7WWucurRAjeSO1aJWGcPa8qM/JAcg7KpZJXfF5u5idV3oEMoIeCf
+         bLpz2epqlMoKKILO8AAZGBHmMaKlbWeuTiv8H/hCeQopgiqt81VGcL+h+FyKCjeoOgN1
+         U6dg==
+X-Gm-Message-State: AOJu0YyL5P0g5i653ZMwrO0SOWg0FfzPgrq/9KaVRDxtdBcfGaT9Mzvb
+	HeOMzbGiVj3d1RkPltiitSrsZyguyjPo52wlRl7E/KiiQr36rz7L
+X-Gm-Gg: ASbGncvGrJ6iJuhKZthxlEvkU7rsABdXn8zP05XeGUenLvxEGAJ/999vOKZZIdz4rZB
+	PMyHgctfH4ktTGpm2Kl7wwnUDBb8v4Xsza5UBTOoiLoGuVYxVIHwvj3kIlBsPZ2miakSoyTjLMo
+	wzUsUd9kAjZjMcELlk5jWasIPgTzLkYgoLA9C0mtCMUetF5TSUiz3b9Rnvuz0wJWzK5h9nq5XvL
+	Usb5VbAPbgr6G03H9ySQdAPTyf23NzlffEnULc1H7ueHrwZJx06vte0/35WuQZ317/a
+X-Google-Smtp-Source: AGHT+IHSi/8yxD89dgGKzdJcVyw/Qs3K0iIuRyxvcQq/9US7gLCDwtgVLuR8LLk/UjirsvcXRBj2WA==
+X-Received: by 2002:a05:6a21:6d95:b0:1e1:ab51:f531 with SMTP id adf61e73a8af0-1e1c12df4f3mr5561010637.22.1733915817578;
+        Wed, 11 Dec 2024 03:16:57 -0800 (PST)
+Received: from ownia.localdomain ([2400:e3e0:f5a9:dd52:f8f3:1167:a723:6521])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725ce38be98sm7606482b3a.52.2024.12.11.03.16.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 03:16:57 -0800 (PST)
+From: Weizhao Ouyang <o451686892@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Weizhao Ouyang <o451686892@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] kselftest/arm64: abi: fix SVCR detection
+Date: Wed, 11 Dec 2024 19:16:39 +0800
+Message-ID: <20241211111639.12344-1-o451686892@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/2] coresight: Add label sysfs node support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Bjorn
- Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-References: <20241210122253.31926-1-quic_jinlmao@quicinc.com>
- <avimk3fdjal6ohezktrexnbguxf6wj5tv6jbcqy5r4bnuww6kz@3xjt3mutne7n>
-Content-Language: en-US
-From: Jinlong Mao <quic_jinlmao@quicinc.com>
-In-Reply-To: <avimk3fdjal6ohezktrexnbguxf6wj5tv6jbcqy5r4bnuww6kz@3xjt3mutne7n>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: _gUCSwLu4NqZhl2SsUr9uXHMUi4OEZPY
-X-Proofpoint-GUID: _gUCSwLu4NqZhl2SsUr9uXHMUi4OEZPY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- mlxlogscore=999 clxscore=1015 spamscore=0 mlxscore=0 impostorscore=0
- malwarescore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
- bulkscore=0 phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412110084
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_031412_645516_2EDD691E 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20241211_031659_703258_2781713C 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,58 +97,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When using svcr_in to check ZA and Streaming Mode, we should make sure
+that the value in x2 is correct, otherwise it may trigger an Illegal
+instruction if FEAT_SVE and !FEAT_SME.
 
+Fixes: 43e3f85523e4 ("kselftest/arm64: Add SME support to syscall ABI test")
+Signed-off-by: Weizhao Ouyang <o451686892@gmail.com>
+---
+ .../selftests/arm64/abi/syscall-abi-asm.S     | 32 +++++++++----------
+ 1 file changed, 15 insertions(+), 17 deletions(-)
 
-On 2024/12/11 16:46, Krzysztof Kozlowski wrote:
-> On Tue, Dec 10, 2024 at 08:22:51PM +0800, Mao Jinlong wrote:
->> With current design, the name of the non-cpu bounded coresight
->> component is the device type with the number. And with 'ls' command
->> we can get the register address of the component. But from these
->> information, we can't know what the HW or system the component belongs
->> to. Add label in DT and show the hw information by reading label sysfs
->> node.
->>
->> cti_sys0 -> ../../../devices/platform/soc@0/138f0000.cti/cti_sys0
->> cti_sys1 -> ../../../devices/platform/soc@0/13900000.cti/cti_sys1
->> tpdm0 -> ../../../devices/platform/soc@0/10b0d000.tpdm/tpdm0
->> tpdm1 -> ../../../devices/platform/soc@0/10c28000.tpdm/tpdm1
->> tpdm2 -> ../../../devices/platform/soc@0/10c29000.tpdm/tpdm2
->>
->> /sys/bus/coresight/devices # cat cti*/label
->> cti_dlct_0
->> cti_dlct_1
->> cti_apss_0
->> cti_apss_1
->> cti_apss_2
->>
->> Change since V4:
->> 1. Add label in DT and add label sysfs node for each coresight device.
-> 
-> This is v5, no links to previous versions (I really suggest to start
-> using b4 if you want to make your process easier for you), no other
-> changes so subject is obviously the same and looking for this patchset
-> previous versions gives me 0 results:
-> 
-> https://lore.kernel.org/all/?q=%22coresight%3A+Add+label+sysfs+node+support%22
-> 
-> OK, let's try b4 diff:
-> 
-> b4 diff '20241210122253.31926-1-quic_jinlmao@quicinc.com'
-> Grabbing thread from lore.kernel.org/all/20241210122253.31926-1-quic_jinlmao@quicinc.com/t.mbox.gz
-> Checking for older revisions
-> Grabbing search results from lore.kernel.org
-> Nothing matching that query.
-> ---
-> Analyzing 3 messages in the thread
-> Could not find lower series to compare against.
-> 
-> 
-> So how do you expect us to do any meaningful review?
-> 
-> Best regards,
-> Krzysztof
-I will resend the patches with the links of lower series.
-
-> 
+diff --git a/tools/testing/selftests/arm64/abi/syscall-abi-asm.S b/tools/testing/selftests/arm64/abi/syscall-abi-asm.S
+index df3230fdac39..66ab2e0bae5f 100644
+--- a/tools/testing/selftests/arm64/abi/syscall-abi-asm.S
++++ b/tools/testing/selftests/arm64/abi/syscall-abi-asm.S
+@@ -81,32 +81,31 @@ do_syscall:
+ 	stp	x27, x28, [sp, #96]
+ 
+ 	// Set SVCR if we're doing SME
+-	cbz	x1, 1f
++	cbz	x1, load_gpr
+ 	adrp	x2, svcr_in
+ 	ldr	x2, [x2, :lo12:svcr_in]
+ 	msr	S3_3_C4_C2_2, x2
+-1:
+ 
+ 	// Load ZA and ZT0 if enabled - uses x12 as scratch due to SME LDR
+-	tbz	x2, #SVCR_ZA_SHIFT, 1f
++	tbz	x2, #SVCR_ZA_SHIFT, load_gpr
+ 	mov	w12, #0
+ 	ldr	x2, =za_in
+-2:	_ldr_za 12, 2
++1:	_ldr_za 12, 2
+ 	add	x2, x2, x1
+ 	add	x12, x12, #1
+ 	cmp	x1, x12
+-	bne	2b
++	bne	1b
+ 
+ 	// ZT0
+ 	mrs	x2, S3_0_C0_C4_5	// ID_AA64SMFR0_EL1
+ 	ubfx	x2, x2, #ID_AA64SMFR0_EL1_SMEver_SHIFT, \
+ 			 #ID_AA64SMFR0_EL1_SMEver_WIDTH
+-	cbz	x2, 1f
++	cbz	x2, load_gpr
+ 	adrp	x2, zt_in
+ 	add	x2, x2, :lo12:zt_in
+ 	_ldr_zt 2
+-1:
+ 
++load_gpr:
+ 	// Load GPRs x8-x28, and save our SP/FP for later comparison
+ 	ldr	x2, =gpr_in
+ 	add	x2, x2, #64
+@@ -125,9 +124,9 @@ do_syscall:
+ 	str	x30, [x2], #8		// LR
+ 
+ 	// Load FPRs if we're not doing neither SVE nor streaming SVE
+-	cbnz	x0, 1f
++	cbnz	x0, check_sve_in
+ 	ldr	x2, =svcr_in
+-	tbnz	x2, #SVCR_SM_SHIFT, 1f
++	tbnz	x2, #SVCR_SM_SHIFT, check_sve_in
+ 
+ 	ldr	x2, =fpr_in
+ 	ldp	q0, q1, [x2]
+@@ -148,8 +147,8 @@ do_syscall:
+ 	ldp	q30, q31, [x2, #16 * 30]
+ 
+ 	b	2f
+-1:
+ 
++check_sve_in:
+ 	// Load the SVE registers if we're doing SVE/SME
+ 
+ 	ldr	x2, =z_in
+@@ -256,32 +255,31 @@ do_syscall:
+ 	stp	q30, q31, [x2, #16 * 30]
+ 
+ 	// Save SVCR if we're doing SME
+-	cbz	x1, 1f
++	cbz	x1, check_sve_out
+ 	mrs	x2, S3_3_C4_C2_2
+ 	adrp	x3, svcr_out
+ 	str	x2, [x3, :lo12:svcr_out]
+-1:
+ 
+ 	// Save ZA if it's enabled - uses x12 as scratch due to SME STR
+-	tbz	x2, #SVCR_ZA_SHIFT, 1f
++	tbz	x2, #SVCR_ZA_SHIFT, check_sve_out
+ 	mov	w12, #0
+ 	ldr	x2, =za_out
+-2:	_str_za 12, 2
++1:	_str_za 12, 2
+ 	add	x2, x2, x1
+ 	add	x12, x12, #1
+ 	cmp	x1, x12
+-	bne	2b
++	bne	1b
+ 
+ 	// ZT0
+ 	mrs	x2, S3_0_C0_C4_5	// ID_AA64SMFR0_EL1
+ 	ubfx	x2, x2, #ID_AA64SMFR0_EL1_SMEver_SHIFT, \
+ 			#ID_AA64SMFR0_EL1_SMEver_WIDTH
+-	cbz	x2, 1f
++	cbz	x2, check_sve_out
+ 	adrp	x2, zt_out
+ 	add	x2, x2, :lo12:zt_out
+ 	_str_zt 2
+-1:
+ 
++check_sve_out:
+ 	// Save the SVE state if we have some
+ 	cbz	x0, 1f
+ 
+-- 
+2.45.2
 
 
