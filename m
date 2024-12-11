@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A608E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE46AE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TdrJ0SbMmqk7tEl4kBb44qSI7X5fDQGS/pk1FZgb02Y=; b=Sn0mzX33HqidmKL0yIaprH84lb
-	dP5hj5jBB56YlRqIF1OFd2KT9IgUxQnH2Nr8/n7+yzCTj622+YZ8vMZoLisEtQ3vv9WOgsb3j91tf
-	wua/n75I4HzeGWiPyejUrc0Gq1BqEbFbNNO+LZsmm1DjVwiKrU0veSbFxy7apAFucwIYtLY5VCtEf
-	23cUx+2Nj5JGV6BxXeFeqF6FTtjsa2uaB5XncMnCti2gTG8HvCv6zw1gnPVR+gaOcaSSmrhW/LZKY
-	ZRVrgTO0xZG4upyo5F9IplD2arEAQOEY0IUPitskaxwVVQN8UYcw12CYU/nsBfV9kvLdSG/1PBKkT
-	kUqBZJKg==;
+	bh=4V/JO4vCuFXXMGWxWU0BLAI81kG6o/DDAjFDWWRK8Cw=; b=Yg8+BOspTFYCkQOd3rh4C5BHWq
+	JGhKuAsO44DcNdDl6JZp6eU6S/HEYPWdSd9Yy31CG4EWLHw68DGUKGE68ykrNXc0V6zMA1YJgDNjK
+	PgmI3ifALceyKHP4caOZwadu+yeiSRz7a+8PavdPEnjeidJ4D02sCNAsz7f3QhscLBlEfhsyF+Ul9
+	dv8vl2FO4Oq1uUDfSs1iKUj40fANvVqdS8UDEGexrzUD+FeSSBsbTPA40/CCjVmHIVAwmdl9HSB/t
+	GGtmqKnEmwpsWZzi2nZppgTFdtGLSNpc+ErIhYsDBz75woiJdiQcIy8n7cGnxhMNX0sA/RyHVNzNJ
+	YdJbB0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQU2-0000000Fb8m-0dqR;
-	Wed, 11 Dec 2024 17:26:46 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1tLQiY-0000000Fdjb-3IPO;
+	Wed, 11 Dec 2024 17:41:46 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQRv-0000000FaV4-21JI
+	id 1tLQhU-0000000FdQm-32Fk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 17:24:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1733937873;
-	bh=TdrJ0SbMmqk7tEl4kBb44qSI7X5fDQGS/pk1FZgb02Y=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=Hwse0Ju8R5dII5eg932tcIQzr2y+1bY0mSoRggdOrl7iOAQiNvPGM7OzH26zxUVbf
-	 Jp3k5sWBsxRaLkttKizM6VOqb+1gkhL61u5O9aGuNJhSvlphpQNnltmfwFJHZxRiXV
-	 toNCDqZ5oXWivPlnkCWvSX3BX5DvEpkcDmXyKJ3Y=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id 7CAB8406EC; Wed, 11 Dec 2024 09:24:33 -0800 (PST)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 7BCB7401EF;
-	Wed, 11 Dec 2024 09:24:33 -0800 (PST)
-Date: Wed, 11 Dec 2024 09:24:33 -0800 (PST)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Will Deacon <will@kernel.org>
-cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com, 
-    scott@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/3] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-In-Reply-To: <20241210113151.GC14735@willie-the-truck>
-Message-ID: <6714a00a-220e-c43b-7f06-4a2397159cd7@gentwo.org>
-References: <20241118181711.962576-1-yang@os.amperecomputing.com> <20241210113151.GC14735@willie-the-truck>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Wed, 11 Dec 2024 17:40:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 97BA7A40DAC;
+	Wed, 11 Dec 2024 17:38:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99A0FC4CED2;
+	Wed, 11 Dec 2024 17:40:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733938839;
+	bh=7yO+0JOWcw0rv4ZXgLl4IZjD04zJh6IohJpO9cxyyR4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jN0+EohD6he6UDoJlTpTfDWT/wwFototv80uKDF1b5BMq6m036pgZ+IgmxeBqnKpF
+	 fc3+FO1HDyrs3NEoh9O+5mfLuqYQvVivDSWCu0hqokW/8phl6au4ToL9gSmoZT3nWn
+	 Afe201ZRmJJgjyYkXEhLLLc0+9WorLzkIA2kI5YAVKP4UxKZ7DTbGnEvLc0mH33swc
+	 P6Xx5kTW5Tq32xHNBbepXxXzeC3JefDmQ8y6lo5Zz2n3vncjHI9QLukrphrc/A+BZ7
+	 hkb39ihNED62ZcKleRTqf+JYp4I+lXeYfAmDfmOXuZ6wPOgNsg3t/veK4w16tqrmVy
+	 90Z8qKtxj5uzg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLQhR-002lbb-7S;
+	Wed, 11 Dec 2024 17:40:37 +0000
+Date: Wed, 11 Dec 2024 17:40:36 +0000
+Message-ID: <86o71irucr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>
+Cc: ryan.roberts@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [RESEND RFC PATCH v1 1/5] arm64: Add TLB Conflict Abort Exception handler to KVM
+In-Reply-To: <20241211160218.41404-2-miko.lenczewski@arm.com>
+References: <20241211160218.41404-1-miko.lenczewski@arm.com>
+	<20241211160218.41404-2-miko.lenczewski@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: miko.lenczewski@arm.com, ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_092435_555792_8C90786D 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_094040_894881_991E0A70 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,16 +95,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Dec 2024, Will Deacon wrote:
+On Wed, 11 Dec 2024 16:01:37 +0000,
+Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com> wrote:
+>=20
+> Currently, KVM does not handle the case of a stage 2 TLB conflict abort
+> exception. The Arm ARM specifies that the worst-case handling of such an
+> exception requires a `tlbi vmalls12e1`.
 
-> > With FEAT_BBM level 2 support, splitting large block page table to
-> > smaller ones doesn't need to make the page table entry invalid anymore.
-> > This allows kernel split large block mapping on the fly.
->
-> I think you can still get TLB conflict aborts in this case, so this
-> doesn't work. Hopefully the architecture can strengthen this in the
+Not quite. It says (I_JCCRT):
 
-Which platforms get TLB conflicts? Ours does not. Is this an errata on
-some platforms?
+<quote>
+* For the EL1&0 translation regime, when stage 2 translations are in
+  use, either VMALLS12E1 or ALLE1.
+</quote>
 
+> Perform such an invalidation when this exception is encountered.
+
+What you fail to describe is *why* this is needed. You know it, I know
+it, but not everybody does. A reference to the ARM ARM would
+definitely be helpful.
+
+>=20
+> Signed-off-by: Miko=C5=82aj Lenczewski <miko.lenczewski@arm.com>
+> ---
+>  arch/arm64/include/asm/esr.h | 8 ++++++++
+>  arch/arm64/kvm/mmu.c         | 6 ++++++
+>  2 files changed, 14 insertions(+)
+>=20
+> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+> index d1b1a33f9a8b..8a66f81ca291 100644
+> --- a/arch/arm64/include/asm/esr.h
+> +++ b/arch/arm64/include/asm/esr.h
+> @@ -121,6 +121,7 @@
+>  #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
+>  #define ESR_ELx_FSC_SECC	(0x18)
+>  #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
+> +#define ESR_ELx_FSC_TLBABT	(0x30)
+> =20
+>  /* Status codes for individual page table levels */
+>  #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
+> @@ -464,6 +465,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsi=
+gned long esr)
+>  	       (esr =3D=3D ESR_ELx_FSC_ACCESS_L(0));
+>  }
+> =20
+> +static inline bool esr_fsc_is_tlb_conflict_abort(unsigned long esr)
+> +{
+> +	esr =3D esr & ESR_ELx_FSC;
+> +
+> +	return esr =3D=3D ESR_ELx_FSC_TLBABT;
+> +}
+> +
+>  /* Indicate whether ESR.EC=3D=3D0x1A is for an ERETAx instruction */
+>  static inline bool esr_iss_is_eretax(unsigned long esr)
+>  {
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index c9d46ad57e52..c8c6f5a97a1b 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1756,6 +1756,12 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  	ipa =3D fault_ipa =3D kvm_vcpu_get_fault_ipa(vcpu);
+>  	is_iabt =3D kvm_vcpu_trap_is_iabt(vcpu);
+> =20
+> +	if (esr_fsc_is_tlb_conflict_abort(esr)) {
+> +		// does a `tlbi vmalls12e1is`
+
+nit: this isn't a very useful comment.
+
+> +		__kvm_tlb_flush_vmid(&vcpu->kvm->arch.mmu);
+> +		return 1;
+> +	}
+
+That's not enough, unfortunately. A nested VM has *many* VMIDs (the
+flattening of all translation contexts that the guest uses).
+
+So you can either iterate over all the valid VMIDs owned by this
+guest, or more simply issue a TLBI ALLE1, which will do the trick in a
+much more efficient way.
+
+The other thing is that you are using an IS invalidation, which is
+farther reaching than necessary. Why would you invalidate the TLBs for
+CPUs that are only innocent bystanders? A non-shareable invalidation
+seems preferable to me.
+
+> +
+>  	if (esr_fsc_is_translation_fault(esr)) {
+>  		/* Beyond sanitised PARange (which is the IPA limit) */
+>  		if (fault_ipa >=3D BIT_ULL(get_kvm_ipa_limit())) {
+
+But it also begs the question: why only KVM, and not the host? This
+handler will only take effect for a TLB Conflict abort delivered from
+an EL1 guest to EL2.
+
+However, it doesn't seem to me that the host is equipped to deal with
+this sort of exception for itself. Shouldn't you start with that?
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
