@@ -4,91 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DC0E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 05:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24C4E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 05:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShdzjtGZM9vxO89zHijgFIz+FSCJs3Ns3QmxUQPrD+U=; b=AwMVQ9M4KxVoUknqBzTyKjpEhA
-	mlBHtA9246LcMLBsXYZBAs7PToTViZNX1oEOpsF+yUTq+4FosAwTNV8Zyiov+s/bizXhijH4IZUPJ
-	R/yUFe1xh1NF10zGQmOC9OhDrr9U1BfNWAMiT9p+QzVGfGnAA88a+WGVnF6QBZn/Dl+QH6Vy2sPcD
-	61R1mT8QKrSIEeuYoieD8jYmYLU3fOBGjaBvq2K53Kl2TW7scaMtm2ksKYc3iK9kbt+lusNji0r3B
-	FJyyCldgG2BBSDrQNXm8H2Zm1monCxAll2J+/7+3maqn4G832F7mMgIfzDfbioitEIquhBGhr2J2r
-	UNabL1uA==;
+	bh=cpzp/90CPQpudCDxYLJrLS3ijqZAQaydAz5hFjliG2I=; b=SESnOEf62mytPl849R56wx9b4E
+	XNoKf9lnco/Wb/jCLxfXTWtO15n3hStltX48WgF2Q+4mRy3onwNFhZMYsg3QN8qocYAQ2sZ7jhTi1
+	I9Zz6aHdEvw/mVaIK7lAJxDXqeNzR4gxA/8E0ttcJEEoIvi/Q8o9fdKl+SmvZhCbygPvqlZhJHcN4
+	bzBeIgEqZ6T3bGVB9+DFj35YD1jK8MmgLaSpUAccf4LHeCgmkBQ82l6fCs/jWdGbs7oCaolpBXS/D
+	h4HeqpLNjQWkUs40ug7v659m17e4xJL8ttPBpogUhac6xHvJ6r0lQW6lMg+FUMXiXRtS7BrX2sFy0
+	pRD+ZrbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLFNQ-0000000DqtD-1fNS;
-	Wed, 11 Dec 2024 05:35:13 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1tLFRO-0000000Dr9h-0Tdg;
+	Wed, 11 Dec 2024 05:39:18 +0000
+Received: from mail-vi1eur05on2060e.outbound.protection.outlook.com ([2a01:111:f403:2613::60e] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLFJh-0000000DqHy-3KRA
+	id 1tLFQK-0000000Dr6m-19Qg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 05:31:23 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-725f3594965so2152170b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Dec 2024 21:31:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733895081; x=1734499881; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ShdzjtGZM9vxO89zHijgFIz+FSCJs3Ns3QmxUQPrD+U=;
-        b=hf6zyhER9e4mS8shkak1I6an1Cx/LrAzV/MhjoVzazG5ywrjQ0diU3WrKDYtWJ892j
-         VYByS4avYPxpttWffTKLeMTofdALwICW3BnscQmLQ4VX+9EU6yObDvqDxNTcCW9T4a6o
-         4UDVFMbg0/rUiHSihjHhfXaYtUwD5IHZmxmnEgAsI9nlxBBTLXh3FLvtnG/7PHLevOqG
-         iRTmjMFzWnlqCirEjTd7ehCw8ewyy9GP1PnIPJhkfF/s5hHaQhjXqRi+WfT/34REqQEb
-         W/WMEer3R4gZc+lzjVZYEIGOzF6cRb0c2u/zng9Hvn+N3+PZJV41JZd4uqT5ydxbtHma
-         ya7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733895081; x=1734499881;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ShdzjtGZM9vxO89zHijgFIz+FSCJs3Ns3QmxUQPrD+U=;
-        b=oXkKvgLsLH6MQOZLhZOII9N6KYLC+WkG+mhhhJYg6KRuh2T4bQqdriIJmI0gFSgrLQ
-         F3hbGm3bw1j/UaSxAnVLPS3GikZ+6j5t+uK23OOMb00yAGsDpx8uDIDzHSUyx77V6ffE
-         xVHIed1+ohq8FSh0up+mYszMZM4RmlJMomecsqCK3EIfy0ydCmoT7PwXqYbzVVt5vzcU
-         yELmnzI/neja/5aWR7XYS+8qbgKBIpIMTHfv9c3wH060WrX9sgmAypmPT91yLgLUh3yy
-         hkv0u+eSFSFHI+SdQSDXG0iT6oLZKhWhFmx8EaAppNys8OD9KhrtebBfGkvHquzCi+LP
-         f6dQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9nyiD1xYdwlo6gMmAVbhece29OVgA/9Txxqq+veSj8/sH4rpbb2WyFdUAoRpTbvKGmMR3LA10bKKTYU97i4bQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHPxRUw0Dq3bUNkaHb85V3cOitmWTrsllPZ7XVnmYhDn5sQ0YG
-	BZrKE+GNp68t2KCnEARXSpCkyEGzLrx+55+U6nzB4qUQmgyBBDUJ47tQP1/59g==
-X-Gm-Gg: ASbGncvpaqZUwhUbbWMMtUCNoTLcJZLwk0wkKyqqHA7DvJa/8RXiIbOrrhM1KlgJopi
-	oR8e/7fh4hFgFW2NUNDrF3kRubMMlYiZpYPojDaxC8L1zEGYwzTLxoN/SvsdGE+QpyDRqk/fdSa
-	jv/xEmzlHS12g66tMJnUaD8axsgJTXFAVnTzkDVRsLsHdu9j8D/+ZkYsjZRwgZfd36rYVywALRZ
-	8AVFx/doXZb7xO0NKD7OV0+2W3HlGNkC5v9ncb5ZTSYZuxUYfZKzdU6u3KztjM=
-X-Google-Smtp-Source: AGHT+IHlZIECQ8fR8OzlEjAgvv5+ugAv4twpl5gKRHvFmE0YNk28z5fm5WtdfPPNmIaOYwFm0uxSKg==
-X-Received: by 2002:a05:6a21:9990:b0:1e1:a829:bfb6 with SMTP id adf61e73a8af0-1e1c129474emr3076160637.3.1733895080678;
-        Tue, 10 Dec 2024 21:31:20 -0800 (PST)
-Received: from thinkpad ([120.60.55.53])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725ec2c2b7esm4993746b3a.182.2024.12.10.21.31.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 21:31:20 -0800 (PST)
-Date: Wed, 11 Dec 2024 11:01:04 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] PCI: dw-rockchip: Enumerate endpoints based on
- dll_link_up irq in the combined sys irq
-Message-ID: <20241211053104.7sgo5bmmjnolwvhh@thinkpad>
-References: <20241127145041.3531400-2-cassel@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 11 Dec 2024 05:38:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W9wlMZ44HmYhSdINMAa1qA4tCn04I6kdmsd70BmhvrckspYkohQcD4Ly/tEuHWKezS+yJUGSXHEtsrtPxiVI+y6/70+gdFy2GfTLiD6A39VQCPIThoD8sR9fV4P27K87J+wWenNEAkL4jipjySBYvu9pqPUyEtha62pwBwMJTKwaNAT18dd1+pScwpQmbuNQi1jG2o84X01Xwo0ri5ZqR3JMJB5y4iNKYyTYd4IYzPwOc97ItXsWTbbjPIfj70LhSs6+N3mVusfyF+kn7irLkolgStPLtNqIzPXOUlY28yJLF8cVCPEgHQU4lHe2i/bNPQVB997XfsLsIDqc6jru1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cpzp/90CPQpudCDxYLJrLS3ijqZAQaydAz5hFjliG2I=;
+ b=dnGqcMraqiZ5IK4jX6NYh4sSfpMos07VAQCkEXqR3zP2gAs3z+i1BaT6+8joAHim273y+zjfezV7YIpwGKcgd/y4KWEh1HYqFeO12VzvxFh8lltchGULRN2uAwabcMnLNCpUp8oq7aveqjQGOibBD52qGRgM4pgs5FQjvwVkHz1rMH1A0HxhnfJZ20xK8uvIChxdIS8IV/oh4S8byZwO+MAks/Zbb+5ViV3pjFlZZMyWLsmsT30B3G6soRgVDz2fuk9xdAMvzPZ0CP/hO9O+QsKp3A/iTmKQSy0N6zDTIWLvtUVj/zXX0OFVmPw4HqxEQIpWpKqB/oIQnbSwghz+bQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cpzp/90CPQpudCDxYLJrLS3ijqZAQaydAz5hFjliG2I=;
+ b=hvt83H/+Dyy00nkDEru5gSXqlsqFPphM9AkVoEZaJz/rU+faLLpLdmdh4JZoGCxyPiKaUruGS4OqZ6A2IeH2BxflmgYg2N54Xj6VYIbf7RC0v8ieOBYjVzLR9yrpnqSWe/jCCtweGFNmIJZKO0oDUV6YxwESGlfLoOkVpgs8BSClW+XZZnyuaoA3BjrCn9yvz9iuEk+PLoZpax7LAuvY7pWjyaA/OACM90ttOMqNxkkZQkpOlJ1uzJ+axZFGKGIwMMUumhJdDrxIeE8GeRCtZ2EgJjF4S7iBMiSUaG4JOnorSse/U0i+ZGwDTkBmnpF/DWlhKGl6jLEbZPFcS7PClw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by GV1PR04MB10944.eurprd04.prod.outlook.com (2603:10a6:150:210::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Wed, 11 Dec
+ 2024 05:38:00 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8230.016; Wed, 11 Dec 2024
+ 05:38:00 +0000
+Date: Wed, 11 Dec 2024 13:35:16 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Will Deacon <will@kernel.org>
+Cc: Frank.li@nxp.com, mark.rutland@arm.com, shawnguo@kernel.org,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v2] perf: imx9_perf: Introduce AXI filter version to
+ refactor the driver and better extension
+Message-ID: <20241211053455.z5zzawfacpyv2dlt@hippo>
+References: <20241125104338.2433339-1-xu.yang_2@nxp.com>
+ <20241209154419.GB12428@willie-the-truck>
+ <20241210020212.yz3xowvdk27zmgsl@hippo>
+ <20241210133732.GA15607@willie-the-truck>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241127145041.3531400-2-cassel@kernel.org>
+In-Reply-To: <20241210133732.GA15607@willie-the-truck>
+X-ClientProxiedBy: AM0PR04CA0040.eurprd04.prod.outlook.com
+ (2603:10a6:208:1::17) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV1PR04MB10944:EE_
+X-MS-Office365-Filtering-Correlation-Id: 92d0e675-1d97-4f73-5b10-08dd19a5f96b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?T3KXeV2PiRBFkJKN4+0nheNfIL8sa+OKXTXVvHUoG6bis7PTAOhmxh+38B/J?=
+ =?us-ascii?Q?NJcBXIcr5DLMPjFKRvVtaohHI4M8J/fqzeRvMyZQvjvqLgyMlt30j8rWe5Qa?=
+ =?us-ascii?Q?t7TF0CAR7rn9XrF/uUBzOdNTeKqmLcHAZIPv7ZgUY4qsco4/Doy0GpPYofsp?=
+ =?us-ascii?Q?470vhw00Mnggi45p0uhl/sUCyCLtvPmGpm70umlDYiDa4GQ+mqVqZzGK5iUf?=
+ =?us-ascii?Q?N8N4IUsXVq1OOgKM3rXRlKq7xEsfH/D9CsfWEhY/plPD7a2fUWEcFAl2UVmp?=
+ =?us-ascii?Q?LB8jgabuBpFwLtyMgzL5w2JNeMZeMkYpamv8JQDbpc1+Pm3zRXTQY0JxxqBr?=
+ =?us-ascii?Q?yD/KbLf432s9AMA0nUXQUict1z+PbPNMdRxASru8caV0e6QLTE9B5zN7bFui?=
+ =?us-ascii?Q?D7EuWrfknsY5l/G9olk2n6OI+zypkjpUOceVc/6ycnG8yIk6s91PqZ+debbA?=
+ =?us-ascii?Q?gAZHvQM+Bz6OkKY2RsjDc3GUjyDOKhHmgJTcQqKXN3+QUYsdaczGoRDobz/f?=
+ =?us-ascii?Q?ZeWdCmPg0wxo9aueLIT/8FqoA4cs4mV/QCyHY4WzF0rEDX4HkOg+lVGgR5TY?=
+ =?us-ascii?Q?NJY5bXIWLGjCUttNlaZc1NZWNUIhhTHRdJO5hU8RhlA6vpc3oiMjWBt+gdMv?=
+ =?us-ascii?Q?+P5662yl8EjxiQvaKjkvTkVEiE3ygodc/NzUXBlBRHSlAChiA3wSJzTiWlZf?=
+ =?us-ascii?Q?DhDZqPgA49Nq2JB0w1pgWex2dNggnWlPVNNHnxGKogRMNjzte/I+GsmVw7Hu?=
+ =?us-ascii?Q?+rGzg6MJSYGpi+hC8lLVNLlM0B4MaugO+MOXKipuW3JO4Xb5ukZcEDb96/wP?=
+ =?us-ascii?Q?2qfhngflri47PjsdR0Ztn6Muvmnk57+ZYGBP8QyPOeD84Ds+6g/Ed+dLipyu?=
+ =?us-ascii?Q?j/wUO85pU+pVT/uoswd2tuaGKQEkjNLmV/gWnwig0ONk1gFC0r7mCjW3DMoS?=
+ =?us-ascii?Q?z4PpqASUFB+T1SqPXRIRcktkC5STWZh0diV+padfkzRBgeFs5y6kt5Q6Ja/N?=
+ =?us-ascii?Q?gZk2UByhCXV1cTtggMnMihgwj+iD2Eug9DWmf1mSZgw5xAd9APVi8zCcEbqc?=
+ =?us-ascii?Q?m8cb9mn4PMbXbw0E7GWP7vxfhNpa9ksBjlPbEIVVHRILt26EUAYqkJMhsHOH?=
+ =?us-ascii?Q?qsJsYpmkFDWXLmQjLs7T9bRqf2z8iqinP7DMipswqb6mLJdkxA3Y6eH5MGsU?=
+ =?us-ascii?Q?jSw6zsL+qI7G/LxOWN7dHPRYq6o43UzguX27tFdP4VgY10BMA6OsSiZVfH4I?=
+ =?us-ascii?Q?s1Hz+q/r2iQk5GPxqotvgPDCmPvXUJOQrU+qWrfWgxVQPa4HimEYRPTMJJhz?=
+ =?us-ascii?Q?n9fGbuADDL3FzpPUUaG+GvogPRyFL9L9TqpqxS5R67ID4q8rpBpkYYrysQxP?=
+ =?us-ascii?Q?q46Pv3bVd2Erf0YrcTI62yt2ybm2xpDMLNXe7Z3YRnUKOhInuA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d32U6W9YwLIIICKxNm2tKO/hu8JXM0lQhJCLmVPC/yDms+cU95UtvLday6xh?=
+ =?us-ascii?Q?aCuWIeNI+TBzKaberBxbA4Rid2ywhNDulFfT05+u/Io70FI+5aTbFcxGFV/p?=
+ =?us-ascii?Q?Lt1Mn1KfR91kFU7qzXtDWuM8JUy/oaZ8HMX78tDBjMPTArpjei83pC5mOnlg?=
+ =?us-ascii?Q?Baw0P0AeW9YYFnmgFseon6rQXOOCINnXaJjMFvJsdsRrixCJ4oVSQ3XA8OUr?=
+ =?us-ascii?Q?zaPD4OwYEHXIiNFHPuCVF4qPMdFE7CHdmpEXLjCQzpbJrM+Xtq6AdEKok75K?=
+ =?us-ascii?Q?p/cCEWRHNUnxqIaGZbC1AxBN/FCprDaRRu1aF3zXrva8IRqnHabgb2GpTrqX?=
+ =?us-ascii?Q?V5LC8XhoSzkMU3TAPYm/jgLHeDeEUIdGsv9JX5HcvGXVEsduMCP1DQcefbwA?=
+ =?us-ascii?Q?F/N2vjGBFK8CkcjSYBtmJM7BbUyIytO4oBA9TemL7LtozvlSWAT7S+82hJlo?=
+ =?us-ascii?Q?4O73Rssx7OkYA3nuPTuYXLQL151SRx31T5siOQa/AOcOPXVCdAmMxulijnf7?=
+ =?us-ascii?Q?Wox4uxagU5E3pAmInH8PTX8YxMyCeNOlTFO5c7WnACJR6Sj3r9RD/VQbSgsF?=
+ =?us-ascii?Q?Wxf2DtA2P+OyXGcWrmlf8v6tXtzRXQ0V8st0urFAzZgg3qv0ckf5L6u/7e6w?=
+ =?us-ascii?Q?XolLGUsZIgLy0GX8EgUVhKP+kQ0mLsWBsCrgcYU6DH/gnEjzCWaJAQ1JOhIM?=
+ =?us-ascii?Q?hA/WEtnHwz4LQok2HkckqPrMr5An6/69gGOPRRW1lC26QD471IYsdZW+DW44?=
+ =?us-ascii?Q?gLu5/iLP7bWBWYXUxJalg4pcx3MH6eMs9jpU4P6eiZpF5aQ8tY0YN5GGN3b+?=
+ =?us-ascii?Q?grmarBVE5B7xYOMFzteocPqLhhhexoDSLaEJlIh+vQWC/SFml4mLIPEgoWpm?=
+ =?us-ascii?Q?S0D7IyfN4w+XvZxgpIuIRrrUDpTcPzkgEZnLC+a2kp2YuwfMkA5hyavxIWDd?=
+ =?us-ascii?Q?W/xZHan3gPpCLaGTpqyH9hcneyb5kBzFPEw4Ja5JHG17P8qou7s3DOTmPQh7?=
+ =?us-ascii?Q?3NLcQTuYMRZfZgJ7QVlyIoQ4AYCwIREaPv/g10o3Z4BlfjJWGWvLS3WOW4Tn?=
+ =?us-ascii?Q?FGHx5vRbGHMRKfsbSxicbaoyyCTUpsvcY28plNmXA6OixUCIvhic3rZcERXr?=
+ =?us-ascii?Q?x2Y9QdkiMZM8fctD9AFxNCB/QgGuT3Cvq07vB5wSr4MQh2eVrILy4z2DBn/N?=
+ =?us-ascii?Q?Pkg9LWM5VbWuOHw8khYfEuaEafPq8TF7K3OdAnttDYlYJKppdi5eqhmp7Ngw?=
+ =?us-ascii?Q?q26H25iDnypmftocEDLjvtsxE9CzkeFygpGyEa+J68vFjhmp9I62tAxhHBRR?=
+ =?us-ascii?Q?NpB7HJvPI/OgsbtLsSQNjB5jrnvuKNu5nN+Wrvz/FeBVCcJV9Qiv9jw7jZM3?=
+ =?us-ascii?Q?MEOoiWGjspY9nqYirAnpDQv1HG7nA5dzBJK+XFdcDWFwKa0qUfaAGqMo0Jga?=
+ =?us-ascii?Q?jcGpZG45dmjr5WBu/qs37/0yJQIInzkAW7oQ+MW45ZxKh0MxXO3inpKVH80Q?=
+ =?us-ascii?Q?EpxFtqLo7H9Zuvj0ng2X+qb0baQixPXfWJgOikdYK0seLZr8mQgC9CArQhdx?=
+ =?us-ascii?Q?4nT7uJasDK8LNKvrSAyU8kc8DdobiiU2Z9iQfa3l?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92d0e675-1d97-4f73-5b10-08dd19a5f96b
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2024 05:38:00.4411
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WZexYYfbhXtaiRcE0IR2xhywQSFo8eqiSRCrr9H68iYWpcPhyMIzs73YKuQ5q4rZbinvFF8u9VXHN/2OL/N7CA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10944
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_213121_892186_515BB54A 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20241210_213812_347742_22DBF400 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,148 +159,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 03:50:42PM +0100, Niklas Cassel wrote:
-> Most boards using the pcie-dw-rockchip PCIe controller lack standard
-> hotplug support.
+On Tue, Dec 10, 2024 at 01:37:32PM +0000, Will Deacon wrote:
+> On Tue, Dec 10, 2024 at 10:02:12AM +0800, Xu Yang wrote:
+> > On Mon, Dec 09, 2024 at 03:44:20PM +0000, Will Deacon wrote:
+> > > On Mon, Nov 25, 2024 at 06:43:38PM +0800, Xu Yang wrote:
+> > > > The imx93 is the first supported DDR PMU that supports read transaction,
+> > > > write transaction and read beats events which corresponding respecitively
+> > > > to counter 2, 3 and 4.
+> > > > 
+> > > > However, transaction-based AXI match has low accuracy when get total bits
+> > > > compared to beats-based. And imx93 doesn't assign AXI_ID to each master.
+> > > > So axi filter is not used widely on imx93. This could be regards as AXI
+> > > > filter version 1.
+> > > > 
+> > > > To improve the AXI filter capability, imx95 supports 1 read beats and 3
+> > > > write beats event which corresponding respecitively to counter 2-5. imx95
+> > > > also detailed AXI_ID allocation so that most of the master could be count
+> > > > individually. This could be regards as AXI filter version 2.
+> > > > 
+> > > > This will introduce AXI filter version to refactor the driver and support
+> > > > better extension, such as coming imx943.
+> > > > 
+> > > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > > > 
+> > > > ---
+> > > > Changes in v2:
+> > > >  - modify subject
+> > > >  - add comments for AXI_FILTER version
+> > > >  - type -> filter_ver
+> > > > ---
+> > > >  drivers/perf/fsl_imx9_ddr_perf.c | 33 ++++++++++++++++++++++++--------
+> > > >  1 file changed, 25 insertions(+), 8 deletions(-)
 > 
-> Thus, when an endpoint is attached to the SoC, users have to rescan the bus
-> manually to enumerate the device. This can be avoided by using the
-> 'dll_link_up' interrupt in the combined system interrupt 'sys'.
+> [...]
 > 
-> Once the 'dll_link_up' irq is received, the bus underneath the host bridge
-> is scanned to enumerate PCIe endpoint devices.
+> > > > @@ -624,11 +641,11 @@ static int ddr_perf_event_add(struct perf_event *event, int flags)
+> > > >  	hwc->idx = counter;
+> > > >  	hwc->state |= PERF_HES_STOPPED;
+> > > >  
+> > > > -	if (is_imx93(pmu))
+> > > > +	if (axi_filter_v1(pmu))
+> > > >  		/* read trans, write trans, read beat */
+> > > >  		imx93_ddr_perf_monitor_config(pmu, event_id, counter, cfg1, cfg2);
+> > > 
+> > > Hmm, doesn't this change mean we now enable this for imx91 as well? My
+> > > reading of the commit message is that imx93 was the first chip which
+> > > supports this.
+> > 
+> > Yes, it's enabled for imx91 too. In fact, imx91 is compatible with imx93.
+> > They use same configuration for axi filter.
 > 
-> This commit implements the same functionality that was implemented in the
-> DWC based pcie-qcom driver in commit 4581403f6792 ("PCI: qcom: Enumerate
-> endpoints based on Link up event in 'global_irq' interrupt").
+> Ok, but my worry is that the above code looks like userspace now _must_
+> provide valid values for the config1 (axi_id) and config2 (axi_mask)
+> fields on imx91, whereas before I think they were ignored by the driver.
 > 
-> The Root Complex specific device tree binding for pcie-dw-rockchip already
-> has the 'sys' interrupt marked as required, so there is no need to update
-> the device tree binding. This also means that we can request the 'sys' IRQ
-> unconditionally.
-> 
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> In fact, without this change, how were the PMCFGn registers configured
+> on imx91? It looks to me like they were left uninitialised...
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Before this change, PMCFGn registers are indeed not configured on imx91.
+However, they should be configured as imx93. I notice this thing when
+make this patch. First thing I tried is to add is_imx91(), then check it
+and is_imx93() by "||" operator. However, this way seems not scalable as
+more imx9x Soc comes out. Basically, AXI filter version will keep at V2
+unless big changes due to new features. However, perf tool need export
+correct MetricName via identifier in sysfs. So I made this patch, then
+PMCFGn will be configured based on axi filter version rather than pmu
+name.
 
-- Mani
+Thanks,
+Xu Yang
 
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 62 +++++++++++++++++--
->  1 file changed, 58 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 1170e1107508..ce4b511bff9b 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -389,6 +389,34 @@ static const struct dw_pcie_ops dw_pcie_ops = {
->  	.stop_link = rockchip_pcie_stop_link,
->  };
->  
-> +static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
-> +{
-> +	struct rockchip_pcie *rockchip = arg;
-> +	struct dw_pcie *pci = &rockchip->pci;
-> +	struct dw_pcie_rp *pp = &pci->pp;
-> +	struct device *dev = pci->dev;
-> +	u32 reg, val;
-> +
-> +	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
-> +	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
-> +
-> +	dev_dbg(dev, "PCIE_CLIENT_INTR_STATUS_MISC: %#x\n", reg);
-> +	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm(rockchip));
-> +
-> +	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
-> +		val = rockchip_pcie_get_ltssm(rockchip);
-> +		if ((val & PCIE_LINKUP) == PCIE_LINKUP) {
-> +			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
-> +			/* Rescan the bus to enumerate endpoint devices */
-> +			pci_lock_rescan_remove();
-> +			pci_rescan_bus(pp->bridge->bus);
-> +			pci_unlock_rescan_remove();
-> +		}
-> +	}
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
->  static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
->  {
->  	struct rockchip_pcie *rockchip = arg;
-> @@ -418,14 +446,31 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
->  	return IRQ_HANDLED;
->  }
->  
-> -static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
-> +static int rockchip_pcie_configure_rc(struct platform_device *pdev,
-> +				      struct rockchip_pcie *rockchip)
->  {
-> +	struct device *dev = &pdev->dev;
->  	struct dw_pcie_rp *pp;
-> +	int irq, ret;
->  	u32 val;
->  
->  	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_HOST))
->  		return -ENODEV;
->  
-> +	irq = platform_get_irq_byname(pdev, "sys");
-> +	if (irq < 0) {
-> +		dev_err(dev, "missing sys IRQ resource\n");
-> +		return irq;
-> +	}
-> +
-> +	ret = devm_request_threaded_irq(dev, irq, NULL,
-> +					rockchip_pcie_rc_sys_irq_thread,
-> +					IRQF_ONESHOT, "pcie-sys-rc", rockchip);
-> +	if (ret) {
-> +		dev_err(dev, "failed to request PCIe sys IRQ\n");
-> +		return ret;
-> +	}
-> +
->  	/* LTSSM enable control mode */
->  	val = HIWORD_UPDATE_BIT(PCIE_LTSSM_ENABLE_ENHANCE);
->  	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-> @@ -436,7 +481,16 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
->  	pp = &rockchip->pci.pp;
->  	pp->ops = &rockchip_pcie_host_ops;
->  
-> -	return dw_pcie_host_init(pp);
-> +	ret = dw_pcie_host_init(pp);
-> +	if (ret) {
-> +		dev_err(dev, "failed to initialize host\n");
-> +		return ret;
-> +	}
-> +
-> +	/* unmask DLL up/down indicator */
-> +	rockchip_pcie_writel_apb(rockchip, 0x20000, PCIE_CLIENT_INTR_MASK_MISC);
-> +
-> +	return ret;
->  }
->  
->  static int rockchip_pcie_configure_ep(struct platform_device *pdev,
-> @@ -457,7 +511,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
->  
->  	ret = devm_request_threaded_irq(dev, irq, NULL,
->  					rockchip_pcie_ep_sys_irq_thread,
-> -					IRQF_ONESHOT, "pcie-sys", rockchip);
-> +					IRQF_ONESHOT, "pcie-sys-ep", rockchip);
->  	if (ret) {
->  		dev_err(dev, "failed to request PCIe sys IRQ\n");
->  		return ret;
-> @@ -553,7 +607,7 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->  
->  	switch (data->mode) {
->  	case DW_PCIE_RC_TYPE:
-> -		ret = rockchip_pcie_configure_rc(rockchip);
-> +		ret = rockchip_pcie_configure_rc(pdev, rockchip);
->  		if (ret)
->  			goto deinit_clk;
->  		break;
-> -- 
-> 2.47.0
-> 
-
--- 
-மணிவண்ணன் சதாசிவம்
+> Will
 
