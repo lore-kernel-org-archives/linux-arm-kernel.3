@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD783E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B5CE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 16:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4j+iNOuE80b5cF1isLUMFrawlYtjdat+uShb0WBEyY=; b=IYZUTGBOfYjJK1DNP4GshBUWBs
-	kUk3JTgHwmdyV1mEVYM3QoqDfFXbntuAUhOnPbl1HvHw1UarqAu0BZj90VsCrWUYJqRoGDQYOOqpN
-	K4Ns8RGEDH9AKx/tzsWlbfEOovIqlg6QPu8DFV+LhKAK1xag7ik1fm58FjJJaZcOYUhhfgaf3SOjs
-	lC94uWTSFc5LBmFzTDqVSDTzdTIYeIZil6pgieg228uskPYmqyO/sY9wmGTM5qAY5/CaRVpNTZL3b
-	d8eyXIbi+bqI7uFMzc/UaesVnwtY6495xom9gDqxPDJSDlK4SCDy/5gFMqS5euoZFI2HtwUaRJPhz
-	ziF5wNhQ==;
+	bh=nYv/Z59AB6Gv4K2v7SFuvKNnIt2l46rfAdCdwev4tPQ=; b=25S34SY4Y67ncd1OC+9aUfnR04
+	lE81FcaQUl78igiPGHqVrgiRlxcuYMfq8iJQewnSeSFlB0QmY00Xsb26s2QiE/5GuPU7PdDYQWHs2
+	NMugT4WJ0yJ9HVpNxLrfuQDqx5zNGtixiSSIrrzP39g1o/KmadRiYIGqljsEpNi3StZD7N+vAFUeY
+	CKupRpEzHqGOtwMiagXcD3nOgFNo2dFZauLgUbsioTHFrnXzfFlK6UggzmuJjZBfWLaWS2V25XMv6
+	TV8yMua6Snai4odsYg6lB1QWo824CGowXJmpJJJMhdR86wzT3eprxNOEJXorEE2+BxgJjuMduo75k
+	U3iVvNvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPDq-0000000FOBB-3r82;
-	Wed, 11 Dec 2024 16:05:58 +0000
+	id 1tLPEs-0000000FOK0-2CXG;
+	Wed, 11 Dec 2024 16:07:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLPAz-0000000FNK8-0W2x
+	id 1tLPB0-0000000FNKo-381G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 16:03:02 +0000
+	Wed, 11 Dec 2024 16:03:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BEB415A1;
-	Wed, 11 Dec 2024 08:03:28 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B01E169E;
+	Wed, 11 Dec 2024 08:03:30 -0800 (PST)
 Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED4963F5A1;
-	Wed, 11 Dec 2024 08:02:57 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 583E83F5A1;
+	Wed, 11 Dec 2024 08:03:00 -0800 (PST)
 From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
 To: ryan.roberts@arm.com,
 	catalin.marinas@arm.com,
@@ -48,9 +48,9 @@ Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Subject: [RESEND RFC PATCH v1 1/5] arm64: Add TLB Conflict Abort Exception handler to KVM
-Date: Wed, 11 Dec 2024 16:01:37 +0000
-Message-ID: <20241211160218.41404-2-miko.lenczewski@arm.com>
+Subject: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
+Date: Wed, 11 Dec 2024 16:01:38 +0000
+Message-ID: <20241211160218.41404-3-miko.lenczewski@arm.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20241211160218.41404-1-miko.lenczewski@arm.com>
 References: <20241211160218.41404-1-miko.lenczewski@arm.com>
@@ -58,8 +58,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_080301_196332_CAF5D93F 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20241211_080302_868103_F0DD718D 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +74,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, KVM does not handle the case of a stage 2 TLB conflict abort
-exception. The Arm ARM specifies that the worst-case handling of such an
-exception requires a `tlbi vmalls12e1`. Perform such an invalidation
-when this exception is encountered.
+The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
+and this commit adds a dedicated BBML2 cpufeature to test against
+support for.
+
+In supporting BBM level 2, we open ourselves up to potential TLB
+Conflict Abort Exceptions during expected execution, instead of only
+in exceptional circumstances. In the case of an abort, it is
+implementation defined at what stage the abort is generated, and
+the minimal set of required invalidations is also implementation
+defined. The maximal set of invalidations is to do a `tlbi vmalle1`
+or `tlbi vmalls12e1`, depending on the stage.
+
+Such aborts should not occur on Arm hardware, and were not seen in
+benchmarked systems, so unless performance concerns arise, implementing
+the abort handlers with the worst-case invalidations seems like an
+alright hack.
 
 Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
 ---
- arch/arm64/include/asm/esr.h | 8 ++++++++
- arch/arm64/kvm/mmu.c         | 6 ++++++
- 2 files changed, 14 insertions(+)
+ arch/arm64/include/asm/cpufeature.h | 14 ++++++++++++++
+ arch/arm64/kernel/cpufeature.c      |  7 +++++++
+ arch/arm64/mm/fault.c               | 27 ++++++++++++++++++++++++++-
+ arch/arm64/tools/cpucaps            |  1 +
+ 4 files changed, 48 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index d1b1a33f9a8b..8a66f81ca291 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -121,6 +121,7 @@
- #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
- #define ESR_ELx_FSC_SECC	(0x18)
- #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-+#define ESR_ELx_FSC_TLBABT	(0x30)
- 
- /* Status codes for individual page table levels */
- #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
-@@ -464,6 +465,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
- 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 8b4e5a3cd24c..a9f2ac335392 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -866,6 +866,20 @@ static __always_inline bool system_supports_mpam_hcr(void)
+ 	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
  }
  
-+static inline bool esr_fsc_is_tlb_conflict_abort(unsigned long esr)
++static inline bool system_supports_bbml2(void)
 +{
-+	esr = esr & ESR_ELx_FSC;
++	/* currently, BBM is only relied on by code touching the userspace page
++	 * tables, and as such we are guaranteed that caps have been finalised.
++	 *
++	 * if later we want to use BBM for kernel mappings, particularly early
++	 * in the kernel, this may return 0 even if BBML2 is actually supported,
++	 * which means unnecessary break-before-make sequences, but is still
++	 * correct
++	 */
 +
-+	return esr == ESR_ELx_FSC_TLBABT;
++	return alternative_has_cap_unlikely(ARM64_HAS_BBML2);
 +}
 +
- /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
- static inline bool esr_iss_is_eretax(unsigned long esr)
- {
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index c9d46ad57e52..c8c6f5a97a1b 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1756,6 +1756,12 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
- 	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+ int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
+ bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
  
-+	if (esr_fsc_is_tlb_conflict_abort(esr)) {
-+		// does a `tlbi vmalls12e1is`
-+		__kvm_tlb_flush_vmid(&vcpu->kvm->arch.mmu);
-+		return 1;
-+	}
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed8..7cc94bd5da24 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2917,6 +2917,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
+ 	},
++	{
++		.desc = "BBM Level 2 Support",
++		.capability = ARM64_HAS_BBML2,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, BBM, 2)
++	},
+ 	{
+ 		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
+ 		.capability = ARM64_HAS_LPA2,
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index ef63651099a9..dc119358cbc1 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -844,6 +844,31 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+ 	return 0;
+ }
+ 
++static int do_conflict_abort(unsigned long far, unsigned long esr,
++			     struct pt_regs *regs)
++{
++	if (!system_supports_bbml2())
++		return do_bad(far, esr, regs);
 +
- 	if (esr_fsc_is_translation_fault(esr)) {
- 		/* Beyond sanitised PARange (which is the IPA limit) */
- 		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
++	/* if we receive a TLB conflict abort, we know that there are multiple
++	 * TLB entries that translate the same address range. the minimum set
++	 * of invalidations to clear these entries is implementation defined.
++	 * the maximum set is defined as either tlbi(vmalls12e1) or tlbi(alle1).
++	 *
++	 * if el2 is enabled and stage 2 translation enabled, this may be
++	 * raised as a stage 2 abort. if el2 is enabled but stage 2 translation
++	 * disabled, or if el2 is disabled, it will be raised as a stage 1
++	 * abort.
++	 *
++	 * local_flush_tlb_all() does a tlbi(vmalle1), which is enough to
++	 * handle a stage 1 abort.
++	 */
++
++	local_flush_tlb_all();
++
++	return 0;
++}
++
+ static const struct fault_info fault_info[] = {
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"ttbr address size fault"	},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"level 1 address size fault"	},
+@@ -893,7 +918,7 @@ static const struct fault_info fault_info[] = {
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 45"			},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 46"			},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 47"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"TLB conflict abort"		},
++	{ do_conflict_abort,	SIGKILL, SI_KERNEL,	"TLB conflict abort"		},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"Unsupported atomic hardware update fault"	},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 50"			},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 51"			},
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index eb17f59e543c..4ee0fbb7765b 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -26,6 +26,7 @@ HAS_ECV
+ HAS_ECV_CNTPOFF
+ HAS_EPAN
+ HAS_EVT
++HAS_BBML2
+ HAS_FPMR
+ HAS_FGT
+ HAS_FPSIMD
 -- 
 2.45.2
 
