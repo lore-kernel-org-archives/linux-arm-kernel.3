@@ -4,66 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0706E77182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 20:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAD5E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 20:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=saNpTLRGid0dJH2QIpJUDMuGmIyVFvgQVhJ29lzQt0U=; b=Vm1kUh7m0DIBvR
-	knkyLTfIytApVn8/5BRhrVdB4vzi41W3CHxVJ0GJChNbEwIQwNjTIoyGglCnDHtOkWoqDezbgx5GO
-	kpp9sMkxFdSw6/rLdKvvWicxp/n23/Q2tc9AuXhidZL/cd4RV/gEmwn7+e/jLrmOegm+H7dhYN+Az
-	vaEdcSLKqYDuAZc6xZN1Ql5os6ONv06e8KF4RKlK9qbsWgtEYQliae0Vwifi53SxrH0NBjeosvLrG
-	Yrmp0U8CRacCDBig53dqeZXXiVfhJbFwSgCf85DCt+Gu5EcTHYfM1ywEblg3kJTvoZVQVPPAqM7VH
-	PWqlhlzS/p+cMYxYze2Q==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z2MGIfYEiZ5X6IvfTH4LzmPSce9oxpUumYii5EGevXo=; b=PNxwmqAHKG+DbE1wsTTI3NffpD
+	zmxKxKEnkstWbWeNpN7Bq0VeeiaZGyW0xi/ByeFa7O9RUnqgcHcnQQ9e8ra4VwUsL6W3G1jtWKecI
+	Ge2ubg4yRUNLOOTXLWtUnVCgbh8a5RylMaqKBqa2fcRA2/B4MZWjmg9Ds6X1DNyIgrfIHuFCcfzzq
+	+ik5IzzDT+QnBJDZsa/AX0YakAwJykugTFSZ/76RDYVl0HWyj/9UfnEcF2BHdxXDsfqb8ybvTArVZ
+	kTKBqwJaBeffYx8gSt/IYkxTW0yLp7dbLLrmTlhSPPk4Po1zMRbVSRtzfySZ7kUHSWiuoIJTWLJwR
+	njBtkKMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLTGm-0000000G1QD-4BA1;
-	Wed, 11 Dec 2024 20:25:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLTW0-0000000G3DT-3ue7;
+	Wed, 11 Dec 2024 20:41:00 +0000
+Received: from mail-am6eur05on2062f.outbound.protection.outlook.com ([2a01:111:f403:2612::62f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLTFk-0000000G1KM-05H2
+	id 1tLTUv-0000000G2ux-29DC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 20:24:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DD8845C4A0E;
-	Wed, 11 Dec 2024 20:23:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC91C4CED2;
-	Wed, 11 Dec 2024 20:24:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733948651;
-	bh=yOVE+KCLnL0G/rxLAXTZ9ej8maw36A8IfDnAQICINJI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Cx2r9xO8BA+5R3kqdtPbHgKc0SB+T8twQUdgeeilcmsRt3ODTEfboCsRxO+qRbWA0
-	 ZBgzobKuPR0r7SGnjNNQhdt9mZ0Tb4eTkBAkDrSWtbjQQhUIV3EhINgYoUK3aqV3Wi
-	 OOTZgU8ulJhEWbXIpQBDymEbR1Yu5TKJhTdp6kG4yZRc1XuIZGbOKpSDx/R7QDFK1R
-	 IgjhIwV96L4AsNBCw6FzNgDp3xEwi8KEbXyiENt7HHQQ0Oj0UMd+fl/VjgBUnE22qN
-	 3ER2inDG3/8ORfjHmnFu5HM2TkP8f/uMKBuZN3yTh7NxCxuY1ylnhHggM8g0XRJeFX
-	 bX229EITTmyGw==
-Date: Wed, 11 Dec 2024 14:24:09 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Thomas Richard <thomas.richard@bootlin.com>, vigneshr@ti.com,
-	s-vadapalli@ti.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com, theo.lebrun@bootlin.com,
-	thomas.petazzoni@bootlin.com, kwilczynski@kernel.org,
-	linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
+	Wed, 11 Dec 2024 20:39:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G7xgpoeHkJOQRj3sfY62gGZMHp6b2BYW+b7j3s38nXaI8AjZkKA1H8ETELNXAgEppSZrk8yTIAbvk4BmWOKnnTqUEA2M5grNQ7rdWyOgPnWQ9U6ZgSqeWvB0CTIi7goR4d91yet+b+x39U2EOR+AqNhVJZjyXkI2T+7wabtnAy9M8wZCFNxkD+scgiEzb978u+G/W2Wbs4LEazIKSocrwyekb/3dWY+wQsAKwrlmi6vxEiMMMgOt6ByU4uN76aKuKS8BPjXjwjdtY3R3JJHeoe3sjrQR0FC64Nk/wED7ySlCon6e8BrpyCNL6hb8kyXHbB6dvv+gOQoCpNN1lGNoPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z2MGIfYEiZ5X6IvfTH4LzmPSce9oxpUumYii5EGevXo=;
+ b=t/p+URLiQA3phQsClrVMH7eJqCgHSE0v9zlB/CdpHh3uCipuh6GH1bHtuoONXjac+x3/6hxG0Nc+VtZ5gWha+hQ2P+zJot7MltslCn73ouyupfW9cdIo16M/xE+zM5BfnGg3NjABTn5zbTf0/4IgwBjhgq50AyMohaCLZ3/nB3UxQiCJJZjk+ll6NgwcszWCZZdnx/qfIgoKsShcvwISagAbTEAARZQQ9GEaunSzslMxkwlo4JfZdb79lGVg5PtoNSe/sBFNNRTiAEUrYWvNgqN9bC6Lklhj+habw9Ox37xrF4kGPqnb4RYL3jQj6ouvGKTdICsLi91w7esERLvcuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z2MGIfYEiZ5X6IvfTH4LzmPSce9oxpUumYii5EGevXo=;
+ b=mzQw18BjJLitNPul6gkiQWdPto+34v6fMIeIG7OfRLD6VOGKa1+dCPfJ2P99jvbHk6OBayvv46rMXiWMssIEQlfq05eOsUaR3R0BlNKBoX45tRjwNEnA3BtpdY2Latr/cjetCWrih5TJvSogGXlDo9UHKcrk7XPAtxgjjuOK8b5jraa5CJVrX8magZt38Bdppldd6yVDeFQ0iTbRAyUeEM+4hFrbLFbspOIOSZKnF2ORr7y0YL4Urnmt3dxe9FrtwEAWZBsx0OeRmrbI8bfg6dZC6nhXAwi/SNIicPDY020UDDuZLLzjVEBTe7/tM0PCzM7qUcx9aLQybz9Kb9mIRw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU4PR04MB10313.eurprd04.prod.outlook.com (2603:10a6:10:56a::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Wed, 11 Dec
+ 2024 20:39:45 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8230.010; Wed, 11 Dec 2024
+ 20:39:45 +0000
+Date: Wed, 11 Dec 2024 15:39:35 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengfei Li <pengfei.li_1@nxp.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	gregory.clement@bootlin.com, u-kumar1@ti.com,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH] PCI: j721e: In j721e_pcie_suspend_noirq() check
- reset_gpio before to use it
-Message-ID: <20241211202409.GA3305505@bhelgaas>
-MIME-Version: 1.0
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 2/2] thermal: imx91: Add support for i.MX91 thermal
+ monitoring unit
+Message-ID: <Z1n4h/AxzthB0V9l@lizhi-Precision-Tower-5810>
+References: <20241210-imx91tmu-v2-0-5032aad4d88e@nxp.com>
+ <20241210-imx91tmu-v2-2-5032aad4d88e@nxp.com>
+ <20241211154622.f2jwwrqansk6il3o@pengutronix.de>
+ <Z1m+O1UV4HD+7Rr2@lizhi-Precision-Tower-5810>
+ <20241211185705.7b5uw26loobibzln@pengutronix.de>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241211091421.4empou7mbm35ynxq@thinkpad>
+In-Reply-To: <20241211185705.7b5uw26loobibzln@pengutronix.de>
+X-ClientProxiedBy: SJ0PR13CA0175.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c7::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10313:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d3dfaf9-b0da-4873-e54f-08dd1a23f271
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?q7dtSP1XEhXuRLp5/oMFflGoiBIsQyhwhTGOreIFBSjHW6a7+RQjT2iWdSr1?=
+ =?us-ascii?Q?OBe85UWSB3p4RmW61wb5dIBsLn3afEkrlp9JjKBcM4ISsoQL0SUg6lyMx1VY?=
+ =?us-ascii?Q?9/vdkDhDr6zkqBXtvt1ihA/O/GhdggI9uKsxUhaR3y1zUH3ncFQq4cCmq0lG?=
+ =?us-ascii?Q?XmuiIzB92BcbTJTOMO/upNljO9gVUa7fA8+Hupz6ZRMaP1qlFLbRWK2+uvGq?=
+ =?us-ascii?Q?Gt3TfF1cgfPidzkVrg24ELoKf7kJHCToao+CBeUmbV+hLEYTRCv3G+xvAEcu?=
+ =?us-ascii?Q?EpT+COpvthWyx9+c9q76LO9Wc2qYpO8P4Ps8hjQShnF6ez/Gw33Wc7zU36GF?=
+ =?us-ascii?Q?t31OmnMwETnVQcn/SbExVURceeyWXDrlDm+hwP2xxhFnwM3jbOP14G2B8KLb?=
+ =?us-ascii?Q?lWL44kI0Ew8cMlKZWCn+OEx8MCBHoEnUj3pAcTaC+rTd92qgWF4gqUIC0ArJ?=
+ =?us-ascii?Q?CkhmE6tBtpPFPBKStA/kfcqo4xIVGq6EtxHhbgiMhfg2VpR3gSv8IJOiHsIo?=
+ =?us-ascii?Q?ihFER6ynmpRHP+zN3ZnfE9BanCgX0hdNZk/awlj7Vd6Fjhn7OHw6YeQQXLX6?=
+ =?us-ascii?Q?DwSM45bMGtVaVHcMuGKEhvTuKeSWpXi9B8T70DuFJPFm1ZdvYMGmRu6naAKo?=
+ =?us-ascii?Q?IU4W5PxskAv8mOy7vAhuKIMp16XnITj1hDkdbA0M4zVCNIRX3a71wmmj0jVN?=
+ =?us-ascii?Q?IrUwXxj0S2/D0zswyp9uttWsDNwL1Cf+u7+Rvv/Q9FfXC/Eds3Y6MggbuYXA?=
+ =?us-ascii?Q?xJQVdUicw1D690GVTiELcuILjhZyFwWmyyD2YQEroStm5mW0JJxPT8xUfFul?=
+ =?us-ascii?Q?McqaTN2rR+uKEYjZQ4e020LsmETauUvPeTWm+axv04KW3AKlnppR56Jhaqmj?=
+ =?us-ascii?Q?t8N0gIBuoYel+eJ38Bia9pJAZNccPel7qWvyv7xiXR+8Jwqu+tp6ZKAUBinx?=
+ =?us-ascii?Q?u9aeJqqRH9SePDbA7c0YgSG7Lf87D850r74x8cFKZ4srWRUMRtdtuMTdhHi7?=
+ =?us-ascii?Q?Vr5RSY5DMnje0+UQSihU2/L4nO+cnaL8HMgikiU2cPl/uH0tDwZyIBRzfo8C?=
+ =?us-ascii?Q?ZexFs4Z/YfJ7xxJinEgg0ETWeWOo19zZGVMeFY3lhF1YZ/g946VPCnofZ0DD?=
+ =?us-ascii?Q?z/fGNlC+MPmFhyWcN0yfCB77YYw6Tq3F4q38vk/lCLAANbhXcKaIWPZJjZ9a?=
+ =?us-ascii?Q?znnDd7Gy0zRhzlTSaSBh84e0V8JAW+JHOxtNzGFXUyiPSucaU6yXxYPzyMjR?=
+ =?us-ascii?Q?QNPSYlTlGcup0GIRSC9bsLSrxCK6nYk/Ky0t6XtkGKbAQIQXCZBLwgDml3WT?=
+ =?us-ascii?Q?Hga2Y7aMb4CdbWn0Wf5FnD3aoc64H45MghIWckL7vggbI/co3Zh95moIuzy0?=
+ =?us-ascii?Q?N70DxyWF4u3mybu519xwCl2wB4Rld7JC/635KjmJijokFvlLLg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1REVnwsDtzVK2hHBxPRh4E8Enagb57zB6EJWC8aqVXldAK8ZWLSfrmmax04R?=
+ =?us-ascii?Q?sBHgc5WP0hmrCf5Vxb3ZnWpNWzDb2x7YtFpVYCcX1p/XuYQ86Exgeg55Nexm?=
+ =?us-ascii?Q?sEFa/AwLcMlOX8TXeLOc6bwWh3CRdZK98obxCN97QOGpFSzBHfVJ93qHWapM?=
+ =?us-ascii?Q?BGO6DcN6eA2tZCG8OK8Hdf+dWRbLACG5O9cEDpIQ8tvSPL5uxEiAR0/6pbkz?=
+ =?us-ascii?Q?4Y0J3rRjPtQmKba6MJPL15P2H+U0PcMoAT9Ck/Fg2iFWxtvLj/pYZqbiudH2?=
+ =?us-ascii?Q?4sat0pv+4qrXBxLxLQDDRXd6z/R4cPtRDMgRVQWcx3Yym5CISDUdNiIY7PLO?=
+ =?us-ascii?Q?AKDZQWA9bDAfMG/8pY7ACTWu88jE6ulv5f+BR38VlSe2Pbhqm8K7WZ7nLjUr?=
+ =?us-ascii?Q?HTMzeK2Fk50XhpB+XOv9fsCUEhVrBmqKnPrgWIl3I+CE5QL7yb9hJHEk0MBp?=
+ =?us-ascii?Q?C2yzkRibgNZRNJyzGPmK/lBOlzP/3A/tM0CVjQAgYZypnAP4a5ok8eHk5lqM?=
+ =?us-ascii?Q?4aP7tYb+QUOwOja+fxSM0UldyTj484H9SUMTTEB5kzs58BbB6NGL8OkRdPDe?=
+ =?us-ascii?Q?SAGM16XhKlI/si5TnlqNLlQg1huKdwOzWamANRfo6ZAx571fAbJzyYYvhnZ0?=
+ =?us-ascii?Q?B6ZivNHugR0z19mpgnPt7VnWvEVZJ8fchapjO8O05nDKxRbZfaJmxW7mPrgp?=
+ =?us-ascii?Q?UR0CP2R7xYh6j5y7WdecnqeG5C/LAkXHW3N2voRuxWo2TnO3kJaCqHewU+o7?=
+ =?us-ascii?Q?30Vqpknuy1SaEysym8aaVVqRS+zQFv8RsYwKcb+Aesfd9s1Gey3E1Cu6KzHi?=
+ =?us-ascii?Q?yb6ofK+8lmqVzhB0H34tLbdmXLR44my50tI7kqaFv5aW1o20COInnbxqGxLz?=
+ =?us-ascii?Q?pAFfH0BcgBnpyRI+wmb/97tnEVnXhdzUgtnCuPLqSlRhgHSCMej9LdvoJTaH?=
+ =?us-ascii?Q?6CyUYC7BLH8EitqMBHbPBeOPsDc5kW88EDAc2zonlkkazrLFMZYTmHV0keQa?=
+ =?us-ascii?Q?z0SRr780uoGpIGar7YAmMl4dk+OVfx+cFGcSrhvpCF4sQvGmhrElkLPcQxvR?=
+ =?us-ascii?Q?zfFQVes+dyhat4gHx9Q7deNXrvkpkwkG1wqF/geR42Ne2+lLzF4FWHeiYavA?=
+ =?us-ascii?Q?AlDZfqs0Tuc6v2uW2r6wB/ZzZSZihi0Fodj295q3ocXxeZxMoW150vKJramX?=
+ =?us-ascii?Q?fdXlnsROw0i6XnrTxGxUk29v8k0q7uLKNSLZkZsmyygkzki+eFZ10++XgWVC?=
+ =?us-ascii?Q?rDGOBjwfFwfRcx5mCQWALIPr90MhSMzqLfE6gqOSSl6vlDRplR1okwhYt+k6?=
+ =?us-ascii?Q?O4Ba9FV8cMuTJf4TfteEZRmIBTXI7+xfo9KFaAUAd0ylbPed3xJnNkRJsZFg?=
+ =?us-ascii?Q?HuprRRz5JuoPMYUgA2t79dwqNqOQdBTRVOURcIMnCnp6zRU2e0G31kUnZkl0?=
+ =?us-ascii?Q?Ye/aZ1poTAW/5gAbq3Q95bdioV5N9tu28oXNaBx23sTa9ZD4ucypyA5FAZwL?=
+ =?us-ascii?Q?w0aLYzxA3YWh7QCHlojGjDE3/9+GJCoPWJoiJAtpepxYCK/8DKXhwqaJJ4Yj?=
+ =?us-ascii?Q?LuDivOQtYowAFrx18t/SDiV8earF8Z9/DPiB2ydz?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d3dfaf9-b0da-4873-e54f-08dd1a23f271
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2024 20:39:45.2053
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EHMuKwMFyTA0nBqILdVdXGxqurnhZeE5/5919TbQhq6u3K0NQQQc6h+U51pbegxhC7ewHTxCfGtoOoZcOEHJFw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10313
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_122412_104348_74388C28 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20241211_123953_703748_CE04D720 
+X-CRM114-Status: GOOD (  44.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +170,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc GPIO folks in case they think it's worthwhile to document that
-it's safe to pass NULL pointers to gpiod_*() interfaces]
+On Wed, Dec 11, 2024 at 07:57:05PM +0100, Marco Felsch wrote:
+> On 24-12-11, Frank Li wrote:
+> > On Wed, Dec 11, 2024 at 04:46:22PM +0100, Marco Felsch wrote:
+> > > On 24-12-10, Frank Li wrote:
+> > > > From: Pengfei Li <pengfei.li_1@nxp.com>
+> > > >
+> > > > Introduce support for the i.MX91 thermal monitoring unit, which features a
+> > > > single sensor for the CPU. The register layout differs from other chips,
+> > > > necessitating the creation of a dedicated file for this.
+> > > >
+> > > > Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+> > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > > change from v1 to v2
+> > > > - use low case for hexvalue
+> > > > - combine struct imx91_tmu and tmu_sensor
+> > > > - simplify imx91_tmu_start() and imx91_tmu_enable()
+> > > > - use s16 for imx91_tmu_get_temp(), which may negative value
+> > > > - use reverse christmas tree style
+> > > > - use run time pm
+> > > > - use oneshot to sample temp
+> > > > - register thermal zone after hardware init
+> > > > ---
+> > > >  drivers/thermal/Kconfig         |  10 ++
+> > > >  drivers/thermal/Makefile        |   1 +
+> > > >  drivers/thermal/imx91_thermal.c | 265 ++++++++++++++++++++++++++++++++++++++++
+> > > >  3 files changed, 276 insertions(+)
+> > > >
 
-On Wed, Dec 11, 2024 at 02:44:21PM +0530, Manivannan Sadhasivam wrote:
-> On Wed, Dec 11, 2024 at 09:59:30AM +0100, Thomas Richard wrote:
-> > On 12/10/24 16:42, Bjorn Helgaas wrote:
-> > > On Mon, Dec 09, 2024 at 12:23:21PM +0100, Thomas Richard wrote:
-> > >> The reset_gpio is optional, so in j721e_pcie_suspend_noirq()
-> > >> check if it is not NULL before to use it.
+[...]
 
-> > >> +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> > >> @@ -644,7 +644,9 @@ static int j721e_pcie_suspend_noirq(struct device *dev)
-> > >>         struct j721e_pcie *pcie = dev_get_drvdata(dev);
-> > >> 
-> > >>         if (pcie->mode == PCI_MODE_RC) {
-> > >> -               gpiod_set_value_cansleep(pcie->reset_gpio, 0);
-> > >> +               if (pcie->reset_gpio)
-> > >> +                       gpiod_set_value_cansleep(pcie->reset_gpio, 0);
-> > >> +
-> > >>                 clk_disable_unprepare(pcie->refclk);
-> > >>         }
+> > > > +	platform_set_drvdata(pdev, tmu);
+> > > > +
+> > > > +	/* disable the monitor during initialization */
+> > > > +	imx91_tmu_enable(tmu, false);
+> > > > +	imx91_tmu_start(tmu, false);
+> > >
+> > > No need to disable it here since both bits (ENABLE and START) are 0
+> > > after a reset.
+> >
+> > Maybe uboot enable it. We can't depend on reset value without really set
+> > hardware reset bit.
+>
+> So the module can't be rested e.g. by disabling module power? Having a
+> dedicated reset mechanism would be much simpler instead of writing each
+> reg-field to the default value.
 
-> > > It looks like gpiod_set_value_cansleep(desc) *should* be a no-op if
-> > > desc is NULL, based on this comment [1]:
-> > > 
-> > >  * This descriptor validation needs to be inserted verbatim into each
-> > >  * function taking a descriptor, so we need to use a preprocessor
-> > >  * macro to avoid endless duplication. If the desc is NULL it is an
-> > >  * optional GPIO and calls should just bail out.
-> > > 
-> > > and the fact that the VALIDATE_DESC_VOID() macro looks like it would
-> > > return early in that case.
-> > > 
-> > > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpio/gpiolib.c?id=v6.12#n2316
+Not all module can be power off individual. Normally, it should have sw
+reset bit in controller. but I have not find it in this module.
 
-> Yes. Almost all of the GPIO APIs accepting desc (except few) use
-> VALIDATE_DESC() to check for NULL descriptor. So explicit check is
-> not needed.
+>
+> > > > +	ret = imx91_init_from_nvmem_cells(tmu);
+> > > > +	if (ret) {
+> > > > +		writel_relaxed(DEFAULT_TRIM1_CONFIG, tmu->base + TRIM1);
+> > > > +		writel_relaxed(DEFAULT_TRIM2_CONFIG, tmu->base + TRIM2);
+> > > 			^
+> > > Can you please anwer if _relaxed API is sufficient? I don't know why you
+> > > making use of the _relaxed API here anyway. We have only a few MMIO
+> > > accesses here, so why can't we use the writel() instead? This applies to
+> > > the whole driver.
+> >
+> > There are not big difference writel_relaxed() or writel() for this driver.
+> > Just original owner pick one.
+>
+> NACK, the difference is that _relaxed() APIs don't guarantee the order
+> the register access is done.
 
-I think it would be nice if the kernel-doc for these functions
-mentioned this somewhere.  It's kind of a pain for every user to have
-to deduce this.
+It is totally wrong. *_relexed() API can guarantee the register access
+order. Only can't guarantee order with other memory. such as
 
-Bjorn
+1 writel_related(A, 0)
+2. x = 3
+3 writel_related(B, 1)
+
+Hardware/memory model, require B=1 must be after A=0, but not necessary
+after x=3, that's means (2) x=3 may happen after 3.
+
+if use writel(), guarantee 1, 2, 3 as order.  Here have not DMA involved.
+So not any impact if (2) after (3).
+
+Typically, only below case have to use writel().
+2 (update DMA descritpor), 3 start DMA,
+
+Additional, writel() also can't guarantee register access is done!!!!
+
+writel() just means you send a write command to bus. Not guarantee to reach
+target module. typical case is
+
+writel(A, 0);
+udelay(1);
+writel(A, 1);
+
+The interval between A=1 and A=0 may less than 1us if timer have not use
+MMIO register. (arm system counter).
+
+In this driver, the only valuable benefit by using writel() instead of
+writel_relexed() is "short function name".
+
+>
+> > > > +	}
+> > > > +
+> > > > +	/* The typical conv clk is 4MHz, the output freq is 'rate / (div + 1)' */
+> > > > +	rate = clk_get_rate(tmu->clk);
+> > > > +	div = (rate / 4000000) - 1;
+> > > > +	if (div > FIELD_GET(DIV_MASK, DIV_MASK))
+> > > 			^
+> > > This misuse the FIELD_GET() API. Instead please add a define e.g. DIV_MAX.
+> >
+> > I don't think so, It avoid define another macro DIV_MAX, which may miss
+> > defined, the related marco should come from one source.
+> >
+> > For example:
+> >
+> > DIV_MASK is GENMASK(23, 16),  DIV_MAX is 256. But if hardware upgrade,
+> > DIV_MASK to GENMASK(24, 16), DIV_MAX is quite easy to forget update it and
+> > hard to find such mis-match when div value < 256.
+>
+> We not talking about "possible" other HW. For now it's just this one and
+> using FIELD_GET() this way is seems odd, at least to me.
+
+If you look implement of FIELD_GET()
+(typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask));, it will be
+reasonable.
+
+Hardware IP may update in future, bitwidth of field may expand.
+
+>
+> > > > +		return -EINVAL;
+> > > 			^
+> > > 		dev_err_probe()
+> > > > +
+> > > > +	/* Set divider value and enable divider */
+> > > > +	writel_relaxed(DIV_EN | FIELD_PREP(DIV_MASK, div), tmu->base + REF_DIV);
+> > > > +
+> > > > +	/* Set max power up delay: 'Tpud(ms) = 0xFF * 1000 / 4000000' */
+> > > > +	writel_relaxed(FIELD_PREP(PUDL_MASK, 100U), tmu->base + PUD_ST_CTRL);
+> > > 		^
+> > > You dont need to repeat the default value, so this line can be dropped.
+> > >
+> > > > +
+> > > > +	/*
+> > > > +	 * Set resolution mode
+> > > > +	 * 00b - Conversion time = 0.59325 ms
+> > > > +	 * 01b - Conversion time = 1.10525 ms
+> > > > +	 * 10b - Conversion time = 2.12925 ms
+> > > > +	 * 11b - Conversion time = 4.17725 ms
+> > > > +	 */
+> > > > +	writel_relaxed(FIELD_PREP(CTRL1_RES_MASK, 0x3), tmu->base + CTRL1_CLR);
+> > > > +	writel_relaxed(FIELD_PREP(CTRL1_RES_MASK, 0x1), tmu->base + CTRL1_SET);
+> > >
+> > > Same here, you repeat the module default after reset, so please drop it.
+> > >
+> > > > +	writel_relaxed(CTRL1_MEAS_MODE_MASK, tmu->base + CTRL1_CLR);
+> > > > +	writel_relaxed(FIELD_PREP(CTRL1_MEAS_MODE_MASK, CTRL1_MEAS_MODE_SINGLE),
+> > > > +		       tmu->base + CTRL1_SET);
+> > > > +
+> > > > +	clk_disable_unprepare(tmu->clk);
+> > >
+> > > Drop this, and
+> > >
+> > > > +	pm_runtime_set_suspended(dev);
+> > >
+> > > replace this with: pm_runtime_set_active();
+> >
+> > No big difference, if set_active, we need add Enable TMU here. I can
+> > change to set_active.
+>
+> You don't need to manually disable the clock, it would be done by the
+> runtime-pm.
+
+Yes, runtime-pm can disable clock, but it need align harware and run time
+state before enable runtime pm.
+
+There are two options
+1 disable all hardware resources and pm_runtime_set_suspended()
+2. enable all hardware resources and set_active()
+
+After algned, use runtime pm API to controller it.
+
+I choose option1, you prefer option 2.
+
+Frank
+>
+> Regards,
+>   Marco
+>
+>
+[...]
+> > > > +
+> > > > +MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
+> > > > +MODULE_DESCRIPTION("i.MX91 Thermal Monitor Unit driver");
+> > > > +MODULE_LICENSE("GPL");
+> > > >
+> > > > --
+> > > > 2.34.1
+> > > >
+> > > >
+> >
 
