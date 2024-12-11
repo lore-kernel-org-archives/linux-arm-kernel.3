@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE6FE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA23E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 17:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBAUUgHHCorAYYhe1b/RpcaSfhfVVFDNGT3lM1F0Fxg=; b=1b6zk5jYliAR/inW6JVQUFqam4
-	avwm9jCvRBPB5ymbJcVUeDINpN0Snu2GB5V5Af9bM7YVBYr2yEzgLo7aEnC7+gawPgj8BpGEe3fgp
-	cKzBYQU6cGkCl436833JK5HR7jWcIRtGa2MBtFmYnB9f6Zi8QcYuE0ZFGwfSTATW0GJQ+iuWNaI7B
-	cP+RQAubt2k2hQHjg8wXZ91626U4nwb7HjVDGbdtjdljgiYykWOxr0NQ22QD3t1qT1b2IGt56KrFq
-	jfLdmwokoKX+P2wmV/zRRKBOCMK4m9QttuaokK8ZiLpzYnXcR6Us969xkrHHCjqosvXPMtVeYuj4f
-	GlaX0nlA==;
+	bh=6NxV4GoHK/ahyIflRv/mOazvo62QwExn028Ncg5fkKE=; b=dMZEticjRGVhkfutkEuXnnAxOc
+	NzzPcz4SMRC2HEUny8iOOqlK8xvteFSP0fl0p/AFZSx4FtUjjU61VEd+fpM+nBtdepdtUk+ips33e
+	96UuPDU/xCIUjf6pEXE7G2cLTzB/EJWt5ivHtoYU5OTO5P7uT7NNKRBaSegEJQpgw4cA0Zd+qSbCS
+	b0DSAoFh4ZTBo4afypyuWHHxzYqGsJuuAqN11UBUQtxmdWNDRSLc2l2vCk3rz19sl0a2JR519xtKB
+	AQoeyT1mRNwXDX2ResMC+XEps4PQWFUzuNhWokftJ0UO7NZ+h7NCWmJAHD6Bq68snsNxRpDjQnkc+
+	xzE2WjRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQvc-0000000FffK-3d0e;
-	Wed, 11 Dec 2024 17:55:16 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1tLQx0-0000000Ffyr-1xxH;
+	Wed, 11 Dec 2024 17:56:42 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLQuZ-0000000FfSe-0mOx
+	id 1tLQvw-0000000Ffky-0lRr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 17:54:12 +0000
-Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3eb87127854so288308b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 09:54:10 -0800 (PST)
+	Wed, 11 Dec 2024 17:55:37 +0000
+Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3eb687d96e9so1305350b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 09:55:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733939650; x=1734544450; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1733939735; x=1734544535; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SBAUUgHHCorAYYhe1b/RpcaSfhfVVFDNGT3lM1F0Fxg=;
-        b=qKV2stB/dYUVqrY8dOGfMhycNzx5L1yaQiTCjhYZSA4dbqoiAzQeiLEuLA5lxwJgAX
-         v3/NU3CuriYjXT81bw3mtjdDCgRYdmHw6CpMbjq3kllAwIePUs4AIh15xy1qlwWCoXpU
-         yx1dvttWpAVGtLmfGhNhDGRNpm34CUU386QvfCUnRdB0foSXWESAi26Ptltuq2XH4i2B
-         1wlwToB6O2v9otLZTwUbYY6umy7w4PNrExW2B/c3GNGKqUyoq0HZbTAh6Ma4nYixyrBC
-         TIXOchTsGx0QTrFgMQ3rwH0dstwcqhwYkzOqQFLSXbfPu5oIM0OV/HfP8JEj8M+fzcaj
-         vp/g==
+        bh=6NxV4GoHK/ahyIflRv/mOazvo62QwExn028Ncg5fkKE=;
+        b=eY9wxNKH3NBKgKBVSeVGtvfRzlP7FUpbHQznWFxmnRwXHgWL4WpOYRFudwlPm3HqpR
+         zsZ3BaOp8HApsbMhDcvNar2eWsa/otUHMfH71dIHlOFeDXbP3FwA0VZuw0VNJnrWTb1A
+         F40brZM1Zsbwk00nKa/QDZHaJumwe16haGKp3XfNdDUkhq8YBjaqH34QAYmXxNs9+PcK
+         QV0CIpxvlRSkUiTCD03H+HQDqOmqxD5mNeNna+I7MBuOSl7vEJ56TO25maHcHrUbwKzY
+         dN/u9B7YH7ybj3dL5fA6uuFVLxxNLBrT9ZVnXM4qUggrgQzlmF5/VsNfyDno1iW6oQqe
+         YjUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733939650; x=1734544450;
+        d=1e100.net; s=20230601; t=1733939735; x=1734544535;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SBAUUgHHCorAYYhe1b/RpcaSfhfVVFDNGT3lM1F0Fxg=;
-        b=ZXOpRQ92Uo9PXaFoBd1mkeBWVlce8y8Jqcjs9Hy5UHrULPL4DqWdfRYvvv5l5ir6D1
-         vfsiYlkzy8ymB3CT1QW3hN+ZfnUtylR3YyFZVq2R1EVp52LZXoXLtrrZBDj+KIsETe+x
-         dW9V7vQaT/rWCI/Jx4aNYsMRNrbtx1oHpBx1XHZmQOWHxsuezAADkY+dDUNMnj4tI/Xb
-         kx8I5dzetuBiJNwKzy8GI17FyDch7imP9jb40t9fl73EginOlrdKFcON7Os0DYsF4HR9
-         iNXCnTyvpwv+LS62C8sOdg03ybX+jJtU/vbALw61FUqW/DIaMriG3O3/HR4waIiOU0KX
-         XZvw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6KRTXqnVVMUTEfl8l3YWMd85mfK1x4pB7wYeMxa1MMjMyKpddmwHjeMclj4ORpWySB/5WspdUStm/Yd4eIKw3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzA1L6hsc76kirJVFCviEnPoDNV7xKtkLb6YAdKIWyvTy/1rbX
-	Xdkn2EuFfc3a61ieJ2PstM49XcN7oJWpe8d2OAKI0aYD6JQvr1ofwpSo9LZ6vJzH+rc1sOxjFf6
-	tjgcPi2n0+AwK2otvEmTzdfxtM+iP1oKwGTp5RA==
-X-Gm-Gg: ASbGncsSNKyyiJvk1g+98zkw6/fAMjuoV3xJ782Fzc7jC/8g/nEh2cWRKbAFfY+LejD
-	mV4giXwH4q4xhGKKpRIJVSS90T7FVq0IwpRc=
-X-Google-Smtp-Source: AGHT+IFfj39z5VsWFUtc547a2JiE2gqj7fMrc6Hgv7LJC75wfYKzbNhVcat1Y4z8nTrgUp65iUPhRZVJvBmlgSE3NeQ=
-X-Received: by 2002:a05:6808:1304:b0:3eb:3cca:8829 with SMTP id
- 5614622812f47-3eb85d14a42mr2424138b6e.34.1733939649689; Wed, 11 Dec 2024
- 09:54:09 -0800 (PST)
+        bh=6NxV4GoHK/ahyIflRv/mOazvo62QwExn028Ncg5fkKE=;
+        b=nQ62vnGjihGDfBKY7YEynIxJ5oB+2LdA9yXSWuPw73/Y6nfQgtl2ArnuwjiH4hmEpP
+         qGj/sQU13DnFMmj6QwaH7ebFcD8aRIWAk4Ik4goPrdtKdckOCwcvEMBlWhIyAfFUZDjM
+         W55/C7+KGy8POho2tEeHze/j1AaB7g3AQABuqz/GaSL6ZY5VmpkeukIoeglrvYvAupB8
+         QVK8zUNK9V5eHcUboFHWTGljpqdtVhtsWExyfj2CidwZt4Ob23vDKdZkQMJhwnCPjlS0
+         xogjf6DBvJYhdk13pxX7ffvsEEUunm7ZhsFUdfpym3M9hoA0ALlNKPAoSCsGNmVQDhrW
+         F7VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXvxPi1DWNgVcxI4WLMUEZeSZR5zS/tbobCn516sCH2Mn/2h26UF+3iof27EX08Wvmq+3RrGx8lLfbC03o9Q6dc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSZH2h1qTqLH4tQQnwmVw5hv//X5bFLMwW7ExOn8iiCVodJg0U
+	L6cxAVfaKF/pgHb65s462jwnjJpPqwfeiUlVTRy+uv7S0ihxQZlSSUHjRjyHBm6tpldkp1QMnwK
+	ADAje8e5e6+1VCV8q1hhJyKGifFdp6Qu0cMlBhg==
+X-Gm-Gg: ASbGncsQNxEfew2sHGxnEEZT4yklAeqVksduJS9gxJWwBmztyE0YEMoaxD6hDdXTK8l
+	IKEA7OdMMjj2CMbYX/opPzbk+/x/Hv1TIxxM=
+X-Google-Smtp-Source: AGHT+IF4vtTjbxANqGCquCOW86vWqQwnJkVwBIy0+PKUY3mXo9+jIK2tbaAnXdNFAA6ijnfwpTtlzsC6XGNl2/h4Y9Q=
+X-Received: by 2002:a05:6808:189c:b0:3e6:6097:847d with SMTP id
+ 5614622812f47-3eb85a8b199mr2732633b6e.7.1733939734907; Wed, 11 Dec 2024
+ 09:55:34 -0800 (PST)
 MIME-Version: 1.0
 References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
- <20241206-gs101-phy-lanes-orientation-phy-v4-7-f5961268b149@linaro.org> <CADrjBPrz1qUxbEVFR8OT785xLPwWmu3_ZThSne+EtpS8_NHEEg@mail.gmail.com>
-In-Reply-To: <CADrjBPrz1qUxbEVFR8OT785xLPwWmu3_ZThSne+EtpS8_NHEEg@mail.gmail.com>
+ <20241206-gs101-phy-lanes-orientation-phy-v4-6-f5961268b149@linaro.org> <CADrjBPoZqbAM=2zOdgXD_dTrgh-J7yE+OX_JSVJ42Lmzb-DPEw@mail.gmail.com>
+In-Reply-To: <CADrjBPoZqbAM=2zOdgXD_dTrgh-J7yE+OX_JSVJ42Lmzb-DPEw@mail.gmail.com>
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 11 Dec 2024 17:53:57 +0000
-Message-ID: <CADrjBPqW81kaK=Wco7wMg50APTXGRwhnfFjbnogrSQ-T_mWnUQ@mail.gmail.com>
-Subject: Re: [PATCH v4 7/7] phy: exynos5-usbdrd: allow DWC3 runtime suspend
- with UDC bound (E850+)
+Date: Wed, 11 Dec 2024 17:55:23 +0000
+Message-ID: <CADrjBPpv7Y-v4w-ZjsM52wPXM1G=v028BxmJA=_zb4ksDq21EQ@mail.gmail.com>
+Subject: Re: [PATCH v4 6/7] phy: exynos5-usbdrd: subscribe to orientation
+ notifier if required
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -84,8 +84,8 @@ Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, R
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_095411_244585_48A85C74 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20241211_095536_219132_D1816F30 
+X-CRM114-Status: GOOD (  31.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +102,68 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Andr=C3=A9,
 
-On Sat, 7 Dec 2024 at 22:03, Peter Griffin <peter.griffin@linaro.org> wrote=
+On Sat, 7 Dec 2024 at 21:31, Peter Griffin <peter.griffin@linaro.org> wrote=
 :
 >
 > Hi Andr=C3=A9,
 >
+> Firstly, thanks for all your work getting USB on Pixel 6 / gs101
+> working upstream :)
+>
 > On Fri, 6 Dec 2024 at 16:31, Andr=C3=A9 Draszik <andre.draszik@linaro.org=
 > wrote:
 > >
-> > To make USB runtime suspend work when a UDC has been bound, the phy
-> > needs to inform the USBDRD controller (DWC3) that Vbus and bvalid are
-> > gone, so that it can in turn raise the respective gadget interrupt with
-> > event =3D=3D DWC3_DEVICE_EVENT_DISCONNECT, which will cause the USB sta=
-ck
-> > to clean up, allowing DWC3 to enter runtime suspend.
+> > gs101's SS phy needs to be configured differently based on the
+> > connector orientation, as the SS link can only be established if the
+> > mux is configured correctly.
 > >
-> > On e850 and gs101 this isn't working, as the respective signals are not
-> > directly connected, and instead this driver uses override bits in the
-> > PHY IP to set those signals. It currently forcefully sets them to 'on',
-> > so the above mentioned interrupt will not be raised, preventing runtime
-> > suspend.
+> > The code to handle programming of the mux is in place already, this com=
+mit
+> > now adds the missing pieces to subscribe to the Type-C orientation
+> > switch event.
 > >
-> > To detect that state, update this driver to act on the TCPC's
-> > orientation signal - when orientation =3D=3D NONE, Vbus is gone and we =
-can
-> > clear the respective bits. Similarly, for other orientation values we
-> > re-enable them.
+> > Note that for this all to work we rely on the USB controller
+> > re-initialising us. It should invoke our .exit() upon cable unplug, and
+> > during cable plug we'll receive the orientation event after which we
+> > expect our .init() to be called.
 > >
-> > This makes runtime suspend work on platforms with a TCPC (like Pixel6),
-> > while keeping compatibility with platforms without (e850-96).
+> > Above reinitialisation happens if the DWC3 controller can enter runtime
+> > suspend automatically. For the DWC3 driver, this is an opt-in:
+> >     echo auto > /sys/devices/.../11110000.usb/power/control
+> > Once done, things work as long as the UDC is not bound as otherwise it
+> > stays busy because it doesn't cancel / stop outstanding TRBs. For now
+> > we have to manually unbind the UDC in that case:
+> >      echo "" > sys/kernel/config/usb_gadget/.../UDC
 > >
-> > With runtime suspend working, USB-C cable orientation detection now
-> > also fully works on such platforms, and the link comes up as Superspeed
-> > as expected irrespective of the cable orientation and whether UDC /
-> > gadget are configured and active.
+> > Note that if the orientation-switch property is missing from the DT,
+> > the code will behave as before this commit (meaning for gs101 it will
+> > work in SS mode in one orientation only). Other platforms are not
+> > affected either way.
 > >
 > > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 >
-> As mentioned on the last patch, in my testing cable orientation
-> detection is working, but Pixel is detected as a superspeed device in
-> one orientation, and high speed device in the other orientation. So
-> you should either change the wording of the last paragraph in the
-> commit message (assuming you get the same results as me) or make it
-> detect as superspeed in both orientations.
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Tested-by: Peter Griffin <peter.griffin@linaro.org>
+>
+> Notes on testing:
+>
+> I tested this series with the corresponding DT using a Pixel 6 device
+> with 2 different USB hubs and also plugging directly into my laptop.
+> I've tried various combinations of plugging / unplugging from both
+> ends of the USB cable and changing cable orientation. With the latest
+> series the disconnect/reconnect always seems robustly detected and
+> Pixel is enumerated as a USB device by the host, adb connection to the
+> phone is possible even with the cable orientation changing between
+> disconnect/reconnect.
+>
+> One thing I did notice during testing is that in one cable orientation
+> Pixel is detected as a `SuperSpeed USB device` by the host and in the
+> other cable orientation it is detected as a `high-speed USB device`.
+> Which suggests there is still a latent bug in the phy
+> re-configuration.
 
-You can disregard this point, I had a typo in my test setup :( I just
-confirmed that it is detected as SuperSpeed in both orientations.
+You can disregard this last point, I had a typo in my test setup :( I
+just confirmed that it is detected as SuperSpeed in both orientations.
 
 Thanks,
 
