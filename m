@@ -4,102 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89D8E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 18:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37E5E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Dec 2024 18:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKBF9MwwWdxtyhM/vZBDK5wtGQUQme8Sdv89LX9q3k4=; b=FbauGgr/aIbcxiKmG8bGV23HHl
-	UXG3hvNDcnQjaYMd1p9PImUMGVkCHUHrpyNik6wV5EO/O8GQWMuTXgdNNslq+KLCxrNSBIRdoIpS7
-	03rplG79rVP26VArgIUoFBn+9G0nE8JEsER+YG04srKVfGiIhTvcCTEycwP1LKV+qZCZwLbI/sgBZ
-	bse+DCsXDoPvwd2/o7YAYNnQ7FB2Sm6P1OwkM3ws4HMs+DyoVb7+9ufGg+zia47mQmoG2JDr3Ei9X
-	IFcP8jyK+2e9AjOQdJAD/eD/AC4yFhtsA8qlYNmkbz23a/1XWZpsV/V754nV0zuqMrqAPrBjc41jR
-	kz/y9K8A==;
+	bh=9mka/6c02zAmTI1ZuaE51LtWLUrXwWytHmmGzjhbNio=; b=1MM2/lx2P4PWMMoomTjgcW/UoP
+	St3DBVdQ2pV5mwD3bDP1iq/FtQGII0w1t5k/H3AvbjYDpJinFo7iPo1z7wRtoUgdrAXqOKO+S+AKZ
+	oMGsJDSu9Vmx6mNY5Mq6myK7EDoiacnFs1JbxTR/G4MY4AoVjSm57B5kJ0kVEzr/OAk6XTSakQtMb
+	4CFae+d1X73r3gzi+lE81lZjUWoJHl+E4ZtXKxQ4JdHAvyV29I9bJMzVLUfUU0gNH2GjIBAPgQ2A7
+	Q0vV6r1zN/OFzq2kEiWmupnn97V3tM5VZJVUwgJxUUERl/4HsFC5jP1RVUL5jQjM2Qekx3X5KeKGP
+	GE4bjlVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLRkB-0000000FlHJ-1OVX;
-	Wed, 11 Dec 2024 18:47:31 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tLRnC-0000000FldS-0D5I;
+	Wed, 11 Dec 2024 18:50:38 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLRj7-0000000Fl99-2ruO
+	id 1tLRm8-0000000FlWT-0Cxx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Dec 2024 18:46:27 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BBHDGPu003065;
-	Wed, 11 Dec 2024 18:46:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KKBF9MwwWdxtyhM/vZBDK5wtGQUQme8Sdv89LX9q3k4=; b=VMpaOa/v9X6ACdwL
-	WSIwXzqzOZAiz0No5IAwdkcsl/NUELLHv13Y+iDNo0DBlyRDlJ/d9b1D3WpBxz42
-	3j/Ll/6n1K5RNXJ3dHUfvFQhkVbcTr+HZ0zzlZxk7sl3BzoN1bPZDZccosxldwd9
-	XsUGXYIRPbw8wT4o3UmY2erS80vBspj7U7Nx/woMK3mypS3d0CeCyglgrYWGBlgc
-	WpZ7vOB92Z4PHHejAZJo65k6EwFa27BLNI5KQspL+t9nqXJg0MJIWMtPXjkH5TZm
-	CPPUkykdZi+uqtdCYwWQ1aL0NgvsgZTvnbwWld94Gwq80jkgwDpf+WseqiVKZv0T
-	pFCpgg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43f0r9txqv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 18:46:10 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BBIk9WK017308
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Dec 2024 18:46:10 GMT
-Received: from [10.71.111.113] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Dec
- 2024 10:46:09 -0800
-Message-ID: <f353a230-b9ab-4c25-846b-6e5f0e404ca0@quicinc.com>
-Date: Wed, 11 Dec 2024 10:46:09 -0800
+	Wed, 11 Dec 2024 18:49:33 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 98E85104858A3;
+	Wed, 11 Dec 2024 19:49:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1733942965;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9mka/6c02zAmTI1ZuaE51LtWLUrXwWytHmmGzjhbNio=;
+	b=hAQqBamG3pG/60OscjZ3vfrjvNpj8m2HS9Zx7PKHxstCe0cPTn1Kz88hdPZOjjJXnyMXvY
+	MyGNptqZYZqEi5F4DE3oHVQcLFeyfti/6HozoSH3JxhY8unkYCNQJ0x6XeVo3BLiGFU0Rl
+	hdMdymft3iQw4qqb9Fln6SRL9AFz7dR9BZXchMNErvo6t3j93Gvy50dBFbxSqBIr7NOC0f
+	M8B+Xrk2Hav1kYt05ETxgTFfRdvHyz8qfEanldZffnWaXKZPO9/IS5262On9RwKR0KgBHM
+	bisr4YXq01XNNtPoi6FvbUjR4WJ+lsCe5OXUrf91kIy0+6ohxZfSXsJfWIzyfg==
+Message-ID: <656838f1-40e5-44de-aaba-d8f5ba496af7@denx.de>
+Date: Wed, 11 Dec 2024 19:31:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/7] arm64: dts: qcom: Add board dts files for SM8750
- MTP and QRD
-From: Melody Olvera <quic_molvera@quicinc.com>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>,
-        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-        Trilok Soni <quic_tsoni@quicinc.com>
-CC: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20241204-sm8750_master_dt-v3-0-4d5a8269950b@quicinc.com>
- <20241204-sm8750_master_dt-v3-6-4d5a8269950b@quicinc.com>
- <b9225284-7830-4aa4-aed2-7f58fb7320e8@oss.qualcomm.com>
- <79e55e6e-e560-4f43-8d6e-bbaf7fcf157a@quicinc.com>
+Subject: Re: [PATCH v4] watchdog: stm32_iwdg: Add pretimeout support
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
+ linux-watchdog@vger.kernel.org
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20240415134903.8084-1-marex@denx.de>
+ <49ccec07-4d4c-4582-814b-d4a60adbbfe1@foss.st.com>
 Content-Language: en-US
-In-Reply-To: <79e55e6e-e560-4f43-8d6e-bbaf7fcf157a@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <49ccec07-4d4c-4582-814b-d4a60adbbfe1@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: Fn3miiM-g8wIKGJTEFmkh3ST2ifxULdN
-X-Proofpoint-GUID: Fn3miiM-g8wIKGJTEFmkh3ST2ifxULdN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 phishscore=0 spamscore=0 clxscore=1015 mlxlogscore=889
- malwarescore=0 lowpriorityscore=0 mlxscore=0 bulkscore=0 suspectscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412110134
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_104625_853923_669D8602 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20241211_104932_251855_A87F1DCF 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,36 +79,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/5/2024 10:21 AM, Melody Olvera wrote:
->
->
-> On 12/5/2024 8:45 AM, Konrad Dybcio wrote:
->> On 5.12.2024 12:18 AM, Melody Olvera wrote:
->>> Add MTP and QRD dts files for SM8750 describing board clocks, 
->>> regulators,
->>> gpio keys, etc.
->>>
->>> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
->>> ---
->> [...]
+On 12/11/24 10:02 AM, Clement LE GOFFIC wrote:
+> On 4/15/24 15:48, Marek Vasut wrote:
+>> The STM32MP15xx IWDG adds registers which permit this IP to generate
+>> pretimeout interrupt. This interrupt can also be used to wake the CPU
+>> from suspend. Implement support for generating this interrupt and let
+>> userspace configure the pretimeout. In case the pretimeout is not
+>> configured by user, set pretimeout to 3/4 of the WDT timeout cycle.
 >>
->> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>> Reviewed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Tested-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Signed-off-by: Marek Vasut <marex@denx.de>
+>> ---
+>> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+>> Cc: Guenter Roeck <linux@roeck-us.net>
+>> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+>> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-stm32@st-md-mailman.stormreply.com
+>> Cc: linux-watchdog@vger.kernel.org
+>> ---
+>> V2: - Subtract the pretimeout value from timeout value before writing it
+>>        into the IWDG pretimeout register, because the watchdog counter
+>>        register is counting down, and the pretimeout interrupt triggers
+>>        when watchdog counter register matches the pretimeout register
+>>        content.
+>>      - Set default pretimeout to 3/4 of timeout .
+>> V3: - Use dev instead of pdev->dev
+>>      - Swap order of ret/return 0
+>>      - Split this from the DT changes, which are orthogonal
+>>      - Uh, this patch got stuck in upstreaming queue, sorry
+>> V4: - Update commit message to match V2 default pretimeout to 3/4
+>>      - Add RB/TB from Clément
+>> ---
+>>   drivers/watchdog/stm32_iwdg.c | 95 ++++++++++++++++++++++++++++++++++-
+>>   1 file changed, 94 insertions(+), 1 deletion(-)
 >>
->>> +&tlmm {
->>> +    /* reserved for secure world */
->>> +    gpio-reserved-ranges = <36 4>, <74 1>;
->>> +};
->> Any chance you could describe what those specifically are?
+>> diff --git a/drivers/watchdog/stm32_iwdg.c b/drivers/watchdog/ 
+>> stm32_iwdg.c
+>> index 5404e03876202..d700e0d49bb95 100644
+>> --- a/drivers/watchdog/stm32_iwdg.c
+>> +++ b/drivers/watchdog/stm32_iwdg.c
 >>
->
-> I'm not too certain, and even if I was, I'm not certain I'd be at 
-> liberty to say.
+>>  [.....]
+>>
+>> +
+>> +    irq = platform_get_irq(pdev, 0);
+>> +    if (irq <= 0)
+>> +        return 0;
+> 
+> Hi Marek,
+> 
+> After re-evaluating this patch, it seems it lacks of a dt-bindings 
+> update that tackles the 'interrupts' property you are adding.
+> 
+> That said, the interrupt line should not be mandatory for the driver to 
+> probe. For backward compatibility with existing DT, I recommend to use 
+> the 'platform_get_irq_optional()' API to not fail during the probe of 
+> the driver.
+I saw the fix
+[PATCH] watchdog: stm32_iwdg: fix DT backward compatibility
+Thank you for that. I'll wait for V2 with updated commit message .
 
-Spoke w some folks; looks like we're suing these for NFC eSE. I can add 
-in next ps.
-
-Thanks,
-Melody
+As far as I understood the problem, the goal is to remove error message 
+printed by the platform_get_irq() in case the DT interrupt property is 
+missing, but this is only an esthetic fix, not a functional one, because 
+the driver probes even if the interrupts DT property is missing, it only 
+prints the error message while at it, correct ?
 
