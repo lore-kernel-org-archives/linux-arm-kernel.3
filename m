@@ -4,87 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EE1E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A086DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ey45ut0cYqhlv0rHJjDTgjPj+B5/bG+PQfUrVzCrXlU=; b=KN/7sClsH8/WYk3Qz/XTiGgyuE
-	8YYTeEeV+1t+B5b2SgLX1z/pRQ9M6TberA//6C4K+hlA/LZDt8vV5fWLgWwosRaGWBXzYPXa2kA4T
-	ISzLQPE+Du6Zo7Aks52bSSLSIqm1DFLvAdRmjguHecTUP1KyEYFjZP0GKdeVtg1U9Xf4PfVL6M8uI
-	VIqFHQaIt6wYthN46O97zRE1S573KiLoTjUlkuBAFEg8eOTa8j+MgcZK1CuTApcDPFZgsy8Uv+SJg
-	EUykBT6FEjULeWfev8VjhkI2HEsPJExttCfOBORM+EBCe8wPAKkzzgQh8lrHOBopBK9IlYKsCN3bP
-	WUvMEZdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lfNzbj7glqq7ZRv9NRQv1rv5uwrvUlxFzUXYJZDz7nI=; b=h4CJ1fBmFM1kFtgjxcXASehv69
+	WlF9RikWP4u2Gm0NRWpA/VBbRDJRcKel76xtA37oVMdQFXiFVaHvc/Jt17MQRHUhKvJxgZcMpiCRO
+	M4AIP3QC0+Q7muxytD1Thx8wr8/YSeDEaZopJtuxki/l/zCld21Ck3MGdhRZ9wkCqpVZ/5vcgQVhO
+	CEJIjrKun9h9szvMLKCTsgcvwRch5TtCuANnUiMvlo4cGZ/1jW2iMHTV5D3trJyJfP8RqQBfJ9n+y
+	DmZa+EKv01VpxqM6a5Ta2yjcBrNGj28NJuRaBk1+PwUKGFUjoVEhdqRjwmkXwkepthOj0rucXSKmF
+	Gnui1D8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLeXS-0000000HIZ8-0Rqu;
-	Thu, 12 Dec 2024 08:27:14 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tLeYV-0000000HItR-3m2D;
+	Thu, 12 Dec 2024 08:28:19 +0000
+Received: from mail-westcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c112::3] helo=CY4PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLePf-0000000HGmz-0yX5
+	id 1tLeVR-0000000HI2w-1n3Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 08:19:12 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4361efc9d23so2905025e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 00:19:10 -0800 (PST)
+	Thu, 12 Dec 2024 08:25:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rvhL+zUU96hQH+gby3ZInU6lulE0Ia/Nrm7qqtR7bSvud5+UO6fW9JGXLj4/M7mSIf/z8PE4FyL/UuV8g64xLS1HZqwsZ8jdyISFa1NIPwAALWN6fACcqm1paW8atPGeiegM8LZSH3fixE8RG8jziDVESu3Q62Lstm1HrV/8jLKm24+4RU4kJcEhNQ+B5ZpgQxwHnLAd2DaPC6KaYawxfFZz3qFC1l76f/T0bh3efE9W7fvnCK5vxnI7ZjzWA7AY3dS/Ej3j3KNPGplD0Izhxt4NtDoZmXo1qSmLtajEVPmK8ny5iqz5bnsmDD0STdlvQn47+0V5Fso//s052ezumQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lfNzbj7glqq7ZRv9NRQv1rv5uwrvUlxFzUXYJZDz7nI=;
+ b=GaohLJdWBKISaBtlIAYZzOIKJAdfwL1Ruh7RYaX4t0/tGBiUsbZkfE3ICTTPScYffJU1dCgcXRPdChecg7+bn6rjb1Ay/EEIq+dQQvk0NAvkShSxbG9eb6lASU7NlrOtk9X+JScv66tEtOHAf6zcox6D9SZz+TwegMJF6IV542bBbPVK/4VZ80QRoAnj18+YRfZv1Yh0pS9htiNXcvqARMJZ6CmIrhQsWENrS5utVs9sKXy/fDzbrxP2F3YLZ3YxXnparTo/oszrCZzeXxDYLP/OM2mGsikvskFvUiBEEity3dOnhZLWsc4fFq9VekPV7K0S7h+6odJ4A94HrDR9TQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733991549; x=1734596349; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ey45ut0cYqhlv0rHJjDTgjPj+B5/bG+PQfUrVzCrXlU=;
-        b=E4H0BenbnAq5ruMwuouDHT2fAiKsHk4+GlD0Pj9GDqd3FZ8rbTlAvU2xIHqADw7vyM
-         rh7LdSpSWs4o5iJRUWvWiWBH9hdekfCiX7QPMGE4vrO2oAEFtAKXUruiAlypxE5Zk8lk
-         fQNXPPMKX0COka40IgTXeMfIPGRH7VKKKe1sXQ0FNav+9T7Wex0pKejT9dZuxaRZihT8
-         85AZminT1Ki7E1l4I0IXDEJ71bViGtE7FoMgIm9ycLg1Jg92ZX19snBzx25v2kApNEg1
-         +/t/aK1teCAr0w9xVa4Lg7rQFydM5kXmz+5hjSl3ugU9nt0xkD5YurVLRo50G94QHQFc
-         EOkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733991549; x=1734596349;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ey45ut0cYqhlv0rHJjDTgjPj+B5/bG+PQfUrVzCrXlU=;
-        b=dSfO4L47el+AIq67ySwa84/X0EmLB1ceD8qvO5h5oDcTDQ+CR8DXxhkvVasRI19ra7
-         PQmPqq2wddY++DXyqBa5+0feNQk07nSxbXgUF87/JSSDzB6gQ4WPfGk30p3BweQ2leOz
-         s6krwN7h0lONZxIlcBaAFepPvW80i5xe+aCB2A2Gc3jEV/ldPExEgwtO/zxjmrAm/DKV
-         fUYLRhk4TeUiadTSYkpNlsqHL7HI+AG87b8P9bMVk2Z8M54OdIrEx1AyPWU7EkqW1D7Y
-         wq0ctDt2WAWnmkf3YuikkvDJSzd/Zwv37Z4JuIm2JrjUNMtpIiIlfRfI4iL4yJ7QtwPq
-         rl1A==
-X-Gm-Message-State: AOJu0YzS3qbFAp+8Y3+A4f1JXCZ8KklTq49GFx/v3xbHbJo1tFSk2e1t
-	BdLhOwHxQVt+AC+opy6Lx+Eq9xkRAkzPuH0eor7b1yXl03Tv9nVHPzy7E4DdOdX2qLihxk3KgMd
-	JaG0PyQYPoxVKAoPUkF6Va0Q8C8lKBoruQvEnZDh6IPp9pQtM1OMEf/wzH3XGtIxZ5Vmw5/Bg/n
-	zzPDyaulJcjGO0YLM27w2sM4ehEIxjedYJegbQQXl2
-X-Google-Smtp-Source: AGHT+IFcDPi/tJJwAsl19d48itWuAeTtp0GYsuRI58iTvVH0YxvBQoA7Eq57mdP63vpaZu5145ucgqLD
-X-Received: from wmik9.prod.google.com ([2002:a7b:c409:0:b0:435:21e:7bec])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:35c9:b0:434:a734:d279
- with SMTP id 5b1f17b1804b1-4361c3c6fbfmr55375515e9.16.1733991549429; Thu, 12
- Dec 2024 00:19:09 -0800 (PST)
-Date: Thu, 12 Dec 2024 09:18:48 +0100
-In-Reply-To: <20241212081841.2168124-8-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20241212081841.2168124-8-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11772; i=ardb@kernel.org;
- h=from:subject; bh=5i2/jnuksoamN8To8RDijcFECekYd7sFcR9Y5NN+knE=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIT1qTpaiim1ZUHnYtpPcJ1cbnzrNnHa2Q5ixr5TlhGWD8
- uYVl106SlkYxDgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwEQq0hj+FzotbA6ceUY+nrGD
- 00ziSm6ve9Th6l3fN9Yy7J+aad3wkOGvoKfJC5XUS049d+8fqROcdqun5HrjogyHl8sLZTTaVVJ 5AQ==
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212081841.2168124-14-ardb+git@google.com>
-Subject: [PATCH v3 6/6] arm64/mm: Drop configurable 48-bit physical address
- space limit
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <keescook@chromium.org>, 
-	Quentin Perret <qperret@google.com>
-Content-Type: text/plain; charset="UTF-8"
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lfNzbj7glqq7ZRv9NRQv1rv5uwrvUlxFzUXYJZDz7nI=;
+ b=FiH5bv7wrAWiozu/LiObKEPBVOAMQ4eR4CMtFXaMic8bgelNi7FOw8IguamFRX4R6oy0W6Iwej3iI0+lO4YrKDJa/qH+xrCxX5iuFRRn39AS+CIBrss1OzfuiugnLz/sDrCJ73I7HXRMc5uLupW9Dx5eu1ZB2RJRerRSS882nko=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
+ SJ2PR01MB8459.prod.exchangelabs.com (2603:10b6:a03:557::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8251.15; Thu, 12 Dec 2024 08:25:00 +0000
+Received: from PH0PR01MB7975.prod.exchangelabs.com
+ ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
+ ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Thu, 12 Dec 2024
+ 08:24:59 +0000
+From: Huang Shijie <shijie@os.amperecomputing.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	anshuman.khandual@arm.com,
+	corbet@lwn.net,
+	ardb@kernel.org
+Cc: patches@amperecomputing.com,
+	cl@linux.com,
+	akpm@linux-foundation.org,
+	thuth@redhat.com,
+	rostedt@goodmis.org,
+	xiongwei.song@windriver.com,
+	inux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Huang Shijie <shijie@os.amperecomputing.com>
+Subject: [PATCH v4 0/2] arm64: refactor the rodata=xxx
+Date: Thu, 12 Dec 2024 16:24:24 +0800
+Message-Id: <20241212082426.4110-1-shijie@os.amperecomputing.com>
+X-Mailer: git-send-email 2.40.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0P287CA0003.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:d9::20) To PH0PR01MB7975.prod.exchangelabs.com
+ (2603:10b6:510:26d::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|SJ2PR01MB8459:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffa82df8-c501-40ab-2e32-08dd1a8677c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6suES3QBAFNkQ91r6lmSHslJ+HhDV5asn6sAud+B+D5Q/Phfxh6Y9QFcht7w?=
+ =?us-ascii?Q?QmmDsU5nyvYucTFIkdJHjtzlQFVwcLtmb9oC4lASvz9T5X3WeGIRatciHA0u?=
+ =?us-ascii?Q?mhQUUgj67+KdY4/1FOrEkijzNCHfPuDHeIGsIPm/73EEHa+Bpec5nsIiU/Q2?=
+ =?us-ascii?Q?1Uh4sT9hy81TJUzgRY96uTcz3YK3bNWKXNqLa5acRpwifIlEtuhmt50Hp6uu?=
+ =?us-ascii?Q?I6dVF54tqYyjhY+ZUJmv9jjjpwPfYZLjTsD1k5Aa1WTyxfU6OJ6y5oaIUQq2?=
+ =?us-ascii?Q?zjPP6vOcBiunhT4+x0WEbTa9a7g/LGBFnnNarDoZritgqqOAdwajfScNoGpm?=
+ =?us-ascii?Q?ChnbMF51+LUIaw8T9xFTaMPNt+QKlmO0F9L15UuZijQ+9+1zu4oRXxAuCyt4?=
+ =?us-ascii?Q?6mbDdeuv8sT+4obZTk+TR7mBpolrdKCRgH9Ozh1sLY68C7DIvybZ3kOZxTzs?=
+ =?us-ascii?Q?dQoc5xZSWewSwzAHDzHvZyQ5b0y7ZzNrlhxnlxZsd+EHpPCgkhd6c1sjxAFs?=
+ =?us-ascii?Q?LiDHISa0IiOQMGtFMTdTc2B/Zf5a4/uCjLeA7ybm75/OSAWppOxHsj+oTOnM?=
+ =?us-ascii?Q?Q5vtUHTJHhjdAN5n7+DE2anithBukkUG+fJVrSvJB8B7aYo/pJ2YHn3snFLg?=
+ =?us-ascii?Q?29YUMfMuEpmqmhG9Wp38YXclIBLg8+JIR0qmitHxVTG9evM9uo/F3gfIJEQ1?=
+ =?us-ascii?Q?VoMNsL5y196RJka0qPYqncOo3DwtdBK/XPCXAGPYAOWVXfYz0MYqiQKTIbMH?=
+ =?us-ascii?Q?EPvrSt/34gxiP5P5bJiNlahbRyM1APMtMtN90Qyf9SPRDft7icPD1Hitqdrv?=
+ =?us-ascii?Q?AVwOJ0VGGpVeKinReqFHRPjmnda1sA634XVPUgv4Id4IFUhuKWDA7wXxHUAI?=
+ =?us-ascii?Q?OSbxFlifIyAC6ZE+Sw563pcK00/aytd+MRnFffte/18UBEZzNXqN86rEfbDl?=
+ =?us-ascii?Q?lyKiBX6ocvtqd6CCYlAYj0g2uRb71YtTgkRqwmrYSqJ3N7XPGju4hkuUqZKA?=
+ =?us-ascii?Q?ruZ4jHIqFJmK2VKKq24qfMT5FeKph4wnvKRlX4miLPBKOEp2e+jK870xKbae?=
+ =?us-ascii?Q?alshBHcm9VfbMCalckcUZ0glODvr+FnPEIYY8ZSjJdLJT30qvvDADNovNuMP?=
+ =?us-ascii?Q?IrApdB4ss/P1MWxJzRLxU91hxsu0zmL0JiMBtfkATK/PgCdd0KzoBFq3e0uD?=
+ =?us-ascii?Q?5CI11wEnUgYwkRXCRLspDfm6Y6WYUkWVmDYbVvyWEUpXM/BwWjBGAVA+7yJk?=
+ =?us-ascii?Q?Nc6cZ+XFpydcIFS5lSNLtq7jzMIEkBbHNc1UQQSUCzoCTPXp35xLJrQuqsbP?=
+ =?us-ascii?Q?nhCbdUQcq77RI5q372JkG62/XbKaGX1sAqhuITEYIX+8hBLglcRURaKOqC+L?=
+ =?us-ascii?Q?2JEpyIZFX1+BmQXI2SNAutc+cMN0gn92gw/YxWJJzc3W6rbk0w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5lUonzU7orPttbnCnivb6Y3N+OmMYlEEH+hcd/OOgmKQNt1ZCTXqhOt/DYer?=
+ =?us-ascii?Q?oaPht9mL/XXqzkTogxAZiPmZAGMv8KG0lmRA3s8uDXPVdHQIpl0vhSnCO38n?=
+ =?us-ascii?Q?3tqoxZoKawJiwm7OvybVaC1JNfCb4KMYoLKF0njl0Q3tOD1HqjhJdlBQ30b6?=
+ =?us-ascii?Q?xTagV6DCcD66k9kh9sK5QllalHapKjWUFgii+DiM7nVNRaKqj1X77D3g29Ea?=
+ =?us-ascii?Q?wkEr7/sPEvpa3H/zXok0O/zBh6ogZq60gqajze10XEZQQB3LhvF/3OhGIPW+?=
+ =?us-ascii?Q?/TPX3z0yn6+OOhHlvw2vp2uW1bj+oQbPVMI/z0OXlewrM7YbWptY6ITh1Oo1?=
+ =?us-ascii?Q?T/R/1xUiXIFhmT6Fa14aLvLQhgBQWiL8Aj/bW8Ytor4vwB1oH+UYxok95G2h?=
+ =?us-ascii?Q?VPgRg6GhMI/d152JWGONB/HXeVnizr+bUFCRXLOs31QsS6q6YD8yfloDfvEP?=
+ =?us-ascii?Q?rTwv0+ZCtpgRHqNFN8L6rN5VIb3fg5OU3kslqfaOmhhFiRo0n9FYhJ2vqCB2?=
+ =?us-ascii?Q?PUWdUGUcESYqNgr8iB4r4ptc8aq3kicOhAAvy1+iU9jwY82MluB0SHnuhF0s?=
+ =?us-ascii?Q?0RQFGp3VF0UBkh67hYH6yoJba8gXcUJKfSQv/wian0Ee/tYXzzYRH4nObiGE?=
+ =?us-ascii?Q?g2gFDGiStm24yj7ZffFrh3txt4RXfoomPQmTJBQBHwOa3uYxH42ktD021K+s?=
+ =?us-ascii?Q?3Ka2coqEFubyPceRgi/W80JU6B/ONgUwpfxOXoGB1f9pMtLka5OEyHvtpSnD?=
+ =?us-ascii?Q?zIqaxuOuUzk9q8s2TCY4EKFBvMQoR+9jnR/OS8oH/GKwzXnJS8gWndb36Gl+?=
+ =?us-ascii?Q?XfMg4Nzcr+hA8EOxCfMMo6rl6WUf5bXS0nNXTPouhKeDUxphhCdfV6hOidj2?=
+ =?us-ascii?Q?rM1+yHUihgOF5u2NrceIJ3wmjh00YnnRpQW6eA5vSN4rwSGfUB7c97w5lJ3M?=
+ =?us-ascii?Q?zQLdXxks48NWNwJHv9U2bHb2MgJCzlaIUkjpvarB1iLh/veRJA2Gu6OnhaKR?=
+ =?us-ascii?Q?3Ti2XGnUgMf/x0DI6OLtI16DF3/B5ufSFW54XIC0TWR9RYoR6+bpsdce6ecF?=
+ =?us-ascii?Q?KFuNlv1uXbMTsYlIPmwZfLYqyuZOKL9keF9UXLK+5BT3bnrxgISIRCG6pWey?=
+ =?us-ascii?Q?FOCCD5fEGBHoIAimBKSLXKnwecSSEcAGG26BxsUV7lML36cPT2DhIyz8PSbO?=
+ =?us-ascii?Q?sDr2p11/x8XZ7lakKeX/eLCKtDTtzDGjKWA9sLFFfFnnd/LKGpNsWVYfK6Dp?=
+ =?us-ascii?Q?iQf0t6zU7pHk/AaNEkQ1t5BTVLJW3iguhB1ilzOSCBzEmQHa0dmmK+DHeU1u?=
+ =?us-ascii?Q?M0Jqxj5ydoBBUpSkUIE8H0U0NAdchkb8bq9ND/gQ1eNPUTuQYLydRFZME1xl?=
+ =?us-ascii?Q?9kURfCdMYBcyIWqyjgQ35sNGFWRuVz+mvpfe0oDMEhbLXpUhMxZc+BkHnBge?=
+ =?us-ascii?Q?qcgW6XeBIAVqU3NMSU6WHEllQcwxzv4406xTyToGRhT8cck87gd74bssQDFb?=
+ =?us-ascii?Q?5gh46pbsn8xbhGVtbsZ45FL+e9V6+hS/JB/tmv7HW162FLc6ZzzWHT6nG07F?=
+ =?us-ascii?Q?fwGyHf/UN11R9QzRiaEUZXm/MPlgs1IXc/28d12/QlGtuQqy0xIc6i7IIJxs?=
+ =?us-ascii?Q?CZOW1qLYysqaK7v/2/hBD1s=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffa82df8-c501-40ab-2e32-08dd1a8677c2
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 08:24:59.8725
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6umH3BTnh9maNY5y0yP+eSanpP4dp/5NIO6RXWjIajw0CRV5W7HIyJeOhMVd4QsH4VqdEwfLcuaTYB11up2/sme3KQKgUNNdexfe3n0+xxEKG48Enocy9la+uEDAxgAR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR01MB8459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_001911_275750_4B561BA1 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20241212_002509_470073_A60787A0 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,338 +167,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+From Documentation/admin-guide/kernel-parameters.txt, we know that:
+ rodata=	[KNL,EARLY]
+	on	Mark read-only kernel memory as read-only (default).
+	off	Leave read-only kernel memory writable for debugging.
+	full	Mark read-only kernel memory and aliases as read-only
+		[arm64]
 
-Currently, the maximum supported physical address space can be
-configured as either 48 bits or 52 bits. The only remaining difference
-between these in practice is that the former omits the masking and
-shifting required to construct TTBR and PTE values, which carry bits #48
-and higher disjoint from the rest of the physical address.
+So the "rodata=on" is the default.
 
-The overhead of performing these additional calculations is negligible,
-and so there is little reason to retain support for two different
-configurations, and we can simply support whatever the hardware
-supports.
+But the current code does not follow the document, it makes "rodata=full"
+as the default.
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/Kconfig                     | 31 +-------------------
- arch/arm64/include/asm/assembler.h     | 13 ++------
- arch/arm64/include/asm/cpufeature.h    |  3 +-
- arch/arm64/include/asm/kvm_pgtable.h   |  3 +-
- arch/arm64/include/asm/pgtable-hwdef.h |  6 +---
- arch/arm64/include/asm/pgtable-prot.h  |  4 +--
- arch/arm64/include/asm/pgtable.h       | 11 +------
- arch/arm64/include/asm/sysreg.h        |  6 ----
- arch/arm64/mm/pgd.c                    |  9 +++---
- arch/arm64/mm/proc.S                   |  2 --
- scripts/gdb/linux/constants.py.in      |  1 -
- tools/arch/arm64/include/asm/sysreg.h  |  6 ----
- 12 files changed, 14 insertions(+), 81 deletions(-)
+This patch set follows Anshuman Khandual's suggetions. 
+It makes the "rodata=on" as the default, and removes the CONFIG_RODATA_FULL_DEFAULT_ENABLED.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index c1ca21adddc1..7ebd0ba32a32 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1416,38 +1416,9 @@ config ARM64_VA_BITS
- 	default 48 if ARM64_VA_BITS_48
- 	default 52 if ARM64_VA_BITS_52
- 
--choice
--	prompt "Physical address space size"
--	default ARM64_PA_BITS_48
--	help
--	  Choose the maximum physical address range that the kernel will
--	  support.
--
--config ARM64_PA_BITS_48
--	bool "48-bit"
--	depends on ARM64_64K_PAGES || !ARM64_VA_BITS_52
--
--config ARM64_PA_BITS_52
--	bool "52-bit"
--	depends on ARM64_64K_PAGES || ARM64_VA_BITS_52
--	help
--	  Enable support for a 52-bit physical address space, introduced as
--	  part of the ARMv8.2-LPA extension.
--
--	  With this enabled, the kernel will also continue to work on CPUs that
--	  do not support ARMv8.2-LPA, but with some added memory overhead (and
--	  minor performance overhead).
--
--endchoice
--
--config ARM64_PA_BITS
--	int
--	default 48 if ARM64_PA_BITS_48
--	default 52 if ARM64_PA_BITS_52
--
- config ARM64_LPA2
- 	def_bool y
--	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES
-+	depends on !ARM64_64K_PAGES
- 
- choice
- 	prompt "Endianness"
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index ad63457a05c5..01a1e3c16283 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -342,14 +342,13 @@ alternative_cb_end
- 	mrs	\tmp0, ID_AA64MMFR0_EL1
- 	// Narrow PARange to fit the PS field in TCR_ELx
- 	ubfx	\tmp0, \tmp0, #ID_AA64MMFR0_EL1_PARANGE_SHIFT, #3
--	mov	\tmp1, #ID_AA64MMFR0_EL1_PARANGE_MAX
- #ifdef CONFIG_ARM64_LPA2
- alternative_if_not ARM64_HAS_VA52
- 	mov	\tmp1, #ID_AA64MMFR0_EL1_PARANGE_48
--alternative_else_nop_endif
--#endif
- 	cmp	\tmp0, \tmp1
- 	csel	\tmp0, \tmp1, \tmp0, hi
-+alternative_else_nop_endif
-+#endif
- 	bfi	\tcr, \tmp0, \pos, #3
- 	.endm
- 
-@@ -599,21 +598,13 @@ alternative_endif
-  * 	ttbr:	returns the TTBR value
-  */
- 	.macro	phys_to_ttbr, ttbr, phys
--#ifdef CONFIG_ARM64_PA_BITS_52
- 	orr	\ttbr, \phys, \phys, lsr #46
- 	and	\ttbr, \ttbr, #TTBR_BADDR_MASK_52
--#else
--	mov	\ttbr, \phys
--#endif
- 	.endm
- 
- 	.macro	phys_to_pte, pte, phys
--#ifdef CONFIG_ARM64_PA_BITS_52
- 	orr	\pte, \phys, \phys, lsr #PTE_ADDR_HIGH_SHIFT
- 	and	\pte, \pte, #PHYS_TO_PTE_ADDR_MASK
--#else
--	mov	\pte, \phys
--#endif
- 	.endm
- 
- /*
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index b64e49bd9d10..ed327358e734 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -885,9 +885,8 @@ static inline u32 id_aa64mmfr0_parange_to_phys_shift(int parange)
- 	 * However, by the "D10.1.4 Principles of the ID scheme
- 	 * for fields in ID registers", ARM DDI 0487C.a, any new
- 	 * value is guaranteed to be higher than what we know already.
--	 * As a safe limit, we return the limit supported by the kernel.
- 	 */
--	default: return CONFIG_ARM64_PA_BITS;
-+	default: return 52;
- 	}
- }
- 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index aab04097b505..525aef178cb4 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -30,8 +30,7 @@
- 
- static inline u64 kvm_get_parange_max(void)
- {
--	if (kvm_lpa2_is_enabled() ||
--	   (IS_ENABLED(CONFIG_ARM64_PA_BITS_52) && PAGE_SHIFT == 16))
-+	if (kvm_lpa2_is_enabled() || PAGE_SHIFT == 16)
- 		return ID_AA64MMFR0_EL1_PARANGE_52;
- 	else
- 		return ID_AA64MMFR0_EL1_PARANGE_48;
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index a9136cc551cc..9b34180042b2 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -176,7 +176,6 @@
- #define PTE_SWBITS_MASK		_AT(pteval_t, (BIT(63) | GENMASK(58, 55)))
- 
- #define PTE_ADDR_LOW		(((_AT(pteval_t, 1) << (50 - PAGE_SHIFT)) - 1) << PAGE_SHIFT)
--#ifdef CONFIG_ARM64_PA_BITS_52
- #ifdef CONFIG_ARM64_64K_PAGES
- #define PTE_ADDR_HIGH		(_AT(pteval_t, 0xf) << 12)
- #define PTE_ADDR_HIGH_SHIFT	36
-@@ -186,7 +185,6 @@
- #define PTE_ADDR_HIGH_SHIFT	42
- #define PHYS_TO_PTE_ADDR_MASK	GENMASK_ULL(49, 8)
- #endif
--#endif
- 
- /*
-  * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
-@@ -327,12 +325,10 @@
- /*
-  * TTBR.
-  */
--#ifdef CONFIG_ARM64_PA_BITS_52
- /*
-- * TTBR_ELx[1] is RES0 in this configuration.
-+ * TTBR_ELx[1] is RES0 when using 52-bit physical addressing
-  */
- #define TTBR_BADDR_MASK_52	GENMASK_ULL(47, 2)
--#endif
- 
- #ifdef CONFIG_ARM64_VA_BITS_52
- /* Must be at least 64-byte aligned to prevent corruption of the TTBR */
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index a95f1f77bb39..b73acf25341f 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -81,7 +81,7 @@ extern unsigned long prot_ns_shared;
- #define lpa2_is_enabled()	false
- #define PTE_MAYBE_SHARED	PTE_SHARED
- #define PMD_MAYBE_SHARED	PMD_SECT_S
--#define PHYS_MASK_SHIFT		(CONFIG_ARM64_PA_BITS)
-+#define PHYS_MASK_SHIFT		(52)
- #else
- static inline bool __pure lpa2_is_enabled(void)
- {
-@@ -90,7 +90,7 @@ static inline bool __pure lpa2_is_enabled(void)
- 
- #define PTE_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PTE_SHARED)
- #define PMD_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PMD_SECT_S)
--#define PHYS_MASK_SHIFT		(lpa2_is_enabled() ? CONFIG_ARM64_PA_BITS : 48)
-+#define PHYS_MASK_SHIFT		(lpa2_is_enabled() ? 52 : 48)
- #endif
- 
- /*
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 6986345b537a..ec8124d66b9c 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -69,10 +69,9 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
- 	pr_err("%s:%d: bad pte %016llx.\n", __FILE__, __LINE__, pte_val(e))
- 
- /*
-- * Macros to convert between a physical address and its placement in a
-+ * Helpers to convert between a physical address and its placement in a
-  * page table entry, taking care of 52-bit addresses.
-  */
--#ifdef CONFIG_ARM64_PA_BITS_52
- static inline phys_addr_t __pte_to_phys(pte_t pte)
- {
- 	pte_val(pte) &= ~PTE_MAYBE_SHARED;
-@@ -83,10 +82,6 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
- {
- 	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
- }
--#else
--#define __pte_to_phys(pte)	(pte_val(pte) & PTE_ADDR_LOW)
--#define __phys_to_pte_val(phys)	(phys)
--#endif
- 
- #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
- #define pfn_pte(pfn,prot)	\
-@@ -1495,11 +1490,7 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- #define update_mmu_cache_pmd(vma, address, pmd) do { } while (0)
- 
--#ifdef CONFIG_ARM64_PA_BITS_52
- #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
--#else
--#define phys_to_ttbr(addr)	(addr)
--#endif
- 
- /*
-  * On arm64 without hardware Access Flag, copying from user will fail because
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index b8303a83c0bf..f902893ec903 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -916,12 +916,6 @@
- #define ID_AA64MMFR0_EL1_TGRAN_2_SUPPORTED_LPA2		0x3
- #define ID_AA64MMFR0_EL1_TGRAN_2_SUPPORTED_MAX		0x7
- 
--#ifdef CONFIG_ARM64_PA_BITS_52
--#define ID_AA64MMFR0_EL1_PARANGE_MAX	ID_AA64MMFR0_EL1_PARANGE_52
--#else
--#define ID_AA64MMFR0_EL1_PARANGE_MAX	ID_AA64MMFR0_EL1_PARANGE_48
--#endif
--
- #if defined(CONFIG_ARM64_4K_PAGES)
- #define ID_AA64MMFR0_EL1_TGRAN_SHIFT		ID_AA64MMFR0_EL1_TGRAN4_SHIFT
- #define ID_AA64MMFR0_EL1_TGRAN_LPA2		ID_AA64MMFR0_EL1_TGRAN4_52_BIT
-diff --git a/arch/arm64/mm/pgd.c b/arch/arm64/mm/pgd.c
-index 0c501cabc238..8722ab6d4b1c 100644
---- a/arch/arm64/mm/pgd.c
-+++ b/arch/arm64/mm/pgd.c
-@@ -48,20 +48,21 @@ void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- 
- void __init pgtable_cache_init(void)
- {
-+	unsigned int pgd_size = PGD_SIZE;
-+
- 	if (pgdir_is_page_size())
- 		return;
- 
--#ifdef CONFIG_ARM64_PA_BITS_52
- 	/*
- 	 * With 52-bit physical addresses, the architecture requires the
- 	 * top-level table to be aligned to at least 64 bytes.
- 	 */
--	BUILD_BUG_ON(PGD_SIZE < 64);
--#endif
-+	if (PHYS_MASK_SHIFT >= 52)
-+		pgd_size = max(pgd_size, 64);
- 
- 	/*
- 	 * Naturally aligned pgds required by the architecture.
- 	 */
--	pgd_cache = kmem_cache_create("pgd_cache", PGD_SIZE, PGD_SIZE,
-+	pgd_cache = kmem_cache_create("pgd_cache", pgd_size, pgd_size,
- 				      SLAB_PANIC, NULL);
- }
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index b8edc5765441..51ed0e9d0a0d 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -197,10 +197,8 @@ SYM_FUNC_ALIAS(__pi_idmap_cpu_replace_ttbr1, idmap_cpu_replace_ttbr1)
- 
- 	.macro	pte_to_phys, phys, pte
- 	and	\phys, \pte, #PTE_ADDR_LOW
--#ifdef CONFIG_ARM64_PA_BITS_52
- 	and	\pte, \pte, #PTE_ADDR_HIGH
- 	orr	\phys, \phys, \pte, lsl #PTE_ADDR_HIGH_SHIFT
--#endif
- 	.endm
- 
- 	.macro	kpti_mk_tbl_ng, type, num_entries
-diff --git a/scripts/gdb/linux/constants.py.in b/scripts/gdb/linux/constants.py.in
-index fd6bd69c5096..05034c0b8fd7 100644
---- a/scripts/gdb/linux/constants.py.in
-+++ b/scripts/gdb/linux/constants.py.in
-@@ -141,7 +141,6 @@ LX_CONFIG(CONFIG_ARM64_4K_PAGES)
- LX_CONFIG(CONFIG_ARM64_16K_PAGES)
- LX_CONFIG(CONFIG_ARM64_64K_PAGES)
- if IS_BUILTIN(CONFIG_ARM64):
--    LX_VALUE(CONFIG_ARM64_PA_BITS)
-     LX_VALUE(CONFIG_ARM64_VA_BITS)
-     LX_VALUE(CONFIG_PAGE_SHIFT)
-     LX_VALUE(CONFIG_ARCH_FORCE_MAX_ORDER)
-diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-index cd8420e8c3ad..daeecb1a5366 100644
---- a/tools/arch/arm64/include/asm/sysreg.h
-+++ b/tools/arch/arm64/include/asm/sysreg.h
-@@ -574,12 +574,6 @@
- #define ID_AA64MMFR0_EL1_TGRAN_2_SUPPORTED_MIN		0x2
- #define ID_AA64MMFR0_EL1_TGRAN_2_SUPPORTED_MAX		0x7
- 
--#ifdef CONFIG_ARM64_PA_BITS_52
--#define ID_AA64MMFR0_EL1_PARANGE_MAX	ID_AA64MMFR0_EL1_PARANGE_52
--#else
--#define ID_AA64MMFR0_EL1_PARANGE_MAX	ID_AA64MMFR0_EL1_PARANGE_48
--#endif
--
- #if defined(CONFIG_ARM64_4K_PAGES)
- #define ID_AA64MMFR0_EL1_TGRAN_SHIFT		ID_AA64MMFR0_EL1_TGRAN4_SHIFT
- #define ID_AA64MMFR0_EL1_TGRAN_SUPPORTED_MIN	ID_AA64MMFR0_EL1_TGRAN4_SUPPORTED_MIN
+v4:
+  Follows Anshuman Khandual/Ard Biesheuvel's suggetions:
+  - Change commit message format.
+  - Change the titile name.
+  - others
+
+v3:
+  Follows Anshuman Khandual's suggetions:
+  - Merge patch 1 and patch 3 into one patch.
+  - Remove patch 4 
+  - update comments and document.
+   https://lists.infradead.org/pipermail/linux-arm-kernel/2024-December/984344.html
+
+v2:
+  Follows Will's suggetions.
+  Add a new file fine-tuning-tips.rst for the expert users.
+   https://lists.infradead.org/pipermail/linux-arm-kernel/2024-November/981190.html
+
+v1:
+   https://lists.infradead.org/pipermail/linux-arm-kernel/2024-October/971415.html
+
+
+Huang Shijie (2):
+  arm64: refactor the rodata=xxx
+  arm64/Kconfig: Remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
+
+ .../admin-guide/kernel-parameters.txt         |  2 +-
+ arch/arm64/Kconfig                            | 14 ----------
+ arch/arm64/include/asm/setup.h                | 26 +++++++++++++++++--
+ arch/arm64/mm/pageattr.c                      |  2 +-
+ 4 files changed, 26 insertions(+), 18 deletions(-)
+
 -- 
-2.47.1.613.gc27f4b7a9f-goog
+2.40.1
 
 
