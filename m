@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB0BE77185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFFFE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/WH1qyYX+7rpIZva9xL+b2vQ8iEfpW50WvBw5yyV8M=; b=POTTvTj+PE1FGnJ++KKk/k8YqZ
-	atGCAtlTxH1ciYxueDvmZAq4/8O7Rvr1UQlUW3S4zMgiVahVTGVl3GdUSBJzVIoDCVFOJ5JsjZB0X
-	OAqK9aMthKpH9jLtfc/ryltdefLwN23ZamrvYlsHRDzg0kyl6drVnBk4I0ULDSbenW4BwNpn2phTO
-	zfIYjn5vXVj5Y1rH9totSyKxJTwxf8Ss1ENkTKaAzbNFS1+HwItWaZP2WTT/6+YbmRxoc+NCGo1mH
-	bywcXtUzc5g2SWttIpFub/ffNMthGfjalKoAmGvqJfEV3bGy3GMOtRs3SGMq0c2gAzcZaoUekz//p
-	EeFEnj7g==;
+	bh=nir/8Fu9wro0KzAUocadSL8VHwLHRc3vCT5pzOEHxAw=; b=hFJr3sXtaHGLRERtyAO8x9Wde/
+	DJ9tcZGYojYM3d05NugKfh+LLMDNp0bRS3Wf8c/2/Xmp3cJRQ8FZe7LxSo01an+HRBSqdTS+0SVFO
+	4Cgqx+qOQUs/2Nt308xCRyaoARRgos2a8kAHM6ZUO3aZ4FU/kktRIWCTr4+NA0pEIwaoMQPbbAfLV
+	sGtNHhx6gw0KqCZaId1BDf8J14DAA3AZlLYefPZk+tvnEJIrCYf4Z5Dou32VeAp/iyS8QNZnlnfuc
+	w/pkMlVzTX3pTIvSJoyYl7yAkkHfDl7d7cE2vfUeRPZKsNnE/4RotP5NErds/Tt6+aMhPtG8OjgzP
+	6d36pTXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLofN-00000001aC0-060p;
-	Thu, 12 Dec 2024 19:16:05 +0000
+	id 1tLofM-00000001aBZ-1uY9;
+	Thu, 12 Dec 2024 19:16:04 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnaC-00000001KBQ-1RT6
+	id 1tLnaA-00000001KAY-17TP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:06:41 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43628594d34so2699395e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:39 -0800 (PST)
+	Thu, 12 Dec 2024 18:06:39 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4362552ce62so5374315e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026799; x=1734631599; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026796; x=1734631596; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=D/WH1qyYX+7rpIZva9xL+b2vQ8iEfpW50WvBw5yyV8M=;
-        b=3LN2U4ojwko2gyTwrGUPwPNXmBEx8/nuW/0xnBQqEiWfLDq04/1XGipiwK/bizGUQ3
-         /jd78AR4RCZnQKFdQ7A1RojPM4SfvMigj9vxOSfNTx8q/QRdf49DsP1pxLAr5LN0W5A8
-         cnDENguYzTf5NviZ/m/b7V9Al5vM+5eEBkBy7LjPjRnQFSip5o280mZYclD8ZTY7eZpn
-         /s+wcSKLMperUJEoTeBq/U4F8GQao1e1z8gHQNcdGDxwSUSbVpL7U6Au4U4oqSpn+U4Q
-         YdVbSqAemqynls2E55uBzzQ8PP3N4J7QgsRQXKh6ABOWsgrtiSpKdTgww64KAiz29ZiD
-         R9bQ==
+        bh=nir/8Fu9wro0KzAUocadSL8VHwLHRc3vCT5pzOEHxAw=;
+        b=mTxSXMNWyNwU3Gro3/S3lT5n2Q2UamvqE8k1dxHlfUygA/xy2gG2sWRoeFXfEBvLAH
+         DPTE55cGfG/5/d163Gllp64DXFN1Qas299ngdNHdtZshlLKtMzd3n+FsJl1CQ9Sk9Nfs
+         3rF2juszthwtdH6cLxeNAZYPB+XUE4KQWZVJTXpmGIM2a6/zEk19i9wC/saOd9a7IAH/
+         UcujnN/SXwVVbqFF7FiZFCVwRWrpMePH89abKRBjfQWZL2YUoS0UTW545LsMt9D6pqcn
+         GVdsRYa8AtZVSeAE5ZAn8iJK1N1DdVh3xl0/9WX2As12+4PJhAtcvW6EEuP7xGnKK35+
+         WzKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026799; x=1734631599;
+        d=1e100.net; s=20230601; t=1734026796; x=1734631596;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D/WH1qyYX+7rpIZva9xL+b2vQ8iEfpW50WvBw5yyV8M=;
-        b=DcSSPWPmh/oa+BS1UQz5f3bK+LCeZHPBIzuG0s8WcNnNre3zmWjpc6cAkL0r08WbF9
-         KwQTCCIcm6ra10J098oqDlUOgSXeEIXp7DqOVZ7ncbrZbrKBiKmFft5Ne2ulD+ZqA6Ai
-         +ZVoztTWxT3jgkSz3o5dlO2py9uYAzPmn0+pB1KnZd/ovZsQ/RObAFC08yfDTtr8P96E
-         pL+duu/t/1DBbcpcl1Bp+XsdoOEzQs/1ZmP6jAr0NB1um90o1ScZS46aRn53MUbCjdJm
-         S+yVTe9m2rWwG+7n1YqZpnKJVcFuGSuP9l5CWGZPVIIQEGdgDhbDIj3hb9Q9cxKeUD9+
-         /6Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwZEMDcF4kI1ICIBBNUmoKXWCqCXco3fo2rqCR2sF76TPGbpeD2YLxJohXFhi7Or/erwRTWEu5PqkdheH9v4yu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2k2QvDW69+LT4aVBNLxRXsnhWoky0LGyocXmz6f7nOs63siyJ
-	MG0l1jArEMiN/gtEYUwmjEnQJKejCtWYz8aiNmn/sMLasB48dXWd0DOJ1y1kACPkQ8uZ8ZHQCWv
-	Y85xWxhqyTA==
-X-Google-Smtp-Source: AGHT+IHo7wmBmLTPy0XiRrrgBETwIuBRTOBnsQtf6QtHUwUE60Tx6ltVM6P9M60Uqtp3lgGDJwn8Dzv+JpaDLg==
-X-Received: from wmph6.prod.google.com ([2002:a05:600c:4986:b0:434:e96f:86b0])
+        bh=nir/8Fu9wro0KzAUocadSL8VHwLHRc3vCT5pzOEHxAw=;
+        b=egVHhiGswF/cekdUsGzop21Gd//n6iorvwTybMNa9ZZttTGx+n/nXjYtY31hhoEy60
+         aWAQ2Ue8gfr+jODIyQpDDcQ9egr/i6lC886vy6y3qVUvR6F2G100qv3YAuJIu6/RwOEm
+         NxDFL5BK/edJEEE1P5nGwSNkL/26hd92ALhkvVxHYrZP1ZlDFDRt2nHP6ainwsfjfql6
+         pD0ZsKIEWnQumAb/gPzmNGT6azV/ucAg4l/FMEPRh68x0WcBZY+SfwuvROZC72/7xZ2x
+         ERyb2R3bkzVB74XIcTkKbZ4haV1mCoEwf7LL4KhBU48xmlTr2PkwhuteZ/Ov/mA6hb4U
+         Jbnw==
+X-Forwarded-Encrypted: i=1; AJvYcCVflDwuuq/UaQldbj6Qnaj/h7J5F4dDS4lZtZYg595et1DaiDAmmqG4+qedE5tSLh+yFr7n9HvQC3/oighkFzkN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXcD6mvuAMvTFaRJ+4j0HDPWmgYbZwGb5y2glOs7QotW2pQS5+
+	Qbi+tfxk6v4EN9RLMhCn5BJOmJxtkgkmC6PWzqjA5HghQBOlDqUBYI8WbuVi/ep4bzXPyEXTW/d
+	ipsZndEamYA==
+X-Google-Smtp-Source: AGHT+IHRdZKXYWudkhhkQrQvejC9zCICHCvy3HiUQiQs1K09RQKbLBrbkNDh+wOO04CX03Sxp7dykFRKXpwfSw==
+X-Received: from wmgg15.prod.google.com ([2002:a05:600d:f:b0:434:feb1:add1])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3b94:b0:434:fdaf:af2d with SMTP id 5b1f17b1804b1-4361c441f23mr72295225e9.30.1734026798776;
- Thu, 12 Dec 2024 10:06:38 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:04:19 +0000
+ 2002:a05:600c:1d20:b0:434:a529:3b87 with SMTP id 5b1f17b1804b1-4361c36f5ccmr81464315e9.10.1734026796519;
+ Thu, 12 Dec 2024 10:06:36 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:04:18 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-56-smostafa@google.com>
-Subject: [RFC PATCH v2 55/58] drivers/iommu: Add deferred map_sg operations
+Message-ID: <20241212180423.1578358-55-smostafa@google.com>
+Subject: [RFC PATCH v2 54/58] iommu/arm-smmu-v3-kvm: Enable runtime PM
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100640_383068_84423E8E 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20241212_100638_306146_F2B2FFA5 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,163 +95,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With pKVM SMMUv3 driver which para-virtualizes the IOMMU in the
-hypervisor, has an extra overhead with map_sg, as it loops over
-iommu_map, and for each map requires context switching, disabling
-interrupts...
-
-Instead, add an new domain operations:
-- alloc_cookie_sg: Allocate a new sg deferred cookie
-- add_deferred_map_sg: Add a mapping to the cookie
-- consume_deferred_map_sg: Consume and release the cookie
-
-Alternativly, we can pass the sg list as is. However, this would
-duplicate some of the logic and it would make more sense to
-conolidate all the sg list parsing for IOMMU drivers in one place.
-
-virtio-iommu is another IOMMU that can benfit from this, but it
-would need to have a new operation that standerdize passing
-an sglist based on these ops.
+Enable runtime PM for the KVM SMMUv3 driver. The PM link to DMA masters
+dictates when the SMMU should be powered on.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 ---
- drivers/iommu/iommu.c | 53 +++++++++++++++++++++++++++++++++++++++++--
- include/linux/iommu.h | 19 ++++++++++++++++
- 2 files changed, 70 insertions(+), 2 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 66 +++++++++++++++++++
+ 1 file changed, 66 insertions(+)
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 83c8e617a2c5..3a3c48631dd6 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2608,6 +2608,37 @@ size_t iommu_unmap_fast(struct iommu_domain *domain,
- }
- EXPORT_SYMBOL_GPL(iommu_unmap_fast);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
+index deeed994a131..e987c273ff3c 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
+@@ -11,6 +11,7 @@
+ #include <linux/of_address.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
  
-+static int __iommu_add_sg(struct iommu_map_cookie_sg *cookie_sg,
-+			  unsigned long iova, phys_addr_t paddr, size_t size)
-+{
-+	struct iommu_domain *domain = cookie_sg->domain;
-+	const struct iommu_domain_ops *ops = domain->ops;
-+	unsigned int min_pagesz;
-+	size_t pgsize, count;
-+
-+	if (unlikely(!(domain->type & __IOMMU_DOMAIN_PAGING)))
-+		return -EINVAL;
-+
-+	if (WARN_ON(domain->pgsize_bitmap == 0UL))
-+		return -ENODEV;
-+
-+	/* find out the minimum page size supported */
-+	min_pagesz = 1 << __ffs(domain->pgsize_bitmap);
-+
-+	/*
-+	 * both the virtual address and the physical one, as well as
-+	 * the size of the mapping, must be aligned (at least) to the
-+	 * size of the smallest page supported by the hardware
-+	 */
-+	if (!IS_ALIGNED(iova | paddr | size, min_pagesz)) {
-+		pr_err("unaligned: iova 0x%lx pa %pa size 0x%zx min_pagesz 0x%x\n",
-+		       iova, &paddr, size, min_pagesz);
-+		return -EINVAL;
+ #include <kvm/arm_smmu_v3.h>
+ 
+@@ -127,6 +128,12 @@ static struct iommu_device *kvm_arm_smmu_probe_device(struct device *dev)
+ 	master->ssid_bits = min(smmu->ssid_bits, master->ssid_bits);
+ 	xa_init(&master->domains);
+ 	dev_iommu_priv_set(dev, master);
++	if (!device_link_add(dev, smmu->dev,
++			     DL_FLAG_PM_RUNTIME |
++			     DL_FLAG_AUTOREMOVE_SUPPLIER)) {
++		kfree(master);
++		return ERR_PTR(-ENOLINK);
 +	}
-+	pgsize = iommu_pgsize(domain, iova, paddr, size, &count);
-+	return ops->add_deferred_map_sg(cookie_sg, paddr, pgsize, count);
+ 
+ 	return &smmu->iommu;
+ }
+@@ -818,6 +825,14 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
+ 	hyp_smmu->iommu.power_domain = host_smmu->power_domain;
+ 	kvm_arm_smmu_cur++;
+ 
++	pm_runtime_set_active(dev);
++	pm_runtime_enable(dev);
++	/*
++	 * Take a reference to keep the SMMU powered on while the hypervisor
++	 * initializes it.
++	 */
++	pm_runtime_resume_and_get(dev);
++
+ 	return arm_smmu_register_iommu(smmu, &kvm_arm_smmu_ops, ioaddr);
+ }
+ 
+@@ -826,6 +841,8 @@ static void kvm_arm_smmu_remove(struct platform_device *pdev)
+ 	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
+ 	struct host_arm_smmu_device *host_smmu = smmu_to_host(smmu);
+ 
++	pm_runtime_disable(&pdev->dev);
++	pm_runtime_set_suspended(&pdev->dev);
+ 	/*
+ 	 * There was an error during hypervisor setup. The hyp driver may
+ 	 * have already enabled the device, so disable it.
+@@ -834,6 +851,30 @@ static void kvm_arm_smmu_remove(struct platform_device *pdev)
+ 	arm_smmu_update_gbpa(smmu, host_smmu->boot_gbpa, GBPA_ABORT);
+ }
+ 
++static int kvm_arm_smmu_suspend(struct device *dev)
++{
++	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
++	struct host_arm_smmu_device *host_smmu = smmu_to_host(smmu);
++
++	if (host_smmu->power_domain.type == KVM_POWER_DOMAIN_HOST_HVC)
++		return kvm_call_hyp_nvhe(__pkvm_host_hvc_pd, host_smmu->id, 0);
++	return 0;
 +}
 +
- ssize_t iommu_map_sg(struct iommu_domain *domain, unsigned long iova,
- 		     struct scatterlist *sg, unsigned int nents, int prot,
- 		     gfp_t gfp)
-@@ -2617,6 +2648,9 @@ ssize_t iommu_map_sg(struct iommu_domain *domain, unsigned long iova,
- 	phys_addr_t start;
- 	unsigned int i = 0;
- 	int ret;
-+	bool deferred_sg = ops->alloc_cookie_sg && ops->add_deferred_map_sg &&
-+			   ops->consume_deferred_map_sg;
-+	struct iommu_map_cookie_sg *cookie_sg;
- 
- 	might_sleep_if(gfpflags_allow_blocking(gfp));
- 
-@@ -2625,12 +2659,24 @@ ssize_t iommu_map_sg(struct iommu_domain *domain, unsigned long iova,
- 				__GFP_HIGHMEM)))
- 		return -EINVAL;
- 
-+	if (deferred_sg) {
-+		cookie_sg = ops->alloc_cookie_sg(iova, prot, nents, gfp);
-+		if (!cookie_sg) {
-+			pr_err("iommu: failed alloc cookie\n");
-+			return -ENOMEM;
-+		}
-+		cookie_sg->domain = domain;
-+	}
++static int kvm_arm_smmu_resume(struct device *dev)
++{
++	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
++	struct host_arm_smmu_device *host_smmu = smmu_to_host(smmu);
 +
- 	while (i <= nents) {
- 		phys_addr_t s_phys = sg_phys(sg);
- 
- 		if (len && s_phys != start + len) {
--			ret = __iommu_map(domain, iova + mapped, start,
--					len, prot, gfp);
-+			if (deferred_sg)
-+				ret = __iommu_add_sg(cookie_sg, iova + mapped, start, len);
-+			else
-+				ret = __iommu_map(domain, iova + mapped, start,
-+						  len, prot, gfp);
- 
- 			if (ret)
- 				goto out_err;
-@@ -2654,6 +2700,9 @@ ssize_t iommu_map_sg(struct iommu_domain *domain, unsigned long iova,
- 			sg = sg_next(sg);
- 	}
- 
-+	if (deferred_sg)
-+		ops->consume_deferred_map_sg(cookie_sg);
++	if (host_smmu->power_domain.type == KVM_POWER_DOMAIN_HOST_HVC)
++		return kvm_call_hyp_nvhe(__pkvm_host_hvc_pd, host_smmu->id, 1);
++	return 0;
++}
 +
- 	if (ops->iotlb_sync_map) {
- 		ret = ops->iotlb_sync_map(domain, iova, mapped);
- 		if (ret)
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index c75877044185..5e60ac349228 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -601,6 +601,14 @@ struct iommu_ops {
- 	u8 user_pasid_table:1;
- };
- 
-+/**
-+ * struct iommu_map_cookie_sg - Cookie for a deferred map sg
-+ * @domain: Domain for the sg lit
-+ */
-+struct iommu_map_cookie_sg {
-+	struct iommu_domain *domain;
++static const struct dev_pm_ops kvm_arm_smmu_pm_ops = {
++	SET_RUNTIME_PM_OPS(kvm_arm_smmu_suspend, kvm_arm_smmu_resume, NULL)
 +};
 +
- /**
-  * struct iommu_domain_ops - domain specific operations
-  * @attach_dev: attach an iommu domain to a device
-@@ -638,6 +646,11 @@ struct iommu_ops {
-  * @enable_nesting: Enable nesting
-  * @set_pgtable_quirks: Set io page table quirks (IO_PGTABLE_QUIRK_*)
-  * @free: Release the domain after use.
-+ * @alloc_cookie_sg: Allocate a cookie that would be used to create
-+ *		     a sg list, filled from the next functions
-+ * @add_deferred_map_sg: Add a mapping to a cookie of a sg list.
-+ * @consume_deferred_map_sg: Consume the sg list as now all mappings are added,
-+ *			     it should also release the cookie as it's not used.
-  */
- struct iommu_domain_ops {
- 	int (*attach_dev)(struct iommu_domain *domain, struct device *dev);
-@@ -668,6 +681,12 @@ struct iommu_domain_ops {
- 				  unsigned long quirks);
+ static const struct of_device_id arm_smmu_of_match[] = {
+ 	{ .compatible = "arm,smmu-v3", },
+ 	{ },
+@@ -843,6 +884,7 @@ static struct platform_driver kvm_arm_smmu_driver = {
+ 	.driver = {
+ 		.name = "kvm-arm-smmu-v3",
+ 		.of_match_table = arm_smmu_of_match,
++		.pm = &kvm_arm_smmu_pm_ops,
+ 	},
+ 	.remove = kvm_arm_smmu_remove,
+ };
+@@ -877,6 +919,12 @@ static void kvm_arm_smmu_array_free(void)
+ 	free_pages((unsigned long)kvm_arm_smmu_array, order);
+ }
  
- 	void (*free)(struct iommu_domain *domain);
++static int smmu_put_device(struct device *dev, void *data)
++{
++	pm_runtime_put(dev);
++	return 0;
++}
 +
-+	struct iommu_map_cookie_sg *(*alloc_cookie_sg)(unsigned long iova, int prot,
-+						       unsigned int nents, gfp_t gfp);
-+	int (*add_deferred_map_sg)(struct iommu_map_cookie_sg *cookie,
-+				   phys_addr_t paddr, size_t pgsize, size_t pgcount);
-+	int (*consume_deferred_map_sg)(struct iommu_map_cookie_sg *cookie);
+ static int kvm_arm_smmu_v3_init_drv(void)
+ {
+ 	int ret;
+@@ -905,6 +953,7 @@ static int kvm_arm_smmu_v3_init_drv(void)
+ 	 */
+ 	kvm_hyp_arm_smmu_v3_smmus = kvm_arm_smmu_array;
+ 	kvm_hyp_arm_smmu_v3_count = kvm_arm_smmu_count;
++
+ 	return 0;
+ 
+ err_free:
+@@ -931,4 +980,21 @@ static int kvm_arm_smmu_v3_register(void)
+ 					kern_hyp_va(lm_alias(&kvm_nvhe_sym(smmu_ops))));
  };
  
- /**
++/*
++ * KVM init hypervisor at device_sync init call,
++ * so we drop the PM references of the SMMU taken at probe
++ * at the late initcall where it's guaranteed the hypervisor
++ * has initialized the SMMUs.
++ */
++static int kvm_arm_smmu_v3_post_init(void)
++{
++	if (!kvm_arm_smmu_count)
++		return 0;
++
++	WARN_ON(driver_for_each_device(&kvm_arm_smmu_driver.driver, NULL,
++				       NULL, smmu_put_device));
++	return 0;
++}
++
+ core_initcall(kvm_arm_smmu_v3_register);
++late_initcall(kvm_arm_smmu_v3_post_init);
 -- 
 2.47.0.338.g60cca15819-goog
 
