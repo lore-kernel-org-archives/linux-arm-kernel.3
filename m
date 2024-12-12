@@ -4,60 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A6EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35383E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mYQPvsqMe2EbUnzyohL7oFAa1mQDoDPMwV18aTkgInU=; b=0hDSDbJ3TiByGVUCZANp5MR7Te
-	bCy1k5akI0pMT6Qkai9277rSGt9gGZ+BMaCQtpuW7PDOkREEuJ/MOrfFVVbYcbsiG59jdJZ4J9Ppn
-	qfnTdMDMNJ85FrNTG88BCtWrKJFIR8G9MDOIclNz/gR5Xtgn8sjtdROZ9YuUNgydAiCPS1MbhWuZG
-	OgUsjdhRfwf0z5FsOiCJ39B7DIJHQzyrNUFOKrOMTXiLpmoa3nU/UVsIQ9S+SCsdO7I0FXcAsasNZ
-	qB9S6MHpSL/Cz0n1kwdPPkIEwTzMZPOb2L66S3YCMI5zFvsBXeOm6BIlhLHrLsgNBDsEwgEPZPEga
-	ynY5mEQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AQ+8A5ZOfR19HYBSv5e2Cv+jCB6DCwx+sCu8s/pdphc=; b=b0EB5hsZvjf9rTx5u66a4vZkJQ
+	NBciEXJgAcAx8t9IpM9DTC1dnvoImi153pZjUkDzYg7o9DP37xMLid+/MZtPPJkhO5FkUcu9h/AO4
+	0P94Poq2j+vcDVA1jg199gq0hTvIqWooD7bMK8RSid4+m6y7Av5+IEPubwdXBQ0JvEVUx9B8ypCcY
+	UNxJaN/ZgPYKdr7n0JnGK7nHX9ctjFmXZtK3J0DMSHHOrB00hDZLF4ynZJcykUy86qx/NZ5bNaIBx
+	nF5IcF+KZFQVFcOICWusoLv/5WMuuq7ulrftT/p/5p1rU/L0VBc+1Pu7H02Piisc3vefOsaZTnxIY
+	YQjM2Icw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLkui-00000000j01-1pAS;
-	Thu, 12 Dec 2024 15:15:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLktM-00000000ie4-1VDy
+	id 1tLkvl-00000000jE8-0Ty9;
+	Thu, 12 Dec 2024 15:16:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLktj-00000000ii6-3EUK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:14:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D68F6169E;
-	Thu, 12 Dec 2024 07:14:41 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EB9E3F720;
-	Thu, 12 Dec 2024 07:14:11 -0800 (PST)
-From: Joey Gouly <joey.gouly@arm.com>
-To: stable@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	joey.gouly@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	shameerali.kolothum.thodi@huawei.com,
-	vt@altlinux.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH 6.6 v1] KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
-Date: Thu, 12 Dec 2024 15:14:06 +0000
-Message-Id: <20241212151406.1436382-1-joey.gouly@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 12 Dec 2024 15:14:41 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC7F5dr029041;
+	Thu, 12 Dec 2024 15:14:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=AQ+8A5ZOfR19HYBSv5e2Cv
+	+jCB6DCwx+sCu8s/pdphc=; b=DR1iWU+BpZuLZudPxqt/Wn1+GvUj+Odr8TjZPK
+	IIepyIS/IN+cBbLsR4uAKYB6Kb+IwDHQwmLN7mzsfjLbs1yPcSPEVHaCQk6Xy18P
+	gzslngHYJkG0F13hP6TFKYO8I3oLQhNusgmsjjjtobANWTmw3W2pnNYud6l4O3xb
+	ojJDSCP3ok7FmvUlFMN5MgcoF+RTN2vW8SVm9SKogaynQHvEW/dBx6yQ+JsDGhZE
+	Q0alEmnW9ttAfAFvkKvfwDhS0dLf6aTcgLf2SKGVDfc/u8T1GKAMFMTkqRohsmt8
+	lGV4zIvvG4ratKmDpNUGhCo6g84C86HbfME7vw7N7Vx0PTAQ==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43fd4xucn5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Dec 2024 15:14:29 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BCFESqp028111
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Dec 2024 15:14:28 GMT
+Received: from hu-bibekkum-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 12 Dec 2024 07:14:23 -0800
+From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+        <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
+        <robh@kernel.org>, <krzysztof.kozlowski@linaro.org>,
+        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>
+CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <quic_bibekkum@quicinc.com>
+Subject: [PATCH v18 0/5] iommu/arm-smmu: introduction of ACTLR implementation for Qualcomm SoCs
+Date: Thu, 12 Dec 2024 20:43:57 +0530
+Message-ID: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: iRBtTqSepXp1DyagHc5wq66yAOlZSjZA
+X-Proofpoint-GUID: iRBtTqSepXp1DyagHc5wq66yAOlZSjZA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 mlxlogscore=999 phishscore=0 adultscore=0
+ suspectscore=0 spamscore=0 mlxscore=0 impostorscore=0 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412120110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_071416_487367_C92C9F5D 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20241212_071439_929173_DE10F882 
+X-CRM114-Status: GOOD (  30.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,139 +98,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+This patch series consist of six parts and covers the following:
 
-commit 6685f5d572c22e1003e7c0d089afe1c64340ab1f upstream.
+1. Provide option to re-enable context caching to retain prefetcher
+   settings during reset and runtime suspend.
 
-commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits in
-ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to guests,
-but didn't add trap handling. A previous patch supplied the missing trap
-handling.
+2. Remove cfg inside qcom_smmu structure and replace it with single
+   pointer to qcom_smmu_match_data avoiding replication of multiple
+   members from same.
 
-Existing VMs that have the MPAM field of ID_AA64PFR0_EL1 set need to
-be migratable, but there is little point enabling the MPAM CPU
-interface on new VMs until there is something a guest can do with it.
+3. Add support for ACTLR PRR bit setup via adreno-smmu-priv interface.
 
-Clear the MPAM field from the guest's ID_AA64PFR0_EL1 and on hardware
-that supports MPAM, politely ignore the VMMs attempts to set this bit.
+4. Introduce intital set of driver changes to implement ACTLR register
+   for custom prefetcher settings in Qualcomm SoCs.
 
-Guests exposed to this bug have the sanitised value of the MPAM field,
-so only the correct value needs to be ignored. This means the field
-can continue to be used to block migration to incompatible hardware
-(between MPAM=1 and MPAM=5), and the VMM can't rely on the field
-being ignored.
+5. Add ACTLR data and support for qcom_smmu_500.
 
-Signed-off-by: James Morse <james.morse@arm.com>
-Co-developed-by: Joey Gouly <joey.gouly@arm.com>
-Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/20241030160317.2528209-7-joey.gouly@arm.com
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-[ joey: fixed up merge conflict, no ID_FILTERED macro in 6.6 ]
-Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-Cc: stable@vger.kernel.org # 6.6.x
-Cc: Vitaly Chikunov <vt@altlinux.org>
-Link: https://lore.kernel.org/linux-arm-kernel/20241202045830.e4yy3nkvxtzaybxk@altlinux.org/
----
+Changes in v18 from v17_RESEND:
+ - 1/5 : No changes
+ - 2/5 : No changes - reviewed-by tags collected
+ - 3/5 : Addition of
+   pm_runtime_resume_and_get()/pm_runtime_put_autosuspend()
+   around register access of PRR related private interfaces
+   as discussed in v17_RESEND.
+ - 4/5, 5/5 : No changes - reviewed-by tags collected
+ Link to v17_RESEND:
+ https://lore.kernel.org/all/20241114160721.1527934-1-quic_bibekkum@quicinc.com/
 
-This fixes an issue seen when using KVM with a 6.6 host kernel, and
-newer (6.13+) kernels in the guest.
+Resend of v17:
+ Addition of minor fix of the build warning reported by kernel test robot [1] by powerpc_random config [2].
+ [1]:https://lore.kernel.org/all/202411140748.6mcFdJdO-lkp@intel.com/#t
+ [2]:https://download.01.org/0day-ci/archive/20241114/202411140748.6mcFdJdO-lkp@intel.com/config
 
-Tested with a stripped down version of set_id_regs from the original
-patch series.
+Changes in v17 from v16:
+ Tags provided earlier not collected yet on patch 1/5, 3/5, 4/5, 5/5
+ due to the following revisions:
+ - 1/5 : Move the CPRE workaround out of qualcomm specific logic and gate with config
+         , update the silicon-errata.rst file
+ - 2/5 : No changes - reviewed-by tags collected
+ - 3/5 : Move the compatible check before assignment of callback as suggested.
+ - 4/5 : Add the actlr setting for *adreno variant* of MMU-500 as well.
+ - 5/5 : Due to changes in 1/5, minor refactoring had to be done before adding table.
+ Link to v16:
+ https://lore.kernel.org/all/20241008125410.3422512-1-quic_bibekkum@quicinc.com/
 
- arch/arm64/kvm/sys_regs.c | 52 +++++++++++++++++++++++++++++++++++++--
- 1 file changed, 50 insertions(+), 2 deletions(-)
+Changes in v16 from v15:
+ - Incorporate Dimitry's suggestion on patch 4/5 to use dev_dbg instead of dev_notice.
+ - Fix kernel test robot warning [1] coming for 32bit architecture configuration.
+ - Updatingthe tags
+ [1]: https://lore.kernel.org/all/202409230343.Q8KnYl2w-lkp@intel.com/
+ Link to v15:
+ https://lore.kernel.org/all/20240920155813.3434021-1-quic_bibekkum@quicinc.com/
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 370a1a7bd369..2031703424ea 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1330,6 +1330,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 			val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);
- 
- 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
-+		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);
- 		break;
- 	case SYS_ID_AA64ISAR1_EL1:
- 		if (!vcpu_has_ptrauth(vcpu))
-@@ -1472,6 +1473,13 @@ static u64 read_sanitised_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
- 
- 	val &= ~ID_AA64PFR0_EL1_AMU_MASK;
- 
-+	/*
-+	 * MPAM is disabled by default as KVM also needs a set of PARTID to
-+	 * program the MPAMVPMx_EL2 PARTID remapping registers with. But some
-+	 * older kernels let the guest see the ID bit.
-+	 */
-+	val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
-+
- 	return val;
- }
- 
-@@ -1560,6 +1568,42 @@ static int set_id_dfr0_el1(struct kvm_vcpu *vcpu,
- 	return set_id_reg(vcpu, rd, val);
- }
- 
-+static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
-+			       const struct sys_reg_desc *rd, u64 user_val)
-+{
-+	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
-+	u64 mpam_mask = ID_AA64PFR0_EL1_MPAM_MASK;
-+
-+	/*
-+	 * Commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits
-+	 * in ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to
-+	 * guests, but didn't add trap handling. KVM doesn't support MPAM and
-+	 * always returns an UNDEF for these registers. The guest must see 0
-+	 * for this field.
-+	 *
-+	 * But KVM must also accept values from user-space that were provided
-+	 * by KVM. On CPUs that support MPAM, permit user-space to write
-+	 * the sanitizied value to ID_AA64PFR0_EL1.MPAM, but ignore this field.
-+	 */
-+	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
-+		user_val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
-+
-+	return set_id_reg(vcpu, rd, user_val);
-+}
-+
-+static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
-+			       const struct sys_reg_desc *rd, u64 user_val)
-+{
-+	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1);
-+	u64 mpam_mask = ID_AA64PFR1_EL1_MPAM_frac_MASK;
-+
-+	/* See set_id_aa64pfr0_el1 for comment about MPAM */
-+	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
-+		user_val &= ~ID_AA64PFR1_EL1_MPAM_frac_MASK;
-+
-+	return set_id_reg(vcpu, rd, user_val);
-+}
-+
- /*
-  * cpufeature ID register user accessors
-  *
-@@ -2018,10 +2062,14 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	{ SYS_DESC(SYS_ID_AA64PFR0_EL1),
- 	  .access = access_id_reg,
- 	  .get_user = get_id_reg,
--	  .set_user = set_id_reg,
-+	  .set_user = set_id_aa64pfr0_el1,
- 	  .reset = read_sanitised_id_aa64pfr0_el1,
- 	  .val = ID_AA64PFR0_EL1_CSV2_MASK | ID_AA64PFR0_EL1_CSV3_MASK, },
--	ID_SANITISED(ID_AA64PFR1_EL1),
-+	{ SYS_DESC(SYS_ID_AA64PFR1_EL1),
-+	  .access = access_id_reg,
-+	  .get_user = get_id_reg,
-+	  .set_user = set_id_aa64pfr1_el1,
-+	  .reset = kvm_read_sanitised_id_reg, },
- 	ID_UNALLOCATED(4,2),
- 	ID_UNALLOCATED(4,3),
- 	ID_SANITISED(ID_AA64ZFR0_EL1),
--- 
-2.25.1
+Changes in v15 from v14:
+ - As discussed with Robin and Dmitry modify the actlr table and logic to use
+   compatible string instead of sid, mask for device matching which is
+   similar to qcom_smmu_client_of_match mechanism.
+ - Expand the comment in qcom_smmu500_reset to document reason why CPRE bit is re-enabled again
+   after arm_mmu500_reset resets the bit.
+ - Rearrange the series in order to keep prefetch setting patches in the end.
+ Link to v14:
+ https://lore.kernel.org/all/20240816174259.2056829-1-quic_bibekkum@quicinc.com/
+
+Changes in v14 from v13:
+ Patch 6/6:
+ - As discussed incorprate changes to carry out PRR implementation only for
+   targets based on MMU-500 by using compat string based SMMU version detection.
+ - Split the set_actlr interface into two separate interface namely set_prr_bit
+   and set_prr_addr to set the prr enable bit and prr page address resepectively.
+ Patch 3/6:
+  - Fix a bug in gfx actlr_config which is uncovered while testing the gfx actlr setting in sc7280
+    during PRR experiment which prevented clients on certain sids of gfx smmmu to be skipped during
+    setting up of the ACTLR values : Fix involves swapping the arguments passed in smr_is_subset to make
+     device smr <from devicetree> a subset of actlr_config table entries < defined in the driver>.
+ Patch 4/6, 5/6:
+  - Sort the actlr table values in increasing order of the SIDs.
+ Link to v13:
+ https://lore.kernel.org/all/20240628140435.1652374-1-quic_bibekkum@quicinc.com/
+
+Changes in v13 from v12:
+ - Fix the compilation issues reported by kernel test robot [1].
+ [1]: https://lore.kernel.org/all/202406281241.xEX0TWjt-lkp@intel.com/#t
+ Link to v12:
+ https://lore.kernel.org/all/20240626143020.3682243-1-quic_bibekkum@quicinc.com/
+
+Changes in v12 from v11:
+ Changes to incorporate suggestion from Rob:
+ - Fix the set and reset logic for prr bit as pointed out in v11-6/6.
+ - Rename set_actlr_bit function name to set_prr.
+ - Add extension for PRR name as Partially-Resident-Region in comments
+   for set_prr function.
+ - Add few missing sids for sc7280 in patch-5/6.
+ Link to v11:
+ https://lore.kernel.org/all/20240605121713.3596499-1-quic_bibekkum@quicinc.com/
+
+Changes in v11 from v10:
+ - Include a new patch 6/6 to add support for ACTLR PRR bit
+   through adreno-smmu-priv interface as suggested by Rob and Dmitry.
+ Link to v10:
+ https://lore.kernel.org/all/20240524131800.2288259-1-quic_bibekkum@quicinc.com/
+
+Changes in v10 from v9:
+ - Added reviewed-by tags 1/5,2/5,3/5.
+ Changes incorporated:
+ - Remove redundant PRR bit setting from gfx actlr table(patch 4/5,5/5)
+   as this bit needs special handling in the gfx driver along with
+   the associated register settings.
+ Link to discussion on PRR bit:
+ https://lore.kernel.org/all/f2222714-1e00-424e-946d-c314d55541b8@quicinc.com/
+ Link to v9:
+ https://lore.kernel.org/all/20240123144543.9405-1-quic_bibekkum@quicinc.com/
+
+Changes in v9 from v8:
+ Changes to incorporate suggestions from Konrad as follows:
+ - Re-wrap struct members of actlr_variant in patch 4/5,5/5
+   in a cleaner way.
+ - Move actlr_config members to the header.
+ Link to v8:
+ https://lore.kernel.org/all/20240116150411.23876-1-quic_bibekkum@quicinc.com/
+
+Changes in v8 from v7:
+ - Added reviewed-by tags on patch 1/5, 2/5.
+ Changes to incorporate suggestions from Pavan and Konrad:
+ - Remove non necessary extra lines.
+ - Use num_smmu and num_actlrcfg to store the array size and use the
+   same to traverse the table and save on sentinel space along with
+   indentation levels.
+ - Refactor blocks containing qcom_smmu_set_actlr to remove block
+   repetition in patch 3/5.
+ - Change copyright year from 2023 to 2022-2023 in patch 3/5.
+ - Modify qcom_smmu_match_data.actlrvar and actlr_variant.actlrcfg to
+   const pointer to a const resource.
+ - use C99 designated initializers and put the address first.
+ Link to v7:
+ https://lore.kernel.org/all/20240109114220.30243-1-quic_bibekkum@quicinc.com/
+
+Changes in v7 from v6:
+ Changes to incorporate suggestions from Dmitry as follows:
+ - Use io_start address instead of compatible string to identify the
+   correct instance by comparing with smmu start address and check for
+   which smmu the corresponding actlr table is to be picked.
+Link to v6:
+https://lore.kernel.org/all/20231220133808.5654-1-quic_bibekkum@quicinc.com/
+
+Changes in v6 from v5:
+ - Remove extra Suggested-by tags.
+ - Add return check for arm_mmu500_reset in 1/5 as discussed.
+Link to v5:
+https://lore.kernel.org/all/20231219135947.1623-1-quic_bibekkum@quicinc.com/
+
+Changes in v5 from v4:
+ New addition:
+ - Modify copyright year in arm-smmu-qcom.h to 2023 from 2022.
+ Changes to incorporate suggestions from Dmitry as follows:
+ - Modify the defines for prefetch in (foo << bar) format
+   as suggested.(FIELD_PREP could not be used in defines
+   is not inside any block/function)
+ Changes to incorporate suggestions from Konrad as follows:
+ - Shift context caching enablement patch as 1/5 instead of 5/5 to
+   be picked up as independent patch.
+ - Fix the codestyle to orient variables in reverse xmas tree format
+   for patch 1/5.
+ - Fix variable name in patch 1/5 as suggested.
+ Link to v4:
+https://lore.kernel.org/all/20231215101827.30549-1-quic_bibekkum@quicinc.com/
+
+Changes in v4 from v3:
+ New addition:
+ - Remove actlrcfg_size and use NULL end element instead to traverse
+   the actlr table, as this would be a cleaner approach by removing
+   redundancy of actlrcfg_size.
+ - Renaming of actlr set function to arm_smmu_qcom based proprietary
+   convention.
+ - break from loop once sid is found and ACTLR value is initialized
+   in qcom_smmu_set_actlr.
+ - Modify the GFX prefetch value separating into 2 sensible defines.
+ - Modify comments for prefetch defines as per SMMU-500 TRM.
+ Changes to incorporate suggestions from Konrad as follows:
+ - Use Reverse-Christmas-tree sorting wherever applicable.
+ - Pass arguments directly to arm_smmu_set_actlr instead of creating
+   duplicate variables.
+ - Use array indexing instead of direct pointer addressed by new
+   addition of eliminating actlrcfg_size.
+ - Switch the HEX value's case from upper to lower case in SC7280
+   actlrcfg table.
+ Changes to incorporate suggestions from Dmitry as follows:
+ - Separate changes not related to ACTLR support to different commit
+   with patch 5/5.
+ - Using pointer to struct for arguments in smr_is_subset().
+ Changes to incorporate suggestions from Bjorn as follows:
+ - fix the commit message for patch 2/5 to properly document the
+   value space to avoid confusion.
+ Fixed build issues reported by kernel test robot [1] for
+ arm64-allyesconfig [2].
+ [1]: https://lore.kernel.org/all/202312011750.Pwca3TWE-lkp@intel.com/
+ [2]:
+https://download.01.org/0day-ci/archive/20231201/202312011750.Pwca3TWE-lkp@intel.com/config
+ Link to v3:
+https://lore.kernel.org/all/20231127145412.3981-1-quic_bibekkum@quicinc.com/
+
+Changes in v3 from v2:
+ New addition:
+ - Include patch 3/4 for adding ACTLR support and data for SC7280.
+ - Add driver changes for actlr support in gpu smmu.
+ - Add target wise actlr data and implementation ops for gpu smmu.
+ Changes to incorporate suggestions from Robin as follows:
+ - Match the ACTLR values with individual corresponding SID instead
+   of assuming that any SMR will be programmed to match a superset of
+   the data.
+ - Instead of replicating each elements from qcom_smmu_match_data to
+   qcom_smmu structre during smmu device creation, replace the
+   replicated members with qcom_smmu_match_data structure inside
+   qcom_smmu structre and handle the dereference in places that
+   requires them.
+ Changes to incorporate suggestions from Dmitry and Konrad as follows:
+ - Maintain actlr table inside a single structure instead of
+   nested structure.
+ - Rename prefetch defines to more appropriately describe their
+   behavior.
+ - Remove SM8550 specific implementation ops and roll back to default
+   qcom_smmu_500_impl implementation ops.
+ - Add back the removed comments which are NAK.
+ - Fix commit description for patch 4/4.
+ Link to v2:
+https://lore.kernel.org/all/20231114135654.30475-1-quic_bibekkum@quicinc.com/
+
+Changes in v2 from v1:
+ - Incorporated suggestions on v1 from Dmitry,Konrad,Pratyush.
+ - Added defines for ACTLR values.
+ - Linked sm8550 implementation structure to corresponding
+   compatible string.
+ - Repackaged actlr value set implementation to separate function.
+ - Fixed indentation errors.
+ - Link to v1:
+https://lore.kernel.org/all/20231103215124.1095-1-quic_bibekkum@quicinc.com/
+
+Changes in v1 from RFC:
+ - Incorporated suggestion form Robin on RFC
+ - Moved the actlr data table into driver, instead of maintaining
+   it inside soc specific DT and piggybacking on exisiting iommus
+   property (iommu = <SID, MASK, ACTLR>) to set this value during
+   smmu probe.
+ - Link to RFC:
+https://lore.kernel.org/all/a01e7e60-6ead-4a9e-ba90-22a8a6bbd03f@quicinc.com/
+
+Bibek Kumar Patro (5):
+  iommu/arm-smmu: re-enable context caching in smmu reset operation
+  iommu/arm-smmu: refactor qcom_smmu structure to include single pointer
+  iommu/arm-smmu: add support for PRR bit setup
+  iommu/arm-smmu: introduction of ACTLR for custom prefetcher settings
+  iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
+
+ Documentation/arch/arm64/silicon-errata.rst   |   3 +-
+ drivers/iommu/Kconfig                         |  12 ++
+ drivers/iommu/arm/arm-smmu/arm-smmu-impl.c    |   5 +-
+ .../iommu/arm/arm-smmu/arm-smmu-qcom-debug.c  |   2 +-
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c    | 120 +++++++++++++++++-
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h    |   3 +-
+ drivers/iommu/arm/arm-smmu/arm-smmu.h         |   2 +
+ include/linux/adreno-smmu-priv.h              |  14 ++
+ 8 files changed, 155 insertions(+), 6 deletions(-)
+
+--
+2.34.1
 
 
