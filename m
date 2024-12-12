@@ -4,74 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D26CCE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD6BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EI22DQzZVDVnTxt6RUW2tG/G1/4buJh4utbAY1WkjKk=; b=XgmLh3yZShtMymGI9rYqn+K3Vz
-	Rh5utxOXvvYMe0xfGZESxVC/Jcw6aALEvkCZcN/vv4v2hLeEsui0Xf+WFJYMnUIUb6+UUnU2VF5/U
-	2qKjkyDPp9SRjsgE4i5gPwDPB9IW/rO8in1uGHOe6pseyd71+EnZxG/1RQXaGkALvKTxTyrvEPl6G
-	dLjRPZ9sbVT5uMvq8LcuNZx5HCrZA0kXLKbg5yIqvqjelCFLX6NwTC1dvhkfFVA2c9HKVSWDx8ACn
-	dAoUSCvJb0jKNIyEHd59eNWY3lriuw/4p+UwrQdyZNgnpoVzwV+tQBbw9pZ/iRHzalrU+vdLOX3XZ
-	BbLqVInQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pzQGJmvH+r/yv9jwC3++jU/5AXa6EzZFVLdWoY0TuKk=; b=L3Cc/1hIVaFJYLGABtcq4FmBAt
+	Bmpd6Td12nTX+ZGuUbyWgxANztIbbX1xrr+TYECz6xqDfk1xzxZvW5ylEPTktrvvu6HZYDZCtMw4E
+	Or39h8OrEXMNLVOc0DnX2oFNTAKt2mewd8CN1MkncG8xA1kgyL/c8shelCj2LIJMVYnhFqwSJOFbT
+	pYqVbRfaITcB8BiaI50SscDX/KWOzycA9CMLCFkzVmZC/zRKIJV7y41SUm6NB9nmJ3s2iUyKw0xJV
+	6WEqAOjdU1JmhMJJljzDnZ6o0XLQysWq7rfDoerUaHu+j4YFxb/U0OkvANCDxuP5+ImObMz3ssy9/
+	hK4jIftA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLgDc-000000001Oo-2VJc;
-	Thu, 12 Dec 2024 10:14:52 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tLgKk-000000002ig-2Apz;
+	Thu, 12 Dec 2024 10:22:14 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLgCT-000000000z1-2Rgw
+	id 1tLgJf-000000002Tx-2AlB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 10:13:43 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-3004028c714so3509781fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 02:13:40 -0800 (PST)
+	Thu, 12 Dec 2024 10:21:09 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-434f1e5e77dso522735e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 02:21:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wetterwald-eu.20230601.gappssmtp.com; s=20230601; t=1733998419; x=1734603219; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=EI22DQzZVDVnTxt6RUW2tG/G1/4buJh4utbAY1WkjKk=;
-        b=yoNK5w6eoMBz2Enn+5U64wEe1IfOytYIoVTZclw8tRnwMtVbiLhQyWVCJtdWw4uSPi
-         VSHDh+CqHWC3+fTZBeT9HZe+FAOMPrYlRs8nMXuJtq4htAYK8xIINV/PxDj0CILgXP1u
-         gULd/B0WFGAlMFOqJP5dfO7KPpfKRmXLD/pVx6xQM2UiwvSm8k9zCqsNOtp49Dmu7mlC
-         3TogaAnFvSqoYB6r8Bg0vJ2uF1fnejjz+UNsjAhFsTK/oGDX6vbl/tZnobcp2pPfA+mZ
-         5a5zObhG9J7kVEGLaVu5ItDxy9ABb4Y/r8zEnc5lsY7jovIJmYNt+IcnGwdT7daMQwkx
-         ydvQ==
+        d=linaro.org; s=google; t=1733998866; x=1734603666; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=pzQGJmvH+r/yv9jwC3++jU/5AXa6EzZFVLdWoY0TuKk=;
+        b=k1W5polHlKhN7YE4h3YM1ccfDpoNOgbpveTBSq2a3PqwG5+ZP9WPddpnjzpXr4lY8Z
+         Jj0E+0OGh/+jzHStbywhX3UO9Ohmnocw5L8aQpIQuZhn9o9cR5hj7JO58R/OgfxtSihL
+         eWe8oqMI8mFZkS0ux5/NsEncMeeZ5aKlaZ81JQtdAwi1//3JO9RKy/XlooT95G/+sODr
+         DbGApPPScCsNKljl7GnEbKPcE6Uv2ER+FkatP/JtL4dZncudk0bWXJpRiWFJF64HYzWS
+         ItgCkpTUIGJpQBYUyMjA4hrKImc9adYu9jeVn5KXT0sLpl590n45y8cKulT/Cg37Cx1c
+         l8Dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733998419; x=1734603219;
-        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EI22DQzZVDVnTxt6RUW2tG/G1/4buJh4utbAY1WkjKk=;
-        b=xLUVnSepGgBrBnMKIOmyqe3PkdexY5k6sZU4+6ALc8Xr6u+KIXnw4oKGstmv76T1NB
-         BOIoY2xvHgrTKzQ3RgwXw0FV/03UYhbeAzu3PSiLx6/wFT/c97AY9bMB9qRnFrhw9sgT
-         Yv46WgxANJ4L0kEkIIq+tdpxjvmqLLqJGLH5gvZqBU+pGyd129vA2OHcuq85rurdq+fO
-         6yhvgoLgn+Tyy0ffwZ4I8j+2E6T1fHzLB2KjbGgBxNICa+of0tjJJbBF3a4o/kpIWG6G
-         sUHaVyhEUvUeSBcdTnM9dIJrnGb9PDzIdD90KZ7yZmQL9IIiDF1TLIAGcaLx/z5n+qvD
-         gYLg==
-X-Forwarded-Encrypted: i=1; AJvYcCVtsLJAbttT8sPULPE7qA0BZZycdR0I52lelC10NtvhzmXsMnZ6PvkFRQgHm4lJyyVqhBE1kW4v8d5czysAayS8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq/xR7s68BapDoNJbOFRYlSR8UjCuam+O4xpMTkEFD+UBIVlAe
-	hl8dR3HpA4lqP0Z2E15kxx5bm/5Z3MS1XMUjk+QrUYZOPwO4jsqvK4VH3OxQQU20fvCr4I0FHsa
-	Ocpn8rZWJ5UOrXRHuTTLjBQqsQosHm8MsYEmZWA==
-X-Gm-Gg: ASbGnctSwkgQW3kbjxafrWoM9PPQlugXCatRMT1XZtnlDca6QXlBNUu6m1EpqQHww5h
-	yqD2F5k9BlHEYtevrbfRPCBAJX+Tnqzw4E1YO94H8hJdawDkRlJ8KCjwMe9a6VMRcDePy+w==
-X-Google-Smtp-Source: AGHT+IE3hiuuk4G/KOtpfY7TlYPOOY0d5gVRWjcYEGOWpovgfyQ6kA/hV98D39NWqWy30GJxW18y+khOQn1iZgitaHc=
-X-Received: by 2002:a05:6512:1089:b0:540:2160:1f80 with SMTP id
- 2adb3069b0e04-54032d49048mr218103e87.40.1733998418616; Thu, 12 Dec 2024
- 02:13:38 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733998866; x=1734603666;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pzQGJmvH+r/yv9jwC3++jU/5AXa6EzZFVLdWoY0TuKk=;
+        b=ZNRtTAolq+x1pQOnXStY7YEuiIIdeGAshZ/IPWa/ioyL4DVPEsJzPy5RtuiI9l12We
+         a3CsJcYXoR7rXacpahQvs5Eb32j8zUZMVl4SD/U34JDPiKwOQqAp9zEQkRWv5exUsjNI
+         CzevcCwswTHWO1yik4wt7FdZBeSUer3N2xUbOUPrWlfpnIcGzgxVA93PIAcSsweIlWvJ
+         FPCR4PcgaynNI4DaFqihwwJMQaPhR215yHfWJyo8+aDuTQVdCgKOmtrliTI3zcR4+/zz
+         Y90dKRA1scDs1DUSs11ooBvpJCJBxE5HzZtN7WRA+RppVDQEBP1CQxMKt8ZAbjC/ZGcP
+         783Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVt38JjMcB34cQKwWgVn5A6j1eOhybwcnEv2TRykYsy0rX5aZOVe4OlnsfHJJLg/dGQADenHZ3Pp+2eKTYc9acw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNrbC4kPty8yntZxYPrpDNQ0nO6BnlykdPZHg5o5Wh2qXxm9lG
+	8BdiuALFahHM5MwkEITidGwogH33EcoYwbugnA0KDaST7lMblS19PL2dy7I9jtQ=
+X-Gm-Gg: ASbGncsYqLud3JiShb/mFbiorx1XDVFhAJToSeP/mjlvngwmQ2NyPyzDEU6RwEAxWhv
+	0SNpUg81YIjg8D2dU7kL3XlcLnyTxyOkbBNG0ifZwCvYxQBLeAZjcc7+CU/NdxsCFDCmH1ArlFI
+	ZI9sjQbMVgolBcB3ZY89arLygo3mUKZzQf7tCl+GRUcTa4qdVZeR3g6yqWs9sGzHi80/1xsI1Bh
+	oB8n6G0COLXZNdQt/4YqkNiJOQkP8EmRXN6fGk8pDbJ609Y6j/v87QBI7J1420cS6stG1KVnNRU
+X-Google-Smtp-Source: AGHT+IE7Wr1brjnYyJz+kx//UHL05ClFVdjQfpqxjAH8jEHL7klZAmd+vx/9Vm0jtpTbsqjpVqsz8Q==
+X-Received: by 2002:a05:600c:4450:b0:432:dc5a:b301 with SMTP id 5b1f17b1804b1-4361c41832amr17669115e9.8.1733998866012;
+        Thu, 12 Dec 2024 02:21:06 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362557c6cdsm12094055e9.15.2024.12.12.02.21.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Dec 2024 02:21:05 -0800 (PST)
+Message-ID: <c6ac74d3-d3b5-44d3-bb12-8965034dbb15@linaro.org>
+Date: Thu, 12 Dec 2024 11:21:03 +0100
 MIME-Version: 1.0
-From: Martin Wetterwald <martin@wetterwald.eu>
-Date: Thu, 12 Dec 2024 11:13:27 +0100
-Message-ID: <CAFERDQ2hLHek+0ViVqbqgOD+4xwC2ZwK1KhgGdLP_zGnonEs4w@mail.gmail.com>
-Subject: Raspberry Pi 3B: Failed to create device link with soc:firmware:gpio
-To: f.fainelli@gmail.com, saravanak@google.com, stefan.wahren@i2se.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] mfd: syscon: Fix race in device_node_get_regmap()
+To: "Rob Herring (Arm)" <robh@kernel.org>, Lee Jones <lee@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Pankaj Dubey <pankaj.dubey@samsung.com>,
+ Heiko Stuebner <heiko@sntech.de>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20241211-syscon-fixes-v1-0-b5ac8c219e96@kernel.org>
+ <20241211-syscon-fixes-v1-1-b5ac8c219e96@kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20241211-syscon-fixes-v1-1-b5ac8c219e96@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_021341_886217_5D05FC40 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20241212_022107_619424_9E687E33 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,89 +149,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Saravana and Florian,
+On 11/12/2024 21:57, Rob Herring (Arm) wrote:
+> It is possible for multiple, simultaneous callers calling
+> device_node_get_regmap() with the same node to fail to find an entry in
+> the syscon_list. There is a period of time while the first caller is
+> calling of_syscon_register() that subsequent callers also fail to find
+> an entry in the syscon_list and then call of_syscon_register() a second
+> time.
+> 
+> Fix this by keeping the lock held until after of_syscon_register()
+> completes and adds the node to syscon_list. Convert the spinlock to a
+> mutex as many of the functions called in of_syscon_register() may sleep.
+> 
+> Fixes: bdb0066df96e ("mfd: syscon: Decouple syscon interface from platform devices")
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Tested on arm64: Qualcomm SM8450
+Tested on armv7: Exynos5422
 
-Back in 2023, you discussed about an issue concerning the Raspberry Pi 4, that
-you fixed in commit 1a5ecc73b2bfeffe036212d4a6bfacee053ab0a1:
-https://lore.kernel.org/lkml/03b70a8a-0591-f28b-a567-9d2f736f17e5@gmail.com/
-https://lore.kernel.org/all/20230302023509.319903-1-saravanak@google.com/
+Tested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Today, I notice I see the same issue, but it's with the Raspberry Pi 3B (V1.2).
-I'm using the upstream kernel 6.12.3, with the upstream DTB.
-
-You can find my kernel miniconfig (basis being allnoconfig) here:
-https://gist.github.com/mwetterw/299bb1317fccf9e68125cb0f5da7384c
-
-During boot, I see following messages:
-> Bluetooth: HCI UART driver ver 2.3
-> Bluetooth: HCI UART protocol H4 registered
-> Bluetooth: HCI UART protocol Broadcom registered
-> bcm2835-mbox 3f00b880.mailbox: mailbox enabled
-> 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 99, base_baud = 0) is a PL011 rev2
-> raspberrypi-firmware soc:firmware: Attached to firmware from 2024-09-13T16:00:14
-> uart-pl011 3f201000.serial: Failed to create device link (0x180) with soc:firmware:gpio
-
-Here is an extract of the relevant FDT nodes.
-Because my setup involves first the proprietary GPU firmware, then the U-Boot
-bootloader before finally launching the kernel, I used following command in
-order to make sure I see the same FDT as Linux:
-
-> ssh rpi 'cat /sys/firmware/fdt' | fdtdump -
-
-> firmware {
->     compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
->     mboxes = <0x0000001b>;
->     phandle = <0x0000001c>;
->     clocks {
->         compatible = "raspberrypi,firmware-clocks";
->         #clock-cells = <0x00000001>;
->         phandle = <0x00000015>;
->     };
->     gpio {
->         compatible = "raspberrypi,firmware-gpio";
->         gpio-controller;
->         #gpio-cells = <0x00000002>;
->         gpio-line-names = "BT_ON", "WL_ON", "STATUS_LED", "LAN_RUN", "HDMI_HPD_N", "CAM_GPIO0", "CAM_GPIO1", "PWR_LOW_N";
->         status = "okay";
->         phandle = <0x0000000a>;
->     };
-> };
-
-> serial@7e201000 {
->     compatible = "arm,pl011", "arm,primecell";
->     reg = <0x7e201000 0x00000200>;
->     interrupts = <0x00000002 0x00000019>;
->     clocks = <0x00000007 0x00000013 0x00000007 0x00000014>;
->     clock-names = "uartclk", "apb_pclk";
->     arm,primecell-periphid = <0x00241011>;
->     status = "okay";
->     pinctrl-names = "default";
->     pinctrl-0 = <0x00000008 0x00000009>;
->     phandle = <0x00000048>;
->     bluetooth {
->         compatible = "brcm,bcm43438-bt";
->         max-speed = <0x001e8480>;
->         shutdown-gpios = <0x0000000a 0x00000000 0x00000000>;
->         phandle = <0x00000049>;
->     };
-> };
-
-If I understand correctly, the serial dev bus, together with
-CONFIG_BT_HCI_UART, CONFIG_BT_HCI_UART_BCM, and if associated to the correct
-DTB nodes describing the bluetooth chip, should allow the kernel to handle the
-serial Bluetooth HCI himself, without the userspace needing to launch user
-space tools like hciattach or btattach?
-
-Is the log
-
-> uart-pl011 3f201000.serial: Failed to create device link (0x180) with soc:firmware:gpio
-
-a hint to the reason why the kernel doesn't automatically handle my Bluetooth
-HCI over serial?
-
-How to solve this log error, and how to let the kernel handle the HCI himself?
-Am I missing kernel configuration flags?
-
-Thanks!
-Martin
+Best regards,
+Krzysztof
 
