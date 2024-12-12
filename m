@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7646E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3781CE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DpS9P9XwAS30njS9V7ckdqZVR6lOQbdme3ixokuDXWQ=; b=goaEI60i+qYyNvqIR1s0Ef3oAk
-	oc7D2Y1Lw7TkNYQCItDPKL8aEe2Au98fsBfkHDpGZFaxv7RzFybx/4hMzVCo0alSLdGIf3d0C6Mh8
-	rNi6gzMRT4V5xqY4qD1Gb71ounlGMjSj3o85y+JPKYmwkzCLmwsShxoiNR6yDs1WrnNiTQ3N9qPD9
-	kmMSr/YDFFcsxCRFuMsarryLdZFVnk6Qyvi9amyN9wE/4UDoYAM3OefAogTby+MpqLMu/Y6TnwqIL
-	KLSifcGhJqQ3WRXkVoOblqWx+hD6veSM2R0HnxZNMSjvtkFciNLmrdYYPrW+64Tdx/4NOMlYI1UUe
-	EU/0q/pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1mgJFotG3RcgJMHCzt5CNI6Nab3EgikzA5VpiV/4n3U=; b=1yehlRYAYrAAA89OmC/wxaVWz6
+	CNVaXaIWREisbL6kBbhR3W8OpLM3SVyW/3QGGiK97P/RI7TlIx1k0fn0/CMPWn+A8NxtHjv8G8r/b
+	xFpQPitl8SHUhMo+J8G2BRqbxMmaSZqNFPOUu6jP2AqrCdFHTyZGPug/rTv5ojoXbCutgxgm2MlSt
+	w1fIq8OMRf2XDr1X+YOYubtMmKa4Py5qywfHQd4WiZC3b9pHEBSnFwTIrOzQ1qS7R9sBzBPv+zZRC
+	41sqHTJqHLwAV9t85e1/NJykE2eNiUasyrgDpydxvHXSYrGOU5Qp2TOCLsETRR+1CadCNXxlXjHJf
+	NK1pYahg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLl7I-00000000l4l-1ssu;
-	Thu, 12 Dec 2024 15:28:40 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tLlDU-00000000lnt-3M0R;
+	Thu, 12 Dec 2024 15:35:04 +0000
+Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLl6B-00000000kwu-1cTw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:27:32 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4361d5dcf5bso8030295e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 07:27:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734017249; x=1734622049; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DpS9P9XwAS30njS9V7ckdqZVR6lOQbdme3ixokuDXWQ=;
-        b=dK9l+jvST2M6aE4ActdlfwlDqhBniUcY7b18WvI8aNUlm+74ZWIdspdoSwZmHbNrEG
-         uveiI/sRj27XQj6GMVTQjP/EaQfSol+tbZXbrFJf8PmZUNER99cEg/IsekKSzqPLW4xl
-         INBM7Jf/ENi+lJH6btaVXeDuNbxZnw8yXntLJ9vlFXr1ju0VbpdrjP+EytmQPQOKIUY2
-         RAdDuSwINVWOdR1op75rAmU+91Kgfr6B6pHRfAJuNAea5S30BEo/fTcVQX0vOgSedecn
-         TQcIEEwerml9gfuzSB9PSXR639mYupW7RCiNWEoy5Th4MatI2k3/n1/5liPkCmomXvaJ
-         5qew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734017249; x=1734622049;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DpS9P9XwAS30njS9V7ckdqZVR6lOQbdme3ixokuDXWQ=;
-        b=DocU0p4o0/XgfYVQeBgj9qF3B58Hp84k8vulzRRKzfBewzOAagKn6U1ZQ6kZgI7NaO
-         hyhSVTLLOi6KLNunBNI2ZlTsKDRomqhZgXc9PABcMSfj1HV9ugcL2kYWeT1eRevKdaQB
-         /2dfQMYfFByP10sv/W8tKs6atoyvzqd0Y46RU/uyMeYJtvQb/WlHdVDz2F7I/anWvFH/
-         qJIg7JkWc222xAwD7eSUDF9E9IbU2+XMYhKcn+Ikpo0zIrW/NAvIeVGGc+MuRHAlgx4x
-         48J2KVr279D0LVRtHEQpRXEhgf0nnVuRkgvMtuHN2F31bIOXP295RHMpiitZiT9pYn/j
-         87HQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW2UXFYt7uKHlvupgfFv88Zr7Mb8oFeyBtT0xxWaI4+vp+om9RqfyM/b61X4SlE2qquoBuSpkumhg8LywIh+vM+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdfgAAwLHo8WpaHxbv395YHJxY5JQMlP1bXLdOaWQ5J5t2hrfa
-	qwnseveyPdyvRYNHIaiafsnylEFPuEN6/88yUOhc4MtUEW0QB1ab8tW9ncNMoRs=
-X-Gm-Gg: ASbGncv1MjidsJLX7KEHs9L6RF3VKi/FopWdJXKhAybb9BuS2hXJb6RyZiecuUZk+pb
-	hyaRaan9tiSjX+nRaZgXbHW3NMnlXpvws3XqnhdMCmoa6cXPrNE1qqfoK6sbR6n7rg8vz1zUOVC
-	Pmiq+gMEtsgqsW7ZEnZgVj8x5cak3RvU05qJZ3qkGjtFY4fjzL+T9Cy4FVE2ln9cN2NcOc5sgDI
-	wz+UU88/jqwgfr0rjY68uHa4O9RhfbwC5nNKRPTDFAAPhEcS4g6z6Wb4DQKl0XrkZ8=
-X-Google-Smtp-Source: AGHT+IEhNl36m73Z9uj23to0PG8NFMTyNmDs7ZQ3Hettg3uLA6lpt+bVWiT/atLfW0TWRdXrBJzlMA==
-X-Received: by 2002:a5d:64a9:0:b0:386:3213:5b9b with SMTP id ffacd0b85a97d-387877c9747mr3330810f8f.43.1734017248923;
-        Thu, 12 Dec 2024 07:27:28 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.65.153])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3878248e54dsm4329749f8f.19.2024.12.12.07.27.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Dec 2024 07:27:28 -0800 (PST)
-Message-ID: <24299600-277f-48f4-9be5-cbd65ab6ddb7@linaro.org>
-Date: Thu, 12 Dec 2024 15:27:26 +0000
+	id 1tLlCN-00000000lcH-3HiU;
+	Thu, 12 Dec 2024 15:33:56 +0000
+X-UUID: 7bd10f7eb89e11ef9048ed6ed365623b-20241212
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=1mgJFotG3RcgJMHCzt5CNI6Nab3EgikzA5VpiV/4n3U=;
+	b=BPQoj00EadVPBDUYAyfGZ/uhrrpwTTtbMNfLIjudiuusvRubn3E7GCWd3sCuB0scfRsnUY5WMZSqWiZxi7q9On9PtBjuQesUgX0gtekoXgRoyiagpg3KpKyvDyua2hK3eVYIcm11zFlE8tb0nmR1X4hsDTZCuosrUUPIsraxlVk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:1167e10b-2800-44de-b7cf-40097d4b1df9,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:6701df3b-e809-4df3-83cd-88f012b9e9ba,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 7bd10f7eb89e11ef9048ed6ed365623b-20241212
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 209195490; Thu, 12 Dec 2024 08:33:49 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 12 Dec 2024 23:33:46 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 12 Dec 2024 23:33:46 +0800
+From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "Jason-JH . Lin"
+	<jason-jh.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Nancy
+ Lin <nancy.lin@mediatek.com>, Shawn Sung <shawn.sung@mediatek.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Fei Shao
+	<fshao@chromium.org>
+Subject: [PATCH 2/2] dts: arm64: mediatek: mt8188: Update OVL compatible from MT8183 to MT8195
+Date: Thu, 12 Dec 2024 23:33:44 +0800
+Message-ID: <20241212153344.27408-3-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20241212153344.27408-1-jason-jh.lin@mediatek.com>
+References: <20241212153344.27408-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: docs: Remove target sink from examples
-To: scclevenger@os.amperecomputing.com, coresight@lists.linaro.org
-Cc: yeoreum.yun@arm.com, Mike Leach <mike.leach@linaro.org>,
- Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@linux.dev>,
- Namhyung Kim <namhyung@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241210144933.295798-1-james.clark@linaro.org>
- <9e53f5b9-d8a9-46b8-8ff1-7f018e2d9c06@os.amperecomputing.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <9e53f5b9-d8a9-46b8-8ff1-7f018e2d9c06@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_072731_427056_5861A506 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20241212_073355_828226_4A0B60C0 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The OVL hardware capabilities have changed starting from MT8195,
+making the MT8183 compatible no longer applicable.
+Therefore, it is necessary to update the OVL compatible from MT8183 to
+MT8195.
 
+Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+---
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 11/12/2024 6:01 pm, Steve Clevenger wrote:
-> 
-> Hi James,
-> 
-> I thought I'd mention this issue with multicore self-hosted trace. The
-> perf command line syntax does not allow a sink "type" to be specified
-> (e.g. @tmc_etf or @tmc_etr). For multicore, it doesn't make sense to
-> specify a processor mapped sink as would be the case for single core
-> trace. A sink "type" should be allowed to avoid the auto select default.
-> In our case, the default is the ETF sink.
-> 
-> Thanks,
-> Steve C.
-> 
-
-I'm sure it would be possible to add support for this, but I'm wondering 
-if the real issue is that the default selection logic is wrong? Are you 
-saying the default you get is ETF but you want ETR? And there is both 
-for each ETM? The default selection logic isn't easy to summarize but it 
-should prefer ETR (sysmem) over ETF (link sink), see coresight_find_sink().
-
-It's probably better to fix that rather than add a new sink selection 
-feature. Maybe if you shared a diagram of your coresight architecture it 
-would help.
-
-Thanks
-James
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index faccc7f16259..23ec3ff6cad9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -2488,7 +2488,7 @@ jpeg_decoder: jpeg-decoder@1a040000 {
+ 		};
+ 
+ 		ovl0: ovl@1c000000 {
+-			compatible = "mediatek,mt8188-disp-ovl", "mediatek,mt8183-disp-ovl";
++			compatible = "mediatek,mt8188-disp-ovl", "mediatek,mt8195-disp-ovl";
+ 			reg = <0 0x1c000000 0 0x1000>;
+ 			clocks = <&vdosys0 CLK_VDO0_DISP_OVL0>;
+ 			interrupts = <GIC_SPI 636 IRQ_TYPE_LEVEL_HIGH 0>;
+-- 
+2.43.0
 
 
