@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11634E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CED2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7L9yMmJ5aTCZdUcF/ir4P0mH3+A1/6Rg2eTmdlssCI=; b=qToXhEZoR8CgAJ5lwSsNsI4t5U
-	chVs2fAklHbkeRwXRthaagxKMb4wcshTRJRWQYcvCOjg9uKG/BHNtdZwPfunKiT7ZZIynzjz4KYC+
-	pdsL0N7EWuef/QZzc588NyDLjr+U78GnsVFRZ+ZUnC2HhEi3ibZBmSay1cW74f49+9hgoj3kXIp0+
-	9vNZhZTcsq4onDQWSbJgHjnCtM9mpMlp/kI5s0z+6DFvxECMLGkcZuIIlvQkOBioYleedMyoQu5as
-	Jc7vJI297DXdfbXmB21DjPq8JhMxsTs2TWGBCdzM1D/g7IT94U28nfuU45SgAoXDFlwqbLusI68L2
-	7dYTWvIw==;
+	bh=Mm4It2ilbjn8iPFNXdh/VHiA0ksI7sibQShLq/q6s5c=; b=W4oYeFpBI5DU2AUm6zE85aVVcW
+	9doknDlZWYUvdiCqQPTXuJ9U1A3bfn3U93PXRWnc1pXejlvitAScuxE3VvIJaCfbzBPxcV9nmmBBE
+	sRgOed4wAyG+ro6ugcTQXiLrs3SaOOGflOmtItQfQqH5zruqxVOeraCyciFYM31NSm1kwmqZ58KMg
+	bslfme6vbGQI6V2DLqjIU30CtFPPE04v3q7Ccj9iK92xujBmXtZ81sjNOtsrRscgHSjOSngOlwrLu
+	Hw1ydtC+2155MxLrmm3VaQHO/Zl1/wExm0KdV7dkSK2QRst5zTpZRoQ4j8mn2WdQ8nDp/ZfAT7gEn
+	0q+wHLDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlLr-00000000nYX-44XV;
-	Thu, 12 Dec 2024 15:43:43 +0000
+	id 1tLlMu-00000000nlQ-2oQp;
+	Thu, 12 Dec 2024 15:44:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlIj-00000000mvQ-20em
+	id 1tLlIk-00000000mvt-1rJ1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:40:30 +0000
+	Thu, 12 Dec 2024 15:40:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1936176C;
-	Thu, 12 Dec 2024 07:40:56 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A442A176A;
+	Thu, 12 Dec 2024 07:40:55 -0800 (PST)
 Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.41])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E0E123F720;
-	Thu, 12 Dec 2024 07:40:27 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 914683F720;
+	Thu, 12 Dec 2024 07:40:26 -0800 (PST)
 From: Dave Martin <Dave.Martin@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	Zeng Heng <zengheng4@huawei.com>,
 	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
 	James Morse <james.morse@arm.com>
-Subject: [RFC PATCH 3/6] arm_mpam: Delete unused function resctrl_arch_set_rmid()
-Date: Thu, 12 Dec 2024 15:39:57 +0000
-Message-Id: <20241212154000.330467-4-Dave.Martin@arm.com>
+Subject: [RFC PATCH 2/6] arm_mpam: Fix read-back of cloned resource controls under CDP emulation
+Date: Thu, 12 Dec 2024 15:39:56 +0000
+Message-Id: <20241212154000.330467-3-Dave.Martin@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241212154000.330467-1-Dave.Martin@arm.com>
 References: <20241212154000.330467-1-Dave.Martin@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_074029_561777_14160A7C 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_074030_530918_8B7D5D62 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,56 +64,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function resctrl_arch_set_rmid() appears to have been left
-behind after earlier refactoring and is now unused.
+When reading resource control values through a resctrl schemata
+file, the index into the configuration array in the MPAM driver
+is currently translated incorrectly.
 
-To avoid needing to answer awkward questions about how this
-function should apply partition ID namespace remappings, just get
-rid of it.
+This means that when resctrl is mounted with the "cdp" option, the
+wrong array entry may be returned or an out-of-bounds array access
+may occur when reading back of control values for the MB resource.
 
-No functional change.
+Fix it by translating the index for affected resources as if they
+were "DATA" resources.  ("CODE" would also work, but because
+resctrl_arch_update_one() clones schemata writes across "CODE" and
+"DATA" for affected resources, it does not matter which one is
+read.)
 
 Signed-off-by: Dave Martin <Dave.Martin@arm.com>
 
 ---
 
-I'm assuming here that there are no pending branches that implement /
-use this function.
+This issue was introduced by the non-upstream commit
+"arm_mpam: resctrl: Improve CDP emulation"
 
-When moving tasks between monitoring groups, resctrlfs currently
-extracts the CLOSID from struct rdtgroup and passes it explicitly
-to resctrl_arch_set_closid_rmid(), so there seems to be no need for
-a separate helper that doesn't overwrite the arch's control
-partition identifier.
+(commit b097a6193546dbbd27cd19d7e16e1e750ebb030f in
+git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.12-rc1 )
 ---
- arch/arm64/include/asm/mpam.h | 14 --------------
- 1 file changed, 14 deletions(-)
+ drivers/platform/arm64/mpam/mpam_resctrl.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-index e5f385767174..df725d2d9d05 100644
---- a/arch/arm64/include/asm/mpam.h
-+++ b/arch/arm64/include/asm/mpam.h
-@@ -93,20 +93,6 @@ static inline u64 mpam_get_regval(struct task_struct *tsk)
- #endif
- }
+diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
+index 76ddbce0ea9c..30f2caec11d7 100644
+--- a/drivers/platform/arm64/mpam/mpam_resctrl.c
++++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
+@@ -1097,6 +1097,14 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+ 	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
+ 	cprops = &res->class->props;
  
--static inline void resctrl_arch_set_rmid(struct task_struct *tsk, u32 rmid)
--{
--#ifdef CONFIG_ARM64_MPAM
--	u64 regval = mpam_get_regval(tsk);
--
--	regval &= ~MPAM1_EL1_PMG_D;
--	regval &= ~MPAM1_EL1_PMG_I;
--	regval |= FIELD_PREP(MPAM1_EL1_PMG_D, rmid);
--	regval |= FIELD_PREP(MPAM1_EL1_PMG_I, rmid);
--
--	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
--#endif
--}
--
- static inline void mpam_thread_switch(struct task_struct *tsk)
- {
- 	u64 oldregval;
++	/*
++	 * When CDP is enabled, but the resource doesn't support it,
++	 * the control is cloned across both partids.
++	 * Pick one at random to read:
++	 */
++	if (mpam_resctrl_hide_cdp(r->rid))
++		type = CDP_DATA;
++
+ 	partid = resctrl_get_config_index(closid, type);
+ 	cfg = &dom->comp->cfg[partid];
+ 
 -- 
 2.34.1
 
