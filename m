@@ -4,96 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C41E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 13:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C4EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 13:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B+9a62ZNb/EWT2KZraUPUvnwvMhSxc9YsoXJSC42SEw=; b=J4AsHpORlTQO0NF1yoQ0uXdiJl
-	VSqXuNa0oc/m2g7vz1CMpUJzRyRAm+B/YbbIZjido9bVldhlrZ2Mik2KMRDfVVdSjO4Oq20uX1g0Y
-	OluR0msFf65sddjDKL2nSLHwG3Wl2a4+hQqvqEB+fsVF+mkxJ0TqK2MTfglmUoqaLWT7PefanxAiI
-	qnRTc1TISsG5AZIkUSXNbazkxtm4+0Jr2Ca4BtVBuE2EzzpgO9OcbScO5Cbere84qqFQsOJ68pzMp
-	fp/xAhBQMNrdDD1XMJPBQBoYrgDyEntBdvk/O2pjkmw9cCTj3SpovGa4DqfOfL5AoBGpmPx2cJusX
-	yXONJ76w==;
+	bh=TRyhwbCFs9YdnDuH25cHl/brWhLVDYOwoyJ6Xun4/54=; b=cjGBGH8JuDlOBb68XM5Sq9lDUw
+	m0hR7pjSx0tdgY3rDu7myuW95g5OgI7645UhKilTOt1Nbo82vDdSEY/gqyC48MOCArJsqeWokCrHt
+	NMBSAd3yWOWVvbUEn4DauzB1q51d18El0VHPrEdePMuDIHq3/Al8+qfrzyai7mPs/yosT8zZI1uZZ
+	Dpumnn4NHlC1sHhCQDEvFILa4UadGHLaeWKKF2hKf9P3/y3nssB/3ZORaWl0cmYWd6hfeoHpa+irn
+	/yaqzRmEOAebBJyo2/kCeDsdJG7B0OC+kVO7AzAJSwT+ZkU9wZjKdi+JdYCb+t8srr20ymLJLbyZJ
+	83gRFchw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLjQ4-00000000Vj7-3bxQ;
-	Thu, 12 Dec 2024 13:39:56 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tLjZZ-00000000X8a-3Mqs;
+	Thu, 12 Dec 2024 13:49:45 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLjL0-00000000Ulr-2FQX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 13:34:43 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2166360285dso5667195ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 05:34:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734010481; x=1734615281; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B+9a62ZNb/EWT2KZraUPUvnwvMhSxc9YsoXJSC42SEw=;
-        b=PrvxFmORx3oDNzbencQxn7Fr4k4sbDGxOQgPJE8OUhglocQ6FMDDwrySAiwDz/sJSG
-         5eLNrPrP26EgeqDxY0Vt26zyv+H1/i/DH6Nl9FqLgMJPlu/6WEJXuhFFnCl3qWZAftsQ
-         eva6eGnrT+am2e6eE99v0pHFJ7n1waMIFiG5IYodrHVmvnLF3UNmJyL/88q7jvGLP5py
-         Aq+/L3PlemDDV6XTga4Qnp6aXK6WMvGMcKgOSy0wrPmv8FIZq0sIhZ+2XpA7np53fDRr
-         +stNTkiNY2dfprCmQWR+Von0iGrSb2YXxn18AvyZcO+PSC4kSCUzSjvCvBAZSF3gvw8U
-         3Zug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734010481; x=1734615281;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B+9a62ZNb/EWT2KZraUPUvnwvMhSxc9YsoXJSC42SEw=;
-        b=kN0hgQYSsyibScr02HJXxf195R78a3t9UNQQGVrfNIuhm3zLm6iPS0lJRvF3+hWoAh
-         rNYO3e836GLH1jxXra29/+xOqt+0MxibGB/16wH84JLhM5gposkwzcrOOrNXaV1KVe/u
-         obirSMpIt4bRKmCshKB2cyx2BhvzZcUowSyzAp2bFSiAbbKBSs2manDH1m0FoTPTV5NM
-         qBHUA56sz+4WK+0gbFBX1xZihLertzHrKnd9gB/exyrUL2+e5OcdzihI58/OTtxBwf9R
-         YZeV/Tqj62CtLjBahWm/230vqP8EV1qczqU4QFnZ+lNTUv/XQNb5qQ9gbltwGCCWKmuJ
-         7SSA==
-X-Forwarded-Encrypted: i=1; AJvYcCV4gscFZTnRtiwWQdvhS76xlbk4M1cQbiPL4tPF1VJJ6rv2nWVQmSV5UkdJ1BmXyT5QdartwSrpWaIKw6wlV9r7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRP6t2qGFEUyCO0vrwAoQlXFTQN29kecBG2cOPVeXtBqJXR/xj
-	3Qeu0d+puwHXDqyAwsKWoFlc3qCRTVakRBr4xhqr85RrMgJ/y4AC
-X-Gm-Gg: ASbGncvobw83s1CAuZLd/s33465hzeBQ7MbqFtfUzOCU6dxm9h8JxZ6/pRaLeTiNtRM
-	7bIYFQvbhTqNxwoFb/s4RH47AwDUdK9E68CwP1ctuny9rP6stuRZU+Vf9EtFDAdeNxkplKW31tc
-	sKqDj2grDA2NNrgOCbJexP2HHQr4AZR+AjfKfMiiUhjORYzp0NzNmK+ou8BXXjlvhcB2YufakuW
-	tRr2C+/1LlnptM5T2qVkF9k5Yl5oSxyFNWU/DN3eIujjyAGSS0B0WhzyOiLPD56jrdUVLGnf3rd
-	bdwOBLL3uffbI6y8nGpkggqzoSKUzPoOjzXA/1dMmXOgSsypDWKS27PVpU0An5/vmAnv7gjlEBp
-	Q0qaE
-X-Google-Smtp-Source: AGHT+IHy1BSLKHF/ez/arq9rOsDz9L+2JIM6hHhlvZ3suOhtFcy4XDdXZnNQNlk3OKOkub/hn6NdTQ==
-X-Received: by 2002:a17:902:cec4:b0:216:5e6e:68b4 with SMTP id d9443c01a7336-2178aeed4c4mr63751705ad.46.1734010481565;
-        Thu, 12 Dec 2024 05:34:41 -0800 (PST)
-Received: from obliging-System-Product-Name.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2163562a838sm83390165ad.29.2024.12.12.05.34.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 05:34:41 -0800 (PST)
-From: Yang Chen <yangchen.openbmc@gmail.com>
-To: robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org,
-	andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	patrick@stwcx.xyz,
-	amithash@meta.com
-Cc: Jerry.Lin@quantatw.com,
-	yang.chen@quantatw.com
-Subject: [PATCH v1 4/4] ARM: dts: aspeed: minerva: add second source RTC
-Date: Thu, 12 Dec 2024 21:32:26 +0800
-Message-Id: <20241212133226.342937-5-yangchen.openbmc@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241212133226.342937-1-yangchen.openbmc@gmail.com>
-References: <20241212133226.342937-1-yangchen.openbmc@gmail.com>
+	id 1tLjYW-00000000X2i-0tnp;
+	Thu, 12 Dec 2024 13:48:41 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id B429C1F37C;
+	Thu, 12 Dec 2024 13:48:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1734011316; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TRyhwbCFs9YdnDuH25cHl/brWhLVDYOwoyJ6Xun4/54=;
+	b=CTPt1+1OwXTDKbXc/EkMUIj6Yz06KWM8JO0UQZaROMLvn9VlEhw6oGCh60OuODlHeKhLk5
+	RSBZ56QwJHDk5UXexWrXr0jR80IyZSG7aYi+zO8GvX4C5eOjlMS2281luOivNQLDeD9A9Q
+	Bgkq82ID3IO5rL9okQSmxQKMxKRl4U0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1734011316;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TRyhwbCFs9YdnDuH25cHl/brWhLVDYOwoyJ6Xun4/54=;
+	b=MqdWU/zS4j6umFc78Qbzm+NvarMMEdpJCNKjFw3gf9KcIZJ57etWMrqkdiDfxDOCmEIiEQ
+	D/NB7OWrK73GtrDA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CTPt1+1O;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="MqdWU/zS"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1734011316; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TRyhwbCFs9YdnDuH25cHl/brWhLVDYOwoyJ6Xun4/54=;
+	b=CTPt1+1OwXTDKbXc/EkMUIj6Yz06KWM8JO0UQZaROMLvn9VlEhw6oGCh60OuODlHeKhLk5
+	RSBZ56QwJHDk5UXexWrXr0jR80IyZSG7aYi+zO8GvX4C5eOjlMS2281luOivNQLDeD9A9Q
+	Bgkq82ID3IO5rL9okQSmxQKMxKRl4U0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1734011316;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TRyhwbCFs9YdnDuH25cHl/brWhLVDYOwoyJ6Xun4/54=;
+	b=MqdWU/zS4j6umFc78Qbzm+NvarMMEdpJCNKjFw3gf9KcIZJ57etWMrqkdiDfxDOCmEIiEQ
+	D/NB7OWrK73GtrDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B8ACE13939;
+	Thu, 12 Dec 2024 13:48:35 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id iiqTKrPpWme1YgAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Thu, 12 Dec 2024 13:48:35 +0000
+Message-ID: <462fcc0a-3b4a-4b59-b414-a2d305dcd29a@suse.de>
+Date: Thu, 12 Dec 2024 15:48:35 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/10] PCI: brcmstb: Adjust PHY PLL setup to use a
+ 54MHz input refclk
+To: Jonathan Bell <jonathan@raspberrypi.com>,
+ James Quinlan <james.quinlan@broadcom.com>
+Cc: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>
+References: <20241025124515.14066-1-svarbanov@suse.de>
+ <20241025124515.14066-9-svarbanov@suse.de>
+ <4bbdf9ed-f429-411b-8f5f-e51857f0f9d0@broadcom.com>
+ <f9f49030-0518-4e30-91a7-3c088c31180b@suse.de>
+ <474e5e38-37a4-439b-b25a-fe60df03f25b@broadcom.com>
+ <CADQZjwci2SVN=AG178kj3yN=17nVixOHEZOjZCs9LSUihbby4Q@mail.gmail.com>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <CADQZjwci2SVN=AG178kj3yN=17nVixOHEZOjZCs9LSUihbby4Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: B429C1F37C
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[suse.de,vger.kernel.org,lists.infradead.org,broadcom.com,linutronix.de,kernel.org,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	DKIM_TRACE(0.00)[suse.de:+];
+	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:mid,suse.de:email]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_053442_569560_397327C4 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_054840_406536_81A98D18 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +162,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add second source RTC on i2c bus 9.
+Hi
 
-Signed-off-by: Yang Chen <yangchen.openbmc@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+On 12/11/24 10:54 PM, Jonathan Bell wrote:
+> On Wed, 11 Dec 2024 at 19:39, James Quinlan <james.quinlan@broadcom.com> wrote:
+>>
+>> On 12/10/24 08:42, Stanimir Varbanov wrote:
+>>> Hi Jim
+>>>
+>>> On 12/10/24 12:52 AM, James Quinlan wrote:
+>>>> On 10/25/24 08:45, Stanimir Varbanov wrote:
+>>>>> The default input reference clock for the PHY PLL is 100Mhz, except for
+>>>>> some devices where it is 54Mhz like bcm2712C1 and bcm2712D0.
+>>>>>
+>>>>> To implement this adjustments introduce a new .post_setup op in
+>>>>> pcie_cfg_data and call it at the end of brcm_pcie_setup function.
+>>>>>
+>>>>> The bcm2712 .post_setup callback implements the required MDIO writes that
+>>>>> switch the PLL refclk and also change PHY PM clock period.
+>>>>>
+>>>>> Without this RPi5 PCIex1 is unable to enumerate endpoint devices on
+>>>>> the expansion connector.
+>>>>>
+>>>>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>>>>> ---
+>>>>> v3 -> v4:
+>>>>>    - Improved patch description (Florian)
+>>>>>
+>>>>>    drivers/pci/controller/pcie-brcmstb.c | 42 +++++++++++++++++++++++++++
+>>>>>    1 file changed, 42 insertions(+)
+>>>>>
+>>>>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/
+>>>>> controller/pcie-brcmstb.c
+>>>>> index d970a76aa9ef..2571dcc14560 100644
+>>>>> --- a/drivers/pci/controller/pcie-brcmstb.c
+>>>>> +++ b/drivers/pci/controller/pcie-brcmstb.c
+>>>>> @@ -55,6 +55,10 @@
+>>>>>    #define PCIE_RC_DL_MDIO_WR_DATA                0x1104
+>>>>>    #define PCIE_RC_DL_MDIO_RD_DATA                0x1108
+>>>>>    +#define PCIE_RC_PL_PHY_CTL_15                0x184c
+>>>>> +#define  PCIE_RC_PL_PHY_CTL_15_DIS_PLL_PD_MASK        0x400000
+>>>>> +#define  PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK    0xff
+>>>>> +
+>>>>>    #define PCIE_MISC_MISC_CTRL                0x4008
+>>>>>    #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_64B_MODE_MASK    0x80
+>>>>>    #define  PCIE_MISC_MISC_CTRL_PCIE_RCB_MPS_MODE_MASK    0x400
+>>>>> @@ -251,6 +255,7 @@ struct pcie_cfg_data {
+>>>>>        u8 num_inbound_wins;
+>>>>>        int (*perst_set)(struct brcm_pcie *pcie, u32 val);
+>>>>>        int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
+>>>>> +    int (*post_setup)(struct brcm_pcie *pcie);
+>>>>>    };
+>>>>>      struct subdev_regulators {
+>>>>> @@ -826,6 +831,36 @@ static int brcm_pcie_perst_set_generic(struct
+>>>>> brcm_pcie *pcie, u32 val)
+>>>>>        return 0;
+>>>>>    }
+>>>>>    +static int brcm_pcie_post_setup_bcm2712(struct brcm_pcie *pcie)
+>>>>> +{
+>>>>> +    const u16 data[] = { 0x50b9, 0xbda1, 0x0094, 0x97b4, 0x5030,
+>>>>> 0x5030, 0x0007 };
+>>>>> +    const u8 regs[] = { 0x16, 0x17, 0x18, 0x19, 0x1b, 0x1c, 0x1e };
+>>>>> +    int ret, i;
+>>>>> +    u32 tmp;
+>>>>> +
+>>>>> +    /* Allow a 54MHz (xosc) refclk source */
+>>>>> +    ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0,
+>>>>> SET_ADDR_OFFSET, 0x1600);
+>>>>> +    if (ret < 0)
+>>>>> +        return ret;
+>>>>> +
+>>>>> +    for (i = 0; i < ARRAY_SIZE(regs); i++) {
+>>>>> +        ret = brcm_pcie_mdio_write(pcie->base, MDIO_PORT0, regs[i],
+>>>>> data[i]);
+>>>>> +        if (ret < 0)
+>>>>> +            return ret;
+>>>>> +    }
+>>>>> +
+>>>>> +    usleep_range(100, 200);
+>>>>> +
+>>>>> +    /* Fix for L1SS errata */
+>>>>> +    tmp = readl(pcie->base + PCIE_RC_PL_PHY_CTL_15);
+>>>>> +    tmp &= ~PCIE_RC_PL_PHY_CTL_15_PM_CLK_PERIOD_MASK;
+>>>>> +    /* PM clock period is 18.52ns (round down) */
+>>>>> +    tmp |= 0x12;
+>>>>> +    writel(tmp, pcie->base + PCIE_RC_PL_PHY_CTL_15);
+>>>> Hi Stan,
+>>>>
+>>>> Can you please say more about where this errata came from?  I asked the
+>>>> 7712 PCIe HW folks and they said that there best guess was that it was a
+>>>> old workaround for a particular Broadcom Wifi endpoint.  Do you know its
+>>>> origin?
+>>> Unfortunately, I don't know the details. See the comments on previous
+>>> series version [1]. My observation shows that MDIO writes are
+>>> implemented in RPi platform firmware only for pcie2 (where RP1 south
+>>> bridge is connected) but not for pcie1 expansion connector.
+>>
+>> Well, I think my concern is more about the comment "Fix for L1SS errata"
+>> rather than the code.  If this is a bonafide errata it should have an
+>> identifier and some documentation somewhere. Declaring it to be an
+>> unknown errata provides little info.
+> 
+> I'm the originator of this thunk - erratum is perhaps the wrong description.
+> If the reference clock provided to the RC is 54MHz and not 100MHz, as
+> is the case on BCM2712, then many of the L1 sub-state timers run
+> slower which means state transitions are unnecessarily lengthened.
+> 
+> This change, and the MDIO manipulation above, should be applied
+> regardless of the RC instance and/or connected EP.
+> 
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-index 7fddbe833cc2..ef96b17becb2 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-@@ -1292,6 +1292,11 @@ rtc@51 {
- 		compatible = "nxp,pcf8563";
- 		reg = <0x51>;
- 	};
-+
-+	rtc@68 {
-+		compatible = "dallas,ds1339";
-+		reg = <0x68>;
-+	};
- };
- 
- &i2c12 {
--- 
-2.34.1
+Thank you Jonathan.
+
+I guess you are fine to take this description in the next version of the
+series?
+
+~Stan
+
 
 
