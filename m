@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A57E77184
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5097FE77187
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8LOnKB51DX+hbW0El8jQ5+VtfI8i+DJEmanKBr5IaOc=; b=4DQAOju24trZV0s0yN37mghh6P
-	995BfBhSPsScE73hNROoHmIg1u+TSu13NoNKnBgt2P52toEltdf/4AiWlV22dxMn0gzZ+MxgCLBEE
-	LAwQc4n3xw9p3a3ZWGOJUwRWH6YbEmDiorJCpN/rVgeAhGdMFbwurRRsRnsUavfy4mj/XSw5bEnpR
-	ABXcKSFAi1iKmdGrNvutdW/IhJdZ5HdGUvqUyq40Nmsbld3buep9oXVWDFpipGuMLhYuqv/NeOsBA
-	DAqrAJ3Ml1un1oT8lS3hqbne3JZ9fGcGstR0ZXYP5D3jSZmBMCKYfMs+bCayBNyIn7hfha/NJ+MDs
-	dNMltNvw==;
+	bh=ajIKdrUqITXEhupzYVVmmPjTpdyF1nqGjC97azBMTVk=; b=eeoum65dhxRg9QRX4UPEVt52Nk
+	defjscMADCRF9qL7G3OnT+JSbVxncGcu4qJIRu9J62Tw7jSDta8eGNeKos2AlulflD4xJHIdbaGSm
+	Ac0m2sox9wMjLcwRdjKmKm8x8qBas6OldOYWqay+Cm50ylMAApvjha8REIHJxUsau2kEg/oM84KDw
+	6SC2j4YOsKa1HOfvh6L7X7ECggNR3OVCX2od2NTRUSi6OqTFKBfDdUNcRiKzOY3XsmGSgBK8Kec88
+	phSZrdO4pzC0U0QgnYv8o7U3WKex5o4k788RfmJwX/u0XZotPZTxHfoMtvADNu2CxuC5yeyUTE017
+	Mifn2bVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLofN-00000001aCW-2W6m;
-	Thu, 12 Dec 2024 19:16:05 +0000
+	id 1tLofO-00000001aDJ-3C5n;
+	Thu, 12 Dec 2024 19:16:06 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnaE-00000001KC1-1G0Z
+	id 1tLnaI-00000001KDr-360r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:06:44 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4361ecebc5bso5657655e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:41 -0800 (PST)
+	Thu, 12 Dec 2024 18:06:47 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-436219070b4so5750065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026800; x=1734631600; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026804; x=1734631604; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8LOnKB51DX+hbW0El8jQ5+VtfI8i+DJEmanKBr5IaOc=;
-        b=zAamf+YrFEZvRHAPBTxBzlj7yC3jHE7JtF4E3dE4EWQDlnzSkHo4HlhUO6jYF+6On9
-         nlBit0NAyw53+bFxzFnH6cbpGffikjdMJYOWMk0dClArkOTEqZFZatqG/llVNgmAYFop
-         2GhbkA9kiWooGdhjSX/pomW5kCD5S3GrBsaTe4IajWapFizSij7qtyaZklwi99oFMhP2
-         +LvO5YaDB6D30Y7YrIO3IRWCt9Yt/Ue5LzzdBHQdnrKPaoiA9R2tDRilM7yox1U9JrAK
-         Kp4X7sv5siCuJ5ZaPV9MItsLP8fTyHsiMuzKk/6ehA1AM/9gm6i5Yq589LBK8WYOYC1b
-         j79w==
+        bh=ajIKdrUqITXEhupzYVVmmPjTpdyF1nqGjC97azBMTVk=;
+        b=HWNh6iseTDr++zQpMaX73D7MetG730LoqBJa/DMZHB3xDbOzgHV6n9RlfTMZMC0KoG
+         W909NQcDKf756xTHjY68F8XUkt0Y4UQudBOvJyFxikl8HjnElyYq92aLg/ko1db+oeRw
+         imWsdWxIX7tG+5G5gviHh/6y5X3BbODXGYH17tHMdRGhLOySAiqIRE98wrMcKnKtg3CZ
+         ny4i9jw6qjZmfKojaislLOEnh/Yrul8bs32bFgkl3gZ5ALwVXZjq0xG73dJSfKvhcP5y
+         Kg7Qrxlh6B1d04/YMAAuSXyB0qxzEa+4+fxVsH3gT27swolZWN4p2WmN3tkSVrEqOiRJ
+         1OHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026800; x=1734631600;
+        d=1e100.net; s=20230601; t=1734026804; x=1734631604;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8LOnKB51DX+hbW0El8jQ5+VtfI8i+DJEmanKBr5IaOc=;
-        b=U/Lm+xYFeVWINk3H77rF0FtOZbI+CIgggGyjHYCPEXhWntysz2AHNuTron9F+CHFBr
-         3KEXl7S8y0ZbMnBw0qnT5pcV1HZYAphygYy1MQ3BcnjgXmV3ZNbaabVy5m+tBwcwH9vk
-         YnLZ3/mO/xXLKuXxm4atMLUyQDwL7tWggn1P82N/5BGrF/a4DuATz8823g/3YPuMkIdf
-         NiDSOzenvRCb/ASn7WtyWyEGnBvYUs9S+Qr3gUD84NOra0u72/0QJfjsok0PoINfvT/K
-         hpfGV9Xzmze0+zcPiNMmNha4hT35cVvOsjXDtQvAFo9E+Umys36iuv5yGtJPMGsFyLm0
-         lO9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWvPdbMC1QeLY7jd8oL+1F7yXlz8/BDzDeraBybgIsdfVtuRJVKvQZ59M6IOlWoJzl9CvroX3X6ZLHG0qKweqZo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8ypGuKV5F0krEQvrq4n/6p2MeweVSPXktzz+8ANk3U6pWZpBW
-	Y04rgjPN52fRgpDXZwytt7cKwhQX79C7rvor8C7691LHPtDn8nOYPevHxxLl/vEpbrgaQ/4hnmm
-	Ey9UQSfflIw==
-X-Google-Smtp-Source: AGHT+IE8zSOvadgYlQu/oyCrvtp7QB6KNjjif3fcyBgRNu+AsyTgZxEHuVmvUAgeCaCC/YUaZxC98HiuTjTEZA==
-X-Received: from wmgg15.prod.google.com ([2002:a05:600d:f:b0:434:feb1:add1])
+        bh=ajIKdrUqITXEhupzYVVmmPjTpdyF1nqGjC97azBMTVk=;
+        b=uXaJvfncHEq4ph4hLT86LogvkA9fHqXNkqoMkyjQY+3idWJPUxb7v6LH37JFzqQi0Y
+         0TfLgjzYC2UsiarWN6o3Uy+Hx0HoatLLaoDkWRrxC23RfKW3CWnsQ4W6GYIWOwcb//pY
+         Sgpk3X8VVxSP+LFaHs9hxtH0oYbzDVDut6JYByJPn4pDRT39InxgRYrdHhKGVBYURxml
+         zQgJ9I0x1xoQYyyFjQcbPdwmtz0WGJC+vlBGjtxkWjjz+CTZfhRgi9aqg6NNkJ6T1hnH
+         gLQUDqUD3Sn+xXQZftW58T1pudjQXPVA5c4LyE6H4CmUWfy2LrzFGXwccyq6qrAK0KDZ
+         BmFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVEodmdxT9Z0qHNPr/UUDzpVNdkiUvEJgEPe69B76+VtLUWDT40loNsJapWsu1yJ2V6dcPjexli2MZGhYgeDLiO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfS+/UGP62WQOnpInmzYM6i0vhbD/OXvs5DzjTcf1yQ1xQe7H0
+	p3NShrA6cCz/ym6mRuTl5pcgIRLsQXmtnMcjTxdn4A/FEHnwBz7Z3dhFUEUqJ7OKSxmfXHGVNsm
+	uAdZuWEJXgA==
+X-Google-Smtp-Source: AGHT+IF8vdJDKvGLsvTQvgAsP/DNyJ5otwtCZgR3B2II3FkJG+cRU0VYMTYD1iadajRkM2BnXV0BxcynsvJ72Q==
+X-Received: from wmlf18.prod.google.com ([2002:a7b:c8d2:0:b0:434:9da4:2fa5])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3109:b0:434:fafe:edb with SMTP id 5b1f17b1804b1-4361c3e22e7mr61901735e9.24.1734026800793;
- Thu, 12 Dec 2024 10:06:40 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:04:20 +0000
+ 2002:a05:600c:350c:b0:434:a4a6:51f8 with SMTP id 5b1f17b1804b1-4361c2bbb02mr71819045e9.0.1734026804672;
+ Thu, 12 Dec 2024 10:06:44 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:04:22 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-57-smostafa@google.com>
-Subject: [RFC PATCH v2 56/58] KVM: arm64: iommu: Add hypercall for map_sg
+Message-ID: <20241212180423.1578358-59-smostafa@google.com>
+Subject: [RFC PATCH v2 58/58] iommu/arm-smmu-v3-kvm: Support command queue batching
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100642_337977_1457836A 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20241212_100646_777236_96ED41FE 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,213 +95,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new type struct kvm_iommu_sg, that describes a simple sglist,
-and a hypercall that can consume it while calling the map_pages ops.
+Similar to the kernel driver, we can batch commands at EL2 to avoid
+writing to MMIO space, this is quite noticable if the SMMU doesn't
+support range invalidation so it has to invalidate page per page.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/include/asm/kvm_asm.h        |  1 +
- arch/arm64/include/asm/kvm_host.h       | 19 ++++++++
- arch/arm64/kvm/hyp/include/nvhe/iommu.h |  2 +
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 14 ++++++
- arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 58 +++++++++++++++++++++++++
- arch/arm64/kvm/iommu.c                  | 32 ++++++++++++++
- 6 files changed, 126 insertions(+)
+ arch/arm64/include/asm/arm-smmu-v3-common.h | 16 ++++
+ arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 95 ++++++++++++++++-----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 15 ----
+ 3 files changed, 88 insertions(+), 38 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 3dbf30cd10f3..f2b86d1a62ed 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -115,6 +115,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_unmap_pages,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_iova_to_phys,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_host_hvc_pd,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_map_sg,
- 
- 	/*
- 	 * Start of the dynamically registered hypercalls. Start a bit
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 3cdc99ebdd0d..704648619d28 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1655,4 +1655,23 @@ int kvm_iommu_register_driver(struct kvm_iommu_driver *kern_ops,
- int kvm_iommu_init_driver(void);
- void kvm_iommu_remove_driver(void);
- 
-+struct kvm_iommu_sg {
-+	phys_addr_t phys;
-+	size_t pgsize;
-+	unsigned int pgcount;
-+};
-+
-+static inline struct kvm_iommu_sg *kvm_iommu_sg_alloc(unsigned int nents, gfp_t gfp)
-+{
-+	return alloc_pages_exact(PAGE_ALIGN(nents * sizeof(struct kvm_iommu_sg)), gfp);
-+}
-+
-+static inline void kvm_iommu_sg_free(struct kvm_iommu_sg *sg, unsigned int nents)
-+{
-+	free_pages_exact(sg, PAGE_ALIGN(nents * sizeof(struct kvm_iommu_sg)));
-+}
-+
-+int kvm_iommu_share_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents);
-+int kvm_iommu_unshare_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents);
-+
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-index cff75d67d807..1004465b680a 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-@@ -22,6 +22,8 @@ size_t kvm_iommu_unmap_pages(pkvm_handle_t domain_id, unsigned long iova,
- 			     size_t pgsize, size_t pgcount);
- phys_addr_t kvm_iommu_iova_to_phys(pkvm_handle_t domain_id, unsigned long iova);
- bool kvm_iommu_host_dabt_handler(struct kvm_cpu_context *host_ctxt, u64 esr, u64 addr);
-+size_t kvm_iommu_map_sg(pkvm_handle_t domain, unsigned long iova, struct kvm_iommu_sg *sg,
-+			unsigned int nent, unsigned int prot);
- 
- /* Flags for memory allocation for IOMMU drivers */
- #define IOMMU_PAGE_NOCACHE				BIT(0)
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 1ab8e5507825..5659aae0c758 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -1682,6 +1682,19 @@ static void handle___pkvm_host_hvc_pd(struct kvm_cpu_context *host_ctxt)
- 	cpu_reg(host_ctxt, 1) = pkvm_host_hvc_pd(device_id, on);
- }
- 
-+static void handle___pkvm_host_iommu_map_sg(struct kvm_cpu_context *host_ctxt)
-+{
-+	unsigned long ret;
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
-+	DECLARE_REG(unsigned long, iova, host_ctxt, 2);
-+	DECLARE_REG(struct kvm_iommu_sg *, sg, host_ctxt, 3);
-+	DECLARE_REG(unsigned int, nent, host_ctxt, 4);
-+	DECLARE_REG(unsigned int, prot, host_ctxt, 5);
-+
-+	ret = kvm_iommu_map_sg(domain, iova, kern_hyp_va(sg), nent, prot);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
- typedef void (*hcall_t)(struct kvm_cpu_context *);
- 
- #define HANDLE_FUNC(x)	[__KVM_HOST_SMCCC_FUNC_##x] = (hcall_t)handle_##x
-@@ -1747,6 +1760,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_host_iommu_unmap_pages),
- 	HANDLE_FUNC(__pkvm_host_iommu_iova_to_phys),
- 	HANDLE_FUNC(__pkvm_host_hvc_pd),
-+	HANDLE_FUNC(__pkvm_host_iommu_map_sg),
+diff --git a/arch/arm64/include/asm/arm-smmu-v3-common.h b/arch/arm64/include/asm/arm-smmu-v3-common.h
+index f2fbd286f674..2578c8e9202e 100644
+--- a/arch/arm64/include/asm/arm-smmu-v3-common.h
++++ b/arch/arm64/include/asm/arm-smmu-v3-common.h
+@@ -573,4 +573,20 @@ struct arm_smmu_cmdq_ent {
+ 	};
  };
  
- static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-index e45dadd0c4aa..b0c9b9086fd1 100644
---- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-+++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-@@ -392,6 +392,64 @@ bool kvm_iommu_host_dabt_handler(struct kvm_cpu_context *host_ctxt, u64 esr, u64
- 	return ret;
++#define Q_OVERFLOW_FLAG			(1U << 31)
++#define Q_OVF(p)			((p) & Q_OVERFLOW_FLAG)
++
++/*
++ * This is used to size the command queue and therefore must be at least
++ * BITS_PER_LONG so that the valid_map works correctly (it relies on the
++ * total number of queue entries being a multiple of BITS_PER_LONG).
++ */
++#define CMDQ_BATCH_ENTRIES		BITS_PER_LONG
++
++struct arm_smmu_cmdq_batch {
++	u64				cmds[CMDQ_BATCH_ENTRIES * CMDQ_ENT_DWORDS];
++	struct arm_smmu_cmdq		*cmdq;
++	int				num;
++};
++
+ #endif /* _ARM_SMMU_V3_COMMON_H */
+diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
+index 60f0760f49eb..62760136c6fb 100644
+--- a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
++++ b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
+@@ -96,12 +96,20 @@ static void smmu_reclaim_pages(u64 phys, size_t size)
+ #define Q_WRAP(smmu, reg)	((reg) & (1 << (smmu)->cmdq_log2size))
+ #define Q_IDX(smmu, reg)	((reg) & ((1 << (smmu)->cmdq_log2size) - 1))
+ 
+-static bool smmu_cmdq_full(struct hyp_arm_smmu_v3_device *smmu)
++static bool smmu_cmdq_has_space(struct hyp_arm_smmu_v3_device *smmu, u32 n)
+ {
+-	u64 cons = readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
++	u64 smmu_cons = readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
++	u32 space, prod, cons;
+ 
+-	return Q_IDX(smmu, smmu->cmdq_prod) == Q_IDX(smmu, cons) &&
+-	       Q_WRAP(smmu, smmu->cmdq_prod) != Q_WRAP(smmu, cons);
++	prod = Q_IDX(smmu, smmu->cmdq_prod);
++	cons = Q_IDX(smmu, smmu_cons);
++
++	if (Q_WRAP(smmu, smmu->cmdq_prod) == Q_WRAP(smmu, smmu_cons))
++		space = (1 << smmu->cmdq_log2size) - (prod - cons);
++	else
++		space = cons - prod;
++
++	return space >= n;
  }
  
-+size_t kvm_iommu_map_sg(pkvm_handle_t domain_id, unsigned long iova, struct kvm_iommu_sg *sg,
-+			unsigned int nent, unsigned int prot)
-+{
-+	int ret;
-+	size_t total_mapped = 0, mapped;
-+	struct kvm_hyp_iommu_domain *domain;
-+	phys_addr_t phys;
-+	size_t size, pgsize, pgcount;
-+	unsigned int orig_nent = nent;
-+	struct kvm_iommu_sg *orig_sg = sg;
-+
-+	if (!kvm_iommu_ops || !kvm_iommu_ops->map_pages)
-+		return 0;
-+
-+	if (prot & ~IOMMU_PROT_MASK)
-+		return 0;
-+
-+	domain = handle_to_domain(domain_id);
-+	if (!domain || domain_get(domain))
-+		return 0;
-+
-+	ret = hyp_pin_shared_mem(sg, sg + nent);
-+	if (ret)
-+		goto out_put_domain;
-+
-+	while (nent--) {
-+		phys = sg->phys;
-+		pgsize = sg->pgsize;
-+		pgcount = sg->pgcount;
-+
-+		if (__builtin_mul_overflow(pgsize, pgcount, &size) ||
-+		    iova + size < iova)
-+			goto out_unpin_sg;
-+
-+		ret = __pkvm_host_use_dma(phys, size);
-+		if (ret)
-+			goto out_unpin_sg;
-+
-+		mapped = 0;
-+		kvm_iommu_ops->map_pages(domain, iova, phys, pgsize, pgcount, prot, &mapped);
-+		total_mapped += mapped;
-+		phys += mapped;
-+		iova += mapped;
-+		/* Might need memory */
-+		if (mapped != size) {
-+			__pkvm_host_unuse_dma(phys, size - mapped);
-+			break;
-+		}
-+		sg++;
-+	}
-+
-+out_unpin_sg:
-+	hyp_unpin_shared_mem(orig_sg, orig_sg + orig_nent);
-+out_put_domain:
-+	domain_put(domain);
-+	return total_mapped;
-+}
-+
- static int iommu_power_on(struct kvm_power_domain *pd)
- {
- 	struct kvm_hyp_iommu *iommu = container_of(pd, struct kvm_hyp_iommu,
-diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
-index af3417e6259d..99718af0cba6 100644
---- a/arch/arm64/kvm/iommu.c
-+++ b/arch/arm64/kvm/iommu.c
-@@ -55,3 +55,35 @@ void kvm_iommu_remove_driver(void)
- 	if (smp_load_acquire(&iommu_driver))
- 		iommu_driver->remove_driver();
+ static bool smmu_cmdq_empty(struct hyp_arm_smmu_v3_device *smmu)
+@@ -112,22 +120,8 @@ static bool smmu_cmdq_empty(struct hyp_arm_smmu_v3_device *smmu)
+ 	       Q_WRAP(smmu, smmu->cmdq_prod) == Q_WRAP(smmu, cons);
  }
-+
-+int kvm_iommu_share_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents)
-+{
-+	size_t nr_pages = PAGE_ALIGN(sizeof(*sg) * nents) >> PAGE_SHIFT;
-+	phys_addr_t sg_pfn = virt_to_phys(sg) >> PAGE_SHIFT;
-+	int i;
-+	int ret;
-+
-+	for (i = 0 ; i < nr_pages ; ++i) {
-+		ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, sg_pfn + i);
-+		if (ret)
-+			return ret;
-+	}
-+
+ 
+-static int smmu_add_cmd(struct hyp_arm_smmu_v3_device *smmu,
+-			struct arm_smmu_cmdq_ent *ent)
++static int smmu_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+ {
+-	int i;
+-	int ret;
+-	u64 cmd[CMDQ_ENT_DWORDS] = {};
+-	int idx = Q_IDX(smmu, smmu->cmdq_prod);
+-	u64 *slot = smmu->cmdq_base + idx * CMDQ_ENT_DWORDS;
+-
+-	if (smmu->iommu.power_is_off)
+-		return -EPIPE;
+-
+-	ret = smmu_wait_event(smmu, !smmu_cmdq_full(smmu));
+-	if (ret)
+-		return ret;
+-
+ 	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
+ 
+ 	switch (ent->opcode) {
+@@ -175,15 +169,49 @@ static int smmu_add_cmd(struct hyp_arm_smmu_v3_device *smmu,
+ 		return -EINVAL;
+ 	}
+ 
+-	for (i = 0; i < CMDQ_ENT_DWORDS; i++)
+-		slot[i] = cpu_to_le64(cmd[i]);
 +	return 0;
 +}
 +
-+int kvm_iommu_unshare_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents)
++static int smmu_issue_cmds(struct hyp_arm_smmu_v3_device *smmu,
++			   u64 *cmds, int n)
 +{
-+	size_t nr_pages = PAGE_ALIGN(sizeof(*sg) * nents) >> PAGE_SHIFT;
-+	phys_addr_t sg_pfn = virt_to_phys(sg) >> PAGE_SHIFT;
++	int idx = Q_IDX(smmu, smmu->cmdq_prod);
++	u64 *slot = smmu->cmdq_base + idx * CMDQ_ENT_DWORDS;
 +	int i;
 +	int ret;
++	u32 prod;
 +
-+	for (i = 0 ; i < nr_pages ; ++i) {
-+		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, sg_pfn + i);
-+		if (ret)
-+			return ret;
++	if (smmu->iommu.power_is_off)
++		return -EPIPE;
++
++	ret = smmu_wait_event(smmu, smmu_cmdq_has_space(smmu, n));
++	if (ret)
++		return ret;
++
++	for (i = 0; i < CMDQ_ENT_DWORDS * n; i++)
++		slot[i] = cpu_to_le64(cmds[i]);
++
++	prod = (Q_WRAP(smmu, smmu->cmdq_prod) | Q_IDX(smmu, smmu->cmdq_prod)) + n;
++	smmu->cmdq_prod = Q_OVF(smmu->cmdq_prod) | Q_WRAP(smmu, prod) | Q_IDX(smmu, prod);
+ 
+-	smmu->cmdq_prod++;
+ 	writel(Q_IDX(smmu, smmu->cmdq_prod) | Q_WRAP(smmu, smmu->cmdq_prod),
+ 	       smmu->base + ARM_SMMU_CMDQ_PROD);
+ 	return 0;
+ }
+ 
++static int smmu_add_cmd(struct hyp_arm_smmu_v3_device *smmu,
++			struct arm_smmu_cmdq_ent *ent)
++{
++	u64 cmd[CMDQ_ENT_DWORDS] = {};
++	int ret;
++
++	ret = smmu_build_cmd(cmd, ent);
++	if (ret)
++		return ret;
++
++	return smmu_issue_cmds(smmu, cmd, 1);
++}
++
+ static int smmu_sync_cmd(struct hyp_arm_smmu_v3_device *smmu)
+ {
+ 	int ret;
+@@ -685,6 +713,23 @@ static void smmu_tlb_flush_all(void *cookie)
+ 	kvm_iommu_unlock(&smmu->iommu);
+ }
+ 
++static void smmu_cmdq_batch_add(struct hyp_arm_smmu_v3_device *smmu,
++				struct arm_smmu_cmdq_batch *cmds,
++				struct arm_smmu_cmdq_ent *cmd)
++{
++	int index;
++
++	if (cmds->num == CMDQ_BATCH_ENTRIES) {
++		smmu_issue_cmds(smmu, cmds->cmds, cmds->num);
++		cmds->num = 0;
 +	}
 +
-+	return 0;
++	index = cmds->num * CMDQ_ENT_DWORDS;
++	smmu_build_cmd(&cmds->cmds[index], cmd);
++
++	cmds->num++;
 +}
++
+ static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
+ 				   struct kvm_hyp_iommu_domain *domain,
+ 				   struct arm_smmu_cmdq_ent *cmd,
+@@ -694,6 +739,7 @@ static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
+ 	unsigned long end = iova + size, num_pages = 0, tg = 0;
+ 	size_t inv_range = granule;
+ 	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
++	struct arm_smmu_cmdq_batch cmds;
+ 
+ 	kvm_iommu_lock(&smmu->iommu);
+ 	if (smmu->iommu.power_is_off)
+@@ -723,6 +769,8 @@ static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
+ 			num_pages++;
+ 	}
+ 
++	cmds.num = 0;
++
+ 	while (iova < end) {
+ 		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
+ 			/*
+@@ -749,11 +797,12 @@ static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
+ 			num_pages -= num << scale;
+ 		}
+ 		cmd->tlbi.addr = iova;
+-		WARN_ON(smmu_add_cmd(smmu, cmd));
++		smmu_cmdq_batch_add(smmu, &cmds, cmd);
+ 		BUG_ON(iova + inv_range < iova);
+ 		iova += inv_range;
+ 	}
+ 
++	WARN_ON(smmu_issue_cmds(smmu, cmds.cmds, cmds.num));
+ 	ret = smmu_sync_cmd(smmu);
+ out_ret:
+ 	kvm_iommu_unlock(&smmu->iommu);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index d91dfe55835d..18f878bb7f98 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -20,8 +20,6 @@ struct arm_smmu_device;
+ 
+ #define Q_IDX(llq, p)			((p) & ((1 << (llq)->max_n_shift) - 1))
+ #define Q_WRP(llq, p)			((p) & (1 << (llq)->max_n_shift))
+-#define Q_OVERFLOW_FLAG			(1U << 31)
+-#define Q_OVF(p)			((p) & Q_OVERFLOW_FLAG)
+ #define Q_ENT(q, p)			((q)->base +			\
+ 					 Q_IDX(&((q)->llq), p) *	\
+ 					 (q)->ent_dwords)
+@@ -35,13 +33,6 @@ struct arm_smmu_device;
+ 
+ #define CMDQ_PROD_OWNED_FLAG		Q_OVERFLOW_FLAG
+ 
+-/*
+- * This is used to size the command queue and therefore must be at least
+- * BITS_PER_LONG so that the valid_map works correctly (it relies on the
+- * total number of queue entries being a multiple of BITS_PER_LONG).
+- */
+-#define CMDQ_BATCH_ENTRIES		BITS_PER_LONG
+-
+ /* High-level queue structures */
+ #define ARM_SMMU_POLL_TIMEOUT_US	1000000 /* 1s! */
+ #define ARM_SMMU_POLL_SPIN_COUNT	10
+@@ -100,12 +91,6 @@ static inline bool arm_smmu_cmdq_supports_cmd(struct arm_smmu_cmdq *cmdq,
+ 	return cmdq->supports_cmd ? cmdq->supports_cmd(ent) : true;
+ }
+ 
+-struct arm_smmu_cmdq_batch {
+-	u64				cmds[CMDQ_BATCH_ENTRIES * CMDQ_ENT_DWORDS];
+-	struct arm_smmu_cmdq		*cmdq;
+-	int				num;
+-};
+-
+ struct arm_smmu_evtq {
+ 	struct arm_smmu_queue		q;
+ 	struct iopf_queue		*iopf;
 -- 
 2.47.0.338.g60cca15819-goog
 
