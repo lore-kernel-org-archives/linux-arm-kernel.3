@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B029BE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C96BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8A5plRENR+6hcn+NB/3J+YPI6tVFhPwktPXdd0DO7po=; b=2HJEYfphZMC4YsH5nmjwXgUX/y
-	+HZla+ux/0dKyxDDfJSLS7P0DBQcrQpkBiz4GZIPNLYmJEmsE0CIkjNjtX/qmx6NI2wn1hVH7+HSZ
-	o/VGTY31qubSUDdfKmZmxVtw/wt4cQu2J7G1RV5CXf95k0KBmiHB/1EPluwHaFPBodsJ34unFZQ35
-	6oX/MplEhJBERH7LooX1h0akCPTaTYmjP7IaiPAdGrO4dkRa2S3fbujs4LQSdHcxUmDocpWmOZGVz
-	oVeMwu6QL+hAD4oiPBsc+evY/jNH9fjfgx2pOXx49G5RpSPo94GiW5R5h3CytpzQU9JMKLdhNNHkO
-	eqmy8srQ==;
+	bh=MHQAQ16iF1LrW7qpG6dldPZy5AL5MMme0Yq8410xqOk=; b=ViKwU0UFo0lDoPs4MuqgMQ4s5l
+	j91Qzg4sCWiuECZ/TTmeguJo5iRY2pqKf5qaGFaA1pqM2qYqWjamknj/YNWbAP8HobKv+xou/64qB
+	zsh2+3l/4s3dLghsaZWaixaejmZPGpAnN398wfTcuZPg1xs2yflncFlUG0Z4atHW0BZCYVj3ND4tc
+	O3aNicVKB7glBivg8pzji3T/j4NcYprCgRB7euspeyqNhgIHPwllD+xQvuLG5LUArZEfA4yRyA8Mf
+	7/4gkIA+Fdj5RbVy2tNBIvQ6R3+M+iD//TTsk8UgjCaIqEAcK4OlSJBIhx9AI4KlDcxtyByEXCw57
+	ijzZoRVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmkr-000000018QN-2Q7g;
-	Thu, 12 Dec 2024 17:13:37 +0000
+	id 1tLmlv-000000018cQ-0emg;
+	Thu, 12 Dec 2024 17:14:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlt4-00000000w8P-1o1m
+	id 1tLltI-00000000wDK-0DjN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 16:18:03 +0000
+	Thu, 12 Dec 2024 16:18:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A6081764;
-	Thu, 12 Dec 2024 08:18:28 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7CAE1762;
+	Thu, 12 Dec 2024 08:18:43 -0800 (PST)
 Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B6213F720;
-	Thu, 12 Dec 2024 08:17:59 -0800 (PST)
-Date: Thu, 12 Dec 2024 16:17:56 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AF873F720;
+	Thu, 12 Dec 2024 08:18:14 -0800 (PST)
+Date: Thu, 12 Dec 2024 16:18:12 +0000
 From: Dave Martin <Dave.Martin@arm.com>
 To: Zeng Heng <zengheng4@huawei.com>
 Cc: james.morse@arm.com, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, jonathan.cameron@huawei.com,
 	xiexiuqi@huawei.com
-Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 0/5] arm_mpam:
- Introduce the Narrow-PARTID feature for MPAM driver
-Message-ID: <Z1sMtF9bvw5NZOC6@e133380.arm.com>
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 2/5] arm_mpam: Read
+ monitor value with new closid/rmid pair
+Message-ID: <Z1sMxKM9o6lAiZGr@e133380.arm.com>
 References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <20241207092136.2488426-3-zengheng4@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241207092136.2488426-1-zengheng4@huawei.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241207092136.2488426-3-zengheng4@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_081802_564287_F093FAB2 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20241212_081816_174976_776A2322 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,43 +68,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Sat, Dec 07, 2024 at 05:21:31PM +0800, Zeng Heng wrote:
-> The patch set is applied for mpam/snapshot/v6.12-rc1 branch of
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
-> repository.
-> 
-> The narrow-partid feature in MPAM allows for a more efficient use of
-> PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
-> to intpartids (internal PARTIDs). This mapping reduces the number of unique
-> PARTIDs needed, thus allowing more tasks or processes to be monitored and
-> managed with the available resources.
+On Sat, Dec 07, 2024 at 05:21:33PM +0800, Zeng Heng wrote:
+> The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs.
+> For the new rmid allocation strategy, it will check if there is an
+> available rmid of any reqPARTID which belongs to the input closid, not just
+> the rmids belonging to the closid.
 > 
 > For a mixture of MSCs system, for MSCs that do not support narrow-partid,
 > we use the PARTIDs exceeding the number of closids as reqPARTIDs for
 > expanding the monitoring groups.
-
-Mixed systems still seem not to be handled completely by this series?
-
-You do cope with the scenario where some MSCs support Narrowing and
-some do not, but there is still the problem of incompatible controls.
-
-If a non-Narrowing MSC has controls that are not of the "partition
-bitmap" type, then splitting a resctrl control group across multiple
-PARTIDs is going to change the hardware regulation behaviour.  There
-does not seem to be any way to work around this be programming
-different control values (for example).  So, there may be over- or
-under-allocation of resources compared with what the user requests in
-resctrlfs.
-
-So, I think there is still a need to check which controls are present,
-and either disable the use of non-identity intPARTID<->reqPARTID
-mappings if incompatible controls are present (or don't expose those
-controls to resctrl).
-
-(If you were not trying to address this issue yet then that is not a
-problem for an RFC, but it is best to be clear about the
-limitations...)
-
+> 
 > In order to keep the existing resctrl API interface, the rmid contains both
 > req_idx and PMG information instead of PMG only under the MPAM driver. The
 > req_idx represents the req_idx-th sub-monitoring group under the control
@@ -110,46 +85,55 @@ limitations...)
 > 
 >     rmid = (req_idx << shift | pmg).
 > 
-> The new conversion relationship between closid/rmid and (req)PARTID/PMG is:
+> The mapping relationships between each group's closid/rmid and the
+> respective MSCs' intPARTID/reqPARTID/PARTID are illustrated:
+> 
+> n - Indicates the total number of intPARTIDs
+> m - Indicates the number of reqPARTIDs per intPARTID
+> 
+> P - Partition group (control group)
+> M - Monitoring group
+> 
+> Group closid rmid.req_idx (req)PARTID      MSCs with narrow-partid  MSCs without narrow-partid
+> P1    0      -            0                   intPARTID_1              PARTID_1
+> M1_1  0      0            0                       ├── reqPARTID_1_1       ├── PARTID_1_1
+> M1_2  0      1            0+n                     ├── reqPARTID_1_2       ├── PARTID_1_2
+> M1_3  0      2            0+n*2                   ├── reqPARTID_1_3       ├── PARTID_1_3
+>  ...                                              ├── ...                 ├── ...
+> M1_m  0      (m-1)        0+n*(m-1)               └── reqPARTID_1_m       └── PARTID_1_m
+> 
+> P2    1      -            1                   intPARTID_2              PARTID_2
+> M2_1  1      0            1                       ├── reqPARTID_2_1       ├── PARTID_2_1
+> M2_2  1      1            1+n                     ├── reqPARTID_2_2       ├── PARTID_2_2
+> M2_3  1      2            1+n*2                   ├── reqPARTID_2_3       ├── PARTID_2_3
+>  ...                                              ├── ...                 ├── ...
+> M2_m  1      (m-1)        1+n*(m-1)               └── reqPARTID_2_m       └── PARTID_2_m
+> 
+> Pn    (n-1)  -            (n-1)               intPARTID_n              PARTID_n
+> Mn_1  (n-1)  0            (n-1)                   ├── reqPARTID_n_1       ├── PARTID_n_1
+> Mn_2  (n-1)  1            (n-1)+n                 ├── reqPARTID_n_2       ├── PARTID_n_2
+> Mn_3  (n-1)  2            (n-1)+n*2               ├── reqPARTID_n_3       ├── PARTID_n_3
+>  ...                                              ├── ...                 ├── ...
+> Mn_m  (n-1)  (m-1)        (n-1)+n*(m-1) = n*m-1   └── reqPARTID_n_m       └── PARTID_n_m
+> 
+> Based on the example provided, the conversion relationship between
+> closid/rmid and (req)PARTID/PMG is:
 > 
 >     (req)PARTID = (rmid.req_idx * n) + closid,
 >     PMG = rmid.pmg.
-> 
-> Each intPARTID has m reqPARTIDs, which are used to expand the number of
-> monitoring groups under the control group. Therefore, the number of
-> monitoring groups is no longer limited by the range of MPAM PMG, which
-> enhances the extensibility of the system's monitoring capabilities.
-> 
-> ---
-> Compared with v1:
->   - Rebase this patch set on latest MPAM driver of the v6.12-rc1 branch.
-> 
-> Compared with v2:
->   - Refactor closid/rmid pair translation
->   - Simplify the logic of synchronize configuration
->   - Remove reqPARTID pool
-> ---
 
-This approach looks reasonable overall, and in this version the changes
-do seem to be better localised in the mpam_resctrl.c glue code now.
+It seemed more natural to me for the PARTIDs assigned to a particular
+CLOSID to be consecutively numbered (see [1]), though it works either
+way.
 
-I had also been working on a similar approach, so I have posted it for
-comparison [1] -- though the two approaches are doing pretty much the
-same thing, some details differ.
+Otherwise, the approach makes sense.
 
-(Note, I have not addressed PARTID Narrowing at all yet; however,
-I think more thought is needed for that.)
-
-
-Note: Are there bisection issues with some of the patches in the
-series?  It looks like not all of the ID conversions are applied in the
-same patch, so I'm wondering whether strange behaviour may be seen at
-the intermediate commits.
+[...]
 
 Cheers
 ---Dave
 
 
-[1] [RFC PATCH 0/6] Introduce flexible CLOSID/RMID translation
-https://lore.kernel.org/lkml/20241212154000.330467-1-Dave.Martin@arm.com/
+[1] [RFC PATCH 4/6] arm_mpam: Introduce flexible CLOSID/RMID translation
+https://lore.kernel.org/lkml/20241212154000.330467-5-Dave.Martin@arm.com/
 
