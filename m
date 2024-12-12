@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2553E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7291E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMHTsU0ZjvRQjwquvG/Hg5h2182Nwlr0NKl2ofXPRL8=; b=tLAsgz+zyIkirdR3FB3uJva5K0
-	+VGp3F2C1GrlmDMWhm/SmVwltuKrJj5MQvZfkx00MLPHDWZNVmEbk3vghfUb9vdjUuGQUTWueuiYb
-	BIpmaRTK3HrXR4dtEEk6AOuW3yRe87neRomzNZsv50Lp1GQ0Cx96LXQAvTG1zJkaderXp5HS1qgOY
-	IdXqjHG34pMjzypqTe1BIZQgWe2M3AWlZ4XfgLRG9f12f8NSJhkJcHyjUBDsxNYAUfHxeUMKZ4Azx
-	FBWNu93JIB9QHObQZu548pD7mVXlYvzhmh4V0B1QoL68g3ftuMrPkMJ4joFA5XBOR1OI07OP38HEZ
-	G7xKyPnQ==;
+	bh=3qoOTheHNyDXx09eLZAAbq+8+9HV4ZRvdNqNlfNALco=; b=MZjOvcdMvi4i5wmixXWAZcsKrz
+	n2uJ/tJFbKjULm9zDX37qz0XaBCsmpqf3gTvh+zRyimToDy1RbDZqpGu5oDbjsdbtvTdOidyDgNbV
+	DIqozP4UxrfzAXkD1WhgYAZoQsY7A6sKh7by9E8MgF4YBwp6CZabjEE0tGYWVu6xObz6SWqbyhLo5
+	LuyPG8loPjJG7/e/TpbnsQo4xPwzeLjqpBiHh50Q63x6SiOmLA4H4csQO9b15HmmlLIMtqzVGg9rb
+	j1vvolwOBDMRKVHjxrc7qBRuZqeZlsjM9Q2OF/binoSfUnvYEdxZ1Qsyzlk5fMtXzEWlEa2rTJLgW
+	1HH91P8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmvj-00000001Anv-0WJM;
-	Thu, 12 Dec 2024 17:24:51 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tLmwm-00000001Aze-38Fa;
+	Thu, 12 Dec 2024 17:25:56 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlu9-00000000wSm-1Y0e
+	id 1tLluB-00000000wUA-1wgc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 16:19:10 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4361b0ec57aso7703385e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 08:19:09 -0800 (PST)
+	Thu, 12 Dec 2024 16:19:13 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-385e87b25f0so1303911f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 08:19:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734020348; x=1734625148; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1734020349; x=1734625149; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fMHTsU0ZjvRQjwquvG/Hg5h2182Nwlr0NKl2ofXPRL8=;
-        b=eE3k9yFAMtWpD/m82J2NP9afXbeVBDAHezUATekV51KwugqGHzHelvFxQPCfZR0eSI
-         RNn4lagjCA0dsYXFDdQaa+Q3DSL0Ic1iFa5VQ+tVcPyEtAoOdG26GuDrTBcMvyITEx/c
-         WPANWqGVx4MZbYgS3jF3qlWBRHdP80g+k4dIipQsEJh2pItRG3m6A+cOhwNWs1m8vuca
-         5Kbc4zpeX7VGeSFzmVFXXUF0mfI4cdCBA5cAN4ixA49rbo1x2xrRFzPvqLZECqhe2opI
-         acp0heUNjxGs4FW1WhG+5KPq3/20J1McChqlicA20KeK/n2kVEiftlWhnKUxKs5qGR9t
-         PUmQ==
+        bh=3qoOTheHNyDXx09eLZAAbq+8+9HV4ZRvdNqNlfNALco=;
+        b=XxeiyNlvvXBcI3KEAlCYBveh8yOFVCKubOQN1OxLoOyhdsi9NaZ0bRjAX/NMyE1AID
+         jqHXI/t67EIB5VEat9jB9KFS80OdrOExbiJmtWKyJ9A+u8fzekfEevPAbifSx6QEC3dc
+         dvOeCZl0YyOHezK6FeizgTnxBU7xiSHVTKdiUNUvppmTV3qSouMjpwv9xJAW8bVSoXU/
+         ibnsUB3DrkwQW2oR4fyJQv9VLkTnc/dKILu9a9TEUmy4qWc4tWur9oHZwp5PGT1BHRJt
+         Gq+e5tB44qIypDzDuZxUvBNiJHGN1ltlhK6vXOeIJVjZvCAWFqJtRcSbhdBNLINmwNT0
+         W9EQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734020348; x=1734625148;
+        d=1e100.net; s=20230601; t=1734020349; x=1734625149;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fMHTsU0ZjvRQjwquvG/Hg5h2182Nwlr0NKl2ofXPRL8=;
-        b=ORA1K+19qgjtqrqcZwulrbnQSfBNTG914ANFO7SzkkHj5SwBJc39/P7d59e3FnsJ+I
-         zg0U8BAbJw8mYejoyTc4XWWvZNv4SH/RPw47krLJ+egaoD03rawEgHQ92yFO6s3KYpoo
-         wgg1LVG+tW2gXnrfpSnNyXC9Gmk8s8AzMoqp+s0pm1h1j4qx4hz0aj4tx5uCbzj05nVt
-         zXppSzH91jYXoEfBxqWt/nwFzQFuw6LH92dWnRHha2qGldgDccAgjs6QPkv2UUo8HFKJ
-         jAI3KMtoNoRnrDOn5Xu46y53x+PJ0LOxzJ9ma/MYqQGvWk0aOqegqwBqgF3s2jhPYpC/
-         Ckcw==
-X-Forwarded-Encrypted: i=1; AJvYcCUMurVs9Lh+ocUsOKctfV+3hbW7CImUjvjhszzvk6Ofqm47lbHebDAQ9n2uT34Q/SYqT8QHIYrh1XdeakJSan2C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd+bqZQG71bbgydCR8zIMvepQ2g/h9mJD4lEVjW4CZXmHKeybu
-	MdGZ6hh4z/Hs4qC8l20SKy7ZpLexdbLtQZJ+tbmetFQdf/Zg2T7rS+tImF9HBGs=
-X-Gm-Gg: ASbGncvsQoUNHmYcDl9tHG7tskBnz2He1OSzMg9YdFxkBvljVy0VRmA73f4YuHMwSAQ
-	PfHuU2YFrJivig5RuYpxJqY7k0occuJloxd5J3uTNEnkDJ9jDQOWjUJ5oaHKNsHph4SjV7uRsuV
-	DubRfPKc4w0yEdCy3Z4Na4KxhVL1E+TNDG///qW/PqRUsZmieF+VaoIJ1ER/DVUIMsMvURwI5hO
-	UFrKhDS9D3HmVs7oddTo82gcbM6OHBY2O8i/rLYdY0nGO7b
-X-Google-Smtp-Source: AGHT+IEW963IsJu+5kmA4Oes4+Y3LvbmvGkTXDKtXSMQMJQRuXOcNzh2GjScR8bf2D3ZBqv1bcGbwg==
-X-Received: by 2002:a05:600c:1c82:b0:434:a815:2b57 with SMTP id 5b1f17b1804b1-4362286399fmr31867605e9.20.1734020348074;
-        Thu, 12 Dec 2024 08:19:08 -0800 (PST)
+        bh=3qoOTheHNyDXx09eLZAAbq+8+9HV4ZRvdNqNlfNALco=;
+        b=Vs1ib71Uh0wolvzXobS3eIaHj827/y9r3jwmHeNmq6mY9JFmyZunRZnmb586IPB2we
+         oJGDZv1ghXYazu08o7T2nthuAtGELywPIkB3K2PIu5WuczmQ2Ohum4/maiSRclyAmEC3
+         Nfz3ubExrgjkgelvEqE+hG8TtXS5HiDIh5M5QEav/sOjYGfDkzG4ARBxKiZ4V3ABBZxj
+         jw3uzas6VEK04IH2xk7InZGbYDcUW6A762hdMUa7V/JK5cKrkMwEWWdOwObYFYJzKWnd
+         Q9PHKM7b2KrVAae3OhKeX7QDbKlfCVaoSvmVL+D+oXJ6KIf4sVWhG48L2mBpUGKV6GXZ
+         qohA==
+X-Forwarded-Encrypted: i=1; AJvYcCVE08TY3NgttcfcH9IQcHFxrTwYQPWxLkLKeUWETb6hu34+l7yezBrvrxMZQh771zMbJsa/t/QSKvRsL2hNXQsW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUYlnnTpkGu6NCu4FY1RxW/RSRrtLiHS2ErTuJQsgyKtug/ONE
+	m7BZrZA78Mem4zAfH6kkTNOK5/5D0zBVULmKT0gOCuubOc5owOe3zXs+W/akmFA=
+X-Gm-Gg: ASbGnct0kmOMIMAGotUdplzqtsBbIXRBONaWg2trDZgw0FhqBRN5U0Jpe0o06flXi8a
+	TQwxfr8hEcUYLoW/0hnFLuZ3d0Roq6YCcAhenPX2mT3goats+Puai90u1NDSY3DW0aDb5O71l9l
+	e5hP7JTBI9J0FfzgW7otXYXTkSWfjXWZCOIxMnONU5GygZpZYHyWZhZ6z/mL7nYwcqjt1NuHeu4
+	80ER9aHbZmF/E0rbqxsa3jp4I8/FPIqMVo4vVhXrUwdCUso
+X-Google-Smtp-Source: AGHT+IF5fGK4r7ZLa2m+qI5r0OgFGblEAcI0fkSDXGfPScJLkRcm9817axtMEaqmzm5LoWtpIkmCVA==
+X-Received: by 2002:a5d:64ae:0:b0:386:321e:f124 with SMTP id ffacd0b85a97d-387887fe47cmr2895855f8f.13.1734020349363;
+        Thu, 12 Dec 2024 08:19:09 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4361e322328sm44336105e9.0.2024.12.12.08.19.06
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4361e322328sm44336105e9.0.2024.12.12.08.19.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 08:19:07 -0800 (PST)
+        Thu, 12 Dec 2024 08:19:08 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Thu, 12 Dec 2024 16:18:54 +0000
-Subject: [PATCH v2 4/7] dt-bindings: interrupt-controller:
- brcm,bcm2836-l1-intc: Drop interrupt-controller requirement
+Date: Thu, 12 Dec 2024 16:18:55 +0000
+Subject: [PATCH v2 5/7] arm64: dts: broadcom: Rename bcm2712 interrupt
+ controllers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241212-dt-bcm2712-fixes-v2-4-35986e04d0f4@raspberrypi.com>
+Message-Id: <20241212-dt-bcm2712-fixes-v2-5-35986e04d0f4@raspberrypi.com>
 References: <20241212-dt-bcm2712-fixes-v2-0-35986e04d0f4@raspberrypi.com>
 In-Reply-To: <20241212-dt-bcm2712-fixes-v2-0-35986e04d0f4@raspberrypi.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -97,8 +97,8 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_081909_413436_5A3BD484 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20241212_081911_517287_EAB2A269 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,32 +113,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 88bbe85dcd37 ("irqchip: bcm2836: Move SMP startup code to
-arch/arm (v2)") the bcm2836-l1-intc block on bcm2711 is only used as a
-base address for the smp_boot_secondary hook on 32 bit kernels. It is
-not used as an interrupt controller.
+CHECK_DTBS produces errors on bcm2712-rpi-5-b.dtb and bcm2712-d-rpi-5-b.dtb
+of:
+intc@7d508380: $nodename:0: 'intc@7d508380' does not match '^interrupt-controller(@[0-9a-f,]+)*$'
+        from schema $id: http://devicetree.org/schemas/interrupt-controller/brcm,l2-intc.yaml#
+intc@7d508400: $nodename:0: 'intc@7d508400' does not match '^interrupt-controller(@[0-9a-f,]+)*$'
+        from schema $id: http://devicetree.org/schemas/interrupt-controller/brcm,l2-intc.yaml#
 
-Drop the binding requirement for interrupt-controller and interrupt-cells
-to satisfy validation on this platform.
+Rename the nodes from intc to interrupt-controller.
 
+Fixes: f66b382affd8 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- .../devicetree/bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml  | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml
-index 5fda626c80ce..2ff390c1705b 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml
-@@ -34,8 +34,6 @@ properties:
- required:
-   - compatible
-   - reg
--  - interrupt-controller
--  - '#interrupt-cells'
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index 39305e0869ec..bd78af0211b6 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -336,7 +336,7 @@ ddc1: i2c@7d508280 {
+ 			#size-cells = <0>;
+ 		};
  
- additionalProperties: false
+-		bsc_irq: intc@7d508380 {
++		bsc_irq: interrupt-controller@7d508380 {
+ 			compatible = "brcm,bcm7271-l2-intc";
+ 			reg = <0x7d508380 0x10>;
+ 			interrupts = <GIC_SPI 242 IRQ_TYPE_LEVEL_HIGH>;
+@@ -344,7 +344,7 @@ bsc_irq: intc@7d508380 {
+ 			#interrupt-cells = <1>;
+ 		};
  
+-		main_irq: intc@7d508400 {
++		main_irq: interrupt-controller@7d508400 {
+ 			compatible = "brcm,bcm7271-l2-intc";
+ 			reg = <0x7d508400 0x10>;
+ 			interrupts = <GIC_SPI 244 IRQ_TYPE_LEVEL_HIGH>;
 
 -- 
 2.34.1
