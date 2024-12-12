@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A767E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673A7E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rCa/zjejAIoTR/5gHfhbz6ptMz7jsKskdo9ZtaV05a0=; b=VysW99FlxHWcTLBI7xGnV+cuBA
-	3HH6rXYL7/b4GVhElBqmjXjAWqrroxAXfOXJo6zV73JpVp1POKenZWQs92PkWlyR8zlOkEo4d6fqm
-	T+/pecsPoYAGB6L62SYN1EgqTVy8F3K9D7/bbSLBI1Xg6BHiCyhSm5XbclWFEqsgs52pMk4hPbYCc
-	TlITsnJ3dfOtqEcWcq802iMVYJOmVyiqNvt6WAgXEATS9FZqBpQjDSva0gQG+MoIEifWtcNdsICtd
-	B3fBX1BKLKEP9CKYnZ+ppg4L1gH4F6VMUSzHcA8G3Uwp7+qxCYLZmb5fCeeZxGji3L7sP8Z+fN5zo
-	0jXEoMkA==;
+	bh=7GdzRpFQ8GuqL6ob5XIWAJOYIU5mecbCSoXQsfevd8k=; b=T6AVlY9DxPFQTyZfr6ZMS3f/+b
+	dfrPgU5o9EcELmnsRhYVBF+obz580d26cWNAlj9ntYeSLO5eNl2gtxpkuorQc5W6untd5PS/cw4bR
+	PQGrn8Z+OiZhaK8WVPXXcfouOGJF3HQdG6g0Dlfo3poZQN5I78BI0pmgFri/HG2JzzaV29Q2s6MCv
+	o7Z/qXKteJToHYoQ98WHHGFpB1l2WGj4pZbk+2xg1fdvX3kaIOFOYkWr18BFg7fAu54zl17pYg6/k
+	nol03i5ZrGwEqS2aP0WS4ckjS4VsSNRxwz1oFQqJh67M9bQv1nJ3dDxWcu3Zq8wpbodz+Kx/EMdqM
+	R59jij+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfmA-0000000HYBD-1QwI;
-	Thu, 12 Dec 2024 09:46:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLfnC-0000000HYLu-487f;
+	Thu, 12 Dec 2024 09:47:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfhP-0000000HXC7-02TM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:41:36 +0000
+	id 1tLfjo-0000000HXm3-0zA1;
+	Thu, 12 Dec 2024 09:44:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EFF8B5C61EB;
-	Thu, 12 Dec 2024 09:40:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53F0C4CECE;
-	Thu, 12 Dec 2024 09:41:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 062A6A426E4;
+	Thu, 12 Dec 2024 09:42:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DB5FC4CECE;
+	Thu, 12 Dec 2024 09:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733996494;
-	bh=8T9YqQIGe01+p2hPomlifpNUHNh46GGlOzTjpfIdD7o=;
+	s=k20201202; t=1733996643;
+	bh=xW8UtOL2UXi7yjUrl55suIta7E2vXsUZs6DEyaUeOyw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=olGgcMggf0fE1LeSI76/UaPOD4ftsCZOroqJTEOGj9ippWzQmUy3icmHWXgt+n1hr
-	 NrEveF/eWzKta86ruTjo/akhkLAWp6ktgL5enw2HyOdSlQkXOlR+oZlUQr3Cu2AL8G
-	 k7819e9L+NedCTEbNku6Arlz0zh4rk/U2SnKV8VwxJBmH0xGtej74hu87oCbwcFxpv
-	 ausS4U8ybsPMwi4Ts9fxSO8/y3fkbu6u3OYJLiTsYHgrfpmCfRyPPl3jZKGGPlfnw5
-	 rgk5KsfvSXDEvRFKq6f1ceW7RUs41R4Ydi0GL8tlfiosLOMJi3EFfc5GPUt9uUTfxP
-	 YFr+SF2N/1thg==
-Date: Thu, 12 Dec 2024 09:41:28 +0000
-From: Will Deacon <will@kernel.org>
-To: julien.thierry.kdev@gmail.com, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: catalin.marinas@arm.com, kernel-team@android.com, maz@kernel.org,
-	oliver.upton@linux.dev, apatel@ventanamicro.com,
-	andre.przywara@arm.com, suzuki.poulose@arm.com,
-	s.abdollahi22@imperial.ac.uk
-Subject: Re: [PATCH RESEND kvmtool 0/4] arm: Payload memory layout change
-Message-ID: <20241212094127.GA18819@willie-the-truck>
-References: <20241128151246.10858-1-alexandru.elisei@arm.com>
- <173395873873.2737640.3783988676491071650.b4-ty@kernel.org>
+	b=Mo06OTF2QLXnpk8pJD3fhIIcycZOR79JprHYTH7ei1OcIWL8la70QaOZRvQAZ/uhH
+	 efcOtwXVSLO9VOCO9x5ULnaJ7DwHFcOCcEntyNLmi/Iu/7g/2jd306WupYjI6y0+wO
+	 ktRnAY1Mo0dkvdrjOf8TxDnjC40rgrHbXgCdRdWzu5pBaFScQe29QKV8bx1Ht6p/yK
+	 xxZh1p2A4AGpgYwjwDGLHT0h8f047G8xWECSF19NHyiopXQGbGG+oswKYGiOGFrtQa
+	 jhgNM2mo7+yEnVhXyC1rOA7HWve1/N+sKlmUj7UuDqblpbSwgnId2nys15xpoUBgbB
+	 oEBzoq5YD4Xnw==
+Date: Thu, 12 Dec 2024 10:43:57 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Damien Le Moal <dlemoal@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: rockchip-ep: Fix error code in
+ rockchip_pcie_ep_init_ob_mem()
+Message-ID: <Z1qwXYtO4pBswIXS@ryzen>
+References: <Z014ylYz_xrrgI4W@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <173395873873.2737640.3783988676491071650.b4-ty@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <Z014ylYz_xrrgI4W@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_014135_086773_84B5C3D2 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20241212_014404_342410_BCB0E8DE 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,43 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 11:44:14PM +0000, Will Deacon wrote:
-> On Thu, 28 Nov 2024 15:12:42 +0000, Alexandru Elisei wrote:
-> > (resending because I accidently only sent the cover letter, sorry for that)
-> > 
-> > The first 3 patches are fixes to kvm__arch_load_kernel_image(). I've CC'ed
-> > the riscv maintainer because it looks to me like riscv is similarly
-> > affected.
-> > 
-> > Patch #4 ("arm64: Increase the payload memory region size to 512MB") might
-> > be controversial. Follows a bug report I received from Abdollahi Sina in
-> > private. Details in the commit message, but the gist of the patch is that
-> > the memory region where kernel + initrd + DTB are copied to are changed
-> > from 256MB to 512MB.  As a result, the DTB and initrd are moved from below
-> > ram_start + 256MB to ram_start + 512MB to accomodate a larger initrd.  If
-> > users rely on finding the DTB and initrd at the current addresses, then I'm
-> > not sure the patch is justified - after all, if someone really wants to use
-> > such a large initrd instead of a disk image with virtio, then replacing
-> > SZ_256M with SZ_512M locally doesn't look like a big ask.
-> > 
-> > [...]
+On Mon, Dec 02, 2024 at 12:07:22PM +0300, Dan Carpenter wrote:
+> Return -ENOMEM if pci_epc_mem_alloc_addr() fails.  Don't return success.
 > 
-> Applied to arm64 (sina), thanks!
+> Fixes: 945648019466 ("PCI: rockchip-ep: Refactor rockchip_pcie_ep_probe() memory allocations")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+> ---
+> v2: Update the git hash for the Fixes tag because the tree was rebased I guess.
 > 
-> [1/4] arm: Fix off-by-one errors when computing payload memory layout
->       https://git.kernel.org/arm64/c/167aa1e
-> [2/4] arm: Check return value for host_to_guest_flat()
->       https://git.kernel.org/arm64/c/ca57fb6
-> [3/4] arm64: Use the kernel header image_size when loading into memory
->       https://git.kernel.org/arm64/c/32345de
-> [4/4] arm64: Increase the payload memory region size to 512MB
->       https://git.kernel.org/arm64/c/9b26a8e
+>  drivers/pci/controller/pcie-rockchip-ep.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip-ep.c b/drivers/pci/controller/pcie-rockchip-ep.c
+> index 1064b7b06cef..34162ca14093 100644
+> --- a/drivers/pci/controller/pcie-rockchip-ep.c
+> +++ b/drivers/pci/controller/pcie-rockchip-ep.c
+> @@ -784,6 +784,7 @@ static int rockchip_pcie_ep_init_ob_mem(struct rockchip_pcie_ep *ep)
+>  						  SZ_1M);
+>  	if (!ep->irq_cpu_addr) {
+>  		dev_err(dev, "failed to reserve memory space for MSI\n");
+> +		err = -ENOMEM;
+>  		goto err_epc_mem_exit;
+>  	}
+>  
+> -- 
+> 2.45.2
+> 
 
-Sorry, these links are all broken as I generated the thankyou note
-against a testing branch. Rest assured that the changes are pushed to
-the kvmtool.git:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/
-
-Will
+Reviewed-by: Niklas Cassel <cassel@kernel.org>
 
