@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8258CE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6C4E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDTEd3/svWnVVWR0WeE+YOf1jB5nBNhMgBXhXpRKk9Q=; b=D7UH2USdQvC8fDyTDxwn2mBTte
-	nVYfbo/jxO1fC/7WVToIgfp4EmzBfEZ59dJg4fLty6JxBmJSE8Q2ghsuVRj4SIjD12Ji+0WAUkGhv
-	SqqDXQ61EHxtAxty1jd/0hMWi18ZUv88mz1DEW3AyZBzoV//TA8zXqk13LzNyNTeTV++H/TpMVtYQ
-	gUyecgf2AjrZV7r8eJM7S5opgQuZg5Rb7ewbNLW7sCQYFWUjGsCY0RcvQWFv0ESLC/cfhMSeZOGtU
-	Fa14dVaGYWhqTFEBGqozFSvxGe19/GlECZFUm1hxA15X2Uu2RqcDwyihuRXk+GMOE6Hrk1NEzpAnQ
-	uqSOoeOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B2vxnuNliunow0C40/zWbCCIvm9+e4AnyBl+BaIGYBU=; b=y5rwPzOXN4QrC2u9hVP4Kk8VLy
+	B0DRQn9ZG4Iew4dfxUMPXi2+ZsBps0E8khpYWxhfGqMgv3DZ13anYAZox0LwrHxLXy3ppbuX4asbb
+	KZak15uKz5/YEN2I18JuDqqDT4NrR/B5g7LC0fUNWnzygfmw5Nj9LaaQRf2tKY8HZzE7eaB1ZHbXL
+	ERCzmRFFxsEcipbcfXbW/FmJAhoxrAmgZbIjYeZp95H1ZkNJG33r79bzgmQz8gbNBG95QpRhL6R+/
+	FUqrlWIYeQ9e4h1JQ4VZPsk83zlifUNlJCKWzB6Q2rRaLkpIZOGyo4T9Vccetw5U6kFGC44AB7zSc
+	p3TjFp5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLn7H-00000001D8V-0q5K;
-	Thu, 12 Dec 2024 17:36:47 +0000
+	id 1tLn9B-00000001DiS-1Avn;
+	Thu, 12 Dec 2024 17:38:45 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmhe-000000017eC-189A
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 17:10:19 +0000
+	id 1tLmp8-000000019DO-2HST;
+	Thu, 12 Dec 2024 17:18:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5B4CA5C66E1;
-	Thu, 12 Dec 2024 17:09:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B295C4CECE;
-	Thu, 12 Dec 2024 17:10:16 +0000 (UTC)
-Date: Thu, 12 Dec 2024 17:10:14 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Dave.Martin@arm.com,
-	will@kernel.org
-Subject: Re: [PATCH v2] arm64: signal: Ensure signal delivery failure is
- recoverable
-Message-ID: <Z1sY9tIsAZ84W93-@arm.com>
-References: <20241210160940.2031997-1-kevin.brodsky@arm.com>
- <5db7f7a0-1d3c-4bbd-ad2b-124bf54f49ef@sirena.org.uk>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 952FC5C5CD6;
+	Thu, 12 Dec 2024 17:17:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B59C5C4CED3;
+	Thu, 12 Dec 2024 17:17:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734023881;
+	bh=gUkmLslWwau7PQ/rqBKBXnsLHUj3XhDqGxojh6HslHA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=cwKkrDWjiW8TR9jqZjKrU5uWhsvufo/SKwmpc6Rrg5GZe5ncsc0bu0jgz9DXMVafs
+	 8R6byDSjz6nc2ZkWvgF5RbtYq71wKsVEdqrV6fwEA6XyvtQIdZKd4xkI+0SIzcCFap
+	 ML8vQ0pyQ0njSAHDp0uPzqdPz71t2MOZDRe/1enAn+qslPZy3NqdtQoF5MD0jD+xqw
+	 29v5HrtCmxHLLU5wAX/vzzKNtSLBKqwG6zJvUnfq+UeiVScxVgufqWl55r7UM6J8CF
+	 xTOLKFCL1wLJZ+pr0NBzm3mztQKnxZg/w1/U8W2DTEW5wm2t8fkr66dfhpSTfhjRjL
+	 xwR/tXpUcsMIQ==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, jikos@kernel.org, jic23@kernel.org, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ jdelvare@suse.com, linux@roeck-us.net, srinivas.pandruvada@linux.intel.com, 
+ bentiss@kernel.org, dmitry.torokhov@gmail.com, pavel@ucw.cz, 
+ ukleinek@debian.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-input@vger.kernel.org, linux-iio@vger.kernel.org, 
+ linux-leds@vger.kernel.org
+In-Reply-To: <20241107114712.538976-1-heiko@sntech.de>
+References: <20241107114712.538976-1-heiko@sntech.de>
+Subject: Re: [PATCH v9 0/9] Drivers to support the MCU on QNAP NAS devices
+Message-Id: <173402387748.2234929.7484373598047473898.b4-ty@kernel.org>
+Date: Thu, 12 Dec 2024 17:17:57 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5db7f7a0-1d3c-4bbd-ad2b-124bf54f49ef@sirena.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_091018_367861_BE31D326 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20241212_091802_626068_51CF6E2E 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,23 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 04:47:46PM +0000, Mark Brown wrote:
-> On Tue, Dec 10, 2024 at 04:09:40PM +0000, Kevin Brodsky wrote:
-> > While at it, also take care of copy_siginfo_to_user(): since it may
-> > fail, we shouldn't be calling it after setup_return() either. Call
-> > it before setup_return() instead, and move the setting of X1/X2
-> > inside setup_return() where it belongs (after the "point of no
-> > failure").
+On Thu, 07 Nov 2024 12:47:03 +0100, Heiko Stuebner wrote:
+> This implements a set of drivers for the MCU used on QNAP NAS devices.
 > 
-> > Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
+> Of course no documentation for the serial protocol is available, so
+> thankfully QNAP has a tool on their rescue-inird to talk to the MCU and
+> I found interceptty [0] to listen to what goes over the serial connection.
 > 
-> Presumably we also need a Fixes for whatever introduced the above copy.
+> In general it looks like there are two different generations in general,
+> an "EC" device and now this "MCU" - referenced in the strings of the
+> userspace handlers for those devices.
+> 
+> [...]
 
-Hmm, it was like this from the beginning. If we are to do a cc stable to
-the oldest maintained LTS, I'd rather have a separate patch for
-copy_siginfo_to_user(), it doesn't make much sense to backport a GCS
-patch to early kernels.
+Applied, thanks!
 
--- 
-Catalin
+[1/9] HID: hid-sensor-hub: don't use stale platform-data on remove
+      commit: e079a120f31e3f9c00180aa13c1df18cc138f7fe
+[2/9] mfd: core: make platform_data pointer const in struct mfd_cell
+      commit: 8f4009ad901c44f0428dbde654c4dd1fb29c863b
+[3/9] dt-bindings: mfd: add binding for qnap,ts433-mcu devices
+      commit: 8877bcff3e3b4f08a1fc0232dbfdaeda085cfdf3
+[4/9] mfd: add base driver for qnap-mcu devices
+      commit: 944ca826f69e4723853b3876875b03aeafe67b60
+[5/9] leds: add driver for LEDs from qnap-mcu devices
+      commit: fe6a21ee38f12e3e5f9adbd2f9a840be105b943f
+[6/9] Input: add driver for the input part of qnap-mcu devices
+      commit: 4b27e0da257371d3d141fae38fdbdc3c3a67bce6
+[7/9] hwmon: add driver for the hwmon parts of qnap-mcu devices
+      commit: 41755872a8a8ab8d1644459d9634c53b743fe2be
+[8/9] arm64: dts: rockchip: hook up the MCU on the QNAP TS433
+      (no commit info)
+[9/9] arm64: dts: rockchip: set hdd led labels on qnap-ts433
+      (no commit info)
+
+--
+Lee Jones [李琼斯]
+
 
