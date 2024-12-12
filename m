@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBB7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7F6E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqSkqDcYVR+aGMDeV4XXOyxjvKG22yCrogX6pMpTsXM=; b=Rlipf7uMkrNrw+qGqy7Nk8UZ7s
-	SpS3oyLF9M81Aw/M46FFTLtow/GyhBFNJdjrpSWczW/D9IyTz9s0KliADytppb9tUfbMX6Ljfb93N
-	RjZnlCjlfLIEP38xP95sf3y2aLPKAY5rZexfQrB3kqXZzZydADC4S3AMqZdRdRikGslfZrx/NKjK6
-	bcDa12WCOfr5QfwsXap6cSyLd9PBVyEpt1dtBq7Q1z+aZU9tiJASGXkXXcblXJqKzcjCB/jvtNUra
-	zdGTAlccEotS7YkLzDpYvCrIVul14XKJ9upRWVnJoae51DiWz6Lhh/ZnEi72okWP04Vy+aTPcPvdT
-	qGqVT3uQ==;
+	bh=W9n0lO4mYxQGtzJ7AtPszLnwC8jAOfv73kUC1UbesrI=; b=1+/TA7/KiTqlEKcDZ7p4vDUN4u
+	xdKppROCAzaUwCiMKX0pdYvUdG0599Q0yIIhv/NiSHwtLWD6VM+QTSLOm3g4nEb0u4Qzr7nWYX9Io
+	XxGzgYolfvTqL+IlXFmep/6rzoWh/2sovyg10Ste91TGFNhyMOKIH7Ysroopo13b4jAUhimw8g79V
+	/n0hI4QAlZlHvC46DSxLCc82n5FeJrc4ykupNExm0EU60/tS9pQBVRe91BoNrnaJAvYem6ePt0But
+	bwvDlKbJoO3x4tK28OXsakFVvlOYyCsCdbOYPUo2IIFB8XhVYjGPluutO7Pn2GipvWe53++nqIUvL
+	6OuJsKyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmGR-000000011Ii-2kpm;
-	Thu, 12 Dec 2024 16:42:11 +0000
+	id 1tLmHU-000000011ZT-1IY3;
+	Thu, 12 Dec 2024 16:43:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLla0-00000000rFH-2iQS
+	id 1tLla4-00000000rGW-3D3X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:58:21 +0000
+	Thu, 12 Dec 2024 15:58:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5694C1A25;
-	Thu, 12 Dec 2024 07:58:48 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73A681762;
+	Thu, 12 Dec 2024 07:58:52 -0800 (PST)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.39.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02E933F720;
-	Thu, 12 Dec 2024 07:58:16 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEF993F720;
+	Thu, 12 Dec 2024 07:58:20 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>,
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
@@ -56,17 +56,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v6 27/43] arm64: rme: support RSI_HOST_CALL
-Date: Thu, 12 Dec 2024 15:55:52 +0000
-Message-ID: <20241212155610.76522-28-steven.price@arm.com>
+Subject: [PATCH v6 28/43] arm64: rme: Allow checking SVE on VM instance
+Date: Thu, 12 Dec 2024 15:55:53 +0000
+Message-ID: <20241212155610.76522-29-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241212155610.76522-1-steven.price@arm.com>
 References: <20241212155610.76522-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_075820_726824_397F69C2 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20241212_075824_845565_1E3E0F1D 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +81,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joey Gouly <joey.gouly@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Forward RSI_HOST_CALLS to KVM's HVC handler.
+Given we have different types of VMs supported, check the
+support for SVE for the given instance of the VM to accurately
+report the status.
 
-Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes since v4:
- * Setting GPRS is now done by kvm_rec_enter() rather than
-   rec_exit_host_call() (see previous patch - arm64: RME: Handle realm
-   enter/exit). This fixes a bug where the registers set by user space
-   were being ignored.
----
- arch/arm64/kvm/rme-exit.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/arm64/include/asm/kvm_rme.h | 2 ++
+ arch/arm64/kvm/arm.c             | 5 ++++-
+ arch/arm64/kvm/rme.c             | 5 +++++
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
-index 8f0f9ab57f28..b2a367474d74 100644
---- a/arch/arm64/kvm/rme-exit.c
-+++ b/arch/arm64/kvm/rme-exit.c
-@@ -103,6 +103,26 @@ static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
- 	return 0;
+diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+index 90a4537ad38d..0d89ab1645c1 100644
+--- a/arch/arm64/include/asm/kvm_rme.h
++++ b/arch/arm64/include/asm/kvm_rme.h
+@@ -85,6 +85,8 @@ void kvm_init_rme(void);
+ u32 kvm_realm_ipa_limit(void);
+ u32 kvm_realm_vgic_nr_lr(void);
+ 
++bool kvm_rme_supports_sve(void);
++
+ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+ int kvm_init_realm_vm(struct kvm *kvm);
+ void kvm_destroy_realm(struct kvm *kvm);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 134acb4ee26f..6f7f96ab781d 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -456,7 +456,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 		r = get_kvm_ipa_limit();
+ 		break;
+ 	case KVM_CAP_ARM_SVE:
+-		r = system_supports_sve();
++		if (kvm_is_realm(kvm))
++			r = kvm_rme_supports_sve();
++		else
++			r = system_supports_sve();
+ 		break;
+ 	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+ 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
+diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+index 5831d379760a..27a479feb907 100644
+--- a/arch/arm64/kvm/rme.c
++++ b/arch/arm64/kvm/rme.c
+@@ -20,6 +20,11 @@ static bool rme_supports(unsigned long feature)
+ 	return !!u64_get_bits(rmm_feat_reg0, feature);
  }
  
-+static int rec_exit_host_call(struct kvm_vcpu *vcpu)
++bool kvm_rme_supports_sve(void)
 +{
-+	int ret, i;
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+
-+	vcpu->stat.hvc_exit_stat++;
-+
-+	for (i = 0; i < REC_RUN_GPRS; i++)
-+		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
-+
-+	ret = kvm_smccc_call_handler(vcpu);
-+
-+	if (ret < 0) {
-+		vcpu_set_reg(vcpu, 0, ~0UL);
-+		ret = 1;
-+	}
-+
-+	return ret;
++	return rme_supports(RMI_FEATURE_REGISTER_0_SVE_EN);
 +}
 +
- static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
+ static int rmi_check_version(void)
  {
- 	struct realm_rec *rec = &vcpu->arch.rec;
-@@ -164,6 +184,8 @@ int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
- 		return rec_exit_psci(vcpu);
- 	case RMI_EXIT_RIPAS_CHANGE:
- 		return rec_exit_ripas_change(vcpu);
-+	case RMI_EXIT_HOST_CALL:
-+		return rec_exit_host_call(vcpu);
- 	}
- 
- 	kvm_pr_unimpl("Unsupported exit reason: %u\n",
+ 	struct arm_smccc_res res;
 -- 
 2.43.0
 
