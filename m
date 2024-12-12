@@ -4,107 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB68E77182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69301E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 22:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5+873Ef+Kkj4YNDKn1lh7cr/++D0FfitFuPzZwixKs=; b=0Dfipgc0C3mHICBwuwdHNx+n+H
-	aljcPchsaBb1DVMnJCZncowa17z1CZV8KGSSIc7qfp2PRvBNhYyn93Ks+FG3vMtjckfAgOgoQi1Ra
-	LTzt5WqXOOnBI4cpy9q7vSSrPknGs7S98jKWGYULkQFvB6EtpL5KmHg6Fi682APlXNmToW3Z2uubq
-	FQSjEpn6KNoH9p1J19Ps5F/cvKtNO/4zjA2sNAlKu3RihQkEWlGgqTy/UECtqnRMPsf8C7wSC0YHk
-	CKMWoWkcfTCPcbSJRkpCY2s2k0uAZInaz1FgbFPeGpNEsR73mtSkSdpEeJ654jPNDei5cwpVcojY9
-	hlaZVCLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nUU3k3ndx8hCjIEVI0vAEW5jsu/OGAg5GP0kOz2LdOQ=; b=jtCaWQILi0yO6n7y/7jf3m2ohN
+	3fqgVyIEKghfRgYSBNt4+WYsggp1L91jhE9AnX1CMVB6m4ghitD88ojWJ0/3MeynfSP++rzGExQPs
+	rdX7PSvelsIxihQUZmKvTia8sT7AKxTbNhDc/I03CuPRFX3CTva19QHGZX0UxoevcxDao+nVwc49C
+	r/bfDBaSaTvPdMXrr6qPEZoGyg2QhQtlmLkkcVmI8ed9hq+R2lLVPOLYEBJ17W80LeNezfd1dgQ9t
+	rK5DX6+DE5mIInC78NocUlfk/HFP5H2LujtmdUuQvPI5JOuHlfS0SIe62ThGkPG7c3Us6MzjAEgQs
+	17lqC2Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLr9W-000000021vC-0IPJ;
-	Thu, 12 Dec 2024 21:55:22 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tLrGP-000000022hD-3ZMg;
+	Thu, 12 Dec 2024 22:02:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLr4J-000000020uZ-1QnX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 21:50:00 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCDUtul031240;
-	Thu, 12 Dec 2024 21:49:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=R5+873Ef+Kkj4YNDK
-	n1lh7cr/++D0FfitFuPzZwixKs=; b=KHzcAcoQwN7yaG6FKjHbJqe/lyoAaQ7BX
-	aGwqQ0v2NbGmyUWjnop9AeNt83bUqxq+56fGI73sBc/kLf17EvU+yabrSRaXldhS
-	rN4PG5KocJJ31Rt0wYRB6rpgcGGLzMRbZIPa5BEv1qw5qMnljb6pvLNTt9NAq4g6
-	JgNO+Hs1NaZEqbFRUlNQ51U31VyYDth5B6icgb2F9iIfx4XWeyYrdY9NtyE2DC0T
-	FURGLgW9JzhwP6C5n0nlxlER2KhACs0N3o2sPKaxJ0ETUYccVjOqeflIY0wZRxzi
-	gAjANE4IqEWFyQK20tYFud6eXdu2znml7CVQFNOWaGXcafA0pzUyg==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43g0sbjkh9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:49:42 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4BCLnfYe009044;
-	Thu, 12 Dec 2024 21:49:41 GMT
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43g0sbjkh3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:49:41 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCLjTSI017421;
-	Thu, 12 Dec 2024 21:49:40 GMT
-Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 43d3d22c19-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:49:40 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BCLndUJ32244254
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Dec 2024 21:49:39 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5AFE358055;
-	Thu, 12 Dec 2024 21:49:39 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AA8D058054;
-	Thu, 12 Dec 2024 21:49:37 +0000 (GMT)
-Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 12 Dec 2024 21:49:37 +0000 (GMT)
-From: Ninad Palsule <ninad@linux.ibm.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        eajames@linux.ibm.com, jdelvare@suse.com, linux@roeck-us.net,
-        corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
-        Delphine_CC_Chiu@Wiwynn.com, broonie@kernel.org,
-        peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
-        naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
-        patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
-        peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
-Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v1 4/4] ARM: dts: aspeed: system1: Use crps PSU driver
-Date: Thu, 12 Dec 2024 15:49:03 -0600
-Message-ID: <20241212214927.3586509-5-ninad@linux.ibm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241212214927.3586509-1-ninad@linux.ibm.com>
-References: <20241212214927.3586509-1-ninad@linux.ibm.com>
+	id 1tLrFM-000000022Xx-1AWZ;
+	Thu, 12 Dec 2024 22:01:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=nUU3k3ndx8hCjIEVI0vAEW5jsu/OGAg5GP0kOz2LdOQ=; b=vATraj/l7BYi45J3o09OIopaxJ
+	C8jNjTPCPsm9QpjuSJ1IY9oPT5mUdBMuSKqTmLPfzVHPEsRg9jIMEmxtX5EH+CBf2Ad5QJkAzCOb0
+	QIBWWnrVmjlWPROLIj1nnhmGbebpQ72pM/mYvVSSI7b+XJoia4xx6JsI/qmb+lwoDY8J6kpWtw2sy
+	nSq0P9/nMLk51OkHcgu7wfznTwDcJV87JcZ7lYZRgkl/n/cZDkdLwKwkwqCciizJ2Mw/AcIegRxYt
+	kYJ96xWeFCCL6IUF+RLxWDxyxyavltxwOVk9mRXBnRhuepZag1Y3wIlzjK2IUkkHDKONd/95VcvEW
+	bk/ki6/Q==;
+Received: from willy by casper.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLrFA-00000008PIi-3DGS;
+	Thu, 12 Dec 2024 22:01:12 +0000
+Date: Thu, 12 Dec 2024 22:01:12 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com,
+	riel@surriel.com, david@redhat.com, minchan@kernel.org,
+	jyescas@google.com, linux@armlinux.org.uk,
+	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
+	ysato@users.sourceforge.jp, dalias@libc.org,
+	glaubitz@physik.fu-berlin.de, davem@davemloft.net,
+	andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net,
+	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com,
+	leitao@debian.org, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-mm@kvack.org,
+	kernel-team@android.com, android-mm@google.com
+Subject: Re: [PATCH mm-unstable v2 00/16] mm: Introduce arch_mmap_hint()
+Message-ID: <Z1tdKHFfz-tMTXit@casper.infradead.org>
+References: <20241211232754.1583023-1-kaleshsingh@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: NIJOFCP5JtMaOGnNHDmoCaEMzBAwYU3o
-X-Proofpoint-ORIG-GUID: P-bzaFY_9bHHN7utH-zLAzUZfHcy03US
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=857
- impostorscore=0 mlxscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 spamscore=0 adultscore=0 phishscore=0 bulkscore=0
- clxscore=1015 lowpriorityscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2412120156
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_134959_377928_059818F5 
-X-CRM114-Status: GOOD (  12.24  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241211232754.1583023-1-kaleshsingh@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,46 +80,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The system1 uses Intel common redundant (crps185) power supplies so move
-to correct new crps driver.
+On Wed, Dec 11, 2024 at 03:27:38PM -0800, Kalesh Singh wrote:
+> Hi all,
+> 
+> This is v2 othe the arch_mmap_hint() series.
+> 
+> Changes in v2:
+>   - MAP_FIXED case is also handled in arch_mmap_hint() since this is just a
+>     special case of the hint addr being "enforced", per Yang Shi.
+>   - Consolidate most of the error handling in arch_mmap_hint().
+>   - Patch 16 ("mm: Fallback to generic_mmap_hint()") was folded into
+>     Patch 2 ("mm: x86: Introduce arch_mmap_hint()")
+> 
+> v1: https://lore.kernel.org/r/20241210024119.2488608-1-kaleshsingh@google.com/
+> 
+> =======
+> 
+> This series introduces arch_mmap_hint() to handle allocating VA space
+> for the hint address.
 
-Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+But why?  You're basically forcing me to read the entire series to
+figure out what you're doing and why.  I decline.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 8f77bc9e860c..360b9ce3c850 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -681,22 +681,22 @@ &i2c2 {
- 	status = "okay";
- 
- 	power-supply@58 {
--		compatible = "ibm,cffps";
-+		compatible = "intel,crps185";
- 		reg = <0x58>;
- 	};
- 
- 	power-supply@59 {
--		compatible = "ibm,cffps";
-+		compatible = "intel,crps185";
- 		reg = <0x59>;
- 	};
- 
- 	power-supply@5a {
--		compatible = "ibm,cffps";
-+		compatible = "intel,crps185";
- 		reg = <0x5a>;
- 	};
- 
- 	power-supply@5b {
--		compatible = "ibm,cffps";
-+		compatible = "intel,crps185";
- 		reg = <0x5b>;
- 	};
- };
--- 
-2.43.0
-
+> Patches 1-16 introduce this new helper and Patch 17 uses it to fix the
+> issue of mmap hint being ignored in some cases due to THP alignment [1]
+> 
+> [1] https://lore.kernel.org/r/20241118214650.3667577-1-kaleshsingh@google.com/
+> 
+> Thanks,
+> Kalesh
+> 
+> 
+> Kalesh Singh (16):
+>   mm: Introduce generic_mmap_hint()
+>   mm: x86: Introduce arch_mmap_hint()
+>   mm: arm: Introduce arch_mmap_hint()
+>   mm: alpha: Introduce arch_mmap_hint()
+>   mm: arc: Use generic_mmap_hint()
+>   mm: csky: Introduce arch_mmap_hint()
+>   mm: loongarch: Introduce arch_mmap_hint()
+>   mm: mips: Introduce arch_align_mmap_hint()
+>   mm: parisc: Introduce arch_align_mmap_hint()
+>   mm: s390: Use generic_mmap_hint()
+>   mm: sh: Introduce arch_mmap_hint()
+>   mm: sparc32: Introduce arch_mmap_hint()
+>   mm: sparc64: Introduce arch_mmap_hint()
+>   mm: xtensa: Introduce arch_mmap_hint()
+>   mm: powerpc: Introduce arch_mmap_hint()
+>   mm: Respect mmap hint before THP alignment if allocation is possible
+> 
+>  arch/alpha/include/asm/pgtable.h           |   1 +
+>  arch/alpha/kernel/osf_sys.c                |  31 +++---
+>  arch/arc/include/asm/pgtable.h             |   1 +
+>  arch/arc/mm/mmap.c                         |  43 +++++----
+>  arch/arm/include/asm/pgtable.h             |   1 +
+>  arch/arm/mm/mmap.c                         | 107 +++++++++------------
+>  arch/csky/abiv1/inc/abi/pgtable-bits.h     |   1 +
+>  arch/csky/abiv1/mmap.c                     |  68 +++++++------
+>  arch/loongarch/include/asm/pgtable.h       |   1 +
+>  arch/loongarch/mm/mmap.c                   |  49 +++++-----
+>  arch/mips/include/asm/pgtable.h            |   1 +
+>  arch/mips/mm/mmap.c                        |  50 +++++-----
+>  arch/parisc/include/asm/pgtable.h          |   1 +
+>  arch/parisc/kernel/sys_parisc.c            |  53 +++++-----
+>  arch/powerpc/include/asm/book3s/64/slice.h |   1 +
+>  arch/powerpc/mm/book3s64/slice.c           |  31 ++++++
+>  arch/s390/include/asm/pgtable.h            |   1 +
+>  arch/s390/mm/mmap.c                        |  51 +++++-----
+>  arch/sh/include/asm/pgtable.h              |   1 +
+>  arch/sh/mm/mmap.c                          |  83 ++++++----------
+>  arch/sparc/include/asm/pgtable_32.h        |   1 +
+>  arch/sparc/include/asm/pgtable_64.h        |   1 +
+>  arch/sparc/kernel/sys_sparc_32.c           |  33 ++++---
+>  arch/sparc/kernel/sys_sparc_64.c           |  96 +++++++-----------
+>  arch/x86/include/asm/pgtable_64.h          |   1 +
+>  arch/x86/kernel/sys_x86_64.c               |  64 ++++++------
+>  arch/xtensa/kernel/syscall.c               |  31 ++++--
+>  include/linux/sched/mm.h                   |   9 ++
+>  mm/huge_memory.c                           |  17 ++--
+>  mm/mmap.c                                  |  86 +++++++++++------
+>  30 files changed, 491 insertions(+), 424 deletions(-)
+> 
+> -- 
+> 2.47.0.338.g60cca15819-goog
+> 
+> 
 
