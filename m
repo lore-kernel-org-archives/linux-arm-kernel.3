@@ -4,85 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B70E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EC0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tGykcbTcw3d7ewUJ0l3TKsRLZtS5QyewppIPS1U+Om8=; b=wwRwCp6j2U/EkvkYJp9i97m9TN
-	Lod4n/LBsgh++NtVPqnwg3XR71JewCTkzG6wK6AF+ohrvRop/P3Bj4QKf3Qo8dQW5VwKpAvIaJtId
-	ACPSWgCABG4h2GuPR/08tmrPCKKQTt1TIdgq16SY8Wo6MQnFK6TWl+xQq+QTUVc4CcTXrVxvHJYR2
-	qCtROIm+E1q6nodKN/90cWPru/YGxXNo5t2V8B8LCZdAnLuyOZ4xHlZrPN+cRwrjozs46QCqaH8Cy
-	smpHwamF8htf9ns0raw910j6IjzMbY7FyCvSSNIPBi/IEgjQyd5DBaaN7SyX7SLmYMXgWSH0Qyhvr
-	B+BYY1nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kfH9CDQItSGbjRtAwv0m16VJBn1228BzN7Z0gOdZwbk=; b=y7SIeK3UP2Bp5MryVjyN8CJSmy
+	ZGjDZ4Jsuogj7ar/d/oiI72ujINTwFT6iGXaBr4m+ILs2NOHHfpzNGBPuTIq8y1WhKaKGPlbZW1ZA
+	UlFFibs2NRF/Zzc5grUYK9tJSA+Xa3kl09wJ5Cr0VKvBnnytMwOJmhFGKMDIM2oMT59lsfDAjCrws
+	tcJCYHNsw5DQnYTZQd9u6tH3M2uP77KSwiH4BkPEvjz78nbTG2u6L1O79RfcgYCjBQFC8/5IAUpsX
+	nSys/ZZ8KlQml2kXjNC+C3tZ+pmHo/JwXM/RA9kWvMAEg+5le6ps1KpVOUU7Ts7L8DvopPb9aNVsY
+	dq/fUkjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLffs-0000000HWqv-0Uez;
-	Thu, 12 Dec 2024 09:40:00 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfOm-0000000HTKI-0QDa;
-	Thu, 12 Dec 2024 09:22:21 +0000
-X-UUID: 92f0d7f4b86a11ef82ff63e91e7eb18c-20241212
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=tGykcbTcw3d7ewUJ0l3TKsRLZtS5QyewppIPS1U+Om8=;
-	b=WS62WFVrp77EVvB9ufbchuuPGjh9c0yK9g/gdlkj4Gw0C+fQGU3j/tyc1naF8M1ttcZXqcrJHaN9b4vs4PaMOaVvHK+pEiTdqj6cm6hxYGnnBwyy9u9Z5SkdnUUN9j6DakGJCrSY0qSLx83OtALvAErWaXY+BNGYEr6CFOp6W6w=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:abb94b52-a4f3-463a-8283-f4f4c82b11e6,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:6493067,CLOUDID:23590513-8f5d-4ac6-9276-7b9691c7b8d6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 92f0d7f4b86a11ef82ff63e91e7eb18c-20241212
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <cloud.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 990448300; Thu, 12 Dec 2024 02:22:14 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 12 Dec 2024 17:22:09 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 12 Dec 2024 17:22:08 +0800
-From: mtk22730 <Cloud.Zhang@mediatek.com>
-To: Mark Brown <broonie@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Cloud Zhang
-	<cloud.zhang@mediatek.com>
-Subject: [PATCH] [v1] spi: spi-mtk-nor: Modify the clock architecture of nor controller
-Date: Thu, 12 Dec 2024 17:20:12 +0800
-Message-ID: <20241212092206.14071-1-Cloud.Zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1tLfgu-0000000HX3f-3Hb2;
+	Thu, 12 Dec 2024 09:41:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLfPp-0000000HTct-3LZB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 09:23:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A0F1169E;
+	Thu, 12 Dec 2024 01:23:52 -0800 (PST)
+Received: from [10.57.92.2] (unknown [10.57.92.2])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 50E893F5A1;
+	Thu, 12 Dec 2024 01:23:22 -0800 (PST)
+Message-ID: <5d4ccb2c-da45-4471-9bb1-90212b50dad7@arm.com>
+Date: Thu, 12 Dec 2024 09:23:20 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND RFC PATCH v1 1/5] arm64: Add TLB Conflict Abort Exception
+ handler to KVM
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+ oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20241211160218.41404-1-miko.lenczewski@arm.com>
+ <20241211160218.41404-2-miko.lenczewski@arm.com>
+ <86o71irucr.wl-maz@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <86o71irucr.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10-2.015300-8.000000
-X-TMASE-MatchedRID: PZMqI2AhqDQdWKRD1iYss+EbUg4xvs+wCt59Uh3p/NUKogmGusPLb8UR
-	fpp2J0YycRMU/6zQP6hcWPWm98SUsWdvGUEuKvScnIGynr5ObIaKbuU19+RNrmq//5Ao1w8uVon
-	uiLTPfifG3TRnfVX2PIAy6p60ZV62SwOSQ/fMiOrdB/CxWTRRu4PtEWvP7F7FglK3TQvBrzHUdN
-	vHZnc+lOkykW6dVMoLp7xo3bUdR0zawYtKJNIJl4y1Ms3iZ9oVEBHFAzc5ZQlDW0Cl2o4sC7Y3k
-	0MIk05nhJVRlkc0uv5GBXoeyrLHXVBo425nomviD2TeXwRpghw5Asr9kfiuVp6oP1a0mRIj
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10-2.015300-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 9A918C98F4CB6051F0074717FB9392B18B5A07F715E3C802758DA1FA72F647DF2000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_012220_153066_C38F3412 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20241212_012325_927196_587C9D6D 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,210 +71,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cloud Zhang <cloud.zhang@mediatek.com>
+On 11/12/2024 17:40, Marc Zyngier wrote:
+> On Wed, 11 Dec 2024 16:01:37 +0000,
+> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
+>>
+>> Currently, KVM does not handle the case of a stage 2 TLB conflict abort
+>> exception. The Arm ARM specifies that the worst-case handling of such an
+>> exception requires a `tlbi vmalls12e1`.
+> 
+> Not quite. It says (I_JCCRT):
+> 
+> <quote>
+> * For the EL1&0 translation regime, when stage 2 translations are in
+>   use, either VMALLS12E1 or ALLE1.
+> </quote>
+> 
+>> Perform such an invalidation when this exception is encountered.
+> 
+> What you fail to describe is *why* this is needed. You know it, I know
+> it, but not everybody does. A reference to the ARM ARM would
+> definitely be helpful.
+> 
+>>
+>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+>> ---
+>>  arch/arm64/include/asm/esr.h | 8 ++++++++
+>>  arch/arm64/kvm/mmu.c         | 6 ++++++
+>>  2 files changed, 14 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+>> index d1b1a33f9a8b..8a66f81ca291 100644
+>> --- a/arch/arm64/include/asm/esr.h
+>> +++ b/arch/arm64/include/asm/esr.h
+>> @@ -121,6 +121,7 @@
+>>  #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
+>>  #define ESR_ELx_FSC_SECC	(0x18)
+>>  #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
+>> +#define ESR_ELx_FSC_TLBABT	(0x30)
+>>  
+>>  /* Status codes for individual page table levels */
+>>  #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
+>> @@ -464,6 +465,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
+>>  	       (esr == ESR_ELx_FSC_ACCESS_L(0));
+>>  }
+>>  
+>> +static inline bool esr_fsc_is_tlb_conflict_abort(unsigned long esr)
+>> +{
+>> +	esr = esr & ESR_ELx_FSC;
+>> +
+>> +	return esr == ESR_ELx_FSC_TLBABT;
+>> +}
+>> +
+>>  /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
+>>  static inline bool esr_iss_is_eretax(unsigned long esr)
+>>  {
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index c9d46ad57e52..c8c6f5a97a1b 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1756,6 +1756,12 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>>  	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
+>>  	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+>>  
+>> +	if (esr_fsc_is_tlb_conflict_abort(esr)) {
+>> +		// does a `tlbi vmalls12e1is`
+> 
+> nit: this isn't a very useful comment.
+> 
+>> +		__kvm_tlb_flush_vmid(&vcpu->kvm->arch.mmu);
+>> +		return 1;
+>> +	}
+> 
+> That's not enough, unfortunately. A nested VM has *many* VMIDs (the
+> flattening of all translation contexts that the guest uses).
+> 
+> So you can either iterate over all the valid VMIDs owned by this
+> guest, or more simply issue a TLBI ALLE1, which will do the trick in a
+> much more efficient way.
+> 
+> The other thing is that you are using an IS invalidation, which is
+> farther reaching than necessary. Why would you invalidate the TLBs for
+> CPUs that are only innocent bystanders? A non-shareable invalidation
+> seems preferable to me.
+> 
+>> +
+>>  	if (esr_fsc_is_translation_fault(esr)) {
+>>  		/* Beyond sanitised PARange (which is the IPA limit) */
+>>  		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
+> 
+> But it also begs the question: why only KVM, and not the host? This
+> handler will only take effect for a TLB Conflict abort delivered from
+> an EL1 guest to EL2.
 
-The clock used by different platforms is not same. So it is
-necessary to modify the clock architecture to be adaptable to more
-platforms.
+Hi Marc,
 
-Signed-off-by: Cloud Zhang <cloud.zhang@mediatek.com>
----
- drivers/spi/spi-mtk-nor.c | 118 ++++++++++++++++++++++----------------
- 1 file changed, 68 insertions(+), 50 deletions(-)
+I believe the intent of this patch is to protect the host/KVM against a guest
+that is using BBML2. The host/KVM always assumes BBML0 and therefore doesn't do
+any operations that are allowed by the arch to cause a conflict abort. Therefore
+the host doesn't need to handle it. But a guest could be taking advantage of
+BBML2 and therefore it's architiecturally possible for a conflict abort to be
+raised to EL2. I think today that would take down the host?
 
-diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
-index 85ab5ce96c4d..d466a8d3f062 100644
---- a/drivers/spi/spi-mtk-nor.c
-+++ b/drivers/spi/spi-mtk-nor.c
-@@ -99,6 +99,8 @@
- 
- #define CLK_TO_US(sp, clkcnt)		DIV_ROUND_UP(clkcnt, sp->spi_freq / 1000000)
- 
-+#define MAX_CLOCK_CNT		6
-+
- struct mtk_nor_caps {
- 	u8 dma_bits;
- 
-@@ -110,16 +112,19 @@ struct mtk_nor_caps {
- 	u8 extra_dummy_bit;
- };
- 
-+struct clk_info {
-+	struct clk *clki;
-+	const char *name;
-+};
-+
- struct mtk_nor {
- 	struct spi_controller *ctlr;
- 	struct device *dev;
- 	void __iomem *base;
- 	u8 *buffer;
- 	dma_addr_t buffer_dma;
--	struct clk *spi_clk;
--	struct clk *ctlr_clk;
--	struct clk *axi_clk;
--	struct clk *axi_s_clk;
-+	struct clk_info clocks[MAX_CLOCK_CNT];
-+	u8 clock_cnt;
- 	unsigned int spi_freq;
- 	bool wbuf_en;
- 	bool has_irq;
-@@ -703,42 +708,74 @@ static int mtk_nor_transfer_one_message(struct spi_controller *host,
- 
- static void mtk_nor_disable_clk(struct mtk_nor *sp)
- {
--	clk_disable_unprepare(sp->spi_clk);
--	clk_disable_unprepare(sp->ctlr_clk);
--	clk_disable_unprepare(sp->axi_clk);
--	clk_disable_unprepare(sp->axi_s_clk);
-+	u8 i;
-+
-+	for (i = 0; i < sp->clock_cnt; i++)
-+		clk_disable_unprepare(sp->clocks[i].clki);
- }
- 
- static int mtk_nor_enable_clk(struct mtk_nor *sp)
- {
- 	int ret;
-+	u8 i, j;
- 
--	ret = clk_prepare_enable(sp->spi_clk);
--	if (ret)
--		return ret;
-+	for (i = 0; i < sp->clock_cnt; i++) {
-+		ret = clk_prepare_enable(sp->clocks[i].clki);
-+		if (ret) {
-+			for (j = 0; j < i; j++)
-+				clk_disable_unprepare(sp->clocks[j].clki);
- 
--	ret = clk_prepare_enable(sp->ctlr_clk);
--	if (ret) {
--		clk_disable_unprepare(sp->spi_clk);
--		return ret;
-+			return ret;
-+		}
-+
-+		if (strcmp(sp->clocks[i].name, "spi"))
-+			sp->spi_freq = clk_get_rate(sp->clocks[i].clki);
- 	}
- 
--	ret = clk_prepare_enable(sp->axi_clk);
--	if (ret) {
--		clk_disable_unprepare(sp->spi_clk);
--		clk_disable_unprepare(sp->ctlr_clk);
--		return ret;
-+	return 0;
-+}
-+
-+static int mtk_nor_parse_clk(struct device *dev, struct mtk_nor *sp)
-+{
-+	struct device_node *np = dev->of_node;
-+	int ret;
-+	const char *name;
-+	u8 cnt, i;
-+
-+	cnt = of_property_count_strings(np, "clock-names");
-+	if (!cnt || (cnt == -EINVAL)) {
-+		dev_err(dev, "Unable to find clocks\n");
-+		ret = -EINVAL;
-+		goto out;
-+	} else if (cnt < 0) {
-+		dev_err(dev, "Count clock strings failed, err %d\n", cnt);
-+		ret = cnt;
-+		goto out;
-+	} else if (cnt > MAX_CLOCK_CNT) {
-+		ret = -EINVAL;
-+		goto out;
- 	}
- 
--	ret = clk_prepare_enable(sp->axi_s_clk);
--	if (ret) {
--		clk_disable_unprepare(sp->spi_clk);
--		clk_disable_unprepare(sp->ctlr_clk);
--		clk_disable_unprepare(sp->axi_clk);
--		return ret;
-+	sp->clock_cnt = cnt;
-+
-+	for (i = 0; i < cnt; i++) {
-+		ret = of_property_read_string_index(np, "clock-names", i,
-+				       &name);
-+		if (ret) {
-+			dev_err(dev, "failed to get clock string\n");
-+			return ret;
-+		}
-+
-+		sp->clocks[i].name = name;
-+		sp->clocks[i].clki = devm_clk_get(dev, sp->clocks[i].name);
-+		if (IS_ERR(sp->clocks[i].clki)) {
-+			dev_err(dev, "get clock %s fail\n", sp->clocks[i].name);
-+			return PTR_ERR(sp->clocks[i].clki);
-+		}
- 	}
- 
--	return 0;
-+out:
-+	return ret;
- }
- 
- static void mtk_nor_init(struct mtk_nor *sp)
-@@ -813,29 +850,12 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 	struct mtk_nor *sp;
- 	struct mtk_nor_caps *caps;
- 	void __iomem *base;
--	struct clk *spi_clk, *ctlr_clk, *axi_clk, *axi_s_clk;
- 	int ret, irq;
- 
- 	base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
--	spi_clk = devm_clk_get(&pdev->dev, "spi");
--	if (IS_ERR(spi_clk))
--		return PTR_ERR(spi_clk);
--
--	ctlr_clk = devm_clk_get(&pdev->dev, "sf");
--	if (IS_ERR(ctlr_clk))
--		return PTR_ERR(ctlr_clk);
--
--	axi_clk = devm_clk_get_optional(&pdev->dev, "axi");
--	if (IS_ERR(axi_clk))
--		return PTR_ERR(axi_clk);
--
--	axi_s_clk = devm_clk_get_optional(&pdev->dev, "axi_s");
--	if (IS_ERR(axi_s_clk))
--		return PTR_ERR(axi_s_clk);
--
- 	caps = (struct mtk_nor_caps *)of_device_get_match_data(&pdev->dev);
- 
- 	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(caps->dma_bits));
-@@ -868,10 +888,6 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 	sp->wbuf_en = false;
- 	sp->ctlr = ctlr;
- 	sp->dev = &pdev->dev;
--	sp->spi_clk = spi_clk;
--	sp->ctlr_clk = ctlr_clk;
--	sp->axi_clk = axi_clk;
--	sp->axi_s_clk = axi_s_clk;
- 	sp->caps = caps;
- 	sp->high_dma = caps->dma_bits > 32;
- 	sp->buffer = dmam_alloc_coherent(&pdev->dev,
-@@ -885,11 +901,13 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	}
- 
--	ret = mtk_nor_enable_clk(sp);
-+	ret = mtk_nor_parse_clk(sp->dev, sp);
- 	if (ret < 0)
- 		return ret;
- 
--	sp->spi_freq = clk_get_rate(sp->spi_clk);
-+	ret = mtk_nor_enable_clk(sp);
-+	if (ret < 0)
-+		return ret;
- 
- 	mtk_nor_init(sp);
- 
--- 
-2.46.0
+So really I think this could be considered a stand-alone KVM hardening improvement?
+
+> 
+> However, it doesn't seem to me that the host is equipped to deal with
+> this sort of exception for itself. Shouldn't you start with that?
+
+If the host isn't doing any BBML2 operations it doesn't need to handle it, I
+don't think? Obviously that changes later in the series and Miko is adding the
+required handling to the host.
+
+Thanks,
+Ryan
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
 
 
