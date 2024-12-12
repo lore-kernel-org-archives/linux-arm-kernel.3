@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7F2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5B7E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sQSRIpbMZMTvSt/ONP7qcZFmo/OmYcaw7A/YcvOiJxU=; b=ZSAMNFGM89Ht0nwB1ephobzN11
-	aMtDePdUJOvflOTQZGKmOFZyUy2wA7mC9yu1aAozWkfRxtzYy0rWvp32EocjXnakVcvz18zoUtD3z
-	3M8eO7nYwUjm0KKHKY2CP/x9ziX/D8peKhMMz+mgefOpz19avBglhcsTG7cH0QKtWqIeeP/4LbPGT
-	be7MwC5gaeF3AHhcu5Tr18VASM45cYYgbap8Y85gEo1u5y/XZOnKibm8pOT+uMe7ls5j+DF7bj2JA
-	7wj4NPmlAA02SKAKK1xNYg3TJU+3R+e0xD5CA/9VAQQ488XLI2O0G/NQ+bidZXdOet4kzEicL7gZT
-	6a3mL5QA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oVBMSDC1jJV0de7egsiBAFpgiZ0XhJISKFXYAFN3mUM=; b=KeRGW04OChad6rpV04lVT/Ouos
+	NwKQDsrocJMTcS+KYHyMrhLG8GsZpq1wIH/iB1MByE9YR+v4jPdvi97MyO3D7o8g9t3g++efQww2C
+	/7GIR8IrvPKnEB2+Q4m4ulWunBwtfqkP4TUmVRooQkMEFJDTaIVJ4H4nkJuoPWhDZsyRq+avO2/uY
+	m+8Gt941+GPBa7fy5v8v4Lxy9JQHMyUilBC0AEf4xFMvL3jR02MhND4hKTqxuVxmEHbzdHisOhXr5
+	/QuqTOV9iOqLIi0iORmINHJntcHRtVR5hiTV7smxTWbohtpttKOy5d+SGaH1ZaAXdXZnZsZDi9A9N
+	it1Yy1tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLr5K-000000021FG-2bxz;
-	Thu, 12 Dec 2024 21:51:02 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tLr6N-000000021To-0yDF;
+	Thu, 12 Dec 2024 21:52:07 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLr4F-000000020tE-1slO
+	id 1tLr4H-000000020tf-1XMw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 21:49:56 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCHHNP1029647;
-	Thu, 12 Dec 2024 21:49:35 GMT
+	Thu, 12 Dec 2024 21:49:58 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCEehgB000945;
+	Thu, 12 Dec 2024 21:49:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=sQSRIpbMZMTvSt/ONP7qcZFmo/OmYcaw7A/YcvOiJ
-	xU=; b=Eun+Ov/ejazf5dJAtHZffyPyka2SPRWHNX95vIR0ulqUblko6XdBRitqV
-	PoQt054qhSB+cDeNn58SBtCMtQULwGCc0TWWvkDhhn8MGBINlMav2GZnCgBdhyPe
-	ecLis80cr0+hIiwQ+1XDeJHrfw2fcY6f52UpVToh4xUOK3FKmh3/7fGEkclxSfar
-	PV693d9CAXMY7TlFEivhVV6g9yjaEiMFRssfhmvWXqQKt2h9PMzqpd38GGKMpOPe
-	an1Y1vJYUIr1lMDFfNAaaOcj6vEnu9dCB/NyCsZbNixiecqSZEf4pFtCMl1EgsHX
-	jIl0f3zTSfV4gHlP9kG/lupG+ZszA==
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=oVBMSDC1jJV0de7eg
+	siBAFpgiZ0XhJISKFXYAFN3mUM=; b=a/7jHIRwCr6hHhZTC2FbYgIUX67dp5uJa
+	6f0sNHsnmWI1CJnYQCiKW5Wcu42rl5SjO9OqLkkJ4M4qQcyhvTQEhSxvPNdHpmEq
+	uKKZjjPtE4X+5mQ0GjVrSSkkR2rs6OAtvwbx6ueAF8ZOM9r37J38CeITBL1Szn6A
+	yfxWuM/woK2QIowcxsXy66knYhK0h4CIjPDFvWaIDyZo7yG/1KhsNvf2uzhxRnZZ
+	lmHiWG/cIT/42gLvy5A3/ykw80Z10zJhfFcm8VZ5SBujrhWTPYFx2K3QXCNdyX/h
+	XLWuka5PMdXbqv4jkWUco1sUnzs+YMgBPPnQnTB8t2g2dEooCd2iw==
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43ccsjwnbx-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43ft6d4sju-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:49:35 +0000 (GMT)
-Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4BCLmpVu014905;
-	Thu, 12 Dec 2024 21:49:34 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43ccsjwnbu-1
+	Thu, 12 Dec 2024 21:49:40 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4BCLgivY018942;
+	Thu, 12 Dec 2024 21:49:40 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43ft6d4sjp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:49:34 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCJWAhG032760;
-	Thu, 12 Dec 2024 21:49:33 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 43d0pstx59-1
+	Thu, 12 Dec 2024 21:49:39 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCJaqCe016911;
+	Thu, 12 Dec 2024 21:49:38 GMT
+Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43d12yjwcn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:49:33 +0000
+	Thu, 12 Dec 2024 21:49:38 +0000
 Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BCLnW8131392502
+	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BCLnbsn7733778
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Dec 2024 21:49:32 GMT
+	Thu, 12 Dec 2024 21:49:37 GMT
 Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 49F5558056;
-	Thu, 12 Dec 2024 21:49:32 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 87D2558055;
+	Thu, 12 Dec 2024 21:49:37 +0000 (GMT)
 Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A148958054;
-	Thu, 12 Dec 2024 21:49:30 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id E00475803F;
+	Thu, 12 Dec 2024 21:49:35 +0000 (GMT)
 Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
 	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 12 Dec 2024 21:49:30 +0000 (GMT)
+	Thu, 12 Dec 2024 21:49:35 +0000 (GMT)
 From: Ninad Palsule <ninad@linux.ibm.com>
 To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         eajames@linux.ibm.com, jdelvare@suse.com, linux@roeck-us.net,
@@ -83,26 +83,28 @@ To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
 Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v1 0/4] Add support for Intel CRPS PSU
-Date: Thu, 12 Dec 2024 15:48:59 -0600
-Message-ID: <20241212214927.3586509-1-ninad@linux.ibm.com>
+Subject: [PATCH v1 3/4] dt-bindings: hwmon: intel,crps185: Add to trivial
+Date: Thu, 12 Dec 2024 15:49:02 -0600
+Message-ID: <20241212214927.3586509-4-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241212214927.3586509-1-ninad@linux.ibm.com>
+References: <20241212214927.3586509-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: icj0bAT7zzgFYlr1nDRjw_RxSGMuUP5q
-X-Proofpoint-ORIG-GUID: lvlUArhSuLBsHdj0aE27zUlAmBm5SjQD
+X-Proofpoint-GUID: akceWLk4hlci3DRhVjwcKk6sDe_qeiYS
+X-Proofpoint-ORIG-GUID: 61Kd4a_MoXRtg40iHM7tKt-cHiLc1ptP
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
  definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 adultscore=0
- impostorscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0 mlxlogscore=979
- mlxscore=0 priorityscore=1501 suspectscore=0 malwarescore=0 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412120156
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1015
+ priorityscore=1501 malwarescore=0 phishscore=0 lowpriorityscore=0
+ bulkscore=0 spamscore=0 mlxlogscore=999 mlxscore=0 impostorscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412120156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_134955_598503_7E5206BD 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20241212_134957_403280_C48CC127 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +119,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Add INTEL Common Redundant Power Supply Versions crps185 bindings as
+trivial.
 
-Please review the changes for Intel CRPS power supply driver.
-I need to add label in the pmbus core as new application like PSUSensor
-requires it.
+Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+---
+ Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Ninad Palsule (4):
-  hwmon: pmbus-core: Add label for fan and temp
-  hwmon: (pmbus/crps) Add Intel CRPS185 power supply
-  dt-bindings: hwmon: intel,crps185: Add to trivial
-  ARM: dts: aspeed: system1: Use crps PSU driver
-
- .../devicetree/bindings/trivial-devices.yaml  |   2 +
- Documentation/hwmon/crps.rst                  |  95 ++++++
- MAINTAINERS                                   |   7 +
- .../dts/aspeed/aspeed-bmc-ibm-system1.dts     |   8 +-
- drivers/hwmon/pmbus/Kconfig                   |   9 +
- drivers/hwmon/pmbus/Makefile                  |   1 +
- drivers/hwmon/pmbus/crps.c                    | 299 ++++++++++++++++++
- drivers/hwmon/pmbus/pmbus_core.c              |  14 +
- 8 files changed, 431 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/hwmon/crps.rst
- create mode 100644 drivers/hwmon/pmbus/crps.c
-
+diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
+index 73a49d50c4ef..7d07b08b1459 100644
+--- a/Documentation/devicetree/bindings/trivial-devices.yaml
++++ b/Documentation/devicetree/bindings/trivial-devices.yaml
+@@ -151,6 +151,8 @@ properties:
+           - injoinic,ip5306
+             # Inspur Power System power supply unit version 1
+           - inspur,ipsps1
++            # Intel common redudant power supply crps185
++          - intel,crps185
+             # Intersil ISL29028 Ambient Light and Proximity Sensor
+           - isil,isl29028
+             # Intersil ISL29030 Ambient Light and Proximity Sensor
 -- 
 2.43.0
 
