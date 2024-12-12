@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE94E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDF9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SIv08M5NuYFMrbLnuplDgqYvTP/RY0BpL7xzh6gruXQ=; b=onal+8s8JqATrB2bfYDRmq55mX
-	KV11VHU3FBc37eW2PAxi/G3TtsZM8oVnof7/TaGnTrg87+kGr5YxsgDCvSK+c/IuSX7YEnPXeCNrg
-	SWjGu9yBa3TQGY3dgIud2eanPrn4T7hq+x7Fa6ZFpWBBqQAqRv7YIuhXJy6vHfWLdwoqfomaMqlfO
-	3W/TVmAlQ2yR6PlWH5uk8drALVFBJx/35tNjs5Ghvm+7b9WIHoAbtwlqhaDE/2zxac5O6uVxZXOCG
-	KHhCKujD8BLdKz4xVHdPGDLVO6NCfdkFHTJorvJ5plJafj7eqYN+RWL2txdXe0nfMS3ZBXl7ZC0sD
-	uHSAPebg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iUHH+eJbCiMl2j2oN03m6Q26pa8Tho3uZPMyt8IDCBg=; b=Jzkd7BS14rITWN1HyezqJ3PHbx
+	adMr1NIOdsqK+FPZEA8hoNhZhGgCwpjEAIf5xzZ4hvy+JRdvjqIBQfksZOfef7RBhC3GrgwC6Ok9R
+	dRe/Lg2QbNdDMmJUdh9lObwoEK0KNMqUOsVg8jT+ilnvwjOfAOC2+Wa5JrWmpCTbZQ9NJMxO7Ofz9
+	8PzD7Nr4gG8bAyOnPTKPVZ1s35j5I3AQpTeTbYoYo7yIbLdp0Jr+8ZOZA7/Um77mad839kuO4vLFY
+	AO1S+h0XUBBHFnkF7huQX/BBLr2o2Ya1Woug+R8XMPxFMPgnW4Cpilrcc4LNGsGQfgCTqGiIwqEVa
+	XhSjFkYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdGd-0000000H6iR-0deU;
-	Thu, 12 Dec 2024 07:05:47 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1tLdHe-0000000H703-33kE;
+	Thu, 12 Dec 2024 07:06:50 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdFY-0000000H6Rp-26pC
+	id 1tLdFb-0000000H6SB-3Yps
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 07:04:41 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-728e3826211so212858b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 23:04:40 -0800 (PST)
+	Thu, 12 Dec 2024 07:04:44 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-724d23df764so218672b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 23:04:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733987079; x=1734591879; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SIv08M5NuYFMrbLnuplDgqYvTP/RY0BpL7xzh6gruXQ=;
-        b=nfVpS3F8V8jxZu1X9HHf0LrG8yBaODZzaA2dPXclbCpQWMINqmyrorw59R71T1g9f6
-         plFEicJlWve4LfJ0UZPvPHTaGXwYd5aGnPguCdCgPFw7ivZxEec3PGpBRN49nSAzWWm4
-         WMDUjp0gwf7yhcgbHHqISQYA3S0MBAueQlyFOrbltwNRXKjT7aLjS4oIvpT9Ynzp2AwK
-         nDYKoWmWzd7lzmNT6dfyXYMt4MnB0AkLxiSMjOx/z08kxWuw6hPTrcpt0jAIQAve9Byq
-         Lz8pUZHHJiWxTZoposj+qhlRCNYI0Ka+rGuK6XYN2GKQR1GzWgEIDqPNwri22AH7Iupc
-         SByA==
+        d=gmail.com; s=20230601; t=1733987083; x=1734591883; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iUHH+eJbCiMl2j2oN03m6Q26pa8Tho3uZPMyt8IDCBg=;
+        b=W/pP2YpcBF1ItwIPcBjZlV2xl2L6XkAL1xusIrDSNR3aNR683QowbFBodaRQb/R7xb
+         cnZIrN3P8qyeGKT6pVFv7wq29WjWxrvdVEpAus3pd9AnBGQ1oCtihH5VjoFhogz2Norz
+         DbJ1/umPjbIQ59B+qiKR5ypIsTE6kq/sVixn/bSZwC/9WFKA5k3Ir3xea5KSMpvQVOha
+         6RzZ9uMIb+BaCTV1ZGgWOIxbMypI5d4j1O8ip0iUm6tBF9NpQMLLBVL3/Q/zraJoVloC
+         LaZg7btk94g8+OjBtw24ndWmpgZjtQP/vxFfCK9Iwntt1U/12FXvKYqBoD6MnvA3udtI
+         ku3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733987079; x=1734591879;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SIv08M5NuYFMrbLnuplDgqYvTP/RY0BpL7xzh6gruXQ=;
-        b=lqEL9j05Fks2VUYjdNphWujsQg2xn+BHBqw09BdXySIIQQIhU7omBoMgx9rOxf89Qf
-         QzsjwUBGU7/71D5sjtwAi8JOuJqIjGjF4SNG8NxeGnDNM5KFjz3QSQgFzs4rd+TIWGn3
-         5+ZhXXtfnSdP3SVuuVQbLbGR97qP6BrBB/mDvA6Wf0RiUSjAuowrFBXH38l8I9G+/U0P
-         Y7G/XeYWtk5InQ+ab5VTjGNEQaLplHsXc0PbwYoKYC4bqRkAyZ3rcQ28KOJ4p/l0h8fc
-         7AbqscGIc4+VHJR+bDsaXIvLXmFqB7qG2g2yeLCjWg7M4WV1jxZ7IO0gwITRPXJg7ICj
-         jVaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUeCtH2pezKVnRFtNs54eSE5HRazvIsZDXqUoeTJu1C8Yic58+Hb7EvClLfEsGoFMNL69uhiGHxP3SxNKQGacqk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr5dV9IbzLMqh6zY0LEc/Mvtc6AS2SClTh0QagSCwM3AxS28kV
-	QhV4u2aIRCirKyqH1BQyuaesCees/QLhQhP1CU2MiPPibJZGObFx
-X-Gm-Gg: ASbGnctdZ70NWSk5WAF9gq27D0/aG6TMhS5uW4zZ3DZ8b1sqxOR2Pu4fINm4OvZDm4G
-	UVspeObf3vwDRFv9R8G+alYgbenaOMImb7C7+LaUecUD8+HRtteY5uTv0LhsMx83/cYckjmfU48
-	zo2O5JV9tXRG/uq+MGbkudV0t6XgH3LZpgibsmVzIJ9omctcFS5GIZ9HvZYq4eSDGmj5m/Ah596
-	8bGnZ6DbYf//JgQKFZYFFJeRgYcMrB57UBlpCadllyoTdJ0yGq0F6JPMHI1qetRu+24cAV0
-X-Google-Smtp-Source: AGHT+IE2taDr2+F/QNnwkBgUaYbLlW++dErTzZng9ixbTcmDK5lHBmPiyyr/YT2Yg8/ifsjbQynqqA==
-X-Received: by 2002:a05:6a20:7347:b0:1e0:d32f:24e2 with SMTP id adf61e73a8af0-1e1cebdfe8bmr3622509637.38.1733987079385;
-        Wed, 11 Dec 2024 23:04:39 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733987083; x=1734591883;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iUHH+eJbCiMl2j2oN03m6Q26pa8Tho3uZPMyt8IDCBg=;
+        b=TJJ9uAyl938EJIQ3msqhnGVSHQcgvnWCZE040cZfl+H3xBPIe83i2SAoCb+F98LAEV
+         LZrbAyxb5oVCtXcxajnYuZCNcPbjHEa1crVxJ7otVKgJ8Oyebzs65PDDtE2AXiqa3yB9
+         CyQMfnOVJhqgcjGXf+H7CGupLAMyZla/mJkxh+bLvCYkfi14Dtv/eNrLcHmo22pRpJTm
+         cePw806K3+abFditYbSzqnYLxOjLKEtnkXPMwLGVEnt2ezBKbCQji6Dz041Op9Yslr80
+         ZAlChVCapcweIyLsEW5cURrXgC/rTulbFKtNuT2glz1CMt2vk7r7xU4pdiurxxog/SKZ
+         41ZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWanbuuakv1O3g6c5hGjmwbr8QzgfVoHFcniaoHgNzrTvtKclb/ZqP7SX3YC4uzRgYRW1eJVlRVX/6765i2raMQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHw1IGE0KA4dpzJ5u4uAD59/POnK4eBmBRabolrvdbeQ7wYhrf
+	SfD9RA8lSOmoDWZmlHw3rzieZybHdqVPYz3rMusakYBaBlM+rM3XxojmWe9N
+X-Gm-Gg: ASbGncu1ULkhMMYCcOTuTbdOuT7p2iadCqVgv4fsoKp7AMzxPCWT691zhACB8KCW1EG
+	/FHfaccY46OaGfSjHYVqB7r3bMrq7yOemi75ZcMz1qt1qpowsXPJ14zzdmdHphIiGAsAF/AMh+w
+	s5AA7Z5f7Z70YRM71kM1zJndN5xtrYebiUlWpYIyDMCdE3WCQGq+L7N0UVilLktdDQCZflRAonJ
+	OyPDsALFPDDWp3w33rNob7Yc65kxSu7W8Ut2GOcd5lzwCvmYiT2IsRrlTuphijmbvZh8F8c
+X-Google-Smtp-Source: AGHT+IGtN/4wOi7l9DheFzbvnmhfw8j2aOU+HkhGN2Yp/3Yo0IKmhXbzVUwwdn6N9+FFWNTL8LZBlw==
+X-Received: by 2002:a05:6a00:464f:b0:728:e196:b5b5 with SMTP id d2e1a72fcca58-728faad31f3mr3605642b3a.20.1733987082812;
+        Wed, 11 Dec 2024 23:04:42 -0800 (PST)
 Received: from localhost.localdomain ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-725ee10f928sm6519386b3a.32.2024.12.11.23.04.36
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-725ee10f928sm6519386b3a.32.2024.12.11.23.04.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 23:04:38 -0800 (PST)
+        Wed, 11 Dec 2024 23:04:42 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
 To: Hector Martin <marcan@marcan.st>,
 	Sven Peter <sven@svenpeter.dev>,
@@ -81,16 +82,17 @@ To: Hector Martin <marcan@marcan.st>,
 	Devicetree <devicetree@vger.kernel.org>,
 	LKML <linux-kernel@vger.kernel.org>
 Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH v2 0/7] Apple A7-A11, T2 SoC cpufreq support
-Date: Thu, 12 Dec 2024 15:02:59 +0800
-Message-ID: <20241212070344.3858-1-towinchenmi@gmail.com>
+Subject: [PATCH v2 1/7] dt-bindings: cpufreq: apple,cluster-cpufreq: Add A7-A11, T2 compatibles
+Date: Thu, 12 Dec 2024 15:03:00 +0800
+Message-ID: <20241212070344.3858-2-towinchenmi@gmail.com>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241212070344.3858-1-towinchenmi@gmail.com>
+References: <20241212070344.3858-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_230440_539333_F4F83104 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_230443_879494_28499D12 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series add driver support for cpufreq Apple A7-A11, T2 SoCs.
-Device Tree nodes will be included in another series.
+Add compatibles for Apple A7-A11, T2 SoCs.
 
-Changes since v1:
-- transition_latency is in ns, APPLE_DVFS_TRANSITION_TIMEOUT in us.
-Multiply APPLE_DVFS_TRANSITION_TIMEOUT by 1000 before setting it as
-transition_latency.
+Apple A7, A8, A8X gets the per-SoC compatible and the A7
+"apple,s5l8960x-cluster-cpufreq" compatible.
 
-v1: https://lore.kernel.org/asahi/20241211112244.18393-1-towinchenmi@gmail.com/T
+Apple A9, A9X, A10, A10X, T2, A11 gets the per-SoC compatible, M1
+"apple,t8103-cluster-cpufreq" compatible, then the
+"apple,cluster-cpufreq" fallback compatible.
 
-Nick Chan
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
-Hector Martin (1):
-  cpufreq: apple-soc: Drop setting the PS2 field on M2+
+ .../bindings/cpufreq/apple,cluster-cpufreq.yaml        | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-Nick Chan (6):
-  dt-bindings: cpufreq: apple,cluster-cpufreq: Add A7-A11, T2
-    compatibles
-  cpufreq: apple-soc: Allow per-SoC configuration of APPLE_DVFS_CMD_PS1
-  cpufreq: apple-soc: Use 32-bit read for status register
-  cpufreq: apple-soc: Increase cluster switch timeout to 400us
-  cpufreq: apple-soc: Set fallback transition latency to
-    APPLE_DVFS_TRANSITION_TIMEOUT
-  cpufreq: apple-soc: Add Apple A7-A8X SoC cpufreq support
-
- .../cpufreq/apple,cluster-cpufreq.yaml        | 10 +++-
- drivers/cpufreq/apple-soc-cpufreq.c           | 56 +++++++++++++++----
- 2 files changed, 54 insertions(+), 12 deletions(-)
-
-
-base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
+diff --git a/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml b/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+index 76cb9726660e..896276b8c6bb 100644
+--- a/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
++++ b/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+@@ -24,9 +24,17 @@ properties:
+               - apple,t8112-cluster-cpufreq
+           - const: apple,cluster-cpufreq
+       - items:
+-          - const: apple,t6000-cluster-cpufreq
++          - enum:
++              - apple,s8000-cluster-cpufreq
++              - apple,t8010-cluster-cpufreq
++              - apple,t8015-cluster-cpufreq
++              - apple,t6000-cluster-cpufreq
+           - const: apple,t8103-cluster-cpufreq
+           - const: apple,cluster-cpufreq
++      - items:
++          - const: apple,t7000-cluster-cpufreq
++          - const: apple,s5l8960x-cluster-cpufreq
++      - const: apple,s5l8960x-cluster-cpufreq
+ 
+   reg:
+     maxItems: 1
 -- 
 2.47.1
 
