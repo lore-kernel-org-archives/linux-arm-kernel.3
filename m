@@ -4,91 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C1EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B12E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lbb+BF8rXOcsled1oWe4stPtecQkoM6M2iGQzUBZ20E=; b=rEtiG+kViWhYOOBTpb3puA8QOS
-	QmvCh02papBZYDS2PdhJqFX+GMmvQduLZMnzuLKmIXYrjoELnEVhTNP8eqN73IDBYpLwWbjHhdH68
-	v5SpVeU3tOgG6bu0HuIHzFRo5QOQeDC7vzDZm9KQPJMRSiuRD4zmyzTTCBnONGNGKDVSBCL9ny7OA
-	b1/7/irEzKUQsCkGN4Dc99GBCG34UlxVyY6oS/RWA4mGiaBREu4CZl5uXg1p44xhdfO2AsnMzm3Jy
-	0hmBlxPJvicCOOPb1tz2gRV8qXIYdIFrOdLwUSgtb8Lq4hBMego3qYYuy0htNKH3RWbEN9g6uW1OE
-	1TZVus+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9c+ZQ2nN+RzQbM3dUetK/hYw3NM5s3P4yw/14c5dtxA=; b=M/LvKHe4S0l/05COAbr5H0SnDY
+	j6DtxxaRpzZEDHypvfnnPq/DGhrfHYjBcnqfqmHvzjI2JkGgH4ctm7vpz5RiUb1b49e3AiNy6jAMl
+	oSe4U8beFx0pVVzJHsnoDB9HOjQ+B6W4G8kOUvbtxs/561NdQcuQOS+ZqN3BkVtWb+4vju8aq6dgk
+	aW0wGHItIP5OwbWQYmy0XRaa4Wp5unbXMWkmzjEYwsMCMoSFihVVZpG70bAkbj+j8HYlgBPld1nCz
+	oizp3vtjUxO0WyFhtpx1dO5Iq8MnZ0vN10HQp6bJ+1+eqTSqZZu/CYRCiX/sonLuDcXNvQXNY4hFT
+	nVzfzSug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlFg-00000000mJL-203k;
-	Thu, 12 Dec 2024 15:37:20 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tLlGm-00000000mYP-1by0;
+	Thu, 12 Dec 2024 15:38:28 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlCN-00000000lcS-3qpW;
-	Thu, 12 Dec 2024 15:33:58 +0000
-X-UUID: 7cdb1536b89e11ef9048ed6ed365623b-20241212
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=lbb+BF8rXOcsled1oWe4stPtecQkoM6M2iGQzUBZ20E=;
-	b=XpWhxW54klnIXCjAyLGAe5Ui/9zTDPHR3/MkyDq7+owMNhZ8PCDnDvaeZhWNYU9ksJw5UOEW51Ep7E10AZk821wffgNVhFlvXTcUaWPnz42AerdV1l95w8T24gpxCDbc6d64xsUAjDKnG8k0grbo1kUQ9iMe9dj9f8o0rGO8zac=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:190cea4a-eb9f-48d1-9214-0c2efcb94c21,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:8101df3b-e809-4df3-83cd-88f012b9e9ba,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 7cdb1536b89e11ef9048ed6ed365623b-20241212
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1967592384; Thu, 12 Dec 2024 08:33:51 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 12 Dec 2024 23:33:46 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 12 Dec 2024 23:33:46 +0800
-From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "Jason-JH . Lin"
-	<jason-jh.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Nancy
- Lin" <nancy.lin@mediatek.com>, Shawn Sung <shawn.sung@mediatek.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Fei Shao
-	<fshao@chromium.org>
-Subject: [PATCH 1/2] dt-bindings: display: mediatek: ovl: Modify rules for MT8195/MT8188
-Date: Thu, 12 Dec 2024 23:33:43 +0800
-Message-ID: <20241212153344.27408-2-jason-jh.lin@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20241212153344.27408-1-jason-jh.lin@mediatek.com>
-References: <20241212153344.27408-1-jason-jh.lin@mediatek.com>
+	id 1tLlDt-00000000lvO-0c6h
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 15:35:30 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCAVPJv011897;
+	Thu, 12 Dec 2024 16:35:14 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	9c+ZQ2nN+RzQbM3dUetK/hYw3NM5s3P4yw/14c5dtxA=; b=2qJrl9YBhg/OBgMc
+	FJRu1WLNsTBqyRl+z0b2p6+8+B0HtXvp+PgODmFKHa6fz/KG+Ps9MrZNGiB1i1zY
+	ILVRbJvBKEqrpAUwjNpqpJjRsXt9R9Iq6AlPZZIU7aN2WnLtPeFUpjqs+1Zlv/pt
+	HVGiLceSqXXcVIeHFivCwAu2pD+iqgKV7hZFmfc5ODM9RJV3Lx+p0Cg+21Y1Xbcb
+	J9rL/GXS7LLbD39BAwg3nzdaLzHRCNl+XRunEMMRJsyPo4Q7wxz0a0kM4IbgDnyv
+	iGlfb4wPoCME2N6/bff4pEvDLxroIQC/0EAzIrRow6r/c/7u71prYrx3qZ8ADQcP
+	wtb3Gg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43e2w9ywuj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Dec 2024 16:35:14 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 49C7540047;
+	Thu, 12 Dec 2024 16:34:12 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 608B42839DA;
+	Thu, 12 Dec 2024 16:32:15 +0100 (CET)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 12 Dec
+ 2024 16:32:15 +0100
+Message-ID: <d8eb157e-2f35-45a4-ba3e-cb296ced0a80@foss.st.com>
+Date: Thu, 12 Dec 2024 16:32:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10--0.136400-8.000000
-X-TMASE-MatchedRID: zCCEK6DgsdBTeZCGZ2HhGPSZ/2axrnPBkos2tunL8DRh2fnHe1cil0fp
-	kQx2u0Ks+sZ43y9or/yQgj4GwqRgEJH0YXYnbGozFEUknJ/kEl7dB/CxWTRRu+rAZ8KTspSzhP2
-	jHO9YjNgLjliWD7ttutbT5Scckb0uakZ7kncXBFBwiBREWkL9ZuSf0rVZxcGVbekdSZ/VG9prda
-	hWPN1vM5s/h019t4TeF0aD5ljt43pMcHZD6gqu7wxMjfifIXfowkvVoA11Twp+3BndfXUhXQ==
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10--0.136400-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: FFC1D25952B8A49252E5022CAE31CDDED0172731751D266829B17250F15102BC2000:8
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] firewall: remove misplaced semicolon from
+ stm32_firewall_get_firewall
+To: guanjing <guanjing@cmss.chinamobile.com>, <mcoquelin.stm32@gmail.com>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_073355_967691_23A148CA 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_073529_651145_07B8C35B 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +92,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hsiao Chien Sung <shawn.sung@mediatek.com>
+Hi
 
-Modify rules for both MT8195 and MT8188.
-Hardware capabilities include color formats and AFBC are
-changed since MT8195, stop using the settings of MT8183.
+On 11/9/24 06:50, guanjing wrote:
+> Remove misplaced colon in stm32_firewall_get_firewall()
+> which results in a syntax error when the code is compiled
+> without CONFIG_STM32_FIREWALL.
+> 
+> Fixes: 5c9668cfc6d7 ("firewall: introduce stm32_firewall framework")
+> Signed-off-by: guanjing <guanjing@cmss.chinamobile.com>
+> ---
+>   include/linux/bus/stm32_firewall_device.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/bus/stm32_firewall_device.h b/include/linux/bus/stm32_firewall_device.h
+> index 18e0a2fc3816..5178b72bc920 100644
+> --- a/include/linux/bus/stm32_firewall_device.h
+> +++ b/include/linux/bus/stm32_firewall_device.h
+> @@ -115,7 +115,7 @@ void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall, u32 su
+>   #else /* CONFIG_STM32_FIREWALL */
+>   
+>   int stm32_firewall_get_firewall(struct device_node *np, struct stm32_firewall *firewall,
+> -				unsigned int nb_firewall);
+> +				unsigned int nb_firewall)
+>   {
+>   	return -ENODEV;
+>   }
 
-Acked-by: Rob Herring <robh@kernel.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Hsiao Chien Sung <shawn.sung@mediatek.com>
-Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
----
- .../bindings/display/mediatek/mediatek,ovl.yaml           | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+Applied on stm32-next.
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-index 9ea796a033b2..0ace12bbb623 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-@@ -36,16 +36,14 @@ properties:
-           - enum:
-               - mediatek,mt6795-disp-ovl
-           - const: mediatek,mt8173-disp-ovl
--      - items:
--          - enum:
--              - mediatek,mt8188-disp-ovl
--              - mediatek,mt8195-disp-ovl
--          - const: mediatek,mt8183-disp-ovl
-       - items:
-           - enum:
-               - mediatek,mt8186-disp-ovl
-               - mediatek,mt8365-disp-ovl
-           - const: mediatek,mt8192-disp-ovl
-+      - items:
-+          - const: mediatek,mt8188-disp-ovl
-+          - const: mediatek,mt8195-disp-ovl
- 
-   reg:
-     maxItems: 1
--- 
-2.43.0
-
+Regards
+Alex
 
