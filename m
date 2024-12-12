@@ -4,75 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505EEE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3582DE77182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJMoOaYPSDJK+NcQhvuh8EftUQEvvobvVPsyei1VsxE=; b=zeKOgALYjXe0nEM8mJI2VrfEvG
-	3Mqx3IkCE1m8jNqav30MFjy4gq7LY+14L8VhP7NLnExm44W6stQ4/z+cdsY+u4mxTl4wWTdks1UZI
-	ZrHlBYdwl4FdcGjYLAveKWTfCoLkzVycr4D7ZzfvGOBdfuw62mpMKkCpNOpBK68hd6p2XsQL/GGAr
-	FentHQw1cPqswJp4p5w6gSyomKdQDd0CAwHd0coNQ69lItIbw3HSYP+LDyw49lUIMpE0yzsbNY4pl
-	y5Rd/rhBc3/w+fPfdjUpcRtt9HavDDzUfGmEj5yg8p3WC11fcGtlbZ6Cy5i1fV8IgHqrv3fXhQ330
-	K3Evikxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S9UQqUq7ijyv+gyaX+bIZ7XsRR+WvZ1EzAd7InLGlHw=; b=CTxrNCs1JSQaGnGo0RoMMoYuM2
+	acVUuHw0nUYiOV0wls8NtCIIK3QjZZTmF4O9LiKGaA1oGaQW6k/OmxIMAuSYfMEju5KfWr3Jg+MfY
+	TCrJjMDsyKdUJPwo9GwCAhD4YFWNqlklYMS4R1nmJibuW0MaDZmIuaPSii88opfqZ//GsBKxJexeH
+	RsPyfEX2zWYBuCoTBh5IgYyX5zFE017KI+NpjINE7pN8xrzozM38RZGZtfmt1RLCKgsMEOMpSAtYe
+	QwPN4H2SV0sOE7dG7oo2ln/bXonjkb6UvQ10xRFypLgVNK7uSJalw6DY2BwJFzv7NwdldXD+MJun5
+	Q8NGxRdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnHc-00000001GU9-032Q;
-	Thu, 12 Dec 2024 17:47:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLnIf-00000001GjJ-05Zt;
+	Thu, 12 Dec 2024 17:48:33 +0000
+Received: from mail-db8eur05on20622.outbound.protection.outlook.com ([2a01:111:f403:2614::622] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnCo-00000001ESg-20LD
+	id 1tLnGB-00000001GBI-2e1N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 17:42:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5ABD0A429AD;
-	Thu, 12 Dec 2024 17:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEC73C4CED0;
-	Thu, 12 Dec 2024 17:42:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1734025349;
-	bh=beZmLI04zK5ba0NwAQDHidY/hchb0WhSMRfj6cDFI1I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IUW2Pm5VaXuMfEE/sRy4DVKKHzLZrl+lr6dGoO8bGnuicOk1elUnm6+tdsVl1gSnv
-	 d855RZEuWdZS9cHPC9BK9Q1WmWi1KyQvGnGM11pQq4ErKRiVB7RZQXmz1xGVYSOb3w
-	 ExVycnZPRgKgYSePSRL908HGIFNL8I0tYJ7D00xw=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Leo Yan <leo.yan@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ben Gainey <ben.gainey@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Ruidong Tian <tianruidong@linux.alibaba.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	John Garry <john.g.garry@oracle.com>,
-	scclevenger@os.amperecomputing.com,
-	Namhyung Kim <namhyung@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.4 110/321] perf cs-etm: Dont flush when packet_queue fills up
-Date: Thu, 12 Dec 2024 16:00:28 +0100
-Message-ID: <20241212144234.330343381@linuxfoundation.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241212144229.291682835@linuxfoundation.org>
-References: <20241212144229.291682835@linuxfoundation.org>
-User-Agent: quilt/0.67
-X-stable: review
-X-Patchwork-Hint: ignore
+	Thu, 12 Dec 2024 17:46:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PxZI/DBiUEw8nz3IgEtnwYNe86Q4zciweFMQ4LzCdYBET82gTCD+K4NveHmDkn3Eb0GyfUVFlRe364vwqy8L3TcWrfNhgM1DaAQ2vQAKCD6cEctOIBmB20ZG2WVEZIFHau8/FTbrHst+gQlFB/ioITw+TQpBFiFmZcIYaMF0W9ovbdeFMefCC5fkpXVHtoYodjBWanZ2InEVcRyLa7/zqWJoi1U/D61Ov4XzuZ9t/lblKHlY6v3PYPz2+hISmnX5w6pYK8zusM1geIbqK2TOu10p6Bm4UYPT34z1KMF3rgz6AhOsN+OlpwHOzsi/8gC2Z3txsxtwV8EJ5PCYIysJpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S9UQqUq7ijyv+gyaX+bIZ7XsRR+WvZ1EzAd7InLGlHw=;
+ b=RtqRS4Sq14EyJNEr/kbD0q8rU27yBMVVP4uq2OMS5ECRveI85h9crNeKs4cK/Y538lkor9vNsQFZVj4DCgQilg1iobqg4CKiLavj1rU3ypUUs554Elr4BE6OtQ6WDMC6+qhIkPdHH0T+7ajrNio4c9DC/toWF3Euq2/MsfdIxNVJTPClBcwVLKK/dvSvv7oWKueZzbJFXWYTuQZSRZQzUe2Svc6oU53TxDnS++JhXwzF01ZsV9uYrWdnoXC8WkQbunOwsWmqD9+Epjkb0ECdXHqoRqRhqmD0MkCxttCI77bLAP0xhmXd98acOO6Xc7Nle15n++ac4s1XDQB0xOgRCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=S9UQqUq7ijyv+gyaX+bIZ7XsRR+WvZ1EzAd7InLGlHw=;
+ b=GobkwRP8EdOEik/q166DDBdzvXtFMkBaoyrupLpc2SkR41sJOz7HSv8Xwjya1GQ9Kcm9TOV9Gq32O/iiHvzbcLZaAPSm0DPbJuW7UM6mLfeXNFJtyaffqsDamQVpSQtLcVH4vyPcjy45laleo8JZwpTnACPOQgrDiQ/m5RcYyHYOWZvGOi0B66++k1s9NSd/q4HcQCBe05ALn3VvvsHdNmUEc3Ng5uq9CCZpkhtezpEc+r8gn59l0NvJ8wRtmOMXloReEjGMaYMRxP3KXNNbtoeEGXMUp9SGayYaU+28qdiedPu5gNq+iBb8CQMLPakHmY3X/kFYfcLYNTf3gDEcdA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB7681.eurprd04.prod.outlook.com (2603:10a6:20b:286::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Thu, 12 Dec
+ 2024 17:45:55 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8230.010; Thu, 12 Dec 2024
+ 17:45:55 +0000
+Date: Thu, 12 Dec 2024 12:45:48 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 2/2] nvmem: imx-ocotp-ele: Support accessing controller
+ for i.MX9
+Message-ID: <Z1shTD5QLRXB1wAk@lizhi-Precision-Tower-5810>
+References: <20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com>
+ <20241212-imx-ocotp-v1-2-198bb0af86a0@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241212-imx-ocotp-v1-2-198bb0af86a0@nxp.com>
+X-ClientProxiedBy: SJ2PR07CA0004.namprd07.prod.outlook.com
+ (2603:10b6:a03:505::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB7681:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d86dd30-a494-4374-c837-08dd1ad4d446
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eqvO1Kn20z+hPa7TBw7pVV8RhMEEssSYz4/3mGTcDRmur6KY9P+YxwmfT5zg?=
+ =?us-ascii?Q?DAtrqpzZojdrOcNuFD0PjmTdRbaKIvnxlHrNsUVTdFM6Zq6dKMJUdqMGqlo/?=
+ =?us-ascii?Q?R9rmDX9frKnTpuxdaBeBf6mp4Zuqm63Kj47BlsxF+4RLN87OzDKSnaAT6CjI?=
+ =?us-ascii?Q?DbGaanewsiZuJ7xaLpgNXCnle/KkCV3MSdoQUUxKIx+33zzUoRnKSxvzWwmz?=
+ =?us-ascii?Q?4Q2j9QgJHE/4B+nneVLMEQv3h/+YWwag2nP8OMEtT9tLvt6DJTZBB6GB+Nly?=
+ =?us-ascii?Q?pm02w1RWaC5o/7r/k8MDNxWFNpq4MqSxVCuia3ydbHyj4n1Pu50PhC/Fh5Dm?=
+ =?us-ascii?Q?ZJCY2fRauAcOVD1+RRR4IxF4XBNJwief2ylT5/+84iJdN98JA4Mjrqw5T7fW?=
+ =?us-ascii?Q?40fpRKn6zUoqfFpEtJ86+2dMLPRReZtyoRGxW0r3mAB+t7LuJsVe0mqIe6CN?=
+ =?us-ascii?Q?NOZoQV0arKzgg64AC2u1/z0AFyE9xN57HLjNfRvKx6CbPY6qP6IECHmbx15p?=
+ =?us-ascii?Q?doFivvyupfAnBD1qvnV39kQ1871LtaqFMZVcF0jGQePrvDMiB7wk1mI8AI/o?=
+ =?us-ascii?Q?t7wGY8hniLYHdvzoW8vRbuoIwweO+Fkn+engu/OHejXfD1uBWqhE1elLfeOn?=
+ =?us-ascii?Q?WWFYx98jY4SA+yjb1dV3SUsPNl/1einubZetaoQZnFG4uh8oTba2ncoFK6AY?=
+ =?us-ascii?Q?bcB34n+W/J4SHbnylGjBvpVLpkyhgaV4no0Sr1PBWFfRGvlokxY0nmHDjm9i?=
+ =?us-ascii?Q?quj2TzeW7MV3/cbwFQQFslnSmYVerBu55vSJNt2zwTPTLQC+0SSGne3brUhW?=
+ =?us-ascii?Q?43vkeJXnhZ4El8k1E9VflY4fjY1ZFC//GF4Hl6K+b6UbXqjWc+fYLY1a103O?=
+ =?us-ascii?Q?AyQEtoxNLNr2+mb4Ha7Q7QpkRU89qIoBkAGTXOz+UyIasABSiiIUBv3HuoRv?=
+ =?us-ascii?Q?cBqU5ohvIeRglneo37TCIG7kMwFwqhB3EMAEpOhSvzo+jCPXjmoN4C2k3Agz?=
+ =?us-ascii?Q?HnFaklf+t4muVRCJoL4ol7tJnWR3aF+zvREPGShK5iUQMbK606BlHlRgfV2k?=
+ =?us-ascii?Q?tQDglPMDMJCTHy9EOzDUn7hKlPfvqgdJJoUuhZ3uTJVlUJNeTh9gtwZHdWDF?=
+ =?us-ascii?Q?KC8Pz2JU9spLjWG87EqMa99BQhxMO82zf7tSrdGME1ZRrHgkvwUY3gRSKrCd?=
+ =?us-ascii?Q?BGKS4x39zPLWYQwAYoXQmeJwYPQRDB8wAGd7LkyhqEyDAo1O3O32v8Sk0coc?=
+ =?us-ascii?Q?JnkU8AsYnqERk6BF0UuJXfX8MRQo1xI2En6d075AGo+CmR4YNoP/ewsL5b5H?=
+ =?us-ascii?Q?gpbpju4jaAAA4CxKtTkEWpDZCXdpinbCxR+9gWroYmwxyiOkrA5KeafFDKL5?=
+ =?us-ascii?Q?lXMxhK1jehfNiwJj+JzuHJCPtFBJaGKCsjqNPP6ZSAH+KXBKDw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L+XhWvuhBcoK4+Ng+qWVVp6erp2YjMXg/+YB3nBZUrLreGviV40A2iFNJyqT?=
+ =?us-ascii?Q?Sjjet40MtLuIiStF3SPZz+T4xDsvrF6zOKQQmvrrkFlvk02xepEEGMB9rntS?=
+ =?us-ascii?Q?JwJwdFhUFNQrghFNwASgl68ZtG9tav388q8zAxGZif2efpyENypHHs1+zKwD?=
+ =?us-ascii?Q?4YpziinYrmeEw0fjaUPoSJsKMyWBje3hgWPqTrRNTQHq8x8xihD9sgxTmX4/?=
+ =?us-ascii?Q?LGxlUsL+18z7S4RqVzPv2BZisAG2bBIFO4Ij/uZmT4N3HkRRn9IfANLzPzkb?=
+ =?us-ascii?Q?TT16ux8ikuVA/1vv9xbqAtwJDPL8XsAhZVtuhpaHvDMx0uBQJKPZ/yMDwS8R?=
+ =?us-ascii?Q?JjBok8LBzg6QCEbgYI2jEoH5MueHuTX0g61OkG4ekPWSYcgnRjBUROpZKq2W?=
+ =?us-ascii?Q?SunWljtTVnA+5XbSJORzkBgdsXcq0BmKNaHHEirlbSGEwVOFnpcPPvZzDqIa?=
+ =?us-ascii?Q?MBu8qMn7lnc8x4M5w8ucXcUCpVTDi1AC0QJ0ztsAwaCK5bwmA+cCdZgWRie4?=
+ =?us-ascii?Q?0pChLunj/ZFZk7s9OFypeePRI0LF1wFGsWhFfhaRsseiQYybbEPxtRs8Jsps?=
+ =?us-ascii?Q?i/vkU6KHRFFCmXqfWxCfi4m75ga7MQ3Qo8s20QQANkWGAeK4gymhyVvvXxgI?=
+ =?us-ascii?Q?RKOQYwsmUTV+kbJbMZPf6PCW/MMpSPSbuGwB0fTKYK3P76WbHeUS9HrkNYcd?=
+ =?us-ascii?Q?ckHyURQ1vr4UOSD2q33RSbZ7G/z85/LTyeIygiyh5hvHuH2jjRI7AJyRbgmG?=
+ =?us-ascii?Q?1lDx4murTxH4kBNff2SQuiVLoeAXCSxC6VEffzEaa18litNBVs0cKkJFgG1y?=
+ =?us-ascii?Q?VFLsOy4MEITuAKk3WYgFx+eP5sjVJHipSSQvXS8DKgMxgWVYWIv0WMy0W/Vk?=
+ =?us-ascii?Q?ykXhfhosWVc8A1l1XbP2JgBHfvx6PmoJYUFSx/XkJBiz+8081WaCOsdpHP2G?=
+ =?us-ascii?Q?LZUNlSrhJC8jmFwOCCFx8bE+UjSOOFj5+6+6XRpCqvz2rj+3WNP5+No1+66s?=
+ =?us-ascii?Q?uY0wWCahIkBRlgi7mEBIBZ2ZlOSp0cZMeU559/q7Ii5m/NtPPHVFBVa1IFPS?=
+ =?us-ascii?Q?faPycEbNWhFMRG/2XtkdicFf+GesB/Ldm5M+D4R1hkwkHqLcSrrIagAPtHhN?=
+ =?us-ascii?Q?Zz7ykMC5v6GhLAc5Q4O3W9EkmiMFGWVbzVODcj+f3vYGpKzk8PxZ3gdCrJ0H?=
+ =?us-ascii?Q?XClLkS4saLOtRG2U3u3jMGZBBo07sN1q1095XjXZxq3jYI61Rk9Q5CsYuZLI?=
+ =?us-ascii?Q?BxL+oOE++7IO1Mdw3N1a+vLU4/7ivTA9nXDfKlVfzngb2HQAQ0zzN/C557qp?=
+ =?us-ascii?Q?1omS7hT65Mjs1pXzEWqYEzmZcUaCj2Ikosa3GYY788EDf5Cnprsov0katyTP?=
+ =?us-ascii?Q?t68cvhxEVTB+/+kvoUUaCrGDtfwe0+/WnNGSUBiBdndZ7d4NzXCG5hHV7/03?=
+ =?us-ascii?Q?/whIxqbWjYrYWoTiviH0XQfFEdWgwlA5uN7xgFhXJYdrIpo2L68zaf3/nLCw?=
+ =?us-ascii?Q?u7bPphb3pK6RtPF4tKWChULE3kO8zspyabE0cmZtuoLb1w2JdWhr8FRJX8Bq?=
+ =?us-ascii?Q?bTpJKi/e5FsD0TDGKx0KrWiAmu8+7MaBoHgvAsEa?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d86dd30-a494-4374-c837-08dd1ad4d446
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 17:45:55.5906
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n0ywdI9quRmUCt4XjjyqRq7AROVI/Me/myGVMiVntTewFa5icWlW5XxhVevOFCyn+5AdZQftA8UHsFnwOCZK4w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7681
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_094230_650721_DAC47E3B 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20241212_094559_834581_1F3C7C6A 
+X-CRM114-Status: GOOD (  30.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,126 +163,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.4-stable review patch.  If anyone has any objections, please let me know.
+On Thu, Dec 12, 2024 at 04:24:42PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> i.MX9 OCOTP supports a specific peripheral or function being fused
+> which means disabled, so
+>  - Introduce ocotp_access_gates to be container of efuse gate info
+>  - Iterate each node under '/soc' to check accessing permission. If not
+>    allowed to be accessed, detach the node
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/nvmem/imx-ocotp-ele.c | 187 +++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 186 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+> index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..542539b86efd2d38be2903c1d0ea72f918ff5b75 100644
+> --- a/drivers/nvmem/imx-ocotp-ele.c
+> +++ b/drivers/nvmem/imx-ocotp-ele.c
+> @@ -5,6 +5,8 @@
+>   * Copyright 2023 NXP
+>   */
+>
+> +#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
+> +#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
+>  #include <linux/device.h>
+>  #include <linux/io.h>
+>  #include <linux/module.h>
+> @@ -27,6 +29,7 @@ struct ocotp_map_entry {
+>  };
+>
+>  struct ocotp_devtype_data {
+> +	const struct ocotp_access_gates *access_gates;
+>  	u32 reg_off;
+>  	char *name;
+>  	u32 size;
+> @@ -36,11 +39,26 @@ struct ocotp_devtype_data {
+>  	struct ocotp_map_entry entry[];
+>  };
+>
+> +#define OCOTP_MAX_NUM_GATE_WORDS 4
+> +#define IMX93_OCOTP_NUM_GATES 17
+> +#define IMX95_OCOTP_NUM_GATES 36
+> +
+> +struct ocotp_access_gates {
+> +	u32 num_words;
+> +	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
+> +	u32 num_gates;
+> +	struct access_gate {
+> +		u32 word;
+> +		u32 mask;
+> +	} gates[];
+> +};
+> +
+>  struct imx_ocotp_priv {
+>  	struct device *dev;
+>  	void __iomem *base;
+>  	struct nvmem_config config;
+>  	struct mutex lock;
+> +	u32 value[OCOTP_MAX_NUM_GATE_WORDS];
+>  	const struct ocotp_devtype_data *data;
+>  };
+>
+> @@ -131,6 +149,100 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+>  	cell->read_post_process = imx_ocotp_cell_pp;
+>  }
+>
+> +static int imx_ele_ocotp_check_access(struct platform_device *pdev, u32 id)
+> +{
+> +	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
+> +	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
+> +	u32 word, mask;
+> +
+> +	if (id >= access_gates->num_gates) {
+> +		dev_err(&pdev->dev, "Index %d too large\n", id);
+> +		return -EACCES;
+> +	}
+> +
+> +	word = access_gates->gates[id].word;
+> +	mask = access_gates->gates[id].mask;
+> +
+> +	dev_dbg(&pdev->dev, "id:%d word:%d mask:0x%08x\n", id, word, mask);
+> +	/* true means not allow access */
+> +	if (priv->value[word] & mask)
+> +		return -EACCES;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ele_ocotp_grant_access(struct platform_device *pdev, struct device_node *parent)
+> +{
+> +	struct device_node *child;
+> +	struct device *dev = &pdev->dev;
+> +
+> +	for_each_available_child_of_node(parent, child) {
+> +		struct of_phandle_iterator it;
+> +		int err;
+> +		u32 id;
+> +
+> +		of_for_each_phandle(&it, err, child, "access-controllers",
+> +				    "#access-controller-cells", 0) {
+> +			struct of_phandle_args provider_args;
+> +			struct device_node *provider = it.node;
+> +
+> +			if (err) {
+> +				dev_err(dev, "Unable to get access-controllers property for node %s\n, err: %d",
+> +					child->full_name, err);
+> +				of_node_put(provider);
+> +				return err;
+> +			}
+> +
+> +			/* Only support one cell */
+> +			if (of_phandle_iterator_args(&it, provider_args.args, 1) != 1) {
+> +				dev_err(dev, "wrong args count\n");
+> +				return -EINVAL;
+> +			}
+> +
+> +			id = provider_args.args[0];
+> +
+> +			dev_dbg(dev, "Checking node: %s gate: %d\n", child->full_name, id);
+> +
+> +			if (imx_ele_ocotp_check_access(pdev, id)) {
+> +				of_detach_node(child);
+> +				dev_err(dev, "%s: Not granted, device driver will not be probed\n",
+> +					child->full_name);
+> +			}
+> +		}
+> +
+> +		imx_ele_ocotp_grant_access(pdev, child);
+> +	}
 
-------------------
+Does it mean ocopt driver have to probe before other driver probe?
 
-From: James Clark <james.clark@linaro.org>
+Frank
 
-[ Upstream commit 5afd032961e8465808c4bc385c06e7676fbe1951 ]
-
-cs_etm__flush(), like cs_etm__sample() is an operation that generates a
-sample and then swaps the current with the previous packet. Calling
-flush after processing the queues results in two swaps which corrupts
-the next sample. Therefore it wasn't appropriate to call flush here so
-remove it.
-
-Flushing is still done on a discontinuity to explicitly clear the last
-branch buffer, but when the packet_queue fills up before reaching a
-timestamp, that's not a discontinuity and the call to
-cs_etm__process_traceid_queue() already generated samples and drained
-the buffers correctly.
-
-This is visible by looking for a branch that has the same target as the
-previous branch and the following source is before the address of the
-last target, which is impossible as execution would have had to have
-gone backwards:
-
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-   (packet_queue fills here before a timestamp, resulting in a flush and
-    branch target ffff80008011cadc is duplicated.)
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
-
-After removing the flush the correct branch target is used for the
-second sample, and ffff8000801117c4 is no longer before the previous
-address:
-
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff8000801117a0 cpu_util+0x0
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
-
-Make sure that a final branch stack is output at the end of the trace
-by calling cs_etm__end_block(). This is already done for both the
-timeless decode paths.
-
-Fixes: 21fe8dc1191a ("perf cs-etm: Add support for CPU-wide trace scenarios")
-Reported-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Closes: https://lore.kernel.org/all/20240719092619.274730-1-gankulkarni@os.amperecomputing.com/
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Tested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Ben Gainey <ben.gainey@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: Benjamin Gray <bgray@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: coresight@lists.linaro.org
-Cc: John Garry <john.g.garry@oracle.com>
-Cc: scclevenger@os.amperecomputing.com
-Link: https://lore.kernel.org/r/20240916135743.1490403-2-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/util/cs-etm.c | 25 ++++++++++++++++++-------
- 1 file changed, 18 insertions(+), 7 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index f5a9cb4088080..bd63bd14417fd 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -2066,12 +2066,6 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
- 
- 		/* Ignore return value */
- 		cs_etm__process_traceid_queue(etmq, tidq);
--
--		/*
--		 * Generate an instruction sample with the remaining
--		 * branchstack entries.
--		 */
--		cs_etm__flush(etmq, tidq);
- 	}
- }
- 
-@@ -2154,7 +2148,7 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
- 
- 	while (1) {
- 		if (!etm->heap.heap_cnt)
--			goto out;
-+			break;
- 
- 		/* Take the entry at the top of the min heap */
- 		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
-@@ -2237,6 +2231,23 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
- 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, timestamp);
- 	}
- 
-+	for (i = 0; i < etm->queues.nr_queues; i++) {
-+		struct int_node *inode;
-+
-+		etmq = etm->queues.queue_array[i].priv;
-+		if (!etmq)
-+			continue;
-+
-+		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
-+			int idx = (int)(intptr_t)inode->priv;
-+
-+			/* Flush any remaining branch stack entries */
-+			tidq = etmq->traceid_queues[idx];
-+			ret = cs_etm__end_block(etmq, tidq);
-+			if (ret)
-+				return ret;
-+		}
-+	}
- out:
- 	return ret;
- }
--- 
-2.43.0
-
-
-
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_ele_ocotp_access_control(struct platform_device *pdev)
+> +{
+> +	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
+> +	struct device_node *soc __free(device_node) = of_find_node_by_path("/soc");
+> +	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
+> +	void __iomem *reg = priv->base + priv->data->reg_off;
+> +	u32 off;
+> +	int i;
+> +
+> +	if (!priv->data->access_gates)
+> +		return 0;
+> +
+> +	if (!soc)
+> +		soc = of_find_node_by_path("/soc@0");
+> +
+> +	/* This should never happen */
+> +	WARN_ON(!soc);
+> +
+> +	for (i = 0; i < access_gates->num_words; i++) {
+> +		off = access_gates->words[i] << 2;
+> +		priv->value[i] = readl(reg + off);
+> +		dev_dbg(&pdev->dev, "word:%d 0x%08x\n", access_gates->words[i], priv->value[i]);
+> +	}
+> +
+> +	return imx_ele_ocotp_grant_access(pdev, soc);
+> +}
+> +
+>  static int imx_ele_ocotp_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -161,14 +273,43 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+>  	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
+>  	mutex_init(&priv->lock);
+>
+> +	platform_set_drvdata(pdev, priv);
+> +
+>  	nvmem = devm_nvmem_register(dev, &priv->config);
+>  	if (IS_ERR(nvmem))
+>  		return PTR_ERR(nvmem);
+>
+> -	return 0;
+> +
+> +	return imx_ele_ocotp_access_control(pdev);
+>  }
+>
+> +static const struct ocotp_access_gates imx93_access_gates = {
+> +	.num_words = 3,
+> +	.words = {19, 20, 21},
+> +	.num_gates = IMX93_OCOTP_NUM_GATES,
+> +	.gates = {
+> +		[IMX93_OCOTP_NPU_GATE]		= { .word = 19, .mask = BIT(13) },
+> +		[IMX93_OCOTP_A550_GATE]		= { .word = 19, .mask = BIT(14) },
+> +		[IMX93_OCOTP_A551_GATE]		= { .word = 19, .mask = BIT(15) },
+> +		[IMX93_OCOTP_M33_GATE]		= { .word = 19, .mask = BIT(24) },
+> +		[IMX93_OCOTP_CAN1_FD_GATE]	= { .word = 19, .mask = BIT(28) },
+> +		[IMX93_OCOTP_CAN2_FD_GATE]	= { .word = 19, .mask = BIT(29) },
+> +		[IMX93_OCOTP_CAN1_GATE]		= { .word = 19, .mask = BIT(30) },
+> +		[IMX93_OCOTP_CAN2_GATE]		= { .word = 19, .mask = BIT(31) },
+> +		[IMX93_OCOTP_USB1_GATE]		= { .word = 20, .mask = BIT(3) },
+> +		[IMX93_OCOTP_USB2_GATE]		= { .word = 20, .mask = BIT(4) },
+> +		[IMX93_OCOTP_ENET1_GATE]	= { .word = 20, .mask = BIT(5) },
+> +		[IMX93_OCOTP_ENET2_GATE]	= { .word = 20, .mask = BIT(6) },
+> +		[IMX93_OCOTP_PXP_GATE]		= { .word = 20, .mask = BIT(10) },
+> +		[IMX93_OCOTP_MIPI_CSI1_GATE]	= { .word = 20, .mask = BIT(17) },
+> +		[IMX93_OCOTP_MIPI_DSI1_GATE]	= { .word = 20, .mask = BIT(19) },
+> +		[IMX93_OCOTP_LVDS1_GATE]	= { .word = 20, .mask = BIT(24) },
+> +		[IMX93_OCOTP_ADC1_GATE]		= { .word = 21, .mask = BIT(7) },
+> +	},
+> +};
+> +
+>  static const struct ocotp_devtype_data imx93_ocotp_data = {
+> +	.access_gates = &imx93_access_gates,
+>  	.reg_off = 0x8000,
+>  	.reg_read = imx_ocotp_reg_read,
+>  	.size = 2048,
+> @@ -183,7 +324,51 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+>  	},
+>  };
+>
+> +static const struct ocotp_access_gates imx95_access_gates = {
+> +	.num_words = 3,
+> +	.words = {17, 18, 19},
+> +	.num_gates = IMX95_OCOTP_NUM_GATES,
+> +	.gates = {
+> +		[IMX95_OCOTP_CANFD1_GATE]	= { .word = 17, .mask = BIT(20) },
+> +		[IMX95_OCOTP_CANFD2_GATE]	= { .word = 17, .mask = BIT(21) },
+> +		[IMX95_OCOTP_CANFD3_GATE]	= { .word = 17, .mask = BIT(22) },
+> +		[IMX95_OCOTP_CANFD4_GATE]	= { .word = 17, .mask = BIT(23) },
+> +		[IMX95_OCOTP_CANFD5_GATE]	= { .word = 17, .mask = BIT(24) },
+> +		[IMX95_OCOTP_CAN1_GATE]	= { .word = 17, .mask = BIT(25) },
+> +		[IMX95_OCOTP_CAN2_GATE]	= { .word = 17, .mask = BIT(26) },
+> +		[IMX95_OCOTP_CAN3_GATE]	= { .word = 17, .mask = BIT(27) },
+> +		[IMX95_OCOTP_CAN4_GATE]	= { .word = 17, .mask = BIT(28) },
+> +		[IMX95_OCOTP_CAN5_GATE]	= { .word = 17, .mask = BIT(29) },
+> +		[IMX95_OCOTP_NPU_GATE]		= { .word = 18, .mask = BIT(0) },
+> +		[IMX95_OCOTP_A550_GATE]	= { .word = 18, .mask = BIT(1) },
+> +		[IMX95_OCOTP_A551_GATE]	= { .word = 18, .mask = BIT(2) },
+> +		[IMX95_OCOTP_A552_GATE]	= { .word = 18, .mask = BIT(3) },
+> +		[IMX95_OCOTP_A553_GATE]	= { .word = 18, .mask = BIT(4) },
+> +		[IMX95_OCOTP_A554_GATE]	= { .word = 18, .mask = BIT(5) },
+> +		[IMX95_OCOTP_A555_GATE]	= { .word = 18, .mask = BIT(6) },
+> +		[IMX95_OCOTP_M7_GATE]		= { .word = 18, .mask = BIT(9) },
+> +		[IMX95_OCOTP_DCSS_GATE]	= { .word = 18, .mask = BIT(22) },
+> +		[IMX95_OCOTP_LVDS1_GATE]	= { .word = 18, .mask = BIT(27) },
+> +		[IMX95_OCOTP_ISP_GATE]		= { .word = 18, .mask = BIT(29) },
+> +		[IMX95_OCOTP_USB1_GATE]	= { .word = 19, .mask = BIT(2) },
+> +		[IMX95_OCOTP_USB2_GATE]	= { .word = 19, .mask = BIT(3) },
+> +		[IMX95_OCOTP_NETC_GATE]	= { .word = 19, .mask = BIT(4) },
+> +		[IMX95_OCOTP_PCIE1_GATE]	= { .word = 19, .mask = BIT(6) },
+> +		[IMX95_OCOTP_PCIE2_GATE]	= { .word = 19, .mask = BIT(7) },
+> +		[IMX95_OCOTP_ADC1_GATE]	= { .word = 19, .mask = BIT(8) },
+> +		[IMX95_OCOTP_EARC_RX_GATE]	= { .word = 19, .mask = BIT(11) },
+> +		[IMX95_OCOTP_GPU3D_GATE]	= { .word = 19, .mask = BIT(16) },
+> +		[IMX95_OCOTP_VPU_GATE]		= { .word = 19, .mask = BIT(17) },
+> +		[IMX95_OCOTP_JPEG_ENC_GATE]	= { .word = 19, .mask = BIT(18) },
+> +		[IMX95_OCOTP_JPEG_DEC_GATE]	= { .word = 19, .mask = BIT(19) },
+> +		[IMX95_OCOTP_MIPI_CSI1_GATE]	= { .word = 19, .mask = BIT(21) },
+> +		[IMX95_OCOTP_MIPI_CSI2_GATE]	= { .word = 19, .mask = BIT(22) },
+> +		[IMX95_OCOTP_MIPI_DSI1_GATE]	= { .word = 19, .mask = BIT(23) },
+> +	}
+> +};
+> +
+>  static const struct ocotp_devtype_data imx95_ocotp_data = {
+> +	.access_gates = &imx95_access_gates,
+>  	.reg_off = 0x8000,
+>  	.reg_read = imx_ocotp_reg_read,
+>  	.size = 2048,
+>
+> --
+> 2.37.1
+>
 
