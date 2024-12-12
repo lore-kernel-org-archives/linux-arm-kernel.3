@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410B4E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D4AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1eR/nZYWDy7JnUFA+IXxK3QIAKZs/ki75z6WryhmEE=; b=45jbliquIyLjNJaPs1dE00sVvo
-	fAs4c4mD9WpoEmFitF/qEqT0bkBc5sTbfr1A4eQUfr15lCLsziEUJpj8DNok9dQFGGYex3WH4NMoJ
-	wXCfZiJdzZBzUilyMUetzuWojh9eIxu3GKky4DJKImBg7oKEiXbom3vqh3t5zNMJ48Xey3rxUX5yW
-	X9Hcbyz6oLssx0wmMNoVANoh3BuhzhFy7xp/rONiYt6pZFNT4T5NMy1JYEELA5x+tBzc4+RBeqkqk
-	mbC5oj0PQ2EmB6SjQyuJxRbO45Z4QmUME6Uw3cNxdlbgfL2wM2KQjkC7njIgv1kAk1cbYakNTuaI2
-	OxHpoOtw==;
+	bh=2hytoeGuBGhQsTErvMf3yZxZWvdEkxkHmgM5PMFEUtg=; b=c855Qkz7GOC1BP33HrYRZiRtUt
+	AefcJ3XSWIySyhLq4MXSDE35xXI0yfuDTnavCVCS3kaDubfitvG+QLN2SRBqhza9r2FnHj74QpU+X
+	spnB8v8IdWkX8sOlNKIFgemKdoF0cBE1jyQGb0JQSNBJDnYgulnsXXC29Pn9RoqEsR1+4yMB/gGvr
+	Ed5/NL++8kPZ9xAMX47kX5eUKIvku8XmGtr39VxveMzALLaC6iztB06fSOYeFizShQF/HO+PCa6Ux
+	eQzUkPB+VbDLxsbU/fV2dByYXeVT+IFo+oQcOehXTsG1C3USFPkHCyeXFyZpO/fnRLG8+e9SUiwVz
+	Z9wDfxnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLeSH-0000000HHae-02rh;
-	Thu, 12 Dec 2024 08:21:53 +0000
+	id 1tLeTI-0000000HHlo-2bff;
+	Thu, 12 Dec 2024 08:22:56 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLePV-0000000HGiU-3wG7
+	id 1tLePW-0000000HGjC-42JD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 08:19:02 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4361eb83f46so2860365e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 00:19:00 -0800 (PST)
+	Thu, 12 Dec 2024 08:19:04 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4359eb032c9so2524235e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 00:19:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1733991539; x=1734596339; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1733991541; x=1734596341; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=o1eR/nZYWDy7JnUFA+IXxK3QIAKZs/ki75z6WryhmEE=;
-        b=y1TzEsh6i/WPS8bZB/wO6sNRt1tDMidjxWCvG2c3kcO5S3FUYNa7ANX5/gICbmkQtH
-         PKXoLeWQpRU00u69Ku79pv1vwTM31zdY97x00uYSwYwCP/pVb41pnB8jDnBY06VqMhIV
-         alSxi6JwDrUXSQhGblASKXTpkBthjmDMxp/Pnggx8Dz6ELyeVWwyYSeepOuzc0t/zwrL
-         1XGjMXULVhOYdhVHZEXhOvABhO2UqtSIO5hoHPHwn+b+0RIxNwbEIdcXLOO2jNC4o/mJ
-         aZvnkYCl5wK8GzgDVRx+LGgsSdC3+nA4WOteE5APT6+k9exRzJluwoh1m0HdDamYgeKs
-         kGqg==
+        bh=2hytoeGuBGhQsTErvMf3yZxZWvdEkxkHmgM5PMFEUtg=;
+        b=lfJNeMRlLd3k1ktDqVv+wFDofoBreG8mwjcMkpiBleLZhapDNfs86dpbMTse9y6AvX
+         +fFVLhOiN/S0zi97GetZhdv/y0QqHDhvaa/3A41ncARqJO2hpV8QNq/rcNtTBnR66pSL
+         iEE0GmtQ0e53ZE/t5hktjsDiSgUtJ7EhZYAsyxn3e9Ty0WAeYQg7fwWZfbuDvXru1z8O
+         hOl1spQzGgNzosd78x16S1ipm6QCzHX3m49cFcCSctF7hSOrdMP3/d/sy+BpD4H+Uo9O
+         jKn4DJxUhAQY/00FQZ/3W0fBhl0E5iEowd1qtmteCgvqZ7fj3aErv0bh83zbrDYdGSh6
+         4rNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733991539; x=1734596339;
+        d=1e100.net; s=20230601; t=1733991541; x=1734596341;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o1eR/nZYWDy7JnUFA+IXxK3QIAKZs/ki75z6WryhmEE=;
-        b=fI856UE8lc8FAmG/eR2cKXMH7fI4rwpTSccJmfnTPsT3zkTuYWE46vvqBbHlrfRq0x
-         PjOFDOL99ds3Yjh7+M9pRpAIkjdx7vZEH27CRrV4xzvujkOOtkqyfEm8F2Ykml6UoKEU
-         O1ogthjTLsboGKUUdOgE26Wi9uirveYiqiRPvdtU/J7JfoPdn2zsszktRXAuuKU/62NT
-         /Uj1HXTNKL9NQJWSeT6yfFPTB1P6lghO4M9zjpbuRS2JlwDfkZsXCnTZK5d3XnSvZZd0
-         bxNVw+9rf2fLIyWKwJu7N/7dV5UgzL4xE9sPbTMrGjlOzRMTROMDhsD4L2Et9jXkjhPS
-         2q+Q==
-X-Gm-Message-State: AOJu0YxQXvyDgnZY9Vv0wsN7xfnGX5l1LUNEP8pegvWjt0RoUlThi8Ix
-	5S+o7QA7T9axfSTfRH0J+z4vyhRi8rdfmHi8fz1m5JpafnaklyAXKrPvvf2PBWHTBh6qFQd6rXI
-	8GbWakO46lrKgp1PWJBO4NdB2K+CBWxfiU1AXTkcP3Cr1rgm4aSRvdjnQKHIYB7rU//9q2dRvtC
-	Trv/hBgcWU3eD1WhGMlJXkZirUtasqTh5AnKVRew+M
-X-Google-Smtp-Source: AGHT+IGFCr+ILtDVl2I89l402u827GSiQNpyuMXKvIlTJVWCnPRqtE/rGoww4lT3RPPpvSl62IgYuB0T
-X-Received: from wmbjl17.prod.google.com ([2002:a05:600c:6a91:b0:434:f1d0:7dc9])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3acf:b0:434:f8a0:9dd8
- with SMTP id 5b1f17b1804b1-4361c345006mr43908945e9.1.1733991539243; Thu, 12
- Dec 2024 00:18:59 -0800 (PST)
-Date: Thu, 12 Dec 2024 09:18:43 +0100
+        bh=2hytoeGuBGhQsTErvMf3yZxZWvdEkxkHmgM5PMFEUtg=;
+        b=iIsvRCU0owQg/62mE3FAHr3YLu6IPCH+978GtsKt+xvEYLlBNglZknUSNZaTJMncmo
+         rijQEsVwMMBNb5zUdvxrL+pWetruguXQwIA4nZLLO1jYPUXt+Dr/J/akaWiRjJr5ftD7
+         3aoAZMpiHKebywYcrQFWRFR5kWzjAVZZA/nOTZt9p6v+dnu4hJORtxrJCxsVLQKVs+dW
+         aPNE2W0EWOhez68ODFQrAzC1yixFNNCElCzN9h71NSfpbqOzHV8fOFcziUPpSaUTabkN
+         6l5SQq3PJC82imFyMuJJLAB+x0O7O2lcr2+JogkXDz/6/ia1yZHTCLPsrNq58sJv+dUN
+         m24g==
+X-Gm-Message-State: AOJu0YxkbXPx6QEoerf22zonQ0tBMxFgVJuRNO5mKwUxED79BYUFLRtl
+	/Axc8oPoguTqKtbfgt4lyQg9JpwqcGWbQVXp1MKz2T983UUbEl8dqwq2C3AzxsrSJLfQlK17kvU
+	D5KqKT5rjYYiJluxWECWB06XtfR242/U4LfHN5Gf8QMDB3R7ERG1arvG4L68dakcNtQYhYCmSTN
+	PqtSj9ErdRfW4pKkPksd6/7KvtFczMxjA2xaIXQHba
+X-Google-Smtp-Source: AGHT+IEGYsYtFhuo1M+mXxwr1oPLrb4FHzvmxqJpmKzmSM6VR7FR039Eo4mTnt9ojOSbZqHRyAKca3wz
+X-Received: from wmee4.prod.google.com ([2002:a05:600c:2184:b0:434:f2eb:aa72])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:190c:b0:434:fe62:28c1
+ with SMTP id 5b1f17b1804b1-43622842fe4mr19916235e9.18.1733991541383; Thu, 12
+ Dec 2024 00:19:01 -0800 (PST)
+Date: Thu, 12 Dec 2024 09:18:44 +0100
 In-Reply-To: <20241212081841.2168124-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20241212081841.2168124-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3310; i=ardb@kernel.org;
- h=from:subject; bh=6f63k+zdnDPwoV97pZOXKmLYrRvOc+ffRW8gf6CiYQc=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIT1qTrKo0a3oN1wHTtdf0f30szBTp23N+v4dx//IP2pct
- 76saO2UjlIWBjEOBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjAR0Q+MDPfPvVh+Tmqatu21
- lEWKL1c0BX40+O93iFvmyIV32WHP6nkZGeYtYw8WiPs7dbfhv+4oo5aJWVEfv7yODYy2tFBMnl5 RwgsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4458; i=ardb@kernel.org;
+ h=from:subject; bh=sxVQfPUsQxyoLylOvN26XLQadF9/wxwUb33vSk2ahfI=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIT1qTur1D0H+U+c0Oh3k/7fY2m9Tvtv6JrPF/g+Z/q4oz
+ 2tbGnKoo5SFQYyDQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEykxIXhf/BxLV/To+f/h2of
+ CzpiU5aroGt51O/cxPIvmscNVMwOP2Bk+F9k6SMTXssv+fCnKHMSz4GvK3OWVls23FAM+LvUb8o KBgA=
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212081841.2168124-9-ardb+git@google.com>
-Subject: [PATCH v3 1/6] arm64/mm: Reduce PA space to 48 bits when LPA2 is not enabled
+Message-ID: <20241212081841.2168124-10-ardb+git@google.com>
+Subject: [PATCH v3 2/6] arm64/mm: Override PARange for !LPA2 and use it consistently
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
@@ -82,8 +82,8 @@ Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
 	Quentin Perret <qperret@google.com>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_001901_976998_AFCD9CE4 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20241212_001903_010953_9D850F4A 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,91 +100,114 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Currently, LPA2 kernel support implies support for up to 52 bits of
-physical addressing, and this is reflected in global definitions such as
-PHYS_MASK_SHIFT and MAX_PHYSMEM_BITS.
+When FEAT_LPA{,2} are not implemented, the ID_AA64MMFR0_EL1.PARange and
+TCR.IPS values corresponding with 52-bit physical addressing are
+reserved.
 
-This is potentially problematic, given that LPA2 hardware support is
-modeled as a CPU feature which can be overridden, and with LPA2 hardware
-support turned off, attempting to map physical regions with address bits
-[51:48] set (which may exist on LPA2 capable systems booting with
-arm64.nolva) will result in corrupted mappings with a truncated output
-address and bogus shareability attributes.
+Setting the TCR.IPS field to 0b110 (52-bit physical addressing) has side
+effects, such as how the TTBRn_ELx.BADDR fields are interpreted, and so
+it is important that disabling FEAT_LPA2 (by overriding the
+ID_AA64MMFR0.TGran fields) also presents a PARange field consistent with
+that.
 
-This means that the accepted physical address range in the mapping
-routines should be at most 48 bits wide when LPA2 support is configured
-but not enabled at runtime.
+So limit the field to 48 bits unless LPA2 is enabled, and update
+existing references to use the override consistently.
 
 Fixes: 352b0395b505 ("arm64: Enable 52-bit virtual addressing for 4k and 16k granule configs")
 Cc: <stable@vger.kernel.org>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/pgtable-hwdef.h | 6 ------
- arch/arm64/include/asm/pgtable-prot.h  | 7 +++++++
- arch/arm64/include/asm/sparsemem.h     | 5 ++++-
- 3 files changed, 11 insertions(+), 7 deletions(-)
+ arch/arm64/include/asm/assembler.h    | 5 +++++
+ arch/arm64/kernel/cpufeature.c        | 2 +-
+ arch/arm64/kernel/pi/idreg-override.c | 9 +++++++++
+ arch/arm64/kernel/pi/map_kernel.c     | 6 ++++++
+ arch/arm64/mm/init.c                  | 7 ++++++-
+ 5 files changed, 27 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index c78a988cca93..a9136cc551cc 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -222,12 +222,6 @@
-  */
- #define S1_TABLE_AP		(_AT(pmdval_t, 3) << 61)
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 3d8d534a7a77..ad63457a05c5 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -343,6 +343,11 @@ alternative_cb_end
+ 	// Narrow PARange to fit the PS field in TCR_ELx
+ 	ubfx	\tmp0, \tmp0, #ID_AA64MMFR0_EL1_PARANGE_SHIFT, #3
+ 	mov	\tmp1, #ID_AA64MMFR0_EL1_PARANGE_MAX
++#ifdef CONFIG_ARM64_LPA2
++alternative_if_not ARM64_HAS_VA52
++	mov	\tmp1, #ID_AA64MMFR0_EL1_PARANGE_48
++alternative_else_nop_endif
++#endif
+ 	cmp	\tmp0, \tmp1
+ 	csel	\tmp0, \tmp1, \tmp0, hi
+ 	bfi	\tcr, \tmp0, \pos, #3
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed8..f8cb8a6ab98a 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3478,7 +3478,7 @@ static void verify_hyp_capabilities(void)
+ 		return;
  
--/*
-- * Highest possible physical address supported.
-- */
--#define PHYS_MASK_SHIFT		(CONFIG_ARM64_PA_BITS)
--#define PHYS_MASK		((UL(1) << PHYS_MASK_SHIFT) - 1)
--
- #define TTBR_CNP_BIT		(UL(1) << 0)
+ 	safe_mmfr1 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
+-	mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
++	mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+ 	mmfr1 = read_cpuid(ID_AA64MMFR1_EL1);
  
- /*
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 9f9cf13bbd95..a95f1f77bb39 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -81,6 +81,7 @@ extern unsigned long prot_ns_shared;
- #define lpa2_is_enabled()	false
- #define PTE_MAYBE_SHARED	PTE_SHARED
- #define PMD_MAYBE_SHARED	PMD_SECT_S
-+#define PHYS_MASK_SHIFT		(CONFIG_ARM64_PA_BITS)
- #else
- static inline bool __pure lpa2_is_enabled(void)
- {
-@@ -89,8 +90,14 @@ static inline bool __pure lpa2_is_enabled(void)
- 
- #define PTE_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PTE_SHARED)
- #define PMD_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PMD_SECT_S)
-+#define PHYS_MASK_SHIFT		(lpa2_is_enabled() ? CONFIG_ARM64_PA_BITS : 48)
+ 	/* Verify VMID bits */
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index 22159251eb3a..c6b185b885f7 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -83,6 +83,15 @@ static bool __init mmfr2_varange_filter(u64 val)
+ 		id_aa64mmfr0_override.val |=
+ 			(ID_AA64MMFR0_EL1_TGRAN_LPA2 - 1) << ID_AA64MMFR0_EL1_TGRAN_SHIFT;
+ 		id_aa64mmfr0_override.mask |= 0xfU << ID_AA64MMFR0_EL1_TGRAN_SHIFT;
++
++		/*
++		 * Override PARange to 48 bits - the override will just be
++		 * ignored if the actual PARange is smaller, but this is
++		 * unlikely to be the case for LPA2 capable silicon.
++		 */
++		id_aa64mmfr0_override.val |=
++			ID_AA64MMFR0_EL1_PARANGE_48 << ID_AA64MMFR0_EL1_PARANGE_SHIFT;
++		id_aa64mmfr0_override.mask |= 0xfU << ID_AA64MMFR0_EL1_PARANGE_SHIFT;
+ 	}
  #endif
- 
-+/*
-+ * Highest possible physical address supported.
-+ */
-+#define PHYS_MASK		((UL(1) << PHYS_MASK_SHIFT) - 1)
+ 	return true;
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index f374a3e5a5fe..e57b043f324b 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -136,6 +136,12 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
+ {
+ 	u64 sctlr = read_sysreg(sctlr_el1);
+ 	u64 tcr = read_sysreg(tcr_el1) | TCR_DS;
++	u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
++	u64 parange = cpuid_feature_extract_unsigned_field(mmfr0,
++							   ID_AA64MMFR0_EL1_PARANGE_SHIFT);
 +
- /*
-  * If we have userspace only BTI we don't want to mark kernel pages
-  * guarded even if the system does support BTI.
-diff --git a/arch/arm64/include/asm/sparsemem.h b/arch/arm64/include/asm/sparsemem.h
-index 8a8acc220371..84783efdc9d1 100644
---- a/arch/arm64/include/asm/sparsemem.h
-+++ b/arch/arm64/include/asm/sparsemem.h
-@@ -5,7 +5,10 @@
- #ifndef __ASM_SPARSEMEM_H
- #define __ASM_SPARSEMEM_H
++	tcr &= ~TCR_IPS_MASK;
++	tcr |= parange << TCR_IPS_SHIFT;
  
--#define MAX_PHYSMEM_BITS	CONFIG_ARM64_PA_BITS
-+#include <asm/pgtable-prot.h>
+ 	asm("	msr	sctlr_el1, %0		;"
+ 	    "	isb				;"
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index d21f67d67cf5..2b2289d55eaa 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -280,7 +280,12 @@ void __init arm64_memblock_init(void)
+ 
+ 	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
+ 		extern u16 memstart_offset_seed;
+-		u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
 +
-+#define MAX_PHYSMEM_BITS		PHYS_MASK_SHIFT
-+#define MAX_POSSIBLE_PHYSMEM_BITS	(52)
- 
- /*
-  * Section size must be at least 512MB for 64K base
++		/*
++		 * Use the sanitised version of id_aa64mmfr0_el1 so that linear
++		 * map randomization can be enabled by shrinking the IPA space.
++		 */
++		u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+ 		int parange = cpuid_feature_extract_unsigned_field(
+ 					mmfr0, ID_AA64MMFR0_EL1_PARANGE_SHIFT);
+ 		s64 range = linear_region_size -
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
