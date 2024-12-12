@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8CCE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E791AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Gmy6qV1LwE2yQztvuvN1VPxCtOB/HT8J2meQGlVOrg=; b=cdyCQE6R1f3XVrgKZgjssh+Zgt
-	R8xL4MptGZekFgBlTx2COYS1g/SOMm1x4SHA77cKbaDmBI2gatdqaBpvkrQcF3jiPHr0eSjqMzE3h
-	lmwqvQ7bXspv6ndE5P+jewGj5i6Mb+csaFhtR/M+HvLlngxaCpHuHEHP8kxwaEpY5C3y+fzyplsP0
-	BCwtm5JtC/PXsxICdoe9sue+f5El55VrNXllay1E8azK1PCxzfPhGjvOxlcR6x987JXgS5A7MV3CT
-	Wj2AIUlM3nIeGssWv9U+wmF9Euo6mm8Fetwaq1oLRBCvuYvNCka/FcDOQTyaooLUXqsT0KH+Vf7m1
-	ccDlB/zw==;
+	bh=fsgIyyuNQQmHaNkLRcT2eUdPgUHi+wEuPOm1VPLeACA=; b=uROhu1O59hSA/FE343r09eb8vQ
+	OMUi+IeDK3qhoS0zWi97CSuPcU3co4JG2vxE8ZdCqZZExZ+lajBKQmzsGIBAsjbc5e8gyXNPyS68U
+	5HA1oX4kBuECIJbwCvbYIjupY55K+ga1afnCLBoaSeIRbGYpgiNoM0BST9Q+gtcCMg0jiDXhUs8Nb
+	36CsO0s0Wk28RjwDo7p6rHsV90kUdaFREqXupYKLtPmT8osE1vMRJaMwraqkHSBqR1ViVG5FuAUOj
+	OU1nQqRNhg9TDKX5Sdo4LXV/PeSYQwUGxZ/IB4y8q/TxBm43QeejF4shF2kvZQ+bYY30FtmTwTyMK
+	b2rCVX9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlhx-00000000tAs-3IQo;
-	Thu, 12 Dec 2024 16:06:33 +0000
+	id 1tLlj0-00000000tMo-1kxA;
+	Thu, 12 Dec 2024 16:07:38 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlUn-00000000pdq-3LtP
+	id 1tLlUp-00000000pdq-0uN5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:52:58 +0000
+	Thu, 12 Dec 2024 15:53:00 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Thu, 12 Dec
@@ -44,9 +44,9 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<kevin_chen@aspeedtech.com>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, <soc@lists.linux.dev>
-Subject: [PATCH v3 2/6] dt-bindings: interrupt-controller: Fix the size-cells in ast2700-intc
-Date: Thu, 12 Dec 2024 23:52:33 +0800
-Message-ID: <20241212155237.848336-5-kevin_chen@aspeedtech.com>
+Subject: [PATCH v3 3/6] arm64: aspeed: Add support for ASPEED AST27XX BMC SoC
+Date: Thu, 12 Dec 2024 23:52:34 +0800
+Message-ID: <20241212155237.848336-6-kevin_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
 References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
@@ -54,8 +54,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_075257_825692_B0476D1E 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20241212_075259_250262_2FD5C4F0 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,32 +71,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is no need to let size-cells to 2 for the ASPEED AST27XX INTC. Modify
-the ast2700-intc example usage.
+Add ARCH_ASPEED in current arm64 architecture.
 
 Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
 ---
- .../bindings/interrupt-controller/aspeed,ast2700-intc.yaml    | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ MAINTAINERS                  | 1 +
+ arch/arm64/Kconfig.platforms | 6 ++++++
+ 2 files changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-index 55636d06a674..69503aa638fb 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-@@ -69,11 +69,11 @@ examples:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 17daa9ee9384..c6d04cea43d6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2261,6 +2261,7 @@ Q:	https://patchwork.ozlabs.org/project/linux-aspeed/list/
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/joel/bmc.git
+ F:	Documentation/devicetree/bindings/arm/aspeed/
+ F:	arch/arm/boot/dts/aspeed/
++F:	arch/arm64/boot/dts/aspeed/
+ F:	arch/arm/mach-aspeed/
+ N:	aspeed
  
-     bus {
-         #address-cells = <2>;
--        #size-cells = <2>;
-+        #size-cells = <1>;
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 370a9d2b6919..894b80434776 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -40,6 +40,12 @@ config ARCH_APPLE
+ 	  This enables support for Apple's in-house ARM SoC family, such
+ 	  as the Apple M1.
  
-         interrupt-controller@12101b00 {
-             compatible = "aspeed,ast2700-intc-ic";
--            reg = <0 0x12101b00 0 0x10>;
-+            reg = <0 0x12101b00 0x10>;
-             #interrupt-cells = <2>;
-             interrupt-controller;
-             interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
++config ARCH_ASPEED
++	bool "Aspeed SoC family"
++	help
++	  Say yes if you intend to run on an Aspeed ast2700 or similar
++	  seventh generation Aspeed BMCs.
++
+ menuconfig ARCH_BCM
+ 	bool "Broadcom SoC Support"
+ 
 -- 
 2.34.1
 
