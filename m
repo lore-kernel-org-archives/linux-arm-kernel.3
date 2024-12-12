@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B62E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA596E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fzut7xbqOYPi19sCzyZBocxByvsBqwohQ5FyR54rsTQ=; b=uxi1E5uXDRJxOHY/TJ5z7l6UPW
-	YwkW8cBVMW1bdX3Sics2pZAM0JPCp+1lfziuH6LtI4m8Erof2rtADjpHw8KGVGxKVGkQPvQFa9RYC
-	mTnE0cV3bQUuDAMXvwJm1qhkFAIG9EsC6ZJfGj+7vDFkq9R+XQ//oAw7tkgO1G97w2eAOYYz5KigQ
-	9Xq97xU67cRnNvE4P0ns6xWLbh+5xV4RjeV5JwzM4gcPWxBrc/qTKGCwx6913ZQzFHuHEGhZf2uq+
-	K0BjdtPA2iSKUs4ngMpoPjXyDmhKlp9rs6VHFuqxqUuazXPLLoskzCtWPR1Kq+60jNJqHhXv3oSLt
-	cjUp+S/g==;
+	bh=ZNTGzlog7Q9IZQyQd4eTU3kXEBDBdmsulQeLjahgS6Q=; b=wIdf5zzHpbC+LDmNM/mkbCxX+4
+	3MxT7Z1PAeVqeu3eXsKMoaFyp71pX7TYwZ/AUuVdki7dQdKvNr+c8K6C8idlLIaVXBOofmsLAEY1d
+	7bwOa9mlrgY5iZt+fnPbsD1moDkf4AcUEflleXqD1AQ9HkCZsLDW6sTE7v+MfkyCQQYbyjiJviogW
+	kLXJ4Ts9Mn+yErzyQ3IXbviu3eHHYpC9m8aCanRKCRiRwaGyw7aWygZcTUMedfwCyVGeXpwhFS7i9
+	U6RsD4BPRk8jqlTE6rpuAVnURcO3/G0AW8MixvVeg9SSvsn8XI4BTTJ7iaIDq341iTFPvK6ZpfQ3y
+	ZgEAZx8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLotI-00000001eDy-3UWV;
-	Thu, 12 Dec 2024 19:30:28 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tLouL-00000001eMo-1lZW;
+	Thu, 12 Dec 2024 19:31:33 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLo3K-00000001Ry1-27rI
+	id 1tLo3O-00000001S2u-3VIR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:36:47 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-434ab938e37so7205685e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:36:45 -0800 (PST)
+	Thu, 12 Dec 2024 18:36:52 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-434b3e32e9dso10080705e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:36:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734028604; x=1734633404; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1734028609; x=1734633409; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Fzut7xbqOYPi19sCzyZBocxByvsBqwohQ5FyR54rsTQ=;
-        b=YnKBya86rq8IjgWoZtfAplZThRPzPeT48olp3pknHtesYbBS91bJPh6C2crDMnUF23
-         vNYq1kD7sV+95tRKj8NsC7b0Wo60yBe1ih05KR/BnaxQocdmHEzF1fEPFIZpl6JZ+Mt3
-         OuFlM2RuyHP3XzBUvezh8X3bZAt9jF4rtPu9AhThj7AfyoF/UFmNFWFJsSUIwWXF/4of
-         9yNYUyYEgNKAKmhIVpjTYS/m2bB6AKVmxXxESqJvZnorAXlssOFecRAPaYU5DtAEHkwU
-         Cb5tddOnVpiezYxIKhYaQGNsD7jhI7e8Eh9yLFN6Kp8H7iZzJpWGHEPpSWyjMo69TTu6
-         +DLA==
+        bh=ZNTGzlog7Q9IZQyQd4eTU3kXEBDBdmsulQeLjahgS6Q=;
+        b=CE2IkEQc+G/IYLuKwwLJjjIFPTt2UQqUvHzyWZI8TtFnM7x6nOSE+bNmfuH6yqzBFm
+         YNz1kaoZofV4T6RbqfFouzTJv8cJvsSA0bzMCoqoLo/wI/5NIjGN1TpsBKDZPR77evaY
+         HpmyV6TzekmBn4UJsez7karQUbXdBnIkP6OYJYdOhvNqjAn9pvDCsdfWHbS0f6y0nyeo
+         rS/hot7UJwhFXA8tV5l4rKu3sI58Ds8p+C6jgPjMLRll+Ail90wPI8nQWzAZ1MBHp9A6
+         a0Zt6CtkWriqBDvdKg1TTcQfuT0B3RJHpqRBScAneHZHEFpQq7tI4eUIA2XCy280nwBd
+         J3lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734028604; x=1734633404;
+        d=1e100.net; s=20230601; t=1734028609; x=1734633409;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Fzut7xbqOYPi19sCzyZBocxByvsBqwohQ5FyR54rsTQ=;
-        b=BPq9Bll8/zMDt2W4HTnJmJdagARrhVxlNXr5NUzcStugOTSc+MWApcgoeAh5IsCtfH
-         xYtVnL+umKmT5kXEco00MF8QY0uF5gS8PSuAqxtUlr1dCBH1wn7A2n+f7uSUsk+Qw7JK
-         YPT91JD4tVUBOHT6QQZZ08m1r6ufgsuwB/+EuA/jPO22u7Vj/nLykHvxr/uzWYo9QzRa
-         CdS7yJ8dlXz8kSQn3lo++lobujkoemfFMaSCZ0te8vBCa1T3nOxTNvORDiIS5uqyBEAx
-         6dWMciR0ZEYcZt7yaZ7fpnZ98K9/yfBEr+YHKskot6z7eImlg9xqDm6niZtu72oKQsq0
-         do5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXnAMAeW8cpJHrlkrNJ65rvzFKeZi7kvVz3RNeO44S4vQYZSz6JweysTX/iicMLOL5vXPO7A1kAux/mCG9Pk+rG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhWykM65D5WNl1Ud3b7tjq1+ydR/8pO82n4TwKBoQpxggIYfC1
-	FGpQEAj8tXXhiWnjLnbFJsTfXTY/59q7Th/YP6mXUcOBH1S3BA9jSo/1QTm+eMg=
-X-Gm-Gg: ASbGnctY70CNjLhOPSLhUR/p8x5tlYr4elxGaLntiSmnrJT9girDkFZJS65NmCSV7B6
-	9SvHA182gzuKIXIYER9Ck4m4CPSxd5pDEvLJ97SX8S3/2zIl9c+9qqn/ai8BHYU4mUn4YFJVgyy
-	r8mghettRfYNXsZjAWZebiuSoQ88d/q2R04JG7+nQwr+pZmhv4wF7WOcIpWQSKttmLqttr1QZwX
-	TzCawiNXZ1TKVSMqzWnewURpFnjqd7hvzHGeFXyeSj7wDWJ
-X-Google-Smtp-Source: AGHT+IFExc0XA8Xy/C4Mx5wK8VZwnwxFl/5BahFWH3EA4rW9cmekl8fnISqr+JRBJqWQX6UGHfnMOg==
-X-Received: by 2002:a05:600c:4450:b0:436:1aa6:b8ee with SMTP id 5b1f17b1804b1-4361c346a7emr72222265e9.2.1734028604531;
-        Thu, 12 Dec 2024 10:36:44 -0800 (PST)
+        bh=ZNTGzlog7Q9IZQyQd4eTU3kXEBDBdmsulQeLjahgS6Q=;
+        b=Ndr5mW1gvWKoaDikvD24DG5uNGPjkn6n89T7oYlmDX2zFvapYvBDgzltJ+Edww12Y7
+         2l1EAz7u9kTFdYmFSgz97m92lUnP4ZpiRavboA7ZTmLkwHfBi90tLJjBIHLnY6hJCxA5
+         OPEE93FT6jvtRT5GE445P1Z40m9gVzt7nxD+6FpLBYia2TOcb1GUzzytT20/wFKHpc7J
+         TXYDKhOOgWrNwkg7IEyWWcfUjKGIvxCnS0CpLty9nMo40ibWZx9BNisJcqT1TZPBlpgs
+         k/X7xFF4OT1kGfP/YnsP44G12aibwe5g0vD6saEkrk7nmASZbPnQWcJD0vohnDjWma/T
+         LKBA==
+X-Forwarded-Encrypted: i=1; AJvYcCXMytamZXR8blBDkUaCxOg2BVKVk8paLmYDmpjMG+6+qH9ds5V2oUMfDc/NDP6Qf7yiFCw/UVexoNQE4nH+ZOAs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNFI3+xGRFp2YIrv9P7sjmBEP4Lj/gY694EAEwTxjG3RwzLEdg
+	Pc4nlA15C7DXgISkKIOWPv+iMPBF9FsOtLkCXfWw+j6mcoBl/kkGV72sCvO6jVc=
+X-Gm-Gg: ASbGncuxD66NzpbHQDq0wYrbzzNxfLHbTWA4j0YQ+TUmAm+aFs71r1kmEXqc8KWfkys
+	kiFMmGRC25B/sZXPkJEbl6EZsdPFyn+fZcKveJGTYBxtGzNdqXunwckXGX1ApSCBtVbkpiXweOI
+	2r1nS+lD6AuJufkmAtNQG6M7Vn/1g65N42tFODkKamELD8VYThwqaLOA0G1g0zp5sXl1u1H9fQ+
+	f0LBVC8i43bZu4BDPPGVktyOC1jgp5XttAiv5+HIIGUkp4G
+X-Google-Smtp-Source: AGHT+IHxOChpNRcv2gtV3EutMkkx5eEcKsuaWzHm1MNie1E2mh6dZNeg/6vYwQX7jygVWMDmg6R6rw==
+X-Received: by 2002:a05:600c:4e49:b0:434:edcf:7474 with SMTP id 5b1f17b1804b1-43622883cd8mr39952895e9.33.1734028609546;
+        Thu, 12 Dec 2024 10:36:49 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436257178e3sm24651995e9.41.2024.12.12.10.36.43
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436257178e3sm24651995e9.41.2024.12.12.10.36.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 10:36:43 -0800 (PST)
+        Thu, 12 Dec 2024 10:36:48 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Thu, 12 Dec 2024 18:36:30 +0000
-Subject: [PATCH v3 3/7] dt-bindings: gpio: brcmstb: permit gpio-line-names
- property
+Date: Thu, 12 Dec 2024 18:36:34 +0000
+Subject: [PATCH v3 7/7] arm64: dts: broadcom: Remove intc controller on
+ BCM2712.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241212-dt-bcm2712-fixes-v3-3-44a7f3390331@raspberrypi.com>
+Message-Id: <20241212-dt-bcm2712-fixes-v3-7-44a7f3390331@raspberrypi.com>
 References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com>
 In-Reply-To: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -97,8 +97,8 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_103646_536013_81AD713E 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20241212_103650_892640_C10E2C4C 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,33 +113,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-gpio-line-names is a generic property that can be supported by any
-GPIO controller, so permit it through the binding.
+The brcm,bcm2836-l1-intc controller isn't used on this platform.
+It is used on 32-bit kernels for the smp_boot_secondary hook, but
+BCM2712 can't run a 32-bit kernel.
 
-It is permitted to have a variable number of GPIOs per node based
-on brcm,gpio-bank-widths, so define an arbitrary maximum number of
-items based on current users.
+Remove the node.
 
+Fixes: e1417095a139 ("arm64: dts: broadcom: Add firmware clocks and power nodes to Pi5 DT")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml b/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
-index f096f286da19..fbd69b4cecc7 100644
---- a/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
-@@ -64,6 +64,10 @@ properties:
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index f42fad2d8b37..9a426aa27c74 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -221,11 +221,6 @@ mailbox: mailbox@7c013880 {
+ 			#mbox-cells = <0>;
+ 		};
  
-   gpio-ranges: true
- 
-+  gpio-line-names:
-+    minItems: 1
-+    maxItems: 128
-+
-   wakeup-source:
-     type: boolean
-     description: >
+-		local_intc: interrupt-controller@7cd00000 {
+-			compatible = "brcm,bcm2836-l1-intc";
+-			reg = <0x7cd00000 0x100>;
+-		};
+-
+ 		uart10: serial@7d001000 {
+ 			compatible = "arm,pl011", "arm,primecell";
+ 			reg = <0x7d001000 0x200>;
 
 -- 
 2.34.1
