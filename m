@@ -4,96 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52394E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C67E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcNqGkwIauu/8vGqbL9sA5oDKvOeKbiw9sBlkhBTUJc=; b=qv9+5OHZ0nsJ2oqO4n+dlYuaxF
-	wHZsAKIJ+/kGHDAPyIpXKckkr9WFtVlcjJUHFiHlhNtwy+bYpjsW+rPZKEOMqkxyqRowgI1iNZ4Cw
-	8cMohOrqLvM3Qlb7OgR848M1NB/LESUDoPruhJalii2+hi31GwVOFm2JjSyFzNEAb3K3WRPnVkTvt
-	Zla3bxOfNBupR8zg3YtG4m+TaFzTDKUDZ7wTWt+EASjKnp5UXOTVz0t6WQ1sjLT6jlcMcSoYPKuC0
-	o3wDCXZaDx+9lYZGOsjGrKk+LNFpOOqELEVpexclKggJ99tUFTEpZAzxcQbQ7/n+kslRZYb55H2zE
-	0bQruFKQ==;
+	bh=WL0MNhxh03d+1ccZDymnbDEc6rmGXhMxn0rTLHkDQKE=; b=wru5eTQhakY+lz7AOZ3lcjOdMC
+	qqe+lEIrR8v0l+ZEprWqGCi8ZBSPoJlw7AHNNZ5SKi0lEkMuxZnxouu7d1v+vUsThUXP7VN5Uo96V
+	floSHhSCSHHZhfqeNvh9oMHuF4De/qyiEbpqwplvrLvK7S4DSZUfcYIk6ksOzH/rOnaPKACmD1Yw7
+	Ubrv1NnnJJ97O4+dX6ZxXDqzGzn2SIlqy7QEgH4xOfP/dCAd4prwvibetrC5p/CSfiu0IcjR1gQZq
+	V7RDYOpJZAGzkm+FtmfPlHbirsz6jAsEJ8uRU+2QsKobgbRFZcRdboj7uWIOcIau6+hTKVxwc3wfp
+	9Jbi6t+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLg51-0000000HaoQ-1gWZ;
-	Thu, 12 Dec 2024 10:05:59 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1tLg62-0000000Hb0Y-46SD;
+	Thu, 12 Dec 2024 10:07:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLg3w-0000000HaaT-2mRD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 10:04:53 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5d3ea065b79so608557a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 02:04:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733997891; x=1734602691; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xcNqGkwIauu/8vGqbL9sA5oDKvOeKbiw9sBlkhBTUJc=;
-        b=dVXUgijqswpWun1soaGJpUOVesd/hEdYhy3Y65qGA4hr1iuYpSarnDJgx1c/wMRbx1
-         TqAebovb+zgZp3mc4/ZWESFlIT6vMREqPTVwD/6bO2R+tUDzBI/W1ONafnxCHezpkLdy
-         5qgPwr02bD/8tWpUZfyWRqSuwhYlUYbQJz4KGC8OzdFHhNfL3EiJ/z0S0YkmkkXZ+WCB
-         HI0OoRKEYjIsV7FsAz/U7sSrNUUCuYi1msl4fcrDyNyDECKpmqQjUAI5rxeT3cuDpPug
-         c0yN9wd6KgkjwFChg/T1gUOuQ6R1RZ3jNMnZxrxl+0dosaSEOTrUHPrrjYp7cBgNSFpq
-         9foQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733997891; x=1734602691;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xcNqGkwIauu/8vGqbL9sA5oDKvOeKbiw9sBlkhBTUJc=;
-        b=Bouk/Iw92EeqrzHr22PbLnXOMC7T2FIR8h8EH2h64dA2BpOAfb89Lj42e0iFNHTzZK
-         R1ZBK3EcI5MPusloS4oS5OagskXr9F7fT59Qyz/dLx79XPJ1nPwXioRFzA4Uhot6Wx6Z
-         /M5ioSSdKd+Fr+L/KrBv9YUDmjZ0KlMIn36Pl1qiz9Kij4R3GsGitK2FgVjK1uQdQabc
-         1v5B+KttvTzBJVvoKNn2JRL7mkl/gbCsLwFJw74TUre1iHwLdcvCgkszyECS8r1S1kHC
-         5RhMjz45Lq+anotQ3Tg5SKfpQorTNvGlEKXRdJDKVmGqmVrvtIn3jyh+AXbEJbv3kQiX
-         klag==
-X-Forwarded-Encrypted: i=1; AJvYcCUqXJwU3atwXhIqB6Bupqsh3U8WiuO6hIzeYI3v8lR85fj5rsrYBrBFgRL0Y8uxKy969UQozaajD0oOVHYJfQbi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYKWHdzQ3Ts/0wc/DbH0FjMOR++vccqE9tdx+RD6rerKmYy3XI
-	pX2eJVkI9tpcX254Vi9agX0MsrZGmhGxr5A4905imhvoAHcE9/Wz
-X-Gm-Gg: ASbGncuiGwJhF5M3XBArh/Pl4u/lA67/n0R/6PohCiKoatFAOWNRQxDajnG4a7uPyx1
-	tjryLBA5ZV+1wvF2/TlQ/GQ7axfhkgY3mlDJU42F25ZBA0XqZlEFDeStAEi8QoY4pHOL79FP1W3
-	HYBnjTjsVrPt+etSrJqbIAV7sCq7BdS/4LiGou5PbmE+GUCH4f3S1/cx4CQ3IkX4QFcDgbQqY0b
-	vufvYh43/Op79Zc//EPupqU6qChvi426vDoFlPjS7uahedh6hRRkPFe4ZbKC1vdqcihLWqTNy8x
-	ty0wdw==
-X-Google-Smtp-Source: AGHT+IFQT5iUBDmZUMai1sO2ZlzqvJN+RIKe3rhjwPSdU4AZtZ7Q43WieJ/g7Z/ZNDQAZtHYn7R+CQ==
-X-Received: by 2002:a17:907:8284:b0:aa6:6696:4072 with SMTP id a640c23a62f3a-aa6b13f4f48mr539712866b.49.1733997890532;
-        Thu, 12 Dec 2024 02:04:50 -0800 (PST)
-Received: from [192.168.7.105] ([92.120.5.4])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa67d63f867sm641007166b.133.2024.12.12.02.04.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Dec 2024 02:04:50 -0800 (PST)
-Message-ID: <392884c8-0f4e-43a5-b81c-bf2e80cbddfd@gmail.com>
-Date: Thu, 12 Dec 2024 12:04:47 +0200
+	id 1tLg3y-0000000Hab7-36se;
+	Thu, 12 Dec 2024 10:04:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733997893;
+	bh=r4vBtZGzMSY3w44LNP2WSbN/PdhlBAw89h+kvrRSONQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=mpVbdCY2Va0Smw/rNAyfLNXZVoH/jmvic4/QBN87YO/il4dDjTmTIxUeqIrZcbWhe
+	 KiFlCwNpebrNjrt4b64IFuM8D3ERAK8+2I9q4nejBmdaZZyD9+WodxHqtve1gShgAm
+	 09oAF/sCZgTw+UxyigyNNI8sMW2sgMf1OBmsKamG3ETXoltoHj5iU12xADtovxk65/
+	 cGPKY4cku6ubJo5DPq3PvF7MPyjw2rwHqNOOsw0AAsiFIfv0NJNcKfBHnG5iZ4/Aa7
+	 M2elu+gDn6mlCUaRn8UpL67AvmcjHWyPCmDE+uihqfMaeHfgmL1+DL09Tp+AebD7V9
+	 JD3M5oZUxc6kA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 81A7317E35F2;
+	Thu, 12 Dec 2024 11:04:52 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241211052427.4178367-1-wenst@chromium.org>
+References: <20241211052427.4178367-1-wenst@chromium.org>
+Subject: Re: (subset) [PATCH 0/8] arm64: dts: mediatek: Drop
+ regulator-compatible property
+Message-Id: <173399789246.41280.12946526807536049492.b4-ty@collabora.com>
+Date: Thu, 12 Dec 2024 11:04:52 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/5] arm64: dts: imx: add imx95 dts for sof
-Content-Language: en-US
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Daniel Baluta <daniel.baluta@nxp.com>,
- Mark Brown <broonie@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Takashi Iwai <tiwai@suse.com>, Bard Liao <yung-chuan.liao@linux.intel.com>,
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
- Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-sound@vger.kernel.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20241113195240.3699-1-laurentiumihalcea111@gmail.com>
- <20241113195240.3699-6-laurentiumihalcea111@gmail.com>
- <ZzUKPehw2G9XcRsb@lizhi-Precision-Tower-5810>
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <ZzUKPehw2G9XcRsb@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_020452_705415_A71C7491 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20241212_020454_953355_D39FF69A 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,127 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 11 Dec 2024 13:24:18 +0800, Chen-Yu Tsai wrote:
+> This series drops usage of the long deprecated "regulator-compatible"
+> property from MediaTek device tree files. The property was introduced
+> in 2012, and then subsequently deprecated after two months. It was
+> never carried over during the binding YAML conversion.
+> 
+> Drop the property from the MT6315 regulator binding, and all MediaTek
+> device tree files. IMO it should never have been used to begin with.
+> This also gets rid of any validation errors [1] related to them.
+> 
+> [...]
 
+Applied to v6.13-next/dts64, thanks!
 
-On 11/13/2024 10:21 PM, Frank Li wrote:
-> On Wed, Nov 13, 2024 at 02:52:40PM -0500, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> Add imx95 DTS for SOF usage.
->>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->>  arch/arm64/boot/dts/freescale/Makefile        |  1 +
->>  .../dts/freescale/imx95-19x19-evk-sof.dts     | 74 +++++++++++++++++++
-> look like it should be dt overlay.
-ah, interesting idea, but I don't really see its usage here? As far as I was able to understand the overlays are used to dynamically change the DTB (via u-boot), which we don't really need at the moment.
+[2/8] arm64: dts: mediatek: mt8173-evb: Drop regulator-compatible property
+      commit: a6d5983e40f5d5b219337569cdd269727f5a3e2e
+[3/8] arm64: dts: mediatek: mt8173-elm: Drop regulator-compatible property
+      commit: 4b907b3ea5fba240808136cc5599d14b52230b39
+[4/8] arm64: dts: mediatek: mt8192-asurada: Drop regulator-compatible property
+      commit: d1fb968551c8688652b8b817bb081fdc9c25cd48
+[5/8] arm64: dts: mediatek: mt8195-cherry: Drop regulator-compatible property
+      commit: 4dbaa5d5def2c49e44efaa5e796c23d9b904be09
+[6/8] arm64: dts: mediatek: mt8195-demo: Drop regulator-compatible property
+      commit: 2a8af9b95f504260a6d8200a11f0ae5c90e9f787
+[7/8] arm64: dts: medaitek: mt8395-nio-12l: Drop regulator-compatible property
+      commit: ab60442f26b15ba69b210974722a851ed03188ff
+[8/8] arm64: dts: mediatek: mt8395-genio-1200-evk: Drop regulator-compatible property
+      commit: b99bf07c2c8b3c85c1935ddca2a73bc686f8d847
 
->
->>  2 files changed, 75 insertions(+)
->>  create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
->>
->> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->> index 42e6482a31cb..0a313133d013 100644
->> --- a/arch/arm64/boot/dts/freescale/Makefile
->> +++ b/arch/arm64/boot/dts/freescale/Makefile
->> @@ -269,6 +269,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
->>  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
->>  dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
->>  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
->> +dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
->>
->>  imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
->> new file mode 100644
->> index 000000000000..3fa4c252e355
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
->> @@ -0,0 +1,74 @@
->> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->> +/*
->> + * Copyright 2024 NXP
->> + */
->> +
->> +/dts-v1/;
->> +
->> +#include "imx95-19x19-evk.dts"
->> +
->> +/ {
->> +	reserved-memory {
->> +		adma_res: memory@86100000 {
->> +			compatible = "shared-dma-pool";
->> +			reg = <0x0 0x86100000 0x0 0x100000>;
->> +			no-map;
->> +		};
->> +	};
->> +
->> +	sound-wm8962 {
->> +		status = "disabled";
->> +	};
->> +
->> +	sof-sound-wm8962 {
->> +		compatible = "audio-graph-card2";
->> +		links = <&cpu>;
->> +		label = "wm8962-audio";
->> +		hp-det-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&pinctrl_hp>;
->> +		widgets =
->> +			"Headphone", "Headphones",
->> +			"Microphone", "Headset Mic";
->> +		routing =
->> +			"Headphones", "HPOUTL",
->> +			"Headphones", "HPOUTR",
->> +			"Headset Mic", "MICBIAS",
->> +			"IN3R", "Headset Mic",
->> +			"IN1R", "Headset Mic";
->> +	};
->> +
->> +	sof_cpu: cm7-cpu@80000000 {
->> +		compatible = "fsl,imx95-cm7-sof";
->> +		reg = <0x0 0x80000000 0x0 0x6100000>;
->> +		memory-region = <&adma_res>;
->> +		mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
->> +		mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
->> +		cpu: port {
->> +			cpu_ep: endpoint { remote-endpoint = <&codec_ep>; };
->> +		};
->> +	};
-> please sort by node name.
-Fix in v3
+Cheers,
+Angelo
 
->
->> +};
->> +
->> +&edma2 {
->> +	dma-channel-mask = <0xc0000000>, <0x0>;
->> +};
-> Why need change dma mask here ?
-Channels 30 and 31 are reserved for firmware usage
-
->
->> +
->> +&sai3 {
->> +	status = "disabled";
->> +};
->> +
->> +&wm8962 {
->> +	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
->> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
->> +			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
->> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
->> +			  <&scmi_clk IMX95_CLK_SAI3>;
->> +	assigned-clock-parents = <0>, <0>, <0>, <0>, <&scmi_clk IMX95_CLK_AUDIOPLL1>;
->> +	assigned-clock-rates = <3932160000>, <3612672000>,
->> +			       <393216000>, <361267200>,
->> +			       <12288000>;
->> +	port {
->> +		codec_ep: endpoint { remote-endpoint = <&cpu_ep>; };
->> +	};
->> +};
->> --
->> 2.34.1
->>
 
 
