@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2E7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B74E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0JvanTJSMR+XI/Wjo2HTOKln5DEsfQoh3Hho27FSuog=; b=xUbjXMvskVqcZIOtnbbj88qR+9
-	5JrIg/9BI71w/Mni/O2jI2Uf1xBgZHfNUuhumJi/2e348pWRjlMqpqSYRQwKiZcFZjXzT2FjcXIiW
-	CTRELKlr1ygU8Nc8hiG0+GI421x7eIkqoGcu6jGPYNwPXb+rlugKx3MKANzliS1A++gTMR9+upT2Y
-	W0bWc1DCFWuYEg+3qVreW5aTa2hAP982BffBLvbN3E8N48optFQfCYKLckMX/j4/hm6OPnCT3MB9u
-	SD1jQLhMPuwkhzYsIelRs7RcmTLRKnyLHp+tZIxFmAzlcMPF1vnYPWcFbzSEsL5VBJne7dK0cBMFU
-	OF/qAi6w==;
+	bh=8QA34SgI5l6ru2Xaln4SGQrGK9VCHx5ARJvOrkuc5JA=; b=EIq61WCTPt7JB8W3Hlh1/dx5XH
+	hJXNotNlUqJp1rkA67QxE0bxrTyhq+AIwTplmS9D3cqgFXke/WWg91R+GgrWFldTuoCx5xuvS//9h
+	UqIqh5k1Iq6lpANLvSG/fg56FgUxF5nLYNrvCBf5+a7JbA2drsb4M/IlRM9dOt0RqS5PhH4bBIf3D
+	c47JotoFDNpAit2RcRETJel0lUXXCmWuj9RpVBI4NQDjoDbQ9yvU4Rgi6c3jfwCFhQ5+h1WeHu31U
+	fk6m72D7wYr4x+IZRGyPvUzXZA0AvtCspJHq0z2GDTTZc3WbGMoM0z0Mr7PkJP8y0mNhZ/PMfRWjt
+	M1E+qXHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLo9B-00000001TYt-15W1;
-	Thu, 12 Dec 2024 18:42:49 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1tLoAD-00000001TiW-3sNo;
+	Thu, 12 Dec 2024 18:43:53 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnZS-00000001Jtl-1uqb
+	id 1tLnZW-00000001Jvj-2egA
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 12 Dec 2024 18:05:59 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4361b090d23so5677715e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:53 -0800 (PST)
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-385e2579507so364396f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026752; x=1734631552; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026757; x=1734631557; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0JvanTJSMR+XI/Wjo2HTOKln5DEsfQoh3Hho27FSuog=;
-        b=szUtE3rFRK99R1TlbWLQWnfRsGZkkuxJpLSij7yU9dx2tRuEBG92rtFxYNqrR6naTJ
-         Q5OyMEq8fp0TPZeTG17dz1HaBCWQp4aFB8oJDF9u/IdBZbmcPReyOaxRMgXm2BX4ZcSO
-         XfdBlqunZsxq3xIB8yhO0vE/VnD7Zba5dgy0U1oc+8M3ZyhVXop2TcMqWrc7L/K7xJG4
-         xZF1iPVodwEryN2DHasJB7U0w4DbGXYXRiDNblPPfUrWM4WK4J505mUOe++xUt+kJohI
-         U53jHqA4oaXpnBzliBbTnRhTHhmsAyUe7eiaG0dUE94ytb8X/3RKtgdTMSN8jTAtLfDN
-         MRmw==
+        bh=8QA34SgI5l6ru2Xaln4SGQrGK9VCHx5ARJvOrkuc5JA=;
+        b=PtOhvpHsDdoSvUMHu2YEooPBvw9bajzqvaB5MkOzSD8502gch0YlvkKcZofR9ml9xn
+         Sc9Xv09iYixt8kWIJincHseHIVd0SBKPXq+atDc6E8NpNqqB+i8NTe4EUu/X7YDHpe0G
+         fJxh6TLnCbTP+yP2Iku90mCqzmoUR5ViMupQm1IjM1aYbUTTj7aowU7/r8tqzhfpkMor
+         0zfl4o6JbpwF20+yAqyCoeSAXAPV1DmEGtpw5Kef8xP+jDwEPRj6RUYyYh6JphYkIuNl
+         EUx+Kcvm3mp+Kka//UhSXQEtZ+xH/dveIX0+6Aq7VLQPaY/ox57HH9IZ6E3YWWsAcjH7
+         6ekw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026752; x=1734631552;
+        d=1e100.net; s=20230601; t=1734026757; x=1734631557;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0JvanTJSMR+XI/Wjo2HTOKln5DEsfQoh3Hho27FSuog=;
-        b=ewV9+DQK5f6tL0alK5e/pH67tL5VdstB9liN1pwrVxXXeUIlnC+UNxdLJ+BDtgnsdZ
-         BgfWYJhvP21sjJ0Vib+6o1yJk7jD+WETs3FKXWwLXPH+Zp2+U6xojq+uknSHAK0SBqBG
-         TvDeugIkPHDHelXZken6gU8jbKg+FOFX/irfKTgkxWgkbwe81Dqhh7MyNLyV2UNg2d6P
-         EpaPxBuqLyjA0ku+X/2ZDQmjxghUHLlxkVxT0Ll0xkVQ0MeHtRnxvgK4irSfRc1uzRc1
-         +zA6HvB+GlpfepbRBhY4VWojolc4hJQDJ03AUPaLQnjtpySkuJda7Y39XCYOfb6gc1fu
-         cd+A==
-X-Forwarded-Encrypted: i=1; AJvYcCV4J+/lIotpRmB60EJYmrkDcc3p51N0ffDDNCZhHmyvDPKMN1UDz9Lqo6+1yRLxJeOfcNvibqsbLbiNikeNRV0H@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwPjrtvDPk0IheaWComDevWbxAWfFipSdUNgiV/DP5W/j2HSKS
-	EhVd7yH5Oyd37hRQxfu+XFLpf71JS9Y9rzC6wTcA6RBNOr9qSMso+0I16a1pb0OfrD88c05XM/Y
-	SlMEzv2OegA==
-X-Google-Smtp-Source: AGHT+IGWGdZgTY7Fu4Fy8oS8GVUUpzVpI6h6GF8Kt9ZH/qx6w2Z6AjSEvrQ/zUVQNCjYoCTIQFsDcTLIxiWTaw==
-X-Received: from wmkz18.prod.google.com ([2002:a7b:c7d2:0:b0:434:a15f:e7ea])
+        bh=8QA34SgI5l6ru2Xaln4SGQrGK9VCHx5ARJvOrkuc5JA=;
+        b=GB1RiKCVtl6lCyV5DImxXIW558PBYFfP/P/RAaXAlHYteMtTI2D5BP1WmvA2OXMLTT
+         a0YpMF1xpg5G4g/GEaIz/W59NZGzyn9CKN1lFCdpR+ZZyCbPQ28Pyr++YKsSVbVVI44D
+         nrOy0+NVs3AlNFvO5p0ISNIKiY0my8ifpSRM7huSNCHXqmlf7aiWJzTjY7Of1JyQwhv2
+         xbqXUTFHnCFI9H4LVYL8y2DO9z/Cp3gvsehoSwRIJMIfvEE6WeVBiC8Rc994+Ojq+4Rv
+         +58bVL/jBu9BJRx4KVrfqBfe5VAvNUKy4Yte+LY9QcIiPz7/iyI22+ZLIOA8IjgpeeOx
+         ByzA==
+X-Forwarded-Encrypted: i=1; AJvYcCWkBJYj0cyqGSClIDmia540p0dQv6HYRoupZDFJzsYh+UjdqhokVVtuEYMKAPt3bCQBKcPPyrf6Jk8resqtZxD7@lists.infradead.org
+X-Gm-Message-State: AOJu0YydTh59nwQTBM1QAd5mhbZUUPG24CN1QGVPHrbwF6Z76s63WeYw
+	wNjMVzpsIt8Lj7UIyuGRI8tDg2d3rLRZpDehhxVlyrBTNmBR6uqp6if2w7TcSSSpJRmghRihA6Z
+	CYq2oTzJKnQ==
+X-Google-Smtp-Source: AGHT+IF16Jaf8i1Bw0pRdN0NDe/fPVVgR00KHWsUXu/7gcrg94xU+VGVHaEuKfgJTZsXm+cU714jOddkQJqMxQ==
+X-Received: from wmsk11.prod.google.com ([2002:a05:600c:1c8b:b0:434:ef30:4be3])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4e4b:b0:434:a239:d2fe with SMTP id 5b1f17b1804b1-4361c400c1bmr52688975e9.28.1734026752664;
- Thu, 12 Dec 2024 10:05:52 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:57 +0000
+ 2002:a5d:6da6:0:b0:385:f220:f788 with SMTP id ffacd0b85a97d-387876c3257mr4098056f8f.48.1734026757027;
+ Thu, 12 Dec 2024 10:05:57 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:59 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-34-smostafa@google.com>
-Subject: [RFC PATCH v2 33/58] KVM: arm64: smmu-v3: Add TLB ops
+Message-ID: <20241212180423.1578358-36-smostafa@google.com>
+Subject: [RFC PATCH v2 35/58] KVM: arm64: smmu-v3: Add attach_dev
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100554_494974_88F4C062 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20241212_100558_678317_88C0AA57 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,197 +95,337 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add TLB invalidation functions would be used next from the page table
-code and attach/detach functions.
+Add attach_dev HVC code which handles both stage-1 and stage-2.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 ---
- arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 167 ++++++++++++++++++++
- 1 file changed, 167 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 244 +++++++++++++++++++-
+ include/kvm/arm_smmu_v3.h                   |   4 +
+ 2 files changed, 242 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-index 3181933e9a34..5f00d5cdf5bc 100644
+index d58424e45e1d..a96eb6625c48 100644
 --- a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
 +++ b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-@@ -602,10 +602,177 @@ static void smmu_free_domain(struct kvm_hyp_iommu_domain *domain)
- 	hyp_free(smmu_domain);
+@@ -68,6 +68,11 @@ struct hyp_arm_smmu_v3_domain {
+ 	struct io_pgtable		*pgtable;
+ };
+ 
++static struct hyp_arm_smmu_v3_device *to_smmu(struct kvm_hyp_iommu *iommu)
++{
++	return container_of(iommu, struct hyp_arm_smmu_v3_device, iommu);
++}
++
+ static int smmu_write_cr0(struct hyp_arm_smmu_v3_device *smmu, u32 val)
+ {
+ 	writel_relaxed(val, smmu->base + ARM_SMMU_CR0);
+@@ -203,7 +208,6 @@ static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
+ 	return smmu_sync_cmd(smmu);
  }
  
-+static void smmu_inv_domain(struct hyp_arm_smmu_v3_domain *smmu_domain)
+-__maybe_unused
+ static int smmu_sync_ste(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ {
+ 	struct arm_smmu_cmdq_ent cmd = {
+@@ -215,7 +219,6 @@ static int smmu_sync_ste(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ 	return smmu_send_cmd(smmu, &cmd);
+ }
+ 
+-__maybe_unused
+ static int smmu_sync_cd(struct hyp_arm_smmu_v3_device *smmu, u32 sid, u32 ssid)
+ {
+ 	struct arm_smmu_cmdq_ent cmd = {
+@@ -289,7 +292,6 @@ smmu_get_ste_ptr(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ 	return &cfg->linear.table[sid];
+ }
+ 
+-__maybe_unused
+ static struct arm_smmu_ste *
+ smmu_get_alloc_ste_ptr(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ {
+@@ -304,14 +306,12 @@ smmu_get_alloc_ste_ptr(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ 	return smmu_get_ste_ptr(smmu, sid);
+ }
+ 
+-__maybe_unused
+ static u64 *smmu_get_cd_ptr(u64 *cdtab, u32 ssid)
+ {
+ 	/* Only linear supported for now. */
+ 	return cdtab + ssid * CTXDESC_CD_DWORDS;
+ }
+ 
+-__maybe_unused
+ static u64 *smmu_alloc_cd(struct hyp_arm_smmu_v3_device *smmu, u32 pasid_bits)
+ {
+ 	u64 *cd_table;
+@@ -803,7 +803,6 @@ static void smmu_tlb_add_page(struct iommu_iotlb_gather *gather,
+ 		smmu_tlb_inv_range(cookie, iova, granule, granule, true);
+ }
+ 
+-__maybe_unused
+ static const struct iommu_flush_ops smmu_tlb_ops = {
+ 	.tlb_flush_all	= smmu_tlb_flush_all,
+ 	.tlb_flush_walk = smmu_tlb_flush_walk,
+@@ -821,6 +820,238 @@ static void smmu_iotlb_sync(struct kvm_hyp_iommu_domain *domain,
+ 	smmu_tlb_inv_range(domain, gather->start, size,  gather->pgsize, true);
+ }
+ 
++static int smmu_domain_config_s2(struct kvm_hyp_iommu_domain *domain,
++				 struct arm_smmu_ste *ste)
 +{
-+	struct kvm_hyp_iommu_domain *domain = smmu_domain->domain;
-+	struct hyp_arm_smmu_v3_device *smmu = smmu_domain->smmu;
-+	struct arm_smmu_cmdq_ent cmd = {};
++	struct io_pgtable_cfg *cfg;
++	u64 ts, sl, ic, oc, sh, tg, ps;
++	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
 +
-+	if (smmu_domain->pgtable->cfg.fmt == ARM_64_LPAE_S2) {
-+		cmd.opcode = CMDQ_OP_TLBI_S12_VMALL;
-+		cmd.tlbi.vmid = domain->domain_id;
++	cfg = &smmu_domain->pgtable->cfg;
++	ps = cfg->arm_lpae_s2_cfg.vtcr.ps;
++	tg = cfg->arm_lpae_s2_cfg.vtcr.tg;
++	sh = cfg->arm_lpae_s2_cfg.vtcr.sh;
++	oc = cfg->arm_lpae_s2_cfg.vtcr.orgn;
++	ic = cfg->arm_lpae_s2_cfg.vtcr.irgn;
++	sl = cfg->arm_lpae_s2_cfg.vtcr.sl;
++	ts = cfg->arm_lpae_s2_cfg.vtcr.tsz;
++
++	ste->data[0] = STRTAB_STE_0_V |
++		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_S2_TRANS);
++	ste->data[1] = FIELD_PREP(STRTAB_STE_1_SHCFG, STRTAB_STE_1_SHCFG_INCOMING);
++	ste->data[2] = FIELD_PREP(STRTAB_STE_2_VTCR,
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2PS, ps) |
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2TG, tg) |
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2SH0, sh) |
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2OR0, oc) |
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2IR0, ic) |
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2SL0, sl) |
++			FIELD_PREP(STRTAB_STE_2_VTCR_S2T0SZ, ts)) |
++		 FIELD_PREP(STRTAB_STE_2_S2VMID, domain->domain_id) |
++		 STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2R;
++	ste->data[3] = cfg->arm_lpae_s2_cfg.vttbr & STRTAB_STE_3_S2TTB_MASK;
++
++	return 0;
++}
++
++static u64 *smmu_domain_config_s1_ste(struct hyp_arm_smmu_v3_device *smmu,
++				      u32 pasid_bits, struct arm_smmu_ste *ste)
++{
++	u64 *cd_table;
++
++	cd_table = smmu_alloc_cd(smmu, pasid_bits);
++	if (!cd_table)
++		return NULL;
++
++	ste->data[1] = FIELD_PREP(STRTAB_STE_1_S1DSS, STRTAB_STE_1_S1DSS_SSID0) |
++		FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
++		FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
++		FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH);
++	ste->data[0] = ((u64)cd_table & STRTAB_STE_0_S1CTXPTR_MASK) |
++		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_S1_TRANS) |
++		FIELD_PREP(STRTAB_STE_0_S1CDMAX, pasid_bits) |
++		FIELD_PREP(STRTAB_STE_0_S1FMT, STRTAB_STE_0_S1FMT_LINEAR) |
++		STRTAB_STE_0_V;
++
++	return cd_table;
++}
++
++/*
++ * This function handles configuration for pasid and non-pasid domains
++ * with the following assumptions:
++ * - pasid 0 always attached first, this should be the typicall flow
++ *   for the kernel where attach_dev is always called before set_dev_pasid.
++ *   In that case only pasid 0 is allowed to allocate memory for the CD,
++ *   and other pasids would expect to find the tabel.
++ * - pasid 0 is detached last, also guaranteed from the kernel.
++ */
++static int smmu_domain_config_s1(struct hyp_arm_smmu_v3_device *smmu,
++				 struct kvm_hyp_iommu_domain *domain,
++				 u32 sid, u32 pasid, u32 pasid_bits,
++				 struct arm_smmu_ste *ste)
++{
++	struct arm_smmu_ste *dst;
++	u64 val;
++	u64 *cd_entry, *cd_table;
++	struct io_pgtable_cfg *cfg;
++	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
++
++	cfg = &smmu_domain->pgtable->cfg;
++	dst = smmu_get_ste_ptr(smmu, sid);
++	val = dst->data[0];
++
++	if (FIELD_GET(STRTAB_STE_0_CFG, val) == STRTAB_STE_0_CFG_S2_TRANS)
++		return -EBUSY;
++
++	if (pasid == 0) {
++		cd_table = smmu_domain_config_s1_ste(smmu, pasid_bits, ste);
++		if (!cd_table)
++			return -ENOMEM;
 +	} else {
-+		cmd.opcode = CMDQ_OP_TLBI_NH_ASID;
-+		cmd.tlbi.asid = domain->domain_id;
++		u32 nr_entries;
++
++		cd_table = (u64 *)(FIELD_GET(STRTAB_STE_0_S1CTXPTR_MASK, val) << 6);
++		if (!cd_table)
++			return -EINVAL;
++		nr_entries = 1 << FIELD_GET(STRTAB_STE_0_S1CDMAX, val);
++		if (pasid >= nr_entries)
++			return -E2BIG;
 +	}
 +
-+	if (smmu->iommu.power_is_off)
-+		return;
++	/* Write CD. */
++	cd_entry = smmu_get_cd_ptr(hyp_phys_to_virt((u64)cd_table), pasid);
 +
-+	WARN_ON(smmu_send_cmd(smmu, &cmd));
++	/* CD already used by another device. */
++	if (cd_entry[0])
++		return -EBUSY;
++
++	cd_entry[1] = cpu_to_le64(cfg->arm_lpae_s1_cfg.ttbr & CTXDESC_CD_1_TTB0_MASK);
++	cd_entry[2] = 0;
++	cd_entry[3] = cpu_to_le64(cfg->arm_lpae_s1_cfg.mair);
++
++	/* STE is live. */
++	if (pasid)
++		smmu_sync_cd(smmu, sid, pasid);
++	val =  FIELD_PREP(CTXDESC_CD_0_TCR_T0SZ, cfg->arm_lpae_s1_cfg.tcr.tsz) |
++	       FIELD_PREP(CTXDESC_CD_0_TCR_TG0, cfg->arm_lpae_s1_cfg.tcr.tg) |
++	       FIELD_PREP(CTXDESC_CD_0_TCR_IRGN0, cfg->arm_lpae_s1_cfg.tcr.irgn) |
++	       FIELD_PREP(CTXDESC_CD_0_TCR_ORGN0, cfg->arm_lpae_s1_cfg.tcr.orgn) |
++	       FIELD_PREP(CTXDESC_CD_0_TCR_SH0, cfg->arm_lpae_s1_cfg.tcr.sh) |
++	       FIELD_PREP(CTXDESC_CD_0_TCR_IPS, cfg->arm_lpae_s1_cfg.tcr.ips) |
++	       CTXDESC_CD_0_TCR_EPD1 | CTXDESC_CD_0_AA64 |
++	       CTXDESC_CD_0_R | CTXDESC_CD_0_A |
++	       CTXDESC_CD_0_ASET |
++	       FIELD_PREP(CTXDESC_CD_0_ASID, domain->domain_id) |
++	       CTXDESC_CD_0_V;
++	WRITE_ONCE(cd_entry[0], cpu_to_le64(val));
++	/* STE is live. */
++	if (pasid)
++		smmu_sync_cd(smmu, sid, pasid);
++	return 0;
 +}
 +
-+static void smmu_tlb_flush_all(void *cookie)
++static int smmu_domain_finalise(struct hyp_arm_smmu_v3_device *smmu,
++				struct kvm_hyp_iommu_domain *domain)
 +{
-+	struct kvm_hyp_iommu_domain *domain = cookie;
-+	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
-+	struct hyp_arm_smmu_v3_device *smmu = smmu_domain->smmu;
-+
-+	kvm_iommu_lock(&smmu->iommu);
-+	smmu_inv_domain(smmu_domain);
-+	kvm_iommu_unlock(&smmu->iommu);
-+}
-+
-+static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
-+				   struct kvm_hyp_iommu_domain *domain,
-+				   struct arm_smmu_cmdq_ent *cmd,
-+				   unsigned long iova, size_t size, size_t granule)
-+{
-+	int ret = 0;
-+	unsigned long end = iova + size, num_pages = 0, tg = 0;
-+	size_t inv_range = granule;
++	int ret;
++	struct io_pgtable_cfg cfg;
 +	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
 +
-+	kvm_iommu_lock(&smmu->iommu);
-+	if (smmu->iommu.power_is_off)
-+		goto out_ret;
++	if (smmu_domain->type == KVM_ARM_SMMU_DOMAIN_S1) {
++		size_t ias = (smmu->features & ARM_SMMU_FEAT_VAX) ? 52 : 48;
 +
-+	/* Almost copy-paste from the kernel dirver. */
-+	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-+		/* Get the leaf page size */
-+		tg = __ffs(smmu_domain->pgtable->cfg.pgsize_bitmap);
-+
-+		num_pages = size >> tg;
-+
-+		/* Convert page size of 12,14,16 (log2) to 1,2,3 */
-+		cmd->tlbi.tg = (tg - 10) / 2;
-+
-+		/*
-+		 * Determine what level the granule is at. For non-leaf, both
-+		 * io-pgtable and SVA pass a nominal last-level granule because
-+		 * they don't know what level(s) actually apply, so ignore that
-+		 * and leave TTL=0. However for various errata reasons we still
-+		 * want to use a range command, so avoid the SVA corner case
-+		 * where both scale and num could be 0 as well.
-+		 */
-+		if (cmd->tlbi.leaf)
-+			cmd->tlbi.ttl = 4 - ((ilog2(granule) - 3) / (tg - 3));
-+		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)
-+			num_pages++;
++		cfg = (struct io_pgtable_cfg) {
++			.fmt = ARM_64_LPAE_S1,
++			.pgsize_bitmap = smmu->pgsize_bitmap,
++			.ias = min_t(unsigned long, ias, VA_BITS),
++			.oas = smmu->ias,
++			.coherent_walk = smmu->features & ARM_SMMU_FEAT_COHERENCY,
++			.tlb = &smmu_tlb_ops,
++		};
++	} else {
++		cfg = (struct io_pgtable_cfg) {
++			.fmt = ARM_64_LPAE_S2,
++			.pgsize_bitmap = smmu->pgsize_bitmap,
++			.ias = smmu->ias,
++			.oas = smmu->oas,
++			.coherent_walk = smmu->features & ARM_SMMU_FEAT_COHERENCY,
++			.tlb = &smmu_tlb_ops,
++		};
 +	}
 +
-+	while (iova < end) {
-+		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-+			/*
-+			 * On each iteration of the loop, the range is 5 bits
-+			 * worth of the aligned size remaining.
-+			 * The range in pages is:
-+			 *
-+			 * range = (num_pages & (0x1f << __ffs(num_pages)))
-+			 */
-+			unsigned long scale, num;
-+
-+			/* Determine the power of 2 multiple number of pages */
-+			scale = __ffs(num_pages);
-+			cmd->tlbi.scale = scale;
-+
-+			/* Determine how many chunks of 2^scale size we have */
-+			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
-+			cmd->tlbi.num = num - 1;
-+
-+			/* range is num * 2^scale * pgsize */
-+			inv_range = num << (scale + tg);
-+
-+			/* Clear out the lower order bits for the next iteration */
-+			num_pages -= num << scale;
-+		}
-+		cmd->tlbi.addr = iova;
-+		WARN_ON(smmu_add_cmd(smmu, cmd));
-+		BUG_ON(iova + inv_range < iova);
-+		iova += inv_range;
-+	}
-+
-+	ret = smmu_sync_cmd(smmu);
-+out_ret:
-+	kvm_iommu_unlock(&smmu->iommu);
++	hyp_spin_lock(&smmu_domain->pgt_lock);
++	smmu_domain->pgtable = kvm_arm_io_pgtable_alloc(&cfg, domain, &ret);
++	hyp_spin_unlock(&smmu_domain->pgt_lock);
 +	return ret;
 +}
 +
-+static void smmu_tlb_inv_range(struct kvm_hyp_iommu_domain *domain,
-+			       unsigned long iova, size_t size, size_t granule,
-+			       bool leaf)
++static int smmu_attach_dev(struct kvm_hyp_iommu *iommu, struct kvm_hyp_iommu_domain *domain,
++			   u32 sid, u32 pasid, u32 pasid_bits)
 +{
++	int i;
++	int ret;
++	struct arm_smmu_ste *dst;
++	struct arm_smmu_ste ste = {};
++	struct hyp_arm_smmu_v3_device *smmu = to_smmu(iommu);
 +	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
-+	unsigned long end = iova + size;
-+	struct arm_smmu_cmdq_ent cmd;
 +
-+	cmd.tlbi.leaf = leaf;
-+	if (smmu_domain->pgtable->cfg.fmt == ARM_64_LPAE_S2) {
-+		cmd.opcode = CMDQ_OP_TLBI_S2_IPA;
-+		cmd.tlbi.vmid = domain->domain_id;
-+	} else {
-+		cmd.opcode = CMDQ_OP_TLBI_NH_VA;
-+		cmd.tlbi.asid = domain->domain_id;
-+		cmd.tlbi.vmid = 0;
++	kvm_iommu_lock(iommu);
++	dst = smmu_get_alloc_ste_ptr(smmu, sid);
++	if (!dst) {
++		ret = -ENOMEM;
++		goto out_unlock;
 +	}
++
++	if (smmu_domain->smmu && (smmu != smmu_domain->smmu)) {
++		ret = -EINVAL;
++		goto out_unlock;
++	}
++
++	if (!smmu_domain->pgtable) {
++		ret = smmu_domain_finalise(smmu, domain);
++		if (ret)
++			goto out_unlock;
++	}
++
++	if (smmu_domain->type == KVM_ARM_SMMU_DOMAIN_S2) {
++		/* Device already attached or pasid for s2. */
++		if (dst->data[0] || pasid) {
++			ret = -EBUSY;
++			goto out_unlock;
++		}
++		ret = smmu_domain_config_s2(domain, &ste);
++	} else {
++		/*
++		 * Allocate and config CD, and update CD if possible.
++		 */
++		pasid_bits = min(pasid_bits, smmu->ssid_bits);
++		ret = smmu_domain_config_s1(smmu, domain, sid, pasid,
++					    pasid_bits, &ste);
++	}
++	smmu_domain->smmu = smmu;
++	/* We don't update STEs for pasid domains. */
++	if (ret || pasid)
++		goto out_unlock;
++
 +	/*
-+	 * There are no mappings at high addresses since we don't use TTB1, so
-+	 * no overflow possible.
++	 * The SMMU may cache a disabled STE.
++	 * Initialize all fields, sync, then enable it.
 +	 */
-+	BUG_ON(end < iova);
-+	WARN_ON(smmu_tlb_inv_range_smmu(smmu_domain->smmu, domain,
-+					&cmd, iova, size, granule));
-+}
++	for (i = 1; i < STRTAB_STE_DWORDS; i++)
++		dst->data[i] = ste.data[i];
 +
-+static void smmu_tlb_flush_walk(unsigned long iova, size_t size,
-+				size_t granule, void *cookie)
-+{
-+	smmu_tlb_inv_range(cookie, iova, size, granule, false);
-+}
++	ret = smmu_sync_ste(smmu, sid);
++	if (ret)
++		goto out_unlock;
 +
-+static void smmu_tlb_add_page(struct iommu_iotlb_gather *gather,
-+			      unsigned long iova, size_t granule,
-+			      void *cookie)
-+{
-+	if (gather)
-+		kvm_iommu_iotlb_gather_add_page(cookie, gather, iova, granule);
-+	else
-+		smmu_tlb_inv_range(cookie, iova, granule, granule, true);
-+}
-+
-+__maybe_unused
-+static const struct iommu_flush_ops smmu_tlb_ops = {
-+	.tlb_flush_all	= smmu_tlb_flush_all,
-+	.tlb_flush_walk = smmu_tlb_flush_walk,
-+	.tlb_add_page	= smmu_tlb_add_page,
-+};
-+
-+static void smmu_iotlb_sync(struct kvm_hyp_iommu_domain *domain,
-+			    struct iommu_iotlb_gather *gather)
-+{
-+	size_t size;
-+
-+	if (!gather->pgsize)
-+		return;
-+	size = gather->end - gather->start + 1;
-+	smmu_tlb_inv_range(domain, gather->start, size,  gather->pgsize, true);
++	WRITE_ONCE(dst->data[0], ste.data[0]);
++	ret = smmu_sync_ste(smmu, sid);
++	WARN_ON(ret);
++out_unlock:
++	kvm_iommu_unlock(iommu);
++	return ret;
 +}
 +
  /* Shared with the kernel driver in EL1 */
  struct kvm_iommu_ops smmu_ops = {
  	.init				= smmu_init,
- 	.get_iommu_by_id		= smmu_id_to_iommu,
+@@ -828,4 +1059,5 @@ struct kvm_iommu_ops smmu_ops = {
  	.alloc_domain			= smmu_alloc_domain,
  	.free_domain			= smmu_free_domain,
-+	.iotlb_sync			= smmu_iotlb_sync,
+ 	.iotlb_sync			= smmu_iotlb_sync,
++	.attach_dev			= smmu_attach_dev,
  };
+diff --git a/include/kvm/arm_smmu_v3.h b/include/kvm/arm_smmu_v3.h
+index ded98cbaebc1..e8616ec5a048 100644
+--- a/include/kvm/arm_smmu_v3.h
++++ b/include/kvm/arm_smmu_v3.h
+@@ -25,6 +25,10 @@ struct hyp_arm_smmu_v3_device {
+ 	size_t			cmdq_log2size;
+ 	/* strtab_cfg.l2.l2ptrs is not used, instead computed from L1 */
+ 	struct arm_smmu_strtab_cfg strtab_cfg;
++	size_t			oas;
++	size_t			ias;
++	size_t			pgsize_bitmap;
++	size_t			ssid_bits;
+ };
+ 
+ extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
 -- 
 2.47.0.338.g60cca15819-goog
 
