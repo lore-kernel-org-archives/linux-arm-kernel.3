@@ -4,129 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7A6E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CDAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esY/D8bl/QfmQw4B2W4j9JrytTyRSwrTgfWdVVV9Tdc=; b=gp28MdlHfknmK8mkZ3TFNyYtAj
-	lEnteWHTNGrPym9TxpeohSPEAP9WvD4ACOLuw784Qo8jpdTkJzPnyF/4P+YWTKHe+gtPy+2JxBl2V
-	3ifkcA4FFI0dL4f/YcVe01ys5McMWyvWBbQ+aVbxRv0rvQnJPlLnXjQvk0o/euRGD+dIghaWPbC6w
-	UiFJPLbaX2Q4Shl0CJNcYpV1iVVoxcppOmYn17sDgyz1lxEWhmO6H4CS9uMi91Xa0WJi34DSebeic
-	RIxeIPBXVzV8Jxn48sTN+slDsWRjJ5ovioRr/s6QPV7oUYxpvUQGBAyfML1L9N5HGYqySZRDozaj7
-	Hf6uWTow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpCx9eEDDQPBSqjdyYw4LOrb6jdU2YEGsy2eXplgVns=; b=y3AazSdsiykx3ZhT58Yg1RJUk7
+	scFaxa/EVc43VcZz7XgcET+FDe5wJ8TWYNY72mf0Cd0FipTGxb+o+IY/v4Y0Xm2PtwE3t5ewo1otT
+	DbHTPSpn7+0HGt6BbkKT9YAc8hok9wLy1FsULqnaGF/IpULiVgdLJM31UWKImZ1wQO41X0vxMymNK
+	PwqW/pn9O9QNcEc/DsKjI2oVmeG3wJGmGBHjWJ7Ilvk9Vgx1uzDS9trxqBflIrH4txrgTbXZaEw2i
+	JsqmeFY+4I/wFJd8kF8JPgrqzrH4AiWbYFEEp45iLQFEkj+X1igW/AbInJVg6WMp9ICg3AmLNqt+E
+	lVq5W3gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiF5-00000000Mbk-093j;
-	Thu, 12 Dec 2024 12:24:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLiIo-00000000N6Z-1kx9;
+	Thu, 12 Dec 2024 12:28:22 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiE0-00000000MQ3-1cYR;
-	Thu, 12 Dec 2024 12:23:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 475D7A41F02;
-	Thu, 12 Dec 2024 12:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 481F9C4CECE;
-	Thu, 12 Dec 2024 12:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734006203;
-	bh=/ls9pYCxlVKyApv0ZjmCWkI7T6wumvfIJXXnkpGns3g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j8ctZ0tW7sx5h5ct6OyXImRl0zgNHL78YFdwFz0eRV/eo0aWnIUc4JuckgxQlduts
-	 K4OgiDOhy/0u8UBck8j/7xDe/bw45AJpDE05w9DjD7zcH6cR4Nnw/NwIQYnfkZzQ8v
-	 pe3v8R6cNhbI9+S7vtJ5jrTkwIEKoLmqN+7zRSWM2Q6tTVGExfXtOP+zUorF5Pw4cT
-	 MyMKa5jIJ4QQVZMUE6hVhk19NDFYVPPF16wpWZk2tbJZw4aF0OdXA2AwpuRr2JsZGU
-	 4n8UAduprWL0P2oMI06v15kV12GOSVGyORHE49RLeyv02fDCBm7p4ERwBhltPreYO0
-	 uRB6ZNL3s1PQg==
-Message-ID: <5d48f335-7b14-487b-ba08-6354d21d8993@kernel.org>
-Date: Thu, 12 Dec 2024 13:23:13 +0100
+	id 1tLiHi-00000000Mzn-42gY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 12:27:16 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa5f1909d6fso97138866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 04:27:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734006433; x=1734611233; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UpCx9eEDDQPBSqjdyYw4LOrb6jdU2YEGsy2eXplgVns=;
+        b=V8Y7tuJRP9cT4hmc8xcNeG2TEhIcAXqZy+3eNPAqlH/HYsBwNzSm2sOYlkf167xbTl
+         dhPzfnPlLPAMQUEZIgyz/AznFjvfH2E7W82pq6E+jVwfx9E55xygB0yPw23m3mF4lHlk
+         Ps4ow0eXOuif7JrgTHIGKcyE2FR6ykdNn4HT/Smgf62nHY+uopwl97L3GoRZ8nvwLW5a
+         1x+FIiy5i4+5QQCyLjbW86h0U36BxEGUfm6ic94Mfd+UMGmixy/QHUHsfbwpVzZCboJ8
+         E1CuXiOe34J1e4Mx7Sluu0zW71ahlR/KM4DjIvLR1KWT7ShcScxymjsHq98zQCyhfot5
+         IBQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734006433; x=1734611233;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UpCx9eEDDQPBSqjdyYw4LOrb6jdU2YEGsy2eXplgVns=;
+        b=GgV8Wo+59Re8YfLxJOopWnPjjbsLLergQhoSfC/Ol5k1EH7ABhDJgiElY+z1Vnrt6p
+         86C16XaiJ7xbSo5n1o9l79OAM7gdUXhBGYOK9KWl1xj/fGCgyN/lSB7bAp/T317mHncA
+         ftvZy05lzbUXvkWvN7mTdo4R833zYtWdkki+suXbTTo7201ii9VWqhE4wAAdEqyMZ4Ub
+         8gtds+IFiWiK8aF6MVRBw6/LAK03igxG170fs2MFu6q8BV3h6Fy1MEVAoACxboMz7cBQ
+         uinRIParipDqEYji67yfARggGIHQsV0Tn9xBkdvHQEwjcwyWbfUmleIKRAc4Ih2G+aiU
+         7DgA==
+X-Forwarded-Encrypted: i=1; AJvYcCVTsMC2Iz82EQPqKGuFTEBDnZZpqu+GhgnDOuQeW5/uZBBqTfTKdxna172icr+j918+XEfCqbaymaKDM03RTVmg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzk0QPjJ6d53JLunjThFGk7IUWFbMODbpSdQqJgxm/+B+8WkK31
+	vEOHYlqgNZzyMmNkrTsc7MppbhBiB3wilSrgv2178fS3SsH4Efm3RqbQNyMpNvvZnaiPLDP1TqG
+	z77jI
+X-Gm-Gg: ASbGncu4VDYkDLyZ1D7CXitvokf66JD77+JpqTEgyg2e6mnjZiAwWBx6bIEI2EX1pXZ
+	mHqSCFOuiToR7Fhax7VLmDlpg9ukSr2zwufxlzi0P77cKbilcFYuHWvg1n8+2v32xgHJ6dikxyT
+	XMinjTHu8aGDi1TVJXVaay0n38Uwc/V9XRD4v6coAEYvBfls97XflIybp4D5NhzXGyURZ6efd2P
+	Ls9b3jbzs1LWfhyox8YQQKoTshyf0ims6KMQiBLzCkjVT+nVc8wWO4HFi+RkpyiBvteU1pRULmU
+	zJK5NIL0+204ty8=
+X-Google-Smtp-Source: AGHT+IFFYyzPYoG7tPh7WgbnFd5v9cmFfs7rDc+kSSl50Gc/6DepQiqRz3hckPhM0D2fVycpQfsYQA==
+X-Received: by 2002:a17:906:32d3:b0:aa6:967c:9aaf with SMTP id a640c23a62f3a-aa6b13da9f7mr673167866b.50.1734006433119;
+        Thu, 12 Dec 2024 04:27:13 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa67c7bd55fsm657911666b.116.2024.12.12.04.27.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Dec 2024 04:27:12 -0800 (PST)
+Date: Thu, 12 Dec 2024 12:27:09 +0000
+From: Quentin Perret <qperret@google.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kees Cook <keescook@chromium.org>
+Subject: Re: [PATCH v3 4/6] arm64/kvm: Avoid invalid physical addresses to
+ signal owner updates
+Message-ID: <Z1rWnejzN5Zk8TDU@google.com>
+References: <20241212081841.2168124-8-ardb+git@google.com>
+ <20241212081841.2168124-12-ardb+git@google.com>
+ <Z1rJ_dMJJzGOmjNs@google.com>
+ <CAMj1kXERuRK_MdHJOY+SKR=BJ-Yi+q0FNgVayq3W_jL9zdjLVA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] dt-bindings: mailbox: mediatek: Add GCE header
- file for MT8196
-To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mchehab@kernel.org"
- <mchehab@kernel.org>, =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?=
- <Nancy.Lin@mediatek.com>, =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?=
- <Moudy.Ho@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "robh@kernel.org" <robh@kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20241211032256.28494-1-jason-jh.lin@mediatek.com>
- <20241211032256.28494-2-jason-jh.lin@mediatek.com>
- <ozifi65uycmxc5hqeu4onbths5u7dg532iufjxplsjw4jjmhf6@6bdsaabd7hl7>
- <04f7bd2a7d69ab7d02c88cf05bda5ae0c4cb6573.camel@mediatek.com>
- <e9caf0fe-a77f-40cb-9fc3-9da3d95f27ca@kernel.org>
- <ce68d58f78d12317cab689e0ee1c02dc373d50dc.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <ce68d58f78d12317cab689e0ee1c02dc373d50dc.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXERuRK_MdHJOY+SKR=BJ-Yi+q0FNgVayq3W_jL9zdjLVA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_042324_567107_9A17B531 
-X-CRM114-Status: GOOD (  38.48  )
+X-CRM114-CacheID: sfid-20241212_042715_000293_1C5C366C 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,193 +107,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/12/2024 12:24, Jason-JH Lin (林睿祥) wrote:
->>>>
->>>> On Wed, Dec 11, 2024 at 11:22:49AM +0800, Jason-JH.Lin wrote:
->>>>> Add the Global Command Engine (GCE) header file to define the
->>>>> GCE
->>>>> thread priority, GCE subsys ID and GCE events for MT8196.
->>>>
->>>> This we see from the diff. What we do not see is why priority is
->>>> a
->>>> binding. Looking briefly at existing code: it is not a binding,
->>>> there
->>>> is
->>>> no driver user.
->>>>
->>>
->>> This priority value is used to configure the priority level for
->>> each
->>> GCE hardware thread, so it is a necessary hardware attribute.
->>
->> I did not say these are not "hardware". I said these are not
->> bindings.
->> Bring arguments why these are bindings.
->>
+On Thursday 12 Dec 2024 at 12:44:38 (+0100), Ard Biesheuvel wrote:
+> On Thu, 12 Dec 2024 at 12:33, Quentin Perret <qperret@google.com> wrote:
+> >
+> > On Thursday 12 Dec 2024 at 09:18:46 (+0100), Ard Biesheuvel wrote:
+> > > @@ -908,6 +892,9 @@ static bool stage2_leaf_mapping_allowed(const struct kvm_pgtable_visit_ctx *ctx,
+> > >       if (data->force_pte && ctx->level < KVM_PGTABLE_LAST_LEVEL)
+> > >               return false;
+> > >
+> > > +     if (data->annotation && ctx->level == KVM_PGTABLE_LAST_LEVEL)
+> > > +             return true;
+> > > +
+> >
+> > I don't think it's a problem, but what's the rationale for checking
+> > ctx->level here? The data->force_pte logic should already do this for us
+> > and be somewhat orthogonal to data->annotation, no?
+> >
 > 
-> Not only bringing arguments, we use it to configure each GCE thread's
-> priority.
+> So you are saying this could be
 > 
-> Please forgive me to ask a trivial question.
-> Do you mean if there is no driver using it directly, then it can not be
-> a binding?
-
-Here:
-<qqqwdzmcnkuga6qvvszgg7o2myb26sld5i37e4konhln2n4cgc@mwtropwj3ywv>
-
-> Or could you give me an example for what should be binding and what
-> should not be binding?
-
-Look at all clock IDs of recent arm64 SoC clock controllers.
-
+> > > +     if (data->annotation)
+> > > +             return true;
 > 
-> 
-> Considering to these 3 points, I think GCE thread priority is suitable
-> to be part of the Device Tree Binding:
-> 
-> 1. Describing Hardware Properties
-> - The Device Tree is a data structure for describing hardware, and GCE
-> thread priority, as part of the hardware, should be described in the
-> Device Tree.
+> right?
 
-I thought we talk about bindings, not DeviceTree. Where is any
-Devicetree here? Please point me to the code which is Devicetree in this
-patch.
+Yep, exactly.
 
+> That hides the fact that we expect data->annotation to imply
+> data->force_pte, but other than that, it should work the same, yes.
 
-> 
-> 2. Driver Usage
-> - Device Tree data is used by drivers to initialize and configure
-> hardware, and GCE thread priority is necessary configuration data for
-> the driver. After parsing the mboxes args from DTS, CMDQ driver use it
-> to configure GCE thread.
+Eventually we'll want to make the two orthogonal to each other (e.g. to
+annotate blocks when donating huge pages to protected guests), but
+that'll require more work so again I don't mind that check in the
+current code. We can always get rid of it when annotations on blocks
+are supported.
 
-We talk about bindings, so why are you describing something else?
-
-> 
-> 3. Standardization
-> - Device Tree bindings should be standardized, and GCE thread priority
-> should have consistent meaning and usage across different hardware
-> platforms. Looking into the latest header: mediatek,mt8188-gce.h,
-> mediatek,mt6795-gce.h and mt8195-gce.h, they all have defined GCE
-> thread priority.
-
-None of above arguments have anything related to the talk here. You
-invent some stuff like "standardization" or "driver usage".
-
-
-
-> 
->>>
->>> It's hard to find where the priority is used in existing driver
->>> code
->>> because we parsed it from DTS.
->>
->> So not a binding.
->>
->>>
->>> It is used in all mediaTeks' DTS using the GCE.
->>> For example, in mt8195.dts:
->>>
->>> vdosys0: syscon@1c01a000 {
->>>     compatible = "mediatek,mt8195-vdosys0", "mediatek,mt8195-
->>> mmsys",
->>> "syscon";
->>>     reg = <0 0x1c01a000 0 0x1000>;
->>>     mboxes = <&gce0 0 CMDQ_THR_PRIO_4>;
->>>     #clock-cells = <1>;
->>>     mediatek,gce-client-reg = <&gce0 SUBSYS_1c01XXXX 0xa000
->>> 0x1000>;
->>> }
->>>
->>> CMDQ driver(mtk-cmdq-mailbox.c) will get the args parsed from
->>> mboxes
->>> property in cmdq_xlate() and then it will store CMDQ_THR_PRIO_4 to
->>> the
->>> specific thread structure.
->>
->> So not a binding.
->>
->>> The user of CMDQ driver will send command to CMDQ driver by
->>> cmdq_mbox_send_data(), and this priority setting will be configured
->>> to
->>> GCE hardware thread.
->>
->> And other things there are the same, we do not talk only about this
->> one
->> thing. I asked last time to drop which is not a binding.
->>
->>
-> 
-> I just reference all the previous mediatek,mtXXXX-gce.h to add the same
-> binding. Except for the GPR part I added this time, I don't know what
-> else should be dropped.
-
-Your commit msg does not help me, either. Why this is supposed to be a
-binding? Basically your rationale is: someone added headers, so I call
-it binding.
-
-This is invalid argument.
-
-Someone added junk, incorrect style or bugs, so you do the same?
-
-
-> 
->> ...
->>
->>>>> +
->>>>> +/*
->>>>> + * GCE General Purpose Register (GPR) support
->>>>> + * Leave note for scenario usage here
->>>>> + */
->>>>> +/* GCE: write mask */
->>>>
->>>> That's a definite no-go. Register masks are not bindings.
->>>>
->>>
->>> I'm sorry to the confusion.
->>>
->>> These defines are the index of GCE General Purpose Register for
->>> generating instructions, they are not register masks.
->>
->> Index of register is also sounding like register.
->>
->>>
->>> The comment "/* GCE: write mask */" is briefly describe that the
->>> usage
->>> of GCE_GPR_R0 and GCE_GPR_R01 is used to store the register mask
->>> when
->>> GCE executing the WRITE instruction. And it can also store the
->>> register
->>> mask of POLL and READ instruction.
->>>
->>> I will add more words to make this comment clearer, like this:
->>> /*GCE: store the mask of instruction */
->>
->> Not sure, because I feel you just avoid doing what is right and keep
->> pushing your own narrative. Where is it used in the driver?
->>
->> I just looked for "GCE_GPR_R00" - no usage at all. So not a binding.
->>
-> 
-> Currently, GCE_GPR_R15 is used for generating POLL instruction and it
-> has been defined as a MACRO `#define CMDQ_POLL_ADDR_GPR (15)`
-> in mtk-cmdq-helper.c.
-
-I search for GCE_GPR_R15. No usage at all.
-
-Point me to specific line in your code. Paste it here.
-
-Above #define does not use.
-
-I am finishing replying, because you keep avoiding actual answers and
-bring some false proves forcing me to re-iterate the same over and over.
-
-Point to specific line of code and you point to something else and then
-claim this is argument in discussion.
-
-
-
-Best regards,
-Krzysztof
+Cheers,
+Quentin
 
