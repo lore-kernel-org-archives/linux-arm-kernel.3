@@ -4,102 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B0CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFB8E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=68JInAhAW5Is8mwm4BYMUDXa8RJRJvDNCf4zhjotoGo=; b=LtMxqumuI0ub0X
-	GACcT1BxiRfdTWpX/ht80P33STjN647ibwzoUOK+SBymjdp/c8yuJoTWHNaL43wXCNDeLgDGCpC/Z
-	FanraJAR+18z1MP7RXdt3JWAm6A38A7MwbTcJLXNVjEnIV/KtK1R7ZRH1B0gSGtlvA6eBuoYSVSO0
-	m0C4/VaeL6RRI9zbb/GpLT4p2i601khtAoD2GwR1ATLKE/kgSDdoa1P185/0tlSur1AcVTtj2u3Se
-	N3B/F5YU75BM9Mm2slettmOG92aqoop3oBoZDvKVospgc+CIj4SRB5ZwCzIDfPZAblQLarD5cBIBV
-	HBBZSF89KcNshmLT5TFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I5ZKk0Wwh72I5+qHQFJrjFIMAClWf3DTZqY1eWQVK8g=; b=CD/jaOWR1ByQnVI/V2N88lcd/L
+	RcyUeY90Q3HR6hlK1FKEQWeqVVhtWT3tSb3LAuj386qkiRJTbgfWtoVbUmSt4TDDxTlg/qzfJC45k
+	5mKhV/Go8ia98h+yUehT3G66p91B51oQC/7pi/pZF7FO+d7SWPzVseWI9FLfTBFZpsVI913mmk3CL
+	uHdYq9arCv+MSPvOVixQGYyIn8I0of2Nh23McpQbCtbAYKm1DYHlpmZSCsQahgh3/x9nyDc8YiW1j
+	eEmNHKgFhvnC9jKViZ4wy36Zm5GX2dpUFpZJMBoodFhYiVSHluVndM0vM4InuD4HGOk3MmO1UpRL/
+	mCwoxuuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmo0-000000018yp-1xqL;
-	Thu, 12 Dec 2024 17:16:52 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlu4-00000000wPi-2pIQ
+	id 1tLmrX-000000019oN-40p6;
+	Thu, 12 Dec 2024 17:20:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLmSf-0000000141D-1zS4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 16:19:06 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4361e89b6daso5843695e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 08:19:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734020343; x=1734625143; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=68JInAhAW5Is8mwm4BYMUDXa8RJRJvDNCf4zhjotoGo=;
-        b=aJCZEoUx7FEs8vRoIyqHA6XWBOmw0YCHYzG7PUluU+RvfFvCaDaReaAS0mguYuOjsk
-         bidWw2lP/SQS9MigzePwCud4UbktxLGbeDCw+eX4zm/698CIOy9bPvVNg/cG6Ye+9Vhy
-         /+AhA7m0s9vemrSi1ebvo6BtSFaEhq9enbFo5i/D5zYIr1+e2nlc/LKIxRLDL8WAflFp
-         g4+2jGTkxEHNJjtnJvAz7Wuugl1HWlds+JGM6PiCQXB+25A7X6PZdov2MmxT3fu3ybgY
-         tD6bjJL4X1hZ1Nw87h6UGmEgB/rVq4262HHpTqOyIUqGuixbXcYwNcmIOSdVgVGuG5Cm
-         CzuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734020343; x=1734625143;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=68JInAhAW5Is8mwm4BYMUDXa8RJRJvDNCf4zhjotoGo=;
-        b=OPnQFby63szTaZGTvqlY8lasWrcEk5jK5bntNQSf/VYpWIsujm/vqUtlUp1hdtqNyj
-         Wvqmm06PnVnLcToaAzpwcN0NU5i5XwbcJb8PLdskDUKXAiYpuV427YFO284/udvLYMYP
-         Q428Ya1RZUmhZvtncFR8J1kLcCE2n19I3EcpG9kQUd4yI6zzMtZ5/hi6ybJFx8xEB23z
-         TQZpOtVQPJ2iDto9NDfqit6ik+voWlg3AUg6EycaBFj9xE5VxOPsjL3TfTgvv/x24fsX
-         CrFdCGJVSHOqaZubwSrIpHC7RQng4RWKMi2j+iI+mjLlTmB5Un0I6sbZ57yyvd1Xgbjb
-         Z/Pw==
-X-Forwarded-Encrypted: i=1; AJvYcCVGK+PmbsZOOeE2pDO8iIedBponqat7T83MuCmeiDEN2j9Ze/1ee+Lbmy2B9ccZNHlRbrrwpE8lo0/Ud2z+5POM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+MeFDhIdUCIe8wF/mb/imUQhP9QoIylcGaLte3BChtV1iox0L
-	PLEiPLJgyqBDGKL/h3kndHsreM8GaAZieOxCOpfaDc9aG/reMCxcGuaTKQrmjsM=
-X-Gm-Gg: ASbGncu4E3T7ggIBNFl2q0vR36QtOz6KYxc4turEG7YwmA9u2t1rAhiOC4XWjTZkcpE
-	hH6KHnjkc8o6RgJqzaktIFrzpSlPSs6Yya/z1hK+lgoJflncpOyyuncvOZB0ZWJcp3GYJRU43B3
-	orpm4G4fJc+lcqdalmh/aPoqcjKjJBll16EhMJdEBT8mlwhXndifdEUNN3JY/v9r2wxuaCOF6yE
-	O9C03DU9Izyj/ASO4UKaho7/v76KsOerf45IKvHpH4WmTJy
-X-Google-Smtp-Source: AGHT+IHBf/CkYwwV5YCDCoDlBGs3t7DJrHBFw8STBH4yNhFZK8NKI7+uk6ZO9cjpKuabgBSSS8Q7eQ==
-X-Received: by 2002:a05:600c:3acf:b0:434:a802:e99a with SMTP id 5b1f17b1804b1-4361c346253mr66269165e9.4.1734020343031;
-        Thu, 12 Dec 2024 08:19:03 -0800 (PST)
-Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4361e322328sm44336105e9.0.2024.12.12.08.19.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 08:19:02 -0800 (PST)
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: [PATCH v2 0/7] drm/vc4: Fixup DT and DT binding issues from recent
- patchset
-Date: Thu, 12 Dec 2024 16:18:50 +0000
-Message-Id: <20241212-dt-bcm2712-fixes-v2-0-35986e04d0f4@raspberrypi.com>
+	Thu, 12 Dec 2024 16:54:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D6A11762;
+	Thu, 12 Dec 2024 08:55:16 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 793573F58B;
+	Thu, 12 Dec 2024 08:54:45 -0800 (PST)
+Date: Thu, 12 Dec 2024 16:54:40 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Subject: Re: [PATCH v6 32/43] arm64: rme: Enable PMU support with a realm
+ guest
+Message-ID: <20241212165440.GA1479329@e124191.cambridge.arm.com>
+References: <20241212155610.76522-1-steven.price@arm.com>
+ <20241212155610.76522-33-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOoMW2cC/2WNzQqDMBCEX0X23C3JImp76nsUD2vc1Bz8YSOhI
- r57U3vsZeCbYWZ2iKJBItyLHVRSiGGeMtClADfw9BIMfWYgQ6W11GC/YudGqi2hD2+JyL4z0rD
- hsq4g1xaVM8itZ5t5CHGddTsfkv26v7Es/2PJokHPrqqdI39r+KEcl05UtyVc3TxCexzHBw0Ef
- TW2AAAA
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Eric Anholt <eric@anholt.net>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, 
- Stefan Wahren <wahrenst@gmx.net>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
- linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241212155610.76522-33-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_081904_904848_ED064890 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20241212_085449_603310_4EFE2DD1 
+X-CRM114-Status: GOOD (  29.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,80 +78,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I missed the DT errors from the recent patchset[1] (DT patches
-in linux-next via Florian, DRM bindings patches on dri-misc-next)
-as Rob's bot report got spam filtered, so this is a fixup set.
+On Thu, Dec 12, 2024 at 03:55:57PM +0000, Steven Price wrote:
+> Use the PMU registers from the RmiRecExit structure to identify when an
+> overflow interrupt is due and inject it into the guest. Also hook up the
+> configuration option for enabling the PMU within the guest.
+> 
+> When entering a realm guest with a PMU interrupt pending, it is
+> necessary to disable the physical interrupt. Otherwise when the RMM
+> restores the PMU state the physical interrupt will trigger causing an
+> immediate exit back to the host. The guest is expected to acknowledge
+> the interrupt causing a host exit (to update the GIC state) which gives
+> the opportunity to re-enable the physical interrupt before the next PMU
+> event.
+> 
+> Number of PMU counters is configured by the VMM by writing to PMCR.N.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v2:
+>  * Add a macro kvm_pmu_get_irq_level() to avoid compile issues when PMU
+>    support is disabled.
+> ---
+>  arch/arm64/kvm/arm.c      | 11 +++++++++++
+>  arch/arm64/kvm/guest.c    |  7 +++++++
+>  arch/arm64/kvm/pmu-emul.c |  3 +++
+>  arch/arm64/kvm/rme.c      |  8 ++++++++
+>  arch/arm64/kvm/sys_regs.c |  2 +-
+>  include/kvm/arm_pmu.h     |  4 ++++
+>  6 files changed, 34 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 6f7f96ab781d..ae3596a25272 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/vmalloc.h>
+>  #include <linux/fs.h>
+>  #include <linux/mman.h>
+> +#include <linux/perf/arm_pmu.h>
+>  #include <linux/sched.h>
+>  #include <linux/kvm.h>
+>  #include <linux/kvm_irqfd.h>
+> @@ -1209,6 +1210,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  	run->exit_reason = KVM_EXIT_UNKNOWN;
+>  	run->flags = 0;
+>  	while (ret > 0) {
+> +		bool pmu_stopped = false;
+> +
+>  		/*
+>  		 * Check conditions before entering the guest
+>  		 */
+> @@ -1240,6 +1243,11 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  
+>  		kvm_pmu_flush_hwstate(vcpu);
+>  
+> +		if (vcpu_is_rec(vcpu) && kvm_pmu_get_irq_level(vcpu)) {
+> +			pmu_stopped = true;
+> +			arm_pmu_set_phys_irq(false);
+> +		}
+> +
+>  		local_irq_disable();
+>  
+>  		kvm_vgic_flush_hwstate(vcpu);
+> @@ -1342,6 +1350,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  
+>  		preempt_enable();
+>  
+> +		if (pmu_stopped)
+> +			arm_pmu_set_phys_irq(true);
+> +
+>  		/*
+>  		 * The ARMv8 architecture doesn't give the hypervisor
+>  		 * a mechanism to prevent a guest from dropping to AArch32 EL0
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 920e0fd73698..b4e3839f6076 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -804,6 +804,8 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	return kvm_arm_sys_reg_get_reg(vcpu, reg);
+>  }
+>  
+> +#define KVM_REG_ARM_PMCR_EL0		ARM64_SYS_REG(3, 3, 9, 12, 0)
 
-Largely it was changes to number of interrupts or clocks in the
-bindings, so those are now covered.
+There's already SYS_PMCR_EL0 defined, so it seems this is not needed?
 
-I've fixed up the missing "interrupt-controller" flags for 2711
-and 2712 whilst here.
+> +
+>  /*
+>   * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
+>   * that are available depends on the Realm state and the reason for the last
+> @@ -818,6 +820,11 @@ static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
+>  		u64 off = core_reg_offset_from_id(reg->id);
+>  
+>  		return kvm_realm_validate_core_reg(off);
+> +	} else {
+> +		switch (reg->id) {
+> +		case KVM_REG_ARM_PMCR_EL0:
+> +			return true;
+> +		}
+>  	}
+>  
+>  	return false;
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index 456102bc0b55..5628b573ca41 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -397,6 +397,9 @@ static bool kvm_pmu_overflow_status(struct kvm_vcpu *vcpu)
+>  {
+>  	u64 reg = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
+>  
+> +	if (vcpu_is_rec(vcpu))
+> +		return vcpu->arch.rec.run->exit.pmu_ovf_status;
+> +
+>  	reg &= __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
+>  
+>  	/*
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index 27a479feb907..e562e77c1f94 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -303,6 +303,11 @@ static int realm_create_rd(struct kvm *kvm)
+>  	params->rtt_base = kvm->arch.mmu.pgd_phys;
+>  	params->vmid = realm->vmid;
+>  
+> +	if (kvm->arch.arm_pmu) {
+> +		params->pmu_num_ctrs = kvm->arch.pmcr_n;
+> +		params->flags |= RMI_REALM_PARAM_FLAG_PMU;
+> +	}
+> +
+>  	params_phys = virt_to_phys(params);
+>  
+>  	if (rmi_realm_create(rd_phys, params_phys)) {
+> @@ -1370,6 +1375,9 @@ int kvm_create_rec(struct kvm_vcpu *vcpu)
+>  	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
+>  		return -EINVAL;
+>  
+> +	if (vcpu->kvm->arch.arm_pmu && !kvm_vcpu_has_pmu(vcpu))
+> +		return -EINVAL;
+> +
+>  	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
+>  	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
+>  
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 83c6b4a07ef5..a4713609e230 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1324,7 +1324,7 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+>  	 * implements. Ignore this error to maintain compatibility
+>  	 * with the existing KVM behavior.
+>  	 */
+> -	if (!kvm_vm_has_ran_once(kvm) &&
+> +	if (!kvm_vm_has_ran_once(kvm) && !kvm_realm_is_created(kvm) &&
+>  	    new_n <= kvm_arm_pmu_get_max_counters(kvm))
+>  		kvm->arch.pmcr_n = new_n;
+>  
+> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+> index e61dd7dd2286..30625a6fd143 100644
+> --- a/include/kvm/arm_pmu.h
+> +++ b/include/kvm/arm_pmu.h
+> @@ -77,6 +77,8 @@ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+>  void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+>  void kvm_vcpu_pmu_resync_el0(void);
+>  
+> +#define kvm_pmu_get_irq_level(vcpu) ((vcpu)->arch.pmu.irq_level)
+> +
+>  #define kvm_vcpu_has_pmu(vcpu)					\
+>  	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+>  
+> @@ -164,6 +166,8 @@ static inline u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+>  	return 0;
+>  }
+>  
+> +#define kvm_pmu_get_irq_level(vcpu) (false)
+> +
+>  #define kvm_vcpu_has_pmu(vcpu)		({ false; })
+>  static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
+>  static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
 
-I can't get my head around what is meant to happen with ranges:
-"soc@107c000000: firmware: 'ranges' is a required property"
-The meaning seems obvious.
-
-However if I add it then I get:
-"firmware: '#address-cells', '#size-cells', 'dma-ranges', 'ranges' do
-not match any of the regexes: 'pinctrl-[0-9]+'
-from schema $id: http://devicetree.org/schemas/arm/bcm/raspberrypi,bcm2835-firmware.yaml#
-
-There's obviously some other flag I need to set in the bindings,
-but I can't work it out. We have similar errors for all the Pi
-platforms for one or more nodes.
-Please advise and I'll happily fix them all.
-
-Thanks
-  Dave
-
-[1] https://lore.kernel.org/linux-arm-kernel/20241025-drm-vc4-2712-support-v2-0-35efa83c8fc0@raspberrypi.com/
-
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
-Thanks to Stefan and Krzysztof for their reviews.
-Hopefully I've addressed all points raised in the correct manner.
-
-Changes in v2:
-- Commits have now be merged from drm-misc-next to linux-next, so all
-  commit hashes are valid on linux-next.
-- 1/7 Removed references to "previous commit". Fixed up indentation.
-  Added maxItems
-- 2/7 Defined widest constraints
-- 3/7 Added maxItems and removed reference to Linux
-- 4/7 Described the errors. Split into two for fix of node name vs addr
-  being wrong.
-- Added new patch removing "required" for interrupt-controller and
-  interrupt-cells for bcm2836-l1-intc
-- 5/7 (now 7/7) Removed the intc node for 2712 - it's irrelevant on 64bit systems
-- 6/7 dropped as updating the binding is the correct answer
-- 7/7 dropped. simple-bus claims ranges is required, but adding it
-  creates other errors. I'm unclear as to the right solution.
-
-- Link to v1: https://lore.kernel.org/r/20241202-dt-bcm2712-fixes-v1-0-fac67cc2f98a@raspberrypi.com
-
----
-Dave Stevenson (7):
-      dt-bindings: display: bcm2711-hdmi: Add interrupt details for BCM2712
-      dt-bindings: display: Fix BCM2835 HVS bindings for BCM2712
-      dt-bindings: gpio: brcmstb: permit gpio-line-names property
-      dt-bindings: interrupt-controller: brcm,bcm2836-l1-intc: Drop interrupt-controller requirement
-      arm64: dts: broadcom: Rename bcm2712 interrupt controllers
-      arm64: dts: broadcom: Correct hdmi device node names
-      arm64: dts: broadcom: Remove intc controller on BCM2712.
-
- .../bindings/display/brcm,bcm2711-hdmi.yaml        | 107 ++++++++++++++++++---
- .../bindings/display/brcm,bcm2835-hvs.yaml         |  83 +++++++++++++---
- .../bindings/gpio/brcm,brcmstb-gpio.yaml           |   4 +
- .../interrupt-controller/brcm,bcm2836-l1-intc.yaml |   2 -
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  13 +--
- 5 files changed, 170 insertions(+), 39 deletions(-)
----
-base-commit: 3a6b7ba51f16c093420959ab2bd3476d180547fa
-change-id: 20241128-dt-bcm2712-fixes-afb0e8a0a476
-
-Best regards,
--- 
-Dave Stevenson <dave.stevenson@raspberrypi.com>
-
+Thanks,
+Joey
 
