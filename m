@@ -4,68 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69301E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 22:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BFF0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 22:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUU3k3ndx8hCjIEVI0vAEW5jsu/OGAg5GP0kOz2LdOQ=; b=jtCaWQILi0yO6n7y/7jf3m2ohN
-	3fqgVyIEKghfRgYSBNt4+WYsggp1L91jhE9AnX1CMVB6m4ghitD88ojWJ0/3MeynfSP++rzGExQPs
-	rdX7PSvelsIxihQUZmKvTia8sT7AKxTbNhDc/I03CuPRFX3CTva19QHGZX0UxoevcxDao+nVwc49C
-	r/bfDBaSaTvPdMXrr6qPEZoGyg2QhQtlmLkkcVmI8ed9hq+R2lLVPOLYEBJ17W80LeNezfd1dgQ9t
-	rK5DX6+DE5mIInC78NocUlfk/HFP5H2LujtmdUuQvPI5JOuHlfS0SIe62ThGkPG7c3Us6MzjAEgQs
-	17lqC2Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nn7aTGxs0fZIZsteSxxOdiaizy01Z8EgP8KAplxUb/s=; b=hREY0NSywFHYwIDaMhnfzfpzaF
+	9srN4TAejhZn++3j7kKJAYz1wiEpoyPN0EJA1wQtSVSrYFbUU3szcKt/z/VIio3I2cV+tATo88U5M
+	ImnnLqvZZBjbscQKtB4xyubnAuVpOWYwB4/HEvSE9lu30uhgeMcf6Qicoy73k2crBcCch9sWKR1sn
+	0TTs4FYMr5yiCsyzfxMjX+GLeMQBafqD8DiarQmb2/coBLHsFMuA7feKbT2JZ+o4vFTIevvoAf7oF
+	UC/kNXyP8sH0EuLu/zWptKzYHclselYbaHFzYA+olYr+OlxVMJkMh1rb97tSVe9MHL3HCEu2SBoyC
+	Y/SATEdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLrGP-000000022hD-3ZMg;
-	Thu, 12 Dec 2024 22:02:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tLrL7-000000023DH-3JYX;
+	Thu, 12 Dec 2024 22:07:21 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLrFM-000000022Xx-1AWZ;
-	Thu, 12 Dec 2024 22:01:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=nUU3k3ndx8hCjIEVI0vAEW5jsu/OGAg5GP0kOz2LdOQ=; b=vATraj/l7BYi45J3o09OIopaxJ
-	C8jNjTPCPsm9QpjuSJ1IY9oPT5mUdBMuSKqTmLPfzVHPEsRg9jIMEmxtX5EH+CBf2Ad5QJkAzCOb0
-	QIBWWnrVmjlWPROLIj1nnhmGbebpQ72pM/mYvVSSI7b+XJoia4xx6JsI/qmb+lwoDY8J6kpWtw2sy
-	nSq0P9/nMLk51OkHcgu7wfznTwDcJV87JcZ7lYZRgkl/n/cZDkdLwKwkwqCciizJ2Mw/AcIegRxYt
-	kYJ96xWeFCCL6IUF+RLxWDxyxyavltxwOVk9mRXBnRhuepZag1Y3wIlzjK2IUkkHDKONd/95VcvEW
-	bk/ki6/Q==;
-Received: from willy by casper.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLrFA-00000008PIi-3DGS;
-	Thu, 12 Dec 2024 22:01:12 +0000
-Date: Thu, 12 Dec 2024 22:01:12 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Kalesh Singh <kaleshsingh@google.com>
-Cc: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com,
-	riel@surriel.com, david@redhat.com, minchan@kernel.org,
-	jyescas@google.com, linux@armlinux.org.uk,
-	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
-	ysato@users.sourceforge.jp, dalias@libc.org,
-	glaubitz@physik.fu-berlin.de, davem@davemloft.net,
-	andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net,
-	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com,
-	leitao@debian.org, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-mm@kvack.org,
-	kernel-team@android.com, android-mm@google.com
-Subject: Re: [PATCH mm-unstable v2 00/16] mm: Introduce arch_mmap_hint()
-Message-ID: <Z1tdKHFfz-tMTXit@casper.infradead.org>
-References: <20241211232754.1583023-1-kaleshsingh@google.com>
+	id 1tLrK2-00000002353-2Qxy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 22:06:15 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7fd2ff40782so1046281a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 14:06:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734041173; x=1734645973; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=Nn7aTGxs0fZIZsteSxxOdiaizy01Z8EgP8KAplxUb/s=;
+        b=DiZoJU8YHcUVmIpgLaf4MW4r17FscTgznfX/0xHiPvQTCmVHYzFBHYxGl6I5SGalTQ
+         P3pARlbOoJuEukGHtlSDZF+IuPnQdNZOP130zB0uNon11VoDQGri/ZvajvQedddQmw8s
+         HUZeA3Q/1Aftdd1Cmv8xpwsCXHUqAGeIt1Tf3Ov2enF+kJh5RVA/TL7tv8IZHuxG1diH
+         UXuCvxEZHE6DiCiuaisGA6p7Vj8Y1Gv6vUZPaF9ZkngDrVuBHP1FlKh+8ww6UcplIjT/
+         lkjNmyT2Qb1/uTnASn7VvFmxsoxvwDBCGquglcbafcavllLvnmHGqgx7kfXbhBIeyX+A
+         +iTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734041173; x=1734645973;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Nn7aTGxs0fZIZsteSxxOdiaizy01Z8EgP8KAplxUb/s=;
+        b=p+mILq/edv2kLk4a+46STKIY9EAJXob42G0dsiwMUPhpp9inyFdX/MYhyir7k5O0ap
+         rz8STD795KRQebdPUlOfRryMZqYVU2T/++8zxsNKCLAiNJt8zOPJ11nQQswBbVRIOc+/
+         b3JQjisKRrEKlx23ELsKTjcfY+BNhzkK/XCvtDI/kgjEuQDlABAJ/EY1Yz8iHenmiKj2
+         BAy0YqjUEP9z5BuM71JK+IATWNVneAPo4z3hbZv5MW0Be5T40Yn/gKzkjcr2VXUwDbEj
+         3NTLY7FEbAGzaAxwZX7r0KtxOv40fBxtlF/qaAQU0phlGkjW5p/ldX+r6wJiofEGAC4I
+         cryA==
+X-Forwarded-Encrypted: i=1; AJvYcCUdtkLRdsNdCJe8kO26jkJi/RqocmZmF03GdC2pBshOSR3erGK1KVr8PTWlF1j7CNIjk4Lf/rBbMszGD5rpcSms@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt1lTYKb9dCy8mnuv6yrSrrKtMKC/GdppJj1FtUspKEbnjDS9y
+	YzDMwqAnSJLiIciKXM+5U5l1ZuGGFMlre12hqihzVsOi/kCUFRdd
+X-Gm-Gg: ASbGncuJnTTQpJGE56O73U6HB3ms0uAtNbIsXpgnW1vUfcBgFJIuIu+6UXtpaJRocgH
+	BdtR7gYg9EQ9tohjHO9YoW23bke7XtgfCwkLdfGZnO6aGAt9vGPnJ4j8M7pouVEsuxLj0MMqrXe
+	kj/jnDrvjdSztcEuzST1T2C7wbggwWncocp+XfhxVsh5vIIAe4lHNOZqq1yigFnjtr/fLmwH5lC
+	nwJVq5YTrA5D79/U4hebhUVEGsh/6LKAACE7CoazdO3NVqLHcxoKp6/srr6NS6AJ8vCpfu0fzrV
+	ltQZNwe1Tuy2O/qrPcH3qh0XC9kHSQ==
+X-Google-Smtp-Source: AGHT+IEjcDWDcj+xx58FwEzylYzqnHeRBxwumiFyM7ZjcMUkstRS8dJbxY3ZD6142f7rcv8umWohsA==
+X-Received: by 2002:a17:90b:2682:b0:2ea:7cd5:4ad6 with SMTP id 98e67ed59e1d1-2f2901b3181mr476376a91.32.1734041172844;
+        Thu, 12 Dec 2024 14:06:12 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142de7ddfsm1799771a91.26.2024.12.12.14.06.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Dec 2024 14:06:12 -0800 (PST)
+Message-ID: <f9d881b7-7301-476e-b281-0380dfcf0e10@roeck-us.net>
+Date: Thu, 12 Dec 2024 14:06:09 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241211232754.1583023-1-kaleshsingh@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/4] hwmon: pmbus-core: Add label for fan and temp
+To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, eajames@linux.ibm.com, jdelvare@suse.com,
+ corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
+ Delphine_CC_Chiu@Wiwynn.com, broonie@kernel.org, peteryin.openbmc@gmail.com,
+ noahwang.wang@outlook.com, naresh.solanki@9elements.com, lukas@wunner.de,
+ jbrunet@baylibre.com, patrick.rudolph@9elements.com,
+ gregkh@linuxfoundation.org, peterz@infradead.org, pbiel7@gmail.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-i2c@vger.kernel.org
+References: <20241212214927.3586509-1-ninad@linux.ibm.com>
+ <20241212214927.3586509-2-ninad@linux.ibm.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
+ RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
+ nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
+ 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
+ gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
+ IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
+ kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
+ VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
+ jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
+ BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
+ ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
+ CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAlVcphcFCRmg06EACgkQyx8mb86fmYFg0RAA
+ nzXJzuPkLJaOmSIzPAqqnutACchT/meCOgMEpS5oLf6xn5ySZkl23OxuhpMZTVX+49c9pvBx
+ hpvl5bCWFu5qC1jC2eWRYU+aZZE4sxMaAGeWenQJsiG9lP8wkfCJP3ockNu0ZXXAXwIbY1O1
+ c+l11zQkZw89zNgWgKobKzrDMBFOYtAh0pAInZ9TSn7oA4Ctejouo5wUugmk8MrDtUVXmEA9
+ 7f9fgKYSwl/H7dfKKsS1bDOpyJlqhEAH94BHJdK/b1tzwJCFAXFhMlmlbYEk8kWjcxQgDWMu
+ GAthQzSuAyhqyZwFcOlMCNbAcTSQawSo3B9yM9mHJne5RrAbVz4TWLnEaX8gA5xK3uCNCeyI
+ sqYuzA4OzcMwnnTASvzsGZoYHTFP3DQwf2nzxD6yBGCfwNGIYfS0i8YN8XcBgEcDFMWpOQhT
+ Pu3HeztMnF3HXrc0t7e5rDW9zCh3k2PA6D2NV4fews9KDFhLlTfCVzf0PS1dRVVWM+4jVl6l
+ HRIAgWp+2/f8dx5vPc4Ycp4IsZN0l1h9uT7qm1KTwz+sSl1zOqKD/BpfGNZfLRRxrXthvvY8
+ BltcuZ4+PGFTcRkMytUbMDFMF9Cjd2W9dXD35PEtvj8wnEyzIos8bbgtLrGTv/SYhmPpahJA
+ l8hPhYvmAvpOmusUUyB30StsHIU2LLccUPPOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
+ 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
+ pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
+ J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
+ pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
+ 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
+ ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
+ I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
+ nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
+ HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
+ JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAlVcpi8FCRmg08MACgkQyx8mb86fmYHNRQ/+
+ J0OZsBYP4leJvQF8lx9zif+v4ZY/6C9tTcUv/KNAE5leyrD4IKbnV4PnbrVhjq861it/zRQW
+ cFpWQszZyWRwNPWUUz7ejmm9lAwPbr8xWT4qMSA43VKQ7ZCeTQJ4TC8kjqtcbw41SjkjrcTG
+ wF52zFO4bOWyovVAPncvV9eGA/vtnd3xEZXQiSt91kBSqK28yjxAqK/c3G6i7IX2rg6pzgqh
+ hiH3/1qM2M/LSuqAv0Rwrt/k+pZXE+B4Ud42hwmMr0TfhNxG+X7YKvjKC+SjPjqp0CaztQ0H
+ nsDLSLElVROxCd9m8CAUuHplgmR3seYCOrT4jriMFBtKNPtj2EE4DNV4s7k0Zy+6iRQ8G8ng
+ QjsSqYJx8iAR8JRB7Gm2rQOMv8lSRdjva++GT0VLXtHULdlzg8VjDnFZ3lfz5PWEOeIMk7Rj
+ trjv82EZtrhLuLjHRCaG50OOm0hwPSk1J64R8O3HjSLdertmw7eyAYOo4RuWJguYMg5DRnBk
+ WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
+ HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20241212214927.3586509-2-ninad@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241212_140614_623502_A5FCF96E 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,89 +152,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 03:27:38PM -0800, Kalesh Singh wrote:
-> Hi all,
+On 12/12/24 13:49, Ninad Palsule wrote:
+> Adding label files for fan and temperature sensors in the power supply.
+> The openbmc application dbus-sensor(psusensor) requires those files to
+> consfigure those sensors.
+> Note that prefix for temp label is temp[A..C] used instead of temp[1..3]
+> as dbus-sensor(psusensor) application calculate index based on last
+> digit in the name so we do not want to make index double digit after
+> appending page index.
 > 
-> This is v2 othe the arch_mmap_hint() series.
-> 
-> Changes in v2:
->   - MAP_FIXED case is also handled in arch_mmap_hint() since this is just a
->     special case of the hint addr being "enforced", per Yang Shi.
->   - Consolidate most of the error handling in arch_mmap_hint().
->   - Patch 16 ("mm: Fallback to generic_mmap_hint()") was folded into
->     Patch 2 ("mm: x86: Introduce arch_mmap_hint()")
-> 
-> v1: https://lore.kernel.org/r/20241210024119.2488608-1-kaleshsingh@google.com/
-> 
-> =======
-> 
-> This series introduces arch_mmap_hint() to handle allocating VA space
-> for the hint address.
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 
-But why?  You're basically forcing me to read the entire series to
-figure out what you're doing and why.  I decline.
+We are not going to fix userspace problems in the kernel.
 
-> Patches 1-16 introduce this new helper and Patch 17 uses it to fix the
-> issue of mmap hint being ignored in some cases due to THP alignment [1]
+Guenter
+
+> ---
+>   drivers/hwmon/pmbus/pmbus_core.c | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
 > 
-> [1] https://lore.kernel.org/r/20241118214650.3667577-1-kaleshsingh@google.com/
-> 
-> Thanks,
-> Kalesh
-> 
-> 
-> Kalesh Singh (16):
->   mm: Introduce generic_mmap_hint()
->   mm: x86: Introduce arch_mmap_hint()
->   mm: arm: Introduce arch_mmap_hint()
->   mm: alpha: Introduce arch_mmap_hint()
->   mm: arc: Use generic_mmap_hint()
->   mm: csky: Introduce arch_mmap_hint()
->   mm: loongarch: Introduce arch_mmap_hint()
->   mm: mips: Introduce arch_align_mmap_hint()
->   mm: parisc: Introduce arch_align_mmap_hint()
->   mm: s390: Use generic_mmap_hint()
->   mm: sh: Introduce arch_mmap_hint()
->   mm: sparc32: Introduce arch_mmap_hint()
->   mm: sparc64: Introduce arch_mmap_hint()
->   mm: xtensa: Introduce arch_mmap_hint()
->   mm: powerpc: Introduce arch_mmap_hint()
->   mm: Respect mmap hint before THP alignment if allocation is possible
-> 
->  arch/alpha/include/asm/pgtable.h           |   1 +
->  arch/alpha/kernel/osf_sys.c                |  31 +++---
->  arch/arc/include/asm/pgtable.h             |   1 +
->  arch/arc/mm/mmap.c                         |  43 +++++----
->  arch/arm/include/asm/pgtable.h             |   1 +
->  arch/arm/mm/mmap.c                         | 107 +++++++++------------
->  arch/csky/abiv1/inc/abi/pgtable-bits.h     |   1 +
->  arch/csky/abiv1/mmap.c                     |  68 +++++++------
->  arch/loongarch/include/asm/pgtable.h       |   1 +
->  arch/loongarch/mm/mmap.c                   |  49 +++++-----
->  arch/mips/include/asm/pgtable.h            |   1 +
->  arch/mips/mm/mmap.c                        |  50 +++++-----
->  arch/parisc/include/asm/pgtable.h          |   1 +
->  arch/parisc/kernel/sys_parisc.c            |  53 +++++-----
->  arch/powerpc/include/asm/book3s/64/slice.h |   1 +
->  arch/powerpc/mm/book3s64/slice.c           |  31 ++++++
->  arch/s390/include/asm/pgtable.h            |   1 +
->  arch/s390/mm/mmap.c                        |  51 +++++-----
->  arch/sh/include/asm/pgtable.h              |   1 +
->  arch/sh/mm/mmap.c                          |  83 ++++++----------
->  arch/sparc/include/asm/pgtable_32.h        |   1 +
->  arch/sparc/include/asm/pgtable_64.h        |   1 +
->  arch/sparc/kernel/sys_sparc_32.c           |  33 ++++---
->  arch/sparc/kernel/sys_sparc_64.c           |  96 +++++++-----------
->  arch/x86/include/asm/pgtable_64.h          |   1 +
->  arch/x86/kernel/sys_x86_64.c               |  64 ++++++------
->  arch/xtensa/kernel/syscall.c               |  31 ++++--
->  include/linux/sched/mm.h                   |   9 ++
->  mm/huge_memory.c                           |  17 ++--
->  mm/mmap.c                                  |  86 +++++++++++------
->  30 files changed, 491 insertions(+), 424 deletions(-)
-> 
-> -- 
-> 2.47.0.338.g60cca15819-goog
-> 
-> 
+> diff --git a/drivers/hwmon/pmbus/pmbus_core.c b/drivers/hwmon/pmbus/pmbus_core.c
+> index a7000314e5ad..149b3c5f3a4c 100644
+> --- a/drivers/hwmon/pmbus/pmbus_core.c
+> +++ b/drivers/hwmon/pmbus/pmbus_core.c
+> @@ -2144,6 +2144,7 @@ static const struct pmbus_sensor_attr temp_attributes[] = {
+>   	{
+>   		.reg = PMBUS_READ_TEMPERATURE_1,
+>   		.class = PSC_TEMPERATURE,
+> +		.label = "tempA",
+>   		.paged = true,
+>   		.update = true,
+>   		.compare = true,
+> @@ -2156,6 +2157,7 @@ static const struct pmbus_sensor_attr temp_attributes[] = {
+>   	}, {
+>   		.reg = PMBUS_READ_TEMPERATURE_2,
+>   		.class = PSC_TEMPERATURE,
+> +		.label = "tempB",
+>   		.paged = true,
+>   		.update = true,
+>   		.compare = true,
+> @@ -2168,6 +2170,7 @@ static const struct pmbus_sensor_attr temp_attributes[] = {
+>   	}, {
+>   		.reg = PMBUS_READ_TEMPERATURE_3,
+>   		.class = PSC_TEMPERATURE,
+> +		.label = "tempC",
+>   		.paged = true,
+>   		.update = true,
+>   		.compare = true,
+> @@ -2282,6 +2285,17 @@ static int pmbus_add_fan_attributes(struct i2c_client *client,
+>   					     PSC_FAN, true, true, true) == NULL)
+>   				return -ENOMEM;
+>   
+> +			/*
+> +			 * Add fan label.
+> +			 * Assuming paged attributes while passing page index
+> +			 */
+> +			ret = pmbus_add_label(data, "fan", index, "fan",
+> +					      page + 1, 0xff);
+> +			if (ret) {
+> +				dev_err(data->dev, "Fan label add failed ret=%d\n", ret);
+> +				return ret;
+> +			}
+> +
+>   			/* Fan control */
+>   			if (pmbus_check_word_register(client, page,
+>   					pmbus_fan_command_registers[f])) {
+
 
