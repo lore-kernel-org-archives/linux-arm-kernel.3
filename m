@@ -4,75 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21FEE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12980E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IAppotxVqxBu+s1WRPO02eQxsgP0S0+AbCLbtcztpXs=; b=2lUD1+70oITZoN8fqxNJUFvhJ3
-	vurvcgkzygQ3jrd4NsEww/7xZe0VXbQRlAgKtF8GFxp6maxqfnUctzlHmUKOU50xNAujgAaYMYxWC
-	VWQ0B5GwZEYpjhv0rtfTiFnYsnAfpHH58mrp6zp5Pmmt15FCDWsgXSkfUgYBZgzxX0V5h0XIzr5GB
-	N+XcnyXZpPXl2s5X813WZ6dT0IRADA1+ga4Ewkxmz9mNlBj/o1wpZ6O4Y1Qf6vKiC7YEG9mT8GZfL
-	qzXGdc+qrjLtWTCs4zvZdPOm0Wt8xJU58UPIzoXOhxLDrhUYAJAyv43ZHYPGKK/CWqiLakR6LXJWf
-	zsnniPUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k4PNEAvRpkBk/rqFLCxtUDHCSBUV74NDCgtfS9lmOaQ=; b=k99L3C+H9WIRm0Epa82LOt+9JG
+	iNn+J+YeLC562WSM3vwQcQoCVW7jCJGJyph6ydh0jcTe7ugzqpb/PddE6np4wJVcHE9ANGby2gYe3
+	npS34rX5nJyd10lprzKKhnc8eF8Vz8svsfdQLgAElPZEbzADcEm5IfQHWVHJg5AZs2ViTItq7f5M3
+	0hu6S8vvSEkn/ucjBdiOrtP++yQf83EB7jDfBH6TdQodV/9wiS75DDBYuTxSpiJyFHCblNCCFGVVh
+	hdp2Qj0cE6/Gw2p5y8hfxva/bUORQjfI6GfRTmhQ0mh5FjdPnb8NF2ddzD03ZSZ2Ajm+0TRWMOvHX
+	NcjQxwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLn59-00000001CXw-1zuB;
-	Thu, 12 Dec 2024 17:34:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmRt-000000013pE-1o80
+	id 1tLn6D-00000001CqX-04At;
+	Thu, 12 Dec 2024 17:35:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLmeD-000000016c1-16ld
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 16:54:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 610B75C685D;
-	Thu, 12 Dec 2024 16:53:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C46B3C4CECE;
-	Thu, 12 Dec 2024 16:53:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1734022440;
-	bh=4qAF97iSZCAn9ZQB4Y2LAsveIQfyScV9by+OqVTN2Bg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lS8W6TFO3fOwvF6flFGHpq/srgwGnYxjcrDnrCTS1fyP8YDIFR7AULbO5Dgfm40v2
-	 jmGqBuMhMNJpdjjInH0rhP5RvQD7JycpY5Rqbj2pv4vMqX1Ni7AsAOVwzfPQvz5hmz
-	 rlucE6TAMoREtgmmtWOoeu3AJ/qFwkcwCD0UBO64=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Leo Yan <leo.yan@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ben Gainey <ben.gainey@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Ruidong Tian <tianruidong@linux.alibaba.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	John Garry <john.g.garry@oracle.com>,
-	scclevenger@os.amperecomputing.com,
-	Namhyung Kim <namhyung@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 241/565] perf cs-etm: Dont flush when packet_queue fills up
-Date: Thu, 12 Dec 2024 15:57:16 +0100
-Message-ID: <20241212144321.005145113@linuxfoundation.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241212144311.432886635@linuxfoundation.org>
-References: <20241212144311.432886635@linuxfoundation.org>
-User-Agent: quilt/0.67
-X-stable: review
-X-Patchwork-Hint: ignore
+	Thu, 12 Dec 2024 17:06:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0D3E1762;
+	Thu, 12 Dec 2024 09:07:07 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E23073F58B;
+	Thu, 12 Dec 2024 09:06:38 -0800 (PST)
+Date: Thu, 12 Dec 2024 17:06:36 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Zeng Heng <zengheng4@huawei.com>,
+	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+	James Morse <james.morse@arm.com>
+Subject: Re: [RFC PATCH 1/6] arm_mpam: Clean up config update checks in
+ mpam_apply_config()
+Message-ID: <Z1sYHLZQBW9girSf@e133380.arm.com>
+References: <20241212154000.330467-1-Dave.Martin@arm.com>
+ <20241212154000.330467-2-Dave.Martin@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241212154000.330467-2-Dave.Martin@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_085401_555481_D373390C 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20241212_090645_342199_503440AC 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,126 +65,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+Hi all,
 
-------------------
+On Thu, Dec 12, 2024 at 03:39:55PM +0000, Dave Martin wrote:
+> In mpam_apply_config(), a simple memcmp() test is used to check
+> whether the config passed by the caller is already installed or
+> not.
+> 
+> This check will never find a match except (very occasionally) by
+> accident, since the component's version of the struct contains
+> things that the caller won't pass or doesn't know (such as the
+> garbage collection record).  There might also be random padding.
+> 
+> This may result in MSCs being reprogrammed unnecessarily.
+> 
+> Instead, only compare fields that the caller specified.  If
+> anything is present in the caller's config and doesn't match the
+> installed config, paste it across.  If nothing was pasted across
+> then the MSC reprogramming step is skipped (as the previous code
+> attempted to do).
+> 
+> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+> 
+> ---
+> 
+> There are comments in the code suggesting a change of this sort.
+> I may or may not have gone in the right direction with this, and
+> I have only tried to clean up the behaviour rather than optimising.
+> 
+> No attempt is made to skip unnecessary MSC register updates if the MSC
+> reprogramming goes ahead.
+> 
+> NOT well tested, yet.
+> ---
 
-From: James Clark <james.clark@linaro.org>
+Oops, git rebase didn't spot that this patch had already been applied,
+due to adjacent hunks inserted in the meantime from other patches.
 
-[ Upstream commit 5afd032961e8465808c4bc385c06e7676fbe1951 ]
+This patch can be dropped from this series.
 
-cs_etm__flush(), like cs_etm__sample() is an operation that generates a
-sample and then swaps the current with the previous packet. Calling
-flush after processing the queues results in two swaps which corrupts
-the next sample. Therefore it wasn't appropriate to call flush here so
-remove it.
+[...]
 
-Flushing is still done on a discontinuity to explicitly clear the last
-branch buffer, but when the packet_queue fills up before reaching a
-timestamp, that's not a discontinuity and the call to
-cs_etm__process_traceid_queue() already generated samples and drained
-the buffers correctly.
-
-This is visible by looking for a branch that has the same target as the
-previous branch and the following source is before the address of the
-last target, which is impossible as execution would have had to have
-gone backwards:
-
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-   (packet_queue fills here before a timestamp, resulting in a flush and
-    branch target ffff80008011cadc is duplicated.)
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
-
-After removing the flush the correct branch target is used for the
-second sample, and ffff8000801117c4 is no longer before the previous
-address:
-
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff8000801117a0 cpu_util+0x0
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
-
-Make sure that a final branch stack is output at the end of the trace
-by calling cs_etm__end_block(). This is already done for both the
-timeless decode paths.
-
-Fixes: 21fe8dc1191a ("perf cs-etm: Add support for CPU-wide trace scenarios")
-Reported-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Closes: https://lore.kernel.org/all/20240719092619.274730-1-gankulkarni@os.amperecomputing.com/
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Tested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Ben Gainey <ben.gainey@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: Benjamin Gray <bgray@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: coresight@lists.linaro.org
-Cc: John Garry <john.g.garry@oracle.com>
-Cc: scclevenger@os.amperecomputing.com
-Link: https://lore.kernel.org/r/20240916135743.1490403-2-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/util/cs-etm.c | 25 ++++++++++++++++++-------
- 1 file changed, 18 insertions(+), 7 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index f323adb1af855..6fa698186f0b6 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -2126,12 +2126,6 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
- 
- 		/* Ignore return value */
- 		cs_etm__process_traceid_queue(etmq, tidq);
--
--		/*
--		 * Generate an instruction sample with the remaining
--		 * branchstack entries.
--		 */
--		cs_etm__flush(etmq, tidq);
- 	}
- }
- 
-@@ -2228,7 +2222,7 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
- 
- 	while (1) {
- 		if (!etm->heap.heap_cnt)
--			goto out;
-+			break;
- 
- 		/* Take the entry at the top of the min heap */
- 		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
-@@ -2311,6 +2305,23 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
- 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, cs_timestamp);
- 	}
- 
-+	for (i = 0; i < etm->queues.nr_queues; i++) {
-+		struct int_node *inode;
-+
-+		etmq = etm->queues.queue_array[i].priv;
-+		if (!etmq)
-+			continue;
-+
-+		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
-+			int idx = (int)(intptr_t)inode->priv;
-+
-+			/* Flush any remaining branch stack entries */
-+			tidq = etmq->traceid_queues[idx];
-+			ret = cs_etm__end_block(etmq, tidq);
-+			if (ret)
-+				return ret;
-+		}
-+	}
- out:
- 	return ret;
- }
--- 
-2.43.0
-
-
-
+Cheers
+---Dave
 
