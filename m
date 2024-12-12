@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E6BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8CCE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eaGxJdLY0/ARpzrgNvOLD64IjmvrqELeAdsZUdNbUF8=; b=IUGdJg8EVWsI/F9OV/4qYuAtmT
-	Qn41zIngtfHzeyjCrUyZjI5NcqlwhOEY2Vhc9tE8w4BLBldVSlSMksQP9ZoNfHFhMSt/5dPNDqcpS
-	Q5RkAIKTTgL+iRXsx7XW/lba1qD/vXbS1V91wht+kcajymgY0LmjEUlVjImiJSbaJ7NvZ6el2hEAx
-	Cyd8p0cfZExRRNrUajVuIjnUC/ldL/KXcUhQ7vg5aF5suv5Vk5VBRtSqzrwmUAdqo1AxvtonaBW13
-	MQ6+qf5DZ60zzZAY3+wJfT7sP396llDEURkAGaV7ex2VJfgbGj7TFqazPTJZcCcrwgeqNaZwMv8bM
-	PtekqPgw==;
+	bh=0Gmy6qV1LwE2yQztvuvN1VPxCtOB/HT8J2meQGlVOrg=; b=cdyCQE6R1f3XVrgKZgjssh+Zgt
+	R8xL4MptGZekFgBlTx2COYS1g/SOMm1x4SHA77cKbaDmBI2gatdqaBpvkrQcF3jiPHr0eSjqMzE3h
+	lmwqvQ7bXspv6ndE5P+jewGj5i6Mb+csaFhtR/M+HvLlngxaCpHuHEHP8kxwaEpY5C3y+fzyplsP0
+	BCwtm5JtC/PXsxICdoe9sue+f5El55VrNXllay1E8azK1PCxzfPhGjvOxlcR6x987JXgS5A7MV3CT
+	Wj2AIUlM3nIeGssWv9U+wmF9Euo6mm8Fetwaq1oLRBCvuYvNCka/FcDOQTyaooLUXqsT0KH+Vf7m1
+	ccDlB/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlgv-00000000stI-0Xqn;
-	Thu, 12 Dec 2024 16:05:29 +0000
+	id 1tLlhx-00000000tAs-3IQo;
+	Thu, 12 Dec 2024 16:06:33 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlUm-00000000pdq-22Ud
+	id 1tLlUn-00000000pdq-3LtP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:52:57 +0000
+	Thu, 12 Dec 2024 15:52:58 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Thu, 12 Dec
@@ -44,9 +44,9 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<kevin_chen@aspeedtech.com>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, <soc@lists.linux.dev>
-Subject: [PATCH v3 2/6] dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
-Date: Thu, 12 Dec 2024 23:52:32 +0800
-Message-ID: <20241212155237.848336-4-kevin_chen@aspeedtech.com>
+Subject: [PATCH v3 2/6] dt-bindings: interrupt-controller: Fix the size-cells in ast2700-intc
+Date: Thu, 12 Dec 2024 23:52:33 +0800
+Message-ID: <20241212155237.848336-5-kevin_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
 References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
@@ -54,8 +54,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_075256_524126_715B0C6A 
-X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-CacheID: sfid-20241212_075257_825692_B0476D1E 
+X-CRM114-Status: UNSURE (   9.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,26 +71,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+It is no need to let size-cells to 2 for the ASPEED AST27XX INTC. Modify
+the ast2700-intc example usage.
+
 Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
 ---
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../bindings/interrupt-controller/aspeed,ast2700-intc.yaml    | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 2f92b8ab08fa..20191fee1f5b 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -101,4 +101,10 @@ properties:
-               - ufispace,ncplite-bmc
-           - const: aspeed,ast2600
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+index 55636d06a674..69503aa638fb 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+@@ -69,11 +69,11 @@ examples:
  
-+      - description: AST2700 based boards
-+        items:
-+          - enum:
-+              - aspeed,ast2700-evb
-+          - const: aspeed,ast2700
-+
- additionalProperties: true
+     bus {
+         #address-cells = <2>;
+-        #size-cells = <2>;
++        #size-cells = <1>;
+ 
+         interrupt-controller@12101b00 {
+             compatible = "aspeed,ast2700-intc-ic";
+-            reg = <0 0x12101b00 0 0x10>;
++            reg = <0 0x12101b00 0x10>;
+             #interrupt-cells = <2>;
+             interrupt-controller;
+             interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
 -- 
 2.34.1
 
