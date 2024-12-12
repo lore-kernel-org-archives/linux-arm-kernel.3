@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673A7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9D2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7GdzRpFQ8GuqL6ob5XIWAJOYIU5mecbCSoXQsfevd8k=; b=T6AVlY9DxPFQTyZfr6ZMS3f/+b
-	dfrPgU5o9EcELmnsRhYVBF+obz580d26cWNAlj9ntYeSLO5eNl2gtxpkuorQc5W6untd5PS/cw4bR
-	PQGrn8Z+OiZhaK8WVPXXcfouOGJF3HQdG6g0Dlfo3poZQN5I78BI0pmgFri/HG2JzzaV29Q2s6MCv
-	o7Z/qXKteJToHYoQ98WHHGFpB1l2WGj4pZbk+2xg1fdvX3kaIOFOYkWr18BFg7fAu54zl17pYg6/k
-	nol03i5ZrGwEqS2aP0WS4ckjS4VsSNRxwz1oFQqJh67M9bQv1nJ3dDxWcu3Zq8wpbodz+Kx/EMdqM
-	R59jij+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bARhUy91u4ylm1wnVOBr5QftfQ+kevZON+v4jmfuTJ0=; b=DMIwicR/C0i3Yf3XcGzrkZoZnn
+	6tIHVk2/vDGJrsRangZKU/Tmjr6K6ESuaXyS1SmDcApJ2GBDYUVwDFQr2vzbjX82/aRr89riNRBAu
+	V1otjMUwMjno76cwDx/2IEyQl31Arqz//TCbUcCxOM/IN8FBXcpLoXWAAMDza9RJf90f9mb18kwWX
+	L3t8v6KqJbBmF6F4grFSG3NPJTdVrsE02hp+c13sGq5YHhpScChw5BQAvg7tnxteYr5sxpPbT4aJz
+	kHHaHCT0yLYVKAdvl7J1Uhzbq9JZAvQUou2Po29wN87lmFB++hRTcMNa3ISty0vsegbeGSlQUsFzu
+	2UicWmSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfnC-0000000HYLu-487f;
-	Thu, 12 Dec 2024 09:47:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tLfr8-0000000HYt5-4As6;
+	Thu, 12 Dec 2024 09:51:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfjo-0000000HXm3-0zA1;
-	Thu, 12 Dec 2024 09:44:05 +0000
+	id 1tLfq4-0000000HYfp-0sSD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 09:50:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 062A6A426E4;
-	Thu, 12 Dec 2024 09:42:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DB5FC4CECE;
-	Thu, 12 Dec 2024 09:43:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3002C5C23D2;
+	Thu, 12 Dec 2024 09:49:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1526DC4CECE;
+	Thu, 12 Dec 2024 09:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733996643;
-	bh=xW8UtOL2UXi7yjUrl55suIta7E2vXsUZs6DEyaUeOyw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mo06OTF2QLXnpk8pJD3fhIIcycZOR79JprHYTH7ei1OcIWL8la70QaOZRvQAZ/uhH
-	 efcOtwXVSLO9VOCO9x5ULnaJ7DwHFcOCcEntyNLmi/Iu/7g/2jd306WupYjI6y0+wO
-	 ktRnAY1Mo0dkvdrjOf8TxDnjC40rgrHbXgCdRdWzu5pBaFScQe29QKV8bx1Ht6p/yK
-	 xxZh1p2A4AGpgYwjwDGLHT0h8f047G8xWECSF19NHyiopXQGbGG+oswKYGiOGFrtQa
-	 jhgNM2mo7+yEnVhXyC1rOA7HWve1/N+sKlmUj7UuDqblpbSwgnId2nys15xpoUBgbB
-	 oEBzoq5YD4Xnw==
-Date: Thu, 12 Dec 2024 10:43:57 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Damien Le Moal <dlemoal@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: rockchip-ep: Fix error code in
- rockchip_pcie_ep_init_ob_mem()
-Message-ID: <Z1qwXYtO4pBswIXS@ryzen>
-References: <Z014ylYz_xrrgI4W@stanley.mountain>
+	s=k20201202; t=1733997031;
+	bh=RcPksPwuNG4Y1xIC3bF5vmeEtYYTrnsWZYZ3HfyDMRs=;
+	h=Date:From:To:Cc:Subject:From;
+	b=KHwISE/Q98TXg/uB9pXdcTL72yDmzbtnNZLJ2S20VIQjJl5m2Bfby6+j6FpoOqFel
+	 cxNqmsFJJqkcROmODZbyaC5uUCCo1EMsH0M61NU064LLizu3DhDpG/89Cp2KDEbEqM
+	 DR3I6+kI+7UsR7/xg1gsUMt+aZq/s3KK5BYPiqGk7Bw+/tsMDrAKOKi5hCUXe0h2Z7
+	 eZzFuelhUm4WzZti1qTUC+vCPadwnDiIhju2ZsgKwOJwyJVTCOVA4IXD4Aa7/TA+LK
+	 Xh+JY0HOcbsF6LHRkxd5ivP3q0Pxwp2UpTe6ID6CD6tLuxF2KPftMlWxWcrpfbimNG
+	 pGlJ2FjfkEssw==
+Date: Thu, 12 Dec 2024 09:50:26 +0000
+From: Will Deacon <will@kernel.org>
+To: joro@8bytes.org
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robin.murphy@arm.com,
+	kernel-team@android.com
+Subject: [GIT PULL] iommu/arm-smmu: Fix for 6.13-rc
+Message-ID: <20241212095025.GA18975@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z014ylYz_xrrgI4W@stanley.mountain>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_014404_342410_BCB0E8DE 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20241212_015032_288200_D47A351A 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +72,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 12:07:22PM +0300, Dan Carpenter wrote:
-> Return -ENOMEM if pci_epc_mem_alloc_addr() fails.  Don't return success.
-> 
-> Fixes: 945648019466 ("PCI: rockchip-ep: Refactor rockchip_pcie_ep_probe() memory allocations")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
-> ---
-> v2: Update the git hash for the Fixes tag because the tree was rebased I guess.
-> 
->  drivers/pci/controller/pcie-rockchip-ep.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/pci/controller/pcie-rockchip-ep.c b/drivers/pci/controller/pcie-rockchip-ep.c
-> index 1064b7b06cef..34162ca14093 100644
-> --- a/drivers/pci/controller/pcie-rockchip-ep.c
-> +++ b/drivers/pci/controller/pcie-rockchip-ep.c
-> @@ -784,6 +784,7 @@ static int rockchip_pcie_ep_init_ob_mem(struct rockchip_pcie_ep *ep)
->  						  SZ_1M);
->  	if (!ep->irq_cpu_addr) {
->  		dev_err(dev, "failed to reserve memory space for MSI\n");
-> +		err = -ENOMEM;
->  		goto err_epc_mem_exit;
->  	}
->  
-> -- 
-> 2.45.2
-> 
+Hi Joerg,
 
-Reviewed-by: Niklas Cassel <cassel@kernel.org>
+Please can you pull this lonely Arm SMMU fix for 6.13-rc? It addresses
+an incorrect use of smp_processor_id() from a preemptible section in the
+NVIDIA custom cmdq code.
+
+Cheers,
+
+Will
+
+--->8
+
+The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
+
+  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git tags/arm-smmu-fixes
+
+for you to fetch changes up to 1f806218164d1bb93f3db21eaf61254b08acdf03:
+
+  iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context (2024-12-09 23:38:30 +0000)
+
+----------------------------------------------------------------
+Arm SMMU fixes for 6.13-rc
+
+- Use raw_smp_processor_id() when balancing traffic for NVIDIA's custom
+  command queue implementation.
+
+----------------------------------------------------------------
+Luis Claudio R. Goncalves (1):
+      iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context
+
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
