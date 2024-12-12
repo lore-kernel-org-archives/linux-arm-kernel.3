@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42D8E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6388E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GLwHe2BcaWVYHFgQPJ7g3oRECUmybv1QGs5tEUQaO8U=; b=XEMlHr1/03kk65nIrfPrEoXKnm
-	2UzImnEjX04lJAlfO1DVcAU8DZe8bulste/b7EOaw3Z1BH5peGzU+pFmqCTXBIVAXFuzsgsn6nJ73
-	Gml/HUV5ATl+095JjVJ+huXzJUj13dnZZGwPAOI5SBejPt/iQU58Cs9/Gbj6XfmGHwK1NmabG0z12
-	7412EVuD3q4drvx9s3t1it1QFRoQRpk+1InDtyHBYleQuvVaYbG6e2T+yY9Ac/+/Or74zEt5wOchp
-	MRst4qKBOGrWeLdWPsS3UZBfcHM52quFHc+8ezXkYX51IU07AcNb0R68cwdNXqq4q7cEgmGxk7BDj
-	zL06msuw==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9/GwGoEswcMwP6dImfpCh/5bROjzZhO2GB4Bj2W/jlo=; b=t1IjP3dM3j2VMrlXI+4dapDx97
+	dQXki5HVidAslaiqWI99EENOXyoxcNvwHQApMJkNnmeS50q/s2sJH3WdiTa3DG9PD0LgJcrxTpaie
+	dg0qDykipEFA/3bES7g7jAXGYFX99pSP2BQ91IufqHUCm0rt5ZMW/j18BZ9SF2NQfSXTrZBbrDlAh
+	nbXI+TceBQx24E3MfnSGXzo/iSPri7h248yMoDdP8Gk/yqIii3v0q9ehc5/7vVFzzj/vv0fculCw4
+	Wt2voobWBKL/WiZTvnQLA4cj3zCLB9wmTaxDkn6naKzp7QKQAqhILJpMZdvqj9Q2oF1PoXyjmv+M2
+	ebFRbmiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLece-0000000HJXu-2Fpc;
-	Thu, 12 Dec 2024 08:32:36 +0000
-Received: from mail-vi1eur05on20626.outbound.protection.outlook.com ([2a01:111:f403:2613::626] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tLedh-0000000HJkM-0VwJ;
+	Thu, 12 Dec 2024 08:33:41 +0000
+Received: from mail-db8eur05on20607.outbound.protection.outlook.com ([2a01:111:f403:2614::607] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLeVZ-0000000HI5B-2ZWQ
+	id 1tLeVd-0000000HI8b-3nYX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 08:25:19 +0000
+	Thu, 12 Dec 2024 08:25:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DEPsjqZfsmX3wmVFdjk45whk9ObR3zZ8DgdbMJwh7D1/iDWR1KTJpsPxaYbeg11Hku3paMTEmXAvC2cZcX7eVlGHmHVrUaTa+VDs5yZ9CNlpaVTF8+1pFD9EPhOwJDWka2eMr6Vob3rYKWm4nSbLwqqZ2CgmtDb8e9ll8P6fvtK+vtIZtFkGwq+skLsUmy2DlAtk5LXf+aDJ6nVxSxfBk6SuUPNVCYY8D3V5rjvsSaGmZ1u/tK3RldZvgDb2C7OLbBIl3hQtnrZIhh3jOVWZpVPpig2n6rcgmrBV120FYTq6ZI89NGBwvDyhCDcvcLjvNLogbl+j9LwfTpeFTdwYeg==
+ b=rJ+pqdOWTzwD20YEzsQyAZmhn1bsrwjeTTZXqQLXPblesduHXSWRdZLBa649eGpTka88Bky0EIzVa5HwJNl1NFolafKSbMCGJiEF/Ut2fX+9Her563VySPSZA8wsF5ePKwZQl9xbsO2rVHcg0gA1Z9batryVqYMSLt8zrXLCPNqT7RKW+uQzk3qDSsLaRcNwtNSN6IPG1Wo076+JmHgy3OC1RfVD9FDxpjl/bpehwha2kizMwi3z2B8glsB8zEWTqn5/DF5xSDq62xFfmIfOIlggXhvYtpQKITWHHQnMaBkMQrVBkPfcQN2rjWNBvl0u7D0rQwRQNgKRl5jKBwCwJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GLwHe2BcaWVYHFgQPJ7g3oRECUmybv1QGs5tEUQaO8U=;
- b=KLHPiIMhRDnmCKRW9UWAr/ANMho01G/HiLRnIBL6SZbCe6LdEv3ehpVU5F6Yk+/ACB+nTO6gq34cBKTr5yQz8jWZZWZY8kEKGUOyANTk39IFrR5OZWOa6q/j6qIkYaP+sPK1d7Ig7R+GXL76Jm9lMnGhKWTyZdyM24novQgoGQ2aWQoyJGbQbkXwxKbXxyMuaJPl84jhSE/b6XmatD80pCbf5UiQNCkIRS+gGA/p78+JF1ZqXx0ZUPoi2pAv5iQoaKHLjQ8WF9J5FR6YbAgFyur/Fm93fFlEOQFIcOaeRkjqM8AHrC8jq91tHY7AnztdcV7mmZ+Y4v3WHxdxsynKgQ==
+ bh=9/GwGoEswcMwP6dImfpCh/5bROjzZhO2GB4Bj2W/jlo=;
+ b=meTteteMdj5+hzNOtNC3KA7B3TZ6fFPROUgarcR6/3I4rjXmyAmlCOpQxidyoWpScFAsfZYHtpFep2N/bDveW7ys/b0F7/s3O9QAhnrxIJ3AQIl7svX5xJ6ZEjpi9C1jvyX3ehwSJj4dF0ieC4g5GXjJvP4qPv2M1FkjcsUWgzBuPM2MujxukaukE7dbO0e9nXwPiiUvjm3XFAwLCibEF2xm6Q2qk6/E+SPLdfVXi6ioSgGxd/twpetvQ2oGLWHBUSJdILQfmtpCcfK+kbTvpIjFDYRMYTJKdnZ3qIiCGaqHyLrfMvRzjVMTk8eOP38I1DO6vYhORWlV+X+MLzismg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GLwHe2BcaWVYHFgQPJ7g3oRECUmybv1QGs5tEUQaO8U=;
- b=hfDP5axPjnBSGXdX+3/h1/2xlbrO4QF6bMMsX6/nJsN5kgeGsYZqfM0EdBki3EEk++zlVH9Er7UVyRoLOeVz5FV0DqBZJesfq5yzqno+Ulgsz5zJXxKvAyK2DGKQV9BKzg+I5A987eB09mBM4Q7zVW8wphwGttznk/hTxzdwJFqCVKK9adziz2ZY9LzR8zcJFstQ9V1E26fmeuyfm/h6Y6RLUwm/LpTAf7HTK4mT8uMRGlEsAFjM/SB/UYDGx2Wh584uSTNSWT+LgNzAYC5D8svdiQpQD6VA086VRSWCZQK7jHtgFcjWvxKjJD3qkRt00jxVHbpnPze6uJAgK0SxRA==
+ bh=9/GwGoEswcMwP6dImfpCh/5bROjzZhO2GB4Bj2W/jlo=;
+ b=lM6jTjgU0oz8H9xkynsFrsaG2tCH+iKI9u5r5wzAla8+OUXDtu923GWVDuYNTkIlqV6vFmbkoV6iNM8K2COtlyc0cpRj8zCplLri7g5cKd5Z5csIutyRbmEIFBpe97dfcHf7u/TizolYJmhlOgNS4pSM/owr6vf2i/rKt1woXS2X13ipXvSkeHp6AjPXCIv5BHjxCCVFocdgyFcgalT/MvQ55VF6m5Pyygsmf1PBCXBuRGVAPpA4X34nfQ1d7Q2tMDF4VBIIk9pvemd6G4TbnyrszaZtbEqaUec/BSLusTgJj+7RCCv8KYB3jWtGO363MSTK+DFrW9OMPPgGs0QRmg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
  by PR3PR04MB7323.eurprd04.prod.outlook.com (2603:10a6:102:88::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Thu, 12 Dec
- 2024 08:25:08 +0000
+ 2024 08:25:16 +0000
 Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
  ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
  ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8251.015; Thu, 12 Dec 2024
- 08:25:07 +0000
+ 08:25:16 +0000
 From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: [PATCH 0/2] Make i.MX9 OCOTP work as accessing controller
-Date: Thu, 12 Dec 2024 16:24:40 +0800
-Message-Id: <20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com>
+Date: Thu, 12 Dec 2024 16:24:42 +0800
+Subject: [PATCH 2/2] nvmem: imx-ocotp-ele: Support accessing controller for
+ i.MX9
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMidWmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDI0Mj3czcCt385PySAt3kpNQ0YwMTQxODNFMloPqCotS0zAqwWdGxtbU
- A4DCv5lsAAAA=
-X-Change-ID: 20241212-imx-ocotp-cbef304140f5
+Message-Id: <20241212-imx-ocotp-v1-2-198bb0af86a0@nxp.com>
+References: <20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com>
+In-Reply-To: <20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com>
 To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -73,11 +72,11 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Peng Fan <peng.fan@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1733991891; l=1650;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1733991891; l=9171;
  i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=vQkgEp13+ZiMl1oyt4k1W4F91tSxG45ocpHrJGiJIcw=;
- b=nLr+EAxkQ+wZjAjWHrK+owR4C+RPBwq33QROJVyRsEGV69/JLDR8eKPya5uzHBCIWF0QU5mlh
- LkzK1ZL+dZlAakphKFPw5rW3mnnxaTGsO4jryHRog6woO/l8oJ+NeZ7
+ bh=VGXYDR2iua2/vwS9AThGTtVqrYdCN7AqMGAxlsDi9cU=;
+ b=CsG0WjWARWk592cZJjm36SheQz5QUOMXSOIlZ2v/0BMSfBqGJ5maR0G6vRpygPO8Y6AKFUzWE
+ 2GXHFUFFbW8CaItf0ucA3xxiC8GMJESpDqlbIuJYSc7ytvbCqG9+CPX
 X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
  pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
 X-ClientProxiedBy: SI1PR02CA0033.apcprd02.prod.outlook.com
@@ -87,96 +86,95 @@ MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PR3PR04MB7323:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad202df3-e245-450f-bfd4-08dd1a867cb2
+X-MS-Office365-Filtering-Correlation-Id: 94a7a820-8829-4131-8b30-08dd1a8681c1
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U2JON1VpRHNKOG9MTnVPZ3V0dXp2aDNvK1FjUWhvTHlRYjZYc2VtWG9Ud2VZ?=
- =?utf-8?B?Q3hpUmFJbExTOHFzUlJmRFN5UGFFY09qbHYwVm1qSHJRUVBNdzR2M2NnSi9R?=
- =?utf-8?B?WFJ1aWlxRi9rVFRBa3N4YkpKVklFZVVTVEtlT1lJNC8wbzJEenRZcFk5TUxP?=
- =?utf-8?B?djhNc2k5bXhLU2xDYVI4eHhSODV2S01PajdHSHNBcXg4SkNUM2xJZzNaK0lQ?=
- =?utf-8?B?NmFtSE9mclU2ZzFtK1ZaaEdVcnFCN3hFcWxGRDREU0JDOEVRTG91ZlVsQisr?=
- =?utf-8?B?cE9kb25BV0RCRE9OeGtiTFRXQ1d3UnZkTmtkeFFEQk9RL1FIMVB1TTlMckti?=
- =?utf-8?B?UWN4Sm1TNVUvcXBnbzZKZ2lXdDZHMCtWbmhXV1RLeFhQTFArMlhIR0FOL3p6?=
- =?utf-8?B?bklmdVFHSXlFSDNyVW9Cc0h3SVlTWDFGaktsbFRKVWhqckpzTGVBQXA1WlNt?=
- =?utf-8?B?YXo4N2RHaTl1MGxKNFFCcTRHdThtN25aTW1PODRVUkN5UVlQdStNd0s4Y1Ur?=
- =?utf-8?B?U1ByOGFkbXZiRjBWeVEzSUo4M1lyWkJCVHFGMGo0NDBQSEZ4WEs4RDlXZTBl?=
- =?utf-8?B?T3B1UlQyOEZuZmdkeGFZT3NMaXJvTHI2NW1KOFQ4K1NjNmFnaW90UHVLTlky?=
- =?utf-8?B?MVdQMlBTaHhaMGRlVEFrSjVQenBHMnlLY0JBNUdsSjg4MURKZWwzVGhkeTFL?=
- =?utf-8?B?eENITnpZY256dFdTQ0lWeWZ6azB6V3lLK2tBQThoQ2J1eDZ4MmxHRXc0TEdU?=
- =?utf-8?B?MkVUWmM3dE5ta2VnVjZmNjJxSk9HTnVUZUZUUEZnZEpkSW96OTN3TVVXYnZ4?=
- =?utf-8?B?dmFVUVduKzR5STNqRGQ2TFlMN3JScXdPRmF0ZGxUcXB5MWZxMThyVUk5NWU1?=
- =?utf-8?B?djZUT3N5VkFab3hFV0d5SFhodUZjYzYyTStPK0VZa3BzcWh6MWp0UzF0RGk2?=
- =?utf-8?B?cWVOdjZRNGY5NlB3WGZSMmM5Rm5BVWg3WVhIbU1qNURmZGZjQzQ4V0dmZUdy?=
- =?utf-8?B?L2Q0d1ZSajBZUmFSY0ROSlp1cTVxRnhtaFROZGhHcGtERkNiNHhIdzB0OTJ1?=
- =?utf-8?B?SW1EcHE4NzR3ckNQTzduMGYvSkRELzJRUStNSE5Xa3lrbWFIRGc5UVBUUXJL?=
- =?utf-8?B?cGhsMEdzVW1hbnV4STV3RFdZdm9CUXB0RlJPcDVEcGkyeWIwTDJ1VWpxY28r?=
- =?utf-8?B?YmR3b3BVd3RxeCsyWkpRQTkxZmdGVVdLY1VSL3NMZGxlWWVPWWVSWTA2Kzcw?=
- =?utf-8?B?OGFmaW1CWDdXMEc1SWZETEpTU05HaHAxRjB4YlQwZ2ZHU0pET3pOWWhSRDFw?=
- =?utf-8?B?T2VwaDlOYjdtZ1oyaWNDN3B4Mm5UL1dRVDlReTlkZ3NYcktxOHI5UytzYVcv?=
- =?utf-8?B?MENNLzFMelRKK3Y5S2xCRDdtam5IMVpySWxFWnVzN05WeGtkdHVCR2dTZTRJ?=
- =?utf-8?B?SlI3ejBycnF4VnBFcjVrNmFQQUNHeWU1eEZLZDRVUFZTbFpVOFFJS3ZvSVlB?=
- =?utf-8?B?bVBlT292YmU2KzFrN09zclgrVU5yUEFWL094bWtzYkZTK2JyTGNmUlJOa0RR?=
- =?utf-8?B?VGtFcHY5SlNUSUpaMjllb2lVVG44QmlVWC9yTHhKbE8xZER4YWI0dktrOEcr?=
- =?utf-8?B?L3ArNmJic01aUklDcXo1WkZQVEZBWSt2ZHVoZXRIWmZhUGJPUFRTajdqTWRP?=
- =?utf-8?B?STF6dEpoWFNWRVZtN0NwWEdWZkZUYldHNi9MSlc3bkNGWWdaams3alY3bTdx?=
- =?utf-8?B?NVh2bVc4R05sampqVFp0VFhqK1JpeS9JTkRORFZBTjZCMXBZd05QNmVKTXlC?=
- =?utf-8?B?U3VWS05HSmRuTnV5RnFKeXBkZk1yN09Zd0toSDBjRnhpaElnRkRyaVVRUFlU?=
- =?utf-8?B?dm0xUFpSV2VGd2VXeGJ1T1RmcDVJcjNRL3pON3ZxejJtaXc9PQ==?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z0JYNEFtN05OTWhuSVlhQ3RRcktWMXM5Wnc4eUhWVis1WjNGcU10Njh3bXhj?=
+ =?utf-8?B?UXYyQ29DekorYjcvbzAxUjBrUGcrWm9CN3M5SmlVb0NwU2RqSE8rbTMyR3ln?=
+ =?utf-8?B?OVVEeDhBZWowS1FVSHVaKzZIak9ySWRjM0RqYW5VditMVlRUUFd5ckVFQmxK?=
+ =?utf-8?B?TjAzSDlGSkVoTGg3SnhkTUZUT29sT0NpUGZ0azFOYmJBazNLblBzeHJxY1Qv?=
+ =?utf-8?B?VkN2NGJKSllJc1FTVDlUT3k0Nll3THFGcTI3VjIrOXBXK1NqT2xhcjJEQWhU?=
+ =?utf-8?B?TDdhS3hLc3F0NFBRQStRRmZkVk1MR2dQMWRGOUJmczlLL3JsVHRxL1ArcDE0?=
+ =?utf-8?B?ZG1BRzR5YytWWFhmUXQ0SEQ3Z2diekVWeXVrbHRlSEdZYjF5WVkrRlRGZlc3?=
+ =?utf-8?B?bUJ2YmlDRGxDbGhhdUxydWlJbENrZ0ViUytlUzBnRmRndk9aREVGM21hQ2RX?=
+ =?utf-8?B?UHdJNUJmbGRZUkoreUNqNjFYM09OUEh2UmdTVFdTNlR3ZzI4TE9LTEFCRzFX?=
+ =?utf-8?B?QlU5MmM3dnpFRjRFMDRxMHdHY2tlTGdwY1dnOHlUWmtmVjdwa0J6Z1QzOTdk?=
+ =?utf-8?B?M1MyL3VteEhxdHhmT1BhLyt3RWJDZGxwSXYveUxWVVRmQmdFSGFzNG5vNXVZ?=
+ =?utf-8?B?TEx2Uml6dGNhMGt1Y01PaEVmWkJNZUROSGE4YnR0TDd1VFFVZ0JRTFYzTnVJ?=
+ =?utf-8?B?QmJDbDNSL3oyK2dkNzIzWDVOSkdnYzFOSWV5WkQ3aHlvYVFoaEpWT01CMWZD?=
+ =?utf-8?B?eGxqSzJXTVJjR3ZzN1AzK2cvSnhsaFhmYjk1WVhkZjR5Q1FNUEJ0ZE9iUnJl?=
+ =?utf-8?B?TFk1WUM5cjFvWmFCak91MVhZeStURXBlQUl3MHU0WHhOd0dQeko3L2JWUlFC?=
+ =?utf-8?B?RDgraXp5R1laYXAyRmVPL1JzQVJIcG9XYXZtMEFnL2hjMTZlaGhjaHhHWk9n?=
+ =?utf-8?B?a2cyUVN4aUdZaTZnZmxkZnJZQTNEVDY2emlCb0xId0ZVVlBvYVpER1QzNlVj?=
+ =?utf-8?B?ZlpvR2FoYktTT2xqY1BwTVdRTUJsWFhhQzFKbmxhajA1L1oyNXRQUVJxZExT?=
+ =?utf-8?B?bG5keEtwdFpRd2JGTjVvNjBERnJMZGZyRkpMWjFTMTNnWkNYL3Rndk1PWHJZ?=
+ =?utf-8?B?Vlk4TDVESVVrK0lpcEl1TlV6QnpXY3ZjdTYvTi9hVlFodXJwTTVHbEU3Q1VJ?=
+ =?utf-8?B?ME42NEVIQk8yOHFxbml3Z3ZqdmJpMHREZ0drRkZnZFVxU0JULzZvdlhMZUZw?=
+ =?utf-8?B?U21SWTJkaW13YUViWFpIQkFMaW5QTDVLRmhaUlhhQ3JaM3RtRXRFZ05RVEww?=
+ =?utf-8?B?ekRxTlZQR1ptVXpvLzNob1lyZjV0MmJlTkc1clM5cWFLbkpyNWt5UVFKUHZv?=
+ =?utf-8?B?Y1ozUzZMSFJYUVBOS09wODNYSk5FZFJFZ1d6NTNFZktaOWEzZHllMHR3dlFq?=
+ =?utf-8?B?a1dMbjRrMDBOWFZDa0J3WW9XeG9RSi95MVRnTXY0cDR1RWg1azVFQkZLNGxv?=
+ =?utf-8?B?UkovZGlhcmtQMjVBT2JjUVBOYlhPRUpmaXhhcHl4RFpYc3Z3NWNPUjFvaU1B?=
+ =?utf-8?B?K3BCeGxNUEJKMTdocTlZbGVPQUdHd3A0ZFNuY0JHZVlNV3BxQjhueHoxcFYv?=
+ =?utf-8?B?ZDBSZzVjVDJpVGRMc0tQelZNU29ON2JuMmM4cjdmbmRBZDQ3U0F2M3lFK1dW?=
+ =?utf-8?B?RDNocmdtL3V6OCszcFUxTmwxN0VvdXRBc09DN2xmN0dqeHo0N1gxUDN2SW5S?=
+ =?utf-8?B?SWsvVnBGM2plV0gwMjJYbHQ1R29RNmJiamI5OFNtTnhmRlcwalNQdm5rMVFn?=
+ =?utf-8?B?Zml3aWlVcFBOSk5hUGwxQ09Wc1diM3NEUGpDR2dFZ2kvK1JOaCs4V2xVZ1da?=
+ =?utf-8?B?R0tlRGNhNWVqbkk5WjBXTWxIR2lXNnZWRG41UlI4Qlk2ZXc9PQ==?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TGc3ZnJyYUxaWm9CQlJkVmNqb3p2U3htVk1INGZCQ1pSdjRnMC9Qc0lJUEF5?=
- =?utf-8?B?cGhiRVJPRzZuUVV2OTBTZGRDNThDRlgwd0FoSHcvSkdNQzFITXVjTjk1aWtt?=
- =?utf-8?B?Q2htMlE1dkhKNTljUHd1elVMcThQL2NqWWVtTFlWMXVtRk0wZlg4Q1BpbUZT?=
- =?utf-8?B?bzQ4bnQ5b1pEOFMwY3RPcHd0WkE0WXN4dHdtZmJPaVhrb0d1VmlhR3Voc0Ft?=
- =?utf-8?B?T0lZVUZaK1J4aEdaMXE3ajhFRFBiRXBFZjVyRjhaTWQ4c3JHY0RLc0gzRXFp?=
- =?utf-8?B?NmpvbzRBZlhEYjhIUzFjVVE3VmIrdStZRmY5RTlwWVRRbDRXQUQ5OUNQWVIy?=
- =?utf-8?B?dEJBa0lxSkhHQ3Qvd2RDcFVLWG1MMElTQk1xS21PNi91eWFBQnJ1d0JYdFhD?=
- =?utf-8?B?Q1pNVWk0Tkw0akliMDRWeG1xNXFwMjZ2NG9Pc3VHbTJndnlRT3Vhb3prcFJR?=
- =?utf-8?B?dmJFakRhV0F1bTgvWDlNTVZRMWtGZGNIRUR5TnhHcGJTb25HaFUyaGQwK0Nn?=
- =?utf-8?B?MXY1Z2lhamlpSzY2VU9vQTJrd0hmU0ZpUm4zS0xoUTRwS3ZXd1lTNjQ4bk92?=
- =?utf-8?B?RG51WEVOc0hiZUJTMnB6bzZDbCs2VldlKyt4Z0oySmh0cFh2NldiNVpmVHBT?=
- =?utf-8?B?K0MyNzRDRVN3N2hkUzNaVGFVYTd0SnZtSTJFNngvRUZIWEx3RzNpcTRQdEZM?=
- =?utf-8?B?Y3ZYNWxPcnh6OExyaXl5eG1YVXIzSVhlWDE0MDArZEFISlZPam51U1BiYjhK?=
- =?utf-8?B?NytpeUhWNURJdHpneFkvT1gxNEtNRWxZcGdJV0Q1YnptODJiRnE4YlpwbFZZ?=
- =?utf-8?B?V0lwSFFJaS9QOXNjbWJTRWg4OUNTRUo1SktIUGdPWUg1R0NCRHdtUnl0b2xw?=
- =?utf-8?B?ZWhIZ0taUmRFMDQ3OEV2Q3B3dWZ0OFN0VXUxUzFYTUxBb0RNNHoxOUhwRnBy?=
- =?utf-8?B?UzFzSzRub0x2LzlIRVpIbWMwc2xKcnhZMGlYNCtEVHJHUCtrSnd5SzdtL0M2?=
- =?utf-8?B?KytLU2gzVjJVT0ZDY3FoR2s0Tk9CQWF6cE0xV2Y2MDdDaUdYcjlWSWV3R3pi?=
- =?utf-8?B?d0h6bVNEeWVjTWVlV1hVVHpBUGJjYjY1enhzekoxS2NyWFkvL09SZ0NtUFhy?=
- =?utf-8?B?UjFpM1VWWXZJa2VLYjE4S3R0VWdrMlQzRkg4VGNIWS9WMW5aRWlmVldoYWpB?=
- =?utf-8?B?dmM3aE1SbGkzR3c3Qi8yQVF3cmtwY0RjUk5rWmRIRlFEWWY5bzVidWVtK0Ju?=
- =?utf-8?B?M3FCcnZWNERoM28wWTRET2F6T0JFdHN2Slk2ZExSbmJ2V1czK3ZDeEEyRVN0?=
- =?utf-8?B?eElwa1VjbmJTWTVjV2ludWdubmxESFlRbGtENmErb2FGRmRqWTVxQldDOWd2?=
- =?utf-8?B?NmZZblF3bUNldTh0K0ZkcFZaTGx4eU1EUmovdzdMV2lMZ2ViS0tZcmhlTkY2?=
- =?utf-8?B?REl1dlFLN1ZNK3dCS0pzSVd0Z1dxQlMzWXNWU0NiUUpVRWYxWWhYZEk3dzJi?=
- =?utf-8?B?bDM2dHR4M1FQTXY4eG1TODJWZ2xQYVQweUNrQ2VnYW9uTGVqTDYremJjYWVj?=
- =?utf-8?B?ZXhWekRiZy90Q0tjNTlJUXE3TzZBeEpMcGE3ZkFYQW03U20vMTFyNDQxZVFS?=
- =?utf-8?B?dVZsQWczVDZtK2Q3MzZtbzNLSzFNUVZCdjNqZ3ppeEliZERBck0vMnRkZmFW?=
- =?utf-8?B?MEk1b0ZORzhsNmZaRUZBWDJTdGQyN1VvUS9EOWtkcDFHN09BQ01sUGk5dm0r?=
- =?utf-8?B?RFg3ek04RW9WLzdmQzdGYXpRaXhiNDBRZGwyZzFHbDM0c3UxWDROUmNoWXVj?=
- =?utf-8?B?Z01JeEFYVFAxUk0zVFVLTDFZTEN6Rm5jWCs4dFdpckI2aEgxemdhdFB3V0d5?=
- =?utf-8?B?dXYrV3FUZ0ZQUmthTzNOUUJQZEhCMWVmNGdQMldQdUJHS3I0VnhoVEFHRlZ0?=
- =?utf-8?B?bThpVjIrTUZBaHhrS3MvazJmSUxHUkdVZzk4NkJTQWVMdGdRQ0xHQTl4d3F0?=
- =?utf-8?B?Rytaem1OYXZRdU1yWXd0Ykl6MUl4QXBic25UZVlJc2tjRi96cWpPdjk0ZERk?=
- =?utf-8?B?cHU3N2RoVXZISVRZSC9nd29Xc2xxMitwS2YyWlhQUW9vTjlTaHFFQmQxbC9H?=
- =?utf-8?Q?Vu7GkoaoAOge11KQYbZ0Byoyl?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YVFxc1JSNEpnQXlKOWpmdFJOZjZvdFMzZW96UVgxNWFvNFlOazcrcjNnZFdt?=
+ =?utf-8?B?RXpoV3Jkck5ZZkg5a1hGVHEvTjVGNnhlVHd4WjVSRmVvRGMxaHloQkRLQkJL?=
+ =?utf-8?B?am1QKzgxdlhHcmM0azlxOXg3ZDM2Q2JkMHFVM3Y0N0NIaExjRTNvWGpwU015?=
+ =?utf-8?B?S2k1dW1GZ20rV2ZvY25mVXN2c1gxeVZGVE5VNisrUXpoU3FldFVadzN3Qk5F?=
+ =?utf-8?B?WjZDTHNUSU56WTNKTms2TS8zNGYzOURMYW1sMDNIVklZRnA5bHNPQU9KRkpX?=
+ =?utf-8?B?WHVYSmg4d3p0UWNvaWpwVXFPbTh1UEVpVnJmbm1MUC9HRisycFZUdTh1NFUx?=
+ =?utf-8?B?NitPYW9mUVlkMFVLdDNUamY5VTY3aW1qSVlmM2VhN2dMR2gwemdBWWoyVjR2?=
+ =?utf-8?B?cGY1NWMrQ1Qxc2Q5TUFYVFVPWUc5VVY2bVRSQkNHS293K0hKZlRnZEJPMzYz?=
+ =?utf-8?B?SGtIR0d1eG5td0gva1JCNkZXaFc3UTJyL0t3OUVQbkh2aFlmWUUvNCtiQTNy?=
+ =?utf-8?B?YTh6elNNVTZSNXhoWk1mY2VqdktLRmRocjVuSnF1WnpGT0oyNVZvYVV0MkZ3?=
+ =?utf-8?B?K2dwbnAyMHJLWk1jRVE5ZnFzbW1rd3g0d1VRZ2lLVHAzdVh2MzRhYXBOWDVS?=
+ =?utf-8?B?aVNMNXcwTFlJK2h0dkRhRU9wRkJwNGt4T05RQlQvUEZyNGxVc0V1WExqaUZM?=
+ =?utf-8?B?MDV3Mk5oUVFsWXh1WVNzK2tWN1R6L291Q3R3OFJMUFJIbFN4TncwbkNVc3N5?=
+ =?utf-8?B?STJWZ3kvNTRWbUZRc2xVTVVmakl5YzN0YUhLblNQTlArZHFVMEZtLyt1VzZV?=
+ =?utf-8?B?dUZRclZuN0RrUThBZk5vS2tIQ2NmdE1POXVqZUpSajFEM1d3aGlEdVMzaEk4?=
+ =?utf-8?B?V0Jic3lvd0xObzdWU0ZZd25lVWcySTZNTDJiL0JxWUZDaW12MVJYYzhnMlBD?=
+ =?utf-8?B?SnBlaXl4b2o5RTRXNWVKeHlmenhZZi9NdVdObXNiampmZUxrMXo1aVpVamhZ?=
+ =?utf-8?B?TkhMZnl6ZDFTY0J1TDZEY3VEYnRxenA4ek5yZFVtcUR2SElpN1kweklnSGkz?=
+ =?utf-8?B?SllxSkxWL1BCaFVVZWEvbHlTMTM1ck9Wd2NiNlUzdUhuTnR2eGdWeVh1OHBV?=
+ =?utf-8?B?NGdLTFd0TDdZOE1oVHU1YjJ5NnBkMmRYUlNuVi9ibUF4QnhvUDRwcjVHYk1C?=
+ =?utf-8?B?MkwydGhvT1ZQZXhtR283NktMd3hEZmwrVTFoWitocHBTVVRqd1hsc2kvL2Fq?=
+ =?utf-8?B?alFlNkkrOVhlL25ZejBXZE9nVFAxQllFbEpEenZ3M2NBTWNWQ2o5U2UwQWFq?=
+ =?utf-8?B?TjF1cnJEeWNPdkNVMHpCWXkyZUJ1YXpwWTFZMG5vUEsyVDU5YVRrTEg1cW9L?=
+ =?utf-8?B?LzJ5Lzd1bVVDaFg0eklZZjcwNm9oYzRCL1RFWitMKzZuek9Nc0hvRHdHVncw?=
+ =?utf-8?B?aGJjNzhUOXZteG5mVHc2dWtFNlc4MnFhMkNhc3FZTm53Q25lcjBVMVlJYWVR?=
+ =?utf-8?B?d0FFWUFuajFKSlBIOEV6MjI1QUNRVElZY210OUk2OG15OUJXUWVqN2huU0xv?=
+ =?utf-8?B?cjdFajdNUE5qQmtXVnordFAvT3ByQlU0NHBqdmdsSXlSSEljeUQxUTRDQlZF?=
+ =?utf-8?B?TStzbnk2K25kWWZQeXdxWGJYL1hrT0xWYkJmZkUxdnhOMWkwK1pISmRYb0VQ?=
+ =?utf-8?B?dDNqaTBZSXFtdlhSN3g1N1FOejE3QklBNkxiNVo5dHFVMTJzWml6d3lzOGN5?=
+ =?utf-8?B?eXhNcFJ0TWJ0bGovcnI3OVM2VC9oeUFKdmduYnpzM1ZUbVpHc3l4dmx2eEJl?=
+ =?utf-8?B?Sm1mQndpdEpBTHVYZVVJYnBvZ3lsMWFVQkdTVzIzSlpUTXYvWDZBUUlCeER6?=
+ =?utf-8?B?K2cyWENCdWtha1FlMGJZMlFScVI1WjlMVFprTkRycHF6VG9xK01qSk1sWnZN?=
+ =?utf-8?B?YkxlSUx4SDh2eHdoRlJ3aDc2aXgxUE5vcElmaVNnREEzM29meWxoTEsvZWoy?=
+ =?utf-8?B?R2JUQzRQM0JwTk5PTXd3amxGZmxHZzhMbjYrS3lKQ3NhNzNrRzJGdnoyOG5N?=
+ =?utf-8?B?MHgwWUUzZmZNVzZ3WjdNSkdCbEhVNnIvQmQzL1NkQXNyNFdxMUk2WGhtWGw2?=
+ =?utf-8?Q?ye47szB5i1VX+mewXuiDZ/Axu?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad202df3-e245-450f-bfd4-08dd1a867cb2
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94a7a820-8829-4131-8b30-08dd1a8681c1
 X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 08:25:07.8616
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 08:25:16.2672
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: J/kboJvNYO99hnCWY0XyMkQJ5zfvxK4nsGklPGEKSClhv1wEiF2QCt58smbo/kWzX+CWf4L1LfUFCBKzMLPKlQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: oMQgxAaK/BnUEtTx8bUtR2HyODgjdNjEQ7e1pBNwa+hgIsMPp5dJ5d1RqMmiLjVgnT1eCmBpxOvDW1ge9lFAUw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7323
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_002517_694901_8D5B27F2 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_002522_102352_6FCADFA2 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,44 +189,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously there was discussion on using "feature-controller" or
-adding a specific node to group the fuse information for U-Boot to
-parse and update node. But rejected by DT maintainer(Rob).
+From: Peng Fan <peng.fan@nxp.com>
 
-Since the STM32 engineers added access controller concept and landed
-the support in Linux Kernel, reuse the concept for i.MX.
-
-i.MX OCOTP eFuse has some bits to indicate a specific periphral or
-function is avaiable for current chip, for example i.MX93 has variants
-that not have NPU. So introduce '#access-controller-cells' for OCOTP,
-and add "#access-controllers = <&ocotp [gate_index]>" for periphrals
-that needs accessing control checking.
-
-In OCOTP driver, the nodes under "/soc@0" will be iterated, and checked
-if property "#access-controllers" exsits. If not allow access, detach
-the node.
-
-In the end, cpu nodes should still be handled by bootloader.
-And I may also update i.MX8M to use same method to support variants
-if this patchset is good.
+i.MX9 OCOTP supports a specific peripheral or function being fused
+which means disabled, so
+ - Introduce ocotp_access_gates to be container of efuse gate info
+ - Iterate each node under '/soc' to check accessing permission. If not
+   allowed to be accessed, detach the node
 
 Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-Peng Fan (2):
-      dt-bindings: nvmem: imx-ocotp: Introduce #access-controller-cells
-      nvmem: imx-ocotp-ele: Support accessing controller for i.MX9
+ drivers/nvmem/imx-ocotp-ele.c | 187 +++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 186 insertions(+), 1 deletion(-)
 
- .../devicetree/bindings/nvmem/imx-ocotp.yaml       |   5 +
- drivers/nvmem/imx-ocotp-ele.c                      | 187 ++++++++++++++++++++-
- include/dt-bindings/nvmem/fsl,imx93-ocotp.h        |  24 +++
- include/dt-bindings/nvmem/fsl,imx95-ocotp.h        |  43 +++++
- 4 files changed, 258 insertions(+), 1 deletion(-)
----
-base-commit: 3e42dc9229c5950e84b1ed705f94ed75ed208228
-change-id: 20241212-imx-ocotp-cbef304140f5
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..542539b86efd2d38be2903c1d0ea72f918ff5b75 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -5,6 +5,8 @@
+  * Copyright 2023 NXP
+  */
+ 
++#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
++#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
+ #include <linux/device.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+@@ -27,6 +29,7 @@ struct ocotp_map_entry {
+ };
+ 
+ struct ocotp_devtype_data {
++	const struct ocotp_access_gates *access_gates;
+ 	u32 reg_off;
+ 	char *name;
+ 	u32 size;
+@@ -36,11 +39,26 @@ struct ocotp_devtype_data {
+ 	struct ocotp_map_entry entry[];
+ };
+ 
++#define OCOTP_MAX_NUM_GATE_WORDS 4
++#define IMX93_OCOTP_NUM_GATES 17
++#define IMX95_OCOTP_NUM_GATES 36
++
++struct ocotp_access_gates {
++	u32 num_words;
++	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
++	u32 num_gates;
++	struct access_gate {
++		u32 word;
++		u32 mask;
++	} gates[];
++};
++
+ struct imx_ocotp_priv {
+ 	struct device *dev;
+ 	void __iomem *base;
+ 	struct nvmem_config config;
+ 	struct mutex lock;
++	u32 value[OCOTP_MAX_NUM_GATE_WORDS];
+ 	const struct ocotp_devtype_data *data;
+ };
+ 
+@@ -131,6 +149,100 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+ 	cell->read_post_process = imx_ocotp_cell_pp;
+ }
+ 
++static int imx_ele_ocotp_check_access(struct platform_device *pdev, u32 id)
++{
++	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
++	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
++	u32 word, mask;
++
++	if (id >= access_gates->num_gates) {
++		dev_err(&pdev->dev, "Index %d too large\n", id);
++		return -EACCES;
++	}
++
++	word = access_gates->gates[id].word;
++	mask = access_gates->gates[id].mask;
++
++	dev_dbg(&pdev->dev, "id:%d word:%d mask:0x%08x\n", id, word, mask);
++	/* true means not allow access */
++	if (priv->value[word] & mask)
++		return -EACCES;
++
++	return 0;
++}
++
++static int imx_ele_ocotp_grant_access(struct platform_device *pdev, struct device_node *parent)
++{
++	struct device_node *child;
++	struct device *dev = &pdev->dev;
++
++	for_each_available_child_of_node(parent, child) {
++		struct of_phandle_iterator it;
++		int err;
++		u32 id;
++
++		of_for_each_phandle(&it, err, child, "access-controllers",
++				    "#access-controller-cells", 0) {
++			struct of_phandle_args provider_args;
++			struct device_node *provider = it.node;
++
++			if (err) {
++				dev_err(dev, "Unable to get access-controllers property for node %s\n, err: %d",
++					child->full_name, err);
++				of_node_put(provider);
++				return err;
++			}
++
++			/* Only support one cell */
++			if (of_phandle_iterator_args(&it, provider_args.args, 1) != 1) {
++				dev_err(dev, "wrong args count\n");
++				return -EINVAL;
++			}
++
++			id = provider_args.args[0];
++
++			dev_dbg(dev, "Checking node: %s gate: %d\n", child->full_name, id);
++
++			if (imx_ele_ocotp_check_access(pdev, id)) {
++				of_detach_node(child);
++				dev_err(dev, "%s: Not granted, device driver will not be probed\n",
++					child->full_name);
++			}
++		}
++
++		imx_ele_ocotp_grant_access(pdev, child);
++	}
++
++	return 0;
++}
++
++static int imx_ele_ocotp_access_control(struct platform_device *pdev)
++{
++	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
++	struct device_node *soc __free(device_node) = of_find_node_by_path("/soc");
++	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
++	void __iomem *reg = priv->base + priv->data->reg_off;
++	u32 off;
++	int i;
++
++	if (!priv->data->access_gates)
++		return 0;
++
++	if (!soc)
++		soc = of_find_node_by_path("/soc@0");
++
++	/* This should never happen */
++	WARN_ON(!soc);
++
++	for (i = 0; i < access_gates->num_words; i++) {
++		off = access_gates->words[i] << 2;
++		priv->value[i] = readl(reg + off);
++		dev_dbg(&pdev->dev, "word:%d 0x%08x\n", access_gates->words[i], priv->value[i]);
++	}
++
++	return imx_ele_ocotp_grant_access(pdev, soc);
++}
++
+ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -161,14 +273,43 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	priv->config.fixup_dt_cell_info = imx_ocotp_fixup_dt_cell_info;
+ 	mutex_init(&priv->lock);
+ 
++	platform_set_drvdata(pdev, priv);
++
+ 	nvmem = devm_nvmem_register(dev, &priv->config);
+ 	if (IS_ERR(nvmem))
+ 		return PTR_ERR(nvmem);
+ 
+-	return 0;
++
++	return imx_ele_ocotp_access_control(pdev);
+ }
+ 
++static const struct ocotp_access_gates imx93_access_gates = {
++	.num_words = 3,
++	.words = {19, 20, 21},
++	.num_gates = IMX93_OCOTP_NUM_GATES,
++	.gates = {
++		[IMX93_OCOTP_NPU_GATE]		= { .word = 19, .mask = BIT(13) },
++		[IMX93_OCOTP_A550_GATE]		= { .word = 19, .mask = BIT(14) },
++		[IMX93_OCOTP_A551_GATE]		= { .word = 19, .mask = BIT(15) },
++		[IMX93_OCOTP_M33_GATE]		= { .word = 19, .mask = BIT(24) },
++		[IMX93_OCOTP_CAN1_FD_GATE]	= { .word = 19, .mask = BIT(28) },
++		[IMX93_OCOTP_CAN2_FD_GATE]	= { .word = 19, .mask = BIT(29) },
++		[IMX93_OCOTP_CAN1_GATE]		= { .word = 19, .mask = BIT(30) },
++		[IMX93_OCOTP_CAN2_GATE]		= { .word = 19, .mask = BIT(31) },
++		[IMX93_OCOTP_USB1_GATE]		= { .word = 20, .mask = BIT(3) },
++		[IMX93_OCOTP_USB2_GATE]		= { .word = 20, .mask = BIT(4) },
++		[IMX93_OCOTP_ENET1_GATE]	= { .word = 20, .mask = BIT(5) },
++		[IMX93_OCOTP_ENET2_GATE]	= { .word = 20, .mask = BIT(6) },
++		[IMX93_OCOTP_PXP_GATE]		= { .word = 20, .mask = BIT(10) },
++		[IMX93_OCOTP_MIPI_CSI1_GATE]	= { .word = 20, .mask = BIT(17) },
++		[IMX93_OCOTP_MIPI_DSI1_GATE]	= { .word = 20, .mask = BIT(19) },
++		[IMX93_OCOTP_LVDS1_GATE]	= { .word = 20, .mask = BIT(24) },
++		[IMX93_OCOTP_ADC1_GATE]		= { .word = 21, .mask = BIT(7) },
++	},
++};
++
+ static const struct ocotp_devtype_data imx93_ocotp_data = {
++	.access_gates = &imx93_access_gates,
+ 	.reg_off = 0x8000,
+ 	.reg_read = imx_ocotp_reg_read,
+ 	.size = 2048,
+@@ -183,7 +324,51 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 	},
+ };
+ 
++static const struct ocotp_access_gates imx95_access_gates = {
++	.num_words = 3,
++	.words = {17, 18, 19},
++	.num_gates = IMX95_OCOTP_NUM_GATES,
++	.gates = {
++		[IMX95_OCOTP_CANFD1_GATE]	= { .word = 17, .mask = BIT(20) },
++		[IMX95_OCOTP_CANFD2_GATE]	= { .word = 17, .mask = BIT(21) },
++		[IMX95_OCOTP_CANFD3_GATE]	= { .word = 17, .mask = BIT(22) },
++		[IMX95_OCOTP_CANFD4_GATE]	= { .word = 17, .mask = BIT(23) },
++		[IMX95_OCOTP_CANFD5_GATE]	= { .word = 17, .mask = BIT(24) },
++		[IMX95_OCOTP_CAN1_GATE]	= { .word = 17, .mask = BIT(25) },
++		[IMX95_OCOTP_CAN2_GATE]	= { .word = 17, .mask = BIT(26) },
++		[IMX95_OCOTP_CAN3_GATE]	= { .word = 17, .mask = BIT(27) },
++		[IMX95_OCOTP_CAN4_GATE]	= { .word = 17, .mask = BIT(28) },
++		[IMX95_OCOTP_CAN5_GATE]	= { .word = 17, .mask = BIT(29) },
++		[IMX95_OCOTP_NPU_GATE]		= { .word = 18, .mask = BIT(0) },
++		[IMX95_OCOTP_A550_GATE]	= { .word = 18, .mask = BIT(1) },
++		[IMX95_OCOTP_A551_GATE]	= { .word = 18, .mask = BIT(2) },
++		[IMX95_OCOTP_A552_GATE]	= { .word = 18, .mask = BIT(3) },
++		[IMX95_OCOTP_A553_GATE]	= { .word = 18, .mask = BIT(4) },
++		[IMX95_OCOTP_A554_GATE]	= { .word = 18, .mask = BIT(5) },
++		[IMX95_OCOTP_A555_GATE]	= { .word = 18, .mask = BIT(6) },
++		[IMX95_OCOTP_M7_GATE]		= { .word = 18, .mask = BIT(9) },
++		[IMX95_OCOTP_DCSS_GATE]	= { .word = 18, .mask = BIT(22) },
++		[IMX95_OCOTP_LVDS1_GATE]	= { .word = 18, .mask = BIT(27) },
++		[IMX95_OCOTP_ISP_GATE]		= { .word = 18, .mask = BIT(29) },
++		[IMX95_OCOTP_USB1_GATE]	= { .word = 19, .mask = BIT(2) },
++		[IMX95_OCOTP_USB2_GATE]	= { .word = 19, .mask = BIT(3) },
++		[IMX95_OCOTP_NETC_GATE]	= { .word = 19, .mask = BIT(4) },
++		[IMX95_OCOTP_PCIE1_GATE]	= { .word = 19, .mask = BIT(6) },
++		[IMX95_OCOTP_PCIE2_GATE]	= { .word = 19, .mask = BIT(7) },
++		[IMX95_OCOTP_ADC1_GATE]	= { .word = 19, .mask = BIT(8) },
++		[IMX95_OCOTP_EARC_RX_GATE]	= { .word = 19, .mask = BIT(11) },
++		[IMX95_OCOTP_GPU3D_GATE]	= { .word = 19, .mask = BIT(16) },
++		[IMX95_OCOTP_VPU_GATE]		= { .word = 19, .mask = BIT(17) },
++		[IMX95_OCOTP_JPEG_ENC_GATE]	= { .word = 19, .mask = BIT(18) },
++		[IMX95_OCOTP_JPEG_DEC_GATE]	= { .word = 19, .mask = BIT(19) },
++		[IMX95_OCOTP_MIPI_CSI1_GATE]	= { .word = 19, .mask = BIT(21) },
++		[IMX95_OCOTP_MIPI_CSI2_GATE]	= { .word = 19, .mask = BIT(22) },
++		[IMX95_OCOTP_MIPI_DSI1_GATE]	= { .word = 19, .mask = BIT(23) },
++	}
++};
++
+ static const struct ocotp_devtype_data imx95_ocotp_data = {
++	.access_gates = &imx95_access_gates,
+ 	.reg_off = 0x8000,
+ 	.reg_read = imx_ocotp_reg_read,
+ 	.size = 2048,
 
-Best regards,
 -- 
-Peng Fan <peng.fan@nxp.com>
+2.37.1
 
 
