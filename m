@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F932E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AD6E77182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n+UJA2UV6hes6EiSzniGHAOlzpx0LS1dL1tGp/JbEU4=; b=X0JRZIY+bfp1h7HtI5KVnRc/xb
-	MHr6N/kBU4KlDvfWs7+TCHzVXg4p4GyLn9F412NQuAu8Y52av5/y1WrZXo+SNB2037Zw2er4fKEMD
-	iCE32NmiP88dMOv2nqyHaAZdqJWsIsoIzK11n12hKi0+VAYNsjPPc4p32zfNFHgAfgUXVFyQxPqfM
-	DeFHwlpSHxCgjLcaIYnx4IozW7aHLp2fSSAdDmzKVg9jQQvtztDgReHtnD+z81zkrfFWWP64NrsZQ
-	qOFYJPJIVCkpGw4sngrmR7RaQDwY6ZHDJChCWUFTmOeo26LmFEtSKX9ZPaOrYfIzu2EH0Na6CdKxx
-	YbGl7w2A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qvnbcj2YKmEAhtiQZ+x9+fw5EQpdgF2hcSYZ69DOFN0=; b=Mv9JYazGxGonAjqpzqrCkNfyDN
+	oMFcq8OY6VVs7DAHsoik/nLsD2FpcL+gOmg6UfZ3eSqCKeiR6d/r5FpOgJwWcEapmq1EdJ3nDybpL
+	0X2mAHTlsOM6pIL9lH59vwdvoQrh1ShTihjudsFBrpmhO193XTsv07xTiKwmRjgQxJNc9OMA2z0fP
+	2iA+wgML2N7mYwjPF9IJ6fWpYJUlyYlkQSXHb4T6gGTtb4GmNN4HG0NX4BXzrGBQAwPU5M1Ss1SYn
+	oFIXO2G4HfF4TVlY3Y3VvP4rHuquTBgBObgT6oihf9pwi4bvWycEnC0CABZtVLrXFuR9viqbR/JYU
+	Io39htqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLg88-000000000Og-3gLx;
-	Thu, 12 Dec 2024 10:09:12 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tLgCU-000000000zJ-176q;
+	Thu, 12 Dec 2024 10:13:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLg40-0000000HabW-0Ahi;
-	Thu, 12 Dec 2024 10:04:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1733997894;
-	bh=BJAKUmR3xWQ9qzG9ppN4jAGJ2iMpKpc+JdEgddk4Bxc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=CMNjt9KrL72tAJutKI5akwTGiPtV6M1Dw//IwYzpHNQ+Bpu+qBxRkFNBlhPrveAYa
-	 rBReguwRxy/uMP6x3OxHNW1bh5QK1Yyv9GTx/OlqSaFcw36N/sYEJPFJFSuWbVqwWQ
-	 m5J0utModagdtptTLzcd4OUwddtYjuqJWpOjE22FND305Zgabj/g/Dt7w+E2Oft6bX
-	 wGSn5T78mWTQCPop8xryfvmYMOR02cAMaID28/TxBw8HypbfxZVuSqiStMFHdILvm4
-	 dYCoo/EmQdb4uO41W6Zn+SV+9lnvEijtKbQN6uzirXuEVILHCNhU3++Em5kbNNzGCe
-	 ypTIMmExhTaOA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BDEF517E35FA;
-	Thu, 12 Dec 2024 11:04:53 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Trevor Wu <trevor.wu@mediatek.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
- Aary Patil <aary.patil@mediatek.com>, 
- Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>, 
- parkeryang <Parker.Yang@mediatek.com>
-In-Reply-To: <20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com>
-References: <20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com>
-Subject: Re: [PATCH v2 0/2] Enable audio output for Genio 700 EVK board
-Message-Id: <173399789370.41280.16875335834079584278.b4-ty@collabora.com>
-Date: Thu, 12 Dec 2024 11:04:53 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
+	id 1tLgBQ-000000000pu-0Ywa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 10:12:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E51BA42710;
+	Thu, 12 Dec 2024 10:10:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EA19C4CECE;
+	Thu, 12 Dec 2024 10:12:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733998355;
+	bh=pI0CmbiNGAceIkukqgmpuyvpA4axUQGsh7I3w5JgAa0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=h4BeYANovPTKYcwkpZN7ak0uJ5p9MrVFewFPknskoPuwVIq8Vg0xaUyOkPeOcSqvZ
+	 1N+66kK65+7cfajzy6k9VtSK+0tjeejNyOHJhww+Z6UvJfHtbLfzDlM4swY5E+86Kc
+	 25PDhxPKr2r1MUymedHAOy6LCzhVBbVWUtbIZprmxOn4WPC1Mh5069dz33g0FcOX0J
+	 MvLaSjlhbPSRxae6MriZIy7GtcDbSZzeh7lreO02oSJvC4uB9M5UHarmb45xV3wxaw
+	 5C3phAiaeOYabII826uqaLooo1sCpA/AGAPi0y2MsnmGVr4F/zGMN1hPRKn2P/dL7I
+	 xAuR68oxFE7/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLgBM-0031y9-Ph;
+	Thu, 12 Dec 2024 10:12:33 +0000
+Date: Thu, 12 Dec 2024 10:12:32 +0000
+Message-ID: <86ldwlryzz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: richard clark <richard.xnu.clark@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	will@kernel.org,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: Question about interrupt prioriyt of ARM GICv3/4
+In-Reply-To: <CAJNi4rPDVXS3Ft3nHLXvMzHmn9d10Nz4Pxeduoe+v5HaK=CEAg@mail.gmail.com>
+References: <CAJNi4rMfhZOCT+7Ki14vUs+dZbv9cxCZ0s+jgn6=_om4NTgo_A@mail.gmail.com>
+	<86cyi5tanz.wl-maz@kernel.org>
+	<CAJNi4rPDVXS3Ft3nHLXvMzHmn9d10Nz4Pxeduoe+v5HaK=CEAg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: richard.xnu.clark@gmail.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, will@kernel.org, linux@armlinux.org.uk, mark.rutland@arm.com, torvalds@linux-foundation.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_020456_245729_5B55A74B 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_021236_300521_CCF2DCA0 
+X-CRM114-Status: GOOD (  46.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +90,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Dec 2024 17:54:27 -0300, Nícolas F. R. A. Prado wrote:
-> This series enables audio output support for the Genio 700 EVK board.
-> Patch 1 adds the missing #sound-dai-cells property in the MT6359 node as
-> a prerequisite, and patch 2 describes the audio DT nodes to get audio
-> output working on the two audio jacks, Earphone and Speaker, present on
-> the board.
-> 
-> 
-> [...]
+On Thu, 12 Dec 2024 09:18:56 +0000,
+richard clark <richard.xnu.clark@gmail.com> wrote:
+>=20
+> Hi M,
 
-Applied to v6.13-next/dts64, thanks!
+Hi r,
 
-[1/2] arm64: dts: mt6359: Add #sound-dai-cells property
-      commit: 9bc8353be720ca1f9cb6e03825929bc172e1157d
-[2/2] arm64: dts: mediatek: mt8390-genio-700-evk: Add sound output support
-      commit: b8457716eeee45ed5cb6b8fdc5a5b459f7ebe819
+>=20
+> On Fri, Dec 6, 2024 at 5:37=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrot=
+e:
+> >
+> > On Fri, 06 Dec 2024 08:33:11 +0000,
+> > richard clark <richard.xnu.clark@gmail.com> wrote:
+> > >
+> > > Hi,
+> > > Currently seems the GICv3/4 irqchip configures all the interrupts as
+> > > the same priority, I am thinking about to minimize the latency of the
+> > > interrupt for a particular device, e.g, the arm arch_timer in the RTL
+> > > system. The question is,
+> > > 1. Why don't we provide a /proc or /sys interface for the enduser to
+> > > set the priority of a specific interrupt(SPI/PPI)?
+> >
+> > I'm afraid this really has nothing to do with any particular interrupt
+> > architecture.
+> >
+> > Before thinking of exposing the interrupt priority to userspace, you
+> > should look at what this translates into for the kernel once you allow
+> > interrupts to be preempted by another one with a higher priority.
+> >
+> Interrupt priority doesn't necessarily mean the preemption, seems
+> you're talking about the interrupt preemption harm according to your
+> statement followed.Frankly I am just thinking higher priority will win
+> the lower ones in case massive external interrupts received in the GIC
+> level (you see I am still talking about GIC, not kernel)
 
-Cheers,
-Angelo
+As I stated at the end of my email, the GIC only gives guarantee that
+you will ack the highest priority interrupt in finite time. Not right
+when it is made pending. Yes, it has the concept of HPPI. But that
+from the PoV of the CPU interface, not that of the distributor. Factor
+in the Stream interface, and you realise that expecting to always ack
+the highest priority pending interrupt is akin to expecting no
+reordering of packets in a network.
 
+> >
+> > This means that at every point where you would normally see a
+> > local_irq_save(), spinlock_irqsave() or equivalent, you would need to
+> > explicitly specify the priority that you allow for preemption. You
+> > should then make sure that any code that can be run during an
+> > interrupt is reentrant. You need to define which data structures can
+> > be manipulated at which priority level... The list goes on.
+> >
+> irqsave just masks the interrupt from the point of cpu, I don't think
+> it will mess things up if preemption really happens (no? then what the
+> side-effect is for the nested interrupt handling in the softirq part.
+> damage the semantic of the lock primitives?)
+> >
+> > If you want a small taste of the complexity, just look at what
+> > handling NMIs (or even pseudo-NMIs in the case of GICv3) means, and
+> > generalise it to not just two, but an arbitrary range of priorities.
+> >
+> > If you want the full blown experience, look at the BSDs and their use
+> > of spl*(). I don't think anyone has any plan to get there, and the RT
+> > patches have shown that there is little need for it.
+> >
+> As supplement=EF=BC=8Cthe fiq is suggested to be used as an alternative t=
+o the
+> higher priority in the RT area...
 
+<PulpFiction>
+FIQ's dead, baby. FIQ's dead.
+</PulpFiction>
+
+> >
+> > > 2. Is there any way to verify the higher priority interrupt will have
+> > > more dominant to be selected to the CPU (IOW, the priority is really
+> > > working) in case of multiple different interrupts asserted to the GIC
+> > > at the same time(some debug registers of GIC like GICD_REEMPT_CNT :-)
+> > > to record higher priority wins)?
+> >
+> > The GIC architecture makes no promise that the interrupt you
+> > acknowledge is the highest priority pending interrupt, because this is
+> > by definition a very racy process.
+> >
+> > Also, even on busy systems, you will very rarely see two interrupts
+> > targeting the same CPU being made pending at the same time, so that
+> > the interrupt delivery system would have to arbitrate between the two.
+> > That's because interrupts are vanishingly rare in the grand scheme of
+> > things.
+> >
+> 1. I am trying to stress the external interrupts to the core#0 via the
+> stress-ng tool with one of interrupt being configured as higher
+> priority to see the benchmark data, it's time consuming as you can
+> image, still is in progress(BTW, I can't see any lockup similar hang
+> in the system with a higher priority configured)
+
+If you don't have preemption, I don't think anything wrong will
+happen. But I don't expect any benefit either.
+
+> 2. This raises a very interesting question and I am also very curious
+> about is, what is the purpose for the GIC to introduce the interrupt
+> priority features, a placeholder feature reserved for the future? Ah,
+> hardware prefer to provide more functionalities than its being
+> actually used by software, any other justification except that?
+
+You realise that the HW is not exclusively designed for Linux, right?
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
