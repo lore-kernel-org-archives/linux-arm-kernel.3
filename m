@@ -4,99 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD904E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B70E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=94mzxY38CGhTvaAMfw+0SSd7dOdgEYOTDKxFJ47+YNE=; b=fNFJZE6bk8kJGE
-	GcLmaAXMIbkC0hiDWUCJEJyTnmPTBSdVCLoMBeKa92ux1Nj8rhe0qacrw5rvQuYdiNawKBh2vh7Rz
-	9KWRStGm6uLwdsaA/HAautlrpVYYUuRfafuxw8Gci7S+JnUp2FF4BPA8sjj1AxWdjfcoHjubX7kKk
-	3fAR3xZ/5OY63d1Xdf3eqlJx4hcB+5gM2CWu9CyxLCYU2PSVzSuw5cBnyWp8X9QGJnMVDmeZFPgSp
-	2xXsvIr+qvgzDtAuEH5FtekhVAwO/yKowoAowb+a5z+1qF+9l2nSxzeTqe/m3RFJlRXY7oo/YFclL
-	p47QmFoyy71R62hkaR7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tGykcbTcw3d7ewUJ0l3TKsRLZtS5QyewppIPS1U+Om8=; b=wwRwCp6j2U/EkvkYJp9i97m9TN
+	Lod4n/LBsgh++NtVPqnwg3XR71JewCTkzG6wK6AF+ohrvRop/P3Bj4QKf3Qo8dQW5VwKpAvIaJtId
+	ACPSWgCABG4h2GuPR/08tmrPCKKQTt1TIdgq16SY8Wo6MQnFK6TWl+xQq+QTUVc4CcTXrVxvHJYR2
+	qCtROIm+E1q6nodKN/90cWPru/YGxXNo5t2V8B8LCZdAnLuyOZ4xHlZrPN+cRwrjozs46QCqaH8Cy
+	smpHwamF8htf9ns0raw910j6IjzMbY7FyCvSSNIPBi/IEgjQyd5DBaaN7SyX7SLmYMXgWSH0Qyhvr
+	B+BYY1nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfep-0000000HWhG-21Al;
-	Thu, 12 Dec 2024 09:38:55 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tLffs-0000000HWqv-0Uez;
+	Thu, 12 Dec 2024 09:40:00 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfN3-0000000HSnO-3pIS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:20:35 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC70UnJ004975;
-	Thu, 12 Dec 2024 10:20:24 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=94mzxY38CGhTvaAMfw+0SS
-	d7dOdgEYOTDKxFJ47+YNE=; b=pqZwY8PIZxe2bLyJgSlNR4uZ3s/cGN3ofFsjWn
-	dz05cWUcHI5IiykMAcRNnrdHSpWDEeJdWMQNQTFs5c95qiLDknVtX0Gdbcoes8VZ
-	AlI9th/l7dVEYgpzTboWfALM/vd3wRJRNUgKSq5dQqNr8OIeatvfeG3+Gl8fSJoz
-	Oj54d6Z9Hw6LIiFNBYAGaBgi56Gs0JUXGYq6I1HVQeGP77ZWMWjcY+UIhYx1DVyC
-	sVm9AvQKRq4tB5L6Vfau1zLdPHkBBYqxAKEJ5Ob6WGX43JC1sCaLs+Ng0/OadYrs
-	1ef+pRil1bVSWjBf8OG2+ylMYHNH9OG26JavcPu8wJ6njUJw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccnmf78x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 10:20:23 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8F93C40052;
-	Thu, 12 Dec 2024 10:19:02 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CED6F25011F;
-	Thu, 12 Dec 2024 10:18:02 +0100 (CET)
-Received: from localhost (10.129.178.65) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 12 Dec
- 2024 10:18:02 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Subject: [PATCH v4 00/15] media: stm32: introduction of CSI / DCMIPP for
- STM32MP25
-Date: Thu, 12 Dec 2024 10:17:24 +0100
-Message-ID: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
+	id 1tLfOm-0000000HTKI-0QDa;
+	Thu, 12 Dec 2024 09:22:21 +0000
+X-UUID: 92f0d7f4b86a11ef82ff63e91e7eb18c-20241212
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=tGykcbTcw3d7ewUJ0l3TKsRLZtS5QyewppIPS1U+Om8=;
+	b=WS62WFVrp77EVvB9ufbchuuPGjh9c0yK9g/gdlkj4Gw0C+fQGU3j/tyc1naF8M1ttcZXqcrJHaN9b4vs4PaMOaVvHK+pEiTdqj6cm6hxYGnnBwyy9u9Z5SkdnUUN9j6DakGJCrSY0qSLx83OtALvAErWaXY+BNGYEr6CFOp6W6w=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:abb94b52-a4f3-463a-8283-f4f4c82b11e6,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:6493067,CLOUDID:23590513-8f5d-4ac6-9276-7b9691c7b8d6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 92f0d7f4b86a11ef82ff63e91e7eb18c-20241212
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <cloud.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 990448300; Thu, 12 Dec 2024 02:22:14 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 12 Dec 2024 17:22:09 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 12 Dec 2024 17:22:08 +0800
+From: mtk22730 <Cloud.Zhang@mediatek.com>
+To: Mark Brown <broonie@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Cloud Zhang
+	<cloud.zhang@mediatek.com>
+Subject: [PATCH] [v1] spi: spi-mtk-nor: Modify the clock architecture of nor controller
+Date: Thu, 12 Dec 2024 17:20:12 +0800
+Message-ID: <20241212092206.14071-1-Cloud.Zhang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACSqWmcC/23OSw6CMBCA4auQri2ZaakFV97DGFL6kC6whBKiI
- dzdggs1uPwnmW9mJtEO3kZyymYy2MlHH+4pikNGdKvuN0u9SU0YsAIBJNXR10Z3vu/rrmeCSim
- rI6AT0iiStvrBOv/YxMs1devjGIbndmDi6/RtIZY7a+IUqMYKC+UaUODOLsSYxzHXoSOrNrEvA
- cReYEloKqdLJZnkmu0F/AgAf37AJFjuDFgjiobjr7Asywvc6z8mNAEAAA==
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Sakari Ailus
-	<sakari.ailus@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Philipp
- Zabel <p.zabel@pengutronix.de>,
-        Hans Verkuil <hverkuil@xs4all.nl>, Hans
- Verkuil <hverkuil@xs4all.nl>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>,
-        <stable@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.1
-X-Originating-IP: [10.129.178.65]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10-2.015300-8.000000
+X-TMASE-MatchedRID: PZMqI2AhqDQdWKRD1iYss+EbUg4xvs+wCt59Uh3p/NUKogmGusPLb8UR
+	fpp2J0YycRMU/6zQP6hcWPWm98SUsWdvGUEuKvScnIGynr5ObIaKbuU19+RNrmq//5Ao1w8uVon
+	uiLTPfifG3TRnfVX2PIAy6p60ZV62SwOSQ/fMiOrdB/CxWTRRu4PtEWvP7F7FglK3TQvBrzHUdN
+	vHZnc+lOkykW6dVMoLp7xo3bUdR0zawYtKJNIJl4y1Ms3iZ9oVEBHFAzc5ZQlDW0Cl2o4sC7Y3k
+	0MIk05nhJVRlkc0uv5GBXoeyrLHXVBo425nomviD2TeXwRpghw5Asr9kfiuVp6oP1a0mRIj
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10-2.015300-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: 9A918C98F4CB6051F0074717FB9392B18B5A07F715E3C802758DA1FA72F647DF2000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_012034_245737_6C2B38EB 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20241212_012220_153066_C38F3412 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +97,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces the camera pipeline support for the
-STM32MP25 SOC.  The STM32MP25 has 3 pipelines, fed from a
-single camera input which can be either parallel or csi.
+From: Cloud Zhang <cloud.zhang@mediatek.com>
 
-This series adds the basic support for the 1st pipe (dump)
-which, in term of features is same as the one featured on
-the STM32MP13 SOC.  It focuses on introduction of the
-CSI input stage for the DCMIPP, and the CSI specific new
-control code for the DCMIPP.
-One of the subdev of the DCMIPP, dcmipp_parallel is now
-renamed as dcmipp_input since it allows to not only control
-the parallel but also the csi interface.
+The clock used by different platforms is not same. So it is
+necessary to modify the clock architecture to be adaptable to more
+platforms.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+Signed-off-by: Cloud Zhang <cloud.zhang@mediatek.com>
 ---
-Changes in v4:
-* stm32-dcmipp: correct patch 13/15 with clk error handling in
-  dcmipp_runtime_resume function
-- Link to v3: https://lore.kernel.org/r/20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com
+ drivers/spi/spi-mtk-nor.c | 118 ++++++++++++++++++++++----------------
+ 1 file changed, 68 insertions(+), 50 deletions(-)
 
-Changes in v3:
-* stm32-csi: use clk_bulk api
-* stm32-csiL perform reset control within the probe
-- Link to v2: https://lore.kernel.org/r/20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com
-
----
-Alain Volmat (15):
-      media: stm32: dcmipp: correct dma_set_mask_and_coherent mask value
-      dt-bindings: media: add description of stm32 csi
-      media: stm32: csi: addition of the STM32 CSI driver
-      media: stm32: dcmipp: use v4l2_subdev_is_streaming
-      media: stm32: dcmipp: replace s_stream with enable/disable_streams
-      media: stm32: dcmipp: rename dcmipp_parallel into dcmipp_input
-      media: stm32: dcmipp: add support for csi input into dcmipp-input
-      media: stm32: dcmipp: add bayer 10~14 bits formats
-      media: stm32: dcmipp: add 1X16 RGB / YUV formats support
-      media: stm32: dcmipp: avoid duplicated format on enum in bytecap
-      media: stm32: dcmipp: fill media ctl hw_revision field
-      dt-bindings: media: add the stm32mp25 compatible of DCMIPP
-      media: stm32: dcmipp: add core support for the stm32mp25
-      arm64: dts: st: add csi & dcmipp node in stm32mp25
-      arm64: dts: st: enable imx335/csi/dcmipp pipeline on stm32mp257f-ev1
-
- .../devicetree/bindings/media/st,stm32-dcmipp.yaml |   53 +-
- .../bindings/media/st,stm32mp25-csi.yaml           |  125 +++
- MAINTAINERS                                        |    8 +
- arch/arm64/boot/dts/st/stm32mp251.dtsi             |   23 +
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |   85 ++
- drivers/media/platform/st/stm32/Kconfig            |   14 +
- drivers/media/platform/st/stm32/Makefile           |    1 +
- drivers/media/platform/st/stm32/stm32-csi.c        | 1137 ++++++++++++++++++++
- .../media/platform/st/stm32/stm32-dcmipp/Makefile  |    2 +-
- .../st/stm32/stm32-dcmipp/dcmipp-bytecap.c         |  128 ++-
- .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        |  119 +-
- .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |    4 +-
- .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   |  122 ++-
- .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  |  540 ++++++++++
- .../st/stm32/stm32-dcmipp/dcmipp-parallel.c        |  440 --------
- 15 files changed, 2224 insertions(+), 577 deletions(-)
----
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-change-id: 20241007-csi_dcmipp_mp25-7779601f57da
-
-Best regards,
+diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
+index 85ab5ce96c4d..d466a8d3f062 100644
+--- a/drivers/spi/spi-mtk-nor.c
++++ b/drivers/spi/spi-mtk-nor.c
+@@ -99,6 +99,8 @@
+ 
+ #define CLK_TO_US(sp, clkcnt)		DIV_ROUND_UP(clkcnt, sp->spi_freq / 1000000)
+ 
++#define MAX_CLOCK_CNT		6
++
+ struct mtk_nor_caps {
+ 	u8 dma_bits;
+ 
+@@ -110,16 +112,19 @@ struct mtk_nor_caps {
+ 	u8 extra_dummy_bit;
+ };
+ 
++struct clk_info {
++	struct clk *clki;
++	const char *name;
++};
++
+ struct mtk_nor {
+ 	struct spi_controller *ctlr;
+ 	struct device *dev;
+ 	void __iomem *base;
+ 	u8 *buffer;
+ 	dma_addr_t buffer_dma;
+-	struct clk *spi_clk;
+-	struct clk *ctlr_clk;
+-	struct clk *axi_clk;
+-	struct clk *axi_s_clk;
++	struct clk_info clocks[MAX_CLOCK_CNT];
++	u8 clock_cnt;
+ 	unsigned int spi_freq;
+ 	bool wbuf_en;
+ 	bool has_irq;
+@@ -703,42 +708,74 @@ static int mtk_nor_transfer_one_message(struct spi_controller *host,
+ 
+ static void mtk_nor_disable_clk(struct mtk_nor *sp)
+ {
+-	clk_disable_unprepare(sp->spi_clk);
+-	clk_disable_unprepare(sp->ctlr_clk);
+-	clk_disable_unprepare(sp->axi_clk);
+-	clk_disable_unprepare(sp->axi_s_clk);
++	u8 i;
++
++	for (i = 0; i < sp->clock_cnt; i++)
++		clk_disable_unprepare(sp->clocks[i].clki);
+ }
+ 
+ static int mtk_nor_enable_clk(struct mtk_nor *sp)
+ {
+ 	int ret;
++	u8 i, j;
+ 
+-	ret = clk_prepare_enable(sp->spi_clk);
+-	if (ret)
+-		return ret;
++	for (i = 0; i < sp->clock_cnt; i++) {
++		ret = clk_prepare_enable(sp->clocks[i].clki);
++		if (ret) {
++			for (j = 0; j < i; j++)
++				clk_disable_unprepare(sp->clocks[j].clki);
+ 
+-	ret = clk_prepare_enable(sp->ctlr_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		return ret;
++			return ret;
++		}
++
++		if (strcmp(sp->clocks[i].name, "spi"))
++			sp->spi_freq = clk_get_rate(sp->clocks[i].clki);
+ 	}
+ 
+-	ret = clk_prepare_enable(sp->axi_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		clk_disable_unprepare(sp->ctlr_clk);
+-		return ret;
++	return 0;
++}
++
++static int mtk_nor_parse_clk(struct device *dev, struct mtk_nor *sp)
++{
++	struct device_node *np = dev->of_node;
++	int ret;
++	const char *name;
++	u8 cnt, i;
++
++	cnt = of_property_count_strings(np, "clock-names");
++	if (!cnt || (cnt == -EINVAL)) {
++		dev_err(dev, "Unable to find clocks\n");
++		ret = -EINVAL;
++		goto out;
++	} else if (cnt < 0) {
++		dev_err(dev, "Count clock strings failed, err %d\n", cnt);
++		ret = cnt;
++		goto out;
++	} else if (cnt > MAX_CLOCK_CNT) {
++		ret = -EINVAL;
++		goto out;
+ 	}
+ 
+-	ret = clk_prepare_enable(sp->axi_s_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		clk_disable_unprepare(sp->ctlr_clk);
+-		clk_disable_unprepare(sp->axi_clk);
+-		return ret;
++	sp->clock_cnt = cnt;
++
++	for (i = 0; i < cnt; i++) {
++		ret = of_property_read_string_index(np, "clock-names", i,
++				       &name);
++		if (ret) {
++			dev_err(dev, "failed to get clock string\n");
++			return ret;
++		}
++
++		sp->clocks[i].name = name;
++		sp->clocks[i].clki = devm_clk_get(dev, sp->clocks[i].name);
++		if (IS_ERR(sp->clocks[i].clki)) {
++			dev_err(dev, "get clock %s fail\n", sp->clocks[i].name);
++			return PTR_ERR(sp->clocks[i].clki);
++		}
+ 	}
+ 
+-	return 0;
++out:
++	return ret;
+ }
+ 
+ static void mtk_nor_init(struct mtk_nor *sp)
+@@ -813,29 +850,12 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	struct mtk_nor *sp;
+ 	struct mtk_nor_caps *caps;
+ 	void __iomem *base;
+-	struct clk *spi_clk, *ctlr_clk, *axi_clk, *axi_s_clk;
+ 	int ret, irq;
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	spi_clk = devm_clk_get(&pdev->dev, "spi");
+-	if (IS_ERR(spi_clk))
+-		return PTR_ERR(spi_clk);
+-
+-	ctlr_clk = devm_clk_get(&pdev->dev, "sf");
+-	if (IS_ERR(ctlr_clk))
+-		return PTR_ERR(ctlr_clk);
+-
+-	axi_clk = devm_clk_get_optional(&pdev->dev, "axi");
+-	if (IS_ERR(axi_clk))
+-		return PTR_ERR(axi_clk);
+-
+-	axi_s_clk = devm_clk_get_optional(&pdev->dev, "axi_s");
+-	if (IS_ERR(axi_s_clk))
+-		return PTR_ERR(axi_s_clk);
+-
+ 	caps = (struct mtk_nor_caps *)of_device_get_match_data(&pdev->dev);
+ 
+ 	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(caps->dma_bits));
+@@ -868,10 +888,6 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	sp->wbuf_en = false;
+ 	sp->ctlr = ctlr;
+ 	sp->dev = &pdev->dev;
+-	sp->spi_clk = spi_clk;
+-	sp->ctlr_clk = ctlr_clk;
+-	sp->axi_clk = axi_clk;
+-	sp->axi_s_clk = axi_s_clk;
+ 	sp->caps = caps;
+ 	sp->high_dma = caps->dma_bits > 32;
+ 	sp->buffer = dmam_alloc_coherent(&pdev->dev,
+@@ -885,11 +901,13 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 	}
+ 
+-	ret = mtk_nor_enable_clk(sp);
++	ret = mtk_nor_parse_clk(sp->dev, sp);
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	sp->spi_freq = clk_get_rate(sp->spi_clk);
++	ret = mtk_nor_enable_clk(sp);
++	if (ret < 0)
++		return ret;
+ 
+ 	mtk_nor_init(sp);
+ 
 -- 
-Alain Volmat <alain.volmat@foss.st.com>
+2.46.0
 
 
