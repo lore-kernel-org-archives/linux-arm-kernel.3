@@ -4,101 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EEEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 05:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE0BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 06:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9+wJ+4THMZ6aKAeDHGQEFe1hJ+XvdzKUMLTnVrjnRQ=; b=v9z42ubejTPOnFE5urjleJmFRL
-	34poq+6pw12oeSIK0VQ2P8x2VIEA1yHCUJcwB0RLyzRsDyiB4SR3UG+ZCJUyphu8YbFY3Ljzvd1vp
-	WAK3DbtF/7L+UIDoX6PvLuFLwSdIvH2giXFKX7j9T7CNSwPdZUlyqOTV5Ke+YkG3RcDn1xQwYo/2j
-	316hHUXLRboEy4F28KAwH1lm5WclP16LM+hkRH3xNxj164j7ZqPwiGaRnElK0UYMPcqwYaTXgytAm
-	3IIOtP2UfbeGSPaBKZURgb16UlTbuVFqPSsbtBnoAir502uplbbxpE8uH0pvBfqdhIeyBlo8Ekvks
-	/csBBxjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2sOU/zN1rnDAJHK7mSCpddQhh7N81+Tto3qj5XwbKbU=; b=DH3OQkfmG/kl50xXxGqm7FR+jy
+	8LDjG1HxIu2Cd4pV2aTmfbrRz9c4W34EM0/amkon8LUAZ2bk5DCngcEaB4xtmgqTbdluFc+B/mHDa
+	ghM3p71E9mrCVNe37Rj1Lajx6+YpXxus+Xdy7aZtyWBpMb0FlrikwxyXNdSb00ap9RE8bXGjz4khS
+	NvEeTVCTHWutUzqe6hSCD+72vBoQEyeZUGXWEaX63AaE8MLGIA0J1b+wHRxeBgV/b0prerbzDthtG
+	FZM+/eyFwQ4kZZZg/8ad2DfxANdCL5UT0wgctVABA35QqkCsPSazM7t7eXK7L5O69ekfj9GCjkwY1
+	QoOhRS1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLboU-0000000Gxad-2iw6;
-	Thu, 12 Dec 2024 05:32:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tLcaH-0000000H1lB-04Ss;
+	Thu, 12 Dec 2024 06:22:01 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLbnQ-0000000GxRV-42gY
+	id 1tLcZC-0000000H1Vt-3XUb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 05:31:34 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BBHD59G002087;
-	Thu, 12 Dec 2024 05:31:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=y9+wJ+4THMZ6aKAeDHGQEFe1
-	hJ+XvdzKUMLTnVrjnRQ=; b=nPNTCbkfWfCu1Te64iYQgIXGCFr8bTR33PE4GjrL
-	9kVDhksvM8ujfIKTSZFleSwdeavUPq7cAvuAdyFGTD6UianYJ2zMVCK+dkESgpHn
-	Ej5e9dBFYyr3EZCwTnh1fHJa9iaKen0r3icOq5f27zqDZhlekAKrZfUrIVWpHd0u
-	ynf2kx7+zX/u0q+0Xw+suOzNnbHmotFLP0X9hLw2NmHGA1ACCZ2kuZfoUWbKhFL2
-	0R7d/tdlT/nO7hjpuZz5+q2F8gmrv9mXFqjmbn3DHKmZzy4pqg4P+L1wo8rIsJSR
-	63si0/SyuyHETlHcmZqV5BjP0xLY1rqB8CkCvaTL2+rFHA==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43f0r9v76c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 05:31:24 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BC5V804029685
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 05:31:08 GMT
-Received: from hu-pkondeti-hyd (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Dec
- 2024 21:31:03 -0800
-Date: Thu, 12 Dec 2024 11:01:00 +0530
-From: Pavan Kondeti <quic_pkondeti@quicinc.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: Pavan Kondeti <quic_pkondeti@quicinc.com>,
-        Akhil P Oommen
-	<quic_akhilpo@quicinc.com>,
-        Rob Clark <robdclark@gmail.com>, Sean Paul
-	<sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abhinav Kumar
-	<quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Elliot Berman
-	<quic_eberman@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-Message-ID: <c197264b-3791-493a-b717-3dfd844de922@quicinc.com>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
- <87ed2fs03w.wl-maz@kernel.org>
- <92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
- <86sequsdtp.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <86sequsdtp.wl-maz@kernel.org>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: tyQb_xK72c8u2XdN2OgQP_4VMJmSutu8
-X-Proofpoint-GUID: tyQb_xK72c8u2XdN2OgQP_4VMJmSutu8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 phishscore=0 spamscore=0 clxscore=1015 mlxlogscore=968
- malwarescore=0 lowpriorityscore=0 mlxscore=0 bulkscore=0 suspectscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412120037
+	Thu, 12 Dec 2024 06:20:56 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2161d4b820bso417865ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 22:20:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=huaqin-corp-partner-google-com.20230601.gappssmtp.com; s=20230601; t=1733984453; x=1734589253; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2sOU/zN1rnDAJHK7mSCpddQhh7N81+Tto3qj5XwbKbU=;
+        b=ejPxaq1jfWzIaBFtAs5fx8kjwOWsyDErKJc6ZwMF3y8/lKrqaWYK/RaiBTIIl+pQia
+         jVfmGGKarovEDpbm0PIVIkrtvHT7+6K4MVVolbQGpxxaoSwf59aPov8uSiBNZ1TYgsBE
+         fJbZoESIqGfXN0v1qIgynYrbwKWtP9eOxqHkhfIZ0IXKnDPQqCkRHzlC9D/pd58vlVvT
+         KkEWQwkGrW9ffbW9RiTQ6hLYA4A2z16PNOe2jEh2wIihe57GvcD34cxP7mYMM1K5uoio
+         w0+39kmoDG4A7LFSFF6TvPecveopz6gRICRSc9ZHLwEm3+JAaWxzSZ43EgfBWo6bzR2o
+         icng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733984453; x=1734589253;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2sOU/zN1rnDAJHK7mSCpddQhh7N81+Tto3qj5XwbKbU=;
+        b=cEleYZCOTfwbtebej/DAwHRZCCXuJsA97ZzOBlAf3bar2XXqAH8mM3bArfhGUaKpWg
+         +8CJxjWWy24fn0RP4W4lwSJwg8ht5JDzEtyN3V3PRN/znP5dyTdwH6PSz0+QoVkd8aR5
+         1GSiYEP9ZwU7EIGGSWgsUFZ3bk3riRiqZGkCr6Xy/LLqfGLJHmwquZ33huLPiPN/pP5S
+         +L3NQtACRdpfEjUEck6uzNnkuTsJd54Z+fNlfVnOjfRDHCE6IyJIgaKnvm/amnlHdj6q
+         z46H7JDRYitLoVRuLs8D8TB6DY5qCP2DCg0UF1quQkHrfDAwfFs6fjE1vO2bF+vH/xvJ
+         /vgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4wUgu75k/B/FmDeMOHN5Y4bnHbdce8j2jOUVUQmcpUpZCMSirU4egaBjbhZao+zo27RVxlv3SIhhJvCvhIHLx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg4PAmAO8av1XxJ2lbELmFDg+MiiNh5HwULhln+U9JEEoDdOQo
+	3aDspr9F30Db/4e+3bO6xydGTIth6RVKWfE/IL8ZP29WSn08lXBb25hPwcfcrNw=
+X-Gm-Gg: ASbGncvNMPwOIiomiKGP5hF4UeS07S8JGkydyGfv/BPsyloB17ivp/EfOkzk6AEGYw0
+	5OvB5DGmhW9C15c5WqVZ9pgFlcrT4m++pwxf89TCeLUclNoRF+jIcWkv+X4B10TgBvfxcxIvYbF
+	oe/NwcA1bpyWmph36GIpaYgS1WZRrNvADfoT4sdI2LSBJw5HTG3eTnOOaHvneoclWH3zsyszp8D
+	AxiRjeA2e4Krvmublt4qrQjSO0XOGtlM9mPpIleycMwNSD/WgdnxZdU6qKWJBXEEShf9v0FDqW0
+	z4M3ZN18XP4mbCOPVSVV
+X-Google-Smtp-Source: AGHT+IHLQqfTE6S33rXaKex6v5/nL8RuEZqh0jZ1l97VEOxPKBfxg+FVj8Clw/rAjJE+bNggu1IJ0w==
+X-Received: by 2002:a17:902:dacb:b0:216:6590:d477 with SMTP id d9443c01a7336-21778397962mr36786945ad.2.1733984453430;
+        Wed, 11 Dec 2024 22:20:53 -0800 (PST)
+Received: from ubuntu.huaqin.com ([116.66.212.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2162c278668sm83579165ad.81.2024.12.11.22.20.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 22:20:53 -0800 (PST)
+From: Zhengqiao Xia <xiazhengqiao@huaqin.corp-partner.google.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	wenst@chromium.org,
+	hsinyi@chromium.org,
+	sean.wang@mediatek.com,
+	dianders@google.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Zhengqiao Xia <xiazhengqiao@huaqin.corp-partner.google.com>
+Subject: [PATCH v5 0/4] arm64: dts: mediatek: Add MT8186 Chinchou
+Date: Thu, 12 Dec 2024 14:20:42 +0800
+Message-Id: <20241212062046.22509-1-xiazhengqiao@huaqin.corp-partner.google.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_213133_119361_56B2BB92 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20241211_222055_140141_DC78752E 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,54 +102,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 10:40:02AM +0000, Marc Zyngier wrote:
-> On Wed, 11 Dec 2024 00:37:34 +0000,
-> Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
-> > 
-> > On Tue, Dec 10, 2024 at 09:24:03PM +0000, Marc Zyngier wrote:
-> > > > +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
-> > > > +{
-> > > > +	int ret;
-> > > > +
-> > > > +#ifdef CONFIG_ARM64
-> > > > +	/*
-> > > > +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
-> > > > +	 * to switch the secure mode to avoid the dependency on zap shader.
-> > > > +	 */
-> > > > +	if (is_kernel_in_hyp_mode())
-> > > > +		goto direct_switch;
-> > > 
-> > > No, please. To check whether you are *booted* at EL2, you need to
-> > > check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
-> > > none of the driver's business, really. This is still absolutely
-> > > disgusting from an abstraction perspective, but I guess we don't have
-> > > much choice here.
-> > > 
-> > 
-> > Thanks Marc. Any suggestions on how we can make is_hyp_mode_available()
-> > available for modules? Do you prefer exporting
-> > kvm_protected_mode_initialized and __boot_cpu_mode symbols directly or
-> > try something like [1]?
-> 
-> Ideally, neither. These were bad ideas nine years ago, and they still
-> are. The least ugly hack I can come up with is the patch below, and
-> you'd write something like:
-> 
-> 	if (cpus_have_cap(ARM64_HAS_EL2_OWNERSHIP))
-> 		blah();
-> 
-> This is obviously completely untested.
-> 
+This is v5 of the MT8186 Chromebook device tree series to support
+MT8186 chinchou platform. It is based on the "corsola" design.
+It includes chinchou and chinchou360, including LTE, stylus,
+touchscreen combinations.
 
-I have tested your patch. It works as intended. Thanks Marc.
+Changes in v5:
+- move sku17 here to keep alphabetical order.
+- do not use the MTK_DRIVE_xxx definitions.
+- Modify exton to extcon
+- Link to v4: https://patchwork.kernel.org/project/linux-arm-kernel/cover/20241202032035.29045-1-xiazhengqiao@huaqin.corp-partner.google.com/
 
-> It also doesn't solve the problem of the kernel booted on bare-metal
-> at EL1, or with a hypervisor that doesn't change the programming
-> interface of the device under the guest's feet. Eventually, someone
-> will have to address these cases.
-> 
+Changes in v4:
+- modify 'rt1019p_pins_default' to 'speaker_codec_pins_default'
+- Move usbc_extcon out of typec
+- Link to v3: https://patchwork.kernel.org/project/linux-arm-kernel/cover/20241021072626.15102-1-xiazhengqiao@huaqin.corp-partner.google.com/
 
-Noted, Thanks.
+Changes in v3:
+- Add a patch to change codec in pmic (in mt8186-corsola.dtsi) to audio-codec
+- Link to v2: https://lore.kernel.org/all/20241018091135.17075-1-xiazhengqiao@huaqin.corp-partner.google.com/
 
-~Pavan
+Changes in v2:
+- Modify location of "const: google,chinchou-sku17" in mediatek.yaml
+- rename "pin-report" to "pin-report-pins"
+- add "vcc33-supply" and "vcc33-supply" 
+- rename "cbj-sleeve-gpio" to "cbj-sleeve-gpios"
+- modify subnode of sound 
+- Link to v1: https://lore.kernel.org/all/172900161180.733089.8963543745385219831.robh@kernel.org/
+
+
+Zhengqiao Xia (4):
+  dt-bindings: arm: mediatek: Add MT8186 Chinchou Chromebook
+  arm64: dts: mediatek: Add MT8186 Chinchou Chromebooks
+  arm64: dts: mediatek: Add extcon node for DP bridge
+  arm64: dts: mediatek: Modify audio codec name for pmic
+
+ .../devicetree/bindings/arm/mediatek.yaml     |  28 ++
+ arch/arm64/boot/dts/mediatek/Makefile         |   3 +
+ .../mediatek/mt8186-corsola-chinchou-sku0.dts |  18 +
+ .../mediatek/mt8186-corsola-chinchou-sku1.dts |  35 ++
+ .../mt8186-corsola-chinchou-sku16.dts         |  29 ++
+ .../dts/mediatek/mt8186-corsola-chinchou.dtsi | 321 ++++++++++++++++++
+ .../boot/dts/mediatek/mt8186-corsola.dtsi     |   8 +-
+ 7 files changed, 441 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-sku0.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-sku1.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-sku16.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou.dtsi
+
+-- 
+2.17.1
+
 
