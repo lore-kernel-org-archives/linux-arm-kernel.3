@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8971E77182
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A57E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2LdunWCve+BzW7qxRXgQ2DWd6pqP346bXuKFqoUe0/0=; b=x/MyH3B8Di4QdmghXiqzhoamJL
-	hmMw1/j+YI88fzITBVEAXLdVD3mvf8Pf5NsJx5WqFIOJ3dVR1jZ+M1pNMKeBL05wQxMQQeLql01c7
-	vNi2ciOk0Ap5I6aituCRR8q7t0iTVTuVHPJFESGT/d8F2XIhYoePh2YXvKmkVxictDZ3gR8Xcq4HR
-	WAvIjb410TzCBXnX+ELgwh7KyDOBb9WSVZWrtjl6nVASz5T+tKTd7bkJWEk6R7tr9l8YHrvwm/Ddt
-	+Ov8mLdm2gpOxW+jsLA5HKVaad9sY6Tu9BbPhrVrvBaSEqRKDHsNwkBmr/iYp4OwuL2iBx/DfIq9+
-	jHMG3P3A==;
+	bh=8LOnKB51DX+hbW0El8jQ5+VtfI8i+DJEmanKBr5IaOc=; b=4DQAOju24trZV0s0yN37mghh6P
+	995BfBhSPsScE73hNROoHmIg1u+TSu13NoNKnBgt2P52toEltdf/4AiWlV22dxMn0gzZ+MxgCLBEE
+	LAwQc4n3xw9p3a3ZWGOJUwRWH6YbEmDiorJCpN/rVgeAhGdMFbwurRRsRnsUavfy4mj/XSw5bEnpR
+	ABXcKSFAi1iKmdGrNvutdW/IhJdZ5HdGUvqUyq40Nmsbld3buep9oXVWDFpipGuMLhYuqv/NeOsBA
+	DAqrAJ3Ml1un1oT8lS3hqbne3JZ9fGcGstR0ZXYP5D3jSZmBMCKYfMs+bCayBNyIn7hfha/NJ+MDs
+	dNMltNvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLofL-00000001aAt-1WZ6;
-	Thu, 12 Dec 2024 19:16:03 +0000
+	id 1tLofN-00000001aCW-2W6m;
+	Thu, 12 Dec 2024 19:16:05 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLna6-00000001K8p-0SDw
+	id 1tLnaE-00000001KC1-1G0Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:06:35 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4361efc9d1fso8323555e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:33 -0800 (PST)
+	Thu, 12 Dec 2024 18:06:44 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4361ecebc5bso5657655e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026792; x=1734631592; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026800; x=1734631600; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2LdunWCve+BzW7qxRXgQ2DWd6pqP346bXuKFqoUe0/0=;
-        b=g3D+s9m3lPHJ6ylpJGLCNkExb7ujzb34G9S26GYZ2J5BK/BmUPiwWJFDTPjpbdTyRE
-         AoiqTU2O7ZWa9nWTuD0529bPkJeGkrOLQm2fEu77ZCXv3vAqFJ9pGl74oHlFUXm2Nlh+
-         aEcT/5uxpaj15zGcJisL/CpOaprQVSP8sruPkOMBrjcqpCNnLa5sGLcFSSX75QuKxVru
-         zkeTSm38bVhvHlfMZVvW6TPVdVX5+MGYxvPfStEBFPAwLBuMOT+5SQwRew7cJ75gmuAI
-         x3pye6FV4/1321PK9BqqBClIX2JNRFcgsTbPxMgY8Ez+4aK/oFh7rd325RBM+DSFF2rs
-         VPyg==
+        bh=8LOnKB51DX+hbW0El8jQ5+VtfI8i+DJEmanKBr5IaOc=;
+        b=zAamf+YrFEZvRHAPBTxBzlj7yC3jHE7JtF4E3dE4EWQDlnzSkHo4HlhUO6jYF+6On9
+         nlBit0NAyw53+bFxzFnH6cbpGffikjdMJYOWMk0dClArkOTEqZFZatqG/llVNgmAYFop
+         2GhbkA9kiWooGdhjSX/pomW5kCD5S3GrBsaTe4IajWapFizSij7qtyaZklwi99oFMhP2
+         +LvO5YaDB6D30Y7YrIO3IRWCt9Yt/Ue5LzzdBHQdnrKPaoiA9R2tDRilM7yox1U9JrAK
+         Kp4X7sv5siCuJ5ZaPV9MItsLP8fTyHsiMuzKk/6ehA1AM/9gm6i5Yq589LBK8WYOYC1b
+         j79w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026792; x=1734631592;
+        d=1e100.net; s=20230601; t=1734026800; x=1734631600;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2LdunWCve+BzW7qxRXgQ2DWd6pqP346bXuKFqoUe0/0=;
-        b=Sxt4yZnalIX/tx+nWGECFFUlO/flWjlsn4OMhFwapzJ4MKoJ2bb7+IB1PFCy3wuW7E
-         X+kJqrVdIMgdNVGKqxEXtuPBIkcpP/ZjI+Oat2BfjTeAJkrXOByXE/qULy7X1251zHLR
-         KoOMPqbIyB+F2gXPicmMlvoMvTV6c57BGVMKKrpeLSUywDouy0E1pfXGNbTKULz6MGs5
-         +plFu9NJSSiGxsDjIUV5+iKgOsv5dN0ubDsyhveU5OMR8Ej6Z3UCaRL2bbMp5SoTll5s
-         /nOy3qopuX4NwDLRpqOP3X/N/2oE4Jpxs4a1swQRoBcW5UCxgwMmkl/wUJgJsiMuf/GQ
-         ZSXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjDZUbOELYN71t49L7ZoLsy7Y25GgMqcC6y5ICyZesAqTRxHLXMiy8La3kxnlrQn7laf5vPC7zRQUc787yFxzx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiMXZp5SdFKzDjIUe4+ihLZKb/U5NzBIuM2AOm9/WcDW8ClVdU
-	7OnFzeX5etxNs4H3qVzzUmnJwIhR6AP4VH53JeUJz/JFtPZvCZFaS420CtWORZVhkvaPqo/+DD9
-	1pa4xM3X4Vg==
-X-Google-Smtp-Source: AGHT+IERWZ4NnM7KQcPGdQG43bKrQYNR/UyZnwsqD34WfJRCP7KI0E4FIciOvn+bi06f/klghzOUEL4MFalBog==
-X-Received: from wmqd1.prod.google.com ([2002:a05:600c:34c1:b0:434:fe2b:fea7])
+        bh=8LOnKB51DX+hbW0El8jQ5+VtfI8i+DJEmanKBr5IaOc=;
+        b=U/Lm+xYFeVWINk3H77rF0FtOZbI+CIgggGyjHYCPEXhWntysz2AHNuTron9F+CHFBr
+         3KEXl7S8y0ZbMnBw0qnT5pcV1HZYAphygYy1MQ3BcnjgXmV3ZNbaabVy5m+tBwcwH9vk
+         YnLZ3/mO/xXLKuXxm4atMLUyQDwL7tWggn1P82N/5BGrF/a4DuATz8823g/3YPuMkIdf
+         NiDSOzenvRCb/ASn7WtyWyEGnBvYUs9S+Qr3gUD84NOra0u72/0QJfjsok0PoINfvT/K
+         hpfGV9Xzmze0+zcPiNMmNha4hT35cVvOsjXDtQvAFo9E+Umys36iuv5yGtJPMGsFyLm0
+         lO9w==
+X-Forwarded-Encrypted: i=1; AJvYcCWvPdbMC1QeLY7jd8oL+1F7yXlz8/BDzDeraBybgIsdfVtuRJVKvQZ59M6IOlWoJzl9CvroX3X6ZLHG0qKweqZo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8ypGuKV5F0krEQvrq4n/6p2MeweVSPXktzz+8ANk3U6pWZpBW
+	Y04rgjPN52fRgpDXZwytt7cKwhQX79C7rvor8C7691LHPtDn8nOYPevHxxLl/vEpbrgaQ/4hnmm
+	Ey9UQSfflIw==
+X-Google-Smtp-Source: AGHT+IE8zSOvadgYlQu/oyCrvtp7QB6KNjjif3fcyBgRNu+AsyTgZxEHuVmvUAgeCaCC/YUaZxC98HiuTjTEZA==
+X-Received: from wmgg15.prod.google.com ([2002:a05:600d:f:b0:434:feb1:add1])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:5101:b0:434:ffb2:f9df with SMTP id 5b1f17b1804b1-4361c3a6550mr73450045e9.17.1734026792347;
- Thu, 12 Dec 2024 10:06:32 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:04:16 +0000
+ 2002:a05:600c:3109:b0:434:fafe:edb with SMTP id 5b1f17b1804b1-4361c3e22e7mr61901735e9.24.1734026800793;
+ Thu, 12 Dec 2024 10:06:40 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:04:20 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-53-smostafa@google.com>
-Subject: [RFC PATCH v2 52/58] iommu/arm-smmu-v3-kvm: Add IRQs for the driver
+Message-ID: <20241212180423.1578358-57-smostafa@google.com>
+Subject: [RFC PATCH v2 56/58] KVM: arm64: iommu: Add hypercall for map_sg
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100634_147307_6F3089F4 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20241212_100642_337977_1457836A 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,215 +95,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Handle IRQs from the KVM kernel driver, it should be safe to do it
-from the kernel as this a debug feature.
-
-Only GERROR and EVTQ irqs are handled.
-Unlike the kernel driver, we don't do much here (no rest in SMMU or
-interaction of cmdq) but just printing.
+Add a new type struct kvm_iommu_sg, that describes a simple sglist,
+and a hypercall that can consume it while calling the map_pages ops.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c   |   3 +-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 138 ++++++++++++++++++
- 2 files changed, 139 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/kvm_asm.h        |  1 +
+ arch/arm64/include/asm/kvm_host.h       | 19 ++++++++
+ arch/arm64/kvm/hyp/include/nvhe/iommu.h |  2 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 14 ++++++
+ arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 58 +++++++++++++++++++++++++
+ arch/arm64/kvm/iommu.c                  | 32 ++++++++++++++
+ 6 files changed, 126 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-index 2a99873d980f..60f0760f49eb 100644
---- a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-+++ b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-@@ -365,7 +365,6 @@ static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
- 	      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
- 	writel_relaxed(val, smmu->base + ARM_SMMU_CR1);
- 	writel_relaxed(CR2_PTM, smmu->base + ARM_SMMU_CR2);
--	writel_relaxed(0, smmu->base + ARM_SMMU_IRQ_CTRL);
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 3dbf30cd10f3..f2b86d1a62ed 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -115,6 +115,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_unmap_pages,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_iova_to_phys,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_hvc_pd,
++	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_map_sg,
  
- 	val = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
- 	old = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
-@@ -540,7 +539,7 @@ static int smmu_reset_device(struct hyp_arm_smmu_v3_device *smmu)
- 		goto err_disable_cmdq;
+ 	/*
+ 	 * Start of the dynamically registered hypercalls. Start a bit
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 3cdc99ebdd0d..704648619d28 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1655,4 +1655,23 @@ int kvm_iommu_register_driver(struct kvm_iommu_driver *kern_ops,
+ int kvm_iommu_init_driver(void);
+ void kvm_iommu_remove_driver(void);
  
- 	/* Enable translation */
--	return smmu_write_cr0(smmu, CR0_SMMUEN | CR0_CMDQEN | CR0_ATSCHK);
-+	return smmu_write_cr0(smmu, CR0_SMMUEN | CR0_CMDQEN | CR0_ATSCHK | CR0_EVTQEN);
++struct kvm_iommu_sg {
++	phys_addr_t phys;
++	size_t pgsize;
++	unsigned int pgcount;
++};
++
++static inline struct kvm_iommu_sg *kvm_iommu_sg_alloc(unsigned int nents, gfp_t gfp)
++{
++	return alloc_pages_exact(PAGE_ALIGN(nents * sizeof(struct kvm_iommu_sg)), gfp);
++}
++
++static inline void kvm_iommu_sg_free(struct kvm_iommu_sg *sg, unsigned int nents)
++{
++	free_pages_exact(sg, PAGE_ALIGN(nents * sizeof(struct kvm_iommu_sg)));
++}
++
++int kvm_iommu_share_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents);
++int kvm_iommu_unshare_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents);
++
+ #endif /* __ARM64_KVM_HOST_H__ */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+index cff75d67d807..1004465b680a 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
+@@ -22,6 +22,8 @@ size_t kvm_iommu_unmap_pages(pkvm_handle_t domain_id, unsigned long iova,
+ 			     size_t pgsize, size_t pgcount);
+ phys_addr_t kvm_iommu_iova_to_phys(pkvm_handle_t domain_id, unsigned long iova);
+ bool kvm_iommu_host_dabt_handler(struct kvm_cpu_context *host_ctxt, u64 esr, u64 addr);
++size_t kvm_iommu_map_sg(pkvm_handle_t domain, unsigned long iova, struct kvm_iommu_sg *sg,
++			unsigned int nent, unsigned int prot);
  
- err_disable_cmdq:
- 	return smmu_write_cr0(smmu, 0);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-index cbcd8a75d562..674ce2b02a4b 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-@@ -496,11 +496,107 @@ static bool kvm_arm_smmu_validate_features(struct arm_smmu_device *smmu)
- 	return true;
+ /* Flags for memory allocation for IOMMU drivers */
+ #define IOMMU_PAGE_NOCACHE				BIT(0)
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 1ab8e5507825..5659aae0c758 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -1682,6 +1682,19 @@ static void handle___pkvm_host_hvc_pd(struct kvm_cpu_context *host_ctxt)
+ 	cpu_reg(host_ctxt, 1) = pkvm_host_hvc_pd(device_id, on);
  }
  
-+static irqreturn_t kvm_arm_smmu_evt_handler(int irq, void *dev)
++static void handle___pkvm_host_iommu_map_sg(struct kvm_cpu_context *host_ctxt)
 +{
-+	int i;
-+	struct arm_smmu_device *smmu = dev;
-+	struct arm_smmu_queue *q = &smmu->evtq.q;
-+	struct arm_smmu_ll_queue *llq = &q->llq;
-+	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
-+				      DEFAULT_RATELIMIT_BURST);
-+	u64 evt[EVTQ_ENT_DWORDS];
++	unsigned long ret;
++	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
++	DECLARE_REG(unsigned long, iova, host_ctxt, 2);
++	DECLARE_REG(struct kvm_iommu_sg *, sg, host_ctxt, 3);
++	DECLARE_REG(unsigned int, nent, host_ctxt, 4);
++	DECLARE_REG(unsigned int, prot, host_ctxt, 5);
 +
-+	do {
-+		while (!queue_remove_raw(q, evt)) {
-+			u8 id = FIELD_GET(EVTQ_0_ID, evt[0]);
++	ret = kvm_iommu_map_sg(domain, iova, kern_hyp_va(sg), nent, prot);
++	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
++}
 +
-+			if (!__ratelimit(&rs))
-+				continue;
+ typedef void (*hcall_t)(struct kvm_cpu_context *);
+ 
+ #define HANDLE_FUNC(x)	[__KVM_HOST_SMCCC_FUNC_##x] = (hcall_t)handle_##x
+@@ -1747,6 +1760,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__pkvm_host_iommu_unmap_pages),
+ 	HANDLE_FUNC(__pkvm_host_iommu_iova_to_phys),
+ 	HANDLE_FUNC(__pkvm_host_hvc_pd),
++	HANDLE_FUNC(__pkvm_host_iommu_map_sg),
+ };
+ 
+ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+index e45dadd0c4aa..b0c9b9086fd1 100644
+--- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
++++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+@@ -392,6 +392,64 @@ bool kvm_iommu_host_dabt_handler(struct kvm_cpu_context *host_ctxt, u64 esr, u64
+ 	return ret;
+ }
+ 
++size_t kvm_iommu_map_sg(pkvm_handle_t domain_id, unsigned long iova, struct kvm_iommu_sg *sg,
++			unsigned int nent, unsigned int prot)
++{
++	int ret;
++	size_t total_mapped = 0, mapped;
++	struct kvm_hyp_iommu_domain *domain;
++	phys_addr_t phys;
++	size_t size, pgsize, pgcount;
++	unsigned int orig_nent = nent;
++	struct kvm_iommu_sg *orig_sg = sg;
 +
-+			dev_info(smmu->dev, "event 0x%02x received:\n", id);
-+			for (i = 0; i < ARRAY_SIZE(evt); ++i)
-+				dev_info(smmu->dev, "\t0x%016llx\n",
-+					 (unsigned long long)evt[i]);
++	if (!kvm_iommu_ops || !kvm_iommu_ops->map_pages)
++		return 0;
 +
-+			cond_resched();
++	if (prot & ~IOMMU_PROT_MASK)
++		return 0;
++
++	domain = handle_to_domain(domain_id);
++	if (!domain || domain_get(domain))
++		return 0;
++
++	ret = hyp_pin_shared_mem(sg, sg + nent);
++	if (ret)
++		goto out_put_domain;
++
++	while (nent--) {
++		phys = sg->phys;
++		pgsize = sg->pgsize;
++		pgcount = sg->pgcount;
++
++		if (__builtin_mul_overflow(pgsize, pgcount, &size) ||
++		    iova + size < iova)
++			goto out_unpin_sg;
++
++		ret = __pkvm_host_use_dma(phys, size);
++		if (ret)
++			goto out_unpin_sg;
++
++		mapped = 0;
++		kvm_iommu_ops->map_pages(domain, iova, phys, pgsize, pgcount, prot, &mapped);
++		total_mapped += mapped;
++		phys += mapped;
++		iova += mapped;
++		/* Might need memory */
++		if (mapped != size) {
++			__pkvm_host_unuse_dma(phys, size - mapped);
++			break;
 +		}
-+
-+		/*
-+		 * Not much we can do on overflow, so scream and pretend we're
-+		 * trying harder.
-+		 */
-+		if (queue_sync_prod_in(q) == -EOVERFLOW)
-+			dev_err(smmu->dev, "EVTQ overflow detected -- events lost\n");
-+	} while (!queue_empty(llq));
-+
-+	/* Sync our overflow flag, as we believe we're up to speed */
-+	queue_sync_cons_ovf(q);
-+	return IRQ_HANDLED;
-+}
-+
-+static irqreturn_t kvm_arm_smmu_gerror_handler(int irq, void *dev)
-+{
-+	u32 gerror, gerrorn, active;
-+	struct arm_smmu_device *smmu = dev;
-+
-+	gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
-+	gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
-+
-+	active = gerror ^ gerrorn;
-+	if (!(active & GERROR_ERR_MASK))
-+		return IRQ_NONE; /* No errors pending */
-+
-+	dev_warn(smmu->dev,
-+		 "unexpected global error reported (0x%08x), this could be serious\n",
-+		 active);
-+
-+	/* There is no API to reconfigure the device at the moment.*/
-+	if (active & GERROR_SFM_ERR)
-+		dev_err(smmu->dev, "device has entered Service Failure Mode!\n");
-+
-+	if (active & GERROR_MSI_GERROR_ABT_ERR)
-+		dev_warn(smmu->dev, "GERROR MSI write aborted\n");
-+
-+	if (active & GERROR_MSI_PRIQ_ABT_ERR)
-+		dev_warn(smmu->dev, "PRIQ MSI write aborted\n");
-+
-+	if (active & GERROR_MSI_EVTQ_ABT_ERR)
-+		dev_warn(smmu->dev, "EVTQ MSI write aborted\n");
-+
-+	if (active & GERROR_MSI_CMDQ_ABT_ERR)
-+		dev_warn(smmu->dev, "CMDQ MSI write aborted\n");
-+
-+	if (active & GERROR_PRIQ_ABT_ERR)
-+		dev_err(smmu->dev, "PRIQ write aborted -- events may have been lost\n");
-+
-+	if (active & GERROR_EVTQ_ABT_ERR)
-+		dev_err(smmu->dev, "EVTQ write aborted -- events may have been lost\n");
-+
-+	if (active & GERROR_CMDQ_ERR) {
-+		dev_err(smmu->dev, "CMDQ ERR -- Hypervisor cmdq corrupted?\n");
-+		BUG();
++		sg++;
 +	}
 +
-+	writel(gerror, smmu->base + ARM_SMMU_GERRORN);
-+
-+	return IRQ_HANDLED;
++out_unpin_sg:
++	hyp_unpin_shared_mem(orig_sg, orig_sg + orig_nent);
++out_put_domain:
++	domain_put(domain);
++	return total_mapped;
 +}
 +
-+static irqreturn_t kvm_arm_smmu_pri_handler(int irq, void *dev)
-+{
-+	struct arm_smmu_device *smmu = dev;
-+
-+	dev_err(smmu->dev, "PRI not supported in KVM driver!\n");
-+
-+	return IRQ_HANDLED;
-+}
-+
- static int kvm_arm_smmu_device_reset(struct host_arm_smmu_device *host_smmu)
+ static int iommu_power_on(struct kvm_power_domain *pd)
  {
- 	int ret;
- 	u32 reg;
- 	struct arm_smmu_device *smmu = &host_smmu->smmu;
-+	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
- 
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_CR0);
- 	if (reg & CR0_SMMUEN)
-@@ -522,6 +618,39 @@ static int kvm_arm_smmu_device_reset(struct host_arm_smmu_device *host_smmu)
- 	/* Command queue */
- 	writeq_relaxed(smmu->cmdq.q.q_base, smmu->base + ARM_SMMU_CMDQ_BASE);
- 
-+	/* Event queue */
-+	writeq_relaxed(smmu->evtq.q.q_base, smmu->base + ARM_SMMU_EVTQ_BASE);
-+	writel_relaxed(smmu->evtq.q.llq.prod, smmu->base + SZ_64K + ARM_SMMU_EVTQ_PROD);
-+	writel_relaxed(smmu->evtq.q.llq.cons, smmu->base + SZ_64K + ARM_SMMU_EVTQ_CONS);
+ 	struct kvm_hyp_iommu *iommu = container_of(pd, struct kvm_hyp_iommu,
+diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
+index af3417e6259d..99718af0cba6 100644
+--- a/arch/arm64/kvm/iommu.c
++++ b/arch/arm64/kvm/iommu.c
+@@ -55,3 +55,35 @@ void kvm_iommu_remove_driver(void)
+ 	if (smp_load_acquire(&iommu_driver))
+ 		iommu_driver->remove_driver();
+ }
 +
-+	/* Disable IRQs first */
-+	ret = arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
-+				      ARM_SMMU_IRQ_CTRLACK);
-+	if (ret) {
-+		dev_err(smmu->dev, "failed to disable irqs\n");
-+		return ret;
++int kvm_iommu_share_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents)
++{
++	size_t nr_pages = PAGE_ALIGN(sizeof(*sg) * nents) >> PAGE_SHIFT;
++	phys_addr_t sg_pfn = virt_to_phys(sg) >> PAGE_SHIFT;
++	int i;
++	int ret;
++
++	for (i = 0 ; i < nr_pages ; ++i) {
++		ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, sg_pfn + i);
++		if (ret)
++			return ret;
 +	}
 +
-+	/*
-+	 * We don't support combined irqs for now, no specific reason, they are uncommon
-+	 * so we just try to avoid bloating the code.
-+	 */
-+	if (smmu->combined_irq)
-+		dev_err(smmu->dev, "Combined irqs not supported by this driver\n");
-+	else
-+		arm_smmu_setup_unique_irqs(smmu, kvm_arm_smmu_evt_handler,
-+					   kvm_arm_smmu_gerror_handler,
-+					   kvm_arm_smmu_pri_handler);
++	return 0;
++}
 +
-+	if (smmu->features & ARM_SMMU_FEAT_PRI)
-+		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
++int kvm_iommu_unshare_hyp_sg(struct kvm_iommu_sg *sg, unsigned int nents)
++{
++	size_t nr_pages = PAGE_ALIGN(sizeof(*sg) * nents) >> PAGE_SHIFT;
++	phys_addr_t sg_pfn = virt_to_phys(sg) >> PAGE_SHIFT;
++	int i;
++	int ret;
 +
-+	/* Enable interrupt generation on the SMMU */
-+	ret = arm_smmu_write_reg_sync(smmu, irqen_flags,
-+				      ARM_SMMU_IRQ_CTRL, ARM_SMMU_IRQ_CTRLACK);
-+	if (ret)
-+		dev_warn(smmu->dev, "failed to enable irqs\n");
++	for (i = 0 ; i < nr_pages ; ++i) {
++		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, sg_pfn + i);
++		if (ret)
++			return ret;
++	}
 +
- 	return 0;
- }
- 
-@@ -565,6 +694,8 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
- 	if (IS_ERR(smmu->base))
- 		return PTR_ERR(smmu->base);
- 
-+	arm_smmu_probe_irq(pdev, smmu);
-+
- 	ret = arm_smmu_device_hw_probe(smmu);
- 	if (ret)
- 		return ret;
-@@ -583,6 +714,13 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	/* evtq */
-+	ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->base + SZ_64K,
-+				      ARM_SMMU_EVTQ_PROD, ARM_SMMU_EVTQ_CONS,
-+				      EVTQ_ENT_DWORDS, "evtq");
-+	if (ret)
-+		return ret;
-+
- 	ret = arm_smmu_init_strtab(smmu);
- 	if (ret)
- 		return ret;
++	return 0;
++}
 -- 
 2.47.0.338.g60cca15819-goog
 
