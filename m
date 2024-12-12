@@ -4,66 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFB8E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE4F9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5ZKk0Wwh72I5+qHQFJrjFIMAClWf3DTZqY1eWQVK8g=; b=CD/jaOWR1ByQnVI/V2N88lcd/L
-	RcyUeY90Q3HR6hlK1FKEQWeqVVhtWT3tSb3LAuj386qkiRJTbgfWtoVbUmSt4TDDxTlg/qzfJC45k
-	5mKhV/Go8ia98h+yUehT3G66p91B51oQC/7pi/pZF7FO+d7SWPzVseWI9FLfTBFZpsVI913mmk3CL
-	uHdYq9arCv+MSPvOVixQGYyIn8I0of2Nh23McpQbCtbAYKm1DYHlpmZSCsQahgh3/x9nyDc8YiW1j
-	eEmNHKgFhvnC9jKViZ4wy36Zm5GX2dpUFpZJMBoodFhYiVSHluVndM0vM4InuD4HGOk3MmO1UpRL/
-	mCwoxuuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y6HwzRhtwuck+pMBjZMoVZ4D2FniLRRRufqq2y2rOjs=; b=ekgaWJBu++iki71a/i0U2jOId3
+	s0DD2vN8bClDbl88sjdHeLovZG+I8KnMUsrZJCwrFGrxl3p2jMuDYe0PXDAMuZBDO0j9mQgcdpkTk
+	dARB4091fUI3w5WnZmrSGYIlCVG2wGryQZRGV+gyXsFGcENtNSRlLizHr3teSYhi6VmOepZmpx3TF
+	ZK05YE+TXoyjV7+LB2btyDjQdsyhoJ7jMZzceREafWfJXwAOr8dUBGN/pT3j+tweDzn8GycqUxVjm
+	wHwun15Aqw+B1jLfdA8WI5k9K2f6N3AqHepbzDaUM6ByifUR99PviCZXNRELQDVAO3cal1YqqHoYT
+	+SiqvMxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmrX-000000019oN-40p6;
-	Thu, 12 Dec 2024 17:20:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmSf-0000000141D-1zS4
+	id 1tLmsb-00000001A6C-0M6L;
+	Thu, 12 Dec 2024 17:21:37 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLlu5-00000000wQ9-39Es
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 16:54:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D6A11762;
-	Thu, 12 Dec 2024 08:55:16 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 793573F58B;
-	Thu, 12 Dec 2024 08:54:45 -0800 (PST)
-Date: Thu, 12 Dec 2024 16:54:40 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: Re: [PATCH v6 32/43] arm64: rme: Enable PMU support with a realm
- guest
-Message-ID: <20241212165440.GA1479329@e124191.cambridge.arm.com>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-33-steven.price@arm.com>
+	Thu, 12 Dec 2024 16:19:06 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-434a736518eso10287705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 08:19:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1734020344; x=1734625144; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y6HwzRhtwuck+pMBjZMoVZ4D2FniLRRRufqq2y2rOjs=;
+        b=HXO1ajaqGr765+qQ46SlO14vFgsu8rf3k4zw61oGJw4w1/EXqzGcBkaq/Jin+dBWON
+         tYY9q3FvEDmrC3TUJ+EXbynI6kvQ15k264EqE/RMDOOA8dU+udSNCV4bYNsGSaZyneVH
+         7i9EZO3J6G5HSmuhfzrh9LabE3wh9dC65sBWxOIveF9ADlpDsBN8VZy3inKSHdtXbdUq
+         B4Kx1tO5LLpA1oSOqj2NWq84m1qVEDcQUbIwDiUtuCBj0H8lA+T0LTK3krKrcfghp3u9
+         ii0Ig+wzM2OIhl61dxHGyLe0UzWFr5YpES89zOqUcccJ1BtTEqwTPu+5K5p/GTUcIAK9
+         sjnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734020344; x=1734625144;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y6HwzRhtwuck+pMBjZMoVZ4D2FniLRRRufqq2y2rOjs=;
+        b=QsX80EMGrD1sII6F4LTkZn0y1ypOh30quj3kZlnLSPL8vFgX+Kn5+Q+S3uf6D6BcoI
+         h9Suq/AKYeTWSBHEdjBDFGycAJFlmTK3MA7u+k0Vtcz2QULnm7Y3JEzv/9hLc4PBalUL
+         POM9OSHLl9sd5QYFB1ggTBzseJgrMdYWEsTmv8RcOTaq+syO6XUAaC7M0EEEynnX3ZFw
+         RpKH4Xkctj6omKA68p9eJnQ7+XK6X0rzHo41rKuzv+zSY/kZf4TPpGSzUa5bbUuwBAdA
+         s/iQhJOmunAMqFWc/lN+jRrsBWOZQHuR5IumDtLVj3Qv0dzgMpWFvNhSuWC1z0sE5Spx
+         Tgkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWlXXmdWK3XjKKR61lhvGu10TxQx/HA/pUQRr/kV+srQSibraz+rFpFTRzAJv7QPMFYNQubP1YcvJlHvbgpq5h+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTrgTKNIM4YXicSgnc/F6IWFdA4MquH9wLYxqrPcdjSR4e5zSJ
+	2lnYvrbrGAvvQ8F1iPi9Ne8/baJqdtmqMT6pVvp/NcprogphbkINzepyWmTlB4g=
+X-Gm-Gg: ASbGnctzXpCAO55MCVjC8y+Lm2kI/x7KeOJ11Jy7uScd8vT4/Fi+lmFQ9vLQz9ClfAI
+	O7oETd9Uu8/g9FMT6nKYWl/XYbV+g1ST2KnxTM2C33O3Ph9ecJTQIikwKHeK8zX6Ws5v7Ffg+LU
+	h1j2tQrNUNTQcyGpWqe1QpY/AjRcdZ0TrcgEyLUR4/wgq1wdkO/qyAbxrqi8H6qCxw3iqUPaizD
+	9iSGzAaYYy0orvDiS8Q+alTL+3RIeFZEvVi8quigS1g0YHD
+X-Google-Smtp-Source: AGHT+IECJruZQ6LwRw858w1Yxs8MMZZ8ljYIT9r3bgD0QLs1iDMGolWGCI6cX4+UuSx7QkTjWRFBnA==
+X-Received: by 2002:a05:600c:524b:b0:434:a781:f5d9 with SMTP id 5b1f17b1804b1-4361c3aaefamr71124875e9.11.1734020344259;
+        Thu, 12 Dec 2024 08:19:04 -0800 (PST)
+Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4361e322328sm44336105e9.0.2024.12.12.08.19.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Dec 2024 08:19:03 -0800 (PST)
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 12 Dec 2024 16:18:51 +0000
+Subject: [PATCH v2 1/7] dt-bindings: display: bcm2711-hdmi: Add interrupt
+ details for BCM2712
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241212155610.76522-33-steven.price@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241212-dt-bcm2712-fixes-v2-1-35986e04d0f4@raspberrypi.com>
+References: <20241212-dt-bcm2712-fixes-v2-0-35986e04d0f4@raspberrypi.com>
+In-Reply-To: <20241212-dt-bcm2712-fixes-v2-0-35986e04d0f4@raspberrypi.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Eric Anholt <eric@anholt.net>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, 
+ Stefan Wahren <wahrenst@gmx.net>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
+ linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_085449_603310_4EFE2DD1 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20241212_081905_794446_E072428E 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,182 +113,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 03:55:57PM +0000, Steven Price wrote:
-> Use the PMU registers from the RmiRecExit structure to identify when an
-> overflow interrupt is due and inject it into the guest. Also hook up the
-> configuration option for enabling the PMU within the guest.
-> 
-> When entering a realm guest with a PMU interrupt pending, it is
-> necessary to disable the physical interrupt. Otherwise when the RMM
-> restores the PMU state the physical interrupt will trigger causing an
-> immediate exit back to the host. The guest is expected to acknowledge
-> the interrupt causing a host exit (to update the GIC state) which gives
-> the opportunity to re-enable the physical interrupt before the next PMU
-> event.
-> 
-> Number of PMU counters is configured by the VMM by writing to PMCR.N.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v2:
->  * Add a macro kvm_pmu_get_irq_level() to avoid compile issues when PMU
->    support is disabled.
-> ---
->  arch/arm64/kvm/arm.c      | 11 +++++++++++
->  arch/arm64/kvm/guest.c    |  7 +++++++
->  arch/arm64/kvm/pmu-emul.c |  3 +++
->  arch/arm64/kvm/rme.c      |  8 ++++++++
->  arch/arm64/kvm/sys_regs.c |  2 +-
->  include/kvm/arm_pmu.h     |  4 ++++
->  6 files changed, 34 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 6f7f96ab781d..ae3596a25272 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -15,6 +15,7 @@
->  #include <linux/vmalloc.h>
->  #include <linux/fs.h>
->  #include <linux/mman.h>
-> +#include <linux/perf/arm_pmu.h>
->  #include <linux/sched.h>
->  #include <linux/kvm.h>
->  #include <linux/kvm_irqfd.h>
-> @@ -1209,6 +1210,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  	run->exit_reason = KVM_EXIT_UNKNOWN;
->  	run->flags = 0;
->  	while (ret > 0) {
-> +		bool pmu_stopped = false;
-> +
->  		/*
->  		 * Check conditions before entering the guest
->  		 */
-> @@ -1240,6 +1243,11 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  
->  		kvm_pmu_flush_hwstate(vcpu);
->  
-> +		if (vcpu_is_rec(vcpu) && kvm_pmu_get_irq_level(vcpu)) {
-> +			pmu_stopped = true;
-> +			arm_pmu_set_phys_irq(false);
-> +		}
-> +
->  		local_irq_disable();
->  
->  		kvm_vgic_flush_hwstate(vcpu);
-> @@ -1342,6 +1350,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  
->  		preempt_enable();
->  
-> +		if (pmu_stopped)
-> +			arm_pmu_set_phys_irq(true);
-> +
->  		/*
->  		 * The ARMv8 architecture doesn't give the hypervisor
->  		 * a mechanism to prevent a guest from dropping to AArch32 EL0
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 920e0fd73698..b4e3839f6076 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -804,6 +804,8 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  	return kvm_arm_sys_reg_get_reg(vcpu, reg);
->  }
->  
-> +#define KVM_REG_ARM_PMCR_EL0		ARM64_SYS_REG(3, 3, 9, 12, 0)
+Commit 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
+added the compatible strings for BCM2712, but missed out that the
+number of interrupts changed.
 
-There's already SYS_PMCR_EL0 defined, so it seems this is not needed?
+Update the schema to include the interrupt requirements.
 
-> +
->  /*
->   * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
->   * that are available depends on the Realm state and the reason for the last
-> @@ -818,6 +820,11 @@ static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
->  		u64 off = core_reg_offset_from_id(reg->id);
->  
->  		return kvm_realm_validate_core_reg(off);
-> +	} else {
-> +		switch (reg->id) {
-> +		case KVM_REG_ARM_PMCR_EL0:
-> +			return true;
-> +		}
->  	}
->  
->  	return false;
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 456102bc0b55..5628b573ca41 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -397,6 +397,9 @@ static bool kvm_pmu_overflow_status(struct kvm_vcpu *vcpu)
->  {
->  	u64 reg = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
->  
-> +	if (vcpu_is_rec(vcpu))
-> +		return vcpu->arch.rec.run->exit.pmu_ovf_status;
-> +
->  	reg &= __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
->  
->  	/*
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index 27a479feb907..e562e77c1f94 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -303,6 +303,11 @@ static int realm_create_rd(struct kvm *kvm)
->  	params->rtt_base = kvm->arch.mmu.pgd_phys;
->  	params->vmid = realm->vmid;
->  
-> +	if (kvm->arch.arm_pmu) {
-> +		params->pmu_num_ctrs = kvm->arch.pmcr_n;
-> +		params->flags |= RMI_REALM_PARAM_FLAG_PMU;
-> +	}
-> +
->  	params_phys = virt_to_phys(params);
->  
->  	if (rmi_realm_create(rd_phys, params_phys)) {
-> @@ -1370,6 +1375,9 @@ int kvm_create_rec(struct kvm_vcpu *vcpu)
->  	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
->  		return -EINVAL;
->  
-> +	if (vcpu->kvm->arch.arm_pmu && !kvm_vcpu_has_pmu(vcpu))
-> +		return -EINVAL;
-> +
->  	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
->  	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
->  
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 83c6b4a07ef5..a4713609e230 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1324,7 +1324,7 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->  	 * implements. Ignore this error to maintain compatibility
->  	 * with the existing KVM behavior.
->  	 */
-> -	if (!kvm_vm_has_ran_once(kvm) &&
-> +	if (!kvm_vm_has_ran_once(kvm) && !kvm_realm_is_created(kvm) &&
->  	    new_n <= kvm_arm_pmu_get_max_counters(kvm))
->  		kvm->arch.pmcr_n = new_n;
->  
-> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-> index e61dd7dd2286..30625a6fd143 100644
-> --- a/include/kvm/arm_pmu.h
-> +++ b/include/kvm/arm_pmu.h
-> @@ -77,6 +77,8 @@ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
->  void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
->  void kvm_vcpu_pmu_resync_el0(void);
->  
-> +#define kvm_pmu_get_irq_level(vcpu) ((vcpu)->arch.pmu.irq_level)
-> +
->  #define kvm_vcpu_has_pmu(vcpu)					\
->  	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
->  
-> @@ -164,6 +166,8 @@ static inline u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
->  	return 0;
->  }
->  
-> +#define kvm_pmu_get_irq_level(vcpu) (false)
-> +
->  #define kvm_vcpu_has_pmu(vcpu)		({ false; })
->  static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
->  static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
+Fixes: 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
+Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+---
+ .../bindings/display/brcm,bcm2711-hdmi.yaml        | 107 ++++++++++++++++++---
+ 1 file changed, 93 insertions(+), 14 deletions(-)
 
-Thanks,
-Joey
+diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+index 6d11f5955b51..a7ca3a336187 100644
+--- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
++++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+@@ -56,22 +56,38 @@ properties:
+       - const: cec
+ 
+   interrupts:
+-    items:
+-      - description: CEC TX interrupt
+-      - description: CEC RX interrupt
+-      - description: CEC stuck at low interrupt
+-      - description: Wake-up interrupt
+-      - description: Hotplug connected interrupt
+-      - description: Hotplug removed interrupt
++    oneOf:
++      - items:
++        - description: CEC TX interrupt
++        - description: CEC RX interrupt
++        - description: CEC stuck at low interrupt
++        - description: Wake-up interrupt
++        - description: Hotplug connected interrupt
++        - description: Hotplug removed interrupt
++
++      - items:
++        - description: CEC TX interrupt
++        - description: CEC RX interrupt
++        - description: CEC stuck at low interrupt
++        - description: Hotplug connected interrupt
++        - description: Hotplug removed interrupt
+ 
+   interrupt-names:
+-    items:
+-      - const: cec-tx
+-      - const: cec-rx
+-      - const: cec-low
+-      - const: wakeup
+-      - const: hpd-connected
+-      - const: hpd-removed
++    oneOf:
++      - items:
++        - const: cec-tx
++        - const: cec-rx
++        - const: cec-low
++        - const: wakeup
++        - const: hpd-connected
++        - const: hpd-removed
++
++      - items:
++        - const: cec-tx
++        - const: cec-rx
++        - const: cec-low
++        - const: hpd-connected
++        - const: hpd-removed
+ 
+   ddc:
+     $ref: /schemas/types.yaml#/definitions/phandle
+@@ -112,6 +128,66 @@ required:
+ 
+ additionalProperties: false
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - brcm,bcm2711-hdmi0
++              - brcm,bcm2711-hdmi1
++    then:
++      properties:
++        interrupts:
++          items:
++            - description: CEC TX interrupt
++            - description: CEC RX interrupt
++            - description: CEC stuck at low interrupt
++            - description: Wake-up interrupt
++            - description: Hotplug connected interrupt
++            - description: Hotplug removed interrupt
++        interrupt-names:
++          items:
++            - const: cec-tx
++            - const: cec-rx
++            - const: cec-low
++            - const: wakeup
++            - const: hpd-connected
++            - const: hpd-removed
++
++
++      required:
++        - interrupts
++        - interrupt-names
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - brcm,bcm2712-hdmi0
++              - brcm,bcm2712-hdmi1
++    then:
++      properties:
++        interrupts:
++          items:
++            - description: CEC TX interrupt
++            - description: CEC RX interrupt
++            - description: CEC stuck at low interrupt
++            - description: Hotplug connected interrupt
++            - description: Hotplug removed interrupt
++        interrupts-names:
++          items:
++            - const: cec-tx
++            - const: cec-rx
++            - const: cec-low
++            - const: hpd-connected
++            - const: hpd-removed
++
++      required:
++        - interrupts
++        - interrupt-names
++
+ examples:
+   - |
+     hdmi0: hdmi@7ef00700 {
+@@ -136,6 +212,9 @@ examples:
+                     "hd";
+         clocks = <&firmware_clocks 13>, <&firmware_clocks 14>, <&dvp 1>, <&clk_27MHz>;
+         clock-names = "hdmi", "bvb", "audio", "cec";
++        interrupts = <0>, <1>, <2>, <3>, <4>, <5>;
++        interrupt-names = "cec-tx", "cec-rx", "cec-low", "wakeup",
++                "hpd-connected", "hpd-removed";
+         resets = <&dvp 0>;
+         ddc = <&ddc0>;
+     };
+
+-- 
+2.34.1
+
 
