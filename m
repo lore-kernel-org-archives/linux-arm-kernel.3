@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89ABAE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C44E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfDeG+4aED8FUJBkFbuBe7U5StbViJStb+Z+bND0gvc=; b=ihYWReL1vTxtcR9sJpFB886aKn
-	bs3HyVTVpumQNUSH2B30A8HZNaIN43+PpXNj0fI0sEAtTDWTPRBSUkCY44q0di/EGl0YOgp0LqjbR
-	hT7ipPEqzDJ6COOFacA43IxZENsgqfgB6SaTzi1uCArtjiAuYGuJri4m2W/QAYCbdSHlf/R0ldJI0
-	J6U0JjeJOhGvXU20Uxbqrr82ay6rV+OQScMJuXoZRcrIMB5b1Q/yESXngPhSQpDV4BtSLzzLuHmw7
-	kzkwkgLzjMl34hblO7nWHB+LOVT1bdicfjv+hyDBFkaLW0idXq2E4FKgyIOiUEbp9tHhEX3wbeVHk
-	AXDtqmoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0z1Y3h5XL89tNKd2sQylW5h1jD3tSQmoCReUrgwdM+M=; b=GcytW/2Px7MWPqA7T1EzU1Yz+D
+	8MOazFIWWGFeIDiabmXdLVwy4PUSacsLDQ15KcEjN0RtU1r70GnkzSPtU3rJg4o4TQwIgpxZ2ZLtl
+	QxLsmdPBE+CDmH+YQiHLKJjzj1Lrdev75fyoWWfoBIl9cr7uzBf2NyoSD44Eq8WgaiFuKZewFPdLy
+	bqy7SvUkWyF4Bl/JhyXKv3mw1b3BZYbFTpanDQGmjTXkxKcAmltNJRQpJTbKZR98RrEmBdWTBB049
+	6XWGMDvnqKB03mXH+BD0w0kQFp9JbAwBzbOZewEUpCpvIpnlv5VPIeIrjit8L6WHDiEk5rJL5hPDr
+	AOEB/c3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnCK-00000001EKw-0D6M;
-	Thu, 12 Dec 2024 17:42:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLnDN-00000001Ej9-2n3S;
+	Thu, 12 Dec 2024 17:43:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmuJ-00000001ATK-25VW
+	id 1tLmxg-00000001B7o-3nFU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 17:23:24 +0000
+	Thu, 12 Dec 2024 17:26:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 893FD5C5966;
-	Thu, 12 Dec 2024 17:22:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03DF2C4CED0;
-	Thu, 12 Dec 2024 17:23:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1734024202;
-	bh=moHxxYuHX+/4Ux7xJgP07L2sWYqOJbiA4ypMG7Xh6PE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CxmkFAkIaLhUOmVWeoMUbwNdBfNQd5hAopwVDKH+7Pm0qC7uGsbxZDDLTEvs9HNxb
-	 1Q0jgM8wxe/jYjUOrqnpyHNgiz5JjIobfdgt1qftvGb+e6lNnvuhlyhoowWkZtR94j
-	 8sIcqwQXZFa7IDK2dnYxOY2xwb5sd/vfsJ8QR/GA=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Leo Yan <leo.yan@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Ben Gainey <ben.gainey@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Ruidong Tian <tianruidong@linux.alibaba.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	John Garry <john.g.garry@oracle.com>,
-	scclevenger@os.amperecomputing.com,
-	Namhyung Kim <namhyung@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.10 190/459] perf cs-etm: Dont flush when packet_queue fills up
-Date: Thu, 12 Dec 2024 15:58:48 +0100
-Message-ID: <20241212144301.068702140@linuxfoundation.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241212144253.511169641@linuxfoundation.org>
-References: <20241212144253.511169641@linuxfoundation.org>
-User-Agent: quilt/0.67
-X-stable: review
-X-Patchwork-Hint: ignore
+	by dfw.source.kernel.org (Postfix) with ESMTP id 083C35C58E9;
+	Thu, 12 Dec 2024 17:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8FBEC4CED0;
+	Thu, 12 Dec 2024 17:26:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734024412;
+	bh=8fpxD1j1JPT6cZVOHyJ+HXmMZtSjV9Io9Hv2yi6gEgc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RefttnSWi/NSlqbcastuSexp4QiOid1TRmo2GMk+9DxtxatUQn/KY04Lul1MMncxQ
+	 clLYzqaiT7f/1OX5urM0DMfhdceCtsH+kg3du1w4eUj02TBGb8PS3i1cmpql8Ntqmd
+	 aIE9myvZsSibgAd6RX7A4UHAJQx8ahbr+mQ+dds3wGi83azWRS5IxP0JoFaWoPkF88
+	 YnKBSGDFV3w9R108TWrD1DaWDnyGwQDT4tKy7nbe3U1CZb05XL+NyrmlRKsyR1Bspi
+	 xGyCfh0oLJ2zB1Vf94P2o3BUtiMG7QFMsZE+QTS9wtBdx577wycpgk+B4vK5pTrZN8
+	 6netTJuBoMVHg==
+Date: Thu, 12 Dec 2024 17:26:47 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Dave.Martin@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH v2] arm64: signal: Ensure signal delivery failure is
+ recoverable
+Message-ID: <a70cd007-a2c8-477f-972e-fa1e9c362604@sirena.org.uk>
+References: <20241210160940.2031997-1-kevin.brodsky@arm.com>
+ <5db7f7a0-1d3c-4bbd-ad2b-124bf54f49ef@sirena.org.uk>
+ <Z1sY9tIsAZ84W93-@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="I1NVJMaTG8Fg4abm"
+Content-Disposition: inline
+In-Reply-To: <Z1sY9tIsAZ84W93-@arm.com>
+X-Cookie: All is fear in love and war.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_092323_630957_553E54F7 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20241212_092652_979466_C4DBC298 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,126 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.10-stable review patch.  If anyone has any objections, please let me know.
 
-------------------
+--I1NVJMaTG8Fg4abm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-From: James Clark <james.clark@linaro.org>
+On Thu, Dec 12, 2024 at 05:10:14PM +0000, Catalin Marinas wrote:
+> On Thu, Dec 12, 2024 at 04:47:46PM +0000, Mark Brown wrote:
 
-[ Upstream commit 5afd032961e8465808c4bc385c06e7676fbe1951 ]
+> > > Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
 
-cs_etm__flush(), like cs_etm__sample() is an operation that generates a
-sample and then swaps the current with the previous packet. Calling
-flush after processing the queues results in two swaps which corrupts
-the next sample. Therefore it wasn't appropriate to call flush here so
-remove it.
+> > Presumably we also need a Fixes for whatever introduced the above copy.
 
-Flushing is still done on a discontinuity to explicitly clear the last
-branch buffer, but when the packet_queue fills up before reaching a
-timestamp, that's not a discontinuity and the call to
-cs_etm__process_traceid_queue() already generated samples and drained
-the buffers correctly.
+> Hmm, it was like this from the beginning. If we are to do a cc stable to
+> the oldest maintained LTS, I'd rather have a separate patch for
+> copy_siginfo_to_user(), it doesn't make much sense to backport a GCS
+> patch to early kernels.
 
-This is visible by looking for a branch that has the same target as the
-previous branch and the following source is before the address of the
-last target, which is impossible as execution would have had to have
-gone backwards:
+Hrm, good point about it triggering backports.  I'm not sure it's worth
+doing that TBH.
 
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-   (packet_queue fills here before a timestamp, resulting in a flush and
-    branch target ffff80008011cadc is duplicated.)
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
+--I1NVJMaTG8Fg4abm
+Content-Type: application/pgp-signature; name="signature.asc"
 
-After removing the flush the correct branch target is used for the
-second sample, and ffff8000801117c4 is no longer before the previous
-address:
+-----BEGIN PGP SIGNATURE-----
 
-  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
-  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff8000801117a0 cpu_util+0x0
-  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdbHNcACgkQJNaLcl1U
+h9DiTwf/TMLy9tiAuVFhbU13TcswCaBnMJ2VsLNii1+P3k/QQ+c0/ixqYl/RPiie
+n6Jrc1PhHd9XKgISOwjgJDcKqa8xUpjse03/9g6+GHIOcsNorLv5MSZAYCCuzkgo
+2lBe8E1Wrynp1YbkVqGWP9DTYa0i8p7pvpyRzIb/2hhYuPfKcjWmn76x9GK2pkou
+/Lb8qlaFEmo0q+rLK6AmcKuh81hR6N2NbTOYQf2+0ebXEw37FbkcMlM+ylJZ8ITk
+8rzfhnK3yDpJO2xLAVYoRnYfeO5/Uh24MGZbd070smJD0b6Ihse25pjS/92o+SfT
+QfnLyQoOjXZjs+XDAyVwgJ9Iw9L0RA==
+=G+dX
+-----END PGP SIGNATURE-----
 
-Make sure that a final branch stack is output at the end of the trace
-by calling cs_etm__end_block(). This is already done for both the
-timeless decode paths.
-
-Fixes: 21fe8dc1191a ("perf cs-etm: Add support for CPU-wide trace scenarios")
-Reported-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Closes: https://lore.kernel.org/all/20240719092619.274730-1-gankulkarni@os.amperecomputing.com/
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Tested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Ben Gainey <ben.gainey@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: Benjamin Gray <bgray@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: coresight@lists.linaro.org
-Cc: John Garry <john.g.garry@oracle.com>
-Cc: scclevenger@os.amperecomputing.com
-Link: https://lore.kernel.org/r/20240916135743.1490403-2-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/util/cs-etm.c | 25 ++++++++++++++++++-------
- 1 file changed, 18 insertions(+), 7 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index a2a369e2fbb67..e3fa32b83367e 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -2098,12 +2098,6 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
- 
- 		/* Ignore return value */
- 		cs_etm__process_traceid_queue(etmq, tidq);
--
--		/*
--		 * Generate an instruction sample with the remaining
--		 * branchstack entries.
--		 */
--		cs_etm__flush(etmq, tidq);
- 	}
- }
- 
-@@ -2186,7 +2180,7 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
- 
- 	while (1) {
- 		if (!etm->heap.heap_cnt)
--			goto out;
-+			break;
- 
- 		/* Take the entry at the top of the min heap */
- 		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
-@@ -2269,6 +2263,23 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
- 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, timestamp);
- 	}
- 
-+	for (i = 0; i < etm->queues.nr_queues; i++) {
-+		struct int_node *inode;
-+
-+		etmq = etm->queues.queue_array[i].priv;
-+		if (!etmq)
-+			continue;
-+
-+		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
-+			int idx = (int)(intptr_t)inode->priv;
-+
-+			/* Flush any remaining branch stack entries */
-+			tidq = etmq->traceid_queues[idx];
-+			ret = cs_etm__end_block(etmq, tidq);
-+			if (ret)
-+				return ret;
-+		}
-+	}
- out:
- 	return ret;
- }
--- 
-2.43.0
-
-
-
+--I1NVJMaTG8Fg4abm--
 
