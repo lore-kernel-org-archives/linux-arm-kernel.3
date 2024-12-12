@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B46E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737C8E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ri+r7pwRuSGuwjoUtH68VlyYId/xYJ7bbwqqbgxE7o0=; b=Kv+oUTcA0hjad7reAADTib9DPi
-	rXBGvuioEI1wr+Z+7FhLVMepmZHQdXYY2kDuL2Hik48v8gfarvo0cnRhvkSg7rpE6wl5Clx/cqHtW
-	JCRK706FxvRNQOpydllZQXe25GPk5y59C0N2RwY+ftngTE4xhMLHq4ldYBuAYDBY8kLWkYHu6+el5
-	wKlIZhISax5uc1QP5ff39+7+Pu75Pyg19RigQv8YhExwijLag67lujltLNqUw2QDCwFS0G28qafmH
-	Dk7id1kshq0dRa6aL6i1oi1MAydr/1oNiltqQ0QnPUeMtiPFkAnwlR0zwkPV+UUSPyOyrkvLGImR7
-	lHekg7cw==;
+	bh=031HktvOH2BGPB/61CKgeoO+FWayRh3FpkimFP0IrdM=; b=Ex7Uv5ZgkD5u8GkPXguo9an5YF
+	Sh+pbRpfInGakY9PsFSl9sFHMpQY+fj1EbHprudBDzc0uKUFEWbLDzNmkOnaQwR6ppN7wCMBgHYNx
+	0d5s5pyiPVpOGsIbNXFfg/gKvE6CAftZUxiIygrPjxbfiTCuzJndKu0/kxbcEEJYqbiBIWhG9D//S
+	56S4Rq8k3Qy2i+ywJjDPEiAwx31jWVswnwJAecpTxFaOhcN34E3wKvRd7pGD011NHIqOi0dTbJI3B
+	KNFRdHIjvUlT9kffbFqYNs2Ie4ezjwlWgbe60BRs0sO0qUm+nDoteAeU374bbAxNc6ICWFztBmHGi
+	guNUWGTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLoKg-00000001WDA-3riT;
-	Thu, 12 Dec 2024 18:54:42 +0000
+	id 1tLoLj-00000001Wa2-2GzN;
+	Thu, 12 Dec 2024 18:55:47 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnZr-00000001K4J-2ce7
+	id 1tLnZt-00000001K4t-3pHR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:06:20 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4361ac607b6so7288275e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:19 -0800 (PST)
+	Thu, 12 Dec 2024 18:06:22 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43623bf2a83so8403585e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026778; x=1734631578; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026780; x=1734631580; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ri+r7pwRuSGuwjoUtH68VlyYId/xYJ7bbwqqbgxE7o0=;
-        b=0NvI/tXLTOYNoCKeq/2PoET2m0Q8i8XM6k+51BstYyaQsOM9x7yXStRQQ81nGnjuz8
-         h+0eAAAXnVJCj20lHJi5zzPJRMFRLluTuucZvcE6tcf0r8NyADGoJ++ctSr7Ojpwfd1E
-         20gu7LShWF2NMT9aMdlUGZTOQMKW6whfGS0m401iUMnX8rnGVFqqhehbhKkVPPK0NHkX
-         GZ4BFXIxoUn3jcDLbf7rgQo4gBsaPOmJeOFZsql4ARwC/R4VrHqpl1y1NXbFTL++KbQR
-         uSk5HVZx3VP8FfNyhGz5LCBdw4VO1/gbqlFxNBSQl/b5Uo6DQwTAC6qznm3W7lUG4cvc
-         UATQ==
+        bh=031HktvOH2BGPB/61CKgeoO+FWayRh3FpkimFP0IrdM=;
+        b=Gwr1l8754kdY0FHV2gwtqUiAnb6mKc+hAMDffu45FgNMd7DAdcYUmKZMZ0SbnSz5Rl
+         ReWCuvc746LZW5sMCRJ17MA/m4/yTSH2bI6B40wltIJhKcSP/0AGoXmvjT76MRb2xlT9
+         HfBXwKO2L/QtR9/wHaVnmFg+MT9Ri9YgVy4K1MhRLWzxw6zj/H8TqSijxSDW2gZJXs/X
+         NXFefjbcv6wB9owEMTrhWBt58Zqo/+KB6iiUGKrP3eMhaBGOeijPbSX9XbIy64tlmQcZ
+         wmLo7MGhmGmtCmWjSn2Nq0DHz+gLNkqEEYwGgiHMlhVTKbybHvg/VLDUSCoomSleQltj
+         REDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026778; x=1734631578;
+        d=1e100.net; s=20230601; t=1734026780; x=1734631580;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ri+r7pwRuSGuwjoUtH68VlyYId/xYJ7bbwqqbgxE7o0=;
-        b=aonHANj/HBVLv0A1+V7AK8pVooZKLwONDKPUWmUNzvt4hIKIW9cf+KSE0/PjpJ0YQE
-         OmPJbNPBtUc6dqeZ4Pr8Gpn1TP+QVnHE4TEEOzJtumxlJPq6SH0pwdOrKjixgktGGFIG
-         rZVOLeKIYIFYMe1+0LuOO7bMZ5Dg/a7w2ABgT/KQBG/Ou/IqKFw1lY6SlmqutsRZvc8o
-         dTicpl7udMjgG09KWEamgnOvjxy8V8rAn57nUsSytR5MrftUdfGadtTBZdHpKIBtGWJO
-         X9LSUOFbyoL5Z4/zCU66uITkCQrR0416TuYkBszBCQjhbSQhoewZkAhHh76HADg92Zvf
-         nL3w==
-X-Forwarded-Encrypted: i=1; AJvYcCViCLisS5rD+zKDSRzZifzOl5BuwRoc4aC1uwl8RcRhB6kZkPV5bef0MvjOSTkn58VIVIBpJgMKwOZwKC30pZ3Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtrmNaI+GtKh4g3xADNE32NrJj6ppK3NT36ut9vl+2DXtNnBdf
-	iWXJ+AwFzVESEpw8Pu6/juhrY93V9r4Ac4OVet3QaucdFuLSt5E3KqpzqTwn4bNmjPThrkwC98I
-	SzG4LIeAVcw==
-X-Google-Smtp-Source: AGHT+IFK/W90GGrvF5ugVo4Ngg6I8Ho4ihHIM4uN2vyaRLD/UUIi5+Bgx5fKDHT7GWhU2g/J1RsFzA2778KxoA==
-X-Received: from wmdi8.prod.google.com ([2002:a05:600c:2908:b0:434:a0d3:2d57])
+        bh=031HktvOH2BGPB/61CKgeoO+FWayRh3FpkimFP0IrdM=;
+        b=IuhMXT6LBtiF1XaIS9GG15anz+CabtKIemsh3WMm+UTZR0g0pWG9d95HxqZomOB7Dc
+         v9cPausJEBSLBEnURVAPEA1s5e5w7xxUIJcysJXV91kvOzvwDyl/1/2cGyNIcjav3kZ3
+         BF1jP1tWKOgd1GJoKbK92/4vCcy4NJzMfCXGdAmqUxPGbX8PN/vVtTQ6nKq7AEk1Ppz5
+         ebMNwsNXdW5BhpXbBKcSH9BuRfYFOMuvFpvpzSA5LhknUbctxPo/KL3sY0wWgTbZDzBI
+         i0ZTDOkQH3H0w6b7PICH41eZh2KOR39Brtkz7PSjmAM0mB5yl+HMbQdOzCQnJRD/PFif
+         up+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXuej/YsFgBZmH+b/p53ax2dvCbAnKdk6FuOZQ3CKn7DZMF5KKZcArEfC2wxE0Q2PFsGjKkAnCQF3/tNyIuOfzA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzheCYfFMQxydPBXn4X5tujnYdUrnA4MSECeEtgrW/RIUeSpNH+
+	Gt3t0GZQkxaMJHddTBfWW+4SiVB0OK4Pljv71rjfhRLsZgtsXeCZYeEEdsChXtgJKezlJmX0BB+
+	F1YeXYndqlw==
+X-Google-Smtp-Source: AGHT+IHfy5GSFaMJOYpvz35FVWeSJ2xaUjg6ph5uDhYTSNl0fSLoTlqEzHaAu45qIKjF2hF1Km0UhuK02XOy2w==
+X-Received: from wmmr4.prod.google.com ([2002:a05:600c:4244:b0:436:1796:9989])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:548a:b0:436:17e4:ad4c with SMTP id 5b1f17b1804b1-43622823c62mr35176435e9.6.1734026778111;
- Thu, 12 Dec 2024 10:06:18 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:04:09 +0000
+ 2002:a05:600c:83cf:b0:434:f7e3:bfa0 with SMTP id 5b1f17b1804b1-4361c3e351fmr61389525e9.21.1734026780064;
+ Thu, 12 Dec 2024 10:06:20 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:04:10 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-46-smostafa@google.com>
-Subject: [RFC PATCH v2 45/58] iommu/arm-smmu-v3-kvm: Allocate structures and
- reset device
+Message-ID: <20241212180423.1578358-47-smostafa@google.com>
+Subject: [RFC PATCH v2 46/58] KVM: arm64: Add function to topup generic allocator
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -80,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100619_665609_E0551441 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20241212_100621_950588_3DCAFDAB 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,104 +95,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Soon, IOMMU driver might need to topup the IOMMU pool from map_pages
+IOMMU operation, which has a gfp flag is it might be called from
+atomic context, add a function to topup an allocator with an ID
+that also accepts gfp flags.
 
-Allocate the structures that will be shared between hypervisor and SMMU:
-command queue and stream table. Install them in the MMIO registers,
-along with some configuration bits. After hyp initialization, the host
-won't have access to those pages anymore.
-
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
+ arch/arm64/include/asm/kvm_host.h |  4 ++++
+ arch/arm64/kvm/mmu.c              | 20 ++++++++++++++++++++
+ arch/arm64/kvm/pkvm.c             | 20 ++++++++++++++++++++
+ 3 files changed, 44 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-index 4b0c9ff6e7f1..e4a5bdc830bc 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-@@ -18,6 +18,7 @@ extern struct kvm_iommu_ops kvm_nvhe_sym(smmu_ops);
- struct host_arm_smmu_device {
- 	struct arm_smmu_device		smmu;
- 	pkvm_handle_t			id;
-+	u32				boot_gbpa;
- };
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index a3b5d8dd8995..59a23828bd0e 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -155,6 +155,8 @@ static inline void __free_hyp_memcache(struct kvm_hyp_memcache *mc,
  
- #define smmu_to_host(_smmu) \
-@@ -66,6 +67,35 @@ static bool kvm_arm_smmu_validate_features(struct arm_smmu_device *smmu)
- 	return true;
+ void free_hyp_memcache(struct kvm_hyp_memcache *mc);
+ int topup_hyp_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages, unsigned long order);
++int topup_hyp_memcache_gfp(struct kvm_hyp_memcache *mc, unsigned long min_pages,
++			   unsigned long order, gfp_t gfp);
+ 
+ static inline void init_hyp_memcache(struct kvm_hyp_memcache *mc)
+ {
+@@ -1628,6 +1630,8 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+ #define HYP_ALLOC_MGT_IOMMU_ID		1
+ 
+ unsigned long __pkvm_reclaim_hyp_alloc_mgt(unsigned long nr_pages);
++int __pkvm_topup_hyp_alloc_mgt_gfp(unsigned long id, unsigned long nr_pages,
++				   unsigned long sz_alloc, gfp_t gfp);
+ 
+ struct kvm_iommu_driver {
+ 	int (*init_driver)(void);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index ef7e8c156afb..229338877c59 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1225,6 +1225,11 @@ static void *hyp_mc_alloc_fn(void *flags, unsigned long order)
+ 	return addr;
  }
  
-+static int kvm_arm_smmu_device_reset(struct host_arm_smmu_device *host_smmu)
++static void *hyp_mc_alloc_gfp_fn(void *flags, unsigned long order)
 +{
-+	int ret;
-+	u32 reg;
-+	struct arm_smmu_device *smmu = &host_smmu->smmu;
-+
-+	reg = readl_relaxed(smmu->base + ARM_SMMU_CR0);
-+	if (reg & CR0_SMMUEN)
-+		dev_warn(smmu->dev, "SMMU currently enabled! Resetting...\n");
-+
-+	/* Disable bypass */
-+	host_smmu->boot_gbpa = readl_relaxed(smmu->base + ARM_SMMU_GBPA);
-+	ret = arm_smmu_update_gbpa(smmu, GBPA_ABORT, 0);
-+	if (ret)
-+		return ret;
-+
-+	ret = arm_smmu_device_disable(smmu);
-+	if (ret)
-+		return ret;
-+
-+	/* Stream table */
-+	arm_smmu_write_strtab(smmu);
-+
-+	/* Command queue */
-+	writeq_relaxed(smmu->cmdq.q.q_base, smmu->base + ARM_SMMU_CMDQ_BASE);
-+
-+	return 0;
++	return (void *)__get_free_pages(*(gfp_t *)flags, order);
 +}
 +
- static int kvm_arm_smmu_probe(struct platform_device *pdev)
+ void free_hyp_memcache(struct kvm_hyp_memcache *mc)
  {
- 	int ret;
-@@ -113,6 +143,20 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
- 	if (!kvm_arm_smmu_validate_features(smmu))
- 		return -ENODEV;
- 
-+	ret = arm_smmu_init_one_queue(smmu, &smmu->cmdq.q, smmu->base,
-+				      ARM_SMMU_CMDQ_PROD, ARM_SMMU_CMDQ_CONS,
-+				      CMDQ_ENT_DWORDS, "cmdq");
-+	if (ret)
-+		return ret;
-+
-+	ret = arm_smmu_init_strtab(smmu);
-+	if (ret)
-+		return ret;
-+
-+	ret = kvm_arm_smmu_device_reset(host_smmu);
-+	if (ret)
-+		return ret;
-+
- 	platform_set_drvdata(pdev, smmu);
- 
- 	/* Hypervisor parameters */
-@@ -129,6 +173,15 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
- 
- static void kvm_arm_smmu_remove(struct platform_device *pdev)
- {
-+	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
-+	struct host_arm_smmu_device *host_smmu = smmu_to_host(smmu);
-+
-+	/*
-+	 * There was an error during hypervisor setup. The hyp driver may
-+	 * have already enabled the device, so disable it.
-+	 */
-+	arm_smmu_device_disable(smmu);
-+	arm_smmu_update_gbpa(smmu, host_smmu->boot_gbpa, GBPA_ABORT);
+ 	unsigned long flags = mc->flags;
+@@ -1249,6 +1254,21 @@ int topup_hyp_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages,
+ 				    kvm_host_pa, (void *)flags, order);
  }
  
- static const struct of_device_id arm_smmu_of_match[] = {
++int topup_hyp_memcache_gfp(struct kvm_hyp_memcache *mc, unsigned long min_pages,
++			   unsigned long order, gfp_t gfp)
++{
++	void *flags = &gfp;
++
++	if (!is_protected_kvm_enabled())
++		return 0;
++
++	if (order > PAGE_SHIFT)
++		return -E2BIG;
++
++	return __topup_hyp_memcache(mc, min_pages, hyp_mc_alloc_gfp_fn,
++				    kvm_host_pa, flags, order);
++}
++
+ /**
+  * kvm_phys_addr_ioremap - map a device range to guest IPA
+  *
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index e6df35aae840..0c45acbbff6e 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -1114,3 +1114,23 @@ unsigned long __pkvm_reclaim_hyp_alloc_mgt(unsigned long nr_pages)
+ 
+ 	return reclaimed;
+ }
++
++int __pkvm_topup_hyp_alloc_mgt_gfp(unsigned long id, unsigned long nr_pages,
++				   unsigned long sz_alloc, gfp_t gfp)
++{
++	struct kvm_hyp_memcache mc;
++	int ret;
++
++	init_hyp_memcache(&mc);
++
++	ret = topup_hyp_memcache_gfp(&mc, nr_pages, get_order(sz_alloc), gfp);
++	if (ret)
++		return ret;
++
++	ret = kvm_call_hyp_nvhe(__pkvm_hyp_alloc_mgt_refill, id,
++				mc.head, mc.nr_pages);
++	if (ret)
++		free_hyp_memcache(&mc);
++
++	return ret;
++}
 -- 
 2.47.0.338.g60cca15819-goog
 
