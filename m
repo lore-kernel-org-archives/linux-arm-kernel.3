@@ -4,88 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378D6E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489A0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YeCyqmn+Fnzidtik5ZQwdL7fhvipeWTj4Y1csRd8xgE=; b=XtvsAUI2FYG69za7nQP0JJqH3Y
-	rvhxT+dDg5Lxigb23+N4xfcCL7xmf8HJ2YpcuQ+/yLneSoixs7khhX5tLfAjE88rjfFggmL98i5q3
-	ytKDwf0WKFmIOS61lwtOKKtslgK6K6HdZz91rdhn75DgUflzyNBnk4JybJBiBiSMvxsePKAF5/N92
-	bVQpuvjTVxtA1eogWqCRoYs6V0eR57uKQiBBRvPChSW2wYAptnIHT9OeO8TIcMB5BsX9lfIQ0Ho0e
-	YHwtvx5jeVZkmQnJzWaUzsskMxfDHPQ3EhYevRXdWIlEaS7Cp/3xU2PexTBYfIbwC6xOB6uAC9jnq
-	EQMeqSTg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5aTprKSNVeuLrs0f7/TDtL2hjzfJEMvVin7vdohs05o=; b=v9ZGTOyKhiQ2Qt5N8Bj1VfJCsV
+	a3wz1/MpplhV4rp/hni3ExjqJpYjDxg/Cl8e8qLV/+mre9ICdcn9BzVvoJISrHT7jRg2NaaDfnqp3
+	zH29NhgHVOBp2IJ66NTYpuNWkSUkJ5XZ/z8Wwpv/BTJW/Xv+YzOdHaRDfV4FEx0rjzuAPElCHD+3q
+	oNKTZfjNukxlu0XytYkP9dNIyr/Jn+dZbhsp4uWUVyl4Wia7oJnMcWwBXWgMK1neNuqZYkQYkQUPm
+	0gVLeYsLYXnHJoG3JpQURMrfHqDx82x91KL6fxQX7wizN5k9q+P0xcB65aPuAFSOTC4nzZrczKRLH
+	M1x2hlGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlHr-00000000mjA-0Ifq;
-	Thu, 12 Dec 2024 15:39:35 +0000
-Received: from mail-qt1-f169.google.com ([209.85.160.169])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlFO-00000000mFj-3xPW
+	id 1tLlJm-00000000n9B-3NlA;
+	Thu, 12 Dec 2024 15:41:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLlIh-00000000mul-0CNT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:37:04 +0000
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-467838e75ffso8452491cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 07:37:01 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734017818; x=1734622618;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YeCyqmn+Fnzidtik5ZQwdL7fhvipeWTj4Y1csRd8xgE=;
-        b=j2w7Z4PukDJXVMCsXBT5+SFyJ0aT5moz8Hx/H/4/hZlOYbIghjn1y475AKz5SZUN6S
-         kaAVyfyyL7y/dfBoAy1iI8mUxzKry5M+XZUfWNIwcYfX0F3t5oTgfhamEmmFaB4mOYtK
-         xHFCHf/rZUa/rubvseSMkR6uypmDvv7n6HH+l9O78KUsHgJ9jUhE7Fgbb9T5PjnKr5Qw
-         jjW2B7Ag4cARGsF4WQcqHCfqKj/km8ysvfAyTiLqpbw3TkTh0L0dZ9bMRDlHecL9Gnow
-         CReLTIsqEW3eIFmxuydxNkRGbagcH4RK3IIFHJ8EpaVQBcJxfmdn64z6w2T0KyrYqBJ9
-         g5bw==
-X-Forwarded-Encrypted: i=1; AJvYcCV1Owi6c3o9S1iBHY1lG1H1pAOymHWv9FAk5bHMJ7iGFU/F+yqAkfBcrCvWEbXr59uL9nCBsUmGhtAPCW19UEAa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJoFK5+QcTe+Ln+Lrv9KYW/dBdsb9t1rPox+EWc5Im1CrH7Dz+
-	RRKEzwom9+zX8xBm/F64Iz6UmAm95LOHc0GM/tuJHCNf+MxFFtFX2sI0qW3hQOw=
-X-Gm-Gg: ASbGnctR8OTw/UGFzQ5ty/1ywnZyZpTrnOlpvRrdQ5cjFVm1A3Hq8xbgRmclrE47U5E
-	aZSjtExrHZ5GCzcaHFi4v0VF4Y7OZ07RT48JUJt3wWsArF+YMwvPScjcvXoAgS8DfyLMPy4lOVg
-	OOfK9Ocze6MOeYmzl+OsdSbCEg+si3xr1AJIJAO/qtO5JRGKtU7mjNazJt+kRYFOIFm+i+G7ygY
-	vXEZel/T6n4qPc5Y7YoOpZpWaivfYULhxTUXdjPVDWJHKBTS1GkUok3+VJtM/sVA+nmDKQ5ucB4
-	m6UlixPfQzGMp9JW9I2HeMg=
-X-Google-Smtp-Source: AGHT+IHoUt79TErgSSsKIcL+unwjz+z7/ib+l16iYHTExCUscqHrcKQ5U7SBQ17h4TbwY51aMWYG1w==
-X-Received: by 2002:ac8:5749:0:b0:467:70ce:75f5 with SMTP id d75a77b69052e-467a16c1567mr10601551cf.37.1734017818364;
-        Thu, 12 Dec 2024 07:36:58 -0800 (PST)
-Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com. [209.85.160.175])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46787bec063sm22392521cf.50.2024.12.12.07.36.57
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Dec 2024 07:36:58 -0800 (PST)
-Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-467838e75ffso8451231cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 07:36:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXveVsL8nrpP0t28S6ZRnsC+UMQmvyKNeRARD4APGb5NzFwZpN+0KM1ekxnB/kFcaapcRkwDrlNf/FfkyN+rjNP@lists.infradead.org
-X-Received: by 2002:a05:622a:8f0d:b0:467:53c8:756a with SMTP id
- d75a77b69052e-467a1605bb5mr9849991cf.26.1734017816967; Thu, 12 Dec 2024
- 07:36:56 -0800 (PST)
+	Thu, 12 Dec 2024 15:40:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 089901762;
+	Thu, 12 Dec 2024 07:40:53 -0800 (PST)
+Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8BF93F720;
+	Thu, 12 Dec 2024 07:40:23 -0800 (PST)
+From: Dave Martin <Dave.Martin@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Zeng Heng <zengheng4@huawei.com>,
+	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+	James Morse <james.morse@arm.com>
+Subject: [RFC PATCH 0/6] Introduce flexible CLOSID/RMID translation
+Date: Thu, 12 Dec 2024 15:39:54 +0000
+Message-Id: <20241212154000.330467-1-Dave.Martin@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241203105005.103927-1-biju.das.jz@bp.renesas.com> <20241203105005.103927-14-biju.das.jz@bp.renesas.com>
-In-Reply-To: <20241203105005.103927-14-biju.das.jz@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 12 Dec 2024 16:36:44 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUPXicL1+suMeYrXK7qEmLYE-1uuHpMys_qnxqz9Ed8KQ@mail.gmail.com>
-Message-ID: <CAMuHMdUPXicL1+suMeYrXK7qEmLYE-1uuHpMys_qnxqz9Ed8KQ@mail.gmail.com>
-Subject: Re: [PATCH v2 13/13] arm64: defconfig: Enable R9A09G047 SoC
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bjorn Andersson <quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
-	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, Biju Das <biju.das.au@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_073702_980871_73D10E2B 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20241212_074027_174167_8CAF8D35 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,28 +62,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 3, 2024 at 11:51=E2=80=AFAM Biju Das <biju.das.jz@bp.renesas.co=
-m> wrote:
-> Enable support for the Renesas RZ/G3E (R9A09G047) SoC in the ARM64
-> defconfig.
->
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+This series introduces an ID remapping scheme, as a preparatory step
+towards improved support for MPAM hardware that implements the MPAM
+PARTID Narrowing feature.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.14.
+This series is not a complete implementation, but is sufficient to
+provide additional resctrl monitoring groups beyond the number of PMGs
+supported by the hardware (with some limitations; see "Limitations",
+below).
 
-Gr{oetje,eeting}s,
-
-                        Geert
+Based on:
+git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.12-rc1
 
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+Background
+==========
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+An MPAM Memory System Component (MSC) that does not implement the
+PARTID Narrowing feature (Narrowing) provides independently
+programmable resource controls for each PARTID up to the maximum PARTID
+that the MSC supports.
+
+An MSC that _does_ implement Narrowing performs a remapping step to
+convert the PARTID from the incoming memory transaction ("request
+PARTID", or "reqPARTID") to an internal ID ("internal PARTID", or
+"intPARTID") before looking up and applying resource controls.  Such an
+MSC does not necessarily need to provide the same number of
+independently programmable resource control partitions (indexed by the
+intPARTID) as that which the size of the supported PARTID ("reqPARTID")
+space would otherwise require.  Instead, independently programmable
+resource controls are provided for each intPARTID, accompanied by a
+software programmable mapping that allows each reqPARTID to be mapped
+independently to a selected intPARTID.
+
+Typically, the number of intPARTIDs supported by a Narrowing MSC is
+smaller than the number of reqPARTIDs.  Narrowing permits multiple
+reqPARTIDs to be mapped to each intPARTID, so allowing the whole MPAM
+PARTID space to be served.
+
+A non-Narrowing MSC can be understood as implementing special case of
+Narrowing, where the reqPARTID-to-intPARTID mapping is the identity
+function and is not programmable.
+
+
+The number of independently configurable control partitions at a given
+MSC cannot exceed the number of intPARTIDs available, so the number of
+resctrl CLOSIDs (which need to be independently controllable) must
+typically be limited not to exceed the maximum number of intPARTIDs
+available on any Narrowing MSC.
+
+However, the presence of a programmable reqPARTID-to-intPARTID mapping
+in each MSC creates an opportunity: because a group of multiple MPAM
+PARTIDs can be mapped onto the same controls, they behave as a single
+resource control partition.  Because the PARTID is used as a match
+criterion for monitoring purposes along with the MPAM Performance
+Monitoring Group (PMG) identifier assigned each memory system
+transaction, the specific PARTID in the group can be used to
+distinguish transactions for monitoring purposes, even within the same
+resctrl control group and when the PMGs of the transactions are the
+same.
+
+This means that it becomes possible to provide a larger number of
+resctrl monitoring groups than the number of PMGs supported by the MPAM
+hardware implementation.
+
+
+In order to take advantage of this, a more flexible mapping scheme is
+required for mapping resctrl CLOSIDs and RMIDs to MPAM PARTIDs and PMGs
+than the current MPAM driver provides.
+
+Similar approaches have been suggested by other people
+(see Acknowledgements).
+
+However, since I was already working on this, I'm posting my approach
+for comparison.
+
+
+This Series
+===========
+
+This series introduces a remapping scheme as follows:
+
+1) The resctrl partition identifiers are combined into a single
+identifier (formally the Cartesian product of the CLOSID, Code/Data
+partition where applicable, and RMID ID spaces).
+
+2) The resulting identifier is then broken down into the MPAM PARTID
+and PMG, in such a way that each possible <CLOSID, CDP index, RMID>
+maps to a unique <PARTID, PMG> pair and vice versa, and so that any two
+<PARTID, PMG> that differ only in the PMG value, map onto the same
+<CLOSID, CDP index> pair.
+
+
+This transformation could be done in intuitive way using bitwise
+concatenation, shift and masking operations, but since the size of the
+MPAM hardware ID spaces may limited, I have tried to generalise this
+approach using multiplication in place of bit-shifts, to permit ID
+spaces whose size is not a power of two.
+
+
+Limitations
+===========
+
+This series aims to contain all translations within the mpam_resctrl.c
+code.  This seems the most sensible place for it, since this is a
+conversion scheme that will be used to interface the MPAM hardware with
+the resctrl core code (but has nothing to do with the "pure" MPAM
+architecture or the resctrl core code itself).
+
+To simplify the interface between mpam_resctrl.c and mpam_devices.c,
+the ID conversion scheme is arranged so that each resctrl CLOSID maps
+to a contiguous sequence of MPAM PARTIDs.  This means that programming
+controls for a CLOSID can be achieved by iterating over the appropriate
+range of PARTIDs.
+
+No change is made to program the reqPARTID-to-intPARTID mappings, so
+the number of MPAM PARTIDs in use continues to be limited not to exceed
+the maximum number of intPARTIDs available, for now.
+
+Because a CLOSID may be fragmented across multiple PARTIDs, this series
+will cause certain types of resource control to be applied incorrectly
+to each individual PARTID instead of the whole resctrl control group.
+
+Future patches will need to program the intPARTID mappings
+appropriately and/or disable certain controls in order to restore the
+expected regulation behaviour as seen by users of resctrl.
+
+
+Patches
+=======
+
+Patches 1-3 are pending fixes / cleanups for the MPAM branch.  They
+have nothing directly to do with this series, but I don't want to
+maintain two versions of my development branch.  This seems as a good a
+time as any to post them.
+
+Patch 4 implements the ID remapping scheme.
+
+Following these are two development patches which may be useful to
+reviewers:
+
+Patch 5 adds a kernel command-line parameter mpam.partid_per_closid=<n>
+to allow the number of PARTIDs to map to each CLOSID.  This is intended
+to be temporary, but since the patches contain no logic for choosing
+this parameter, allowing it to be specified on the kernel command line
+makes it easier to experiment with different configurations.
+
+Patch 6 adds some debug printks to show how MPAM PARTIDs / PMGs are
+actually being assigned, and shows when each MSC is reprogrammed.
+Since we don't want to create unintentional ABI exposing these IDs, I
+don't expect this to be upstreamed in any form.
+
+
+Acknowledgements
+================
+
+Thanks to Shaopeng Tan for pointing out this opportunity and suggesting
+a related idea, and to Zeng Heng who has also implemented something
+similar. [1], [2], [3]
+
+
+References
+==========
+
+Zeng Heng <zengheng4@huawei.com>:
+
+[1] (v3) arm_mpam: Introduce the Narrow-PARTID feature for MPAM driver
+https://lore.kernel.org/linux-arm-kernel/20241207092136.2488426-1-zengheng4@huawei.com/
+
+[2] (v2) arm_mpam: Introduce the Narrow-PARTID feature for MPAM driver
+https://lore.kernel.org/linux-arm-kernel/20241119135104.595630-1-zengheng4@huawei.com/
+
+[3] (v1) arm_mpam: Introduce the definitions of intPARTID and reqPARTID
+https://lore.kernel.org/linux-arm-kernel/20241114135037.918470-1-zengheng4@huawei.com/
+
+
+
+Dave Martin (6):
+  arm_mpam: Clean up config update checks in mpam_apply_config()
+  arm_mpam: Fix read-back of cloned resource controls under CDP
+    emulation
+  arm_mpam: Delete unused function resctrl_arch_set_rmid()
+  arm_mpam: Introduce flexible CLOSID/RMID translation
+  arm_mpam: [NFU] Rework ID remapping to use a kernel command-line
+    argument
+  arm_mpam: [NFU] Development diagnostics for MPAM ID assignments
+
+ arch/arm64/include/asm/mpam.h              |  21 +-
+ drivers/platform/arm64/mpam/mpam_devices.c |  29 +++
+ drivers/platform/arm64/mpam/mpam_resctrl.c | 214 +++++++++++++--------
+ 3 files changed, 168 insertions(+), 96 deletions(-)
+
+
+base-commit: 4d17b37b670795954fd7a70c8ec83fb705a5e2ad
+-- 
+2.34.1
+
 
