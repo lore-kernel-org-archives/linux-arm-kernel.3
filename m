@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F8B0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A40BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cwdSo/iBYWKLrbHTG+HyNIQbWdtp/PGNH3wAwUOLzAc=; b=ZkwfiKrGPCvsTBJAauDWmhev0E
-	UnLXQgEDVeGOI40KCc2ZbQaQgWqlMZd5XyXCz3PDrLvB5JcmHZdFZt8GfqnM8XGP562PtFAzBauL/
-	H0SDKHruRD2rlI4pUnUXkCBpyQMJIFlwJMbAIFVzG2Bnbt+scK7fQANSuD4LC0GrDpMXgpUknDMYv
-	+TYbQQy+x51nPv0kw+ZRNhI849jXDsTeQIT9DqJuheNyBJkBDnX11lk34fgjIn4KjgB2wv4NziP4n
-	RlyBA1jl0AS7ZzZgpNw2bIQJuPm+5CKM2Fes4Gf+vKsp8aRqrwRrs051nfbl3WM2Pv2XThTkvqUkh
-	n4mSA6ew==;
+	bh=is6Al2H2AiqMxaqLQL7gdzUm7OUxIBSFMLQ1Q2t4888=; b=vk/0ZuSpxybtG/6664Q/ZVoxiK
+	CtnHRwMtWu0m5pCIFd3XYR6FLKWfbvmGdizJgHIhiowrAuds5bleNlwXygGnHPRlkqFcpQpF8ebNs
+	Q6aApjSf9i6hITkd1xjTZJRJlmWqtqMmBkdVn3lI5E/SRZ5iVTSFRwUGpzqIGi72EPeAUTxyILTI9
+	xXOcew9QCQqtzb5z/MiPY1fua3RJ2E/p+79s+n1R4zRj/gjYMGd/TbmJTiXrhLrqkUsqpU2haMSqx
+	LM2JECVnN+Gwja9UVmuzG8PbUDVum4NnbLeqSw/gH0cqT6UFBIt0dDl3C+tNQFRWnQU9f1mnvNBr9
+	ijJb7r2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnoE-00000001Oej-1QuL;
-	Thu, 12 Dec 2024 18:21:10 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1tLnpI-00000001Ouo-0MyO;
+	Thu, 12 Dec 2024 18:22:16 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnYp-00000001JeK-1sI3
+	id 1tLnYq-00000001JfH-3NmT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:05:16 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-385e1fd40acso549493f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:14 -0800 (PST)
+	Thu, 12 Dec 2024 18:05:18 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-436228ebc5eso5624165e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026713; x=1734631513; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cwdSo/iBYWKLrbHTG+HyNIQbWdtp/PGNH3wAwUOLzAc=;
-        b=pEtU5t11MklzgY1Xyq8V6YWpbDPmqaQic5L6ZcnvgOLFrTvMefmEGlpYEWs7yuzd/4
-         MfUB8MG8sg0Gb3YVw/262LTLw/c2cm9X4soCUwaVkOFVWgpdmmepjoLsqW724/lWcrgK
-         2bO5cXYTJXv0iD38q9hBUdMUa/iXkXsJK0Idf3+nbtUaAtJkIHUIU4z2xliu0our1+Dx
-         /X2v2RoqZArU7N3/4p243PkkzjMVTwSy3nU1JKjkhjy+FyFFR9pQyJZ3B5nr8Rz7w41+
-         eoVYQLqcTt8jtREgz++eJr4oKYt4jHZAvmIEO5cmX2fkzvQStr6bb3rZ/0IY9NP+XWpz
-         D1QQ==
+        d=google.com; s=20230601; t=1734026715; x=1734631515; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=is6Al2H2AiqMxaqLQL7gdzUm7OUxIBSFMLQ1Q2t4888=;
+        b=FmQkS8zUWBGrmUhubTFoiewySzgNGLznhabGWVRcClQWPQH2xKoevdvGJ6GfVeUhf+
+         h8WuWMHKZy65I1mwnraFbNkpW2AvOrrmc6UPf0qV+qBFrkd/kOaoXXn7j+xzYkPr1ZxF
+         r+u1CkUcDWkoUlSjQcxeUJJomF4if52EbIiuLhq0sR6N03Zx74DGIdijMhAQxaK0dJmv
+         PKkOZCz2xU6/da/xDROzqjbzHzCK8IWDN+4yRPWbbDY6igP0dt4phR5F/lZO0KYJcxs9
+         lzoKGOf9mvwWYkavrLLV5CSDtqpcIIOO6ZjdI/bUd03X5D6Ak0k34Cy+3hvjMITJ7Un7
+         tL1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026713; x=1734631513;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cwdSo/iBYWKLrbHTG+HyNIQbWdtp/PGNH3wAwUOLzAc=;
-        b=r+bDZaJaRk7Ix0kmx/+UFWp9mKbZo6tYoT66ICREhjo7sZ5/s4rfk4mXkro0+NF31t
-         0EsByodnkkK5tQd+FVgSiT93K4mA4xafkPB7JmQATmQfXfQK8MTSKxqqO+bvCAEw53uF
-         7JMmMyo7m/0mHtrCKyW3+GSA1z+Y0iDbDD6K6C5OLsBktL7QIi+BGoHjVFztQlklQQP/
-         aP5LUPXcZJTR2ftZtEM8YXiWzsvQ9vqB6m23DNpN49jqFHPaXWDZ77pYSanGbMQAo9ek
-         97qae0oWPEpYiPwy1+Q06LqzRmXUXKT9oc2fhHBujeZxn1upUhmghqK9m9Nw+iS44GD6
-         lO1A==
-X-Forwarded-Encrypted: i=1; AJvYcCV4D7dKgbChCcSGKQc1nf0vxovGRcOR7/GuzbMMcsORb6cDPbEYtKo3Za6CgVSNy89vJnCPXCgJkXdDJSAeAIJy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0jCZlbldC3KrdiE1xHUP12CCYuHZ75MA24FWs9HXXackGn/JN
-	veeRyL3ZBJ4D8B+U3kLW50fgYE2rWr5ZDuxnK+BRf3Hi2W97rVBJrI5ueR4WDCAXW5L2VaKqiQf
-	sZLGNF0XyiA==
-X-Google-Smtp-Source: AGHT+IFmbvEzDhykMqyy8OjOsZ2NeXlkTbt4cjtUEyGjwEAdXiFcByoXchIDeMneglUtq2nV1Br6AHE0eUe6Bg==
-X-Received: from wmom6.prod.google.com ([2002:a05:600c:4606:b0:436:16c6:831])
+        d=1e100.net; s=20230601; t=1734026715; x=1734631515;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=is6Al2H2AiqMxaqLQL7gdzUm7OUxIBSFMLQ1Q2t4888=;
+        b=kaMpn+Rfk6AL4mRrWeIs1JQ9L9aXw9mh/uF4X/Dd4tYlS9yWXVCvzVC3CrIQks+PCO
+         tTEvHN/Tc38QbWYkN4fOreAeKCFTAd6/HHA8iATS44WSMyuIV/VTSmN8+fwEKqI1Uxzb
+         bDPDCtMAnHACYxyAsOl//zTApq1UD3NBUkpr/WzKBikIitX6SgdkLGUoRqPfJ82weL50
+         yj4vzSQPiMh8CyOL6rdkG1gFhkR5WCLglZC/y/ox9MtVk6n3VDm7CgCpUrkelQhQFfEe
+         Gbqju0IdAgsld9C1F+MiPbKgNPXmIyCcqsUTX1lei7kdz2Wb3PctbFq0eUYB6jcSdig5
+         5DBw==
+X-Forwarded-Encrypted: i=1; AJvYcCVNLlHH1WkqSHawku5+n3GITOu3609yaUq8sxT/BH9TTmQGtHFZLMrcQbQYyh/sA2+lFwb0wc9pGBx6Us4sanjD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6RDXMylNShe5o6B5wdyPfSKwCCvyM8OAkmWOlvWGjZUvxGhK5
+	isZv5uFIg4EX21k4peEs5SSaYhjYxPkwOKxFYHA86i7r+erOQnooEY+hzn2cKJHMwTcmwStsL8V
+	MbsQReevs+Q==
+X-Google-Smtp-Source: AGHT+IHgLyGmzSPkmfPVAl03VtCFCec89plA2sOh31ATkaIn3otdhgvEhbA1+34qV92LIfAmgGb4yfu9wRTYfQ==
+X-Received: from wmso20.prod.google.com ([2002:a05:600c:5114:b0:436:1abf:b8fe])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2b0e:b0:386:8ff:d20b with SMTP id ffacd0b85a97d-3864ce9f344mr5120606f8f.27.1734026713289;
- Thu, 12 Dec 2024 10:05:13 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:38 +0000
+ 2002:a05:600c:350c:b0:434:ff9d:a370 with SMTP id 5b1f17b1804b1-4361c2b5351mr69806205e9.0.1734026715242;
+ Thu, 12 Dec 2024 10:05:15 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:39 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-15-smostafa@google.com>
-Subject: [RFC PATCH v2 14/58] KVM: arm64: pkvm: Add IOMMU hypercalls
+Message-ID: <20241212180423.1578358-16-smostafa@google.com>
+Subject: [RFC PATCH v2 15/58] KVM: arm64: iommu: Add a memory pool for the IOMMU
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -78,9 +80,10 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	tabba@google.com, danielmentz@google.com, tzukui@google.com, 
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100515_488002_7EC54D10 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20241212_100516_847773_887E5FAB 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,231 +98,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The unprivileged host IOMMU driver forwards some of the IOMMU API calls
-to the hypervisor, which installs and populates the page tables.
+This patch defines a new hypervisor allocator which is an instance of
+the hyp buddy allocator.
+This allocator would be used from the IOMMU drivers to be used for
+the page tables, generally these pages have 2 properties:
+- Can be multi order
+- Can be non-coherent
 
-Note that this is not a stable ABI. Those hypercalls change with the
-kernel just like internal function calls.
+The interface provide functions and wrappers for those types of
+allocations.
 
-One thing special about some of the IOMMU hypercalls, that they use
-newly added hyp_reqs_smccc_encode() to encode memory requests in
-the HVC return, leveraging X1, X2 and X3 registers as allowed SMCCC.
+The IOMMU hypervisor will leverage the allocator interface which
+provides a standardized interface that can be called from the kernel
+part of the IOMMU driver to top up the allocator, and can be
+reclaimed through the shrinker for pKVM.
+
+Also, the allocation function would automatically create a request
+when it fails to allocate memory from the pool, so it=E2=80=99s sufficient
+for the driver to return an error code and the kernel part of the
+driver should check the requests in the return and fill the
+hypervisor allocator.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 ---
- arch/arm64/include/asm/kvm_asm.h        |  7 ++
- arch/arm64/kvm/hyp/include/nvhe/iommu.h | 14 ++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 89 +++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 40 +++++++++++
- 4 files changed, 150 insertions(+)
+ arch/arm64/include/asm/kvm_host.h       |  1 +
+ arch/arm64/kvm/hyp/include/nvhe/iommu.h | 13 ++++
+ arch/arm64/kvm/hyp/include/nvhe/mm.h    |  1 +
+ arch/arm64/kvm/hyp/nvhe/alloc_mgt.c     |  2 +
+ arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 86 +++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/mm.c            | 17 +++++
+ 6 files changed, 120 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index e4b391bdfdac..9ea155a04332 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -107,6 +107,13 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_mgt_refill,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_mgt_reclaimable,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_mgt_reclaim,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_alloc_domain,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_free_domain,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_attach_dev,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_detach_dev,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_map_pages,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_unmap_pages,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_host_iommu_iova_to_phys,
- 
- 	/*
- 	 * Start of the dynamically registered hypercalls. Start a bit
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-index 1ac70cc28a9e..908863f07b0b 100644
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm=
+_host.h
+index 54416cfea573..a3b5d8dd8995 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1625,6 +1625,7 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 =
+val);
+=20
+ /* Allocator interface IDs. */
+ #define HYP_ALLOC_MGT_HEAP_ID		0
++#define HYP_ALLOC_MGT_IOMMU_ID		1
+=20
+ unsigned long __pkvm_reclaim_hyp_alloc_mgt(unsigned long nr_pages);
+=20
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/i=
+nclude/nvhe/iommu.h
+index 908863f07b0b..5f91605cd48a 100644
 --- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
 +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-@@ -4,6 +4,20 @@
- 
+@@ -4,6 +4,8 @@
+=20
  #include <asm/kvm_host.h>
- 
-+/* Hypercall handlers */
-+int kvm_iommu_alloc_domain(pkvm_handle_t domain_id, int type);
-+int kvm_iommu_free_domain(pkvm_handle_t domain_id);
-+int kvm_iommu_attach_dev(pkvm_handle_t iommu_id, pkvm_handle_t domain_id,
-+			 u32 endpoint_id, u32 pasid, u32 pasid_bits);
-+int kvm_iommu_detach_dev(pkvm_handle_t iommu_id, pkvm_handle_t domain_id,
-+			 u32 endpoint_id, u32 pasid);
-+size_t kvm_iommu_map_pages(pkvm_handle_t domain_id,
-+			   unsigned long iova, phys_addr_t paddr, size_t pgsize,
-+			   size_t pgcount, int prot);
-+size_t kvm_iommu_unmap_pages(pkvm_handle_t domain_id, unsigned long iova,
-+			     size_t pgsize, size_t pgcount);
-+phys_addr_t kvm_iommu_iova_to_phys(pkvm_handle_t domain_id, unsigned long iova);
+=20
++#include <nvhe/alloc_mgt.h>
++
+ /* Hypercall handlers */
+ int kvm_iommu_alloc_domain(pkvm_handle_t domain_id, int type);
+ int kvm_iommu_free_domain(pkvm_handle_t domain_id);
+@@ -18,10 +20,21 @@ size_t kvm_iommu_unmap_pages(pkvm_handle_t domain_id, u=
+nsigned long iova,
+ 			     size_t pgsize, size_t pgcount);
+ phys_addr_t kvm_iommu_iova_to_phys(pkvm_handle_t domain_id, unsigned long =
+iova);
+=20
++/* Flags for memory allocation for IOMMU drivers */
++#define IOMMU_PAGE_NOCACHE				BIT(0)
++void *kvm_iommu_donate_pages(u8 order, int flags);
++void kvm_iommu_reclaim_pages(void *p, u8 order);
++
++#define kvm_iommu_donate_page()		kvm_iommu_donate_pages(0, 0)
++#define kvm_iommu_donate_page_nc()	kvm_iommu_donate_pages(0, IOMMU_PAGE_NO=
+CACHE)
++#define kvm_iommu_reclaim_page(p)	kvm_iommu_reclaim_pages(p, 0)
 +
  struct kvm_iommu_ops {
  	int (*init)(void);
  };
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 08c0ff823a55..9b224842c487 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -19,6 +19,7 @@
+=20
+ int kvm_iommu_init(void);
+=20
++extern struct hyp_mgt_allocator_ops kvm_iommu_allocator_ops;
++
+ #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/incl=
+ude/nvhe/mm.h
+index 5d33aca7d686..7b425f811efb 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+@@ -37,6 +37,7 @@ int __hyp_allocator_map(unsigned long start, phys_addr_t =
+phys);
+ int __pkvm_map_module_page(u64 pfn, void *va, enum kvm_pgtable_prot prot, =
+bool is_protected);
+ void __pkvm_unmap_module_page(u64 pfn, void *va);
+ void *__pkvm_alloc_module_va(u64 nr_pages);
++int pkvm_remap_range(void *va, int nr_pages, bool nc);
+ #ifdef CONFIG_NVHE_EL2_DEBUG
+ void assert_in_mod_range(unsigned long addr);
+ #else
+diff --git a/arch/arm64/kvm/hyp/nvhe/alloc_mgt.c b/arch/arm64/kvm/hyp/nvhe/=
+alloc_mgt.c
+index 4a0f33b9820a..cfd903b30427 100644
+--- a/arch/arm64/kvm/hyp/nvhe/alloc_mgt.c
++++ b/arch/arm64/kvm/hyp/nvhe/alloc_mgt.c
+@@ -7,9 +7,11 @@
+=20
  #include <nvhe/alloc.h>
  #include <nvhe/alloc_mgt.h>
- #include <nvhe/ffa.h>
 +#include <nvhe/iommu.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/modules.h>
- #include <nvhe/mm.h>
-@@ -1592,6 +1593,87 @@ static void handle___pkvm_hyp_alloc_mgt_reclaim(struct kvm_cpu_context *host_ctx
- 	cpu_reg(host_ctxt, 2) = mc.nr_pages;
- }
- 
-+static void handle___pkvm_host_iommu_alloc_domain(struct kvm_cpu_context *host_ctxt)
-+{
-+	int ret;
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
-+	DECLARE_REG(int, type, host_ctxt, 2);
-+
-+	ret = kvm_iommu_alloc_domain(domain, type);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
-+static void handle___pkvm_host_iommu_free_domain(struct kvm_cpu_context *host_ctxt)
-+{
-+	int ret;
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
-+
-+	ret = kvm_iommu_free_domain(domain);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
-+static void handle___pkvm_host_iommu_attach_dev(struct kvm_cpu_context *host_ctxt)
-+{
-+	int ret;
-+	DECLARE_REG(pkvm_handle_t, iommu, host_ctxt, 1);
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 2);
-+	DECLARE_REG(unsigned int, endpoint, host_ctxt, 3);
-+	DECLARE_REG(unsigned int, pasid, host_ctxt, 4);
-+	DECLARE_REG(unsigned int, pasid_bits, host_ctxt, 5);
-+
-+	ret = kvm_iommu_attach_dev(iommu, domain, endpoint,
-+				   pasid, pasid_bits);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
-+static void handle___pkvm_host_iommu_detach_dev(struct kvm_cpu_context *host_ctxt)
-+{
-+	int ret;
-+	DECLARE_REG(pkvm_handle_t, iommu, host_ctxt, 1);
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 2);
-+	DECLARE_REG(unsigned int, endpoint, host_ctxt, 3);
-+	DECLARE_REG(unsigned int, pasid, host_ctxt, 4);
-+
-+	ret = kvm_iommu_detach_dev(iommu, domain, endpoint, pasid);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
-+static void handle___pkvm_host_iommu_map_pages(struct kvm_cpu_context *host_ctxt)
-+{
-+	unsigned long ret;
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
-+	DECLARE_REG(unsigned long, iova, host_ctxt, 2);
-+	DECLARE_REG(phys_addr_t, paddr, host_ctxt, 3);
-+	DECLARE_REG(size_t, pgsize, host_ctxt, 4);
-+	DECLARE_REG(size_t, pgcount, host_ctxt, 5);
-+	DECLARE_REG(unsigned int, prot, host_ctxt, 6);
-+
-+	ret = kvm_iommu_map_pages(domain, iova, paddr,
-+				  pgsize, pgcount, prot);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
-+static void handle___pkvm_host_iommu_unmap_pages(struct kvm_cpu_context *host_ctxt)
-+{
-+	unsigned long ret;
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
-+	DECLARE_REG(unsigned long, iova, host_ctxt, 2);
-+	DECLARE_REG(size_t, pgsize, host_ctxt, 3);
-+	DECLARE_REG(size_t, pgcount, host_ctxt, 4);
-+
-+	ret = kvm_iommu_unmap_pages(domain, iova,
-+				    pgsize, pgcount);
-+	hyp_reqs_smccc_encode(ret, host_ctxt, this_cpu_ptr(&host_hyp_reqs));
-+}
-+
-+static void handle___pkvm_host_iommu_iova_to_phys(struct kvm_cpu_context *host_ctxt)
-+{
-+	DECLARE_REG(pkvm_handle_t, domain, host_ctxt, 1);
-+	DECLARE_REG(unsigned long, iova, host_ctxt, 2);
-+
-+	cpu_reg(host_ctxt, 1) = kvm_iommu_iova_to_phys(domain, iova);
-+}
-+
- typedef void (*hcall_t)(struct kvm_cpu_context *);
- 
- #define HANDLE_FUNC(x)	[__KVM_HOST_SMCCC_FUNC_##x] = (hcall_t)handle_##x
-@@ -1649,6 +1731,13 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_hyp_alloc_mgt_refill),
- 	HANDLE_FUNC(__pkvm_hyp_alloc_mgt_reclaimable),
- 	HANDLE_FUNC(__pkvm_hyp_alloc_mgt_reclaim),
-+	HANDLE_FUNC(__pkvm_host_iommu_alloc_domain),
-+	HANDLE_FUNC(__pkvm_host_iommu_free_domain),
-+	HANDLE_FUNC(__pkvm_host_iommu_attach_dev),
-+	HANDLE_FUNC(__pkvm_host_iommu_detach_dev),
-+	HANDLE_FUNC(__pkvm_host_iommu_map_pages),
-+	HANDLE_FUNC(__pkvm_host_iommu_unmap_pages),
-+	HANDLE_FUNC(__pkvm_host_iommu_iova_to_phys),
+=20
+ static struct hyp_mgt_allocator_ops *registered_allocators[] =3D {
+ 	[HYP_ALLOC_MGT_HEAP_ID] =3D &hyp_alloc_ops,
++	[HYP_ALLOC_MGT_IOMMU_ID] =3D &kvm_iommu_allocator_ops,
  };
- 
- static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-index 3bd87d2084e9..9022fd612a49 100644
+=20
+ #define MAX_ALLOC_ID		(ARRAY_SIZE(registered_allocators))
+diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvh=
+e/iommu/iommu.c
+index 9022fd612a49..af6ae9b4dc51 100644
 --- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
 +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-@@ -16,3 +16,43 @@ int kvm_iommu_init(void)
- 
+@@ -5,15 +5,101 @@
+  * Copyright (C) 2022 Linaro Ltd.
+  */
+ #include <nvhe/iommu.h>
++#include <nvhe/mem_protect.h>
++#include <nvhe/mm.h>
+=20
+ /* Only one set of ops supported, similary to the kernel */
+ struct kvm_iommu_ops *kvm_iommu_ops;
+=20
++/*
++ * Common pool that can be used by IOMMU driver to allocate pages.
++ */
++static struct hyp_pool iommu_host_pool;
++
++DECLARE_PER_CPU(struct kvm_hyp_req, host_hyp_reqs);
++
++static int kvm_iommu_refill(struct kvm_hyp_memcache *host_mc)
++{
++	if (!kvm_iommu_ops)
++		return -EINVAL;
++
++	return refill_hyp_pool(&iommu_host_pool, host_mc);
++}
++
++static void kvm_iommu_reclaim(struct kvm_hyp_memcache *host_mc, int target=
+)
++{
++	if (!kvm_iommu_ops)
++		return;
++
++	reclaim_hyp_pool(&iommu_host_pool, host_mc, target);
++}
++
++static int kvm_iommu_reclaimable(void)
++{
++	if (!kvm_iommu_ops)
++		return 0;
++
++	return hyp_pool_free_pages(&iommu_host_pool);
++}
++
++struct hyp_mgt_allocator_ops kvm_iommu_allocator_ops =3D {
++	.refill =3D kvm_iommu_refill,
++	.reclaim =3D kvm_iommu_reclaim,
++	.reclaimable =3D kvm_iommu_reclaimable,
++};
++
++void *kvm_iommu_donate_pages(u8 order, int flags)
++{
++	void *p;
++	struct kvm_hyp_req *req =3D this_cpu_ptr(&host_hyp_reqs);
++	int ret;
++
++	p =3D hyp_alloc_pages(&iommu_host_pool, order);
++	if (p) {
++		/*
++		 * If page request is non-cacheable remap it as such
++		 * as all pages in the pool are mapped before hand and
++		 * assumed to be cacheable.
++		 */
++		if (flags & IOMMU_PAGE_NOCACHE) {
++			ret =3D pkvm_remap_range(p, 1 << order, true);
++			if (ret) {
++				hyp_put_page(&iommu_host_pool, p);
++				return NULL;
++			}
++		}
++		return p;
++	}
++
++	req->type =3D KVM_HYP_REQ_TYPE_MEM;
++	req->mem.dest =3D REQ_MEM_DEST_HYP_IOMMU;
++	req->mem.sz_alloc =3D (1 << order) * PAGE_SIZE;
++	req->mem.nr_pages =3D 1;
++	return NULL;
++}
++
++void kvm_iommu_reclaim_pages(void *p, u8 order)
++{
++	/*
++	 * Remap all pages to cacheable, as we don't know, may be use a flag
++	 * in the vmemmap or trust the driver to pass the cacheability same
++	 * as the allocation on free?
++	 */
++	pkvm_remap_range(p, 1 << order, false);
++	hyp_put_page(&iommu_host_pool, p);
++}
++
+ int kvm_iommu_init(void)
+ {
++	int ret;
++
+ 	if (!kvm_iommu_ops || !kvm_iommu_ops->init)
+ 		return -ENODEV;
+=20
++	ret =3D hyp_pool_init_empty(&iommu_host_pool, 64);
++	if (ret)
++		return ret;
++
  	return kvm_iommu_ops->init();
  }
+=20
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 76bbb4c9012e..7a18b31538ae 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -564,3 +564,20 @@ int reclaim_hyp_pool(struct hyp_pool *pool, struct kvm=
+_hyp_memcache *host_mc,
+=20
+ 	return 0;
+ }
 +
-+int kvm_iommu_alloc_domain(pkvm_handle_t domain_id, int type)
++/* Remap hyp memory with different cacheability */
++int pkvm_remap_range(void *va, int nr_pages, bool nc)
 +{
-+	return -ENODEV;
-+}
++	size_t size =3D nr_pages << PAGE_SHIFT;
++	phys_addr_t phys =3D hyp_virt_to_phys(va);
++	enum kvm_pgtable_prot prot =3D PKVM_HOST_MEM_PROT;
++	int ret;
 +
-+int kvm_iommu_free_domain(pkvm_handle_t domain_id)
-+{
-+	return -ENODEV;
++	if (nc)
++		prot |=3D KVM_PGTABLE_PROT_NORMAL_NC;
++	hyp_spin_lock(&pkvm_pgd_lock);
++	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, (u64)va, size) !=3D size);
++	ret =3D kvm_pgtable_hyp_map(&pkvm_pgtable, (u64)va, size, phys, prot);
++	hyp_spin_unlock(&pkvm_pgd_lock);
++	return ret;
 +}
-+
-+int kvm_iommu_attach_dev(pkvm_handle_t iommu_id, pkvm_handle_t domain_id,
-+			 u32 endpoint_id, u32 pasid, u32 pasid_bits)
-+{
-+	return -ENODEV;
-+}
-+
-+int kvm_iommu_detach_dev(pkvm_handle_t iommu_id, pkvm_handle_t domain_id,
-+			 u32 endpoint_id, u32 pasid)
-+{
-+	return -ENODEV;
-+}
-+
-+size_t kvm_iommu_map_pages(pkvm_handle_t domain_id,
-+			   unsigned long iova, phys_addr_t paddr, size_t pgsize,
-+			   size_t pgcount, int prot)
-+{
-+	return 0;
-+}
-+
-+size_t kvm_iommu_unmap_pages(pkvm_handle_t domain_id, unsigned long iova,
-+			     size_t pgsize, size_t pgcount)
-+{
-+	return 0;
-+}
-+
-+phys_addr_t kvm_iommu_iova_to_phys(pkvm_handle_t domain_id, unsigned long iova)
-+{
-+	return 0;
-+}
--- 
+--=20
 2.47.0.338.g60cca15819-goog
 
 
