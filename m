@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D00E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7646E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUXgWyScrWX0CjSpAeL6PdfMl6SSVDmGfBdz7pYIY88=; b=EUQFqTvUPK3K10H0J3pVjUl+D0
-	jMb2Jzjr8LrY7l4mGXXiissCykzuLGH5kud6/I6v3ZPv6Gr5HxC9SMNgVLQqt+GJT2JOpiLEHXVAb
-	BC0I6MygHMWCuSVnOLWEJiswIdf+I2iocVzUEDhsNMw7KGmZYzho40RzoGnyZde8OgoSn3kaqzI7i
-	HmU7ZMnpDFC10u/dTZCv/pNOo1SvtsxSV9uu+HdjOBVVMcTtpo6luvBzfNZiJgrFHUA8rOt56VRCQ
-	Lv3x2orl1uXk9gJ0pxpO7tCUqfHdOKaMleBJ+K981t5T2y8gJ0utJ/3nh6qBBSVOetfDPY/MXdkiO
-	gynmADkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DpS9P9XwAS30njS9V7ckdqZVR6lOQbdme3ixokuDXWQ=; b=goaEI60i+qYyNvqIR1s0Ef3oAk
+	oc7D2Y1Lw7TkNYQCItDPKL8aEe2Au98fsBfkHDpGZFaxv7RzFybx/4hMzVCo0alSLdGIf3d0C6Mh8
+	rNi6gzMRT4V5xqY4qD1Gb71ounlGMjSj3o85y+JPKYmwkzCLmwsShxoiNR6yDs1WrnNiTQ3N9qPD9
+	kmMSr/YDFFcsxCRFuMsarryLdZFVnk6Qyvi9amyN9wE/4UDoYAM3OefAogTby+MpqLMu/Y6TnwqIL
+	KLSifcGhJqQ3WRXkVoOblqWx+hD6veSM2R0HnxZNMSjvtkFciNLmrdYYPrW+64Tdx/4NOMlYI1UUe
+	EU/0q/pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLl0y-00000000kPY-1iTV;
-	Thu, 12 Dec 2024 15:22:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tLl7I-00000000l4l-1ssu;
+	Thu, 12 Dec 2024 15:28:40 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLku9-00000000isP-0Noo
+	id 1tLl6B-00000000kwu-1cTw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:15:06 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC7rc4C030319;
-	Thu, 12 Dec 2024 15:14:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tUXgWyScrWX0CjSpAeL6PdfMl6SSVDmGfBdz7pYIY88=; b=Zx5FUQW9WfSArpQZ
-	s1hD522jHoIHsDV63nWCDW5C2IchEKrRBOHL48vfvYXWJJEzrLAwXHqEH1Dbkkw/
-	JnDPdJdzS81IkT9fLPhNbxyTzAXkvmMyRHmj5xGsX7fKM6rvp5nL172L3bnCylB2
-	VC829KBt93tCjLG0xjhsrHp9WB3nGrk4t507gptFBbspvAFQd6VniMM0LZDvKZ9m
-	qhmgkEh2ZpG8c6XiGj7/enXHY0I43ssGlR8bxZfba5CYtP0ZKAwFAS0Bycf2jYCc
-	i8Uz67NN0dNW1mCzqkXN8lNLPlcC+DM5r0k00TVyLOL76pEuu97zbLxTE7mh053B
-	E/OaTg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43dxw4bspc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 15:14:53 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BCFEqRu010953
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 15:14:52 GMT
-Received: from hu-bibekkum-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 12 Dec 2024 07:14:47 -0800
-From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-        <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
-        <robh@kernel.org>, <krzysztof.kozlowski@linaro.org>,
-        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>
-CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <quic_bibekkum@quicinc.com>
-Subject: [PATCH v18 5/5] iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
-Date: Thu, 12 Dec 2024 20:44:02 +0530
-Message-ID: <20241212151402.159102-6-quic_bibekkum@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
-References: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
+	Thu, 12 Dec 2024 15:27:32 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4361d5dcf5bso8030295e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 07:27:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734017249; x=1734622049; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DpS9P9XwAS30njS9V7ckdqZVR6lOQbdme3ixokuDXWQ=;
+        b=dK9l+jvST2M6aE4ActdlfwlDqhBniUcY7b18WvI8aNUlm+74ZWIdspdoSwZmHbNrEG
+         uveiI/sRj27XQj6GMVTQjP/EaQfSol+tbZXbrFJf8PmZUNER99cEg/IsekKSzqPLW4xl
+         INBM7Jf/ENi+lJH6btaVXeDuNbxZnw8yXntLJ9vlFXr1ju0VbpdrjP+EytmQPQOKIUY2
+         RAdDuSwINVWOdR1op75rAmU+91Kgfr6B6pHRfAJuNAea5S30BEo/fTcVQX0vOgSedecn
+         TQcIEEwerml9gfuzSB9PSXR639mYupW7RCiNWEoy5Th4MatI2k3/n1/5liPkCmomXvaJ
+         5qew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734017249; x=1734622049;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DpS9P9XwAS30njS9V7ckdqZVR6lOQbdme3ixokuDXWQ=;
+        b=DocU0p4o0/XgfYVQeBgj9qF3B58Hp84k8vulzRRKzfBewzOAagKn6U1ZQ6kZgI7NaO
+         hyhSVTLLOi6KLNunBNI2ZlTsKDRomqhZgXc9PABcMSfj1HV9ugcL2kYWeT1eRevKdaQB
+         /2dfQMYfFByP10sv/W8tKs6atoyvzqd0Y46RU/uyMeYJtvQb/WlHdVDz2F7I/anWvFH/
+         qJIg7JkWc222xAwD7eSUDF9E9IbU2+XMYhKcn+Ikpo0zIrW/NAvIeVGGc+MuRHAlgx4x
+         48J2KVr279D0LVRtHEQpRXEhgf0nnVuRkgvMtuHN2F31bIOXP295RHMpiitZiT9pYn/j
+         87HQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2UXFYt7uKHlvupgfFv88Zr7Mb8oFeyBtT0xxWaI4+vp+om9RqfyM/b61X4SlE2qquoBuSpkumhg8LywIh+vM+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdfgAAwLHo8WpaHxbv395YHJxY5JQMlP1bXLdOaWQ5J5t2hrfa
+	qwnseveyPdyvRYNHIaiafsnylEFPuEN6/88yUOhc4MtUEW0QB1ab8tW9ncNMoRs=
+X-Gm-Gg: ASbGncv1MjidsJLX7KEHs9L6RF3VKi/FopWdJXKhAybb9BuS2hXJb6RyZiecuUZk+pb
+	hyaRaan9tiSjX+nRaZgXbHW3NMnlXpvws3XqnhdMCmoa6cXPrNE1qqfoK6sbR6n7rg8vz1zUOVC
+	Pmiq+gMEtsgqsW7ZEnZgVj8x5cak3RvU05qJZ3qkGjtFY4fjzL+T9Cy4FVE2ln9cN2NcOc5sgDI
+	wz+UU88/jqwgfr0rjY68uHa4O9RhfbwC5nNKRPTDFAAPhEcS4g6z6Wb4DQKl0XrkZ8=
+X-Google-Smtp-Source: AGHT+IEhNl36m73Z9uj23to0PG8NFMTyNmDs7ZQ3Hettg3uLA6lpt+bVWiT/atLfW0TWRdXrBJzlMA==
+X-Received: by 2002:a5d:64a9:0:b0:386:3213:5b9b with SMTP id ffacd0b85a97d-387877c9747mr3330810f8f.43.1734017248923;
+        Thu, 12 Dec 2024 07:27:28 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.65.153])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3878248e54dsm4329749f8f.19.2024.12.12.07.27.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Dec 2024 07:27:28 -0800 (PST)
+Message-ID: <24299600-277f-48f4-9be5-cbd65ab6ddb7@linaro.org>
+Date: Thu, 12 Dec 2024 15:27:26 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: EOhqR5Fbx1SrIQbID5AqGidXvK3G4sXQ
-X-Proofpoint-GUID: EOhqR5Fbx1SrIQbID5AqGidXvK3G4sXQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
- suspectscore=0 priorityscore=1501 adultscore=0 mlxlogscore=999
- clxscore=1015 spamscore=0 mlxscore=0 lowpriorityscore=0 phishscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412120110
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: docs: Remove target sink from examples
+To: scclevenger@os.amperecomputing.com, coresight@lists.linaro.org
+Cc: yeoreum.yun@arm.com, Mike Leach <mike.leach@linaro.org>,
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@linux.dev>,
+ Namhyung Kim <namhyung@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241210144933.295798-1-james.clark@linaro.org>
+ <9e53f5b9-d8a9-46b8-8ff1-7f018e2d9c06@os.amperecomputing.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <9e53f5b9-d8a9-46b8-8ff1-7f018e2d9c06@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_071505_247119_B31FE2B5 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20241212_072731_427056_5861A506 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,70 +101,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACTLR data table for qcom_smmu_500 including
-corresponding data entry and set prefetch value by
-way of a list of compatible strings.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index c6614be01d77..40f3a5a9f605 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -16,8 +16,40 @@
+On 11/12/2024 6:01 pm, Steve Clevenger wrote:
+> 
+> Hi James,
+> 
+> I thought I'd mention this issue with multicore self-hosted trace. The
+> perf command line syntax does not allow a sink "type" to be specified
+> (e.g. @tmc_etf or @tmc_etr). For multicore, it doesn't make sense to
+> specify a processor mapped sink as would be the case for single core
+> trace. A sink "type" should be allowed to avoid the auto select default.
+> In our case, the default is the ETF sink.
+> 
+> Thanks,
+> Steve C.
+> 
 
- #define QCOM_DUMMY_VAL	-1
+I'm sure it would be possible to add support for this, but I'm wondering 
+if the real issue is that the default selection logic is wrong? Are you 
+saying the default you get is ETF but you want ETR? And there is both 
+for each ETM? The default selection logic isn't easy to summarize but it 
+should prefer ETR (sysmem) over ETF (link sink), see coresight_find_sink().
 
-+/*
-+ * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
-+ * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
-+ * buffer). The remaining bits are implementation defined and vary across
-+ * SoCs.
-+ */
-+
-+#define CPRE			(1 << 1)
-+#define CMTLB			(1 << 0)
-+#define PREFETCH_SHIFT		8
-+#define PREFETCH_DEFAULT	0
-+#define PREFETCH_SHALLOW	(1 << PREFETCH_SHIFT)
-+#define PREFETCH_MODERATE	(2 << PREFETCH_SHIFT)
-+#define PREFETCH_DEEP		(3 << PREFETCH_SHIFT)
- #define GFX_ACTLR_PRR          (1 << 5)
+It's probably better to fix that rather than add a new sink selection 
+feature. Maybe if you shared a diagram of your coresight architecture it 
+would help.
 
-+static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
-+	{ .compatible = "qcom,adreno",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,adreno-gmu",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,adreno-smmu",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,fastrpc",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc7280-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc7280-venus",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8550-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ }
-+};
-+
- static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
- {
- 	return container_of(smmu, struct qcom_smmu, smmu);
-@@ -635,6 +667,7 @@ static const struct qcom_smmu_match_data qcom_smmu_500_impl0_data = {
- 	.impl = &qcom_smmu_500_impl,
- 	.adreno_impl = &qcom_adreno_smmu_500_impl,
- 	.cfg = &qcom_smmu_impl0_cfg,
-+	.client_match = qcom_smmu_actlr_client_of_match,
- };
-
- /*
---
-2.34.1
+Thanks
+James
 
 
