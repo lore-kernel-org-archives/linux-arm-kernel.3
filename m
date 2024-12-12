@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB91E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB81E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zk4a8zDUNM2R0E4snQBxkDhcU3anJgMWX77nhsVAD+0=; b=zvm2w3xex/EEYsYNQ1wxhYsLr/
-	SKwSgSwRczI9Qbw7lUTsPBCzTYUWNNusPMzp13/gOex+br67GmmKljaJ4liUIBev1f6qkuQSrAXRi
-	54v9+jcKSZfT5/bFzaA9AgzLm5HNBlksAPb5RzPtGeUXpT4RmbykgsUczDOu6uN4vyWJy5HoQRKsW
-	A4gIX0wJTDxcVOc//PYxEz+lZ6GxMfG0HLz5fefpfKquVqOAuy09/sFgz99umeLmyVjd00MjlJmEb
-	B+Ym5ZAlAAsrzSFEMn5aP4fjHkGWr+dMs7y91ehot/JnQJoBV6j48r1J25PEVesFAkvzoHBJV2Bmp
-	fvNWpChQ==;
+	bh=uRJUF7mofvchnjcKOdLStL+3WXxzRtiugAo8D2e5y70=; b=JG1xyZynD8DnJtNCLEzonGP02t
+	BnY1uRirl/1pDoUElcY2eD6SMrcbsGHsnvbt0PcbjsgyiOrTIT9ynBWgrDGwdKf+gwEb9ea4Z6M7a
+	KQWBQb8IEFzerYvAWM/jRR38gpI3MA3mQGoz4OC5ZHzzUmo5fAXwFH+7OCUvAFpEQzCYUfUKY71md
+	LK+0kub2hfgiz/sJ2ZVYU+b3nhUOkDnkaQHzULgfQ3Fn4Lx/r0IkXR9hCAH3Ak/bijG3wMxt10FS3
+	X/K8bCbL9MFQJFiyIb4vOu6t7A8bXg4kf/e/PlxMaqngNKX2KPCEaJQBSs2XUBvf98G9dozDBNIu8
+	+vdfIQhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLg0f-0000000Ha9c-1Rs3;
-	Thu, 12 Dec 2024 10:01:29 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tLg1h-0000000HaKB-43tE;
+	Thu, 12 Dec 2024 10:02:33 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfyf-0000000HZmm-0nKZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:59:26 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aa6a618981eso59772566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 01:59:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733997563; x=1734602363; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Zk4a8zDUNM2R0E4snQBxkDhcU3anJgMWX77nhsVAD+0=;
-        b=H3dxO3kFGuHyltV/u4Ke2xMA5n4X5Hzb+s0QyGfbmiqOjYkTxFqnSB8OwTGoL3KjhD
-         otZAO1fMtNQCsu2k6ilGQl3vHy9bnvc7ZntYGLEP2uNgjl481QibXbIAZAKyt/vXV4ox
-         Os2j1GyiCFir/riHs/MtI43h2drawWmQVrYE6RL+shCCpUHibM9Ogn0y3kQMkHPEIKJm
-         IWEWWG4630D+rmsGZWATOacg+ZRISlV/r3TOaRLS1t/vq0thcaavXY5aIKRatSnL05p/
-         85zGets9+GWGNqPg4stXTUQzPI/luiYDxcmGi8KTXKk/h+idkwpIr6n6WfR69vbat3TM
-         AheQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733997563; x=1734602363;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zk4a8zDUNM2R0E4snQBxkDhcU3anJgMWX77nhsVAD+0=;
-        b=baM7FI7Z8YCfc2v1ClQOtg6krQ16pGbAzCRTwu/SGXuCKj6V5jYYWl1s4q0mj1pQnh
-         SnA+Jw/mh/eYvRBPizTTwUZpGuzguQ+NRZy8BSweJu8LIQhepsaWZnywZ16VTPGxpjma
-         P9y+SaUTjNlGUfHQi6TZ79xNh1kGuWBZY+ysHE7YWWg2VvKI3X6vQ3/NcKDxp0BHHR8a
-         MRtxb/gBqcLsbhGS2aOZquZVbbsUfatA15rRAeLGGYtPFNZQYhdeBIELAYATJPzSyj80
-         vRABUEUl866REgqeORF5FTPNH/joCPWS9j+UmX/O+ZRJsBMaFqukzdl2ePDXqZZul+Fi
-         15uQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYqmmoheG3sdwHy/7h2xkGzLjNfSCFM0UcCRu3ebEhky1LMxG+gJOHl+GKjMpvXl76BZHhz607Tw5XqyZdmsNM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/LV9O/meF3sohFmgmYKvUW2eAAm7TAJPuya7SdQwq3Hr19PMe
-	5J3//mT0Ikg7zKx152fiBUGwa276j1gyMERVyEHhWKvJybTw/hV2
-X-Gm-Gg: ASbGncuXxsGDPDgruXbHkcLs0otzTvZXZ3TnGwbwhZ8mcWiXJszntRy8oTwzYUv0AW6
-	zIOIaL/bicptVNRQOt90wpZyon2sjXS255qhMM/j/iZhoEilRfJdpsn1Ms6KuKrIhp7PHFJxxCt
-	B3Feo51IGxFN+BU+B3pkXNeUoTpF5ojtnn7VxDDvGhvlmJ2f1SnApRGctNUdqTtc3ozYnn/eXOR
-	AY1CwkGht1z5ypauOlGrs5ipzWuybSt/czz/NTIEsETDej9op3c8VlHFpdQmkhVzWIt76Elf0wR
-	P6PxiA==
-X-Google-Smtp-Source: AGHT+IHsoB7ECXZa+537Kblyf0Pjp2NQCDzrPJy9QJIErcCrbfwLPbPLg6bypSTjvP8hBq30GN5Gpw==
-X-Received: by 2002:a17:907:920d:b0:aa6:73ae:b3b3 with SMTP id a640c23a62f3a-aa6b11e5531mr571613466b.32.1733997562783;
-        Thu, 12 Dec 2024 01:59:22 -0800 (PST)
-Received: from [192.168.7.105] ([92.120.5.4])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa674a112c7sm683296666b.147.2024.12.12.01.59.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Dec 2024 01:59:22 -0800 (PST)
-Message-ID: <1fc1f1ae-766d-4266-84ec-11dbd67a608a@gmail.com>
-Date: Thu, 12 Dec 2024 11:59:19 +0200
+	id 1tLg0S-0000000Ha7m-32cl;
+	Thu, 12 Dec 2024 10:01:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1733997674;
+	bh=OWSgiEhJaL+pZfcPCTTqqXIPHvYHJbsF2A/UC232kCM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KR1COHTirNAVAEP+sJvz3kUWoahJNZ4x8TIuQ2oIXEMRbWzRnJNlJIo2zX87IAd9D
+	 O29iQLQIX2Any5WF2Q5PCcuwMiN1AocR4UBHcBT3rzzTKx3bRNvi/F/7KdK/5N6Wib
+	 cpmcZGhrSh8L+O2HrkFRTYRT292NGyU/35+4O7sH2Gf5wMdx6VDiAdchYYQllFH1iO
+	 WLO9cLT/pfazH1jGiMaMV3asT8tUQIDhRDi83RXHXIj1+KDx47GoRZACtVC7nC8YwS
+	 0MWT4kiK7yx2Lk5CAKWLP2C75v0KVutoddBiXq41FXevGYqs2mL6J9rlqJRLldEDrg
+	 koBG75WZ821/A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DCE7617E35F2;
+	Thu, 12 Dec 2024 11:01:13 +0100 (CET)
+Message-ID: <ba964eb1-324f-40f2-a5e3-7acd441cd218@collabora.com>
+Date: Thu, 12 Dec 2024 11:01:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] ASoC: dt-bindings: audio-graph-card2: add widgets
- and hp-det-gpios support
+Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: mt8390-genio-700-evk: Add
+ sound output support
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
+ Aary Patil <aary.patil@mediatek.com>,
+ Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>,
+ parkeryang <Parker.Yang@mediatek.com>
+References: <20241210-genio700-audio-output-v2-0-c50886ae0be2@collabora.com>
+ <20241210-genio700-audio-output-v2-2-c50886ae0be2@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Daniel Baluta <daniel.baluta@nxp.com>,
- Mark Brown <broonie@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Takashi Iwai <tiwai@suse.com>, Bard Liao <yung-chuan.liao@linux.intel.com>,
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
- Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-sound@vger.kernel.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20241113195240.3699-1-laurentiumihalcea111@gmail.com>
- <20241113195240.3699-4-laurentiumihalcea111@gmail.com>
- <ZzUH3n50Vw6RhmNJ@lizhi-Precision-Tower-5810>
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <ZzUH3n50Vw6RhmNJ@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20241210-genio700-audio-output-v2-2-c50886ae0be2@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_015925_236434_7FC2EB31 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20241212_020116_927692_2459804A 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,44 +85,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 10/12/24 21:54, Nícolas F. R. A. Prado ha scritto:
+> Describe all the components to get sound output working on the two audio
+> jacks, Earphone and Speaker, present on the Genio 700 EVK board with the
+> audio DSP enabled.
+> 
+> Co-developed-by: Aary Patil <aary.patil@mediatek.com>
+> Signed-off-by: Aary Patil <aary.patil@mediatek.com>
+> Co-developed-by: Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>
+> Signed-off-by: Suhrid Subramaniam <suhrid.subramaniam@mediatek.com>
+> Co-developed-by: parkeryang <Parker.Yang@mediatek.com>
+> Signed-off-by: parkeryang <Parker.Yang@mediatek.com>
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-On 11/13/2024 10:11 PM, Frank Li wrote:
-> On Wed, Nov 13, 2024 at 02:52:38PM -0500, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> Introduce the 'widgets' property, allowing the creation of widgets from
->> 4 template widgets: Microphone, Line, Headphone, and Speaker. Also
->> introduce the 'hp-det-gpios' property, which allows using headphone
->> detection using the specified GPIO.
->>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->>  .../devicetree/bindings/sound/audio-graph-card2.yaml          | 4 ++++
->>  1 file changed, 4 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml b/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml
->> index f943f90d8b15..94588353f852 100644
->> --- a/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml
->> +++ b/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml
->> @@ -37,6 +37,10 @@ properties:
->>    codec2codec:
->>      type: object
->>      description: Codec to Codec node
->> +  hp-det-gpios:
->> +    $ref: audio-graph.yaml#/properties/hp-det-gpios
->> +  widgets:
->> +    $ref: audio-graph.yaml#/properties/widgets
-> why not direct ref Documentation/devicetree/bindings/sound/audio-graph.yaml
-> and define these again here.
-We don't actually want all the properties from 'audio-graph.yaml' (for the moment at least). Also ref-ing 'audio-graph.yaml' will make the 'dais' property required, which is not targeted in this patch. Maybe Kuninori Morimoto can comment more on this.
->
-> Frank
->
->>  required:
->>    - compatible
->> --
->> 2.34.1
->>
 
 
