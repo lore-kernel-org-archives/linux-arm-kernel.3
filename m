@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B1BE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21659E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 19:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tsmQEjelOWTu4zHhJ9JMIWHspLWzKh9SaLKDSUjvTEU=; b=janBBTes7DCC85/SLC9tYWcZST
-	e7f3VcBxHSYRSmEGF08Jzo5Zp8ltTI3gOoB8e6+nV+ULS5kjPH5/L1Akv96LAy62kGj6sbdwK9T42
-	PXfMDXk8fMgEVGtoAcju3lnT6BH9uu5WI99363iEqiXVMmzSKcXuRjgxfHJvdiBY6DLAXfxSm5Pxi
-	a071tUTUJ+dN5QZde4FHs43iJKc0gKRj1uphdfZrEdTF5Le1bDzFWeV+/qFCVX4kJ8gwmu02ctPuo
-	/jJtCWFa9FaSMTqMRM9hTtSzm2XF7XfAoyIdMeJt7xBGRaewsGceEuAe/NBby/rS9Sz27mmEA3NpL
-	AbqBalGA==;
+	bh=cTjkIgTpmVLR/SFFv4x6gVWSD6/UyHK9Mz2fPwKPeqc=; b=QRX368vpxOvOq8PvCCkeWkzv0e
+	UtSn8AorWiZsLeGFiukyMIXkXRVACGgIYel7bgl3Cujc0g5FJRTn8mAngfIxTgMnNFhD6nl2xWgjT
+	8Nf7VA+o/nJVVzexBjFTLw8GAbTQP7u16B5Fdirf0plY8yQqEFfh/72O69QvTDvSpLOgemdo+s9bv
+	SlTug1/UN86EzidfJztrhQxZcKX7z51jZ4THE7uctxl4hOlaXSllV2PQgQSgG4j/dzUglsFaSEJEl
+	Kqw2aM3SbuviPtH5vracoqwW9pcypuuv64VDORDVdzBi9hUhxjnG7R6voW9/LqEfG0LGYgepc1Fg1
+	oLWLfiUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLovP-00000001ega-1lNx;
-	Thu, 12 Dec 2024 19:32:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLowT-00000001f8t-0nqb;
+	Thu, 12 Dec 2024 19:33:45 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLoJ8-00000001VlS-3BmQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:53:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D89495C6053;
-	Thu, 12 Dec 2024 18:52:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A9BFC4CECE;
-	Thu, 12 Dec 2024 18:53:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734029586;
-	bh=BHxnz/ZuGaoyXkYzRJJYhHFoUf9bxqFSTCwoEoQ6K8A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nbk2RazCjVg+911bJxS46cCaMPd92Ibstc7Fba+ayEhk/EST0iwWhAA1i0j1Cnlxp
-	 poorKNvy8ZHIKNd3YTyYtCSAkxZ4rjnt0KknlXd2scRVIZ2MAhj9fKfFxhkH5e0kmZ
-	 TWnX7hvb8/A0cF+VwJ0ftHaIJfdDOFstHSTj5/FTQmAssePc9fk3dDBH8VFmAH3dLv
-	 GBjkB0dCPB1fH7qRhfzkpmnQKF905SpRIyk/YdxyRAEawsaOR5UofNDnPEmCZ9MjpG
-	 n8yAyRETlalnbsmrqNKIHU+xRyLip3AF86mfo1cQ+w3drhcQkUXObwrzMN8nZRAoOB
-	 e7jd8MIQevuCQ==
-Date: Thu, 12 Dec 2024 15:53:03 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: James Clark <james.clark@linaro.org>, linux-perf-users@vger.kernel.org,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf vendor events arm64: Update N2/V2 events from source
-Message-ID: <Z1sxD-lvXnFKVy3q@x1>
-References: <20241120143739.243728-1-james.clark@linaro.org>
- <CAP-5=fWeJYf4mbSKSonwNhc5smw6_OktRBG2bCObcQiDjy2iAQ@mail.gmail.com>
+	id 1tLok1-00000001cAr-0szT;
+	Thu, 12 Dec 2024 19:20:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1734031239; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=hv3pMKnVGMQwJkekmHeL7LjXMImIf+604RZ+vFWB8clSywL0s8606l692wKCRauqztXbbu0B6A2+2vKfIVVJKpSbEcFPFubKlulBCmTZqVSXffMGsd9q4GILhQ4eqzrmnDHBUA/Zjg/5XYGQiCyfn/wV7IbrWFNMtME8aX4Uko4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1734031239; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=cTjkIgTpmVLR/SFFv4x6gVWSD6/UyHK9Mz2fPwKPeqc=; 
+	b=SZ816jn/eZIXEtHBFKgy4qvWAkKRLS4FCd7wkTXfR95VIdsaj0fppDkJTY6pNTlMB2IYR777zackFUaXppIMN/Fg29VmKi4QZi/ZnPGwFEBGy5J4OZP4Q+Kl+/ihy7AlyswgbhqRyADGtelgmQqr55iJTqJeJ7fi+q+U8tNlTdU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1734031239;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=cTjkIgTpmVLR/SFFv4x6gVWSD6/UyHK9Mz2fPwKPeqc=;
+	b=UXJZs3XfwiJKwKhDAbQlSo9msmOJx2iSiv3PfKQd77qWfQ2BIxEwlRfXnGdZAWgY
+	6SxHMDpzMm5zhsi/BoBcXXoGf14OETsQqYDNescbTs4e1tAvlRLljDp8rYgjFwvrnRi
+	BpDDTBKGEM9ZDIdPTbW6ud+9SEcwdq2PTJ8WtJAY=
+Received: by mx.zohomail.com with SMTPS id 1734031237501123.28761842157633;
+	Thu, 12 Dec 2024 11:20:37 -0800 (PST)
+Received: by mercury (Postfix, from userid 1000)
+	id E4C6810604B1; Thu, 12 Dec 2024 20:20:33 +0100 (CET)
+Date: Thu, 12 Dec 2024 20:20:33 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: FUKAUMI Naoki <naoki@radxa.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
+Message-ID: <iloxbrj7ktqto5yphr7i3tioq3cbecqwu4ovxmezovux3nw7t3@j2siyintvy7j>
+References: <20241210163615.120594-1-sebastian.reichel@collabora.com>
+ <FFD6E87BED20DB1B+38b8064e-9945-4cd8-a30e-7800a8c6f37b@radxa.com>
+ <3D830E407DCD15A2+de00ea1d-96d5-4766-9dc5-616fc76f404b@radxa.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5aanin4ghjoz6zq2"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fWeJYf4mbSKSonwNhc5smw6_OktRBG2bCObcQiDjy2iAQ@mail.gmail.com>
+In-Reply-To: <3D830E407DCD15A2+de00ea1d-96d5-4766-9dc5-616fc76f404b@radxa.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.3.1/233.931.41
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_105306_838545_32E7FEED 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20241212_112053_299801_CCFB8890 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +85,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 20, 2024 at 10:31:55AM -0800, Ian Rogers wrote:
-> On Wed, Nov 20, 2024 at 6:38 AM James Clark <james.clark@linaro.org> wrote:
-> >
-> > Update using the new data [1] for these changes:
-> >
-> >   * Scale some metrics like dtlb_walk_ratio to percent so they display
-> >     better with Perf's 2 dp precision
-> >   * Description typos, grammar and clarifications
-> >   * Unnecessary metric formula brackets seem to have been removed in the
-> >     source but this is not a functional change
-> >   * New sve_all_percentage metric
-> >
-> > The following command was used to generate this commit:
-> >
-> > $ telemetry-solution/tools/perf_json_generator/generate.py \
-> >   tools/perf/ --telemetry-files \
-> >   telemetry-solution/data/pmu/cpu/neoverse/neoverse-v2.json:neoverse-n2-v2
-> >
-> > [1]: https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/blob/main/data/pmu/cpu/neoverse/neoverse-v2.json
-> >
-> > Signed-off-by: James Clark <james.clark@linaro.org>
-> 
-> Reviewed-by: Ian Rogers <irogers@google.com>
 
-Thanks, applied to perf-tools-next,
+--5aanin4ghjoz6zq2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK 5B
+MIME-Version: 1.0
 
-- Arnaldo
+Hi Naoki,
+
+On Wed, Dec 11, 2024 at 09:40:13AM +0900, FUKAUMI Naoki wrote:
+> I got random reboot during booting kernel/userland...
+
+That is probably related to USB-C PD communication resulting in
+another hard reset :( Can you try to get some tcpm_log() data
+=66rom debugfs while the board is powered from the GPIO header or
+PoE?
+
+Greetings,
+
+-- Sebastian
+
+--5aanin4ghjoz6zq2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmdbN4EACgkQ2O7X88g7
++prghA//cw22TCdJFEV/aPEbXVU4VC06Qj2R7CNV7lRGfsQFVzv8OFK7qkkWjTqt
+/7jF+oc2slSdPJEkXvpFNz44On84KcrPyKqGgCaDegY3+rx468nNTcUCBXRc19/7
+6VMyJWlSReXFg9/SDpze3edKVY6vTiMVZrqb+1wC/563e21EQNC92jwTAQ0ZAHvn
+BCv5mr6YEX0184k7KC58wAHmKbD3zJ7lblba37ba8cHSJL9wIqL+iDhdJL6TGl6s
+f41Hwy147NBM5G8Usk9zRfS0MWwZFgDQCQ9xq51cJ8uKRanr8RyW1JciGe4CzAp3
+bxi4CfCTsBuXkJdFluq6hribUdZISyJ2qtdpNiMqCv0htjcdvsmFJiRnPm7bCo6Y
+4iXvLGooLQIuKQlzjrbzH8ZGDzqYia/yvzZ8uHvvbZXCaFNXHIaPWv7ExGMQ2geo
+tAi2qlEUpjHiGdhjfMYxmJ+6EQb3OVk5+jKpD7wLkNvktjYo5Vn+2Mwq9HEplfvW
+GWNNaTuLOZveIkGeiuVJ6/Z8nUXnX/xV44FnwIJMP4p6rzmfqR6076UmCmUG20Xg
+jEwL77CGF+MUkSc5JsZ7Y4hpuefIgIoH0MjwrMqQFsHRLm/MSjLdFOaRc1QekPIW
+4Kgs9kTF50ZVEi8f7gcIdw5c8wiCIXyvRhY4cDzOTUvhnPtdm+g=
+=W28Q
+-----END PGP SIGNATURE-----
+
+--5aanin4ghjoz6zq2--
 
