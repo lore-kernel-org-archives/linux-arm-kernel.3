@@ -4,169 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318B6E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A767E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yufxb2y3XS4I1a1WyHJvUTWE2+1F/8lV/zWaOk4QFUs=; b=PI3SsEMnCZUjoiVOS1xuadGFNR
-	GD5t5I5JDevQb/tPJuPp0eHlaSROwR7AnAWA9KLtrsE15x6fpdlE2mrw+MpYRMGW77Q4oXDPsZtJQ
-	gBemViPFbzuUb7uYCD8RRWwrLZq6XtS/ivB25G84GOlTezxyD9CFgAmupzvqyDbJ6Th4cLGeUBvWp
-	3N6LDGdkjkx0yfAX0wXBmmj/TOTqcam7AKfp68bQFrHMIlW5cJg+t+ommRRYNblmSXRqiSPnZ/DhS
-	fE6hCXJfh22Oe71EXIAbZQdoumbusg+s7WkjfB7ZVoqkW6Qpr+7OJ91bAhtJ+5Ya/5qlDMj9glbEq
-	JGqWPSnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rCa/zjejAIoTR/5gHfhbz6ptMz7jsKskdo9ZtaV05a0=; b=VysW99FlxHWcTLBI7xGnV+cuBA
+	3HH6rXYL7/b4GVhElBqmjXjAWqrroxAXfOXJo6zV73JpVp1POKenZWQs92PkWlyR8zlOkEo4d6fqm
+	T+/pecsPoYAGB6L62SYN1EgqTVy8F3K9D7/bbSLBI1Xg6BHiCyhSm5XbclWFEqsgs52pMk4hPbYCc
+	TlITsnJ3dfOtqEcWcq802iMVYJOmVyiqNvt6WAgXEATS9FZqBpQjDSva0gQG+MoIEifWtcNdsICtd
+	B3fBX1BKLKEP9CKYnZ+ppg4L1gH4F6VMUSzHcA8G3Uwp7+qxCYLZmb5fCeeZxGji3L7sP8Z+fN5zo
+	0jXEoMkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfl7-0000000HY0S-1AAj;
-	Thu, 12 Dec 2024 09:45:25 +0000
-Received: from mail-vi1eur03on20609.outbound.protection.outlook.com ([2a01:111:f403:260c::609] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1tLfmA-0000000HYBD-1QwI;
+	Thu, 12 Dec 2024 09:46:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfbu-0000000HWDt-43I3
+	id 1tLfhP-0000000HXC7-02TM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:35:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yedv5UL8Z+298afjuvFj582f/9K52VeYpkXDke/HRDjA5An8BCzDqWbRqJd4ETTSZiGtEdNetObdG12lalUoGLjYg5ZsIUTpWs9frqNXm115p2GXeYzYyeyQ7YtY6v2J5ZDY2Q51RIp3pmPU+Ws1J7LLFYT9ZtslWH7GnD53jRf+GEa+QMa3sRYPh907gPrr4eNcmT2c8LM/dObVZGlrGZOi+nwBPYmIW1PnTcpPwUjrqUtQuDQ3hZNcwtd1hmGFkoS1rO4/fip42/gJByaqdgB9e6GeQCRuwf47SXRxAuPRO5K4MqPrrBcItMcnhA8F64utVrnSnCrBAwrbyDEY6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yufxb2y3XS4I1a1WyHJvUTWE2+1F/8lV/zWaOk4QFUs=;
- b=CWqhHk1rzJ6vdWLKJu9wDgBzkGtDo/GSO7T+SJfeuw0sQPXaAhCapZHlPfn+M4y1zQ8yvWMtqcAmLgQs0ffXNEvfsBWAQjzQ9RAuK9o1hjTpB48rj+nXogZy+dfhMTUWHRoeeUOp3Qc1Y5oPMUT30K7N3gg23h8JUjAkD4Pq6A2zYTB+zb4aaxymkbP6W0mrT+87CkGMy3frB70IUf4qmaTbX701YN+3LVgjlGJttW9XTfysgLSyKnOhV9FiDsOgrgbg2VhCSqTZSHIF1I9OjZUDKLErLAS8s67HDq3uOYfAgPQuwLbFDlWpfpz2RuyeryeexEbwUUFfjGbLWUE75A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yufxb2y3XS4I1a1WyHJvUTWE2+1F/8lV/zWaOk4QFUs=;
- b=WuzGRcM28UF3pFG7qUapD+mFAMbGhlBRC9gyTtHduE9xwK1/k0YXD21OXpwqgOCD47cxo7/qrpGou0dLvL66H8Txg5E4Fsqt5psiFTrVGKEWgIy5YGy7y808QlRpAGVu4aHf8EnorrGEvCNUPmdTbC4KeyTFfq4+I1NU5Fbxt+jISDPrG76AU7sI38mHDMlBSpZ3p/YugPE/ZyRUiHr2tLbZjcWGKLVu6YWJ4bgTVNVrXAtni4VP+F9SOQGIcyxywDfLNdbdp22hXsCT1keyLdjtFbO41F6DETnq9JvTmS84LyCxUIkq2AJpmLDUg03xSAEDzol2UipRUvAEKYt4qQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by PA2PR04MB10279.eurprd04.prod.outlook.com (2603:10a6:102:406::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Thu, 12 Dec
- 2024 09:35:47 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8251.015; Thu, 12 Dec 2024
- 09:35:47 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	aisheng.dong@nxp.com,
-	peng.fan@nxp.com,
-	frank.li@nxp.com
-Subject: [PATCH 0/1] Add i.MX943 basic dtsi support
-Date: Thu, 12 Dec 2024 17:35:54 +0800
-Message-Id: <20241212093555.1376568-1-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2P153CA0021.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:190::20) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	Thu, 12 Dec 2024 09:41:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EFF8B5C61EB;
+	Thu, 12 Dec 2024 09:40:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53F0C4CECE;
+	Thu, 12 Dec 2024 09:41:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733996494;
+	bh=8T9YqQIGe01+p2hPomlifpNUHNh46GGlOzTjpfIdD7o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=olGgcMggf0fE1LeSI76/UaPOD4ftsCZOroqJTEOGj9ippWzQmUy3icmHWXgt+n1hr
+	 NrEveF/eWzKta86ruTjo/akhkLAWp6ktgL5enw2HyOdSlQkXOlR+oZlUQr3Cu2AL8G
+	 k7819e9L+NedCTEbNku6Arlz0zh4rk/U2SnKV8VwxJBmH0xGtej74hu87oCbwcFxpv
+	 ausS4U8ybsPMwi4Ts9fxSO8/y3fkbu6u3OYJLiTsYHgrfpmCfRyPPl3jZKGGPlfnw5
+	 rgk5KsfvSXDEvRFKq6f1ceW7RUs41R4Ydi0GL8tlfiosLOMJi3EFfc5GPUt9uUTfxP
+	 YFr+SF2N/1thg==
+Date: Thu, 12 Dec 2024 09:41:28 +0000
+From: Will Deacon <will@kernel.org>
+To: julien.thierry.kdev@gmail.com, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: catalin.marinas@arm.com, kernel-team@android.com, maz@kernel.org,
+	oliver.upton@linux.dev, apatel@ventanamicro.com,
+	andre.przywara@arm.com, suzuki.poulose@arm.com,
+	s.abdollahi22@imperial.ac.uk
+Subject: Re: [PATCH RESEND kvmtool 0/4] arm: Payload memory layout change
+Message-ID: <20241212094127.GA18819@willie-the-truck>
+References: <20241128151246.10858-1-alexandru.elisei@arm.com>
+ <173395873873.2737640.3783988676491071650.b4-ty@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|PA2PR04MB10279:EE_
-X-MS-Office365-Filtering-Correlation-Id: 086ca732-77fa-48ec-a176-08dd1a905b5b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NFlzMjNlL2ZNWmlJVlF5TVhGZDFDSEpDVURreWs3RTBFM1RsRDdLMkFZd0o5?=
- =?utf-8?B?Z2s2VTR0L0FYbkljYlJEMUdNWVVJK0ZPcjFPbjk0NnVQUFhpRmRBbDNtVURB?=
- =?utf-8?B?bVhYdDFEVWhUUzhBRDlWSjBlaHRzdEk5KzVLRTVmcE9Fd2o4Q0d0WDRHYWpy?=
- =?utf-8?B?V21HbktLcXkzZW50NkpMYUNYNWdSSHdhOVF0OVhjZkJ6cGtneXR3TVMwaGFx?=
- =?utf-8?B?NlMrVU5CMjdHN2JDMm5JRW00S3RGMTlTNFJQYkEvYW5wWW1Gc2VLSGpET2ho?=
- =?utf-8?B?REVLSmlDZXNhZmNkSzBTUzRmVStGa3BJVnBTQUhWeldIaVFEVUN6NXV1SkVH?=
- =?utf-8?B?TFlhUWNHYU1XSXNhRVR3UmJZdnVOdjF5N0xqMDczMXRETHhzREZ3cGVkbG0r?=
- =?utf-8?B?eEFXMm1Xa2R5WEQ2TithWkZiU2gxbnVqTzRuRnhQNjNGMjlLNGloUTlCa2sv?=
- =?utf-8?B?OW45dUtiVlhFN0tpeWc4aFNwMnV6a0hlRE9rQ29PaGNIU3Q1Z0JTdUJJOVQv?=
- =?utf-8?B?VWZSMUNDbXVpUVRmOTN2U2poNitlUkNueVJhVkVrRUdmV0hsYWZBWEpwSzRP?=
- =?utf-8?B?aTlQZXQ4MmhMWW5RWEEzOEsvWURqNk1sQ1B1eloyTWF1NHRZanRxNnZ2NGxY?=
- =?utf-8?B?L2wza1B1cnRVT25VMVEzOTNUbC8yYzRwOVpsR3J2WnRzalJWRnJzS0l4MHM2?=
- =?utf-8?B?M29iMDdDSm04aWJHNE5ielBhZmU0UGN5OVhJNFlLdHkva0hma3VTSXAwcWRO?=
- =?utf-8?B?MkFaYnlIeDJMZUo4UjJHUE0yV0dCTVJFbWtsY1Y1Z25Vb1NIYmZBTk9YVnRk?=
- =?utf-8?B?a0pMYTU2Sk0zMlVLUkxHTGZkenN0bXV4MThvbDlGNWsxRnY3R2lGaVFFNW1V?=
- =?utf-8?B?V2VHZUxGUzNlU2pkaktXOHVTMXdCL3JTM1ZnUmxyWVhaUjJ4bVJwdCtIeXVI?=
- =?utf-8?B?bUMwU3BZU1FsT3VhdWxNUkpKcGYxUkZEaXpPOURBbm1RU3YwZ0U1eFJjNFBB?=
- =?utf-8?B?emNJcndoRmRGczhVMlFDQjlQMnNpWGpBeUdXM0xGNDVyeUd4UjJMSE5CS0pD?=
- =?utf-8?B?bFVaK1RtQURHbzhSSTNYaCtocy9VU0s3QmxRbkl2alZic05LZTJiSWFKMnNN?=
- =?utf-8?B?WGtoQ2hBT3VURGF1aXFZdHlHR2tMRDk2Zmk0Q25XRExPaDZyNnA4eUdPZDFx?=
- =?utf-8?B?Wm5pczBPbVpDVUt1RGdnY2RrN1J4Ukg3SUFoZFk0bU0zaXFyUDBrM1d2MytZ?=
- =?utf-8?B?SUdONC9tNGVMN2g0aUNKN1ZMTU1nYTh5dXduR0V1U0JmSGNpdDVpSDNiNndu?=
- =?utf-8?B?Wm5za1EvRkh6bDU2MTRZNnpGckd5Qms4WUtZMnFIMndwdVV1QVZ3ZE5UNFBM?=
- =?utf-8?B?UCtxa25ScDdISk1KaTRZY3lCbVEwMk9adkdVd0I4T3d3SFNxbVBnUmN2YnJE?=
- =?utf-8?B?Tzl6bUZVWkpNc2N0aGRFc283VFpFRjUzWWwza005YnJqNmRFZFNwYVhoSXBo?=
- =?utf-8?B?UmNwNEhkYWRpL1dvSUJsKytkS3RVdWQvdE0xNWhEWDFKZmZ4aVdTLzNWUW1k?=
- =?utf-8?B?bmdERHlZQ3M2VFNzL2p0djRVYzhqaFB1U2l2WktYVndVb1RJRnFwQnl0bmVI?=
- =?utf-8?B?M3hOaDhMNmVmRnNHcElTZHNPOS8vT1kra3hZS3hESUZXVVhLY24vSnJzOWU3?=
- =?utf-8?B?aDk4RllmUGNGL2QyaVo4MHcwcVVZOE1pZjM2NUZQam4wUnpoT0pzZmd6K09J?=
- =?utf-8?B?UUZGTndMRHlBdkZDSlRwMWpVMjdtc2lpVkJXRkh3Q08vMHgxdHJPYytaekk5?=
- =?utf-8?B?dzE2REI3RVh5VGdjL2hrKzZ2MTFNL1RYZE5URjVFUHZjWWNjdjZ6bFltTjk4?=
- =?utf-8?B?SHpVTVRPMXNsUHk3a2xmVmpNU3NXM1JzbGd1RGFDQWwxdUE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dkVzaXVvaTIrRmNtalZmc2k3d1l3bVIvNWUyYXlXeFdvRjBoVTdrS2RGNkoy?=
- =?utf-8?B?ZUVRSFZ5K21iNjBzNzNNVGhFZlRJZE1rZlVraEs4T3U4eEZSTlRPVCtFa3dY?=
- =?utf-8?B?U0d3SWNFdlZwc1J2VEhsR0xpcDRpM2F1MTZhSDMydUlKaENUQ0VXanNJMXNt?=
- =?utf-8?B?d2QwTUZnN3l1QWlhdWdOSmtvbWhBTVZFSFVGV1FscjZveXpXdnBzWUY3SzBR?=
- =?utf-8?B?c29kWnNVOWVkbkRXMlR2d1E4V0JiK2cwV0NOSmpDRXlicVFpV0dqcnJPSTAy?=
- =?utf-8?B?UWh3R3lXNGM5T2RYcktDOG9qeEdNZzFXWmlyQ09TSmtJZHVTKzI4TGhpTEpV?=
- =?utf-8?B?Q2pFQ0M1a2s3eC9VYnVvcnZsc0xTSmEwdkp1cldEKzNxVk1FYnJGeGJTY2hr?=
- =?utf-8?B?dFdEUWxLTHM4U3FFNXZvOERFK29Qc2RQaVAraCtiREswOUVqYS9uUjdEbWVF?=
- =?utf-8?B?SVhreWJVTGtSRzJ0aG5TcThoZDFNZGh4b1FkbU5WRUxxY3RHeGZMc2lHbjN6?=
- =?utf-8?B?OWxnM09RRTVyU1BINmpnVGtwRjJLRi8rTGlZS3dLWGIvQ1dLcU0xazc1NUVk?=
- =?utf-8?B?czgvWXRJRTJOUlNCOWtNWk1JbGhJZlNucFUvRVU3am03bGNldkQxS3h0Mzlr?=
- =?utf-8?B?U25GbmlBNmRIN3hlck5XMHU1VFJOaHJJN3Z5Sm9vZkYyWGFsd3JFNWdpWWx0?=
- =?utf-8?B?alJCSE5pRnc3bDVhaDdTTStTczJEaGt0aWFzM1hNLzJDb0pJU1hkd0c5R1JI?=
- =?utf-8?B?MElKWVAwR21UZXR1TFJyb2lGTkp2Z0xwVzN3UmxWM1dSbWdiRmFMVnFpWk5L?=
- =?utf-8?B?Vi82UkhuUFBLd3BUNWoxaWx1czFMM211MUlHQ3NHazhlWlBKdlVBdmdZbnFu?=
- =?utf-8?B?VGZtbE5oZlFONytFWnRidXB0ZmpMakVKOG0vSmNmNDlMZm1Qek5UYWRtVUkx?=
- =?utf-8?B?c1ZJVmt1bFJxSEpldXNrTzgrUlNsekFkYmw3Z2E1YzdzTDJRWXRaaHlxSjVy?=
- =?utf-8?B?ay9SVEU2bXVYOXlaZlN4Q0hLT3NOWlorMGtYU2czRG9mSGdmaTc4bXpyUWZK?=
- =?utf-8?B?Zk8xS1MxNitiWGdTZFoxMnhCY25Md0N0QVZWVHN6Tmt4RmtsTUtITHNycGg2?=
- =?utf-8?B?RGtUck0zZlVocmhZYkhUdklpV1NSVGxzeTBReUFQUGthSGxPbmhwMFhQU0s5?=
- =?utf-8?B?M2MyR05lM2lkcVA4eFlxd0lUbVdiakVNK1RIblN0K3hoems4azUzWVBldGRZ?=
- =?utf-8?B?cU5uaDJMUy9HcllaYnIyYjJvVVJNZkh4VGQrTEJoUEJJMEZXTlFwNXB2bG1S?=
- =?utf-8?B?VHkwUzZqWit5ZGtxMSs3K2pSRisxbmMvWUxnZ01TTzIvQXZNZ2c5V0VkNXpk?=
- =?utf-8?B?akNMclJmZTlmOGxQc2R4WlZyczF5RC8wbjd0VXF6VExPd1BQbmF4bGViNGdh?=
- =?utf-8?B?cXgzTjdvUSt0ZmpON3N5ckNaZXFLVlpTSVZkWU81eTh3WGtCdk1WNGY0K2pm?=
- =?utf-8?B?ZjFvNEQydXZrMDJIMVZZamNBdFpOZUU2dnpZS1AvNXhmZ0RHOVMyRElHYmw1?=
- =?utf-8?B?M3VjWGlNaHJVdTVFNEsydjBuelhlYnViMm9ZT1hKd2tYV1NPZEl4SWxWL3pB?=
- =?utf-8?B?dWp6NGhpMTZUQXltdGtrUVZjN21CS3lLTEYwOVl1SVZLNEZVOFV2SkRHYW8r?=
- =?utf-8?B?QVE3SndqM0dydDFBVWhBSEpEbHpzY2NtTnJPaHpnL1A5aU5ON2w2UlY2eXQ5?=
- =?utf-8?B?ckJkZU5wQmtDU0VPaTBFLzlETWo1WlRTNlJvUnpmN2RZQU5TS2tCdGJjYmp4?=
- =?utf-8?B?dkw2UXN2SlN5UUpaaGUrL0Z6TEdYblpGSGs3YldRclRxM3BWcEVNVVNKY2Vp?=
- =?utf-8?B?LzV3aEdDZDIzTjlCdUxLUjRicVNyZnA2a3JWYzgvb3BSZE9aUm5NSmVzSFhr?=
- =?utf-8?B?S0ZlbGdWa0xqZ3cxZ2x6WGZBQnFXdmZRdjUzK25QUkFsblA4dzFoTmorYnQ3?=
- =?utf-8?B?eVRxYzVBRlVkeXlqSHJFQVpFc1RETStqVUxTc0hDUmkraVFHazZBbm9Ec0VP?=
- =?utf-8?B?cFRtb1pPRVRaKy9iVEwydlc2amIrc1FBS05PYVJlSnRrY202K3A5TGRLOWlY?=
- =?utf-8?Q?HuhycQVBo9269izQkCGSe/6mr?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 086ca732-77fa-48ec-a176-08dd1a905b5b
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 09:35:46.9390
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zDlLWfblTCj3IpSsrdTcqCnz8g4LFXpqhkbkesGAOvJYmtF+zIYgeGEeJMAFvrTCHUZpDl1Hmv3BapiyWGz/Xw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10279
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <173395873873.2737640.3783988676491071650.b4-ty@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_013555_015348_72F79C89 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_014135_086773_84B5C3D2 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,34 +77,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX94 family is an i.MX MPU with an integrated time-sensitive
-networking (TSN) switch, enabling configurable, secure communications
-with rich protocol support in industrial and automotive environments.
-This is also NXP’s first chip supporting future-proof, postquantum cryptography.
-The multicore design of the i.MX 94 family delivers high-performance and low
-latency across both application and real-time domains, with an integrated
-functional safety island.
+On Wed, Dec 11, 2024 at 11:44:14PM +0000, Will Deacon wrote:
+> On Thu, 28 Nov 2024 15:12:42 +0000, Alexandru Elisei wrote:
+> > (resending because I accidently only sent the cover letter, sorry for that)
+> > 
+> > The first 3 patches are fixes to kvm__arch_load_kernel_image(). I've CC'ed
+> > the riscv maintainer because it looks to me like riscv is similarly
+> > affected.
+> > 
+> > Patch #4 ("arm64: Increase the payload memory region size to 512MB") might
+> > be controversial. Follows a bug report I received from Abdollahi Sina in
+> > private. Details in the commit message, but the gist of the patch is that
+> > the memory region where kernel + initrd + DTB are copied to are changed
+> > from 256MB to 512MB.  As a result, the DTB and initrd are moved from below
+> > ram_start + 256MB to ram_start + 512MB to accomodate a larger initrd.  If
+> > users rely on finding the DTB and initrd at the current addresses, then I'm
+> > not sure the patch is justified - after all, if someone really wants to use
+> > such a large initrd instead of a disk image with virtio, then replacing
+> > SZ_256M with SZ_512M locally doesn't look like a big ask.
+> > 
+> > [...]
+> 
+> Applied to arm64 (sina), thanks!
+> 
+> [1/4] arm: Fix off-by-one errors when computing payload memory layout
+>       https://git.kernel.org/arm64/c/167aa1e
+> [2/4] arm: Check return value for host_to_guest_flat()
+>       https://git.kernel.org/arm64/c/ca57fb6
+> [3/4] arm64: Use the kernel header image_size when loading into memory
+>       https://git.kernel.org/arm64/c/32345de
+> [4/4] arm64: Increase the payload memory region size to 512MB
+>       https://git.kernel.org/arm64/c/9b26a8e
 
-This chip offers a rich set of peripherals targeting industrial, automotive
-telematics, and consumer IoT market segments. Part of the EdgeVerse portfolio
-of intelligent edge solutions, the i.MX 943 family will be offered in commercial,
-industrial, extended industrial and automotive level qualification and backed
-by NXP’s product longevity program.
+Sorry, these links are all broken as I generated the thankyou note
+against a testing branch. Rest assured that the changes are pushed to
+the kvmtool.git:
 
-Jacky Bai (1):
-  arm64: dts: freescale: Add basic dtsi for imx943
+https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/
 
- arch/arm64/boot/dts/freescale/imx943-clock.h  |  196 +++
- .../arm64/boot/dts/freescale/imx943-pinfunc.h | 1542 +++++++++++++++++
- arch/arm64/boot/dts/freescale/imx943-power.h  |   41 +
- arch/arm64/boot/dts/freescale/imx943.dtsi     | 1284 ++++++++++++++
- 4 files changed, 3063 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx943-clock.h
- create mode 100644 arch/arm64/boot/dts/freescale/imx943-pinfunc.h
- create mode 100644 arch/arm64/boot/dts/freescale/imx943-power.h
- create mode 100644 arch/arm64/boot/dts/freescale/imx943.dtsi
-
--- 
-2.34.1
-
+Will
 
