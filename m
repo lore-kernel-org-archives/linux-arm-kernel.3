@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744D4E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F130E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ycfgc8QgugyriqRVXVSDYX2PyQfiPiYWZslUUpz5tsQ=; b=Sj/32Z10dJqoQbZSojfjw2oTTw
-	SvWvo6TxEC54o1blPG/FnGHSbhs25f8TCO8FPENyqHf+YL5Xe7fXI0VbuEnSaVoeMwc+m75gHfDFD
-	3gq9nuYHnFZrF5Xz+6CI+UzIXHYvugEch5bVx5HgsSx3VhIUdDw8JF1CRkXo3CBW5jO6y35RCFA1I
-	i6eiS76eJOpNHvXryjUJms18xkcMNYUevhsZ16xqyMD4nOJeIBunprJC40VaW+V7iYJKyoGoZlGb5
-	cqQP1PJmzIMBumW55bxsBwaTmUzjLUC7UhxuQfeApzzBBphwhOIahQFPt+i56BELD7TalM4Q989Pi
-	OkmBH1Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hjW6maEJJVj5hEPJTPYw0nPQemWE/Wj5gozDJiPFiSk=; b=4Gba37o1y22HFRNqSdVl0yhy/s
+	fcsRu14sc6g924dbty22J5OXBmSlWvQH19AsAx+9v1/76B6GUCWZm2Z8mBQvU4zX0KnlrSgXuqTeg
+	o51PxtgF5bXbdDcy6jGCCyvyNjG+zy3JQ/v7gjWTx58abuLsDIu3AkY6QNsHxbMdT72dWAostsL/o
+	x8MtpOfIniVoET08fLwJ4JCMm5qKtjg1SjEXuJzDQ3enAWimq0YOlLP85rou9kMHNPqOnPMAZ7iB9
+	6WWsRD7eqmT/HDCY5IW2a4zylV7n0lPFZ80gO9QF0GszXHTfiIC0rkv2TUpNthQjfCiB6eE85XVKQ
+	+V09qEHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLesw-0000000HN13-0GZc;
-	Thu, 12 Dec 2024 08:49:26 +0000
-Received: from mail-il1-f207.google.com ([209.85.166.207])
+	id 1tLeuq-0000000HNMQ-2mew;
+	Thu, 12 Dec 2024 08:51:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLers-0000000HMmr-1BHT
+	id 1tLetm-0000000HNDk-1E5t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 08:48:21 +0000
-Received: by mail-il1-f207.google.com with SMTP id e9e14a558f8ab-3a814c7d58eso3472455ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 00:48:18 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733993298; x=1734598098;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ycfgc8QgugyriqRVXVSDYX2PyQfiPiYWZslUUpz5tsQ=;
-        b=WzNtYJiwKpxNyfNlNSD0J5Zocy742FcvLXDy6LiaMQK7jeXG5wTVMSba0awi86o29W
-         tmVjnkPCFmAShitMLuCjkxUdvBVRZCAH7tEYPO6KTr4HxP2THhtRrv+F8Da/wW9fn1HN
-         l4FPngYY59veHiJx89fxYBi3nujhOoLve5OZ4ISQDkt8tWgaSDAukn487mscnsyhfx9i
-         xWoi1pUycciGLZ8p6kiFvRxXBe1bjDgXSqj5GTtoJLy2rvtAyYhJ8KMv3NIRCp6mZJ2X
-         KidTo/zseWYkaIHmiTw6MN2Lc1NTLuLmB/YJSmte8/5O4hdOBwiVoo6Y42Yy4I1vc1Qg
-         zOWg==
-X-Forwarded-Encrypted: i=1; AJvYcCVfiWIy1ALhWy8kPUG1kypMSvrC5BcII2QqquCnLliuu9nEAcqoptNcSrpTEiVVAjDDqOBiSqGpS/A2MZUs3d+4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcQCPoZytNs97sR+jT0zCPhokeKu8mVVjwdxJvGdX9LqJnJGos
-	Za9XXvWB3N/nJmaGB7PbMAW2Qu6Nen2zji7HvWRqZMBk17g1PgwlwFIrO093dsU4PW0ZrXjHHbQ
-	4zUMY/WtkMAoH7cjaNaq+HgM3TxusxsbpJUVLE5NqAqGsvj2+P4b0Uy4=
-X-Google-Smtp-Source: AGHT+IEYh/r9P3Q2d590TMg1aUem7Xugr7uvi7+uIQXGql0+VotmkVmcnbxilKgnIKn53sCV1Elnx8Lm494WyNGaIYBb+5zjsXrV
-MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:1c01:b0:3a7:172f:1299 with SMTP id
- e9e14a558f8ab-3ac4b434e57mr27238975ab.12.1733993298165; Thu, 12 Dec 2024
- 00:48:18 -0800 (PST)
-Date: Thu, 12 Dec 2024 00:48:18 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <675aa352.050a0220.1ac542.0018.GAE@google.com>
-Subject: [syzbot] [kvmarm?] BUG: unable to handle kernel paging request in __hwasan_check_x0_ADDR
-From: syzbot <syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
-	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 12 Dec 2024 08:50:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B8EB5C5A1D;
+	Thu, 12 Dec 2024 08:49:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 659C3C4CECE;
+	Thu, 12 Dec 2024 08:50:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733993417;
+	bh=zgsaiFELnog4Xiom7qwaEuaJS+Gl1kORV0fiEphdXaM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kYVVMFy4ufIN76e6GyVm6iB4f5LjG16IcfW7uVpQr6sgVxpXo41AW/xv5wEGLB9Ve
+	 b/B8sqnCvpDo0VwF8awAng/J8PQjLv7faesdgiqmRYautwSfLo2QQ0S9FVXDNOegUl
+	 zB0J4Gc6M4WDyLtuCyQCstGVOFbYfUk1GIc+hgn1Ba+FzxsARTJaCB3AeAjBbHn5j2
+	 4yeZBiJIo9UgxbSVrp3h2w1QNHupelqwWAUHGwFp+273tckBBucRgM6FfWlglCC/7g
+	 ddsvv0O0AGpvpEfaQGF3zZYNxoZ9EjjmllHH+NA1h2j2du970W2wXSoju5otbMd4s+
+	 6klzlx38+EWyQ==
+Received: from 82-132-221-83.dab.02.net ([82.132.221.83] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLeti-0030Yi-Rd;
+	Thu, 12 Dec 2024 08:50:15 +0000
+Date: Thu, 12 Dec 2024 08:50:12 +0000
+Message-ID: <87bjxhs2t7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Pavan Kondeti <quic_pkondeti@quicinc.com>
+Cc: Akhil P Oommen
+	<quic_akhilpo@quicinc.com>,
+	Rob Clark <robdclark@gmail.com>,
+	Sean Paul
+	<sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	David Airlie
+	<airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Elliot Berman
+	<quic_eberman@quicinc.com>,
+	<linux-arm-msm@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>,
+	<freedreno@lists.freedesktop.org>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
+In-Reply-To: <c197264b-3791-493a-b717-3dfd844de922@quicinc.com>
+References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
+	<87ed2fs03w.wl-maz@kernel.org>
+	<92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
+	<86sequsdtp.wl-maz@kernel.org>
+	<c197264b-3791-493a-b717-3dfd844de922@quicinc.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.221.83
+X-SA-Exim-Rcpt-To: quic_pkondeti@quicinc.com, quic_akhilpo@quicinc.com, robdclark@gmail.com, sean@poorly.run, konradybcio@kernel.org, quic_abhinavk@quicinc.com, dmitry.baryshkov@linaro.org, marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch, quic_eberman@quicinc.com, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_004820_318219_081360E6 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_005018_416484_333E9288 
+X-CRM114-Status: GOOD (  34.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +105,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Thu, 12 Dec 2024 05:31:00 +0000,
+Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
+> 
+> On Wed, Dec 11, 2024 at 10:40:02AM +0000, Marc Zyngier wrote:
+> > On Wed, 11 Dec 2024 00:37:34 +0000,
+> > Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
+> > > 
+> > > On Tue, Dec 10, 2024 at 09:24:03PM +0000, Marc Zyngier wrote:
+> > > > > +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
+> > > > > +{
+> > > > > +	int ret;
+> > > > > +
+> > > > > +#ifdef CONFIG_ARM64
+> > > > > +	/*
+> > > > > +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
+> > > > > +	 * to switch the secure mode to avoid the dependency on zap shader.
+> > > > > +	 */
+> > > > > +	if (is_kernel_in_hyp_mode())
+> > > > > +		goto direct_switch;
+> > > > 
+> > > > No, please. To check whether you are *booted* at EL2, you need to
+> > > > check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
+> > > > none of the driver's business, really. This is still absolutely
+> > > > disgusting from an abstraction perspective, but I guess we don't have
+> > > > much choice here.
+> > > > 
+> > > 
+> > > Thanks Marc. Any suggestions on how we can make is_hyp_mode_available()
+> > > available for modules? Do you prefer exporting
+> > > kvm_protected_mode_initialized and __boot_cpu_mode symbols directly or
+> > > try something like [1]?
+> > 
+> > Ideally, neither. These were bad ideas nine years ago, and they still
+> > are. The least ugly hack I can come up with is the patch below, and
+> > you'd write something like:
+> > 
+> > 	if (cpus_have_cap(ARM64_HAS_EL2_OWNERSHIP))
+> > 		blah();
+> > 
+> > This is obviously completely untested.
+> > 
+> 
+> I have tested your patch. It works as intended. Thanks Marc.
 
-syzbot found the following issue on:
+Note that you will probably get some push-back from the arm64
+maintainers on this front, because this is a fairly incomplete (and
+fragile) solution.
 
-HEAD commit:    5db899a34f75 Merge remote-tracking branch 'kernel/kvmarm/n..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git fuzzme
-console output: https://syzkaller.appspot.com/x/log.txt?x=16db78f8580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=fde68ab6d6c8c8ab
-dashboard link: https://syzkaller.appspot.com/bug?extid=67a9ec5b1706e0184581
-compiler:       Debian clang version 15.0.6, GNU ld (GNU Binutils for Debian) 2.40
-userspace arch: arm64
+It would be much better if the discriminant came from the device tree.
+After all, the hypervisor is fscking-up^W^Wchanging the programming
+model of the GPU, and that should be reflected in the DT. Because for
+all intent and purposes, this is not the same hardware anymore.
 
-Unfortunately, I don't have any reproducer for this issue yet.
+The GPU isn't the only device that needs fixing in that way: the
+SMMUv3 needs to be exposed to the OS, and the PCIe ports need to be
+linked to it and the ITS. So at the end of the day, detecting EL2 only
+serves a limited purpose. You need to handle these cases, and might as
+well put the GPU in the same bag.
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/384ffdcca292/non_bootable_disk-5db899a3.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/4938b757ff4a/vmlinux-5db899a3.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/936938b47987/Image-5db899a3.gz.xz
+Which means that you'd either have a pair of static DTs (one that
+exposes the brokenness of the firmware, and one that doesn't), or you
+go the dtbhack route to compose the DT at boot time.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com
+Thanks,
 
-Unable to handle kernel paging request at virtual address efff800000000137
-KASAN: probably user-memory-access in range [0x0000000000001370-0x000000000000137f]
-Mem abort info:
-  ESR = 0x0000000096000005
-  EC = 0x25: DABT (current EL), IL = 32 bits
-  SET = 0, FnV = 0
-  EA = 0, S1PTW = 0
-  FSC = 0x05: level 1 translation fault
-Data abort info:
-  ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-  CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-swapper pgtable: 4k pages, 52-bit VAs, pgdp=0000000044a53000
-[efff800000000137] pgd=1000000049992003, p4d=1000000049993003, pud=0000000000000000
-Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
-Modules linked in:
-CPU: 0 UID: 0 PID: 6560 Comm: syz.2.929 Not tainted 6.12.0-rc7-syzkaller-g5db899a34f75 #0
-Hardware name: linux,dummy-virt (DT)
-pstate: 80402009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : __hwasan_check_x0_67043363+0x4/0x30
-lr : vgic_get_irq+0x7c/0x3d4 arch/arm64/kvm/vgic/vgic.c:93
-sp : ffff80008c597650
-x29: ffff80008c597660 x28: 00000000000000e0 x27: 0000000000000004
-x26: 0000000000000002 x25: ffff800083a7fe20 x24: 16f0000014accd90
-x23: 16f0000014acb9a0 x22: 0000000000000000 x21: a9ff80008c583000
-x20: 0000000000000001 x19: efff800000000000 x18: 0000000000000005
-x17: 0000000000000000 x16: 0000000000000137 x15: 0000000000000000
-x14: 0000000000000002 x13: 0000000000000003 x12: 70f000000a33ba80
-x11: 0000000000080000 x10: 0000000000001378 x9 : efff800000000000
-x8 : 0000000000000001 x7 : 0000000000000001 x6 : 0000000000000001
-x5 : ffff80008c597858 x4 : ffff8000800f2b38 x3 : ffff8000800f7a00
-x2 : 0000000000000001 x1 : 0000000000000001 x0 : 0000000000001378
-Call trace:
- __hwasan_check_x0_67043363+0x4/0x30
- vgic_mmio_write_invlpi+0xb0/0x174 arch/arm64/kvm/vgic/vgic-mmio-v3.c:546
- dispatch_mmio_write+0x2a4/0x308
- kvm_iodevice_write include/kvm/iodev.h:54 [inline]
- __kvm_io_bus_write+0x290/0x340 virt/kvm/kvm_main.c:5852
- kvm_io_bus_write+0x100/0x1bc virt/kvm/kvm_main.c:5877
- io_mem_abort+0x4b8/0x7a0 arch/arm64/kvm/mmio.c:204
- kvm_handle_guest_abort+0xb4c/0x1c64 arch/arm64/kvm/mmu.c:1880
- handle_trap_exceptions arch/arm64/kvm/handle_exit.c:351 [inline]
- handle_exit+0x1a0/0x274 arch/arm64/kvm/handle_exit.c:381
- kvm_arch_vcpu_ioctl_run+0xbc0/0x15b0 arch/arm64/kvm/arm.c:1279
- kvm_vcpu_ioctl+0x660/0xf78 virt/kvm/kvm_main.c:4475
- vfs_ioctl fs/ioctl.c:51 [inline]
- __do_sys_ioctl fs/ioctl.c:907 [inline]
- __se_sys_ioctl fs/ioctl.c:893 [inline]
- __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
- el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
- do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
- el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
- el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
- el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
-Code: a90efbfd d2800441 143a3ed3 9344dc10 (38706930) 
----[ end trace 0000000000000000 ]---
-----------------
-Code disassembly (best guess):
-   0:	a90efbfd 	stp	x29, x30, [sp, #232]
-   4:	d2800441 	mov	x1, #0x22                  	// #34
-   8:	143a3ed3 	b	0xe8fb54
-   c:	9344dc10 	sbfx	x16, x0, #4, #52
-* 10:	38706930 	ldrb	w16, [x9, x16] <-- trapping instruction
+	M.
 
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+-- 
+Without deviation from the norm, progress is not possible.
 
