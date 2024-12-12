@@ -4,119 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79D84E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 11:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8638E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=18tjd2ktEzJYa4dH82gKDc5oU6OSnSI0zl/xqkXqmVc=; b=t09kfyut+SEbFn8xaK2OkJx+zU
-	10tjMDjMSqtv/Ba4MVOCuLbPBKItlHJgcVi0GrrMh4pT3yVl7WofEATwWqGajX9AfIjfeGj2cBu9t
-	y/5papNJJatBg0Z+qcDuH9Le1rWBLHbdFbcSiMGBepZENSvRLuiqtQo+Lkh7fUSIc6yFkdYRqgLsS
-	HDlFWlueUN+8XGcuRXCCpahqNoPSJnO+DCCnFVxP+hyqvlhMhPKoyd1/yHqCgAChv67U8C8CJ+qxO
-	mEuj9h+UNAtKNPOSw44dHLATdKu6FrdwsZtn7Il3HSegOaaAcJJ+Oi/07UGm/KsoTGAxNgTWMHHLl
-	lXEA5LzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8H1kLpsEkPiWWDJb8eSdKBuUSJU8siXOVQvVNi/wbZk=; b=DfNSFe+jhXYAgeUC2W7c56Nc5A
+	CoPCgVriHSErlhERgamRUChR7rtyCmZQh3bkTFtlD/r4cunPQsnTm+pCNT/on7K1wxQks/rvmStaA
+	3mEicNIffmTX9RhSCuQEiP4X+md4WD+hM92ipMNGVUqpBE4+rE7zSsPbp3gnanpb7Kyw3C2BPZFrC
+	RHYB8wC7LJMP+qTmpBbYHJJ4gNn9tbRIU6oRVDRuNqSloRbB//Xz4D+QP00yLOkff29VuYvZmLc3g
+	8iFMrDxhF93jNsi9q0/7mIjRlKkNiZzdh2UpO6JSm7uaO8KA3ZdRhLT+0jh7GTmYl3VCaCSiR7n1O
+	Aa/bQ0Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLhr2-00000000IgJ-47xp;
-	Thu, 12 Dec 2024 11:59:40 +0000
-Received: from [203.254.224.34] (helo=mailout4.samsung.com)
+	id 1tLhvl-00000000JkJ-3n40;
+	Thu, 12 Dec 2024 12:04:33 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLhpv-00000000ITV-1Mqd
+	id 1tLhug-00000000JXh-3Ofq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 11:58:35 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20241212115819epoutp0470f6463729861c05c668f011f1b316e6~QbBZE9Al12394123941epoutp04N
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 11:58:19 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20241212115819epoutp0470f6463729861c05c668f011f1b316e6~QbBZE9Al12394123941epoutp04N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1734004699;
-	bh=18tjd2ktEzJYa4dH82gKDc5oU6OSnSI0zl/xqkXqmVc=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=hymluluvocD1YLWPrrXkBwuG/2z1ltWUjTC13ImRMFbVIYPNmTgG0iY9mMMbr3Pqt
-	 4JHEvDV2J3bhk5RErZP3/L9sJuev64K6xD1pMMBdedR/LvJ/n6RWZ+8mQdJJZC+20C
-	 B6BtDIdAJMNNCGaJJS4WH6RMCaI6rG87FkWz4/Js=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
-	20241212115818epcas5p240624ef4524b5d60c11e21d69d1d6ba0~QbBYdfkN_3230132301epcas5p2S;
-	Thu, 12 Dec 2024 11:58:18 +0000 (GMT)
-Received: from epsmges5p2new.samsung.com (unknown [182.195.38.179]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Y89w808wqz4x9Ps; Thu, 12 Dec
-	2024 11:58:16 +0000 (GMT)
-Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
-	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A3.1D.19933.7DFCA576; Thu, 12 Dec 2024 20:58:15 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241212115815epcas5p29fdba4ddb93d08035f422444cb826ec3~QbBVXmNp42730227302epcas5p2y;
-	Thu, 12 Dec 2024 11:58:15 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20241212115815epsmtrp21d8fd2d891ade87b352b3d22ff21b372~QbBVW3Wgv3179531795epsmtrp2M;
-	Thu, 12 Dec 2024 11:58:15 +0000 (GMT)
-X-AuditID: b6c32a4a-c1fda70000004ddd-25-675acfd7ad71
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	50.53.18949.7DFCA576; Thu, 12 Dec 2024 20:58:15 +0900 (KST)
-Received: from INBRO002811.samsungds.net (unknown [107.122.5.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241212115814epsmtip2d9d9e373a3c13c47b871fba95f50445d~QbBUEv6eB2581925819epsmtip2n;
-	Thu, 12 Dec 2024 11:58:13 +0000 (GMT)
-From: Faraz Ata <faraz.ata@samsung.com>
-To: devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	krzk+dt@kernel.org, robh@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, alim.akhtar@samsung.com,
-	rosa.pila@samsung.com, Faraz Ata <faraz.ata@samsung.com>
-Subject: [PATCH v2] arm64: dts: exynosautov920: Add DMA nodes
-Date: Thu, 12 Dec 2024 17:27:05 +0530
-Message-ID: <20241212115709.1724-1-faraz.ata@samsung.com>
-X-Mailer: git-send-email 2.46.0.windows.1
+	Thu, 12 Dec 2024 12:03:27 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-725f4025e25so410503b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 04:03:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734005005; x=1734609805; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8H1kLpsEkPiWWDJb8eSdKBuUSJU8siXOVQvVNi/wbZk=;
+        b=Zzr2ZK5F5NuUTERbL3e1vgXktK3fUZuPQV6Tmc+wDuIeU4ZoqKobfar8hb5Xd59g7l
+         r0l4onPEkSkXz+ivRDM3y4cMOUxEYcgdWqXDc/RAwS1g7rgMIW9EPjTj5LhWZxeCrVn5
+         ZgBlMpxoHE8eMixQf2jNhTx2e0pl9cLW1uMg9sYyTT4swViIl7Dl7WsqMgAxoKZ7i2Le
+         d7r3y53YaiEnpGl3GMZN3KJqMvALajf4xU1+XwKpFFbzB6bvA4P15jRitMdWrMww5vxy
+         0bZtnUR07q6nt3UTFzghXzEI40mu7duVhSq98/FFac4GCwwsEzjJ9lGZMqlUXuHlsg1u
+         NSjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734005005; x=1734609805;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8H1kLpsEkPiWWDJb8eSdKBuUSJU8siXOVQvVNi/wbZk=;
+        b=LvO2DRMnSjCo1v2U8T1+V/3Vtz1I0X/6h04iYCN9x0GsMP8MprudGTyhLuWSfCtNQt
+         2dmMMOz+JFSJtlk/AMGdzFKPtNaK36zDrXgauIS2T5yjvNjFILAJ1IX6wIf5j/8EEMcz
+         5MHmFsvz8Ex7evd2+INqy6ttn8fifEtbik1VBrQE+KobW/3a02uv6q0xlpdaIfo6tvtj
+         8e+oQfEELqCF2WC2fqvIJ99T9HfcvxTz90dcHM5YkmVOEdjn989b3vnlbKlNvJWkgnNs
+         6NTCcwl9O6//axUckgQCUtHYfHDCXIfBRIIeKuhdlBoErDksGhRtOInbTf/6aS/YNUgl
+         j7xQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXC8mPKACNbi/oLYh3V6DaN4v7JhiyhK2XMU4ut9PifjCevUEs3e6w8pf2Uw13P3AUpnfPH3vyimfYkJ3IToAUX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBRajdLXlzjra2qkYe7p0p/i15V5G+4piHSIVwTCiufrRuwcWJ
+	TNSXS+muwQ58VNHHOjvbyUiBwSfgOcu4dPwFmX3F418dqMP4ZEnQlBTBUj18xY2gZw3jgueHIOi
+	utJ+C9o/UG6MArxGlrYPBCGhSxTRftfW5esqlwQ==
+X-Gm-Gg: ASbGncvy4bMWVFRuzw4arqXkCfQGDw1BojpRdB/fuMaD3UCHiWefIRMOgbNn7mpEe1l
+	Zfa0XzN0YhsWlj92dQw3p8QhZ7EtUQ2/E6dK87ZE=
+X-Google-Smtp-Source: AGHT+IE+Kg8u9Lbn6QLKaDT/b3zDFNcKPhMdlgmxpI6xjlm9dAXphccBXriO7tXjnrHdrxfQu2FMYv1+/OPRV9wJcBA=
+X-Received: by 2002:a05:6a21:78a4:b0:1e0:ce11:b0ce with SMTP id
+ adf61e73a8af0-1e1cebde749mr4535655637.35.1734005005188; Thu, 12 Dec 2024
+ 04:03:25 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrCKsWRmVeSWpSXmKPExsWy7bCmpu7181HpBv9mW1k8mLeNzWL+kXOs
-	FtduLGS3eDnrHpvFpsfXWC1mnN/HZPF/zw52iy8/HzA7cHhsWtXJ5rF5Sb1H35ZVjB6fN8kF
-	sERl22SkJqakFimk5iXnp2TmpdsqeQfHO8ebmhkY6hpaWpgrKeQl5qbaKrn4BOi6ZeYAXaGk
-	UJaYUwoUCkgsLlbSt7Mpyi8tSVXIyC8usVVKLUjJKTAp0CtOzC0uzUvXy0stsTI0MDAyBSpM
-	yM74f3Mmc8EniYq1e3kaGNeIdDFyckgImEi8/DmHqYuRi0NIYDejxJwLr6CcT4wS7f+7WSGc
-	b4wSM552ssC0tO9byAaR2MsocXHqPnYI5zujxN5d7xlBqtgE1CVm3jgC1iEikCExZ+sjVhCb
-	WaBWYsnPj2A1wgK2Ev2TnrOB2CwCqhK7Hn8Eq+cVsJR4vfI3I8Q2TYm1e/cwQcQFJU7OfMIC
-	MUdeonnrbGaQxRICp9glpv++C3Wei8SFlilMELawxKvjW9ghbCmJz+/2skHYPhKTj34DWsAB
-	ZGdI3FkLDQx7idULzrCChJmB9q7fpQ+xik+i9/cTJohqXomONiGIalWJU42XoQZKS9xbco0V
-	wvaQuLvuHlhcSCBWYu20pawTGOVmIXlgFpIHZiEsW8DIvIpRMrWgODc9tdi0wCgvtRwelcn5
-	uZsYwclPy2sH48MHH/QOMTJxMB5ilOBgVhLhvWEfmS7Em5JYWZValB9fVJqTWnyI0RQYqhOZ
-	pUST84HpN68k3tDE0sDEzMzMxNLYzFBJnPd169wUIYH0xJLU7NTUgtQimD4mDk6pBibNg/I3
-	Xm49OHnWPGYNtS1nw5j2HpIT7mzyTHmroHdu9THmeGGTaRe7Nn3iujJvIeMPPo/YFSEfDrsd
-	k3l82E5yO7/OMy/XnY9vcU5umeiwhkNPzOmAk5wzg/uVvyfNywOrL33eweDz9fwlrTyBIw1b
-	Syrr2zkOc2ernjuVEMW9Ji7n20P+nZ27GZqMLN33fbl/7urmj3urIp+9mWgwVTLyyssA4/bI
-	k1fm3H3S+ne1lOrLUk+tMHcrkeLjh8ITvA5KsdgdYT2wfads4u2Fm9t6ZtZd/Ju0xrChu6Zx
-	yyTLX5wq5/ZZHd3fZ/HzhHSr0o1snvDG9ftVPuxvTfe5cexayN6zz0tFfi/a/yRz8ml1JZbi
-	jERDLeai4kQA8QVF1AcEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrHLMWRmVeSWpSXmKPExsWy7bCSvO7181HpBjN6RC0ezNvGZjH/yDlW
-	i2s3FrJbvJx1j81i0+NrrBYzzu9jsvi/Zwe7xZefD5gdODw2repk89i8pN6jb8sqRo/Pm+QC
-	WKK4bFJSczLLUov07RK4Mv7fnMlc8EmiYu1engbGNSJdjJwcEgImEu37FrJ1MXJxCAnsZpR4
-	s3sjE0RCWuL1rC5GCFtYYuW/5+wQRV8ZJeZ9agUrYhNQl5h54wgLiC0ikCPx4kwTE0gRs0Aj
-	o8SO+R1gRcICthL9k56zgdgsAqoSux5/BGvgFbCUeL3yN9QGTYm1e/cwQcQFJU7OfAJWwywg
-	L9G8dTbzBEa+WUhSs5CkFjAyrWKUTC0ozk3PLTYsMMpLLdcrTswtLs1L10vOz93ECA5SLa0d
-	jHtWfdA7xMjEwXiIUYKDWUmE94Z9ZLoQb0piZVVqUX58UWlOavEhRmkOFiVx3m+ve1OEBNIT
-	S1KzU1MLUotgskwcnFINTCIVPLwyaxxElsv0rpI5w+a9cMq/j2z+jTc+uPZfPfD/xiT+52aP
-	5HIXCLAVxZ4sXnrMdLJ4B9tK522/rjiFaAo+iVp80vuVtLpMe3xE2HHF7zrMk1exP0iPmDA3
-	+MLKlqVW2jE3lbMnrttR1Jyz7NxUx+6uX9dFU5ZaLM+4Ve0Vp9ndqR1fWftSsFNLUFCIO0Hk
-	HmPR+kMi7tq3I4r72accuHareYr1wa8zz85azrH91/PH5nPOTjx8bo8uk27+i6wMU6mZPTF8
-	UmnnrPJWKW2LPKX9aGa1QmdlpvvB09zPzOZoisbP2HHgi3T73tzHyj/1ZRJFPJKmv3MSn5kc
-	kqQsdepyzu8lf+fZKFQGKrEUZyQaajEXFScCAEO++sHBAgAA
-X-CMS-MailID: 20241212115815epcas5p29fdba4ddb93d08035f422444cb826ec3
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241212115815epcas5p29fdba4ddb93d08035f422444cb826ec3
-References: <CGME20241212115815epcas5p29fdba4ddb93d08035f422444cb826ec3@epcas5p2.samsung.com>
+References: <20241127134256.2254851-1-mike.leach@linaro.org>
+ <20241127134256.2254851-9-mike.leach@linaro.org> <9cb1ef5e-eb61-4177-a039-4049850196a5@linaro.org>
+In-Reply-To: <9cb1ef5e-eb61-4177-a039-4049850196a5@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 12 Dec 2024 12:03:13 +0000
+Message-ID: <CAJ9a7VhG0Mxo=66JpGkPYDBLwo_fmv6BbLx2jPLeDd76f2gfCQ@mail.gmail.com>
+Subject: Re: [PATCH v7 8/9] coresight: tools: Add configuration table test tools
+To: James Clark <james.clark@linaro.org>
+Cc: coresight@lists.linaro.org, Suzuki K Poulose <Suzuki.Poulose@arm.com>, 
+	Leo Yan <leo.yan@arm.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_035832_022869_B5EA58C3 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241212_040326_862499_8019C30C 
+X-CRM114-Status: GOOD (  51.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,97 +93,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ExynosAutov920 SoC has 7 DMA controllers. Two secure DMAC
-(SPDMA0 & SPDMA1) and five non-secure DMAC (PDMA0 to PDMA4).
-Add the required dt nodes for the same.
+Hi James
 
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
----
-Changes in v2:
-- Fixed review comments from Krzysztof and Tudor as below,
-- Fixed typo s/adds/add, s/node/nodes.
-- Changed DMA base addresses to lowercase hex.
-- Link to v1: https://patchwork.kernel.org/project/linux-samsung-soc/patch/20241204122335.1578-1-faraz.ata@samsung.com/
----
- .../arm64/boot/dts/exynos/exynosautov920.dtsi | 63 +++++++++++++++++++
- 1 file changed, 63 insertions(+)
+On Tue, 3 Dec 2024 at 14:25, James Clark <james.clark@linaro.org> wrote:
+>
+>
+>
+> On 27/11/2024 1:42 pm, Mike Leach wrote:
+> > Add an example config table generator to test loading configuration
+> > tables.
+> >
+> > Provides a table buffer writer function that can be re-used in other
+> > userspace programs.
+> >
+> > Table write format matches that expected by the corresponding reader
+> > in the configfs driver code.
+> >
+> > Generates tables and outputs in form of binary files.
+> >
+> > Add a config table file reader and printer. Takes in config table files
+> > and prints the contents. Uses table reader source from kernel driver.
+> >
+> > Signed-off-by: Mike Leach <mike.leach@linaro.org>
+> > ---
+> >   MAINTAINERS                                   |   1 +
+> >   .../coresight/coresight-config-table.h        |   5 +
+>
+> Hi Mike,
+>
+> Isn't there some convention about maintaining a copy of kernel headers
+> in the tools? Especially as you wouldn't rebuild the tools after
+> updating the kernel headers so breakages might go unnoticed.
+>
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index c759134c909e..dd984dc2bdcd 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -193,6 +193,69 @@ gic: interrupt-controller@10400000 {
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		spdma0: dma-controller@10180000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x10180000 0x1000>;
-+			interrupts = <GIC_SPI 918 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		spdma1: dma-controller@10190000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x10190000 0x1000>;
-+			interrupts = <GIC_SPI 917 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma0: dma-controller@101a0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101a0000 0x1000>;
-+			interrupts = <GIC_SPI 916 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma1: dma-controller@101b0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101b0000 0x1000>;
-+			interrupts = <GIC_SPI 915 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma2: dma-controller@101c0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101c0000 0x1000>;
-+			interrupts = <GIC_SPI 914 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma3: dma-controller@101d0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101d0000 0x1000>;
-+			interrupts = <GIC_SPI 913 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
-+		pdma4: dma-controller@101e0000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0x101e0000 0x1000>;
-+			interrupts = <GIC_SPI 912 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cmu_misc CLK_MOUT_MISC_NOC_USER>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+		};
-+
- 		cmu_peric0: clock-controller@10800000 {
- 			compatible = "samsung,exynosautov920-cmu-peric0";
- 			reg = <0x10800000 0x8000>;
--- 
-2.34.1
+Not sure - perf keeps a copy and has a check script on build to ensure
+the copy matches the kernel version.
+Keeping two copies of the same thing always strikes me as poor
+practice, so I went for copying over.
 
+Both methods risk breakages when something in the kernel changes.
+
+> [...]
+>
+> > +
+> > +/*
+> > + * sets of presets leaves strobing window constant while varying period to allow
+> > + * experimentation with mark / space ratios for various workloads
+> > + */
+> > +static u64 afdo_set_a_presets[AFDO_NR_PRESETS][AFDO_NR_PARAM_SUM] = {
+> > +     { 2000, 100 },
+> > +     { 2000, 1000 },
+> > +     { 2000, 5000 },
+> > +     { 2000, 10000 },
+> > +     { 4000, 100 },
+>
+> The comment above here looks like its for example1, this one does vary
+> the window size.
+>
+> Probably only example2 is enough, I assumed they were different but
+> example2 is basically the same as example1 with an extra preset list. We
+> could comment that the second preset list is optional and delete
+> example1. Saves people reading more and wondering what the difference is.
+>
+
+Yes - perhaps both examples were not necessary - but the point was you
+can have two configs in a single loadable table.
+
+> I tried to make an example that doesn't use an existing feature by
+> reacreating afdo from scratch which I thought would be a good example.
+> It's pasted at the end. I had to copy paste the ETMv4 macros and
+> constants though, I couldn't include them in the userspace generator
+> because of this error:
+>
+
+The updated ETM config set that is to follow addresses this issue -
+the macros are split off into a separate file  (and adds in a whole
+lot of validation - ensuring a configuration cannot specify and
+allocate more resources than are available.)
+This is also the reason that the examples provided were very simple.
+More complex ones are to follow!
+
+This set was focused on loading tables so that the next patchsets
+dealing with resource validating ETM configs and CTI configs had an
+easy to use test platform.
+
+
+>    coresight-config.h:10:10: fatal error: linux/coresight.h: No such
+> file
+>    or directory
+>     10 | #include <linux/coresight.h>
+>
+> I also got this error when loading it:
+>
+> Unable to handle kernel NULL pointer dereference at virtual address
+> 0000000000000008
+>
+> cscfg_reset_feat (drivers/hwtracing/coresight/coresight-config.c:64
+> coresight-config.c:124) coresight
+> cscfg_load_config_sets
+> (drivers/hwtracing/coresight/coresight-syscfg.c:217
+> coresight-syscfg.c:262 coresight-syscfg.c:492 coresight-syscfg.c:610)
+> coresight
+> cscfg_dyn_load_cfg_table
+> (drivers/hwtracing/coresight/coresight-syscfg-configfs.c:294) coresight
+> cscfg_cfg_load_table_write
+> (drivers/hwtracing/coresight/coresight-syscfg-configfs.c:799) coresight
+> configfs_release_bin_file (fs/configfs/file.c:415)
+> __fput (fs/file_table.c:432)
+> __fput_sync (fs/file_table.c:517)
+> __arm64_sys_close (fs/open.c:1568 fs/open.c:1550 fs/open.c:1550)
+> invoke_syscall (arch/arm64/kernel/syscall.c:?
+> arch/arm64/kernel/syscall.c:49)
+> el0_svc_common (include/linux/thread_info.h:127
+> arch/arm64/kernel/syscall.c:140)
+> do_el0_svc (arch/arm64/kernel/syscall.c:152)
+>
+
+I'll go back to my tests to check I was testing what I thought I was -
+and didn't accidentally change something after testing and before
+sending the patchset.
+
+>
+> So I'm wondering if we can do the same thing by setting values via
+> individual files rather than one binary blob which would avoid some of
+> these issues. From what I understand the feature params can already be
+> set directly this way via
+> /sys/kernel/config/cs-syscfg/features/strobing/params/period/value
+>
+
+
+> We'd have to add a way to add new configs with a mkdir, then the same
+> things can be configured without needing an additional tool. Links
+> between features and configs can be done with symlinks which is also
+> mentioned in the configfs docs.
+>
+> Something like this would be a bit like the current version:
+>
+>   # ls /config/cs-syscfg
+>   configurations
+>   features
+>
+>   # mkdir /config/cs-syscfg/features/my_config
+>   # ls /config/cs-syscfg/features/my_config
+>   description
+>   matches
+>   regs_desc
+>   params
+>
+>   # mkdir /config/cs-syscfg/features/my_config/regs_desc/TRCRSCTLRn0
+>   # ls /config/cs-syscfg/features/my_config/TRCRSCTLRn0
+>   type
+>   offset
+>   val
+>   mask
+>
+
+This is precisely what I wanted to avoid. Doing it this way is both
+time consuming for the user and ends up reproducing most of the sysfs
+files in configfs.
+
+Parameters are there to allow a limited amount of relevent runtime
+adjustment. Parameter values may also only populate part of a hw
+register depending on use case.
+
+The resource approach allows us to define certain bitfields e.g.
+Branch broadcast - as user configurable - but omit anything users are
+not allowed to meddle with.
+
+The table load is atomic - it is validated and succeeds or fails
+completely. The load mechanism prevents the new configuration from
+becoming visible until it is loaded. The configfs per file method has
+an issue in deciding when the configuration is "complete". If you look
+in the configfs docs/source there was at one time  a  "commit"
+methodology proposed, but this never came to fruition.
+
+Table load  re-uses the same mechanisms as the built-in and loadable
+module methods for adding configurations, but without the need for
+re-compiling the kernel / compiling against a specific kernel -
+meaning loadable tables are dependent only on the hardware available,
+not the kernel version. Adding a per file option means that the new
+configurations would be different from the current load methods
+upstream - and appear differently in configfs.
+
+> But another way could be to enumerate all possible regs for each device.
+> This would remove the need to have all the #defines in whatever tool is
+> making the config (avoiding the #include issue from above):
+>
+>   # mkdir /config/cs-syscfg/features/my_config
+>   # ls /config/cs-syscfg/features/my_config/regs_desc
+>
+>   regs_desc is initially empty, but specify what device it's for to make
+>   all the properties appear (or the mkdir could be done in an etmv4
+>   folder):
+>
+>   # echo "SRC_ETM4" > matches
+>   # ls /config/cs-syscfg/features/my_config/regs_desc
+>   TRCRSCTLRn0
+>   TRCRSCTLRn1
+>   TRCRSCTLRn2
+>   ... etc ...
+>
+>   Now type and offset don't need to be set:
+>
+>   # ls /config/cs-syscfg/features/my_config/regs_desc/TRCRSCTLRn0
+>   val
+>   mask
+>   save
+>
+> Don't we already have the full list of parameters in
+> etm4_cfg_map_reg_offset(), so we can expose this to users via configfs
+> directly rather than needing any tooling. And doesn't any new device
+> that's supported by the config mechanism need to know about all its
+> parameters, so it wouldn't remove any flexibility?
+>
+
+Mike
+
+
+>
+
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
