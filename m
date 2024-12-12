@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85328E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716F0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6P537stxvMQqeF6f3roncNxbUVv366ZADaeaxeRSNY=; b=5CTpQCGwk7OLzCkYSImRSHja3S
-	2igrRkSsnVObcgzEw1iPXLUjkRt0aKeZBPwcRRRPaLd51DlVisaIEPX6oAnb0M//00r07Cztd1eEB
-	WU2wnddsxRFBd3MNHXlh6iILUlE60XLwnXGh+6SOFdPs5jeQX1Vus8rsuGIBQvUPO/rT6IH4SWYco
-	ajTF6mdeVkN+nXB9CwMFKqoybImb8aJ3Au9FSfBR6IOrMEcbioOV9oueicffN+nqKvp/uu+l3jy+C
-	KLD9EeOraA1E/YXYX86Fqk7Y/ZHiBv7toVmUkeutmQ5QPzCIHUdwfyK4EGAdfngVs8eKyBURFbqIi
-	TRzda7ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gWUSTVMYq8BWWEAYYe37DF6F5cN3F7NwUno8STAUMA4=; b=RTERkOs9xA1ku/eZqCLhtn/nsO
+	gd9yExH8yvxIVSheVBNVCg1SsTtyn2ohPr2T6wxWDtguiL+NhyPS7roRWdVOHjjvoYNbdlOWojJap
+	wElgeKgqaFBWvrYpZaX9RbOd4e/jqiVkusuQ7CnsXli0jvTIQpiFD9dHtL+nAk7YGhYAOAOFu9Le8
+	7wr8g/nKIt919zdBDNceMI3ZyzH9B3v5uafzot7Vjw0D8MCcjHDHJu0q/oD7Swop2otrES6cRwGla
+	w+UB0UE6nZU/vLHalxkxce/RVOS4xBwhrz7KWr8e2SqrMEnBUUNMm5lStLhL1qMFBey3FXAghs6Zu
+	Y4lGrHRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdNq-0000000H81u-21mF;
-	Thu, 12 Dec 2024 07:13:14 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1tLdOs-0000000H8B6-0IN1;
+	Thu, 12 Dec 2024 07:14:18 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdFv-0000000H6Xv-1D8S
+	id 1tLdI3-0000000H755-3VgW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 07:05:04 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-728ec840a8aso327305b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 23:05:03 -0800 (PST)
+	Thu, 12 Dec 2024 07:07:17 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-728e1799d95so329306b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 23:07:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733987103; x=1734591903; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R6P537stxvMQqeF6f3roncNxbUVv366ZADaeaxeRSNY=;
-        b=Memi8faq1Ia305Bybw4XVl85VLJnC7yrH3ctmOj66mm8hUwEpFGuPDZppQE/s9O70l
-         3bPDDzIP1PGq6wLx84VAGqgQAlRYV2UZDC+oengl7jcgMnJ+s7RhtxnY7nbppFMbF3N8
-         nckXpjsFuoDWu5eq+gLKjc9fFxES5ju2paBAvlFYUSO2y8ZoDe2BfyFldnG/h5mnCijO
-         WGYBSKsZ6aTsCii9AWzluLZ+pVwSk+y5cuUZN6tlXobP7x6td42whSBJoqf4B7RK6/S2
-         aU5pTFgTSKtWGfcCo7x+1/LgnmITsxHK0AvZgv0tnodPf/pmN8XOsAJSmvq8dmx4VSzK
-         AUuA==
+        d=linaro.org; s=google; t=1733987235; x=1734592035; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gWUSTVMYq8BWWEAYYe37DF6F5cN3F7NwUno8STAUMA4=;
+        b=O/RgnZFeHNTivviloSWouyHj9PeUZJbJSqd1p5/+m5dduhcXvZ6gnfJBz03fO28qiz
+         fJuCwp32k2mH4BolxuVHJrqzbfMkWW1gxKfNMRjj6fXQFiq+inTyStBv8YyiFR5s+GJD
+         ZL9V+JKGW7WLDiHKELHkD9DWCsQaLsYp+9aSMWV/r476DkO2F2UwWvhO1eMcb+BJXzfL
+         s8U7aNdef+vIid/u1y2SQ1wgjvlj0Ze+4Z32jJI8VNPCreVjS8sC6rPk14X4N4RD1glJ
+         opakxi1S8wn6hQ06xXrGYKoHQoAQCvo1T4FXnNe++n+9IV1rYl76poSBtiq0p30M9oCg
+         suvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733987103; x=1734591903;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R6P537stxvMQqeF6f3roncNxbUVv366ZADaeaxeRSNY=;
-        b=ijL1OsNoIr0EKlCk9xG89bObeT3eVJQXpAPJH4DQaFPjkwBVwGH/8tJXMZwhNDie+9
-         sQAL4I7FaM6XHZ5XqwFTMIZBo6DX10T8b23iWyLh1pdBplg0Ga958g5nHfJM4ZP2tZfo
-         gk4doU5L908d1zjyre6ZP2SH8QE4zGcydyl9gQHq0BmiFEf/2iqUPzWPUeTYJgy3K2ky
-         W+OxEvjUXKC66uCFPkpYwRxRukSBgSEd2KNRW4p8j72//Q9xzK9GkKA2xBCGytjbujWN
-         E8hhwc1jRxORMFByd0bqnm6KU7F5wL3dwLwSm7WsDPPB1wZvS8N1+ERuHgC8U8/A7Um+
-         4Bwg==
-X-Forwarded-Encrypted: i=1; AJvYcCW/smtQKoy3UC8V/nLtmRfpPCnv8vSXfniPxF6897fpZc7BsOe8/i3nXhaJAbJ/iKXjGNejsxQKbyUpWFJt5hkj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzdm1QzpCcvLno3C6Fq7F1RE5jH0pZBrvvdyiUdQJ1lfhN7smtm
-	JXxWLPH+aDMMWIee/U6nd97CM4lKkGjdvi0gnWaynA5JBhGXhZ/N
-X-Gm-Gg: ASbGncuYLhDrPp+9pdrN5o3w1SLxCmJezgLaLIIKPJSqwlxu0fXOhD1TweH5rcUjkWV
-	1JMJ86v57mmPcPoCMLftcAPGkzFrWpz4tCs3upjnD6WD9QqCHUEqg/avJ39cKnn566OZ+e3rFqg
-	LjTntnjvJPbk7QvRA3sGINvgunNSnTvJuv4sqraOnQm9x5pU6ej5HbKJs6vHaH5tA5MK46TNeIp
-	qy8QVvOP6wZv3jz3F5SYWPOdk6Yi+FcESyB1FUnrqYfgjgpNz9MZsZ0o8dBMCy8MTAbRuXL
-X-Google-Smtp-Source: AGHT+IGrdOYxBGn8CzjzAjnMQjSdYYWqQKbTysuxC6esT4QB5BXv4xEumBLxne4E9WmA5a4aAN8WoA==
-X-Received: by 2002:a05:6a00:1803:b0:725:eb85:f7ef with SMTP id d2e1a72fcca58-728faa62ae1mr3631124b3a.14.1733987102674;
-        Wed, 11 Dec 2024 23:05:02 -0800 (PST)
-Received: from localhost.localdomain ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-725ee10f928sm6519386b3a.32.2024.12.11.23.04.59
+        d=1e100.net; s=20230601; t=1733987235; x=1734592035;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gWUSTVMYq8BWWEAYYe37DF6F5cN3F7NwUno8STAUMA4=;
+        b=V5trmiG+RsdujzAuHnOd2r4sQgH7KDQ67qJkBHo75L8k6cdUsVE7oSbPy+odSZi9Nw
+         h6qEBOAn8lcdUCUTAoja15ELOy4b4+RdisC+i0pkfkuSbQqH59bqg4Ry9QegfV6aD1bn
+         6XVQNAYa8PpObR47TBIGrD8Y7u17tfSmV+MxlyBF7ZK/jMQVwcDvYiNy96WdUQQT4Dq0
+         XIIipsP4gsksWpoe3TqW4mngg4zceuuhUKCanucnPwEOBHz4zbGMug2onhXUUgOEKFvW
+         1U+J0s6KwSLhzzBMLhLkr1eqlcgQ1gVY7b7ra9Cri+qE4N1Ijburv+2c4bXh5LsZbGej
+         QADA==
+X-Forwarded-Encrypted: i=1; AJvYcCVtL7hk9bj2WBKNI9HyO3/UySiYBmpxKKIDQRdoXSvsYdco0DcOl86MTaXD2hMz54g7Nqa1bQlSA4kWBXGx2OlP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxz4LNcmMFjgoJBynNwfiD3l5yt9S5gsXXcjM/3zYoLC8VWekns
+	p8HbJdZ6vlUOLlRzLrG5TIrGnZssuMI4Ga2+/jvsTwCluvMirWS3WspoWtBzGeQ=
+X-Gm-Gg: ASbGncv/MDy/OdwmYw+ec4UxLyL0LYVfIZwa2Ppp4Zd2NtGcUCHV4o18OtYXE7EpGLb
+	9Pb5yhingQLxfixD+D2fm/MrQk7pFtfjOzszqxuacssrD2HbZNdAhhi2xataOAtfREJaS2yNjEa
+	8KzhsINpSyqXfBOILuv8a8FaSOYNJXo2AqawTuPxmmAur3pPQSkX1zxzOy3HWoHBJABMoyu6cxh
+	uWEZ6ir4RgKNRiMVc9NZBEusy5AVJFA1ubiXsvcwQWj7/M082XCmCx9s9s=
+X-Google-Smtp-Source: AGHT+IENxoHonYKam4dKHihrFBZZ3t2m1GlwpQo36E6FIiGVq5NKmR5l1Fyzj203B0EBrt1cbsUdog==
+X-Received: by 2002:a05:6a20:7289:b0:1e0:be48:177d with SMTP id adf61e73a8af0-1e1cea52e56mr3771734637.3.1733987234861;
+        Wed, 11 Dec 2024 23:07:14 -0800 (PST)
+Received: from localhost ([122.172.83.132])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725d3dd4cbasm8926045b3a.142.2024.12.11.23.07.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 23:05:02 -0800 (PST)
-From: Nick Chan <towinchenmi@gmail.com>
-To: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Asahi Linux <asahi@lists.linux.dev>,
-	Linux ARM Kernel Architecture <linux-arm-kernel@lists.infradead.org>,
-	Linux power management <linux-pm@vger.kernel.org>,
-	Devicetree <devicetree@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>
-Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH v2 7/7] cpufreq: apple-soc: Add Apple A7-A8X SoC cpufreq support
-Date: Thu, 12 Dec 2024 15:03:06 +0800
-Message-ID: <20241212070344.3858-8-towinchenmi@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241212070344.3858-1-towinchenmi@gmail.com>
-References: <20241212070344.3858-1-towinchenmi@gmail.com>
+        Wed, 11 Dec 2024 23:07:14 -0800 (PST)
+Date: Thu, 12 Dec 2024 12:37:12 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: bschnei@gmail.com, Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Benjamin Schneider <ben@bens.haus>,
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>
+Subject: Re: [PATCH] cpufreq: enable 1200Mhz clock speed for armada-37xx
+Message-ID: <20241212070712.txkxgmiugzji3doz@vireshk-i7>
+References: <20241125211452.14987-1-ben@bens.haus>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241125211452.14987-1-ben@bens.haus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_230503_325766_BA2B3479 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20241211_230715_887247_81C08612 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,77 +102,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These SoCs only use 3 bits for p-states, and have a different
-APPLE_DVFS_CMD_PS1 mask value.
+Marek,
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- drivers/cpufreq/apple-soc-cpufreq.c | 30 +++++++++++++++++++++++------
- 1 file changed, 24 insertions(+), 6 deletions(-)
+On 25-11-24, 13:14, bschnei@gmail.com wrote:
+> From: Benjamin Schneider <ben@bens.haus>
+> 
+> This frequency was disabled because of stability problems whose source could
+> not be accurately identified[1]. After seven months of testing, the evidence
+> points to an incorrectly configured bootloader as the source of the historical
+> instability. Testing was performed on two A3720 devices with this frequency
+> enabled and the ondemand policy in use. Marvell merged[2] changes to their
+> bootloader source needed to address the stability issue. This driver should
+> expose this frequency option to users.
+> 
+> [1] https://github.com/torvalds/linux/commit/484f2b7c61b9ae58cc00c5127bcbcd9177af8dfe
+> [2] https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell/pull/44
+> 
+> Signed-off-by: Benjamin Schneider <ben@bens.haus>
+> Reviewed-by: Pali Rohár <pali@kernel.org>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> Acked-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+> ---
+>  drivers/cpufreq/armada-37xx-cpufreq.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
+> 
+> diff --git a/drivers/cpufreq/armada-37xx-cpufreq.c b/drivers/cpufreq/armada-37xx-cpufreq.c
+> index bea41ccabf1f..f28a4435fba7 100644
+> --- a/drivers/cpufreq/armada-37xx-cpufreq.c
+> +++ b/drivers/cpufreq/armada-37xx-cpufreq.c
+> @@ -102,11 +102,7 @@ struct armada_37xx_dvfs {
+>  };
+>  
+>  static struct armada_37xx_dvfs armada_37xx_dvfs[] = {
+> -	/*
+> -	 * The cpufreq scaling for 1.2 GHz variant of the SOC is currently
+> -	 * unstable because we do not know how to configure it properly.
+> -	 */
+> -	/* {.cpu_freq_max = 1200*1000*1000, .divider = {1, 2, 4, 6} }, */
+> +	{.cpu_freq_max = 1200*1000*1000, .divider = {1, 2, 4, 6} },
+>  	{.cpu_freq_max = 1000*1000*1000, .divider = {1, 2, 4, 5} },
+>  	{.cpu_freq_max = 800*1000*1000,  .divider = {1, 2, 3, 4} },
+>  	{.cpu_freq_max = 600*1000*1000,  .divider = {2, 4, 5, 6} },
 
-diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
-index c9f31a3653e2..c3a6dd8ae22a 100644
---- a/drivers/cpufreq/apple-soc-cpufreq.c
-+++ b/drivers/cpufreq/apple-soc-cpufreq.c
-@@ -22,12 +22,14 @@
- #include <linux/pm_opp.h>
- #include <linux/slab.h>
- 
--#define APPLE_DVFS_CMD			0x20
--#define APPLE_DVFS_CMD_BUSY		BIT(31)
--#define APPLE_DVFS_CMD_SET		BIT(25)
--#define APPLE_DVFS_CMD_PS2		GENMASK(15, 12)
--#define APPLE_DVFS_CMD_PS1		GENMASK(4, 0)
--#define APPLE_DVFS_CMD_PS1_SHIFT	0
-+#define APPLE_DVFS_CMD				0x20
-+#define APPLE_DVFS_CMD_BUSY			BIT(31)
-+#define APPLE_DVFS_CMD_SET			BIT(25)
-+#define APPLE_DVFS_CMD_PS1_S5L8960X		GENMASK(24, 22)
-+#define APPLE_DVFS_CMD_PS1_S5L8960X_SHIFT	22
-+#define APPLE_DVFS_CMD_PS2			GENMASK(15, 12)
-+#define APPLE_DVFS_CMD_PS1			GENMASK(4, 0)
-+#define APPLE_DVFS_CMD_PS1_SHIFT		0
- 
- /* Same timebase as CPU counter (24MHz) */
- #define APPLE_DVFS_LAST_CHG_TIME	0x38
-@@ -36,6 +38,9 @@
-  * Apple ran out of bits and had to shift this in T8112...
-  */
- #define APPLE_DVFS_STATUS			0x50
-+#define APPLE_DVFS_STATUS_CUR_PS_S5L8960X	GENMASK(5, 3)
-+#define APPLE_DVFS_STATUS_CUR_PS_SHIFT_S5L8960X	3
-+#define APPLE_DVFS_STATUS_TGT_PS_S5L8960X	GENMASK(2, 0)
- #define APPLE_DVFS_STATUS_CUR_PS_T8103		GENMASK(7, 4)
- #define APPLE_DVFS_STATUS_CUR_PS_SHIFT_T8103	4
- #define APPLE_DVFS_STATUS_TGT_PS_T8103		GENMASK(3, 0)
-@@ -72,6 +77,15 @@ struct apple_cpu_priv {
- 
- static struct cpufreq_driver apple_soc_cpufreq_driver;
- 
-+static const struct apple_soc_cpufreq_info soc_s5l8960x_info = {
-+	.has_ps2 = false,
-+	.max_pstate = 7,
-+	.cur_pstate_mask = APPLE_DVFS_STATUS_CUR_PS_S5L8960X,
-+	.cur_pstate_shift = APPLE_DVFS_STATUS_CUR_PS_SHIFT_S5L8960X,
-+	.ps1_mask = APPLE_DVFS_CMD_PS1_S5L8960X,
-+	.ps1_shift = APPLE_DVFS_CMD_PS1_S5L8960X_SHIFT,
-+};
-+
- static const struct apple_soc_cpufreq_info soc_t8103_info = {
- 	.has_ps2 = true,
- 	.max_pstate = 15,
-@@ -99,6 +113,10 @@ static const struct apple_soc_cpufreq_info soc_default_info = {
- };
- 
- static const struct of_device_id apple_soc_cpufreq_of_match[] __maybe_unused = {
-+	{
-+		.compatible = "apple,s5l8960x-cluster-cpufreq",
-+		.data = &soc_s5l8960x_info,
-+	},
- 	{
- 		.compatible = "apple,t8103-cluster-cpufreq",
- 		.data = &soc_t8103_info,
+Any inputs on this before I apply it ?
+
 -- 
-2.47.1
-
+viresh
 
