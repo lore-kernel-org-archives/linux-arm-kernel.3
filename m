@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437B3E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20A2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVPFWke+32LF+VNqhaT9B9tF2JFyFFczsWV47mMq+3s=; b=sma4QXGWFWicY3JXOyI6xl4Sg1
-	Amad+E8iMzyzop4DrPiTGxZLwsdBPSWaUFE/uNn7XEx/3YgtLY0zUWZ7gBxJ0te2OwbKCFM5vw1r7
-	k1gG3dKn2PUP+smen45hkOUJOg7np8LXxpg6PvDOar5NH6aGkNRUqV8BKDHKhezF6/SCCh5zBNPB2
-	rgBVzEJuMUNmi445ZzgaOsyIGOPniSawqIfPdVxXKbpbmZzP/S1WQn/ZPKkI9/pIop4sLz8T4OWdj
-	WYt2bNr+l1AwKulMmpCgMWavb1FpXdyaq0a419pQ8RDTTHZsHG4LItXV4B7qNssNek0bXe5S9XuAi
-	263OypAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=paT95758DuarnLt3uBrtdu0R1Vdl4/oHUgOFQlWqE94=; b=Tnj+fyMAh93OswA7TVsLW5GAS7
+	HE2DnB1Rh9h9k27PLa68hb2/ULJd1iFzVkTJvxdKseVuaSwu8vfVPRSMYzkASKVzXkR6aP1jsbFrD
+	XsEPU6nMpWE3ztmgb2h7MF6W6cm+aZIbDKL1lFsoXkZ1Y+qQ9SmeDz9byfkIZ6GHIHqY/MT27RzGO
+	Fnka9tCdt9x3f1qiI4UBIMyBEAYoL91ccnPaksVKZPinM3qjp19SAivXzAxoHCCJjEX/67edkdjmn
+	vTaJQZw/4J0d0wq9UucBy6QxEPW5dKcVuoZ6lOcabTDowRmO803Rt61ofjEeTfNv7BRiTrKqO3d68
+	hX2MBN8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLi4k-00000000L2U-3L3V;
-	Thu, 12 Dec 2024 12:13:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLi9g-00000000Ler-1C0B;
+	Thu, 12 Dec 2024 12:18:56 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLi3g-00000000KuT-16Da
+	id 1tLi8Z-00000000LNz-3JoA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 12:12:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D27355C560E;
-	Thu, 12 Dec 2024 12:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E268C4CECE;
-	Thu, 12 Dec 2024 12:12:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734005562;
-	bh=+XrIez4xocMGbkR6OBBEEUJb2yDAgLlSckB/4e+OAsw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tZRDZ6IX+vjLI18v2MB96dEha09ed9JEGGrjLB+JQwNQa16MI3woIcLG9jW5ssmWq
-	 HrdSxmo5pR57A6yq8KYBKA2MHGjJe6m6XfiqxvtUYUiUWEf3KGQl+6BdaOXJMCe9ac
-	 N0uMU7Mb61frJCgjr7Gd5mweVWTETA6/9e11E5KhWi90UDpPV3cM5ZX/hKkinvuOke
-	 CJEjjvg81KK5+i5ymmNxYTIPMIw7nxqZx4cfX498VSjczbU/GMbY4zr+BpGVbxW57d
-	 IV4GvvYp36RpSQKbAw1HF2U315GQI86YFcUzPEfKyBirKo6hfd9ZLCngPEd0FYkU/J
-	 UPuG4Qn7qP8Ig==
-Date: Thu, 12 Dec 2024 13:12:37 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: carlos.song@nxp.com
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, festevam@gmail.com, frank.li@nxp.com, linux-i2c@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: imx: make controller available until system
- suspend_noirq() and from resume_noirq()
-Message-ID: <awvsvzf5ucgcvl6v7giuxeb6dvt3sw5e6kxo7t56n4rk6u3527@2hid4a7acavv>
-References: <20241125142108.1613016-1-carlos.song@nxp.com>
+	Thu, 12 Dec 2024 12:17:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=paT95758DuarnLt3uBrtdu0R1Vdl4/oHUgOFQlWqE94=; b=lwCUMK04j4oN4A0J1fWB00P+DB
+	bOnk5RLF/cYZA/b8ag0tyumm5Nx6uSt4QsyNNAaVdyNzRjpYrDm0NdUGAp5Hy9VHebzTePoxW/JeS
+	ktFxA4bD4iZ37MAekELzOyMeRUrqdywrxOEiPmrM5quSRHrrQnycVoksWeF81wrVXiSGm55rjtR/F
+	Ea6pVBnRuW/WdDwXTt2oZgtEn+NjDlnbDa/ZYNZcTXg0yDe2RDx0s+Z2Iert9sBOW1eGGyRZlWJ03
+	gNTGtanAYBFLOCeNKBj7WTBJOiIX8PXbWfB50KK3vf1Epmp9FMSUuRsaWZ9Zu2widP1IHakKcTuMS
+	BATVWgfg==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:38802 helo=and-HP-Z4..)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tLi8W-00A8t4-1e;
+	Thu, 12 Dec 2024 13:17:44 +0100
+From: Andrej Picej <andrej.picej@norik.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	marex@denx.de
+Cc: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v6 1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add properties for ti,lvds-vod-swing
+Date: Thu, 12 Dec 2024 13:17:10 +0100
+Message-Id: <20241212121712.214639-2-andrej.picej@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241212121712.214639-1-andrej.picej@norik.com>
+References: <20241212121712.214639-1-andrej.picej@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241125142108.1613016-1-carlos.song@nxp.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_041244_344644_3A3E2E43 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20241212_041748_282871_157AC6FB 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +107,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Add properties which can be used to specify LVDS differential output
+voltage. Since this also depends on near-end signal termination also
+include property which sets this. LVDS differential output voltage is
+specified with an array (min, max), which should match the one from
+connected device.
 
-On Mon, Nov 25, 2024 at 10:21:08PM +0800, carlos.song@nxp.com wrote:
-> From: Carlos Song <carlos.song@nxp.com>
-> 
-> Put runtime pm to resume state between suspend() and suspend_noirq(),
-> resume_noirq() and resume(), because some I2C devices need controller
-> on to do communication during this period.
-> 
-> The controller can't be wakeup once runtime pm is disabled and in
-> runtime autosuspended state.
-> 
-> The problem can be easily reproduced on the I.MX8MQ platform:
-> PMIC needs to be used to enable regular when the system resumes.
-> When PMIC uses I2C controller, I2C runtime pm has not been enabled,
-> so in i2c xfer(), pm_runtime_resume_and_get() will return error,
-> which causes data transfer failed. Therefore, regulars can not
-> be enabled and hang system resumes.
-> Here is resume error log:
-> [   53.888902] galcore 38000000.gpu3d: PM: calling genpd_resume_noirq @ 529, parent: platform
-> [   53.897203] i2c_imx_xfer, pm_runtime_resume_and_get is -13
-> [   53.902713] imx-pgc imx-pgc-domain.5: failed to enable regulator: -EACCES
-> [   53.909518] galcore 38000000.gpu3d: PM: genpd_resume_noirq returned 0 after 12331 usecs
-> [   53.917545] mxc_hantro 38300000.vpu: PM: calling genpd_resume_noirq @ 529, parent: soc@0
-> [   53.925659] i2c_imx_xfer, pm_runtime_resume_and_get is -13
-> [   53.931157] imx-pgc imx-pgc-domain.6: failed to enable regulator: -EACCES
-> 
-> I.MX8MQ system resume normally after applying the fix. Here is resume log:
-> [   71.068807] galcore 38000000.gpu3d: PM: calling genpd_resume_noirq @ 530, parent: platform
-> [   71.077103] i2c_imx_xfer, pm_runtime_resume_and_get is 0
-> [   71.083578] galcore 38000000.gpu3d: PM: genpd_resume_noirq returned 0 after 6490 usecs
-> [   71.091526] mxc_hantro 38300000.vpu: PM: calling genpd_resume_noirq @ 530, parent: soc@0
-> [   71.099638] i2c_imx_xfer, pm_runtime_resume_and_get is 0
-> [   71.106091] mxc_hantro 38300000.vpu: PM: genpd_resume_noirq returned 0 after 6458 usecs
-> 
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+Changes in v6:
+- no change
+Changes in v5:
+- added Krzysztof's reviewed-by tag
+Changes in v4:
+- removed "additionalProperties: true" from the patch as it is not needed
+Changes in v3:
+- no change
+Changes in v2:
+- move LVDS port schema to a $defs and reference it from there
+- properties are now defined in microvolts/ohms
+- use 1 property for data-lane and 1 for clock-lane LVDS voltage swing
+- add 1 property which sets LVDS near-end termination
+- since major change was done change the authorship to myself
+---
+ .../bindings/display/bridge/ti,sn65dsi83.yaml | 34 +++++++++++++++++--
+ 1 file changed, 32 insertions(+), 2 deletions(-)
 
-merged to i2c/i2c-host.
+diff --git a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
+index 48a97bb3e2e0..bad6f5c81b06 100644
+--- a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
+@@ -80,12 +80,12 @@ properties:
+                   - const: 4
+ 
+       port@2:
+-        $ref: /schemas/graph.yaml#/properties/port
+         description: Video port for LVDS Channel-A output (panel or bridge).
++        $ref: '#/$defs/lvds-port'
+ 
+       port@3:
+-        $ref: /schemas/graph.yaml#/properties/port
+         description: Video port for LVDS Channel-B output (panel or bridge).
++        $ref: '#/$defs/lvds-port'
+ 
+     required:
+       - port@0
+@@ -96,6 +96,36 @@ required:
+   - reg
+   - ports
+ 
++$defs:
++  lvds-port:
++    $ref: /schemas/graph.yaml#/$defs/port-base
++    unevaluatedProperties: false
++
++    properties:
++      endpoint:
++        $ref: /schemas/media/video-interfaces.yaml#
++        unevaluatedProperties: false
++
++        properties:
++          ti,lvds-termination-ohms:
++            description: The value of near end differential termination in ohms.
++            enum: [100, 200]
++            default: 200
++
++          ti,lvds-vod-swing-clock-microvolt:
++            description: LVDS diferential output voltage <min max> for clock
++              lanes in microvolts.
++            $ref: /schemas/types.yaml#/definitions/uint32-array
++            minItems: 2
++            maxItems: 2
++
++          ti,lvds-vod-swing-data-microvolt:
++            description: LVDS diferential output voltage <min max> for data
++              lanes in microvolts.
++            $ref: /schemas/types.yaml#/definitions/uint32-array
++            minItems: 2
++            maxItems: 2
++
+ allOf:
+   - if:
+       properties:
+-- 
+2.34.1
 
-Thanks,
-Andi
 
