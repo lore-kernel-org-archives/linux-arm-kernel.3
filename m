@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C44E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42134E77182
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0z1Y3h5XL89tNKd2sQylW5h1jD3tSQmoCReUrgwdM+M=; b=GcytW/2Px7MWPqA7T1EzU1Yz+D
-	8MOazFIWWGFeIDiabmXdLVwy4PUSacsLDQ15KcEjN0RtU1r70GnkzSPtU3rJg4o4TQwIgpxZ2ZLtl
-	QxLsmdPBE+CDmH+YQiHLKJjzj1Lrdev75fyoWWfoBIl9cr7uzBf2NyoSD44Eq8WgaiFuKZewFPdLy
-	bqy7SvUkWyF4Bl/JhyXKv3mw1b3BZYbFTpanDQGmjTXkxKcAmltNJRQpJTbKZR98RrEmBdWTBB049
-	6XWGMDvnqKB03mXH+BD0w0kQFp9JbAwBzbOZewEUpCpvIpnlv5VPIeIrjit8L6WHDiEk5rJL5hPDr
-	AOEB/c3Q==;
+	bh=+0sLzScO5h+uaVr7gBpGbp5SkD8bkzDgpy/FMXSIL8s=; b=Ua6ZYHI8Algw76BJEqXNelY9FY
+	1YHrd+lTNbufm4OddS/MjCDdSUS9+ZPiA0SMxAZJDU1n3yPUn0MF58wmy3dAnW4f3+dt3VO460ELw
+	hMojYT5VoFSGgy8xitqYdBx2gkHgCu7U+O5UCktlFxBuJxj9weGsTVNNWSaTM1TKt8LdoIoojKlPk
+	exTu+ImdvkK2r0puWp1jf9WkFycu+FAmcHxAFTHHmOKmGrxnpUZDe4ETViAyQUDqONtSnQXP+gAD5
+	LD4Y6IhmLk4j6CKpcES6ACvyNnHAJyg/Thq4y+Mrtmhp9YCBlaf+b/Du/Ys/g9Cr4K0/+NMVt6sB2
+	8lmPaEkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnDN-00000001Ej9-2n3S;
-	Thu, 12 Dec 2024 17:43:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLnER-00000001FOF-1Vyb;
+	Thu, 12 Dec 2024 17:44:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmxg-00000001B7o-3nFU
+	id 1tLmzj-00000001BT6-2A63
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 17:26:54 +0000
+	Thu, 12 Dec 2024 17:29:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 083C35C58E9;
-	Thu, 12 Dec 2024 17:26:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8FBEC4CED0;
-	Thu, 12 Dec 2024 17:26:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8567CA40C3B;
+	Thu, 12 Dec 2024 17:27:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35BEFC4CED3;
+	Thu, 12 Dec 2024 17:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734024412;
-	bh=8fpxD1j1JPT6cZVOHyJ+HXmMZtSjV9Io9Hv2yi6gEgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RefttnSWi/NSlqbcastuSexp4QiOid1TRmo2GMk+9DxtxatUQn/KY04Lul1MMncxQ
-	 clLYzqaiT7f/1OX5urM0DMfhdceCtsH+kg3du1w4eUj02TBGb8PS3i1cmpql8Ntqmd
-	 aIE9myvZsSibgAd6RX7A4UHAJQx8ahbr+mQ+dds3wGi83azWRS5IxP0JoFaWoPkF88
-	 YnKBSGDFV3w9R108TWrD1DaWDnyGwQDT4tKy7nbe3U1CZb05XL+NyrmlRKsyR1Bspi
-	 xGyCfh0oLJ2zB1Vf94P2o3BUtiMG7QFMsZE+QTS9wtBdx577wycpgk+B4vK5pTrZN8
-	 6netTJuBoMVHg==
-Date: Thu, 12 Dec 2024 17:26:47 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Dave.Martin@arm.com,
-	will@kernel.org
-Subject: Re: [PATCH v2] arm64: signal: Ensure signal delivery failure is
- recoverable
-Message-ID: <a70cd007-a2c8-477f-972e-fa1e9c362604@sirena.org.uk>
-References: <20241210160940.2031997-1-kevin.brodsky@arm.com>
- <5db7f7a0-1d3c-4bbd-ad2b-124bf54f49ef@sirena.org.uk>
- <Z1sY9tIsAZ84W93-@arm.com>
+	s=k20201202; t=1734024538;
+	bh=SjAQ4AP/yA0fQt0zvQl7Z7VVnHL0A0CkMiaWTCcuSW0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=tmQq4gmY/H3tupf/CEBrMfzv8oveGd32BRzD7J4VK5wYNYRhSFZNYTk9fo/QW8GVl
+	 edj77EzB+YvLfBKK9cWjxbwkPneZz6eCzw4ZprPAkumT87q5KEsK4TJRRi056Kiqwe
+	 tOurgc286+sQcyF3QLJ680hbjbpVHIfDtu18AjK28SJ/EIwhjX72NtxF01hEormtZ3
+	 dMwcVypJHE5jFGNZCd9Oc0+l0A5cHaP8TsYYDHmF1e0jjFrIr5/iQ9C+FITcZTG2Xg
+	 3wEyCfi8htNNrrJAudXpjRsg5UKr15SamgUvRQlQ190gqWfV9wGZboMjvXm9hmcmw1
+	 JmQGBe+f7LPHA==
+Date: Thu, 12 Dec 2024 11:28:56 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="I1NVJMaTG8Fg4abm"
-Content-Disposition: inline
-In-Reply-To: <Z1sY9tIsAZ84W93-@arm.com>
-X-Cookie: All is fear in love and war.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: peter.griffin@linaro.org, devicetree@vger.kernel.org, 
+ daniel.lezcano@linaro.org, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ willmcvicker@google.com, vincent.guittot@linaro.org, 
+ kernel-team@android.com, arnd@arndb.de, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, ulf.hansson@linaro.org, 
+ andre.draszik@linaro.org, Jassi Brar <jassisinghbrar@gmail.com>, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20241212-acpm-v4-upstream-mbox-v4-1-02f8de92cfaf@linaro.org>
+References: <20241212-acpm-v4-upstream-mbox-v4-0-02f8de92cfaf@linaro.org>
+ <20241212-acpm-v4-upstream-mbox-v4-1-02f8de92cfaf@linaro.org>
+Message-Id: <173402453635.2828943.15564980222849076434.robh@kernel.org>
+Subject: Re: [PATCH v4 1/3] dt-bindings: mailbox: add google,gs101-mbox
+ bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_092652_979466_C4DBC298 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20241212_092859_621411_16E70026 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +82,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---I1NVJMaTG8Fg4abm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Thu, 12 Dec 2024 15:43:45 +0000, Tudor Ambarus wrote:
+> Add bindings for the Samsung Exynos Mailbox Controller.
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+>  .../bindings/mailbox/google,gs101-mbox.yaml        | 79 ++++++++++++++++++++++
+>  include/dt-bindings/mailbox/google,gs101.h         | 14 ++++
+>  2 files changed, 93 insertions(+)
+> 
 
-On Thu, Dec 12, 2024 at 05:10:14PM +0000, Catalin Marinas wrote:
-> On Thu, Dec 12, 2024 at 04:47:46PM +0000, Mark Brown wrote:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> > > Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
+yamllint warnings/errors:
 
-> > Presumably we also need a Fixes for whatever introduced the above copy.
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/mailbox/google,gs101-mbox.example.dtb: /example-0/soc/mailbox@17610000: failed to match any schema with compatible: ['google,gs101-acpm-mbox']
 
-> Hmm, it was like this from the beginning. If we are to do a cc stable to
-> the oldest maintained LTS, I'd rather have a separate patch for
-> copy_siginfo_to_user(), it doesn't make much sense to backport a GCS
-> patch to early kernels.
+doc reference errors (make refcheckdocs):
 
-Hrm, good point about it triggering backports.  I'm not sure it's worth
-doing that TBH.
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241212-acpm-v4-upstream-mbox-v4-1-02f8de92cfaf@linaro.org
 
---I1NVJMaTG8Fg4abm
-Content-Type: application/pgp-signature; name="signature.asc"
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
------BEGIN PGP SIGNATURE-----
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdbHNcACgkQJNaLcl1U
-h9DiTwf/TMLy9tiAuVFhbU13TcswCaBnMJ2VsLNii1+P3k/QQ+c0/ixqYl/RPiie
-n6Jrc1PhHd9XKgISOwjgJDcKqa8xUpjse03/9g6+GHIOcsNorLv5MSZAYCCuzkgo
-2lBe8E1Wrynp1YbkVqGWP9DTYa0i8p7pvpyRzIb/2hhYuPfKcjWmn76x9GK2pkou
-/Lb8qlaFEmo0q+rLK6AmcKuh81hR6N2NbTOYQf2+0ebXEw37FbkcMlM+ylJZ8ITk
-8rzfhnK3yDpJO2xLAVYoRnYfeO5/Uh24MGZbd070smJD0b6Ihse25pjS/92o+SfT
-QfnLyQoOjXZjs+XDAyVwgJ9Iw9L0RA==
-=G+dX
------END PGP SIGNATURE-----
+pip3 install dtschema --upgrade
 
---I1NVJMaTG8Fg4abm--
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
