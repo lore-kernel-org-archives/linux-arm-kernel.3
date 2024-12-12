@@ -4,182 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF02E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 14:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF9AE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 14:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:Subject:From:References:Cc
-	:To:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPIGVCbWTfznHy6Nkh9NvPj7qPp5L+R6+sCB+rAZdNY=; b=B+LyliiMv3t/hCRrHCAoQ801C3
-	n9kfv4gt1ooafMF5bBV/e/3NeNvee8bXd6wXhtxDcvh0JfjX8W+Mlps5SpbtiEmOGZHlXuKOGo4tr
-	mgeKTPa71gVRNC375D6UnPt9XwHa6e/MHiBEjTTUhGeOv6NNLlBPh6XLqSFbcYF0rTDBea3ncO/Wf
-	UVwXDqw927hUk2VLXRkqsVRsFi5CXpUWCFx+WbISMYyzKGFc7hYaFcqoNjSKAfL46oTS5zLGzx5eb
-	55Ow2h4zhNqB1tsUFlssUcni5urxXw9Bot8tTEGNEXyIdzNXb/KNktvxWv1tvIPsdWGjEiU0sbdrK
-	wmlrDCAQ==;
+	bh=YxoWtrrj82PfmMzPZQF8U9qE4D7WNRpLyjUea1NfnZg=; b=4m7Yb++amrGfpB4Aq26CURER5k
+	qR1m9Re8rclXm3/N49I+yRvPNUUExj8SO5MQk32VlgJzxuukjrv/tyUo6vc7Ag3NhKAkGy59XOmKQ
+	MFSJmAlz0HBGVujEKapBdsnaL7QU1I6/1bXv3nONPFECvWBctqzBZgoMxb7mSH0YP/Z5+VwvWWvhQ
+	96Aq+/lTIeAxAWAitCDf6XdxuV3tbig1SdzhP9lDqaKUoz7/B7IR6etJDNFBMNnAJ588T5a1Gnvcn
+	mCZhGqvGvXfbGgjNq9sgSfDWRxXEFM5ZpivvgcBYsZ+mi6HyQhrWwRhFwxCAWvHqQGyY3SJEbhQC+
+	hG18kMNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLk79-00000000b9L-0OZ7;
-	Thu, 12 Dec 2024 14:24:27 +0000
-Received: from mail-co1nam11on2062e.outbound.protection.outlook.com ([2a01:111:f403:2416::62e] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tLkAw-00000000bhr-0JV0;
+	Thu, 12 Dec 2024 14:28:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLk63-00000000b3h-2vKw;
-	Thu, 12 Dec 2024 14:23:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wt/oGfnixDd2qlg7N+V/8s9evc+32d1egpZFhw7whwFwg4h4L0nIVN822TL36VN4dYhFagEeTEKoCX8wAe1qpQGiMgzJHbzeOCdBe2C0RPgynlQyMAOfDQvBXeAuR66tbRBuxGSl2vO0/fulsCV+5/wXwaLGXWGcmVDZIX7Z6cSqJbJzK8f8S6YMXuhEteyQTZv/CfpkzAGg3VtyPfEvatxV1pMLis0Uh+YtChi2Ez/IQqaTqgLFXIm1ZYPLY2zQmMYbdAcOPchhxNmW1NbkgkTM2UhFyYnhliWyFyqM97Px/4dTHQiRfk5tbpPGann+7rQvHDsv3ky47gtzn1nJ5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mPIGVCbWTfznHy6Nkh9NvPj7qPp5L+R6+sCB+rAZdNY=;
- b=vCHV73c0AHdFNtNB7W3bL84UPHnfHqwUMJR+JtTxzvn6RiN3DPsQPok/HpYotOu2zdvOTebK3tls2EHCH25uszM8kgYaOZYjGzfW0AMueyC0m3Si3O08Po5775ZwJGflM/QwoUDN5X6n1hFe3gBQ/Gk4urDfd+H7A4izaF5Mr/3lLpINnlWMg0hGO83tn/md5PfeCJaUZY0zB95qutprXn0iSB0ORcepxuPkxF88yloeQDdCGROcJZ2fRGUSj/9JEWuvrHjUuHbtJPZb3JIFXhPePL2emlTs78jiSmtkNQkpFeBpNpkoxOylJ8GVDUxrzlvraRfYvxKKcQaDKlR2GQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mPIGVCbWTfznHy6Nkh9NvPj7qPp5L+R6+sCB+rAZdNY=;
- b=i4TVL8+7IoAAvoFb4k69v2Jwhr5BnAEB5ZV7EAz3OSZh/X/TZsWBbxD8l7+Vt9zbupgVDkXc2qywGE8d4NnSr7AOBLsajqrFgQwem0xTHDuSV6Cb4JumJLZC6BWTJN531UqG5b6/W0p3WDzS+vzlXCD/grHZ19fmKqDpm3LtQeY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB5070.namprd12.prod.outlook.com (2603:10b6:5:389::22)
- by BY5PR12MB4113.namprd12.prod.outlook.com (2603:10b6:a03:207::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8207.13; Thu, 12 Dec
- 2024 14:23:10 +0000
-Received: from DM4PR12MB5070.namprd12.prod.outlook.com
- ([fe80::20a9:919e:fd6b:5a6e]) by DM4PR12MB5070.namprd12.prod.outlook.com
- ([fe80::20a9:919e:fd6b:5a6e%5]) with mapi id 15.20.8251.015; Thu, 12 Dec 2024
- 14:23:10 +0000
-Message-ID: <079cb87c-78aa-5fb5-b28f-e7a54e51aa78@amd.com>
-Date: Thu, 12 Dec 2024 08:23:07 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Content-Language: en-US
-To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- Borislav Petkov <bp@alien8.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>,
- Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kent Overstreet <kent.overstreet@linux.dev>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Russell King <linux@armlinux.org.uk>,
- Samuel Holland <samuel.holland@sifive.com>,
- Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Ashish Kalra <ashish.kalra@amd.com>,
- "Maciej W. Rozycki" <macro@orcam.me.uk>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
- <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
- <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
-From: Tom Lendacky <thomas.lendacky@amd.com>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-In-Reply-To: <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SA0PR11CA0199.namprd11.prod.outlook.com
- (2603:10b6:806:1bc::24) To DM4PR12MB5070.namprd12.prod.outlook.com
- (2603:10b6:5:389::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5070:EE_|BY5PR12MB4113:EE_
-X-MS-Office365-Filtering-Correlation-Id: 973f9965-948f-4924-066a-08dd1ab88136
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VjV1MDlRcm9Ub0MxWmlWS0l5eFc5WmlFeDZKSzA2N0RlUnZBK2xXdk9YNmRS?=
- =?utf-8?B?b0JkRStSUFJkdDRPeUpQWU5qaERrRURJWGFUa1ZCbFdTc2l0a0d0WkJLRm9D?=
- =?utf-8?B?alRpcWljNkpWVHFqZzRiYkdydE50a3MzMXpHN2FRTXkvM3doUm5YMVdSTEly?=
- =?utf-8?B?S2FJb1FHUjB4T21DaEdzZ2tHTGJPaEJsVGdiZkFXTzVtRlQrOGlMNWU3Rkpm?=
- =?utf-8?B?MVFMai9qSTFtdU9KdFJsc0ZRbzlXa0YzRU9yTjQyNGNWSWlXbGVrakxJcWNM?=
- =?utf-8?B?TFFuRzRSalNXVzgrZlcwL1lGVERQY1E0Mm52SGxUM2RwNmhXL01jOFFVMkRE?=
- =?utf-8?B?WjY1dTZtWGp1MHB6eElFOStSZVJBM3h6emNQN21TVWZmL3NXajZMbFM0SnBE?=
- =?utf-8?B?WkJtSkJqcUZCQWJvdURCTHl3WXdWbVBTQncycDdTU3BsVFhhb0Z2UEptcVlT?=
- =?utf-8?B?UFhleVF2ZlpvclA2Sys0ZUQreWhaTjRLdnRNelVNRVZ5VzhVWnpYWUMwTUdv?=
- =?utf-8?B?UlM2V0xJaUhHMzZtbnl2VjV6cmZoK29Qc01veFordjNFRUR3eUVFVUZtM3Uz?=
- =?utf-8?B?QTJ0bE45eXFEY2JvRlZvZS9pbW5Jb0MvbU9zclZOWnVnaCtrNk5tMHAyblUx?=
- =?utf-8?B?VTBTblI0NlFVV2JBeDVQZDZZUW43WG9uNk4wZDRlUUk2NzhCdkZTZGVhWmxS?=
- =?utf-8?B?NWx4dVFWMHM1aUd5OWVWeWM4Y0xGTjdKVlJvb0lYcmtMKzZUM0ZoOVorbVBP?=
- =?utf-8?B?OURRNmpudnhtL1J5ZmhzQ0huQXNFc2N5MGFTSmo1QTMwNTBQRlBCSitTRng1?=
- =?utf-8?B?RlB2Wi9iVlRDRFEwS09SN2hSSTg1RDZXek92Rlh0cXc4cmY4N3pUS0pKQ2pm?=
- =?utf-8?B?WHhtR2lQN0p3S3Zsc0pqejBUcW5XTFBWa0xwaG5WSHpabkxwYzZTSjA4Yndx?=
- =?utf-8?B?ODBUeG94ZXdwRGs4RGFnQVluY1prUDhnQ2dDZGk2ZzF6d2NHVHVkL3FQdXRs?=
- =?utf-8?B?ZVlTZ3NWQ0Z0Q29UU0pBMy9FRDZXN1BqQ0huL0h6ZjJhemc1djQ2UXRBeXIz?=
- =?utf-8?B?anlnUXE5Tng5VXFHazQwYXduYy9vcm10WWsyclVldm8xSGlMZkE1RTBlMjdK?=
- =?utf-8?B?SmlTdkx1YzMwaU9sZWdYMVZPc2h1WVJPR2VnWjJObS9zMHptTytzalNvTGtv?=
- =?utf-8?B?clh4ci9yL0dPMDd2UEx0NHVxdThlcXFBbEN0T29tQmx4SnFLSUFhc3dUbDc1?=
- =?utf-8?B?OHBFSlpvbWtwbnpwQ08vSjg4KzZBSVNsaTllRzVUQVJKLzQ0M0oyV0ljckZr?=
- =?utf-8?B?WSsvNjk1NmlmSkl2Njg1YXUzOVQ2WDk4RFozVzMrSTJ4Ynp6L2Q3aE5sc0Mr?=
- =?utf-8?B?c0VxbUI2WFJVWE1GWk1lQi9rcEROMnFWV3V0TlJBTEZMZWJ4QTBuQjFFQjZh?=
- =?utf-8?B?Qjh0R0FSRFA3YVloV2EraHNRRU1xTkcvR3EzR2p1dExoOXNKV2FWT3V0K1h1?=
- =?utf-8?B?aGN1RHc3c1RnUyttTXVubDVienhDSFhROHNBM1VldHVRTE9TbEswNXM4NWxu?=
- =?utf-8?B?Ni9KSkduNkJWV1JFRjQ1UnNlMHIyUCtaQ282R01ycWFOajQ4YlVyU3RIVHls?=
- =?utf-8?B?Y0hPS0xlOUJNM2RXbkxVNm5xdUZnbUJhU1g0bXQ0QVJ5QlQ4VFMzQUJLaWt1?=
- =?utf-8?B?NlR5TjJ3MFl6RHlNS2J2ZjRFL0E1RkhLeHR4S2lqQUZkVkpNYzcvenUwS1Ey?=
- =?utf-8?B?WGsvVy9lU2VGNEFtOGEzT09ubzRTalRZSWJ5a09UN3JoQjk3ejNYYU1ES0RH?=
- =?utf-8?B?U0ZYeEt2RXhoZ3ZCZ1Z3QT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5070.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YklSOS9oYjdkSEFSK1p6Nkx0aVc2Yzkra1FNWUdDa3VoWmw3dkxnMHNiNWxt?=
- =?utf-8?B?VkIySmJlQ3ZocGJCTm1scHVmK00yc3pZa2gwemdubWlDbG1pUFJWTmtKallN?=
- =?utf-8?B?dFU5RVhTMm5YWjFPQWtwRVpJYjR4dzNabHMvRi9rTDkwaXZIdXBnRzBFZzMy?=
- =?utf-8?B?MzRIZWo3OU9VcTc4bmZaN1VYTy9hbjMybThMRnlSVjJodVloSXF1OXRCUnRv?=
- =?utf-8?B?VlBXSkVwN1ZlOWNMTnY0RXR4dWdlMmlHUC9HYXl2TDhmelNvR0tsTlJVQ2hq?=
- =?utf-8?B?OVB1QWdkMzdiWDI2UmtnWFBQZ3poVjVGbnB2YkdFeng0Ym4zQVFkWU5VSmE3?=
- =?utf-8?B?eVR5aUV6RHYxVHVlaG5VVE8zdjE4U2JFWjJFQmFMM2k0ZDQyRUtRWXBtNTE3?=
- =?utf-8?B?dlBEZkowTHBuMyt1YnVlY1NGMzYrcGNsVkQxRmExbzJCS1BpQzBWNXVXM1Az?=
- =?utf-8?B?VXo0UTM0dnc5Um9NaVQydmpJRkRUYW01dVNZdDEzRVZVdnIvU1pCZ2dpWWF5?=
- =?utf-8?B?SjRheTd3K1diajh2WURrT1RScjBmYVNWOENac3VSelAxcm9lVUw3S3NOUm1a?=
- =?utf-8?B?SVUvT0M5V3JlWXRMd2pzVGxvREJCZG9jdGdFL0ZiTjM2QTJnN2JyTjVXa0pG?=
- =?utf-8?B?TVo1R2dkb0ZRbTQreVFHVWpjWmF5L3lGQmZ2cUlpbWhqRWhFWDM1SmIxT3Nw?=
- =?utf-8?B?YTArd1V2OTdUdDdnR0tDdDRnUVhSc2w2UCtMb3MwK0NYTVVRWmdVVkpYREFR?=
- =?utf-8?B?akN0Vzk4aStlWXdUeWJWa0xJRlBDR3ZXMjVibU1hU2wwanFWNmVpTzVxS3Jr?=
- =?utf-8?B?ZTZHdk4vNGhxalFnUFZLdUw0ci83K2IyUzI3NnZRZ2FBcy9keE9zWU5LYnly?=
- =?utf-8?B?NGpDWGdDcU56RUxLYXB2UGVTK0ptOHVncWRHMHB3N00wMnc2aEs5V1FEa1V0?=
- =?utf-8?B?WDVJeEo1QXpZby9PS3dwOU16R3RXR1N4Z3I0eGhjcExCeE5LaE9zNzRwb3ZH?=
- =?utf-8?B?dTBhT2ZyRGJIYTdHRit0VGMwRWlNQ0k4YWo5bXl6d2xOOG5oMWxNSU43MW9P?=
- =?utf-8?B?NnEveVJ0NTNUeHkrMDgzT1Q1cHNGTlJ1Y2NDaCtmMjFwNU5LRS9pdTl0amo1?=
- =?utf-8?B?amtOWmxnT2V6Yk5QSUFIOXU3SDNKZ0NpOFZqU29TSFozZ214dUNzUldTTURG?=
- =?utf-8?B?YXVLclNFZW5LdFRyRCsrSEVscmJCcTVBVHBtYWFrT09HNzF0SFFUbnEyZ0Nx?=
- =?utf-8?B?UHRQNE4yaUp4V0tHR1NtZ0hzVVR6Q0tYVjlEdjNveGQrUzArYzJsZXpxTGtx?=
- =?utf-8?B?MjNQYTlaNjRBTXNZV3hyQk1obUE3a3FGUXZFS2xpSlBoejRDSm4yclVXdXlG?=
- =?utf-8?B?M0szZVpwWnVTRDJHc0swaXhyR0Jtc2tWb2tlUUhNZlc1L1FXK3N2Z3JWVGxK?=
- =?utf-8?B?akgxeXhFaFRJNFh2cDlwM1p1QjlGVXYwbmk5bXFsbnlmYXBWQ3RZcFpwTmgw?=
- =?utf-8?B?NjlhQnkyZTNmVVczUzZ6dTI5bUZPY1FTTm1mQ0tpU0EvK0ZITklIc3VJTWY1?=
- =?utf-8?B?TG0yUFFqeVlObGZQZmh4aG5aSWRiRWhwZ0h3cTNwYjYzVEc4Sko4TnVJNXJo?=
- =?utf-8?B?WmhuNXJzZmJYaStrTlg1cFVyeFVmSSszTGh0MUw0bHVaVE9qcWlmNzNwOFdr?=
- =?utf-8?B?bVVJMEtENmFuUTc4cy81N1JwOW8rOXRucFppSjBMNmZ0S29mS0VscVA2WXV6?=
- =?utf-8?B?Y2FqMWdRSWMrNysvVzQrVC80aWkwRzhFRXBOTHNwdUxvZEhoVnUrTm9tMGQw?=
- =?utf-8?B?QjFhak9rTkQzeW81S1oyMWJqVU81dE5qSnh5YmV6Wm5CTXUrK2w1T3F4bU4v?=
- =?utf-8?B?VnpBK0cvc2Z2cXJ2YXN3TVZhV05jalRTWnJoT2gwZUwwNEI3M0lZRkJGcEg4?=
- =?utf-8?B?WUpyWDZJUU9rTkgxK1M2L0o1akttNHowd29EWEw4TDJ4cG1CcEp2RjdtdzZX?=
- =?utf-8?B?cmI1VXpiRzFQaG1SOHZaWmtRcXdiVGt2NldmWVM5SUJGTVcxSWF5Wmk4b080?=
- =?utf-8?B?WXdDQng3WkxuQS94TzVGbEUrZSs1dlJjYmdQWkRxNDJUdXFMSUNBZ3R0bzRa?=
- =?utf-8?Q?Jo6OoqJEs03/gwycHamriB+qh?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 973f9965-948f-4924-066a-08dd1ab88136
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5070.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 14:23:10.2253
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gulfXOhTH/Cy9iw6iAKFG9aHe8QF78P4Zh4i93blWLPApcVBjhVRSzgQXNA7DeBG70G9gDlxO28Aw9FlW2tALg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4113
+	id 1tLk9r-00000000bUN-3nvc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Dec 2024 14:27:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=YxoWtrrj82PfmMzPZQF8U9qE4D7WNRpLyjUea1NfnZg=; b=O030dS+EQ9BF4haGtQmw2qEz5n
+	lMWBklHx+d5s/oM//65gzrEQ3vKYUg5gTUDe6MbDRgvHjuP5LIIN9T7eujYJAhwgFwgLqC+nk063L
+	TlAMx4VQsojPaePXPNEFPhkyWbBbidrHUPbGwlgfVaENI6p5RTLonEkEZ6lq6mwb+Mm/6lRqcZOxA
+	86c3cuAW5ZEGvzKWDcx9dO5dTe6Ne5vn/1bM1YVKWEXdfiUD+k/QVqBFX3qzSp75qJmAKfHs0nOMx
+	qxEZCO2BqsKEY6G4/uUtLz3P8ip0UxsqbSfbwsuU+ayMRR4v/6P5b3HnYGMwk9V8S7SYw6x4vXIa+
+	WO0PJ6nA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLk9o-000000044m2-2vxJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 14:27:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4CF455C64B8;
+	Thu, 12 Dec 2024 14:26:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6205FC4CECE;
+	Thu, 12 Dec 2024 14:27:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734013622;
+	bh=6MPo7a5U4fv2OQP0G0xKutPCOZIplNypB0d4BP0B7X4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=q6PNpVOmLPyEw1+IiMCQTZUJKvThRlkRMdbxEe91miFEvsKsKLOR1S08OE2JUOVPX
+	 pIUYYoRwECf1Z76DFXGpy6DgZOAs259cE/OWJ93X8eeHIvBk/RDrTh/kzaO45UWhuH
+	 JCgLhJ4NjR+06BdPOkfdQrEdaF+sVSivRsuRBKNxvBwISH9PFuk81+9sutjt+sdu2J
+	 o/6SvW9yFGuEZAQPhFqVbjF/SUptQkYQLM49oYQ78SO4pIWfyXhPvByCqSO/vEiHUG
+	 3/L7d1ICA8wso23FQLMYHvqEjTnexPnCqOf4UL9Yosn0me5MCQRhcEEIdoRoQOkhVv
+	 NxUKET0QXOG/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLk9b-0035tU-WD;
+	Thu, 12 Dec 2024 14:27:00 +0000
+Date: Thu, 12 Dec 2024 14:26:59 +0000
+Message-ID: <86ikrprn7w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,
+	catalin.marinas@arm.com,	will@kernel.org,	corbet@lwn.net,
+	oliver.upton@linux.dev,	joey.gouly@arm.com,	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
+In-Reply-To: <084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
+References: <20241211160218.41404-1-miko.lenczewski@arm.com>
+	<20241211160218.41404-3-miko.lenczewski@arm.com>
+	<87cyhxs3xq.wl-maz@kernel.org>
+	<084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ryan.roberts@arm.com, miko.lenczewski@arm.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_062319_886027_F12F9E53 
-X-CRM114-Status: GOOD (  37.53  )
+X-CRM114-CacheID: sfid-20241212_142713_210018_F1560C3C 
+X-CRM114-Status: GOOD (  36.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,114 +105,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/10/24 07:26, Kirill A. Shutemov wrote:
-> On Thu, Nov 21, 2024 at 12:49:52PM +0100, Borislav Petkov wrote:
->> On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
->>> Sure, we can workaround every place that touches such ranges.
->>
->> Every place? Which every place? I thought this is only an EISA issue?
+On Thu, 12 Dec 2024 10:55:45 +0000,
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 > 
-> I looked at other places where we call memremap(MEMREMAP_WB) such as
-> acpi_wakeup_cpu(). We actually get encrypted/private mapping for this
-> callsite despite __ioremap_caller() being called encrypted == false.
-> This happens because of IORES_MAP_ENCRYPTED check in __ioremap_caller().
+> On 12/12/2024 08:25, Marc Zyngier wrote:
+> >> +
+> >> +	local_flush_tlb_all();
+> > 
+> > The elephant in the room: if TLBs are in such a sorry state, what
+> > guarantees we can make it this far?
 > 
-> So we depend on the BIOS here. The EISA problem happens because the
-> target memory is in !IORES_MAP_ENCRYPTED memory.
+> I'll leave Miko to respond to your other comments, but I wanted to address this
+> one, since it's pretty fundamental. We went around this loop internally and
+> concluded that what we are doing is architecturally sound.
 > 
-> It's hard to say if any other memremap(MEMREMAP_WB) would trigger the
-> issue. And what will happen after next BIOS update.
+> The expectation is that a conflict abort can only be generated as a result of
+> the change in patch 4 (and patch 5). That change makes it possible for the TLB
+> to end up with a multihit. But crucially that can only happen for user space
+> memory because that change only operates on user memory. And while the TLB may
+> detect the conflict at any time, the conflict abort is only permitted to be
+> reported when an architectural access is prevented by the conflict. So we never
+> do anything that would allow a conflict for a kernel memory access and a user
+> memory conflict abort can never be triggered as a result of accessing kernel memory.
 > 
->> Then clearly your changelogs need to expand considerably more what we're
->> *really* addressing here.
->>
->>> Or we can address problem at the root and make creating decrypted/shared
->>> mappings explicit.
->>
->> What is the problem? That KVM implicitly converts memory to shared? Why does
->> KVM do that an can it be fixed not to?
->>
->> Doesn't sound like the guest's problem.
+> Copy/pasting comment from AlexC on the topic, which explains it better than I can:
 > 
-> Well, the problem is on the both sides.
+> """
+> The intent is certainly that in cases where the hardware detects a TLB conflict
+> abort, it is only permitted to report it (by generating an exception) if it
+> applies to an access that is being attempted architecturally. ... that property
+> can be built from the following two properties:
 > 
-> VMM behaviour on such accesses is not specified in any spec. AFAIK all
-> current VMM implementations do this implicit conversion.
+> 1. The TLB conflict can only be reported as an Instruction Abort or a Data Abort
 > 
-> I think it has to be fixed. VMMs (not only KVM) should not silently
-> convert memory to shared. But VMMs cannot make memory access to go away.
-> The only option they have is to inject #VE instead indicating bogus
-> access. At this point it becomes a guest problem.
-> 
-> It will get fixed in VMMs naturally when TDX Connect gets enabled.
-> With a secure device assigned to a TD, VMM would loose the ability to
-> convert memory on its own. The guest would have to unlock the memory
-> first. This will make implicit conversion impossible.
-> 
-> But it also means guest should never initiate shared access without
-> explicit conversion. Otherwise #VE will crash it.
-> 
->> Or maybe this needs a lot more explanation what we're fixing here.
->>
->>> Such mappings have both functional (as we see here) and security
->>> implications (VMM can manipulate the guest memory range). We should not
->>> create decrypted mappings by default on legacy interfaces.
->>
->> So we're getting closer.
->>
->> The changes themselves are fine but your text is missing a lot about what
->> we're fixing here. When I asked, I barely scratched the surface. So can we
->> elaborate here pls?
-> 
-> What about this:
-> 
-> x86/mm: Make memremap(MEMREMAP_WB) map memory as encrypted by default
-> 
-> Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
-> 
-> memremap(MEMREMAP_WB)
->   arch_memremap_wb()
->     ioremap_cache()
->       __ioremap_caller(.encrytped = false)
+> 2. Those two exception types must be reported synchronously and precisely.
+> """
 
-That's because try_ram_remap() invokes arch_memremap_can_ram_remap()
-which is returning false (for some reason).
+I totally agree with this. The issue is that nothing says that the
+abort is in any way related to userspace.
 
-When arch_memremap_can_ram_remap() returns false, ioremap_cache() is
-invoked. ioremap() should provide shared mappings unless specifically
-requested to provide an encrypted mapping (via encrypted parameter) or
-if __ioremap_check_mem() determines that an encrypted mapping is needed.
+> > 
+> > I honestly don't think you can reliably handle a TLB Conflict abort in
+> > the same translation regime as the original fault, given that we don't
+> > know the scope of that fault. You are probably making an educated
+> > guess that it is good enough on the CPUs you know of, but I don't see
+> > anything in the architecture that indicates the "blast radius" of a
+> > TLB conflict.
+> 
+> OK, so I'm claiming that the blast radius is limited to the region of memory
+> that we are operating on in contpte_collapse() in patch 4. Perhaps we need to go
+> re-read the ARM and come back with the specific statements that led us to that
+> conclusion?
 
-Can logic be added to arch_memremap_can_ram_remap() to return true for
-the cases that TDX is having issues with?
+But we don't know for sure what caused this conflict by the time we
+arrive in the handler. It could equally be because we have a glaring
+bug somewhere on the kernel side, even if you are *now* only concerned
+with userspace.
+
+If anything, this should absolutely check for FAR_EL1 and assert that
+this is indeed caused by such change.
 
 Thanks,
-Tom
 
-> 
-> In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
-> if the resulting mapping is encrypted or decrypted.
-> 
-> Creating a decrypted mapping without explicit request from the caller is
-> risky:
-> 
->   - It can inadvertently expose the guest's data and compromise the
->     guest.
-> 
->   - Accessing private memory via shared/decrypted mapping on TDX will
->     either trigger implicit conversion to shared or #VE (depending on
->     VMM implementation).
-> 
->     Implicit conversion is destructive: subsequent access to the same
->     memory via private mapping will trigger a hard-to-debug #VE crash.
-> 
-> The kernel already provides a way to request decrypted mapping
-> explicitly via the MEMREMAP_DEC flag.
-> 
-> Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
-> default unless MEMREMAP_DEC is specified.
-> 
-> This change fixes the crash on kexec in TDX guests if CONFIG_EISA is
-> enabled.
->  
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
