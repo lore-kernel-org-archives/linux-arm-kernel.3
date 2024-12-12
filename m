@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA45E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB64E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mXyCI09ZhbjXuioTmiv59A6C3cN5WJchYUKT74jp+y4=; b=MtcWJuCzMhItil4RP5F1maIuHe
-	CDjDLM7lQoRwgq480iOvTkSMyqmU7lXjvokSHZIvn4EzEEXs4IWOcEBJT9n7wJPLSc08i8Tn2fC8h
-	LKHUFYGoUq5HbLeRqIGpiprVCtOtmTOMyn60AaeBcVYAYjj2LFLOinhlBUBUQxmURF2OS02Da/wVt
-	eyXtxsqVY+O4tYufetO2MkEbSUDWQmZqe+yQaMw9E+HujSepv3rcE6zpv7CSGPYen5918uRGpfsb6
-	fki6+yvtsnE582WXyv22gT11xv/tLSisoiM0PXUz0bvLd2w22GOTWcB98RwXJ33Qg3H/nL4Pgpf6y
-	N1tN74VA==;
+	bh=O8dEykcVB5T9ygrig36D5xqeElM72SNIhLY33SlZy5o=; b=Uzx5pnvpxM9SV8trteQqxqmzYH
+	o0IW3jTkef7D9SdBJqkQUAt3j5YcMJPgyLOIs4bQp4okUrT0Qo2b5bMhc7743itk8i+dR3rBcGDld
+	f73G5idwwkP3lvsBJo9+x9+MXiNrELudfKcpp3s7pOU6zn8s5Svd00hdk2sRQNcWu9TmMDia+LA9L
+	CQSzvGAGNRBxmgsvvCnhHX8kaXSY9wpOp95DHsQ6FDV72dxEYKbkKLs2Kd0h6hHTOF96pv5JoJrWP
+	SGO1OFLTrMFXVsHbzjWF8I0hIA7phWwGQ4K6gc2ZeHzGZEHCblbRh5KCxmZ8sGHl2Mo2s0Wh8DeIe
+	tWvlbhvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLncc-00000001KyZ-441D;
-	Thu, 12 Dec 2024 18:09:10 +0000
-Received: from mail-wm1-f73.google.com ([209.85.128.73])
+	id 1tLndf-00000001LIz-2PN3;
+	Thu, 12 Dec 2024 18:10:15 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnYT-00000001JWc-3FEe
+	id 1tLnYT-00000001JWe-46UK
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 12 Dec 2024 18:04:55 +0000
-Received: by mail-wm1-f73.google.com with SMTP id 5b1f17b1804b1-434efe65e62so5715145e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:04:52 -0800 (PST)
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-436248d1240so5767095e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:04:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026688; x=1734631488; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026692; x=1734631492; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mXyCI09ZhbjXuioTmiv59A6C3cN5WJchYUKT74jp+y4=;
-        b=YwTWNEhM0vLhQroIBRKcYaE/BVLCY367SrKz0N/+mcnJNwfeo2d52Bz4cc+26n2d9g
-         nvddEGNFbNEordHBJ8lM/NVYS+eQ9haQgrHuS8xFYPE8ermEIEvcwYdVB2jYTQDuIjGK
-         IOp7PAHmWx/BRhlyTg3MngONErTxtVFEmuUPeL/1B06Rd2KEQzAR5KocEO2D2QSncgqJ
-         Yxn34PErkwzFQqAMTCJYsx3mgcMilDyALo83VgbdqO5MFjBNGGD5Bykif7cAsoWL3DW7
-         5fcxTX5+GT2HpP4rN18qGMikvvg94vCQSb575RfsNT+mMSjP/USi+kQVFS7eNgH8xS3o
-         TGng==
+        bh=O8dEykcVB5T9ygrig36D5xqeElM72SNIhLY33SlZy5o=;
+        b=WFS/Yln6Nrl7+8Cba96mMgt1ehZ3J3oPeGqIp8zoRvBF7ZjYlut0tdHzgnjdp98Be1
+         wDPLyCKuVi+/8WdQT9+1sseP86q5tfNInyaCqIb7XS2b04uu2vUSLYIAin9QZBxGt7ow
+         OTe/rg7PPXV7GUd7Zv7TR2cghzEiFh0EVuMumcqamsUwE5abI/GoQQGl5kC8JxbRebub
+         s5Ze/GCQ7zaGREok+zaLEXxMttSMoGdXKQ7OzFrEXEcPIRX4r5zDbV3NW3i7LKNC9wNG
+         N26H1a9/Eh+HpCh4xAcEViA5I9faU8AIRZMTehCPGXyBfTu0w4Y25za+Nv46la7PgmOf
+         5VCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026688; x=1734631488;
+        d=1e100.net; s=20230601; t=1734026692; x=1734631492;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mXyCI09ZhbjXuioTmiv59A6C3cN5WJchYUKT74jp+y4=;
-        b=WDoQBPcF3ovCH5uI7Ae6wMJZlpMA3qgKEZsmH+vLSZpFCMrVQT9Nm1zaDUcuVT3rxy
-         FKwg6izPa96D5eKa6sKLhuFltvTENjiqfeTTyTewGrjd5YWWEIZ/if1vKoapqJoxFsjc
-         sy/at/jQa7XvvxQsAnNAAVkAvgHODKFox55eHBZCBDcczem6Y8HdeNvtrLUUI5swvYZ7
-         8Yi63Yq3ct2o/JFFYpfRo1elr/epQWTvmnL1/YBJhL+VWjcA+rbXAccsv8Ht8nZGKbKR
-         PUO/ZFpWqnLsHafKJe2iwZZm4nKUxmcWXm0Tmk/hJd91jqHbSy2eR9r0J5pR4f0vbUnr
-         iVRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWxAjU1/o84h+X7jDscjsQeyndhuzv8qVevIGAlebJYRxSixl+hV0FMQ9Hx/MH7fd+w8POat1la/NiDrsZCAnm+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTKZsl4qxPLLhjoSlh/1NHoQGYgCW/zhDJOrMezhZjtKf7csy5
-	tfzSaP9lUKBwH1zsIW7pTWPzOHRbtJDIb5r0tLP9aiV6WGMf6LmvuGlrpshWuqpDiOBTqqwhgzp
-	cfJAQgMGk7g==
-X-Google-Smtp-Source: AGHT+IEk2aXuVPdW8p5vy/iG8MnfnqpK0HK6/sRZjiQb0zjhXoM+JzKpW5jH3xqld9fYqITutfI7YBgnBki8IA==
-X-Received: from wmbd13.prod.google.com ([2002:a05:600c:58cd:b0:434:9dec:7cc5])
+        bh=O8dEykcVB5T9ygrig36D5xqeElM72SNIhLY33SlZy5o=;
+        b=niy62zx6hWK0oguVx52FYb8ITLUq7gbHkcm01Tbkn/feAn06KnOsLwGGiMW/RlC9A5
+         72a7QlFtjKf4TB1kWddgqYhfYqqevvXPEDyRhaHjB4TrUzRATsFcUUsXASnqiB+96OR3
+         qV/cqPz/ID06bPMS7NktXbz3Q+p1IrdUjZ/y2V/s8xlX4EvqDWmfbIOeeU0PfJC8GcLK
+         LfDWq+QeR+plktr8gwF3y/3JdEG5Z7hvo082YwYQD0kTfkGjnvxStrIWTkh2L1gfmVZV
+         /B7DkyAqH+y5AzgfZuR11VdQlkUlU7hZrs1O89g5g8G8a46YvFNzlPRP+1Zi0nCkZHR3
+         A/Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCU3BdhRw4iyYyxdGafWQmNWR3DiFGYTeYgackvONz5oEePlSDeUAGbHTlzfFfNkjcNGPsl9gEucCcEKoop1NWbp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVL74eTSh6S+6ONcux9PvJV4U4EIqm0tsm4jf+o/5sk6wHjZ0O
+	yp5KuqG6p3Qy4de6NsCigYqumfsgx0whCpCepmdDYC+FNDq89eSl2s10/lWFZOECG65znLsaXM9
+	Cv0oUy+uOFg==
+X-Google-Smtp-Source: AGHT+IGOxHT/qVynEpiDA1QXj6yVl3Iwd7eJKD0IdwMDSFLkzEgYk/lDv4hFby7sfUfW42vxIPOIRkNLJXEDVw==
+X-Received: from wmok7.prod.google.com ([2002:a05:600c:4787:b0:434:fb78:6216])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:8507:b0:434:a29d:6c71 with SMTP id 5b1f17b1804b1-4361c411ab0mr60536895e9.27.1734026688254;
- Thu, 12 Dec 2024 10:04:48 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:26 +0000
+ 2002:a05:600c:3b09:b0:436:1b7a:c0b4 with SMTP id 5b1f17b1804b1-4361c3454dbmr64160055e9.1.1734026692209;
+ Thu, 12 Dec 2024 10:04:52 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:28 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-3-smostafa@google.com>
-Subject: [RFC PATCH v2 02/58] iommu/io-pgtable-arm: Split initialization
+Message-ID: <20241212180423.1578358-5-smostafa@google.com>
+Subject: [RFC PATCH v2 04/58] iommu/arm-smmu-v3: Move some definitions to
+ arm64 include/
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +80,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100453_822320_AAC3AEE2 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20241212_100454_051079_BCC92D11 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,687 +98,1163 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Extract the configuration part from io-pgtable-arm.c, move it to
-io-pgtable-arm-common.c.
+So that the KVM SMMUv3 driver can re-use architectural definitions,
+command structures and feature bits, move them to the arm64 include/
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/io-pgtable-arm-common.c | 284 ++++++++++++++++++++++++--
- drivers/iommu/io-pgtable-arm.c        | 250 +----------------------
- include/linux/io-pgtable-arm.h        |  20 +-
- 3 files changed, 286 insertions(+), 268 deletions(-)
+ arch/arm64/include/asm/arm-smmu-v3-common.h | 547 ++++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 540 +------------------
+ 2 files changed, 549 insertions(+), 538 deletions(-)
+ create mode 100644 arch/arm64/include/asm/arm-smmu-v3-common.h
 
-diff --git a/drivers/iommu/io-pgtable-arm-common.c b/drivers/iommu/io-pgtable-arm-common.c
-index ef14a1b50d32..21ee8ff7c881 100644
---- a/drivers/iommu/io-pgtable-arm-common.c
-+++ b/drivers/iommu/io-pgtable-arm-common.c
-@@ -15,6 +15,9 @@
- 
- #define iopte_deref(pte, d) __arm_lpae_phys_to_virt(iopte_to_paddr(pte, d))
- 
-+#define ARM_LPAE_MAX_ADDR_BITS		52
-+#define ARM_LPAE_S2_MAX_CONCAT_PAGES	16
+diff --git a/arch/arm64/include/asm/arm-smmu-v3-common.h b/arch/arm64/include/asm/arm-smmu-v3-common.h
+new file mode 100644
+index 000000000000..e6e339248816
+--- /dev/null
++++ b/arch/arm64/include/asm/arm-smmu-v3-common.h
+@@ -0,0 +1,547 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ARM_SMMU_V3_COMMON_H
++#define _ARM_SMMU_V3_COMMON_H
 +
- static arm_lpae_iopte paddr_to_iopte(phys_addr_t paddr,
- 				     struct arm_lpae_io_pgtable *data)
- {
-@@ -257,9 +260,9 @@ static arm_lpae_iopte arm_lpae_prot_to_pte(struct arm_lpae_io_pgtable *data,
- 	return pte;
- }
- 
--int arm_lpae_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
--		       phys_addr_t paddr, size_t pgsize, size_t pgcount,
--		       int iommu_prot, gfp_t gfp, size_t *mapped)
-+static int arm_lpae_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
-+			      phys_addr_t paddr, size_t pgsize, size_t pgcount,
-+			      int iommu_prot, gfp_t gfp, size_t *mapped)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_cfg *cfg = &data->iop.cfg;
-@@ -444,9 +447,9 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
- 	return __arm_lpae_unmap(data, gather, iova, size, pgcount, lvl + 1, ptep);
- }
- 
--size_t arm_lpae_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
--			    size_t pgsize, size_t pgcount,
--			    struct iommu_iotlb_gather *gather)
-+static size_t arm_lpae_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
-+				   size_t pgsize, size_t pgcount,
-+				   struct iommu_iotlb_gather *gather)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_cfg *cfg = &data->iop.cfg;
-@@ -484,8 +487,8 @@ static int visit_iova_to_phys(struct io_pgtable_walk_data *walk_data, int lvl,
- 	return 0;
- }
- 
--phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
--				  unsigned long iova)
-+static phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
-+					 unsigned long iova)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct iova_to_phys_data d;
-@@ -513,7 +516,7 @@ static int visit_pgtable_walk(struct io_pgtable_walk_data *walk_data, int lvl,
- 	return 0;
- }
- 
--int arm_lpae_pgtable_walk(struct io_pgtable_ops *ops, unsigned long iova, void *wd)
-+static int arm_lpae_pgtable_walk(struct io_pgtable_ops *ops, unsigned long iova, void *wd)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_walk_data walk_data = {
-@@ -596,10 +599,10 @@ static int visit_dirty(struct io_pgtable_walk_data *walk_data, int lvl,
- 	return 0;
- }
- 
--int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
--				  unsigned long iova, size_t size,
--				  unsigned long flags,
--				  struct iommu_dirty_bitmap *dirty)
-+static int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
-+					 unsigned long iova, size_t size,
-+					 unsigned long flags,
-+					 struct iommu_dirty_bitmap *dirty)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_cfg *cfg = &data->iop.cfg;
-@@ -623,3 +626,258 @@ int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
- 
- 	return __arm_lpae_iopte_walk(data, &walk_data, ptep, lvl);
- }
++#include <linux/bitfield.h>
 +
-+static void arm_lpae_restrict_pgsizes(struct io_pgtable_cfg *cfg)
++/* MMIO registers */
++#define ARM_SMMU_IDR0			0x0
++#define IDR0_ST_LVL			GENMASK(28, 27)
++#define IDR0_ST_LVL_2LVL		1
++#define IDR0_STALL_MODEL		GENMASK(25, 24)
++#define IDR0_STALL_MODEL_STALL		0
++#define IDR0_STALL_MODEL_FORCE		2
++#define IDR0_TTENDIAN			GENMASK(22, 21)
++#define IDR0_TTENDIAN_MIXED		0
++#define IDR0_TTENDIAN_LE		2
++#define IDR0_TTENDIAN_BE		3
++#define IDR0_CD2L			(1 << 19)
++#define IDR0_VMID16			(1 << 18)
++#define IDR0_PRI			(1 << 16)
++#define IDR0_SEV			(1 << 14)
++#define IDR0_MSI			(1 << 13)
++#define IDR0_ASID16			(1 << 12)
++#define IDR0_ATS			(1 << 10)
++#define IDR0_HYP			(1 << 9)
++#define IDR0_HTTU			GENMASK(7, 6)
++#define IDR0_HTTU_ACCESS		1
++#define IDR0_HTTU_ACCESS_DIRTY		2
++#define IDR0_COHACC			(1 << 4)
++#define IDR0_TTF			GENMASK(3, 2)
++#define IDR0_TTF_AARCH64		2
++#define IDR0_TTF_AARCH32_64		3
++#define IDR0_S1P			(1 << 1)
++#define IDR0_S2P			(1 << 0)
++
++#define ARM_SMMU_IDR1			0x4
++#define IDR1_TABLES_PRESET		(1 << 30)
++#define IDR1_QUEUES_PRESET		(1 << 29)
++#define IDR1_REL			(1 << 28)
++#define IDR1_ATTR_TYPES_OVR		(1 << 27)
++#define IDR1_CMDQS			GENMASK(25, 21)
++#define IDR1_EVTQS			GENMASK(20, 16)
++#define IDR1_PRIQS			GENMASK(15, 11)
++#define IDR1_SSIDSIZE			GENMASK(10, 6)
++#define IDR1_SIDSIZE			GENMASK(5, 0)
++
++#define ARM_SMMU_IDR3			0xc
++#define IDR3_RIL			(1 << 10)
++
++#define ARM_SMMU_IDR5			0x14
++#define IDR5_STALL_MAX			GENMASK(31, 16)
++#define IDR5_GRAN64K			(1 << 6)
++#define IDR5_GRAN16K			(1 << 5)
++#define IDR5_GRAN4K			(1 << 4)
++#define IDR5_OAS			GENMASK(2, 0)
++#define IDR5_OAS_32_BIT			0
++#define IDR5_OAS_36_BIT			1
++#define IDR5_OAS_40_BIT			2
++#define IDR5_OAS_42_BIT			3
++#define IDR5_OAS_44_BIT			4
++#define IDR5_OAS_48_BIT			5
++#define IDR5_OAS_52_BIT			6
++#define IDR5_VAX			GENMASK(11, 10)
++#define IDR5_VAX_52_BIT			1
++
++#define ARM_SMMU_IIDR			0x18
++#define IIDR_PRODUCTID			GENMASK(31, 20)
++#define IIDR_VARIANT			GENMASK(19, 16)
++#define IIDR_REVISION			GENMASK(15, 12)
++#define IIDR_IMPLEMENTER		GENMASK(11, 0)
++
++#define ARM_SMMU_CR0			0x20
++#define CR0_ATSCHK			(1 << 4)
++#define CR0_CMDQEN			(1 << 3)
++#define CR0_EVTQEN			(1 << 2)
++#define CR0_PRIQEN			(1 << 1)
++#define CR0_SMMUEN			(1 << 0)
++
++#define ARM_SMMU_CR0ACK			0x24
++
++#define ARM_SMMU_CR1			0x28
++#define CR1_TABLE_SH			GENMASK(11, 10)
++#define CR1_TABLE_OC			GENMASK(9, 8)
++#define CR1_TABLE_IC			GENMASK(7, 6)
++#define CR1_QUEUE_SH			GENMASK(5, 4)
++#define CR1_QUEUE_OC			GENMASK(3, 2)
++#define CR1_QUEUE_IC			GENMASK(1, 0)
++/* CR1 cacheability fields don't quite follow the usual TCR-style encoding */
++#define CR1_CACHE_NC			0
++#define CR1_CACHE_WB			1
++#define CR1_CACHE_WT			2
++
++#define ARM_SMMU_CR2			0x2c
++#define CR2_PTM				(1 << 2)
++#define CR2_RECINVSID			(1 << 1)
++#define CR2_E2H				(1 << 0)
++
++#define ARM_SMMU_GBPA			0x44
++#define GBPA_UPDATE			(1 << 31)
++#define GBPA_ABORT			(1 << 20)
++
++#define ARM_SMMU_IRQ_CTRL		0x50
++#define IRQ_CTRL_EVTQ_IRQEN		(1 << 2)
++#define IRQ_CTRL_PRIQ_IRQEN		(1 << 1)
++#define IRQ_CTRL_GERROR_IRQEN		(1 << 0)
++
++#define ARM_SMMU_IRQ_CTRLACK		0x54
++
++#define ARM_SMMU_GERROR			0x60
++#define GERROR_SFM_ERR			(1 << 8)
++#define GERROR_MSI_GERROR_ABT_ERR	(1 << 7)
++#define GERROR_MSI_PRIQ_ABT_ERR		(1 << 6)
++#define GERROR_MSI_EVTQ_ABT_ERR		(1 << 5)
++#define GERROR_MSI_CMDQ_ABT_ERR		(1 << 4)
++#define GERROR_PRIQ_ABT_ERR		(1 << 3)
++#define GERROR_EVTQ_ABT_ERR		(1 << 2)
++#define GERROR_CMDQ_ERR			(1 << 0)
++#define GERROR_ERR_MASK			0x1fd
++
++#define ARM_SMMU_GERRORN		0x64
++
++#define ARM_SMMU_GERROR_IRQ_CFG0	0x68
++#define ARM_SMMU_GERROR_IRQ_CFG1	0x70
++#define ARM_SMMU_GERROR_IRQ_CFG2	0x74
++
++#define ARM_SMMU_STRTAB_BASE		0x80
++#define STRTAB_BASE_RA			(1UL << 62)
++#define STRTAB_BASE_ADDR_MASK		GENMASK_ULL(51, 6)
++
++#define ARM_SMMU_STRTAB_BASE_CFG	0x88
++#define STRTAB_BASE_CFG_FMT		GENMASK(17, 16)
++#define STRTAB_BASE_CFG_FMT_LINEAR	0
++#define STRTAB_BASE_CFG_FMT_2LVL	1
++#define STRTAB_BASE_CFG_SPLIT		GENMASK(10, 6)
++#define STRTAB_BASE_CFG_LOG2SIZE	GENMASK(5, 0)
++
++#define ARM_SMMU_CMDQ_BASE		0x90
++#define ARM_SMMU_CMDQ_PROD		0x98
++#define ARM_SMMU_CMDQ_CONS		0x9c
++
++#define ARM_SMMU_EVTQ_BASE		0xa0
++#define ARM_SMMU_EVTQ_PROD		0xa8
++#define ARM_SMMU_EVTQ_CONS		0xac
++#define ARM_SMMU_EVTQ_IRQ_CFG0		0xb0
++#define ARM_SMMU_EVTQ_IRQ_CFG1		0xb8
++#define ARM_SMMU_EVTQ_IRQ_CFG2		0xbc
++
++#define ARM_SMMU_PRIQ_BASE		0xc0
++#define ARM_SMMU_PRIQ_PROD		0xc8
++#define ARM_SMMU_PRIQ_CONS		0xcc
++#define ARM_SMMU_PRIQ_IRQ_CFG0		0xd0
++#define ARM_SMMU_PRIQ_IRQ_CFG1		0xd8
++#define ARM_SMMU_PRIQ_IRQ_CFG2		0xdc
++
++#define ARM_SMMU_REG_SZ			0xe00
++
++/* Common MSI config fields */
++#define MSI_CFG0_ADDR_MASK		GENMASK_ULL(51, 2)
++#define MSI_CFG2_SH			GENMASK(5, 4)
++#define MSI_CFG2_MEMATTR		GENMASK(3, 0)
++
++/* Common memory attribute values */
++#define ARM_SMMU_SH_NSH			0
++#define ARM_SMMU_SH_OSH			2
++#define ARM_SMMU_SH_ISH			3
++#define ARM_SMMU_MEMATTR_DEVICE_nGnRE	0x1
++#define ARM_SMMU_MEMATTR_OIWB		0xf
++
++#define Q_BASE_RWA			(1UL << 62)
++#define Q_BASE_ADDR_MASK		GENMASK_ULL(51, 5)
++#define Q_BASE_LOG2SIZE			GENMASK(4, 0)
++
++/*
++ * Stream table.
++ *
++ * Linear: Enough to cover 1 << IDR1.SIDSIZE entries
++ * 2lvl: 128k L1 entries,
++ *       256 lazy entries per table (each table covers a PCI bus)
++ */
++#define STRTAB_SPLIT			8
++
++#define STRTAB_L1_DESC_SPAN		GENMASK_ULL(4, 0)
++#define STRTAB_L1_DESC_L2PTR_MASK	GENMASK_ULL(51, 6)
++
++#define STRTAB_STE_DWORDS		8
++
++struct arm_smmu_ste {
++	__le64 data[STRTAB_STE_DWORDS];
++};
++
++#define STRTAB_NUM_L2_STES		(1 << STRTAB_SPLIT)
++struct arm_smmu_strtab_l2 {
++	struct arm_smmu_ste stes[STRTAB_NUM_L2_STES];
++};
++
++struct arm_smmu_strtab_l1 {
++	__le64 l2ptr;
++};
++#define STRTAB_MAX_L1_ENTRIES		(1 << 17)
++
++static inline u32 arm_smmu_strtab_l1_idx(u32 sid)
 +{
-+	unsigned long granule, page_sizes;
-+	unsigned int max_addr_bits = 48;
-+
-+	/*
-+	 * We need to restrict the supported page sizes to match the
-+	 * translation regime for a particular granule. Aim to match
-+	 * the CPU page size if possible, otherwise prefer smaller sizes.
-+	 * While we're at it, restrict the block sizes to match the
-+	 * chosen granule.
-+	 */
-+	if (cfg->pgsize_bitmap & PAGE_SIZE)
-+		granule = PAGE_SIZE;
-+	else if (cfg->pgsize_bitmap & ~PAGE_MASK)
-+		granule = 1UL << __fls(cfg->pgsize_bitmap & ~PAGE_MASK);
-+	else if (cfg->pgsize_bitmap & PAGE_MASK)
-+		granule = 1UL << __ffs(cfg->pgsize_bitmap & PAGE_MASK);
-+	else
-+		granule = 0;
-+
-+	switch (granule) {
-+	case SZ_4K:
-+		page_sizes = (SZ_4K | SZ_2M | SZ_1G);
-+		break;
-+	case SZ_16K:
-+		page_sizes = (SZ_16K | SZ_32M);
-+		break;
-+	case SZ_64K:
-+		max_addr_bits = 52;
-+		page_sizes = (SZ_64K | SZ_512M);
-+		if (cfg->oas > 48)
-+			page_sizes |= 1ULL << 42; /* 4TB */
-+		break;
-+	default:
-+		page_sizes = 0;
-+	}
-+
-+	cfg->pgsize_bitmap &= page_sizes;
-+	cfg->ias = min(cfg->ias, max_addr_bits);
-+	cfg->oas = min(cfg->oas, max_addr_bits);
++	return sid / STRTAB_NUM_L2_STES;
 +}
 +
-+int arm_lpae_init_pgtable(struct io_pgtable_cfg *cfg,
-+			  struct arm_lpae_io_pgtable *data)
++static inline u32 arm_smmu_strtab_l2_idx(u32 sid)
 +{
-+	int levels, va_bits, pg_shift;
++	return sid % STRTAB_NUM_L2_STES;
++}
 +
-+	arm_lpae_restrict_pgsizes(cfg);
++#define STRTAB_STE_0_V			(1UL << 0)
++#define STRTAB_STE_0_CFG		GENMASK_ULL(3, 1)
++#define STRTAB_STE_0_CFG_ABORT		0
++#define STRTAB_STE_0_CFG_BYPASS		4
++#define STRTAB_STE_0_CFG_S1_TRANS	5
++#define STRTAB_STE_0_CFG_S2_TRANS	6
 +
-+	if (!(cfg->pgsize_bitmap & (SZ_4K | SZ_16K | SZ_64K)))
-+		return -EINVAL;
++#define STRTAB_STE_0_S1FMT		GENMASK_ULL(5, 4)
++#define STRTAB_STE_0_S1FMT_LINEAR	0
++#define STRTAB_STE_0_S1FMT_64K_L2	2
++#define STRTAB_STE_0_S1CTXPTR_MASK	GENMASK_ULL(51, 6)
++#define STRTAB_STE_0_S1CDMAX		GENMASK_ULL(63, 59)
 +
-+	if (cfg->ias > ARM_LPAE_MAX_ADDR_BITS)
-+		return -E2BIG;
++#define STRTAB_STE_1_S1DSS		GENMASK_ULL(1, 0)
++#define STRTAB_STE_1_S1DSS_TERMINATE	0x0
++#define STRTAB_STE_1_S1DSS_BYPASS	0x1
++#define STRTAB_STE_1_S1DSS_SSID0	0x2
 +
-+	if (cfg->oas > ARM_LPAE_MAX_ADDR_BITS)
-+		return -E2BIG;
++#define STRTAB_STE_1_S1C_CACHE_NC	0UL
++#define STRTAB_STE_1_S1C_CACHE_WBRA	1UL
++#define STRTAB_STE_1_S1C_CACHE_WT	2UL
++#define STRTAB_STE_1_S1C_CACHE_WB	3UL
++#define STRTAB_STE_1_S1CIR		GENMASK_ULL(3, 2)
++#define STRTAB_STE_1_S1COR		GENMASK_ULL(5, 4)
++#define STRTAB_STE_1_S1CSH		GENMASK_ULL(7, 6)
 +
-+	pg_shift = __ffs(cfg->pgsize_bitmap);
-+	data->bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
++#define STRTAB_STE_1_S1STALLD		(1UL << 27)
 +
-+	va_bits = cfg->ias - pg_shift;
-+	levels = DIV_ROUND_UP(va_bits, data->bits_per_level);
-+	data->start_level = ARM_LPAE_MAX_LEVELS - levels;
++#define STRTAB_STE_1_EATS		GENMASK_ULL(29, 28)
++#define STRTAB_STE_1_EATS_ABT		0UL
++#define STRTAB_STE_1_EATS_TRANS		1UL
++#define STRTAB_STE_1_EATS_S1CHK		2UL
 +
-+	/* Calculate the actual size of our pgd (without concatenation) */
-+	data->pgd_bits = va_bits - (data->bits_per_level * (levels - 1));
++#define STRTAB_STE_1_STRW		GENMASK_ULL(31, 30)
++#define STRTAB_STE_1_STRW_NSEL1		0UL
++#define STRTAB_STE_1_STRW_EL2		2UL
 +
-+	data->iop.ops = (struct io_pgtable_ops) {
-+		.map_pages	= arm_lpae_map_pages,
-+		.unmap_pages	= arm_lpae_unmap_pages,
-+		.iova_to_phys	= arm_lpae_iova_to_phys,
-+		.read_and_clear_dirty = arm_lpae_read_and_clear_dirty,
-+		.pgtable_walk	= arm_lpae_pgtable_walk,
++#define STRTAB_STE_1_SHCFG		GENMASK_ULL(45, 44)
++#define STRTAB_STE_1_SHCFG_INCOMING	1UL
++
++#define STRTAB_STE_2_S2VMID		GENMASK_ULL(15, 0)
++#define STRTAB_STE_2_VTCR		GENMASK_ULL(50, 32)
++#define STRTAB_STE_2_VTCR_S2T0SZ	GENMASK_ULL(5, 0)
++#define STRTAB_STE_2_VTCR_S2SL0		GENMASK_ULL(7, 6)
++#define STRTAB_STE_2_VTCR_S2IR0		GENMASK_ULL(9, 8)
++#define STRTAB_STE_2_VTCR_S2OR0		GENMASK_ULL(11, 10)
++#define STRTAB_STE_2_VTCR_S2SH0		GENMASK_ULL(13, 12)
++#define STRTAB_STE_2_VTCR_S2TG		GENMASK_ULL(15, 14)
++#define STRTAB_STE_2_VTCR_S2PS		GENMASK_ULL(18, 16)
++#define STRTAB_STE_2_S2AA64		(1UL << 51)
++#define STRTAB_STE_2_S2ENDI		(1UL << 52)
++#define STRTAB_STE_2_S2PTW		(1UL << 54)
++#define STRTAB_STE_2_S2S		(1UL << 57)
++#define STRTAB_STE_2_S2R		(1UL << 58)
++
++#define STRTAB_STE_3_S2TTB_MASK		GENMASK_ULL(51, 4)
++
++/*
++ * Context descriptors.
++ *
++ * Linear: when less than 1024 SSIDs are supported
++ * 2lvl: at most 1024 L1 entries,
++ *       1024 lazy entries per table.
++ */
++#define CTXDESC_L2_ENTRIES		1024
++
++#define CTXDESC_L1_DESC_V		(1UL << 0)
++#define CTXDESC_L1_DESC_L2PTR_MASK	GENMASK_ULL(51, 12)
++
++#define CTXDESC_CD_DWORDS		8
++
++struct arm_smmu_cd {
++	__le64 data[CTXDESC_CD_DWORDS];
++};
++
++struct arm_smmu_cdtab_l2 {
++	struct arm_smmu_cd cds[CTXDESC_L2_ENTRIES];
++};
++
++struct arm_smmu_cdtab_l1 {
++	__le64 l2ptr;
++};
++
++static inline unsigned int arm_smmu_cdtab_l1_idx(unsigned int ssid)
++{
++	return ssid / CTXDESC_L2_ENTRIES;
++}
++
++static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
++{
++	return ssid % CTXDESC_L2_ENTRIES;
++}
++
++#define CTXDESC_CD_0_TCR_T0SZ		GENMASK_ULL(5, 0)
++#define CTXDESC_CD_0_TCR_TG0		GENMASK_ULL(7, 6)
++#define CTXDESC_CD_0_TCR_IRGN0		GENMASK_ULL(9, 8)
++#define CTXDESC_CD_0_TCR_ORGN0		GENMASK_ULL(11, 10)
++#define CTXDESC_CD_0_TCR_SH0		GENMASK_ULL(13, 12)
++#define CTXDESC_CD_0_TCR_EPD0		(1ULL << 14)
++#define CTXDESC_CD_0_TCR_EPD1		(1ULL << 30)
++
++#define CTXDESC_CD_0_ENDI		(1UL << 15)
++#define CTXDESC_CD_0_V			(1UL << 31)
++
++#define CTXDESC_CD_0_TCR_IPS		GENMASK_ULL(34, 32)
++#define CTXDESC_CD_0_TCR_TBI0		(1ULL << 38)
++
++#define CTXDESC_CD_0_TCR_HA            (1UL << 43)
++#define CTXDESC_CD_0_TCR_HD            (1UL << 42)
++
++#define CTXDESC_CD_0_AA64		(1UL << 41)
++#define CTXDESC_CD_0_S			(1UL << 44)
++#define CTXDESC_CD_0_R			(1UL << 45)
++#define CTXDESC_CD_0_A			(1UL << 46)
++#define CTXDESC_CD_0_ASET		(1UL << 47)
++#define CTXDESC_CD_0_ASID		GENMASK_ULL(63, 48)
++
++#define CTXDESC_CD_1_TTB0_MASK		GENMASK_ULL(51, 4)
++
++/*
++ * When the SMMU only supports linear context descriptor tables, pick a
++ * reasonable size limit (64kB).
++ */
++#define CTXDESC_LINEAR_CDMAX		ilog2(SZ_64K / sizeof(struct arm_smmu_cd))
++
++/* Command queue */
++#define CMDQ_ENT_SZ_SHIFT		4
++#define CMDQ_ENT_DWORDS			((1 << CMDQ_ENT_SZ_SHIFT) >> 3)
++#define CMDQ_MAX_SZ_SHIFT		(Q_MAX_SZ_SHIFT - CMDQ_ENT_SZ_SHIFT)
++
++#define CMDQ_CONS_ERR			GENMASK(30, 24)
++#define CMDQ_ERR_CERROR_NONE_IDX	0
++#define CMDQ_ERR_CERROR_ILL_IDX		1
++#define CMDQ_ERR_CERROR_ABT_IDX		2
++#define CMDQ_ERR_CERROR_ATC_INV_IDX	3
++
++#define CMDQ_0_OP			GENMASK_ULL(7, 0)
++#define CMDQ_0_SSV			(1UL << 11)
++
++#define CMDQ_PREFETCH_0_SID		GENMASK_ULL(63, 32)
++#define CMDQ_PREFETCH_1_SIZE		GENMASK_ULL(4, 0)
++#define CMDQ_PREFETCH_1_ADDR_MASK	GENMASK_ULL(63, 12)
++
++#define CMDQ_CFGI_0_SSID		GENMASK_ULL(31, 12)
++#define CMDQ_CFGI_0_SID			GENMASK_ULL(63, 32)
++#define CMDQ_CFGI_1_LEAF		(1UL << 0)
++#define CMDQ_CFGI_1_RANGE		GENMASK_ULL(4, 0)
++
++#define CMDQ_TLBI_0_NUM			GENMASK_ULL(16, 12)
++#define CMDQ_TLBI_RANGE_NUM_MAX		31
++#define CMDQ_TLBI_0_SCALE		GENMASK_ULL(24, 20)
++#define CMDQ_TLBI_0_VMID		GENMASK_ULL(47, 32)
++#define CMDQ_TLBI_0_ASID		GENMASK_ULL(63, 48)
++#define CMDQ_TLBI_1_LEAF		(1UL << 0)
++#define CMDQ_TLBI_1_TTL			GENMASK_ULL(9, 8)
++#define CMDQ_TLBI_1_TG			GENMASK_ULL(11, 10)
++#define CMDQ_TLBI_1_VA_MASK		GENMASK_ULL(63, 12)
++#define CMDQ_TLBI_1_IPA_MASK		GENMASK_ULL(51, 12)
++
++#define CMDQ_ATC_0_SSID			GENMASK_ULL(31, 12)
++#define CMDQ_ATC_0_SID			GENMASK_ULL(63, 32)
++#define CMDQ_ATC_0_GLOBAL		(1UL << 9)
++#define CMDQ_ATC_1_SIZE			GENMASK_ULL(5, 0)
++#define CMDQ_ATC_1_ADDR_MASK		GENMASK_ULL(63, 12)
++
++#define CMDQ_PRI_0_SSID			GENMASK_ULL(31, 12)
++#define CMDQ_PRI_0_SID			GENMASK_ULL(63, 32)
++#define CMDQ_PRI_1_GRPID		GENMASK_ULL(8, 0)
++#define CMDQ_PRI_1_RESP			GENMASK_ULL(13, 12)
++
++#define CMDQ_RESUME_0_RESP_TERM		0UL
++#define CMDQ_RESUME_0_RESP_RETRY	1UL
++#define CMDQ_RESUME_0_RESP_ABORT	2UL
++#define CMDQ_RESUME_0_RESP		GENMASK_ULL(13, 12)
++#define CMDQ_RESUME_0_SID		GENMASK_ULL(63, 32)
++#define CMDQ_RESUME_1_STAG		GENMASK_ULL(15, 0)
++
++#define CMDQ_SYNC_0_CS			GENMASK_ULL(13, 12)
++#define CMDQ_SYNC_0_CS_NONE		0
++#define CMDQ_SYNC_0_CS_IRQ		1
++#define CMDQ_SYNC_0_CS_SEV		2
++#define CMDQ_SYNC_0_MSH			GENMASK_ULL(23, 22)
++#define CMDQ_SYNC_0_MSIATTR		GENMASK_ULL(27, 24)
++#define CMDQ_SYNC_0_MSIDATA		GENMASK_ULL(63, 32)
++#define CMDQ_SYNC_1_MSIADDR_MASK	GENMASK_ULL(51, 2)
++
++/* Event queue */
++#define EVTQ_ENT_SZ_SHIFT		5
++#define EVTQ_ENT_DWORDS			((1 << EVTQ_ENT_SZ_SHIFT) >> 3)
++#define EVTQ_MAX_SZ_SHIFT		(Q_MAX_SZ_SHIFT - EVTQ_ENT_SZ_SHIFT)
++
++#define EVTQ_0_ID			GENMASK_ULL(7, 0)
++
++#define EVT_ID_TRANSLATION_FAULT	0x10
++#define EVT_ID_ADDR_SIZE_FAULT		0x11
++#define EVT_ID_ACCESS_FAULT		0x12
++#define EVT_ID_PERMISSION_FAULT		0x13
++
++#define EVTQ_0_SSV			(1UL << 11)
++#define EVTQ_0_SSID			GENMASK_ULL(31, 12)
++#define EVTQ_0_SID			GENMASK_ULL(63, 32)
++#define EVTQ_1_STAG			GENMASK_ULL(15, 0)
++#define EVTQ_1_STALL			(1UL << 31)
++#define EVTQ_1_PnU			(1UL << 33)
++#define EVTQ_1_InD			(1UL << 34)
++#define EVTQ_1_RnW			(1UL << 35)
++#define EVTQ_1_S2			(1UL << 39)
++#define EVTQ_1_CLASS			GENMASK_ULL(41, 40)
++#define EVTQ_1_TT_READ			(1UL << 44)
++#define EVTQ_2_ADDR			GENMASK_ULL(63, 0)
++#define EVTQ_3_IPA			GENMASK_ULL(51, 12)
++
++/* PRI queue */
++#define PRIQ_ENT_SZ_SHIFT		4
++#define PRIQ_ENT_DWORDS			((1 << PRIQ_ENT_SZ_SHIFT) >> 3)
++#define PRIQ_MAX_SZ_SHIFT		(Q_MAX_SZ_SHIFT - PRIQ_ENT_SZ_SHIFT)
++
++#define PRIQ_0_SID			GENMASK_ULL(31, 0)
++#define PRIQ_0_SSID			GENMASK_ULL(51, 32)
++#define PRIQ_0_PERM_PRIV		(1UL << 58)
++#define PRIQ_0_PERM_EXEC		(1UL << 59)
++#define PRIQ_0_PERM_READ		(1UL << 60)
++#define PRIQ_0_PERM_WRITE		(1UL << 61)
++#define PRIQ_0_PRG_LAST			(1UL << 62)
++#define PRIQ_0_SSID_V			(1UL << 63)
++
++#define PRIQ_1_PRG_IDX			GENMASK_ULL(8, 0)
++#define PRIQ_1_ADDR_MASK		GENMASK_ULL(63, 12)
++
++/* Synthesized features */
++#define ARM_SMMU_FEAT_2_LVL_STRTAB	(1 << 0)
++#define ARM_SMMU_FEAT_2_LVL_CDTAB	(1 << 1)
++#define ARM_SMMU_FEAT_TT_LE		(1 << 2)
++#define ARM_SMMU_FEAT_TT_BE		(1 << 3)
++#define ARM_SMMU_FEAT_PRI		(1 << 4)
++#define ARM_SMMU_FEAT_ATS		(1 << 5)
++#define ARM_SMMU_FEAT_SEV		(1 << 6)
++#define ARM_SMMU_FEAT_MSI		(1 << 7)
++#define ARM_SMMU_FEAT_COHERENCY		(1 << 8)
++#define ARM_SMMU_FEAT_TRANS_S1		(1 << 9)
++#define ARM_SMMU_FEAT_TRANS_S2		(1 << 10)
++#define ARM_SMMU_FEAT_STALLS		(1 << 11)
++#define ARM_SMMU_FEAT_HYP		(1 << 12)
++#define ARM_SMMU_FEAT_STALL_FORCE	(1 << 13)
++#define ARM_SMMU_FEAT_VAX		(1 << 14)
++#define ARM_SMMU_FEAT_RANGE_INV		(1 << 15)
++#define ARM_SMMU_FEAT_BTM		(1 << 16)
++#define ARM_SMMU_FEAT_SVA		(1 << 17)
++#define ARM_SMMU_FEAT_E2H		(1 << 18)
++#define ARM_SMMU_FEAT_NESTING		(1 << 19)
++#define ARM_SMMU_FEAT_ATTR_TYPES_OVR	(1 << 20)
++#define ARM_SMMU_FEAT_HA		(1 << 21)
++#define ARM_SMMU_FEAT_HD		(1 << 22)
++
++enum pri_resp {
++	PRI_RESP_DENY = 0,
++	PRI_RESP_FAIL = 1,
++	PRI_RESP_SUCC = 2,
++};
++
++struct arm_smmu_cmdq_ent {
++	/* Common fields */
++	u8				opcode;
++	bool				substream_valid;
++
++	/* Command-specific fields */
++	union {
++		#define CMDQ_OP_PREFETCH_CFG	0x1
++		struct {
++			u32			sid;
++		} prefetch;
++
++		#define CMDQ_OP_CFGI_STE	0x3
++		#define CMDQ_OP_CFGI_ALL	0x4
++		#define CMDQ_OP_CFGI_CD		0x5
++		#define CMDQ_OP_CFGI_CD_ALL	0x6
++		struct {
++			u32			sid;
++			u32			ssid;
++			union {
++				bool		leaf;
++				u8		span;
++			};
++		} cfgi;
++
++		#define CMDQ_OP_TLBI_NH_ASID	0x11
++		#define CMDQ_OP_TLBI_NH_VA	0x12
++		#define CMDQ_OP_TLBI_EL2_ALL	0x20
++		#define CMDQ_OP_TLBI_EL2_ASID	0x21
++		#define CMDQ_OP_TLBI_EL2_VA	0x22
++		#define CMDQ_OP_TLBI_S12_VMALL	0x28
++		#define CMDQ_OP_TLBI_S2_IPA	0x2a
++		#define CMDQ_OP_TLBI_NSNH_ALL	0x30
++		struct {
++			u8			num;
++			u8			scale;
++			u16			asid;
++			u16			vmid;
++			bool			leaf;
++			u8			ttl;
++			u8			tg;
++			u64			addr;
++		} tlbi;
++
++		#define CMDQ_OP_ATC_INV		0x40
++		#define ATC_INV_SIZE_ALL	52
++		struct {
++			u32			sid;
++			u32			ssid;
++			u64			addr;
++			u8			size;
++			bool			global;
++		} atc;
++
++		#define CMDQ_OP_PRI_RESP	0x41
++		struct {
++			u32			sid;
++			u32			ssid;
++			u16			grpid;
++			enum pri_resp		resp;
++		} pri;
++
++		#define CMDQ_OP_RESUME		0x44
++		struct {
++			u32			sid;
++			u16			stag;
++			u8			resp;
++		} resume;
++
++		#define CMDQ_OP_CMD_SYNC	0x46
++		struct {
++			u64			msiaddr;
++		} sync;
 +	};
++};
 +
-+	return 0;
-+}
-+
-+int arm_lpae_init_pgtable_s1(struct io_pgtable_cfg *cfg,
-+			     struct arm_lpae_io_pgtable *data)
-+{
-+	u64 reg;
-+	int ret;
-+	typeof(&cfg->arm_lpae_s1_cfg.tcr) tcr = &cfg->arm_lpae_s1_cfg.tcr;
-+	bool tg1;
-+
-+	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_NS |
-+			    IO_PGTABLE_QUIRK_ARM_TTBR1 |
-+			    IO_PGTABLE_QUIRK_ARM_OUTER_WBWA |
-+			    IO_PGTABLE_QUIRK_ARM_HD))
-+		return -EINVAL;
-+
-+	ret = arm_lpae_init_pgtable(cfg, data);
-+	if (ret)
-+		return ret;
-+
-+	/* TCR */
-+	if (cfg->coherent_walk) {
-+		tcr->sh = ARM_LPAE_TCR_SH_IS;
-+		tcr->irgn = ARM_LPAE_TCR_RGN_WBWA;
-+		tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
-+		if (cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA)
-+			return -EINVAL;
-+	} else {
-+		tcr->sh = ARM_LPAE_TCR_SH_OS;
-+		tcr->irgn = ARM_LPAE_TCR_RGN_NC;
-+		if (!(cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA))
-+			tcr->orgn = ARM_LPAE_TCR_RGN_NC;
-+		else
-+			tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
-+	}
-+
-+	tg1 = cfg->quirks & IO_PGTABLE_QUIRK_ARM_TTBR1;
-+	switch (ARM_LPAE_GRANULE(data)) {
-+	case SZ_4K:
-+		tcr->tg = tg1 ? ARM_LPAE_TCR_TG1_4K : ARM_LPAE_TCR_TG0_4K;
-+		break;
-+	case SZ_16K:
-+		tcr->tg = tg1 ? ARM_LPAE_TCR_TG1_16K : ARM_LPAE_TCR_TG0_16K;
-+		break;
-+	case SZ_64K:
-+		tcr->tg = tg1 ? ARM_LPAE_TCR_TG1_64K : ARM_LPAE_TCR_TG0_64K;
-+		break;
-+	}
-+
-+	switch (cfg->oas) {
-+	case 32:
-+		tcr->ips = ARM_LPAE_TCR_PS_32_BIT;
-+		break;
-+	case 36:
-+		tcr->ips = ARM_LPAE_TCR_PS_36_BIT;
-+		break;
-+	case 40:
-+		tcr->ips = ARM_LPAE_TCR_PS_40_BIT;
-+		break;
-+	case 42:
-+		tcr->ips = ARM_LPAE_TCR_PS_42_BIT;
-+		break;
-+	case 44:
-+		tcr->ips = ARM_LPAE_TCR_PS_44_BIT;
-+		break;
-+	case 48:
-+		tcr->ips = ARM_LPAE_TCR_PS_48_BIT;
-+		break;
-+	case 52:
-+		tcr->ips = ARM_LPAE_TCR_PS_52_BIT;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	tcr->tsz = 64ULL - cfg->ias;
-+
-+	/* MAIRs */
-+	reg = (ARM_LPAE_MAIR_ATTR_NC
-+	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_NC)) |
-+	      (ARM_LPAE_MAIR_ATTR_WBRWA
-+	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_CACHE)) |
-+	      (ARM_LPAE_MAIR_ATTR_DEVICE
-+	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_DEV)) |
-+	      (ARM_LPAE_MAIR_ATTR_INC_OWBRWA
-+	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_INC_OCACHE));
-+
-+	cfg->arm_lpae_s1_cfg.mair = reg;
-+	return 0;
-+}
-+
-+int arm_lpae_init_pgtable_s2(struct io_pgtable_cfg *cfg,
-+			     struct arm_lpae_io_pgtable *data)
-+{
-+	u64 sl;
-+	int ret;
-+	typeof(&cfg->arm_lpae_s2_cfg.vtcr) vtcr = &cfg->arm_lpae_s2_cfg.vtcr;
-+
-+	/* The NS quirk doesn't apply at stage 2 */
-+	if (cfg->quirks)
-+		return -EINVAL;
-+
-+	ret = arm_lpae_init_pgtable(cfg, data);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Concatenate PGDs at level 1 if possible in order to reduce
-+	 * the depth of the stage-2 walk.
-+	 */
-+	if (data->start_level == 0) {
-+		unsigned long pgd_pages;
-+
-+		pgd_pages = ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte);
-+		if (pgd_pages <= ARM_LPAE_S2_MAX_CONCAT_PAGES) {
-+			data->pgd_bits += data->bits_per_level;
-+			data->start_level++;
-+		}
-+	}
-+
-+	/* VTCR */
-+	if (cfg->coherent_walk) {
-+		vtcr->sh = ARM_LPAE_TCR_SH_IS;
-+		vtcr->irgn = ARM_LPAE_TCR_RGN_WBWA;
-+		vtcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
-+	} else {
-+		vtcr->sh = ARM_LPAE_TCR_SH_OS;
-+		vtcr->irgn = ARM_LPAE_TCR_RGN_NC;
-+		vtcr->orgn = ARM_LPAE_TCR_RGN_NC;
-+	}
-+
-+	sl = data->start_level;
-+
-+	switch (ARM_LPAE_GRANULE(data)) {
-+	case SZ_4K:
-+		vtcr->tg = ARM_LPAE_TCR_TG0_4K;
-+		sl++; /* SL0 format is different for 4K granule size */
-+		break;
-+	case SZ_16K:
-+		vtcr->tg = ARM_LPAE_TCR_TG0_16K;
-+		break;
-+	case SZ_64K:
-+		vtcr->tg = ARM_LPAE_TCR_TG0_64K;
-+		break;
-+	}
-+
-+	switch (cfg->oas) {
-+	case 32:
-+		vtcr->ps = ARM_LPAE_TCR_PS_32_BIT;
-+		break;
-+	case 36:
-+		vtcr->ps = ARM_LPAE_TCR_PS_36_BIT;
-+		break;
-+	case 40:
-+		vtcr->ps = ARM_LPAE_TCR_PS_40_BIT;
-+		break;
-+	case 42:
-+		vtcr->ps = ARM_LPAE_TCR_PS_42_BIT;
-+		break;
-+	case 44:
-+		vtcr->ps = ARM_LPAE_TCR_PS_44_BIT;
-+		break;
-+	case 48:
-+		vtcr->ps = ARM_LPAE_TCR_PS_48_BIT;
-+		break;
-+	case 52:
-+		vtcr->ps = ARM_LPAE_TCR_PS_52_BIT;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	vtcr->tsz = 64ULL - cfg->ias;
-+	vtcr->sl = ~sl & ARM_LPAE_VTCR_SL0_MASK;
-+	return 0;
-+}
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index cb4eb513adbf..8d435a5bcd9a 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -19,12 +19,9 @@
- #include <linux/types.h>
- #include <linux/dma-mapping.h>
++#endif /* _ARM_SMMU_V3_COMMON_H */
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 1e9952ca989f..fc1b8c2af2a2 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -8,7 +8,6 @@
+ #ifndef _ARM_SMMU_V3_H
+ #define _ARM_SMMU_V3_H
  
--#include <asm/barrier.h>
+-#include <linux/bitfield.h>
+ #include <linux/iommu.h>
+ #include <linux/kernel.h>
+ #include <linux/mmzone.h>
+@@ -16,167 +15,7 @@
+ 
+ struct arm_smmu_device;
+ 
+-/* MMIO registers */
+-#define ARM_SMMU_IDR0			0x0
+-#define IDR0_ST_LVL			GENMASK(28, 27)
+-#define IDR0_ST_LVL_2LVL		1
+-#define IDR0_STALL_MODEL		GENMASK(25, 24)
+-#define IDR0_STALL_MODEL_STALL		0
+-#define IDR0_STALL_MODEL_FORCE		2
+-#define IDR0_TTENDIAN			GENMASK(22, 21)
+-#define IDR0_TTENDIAN_MIXED		0
+-#define IDR0_TTENDIAN_LE		2
+-#define IDR0_TTENDIAN_BE		3
+-#define IDR0_CD2L			(1 << 19)
+-#define IDR0_VMID16			(1 << 18)
+-#define IDR0_PRI			(1 << 16)
+-#define IDR0_SEV			(1 << 14)
+-#define IDR0_MSI			(1 << 13)
+-#define IDR0_ASID16			(1 << 12)
+-#define IDR0_ATS			(1 << 10)
+-#define IDR0_HYP			(1 << 9)
+-#define IDR0_HTTU			GENMASK(7, 6)
+-#define IDR0_HTTU_ACCESS		1
+-#define IDR0_HTTU_ACCESS_DIRTY		2
+-#define IDR0_COHACC			(1 << 4)
+-#define IDR0_TTF			GENMASK(3, 2)
+-#define IDR0_TTF_AARCH64		2
+-#define IDR0_TTF_AARCH32_64		3
+-#define IDR0_S1P			(1 << 1)
+-#define IDR0_S2P			(1 << 0)
 -
- #include "iommu-pages.h"
+-#define ARM_SMMU_IDR1			0x4
+-#define IDR1_TABLES_PRESET		(1 << 30)
+-#define IDR1_QUEUES_PRESET		(1 << 29)
+-#define IDR1_REL			(1 << 28)
+-#define IDR1_ATTR_TYPES_OVR		(1 << 27)
+-#define IDR1_CMDQS			GENMASK(25, 21)
+-#define IDR1_EVTQS			GENMASK(20, 16)
+-#define IDR1_PRIQS			GENMASK(15, 11)
+-#define IDR1_SSIDSIZE			GENMASK(10, 6)
+-#define IDR1_SIDSIZE			GENMASK(5, 0)
+-
+-#define ARM_SMMU_IDR3			0xc
+-#define IDR3_RIL			(1 << 10)
+-
+-#define ARM_SMMU_IDR5			0x14
+-#define IDR5_STALL_MAX			GENMASK(31, 16)
+-#define IDR5_GRAN64K			(1 << 6)
+-#define IDR5_GRAN16K			(1 << 5)
+-#define IDR5_GRAN4K			(1 << 4)
+-#define IDR5_OAS			GENMASK(2, 0)
+-#define IDR5_OAS_32_BIT			0
+-#define IDR5_OAS_36_BIT			1
+-#define IDR5_OAS_40_BIT			2
+-#define IDR5_OAS_42_BIT			3
+-#define IDR5_OAS_44_BIT			4
+-#define IDR5_OAS_48_BIT			5
+-#define IDR5_OAS_52_BIT			6
+-#define IDR5_VAX			GENMASK(11, 10)
+-#define IDR5_VAX_52_BIT			1
+-
+-#define ARM_SMMU_IIDR			0x18
+-#define IIDR_PRODUCTID			GENMASK(31, 20)
+-#define IIDR_VARIANT			GENMASK(19, 16)
+-#define IIDR_REVISION			GENMASK(15, 12)
+-#define IIDR_IMPLEMENTER		GENMASK(11, 0)
+-
+-#define ARM_SMMU_CR0			0x20
+-#define CR0_ATSCHK			(1 << 4)
+-#define CR0_CMDQEN			(1 << 3)
+-#define CR0_EVTQEN			(1 << 2)
+-#define CR0_PRIQEN			(1 << 1)
+-#define CR0_SMMUEN			(1 << 0)
+-
+-#define ARM_SMMU_CR0ACK			0x24
+-
+-#define ARM_SMMU_CR1			0x28
+-#define CR1_TABLE_SH			GENMASK(11, 10)
+-#define CR1_TABLE_OC			GENMASK(9, 8)
+-#define CR1_TABLE_IC			GENMASK(7, 6)
+-#define CR1_QUEUE_SH			GENMASK(5, 4)
+-#define CR1_QUEUE_OC			GENMASK(3, 2)
+-#define CR1_QUEUE_IC			GENMASK(1, 0)
+-/* CR1 cacheability fields don't quite follow the usual TCR-style encoding */
+-#define CR1_CACHE_NC			0
+-#define CR1_CACHE_WB			1
+-#define CR1_CACHE_WT			2
+-
+-#define ARM_SMMU_CR2			0x2c
+-#define CR2_PTM				(1 << 2)
+-#define CR2_RECINVSID			(1 << 1)
+-#define CR2_E2H				(1 << 0)
+-
+-#define ARM_SMMU_GBPA			0x44
+-#define GBPA_UPDATE			(1 << 31)
+-#define GBPA_ABORT			(1 << 20)
+-
+-#define ARM_SMMU_IRQ_CTRL		0x50
+-#define IRQ_CTRL_EVTQ_IRQEN		(1 << 2)
+-#define IRQ_CTRL_PRIQ_IRQEN		(1 << 1)
+-#define IRQ_CTRL_GERROR_IRQEN		(1 << 0)
+-
+-#define ARM_SMMU_IRQ_CTRLACK		0x54
+-
+-#define ARM_SMMU_GERROR			0x60
+-#define GERROR_SFM_ERR			(1 << 8)
+-#define GERROR_MSI_GERROR_ABT_ERR	(1 << 7)
+-#define GERROR_MSI_PRIQ_ABT_ERR		(1 << 6)
+-#define GERROR_MSI_EVTQ_ABT_ERR		(1 << 5)
+-#define GERROR_MSI_CMDQ_ABT_ERR		(1 << 4)
+-#define GERROR_PRIQ_ABT_ERR		(1 << 3)
+-#define GERROR_EVTQ_ABT_ERR		(1 << 2)
+-#define GERROR_CMDQ_ERR			(1 << 0)
+-#define GERROR_ERR_MASK			0x1fd
+-
+-#define ARM_SMMU_GERRORN		0x64
+-
+-#define ARM_SMMU_GERROR_IRQ_CFG0	0x68
+-#define ARM_SMMU_GERROR_IRQ_CFG1	0x70
+-#define ARM_SMMU_GERROR_IRQ_CFG2	0x74
+-
+-#define ARM_SMMU_STRTAB_BASE		0x80
+-#define STRTAB_BASE_RA			(1UL << 62)
+-#define STRTAB_BASE_ADDR_MASK		GENMASK_ULL(51, 6)
+-
+-#define ARM_SMMU_STRTAB_BASE_CFG	0x88
+-#define STRTAB_BASE_CFG_FMT		GENMASK(17, 16)
+-#define STRTAB_BASE_CFG_FMT_LINEAR	0
+-#define STRTAB_BASE_CFG_FMT_2LVL	1
+-#define STRTAB_BASE_CFG_SPLIT		GENMASK(10, 6)
+-#define STRTAB_BASE_CFG_LOG2SIZE	GENMASK(5, 0)
+-
+-#define ARM_SMMU_CMDQ_BASE		0x90
+-#define ARM_SMMU_CMDQ_PROD		0x98
+-#define ARM_SMMU_CMDQ_CONS		0x9c
+-
+-#define ARM_SMMU_EVTQ_BASE		0xa0
+-#define ARM_SMMU_EVTQ_PROD		0xa8
+-#define ARM_SMMU_EVTQ_CONS		0xac
+-#define ARM_SMMU_EVTQ_IRQ_CFG0		0xb0
+-#define ARM_SMMU_EVTQ_IRQ_CFG1		0xb8
+-#define ARM_SMMU_EVTQ_IRQ_CFG2		0xbc
+-
+-#define ARM_SMMU_PRIQ_BASE		0xc0
+-#define ARM_SMMU_PRIQ_PROD		0xc8
+-#define ARM_SMMU_PRIQ_CONS		0xcc
+-#define ARM_SMMU_PRIQ_IRQ_CFG0		0xd0
+-#define ARM_SMMU_PRIQ_IRQ_CFG1		0xd8
+-#define ARM_SMMU_PRIQ_IRQ_CFG2		0xdc
+-
+-#define ARM_SMMU_REG_SZ			0xe00
+-
+-/* Common MSI config fields */
+-#define MSI_CFG0_ADDR_MASK		GENMASK_ULL(51, 2)
+-#define MSI_CFG2_SH			GENMASK(5, 4)
+-#define MSI_CFG2_MEMATTR		GENMASK(3, 0)
+-
+-/* Common memory attribute values */
+-#define ARM_SMMU_SH_NSH			0
+-#define ARM_SMMU_SH_OSH			2
+-#define ARM_SMMU_SH_ISH			3
+-#define ARM_SMMU_MEMATTR_DEVICE_nGnRE	0x1
+-#define ARM_SMMU_MEMATTR_OIWB		0xf
++#include <asm/arm-smmu-v3-common.h>
  
--#define ARM_LPAE_MAX_ADDR_BITS		52
--#define ARM_LPAE_S2_MAX_CONCAT_PAGES	16
-+#include <asm/barrier.h>
+ #define Q_IDX(llq, p)			((p) & ((1 << (llq)->max_n_shift) - 1))
+ #define Q_WRP(llq, p)			((p) & (1 << (llq)->max_n_shift))
+@@ -186,10 +25,6 @@ struct arm_smmu_device;
+ 					 Q_IDX(&((q)->llq), p) *	\
+ 					 (q)->ent_dwords)
  
- static bool selftest_running = false;
+-#define Q_BASE_RWA			(1UL << 62)
+-#define Q_BASE_ADDR_MASK		GENMASK_ULL(51, 5)
+-#define Q_BASE_LOG2SIZE			GENMASK(4, 0)
+-
+ /* Ensure DMA allocations are naturally aligned */
+ #ifdef CONFIG_CMA_ALIGNMENT
+ #define Q_MAX_SZ_SHIFT			(PAGE_SHIFT + CONFIG_CMA_ALIGNMENT)
+@@ -197,180 +32,6 @@ struct arm_smmu_device;
+ #define Q_MAX_SZ_SHIFT			(PAGE_SHIFT + MAX_PAGE_ORDER)
+ #endif
  
-@@ -121,177 +118,17 @@ static void arm_lpae_free_pgtable(struct io_pgtable *iop)
- 	kfree(data);
- }
- 
--static void arm_lpae_restrict_pgsizes(struct io_pgtable_cfg *cfg)
+-/*
+- * Stream table.
+- *
+- * Linear: Enough to cover 1 << IDR1.SIDSIZE entries
+- * 2lvl: 128k L1 entries,
+- *       256 lazy entries per table (each table covers a PCI bus)
+- */
+-#define STRTAB_SPLIT			8
+-
+-#define STRTAB_L1_DESC_SPAN		GENMASK_ULL(4, 0)
+-#define STRTAB_L1_DESC_L2PTR_MASK	GENMASK_ULL(51, 6)
+-
+-#define STRTAB_STE_DWORDS		8
+-
+-struct arm_smmu_ste {
+-	__le64 data[STRTAB_STE_DWORDS];
+-};
+-
+-#define STRTAB_NUM_L2_STES		(1 << STRTAB_SPLIT)
+-struct arm_smmu_strtab_l2 {
+-	struct arm_smmu_ste stes[STRTAB_NUM_L2_STES];
+-};
+-
+-struct arm_smmu_strtab_l1 {
+-	__le64 l2ptr;
+-};
+-#define STRTAB_MAX_L1_ENTRIES		(1 << 17)
+-
+-static inline u32 arm_smmu_strtab_l1_idx(u32 sid)
 -{
--	unsigned long granule, page_sizes;
--	unsigned int max_addr_bits = 48;
--
--	/*
--	 * We need to restrict the supported page sizes to match the
--	 * translation regime for a particular granule. Aim to match
--	 * the CPU page size if possible, otherwise prefer smaller sizes.
--	 * While we're at it, restrict the block sizes to match the
--	 * chosen granule.
--	 */
--	if (cfg->pgsize_bitmap & PAGE_SIZE)
--		granule = PAGE_SIZE;
--	else if (cfg->pgsize_bitmap & ~PAGE_MASK)
--		granule = 1UL << __fls(cfg->pgsize_bitmap & ~PAGE_MASK);
--	else if (cfg->pgsize_bitmap & PAGE_MASK)
--		granule = 1UL << __ffs(cfg->pgsize_bitmap & PAGE_MASK);
--	else
--		granule = 0;
--
--	switch (granule) {
--	case SZ_4K:
--		page_sizes = (SZ_4K | SZ_2M | SZ_1G);
--		break;
--	case SZ_16K:
--		page_sizes = (SZ_16K | SZ_32M);
--		break;
--	case SZ_64K:
--		max_addr_bits = 52;
--		page_sizes = (SZ_64K | SZ_512M);
--		if (cfg->oas > 48)
--			page_sizes |= 1ULL << 42; /* 4TB */
--		break;
--	default:
--		page_sizes = 0;
--	}
--
--	cfg->pgsize_bitmap &= page_sizes;
--	cfg->ias = min(cfg->ias, max_addr_bits);
--	cfg->oas = min(cfg->oas, max_addr_bits);
+-	return sid / STRTAB_NUM_L2_STES;
 -}
 -
--static struct arm_lpae_io_pgtable *
--arm_lpae_alloc_pgtable(struct io_pgtable_cfg *cfg)
+-static inline u32 arm_smmu_strtab_l2_idx(u32 sid)
 -{
--	struct arm_lpae_io_pgtable *data;
--	int levels, va_bits, pg_shift;
+-	return sid % STRTAB_NUM_L2_STES;
+-}
 -
--	arm_lpae_restrict_pgsizes(cfg);
+-#define STRTAB_STE_0_V			(1UL << 0)
+-#define STRTAB_STE_0_CFG		GENMASK_ULL(3, 1)
+-#define STRTAB_STE_0_CFG_ABORT		0
+-#define STRTAB_STE_0_CFG_BYPASS		4
+-#define STRTAB_STE_0_CFG_S1_TRANS	5
+-#define STRTAB_STE_0_CFG_S2_TRANS	6
 -
--	if (!(cfg->pgsize_bitmap & (SZ_4K | SZ_16K | SZ_64K)))
--		return NULL;
+-#define STRTAB_STE_0_S1FMT		GENMASK_ULL(5, 4)
+-#define STRTAB_STE_0_S1FMT_LINEAR	0
+-#define STRTAB_STE_0_S1FMT_64K_L2	2
+-#define STRTAB_STE_0_S1CTXPTR_MASK	GENMASK_ULL(51, 6)
+-#define STRTAB_STE_0_S1CDMAX		GENMASK_ULL(63, 59)
 -
--	if (cfg->ias > ARM_LPAE_MAX_ADDR_BITS)
--		return NULL;
+-#define STRTAB_STE_1_S1DSS		GENMASK_ULL(1, 0)
+-#define STRTAB_STE_1_S1DSS_TERMINATE	0x0
+-#define STRTAB_STE_1_S1DSS_BYPASS	0x1
+-#define STRTAB_STE_1_S1DSS_SSID0	0x2
 -
--	if (cfg->oas > ARM_LPAE_MAX_ADDR_BITS)
--		return NULL;
+-#define STRTAB_STE_1_S1C_CACHE_NC	0UL
+-#define STRTAB_STE_1_S1C_CACHE_WBRA	1UL
+-#define STRTAB_STE_1_S1C_CACHE_WT	2UL
+-#define STRTAB_STE_1_S1C_CACHE_WB	3UL
+-#define STRTAB_STE_1_S1CIR		GENMASK_ULL(3, 2)
+-#define STRTAB_STE_1_S1COR		GENMASK_ULL(5, 4)
+-#define STRTAB_STE_1_S1CSH		GENMASK_ULL(7, 6)
 -
--	data = kmalloc(sizeof(*data), GFP_KERNEL);
--	if (!data)
--		return NULL;
+-#define STRTAB_STE_1_S1STALLD		(1UL << 27)
 -
--	pg_shift = __ffs(cfg->pgsize_bitmap);
--	data->bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
+-#define STRTAB_STE_1_EATS		GENMASK_ULL(29, 28)
+-#define STRTAB_STE_1_EATS_ABT		0UL
+-#define STRTAB_STE_1_EATS_TRANS		1UL
+-#define STRTAB_STE_1_EATS_S1CHK		2UL
 -
--	va_bits = cfg->ias - pg_shift;
--	levels = DIV_ROUND_UP(va_bits, data->bits_per_level);
--	data->start_level = ARM_LPAE_MAX_LEVELS - levels;
+-#define STRTAB_STE_1_STRW		GENMASK_ULL(31, 30)
+-#define STRTAB_STE_1_STRW_NSEL1		0UL
+-#define STRTAB_STE_1_STRW_EL2		2UL
 -
--	/* Calculate the actual size of our pgd (without concatenation) */
--	data->pgd_bits = va_bits - (data->bits_per_level * (levels - 1));
+-#define STRTAB_STE_1_SHCFG		GENMASK_ULL(45, 44)
+-#define STRTAB_STE_1_SHCFG_INCOMING	1UL
 -
--	data->iop.ops = (struct io_pgtable_ops) {
--		.map_pages	= arm_lpae_map_pages,
--		.unmap_pages	= arm_lpae_unmap_pages,
--		.iova_to_phys	= arm_lpae_iova_to_phys,
--		.read_and_clear_dirty = arm_lpae_read_and_clear_dirty,
--		.pgtable_walk	= arm_lpae_pgtable_walk,
+-#define STRTAB_STE_2_S2VMID		GENMASK_ULL(15, 0)
+-#define STRTAB_STE_2_VTCR		GENMASK_ULL(50, 32)
+-#define STRTAB_STE_2_VTCR_S2T0SZ	GENMASK_ULL(5, 0)
+-#define STRTAB_STE_2_VTCR_S2SL0		GENMASK_ULL(7, 6)
+-#define STRTAB_STE_2_VTCR_S2IR0		GENMASK_ULL(9, 8)
+-#define STRTAB_STE_2_VTCR_S2OR0		GENMASK_ULL(11, 10)
+-#define STRTAB_STE_2_VTCR_S2SH0		GENMASK_ULL(13, 12)
+-#define STRTAB_STE_2_VTCR_S2TG		GENMASK_ULL(15, 14)
+-#define STRTAB_STE_2_VTCR_S2PS		GENMASK_ULL(18, 16)
+-#define STRTAB_STE_2_S2AA64		(1UL << 51)
+-#define STRTAB_STE_2_S2ENDI		(1UL << 52)
+-#define STRTAB_STE_2_S2PTW		(1UL << 54)
+-#define STRTAB_STE_2_S2S		(1UL << 57)
+-#define STRTAB_STE_2_S2R		(1UL << 58)
+-
+-#define STRTAB_STE_3_S2TTB_MASK		GENMASK_ULL(51, 4)
+-
+-/*
+- * Context descriptors.
+- *
+- * Linear: when less than 1024 SSIDs are supported
+- * 2lvl: at most 1024 L1 entries,
+- *       1024 lazy entries per table.
+- */
+-#define CTXDESC_L2_ENTRIES		1024
+-
+-#define CTXDESC_L1_DESC_V		(1UL << 0)
+-#define CTXDESC_L1_DESC_L2PTR_MASK	GENMASK_ULL(51, 12)
+-
+-#define CTXDESC_CD_DWORDS		8
+-
+-struct arm_smmu_cd {
+-	__le64 data[CTXDESC_CD_DWORDS];
+-};
+-
+-struct arm_smmu_cdtab_l2 {
+-	struct arm_smmu_cd cds[CTXDESC_L2_ENTRIES];
+-};
+-
+-struct arm_smmu_cdtab_l1 {
+-	__le64 l2ptr;
+-};
+-
+-static inline unsigned int arm_smmu_cdtab_l1_idx(unsigned int ssid)
+-{
+-	return ssid / CTXDESC_L2_ENTRIES;
+-}
+-
+-static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+-{
+-	return ssid % CTXDESC_L2_ENTRIES;
+-}
+-
+-#define CTXDESC_CD_0_TCR_T0SZ		GENMASK_ULL(5, 0)
+-#define CTXDESC_CD_0_TCR_TG0		GENMASK_ULL(7, 6)
+-#define CTXDESC_CD_0_TCR_IRGN0		GENMASK_ULL(9, 8)
+-#define CTXDESC_CD_0_TCR_ORGN0		GENMASK_ULL(11, 10)
+-#define CTXDESC_CD_0_TCR_SH0		GENMASK_ULL(13, 12)
+-#define CTXDESC_CD_0_TCR_EPD0		(1ULL << 14)
+-#define CTXDESC_CD_0_TCR_EPD1		(1ULL << 30)
+-
+-#define CTXDESC_CD_0_ENDI		(1UL << 15)
+-#define CTXDESC_CD_0_V			(1UL << 31)
+-
+-#define CTXDESC_CD_0_TCR_IPS		GENMASK_ULL(34, 32)
+-#define CTXDESC_CD_0_TCR_TBI0		(1ULL << 38)
+-
+-#define CTXDESC_CD_0_TCR_HA            (1UL << 43)
+-#define CTXDESC_CD_0_TCR_HD            (1UL << 42)
+-
+-#define CTXDESC_CD_0_AA64		(1UL << 41)
+-#define CTXDESC_CD_0_S			(1UL << 44)
+-#define CTXDESC_CD_0_R			(1UL << 45)
+-#define CTXDESC_CD_0_A			(1UL << 46)
+-#define CTXDESC_CD_0_ASET		(1UL << 47)
+-#define CTXDESC_CD_0_ASID		GENMASK_ULL(63, 48)
+-
+-#define CTXDESC_CD_1_TTB0_MASK		GENMASK_ULL(51, 4)
+-
+-/*
+- * When the SMMU only supports linear context descriptor tables, pick a
+- * reasonable size limit (64kB).
+- */
+-#define CTXDESC_LINEAR_CDMAX		ilog2(SZ_64K / sizeof(struct arm_smmu_cd))
+-
+-/* Command queue */
+-#define CMDQ_ENT_SZ_SHIFT		4
+-#define CMDQ_ENT_DWORDS			((1 << CMDQ_ENT_SZ_SHIFT) >> 3)
+-#define CMDQ_MAX_SZ_SHIFT		(Q_MAX_SZ_SHIFT - CMDQ_ENT_SZ_SHIFT)
+-
+-#define CMDQ_CONS_ERR			GENMASK(30, 24)
+-#define CMDQ_ERR_CERROR_NONE_IDX	0
+-#define CMDQ_ERR_CERROR_ILL_IDX		1
+-#define CMDQ_ERR_CERROR_ABT_IDX		2
+-#define CMDQ_ERR_CERROR_ATC_INV_IDX	3
+-
+ #define CMDQ_PROD_OWNED_FLAG		Q_OVERFLOW_FLAG
+ 
+ /*
+@@ -380,99 +41,6 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+  */
+ #define CMDQ_BATCH_ENTRIES		BITS_PER_LONG
+ 
+-#define CMDQ_0_OP			GENMASK_ULL(7, 0)
+-#define CMDQ_0_SSV			(1UL << 11)
+-
+-#define CMDQ_PREFETCH_0_SID		GENMASK_ULL(63, 32)
+-#define CMDQ_PREFETCH_1_SIZE		GENMASK_ULL(4, 0)
+-#define CMDQ_PREFETCH_1_ADDR_MASK	GENMASK_ULL(63, 12)
+-
+-#define CMDQ_CFGI_0_SSID		GENMASK_ULL(31, 12)
+-#define CMDQ_CFGI_0_SID			GENMASK_ULL(63, 32)
+-#define CMDQ_CFGI_1_LEAF		(1UL << 0)
+-#define CMDQ_CFGI_1_RANGE		GENMASK_ULL(4, 0)
+-
+-#define CMDQ_TLBI_0_NUM			GENMASK_ULL(16, 12)
+-#define CMDQ_TLBI_RANGE_NUM_MAX		31
+-#define CMDQ_TLBI_0_SCALE		GENMASK_ULL(24, 20)
+-#define CMDQ_TLBI_0_VMID		GENMASK_ULL(47, 32)
+-#define CMDQ_TLBI_0_ASID		GENMASK_ULL(63, 48)
+-#define CMDQ_TLBI_1_LEAF		(1UL << 0)
+-#define CMDQ_TLBI_1_TTL			GENMASK_ULL(9, 8)
+-#define CMDQ_TLBI_1_TG			GENMASK_ULL(11, 10)
+-#define CMDQ_TLBI_1_VA_MASK		GENMASK_ULL(63, 12)
+-#define CMDQ_TLBI_1_IPA_MASK		GENMASK_ULL(51, 12)
+-
+-#define CMDQ_ATC_0_SSID			GENMASK_ULL(31, 12)
+-#define CMDQ_ATC_0_SID			GENMASK_ULL(63, 32)
+-#define CMDQ_ATC_0_GLOBAL		(1UL << 9)
+-#define CMDQ_ATC_1_SIZE			GENMASK_ULL(5, 0)
+-#define CMDQ_ATC_1_ADDR_MASK		GENMASK_ULL(63, 12)
+-
+-#define CMDQ_PRI_0_SSID			GENMASK_ULL(31, 12)
+-#define CMDQ_PRI_0_SID			GENMASK_ULL(63, 32)
+-#define CMDQ_PRI_1_GRPID		GENMASK_ULL(8, 0)
+-#define CMDQ_PRI_1_RESP			GENMASK_ULL(13, 12)
+-
+-#define CMDQ_RESUME_0_RESP_TERM		0UL
+-#define CMDQ_RESUME_0_RESP_RETRY	1UL
+-#define CMDQ_RESUME_0_RESP_ABORT	2UL
+-#define CMDQ_RESUME_0_RESP		GENMASK_ULL(13, 12)
+-#define CMDQ_RESUME_0_SID		GENMASK_ULL(63, 32)
+-#define CMDQ_RESUME_1_STAG		GENMASK_ULL(15, 0)
+-
+-#define CMDQ_SYNC_0_CS			GENMASK_ULL(13, 12)
+-#define CMDQ_SYNC_0_CS_NONE		0
+-#define CMDQ_SYNC_0_CS_IRQ		1
+-#define CMDQ_SYNC_0_CS_SEV		2
+-#define CMDQ_SYNC_0_MSH			GENMASK_ULL(23, 22)
+-#define CMDQ_SYNC_0_MSIATTR		GENMASK_ULL(27, 24)
+-#define CMDQ_SYNC_0_MSIDATA		GENMASK_ULL(63, 32)
+-#define CMDQ_SYNC_1_MSIADDR_MASK	GENMASK_ULL(51, 2)
+-
+-/* Event queue */
+-#define EVTQ_ENT_SZ_SHIFT		5
+-#define EVTQ_ENT_DWORDS			((1 << EVTQ_ENT_SZ_SHIFT) >> 3)
+-#define EVTQ_MAX_SZ_SHIFT		(Q_MAX_SZ_SHIFT - EVTQ_ENT_SZ_SHIFT)
+-
+-#define EVTQ_0_ID			GENMASK_ULL(7, 0)
+-
+-#define EVT_ID_TRANSLATION_FAULT	0x10
+-#define EVT_ID_ADDR_SIZE_FAULT		0x11
+-#define EVT_ID_ACCESS_FAULT		0x12
+-#define EVT_ID_PERMISSION_FAULT		0x13
+-
+-#define EVTQ_0_SSV			(1UL << 11)
+-#define EVTQ_0_SSID			GENMASK_ULL(31, 12)
+-#define EVTQ_0_SID			GENMASK_ULL(63, 32)
+-#define EVTQ_1_STAG			GENMASK_ULL(15, 0)
+-#define EVTQ_1_STALL			(1UL << 31)
+-#define EVTQ_1_PnU			(1UL << 33)
+-#define EVTQ_1_InD			(1UL << 34)
+-#define EVTQ_1_RnW			(1UL << 35)
+-#define EVTQ_1_S2			(1UL << 39)
+-#define EVTQ_1_CLASS			GENMASK_ULL(41, 40)
+-#define EVTQ_1_TT_READ			(1UL << 44)
+-#define EVTQ_2_ADDR			GENMASK_ULL(63, 0)
+-#define EVTQ_3_IPA			GENMASK_ULL(51, 12)
+-
+-/* PRI queue */
+-#define PRIQ_ENT_SZ_SHIFT		4
+-#define PRIQ_ENT_DWORDS			((1 << PRIQ_ENT_SZ_SHIFT) >> 3)
+-#define PRIQ_MAX_SZ_SHIFT		(Q_MAX_SZ_SHIFT - PRIQ_ENT_SZ_SHIFT)
+-
+-#define PRIQ_0_SID			GENMASK_ULL(31, 0)
+-#define PRIQ_0_SSID			GENMASK_ULL(51, 32)
+-#define PRIQ_0_PERM_PRIV		(1UL << 58)
+-#define PRIQ_0_PERM_EXEC		(1UL << 59)
+-#define PRIQ_0_PERM_READ		(1UL << 60)
+-#define PRIQ_0_PERM_WRITE		(1UL << 61)
+-#define PRIQ_0_PRG_LAST			(1UL << 62)
+-#define PRIQ_0_SSID_V			(1UL << 63)
+-
+-#define PRIQ_1_PRG_IDX			GENMASK_ULL(8, 0)
+-#define PRIQ_1_ADDR_MASK		GENMASK_ULL(63, 12)
+-
+ /* High-level queue structures */
+ #define ARM_SMMU_POLL_TIMEOUT_US	1000000 /* 1s! */
+ #define ARM_SMMU_POLL_SPIN_COUNT	10
+@@ -480,88 +48,6 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+ #define MSI_IOVA_BASE			0x8000000
+ #define MSI_IOVA_LENGTH			0x100000
+ 
+-enum pri_resp {
+-	PRI_RESP_DENY = 0,
+-	PRI_RESP_FAIL = 1,
+-	PRI_RESP_SUCC = 2,
+-};
+-
+-struct arm_smmu_cmdq_ent {
+-	/* Common fields */
+-	u8				opcode;
+-	bool				substream_valid;
+-
+-	/* Command-specific fields */
+-	union {
+-		#define CMDQ_OP_PREFETCH_CFG	0x1
+-		struct {
+-			u32			sid;
+-		} prefetch;
+-
+-		#define CMDQ_OP_CFGI_STE	0x3
+-		#define CMDQ_OP_CFGI_ALL	0x4
+-		#define CMDQ_OP_CFGI_CD		0x5
+-		#define CMDQ_OP_CFGI_CD_ALL	0x6
+-		struct {
+-			u32			sid;
+-			u32			ssid;
+-			union {
+-				bool		leaf;
+-				u8		span;
+-			};
+-		} cfgi;
+-
+-		#define CMDQ_OP_TLBI_NH_ASID	0x11
+-		#define CMDQ_OP_TLBI_NH_VA	0x12
+-		#define CMDQ_OP_TLBI_EL2_ALL	0x20
+-		#define CMDQ_OP_TLBI_EL2_ASID	0x21
+-		#define CMDQ_OP_TLBI_EL2_VA	0x22
+-		#define CMDQ_OP_TLBI_S12_VMALL	0x28
+-		#define CMDQ_OP_TLBI_S2_IPA	0x2a
+-		#define CMDQ_OP_TLBI_NSNH_ALL	0x30
+-		struct {
+-			u8			num;
+-			u8			scale;
+-			u16			asid;
+-			u16			vmid;
+-			bool			leaf;
+-			u8			ttl;
+-			u8			tg;
+-			u64			addr;
+-		} tlbi;
+-
+-		#define CMDQ_OP_ATC_INV		0x40
+-		#define ATC_INV_SIZE_ALL	52
+-		struct {
+-			u32			sid;
+-			u32			ssid;
+-			u64			addr;
+-			u8			size;
+-			bool			global;
+-		} atc;
+-
+-		#define CMDQ_OP_PRI_RESP	0x41
+-		struct {
+-			u32			sid;
+-			u32			ssid;
+-			u16			grpid;
+-			enum pri_resp		resp;
+-		} pri;
+-
+-		#define CMDQ_OP_RESUME		0x44
+-		struct {
+-			u32			sid;
+-			u16			stag;
+-			u8			resp;
+-		} resume;
+-
+-		#define CMDQ_OP_CMD_SYNC	0x46
+-		struct {
+-			u64			msiaddr;
+-		} sync;
 -	};
+-};
 -
--	return data;
--}
--
- static struct io_pgtable *
- arm_64_lpae_alloc_pgtable_s1(struct io_pgtable_cfg *cfg, void *cookie)
- {
--	u64 reg;
- 	struct arm_lpae_io_pgtable *data;
--	typeof(&cfg->arm_lpae_s1_cfg.tcr) tcr = &cfg->arm_lpae_s1_cfg.tcr;
--	bool tg1;
--
--	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_NS |
--			    IO_PGTABLE_QUIRK_ARM_TTBR1 |
--			    IO_PGTABLE_QUIRK_ARM_OUTER_WBWA |
--			    IO_PGTABLE_QUIRK_ARM_HD))
--		return NULL;
+ struct arm_smmu_ll_queue {
+ 	union {
+ 		u64			val;
+@@ -703,29 +189,7 @@ struct arm_smmu_device {
+ 	void __iomem			*base;
+ 	void __iomem			*page1;
  
--	data = arm_lpae_alloc_pgtable(cfg);
-+	data = kzalloc(sizeof(*data), GFP_KERNEL);
- 	if (!data)
- 		return NULL;
+-#define ARM_SMMU_FEAT_2_LVL_STRTAB	(1 << 0)
+-#define ARM_SMMU_FEAT_2_LVL_CDTAB	(1 << 1)
+-#define ARM_SMMU_FEAT_TT_LE		(1 << 2)
+-#define ARM_SMMU_FEAT_TT_BE		(1 << 3)
+-#define ARM_SMMU_FEAT_PRI		(1 << 4)
+-#define ARM_SMMU_FEAT_ATS		(1 << 5)
+-#define ARM_SMMU_FEAT_SEV		(1 << 6)
+-#define ARM_SMMU_FEAT_MSI		(1 << 7)
+-#define ARM_SMMU_FEAT_COHERENCY		(1 << 8)
+-#define ARM_SMMU_FEAT_TRANS_S1		(1 << 9)
+-#define ARM_SMMU_FEAT_TRANS_S2		(1 << 10)
+-#define ARM_SMMU_FEAT_STALLS		(1 << 11)
+-#define ARM_SMMU_FEAT_HYP		(1 << 12)
+-#define ARM_SMMU_FEAT_STALL_FORCE	(1 << 13)
+-#define ARM_SMMU_FEAT_VAX		(1 << 14)
+-#define ARM_SMMU_FEAT_RANGE_INV		(1 << 15)
+-#define ARM_SMMU_FEAT_BTM		(1 << 16)
+-#define ARM_SMMU_FEAT_SVA		(1 << 17)
+-#define ARM_SMMU_FEAT_E2H		(1 << 18)
+-#define ARM_SMMU_FEAT_NESTING		(1 << 19)
+-#define ARM_SMMU_FEAT_ATTR_TYPES_OVR	(1 << 20)
+-#define ARM_SMMU_FEAT_HA		(1 << 21)
+-#define ARM_SMMU_FEAT_HD		(1 << 22)
++	/* See arm-smmu-v3-common.h*/
+ 	u32				features;
  
--	/* TCR */
--	if (cfg->coherent_walk) {
--		tcr->sh = ARM_LPAE_TCR_SH_IS;
--		tcr->irgn = ARM_LPAE_TCR_RGN_WBWA;
--		tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
--		if (cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA)
--			goto out_free_data;
--	} else {
--		tcr->sh = ARM_LPAE_TCR_SH_OS;
--		tcr->irgn = ARM_LPAE_TCR_RGN_NC;
--		if (!(cfg->quirks & IO_PGTABLE_QUIRK_ARM_OUTER_WBWA))
--			tcr->orgn = ARM_LPAE_TCR_RGN_NC;
--		else
--			tcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
--	}
--
--	tg1 = cfg->quirks & IO_PGTABLE_QUIRK_ARM_TTBR1;
--	switch (ARM_LPAE_GRANULE(data)) {
--	case SZ_4K:
--		tcr->tg = tg1 ? ARM_LPAE_TCR_TG1_4K : ARM_LPAE_TCR_TG0_4K;
--		break;
--	case SZ_16K:
--		tcr->tg = tg1 ? ARM_LPAE_TCR_TG1_16K : ARM_LPAE_TCR_TG0_16K;
--		break;
--	case SZ_64K:
--		tcr->tg = tg1 ? ARM_LPAE_TCR_TG1_64K : ARM_LPAE_TCR_TG0_64K;
--		break;
--	}
--
--	switch (cfg->oas) {
--	case 32:
--		tcr->ips = ARM_LPAE_TCR_PS_32_BIT;
--		break;
--	case 36:
--		tcr->ips = ARM_LPAE_TCR_PS_36_BIT;
--		break;
--	case 40:
--		tcr->ips = ARM_LPAE_TCR_PS_40_BIT;
--		break;
--	case 42:
--		tcr->ips = ARM_LPAE_TCR_PS_42_BIT;
--		break;
--	case 44:
--		tcr->ips = ARM_LPAE_TCR_PS_44_BIT;
--		break;
--	case 48:
--		tcr->ips = ARM_LPAE_TCR_PS_48_BIT;
--		break;
--	case 52:
--		tcr->ips = ARM_LPAE_TCR_PS_52_BIT;
--		break;
--	default:
-+	if (arm_lpae_init_pgtable_s1(cfg, data))
- 		goto out_free_data;
--	}
--
--	tcr->tsz = 64ULL - cfg->ias;
--
--	/* MAIRs */
--	reg = (ARM_LPAE_MAIR_ATTR_NC
--	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_NC)) |
--	      (ARM_LPAE_MAIR_ATTR_WBRWA
--	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_CACHE)) |
--	      (ARM_LPAE_MAIR_ATTR_DEVICE
--	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_DEV)) |
--	      (ARM_LPAE_MAIR_ATTR_INC_OWBRWA
--	       << ARM_LPAE_MAIR_ATTR_SHIFT(ARM_LPAE_MAIR_ATTR_IDX_INC_OCACHE));
--
--	cfg->arm_lpae_s1_cfg.mair = reg;
- 
- 	/* Looking good; allocate a pgd */
- 	data->pgd = __arm_lpae_alloc_pages(ARM_LPAE_PGD_SIZE(data),
-@@ -314,86 +151,14 @@ arm_64_lpae_alloc_pgtable_s1(struct io_pgtable_cfg *cfg, void *cookie)
- static struct io_pgtable *
- arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *cfg, void *cookie)
- {
--	u64 sl;
- 	struct arm_lpae_io_pgtable *data;
--	typeof(&cfg->arm_lpae_s2_cfg.vtcr) vtcr = &cfg->arm_lpae_s2_cfg.vtcr;
--
--	/* The NS quirk doesn't apply at stage 2 */
--	if (cfg->quirks)
--		return NULL;
- 
--	data = arm_lpae_alloc_pgtable(cfg);
-+	data = kzalloc(sizeof(*data), GFP_KERNEL);
- 	if (!data)
- 		return NULL;
- 
--	/*
--	 * Concatenate PGDs at level 1 if possible in order to reduce
--	 * the depth of the stage-2 walk.
--	 */
--	if (data->start_level == 0) {
--		unsigned long pgd_pages;
--
--		pgd_pages = ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte);
--		if (pgd_pages <= ARM_LPAE_S2_MAX_CONCAT_PAGES) {
--			data->pgd_bits += data->bits_per_level;
--			data->start_level++;
--		}
--	}
--
--	/* VTCR */
--	if (cfg->coherent_walk) {
--		vtcr->sh = ARM_LPAE_TCR_SH_IS;
--		vtcr->irgn = ARM_LPAE_TCR_RGN_WBWA;
--		vtcr->orgn = ARM_LPAE_TCR_RGN_WBWA;
--	} else {
--		vtcr->sh = ARM_LPAE_TCR_SH_OS;
--		vtcr->irgn = ARM_LPAE_TCR_RGN_NC;
--		vtcr->orgn = ARM_LPAE_TCR_RGN_NC;
--	}
--
--	sl = data->start_level;
--
--	switch (ARM_LPAE_GRANULE(data)) {
--	case SZ_4K:
--		vtcr->tg = ARM_LPAE_TCR_TG0_4K;
--		sl++; /* SL0 format is different for 4K granule size */
--		break;
--	case SZ_16K:
--		vtcr->tg = ARM_LPAE_TCR_TG0_16K;
--		break;
--	case SZ_64K:
--		vtcr->tg = ARM_LPAE_TCR_TG0_64K;
--		break;
--	}
--
--	switch (cfg->oas) {
--	case 32:
--		vtcr->ps = ARM_LPAE_TCR_PS_32_BIT;
--		break;
--	case 36:
--		vtcr->ps = ARM_LPAE_TCR_PS_36_BIT;
--		break;
--	case 40:
--		vtcr->ps = ARM_LPAE_TCR_PS_40_BIT;
--		break;
--	case 42:
--		vtcr->ps = ARM_LPAE_TCR_PS_42_BIT;
--		break;
--	case 44:
--		vtcr->ps = ARM_LPAE_TCR_PS_44_BIT;
--		break;
--	case 48:
--		vtcr->ps = ARM_LPAE_TCR_PS_48_BIT;
--		break;
--	case 52:
--		vtcr->ps = ARM_LPAE_TCR_PS_52_BIT;
--		break;
--	default:
-+	if (arm_lpae_init_pgtable_s2(cfg, data))
- 		goto out_free_data;
--	}
--
--	vtcr->tsz = 64ULL - cfg->ias;
--	vtcr->sl = ~sl & ARM_LPAE_VTCR_SL0_MASK;
- 
- 	/* Allocate pgd pages */
- 	data->pgd = __arm_lpae_alloc_pages(ARM_LPAE_PGD_SIZE(data),
-@@ -447,10 +212,13 @@ arm_mali_lpae_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
- 
- 	cfg->pgsize_bitmap &= (SZ_4K | SZ_2M | SZ_1G);
- 
--	data = arm_lpae_alloc_pgtable(cfg);
-+	data = kzalloc(sizeof(*data), GFP_KERNEL);
- 	if (!data)
- 		return NULL;
- 
-+	if (arm_lpae_init_pgtable(cfg, data))
-+		return NULL;
-+
- 	/* Mali seems to need a full 4-level table regardless of IAS */
- 	if (data->start_level > 0) {
- 		data->start_level = 0;
-diff --git a/include/linux/io-pgtable-arm.h b/include/linux/io-pgtable-arm.h
-index 1f56dabca18c..337e9254fdbd 100644
---- a/include/linux/io-pgtable-arm.h
-+++ b/include/linux/io-pgtable-arm.h
-@@ -195,23 +195,15 @@ static inline bool iopte_table(arm_lpae_iopte pte, int lvl)
- #define __arm_lpae_phys_to_virt	__va
- 
- /* Generic functions */
--int arm_lpae_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
--		       phys_addr_t paddr, size_t pgsize, size_t pgcount,
--		       int iommu_prot, gfp_t gfp, size_t *mapped);
--size_t arm_lpae_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
--			    size_t pgsize, size_t pgcount,
--			    struct iommu_iotlb_gather *gather);
--phys_addr_t arm_lpae_iova_to_phys(struct io_pgtable_ops *ops,
--				  unsigned long iova);
- void __arm_lpae_free_pgtable(struct arm_lpae_io_pgtable *data, int lvl,
- 			     arm_lpae_iopte *ptep);
- 
--int arm_lpae_read_and_clear_dirty(struct io_pgtable_ops *ops,
--				  unsigned long iova, size_t size,
--				  unsigned long flags,
--				  struct iommu_dirty_bitmap *dirty);
--
--int arm_lpae_pgtable_walk(struct io_pgtable_ops *ops, unsigned long iova, void *wd);
-+int arm_lpae_init_pgtable(struct io_pgtable_cfg *cfg,
-+			  struct arm_lpae_io_pgtable *data);
-+int arm_lpae_init_pgtable_s1(struct io_pgtable_cfg *cfg,
-+			     struct arm_lpae_io_pgtable *data);
-+int arm_lpae_init_pgtable_s2(struct io_pgtable_cfg *cfg,
-+			     struct arm_lpae_io_pgtable *data);
- 
- /* Host/hyp-specific functions */
- void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp, struct io_pgtable_cfg *cfg, void *cookie);
+ #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
 -- 
 2.47.0.338.g60cca15819-goog
 
