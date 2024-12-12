@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE0AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDE3E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UO4ZpAmYWp4/F5rKGhPyqiik5BW8t5BEyIWB0ThHTVs=; b=EhylQrCMhgyaOT
-	xw0b8ax2dU10bzeRzlPGtn43lDAz3nFFbFGNGMcCZThq6D1uTyqJ4/zTvzmmgdvkgTfciihXo8aGX
-	35r6rVZ3Qemj6JxsB6ATpZMjN/7OzsdHYxUq6jGs6I9SShvX0LFKfYe/X2pAgPQdRHsCC4TsYxC4y
-	mDRC8lmikm1wcu9uMPuBHNd2Sc9uiD4e3VLNyLOKM294zq/PzQWHw2U5FYMxQSz1xIkpBuhgaHMyL
-	/7x9XIzmJ7udIuhc/nzDu31wsScWkyh6ZTv4XZ5zh1538QPgY7vhKToXSTEfI2AK2sLqmrsP7Lo4d
-	vuU2GAf+tNkjFdDq1xWw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nN9qy6kzaYRcTvspSPXcPestPQ9vGh5brGqrf6epwWw=; b=WOjj9WtjvcDMUXF1iEz+Qqznw8
+	u7DzAsMKwIX5Ld3pe1IQPb8ieLdqfNcI2/msHVBW6LlmIFqvBPHmDgxEV9FxxhRtNkBWWikVVIbSY
+	FId+hE6tp6YnMyjipVJsU246FXZ5dbfdCmGUy4E+c05R2Zz1P079xQeD94sObxepI08fIBtI/zkF7
+	lOMvUDUhjQ7Bt5IiLKxbfYMGHo9p5T9jw8GcjQUNcKRYO30rpMp6GHZRWDaBDAM5AjSW+jB+Cip/c
+	/cqGMJDGM76BJczgtiXC/zodwX3DQyFGL6o1VEBX1OTsB9bm8TSmZdkJXM56rWs8eKXOJoDkzGviC
+	2W/4n8Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLqS1-00000001uh5-2eod;
-	Thu, 12 Dec 2024 21:10:25 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tLqT4-00000001ust-0y6D;
+	Thu, 12 Dec 2024 21:11:30 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLqQv-00000001uMC-3eFI
+	id 1tLqQx-00000001uNR-0gPd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 21:09:18 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5d3f249f3b2so1278846a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 13:09:16 -0800 (PST)
+	Thu, 12 Dec 2024 21:09:20 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5d34030ebb2so1855991a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 13:09:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734037755; x=1734642555; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UO4ZpAmYWp4/F5rKGhPyqiik5BW8t5BEyIWB0ThHTVs=;
-        b=d1zY7fUZ6vRh4qzHL2DL9NyyyCl4Z2TQMmtowT8YZQ3XYbkjHTZ6TSo0Zi8TEXIYN3
-         djGoAF2SIO/+8Mz7msBq1kGAsgG9rtltb84A8qSZ13LRQ+e09Fiio+vTnMFhiSV/XV5Q
-         O4wJv7VH1lDxSJle3kYACxT6oxCbH8ZMoAwfWbOfSpyLXJH3t01DIDzrRsTQy+H8P2a8
-         34w1AcAr7jMzeUiGeiIQzRU/yRXqzhbL2AIsVnpU1gt+NimsDgdhPtdTFYWlSRFWf/da
-         YDvMTZ9X35jqWF4aD/0XBO1nK6I3tEbOwY7p1qK5ltG+SvtxF4cBBnKktksJAunueuQO
-         VUQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734037755; x=1734642555;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1734037757; x=1734642557; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UO4ZpAmYWp4/F5rKGhPyqiik5BW8t5BEyIWB0ThHTVs=;
-        b=p9BCrtQIFQvwQOJaav8iQz4kGCtd2zyETbUPPnPffxtwsSjCn7kTyAbrfTxcuubm/H
-         /+rxjdPjADWzLwE/N+phHPuZAjrgslpUz8TBU3/3pclhQsZIhodmMQ9hyvKgX7tV+Xcl
-         uUbcA0cIO25JuxFPG4kD/BM1kWrAneSouXn77JDhIGOjZD7w7H9kZzB4lMkBXIliDZbR
-         P5v4kvurEPq82hXK4gsoivq/eMiWqsO8ALEB7M8RNFah1CONFfeJaFGMKSGhQNkGPwMR
-         W1/fHOvSHjWwlOB6K1vm8baLZE0PoXHa7PvBPU+CvshNP/9oLYGsADyQoGn3PSwkGh4D
-         UEMA==
-X-Forwarded-Encrypted: i=1; AJvYcCWavfamN0lMOdUd3PPXxJLccV05iB7/mhpTB8J+npV1tRy/MGG2+frppQqIQNM1c/JsLpgsQppMV9eCzSnXeYE3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo/3Amp4/7NNOYQses2Qnzk9pOnwgeSgn0xxC61pVPgH2XQ7wZ
-	D1al4CuyB+Y907sOLAklGe4tKrBnncqdWEPt6G3LmY0782Wpqjs/
-X-Gm-Gg: ASbGncupshC0hP7dRQw2kE1nLqr2/WTn/j12rJK9yeesjgoe+S8BAIZTLNI3T3X3Yki
-	iSJO6y5D76ncSANY0YbPYD9+E1vDXyv+66czpgRkzgcBQkIXEPh7h5/53xcrxfP/lFak0ginf//
-	PHo1bqUIaAElxf3HPBz0gxqx72sYblz5S0562dO05+JKkZdTWI/nImYQCFZPr56lGCFHy8VgT0O
-	vtYFUr+WB6WLKPq8JYbgKQZal82fMUvSWwFpyapDPg6J64qgnACs/XOFMj1VOqEXYrg
-X-Google-Smtp-Source: AGHT+IHnM8IzLGyED4qOi3bw6Se1FbUPjGyUA3xQHZbzHTeWslI/cln+zbu2cuEwfHecYK6pZPZXbg==
-X-Received: by 2002:a05:6402:254d:b0:5d2:7270:6128 with SMTP id 4fb4d7f45d1cf-5d633bb7db6mr3454905a12.25.1734037755187;
-        Thu, 12 Dec 2024 13:09:15 -0800 (PST)
+        bh=nN9qy6kzaYRcTvspSPXcPestPQ9vGh5brGqrf6epwWw=;
+        b=lsxmfHIiZNXz4v12sBbH7MLASZVC0YZ6cmRFLhdeR7d1i85Utj/28r/Mc718yNIZRK
+         NKpfSTI6gF1gDncuhvBMUCotkb1/Ob3Ty7kSY2ol0X7YRxbl+ZKTik9D3T/s3Un6Q2sT
+         li9JRfdhcZmG68Wl5900fvMz82KkZ9Q5hMYGHHB0rJiUaVStPeweVu//DNzdBfR9VaLh
+         2mpdFPSO/QGrbKwJha8qAHMibgdRuL1rWXoqRdOQCOrDH2prMV87XJAJwgEF5RGrbSnz
+         rlwkzA73KCaDXdTmP+X6WCN5EVEX7IRmIpjmaqgKppuiiGGQRbbdYU+EPUo5u+wSW/rY
+         4M1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734037757; x=1734642557;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nN9qy6kzaYRcTvspSPXcPestPQ9vGh5brGqrf6epwWw=;
+        b=NamJGnDyvNWNjka3hDgIbnhMCPTBabwQ9MAag+6h2h5I78s8VF1lZLK9mqQRKT9ZTe
+         wFW2fPGY68HRuy+5IIsT4Cu7VVWiNTgvxHfU3sIBXfSBCmJ/OfuPkiCyjqC8J4Ndu8Nr
+         8P2TJZ3arqgGW7toT7/AO7jxiFd5rJObwphLfAbonJurcf2RNuZfLqXbsMstDAJAg23T
+         9TvP3DGhAUCCpASlFQ0UU+yEN60DeSUkqPOFGBEMzK5D9MSTmFZq9sElcHHd2qX9+oQ2
+         lbObaIsZpkdEHPXtU/sYn+SfJx0mNSAG2y09Uyanq3c6fLtjNzheCQq2BsGbFjAX0PTf
+         wGSg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/stNPJhXl4Xpch24nTK9HlKlVwp7HhUzKn1A4P7pEWB8q0wGZBraHovYLr3fbOONKe8rfMjsyyxQzigw++2Wf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxH4fdmeRTAz1Vklc+MOZGge5LfIovQDFi1IHjPCm9uWxaI9fMm
+	hjSbygaavc/9gql7H8HPky/4oCq6DWc3/tr42AKFx7edLmSovZLo
+X-Gm-Gg: ASbGnculKVsBT7gWV/T7flncweaSnAHDr0wQPWeFpRMYCew66ad73viAaarRI9ctA0E
+	Ka9SxMxJmpGCnX4T0KiQDsozmlrJCizTzHS9e/XaoMTVIfm0ImBqhAqzl0oSxlrVBCXnK7yOGPQ
+	Nv8QYTakdqzB07KjOTasJ92p8S68cg+XuyXQQQseDYkMSPJh3MA9Vovz6teDT0/3P7luh/gvOrR
+	ze8rV9ygz8OECh3WzpKp741NWqz/fQ+N9q1kbTQWmBQarg/1JdB7JEcSGZFFOh2Ex9Y
+X-Google-Smtp-Source: AGHT+IERTCYWfJYYkVszTsbpSkVPOiDO17vUGSDsrzxOO1nszolFyLdHEMLSrp83Tj/zAKFwqxyp+A==
+X-Received: by 2002:a05:6402:35d2:b0:5d0:cfb9:4132 with SMTP id 4fb4d7f45d1cf-5d63239e3f0mr1935496a12.18.1734037757096;
+        Thu, 12 Dec 2024 13:09:17 -0800 (PST)
 Received: from [192.168.31.111] ([194.39.226.133])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3d0f93d54sm9232348a12.68.2024.12.12.13.09.13
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3d0f93d54sm9232348a12.68.2024.12.12.13.09.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 13:09:14 -0800 (PST)
+        Thu, 12 Dec 2024 13:09:16 -0800 (PST)
 From: Markuss Broks <markuss.broks@gmail.com>
-Subject: [PATCH 0/3] Add Samsung SPEEDY serial bus host controller driver
-Date: Thu, 12 Dec 2024 23:09:00 +0200
-Message-Id: <20241212-speedy-v1-0-544ad7bcfb6a@gmail.com>
+Date: Thu, 12 Dec 2024 23:09:01 +0200
+Subject: [PATCH 1/3] dt-bindings: soc: samsung: exynos-speedy: Document
+ SPEEDY host controller bindings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOxQW2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDI0MD3eKC1NSUSt1UE+M005Q0oyTDFDMloOKCotS0zAqwQdGxtbUAAyh
- 611gAAAA=
-X-Change-ID: 20241210-speedy-e43f5df2b1d6
+Message-Id: <20241212-speedy-v1-1-544ad7bcfb6a@gmail.com>
+References: <20241212-speedy-v1-0-544ad7bcfb6a@gmail.com>
+In-Reply-To: <20241212-speedy-v1-0-544ad7bcfb6a@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
  Krzysztof Kozlowski <krzk@kernel.org>
@@ -86,16 +86,16 @@ Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
  Markuss Broks <markuss.broks@gmail.com>, 
  Maksym Holovach <nergzd@nergzd723.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734037753; l=2587;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734037753; l=2792;
  i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
- bh=bXEP5QAwTbHywlDHiYHTSr5iNZb/Wdfp8n3pBOFQJCQ=;
- b=Qqa5y+6+LpADpVtQzixuS2lfh4uSGGJiNsRJi2hz8K6t7nqieTFL3Z4fHoGqM5N3KIF61V2wE
- QZS9ce/cCGVAKXAMn2bMaLIMX/vZONzA6xrdE4aCE2oFzVluzcSbPlF
+ bh=gUnnizAdulAwxg+3Tnxh6d0BvTK9I11iWmyGXZBMs44=;
+ b=ndri8pJVWgLELporVKp1ht8IO8Ncb/897FweJq2tFszKSNCils5GX+Sa2P2ZAR7l8TNZWBDXC
+ MdNOBLDJYT1Bjmd0ooTpO1UucpedTECQS4GsRAMFY4QCeCpmxY94DLm
 X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
  pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_130917_912730_7EE9B23A 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20241212_130919_243077_691A3B2A 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,69 +110,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
+Add the schema for the Samsung SPEEDY serial bus host controller.
+The bus has 4 bit wide addresses for addressing devices
+and 8 bit wide register addressing. Each register is also 8
+bit long, so the address can be 0-f (hexadecimal), node name
+for child device follows the format: node_name@[0-f].
 
-This series adds support for the Samsung SPEEDY serial bus host
-controller. Samsung SPEEDY (actually an acronym) is a proprietary
-Samsung 1 wire serial bus, which is used on various Samsung devices.
-
-This driver adds support for the version of controller without the
-IP_BATCHER block. It appears that block is a small MCU attached to
-the SPEEDY controller to offload the SPEEDY I/O tasks from the AP.
-IP_BATCHER is found on Exynos7885, but not found on Exynos9810 and
-Exynos8895. This version of driver should still work on Exynos7885
-though, but the IP_BATCHER is not supported at the moment.
-
-On Exynos9810, SPEEDY controllers are also mapped into MMIO space
-of other processors on the CPU. For example, APM also has a window
-to the SPEEDY IP, and it uses it for power-management related things.
-During testing however, it seems that if APM is not active the AP can
-access the SPEEDY controller freely and without interference from APM
-firmware.
-
-Things to improve:
-
-- SPEEDY host controller has an interrupt line to the AP, but current
-implementation uses polling instead,
-- add support for handling IP_BATCHER block,
-- add support for bulk transfers,
-- test on other SoCs (Exynos9820, 9830, 9840, ...).
-- runtime PM
-
-- Markuss
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
-Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-
+Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
+Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
 Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
 ---
-Markuss Broks (3):
-      dt-bindings: soc: samsung: exynos-speedy: Document SPEEDY host controller bindings
-      soc: samsung: Add a driver for Samsung SPEEDY host controller
-      MAINTAINERS: Add entry for the Samsung Exynos SPEEDY host controller
+ .../bindings/soc/samsung/exynos-speedy.yaml        | 78 ++++++++++++++++++++++
+ 1 file changed, 78 insertions(+)
 
- .../bindings/soc/samsung/exynos-speedy.yaml        |  78 ++++
- MAINTAINERS                                        |   7 +
- drivers/soc/samsung/Kconfig                        |  13 +
- drivers/soc/samsung/Makefile                       |   2 +
- drivers/soc/samsung/exynos-speedy.c                | 457 +++++++++++++++++++++
- include/linux/soc/samsung/exynos-speedy.h          |  56 +++
- 6 files changed, 613 insertions(+)
----
-base-commit: 1b2ab8149928c1cea2d7eca30cd35bb7fe014053
-change-id: 20241210-speedy-e43f5df2b1d6
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-speedy.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-speedy.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..304b322a74ea70f23d8c072b44b6ca86b7cc807f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-speedy.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/samsung/exynos-speedy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Samsung Exynos SPEEDY serial bus host controller
++
++maintainers:
++  - Markuss Broks <markuss.broks@gmail.com>
++
++description:
++  Samsung SPEEDY is a proprietary Samsung serial 1-wire bus.
++  It is used on various Samsung Exynos chips. The bus can
++  address at most 4 bit (16) devices. The devices on the bus
++  have 8 bit long register line, and the registers are also
++  8 bit long each. It is typically used for communicating with
++  Samsung PMICs (s2mps17, s2mps18, ...) and other Samsung chips,
++  such as RF parts.
++
++properties:
++  compatible:
++    - items:
++        - enum:
++            - samsung,exynos9810-speedy
++        - const: samsung,exynos-speedy
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    - const: pclk
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - "#address-cells"
++  - "#size-cells"
++
++patternProperties:
++  "^[a-z][a-z0-9]*@[0-9a-f]$":
++    type: object
++    additionalProperties: true
++
++    properties:
++      reg:
++        maxItems: 1
++
++    required:
++      - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    speedy0: speedy@141c0000 {
++      compatible = "samsung,exynos9810-speedy",
++                   "samsung-exynos-speedy";
++      reg = <0x141c0000 0x2000>;
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      pmic@0 {
++        compatible = "samsung,s2mps18-pmic";
++        reg = <0x0>;
++      };
++
++      regulator@1 {
++        compatible = "samsung,s2mps18-regulator";
++        reg = <0x1>;
++      };
++    };
 
-Best regards,
 -- 
-Markuss Broks <markuss.broks@gmail.com>
+2.47.0
 
 
