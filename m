@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C646DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 14:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1861CE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kEa0qtUcwcsEkuhfjcn1NYOL/MklCkbZT0/uU4SI/f0=; b=cB6iQouEuCxjx4Oyyx0HmJ7Xmb
-	cuXS8AmZIp9z3EEN0nsTg185azhpx4kY+8HMpUjVGlXcLONd2Eauh1HWqx1JRhFnmo6/DfdVdJqCc
-	Aa2ZYWsfsx3mXa1Zl/vIcwV/wfxtxseOCmncMhghNxUJaSI5doCsGL+POSdcTPMSHwnBMvvbcAY4U
-	ZkABgMKC3cwcABp6rqqzGIwltVCq3vZVS5bAuUDpWxdDxpW7kYlge4gTl9BKk+rg/MixhdjU9bC8Z
-	VaHJIes/WUevLF+T17ob6Av8zniH62zFG4dpGTTcACqTIgxwNkK9wfj7LCkLHbYpv/VnX+Tjsd/ir
-	QNGzIh2A==;
+	bh=tIOqFN0hmFmXsy7Bh0Aj0jO0O4vnq3Nao3Qv4xqMYsg=; b=Hk2gI3HjGakmNcgo0/WpJYppi/
+	g90JUu/V4RXHxRuC4/HWSp4k2v6AeCxW2eHvmVzZO83EFL5OHAwZNfT7j7O5o7TO9eADVbfmJ2icG
+	ToeGy6MLSiyUxZ7JRnuKXg4bz9Ie/DYxrNeAy5Lymmvz2jbhYh5HpEDY9wrDHAiyu6F6ARlH1WUbp
+	ZTxxo/tXnbAluRSl6jjh+j3ULPMNZWNrjwOFQoTlyooBTyrinrfg1zYaILkBXkuFjNQ3TOeZPHyeK
+	ityRxOgVQDYTG86u2oclhiI1xaOmTqv6VCEVo+Y02KAwFbtgPA1qJQCTXM9ieBpXl+PE0yTQHLa8S
+	nwKRzjVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLkag-00000000fyl-3n66;
-	Thu, 12 Dec 2024 14:54:58 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLkUY-00000000erL-1WqG
+	id 1tLklz-00000000hPn-1wKx;
+	Thu, 12 Dec 2024 15:06:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLkkv-00000000hIb-1E9U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 14:48:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kEa0qtUcwcsEkuhfjcn1NYOL/MklCkbZT0/uU4SI/f0=; b=RK8MOw17azpbJFsyr/NK7L1WZF
-	jTXYubQ28EmbC4uDAFzD8GXsrsi6oFwiJI9Ouog7alDFNnqOFZRPkmAntpiwcuNqdgrJUfFqYApP1
-	3aotCRg/3Hi8UpS+jzH/RyLzZiwRNn5w+82vPXYgQg/ewAkYJa24wLJg9zeZOYPfwl+XCpgT1tWcA
-	lCLJYiclz10M+Y+qjFC6jj40nxEEH8JzzReajR+na7SOJpPkOm4PCJBYL7mblJ6PzDK33vvEpaXPq
-	LNqHEYeBMrMhD9kTmedRTMq3YJj1Klaxds+6GgT7SbdbxO4sHf/aMVtbs/zOlGS/lALiHz03aIVKW
-	1J/lBc9w==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35776 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tLkSU-0005KQ-2C;
-	Thu, 12 Dec 2024 14:46:30 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tLkSS-006qfM-OH; Thu, 12 Dec 2024 14:46:28 +0000
-In-Reply-To: <Z1r3MWZOt36SgGxf@shell.armlinux.org.uk>
-References: <Z1r3MWZOt36SgGxf@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 1/7] net: phy: add configuration of rx clock stop
- mode
+	Thu, 12 Dec 2024 15:05:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FBD9169E;
+	Thu, 12 Dec 2024 07:05:55 -0800 (PST)
+Received: from [10.1.27.173] (XHFQ2J9959.cambridge.arm.com [10.1.27.173])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F7873F720;
+	Thu, 12 Dec 2024 07:05:25 -0800 (PST)
+Message-ID: <2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
+Date: Thu, 12 Dec 2024 15:05:24 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tLkSS-006qfM-OH@rmk-PC.armlinux.org.uk>
-Date: Thu, 12 Dec 2024 14:46:28 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>
+Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+ oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20241211160218.41404-1-miko.lenczewski@arm.com>
+ <20241211160218.41404-3-miko.lenczewski@arm.com>
+ <87cyhxs3xq.wl-maz@kernel.org> <084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
+ <86ikrprn7w.wl-maz@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <86ikrprn7w.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_064838_396416_6907BFFA 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20241212_070533_427738_4E74405F 
+X-CRM114-Status: GOOD (  35.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +71,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a function to allow configuration of the PCS's clock stop enable
-bit, used to configure whether the xMII receive clock can be stopped
-during LPI mode.
+On 12/12/2024 14:26, Marc Zyngier wrote:
+> On Thu, 12 Dec 2024 10:55:45 +0000,
+> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 12/12/2024 08:25, Marc Zyngier wrote:
+>>>> +
+>>>> +	local_flush_tlb_all();
+>>>
+>>> The elephant in the room: if TLBs are in such a sorry state, what
+>>> guarantees we can make it this far?
+>>
+>> I'll leave Miko to respond to your other comments, but I wanted to address this
+>> one, since it's pretty fundamental. We went around this loop internally and
+>> concluded that what we are doing is architecturally sound.
+>>
+>> The expectation is that a conflict abort can only be generated as a result of
+>> the change in patch 4 (and patch 5). That change makes it possible for the TLB
+>> to end up with a multihit. But crucially that can only happen for user space
+>> memory because that change only operates on user memory. And while the TLB may
+>> detect the conflict at any time, the conflict abort is only permitted to be
+>> reported when an architectural access is prevented by the conflict. So we never
+>> do anything that would allow a conflict for a kernel memory access and a user
+>> memory conflict abort can never be triggered as a result of accessing kernel memory.
+>>
+>> Copy/pasting comment from AlexC on the topic, which explains it better than I can:
+>>
+>> """
+>> The intent is certainly that in cases where the hardware detects a TLB conflict
+>> abort, it is only permitted to report it (by generating an exception) if it
+>> applies to an access that is being attempted architecturally. ... that property
+>> can be built from the following two properties:
+>>
+>> 1. The TLB conflict can only be reported as an Instruction Abort or a Data Abort
+>>
+>> 2. Those two exception types must be reported synchronously and precisely.
+>> """
+> 
+> I totally agree with this. The issue is that nothing says that the
+> abort is in any way related to userspace.
+> 
+>>>
+>>> I honestly don't think you can reliably handle a TLB Conflict abort in
+>>> the same translation regime as the original fault, given that we don't
+>>> know the scope of that fault. You are probably making an educated
+>>> guess that it is good enough on the CPUs you know of, but I don't see
+>>> anything in the architecture that indicates the "blast radius" of a
+>>> TLB conflict.
+>>
+>> OK, so I'm claiming that the blast radius is limited to the region of memory
+>> that we are operating on in contpte_collapse() in patch 4. Perhaps we need to go
+>> re-read the ARM and come back with the specific statements that led us to that
+>> conclusion?
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/phy/phy.c | 27 ++++++++++++++++++++++-----
- include/linux/phy.h   |  1 +
- 2 files changed, 23 insertions(+), 5 deletions(-)
+From the ARM:
+"""
+RFCPSG: If level 1 or level 2 is supported and the Contiguous bit in a set of
+Block descriptors or Page descriptors is changed, then a TLB conflict abort can
+be generated because multiple translation table entries might exist within a TLB
+that translates the same IA.
+"""
 
-diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-index e4b04cdaa995..a4b9fcc2503a 100644
---- a/drivers/net/phy/phy.c
-+++ b/drivers/net/phy/phy.c
-@@ -1640,6 +1640,27 @@ void phy_mac_interrupt(struct phy_device *phydev)
- }
- EXPORT_SYMBOL(phy_mac_interrupt);
- 
-+/**
-+ * phy_eee_rx_clock_stop() - configure PHY receive clock in LPI
-+ * @phydev: target phy_device struct
-+ * @clk_stop_enable: flag to indicate whether the clock can be stopped
-+ *
-+ * Configure whether the PHY can disable its receive clock during LPI mode,
-+ * See IEEE 802.3 sections 22.2.2.2, 35.2.2.10, and 45.2.3.1.4.
-+ *
-+ * Returns: 0 or negative error.
-+ */
-+int phy_eee_rx_clock_stop(struct phy_device *phydev, bool clk_stop_enable)
-+{
-+	/* Configure the PHY to stop receiving xMII
-+	 * clock while it is signaling LPI.
-+	 */
-+	return phy_modify_mmd(phydev, MDIO_MMD_PCS, MDIO_CTRL1,
-+			      MDIO_PCS_CTRL1_CLKSTOP_EN,
-+			      clk_stop_enable ? MDIO_PCS_CTRL1_CLKSTOP_EN : 0);
-+}
-+EXPORT_SYMBOL_GPL(phy_eee_rx_clock_stop);
-+
- /**
-  * phy_init_eee - init and check the EEE feature
-  * @phydev: target phy_device struct
-@@ -1664,11 +1685,7 @@ int phy_init_eee(struct phy_device *phydev, bool clk_stop_enable)
- 		return -EPROTONOSUPPORT;
- 
- 	if (clk_stop_enable)
--		/* Configure the PHY to stop receiving xMII
--		 * clock while it is signaling LPI.
--		 */
--		ret = phy_set_bits_mmd(phydev, MDIO_MMD_PCS, MDIO_CTRL1,
--				       MDIO_PCS_CTRL1_CLKSTOP_EN);
-+		ret = phy_eee_rx_clock_stop(phydev, true);
- 
- 	return ret < 0 ? ret : 0;
- }
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index e597a32cc787..ba9d16fc69b8 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -2095,6 +2095,7 @@ int phy_unregister_fixup(const char *bus_id, u32 phy_uid, u32 phy_uid_mask);
- int phy_unregister_fixup_for_id(const char *bus_id);
- int phy_unregister_fixup_for_uid(u32 phy_uid, u32 phy_uid_mask);
- 
-+int phy_eee_rx_clock_stop(struct phy_device *phydev, bool clk_stop_enable);
- int phy_init_eee(struct phy_device *phydev, bool clk_stop_enable);
- int phy_get_eee_err(struct phy_device *phydev);
- int phy_ethtool_set_eee(struct phy_device *phydev, struct ethtool_keee *data);
--- 
-2.30.2
+Although I guess it's not totally explicit, I've interpretted that as saying
+that conflicting TLB entries can only arise for the IA range for which the
+contiguous bits have been modified in the translation tables.
+
+Given we are only fiddling with the contiguous bits for user space mappings in
+this way, that's why I'm asserting we will only get a conflict abort for user
+space mappings... assuming the absence of kernel bugs, anyway...
+
+> 
+> But we don't know for sure what caused this conflict by the time we
+> arrive in the handler. It could equally be because we have a glaring
+> bug somewhere on the kernel side, even if you are *now* only concerned
+> with userspace.
+
+OK I see what you are saying; previously a conflict abort would have led to
+calling do_bad(), which returns 1, which causes do_mem_abort() to either kill
+the kernel or the process depending on the origin of the abort. (although if it
+came from kernel due to bug, we're just hoping that the conflict doesn't affect
+the path through the handler). With this change, we always assume we can fix it
+with the TLBI.
+
+How about this change to ensure we still die for issues originating from the kernel?
+
+if (!user_mode(regs) || !system_supports_bbml2())
+		return do_bad(far, esr, regs);
+
+> 
+> If anything, this should absolutely check for FAR_EL1 and assert that
+> this is indeed caused by such change.
+
+I'm not really sure how we would check this reliably? Without patch 5, the
+problem is somewhat constrained; we could have as many changes in flight as
+there are CPUs so we could keep a list of all the {mm_struct, VA-range} that are
+being modified. But if patch 5 is confirmed to be architecturally sound, then
+there is no "terminating tlbi" so there is no bound on the set of {mm_struct,
+VA-range}'s that could legitimately cause a conflict abort.
+
+Thanks,
+Ryan
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
 
 
