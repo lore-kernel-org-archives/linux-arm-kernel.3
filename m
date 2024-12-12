@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F454E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79A5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+L9rfaF3CCKOQj2fO07wjdWK0CmBJblzP3XYkNEWcs8=; b=w8yQR0tQs/OMG6vCUqGrE8DRSP
-	ioR7rIk3HGvDvTOnoKMxwtnUCGDaSqZ5P++04HTphjTMlvLxeU3YNweAU0FqZJ7KjATrAPP81yCiM
-	29WvZyY4gPmrcykgp1JS3MyOVayFNheosOlGRcbbT/Cq3J90b4wsIFqzJm2MZwaIuYV9FPLmJQJtz
-	Dt02z5HFHKgzueF1tMPQk4IyvLIIYfdG7kFJHHQELK1jIPGfKPIQGG13QNPT1pPykwNgrLnraj5W6
-	uoKonNJfSY0Uv3vjWeyt1Tm9V7utFEd5+I3LwNkL4b9dmddJNyFxW27p2VMdcystlvFUwU5ZeTP0K
-	i1sujs3g==;
+	bh=pKHWtr7CObu7BlBwgtuANHPjX1WTy8471GU17YfD5dk=; b=dzujf0/Q8pyaEJ2Rdyv59bgTU3
+	0wQdTiVmRWPa4AFcNNY0mRXtmRGqBHvHcmZtAi9SqL3uUL1sQptm4CztGVQ7iwVmPnw8vJag9H42D
+	jQWTFB2TMOvCXiLLqPYcq28Zv0MFTPUApM9sVzBbX9G4U5pPgMHHjvopfO/BVNnNLsq7R4ayCb6oM
+	JlURCuF1bZ6O3KDw9Xt+Z63L3aBGZO/xdhF4v5Mj3JF9oVpjdGMrJpfN7I8ocTu+HVUYviHEMEqmZ
+	dQudwQXgZzUAw1oB+HB/DzLd1x6kagSA1zvzdrTelhu1gdRo9b5OjoMKcmVnJlO2Y5NPopTRUdF/D
+	drapsGIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfXX-0000000HVPS-069j;
-	Thu, 12 Dec 2024 09:31:23 +0000
+	id 1tLfYZ-0000000HVeI-2iKZ;
+	Thu, 12 Dec 2024 09:32:27 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfMu-0000000HSik-0l5Y
+	id 1tLfMu-0000000HSiq-1r88
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 12 Dec 2024 09:20:25 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC6CnRe002079;
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC6nprT020794;
 	Thu, 12 Dec 2024 10:20:15 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	+L9rfaF3CCKOQj2fO07wjdWK0CmBJblzP3XYkNEWcs8=; b=FOp3LdWXnXsr9H5k
-	XelWB38aNiAoKKjRdOq4asqxh94j5lbZBHCkq0uv4vpIj7/EmclfXaLlNbbFFdWS
-	UjqjrsvqGDUcY4D/gdW1d5vbTzJ3kjY3uv4Pe5By60jV+o+81c5tkpK59XyqvYKE
-	x8i4OAknWsGrc/OdZd3f8f0EGLZbiex33FP479n+7rYN3IYPjTw9DewyCdCuh1Kl
-	4kiDYzCLuU6LP44QGxvsaQ3cXa4P5LMWlOE0ANMnTrCQMKfqxoSPDGPZlP4D2zW8
-	NGXsgBIYHOt35zuI0z0wRQKkPjc8z+XGuZkhy8QvKhgbx7PwQveyelL85NVrNSMf
-	EfeX/A==
+	pKHWtr7CObu7BlBwgtuANHPjX1WTy8471GU17YfD5dk=; b=rACcgzmyWHpsfa0b
+	wlNxREBv+bF6wAHmmjiTU0MNWzSrPuYhyOJ6Ui37SGIXYCM7+FaPt9WrY7qVRqxo
+	kdqbgwKWY58ciWBmzYLMu8xvgm90lr00h6UImsj2PyRKKD6ewqgEBBpGZASNT8f6
+	J2hV681NUUosrEo8YEkDJJwGyKa1fslDpQVp/wTm6fF9trmheCaWLrfI55C6wwLB
+	S3qR28gWqhjTPDfJsNEkMQpHOx3e0rsOaeO+AT5CKpp697tuSS7OBh6kXfK2OK8e
+	1poX8V1BfgfXOyUVl0i5rlMOSryKMYwyQpmguZw8S955ttiNQX+XCe3wg2ikEyuB
+	osVsNA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ffwwaked-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccnmf789-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 12 Dec 2024 10:20:15 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 26E0540057;
-	Thu, 12 Dec 2024 10:19:06 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A3A7240049;
+	Thu, 12 Dec 2024 10:18:58 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6FF24258A65;
-	Thu, 12 Dec 2024 10:18:10 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E951F2576EE;
+	Thu, 12 Dec 2024 10:18:07 +0100 (CET)
 Received: from localhost (10.129.178.65) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 12 Dec
- 2024 10:18:10 +0100
+ 2024 10:18:07 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Thu, 12 Dec 2024 10:17:36 +0100
-Subject: [PATCH v4 12/15] dt-bindings: media: add the stm32mp25 compatible
- of DCMIPP
+Date: Thu, 12 Dec 2024 10:17:32 +0100
+Subject: [PATCH v4 08/15] media: stm32: dcmipp: add bayer 10~14 bits
+ formats
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241212-csi_dcmipp_mp25-v4-12-fbeb55a05ed7@foss.st.com>
+Message-ID: <20241212-csi_dcmipp_mp25-v4-8-fbeb55a05ed7@foss.st.com>
 References: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
 In-Reply-To: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -82,8 +82,7 @@ To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
  Verkuil <hverkuil@xs4all.nl>
 CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
 X-Mailer: b4 0.14.1
 X-Originating-IP: [10.129.178.65]
 X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
@@ -92,8 +91,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_012024_512954_3B6DE62F 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20241212_012024_777098_66BA5075 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,120 +108,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the stm32mp25 compatible for the DCMIPP.
-The stm32mp25 distinguish with the stm32mp13 by the fact that:
- - supports also csi inputs in addition to parallel inputs
- - requires an addition csi clock to be present
+Add support for bayer formats from 10 to 14 bits.
 
-Add also access-controllers, an optional property that
-allows a peripheral to refer to one or more domain access controller(s).
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
-v2:
-  - move allOf after required
-  - reword commit message
----
- .../devicetree/bindings/media/st,stm32-dcmipp.yaml | 53 +++++++++++++++++++---
- 1 file changed, 47 insertions(+), 6 deletions(-)
+ .../media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c    | 12 ++++++++++++
+ .../media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c   | 12 ++++++++++++
+ 2 files changed, 24 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml b/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml
-index 87731f3ce7bd..7b03a77adbce 100644
---- a/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml
-+++ b/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml
-@@ -12,7 +12,9 @@ maintainers:
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+index 209693e8296e..6596902a1760 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+@@ -65,6 +65,18 @@ static const struct dcmipp_bytecap_pix_map dcmipp_bytecap_pix_map_list[] = {
+ 	PIXMAP_MBUS_PFMT(SGBRG8_1X8, SGBRG8),
+ 	PIXMAP_MBUS_PFMT(SGRBG8_1X8, SGRBG8),
+ 	PIXMAP_MBUS_PFMT(SRGGB8_1X8, SRGGB8),
++	PIXMAP_MBUS_PFMT(SBGGR10_1X10, SBGGR10),
++	PIXMAP_MBUS_PFMT(SGBRG10_1X10, SGBRG10),
++	PIXMAP_MBUS_PFMT(SGRBG10_1X10, SGRBG10),
++	PIXMAP_MBUS_PFMT(SRGGB10_1X10, SRGGB10),
++	PIXMAP_MBUS_PFMT(SBGGR12_1X12, SBGGR12),
++	PIXMAP_MBUS_PFMT(SGBRG12_1X12, SGBRG12),
++	PIXMAP_MBUS_PFMT(SGRBG12_1X12, SGRBG12),
++	PIXMAP_MBUS_PFMT(SRGGB12_1X12, SRGGB12),
++	PIXMAP_MBUS_PFMT(SBGGR14_1X14, SBGGR14),
++	PIXMAP_MBUS_PFMT(SGBRG14_1X14, SGBRG14),
++	PIXMAP_MBUS_PFMT(SGRBG14_1X14, SGRBG14),
++	PIXMAP_MBUS_PFMT(SRGGB14_1X14, SRGGB14),
+ 	PIXMAP_MBUS_PFMT(JPEG_1X8, JPEG),
+ };
  
- properties:
-   compatible:
--    const: st,stm32mp13-dcmipp
-+    enum:
-+      - st,stm32mp13-dcmipp
-+      - st,stm32mp25-dcmipp
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index a19c8235af56..72f1bb4c64ad 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -57,6 +57,18 @@ static const struct dcmipp_byteproc_pix_map dcmipp_byteproc_pix_map_list[] = {
+ 	PIXMAP_MBUS_BPP(SGBRG8_1X8, 1),
+ 	PIXMAP_MBUS_BPP(SGRBG8_1X8, 1),
+ 	PIXMAP_MBUS_BPP(SRGGB8_1X8, 1),
++	PIXMAP_MBUS_BPP(SBGGR10_1X10, 2),
++	PIXMAP_MBUS_BPP(SGBRG10_1X10, 2),
++	PIXMAP_MBUS_BPP(SGRBG10_1X10, 2),
++	PIXMAP_MBUS_BPP(SRGGB10_1X10, 2),
++	PIXMAP_MBUS_BPP(SBGGR12_1X12, 2),
++	PIXMAP_MBUS_BPP(SGBRG12_1X12, 2),
++	PIXMAP_MBUS_BPP(SGRBG12_1X12, 2),
++	PIXMAP_MBUS_BPP(SRGGB12_1X12, 2),
++	PIXMAP_MBUS_BPP(SBGGR14_1X14, 2),
++	PIXMAP_MBUS_BPP(SGBRG14_1X14, 2),
++	PIXMAP_MBUS_BPP(SGRBG14_1X14, 2),
++	PIXMAP_MBUS_BPP(SRGGB14_1X14, 2),
+ 	PIXMAP_MBUS_BPP(JPEG_1X8, 1),
+ };
  
-   reg:
-     maxItems: 1
-@@ -21,11 +23,24 @@ properties:
-     maxItems: 1
- 
-   clocks:
--    maxItems: 1
-+    items:
-+      - description: bus clock
-+      - description: csi clock
-+    minItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: kclk
-+      - const: mclk
-+    minItems: 1
- 
-   resets:
-     maxItems: 1
- 
-+  access-controllers:
-+    minItems: 1
-+    maxItems: 2
-+
-   port:
-     $ref: /schemas/graph.yaml#/$defs/port-base
-     unevaluatedProperties: false
-@@ -39,7 +54,7 @@ properties:
- 
-         properties:
-           bus-type:
--            enum: [5, 6]
-+            enum: [4, 5, 6]
-             default: 5
- 
-           bus-width:
-@@ -50,9 +65,6 @@ properties:
-           hsync-active: true
-           vsync-active: true
- 
--        required:
--          - pclk-sample
--
- required:
-   - compatible
-   - reg
-@@ -61,6 +73,35 @@ required:
-   - resets
-   - port
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - st,stm32mp13-dcmipp
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 1
-+
-+        clock-names:
-+          maxItems: 1
-+
-+        port:
-+          properties:
-+            endpoint:
-+              properties:
-+                bus-type:
-+                  enum: [5, 6]
-+    else:
-+      properties:
-+        clocks:
-+          minItems: 2
-+
-+        clock-names:
-+          minItems: 2
-+
- additionalProperties: false
- 
- examples:
 
 -- 
 2.34.1
