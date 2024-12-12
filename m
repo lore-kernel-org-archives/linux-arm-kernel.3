@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D181BE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 04:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D77E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 04:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O0PYJ7WKUwAnlFfWJXCfHd+2GPlJxAHzQS2LGo+pJDk=; b=hCiv+fOKfYFcB88IJ9bUSHkzK/
-	iDOBuNTMNwHNQsfFHAP+YtQ0BcwRV1nUJ8GSpiIW0Vp3PejlzaMsTPtGQkpTp+XghSO+phZdCHuwX
-	kAuOtiE1OH0INULMFQdjIUv9GJY5Pz+XxbY8emdI4Cz7AguMaUzafZwC6dX7b5O8X7f2mnG8FGe4n
-	HL78O+9IzYvhiUCZ0/4Ifuq6s1ZYlpuvDSaS5+pUT/4/mkDxgEdLTi4sW+qbf9NOIilJ2poCjXNcl
-	O/CveXsB/RePaKbDREaLDwQeJHuXpzL/hdZaAMN1syCksRZmzTB5lv0Ozigi94ZT2szvttqBcduUY
-	vGfPdNYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ykm1AV9CFCLtQVPdB4FhSc1hFDczJwA9ddmam2r+bYM=; b=jEyDjEr1mWsSoaPZxHUL30ZQVy
+	ezSCo1xmgVh1AwleVCODK5s/bvLxsiPdMS5Au1VeAFxr3gBvehSXIoGa/7sBFmaFB9XydEdbMrImS
+	L+Afm1AN71EGatHytKJIE7cu7ALboauIQWNFUrEX1eJ4lV/V60ArGwU6ZBBzno3cvv23PgfK1C+v0
+	qMvKLROzZoILnvnodXy0eu+OKPJ1pwHWSuw6tpulea6hVYeXuRJ+wLWHwBlVAu+vyJqEYT5/391YR
+	LCEzwWz5xYaXuN8IaFmn13XEVjW0Yg32XOWZqilB9N+nwBOdi3ZIzr+lMaBfzOLI9zixhperdvj2H
+	IwhoY4Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLaua-0000000Gu1E-0KQP;
-	Thu, 12 Dec 2024 04:34:52 +0000
-Received: from smtp-relay-canonical-1.canonical.com ([185.125.188.121])
+	id 1tLb11-0000000GuZg-283Z;
+	Thu, 12 Dec 2024 04:41:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLatU-0000000GtxR-2uEY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 04:33:46 +0000
-Received: from hwang4-ThinkPad-T14s-Gen-2a.conference (1.general.hwang4.uk.vpn [10.172.195.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-canonical-1.canonical.com (Postfix) with ESMTPSA id A23B040241;
-	Thu, 12 Dec 2024 04:33:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1733978020;
-	bh=O0PYJ7WKUwAnlFfWJXCfHd+2GPlJxAHzQS2LGo+pJDk=;
-	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
-	b=IMTcTnuqnmCxsOrW+zIWj45SFRoQ6c3iOb4HWubzq3zQTEaZck0FZWea8xIKHMilZ
-	 W5Z0l9YE/16+X0ULiPoZ3qXx2DdN9MQKx+khnUfxtDzfiOdGVFN8XGUcdpgJSpPlTy
-	 2RlUsj6XF63oQ5hRnyvfowKZQvl0UVypAmnODQAcZoomdHE0Ucn/EEZvH6Xdie+gJI
-	 xiRBp8zF9tkf8FXdNcvJxjE6Mar50YzUp9poLm9AQ/Bcgvs7s7rkub0J6T0E/A8jdT
-	 XsvlfpMnbf8xHEKP/BlTdh0/Pw0oDJt3CZP2THP2UjqFH5yaKe7zckdH86eMWVdTo7
-	 L2YTl2R30DXEw==
-From: Hui Wang <hui.wang@canonical.com>
-To: linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	hui.wang@canonical.com
-Subject: [PATCH] ARM: dts: nxp: imx6qdl: add dr_mode to usbotg
-Date: Thu, 12 Dec 2024 12:31:26 +0800
-Message-Id: <20241212043126.73045-1-hui.wang@canonical.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tLazx-0000000GuOS-1ibO;
+	Thu, 12 Dec 2024 04:40:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BB3315C68E4;
+	Thu, 12 Dec 2024 04:39:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D95C6C4CECE;
+	Thu, 12 Dec 2024 04:40:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733978423;
+	bh=OhmCN48ULBLuuzKg8+AywTK0ty+kB4kqBPF6I6N80sw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=t0OPpF6JmKJTeR7LpTw9iqmJ5glyjRuw0YZU0YldMfSEThlO3/UkcRrruST+7qg1O
+	 WGPzuRdpQ1Vlh77YfA0yFWXXq5Db40WVngtSY4mlYtu7Mj5AD3mw/tAm/HOATG2ovG
+	 9kz21Sr2ZMiD1HRBdlDJ5rEUq4s8tGVo1QZZXvrZhMAnfQvyqdA0oAiBTrj4cAGDzZ
+	 eCsD1IAn72uCIn9fyz4I+aHPQRBNYt5K0YyXYoY4V9bf14f//8i10pIkq/ZDcSIZvI
+	 QEnvyENMu35C8Y4+tBgzS9VvB5ECKqy8eRx4qhykI5IBOOaUdmxXk8D/l7Uu7J8XDS
+	 lf3Qotb0CxEKg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 342A6380A959;
+	Thu, 12 Dec 2024 04:40:41 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/9] net: dsa: cleanup EEE (part 1)
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173397843974.1849456.11438174584563074655.git-patchwork-notify@kernel.org>
+Date: Thu, 12 Dec 2024 04:40:39 +0000
+References: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
+In-Reply-To: <Z1hNkEb13FMuDQiY@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com,
+ angelogioacchino.delregno@collabora.com, arinc.unal@arinc9.com,
+ daniel@makrotopia.org, davem@davemloft.net, dqfext@gmail.com,
+ edumazet@google.com, florian.fainelli@broadcom.com, kuba@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ matthias.bgg@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ sean.wang@mediatek.com, horms@kernel.org, UNGLinuxDriver@microchip.com,
+ olteanv@gmail.com, woojung.huh@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_203345_114350_FEA1F39F 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20241211_204025_491872_439CDF86 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For the chipidea usb driver, if the dr_mode is not set, it will set
-the device to otg mode by default, so here the dr_mode has not been
-set for a long time. But some testcases need to parse the dr_mode from
-DT and decide the follow-up test strategy, here set the dr_mode to otg
-explicitly for QA's testcases.
+Hello:
 
-Signed-off-by: Hui Wang <hui.wang@canonical.com>
----
- arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-index d2200c9db25a..285fb7314a88 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-@@ -982,6 +982,7 @@ usbotg: usb@2184000 {
- 				clocks = <&clks IMX6QDL_CLK_USBOH3>;
- 				fsl,usbphy = <&usbphy1>;
- 				fsl,usbmisc = <&usbmisc 0>;
-+				dr_mode = "otg";
- 				ahb-burst-config = <0x0>;
- 				tx-burst-size-dword = <0x10>;
- 				rx-burst-size-dword = <0x10>;
+On Tue, 10 Dec 2024 14:17:52 +0000 you wrote:
+> Hi,
+> 
+> First part of DSA EEE cleanups.
+> 
+> Patch 1 removes a useless test that is always false. dp->pl will always
+> be set for user ports, so !dp->pl in the EEE methods will always be
+> false.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,1/9] net: dsa: remove check for dp->pl in EEE methods
+    https://git.kernel.org/netdev/net-next/c/66c366392e55
+  - [net-next,2/9] net: dsa: add hook to determine whether EEE is supported
+    https://git.kernel.org/netdev/net-next/c/9723a77318b7
+  - [net-next,3/9] net: dsa: provide implementation of .support_eee()
+    https://git.kernel.org/netdev/net-next/c/99379f587278
+  - [net-next,4/9] net: dsa: b53/bcm_sf2: implement .support_eee() method
+    https://git.kernel.org/netdev/net-next/c/c86692fc2cb7
+  - [net-next,5/9] net: dsa: mt753x: implement .support_eee() method
+    https://git.kernel.org/netdev/net-next/c/7eb4f3d9fe17
+  - [net-next,6/9] net: dsa: qca8k: implement .support_eee() method
+    https://git.kernel.org/netdev/net-next/c/fe3ef44385b2
+  - [net-next,7/9] net: dsa: mv88e6xxx: implement .support_eee() method
+    https://git.kernel.org/netdev/net-next/c/eb3126e720e7
+  - [net-next,8/9] net: dsa: ksz: implement .support_eee() method
+    https://git.kernel.org/netdev/net-next/c/801fd546c1ca
+  - [net-next,9/9] net: dsa: require .support_eee() method to be implemented
+    https://git.kernel.org/netdev/net-next/c/88325a291a0c
+
+You are awesome, thank you!
 -- 
-2.34.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
