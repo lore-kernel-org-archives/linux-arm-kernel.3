@@ -4,95 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CDAE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E8DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:35:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpCx9eEDDQPBSqjdyYw4LOrb6jdU2YEGsy2eXplgVns=; b=y3AazSdsiykx3ZhT58Yg1RJUk7
-	scFaxa/EVc43VcZz7XgcET+FDe5wJ8TWYNY72mf0Cd0FipTGxb+o+IY/v4Y0Xm2PtwE3t5ewo1otT
-	DbHTPSpn7+0HGt6BbkKT9YAc8hok9wLy1FsULqnaGF/IpULiVgdLJM31UWKImZ1wQO41X0vxMymNK
-	PwqW/pn9O9QNcEc/DsKjI2oVmeG3wJGmGBHjWJ7Ilvk9Vgx1uzDS9trxqBflIrH4txrgTbXZaEw2i
-	JsqmeFY+4I/wFJd8kF8JPgrqzrH4AiWbYFEEp45iLQFEkj+X1igW/AbInJVg6WMp9ICg3AmLNqt+E
-	lVq5W3gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:To:Cc:From:References:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UoVTbaL4YNuWYLH975v+DNNPn9DDGWZVxGYR9Qdxa6s=; b=OnoCK1FkkqF/7ie8ttD8hPT3AZ
+	zi6JYySeCvxn2ATboRzABZgsbxqp4EKtX7SqH8wuwOZ15RNZhVjwEy6eBtk2wZmQXiOoKhx94IMp9
+	wwzEm8c0F8ab5Mi3VTRhKCzJ7XjZTG/g1blptZ2WfOywyHBjL4NfQHEqcPQ1/QvF3XxD2jLV7Iymy
+	EeA6wZv6wgcgrgH6DyIKBIzqdANa8Ycu7lyOb4hJp8b1P4/lqYks62Ssh+87+Ft/iK7zB3+SbTfRx
+	HT5VkbQWGjcmrlf/6mtxqlu9JimuzY85J7aXUPqnlOJfNx5P3wWIsOptjS9Ip4JyTPcE/bTr+vAAd
+	exsnQnYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiIo-00000000N6Z-1kx9;
-	Thu, 12 Dec 2024 12:28:22 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tLiP9-00000000NtN-1uBJ;
+	Thu, 12 Dec 2024 12:34:55 +0000
+Received: from smtp-21.smtpout.orange.fr ([80.12.242.21] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiHi-00000000Mzn-42gY
+	id 1tLiO2-00000000NeI-2jyF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 12:27:16 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa5f1909d6fso97138866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 04:27:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734006433; x=1734611233; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UpCx9eEDDQPBSqjdyYw4LOrb6jdU2YEGsy2eXplgVns=;
-        b=V8Y7tuJRP9cT4hmc8xcNeG2TEhIcAXqZy+3eNPAqlH/HYsBwNzSm2sOYlkf167xbTl
-         dhPzfnPlLPAMQUEZIgyz/AznFjvfH2E7W82pq6E+jVwfx9E55xygB0yPw23m3mF4lHlk
-         Ps4ow0eXOuif7JrgTHIGKcyE2FR6ykdNn4HT/Smgf62nHY+uopwl97L3GoRZ8nvwLW5a
-         1x+FIiy5i4+5QQCyLjbW86h0U36BxEGUfm6ic94Mfd+UMGmixy/QHUHsfbwpVzZCboJ8
-         E1CuXiOe34J1e4Mx7Sluu0zW71ahlR/KM4DjIvLR1KWT7ShcScxymjsHq98zQCyhfot5
-         IBQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734006433; x=1734611233;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UpCx9eEDDQPBSqjdyYw4LOrb6jdU2YEGsy2eXplgVns=;
-        b=GgV8Wo+59Re8YfLxJOopWnPjjbsLLergQhoSfC/Ol5k1EH7ABhDJgiElY+z1Vnrt6p
-         86C16XaiJ7xbSo5n1o9l79OAM7gdUXhBGYOK9KWl1xj/fGCgyN/lSB7bAp/T317mHncA
-         ftvZy05lzbUXvkWvN7mTdo4R833zYtWdkki+suXbTTo7201ii9VWqhE4wAAdEqyMZ4Ub
-         8gtds+IFiWiK8aF6MVRBw6/LAK03igxG170fs2MFu6q8BV3h6Fy1MEVAoACxboMz7cBQ
-         uinRIParipDqEYji67yfARggGIHQsV0Tn9xBkdvHQEwjcwyWbfUmleIKRAc4Ih2G+aiU
-         7DgA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTsMC2Iz82EQPqKGuFTEBDnZZpqu+GhgnDOuQeW5/uZBBqTfTKdxna172icr+j918+XEfCqbaymaKDM03RTVmg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzk0QPjJ6d53JLunjThFGk7IUWFbMODbpSdQqJgxm/+B+8WkK31
-	vEOHYlqgNZzyMmNkrTsc7MppbhBiB3wilSrgv2178fS3SsH4Efm3RqbQNyMpNvvZnaiPLDP1TqG
-	z77jI
-X-Gm-Gg: ASbGncu4VDYkDLyZ1D7CXitvokf66JD77+JpqTEgyg2e6mnjZiAwWBx6bIEI2EX1pXZ
-	mHqSCFOuiToR7Fhax7VLmDlpg9ukSr2zwufxlzi0P77cKbilcFYuHWvg1n8+2v32xgHJ6dikxyT
-	XMinjTHu8aGDi1TVJXVaay0n38Uwc/V9XRD4v6coAEYvBfls97XflIybp4D5NhzXGyURZ6efd2P
-	Ls9b3jbzs1LWfhyox8YQQKoTshyf0ims6KMQiBLzCkjVT+nVc8wWO4HFi+RkpyiBvteU1pRULmU
-	zJK5NIL0+204ty8=
-X-Google-Smtp-Source: AGHT+IFFYyzPYoG7tPh7WgbnFd5v9cmFfs7rDc+kSSl50Gc/6DepQiqRz3hckPhM0D2fVycpQfsYQA==
-X-Received: by 2002:a17:906:32d3:b0:aa6:967c:9aaf with SMTP id a640c23a62f3a-aa6b13da9f7mr673167866b.50.1734006433119;
-        Thu, 12 Dec 2024 04:27:13 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa67c7bd55fsm657911666b.116.2024.12.12.04.27.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 04:27:12 -0800 (PST)
-Date: Thu, 12 Dec 2024 12:27:09 +0000
-From: Quentin Perret <qperret@google.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kees Cook <keescook@chromium.org>
-Subject: Re: [PATCH v3 4/6] arm64/kvm: Avoid invalid physical addresses to
- signal owner updates
-Message-ID: <Z1rWnejzN5Zk8TDU@google.com>
-References: <20241212081841.2168124-8-ardb+git@google.com>
- <20241212081841.2168124-12-ardb+git@google.com>
- <Z1rJ_dMJJzGOmjNs@google.com>
- <CAMj1kXERuRK_MdHJOY+SKR=BJ-Yi+q0FNgVayq3W_jL9zdjLVA@mail.gmail.com>
+	Thu, 12 Dec 2024 12:33:49 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id LiNptubjiI1FGLiNptgWq8; Thu, 12 Dec 2024 13:33:39 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1734006819;
+	bh=UoVTbaL4YNuWYLH975v+DNNPn9DDGWZVxGYR9Qdxa6s=;
+	h=Message-ID:Date:MIME-Version:Subject:From:To;
+	b=DwS46AdYDXC+9ZAsRLRjPUp1SCcuBxmFNKhonH5F5UWdvmPdW7vVhza+qcdT3QN4s
+	 Cs+Z5Al/+1IMjvmnJc+gr4Mb5fbRWLE7QLeYlZTsJDZxy5IQoIYnowlN0BgYhvEG1T
+	 3MO2M8I2/YbJAnnfN2J1udFQ/FTpo1z1iETzWtSyCOjnUp9RcQAoNO3UIgGdv6UsSz
+	 UetoPuHOaS9OWFM05EPhZuzdie0Rkj8GsK3d3qHr8IILz4UHsiZXYlW1z9Fu/CsogA
+	 BPlNhaljpKHp/QxwseVtkuFpdRUeUWFmaADh8ubMr9u62LkDeZrBwajpEmlxvoG0Tp
+	 9tml5snDXE3Xg==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Thu, 12 Dec 2024 13:33:39 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <45f90007-3136-4b59-a3fc-6fc0147b8ad8@wanadoo.fr>
+Date: Thu, 12 Dec 2024 13:33:32 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXERuRK_MdHJOY+SKR=BJ-Yi+q0FNgVayq3W_jL9zdjLVA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
+ optional properties
+References: <20241212121712.214639-1-andrej.picej@norik.com>
+ <20241212121712.214639-3-andrej.picej@norik.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, marex@denx.de
+To: Andrej Picej <andrej.picej@norik.com>
+In-Reply-To: <20241212121712.214639-3-andrej.picej@norik.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_042715_000293_1C5C366C 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20241212_043346_819925_4E56DC2E 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +85,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday 12 Dec 2024 at 12:44:38 (+0100), Ard Biesheuvel wrote:
-> On Thu, 12 Dec 2024 at 12:33, Quentin Perret <qperret@google.com> wrote:
-> >
-> > On Thursday 12 Dec 2024 at 09:18:46 (+0100), Ard Biesheuvel wrote:
-> > > @@ -908,6 +892,9 @@ static bool stage2_leaf_mapping_allowed(const struct kvm_pgtable_visit_ctx *ctx,
-> > >       if (data->force_pte && ctx->level < KVM_PGTABLE_LAST_LEVEL)
-> > >               return false;
-> > >
-> > > +     if (data->annotation && ctx->level == KVM_PGTABLE_LAST_LEVEL)
-> > > +             return true;
-> > > +
-> >
-> > I don't think it's a problem, but what's the rationale for checking
-> > ctx->level here? The data->force_pte logic should already do this for us
-> > and be somewhat orthogonal to data->annotation, no?
-> >
+Le 12/12/2024 à 13:17, Andrej Picej a écrit :
+> Add a optional properties to change LVDS output voltage. This should not
+> be static as this depends mainly on the connected display voltage
+> requirement. We have three properties:
+> - "ti,lvds-termination-ohms", which sets near end termination,
+> - "ti,lvds-vod-swing-data-microvolt" and
+> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
+> output voltage for data and clock lanes. They are defined as an array
+> with min and max values. The appropriate bitfield will be set if
+> selected constraints can be met.
 > 
-> So you are saying this could be
-> 
-> > > +     if (data->annotation)
-> > > +             return true;
-> 
-> right?
+> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
+> end termination will be used. Selecting only one:
+> "ti,lvds-vod-swing-data-microvolt" or
+> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
+> constraint for only data/clock lanes will be met. Setting both is
+> recommended.
 
-Yep, exactly.
+...
 
-> That hides the fact that we expect data->annotation to imply
-> data->force_pte, but other than that, it should work the same, yes.
+> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
+> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i <= 3; i++) {
+> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
+> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
+> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
+> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
 
-Eventually we'll want to make the two orthogonal to each other (e.g. to
-annotate blocks when donating huge pages to protected guests), but
-that'll require more work so again I don't mind that check in the
-current code. We can always get rid of it when annotations on blocks
-are supported.
+Adding a few spaces to align things would help reading.
 
-Cheers,
-Quentin
+> +			return i;
+> +	}
+> +
+> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
+> +	return -EINVAL;
+> +}
+> +
+> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+> +{
+> +	struct device *dev = ctx->dev;
+> +	struct device_node *endpoint;
+> +	int endpoint_reg;
+> +	/* Set so the property can be freely selected if not defined */
+> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
+> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
+> +	/* Set default near end terminataion to 200 Ohm */
+> +	u32 lvds_term = 200;
+> +	int lvds_vod_swing_conf;
+> +	int ret = 0;
+> +	int ret_data;
+> +	int ret_clock;
+> +
+> +	if (channel == CHANNEL_A)
+> +		endpoint_reg = 2;
+> +	else
+> +		endpoint_reg = 3;
+> +
+> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+> +
+> +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
+> +	if (lvds_term == 100)
+> +		ctx->lvds_term_conf[channel] = OHM_100;
+> +	else if (lvds_term == 200)
+> +		ctx->lvds_term_conf[channel] = OHM_200;
+> +	else
+> +		return -EINVAL;
+
+Should it be:
+	else {
+		ret = -EINVAL;
+		goto exit;
+	}
+?
+
+> +
+> +	ret_data = of_property_read_u32_array(endpoint, "ti,lvds-vod-swing-data-microvolt",
+> +					lvds_vod_swing_data, ARRAY_SIZE(lvds_vod_swing_data));
+> +	if (ret_data != 0 && ret_data != -EINVAL) {
+> +		ret = ret_data;
+> +		goto exit;
+> +	}
+> +
+> +	ret_clock = of_property_read_u32_array(endpoint, "ti,lvds-vod-swing-clock-microvolt",
+> +					lvds_vod_swing_clk, ARRAY_SIZE(lvds_vod_swing_clk));
+> +	if (ret_clock != 0 && ret_clock != -EINVAL) {
+> +		ret = ret_clock;
+> +		goto exit;
+> +	}
+> +
+> +	/* Use default value if both properties are NOT defined. */
+> +	if (ret_data == -EINVAL && ret_clock == -EINVAL)
+> +		lvds_vod_swing_conf = 0x1;
+> +
+> +	/* Use lookup table if any of the two properties is defined. */
+> +	if (!ret_data || !ret_clock) {
+> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev, lvds_vod_swing_data,
+> +						lvds_vod_swing_clk, ctx->lvds_term_conf[channel]);
+> +		if (lvds_vod_swing_conf < 0) {
+> +			ret = lvds_vod_swing_conf;
+> +			goto exit;
+> +		}
+> +	}
+> +
+> +	ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
+> +	ret = 0;
+> +exit:
+> +	of_node_put(endpoint);
+> +	return ret;
+> +}
+
+...
+
+CJ
 
