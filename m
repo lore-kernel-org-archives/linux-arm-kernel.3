@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B12E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378D6E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 15:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9c+ZQ2nN+RzQbM3dUetK/hYw3NM5s3P4yw/14c5dtxA=; b=M/LvKHe4S0l/05COAbr5H0SnDY
-	j6DtxxaRpzZEDHypvfnnPq/DGhrfHYjBcnqfqmHvzjI2JkGgH4ctm7vpz5RiUb1b49e3AiNy6jAMl
-	oSe4U8beFx0pVVzJHsnoDB9HOjQ+B6W4G8kOUvbtxs/561NdQcuQOS+ZqN3BkVtWb+4vju8aq6dgk
-	aW0wGHItIP5OwbWQYmy0XRaa4Wp5unbXMWkmzjEYwsMCMoSFihVVZpG70bAkbj+j8HYlgBPld1nCz
-	oizp3vtjUxO0WyFhtpx1dO5Iq8MnZ0vN10HQp6bJ+1+eqTSqZZu/CYRCiX/sonLuDcXNvQXNY4hFT
-	nVzfzSug==;
+	bh=YeCyqmn+Fnzidtik5ZQwdL7fhvipeWTj4Y1csRd8xgE=; b=XtvsAUI2FYG69za7nQP0JJqH3Y
+	rvhxT+dDg5Lxigb23+N4xfcCL7xmf8HJ2YpcuQ+/yLneSoixs7khhX5tLfAjE88rjfFggmL98i5q3
+	ytKDwf0WKFmIOS61lwtOKKtslgK6K6HdZz91rdhn75DgUflzyNBnk4JybJBiBiSMvxsePKAF5/N92
+	bVQpuvjTVxtA1eogWqCRoYs6V0eR57uKQiBBRvPChSW2wYAptnIHT9OeO8TIcMB5BsX9lfIQ0Ho0e
+	YHwtvx5jeVZkmQnJzWaUzsskMxfDHPQ3EhYevRXdWIlEaS7Cp/3xU2PexTBYfIbwC6xOB6uAC9jnq
+	EQMeqSTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlGm-00000000mYP-1by0;
-	Thu, 12 Dec 2024 15:38:28 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tLlHr-00000000mjA-0Ifq;
+	Thu, 12 Dec 2024 15:39:35 +0000
+Received: from mail-qt1-f169.google.com ([209.85.160.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlDt-00000000lvO-0c6h
+	id 1tLlFO-00000000mFj-3xPW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:35:30 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCAVPJv011897;
-	Thu, 12 Dec 2024 16:35:14 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	9c+ZQ2nN+RzQbM3dUetK/hYw3NM5s3P4yw/14c5dtxA=; b=2qJrl9YBhg/OBgMc
-	FJRu1WLNsTBqyRl+z0b2p6+8+B0HtXvp+PgODmFKHa6fz/KG+Ps9MrZNGiB1i1zY
-	ILVRbJvBKEqrpAUwjNpqpJjRsXt9R9Iq6AlPZZIU7aN2WnLtPeFUpjqs+1Zlv/pt
-	HVGiLceSqXXcVIeHFivCwAu2pD+iqgKV7hZFmfc5ODM9RJV3Lx+p0Cg+21Y1Xbcb
-	J9rL/GXS7LLbD39BAwg3nzdaLzHRCNl+XRunEMMRJsyPo4Q7wxz0a0kM4IbgDnyv
-	iGlfb4wPoCME2N6/bff4pEvDLxroIQC/0EAzIrRow6r/c/7u71prYrx3qZ8ADQcP
-	wtb3Gg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43e2w9ywuj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 16:35:14 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 49C7540047;
-	Thu, 12 Dec 2024 16:34:12 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 608B42839DA;
-	Thu, 12 Dec 2024 16:32:15 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 12 Dec
- 2024 16:32:15 +0100
-Message-ID: <d8eb157e-2f35-45a4-ba3e-cb296ced0a80@foss.st.com>
-Date: Thu, 12 Dec 2024 16:32:14 +0100
+	Thu, 12 Dec 2024 15:37:04 +0000
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-467838e75ffso8452491cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 07:37:01 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734017818; x=1734622618;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YeCyqmn+Fnzidtik5ZQwdL7fhvipeWTj4Y1csRd8xgE=;
+        b=j2w7Z4PukDJXVMCsXBT5+SFyJ0aT5moz8Hx/H/4/hZlOYbIghjn1y475AKz5SZUN6S
+         kaAVyfyyL7y/dfBoAy1iI8mUxzKry5M+XZUfWNIwcYfX0F3t5oTgfhamEmmFaB4mOYtK
+         xHFCHf/rZUa/rubvseSMkR6uypmDvv7n6HH+l9O78KUsHgJ9jUhE7Fgbb9T5PjnKr5Qw
+         jjW2B7Ag4cARGsF4WQcqHCfqKj/km8ysvfAyTiLqpbw3TkTh0L0dZ9bMRDlHecL9Gnow
+         CReLTIsqEW3eIFmxuydxNkRGbagcH4RK3IIFHJ8EpaVQBcJxfmdn64z6w2T0KyrYqBJ9
+         g5bw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1Owi6c3o9S1iBHY1lG1H1pAOymHWv9FAk5bHMJ7iGFU/F+yqAkfBcrCvWEbXr59uL9nCBsUmGhtAPCW19UEAa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJoFK5+QcTe+Ln+Lrv9KYW/dBdsb9t1rPox+EWc5Im1CrH7Dz+
+	RRKEzwom9+zX8xBm/F64Iz6UmAm95LOHc0GM/tuJHCNf+MxFFtFX2sI0qW3hQOw=
+X-Gm-Gg: ASbGnctR8OTw/UGFzQ5ty/1ywnZyZpTrnOlpvRrdQ5cjFVm1A3Hq8xbgRmclrE47U5E
+	aZSjtExrHZ5GCzcaHFi4v0VF4Y7OZ07RT48JUJt3wWsArF+YMwvPScjcvXoAgS8DfyLMPy4lOVg
+	OOfK9Ocze6MOeYmzl+OsdSbCEg+si3xr1AJIJAO/qtO5JRGKtU7mjNazJt+kRYFOIFm+i+G7ygY
+	vXEZel/T6n4qPc5Y7YoOpZpWaivfYULhxTUXdjPVDWJHKBTS1GkUok3+VJtM/sVA+nmDKQ5ucB4
+	m6UlixPfQzGMp9JW9I2HeMg=
+X-Google-Smtp-Source: AGHT+IHoUt79TErgSSsKIcL+unwjz+z7/ib+l16iYHTExCUscqHrcKQ5U7SBQ17h4TbwY51aMWYG1w==
+X-Received: by 2002:ac8:5749:0:b0:467:70ce:75f5 with SMTP id d75a77b69052e-467a16c1567mr10601551cf.37.1734017818364;
+        Thu, 12 Dec 2024 07:36:58 -0800 (PST)
+Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com. [209.85.160.175])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46787bec063sm22392521cf.50.2024.12.12.07.36.57
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Dec 2024 07:36:58 -0800 (PST)
+Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-467838e75ffso8451231cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 07:36:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXveVsL8nrpP0t28S6ZRnsC+UMQmvyKNeRARD4APGb5NzFwZpN+0KM1ekxnB/kFcaapcRkwDrlNf/FfkyN+rjNP@lists.infradead.org
+X-Received: by 2002:a05:622a:8f0d:b0:467:53c8:756a with SMTP id
+ d75a77b69052e-467a1605bb5mr9849991cf.26.1734017816967; Thu, 12 Dec 2024
+ 07:36:56 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firewall: remove misplaced semicolon from
- stm32_firewall_get_firewall
-To: guanjing <guanjing@cmss.chinamobile.com>, <mcoquelin.stm32@gmail.com>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+References: <20241203105005.103927-1-biju.das.jz@bp.renesas.com> <20241203105005.103927-14-biju.das.jz@bp.renesas.com>
+In-Reply-To: <20241203105005.103927-14-biju.das.jz@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 12 Dec 2024 16:36:44 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUPXicL1+suMeYrXK7qEmLYE-1uuHpMys_qnxqz9Ed8KQ@mail.gmail.com>
+Message-ID: <CAMuHMdUPXicL1+suMeYrXK7qEmLYE-1uuHpMys_qnxqz9Ed8KQ@mail.gmail.com>
+Subject: Re: [PATCH v2 13/13] arm64: defconfig: Enable R9A09G047 SoC
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Bjorn Andersson <quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, Biju Das <biju.das.au@gmail.com>, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_073529_651145_07B8C35B 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20241212_073702_980871_73D10E2B 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Tue, Dec 3, 2024 at 11:51=E2=80=AFAM Biju Das <biju.das.jz@bp.renesas.co=
+m> wrote:
+> Enable support for the Renesas RZ/G3E (R9A09G047) SoC in the ARM64
+> defconfig.
+>
+> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-On 11/9/24 06:50, guanjing wrote:
-> Remove misplaced colon in stm32_firewall_get_firewall()
-> which results in a syntax error when the code is compiled
-> without CONFIG_STM32_FIREWALL.
-> 
-> Fixes: 5c9668cfc6d7 ("firewall: introduce stm32_firewall framework")
-> Signed-off-by: guanjing <guanjing@cmss.chinamobile.com>
-> ---
->   include/linux/bus/stm32_firewall_device.h | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/bus/stm32_firewall_device.h b/include/linux/bus/stm32_firewall_device.h
-> index 18e0a2fc3816..5178b72bc920 100644
-> --- a/include/linux/bus/stm32_firewall_device.h
-> +++ b/include/linux/bus/stm32_firewall_device.h
-> @@ -115,7 +115,7 @@ void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall, u32 su
->   #else /* CONFIG_STM32_FIREWALL */
->   
->   int stm32_firewall_get_firewall(struct device_node *np, struct stm32_firewall *firewall,
-> -				unsigned int nb_firewall);
-> +				unsigned int nb_firewall)
->   {
->   	return -ENODEV;
->   }
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.14.
 
-Applied on stm32-next.
+Gr{oetje,eeting}s,
 
-Regards
-Alex
+                        Geert
+
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
