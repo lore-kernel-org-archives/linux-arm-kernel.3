@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9FEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D66E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ckLbrw3o3z0xyW3HQ4hRwM0+gs/wSAx1arfxk2Ygwos=; b=UJOZgSYsVLEKmjqHHh8H044JOz
-	y6W03AUtzIo4lYbrmmgrlGTaqtw9Sa6DFCiDDoqhlRaeTOJ5slAs3ZeeYKO1D5SNd4vokiSRXO2G3
-	e2euWgKD5grWab2+peCRRhmDGQ+TmaJtIEo83e8GUEv1QU2XQegTbfuJ8NuQFhGJG87uymzZsXFgo
-	8nW/JdxXpgP0XXM0U5J8Gxqrcv6e4ZoEMbpdgPSZO5s2xz6Uyz6eliVhvjgmV1yD864Fdqy0RlyUA
-	urKYTOEmuq5ZblR4fPBjmz6t9j56jYNeGPIOhVyOfXjJINlXpSMpmTzGe+6/fiIv72p0Fpljwl7Ea
-	BaqSXmXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yk7buamFfFI6/2HjY0gbql0NsZ6Tp5ACkyyKhCcE+Cs=; b=vWflq0wKJrGHaKFGpO0Pdscm3b
+	82DphGrgagNFU/NYw4Zq04EUTRq7Kp8Z/wv2cX14QwcY7YzpenCIsJfkdhD7g0WAT10mSsU5wCw+G
+	Q+/VeCqAgAwpS1PcENh/Dc35LH7lFu4r6FkU5AuWZ9964XD/SCqC/UfH3Kh2Etz+dsnRmBalTA+kk
+	W2XnRZLl7QUe9PwdC1anKRjN7mBmwsg3BG8qDcZK2s50mDdby7QDUWPnQVe5KFzed8u3u2bNBA4ny
+	gRmFfuOFzc4N7bNA1bUYPDMdTDWVGeF+DInpMQ64QAAYz43j4zZCpKyyt8SFjce9HnEcnjedTnFki
+	Pqh+MEmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLibh-00000000P5P-0B3n;
-	Thu, 12 Dec 2024 12:47:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiab-00000000OzZ-2g2q
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 12:46:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3920153B;
-	Thu, 12 Dec 2024 04:47:10 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 66AD83F720;
-	Thu, 12 Dec 2024 04:46:40 -0800 (PST)
-Date: Thu, 12 Dec 2024 12:46:37 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Vivek yadav <linux.ninja23@gmail.com>, <linux-newbie@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>, <daniel.lezcano@linaro.org>,
-	Sudeep Holla <sudeep.holla@arm.com>, <lpieralisi@kernel.org>,
-	<krzk@kernel.org>, <christian.loehle@arm.com>,
-	<quic_sibis@quicinc.com>, <cristian.marussi@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <vigneshr@ti.com>, <khilman@ti.com>,
-	<sebin.francis@ti.com>, <khilman@baylibre.com>
-Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
- then WFI
-Message-ID: <Z1rbLdWW75KQw5cl@bogus>
-References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
- <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
- <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
- <20241211121825.GA2054801@bogus>
- <20241211143428.kaoovhiwar74dy6x@lcpd911>
+	id 1tLigW-00000000PkQ-2TAV;
+	Thu, 12 Dec 2024 12:52:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLifR-00000000PeS-3cnl;
+	Thu, 12 Dec 2024 12:51:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA2AB5C578F;
+	Thu, 12 Dec 2024 12:51:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9352C4CECE;
+	Thu, 12 Dec 2024 12:51:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734007904;
+	bh=oGXtoPx45D5829J+m52KpKDc1mjPcUrynCRTW7p6Glc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=gKE5esdb+JZid2Zing04LqmZtMK4qXG6ucEdMtgrWLIFylmyLOdwvKyWvrd+pMU62
+	 NNwzBzi2oD6X3zTbxqb72WqV3SXdjq5DDgl3YkVG5v6QyIpBXTQp3UcCnH9RxE5sT3
+	 Rt691hmrFz3oKTXzexw21eN76rPy/qboMqzHOa8GyK5hImrOOA2pMFTyyD+lL4b1ya
+	 L9wylYUB+rsepevcpuAHCEguRmlkRQ1kKq+wiWcSYR/8K5zcr1wM3tD/MuzhYnk6MY
+	 K0hbAAQw3ukHfGij9cNUX4dZSfYxZzf7G7JcO9Y6cI9zr2mTmy6Zj3v1Cij8Fvy/f9
+	 eTNMljcBbFt1w==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241211052427.4178367-1-wenst@chromium.org>
+References: <20241211052427.4178367-1-wenst@chromium.org>
+Subject: Re: (subset) [PATCH 0/8] arm64: dts: mediatek: Drop
+ regulator-compatible property
+Message-Id: <173400790262.46374.4565987048605318462.b4-ty@kernel.org>
+Date: Thu, 12 Dec 2024 12:51:42 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241211143428.kaoovhiwar74dy6x@lcpd911>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_044645_767385_9706351C 
-X-CRM114-Status: GOOD (  55.15  )
+X-CRM114-CacheID: sfid-20241212_045145_947533_A5BE5457 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,155 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 08:04:28PM +0530, Dhruva Gole wrote:
-> On Dec 11, 2024 at 12:18:25 +0000, Sudeep Holla wrote:
-> > On Wed, Dec 11, 2024 at 11:20:52AM +0530, Dhruva Gole wrote:
+On Wed, 11 Dec 2024 13:24:18 +0800, Chen-Yu Tsai wrote:
+> This series drops usage of the long deprecated "regulator-compatible"
+> property from MediaTek device tree files. The property was introduced
+> in 2012, and then subsequently deprecated after two months. It was
+> never carried over during the binding YAML conversion.
+> 
+> Drop the property from the MT6315 regulator binding, and all MediaTek
+> device tree files. IMO it should never have been used to begin with.
+> This also gets rid of any validation errors [1] related to them.
+> 
 > [...]
-> > > >
-> > > >
-> > > > Hi @all,
-> > > >
-> > > > I am working on one custom SoC. Where I add one CPUIdle state for
-> > > > ``arm,cortex-a55`` processor.
-> > >
-> > > Any further luck on this?
-> > >
-> > > I have also been working on something similar[1] but on an A53 core on
-> > > TI-K3 AM62x processor.
-> > 
-> > Does upstream DTS have support for this platform to understand it better ?
-> > Even reference to any complete DT file for the platform will help.
-> 
-> Yes, you can ref to the AM625 (CPU layout) DT here:
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am625.dtsi
-> 
-> The board/starter kit DT is:
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am625-sk.dts
-> 
-> The patches for idle state are not upstream, and only exist in this
-> patch of mine here:
-> https://github.com/DhruvaG2000/v-linux/commit/0fd088d624276a2e72b8dc6660d261ab6d194f4b
->
 
-"arm,psci-suspend-param" indicate that this idle state doesn't loose the
-cpu context which means timer doesn't stop. So adding "local-timer-stop"
-sound completely wrong to me.
+Applied to
 
-> [...]
-> > > See this chunk in the kernel cpuidle driver:
-> > > 	if (broadcast && tick_broadcast_enter()) {
-> > >
-> > > When I dug deeper into tick_broadcast_enter it always returns something
-> > > non zero and hence in my case it was entering the if block and tried to
-> > > find a deepest state. Then the deepest state would always return WFI and
-> > > not the idle-state I had added.
-> > >
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
-It depends. If this is the last CPU and since you have marked the state with
-"local-timer-stop" and the system doesn't have any other timers to use as
-source of broadcast, it prevents one of the CPU entering that state. So you
-could be matching all the above conditions on your platform and hence you
-are observing the above.
+Thanks!
 
-> > > What we found out was on our kernel we end up using
-> > >
-> > > kernel/time/tick-broadcast-hrtimer.c
-> > >
-> > > This always seems to be keeping atleast 1 CPU busy and prevents idle.
-> > > If we remove the local-timer-stop it was helping us, but we still need
-> > > to dig into the full impact of what that entails and I am still
-> > > interested in finding out how so many other users of similar idle-state
-> > > implementation are able to do so without trouble.
-> > >
-> >
+[1/8] regulator: dt-bindings: mt6315: Drop regulator-compatible property
+      commit: 08242719a8af603db54a2a79234a8fe600680105
 
-As mentioned about adding "local-timer-stop" for a retention state seems
-pure wrong in my opinion as it contradicts to the fact that context is
-retained.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-> > Interesting. So if the platform is functional removing local-timer-stop,
-> > I am bit confused. Either there is something else that is getting it out
->
-> Yes it was interesting to us too, as to how the RCU didn't kick in and
-> system continued to function as though nothing was wrong.
->
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-It worked as if it was a state with context lost. So there might be some
-impact on the latency though it as the kernel assumed context lost and
-re-entered/resumed through resume entry point rather than where it called
-cpu_suspend() similar to wfi(). I mean only on the CPUs it was able to
-enter this state as one of the CPU will never enter this if there are no
-system timers to act as broadcast timer.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Does you system not have Arch timers memory mapped interface enabled and
-interrupt wired to GIC(other than PPIs) ? Look at Juno R2 as example.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-> > from the idle state so, it should be fine and it could be just some
-> 
-> It's probably UART keypresses or some userspace processes that get
-> scheduled that bring the CPUs back out of TF-A's cpu_standby.
+Thanks,
+Mark
 
-I doubt the CPU resume from suspend is based on some userspace event.
-
-> Is it possible that EL1 interrupts can bring EL3 out of WFI? Is yes then
-> it explains the behaviour. The arch timer could also be continuing to
-> tick and bringing the CPUs out of ATF WFI.
->
-
-Yes but that doesn't explain the behaviour. It could be just the timer
-event from the broadcast timer.
-
-> > misconfiguration.
-> > 
-> > > Arm64 recommends to use arch_timer instead of external timers. Once we
-> > > enter el3, timer interrupts to el1 is blocked and hence it's equivalent
-> > > to local-timer-stop, so it does make sense to keep this property, but
-> > > then how are others able to enter idle-states for all plugged CPUs at
-> > > the same time?
-> > >
-> > 
-> > Some systems have system timer that can take over as broadcast timer when
-> > CPUs enter deeper idle states where the local timers are stopped.
-> 
-> In CPUIdle we're not really clock gating anything so the timer does keep
-> ticking. So in this particular case it might make sense to remove the
-> local-timer-stop property from the idle-state.
->
-
-Correct in your case it is retention state and hence local CPU timers
-keep ticking and you can safely drop that property. However if you add
-deeper idle states like CPU OFF with the power rail cut off, then you need
-some system timer to act as backup/broadcast timer so that all the CPUs
-can enter the state concurrently and wake up successfully.
-
-> However we're looking into taking this further and putting interconnect
-> and few other PLLs in bypass which could cause arch timer for eg. to
-> tick slower.
-
-I assume it will be present as another timer with the rate set appropriately.
-
-> In this case would it still make sense to omit the property? 
-
-No, you should mark it as stopped even if it is running at slower rate
-as I am not sure if the local CPU timer support can handle rate change.
-
-> We may even have some usecases planned where we may turn OFF
-> the CPU once it is in TF-A cpu_standby/ WFI. What would be the right
-> approach in such scenarios?
->
-
-As mentioned above, this will be separate state and all CPUs can use this
-if there is another system broadcast timer.
-
-> Could you provide any examples where the local-timer-stop property is
-> being used and an alternative timer can be configured once we enter the
-> idle-state where CPU CTX maybe lost or clocks maybe bypass?
-> great if you could share some example implementation if you're aware.
-
-As I mentioned, Juno R2 is an example. It was broken on R0 with some SoC
-errata(can't recall all the details as I looked at it almost a decade ago)
-
--- 
-Regards,
-Sudeep
 
