@@ -4,157 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203FFE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2418E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 08:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHTLca1a3DMebjt/eDGzKKdZrQWqh1BRI3n2PJX+MxY=; b=I3zZMdssGx5MHyLuZsqp5XFIN5
-	WDcDp+ywqu6O3kylLcTZZij9Z9tnQ/6ZNlMP9gkZc7vA8O1b1nRYx+jPaxe14iNRN+pzSzfLiGu7h
-	tK7+X1H2ztC++uo3BAtqC1qyAl4Cc1hQ/K92bTkRhjSUFCXhoSq2ql02Vil2N7YI+TI/tbeLn6QRa
-	e6hW53IssvFOflbBuek/VbKtlEvFMd3SFVwwpFPm6hIDbdb1mRktjlk4VtXQp2Yz/lf0hGoW/SYY4
-	gNCkxn7xBJtt5voOQHHW7VzLyFC6/pwNdoufYrsclBUUEItEE3bc6C76kXQ9GMFpLp5tyjq+jco/0
-	I2Vd2qUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/zxFbVd5oI28n36nXX/DZkfS6A/X6yCvfplzOqYQriQ=; b=UthekMOOvG1QMcpy/QaS50ZAv5
+	cE/4Fs0Q/L7lv1+lDCu+Cn07PVjQaBVO+JX5yoRcRW1yebQvIiaruMiKZUpeK9nADHX/44DddIsT5
+	gVtn8Y0JTRM4AXxyU+3XyvWKiLDrhGb31q+NjXvxAeVMYLnSwzWGgEtg3KZA47YnXZSOjf5qE2BzL
+	ELl5vxxrZ/WiXCHqHvU454Yw4v3TZeu92oHd2hBjk/L3qhliDi7f64E9F90OjxXGLXhLIcsyHUz1d
+	iIqAo/qnHVkMZ9/FAKTirL2c4pbkuYRxxjqVJKbz3G6FjtPsyiFEdX41aRsKXdmuXoYWM6Rm8B6tU
+	nqwHqa4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLeZY-0000000HJ3c-28PZ;
-	Thu, 12 Dec 2024 08:29:24 +0000
-Received: from mail-westcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c112::3] helo=CY4PR02CU008.outbound.protection.outlook.com)
+	id 1tLeaa-0000000HJBc-1Odd;
+	Thu, 12 Dec 2024 08:30:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLeVT-0000000HI2w-0IyX
+	id 1tLeVU-0000000HI4R-2gn3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 08:25:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S4logDEEB6dgAp5t1PifVbYLqQ8cl5cKZiDWDluKInV060+dB1Oq2P6B7FmY5ckc5wVTXxzVUiOQmwxrgCm/Iz67c/dor7BzaKIcuMZ4S1f3jP22T+fOKrNCq9Dai3nrH0+yg37j9adXhBjL2VWlAtqKGKpslUXLtk1LiQO7fJaNvSytR2MN/DAGdLifEkAMwevb075rI55HxLDrjTj+4+eXVwbzt3pznPUr3wXYXaWDt2P1zhJ+lEIjJvd6NYmMvddS0dk2GmY8WQQhuGkzvdr16orGUQ5Duw3yydhV2OVOEFLTUNCj0yG+iM+zJUV2LeTai990W+mmJ/11F2xs1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aHTLca1a3DMebjt/eDGzKKdZrQWqh1BRI3n2PJX+MxY=;
- b=sj8suACzAyA53fD1p66jQe8Yjk2+OWwLHkX9zPvYSEiPwRTVxSC0I67PZqUN8HU9EOMbbxrYgpMF5SeTiWtzIvzybR/oO8rgrzVwWaQs90ij9GQ5N5qnstUB2Pet+NHu7bLbnviKWoh+s0FCSaaE7TAsGUuMBc5i2em86OEwTNOak2JUxvvDgEhAHCfNfzTUeRh1tyR2IwmDGr7TMHcXheVesw6R5Ees+UvzIiEdD9RTtesqmET3HHGUBQX9PvWSXTv9KMh05+Oqn6hL+gFq4qgZMBngOoHMQaEA9NDLY2Dg6VuTAS76kMmOCZMDjCeChk4nPXaHiptu3wMSoWm12g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aHTLca1a3DMebjt/eDGzKKdZrQWqh1BRI3n2PJX+MxY=;
- b=QOqUfqwufUshNAjCI/AmjBqNTSv1tQWjvXfsuhe1Z+5jPtf35SaP1b5G8WRWpZNqDwHzAB07/HcXnljoUWI4OCTUaTnu3/Zd+ieYwqF7qY/MOziTfo8HTqRhHLql9xWxQ9tSbyFJKgPnLumj8ZMtDpfsGykE/GD5B/4hJ5ysj3w=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- SJ2PR01MB8459.prod.exchangelabs.com (2603:10b6:a03:557::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.15; Thu, 12 Dec 2024 08:25:05 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Thu, 12 Dec 2024
- 08:25:05 +0000
-From: Huang Shijie <shijie@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	anshuman.khandual@arm.com,
-	corbet@lwn.net,
-	ardb@kernel.org
-Cc: patches@amperecomputing.com,
-	cl@linux.com,
-	akpm@linux-foundation.org,
-	thuth@redhat.com,
-	rostedt@goodmis.org,
-	xiongwei.song@windriver.com,
-	inux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Subject: [PATCH v4 1/2] arm64: refactor the rodata=xxx
-Date: Thu, 12 Dec 2024 16:24:25 +0800
-Message-Id: <20241212082426.4110-2-shijie@os.amperecomputing.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241212082426.4110-1-shijie@os.amperecomputing.com>
-References: <20241212082426.4110-1-shijie@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0P287CA0003.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:d9::20) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
+	Thu, 12 Dec 2024 08:25:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 81668A4264F;
+	Thu, 12 Dec 2024 08:23:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B25D2C4CECE;
+	Thu, 12 Dec 2024 08:25:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733991911;
+	bh=ugwQc1RwWiUB2k1DlePOXPHk9EZtb/h2RNYw3kRvsz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bJK6subic4H5yc5DmT1goNA5KHVw5ury6O4813bvE2j0JvE8Vuom5vACfYmvBVLQP
+	 F7ek6FLf9b6OoD+RJo/Bj8WdeLccMoDuLyj0EESGHdilYZLBGJBEwQADnM0PNMLJ+E
+	 kHgvJjE/YK9oBKoYbYCxbmCUPbyC46Te+BA1lWLEnYcTRa7JiwuOGyaYF/KiddaFVK
+	 vqTUPGJ6H/eMwJDK0HQzgwNZW9MqGogacLB8s2b73DT14qyOqd39jQwrvAGGbDttd5
+	 rdw58Buife0wajhKDnZ3NqTtHfvHukbSP5vg4u1PCxW/Vtpllbl/sHbwoZibSnddQZ
+	 q7ZZzSABa4bdw==
+Date: Thu, 12 Dec 2024 09:25:08 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Asahi Linux <asahi@lists.linux.dev>, 
+	Linux ARM Kernel Architecture <linux-arm-kernel@lists.infradead.org>, Linux power management <linux-pm@vger.kernel.org>, 
+	Devicetree <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 1/7] dt-bindings: cpufreq: apple,cluster-cpufreq: Add
+ A7-A11, T2 compatibles
+Message-ID: <f7whbncdt3yud3loe6xane4gwzpvyygfdju6e55gf6s2s3k75k@n7ehtngsrqxp>
+References: <20241212070344.3858-1-towinchenmi@gmail.com>
+ <20241212070344.3858-2-towinchenmi@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|SJ2PR01MB8459:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54b6f04c-ea7b-4718-fc88-08dd1a867b7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Q3/x0CJ+B5ObhjlBpy1AUox4lHDWL+ft7qncQfawbJSnCqw0zQgWNw50BsWJ?=
- =?us-ascii?Q?7ELf5eu5AJStdM8C4oz6kVHBE/DnFWU4XFlEpSujKfcCLjI1RreFwM3ngLLS?=
- =?us-ascii?Q?AV60jvGWNbEQbYO5Bwnb5auf4QQ3JopGgiIz4cqySqFU1F6jQVNjPDIHrDmv?=
- =?us-ascii?Q?Htn6D2tHfiKEBRWRdkTUUjmmzbo7JR55aVBFalFITOPE3d4U64e+T3yTTEUL?=
- =?us-ascii?Q?rojzc6EqgQ1pOQ6FwZF1kWY9lu3raYaxQFUfyhno8Z7XRtg/jQGrgfFbgAQT?=
- =?us-ascii?Q?oNiXI7QkY4GYH3HrEpgQcdizYNQjEqVcQkgvMZBF/E53NBhFPhxY4qFKz7zw?=
- =?us-ascii?Q?Sb0y3n1ZNVAYZphs3ImAqNqOAttj+tPn17jOW6sW6RcYhkfBTLJvT1ZzI3/x?=
- =?us-ascii?Q?VhJPhYiS6SgP/kN1bWBfOuOgRqXRtHgnuiGBTyYlVVg9uEvy/xXtjabXHsNF?=
- =?us-ascii?Q?JH9gb84DYIbgqH4KjFlptl+FVzXjLIPSG5T9eZu/0vBwQSB6qCAh9OBHPYxX?=
- =?us-ascii?Q?JkSMS7OViWIgQAM4tPmZqamr3ZPW9GXbVf2hxsU22KVrXVM+FIFD3f8HKi4H?=
- =?us-ascii?Q?tjtvId5/tj91QyE9VKa3FZjh07oDTok3FgbEZS8RX+y2MuGeRtH9R9/hvOo0?=
- =?us-ascii?Q?32ckXNhLZLGfII1PCaVpRxzxC2xDLQTc6MhemsG0f2oNAEsN5hjL0llRcVcN?=
- =?us-ascii?Q?XilZDaiiOjEiWJ2CeiyXhBzAdlIoZFC5ElEYkdu36F9si/J49sEoLKCYsBC7?=
- =?us-ascii?Q?O2HpHXOs+SMFExWHxLKjTJbjnW1PfNoC060L2N4xRMl8Tiz0Oha5ruQ7Wy85?=
- =?us-ascii?Q?u0w6kHP+wIs7D5pR5sX2MqdBYEFX8zbqTSwBBLqzyOLH/d9u7i0QFh49fs+L?=
- =?us-ascii?Q?yaNNExvg/5CgmflkXPZYOPvH6k3uf8fJJosrcjRO/BdIIzrbF6fXwG6IqNRe?=
- =?us-ascii?Q?tu7FPK+DReZVCXLyV1LvEYKEhNcFTbLoUgEj9PgW8au0akWAow3APJdfOCyV?=
- =?us-ascii?Q?aCXB78xjU0lQ/Km1YCVUkwp1fxzpp1zKXWcXAEKOx1yOlN3LwnGUDEvopbJQ?=
- =?us-ascii?Q?+lilzSaAxoSECpljqFdwOySSvqAz61Tq4PfnBOsCERw6V11rt72gme3LEgTh?=
- =?us-ascii?Q?fkGmcxSUYLO5GlGgbUxvgiXco0v6xaBTHYIwsmj5cFVjGiBRCI6FGvJoAIWd?=
- =?us-ascii?Q?bWjIKgFF81jvOOxS95JvXkABJR6HZvI5IbNJ0P1Jxp1U+GEnFvkOlz6IpMMP?=
- =?us-ascii?Q?5v+3qEG3QQEwIc6Fo1kWvLDDtUmWFiYofmOBGkDJOqtADWle0AlWzhi/ma1/?=
- =?us-ascii?Q?Cv14Jv6/H6LmrauZr0eqPEbOl/Mi+yEmBpbLdWC/VKxWE1PpKVMslAIgSjVm?=
- =?us-ascii?Q?8X6t3djRUI4kFfkkczS7yKJvxK+1wIzJFadx+Z6+zekelo1xag=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KX1W9ZM6Qf8Xovk/Z167tGYpCoEdw+tgpemUPPEfKIq+scImw3UZ61iIli8W?=
- =?us-ascii?Q?ACk4F/kbSwfnNdfo6pSiX7p+rgLWNLNlVEJ+h+MEL2R/bRJuwQZAUHeR7irG?=
- =?us-ascii?Q?Ko8Wkmpo+vo9kP7bCwAdJjzx4UytOXkGLgEjsAtn5yxGk51fH4snVsKLKjpE?=
- =?us-ascii?Q?Bj/o98EjvWeEREuC2FzM84uIEFh1OAQZ6fDr3LPSTFpF94W8bEoGgSYsqjKA?=
- =?us-ascii?Q?k2+aOlYB60ndzeDDThLhstrwVRcECkN3XTIi61NdOGXtggNX1Yfoey1OUMGl?=
- =?us-ascii?Q?DzoKVI2XxFoxAZRbwqvcz4LiElnVg0WYI/7CL82cbUaww1AXHAQ9beW+2IJj?=
- =?us-ascii?Q?Kx6UuJDvSWskUJPL1nLk+Q9KJ+yWlsHi9rNkd9DZUtv0U123uCoCfHaRMZQF?=
- =?us-ascii?Q?S8lecPeBcT9jUpI23afVtFQEr0XJl8CE1c5zUzbc7olu0ah2fnHcQ00dqgdV?=
- =?us-ascii?Q?Cqd0mw72ZtQM+sgWc88ry+W1Dn0W+4zj7xaTe4WQVa6vVzB4s9zNPhdc8FOC?=
- =?us-ascii?Q?rfPYcSNm/v5t1g9WkrIJ3yKIUifPZJ+M2FZTvSMwTi6WZpq81wm37a1et1oP?=
- =?us-ascii?Q?ITrs/GxiRxthQ8SCKsxoQbuEVvpNL75sGU/X5BMdI2YLl1bzZO03CgzHWz5h?=
- =?us-ascii?Q?qpYh+u34aOPZw/n7hdy0nDP07G7hX7dA6Ck1HSYUVT+FusXOK+ImfB33fM3B?=
- =?us-ascii?Q?/JVfmf9hB5ksz0SiJRaI5alqWnyXFWXriLkL0+YPJBTHH8MTfdPKKkB1WSQk?=
- =?us-ascii?Q?WBASXPYCy3/Wwuij71SLQ27ipTPx7iJO9N3597U2UD9QwnXE7h8dSPcETyCq?=
- =?us-ascii?Q?ZxjdlYLoh2sywvMun6MKpNVTT5ptrpEuSKyNwnjnTu/sDw+ZoYa5TECX+kjh?=
- =?us-ascii?Q?wkKT77XDJ+88KjIulTzf/S6dy55r5DNA9wHa+BjIxYSw2fhwdS9b12iengb6?=
- =?us-ascii?Q?OENwKsqKaF7TpIGr+v1FiVzqPXxL+WopB2oxOorbW4P99XwnNHFrhjI4PGLf?=
- =?us-ascii?Q?aTr+PkAcL/cfrJmywk6TvB+709gCG8WC+H+eHq6u7mTtEEz5bhLUlZLMTEec?=
- =?us-ascii?Q?jzbH/QoYoCvTVp7r2oxDRgXsXfAh99qHv+0Uc2M+JTsYCqIuzxbgXrJpxYeb?=
- =?us-ascii?Q?QZ5DzCdANcvbQEn7Reoylzld+AIRffZjEs8h4Ob/iBhuAC/jT3tvcM/BV9Ta?=
- =?us-ascii?Q?kE0TB1MOzRrtH+9CzS7TirkJMoIWTmq5SHPMPcIlWJdmVHLSfvfw9uVLf2AQ?=
- =?us-ascii?Q?b/7E2u7gyC+pYwgF86yULhwCV2y2jOR902TJTNK6vtn24c/5DYNx3Qeu8RcU?=
- =?us-ascii?Q?VqNfPBNAJFGL6wcVBLhCod+kD0BjqiH33uC3PvZt8vX64E+1lqQH9RwhiujN?=
- =?us-ascii?Q?nYge0i9Su4TxILePJ/CaogD6Fb0jV6YjSnrXiqdSb/XLJHE1oiN4NKl+RB9X?=
- =?us-ascii?Q?/JUD2jLkR7LoAG3SHUWoFknuZbDwMRKMyMNqZMSliN8bo1qfLM5Df+cN6F0f?=
- =?us-ascii?Q?tJ9L59UOKGqg3deHks+zWCYspvXue8867Oncx+exOWcX2xO6Xsxgh/8k/Mmi?=
- =?us-ascii?Q?NzZVmpTSbgS8gc20fN42m1DNKBFOfu2GN2emaXuKS/a8o/7koFhlC3mKLxl+?=
- =?us-ascii?Q?0O32dMpmQ4b8xtHX0duI1hY=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54b6f04c-ea7b-4718-fc88-08dd1a867b7c
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 08:25:05.8196
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mLNWrwYeyWRp7MUldgWPeRXfjUDP4BAuRAYy78dodCsYEmJMo85KJXiFftvNSVYCi6thjWaQPWltiGITjC1HmtYd1lpOIXGvEsPCGfIruUxB5md4D9EqWq2qgnqYZN4y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR01MB8459
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241212070344.3858-2-towinchenmi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_002511_115174_AA93F278 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20241212_002512_779836_F522F4F1 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,99 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per admin guide documentation, "rodata=on" should be the default on
-platforms. Documentation/admin-guide/kernel-parameters.txt describes
-these options as
+On Thu, Dec 12, 2024 at 03:03:00PM +0800, Nick Chan wrote:
+> Add compatibles for Apple A7-A11, T2 SoCs.
+> 
+> Apple A7, A8, A8X gets the per-SoC compatible and the A7
+> "apple,s5l8960x-cluster-cpufreq" compatible.
+> 
+> Apple A9, A9X, A10, A10X, T2, A11 gets the per-SoC compatible, M1
+> "apple,t8103-cluster-cpufreq" compatible, then the
+> "apple,cluster-cpufreq" fallback compatible.
+> 
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 
-   rodata=         [KNL,EARLY]
-           on      Mark read-only kernel memory as read-only (default).
-           off     Leave read-only kernel memory writable for debugging.
-           full    Mark read-only kernel memory and aliases as read-only
-                   [arm64]
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-But on arm64 platform, "rodata=full" is the default instead. This patch
-implements the following changes.
-
- - Make "rodata=on" behaviour same as the original "rodata=full"
- - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
- - Drop the original "rodata=full"
- - Add comment for arch_parse_debug_rodata()
- - Update kernel-parameters.txt as required
-
-After this patch, the "rodata=on" will be the default on arm64 platform
-as well.
-
-Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
----
- .../admin-guide/kernel-parameters.txt         |  2 +-
- arch/arm64/include/asm/setup.h                | 26 +++++++++++++++++--
- 2 files changed, 25 insertions(+), 3 deletions(-)
-
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index a22b7e621007..51bce7b9d805 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -5901,7 +5901,7 @@
- 	rodata=		[KNL,EARLY]
- 		on	Mark read-only kernel memory as read-only (default).
- 		off	Leave read-only kernel memory writable for debugging.
--		full	Mark read-only kernel memory and aliases as read-only
-+		noalias	Use more block mappings,may have better performance.
- 		        [arm64]
- 
- 	rockchip.usb_uart
-diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
-index ba269a7a3201..37f58a603224 100644
---- a/arch/arm64/include/asm/setup.h
-+++ b/arch/arm64/include/asm/setup.h
-@@ -13,6 +13,28 @@
- extern phys_addr_t __fdt_pointer __initdata;
- extern u64 __cacheline_aligned boot_args[4];
- 
-+/*
-+ * rodata=on (default)
-+ *
-+ *    This applies read-only attributes to VM areas and to the linear
-+ *    alias of the backing pages as well. This prevents code or read-
-+ *    only data from being modified (inadvertently or intentionally),
-+ *    via another mapping for the same memory page.
-+ *
-+ *    But this might cause linear map region to be mapped down to base
-+ *    pages, which may adversely affect performance in some cases.
-+ *
-+ * rodata=off
-+ *
-+ *    This provides more block mappings and contiguous hints for linear
-+ *    map region which would minimize TLB footprint. This also leaves
-+ *    read-only kernel memory writable for debugging.
-+ *
-+ * rodata=noalias
-+ *
-+ *    This provides more block mappings and contiguous hints for linear
-+ *    map region which would minimize TLB footprint.
-+ */
- static inline bool arch_parse_debug_rodata(char *arg)
- {
- 	extern bool rodata_enabled;
-@@ -21,7 +43,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
- 	if (!arg)
- 		return false;
- 
--	if (!strcmp(arg, "full")) {
-+	if (!strcmp(arg, "on")) {
- 		rodata_enabled = rodata_full = true;
- 		return true;
- 	}
-@@ -31,7 +53,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
- 		return true;
- 	}
- 
--	if (!strcmp(arg, "on")) {
-+	if (!strcmp(arg, "noalias")) {
- 		rodata_enabled = true;
- 		rodata_full = false;
- 		return true;
--- 
-2.40.1
+Best regards,
+Krzysztof
 
 
