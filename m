@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AD2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F11EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/Ra//4VkvS4Qrc/csXRRquQ5N0sclWFpXtLU13M1U0=; b=W1QaBGE3vvZ89HzkKe2qsldeWn
-	ofRmETi5QmRHDT3Vdj5/NjBOmC04hZ61FxMx5TarZgHdwpNWFpuIwIE2fAOWe9ApUlfN3iiQwKTPe
-	8H/fERkEhBl722qDXVXoY8pOht/PmpahqbDY453kA+H5Yh1DLenhKbqxntSOdAqnzgm0l7AUtgDOl
-	9XAggmQwnY7vBAigBtYzS41NAZd3FOwg94NIEIWHKazHC+dxyRiuncS7/zydhweHJjoCUUKy+ZaI2
-	hKw8HcPSzAleInHQVzjpUI1MNx5L5r89HP3X2GHhOhMPYqzs4kHcD+aR2OCqe+trB+X+w9jE8BYIh
-	BA2nwljA==;
+	bh=rQNFQGkYKXUyxK2xW+xQ5PHpuYoLcSUmJ0SBk4sWRaw=; b=NGixQwg0+oG+MIOJ9FmR7U+jRF
+	OYPcZxQaQ4Oebk7GVx8thA1ZcPSiiT9MkocrEavqlHda3wxZei7R4P20tCJ/G8ceGC4i5/KyUdEOg
+	bDv6ZK6aAI/f7osJTGJIqfpme+q/t8P6Xr9A3Ae8+SUaAJjP5D6qSyEiGiiiLvdCL7kamov4FKaIK
+	oi5hKVvYbD2dVWgB110jitrl2vMx6mt5UbSUw8609YU3ajcmowuNPf4M//bQgvH0QkRFVv8fP5Azp
+	xIWUxbzaycSiUQD3TYyiSxMQJ3Xj20TA4pKxUa2vsUg/QTH+ndZu8aRonUXsguuH2vyKULc3V4REY
+	zxUpNDDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnvZ-00000001QGQ-49cq;
-	Thu, 12 Dec 2024 18:28:45 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tLnwc-00000001QS5-2P4h;
+	Thu, 12 Dec 2024 18:29:50 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnZ3-00000001Jk0-0GKQ
+	id 1tLnZ5-00000001JlH-1f8c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:05:30 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4361eb83f46so8308645e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:28 -0800 (PST)
+	Thu, 12 Dec 2024 18:05:32 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3862c67763dso407080f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026727; x=1734631527; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026729; x=1734631529; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c/Ra//4VkvS4Qrc/csXRRquQ5N0sclWFpXtLU13M1U0=;
-        b=GZJjOy8d+lq0+jo81Hmh0iUVwH0VkT/U+n5Rpn5bfOqTLgAOt+oHv3F/0xyRYp7C9X
-         zEsAFAZ522TQNuqYYZD+P81XGOFk9eLyGKbkygBt8DDz26COnYmznLqp07eOaRjFQC2z
-         hucihHPBZrS8syd+Ftz2mP70GP0LKXxFyOkPOb865VcNUxj714i3YEdO/py5QKDLfPw+
-         rVIw+HP33ni2DvaErZbTVPQy/tiUkZ+wQMYC8/L5sREI+XPTXKVMrG0cbFrWEa9o8n4x
-         fYu87TtJsOVvjdwisNXgHTpftndrTVZ81UfxQjjK/Z7Gs4PQNqVz+IVP3pU7c9/1wD3Q
-         syCg==
+        bh=rQNFQGkYKXUyxK2xW+xQ5PHpuYoLcSUmJ0SBk4sWRaw=;
+        b=fR9iKuy8i6xNPZNCrBxUIunHlwxHfbGEwiQZ13wd5SM9uodl8DptONa+7V6lajOCV7
+         Nrj6H/M4k3JfHE0P8MOMHsw/9D6q3od57BedGxc8/B0dBRpLmGtII4O3eRReHIjujUtZ
+         efepwVl8SX1gR3khvVQF7g0bbOqS0SmUTu5mFIfaRpf1sVDLe2CSeX/iWeTomUV9b0PW
+         q+nSgHpFo3SZ+VxA7Jr6bTaU2b16PdWNxrQ6YBgP6GxchbE4xuQx54DrnGR1hmb+q6b3
+         Mlnz8aOxZwwM3WORZmjgbKcO8CgVJ6p9PZSoQl2EXpOnkSsXJiw7QJnP0xUBxi0C4BW4
+         S9AQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026727; x=1734631527;
+        d=1e100.net; s=20230601; t=1734026729; x=1734631529;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c/Ra//4VkvS4Qrc/csXRRquQ5N0sclWFpXtLU13M1U0=;
-        b=NN5HCcDxMOMxR2PEfgrkgysCwZqAjX5Oa7STMj6Z8QZMipYIbDf9nGWX/u3tjXY0+8
-         HnX5GBhvdsrdsyvR3xaSg1lJkST/+QsVsbGGpj8jdyFTPtXqqEZTq7WegVu0gqRptEpw
-         B4WwJjM7pCrxBH1zzL6ci7tFTpWUTKMxQF2nGlnbqu0cLRpS7xq3pbjGr9hUKupBFf19
-         bIEIYNZpms4nBjmiYf6nSdOBpRIFz1SWkWHmFRtumhMGig20ecQzp78SaeScFBIHNNfi
-         odV/flloF0oc2WGaNNkpwG3QhQMAGi3mHiwUBr8hlafcSSHqHpDxNWTV46V90KvHx/fG
-         CJAg==
-X-Forwarded-Encrypted: i=1; AJvYcCWviZFvwEmZIGq7cCvUTXF/ptUujR4u60P8rqdvWJIRTYoFDSkz4wo+lELsu4OlBmbbtybOdKYnkiNnjMcAJoiJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzIKy6cAdu14vU/5+RCFJF5OWYgpTvOAX+GmsyB3/xHVru1b7r
-	n9lZq5qmkYT0qUyAhT+5Eg6uq648axA9pl6qVqTBIF8eM4nRBJdnSV22TJa45jFxyGf7gi5Ejp+
-	GnXz6JLBeDQ==
-X-Google-Smtp-Source: AGHT+IFrLa5teCkiJUmugRTGmiVyWcF7Bk2iiIesqhTlDV4Jk+wP67mU9JHmnXeWzq6SoD15OWfRPDjTEIR09g==
-X-Received: from wmik26.prod.google.com ([2002:a7b:c41a:0:b0:434:f801:bf67])
+        bh=rQNFQGkYKXUyxK2xW+xQ5PHpuYoLcSUmJ0SBk4sWRaw=;
+        b=pbDzKsjOVmSb7ENOz61F4gVTiy8gL1/3cB7k3XqGv8/qMXUTIIQbgJCpg4r4Xgl5IC
+         +cebTYbg7POuFAvMNtPrnNzIdswBPRZz1ngBkP8oMNUUakZs06EbHGiOIAAdWcBvrkqO
+         XgMMLaHmlzvwJ0sIH98vaCTHmR99QNavJzN+tGWqSHCVeqYLPqhsj9Dd/v9vAjxbW5ZY
+         zOgTN52EA3h8+odUoIr/wGI5AcsSckGcyONey80Jrz7pPOKL0dOabeMvAFiOUMUxlgH/
+         OqKlZhPseVJGujlgn0IixjgLy2/SFXeu7tgyimeTtgyD/28Kj2eNu7IUTPpIuhNwJy/D
+         w7+A==
+X-Forwarded-Encrypted: i=1; AJvYcCV5QBtsR1kKYLf6DlFsBRtjQHC/q85Q+7Y2XcRhA/IedC6B66GnaDAlun99HPix1W/u4qvXsUnAMzECQTJeLBQA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkeRXyyOk0X4s9ts7+htSVe1bZlmsi0fVdaLuYJwy0MHtmwXfy
+	yX6k873cvVT00CCLW/caOvekFPrBydhGptL2tPG8gIyn2Sp7rrwK4OSc5kzVMIFcXdUT/+Vodtt
+	DVmaO3BRe8w==
+X-Google-Smtp-Source: AGHT+IEzjS9xw7sktl+QWCcIlB5qocD8lZy0X03FhVRyoTWsrcoNyuiGTV3JIHTs+nau+tAF2x1fcfdAg2BCow==
+X-Received: from wrqk12.prod.google.com ([2002:a5d:428c:0:b0:385:ed82:2202])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4446:b0:434:fa73:a907 with SMTP id 5b1f17b1804b1-4361c3723acmr67363395e9.13.1734026727341;
- Thu, 12 Dec 2024 10:05:27 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:45 +0000
+ 2002:a05:6000:684:b0:385:f6c7:90c6 with SMTP id ffacd0b85a97d-3878768e976mr3581027f8f.20.1734026729788;
+ Thu, 12 Dec 2024 10:05:29 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:46 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-22-smostafa@google.com>
-Subject: [RFC PATCH v2 21/58] KVM: arm64: pkvm: Add __pkvm_host_add_remove_page()
+Message-ID: <20241212180423.1578358-23-smostafa@google.com>
+Subject: [RFC PATCH v2 22/58] KVM: arm64: pkvm: Support SCMI power domain
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100529_098800_09DD228C 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20241212_100531_439716_53714349 
+X-CRM114-Status: GOOD (  34.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +97,367 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Add a small helper to remove and add back a page from the host stage-2.
-This will be used to temporarily unmap a piece of shared sram (device
-memory) from the host while we handle a SCMI request, preventing the
-host from modifying the request after it is verified.
+The hypervisor needs to catch power domain changes for devices it owns,
+such as the SMMU. Possible reasons:
+
+* Ensure that software and hardware states are consistent. The driver
+  does not attempt to modify the state while the device is off.
+* Save and restore the device state.
+* Enforce dependency between consumers and suppliers. For example ensure
+  that endpoints are off before turning the SMMU off, in case a powered
+  off SMMU lets DMA through. However this is normally enforced by
+  firmware.
+
+Add a SCMI power domain, as the standard method for device power
+management on Arm. Other methods can be added to kvm_power_domain later.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 17 +++++++++++++++++
- 2 files changed, 18 insertions(+)
+ arch/arm64/include/asm/kvm_hyp.h              |   2 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   4 +
+ .../arm64/kvm/hyp/include/nvhe/trap_handler.h |   2 +
+ arch/arm64/kvm/hyp/nvhe/Makefile              |   2 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   2 +
+ arch/arm64/kvm/hyp/nvhe/power/scmi.c          | 231 ++++++++++++++++++
+ include/kvm/power_domain.h                    |   7 +
+ 7 files changed, 249 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/power/scmi.c
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index d75e64e59596..c8f49b335093 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -94,6 +94,7 @@ int __pkvm_guest_relinquish_to_host(struct pkvm_hyp_vcpu *vcpu,
- 				    u64 ipa, u64 *ppa);
- int __pkvm_host_use_dma(u64 phys_addr, size_t size);
- int __pkvm_host_unuse_dma(u64 phys_addr, size_t size);
-+int __pkvm_host_add_remove_page(u64 pfn, bool remove);
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index ee85c6dfb504..0257e8e37434 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -119,7 +119,9 @@ void __sve_restore_state(void *sve_pffr, u32 *fpsr, int restore_ffr);
  
- bool addr_is_memory(phys_addr_t phys);
- int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 0840af20c366..a428ad9ca871 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -2521,3 +2521,20 @@ int host_stage2_get_leaf(phys_addr_t phys, kvm_pte_t *ptep, s8 *level)
+ u64 __guest_enter(struct kvm_vcpu *vcpu);
  
- 	return ret;
- }
 +
+ bool kvm_host_psci_handler(struct kvm_cpu_context *host_ctxt, u32 func_id);
++bool kvm_host_scmi_handler(struct kvm_cpu_context *host_ctxt);
+ 
+ #ifdef __KVM_NVHE_HYPERVISOR__
+ void __noreturn __hyp_do_panic(struct kvm_cpu_context *host_ctxt, u64 spsr,
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index e4a94696b10e..4d40c536d26a 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -158,6 +158,8 @@ int pkvm_init_hvc_pd(struct kvm_power_domain *pd,
+ 		     const struct kvm_power_domain_ops *ops);
+ 
+ int pkvm_host_hvc_pd(u64 device_id, u64 on);
++int pkvm_init_scmi_pd(struct kvm_power_domain *pd,
++		      const struct kvm_power_domain_ops *ops);
+ 
+ /*
+  * Register a power domain. When the hypervisor catches power requests from the
+@@ -171,6 +173,8 @@ static inline int pkvm_init_power_domain(struct kvm_power_domain *pd,
+ 		return 0;
+ 	case KVM_POWER_DOMAIN_HOST_HVC:
+ 		return pkvm_init_hvc_pd(pd, ops);
++	case KVM_POWER_DOMAIN_ARM_SCMI:
++		return pkvm_init_scmi_pd(pd, ops);
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+index 1e6d995968a1..0e6bb92ccdb7 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+@@ -15,4 +15,6 @@
+ #define DECLARE_REG(type, name, ctxt, reg)	\
+ 				type name = (type)cpu_reg(ctxt, (reg))
+ 
++void __kvm_hyp_host_forward_smc(struct kvm_cpu_context *host_ctxt);
++
+ #endif /* __ARM64_KVM_NVHE_TRAP_HANDLER_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index 950d34ba6e50..d846962e7246 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -8,7 +8,7 @@ CFLAGS_switch.nvhe.o += -Wno-override-init
+ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
+ 	 hyp-main.o hyp-smp.o psci-relay.o alloc.o early_alloc.o page_alloc.o \
+ 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o \
+-	 serial.o alloc_mgt.o iommu/iommu.o power/hvc.o
++	 serial.o alloc_mgt.o iommu/iommu.o power/hvc.o power/scmi.o
+ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+ 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
+ hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 5df98bf04ef4..1ab8e5507825 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -1806,6 +1806,8 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+ 	handled = kvm_host_psci_handler(host_ctxt, func_id);
+ 	if (!handled)
+ 		handled = kvm_host_ffa_handler(host_ctxt, func_id);
++	if (!handled)
++		handled = kvm_host_scmi_handler(host_ctxt);
+ 	if (!handled && smp_load_acquire(&default_host_smc_handler))
+ 		handled = default_host_smc_handler(&host_ctxt->regs);
+ 	if (!handled) {
+diff --git a/arch/arm64/kvm/hyp/nvhe/power/scmi.c b/arch/arm64/kvm/hyp/nvhe/power/scmi.c
+new file mode 100644
+index 000000000000..7de3feb2f1d9
+--- /dev/null
++++ b/arch/arm64/kvm/hyp/nvhe/power/scmi.c
+@@ -0,0 +1,231 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Temporarily unmap a page from the host stage-2, if @remove is true, or put it
-+ * back. After restoring the ownership to host, the page will be lazy-mapped.
++ * Copyright (C) 2022 Linaro Ltd.
 + */
-+int __pkvm_host_add_remove_page(u64 pfn, bool remove)
++
++#include <linux/bitfield.h>
++
++#include <nvhe/pkvm.h>
++#include <nvhe/mm.h>
++#include <nvhe/mem_protect.h>
++#include <nvhe/trap_handler.h>
++
++/* SCMI protocol */
++#define SCMI_PROTOCOL_POWER_DOMAIN	0x11
++
++/*  shmem registers */
++#define SCMI_SHM_CHANNEL_STATUS		0x4
++#define SCMI_SHM_CHANNEL_FLAGS		0x10
++#define SCMI_SHM_LENGTH			0x14
++#define SCMI_SHM_MESSAGE_HEADER		0x18
++#define SCMI_SHM_MESSAGE_PAYLOAD	0x1c
++
++/*  channel status */
++#define SCMI_CHN_FREE			(1U << 0)
++#define SCMI_CHN_ERROR			(1U << 1)
++
++/*  channel flags */
++#define SCMI_CHN_IRQ			(1U << 0)
++
++/*  message header */
++#define SCMI_HDR_TOKEN			GENMASK(27, 18)
++#define SCMI_HDR_PROTOCOL_ID		GENMASK(17, 10)
++#define SCMI_HDR_MESSAGE_TYPE		GENMASK(9, 8)
++#define SCMI_HDR_MESSAGE_ID		GENMASK(7, 0)
++
++/*  power domain */
++#define SCMI_PD_STATE_SET		0x4
++#define SCMI_PD_STATE_SET_FLAGS		0x0
++#define SCMI_PD_STATE_SET_DOMAIN_ID	0x4
++#define SCMI_PD_STATE_SET_POWER_STATE	0x8
++
++#define SCMI_PD_STATE_SET_STATUS	0x0
++
++#define SCMI_PD_STATE_SET_FLAGS_ASYNC	(1U << 0)
++
++#define SCMI_PD_POWER_ON		0
++#define SCMI_PD_POWER_OFF		(1U << 30)
++
++#define SCMI_SUCCESS			0
++
++
++static struct {
++	u32				smc_id;
++	phys_addr_t			shmem_pfn;
++	size_t				shmem_size;
++	void __iomem			*shmem;
++} scmi_channel;
++
++struct scmi_power_domain {
++	struct kvm_power_domain			*pd;
++	const struct kvm_power_domain_ops	*ops;
++};
++
++static struct scmi_power_domain scmi_power_domains[MAX_POWER_DOMAINS];
++static int scmi_power_domain_count;
++
++#define SCMI_POLL_TIMEOUT_US	1000000 /* 1s! */
++
++/* Forward the command to EL3, and wait for completion */
++static int scmi_run_command(struct kvm_cpu_context *host_ctxt)
++{
++	u32 reg;
++	unsigned long i = 0;
++
++	__kvm_hyp_host_forward_smc(host_ctxt);
++
++	do {
++		reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_CHANNEL_STATUS);
++		if (reg & SCMI_CHN_FREE)
++			break;
++
++		if (WARN_ON(++i > SCMI_POLL_TIMEOUT_US))
++			return -ETIMEDOUT;
++
++		pkvm_udelay(1);
++	} while (!(reg & (SCMI_CHN_FREE | SCMI_CHN_ERROR)));
++
++	if (reg & SCMI_CHN_ERROR)
++		return -EIO;
++
++	reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_MESSAGE_PAYLOAD +
++			    SCMI_PD_STATE_SET_STATUS);
++	if (reg != SCMI_SUCCESS)
++		return -EIO;
++
++	return 0;
++}
++
++static void __kvm_host_scmi_handler(struct kvm_cpu_context *host_ctxt)
++{
++	int i;
++	u32 reg;
++	struct scmi_power_domain *scmi_pd = NULL;
++
++	/*
++	 * FIXME: the spec does not really allow for an intermediary filtering
++	 * messages on the channel: as soon as the host clears SCMI_CHN_FREE,
++	 * the server may process the message. It doesn't have to wait for a
++	 * doorbell and could just poll on the shared mem. Unlikely in practice,
++	 * but this code is not correct without a spec change requiring the
++	 * server to observe an SMC before processing the message.
++	 */
++	reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_CHANNEL_STATUS);
++	if (reg & (SCMI_CHN_FREE | SCMI_CHN_ERROR))
++		return;
++
++	reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_MESSAGE_HEADER);
++	if (FIELD_GET(SCMI_HDR_PROTOCOL_ID, reg) != SCMI_PROTOCOL_POWER_DOMAIN)
++		goto out_forward_smc;
++
++	if (FIELD_GET(SCMI_HDR_MESSAGE_ID, reg) != SCMI_PD_STATE_SET)
++		goto out_forward_smc;
++
++	reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_MESSAGE_PAYLOAD +
++			    SCMI_PD_STATE_SET_FLAGS);
++	if (WARN_ON(reg & SCMI_PD_STATE_SET_FLAGS_ASYNC))
++		/* We don't support async requests at the moment */
++		return;
++
++	reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_MESSAGE_PAYLOAD +
++			    SCMI_PD_STATE_SET_DOMAIN_ID);
++
++	for (i = 0; i < MAX_POWER_DOMAINS; i++) {
++		if (!scmi_power_domains[i].pd)
++			break;
++
++		if (reg == scmi_power_domains[i].pd->arm_scmi.domain_id) {
++			scmi_pd = &scmi_power_domains[i];
++			break;
++		}
++	}
++	if (!scmi_pd)
++		goto out_forward_smc;
++
++	reg = readl_relaxed(scmi_channel.shmem + SCMI_SHM_MESSAGE_PAYLOAD +
++			    SCMI_PD_STATE_SET_POWER_STATE);
++	switch (reg) {
++	case SCMI_PD_POWER_ON:
++		if (scmi_run_command(host_ctxt))
++			break;
++
++		scmi_pd->ops->power_on(scmi_pd->pd);
++		break;
++	case SCMI_PD_POWER_OFF:
++		scmi_pd->ops->power_off(scmi_pd->pd);
++
++		if (scmi_run_command(host_ctxt))
++			scmi_pd->ops->power_on(scmi_pd->pd);
++		break;
++	}
++	return;
++
++out_forward_smc:
++	__kvm_hyp_host_forward_smc(host_ctxt);
++}
++
++bool kvm_host_scmi_handler(struct kvm_cpu_context *host_ctxt)
++{
++	DECLARE_REG(u64, func_id, host_ctxt, 0);
++
++	if (!scmi_channel.shmem || func_id != scmi_channel.smc_id)
++		return false; /* Unhandled */
++
++	/*
++	 * Prevent the host from modifying the request while it is in flight.
++	 * One page is enough, SCMI messages are smaller than that.
++	 *
++	 * FIXME: the host is allowed to poll the shmem while the request is in
++	 * flight, or read shmem when receiving the SCMI interrupt. Although
++	 * it's unlikely with the SMC-based transport, this too requires some
++	 * tightening in the spec.
++	 */
++	if (WARN_ON(__pkvm_host_add_remove_page(scmi_channel.shmem_pfn, true)))
++		return true;
++
++	__kvm_host_scmi_handler(host_ctxt);
++
++	WARN_ON(__pkvm_host_add_remove_page(scmi_channel.shmem_pfn, false));
++	return true; /* Handled */
++}
++
++int pkvm_init_scmi_pd(struct kvm_power_domain *pd,
++		      const struct kvm_power_domain_ops *ops)
 +{
 +	int ret;
-+	u64 host_addr = hyp_pfn_to_phys(pfn);
-+	u8 owner = remove ? PKVM_ID_HYP : PKVM_ID_HOST;
 +
-+	host_lock_component();
-+	ret = host_stage2_set_owner_locked(host_addr, PAGE_SIZE, owner);
-+	host_unlock_component();
++	if (!IS_ALIGNED(pd->arm_scmi.shmem_base, PAGE_SIZE) ||
++	    pd->arm_scmi.shmem_size < PAGE_SIZE) {
++		return -EINVAL;
++	}
 +
-+	return ret;
++	if (!scmi_channel.shmem) {
++		unsigned long shmem;
++
++		/* FIXME: Do we need to mark those pages shared in the host s2? */
++		ret = __pkvm_create_private_mapping(pd->arm_scmi.shmem_base,
++						    pd->arm_scmi.shmem_size,
++						    PAGE_HYP_DEVICE,
++						    &shmem);
++		if (ret)
++			return ret;
++
++		scmi_channel.smc_id = pd->arm_scmi.smc_id;
++		scmi_channel.shmem_pfn = hyp_phys_to_pfn(pd->arm_scmi.shmem_base);
++		scmi_channel.shmem = (void *)shmem;
++
++	} else if (scmi_channel.shmem_pfn !=
++		   hyp_phys_to_pfn(pd->arm_scmi.shmem_base) ||
++		   scmi_channel.smc_id != pd->arm_scmi.smc_id) {
++		/* We support a single channel at the moment */
++		return -ENXIO;
++	}
++
++	if (scmi_power_domain_count == MAX_POWER_DOMAINS)
++		return -ENOSPC;
++
++	scmi_power_domains[scmi_power_domain_count].pd = pd;
++	scmi_power_domains[scmi_power_domain_count].ops = ops;
++	scmi_power_domain_count++;
++	return 0;
 +}
+diff --git a/include/kvm/power_domain.h b/include/kvm/power_domain.h
+index f6a9c5cdfebb..9ade1d60f5f5 100644
+--- a/include/kvm/power_domain.h
++++ b/include/kvm/power_domain.h
+@@ -5,12 +5,19 @@
+ enum kvm_power_domain_type {
+ 	KVM_POWER_DOMAIN_NONE,
+ 	KVM_POWER_DOMAIN_HOST_HVC,
++	KVM_POWER_DOMAIN_ARM_SCMI,
+ };
+ 
+ struct kvm_power_domain {
+ 	enum kvm_power_domain_type	type;
+ 	union {
+ 		u64 device_id; /* HOST_HVC device ID*/
++		struct {
++			u32		smc_id;
++			u32		domain_id;
++			phys_addr_t	shmem_base;
++			size_t		shmem_size;
++		} arm_scmi; /*ARM_SCMI channel */
+ 	};
+ };
+ 
 -- 
 2.47.0.338.g60cca15819-goog
 
