@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF505E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C86CE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0a9uVHj0MFII1RtSBeG+K+r0Fep1zBrIePBFN8AAic=; b=DogNTB+8R0cmyZU6sp9A/UCmgv
-	ujF0OfBEt9frnBzmFozQsjc4+xtSmXtX2xfdcp+05udPY1NdozDbviGmGtBMlnAAHcjsPZ5CpAL5I
-	3tOVuFLFLMHWi+DzzO07O7sm7NUTfATJ5IzvHAAJF/HA/Sx24ziNSwxDTjj8UjufWOLayni93lvvY
-	s3onOP/PzUZfk2jLCjuNiB+mx1VCmqsFzf1shM0DHEITEUbyD/Dd/+XVEjH7Tcra4QgdNPAItYxxa
-	ClljRJRjaafjBRInnxk1CL54+UAiRhQbrAUrGJSzH+uz7kXCDICIELKYDHTxdEF+nBNIzu6qZBl03
-	DswfUnXw==;
+	bh=KqRvH4SEF5KeVepNwsxtXCC8/+sOCDGIMzQeamLf5Xw=; b=wgd9YALf70fVj/fzTiGAXa1BRs
+	1mGTZeSibGKOGE+AbXTWITQOzRUiZrTmg/7EhtqYJfvYphs1h2XWljZ9zvq+W0B02g9FtK4iMEkeo
+	C1Fkhh9PJOdpbP7M3JoVnGziNlPY9gZdE91B5OE8HDbaWieFutgdLhiiIkkk8DckUI4oq05pcI71B
+	KC5HUMMHR+sU8hsQo8snDcO4e3pydgHhps3kWjPyEzaXdtis66/sm3CS2ytLyZwOohLHW+0CjzEda
+	wXUP1/Q/2d44+OqEk9LNJRkXF4/8KqhlLx9B9Me2md5Tp0gEnoIOl5dqYQ1tpZj7mchbEFL64102c
+	cGyMRy2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfO8-0000000HT94-3OME;
-	Thu, 12 Dec 2024 09:21:40 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tLfPB-0000000HTRM-1qyF;
+	Thu, 12 Dec 2024 09:22:45 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfLi-0000000HSLg-25Uw
+	id 1tLfMo-0000000HSeO-1ty5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:19:11 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361815b96cso2241075e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 01:19:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733995148; x=1734599948; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B0a9uVHj0MFII1RtSBeG+K+r0Fep1zBrIePBFN8AAic=;
-        b=QwpIH3dXHZcd8wQbmVN1giM86rkUq464PC3NatBzGGqTT4i6MOqgYUWpcCmxcMETGF
-         UVSV++eD2V6g81c0eIqNKJh28Qs1TrWtg955/NrtI1oDyaq+uBAYom9qcBuqf25UAMZ6
-         dHYP4HeVnI0peBDTjNfiVAetHiM6fFZXxlHgZdCQRwsrSMguT/IJLlJwkGcbf2qBzAob
-         cfvd2h9nJUKnpzSD1i2P4LqdwWKabI/v5WqaJqx7cjDM6Y8ky2BfiRvClHOv05UZNrX2
-         icmYWgdQK98tIrxpW64rcIV3GppLU/NsMlUpJYWVxur1QhxgPZ0pksPqR8gdIhS8C3tv
-         a9ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733995148; x=1734599948;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B0a9uVHj0MFII1RtSBeG+K+r0Fep1zBrIePBFN8AAic=;
-        b=ZeMO4kLjRne5XQt38s79XeqTuHiS1PdA5qS3GAXA0CvtG9n/rQxZcSeymJcgVhR/Jw
-         M/DxTKi0oztr5IGnZQ6OkBHBZpkbsKd4xvAhT7X01awxxlNJ06ulw5naTFW5UKmGLdfV
-         KXSj50k1cf+bOfWWMScDPV/IC2Dg8BdtYewuH/lXZ/1PShyWGu8ZHGWU4KXuAdCzWjW0
-         CxJe6r1yheAHHVcSeVVXu0MF8Nz0iTqDD6aW7yIxb8Qu3m/T9iQhd9XbrZXWQUyLXNf9
-         476WvG6QCrwJ7ZspO2m5lvw4676AheJFHXU12rup6+LJ+KtdyqQ7DvSVPoHJCbm+ihwJ
-         DEzg==
-X-Gm-Message-State: AOJu0YxWSR3HYy0wiEQ+U5DOl8YjSnWcCcV8Qdh2U8/BiC4OObgx1gJW
-	raL5zFbFUOCm1ki6V0RDWo8Gh4/56fxxm4NFdGIf1QDmJ4GXPQR3JWkf4/2SnFzO6gtS7s9FSXV
-	XeZJmHrj+KqMnZdSBJSHg3clt75g=
-X-Gm-Gg: ASbGncunEDJqBzVzoJr4rIcr88NJw6ffS7kWfXr+7T+yWph4a/jCm4yQH82fC9nfd/+
-	f+sL3M/v9XZ2g6Wp9trQfZgEVDrpJ3RNGPJpYKuw=
-X-Google-Smtp-Source: AGHT+IHgSIGyFnE08dyyP5NFrnFmPIIBGih2q0tSX3ULomU1UQVEgWDpmRj4F49p7i9YNu4ESNPLZDHhphuv4WV+WZs=
-X-Received: by 2002:a5d:47c6:0:b0:385:f062:c2df with SMTP id
- ffacd0b85a97d-3864ce4968emr5512699f8f.11.1733995148067; Thu, 12 Dec 2024
- 01:19:08 -0800 (PST)
+	Thu, 12 Dec 2024 09:20:19 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC70UnG004975;
+	Thu, 12 Dec 2024 10:20:09 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	KqRvH4SEF5KeVepNwsxtXCC8/+sOCDGIMzQeamLf5Xw=; b=LLqHFMrS4ruBVeRN
+	xevyrCulECGoAHkPgsXfi6XovzckRSQNWn4XWDl3+tSWLjFA3gTwgHQm9TPqBrza
+	McfvmENrezVftpBgF5LLpYI+ncfI6EZuhH59mx6jgVk7wEQdnASMBXybcEEMv4K4
+	/ybExDehNcWSPQozaLH5pj+RaxaOdcoHGwhayW95A4m1tfiVz64t5//ClHy5dHiC
+	NHBErw7QU1Q0JM2odW44X8AYIN+HvlMBWtX0gGEf+6tFxeFpzH36NxpYZO7fRrKE
+	pVxXAqBewhC00H2rF9101y7aD7uLQHLTTLUnN9N5KP2QIfinjBr0L5yB27BKB6mP
+	oTPJtw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ccnmf77t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Dec 2024 10:20:09 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 921F640053;
+	Thu, 12 Dec 2024 10:19:02 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CAD4C263840;
+	Thu, 12 Dec 2024 10:18:09 +0100 (CET)
+Received: from localhost (10.129.178.65) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 12 Dec
+ 2024 10:18:09 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Thu, 12 Dec 2024 10:17:35 +0100
+Subject: [PATCH v4 11/15] media: stm32: dcmipp: fill media ctl hw_revision
+ field
 MIME-Version: 1.0
-References: <CAJNi4rMfhZOCT+7Ki14vUs+dZbv9cxCZ0s+jgn6=_om4NTgo_A@mail.gmail.com>
- <86cyi5tanz.wl-maz@kernel.org>
-In-Reply-To: <86cyi5tanz.wl-maz@kernel.org>
-From: richard clark <richard.xnu.clark@gmail.com>
-Date: Thu, 12 Dec 2024 17:18:56 +0800
-Message-ID: <CAJNi4rPDVXS3Ft3nHLXvMzHmn9d10Nz4Pxeduoe+v5HaK=CEAg@mail.gmail.com>
-Subject: Re: Question about interrupt prioriyt of ARM GICv3/4
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	will@kernel.org, "Russell King (Oracle)" <linux@armlinux.org.uk>, 
-	Mark Rutland <mark.rutland@arm.com>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	richard clark <richard.xnu.clark@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241212-csi_dcmipp_mp25-v4-11-fbeb55a05ed7@foss.st.com>
+References: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
+In-Reply-To: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+        Mauro Carvalho Chehab
+	<mchehab@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Sakari Ailus
+	<sakari.ailus@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Philipp
+ Zabel <p.zabel@pengutronix.de>,
+        Hans Verkuil <hverkuil@xs4all.nl>, Hans
+ Verkuil <hverkuil@xs4all.nl>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
+X-Mailer: b4 0.14.1
+X-Originating-IP: [10.129.178.65]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_011910_535639_868B836A 
-X-CRM114-Status: GOOD (  38.37  )
+X-CRM114-CacheID: sfid-20241212_012018_786129_AD0DCE2C 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,89 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi M,
+Add hw_revision field information of the media controller so that
+application can distinguish between variants of DCMIPP implementations.
 
-On Fri, Dec 6, 2024 at 5:37=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Fri, 06 Dec 2024 08:33:11 +0000,
-> richard clark <richard.xnu.clark@gmail.com> wrote:
-> >
-> > Hi,
-> > Currently seems the GICv3/4 irqchip configures all the interrupts as
-> > the same priority, I am thinking about to minimize the latency of the
-> > interrupt for a particular device, e.g, the arm arch_timer in the RTL
-> > system. The question is,
-> > 1. Why don't we provide a /proc or /sys interface for the enduser to
-> > set the priority of a specific interrupt(SPI/PPI)?
->
-> I'm afraid this really has nothing to do with any particular interrupt
-> architecture.
->
-> Before thinking of exposing the interrupt priority to userspace, you
-> should look at what this translates into for the kernel once you allow
-> interrupts to be preempted by another one with a higher priority.
->
-Interrupt priority doesn't necessarily mean the preemption, seems
-you're talking about the interrupt preemption harm according to your
-statement followed.Frankly I am just thinking higher priority will win
-the lower ones in case massive external interrupts received in the GIC
-level (you see I am still talking about GIC, not kernel)
->
-> This means that at every point where you would normally see a
-> local_irq_save(), spinlock_irqsave() or equivalent, you would need to
-> explicitly specify the priority that you allow for preemption. You
-> should then make sure that any code that can be run during an
-> interrupt is reentrant. You need to define which data structures can
-> be manipulated at which priority level... The list goes on.
->
-irqsave just masks the interrupt from the point of cpu, I don't think
-it will mess things up if preemption really happens (no? then what the
-side-effect is for the nested interrupt handling in the softirq part.
-damage the semantic of the lock primitives?)
->
-> If you want a small taste of the complexity, just look at what
-> handling NMIs (or even pseudo-NMIs in the case of GICv3) means, and
-> generalise it to not just two, but an arbitrary range of priorities.
->
-> If you want the full blown experience, look at the BSDs and their use
-> of spl*(). I don't think anyone has any plan to get there, and the RT
-> patches have shown that there is little need for it.
->
-As supplement=EF=BC=8Cthe fiq is suggested to be used as an alternative to =
-the
-higher priority in the RT area...
->
-> > 2. Is there any way to verify the higher priority interrupt will have
-> > more dominant to be selected to the CPU (IOW, the priority is really
-> > working) in case of multiple different interrupts asserted to the GIC
-> > at the same time(some debug registers of GIC like GICD_REEMPT_CNT :-)
-> > to record higher priority wins)?
->
-> The GIC architecture makes no promise that the interrupt you
-> acknowledge is the highest priority pending interrupt, because this is
-> by definition a very racy process.
->
-> Also, even on busy systems, you will very rarely see two interrupts
-> targeting the same CPU being made pending at the same time, so that
-> the interrupt delivery system would have to arbitrate between the two.
-> That's because interrupts are vanishingly rare in the grand scheme of
-> things.
->
-1. I am trying to stress the external interrupts to the core#0 via the
-stress-ng tool with one of interrupt being configured as higher
-priority to see the benchmark data, it's time consuming as you can
-image, still is in progress(BTW, I can't see any lockup similar hang
-in the system with a higher priority configured)
-2. This raises a very interesting question and I am also very curious
-about is, what is the purpose for the GIC to introduce the interrupt
-priority features, a placeholder feature reserved for the future? Ah,
-hardware prefer to provide more functionalities than its being
-actually used by software, any other justification except that?
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+---
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 97590079bb5a..62dd17e0488d 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -87,6 +87,7 @@ struct dcmipp_pipeline_config {
+ 	size_t num_ents;
+ 	const struct dcmipp_ent_link *links;
+ 	size_t num_links;
++	u32 hw_revision;
+ };
+ 
+ /* --------------------------------------------------------------------------
+@@ -122,11 +123,13 @@ static const struct dcmipp_ent_link stm32mp13_ent_links[] = {
+ 			MEDIA_LNK_FL_ENABLED | MEDIA_LNK_FL_IMMUTABLE),
+ };
+ 
++#define DCMIPP_STM32MP13_VERR	0x10
+ static const struct dcmipp_pipeline_config stm32mp13_pipe_cfg = {
+ 	.ents		= stm32mp13_ent_config,
+ 	.num_ents	= ARRAY_SIZE(stm32mp13_ent_config),
+ 	.links		= stm32mp13_ent_links,
+-	.num_links	= ARRAY_SIZE(stm32mp13_ent_links)
++	.num_links	= ARRAY_SIZE(stm32mp13_ent_links),
++	.hw_revision	= DCMIPP_STM32MP13_VERR
+ };
+ 
+ #define LINK_FLAG_TO_STR(f) ((f) == 0 ? "" :\
+@@ -496,6 +499,7 @@ static int dcmipp_probe(struct platform_device *pdev)
+ 	/* Initialize media device */
+ 	strscpy(dcmipp->mdev.model, DCMIPP_MDEV_MODEL_NAME,
+ 		sizeof(dcmipp->mdev.model));
++	dcmipp->mdev.hw_revision = pipe_cfg->hw_revision;
+ 	dcmipp->mdev.dev = &pdev->dev;
+ 	media_device_init(&dcmipp->mdev);
+ 
+
+-- 
+2.34.1
+
 
