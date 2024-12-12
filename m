@@ -4,90 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716F0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFDCE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWUSTVMYq8BWWEAYYe37DF6F5cN3F7NwUno8STAUMA4=; b=RTERkOs9xA1ku/eZqCLhtn/nsO
-	gd9yExH8yvxIVSheVBNVCg1SsTtyn2ohPr2T6wxWDtguiL+NhyPS7roRWdVOHjjvoYNbdlOWojJap
-	wElgeKgqaFBWvrYpZaX9RbOd4e/jqiVkusuQ7CnsXli0jvTIQpiFD9dHtL+nAk7YGhYAOAOFu9Le8
-	7wr8g/nKIt919zdBDNceMI3ZyzH9B3v5uafzot7Vjw0D8MCcjHDHJu0q/oD7Swop2otrES6cRwGla
-	w+UB0UE6nZU/vLHalxkxce/RVOS4xBwhrz7KWr8e2SqrMEnBUUNMm5lStLhL1qMFBey3FXAghs6Zu
-	Y4lGrHRQ==;
+	bh=zOZQhLxfwLKyiN/87mSIGoz/thge2aQc4kb6bTHZJIQ=; b=aB8fvNJMIqmiANhmEy541oJqfC
+	5F2AXpQ37Pgxyn/Sbm5ETPmUTxwfFcUH2fYJmRy6FxzFtWc+gpbCNji+nmyF4HtKoeaRpmLQZdvEK
+	om3d26p7qDJwOCe2EVy5eS2z8LVP3lPe0qdL5UGKacvGIHZcMNKISdxg9ltjvHeSxsN4b7TNX/oRJ
+	lGyzRJzfm0afsVjIwO/80FGw5V0BjPATcQGDDXPyd/M9x8Tm+JalNWvzzE/crq0ehos4XGbd1JkT8
+	osBXXuGL0IB22scV3QILhcoUGm35JhU/FlZGTiaVa237NJ47Gs8R/xPjTIlQPA3s7ObWesUtEAGWO
+	FAQpIUcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdOs-0000000H8B6-0IN1;
-	Thu, 12 Dec 2024 07:14:18 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1tLdPu-0000000H8Ly-2ziC;
+	Thu, 12 Dec 2024 07:15:22 +0000
+Received: from mail-bn1nam02on20608.outbound.protection.outlook.com ([2a01:111:f403:2407::608] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdI3-0000000H755-3VgW
+	id 1tLdNW-0000000H7y1-3s2q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 07:07:17 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-728e1799d95so329306b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Dec 2024 23:07:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733987235; x=1734592035; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gWUSTVMYq8BWWEAYYe37DF6F5cN3F7NwUno8STAUMA4=;
-        b=O/RgnZFeHNTivviloSWouyHj9PeUZJbJSqd1p5/+m5dduhcXvZ6gnfJBz03fO28qiz
-         fJuCwp32k2mH4BolxuVHJrqzbfMkWW1gxKfNMRjj6fXQFiq+inTyStBv8YyiFR5s+GJD
-         ZL9V+JKGW7WLDiHKELHkD9DWCsQaLsYp+9aSMWV/r476DkO2F2UwWvhO1eMcb+BJXzfL
-         s8U7aNdef+vIid/u1y2SQ1wgjvlj0Ze+4Z32jJI8VNPCreVjS8sC6rPk14X4N4RD1glJ
-         opakxi1S8wn6hQ06xXrGYKoHQoAQCvo1T4FXnNe++n+9IV1rYl76poSBtiq0p30M9oCg
-         suvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733987235; x=1734592035;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gWUSTVMYq8BWWEAYYe37DF6F5cN3F7NwUno8STAUMA4=;
-        b=V5trmiG+RsdujzAuHnOd2r4sQgH7KDQ67qJkBHo75L8k6cdUsVE7oSbPy+odSZi9Nw
-         h6qEBOAn8lcdUCUTAoja15ELOy4b4+RdisC+i0pkfkuSbQqH59bqg4Ry9QegfV6aD1bn
-         6XVQNAYa8PpObR47TBIGrD8Y7u17tfSmV+MxlyBF7ZK/jMQVwcDvYiNy96WdUQQT4Dq0
-         XIIipsP4gsksWpoe3TqW4mngg4zceuuhUKCanucnPwEOBHz4zbGMug2onhXUUgOEKFvW
-         1U+J0s6KwSLhzzBMLhLkr1eqlcgQ1gVY7b7ra9Cri+qE4N1Ijburv+2c4bXh5LsZbGej
-         QADA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtL7hk9bj2WBKNI9HyO3/UySiYBmpxKKIDQRdoXSvsYdco0DcOl86MTaXD2hMz54g7Nqa1bQlSA4kWBXGx2OlP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz4LNcmMFjgoJBynNwfiD3l5yt9S5gsXXcjM/3zYoLC8VWekns
-	p8HbJdZ6vlUOLlRzLrG5TIrGnZssuMI4Ga2+/jvsTwCluvMirWS3WspoWtBzGeQ=
-X-Gm-Gg: ASbGncv/MDy/OdwmYw+ec4UxLyL0LYVfIZwa2Ppp4Zd2NtGcUCHV4o18OtYXE7EpGLb
-	9Pb5yhingQLxfixD+D2fm/MrQk7pFtfjOzszqxuacssrD2HbZNdAhhi2xataOAtfREJaS2yNjEa
-	8KzhsINpSyqXfBOILuv8a8FaSOYNJXo2AqawTuPxmmAur3pPQSkX1zxzOy3HWoHBJABMoyu6cxh
-	uWEZ6ir4RgKNRiMVc9NZBEusy5AVJFA1ubiXsvcwQWj7/M082XCmCx9s9s=
-X-Google-Smtp-Source: AGHT+IENxoHonYKam4dKHihrFBZZ3t2m1GlwpQo36E6FIiGVq5NKmR5l1Fyzj203B0EBrt1cbsUdog==
-X-Received: by 2002:a05:6a20:7289:b0:1e0:be48:177d with SMTP id adf61e73a8af0-1e1cea52e56mr3771734637.3.1733987234861;
-        Wed, 11 Dec 2024 23:07:14 -0800 (PST)
-Received: from localhost ([122.172.83.132])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725d3dd4cbasm8926045b3a.142.2024.12.11.23.07.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 23:07:14 -0800 (PST)
-Date: Thu, 12 Dec 2024 12:37:12 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: bschnei@gmail.com, Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Benjamin Schneider <ben@bens.haus>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>
-Subject: Re: [PATCH] cpufreq: enable 1200Mhz clock speed for armada-37xx
-Message-ID: <20241212070712.txkxgmiugzji3doz@vireshk-i7>
-References: <20241125211452.14987-1-ben@bens.haus>
+	Thu, 12 Dec 2024 07:12:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rGKgIwN5EDWG00r1hIEe+DG5WKn7binbhwKo7qA0ZDuyd96220sTC+seIUxW1TA0PJ8uX1I2/chFxYGNOuB7tvbhU6ADqAfu7UJUMi4ONC6ZSRJpjj+f+OCeyW5vgGcAsFI/UKWhEdQZ1KAKSV9KUsja+ssczJvWlEZ0adxhkavoJOBY2GFKVth/S8DuoNVB9N9amrEjfeAZbtsi3qsN1cupKtytlHXFtCKq7a2OmGrELEo2rEl3D8hdCid/8FUcs4G3c2b2BEnDU4PsH4Moa7WQyjlFTTFu/g+ELDpdMEnuSCMwyvwVEXCPR0ispWi++FB1SVGFZtwMiYS0FYcBqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zOZQhLxfwLKyiN/87mSIGoz/thge2aQc4kb6bTHZJIQ=;
+ b=ScZ8o1fH2Mscpp1Tr7OG+FxPT4g5Kwav46/7Vz9E8ZkIbwMnz46Ev6P5j90WYRHAkoSfUpDAGh+Xqu5CNV2fBogYHpog2UkYBspVb5UhN5yDFScUUecLPtq/gBCuLiXRVdUkOk8qdQ+qvmBDcnWC9POZoVqf+A63S3ZyErgwKrn6d5PJsGXG2mINH7YULFsyLvkyNDT+sEhOkQjxRLRRTi2te6jtWHBe13HatGGKtlT5a1QIgfTadJ1Lgqq1NXLm0C9v7FJ8tVdLaSXr3D0XrH+a3xAfyaehEEkn2y1Qm45Uq4SP+rK7st56+A6yL7C9ssE08h2whfwUXFBDbacoLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zOZQhLxfwLKyiN/87mSIGoz/thge2aQc4kb6bTHZJIQ=;
+ b=hg82EHMi2TnJ4S54pTnVdsFHAIvzZYeuqqaboCySsOEochUrOwlEeurfVXw2Iti4XrHthJJ8b35PMxfokGhitPFj+iwmFkzOpdi2eWpMRNQcoKvIso55RzQ9EpZeN8YDlmiXTewVabZc6QcswCmReS2tZxSSKY9uqTiRv9fMUew=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8)
+ by DM4PR12MB8449.namprd12.prod.outlook.com (2603:10b6:8:17f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Thu, 12 Dec
+ 2024 07:12:46 +0000
+Received: from SJ2PR12MB8109.namprd12.prod.outlook.com
+ ([fe80::7f35:efe7:5e82:5e30]) by SJ2PR12MB8109.namprd12.prod.outlook.com
+ ([fe80::7f35:efe7:5e82:5e30%5]) with mapi id 15.20.8230.016; Thu, 12 Dec 2024
+ 07:12:46 +0000
+Message-ID: <0335793c-4606-43dd-b1ab-8f67785f5629@amd.com>
+Date: Thu, 12 Dec 2024 08:12:34 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/15] ARM: zynq: Sync DTs with U-Boot
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, michal.simek@xilinx.com, monstr@monstr.eu,
+ git@xilinx.com
+References: <cover.1733920873.git.michal.simek@amd.com>
+ <173393224728.3091150.11085112233542602601.robh@kernel.org>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ 3i3l5DA=
+In-Reply-To: <173393224728.3091150.11085112233542602601.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR06CA0212.eurprd06.prod.outlook.com
+ (2603:10a6:802:2c::33) To SJ2PR12MB8109.namprd12.prod.outlook.com
+ (2603:10b6:a03:4f5::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241125211452.14987-1-ben@bens.haus>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8109:EE_|DM4PR12MB8449:EE_
+X-MS-Office365-Filtering-Correlation-Id: 76e4596d-936a-4c4c-421c-08dd1a7c6103
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?d1ZJYkdlOUYxemdWT2JrNXBoSEdabGM1T1dZbEpQZEZzaEFqTWRhWm9oeE12?=
+ =?utf-8?B?UEtJZnlScmxuQmJNRGFGMG1LSVU2SThxV3dxcjh6MTZtK3d6YkM3UkZoUGRO?=
+ =?utf-8?B?bEV1NXJaeDZ3MmUvME9HalpzUFZ5TlAyb255MEVqbFBYTjlqNk85TXExNzFL?=
+ =?utf-8?B?WmNRUXlNZjNMS0tTcXE3S2lvRERXZC8yb2luM0MxVDJGUXhESGovNm9hN1lX?=
+ =?utf-8?B?Q2Vqd1VJaE5qdzA5TC9JMnNWM0Q1SEdFYzZzTGV1cVdiNk4vZVJJRk5oQnNp?=
+ =?utf-8?B?VEJORVYrTVBZOGRUOFpTRFNBTWthYlVRbW91QlRFWXh0cDdGb3lTYnEwOVhm?=
+ =?utf-8?B?WFpOVUQ1MjQxVTUrTUZsVFBlWVZRMjUyWi8zeHZEc3l4NGc2TTRHa2doTUNT?=
+ =?utf-8?B?N2phdmhjMTFyOU85ZnFMT1dyV0lrbXNOMUtwWU5QenN2VHpueDZ1RTNHOUtR?=
+ =?utf-8?B?MTdKOThjQjcxVEtySVV2ZnhFRVYwZG1YamluclVSVHc5aEZZRlRHVU9uU2xl?=
+ =?utf-8?B?WGFDcmlTa3ZFVkJmUEQxWUFIME1hSGY3aHFCbi80ZCsvNFJRNjFEd2IrQU1B?=
+ =?utf-8?B?VDE0QVN6SGZlK3N5RGd5cVl6czlGSEZWcW1qbjg4N2NHbnJjamFnMzFLd1ZC?=
+ =?utf-8?B?eHJ0MnVTaEFqdHJqZTBDNHpKSHJZVUt4Mml2YVh5ZjFGTkNJLzhGc1hoZkVV?=
+ =?utf-8?B?QXFYNDdnU1MzQkhiRlJ4Rm9veHQ2Vzk4NEFmWTdqQWlqelpJZFlCbXVGTEls?=
+ =?utf-8?B?UHhMcmR5T2dkUHkzNU9GM0htN3NRVi94MURJUHc0aDMwRndCQmpmR0dXa29C?=
+ =?utf-8?B?NU5jZXdZR05Yb1JLbFZWQk45Vmx6b0xLNC9kMml5T3IvSG5JV3dUaStvQk8z?=
+ =?utf-8?B?N2pnRCs2MFV0SG9MQ3NMZ0ZKTE5HZjBDckQreHhwdHlHMUdEcVVmc2hEOStE?=
+ =?utf-8?B?RmpIK0hwQ1pDWkZ2OUtCQ2Q4K084aVM2Nmo0R0cwaldSWWxYZGZQWmlLZms1?=
+ =?utf-8?B?UGZDSGZCQUhDcitNSXhpSHRacm1TMlJhSS8yVmRRWFV3dXRTblZBZCt5dzNO?=
+ =?utf-8?B?REtUNDJtSWhaYXB0YzdXOUtvNGY2YTFEY3VoVmpSTTAvc2FGNUxVYXEzSG5u?=
+ =?utf-8?B?RFJaQjcyYzRBSHlvbko3a3JBbjBIQXp3UlpMRFdJQXFseTBpdWpFY1g1a08w?=
+ =?utf-8?B?NGhtbDg0eVBmTEZ2RUNBR3R6UHNEODBxQng1clBMOU1kSFdBT0wvRXN3cWJi?=
+ =?utf-8?B?d1JuQi9xdktmRSsxZGFmanA5cEJjRFBhMjRWT1NrUGJPaVRTSk5MNzhXUXIr?=
+ =?utf-8?B?RDM0enNocGZHZWMwaFBBYUZtM2cyemVuZjRGaEZtakVVTHpFN3BVZjg1dGFF?=
+ =?utf-8?B?T1NLSzVjeDZyczBLY3ViZFJCSE5IWjJBcjBKNHdxSEtLSElVbmJLVFdyeGgx?=
+ =?utf-8?B?UjYrTnVQZUsvVGtHOS83TWRzMStHYnRCbEFtUi8vaDJuZVNCK3ozNWtFSi83?=
+ =?utf-8?B?akJ2MlpqRTdScXdQcHZRbkgxMWQ3d2VkSGIrektyWHJBTlNsbjRxTEhjZndN?=
+ =?utf-8?B?dUIyeFhmTU5aZWpWWENleTBlUCtQZ0thcWkzL0JIU2s0SUpXSXpkRGxsOTVJ?=
+ =?utf-8?B?YURBSW53cjF2YkphM1FiL3NPeUxYb1NaWEg3aHVYNkZlOGZlV3loZUUyWUl4?=
+ =?utf-8?B?NElkR0p5YjFYeXJxZFJUS3ZYU2NERGNsZEtmZk01WGVMZk0vY1NpM2VaWEQ3?=
+ =?utf-8?Q?uIhIQqnf9SBm6324yg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8109.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dlVaWHF4WVdpVzViQko0RXFMNlg0ZnQ0dEpNSlk3b0F3ZGFxR2ZwWnJLQTNr?=
+ =?utf-8?B?RCtzUzZTQkUzTk43UmptSjhIQS9pUEplNTVOdkVLUTJiRXNnaUdPam5Wb21G?=
+ =?utf-8?B?OEF5UHhEbkxlamtzWUVVeE9ZVlJ6R0pMRXRoSjNxYUJyOVVjY3J3bG9zZ0Qx?=
+ =?utf-8?B?Z1ZnMm5qejFnSmlIcEFsL09Za1ZtQlBoN3JPWkNKL3hyTGVJbXVoRUJkcHUw?=
+ =?utf-8?B?WDZPc3pvdzhXNDkxZ1dhY3puU0Q0ZSs4Umhrc3lHTkpwVzAxUG1tbkQvNkQw?=
+ =?utf-8?B?bko4VWc4RlVzYXdsOWpEUm5sc0FXdW1BOU01YWxUbmNmTlczWDNkZ2Y0ZnRF?=
+ =?utf-8?B?R1ppcWtGR1QvcFBoVHR3M0JYb1dCcE5GaXA1L2tRbmdYWHk2YW4raE5vcE15?=
+ =?utf-8?B?SzhlSWlGTEM0ZWtBOWJDMUNCdW80NC96M29pYmFxejFVb0ZzMUEyd2pGRlhI?=
+ =?utf-8?B?MmpyUnJFYVNQSEZNMUN0eHhOZ0JsRE1YQWVwcTdtTXA5OTY1Q3A2b1ovaE9R?=
+ =?utf-8?B?Y2lzOGtYeCtXSm1uTUVLYmhZSkpIV2hLQ0cvQjNla3p2S3VIamFKTnZEdjhn?=
+ =?utf-8?B?U2dTZ1J4a1I5UExhUVoraUZxcTA4alpNa2Z2VTIxWkJwYkVzSjhkeUZrQmZW?=
+ =?utf-8?B?aUNvU1g2TzB6cjJ1QitmTGdpTUlUYkV3eXBIcUJJOUFCNmVJem9JS2ovVHA3?=
+ =?utf-8?B?Vks2SmZiQnNpS0sxNDhPb3o0UUFlMWkwdGkxSzFJMkUxN0FzRDdXaDhlSkxC?=
+ =?utf-8?B?aEVoK3BVaHFHcjZQbUdoWEZlOVN3YXJNbjVseVN3eklZc0tKeTZpaHNJcWtI?=
+ =?utf-8?B?MHBiUXdtcWJLaDRLdVRZc3FvbVZXL0tyRFlwMWRKT2QyRjlzRUp5ZlM5S1Js?=
+ =?utf-8?B?Z1F4cGNmSjZZSUVFNThoZGFXbFRpODBQd1duMjZkOE42UlRSYnRMUytjSG4r?=
+ =?utf-8?B?ZXdFZUVjelNzVDBER05TN3hQUnJxNzFEaGRwUnFoUS94TDF3cmpnUU9qYnl2?=
+ =?utf-8?B?L2ljZ2dDNWdhZWNBUC96Rml4aC8waWtuV0NxcUlnK3h3OGdqQkUrbzlrMGx3?=
+ =?utf-8?B?V1g0cnE4ZDIycXVTc05xWlg4bGt1ODd0SVJ2SVhnQlBZOXRIQTcyYUVnaFRZ?=
+ =?utf-8?B?SzY4c2hpRHYrbi85QTQ3WEVLT0xPTHcyaVNRa0ZmeTFETkhlNXJCYk5TQy9h?=
+ =?utf-8?B?ckNGSzlzY3NCOEVGUXN6U1hOZWw5ZlVobXI0Q2pnVzBoUkNobUpMenRCeVJH?=
+ =?utf-8?B?d0Z5T2dPOWF2d1RzekFsRE1YcHM5bjZLQW53TFBFUHdZaDRoUnNtR0xvUUV5?=
+ =?utf-8?B?WDk0Vld4MXpmMHh5YTA1RFN4U0dDa2hPZVpaU2dGQ1pIdVNzN3FhNjI5d1dv?=
+ =?utf-8?B?NnptN1RGc1FMN2I1c0YvaVVrMTRLaDdsbmM3OHBIdXNKQk9jVHovUG0xS1VJ?=
+ =?utf-8?B?Sk0zQVJrMURPaHNCcmhrazR1TmxQMEVxbFhFeXZYVnNMcjU5SlB5TUo3Nnlk?=
+ =?utf-8?B?L2JYdGZEc005YVIzWFhaeDJ5cGhCd1lveFhjUG92VklxanUrcjRsYksya2RH?=
+ =?utf-8?B?YVUrN3E3cEx4cmV6T1VFVXlKaHhXSHIreXR2S0NDRHBIWWVJalZXaTEzT1RO?=
+ =?utf-8?B?SVBjVE1xNnFwcjFQUmh4Um4xQjhiUCtxREFDUmNjUUNLVmI0SzdVSDNPbkpo?=
+ =?utf-8?B?a0xmT1RGYnlzMElUSm45SjlyRGlHdzRnT0szc0N5U0hpdUl1RnFwcTE1ODVj?=
+ =?utf-8?B?SEw4elV4STkyNnVhMlM1TE1STGJzcHEvcC9PT3R1QlU3VVdOVjlycGlNckpQ?=
+ =?utf-8?B?MDJxU1p4b2lYOWtYRXJYY2NaNkJxR05ycGdyWnVQemxnNTdvSm5YUFNSTDZN?=
+ =?utf-8?B?S2xNVlBSaE5ZZ0JneUU3RHBha3o3T3lkNHIyajRvYU5wQjBXNFhJNWh0TlJM?=
+ =?utf-8?B?YVk0aDdrckdtRW5rcWdhRFRRdmRxa0FDaXpuVFQzQkZiUXNuWVBvTFl5U2hX?=
+ =?utf-8?B?ZWswdGxQRXBvaitZWCtsSkJZMWwzUWZFWHhYTXVFR3ZvRWxlTUE4Ukk4enoz?=
+ =?utf-8?B?K2d4YzVaRE1BK0dCZ1R5ZU5CM2gwY3lERTh0eE5ZWWp6UFBFTFp4ODBsOFJB?=
+ =?utf-8?Q?mUovWafTOPdKkvkNAD+C4+WAu?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76e4596d-936a-4c4c-421c-08dd1a7c6103
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8109.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 07:12:46.3290
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ym84sGmL3kylb8ZC+R1/Q9xC2j41hjeoNw5Hl5X5pCkOm9jmkpcMTDUmxi5Muxge
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_230715_887247_81C08612 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20241211_231255_387143_86E521F2 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +220,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marek,
 
-On 25-11-24, 13:14, bschnei@gmail.com wrote:
-> From: Benjamin Schneider <ben@bens.haus>
-> 
-> This frequency was disabled because of stability problems whose source could
-> not be accurately identified[1]. After seven months of testing, the evidence
-> points to an incorrectly configured bootloader as the source of the historical
-> instability. Testing was performed on two A3720 devices with this frequency
-> enabled and the ondemand policy in use. Marvell merged[2] changes to their
-> bootloader source needed to address the stability issue. This driver should
-> expose this frequency option to users.
-> 
-> [1] https://github.com/torvalds/linux/commit/484f2b7c61b9ae58cc00c5127bcbcd9177af8dfe
-> [2] https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell/pull/44
-> 
-> Signed-off-by: Benjamin Schneider <ben@bens.haus>
-> Reviewed-by: Pali Rohár <pali@kernel.org>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Acked-by: Gregory CLEMENT <gregory.clement@bootlin.com>
-> ---
->  drivers/cpufreq/armada-37xx-cpufreq.c | 6 +-----
->  1 file changed, 1 insertion(+), 5 deletions(-)
-> 
-> diff --git a/drivers/cpufreq/armada-37xx-cpufreq.c b/drivers/cpufreq/armada-37xx-cpufreq.c
-> index bea41ccabf1f..f28a4435fba7 100644
-> --- a/drivers/cpufreq/armada-37xx-cpufreq.c
-> +++ b/drivers/cpufreq/armada-37xx-cpufreq.c
-> @@ -102,11 +102,7 @@ struct armada_37xx_dvfs {
->  };
->  
->  static struct armada_37xx_dvfs armada_37xx_dvfs[] = {
-> -	/*
-> -	 * The cpufreq scaling for 1.2 GHz variant of the SOC is currently
-> -	 * unstable because we do not know how to configure it properly.
-> -	 */
-> -	/* {.cpu_freq_max = 1200*1000*1000, .divider = {1, 2, 4, 6} }, */
-> +	{.cpu_freq_max = 1200*1000*1000, .divider = {1, 2, 4, 6} },
->  	{.cpu_freq_max = 1000*1000*1000, .divider = {1, 2, 4, 5} },
->  	{.cpu_freq_max = 800*1000*1000,  .divider = {1, 2, 3, 4} },
->  	{.cpu_freq_max = 600*1000*1000,  .divider = {2, 4, 5, 6} },
 
-Any inputs on this before I apply it ?
+On 12/11/24 16:54, Rob Herring (Arm) wrote:
+> 
+> On Wed, 11 Dec 2024 13:41:19 +0100, Michal Simek wrote:
+>> Hi,
+>>
+>> over years there were some changes pushed to U-Boot which were never merged
+>> back to Linux. U-Boot introduced new option OF_UPSTREAM and start to sync
+>> up DTs from Linux back to U-Boot.
+>> This series is addressing differences.
+>> There are still 3 more differences but they should be addressed separately.
+>>
+>> Thanks,
+>> Michal
+>>
+>>
+>> Michal Simek (14):
+>>    ARM: zynq: Remove deprecated device_type property
+>>    ARM: zynq: DT: List OCM memory for all platforms
+>>    ARM: zynq: Mark boot-phase-specific device nodes
+>>    ARM: zynq: Do not define address/size-cells for nand-controller
+>>    ARM: zynq: Wire smcc with nand/nor memories on zc770 platform
+>>    ARM: zynq: Add ethernet phy reset information to DT(zc702)
+>>    ARM: zynq: Define u-boot bootscrip addr via DT
+>>    ARM: zynq: Point via nvmem0 alias to eeprom on zc702/zc706
+>>    ARM: zynq: Define rtc alias on zc702/zc706
+>>    ARM: zynq: Rename i2c?-gpio to i2c?-gpio-grp
+>>    ARM: zynq: Fix fpga region DT nodes name
+>>    ARM: zynq: Enable QSPIs on platforms
+>>    ARM: zynq: Add sdhci to alias node
+>>    ARM: zynq: Remove ethernet0 alias from Microzed
+>>
+>> Sai Krishna Potthuri (1):
+>>    ARM: zynq: Replace 'io-standard' with 'power-source' property
+>>
+>>   arch/arm/boot/dts/xilinx/zynq-7000.dtsi       | 33 ++++++-
+>>   arch/arm/boot/dts/xilinx/zynq-cc108.dts       | 41 ++++++++-
+>>   arch/arm/boot/dts/xilinx/zynq-microzed.dts    | 10 ++-
+>>   arch/arm/boot/dts/xilinx/zynq-parallella.dts  |  1 -
+>>   arch/arm/boot/dts/xilinx/zynq-zc702.dts       | 87 +++++++++++++------
+>>   arch/arm/boot/dts/xilinx/zynq-zc706.dts       | 67 +++++++++++---
+>>   arch/arm/boot/dts/xilinx/zynq-zc770-xm010.dts | 39 ++++++++-
+>>   arch/arm/boot/dts/xilinx/zynq-zc770-xm011.dts | 31 +++++++
+>>   arch/arm/boot/dts/xilinx/zynq-zc770-xm012.dts | 35 ++++++++
+>>   arch/arm/boot/dts/xilinx/zynq-zc770-xm013.dts | 41 ++++++++-
+>>   arch/arm/boot/dts/xilinx/zynq-zed.dts         | 43 ++++++++-
+>>   .../boot/dts/xilinx/zynq-zturn-common.dtsi    |  8 ++
+>>   arch/arm/boot/dts/xilinx/zynq-zybo-z7.dts     | 10 ++-
+>>   arch/arm/boot/dts/xilinx/zynq-zybo.dts        |  9 +-
+>>   14 files changed, 404 insertions(+), 51 deletions(-)
+>>
+>> --
+>> 2.43.0
+>>
+>>
+>>
+> 
+> 
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>    pip3 install dtschema --upgrade
+> 
+> 
+> New warnings running 'make CHECK_DTBS=y xilinx/zynq-cc108.dtb xilinx/zynq-microzed.dtb xilinx/zynq-parallella.dtb xilinx/zynq-zc702.dtb xilinx/zynq-zc706.dtb xilinx/zynq-zc770-xm010.dtb xilinx/zynq-zc770-xm011.dtb xilinx/zynq-zc770-xm012.dtb xilinx/zynq-zc770-xm013.dtb xilinx/zynq-zed.dtb xilinx/zynq-zybo-z7.dtb xilinx/zynq-zybo.dtb' for cover.1733920873.git.michal.simek@amd.com:
+> 
+> arch/arm/boot/dts/xilinx/zynq-parallella.dtb: ethernet@e000b000: ethernet-phy@0: Unevaluated properties are not allowed ('marvell,reg-init' was unexpected)
+> 	from schema $id: http://devicetree.org/schemas/net/cdns,macb.yaml#
 
--- 
-viresh
+This is not issue caused by this series.
+
+
+> arch/arm/boot/dts/xilinx/zynq-zc702.dtb: ethernet@e000b000: Unevaluated properties are not allowed ('phy-reset-active-low', 'phy-reset-gpio' were unexpected)
+> 	from schema $id: http://devicetree.org/schemas/net/cdns,macb.yaml#
+
+This has been reported by Andrew already and the patch will be removed.
+
+Thanks,
+Michal
+
 
