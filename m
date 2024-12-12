@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F8EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58F1E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0p39a77mImTT2bcTUkjv5rHSXECPntFQZjkOUsIrRs=; b=tEBk+D0SUamtmYCZG4V40/Vri5
-	EHAjDu+yTk+tpb01nkfY6mVbVDaMp6Efb6+C/Fl6SVLx9+WreLIrIB3bvuF+hPSfcbi9n5J7Y8Au4
-	zvONXCVybFDKHlR3Tm2tuJpNQDyUKhAwMu0u9tAlbViSAADug+n9aBcTvsI+hwNM3tq3okSsbNnGK
-	O6l/pX71gZoCaOC7kxF6flfGo3LF/scivnKLnUik0YSyuOxsvbNfMhXtLS3FHNA76woGiWFvZPVdU
-	RhjMxK3G+oKtjSuos7biEA1y7Sq4Qw1drVUCXruwsQqvFuH+dr1HDMaWmrXcGkzd/yZIP0twqQ++B
-	slEyINkw==;
+	bh=/jsol/FD7xLO/XnO3v0kMgo+OuMQmHauwbh0Fn9n2Qc=; b=t+lk9N0JK5vxax2x8RpZW6/+xT
+	u52WJfh2UzoFiBpxSCAAt/9NLYznLBwwCJXACMODgVCy3nD3eooDRvAAYNggfeya8/WGchFiI6mVa
+	4axr5bB8vsgSlkoBIV8camup4W/mLe1f25XvNL8CDclDYCyAbC3mAVlnx3mPi1WtnfvdFTswQ2yXw
+	MIFIMENBopij/nCCPyOuDfMsh8dtWIcg41gb+XT0ycjOslcGZ8EuhFFtPcrXgVZQgUO+6sXsxuCTp
+	p4Y9FfWvN6uAWx1hDebWX1xLTtD11+aM6iMnllZq2u2Ii8dKp14IrrTq2AHqE16wC305yHo5855T/
+	d90eoHug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLo74-00000001T3l-48h9;
-	Thu, 12 Dec 2024 18:40:38 +0000
+	id 1tLo88-00000001TLC-2j5X;
+	Thu, 12 Dec 2024 18:41:44 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnZP-00000001JtG-3vZz
+	id 1tLnZU-00000001JuF-3PUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:05:53 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-434fe2b605eso5726055e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:51 -0800 (PST)
+	Thu, 12 Dec 2024 18:05:58 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4359eb032c9so7202165e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026750; x=1734631550; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026755; x=1734631555; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=i0p39a77mImTT2bcTUkjv5rHSXECPntFQZjkOUsIrRs=;
-        b=yB9cz8r5yk1j0W7zvW50hEv1cclM9sU32NuKpg7TXqOoLZ/sTjkOcMZWItoU/mfReD
-         bt78FQoQxMfHtiX8oNluxWOE+QAX4U5m5/26vrLfqkMH158UdOsNwZ/a1w0HbFmK2VXH
-         +SjiVjUAbfSVwqAinBSwuUHv1dyxplFyS9entdO3SGbXsKucdpmQw5+pLcb1DWes+PFw
-         j64cLbkN0mF2jGVJKiGTwtqiEvil7acPX3xIolBRDKxItxlC4p6xoBe+Zu4FrlhFuE5z
-         fUhpb9UMDR1aNEe3TBp+j94vmAZaN1os4eIjJFN6HyLCFl60IAUoYTijXi4v8d3ttiiP
-         t4AQ==
+        bh=/jsol/FD7xLO/XnO3v0kMgo+OuMQmHauwbh0Fn9n2Qc=;
+        b=2vufiFSmQxiN7+QvVHes6aqXk1NXXQ3dQeBhzU/QIk4yc21+zyOKDtNuJQSNH9pN1I
+         Ye1GqvyX8JbYsmxxSTtL3FNCzqo7ZodlL/AkXRzwCTZlZVQMnA6fxOteA+26Fxkb21KY
+         svikfnqqSa8WL4TnKZZIQhx0CSzc/YE6n9aDTvkcJNgZVAYz5zfqIKzgNucAZ2BHOc+5
+         EZupTvN+9tSo2s7BqMRE+31EISUQKZ+rYpUjHf1Yx94ZxgxupUBFKXw8SvPsUdol5DsT
+         e+RGA3eRuGi+Clh60wE6xbDVIG/ZQVXo1Yoxugs+2Z8RZbuSyPtoN5uGpD4ZbddaVcjx
+         eiMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026750; x=1734631550;
+        d=1e100.net; s=20230601; t=1734026755; x=1734631555;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=i0p39a77mImTT2bcTUkjv5rHSXECPntFQZjkOUsIrRs=;
-        b=oVtb1hHB41UvviIIO2wAveZeNhkHK9S98LE4Q08eV67hDzcMc9kF9ZIoKs/AtFG/8C
-         62FS0wT9mf+goel1sp/xMeqjrzSlD9I+XMtYlAI69jszg5hk7uoksJOc0vNKZ2fggQzo
-         YwXypYo+3A3NLEE1lzhgvdIBXEvSh86dGXUwzDPpla2d91dFOlBbtM09VPYNS4hzufmd
-         ELE25ye6l7Jbu7JsGLT1ZKluTBoqF2Zy48TrZAA8zrpSTH/e8yWYXQ48XlpPHFU6I99X
-         Eiv68lkRQeBJnxZs1FEaTApIQ8N3ZuRVmXMNe1+35O+HQX5rWX5Kg3mBoDF9qRimvcam
-         5f2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV0uPPbJ/y4cqGF6T7o0JMQvn825zw6JPCM+r/lAEY3RR33QIVPIT0JOxEYjTnHxPmzcV8DG9guf+xWJAlofKa5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg4V14gQmRPnjn6KPsgCawC26Qmh3JprsxCc+JBDucklXBg+T0
-	GeCEJoGfw1+DP7aIsGMQp+VWJEpbIOQSF4iksj+Gbj6LwbrgQm5dbgaFNxsyRIljGMUVGFEB6kF
-	L43yic+3E7w==
-X-Google-Smtp-Source: AGHT+IG1KFj+8kiPF7R9tNS1w0lYL0LFPzKnh4cL4W+DNw5iDRjcSi9WleF5S9ilyTwoZ5oQcyfDOI5ctOSx2A==
-X-Received: from wmkz18.prod.google.com ([2002:a7b:c7d2:0:b0:434:a15f:e7ea])
+        bh=/jsol/FD7xLO/XnO3v0kMgo+OuMQmHauwbh0Fn9n2Qc=;
+        b=mGEpJWzlk4/1r0nY61O9NQq+et3tTTEZGTOn6aclwU1tx/+YrHdbYiwuliirt6WkWw
+         T88XqQ/FjTkaiYB3BaNy7w0HHTwaEEn+eTsKa9/687g4qBgvlQvoBaA7AU8kWQA7Z/cu
+         HXheMK5j+J8q0++32s/sjCOlwX6WMsNDQBplPsJg1TudE3KHkoRrQHGIH3QXLJP5bH1I
+         RiUUeP9/b1OH0nhjWzhzxpWvjPUUNXHT4ug7/icWIJUygf27PXloudDii67A566naRiX
+         YQmPipFQGhoTebYTi0o3+tHgztKwtY+uFZ0TvH0VPIop6Hfk3yaaBEE6NpplRVvKyVpN
+         XjNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsX7Im++xJcUfcWh2n8k2WF1hLpY8cWDJa6Qsn38gFf4YbmAoHHXkqXNRxFQbtSDaGIWUJa9ngFWYFZcRHeZ61@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyr7PLP8AoE3GH5cP0ttictgBw/4iriGghle35OPKVQkTT3UsQM
+	Ov5Vl5B8SPSd+Flja0lXs2r1AikdtJRiu3JTZjoscSlb2ejo+AnlJzKZ/wwPArONP9OQ44rJ+Zv
+	erk/J5mL11g==
+X-Google-Smtp-Source: AGHT+IFPvic4v0yXTXsiiS55qmyvRxNfbGXACyTICF0QYMQMm//s6fh52UUXvcsaAQ5ADTdRambhNe92sr/RSw==
+X-Received: from wmol7.prod.google.com ([2002:a05:600c:47c7:b0:434:a471:130f])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a011:b0:434:f623:9fe3 with SMTP id 5b1f17b1804b1-4361c3755bamr72354245e9.16.1734026750412;
- Thu, 12 Dec 2024 10:05:50 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:56 +0000
+ 2002:a05:600c:35cb:b0:434:f9ad:7238 with SMTP id 5b1f17b1804b1-4362286391fmr34351085e9.22.1734026754968;
+ Thu, 12 Dec 2024 10:05:54 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:58 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-33-smostafa@google.com>
-Subject: [RFC PATCH v2 32/58] KVM: arm64: smmu-v3: Add {alloc/free}_domain
+Message-ID: <20241212180423.1578358-35-smostafa@google.com>
+Subject: [RFC PATCH v2 34/58] KVM: arm64: smmu-v3: Add context descriptor functions
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100551_998598_A0A20EB2 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20241212_100556_850643_59962219 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +95,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SMMUv3 alloc/free domain, as this operations are not
-tied to the IOMMU, we can't do much with the io-pgtable
-allocation or configuration.
+Add functions to allocate and access context descriptors that would
+be used in stage-1 attach.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 64 +++++++++++++++++++++
- include/kvm/arm_smmu_v3.h                   |  6 ++
- 2 files changed, 70 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 53 +++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-index 58662c2c4c97..3181933e9a34 100644
+index 5f00d5cdf5bc..d58424e45e1d 100644
 --- a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
 +++ b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-@@ -7,6 +7,8 @@
- #include <asm/arm-smmu-v3-common.h>
- #include <asm/kvm_hyp.h>
- #include <kvm/arm_smmu_v3.h>
-+#include <linux/io-pgtable-arm.h>
-+#include <nvhe/alloc.h>
- #include <nvhe/iommu.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
-@@ -50,6 +52,22 @@ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
- 	smmu_wait(_cond);					\
- })
- 
-+/*
-+ * SMMUv3 domain:
-+ * @domain: Pointer to the IOMMU domain.
-+ * @smmu: SMMU instance for this domain.
-+ * @type: Type of domain (S1, S2)
-+ * @pgt_lock: Lock for page table
-+ * @pgtable: io_pgtable instance for this domain
-+ */
-+struct hyp_arm_smmu_v3_domain {
-+	struct kvm_hyp_iommu_domain     *domain;
-+	struct hyp_arm_smmu_v3_device	*smmu;
-+	u32				type;
-+	hyp_spinlock_t			pgt_lock;
-+	struct io_pgtable		*pgtable;
-+};
-+
- static int smmu_write_cr0(struct hyp_arm_smmu_v3_device *smmu, u32 val)
- {
- 	writel_relaxed(val, smmu->base + ARM_SMMU_CR0);
-@@ -541,7 +559,53 @@ static int smmu_init(void)
- 	return ret;
+@@ -215,6 +215,19 @@ static int smmu_sync_ste(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ 	return smmu_send_cmd(smmu, &cmd);
  }
  
-+static struct kvm_hyp_iommu *smmu_id_to_iommu(pkvm_handle_t smmu_id)
++__maybe_unused
++static int smmu_sync_cd(struct hyp_arm_smmu_v3_device *smmu, u32 sid, u32 ssid)
 +{
-+	if (smmu_id >= kvm_hyp_arm_smmu_v3_count)
-+		return NULL;
-+	smmu_id = array_index_nospec(smmu_id, kvm_hyp_arm_smmu_v3_count);
++	struct arm_smmu_cmdq_ent cmd = {
++		.opcode = CMDQ_OP_CFGI_CD,
++		.cfgi.sid	= sid,
++		.cfgi.ssid	= ssid,
++		.cfgi.leaf = true,
++	};
 +
-+	return &kvm_hyp_arm_smmu_v3_smmus[smmu_id].iommu;
++	return smmu_send_cmd(smmu, &cmd);
 +}
 +
-+static int smmu_alloc_domain(struct kvm_hyp_iommu_domain *domain, int type)
+ static int smmu_alloc_l2_strtab(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ {
+ 	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
+@@ -291,6 +304,46 @@ smmu_get_alloc_ste_ptr(struct hyp_arm_smmu_v3_device *smmu, u32 sid)
+ 	return smmu_get_ste_ptr(smmu, sid);
+ }
+ 
++__maybe_unused
++static u64 *smmu_get_cd_ptr(u64 *cdtab, u32 ssid)
 +{
-+	struct hyp_arm_smmu_v3_domain *smmu_domain;
++	/* Only linear supported for now. */
++	return cdtab + ssid * CTXDESC_CD_DWORDS;
++}
 +
-+	if (type >= KVM_ARM_SMMU_DOMAIN_MAX)
-+		return -EINVAL;
-+
-+	smmu_domain = hyp_alloc(sizeof(*smmu_domain));
-+	if (!smmu_domain)
-+		return -ENOMEM;
++__maybe_unused
++static u64 *smmu_alloc_cd(struct hyp_arm_smmu_v3_device *smmu, u32 pasid_bits)
++{
++	u64 *cd_table;
++	int flags = 0;
++	u32 requested_order = get_order((1 << pasid_bits) *
++					(CTXDESC_CD_DWORDS << 3));
 +
 +	/*
-+	 * Can't do much without knowing the SMMUv3.
-+	 * Page table will be allocated at attach_dev, but can be
-+	 * freed from free domain.
++	 * We support max of 64K linear tables only, this should be enough
++	 * for 128 pasids
 +	 */
-+	smmu_domain->domain = domain;
-+	smmu_domain->type = type;
-+	hyp_spin_lock_init(&smmu_domain->pgt_lock);
-+	domain->priv = (void *)smmu_domain;
++	if (WARN_ON(requested_order > 4))
++		return NULL;
 +
-+	return 0;
++	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
++		flags |= IOMMU_PAGE_NOCACHE;
++
++	cd_table = kvm_iommu_donate_pages(requested_order, flags);
++	if (!cd_table)
++		return NULL;
++	return (u64 *)hyp_virt_to_phys(cd_table);
 +}
 +
-+static void smmu_free_domain(struct kvm_hyp_iommu_domain *domain)
++__maybe_unused
++static void smmu_free_cd(u64 *cd_table, u32 pasid_bits)
 +{
-+	struct hyp_arm_smmu_v3_domain *smmu_domain = domain->priv;
++	u32 order = get_order((1 << pasid_bits) *
++			      (CTXDESC_CD_DWORDS << 3));
 +
-+	if (smmu_domain->pgtable)
-+		kvm_arm_io_pgtable_free(smmu_domain->pgtable);
-+
-+	hyp_free(smmu_domain);
++	kvm_iommu_reclaim_pages(cd_table, order);
 +}
 +
- /* Shared with the kernel driver in EL1 */
- struct kvm_iommu_ops smmu_ops = {
- 	.init				= smmu_init,
-+	.get_iommu_by_id		= smmu_id_to_iommu,
-+	.alloc_domain			= smmu_alloc_domain,
-+	.free_domain			= smmu_free_domain,
- };
-diff --git a/include/kvm/arm_smmu_v3.h b/include/kvm/arm_smmu_v3.h
-index 352c1b2dc72a..ded98cbaebc1 100644
---- a/include/kvm/arm_smmu_v3.h
-+++ b/include/kvm/arm_smmu_v3.h
-@@ -33,4 +33,10 @@ extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
- extern struct hyp_arm_smmu_v3_device *kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_smmus);
- #define kvm_hyp_arm_smmu_v3_smmus kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_smmus)
- 
-+enum kvm_arm_smmu_domain_type {
-+	KVM_ARM_SMMU_DOMAIN_S1,
-+	KVM_ARM_SMMU_DOMAIN_S2,
-+	KVM_ARM_SMMU_DOMAIN_MAX,
-+};
-+
- #endif /* __KVM_ARM_SMMU_V3_H */
+ static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
+ {
+ 	u64 val, old;
 -- 
 2.47.0.338.g60cca15819-goog
 
