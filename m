@@ -4,70 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA93DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B029BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBCtB4P7LoVsX+UGrbBFWgz4hUvi2N2icOGRXyods1c=; b=z8ls0Z/Lu045KPyR98f+hu8pBl
-	U17FA2+jk/u5Awt3ydKnmH4YfSwgqa4fBJVmwq9wfG0BiOUJAtx19B2EQHLv0Z5eVk4xObc3I0g2Z
-	UonHDDSlZFY4FohzYfNOno0g6nCzsWpgwzSEMCPlyhpmCQscjDPcZjBPUbBq6U2ZxrpTtTUP86qEV
-	CHeuHhI+PlVUlaJWhG2Q6Z4J2xnXZcIleA5mLvekDfvwuMFE8zb2LN132yWcNq1m3ym4qKzTBISVN
-	n5e0aFuSep0OrvksZW6gtplxu25+/Cc7z6RPPYSDQSdpRlojmRkPjm6vwK5HEGoBUzUeogakjM8IC
-	McTwS40g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8A5plRENR+6hcn+NB/3J+YPI6tVFhPwktPXdd0DO7po=; b=2HJEYfphZMC4YsH5nmjwXgUX/y
+	+HZla+ux/0dKyxDDfJSLS7P0DBQcrQpkBiz4GZIPNLYmJEmsE0CIkjNjtX/qmx6NI2wn1hVH7+HSZ
+	o/VGTY31qubSUDdfKmZmxVtw/wt4cQu2J7G1RV5CXf95k0KBmiHB/1EPluwHaFPBodsJ34unFZQ35
+	6oX/MplEhJBERH7LooX1h0akCPTaTYmjP7IaiPAdGrO4dkRa2S3fbujs4LQSdHcxUmDocpWmOZGVz
+	oVeMwu6QL+hAD4oiPBsc+evY/jNH9fjfgx2pOXx49G5RpSPo94GiW5R5h3CytpzQU9JMKLdhNNHkO
+	eqmy8srQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmjo-000000018E6-428e;
-	Thu, 12 Dec 2024 17:12:32 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlqb-00000000vZL-0QAT;
-	Thu, 12 Dec 2024 16:15:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1734020117; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nFIkIZJ1xuLhG7CnV7y/LlyF7GMO4DNKYynUuDDfONJ9IJ/6c+vLKjieOSVWF2MEyhdi36wNFpuHUWzE6/Jd5Ow1DDEUVhLGM+EIG4tYMSpLYAgekkJy91EIknKTvNPIqJhzxWqmjKO6Ns6rqBLgg/xTG/qCWUXUYKKK0w1vJqI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1734020117; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=PBCtB4P7LoVsX+UGrbBFWgz4hUvi2N2icOGRXyods1c=; 
-	b=D3EwNniM2uODf0UlYsxmeJoz5wZstD1V5P9/VWDm8fwnImRVr9FbdlONAO7bSWeOlw2KNZNIg7A9GhmecqhryYamQTVgVmJk46j51nI0+gr5GBhawmwwYa5yOxOOfl0Y+DHGitxF9MqpYS6Vg50X6k+nf89CZS1x3z5IC72Pb+Q=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1734020117;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=PBCtB4P7LoVsX+UGrbBFWgz4hUvi2N2icOGRXyods1c=;
-	b=R3TgZfLusnXNGOwnGXLv3tZEKdrfCkswpUKAUHr2kRAxHcU6ZcG0YTqR1hkLY9Vl
-	UDFK3dWbQZZy+kUHhKocKBZcAnpDtMkNc0C7jRavwZp8UCv6sXHqrTwgc87sUGaqj9e
-	P65sFgEsSoMlRX7NYmIBLHqUlOGQjxdXmsFAaIzo=
-Received: by mx.zohomail.com with SMTPS id 17340201149634.725551844082247;
-	Thu, 12 Dec 2024 08:15:14 -0800 (PST)
-Message-ID: <21db56f1-ee5d-4309-8fa6-5aaf92782885@collabora.com>
-Date: Thu, 12 Dec 2024 17:15:11 +0100
+	id 1tLmkr-000000018QN-2Q7g;
+	Thu, 12 Dec 2024 17:13:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLlt4-00000000w8P-1o1m
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 16:18:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A6081764;
+	Thu, 12 Dec 2024 08:18:28 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B6213F720;
+	Thu, 12 Dec 2024 08:17:59 -0800 (PST)
+Date: Thu, 12 Dec 2024 16:17:56 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: james.morse@arm.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathan.cameron@huawei.com,
+	xiexiuqi@huawei.com
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 0/5] arm_mpam:
+ Introduce the Narrow-PARTID feature for MPAM driver
+Message-ID: <Z1sMtF9bvw5NZOC6@e133380.arm.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] media: verisilicon: fix reference padding issue
-To: Fabio Estevam <festevam@gmail.com>
-Cc: p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com
-References: <01020193bb8a24ad-99eafebb-3b0b-40c0-9b28-3a0dbc84327a-000000@eu-west-1.amazonses.com>
- <CAOMZO5DgW3YrpMJPCTzQ-LZCopB4tNPoJhyFQrr6RBvbnBu4VA@mail.gmail.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <CAOMZO5DgW3YrpMJPCTzQ-LZCopB4tNPoJhyFQrr6RBvbnBu4VA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241207092136.2488426-1-zengheng4@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_081529_205172_F50896F4 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_081802_564287_F093FAB2 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +64,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-Le 12/12/2024 à 17:10, Fabio Estevam a écrit :
-> On Thu, Dec 12, 2024 at 12:43 PM Benjamin Gaignard
-> <benjamin.gaignard@collabora.com> wrote:
->> Hantro hardware is splited into two parts: the decoder which produce
->> tiled pixels formats and the post-processor which produce raster pixels
->> formats.
->> When post-processor is used the selected pixels format may not have the
->> some padding/stride than the decoder output pixels format. This led to
->> miscomputing chroma and motion vectors offsets so data are overlapping.
->> This series introduce a reference pixels format that decoder use to
->> compute the various needed offsets and size.
->>
->> With this series Fluster for VP9 tests is now 207/305 vs 145/305.
->> HEVC test score isn't impacted by these patches (still 141/147).
->>
->> Version 2:
->> - rebased on top of media-commiter/next
->> - Add reviewed-by tags
->>
->> Benjamin Gaignard (2):
->>    media: verisilicon: Store reference frames pixels format
->>    media: verisilicon: Fix IMX8 native pixels format steps values
-> Do both patches deserve a Fixes tag?
+On Sat, Dec 07, 2024 at 05:21:31PM +0800, Zeng Heng wrote:
+> The patch set is applied for mpam/snapshot/v6.12-rc1 branch of
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
+> repository.
+> 
+> The narrow-partid feature in MPAM allows for a more efficient use of
+> PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
+> to intpartids (internal PARTIDs). This mapping reduces the number of unique
+> PARTIDs needed, thus allowing more tasks or processes to be monitored and
+> managed with the available resources.
+> 
+> For a mixture of MSCs system, for MSCs that do not support narrow-partid,
+> we use the PARTIDs exceeding the number of closids as reqPARTIDs for
+> expanding the monitoring groups.
 
-There is dependency in around hevc compress feature in post-proc code.
-I don't think it could be applied on stable kernel
+Mixed systems still seem not to be handled completely by this series?
 
+You do cope with the scenario where some MSCs support Narrowing and
+some do not, but there is still the problem of incompatible controls.
+
+If a non-Narrowing MSC has controls that are not of the "partition
+bitmap" type, then splitting a resctrl control group across multiple
+PARTIDs is going to change the hardware regulation behaviour.  There
+does not seem to be any way to work around this be programming
+different control values (for example).  So, there may be over- or
+under-allocation of resources compared with what the user requests in
+resctrlfs.
+
+So, I think there is still a need to check which controls are present,
+and either disable the use of non-identity intPARTID<->reqPARTID
+mappings if incompatible controls are present (or don't expose those
+controls to resctrl).
+
+(If you were not trying to address this issue yet then that is not a
+problem for an RFC, but it is best to be clear about the
+limitations...)
+
+> In order to keep the existing resctrl API interface, the rmid contains both
+> req_idx and PMG information instead of PMG only under the MPAM driver. The
+> req_idx represents the req_idx-th sub-monitoring group under the control
+> group. The new rmid would be like:
+> 
+>     rmid = (req_idx << shift | pmg).
+> 
+> The new conversion relationship between closid/rmid and (req)PARTID/PMG is:
+> 
+>     (req)PARTID = (rmid.req_idx * n) + closid,
+>     PMG = rmid.pmg.
+> 
+> Each intPARTID has m reqPARTIDs, which are used to expand the number of
+> monitoring groups under the control group. Therefore, the number of
+> monitoring groups is no longer limited by the range of MPAM PMG, which
+> enhances the extensibility of the system's monitoring capabilities.
+> 
+> ---
+> Compared with v1:
+>   - Rebase this patch set on latest MPAM driver of the v6.12-rc1 branch.
+> 
+> Compared with v2:
+>   - Refactor closid/rmid pair translation
+>   - Simplify the logic of synchronize configuration
+>   - Remove reqPARTID pool
+> ---
+
+This approach looks reasonable overall, and in this version the changes
+do seem to be better localised in the mpam_resctrl.c glue code now.
+
+I had also been working on a similar approach, so I have posted it for
+comparison [1] -- though the two approaches are doing pretty much the
+same thing, some details differ.
+
+(Note, I have not addressed PARTID Narrowing at all yet; however,
+I think more thought is needed for that.)
+
+
+Note: Are there bisection issues with some of the patches in the
+series?  It looks like not all of the ID conversions are applied in the
+same patch, so I'm wondering whether strange behaviour may be seen at
+the intermediate commits.
+
+Cheers
+---Dave
+
+
+[1] [RFC PATCH 0/6] Introduce flexible CLOSID/RMID translation
+https://lore.kernel.org/lkml/20241212154000.330467-1-Dave.Martin@arm.com/
 
