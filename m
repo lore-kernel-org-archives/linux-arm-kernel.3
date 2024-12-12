@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D993CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 11:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64274E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 11:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u5a+MQf0Hip9QArkqxNik21FxUn3e2NhEp21qq8cqaU=; b=tXPnIIBbWWtlfGueAwmQagX+gf
-	vifBK5qWCEe1eyA8JFuEzBHf/rQHwjOncYjMqGAwnQ5az/AGSbKvsFdyCSjJaYZ1yXTPvWDRVaSgc
-	6OS5UhrRH9eSOusI5SuPzlC8rWbix6a0ZninuuT6g2DDvTtlscvYvEzsZbIccOgH19J2Wbq6VKzbl
-	fdYtJ1JKV93+K39/e9rQxTP0yfk7KNsj6Bivoo+fBO4M6ioEQyfy5F5bVYHKnabIadezVAi1NyPO+
-	LIdLbtKiqlafHwIMH7XUPlWoVP3RIfSTlmW4PYwLFoSXfMvo9nZaAqoG1RfmW6HkYXxIqRMgQOBwF
-	coiYrudg==;
+	bh=dQNDFPabNxYfCN32ph6kYnGr37VECW0UJg1onOaF+u8=; b=2vnT0YY4amQ4x9D3WX5MpS6wvC
+	/N/7XrYrfDFcaEySwwIh8gXd5jaWMcr/w5Dz8DoQ/dLZVWiZ0Itv7nYkTJiys5EORz5GsK+MRT+NO
+	IyYfGs2brUXFHIqFkIRz/e6dnBKlkFgQZyuZCGm7yMTUk4szgbDKFHCCNw2iGsL3Gu32MAX6bSJwG
+	rhIRv+YoIRSARxA0dGTxuTKMufizKP2+WI8zk/j6iAUMAHS3tAgc0yN4eX/OV7AsDh8WGryD/dT1a
+	GLFVuhL2k5S25PezEjwuUb/VGDP4DAQA4r5aPjQwJZyhqCQxJnh318Uk7ogqgyNN/cHMEPdSwK41I
+	MrwdH24g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLhUL-00000000DKn-2SgE;
-	Thu, 12 Dec 2024 11:36:13 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tLhVP-00000000Dje-01Dx;
+	Thu, 12 Dec 2024 11:37:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLhRc-00000000CMM-14Z8
+	id 1tLhTO-00000000Cr6-0nvn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 11:33:25 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38633b5dbcfso469663f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 03:33:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734003202; x=1734608002; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=u5a+MQf0Hip9QArkqxNik21FxUn3e2NhEp21qq8cqaU=;
-        b=VZilp+y8YUZ3kj9axzBVqS/GecbYK3OTY1RfZiWRsB6drp+2ioMsv2T6PsgQ/E5qbm
-         G+x/CQ72CYb6x7CXqxS7VgBTMCftnPjK5BAyxR/rHwfXB/fUg+2d+6MMelB04HUhwf4W
-         maHRME2YPJpreZe/N2WXhm3bPSZDEyeoHk/Fdq42Jf6fe99J55AUCevTDSASetDxETpG
-         LFtXL7eUh3kuL50KLkAa+CiJ6lkPTzLvJIQdTG5bMkeDNlVHBTlfSDsDe7IzSZjbJktI
-         7hjkIyhAnWcaIkbc8eAQjRDmuwq5UTGHWO2tUUwdaarsZbD2XpEYN14X+SkAyY3wsy66
-         9y/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734003202; x=1734608002;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u5a+MQf0Hip9QArkqxNik21FxUn3e2NhEp21qq8cqaU=;
-        b=Y7by4vgZUl9iyRpdwdtgO55RDF576WzJ6Rl5Up0UT/LElKKFKYEmkkw/Oni3SKTzkS
-         ZWi6C6Qd1bn8cpMbcHn9e9ejFkxI7VCR4+jFQfN66IIQBgyBwOUsGn26o6nEOPucu0mb
-         j7WlDHvmyOVun9zXVLufMukuHNxcLu0cgnU2KOFL4JOepoLke1EFbv/DX5t2TAEAM6sJ
-         WCdmvEZrvj3NtI8lqaHs1O4FmtnTMmPfs+yW9IUv5P82w6pjUJw7Mr5pGBxKGDGHBBzQ
-         XRoYkleREuSBi/33m11Qx9+nG+trhcNyqMiovu/ne50pLujMqXexbMPhAj60SX3vGXzu
-         qxvQ==
-X-Gm-Message-State: AOJu0Yy0QZ0EBSOiRVLRlUToCrAk2t/YDiHZcKxdxgYuhUv/6bWdoClm
-	qYf03ys8OUzKhzK5cWC2upEQ8Ckv2XOPXoAh287Ah5Ze6b7r3v1+9yDvE1I9plAj/cMvlTF8wO3
-	uCzLM
-X-Gm-Gg: ASbGncvFX3vDM9ErzIwFqB3gswecSWYOoMBh5bDq3O2yf2yQTengS4V2pK4E4meg6Nq
-	YcFvahM0sdpfW/nzJ3Ix3HgZy7bdOY4/qZNQcjvNOuyywgsEAEeWlDJqRzqpoGcF9x7WhsZNabr
-	6OebW8LqnSUFA5Mm5Iw3N9Zuln9xjLdnfVcXG4XoqYkk1+sICboO6d2HIlvRuUaP5arsW/c8pq/
-	Hwup+TE6xnPu+ggIaDSAKxW7qcStD03mKf80pLMbHzrOWAP5MRWK/rm2eLnjX09sCqLlRwSVx6B
-	9fmOOvrcorjzdak=
-X-Google-Smtp-Source: AGHT+IFftUzg2KTR00FQjwA57ZaLYqw/4a8Hb6V4ISjZn49Uf12Ozmj8QlHhzs/NZ8VdbA1gsYccMg==
-X-Received: by 2002:a5d:64e5:0:b0:385:d7f9:f16c with SMTP id ffacd0b85a97d-3864cec7614mr5970842f8f.46.1734003201711;
-        Thu, 12 Dec 2024 03:33:21 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa699487854sm470265966b.13.2024.12.12.03.33.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 03:33:21 -0800 (PST)
-Date: Thu, 12 Dec 2024 11:33:17 +0000
-From: Quentin Perret <qperret@google.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
+	Thu, 12 Dec 2024 11:35:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E089F5C68AC;
+	Thu, 12 Dec 2024 11:34:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C07FDC4CECE;
+	Thu, 12 Dec 2024 11:35:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734003312;
+	bh=vvKXChrYWY5YHpnMr1WpfSWRdjCsGzffrtGX0iex+r8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ptb12HfxxzIOmqPrX2bNf6b/vsTNtUc5iETYAC7dErWCRw8Jeer1mf7GM3li2tWp3
+	 5gpJNE2cxJT27HIMVTIXroVAGufsPtmcv/M+ViPUsAm+GvGzjQ49TrSh/pmqll6tai
+	 XoUKY+4g6/yvXAlcBS/ziAtT8eh8UII0cJS95UWvzBSUzkNxs75r86jqo0SXm+5zZO
+	 27NLyAq7b8GSjrnGhMKHpPKxC7/V/QVJdUW39kp6T52E5i3AvRowapmGq+JgTj53pa
+	 PZe6l5K467zhIvK/LtXimZzzzeObTcETNEmPb/wvQi0qdLlJ/oEDFN9UuwA6qczyB5
+	 eCG1LYwswuYYw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLhTK-00337F-Ej;
+	Thu, 12 Dec 2024 11:35:10 +0000
+Date: Thu, 12 Dec 2024 11:35:09 +0000
+Message-ID: <86jzc5rv6a.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kees Cook <keescook@chromium.org>
-Subject: Re: [PATCH v3 4/6] arm64/kvm: Avoid invalid physical addresses to
- signal owner updates
-Message-ID: <Z1rJ_dMJJzGOmjNs@google.com>
-References: <20241212081841.2168124-8-ardb+git@google.com>
- <20241212081841.2168124-12-ardb+git@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241212081841.2168124-12-ardb+git@google.com>
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 17/18] KVM: arm64: Introduce the EL1 pKVM MMU
+In-Reply-To: <20241203103735.2267589-18-qperret@google.com>
+References: <20241203103735.2267589-1-qperret@google.com>
+	<20241203103735.2267589-18-qperret@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, vdonnefort@google.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_033324_313717_83C15B6C 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20241212_033514_320597_32B7F599 
+X-CRM114-Status: GOOD (  46.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,26 +94,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday 12 Dec 2024 at 09:18:46 (+0100), Ard Biesheuvel wrote:
-> @@ -908,6 +892,9 @@ static bool stage2_leaf_mapping_allowed(const struct kvm_pgtable_visit_ctx *ctx,
->  	if (data->force_pte && ctx->level < KVM_PGTABLE_LAST_LEVEL)
->  		return false;
+On Tue, 03 Dec 2024 10:37:34 +0000,
+Quentin Perret <qperret@google.com> wrote:
+> 
+> Introduce a set of helper functions allowing to manipulate the pKVM
+> guest stage-2 page-tables from EL1 using pKVM's HVC interface.
+> 
+> Each helper has an exact one-to-one correspondance with the traditional
+> kvm_pgtable_stage2_*() functions from pgtable.c, with a strictly
+> matching prototype. This will ease plumbing later on in mmu.c.
+> 
+> These callbacks track the gfn->pfn mappings in a simple rb_tree indexed
+> by IPA in lieu of a page-table. This rb-tree is kept in sync with pKVM's
+> state and is protected by a new rwlock -- the existing mmu_lock
+> protection does not suffice in the map() path where the tree must be
+> modified while user_mem_abort() only acquires a read_lock.
+> 
+> Signed-off-by: Quentin Perret <qperret@google.com>
+> ---
+> 
+> The embedded union inside struct kvm_pgtable is arguably a bit horrible
+> currently... I considered making the pgt argument to all kvm_pgtable_*()
+> functions an opaque void * ptr, and moving the definition of
+> struct kvm_pgtable to pgtable.c and the pkvm version into pkvm.c. Given
+> that the allocation of that data-structure is done by the caller, that
+> means we'd need to expose kvm_pgtable_get_pgd_size() or something that
+> each MMU (pgtable.c and pkvm.c) would have to implement and things like
+> that. But that felt like a bigger surgery, so I went with the simpler
+> option. Thoughts welcome :-)
+
+I really don't think it is too bad, and I rather keep some typing
+rather than going the void * route. Some comments below.
+
+> 
+> Similarly, happy to drop the mappings_lock if we want to teach
+> user_mem_abort() about taking a write lock on the mmu_lock in the pKVM
+> case, but again this implementation is the least invasive into normal
+> KVM so that felt like a reasonable starting point.
+> ---
+>  arch/arm64/include/asm/kvm_host.h    |   1 +
+>  arch/arm64/include/asm/kvm_pgtable.h |  27 ++--
+>  arch/arm64/include/asm/kvm_pkvm.h    |  28 ++++
+>  arch/arm64/kvm/pkvm.c                | 195 +++++++++++++++++++++++++++
+>  4 files changed, 242 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index f75988e3515b..05936b57a3a4 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -85,6 +85,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu);
+>  struct kvm_hyp_memcache {
+>  	phys_addr_t head;
+>  	unsigned long nr_pages;
+> +	struct pkvm_mapping *mapping; /* only used from EL1 */
+>  };
 >  
-> +	if (data->annotation && ctx->level == KVM_PGTABLE_LAST_LEVEL)
-> +		return true;
+>  static inline void push_hyp_memcache(struct kvm_hyp_memcache *mc,
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 04418b5e3004..d24d18874015 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -412,15 +412,24 @@ static inline bool kvm_pgtable_walk_lock_held(void)
+>   *			be used instead of block mappings.
+>   */
+>  struct kvm_pgtable {
+> -	u32					ia_bits;
+> -	s8					start_level;
+> -	kvm_pteref_t				pgd;
+> -	struct kvm_pgtable_mm_ops		*mm_ops;
+> -
+> -	/* Stage-2 only */
+> -	struct kvm_s2_mmu			*mmu;
+> -	enum kvm_pgtable_stage2_flags		flags;
+> -	kvm_pgtable_force_pte_cb_t		force_pte_cb;
+> +	union {
+> +		struct {
+> +			u32					ia_bits;
+> +			s8					start_level;
+> +			kvm_pteref_t				pgd;
+> +			struct kvm_pgtable_mm_ops		*mm_ops;
 > +
+> +			/* Stage-2 only */
+> +			struct kvm_s2_mmu			*mmu;
+> +			enum kvm_pgtable_stage2_flags		flags;
+> +			kvm_pgtable_force_pte_cb_t		force_pte_cb;
+> +		};
+> +		struct {
+> +			struct kvm				*kvm;
 
-I don't think it's a problem, but what's the rationale for checking
-ctx->level here? The data->force_pte logic should already do this for us
-and be somewhat orthogonal to data->annotation, no?
+Given that the kvm_s2_mmu already has a back-pointer to kvm_arch,
+maybe you could keep that one common and use it?
 
-Either way, the patch looks good to me
+There is also some baked assumption that non-NV is always using the
+s2_mmu that's embedded in kvm_arch.
 
-  Reviewed-by: Quentin Perret <qperret@google.com>
+> +			struct rb_root				mappings;
+> +			rwlock_t				mappings_lock;
+> +		} pkvm;
+> +	};
+>  };
+>  
+>  /**
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index cd56acd9a842..84211d5daf87 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -11,6 +11,12 @@
+>  #include <linux/scatterlist.h>
+>  #include <asm/kvm_pgtable.h>
+>  
+> +struct pkvm_mapping {
+> +	u64 gfn;
+> +	u64 pfn;
+> +	struct rb_node node;
 
-Cheers,
-Quentin
+nit: make the node the first field.
 
->  	return kvm_block_mapping_supported(ctx, phys);
+> +};
+> +
+>  /* Maximum number of VMs that can co-exist under pKVM. */
+>  #define KVM_MAX_PVMS 255
+>  
+> @@ -137,4 +143,26 @@ static inline size_t pkvm_host_sve_state_size(void)
+>  			SVE_SIG_REGS_SIZE(sve_vq_from_vl(kvm_host_sve_max_vl)));
 >  }
+>  
+> +static inline pkvm_handle_t pkvm_pgt_to_handle(struct kvm_pgtable *pgt)
+> +{
+> +	return pgt->pkvm.kvm->arch.pkvm.handle;
+> +}
+> +
+> +int pkvm_pgtable_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu, struct kvm_pgtable_mm_ops *mm_ops);
+> +void pkvm_pgtable_destroy(struct kvm_pgtable *pgt);
+> +int pkvm_pgtable_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+> +			   u64 phys, enum kvm_pgtable_prot prot,
+> +			   void *mc, enum kvm_pgtable_walk_flags flags);
+> +int pkvm_pgtable_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+> +int pkvm_pgtable_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
+> +int pkvm_pgtable_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
+> +bool pkvm_pgtable_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold);
+> +int pkvm_pgtable_relax_perms(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_prot prot,
+> +			     enum kvm_pgtable_walk_flags flags);
+> +void pkvm_pgtable_mkyoung(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_walk_flags flags);
+> +int pkvm_pgtable_split(struct kvm_pgtable *pgt, u64 addr, u64 size, struct kvm_mmu_memory_cache *mc);
+> +void pkvm_pgtable_free_unlinked(struct kvm_pgtable_mm_ops *mm_ops, void *pgtable, s8 level);
+> +kvm_pte_t *pkvm_pgtable_create_unlinked(struct kvm_pgtable *pgt, u64 phys, s8 level,
+> +					enum kvm_pgtable_prot prot, void *mc, bool force_pte);
+> +
+>  #endif	/* __ARM64_KVM_PKVM_H__ */
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 85117ea8f351..9c648a510671 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/init.h>
+>  #include <linux/kmemleak.h>
+>  #include <linux/kvm_host.h>
+> +#include <asm/kvm_mmu.h>
+>  #include <linux/memblock.h>
+>  #include <linux/mutex.h>
+>  #include <linux/sort.h>
+> @@ -268,3 +269,197 @@ static int __init finalize_pkvm(void)
+>  	return ret;
+>  }
+>  device_initcall_sync(finalize_pkvm);
+> +
+> +static int cmp_mappings(struct rb_node *node, const struct rb_node *parent)
+> +{
+> +	struct pkvm_mapping *a = rb_entry(node, struct pkvm_mapping, node);
+> +	struct pkvm_mapping *b = rb_entry(parent, struct pkvm_mapping, node);
+> +
+> +	if (a->gfn < b->gfn)
+> +		return -1;
+> +	if (a->gfn > b->gfn)
+> +		return 1;
+> +	return 0;
+> +}
+> +
+> +static struct rb_node *find_first_mapping_node(struct rb_root *root, u64 gfn)
+> +{
+> +	struct rb_node *node = root->rb_node, *prev = NULL;
+> +	struct pkvm_mapping *mapping;
+> +
+> +	while (node) {
+> +		mapping = rb_entry(node, struct pkvm_mapping, node);
+> +		if (mapping->gfn == gfn)
+> +			return node;
+> +		prev = node;
+> +		node = (gfn < mapping->gfn) ? node->rb_left : node->rb_right;
+> +	}
+> +
+> +	return prev;
+> +}
+> +
+> +#define for_each_mapping_in_range(pgt, start_ipa, end_ipa, mapping, tmp)				\
+> +	for (tmp = find_first_mapping_node(&pgt->pkvm.mappings, ((start_ipa) >> PAGE_SHIFT));		\
+> +	     tmp && ({ mapping = rb_entry(tmp, struct pkvm_mapping, node); tmp = rb_next(tmp); 1; });)	\
+> +		if (mapping->gfn < ((start_ipa) >> PAGE_SHIFT))						\
+> +			continue;									\
+> +		else if (mapping->gfn >= ((end_ipa) >> PAGE_SHIFT))					\
+> +			break;										\
+> +		else
+
+Oh gawd... This makes my head spin, and it can't be said that I'm
+adverse to the most bizarre macro constructs. I came up with this:
+
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 9c648a5106717..b1b8501cae8f7 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -298,13 +298,19 @@ static struct rb_node *find_first_mapping_node(struct rb_root *root, u64 gfn)
+ 	return prev;
+ }
+ 
+-#define for_each_mapping_in_range(pgt, start_ipa, end_ipa, mapping, tmp)				\
+-	for (tmp = find_first_mapping_node(&pgt->pkvm.mappings, ((start_ipa) >> PAGE_SHIFT));		\
+-	     tmp && ({ mapping = rb_entry(tmp, struct pkvm_mapping, node); tmp = rb_next(tmp); 1; });)	\
+-		if (mapping->gfn < ((start_ipa) >> PAGE_SHIFT))						\
+-			continue;									\
+-		else if (mapping->gfn >= ((end_ipa) >> PAGE_SHIFT))					\
+-			break;										\
++#define for_each_mapping_in_range(__pgt, __start, __end, __map)				 \
++	for (struct rb_node *__tmp = find_first_mapping_node(&__pgt->pkvm.mappings, 	 \
++							     ((__start) >> PAGE_SHIFT)); \
++	     __tmp && ({								 \
++			     __map = rb_entry(__tmp, struct pkvm_mapping, node); 	 \
++			     __tmp = rb_next(__tmp);					 \
++			     true;							 \
++		     });								 \
++	     )										 \
++		if (__map->gfn < ((__start) >> PAGE_SHIFT))				 \
++			continue;							 \
++		else if (__map->gfn >= ((__end) >> PAGE_SHIFT))				 \
++			break;								 \
+ 		else
+ 
+ int pkvm_pgtable_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu, struct kvm_pgtable_mm_ops *mm_ops)
+@@ -371,11 +377,10 @@ int pkvm_pgtable_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	pkvm_handle_t handle = pkvm_pgt_to_handle(pgt);
+ 	struct pkvm_mapping *mapping;
+-	struct rb_node *tmp;
+ 	int ret = 0;
+ 
+ 	write_lock(&pgt->pkvm.mappings_lock);
+-	for_each_mapping_in_range(pgt, addr, addr + size, mapping, tmp) {
++	for_each_mapping_in_range(pgt, addr, addr + size, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn);
+ 		if (WARN_ON(ret))
+ 			break;
+@@ -392,11 +397,10 @@ int pkvm_pgtable_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	pkvm_handle_t handle = pkvm_pgt_to_handle(pgt);
+ 	struct pkvm_mapping *mapping;
+-	struct rb_node *tmp;
+ 	int ret = 0;
+ 
+ 	read_lock(&pgt->pkvm.mappings_lock);
+-	for_each_mapping_in_range(pgt, addr, addr + size, mapping, tmp) {
++	for_each_mapping_in_range(pgt, addr, addr + size, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn);
+ 		if (WARN_ON(ret))
+ 			break;
+@@ -409,10 +413,9 @@ int pkvm_pgtable_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ int pkvm_pgtable_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	struct pkvm_mapping *mapping;
+-	struct rb_node *tmp;
+ 
+ 	read_lock(&pgt->pkvm.mappings_lock);
+-	for_each_mapping_in_range(pgt, addr, addr + size, mapping, tmp)
++	for_each_mapping_in_range(pgt, addr, addr + size, mapping)
+ 		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn), PAGE_SIZE);
+ 	read_unlock(&pgt->pkvm.mappings_lock);
+ 
+@@ -423,11 +426,10 @@ bool pkvm_pgtable_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ {
+ 	pkvm_handle_t handle = pkvm_pgt_to_handle(pgt);
+ 	struct pkvm_mapping *mapping;
+-	struct rb_node *tmp;
+ 	bool young = false;
+ 
+ 	read_lock(&pgt->pkvm.mappings_lock);
+-	for_each_mapping_in_range(pgt, addr, addr + size, mapping, tmp)
++	for_each_mapping_in_range(pgt, addr, addr + size, mapping)
+ 		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+ 					   mkold);
+ 	read_unlock(&pgt->pkvm.mappings_lock);
+
+Should be semantically equivalent, but I find it way more readable.
+
+Also, maybe add a comment indicating why __tmp needs to be updated
+*before* the body of the loop gets executed (case of freeing the
+mapping from within the body).
+
+> +
+> +int pkvm_pgtable_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu, struct kvm_pgtable_mm_ops *mm_ops)
+> +{
+> +	pgt->pkvm.kvm		= kvm_s2_mmu_to_kvm(mmu);
+> +	pgt->pkvm.mappings	= RB_ROOT;
+> +	rwlock_init(&pgt->pkvm.mappings_lock);
+
+We talked about this f2f: Given that this lock is semantically
+equivalent to the MMU lock, maybe just use that by upgrading it to be
+taken as for write when pKVM is enabled.
+
+It should be easy enough to wrap that in helpers that DTRT, and all
+this code could become devoid of any extra locking.
+
+[...]
+
+> +int pkvm_pgtable_relax_perms(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_prot prot,
+> +			     enum kvm_pgtable_walk_flags flags)
+> +{
+> +	return kvm_call_hyp_nvhe(__pkvm_host_relax_guest_perms, addr >> PAGE_SHIFT, prot);
+> +}
+> +
+> +void pkvm_pgtable_mkyoung(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_walk_flags flags)
+> +{
+> +	WARN_ON(kvm_call_hyp_nvhe(__pkvm_host_mkyoung_guest, addr >> PAGE_SHIFT));
+> +}
+> +
+> +void pkvm_pgtable_free_unlinked(struct kvm_pgtable_mm_ops *mm_ops, void *pgtable, s8 level)
+> +{
+> +	WARN_ON(1);
+> +}
+> +
+> +kvm_pte_t *pkvm_pgtable_create_unlinked(struct kvm_pgtable *pgt, u64 phys, s8 level,
+> +					enum kvm_pgtable_prot prot, void *mc, bool force_pte)
+> +{
+> +	WARN_ON(1);
+> +	return NULL;
+> +}
+> +
+> +int pkvm_pgtable_split(struct kvm_pgtable *pgt, u64 addr, u64 size, struct kvm_mmu_memory_cache *mc)
+> +{
+> +	WARN_ON(1);
+> +	return -EINVAL;
+> +}
+
+Maybe turn these warnings into their _ONCE version. If we end-up here,
+seeing it once should be enough to realise we're toast.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
