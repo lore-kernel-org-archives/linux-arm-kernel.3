@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30743E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D656E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 07:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m7/hDJxH1I6wzoXJ59MyeetZ018VrxKJtTnqY2cllOI=; b=GZv2l4UqaPDU703XSFJgtpRGHb
-	/ZASyj5A6cIs+Sh0auQcvGm1SyVA9kXeUZKHdEGhZOHDHiIpRU45nLV6Rz6YK9bN+sf3UpZwJWooC
-	6JaVxCVvM/XGFsgJo4FOB+j0VvjLLXfjYAkQ0rG07/i9IssX/OpdwYMnM+6sTigfMojRe0663Ecfx
-	FXBK5m0kEKh66V88EoItQssgbGF39bQKQrMHKZUWagTybxp5k47xmwCn5GSC2a0e9iRYqVw5r/9LJ
-	Q+94y8aE13XezOmMLtASpzJ3dmpZUGxIqsogRzsMb/wtB6jYGro0LYl5Wc7i4DrFM6pxAHSPiVndh
-	WScJbbwg==;
+	bh=9zSE1MjeeUpnGRpJKSeMsV/ki68amCLxus3F3wB4oFw=; b=AU4/VtcKCQJxWYrAarQ7x9plY8
+	P2e4vYxqaw1YpKOoJZhNExB3fJW186Gz2rUDsdHwmtWe1LEBRfXiI1aLvoMnRzs7XTYZERb96xgjp
+	GSJcYQiIuiI03VUNl/TqBfK/o69VUUZTGVm3m5w9bLhHK3B8eZGSaxHhNhXV+J3Lvqhu7H1Cpguir
+	Ot0LFFsrJhyzdLJ+BYOdka4z0LU75ed31yUcPn/TV1s3tcYI9R01LgopiyQptnUXPAJGudWO3xR5h
+	lFiGyY1MO8YQpcyE50QIl0Ku9/dckMSnHirI68N3TbWbukbWftJxH2nkjviKCOwZ6AKqhWVNJ3cMH
+	wItXXpoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdVe-0000000H9C6-0FKf;
-	Thu, 12 Dec 2024 07:21:18 +0000
+	id 1tLdWf-0000000H9JL-48nx;
+	Thu, 12 Dec 2024 07:22:21 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLdUZ-0000000H8yg-44CV;
-	Thu, 12 Dec 2024 07:20:13 +0000
+	id 1tLdVA-0000000H96c-38tP;
+	Thu, 12 Dec 2024 07:20:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 99C8CA425B6;
-	Thu, 12 Dec 2024 07:18:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B31CAC4CECE;
-	Thu, 12 Dec 2024 07:20:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C0859A425B7;
+	Thu, 12 Dec 2024 07:18:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46C48C4CECE;
+	Thu, 12 Dec 2024 07:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733988010;
-	bh=6Ri8IP/B/7EsHxKZjeJyUIP+NcIoxWnyAQZWysjxBVU=;
+	s=k20201202; t=1733988047;
+	bh=+9rt0PRfIWzVxs0bppBKdIprXJmp3kFXb9fiuE6Pokg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JY66ghJ74hd/i2e7ZI/W3+6ojvRb8zUSchDan/ecwDjIjGYQCmUgf5K1kiLzvguZ0
-	 gfZ5NuxEbDOQrj3S85YQQbNoU778IWoEHuNNhex3tWRlgJfXdVOo9f/4629VWfsAlC
-	 ap9m8pcPvg1wUBVKSiJycPqbhCf5TzLd3Y1heYxSgFKuoM4TT2wDxNpWQy2IuaNQbp
-	 RTYekfoADtEIpDtZ5Oy+egjPIM8ex9UWTWNo9tkIxM3rLxBzQX2GmocTFy8sb4Kntf
-	 6EHqdk6AYXz2FwD7CJO4noDSO2DyY58M8jZyotcI+fNcXmrZYccgvSLEV247unSW5K
-	 Q+Z/y4JxIQ4Dg==
-Message-ID: <8cf7e03a-7994-4dd5-b496-e00b4827ee22@kernel.org>
-Date: Thu, 12 Dec 2024 08:20:01 +0100
+	b=Q9s1MAooaGf2212S1+2rxj+Tbt1GtxsbeGkx6GutSPrK42HibpIXmDyTpSxEDsd30
+	 cfSAvMMVmImpgpnRPSZshrAF/VEYsGgjy7M6cziwxi0NEmyqbAXwBH8Z3pwJ3eh2I8
+	 C37jvROVwg7uJOysaZadSZFw+BsJwQ4Lq9w+1OxKBdy9tf9XdZEsKgVlKDwL3k6zF2
+	 t79giWp++33ERVWmLDNDOZ1AiDyRXKL45hNQ2h56Xqyexetddh0XLHi3QRRmrOzn6C
+	 g6vCkQEVxiKTRFdcYzMRBgrFqIa4PfeD/mP86AjuIxVQ0qR6+CCctJBM/g/1kz6UB4
+	 0yviVyZm1KPWw==
+Message-ID: <e9caf0fe-a77f-40cb-9fc3-9da3d95f27ca@kernel.org>
+Date: Thu, 12 Dec 2024 08:20:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/8] dt-bindings: mailbox: mediatek: Add MT8196 support
- for gce-mailbox
+Subject: Re: [PATCH v2 1/8] dt-bindings: mailbox: mediatek: Add GCE header
+ file for MT8196
 To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
 Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
@@ -71,9 +71,9 @@ Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 References: <20241211032256.28494-1-jason-jh.lin@mediatek.com>
- <20241211032256.28494-3-jason-jh.lin@mediatek.com>
- <yhfxpflyumevs66sdwgiiyuablpfxfxw3e7ybrxju7ssicmnu5@truuiuvxlq6e>
- <64326843358d450c9172f3dea1c85e7422e20430.camel@mediatek.com>
+ <20241211032256.28494-2-jason-jh.lin@mediatek.com>
+ <ozifi65uycmxc5hqeu4onbths5u7dg532iufjxplsjw4jjmhf6@6bdsaabd7hl7>
+ <04f7bd2a7d69ab7d02c88cf05bda5ae0c4cb6573.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -119,12 +119,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <64326843358d450c9172f3dea1c85e7422e20430.camel@mediatek.com>
+In-Reply-To: <04f7bd2a7d69ab7d02c88cf05bda5ae0c4cb6573.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_232012_134207_096B1799 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20241211_232048_905628_383CB8DF 
+X-CRM114-Status: GOOD (  29.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,29 +139,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/12/2024 04:41, Jason-JH Lin (林睿祥) wrote:
+On 12/12/2024 04:05, Jason-JH Lin (林睿祥) wrote:
 > Hi Krzysztof,
 > 
 > Thanks for the reviews.
 > 
-> On Wed, 2024-12-11 at 10:39 +0100, Krzysztof Kozlowski wrote:
+> On Wed, 2024-12-11 at 10:37 +0100, Krzysztof Kozlowski wrote:
 >> External email : Please do not click links or open attachments until
 >> you have verified the sender or the content.
 >>
 >>
->> On Wed, Dec 11, 2024 at 11:22:50AM +0800, Jason-JH.Lin wrote:
->>> Add compatible name and iommus property for MT8196.
->>>
->>> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
->>> ---
->>>  .../devicetree/bindings/mailbox/mediatek,gce-mailbox.yaml     | 4
->>> ++++
->>>  1 file changed, 4 insertions(+)
+>> On Wed, Dec 11, 2024 at 11:22:49AM +0800, Jason-JH.Lin wrote:
+>>> Add the Global Command Engine (GCE) header file to define the GCE
+>>> thread priority, GCE subsys ID and GCE events for MT8196.
 >>
->> Headers are never separate from the bindings patch...
+>> This we see from the diff. What we do not see is why priority is a
+>> binding. Looking briefly at existing code: it is not a binding, there
+>> is
+>> no driver user.
+>>
 > 
-> Do you mean I need to merge [PATCH 1/8] and [PATCH 2/8] into 1 patch?
-I asked this last time.
+> This priority value is used to configure the priority level for each
+> GCE hardware thread, so it is a necessary hardware attribute.
+
+I did not say these are not "hardware". I said these are not bindings.
+Bring arguments why these are bindings.
+
+> 
+> It's hard to find where the priority is used in existing driver code
+> because we parsed it from DTS.
+
+So not a binding.
+
+> 
+> It is used in all mediaTeks' DTS using the GCE.
+> For example, in mt8195.dts:
+> 
+> vdosys0: syscon@1c01a000 {
+>     compatible = "mediatek,mt8195-vdosys0", "mediatek,mt8195-mmsys",
+> "syscon";
+>     reg = <0 0x1c01a000 0 0x1000>;
+>     mboxes = <&gce0 0 CMDQ_THR_PRIO_4>;
+>     #clock-cells = <1>;
+>     mediatek,gce-client-reg = <&gce0 SUBSYS_1c01XXXX 0xa000 0x1000>;
+> }
+> 
+> CMDQ driver(mtk-cmdq-mailbox.c) will get the args parsed from mboxes
+> property in cmdq_xlate() and then it will store CMDQ_THR_PRIO_4 to the
+> specific thread structure. 
+
+So not a binding.
+
+> The user of CMDQ driver will send command to CMDQ driver by 
+> cmdq_mbox_send_data(), and this priority setting will be configured to
+> GCE hardware thread.
+
+And other things there are the same, we do not talk only about this one
+thing. I asked last time to drop which is not a binding.
+
+
+...
+
+>>> +
+>>> +/*
+>>> + * GCE General Purpose Register (GPR) support
+>>> + * Leave note for scenario usage here
+>>> + */
+>>> +/* GCE: write mask */
+>>
+>> That's a definite no-go. Register masks are not bindings.
+>>
+> 
+> I'm sorry to the confusion.
+> 
+> These defines are the index of GCE General Purpose Register for
+> generating instructions, they are not register masks.
+
+Index of register is also sounding like register.
+
+> 
+> The comment "/* GCE: write mask */" is briefly describe that the usage
+> of GCE_GPR_R0 and GCE_GPR_R01 is used to store the register mask when
+> GCE executing the WRITE instruction. And it can also store the register
+> mask of POLL and READ instruction.
+> 
+> I will add more words to make this comment clearer, like this:
+> /*GCE: store the mask of instruction */
+
+Not sure, because I feel you just avoid doing what is right and keep
+pushing your own narrative. Where is it used in the driver?
+
+I just looked for "GCE_GPR_R00" - no usage at all. So not a binding.
 
 Best regards,
 Krzysztof
