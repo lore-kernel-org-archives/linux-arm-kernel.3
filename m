@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20A2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2467E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=paT95758DuarnLt3uBrtdu0R1Vdl4/oHUgOFQlWqE94=; b=Tnj+fyMAh93OswA7TVsLW5GAS7
-	HE2DnB1Rh9h9k27PLa68hb2/ULJd1iFzVkTJvxdKseVuaSwu8vfVPRSMYzkASKVzXkR6aP1jsbFrD
-	XsEPU6nMpWE3ztmgb2h7MF6W6cm+aZIbDKL1lFsoXkZ1Y+qQ9SmeDz9byfkIZ6GHIHqY/MT27RzGO
-	Fnka9tCdt9x3f1qiI4UBIMyBEAYoL91ccnPaksVKZPinM3qjp19SAivXzAxoHCCJjEX/67edkdjmn
-	vTaJQZw/4J0d0wq9UucBy6QxEPW5dKcVuoZ6lOcabTDowRmO803Rt61ofjEeTfNv7BRiTrKqO3d68
-	hX2MBN8w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YG/3arknVcEBc34MS+ma6AlBW9H8apNRnFKOMu83Ztg=; b=TUxDgBCTp+XzIsDuE0EaqHsaOI
+	bUH2XLeZ11W3O7f2aZXRMwpoOZyJEaFHJbImkF0/OFRdS8nzNEnXG6S8Z2PDM5gud2Rzq7BeHzDtt
+	D85OP6gph8il19PixJ8mojbQD286+XJHmEAjWM6YuciD7BO1IAXmDv+anQWvL4gUMdyZmgCIe0QYf
+	jw3LHlRSxYwiUdsNZqmf19QGF/RUSxNb/bXecJV9r9wnR57/Q5O0ef2hcZ/0gJarUtKOTI3385FQE
+	xp/DaOzsUOSsSL9gzZTDxeGVjz610yYhFG+X0+j7wHU2Hx8W/BdpG4EO3JV0DnhIVvTmA1/YL7m07
+	kc4CsPyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLi9g-00000000Ler-1C0B;
-	Thu, 12 Dec 2024 12:18:56 +0000
+	id 1tLiAi-00000000LrB-3l5Y;
+	Thu, 12 Dec 2024 12:20:00 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLi8Z-00000000LNz-3JoA
+	id 1tLi8Z-00000000LNy-3Js8
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 12 Dec 2024 12:17:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=paT95758DuarnLt3uBrtdu0R1Vdl4/oHUgOFQlWqE94=; b=lwCUMK04j4oN4A0J1fWB00P+DB
-	bOnk5RLF/cYZA/b8ag0tyumm5Nx6uSt4QsyNNAaVdyNzRjpYrDm0NdUGAp5Hy9VHebzTePoxW/JeS
-	ktFxA4bD4iZ37MAekELzOyMeRUrqdywrxOEiPmrM5quSRHrrQnycVoksWeF81wrVXiSGm55rjtR/F
-	Ea6pVBnRuW/WdDwXTt2oZgtEn+NjDlnbDa/ZYNZcTXg0yDe2RDx0s+Z2Iert9sBOW1eGGyRZlWJ03
-	gNTGtanAYBFLOCeNKBj7WTBJOiIX8PXbWfB50KK3vf1Epmp9FMSUuRsaWZ9Zu2widP1IHakKcTuMS
-	BATVWgfg==;
+	bh=YG/3arknVcEBc34MS+ma6AlBW9H8apNRnFKOMu83Ztg=; b=DKSKcPTCf9VBE4setXzaxpxNrT
+	6oVayJOrmXehnO11pil7joj23ZCIOdfLdiUwYXgJsbbTDOXm0g/fAUb0WNtO+mZj3D/qk/Pk52z3W
+	ZAC4SIUap/duUYqlBbj6D4p23Uy6h0ZsHZzfAsqUw7x0iI4Bih4Y0xE7e4ulKri/G3q+DH4sEG/wf
+	VpRWXSa9xaj97TNYSjIMBWdqSpahu7cInhTiO2uuK9WezVDoyRV3/HcjRPWW9g4paYxSAdgag7Hhx
+	xn3kH0awnJWPGaz9MzEcD31Zr9aY1t95UiN2KzXhjIYgWcFkdvNAWfhC14flLwPYGSsL5/nfOb/aE
+	KSnkI4tw==;
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:38802 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tLi8W-00A8t4-1e;
+	id 1tLi8W-00A8t4-0y;
 	Thu, 12 Dec 2024 13:17:44 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: andrzej.hajda@intel.com,
@@ -71,12 +71,10 @@ Cc: dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v6 1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add properties for ti,lvds-vod-swing
-Date: Thu, 12 Dec 2024 13:17:10 +0100
-Message-Id: <20241212121712.214639-2-andrej.picej@norik.com>
+Subject: [PATCH v6 0/3] SN65DSI83/4 lvds_vod_swing properties
+Date: Thu, 12 Dec 2024 13:17:09 +0100
+Message-Id: <20241212121712.214639-1-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241212121712.214639-1-andrej.picej@norik.com>
-References: <20241212121712.214639-1-andrej.picej@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -90,8 +88,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_041748_282871_157AC6FB 
-X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-CacheID: sfid-20241212_041748_282698_51E89AEB 
+X-CRM114-Status: UNSURE (   6.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,89 +105,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add properties which can be used to specify LVDS differential output
-voltage. Since this also depends on near-end signal termination also
-include property which sets this. LVDS differential output voltage is
-specified with an array (min, max), which should match the one from
-connected device.
+Hi all,
 
-Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
-Changes in v6:
-- no change
-Changes in v5:
-- added Krzysztof's reviewed-by tag
-Changes in v4:
-- removed "additionalProperties: true" from the patch as it is not needed
-Changes in v3:
-- no change
-Changes in v2:
-- move LVDS port schema to a $defs and reference it from there
-- properties are now defined in microvolts/ohms
-- use 1 property for data-lane and 1 for clock-lane LVDS voltage swing
-- add 1 property which sets LVDS near-end termination
-- since major change was done change the authorship to myself
----
- .../bindings/display/bridge/ti,sn65dsi83.yaml | 34 +++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
+The LVDS differential voltage swing can be specified as arrays of min, max
+in microvolts. Two arrays, one for data-lanes and one for clock-lane can
+be specified. Additionally, because LVDS voltage swing depends on near-end
+termination this can now also be specified with separate property.
 
-diff --git a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
-index 48a97bb3e2e0..bad6f5c81b06 100644
---- a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
-+++ b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
-@@ -80,12 +80,12 @@ properties:
-                   - const: 4
- 
-       port@2:
--        $ref: /schemas/graph.yaml#/properties/port
-         description: Video port for LVDS Channel-A output (panel or bridge).
-+        $ref: '#/$defs/lvds-port'
- 
-       port@3:
--        $ref: /schemas/graph.yaml#/properties/port
-         description: Video port for LVDS Channel-B output (panel or bridge).
-+        $ref: '#/$defs/lvds-port'
- 
-     required:
-       - port@0
-@@ -96,6 +96,36 @@ required:
-   - reg
-   - ports
- 
-+$defs:
-+  lvds-port:
-+    $ref: /schemas/graph.yaml#/$defs/port-base
-+    unevaluatedProperties: false
-+
-+    properties:
-+      endpoint:
-+        $ref: /schemas/media/video-interfaces.yaml#
-+        unevaluatedProperties: false
-+
-+        properties:
-+          ti,lvds-termination-ohms:
-+            description: The value of near end differential termination in ohms.
-+            enum: [100, 200]
-+            default: 200
-+
-+          ti,lvds-vod-swing-clock-microvolt:
-+            description: LVDS diferential output voltage <min max> for clock
-+              lanes in microvolts.
-+            $ref: /schemas/types.yaml#/definitions/uint32-array
-+            minItems: 2
-+            maxItems: 2
-+
-+          ti,lvds-vod-swing-data-microvolt:
-+            description: LVDS diferential output voltage <min max> for data
-+              lanes in microvolts.
-+            $ref: /schemas/types.yaml#/definitions/uint32-array
-+            minItems: 2
-+            maxItems: 2
-+
- allOf:
-   - if:
-       properties:
+Driver goes through the tables, taken from datasheet [1] and selects the
+appropriate configuration. If appropriate configuration can not be found
+the probe fails. If these properties are not defined default values are
+used as before.
+
+This patch series depends on the patch
+"[PATCH v2 11/15] arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10"
+(https://lore.kernel.org/all/20241202072052.2195283-12-andrej.picej@norik.com/)
+which is currently under review. Please apply the dependent series first before
+applying this one.
+
+v1 is at: https://lore.kernel.org/all/20241127103031.1007893-1-andrej.picej@norik.com/
+v2 is at: https://lore.kernel.org/all/20241203085822.2475138-1-andrej.picej@norik.com/
+v3 is at: https://lore.kernel.org/all/20241203110054.2506123-1-andrej.picej@norik.com/
+v4 is at: https://lore.kernel.org/all/20241205134021.2592013-1-andrej.picej@norik.com/
+v5 is at: https://lore.kernel.org/all/20241210091901.83028-1-andrej.picej@norik.com/
+
+[1] https://www.ti.com/lit/ds/symlink/sn65dsi83.pdf?ts=1732738773429&ref_url=https%253A%252F%252Fwww.mouser.co.uk%252F
+
+Best regards,
+Andrej
+
+Andrej Picej (3):
+  dt-bindings: drm/bridge: ti-sn65dsi83: Add properties for
+    ti,lvds-vod-swing
+  drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing optional properties
+  arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set lvds-vod-swing
+
+ .../bindings/display/bridge/ti,sn65dsi83.yaml |  34 ++++-
+ .../imx8mm-phyboard-polis-peb-av-10.dtso      |   2 +
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c         | 143 +++++++++++++++++-
+ 3 files changed, 174 insertions(+), 5 deletions(-)
+
 -- 
 2.34.1
 
