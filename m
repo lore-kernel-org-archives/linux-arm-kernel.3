@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA6AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DD9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xOhRk9mB11mzi4C5t7lQwc/bKJBkdWfDRrL82eEf5UY=; b=0UrLtF+/YXn8Sm7lgcYuEPjj+Y
-	wZCZ7R1sDpEOi1nJIT0YFbWj1xiTjdi07lE7E6ahmvLJWDEWYAfZlp9GPoJO6b/iH7lEFit1yz3uG
-	sLlSld+GzQQtMv1H68uUxxY14V2wCzzrGUpqW2bf3q+dYKTGRu2gb+GFeR/S9o4Xm4IeJfPG0kOc3
-	9AP5oMQtQy1et741QMIx4lcGOD5Wg3e3OTiUTbiDWyoSPI7G7HGYHLFHGmDPSP+dzGnV4htCjEe/H
-	pmI2wRItOdYdel2uLqaO58oh0anLCrXijQOzVXqf9krQyLISuGL5pj2LbvP8U+nmcpiTLSRG7f7Jp
-	jTlLZGAA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wgc5MzaxSbSKu912yXE3Gy2KH5+dzAvBDIIKHc8rqA8=; b=28m0mvuxgoHSFuNRcxohzaxlDT
+	MiWzllKsGi7Fj6xB2j8VfwXz+zOEDr90amcPsqWEkpg3qFT8ozXRUuanXmm8VA0oUV/82CslaLctT
+	7i0j1Jx3dxlL7HvBWbvY2yMuvPbj1ITd1J0lL6DDV/gO3WISK2nVWPcH/H78ouy6SCtS07o2Y5TzJ
+	dnftlRCDdpydX0BQxyJx3dyB+9JDZBkFYWCCk8tflzUeXXx7TilVEj9rgcXwle2fQQk+bEBw2qYU7
+	x0MNhioCey4RDEgK8egDiuR8HP1ZLXoEIvHAYcux7F/4Wz+FpSXpmDGAwVDaD4I6Sk6Yoy0TYizKl
+	JLC6uCdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLloF-00000000uo8-1HJU;
-	Thu, 12 Dec 2024 16:13:03 +0000
+	id 1tLlpH-00000000vAj-47fD;
+	Thu, 12 Dec 2024 16:14:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlYO-00000000qaM-2c51
+	id 1tLlYU-00000000qeI-32YE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:56:42 +0000
+	Thu, 12 Dec 2024 15:56:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E36B71762;
-	Thu, 12 Dec 2024 07:57:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A81271764;
+	Thu, 12 Dec 2024 07:57:10 -0800 (PST)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.39.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B30E53F720;
-	Thu, 12 Dec 2024 07:56:33 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A2063F720;
+	Thu, 12 Dec 2024 07:56:38 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
+Cc: Sean Christopherson <seanjc@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
@@ -55,17 +55,20 @@ Cc: Steven Price <steven.price@arm.com>,
 	Gavin Shan <gshan@redhat.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v6 00/43] arm64: Support for Arm CCA in KVM
-Date: Thu, 12 Dec 2024 15:55:25 +0000
-Message-ID: <20241212155610.76522-1-steven.price@arm.com>
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH v6 01/43] KVM: Prepare for handling only shared mappings in mmu_notifier events
+Date: Thu, 12 Dec 2024 15:55:26 +0000
+Message-ID: <20241212155610.76522-2-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241212155610.76522-1-steven.price@arm.com>
+References: <20241212155610.76522-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_075640_771195_0F3BD6F6 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20241212_075646_805994_CBACA3C1 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,152 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for running protected VMs using KVM under the
-Arm Confidential Compute Architecture (CCA).
+From: Sean Christopherson <seanjc@google.com>
 
-The related guest support was merged for v6.13-rc1 so you no longer need
-that separately.
+Add flags to "struct kvm_gfn_range" to let notifier events target only
+shared and only private mappings, and write up the existing mmu_notifier
+events to be shared-only (private memory is never associated with a
+userspace virtual address, i.e. can't be reached via mmu_notifiers).
 
-There are numerous changes since v5, many thanks for the review
-comments. The highlights are below, and individual patches have a changelog.
+Add two flags so that KVM can handle the three possibilities (shared,
+private, and shared+private) without needing something like a tri-state
+enum.
 
- * KVM_VCPU_MAX_FEATURES is incremented. *NOTE*: This effectively
-   exposes the nested virtualisation feature. So this series as it
-   stands has a dependency on that being finished before it can be
-   merged. See [2] for more details.
+Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+ include/linux/kvm_host.h | 2 ++
+ virt/kvm/kvm_main.c      | 7 +++++++
+ 2 files changed, 9 insertions(+)
 
- * Properly support the RMM providing a more limited number of GIC LRs
-   than the hardware.
-
- * Drop patch tracking number of pages for the top level PGD, it's
-   easier calculating it when we need it.
-
- * Drop the "spare page" - it was causing code complexity and it's a bit
-   premature to start making such optimisations before we've got real
-   platforms to benchmark.
-
-Major limitations:
-
- * Only supports 4k host PAGE_SIZE (if PAGE_SIZE != 4k then the realm
-   extensions are disabled). I'm looking at removing this restriction,
-   but I didn't want to delay this posting.
-
- * No support for huge pages when mapping the guest's pages. There is
-   some 'dead' code left over from before guest_mem was supported. This
-   is partly a current limitation of guest_memfd. It's also on my todo list to
-   look at improving this.
-
-The ABI to the RMM (the RMI) is based on RMM v1.0-rel0 specification[1].
-
-This series is based on v6.13-rc1. It is also available as a git
-repository:
-
-https://gitlab.arm.com/linux-arm/linux-cca cca-host/v6
-
-Work in progress changes for kvmtool are available from the git
-repository below:
-
-https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v4
-
-[1] https://developer.arm.com/documentation/den0137/1-0rel0/
-[2] https://lore.kernel.org/r/a7011738-a084-46fa-947f-395d90b37f8b%40arm.com
-
-Jean-Philippe Brucker (7):
-  arm64: RME: Propagate number of breakpoints and watchpoints to
-    userspace
-  arm64: RME: Set breakpoint parameters through SET_ONE_REG
-  arm64: RME: Initialize PMCR.N with number counter supported by RMM
-  arm64: RME: Propagate max SVE vector length from RMM
-  arm64: RME: Configure max SVE vector length for a Realm
-  arm64: RME: Provide register list for unfinalized RME RECs
-  arm64: RME: Provide accurate register list
-
-Joey Gouly (2):
-  arm64: rme: allow userspace to inject aborts
-  arm64: rme: support RSI_HOST_CALL
-
-Sean Christopherson (1):
-  KVM: Prepare for handling only shared mappings in mmu_notifier events
-
-Steven Price (30):
-  arm64: RME: Handle Granule Protection Faults (GPFs)
-  arm64: RME: Add SMC definitions for calling the RMM
-  arm64: RME: Add wrappers for RMI calls
-  arm64: RME: Check for RME support at KVM init
-  arm64: RME: Define the user ABI
-  arm64: RME: ioctls to create and configure realms
-  arm64: kvm: Allow passing machine type in KVM creation
-  arm64: RME: RTT tear down
-  arm64: RME: Allocate/free RECs to match vCPUs
-  KVM: arm64: vgic: Provide helper for number of list registers
-  arm64: RME: Support for the VGIC in realms
-  KVM: arm64: Support timers in realm RECs
-  arm64: RME: Allow VMM to set RIPAS
-  arm64: RME: Handle realm enter/exit
-  KVM: arm64: Handle realm MMIO emulation
-  arm64: RME: Allow populating initial contents
-  arm64: RME: Runtime faulting of memory
-  KVM: arm64: Handle realm VCPU load
-  KVM: arm64: Validate register access for a Realm VM
-  KVM: arm64: Handle Realm PSCI requests
-  KVM: arm64: WARN on injected undef exceptions
-  arm64: Don't expose stolen time for realm guests
-  arm64: RME: Always use 4k pages for realms
-  arm64: rme: Prevent Device mappings for Realms
-  arm_pmu: Provide a mechanism for disabling the physical IRQ
-  arm64: rme: Enable PMU support with a realm guest
-  kvm: rme: Hide KVM_CAP_READONLY_MEM for realm guests
-  arm64: kvm: Expose support for private memory
-  KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
-  KVM: arm64: Allow activating realms
-
-Suzuki K Poulose (3):
-  kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
-  kvm: arm64: Expose debug HW register numbers for Realm
-  arm64: rme: Allow checking SVE on VM instance
-
- Documentation/virt/kvm/api.rst       |    3 +
- arch/arm64/include/asm/kvm_emulate.h |   40 +
- arch/arm64/include/asm/kvm_host.h    |   17 +-
- arch/arm64/include/asm/kvm_rme.h     |  152 +++
- arch/arm64/include/asm/rmi_cmds.h    |  508 ++++++++
- arch/arm64/include/asm/rmi_smc.h     |  259 +++++
- arch/arm64/include/asm/virt.h        |    1 +
- arch/arm64/include/uapi/asm/kvm.h    |   49 +
- arch/arm64/kvm/Kconfig               |    1 +
- arch/arm64/kvm/Makefile              |    3 +-
- arch/arm64/kvm/arch_timer.c          |   45 +-
- arch/arm64/kvm/arm.c                 |  174 ++-
- arch/arm64/kvm/guest.c               |  107 +-
- arch/arm64/kvm/hypercalls.c          |    4 +-
- arch/arm64/kvm/inject_fault.c        |    6 +-
- arch/arm64/kvm/mmio.c                |   16 +-
- arch/arm64/kvm/mmu.c                 |  195 +++-
- arch/arm64/kvm/pmu-emul.c            |    6 +
- arch/arm64/kvm/psci.c                |   29 +
- arch/arm64/kvm/reset.c               |   23 +-
- arch/arm64/kvm/rme-exit.c            |  195 ++++
- arch/arm64/kvm/rme.c                 | 1588 ++++++++++++++++++++++++++
- arch/arm64/kvm/sys_regs.c            |   79 +-
- arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
- arch/arm64/kvm/vgic/vgic-v3.c        |    5 +
- arch/arm64/kvm/vgic/vgic.c           |   54 +-
- arch/arm64/mm/fault.c                |   31 +-
- drivers/perf/arm_pmu.c               |   15 +
- include/kvm/arm_arch_timer.h         |    2 +
- include/kvm/arm_pmu.h                |    4 +
- include/kvm/arm_psci.h               |    2 +
- include/linux/kvm_host.h             |    2 +
- include/linux/perf/arm_pmu.h         |    5 +
- include/uapi/linux/kvm.h             |   31 +-
- virt/kvm/kvm_main.c                  |    7 +
- 35 files changed, 3557 insertions(+), 103 deletions(-)
- create mode 100644 arch/arm64/include/asm/kvm_rme.h
- create mode 100644 arch/arm64/include/asm/rmi_cmds.h
- create mode 100644 arch/arm64/include/asm/rmi_smc.h
- create mode 100644 arch/arm64/kvm/rme-exit.c
- create mode 100644 arch/arm64/kvm/rme.c
-
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 401439bb21e3..86088968107a 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -260,6 +260,8 @@ struct kvm_gfn_range {
+ 	gfn_t start;
+ 	gfn_t end;
+ 	union kvm_mmu_notifier_arg arg;
++	bool only_private;
++	bool only_shared;
+ 	bool may_block;
+ };
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index de2c11dae231..17727f1330ff 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -593,6 +593,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 			 * the second or later invocation of the handler).
+ 			 */
+ 			gfn_range.arg = range->arg;
++
++			/*
++			 * HVA-based notifications aren't relevant to private
++			 * mappings as they don't have a userspace mapping.
++			 */
++			gfn_range.only_private = false;
++			gfn_range.only_shared = true;
+ 			gfn_range.may_block = range->may_block;
+ 
+ 			/*
 -- 
 2.43.0
 
