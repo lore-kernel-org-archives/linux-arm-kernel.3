@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C29AEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6E7E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybNvGVgl/hoCzKNXbffTwzQBiR9JZU3Un5nM2P0DGi4=; b=I4wzYEmCM2tUUYWJr6xDH8eCES
-	0uly25J2phgmmRcguCqU30tT97T61LLiR/WiidflzJy1anqzDpkcp5CJ6guXVNWvMaCv1eFHouwZE
-	Wz0KbhAKxJ+1EWsCDGp1nkxGxC6AQ8VRklerFPjL32l1ppIUyRMq0w5r3xzN3hY23HWPmqnHMh78i
-	Q3JomHGd1biK+pL2fxDyQkD+526Fd6Ifzmx0Fr+lUc2LPa4IGVIJa6wc222SRSt+4Og+09DKEp5XX
-	qau+KX+6G/syxYgL/NSatZkmWnBTNMjCqZOOJO8phs9pxlWV30P15BGSysDDbgKYO36GlwCb88luZ
-	79LIFr/g==;
+	bh=QW55e4r1FCJJZ+Mxmax2CNsYmQyYsh/1We9MYonnJlo=; b=KNB6Ve01RQY83snkdOq+P/B6MK
+	d4mNlMYSuaZ9G/QDzZdLASfwz4n7vSx+5uRYCTDIz0p3nx+I4iJ9Z0pzmXIeFOSWVhNj6q5D4Z1ir
+	j5BU0kdE52ALYWgc7ofQALIkDhaR1Jovi2bDz3gaB9UDzaM/2LW3W0QZ12475oNqSwK1Be0tDqYED
+	Ffng+S/4wZFP72tSWEvpJbl79lvWMgQ7wHCJTzE4cQTxhS3O5CA1QsAaK9zgZrB2O1FXKCbvpVHX7
+	fk8MwFrZJCcXF85H52gZurOauXyJfDAVRufHzQcAmHE2mfWUJ6gUlN9/K6xLRZnZU5P3fmHv4pfRl
+	RPEHHqug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLo0o-00000001RNS-0PrS;
-	Thu, 12 Dec 2024 18:34:10 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tLo1q-00000001Rac-3Sx1;
+	Thu, 12 Dec 2024 18:35:14 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnZD-00000001Jos-1dno
+	id 1tLnZF-00000001JpK-2C0T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:05:40 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3862b364578so1090298f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:38 -0800 (PST)
+	Thu, 12 Dec 2024 18:05:42 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-385e4a759e6so529183f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026738; x=1734631538; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026740; x=1734631540; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ybNvGVgl/hoCzKNXbffTwzQBiR9JZU3Un5nM2P0DGi4=;
-        b=ru+WOsC3gNjdAQ8mKNTiIB9OpV+qVRjDrSUid4KNkyyiBNNIdbDHUDp+0WBPfpkYPT
-         nMInR6DyJ/U7qXbA/uRmBJgje+N9a7LGIisU9T8Q1LWzolS8AneQ51YDx9WZMBmiNuXF
-         n+FuHH+nh2Xj79Y3dUgJIUQz9902pm1ATmAABoKfXHg4O2aO7z2p/h/69RP6y3CfEi+c
-         mnemHD2+rTjShQct8IbAEbX3xD9Nb4abgWaB7xy0sMP75637P7nnsE3H5c7RVRW/Fvb/
-         eSNVNqVrjfPvcyYWjXXskEE20Hq6UqV1tQrG8NSdQMU2pmXHwgHQtK+tSHlN1uZi5MEc
-         qtTA==
+        bh=QW55e4r1FCJJZ+Mxmax2CNsYmQyYsh/1We9MYonnJlo=;
+        b=flPiE/+coS6oRk+sDJb4TQyEIJS9yKdvqiE/3yxF5X2tBC+ijt5q08mM0GCJyXWMgw
+         45z/wDn7U2zEXKajzqwgKkMUOA0vrZKiExM97eodkKC7AIubzLKmrP8buIn0KDwk12yX
+         qFDorHWaZ0LqXc78ub/UGHHP+DvMVt/Z0Vnc1mNq5uDfWfTidxWU/yB6vDmgvw0hVWnm
+         mIBw4vuyHncG6uscDtAwE7gm4tOgUnM2BTkM6PSN+bxWAQ0bFjIFYpSRPSFZP6YHRXn3
+         WK77QankbimkkGZ8v1e8f/PqLsr/JWSGHZnkCPbn+EYh8+l+Xh+En9dHmzf33Vkkh3XU
+         q0CA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026738; x=1734631538;
+        d=1e100.net; s=20230601; t=1734026740; x=1734631540;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ybNvGVgl/hoCzKNXbffTwzQBiR9JZU3Un5nM2P0DGi4=;
-        b=S3OjZqcoqkmvW6b5VISsfiUPPG6icyrqBXe3+6wwsBt7MGne4+fv92HCBB9ZJEWkTd
-         /txf5rbTKplLonO1XX2jMfq3SE0NFarhpxMvyBk32rOUKjG36RPduYaw/uIAhlQ1NmQa
-         OKfVgvMV9r0wpKQatcRMAA5TfiTzZoLcMNh7Ag9MEWqu6qOEKcm9B6N429XTVeHZMeyG
-         mOJ5PGLVkS6IvLhdUbIfyJuobXgGTcCmoWMtYE0B9frTx16MP8yHm+hvP/b2KFpfclmX
-         FmKKECpoiIUfLPtpJDJFUVp+zF0FhIASRxUdIf3whuO4S7Fy82mIglWuIDZ+s/F9/Cn4
-         KaBA==
-X-Forwarded-Encrypted: i=1; AJvYcCW9VZDPsVEletJQ3NMjbyM8+XvVpYLXTaiYlhaQ0GVHJMgyB62Z1YdpCU97WdYR3cxNk2gXzlx3gDFBQD817Ski@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsV//MCGMeIbllSmxn1dlgGXXEeqkunYJBGIQeZl3puDBtsgnC
-	+XS6GJoEU1nXElNo6OGZ+X9FJ5ITCOt7AnAse7CWp1fDHJ9Q09wXsLYWKZuCp4A66RVZgm9FbLX
-	HhiSlaHPgZA==
-X-Google-Smtp-Source: AGHT+IE0b7txsRIOyvGxW20/4w0Q8YO5iAlMJIT7VhEN6QmR2/Vq39IVy03R+zOk9tpZ9g+gCkzVceXKRYZllw==
-X-Received: from wmbg5.prod.google.com ([2002:a05:600c:a405:b0:434:fddf:5c1a])
+        bh=QW55e4r1FCJJZ+Mxmax2CNsYmQyYsh/1We9MYonnJlo=;
+        b=MidanDrM8/kpaYMKGZpeotg/GzejgUrXkc7OPuYNoVlKkhkkEWJeIcT5ZAIPS70XKO
+         EcWtaN3LG6tIAzUeuOT+pNNchDkPOe9kmew/ke9O3YZH9PrgfZPoNT476gaWChFSIT0O
+         Sx7YFN1IuzYyFNCf5e6QYAnVbQp+auxAH3kJgnIMPugsBqeyE29o4oJPiUfUpKsgP7hW
+         k7ZlaxJD790XH8yfI+jT9EfDflRmki01bdWdFg6WeCaJs7hV6lI+jkKhc/Czpq9L0FJB
+         0lVaCd8tEIW0hslQevy74xwXTskGPhe1YxphVt4HcM1i9RM2x9z9Omvd7Vk89RIHXKWT
+         0fyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVr79uTPmRZ5YYU5IxXtMtCECD55ydoCA1RK0u10HNNvZkkn3YvGNAx0+dXOW4w/DoMDIbdxzMstOnbbpDoLvmi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWrRIHe53doszDlwwBM4qyY564el/BSF8Y0rmR2j2DHXYsCjdf
+	8CdbKwaX2muUTyz7U8dYV2GD/UsAemn7m+wjihFPDlXVxDOMNAJzHBMWGhLSR6wA+NvaROjv9oi
+	Hq7VXLeTVsw==
+X-Google-Smtp-Source: AGHT+IHB49GVFxhdt7ghgV1N9Jg4Guc+tgbfuRWfQoxnqpfh1xTzyJZXQcrGjuehIps7RcSM/ejov5lNnWr6nQ==
+X-Received: from wmoy17.prod.google.com ([2002:a05:600c:17d1:b0:434:e665:11a3])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:18a2:b0:385:faf5:ebc8 with SMTP id ffacd0b85a97d-38788847313mr3909644f8f.21.1734026737836;
- Thu, 12 Dec 2024 10:05:37 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:50 +0000
+ 2002:a05:6000:186b:b0:385:ec8d:8ca9 with SMTP id ffacd0b85a97d-387877c98ffmr3854714f8f.42.1734026739887;
+ Thu, 12 Dec 2024 10:05:39 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:51 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-27-smostafa@google.com>
-Subject: [RFC PATCH v2 26/58] KVM: arm64: smmu-v3: Initialize registers
+Message-ID: <20241212180423.1578358-28-smostafa@google.com>
+Subject: [RFC PATCH v2 27/58] KVM: arm64: smmu-v3: Setup command queue
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100539_430088_F8DA6FDF 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20241212_100541_567877_A3FAC021 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,187 +97,228 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Ensure all writable registers are properly initialized. We do not touch
-registers that will not be read by the SMMU due to disabled features.
+Map the command queue allocated by the host into the hypervisor address
+space. When the host mappings are finalized, the queue is unmapped from
+the host.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 130 +++++++++++++++++++-
- include/kvm/arm_smmu_v3.h                   |  11 ++
- 2 files changed, 140 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c | 165 ++++++++++++++++++++
+ include/kvm/arm_smmu_v3.h                   |   4 +
+ 2 files changed, 169 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-index d2a570c9f3ec..f7e60c188cb0 100644
+index f7e60c188cb0..e15356509424 100644
 --- a/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
 +++ b/arch/arm64/kvm/hyp/nvhe/iommu/arm-smmu-v3.c
-@@ -4,16 +4,144 @@
-  *
-  * Copyright (C) 2022 Linaro Ltd.
-  */
-+#include <asm/arm-smmu-v3-common.h>
- #include <asm/kvm_hyp.h>
- #include <kvm/arm_smmu_v3.h>
- #include <nvhe/iommu.h>
-+#include <nvhe/mem_protect.h>
-+#include <nvhe/mm.h>
-+#include <nvhe/pkvm.h>
-+
-+#define ARM_SMMU_POLL_TIMEOUT_US	100000 /* 100ms arbitrary timeout */
+@@ -41,6 +41,15 @@ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+ 	__ret;							\
+ })
  
- size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
- struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
- 
-+#define for_each_smmu(smmu) \
-+	for ((smmu) = kvm_hyp_arm_smmu_v3_smmus; \
-+	     (smmu) != &kvm_hyp_arm_smmu_v3_smmus[kvm_hyp_arm_smmu_v3_count]; \
-+	     (smmu)++)
-+
-+/*
-+ * Wait until @cond is true.
-+ * Return 0 on success, or -ETIMEDOUT
-+ */
-+#define smmu_wait(_cond)					\
++#define smmu_wait_event(_smmu, _cond)				\
 +({								\
-+	int __i = 0;						\
-+	int __ret = 0;						\
-+								\
-+	while (!(_cond)) {					\
-+		if (++__i > ARM_SMMU_POLL_TIMEOUT_US) {		\
-+			__ret = -ETIMEDOUT;			\
-+			break;					\
-+		}						\
-+		pkvm_udelay(1);					\
++	if ((_smmu)->features & ARM_SMMU_FEAT_SEV) {		\
++		while (!(_cond))				\
++			wfe();					\
 +	}							\
-+	__ret;							\
++	smmu_wait(_cond);					\
 +})
 +
-+static int smmu_write_cr0(struct hyp_arm_smmu_v3_device *smmu, u32 val)
-+{
-+	writel_relaxed(val, smmu->base + ARM_SMMU_CR0);
-+	return smmu_wait(readl_relaxed(smmu->base + ARM_SMMU_CR0ACK) == val);
-+}
-+
-+/* Transfer ownership of structures from host to hyp */
-+static int smmu_take_pages(u64 phys, size_t size)
-+{
-+	WARN_ON(!PAGE_ALIGNED(phys) || !PAGE_ALIGNED(size));
-+	return __pkvm_host_donate_hyp(phys >> PAGE_SHIFT, size >> PAGE_SHIFT);
-+}
-+
-+static void smmu_reclaim_pages(u64 phys, size_t size)
-+{
-+	WARN_ON(!PAGE_ALIGNED(phys) || !PAGE_ALIGNED(size));
-+	WARN_ON(__pkvm_hyp_donate_host(phys >> PAGE_SHIFT, size >> PAGE_SHIFT));
-+}
-+
-+static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	u64 val, old;
-+	int ret;
-+
-+	if (!(readl_relaxed(smmu->base + ARM_SMMU_GBPA) & GBPA_ABORT))
-+		return -EINVAL;
-+
-+	/* Initialize all RW registers that will be read by the SMMU */
-+	ret = smmu_write_cr0(smmu, 0);
-+	if (ret)
-+		return ret;
-+
-+	val = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
-+	      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
-+	      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
-+	      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
-+	      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
-+	      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-+	writel_relaxed(val, smmu->base + ARM_SMMU_CR1);
-+	writel_relaxed(CR2_PTM, smmu->base + ARM_SMMU_CR2);
-+	writel_relaxed(0, smmu->base + ARM_SMMU_IRQ_CTRL);
-+
-+	val = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
-+	old = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
-+	/* Service Failure Mode is fatal */
-+	if ((val ^ old) & GERROR_SFM_ERR)
-+		return -EIO;
-+	/* Clear pending errors */
-+	writel_relaxed(val, smmu->base + ARM_SMMU_GERRORN);
-+
-+	return 0;
-+}
-+
-+static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	int ret;
-+
-+	if (!PAGE_ALIGNED(smmu->mmio_addr | smmu->mmio_size))
-+		return -EINVAL;
-+
-+	ret = ___pkvm_host_donate_hyp(smmu->mmio_addr >> PAGE_SHIFT,
-+				      smmu->mmio_size >> PAGE_SHIFT,
-+				      /* accept_mmio */ true);
-+	if (ret)
-+		return ret;
-+
-+	smmu->base = hyp_phys_to_virt(smmu->mmio_addr);
-+
-+	ret = smmu_init_registers(smmu);
-+	if (ret)
-+		return ret;
-+
-+	return kvm_iommu_init_device(&smmu->iommu);
-+}
-+
- static int smmu_init(void)
+ static int smmu_write_cr0(struct hyp_arm_smmu_v3_device *smmu, u32 val)
  {
--	return -ENOSYS;
-+	int ret;
-+	struct hyp_arm_smmu_v3_device *smmu;
-+	size_t smmu_arr_size = PAGE_ALIGN(sizeof(*kvm_hyp_arm_smmu_v3_smmus) *
-+					  kvm_hyp_arm_smmu_v3_count);
-+	phys_addr_t smmu_arr_phys;
-+
-+	kvm_hyp_arm_smmu_v3_smmus = kern_hyp_va(kvm_hyp_arm_smmu_v3_smmus);
-+
-+	smmu_arr_phys = hyp_virt_to_phys(kvm_hyp_arm_smmu_v3_smmus);
-+
-+	ret = smmu_take_pages(smmu_arr_phys, smmu_arr_size);
-+	if (ret)
-+		return ret;
-+
-+	for_each_smmu(smmu) {
-+		ret = smmu_init_device(smmu);
-+		if (ret)
-+			goto out_reclaim_smmu;
-+	}
-+
-+	return 0;
-+out_reclaim_smmu:
-+	smmu_reclaim_pages(smmu_arr_phys, smmu_arr_size);
-+	return ret;
+ 	writel_relaxed(val, smmu->base + ARM_SMMU_CR0);
+@@ -60,6 +69,123 @@ static void smmu_reclaim_pages(u64 phys, size_t size)
+ 	WARN_ON(__pkvm_hyp_donate_host(phys >> PAGE_SHIFT, size >> PAGE_SHIFT));
  }
  
- /* Shared with the kernel driver in EL1 */
++#define Q_WRAP(smmu, reg)	((reg) & (1 << (smmu)->cmdq_log2size))
++#define Q_IDX(smmu, reg)	((reg) & ((1 << (smmu)->cmdq_log2size) - 1))
++
++static bool smmu_cmdq_full(struct hyp_arm_smmu_v3_device *smmu)
++{
++	u64 cons = readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
++
++	return Q_IDX(smmu, smmu->cmdq_prod) == Q_IDX(smmu, cons) &&
++	       Q_WRAP(smmu, smmu->cmdq_prod) != Q_WRAP(smmu, cons);
++}
++
++static bool smmu_cmdq_empty(struct hyp_arm_smmu_v3_device *smmu)
++{
++	u64 cons = readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
++
++	return Q_IDX(smmu, smmu->cmdq_prod) == Q_IDX(smmu, cons) &&
++	       Q_WRAP(smmu, smmu->cmdq_prod) == Q_WRAP(smmu, cons);
++}
++
++static int smmu_add_cmd(struct hyp_arm_smmu_v3_device *smmu,
++			struct arm_smmu_cmdq_ent *ent)
++{
++	int i;
++	int ret;
++	u64 cmd[CMDQ_ENT_DWORDS] = {};
++	int idx = Q_IDX(smmu, smmu->cmdq_prod);
++	u64 *slot = smmu->cmdq_base + idx * CMDQ_ENT_DWORDS;
++
++	if (smmu->iommu.power_is_off)
++		return -EPIPE;
++
++	ret = smmu_wait_event(smmu, !smmu_cmdq_full(smmu));
++	if (ret)
++		return ret;
++
++	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
++
++	switch (ent->opcode) {
++	case CMDQ_OP_CFGI_ALL:
++		cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
++		break;
++	case CMDQ_OP_CFGI_CD:
++		cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SSID, ent->cfgi.ssid);
++		fallthrough;
++	case CMDQ_OP_CFGI_STE:
++		cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, ent->cfgi.sid);
++		cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_LEAF, ent->cfgi.leaf);
++		break;
++	case CMDQ_OP_TLBI_NH_VA:
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, ent->tlbi.vmid);
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_NUM, ent->tlbi.num);
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_SCALE, ent->tlbi.scale);
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID, ent->tlbi.asid);
++		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_LEAF, ent->tlbi.leaf);
++		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TTL, ent->tlbi.ttl);
++		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TG, ent->tlbi.tg);
++		cmd[1] |= ent->tlbi.addr & CMDQ_TLBI_1_VA_MASK;
++		break;
++	case CMDQ_OP_TLBI_NSNH_ALL:
++		break;
++	case CMDQ_OP_TLBI_NH_ASID:
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID, ent->tlbi.asid);
++		fallthrough;
++	case CMDQ_OP_TLBI_S12_VMALL:
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, ent->tlbi.vmid);
++		break;
++	case CMDQ_OP_TLBI_S2_IPA:
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_NUM, ent->tlbi.num);
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_SCALE, ent->tlbi.scale);
++		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_VMID, ent->tlbi.vmid);
++		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_LEAF, ent->tlbi.leaf);
++		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TTL, ent->tlbi.ttl);
++		cmd[1] |= FIELD_PREP(CMDQ_TLBI_1_TG, ent->tlbi.tg);
++		cmd[1] |= ent->tlbi.addr & CMDQ_TLBI_1_IPA_MASK;
++		break;
++	case CMDQ_OP_CMD_SYNC:
++		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	for (i = 0; i < CMDQ_ENT_DWORDS; i++)
++		slot[i] = cpu_to_le64(cmd[i]);
++
++	smmu->cmdq_prod++;
++	writel(Q_IDX(smmu, smmu->cmdq_prod) | Q_WRAP(smmu, smmu->cmdq_prod),
++	       smmu->base + ARM_SMMU_CMDQ_PROD);
++	return 0;
++}
++
++static int smmu_sync_cmd(struct hyp_arm_smmu_v3_device *smmu)
++{
++	int ret;
++	struct arm_smmu_cmdq_ent cmd = {
++		.opcode = CMDQ_OP_CMD_SYNC,
++	};
++
++	ret = smmu_add_cmd(smmu, &cmd);
++	if (ret)
++		return ret;
++
++	return smmu_wait_event(smmu, smmu_cmdq_empty(smmu));
++}
++
++__maybe_unused
++static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
++			 struct arm_smmu_cmdq_ent *cmd)
++{
++	int ret = smmu_add_cmd(smmu, cmd);
++
++	if (ret)
++		return ret;
++
++	return smmu_sync_cmd(smmu);
++}
++
+ static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
+ {
+ 	u64 val, old;
+@@ -94,6 +220,41 @@ static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
+ 	return 0;
+ }
+ 
++static int smmu_init_cmdq(struct hyp_arm_smmu_v3_device *smmu)
++{
++	u64 cmdq_base;
++	size_t cmdq_nr_entries, cmdq_size;
++	int ret;
++	enum kvm_pgtable_prot prot = PAGE_HYP;
++
++	cmdq_base = readq_relaxed(smmu->base + ARM_SMMU_CMDQ_BASE);
++	if (cmdq_base & ~(Q_BASE_RWA | Q_BASE_ADDR_MASK | Q_BASE_LOG2SIZE))
++		return -EINVAL;
++
++	smmu->cmdq_log2size = cmdq_base & Q_BASE_LOG2SIZE;
++	cmdq_nr_entries = 1 << smmu->cmdq_log2size;
++	cmdq_size = cmdq_nr_entries * CMDQ_ENT_DWORDS * 8;
++
++	cmdq_base &= Q_BASE_ADDR_MASK;
++
++	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
++		prot |= KVM_PGTABLE_PROT_NORMAL_NC;
++
++	ret = ___pkvm_host_donate_hyp_prot(cmdq_base >> PAGE_SHIFT,
++					   PAGE_ALIGN(cmdq_size) >> PAGE_SHIFT,
++					   false, prot);
++	if (ret)
++		return ret;
++
++	smmu->cmdq_base = hyp_phys_to_virt(cmdq_base);
++
++	memset(smmu->cmdq_base, 0, cmdq_size);
++	writel_relaxed(0, smmu->base + ARM_SMMU_CMDQ_PROD);
++	writel_relaxed(0, smmu->base + ARM_SMMU_CMDQ_CONS);
++
++	return 0;
++}
++
+ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
+ {
+ 	int ret;
+@@ -113,6 +274,10 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = smmu_init_cmdq(smmu);
++	if (ret)
++		return ret;
++
+ 	return kvm_iommu_init_device(&smmu->iommu);
+ }
+ 
 diff --git a/include/kvm/arm_smmu_v3.h b/include/kvm/arm_smmu_v3.h
-index 521028b3ff71..fb24bcef1624 100644
+index fb24bcef1624..393a1a04edba 100644
 --- a/include/kvm/arm_smmu_v3.h
 +++ b/include/kvm/arm_smmu_v3.h
-@@ -5,8 +5,19 @@
- #include <asm/kvm_asm.h>
- #include <kvm/iommu.h>
- 
-+/*
-+ * Parameters from the trusted host:
-+ * @mmio_addr		base address of the SMMU registers
-+ * @mmio_size		size of the registers resource
-+ *
-+ * Other members are filled and used at runtime by the SMMU driver.
-+ */
- struct hyp_arm_smmu_v3_device {
+@@ -16,8 +16,12 @@ struct hyp_arm_smmu_v3_device {
  	struct kvm_hyp_iommu	iommu;
-+	phys_addr_t		mmio_addr;
-+	size_t			mmio_size;
-+
-+	void __iomem		*base;
+ 	phys_addr_t		mmio_addr;
+ 	size_t			mmio_size;
++	unsigned long		features;
+ 
+ 	void __iomem		*base;
++	u32			cmdq_prod;
++	u64			*cmdq_base;
++	size_t			cmdq_log2size;
  };
  
  extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
