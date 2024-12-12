@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA96E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89ABAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 17:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJ26I3d85mS7q9GOyii3IlleYdq4ow6UEXxq3EWm6kU=; b=itDm3tbLWCzwIV26k2jLGkaCJB
-	RJYoxq1F9YVDp301p39aQIQb2XC4anuXSCC+p99NRJpO0o0wc7kuRGo1OJKcolwaURFTZ1DvWUfS3
-	W+wjg5G5pXYbq5Hu7QcJ8MfoGzH4NAwLHqEJbPntBmHCaMmYp1wuEaMFGVKpachNQk+xp/MxuRtPQ
-	DbAmcuHBDhxPH/giRiH/j3UswL0h3X2ILGgXA7jvbGip5N7SUU+Qsh3buah0LlSugiyZjy12uRv+B
-	+ZzRt2YpMmkftTAmAJdQ0Q270aUl2Ljjnz5oO+TmNbfVPBH2MYAHMp70H+RL7sNZPLaylgFbmWjmP
-	5fEwQmmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gfDeG+4aED8FUJBkFbuBe7U5StbViJStb+Z+bND0gvc=; b=ihYWReL1vTxtcR9sJpFB886aKn
+	bs3HyVTVpumQNUSH2B30A8HZNaIN43+PpXNj0fI0sEAtTDWTPRBSUkCY44q0di/EGl0YOgp0LqjbR
+	hT7ipPEqzDJ6COOFacA43IxZENsgqfgB6SaTzi1uCArtjiAuYGuJri4m2W/QAYCbdSHlf/R0ldJI0
+	J6U0JjeJOhGvXU20Uxbqrr82ay6rV+OQScMJuXoZRcrIMB5b1Q/yESXngPhSQpDV4BtSLzzLuHmw7
+	kzkwkgLzjMl34hblO7nWHB+LOVT1bdicfjv+hyDBFkaLW0idXq2E4FKgyIOiUEbp9tHhEX3wbeVHk
+	AXDtqmoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnBG-00000001E7V-3wHq;
-	Thu, 12 Dec 2024 17:40:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLnCK-00000001EKw-0D6M;
+	Thu, 12 Dec 2024 17:42:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLmr3-000000019hi-3Tok;
-	Thu, 12 Dec 2024 17:20:02 +0000
+	id 1tLmuJ-00000001ATK-25VW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 17:23:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E0D8D5C629D;
-	Thu, 12 Dec 2024 17:19:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB52C4CED3;
-	Thu, 12 Dec 2024 17:19:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734024001;
-	bh=LA9bximptyWrxDDOhzWENsKcJdq+AL2ptZwBglUEvIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tRdRO6rogumis9deCjy6y6ne1ICA01Nh28nZ0MFx+VpQWtctwbkrEQoULb7X2nZty
-	 ib2ozEVzuuRswzktShb+9DTiYhG857AZfG6MV6HCngGUp6uB8wZQG7B6Sck/TO0bsl
-	 GyKNbkmGweOgJkpqNJDZZ53agK6Fd1cMKQtu5pDVrijPxLL166lYt3c5cwE54JtnL6
-	 o2MtW/WjDFjq//DW+MEBykBnNxiWdMRUXS5pipOvZJxfpj2nUobqZWQgyE+EYIW6RW
-	 2oOFQd/rETDW5+xsMmQwyU0Y9bMLeYi8jSDf1hRCRx6K/eCgkc+BcrplodMYV6MtFE
-	 gUHXkDWQvzwdQ==
-Date: Thu, 12 Dec 2024 17:19:54 +0000
-From: Lee Jones <lee@kernel.org>
-To: jikos@kernel.org, jic23@kernel.org, Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	jdelvare@suse.com, linux@roeck-us.net,
-	srinivas.pandruvada@linux.intel.com, bentiss@kernel.org,
-	dmitry.torokhov@gmail.com, pavel@ucw.cz, ukleinek@debian.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-input@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-leds@vger.kernel.org
-Subject: Re: [PATCH v9 0/9] Drivers to support the MCU on QNAP NAS devices
-Message-ID: <20241212171954.GI7139@google.com>
-References: <20241107114712.538976-1-heiko@sntech.de>
- <173402387748.2234929.7484373598047473898.b4-ty@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 893FD5C5966;
+	Thu, 12 Dec 2024 17:22:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03DF2C4CED0;
+	Thu, 12 Dec 2024 17:23:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1734024202;
+	bh=moHxxYuHX+/4Ux7xJgP07L2sWYqOJbiA4ypMG7Xh6PE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CxmkFAkIaLhUOmVWeoMUbwNdBfNQd5hAopwVDKH+7Pm0qC7uGsbxZDDLTEvs9HNxb
+	 1Q0jgM8wxe/jYjUOrqnpyHNgiz5JjIobfdgt1qftvGb+e6lNnvuhlyhoowWkZtR94j
+	 8sIcqwQXZFa7IDK2dnYxOY2xwb5sd/vfsJ8QR/GA=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Leo Yan <leo.yan@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Ben Gainey <ben.gainey@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Ruidong Tian <tianruidong@linux.alibaba.com>,
+	Benjamin Gray <bgray@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org,
+	John Garry <john.g.garry@oracle.com>,
+	scclevenger@os.amperecomputing.com,
+	Namhyung Kim <namhyung@kernel.org>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.10 190/459] perf cs-etm: Dont flush when packet_queue fills up
+Date: Thu, 12 Dec 2024 15:58:48 +0100
+Message-ID: <20241212144301.068702140@linuxfoundation.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241212144253.511169641@linuxfoundation.org>
+References: <20241212144253.511169641@linuxfoundation.org>
+User-Agent: quilt/0.67
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <173402387748.2234929.7484373598047473898.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_092001_911385_0A762445 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20241212_092323_630957_553E54F7 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +87,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Dec 2024, Lee Jones wrote:
+5.10-stable review patch.  If anyone has any objections, please let me know.
 
-> On Thu, 07 Nov 2024 12:47:03 +0100, Heiko Stuebner wrote:
-> > This implements a set of drivers for the MCU used on QNAP NAS devices.
-> > 
-> > Of course no documentation for the serial protocol is available, so
-> > thankfully QNAP has a tool on their rescue-inird to talk to the MCU and
-> > I found interceptty [0] to listen to what goes over the serial connection.
-> > 
-> > In general it looks like there are two different generations in general,
-> > an "EC" device and now this "MCU" - referenced in the strings of the
-> > userspace handlers for those devices.
-> > 
-> > [...]
-> 
-> Applied, thanks!
-> 
-> [1/9] HID: hid-sensor-hub: don't use stale platform-data on remove
->       commit: e079a120f31e3f9c00180aa13c1df18cc138f7fe
-> [2/9] mfd: core: make platform_data pointer const in struct mfd_cell
->       commit: 8f4009ad901c44f0428dbde654c4dd1fb29c863b
-> [3/9] dt-bindings: mfd: add binding for qnap,ts433-mcu devices
->       commit: 8877bcff3e3b4f08a1fc0232dbfdaeda085cfdf3
-> [4/9] mfd: add base driver for qnap-mcu devices
->       commit: 944ca826f69e4723853b3876875b03aeafe67b60
-> [5/9] leds: add driver for LEDs from qnap-mcu devices
->       commit: fe6a21ee38f12e3e5f9adbd2f9a840be105b943f
-> [6/9] Input: add driver for the input part of qnap-mcu devices
->       commit: 4b27e0da257371d3d141fae38fdbdc3c3a67bce6
-> [7/9] hwmon: add driver for the hwmon parts of qnap-mcu devices
->       commit: 41755872a8a8ab8d1644459d9634c53b743fe2be
+------------------
 
-Once build testing is complete, I'll send out a PR.
+From: James Clark <james.clark@linaro.org>
 
-Note to self: ib-mfd-hid-hwmon-input-leds-6.14
+[ Upstream commit 5afd032961e8465808c4bc385c06e7676fbe1951 ]
 
+cs_etm__flush(), like cs_etm__sample() is an operation that generates a
+sample and then swaps the current with the previous packet. Calling
+flush after processing the queues results in two swaps which corrupts
+the next sample. Therefore it wasn't appropriate to call flush here so
+remove it.
+
+Flushing is still done on a discontinuity to explicitly clear the last
+branch buffer, but when the packet_queue fills up before reaching a
+timestamp, that's not a discontinuity and the call to
+cs_etm__process_traceid_queue() already generated samples and drained
+the buffers correctly.
+
+This is visible by looking for a branch that has the same target as the
+previous branch and the following source is before the address of the
+last target, which is impossible as execution would have had to have
+gone backwards:
+
+  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
+   (packet_queue fills here before a timestamp, resulting in a flush and
+    branch target ffff80008011cadc is duplicated.)
+  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff80008011cadc update_sg_lb_stats+0x94
+  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
+
+After removing the flush the correct branch target is used for the
+second sample, and ffff8000801117c4 is no longer before the previous
+address:
+
+  ffff800080849d40 _find_next_and_bit+0x78 => ffff80008011cadc update_sg_lb_stats+0x94
+  ffff80008011cb1c update_sg_lb_stats+0xd4 => ffff8000801117a0 cpu_util+0x0
+  ffff8000801117c4 cpu_util+0x24 => ffff8000801117d4 cpu_util+0x34
+
+Make sure that a final branch stack is output at the end of the trace
+by calling cs_etm__end_block(). This is already done for both the
+timeless decode paths.
+
+Fixes: 21fe8dc1191a ("perf cs-etm: Add support for CPU-wide trace scenarios")
+Reported-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Closes: https://lore.kernel.org/all/20240719092619.274730-1-gankulkarni@os.amperecomputing.com/
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
+Tested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Ben Gainey <ben.gainey@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Mike Leach <mike.leach@linaro.org>
+Cc: Ruidong Tian <tianruidong@linux.alibaba.com>
+Cc: Benjamin Gray <bgray@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: coresight@lists.linaro.org
+Cc: John Garry <john.g.garry@oracle.com>
+Cc: scclevenger@os.amperecomputing.com
+Link: https://lore.kernel.org/r/20240916135743.1490403-2-james.clark@linaro.org
+Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ tools/perf/util/cs-etm.c | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
+
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index a2a369e2fbb67..e3fa32b83367e 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -2098,12 +2098,6 @@ static void cs_etm__clear_all_traceid_queues(struct cs_etm_queue *etmq)
+ 
+ 		/* Ignore return value */
+ 		cs_etm__process_traceid_queue(etmq, tidq);
+-
+-		/*
+-		 * Generate an instruction sample with the remaining
+-		 * branchstack entries.
+-		 */
+-		cs_etm__flush(etmq, tidq);
+ 	}
+ }
+ 
+@@ -2186,7 +2180,7 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
+ 
+ 	while (1) {
+ 		if (!etm->heap.heap_cnt)
+-			goto out;
++			break;
+ 
+ 		/* Take the entry at the top of the min heap */
+ 		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
+@@ -2269,6 +2263,23 @@ static int cs_etm__process_queues(struct cs_etm_auxtrace *etm)
+ 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, timestamp);
+ 	}
+ 
++	for (i = 0; i < etm->queues.nr_queues; i++) {
++		struct int_node *inode;
++
++		etmq = etm->queues.queue_array[i].priv;
++		if (!etmq)
++			continue;
++
++		intlist__for_each_entry(inode, etmq->traceid_queues_list) {
++			int idx = (int)(intptr_t)inode->priv;
++
++			/* Flush any remaining branch stack entries */
++			tidq = etmq->traceid_queues[idx];
++			ret = cs_etm__end_block(etmq, tidq);
++			if (ret)
++				return ret;
++		}
++	}
+ out:
+ 	return ret;
+ }
 -- 
-Lee Jones [李琼斯]
+2.43.0
+
+
+
 
