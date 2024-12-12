@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DFDE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD72E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 10:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=imvmMoXZ9/lX7k57eRk+iPS5zu2P97QZjz1NfVU5Z6A=; b=Q5ARYk0ozhK1iDeZM3nbR2oo4F
-	2LIYqo8psAf96mhwUl4UxMBrX+OyTTVzUfspNDH4EWyQ1JL410df0pHEtsa5kbv4zUpUglVOecUtl
-	aZnvdEkdonj0kH/LxdDzGLTorv/4vb/tHURDhOcNwsFOoDAJtPIrh9m/+aM0xiud1+COWhKZd7YUI
-	B2APSKmz0qR1eNjqYFOTl3A6fy66mllOkaYa/Xlq2iIhiJRcxXr322e5X22ahJjfMunwZ9FXCS/gQ
-	qgyHOmoMQgluILyiualT1fOjpmbbKtcb9a+1pQsm6b3+PDAMn795mMVZ8cwyTyTkx47yO+qF2aTZP
-	RvySc0Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HFeAaK4TtrAQlQM8SW6hjFz2nZTiRUd0Zp19yyom9Cs=; b=Ucz17oUTBA58h/zOs/7u+DCvN9
+	sW1eo4a7qd2pOPHC/VbZl1MuwNhWyqo6hx3U3W+RhgfE+oSR7iQmpT5h3QQlXHHEWMAM2aRsCke7l
+	ZyDllHmpSZkOMQz5piRFwtfMVfn6rCooSPY9S3iKvPlcN6Nzf1RgpZav+1DBmdpLPXLx705qQh/6/
+	Lj8BVuJmo1RElB2Cf5xVbsK6m58g3RnyFop73qkWQSgkohTMtFis4OUW3NTN2dM5V9SZbcS5rAhNW
+	QVFYVY0JiOKozcJTYoZ8La8/vnpWYwHHvDgAGIztcXWaA+3spGB1Tz8M7BmyQOhx7/8eiaZrhkVgx
+	lyvp9vfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLgMp-0000000036q-34zs;
-	Thu, 12 Dec 2024 10:24:23 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tLgQd-000000003fB-3y5p;
+	Thu, 12 Dec 2024 10:28:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLgLK-000000002qy-3h5s
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 10:22:52 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BC6PZoi025473;
-	Thu, 12 Dec 2024 11:22:37 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	imvmMoXZ9/lX7k57eRk+iPS5zu2P97QZjz1NfVU5Z6A=; b=NMKWlrZJKJ6GxD7r
-	rCaYfH803/je5mfEepO6UXg4n9wv+cfKDkcZaVRqvu6kR4e54N80P0VafKtbg4Sy
-	ovDkNyw4i6c0E+A+XZr4FnI0GaV/xz9EXW20bLTeI/zHNarRXIOtQkXzoJcS6iCD
-	AvcWqshiK4iFC6J5nHHetdCDG6XpamqKZkd+YniA91sYrLj+tsovoLcJPbl8kuf2
-	T7ikeHdfFrzWXbWE9IonQys1rrlUxVudIHxEg6l2wiYQywMukTdkzBRG2LxMUFgF
-	bcNWRLAKDfKjD5bRudV2i9aKix+9dqppc0IbwS8ah6W2G4OuQc9guIynzgSOX/sL
-	rnxdYA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ftj7131f-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 11:22:37 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9B35A40044;
-	Thu, 12 Dec 2024 11:21:30 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D8C3A2698EA;
-	Thu, 12 Dec 2024 11:20:55 +0100 (CET)
-Received: from localhost (10.48.86.108) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 12 Dec
- 2024 11:20:52 +0100
-From: =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-        Guenter Roeck
-	<linux@roeck-us.net>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>
-CC: =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
-        Marek Vasut <marex@denx.de>, <linux-watchdog@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] watchdog: stm32_iwdg: fix error message during driver probe
-Date: Thu, 12 Dec 2024 11:20:50 +0100
-Message-ID: <20241212102050.374501-1-clement.legoffic@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241211163457.301140-1-clement.legoffic@foss.st.com>
-References: <20241211163457.301140-1-clement.legoffic@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+	id 1tLgPZ-000000003TP-0Zij;
+	Thu, 12 Dec 2024 10:27:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0C669A40837;
+	Thu, 12 Dec 2024 10:25:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7E9C4CECE;
+	Thu, 12 Dec 2024 10:27:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733999232;
+	bh=O5MNq+swzioBvBLOZxeS4g6SPUmFvnMVaaoek3tzGZA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=sJdAXnxCRWeXQcDr3Zb1CweOsPMgxjN6XylfVWbNkLOXd3rs8aYq3oktQz9PYcn4w
+	 xLUQ9NG8J8+q0vKm+vNJEr77bVkfPvQqs3+jw1wkYwKxYjHmg52ZnO0KiiCCP4P92Z
+	 DBSF0tN60yIijGV3U+wyn8+Uqb1ZHBCXj+hrw1GVsG9QFf5r9Em1Q0pmnaYncNajtx
+	 qAXtCYrIeJnNsXs4shvH8ghpr1PRqHqZz6ZjJOafLpEmyNe2XFWQ67ktPRFQ90qcAe
+	 dWFyR+pbtQ69F0QpelojBgT+KEHChz3njH4ZJw/MRX7eTX2zPCGi1ypatbJGmDeqq2
+	 rND1ONGwe2ZvQ==
+Date: Thu, 12 Dec 2024 04:27:10 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.108]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>
+To: Crystal Guo <crystal.guo@mediatek.com>
+In-Reply-To: <20241212090029.13692-3-crystal.guo@mediatek.com>
+References: <20241212090029.13692-1-crystal.guo@mediatek.com>
+ <20241212090029.13692-3-crystal.guo@mediatek.com>
+Message-Id: <173399922996.1678560.9494303027075425033.robh@kernel.org>
+Subject: Re: [PATCH 2/2] dt-bindings: memory-controllers: Add mediatek
+ common-dramc dt-bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_022251_235736_21E6A0F5 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20241212_022713_313458_1D0A47B5 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,41 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit 3ab1663af6c1 ("watchdog: stm32_iwdg: Add pretimeout support")
-introduces the support for the pre-timeout interrupt.
 
-The support for this interrupt is optional but the driver uses the
-platform_get_irq() wich produces an error message during the driver
-probe if we don't have any `interrupts` property in the DT.
+On Thu, 12 Dec 2024 16:59:48 +0800, Crystal Guo wrote:
+> Add devicetree binding for mediatek common-dramc driver.
+> 
+> The DRAM controller of MediaTek SoC provides an interface to
+> get the current data rate of DRAM.
+> 
+> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
+> ---
+>  .../mediatek,common-dramc.yaml                | 129 ++++++++++++++++++
+>  1 file changed, 129 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
+> 
 
-Use the platform_get_irq_optional() API to get rid of the error message
-as this property is optional.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Fixes: 3ab1663af6c1 ("watchdog: stm32_iwdg: Add pretimeout support")
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
----
-v1 -> v2: Change the commit message because it only prints an error
-message and dont break the DT backward compatibility.
+yamllint warnings/errors:
 
-drivers/watchdog/stm32_iwdg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: support-ch-cnt: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: fmeter-version: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: crystal-freq: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: shu-of: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: pll-id: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: shu-lv: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: sdmpcw: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: posdiv: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: fbksel: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: dqsopen: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: async-ca: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml: dq-ser-mode: missing type definition
 
-diff --git a/drivers/watchdog/stm32_iwdg.c b/drivers/watchdog/stm32_iwdg.c
-index d700e0d49bb95..8ad06b54c5adc 100644
---- a/drivers/watchdog/stm32_iwdg.c
-+++ b/drivers/watchdog/stm32_iwdg.c
-@@ -286,7 +286,7 @@ static int stm32_iwdg_irq_init(struct platform_device *pdev,
- 	if (!wdt->data->has_early_wakeup)
- 		return 0;
+doc reference errors (make refcheckdocs):
 
--	irq = platform_get_irq(pdev, 0);
-+	irq = platform_get_irq_optional(pdev, 0);
- 	if (irq <= 0)
- 		return 0;
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241212090029.13692-3-crystal.guo@mediatek.com
 
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
---
-2.34.1
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
