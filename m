@@ -4,179 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C4BE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06079E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 21:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mu/LPt3yx4FBUCM4QCAaFywQ/R9bTTHrooRW+dw8ym0=; b=EGu0+RRaLetITw6yX+GFwNyoyR
-	QVFAB8MncTdxEQ3QES0iqZVY3XSXprOr+tnxcBP8X1MXMvhIvfST/I5rFcEwfdj308J6u7WIDHOoo
-	Aase/Ki+LSWNoHAq4BgZqhHe5MmxIpPRHS1wI3joScf9ivigPLIT9tRmNgXFDfq0pk8g7FAxUeqyi
-	pH3EQ2QSBvk/TAdzYdr8lHOvh+e86pkLpV+ICFzyFJ4wTnVOUi1NFtdzSB2s1dkXRxofAxmoqu67q
-	3nNxwWM55ouGneHlq4WSkXRDfgygsqkmmDvl18Jtr7ydtCxqj2vo+OKJybawzAIdoQzJ0Udn8qJe/
-	tFiz1AxQ==;
+	bh=m6MKqs5rrzJWgKSrA2DeR26tpmlUEe25t/WAjMJSAFs=; b=Rak+QBir554BTygC8/1gNOdSoJ
+	wZtwC2Uk8xapu968iZr5A2ReDFstLUWqXRY6KlAOBsfGvILrTmYOPtOdPtjnlKvBDw93JQzngrKtT
+	RhBrd+tjvJStVcBHfgz/VgYGdaWLM/S0JboZJwcbOvMneziSbmC5I4F/GZFDhmgXEaAAUmrSlyLLS
+	g5iV2QmHGA7/fbdP8IW3KGNVppPpGsijBQaSaT3LgstA8a5jBytDVll9h7SqzlgNmNhVUgO6+EI4N
+	+6mq0uCxo31oNHyvE087sgMgLDij6U4blyvhxnrTOH9Rn4UU7rQPfNtSUq2P3HVxxWUXP+Kz4dMzy
+	kdmSy3DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLqLc-00000001tNP-1RX8;
-	Thu, 12 Dec 2024 21:03:48 +0000
-Received: from mail-am6eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2612::621] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tLqN3-00000001tjm-2MtM;
+	Thu, 12 Dec 2024 21:05:17 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLqIY-00000001sro-0VjT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 21:00:39 +0000
+	id 1tLqLw-00000001tSl-45tn;
+	Thu, 12 Dec 2024 21:04:11 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCJfrAb007100;
+	Thu, 12 Dec 2024 21:02:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2023-11-20; bh=m6MKqs5rrzJWgKSrA2
+	DeR26tpmlUEe25t/WAjMJSAFs=; b=oWNLKK6PyyNI6+np84Xj83CGg8PNCv4RGS
+	u4XdavDA2jvR0V5zEIzZfX0xK6ysj9kRLmc36xpZccD//j1Tn23FFax6Tq/WO4BP
+	jXvoJ4TuBwGM2amj/+l4MkbBcat4/rnqLdUOAAJyHiMExqgkV/jzPSd+awxMNxZu
+	du6pnXcOc4NGf8bjuJJht2nyny8h4F2etFVkJhezo+MclojAzaGCgtFTfjrKQO0m
+	4BUlqTbInhvWI3DNCLxVUd9hb0cCzAyR5V54Rz/hGbBw/BqWPJ5YA1BE2fGZW6Um
+	JsRYjlzrpwNxfuxcfckXDL2lM1JA6UXjGB85wZrlQJ3dJtEJJh4Q==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 43dx5s990n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Dec 2024 21:02:43 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCJc4BO035550;
+	Thu, 12 Dec 2024 21:02:42 GMT
+Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2046.outbound.protection.outlook.com [104.47.55.46])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 43cctbya01-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Dec 2024 21:02:42 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MyCyVS46FlKIVMj6CL10Q7uZ6kOSkU9fMLmzVvghEBoF3TvjXUuEmzAOUC2W9JSUjEFK8k+v3jhjMYlr0toUPRHPx02HBWhj8wzuzPQTxBpi9im5+WA/wEcRu3Cuj1I0NhvtZSL4Le/hD2zUAM0ILeKq0RBX9YKVEM07BzIK38R+2xSIpJW4NwJKb8N3C00dIJrqpj479z7NGpZQhgs4KRjaeghQ0JY0SZbo+SPyd28tuoDYR4Ux4DocFRh72rxq9fmuwDYHSZFH7Zw1IHthpZUO1RB0pg6vAXUgNS1x86m/F/xaUBk08OS8X3r9MZ4JWda7sNyQ0ZFzr8KIr4mCCA==
+ b=XPQdmtfAxkGM3GM9NhnuDTV/I8Lb9FvKRynSJnTnVKrTASVenUWV1e49QJBJmXvP8/RxEDJqf6CUafikK6ltq1ccuy85drPwPjxqxRVaGidkZuX2FGTQqOPN9kETVsD1if11FhuVL8Bp5FUjwGLGTCioJlZ4j4lzLePN+XKuu9d1B16tkY2LIkYxU6GXngTSsLuQu3h6PaP63hJCs/+Vt3TfUJ+PTTR/DCEyXv3yti/YwuAr/89MrJaaVELrmHIWCR/qbfl0l2IE3wvwKS2oy8fZk5TtziC4tJwqpx/vz5Tfx+HMffPf5pTW3Xwcrn5TdiKRAl8/h5x7MR1vPEwkdA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mu/LPt3yx4FBUCM4QCAaFywQ/R9bTTHrooRW+dw8ym0=;
- b=XKcaJX3vzM/Cv192XM7VI0ky4CcF1MHiieRdzRyO7Vjn72P6a+gSakKcC4X3cdD7rvGKJaoGJ2doyJSVLyoKXukqPjvk+N7BQg7GJEISyqcdXXPtifzGHMMBjcRTeOr0BlJl0yZhoCZTKH+antBMkufhN4NheqLHHD4F6Z1apNq0SVaXeWqjIT82yUvCjiCfGlxOPYofGNWbprsPVYO5VGxnebeKuhuCXCP777Xn/W/AA1PMqTHh5M3LDUQneemrlRJ7qRisOgmEVcEh3bjoWvoeOegneVydN3t9hc7i18HeL98tE64UQWiesd03lz6S8nUL5l2cKAFB03G+a6IvxA==
+ bh=m6MKqs5rrzJWgKSrA2DeR26tpmlUEe25t/WAjMJSAFs=;
+ b=h5//NNyr53GWaV46ejlgd2xWoiy0VNtMkgvHG7XGnqcO2TgDzh9kI1YD8k2u+3fweDTr348dJMnmOrz/5jMSjLybsc5Ox1w0L8wQTehct8v/89jjh0DoAYYRUTFvcYoIx+EpsaSfms8igZQjncROPx9Z+OEIYIOvhmi146X2Uks8Fi7r0HGBzgc8OKYIZSSCgcnaWHh1tyHGSnxgvl42GvlK2MB7doBSdadowC94C2Rc+/I3yVIuiEwrTM75/bOrQZsZhl9FVVonWHS1vb7JzxAQcv+g5yqF9nzYwiNwe6OmBXQHpTRoN8T2+v4QKPYnY/UbQsHX1hEBPkBc41MbSQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mu/LPt3yx4FBUCM4QCAaFywQ/R9bTTHrooRW+dw8ym0=;
- b=FjHq1LnrsfqsV6LltyB0hWf9C+SGdkFoLu31f0eyKdD0wwVe7SMDPAp+tYLFHnI1B6KgjsmFZW4yaeqetYIOWBiDsOkGbv0WQjrDct1pqZKGwtZNt9f/WNvchHlsUciLX1KH+0aRS3aFwFv8qUu3pdjU9dO6HYM96PgH4L3WzPykgmnjUkd7bU2D/SgqI+A95IxP8qXxbZVLv9SPzF329Cra272wPVMyEynGMueGdD71jzX0YDGOVV0GnAC4binvsEKC6LU1SscpequRRzRHSG7DeVaqRnbGHrRSNudir+4ok2yuopX6pnx7zBeEFmI4BEaeKr+s02kK0czb80pqLQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB7560.eurprd04.prod.outlook.com (2603:10a6:20b:29d::14) with
+ bh=m6MKqs5rrzJWgKSrA2DeR26tpmlUEe25t/WAjMJSAFs=;
+ b=DObPxQoGj7SPnQJYiCRjbesvfMiLBh7gOsC5g/QQolW5kLrsCvzwS0lA18z7NlMBmQIzwVi7dfFeAJFVKyp14jXADuT5LGS5/xtaIPLgMx5+OOIYw/Pwu04hf6hW6G3PclWGoEQSHxhsu5NTrLbjE7m7HciSSoxgYLDKws2/W00=
+Received: from PH0PR10MB5777.namprd10.prod.outlook.com (2603:10b6:510:128::16)
+ by BLAPR10MB5106.namprd10.prod.outlook.com (2603:10b6:208:30c::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Thu, 12 Dec
- 2024 21:00:34 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8230.010; Thu, 12 Dec 2024
- 21:00:34 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Thu, 12 Dec 2024 16:00:00 -0500
-Subject: [PATCH v3 2/2] thermal: imx91: Add support for i.MX91 thermal
- monitoring unit
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241212-imx91tmu-v3-2-85e756b29437@nxp.com>
-References: <20241212-imx91tmu-v3-0-85e756b29437@nxp.com>
-In-Reply-To: <20241212-imx91tmu-v3-0-85e756b29437@nxp.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pengfei Li <pengfei.li_1@nxp.com>, 
- Marco Felsch <m.felsch@pengutronix.de>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734037218; l=10296;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=6kF2c/YSx7LoiU1VwjjvTmVypq+sG5LudLSU6kO8t+s=;
- b=7kTtNd81/dyL1DLuudNWdlLADsuauzCtqndFgzkp7zaFu/ihOXh/icfaiwfUtmM1H2jB7ehSH
- JkQ1kqAbi+IDzusOb+h77Ah6XbpkF2Q5CbEJ+JPIWed+Pz/2P6ClQyf
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY3PR05CA0025.namprd05.prod.outlook.com
- (2603:10b6:a03:254::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Thu, 12 Dec
+ 2024 21:02:37 +0000
+Received: from PH0PR10MB5777.namprd10.prod.outlook.com
+ ([fe80::75a8:21cc:f343:f68c]) by PH0PR10MB5777.namprd10.prod.outlook.com
+ ([fe80::75a8:21cc:f343:f68c%5]) with mapi id 15.20.8230.016; Thu, 12 Dec 2024
+ 21:02:37 +0000
+Date: Thu, 12 Dec 2024 16:02:31 -0500
+From: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: akpm@linux-foundation.org, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+        yang@os.amperecomputing.com, riel@surriel.com, david@redhat.com,
+        minchan@kernel.org, jyescas@google.com, linux@armlinux.org.uk,
+        tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
+        ysato@users.sourceforge.jp, dalias@libc.org,
+        glaubitz@physik.fu-berlin.de, davem@davemloft.net, andreas@gaisler.com,
+        tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
+        x86@kernel.org, chris@zankel.net, jcmvbkbc@gmail.com,
+        bhelgaas@google.com, jason.andryuk@amd.com, leitao@debian.org,
+        linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-mm@kvack.org,
+        kernel-team@android.com, android-mm@google.com
+Subject: Re: [PATCH mm-unstable v2 00/16] mm: Introduce arch_mmap_hint()
+Message-ID: <hmuzfspqjzb36xlj2x44keihacrrhzj5madqrfbcnhqouzredv@wo75achgkuh5>
+Mail-Followup-To: "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Kalesh Singh <kaleshsingh@google.com>, akpm@linux-foundation.org, lorenzo.stoakes@oracle.com, 
+	vbabka@suse.cz, yang@os.amperecomputing.com, riel@surriel.com, david@redhat.com, 
+	minchan@kernel.org, jyescas@google.com, linux@armlinux.org.uk, 
+	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com, 
+	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
+	davem@davemloft.net, andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net, jcmvbkbc@gmail.com, 
+	bhelgaas@google.com, jason.andryuk@amd.com, leitao@debian.org, 
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-mm@kvack.org, kernel-team@android.com, android-mm@google.com
+References: <20241211232754.1583023-1-kaleshsingh@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241211232754.1583023-1-kaleshsingh@google.com>
+User-Agent: NeoMutt/20240425
+X-ClientProxiedBy: YT4PR01CA0294.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10e::18) To PH0PR10MB5777.namprd10.prod.outlook.com
+ (2603:10b6:510:128::16)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7560:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d5223f8-a8ae-41f5-0a86-08dd1af0057c
+X-MS-TrafficTypeDiagnostic: PH0PR10MB5777:EE_|BLAPR10MB5106:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb00aea4-60b8-46a7-792c-08dd1af04e78
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|10070799003|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzcvQ08yaEhPVDJaREhDeCswM2tlbWV3bXg4bHJPS0xsYmd5Zm1IeHdkMGR1?=
- =?utf-8?B?Wk1GcXNicVhBVlp4eW9sRTBkVWgzd25uUUFrbHNVM24zQ2ZuUG9zcFUzS1FF?=
- =?utf-8?B?YitMSE9tL2ZaYmVBRHVXcmdoK21tMkkvNHRmT3QyZXljSC92dkRBY1B3OTBR?=
- =?utf-8?B?dTdKSnZkcXFzL0JpUEVXbkpxSXMzQXM0N21JZGd5MUhDbFE2UUhGQWlGQzVU?=
- =?utf-8?B?NmVFeWdWZU44OFF0Nk9UK3d6UXc1bUw2am5rVkhjKzEyNU5PanVsM0ljMXFa?=
- =?utf-8?B?OFAxZXJJVDNWd2cxUjloVkkwM2RNUUpXQ3FwbTcwM0NhY0ZmRCtwV0lXMzV4?=
- =?utf-8?B?SjdFcThHT1V5Tm15M0ZXWkN5NXZQNDB2SDI4S1ArbmhiOGdOVkg3cHR2MnQ0?=
- =?utf-8?B?N1pRTmo2NzA4UVNUY2M4Z0lheUV4UzVma1NKZGhXVGExOUV6ZWdQR0Eza1pZ?=
- =?utf-8?B?WEhlZWJMQXBJYU1va0xHYi8rWW42eU80M2hPNkVMV1ZidWttd2x5SjRlMEZH?=
- =?utf-8?B?K2EvYjJXVjZUcU54eDI5TGl6NS9sVkJsMWdQVU1NZEVkR0RTVGVWTnozZFFL?=
- =?utf-8?B?ZjVVVUhqV2F2SFRYcXY4ZzFyMUxnbGxLemROUzdldGtKNzl3d0RUK2JJNSt6?=
- =?utf-8?B?eHQ5eXNKZ2VjaGIvSEd1L2FXR0dtZHArZmVKUHJvMDlnb0VaK00zL3YyVmVh?=
- =?utf-8?B?OE5SemZrcm50bkMvQXEzUFNPVEhSVzNCTk5veG5ZTHBiN1U2SlN4SGNKVFh6?=
- =?utf-8?B?VzBXaG0zemIwOGtCbEZaRTgwZzg0VFk0MUsrUHN4Y0F1U0EvTUFlbXY2c0ov?=
- =?utf-8?B?YkVzSUMrR0VzNkVIWnBRVS9OYUpkZ3pqZmJCTlRvVlY3c2VFTGdFRFVXVlhH?=
- =?utf-8?B?QS91b2pwTGN0U0lwRHN6MUJxY3FhL2piZHpuSEFNSkgzem4rbUVWTFVVQlY0?=
- =?utf-8?B?NzR1S1lUQThlQTBuNkFyQW9QNFhic2tQa1Y4eEN2WTNrVHFpdmpTVFMwMTJM?=
- =?utf-8?B?ZFJmMnpDL1RpN0cyTWFIRCtONk45M3dUZjNZcGdTMXNTeXQyN2ZlNzZkR09u?=
- =?utf-8?B?a3pQMnErVzNJSlVVYkp2OVYwVFpIN2hRTTFlbCtvVjd4dHN1QWFXaWZ3VW03?=
- =?utf-8?B?QUVwV2dKT1Jic3hmTkFobGw4ZlhaRTZDdzVTOElsdERnU2QzNjY3QU16cEww?=
- =?utf-8?B?OHJTWkFCZi9Jc3JKOFRkN2VzbUVqczhaQ2N1ajN4dUpleFZMZmYxUEpQbGpa?=
- =?utf-8?B?eUlFdjVjMGFiS09oZ0hvVXgxV2hrYjVONnhwbERXUkZlMmo1SVNKVVoxaFRw?=
- =?utf-8?B?VFFWSXNwS2dmcW5YWkduVllBdEMxR29kdmpNT250WTU3QTh3dGxyaUNBR0FK?=
- =?utf-8?B?QlhINzJ1L2p1ODZrTTdGSm9VTGt3QWJVb3JURTRnNUtNSkpDR05ockUvSmJS?=
- =?utf-8?B?MGp1WmZiWHA0UTdlSkc3bUJFOVhWeE9YZEpZWDg4Q1BGeU5QZHpIbFZOb0sw?=
- =?utf-8?B?eE0xZXg3RGh1MVN5blZRVmhyemZKQVdIKzlRcFNHWVZ5aFlxK1FrK0JJRDZt?=
- =?utf-8?B?bWJ5MmtlS2JSbWhOSFFGQ1NsTnl6Y3JnWXNxb2psN2pEN3EyRERtWWY3UExq?=
- =?utf-8?B?a1paM1pjVm5ucVRtRGJsa2ZlY2xwdXdLSkZDVk1HYkdTeHZvS0NuR2ZlLytu?=
- =?utf-8?B?cnFYNVpqTUJhMU1hdTNtVi9qbHNHUjBncW5NNlVwMUV2bHVuU3NTSEVHbVpu?=
- =?utf-8?B?MXRldmdxOVM3SldlM0RGWlBKU2grdEx4QzhWYU9wVDFwY05IVXQyUXd1a1da?=
- =?utf-8?B?S0MySTF6VVhycS9sRUJLMUlDa3VFVTRlWXlkRUpId2FuSXo4c3J6dHROS3NK?=
- =?utf-8?B?WDgwMzZNQUk3Q0lzY295MEVxcXpMYnlEblVuYTFUd0dId1E9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(10070799003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?56t+Xp+A/iomCGa/QLPNHu0DxRYs8qruRy01pVOt8tYHXIb7kLBr5tbsG3Z3?=
+ =?us-ascii?Q?u/E8N2AMtdLwnDbMrWo3hK7cqSIcBipP3I1ok3LK9NsheGOg9Xh5NpHHVfQ3?=
+ =?us-ascii?Q?knTPwx+DOjg0nW0Bm2T0mF5vpuKtZuwbpTOCnjVZT39DFJ9r/YMBzNn7/Bpr?=
+ =?us-ascii?Q?s5CGo5w/P4jH+rsKSLQKDkPVsNgsKiZ0+CfOZt3txDtEakPf71BtsFF+1rbv?=
+ =?us-ascii?Q?X6MgCm1U2EvIWQ3K0ejvJe0Mf+rciTk0pT6B2xuRy+c7SS6wUZfVd5+go0T9?=
+ =?us-ascii?Q?oGWyL4qQqrmaxPqWwy2sdEacJMSOoJ6FqH/nr5kBpHGTyChCW0NehTKmpDfH?=
+ =?us-ascii?Q?RJBxq0EIBRzCE6WGS87JBkjs6Yak3VJ+a4ohNsMKi4hLdHwvBcsGscgT5GSV?=
+ =?us-ascii?Q?vvCBRt1tVyWGrEOERJv/+wjGyX8UIMG+REl764sstIbpKYGeskMu0ldxINMT?=
+ =?us-ascii?Q?jBXoyly7yNMx9PgeJWAzt6tZQGH13IA6+gzW5JDSijdckHoX9URaJTfM3qmA?=
+ =?us-ascii?Q?yMUPMdY6U0jNfTOOg/sw4sn0eEf9HgDsoXVkww2xF39OFxL8BC1uCWRYQAPL?=
+ =?us-ascii?Q?4XwuzFKnYKkK91KuTMV4/gViroEjvoClhtGdSwuuIwy6bo4Nw6Mhx2IjS+fq?=
+ =?us-ascii?Q?BQXSMtbPITcnMtNRUQjMHaNJGrIGDUwmeSZ3stlh/pwLkiZptpWgFpoZrurp?=
+ =?us-ascii?Q?wxQ0/m5kTRdeZy1NxYTb2xGkXDNnwDED2rjq52gw6TMLdls/yl2iSfIM9r/4?=
+ =?us-ascii?Q?qpgmjJx7+g6A4LG7jkx0pjeZGYARMn2ps33ACqVH413t81w+trYH6fzPkEsS?=
+ =?us-ascii?Q?AqkMhx7efFhyYqDGnaOsFzRC8rlNFtkCrcF9bv5t+GdsezWEjo55UctXRzD1?=
+ =?us-ascii?Q?HUZPOulWRCazSIinbn8VVQkz9LOXEvMWz+cbvqcnMUP/bLq9ILh9wHC02mkV?=
+ =?us-ascii?Q?RqVPhbN4kJwFhS3SYSRs4NPCqRvFzG0Tbv1cNcxWQxTcGW/dt9X8MBZmHvsa?=
+ =?us-ascii?Q?2ZqUKgTqmvhoiUaYwVlmfaEVG6iLSAOadZw//J7WsSqEHWxKKfdnGNvV5jl3?=
+ =?us-ascii?Q?w0VNQyagP5l9hzT/WdXIwRmA5tS94A5j9o3ZInmz76S0y9H3VFepiiGP+K4B?=
+ =?us-ascii?Q?7H4Bmc75Z8OiRCcXWh5ABhYFyB5FYPMHjOKYFp1V9bBWLNiajTB3s+aPgMqm?=
+ =?us-ascii?Q?ycDRn9OZjTMnRrJLB0nkx6EHYUdki/SDc7picYNGXIeshtgIfkpeiTjsAnTz?=
+ =?us-ascii?Q?O1GKiwTgfoGURbRRHNFYSYI/7kXYxmzEAEeXzfg+JaDAsa1t8xuLkBKs8myi?=
+ =?us-ascii?Q?iKBcUBQRIagdUE9c5o1/Cufq0s+AtPjK2BcyOJWC3DRsSK3X4pkIAS8K1Rln?=
+ =?us-ascii?Q?JkyLqvA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR10MB5777.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDlhRi9yTVZBNmNQVll4TjJMb0NUZnlpZWllcTl6dnZIOTRtRlV4ay9mQ3ZU?=
- =?utf-8?B?OWxPWXpnbHlEam5IcE9HVHJidGE5d251d3VIU1RtOTZWZGg2ekFwTjlsMzVG?=
- =?utf-8?B?QnhjZWhGZ1c1UEpPR3NDdHVyTW92T0pHMkg4TjlwMHdMQTBCYytFQmJBUEx2?=
- =?utf-8?B?QlhqSnBSV1lNVWFWZlNrSW1nWjRHSWQxWXI0K25oWld3Tk1yVU1DZFNIdmtY?=
- =?utf-8?B?L1lGT2l6MDVWNWgxeTk4SVgyVmF6U0hpWWEvOVZCK1diSUlYZjA5TC9kNG92?=
- =?utf-8?B?MzB6QmU0b2pOeTdkSUU0WWhnRXNQczVtV2JpU2dkei92UnltZGRtYWpkNFJv?=
- =?utf-8?B?UCsrNUVaTXFFaFRqZ3NvRUpTY3ZFZXVLNDNEa2plMFcxeW5NRlcxenlQUkFO?=
- =?utf-8?B?ektZdGdSM2FKWkU4eXRjRTQyZ3Z0M2lvK0RSckFIWkpua2JSaGNiMVFqcElT?=
- =?utf-8?B?elJqRUl0aVFLdlhnaVYveXpDL0lXWkdreFFaa0t3bVJjWDhUamNSZXMrY3Ra?=
- =?utf-8?B?RHpJSytIaHhRNWlIbmI3NlVVRHR3Mzc0L0kzTlY4OUFGOENJUmhkZ29kRERU?=
- =?utf-8?B?REdzbmhHelF4REhnTHZZM2plSHZ1dm5WazZOTTVYM243eUVKa29wZ3JHeW9a?=
- =?utf-8?B?Q3FBa0lWbTdUYmtpZ3pHNEpQYnhuSDM1dzRsWWx0YlcrYm9rY05YZWhjQ3lC?=
- =?utf-8?B?ZDZMUVRqWEUvbzgzdWx5SDNSZFAwdDlZYjFERWlCQXBFdlIvYnRJNm0yajZV?=
- =?utf-8?B?MXpOTXdtRjlNaUxyN0JCVGoyQmozTyticGxnN2lMbnhiU1cwQlRpaDlPK2Z1?=
- =?utf-8?B?SVVkSllrNjBFOE5wdGpNMlAzdGYvYkt6NW9EU3BzYUdpWGEwcUp6SUIxQWdJ?=
- =?utf-8?B?aGxjMWlKVXJrN1J1cnYwK2J2Sno0b3lnZ0N6STNBNTZnbWZSMENvQVZkQzEx?=
- =?utf-8?B?VjFOUjdyRFRMc3k5RG1tQlJDbVI4Q29Wdjd4K0VjcVVQVXVIdDBleFVVZ1JR?=
- =?utf-8?B?ZUZVNGRpbXIrZlBKckoxVHVqTi9YS3p5QlNCWFhJUm0xa3N5UGY1QVNMcmJN?=
- =?utf-8?B?Z0U5TllUZmhERlBkVkZDbGJSSXM3L00wOWt2ZW5FUXZRSGRyRExORjlRMHhZ?=
- =?utf-8?B?WmRkYjlienNpQjBTV2pqNkJMck8vTWtSRlYwVi9uNHRXOE9IYVJ2ZkhZdWxv?=
- =?utf-8?B?K0w1dW0zR0lxSzNQR0dWbTdnaVJNcEhPRnNhaVMxVWtvZStzU3l5WjNLZDdp?=
- =?utf-8?B?Zm9EdUhyZzg1dzVkOWNUdHcvWURJMWhZVGJlTEZ6WE9FWkJuTXlvQ3JrdHZB?=
- =?utf-8?B?b1J4Vzc2RnRYOE9DL0xES2craEdGVm5xeVg0U0QwMGFVVGN0amJmRjF5Smla?=
- =?utf-8?B?VFBsZW8za3VwQTJnQ29pT2FsWEFVUnE0bmJMSHh1NDdxSk5lSGt0UnMwSzla?=
- =?utf-8?B?RUptZy91RXhiNk1QbGhrUzNaeHZhcHhCbkt6LzljL0RacEQzWmp6aVIvR2M1?=
- =?utf-8?B?S3VUZWpKU2VrZ1RlM3NPN3hxS2I2NVh5d2tmcVE4WEdabHpHVEVrREEyWHFJ?=
- =?utf-8?B?S0Y0TEhwa2VIVDk5SE5Cb2R2c2E5aDliVFNIeHJONXNmd3VMdjBqMFd1TmdJ?=
- =?utf-8?B?OU81anQxL1RPL0x5NDEwbENUQmFTK3dUYVlYWkFHQzdERGM3aHpnUG94WjVG?=
- =?utf-8?B?NE1qYUtKT255VXE0MWMrQVV4UWkzZXlkMFVRdm9BSTBMM282MzRNVFNiUmtV?=
- =?utf-8?B?Z2RUSUQ1UUlHZEMxWG83RVBtbThQN0tISlYxQ1ZjZk5hOXc5U3ZaeFk0QXR4?=
- =?utf-8?B?ZnJyQ0NXbklKMmpyamtGc25SYS9KU1hmUG1rcmwvUVEzdUFmeEpQU3RZWms4?=
- =?utf-8?B?Z2FKWlpXV1BSV1dQN2pIbXIzbHE4WnZtWWtTTVprbTFVZlBJQ0x5Qk9OanVU?=
- =?utf-8?B?bVBya2tDbGRKMm9ZYzhZMzFiemVvUStqc1NuT01DVi8vVEp2anVqUUdvTHZk?=
- =?utf-8?B?V0U3TUx5UEttTmUwc1EwREtXOTY2NDNWNFNUK2JPQ21ieHU3Q3BaYWlPOWlx?=
- =?utf-8?B?ZkNaUmY4ZVVNQ3lOK2RBaENiR29LZmJuTXBrY1g2WEZ1UVg1MXlWQWxjSkJw?=
- =?utf-8?B?elZCOWMrcm9nMVRhTmRZanoxVktadHhTd25Jc3h5eFdzYUhjRUUvQmJ0RzNk?=
- =?utf-8?Q?U3UnqJew5/H7VpeqAAndJqw493lBrLdqLBek63svKdy7?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d5223f8-a8ae-41f5-0a86-08dd1af0057c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XKcnLYewjVrMOx0TeBkBvEcoVyAxpjHggFE15M1yQR/CCOLGxXYpPS4UAqqu?=
+ =?us-ascii?Q?2nU2/E8m6hsavOmA80lS5nr/Xbz1JXRMuC1urwYjDvAE9GFKeYuIcgwERh9a?=
+ =?us-ascii?Q?yxEkwf6CZWvTj+tqKfI1rFzjq6F+RIbyyxRbs8uciGnEZpgOf1hqziCh9hmo?=
+ =?us-ascii?Q?RMfCEh3tNavxQAilcDuaGmhcEZcgP3PzuaomSWcW3qLBJ77cwteZ/lZAFATI?=
+ =?us-ascii?Q?WFW9EC7TR1red14DBMGDlQK6RTyM4WO7EHsQ826aOyNJSgHov2r/LbNA+bC3?=
+ =?us-ascii?Q?a4y7Alt/sRDSvaeb3E27vNNyxilCONG97oljU83ZOrny1WVrN/7pxsnrDrsN?=
+ =?us-ascii?Q?0LZ7+M7bR+SabxrisXyLHCvLZYfHIDF7OCpPkB36O3XK2TFrw01zc1w8xS42?=
+ =?us-ascii?Q?/BPdAlsci5emx0lVDkMO88/uEj65YiQshDYYfvwk9Fag+8oNlGLq0Csej2Fn?=
+ =?us-ascii?Q?tGEhG9S05o+gT/MIt4TU465HTvwwKzTPiwmSZUdVTbgWg6dFGofXEJqaKrFE?=
+ =?us-ascii?Q?TEnTKO4tTPAAZTnmJz5iS3am9Rd37lpS8g2PSpYZqwyPGRcP00KIbyfUQ8/1?=
+ =?us-ascii?Q?+p1fJBTWLJS4qEORxZ7OtVJEoY0u+QZRjLpL7YAo7qIU27xb1FiW6YVvHTGu?=
+ =?us-ascii?Q?+uLO3Qq6AHyNUMrzZbAyzODUXTkgczDuY0O4eGcO4fJHGxBtoYy+GORSsr7b?=
+ =?us-ascii?Q?28gE7ry1cFgT9MqFoI3aZrMRK6owFNOuXlglodydItc093UNFrtasixYX4FG?=
+ =?us-ascii?Q?iqpFT2XN7hjo+AYw3p7GI7kwPcU7oGTTB3ELFiIG/nOiweN0EhcYB85ivVEC?=
+ =?us-ascii?Q?Xbbl7BJ0DEE4XZgYQkcsUE7ZJXjXihZQ4nj9s050Q9cW/1tNYxLtOXSTgv9P?=
+ =?us-ascii?Q?KBZAm58drzjPKwF+/0OqjZIWJBpx/dAFcW4Bqc7i8+p46R0v/rR0ZdDKF58d?=
+ =?us-ascii?Q?4omex2jqYe4cQTdz4CcH3mpgc+x0mcgLR18VcNvshnl/5FcupTco0fc70v/L?=
+ =?us-ascii?Q?6UD0hYrbExz8N9s+1nNBcaig+IXF4/Q3dL87ALR+eojKM8oLUo62wuuSJ4Jn?=
+ =?us-ascii?Q?tfcIHmMDO2PuXuDvfNU6AZqlxCRjmMlE3qdMzy3IeT9VDLzX+T04QlS7q1zz?=
+ =?us-ascii?Q?qZMWQAB2QbYEmrx0SQVlHfH9Bfpp/LmAqYv5VU0+EfVC/rvRlpCOFXSzesNK?=
+ =?us-ascii?Q?owRo7VEVKNAzV8g7RCroJlAUI18oK+vW/19BGwA2QTOoHLvH5biaJL6hLHBs?=
+ =?us-ascii?Q?leW9fx6u42FnDVrlF565cjzghQ3nTmzsjkFdZiwSc+izOYS4Vsv6fjhogBgY?=
+ =?us-ascii?Q?XeT+BD+YxbKhf3utvxiXxSGnhRUdkj3eluTN6wi5yCfZPLhk2iavOurC5fzk?=
+ =?us-ascii?Q?Udm7S5hyRTSFryO1qTb0yaqYEr4YdtzUIgxQ0w0JiDKX0W0h5dl25rQ3ZQ26?=
+ =?us-ascii?Q?JNFYswq2jNMe2O2vKo3ngxH16MAaKgioN7OmyB6pBDseMiuREUuWXm/IOK9U?=
+ =?us-ascii?Q?7CeSRIr/Aa6SENnqpNZHBJ0AVM+qN6k3/5ono7l3GkJFrlqUaqJOwprPtkvF?=
+ =?us-ascii?Q?EIrH6CT2JyvXOWh9/Zk7iPIKgmyZHZccGSG5upfP?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 3uWLkehoOZnMWSM5ao73pj7Ham1diIfS4HmfeUUVoLVwcEAKoWqqD1tdTyFrOIbdcwhI5XwYIW/KLnG/PjLF/WtTiIZpooUXX3/rEWKdIhlR/A1XEDgFLvm2Kmgh8dHNhA9QDLFGPP3zY4OpEWX17pIxQKf5Tvca4HwTkMlaUK77la3Y//+eJMkiXijhhvUhsnx2GenaGN8usUqsmMKQx6gpOISZ5SrxAJfH4VitTFOIkrOdDHdhYprZoUSiFxi7zxEc+UwvshtfYjSRhAm2TBZeUAhJ2pA1pZ3+KRPmnCU1sCTfEeqtJKN/9CE8Ah88Pjy7mD+8UkG7e1o9AhWCy4CR69lW687vl2Bg/ys+qbM0JWIO4MgGuvAZVOJ+RPP5Vxa8mpuAlXU5dBHXRGf5lpC7pNhfrMOXJCsEFmW2q9O3NsagUtn5/8mzWK2DXXl21wAUKm7f7YqY9Hf0KzSMgrbymHXo+lF9DuipFcqFA0wvO/wBlcs1w1NaRB78p1awyOcmBnxDP+R29hYHNjjsnVTjjm6tJh/L5MdSKdI84ypiTZDMcCx1hPM4SyGte55uQBFao0tk7l2ZDGMhQndKh3TAICuJgNnWimrpFL4ufG4=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb00aea4-60b8-46a7-792c-08dd1af04e78
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR10MB5777.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 21:00:34.5244
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2024 21:02:36.9589
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sPjDhVebg8V4T7X4l8e9xVY9PPxbtvZi9gx0+1+zqlkQqG8FKPXkY4Vu5SbgbidauB7VlvpgVil+k+vTLoKUtg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7560
+X-MS-Exchange-CrossTenant-UserPrincipalName: XZB1jB/PIIC7F2bwxwV5ZcjX4abd5y/eefhO8XAxlSKDk1Oj/7P+cTCN0hnEXm8cl1f9ZQYTtZ9eKa6+sRfQgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5106
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2024-12-12_10,2024-12-12_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 suspectscore=0 spamscore=0
+ mlxlogscore=907 malwarescore=0 adultscore=0 phishscore=0 mlxscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2411120000
+ definitions=main-2412120152
+X-Proofpoint-ORIG-GUID: gtGAtCCYBbX0NRhOKROQCKP-GJpecH8h
+X-Proofpoint-GUID: gtGAtCCYBbX0NRhOKROQCKP-GJpecH8h
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_130038_316727_E18B9402 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20241212_130409_129188_6C6C1DA4 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,346 +216,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengfei Li <pengfei.li_1@nxp.com>
 
-Introduce support for the i.MX91 thermal monitoring unit, which features a
-single sensor for the CPU. The register layout differs from other chips,
-necessitating the creation of a dedicated file for this.
++ Lorenzo
 
-Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change from v2 to v3
-- add IMX91_TMU_ prefix for register define
-- remove unused register define
-- fix missed pm_runtime_put() at error path in imx91_tmu_get_temp()
-- use dev variable in probe function
-- use pm_runtime_set_active() in probe
-- move START to imx91_tmu_get_temp()
-- use DEFINE_RUNTIME_DEV_PM_OPS()
-- keep set reset value because there are not sw "reset" bit in controller,
-uboot may change and enable tmu.
+Can you please Cc the people listed in the maintainers on the files you
+are submitting against?  You seemed to Cc everyone but the mmap.c file
+maintainers?
 
-change from v1 to v2
-- use low case for hexvalue
-- combine struct imx91_tmu and tmu_sensor
-- simplify imx91_tmu_start() and imx91_tmu_enable()
-- use s16 for imx91_tmu_get_temp(), which may negative value
-- use reverse christmas tree style
-- use run time pm
-- use oneshot to sample temp
-- register thermal zone after hardware init
----
- drivers/thermal/Kconfig         |  10 ++
- drivers/thermal/Makefile        |   1 +
- drivers/thermal/imx91_thermal.c | 263 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 274 insertions(+)
 
-diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
-index d3f9686e26e71..da403ed86aeb1 100644
---- a/drivers/thermal/Kconfig
-+++ b/drivers/thermal/Kconfig
-@@ -296,6 +296,16 @@ config IMX8MM_THERMAL
- 	  cpufreq is used as the cooling device to throttle CPUs when the passive
- 	  trip is crossed.
- 
-+config IMX91_THERMAL
-+	tristate "Temperature sensor driver for NXP i.MX91 SoC"
-+	depends on ARCH_MXC || COMPILE_TEST
-+	depends on OF
-+	help
-+	  Support for Temperature sensor found on NXP i.MX91 SoC.
-+	  It supports one critical trip point and one passive trip point. The
-+	  cpufreq is used as the cooling device to throttle CPUs when the passive
-+	  trip is crossed.
-+
- config K3_THERMAL
- 	tristate "Texas Instruments K3 thermal support"
- 	depends on ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
-index 9abf43a74f2bb..08da241e6a598 100644
---- a/drivers/thermal/Makefile
-+++ b/drivers/thermal/Makefile
-@@ -50,6 +50,7 @@ obj-$(CONFIG_ARMADA_THERMAL)	+= armada_thermal.o
- obj-$(CONFIG_IMX_THERMAL)	+= imx_thermal.o
- obj-$(CONFIG_IMX_SC_THERMAL)	+= imx_sc_thermal.o
- obj-$(CONFIG_IMX8MM_THERMAL)	+= imx8mm_thermal.o
-+obj-$(CONFIG_IMX91_THERMAL)	+= imx91_thermal.o
- obj-$(CONFIG_MAX77620_THERMAL)	+= max77620_thermal.o
- obj-$(CONFIG_QORIQ_THERMAL)	+= qoriq_thermal.o
- obj-$(CONFIG_DA9062_THERMAL)	+= da9062-thermal.o
-diff --git a/drivers/thermal/imx91_thermal.c b/drivers/thermal/imx91_thermal.c
-new file mode 100644
-index 0000000000000..62b579365fd03
---- /dev/null
-+++ b/drivers/thermal/imx91_thermal.c
-@@ -0,0 +1,263 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright 2024 NXP.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/iopoll.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/thermal.h>
-+
-+#define IMX91_TMU_STAT0				0x10
-+#define IMX91_TMU_STAT0_DRDY0_IF_MASK		BIT(16)
-+
-+#define IMX91_TMU_DATA0				0x20
-+
-+#define IMX91_TMU_CTRL1_SET			0x204
-+#define IMX91_TMU_CTRL1_CLR			0x208
-+#define IMX91_TMU_CTRL1_EN			BIT(31)
-+#define IMX91_TMU_CTRL1_START			BIT(30)
-+#define IMX91_TMU_CTRL1_STOP			BIT(29)
-+#define IMX91_TMU_CTRL1_RES_MASK		GENMASK(19, 18)
-+#define IMX91_TMU_CTRL1_MEAS_MODE_MASK		GENMASK(25, 24)
-+#define   IMX91_TMU_CTRL1_MEAS_MODE_SINGLE	0
-+#define   IMX91_TMU_CTRL1_MEAS_MODE_CONTINUES	1
-+#define   IMX91_TMU_CTRL1_MEAS_MODE_PERIODIC	2
-+
-+#define IMX91_TMU_REF_DIV			0x280
-+#define IMX91_TMU_DIV_EN			BIT(31)
-+#define IMX91_TMU_DIV_MASK			GENMASK(23, 16)
-+#define IMX91_TMU_DIV_MAX			255
-+
-+#define IMX91_TMU_PUD_ST_CTRL			0x2b0
-+#define IMX91_TMU_PUDL_MASK			GENMASK(23, 16)
-+
-+#define IMX91_TMU_TRIM1				0x2e0
-+#define IMX91_TMU_TRIM2				0x2f0
-+
-+#define IMX91_TMU_TEMP_LOW_LIMIT		-40000
-+#define IMX91_TMU_TEMP_HIGH_LIMIT		125000
-+
-+#define IMX91_TMU_DEFAULT_TRIM1_CONFIG		0xb561bc2d
-+#define IMX91_TMU_DEFAULT_TRIM2_CONFIG		0x65d4
-+
-+struct imx91_tmu {
-+	void __iomem *base;
-+	struct clk *clk;
-+	struct device *dev;
-+	struct thermal_zone_device *tzd;
-+};
-+
-+static void imx91_tmu_start(struct imx91_tmu *tmu, bool start)
-+{
-+	u32 val = start ? IMX91_TMU_CTRL1_START : IMX91_TMU_CTRL1_STOP;
-+
-+	writel_relaxed(val, tmu->base + IMX91_TMU_CTRL1_SET);
-+}
-+
-+static void imx91_tmu_enable(struct imx91_tmu *tmu, bool enable)
-+{
-+	u32 reg = enable ? IMX91_TMU_CTRL1_SET : IMX91_TMU_CTRL1_CLR;
-+
-+	writel_relaxed(IMX91_TMU_CTRL1_EN, tmu->base + reg);
-+}
-+
-+static int imx91_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
-+{
-+	struct imx91_tmu *tmu = thermal_zone_device_priv(tz);
-+	s16 data;
-+	int ret;
-+	u32 val;
-+
-+	ret = pm_runtime_resume_and_get(tmu->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	imx91_tmu_start(tmu, true);
-+
-+	ret = readl_relaxed_poll_timeout(tmu->base + IMX91_TMU_STAT0, val,
-+					 val & IMX91_TMU_STAT0_DRDY0_IF_MASK, 1000, 40000);
-+	if (ret) {
-+		ret = -EAGAIN;
-+		goto out;
-+	}
-+
-+	/* DATA0 is 16bit signed number */
-+	data = readw_relaxed(tmu->base + IMX91_TMU_DATA0);
-+	*temp = data * 1000 / 64;
-+	if (*temp < IMX91_TMU_TEMP_LOW_LIMIT || *temp > IMX91_TMU_TEMP_HIGH_LIMIT)
-+		ret = -EAGAIN;
-+
-+out:
-+	pm_runtime_put(tmu->dev);
-+
-+	return ret;
-+}
-+
-+static struct thermal_zone_device_ops tmu_tz_ops = {
-+	.get_temp = imx91_tmu_get_temp,
-+};
-+
-+static int imx91_init_from_nvmem_cells(struct imx91_tmu *tmu)
-+{
-+	struct device *dev = tmu->dev;
-+	u32 trim1, trim2;
-+	int ret;
-+
-+	ret = nvmem_cell_read_u32(dev, "trim1", &trim1);
-+	if (ret)
-+		return ret;
-+
-+	ret = nvmem_cell_read_u32(dev, "trim2", &trim2);
-+	if (ret)
-+		return ret;
-+
-+	if (trim1 == 0 || trim2 == 0)
-+		return -EINVAL;
-+
-+	writel_relaxed(trim1, tmu->base + IMX91_TMU_TRIM1);
-+	writel_relaxed(trim2, tmu->base + IMX91_TMU_TRIM2);
-+
-+	return 0;
-+}
-+
-+static int imx91_tmu_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct imx91_tmu *tmu;
-+	unsigned long rate;
-+	u32 div;
-+	int ret;
-+
-+	tmu = devm_kzalloc(dev, sizeof(struct imx91_tmu), GFP_KERNEL);
-+	if (!tmu)
-+		return -ENOMEM;
-+
-+	tmu->dev = dev;
-+
-+	tmu->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(tmu->base))
-+		return dev_err_probe(dev, PTR_ERR(tmu->base), "failed to get io resource");
-+
-+	tmu->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(tmu->clk))
-+		return dev_err_probe(dev, PTR_ERR(tmu->clk), "failed to get tmu clock\n");
-+
-+	platform_set_drvdata(pdev, tmu);
-+
-+	/* disable the monitor during initialization */
-+	imx91_tmu_enable(tmu, false);
-+	imx91_tmu_start(tmu, false);
-+
-+	ret = imx91_init_from_nvmem_cells(tmu);
-+	if (ret) {
-+		writel_relaxed(IMX91_TMU_DEFAULT_TRIM1_CONFIG, tmu->base + IMX91_TMU_TRIM1);
-+		writel_relaxed(IMX91_TMU_DEFAULT_TRIM2_CONFIG, tmu->base + IMX91_TMU_TRIM2);
-+	}
-+
-+	/* The typical conv clk is 4MHz, the output freq is 'rate / (div + 1)' */
-+	rate = clk_get_rate(tmu->clk);
-+	div = (rate / 4000000) - 1;
-+	if (div > IMX91_TMU_DIV_MAX)
-+		return dev_err_probe(dev, -EINVAL, "clock divider exceed hardware limiation");
-+
-+	/* Set divider value and enable divider */
-+	writel_relaxed(IMX91_TMU_DIV_EN | FIELD_PREP(IMX91_TMU_DIV_MASK, div),
-+		       tmu->base + IMX91_TMU_REF_DIV);
-+
-+	/* Set max power up delay: 'Tpud(ms) = 0xFF * 1000 / 4000000' */
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_PUDL_MASK, 100U), tmu->base + IMX91_TMU_PUD_ST_CTRL);
-+
-+	/*
-+	 * Set resolution mode
-+	 * 00b - Conversion time = 0.59325 ms
-+	 * 01b - Conversion time = 1.10525 ms
-+	 * 10b - Conversion time = 2.12925 ms
-+	 * 11b - Conversion time = 4.17725 ms
-+	 */
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_RES_MASK, 0x3), tmu->base + IMX91_TMU_CTRL1_CLR);
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_RES_MASK, 0x1), tmu->base + IMX91_TMU_CTRL1_SET);
-+
-+	writel_relaxed(IMX91_TMU_CTRL1_MEAS_MODE_MASK, tmu->base + IMX91_TMU_CTRL1_CLR);
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_MEAS_MODE_MASK, IMX91_TMU_CTRL1_MEAS_MODE_SINGLE),
-+		       tmu->base + IMX91_TMU_CTRL1_SET);
-+
-+	imx91_tmu_enable(tmu, true);
-+	pm_runtime_set_active(dev);
-+	devm_pm_runtime_enable(dev);
-+
-+	tmu->tzd = devm_thermal_of_zone_register(dev, 0, tmu, &tmu_tz_ops);
-+	if (IS_ERR(tmu->tzd))
-+		return dev_err_probe(dev, PTR_ERR(tmu->tzd),
-+				     "failed to register thermal zone sensor\n");
-+
-+	pm_runtime_put(dev);
-+
-+	return 0;
-+}
-+
-+static void imx91_tmu_remove(struct platform_device *pdev)
-+{
-+	struct imx91_tmu *tmu = platform_get_drvdata(pdev);
-+
-+	/* disable tmu */
-+	imx91_tmu_start(tmu, false);
-+	imx91_tmu_enable(tmu, false);
-+}
-+
-+static int imx91_tmu_runtime_suspend(struct device *dev)
-+{
-+	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-+
-+	/* disable tmu */
-+	imx91_tmu_enable(tmu, false);
-+
-+	clk_disable_unprepare(tmu->clk);
-+
-+	return 0;
-+}
-+
-+static int imx91_tmu_runtime_resume(struct device *dev)
-+{
-+	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(tmu->clk);
-+	if (ret)
-+		return ret;
-+
-+	imx91_tmu_enable(tmu, true);
-+
-+	return 0;
-+}
-+
-+static DEFINE_RUNTIME_DEV_PM_OPS(imx91_tmu_pm_ops, imx91_tmu_runtime_suspend,
-+				 imx91_tmu_runtime_resume, NULL);
-+
-+static const struct of_device_id imx91_tmu_table[] = {
-+	{ .compatible = "fsl,imx91-tmu", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, imx91_tmu_table);
-+
-+static struct platform_driver imx91_tmu = {
-+	.driver = {
-+		.name	= "imx91_thermal",
-+		.pm	= pm_ptr(&imx91_tmu_pm_ops),
-+		.of_match_table = imx91_tmu_table,
-+	},
-+	.probe = imx91_tmu_probe,
-+	.remove = imx91_tmu_remove,
-+};
-+module_platform_driver(imx91_tmu);
-+
-+MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
-+MODULE_DESCRIPTION("i.MX91 Thermal Monitor Unit driver");
-+MODULE_LICENSE("GPL");
+* Kalesh Singh <kaleshsingh@google.com> [241211 18:28]:
+> Hi all,
+> 
+> This is v2 othe the arch_mmap_hint() series.
+> 
+> Changes in v2:
+>   - MAP_FIXED case is also handled in arch_mmap_hint() since this is just a
+>     special case of the hint addr being "enforced", per Yang Shi.
+>   - Consolidate most of the error handling in arch_mmap_hint().
+>   - Patch 16 ("mm: Fallback to generic_mmap_hint()") was folded into
+>     Patch 2 ("mm: x86: Introduce arch_mmap_hint()")
+> 
+> v1: https://lore.kernel.org/r/20241210024119.2488608-1-kaleshsingh@google.com/
+> 
+> =======
+> 
+> This series introduces arch_mmap_hint() to handle allocating VA space
+> for the hint address.
 
--- 
-2.34.1
+Why?  Could we get more details in your cover letter please?  This
+entire email has as much detail as the subject line.
 
+I don't want more arch_ anything.  If we can do this in a more generic
+way, then we should.
+
+> 
+> Patches 1-16 introduce this new helper and Patch 17 uses it to fix the
+> issue of mmap hint being ignored in some cases due to THP alignment [1]
+> 
+> [1] https://lore.kernel.org/r/20241118214650.3667577-1-kaleshsingh@google.com/
+> 
+> Thanks,
+> Kalesh
+> 
+> 
+> Kalesh Singh (16):
+>   mm: Introduce generic_mmap_hint()
+>   mm: x86: Introduce arch_mmap_hint()
+>   mm: arm: Introduce arch_mmap_hint()
+>   mm: alpha: Introduce arch_mmap_hint()
+>   mm: arc: Use generic_mmap_hint()
+>   mm: csky: Introduce arch_mmap_hint()
+>   mm: loongarch: Introduce arch_mmap_hint()
+>   mm: mips: Introduce arch_align_mmap_hint()
+>   mm: parisc: Introduce arch_align_mmap_hint()
+>   mm: s390: Use generic_mmap_hint()
+>   mm: sh: Introduce arch_mmap_hint()
+>   mm: sparc32: Introduce arch_mmap_hint()
+>   mm: sparc64: Introduce arch_mmap_hint()
+>   mm: xtensa: Introduce arch_mmap_hint()
+>   mm: powerpc: Introduce arch_mmap_hint()
+>   mm: Respect mmap hint before THP alignment if allocation is possible
+> 
+>  arch/alpha/include/asm/pgtable.h           |   1 +
+>  arch/alpha/kernel/osf_sys.c                |  31 +++---
+>  arch/arc/include/asm/pgtable.h             |   1 +
+>  arch/arc/mm/mmap.c                         |  43 +++++----
+>  arch/arm/include/asm/pgtable.h             |   1 +
+>  arch/arm/mm/mmap.c                         | 107 +++++++++------------
+>  arch/csky/abiv1/inc/abi/pgtable-bits.h     |   1 +
+>  arch/csky/abiv1/mmap.c                     |  68 +++++++------
+>  arch/loongarch/include/asm/pgtable.h       |   1 +
+>  arch/loongarch/mm/mmap.c                   |  49 +++++-----
+>  arch/mips/include/asm/pgtable.h            |   1 +
+>  arch/mips/mm/mmap.c                        |  50 +++++-----
+>  arch/parisc/include/asm/pgtable.h          |   1 +
+>  arch/parisc/kernel/sys_parisc.c            |  53 +++++-----
+>  arch/powerpc/include/asm/book3s/64/slice.h |   1 +
+>  arch/powerpc/mm/book3s64/slice.c           |  31 ++++++
+>  arch/s390/include/asm/pgtable.h            |   1 +
+>  arch/s390/mm/mmap.c                        |  51 +++++-----
+>  arch/sh/include/asm/pgtable.h              |   1 +
+>  arch/sh/mm/mmap.c                          |  83 ++++++----------
+>  arch/sparc/include/asm/pgtable_32.h        |   1 +
+>  arch/sparc/include/asm/pgtable_64.h        |   1 +
+>  arch/sparc/kernel/sys_sparc_32.c           |  33 ++++---
+>  arch/sparc/kernel/sys_sparc_64.c           |  96 +++++++-----------
+>  arch/x86/include/asm/pgtable_64.h          |   1 +
+>  arch/x86/kernel/sys_x86_64.c               |  64 ++++++------
+>  arch/xtensa/kernel/syscall.c               |  31 ++++--
+>  include/linux/sched/mm.h                   |   9 ++
+>  mm/huge_memory.c                           |  17 ++--
+>  mm/mmap.c                                  |  86 +++++++++++------
+>  30 files changed, 491 insertions(+), 424 deletions(-)
+> 
+> -- 
+> 2.47.0.338.g60cca15819-goog
+> 
+> 
 
