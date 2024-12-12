@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B540E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE067E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2Lqlqa+yVzadnVCts+R28x1v55t3TnviPyK2Uw1lPbw=; b=lZeOnedtzP2kOkjql+o0OMv6zA
-	7JA9JuiOmg4kPT2x5wwEwIgA8IHb/xqpa7Gp5VJR6Ugvb4fNvILAyZ/XTNS4QKS6Dz4fcZoZiUZdX
-	cKnQ7muMprl+UoqNkO97ZiWfHbakRh4DVHmj2MuAmf3c32rBUV6DISYXENC4uX31ndjj8L/5zvOWq
-	UJG/yTSQtZipENcVMtnc6YLYaxLHfi55iVt+p8q/CfWktHaXkYHcDcDyUVqIC3WJflKlX3glmd5We
-	QXKM9Mfb76QFTBxO9iHrvBQLn66b/knHsw3AQ2CVKFt0W4ehEskWIC/plO+bGirAX4OOTN3jtVY55
-	F73ypjRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OB0noS9Q895sQvGnaWaRPnZzw+gpf8nXEZZuwOEQpmc=; b=vYfTpToYI2tZteuPyZykikFMW5
+	o+dxU7Os/P9/P58THxeu6ZwcDoVXH4/2BcIopDHyjUoOI2Wl3CWeYCilt/NYArO7NDCNFHevOTU6f
+	gjYQOMMAtcQLb0fGfdfY0SGssQpZplEXqcssHNqabhlIc13L2XYeQ+bGeNBBmKWHIdbGRb6K8jPuF
+	joRBE8zxeIDCKXFgUuTLSu/f6NoWczeLZ+QqhEbW+U/VUssSitUavTbALXTmZElqm/bEWOnrLNYPz
+	E7KZnPBX6G32oBy5TPb2A6qnhcOOI46lfAVtI5yd4zYJdxM+WLYYFEWXR+aKiGraPUmbS531XhTaa
+	PgU/zZPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfsB-0000000HZ5f-2iS3;
-	Thu, 12 Dec 2024 09:52:43 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1tLfxX-0000000HZgB-2aPP;
+	Thu, 12 Dec 2024 09:58:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfqX-0000000HYng-22PF
+	id 1tLfwS-0000000HZQC-287q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:51:02 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa66e4d1d5aso61382166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 01:51:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733997059; x=1734601859; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2Lqlqa+yVzadnVCts+R28x1v55t3TnviPyK2Uw1lPbw=;
-        b=jSajL4xNvDoPvd/Ibthdu/XDI5IyWC30iKoUwZtMfF5oB27py8GAfxsoDQu8lLaWr/
-         LpYAZMrQF37MS2e3HT7hBo1v8GKmpMind8BdjizpL2wbTsyLScdjXGPcLWxaxBXH/EiE
-         bGhPz1wYk/QZmXWSn3DTvwpvEH43aiuagB3e7GeERBuUI160Z3ZMiOZUjeA6tEm+35kV
-         2G2TY1nqLqJxmp0ePfsA9+TC+CdG2C42eeYgDmtAqJ7JcKXXykNg0xt9qncgK6J+N6Sw
-         hcT4+Elx8kl/ccpfJjqf9zQaN1tipLNTvQfM1DZUImfCZmEjt3vmmoXeqll2vOL7Fxcx
-         xdfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733997059; x=1734601859;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2Lqlqa+yVzadnVCts+R28x1v55t3TnviPyK2Uw1lPbw=;
-        b=LBb8KAyFHA4dfG8jX/u/IPXcZB1aqgqHoe8YydW7IMLu21M827iFq8xIjPYpoeMnrE
-         icW2CYl9XxLvWRb9cFhx4aqRpSRXmtxRWLmDCBdreJcVmGMStni74/Z4CUUV9EJXrryy
-         VhuycXdTA2ynCaw0BwXqMhjAmY8MudX8CnZEynze8gSL1gBRZDjgoeFaW0jJO9+PS/nr
-         dlFeSQ6yWghI1Ky4NF8M9w2hlYhSQvES8Q/xkd1K5Vb7Nt7X5HiZKhPizFWQbOTYfQ1F
-         joSnlzK648Q2tvUtSSgTNk0e9eloehsJNEzbYbBd7u0fICO8X4hknevvVOsBn7lZMB34
-         eTHg==
-X-Forwarded-Encrypted: i=1; AJvYcCWsPPpW2KeIQ+6ohHt9kB9FYhvzCUg2Pen8Dkt3BiMq0DINsek/jEE6Y3La5KrfqvUGVsBBSZMi08nTFbNxQBkM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeLUG3XFcSfC/Q9g51ZQ0eup1vlfUl08En4HAuLjUlrP60sCFt
-	sX32Ervyas2923tDVkjlUQJB5KGYz8BWdPjYNx8e14MMqp9Lwa13
-X-Gm-Gg: ASbGncuydl4Sh+xgw4DM6r6I9Q+As7W5p5n4Ju9mjAwR6e61act0l3C/Te28sXIAyKI
-	5TADyxi2CTWJMAIWQZFDzpUAXzaAaaCj5HP2pv0JwAB+O9A5RFjWIR6/Z9c061lx5fSgXBfwWpV
-	d8VQBruCA10d6/Wh97w1ucgxwHKAnCG65IsqaHjZuzb9GrEJFgH7OR/PuJkzx2oVo5SOK0xiN0N
-	nKW1b80LkhkDO4/jMjLv/jwiNEcjEk78qHrC0tfQiduHWLDMrJAyn8ij1C6Ac3maKk=
-X-Google-Smtp-Source: AGHT+IHIXf2ITezkzRXYqhyRdc3NGo7nV9HtTD9QcXe0iHTpQ2fk4AxkW5PqBr9zOQsKQHtffVHoOg==
-X-Received: by 2002:a17:906:18b1:b0:aa6:8676:3b3d with SMTP id a640c23a62f3a-aa6b11df74bmr563324966b.29.1733997059330;
-        Thu, 12 Dec 2024 01:50:59 -0800 (PST)
-Received: from localhost.localdomain ([83.168.79.145])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6701b08c2sm714818766b.124.2024.12.12.01.50.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 01:50:58 -0800 (PST)
-From: Karol Przybylski <karprzy7@gmail.com>
-To: karprzy7@gmail.com,
-	laurent.pinchart@ideasonboard.com,
-	tomi.valkeinen@ideasonboard.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	michal.simek@amd.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCHv2] drm: zynqmp_dp: Fix integer overflow in zynqmp_dp_rate_get()
-Date: Thu, 12 Dec 2024 10:50:57 +0100
-Message-Id: <20241212095057.1015146-1-karprzy7@gmail.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 12 Dec 2024 09:57:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 98A495C6812;
+	Thu, 12 Dec 2024 09:56:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACE41C4CED7;
+	Thu, 12 Dec 2024 09:57:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733997427;
+	bh=CR4xKt3dKhiMF/jgSb/r1xl+RaNR7Vqb2fCQvyj4HNs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dwisyUAO0Fe6OZk999b8H0f2W5l7v/tFtXoXFpH2iLDcjvQ2Jh+/cr/Oiikwk25Ea
+	 hpk9539OgJtSVYvyeBvqBs2mxR3IyU+Xxq1GUDel1LMdEN97lCrb2ACSNcJKnm0mjt
+	 HvxwR4/Pk9ZwAggD5eIZnVz/wezev9YpHja2gumgolOyK+UXqhefClt1oOAtPLbQfL
+	 POc3mTK8N7Vcvns+D9/ijUNSsiFPsvJWVehyFn/rY9+68WlRSXk2zy/Gqbq/dfimr1
+	 b6AsgRZsKCsGOO3Lsq9ygPPrTIYm4IU9ibALKy4Fa6W+OXI5HB3ZJq1j4Z5A8NdIRh
+	 JV2EDm/s3lhvw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tLfwP-0031hu-H5;
+	Thu, 12 Dec 2024 09:57:05 +0000
+Date: Thu, 12 Dec 2024 09:57:05 +0000
+Message-ID: <86msh1rzpq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,
+	catalin.marinas@arm.com,	will@kernel.org,	corbet@lwn.net,
+	oliver.upton@linux.dev,	joey.gouly@arm.com,	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [RESEND RFC PATCH v1 1/5] arm64: Add TLB Conflict Abort Exception handler to KVM
+In-Reply-To: <5d4ccb2c-da45-4471-9bb1-90212b50dad7@arm.com>
+References: <20241211160218.41404-1-miko.lenczewski@arm.com>
+	<20241211160218.41404-2-miko.lenczewski@arm.com>
+	<86o71irucr.wl-maz@kernel.org>
+	<5d4ccb2c-da45-4471-9bb1-90212b50dad7@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ryan.roberts@arm.com, miko.lenczewski@arm.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_015101_521646_9AA2DE11 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20241212_015708_629214_A744F544 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch fixes a potential integer overflow in the zynqmp_dp_rate_get()
+Hi Ryan,
 
-The issue comes up when the expression
-drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000 is evaluated using 32-bit
-Now the constant is a compatible 64-bit type.
+On Thu, 12 Dec 2024 09:23:20 +0000,
+Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+> Hi Marc,
+> 
+> I believe the intent of this patch is to protect the host/KVM against a guest
+> that is using BBML2. The host/KVM always assumes BBML0 and therefore doesn't do
+> any operations that are allowed by the arch to cause a conflict abort. Therefore
+> the host doesn't need to handle it. But a guest could be taking advantage of
+> BBML2 and therefore it's architiecturally possible for a conflict abort to be
+> raised to EL2. I think today that would take down the host?
+> 
+> So really I think this could be considered a stand-alone KVM
+> hardening improvement?
 
-Resolves coverity issues: CID 1636340 and CID 1635811
+I'm not disputing the need for a TLB Conflict abort handler. It will
+be a good addition once we agree on what needs to be done.
 
-Signed-off-by: Karol Przybylski <karprzy7@gmail.com>
-Fixes: 28edaacb821c6 ("drm: zynqmp_dp: Add debugfs interface for compliance testing")
----
- drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> > However, it doesn't seem to me that the host is equipped to deal with
+> > this sort of exception for itself. Shouldn't you start with that?
+> 
+> If the host isn't doing any BBML2 operations it doesn't need to handle it, I
+> don't think? Obviously that changes later in the series and Miko is adding the
+> required handling to the host.
 
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-index 25c5dc61e..56a261a40 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-@@ -2190,7 +2190,7 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
- 	struct zynqmp_dp *dp = data;
- 
- 	mutex_lock(&dp->lock);
--	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000;
-+	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
- 	mutex_unlock(&dp->lock);
- 	return 0;
- }
+Yes, and that's what I overlooked yesterday, and I replied to that
+change this morning.
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
