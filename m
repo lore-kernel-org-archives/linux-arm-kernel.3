@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60CEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 20:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DECE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 20:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFAavYcmczwPwo2u/7DTqzr433lGyHjbvCme2QUuMzo=; b=qLRG0K7HV4/dowUMc58Zy+HyO5
-	F9sIMlSj+G/LcUHec0iA13pjdTch76dQd/HyySNA1O86dLlG1QZ3O8wvSUhregfLzLtNprYEhVCpO
-	DwpvSlWc5yhVQOG2p4V1h4WBC7+DBkRW+gd0L0EAaM0Ix7hKxulB2hMYCUjSbKViQw/45iDgjyuyK
-	tl70N3AFa/nmvDSvRr+JdeMJQTT4GfqV0qhrJfU3davyDwnn9+0mjXCgrNQoBHo+Y2WcWsewdlCI0
-	i3BBa/2qfxhmICn1SjemVK3oa7tuonn9I8FFVfm9o28S5svzkTDi7R8lee/8jQSZ7/e/YSIGJkbSh
-	5Jhi2RLg==;
+	bh=zN4Ym/UunmzCYsNSflmoKoSUjG0g5+VHwXB/fYxaNqo=; b=JyKgpvFu95awApkCkiW50Q3+vj
+	pFSa5RZAWJPApEKpd7+INaNrneGWPl++S7nMAACbT95XS2FW74l6n0DOoGkAaBUY0rlxL3hnjXZP8
+	PVwOSnuCgvPv35CCiklquX6WCQ0d4pIzTHxzIQVJI2SFdPt7ktH3M7+hDteeP4yDhWJ19LSFhNMze
+	KZ2ZLrhtFeeiUyiG+C5BTRbvXy60rUz0/ANswsqKwyvgWEbYITM8T5jZnFR2DZDVftxlMDXFD67Nv
+	eIjxfqubiGUw6aQcZTcS+2UaWsRo/WjepP3TNwQ9cd/UfUbv2rgUGUZ/eoPwwicBeMwocV3WNJ5Bm
+	6iq5e82g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLpZA-00000001lj3-4AvR;
-	Thu, 12 Dec 2024 20:13:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tLpaE-00000001lu6-0Q20;
+	Thu, 12 Dec 2024 20:14:50 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLpPm-00000001jlA-1KUd;
-	Thu, 12 Dec 2024 20:04:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734033841;
-	bh=nNqHz4NpDHM1KDZ3pSN7cST0Y4OmTrfeNw306jzeaZI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CLARn6RzmV8a2P44ixHOPfzHrPhaX5P/Dinq5uI7616sxEXZVNeUixyiLUalqBi/f
-	 oDLDRSeWQSekWV+6aQcBweESh21OsYzTe8cgdOwOjVyM6gzjLdlOaftuLy/XF/aTAp
-	 Ywn03BSbN0TcGQ+kPe98Qx6YLDkpsB73r0PXj7kVyDDy9KuSr8kzKAF2gMYt86kG8N
-	 IP2+jACJZ+VnBSbctl3VESoTUJnbydROS2OaY8ANXKuPfHI93ZsMeHBdyuVJVsd64F
-	 MKoOug+TfAHu20K7FB9apM7ltXxZKD/ybAAxoJPeX0a56rrOMZn6uLF0E693mFD+Sg
-	 nY4b37QFs6W/A==
-Received: from localhost (unknown [188.27.48.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DDB9F17E3804;
-	Thu, 12 Dec 2024 21:04:00 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 12 Dec 2024 22:03:39 +0200
-Subject: [PATCH v2 8/8] phy: rockchip: samsung-hdptx: Avoid Hz-hHz unit
- conversion overhead
+	id 1tLpUS-00000001kmB-2Q0q;
+	Thu, 12 Dec 2024 20:08:53 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa66ead88b3so185780966b.0;
+        Thu, 12 Dec 2024 12:08:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734034127; x=1734638927; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zN4Ym/UunmzCYsNSflmoKoSUjG0g5+VHwXB/fYxaNqo=;
+        b=Stz6Acp68seXJZldlsgODOmquadyq6yyAhwanUDouqcR5kmytSyctegwsk4iKjCUFg
+         Rp9vgNRPCq058QQAeClu/A7eTN8IyOa+MurnP3KHfItykSNQJlUEA+nuYzO1IvWTdc7X
+         iesGOrLGx4rtkZWJNowebhDR3OLrRke5ste5sl8AYnkDdHRVYwP+pCrHxtDr3QwCUMF4
+         Nzw/LLiWB13BVL5raJwZY6jxHG1rmtDu/Ul61b8r1opMM/M2t34JXpUfSYzSCCIYbhWz
+         WWXRrN7vFK4Jn2bbyvW2kJeUJX0JMftAw+8zfCtCfmCwxwTUDKheFGMjrhFcfsvlaM0d
+         xHYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734034127; x=1734638927;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zN4Ym/UunmzCYsNSflmoKoSUjG0g5+VHwXB/fYxaNqo=;
+        b=qwykOclAt/dv3h2ZpNhEfRzyF/sstBgUXkwwKtWOQ1sm/aTDvZ55LJ/dr78+1YVfAD
+         XaHo//X4q31KEnE4LSxkAMUni8qBmaMOsLSauYtOctvG7RIrEEsg+7eOtRnOrry2saUs
+         Y8Quch2YqkDY75CIpvgG1oLlLjHDvvBkpxFvsm938vl8/3nsW3qpGzd7/f0Sh3ifrbvf
+         db9qoMn+UB2rH0tAoos01HPcS9umAFhMriI4Bn7bFl77WmOmkYCVBWq3LblIZ6hN6Sjk
+         pReZ7hkLCOyylPYifL3PLfIJNxqP7SS9poLug5npsYjKF0suY+B4PRbJqZEVETisCud4
+         Gagg==
+X-Forwarded-Encrypted: i=1; AJvYcCUzJdRF6t2MwGaigLett9lJNbySfwzvbvxCqnmPGp9x0ETDZO1Gq41kY/aCg/yytCNJ3mowcjiV4M7wUtLT0/k=@lists.infradead.org, AJvYcCWKnTxT56IX6Bn2Sw9EN9XkEPOiAALZ9tusSYJTOCugA3ZD0YlM+8ldTp9DCozUWoF0J4eYNhXRIeQgJoNmWIdY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yym7KLB3LV7wokXusRke6Vzbt25KihPWOdOpplIZt3JHDOm6ruG
+	dho0BOZWD11COeaVJLPjugcOhqviC04oPgjCraudO+xep4nwFQIiZtwsy6QbMXbGchPnbWIy/DW
+	t0yNX1BX6i17SPeO/k5qxHujhEN4=
+X-Gm-Gg: ASbGnctIGiMPLf/ADfMtGcPS1FQA1AsyisD0VdgvOe5AVs/Xs9ujVPlu1j7gowaIBk6
+	7sshcFr0edNA3fM38ReD2pRG/e2xVnKARgvFN+NRe
+X-Google-Smtp-Source: AGHT+IFBjZrg88OqeWBDO1jTyqFkrRhdvj/sM97FkFYUxtUn8pc+yCVr/hdiAj5KO+SOUnoKUqWUM88SK7LqY4tEHG8=
+X-Received: by 2002:a17:907:3e9f:b0:aa6:64be:ff2d with SMTP id
+ a640c23a62f3a-aab778c168emr3388966b.4.1734034126714; Thu, 12 Dec 2024
+ 12:08:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241212-phy-sam-hdptx-bpc-v2-8-57e672c7c7c4@collabora.com>
-References: <20241212-phy-sam-hdptx-bpc-v2-0-57e672c7c7c4@collabora.com>
-In-Reply-To: <20241212-phy-sam-hdptx-bpc-v2-0-57e672c7c7c4@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
- Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.14.2
+References: <20241211232754.1583023-1-kaleshsingh@google.com> <20241211232754.1583023-2-kaleshsingh@google.com>
+In-Reply-To: <20241211232754.1583023-2-kaleshsingh@google.com>
+From: Yang Shi <shy828301@gmail.com>
+Date: Thu, 12 Dec 2024 12:08:35 -0800
+Message-ID: <CAHbLzkovqMsjti1g_G4dFj2mb4hneBPtR2eGTxTZmC717455-A@mail.gmail.com>
+Subject: Re: [PATCH mm-unstable v2 01/16] mm: Introduce generic_mmap_hint()
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: akpm@linux-foundation.org, vbabka@suse.cz, yang@os.amperecomputing.com, 
+	riel@surriel.com, david@redhat.com, minchan@kernel.org, jyescas@google.com, 
+	linux@armlinux.org.uk, tsbogend@alpha.franken.de, 
+	James.Bottomley@hansenpartnership.com, ysato@users.sourceforge.jp, 
+	dalias@libc.org, glaubitz@physik.fu-berlin.de, davem@davemloft.net, 
+	andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net, 
+	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com, 
+	leitao@debian.org, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org, 
+	kernel-team@android.com, android-mm@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_120402_505850_40936B0C 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20241212_120852_616700_A3698FAA 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,172 +104,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ropll_tmds_cfg table used to identify the configuration params for
-the supported rates expects the search keys - bit_rate field - to be
-provided in hHz rather than Hz (1 hHz = 100 Hz).  This requires multiple
-conversions between these units being performed at runtime.
+On Wed, Dec 11, 2024 at 3:28=E2=80=AFPM Kalesh Singh <kaleshsingh@google.co=
+m> wrote:
+>
+> Consolidate the hint searches from both directions (topdown and
+> bottomup) into generic_mmap_hint().
+>
+> No functional change is introduced.
+>
+> Signed-off-by: Kalesh Singh <kaleshsingh@google.com>
+> ---
+>
+> Changes in v2:
+>   - MAP_FIXED case is also handled in arch_mmap_hint() since this is just=
+ a
+>     special case of the hint addr being "enforced", per Yang Shi.
+>   - Consolidate error handling in arch_mmap_hint().
 
-Improve implementation clarity and efficiency by consistently using the
-Hz units throughout driver's internal data structures and functions.
+Reviewed-by: Yang Shi <shy828301@gmail.com>
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 61 +++++++++++------------
- 1 file changed, 30 insertions(+), 31 deletions(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index bc513ddd5c052763856a113a7f1e58660f7372b8..b6120d9ab24eca093180b3af942d7ce2b204d516 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -196,7 +196,7 @@
- #define HDMI20_MAX_RATE			600000000
- 
- struct ropll_config {
--	u32 bit_rate;
-+	u32 rate;
- 	u8 pms_mdiv;
- 	u8 pms_mdiv_afc;
- 	u8 pms_pdiv;
-@@ -256,45 +256,45 @@ struct rk_hdptx_phy {
- };
- 
- static const struct ropll_config ropll_tmds_cfg[] = {
--	{ 5940000, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-+	{ 594000000, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 3712500, 155, 155, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-+	{ 371250000, 155, 155, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 2970000, 124, 124, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-+	{ 297000000, 124, 124, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1620000, 135, 135, 1, 1, 3, 1, 1, 0, 1, 1, 1, 1, 4, 0, 3, 5, 5, 0x10,
-+	{ 162000000, 135, 135, 1, 1, 3, 1, 1, 0, 1, 1, 1, 1, 4, 0, 3, 5, 5, 0x10,
- 	  1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1856250, 155, 155, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-+	{ 185625000, 155, 155, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1540000, 193, 193, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 193, 1, 32, 2, 1,
-+	{ 154000000, 193, 193, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 193, 1, 32, 2, 1,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1485000, 0x7b, 0x7b, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 4, 0, 3, 5, 5,
-+	{ 148500000, 0x7b, 0x7b, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 4, 0, 3, 5, 5,
- 	  0x10, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1462500, 122, 122, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 244, 1, 16, 2, 1, 1,
-+	{ 146250000, 122, 122, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 244, 1, 16, 2, 1, 1,
- 	  1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1190000, 149, 149, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 149, 1, 16, 2, 1, 1,
-+	{ 119000000, 149, 149, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 149, 1, 16, 2, 1, 1,
- 	  1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1065000, 89, 89, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 89, 1, 16, 1, 0, 1,
-+	{ 106500000, 89, 89, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 89, 1, 16, 1, 0, 1,
- 	  1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 1080000, 135, 135, 1, 1, 5, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
-+	{ 108000000, 135, 135, 1, 1, 5, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
- 	  0x14, 0x18, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 855000, 214, 214, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 214, 1, 16, 2, 1,
-+	{ 85500000, 214, 214, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 214, 1, 16, 2, 1,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 835000, 105, 105, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 42, 1, 16, 1, 0,
-+	{ 83500000, 105, 105, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 42, 1, 16, 1, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 928125, 155, 155, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-+	{ 92812500, 155, 155, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 742500, 124, 124, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-+	{ 74250000, 124, 124, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 650000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
-+	{ 65000000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 337500, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
-+	{ 33750000, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
- 	  1, 1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 400000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
-+	{ 40000000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
- 	  0x14, 0x18, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 270000, 0x5a, 0x5a, 1, 1, 0xf, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
-+	{ 27000000, 0x5a, 0x5a, 1, 1, 0xf, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
- 	  0x14, 0x18, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
--	{ 251750, 84, 84, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 168, 1, 16, 4, 1, 1,
-+	{ 25175000, 84, 84, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 168, 1, 16, 4, 1, 1,
- 	  1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- };
- 
-@@ -656,10 +656,10 @@ static void rk_hdptx_phy_disable(struct rk_hdptx_phy *hdptx)
- 	regmap_write(hdptx->grf, GRF_HDPTX_CON0, val);
- }
- 
--static bool rk_hdptx_phy_clk_pll_calc(unsigned int data_rate,
-+static bool rk_hdptx_phy_clk_pll_calc(unsigned long rate,
- 				      struct ropll_config *cfg)
- {
--	const unsigned int fout = data_rate / 2, fref = 24000;
-+	const unsigned int fout = rate / 200, fref = 24000;
- 	unsigned long k = 0, lc, k_sub, lc_sub;
- 	unsigned int fvco, sdc;
- 	u32 mdiv, sdiv, n = 8;
-@@ -729,16 +729,16 @@ static bool rk_hdptx_phy_clk_pll_calc(unsigned int data_rate,
- }
- 
- static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx,
--					  unsigned int rate)
-+					  unsigned long rate)
- {
- 	const struct ropll_config *cfg = NULL;
- 	struct ropll_config rc = {0};
- 	int i;
- 
--	hdptx->rate = rate * 100;
-+	hdptx->rate = rate;
- 
- 	for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
--		if (rate == ropll_tmds_cfg[i].bit_rate) {
-+		if (rate == ropll_tmds_cfg[i].rate) {
- 			cfg = &ropll_tmds_cfg[i];
- 			break;
- 		}
-@@ -837,7 +837,7 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx)
- 
- 	rate = hdptx->tmds_char_rate ?: hdptx->rate;
- 	if (rate) {
--		ret = rk_hdptx_ropll_tmds_cmn_config(hdptx, rate / 100);
-+		ret = rk_hdptx_ropll_tmds_cmn_config(hdptx, rate);
- 		if (ret)
- 			goto dec_usage;
- 	}
-@@ -972,18 +972,17 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
- static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
- 					unsigned long *parent_rate)
- {
--	u32 bit_rate = rate / 100;
- 	int i;
- 
- 	if (rate > HDMI20_MAX_RATE)
- 		return rate;
- 
- 	for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
--		if (bit_rate == ropll_tmds_cfg[i].bit_rate)
-+		if (rate == ropll_tmds_cfg[i].rate)
- 			break;
- 
- 	if (i == ARRAY_SIZE(ropll_tmds_cfg) &&
--	    !rk_hdptx_phy_clk_pll_calc(bit_rate, NULL))
-+	    !rk_hdptx_phy_clk_pll_calc(rate, NULL))
- 		return -EINVAL;
- 
- 	return rate;
-@@ -1004,7 +1003,7 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
- 		rate = hdptx->tmds_char_rate;
- 	}
- 
--	return rk_hdptx_ropll_tmds_cmn_config(hdptx, rate / 100);
-+	return rk_hdptx_ropll_tmds_cmn_config(hdptx, rate);
- }
- 
- static const struct clk_ops hdptx_phy_clk_ops = {
-
--- 
-2.47.0
-
+>
+>  include/linux/sched/mm.h |  4 +++
+>  mm/mmap.c                | 76 ++++++++++++++++++++++++----------------
+>  2 files changed, 50 insertions(+), 30 deletions(-)
+>
+> diff --git a/include/linux/sched/mm.h b/include/linux/sched/mm.h
+> index 928a626725e6..edeec19d1708 100644
+> --- a/include/linux/sched/mm.h
+> +++ b/include/linux/sched/mm.h
+> @@ -201,6 +201,10 @@ unsigned long mm_get_unmapped_area_vmflags(struct mm=
+_struct *mm,
+>                                            unsigned long flags,
+>                                            vm_flags_t vm_flags);
+>
+> +unsigned long generic_mmap_hint(struct file *filp, unsigned long addr,
+> +                               unsigned long len, unsigned long pgoff,
+> +                               unsigned long flags);
+> +
+>  unsigned long
+>  generic_get_unmapped_area(struct file *filp, unsigned long addr,
+>                           unsigned long len, unsigned long pgoff,
+> diff --git a/mm/mmap.c b/mm/mmap.c
+> index df9154b15ef9..382b4eac5406 100644
+> --- a/mm/mmap.c
+> +++ b/mm/mmap.c
+> @@ -620,6 +620,47 @@ unsigned long vm_unmapped_area(struct vm_unmapped_ar=
+ea_info *info)
+>         return addr;
+>  }
+>
+> +/*
+> + * Look up unmapped area at the requested hint addr
+> + *
+> + * NOTE: MAP_FIXED is also handled here since it's a special case of
+> + * enforcing the hint address.
+> + *
+> + * Returns:
+> + *    ERR_VALUE: If the requested mapping is not valid
+> + *    0: If there isn't a sufficiently large hole at the hint addr.
+> + *    addr: If sufficient VA space is available at the hint address;
+> + *          or MAP_FIXED was specified.
+> + */
+> +unsigned long generic_mmap_hint(struct file *filp, unsigned long addr,
+> +                               unsigned long len, unsigned long pgoff,
+> +                               unsigned long flags)
+> +{
+> +       struct mm_struct *mm =3D current->mm;
+> +       struct vm_area_struct *vma, *prev;
+> +       const unsigned long mmap_end =3D arch_get_mmap_end(addr, len, fla=
+gs);
+> +
+> +       /* requested length too big for entire address space */
+> +       if (len > mmap_end - mmap_min_addr)
+> +               return -ENOMEM;
+> +
+> +       if (flags & MAP_FIXED)
+> +               return addr;
+> +
+> +       if (!addr)
+> +               return 0;
+> +
+> +       addr =3D PAGE_ALIGN(addr);
+> +       vma =3D find_vma_prev(mm, addr, &prev);
+> +       if (mmap_end - len >=3D addr && addr >=3D mmap_min_addr &&
+> +           (!vma || addr + len <=3D vm_start_gap(vma)) &&
+> +           (!prev || addr >=3D vm_end_gap(prev)))
+> +               return addr;
+> +
+> +       /* Fallback to VA space search */
+> +       return 0;
+> +}
+> +
+>  /* Get an address range which is currently unmapped.
+>   * For shmat() with addr=3D0.
+>   *
+> @@ -637,25 +678,13 @@ generic_get_unmapped_area(struct file *filp, unsign=
+ed long addr,
+>                           unsigned long flags, vm_flags_t vm_flags)
+>  {
+>         struct mm_struct *mm =3D current->mm;
+> -       struct vm_area_struct *vma, *prev;
+>         struct vm_unmapped_area_info info =3D {};
+>         const unsigned long mmap_end =3D arch_get_mmap_end(addr, len, fla=
+gs);
+>
+> -       if (len > mmap_end - mmap_min_addr)
+> -               return -ENOMEM;
+> -
+> -       if (flags & MAP_FIXED)
+> +       addr =3D generic_mmap_hint(filp, addr, len, pgoff, flags);
+> +       if (addr)
+>                 return addr;
+>
+> -       if (addr) {
+> -               addr =3D PAGE_ALIGN(addr);
+> -               vma =3D find_vma_prev(mm, addr, &prev);
+> -               if (mmap_end - len >=3D addr && addr >=3D mmap_min_addr &=
+&
+> -                   (!vma || addr + len <=3D vm_start_gap(vma)) &&
+> -                   (!prev || addr >=3D vm_end_gap(prev)))
+> -                       return addr;
+> -       }
+> -
+>         info.length =3D len;
+>         info.low_limit =3D mm->mmap_base;
+>         info.high_limit =3D mmap_end;
+> @@ -685,27 +714,14 @@ generic_get_unmapped_area_topdown(struct file *filp=
+, unsigned long addr,
+>                                   unsigned long len, unsigned long pgoff,
+>                                   unsigned long flags, vm_flags_t vm_flag=
+s)
+>  {
+> -       struct vm_area_struct *vma, *prev;
+>         struct mm_struct *mm =3D current->mm;
+>         struct vm_unmapped_area_info info =3D {};
+>         const unsigned long mmap_end =3D arch_get_mmap_end(addr, len, fla=
+gs);
+>
+> -       /* requested length too big for entire address space */
+> -       if (len > mmap_end - mmap_min_addr)
+> -               return -ENOMEM;
+> -
+> -       if (flags & MAP_FIXED)
+> -               return addr;
+> -
+>         /* requesting a specific address */
+> -       if (addr) {
+> -               addr =3D PAGE_ALIGN(addr);
+> -               vma =3D find_vma_prev(mm, addr, &prev);
+> -               if (mmap_end - len >=3D addr && addr >=3D mmap_min_addr &=
+&
+> -                               (!vma || addr + len <=3D vm_start_gap(vma=
+)) &&
+> -                               (!prev || addr >=3D vm_end_gap(prev)))
+> -                       return addr;
+> -       }
+> +       addr =3D generic_mmap_hint(filp, addr, len, pgoff, flags);
+> +       if (addr)
+> +               return addr;
+>
+>         info.flags =3D VM_UNMAPPED_AREA_TOPDOWN;
+>         info.length =3D len;
+> --
+> 2.47.0.338.g60cca15819-goog
+>
+>
 
