@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FA9E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF505E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqppRzeqdb6ThffmNF8i7KeoIR9iuy9PBiocW458+tc=; b=qogjRuWgREbWF/rDXVtnQVHH2t
-	SetAYt3V7v1kYSiX9RlnVKYbcW9WQ/nNe4afFUh37T6o/qLVAsjcxIZWV+03c2f3mb8w0vO8ts7A2
-	9xaF1Enb0hX8GOQioQxWBL33jKZzXyxloiMouNUswgqm/ZdcOTje59izhHLIcNjn2GtSiLxnUWvfL
-	MHiANxPDunvhcUkcs7q9DUllXI59E9MupbAaFTZi70vXFIlDn7u0zpUVkZ2uvw6HJbTECqmT69as6
-	p9B/KntndrOnV8ctMnDJsU0SXH2REI5ZMqat+pO3V8j8jANXzM0W/J8miEi41pKLwXLO5ePO2/CDV
-	7T84PZ5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B0a9uVHj0MFII1RtSBeG+K+r0Fep1zBrIePBFN8AAic=; b=DogNTB+8R0cmyZU6sp9A/UCmgv
+	ujF0OfBEt9frnBzmFozQsjc4+xtSmXtX2xfdcp+05udPY1NdozDbviGmGtBMlnAAHcjsPZ5CpAL5I
+	3tOVuFLFLMHWi+DzzO07O7sm7NUTfATJ5IzvHAAJF/HA/Sx24ziNSwxDTjj8UjufWOLayni93lvvY
+	s3onOP/PzUZfk2jLCjuNiB+mx1VCmqsFzf1shM0DHEITEUbyD/Dd/+XVEjH7Tcra4QgdNPAItYxxa
+	ClljRJRjaafjBRInnxk1CL54+UAiRhQbrAUrGJSzH+uz7kXCDICIELKYDHTxdEF+nBNIzu6qZBl03
+	DswfUnXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfN5-0000000HSo1-44lr;
-	Thu, 12 Dec 2024 09:20:35 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tLfO8-0000000HT94-3OME;
+	Thu, 12 Dec 2024 09:21:40 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfJA-0000000HRuI-2alK;
-	Thu, 12 Dec 2024 09:16:34 +0000
-X-UUID: 9bdcaed6b86711ef9048ed6ed365623b-20241212
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=dqppRzeqdb6ThffmNF8i7KeoIR9iuy9PBiocW458+tc=;
-	b=l6NKFIZvoZOnYozb8s51ZzPbrjtkXzg3TdWmUHAJv/UXmlKPBC16hy0YO8O+6q4I3zbvEEh+hUhADlUqrwKj1OgU2dgBOd5wxxj5GOshzXitSV59aa272O6lYA+rSFHThMcPjRIufAdRDDEykV6m0QLZy0MblAwSeSVYl/p6e+k=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:a4214469-3508-46bf-b4e5-d0f213014995,IP:0,U
-	RL:25,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:fafc0413-8f5d-4ac6-9276-7b9691c7b8d6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:1|19,
-	IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 9bdcaed6b86711ef9048ed6ed365623b-20241212
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <crystal.guo@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1030628017; Thu, 12 Dec 2024 02:01:00 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 12 Dec 2024 17:00:58 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 12 Dec 2024 17:00:58 +0800
-From: Crystal Guo <crystal.guo@mediatek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Crystal Guo
-	<crystal.guo@mediatek.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH 2/2] dt-bindings: memory-controllers: Add mediatek common-dramc dt-bindings
-Date: Thu, 12 Dec 2024 16:59:48 +0800
-Message-ID: <20241212090029.13692-3-crystal.guo@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20241212090029.13692-1-crystal.guo@mediatek.com>
-References: <20241212090029.13692-1-crystal.guo@mediatek.com>
+	id 1tLfLi-0000000HSLg-25Uw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Dec 2024 09:19:11 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361815b96cso2241075e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 01:19:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733995148; x=1734599948; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B0a9uVHj0MFII1RtSBeG+K+r0Fep1zBrIePBFN8AAic=;
+        b=QwpIH3dXHZcd8wQbmVN1giM86rkUq464PC3NatBzGGqTT4i6MOqgYUWpcCmxcMETGF
+         UVSV++eD2V6g81c0eIqNKJh28Qs1TrWtg955/NrtI1oDyaq+uBAYom9qcBuqf25UAMZ6
+         dHYP4HeVnI0peBDTjNfiVAetHiM6fFZXxlHgZdCQRwsrSMguT/IJLlJwkGcbf2qBzAob
+         cfvd2h9nJUKnpzSD1i2P4LqdwWKabI/v5WqaJqx7cjDM6Y8ky2BfiRvClHOv05UZNrX2
+         icmYWgdQK98tIrxpW64rcIV3GppLU/NsMlUpJYWVxur1QhxgPZ0pksPqR8gdIhS8C3tv
+         a9ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733995148; x=1734599948;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B0a9uVHj0MFII1RtSBeG+K+r0Fep1zBrIePBFN8AAic=;
+        b=ZeMO4kLjRne5XQt38s79XeqTuHiS1PdA5qS3GAXA0CvtG9n/rQxZcSeymJcgVhR/Jw
+         M/DxTKi0oztr5IGnZQ6OkBHBZpkbsKd4xvAhT7X01awxxlNJ06ulw5naTFW5UKmGLdfV
+         KXSj50k1cf+bOfWWMScDPV/IC2Dg8BdtYewuH/lXZ/1PShyWGu8ZHGWU4KXuAdCzWjW0
+         CxJe6r1yheAHHVcSeVVXu0MF8Nz0iTqDD6aW7yIxb8Qu3m/T9iQhd9XbrZXWQUyLXNf9
+         476WvG6QCrwJ7ZspO2m5lvw4676AheJFHXU12rup6+LJ+KtdyqQ7DvSVPoHJCbm+ihwJ
+         DEzg==
+X-Gm-Message-State: AOJu0YxWSR3HYy0wiEQ+U5DOl8YjSnWcCcV8Qdh2U8/BiC4OObgx1gJW
+	raL5zFbFUOCm1ki6V0RDWo8Gh4/56fxxm4NFdGIf1QDmJ4GXPQR3JWkf4/2SnFzO6gtS7s9FSXV
+	XeZJmHrj+KqMnZdSBJSHg3clt75g=
+X-Gm-Gg: ASbGncunEDJqBzVzoJr4rIcr88NJw6ffS7kWfXr+7T+yWph4a/jCm4yQH82fC9nfd/+
+	f+sL3M/v9XZ2g6Wp9trQfZgEVDrpJ3RNGPJpYKuw=
+X-Google-Smtp-Source: AGHT+IHgSIGyFnE08dyyP5NFrnFmPIIBGih2q0tSX3ULomU1UQVEgWDpmRj4F49p7i9YNu4ESNPLZDHhphuv4WV+WZs=
+X-Received: by 2002:a5d:47c6:0:b0:385:f062:c2df with SMTP id
+ ffacd0b85a97d-3864ce4968emr5512699f8f.11.1733995148067; Thu, 12 Dec 2024
+ 01:19:08 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+References: <CAJNi4rMfhZOCT+7Ki14vUs+dZbv9cxCZ0s+jgn6=_om4NTgo_A@mail.gmail.com>
+ <86cyi5tanz.wl-maz@kernel.org>
+In-Reply-To: <86cyi5tanz.wl-maz@kernel.org>
+From: richard clark <richard.xnu.clark@gmail.com>
+Date: Thu, 12 Dec 2024 17:18:56 +0800
+Message-ID: <CAJNi4rPDVXS3Ft3nHLXvMzHmn9d10Nz4Pxeduoe+v5HaK=CEAg@mail.gmail.com>
+Subject: Re: Question about interrupt prioriyt of ARM GICv3/4
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	will@kernel.org, "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Mark Rutland <mark.rutland@arm.com>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	richard clark <richard.xnu.clark@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_011632_651795_736CB596 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20241212_011910_535639_868B836A 
+X-CRM114-Status: GOOD (  38.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,153 +94,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree binding for mediatek common-dramc driver.
+Hi M,
 
-The DRAM controller of MediaTek SoC provides an interface to
-get the current data rate of DRAM.
-
-Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
----
- .../mediatek,common-dramc.yaml                | 129 ++++++++++++++++++
- 1 file changed, 129 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
-
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
-new file mode 100644
-index 000000000000..c9e608c7f183
---- /dev/null
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,common-dramc.yaml
-@@ -0,0 +1,129 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+# Copyright (c) 2024 MediaTek Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/memory-controllers/mediatek,common-dramc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek Common DRAMC (DRAM Controller)
-+
-+maintainers:
-+  - Crystal Guo <crystal.guo@mediatek.com>
-+
-+description: |
-+  The DRAM controller of MediaTek SoC provides an interface to
-+  get the current data rate of DRAM.
-+
-+properties:
-+  compatible:
-+    const: mediatek,common-dramc
-+
-+  reg:
-+    minItems: 9
-+    items:
-+      - description: DRAMC_AO_CHA_BASE
-+      - description: DRAMC_AO_CHB_BASE
-+      - description: DRAMC_AO_CHC_BASE
-+      - description: DRAMC_AO_CHD_BASE
-+      - description: DRAMC_NAO_CHA_BASE
-+      - description: DRAMC_NAO_CHB_BASE
-+      - description: DRAMC_NAO_CHC_BASE
-+      - description: DRAMC_NAO_CHD_BASE
-+      - description: DDRPHY_AO_CHA_BASE
-+      - description: DDRPHY_AO_CHB_BASE
-+      - description: DDRPHY_AO_CHC_BASE
-+      - description: DDRPHY_AO_CHD_BASE
-+      - description: DDRPHY_NAO_CHA_BASE
-+      - description: DDRPHY_NAO_CHB_BASE
-+      - description: DDRPHY_NAO_CHC_BASE
-+      - description: DDRPHY_NAO_CHD_BASE
-+      - description: SLEEP_BASE
-+
-+  support-ch-cnt:
-+    maxItems: 1
-+
-+  fmeter-version:
-+    maxItems: 1
-+    description:
-+      Fmeter version for calculating dram data rate
-+
-+  crystal-freq:
-+    maxItems: 1
-+    description:
-+      Reference clock rate in MHz
-+
-+  shu-of:
-+    maxItems: 1
-+
-+  pll-id: true
-+  shu-lv: true
-+  sdmpcw: true
-+  posdiv: true
-+  fbksel: true
-+  dqsopen: true
-+  async-ca: true
-+  dq-ser-mode: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - support-ch-cnt
-+  - fmeter-version
-+  - crystal-freq
-+  - pll-id
-+  - shu-lv
-+  - shu-of
-+  - sdmpcw
-+  - posdiv
-+  - fbksel
-+  - dqsopen
-+  - async-ca
-+  - dq-ser-mode
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        dramc: dramc@10230000 {
-+            compatible = "mediatek,common-dramc";
-+            reg = <0 0x10230000 0 0x2000>, /* DRAMC_AO_CHA_BASE */
-+                <0 0x10240000 0 0x2000>, /* DRAMC_AO_CHB_BASE */
-+                <0 0x10250000 0 0x2000>, /* DRAMC_AO_CHC_BASE */
-+                <0 0x10260000 0 0x2000>, /* DRAMC_AO_CHD_BASE */
-+                <0 0x10234000 0 0x1000>, /* DRAMC_NAO_CHA_BASE */
-+                <0 0x10244000 0 0x1000>, /* DRAMC_NAO_CHB_BASE */
-+                <0 0x10254000 0 0x1000>, /* DRAMC_NAO_CHC_BASE */
-+                <0 0x10264000 0 0x1000>, /* DRAMC_NAO_CHD_BASE */
-+                <0 0x10238000 0 0x2000>, /* DDRPHY_AO_CHA_BASE */
-+                <0 0x10248000 0 0x2000>, /* DDRPHY_AO_CHB_BASE */
-+                <0 0x10258000 0 0x2000>, /* DDRPHY_AO_CHC_BASE */
-+                <0 0x10268000 0 0x2000>, /* DDRPHY_AO_CHD_BASE */
-+                <0 0x10236000 0 0x2000>, /* DDRPHY_NAO_CHA_BASE */
-+                <0 0x10246000 0 0x2000>, /* DDRPHY_NAO_CHB_BASE */
-+                <0 0x10256000 0 0x2000>, /* DDRPHY_NAO_CHC_BASE */
-+                <0 0x10266000 0 0x2000>, /* DDRPHY_NAO_CHD_BASE */
-+                <0 0x10006000 0 0x1000>; /* SLEEP_BASE */
-+            support-ch-cnt = <4>;
-+            fmeter-version = <1>;
-+            crystal-freq = <26>;
-+            pll-id = <0x0e98 0x02000000 25>;
-+            shu-lv = <0x0e98 0x0000c000 14>;
-+            shu-of = <0x700>;
-+            sdmpcw = <0x0908 0x0007fff8 3>,
-+                <0x0928 0x0007fff8 3>;
-+            posdiv = <0x090c 0x00003800 11>,
-+                <0x092c 0x00003800 11>;
-+            fbksel = <0x0910 0x00000040 6>,
-+                <0x0910 0x00000040 6>;
-+            dqsopen = <0x0d94 0x04000000 26>,
-+                <0x0d94 0x04000000 26>;
-+            async-ca = <0x0d08 0x00000001 0>,
-+                <0x0d08 0x00000001 0>;
-+            dq-ser-mode = <0x0dc4 0x00000018 3>,
-+                <0x0dc4 0x00000018 3>;
-+        };
-+    };
--- 
-2.18.0
-
+On Fri, Dec 6, 2024 at 5:37=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Fri, 06 Dec 2024 08:33:11 +0000,
+> richard clark <richard.xnu.clark@gmail.com> wrote:
+> >
+> > Hi,
+> > Currently seems the GICv3/4 irqchip configures all the interrupts as
+> > the same priority, I am thinking about to minimize the latency of the
+> > interrupt for a particular device, e.g, the arm arch_timer in the RTL
+> > system. The question is,
+> > 1. Why don't we provide a /proc or /sys interface for the enduser to
+> > set the priority of a specific interrupt(SPI/PPI)?
+>
+> I'm afraid this really has nothing to do with any particular interrupt
+> architecture.
+>
+> Before thinking of exposing the interrupt priority to userspace, you
+> should look at what this translates into for the kernel once you allow
+> interrupts to be preempted by another one with a higher priority.
+>
+Interrupt priority doesn't necessarily mean the preemption, seems
+you're talking about the interrupt preemption harm according to your
+statement followed.Frankly I am just thinking higher priority will win
+the lower ones in case massive external interrupts received in the GIC
+level (you see I am still talking about GIC, not kernel)
+>
+> This means that at every point where you would normally see a
+> local_irq_save(), spinlock_irqsave() or equivalent, you would need to
+> explicitly specify the priority that you allow for preemption. You
+> should then make sure that any code that can be run during an
+> interrupt is reentrant. You need to define which data structures can
+> be manipulated at which priority level... The list goes on.
+>
+irqsave just masks the interrupt from the point of cpu, I don't think
+it will mess things up if preemption really happens (no? then what the
+side-effect is for the nested interrupt handling in the softirq part.
+damage the semantic of the lock primitives?)
+>
+> If you want a small taste of the complexity, just look at what
+> handling NMIs (or even pseudo-NMIs in the case of GICv3) means, and
+> generalise it to not just two, but an arbitrary range of priorities.
+>
+> If you want the full blown experience, look at the BSDs and their use
+> of spl*(). I don't think anyone has any plan to get there, and the RT
+> patches have shown that there is little need for it.
+>
+As supplement=EF=BC=8Cthe fiq is suggested to be used as an alternative to =
+the
+higher priority in the RT area...
+>
+> > 2. Is there any way to verify the higher priority interrupt will have
+> > more dominant to be selected to the CPU (IOW, the priority is really
+> > working) in case of multiple different interrupts asserted to the GIC
+> > at the same time(some debug registers of GIC like GICD_REEMPT_CNT :-)
+> > to record higher priority wins)?
+>
+> The GIC architecture makes no promise that the interrupt you
+> acknowledge is the highest priority pending interrupt, because this is
+> by definition a very racy process.
+>
+> Also, even on busy systems, you will very rarely see two interrupts
+> targeting the same CPU being made pending at the same time, so that
+> the interrupt delivery system would have to arbitrate between the two.
+> That's because interrupts are vanishingly rare in the grand scheme of
+> things.
+>
+1. I am trying to stress the external interrupts to the core#0 via the
+stress-ng tool with one of interrupt being configured as higher
+priority to see the benchmark data, it's time consuming as you can
+image, still is in progress(BTW, I can't see any lockup similar hang
+in the system with a higher priority configured)
+2. This raises a very interesting question and I am also very curious
+about is, what is the purpose for the GIC to introduce the interrupt
+priority features, a placeholder feature reserved for the future? Ah,
+hardware prefer to provide more functionalities than its being
+actually used by software, any other justification except that?
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
