@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E8DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9FEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:To:Cc:From:References:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoVTbaL4YNuWYLH975v+DNNPn9DDGWZVxGYR9Qdxa6s=; b=OnoCK1FkkqF/7ie8ttD8hPT3AZ
-	zi6JYySeCvxn2ATboRzABZgsbxqp4EKtX7SqH8wuwOZ15RNZhVjwEy6eBtk2wZmQXiOoKhx94IMp9
-	wwzEm8c0F8ab5Mi3VTRhKCzJ7XjZTG/g1blptZ2WfOywyHBjL4NfQHEqcPQ1/QvF3XxD2jLV7Iymy
-	EeA6wZv6wgcgrgH6DyIKBIzqdANa8Ycu7lyOb4hJp8b1P4/lqYks62Ssh+87+Ft/iK7zB3+SbTfRx
-	HT5VkbQWGjcmrlf/6mtxqlu9JimuzY85J7aXUPqnlOJfNx5P3wWIsOptjS9Ip4JyTPcE/bTr+vAAd
-	exsnQnYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ckLbrw3o3z0xyW3HQ4hRwM0+gs/wSAx1arfxk2Ygwos=; b=UJOZgSYsVLEKmjqHHh8H044JOz
+	y6W03AUtzIo4lYbrmmgrlGTaqtw9Sa6DFCiDDoqhlRaeTOJ5slAs3ZeeYKO1D5SNd4vokiSRXO2G3
+	e2euWgKD5grWab2+peCRRhmDGQ+TmaJtIEo83e8GUEv1QU2XQegTbfuJ8NuQFhGJG87uymzZsXFgo
+	8nW/JdxXpgP0XXM0U5J8Gxqrcv6e4ZoEMbpdgPSZO5s2xz6Uyz6eliVhvjgmV1yD864Fdqy0RlyUA
+	urKYTOEmuq5ZblR4fPBjmz6t9j56jYNeGPIOhVyOfXjJINlXpSMpmTzGe+6/fiIv72p0Fpljwl7Ea
+	BaqSXmXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiP9-00000000NtN-1uBJ;
-	Thu, 12 Dec 2024 12:34:55 +0000
-Received: from smtp-21.smtpout.orange.fr ([80.12.242.21] helo=smtp.smtpout.orange.fr)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiO2-00000000NeI-2jyF
+	id 1tLibh-00000000P5P-0B3n;
+	Thu, 12 Dec 2024 12:47:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLiab-00000000OzZ-2g2q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 12:33:49 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id LiNptubjiI1FGLiNptgWq8; Thu, 12 Dec 2024 13:33:39 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1734006819;
-	bh=UoVTbaL4YNuWYLH975v+DNNPn9DDGWZVxGYR9Qdxa6s=;
-	h=Message-ID:Date:MIME-Version:Subject:From:To;
-	b=DwS46AdYDXC+9ZAsRLRjPUp1SCcuBxmFNKhonH5F5UWdvmPdW7vVhza+qcdT3QN4s
-	 Cs+Z5Al/+1IMjvmnJc+gr4Mb5fbRWLE7QLeYlZTsJDZxy5IQoIYnowlN0BgYhvEG1T
-	 3MO2M8I2/YbJAnnfN2J1udFQ/FTpo1z1iETzWtSyCOjnUp9RcQAoNO3UIgGdv6UsSz
-	 UetoPuHOaS9OWFM05EPhZuzdie0Rkj8GsK3d3qHr8IILz4UHsiZXYlW1z9Fu/CsogA
-	 BPlNhaljpKHp/QxwseVtkuFpdRUeUWFmaADh8ubMr9u62LkDeZrBwajpEmlxvoG0Tp
-	 9tml5snDXE3Xg==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Thu, 12 Dec 2024 13:33:39 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <45f90007-3136-4b59-a3fc-6fc0147b8ad8@wanadoo.fr>
-Date: Thu, 12 Dec 2024 13:33:32 +0100
+	Thu, 12 Dec 2024 12:46:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3920153B;
+	Thu, 12 Dec 2024 04:47:10 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 66AD83F720;
+	Thu, 12 Dec 2024 04:46:40 -0800 (PST)
+Date: Thu, 12 Dec 2024 12:46:37 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Dhruva Gole <d-gole@ti.com>
+Cc: Vivek yadav <linux.ninja23@gmail.com>, <linux-newbie@vger.kernel.org>,
+	<linux-pm@vger.kernel.org>, <daniel.lezcano@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, <lpieralisi@kernel.org>,
+	<krzk@kernel.org>, <christian.loehle@arm.com>,
+	<quic_sibis@quicinc.com>, <cristian.marussi@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <vigneshr@ti.com>, <khilman@ti.com>,
+	<sebin.francis@ti.com>, <khilman@baylibre.com>
+Subject: Re: Fwd: ARM64: CPUIdle driver is not select any Idle state other
+ then WFI
+Message-ID: <Z1rbLdWW75KQw5cl@bogus>
+References: <CAO6a-9_aPLCx2CqecQBGbK78_=+-tT44RepPkrBjpkWSvjj4Tg@mail.gmail.com>
+ <CAO6a-98cdSvyd7jgAyGNmsC2nxmRSyr3GppxvZU9yHU1xqwz3g@mail.gmail.com>
+ <20241211055052.gbxnyqpui3t3zpw5@lcpd911>
+ <20241211121825.GA2054801@bogus>
+ <20241211143428.kaoovhiwar74dy6x@lcpd911>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
- optional properties
-References: <20241212121712.214639-1-andrej.picej@norik.com>
- <20241212121712.214639-3-andrej.picej@norik.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, marex@denx.de
-To: Andrej Picej <andrej.picej@norik.com>
-In-Reply-To: <20241212121712.214639-3-andrej.picej@norik.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241211143428.kaoovhiwar74dy6x@lcpd911>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_043346_819925_4E56DC2E 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20241212_044645_767385_9706351C 
+X-CRM114-Status: GOOD (  55.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,120 +73,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 12/12/2024 à 13:17, Andrej Picej a écrit :
-> Add a optional properties to change LVDS output voltage. This should not
-> be static as this depends mainly on the connected display voltage
-> requirement. We have three properties:
-> - "ti,lvds-termination-ohms", which sets near end termination,
-> - "ti,lvds-vod-swing-data-microvolt" and
-> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
-> output voltage for data and clock lanes. They are defined as an array
-> with min and max values. The appropriate bitfield will be set if
-> selected constraints can be met.
+On Wed, Dec 11, 2024 at 08:04:28PM +0530, Dhruva Gole wrote:
+> On Dec 11, 2024 at 12:18:25 +0000, Sudeep Holla wrote:
+> > On Wed, Dec 11, 2024 at 11:20:52AM +0530, Dhruva Gole wrote:
+> [...]
+> > > >
+> > > >
+> > > > Hi @all,
+> > > >
+> > > > I am working on one custom SoC. Where I add one CPUIdle state for
+> > > > ``arm,cortex-a55`` processor.
+> > >
+> > > Any further luck on this?
+> > >
+> > > I have also been working on something similar[1] but on an A53 core on
+> > > TI-K3 AM62x processor.
+> > 
+> > Does upstream DTS have support for this platform to understand it better ?
+> > Even reference to any complete DT file for the platform will help.
 > 
-> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
-> end termination will be used. Selecting only one:
-> "ti,lvds-vod-swing-data-microvolt" or
-> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
-> constraint for only data/clock lanes will be met. Setting both is
-> recommended.
+> Yes, you can ref to the AM625 (CPU layout) DT here:
+> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am625.dtsi
+> 
+> The board/starter kit DT is:
+> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am625-sk.dts
+> 
+> The patches for idle state are not upstream, and only exist in this
+> patch of mine here:
+> https://github.com/DhruvaG2000/v-linux/commit/0fd088d624276a2e72b8dc6660d261ab6d194f4b
+>
 
-...
+"arm,psci-suspend-param" indicate that this idle state doesn't loose the
+cpu context which means timer doesn't stop. So adding "local-timer-stop"
+sound completely wrong to me.
 
-> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
-> +	u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i <= 3; i++) {
-> +		if (lvds_vod_swing_data_table[lvds_term][i][0] >= lvds_vod_swing_data[0] &&
-> +		lvds_vod_swing_data_table[lvds_term][i][1] <= lvds_vod_swing_data[1] &&
-> +		lvds_vod_swing_clock_table[lvds_term][i][0] >= lvds_vod_swing_clk[0] &&
-> +		lvds_vod_swing_clock_table[lvds_term][i][1] <= lvds_vod_swing_clk[1])
+> [...]
+> > > See this chunk in the kernel cpuidle driver:
+> > > 	if (broadcast && tick_broadcast_enter()) {
+> > >
+> > > When I dug deeper into tick_broadcast_enter it always returns something
+> > > non zero and hence in my case it was entering the if block and tried to
+> > > find a deepest state. Then the deepest state would always return WFI and
+> > > not the idle-state I had added.
+> > >
 
-Adding a few spaces to align things would help reading.
+It depends. If this is the last CPU and since you have marked the state with
+"local-timer-stop" and the system doesn't have any other timers to use as
+source of broadcast, it prevents one of the CPU entering that state. So you
+could be matching all the above conditions on your platform and hence you
+are observing the above.
 
-> +			return i;
-> +	}
-> +
-> +	dev_err(dev, "failed to find appropriate LVDS_VOD_SWING configuration\n");
-> +	return -EINVAL;
-> +}
-> +
-> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
-> +{
-> +	struct device *dev = ctx->dev;
-> +	struct device_node *endpoint;
-> +	int endpoint_reg;
-> +	/* Set so the property can be freely selected if not defined */
-> +	u32 lvds_vod_swing_data[2] = { 0, 1000000 };
-> +	u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
-> +	/* Set default near end terminataion to 200 Ohm */
-> +	u32 lvds_term = 200;
-> +	int lvds_vod_swing_conf;
-> +	int ret = 0;
-> +	int ret_data;
-> +	int ret_clock;
-> +
-> +	if (channel == CHANNEL_A)
-> +		endpoint_reg = 2;
-> +	else
-> +		endpoint_reg = 3;
-> +
-> +	endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
-> +
-> +	of_property_read_u32(endpoint, "ti,lvds-termination-ohms", &lvds_term);
-> +	if (lvds_term == 100)
-> +		ctx->lvds_term_conf[channel] = OHM_100;
-> +	else if (lvds_term == 200)
-> +		ctx->lvds_term_conf[channel] = OHM_200;
-> +	else
-> +		return -EINVAL;
+> > > What we found out was on our kernel we end up using
+> > >
+> > > kernel/time/tick-broadcast-hrtimer.c
+> > >
+> > > This always seems to be keeping atleast 1 CPU busy and prevents idle.
+> > > If we remove the local-timer-stop it was helping us, but we still need
+> > > to dig into the full impact of what that entails and I am still
+> > > interested in finding out how so many other users of similar idle-state
+> > > implementation are able to do so without trouble.
+> > >
+> >
 
-Should it be:
-	else {
-		ret = -EINVAL;
-		goto exit;
-	}
-?
+As mentioned about adding "local-timer-stop" for a retention state seems
+pure wrong in my opinion as it contradicts to the fact that context is
+retained.
 
-> +
-> +	ret_data = of_property_read_u32_array(endpoint, "ti,lvds-vod-swing-data-microvolt",
-> +					lvds_vod_swing_data, ARRAY_SIZE(lvds_vod_swing_data));
-> +	if (ret_data != 0 && ret_data != -EINVAL) {
-> +		ret = ret_data;
-> +		goto exit;
-> +	}
-> +
-> +	ret_clock = of_property_read_u32_array(endpoint, "ti,lvds-vod-swing-clock-microvolt",
-> +					lvds_vod_swing_clk, ARRAY_SIZE(lvds_vod_swing_clk));
-> +	if (ret_clock != 0 && ret_clock != -EINVAL) {
-> +		ret = ret_clock;
-> +		goto exit;
-> +	}
-> +
-> +	/* Use default value if both properties are NOT defined. */
-> +	if (ret_data == -EINVAL && ret_clock == -EINVAL)
-> +		lvds_vod_swing_conf = 0x1;
-> +
-> +	/* Use lookup table if any of the two properties is defined. */
-> +	if (!ret_data || !ret_clock) {
-> +		lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev, lvds_vod_swing_data,
-> +						lvds_vod_swing_clk, ctx->lvds_term_conf[channel]);
-> +		if (lvds_vod_swing_conf < 0) {
-> +			ret = lvds_vod_swing_conf;
-> +			goto exit;
-> +		}
-> +	}
-> +
-> +	ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
-> +	ret = 0;
-> +exit:
-> +	of_node_put(endpoint);
-> +	return ret;
-> +}
+> > Interesting. So if the platform is functional removing local-timer-stop,
+> > I am bit confused. Either there is something else that is getting it out
+>
+> Yes it was interesting to us too, as to how the RCU didn't kick in and
+> system continued to function as though nothing was wrong.
+>
 
-...
+It worked as if it was a state with context lost. So there might be some
+impact on the latency though it as the kernel assumed context lost and
+re-entered/resumed through resume entry point rather than where it called
+cpu_suspend() similar to wfi(). I mean only on the CPUs it was able to
+enter this state as one of the CPU will never enter this if there are no
+system timers to act as broadcast timer.
 
-CJ
+Does you system not have Arch timers memory mapped interface enabled and
+interrupt wired to GIC(other than PPIs) ? Look at Juno R2 as example.
+
+> > from the idle state so, it should be fine and it could be just some
+> 
+> It's probably UART keypresses or some userspace processes that get
+> scheduled that bring the CPUs back out of TF-A's cpu_standby.
+
+I doubt the CPU resume from suspend is based on some userspace event.
+
+> Is it possible that EL1 interrupts can bring EL3 out of WFI? Is yes then
+> it explains the behaviour. The arch timer could also be continuing to
+> tick and bringing the CPUs out of ATF WFI.
+>
+
+Yes but that doesn't explain the behaviour. It could be just the timer
+event from the broadcast timer.
+
+> > misconfiguration.
+> > 
+> > > Arm64 recommends to use arch_timer instead of external timers. Once we
+> > > enter el3, timer interrupts to el1 is blocked and hence it's equivalent
+> > > to local-timer-stop, so it does make sense to keep this property, but
+> > > then how are others able to enter idle-states for all plugged CPUs at
+> > > the same time?
+> > >
+> > 
+> > Some systems have system timer that can take over as broadcast timer when
+> > CPUs enter deeper idle states where the local timers are stopped.
+> 
+> In CPUIdle we're not really clock gating anything so the timer does keep
+> ticking. So in this particular case it might make sense to remove the
+> local-timer-stop property from the idle-state.
+>
+
+Correct in your case it is retention state and hence local CPU timers
+keep ticking and you can safely drop that property. However if you add
+deeper idle states like CPU OFF with the power rail cut off, then you need
+some system timer to act as backup/broadcast timer so that all the CPUs
+can enter the state concurrently and wake up successfully.
+
+> However we're looking into taking this further and putting interconnect
+> and few other PLLs in bypass which could cause arch timer for eg. to
+> tick slower.
+
+I assume it will be present as another timer with the rate set appropriately.
+
+> In this case would it still make sense to omit the property? 
+
+No, you should mark it as stopped even if it is running at slower rate
+as I am not sure if the local CPU timer support can handle rate change.
+
+> We may even have some usecases planned where we may turn OFF
+> the CPU once it is in TF-A cpu_standby/ WFI. What would be the right
+> approach in such scenarios?
+>
+
+As mentioned above, this will be separate state and all CPUs can use this
+if there is another system broadcast timer.
+
+> Could you provide any examples where the local-timer-stop property is
+> being used and an alternative timer can be configured once we enter the
+> idle-state where CPU CTX maybe lost or clocks maybe bypass?
+> great if you could share some example implementation if you're aware.
+
+As I mentioned, Juno R2 is an example. It was broken on R0 with some SoC
+errata(can't recall all the details as I looked at it almost a decade ago)
+
+-- 
+Regards,
+Sudeep
 
