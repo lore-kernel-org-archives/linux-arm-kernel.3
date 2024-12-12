@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2043E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB74E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 16:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zl3eysP7yTVe8qAEpqdsz014LXVMutHEihMQ6g5MYns=; b=mDl9QJwfNFN91Oxo5ba6HKIXDB
-	GWPqY+V7zkyY+FIqkGkFA+3OuXHC7qSu0su3TRhflx5o8Sns3eOQ+D4TAH6zbQ4JXNPu4t/EZlo6q
-	Wqwv0VXLFvsuPpNYuh0znhPGkMpYw9Q8slWG7tQrCYSN6CAMkmxbvu416YBBNP1zmOQ3y9yCNWLSo
-	BT6LI4ptdE7/h3sk7E05TFCtBTeld3XIWZzxHJD0VUyjvvoitAHPK1N6lfhV19BfB8ceQK6CWSB/I
-	1FD/md/I1/+BFnNgrq9jKNWl5MVEusfoG+peKG24YDL1H75DyKdJdEbNtP3FChSbW/y5nFFvfSP8K
-	FC52uvEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cBKADtUVe2wG6uQ4QhL+8dQx9D5L8GY0GuiYG8durAE=; b=tolMGo3JY8srTr
+	u6w0iVJac9AaBKsNrqVTc46IyULUNsopKGVp/rVAq/57Ksri2JU2SpmPbqvQZssjYvfWVdKhKpLvo
+	SvKA7y5BXUELK5L+5U8cFYUL2iSe3M7ASmcGBrYGmerWPCZKdWg0fGNZbcUgRIq6hGIWzrj0VAvqP
+	sEMnWfC1ajEEq5vxiAGEyTSRkXWeUVx+z0tOyq3U9O7ePDeLIFQ3dyUhsPWQ1cLBFeIsb4xT1dd5d
+	L5iatm2NYAg10yjdTuPuMAxYXdxYOoy7iLhpDy5MzG9WvocyM5Jzzj4sReCVIWDsumtwIq+HVYLJb
+	OBjKfMFa2jzK74IbyuYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlcl-00000000s4k-2lqC;
-	Thu, 12 Dec 2024 16:01:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLldn-00000000sHn-1Ha8;
+	Thu, 12 Dec 2024 16:02:15 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLlQp-00000000oh9-2sov
+	id 1tLlUi-00000000pdq-00ez
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 15:48:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CCC2B5C5966;
-	Thu, 12 Dec 2024 15:48:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC8A2C4CECE;
-	Thu, 12 Dec 2024 15:48:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734018530;
-	bh=mPQRjGnXG+0+zoGZDl5Y97k8+OqQv9RO2G0rAjvoyKY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=t/bUYKJbZsL4NErnW6sI1MyJPkUK7Hv57rjXC85kfmtivjpCAObRUlSFkXC+d9CXB
-	 t2Bamp1jnF20qAQkkikv6oIQDOGtDdaKPPI01VOEwAUaXOPZsdjIYZWtBFTeuAEz+k
-	 vmnFsk0YDzr7PRMdphvaSzrXRJ80OEguZGCPY0s7uHQan0wEr0BU6iiGXVp0r9YPr7
-	 0ORymP+FrOe80StbudP5EhOKebE8G9WA4PepWvqhxQt19C9TP9XtKS5hncChOkCFcF
-	 k3IggTfO0HwhXoQ7f1hANm2IpfegpgSdXW2XCp5J0Blf1dNpT3BnLa3yRfjFxc+oqd
-	 5MkejfcODGxpA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tLlQl-0037eT-Ge;
-	Thu, 12 Dec 2024 15:48:48 +0000
-Date: Thu, 12 Dec 2024 15:48:47 +0000
-Message-ID: <86h678sy00.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: =?UTF-8?B?TWlrb8WCYWo=?= Lenczewski <miko.lenczewski@arm.com>,
-	catalin.marinas@arm.com,	will@kernel.org,	corbet@lwn.net,
-	oliver.upton@linux.dev,	joey.gouly@arm.com,	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
-In-Reply-To: <2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
-References: <20241211160218.41404-1-miko.lenczewski@arm.com>
-	<20241211160218.41404-3-miko.lenczewski@arm.com>
-	<87cyhxs3xq.wl-maz@kernel.org>
-	<084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
-	<86ikrprn7w.wl-maz@kernel.org>
-	<2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ryan.roberts@arm.com, miko.lenczewski@arm.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 12 Dec 2024 15:52:53 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Thu, 12 Dec
+ 2024 23:52:41 +0800
+Received: from localhost.localdomain (192.168.10.10) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Thu, 12 Dec 2024 23:52:41 +0800
+From: Kevin Chen <kevin_chen@aspeedtech.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<joel@jms.id.au>, <andrew@codeconstruct.com.au>, <tglx@linutronix.de>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <arnd@arndb.de>,
+	<olof@lixom.net>, <quic_bjorande@quicinc.com>, <geert+renesas@glider.be>,
+	<dmitry.baryshkov@linaro.org>, <konradybcio@kernel.org>,
+	<neil.armstrong@linaro.org>, <johan+linaro@kernel.org>,
+	<kevin_chen@aspeedtech.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <soc@lists.linux.dev>
+Subject: [PATCH v3 0/6] Introduce ASPEED AST27XX BMC SoC
+Date: Thu, 12 Dec 2024 23:52:29 +0800
+Message-ID: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_074851_809957_BA709099 
-X-CRM114-Status: GOOD (  56.05  )
+X-CRM114-CacheID: sfid-20241212_075252_041407_1696DF0F 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,121 +69,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Dec 2024 15:05:24 +0000,
-Ryan Roberts <ryan.roberts@arm.com> wrote:
-> 
-> On 12/12/2024 14:26, Marc Zyngier wrote:
-> > On Thu, 12 Dec 2024 10:55:45 +0000,
-> > Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >>
-> >> On 12/12/2024 08:25, Marc Zyngier wrote:
-> >>>> +
-> >>>> +	local_flush_tlb_all();
-> >>>
-> >>> The elephant in the room: if TLBs are in such a sorry state, what
-> >>> guarantees we can make it this far?
-> >>
-> >> I'll leave Miko to respond to your other comments, but I wanted to address this
-> >> one, since it's pretty fundamental. We went around this loop internally and
-> >> concluded that what we are doing is architecturally sound.
-> >>
-> >> The expectation is that a conflict abort can only be generated as a result of
-> >> the change in patch 4 (and patch 5). That change makes it possible for the TLB
-> >> to end up with a multihit. But crucially that can only happen for user space
-> >> memory because that change only operates on user memory. And while the TLB may
-> >> detect the conflict at any time, the conflict abort is only permitted to be
-> >> reported when an architectural access is prevented by the conflict. So we never
-> >> do anything that would allow a conflict for a kernel memory access and a user
-> >> memory conflict abort can never be triggered as a result of accessing kernel memory.
-> >>
-> >> Copy/pasting comment from AlexC on the topic, which explains it better than I can:
-> >>
-> >> """
-> >> The intent is certainly that in cases where the hardware detects a TLB conflict
-> >> abort, it is only permitted to report it (by generating an exception) if it
-> >> applies to an access that is being attempted architecturally. ... that property
-> >> can be built from the following two properties:
-> >>
-> >> 1. The TLB conflict can only be reported as an Instruction Abort or a Data Abort
-> >>
-> >> 2. Those two exception types must be reported synchronously and precisely.
-> >> """
-> > 
-> > I totally agree with this. The issue is that nothing says that the
-> > abort is in any way related to userspace.
-> > 
-> >>>
-> >>> I honestly don't think you can reliably handle a TLB Conflict abort in
-> >>> the same translation regime as the original fault, given that we don't
-> >>> know the scope of that fault. You are probably making an educated
-> >>> guess that it is good enough on the CPUs you know of, but I don't see
-> >>> anything in the architecture that indicates the "blast radius" of a
-> >>> TLB conflict.
-> >>
-> >> OK, so I'm claiming that the blast radius is limited to the region of memory
-> >> that we are operating on in contpte_collapse() in patch 4. Perhaps we need to go
-> >> re-read the ARM and come back with the specific statements that led us to that
-> >> conclusion?
-> 
-> From the ARM:
-> """
-> RFCPSG: If level 1 or level 2 is supported and the Contiguous bit in a set of
-> Block descriptors or Page descriptors is changed, then a TLB conflict abort can
-> be generated because multiple translation table entries might exist within a TLB
-> that translates the same IA.
-> """
-> 
-> Although I guess it's not totally explicit, I've interpretted that as saying
-> that conflicting TLB entries can only arise for the IA range for which the
-> contiguous bits have been modified in the translation tables.
+---
+v3:
+  - Split clk and reset driver to other commits, which are in series of
+    "Add support for AST2700 clk driver".
+  - For BMC console by UART12, add uart12 using ASPEED INTC architecture.
 
-Right, that's reassuring, thanks for digging that one.
+aspeed,ast2700-intc.yaml
+  - Add minItems to 1 to fix the warning by "make dtbs_check W=1".
+  - Add intc1 into example.
 
-> Given we are only fiddling with the contiguous bits for user space mappings in
-> this way, that's why I'm asserting we will only get a conflict abort for user
-> space mappings... assuming the absence of kernel bugs, anyway...
+Kconfig.platforms
+  - Remove MACH_ASPEED_G7.
 
-For now. But if you dare scanning the list, you'll find a lot of
-people willing to do far more than just that. Including changing the
-shape of the linear map.
+Kevin Chen (6):
+  dt-bindings: interrupt-controller: Refine size/interrupt-cell usage.
+  dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
+  arm64: aspeed: Add support for ASPEED AST27XX BMC SoC
+  arm64: dts: aspeed: Add initial AST27XX device tree
+  arm64: dts: aspeed: Add initial AST2700 EVB device tree
+  arm64: defconfig: Add ASPEED AST2700 family support
 
->
-> > 
-> > But we don't know for sure what caused this conflict by the time we
-> > arrive in the handler. It could equally be because we have a glaring
-> > bug somewhere on the kernel side, even if you are *now* only concerned
-> > with userspace.
-> 
-> OK I see what you are saying; previously a conflict abort would have led to
-> calling do_bad(), which returns 1, which causes do_mem_abort() to either kill
-> the kernel or the process depending on the origin of the abort. (although if it
-> came from kernel due to bug, we're just hoping that the conflict doesn't affect
-> the path through the handler). With this change, we always assume we can fix it
-> with the TLBI.
-> 
-> How about this change to ensure we still die for issues originating from the kernel?
-> 
-> if (!user_mode(regs) || !system_supports_bbml2())
-> 		return do_bad(far, esr, regs);
-
-That wouldn't catch a TLB conflict on get_user(), would it?
-
-> > If anything, this should absolutely check for FAR_EL1 and assert that
-> > this is indeed caused by such change.
-> 
-> I'm not really sure how we would check this reliably? Without patch 5, the
-> problem is somewhat constrained; we could have as many changes in flight as
-> there are CPUs so we could keep a list of all the {mm_struct, VA-range} that are
-> being modified. But if patch 5 is confirmed to be architecturally sound, then
-> there is no "terminating tlbi" so there is no bound on the set of {mm_struct,
-> VA-range}'s that could legitimately cause a conflict abort.
-
-I didn't mean to imply that we should identify the exact cause of the
-abort. I was hoping to simply check that FAR_EL1 reports a userspace
-VA. Why wouldn't that work?
-
-	M.
+ .../bindings/arm/aspeed/aspeed.yaml           |   6 +
+ .../aspeed,ast2700-intc.yaml                  |  60 ++++-
+ MAINTAINERS                                   |   1 +
+ arch/arm64/Kconfig.platforms                  |   6 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/aspeed/Makefile           |   4 +
+ arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi     | 236 ++++++++++++++++++
+ arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  57 +++++
+ arch/arm64/configs/defconfig                  |   1 +
+ 9 files changed, 359 insertions(+), 13 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
+ create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+ create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
