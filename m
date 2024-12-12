@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2C5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1F5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvcwClhLv6xGoczW4PJAIpjHHqg4M8M55H3dQR9JizI=; b=dATq5lzyZ2WlrgmSBLj1J6VHgH
-	DekEfXIKr1pv0Edxdj7E/DupE9YomzHidYr38l0ee7gwQMLha90/f2nQLfj6HGT8ueceLKud6VCph
-	k5eecdhx3eM+v17tB+JJjlWz7oLOvRJX9u23uS5IMHwwajqNVjGwLHiB4usN/uZPqYtUjqj9VJ4B9
-	u+HIfbD3sF1Ld5pNmJMN0V0u7oGOWof1HYd0Fl8Qq+mL0TxgtAtH7+ica5e+s7Rfv+4f26vOqOSP/
-	fYl9+ygQ22AtnpY9ALY4TsgJ6pD7oyc2P6ipQ4z3xbO1D31N7VMl3rA20ma+lGtdTf4peYNNlK8Zs
-	dizv2I2g==;
+	bh=iXIRvpZuiwLtOV93NpSTxaaQKTg5ZvL9FYLJBzJb620=; b=Ayu//t1YoYIYYUhbGyLEkriEuQ
+	AwhuTKyLMGH/ZUHqfaM9OYkb1rWoqOKQhJXRuxXz1chhDz6BqljS3FRZOssdbWE1A8tfBnhZrl7J+
+	89PLkSLar3AUIe6uhuc5jL0Sp32eD/LpHV1L6IOBr+81LOXw7oQTy4fz8z0vbBvxEv8iM6i/9j2bm
+	SBHb/REQbsLrLpGW/VR+4FZzHG7UU/3wli3Vmms4y+qMHbjBBv2zRe1nmqAnk2YQpraLyCJo/2pw6
+	waCMmb0oJJUWXb4bEoHclpvDqOlcd2XYdJsclKicJUd1/K9KYLBQs5HK1e/KuJYUshwNf/awJfv0Z
+	OzePPQdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnl2-00000001Ner-3lp3;
-	Thu, 12 Dec 2024 18:17:52 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tLnm6-00000001NzP-2QW6;
+	Thu, 12 Dec 2024 18:18:58 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnYj-00000001JcD-02Cz
+	id 1tLnYl-00000001Jcm-10Bo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:05:10 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-385dcae001fso443713f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:08 -0800 (PST)
+	Thu, 12 Dec 2024 18:05:12 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43627bb20b5so4502385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:05:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026707; x=1734631507; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026709; x=1734631509; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kvcwClhLv6xGoczW4PJAIpjHHqg4M8M55H3dQR9JizI=;
-        b=Ci3NKIwAG5mjh6Yd5ozwz66RjqdngjB3LHS85NULQCYhVcBGOOqEC6INvS6TRvfxXC
-         XDq04QUdapb69g8e3HHF2y8//zFUBcaJ3BNlRAtmEhi4FCdp8eF8kIqBF519kMqzz+h8
-         thVW7Tro19pN1Y857ALXrJMkILgNEo4bq+rwHPQ5Ef8HopoZ24N3o5pfuZRFLhJk7KRh
-         eZBjhhIy17tUKsM5X1219ciRzxXyC4Irga5/slpOZ3Lq5VingAlmVglqIdEhp5s3gBlA
-         0Wj5siHleCQjxddb+sho6pon4eROGz7R7G1SWLJJiTj8p/8XTpq2dN42zCKaRxx1Bwc4
-         JZhw==
+        bh=iXIRvpZuiwLtOV93NpSTxaaQKTg5ZvL9FYLJBzJb620=;
+        b=j4W0MvZE9L93KiCODGfT8/lZRzknurJJVJZhaAjEnzZm/MK+M8dpjCRIPfOPXDcr2K
+         qrTb9SUl0BT1HqBY/YSKJEN+134aXpBkZoi/b1RkThDVgxF2xIewmB693UQo33MQqyRA
+         mz/7wTvYgpyzleI7thqggK29dz7bmxVih7qmU3ds1oYzPN/l6iDhsBp1U8tdo6bXEA5j
+         GIQ0EazUyqbCdWdTUx4/82AQD9VS/u9NpY9dRVqXp8v1hUBOHMn6R0sC+1ulOJg0NsRr
+         t8qhvFxMgZpRI/4SbXVhaDJ6ZBACl/k/smKoWPPE3/MLbeRsOqiYB+6XFwZX2gRFH+7u
+         EWgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026707; x=1734631507;
+        d=1e100.net; s=20230601; t=1734026709; x=1734631509;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kvcwClhLv6xGoczW4PJAIpjHHqg4M8M55H3dQR9JizI=;
-        b=vKtR+TGHhhMsuGEs21F64fnvKrTjNz9/J7mGDgNxFp+cy1IOzWCNkMRQwgd20BIOIL
-         JWO7b8waDpoPCg93ZKA13F4vJ1s461zS6VvnU6yNIt2pzVHEtllv7cVRn4TEfNtuusMU
-         kymNo955GleWtPVhU/TgQpd9iSw95oG154WFut5RKGOlpYmuvwp0GKQHxux9IiEAomHB
-         NqdTf7z5S/3nvrW+GKbWB7/sBX2Dj2CbSUgr67FpHaaMiSTiixHEWDEeap980vKeBCAX
-         8wtWcvECllC9AkX+RGIsSDVoD9ZRrsnXE9u5iry6+xwFM1Eepj9iSD05tuqw2NGrQ/r2
-         XBPg==
-X-Forwarded-Encrypted: i=1; AJvYcCX6ceiaKkWB7dg7xAQVn5FeBxOytMiP40abkP90SXXqe9lWNcCqjP2gVTQoEznTEY5qTUZDWIQUupTiSGZqEJLV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvyvw1YCzxKuru6BbApq8GT7UMMaWvHnY2yxJ7BdCaHOyp5ZoD
-	TJVUds+2/t0iIvZpXxFlKnmHJ5lxh+vuCIueeYMCDL/h5bBkDV5fsK6WjN9OpQcsWjjxMV07ir4
-	+v/+WcGIO6Q==
-X-Google-Smtp-Source: AGHT+IE10scUEuEcCRD+5w6H2L6RFmN8j1xObFtBxLC8p2WLtJlxovv9B58XfdIQzXv891vozkqFrRDj+yh8bw==
-X-Received: from wrvj17.prod.google.com ([2002:a05:6000:1bd1:b0:386:3835:9fda])
+        bh=iXIRvpZuiwLtOV93NpSTxaaQKTg5ZvL9FYLJBzJb620=;
+        b=YichtzWCHXF3+g5BxGibNEM8Glb+ZPEBZmNNz/id9ssEOup3PZrUFjsqBLFOnz6pkP
+         TcI+MlnqTK0xbTuLMy5mtk2wx6yUshYwIXSDw6ciI+Q1/45sAR3cJXUs4H/ub4pN6ruB
+         spiX/EtTdMU+ZtBigUyZWVeobd549dISQC29LncEZ3iCiOVDVJmM/oZyXLTxncnWdoE9
+         amJr/R/9UrS+Oz77FYXyG7RPolJ/gyO2Ipvo6q8iE2VR+hpxRQem1dhVzKNtBqw+D0Uh
+         BdCvNdvAIqc7zMmYPgPbBY7p5CRTqPEzKbL1BJmZqfGi1EFgCQx8uSfAa/bshach2j0F
+         Ev/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW6nWzaYCjWDqHf+ca1/F93Y1tiTM+S70+fg1AdFpzzfFeJFAxSb9+b6eS+i2pt8eqGizimTXCiRr+Xve01a1LM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6cGh3RiASRInmOGutp8dDeUdelLG8MLnUdhzIN7sPRoTv/uqI
+	+HNqsZALqH/Ct9sJHkZw2ykLh6o6aTpI9vxHBL9heTaSeCdenM3UFxMhhwExPkaQnjiV5ndE+TQ
+	wXm4njwvU6g==
+X-Google-Smtp-Source: AGHT+IHgnk/pCZh1WlJnWXuUNSz2FFTV3sydknebPh6K+YIgIP/qVa3msTdRnMT5NLGcQQqFklKUxKoqwGRQMg==
+X-Received: from wmdp19.prod.google.com ([2002:a05:600c:5d3:b0:434:f271:522e])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:280d:b0:385:ec89:2f07 with SMTP id ffacd0b85a97d-3864cea56c5mr4112209f8f.32.1734026707185;
- Thu, 12 Dec 2024 10:05:07 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:03:35 +0000
+ 2002:a05:600c:46c6:b0:434:a746:9c82 with SMTP id 5b1f17b1804b1-43622823ab1mr38109965e9.5.1734026709204;
+ Thu, 12 Dec 2024 10:05:09 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:03:36 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-12-smostafa@google.com>
-Subject: [RFC PATCH v2 11/58] KVM: arm64: pkvm: Add pkvm_udelay()
+Message-ID: <20241212180423.1578358-13-smostafa@google.com>
+Subject: [RFC PATCH v2 12/58] KVM: arm64: Add __pkvm_{use, unuse}_dma()
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100509_046625_4FCEB0C4 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20241212_100511_276422_4A879711 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,108 +95,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+When a page is mapped in an IOMMU page table for DMA, it must
+not be donated to a guest or the hypervisor we ensure this with:
+- Host can only map pages that are OWNED
+- Any page that is mapped is refcounted
+- Donation/Sharing is prevented from refcount check in
+  host_request_owned_transition()
+- No MMIO transtion is allowed beyond IOMMU MMIO which
+  happens during de-privilege.
+In case in the future shared pages are allowed to be mapped,
+similar checks are needed in host_request_unshare() and
+host_ack_unshare()
 
-Add a simple delay loop for drivers.
-
-This could use more work. It should be possible to insert a wfe and save
-power, but I haven't studied whether it is safe to do so with the host
-in control of the event stream. The SMMU driver will use wfe anyway for
-frequent waits (provided the implementation can send command queue
-events).
+Add 2 functions that would be called before each IOMMU map
+and after each successful IOMMU unmap.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 ---
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  3 ++
- arch/arm64/kvm/hyp/nvhe/setup.c        |  4 +++
- arch/arm64/kvm/hyp/nvhe/timer-sr.c     | 42 ++++++++++++++++++++++++++
- 3 files changed, 49 insertions(+)
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 97 +++++++++++++++++++
+ 2 files changed, 99 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index 3b515ce4c433..8a5554615e40 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -143,4 +143,7 @@ int pkvm_load_pvmfw_pages(struct pkvm_hyp_vm *vm, u64 ipa, phys_addr_t phys,
- 			  u64 size);
- void pkvm_poison_pvmfw_pages(void);
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index 67466b4941b4..d75e64e59596 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -92,6 +92,8 @@ int __pkvm_remove_ioguard_page(struct pkvm_hyp_vcpu *hyp_vcpu, u64 ipa);
+ bool __pkvm_check_ioguard_page(struct pkvm_hyp_vcpu *hyp_vcpu);
+ int __pkvm_guest_relinquish_to_host(struct pkvm_hyp_vcpu *vcpu,
+ 				    u64 ipa, u64 *ppa);
++int __pkvm_host_use_dma(u64 phys_addr, size_t size);
++int __pkvm_host_unuse_dma(u64 phys_addr, size_t size);
  
-+int pkvm_timer_init(void);
-+void pkvm_udelay(unsigned long usecs);
-+
- #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index 46dd68161979..9d09f5f471b9 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -356,6 +356,10 @@ void __noreturn __pkvm_init_finalise(void)
- 	if (ret)
- 		goto out;
- 
-+	ret = pkvm_timer_init();
-+	if (ret)
-+		goto out;
-+
- 	ret = fix_host_ownership();
- 	if (ret)
- 		goto out;
-diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-index 3aaab20ae5b4..732beb5fe24b 100644
---- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-+++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-@@ -11,6 +11,10 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- 
-+#include <nvhe/pkvm.h>
-+
-+static u32 timer_freq;
-+
- void __kvm_timer_set_cntvoff(u64 cntvoff)
- {
- 	write_sysreg(cntvoff, cntvoff_el2);
-@@ -60,3 +64,41 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
- 
- 	sysreg_clear_set(cnthctl_el2, clr, set);
+ bool addr_is_memory(phys_addr_t phys);
+ int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index d14f4d63eb8b..0840af20c366 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -513,6 +513,20 @@ bool addr_is_memory(phys_addr_t phys)
+ 	return !!find_mem_range(phys, &range);
  }
-+
-+static u64 pkvm_ticks_get(void)
+ 
++static bool is_range_refcounted(phys_addr_t addr, u64 nr_pages)
 +{
-+	return __arch_counter_get_cntvct();
++	struct hyp_page *p;
++	int i;
++
++	for (i = 0 ; i < nr_pages ; ++i) {
++		p = hyp_phys_to_page(addr + i * PAGE_SIZE);
++		if (hyp_refcount_get(p->refcount))
++			return true;
++	}
++
++	return false;
 +}
 +
-+#define SEC_TO_US 1000000
+ static bool addr_is_allowed_memory(phys_addr_t phys)
+ {
+ 	struct memblock_region *reg;
+@@ -927,6 +941,9 @@ static int host_request_owned_transition(u64 *completer_addr,
+ 	u64 size = tx->nr_pages * PAGE_SIZE;
+ 	u64 addr = tx->initiator.addr;
+ 
++	if (range_is_memory(addr, addr + size) && is_range_refcounted(addr, tx->nr_pages))
++		return -EINVAL;
 +
-+int pkvm_timer_init(void)
+ 	*completer_addr = tx->initiator.host.completer_addr;
+ 	return __host_check_page_state_range(addr, size, PKVM_PAGE_OWNED);
+ }
+@@ -938,6 +955,7 @@ static int host_request_unshare(u64 *completer_addr,
+ 	u64 addr = tx->initiator.addr;
+ 
+ 	*completer_addr = tx->initiator.host.completer_addr;
++
+ 	return __host_check_page_state_range(addr, size, PKVM_PAGE_SHARED_OWNED);
+ }
+ 
+@@ -2047,6 +2065,85 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
+ 	return ret;
+ }
+ 
++static void __pkvm_host_use_dma_page(phys_addr_t phys_addr)
 +{
-+	timer_freq = read_sysreg(cntfrq_el0);
++	struct hyp_page *p = hyp_phys_to_page(phys_addr);
++
++	hyp_page_ref_inc(p);
++}
++
++static void __pkvm_host_unuse_dma_page(phys_addr_t phys_addr)
++{
++	struct hyp_page *p = hyp_phys_to_page(phys_addr);
++
++	hyp_page_ref_dec(p);
++}
++
++/*
++ * __pkvm_host_use_dma - Mark host memory as used for DMA
++ * @phys_addr:	physical address of the DMA region
++ * @size:	size of the DMA region
++ * When a page is mapped in an IOMMU page table for DMA, it must
++ * not be donated to a guest or the hypervisor we ensure this with:
++ * - Host can only map pages that are OWNED
++ * - Any page that is mapped is refcounted
++ * - Donation/Sharing is prevented from refcount check in
++ *   host_request_owned_transition()
++ * - No MMIO transtion is allowed beyond IOMMU MMIO which
++ *   happens during de-privilege.
++ * In case in the future shared pages are allowed to be mapped,
++ * similar checks are needed in host_request_unshare() and
++ * host_ack_unshare()
++ */
++int __pkvm_host_use_dma(phys_addr_t phys_addr, size_t size)
++{
++	int i;
++	int ret = 0;
++	size_t nr_pages = size >> PAGE_SHIFT;
++
++	if (WARN_ON(!PAGE_ALIGNED(phys_addr | size)))
++		return -EINVAL;
++
++	host_lock_component();
++	ret = __host_check_page_state_range(phys_addr, size, PKVM_PAGE_OWNED);
++	if (ret)
++		goto out_ret;
++
++	if (!range_is_memory(phys_addr, phys_addr + size))
++		goto out_ret;
++
++	for (i = 0; i < nr_pages; i++)
++		__pkvm_host_use_dma_page(phys_addr + i * PAGE_SIZE);
++
++out_ret:
++	host_unlock_component();
++	return ret;
++}
++
++int __pkvm_host_unuse_dma(phys_addr_t phys_addr, size_t size)
++{
++	int i;
++	size_t nr_pages = size >> PAGE_SHIFT;
++
++	if (WARN_ON(!PAGE_ALIGNED(phys_addr | size)))
++		return -EINVAL;
++
++	host_lock_component();
++	if (!range_is_memory(phys_addr, phys_addr + size))
++		goto out_ret;
 +	/*
-+	 * TODO: The highest privileged level is supposed to initialize this
-+	 * register. But on some systems (which?), this information is only
-+	 * contained in the device-tree, so we'll need to find it out some other
-+	 * way.
++	 * We end up here after the caller successfully unmapped the page from
++	 * the IOMMU table. Which means that a ref is held, the page is shared
++	 * in the host s2, there can be no failure.
 +	 */
-+	if (!timer_freq || timer_freq < SEC_TO_US)
-+		return -ENODEV;
++	for (i = 0; i < nr_pages; i++)
++		__pkvm_host_unuse_dma_page(phys_addr + i * PAGE_SIZE);
++
++out_ret:
++	host_unlock_component();
 +	return 0;
 +}
 +
-+#define pkvm_time_us_to_ticks(us) ((u64)(us) * timer_freq / SEC_TO_US)
-+
-+void pkvm_udelay(unsigned long usecs)
-+{
-+	u64 ticks = pkvm_time_us_to_ticks(usecs);
-+	u64 start = pkvm_ticks_get();
-+
-+	while (true) {
-+		u64 cur = pkvm_ticks_get();
-+
-+		if ((cur - start) >= ticks || cur < start)
-+			break;
-+		/* TODO wfe */
-+		cpu_relax();
-+	}
-+}
+ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+ 			    enum kvm_pgtable_prot prot)
+ {
 -- 
 2.47.0.338.g60cca15819-goog
 
