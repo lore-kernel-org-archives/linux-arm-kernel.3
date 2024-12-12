@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9D2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B540E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 09:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bARhUy91u4ylm1wnVOBr5QftfQ+kevZON+v4jmfuTJ0=; b=DMIwicR/C0i3Yf3XcGzrkZoZnn
-	6tIHVk2/vDGJrsRangZKU/Tmjr6K6ESuaXyS1SmDcApJ2GBDYUVwDFQr2vzbjX82/aRr89riNRBAu
-	V1otjMUwMjno76cwDx/2IEyQl31Arqz//TCbUcCxOM/IN8FBXcpLoXWAAMDza9RJf90f9mb18kwWX
-	L3t8v6KqJbBmF6F4grFSG3NPJTdVrsE02hp+c13sGq5YHhpScChw5BQAvg7tnxteYr5sxpPbT4aJz
-	kHHaHCT0yLYVKAdvl7J1Uhzbq9JZAvQUou2Po29wN87lmFB++hRTcMNa3ISty0vsegbeGSlQUsFzu
-	2UicWmSA==;
+	bh=2Lqlqa+yVzadnVCts+R28x1v55t3TnviPyK2Uw1lPbw=; b=lZeOnedtzP2kOkjql+o0OMv6zA
+	7JA9JuiOmg4kPT2x5wwEwIgA8IHb/xqpa7Gp5VJR6Ugvb4fNvILAyZ/XTNS4QKS6Dz4fcZoZiUZdX
+	cKnQ7muMprl+UoqNkO97ZiWfHbakRh4DVHmj2MuAmf3c32rBUV6DISYXENC4uX31ndjj8L/5zvOWq
+	UJG/yTSQtZipENcVMtnc6YLYaxLHfi55iVt+p8q/CfWktHaXkYHcDcDyUVqIC3WJflKlX3glmd5We
+	QXKM9Mfb76QFTBxO9iHrvBQLn66b/knHsw3AQ2CVKFt0W4ehEskWIC/plO+bGirAX4OOTN3jtVY55
+	F73ypjRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfr8-0000000HYt5-4As6;
-	Thu, 12 Dec 2024 09:51:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLfsB-0000000HZ5f-2iS3;
+	Thu, 12 Dec 2024 09:52:43 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLfq4-0000000HYfp-0sSD
+	id 1tLfqX-0000000HYng-22PF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 09:50:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3002C5C23D2;
-	Thu, 12 Dec 2024 09:49:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1526DC4CECE;
-	Thu, 12 Dec 2024 09:50:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733997031;
-	bh=RcPksPwuNG4Y1xIC3bF5vmeEtYYTrnsWZYZ3HfyDMRs=;
-	h=Date:From:To:Cc:Subject:From;
-	b=KHwISE/Q98TXg/uB9pXdcTL72yDmzbtnNZLJ2S20VIQjJl5m2Bfby6+j6FpoOqFel
-	 cxNqmsFJJqkcROmODZbyaC5uUCCo1EMsH0M61NU064LLizu3DhDpG/89Cp2KDEbEqM
-	 DR3I6+kI+7UsR7/xg1gsUMt+aZq/s3KK5BYPiqGk7Bw+/tsMDrAKOKi5hCUXe0h2Z7
-	 eZzFuelhUm4WzZti1qTUC+vCPadwnDiIhju2ZsgKwOJwyJVTCOVA4IXD4Aa7/TA+LK
-	 Xh+JY0HOcbsF6LHRkxd5ivP3q0Pxwp2UpTe6ID6CD6tLuxF2KPftMlWxWcrpfbimNG
-	 pGlJ2FjfkEssw==
-Date: Thu, 12 Dec 2024 09:50:26 +0000
-From: Will Deacon <will@kernel.org>
-To: joro@8bytes.org
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com,
-	kernel-team@android.com
-Subject: [GIT PULL] iommu/arm-smmu: Fix for 6.13-rc
-Message-ID: <20241212095025.GA18975@willie-the-truck>
+	Thu, 12 Dec 2024 09:51:02 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aa66e4d1d5aso61382166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 01:51:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733997059; x=1734601859; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2Lqlqa+yVzadnVCts+R28x1v55t3TnviPyK2Uw1lPbw=;
+        b=jSajL4xNvDoPvd/Ibthdu/XDI5IyWC30iKoUwZtMfF5oB27py8GAfxsoDQu8lLaWr/
+         LpYAZMrQF37MS2e3HT7hBo1v8GKmpMind8BdjizpL2wbTsyLScdjXGPcLWxaxBXH/EiE
+         bGhPz1wYk/QZmXWSn3DTvwpvEH43aiuagB3e7GeERBuUI160Z3ZMiOZUjeA6tEm+35kV
+         2G2TY1nqLqJxmp0ePfsA9+TC+CdG2C42eeYgDmtAqJ7JcKXXykNg0xt9qncgK6J+N6Sw
+         hcT4+Elx8kl/ccpfJjqf9zQaN1tipLNTvQfM1DZUImfCZmEjt3vmmoXeqll2vOL7Fxcx
+         xdfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733997059; x=1734601859;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2Lqlqa+yVzadnVCts+R28x1v55t3TnviPyK2Uw1lPbw=;
+        b=LBb8KAyFHA4dfG8jX/u/IPXcZB1aqgqHoe8YydW7IMLu21M827iFq8xIjPYpoeMnrE
+         icW2CYl9XxLvWRb9cFhx4aqRpSRXmtxRWLmDCBdreJcVmGMStni74/Z4CUUV9EJXrryy
+         VhuycXdTA2ynCaw0BwXqMhjAmY8MudX8CnZEynze8gSL1gBRZDjgoeFaW0jJO9+PS/nr
+         dlFeSQ6yWghI1Ky4NF8M9w2hlYhSQvES8Q/xkd1K5Vb7Nt7X5HiZKhPizFWQbOTYfQ1F
+         joSnlzK648Q2tvUtSSgTNk0e9eloehsJNEzbYbBd7u0fICO8X4hknevvVOsBn7lZMB34
+         eTHg==
+X-Forwarded-Encrypted: i=1; AJvYcCWsPPpW2KeIQ+6ohHt9kB9FYhvzCUg2Pen8Dkt3BiMq0DINsek/jEE6Y3La5KrfqvUGVsBBSZMi08nTFbNxQBkM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeLUG3XFcSfC/Q9g51ZQ0eup1vlfUl08En4HAuLjUlrP60sCFt
+	sX32Ervyas2923tDVkjlUQJB5KGYz8BWdPjYNx8e14MMqp9Lwa13
+X-Gm-Gg: ASbGncuydl4Sh+xgw4DM6r6I9Q+As7W5p5n4Ju9mjAwR6e61act0l3C/Te28sXIAyKI
+	5TADyxi2CTWJMAIWQZFDzpUAXzaAaaCj5HP2pv0JwAB+O9A5RFjWIR6/Z9c061lx5fSgXBfwWpV
+	d8VQBruCA10d6/Wh97w1ucgxwHKAnCG65IsqaHjZuzb9GrEJFgH7OR/PuJkzx2oVo5SOK0xiN0N
+	nKW1b80LkhkDO4/jMjLv/jwiNEcjEk78qHrC0tfQiduHWLDMrJAyn8ij1C6Ac3maKk=
+X-Google-Smtp-Source: AGHT+IHIXf2ITezkzRXYqhyRdc3NGo7nV9HtTD9QcXe0iHTpQ2fk4AxkW5PqBr9zOQsKQHtffVHoOg==
+X-Received: by 2002:a17:906:18b1:b0:aa6:8676:3b3d with SMTP id a640c23a62f3a-aa6b11df74bmr563324966b.29.1733997059330;
+        Thu, 12 Dec 2024 01:50:59 -0800 (PST)
+Received: from localhost.localdomain ([83.168.79.145])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6701b08c2sm714818766b.124.2024.12.12.01.50.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Dec 2024 01:50:58 -0800 (PST)
+From: Karol Przybylski <karprzy7@gmail.com>
+To: karprzy7@gmail.com,
+	laurent.pinchart@ideasonboard.com,
+	tomi.valkeinen@ideasonboard.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	michal.simek@amd.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCHv2] drm: zynqmp_dp: Fix integer overflow in zynqmp_dp_rate_get()
+Date: Thu, 12 Dec 2024 10:50:57 +0100
+Message-Id: <20241212095057.1015146-1-karprzy7@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_015032_288200_D47A351A 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_015101_521646_9AA2DE11 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joerg,
+This patch fixes a potential integer overflow in the zynqmp_dp_rate_get()
 
-Please can you pull this lonely Arm SMMU fix for 6.13-rc? It addresses
-an incorrect use of smp_processor_id() from a preemptible section in the
-NVIDIA custom cmdq code.
+The issue comes up when the expression
+drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000 is evaluated using 32-bit
+Now the constant is a compatible 64-bit type.
 
-Cheers,
+Resolves coverity issues: CID 1636340 and CID 1635811
 
-Will
-
---->8
-
-The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
-
-  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git tags/arm-smmu-fixes
-
-for you to fetch changes up to 1f806218164d1bb93f3db21eaf61254b08acdf03:
-
-  iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context (2024-12-09 23:38:30 +0000)
-
-----------------------------------------------------------------
-Arm SMMU fixes for 6.13-rc
-
-- Use raw_smp_processor_id() when balancing traffic for NVIDIA's custom
-  command queue implementation.
-
-----------------------------------------------------------------
-Luis Claudio R. Goncalves (1):
-      iommu/tegra241-cmdqv: do not use smp_processor_id in preemptible context
-
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 2 +-
+Signed-off-by: Karol Przybylski <karprzy7@gmail.com>
+Fixes: 28edaacb821c6 ("drm: zynqmp_dp: Add debugfs interface for compliance testing")
+---
+ drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+index 25c5dc61e..56a261a40 100644
+--- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
++++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+@@ -2190,7 +2190,7 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
+ 	struct zynqmp_dp *dp = data;
+ 
+ 	mutex_lock(&dp->lock);
+-	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000;
++	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
+ 	mutex_unlock(&dp->lock);
+ 	return 0;
+ }
+-- 
+2.34.1
+
 
