@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD80E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08D1E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 18:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVsW/B0gP9PKHwLUmI8ZMBosi9aDXXUah+1PSSjDx2o=; b=E20vjTixUiw/FRpY6r2v/bjbU6
-	mohGZcHcyLgycZpL+yIun5v9EC9wMTTc+ZpIOxX20dNqNhCzD/bVqg71q6v04D6n6wtQApJKXl3Gc
-	a+72eLR7ONbYLM/Ur58sdFp9MfUSLFN2m83O6q1V0ygN88k4vajVAJsxvdJlSpfmvEKbIGkuUHva1
-	Jgyc7mrhFyJqOsdNK0nNUUQw6xm/dF2ryPrD7cUSAf+JLIg+9vbDL7/eSbVhsFrwSzIbJfNflIhw4
-	rbfRMOSzLxz0xsvwgb5klM05Eg7uLwohpdQNnv9D0h+/M/6vy0vjrsbxL8z74jdoEL06ex+6tvEvS
-	G30tWEaA==;
+	bh=iyTqVJhMppnYdv5NSdPsxpiQh63AvYUQ+byd2sEa6to=; b=1if2fjIJY+TCNciS9XumWOwnly
+	yYbouw+cUPFQkaWhdprL2SlDVB6ipiXFwgubJzLOFzngR1WAOVTddZ1EhJbv80+4+n13SGFXiYU7V
+	Rl/xOGXymooyrb3Lkx+BWw8cxiMPegKN0BNfikfr2O61n94DrER4a58EYkvv0LhdP90PEezb8QWFz
+	I8WXVRUUTB0FzYC4MGoQ2nmmJSfzsSSjrpoQlw8gvDsOC5gpXL0DacjJXBu1bYWTtf45pUd6DpOOI
+	E3G4OpZOeaGBCRMWyhq66A6TdarT2AyDqOLKNwSVfC7GOj1RX2rEztcMBndDYRZTniMeWwJ2WoASl
+	CV9t0tBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLoIa-00000001Vdh-2QFq;
-	Thu, 12 Dec 2024 18:52:32 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tLoJd-00000001VuA-0oPC;
+	Thu, 12 Dec 2024 18:53:37 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLnZn-00000001K2B-2MEc
+	id 1tLnZp-00000001K3I-2XWV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 18:06:17 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-434fb9646efso8353895e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:14 -0800 (PST)
+	Thu, 12 Dec 2024 18:06:18 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4361d4e8359so7199735e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 10:06:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734026774; x=1734631574; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734026776; x=1734631576; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EVsW/B0gP9PKHwLUmI8ZMBosi9aDXXUah+1PSSjDx2o=;
-        b=RL8/2Y4tjd9jO4JVohoChHo/U0rDGYfIstLJNvAjvZxaHOl/2xvS7DFsTtuKHPRP7y
-         b5jjroP8Hm5O6ElrEtqPs8ynnmf9TSpzj9TgfbrinpsSKqnVrPLB99+NzpfsUwOAjcXA
-         iBzsmPETrg0mGFJ0amSzzvOsYq+jDzgtHPzka8BJUClOhhwrxldTc+oAt8gKT204yrdR
-         Fic+B+/f74VuCMVJM7ZtBEyUcZGzouXZD5aD/MEFl6esV8sh2QXak11k3UehOzaAT5y4
-         LJPAnuS8mYtdSE/MfmJF6dJh33YaA/nxRYKXX0eNxWl6Ez7Y+JmY+D2gEvhgcL8JIUTn
-         fBYA==
+        bh=iyTqVJhMppnYdv5NSdPsxpiQh63AvYUQ+byd2sEa6to=;
+        b=aOmAyOdXNxtj1FLHs7hja/RfssMwRVUQgiLc5aXHBR1jl+ar1PRrxkRzw5ZSsX7Nkr
+         8V3mx8nb2WCkNrVbAgbEAcCl6FZ0OtCU9bWVs48FmgK4LRS+oMZdG+1a+cSURgDJ8ZkO
+         IQVcdTuOBdzXNaRGj0aRh763dZRN8AY/28LNqA1jhQH/SI0EEqhjPvqtkuES7TxHqjBt
+         7llOel7WuH3Kl/Nv13MilBE9wOqncWOpVreL7JsDlu86KozUhHUMPijH2s7Dd4dfW9HM
+         7KWSk8tft/78SKEP4iPOQV+m6Cif4la0mrorlurFPG4n/InKgte97AiQ3DRfG+rPvbo2
+         tk4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734026774; x=1734631574;
+        d=1e100.net; s=20230601; t=1734026776; x=1734631576;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EVsW/B0gP9PKHwLUmI8ZMBosi9aDXXUah+1PSSjDx2o=;
-        b=fh+f1WfvOlnfkbQa/5vvBJV1DeyLwP+WauV5WvScfZUL2TaDHswm1BVP1RNan9TfH8
-         D7KPJG3OIgWCoa8T2H61S/enowZ3GJxNWNx2Q6VjB3tA3wsGGYz4i0Akjxz7njCPil1V
-         PHo8JkRWMruFh4OSDrNH/IvjNJIBTaa24wGYdtz1zPLzHWaJl0ue0TsuDHfovhU91b5Q
-         6AZYBKbqEMWANhEF499eWavDMjIoBMxRvJsQtdGjrOdp+LCuplqm/i+xjlzKa0s0fxsG
-         SBZu70IYQyOgy+x6lCbV9eDoazR7UHS/F1EtiwKxHWqGfwlK5kNcfLESx5uIbgW5Z0hA
-         /SCg==
-X-Forwarded-Encrypted: i=1; AJvYcCWJerI1z8NZLkxIP//3a3rWFnIjvoJHG/ZAhOcBdr76axKHu1O4LfjSN+vrYApoVkPu64gKzVIail9F9yonN3JR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwALs5Uwa72LlIBLRkDFpJVktmgA1CjXK9xk1JV/H2VfaJphWcA
-	U0UROhQbWAnlxf7e5oNmszPa3qnfStyD6vofxjxWI+hBUZgAo1wrt/uxirCAxEzDeppDHGLjJE7
-	LPx4f6p2UUg==
-X-Google-Smtp-Source: AGHT+IGtbmK0V/XXvUUniJq5jDJrYVzgaPP6wOPvnq/baCobCTh6J6FiAIEBuWfIVdGKl3cSeTr7ETO057hIBA==
-X-Received: from wmpj7.prod.google.com ([2002:a05:600c:4887:b0:434:e90f:9fd3])
+        bh=iyTqVJhMppnYdv5NSdPsxpiQh63AvYUQ+byd2sEa6to=;
+        b=OrXwIbhDrhaenIRb1attTd4sxco1B1l4+J3q57UjqHkkT0FaKYbxsiZemm76iU8QUL
+         UN5Ds3JabL3nu/B00lM+5IpAW6QgW5AxMzU6O3nCHqMcwFqYTKcq2Pm1nymGbGjSwz0a
+         efYDgqx9YsA8DFfYbySwCyCja+LDlv27SnqLno7nS815dYHzi/1chKtz8mSj034R2FK6
+         OFVMIcm9E+cWexWdQO3mND38nUg4mxW0pEOsQ2HWd3ZDq1CxZMDqHh0pVfgFSf4l5ABh
+         Iy5/TNls0mcWy0ftlau34hVuGriFZSp97g3CRErFPXR6S6o1bhTXePuwmup8FawaJY4m
+         XbUA==
+X-Forwarded-Encrypted: i=1; AJvYcCXZLylb2UG0npoitJUUzvvK8f3ppMZal8ydLVJenkB2/cHMnUnTJxOZM9QJwMgmjv0JAjqyOep6VbT33m+2wFti@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhkGo+tAA49pF5zcHspKOjXCENMI0m0O8GPaFTvZ7k6+Og+Hvf
+	nrtKVM9CWoU+DrRfbhKkcXvGg8mPhdwU1N5IWnwEF6B4K5PGv4OKyaFaVzK9oK3rdvA08pwKUzO
+	nKlQi9HoDWA==
+X-Google-Smtp-Source: AGHT+IFG8WA1Z2ObHa4JSTh7ZOJd26fn3uY6Vzk1iSlEnJuugWr6UhUgo2xrrDlr60JHvwlglh6D+X+h9Bswrg==
+X-Received: from wmgf12.prod.google.com ([2002:a05:600c:154c:b0:42c:bfc2:aa72])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4f86:b0:430:5887:c238 with SMTP id 5b1f17b1804b1-4361c35f09fmr65905665e9.11.1734026773733;
- Thu, 12 Dec 2024 10:06:13 -0800 (PST)
-Date: Thu, 12 Dec 2024 18:04:07 +0000
+ 2002:a5d:64af:0:b0:385:f7ea:eb86 with SMTP id ffacd0b85a97d-38787685119mr4003192f8f.7.1734026775884;
+ Thu, 12 Dec 2024 10:06:15 -0800 (PST)
+Date: Thu, 12 Dec 2024 18:04:08 +0000
 In-Reply-To: <20241212180423.1578358-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20241212180423.1578358-1-smostafa@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241212180423.1578358-44-smostafa@google.com>
-Subject: [RFC PATCH v2 43/58] iommu/arm-smmu-v3-kvm: Pass a list of SMMU
- devices to the hypervisor
+Message-ID: <20241212180423.1578358-45-smostafa@google.com>
+Subject: [RFC PATCH v2 44/58] iommu/arm-smmu-v3-kvm: Validate device features
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -80,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_100615_613094_BDC1200D 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20241212_100617_643678_F1C8D525 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,168 +97,83 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Build a list of devices and donate the page to the hypervisor. At this
-point the host is trusted and this would be a good opportunity to
-provide more information about the system. For example, which devices
-are owned by the host (perhaps via the VMID and SW bits in the stream
-table, although we populate the stream table lazily at the moment.)
+The KVM hypervisor driver supports a small subset of features. Ensure
+the implementation is compatible, and disable some unused features.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 128 +++++++++++++++++-
- 1 file changed, 126 insertions(+), 2 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 43 +++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-index 8cea33d15e08..e2d9bd97ddc5 100644
+index e2d9bd97ddc5..4b0c9ff6e7f1 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-@@ -15,9 +15,73 @@
+@@ -27,6 +27,45 @@ static size_t				kvm_arm_smmu_cur;
+ static size_t				kvm_arm_smmu_count;
+ static struct hyp_arm_smmu_v3_device	*kvm_arm_smmu_array;
  
- extern struct kvm_iommu_ops kvm_nvhe_sym(smmu_ops);
- 
-+struct host_arm_smmu_device {
-+	struct arm_smmu_device		smmu;
-+	pkvm_handle_t			id;
-+};
++static bool kvm_arm_smmu_validate_features(struct arm_smmu_device *smmu)
++{
++	unsigned int required_features =
++		ARM_SMMU_FEAT_TT_LE;
++	unsigned int forbidden_features =
++		ARM_SMMU_FEAT_STALL_FORCE;
++	unsigned int keep_features =
++		ARM_SMMU_FEAT_2_LVL_STRTAB	|
++		ARM_SMMU_FEAT_2_LVL_CDTAB	|
++		ARM_SMMU_FEAT_TT_LE		|
++		ARM_SMMU_FEAT_SEV		|
++		ARM_SMMU_FEAT_COHERENCY		|
++		ARM_SMMU_FEAT_TRANS_S1		|
++		ARM_SMMU_FEAT_TRANS_S2		|
++		ARM_SMMU_FEAT_VAX		|
++		ARM_SMMU_FEAT_RANGE_INV;
 +
-+#define smmu_to_host(_smmu) \
-+	container_of(_smmu, struct host_arm_smmu_device, smmu);
++	if (smmu->options & ARM_SMMU_OPT_PAGE0_REGS_ONLY) {
++		dev_err(smmu->dev, "unsupported layout\n");
++		return false;
++	}
 +
-+static size_t				kvm_arm_smmu_cur;
-+static size_t				kvm_arm_smmu_count;
-+static struct hyp_arm_smmu_v3_device	*kvm_arm_smmu_array;
++	if ((smmu->features & required_features) != required_features) {
++		dev_err(smmu->dev, "missing features 0x%x\n",
++			required_features & ~smmu->features);
++		return false;
++	}
++
++	if (smmu->features & forbidden_features) {
++		dev_err(smmu->dev, "features 0x%x forbidden\n",
++			smmu->features & forbidden_features);
++		return false;
++	}
++
++	smmu->features &= keep_features;
++
++	return true;
++}
 +
  static int kvm_arm_smmu_probe(struct platform_device *pdev)
  {
--	return -ENOSYS;
-+	int ret;
-+	size_t size;
-+	phys_addr_t ioaddr;
-+	struct resource *res;
-+	struct arm_smmu_device *smmu;
-+	struct device *dev = &pdev->dev;
-+	struct host_arm_smmu_device *host_smmu;
-+	struct hyp_arm_smmu_v3_device *hyp_smmu;
-+
-+	if (kvm_arm_smmu_cur >= kvm_arm_smmu_count)
-+		return -ENOSPC;
-+
-+	hyp_smmu = &kvm_arm_smmu_array[kvm_arm_smmu_cur];
-+
-+	host_smmu = devm_kzalloc(dev, sizeof(*host_smmu), GFP_KERNEL);
-+	if (!host_smmu)
-+		return -ENOMEM;
-+
-+	smmu = &host_smmu->smmu;
-+	smmu->dev = dev;
-+
-+	ret = arm_smmu_fw_probe(pdev, smmu);
-+	if (ret)
-+		return ret;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	size = resource_size(res);
-+	if (size < SZ_128K) {
-+		dev_err(dev, "unsupported MMIO region size (%pr)\n", res);
-+		return -EINVAL;
-+	}
-+	ioaddr = res->start;
-+	host_smmu->id = kvm_arm_smmu_cur;
-+
-+	smmu->base = devm_ioremap_resource(dev, res);
-+	if (IS_ERR(smmu->base))
-+		return PTR_ERR(smmu->base);
-+
-+	ret = arm_smmu_device_hw_probe(smmu);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, smmu);
-+
-+	/* Hypervisor parameters */
-+	hyp_smmu->pgsize_bitmap = smmu->pgsize_bitmap;
-+	hyp_smmu->oas = smmu->oas;
-+	hyp_smmu->ias = smmu->ias;
-+	hyp_smmu->mmio_addr = ioaddr;
-+	hyp_smmu->mmio_size = size;
-+	kvm_arm_smmu_cur++;
-+
-+	return arm_smmu_register_iommu(smmu, &kvm_arm_smmu_ops, ioaddr);
- }
+ 	int ret;
+@@ -71,6 +110,9 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
  
- static void kvm_arm_smmu_remove(struct platform_device *pdev)
-@@ -37,9 +101,69 @@ static struct platform_driver kvm_arm_smmu_driver = {
- 	.remove = kvm_arm_smmu_remove,
- };
++	if (!kvm_arm_smmu_validate_features(smmu))
++		return -ENODEV;
++
+ 	platform_set_drvdata(pdev, smmu);
  
-+static int kvm_arm_smmu_array_alloc(void)
-+{
-+	int smmu_order;
-+	struct device_node *np;
-+
-+	kvm_arm_smmu_count = 0;
-+	for_each_compatible_node(np, NULL, "arm,smmu-v3")
-+		kvm_arm_smmu_count++;
-+
-+	if (!kvm_arm_smmu_count)
-+		return 0;
-+
-+	/* Allocate the parameter list shared with the hypervisor */
-+	smmu_order = get_order(kvm_arm_smmu_count * sizeof(*kvm_arm_smmu_array));
-+	kvm_arm_smmu_array = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO,
-+						      smmu_order);
-+	if (!kvm_arm_smmu_array)
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+static void kvm_arm_smmu_array_free(void)
-+{
-+	int order;
-+
-+	order = get_order(kvm_arm_smmu_count * sizeof(*kvm_arm_smmu_array));
-+	free_pages((unsigned long)kvm_arm_smmu_array, order);
-+}
-+
- static int kvm_arm_smmu_v3_init_drv(void)
- {
--	return platform_driver_probe(&kvm_arm_smmu_driver, kvm_arm_smmu_probe);
-+	int ret;
-+
-+	/*
-+	 * Check whether any device owned by the host is behind an SMMU.
-+	 */
-+	ret = kvm_arm_smmu_array_alloc();
-+	if (ret || !kvm_arm_smmu_count)
-+		return ret;
-+
-+	ret = platform_driver_probe(&kvm_arm_smmu_driver, kvm_arm_smmu_probe);
-+	if (ret)
-+		goto err_free;
-+
-+	if (kvm_arm_smmu_cur != kvm_arm_smmu_count) {
-+		/* A device exists but failed to probe */
-+		ret = -EUNATCH;
-+		goto err_free;
-+	}
-+
-+	/*
-+	 * These variables are stored in the nVHE image, and won't be accessible
-+	 * after KVM initialization. Ownership of kvm_arm_smmu_array will be
-+	 * transferred to the hypervisor as well.
-+	 */
-+	kvm_hyp_arm_smmu_v3_smmus = kvm_arm_smmu_array;
-+	kvm_hyp_arm_smmu_v3_count = kvm_arm_smmu_count;
-+	return 0;
-+
-+err_free:
-+	kvm_arm_smmu_array_free();
-+	return ret;
- }
+ 	/* Hypervisor parameters */
+@@ -79,6 +121,7 @@ static int kvm_arm_smmu_probe(struct platform_device *pdev)
+ 	hyp_smmu->ias = smmu->ias;
+ 	hyp_smmu->mmio_addr = ioaddr;
+ 	hyp_smmu->mmio_size = size;
++	hyp_smmu->features = smmu->features;
+ 	kvm_arm_smmu_cur++;
  
- static void kvm_arm_smmu_v3_remove_drv(void)
+ 	return arm_smmu_register_iommu(smmu, &kvm_arm_smmu_ops, ioaddr);
 -- 
 2.47.0.338.g60cca15819-goog
 
