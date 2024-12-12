@@ -4,106 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1DCE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437B3E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Dec 2024 12:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEq6trL3vQwj2Z/K2H/S55JfL/oZe81GCxk2/yeNUn8=; b=KeSbL2iRmjT/iIPT3VWgoRsvAa
-	38RW91z5GOS7fAIkECiXzWHqg/k0D3nnD738uLcU4xvRcznkXiIFHGvleU/P8lBKzOv0puOEFa6Y2
-	jyqI6YwFgXtPpFhUXH5zYqXcGplSBxFctFOLfXJRSy5UGtWsAmogj+o4a+Pjc8x6KQBQxoZ1xs/5n
-	r5uqXdtXulw5VJ4ANoYmdRmJnWqMAfUv3S3j/AvzGu0+KMdfZV5nK5PfOVzKVHSVIOtmVjnWKBHwL
-	9jZWwlzYg0mqov0OMio0yeK4xN2WolHE3mpPlNYUl0L65UUH8rcFfeCSPZe7YIBvM4Pd0G6y0uDmc
-	Gszxk5SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VVPFWke+32LF+VNqhaT9B9tF2JFyFFczsWV47mMq+3s=; b=sma4QXGWFWicY3JXOyI6xl4Sg1
+	Amad+E8iMzyzop4DrPiTGxZLwsdBPSWaUFE/uNn7XEx/3YgtLY0zUWZ7gBxJ0te2OwbKCFM5vw1r7
+	k1gG3dKn2PUP+smen45hkOUJOg7np8LXxpg6PvDOar5NH6aGkNRUqV8BKDHKhezF6/SCCh5zBNPB2
+	rgBVzEJuMUNmi445ZzgaOsyIGOPniSawqIfPdVxXKbpbmZzP/S1WQn/ZPKkI9/pIop4sLz8T4OWdj
+	WYt2bNr+l1AwKulMmpCgMWavb1FpXdyaq0a419pQ8RDTTHZsHG4LItXV4B7qNssNek0bXe5S9XuAi
+	263OypAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLi17-00000000KdW-2LAI;
-	Thu, 12 Dec 2024 12:10:05 +0000
+	id 1tLi4k-00000000L2U-3L3V;
+	Thu, 12 Dec 2024 12:13:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLi03-00000000KVC-21EA
+	id 1tLi3g-00000000KuT-16Da
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Dec 2024 12:09:00 +0000
+	Thu, 12 Dec 2024 12:12:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 783E65C5FF1;
-	Thu, 12 Dec 2024 12:08:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B48C4CECE;
-	Thu, 12 Dec 2024 12:08:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D27355C560E;
+	Thu, 12 Dec 2024 12:12:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E268C4CECE;
+	Thu, 12 Dec 2024 12:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734005338;
-	bh=PkwdQ5Edfi5IrTb7Zuo55duAGvPd+7rNJJ5nPy+mT5g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GML6xWMupi13j2TtssUTr4qQPggl0lh+m8OHSDXCzBev1SDaNlC7KT4Z31tr9C0B2
-	 meQVx/TLvsC7lbfTnbzIMVLcISFBrxG0QzqNR6h3nCL1r0EVjZYDE5xzygm9MuBTI7
-	 xC/Z7LrTvMrMpUsDHL4EzzVoq0MxBtYlre6NLDxiiZ4iJEczBTW2hMt5nKXUCzH5As
-	 O8wzinQbnIBFgi2XLzlBfyW4af3az39JZG3oh86VULa/2WNdbMJji4Z42CDfByXaQ8
-	 MdCvGPZyATKpUNMo/fEuP5Us6eb9QPsrUmqyBLfYK5wHg7oPwjTKgm0+L8yjz2updW
-	 voE9LPw8N4IIA==
-Message-ID: <8e82a0f6-de16-48d1-a194-c7764c29cc0b@kernel.org>
-Date: Thu, 12 Dec 2024 13:08:53 +0100
+	s=k20201202; t=1734005562;
+	bh=+XrIez4xocMGbkR6OBBEEUJb2yDAgLlSckB/4e+OAsw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tZRDZ6IX+vjLI18v2MB96dEha09ed9JEGGrjLB+JQwNQa16MI3woIcLG9jW5ssmWq
+	 HrdSxmo5pR57A6yq8KYBKA2MHGjJe6m6XfiqxvtUYUiUWEf3KGQl+6BdaOXJMCe9ac
+	 N0uMU7Mb61frJCgjr7Gd5mweVWTETA6/9e11E5KhWi90UDpPV3cM5ZX/hKkinvuOke
+	 CJEjjvg81KK5+i5ymmNxYTIPMIw7nxqZx4cfX498VSjczbU/GMbY4zr+BpGVbxW57d
+	 IV4GvvYp36RpSQKbAw1HF2U315GQI86YFcUzPEfKyBirKo6hfd9ZLCngPEd0FYkU/J
+	 UPuG4Qn7qP8Ig==
+Date: Thu, 12 Dec 2024 13:12:37 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: carlos.song@nxp.com
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, festevam@gmail.com, frank.li@nxp.com, linux-i2c@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] i2c: imx: make controller available until system
+ suspend_noirq() and from resume_noirq()
+Message-ID: <awvsvzf5ucgcvl6v7giuxeb6dvt3sw5e6kxo7t56n4rk6u3527@2hid4a7acavv>
+References: <20241125142108.1613016-1-carlos.song@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: imx27-eukrea-mbimxsd27: Fix ADS7846 interrupt
-To: Fabio Estevam <festevam@gmail.com>, shawnguo@kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Fabio Estevam <festevam@denx.de>
-References: <20241212114535.558496-1-festevam@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241212114535.558496-1-festevam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241125142108.1613016-1-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_040859_606397_1F8BDF43 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_041244_344644_3A3E2E43 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,24 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/12/2024 12:45, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
+Hi Carlos,
+
+On Mon, Nov 25, 2024 at 10:21:08PM +0800, carlos.song@nxp.com wrote:
+> From: Carlos Song <carlos.song@nxp.com>
 > 
-> According to ti,ads7843.yaml the ADS7846 interrupt should be described
-
-That's not true. Above binding does not tell it at all. Nothing about
-parent.
-
-> via interrupt-parent and interrupts properties.
+> Put runtime pm to resume state between suspend() and suspend_noirq(),
+> resume_noirq() and resume(), because some I2C devices need controller
+> on to do communication during this period.
 > 
-> Do it accordingly to fix the following dt-schema warning:
+> The controller can't be wakeup once runtime pm is disabled and in
+> runtime autosuspended state.
 > 
-> ads7846@0: interrupts: [[9], [25], [8]] is too long
+> The problem can be easily reproduced on the I.MX8MQ platform:
+> PMIC needs to be used to enable regular when the system resumes.
+> When PMIC uses I2C controller, I2C runtime pm has not been enabled,
+> so in i2c xfer(), pm_runtime_resume_and_get() will return error,
+> which causes data transfer failed. Therefore, regulars can not
+> be enabled and hang system resumes.
+> Here is resume error log:
+> [   53.888902] galcore 38000000.gpu3d: PM: calling genpd_resume_noirq @ 529, parent: platform
+> [   53.897203] i2c_imx_xfer, pm_runtime_resume_and_get is -13
+> [   53.902713] imx-pgc imx-pgc-domain.5: failed to enable regulator: -EACCES
+> [   53.909518] galcore 38000000.gpu3d: PM: genpd_resume_noirq returned 0 after 12331 usecs
+> [   53.917545] mxc_hantro 38300000.vpu: PM: calling genpd_resume_noirq @ 529, parent: soc@0
+> [   53.925659] i2c_imx_xfer, pm_runtime_resume_and_get is -13
+> [   53.931157] imx-pgc imx-pgc-domain.6: failed to enable regulator: -EACCES
+> 
+> I.MX8MQ system resume normally after applying the fix. Here is resume log:
+> [   71.068807] galcore 38000000.gpu3d: PM: calling genpd_resume_noirq @ 530, parent: platform
+> [   71.077103] i2c_imx_xfer, pm_runtime_resume_and_get is 0
+> [   71.083578] galcore 38000000.gpu3d: PM: genpd_resume_noirq returned 0 after 6490 usecs
+> [   71.091526] mxc_hantro 38300000.vpu: PM: calling genpd_resume_noirq @ 530, parent: soc@0
+> [   71.099638] i2c_imx_xfer, pm_runtime_resume_and_get is 0
+> [   71.106091] mxc_hantro 38300000.vpu: PM: genpd_resume_noirq returned 0 after 6458 usecs
+> 
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
 
-Not entirely. Your reasons are just not correct. There is different
-error there - wrong interrupt specifier because you have some specific
-interrupt controller (GPIO). Author probably wanted interrupts extended.
+merged to i2c/i2c-host.
 
-Best regards,
-Krzysztof
+Thanks,
+Andi
 
