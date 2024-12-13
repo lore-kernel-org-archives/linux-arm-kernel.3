@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4D6E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B356E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XiadGz3xPo8rSyhujZTnv+Ykh7jInKaAFhyo+5IG0JY=; b=Z7m5ZNB1lMlM5j/EycohgGqgqB
-	FZfabr0taYH3hvLI/NNFmOflL3FqQidc9e/RgVpYRRDzBbmJ1/DpB9S7Mrb1xxVRi4Nag/b7ZHsIL
-	IJHMrf/R/FWWUTIq3edZ9ER5QdsHzu+b26jks10NCp9tFd2X6JczZKAcnAnZ/LcYv3ALQ4klrkXNn
-	wlBHjMomkMG9LGp2hjY8UWVgP9HLhzTOeJEZFSxHD14XWe4x1xzEoQVKYng+PVxuVIB3DQSdkLQjP
-	fnLsnA3AAwUr2GAnEducAldI4kfQjBWAJraRTKYrHv8w4u4LLXWq/csc3ItzlL6u9vIc190VVNvGp
-	CefefJZw==;
+	bh=U5BBOUEVR42uel9HHxWh+SHmQ9PiN8sx6oPBZltT454=; b=vdv2TeVu7RuhqEAzzeNUiZbUPH
+	A/rQIUIMJktaCuCP3aAwJprp0x7sSGsYFXfuQqhAS/IQZpySRF3Jz9DJDItQsRmiegqUYFGl+Q3yM
+	tIasm9ojVr+zvO79VrJkoTN0YB6nrLEc4W3q2+ixSAwRZFGzFhksSKMUpM/zF10Zl+nQ2znVkWO2p
+	N4n+3FA+t0spurey0+yxhmiqCxon3IVWjWtac5VQwZqUn49Zbt3RVyppFUfTK7/ixbyT+EN25Gg6T
+	KIoSisCvSbyEC/oGjqokcnetNpV9SITp9TnZ0tCqLMMtP8P/XYIYf+88y6p6ylaaOGPF/lA29HzTX
+	aST8VBTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM23N-00000003GnZ-18uf;
-	Fri, 13 Dec 2024 09:33:45 +0000
+	id 1tM2CT-00000003Il4-0iKh;
+	Fri, 13 Dec 2024 09:43:09 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM22H-00000003GdG-3vBH
+	id 1tM2BN-00000003IQt-21wt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 09:32:39 +0000
+	Fri, 13 Dec 2024 09:42:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 101955C5C57;
-	Fri, 13 Dec 2024 09:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69369C4CED0;
-	Fri, 13 Dec 2024 09:32:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 42AAB5C57EA;
+	Fri, 13 Dec 2024 09:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A51A8C4CED0;
+	Fri, 13 Dec 2024 09:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734082357;
-	bh=+Kn5Rd3o6VA88PfkHIOqGFrg7vIHuEtXTf0h01Eg5Ac=;
+	s=k20201202; t=1734082920;
+	bh=9dl5Pi5hTSd3qJlZ0EL65blqpIeKz/rSV364t8uhYyc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IluCMY15IT3uBDzUgQFDJR3g70ddxdiblyZx3/ZsUMaxziqphSqU2bBpzcinaZ3Zb
-	 EX4PgEj3XDZO9M5cwnjK+i2MgAZd8gUx1Nrlp+sZHuko/IPqEdwb8M+by2sEU9izn6
-	 MfQF+lghQy4JSe7/r0rv469lfwxIkj0Y1XFqhXhe79rjFX3po5CtYG+78HOzUYUHDB
-	 DfKBplR4eg7EwyKoYWrztdXy8Uc30ZfyLiHUTpPFr4CdUFfDXLCJ1lurMypjf0sDu5
-	 ZMsNplWeEX8WvWKtmQYrliTo/+UodZ9aGXmL6z4zu/ycbbJj7vkmfIe64Xc0R0r64i
-	 1JvxGP9oPc5Rw==
-Date: Fri, 13 Dec 2024 10:32:28 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org,
-	broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org,
-	lgirdwood@gmail.com, maz@kernel.org, p.zabel@pengutronix.de,
-	robin.murphy@arm.com, will@kernel.org
-Subject: Re: [PATCH v8 2/2] PCI: imx6: Add IOMMU and ITS MSI support for
- i.MX95
-Message-ID: <Z1v/LCHsGOgnasuf@lpieralisi>
-References: <20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com>
- <20241210-imx95_lut-v8-2-2e730b2e5fde@nxp.com>
- <Z1sTUaoA5yk9RcIc@lpieralisi>
- <Z1sdbH7N1Ly9eXc0@lizhi-Precision-Tower-5810>
+	b=B/Ipk7S9z54So+yHMteQqYIBOL2mD4lqxqzYFABjyuDNg6AA83ZHk9uy3AfrTKjUz
+	 1HlKVl+P6Nj1mquYaCQOV0ZPkXOSniTMM6apedU0jpFLjHUNsV4RFWPF21QOGQB8mn
+	 DED5krilu+ndIK653dDEAqQ1z8XWyqAM7c8GoEkb5KnGUs7qQnupMElZ/Tie2Rn+eY
+	 79oXjx10SyM2HyLX5w8CWYiirnFr+pFU1KkV3IcDduDO4PxzdBMCbQLoIfvxxArB6T
+	 4uu6XeCjOut311xnrn81MqyHEeRrrx0yVWyAFR57/wzqAUPlW7CeXX3xiplMatziBX
+	 qs9PbPvhFQ90g==
+Date: Fri, 13 Dec 2024 10:41:57 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
+Subject: Re: [PATCH stm32-next 2/2] ARM: dts: stm32: lxa-fairytux2: add Linux
+ Automation GmbH FairyTux 2
+Message-ID: <lqw5blalkc2e4owzds5qs6bntsk6oh5jq5o6si3ugpa4sm7wu7@ssg4l3da6mww>
+References: <20241210-lxa-fairytux-v1-0-9aea01cdb83e@pengutronix.de>
+ <20241210-lxa-fairytux-v1-2-9aea01cdb83e@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z1sdbH7N1Ly9eXc0@lizhi-Precision-Tower-5810>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241210-lxa-fairytux-v1-2-9aea01cdb83e@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_013238_064178_76D03FC0 
-X-CRM114-Status: GOOD (  45.68  )
+X-CRM114-CacheID: sfid-20241213_014201_615520_BB1455BA 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,232 +78,421 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 12:29:16PM -0500, Frank Li wrote:
-> On Thu, Dec 12, 2024 at 05:46:09PM +0100, Lorenzo Pieralisi wrote:
-> > On Tue, Dec 10, 2024 at 05:48:59PM -0500, Frank Li wrote:
-> > > For the i.MX95, configuration of a LUT is necessary to convert Bus Device
-> > > Function (BDF) to stream IDs, which are utilized by both IOMMU and ITS.
-> > > This involves checking msi-map and iommu-map device tree properties to
-> > > ensure consistent mapping of PCI BDF to the same stream IDs. Subsequently,
-> > > LUT-related registers are configured. In the absence of an msi-map, the
-> > > built-in MSI controller is utilized as a fallback.
-> >
-> > This is wrong information. What you want to say is that if an msi-map
-> > isn't detected this means that the platform relies on DWC built-in
-> > controller for MSIs (that does not need streamIDs handling).
-> >
-> > That's quite different from what you are writing here.
-> 
-> How about ?
-> 
-> "If an msi-map isn't detected, platform relies on DWC built-in controller
-> for MSIs that does not need streamdIDs"
+On Tue, Dec 10, 2024 at 10:32:28AM +0100, Marc Kleine-Budde wrote:
+> +&gpiof {
+> +	gpio-line-names =3D "GPIO1", "GPIO2", "", "", "", /*  0 */
+> +	"", "", "", "", "",                             /*  5 */
 
-Right. Question: what happens if DT shows that there are SMMU and/or
-ITS bindings/mappings but the SMMU driver and ITS driver are either not
-enabled or have not probed ?
+That's not really readable. Fix the alignment with opening ", see DTS
+coding style.
 
-I assume the LUT programming makes no difference (it is useless yes but
-should be harmless too) in this case but wanted to check with you.
+> +	"", "", "", "", "",                             /* 10 */
+> +	"";                                             /* 15 */
+> +};
+> +
+> +&gpioh {
+> +	gpio-line-names =3D "", "", "", "", "LCD_RESET", /*  0 */
+> +	"", "", "", "", "",                            /*  5 */
+> +	"", "", "", "GPIO3", "",                       /* 10 */
+> +	"";                                            /* 15 */
+> +};
+> +
+> +&gpioi {
+> +	gpio-line-names =3D "", "", "", "", "", /*  0 */
+> +	"", "", "", "ETH_", "",               /*  5 */
+> +	"", "USER_BTN1";                      /* 10 */
+> +};
+> +
+> +&i2c1 {
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&i2c1_pins_b>;
+> +	pinctrl-1 =3D <&i2c1_sleep_pins_b>;
+> +	status =3D "okay";
+> +
+> +	io_board_gpio: tca6408@20 {
 
-Thanks,
-Lorenzo
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetr=
+ee-basics.html#generic-names-recommendation
 
-> 
-> >
-> > >
-> > > Register a PCI bus callback function to handle enable_device() and
-> > > disable_device() operations, setting up the LUT whenever a new PCI device
-> > > is enabled.
-> > >
-> > > Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> 
-> [...]
-> 
-> > > +	int err_i, err_m;
-> > > +	u32 sid;
-> > > +
-> > > +	dev = imx_pcie->pci->dev;
-> > > +
-> > > +	target = NULL;
-> > > +	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask", &target, &sid_i);
-> > > +	if (target) {
-> > > +		of_node_put(target);
-> > > +	} else {
-> > > +		/*
-> > > +		 * "target == NULL && err_i == 0" means use 1:1 map RID to
-> >
-> > Is it what it means ? Or does it mean that the iommu-map property was found
-> > and RID is out of range ?
-> 
-> yes, if this happen, sid_i will be equal to RID.
-> 
-> >
-> > Could you point me at a sample dts for this host bridge please ?
-> 
-> https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx95.dtsi
-> 
-> /* 0x10~0x17 stream id for pci0 */
->    iommu-map = <0x000 &smmu 0x10 0x1>,
->                <0x100 &smmu 0x11 0x7>;
-> 
-> /* msi part */
->    msi-map = <0x000 &its 0x10 0x1>,
->              <0x100 &its 0x11 0x7>;
-> 
-> >
-> > > +		 * stream ID. Hardware can't support this because stream ID
-> > > +		 * only 5bits
-> >
-> > It is 5 or 6 bits ? From GENMASK(5, 0) above it should be 6.
-> 
-> Sorry for typo. it is 6bits.
-> 
-> >
-> > > +		 */
-> > > +		err_i = -EINVAL;
-> > > +	}
-> > > +
-> > > +	target = NULL;
-> > > +	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask", &target, &sid_m);
-> > > +
-> > > +	/*
-> > > +	 *   err_m      target
-> > > +	 *	0	NULL		Use 1:1 map RID to stream ID,
-> >
-> > Again, is that what it really means ?
-> >
-> > > +	 *				Current hardware can't support it,
-> > > +	 *				So return -EINVAL.
-> > > +	 *      != 0    NULL		msi-map not exist, use built-in MSI.
-> >
-> > does not exist.
-> >
-> > > +	 *	0	!= NULL		Get correct streamID from RID.
-> > > +	 *	!= 0	!= NULL		Unexisted case, never happen.
-> >
-> > "Invalid combination"
-> >
-> > > +	 */
-> > > +	if (!err_m && !target)
-> > > +		return -EINVAL;
-> > > +	else if (target)
-> > > +		of_node_put(target); /* Find stream ID map entry for RID in msi-map */
-> > > +
-> > > +	/*
-> > > +	 * msi-map        iommu-map
-> > > +	 *   N                N            DWC MSI Ctrl
-> > > +	 *   Y                Y            ITS + SMMU, require the same sid
-> > > +	 *   Y                N            ITS
-> > > +	 *   N                Y            DWC MSI Ctrl + SMMU
-> > > +	 */
-> > > +	if (err_i && err_m)
-> > > +		return 0;
-> > > +
-> > > +	if (!err_i && !err_m) {
-> > > +		/*
-> > > +		 * MSI glue layer auto add 2 bits controller ID ahead of stream
-> >
-> > What's "MSI glue layer" ?
-> 
-> It is common term for IC desgin, which connect IP's signal to platform with
-> some simple logic. Inside chip, when connect LUT output 6bit streamIDs
-> to MSI controller, there are 2bits hardcode controller ID information
-> append to 6 bits streamID.
-> 
->            Glue Layer
->           <==========>
-> ┌─────┐                  ┌──────────┐
-> │ LUT │ 6bit stream ID   │          │
-> │     ┼─────────────────►│  MSI     │
-> └─────┘    2bit ctrl ID  │          │
->             ┌───────────►│          │
->             │            │          │
->  00 PCIe0   │            │          │
->  01 ENETC   │            │          │
->  10 PCIe1   │            │          │
->             │            └──────────┘
-> 
-> >
-> > > +		 * ID, so mask this 2bits to get stream ID.
-> > > +		 * But IOMMU glue layer doesn't do that.
-> >
-> > and "IOMMU glue layer" ?
-> 
-> See above.
-> 
-> Frank
-> 
-> >
-> > > +		 */
-> > > +		if (sid_i != (sid_m & IMX95_SID_MASK)) {
-> > > +			dev_err(dev, "iommu-map and msi-map entries mismatch!\n");
-> > > +			return -EINVAL;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	sid = sid_i;
-> >
-> > err_i could be != 0 here, I understand that the end result is
-> > fine given how the code is written but it is misleading.
-> >
-> > 	if (!err_i)
-> > 	else if (!err_m)
-> 
-> Okay
-> 
-> >
-> > > +	if (!err_m)
-> > > +		sid = sid_m & IMX95_SID_MASK;
-> > > +
-> > > +	return imx_pcie_add_lut(imx_pcie, rid, sid);
-> > > +}
-> > > +
-> > > +static void imx_pcie_disable_device(struct pci_host_bridge *bridge, struct pci_dev *pdev)
-> > > +{
-> > > +	struct imx_pcie *imx_pcie;
-> > > +
-> > > +	imx_pcie = to_imx_pcie(to_dw_pcie_from_pp(bridge->sysdata));
-> > > +	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
-> > > +}
-> > > +
-> > >  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > >  {
-> > >  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > @@ -946,6 +1122,11 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > >  		}
-> > >  	}
-> > >
-> > > +	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
-> > > +		pp->bridge->enable_device = imx_pcie_enable_device;
-> > > +		pp->bridge->disable_device = imx_pcie_disable_device;
-> > > +	}
-> > > +
-> > >  	imx_pcie_assert_core_reset(imx_pcie);
-> > >
-> > >  	if (imx_pcie->drvdata->init_phy)
-> > > @@ -1330,6 +1511,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
-> > >  	imx_pcie->pci = pci;
-> > >  	imx_pcie->drvdata = of_device_get_match_data(dev);
-> > >
-> > > +	mutex_init(&imx_pcie->lock);
-> > > +
-> > >  	/* Find the PHY if one is defined, only imx7d uses it */
-> > >  	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
-> > >  	if (np) {
-> > > @@ -1627,7 +1810,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
-> > >  	},
-> > >  	[IMX95] = {
-> > >  		.variant = IMX95,
-> > > -		.flags = IMX_PCIE_FLAG_HAS_SERDES,
-> > > +		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-> > > +			 IMX_PCIE_FLAG_HAS_LUT,
-> > >  		.clk_names = imx8mq_clks,
-> > >  		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
-> > >  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
-> > >
-> > > --
-> > > 2.34.1
-> > >
+> +		compatible =3D "ti,tca6408";
+> +		reg =3D <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		vcc-supply =3D <&v3v3_hdmi>;
+> +		gpio-line-names =3D "LED1_GA_YK", "LED2_GA_YK", "LED1_GK_YA", "LED2_GK=
+_YA",
+> +		"RS485_EN", "RS485_120R", "", "CAN_120R";
+> +	};
+> +};
+> +
+> +&led_controller_io {
+> +	/*
+> +	 * led-2 and led-3 are internally connected antiparallel to one
+> +	 * another inside the ethernet jack like this:
+> +	 * GPIO1 ---+---|led-2|>--+--- GPIO3
+> +	 *          +--<|led-3|---+
+> +	 * E.g. only one of the LEDs can be illuminated at a time while
+> +	 * the other output must be driven low.
+> +	 * This should likely be implemented using a multi color LED
+> +	 * driver for antiparallel LEDs.
+> +	 */
+> +	led-2 {
+> +		label =3D "fairytux2:green:act";
+
+Drop "fairytux2" and rather use color and function properties.
+
+> +		gpios =3D <&io_board_gpio 1 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	led-3 {
+> +		label =3D "fairytux2:orange:act";
+> +		gpios =3D <&io_board_gpio 3 GPIO_ACTIVE_HIGH>;
+> +	};
+> +};
+> +
+> +&usart3 {
+> +	/*
+> +	 * On Gen 1 FairyTux 2 only RTS can be used and not CTS as well,
+> +	 * Because pins PD11 (CTS) and PI11 (USER_BTN1) share the same
+> +	 * interrupt and only one of them can be used at a time.
+> +	 */
+> +	rts-gpios =3D <&gpiod 12 GPIO_ACTIVE_LOW>;
+> +};
+> +
+> +&usbotg_hs {
+> +	dr_mode =3D "peripheral";
+> +};
+> diff --git a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts b/ar=
+ch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c84f83a75731f70165c240812=
+f7f4230bf9bfbb0
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2-gen2.dts
+> @@ -0,0 +1,146 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-3-Clause)
+> +/*
+> + * Copyright (C) 2024 Leonard G=C3=B6hrs, Pengutronix
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "stm32mp153c-lxa-fairytux2.dtsi"
+> +
+> +/ {
+> +	model =3D "Linux Automation GmbH FairyTux 2 Gen 2";
+> +	compatible =3D "lxa,stm32mp153c-fairytux2-gen2", "oct,stm32mp153x-osd32=
+", "st,stm32mp153";
+> +
+> +	gpio-keys {
+> +		compatible =3D "gpio-keys";
+> +
+> +		button-left {
+> +			label =3D "USER_BTN1";
+> +			linux,code =3D <KEY_ESC>;
+> +			gpios =3D <&gpioi 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+> +		};
+> +
+> +		button-right {
+> +			label =3D "USER_BTN2";
+> +			linux,code =3D <KEY_HOME>;
+> +			gpios =3D <&gpioe 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+> +		};
+> +	};
+> +};
+> +
+> +&gpiof {
+> +	gpio-line-names =3D "", "", "", "", "", /*  0 */
+> +	"", "", "", "", "",                   /*  5 */
+> +	"", "", "", "", "",                   /* 10 */
+> +	"";                                   /* 15 */
+> +};
+> +
+> +&gpioh {
+> +	gpio-line-names =3D "", "", "", "", "LCD_RESET", /*  0 */
+> +	"", "", "", "", "",                            /*  5 */
+> +	"", "", "GPIO1", "GPIO_INT", "",               /* 10 */
+> +	"";                                            /* 15 */
+> +};
+> +
+> +&gpioi {
+> +	gpio-line-names =3D "GPIO2", "", "", "", "", /*  0 */
+> +	"", "", "", "ETH_", "",                    /*  5 */
+> +	"", "USER_BTN1";                           /* 10 */
+> +};
+> +
+> +&i2c1 {
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&i2c1_pins_b>;
+> +	pinctrl-1 =3D <&i2c1_sleep_pins_b>;
+> +	status =3D "okay";
+> +
+> +	io_board_gpio: tca6408@20 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetr=
+ee-basics.html#generic-names-recommendation
+
+> +		compatible =3D "ti,tca6408";
+> +		reg =3D <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&gpioh>;
+> +		interrupts =3D <13 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-controller;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&board_tca6408_pins>;
+> +		#interrupt-cells =3D <2>;
+> +		vcc-supply =3D <&v3v3_hdmi>;
+> +		gpio-line-names =3D "LED1_GA_YK", "LED2_GA_YK", "LED1_GK_YA", "USB_CC_=
+ALERT",
+> +		"RS485_EN", "RS485_120R", "USB_CC_RESET", "CAN_120R";
+
+Messed alignment.
+
+> +	};
+> +
+> +	usb_c: stusb1600@28 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetr=
+ee-basics.html#generic-names-recommendation
+
+> +		compatible =3D "st,stusb1600";
+> +		reg =3D <0x28>;
+> +		interrupt-parent =3D <&io_board_gpio>;
+> +		interrupts =3D <3 IRQ_TYPE_EDGE_FALLING>;
+> +		vdd-supply =3D <&reg_5v>;
+> +		vsys-supply =3D <&v3v3_hdmi>;
+> +
+> +		connector {
+> +			compatible =3D "usb-c-connector";
+> +			label =3D "USB-C";
+> +			power-role =3D "dual";
+> +			typec-power-opmode =3D "default";
+> +
+> +			port {
+> +				con_usbotg_hs_ep: endpoint {
+> +					remote-endpoint =3D <&usbotg_hs_ep>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	io_board_eeprom: eeprom@56 {
+> +		compatible =3D "atmel,24c04";
+> +		reg =3D <0x56>;
+> +		vcc-supply =3D <&v3v3_hdmi>;
+> +	};
+> +
+> +	temperature-sensor@48 {
+> +		compatible =3D "national,lm75a";
+> +		reg =3D <0x48>;
+> +		/*
+> +		 * The sensor itself is powered by a voltage divider from the
+> +		 * always-on 5V supply.
+> +		 * The required pull-up resistors however are on v3v3_hdmi.
+> +		 */
+> +		vs-supply =3D <&v3v3_hdmi>;
+> +	};
+> +};
+> +
+> +&rtc {
+> +	status =3D "okay";
+> +};
+> +
+> +&led_controller_io {
+> +	led-2 {
+> +		label =3D "fairytux2:orange:act";
+> +		gpios =3D <&io_board_gpio 1 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&usart3 {
+> +	rts-gpios =3D <&gpiod 12 GPIO_ACTIVE_LOW>;
+> +	cts-gpios =3D <&gpiod 11 GPIO_ACTIVE_LOW>;
+> +};
+> +
+> +&usbotg_hs {
+> +	usb-role-switch;
+> +
+> +	port {
+> +		usbotg_hs_ep: endpoint {
+> +			remote-endpoint =3D <&con_usbotg_hs_ep>;
+> +		};
+> +	};
+> +};
+> +
+> +&pinctrl {
+> +	board_tca6408_pins: stusb1600-0 {
+> +		pins {
+> +			pinmux =3D <STM32_PINMUX('H', 13, GPIO)>;
+> +			bias-pull-up;
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi b/arch/a=
+rm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..0e0e1b36cb087dfbfb47e3830=
+94c6044786a2c6a
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
+> @@ -0,0 +1,394 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-3-Clause)
+> +/*
+> + * Copyright (C) 2020 STMicroelectronics - All Rights Reserved
+> + * Copyright (C) 2021 Rouven Czerwinski, Pengutronix
+> + * Copyright (C) 2023, 2024 Leonard G=C3=B6hrs, Pengutronix
+> + */
+> +
+> +#include "stm32mp153.dtsi"
+> +#include "stm32mp15xc.dtsi"
+> +#include "stm32mp15xx-osd32.dtsi"
+> +#include "stm32mp15xxac-pinctrl.dtsi"
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pwm/pwm.h>
+> +
+> +/ {
+> +	aliases {
+> +		can0 =3D &m_can1;
+> +		ethernet0 =3D &ethernet0;
+> +		i2c0 =3D &i2c1;
+> +		i2c1 =3D &i2c4;
+> +		mmc1 =3D &sdmmc2;
+> +		serial0 =3D &uart4;
+> +		serial1 =3D &usart3;
+> +		spi0 =3D &spi4;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D &uart4;
+> +	};
+> +
+> +	backlight: backlight {
+> +		compatible =3D "pwm-backlight";
+> +		power-supply =3D <&v3v3>;
+> +
+> +		brightness-levels =3D <0 31 63 95 127 159 191 223 255>;
+> +		default-brightness-level =3D <7>;
+> +		pwms =3D <&led_pwm 3 1000000 0>;
+> +	};
+> +
+> +	led-controller-cpu {
+> +		compatible =3D "gpio-leds";
+> +
+> +		led-0 {
+> +			label =3D "fairytux2:green:status";
+
+Same comment.
+
+> +			gpios =3D <&gpioa 13 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger =3D "heartbeat";
+> +		};
+> +	};
+> +
+> +	led_controller_io: led-controller-io {
+> +		compatible =3D "gpio-leds";
+> +
+> +		/*
+> +		 * led-0 and led-1 are internally connected antiparallel to one
+> +		 * another inside the ethernet jack like this:
+> +		 * GPIO0 ---+---|led-0|>--+--- GPIO2
+> +		 *          +--<|led-1|---+
+> +		 * E.g. only one of the LEDs can be illuminated at a time while
+> +		 * the other output must be driven low.
+> +		 * This should likely be implemented using a multi color LED
+> +		 * driver for antiparallel LEDs.
+> +		 */
+> +		led-0 {
+> +			label =3D "fairytux2:green:link";
+> +			gpios =3D <&io_board_gpio 0 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		led-1 {
+> +			label =3D "fairytux2:orange:link";
+> +			gpios =3D <&io_board_gpio 2 GPIO_ACTIVE_HIGH>;
+> +		};
+> +	};
+> +
+> +	reg_5v: regulator-5v {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "5V";
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_1v2: regulator-1v2 {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "1V2";
+> +		regulator-min-microvolt =3D <1200000>;
+> +		regulator-max-microvolt =3D <1200000>;
+> +		regulator-always-on;
+> +		vin-supply =3D <&reg_5v>;
+> +	};
+> +};
+> +
+> +baseboard_eeprom: &sip_eeprom {
+> +};
+> +
+> +&crc1 {
+> +	status =3D "okay";
+> +};
+> +
+> +&cryp1 {
+> +	status =3D "okay";
+> +};
+> +
+> +&dts {
+> +	status =3D "okay";
+> +};
+> +
+> +&ethernet0 {
+> +	assigned-clocks =3D <&rcc ETHCK_K>, <&rcc PLL4_P>;
+> +	assigned-clock-parents =3D <&rcc PLL4_P>;
+> +	assigned-clock-rates =3D <125000000>; /* Clock PLL4 to 750Mhz in ATF */
+> +
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&ethernet0_rgmii_pins_b>;
+> +	pinctrl-1 =3D <&ethernet0_rgmii_sleep_pins_b>;
+> +
+> +	st,eth-clk-sel;
+> +	phy-mode =3D "rgmii-id";
+> +	phy-handle =3D <&ethphy>;
+> +	status =3D "okay";
+> +
+> +	mdio {
+> +		compatible =3D "snps,dwmac-mdio";
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +
+> +		ethphy: ethernet-phy@3 { /* KSZ9031RN */
+> +			reg =3D <3>;
+> +			reset-gpios =3D <&gpioe 11 GPIO_ACTIVE_LOW>; /* ETH_RST# */
+> +			interrupt-parent =3D <&gpioa>;
+> +			interrupts =3D <6 IRQ_TYPE_EDGE_FALLING>; /* ETH_MDINT# */
+> +			reset-assert-us =3D <10000>;
+> +			reset-deassert-us =3D <300>;
+> +			micrel,force-master;
+> +		};
+> +	};
+> +};
+> +
+> +&gpioa {
+> +	gpio-line-names =3D "", "", "", "", "", /*  0 */
+> +	"", "ETH_INT", "", "", "",            /*  5 */
+
+Really unreadable indentation. See DTS coding style.
+
+Best regards,
+Krzysztof
+
 
