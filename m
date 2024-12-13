@@ -4,157 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25428E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 05:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE18E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 05:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRHhT8hWESy6pQarMOcmjVGiA0htP/Pw6bI07K0UWTU=; b=fKoSuQbqvN79WmyOaCTkdMsa9M
-	hUusxS890fp5wTrX09IFSiZCYgyN3w4awzuj462gOmoi770yhvD+eDIFsxpT14nSexEgm+wSsHVMd
-	PXjBjFbi1E3XJXtMJ+h49jkBbMcLX4TkHVKOpbJ0JNHMwkjWrGeT5QuriENFpHd1+eBYH1DjqOD/L
-	MOydQpxXAVv6KcyYdfHv6Sd6Y0TY/lf88H89F5gYF32F6hJsKqk2txR6NOW1khK8+JLDdosVagqA+
-	Ma00F13VjmIQK1pv++lz28+a+lXr9SmMPReS3dmBRRhxmSEDHPGjRydzwftTixpN9OK8XDxBHAgFX
-	a6mXRj5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N3+q6mTrPCMLeXIQ9N86FugnUcIPctJtn1/nORRgCwQ=; b=OI4GLUeJWpB1jnzTgwm27JkxO+
+	m3umkyDLTARhDVN5S74ICMG4xy5FnVBwHs9joMTo0T5zN7qoctAYRFmFUzdLu4FItEBLLyzd2Buy6
+	KvBtVkzX1Sl/aRs2w3jADmE1uErwb/6iCEKRl12ph6KoxhUnkxQ77+4jQYxEE+qJPzwP48GlgpKX6
+	VSXi0m/OoOG5ycgAkBlwsbNj2GxsHkrea2ywXd9Sn7YJnIYjndmPzftV9fOCIJhmlpieB0msaFAbg
+	gLcKRBDVQn1lEYz2fVI/a9byoI831vuRArClav8VsPOKwFQsegVR3vrI3+e6TDabLWhDqpLRY84Qc
+	8bM92zjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLyJ1-00000002mTT-04QN;
-	Fri, 13 Dec 2024 05:33:39 +0000
-Received: from mail-co1nam11on20723.outbound.protection.outlook.com ([2a01:111:f403:2416::723] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tLyaI-00000002oHt-09GK;
+	Fri, 13 Dec 2024 05:51:30 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLyHW-00000002mID-0RIl
+	id 1tLyZD-00000002o8P-1Gaz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 05:32:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xOkx6JLuSQ72ETOimRPA+IfXw1DUbDGDu1yVECFQOPmTL/VZAL0GDo/XNSCCWvvc5gbQcm5N5ABu6N+hEMDEZrLWqNF0cIz+LR8HdkezOzgPWTurGT35RFgGZuHKZC6dOSUZS0xWowbBtZHNLG89lUYJYSCqs6ZmKQA+Ipkuy12MKN28e2OMjdxI1H1qg3DSg6N1luW+8VgdBR2ME2F63Hc97JlmvqfoRCbDHhrlJeUAGQm+S4ZPEAQVTz3nmR55GZri/4iCWKcajN6LDw0QbcdONndkym8zYfxn7kl9Glk+YyYwcTf2RpEX2v5Z8M/x93p+rkCt02o2pZ0fhK7Vbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nRHhT8hWESy6pQarMOcmjVGiA0htP/Pw6bI07K0UWTU=;
- b=UPShFByfDhoqKyKqo6/d4szctLfmYIS+IsPCcgqhGN6ORy+msg3GYbxF1i952LbeQirRZpyLifZ6hzPJt2BXp+0i9u3weKvAFWWt9khfOoqXyRm8kEMpRBKTxZgv/Wf2tKXT6z6woDrsY13a0BL4+J0+H76EDRsr7H7HUMOGISHfuzKEQZvOXyyddauQYPUJmmcVI3grLqLgjevYGek+xWZ4nvogygRGoYN0tyNooCHeAvrHxPCFGubfexMIAdy6isor96wIsg7Jnyy/cZB+m+Out+tjZwgXgYRf7naA2ciM2yPXNtVy8XIk3bz9RSA3XQf8ucIm8ZIKoaJcMBJC5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nRHhT8hWESy6pQarMOcmjVGiA0htP/Pw6bI07K0UWTU=;
- b=uY9cPSp0U8nZcp2FiDo12R3kuz6x40yjgbKLj2wCqNXXNcohW5ngvmcULgNFvuSRAh+hzvSMKQ1xJGjQlfv7XeHTikxfmqZICVBXKK+C7+odJEdjPBoJhSokJ1YDUu/ialPb5bxEvOth/Yy7sE7knYHhT39sh3LJRFQb+bkNEDo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
- BY1PR01MB8851.prod.exchangelabs.com (2603:10b6:a03:5b0::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.16; Fri, 13 Dec 2024 05:31:56 +0000
-Received: from PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
- ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Fri, 13 Dec 2024
- 05:31:56 +0000
-From: Huang Shijie <shijie@os.amperecomputing.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	anshuman.khandual@arm.com,
-	corbet@lwn.net
-Cc: patches@amperecomputing.com,
-	cl@linux.com,
-	akpm@linux-foundation.org,
-	thuth@redhat.com,
-	rostedt@goodmis.org,
-	xiongwei.song@windriver.com,
-	ardb@kernel.org,
-	inux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Subject: [PATCH v4 1/2 fix] arm64: refactor the rodata=xxx
-Date: Fri, 13 Dec 2024 13:30:49 +0800
-Message-Id: <20241213053049.7592-1-shijie@os.amperecomputing.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241212082426.4110-2-shijie@os.amperecomputing.com>
-References: <20241212082426.4110-2-shijie@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0PR01CA0094.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:af::20) To PH0PR01MB7975.prod.exchangelabs.com
- (2603:10b6:510:26d::15)
+	Fri, 13 Dec 2024 05:50:24 +0000
+Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCMGnKg004865;
+	Thu, 12 Dec 2024 21:50:09 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=N3+q6mTrPCMLeXIQ9N86FugnU
+	cIPctJtn1/nORRgCwQ=; b=O7Tg08v6E0UZh095WEobbBLY+JGmGmeL/Jdx3usYg
+	HFBCQtvZze8Dnp4FIoHARw50MwIJrSJLhCyQ13dkPeaLHwZuZvcznZ9q8uchh2Hk
+	segNtdvOpZg5mLuOPcS76gqHM8vXjoFy2mTDE4rWaw8CmcPqHSpi8tW7HTw3yoV7
+	cCLAEzRdY968lNACIjQN4CZrN+kGgCcnQIVBUjFfu/ztHhKIU5a6gTRpQzjirek7
+	2yBeqs7bb7DV1+qLUP169gehHRzn1hMkMxWlFF0Pka1TCFgQZzrvkS51GDLyZxK+
+	cO8XBVJec7gsYNstS1Ev1kXMK2VHrylijUxOZVD/uazug==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 43g8fxrrgu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Dec 2024 21:50:08 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Thu, 12 Dec 2024 21:50:07 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Thu, 12 Dec 2024 21:50:07 -0800
+Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
+	by maili.marvell.com (Postfix) with SMTP id B73973F7078;
+	Thu, 12 Dec 2024 21:50:02 -0800 (PST)
+Date: Fri, 13 Dec 2024 11:20:01 +0530
+From: Linu Cherian <lcherian@marvell.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+CC: <mike.leach@linaro.org>, <james.clark@arm.com>,
+        <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
+        <gcherian@marvell.com>, Anil Kumar Reddy <areddy3@marvell.com>,
+        "Tanmay
+ Jagdale" <tanmay@marvell.com>
+Subject: Re: [PATCH v12 5/8] coresight: tmc: Add support for reading crash
+ data
+Message-ID: <20241213055001.GA1224111@hyd1403.caveonetworks.com>
+References: <20241129084714.3057080-1-lcherian@marvell.com>
+ <20241129084714.3057080-6-lcherian@marvell.com>
+ <b56cbd79-61a4-49c3-82ce-12ca55a40991@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|BY1PR01MB8851:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7552657-f823-4a3c-1516-08dd1b377532
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kq/7xJF6ashhEFKQaBtz+bAT5R4r1FU8subU/A/KOITHrfp+q83jY0GYco2n?=
- =?us-ascii?Q?AiV7PoUAc49ZWbYguJG6cqCNlNBKsW9N8ZTEbOFL0XD/HO8R83mwKOEsF/cX?=
- =?us-ascii?Q?zyHj1McDYmp3dwXE91n4cJjSaEAU38pOadu9w+2jBikqRslpl9HgKxbBj8cj?=
- =?us-ascii?Q?O9Q7JEN72NoM4y0bsu3tiQbxXRl3v1skl+jcCf6Q6gBHNdThx7S0qEhUGnK3?=
- =?us-ascii?Q?s0LpovW2s5WD8loDr52IC7+iP3/f+32dE53b8+cuW6suiD3jSSki78TGgvhn?=
- =?us-ascii?Q?mcXOqWEAG1WSwuO/kdzLgH/AfddR2TVPCqskHIzzIUKP3ROF2AIgQ45xBiVe?=
- =?us-ascii?Q?lwduEI4zkA4ud2QdBu4aYU4Oh4/IBo4wWUq3KU5hh4dY06fvWZ4cBd6zUhc7?=
- =?us-ascii?Q?dRw0JUfSRIfl3Swjc9pdCD2PUYwcKB58CJCcCFbixKjySaag3TGu7qWmhi2q?=
- =?us-ascii?Q?6bcv5T7HMIZZ7f/BU4JXLsAizPMkyPz/I58AzODQe64UThosl6+xJL4BC1k0?=
- =?us-ascii?Q?o8PFF5S3GJH5qcaPVxvooTkckUJErOvriswUg6x2UNn3KA2q6+TpMjDLaDRJ?=
- =?us-ascii?Q?Wj0UIrjB0OoiosP3/5Zxirc5ilIODs0POcNmw8CjJoftncEMiZOK2x7Mb4Sr?=
- =?us-ascii?Q?HjT4bBkx5ae9rHe9sbt9Qv0sCTwRy6UDH7PHZUMURJxvjeqO1RPGMC6Z+yN/?=
- =?us-ascii?Q?VeVYA2tkt6rZ4pqK1Crgkoct7C5825cvEEYqzaj88DzsUwJz2QCm85M763nq?=
- =?us-ascii?Q?antCq4NfiZ03z0BKqrXO2dEmKKXSSo8vkquPa2b2BrBXqFo2QXsgABceCpbg?=
- =?us-ascii?Q?UsDtWdtkWnvv5W82TeGIvjyrkGNWT7m4XIHSzHw+8bkkS7n70vEGTCD+qGGX?=
- =?us-ascii?Q?DfVUNqshTQVDpEKWBVX7rTZdND6g5Y0AD2kVlGOXP6NmZ9AO0NxZUhUnxVzi?=
- =?us-ascii?Q?UOxZMf6edjXNqgktBhueuNk3R7jb+oPWmcj3z3lZG4wxqQWVxHK7MLm9gHqx?=
- =?us-ascii?Q?aX/VuoVUzrFKvP4aLWYfYEIqmAKJSE2dWrqwS4KCE8HJoz2TTBxlBEVi+AZu?=
- =?us-ascii?Q?siCZ7glB8ZDDa3YB76foD8jhrET4lH/TbXVPLwFdrWgTNIMg+QQ3i1kxIEML?=
- =?us-ascii?Q?cSpH78+kMk9GLqLyypJPGwRLEvC15oWCwwqktdJXS3q2sNWXkWV5AGgArIJS?=
- =?us-ascii?Q?NddGOBUZvnKs0iwuHb7qLre0AkmJ6q8xvls25yrjG1+NcjStO29sg152hkyF?=
- =?us-ascii?Q?OTCTACGhgNaCndpRp0x8jJCDnR2nOnMk6tuSCN8/Aesz40r4KE9Ki1xlS6dB?=
- =?us-ascii?Q?gB04dt7CjZJxzWxgh2wRrTCJjdP81Bfq1uJFWll3ajqPkZUVA0WgJLo+IhK0?=
- =?us-ascii?Q?AZ4aibP9e+fAzDXWMQJSctymJ7GTAOFs8MJte16dk8mDFp3CEw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d1a2jqTKeq3rvIWMAeG86Df33vWraIivAaVCZojeJXBTPgNQdGtisOXO7yHh?=
- =?us-ascii?Q?hmhNUj5ddUrgDxZhi99QVlk19RpXkPpCSP6T2nxMzopxaOUOmx3NxIOhVABy?=
- =?us-ascii?Q?gChmwDUC4aK+WQBH0d8f50LI/dDSKpUO6O+dRlXogY15/nBG4jbqYa3nIyA8?=
- =?us-ascii?Q?T3szEdcXZuBY3bZ3MwMJon/p5xqDTntLReNYCRzPVjlgyruouMnQEmLKaed6?=
- =?us-ascii?Q?8DU3S/aYTu4F/okGRQw9oGeVsZ6xsCG+FNmnRAsylnfOz6l61LMAlfpNbcTe?=
- =?us-ascii?Q?RJTXFajy2VbRjlmrZDi4nNWDgYVVcCyjxS+pQ0c7qvKsU6Glqvtd/lwElIgP?=
- =?us-ascii?Q?BXttQ52ACIYf01AZrzbjBjfp//fbNkVUv/c4Gn8sTeRlkIYJMKFsiUwlDotg?=
- =?us-ascii?Q?Nu2jO4TyMhn3uOW7aJSWVK3/fDolGJVT0d82u3ewqkeLC03eZGdTao6APpH7?=
- =?us-ascii?Q?2plFQ3xfz99ff20Peb8iO5XZk3QtAwX/MwNZsWtzPWp+86S7iGOtMCCv3cfT?=
- =?us-ascii?Q?wAKtdulWfUgxR3DFnQhUiibUmnObGw5AeJlJrTlopS7q1wHTJlz/BxBgwDqy?=
- =?us-ascii?Q?GHAHIaKUwV+cQCklXbcpHzSZK6e1VWXtnuGMedfmNsywsZ4XV50AFgFNKGO3?=
- =?us-ascii?Q?J3PohDxIbMm8+LBZ6B0kw/osUAul3lmEv33vBbMd6YMoTHOx7L3ID2g43HgH?=
- =?us-ascii?Q?guqH2YPpMK7wBOMzlStAnpcVs+wGcGgXVHueqLf/wg9B+/UzrsNLMkaJ43bI?=
- =?us-ascii?Q?zC8IiPoxes1MUkabMiMkCcUJn+9fI35AjmTCLYPAqWN4U4jWEM9YplZ2xDhX?=
- =?us-ascii?Q?Yt7EPNgUvi2zJfHB7Hj2A2rXNJhuBzgExNls7TRodhxBv6/PyIAQMeKlJ3Dy?=
- =?us-ascii?Q?3s+gWyMgSeypCJeIzB3xRV0c3LhxrZJc3DF+gA1nRluW7lwginZ1E79Bzrct?=
- =?us-ascii?Q?t6wRVa11XnBko54nqhbqIMwb9dZNL4ggAQR8o/oHsY0gFga1SRJPGVW+ZGyK?=
- =?us-ascii?Q?92kkPUSJ35WJOcGc3F2/8+A7SNGXKBsoON/Qt8Lqdpe+qZ7CJV8bL9Sx4l+R?=
- =?us-ascii?Q?aDMV6kVOoVn6Arp0w0DYe2wgcjH/SJs9FAbZkBdERDImOx61xYSTxy/fI8nQ?=
- =?us-ascii?Q?lmLcsqk6L5XAm5JIZQNhgmvw3zNXCrp6/H2GLjdsYZoMjDkE4XyPiPH8HhAr?=
- =?us-ascii?Q?f2NBSQVT2E4M8l5eu191TPDEzRuTq73Gqe/sliOP6VLG90AcmOiAVUQQYsxy?=
- =?us-ascii?Q?tROIpizGEM1uCFS6zkK7QsfXwetK9l73kNy3Mmk31I3pU0qVSINVocL5BK4O?=
- =?us-ascii?Q?U3baG7HWFvvBh6O3dV61kElhH2IoR+FHT7jlFxdNS2ugfLppv1nlKQYBHAyc?=
- =?us-ascii?Q?kepCi8t9OFmL4SN38Z8xvtrHRSYeiClIuOsHT3QfwiLgI5AGbkdaqX90b7Le?=
- =?us-ascii?Q?hsaGza7ORGKvTh6t2FrvCX8b0GTsSXVwtOGNDif/toKYfokdCfVJ9qBVsDIj?=
- =?us-ascii?Q?hrpg5Fv1lhixBHTQF4AodTocOeUXSkdVwKTAZKEGEBiTJMyjcZE9eQizUzqm?=
- =?us-ascii?Q?KS3aCIuzDQvfnhXDpsVCJTLRksubBJFfObYYXFdHn87SkTm18/dEkIPwGsxR?=
- =?us-ascii?Q?uBEGBF5XAESRjV/Xju5db5g=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7552657-f823-4a3c-1516-08dd1b377532
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 05:31:56.2620
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pmy2aB5Od5Qvwp+QdcGAj+Iut6UFZ6GR9X6uNi9pCC1F6gbssZ6e0dH0ls/d/BslcfYtpe+yXbDdpKFS/+V7bG9Hg25lE9kyG+V1YSJs0jMKSWfw4358ZgGKgLBbPFOR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR01MB8851
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <b56cbd79-61a4-49c3-82ce-12ca55a40991@arm.com>
+X-Proofpoint-ORIG-GUID: rlC0BNxQiyCImuEzcen0I3K3nw0kH4Ro
+X-Proofpoint-GUID: rlC0BNxQiyCImuEzcen0I3K3nw0kH4Ro
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_213206_591609_E86E567C 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20241212_215023_469334_CB3DBD09 
+X-CRM114-Status: GOOD (  43.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,104 +96,458 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per admin guide documentation, "rodata=on" should be the default on
-platforms. Documentation/admin-guide/kernel-parameters.txt describes
-these options as
+Hi Suzuki,
 
-   rodata=         [KNL,EARLY]
-           on      Mark read-only kernel memory as read-only (default).
-           off     Leave read-only kernel memory writable for debugging.
-           full    Mark read-only kernel memory and aliases as read-only
-                   [arm64]
+On 2024-12-05 at 22:31:51, Suzuki K Poulose (suzuki.poulose@arm.com) wrote:
+> Hi Linu,
+> 
+> On 29/11/2024 08:47, Linu Cherian wrote:
+> > * Add support for reading crashdata using special device files.
+> >    The special device files /dev/crash_tmc_xxx would be available
+> >    for read file operation only when the crash data is valid.
+> > 
+> > * User can read the crash data as below
+> > 
+> >    For example, for reading crash data from tmc_etf sink
+> > 
+> >    #dd if=/dev/crash_tmc_etfXX of=~/cstrace.bin
+> > 
+> 
+> Unfortunately there is still a bug that I picked up, see below for the
+> barrier_packet insertion.
+> 
+> > Signed-off-by: Anil Kumar Reddy <areddy3@marvell.com>
+> > Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
+> > Signed-off-by: Linu Cherian <lcherian@marvell.com>
+> > ---
+> >   .../hwtracing/coresight/coresight-tmc-core.c  | 231 +++++++++++++++++-
+> >   .../hwtracing/coresight/coresight-tmc-etr.c   |  19 +-
+> >   drivers/hwtracing/coresight/coresight-tmc.h   |  13 +-
+> >   3 files changed, 260 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> > index 1e3938ec12cb..5f3789314c4d 100644
+> > --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> > @@ -105,6 +105,151 @@ u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata)
+> >   	return mask;
+> >   }
+> > +bool is_tmc_crashdata_valid(struct tmc_drvdata *drvdata)
+> > +{
+> > +	struct tmc_crash_metadata *mdata;
+> > +
+> > +	if (!tmc_has_reserved_buffer(drvdata) ||
+> > +	    !tmc_has_crash_mdata_buffer(drvdata))
+> > +		return false;
+> > +
+> > +	mdata = drvdata->crash_mdata.vaddr;
+> > +
+> > +	/* Check version match */
+> > +	if (mdata->version != CS_CRASHDATA_VERSION)
+> > +		return false;
+> > +
+> > +	/* Check for valid metadata */
+> > +	if (!mdata->valid) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"Data invalid in tmc crash metadata\n");
+> > +		return false;
+> > +	}
+> > +
+> > +	/*
+> > +	 * Buffer address given by metadata for retrieval of trace data
+> > +	 * from previous boot is expected to be same as the reserved
+> > +	 * trace buffer memory region provided through DTS
+> > +	 */
+> > +	if (drvdata->resrv_buf.paddr != mdata->trace_paddr) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"Trace buffer address of previous boot invalid\n");
+> > +		return false;
+> > +	}
+> > +
+> > +	/* Check data integrity of metadata */
+> > +	if (mdata->crc32_mdata != find_crash_metadata_crc(mdata)) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"CRC mismatch in tmc crash metadata\n");
+> > +		return false;
+> > +	}
+> > +	/* Check data integrity of tracedata */
+> > +	if (mdata->crc32_tdata != find_crash_tracedata_crc(drvdata, mdata)) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"CRC mismatch in tmc crash tracedata\n");
+> > +		return false;
+> > +	}
+> > +
+> > +	return true;
+> > +}
+> > +
+> > +int tmc_read_prepare_crashdata(struct tmc_drvdata *drvdata)
+> > +{
+> > +	int ret = 0;
+> > +	u32 status, size;
+> > +	u64 rrp, rwp, dba;
+> > +	unsigned long flags;
+> > +	struct tmc_resrv_buf *rbuf;
+> > +	struct tmc_crash_metadata *mdata;
+> > +
+> > +	spin_lock_irqsave(&drvdata->spinlock, flags);
+> > +
+> > +	if (drvdata->reading) {
+> > +		ret = -EBUSY;
+> > +		goto out;
+> > +	}
+> > +
+> > +	if (!is_tmc_crashdata_valid(drvdata)) {
+> > +		ret = -ENXIO;
+> > +		goto out;
+> > +	}
+> > +
+> > +	mdata = drvdata->crash_mdata.vaddr;
+> > +	rbuf = &drvdata->resrv_buf;
+> > +
+> > +	rrp = mdata->tmc_rrp;
+> > +	rwp = mdata->tmc_rwp;
+> > +	dba = mdata->tmc_dba;
+> > +	status = mdata->tmc_sts;
+> > +	size = mdata->tmc_ram_size << 2;
+> > +
+> > +	/* Sync the buffer pointers */
+> > +	rbuf->offset = rrp - dba;
+> > +	if (status & TMC_STS_FULL)
+> > +		rbuf->len = size;
+> > +	else
+> > +		rbuf->len = rwp - rrp;
+> > +
+> 
+> I believe all of the above can be done one time probe and don't need to
+> be repeated every time we do a read_prepare() ?
 
-But on arm64 platform, "rodata=full" is the default instead. This patch
-implements the following changes.
+Ack. Will do that change.
 
- - Make "rodata=on" behaviour same as the original "rodata=full"
- - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
- - Drop the original "rodata=full"
- - Add comment for arch_parse_debug_rodata()
- - Update kernel-parameters.txt as required
+> 
+> 
+> > +	/* Additional sanity checks for validating metadata */
+> > +	if ((rbuf->offset > size) ||
+> > +	    (rbuf->len > size)) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"Offset and length invalid in tmc crash metadata\n");
+> > +		return -EINVAL;
+> > +	}
+> 
+> Ideally this should also be done once and "don't expose" crash_tmc
+> device if the above is invalid in metada.
 
-After this patch, the "rodata=on" will be the default on arm64 platform
-as well.
 
-Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
----
-Add more descriptions for "noalias":
-  It is not a security feature yet.
----
- .../admin-guide/kernel-parameters.txt         |  3 ++-
- arch/arm64/include/asm/setup.h                | 27 +++++++++++++++++--
- 2 files changed, 27 insertions(+), 3 deletions(-)
+Will remove the invocation of this function during tmc_crashdata_read
+and move it to tmc_probe .
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index a22b7e621007..f5db01eecbd3 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -5901,7 +5901,8 @@
- 	rodata=		[KNL,EARLY]
- 		on	Mark read-only kernel memory as read-only (default).
- 		off	Leave read-only kernel memory writable for debugging.
--		full	Mark read-only kernel memory and aliases as read-only
-+		noalias	Use more block mappings,may have better performance.
-+			But this is not a security feature.
- 		        [arm64]
- 
- 	rockchip.usb_uart
-diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
-index ba269a7a3201..0ef57d19fc2a 100644
---- a/arch/arm64/include/asm/setup.h
-+++ b/arch/arm64/include/asm/setup.h
-@@ -13,6 +13,29 @@
- extern phys_addr_t __fdt_pointer __initdata;
- extern u64 __cacheline_aligned boot_args[4];
- 
-+/*
-+ * rodata=on (default)
-+ *
-+ *    This applies read-only attributes to VM areas and to the linear
-+ *    alias of the backing pages as well. This prevents code or read-
-+ *    only data from being modified (inadvertently or intentionally),
-+ *    via another mapping for the same memory page.
-+ *
-+ *    But this might cause linear map region to be mapped down to base
-+ *    pages, which may adversely affect performance in some cases.
-+ *
-+ * rodata=off
-+ *
-+ *    This provides more block mappings and contiguous hints for linear
-+ *    map region which would minimize TLB footprint. This also leaves
-+ *    read-only kernel memory writable for debugging.
-+ *
-+ * rodata=noalias
-+ *
-+ *    This provides more block mappings and contiguous hints for linear
-+ *    map region which would minimize TLB footprint. This is not a
-+ *    security feature yet.
-+ */
- static inline bool arch_parse_debug_rodata(char *arg)
- {
- 	extern bool rodata_enabled;
-@@ -21,7 +44,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
- 	if (!arg)
- 		return false;
- 
--	if (!strcmp(arg, "full")) {
-+	if (!strcmp(arg, "on")) {
- 		rodata_enabled = rodata_full = true;
- 		return true;
- 	}
-@@ -31,7 +54,7 @@ static inline bool arch_parse_debug_rodata(char *arg)
- 		return true;
- 	}
- 
--	if (!strcmp(arg, "on")) {
-+	if (!strcmp(arg, "noalias")) {
- 		rodata_enabled = true;
- 		rodata_full = false;
- 		return true;
--- 
-2.40.1
++       if (is_tmc_crashdata_valid(drvdata) &&
++           !tmc_prepare_crashdata(drvdata))
++               register_crash_dev_interface(drvdata, desc.name);
+        return ret;
+ }
 
+
+> 
+> 
+> > +
+> > +	if (status & 0x1)
+> 
+> minor nit: s/0x1/TMC_STS_FULL ?
+
+Ack.
+
+> 
+> > +		coresight_insert_barrier_packet(drvdata->buf);
+> 
+> And this looks completely out of nowhere and corrupting the drvdata->buf ?
+> drvdata->buf is for active sessions, which we haven't set here ?
+
+Thanks for pointing this out. Somehow missed this.
+
+> 
+> 
+> > +
+> > +	drvdata->reading = true;
+> 
+> Also, we agreed to not overload "drvdata->reading" ?
+
+> 
+> See
+> https://lkml.kernel.org/r/20241017114054.GC896339@hyd1403.caveonetworks.com
+> 
+> We are allowed to the ETR (which drvdata->reading prevents from btw) while
+> crash data is being read. You could instead move it to
+> drvdata->resrv_buf->reading ?
+
+Ack.
+
+> 
+> 
+> 
+> Suzuki
+> 
+> 
+> > +out:
+> > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> > +	return ret;
+> > +}
+> > +
+> > +int tmc_read_unprepare_crashdata(struct tmc_drvdata *drvdata)
+> > +{
+> > +	unsigned long flags;
+> > +	struct tmc_resrv_buf *rbuf;
+> > +
+> > +	spin_lock_irqsave(&drvdata->spinlock, flags);
+> > +
+> > +	rbuf = &drvdata->resrv_buf;
+> > +	/* Reset valid length */
+> > +	rbuf->len = 0;
+> > +
+> > +	drvdata->reading = false;
+> > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static inline ssize_t tmc_get_resvbuf_trace(struct tmc_drvdata *drvdata,
+> > +					  loff_t pos, size_t len, char **bufpp)
+> > +{
+> > +	s64 offset;
+> > +	ssize_t actual = len;
+> > +	struct tmc_resrv_buf *rbuf = &drvdata->resrv_buf;
+> > +
+> > +	if (pos + actual > rbuf->len)
+> > +		actual = rbuf->len - pos;
+> > +	if (actual <= 0)
+> > +		return 0;
+> > +
+> > +	/* Compute the offset from which we read the data */
+> > +	offset = rbuf->offset + pos;
+> > +	if (offset >= rbuf->size)
+> > +		offset -= rbuf->size;
+> > +
+> > +	/* Adjust the length to limit this transaction to end of buffer */
+> > +	actual = (actual < (rbuf->size - offset)) ?
+> > +		actual : rbuf->size - offset;
+> > +
+> > +	*bufpp = (char *)rbuf->vaddr + offset;
+> > +
+> > +	return actual;
+> > +}
+> > +
+> >   static int tmc_read_prepare(struct tmc_drvdata *drvdata)
+> >   {
+> >   	int ret = 0;
+> > @@ -223,6 +368,69 @@ static const struct file_operations tmc_fops = {
+> >   	.release	= tmc_release,
+> >   };
+> > +static int tmc_crashdata_open(struct inode *inode, struct file *file)
+> > +{
+> > +	int ret;
+> > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
+> > +						   struct tmc_drvdata,
+> > +						   crashdev);
+> > +
+> > +	ret = tmc_read_prepare_crashdata(drvdata);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	nonseekable_open(inode, file);
+> > +
+> > +	dev_dbg(&drvdata->csdev->dev, "%s: successfully opened\n", __func__);
+> > +	return 0;
+> > +}
+> > +
+> > +static ssize_t tmc_crashdata_read(struct file *file, char __user *data,
+> > +				  size_t len, loff_t *ppos)
+> > +{
+> > +	char *bufp;
+> > +	ssize_t actual;
+> > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
+> > +						   struct tmc_drvdata,
+> > +						   crashdev);
+> > +
+> > +	actual = tmc_get_resvbuf_trace(drvdata, *ppos, len, &bufp);
+> > +	if (actual <= 0)
+> > +		return 0;
+> > +
+> > +	if (copy_to_user(data, bufp, actual)) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"%s: copy_to_user failed\n", __func__);
+> > +		return -EFAULT;
+> > +	}
+> > +
+> > +	*ppos += actual;
+> > +	dev_dbg(&drvdata->csdev->dev, "%zu bytes copied\n", actual);
+> > +
+> > +	return actual;
+> > +
+> > +}
+> > +
+> > +static int tmc_crashdata_release(struct inode *inode, struct file *file)
+> > +{
+> > +	int ret = 0;
+> > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
+> > +						   struct tmc_drvdata,
+> > +						   crashdev);
+> > +
+> > +	ret = tmc_read_unprepare_crashdata(drvdata);
+> > +
+> > +	dev_dbg(&drvdata->csdev->dev, "%s: released\n", __func__);
+> > +	return ret;
+> > +}
+> > +
+> > +static const struct file_operations tmc_crashdata_fops = {
+> > +	.owner		= THIS_MODULE,
+> > +	.open		= tmc_crashdata_open,
+> > +	.read		= tmc_crashdata_read,
+> > +	.release	= tmc_crashdata_release,
+> > +};
+> > +
+> >   static enum tmc_mem_intf_width tmc_get_memwidth(u32 devid)
+> >   {
+> >   	enum tmc_mem_intf_width memwidth;
+> > @@ -532,6 +740,20 @@ static u32 tmc_etr_get_max_burst_size(struct device *dev)
+> >   	return burst_size;
+> >   }
+> > +static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
+> > +					 const char *name)
+> > +{
+> > +	drvdata->crashdev.name =
+> > +		devm_kasprintf(&drvdata->csdev->dev, GFP_KERNEL, "%s_%s", "crash", name);
+> > +	drvdata->crashdev.minor = MISC_DYNAMIC_MINOR;
+> > +	drvdata->crashdev.fops = &tmc_crashdata_fops;
+> > +	if (misc_register(&drvdata->crashdev)) {
+> > +		dev_dbg(&drvdata->csdev->dev,
+> > +			"Failed to setup user interface for crashdata\n");
+> > +		drvdata->crashdev.fops = NULL;
+> > +	}
+> > +}
+> > +
+> >   static int __tmc_probe(struct device *dev, struct resource *res)
+> >   {
+> >   	int ret = 0;
+> > @@ -632,8 +854,13 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+> >   	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
+> >   	drvdata->miscdev.fops = &tmc_fops;
+> >   	ret = misc_register(&drvdata->miscdev);
+> > -	if (ret)
+> > +	if (ret) {
+> >   		coresight_unregister(drvdata->csdev);
+> > +		goto out;
+> > +	}
+> > +
+> > +	if (is_tmc_crashdata_valid(drvdata))
+> > +		register_crash_dev_interface(drvdata, desc.name);
+> >   out:
+> >   	return ret;
+> >   }
+> > @@ -687,6 +914,8 @@ static void __tmc_remove(struct device *dev)
+> >   	 * handler to this device is closed.
+> >   	 */
+> >   	misc_deregister(&drvdata->miscdev);
+> > +	if (drvdata->crashdev.fops)
+> > +		misc_deregister(&drvdata->crashdev);
+> >   	coresight_unregister(drvdata->csdev);
+> >   }
+> > diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> > index fb944a68a11c..18752f58dfa6 100644
+> > --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> > +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> > @@ -2012,6 +2012,23 @@ static ssize_t buf_mode_preferred_show(struct device *dev,
+> >   	return sysfs_emit(buf, "%s\n", buf_modes_str[drvdata->etr_mode]);
+> >   }
+> > +static int buf_mode_set_resrv(struct tmc_drvdata *drvdata)
+> > +{
+> > +	unsigned long flags;
+> > +	int err = 0;
+> > +
+> > +	/* Ensure there are no active crashdata read sessions */
+> > +	spin_lock_irqsave(&drvdata->spinlock, flags);
+> > +	if (!drvdata->reading) {
+> > +		tmc_crashdata_set_invalid(drvdata);
+> > +		drvdata->etr_mode = ETR_MODE_RESRV;
+> > +
+> > +	} else
+> > +		err = -1;
+> > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+> > +	return err;
+> > +}
+> > +
+> >   static ssize_t buf_mode_preferred_store(struct device *dev,
+> >   					  struct device_attribute *attr,
+> >   					  const char *buf, size_t size)
+> > @@ -2027,7 +2044,7 @@ static ssize_t buf_mode_preferred_store(struct device *dev,
+> >   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_CATU]) && buf_hw.has_catu)
+> >   		drvdata->etr_mode = ETR_MODE_CATU;
+> >   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_RESRV]) && buf_hw.has_resrv)
+> > -		drvdata->etr_mode = ETR_MODE_RESRV;
+> > +		return buf_mode_set_resrv(drvdata) ? -EBUSY : size;
+> >   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_AUTO]))
+> >   		drvdata->etr_mode = ETR_MODE_AUTO;
+> >   	else
+> > diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> > index d76e83fc840b..2ece44e09911 100644
+> > --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> > +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> > @@ -195,11 +195,15 @@ struct etr_buf {
+> >    * @paddr	: Start address of reserved memory region.
+> >    * @vaddr	: Corresponding CPU virtual address.
+> >    * @size	: Size of reserved memory region.
+> > + * @offset	: Offset of the trace data in the buffer for consumption.
+> > + * @len	: Available trace data @buf (may round up to the beginning).
+> >    */
+> >   struct tmc_resrv_buf {
+> >   	phys_addr_t     paddr;
+> >   	void		*vaddr;
+> >   	size_t		size;
+> > +	unsigned long	offset;
+> > +	s64		len;
+> >   };
+> >   /**
+> > @@ -208,6 +212,8 @@ struct tmc_resrv_buf {
+> >    * @base:	memory mapped base address for this component.
+> >    * @csdev:	component vitals needed by the framework.
+> >    * @miscdev:	specifics to handle "/dev/xyz.tmc" entry.
+> > + * @crashdev:	specifics to handle "/dev/crash_tmc_xyz" entry for reading
+> > + *		crash tracedata.
+> >    * @spinlock:	only one at a time pls.
+> >    * @pid:	Process ID of the process that owns the session that is using
+> >    *		this component. For example this would be the pid of the Perf
+> > @@ -227,7 +233,7 @@ struct tmc_resrv_buf {
+> >    * @idr_mutex:	Access serialisation for idr.
+> >    * @sysfs_buf:	SYSFS buffer for ETR.
+> >    * @perf_buf:	PERF buffer for ETR.
+> > - * @resrv_buf:	Used by ETR as hardware trace buffer and for trace data
+> > + * @resrv_buf:  Used by ETR as hardware trace buffer and for trace data
+> >    *		retention (after crash) only when ETR_MODE_RESRV buffer
+> >    *		mode is enabled. Used by ETF for trace data retention
+> >    *		(after crash) by default.
+> > @@ -239,6 +245,7 @@ struct tmc_drvdata {
+> >   	void __iomem		*base;
+> >   	struct coresight_device	*csdev;
+> >   	struct miscdevice	miscdev;
+> > +	struct miscdevice	crashdev;
+> >   	spinlock_t		spinlock;
+> >   	pid_t			pid;
+> >   	bool			reading;
+> > @@ -309,6 +316,8 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
+> >   void tmc_enable_hw(struct tmc_drvdata *drvdata);
+> >   void tmc_disable_hw(struct tmc_drvdata *drvdata);
+> >   u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
+> > +int tmc_read_prepare_crashdata(struct tmc_drvdata *drvdata);
+> > +int tmc_read_unprepare_crashdata(struct tmc_drvdata *drvdata);
+> >   /* ETB/ETF functions */
+> >   int tmc_read_prepare_etb(struct tmc_drvdata *drvdata);
+> > @@ -371,6 +380,8 @@ void tmc_sg_table_sync_data_range(struct tmc_sg_table *table,
+> >   				  u64 offset, u64 size);
+> >   ssize_t tmc_sg_table_get_data(struct tmc_sg_table *sg_table,
+> >   			      u64 offset, size_t len, char **bufpp);
+> > +
+> > +bool is_tmc_crashdata_valid(struct tmc_drvdata *drvdata);
+> >   static inline unsigned long
+> >   tmc_sg_table_buf_size(struct tmc_sg_table *sg_table)
+> >   {
+> 
+> 
 
