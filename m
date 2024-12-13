@@ -4,101 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752A2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 19:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D10E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 20:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Jy02I8L9+UUCTrVx4uPx9NaL+wtkq5/AQwepBZ4NI9A=; b=kE55GLyAAsokgT9OI00MHtNIyv
-	1oEjMJ82ryZJbzmK/z2OqFEffXtoO52aXZ5vii1xLJHvNBmFl5Vq8F4EH+haMS6GOVRiFA9k7nw6T
-	EZZt6J5RHPxVmHie6hErCvxRQ9JKih6zRIK+DVsPDPZut81Cb1qVC2ZCLp1RlynqdQK9xCHPDITxR
-	vfY/i4iYTexGoVzpu4169o4VIvD+Kqapwi9Ad/STCODHwTVFJMOGthFbDYNbGrpqGvfc3Bj4/35cr
-	pGSLFpLJL5SX27+QkuKGOkjxdIcXBgCbSVSU8Z2sESs03L5XLW+ZMnWqiUvY2B0s/6xu5m2C3qRRO
-	zucP/ElQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WjFjYpSxXBJz9M1hdmG3iiPhNXo18zA2UB8YwR16DTw=; b=d9ytE4XwWh87kOISBfBKwpZZwI
+	iLIJBYhQimE4xQF4Oqa79CooejrF+I6W391JF7J8WzrnSfko11Rz2W9ni+Arsp4ks8x/B5sbHtEcc
+	VzQd1AZRnXsGJhPDIbD5pzbka916e6II/IZxvRiXH5zPEk/p26m+RdTJzz2bHinEd5RVr1q6jnUMI
+	63SD2o41u9ehFXyIfKgfFGgFyLVpAoWv+b0Vo8f5pfyFa4wyRi6ODP66JsRQTOWikejjloG6ivVjj
+	teZmGp1zitOKwDEmzgG/uIT0+/ot8d8+0itNArAkUmpXZbRAyq2D9tNvxrWCZA6yuMxyBNubRcxPC
+	t/Y2jJPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBlP-00000004tIp-09Di;
-	Fri, 13 Dec 2024 19:55:51 +0000
-Received: from relay3.uni-heidelberg.de ([129.206.100.213])
+	id 1tMBrd-00000004up2-3pdb;
+	Fri, 13 Dec 2024 20:02:17 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBkJ-00000004t53-0yV6
+	id 1tMBqY-00000004uQb-1V82
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 19:54:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=uni-heidelberg.de; i=@uni-heidelberg.de; q=dns/txt;
-  s=s1; t=1734119683; x=1765655683;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=zFml9V48tq1Bs/Zu8HpapxYWnav6z7nwM0EEjEzGWV0=;
-  b=MB9YonuPaDCbHPEOKDqiKKRb3zbfAvdam/3G79WWciuEwehF5whekcvh
-   QKjaCeIounzdAMMJnSMPEjuz2U+RAH1q2MzfGd0zTOucTXcenvcqQMZKg
-   k1yBt6rs9v2UVgolv0Ds3TvsyxD4giS7sNqHZfqjaLUrZPSeBOHwc63bR
-   AkoCYySDvKrBymvGKQrbChPy67FC9i4kk8YD0giX8OjtN8T5m9brAkToS
-   QUfqlzmzX+brI/UE8jgRgVDa05/IvnGSl5AEuwE2eB/2SQ2OtHnR37z68
-   2Ev1KpXRAql7RmrrrVXBvZBKy98NFPSHicvZf1gD7YxO2g79aSSoY6sER
-   w==;
-X-CSE-ConnectionGUID: +ub3uNglS8mJbHVh7XVuPA==
-X-CSE-MsgGUID: OFt8zcDWTwaDCed5i4LwPQ==
-X-IPAS-Result: =?us-ascii?q?A2AWAwDYj1xn/1BqzoFagQmBU4IcgwmEVbAJFIF5AQEBA?=
- =?us-ascii?q?QEBAQEBCUQEAQGFB4puKDQJDgECBAEBAQEDAgMBAQEBAQEBAQ4BAQYBAQEBA?=
- =?us-ascii?q?QcFgSGGCIcEVjIDAiYCFjoOARKFZrFigTKBAd5KgVaBGi6ITgGFazuCDYR+g?=
- =?us-ascii?q?RQBg2iEJQU2gz46gi8EiRydO4FNeDIBVRMXCwcFgTo6AyIMNjECgR6BAhQGF?=
- =?us-ascii?q?QSBC0Y9gklpSToCDQI2aYE7JFiCTYUZhGWEVYJLVYJ9ghl8gSEdQAMLbT03B?=
- =?us-ascii?q?g4bnSVGhxijZKMjB6ViBBYzl1GTAJYbgmAiqQiBZ4IVMz6DNlIZD49PAQLFB?=
- =?us-ascii?q?nc8AgcLAQEDCZFtAQE?=
-IronPort-Data: A9a23:1HeE5q3I+T8eX8BU3/bD5Y12kn2cJEfYwER7XKvMYLTBsI5bpzEPz
- 2sYCmCOO/zcZmqnKd4iYYzi8khUuZ7VyNNgHlNv3Hw8FHgiRejtXInGdBeuY0t+DSFhoGZPt
- Zh2hgzodZhsJpPkjk7wdOCn9z8kjv3gqoPUUIbsIjp2SRJvVBAvgBdin/9RqoNziLBVOSvV0
- T/Ji5OZYQXNNwJcaDpOt/vZ8Ug35pwehRtB1rAATaET1LPhvyRNZH4vDfnZB2f1RIBSAtm7S
- 47rpF1u1jqEl/uFIorNfofTKiXmcJaLVeS9oiI+t5yZv/R3jndaPpDXlBYrQRw/Zz2hx7idw
- TjW3HC6YV9B0qbkwIzxX/TEes1zFfUuxVPJHZSwmY+OxRbbVXTo+KVrLksWA41HythqOUgbo
- JT0KBhVBvyCr+a7xbW9DOhznII+KsiuPI4etnxkxzzDArAqTPgvQY2Tv44ehm9uwJkWQ7COP
- 6L1ahI2BPjESx1LM0oaEro6keKvgD/+bCcetVSU4Ko64mTeyAZ8yrerPNe9ltmiH58LxBnB/
- jyYl4j/KjY0KIyNwha6zm2lqsTCkX76BKYNLITto5aGh3XJnzdCVUZIPbehmtGjjUS+c9FSM
- UoZ/mwpt6da3E+xXNq+UwGQo3OeuBMYHd1KHIUS4waLzbCX7xqxBWUeSDNFLts8u6ceWjEsz
- XeChNLkQzt1v9W9S3+H8LqW6yixIyEfIGQqaioNTA9D6N7myKkohxfSQ9JLC66yitn8Hz22x
- CqFxAA6hrMOnYsCzaD+/l3dhT+ojpzIVRIuoATRUHis4g5waMiifYPAwVza6+tQaZ2ESEmAl
- HwFgNSFquQPC4yd0iCAXo0lELy35v2ILCfRjHZxEJQ7sTeg4XiuecZX+j4WDENoNNsUPDzke
- knevStP65JJenind6l6Z8S2EctC8ET7PdDoU/fSKNtReN5scg7C/CxvaUOU1W33nw4gnMnTJ
- Kt3b+7vEHxBFIJoyAHmQsUX8YErmRAA2Fv6EMWTIwuc7ZKSY3ucSLEgOVSIb/wk4K7snOkz2
- 4sOXydt40gEONASchXqHZgvwUciAVVTOHwbg8hac+mFZAt5Aic8Df6Uwb4gd4FhlalPmaHE8
- xlRu3O0KnKl3RUryi3TNBiPjY8Dur4l9RoG0dQEZwrA5pTaSd/HAWd2X8JfkUMb3OJi1+Voa
- PIOZt+NBP9CIhyepG9BNcOt9t05JU/w7e5rA8ZDSGVuF3KHb1GSkuIIgiOynMXzJnPs7JBk8
- 9VMKCuHG8VfL+idMComQKj2lALs5iZ1dBNaQk3JPNRJY0Tw+YV2Yyz8j/M6J8sBMxqr+9dp/
- 1j+PPrZzMGTy7IIHC7h3PDV9NvzQrciRiK33QDztN6LCMUTxUL7qacobQpCVWm1uL/ckEl6W
- dho8g==
-IronPort-HdrOrdr: A9a23:rY+Rk61FrAls5XRAVLpPOQqjBJAkLtp133Aq2lEZdPUzSL38qy
- nOpoV56faQsl0ssR4b6LK90cW7L080sKQFhbX5Xo3PYOCFggSVxehZhOOO/9SjIVyYygc378
- ddmsZFaeHYMXg/q9rm6w+lFNsazMCA673Av5an8593JzsaDZ2IAj0JczpymSBNLjV7OQ==
-X-Talos-CUID: 9a23:arNhm2Fey9i/vTZ2qmIk6URPB+YqdkaNyVXaA3G4VlZXVYW8HAo=
-X-Talos-MUID: =?us-ascii?q?9a23=3AjMg1/Q+zjebslZCPOxUPhzOQf+BG//S8A2wyrYo?=
- =?us-ascii?q?Pl+KJOXFxZxOCtA3iFw=3D=3D?=
-X-IronPort-Anti-Spam-Filtered: true
-Received: from lemon.iwr.uni-heidelberg.de ([129.206.106.80])
-  by relay3.uni-heidelberg.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Dec 2024 20:54:34 +0100
-Received: from hlauer by lemon.iwr.uni-heidelberg.de with local (Exim 4.92)
-	(envelope-from <hlauer@lemon.iwr.uni-heidelberg.de>)
-	id 1tMBk9-0000QN-SP; Fri, 13 Dec 2024 20:54:33 +0100
-Date: Fri, 13 Dec 2024 20:54:33 +0100
-From: Hermann.Lauer@uni-heidelberg.de
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
-Message-ID: <20241213195433.GA1568@lemon.iwr.uni-heidelberg.de>
+	Fri, 13 Dec 2024 20:01:11 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6d8f99cb0d9so19308336d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 12:01:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1734120067; x=1734724867; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WjFjYpSxXBJz9M1hdmG3iiPhNXo18zA2UB8YwR16DTw=;
+        b=ZznwfE8nhMNKn88jRH6E6iqeCagm5oFSwTpfVCNktv0zSahPQv1Klc8DXsCKZD8sbR
+         PQU/mL3cm9zGEWrhrLsx2yN15CiPo9W+o3H+D4onCBpjQlzJFMAtzjuglhel+Z6fKFmw
+         4ZBy/SZuEqDl7Cf/6iEskovEBD43SW4Ta9cN5ea6B7H9t2n8du2t1j+wXSWxhxJLVr0h
+         /LcmTfq6wcYw9I5ysASNMlXjowNQCFYzf4YSIdaQnYPfJxE1svZYCSLvkQl3SfKG/kv1
+         IsivQQ0V4rbSIB/dkeDqbJ02W22OrgfCsp9F30rG8LExW4ZYeK8eic+KXN/FzZosg4qM
+         SkCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734120067; x=1734724867;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WjFjYpSxXBJz9M1hdmG3iiPhNXo18zA2UB8YwR16DTw=;
+        b=ZRW46RTqxcK9+tOCgEZuujzHR3FexplMI8DtqNpmc0eOcrsuRSNbdmxtQshANMVQV3
+         riACRVVcVq9WYAD1SWHitVy/aA97ZWG5QG9uj9jaH4PtXp6eCAo2wrx9YYDifPMLyTV5
+         GhSVNgCvr0shs/nVMcDQVDoLrSAF3djCq9qJjvvfh2FgSx5BTutF96t8MVTpzir2VO16
+         RUz1uqyWvCWI8QkxssgZWZ3ERJ2tFngV9KcicUtRE+/uMLicQnJa6pHNNgBEaMw3F6pm
+         0V3jMor3WyLADGp8gmcO6EMrJl2t3hNIFxpx3ca+j3VGZUQvrTb8YlZ8CgOwjGzaLXmY
+         tw7A==
+X-Forwarded-Encrypted: i=1; AJvYcCWfDOQ4XJPzG+V/5gWYjSsKcDIhQKbM+NkF631S4NWWiCVneog2Xlnn5ko6om6e6Cnydh7wWlLkcuu2qSn/PwIb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvMt3JP2KW4mFOjnvTwpr4NuAv28U7GCKdhRTKz1W9BeenWOkX
+	EY+mfSorvKL7FvTLDcmI/p6tROTFhKKXdVDI9av+WyBOXDxW40i7atv6TlJXMxNFHgjGGgi87gH
+	n+LqVGyXt6pjTiRYsaVSP2uTVVDrBZvoEnrvQOzLgA/bfXN+wo9Y=
+X-Gm-Gg: ASbGncvRasJrIWyJprynJOFFN55byWsPUU2mDvjtsa+1diXhB9sKaS2lIUz7M9WuuFQ
+	mFdOxjm/FHXwaPbr2P1nm9wiqsWs1+Tq4yF8unw==
+X-Google-Smtp-Source: AGHT+IEywBNIbwjppPoVSQ/XELBsV0fF8sTiDrKGwA9AnZLBRibm/aOssHinTtzowKOKfn5HmY+4fB4H6J+nE2ZGRjI=
+X-Received: by 2002:a17:90b:2242:b0:2ee:ba0c:1726 with SMTP id
+ 98e67ed59e1d1-2f2901b253dmr5268444a91.34.1734119680395; Fri, 13 Dec 2024
+ 11:54:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
+In-Reply-To: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Fri, 13 Dec 2024 20:54:29 +0100
+Message-ID: <CA+HBbNG0k24fO5OG42jw-7trWbT3iVTdo6Hh=55s1MaTh28p-A@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 0/9] net: lan969x: add RGMII support
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Lars Povlsen <lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>, 
+	jacob.e.keller@intel.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_115443_845491_59C366CF 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241213_120110_439970_D202360F 
+X-CRM114-Status: GOOD (  31.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,45 +98,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Subject: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
+On Fri, Dec 13, 2024 at 2:41=E2=80=AFPM Daniel Machon
+<daniel.machon@microchip.com> wrote:
+>
+> =3D=3D Description:
+>
+> This series is the fourth of a multi-part series, that prepares and adds
+> support for the new lan969x switch driver.
+>
+> The upstreaming efforts is split into multiple series (might change a
+> bit as we go along):
+>
+>         1) Prepare the Sparx5 driver for lan969x (merged)
+>
+>         2) Add support for lan969x (same basic features as Sparx5
+>            provides excl. FDMA and VCAP, merged).
+>
+>         3) Add lan969x VCAP functionality (merged).
+>
+>     --> 4) Add RGMII support.
+>
+>         5) Add FDMA support.
+>
+> =3D=3D RGMII support:
+>
+> The lan969x switch device includes two RGMII port interfaces (port 28
+> and 29) supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps.
+>
+> =3D=3D Patch breakdown:
+>
+> Patch #1 does some preparation work.
+>
+> Patch #2 adds new function: is_port_rgmii() to the match data ops.
+>
+> Patch #3 uses the is_port_rgmii() in a number of places.
+>
+> Patch #4 makes sure that we do not configure an RGMII device as a
+>          low-speed device, when doing a port config.
+>
+> Patch #5 makes sure we only return the PCS if the port mode requires
+>          it.
+>
+> Patch #6 adds checks for RGMII PHY modes in sparx5_verify_speeds().
+>
+> Patch #7 adds registers required to configure RGMII.
+>
+> Patch #8 adds RGMII implementation.
+>
+> Patch #9 documents RGMII delays in the dt-bindings.
+>
+> Details are in the commit description of the individual patches
+>
+> To: UNGLinuxDriver@microchip.com
+> To: Andrew Lunn <andrew+netdev@lunn.ch>
+> To: David S. Miller <davem@davemloft.net>
+> To: Eric Dumazet <edumazet@google.com>
+> To: Jakub Kicinski <kuba@kernel.org>
+> To: Paolo Abeni <pabeni@redhat.com>
+> To: Lars Povlsen <lars.povlsen@microchip.com>
+> To: Steen Hegelund <Steen.Hegelund@microchip.com>
+> To: Horatiu Vultur <horatiu.vultur@microchip.com>
+> To: Russell King <linux@armlinux.org.uk>
+> To: jacob.e.keller@intel.com
+> To: robh@kernel.org
+> To: krzk+dt@kernel.org
+> To: conor+dt@kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: netdev@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: robert.marko@sartura.hr
+>
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 
-Banana Pi M2 Ultra V1.1 board resets immediately when the usb core tries
-to setup PH23 GPIO. It turned out that the V1.0 board USB-A ports are
-always power supplied and according to the board scheme PH23 is simply
-not connected.
+Tested-by: Robert Marko <robert.marko@sartura.hr>
 
-So remove the PH23 setup: Doesn't harm V1.0 (with R40) and let V1.1
-(with A40i) start.
+> ---
+> Changes in v4:
+>
+> - Split patch #4 in v3 into two patches, where the new patch #5 handles
+>   PCS selection, by returning the PCS only for ports that require it.
+>
+> - Got rid of the '|' symbol for {rx,tx}-internal-delay-ps property
+>   description in the dt-bindings (patch #9).
+>
+> - Link to v3: https://lore.kernel.org/r/20241118-sparx5-lan969x-switch-dr=
+iver-4-v3-0-3cefee5e7e3a@microchip.com
+>
+> Changes in v3:
+>
+> v2 was kindly tested by Robert Marko. Not carrying the tag to v3 since
+> we have changes to the handling of the delays.
+>
+> - Modified lan969x_rgmii_delay_config() to not apply any MAC delay when
+>   the {rx,tx}-internal-delay-ps properties are missing or set to 0
+>   (patch #7).
+>
+> - Removed 'required' constraint from {rx-tx}-internal-delay-ps
+>   properties. Also added description and default value (Patch #8).
+>
+> - Link to v2: https://lore.kernel.org/r/20241113-sparx5-lan969x-switch-dr=
+iver-4-v2-0-0db98ac096d1@microchip.com
+>
+> Changes in v2:
+>
+>   Most changes are in patch #7. RGMII implementation has been moved to
+>   it's own file lan969x_rgmii.c.
+>
+>   Details:
+>
+>     - Use ETH_P_8021Q and ETH_P_8021AD instead of the Sparx5 provided
+>       equivalents (patch #7).
+>     - Configure MAC delays through "{rx,tx}-internal-delay-ps"
+>       properties (patch #7).
+>     - Add selectors for all the phase shifts that the hardware supports
+>       (instead of only 2.0 ns, patch #7).
+>     - Add selectors for all the port speeds (instead of only 1000 mbps.)
+>     - Document RGMII delays in dt-bindings.
+>
+>   - Link to v1: https://lore.kernel.org/r/20241106-sparx5-lan969x-switch-=
+driver-4-v1-0-f7f7316436bd@microchip.com
+>
+> ---
+> Daniel Machon (9):
+>       net: sparx5: do some preparation work
+>       net: sparx5: add function for RGMII port check
+>       net: sparx5: use is_port_rgmii() throughout
+>       net: sparx5: skip low-speed configuration when port is RGMII
+>       net: sparx5: only return PCS for modes that require it
+>       net: sparx5: verify RGMII speeds
+>       net: lan969x: add RGMII registers
+>       net: lan969x: add RGMII implementation
+>       dt-bindings: net: sparx5: document RGMII delays
+>
+>  .../bindings/net/microchip,sparx5-switch.yaml      |  18 ++
+>  drivers/net/ethernet/microchip/sparx5/Makefile     |   3 +-
+>  .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   5 +
+>  .../ethernet/microchip/sparx5/lan969x/lan969x.h    |  10 +
+>  .../microchip/sparx5/lan969x/lan969x_rgmii.c       | 224 +++++++++++++++=
+++++++
+>  .../net/ethernet/microchip/sparx5/sparx5_main.c    |  29 ++-
+>  .../net/ethernet/microchip/sparx5/sparx5_main.h    |   3 +
+>  .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 145 +++++++++++++
+>  .../net/ethernet/microchip/sparx5/sparx5_phylink.c |  14 +-
+>  .../net/ethernet/microchip/sparx5/sparx5_port.c    |  57 ++++--
+>  .../net/ethernet/microchip/sparx5/sparx5_port.h    |   5 +
+>  11 files changed, 484 insertions(+), 29 deletions(-)
+> ---
+> base-commit: 2c27c7663390d28bc71e97500eb68e0ce2a7223f
+> change-id: 20241104-sparx5-lan969x-switch-driver-4-d59b7820485a
+>
+> Best regards,
+> --
+> Daniel Machon <daniel.machon@microchip.com>
+>
 
-Signed-off-by: Hermann Lauer <Hermann.Lauer@uni-heidelberg.de>
----
-V2: shorten subject, rm dangerous PH23 regulator completely
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
---- a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-+++ b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-@@ -91,15 +91,6 @@
- 		};
- 	};
- 
--	reg_vcc5v0: vcc5v0 {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc5v0";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		gpio = <&pio 7 23 GPIO_ACTIVE_HIGH>; /* PH23 */
--		enable-active-high;
--	};
--
- 	wifi_pwrseq: pwrseq {
- 		compatible = "mmc-pwrseq-simple";
- 		reset-gpios = <&pio 6 10 GPIO_ACTIVE_LOW>; /* PG10 WIFI_EN */
-@@ -347,7 +338,5 @@
- };
- 
- &usbphy {
--	usb1_vbus-supply = <&reg_vcc5v0>;
--	usb2_vbus-supply = <&reg_vcc5v0>;
- 	status = "okay";
- };
+--=20
+Robert Marko
+Staff Embedded Linux Engineer
+Sartura d.d.
+Lendavska ulica 16a
+10000 Zagreb, Croatia
+Email: robert.marko@sartura.hr
+Web: www.sartura.hr
 
