@@ -4,108 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DF0E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4C5E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2++DaGNihPLgEq9BWuayqmu/bK1oH8xdW4tWgQL3QcY=; b=iyGWLlIVoYEfT8cZtylXCrQZBY
-	99Z9XkdHbp0L/Y4tjxll7fddA9tz77w0yma8w4oxhvqXEAlLvp8jouo4oNPKUwlICeWCuP7gr3hgo
-	AS9V7Ega/JOfAqOuPdUAvNzvgqw+K9zmwV8UxCEiQyojjr3T+vGRQgD6HxcqLo5oxaU0QyGkkQfpQ
-	lyzDFN2C2NArpgGowYZ3LSrlEYb7HSREm17nM+yePZYXUW+rXCxG4/TH8j8/L2X0qDPU3EKtAsMnl
-	M9W8wD92l9ekJ2+Pn+ejEY1jWDF5Jb2l8VEkAUDNsRrAbcvb4l+/stBQ5De5bYxMiCutAP+gR2uUl
-	H/CVQqXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WDgREbSUzQmLdhmkynanAv1+cQFPmmOlAOIJInXPqbI=; b=trnwLI3rCjTijv4rhstXz1Uu2r
+	+wbmYBMxfMD0cofIsSexHkHpuim/W9FhXC9Tkkp5MROC4tW4gcBCXvEEr6Hsh6zuypuBZy1Dlgo+K
+	7IKXjwU7cwWz+w+YjmGQa2Gnx7umi0sq41pHxELtuOjek3UgOdtB12DNnHWHXdkbaFPVm4m11BNed
+	nbqls5YUfQTaWCgpsLFmB9V4VVGVwdY9XAS701Sd+C93fZ+vDxZ+5Z/CplpjZX+s42c3ocI2LN7RJ
+	OrWW/vljRn/oTHR0xdaLdSoLvq0fk3Z+BrZ97lNokESrYqvct0Uu7wGiF/JJQyWn6Ec09nQnbTn+u
+	VQr2LHpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2DV-00000003IwM-3Fjl;
-	Fri, 13 Dec 2024 09:44:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tM2EY-00000003J3m-1zNm;
+	Fri, 13 Dec 2024 09:45:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2Bb-00000003IVG-1Com
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Dec 2024 09:42:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2++DaGNihPLgEq9BWuayqmu/bK1oH8xdW4tWgQL3QcY=; b=AYDOJp8iWY+Ezk9OzcI4YxKlOq
-	fB5pt7hBAimOiFAGWerP/BcXRDReUjzTtYD81o7htmeTJHKWZwsG7rLQ7LVRq2/aX5Mi/xHe3bG43
-	8Poqfr/G3VamWaESb4mScqSgz2FNzgfQW1xvYNHbutvfKF7oE1j5QqC0BC8mKTkVh1EiJDVME6qRt
-	AG0ndJNinnD+opOxtDxC2ZDksSYl8rpXwSokeJcnmPUdjnNHcHt74VstpQ+JjwMLD9RUeKAbOGQ6/
-	zqhlO1d1fTPkYuz42XTm3VoUrokZDfSjiIkRJP5ZaOGfur+yioel4x9aZyVoBHiFWKbtHO85u5FP3
-	4IEbSv9g==;
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2BX-00000004F7x-3FKV
+	id 1tM2Bd-00000003IVh-2Gqb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 09:42:14 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-aa6997f33e4so229097566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 01:42:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734082928; x=1734687728; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2++DaGNihPLgEq9BWuayqmu/bK1oH8xdW4tWgQL3QcY=;
-        b=M3e9GOpFSS9tNkPtFHy/7TXiQcM/yiw3fDq5syx+CTkEhK6Av4+qFg4ku0AhtAVDyP
-         Hg/uHe3VxUk1T4AhLU7Ry2cMWrzLEOux+/3+CwSiPkzg9N9OusGunm04BP8bwFpcLe53
-         +ZxB6IEXKvdWOv7mzr6Q4iObklDupalowm42MD8C3/BnvEykZUSHiSgLwvPOMoynoNGu
-         ZLAMeOA6nkNzpFjcKrzX+k5yLsjZJQz82UX/YWh9ACsoarlK532HF+u0Kb1bBysxlo6G
-         5UmTw9Gwf8QcsIAscRnDBXGzSxENiL4oLjb52MDOPRK7r+4mR3w+duRtodXXq8h4Ip7/
-         Wqgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734082928; x=1734687728;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2++DaGNihPLgEq9BWuayqmu/bK1oH8xdW4tWgQL3QcY=;
-        b=CBqEFh0V9jccJgQzzaqVFF7eZvFfCHLMGrqkMdBPAFJNuucQ0LcxbvyRyyTxaH6jT4
-         f6vUWrJFiyyw1OxlTD9EkXYzdWt5Dw8yEk5emudevYupiKKIF5FKInBSHRtHfoSOjcTu
-         DIElnfREVRik+NzHoq7n94GMzDFbpC61iPFdJqR2KBqEjGANbBX8rhiaN6HDp+AXJo3P
-         /6lYXWcdlCZk9aVlSVRrvkOAvT2dec1/CTZv7IrzaXnkJ4UGPfb4OJWOBkIxnqFXsqOh
-         vyameZYRag+It5vTf45iDRxWfMl9QWF58uCYACXLWvY8YWyJkvUFUIXYWBn4bg9Uexel
-         hIkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUwpH4XL9NVVvqLGN0vKfWC4yhLio+oNzq1FYhFFVG00Jxygr3kAn3g+ty9G5Z6SCbFv2bS8dAtXa3CLcLuh2i5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqpymmKLezBCcBDwklAogoGvJVdQrTNMM+e1Mu1+6bf2w9zKk9
-	1PQxXngawTPvrurjQqvsdvRvKr5ZxBY0jDZxnvrVRg+RDg54At0H
-X-Gm-Gg: ASbGncvxR/1IxEGXI0CgY0wZf29UKJI/t2L/kj1EK46Wq+1G4RyEolrfYpfTi/vZVl8
-	0Pn8dJZaDkoOMFXGsjy8uAXwN2G+PCOJwaCdLoSRc+pLFvOIZn/BNzyJOSwTM+DnWSOUqsDHSY+
-	gJlXbDPZkNsmnfjXwEYLJvv/B/P1ypSUN+5MXbx8/OJ1D+AZHlOuNdXHwe0Ty5Le6DL4bpUh9uQ
-	qlz05Frntl3BdYgTostT0R+a2LAGrT2ZAyLmfyy3paPaktEHC3t1wCsBIL80P4E9w7m
-X-Google-Smtp-Source: AGHT+IGheOwCe2Fckm4wGg8Nxl3EPKxiw37V6nphHSmYMUmfG8XndD5bd3SZ44kj478TmkrKb+7teA==
-X-Received: by 2002:a17:907:9557:b0:aa6:63e2:535c with SMTP id a640c23a62f3a-aab779b4b78mr162848066b.28.1734082928056;
-        Fri, 13 Dec 2024 01:42:08 -0800 (PST)
-Received: from [192.168.31.111] ([194.39.226.133])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa66ef6409esm825909366b.149.2024.12.13.01.42.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Dec 2024 01:42:07 -0800 (PST)
-Message-ID: <2a7f71b6-0967-40ee-9d0f-d7144eafcd5a@gmail.com>
-Date: Fri, 13 Dec 2024 11:42:04 +0200
+	Fri, 13 Dec 2024 09:42:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A92E45C62B2;
+	Fri, 13 Dec 2024 09:41:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19E4DC4CED0;
+	Fri, 13 Dec 2024 09:42:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734082936;
+	bh=++bhXlD9Y7I5XHvBU93y5RbnTsWThKKRO/NBUtN7RhM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c+ggrJGbh8WNoUrxYl6GHuDtRMflrlTKIiKD4tKOzvcS2g9SJInRK698lYvhUVeGb
+	 EgczYJPPbg23J8BurEC0ZSp9z5DEjG8AIADfXygLsLX3ynxNkXMdCu2ADMynvX7R2Z
+	 huv/FCOPgcg+bUZmZqoL977JQX1+nfgZfSyW07yAFXgQJhQWjCUiI3disR4RVeqbkv
+	 bVDj/7fmWzrVcg2xuYeuexsoC/J+wbAh4a1i3HTPal62NbKuaWinnb3GMQGobg1gjL
+	 K2OkbKS64+Ywa4hQ80ylj9sGM3lKBedeVAs5dCnyGn8awlEn6EdpGW1I3ndWGoaqRi
+	 9yxZqSJgfhjgA==
+Date: Fri, 13 Dec 2024 10:42:14 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>
+Subject: Re: [PATCH stm32-next 1/2] dt-bindings: arm: stm32: add compatible
+ strings for Linux Automation GmbH LXA FairyTux 2
+Message-ID: <h5gcnt6g5py4shyjpxlr77njkihwepdrn62poii6vyoyvwximv@fmb4becmsvwq>
+References: <20241210-lxa-fairytux-v1-0-9aea01cdb83e@pengutronix.de>
+ <20241210-lxa-fairytux-v1-1-9aea01cdb83e@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] soc: samsung: Add a driver for Samsung SPEEDY host
- controller
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Maksym Holovach <nergzd@nergzd723.xyz>
-References: <20241212-speedy-v1-0-544ad7bcfb6a@gmail.com>
- <20241212-speedy-v1-2-544ad7bcfb6a@gmail.com>
- <f08b068e-bc6b-4d9d-9839-370883309b88@kernel.org>
-Content-Language: en-US
-From: Markuss Broks <markuss.broks@gmail.com>
-In-Reply-To: <f08b068e-bc6b-4d9d-9839-370883309b88@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241210-lxa-fairytux-v1-1-9aea01cdb83e@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_094212_057261_EA51184D 
-X-CRM114-Status: GOOD (  34.25  )
+X-CRM114-CacheID: sfid-20241213_014217_620786_E37FAA65 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,476 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Tue, Dec 10, 2024 at 10:32:27AM +0100, Marc Kleine-Budde wrote:
+> From: Leonard G=C3=B6hrs <l.goehrs@pengutronix.de>
+>=20
+> The Linux Automation GmbH FairyTux2 is a small Linux device based on
+> an Octavo Systems OSD32MP153c SiP, that occupies just two slots on a
+> DIN rail.
+>=20
+> Add compatible for the generation 1 and 2 based on the STM32MP153c.
+>=20
+> Signed-off-by: Leonard G=C3=B6hrs <l.goehrs@pengutronix.de>
+> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+> ---
+>  Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-On 12/13/24 9:49 AM, Krzysztof Kozlowski wrote:
-> On 12/12/2024 22:09, Markuss Broks wrote:
->> Add a driver for Samsung SPEEDY serial bus host controller.
->> SPEEDY is a proprietary 1 wire serial bus used by Samsung
->> in various devices (usually mobile), like Samsung Galaxy
->> phones. It is usually used for connecting PMIC or various
->> other peripherals, like audio codecs or RF components.
->>
->> This bus can address at most 1MiB (4 bit device address,
->> 8 bit registers per device, 8 bit wide registers:
->> 256*256*16 = 1MiB of address space.
->>
->> Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
->> Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
->> Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
->> ---
->>   drivers/soc/samsung/Kconfig               |  13 +
->>   drivers/soc/samsung/Makefile              |   2 +
->>   drivers/soc/samsung/exynos-speedy.c       | 457 ++++++++++++++++++++++++++++++
->>   include/linux/soc/samsung/exynos-speedy.h |  56 ++++
->>   4 files changed, 528 insertions(+)
->>
->> diff --git a/drivers/soc/samsung/Kconfig b/drivers/soc/samsung/Kconfig
->> index 1a5dfdc978dc4069eb71c4e8eada7ff1913b86b3..a38150fc9999ded1e1e93e2a9ef43b88175d34bd 100644
->> --- a/drivers/soc/samsung/Kconfig
->> +++ b/drivers/soc/samsung/Kconfig
->> @@ -49,6 +49,19 @@ config EXYNOS_PMU_ARM_DRIVERS
->>   	bool "Exynos PMU ARMv7-specific driver extensions" if COMPILE_TEST
->>   	depends on EXYNOS_PMU
->>   
->> +config EXYNOS_SPEEDY
->> +	tristate "Exynos SPEEDY host controller driver"
->> +	depends on ARCH_EXYNOS || COMPILE_TEST
->> +	depends on OF
->> +	depends on REGMAP_MMIO
->> +	help
->> +	  Enable support for Exynos SPEEDY host controller block.
->> +	  SPEEDY is a 1 wire proprietary Samsung serial bus, found in
->> +	  modern Samsung Exynos SoCs, like Exynos8895 and newer.
->
-> I did not check that much but this looks like 1wire for which we have
-> subsystem. Please investigate more and figure out the differences.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This is not compatible with Dallas Semi 1-Wire bus. There are several 
-differences but the phy level is not compatible, looking at the Samsung 
-patent. [1] The most obvious difference is that 1-Wire is discoverable, 
-and this bus isn't. I'm pretty sure this is Samsung's own solution to a 
-serial interface through only one wire.
-
->
->> +
->> +	  Select this if you have a Samsung Exynos device which uses
->> +	  SPEEDY bus.
->> +
->
->> +
->> +/* SPEEDY_PACKET_GAP_TIME register bits */
->> +#define SPEEDY_FIFO_TX_ALMOST_EMPTY			(1 << 4)
->> +#define SPEEDY_FIFO_RX_ALMOST_FULL			(1 << 8)
->> +#define SPEEDY_FSM_INIT					(1 << 1)
->> +#define SPEEDY_FSM_TX_CMD				(1 << 2)
->> +#define SPEEDY_FSM_STANDBY				(1 << 3)
->> +#define SPEEDY_FSM_DATA					(1 << 4)
->> +#define SPEEDY_FSM_TIMEOUT				(1 << 5)
->> +#define SPEEDY_FSM_TRANS_DONE				(1 << 6)
->> +#define SPEEDY_FSM_IO_RX_STAT_MASK			(3 << 7)
->> +#define SPEEDY_FSM_IO_TX_IDLE				(1 << 9)
->> +#define SPEEDY_FSM_IO_TX_GET_PACKET			(1 << 10)
->> +#define SPEEDY_FSM_IO_TX_PACKET				(1 << 11)
->> +#define SPEEDY_FSM_IO_TX_DONE				(1 << 12)
->> +
->> +#define SPEEDY_RX_LENGTH(n)				((n) << 0)
->> +#define SPEEDY_TX_LENGTH(n)				((n) << 8)
->> +
->> +#define SPEEDY_DEVICE(x)				((x & 0xf) << 15)
->> +#define SPEEDY_ADDRESS(x)				((x & 0xff) << 7)
->> +
->> +static const struct of_device_id speedy_match[] = {
->> +	{ .compatible = "samsung,exynos9810-speedy" },
->> +	{ /* Sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, speedy_match);
-> This is never at top of the file, but immediately before driver
-> structure. Look at other drivers.
-The function speedy_get_device uses this to match the compatible, do I 
-just leave the prototype here?
->
->> +
->> +static const struct regmap_config speedy_map_cfg = {
->> +	.reg_bits = 32,
->> +	.val_bits = 32,
->> +};
->> +
->> +/**
->> + * speedy_int_clear() - clear interrupt status
->> + * @speedy:	pointer to speedy controller struct
->> + *
->> + * Return: 0 on success, -errno otherwise
->> + */
->> +static int speedy_int_clear(struct speedy_controller *speedy)
->> +{
->> +	int ret;
->> +
->> +	ret = regmap_set_bits(speedy->map, SPEEDY_INT_STATUS, 0xffffffff);
->> +	if (ret)
->> +		return ret;
->> +
->> +	udelay(10);
->> +
->> +	return 0;
->> +}
->> +
->> +/**
->> + * speedy_fifo_reset() - reset FIFO of the controller
->> + * @speedy:	pointer to speedy controller struct
->> + *
->> + * Return: 0 on success, -errno otherwise
->> + */
->> +static int speedy_fifo_reset(struct speedy_controller *speedy)
->> +{
->> +	int ret;
->> +
->> +	ret = regmap_set_bits(speedy->map, SPEEDY_FIFO_CTRL, SPEEDY_FIFO_RESET);
->> +	if (ret)
->> +		return ret;
->> +
->> +	udelay(10);
->> +
->> +	return 0;
->> +}
->> +
->> +/**
->> + * _speedy_read() - internal speedy read operation
->> + * @speedy:	pointer to speedy controller struct
->> + * @reg:	address of device on the bus
->> + * @addr:       address to read
->> + * @val:        pointer to store result
->> + *
->> + * Return: 0 on success, -errno otherwise
->> + */
->> +static int _speedy_read(struct speedy_controller *speedy, u32 reg, u32 addr, u32 *val)
->> +{
->> +	int ret;
->> +	u32 cmd, int_ctl, int_status;
->> +
->> +	mutex_lock(&speedy->io_lock);
->> +
->> +	ret = speedy_fifo_reset(speedy);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_set_bits(speedy->map, SPEEDY_FIFO_CTRL,
->> +			      SPEEDY_RX_LENGTH(1) | SPEEDY_TX_LENGTH(1));
->> +	if (ret)
->> +		return ret;
->> +
->> +	cmd = SPEEDY_ACCESS_RANDOM | SPEEDY_DIRECTION_READ |
->> +	      SPEEDY_DEVICE(reg) | SPEEDY_ADDRESS(addr);
->> +
->> +	int_ctl = SPEEDY_TRANSFER_DONE_EN | SPEEDY_FIFO_RX_ALMOST_FULL_EN |
->> +		  SPEEDY_RX_FIFO_INT_TRAILER_EN | SPEEDY_RX_MODEBIT_ERR_EN |
->> +		  SPEEDY_RX_GLITCH_ERR_EN | SPEEDY_RX_ENDBIT_ERR_EN |
->> +		  SPEEDY_REMOTE_RESET_REQ_EN;
->> +
->> +	ret = speedy_int_clear(speedy);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_write(speedy->map, SPEEDY_INT_ENABLE, int_ctl);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_write(speedy->map, SPEEDY_CMD, cmd);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* Wait for xfer done */
->> +	ret = regmap_read_poll_timeout(speedy->map, SPEEDY_INT_STATUS, int_status,
->> +				       int_status & SPEEDY_TRANSFER_DONE, 5000, 50000);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_read(speedy->map, SPEEDY_RX_DATA, val);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = speedy_int_clear(speedy);
->> +
->> +	mutex_unlock(&speedy->io_lock);
->> +
->> +	return ret;
->> +}
->> +
->> +int exynos_speedy_read(const struct speedy_device *device, u32 addr, u32 *val)
->> +{
->> +	return _speedy_read(device->speedy, device->reg, addr, val);
->> +}
->> +EXPORT_SYMBOL_GPL(exynos_speedy_read);
-> Nope, drop, unused.
-This is intended to be used with other device drivers, this driver in 
-itself doesn't do anything, it only configures the controller and makes 
-it ready for transmitting data, it's other drivers that will come (e.g. 
-S2MPS18 PMIC, which uses SPEEDY for communication with the SoC) that 
-will utilize those functions.
->
->> +
->> +/**
->> + * _speedy_write() - internal speedy write operation
->> + * @speedy:	pointer to speedy controller struct
->> + * @reg:	address of device on the bus
->> + * @addr:       address to write
->> + * @val:        value to write
->> + *
->> + * Return: 0 on success, -errno otherwise
->> + */
->> +static int _speedy_write(struct speedy_controller *speedy, u32 reg, u32 addr, u32 val)
->> +{
->> +	int ret;
->> +	u32 cmd, int_ctl, int_status;
->> +
->> +	mutex_lock(&speedy->io_lock);
->> +
->> +	ret = speedy_fifo_reset(speedy);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_set_bits(speedy->map, SPEEDY_FIFO_CTRL,
->> +			      SPEEDY_RX_LENGTH(1) | SPEEDY_TX_LENGTH(1));
->> +	if (ret)
->> +		return ret;
->> +
->> +	cmd = SPEEDY_ACCESS_RANDOM | SPEEDY_DIRECTION_WRITE |
->> +	      SPEEDY_DEVICE(reg) | SPEEDY_ADDRESS(addr);
->> +
->> +	int_ctl = (SPEEDY_TRANSFER_DONE_EN |
->> +		   SPEEDY_FIFO_TX_ALMOST_EMPTY_EN |
->> +		   SPEEDY_TX_LINE_BUSY_ERR_EN |
->> +		   SPEEDY_TX_STOPBIT_ERR_EN |
->> +		   SPEEDY_REMOTE_RESET_REQ_EN);
->> +
->> +	ret = speedy_int_clear(speedy);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_write(speedy->map, SPEEDY_INT_ENABLE, int_ctl);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_write(speedy->map, SPEEDY_CMD, cmd);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_write(speedy->map, SPEEDY_TX_DATA, val);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* Wait for xfer done */
->> +	ret = regmap_read_poll_timeout(speedy->map, SPEEDY_INT_STATUS, int_status,
->> +				       int_status & SPEEDY_TRANSFER_DONE, 5000, 50000);
->> +	if (ret)
->> +		return ret;
->> +
->> +	speedy_int_clear(speedy);
->> +
->> +	mutex_unlock(&speedy->io_lock);
->> +
->> +	return 0;
->> +}
->> +
->> +int exynos_speedy_write(const struct speedy_device *device, u32 addr, u32 val)
->> +{
->> +	return _speedy_write(device->speedy, device->reg, addr, val);
-> Just write the function here and drop _.
->
->> +}
->> +EXPORT_SYMBOL_GPL(exynos_speedy_write);
->> +
->> +static void devm_speedy_release(struct device *dev, void *res)
->> +{
->> +	const struct speedy_device **ptr = res;
->> +	const struct speedy_device *handle = *ptr;
->> +
->> +	kfree(handle);
->> +}
->> +
->> +/**
->> + * speedy_get_by_phandle() - internal get speedy device handle
->> + * @np:	pointer to OF device node of device
->> + *
->> + * Return: 0 on success, -errno otherwise
->> + */
->> +static const struct speedy_device *speedy_get_device(struct device_node *np)
->> +{
->> +	const struct of_device_id *speedy_id;
->> +	struct device_node *speedy_np;
->> +	struct platform_device *speedy_pdev;
->> +	struct speedy_controller *speedy = NULL;
->> +	struct speedy_device *handle;
->> +	int ret;
->> +
->> +	if (!np) {
->> +		pr_err("I need a device pointer\n");
->> +		return ERR_PTR(-EINVAL);
->> +	}
->> +
->> +	speedy_np = of_get_parent(np);
->> +	if (!speedy_np)
->> +		return ERR_PTR(-ENODEV);
->> +
->> +	/* Verify if parent node is a speedy controller */
->> +	speedy_id = of_match_node(speedy_match, speedy_np);
->> +	if (!speedy_id) {
->> +		handle = ERR_PTR(-EINVAL);
->> +		goto out;
->> +	}
->> +
->> +	/* Get platform device of the speedy controller */
->> +	speedy_pdev = of_find_device_by_node(speedy_np);
->> +	if (!speedy_pdev) {
->> +		handle = ERR_PTR(-EPROBE_DEFER);
->> +		goto out;
->> +	}
->> +
->> +	/* Get drvdata of speedy controller */
->> +	speedy = platform_get_drvdata(speedy_pdev);
->> +	if (!speedy) {
->> +		handle = ERR_PTR(-EINVAL);
->> +		goto out;
->> +	}
->> +
->> +	handle = kzalloc(sizeof(struct speedy_device), GFP_KERNEL);
->> +	if (!handle) {
->> +		handle = ERR_PTR(-ENOMEM);
->> +		goto out;
->> +	}
->> +	handle->speedy = speedy;
->> +	ret = of_property_read_u32(np, "reg", &handle->reg);
->> +	if (ret) {
->> +		kfree(handle);
->> +		handle = ERR_PTR(-EINVAL);
->> +		goto out;
->> +	}
->> +
->> +out:
->> +	of_node_put(speedy_np);
->> +	return handle;
->> +}
->> +
->> +const struct speedy_device *devm_speedy_get_device(struct device *dev)
-> Not used, drop function.
->
->> +{
->> +	const struct speedy_device *handle;
->> +	const struct speedy_device **ptr;
->> +
->> +	ptr = devres_alloc(devm_speedy_release, sizeof(*ptr), GFP_KERNEL);
->> +	if (!ptr)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	handle = speedy_get_device(dev_of_node(dev));
->> +	if (!IS_ERR(handle)) {
->> +		*ptr = handle;
->> +		devres_add(dev, ptr);
->> +	} else {
->> +		devres_free(ptr);
->> +	}
->> +
->> +	return handle;
->> +}
->> +EXPORT_SYMBOL_GPL(devm_speedy_get_device);
-> Not used, drop.
->
->
->
->> +
->> +static int speedy_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct speedy_controller *speedy;
->> +	void __iomem *mem;
->> +	int ret;
->> +
->> +	speedy = devm_kzalloc(dev, sizeof(struct speedy_controller), GFP_KERNEL);
-> sizeof(*) everywhere. You need to clean the downstream code when
-> upstreaming.
-Oh, okay, sorry, missed it.
->
->> +	if (!speedy)
->> +		return -ENOMEM;
->> +
->> +	platform_set_drvdata(pdev, speedy);
->> +	speedy->pdev = pdev;
->> +
->> +	mutex_init(&speedy->io_lock);
->> +
->> +	mem = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(mem))
->> +		return dev_err_probe(dev, PTR_ERR(mem), "Failed to ioremap memory\n");
->> +
->> +	speedy->map = devm_regmap_init_mmio(dev, mem, &speedy_map_cfg);
->> +	if (IS_ERR(speedy->map))
->> +		return dev_err_probe(dev, PTR_ERR(speedy->map), "Failed to init the regmap\n");
-> Wrap at 80.
->
->> +
->> +	/* Clear any interrupt status remaining */
->> +	ret = speedy_int_clear(speedy);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* Reset the controller */
->> +	ret = regmap_set_bits(speedy->map, SPEEDY_CTRL, SPEEDY_SW_RST);
->> +	if (ret)
->> +		return ret;
->> +
->> +	msleep(20);
->> +
->> +	/* Enable the hw */
->> +	ret = regmap_set_bits(speedy->map, SPEEDY_CTRL, SPEEDY_ENABLE);
->> +	if (ret)
->> +		return ret;
->> +
->> +	msleep(20);
->> +
->> +	/* Probe child devices */
->> +	ret = of_platform_populate(pdev->dev.of_node, NULL, NULL, dev);
->> +	if (ret)
->> +		dev_err(dev, "Failed to populate child devices: %d\n", ret);
->> +
->> +	return ret;
-> Missing cleanup in remove().
-Will be done.
->
->> +}
->> +
->> +static struct platform_driver speedy_driver = {
->> +	.probe = speedy_probe,
->> +	.driver = {
->> +		.name = "exynos-speedy",
->> +		.of_match_table = speedy_match,
->> +	},
->> +};
->> +
->> +module_platform_driver(speedy_driver);
->> +
->> +MODULE_DESCRIPTION("Samsung Exynos SPEEDY host controller driver");
->> +MODULE_AUTHOR("Markuss Broks <markuss.broks@gmail.com>");
->> +MODULE_LICENSE("GPL");
->> diff --git a/include/linux/soc/samsung/exynos-speedy.h b/include/linux/soc/samsung/exynos-speedy.h
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..b2857d65d3b50927373866dd8ae1c47e98af6d7b
->> --- /dev/null
->> +++ b/include/linux/soc/samsung/exynos-speedy.h
-> Drop the header, not used.
-Same here, please clarify how this should be handled. This driver 
-implements the devm_speedy_get_device and read/write functions for its 
-child devices in that header, future drivers for e.g. PMIC would use 
-this header and call devm_speedy_get_device to get a speedy_device 
-pointer and then use read/write functions to read/write from the bus.
->
->
->
-> Best regards,
-> Krzysztof
-
-- Markuss
-
-
-[1] https://patents.google.com/patent/US9882711B1/en
+Best regards,
+Krzysztof
 
 
