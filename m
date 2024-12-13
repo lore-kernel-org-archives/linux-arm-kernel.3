@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A70F2E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 13:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8880DE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 13:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHQRuEgt50pBDwq3+ixa77fcM/mUhlLAgEUHsK+6+qk=; b=ODqcxaXRQ9keHdNPdFjmVTNhUp
-	Z6a6v+xy+eKai5OGVTwxxVP6m9WEZIgpJXfHEXu901uHnZuO06S7GEmqLS6u51j1A75ohntGuyp7d
-	bIH5CqZo5l0jRqFeLkg8aCCOZezwgSn5U8ABcbg5RlVHMkrDl4MnCbLvgegIKdBEpZOhJtuqRp3P1
-	8xwrLEp/u0y2AQ3AOyQQKr2ysl4kI/XvFNxa9dDqw6mjEU6iUjqJ02VmifnIVcP+iaIXyb97Uciw/
-	RL6PDYZbTOaFu2Ukv3934TBr3+RPogsN54D4nmAwZatbDnaTS7oCEmJiC3kOWraXFNAsDnKt6UTiF
-	B3pOw71Q==;
+	bh=XexIZMNZl3euAtVXX0/80H4PB0R7YQ69SNGt9S+OUb8=; b=PkG5QPEuXmKwrNOPaWfK8RmxQN
+	DHlqmh9WnU3G0bDiCVcIgKPW5wwehv52wIk3+F6jmNsTCPDctmXV1krZQPrXOI2JsHLNF30uEl623
+	HlBQ4jTjJ3WMkKdT8TApf3/8wmFJeT0OQSqTitnWw+Kyt6eB33at68QDMdy0C3btUjfolllvnXywz
+	mI1IyRtv0RWRhoVrhN7Cpa+HOMsGW1s/fS7ATOxPpn/DdgJigNYCDufJvUlFlWJ9clTmj1ht5RPIu
+	3ZxeShwRcFf02TrQewN0yURL4KKz7bTF6E+K6plLpSD80FcPD6IsxqQ5EDVdQWKeglFcGNkAUZq7a
+	amdyY0IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM62g-00000003sng-3A2T;
-	Fri, 13 Dec 2024 13:49:18 +0000
+	id 1tM63k-00000003syN-1p3t;
+	Fri, 13 Dec 2024 13:50:24 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM5vl-00000003r6I-0IYI
+	id 1tM5vl-00000003r69-0IW6
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 13 Dec 2024 13:42:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
@@ -32,35 +32,35 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   t=1734097328; x=1765633328;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=Ru6m9fjBnawuso4XKafWfkkgZYqFjy/nWLYqGIdnuWI=;
-  b=NnTgYIjmdN9s1nUJi9SiZVCEfFjAmi1wHJsMRxzWevSmrgCuhWPdhLF2
-   fm9S65SHZHATrj0a9fh4bb51LUqDDmbU7r+K+2sx/ZSqp3e96CpvCQap8
-   vjLwg1opGqfLdLcF3jg1gT98NwOJY3a9ApyQbLW9Xmd0w8aSPyoTdxOic
-   5lPiMiLWkKyli5T7yiAfhA/EOiP1Dw9bAxuUEpX4iY2cVHPEipmi3CXeQ
-   5ZQrkGLIWlFh7KB8WZPyg9BuuYkfkpcb6i/ZtiJsHRPBcAWQQVevPUrDk
-   TXmkxOyQzliaBFevVzxQco/cB5ZaRPGndNIVbIc2qEiETEHJ/0mmB674r
-   w==;
+  bh=F3r/K1kISTkKC1t7Gw8laQbefuONz2HC9HBE8faHn18=;
+  b=fQKILlUKsGF1UE5HWsCxAXeS86i+Iov6xYvgvMcg9h96xUgBusaSHeed
+   CDDfxQ9U1MafRVgJZftZgX5/Y1qhCuOL/UMDAkzYqhr2SkeZuchx6BdmO
+   UKIBcZt0kbAEJXfbJ3jNMQcOvi8ELioJxH7xvlD7Hx1sSjUuE9A01xetu
+   oWeZ/Zd7n3Blb6YVIZ3idRbQO7s48w+A7k7MhzQ3hQviJYwwQ2aiZkIKm
+   mXYme/prdkf+d2opTtMwC5bKhGv+CFlXxw6joghvRVTZc9BwaBKEr4096
+   FRcCCVm1g2OvqpFKJ0A7AGz2CPbQqyt35xDeM6OoBKEorPcJpWTkO+bsp
+   g==;
 X-CSE-ConnectionGUID: itc9LroWQgSaHh3I2qeP/g==
-X-CSE-MsgGUID: QwYt3aOFSQy16PMSTXmYbg==
+X-CSE-MsgGUID: 71gWVYObRKGWL70ZOac+/w==
 X-IronPort-AV: E=Sophos;i="6.12,231,1728975600"; 
-   d="scan'208";a="39217653"
+   d="scan'208";a="39217648"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Dec 2024 06:42:07 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Dec 2024 06:42:06 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 13 Dec 2024 06:41:39 -0700
+ 15.1.2507.35; Fri, 13 Dec 2024 06:41:36 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 13 Dec 2024 06:41:36 -0700
+ 15.1.2507.35 via Frontend Transport; Fri, 13 Dec 2024 06:41:33 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 13 Dec 2024 14:41:06 +0100
-Subject: [PATCH net-next v4 7/9] net: lan969x: add RGMII registers
+Date: Fri, 13 Dec 2024 14:41:05 +0100
+Subject: [PATCH net-next v4 6/9] net: sparx5: verify RGMII speeds
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241213-sparx5-lan969x-switch-driver-4-v4-7-d1a72c9c4714@microchip.com>
+Message-ID: <20241213-sparx5-lan969x-switch-driver-4-v4-6-d1a72c9c4714@microchip.com>
 References: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
 In-Reply-To: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
 To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -76,8 +76,9 @@ CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
 	<robert.marko@sartura.hr>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_054209_126226_B6CBEBFD 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20241213_054209_124378_6D14B8FD 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,213 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configuration of RGMII is done by configuring the GPIO and clock
-settings in the HSIOWRAP target, and configuring the RGMII port devices
-in the DEVRGMII target. Both targets contain registers replicated for
-the number of RGMII port devices, which is two.
-
-Add said targets and register macros required to configure RGMII.
+When doing a port config, we verify the port speed against the PHY mode
+and supported speeds of that PHY mode. Add checks for the four RGMII phy
+modes: RGMII, RGMII_ID, RGMII_TXID and RGMII_RXID.
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   3 +
- .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 145 +++++++++++++++++++++
- 2 files changed, 148 insertions(+)
+ drivers/net/ethernet/microchip/sparx5/sparx5_port.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-index 76f0c8635eb9..be49a99556fe 100644
---- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-+++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
-@@ -90,9 +90,12 @@ static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
- 	{ TARGET_DEV2G5 + 27,         0x30d8000, 1 }, /* 0xe30d8000 */
- 	{ TARGET_DEV10G +  9,         0x30dc000, 1 }, /* 0xe30dc000 */
- 	{ TARGET_PCS10G_BR +  9,      0x30e0000, 1 }, /* 0xe30e0000 */
-+	{ TARGET_DEVRGMII,            0x30e4000, 1 }, /* 0xe30e4000 */
-+	{ TARGET_DEVRGMII +  1,       0x30e8000, 1 }, /* 0xe30e8000 */
- 	{ TARGET_DSM,                 0x30ec000, 1 }, /* 0xe30ec000 */
- 	{ TARGET_PORT_CONF,           0x30f0000, 1 }, /* 0xe30f0000 */
- 	{ TARGET_ASM,                 0x3200000, 1 }, /* 0xe3200000 */
-+	{ TARGET_HSIO_WRAP,           0x3408000, 1 }, /* 0xe3408000 */
- };
- 
- static struct sparx5_sdlb_group lan969x_sdlb_groups[LAN969X_SDLB_GRP_CNT] = {
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
-index 561344f19062..d9ef4ef137b8 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
-@@ -37,6 +37,7 @@ enum sparx5_target {
- 	TARGET_FDMA = 117,
- 	TARGET_GCB = 118,
- 	TARGET_HSCH = 119,
-+	TARGET_HSIO_WRAP = 120,
- 	TARGET_LRN = 122,
- 	TARGET_PCEP = 129,
- 	TARGET_PCS10G_BR = 132,
-@@ -54,6 +55,7 @@ enum sparx5_target {
- 	TARGET_VCAP_SUPER = 326,
- 	TARGET_VOP = 327,
- 	TARGET_XQS = 331,
-+	TARGET_DEVRGMII = 392,
- 	NUM_TARGETS = 517
- };
- 
-@@ -5367,6 +5369,69 @@ extern const struct sparx5_regs *regs;
- #define HSCH_TAS_STATEMACHINE_CFG_REVISIT_DLY_GET(x)\
- 	FIELD_GET(HSCH_TAS_STATEMACHINE_CFG_REVISIT_DLY, x)
- 
-+/* LAN969X ONLY */
-+/* HSIOWRAP:XMII_CFG:XMII_CFG */
-+#define HSIO_WRAP_XMII_CFG(g)                                                  \
-+	__REG(TARGET_HSIO_WRAP, 0, 1, 116, g, 2, 20, 0, 0, 1, 4)
-+
-+#define HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG         GENMASK(2, 1)
-+#define HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG, x)
-+#define HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG_GET(x)\
-+	FIELD_GET(HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG, x)
-+
-+/* LAN969X ONLY */
-+/* HSIOWRAP:XMII_CFG:RGMII_CFG */
-+#define HSIO_WRAP_RGMII_CFG(g)                                                 \
-+	__REG(TARGET_HSIO_WRAP, 0, 1, 116, g, 2, 20, 4, 0, 1, 4)
-+
-+#define HSIO_WRAP_RGMII_CFG_TX_CLK_CFG           GENMASK(4, 2)
-+#define HSIO_WRAP_RGMII_CFG_TX_CLK_CFG_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_RGMII_CFG_TX_CLK_CFG, x)
-+#define HSIO_WRAP_RGMII_CFG_TX_CLK_CFG_GET(x)\
-+	FIELD_GET(HSIO_WRAP_RGMII_CFG_TX_CLK_CFG, x)
-+
-+#define HSIO_WRAP_RGMII_CFG_RGMII_TX_RST         BIT(1)
-+#define HSIO_WRAP_RGMII_CFG_RGMII_TX_RST_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_RGMII_CFG_RGMII_TX_RST, x)
-+#define HSIO_WRAP_RGMII_CFG_RGMII_TX_RST_GET(x)\
-+	FIELD_GET(HSIO_WRAP_RGMII_CFG_RGMII_TX_RST, x)
-+
-+#define HSIO_WRAP_RGMII_CFG_RGMII_RX_RST         BIT(0)
-+#define HSIO_WRAP_RGMII_CFG_RGMII_RX_RST_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_RGMII_CFG_RGMII_RX_RST, x)
-+#define HSIO_WRAP_RGMII_CFG_RGMII_RX_RST_GET(x)\
-+	FIELD_GET(HSIO_WRAP_RGMII_CFG_RGMII_RX_RST, x)
-+
-+/* LAN969X ONLY */
-+/* HSIOWRAP:XMII_CFG:DLL_CFG */
-+#define HSIO_WRAP_DLL_CFG(g, r)                                                \
-+	__REG(TARGET_HSIO_WRAP, 0, 1, 116, g, 2, 20, 12, r, 2, 4)
-+
-+#define HSIO_WRAP_DLL_CFG_DLL_ENA                BIT(19)
-+#define HSIO_WRAP_DLL_CFG_DLL_ENA_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_DLL_CFG_DLL_ENA, x)
-+#define HSIO_WRAP_DLL_CFG_DLL_ENA_GET(x)\
-+	FIELD_GET(HSIO_WRAP_DLL_CFG_DLL_ENA, x)
-+
-+#define HSIO_WRAP_DLL_CFG_DLL_CLK_ENA            BIT(18)
-+#define HSIO_WRAP_DLL_CFG_DLL_CLK_ENA_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_DLL_CFG_DLL_CLK_ENA, x)
-+#define HSIO_WRAP_DLL_CFG_DLL_CLK_ENA_GET(x)\
-+	FIELD_GET(HSIO_WRAP_DLL_CFG_DLL_CLK_ENA, x)
-+
-+#define HSIO_WRAP_DLL_CFG_DLL_CLK_SEL            GENMASK(17, 15)
-+#define HSIO_WRAP_DLL_CFG_DLL_CLK_SEL_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_DLL_CFG_DLL_CLK_SEL, x)
-+#define HSIO_WRAP_DLL_CFG_DLL_CLK_SEL_GET(x)\
-+	FIELD_GET(HSIO_WRAP_DLL_CFG_DLL_CLK_SEL, x)
-+
-+#define HSIO_WRAP_DLL_CFG_DLL_RST                BIT(0)
-+#define HSIO_WRAP_DLL_CFG_DLL_RST_SET(x)\
-+	FIELD_PREP(HSIO_WRAP_DLL_CFG_DLL_RST, x)
-+#define HSIO_WRAP_DLL_CFG_DLL_RST_GET(x)\
-+	FIELD_GET(HSIO_WRAP_DLL_CFG_DLL_RST, x)
-+
- /* LRN:COMMON:COMMON_ACCESS_CTRL */
- #define LRN_COMMON_ACCESS_CTRL                                                 \
- 	__REG(TARGET_LRN, 0, 1, 0, 0, 1, 72, 0, 0, 1, 4)
-@@ -8110,4 +8175,84 @@ extern const struct sparx5_regs *regs;
- #define XQS_CNT(g)                                                             \
- 	__REG(TARGET_XQS, 0, 1, 0, g, 1024, 4, 0, 0, 1, 4)
- 
-+/* LAN969X ONLY */
-+/* DEV1G:DEV_CFG_STATUS:DEV_RST_CTRL */
-+#define DEVRGMII_DEV_RST_CTRL(t)                                               \
-+	__REG(TARGET_DEVRGMII, t, 2, 0, 0, 1, 36, 0, 0, 1, 4)
-+
-+#define DEVRGMII_DEV_RST_CTRL_SPEED_SEL          GENMASK(22, 20)
-+#define DEVRGMII_DEV_RST_CTRL_SPEED_SEL_SET(x)\
-+	FIELD_PREP(DEVRGMII_DEV_RST_CTRL_SPEED_SEL, x)
-+#define DEVRGMII_DEV_RST_CTRL_SPEED_SEL_GET(x)\
-+	FIELD_GET(DEVRGMII_DEV_RST_CTRL_SPEED_SEL, x)
-+
-+/* LAN969X ONLY */
-+/* DEV1G:MAC_CFG_STATUS:MAC_ENA_CFG */
-+#define DEVRGMII_MAC_ENA_CFG(t)                                                \
-+	__REG(TARGET_DEVRGMII, t, 2, 36, 0, 1, 36, 0, 0, 1, 4)
-+
-+#define DEVRGMII_MAC_ENA_CFG_RX_ENA              BIT(4)
-+#define DEVRGMII_MAC_ENA_CFG_RX_ENA_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_ENA_CFG_RX_ENA, x)
-+#define DEVRGMII_MAC_ENA_CFG_RX_ENA_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_ENA_CFG_RX_ENA, x)
-+
-+#define DEVRGMII_MAC_ENA_CFG_TX_ENA              BIT(0)
-+#define DEVRGMII_MAC_ENA_CFG_TX_ENA_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_ENA_CFG_TX_ENA, x)
-+#define DEVRGMII_MAC_ENA_CFG_TX_ENA_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_ENA_CFG_TX_ENA, x)
-+
-+/* LAN969X ONLY */
-+/* DEV1G:MAC_CFG_STATUS:MAC_TAGS_CFG */
-+#define DEVRGMII_MAC_TAGS_CFG(t)                                               \
-+	__REG(TARGET_DEVRGMII, t, 2, 36, 0, 1, 36, 12, 0, 1, 4)
-+
-+#define DEVRGMII_MAC_TAGS_CFG_TAG_ID             GENMASK(31, 16)
-+#define DEVRGMII_MAC_TAGS_CFG_TAG_ID_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_TAGS_CFG_TAG_ID, x)
-+#define DEVRGMII_MAC_TAGS_CFG_TAG_ID_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_TAGS_CFG_TAG_ID, x)
-+
-+#define DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA   BIT(3)
-+#define DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA, x)
-+#define DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA, x)
-+
-+#define DEVRGMII_MAC_TAGS_CFG_PB_ENA             GENMASK(2, 1)
-+#define DEVRGMII_MAC_TAGS_CFG_PB_ENA_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_TAGS_CFG_PB_ENA, x)
-+#define DEVRGMII_MAC_TAGS_CFG_PB_ENA_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_TAGS_CFG_PB_ENA, x)
-+
-+#define DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA       BIT(0)
-+#define DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA, x)
-+#define DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA, x)
-+
-+/* LAN969X ONLY */
-+/* DEV1G:MAC_CFG_STATUS:MAC_IFG_CFG */
-+#define DEVRGMII_MAC_IFG_CFG(t)                                                \
-+	__REG(TARGET_DEVRGMII, t, 2, 36, 0, 1, 36, 24, 0, 1, 4)
-+
-+#define DEVRGMII_MAC_IFG_CFG_TX_IFG              GENMASK(12, 8)
-+#define DEVRGMII_MAC_IFG_CFG_TX_IFG_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_IFG_CFG_TX_IFG, x)
-+#define DEVRGMII_MAC_IFG_CFG_TX_IFG_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_IFG_CFG_TX_IFG, x)
-+
-+#define DEVRGMII_MAC_IFG_CFG_RX_IFG2             GENMASK(7, 4)
-+#define DEVRGMII_MAC_IFG_CFG_RX_IFG2_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_IFG_CFG_RX_IFG2, x)
-+#define DEVRGMII_MAC_IFG_CFG_RX_IFG2_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_IFG_CFG_RX_IFG2, x)
-+
-+#define DEVRGMII_MAC_IFG_CFG_RX_IFG1             GENMASK(3, 0)
-+#define DEVRGMII_MAC_IFG_CFG_RX_IFG1_SET(x)\
-+	FIELD_PREP(DEVRGMII_MAC_IFG_CFG_RX_IFG1, x)
-+#define DEVRGMII_MAC_IFG_CFG_RX_IFG1_GET(x)\
-+	FIELD_GET(DEVRGMII_MAC_IFG_CFG_RX_IFG1, x)
-+
- #endif /* _SPARX5_MAIN_REGS_H_ */
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
+index 0a1374422ccb..86d6c9e9ec7c 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
+@@ -257,6 +257,15 @@ static int sparx5_port_verify_speed(struct sparx5 *sparx5,
+ 		     conf->speed != SPEED_25000))
+ 			return sparx5_port_error(port, conf, SPX5_PERR_SPEED);
+ 		break;
++	case PHY_INTERFACE_MODE_RGMII:
++	case PHY_INTERFACE_MODE_RGMII_ID:
++	case PHY_INTERFACE_MODE_RGMII_TXID:
++	case PHY_INTERFACE_MODE_RGMII_RXID:
++		if (conf->speed != SPEED_1000 &&
++		    conf->speed != SPEED_100 &&
++		    conf->speed != SPEED_10)
++			return sparx5_port_error(port, conf, SPX5_PERR_SPEED);
++		break;
+ 	default:
+ 		return sparx5_port_error(port, conf, SPX5_PERR_IFTYPE);
+ 	}
 
 -- 
 2.34.1
