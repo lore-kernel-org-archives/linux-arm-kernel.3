@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA781E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 14:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F006E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 14:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QqYUm1i7e1fblFqY9jJKn51mYoOB0b0xVEyAilyqTvk=; b=mKP1z08jwHjx3pA0/z3LeNsWew
-	cmi01sgBEnu6EnPhFPMTTDG8Qi4IDibX5juPcL1GBkvLlRRSTGKQdnSwyEL7lHI7rNA4rstguBwi/
-	gloG8do3UvojqzieaP9PMdYpn9bCtaR30DJG6Nqz1rIZ0aIKWkyxiaSE6tnVbpHWVkkxkveCaDYE/
-	9VURcgCIdzuoPTeqPJY1NcZAhIlcEqKIfd2DCGawBJf2R0LSrQu09MQbec9gknfkihjUSGJQtFqxk
-	ilWVzeioh44P2EGFV/z6hRr8N96vAJnZypoBoC8EyuZ7PFZRVQoU6zZBjbQEoh9mkLtG0DfXlgrjQ
-	opTRqe+A==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ILQcBliS53PGmeAwS/K4h6GeyD7y4AIHXFgUd+DVOpk=; b=kj/1eTH2mSnu1jLvl63ZK8zJSP
+	OTjSpw5t8Qi2uyCu7uUg1ETqAiX4w4avX4NaseNvHcRUi5IheY2hkFY+6dP5LlkpR5j2Hy5RGicIp
+	68KTPKnyfWAWDobmP7gdnTXuEB4jR8/azLSv05TuyUEuOlWWVQalxxJpygQ6F8IFFU1WmZJlKXcIZ
+	U2bOfTBrJGIxbw3fgH2pSBK+PNd2BqbRuZwmVjDQg8GHEtfp8jsA5qt1SfgIhhtKWTJUQT4El4jqj
+	SKF9VMkBinIwLY5iX8PNP2kjevI1HUfdez8EHNfHWD/yr1GZwGi3Ii+8mWuj84j5HBYHnVeOMNrJj
+	Jg4iCIBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM737-00000004AIE-1IND;
-	Fri, 13 Dec 2024 14:53:49 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tM74A-00000004AXm-3nMQ;
+	Fri, 13 Dec 2024 14:54:54 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6yv-000000049Cr-31rT
+	id 1tM70I-000000049Xh-0EQb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 14:49:30 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38632b8ae71so1340812f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 06:49:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734101368; x=1734706168; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QqYUm1i7e1fblFqY9jJKn51mYoOB0b0xVEyAilyqTvk=;
-        b=y2ozYIWydS2nhd58OsmrxgjUlrcZdL4a5LzzoVVZ+hGioitXXhwWjMhYkYRW4kCgdk
-         hEZsfSVwAtYRdHw4a9IyzgoGpDr8OLokknwM2GN8fFmx0ELk3xXtt/LK1XZ+yCFYj7xg
-         apQ8wlRglTGs/T4EmCJbfdJjL5f/YheUeTipTLHNXNVJWTKWTnEzNwgRuSwFeBag3h+V
-         /yH2de8cWokNpHGpCUIw8E9+VWjqHo2l7Acads2cfRPsDRm/PgQVnxNLNFjno/XDSYc0
-         Q2z6O7NhnTr3MRiGguSh8aUDo8oHZs/wcZvnsgM3b92RrcmpqSke9EnSDqYtE5MFOHnm
-         WcpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734101368; x=1734706168;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QqYUm1i7e1fblFqY9jJKn51mYoOB0b0xVEyAilyqTvk=;
-        b=vB8DsQbLyMqkPnonHM0f1vZbmLc6U3wpNWmCYkiqTkZtSoMGUzWvtx+X3EuywAkwwi
-         1ZAsolKxPRa0dvMrYo6KTPSfofyvJDr/qTJl/ETmDRexQ0ZItOaNygNV3SjDaux45wXI
-         yBdCSjxzSaL6xxYgStMTO0WKkQT5IUAYLAkQpBJ0NgDC6LWh3YUcKSdHrXmzRo39oZgY
-         xdHUyU9fLakpJY+4PoZnOx99iziq2UMWBtnzwSdv3uf0Sf6kYbIxwtAtRjVRrUFlUZOg
-         on19QK6EoSJP8MiBSdVPN5J6wxvnDQ8hzycacjSt0XkPQwCeJKPgqlSF7OCzsBvI/Ark
-         k6pA==
-X-Forwarded-Encrypted: i=1; AJvYcCVzzz/WLqsGBLCWC4KaGZ9kEMovvVvkp8GMJtg3nJWD1rGpfhFYHgycpGSH9R2X8Z3PPKKO6ZJ92hEQFGSwpZbG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJ9S20b/e4yJFPnA3ifYy2hNcqEXr+gD/Vvm48B0u1qAG7t51m
-	ELyWdYDMqyywCwhDc4mzlDRfKFTZDqcC8PxEGDN6rhnCDBiZ+QNOF+iIlyop167cN7HptCZbuWC
-	J
-X-Gm-Gg: ASbGnctssx6hd7HYB+oP2lM1bdUpazFp9hkEFElswqrRcV0MKEwt3qfNjRTSxGRJ+mE
-	LKTmd/YiTfjfVi40APVfuvBJYotp/74B4JsGK95zMm49sJ0jDocc3OQj+frb1KgsfQLqWlsGhO0
-	ppwyQdN9+xeOaAfzpUDgl9TQmfsxgvdMz2M9tSrIQqIUDL7iMmr9hv3xuRIEzWX2fZzkgzz23Hu
-	FpTB/KobYDRo0HGatzYFlH6Z5/qUnY3sosVuCUxkOb2ruTbapp+fbD+qw==
-X-Google-Smtp-Source: AGHT+IFDVH3ne6sNymKAo1QgYJon0YdqlPVHMjDohMOhYt3kQjiXEykwiHRGKr2ebn9u641ZWv+SCw==
-X-Received: by 2002:a05:6000:3cd:b0:385:df5d:622c with SMTP id ffacd0b85a97d-38880adb0b3mr2087916f8f.30.1734101367931;
-        Fri, 13 Dec 2024 06:49:27 -0800 (PST)
-Received: from linaro.org ([2a00:23c5:6829:901:dd7a:c2d:2b46:b1a9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-387824c50b7sm7196295f8f.57.2024.12.13.06.49.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Dec 2024 06:49:27 -0800 (PST)
-From: Mike Leach <mike.leach@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org
-Cc: james.clark@linaro.org,
-	mike.leach@linaro.org,
-	suzuki.poulose@arm.com,
-	alexander.shishkin@linux.intel.com
-Subject: [PATCH v2 3/3] coresight: etf: etr: Update logging around flush_and_stop() errors
-Date: Fri, 13 Dec 2024 14:49:19 +0000
-Message-Id: <20241213144919.110642-4-mike.leach@linaro.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241213144919.110642-1-mike.leach@linaro.org>
-References: <20241213144919.110642-1-mike.leach@linaro.org>
+	Fri, 13 Dec 2024 14:50:55 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BDEIvXY022054;
+	Fri, 13 Dec 2024 14:50:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+	content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=ILQcBliS53PGmeAwS/K4h6GeyD7y4AIHXFgUd+DVO
+	pk=; b=lmnu+yRoKp1ILXdG+ZED3QUW8z2UZ/CW6E2uItRcfSkkTylF2uTj5bDbY
+	ylRPbJP3fjnq1KAOLhrH1dKV2UOCVVxY85sGmKPhtjFTCrGJ+lywlgay8cbnwkw8
+	ET8I2vtTeig1sbl6QDdrKlPc5mxpYRQIyN0ZhRLCI+EhNk0yocnBY4H2PaKTKFrF
+	l+MQme+BhkQNCrbRJGsy38UoIXRiuriDOwH46WebwS+8jCF3UxvNv1pS0TWDX+0j
+	I9vvLdYNkDbSeQ2gXfJVFePWJzRhCa6zx3IGsyzL1Ah0Sx8heKOlRgGtG6lBdbuN
+	F5ib0iPGgkODfkSc9sCqHJ1HRaVww==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43g9yhkm56-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Dec 2024 14:50:42 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BDBx6KV007781;
+	Fri, 13 Dec 2024 14:50:41 GMT
+Received: from smtprelay01.wdc07v.mail.ibm.com ([172.16.1.68])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43ft11ysf6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Dec 2024 14:50:41 +0000
+Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
+	by smtprelay01.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BDEoeQ051839256
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 13 Dec 2024 14:50:40 GMT
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 226F65805F;
+	Fri, 13 Dec 2024 14:50:40 +0000 (GMT)
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5CCD858062;
+	Fri, 13 Dec 2024 14:50:39 +0000 (GMT)
+Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
+	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 13 Dec 2024 14:50:39 +0000 (GMT)
+From: Ninad Palsule <ninad@linux.ibm.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+        andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+        eajames@linux.ibm.com, ninad@linux.ibm.com,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/8] DTS updates for system1 BMC
+Date: Fri, 13 Dec 2024 08:50:26 -0600
+Message-ID: <20241213145037.3784931-1-ninad@linux.ibm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: XOW9082fpxCc7H1F3PAnWkbIU9wTLjzF
+X-Proofpoint-ORIG-GUID: XOW9082fpxCc7H1F3PAnWkbIU9wTLjzF
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 clxscore=1015
+ priorityscore=1501 spamscore=0 lowpriorityscore=0 suspectscore=0
+ malwarescore=0 impostorscore=0 mlxscore=0 bulkscore=0 mlxlogscore=387
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412130103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_064929_761691_6213AB89 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20241213_065054_100565_769B7659 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Insert additional context around tmc_flush_and_stop() errors.
+Hello
 
-Signed-off-by: Mike Leach <mike.leach@linaro.org>
----
- drivers/hwtracing/coresight/coresight-tmc-etf.c | 12 +++++++++---
- drivers/hwtracing/coresight/coresight-tmc-etr.c |  8 ++++++--
- 2 files changed, 15 insertions(+), 5 deletions(-)
+Please review the patch set. It has various device tree changes for
+system1 BMC after hardware testing.
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index d4f641cd9de6..62b4b685c1a1 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -84,7 +84,9 @@ static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
- {
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error disabling ETB\n");
- 	/*
- 	 * When operating in sysFS mode the content of the buffer needs to be
- 	 * read before the TMC is disabled.
-@@ -146,7 +148,9 @@ static void tmc_etf_disable_hw(struct tmc_drvdata *drvdata)
- 
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error disabling ETF\n");
- 	tmc_disable_hw(drvdata);
- 	coresight_disclaim_device_unlocked(csdev);
- 	CS_LOCK(drvdata->base);
-@@ -496,7 +500,9 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
- 
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error updating perf buffer\n");
- 
- 	read_ptr = tmc_read_rrp(drvdata);
- 	write_ptr = tmc_read_rwp(drvdata);
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index a48bb85d0e7f..122a067d1bb8 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1139,7 +1139,9 @@ static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
- {
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error disabling ETR\n");
- 	/*
- 	 * When operating in sysFS mode the content of the buffer needs to be
- 	 * read before the TMC is disabled.
-@@ -1578,7 +1580,9 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
- 
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&csdev->dev,
-+			"Flush and Stop error updating perf buffer\n");
- 	tmc_sync_etr_buf(drvdata);
- 
- 	CS_LOCK(drvdata->base);
+NINAD PALSULE (7):
+  ARM: dts: aspeed: system1: Add IPMB device
+  ARM: dts: aspeed: system1: Add GPIO line name
+  ARM: dts: aspeed: system1: Add RGMII support
+  ARM: dts: aspeed: system1: Reduce sgpio speed
+  ARM: dts: aspeed: system1: Update LED gpio name
+  ARM: dts: aspeed: system1: Remove VRs max8952
+  ARM: dts: aspeed: system1: Mark GPIO line high/low
+
+Ninad Palsule (1):
+  ARM: dts: aspeed: system1: Disable gpio pull down
+
+ .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 178 ++++++++++++------
+ 1 file changed, 119 insertions(+), 59 deletions(-)
+
 -- 
-2.25.1
+2.43.0
 
 
