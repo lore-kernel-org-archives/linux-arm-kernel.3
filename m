@@ -4,103 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C402E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 03:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C6BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 03:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xb6eCXHuesyabFIl/WlILqji0wRnUDU75m+XOpTvLxw=; b=A2rBibmJUbZGA25etoPz8QPWwU
-	UoJoAKaZfcDY0L1NAcMp88l4Vxv7/7OwcXRgaMTshnpu+nAddLcrf2SQRbYAXMv5vroU+UwDm6fJe
-	bGObyrSe0YDu+TDJ+h62OAZ/sLhjwn7zz6FdwJ9v3W59qvP+fXgG9j0lw+rijsjTNvYFeBwcxRm5Z
-	p5FN/sSBKhvxvLKBHEK+sAwMz35I5ObyCgYnhbcVJAPUIM5KM/T2oB8HxkSoUKgs5+DQWJq7yt58E
-	He2P6HiJudKU5VZc1eS70p72q6DSOshW1VQJb71QTQXe79ea6xY2UOEn521h1v0xWC561UPf8+xBk
-	lhOMFrjQ==;
+	bh=F4+IHymAFG3fzlRz2VYk5n5TawhB5HXg0iTaFK1jZDQ=; b=0MaltIvVDi3p4j6BZzAfM1qw9L
+	t5YqZY29WtjWX117V3k1K552pmwORhFDIbksOiunjvvFCyRqqfPJtvGrGYvX7cvx4ncm8yjZsCHTT
+	f+jNgwTS7IgLFNqqWQSRLmXjPasNpPpeUH8amabk2xpb1TD2lUDnIhTyS3+rgHMpqpHebnwZDudm0
+	B8EYS2ezjn/ltZ4llzHynrInlmsZwGXWVNdjycbsXhLLlbzN2oWHcjfLz46X5iKYMcyoP9cveZQCD
+	NHgeXw2Ut/549oO8zZ97AMAhWt/3+JsXCSX36OJtyOovW4vsK93iBAiz2JEdG2chxOPYgLE/WG+1O
+	XZ7BD6Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLw0y-00000002Z3g-2X3j;
-	Fri, 13 Dec 2024 03:06:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tLw20-00000002ZB0-1CZT;
+	Fri, 13 Dec 2024 03:07:56 +0000
+Received: from mail-vi1eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2613::60d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLvzt-00000002Yuw-2pgt
+	id 1tLw05-00000002YwK-2SCQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 03:05:47 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCKpm2l030100;
-	Fri, 13 Dec 2024 03:05:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Xb6eCXHuesyabFIl/WlILqji
-	0wRnUDU75m+XOpTvLxw=; b=D00ONeSXSFaCFljGXmK+LJBTFuaHOMIGifYyc7te
-	+unwx1c5w4YGNom07met5f/QA3NTDRc+GlMt0K1i+dEPr7zJ9Oj/TNrmxgeLY2wL
-	SbOzNehc7ldtgipGJKJixnNcazczbAQ/wtPgPlWGuKOeaIY+NLP7l0ntR0e4zllt
-	qhR5nfkf/3kWu8UTVx4LsKYnt2CJxZu1Arv+U9ZV5t73cLIzUhSW9VjOE/gHrWHj
-	PB2GgQ/ZTW13gfLza+Yo5I4JGQQmeHIR8Svik8appvaKJkAnEPes26z1tF8TWIvm
-	2rzVFvpb0jJLu2BpggydN1G1Cq1awVIdCjpElC4WapiKcA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43fwgejcvg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Dec 2024 03:05:36 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BD35aJ3007215
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Dec 2024 03:05:36 GMT
-Received: from hu-pkondeti-hyd (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 12 Dec
- 2024 19:05:30 -0800
-Date: Fri, 13 Dec 2024 08:35:27 +0530
-From: Pavan Kondeti <quic_pkondeti@quicinc.com>
-To: Mark Rutland <mark.rutland@arm.com>
-CC: Marc Zyngier <maz@kernel.org>, Pavan Kondeti <quic_pkondeti@quicinc.com>,
-        Akhil P Oommen <quic_akhilpo@quicinc.com>,
-        Rob Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        "Abhinav
- Kumar" <quic_abhinavk@quicinc.com>,
-        Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, "Simona
- Vetter" <simona@ffwll.ch>,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] drm/msm/a6xx: Skip gpu secure fw load in EL2 mode
-Message-ID: <b71d89f9-fb72-405a-b5bf-a09a796561bb@quicinc.com>
-References: <20241209-drm-msm-kvm-support-v1-1-1c983a8a8087@quicinc.com>
- <87ed2fs03w.wl-maz@kernel.org>
- <92cee905-a505-4ce9-9bbc-6fba4cea1d80@quicinc.com>
- <86sequsdtp.wl-maz@kernel.org>
- <c197264b-3791-493a-b717-3dfd844de922@quicinc.com>
- <87bjxhs2t7.wl-maz@kernel.org>
- <Z1q9rnzOlB9J5dXb@J2N7QTR9R3>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 13 Dec 2024 03:05:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F10jWmyMz+n8F1meatuf5uGMQlfENJkyXbuhUN3KbEsTZw7SeGlfbJgU2f0tIwFS46KTbOYhdyfnqvMNdmF6RyCNDoX1b7M+6efzFYtYcTt8Tkxvx5xoTWcUzg/2ygl7qEGXSh6M+grPP2GV2g++tRBvslqz3Hk2ZQs4+FWrfDF/plwbt4NX9Mwq4MwV/x525/4AhFusybHEkCFjBaY8uSPW8zK+PC8+3qa7ihiyoFeL1gLBjo9PIhAqZwerj6T3qJZCyPIn1JakjJp+2vLvz8XYffUe06g8FXuLHZ+2dRw33M5hXH/XCvSMyd9kqtObycf3tT6g1EhtCaD+iZ3daA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F4+IHymAFG3fzlRz2VYk5n5TawhB5HXg0iTaFK1jZDQ=;
+ b=VPihQve6Rg4jPPGiA1u45K8MxiZnmqdv8uM3s5Rg3QS9bOVAXyU3JizEmhmp2q4mS1syHAdAEP8Ki08qaGmYxDpxmBImW3MRLtuR3icp3yHTsKmov+MfROmbTxEGA6iw9ltxV5nWUubI6dq9Hp6KGrIDQ1uzCdH8xW133y6H7N/AKjdRaUxf5WT6CmGGb4Vk7CINQmJ+YdR4sq/dbm2FzkqhZC+7CjJfiaUX0isgds6bgMkjV36p8jtf3QwKtnk5gbylkwevtESx1GaEgarDjiXjDqrYrs5joRJ6pLIwKxB9XfDV7LRu87txIHPccKbFxnWfWGuXiaeLVwJsPpBkhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F4+IHymAFG3fzlRz2VYk5n5TawhB5HXg0iTaFK1jZDQ=;
+ b=yBMwHp6xMosrGx9kfV3ajC9whNo0sumikJRIGNIYfEJ+c52IUqo3XnJEQEDTFyRRkyoohQd9By677uGlI/QRQ+0lNPLOGF4is2UfjvSvVfeACJwPxmUGK4B1zO2/Dgz2jfb7WyBJ5Cl0VKIOa9QEqqpIYdu36cccLtOSe+4HmIK9a/s2msZ+mksI/Gf1fHu53GXP/N1rec/4bDzlPu3/GdPsSYPOo8Uus+plPTZ8q3TyFQIYBfzG+KRX1Pr7p4DDlBXcqu2Xubrw7W27tS9Hz2DTZ6ey1OlEA5G1eqXb/3ITAh2P30bGgHNfwsJfJGkT/mG2PO82iV3rFdeZbmd6BQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA4PR04MB7775.eurprd04.prod.outlook.com (2603:10a6:102:c3::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Fri, 13 Dec
+ 2024 03:05:49 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8251.015; Fri, 13 Dec 2024
+ 03:05:49 +0000
+Date: Fri, 13 Dec 2024 12:11:00 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 2/2] nvmem: imx-ocotp-ele: Support accessing controller
+ for i.MX9
+Message-ID: <20241213041100.GA6948@localhost.localdomain>
+References: <20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com>
+ <20241212-imx-ocotp-v1-2-198bb0af86a0@nxp.com>
+ <Z1shTD5QLRXB1wAk@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z1q9rnzOlB9J5dXb@J2N7QTR9R3>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: dOH1GB_cEQesfUdqXmPeq8eFmXp0QQAP
-X-Proofpoint-ORIG-GUID: dOH1GB_cEQesfUdqXmPeq8eFmXp0QQAP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- suspectscore=0 bulkscore=0 mlxlogscore=999 spamscore=0 clxscore=1011
- impostorscore=0 mlxscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412130022
+In-Reply-To: <Z1shTD5QLRXB1wAk@lizhi-Precision-Tower-5810>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR01CA0051.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7775:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ebf3232-7db4-4eb0-f696-08dd1b230b88
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KnjAtnaxZeW4tJZbKPxQn0rU49O8IPegiTc6OaZNWHJo6x1Adt7qOySMavK1?=
+ =?us-ascii?Q?7ahkFnwNejGDXm6x54tu0dxm8onf81j5nhQDLGvNeqYd5gUrqgZ91Cs4wfrY?=
+ =?us-ascii?Q?teLydiXaA893pHmYyDzIBl0U1Tfn/ODO9h+kg4Jq42x+1JrOJr3n3AOHy1d4?=
+ =?us-ascii?Q?1tzW4DyZpOmt6bpk8apBOAdekOrrUPg+nSzVse/ll8w1lLggv2fkZkA1go+C?=
+ =?us-ascii?Q?PgLzMeSR2d2Tbg3MT/9eK+WDv2IHJjOZqdLV6uC5nHY1jdokp7wHrTFainyV?=
+ =?us-ascii?Q?j6ij/zWhXF7s/ON+lNp0xh/QMDT/DFk4gIjoROYapVHRcp+qL8WwMUbKuGHp?=
+ =?us-ascii?Q?uD2N6Xd9E2Iys+GIwGSo5IIBh77aUn3R9Cn4jx0yfGp+xqTOrI+kT7NrmLvu?=
+ =?us-ascii?Q?O6drKufJp2n5+K39/B7qpydUI95v2aJTa9D1VIhV44HFwoQYbWOiod6VHVe+?=
+ =?us-ascii?Q?KIUn/ovWOJF6dcfHL1PNIPgElYodGbvirYb65aBvfCBBguQaWJW+q728cDN4?=
+ =?us-ascii?Q?/FMKbn0rkbUWyDMbmHI/1nkQuHU3Ix009XFE+vFSIyeN3j1ppHqKEYTOjFI9?=
+ =?us-ascii?Q?fx5FjGgA1GiCb0BIjMUNALdnrpy0X9SdX4rl24rLcgWiwkm17O8J01dqBe0t?=
+ =?us-ascii?Q?nCAeIXj5mAAHWquOl6saNNtBjW4XSWgKbfwxpHiZ8Cyn366HsToGo7GtRRbL?=
+ =?us-ascii?Q?YWJvNPicU/WVf54OcKba5YTkCNLohlqIxZw4X2Z9CHElsxQb6ZVjUBUX5oJ+?=
+ =?us-ascii?Q?teLDKEnpTHb70C+WcyaO26agdegkQFDCp1DT6Vufahb/9MsEO/ksHXIkyFFH?=
+ =?us-ascii?Q?6GDGw6VE0puRMTykzad3/auTtahcF3Ia3KBvSkhcLwy2fLMVNjHCEBg8aAcF?=
+ =?us-ascii?Q?VKK0SrciJZZ0xf9WLYEpWlTfDRz3Glyz76NKLXJk34p0HwfBcgxxDjcXf5am?=
+ =?us-ascii?Q?D2y6pZ/ifGyFHFVGv1pzQ9TbhPuNnxo3LPtrb9EPhTMsA59CjGT1XXm1cWgK?=
+ =?us-ascii?Q?fS0HgGfAjrBaugukXWwva7zOWAZXyatQdkQ4zMUD8RQWUdPGbbBWT7BS1bEu?=
+ =?us-ascii?Q?BtVQ5XbWrTv64UfWNYVzdoHRWCFLU/ZGnnIO7JAoMkJYxK638WK+YW8bz+3B?=
+ =?us-ascii?Q?kHWf4LEw5YJf5hOJJfcvj0aasHhMoa18LRWlcA6/USLrMlH3P00XhR8mjKf0?=
+ =?us-ascii?Q?+FQP5joA7XnK14LDt0HsITRKVUVzD0rqvIjo+3+zcK6TWdk/vMHS94TsVFGe?=
+ =?us-ascii?Q?EjfHoGktKWW3BlrdTMmC+ae7LAWVWJpYDKzJd3M2i5I0JcvhVPhUYIKPaw8V?=
+ =?us-ascii?Q?ndukOFgR/A78qdIQFd3/wsrYWhdbyuJhPIqgyIgQnT6aDd7MHBLO5rYBFYT5?=
+ =?us-ascii?Q?uh4CtoewQIHI72U6PRLxdz2MUKzlCF18cEtVaxK+90yH6Nfeuw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?grjXuLoVvuYGLe7pzjzxnQUcc4Df6/g7kZg0RBINNT7K7ZDUJoF7EQhqSvnG?=
+ =?us-ascii?Q?vwl7swRk+/tbzJSIuL/MuGjgyxawlMZyLZQ8xj8d1ZuggYd+vHZTuULpEjs1?=
+ =?us-ascii?Q?+MT/TLrCbt/V1nOTDR9qY0HMjrTMcAm5U6KD2ZSdHSmxeKLqbzAG6ItChduk?=
+ =?us-ascii?Q?IUvDLMIFuXNHy+9Xr/DxBD0gn6UyusHaGDyso19J1JeXZSugUh8BfgOSIH/R?=
+ =?us-ascii?Q?Z9myweA1qO3MjeNEbKrczxESEJ1uLq1OHHVeF6P7dxFTkMtQT3GijjPq+JNr?=
+ =?us-ascii?Q?70jcS0L8p7osCEJbV4cn9tSPz/Qo8MGIcM5KeOFf+YM5ji3t9Jt5Zs2b4i5J?=
+ =?us-ascii?Q?w3DBQfsdtXEewmsdexJBF8ze/FEZPkxj2B/s9v7P9lD2NAr9v/uv3dkHf1Wp?=
+ =?us-ascii?Q?1BLWZe81t1LcEJ0YjI8nW0MvaeiyC4TsLNSn6oRSuv/6Vqy+IDXPp4R8+Hqr?=
+ =?us-ascii?Q?/fMEHQfF3smUJACRFvsXaSmE1PGQKRpG0FXS/mbF6H5sH+K5ebSAsDD/7Qth?=
+ =?us-ascii?Q?aD4kgJZJ9Mgr+jbOa5f6/mLh85yUeKF6Sf6TZPVC03Zk7yaSUina49A8lZcw?=
+ =?us-ascii?Q?E7DDQamC4pSB3v3xz1PZqXw6saZT2KpNC/pMLHXS2ZM7jOew5KvXeBvJBMGp?=
+ =?us-ascii?Q?DzY1zLUnk9QDaiNtUMu+cShuTPMVR5QXEMS/yOEAd8KNz/L8+xVAYsqrKeLl?=
+ =?us-ascii?Q?QX9OcKlRKRiuLyylemC25BhxJnKWVZDOIJrtMKWrhrZ/FAtxIDNZo7CgNFz4?=
+ =?us-ascii?Q?aOyKULBRpZe6+2Qo8JhsL9flwlu6iLxYMeE83cc1GPiIrACNh3fO24qXH3CX?=
+ =?us-ascii?Q?0J5zf7C4CC6+Drd9s5cBICVpM6SfypTExAhyZsXmC51KIPLl9G8HwLOtjvEZ?=
+ =?us-ascii?Q?cgdSjA2byaJM2AR8++7yuDE8tJnuGoZLmY7ByRJ45rspdLyzTTw2oGprRbhF?=
+ =?us-ascii?Q?4uHJ4aMoRleDgw/4uE9stW3tfmMIi+Wd8Nro/LG7/WbUmSkSvUMXPO8alAT/?=
+ =?us-ascii?Q?U2of32IeQ5aojRsYyRPY2TEiu3OSsFZiFRqTV9m89uaCDpPqIGh66CGz59E7?=
+ =?us-ascii?Q?V1d16B5JhauWC3oeAiFudZWQe8PI363bOqSr9an1is5QgGW0R7TP4mPadxGE?=
+ =?us-ascii?Q?awhYyFod2T3e9fgS1rYhtegYT+UMyGDtTRM7qpa5Y17YMb+KVcM7cgaSER+N?=
+ =?us-ascii?Q?2IBq4nT+vOl7344QIQmW2Bicjix1kM9uue0FHQE2Kb1hYg85cjfN3MAjbUML?=
+ =?us-ascii?Q?tbiIcJKycbWu5fwxcx8IrUcazEKlRk0UYY+7bk5pIT2vG8QcCOObQb/Gbmv0?=
+ =?us-ascii?Q?jGD4MdZa0jGaMyjxxqzVYSleXiCMhx4tHEbF6gl6Pi6JIZGg5AoDxgZkAH/j?=
+ =?us-ascii?Q?Y2TOPJzC2HA0XlzwZ3Hq07WJsabfUVecVtB531XuYe7UDTeIRTcWA6p0k7th?=
+ =?us-ascii?Q?PXsGv7q98kYDLMHkBUnXl2oZRe7dy+S6AGesjKzVm/lsCW6b1q1nFtLxOHAW?=
+ =?us-ascii?Q?H5EoagH4JaSVxbTBbY4xek4HGpSe1R8DY/uZ+SOLeU/Dv0ry2iY6BM72PJFR?=
+ =?us-ascii?Q?UZ1lekGXBlmZQhHSpfibk5Hact+fS7RVHtcSJqSY?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ebf3232-7db4-4eb0-f696-08dd1b230b88
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 03:05:49.0171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EhLnwOmFNIFSQreMJnToQA8fQLd0lwGS65CKEnUWIeWwPXLpGdIWSd5oi5N/2i4F5lmY/rOEF9pBGTmx148EDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_190545_741657_24D2B67C 
-X-CRM114-Status: GOOD (  36.01  )
+X-CRM114-CacheID: sfid-20241212_190557_633932_49C6B489 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,71 +168,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 10:40:46AM +0000, Mark Rutland wrote:
-> On Thu, Dec 12, 2024 at 08:50:12AM +0000, Marc Zyngier wrote:
-> > On Thu, 12 Dec 2024 05:31:00 +0000,
-> > Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
-> > > 
-> > > On Wed, Dec 11, 2024 at 10:40:02AM +0000, Marc Zyngier wrote:
-> > > > On Wed, 11 Dec 2024 00:37:34 +0000,
-> > > > Pavan Kondeti <quic_pkondeti@quicinc.com> wrote:
-> > > > > 
-> > > > > On Tue, Dec 10, 2024 at 09:24:03PM +0000, Marc Zyngier wrote:
-> > > > > > > +static int a6xx_switch_secure_mode(struct msm_gpu *gpu)
-> > > > > > > +{
-> > > > > > > +	int ret;
-> > > > > > > +
-> > > > > > > +#ifdef CONFIG_ARM64
-> > > > > > > +	/*
-> > > > > > > +	 * We can access SECVID_TRUST_CNTL register when kernel is booted in EL2 mode. So, use it
-> > > > > > > +	 * to switch the secure mode to avoid the dependency on zap shader.
-> > > > > > > +	 */
-> > > > > > > +	if (is_kernel_in_hyp_mode())
-> > > > > > > +		goto direct_switch;
-> > > > > > 
-> > > > > > No, please. To check whether you are *booted* at EL2, you need to
-> > > > > > check for is_hyp_available(). Whether the kernel runs at EL1 or EL2 is
-> > > > > > none of the driver's business, really. This is still absolutely
-> > > > > > disgusting from an abstraction perspective, but I guess we don't have
-> > > > > > much choice here.
-> > > > > > 
-> > > > > 
-> > > > > Thanks Marc. Any suggestions on how we can make is_hyp_mode_available()
-> > > > > available for modules? Do you prefer exporting
-> > > > > kvm_protected_mode_initialized and __boot_cpu_mode symbols directly or
-> > > > > try something like [1]?
-> > > > 
-> > > > Ideally, neither. These were bad ideas nine years ago, and they still
-> > > > are. The least ugly hack I can come up with is the patch below, and
-> > > > you'd write something like:
-> > > > 
-> > > > 	if (cpus_have_cap(ARM64_HAS_EL2_OWNERSHIP))
-> > > > 		blah();
-> > > > 
-> > > > This is obviously completely untested.
-> > > > 
-> > > 
-> > > I have tested your patch. It works as intended. Thanks Marc.
-> > 
-> > Note that you will probably get some push-back from the arm64
-> > maintainers on this front, because this is a fairly incomplete (and
-> > fragile) solution.
-> > 
-> > It would be much better if the discriminant came from the device tree.
-> > After all, the hypervisor is fscking-up^W^Wchanging the programming
-> > model of the GPU, and that should be reflected in the DT. Because for
-> > all intent and purposes, this is not the same hardware anymore.
-> 
-> FWIW I agree 100%, this should be described in DT.
-> 
-> The cpucap doesn't describe the actual property we care about, and it
-> cannot in general (e.g. for nested virt). I would strongly prefer to not
-> have that as it's setting ourselves up for failure.
-> 
-Thanks for the feedback. I understand that EL2 detection in kernel is
-not going to cover cases like bare metal EL1, nested virtualization. We
-plan to take the DT approach. 
+On Thu, Dec 12, 2024 at 12:45:48PM -0500, Frank Li wrote:
+>On Thu, Dec 12, 2024 at 04:24:42PM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>>
+>> i.MX9 OCOTP supports a specific peripheral or function being fused
+>> which means disabled, so
+>>  - Introduce ocotp_access_gates to be container of efuse gate info
+>>  - Iterate each node under '/soc' to check accessing permission. If not
+>>    allowed to be accessed, detach the node
+>>
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> ---
+>>  drivers/nvmem/imx-ocotp-ele.c | 187 +++++++++++++++++++++++++++++++++++++++++-
+>>  1 file changed, 186 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+>> index ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..542539b86efd2d38be2903c1d0ea72f918ff5b75 100644
+>> --- a/drivers/nvmem/imx-ocotp-ele.c
+>> +++ b/drivers/nvmem/imx-ocotp-ele.c
+>> @@ -5,6 +5,8 @@
+>>   * Copyright 2023 NXP
+>>   */
+>>
+>> +#include <dt-bindings/nvmem/fsl,imx93-ocotp.h>
+>> +#include <dt-bindings/nvmem/fsl,imx95-ocotp.h>
+>>  #include <linux/device.h>
+>>  #include <linux/io.h>
+>>  #include <linux/module.h>
+>> @@ -27,6 +29,7 @@ struct ocotp_map_entry {
+>>  };
+>>
+>>  struct ocotp_devtype_data {
+>> +	const struct ocotp_access_gates *access_gates;
+>>  	u32 reg_off;
+>>  	char *name;
+>>  	u32 size;
+>> @@ -36,11 +39,26 @@ struct ocotp_devtype_data {
+>>  	struct ocotp_map_entry entry[];
+>>  };
+>>
+>> +#define OCOTP_MAX_NUM_GATE_WORDS 4
+>> +#define IMX93_OCOTP_NUM_GATES 17
+>> +#define IMX95_OCOTP_NUM_GATES 36
+>> +
+>> +struct ocotp_access_gates {
+>> +	u32 num_words;
+>> +	u32 words[OCOTP_MAX_NUM_GATE_WORDS];
+>> +	u32 num_gates;
+>> +	struct access_gate {
+>> +		u32 word;
+>> +		u32 mask;
+>> +	} gates[];
+>> +};
+>> +
+>>  struct imx_ocotp_priv {
+>>  	struct device *dev;
+>>  	void __iomem *base;
+>>  	struct nvmem_config config;
+>>  	struct mutex lock;
+>> +	u32 value[OCOTP_MAX_NUM_GATE_WORDS];
+>>  	const struct ocotp_devtype_data *data;
+>>  };
+>>
+>> @@ -131,6 +149,100 @@ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+>>  	cell->read_post_process = imx_ocotp_cell_pp;
+>>  }
+>>
+>> +static int imx_ele_ocotp_check_access(struct platform_device *pdev, u32 id)
+>> +{
+>> +	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
+>> +	const struct ocotp_access_gates *access_gates = priv->data->access_gates;
+>> +	u32 word, mask;
+>> +
+>> +	if (id >= access_gates->num_gates) {
+>> +		dev_err(&pdev->dev, "Index %d too large\n", id);
+>> +		return -EACCES;
+>> +	}
+>> +
+>> +	word = access_gates->gates[id].word;
+>> +	mask = access_gates->gates[id].mask;
+>> +
+>> +	dev_dbg(&pdev->dev, "id:%d word:%d mask:0x%08x\n", id, word, mask);
+>> +	/* true means not allow access */
+>> +	if (priv->value[word] & mask)
+>> +		return -EACCES;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int imx_ele_ocotp_grant_access(struct platform_device *pdev, struct device_node *parent)
+>> +{
+>> +	struct device_node *child;
+>> +	struct device *dev = &pdev->dev;
+>> +
+>> +	for_each_available_child_of_node(parent, child) {
+>> +		struct of_phandle_iterator it;
+>> +		int err;
+>> +		u32 id;
+>> +
+>> +		of_for_each_phandle(&it, err, child, "access-controllers",
+>> +				    "#access-controller-cells", 0) {
+>> +			struct of_phandle_args provider_args;
+>> +			struct device_node *provider = it.node;
+>> +
+>> +			if (err) {
+>> +				dev_err(dev, "Unable to get access-controllers property for node %s\n, err: %d",
+>> +					child->full_name, err);
+>> +				of_node_put(provider);
+>> +				return err;
+>> +			}
+>> +
+>> +			/* Only support one cell */
+>> +			if (of_phandle_iterator_args(&it, provider_args.args, 1) != 1) {
+>> +				dev_err(dev, "wrong args count\n");
+>> +				return -EINVAL;
+>> +			}
+>> +
+>> +			id = provider_args.args[0];
+>> +
+>> +			dev_dbg(dev, "Checking node: %s gate: %d\n", child->full_name, id);
+>> +
+>> +			if (imx_ele_ocotp_check_access(pdev, id)) {
+>> +				of_detach_node(child);
+>> +				dev_err(dev, "%s: Not granted, device driver will not be probed\n",
+>> +					child->full_name);
+>> +			}
+>> +		}
+>> +
+>> +		imx_ele_ocotp_grant_access(pdev, child);
+>> +	}
+>
+>Does it mean ocopt driver have to probe before other driver probe?
 
-Thanks,
-Pavan
+Yes. devlink could make sure ocotp being probed before other drivers which
+needs access control check.
+
+Regards,
+Peng.
+
+>
+>Frank
+>
 
