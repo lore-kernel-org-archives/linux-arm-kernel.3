@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0886E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83136E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRIMoCRXgr21zV+LDsGuNBNHSvWNc7pEgMCpKFErixc=; b=hBcxcjMxhZD9iGqGZH0+Ku2ktB
-	A6buKflNN7ZHINnQyFehTJAk1JJkC0N48SWN/rhP/VHK6y3fliI4lPj1R9H5P1oxsR384LzW2Lp+W
-	3lCqQ6bvdgDXk6XKNVLTu2Tjs2k/kNDC9vp/4TdZ2F/yWBc7PwsOiguechPqB0y5c+Qk1ITEP5dsl
-	R1qjMs/wWFCxEIw9tbGXU7YUERFrlC6nPj3mrw70OA1aKR9vGpEuNikMVco0rBN11L5ewlhTg/gOX
-	crTp+R7SZYWZr20AuV+2lM7uZvQuIDRZY8WV0VuyvIPGChoE2K3KT/E0CSyjUWc+C+yLv4amWA5Li
-	mWJ4//5w==;
+	bh=Io6gpEcnOGzdye+2kiHrUQWFpNo/CqyBUvnSTyCaLLs=; b=j1iv2JvDUTOeRtumETR5T4WMIj
+	TglGd/yWgCxdJsYKWHZeADA1ku4tCMWmRlCFqMmr6uxaGWjQXisRBzgE3WGsjGzYnB5xujJ0ujKFi
+	h/fz+N8hagUUzLkpUwvIK2UyUC7yBZ8el2la50e68n9LSyEXfW1sbJer01DR1E2I+lLSQ93IGhi+/
+	lHFWIFcJuU/e90yQ+JJNG1XEbp/u0siAYA0EV+npnWuNYzGlXvQ9uAtWkeyDjKCuFt2CTEF5o/F8m
+	u8sEr1G7MNYQSfSDRwtGIfII3iI+mxc39Xqbvb6ttZ3UP1wpkWbP/yVhkJl/+uPrl2wMfQqLLZUJo
+	zd6u3yRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0bo-000000031QM-00RU;
-	Fri, 13 Dec 2024 08:01:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tM0cq-000000031Zi-2XzC;
+	Fri, 13 Dec 2024 08:02:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0a6-00000003187-1sTj
+	id 1tM0aY-000000031Bv-3vvX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 07:59:27 +0000
+	Fri, 13 Dec 2024 07:59:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6E356A42757;
-	Fri, 13 Dec 2024 07:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA6F4C4CED0;
-	Fri, 13 Dec 2024 07:59:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E0295A427B2;
+	Fri, 13 Dec 2024 07:58:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5073C4CED0;
+	Fri, 13 Dec 2024 07:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734076765;
-	bh=mmeXuR7jX0+cdPS+dNqIHwCfiX6r6wzMOuIh7ErAcYA=;
+	s=k20201202; t=1734076793;
+	bh=Zk2t2gNIqw1Fr3k0oMx9b92c0wRmzmcHtlYDobnwy5g=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=R8xDmd7VuwbDLrhXzFhubEb8fSUozlxYAFjLwcPbLw/TwSctcf4aqu49hzGf3dt7+
-	 KY/q6VHFIe5ZjcF4H3lUqUW6z3trSBpexVjzNgivxe8Gl+J28Ql0y83DMZ6VBGbDpo
-	 aRQphlz7pPuxLmQQhidyaItcZGJdSZHoOeuuB834MwaYt33zHsQrPeMAJnFb7lKXsk
-	 5/7WJqnB/cn/D2FaCGoK+Rodi2wVGmmBETtj71dhy5dCkVqpnwuRSV9/+e3olUBhzY
-	 2wLjme2klBhTXQUizUJ87IY2v5nlQC9SWOPuDUnxxqvBM32GJbooum7+7aAWrMeIoJ
-	 /Fj+4MRqEovzQ==
-Message-ID: <7289a50a-e139-453f-a512-3dd68a0839a2@kernel.org>
-Date: Fri, 13 Dec 2024 08:59:15 +0100
+	b=dpGpeq7bMlUF0fXGU/PpNaWDwNLPYp3mDzeqZb6lVpY5OgNCZzBCKi3ZvZAiZQqTc
+	 6WfTatWetFCdCRuq28PfGdPN8W85HhzbZCks3xZW3l/o+cxDopAej7rEVu+i4dOzkv
+	 aZCcYOPzuyXDH5fCtHfaU2z5snJMeCsBli3DYSUBIytLIEod6RE+5t5dWmUN3U/sTc
+	 jHZF3UjY95BqoyxwNqekTNYGAGwv6nut1rbWXdYOKACXFaDPq8kaYLSspymE99edCa
+	 JIBxtuPVF7t3qhZlNIjRykdseF9+GXElPk2xTDlblKafJj9tunusH6ijjJtCPcz5/T
+	 frcUQMuNibYTA==
+Message-ID: <7a1244db-7ab7-4374-b44d-e55a25d766a2@kernel.org>
+Date: Fri, 13 Dec 2024 08:59:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/6] dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
+Subject: Re: [PATCH v3 2/6] dt-bindings: interrupt-controller: Fix the
+ size-cells in ast2700-intc
 To: Kevin Chen <kevin_chen@aspeedtech.com>, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
  andrew@codeconstruct.com.au, tglx@linutronix.de, catalin.marinas@arm.com,
@@ -57,7 +58,7 @@ To: Kevin Chen <kevin_chen@aspeedtech.com>, robh@kernel.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  soc@lists.linux.dev
 References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
- <20241212155237.848336-4-kevin_chen@aspeedtech.com>
+ <20241212155237.848336-5-kevin_chen@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241212155237.848336-4-kevin_chen@aspeedtech.com>
+In-Reply-To: <20241212155237.848336-5-kevin_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_235926_614939_77C39E79 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20241212_235955_121830_98C4212F 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,36 +126,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/12/2024 16:52, Kevin Chen wrote:
+> It is no need to let size-cells to 2 for the ASPEED AST27XX INTC. Modify
+> the ast2700-intc example usage.
+
+Why?
+
+This just looks useless.
+
+> 
 > Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
 > ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  .../bindings/interrupt-controller/aspeed,ast2700-intc.yaml    | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index 2f92b8ab08fa..20191fee1f5b 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -101,4 +101,10 @@ properties:
->                - ufispace,ncplite-bmc
->            - const: aspeed,ast2600
->  
-> +      - description: AST2700 based boards
-> +        items:
-> +          - enum:
-> +              - aspeed,ast2700-evb
-> +          - const: aspeed,ast2700
-> +
->  additionalProperties: true
 
-
-
-This patchset is just corrupted. You already sent it as patch #1.
-
-Please run scripts/checkpatch.pl and fix reported warnings. Then please
-run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-Some warnings can be ignored, especially from --strict run, but the code
-here looks like it needs a fix. Feel free to get in touch if the warning
-is not clear.
 
 Best regards,
 Krzysztof
