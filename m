@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92139E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED64E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXM/PNkk6ChGVGiGbNEOyfsaW+CFMgGQkaPISobpIjI=; b=wnqYKTFk55kmQ5Q2RDwm50e4g6
-	XIH848BO6xT021+k/HakS8fuhu5tmpTZ0/4CZLT/OMyZFzDsLhMGJAv85bi0u4egqlyiskDGmr5E2
-	6fO21x5vl74RHSk+miNoLBLBnB9Pdps6bXBO+rHkL3yWuo30QbQw8vdK//vU6/ozWIaXcgP1kAKnI
-	kE8LIatGSkAp4xdNvTuEOmUgrBX0He5aPvs2bW31rNBc/2mFdSrtYb2blA5WDZyb74za2Xe2UiKpE
-	f9VjaE15OtSH7SNesYkzBsUR/gcR1tyX3Hg1LHwtGRTB+Rhpu+/xOMxBzJGQ0/iGXP7eH91F0M0P7
-	h8RcPIng==;
+	bh=ZNImoRLvw3XC0TF1vYDpCr86oKMWPfGwq3h9IC3F5t0=; b=AMMyHsWN6PmMc6GHxl4VCgFO1p
+	gJ6pgYaC2S0F5Ps5IqkzLvacCph53EO/8bISCW4Qwl4mFF4kaX2zjWwZwZK+rmZcaqU7ebNDheNmn
+	g+hCsGon2+nNCxBtXk3hw9fUsoZPKZ0Mir54UAxgOGJmGqVCDTjxTkC/JGSy0zrYNmB76ryoVfEpy
+	KFasLImDByejz54yfopnUQ4MgdfXOI2yfYxh4sY9PhTMKFOje8rfh6t5bODW29cjVHia1qeyiuIPy
+	D2QpKnF0N8Udom3TaB6kbvfiX8zFf/MPneWBJ/LALqzQ6MODfBU1mxwlzr77ZTaJaYWzM0FFJy2P7
+	86QKFNsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1tu-00000003FCN-0XM6;
-	Fri, 13 Dec 2024 09:23:58 +0000
+	id 1tM1ux-00000003FVJ-1rJF;
+	Fri, 13 Dec 2024 09:25:03 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1qS-00000003EIJ-3g5k;
-	Fri, 13 Dec 2024 09:20:26 +0000
+	id 1tM1sJ-00000003EjF-2hul
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Dec 2024 09:22:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E4C11A41E78;
-	Fri, 13 Dec 2024 09:18:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 361ACC4CED0;
-	Fri, 13 Dec 2024 09:20:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AEA68A4286A;
+	Fri, 13 Dec 2024 09:20:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C933BC4CED0;
+	Fri, 13 Dec 2024 09:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734081623;
-	bh=ZrfHL5HK6XFy4TpWd82potK2Py8Ecz/VGgykKzhsFKY=;
+	s=k20201202; t=1734081738;
+	bh=b52vfwJl4uqGickd+6KGXREsb2dmjrVhmMOCLp8FrCU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jqLxO4szVs6ix1PWHfB67O1rL4ZdPrzP79AuhYQpNz5FnwfN4Cop3mwTx+5VYWf43
-	 2FuRKi8gX4DFF+Eo524VWdvb9EFA47aVXOsDG0TQCdORFy5BmvIVk/iCkLa1Prj1tx
-	 2PXdn4GdweXr9skLN/sJnu6rXvxbASfZyjQvTzqpCt56ehl6a7L5LkuEmMO9TEkjRB
-	 5upyrcbO3g51Oduq511RIbZzQE96ExFZ6BN5mmHzMGhEs5mlsy2/bxxf6Vvmgh+WEA
-	 8UmXuTtSbR/OC9bwUKLupW/kxRTWR4F9bDxQSBq8SLdLXBkncKL6KX2d3rhflOHvKB
-	 5Rk2yl8+kv1BA==
-Date: Fri, 13 Dec 2024 10:20:21 +0100
+	b=E7L2e/2mavqt654a1ofIbOwMfZcqfVlNka9m4KCBbzEZmt4MS2+HikUz5jnpv+n86
+	 j6kkmMv9ACjoLdiwezM5VqwhizhGptVmsEV7bTJuxczO/I1xqSi210FkfYxQnmQrCF
+	 +YDqbnwOQjExnC5wSDvIO3zc/5xOjpj/RyngbiLjB68zKIE4sUZ78aH4DpG9vavkAm
+	 ritUX5VulVKYIUeBsWUCG+9zA+Vsdu/+M3+RvSS+HWoV6X4tlxqjT6SzbRKqmNangi
+	 V2+j7oQ5YP/BpdwWh4HmFU0f4qSxnlyZt+aaRW7Zrg1lBFRTclSuH8Y7ERXBmlfFCF
+	 BaeZ9JcpYdL6w==
+Date: Fri, 13 Dec 2024 10:22:15 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+To: Frank Li <Frank.Li@nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, 
-	Stefan Wahren <wahrenst@gmx.net>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 4/7] dt-bindings: interrupt-controller:
- brcm,bcm2836-l1-intc: Drop interrupt-controller requirement
-Message-ID: <n2ib4ofkijx36hak54i2vv5y5gh6pycsicnvjx4bzinsfoxr4l@ipefwfyxrpqa>
-References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com>
- <20241212-dt-bcm2712-fixes-v3-4-44a7f3390331@raspberrypi.com>
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Pengfei Li <pengfei.li_1@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: thermal: fsl,imx91-tmu: add bindings
+ for NXP i.MX91 thermal module
+Message-ID: <kb2mekvslpkj23a3ymdfwcpugvlscn736kjfwst24xqdgyqrfn@jozxo7o7enbi>
+References: <20241212-imx91tmu-v3-0-85e756b29437@nxp.com>
+ <20241212-imx91tmu-v3-1-85e756b29437@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241212-dt-bcm2712-fixes-v3-4-44a7f3390331@raspberrypi.com>
+In-Reply-To: <20241212-imx91tmu-v3-1-85e756b29437@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_012024_974236_76D147FC 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20241213_012219_743176_5880F55D 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,21 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 06:36:31PM +0000, Dave Stevenson wrote:
-> Since commit 88bbe85dcd37 ("irqchip: bcm2836: Move SMP startup code to
-> arch/arm (v2)") the bcm2836-l1-intc block on bcm2711 is only used as a
-> base address for the smp_boot_secondary hook on 32 bit kernels. It is
-> not used as an interrupt controller.
+On Thu, Dec 12, 2024 at 03:59:59PM -0500, Frank Li wrote:
+> From: Pengfei Li <pengfei.li_1@nxp.com>
 > 
-> Drop the binding requirement for interrupt-controller and interrupt-cells
-> to satisfy validation on this platform.
+> Add bindings documentation for i.MX91 thermal modules.
 > 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> ---
->  .../devicetree/bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml  | 2 --
->  1 file changed, 2 deletions(-)
+> Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
