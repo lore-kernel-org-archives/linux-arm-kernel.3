@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D55E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 15:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A493E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 15:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ku47Ydha883JTsKW5guHd8/08rTDvHSHoZG8yEKGlg=; b=GSfuKAxK1ATGtEY77j9apCi6nO
-	MYu4bN+JZdKWz+t4UzJXBuBfylT/+v+/Zanh1yIwV42Nn4eA4hm+YTmX1Igxt9PcDWa2Ypk45STdm
-	FhH0ngh8ZXiMhiUExNFDzz+bAaTCBdvfFcPdaqRQ9rsqRAAkzPHAZiJIG46fnGWCW26VzA1FZoAS+
-	4LYBnhjBXm8g7vGUUjtmadDG78HqmkzPVc+2ae2VMj5TueB+Uj+FKuRRPaDVKdPXuDQ98Mjgs4HIb
-	o3ipJn844qSk/qf3HVn1grlR3yUyfuKYzDFeomHT07Q/POSC13ASjN+HW4uLzfgcyFOnTv1RNh4Me
-	21s8Nc3w==;
+	bh=GHtvUQpufoIBKJFDuefGcJV0DBpGk5Tp2+TckBU2eMg=; b=LN2JmBiWKTWASy4u01FJFAsmAj
+	gt9WEP5toIqRPsZpxPg2LsoVXedTF8vQFQ5Sosp89D6+ii4Ix9xpFG6XyXV82QSXG/R38GgosG4z2
+	3nWLcUGtsTDedPZcXrPhA9hZZhP0ZM0Kt2ZS4ukPYOZxwkS4zY4oiEHgM3kSXzZ7cClyHa930tjtX
+	UdwQlzUB1LL8l1IcKJcEGW4MmNeb7iABTiANmqGvXrEr1oF3Q7oM0XBSISI4g75s5MQJPTSHzFXKl
+	xbRtlk6MSMwfYMG5UEW2n9J0y/ETVZ8nljemLfQ9w+0mR0u5Rw0xKNr3ccN0ncOpJcftmHvCCOx0b
+	7AJcUtww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM7vU-00000004JwP-1tnt;
-	Fri, 13 Dec 2024 15:50:00 +0000
+	id 1tM7wX-00000004K4O-0imd;
+	Fri, 13 Dec 2024 15:51:05 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM7uO-00000004JnR-2c0E
+	id 1tM7ur-00000004JrQ-0J3E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 15:48:54 +0000
+	Fri, 13 Dec 2024 15:49:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BCDACA42B57;
-	Fri, 13 Dec 2024 15:47:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BB43C4CED0;
-	Fri, 13 Dec 2024 15:48:47 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3A1C4A41D6E;
+	Fri, 13 Dec 2024 15:47:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2348C4CED0;
+	Fri, 13 Dec 2024 15:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734104931;
-	bh=25i8EZcrX5qs0YdzRRCBIcKVUXh7ElyhWyKn7kQgg3g=;
+	s=k20201202; t=1734104960;
+	bh=/hDdjLzEU/NW7kyxw2WQHiNd3hIOj8UaYlN8AblZ6GY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZhfbDoOIU4ZoJhX/zmDWHnMotJNG0HlvVTDXjJiDqY8f0PEDi7peUG5yeRDw4t6/5
-	 upQFtmBsGkR64WkI19lDp5xNXDs3S0JMMEuyM1PsBPcpGBB4eRPrcyJtlZd/tEBYEO
-	 yXzskWOeTfUrbzyi8Ypxnb+0CpTLn0p0cgPdF2htwapuUOA32CrF6WTDd9Bs3wbUqM
-	 X1XAB7eNI32RV/2M/0OR7SlGYfUMQ+KoyatDWnMXd8481zrAZuC3Q0uRZq24RwJnmi
-	 WVfJ8HqGulHVP9zJRnCSS9OSVYpiQjuz3SGuLOy6ZVlgKcgQacR40npTzJWN6KrQVV
-	 1T75vxmx0IQxw==
-Message-ID: <45b55b4b-25e4-4e8b-8c95-8c3129e72227@kernel.org>
-Date: Fri, 13 Dec 2024 16:48:45 +0100
+	b=OmM+p3RCtfPhAYT3Hz7bPotVhqgDa3gVt4f2/DAR32WQ86R1wwTeMRgVCnK6lXUXo
+	 pC5f2pBPmK0oveVlXE3hCksa5tr+QP2StnGDMJJy37+w+3vxHCAxOf49fmLRoQEkRw
+	 0XGv0orDKVE5fZEUHga0zid8fA3PieuibAIwuBkee27mvctkP6elKYQq2l3pOUR7E1
+	 34UdzSLW8j0pbtsUL6yl0V59YlcYTi6b5xGjnhFrnxHqHNHdYW3XK6pVz+V5vy2bIa
+	 8owvlZWcQzahmPqf1HErEUBq33k3l411jHtd7NuFdYT6BShaT89ZLPqubSACCTDH5+
+	 XlNz+koYFDwdA==
+Message-ID: <de59078c-8410-4c4f-bfce-db402e92635c@kernel.org>
+Date: Fri, 13 Dec 2024 16:49:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/8] ARM: dts: aspeed: system1: Add IPMB device
+Subject: Re: [PATCH v1 7/8] ARM: dts: aspeed: system1: Mark GPIO line high/low
 To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
  devicetree@vger.kernel.org, eajames@linux.ibm.com,
@@ -54,7 +54,7 @@ To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
  linux-kernel@vger.kernel.org
 Cc: NINAD PALSULE <ninadpalsule@us.ibm.com>
 References: <20241213145037.3784931-1-ninad@linux.ibm.com>
- <20241213145037.3784931-2-ninad@linux.ibm.com>
+ <20241213145037.3784931-8-ninad@linux.ibm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241213145037.3784931-2-ninad@linux.ibm.com>
+In-Reply-To: <20241213145037.3784931-8-ninad@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_074852_790295_5FE33180 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20241213_074921_244496_E63A18C4 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +123,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 13/12/2024 15:50, Ninad Palsule wrote:
 > From: NINAD PALSULE <ninadpalsule@us.ibm.com>
 > 
-> Add IPMB device sitting behind PCH module
+> - Mark following GPIO lines as input high:
+>   - GPIOL4 (reset PCH registers)
+>   - GPIOL5 (reset portition of intel ME)
+> - Mark isolate errors from cpu1 gpio (GPIOO6) as active low output.
+> - The fan controller reset line should be active high.
 > 
 > Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 > ---
->  arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 28 +++++++++++++++++++
+>  1 file changed, 28 insertions(+)
 > 
 > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-> index 8f77bc9e860c..51a116d7041a 100644
+> index ca2d4a292687..be0cd6152c61 100644
 > --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
 > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-> @@ -763,6 +763,16 @@ i2c3mux0chn7: i2c@7 {
->  
->  &i2c4 {
->  	status = "okay";
-> +	multi-master;
-> +	bus-frequency = <1000000>;
+> @@ -383,6 +383,34 @@ &gpio0 {
+>  	/*X0-X7*/	"fpga-pgood","power-chassis-good","pch-pgood","","","","","",
+>  	/*Y0-Y7*/	"","","","","","","","",
+>  	/*Z0-Z7*/	"","","","","","","","";
 > +
-> +	//Set bmc' slave address;
-
-Is this relevant/useful comment? Why is it even here?
-
-> +	bmc_slave@10 {
-
+> +	rtc_reset {
 Node names should be generic. See also an explanation and list of
 examples (not exhaustive) in DT specification:
 https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-Also: use DTS coding style (there are no underscores in node names) and
-use preferred naming scheme (see general kernel coding style / naming).
-
-
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
 
 Best regards,
 Krzysztof
