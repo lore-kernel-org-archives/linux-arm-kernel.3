@@ -4,114 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8314EE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 11:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D366DE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 11:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/TQKENLvmprGOW1/Wu3SkBKRJf47l5oWgnMdRrCuEI=; b=QkpOe+89OianHWzaPRn9/ESzek
-	wU03H6z7Ps5X7vBN8IdlDL6A1hdbPSzOmSxgFMGE/qzGqGc0RePwh8wtCVVwGi+pB9Z/1I6sN7ABO
-	3x7022TkeTaWzIZ1bXt3u/Lj7xXMR7vf7/7cxWUIBaJT+BdNo+0g5SLoXJToudLYhkEK+GNOS4YXN
-	HrF1xVPcJ+QSjmKZItLqsUqQ9lhz3puE5eoNTrJ/vW6MGOu7QmVCQZ810Q9vo5DQVTjCrCVVjAUOF
-	6qlb6nuqsTV1fkdvwZVSSNu2E7xPuuPLy3T+djJ1azYso8RBWzJXdpDTLRIqtbX4GD8JYPf419exv
-	8OMJVqNQ==;
+	bh=4mZdvhtRvGCfpQh2PJTw1zy782LwMEIbYoJwSZ47DZ8=; b=boCEwPpq0Gcu40Fm7wscxlk+WQ
+	SHgqU5f53MNsW09eB21GsUqSB4up44zfYoQZ8KAhSvAaxd9AhWoLLSVTCWO2XtJkTSgcrL+K40MR4
+	3caiToaH/1TEokTBAMrzwDzIfYOwOdiDdTyNnYum4/Mg6q1BGWtZhDO54iTV/TyM9HfRXzSOPGAmP
+	Qrn58FMSBOIcRW4TlmmeVnpQGtiKZXeHM1e3UcVjU8k15CJv+OnIMEMxjpJOCfxVwUZLznt94uhMr
+	uPLn2MpqCe8do6pFDj9rJP5ADAcAMeDI/zFOwacsKwYMlFAXuwI/19MpqPE4ZFLHGAn1oY77lb+BK
+	aXF3Bk2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM3iE-00000003XMk-2BhD;
-	Fri, 13 Dec 2024 11:20:02 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tM3jN-00000003XbA-0msc;
+	Fri, 13 Dec 2024 11:21:13 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM3h9-00000003X9S-3pFd
+	id 1tM3iD-00000003XL4-0Tia
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 11:18:57 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BD81uDR022379
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 11:18:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	Fri, 13 Dec 2024 11:20:02 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BDAwDvD013489;
+	Fri, 13 Dec 2024 12:19:48 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	s/TQKENLvmprGOW1/Wu3SkBKRJf47l5oWgnMdRrCuEI=; b=FHRzpVjjz7wcMkwZ
-	W27T6yxjzvmsYuiPzmedpeP4fEPqXr6E8enQCfNUhY4r6nSV2kcTJr7RhBt/QpOf
-	XPwzkq1E4DQzdNH68VWyfT66rjvG1ns0/bS729Gca1mYJ6TcrmovRQcUkCTYrhkp
-	WYvZEWlTuDym7+K19apfTZoHxejNVlDKG2s7sZWJbE20KWTknV6R1NhoTVHmVDI6
-	lQg1xzYmwvGlx9r8oM/b79Tb7ehQkCej9xGeeswx5NtAg1NCsf1uXTc+6yXJXqA0
-	9uXJiWzyZCJSmtlzm6ChMHl7RP6S4M5ZHMT098GGtDJG855QmqCAcUjTM5sh0qsd
-	TV6weQ==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43gh270jx5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 11:18:55 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6d881a3e466so4102966d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 03:18:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734088734; x=1734693534;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s/TQKENLvmprGOW1/Wu3SkBKRJf47l5oWgnMdRrCuEI=;
-        b=pKO/IEqVlFtOy/u2gU3kud8HjURMDr64AM3t7tZrDMLiZzw8jJXM0O+xpn6X6oKmDb
-         PMbEbtvbMH5exDKm361rrC+f/ebHctglOL0Thk/wz/hsNARWkVtusAa8n6gCCEkpiJSf
-         eUjvFO/uqEyhd/kTya/RcLwmBeBLMtAJS4vxR6iy6W76Io9NLM3Rk5dIcoWtQfXWAyIN
-         aJaldiDLllnPuYjVOQ4/3dXFVu8zwX3/fd2NNGSjtMipH+OVNSZnwWsY16JQmCBfkVqz
-         1Vd7EvSOnxC7nI4YiFzcOOoMTYBNsOfHgWmbtphQ0ie101EI+89VwWCo+uHo0nKn4K8H
-         iS0A==
-X-Gm-Message-State: AOJu0YyiABrNOAwWMauWCzBkXlNVdddyiESBLgigy1rWg9SXzLcoK0O8
-	3TgQrKbG8ml3xMwa8qXt4+07TvPGA2TSaDdLnkYbMFfeO4eExcMG0f9bPq6deRKfbhwPI30GtT+
-	2rigfgp/etLYkLk0Agb1+CInWoAKdhdijp7Ehema21T9iuG7gh2sA+gSwwMH4Vw8jaHYmrt2Uuw
-	==
-X-Gm-Gg: ASbGncsaj1GWAquZjZwpdFe4Krxc28PdDM2Cw6E6YxwaRgNY4NrHOmObCze66CakLPg
-	KBsW5eh6QC7RDoHiEwK9yIQ2aOvS8+MR+iocYRKhZUNWM2Qhl14H7c2hPYByYpfZkLKYSGlcdTT
-	iNlr8knuK+P2NcK58t3nHRJogOQqlQo8GqfIDGYeBVJdGchzJBWidt/bFCR7sAUtACThTEDrYck
-	ww/AInwPtXEc5rdkf0HTv75/iN38cM6Cfk1WRyool5fqyxTfx2Fk17CvP3Gb9kWc0Qg4Fe9Tspu
-	qB59skE9ghJ+j+O5JtbmwwgxFXoT8YIH7ifP
-X-Received: by 2002:a05:620a:19a1:b0:7b6:c6f8:1d28 with SMTP id af79cd13be357-7b6fbce2263mr128316685a.0.1734088734263;
-        Fri, 13 Dec 2024 03:18:54 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHBR+cUBdvb74XuOejNI9mYSykpjh49aeXCJst5j85GNfPlE4TY4ja3JXn/U1G43w2NwwSbUA==
-X-Received: by 2002:a05:620a:19a1:b0:7b6:c6f8:1d28 with SMTP id af79cd13be357-7b6fbce2263mr128313785a.0.1734088733880;
-        Fri, 13 Dec 2024 03:18:53 -0800 (PST)
-Received: from [192.168.58.241] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d149a48ab4sm11339660a12.27.2024.12.13.03.18.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Dec 2024 03:18:52 -0800 (PST)
-Message-ID: <d397065d-80fb-467e-bf41-0f5aad882a15@oss.qualcomm.com>
-Date: Fri, 13 Dec 2024 12:18:50 +0100
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	4mZdvhtRvGCfpQh2PJTw1zy782LwMEIbYoJwSZ47DZ8=; b=pWJbylCt/dHXMFLT
+	nup21j37+Uh+cj5yPSAwz5H3m3pYQSkvrp6h4YN5trvJK91XoCD1GgF7KXpLE6Pp
+	lY7BZpiNeETuSt0C9ZUCpPJqksMXw+F3keWTwlHto4XlzIPzg7vTANkA6uJl0+tE
+	W+HFjVirm3thC15mnxOqbL/LlG7dQiUQ4HWa/jMR5pJ9y5Ld/v4n+9W5Rek10/g8
+	ft256Ov1yLCBgsBTr8qf384ZxjJWFTdyNIOm1ybevxXTQRTH+rS+Ug2RUe3PRlq6
+	XopHThXKsnJAMxbFj1Ury/iUMvboW36R39ueCQCCp+0K3GX6y2WTNDBG3eyoMpHW
+	wJI+TQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ftj761y4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Dec 2024 12:19:48 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C06D040047;
+	Fri, 13 Dec 2024 12:18:22 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7F671264FE2;
+	Fri, 13 Dec 2024 12:16:35 +0100 (CET)
+Received: from [10.48.86.108] (10.48.86.108) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 13 Dec
+ 2024 12:16:34 +0100
+Message-ID: <6d893831-7a2e-4a9a-a519-2e257e249f0f@foss.st.com>
+Date: Fri, 13 Dec 2024 12:16:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/5] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
-        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
-        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241206191900.2545069-1-quic_vikramsa@quicinc.com>
- <20241206191900.2545069-6-quic_vikramsa@quicinc.com>
+Subject: Re: [Linux-stm32] [PATCH v4] pinctrl: stm32: Add check for
+ clk_enable()
+To: Mingwei Zheng <zmw12306@gmail.com>, <marex@denx.de>,
+        <antonio.borneo@foss.st.com>
+CC: <peng.fan@nxp.com>, <make24@iscas.ac.cn>, <linus.walleij@linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        Jiasheng Jiang
+	<jiashengjiangcool@gmail.com>,
+        <fabien.dessenne@foss.st.com>, <mcoquelin.stm32@gmail.com>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241213010948.2623382-1-zmw12306@gmail.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241206191900.2545069-6-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: ZUJXakd497tJ55c6TBOkrtFgeX0LId6F
-X-Proofpoint-GUID: ZUJXakd497tJ55c6TBOkrtFgeX0LId6F
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <20241213010948.2623382-1-zmw12306@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.108]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
- priorityscore=1501 spamscore=0 mlxlogscore=864 impostorscore=0
- suspectscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412130078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_031856_074730_FE00F310 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20241213_032001_443297_9F28FAC7 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,29 +98,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6.12.2024 8:19 PM, Vikram Sharma wrote:
-> The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-> Enable the IMX577 on the vision mezzanine.
+
+On 12/13/24 02:09, Mingwei Zheng wrote:
+> Convert the driver to clk_bulk*() API.
+> Add check for the return value of clk_bulk_enable() to catch
+> the potential error.
 > 
-> An example media-ctl pipeline for the imx577 is:
-> 
-> media-ctl --reset
-> media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-> 
-> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-> 
-> Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
+> Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 > ---
+> Changelog:
+> 
+> v3 -> v4:
+> 1. Add initialization for  pctl->clks.
+> 2. Adjust alignment.
+> 
+> v2 -> v3:
+> 
+> 1. Convert clk_disable_unprepare to clk_bulk_disable
+> and clk_bulk_unprepare.
+> 
+> v1 -> v2:
+> 
+> 1. Move int ret declaration into if block.
+> ---
+>   drivers/pinctrl/stm32/pinctrl-stm32.c | 37 +++++++++++++++------------
+>   1 file changed, 21 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> index 5b7fa77c1184..427749d4f6a5 100644
+> --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
+> +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> @@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
+>   
+>   struct stm32_gpio_bank {
+>   	void __iomem *base;
+> -	struct clk *clk;
+>   	struct reset_control *rstc;
+>   	spinlock_t lock;
+>   	struct gpio_chip gpio_chip;
+> @@ -108,6 +107,7 @@ struct stm32_pinctrl {
+>   	unsigned ngroups;
+>   	const char **grp_names;
+>   	struct stm32_gpio_bank *banks;
+> +	struct clk_bulk_data *clks;
+>   	unsigned nbanks;
+>   	const struct stm32_pinctrl_match_data *match_data;
+>   	struct irq_domain	*domain;
+> @@ -1308,7 +1308,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+>   	if (IS_ERR(bank->base))
+>   		return PTR_ERR(bank->base);
+>   
+> -	err = clk_prepare_enable(bank->clk);
+> +	err = clk_prepare_enable(pctl->clks[pctl->nbanks].clk);
+>   	if (err) {
+>   		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
+>   		return err;
+> @@ -1397,7 +1397,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+>   	return 0;
+>   
+>   err_clk:
+> -	clk_disable_unprepare(bank->clk);
+> +	clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
+>   	return err;
+>   }
+>   
+> @@ -1617,10 +1617,18 @@ int stm32_pctl_probe(struct platform_device *pdev)
+>   		return -EINVAL;
+>   	}
+>   	pctl->banks = devm_kcalloc(dev, banks, sizeof(*pctl->banks),
+> -			GFP_KERNEL);
+> +				   GFP_KERNEL);
+>   	if (!pctl->banks)
+>   		return -ENOMEM;
+>   
+> +	pctl->clks = devm_kcalloc(dev, banks, sizeof(*pctl->clks),
+> +				  GFP_KERNEL);
+> +	if (!pctl->clks)
+> +		return -ENOMEM;
+> +
+> +	for (i = 0; i < banks; ++i)
+> +		pctl->clks[i].id = "";
+> +
+>   	i = 0;
+>   	for_each_gpiochip_node(dev, child) {
+>   		struct stm32_gpio_bank *bank = &pctl->banks[i];
+> @@ -1631,11 +1639,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
+>   			fwnode_handle_put(child);
+>   			return -EPROBE_DEFER;
+>   		}
+> -
+> -		bank->clk = of_clk_get_by_name(np, NULL);
+> -		if (IS_ERR(bank->clk)) {
+> +		pctl->clks[i].clk = of_clk_get_by_name(np, NULL);
+> +		if (IS_ERR(pctl->clks[i].clk)) {
+>   			fwnode_handle_put(child);
+> -			return dev_err_probe(dev, PTR_ERR(bank->clk),
+> +			return dev_err_probe(dev, PTR_ERR(pctl->clks[i].clk),
+>   					     "failed to get clk\n");
+>   		}
+>   		i++;
+> @@ -1646,8 +1653,7 @@ int stm32_pctl_probe(struct platform_device *pdev)
+>   		if (ret) {
+>   			fwnode_handle_put(child);
+>   
+> -			for (i = 0; i < pctl->nbanks; i++)
+> -				clk_disable_unprepare(pctl->banks[i].clk);
+> +			clk_bulk_disable_unprepare(pctl->nbanks, pctl->clks);
+>   
+>   			return ret;
+>   		}
+> @@ -1726,10 +1732,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
+>   int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
+>   {
+>   	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+> -	int i;
+>   
+> -	for (i = 0; i < pctl->nbanks; i++)
+> -		clk_disable(pctl->banks[i].clk);
+> +	clk_bulk_disable(pctl->nbanks, pctl->clks);
+>   
+>   	return 0;
+>   }
+> @@ -1738,10 +1742,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
+>   {
+>   	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+>   	struct stm32_pinctrl_group *g = pctl->groups;
+> -	int i;
+> +	int i, ret;
+>   
+> -	for (i = 0; i < pctl->nbanks; i++)
+> -		clk_enable(pctl->banks[i].clk);
+> +	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
+> +	if (ret)
+> +		return ret;
+>   
+>   	for (i = 0; i < pctl->ngroups; i++, g++)
+>   		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Konrad
+Tested-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 
