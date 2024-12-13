@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F34EE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E087BE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2BrG/YdfyMfJSbNwPUyHp+NyjkXJ3CoxC8wyqAirNVg=; b=uI0mz7ACSRBuFP2kY2KqihvGNT
-	AzGNGmwQT8DpTO+ub+9r+Q24lvAhRW8pt3dA0R29enB3E1aEr9MdW6tN/WjzykLmM5OGSOS9iNVWQ
-	XRvN8nuQh1tPK3wYWDa31nMspfjtCld6htAmC5HmroPU2M3IzO7eb2DBmnioWkcPpzZE8vA3hSLrH
-	yoRddJv4KCRkw8bUlKd626UNHUQyZBZ+PwV0SaYkx6BPW4eCAkl8xcx32BTe8A5NxS63xtIPLYOac
-	YShqH2o3k+liv8xafzBcvyCh+zNd82klfUIGk0ouNlkcDquVSyFQdDOkhgK/USXG0vNfmZwNqyzU8
-	o0krA/hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bYkMzsre/oq2c1rz703WrTBIhQlvBSmNbWD/LHVQ7dk=; b=x8bIUnfVBvdokH8xvcUHpM7UVs
+	FpjaDtVtiojy2+mag1HjFQ93YG+Hsm4pn4PyO1ImveE9vjBHZ2TCmcuBBBSc2wYSlo0zeGmShcp3A
+	50tSQxuA9KvyWxkhug/t+uoqUjJE/atQ58xNGkM4/dFzNpVSL1xu1Ef/FJWnRkeGQf9OQnrI5W/Ul
+	Ri4n6o/7vZWllpBqgLQcvrVH5UMPO8R2sWp/9Og/AZyPSumeFFNHCXVsdS4K3tHvOdEzTUjZVNgTl
+	BZRCcRjRERYxyX3RqNVgafkmGAtsVKXrmxEWMT6IzFG/z1OEsCwshAKblVkpNlrFNetwDtokeI7rl
+	/6owK+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2Ka-00000003K7j-43co;
-	Fri, 13 Dec 2024 09:51:32 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tM2Ld-00000003KKo-3dP8;
+	Fri, 13 Dec 2024 09:52:37 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2JU-00000003Js6-3OqD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 09:50:26 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43622354a3eso10740855e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 01:50:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734083423; x=1734688223; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2BrG/YdfyMfJSbNwPUyHp+NyjkXJ3CoxC8wyqAirNVg=;
-        b=K/mRjK6P/W7UZogiDptR9SuZWpUQsKLxmbB2Tthu0F7xgkXLrH3YktLueWZOngFevM
-         QzuSo6SbwkLWkW7qYzMfQIrSNAIkxcL9KVyEWTvH2wNgfFc0FofzMQn9UZmf8FHD+/Zj
-         fTSgFWcRYw8MoJV3GEJ6+9B4xjWnGxFsolXOoESNIyL1GC9xL35Jg7OFGVMdZUYPhJ2u
-         LxDdUxUaNdfvwqODQYNxAJfkoxtyMYu1EWj/irB1uLTNixUOQywqyJhVYrmFl3iBsZIf
-         rZ6bd8rYXGtsehFf839C3fK0zF6isEFx73KmhIb7e1ZimprWHQtQArY5nbHzDRbROHH6
-         ZaKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734083423; x=1734688223;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2BrG/YdfyMfJSbNwPUyHp+NyjkXJ3CoxC8wyqAirNVg=;
-        b=ujer8YuSyWUZbbiyYxH2Mair39BZuKQ+bxcOow3qIXg4FvpFU4gNt9QU5A8Ttif1mO
-         Ie28/LbE4Ep/VzOwZZ2DBrmbOGSSwC3kMjfG0nqQCQd+w911Y98yVCygNF7A0VsWn+cz
-         3Rw/WK4F1fBaT2ArVXTVn1K8VUZey1JMnfi6HrF2SIITJ55cQzN9SNE0bLV4JH3LpH1G
-         J8sTURIjGzpt3WGbihaVvlhKN33grbCGHBbTaJ1WkF4490fl3UKe+kz84xbnCsu62t3I
-         r6ufVl9UwiIl1hU8iprUtwW1wzJiU7kxZOY8jUon0yxWaFteLOF6ktZ0lqXvu0Elnif4
-         PiMA==
-X-Forwarded-Encrypted: i=1; AJvYcCUm41PyAUCG+zn6iCVeq2JJH8MIsFW3cibj/bDvNMG8dX7uVLX6m/wR1fPUXZhUV9TUy1qc3e7Xu33KR1wxfALX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsqTeGbYhBeXuScK2P1bQmDZesAlLvl7UCYvyCNXaloaBMpThN
-	7Glcx6Gzvfl0zjme2hLOBWoRW/K4lUnfnr3sdOIWj97QUVcc60d6IcZePh5C8vw=
-X-Gm-Gg: ASbGncvdqg+2e7qr7pq5k8RdbFHPNsjCW2BlM95oQEdjdZUrxwZ8zyL0r0zkuE6l5E5
-	SMnwXmtn3TCsL8MGeNViT4FHIgY3XY8Lq7EPjFDjVwXPLqzyjPGcBhvU4RCr769w9xpa1NPJbI4
-	AkFgqtTchg0fbQzB10Pgp3dp5DkrVjKYmLpFZHoVCkaXGPAFWlnMVIJjLTfLlTZM6STh3Nc/2AS
-	3C0oliz2IDJia4JqRlouUTm6qaganDi6RIV2AqtysxBBfEghAsjx2fMYES6GqIBUdCI3kSOeaCT
-	Ew==
-X-Google-Smtp-Source: AGHT+IG9A/KVakoN8guITzQ9eblOlzfndf3qs1MoLosGMewWA0MLS7+7RXq3a6QkML6U748MbVt8iw==
-X-Received: by 2002:a05:600c:1e28:b0:434:f8a0:9df0 with SMTP id 5b1f17b1804b1-4362aa3d988mr12741175e9.8.1734083422743;
-        Fri, 13 Dec 2024 01:50:22 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:982:cbb0:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-387824a3e38sm6521670f8f.23.2024.12.13.01.50.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Dec 2024 01:50:22 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- shawnguo@kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, Fabio Estevam <festevam@denx.de>
-In-Reply-To: <20241210105705.116116-1-festevam@gmail.com>
-References: <20241210105705.116116-1-festevam@gmail.com>
-Subject: Re: (subset) [PATCH v2 1/2] dt-bindings: display: panel-lvds: Add
- compatible for AUO G084SN05 V9
-Message-Id: <173408342200.146926.12035228317678634165.b4-ty@linaro.org>
-Date: Fri, 13 Dec 2024 10:50:22 +0100
+	id 1tM2Jz-00000003Jvf-1SpK;
+	Fri, 13 Dec 2024 09:50:56 +0000
+X-UUID: bbb77c24b93711ef9048ed6ed365623b-20241213
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=bYkMzsre/oq2c1rz703WrTBIhQlvBSmNbWD/LHVQ7dk=;
+	b=ibbUFScjeQnxOdh4rW19jdTlYi2jOMaYjVQB6PG9dsnmmph19aWkdg0d6iO4c+EZeLjWJF0NEp3kOzV2wEsZWQLoLkI8cZmXkyZsE6yrmBA2Sd62MUkGStj1OBI3GxP/nke441veUiBA6lfbNw6IB9UMOp2REPsY/oxQm/XMhLo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:9d76df50-d885-4a29-a15d-c174c010afe4,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:3e9a7828-d2eb-4de2-b5c9-495d1bc17256,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
+	:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: bbb77c24b93711ef9048ed6ed365623b-20241213
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1806945636; Fri, 13 Dec 2024 02:50:49 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Fri, 13 Dec 2024 17:50:46 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 13 Dec 2024 17:50:46 +0800
+From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "Jason-JH . Lin"
+	<jason-jh.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Nancy
+ Lin <nancy.lin@mediatek.com>, Shawn Sung <shawn.sung@mediatek.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Fei Shao
+	<fshao@chromium.org>, Pin-yen Lin <treapking@chromium.org>
+Subject: [PATCH v2 1/3] dt-bindings: display: mediatek: ovl: Modify rules for MT8195/MT8188
+Date: Fri, 13 Dec 2024 17:50:42 +0800
+Message-ID: <20241213095044.23757-2-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20241213095044.23757-1-jason-jh.lin@mediatek.com>
+References: <20241213095044.23757-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_015024_866160_04348F27 
-X-CRM114-Status: UNSURE (   5.94  )
+X-CRM114-CacheID: sfid-20241213_015055_382565_A14EE2DD 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,21 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Hsiao Chien Sung <shawn.sung@mediatek.com>
 
-On Tue, 10 Dec 2024 07:57:04 -0300, Fabio Estevam wrote:
-> The AUO G084SN05 V9 is an 8.4" 800x600 LVDS display.
-> 
-> Add a compatible entry for this LVDS display model.
-> 
-> 
+Modify rules for both MT8195 and MT8188.
+Hardware capabilities include color formats and AFBC are
+changed since MT8195, stop using the settings of MT8183.
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
+Acked-by: Rob Herring <robh@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Signed-off-by: Hsiao Chien Sung <shawn.sung@mediatek.com>
+Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+---
+ .../bindings/display/mediatek/mediatek,ovl.yaml          | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-[1/2] dt-bindings: display: panel-lvds: Add compatible for AUO G084SN05 V9
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/1c64605fd976cd2c7e4f30d826818a8c27924c32
-
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+index 9ea796a033b2..8ca8e5966b9a 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+@@ -26,6 +26,7 @@ properties:
+           - mediatek,mt8173-disp-ovl
+           - mediatek,mt8183-disp-ovl
+           - mediatek,mt8192-disp-ovl
++          - mediatek,mt8195-disp-ovl
+           - mediatek,mt8195-mdp3-ovl
+       - items:
+           - enum:
+@@ -36,16 +37,14 @@ properties:
+           - enum:
+               - mediatek,mt6795-disp-ovl
+           - const: mediatek,mt8173-disp-ovl
+-      - items:
+-          - enum:
+-              - mediatek,mt8188-disp-ovl
+-              - mediatek,mt8195-disp-ovl
+-          - const: mediatek,mt8183-disp-ovl
+       - items:
+           - enum:
+               - mediatek,mt8186-disp-ovl
+               - mediatek,mt8365-disp-ovl
+           - const: mediatek,mt8192-disp-ovl
++      - items:
++          - const: mediatek,mt8188-disp-ovl
++          - const: mediatek,mt8195-disp-ovl
+ 
+   reg:
+     maxItems: 1
 -- 
-Neil
+2.43.0
 
 
