@@ -4,105 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF67E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 10:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFD7E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 10:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQs+AGFMTO97O5R6hUE0mHw8+5TlLZpHfv1SqfOKcTo=; b=GKodytPDOFgUPFYpdrKz3cHRDV
-	Z7JXKRVPl6hnjht2UFSLvXhgBiK8q0RqPEpipD3mIpOEYOAxhIduXoqBeL5sxgLSYDkTwqecwt/tU
-	OyRQZVMACEYe8wjIshLdpfgNzjTXfz9+bixXhfTnMRn69vjBv+e3W1H7DG9/UAgdxy9UuONwCEZ/8
-	aC3244VvW2tlEsfzJRZhNxuruyVa6qlnO7MbAzJ0nsXKlwxWRT4GA4kP3f5JBKYNR/kr5/KtP3mf9
-	0eoXWgn7sajtsDSa6RTIOsIzeb7AvPKR4mfprpQ/b27kH8bXt+ejfe1HJZVlglKBUOnCyGrtKmWxd
-	ZTCpEMxA==;
+	bh=C/OBIbUmmLhH6ku2Q4LAkA6a0Sfj3H64xsbU21U06po=; b=mPy/hMlv2B4XRrqWGdBgXqnZPE
+	YqhvFpiZBHRRz6SAMOy0aH5lJoL5Ba1Rm6jLcRJoevZkuxT9IxSMcYfJfUevrHu8z9bb6sjp3md1u
+	AYzbi7ytQjKnLLNMMCOqyJrFEu+Ii5VO0txmJ5+Tq11w7W8CZuSNBcaneFsn2spTiDwC+aSjD0CCq
+	iLaw7MVc79H3kwKcLo4utR5VuKkb5u2ZvMCQZyZzvIX04A4XdVAVY+3eptJrDr+MxE3Yzak38sfki
+	k/zAHsi4KgAIXPLmfShVv1P/Iade8vkt+/Y791873gzkpzGlwEHFsq6/JdSRAYK+c4zkhfdqG0HSS
+	yMBghnCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2nB-00000003PAV-0Cq8;
-	Fri, 13 Dec 2024 10:21:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tM2ue-00000003Q9P-26ON;
+	Fri, 13 Dec 2024 10:28:48 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2m5-00000003Ot4-36cQ
+	id 1tM2tX-00000003PvU-1Dsa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 10:19:59 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BD9h2N6007034;
-	Fri, 13 Dec 2024 10:19:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XQs+AGFMTO97O5R6hUE0mHw8+5TlLZpHfv1SqfOKcTo=; b=MUO1xWtqlE1DVJrg
-	eeTbYA6lzlE+E0UHyAiRRREys7iFAjTcoN1U/wK0aGWKz1Wys5RxD/sCLwGn49+P
-	+UPkNhr33HCKe4RTODFpaffvJJiZc1h+rrfVQphr4AuuK4/8RR/wh2DTva8Q7Ru6
-	lkUj1Aj/bO66FzhIZA1NdHWZiu4XO2hStiPVwEZED7BpXz+7SAc2yd1Ugfrfhs08
-	DvkBE5JDSdbgYAWKlp5sIWiv+NqNefjVHl4C78yMH+HoY9Y2TWmzxkgl5ivEgG9z
-	3gTWsK1BTJGIntB3B0BTtXtZB037sgBcd1Fi6USS6ktIKsbuFP/9Ix1PWB1ndkcC
-	i1VQ0Q==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43g6xusrqa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Dec 2024 10:19:50 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BDAJnfg008946
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Dec 2024 10:19:49 GMT
-Received: from [10.235.8.17] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 13 Dec
- 2024 02:19:43 -0800
-Message-ID: <a3ddacc9-73cd-4214-9a39-5aaaa91fc93e@quicinc.com>
-Date: Fri, 13 Dec 2024 18:19:40 +0800
+	Fri, 13 Dec 2024 10:27:41 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3eb880e5ac2so788896b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 02:27:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734085658; x=1734690458; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C/OBIbUmmLhH6ku2Q4LAkA6a0Sfj3H64xsbU21U06po=;
+        b=PmaR0jZjsrSbOw0zLITqAKkFTTA/G8MGa1bjrFyAApJyBWSmRQ4mzkh8TbA7OVVBoc
+         Qwtp7cG9g+1QRY1tpi/NgfpdLrZnUa0a4EFsXXGUG3H+hMW1ldYRzsXje04wl300vBhS
+         TSlF8GjL8U8CghGg2JSUG/SvIQKDNT/Z3ND84=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734085658; x=1734690458;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=C/OBIbUmmLhH6ku2Q4LAkA6a0Sfj3H64xsbU21U06po=;
+        b=tJnnbBPHAgmPG3udPPJzvVt2QhBuifOZeXWS77K2UrXt6O/aXpdxJkZ0XMmeAYZs+n
+         sSDJTL7XYg3JsrUyJ1NWv+LcS3/7qMrAOnyUj+aJCTC4EyFSO2fvFXcGytRPsC0OForF
+         TLwIZPBVC7eb4k00FwHl67xO42Kffs8srk4NDSboN2co8J+1bTAsmqdZxqgOokzgw7rv
+         YFbLnloTJ0yrcpV4pN/hNDQd0RGlbL2aOt6G6O4FJb3slQv0TDkcQ4pPKkkJp763WXdp
+         qpzCjpPdjF6PKhcHyRY7PYFw2hlS3CJ/1bcNABPNHnU+g3HZJYlEIIT9q211W3ukr9vY
+         FBIw==
+X-Forwarded-Encrypted: i=1; AJvYcCUH4GjZzvvkCMf4Q2XiEUFzJhF6LqdIuvJhbDL7oVxu3plEZI8uCEjkaIz0X0Ky84FMOXqwDO9Q2As3OzScCPMr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhEEcY6cEpgsFWQdzILZdLFfJ4EbzdyuO1i0TyMA38Q/cY9s/8
+	JpSy/FWEgBFgTlj3x6pyf1whr7MibP2Ppa0LjMjjbGb4v3XRiuc0mmpzIF7L4gArO12RgBMsO/z
+	jYwRkmN9slseed/KrUWQHkaaD3deyS8PTXNd6
+X-Gm-Gg: ASbGncu+BbYWg9sWT1ej9p9m9dv8Ypn8As1VBNqB8kD6flpDoRLm6XKBrWjIJfZrUff
+	K0sTuhNP1BFvbpWy2uDu0Wodxx72MiZVzWKaxQxcXd+HvsUSqj/XNqU+UFZC04DTP
+X-Google-Smtp-Source: AGHT+IESbjIDYq8Dv7WLZv3lnv+V/UUSCvVg2kJFhXxDh3T+YFv70IgQ6Vlt7dxY7YDS3GWUp1Xn0M9xXxcOalecsrs=
+X-Received: by 2002:a05:6808:3447:b0:3ea:5be6:a68a with SMTP id
+ 5614622812f47-3eba68640b4mr591582b6e.15.1734085658025; Fri, 13 Dec 2024
+ 02:27:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] clk: qcom: Add CMN PLL clock controller driver for
- IPQ SoC
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        "Stephen
- Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>
-References: <20241107-qcom_ipq_cmnpll-v6-0-a5cfe09de485@quicinc.com>
- <20241107-qcom_ipq_cmnpll-v6-2-a5cfe09de485@quicinc.com>
- <7f0f2ad6-7895-46f8-8f80-0375dde2e763@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Luo <quic_luoj@quicinc.com>
-In-Reply-To: <7f0f2ad6-7895-46f8-8f80-0375dde2e763@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: _L0bXBXUc9Ftttnz-VjMHWv1-PTyJ-YZ
-X-Proofpoint-GUID: _L0bXBXUc9Ftttnz-VjMHWv1-PTyJ-YZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 clxscore=1015 malwarescore=0 adultscore=0 mlxlogscore=999
- suspectscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412130070
+References: <20241213095044.23757-1-jason-jh.lin@mediatek.com> <20241213095044.23757-4-jason-jh.lin@mediatek.com>
+In-Reply-To: <20241213095044.23757-4-jason-jh.lin@mediatek.com>
+From: Pin-yen Lin <treapking@chromium.org>
+Date: Fri, 13 Dec 2024 18:27:27 +0800
+Message-ID: <CAEXTbpfOv876s3NLTO3oMTtVi_BwBtgb-816Gt5ZjKMjTZZKQg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] dts: arm64: mediatek: mt8195: Remove MT8183
+ compatible for OVL
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Singo Chang <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, 
+	Shawn Sung <shawn.sung@mediatek.com>, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	Fei Shao <fshao@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_021957_912747_61F786D8 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20241213_022739_353832_B0DAD83F 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,89 +98,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jason,
 
+On Fri, Dec 13, 2024 at 5:50=E2=80=AFPM Jason-JH.Lin <jason-jh.lin@mediatek=
+.com> wrote:
+>
+> The OVL hardware capabilities have changed starting from MT8195,
+> making the MT8183 compatible no longer applicable.
+> Therefore, it is necessary to remove the MT8183 compatible for OVL.
 
-On 12/13/2024 2:30 AM, Konrad Dybcio wrote:
-> On 7.11.2024 10:50 AM, Luo Jie wrote:
->> The CMN PLL clock controller supplies clocks to the hardware
->> blocks that together make up the Ethernet function on Qualcomm
->> IPQ SoCs and to GCC. The driver is initially supported for
->> IPQ9574 SoC.
->>
->> The CMN PLL clock controller expects a reference input clock
->> from the on-board Wi-Fi block acting as clock source. The input
->> reference clock needs to be configured to one of the supported
->> clock rates.
->>
->> The controller supplies a number of fixed-rate output clocks.
->> For the IPQ9574, there is one output clock of 353 MHZ to PPE
->> (Packet Process Engine) hardware block, three 50 MHZ output
->> clocks and an additional 25 MHZ output clock supplied to the
->> connected Ethernet devices. The PLL also supplies a 24 MHZ
->> clock as XO and a 32 KHZ sleep clock to GCC, and one 31.25
->> MHZ clock to PCS.
->>
->> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
->> ---
-> 
-> [...]
-> 
->> +	/* Enable PLL locked detect. */
->> +	ret = regmap_update_bits(cmn_pll->regmap, CMN_PLL_CTRL,
->> +				 CMN_PLL_CTRL_LOCK_DETECT_EN,
->> +				 CMN_PLL_CTRL_LOCK_DETECT_EN);
->> +	if (ret)
-> 
-> you can streamline these with regmap_set/clear_bits
+Similar to patch 2/3, we need a:
 
-Ok, thanks, I will update to use it.
+Fixes: b852ee68fd72 ("arm64: dts: mt8195: Add display node for vdosys0")
 
-> 
->> +		return ret;
->> +
->> +	/*
->> +	 * Reset the CMN PLL block to ensure the updated configurations
->> +	 * take effect.
->> +	 */
->> +	ret = regmap_update_bits(cmn_pll->regmap, CMN_PLL_POWER_ON_AND_RESET,
->> +				 CMN_ANA_EN_SW_RSTN, 0);
->> +	if (ret)
->> +		return ret;
->> +
->> +	usleep_range(1000, 1200);
->> +	ret = regmap_update_bits(cmn_pll->regmap, CMN_PLL_POWER_ON_AND_RESET,
->> +				 CMN_ANA_EN_SW_RSTN, CMN_ANA_EN_SW_RSTN);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* Stability check of CMN PLL output clocks. */
->> +	return regmap_read_poll_timeout(cmn_pll->regmap, CMN_PLL_LOCKED, val,
->> +					(val & CMN_PLL_CLKS_LOCKED),
->> +					100, 100 * USEC_PER_MSEC);
->> +}
-> 
-> [...]
-> 
->> +static int ipq_cmn_pll_clk_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	int ret;
->> +
->> +	ret = devm_pm_runtime_enable(dev);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = devm_pm_clk_create(dev);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/*
->> +	 * To access the CMN PLL registers, the GCC AHB & SYSY clocks
-> 
-> SYS?
-> 
-> Konrad
+>
+> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+> ---
+>  arch/arm64/boot/dts/mediatek/mt8195.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/d=
+ts/mediatek/mt8195.dtsi
+> index ade685ed2190..137ee8929e01 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+> @@ -3138,7 +3138,7 @@ larb20: larb@1b010000 {
+>                 };
+>
+>                 ovl0: ovl@1c000000 {
+> -                       compatible =3D "mediatek,mt8195-disp-ovl", "media=
+tek,mt8183-disp-ovl";
+> +                       compatible =3D "mediatek,mt8195-disp-ovl";
+>                         reg =3D <0 0x1c000000 0 0x1000>;
+>                         interrupts =3D <GIC_SPI 636 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8195_POWER_DOMAIN_VDOSY=
+S0>;
+> --
+> 2.43.0
+>
 
-Yes, I will correct it.
-
+Regards,
+Pin-yen
 
