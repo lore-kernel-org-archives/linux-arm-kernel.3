@@ -4,107 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4007EE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 14:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C049E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 14:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pi1TXEqqDBiezezG8nYR4uQXdlaFaxavbh3mrGsln2Q=; b=ZIo0MgXfEdWpnoZnpyjZzDS6Qc
-	YrKSo0trXRu7U1wrqm3tQ8aaE0/5t8jtvDKUQsc65VNCXtWE2XMM/DFf2ud0z727LysMtzLR2ZCAf
-	rCLcKutUEmd8NnBPKi9KN+bEsxEo1lNF99ypir8jx3IDZOdVbDCA0Xg6kN0YEu4iaczxDsR4E+7Cm
-	axUDuQ82/Ny1cXjz0X6N+E9qsS+jJtWyRB51qbVlFJbps5sDH2JXUy3SE1DMQ1p8w9AkZa6m588m/
-	vaPFlF9mBKShGaVHZNnG+yCMpkooNbAUjed/BP38fpNl0QJiNKI+NW4uuZD6LeJaHAejZTmOkSdQs
-	Z7HY6IjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E8GoCBmwykt6c3qkAuns3te+tR7WufYhRllGnYRB9TU=; b=ZsYjdXr52bS0DiJJMLQ2Zlw3i7
+	U/MWygjc/6ZBLAARDjfg4eGcSzZmEc30ux/rsm33pcumfGLUW632Hx6N3AyK81DwtOp42AUAp1fUb
+	B0W1voSO8xhLbLR39slWGuAp31bTTtiCAjBMXF0zZj1BQE8bujdVxc6Yjk6jrK48NCuQKA/L2WMvU
+	MOTh8+co9OJ9oZWDRcesNA8d7QaMMWg+lLFCk6ab20wO1B6oUJfoaueKOv9e/fBq+O5d2Q0JNRrCG
+	trfjeG0+iaO6HaO1Jw1hF5ovRxLCSHlfjznqkjbK7UK+atVwlKdTnogwS3Y7A1vFTTcALq7W6L3p8
+	cYcOBtTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6np-000000047aK-17tq;
-	Fri, 13 Dec 2024 14:38:01 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tM6zx-000000049Se-2U1A;
+	Fri, 13 Dec 2024 14:50:33 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6gT-000000044YS-0Ik9
+	id 1tM6yr-000000049C9-3QuV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 14:30:28 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-434a766b475so18439985e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 06:30:24 -0800 (PST)
+	Fri, 13 Dec 2024 14:49:26 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361f664af5so19346825e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 06:49:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734100223; x=1734705023; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pi1TXEqqDBiezezG8nYR4uQXdlaFaxavbh3mrGsln2Q=;
-        b=s6GGt5JAZN1pN/bYVnY/strXyqP1sJO3aSVGq7jZQ/tn9reSo8yJju/8pZWMY6AsVp
-         UYsEF//XwjApHoesDSCaNAytBtiCr0nSmN8h6y4o0Ndds3S4GaX+URCxbB70OJRn9ANw
-         iY9bEYf01FWJvtOz9+u0deQdTWqp0YpA4E8CZ4wjtVyaYsphxKIFL4F4Z1kL5a5FL4ez
-         VV4qrM1bYRUAcSCAq8sI6O9NrHKyGK/iii1mYjF5a3KlEMe+QQPe/hfX/fwW5NfD0jkl
-         xgfR7HagY5CDJwdjyAHe0c1ZUvIcvbuaD37T+r6+6uF8JFb0dX/TmzbONJNyeDY1g7gb
-         LF2g==
+        d=linaro.org; s=google; t=1734101364; x=1734706164; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=E8GoCBmwykt6c3qkAuns3te+tR7WufYhRllGnYRB9TU=;
+        b=aK4iKo8tZ3sA7O6Ytws8neKoO0YPrqz3L5RZQPacJ5B/MdL1xuy4v1z1Gw4kDJrX0R
+         JBYKsdL8DK2mxNg0yv2mqGEskGmlWfQkLLmTcAEdB+BKOTnUAXiqMY2VySn/VH1tvNiy
+         Q8L38v9P8cynigRKavGWJBHbcelj1oi2g1kgI3TPVuPYWYk/SQU9MHUVJUVh/rFtGzCZ
+         oywAEejNm/SbVeDFBad2Bjo/tQ04iMF9pCpDaC9bKiORW/Ahpjd1WhRSPrYiQ3g4AomG
+         ffaVNUGIuUMz0x/zYzcGrq+9baMQy99IDSUVu7ZpemB/96kzktsQ8RWs32pz/UyczrIW
+         OOlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734100223; x=1734705023;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1734101364; x=1734706164;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Pi1TXEqqDBiezezG8nYR4uQXdlaFaxavbh3mrGsln2Q=;
-        b=tNAJ+RmnaJoyYhqLkePppDhvPr4ebVO67IgHja7aZz3fxb12IBW//OHoOySDenbhs9
-         ZHhxvYOeLdbBf8A7nijSmbJDe6/4xIBi72mCK8GAMiAnBz8RUHfFnOeFGlQBFkklum0Z
-         mkVLAlsamOi3TdrmzMhfcl9TCzfpepXMeBSBw/T90PA8MUqU5L0BQD37Z010BMvi0NvW
-         HvZxmKsVY3jsxNNu+8dYizLGXHu/zPPxjmQBbDRxqs82G+E9qsk8No8mM+W2RTVUceMI
-         AOZn5RQ5IBsQSLxsmhTPUpct1aRUF73UYLCpqdFeKlpuooBVTURAClQxWNvXG0Vj02Qo
-         mJKg==
-X-Forwarded-Encrypted: i=1; AJvYcCXNJTkbdq3OZ9BQCvq73BZHUrC+oO1UDk9jB8Z7CDEajwladLiawvulZOWoXpZyx4V9DMGLr2IHqmwqkE1PZc9y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEIGYDqE2svantNOHN49P8tVI+QG92x6NJA7argHR2zOOnNBp1
-	vavbKU6qW8h13C1NcS9KqMGThFXz4vnkAOD8eu+ykWT3kfyVTuHPe/KXv4WnaHg=
-X-Gm-Gg: ASbGncslY7E/TMGf5blLv7LWNa0rCOrGdLBK5KIauGa8nUDyiFen54vHHf1+lWtI8wk
-	YsL5LAkvNqRkvnSGlY2iJyRgq6MY5CGGisFLOLxMGVAeudt36tNbfo4QugbFFFBTIbMlmqw9uML
-	JneHpoasvV+6yC6pA9i5o16RXiLCze20BswPkUH91QmKDKbXLcuCGV+oTdcoYNJYgSKl41hsaKV
-	9HrSsSIftLvprSCrNuWkUwvq12iF5N5V9GioZ7kiQAZ1hhngRhIM12s++y2yVJ6i2g=
-X-Google-Smtp-Source: AGHT+IEBmcupQ7jLd1GlerO1KBdvvlUtU+d7uGcD/hEi+3rvYzaqGrrDbYHOw1AfBKz8/xsv1HIlnQ==
-X-Received: by 2002:a05:600c:a08b:b0:434:a386:6cf with SMTP id 5b1f17b1804b1-4362aa1543dmr28303935e9.2.1734100223162;
-        Fri, 13 Dec 2024 06:30:23 -0800 (PST)
-Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:3da8:c88:4a1:9b7])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43625579464sm50747805e9.10.2024.12.13.06.30.22
+        bh=E8GoCBmwykt6c3qkAuns3te+tR7WufYhRllGnYRB9TU=;
+        b=ZTzH5Z0Fj0Ncn0m/8Yo4CBMNWXdQDbo5lqdZDuzBP8mhaNBWEgmDV24tnXK+KLP5iG
+         QNFm/sXxNwu5ti7IcgLkJUZYTH2fgMEDy3yIVqwwqgYFLB5vAJ1NKsNxNuNXwtxkoqoq
+         2DSfItUhJWJY5jst/xjPZjnlzPdciDMBZxPcIWwNoS3OrUM5UNmnpjdZzJU7lwQPpCil
+         EJ6CpLGuXkbQPKXWq3rR916XPk6L55NCrlkhLNCsQJVQM75BF6bQo0BdL2PA0s11vQlq
+         jvw4LEOGQZgV3wvbRmALEqDbxO+HoHz7LsGjpzUXfpS/7N4y/CrnzTTOc0iEg51GKfvX
+         1zTA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzpTFmiH5uXyIEDKm0vyrsEL1doP1tVoFwTCM0j8DdE9ytEMclG7OvzHvOiQKYCtGYOJhfsxD9w3lMuvPmhOWo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyinT+Lz/A8zDPSJCuTCk9imMgdJuy4Gv4oND0fFlNqIXVtnYni
+	aNPn3l55wHAK8mRqJdUXDQyNqe8lp2/0ZKemW0zPf37W30Vum1W1yxpUAGcuBt4=
+X-Gm-Gg: ASbGnctAR9g++xfZFQoki11gi/aNngtvRaKRDH72R+C7fPIV1Sisg0cxRKQlYLqRgM2
+	TQPy3IaboaCNAx7z4fVm0ZplRRmiWSFLrNeRlvk5dNbgoq8LOTwgLu7WXRpW0NQuTPvwjgwUHSv
+	2KCB9HMrYX+hWKvUIlBGz+3RPsQ9yvomCXWTmyuP5eTCJQKdGmeSTlssmvuPBzvkfRGhYkVZmrU
+	nppri+9Ko76AZGJq/6xJ01k5t1wGJW36y0NLtt4R61gWMmKkzqjD1565Q==
+X-Google-Smtp-Source: AGHT+IHuKTAtkAStuGvLvPcrpQeQQpsEVf2xFpYQ2v2zKJ5P0Iz/QfOrm/aJ+WBkyPYCOtebr28gcw==
+X-Received: by 2002:a5d:64a7:0:b0:385:e9ca:4e18 with SMTP id ffacd0b85a97d-38880ac23d0mr2122716f8f.1.1734101363889;
+        Fri, 13 Dec 2024 06:49:23 -0800 (PST)
+Received: from linaro.org ([2a00:23c5:6829:901:dd7a:c2d:2b46:b1a9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-387824c50b7sm7196295f8f.57.2024.12.13.06.49.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Dec 2024 06:30:22 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Fri, 13 Dec 2024 15:30:17 +0100
-Subject: [PATCH] clk: amlogic: g12b: fix cluster A parent data
+        Fri, 13 Dec 2024 06:49:22 -0800 (PST)
+From: Mike Leach <mike.leach@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org
+Cc: james.clark@linaro.org,
+	mike.leach@linaro.org,
+	suzuki.poulose@arm.com,
+	alexander.shishkin@linux.intel.com
+Subject: [PATCH v2 0/3] Extend logging on TMC start / stop errors
+Date: Fri, 13 Dec 2024 14:49:16 +0000
+Message-Id: <20241213144919.110642-1-mike.leach@linaro.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241213-amlogic-clk-g12a-cpua-parent-fix-v1-1-d8c0f41865fe@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAPhEXGcC/x2NQQqDMBAAvyJ77oJZU8F+pfSw3a5xqY0hUSmIf
- 2/oceYwc0DRbFrg1hyQdbdiS6zgLg3IxDEo2qsyUEvekeuQP/MSTFDmNwZHjJI2xsRZ44qjfbH
- 3XU9+uI4yPKFmUtaq/4v74zx/w3KPD3IAAAA=
-X-Change-ID: 20241213-amlogic-clk-g12a-cpua-parent-fix-64362495fc9b
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3449; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=l+LOytW4KMl4YzA8MDmiu6FsOw4fpbkKcHgg4999JHE=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnXET9FTQHlDf7COIAQ8tPKiSkEOeg1ym4k8nLN
- w2YmO/f+xSJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ1xE/QAKCRDm/A8cN/La
- hV1vD/oDVg1JFi3oFO2Jgffxn8O9WOKcGf5BljQHVgYNnYlO0R5E8Z0XETf+jKNf1t9+l7n65n9
- LEj685/INquJNq/DB0GqKRtBy8FuWJWEfoK35F07328l+LSh98VzWqB3QWMRb+LkyT9NQwrkN4h
- t19ECF0qW8AhO/kisqFU7bChtVoTrigfi+JCmmyE8vQgiMWaeUizUh1/DIlFOZ1iXOp805T1PLi
- FwQtPej0JyLfkjyw2lJ6ryu/EOEAmaYXvPGLCD3e24yt8Y5kFWnHdt/AfgylfLBnZEAW3+mkRnn
- +k+ClGBYBKjUnbx5PFWZ4+8zqK1meKPXwy8ZT8DFrC+48zevkLBGtZ5PVQwBywDwjYRBya/a2NH
- Q90mai8gFNfmTAKeK4P7i4wwzywzXg8uD9NX5vGczQoThKOcSJPaF69dGyY5/tGDo+lktSv8t6u
- Cl6cPEtw2RpLhzOCw2NQK8QSyaHfKUIfVayUZGttC1muG5li22PY/yE/2nXl+rdjNFL80fzKkMA
- uQuGWkG1ESYa0BE8q+5FFStR5UdMTRAZJQ99crrEJomu09ftxVfNAd9JpuIf89vvJoFXzSUQe06
- PWyv2wb3sA87J3EJrOgBID930xZbfC2KIXq1zbiI4kUXzYflicq4EJfNGNFkAyhFCNBpxjt9upc
- pSxW8yaFTC0phXw==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_063027_028721_D752AC63 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20241213_064925_861571_70CD031D 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,103 +98,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several clocks used by both g12a and g12b use the g12a cpu A clock hw
-pointer as clock parent. This is incorrect on g12b since the parents of
-cluster A cpu clock are different. Also the hw clock provided as parent to
-these children is not even registered clock on g12b.
+Extend logging on TMC start / stop errors
 
-Fix the problem by reverting to the global namespace and let CCF pick
-the appropriate, as it is already done for other clocks, such as
-cpu_clk_trace_div.
+Recent issues with trying to debug TMC timeouts and flush issues shows
+a general lack of logging and context around the possible errors
 
-Fixes: 25e682a02d91 ("clk: meson: g12a: migrate to the new parent description method")
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/meson/g12a.c | 36 ++++++++++++++++++++++++------------
- 1 file changed, 24 insertions(+), 12 deletions(-)
+Add logging to general wait for stop coresight routines and return values of
+watched registers.
 
-diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
-index 20be7b037c07535bd2115f6e70404a95a7832756..4e6584377e43fa7c9956017ddfcd3f295fafd686 100644
---- a/drivers/clk/meson/g12a.c
-+++ b/drivers/clk/meson/g12a.c
-@@ -1137,8 +1137,18 @@ static struct clk_regmap g12a_cpu_clk_div16_en = {
- 	.hw.init = &(struct clk_init_data) {
- 		.name = "cpu_clk_div16_en",
- 		.ops = &clk_regmap_gate_ro_ops,
--		.parent_hws = (const struct clk_hw *[]) {
--			&g12a_cpu_clk.hw
-+		.parent_data = &(const struct clk_parent_data) {
-+			/*
-+			 * Note:
-+			 * G12A and G12B have different cpu clocks (with
-+			 * different struct clk_hw). We fallback to the global
-+			 * naming string mechanism so this clock picks
-+			 * up the appropriate one. Same goes for the other
-+			 * clock using cpu cluster A clock output and present
-+			 * on both G12 variant.
-+			 */
-+			.name = "cpu_clk",
-+			.index = -1,
- 		},
- 		.num_parents = 1,
- 		/*
-@@ -1203,7 +1213,10 @@ static struct clk_regmap g12a_cpu_clk_apb_div = {
- 	.hw.init = &(struct clk_init_data){
- 		.name = "cpu_clk_apb_div",
- 		.ops = &clk_regmap_divider_ro_ops,
--		.parent_hws = (const struct clk_hw *[]) { &g12a_cpu_clk.hw },
-+		.parent_data = &(const struct clk_parent_data) {
-+			.name = "cpu_clk",
-+			.index = -1,
-+		},
- 		.num_parents = 1,
- 	},
- };
-@@ -1237,7 +1250,10 @@ static struct clk_regmap g12a_cpu_clk_atb_div = {
- 	.hw.init = &(struct clk_init_data){
- 		.name = "cpu_clk_atb_div",
- 		.ops = &clk_regmap_divider_ro_ops,
--		.parent_hws = (const struct clk_hw *[]) { &g12a_cpu_clk.hw },
-+		.parent_data = &(const struct clk_parent_data) {
-+			.name = "cpu_clk",
-+			.index = -1,
-+		},
- 		.num_parents = 1,
- 	},
- };
-@@ -1271,7 +1287,10 @@ static struct clk_regmap g12a_cpu_clk_axi_div = {
- 	.hw.init = &(struct clk_init_data){
- 		.name = "cpu_clk_axi_div",
- 		.ops = &clk_regmap_divider_ro_ops,
--		.parent_hws = (const struct clk_hw *[]) { &g12a_cpu_clk.hw },
-+		.parent_data = &(const struct clk_parent_data) {
-+			.name = "cpu_clk",
-+			.index = -1,
-+		},
- 		.num_parents = 1,
- 	},
- };
-@@ -1306,13 +1325,6 @@ static struct clk_regmap g12a_cpu_clk_trace_div = {
- 		.name = "cpu_clk_trace_div",
- 		.ops = &clk_regmap_divider_ro_ops,
- 		.parent_data = &(const struct clk_parent_data) {
--			/*
--			 * Note:
--			 * G12A and G12B have different cpu_clks (with
--			 * different struct clk_hw). We fallback to the global
--			 * naming string mechanism so cpu_clk_trace_div picks
--			 * up the appropriate one.
--			 */
- 			.name = "cpu_clk",
- 			.index = -1,
- 		},
+Update TMC to use this logging.
 
----
-base-commit: 799ce46951dcc75682223cdab12fdc905f2fe735
-change-id: 20241213-amlogic-clk-g12a-cpua-parent-fix-64362495fc9b
+Changes since v1:
+Rebase to coresight/next (kernel 6.13-rc2)
 
-Best regards,
+Mike Leach (3):
+  coresight: Update timeout functions to allow return of test register
+    value
+  coresight: tmc: Update error logging in tmc common functions
+  coresight: etf: etr: Update logging around flush_and_stop() errors
+
+ drivers/hwtracing/coresight/coresight-core.c  | 50 +++++++++++++++----
+ .../hwtracing/coresight/coresight-tmc-core.c  | 37 +++++++++++---
+ .../hwtracing/coresight/coresight-tmc-etf.c   | 12 +++--
+ .../hwtracing/coresight/coresight-tmc-etr.c   |  8 ++-
+ drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
+ include/linux/coresight.h                     |  2 +
+ 6 files changed, 86 insertions(+), 25 deletions(-)
+
 -- 
-Jerome
+2.25.1
 
 
