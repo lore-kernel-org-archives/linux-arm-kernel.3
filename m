@@ -4,145 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDF9E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 12:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC6FE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 13:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2Ml8YCww2EvKBJNuxFnCfpjdNS5hzD4ZPCVYd4WGnk=; b=VqwOpw47DQEkIWMe/sg5CUQhNS
-	lVbyRur8sYZFAXLuSqf0BZ8djE8cc7q+56bZ9EyWR7qfSfN6p7QdcZrirxbQkt4VUaJPwpNPH2YNA
-	YyGJZ5WrfXppSzQRZ4MfBBKcI6KzJjaDhRg0RiDV+DYKOOgy2E+PcXDfcWzFv6wgAI9QesFPe0tXG
-	fIa/Hq8TuqvNcWENX2cU7OWBtz2mPAsBnwzguXFko7EmNPim0ijuMVoeLish4oB1Dzay8BkiNGMZO
-	sDERA+15ElmMU2Q11jJBzhmvij/l8LjDQZ+2tvPgUrF0BfnwV1gS+2pYR1fkRWmXZpNOdCgMF1TGi
-	2qMJa+BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t+NlxZSUAzQpw/DPspRPS0yu5G8WCJu2cZhtajXHw5A=; b=1UrMZQ7tYVDckWRwt+iaWyQ+GM
+	dChLgZKe7RrQTFzN788uvR8vX/yw1D0/RYx/gh3eIrXF2XFg0SsvorMNWjkH8CyG2uvhIZUYFASUb
+	l1ebhyZSscBX3bzXywrkwrUjOKbSIjcsjSayZJGtVKbGduAFw5sKbxIR7Aeq7TQf5aXV0rygKo9l7
+	vgZPwmBgQMotN/W8t3k8YAtpZdbNnDLMf2yRKeCVU+28FfygOKlpfmrfdB6X3IImnW2j4nnOBendM
+	357MeMJbugSDw83gh5QvWidD289i2F7ZLhnHgiozU3Rv4A7FnE6RIK0WB3JXKDGEJ7Yup50pRIr/U
+	RHVR8oLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM5Ga-00000003m5w-1Ssx;
-	Fri, 13 Dec 2024 12:59:36 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tM5Qe-00000003nHp-3ewG;
+	Fri, 13 Dec 2024 13:10:00 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM5FU-00000003lzh-1dcf
+	id 1tM5Pa-00000003n9n-11tS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 12:58:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aMY0dEcqP33s7JrToAR3lpHxALWg3SVnt24f5Sr/wX1ZyU/n/phnjracFDj5jHasdPQZ8EvVe9WF+VoF92Mo7lt0E7CSqQg9zWL50UPHvil7bpfrjQgTK60/n5gO/1kUDwl8+1kBmPwfy7dIg3zveiVA1hXCUXLYwicWJXcO4NaiZZ9XQC4OJMyGWoTmwyk9+jvToAIYPU2oyTsXE5sZ6vn5HVFO6y3e+YTkH/OwZ8M3uhVc4PBXC7R0bsv71LANq5UNXq5yO8EpFA5ixX29hFTQPisJ0UPPMeqkDDAUCTL6k/Fl/OLHVnosADdPbMgMqs7dTXxZMmc5t6UuQmnMbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f2Ml8YCww2EvKBJNuxFnCfpjdNS5hzD4ZPCVYd4WGnk=;
- b=CVoIUzAE9mcDe5OmiJAebB6AdEktrdFgLHJfsM4qEChs4HKwL7nqYTkhaET4ZX5aeVPhlYMWHWi8MiFaynui1Vj8H0DB51ladYN0uDWYEqOIQMXRnzn+ls6670BI1fCvvlP9+aZfkDeQj4TvYoDshEEEf82f4bdWQ9a0aCV0uO91imG5MCPjvFoX2YufNwrHrx5CGgr4ScpZvm5u1PfHhdngcM93nqsyyPZa9F2Wpu48+s/0sTUFCHLXu5iSkwVGPWekVroTekUpAGyHumcr/YviUP+/MvBe6hrLBlVPcGAQ7s+0vI5CwvwxkMBjxk3zyjYTr2GRVKxvaFrwMvhj4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f2Ml8YCww2EvKBJNuxFnCfpjdNS5hzD4ZPCVYd4WGnk=;
- b=ARFNtjX4spaktir5tjX3GmMxDmPU5bE93nEuMaE8VUaTkjGvFHEe0baK+oeh1pqh7KYtlqnTgZtLqhkNzxc0cNSOeeMWujmkgo1vsujgyrludwa2FM8qKSuRibDh3eOcS0kRvAHdkNY3lQBXUuZcqSjq3zXwCnbWsZmODhqRP7muk6Tz+ZFN28peGLX3WtQ43QjySsBebXRx/toUt2Qy/ONgl4PCSn3qTO8ZZsKJ3BWbZ3bI4JAEy1wf5YZGUoCjCmvgeswUNAg1RBmvZjWuoSN/RUzTBecSgl1rw74CYRjvGu9yJV7lCpuM9OsEj8BWSu/ChxdggRlsakZB5zwAWw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by AS4PR04MB9505.eurprd04.prod.outlook.com (2603:10a6:20b:4e4::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Fri, 13 Dec
- 2024 12:58:19 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8251.008; Fri, 13 Dec 2024
- 12:58:12 +0000
-Date: Fri, 13 Dec 2024 20:55:28 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Hui Wang <hui.wang@canonical.com>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com
-Subject: Re: [PATCH] ARM: dts: nxp: imx6qdl: add dr_mode to usbotg
-Message-ID: <20241213125528.m2skucuhqtrc5f4s@hippo>
-References: <20241212043126.73045-1-hui.wang@canonical.com>
- <20241213081729.ohgs7tyyzywd4uyc@hippo>
- <cb6c7f8d-6244-4370-944f-a1a2beac3a79@canonical.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cb6c7f8d-6244-4370-944f-a1a2beac3a79@canonical.com>
-X-ClientProxiedBy: AM4PR07CA0010.eurprd07.prod.outlook.com
- (2603:10a6:205:1::23) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Fri, 13 Dec 2024 13:08:55 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BDAjGHN030144
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 13:08:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	t+NlxZSUAzQpw/DPspRPS0yu5G8WCJu2cZhtajXHw5A=; b=PxfcN9+zbMYNg/5Y
+	BYM0jLlVc/lfMy7ObXEe0jcFYlzYmHD51IPGj0UP3TYdyCBJf6J2iZVTsItua+cG
+	WNlMDmfi+PaZfHvo/FOKvsiDqBkQtCYUju6kWIW2H79SCcKXlNPyMi0syqfahQeY
+	4eMYiA9otzB6bTZwmDZb5AYQps3ET56SBvBpttCcFaGg04fwCi4brRaISy8HIiD8
+	P+gECVXp1q/xB+EH9tIpmycOdBMXhfQ3rhSRmkS2zw1IeyRuNlnqk0XprPG/IC5B
+	z8GtJFUUmzypD8SLN4F0Ew5Z0Ia5IYkSeXVfrMe6Ur9jp++ZpgpZ/1cG+/BzQPXK
+	JJsIVQ==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43fwgekwxt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 13:08:53 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6d8824c96cdso4770236d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 05:08:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734095332; x=1734700132;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t+NlxZSUAzQpw/DPspRPS0yu5G8WCJu2cZhtajXHw5A=;
+        b=tmesWUrCfm2CK2hCovymHgeX8EqD1GYZ4dkmBmm7AgYGlYyzM0WxvcmnaVMbsXBNM4
+         O4eIQLCoXDZ7QzxxZyUNuJIZzl2MQaKumEZwUEHWXDSsZmfQBmcaNwDjjaIpxd8SmCtY
+         vB5Hp0oG6LvQBr/LDh5v8uWTiNFjB+BI662o9Va1pltpkxCq0BSSBbvVYBuOsK33yFJ3
+         SB5rDOLMLxt5jDpwehj7mO5DN0++2ytysdfhvH0GYbM7b3f/ap5exW8DhAl+jhlWVKzL
+         D/cVmNJnRnj7V+hj61bYhCVChTkOp20tzGANKYmSPrNFU3rkPA7dUQNpVV5Abbkct+ay
+         ZQxA==
+X-Forwarded-Encrypted: i=1; AJvYcCXx1Vpu4lU+sb3dvxelvckHCzw+0mhk3hlEGsRhVrtGNaZ8+OGD9cbqLNceNs6PaGwMwJjL7QL0RyvcKuuRSWpg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8Rjc5SG3fVxIy1fo6CzntexTU1CRIFgOk0nsJVsZO7xCgtIDI
+	Tgg1jIOvv4OKvIRLl7uMRiSZqs12X0UHSK3XrYMaCGraBg07P0YsB3xre0NdYEgMQs7B9tcznCl
+	XbtZry8n5qj5obLaYNl/ugedHR8fPZQxM2/vlBxFkZMe/UvcLESUn2B7w546OPt8zD+4M7xUEoQ
+	==
+X-Gm-Gg: ASbGncsSHJrKVmZFhtpbOStq0/ouocC5J8jQPYE5Wm4ZxI93iLo0OxofDSC1S5njcj0
+	mc7TV83fwAGVRYBNo6D8Rm1uzYGkpIvtx/lx0INXuG1/KSjVENNYMbJkVWHYQdJDNw374ZzeNUU
+	Jb8E0cHtVrbQXhY/K0J2NUgALjOVw/DFmC2JL+rrbRCHNQhfPcyr5o/IoecHW5w4iPHerQXouvg
+	X8t2doJT30On+naoZslUCSUbghxri02bPHMtJ259cDH5fvaU384Ts9zwiEvKavYEvD3Wl01QzPB
+	CoNK37IQ/GnEwGnnh5iHQ+GXT9eWE688bbuq
+X-Received: by 2002:a05:620a:2482:b0:7b6:e9c0:9c3b with SMTP id af79cd13be357-7b6fbf08162mr129331985a.8.1734095331960;
+        Fri, 13 Dec 2024 05:08:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGFLzgc0KWUHtMB4AX6NRhGSzdp+8nXQHv2f9Rwn0/0hSQQwbzZVKV9uAlixhsyWs44W2qiZw==
+X-Received: by 2002:a05:620a:2482:b0:7b6:e9c0:9c3b with SMTP id af79cd13be357-7b6fbf08162mr129329885a.8.1734095331458;
+        Fri, 13 Dec 2024 05:08:51 -0800 (PST)
+Received: from [192.168.58.241] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6ab44e881sm419566066b.26.2024.12.13.05.08.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Dec 2024 05:08:51 -0800 (PST)
+Message-ID: <04e489be-231a-43b8-a701-1173ea744bae@oss.qualcomm.com>
+Date: Fri, 13 Dec 2024 14:08:48 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS4PR04MB9505:EE_
-X-MS-Office365-Filtering-Correlation-Id: 512e0b13-55b1-4558-dffa-08dd1b75cd43
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h6qBUjrV1Xb5IjPL/6HfpvjOMC3HueuCke/nvO9hZdCwWSiVIFUxR/3vs1eI?=
- =?us-ascii?Q?h4Andnki/ZgMrw0NUzR1v3BW0DA8epMFsl4Z0e5CI8oGYi7oaT9X8WZZem0f?=
- =?us-ascii?Q?0zJCCbkwfjpWSGpaKQGXepSrsohIjqQBKJSubLICmaAp0UOEGxJLtHADLRnl?=
- =?us-ascii?Q?X75cNWTXxhIK5+XQl+qhKMLoYu94NflkRQ6ObOW+BhVXdq7qr/vG1D5YmxCC?=
- =?us-ascii?Q?lK/EiB/j7gbQry5s0axObTB02roK6EbCTyRvqqDKUEXK2HcGA2VKW+iB3IJw?=
- =?us-ascii?Q?0ChIeemeNLaaS4QQq3FPdenLZSRIsC4Y7CObKCKjJ3ej6UaZn6Fgm4rKZEvt?=
- =?us-ascii?Q?hBw5QUvNue2uEh9ZdfAw71yeuIv7fwueEwdlH8WOQq5EmiTZgFkpWqrPmWBE?=
- =?us-ascii?Q?NXoFZlogwqAvBwWTm30sAFN05HSMc2a5y673eMoPbeoBS33l91ob6VlQsb6s?=
- =?us-ascii?Q?BTJqN6GEVgw1ctuDpEE0/FWY77lHIsNdcTrV5W2EVgUlYoY42LedvxC4KZOW?=
- =?us-ascii?Q?RIDwQ/tJz36OjZjwdc7LFpeHptJ+KyOc3UCcHmxIGfoOvRN4/GMZma0i+86h?=
- =?us-ascii?Q?sj217Tp+yGQC+2XR7+EljuQG4BICl0qhf7NKAz5j6kuPYG/6YTbmJ3Gz7rBh?=
- =?us-ascii?Q?DtB8izdgTlyKxqsm2JMyAbKpBiyMKbK4EghQrejPb7JEdhw5rEUsGtUPAbDf?=
- =?us-ascii?Q?Up8FjpVh39zBDMLrCqIK1+9X32G2iU5emUMX9/QaMqvEJ7uIHifReBMKSTZU?=
- =?us-ascii?Q?HklSRruH2LIvw3nykGPwqhL9AJjBcW5DcenLPWmj5cMYe3iJ/PXutYlkhSof?=
- =?us-ascii?Q?MFgIss/fBYJ4nTfyOfu1iPhPqLg8QrpFR5RxyAfNKk2LaD5FCMv3X82IokO8?=
- =?us-ascii?Q?qoYaVh+V3wuyeCec8CaivS87F9gJky6/r98BfhxnBb3W9Ds0FDfDcVMyhFxK?=
- =?us-ascii?Q?yKirXESDNifvylO9FIOQm2xcdJX9mygoMZWbCtv1cokne3KaF6jwRH4AmtSZ?=
- =?us-ascii?Q?AQZyp4V05IIB1PBKrICyiPvalzklCA1qV+05UFaAGr8QFRc5LG2STV2cwxZ5?=
- =?us-ascii?Q?ovuy4BcixQqS/uYTJggSi0eeYUtd/ShCZD/fI/qRm2Gs7cFw2Gk2+1jkRc1s?=
- =?us-ascii?Q?1c6JfUk8LWTnc7My4yL2j9O/2/TtNEUty97oLLtVxtGaOvMFjJVfcVY9SqSF?=
- =?us-ascii?Q?jS9P80RZWzULNPKDGBu+mL3XO+nnxR7t31Ls8IRvDUD1D67ZMlAl2td8oQw0?=
- =?us-ascii?Q?3eoto7m9+bS62GCa8/fLJKyKgyH/QPA8E9XOmw3Kgx1a4YIUfRpBgasLC1WH?=
- =?us-ascii?Q?aI+NWQUM4MeLwwwVwTWB8HQnj6AGw6KY3fMT9RyzKtCDpQ4O6f1bZGJSnhhN?=
- =?us-ascii?Q?1yFFq7KqPZGjZth+ZKTHi2+NhL0XyPCTLDDPj7qG6aDvce2y1A=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EP6z3v20W8a+2GxSxC4JL5VwSL4Yo0jJYQzBsQebBhnCwrXj3852mgpLkdUf?=
- =?us-ascii?Q?vYpvks0YgtObyB6ve/nFkgLYlEkkVhYuby9GGevJuKC6c1eagKXh8gk4LQ0Q?=
- =?us-ascii?Q?uV25bNWZap3loKI69eaHOHggHNZh+2P1Yos3QmZMNVHGRoH5ysdAs8CUvseP?=
- =?us-ascii?Q?4PZ53oT0veKWeQRuBC+9QTxp/KtwYLa6Rtc9meUfwjVVhqB1kAjKVOxhRZac?=
- =?us-ascii?Q?I4vJUuE+VYG6rYwBYFuKldX4DBwb0l0YeoZjLOhGztezJyaeVqIAQ8cD4joy?=
- =?us-ascii?Q?TC3dHu3ZBJTSv0zmzKQROjublq4eHu0xvE8ry8iAtkNccP9tYcaPFkLe8JN7?=
- =?us-ascii?Q?GryZDruV+LMZsiL++otY4zx6vh+msajScoOXS8RKYfbRKghcZgkZUbYK1wGX?=
- =?us-ascii?Q?faquEMngOYl/GllHctwmKZXV46TQ3KYzy2s8PvMg4Za/xvM0PDQzXrQWgdhx?=
- =?us-ascii?Q?vv8vmuUoMVRJPzRDf/ng7SS1vBOiyVoEvh0ynx8eBm1b8R3lhexzsXtWWNY3?=
- =?us-ascii?Q?qk8CA+cT9NdFn0u6NIyXhF+UEYjKdK47tmHdOQRip7iebseTfgtXlHSfDAT1?=
- =?us-ascii?Q?6jfagIWRxIa50iArrpCwbBGSZJp+53rvxWvcZl+ps/7C7d+D3DD4uyW7aN1b?=
- =?us-ascii?Q?uM+EmrG190UZRNVV2NUxzFF5ToowuUN0ppvqflg78y49vf5w1BeM3rYy4gk3?=
- =?us-ascii?Q?zVu9fMPgGgNsIno73JRFR24c4L73vEorZdKaa/OiNE2BDZL0Rfn8/bZTkGjW?=
- =?us-ascii?Q?yPm0bky4qpMkvNyktsIB+nvSNP/TcKJdPQ9FwSeKnwHHBozTLfOg0QpIvXiW?=
- =?us-ascii?Q?qbN7BP+XHp+XOYbDuPmdSXg04OSrU05gdLsT0AaYIC1+5AAjV9m70IHQ+Yen?=
- =?us-ascii?Q?MBEIenY4qo398bnDteP+YR2REjxOebScAOkOm1vgrt4Nn8qcw7BVG3xm2Qf5?=
- =?us-ascii?Q?f7wWT6wtRfqaWprL3jbePr1QNcsWygK0hV/ZCnigsGXsKZV/XfHOpNIZsPUt?=
- =?us-ascii?Q?9u2ewPGPbYCYmYKFqEPF2O5AMYusCXkbxZ0+p9XoIFKLm9pXMCA6dAn9JAYh?=
- =?us-ascii?Q?4TiLdRK0qOqRfqYH2SN8KlEPZ48Pu1WZBQpVogtValhS+jfQbza3BT3MUA7P?=
- =?us-ascii?Q?HLkvoxdIkobqaghcvrJcZNCbas1k8Kid0a93/8sKhBCbNiF6VPLdgvJ740L6?=
- =?us-ascii?Q?5M1yfe3oXVAwhsCygVtE3NItSvSu/DpWpLloPYWBhwbRR6R+Fzgip0nVlrBs?=
- =?us-ascii?Q?XscET1rvPO853i9tGuv28YQ56LPoNGY33ZR4GrqtbSYlLo7wPZWkYwgvpz1e?=
- =?us-ascii?Q?MvkuKIBx/WIOThpFuzLG8KVwwQkaRnEBE23KfpGiR8jROSMyRXY+L+CmHESk?=
- =?us-ascii?Q?rXFmkp8gTVwFNVRNMeRcAe445Vn90F8aJqLRrt/CkWiaqgWZN+2t5rvYORJB?=
- =?us-ascii?Q?fv9Ik3NHzeXXrbqHXsANWk7/VWXlimzDh7/435mOke2Aq8vjtmmo8aAE74oY?=
- =?us-ascii?Q?Wj076y6CVayxfunnAxQWDiJD6G4mt5/7KOWvoxmQ662FlkWBzWy/2bpRosiD?=
- =?us-ascii?Q?K6wHvaJdKl2kJekju094PN0FL6qKUlbBZp6k0ahR?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 512e0b13-55b1-4558-dffa-08dd1b75cd43
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 12:58:12.9262
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 73BiOBmJOF4wVoGxiO6TtrqmkaQD2wwGqr/b0tsmkeMuuytNga0KOC51cWMntEp5upd0SWYIINXxQoLMuhfSjg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9505
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: qcom: x1e80100-crd: Add USB multiport
+ fingerprint readery
+To: Stephan Gerhold <stephan.gerhold@linaro.org>,
+        Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
+Cc: Johan Hovold <johan@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, Abel Vesa <abel.vesa@linaro.org>,
+        Krishna Kurapati <quic_kriskura@quicinc.com>,
+        Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org
+References: <20241118-x1e80100-crd-fp-v1-0-ec6b553a2e53@linaro.org>
+ <20241118-x1e80100-crd-fp-v1-1-ec6b553a2e53@linaro.org>
+ <Z07bgH5vVk44zuEH@hovoldconsulting.com> <Z07r3Upr50vLluyn@linaro.org>
+ <41106fd7-5348-4d21-9ae7-8466f5634b4c@oss.qualcomm.com>
+ <Z08sMkbLF0b1DZTp@linaro.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <Z08sMkbLF0b1DZTp@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: Y6Xz3V7tZpqTwecrWFiWcrz-l8QkVmWZ
+X-Proofpoint-ORIG-GUID: Y6Xz3V7tZpqTwecrWFiWcrz-l8QkVmWZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ suspectscore=0 bulkscore=0 mlxlogscore=999 spamscore=0 clxscore=1015
+ impostorscore=0 mlxscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412130092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_045828_448874_B4B4FC2A 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20241213_050854_293330_6B7CA9E3 
+X-CRM114-Status: GOOD (  33.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,59 +133,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 07:25:32PM +0800, Hui Wang wrote:
+On 3.12.2024 5:05 PM, Stephan Gerhold wrote:
+> On Tue, Dec 03, 2024 at 09:07:22PM +0530, Krishna Kurapati wrote:
+>> On 12/3/2024 5:00 PM, Stephan Gerhold wrote:
+>>> On Tue, Dec 03, 2024 at 11:20:48AM +0100, Johan Hovold wrote:
+>>>> [ +CC: Krishna, Thinh and the USB list ]
+>>>>
+>>>> On Mon, Nov 18, 2024 at 11:34:29AM +0100, Stephan Gerhold wrote:
+>>>>> The X1E80100 CRD has a Goodix fingerprint reader connected to the USB
+>>>>> multiport controller on eUSB6. All other ports (including USB super-speed
+>>>>> pins) are unused.
+>>>>>
+>>>>> Set it up in the device tree together with the NXP PTN3222 repeater.
+>>>>>
+>>>>> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
+>>>>> ---
+>>>>>   arch/arm64/boot/dts/qcom/x1e80100-crd.dts | 48 +++++++++++++++++++++++++++++++
+>>>>>   1 file changed, 48 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+>>>>> index 39f9d9cdc10d..44942931c18f 100644
+>>>>> --- a/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+>>>>> +++ b/arch/arm64/boot/dts/qcom/x1e80100-crd.dts
+>>>>> @@ -735,6 +735,26 @@ keyboard@3a {
+>>>>> [...]
+>>>>> @@ -1260,3 +1288,23 @@ &usb_1_ss2_dwc3_hs {
+>>>>>   &usb_1_ss2_qmpphy_out {
+>>>>>   	remote-endpoint = <&pmic_glink_ss2_ss_in>;
+>>>>>   };
+>>>>> +
+>>>>> +&usb_mp {
+>>>>> +	status = "okay";
+>>>>> +};
+>>>>> +
+>>>>> +&usb_mp_dwc3 {
+>>>>> +	/* Limit to USB 2.0 and single port */
+>>>>> +	maximum-speed = "high-speed";
+>>>>> +	phys = <&usb_mp_hsphy1>;
+>>>>> +	phy-names = "usb2-1";
+>>>>> +};
+>>>>
+>>>> The dwc3 driver determines (and acts on) the number of ports based on
+>>>> the port interrupts in DT and controller capabilities.
+>>>>
+>>>> I'm not sure we can (should) just drop the other HS PHY and the SS PHYs
+>>>> that would still be there in the SoC (possibly initialised by the boot
+>>>> firmware).
+>>>>
+>>>> I had a local patch to enable the multiport controller (for the suspend
+>>>> work) and I realise that you'd currently need to specify a repeater also
+>>>> for the HS PHY which does not have one, but that should be possible to
+>>>> fix somehow.
+>>>>
+>>>
+>>> I think there are two separate questions here:
+>>>
+>>>   1. Should we (or do we even need to) enable unused PHYs?
+>>>   2. Do we need to power off unused PHYs left enabled by the firmware?
+>>>
+>>> For (1), I'm not not sure if there is a technical reason that requires
+>>> us to. And given that PHYs typically consume quite a bit of power, I'm
+>>> not sure if we should. Perhaps it's not worth spending effort on this
+>>> minor optimization now, but then the device tree would ideally still
+>>> tell us which PHYs are actually used (for future optimizations).
+>>>
+>>> For (2), yes, we probably need to. But my impression so far is that this
+>>> might be a larger problem that we need to handle on the SoC level. I
+>>> have seen some firmware versions that blindly power up all USB
+>>> controllers, even completely unused ones. Ideally we would power down
+>>> unused components during startup and then leave them off.
+>>>
+>>
+>> This question might be a dumb one, if so please ignore it.
+>>
+>> But if we skip adding unused phys in DTS node, the core driver wouldn't have
+>> access to all phys and we wouldn't be able to get references to unused ones
+>> (un-mentioned ones in DTS). So how can we power them off from core driver if
+>> we don't have reference to them ?
+>>
 > 
-> On 12/13/24 16:17, Xu Yang wrote:
-> > Hi,
-> > 
-> > On Thu, Dec 12, 2024 at 12:31:26PM +0800, Hui Wang wrote:
-> > > For the chipidea usb driver, if the dr_mode is not set, it will set
-> > > the device to otg mode by default, so here the dr_mode has not been
-> > > set for a long time. But some testcases need to parse the dr_mode from
-> > > DT and decide the follow-up test strategy, here set the dr_mode to otg
-> > > explicitly for QA's testcases.
-> > The dr_mode is board specific property, so we normally don't put it in
-> > dtsi file. Also, imx6qdl.dtsi is a common dtsi, therefore it's not a
-> > correct place. I wonder you don't set dr_mode in other dts file which
-> > include will imx6qdl.dtsi?
+> The question is not dumb at all, it's a very valid one. :-)
 > 
-> Yes, our QA reported this issue against the imx6q-sabresd board, I thought
-> dr_mode could be overwritten if board dts set the dr_mode, so this change
-> will not impact existing boards. But as you said "we normally don't put it
-> in dtsi file", I will move it to imx6q-sabresd.dts.
+> Perhaps it's easier if we keep them all listed on the USB controllers
+> and have something else to mark them as unused. The downside of that
+> option is that we might not be able to have a complete description of
+> the PHY with all resources. For example on the CRD there is no eUSB
+> repeater we could model for the first USB port (usb2-0), but it's needed
+> to enable the qcom,x1e80100-snps-eusb2-phy.
 
-Okay. You can move it to imx6qdl-sabresd.dtsi too. Then you can reuse
-&usbotg {}.
+So we have the choice between a silent failure or a loud non-failure wrt
+acquiring the repeater.. not sure which one is better
 
-Thanks,
-Xu Yang
-
-> 
-> Thanks,
-> 
-> Hui.
-> 
-> > Thanks,
-> > Xu Yang
-> > 
-> > > Signed-off-by: Hui Wang <hui.wang@canonical.com>
-> > > ---
-> > >   arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi | 1 +
-> > >   1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > index d2200c9db25a..285fb7314a88 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > @@ -982,6 +982,7 @@ usbotg: usb@2184000 {
-> > >   				clocks = <&clks IMX6QDL_CLK_USBOH3>;
-> > >   				fsl,usbphy = <&usbphy1>;
-> > >   				fsl,usbmisc = <&usbmisc 0>;
-> > > +				dr_mode = "otg";
-> > >   				ahb-burst-config = <0x0>;
-> > >   				tx-burst-size-dword = <0x10>;
-> > >   				rx-burst-size-dword = <0x10>;
-> > > -- 
-> > > 2.34.1
-> > > 
+Konrad 
 
