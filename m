@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF6CE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 14:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D476E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 14:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGHSkfQnvyBF6gk9XJP/QdQawDEuoaZWrgxVLILuTYo=; b=Vp8gnhp8w1kwyX/XgPeokrTMnE
-	C/L/JVY8mh1mvNj10sOrFvvIG8j4vOPwkMTY43NAfY3M2/gQGb9k1afnCeECjQ+SGyLC951uq6OAc
-	gbLpkrT3tWnUCPp7iJ2Vad6UTvMMFOa+IZqNdKShh1xKGkaw6Yy+zKnxIRbXJrfVYXzubO/BfeoO4
-	BaQVMm/e7kQobYAQIXQ4dIJyZMq5lZTn+1kbGBU2SjPWz0iSOrMNyssSVGmwWCoPwYuImsyD25LKw
-	8ee2nA+8fQUSpYtxcV7/0re4lkrTCtEX2JToI5hRc2TC+7WWEVf4ea7legliWfdcHtm4XgQT3Z6+W
-	+MJS0pqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FdcgsJBYC7pg1N5nViFzGzJuy/jE/45OWPQ1Qf0mnjk=; b=WWGmYDl3xU37+j5Zr337uyy7r6
+	4shhfsRjqxyTWEZKeG9t4Qr4ol3coilAsRNol9Ohs5QGpIFM5Gq8e/P2Q+A+XXzojyQ0+QN4ojxnA
+	3KqRzhj4yZUl3pDFL5Aa1dZcaAQiSq/RzKOUgIA2dD3F8xE3aQrmCu1d+H1x0R6Sqj44IrmCgEwdJ
+	G0Rjbj4GjzCOMGFVGIrJFMke18pK/TSgfl4xSM+Sb3OS0qs9vyFQ+ntyj3mL++sHWr9NX0AXZpHEc
+	cYvVs0ucAxHMQpd7r95cV1Z5IseyGTDsnOXJnLewfqEbRXlNSFXJJaEpvhtrFjI2ScLLIJKJqL8+I
+	3zPjXmcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6jd-000000045nB-3cFL;
-	Fri, 13 Dec 2024 14:33:41 +0000
-Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
+	id 1tM6kc-000000046N2-3pcO;
+	Fri, 13 Dec 2024 14:34:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6LP-00000003xQ1-1JCP;
-	Fri, 13 Dec 2024 14:08:40 +0000
-Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 01E7812002C;
-	Fri, 13 Dec 2024 17:08:38 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 01E7812002C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1734098918;
-	bh=vGHSkfQnvyBF6gk9XJP/QdQawDEuoaZWrgxVLILuTYo=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=nc+zid9pzUtHPXwRfMBVFBISGT87era/y9FUm9MHgeLtGTr7NdI7bkBX2AW4aA3RI
-	 SsBlWpAMjHPuDEk2fVIof6CyBYLXg6Kg+BBi7gMDZekLfmsopw4GJgGtUgpx5F+8aj
-	 C3BgiJ/8kxpYhqC6rBNx6rkbfN0ATXhnYt0myWQ+mLz7bY88ceqkGOfMQ/PAb3ZsQC
-	 MuWVNp6z1fjiwKFoytNXCjnQG5Pv2H4C3JeS0N2ZVyQX4mt7cUBsM4iVLqyrNNVrpq
-	 hTRCDKystRhU9BbDOs/RQmDhM9AaPMr4g1KakMAE9BQYUlWAQoKjDBytz7g2sKsBQR
-	 QZZ4o9fBbrPFw==
-Received: from smtp.sberdevices.ru (p-i-exch-sc-m02.sberdevices.ru [172.16.192.103])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Fri, 13 Dec 2024 17:08:37 +0300 (MSK)
-From: Alexey Romanov <avromanov@salutedevices.com>
-To: <neil.armstrong@linaro.org>, <clabbe@baylibre.com>,
-	<herbert@gondor.apana.org.au>, <davem@davemloft.net>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <khilman@baylibre.com>, <jbrunet@baylibre.com>,
-	<martin.blumenstingl@googlemail.com>, <vadim.fedorenko@linux.dev>
-CC: <linux-crypto@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kernel@salutedevices.com>, "Alexey
- Romanov" <avromanov@salutedevices.com>
-Subject: [PATCH v11 22/22] arm64: dts: amlogic: axg: add crypto node
-Date: Fri, 13 Dec 2024 17:07:55 +0300
-Message-ID: <20241213140755.1298323-23-avromanov@salutedevices.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241213140755.1298323-1-avromanov@salutedevices.com>
-References: <20241213140755.1298323-1-avromanov@salutedevices.com>
+	id 1tM6NS-00000003y0L-3Ds6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Dec 2024 14:10:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 68213A42B84;
+	Fri, 13 Dec 2024 14:08:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9DE4C4CEDD;
+	Fri, 13 Dec 2024 14:10:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734099044;
+	bh=YvT3kQdh8SBRzE9lxGFmwR+bojOwb2BgMgjEDii8YTs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XNBEPMTcIvYXX6WOKgjtrngudlh9kPXr8+/IZii0IZOccudBS4W1S2WY73BNvGmTR
+	 DgRSEYvSYxyuvKHuUDisdgtminYOvsvUGmz6BwlHA8zFT32CDLOI63UjRCrvGhx77E
+	 VQjpv+YrhZ0EF1RuzE1kY1i9mJlnCeet1WZ1y6GG22fk63hdxJ717JSfFY9674ywFz
+	 I84WYk/f14hH3UnkN8GeN0YSaE+r0TiKxMAEAE3On4xcfQwUrRdM3cTa/uTF0gocpq
+	 G0zJVa4f72MTZhh1l2CxJNiartGYGDHPwnq4Eor67lLzFSepM+2MynJU90nUgpa+UN
+	 e2OgOsvfGtXJQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tM6NO-003SPI-Hm;
+	Fri, 13 Dec 2024 14:10:42 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Kettenis <mark.kettenis@xs4all.nl>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] irqchip/gic-v3: Work around insecure GIC integrations
+Date: Fri, 13 Dec 2024 14:10:37 +0000
+Message-Id: <20241213141037.3995049-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.28.130.77]
-X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
- p-i-exch-a-m1.sberdevices.ru (172.24.196.116)
-X-KSMG-Rule-ID: 10
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 189823 [Dec 13 2024]
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiSpam-Envelope-From: avromanov@salutedevices.com
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 47 0.3.47 57010b355d009055a5b6c34e0385c69b21a4e07f, {Tracking_from_domain_doesnt_match_to}, smtp.sberdevices.ru:7.1.1,5.0.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;salutedevices.com:7.1.1, FromAlignment: s
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/12/13 12:33:00 #26873825
-X-KSMG-AntiVirus-Status: Clean, skipped
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, mark.rutland@arm.com, tglx@linutronix.de, mark.kettenis@xs4all.nl, wenst@chromium.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_060839_683344_ABA314EB 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241213_061046_937734_D1441501 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +83,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds a crypto node declaration. With the
-Amlogic crypto driver we can use HW implementation
-of SHA1/224/256 and AES algo.
+It appears that the relatively popular RK3399 SoC has been put together
+using a large amount of illicit substances, as experiments reveal
+that its integration of GIC500 exposes the *secure* programming
+interface to non-secure.
 
-Signed-off-by: Alexey Romanov <avromanov@salutedevices.com>
+This has some pretty bad effects on the way priorities are handled,
+and results in a dead machine if booting with pseudo-NMI enabled
+(irqchip.gicv3_pseudo_nmi=1) if the kernel contains 18fdb6348c480
+("arm64: irqchip/gic-v3: Select priorities at boot time"), which
+relies on the priorities being programmed using the NS view.
+
+Let's restore some sanity by going one step further and disable
+security altogether in this case. This is not any worse, and
+puts us in a mode where priorities actually make some sense.
+
+Huge thanks to Mark Kettenis who initially identified this issue
+on OpenBSD, and to Chen-Yu Tsai who reported the problem in
+Linux.
+
+Fixes: 18fdb6348c480 ("arm64: irqchip/gic-v3: Select priorities at boot time")
+Reported-by: Mark Kettenis <mark.kettenis@xs4all.nl>
+Reported-by: Chen-Yu Tsai <wenst@chromium.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
 ---
- arch/arm64/boot/dts/amlogic/meson-axg.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/irqchip/irq-gic-v3.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-index e9b22868983d..20a5fff3cda5 100644
---- a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-@@ -294,6 +294,13 @@ ethmac: ethernet@ff3f0000 {
- 			status = "disabled";
- 		};
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 34db379d066a5..79d8cc80693c3 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -161,7 +161,22 @@ static bool cpus_have_group0 __ro_after_init;
  
-+		crypto: crypto@ff63e000 {
-+			compatible = "amlogic,axg-crypto";
-+			reg = <0x0 0xff63e000 0x0 0x48>;
-+			interrupts = <GIC_SPI 180 IRQ_TYPE_EDGE_RISING>;
-+			clocks = <&clkc CLKID_CLK81>;
-+		};
+ static void __init gic_prio_init(void)
+ {
+-	cpus_have_security_disabled = gic_dist_security_disabled();
++	bool ds;
 +
- 		pcie_phy: phy@ff644000 {
- 			compatible = "amlogic,axg-pcie-phy";
- 			reg = <0x0 0xff644000 0x0 0x1c>;
++	ds = gic_dist_security_disabled();
++	if (!ds) {
++		u32 val;
++
++		val = readl_relaxed(gic_data.dist_base + GICD_CTLR);
++		val |= GICD_CTLR_DS;
++		writel_relaxed(val, gic_data.dist_base + GICD_CTLR);
++
++		ds = gic_dist_security_disabled();
++		if (ds)
++			pr_warn("Broken GIC integration, security disabled");
++	}
++
++	cpus_have_security_disabled = ds;
+ 	cpus_have_group0 = gic_has_group0();
+ 
+ 	/*
 -- 
-2.34.1
+2.39.2
 
 
