@@ -4,108 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EC1E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 18:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34641E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 18:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZiXtRse753j+DxWe1l5vCc1FuT3NFlbx5vgI3bsEGjg=; b=huL7lYHVFqc88azZawSo8DIkoq
-	m0ICg9g3zrzXw6nPJ9DnrLcraXWTIkp8VmSlW7SD0ZTkLdLLl2UgQR7qDNxmVjH2HWRctlBLe2jWo
-	4LZ5ixmyexhI4N8qXO5J26xIbYPHIKcHyXoi2EjnMsIVb8eyHQlHItdQizHdcK7CATLnDp+hnicdt
-	ofqBAGqhMpGBb4GCOY5vgjrR4kFPCp1Fm+nB6tM2vbENhpB/kuhMIwVbj87089JFu+n6RhhhTgoN/
-	ygap11Ks57IzImv86jOawCHSfRYkn4YaVn19jT0BH94qkcrpJ64WjdeK6bIVKcikPcJl2hmA6NnqZ
-	cxTCUhRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZaUJxyWODTPt/EHA59a8Xm+chAdP/ldBcjz3rSODr3s=; b=lltwJIFRpZH8lGoUeRcBynnm7/
+	zQR3mipxah/0j2Qqal84C+r0FyhNbBzRnAVKG9AFkHxJNkxMJpvOSgzDQjQtYaCB64SvcYZlMcVAz
+	83dejlPcPAU7zfz0u9zJkTDbhLPddomyrmhPQQ4/6TrkE9cg85U+6LnE3hfCLcmclT1WAlDb4JhMc
+	CJL432dDLDxVXTIMFOgim7hb/X3J287362+8O/CjUO3O7S5rFCWko++Y/CAeDunuTRJeibCuKk0dm
+	sKu1Lwwwb6nLeBKfNidQADp7fhZaG5Yx1oG8tWIqhidYxxASSDLXnOqycgTPAHpLfYjd+cxBe0VmO
+	P+LblUbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM9y1-00000004dsU-2beR;
-	Fri, 13 Dec 2024 18:00:45 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tMA89-00000004exo-3shb;
+	Fri, 13 Dec 2024 18:11:13 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8n2-00000004Rtl-04eJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 16:45:21 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4361b0ec57aso18842575e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 08:45:19 -0800 (PST)
+	id 1tMA74-00000004elp-3Srs;
+	Fri, 13 Dec 2024 18:10:07 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3a7d690479eso16206905ab.0;
+        Fri, 13 Dec 2024 10:10:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734108318; x=1734713118; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZiXtRse753j+DxWe1l5vCc1FuT3NFlbx5vgI3bsEGjg=;
-        b=l9yCnu60TkriuPuWBLCyzSDUQMS9Dsv1p65gBDscBD1SrdCDSalr3Lzc6KJef5ju9R
-         JSzUEblPOU4cAnvl3P7hvRTfsxnl3RVEqssDvceM+Tj/3wk8IxWuMInueIcGQNqU8aLX
-         UtXO4apt01CJ3roXJ778B3OlSJY2MGpIQM+wIxrw2Bkao6UC8RTwA5Eg6bMvkMp0eOgt
-         8LN/Q3LYXaeA7SvEyfNtsXWLJxSujboqKtn8TXJjtAj+O+TCXFxl4pvHbczHMqI90bGU
-         lgyizhVOkFzL6Byvbflh7nDbEzUYyqKJSG4eCapPCDW3QZxnpJHFUZR/VG6qDuT5O0w1
-         8Uog==
+        d=gmail.com; s=20230601; t=1734113406; x=1734718206; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZaUJxyWODTPt/EHA59a8Xm+chAdP/ldBcjz3rSODr3s=;
+        b=dOUvrUfIJpxOtxcAEZNKrG9db6bAMVGN12JnNwIkeJ5rRBP4+nz/q6Iz8pRXqnP0LQ
+         +kZ3hDh6+bQtn0A0c9cdNn+Dn6C9if4zm2CdtkJ4towFLmS6VBLNwZfu5ZtPkzxc7DBM
+         JF+lv4ETPYRLIdxqbm8rRxeHhZsgQJHEAlfUlrS4Ei7K4TPvpy8Tz/tfKyTLO0JSpb9P
+         YR0EFIToHu0Cc8CuqtrvRAPTY3Q5VJWOhvZ+MXMLZitKwxwWZr+HrEyTUzjx1F12tqZc
+         bzD3k/1pVVoDooHOeaQZNIjSzGzQDuwp1UuUzj+Z5pZlHyzyH7ljnyYyQ8jy9MdhrDWH
+         IRew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734108318; x=1734713118;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZiXtRse753j+DxWe1l5vCc1FuT3NFlbx5vgI3bsEGjg=;
-        b=rLbJ9waMKa5BRWy0xnaHls2m0ZUnbXQPWwxtkaiu3Z9lqxcYo6Nsb5NruXK4zAXBdr
-         Md4mRguvADmN08LZGyLXgQUZrP2DjACb+Y11Qs7hhVrZ3KIT2rovYhrc7HYAtMCJDL1S
-         +51uLyi3N1LAD/3cOp6iPlghgW01X67cvrnajoUmV+J8QT1h1synolaAoN8hPtciidwt
-         aLtXI8+mORyN3DJILBlCpao9+wtWzrKDUwMXFt7Hns5enHMeF36yEHuaRYh+HDSaCbbm
-         yEiQDIZWrfaOI39nsqoelUIo+2ZrKsxLbF5UAW7W84NHVT9VvVtdFRKjakQrm+KeRbAf
-         lq/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUSfQuk+8V5eqiVBQGqokHdSBo58r3VUUfqnsXQ2DnSkXNRuj8F4qc6Fgjr9HNHrov5ajuGBmS/eX+qXS7HEW0x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjt2S7QnmLAHSYPZlS9IdI43auAM6A2nTB7AEaBVoYyCCzrEL4
-	yUkXRcjEzNAGJ7KE7y/t5y5GYmD+8Ux2opGolmbKw47BAK6LVOdPThJNKra7CWA=
-X-Gm-Gg: ASbGncv5LY4rTWOow2yIsLmKKx/FbrkBYL9vuIcqVHi6/kaKEhZA5J7KRWPao9W//Qm
-	1PLQFIHWHZt+L5xjRqCS0gYMxKadj1irhxeIx2zC9vuk1f8wrhnrgiMmAmA2ok5CM4cUJfgNMnN
-	lvdVWuwl/6y/iiMIrjJGw87pMofLA3kL+jv4nF6OzS0Z5A7E2MK6udTEbodO+/oagChiom8DOa+
-	2xaFsP2oRFvUO0CBHKqU+W5v92SWX6I5qCJUdN4tLr+7kk1wkx9t2oySFJuDyOETKw55N4oYtoJ
-	XBDAvemjTQ==
-X-Google-Smtp-Source: AGHT+IETyJSvR8KA8pphR1pBfr5KTpzF4NmNkeh7zYSJzCimMSajiU46jqPt2jw1d/p/w6ZGTou/bw==
-X-Received: by 2002:a05:600c:1d86:b0:435:330d:de86 with SMTP id 5b1f17b1804b1-4362a98a563mr32579905e9.0.1734108317815;
-        Fri, 13 Dec 2024 08:45:17 -0800 (PST)
-Received: from gpeter-l.roam.corp.google.com ([145.224.66.83])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43625550523sm53900665e9.7.2024.12.13.08.45.16
+        d=1e100.net; s=20230601; t=1734113406; x=1734718206;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZaUJxyWODTPt/EHA59a8Xm+chAdP/ldBcjz3rSODr3s=;
+        b=hdFt1RYCEIRIj0bw5SCxiY5QXfTR2luFZy9Ht/m0H5tGNR7Vmcy/6NWMpPYWAd87n0
+         BovBNI9jh7A5ZpC5Gd+0X6/x0CCVMVuQxqAHxXTP4ttP/xWnutrPZfObY/c1tN+00LwG
+         1OXc6NIUtnW0FpkLq0jM2k1mwk1OP33mH/N2rik0TAaePjq9WGlhqnrmV1B0f7ogCXVb
+         DVM5rAW/koO4ec0kZZvouOPXSAnOBT0XsNflZpzVUz4zsMsWiBwW84ueRslaBugsQ93d
+         8njTE4PhiCfwBB5ioVZqUDxOciJcP+lNool94u8ixqkkNs8jiieHMs3bzmVjOQQ/EyVL
+         JsAg==
+X-Forwarded-Encrypted: i=1; AJvYcCUDP4XONUfS4ThTCwFQyNjDyaQ7O3H0WrEpmBiS/uJQkQraxWFr74Vr2OxLdas9VNnA9KyYtwj8rP8xxkRFBV3q@lists.infradead.org, AJvYcCUw0onxDwrnswdcVXxtalsXAnBX4Po/HYd+X0CL1WKx8LlAfKJ6M6HSXQZxb9BqsTepAH6bDGLFD+3oPZ8T04Y=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV0UWlWbR2aRm5IDyHm4XpFSRqOMo4BHbu/P549MMSurXPR1dB
+	ONHjRCpTTn2Cf2l9joA9gbdZYi6MPmqSMzkyg1MgCoyfNlN8kLFf
+X-Gm-Gg: ASbGncuqfa3jXVzHYRO2tnx1Q5E/xI5uTa1nXsabYXHdrMk7xI/z56Gb5gQc4c99EJS
+	mpjKyXh0mxIT+9/Yht8cAQ/ITUx+7ipWZYinLuypuKGBrVj+aVRaWovBVDZm35MWIO4F4xQiDkJ
+	AGRjmvpW+Uu7X2WrDLQTAbTFEnOQgrPJIT+auIplOo+71DBEhLY7iLjIQ6csOp/1Jb2OzOfDk+F
+	iEoVLL7zRXTJkTsRDNVtg0+PSGy17217AU3EwdwAB0oVNs071sCdJ3y/CVAgY/5eYDODDVYpPKe
+	ru/yhDVo+x8SZsDlhr1dPFBAFrY=
+X-Google-Smtp-Source: AGHT+IH/MEREg6rxAa0/RtNlAsBMr5UpSbMTYOPeTSadT3t2wf9euEA3XWXtBYuE66GNqav6oNdK0g==
+X-Received: by 2002:a05:6e02:1aa8:b0:3a7:d84c:f2b0 with SMTP id e9e14a558f8ab-3aff50b340emr43862345ab.8.1734113405813;
+        Fri, 13 Dec 2024 10:10:05 -0800 (PST)
+Received: from localhost.localdomain (65-128-205-244.mpls.qwest.net. [65.128.205.244])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e2baf714cesm2922533173.101.2024.12.13.10.10.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Dec 2024 08:45:17 -0800 (PST)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 13 Dec 2024 16:44:38 +0000
-Subject: [PATCH 1/4] dt-bindings: soc: samsung: exynos-pmu: gs101: add
- pmu-intr-gen reg region
+        Fri, 13 Dec 2024 10:10:05 -0800 (PST)
+From: Shimrra Shai <shimrrashai@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	Shimrra Shai <shimrrashai@gmail.com>
+Subject: [PATCH v2 0/2] arm64: dts: rockchip: Add Firefly ITX-3588J Board
+Date: Fri, 13 Dec 2024 12:08:53 -0600
+Message-ID: <20241213180855.16472-1-shimrrashai@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-1-c72978f63713@linaro.org>
-References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
-In-Reply-To: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
- kernel-team@android.com, Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1571;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=o8gcbchdk+NEFXIHiXqU7JXHFaPHjD7Nwegm7SL02NE=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBnXGSZluJfObTMSPxr05UelRIQWthOmoBtn2uyW
- PFgIFrAApqJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ1xkmQAKCRDO6LjWAjRy
- una2D/9ZUhnENnkW7zC4mxp8Vfkdy2PN4PE1leFf6JLDKZSIi/C5o5bed2t5p3af9nupwWd2zbX
- peM58sEtA9ZUAqP/1YmiJadFo6sfuhtOypo2wYYzUjE8HGMfxKIuTg5nyd9D18H+K0e/NOmC7z3
- 4gXcz52PlvDSsyAzxNtNdLgWLxSYiRRz9bltIjIePks1DMvTs96xR90k60cSLQWMRZxWxiczhFz
- pau6fIRsTGS+6c7e96EyW5mzt3F9+HP0s5jGpGt8HvnfuAmVgNaWSS7sXM5pRGxl92yL4dJK3VN
- NFnDPSGlozXblKBJVE6TxYlVUFoZnuOvMSEmL+k8up/Q+cE6JFHEwGlYoWghHLT0FNNEgT0SQzo
- u7j2psGxS3tUrrReg16UlSZNmSwWUgeeGjjvEZetP1bYE4cAGyC9ahPfnDJy83i90fYQ4kpE0F5
- g3xcS+JgbFWGZSKW7YfoTfztDRs4V43smbO+NsuqMX2p1JuENDC8J4vnZBuk2aKGcdLR66tjqJE
- vNrzh2qAynTwCuDTYpR0ilARhUboWOrzH/QFABBXe/EAsLHSWFEX04W9sj7OU9n1clJJhjo2AN0
- R1m5zqd47YsjZziMZYDcdvozt7t0nEMDeuUTUuLU91/3XAaZzVXhx3yCv1JuWwfrH/jVy7D9zZk
- f8dW7IgVRHpeT4Q==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_084520_068383_51270F1B 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20241213_101006_928139_AA7B90AC 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,63 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-gs101 also requires access to the pmu interrupt generation register region.
-Update the exynos-pmu bindings documentation to reflect this.
+NOTE: This is a resubmit of a previous submission with corrected
+recipients list and some small changes to make it more suited for the
+general kernel (e.g. eMMC is enabled now).
 
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- .../bindings/soc/samsung/exynos-pmu.yaml           | 29 +++++++++++++++++++++-
- 1 file changed, 28 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-index 6cdfe7e059a3..5ac4864e4cde 100644
---- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-@@ -73,7 +73,11 @@ properties:
-           - const: syscon
- 
-   reg:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
-+
-+  reg-names:
-+    maxItems: 2
- 
-   '#clock-cells':
-     const: 1
-@@ -186,6 +190,29 @@ allOf:
-       properties:
-         dp-phy: false
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - google,gs101-pmu
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PMU register region
-+            - description: PMU Interrupt Generation register region
-+        reg-names:
-+          items:
-+            - const: pmu
-+            - const: pmu-intr-gen
-+    else:
-+      properties:
-+        reg:
-+          maxItems: 1
-+        reg-name:
-+          maxItems: 1
-+
- examples:
-   - |
-     #include <dt-bindings/clock/exynos5250.h>
+I am proposing a Device Tree Blob for the Firefly ITX-3588J board.
+This is another Mini-ITX form-factor board for the Rockchip RK3588
+SoC, along with the ROCK 5 ITX. This version still has some outstanding
+issues, however, so I am unsure if it is ready for incorporation in this
+state and I have not yet found a fix for them as of now. I invite any
+comments.
+
+Issues outstanding:
+ * Suspend does not work.
+ * The USB-C port does not work.
+ * Unsure how to get control over the main LED; the commented part
+   seems to cause a failure.
+ * Audio output on the back green port does not seem to work; but I
+   found this may be due to slight inadequacy of the still-new ES8323
+   driver - can suggest a patch for that too separately.
+ * Not sure if there are other board features that could still be enabled
+   with the present kernel drivers.
+
+Thanks,
+Shimrra
+
+Shimrra Shai (2):
+  arm64: dts: rockchip: add DTs for Firefly ITX-3588J
+  dt-bindings: arm: rockchip: Add Firefly ITX-3588J board
+
+ .../devicetree/bindings/arm/rockchip.yaml     |    5 +
+ arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+ .../dts/rockchip/rk3588-firefly-itx-3588j.dts | 1133 +++++++++++++++++
+ .../boot/dts/rockchip/rockchip-pca9555.h      |   31 +
+ 4 files changed, 1170 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-itx-3588j.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rockchip-pca9555.h
 
 -- 
-2.47.1.613.gc27f4b7a9f-goog
+2.45.2
 
 
