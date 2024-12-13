@@ -4,76 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECC0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 19:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752A2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 19:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bQC/f+ngK7vY3gU8HjH2GhzMwPXvxLIwJFxXKAK+bs=; b=h3LxJnvVBykEnWMqZ9Qy4tjNea
-	yR8gdC8rJNWze2faVealdQMHPqDgn3lLk3CO6bP3R+S8AuABRhFwnOZE74z3Ig6TgJ5XIV6eKKJJ7
-	VOf9VZDa/Dy7k4vvcGKrNUIQ164Al4iY5phA/vwhuw9vUH+8FNgEaQO3hak57TV0L0f7x8Gy6fQyl
-	WvL98J6DcX9rKM+Yl37vAK+793pZMxoDZ2Wo58ARGRnNwQmwm59fzZKy2PY8dNZghhlumSxr9pS/l
-	zaY4lFX/2yg+NdWaXdvX/YQsozsQdDW2bqXixdgBlHN0JeQ64k9dP/2abSoEFIZKPNenywhnsM5FP
-	DDvsEL0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jy02I8L9+UUCTrVx4uPx9NaL+wtkq5/AQwepBZ4NI9A=; b=kE55GLyAAsokgT9OI00MHtNIyv
+	1oEjMJ82ryZJbzmK/z2OqFEffXtoO52aXZ5vii1xLJHvNBmFl5Vq8F4EH+haMS6GOVRiFA9k7nw6T
+	EZZt6J5RHPxVmHie6hErCvxRQ9JKih6zRIK+DVsPDPZut81Cb1qVC2ZCLp1RlynqdQK9xCHPDITxR
+	vfY/i4iYTexGoVzpu4169o4VIvD+Kqapwi9Ad/STCODHwTVFJMOGthFbDYNbGrpqGvfc3Bj4/35cr
+	pGSLFpLJL5SX27+QkuKGOkjxdIcXBgCbSVSU8Z2sESs03L5XLW+ZMnWqiUvY2B0s/6xu5m2C3qRRO
+	zucP/ElQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBgu-00000004sfX-1eMD;
-	Fri, 13 Dec 2024 19:51:12 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tMBlP-00000004tIp-09Di;
+	Fri, 13 Dec 2024 19:55:51 +0000
+Received: from relay3.uni-heidelberg.de ([129.206.100.213])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBf1-00000004sL1-3PgX
+	id 1tMBkJ-00000004t53-0yV6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 19:49:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5bQC/f+ngK7vY3gU8HjH2GhzMwPXvxLIwJFxXKAK+bs=; b=cz/DjlHrD9RTa7cCUxkRhWc2nY
-	Lo9TtOlrd+CFq/Mpp6bbCjaH+TjXXnH4CxrzWK3JcN5txeQt5rhp+BdH9g6OqtZ04g3NfvEpu9G4m
-	S0w7wmw219AvKvke1HZ6PS/pvq9LuGZpDXaPI1s4dnBv5UoPxAlYWX6dzS4uMa8F8HnhOD7W134u9
-	bhtcSDXD36xo4Khf+PRPip+aHzuJI1nhbekvdshp6yulVg/Dc6T6gxmieQb4KCyfKh50VIaC9L7yV
-	aYIO7Sb24mKsWE/oOCRTa1U2wNqOjCa57JEZBXpYIctIxfLARqW3iscilWSLccBrjg9l+Hintxo1T
-	e0uRDsvg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54006)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tMBen-0007GK-0O;
-	Fri, 13 Dec 2024 19:49:01 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tMBel-0006Z0-1j;
-	Fri, 13 Dec 2024 19:48:59 +0000
-Date: Fri, 13 Dec 2024 19:48:59 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lars Povlsen <lars.povlsen@microchip.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	jacob.e.keller@intel.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, robert.marko@sartura.hr
-Subject: Re: [PATCH net-next v4 6/9] net: sparx5: verify RGMII speeds
-Message-ID: <Z1yPq6OEziTNjWHK@shell.armlinux.org.uk>
-References: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
- <20241213-sparx5-lan969x-switch-driver-4-v4-6-d1a72c9c4714@microchip.com>
+	Fri, 13 Dec 2024 19:54:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=uni-heidelberg.de; i=@uni-heidelberg.de; q=dns/txt;
+  s=s1; t=1734119683; x=1765655683;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=zFml9V48tq1Bs/Zu8HpapxYWnav6z7nwM0EEjEzGWV0=;
+  b=MB9YonuPaDCbHPEOKDqiKKRb3zbfAvdam/3G79WWciuEwehF5whekcvh
+   QKjaCeIounzdAMMJnSMPEjuz2U+RAH1q2MzfGd0zTOucTXcenvcqQMZKg
+   k1yBt6rs9v2UVgolv0Ds3TvsyxD4giS7sNqHZfqjaLUrZPSeBOHwc63bR
+   AkoCYySDvKrBymvGKQrbChPy67FC9i4kk8YD0giX8OjtN8T5m9brAkToS
+   QUfqlzmzX+brI/UE8jgRgVDa05/IvnGSl5AEuwE2eB/2SQ2OtHnR37z68
+   2Ev1KpXRAql7RmrrrVXBvZBKy98NFPSHicvZf1gD7YxO2g79aSSoY6sER
+   w==;
+X-CSE-ConnectionGUID: +ub3uNglS8mJbHVh7XVuPA==
+X-CSE-MsgGUID: OFt8zcDWTwaDCed5i4LwPQ==
+X-IPAS-Result: =?us-ascii?q?A2AWAwDYj1xn/1BqzoFagQmBU4IcgwmEVbAJFIF5AQEBA?=
+ =?us-ascii?q?QEBAQEBCUQEAQGFB4puKDQJDgECBAEBAQEDAgMBAQEBAQEBAQ4BAQYBAQEBA?=
+ =?us-ascii?q?QcFgSGGCIcEVjIDAiYCFjoOARKFZrFigTKBAd5KgVaBGi6ITgGFazuCDYR+g?=
+ =?us-ascii?q?RQBg2iEJQU2gz46gi8EiRydO4FNeDIBVRMXCwcFgTo6AyIMNjECgR6BAhQGF?=
+ =?us-ascii?q?QSBC0Y9gklpSToCDQI2aYE7JFiCTYUZhGWEVYJLVYJ9ghl8gSEdQAMLbT03B?=
+ =?us-ascii?q?g4bnSVGhxijZKMjB6ViBBYzl1GTAJYbgmAiqQiBZ4IVMz6DNlIZD49PAQLFB?=
+ =?us-ascii?q?nc8AgcLAQEDCZFtAQE?=
+IronPort-Data: A9a23:1HeE5q3I+T8eX8BU3/bD5Y12kn2cJEfYwER7XKvMYLTBsI5bpzEPz
+ 2sYCmCOO/zcZmqnKd4iYYzi8khUuZ7VyNNgHlNv3Hw8FHgiRejtXInGdBeuY0t+DSFhoGZPt
+ Zh2hgzodZhsJpPkjk7wdOCn9z8kjv3gqoPUUIbsIjp2SRJvVBAvgBdin/9RqoNziLBVOSvV0
+ T/Ji5OZYQXNNwJcaDpOt/vZ8Ug35pwehRtB1rAATaET1LPhvyRNZH4vDfnZB2f1RIBSAtm7S
+ 47rpF1u1jqEl/uFIorNfofTKiXmcJaLVeS9oiI+t5yZv/R3jndaPpDXlBYrQRw/Zz2hx7idw
+ TjW3HC6YV9B0qbkwIzxX/TEes1zFfUuxVPJHZSwmY+OxRbbVXTo+KVrLksWA41HythqOUgbo
+ JT0KBhVBvyCr+a7xbW9DOhznII+KsiuPI4etnxkxzzDArAqTPgvQY2Tv44ehm9uwJkWQ7COP
+ 6L1ahI2BPjESx1LM0oaEro6keKvgD/+bCcetVSU4Ko64mTeyAZ8yrerPNe9ltmiH58LxBnB/
+ jyYl4j/KjY0KIyNwha6zm2lqsTCkX76BKYNLITto5aGh3XJnzdCVUZIPbehmtGjjUS+c9FSM
+ UoZ/mwpt6da3E+xXNq+UwGQo3OeuBMYHd1KHIUS4waLzbCX7xqxBWUeSDNFLts8u6ceWjEsz
+ XeChNLkQzt1v9W9S3+H8LqW6yixIyEfIGQqaioNTA9D6N7myKkohxfSQ9JLC66yitn8Hz22x
+ CqFxAA6hrMOnYsCzaD+/l3dhT+ojpzIVRIuoATRUHis4g5waMiifYPAwVza6+tQaZ2ESEmAl
+ HwFgNSFquQPC4yd0iCAXo0lELy35v2ILCfRjHZxEJQ7sTeg4XiuecZX+j4WDENoNNsUPDzke
+ knevStP65JJenind6l6Z8S2EctC8ET7PdDoU/fSKNtReN5scg7C/CxvaUOU1W33nw4gnMnTJ
+ Kt3b+7vEHxBFIJoyAHmQsUX8YErmRAA2Fv6EMWTIwuc7ZKSY3ucSLEgOVSIb/wk4K7snOkz2
+ 4sOXydt40gEONASchXqHZgvwUciAVVTOHwbg8hac+mFZAt5Aic8Df6Uwb4gd4FhlalPmaHE8
+ xlRu3O0KnKl3RUryi3TNBiPjY8Dur4l9RoG0dQEZwrA5pTaSd/HAWd2X8JfkUMb3OJi1+Voa
+ PIOZt+NBP9CIhyepG9BNcOt9t05JU/w7e5rA8ZDSGVuF3KHb1GSkuIIgiOynMXzJnPs7JBk8
+ 9VMKCuHG8VfL+idMComQKj2lALs5iZ1dBNaQk3JPNRJY0Tw+YV2Yyz8j/M6J8sBMxqr+9dp/
+ 1j+PPrZzMGTy7IIHC7h3PDV9NvzQrciRiK33QDztN6LCMUTxUL7qacobQpCVWm1uL/ckEl6W
+ dho8g==
+IronPort-HdrOrdr: A9a23:rY+Rk61FrAls5XRAVLpPOQqjBJAkLtp133Aq2lEZdPUzSL38qy
+ nOpoV56faQsl0ssR4b6LK90cW7L080sKQFhbX5Xo3PYOCFggSVxehZhOOO/9SjIVyYygc378
+ ddmsZFaeHYMXg/q9rm6w+lFNsazMCA673Av5an8593JzsaDZ2IAj0JczpymSBNLjV7OQ==
+X-Talos-CUID: 9a23:arNhm2Fey9i/vTZ2qmIk6URPB+YqdkaNyVXaA3G4VlZXVYW8HAo=
+X-Talos-MUID: =?us-ascii?q?9a23=3AjMg1/Q+zjebslZCPOxUPhzOQf+BG//S8A2wyrYo?=
+ =?us-ascii?q?Pl+KJOXFxZxOCtA3iFw=3D=3D?=
+X-IronPort-Anti-Spam-Filtered: true
+Received: from lemon.iwr.uni-heidelberg.de ([129.206.106.80])
+  by relay3.uni-heidelberg.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Dec 2024 20:54:34 +0100
+Received: from hlauer by lemon.iwr.uni-heidelberg.de with local (Exim 4.92)
+	(envelope-from <hlauer@lemon.iwr.uni-heidelberg.de>)
+	id 1tMBk9-0000QN-SP; Fri, 13 Dec 2024 20:54:33 +0100
+Date: Fri, 13 Dec 2024 20:54:33 +0100
+From: Hermann.Lauer@uni-heidelberg.de
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
+Message-ID: <20241213195433.GA1568@lemon.iwr.uni-heidelberg.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241213-sparx5-lan969x-switch-driver-4-v4-6-d1a72c9c4714@microchip.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_114915_847923_BE4DB2A4 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20241213_115443_845491_59C366CF 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,25 +113,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 02:41:05PM +0100, Daniel Machon wrote:
-> When doing a port config, we verify the port speed against the PHY mode
-> and supported speeds of that PHY mode. Add checks for the four RGMII phy
-> modes: RGMII, RGMII_ID, RGMII_TXID and RGMII_RXID.
-> 
-> Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
-> Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+Subject: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
 
-You do realise that phylink knows what speeds each interface supports
-(see phylink_get_capabilities()) and restricts the media advertisement
-to ensure that ethtool link modes that can't be supported by the MAC
-capabilities and set of interfaces that would be used are not
-advertised.
+Banana Pi M2 Ultra V1.1 board resets immediately when the usb core tries
+to setup PH23 GPIO. It turned out that the V1.0 board USB-A ports are
+always power supplied and according to the board scheme PH23 is simply
+not connected.
 
-This should mean none of your verification ever triggers. If it does,
-then I'd like to know about it.
+So remove the PH23 setup: Doesn't harm V1.0 (with R40) and let V1.1
+(with A40i) start.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Signed-off-by: Hermann Lauer <Hermann.Lauer@uni-heidelberg.de>
+---
+V2: shorten subject, rm dangerous PH23 regulator completely
+
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
+--- a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
++++ b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
+@@ -91,15 +91,6 @@
+ 		};
+ 	};
+ 
+-	reg_vcc5v0: vcc5v0 {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vcc5v0";
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		gpio = <&pio 7 23 GPIO_ACTIVE_HIGH>; /* PH23 */
+-		enable-active-high;
+-	};
+-
+ 	wifi_pwrseq: pwrseq {
+ 		compatible = "mmc-pwrseq-simple";
+ 		reset-gpios = <&pio 6 10 GPIO_ACTIVE_LOW>; /* PG10 WIFI_EN */
+@@ -347,7 +338,5 @@
+ };
+ 
+ &usbphy {
+-	usb1_vbus-supply = <&reg_vcc5v0>;
+-	usb2_vbus-supply = <&reg_vcc5v0>;
+ 	status = "okay";
+ };
 
