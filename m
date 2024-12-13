@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8213AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD490E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 17:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MeRRGLDDb0ux1182zAHVdE8lHrLfJb7fiMK9nZBfy2I=; b=V4gFMVdIw2ZqzgzEjGssiAW3rR
-	4jwZjuZ/3JupgnAxm51/R9GzW38WC4MgA1+5YVsxCC1sB1vK+KC34sLMC01DBNNds0sHMMVx2PBCl
-	HGD6t19rVA9Pav+H5c/k5FEsdB3A/vt0dTCjbBVnTF7XY+LRfLYho9nnVWjLbMtiKuSYtbliHqxGC
-	nhZnzkHgRygNjW6MrDmycRmZGmzzH/iZ3kk6+PG1whnZHLsZFsJs6WCMgNFWYUlpT017XaoVF3fJ6
-	qnnGrKAG6+OU+72PXb2wNbTkwGjI1Eo6ebRo/BJzTIbkFD7MUN+5X8xNVSl1RvLfV9fqbV0UZ57Jw
-	9VrdXnGQ==;
+	bh=mDEZ7JoKveGleg73e/7J017u3CGM0TAdRufzaXk40Ik=; b=mdquf40e3AdgyIaRGQDuDQXCm+
+	54BaxEgvNcEqFUB4RBNSYvfoqNJY6R2VitmpyFS7sUtLwOA7GEjkzWilWsdC3E2ev1ERZDDxNXskx
+	C854bBbqLVrjh1mnp/QR41KcNotlDLsNLb2ZS+tEGsCurAFYkKTDLsPBj+TDXVHlAMe6RF0CYSCNU
+	QGdHXCQR86qpaLhHsH8BhCykIs4x2UFQoQoR2BUwDBddEA5xQET/WXf7lWm3TPxL+KZDyDTztgNiY
+	Bw+H498FIqcm6Bz5J1/HOsApAnsUzcJugyCr+jtK2UW37AQtODXyyI5b9BfQlI/z59T2cPrRi/Rpa
+	0+AXsMSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8xS-00000004UtA-2lvp;
-	Fri, 13 Dec 2024 16:56:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8ui-00000004UB2-20TQ
+	id 1tM97G-00000004W2u-0ClE;
+	Fri, 13 Dec 2024 17:06:14 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tM96B-00000004VuQ-0yBX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 16:53:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9E841480;
-	Fri, 13 Dec 2024 08:53:41 -0800 (PST)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C20F33F5A1;
-	Fri, 13 Dec 2024 08:53:11 -0800 (PST)
-Date: Fri, 13 Dec 2024 16:53:09 +0000
-From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
-	will@kernel.org, corbet@lwn.net, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20241213165309.GE30314@mazurka.cambridge.arm.com>
-References: <20241211160218.41404-1-miko.lenczewski@arm.com>
- <20241211160218.41404-3-miko.lenczewski@arm.com>
- <87cyhxs3xq.wl-maz@kernel.org>
- <084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
- <86ikrprn7w.wl-maz@kernel.org>
- <2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
- <86h678sy00.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <86h678sy00.wl-maz@kernel.org>
+	Fri, 13 Dec 2024 17:05:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 53844A42CCC;
+	Fri, 13 Dec 2024 17:03:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F79C4CED0;
+	Fri, 13 Dec 2024 17:05:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734109506;
+	bh=61bXG60i+jrRdV9+oCAxeLnAz20I+9y5LRabAtXcBIA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lzLpXGwhsOwiC/u5pupNLMOg5zx+DlxIyADRES4IOsCcC4mD++gtUX29U8c6uI0P9
+	 OUjPsit3ujZJmErTU1/8pznVfSh9NaV6DHP5y+0CCuJ+Yd8A9F01P9NwOXtp7+yhLu
+	 1HuRVayC5FQibnP44JI3rwLnnzbj8d8FFhq7l+HMaECDBawsfCrKcE//ValqmC+2X6
+	 ybmENiU5SegEV0+USuTMjW37a7hGCGirqJuHAaBhOi4OwYHdCHvMXG6zUNPdLLPn4h
+	 3617ut7HXFZr6R3GaguBQ8eEeNE3VdkI211pc6ZV3sNNnE+rSDASsORaRbiAYQA7SL
+	 +H+tAx5zOmHDg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tM968-003Vth-03;
+	Fri, 13 Dec 2024 17:05:04 +0000
+Date: Fri, 13 Dec 2024 17:05:03 +0000
+Message-ID: <86cyhvsedc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Uros Bizjak <ubizjak@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 2/3] irqchip/gic: Correct declaration of *percpu_base pointer in union gic_base
+In-Reply-To: <20241213145809.2918-2-ubizjak@gmail.com>
+References: <20241213145809.2918-1-ubizjak@gmail.com>
+	<20241213145809.2918-2-ubizjak@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ubizjak@gmail.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_085316_558726_08718500 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20241213_090507_400210_29A520E3 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > 
-> > From the ARM:
-> > """
-> > RFCPSG: If level 1 or level 2 is supported and the Contiguous bit in a set of
-> > Block descriptors or Page descriptors is changed, then a TLB conflict abort can
-> > be generated because multiple translation table entries might exist within a TLB
-> > that translates the same IA.
-> > """
-> > 
-> > Although I guess it's not totally explicit, I've interpretted that as saying
-> > that conflicting TLB entries can only arise for the IA range for which the
-> > contiguous bits have been modified in the translation tables.
+On Fri, 13 Dec 2024 14:57:53 +0000,
+Uros Bizjak <ubizjak@gmail.com> wrote:
 > 
-> Right, that's reassuring, thanks for digging that one.
+> percpu_base is used in various percpu functions that expect variable in
+> __percpu address space. Correct the declaration of percpu_base to
 > 
-
-Thanks Ryan, will improve the comment and commit messages to make this
-clearer and to include references to this information.
-
-> > > If anything, this should absolutely check for FAR_EL1 and assert that
-> > > this is indeed caused by such change.
-> > 
-> > I'm not really sure how we would check this reliably? Without patch 5, the
-> > problem is somewhat constrained; we could have as many changes in flight as
-> > there are CPUs so we could keep a list of all the {mm_struct, VA-range} that are
-> > being modified. But if patch 5 is confirmed to be architecturally sound, then
-> > there is no "terminating tlbi" so there is no bound on the set of {mm_struct,
-> > VA-range}'s that could legitimately cause a conflict abort.
+> void __iomem * __percpu *percpu_base;
 > 
-> I didn't mean to imply that we should identify the exact cause of the
-> abort. I was hoping to simply check that FAR_EL1 reports a userspace
-> VA. Why wouldn't that work?
+> to declare the variable as __percpu pointer.
 > 
+> The patch fixes several sparse warnings:
+> 
+> irq-gic.c:1172:44: warning: incorrect type in assignment (different address spaces)
+> irq-gic.c:1172:44:    expected void [noderef] __percpu *[noderef] __iomem *percpu_base
+> irq-gic.c:1172:44:    got void [noderef] __iomem *[noderef] __percpu *
+> ...
+> irq-gic.c:1184:26: warning: incorrect type in initializer (different address spaces)
+> irq-gic.c:1184:26:    expected void const [noderef] __percpu *__vpp_verify
+> irq-gic.c:1184:26:    got void [noderef] __percpu *[noderef] __iomem *
+> ...
+> irq-gic.c:1184:71: warning: incorrect type in assignment (different address spaces)
+> irq-gic.c:1184:71:    expected void [noderef] __percpu *
+> irq-gic.c:1184:71:    got void [noderef] __iomem *
+> ...
+> irq-gic.c:1231:43: warning: incorrect type in argument 1 (different address spaces)
+> irq-gic.c:1231:43:    expected void [noderef] __percpu *__pdata
+> irq-gic.c:1231:43:    got void [noderef] __percpu *[noderef] __iomem *percpu_base
+> 
+> There were no changes in the resulting object files.
+> 
+> Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> ---
+>  drivers/irqchip/irq-gic.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> index 8fae6dc01024..6503573557fd 100644
+> --- a/drivers/irqchip/irq-gic.c
+> +++ b/drivers/irqchip/irq-gic.c
+> @@ -64,7 +64,7 @@ static void gic_check_cpu_features(void)
+>  
+>  union gic_base {
+>  	void __iomem *common_base;
+> -	void __percpu * __iomem *percpu_base;
+> +	void __iomem * __percpu *percpu_base;
+>  };
+>  
+>  struct gic_chip_data {
 
-Will do so.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Kind regards,
-Mikołaj
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
