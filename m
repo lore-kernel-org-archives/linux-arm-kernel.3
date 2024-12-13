@@ -4,57 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F598E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E65E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tgw74pbzQOf9UEZB4b9jvrVoAlAXMJvCMe1RoioPGgE=; b=j1RktW41TZukTYhQeKvAIajb4a
-	ZfygbPASuuXrptyTlZPLebb6kUfE7Avrf3gOHTj828UXVJQpuQVEQ9fNPIZVu7TVNfsYK3SS1yffE
-	+ApySxMCJkDwNBw8IqIsZIU8LbQItlq/FXbD/27i9N489F65SeD+Nlp8H2zVhQpqEfzCCJ7xdcXWL
-	joxuJpW43h3fMhRD05syR3J+Fs91YD7LSEmMB0AvxlQSg4SzRey6xq+807LZ+gjwlKbJX3daY/Cwd
-	4wuZya9W0+gAYhsbSdn0uDgkFtCy6CcBEUDJ+tsjHqOfdD55K1gBp9zsjIPGL9KjwQESApcx9ilwI
-	tHf5byXg==;
+	bh=S1rNdYHDYoiCGuHVL3rWEPS5yGZ79mGZop8iOafjBsg=; b=dxTcFF+U2VMr3OyVN3ZT2Idl4T
+	rzkMeKCq0kHLxZlhhacwe5bgIiKEQUpgUdmG++AEHVmkarSjUsvSoX1ldI8XQRawGil8ahbgcYZo0
+	2263t342As4lrc3jytz+heLet66PUie5onHXabcQzz6nQL6CNIKfzsDuqfgaDVxqNUQZkB/mohgic
+	kjDU8PUBDLBcL7fm7+Xwe8oJObTtoby3hBoTC6qD1F1gIuyIqJFAjBU9OYCsUzOuExKo+TkiIMZWL
+	AO0D6pYHGxDag/lDz7FIybJNWPQoSmOltW7weekGRaWVsNA+gm8eBD8HIK6u7/jvWuTtj0Xs053zZ
+	4fmoUUkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8UD-00000004Omb-3eIb;
-	Fri, 13 Dec 2024 16:25:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8T7-00000004OUq-3wDX
+	id 1tM8W6-00000004P4X-26UU;
+	Fri, 13 Dec 2024 16:27:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tM8V2-00000004OvY-0Smt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 16:24:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 545731480;
-	Fri, 13 Dec 2024 08:25:08 -0800 (PST)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9A1B3F5A1;
-	Fri, 13 Dec 2024 08:24:38 -0800 (PST)
-Date: Fri, 13 Dec 2024 16:24:36 +0000
-From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
-	corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [RESEND RFC PATCH v1 1/5] arm64: Add TLB Conflict Abort
- Exception handler to KVM
-Message-ID: <20241213162436.GC30314@mazurka.cambridge.arm.com>
-References: <20241211160218.41404-1-miko.lenczewski@arm.com>
- <20241211160218.41404-2-miko.lenczewski@arm.com>
- <86o71irucr.wl-maz@kernel.org>
+	Fri, 13 Dec 2024 16:26:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4512D5C6142;
+	Fri, 13 Dec 2024 16:26:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16AEFC4CED0;
+	Fri, 13 Dec 2024 16:26:41 +0000 (UTC)
+Date: Fri, 13 Dec 2024 16:26:40 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2] arm64/signal: Silence sparse warning storing GCSPR_EL0
+Message-ID: <Z1xgQGNZzR6h0Uly@arm.com>
+References: <20241211-arm64-gcs-signal-sparse-v2-1-c22f37216135@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <86o71irucr.wl-maz@kernel.org>
+In-Reply-To: <20241211-arm64-gcs-signal-sparse-v2-1-c22f37216135@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_082446_012956_F34F897C 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20241213_082644_188309_4E7502E0 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +62,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apologies again for spam (replied instead of group-replied).
+On Wed, Dec 11, 2024 at 01:00:35AM +0000, Mark Brown wrote:
+> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+> index 14ac6fdb872b9672e4b16a097f1b577aae8dec50..08d51fabdb9d47c848f14c9b25d6be04f109c2ee 100644
+> --- a/arch/arm64/kernel/signal.c
+> +++ b/arch/arm64/kernel/signal.c
+> @@ -39,7 +39,7 @@
+>  #ifdef CONFIG_ARM64_GCS
+>  #define GCS_SIGNAL_CAP(addr) (((unsigned long)addr) & GCS_CAP_ADDR_MASK)
+>  
+> -static bool gcs_signal_cap_valid(u64 addr, u64 val)
+> +static bool gcs_signal_cap_valid(unsigned long __user *addr, u64 val)
+>  {
+>  	return val == GCS_SIGNAL_CAP(addr);
+>  }
 
-On Wed, Dec 11, 2024 at 05:40:36PM +0000, Marc Zyngier wrote:
-> On Wed, 11 Dec 2024 16:01:37 +0000,
-> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
-> > 
-> > Currently, KVM does not handle the case of a stage 2 TLB conflict abort
-> > exception. The Arm ARM specifies that the worst-case handling of such an
-> > exception requires a `tlbi vmalls12e1`.
-> 
-> Not quite. It says (I_JCCRT):
-> 
-> <quote>
-> * For the EL1&0 translation regime, when stage 2 translations are in
->   use, either VMALLS12E1 or ALLE1.
-> </quote>
-> 
-> > Perform such an invalidation when this exception is encountered.
-> 
-> What you fail to describe is *why* this is needed. You know it, I know
-> it, but not everybody does. A reference to the ARM ARM would
-> definitely be helpful.
-> 
+Another personal preference - addresses should be (unsigned long),
+pointer to be accessed (... __user *). But we could even scrap this
+function, there's a single caller to a one-line function.
 
-You are correct. Will update the commit message.
+> @@ -1094,15 +1094,15 @@ static int gcs_restore_signal(void)
+>  	/*
+>  	 * Check that the cap is the actual GCS before replacing it.
+>  	 */
+> -	if (!gcs_signal_cap_valid((u64)gcspr_el0, cap))
+> +	if (!gcs_signal_cap_valid(gcspr_el0, cap))
+>  		return -EINVAL;
+>  
+>  	/* Invalidate the token to prevent reuse */
+> -	put_user_gcs(0, (__user void*)gcspr_el0, &ret);
+> +	put_user_gcs(0, gcspr_el0, &ret);
+>  	if (ret != 0)
+>  		return -EFAULT;
+>  
+> -	write_sysreg_s(gcspr_el0 + 1, SYS_GCSPR_EL0);
+> +	write_sysreg_s((__force u64)(gcspr_el0 + 1), SYS_GCSPR_EL0);
+>  
+>  	return 0;
+>  }
 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index c9d46ad57e52..c8c6f5a97a1b 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1756,6 +1756,12 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >  	ipa = fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
-> >  	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
-> >  
-> > +	if (esr_fsc_is_tlb_conflict_abort(esr)) {
-> > +		// does a `tlbi vmalls12e1is`
-> 
-> nit: this isn't a very useful comment.
-> 
+Looking through the code, do we have a similar problem in
+gcs_signal_entry()? Or do we rely on sparse ignoring (unsigned long)
+casts?
 
-Will remove it.
+Whichever way we go, I think we should have consistency between these
+two functions.
 
-> > +		__kvm_tlb_flush_vmid(&vcpu->kvm->arch.mmu);
-> > +		return 1;
-> > +	}
-> 
-> That's not enough, unfortunately. A nested VM has *many* VMIDs (the
-> flattening of all translation contexts that the guest uses).
-> 
-> So you can either iterate over all the valid VMIDs owned by this
-> guest, or more simply issue a TLBI ALLE1, which will do the trick in a
-> much more efficient way.
-> 
-> The other thing is that you are using an IS invalidation, which is
-> farther reaching than necessary. Why would you invalidate the TLBs for
-> CPUs that are only innocent bystanders? A non-shareable invalidation
-> seems preferable to me.
->
-
-You are completely correct here. I had forgotten about nested VMs, and
-agree that issuing a `tlbi alle1` is simpler and more efficient. I agree
-also on not using an IS invalidation.
+-- 
+Catalin
 
