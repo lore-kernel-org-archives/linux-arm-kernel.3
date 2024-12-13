@@ -4,144 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DAEE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DD7E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NgFruGRiftJnZ7CZAz8H6b72biPCQFhsObULOS6z1wY=; b=a2vcXHz5oo/Aw+oE+Bz/3DrHtC
-	g1JE06VmLOza6dRsXECBqs8rdPjdX+I+mMppjRAwSfw9OMnVsRMXn+nOFGtwKNhHICgJZPSLUSM3K
-	BxXUGCF9Xi2ttyEZipwic3S/n3c8DKj5hgymE40lqbpOvIur4LyupTxyhLMLhXpGg5/vHnBDMaJ6Q
-	pKng6MnUldnxGe/+53gXa2rT4ENQ6pahx11oc7t+LFa5j+utvk/IxIHTybr54lhTtuATGOWKv9zvE
-	Nj6b3RLeylOrXDdRyL/caOPfW2xH7JpitVlcoGrOSEGZxQqHgC2rcfv/JpgbowyEPdkFBpREYoEDT
-	3eziGNdA==;
+	bh=7T6bodP8/CBWS0sajpqi4l3EFEc4xYhHDYaU25KJMSY=; b=ZDiQhY3hcsFwZgs6TaJGkJAkPl
+	EM6X47TX/+ohhh6AsCic+RR9sBpfJcXilwfhlQ/boZZ6/HxVOo3SHp2l4nyGj+mbVjm30g6EHmiNe
+	ZPQRv/dCE6CjZmwLt8Bx4K+otc9aqK87Q+GFkeK9GYvX4k6Dd4XkdBIUoTg5ubWqXS/5b5NdBVMAC
+	fr7BBxCix/GdoTP/MJr63E+7rxmrXXhc2OW3AsVphmAq0amjxCA0XqYpC+2jyGW3C+6830qhkRT5w
+	fvqS4x82J6TIFIvwhyY5pMQiZ1KAYKXOXMaQXJ7SsSciFRvhsEzJKgyd4O9dShF2EQWzECyJq54b8
+	y4ycUlXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0vY-000000034Xc-1ayD;
-	Fri, 13 Dec 2024 08:21:36 +0000
-Received: from mail-am6eur05on20631.outbound.protection.outlook.com ([2a01:111:f403:2612::631] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tM0y3-000000034vU-0HvK;
+	Fri, 13 Dec 2024 08:24:11 +0000
+Received: from mail-westcentralusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c112::] helo=CY4PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0uT-000000034Kh-0KTB
+	id 1tM0wy-000000034kk-1BEf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 08:20:30 +0000
+	Fri, 13 Dec 2024 08:23:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yI6bFss1edKikZhs+a0AkiHV2RytV8DHmjfabUoDeXd6gj8NkjtQYif5umrRhwbE9s7WqpXG34Sa6XBJC2+Tvgk0VoTgDX+2S+zibBmYclfcMMXWNEUrr0EhTLfK+BQIsLoHTby9QIPI9/PpCSFVVHcaO0uFnuBwdtCe7KEZg3oqMx8vk15eDtuyrlFQmiFjD65FbR8Hn6jWzWGWUU+9njIVV7XH5L8zWE5WsxvSgU+8dzJD9lnIOkT7tOzIsjFIaHAqJPmJ2m68KmO0R67ogV2ljx13hi7k50VNVrNvvxmzKNTT63z4HDOUUSespQSFBKNAWAv7dOwZb//w9toIcQ==
+ b=rOca3YC82yRSlcEYjiYmB93JOgWwscyF+2wxEejTmVKTJkZV7L4H1MBIYXt473nnhyRtg+sXy9oOQmuKPb/GvGKIMF8uAIp3kLLVkfHb9DwqX9vVtZJALMYIu74XwDMZL9GS49FRMDKaT6zlpzJpgG0E6r/+T6ALIMaJ77baG4ZuRRM4zNq7hSc4+H4LaJ0Mv9JtZxg0xVHMZB5QmSNcdRLCM9Nap1Lf6Mcc4dYt2Ayv8j5gRadlz3bMUMVG3oRJr5/k1isAzGn1IcCO+oYA5kTbIOyLUavflVsYdg193D05hwICfmRjreSNqkhLHjlFT1zCdjFUYJ7LVsuMNPIiSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NgFruGRiftJnZ7CZAz8H6b72biPCQFhsObULOS6z1wY=;
- b=vwufDk5xsmf0yW1ji9Da9h117osruh7JfGtrKym9tK4RT7ggoKh6jAC1aR5BP9nOFp+GDZChRvXb4qqqBUGHHCGrtRy42gA3wW0gkPbqDsvjdmLk+Ge9iDMTJxi9G7WI2OtQ/McteGXncer6muFFAM5F9zVajb6JdVRrAOideQA+kiOAiqxdvSVt2Hjmqp1+tDc6EhcF4Xikmpstr+mqHkviSPltTMFlTgOvWmi5SaHGplQDqcd0CI5bSc6Lghzys9kHbSU8Ej2e53jPnen3gRdJU1Z7MYW5ZInXNfifO2ee3ZvEvd/UQbIKyz0wOo081txkPaNQQWLRmxLXuNrF5A==
+ bh=7T6bodP8/CBWS0sajpqi4l3EFEc4xYhHDYaU25KJMSY=;
+ b=i129AfJBut6957iIDXVNO/uPc76l8vL9K+nTc2H7mlwGA97G1AOfyiRbC1AO0JbPJn7uoZLMOpaueiWwFT0yAr9LzMTvAx9nPuPAHm7rhYxZYIbM/nWpEHanr+83rwxGrMKV8KaJ+5qJ3iU9C+Tr1bROWm6abIxkKhWnzn7YzDUGKeHEN6hlaIOqx0GVnPVxyAy2c5WdTKWXvQkNyMlt6yOOwV2I5cvfKVWZWoyzXAtyz/yeWYds7CdLG1kZUjLL8064vlA4D7E1NlxYbH4LAN/CYeQTsX7IQjvRrG90dDxVq30caguLMRkJiXjS4IaOao8T9IbBE4d327pWJ5ONEw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NgFruGRiftJnZ7CZAz8H6b72biPCQFhsObULOS6z1wY=;
- b=ZR+cqAM+fLxjEBxrMSA8S7z2P/4jzVRm/1U7VCLMeA4eGo6yBhmh0ZAzDHT825ISsuxDJ4Hnbh/gepr1UjWkor9ssXIIOLL9sLz4E0S/aEZaVXnC3mbCNaAGQzI6nXVEDcj8zUwzdAMFmFcUXm1Zqf5SeBMVFsCw2H2Ec1QCBDqz5YLqGdtd60Qg/pQQCrnFcZToELArzm1UMoGIAQLCtF2FFuFuOfyl16ACh1IHWsR535RRp10O/bh01gBs02ojKLUGoXo1V0l9SFVZkV8MsBWzxj5ayXiH2rIKgyexTHb70ElncYhgIM+uXX3fEus4Hyx1tgZX92KlErLDdwm6aA==
+ bh=7T6bodP8/CBWS0sajpqi4l3EFEc4xYhHDYaU25KJMSY=;
+ b=9np4BeUzRza8bWeVT1rKd0EdP8d5CdLMf8oKbygmBUR1c4ErLsJZlWFLgRBgplcKkSL8xtyBP/y9Q9w0xqUkhS8Ht7vlatHq+VBoC1nknFZy0gI83U4HPpglRlhoqlqqzCC3pclPmkzJxOmv9y4abw6qPFLT55K7lP0BK0/DBWo=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by DB9PR04MB9428.eurprd04.prod.outlook.com (2603:10a6:10:368::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Fri, 13 Dec
- 2024 08:20:12 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8251.008; Fri, 13 Dec 2024
- 08:20:12 +0000
-Date: Fri, 13 Dec 2024 16:17:29 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Hui Wang <hui.wang@canonical.com>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com
-Subject: Re: [PATCH] ARM: dts: nxp: imx6qdl: add dr_mode to usbotg
-Message-ID: <20241213081729.ohgs7tyyzywd4uyc@hippo>
-References: <20241212043126.73045-1-hui.wang@canonical.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241212043126.73045-1-hui.wang@canonical.com>
-X-ClientProxiedBy: AS4P195CA0045.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:65a::18) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from PH0PR01MB7975.prod.exchangelabs.com (2603:10b6:510:26d::15) by
+ SA1PR01MB9105.prod.exchangelabs.com (2603:10b6:806:45a::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8272.6; Fri, 13 Dec 2024 08:22:57 +0000
+Received: from PH0PR01MB7975.prod.exchangelabs.com
+ ([fe80::6926:a627:118e:8050]) by PH0PR01MB7975.prod.exchangelabs.com
+ ([fe80::6926:a627:118e:8050%3]) with mapi id 15.20.8251.008; Fri, 13 Dec 2024
+ 08:22:57 +0000
+Message-ID: <be0d7423-ca33-416d-a410-3ff303493261@amperemail.onmicrosoft.com>
+Date: Fri, 13 Dec 2024 16:22:41 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2 fix] arm64: refactor the rodata=xxx
+To: Ard Biesheuvel <ardb@kernel.org>,
+ Huang Shijie <shijie@os.amperecomputing.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com,
+ corbet@lwn.net, patches@amperecomputing.com, cl@linux.com,
+ akpm@linux-foundation.org, thuth@redhat.com, rostedt@goodmis.org,
+ xiongwei.song@windriver.com, inux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241212082426.4110-2-shijie@os.amperecomputing.com>
+ <20241213053049.7592-1-shijie@os.amperecomputing.com>
+ <CAMj1kXF=1Hr9G4ZjnEVzJ1snn0V4L-=+bMU4bn=m0UbYLyBqGA@mail.gmail.com>
+Content-Language: en-GB
+From: Shijie Huang <shijie@amperemail.onmicrosoft.com>
+In-Reply-To: <CAMj1kXF=1Hr9G4ZjnEVzJ1snn0V4L-=+bMU4bn=m0UbYLyBqGA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI1PR02CA0010.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::17) To PH0PR01MB7975.prod.exchangelabs.com
+ (2603:10b6:510:26d::15)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|DB9PR04MB9428:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8cfd45ba-5e80-4942-6aa7-08dd1b4ef711
+X-MS-TrafficTypeDiagnostic: PH0PR01MB7975:EE_|SA1PR01MB9105:EE_
+X-MS-Office365-Filtering-Correlation-Id: aef186f5-8d96-4edd-d796-08dd1b4f5912
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mMTM/Xfj4bQH0ivVgetvGRcfyHB6WYPl8pW9cbegVq/wb0+HRnwsHh8NgGPe?=
- =?us-ascii?Q?Ku2VFUdjA4JRhfjtOdgpvukdqr8sqdpnMpBIfRFcK85NEJYwrHfbQ/REIfKz?=
- =?us-ascii?Q?BpKU8tTvW9XbAY3UhikkduWeNCO/+AXzm6nIxqb9t5UkVHWxmXJpRQknhewz?=
- =?us-ascii?Q?zAGQ4/Av7eQw+N5jNSZy3UotucCmMPiEuo/BaA2MsOaciikDeWz/N0nhW4fw?=
- =?us-ascii?Q?ug81r5L7M8msXj4IOsiZr28+go9LWV93W7+mSPLkYfFkY7S9WehKYj9V7+P/?=
- =?us-ascii?Q?R2qqvqWNTiWgon0wca/TMqX38BksrMHduEbYgsu85W2zRuSxc4NnPgVEOmIM?=
- =?us-ascii?Q?33LJ/sbOyOt3MMpicUVIi1bK8nparBYY1Kb35KOCybnerX/CyDpLby4nWui4?=
- =?us-ascii?Q?+6KAMpfvBdIFhO6R9m1steAyhn87s7otjWrc37q18XRPVWpunWIvPzYtPxZl?=
- =?us-ascii?Q?4VJ6xG2ibYXlUESFRJhBDI3EomTPLRzLEu86m9uFnGbRMXuAmvVK3JpYbUTn?=
- =?us-ascii?Q?jf80Bk7/1QsAVQifHoGb/Ulqh5rPkJhpdkOprMcgom6yxyXgBhaOtC6Y3oNJ?=
- =?us-ascii?Q?63ulpvxs+2CrPp5be6ixLH0i3HGGFthMq+yrmhc4YcznQtr/zLphDuaaTXpa?=
- =?us-ascii?Q?6/+pjDUGlIG7y9X9EVGFgonSaPBZL9mkadc8O0ayliTO4e4dkcXGJfz6q88C?=
- =?us-ascii?Q?jHy7tSZdCbVDyQaHAciraFi0sUm11xaPZKA6rixPA+8g/i6Wqeoh1tv/dymv?=
- =?us-ascii?Q?ziPuy/Voaa3xRGwdSfR6ezbdVHRh9If+0xuDBuom0QKRMx7RFwuxfWqqW3EH?=
- =?us-ascii?Q?m5uIiKlxPhAbDvF2HR4AQYXyG4hYh25mrc1PO1htYnYoJvx8xWMJgNViDRt/?=
- =?us-ascii?Q?JOwpIYY7ITyfthTnUE2gmS5/bfZjiRfrbHVRAyb/T5xmxYmJIS2fNudRQlQy?=
- =?us-ascii?Q?XC+jnk5DbUOowaf6DkJNQWPQDk/vtmkpAA+3Wngo/UZ8cqkptSiiRGOuPQna?=
- =?us-ascii?Q?IwBKU7MjKaHp2tazoz89Lp0MrGEdB8vnijnIxHyh2paFFIAgQdao7wd+FEHV?=
- =?us-ascii?Q?vzK/+aQK5waziwsBlVsnKjuzXubE8shnF0LoHde15YprCtxXfhqzKcFBaUhg?=
- =?us-ascii?Q?RBZV9NOg0uIDMoacmx+a9VZz/EOwYpOvjSxIbGRsoJlQL6s24PGpX0YByNPH?=
- =?us-ascii?Q?/M4q0/gGXk5WbLKYbwDhuSAScCTd3hthFQ4ln2Db2qfngPNu0fZKF3ndcyQh?=
- =?us-ascii?Q?1m14T7nEZFp41vszzsV+noaDB1DZ7yun/T5WIkqmnA4kcW5xEosQWt16vCn6?=
- =?us-ascii?Q?63qMHKta2HlPJwGaJIy3GW7OLFB617cSuLYwsE8FVIN3mcLCZVEQov8ckB19?=
- =?us-ascii?Q?KnX6YTIMZ8ZnwikJ2nd3qGi9b5CqgNtJdwLBhCy7mFFpd5PJn5Z3c1zXGujV?=
- =?us-ascii?Q?88HjNbP2xVqKw+OnHPeABGAtaviaKMxM?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QlFJTXhkb2UzS2I2bmt2ckFZNDlaaFJiNUUwcnpJUGptKzNiSlZYU3ZYNzFJ?=
+ =?utf-8?B?RWkvTThhQ0tTSVorbElONzBaaFA3V0UzdkhZZEE4TmlSeVdqQStnY3h0YXJj?=
+ =?utf-8?B?dlRZVG9ZNmxGWVhxZkcraDFRQjVlaUN6b1lsZ0N3K1pmdmpvekxJblBCa1A2?=
+ =?utf-8?B?M1RVTnJFWEE1NUJyc0toRmc0azVWM2JWb1BLOU5wV0JMbXBqQWNBMDdrc3BC?=
+ =?utf-8?B?K0IvVnlsL1BzdlQ5eFpYcC9ZRTZldy9uKzIvbldWOER5Z2ZZZUdpSU5vbG9Y?=
+ =?utf-8?B?NHBGRGt1bklWU0pFZFVIcVNNQ1hlTVJiRjlGVGdpSmNZaEc0ck1GY0I5Z2U2?=
+ =?utf-8?B?TDFVZHhCSkZ1Z2V2ejVHWlBCbHhuVGR0eE4zeVNCT1FET2lTUTRvb1ArMTZY?=
+ =?utf-8?B?M0lmNmpkdk5McndqQWcyb1BqL2JoTGhrYjQ3ZHJjV1JjMHhqTlFjZkhsVnRR?=
+ =?utf-8?B?OUJtNisyNjJ5R1I0MDhDK05yMGNWWmhQeU1vaUJ5VzhtQUViTm9CcU5NVytz?=
+ =?utf-8?B?Z2J0aXkyYmpLVWd6Ym80c1pybWVEZkdLSnN5Q3ZrWjBtRDhyOWRzcVh0ZE9Z?=
+ =?utf-8?B?c3dUZW9yMmlEUVJBMWJKN1MzbEtiV2p0QjY0OGtnVkl1SjF5VUtqTUh6UWRx?=
+ =?utf-8?B?Z2dPU3VrMUZqWEpJNzI1NUFqYzdSeENjZjE5L3Npb0Q3QlRpT1VhYSttbHF5?=
+ =?utf-8?B?VUhqa0pYRnlRM1RnVG5xM3UyR1g4d3JPZUh2bHR1ak4rTlFYa2FteWlkMnVM?=
+ =?utf-8?B?bEo1MWlxd2N4Vm52SVZKLzZQLzN0Si9yUWphVkxrTmEwd3A0OUJPa2ZQaGJk?=
+ =?utf-8?B?MzFLbVd0Skd6Zms2dXBVdHZCbWlrekN5OEIxY2J2MktUVGpKajhUQmg3dGFz?=
+ =?utf-8?B?K3g5eThKZlp3MzQ3ZHNJVmhCQmo4ZXFkQk1iYkNuUGdIVmFSMzFsNTFLZ2pN?=
+ =?utf-8?B?UE9iSXd2QmU4UWZybTRrMTErQnpXdXhtKzVjZVFhN1crUjVaZW13R3g0YVRs?=
+ =?utf-8?B?cmZmRFU5N1FodEZqZjAxajRmNWtSbTRLK2FEVFFmd2hSQy96Q0wwUThWU08r?=
+ =?utf-8?B?L1ltTTM3TE0zWDZ0cGpiN1FSZGV4YXFpdFk0OVpXWVZydTM2VW1vN2RBSnJL?=
+ =?utf-8?B?QWJ3ZUFCWXRKbmRNK21ZaWZMVUJHQWQ4aW5PRmFrMnU2elhWa2J0ZjdHVVdQ?=
+ =?utf-8?B?ODA2d0tPSUczU0tqTjM4VkZNVWxRSjRLM3FMYzZxY2RVRmEzcGZ3bVczNHhG?=
+ =?utf-8?B?enVKTkYxRGswTWx1ZUxCOUQ5VExiYVIwV0FmNHArb1ZsNEVGTW5uWHNCaVRl?=
+ =?utf-8?B?akNHaVlzZlo5ckFabHVhUjBrVExXUkpHL0EvT2NFUWlHY1FPbnFldVgyWDk0?=
+ =?utf-8?B?dlRiaDFFb05zWjU4MHVqSmRBaFpsZmt0WHVsUjVGbzJHMVIrK2tqVWRWczlO?=
+ =?utf-8?B?SUE1STFYSWdOMU5CWjF4WmQzRXVTMmFrT0l4a0U2MlBKczAvNjkycmoxSmdM?=
+ =?utf-8?B?NWdMUnVMNGlmK3lnN1FrcnRCWk0rbjBxS0d4OW5zdnlFT2R2WVRnL2lUMDRK?=
+ =?utf-8?B?L1RYVktxam5TN29zbG1teG53YjRHK1BQMUh5WmR4VFJrb2JNM3djOXFnWGlD?=
+ =?utf-8?B?UVppRjZYbEJncWFGM0JrYUFDdDJmM2o5eWp1SEtiaXRsS01YS1pvTVFRVFo4?=
+ =?utf-8?B?aHlWUnVtaFF5dUQzRlZmWDJiMVc2V2E3b2dyOE0xQWd5TTJiM05KSU1IRitT?=
+ =?utf-8?B?c1FEWitaTXNRaGNlNUtiRW1ad2VNWXFUT2ZPeHVCYTNLNHFBQ3grMDZBcjVm?=
+ =?utf-8?B?ZGZvQk9PQU9kQkZHY3VWNXNDOXlhb2JzL3VHWENDOEdtaEVxVmROYkhxeWZn?=
+ =?utf-8?Q?GK4Fig5261nXT?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR01MB7975.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hopCYBCQU5zidVkoTZIn1sTeLzbyhxssJQlhOOfJU6x52Kgo5zBmOlit0F3S?=
- =?us-ascii?Q?X+91AEevXU4IHsayaClSpPEvm7Gs7CNsXxPT0v1455J9GfdDT1GMKbSoE5KO?=
- =?us-ascii?Q?ppXwVhUsYN4ZCDtSEEsGUnXKBJbdKDbkvtJfq5XSnHA0t9mkTkzcyamLcaQm?=
- =?us-ascii?Q?95kDbizoSE6HiOIyIVUp8JkubvOHme7ly3p7CfRCV7JYi4BANC8kB6h75pGK?=
- =?us-ascii?Q?h4lL//+grjMh6QgrF6hwBnUmk/Ncx9wP/bEm20c/09Ed/t4niyNSdZmPc/j1?=
- =?us-ascii?Q?K3f6/OyHLPrqjPTJi37+rw9fD0exUQnGABFVoh0bD9kx/5mXFcQ6+3lH8I4O?=
- =?us-ascii?Q?1Kh5qRaXJvl1FihSt4zNoMHk8EFVitJqNTIt8426B4FkcdalilqdOooxw6N0?=
- =?us-ascii?Q?e90wgbq7oGDxyguFPT4WxZN0QF5IYgGUbTok2xDOAE512RFFYG5sdPWXlhlL?=
- =?us-ascii?Q?2ebBgHKPwlLJYuynYESW4PI4YhqLM+4qKGuiniBS22ixQTBFDaAM23wOT1Ji?=
- =?us-ascii?Q?rlUBY7UAdVQUMt8x3MrcEC4tX257BREv3NjtHgGtIf2JSvKk31GDsVL+HXv6?=
- =?us-ascii?Q?f1SlNttqJvAphuNSSFTiSntB/8/r2A4FB6IXnJlDnjTU4U2Hteigr13gzDFP?=
- =?us-ascii?Q?cYUj3M4wtSm/5LpG5EkUE0xNjJNy39x2zPmFRBf6a383jQ+z989dlarXNwU8?=
- =?us-ascii?Q?725sT26JVYtsQIlrY2h46NrOXVtzyjoKCK8XR2mobZ9opvSqRvreDs1xHFxU?=
- =?us-ascii?Q?PdKVEDnROqOp7w4+vziAEQD2CxP9i4/7kQGxWtrPIN4Qj+eL5Rtn4ycBo0Tx?=
- =?us-ascii?Q?MrZJqUWRdYEyCPCUWNtojilBBi0okyMw43sO4YULElHwrA8Wxa21PrDwwcXg?=
- =?us-ascii?Q?7i2eaZfF0rl6O0VofQzsa2oUDQ6Xn2isjyttE/VExtgcFn5i+MLjZ10dRTPv?=
- =?us-ascii?Q?4r6nKQTsB3IwKNw5qVAUGHA3e3MFlT55xOcR5dxN1WLPtJiiYXRTGiGChFVJ?=
- =?us-ascii?Q?nvb5LvD0a5PcMMONIhOhcwVjNenChBURpTr9N6bN5t1lmQ8gTUrfuw35NIyr?=
- =?us-ascii?Q?v4h7y/r7Bc/N+j8om/anC6VnVIVnX/iXL9GA4uYn/AWtF++xS5+pkic5lJzp?=
- =?us-ascii?Q?bKuBsPKSrxUq5fiSVcH/tknLISGckqZYwvr/NRl3FLHvtOs/6lok6qjBi/gH?=
- =?us-ascii?Q?YmUDtYRJGWkLzeHYp/SXZlI1Mz+69YB4qCyP43HmwwcYDEDiFDoS/MB2Bizc?=
- =?us-ascii?Q?m4yjTmlg/FIvi530a7oLygcwo27TSyj4rf6GK1FHjPnCyHBg750eTeywPzu6?=
- =?us-ascii?Q?CMBjIcCxVL+7hCmYLopwnDkc4DujLzkNxiv6cvL7WyZBUwG+TLlZhOYSRIzO?=
- =?us-ascii?Q?GZTJtc0ao6jsSDUh5S4XKwpKD0mbKjFQ/dXCI+gZ8eYzclR0maxWlKa8TN4/?=
- =?us-ascii?Q?8z9L05OJHGeHeIA6Ew0fNKRKQ7vWRCqYHEjclCsud3A14QDQgo/KY2xoiSL8?=
- =?us-ascii?Q?9RnZD16A5nX9/VfNHL0N9RGce0vFW4bCbB9soADDShx6kNv+/eZuU6LvjqFZ?=
- =?us-ascii?Q?nYH+UAiyNdWRoWUeLGhNRzBZtMbEAB4H9X6CSzVk?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8cfd45ba-5e80-4942-6aa7-08dd1b4ef711
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L05zaWExNDdma1MxMytXZm9BdlFIZEwvSk1aQS9qTnJPbEJLcXlKeWUybUhD?=
+ =?utf-8?B?WWo2bjRsUEhZcXJpMkwrYXZXOFRrL29uRlIrNGZyUnR1d1c0eEw4WWpGRjEr?=
+ =?utf-8?B?alhPblhEVFUzaTdBOHljMk5OOEdXcTZGNlRoTG12b0o2dEJnTUNsZmJRelRl?=
+ =?utf-8?B?S0VOZGdpN0RZNStzV1k1bzdDQUY2WTlScCtsUXpvK2p2Yy9GUGl3QlZ3Vncx?=
+ =?utf-8?B?YWVna2FxcHYrZlVGVkh3OXFuclE1SWlRTEtPc1hYOThCVlFNc3hGOU11MHM4?=
+ =?utf-8?B?bDVYVzFic3IwU3FGUUNOMHFEZHNNZjBybVhoSTNXb1dCZ2ZBcHNPUkliM1Rz?=
+ =?utf-8?B?K3JVTnNYZExXY2x4Z2dxeTgvWkd3WVdCM0M1KzBnY2JkQmJvdk0xWms3YzJJ?=
+ =?utf-8?B?eHExWmVkZW1aU2d1NmpFMUpTMWpvUmJvdjdSYkR3SUg1cUM4LzRMSzBYU0da?=
+ =?utf-8?B?anNqR0h3SmFUS0xacC9BUU8rcGJqWXlIWmJka1VrY3NrTHJSVklPVS92aUVZ?=
+ =?utf-8?B?SDMwUVlEQ3FRd0RjMEQ0Ync3Tjk4UXIxSzh1STlUbXhBWXFlTTRKbDRjK1M0?=
+ =?utf-8?B?RmVkTkVWY3pjajdCM0tHQnJUa1BJdUVnamJobEZSMFIwK3BYM1oxZmx4L2Fy?=
+ =?utf-8?B?MmxVdGpKL21pT1RHcFVGMWJVUW5qTG4xUXBYbk5iU0hxSjcrSWUvMk9VMVZV?=
+ =?utf-8?B?M1RyRm1hQXN2SWZvMGVVVXNodjJRU1hKRUwrSUhoaGVDM2gxS1NDU252ZE9j?=
+ =?utf-8?B?NFRmTzhnYXY0cUdLS2dmbW1WN1BWcFdJU2ZrZFRsQ1VMQ3NiVFZDaGphUTI2?=
+ =?utf-8?B?SlJSRCt1WGhZQ3F5WXdMNUZtV2dFVk1LUUdwQnhpMThlYXZTTWVvWXhVam05?=
+ =?utf-8?B?Q3hSZjJRT0dVaTYwcEhvcmhNWWtCZVpmRTVEVjVBMVljVjBaUVA4ajBSenVG?=
+ =?utf-8?B?bWd1USszTHZ6MFZRT3Zkdm5hRmhFWlhXL3dmb09ZUjZPOTN1VG5DOENtcTFq?=
+ =?utf-8?B?N0UzbzFkampLRnlSTzVBNTdwN2g5MHhkRUIxOTlFT1hnNnlWRklOTnpqRVpZ?=
+ =?utf-8?B?ZEhERURtd3hvV2Q5djU0dkxGTWpIRk8ra29NbkFPckUxWUF1bzFuYnV4OWZQ?=
+ =?utf-8?B?c3ZuN1JFazZ2dkVyeHptQWN0a1dzS0JmandUVjR1WWw5ZmdFc0xJQUZXeHVS?=
+ =?utf-8?B?WWJoOG8xbkRiL25EZWFTVzFHV1M1azA3alE0d21RUDZ3NG0rR2IvVlowNjFV?=
+ =?utf-8?B?Ull6MkxYRDV5YzJJNjFoWDVsdzFsVlZjT0YycnpkTmJCMUt4aTRqQnBSTnBN?=
+ =?utf-8?B?SjhrajlDeW5iT3RXQjIwdVdSQzFROG9EWUVWRlN3dy9NNVc2Wk9KMzJQb2tu?=
+ =?utf-8?B?a3lmb3pVYjVXa2VtNjFYUXFWVHQrSW01cFl6UW1rQmVTa2t4bHFKVStaSUNn?=
+ =?utf-8?B?ZS9SQjNkNlFXMnlucDdTNXNtTlFCTkxHaDAxeFZuR3JiZWJrcEk3V0lBOFdF?=
+ =?utf-8?B?QXM1Y0ZvSkFkYXpWbWFxaTAwZy9VM3plM2lUbG1EeStOSFV1dC9NR3ZDVk0v?=
+ =?utf-8?B?WHMyQ1NYTldtcnAwWk82RFpVZlpDMGpKTS9ZVkdDRkc5aFp3U1o2UU5TQ3h0?=
+ =?utf-8?B?OGcyYlR2NnNFQXVlOXNPV1hWTHFIWU9DMFkzZXprZEpHZXFLQ0twZ08vby9B?=
+ =?utf-8?B?aHhhUnd4Q05qU3NaNTdrOTZSNVB1TWpuSWJJRDk2SW1SUnRBWkVYMURTODA5?=
+ =?utf-8?B?djNJTzFObDU4TU1xYk9PYVNsUkhJWmtaQUR5bUtoZWRmRDFQWGF0OXlTajBh?=
+ =?utf-8?B?dE5pMVh0Sk5GTjAreU1RMURoTkc2VkRyTFZrV3dHWVNHUlA4THcvV1NLRHhG?=
+ =?utf-8?B?MXJCZ1NxVldVMzFhU1JaWWV1UjRENSsxdlUvNThaMjNTa05XeGV0angrS213?=
+ =?utf-8?B?dTRYQWoyeEVXZTZBRWlzZUsvYitTdjRJZGlheTJTcFJsbVI1OHEzVkJVQXgx?=
+ =?utf-8?B?bDlNbmJHTnkzODV3TjhkeVVCSUViaVhKTTMxcjhVazZOYldTc1pPYTljbUxt?=
+ =?utf-8?B?VE5CbE9maHY0TS9VYlFFY3UyWVlDc1drSzJwUDQvbkIvQitFWG1saEREdGtE?=
+ =?utf-8?B?Q2dnZDM2Y0RGTVJmRm5VdFJCM0hlVHRaNk50eUJuVnA0OVhkR2pXSGJ1aVUr?=
+ =?utf-8?Q?y8IRrH/C/i4HxaOKTdPz2VE=3D?=
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aef186f5-8d96-4edd-d796-08dd1b4f5912
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR01MB7975.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 08:20:12.5882
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 08:22:57.0512
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w91MTMXdDUgHbIvUBQlGgT1SngZ9lhVo5jlVS4sIGmCiLvQ0Bej1dQ/JwfqnhjMJG4jD31PR0sD833JdKsD9yQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9428
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4V2sHvbSDXTB6bXuerUIzdGwbiAGJFC1SpwML0EGxZEWsMg9LWWBD9sEmdG2owwpf3vPcD5fQyOm+5MrVPLK7hND6d53KgIYygJl1CXaKpLxRtCuLUoPjJP1sc2IJYrr
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB9105
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_002029_129913_1ADD24C3 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20241213_002304_444257_C5712554 
+X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,42 +181,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Ard,
 
-On Thu, Dec 12, 2024 at 12:31:26PM +0800, Hui Wang wrote:
-> For the chipidea usb driver, if the dr_mode is not set, it will set
-> the device to otg mode by default, so here the dr_mode has not been
-> set for a long time. But some testcases need to parse the dr_mode from
-> DT and decide the follow-up test strategy, here set the dr_mode to otg
-> explicitly for QA's testcases.
+On 2024/12/13 15:30, Ard Biesheuvel wrote:
+> Hello Huang Shije,
+>
+> On Fri, 13 Dec 2024 at 06:32, Huang Shijie
+> <shijie@os.amperecomputing.com> wrote:
+>> As per admin guide documentation, "rodata=on" should be the default on
+>> platforms. Documentation/admin-guide/kernel-parameters.txt describes
+>> these options as
+>>
+>>     rodata=         [KNL,EARLY]
+>>             on      Mark read-only kernel memory as read-only (default).
+>>             off     Leave read-only kernel memory writable for debugging.
+>>             full    Mark read-only kernel memory and aliases as read-only
+>>                     [arm64]
+>>
+>> But on arm64 platform, "rodata=full" is the default instead. This patch
+>> implements the following changes.
+>>
+>>   - Make "rodata=on" behaviour same as the original "rodata=full"
+>>   - Make "rodata=noalias" (new) behaviour same as the original "rodata=on"
+>>   - Drop the original "rodata=full"
+>>   - Add comment for arch_parse_debug_rodata()
+>>   - Update kernel-parameters.txt as required
+>>
+>> After this patch, the "rodata=on" will be the default on arm64 platform
+>> as well.
+>>
+>> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
+>> ---
+>> Add more descriptions for "noalias":
+>>    It is not a security feature yet.
+> Why did you add that?
+The following is the current status of "rodata=noalias" by checking the 
+kernel page table in my machine:
 
-The dr_mode is board specific property, so we normally don't put it in
-dtsi file. Also, imx6qdl.dtsi is a common dtsi, therefore it's not a
-correct place. I wonder you don't set dr_mode in other dts file which
-include will imx6qdl.dtsi?
+    1) the kernel code keeps read-only in both the "vmalloc area" and 
+the "linear area".
 
-Thanks,
-Xu Yang
+    2) But there is a read-only memory range which is read-only in 
+"vmalloc area", but its linear alias is read-write in the "linear area".
 
-> 
-> Signed-off-by: Hui Wang <hui.wang@canonical.com>
-> ---
->  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> index d2200c9db25a..285fb7314a88 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> @@ -982,6 +982,7 @@ usbotg: usb@2184000 {
->  				clocks = <&clks IMX6QDL_CLK_USBOH3>;
->  				fsl,usbphy = <&usbphy1>;
->  				fsl,usbmisc = <&usbmisc 0>;
-> +				dr_mode = "otg";
->  				ahb-burst-config = <0x0>;
->  				tx-burst-size-dword = <0x10>;
->  				rx-burst-size-dword = <0x10>;
-> -- 
-> 2.34.1
-> 
+
+Maybe the "security" is not a proper word.
+
+
+>
+> How do you envisage 'noalias' becoming a security feature? The point
+
+for the case 2) above, if its linear alias is also mapped as read-only,
+
+can we think it is safe as the original "rodata=full"?
+
+
+> of 'full' rodata was to harden the read-only regions in the vmalloc
+> space against inadvertent modification via the writeable linear alias,
+> so 'noalias' is less secure than rodata=full, and should be documented
+> as such.
+
+
+>> ---
+>>   .../admin-guide/kernel-parameters.txt         |  3 ++-
+>>   arch/arm64/include/asm/setup.h                | 27 +++++++++++++++++--
+>>   2 files changed, 27 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+>> index a22b7e621007..f5db01eecbd3 100644
+>> --- a/Documentation/admin-guide/kernel-parameters.txt
+>> +++ b/Documentation/admin-guide/kernel-parameters.txt
+>> @@ -5901,7 +5901,8 @@
+>>          rodata=         [KNL,EARLY]
+>>                  on      Mark read-only kernel memory as read-only (default).
+>>                  off     Leave read-only kernel memory writable for debugging.
+>> -               full    Mark read-only kernel memory and aliases as read-only
+>> +               noalias Use more block mappings,may have better performance.
+>> +                       But this is not a security feature.
+>>                          [arm64]
+
+What's about change it to:
+
+    diff --git a/Documentation/admin-guide/kernel-parameters.txt 
+b/Documentation/admin-guide/kernel-parameters.txt
+index a22b7e621007..3d4aef0d0811 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -5901,7 +5901,8 @@
+         rodata=         [KNL,EARLY]
+                  on      Mark read-only kernel memory as read-only 
+(default).
+                  off     Leave read-only kernel memory writable for 
+debugging.
+-               full     Mark read-only kernel memory and aliases as 
+read-only
++               noalias Use more block mappings,may have better performance.
++                        It is less secure then "rodata=on".
+                         [arm64]
+
+
+
+>>
+>>          rockchip.usb_uart
+>> diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
+>> index ba269a7a3201..0ef57d19fc2a 100644
+>> --- a/arch/arm64/include/asm/setup.h
+>> +++ b/arch/arm64/include/asm/setup.h
+>> @@ -13,6 +13,29 @@
+>>   extern phys_addr_t __fdt_pointer __initdata;
+>>   extern u64 __cacheline_aligned boot_args[4];
+>>
+>> +/*
+>> + * rodata=on (default)
+>> + *
+>> + *    This applies read-only attributes to VM areas and to the linear
+>> + *    alias of the backing pages as well. This prevents code or read-
+>> + *    only data from being modified (inadvertently or intentionally),
+>> + *    via another mapping for the same memory page.
+>> + *
+>> + *    But this might cause linear map region to be mapped down to base
+>> + *    pages, which may adversely affect performance in some cases.
+>> + *
+>> + * rodata=off
+>> + *
+>> + *    This provides more block mappings and contiguous hints for linear
+>> + *    map region which would minimize TLB footprint. This also leaves
+>> + *    read-only kernel memory writable for debugging.
+>> + *
+>> + * rodata=noalias
+>> + *
+>> + *    This provides more block mappings and contiguous hints for linear
+>> + *    map region which would minimize TLB footprint. This is not a
+>> + *    security feature yet.
+> Better replace the last sentence with
+>
+> "This leaves the linear alias of read-only mappings in the vmalloc
+> space writeable, making them susceptible to inadvertent modification
+> by software."
+
+No problem.
+
+
+Thanks
+
+Huang Shijie
+
 
