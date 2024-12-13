@@ -4,119 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA4DE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 06:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0CFEE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 07:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mz5+fDTTej/xbzEM2PzYBBnHKsi8dVYTYuT376akQF0=; b=4RkBvgDjFMjFqV7SVOww31QDja
-	+f+I9YSVP5N2LqnxlNuoSkoCIlZgSToxmb31f0TN+lgy+U6PQQRktQ5O/ZGcw6R5nyDpzuVgTwJu1
-	arUOfgcaCq8Pr5skYIkh2/winVpc1WH9ZA65udzrV+8OyBU2UuaONnj/F0Peij5iNI1xHuvJbWbOG
-	7uSGrSmyA1by2G201ox6roHIk1+c+2de1CbAtLeFoJTjlSvvoUObp3Q4yO2aUTgdVaLYVafqVq+Le
-	nzEfb34Xm4JQN0+cU5qg5dykpuAUu30HhTmEth7U0oRPiOnFuOclkOKLTZRVoj4zXdjAkxsB8Z3EX
-	XxeWgvlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hdL3UCKYJLbJXvGaCsvSydMZY+u1pV5Ev91i21iPTNw=; b=st6lXV38UkZFVxyTN9u3qn/5oz
+	FE+WyFBAUA4s+pCL27GPfa49QSOfQD/CoHHJbth76n5SHS3vSu8hbvV/qHQ6FYXcHxg9dw7pcGfVb
+	v5wqyNajczgDMtg+lxUNy0qO7voX29+P/SduLU7VarIU71ZUpFiFGUg4/eVnSJXimcr0h/84vhLwj
+	ZXlJN9Z2ZC9HqtMn478pNBnpYqj3ndL/E8cOOc0s83sk9gFLjfXicOpr4SqBP28ZZrc013TGkZ6lJ
+	HG7XUKr4b73861gwOeCy6YLPLUOqd39jo2ZKEtblh9uzHU18TYO7fTQHxiOJ1lNyWn9siwAiqNjIi
+	3POGhMUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLzdN-00000002uaZ-1umy;
-	Fri, 13 Dec 2024 06:58:45 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1tM05z-00000002xg8-2JXI;
+	Fri, 13 Dec 2024 07:28:19 +0000
+Received: from mail-am6eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2612::608] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLzcI-00000002uUe-0IIi
+	id 1tM04t-00000002xUE-3XmZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 06:57:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Mz5+fDTTej/xbzEM2PzYBBnHKsi8dVYTYuT376akQF0=; b=VS5Q/Gm/ZPIbUPXpceSul9RGfV
-	Dk+Uk/S5gS1pkNAkyBkDXwiAoYLSTJ49vMuUJuuvfUGGlp5/gpJGrMw5xkZLXZBue1owd2BKnKuw2
-	4VBGQ65S6bXec9oIgISbrUlhiUvI/iSbkt0SsiwcbZRVsOE6ie93/sAUht67RDfe2LZewRuKrE0iY
-	ifTfDm14KLr3UjYUeOEdwv62QPYuTPtS0dohb2sa3wkHO7L1Jiqwvamdp3M+E9wpa+68NwaLC6vUp
-	dMhRLtUBX8630QTz0xT8tvte3n7JbNm4lsTDeeCBFjpLdI7gkHdc8HOyXE5sWbYekZYtYHCVXrVGF
-	jPusKcfQ==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:44300 helo=[192.168.69.52])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <andrej.picej@norik.com>)
-	id 1tLzcE-00CtFs-2s;
-	Fri, 13 Dec 2024 07:57:34 +0100
-Message-ID: <cdf8cff7-543c-4a28-bf2e-bc7f331d0db5@norik.com>
-Date: Fri, 13 Dec 2024 07:57:30 +0100
+	Fri, 13 Dec 2024 07:27:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BNVnEcfoCiEffcNBryJothiprXT4Pt0CrrI4hE0DWzM/vOKGpsf/6QIPmg+DjJ2RTGPuOQh2PjittWfnjHfxLQsI8kmIomCW0CAPsuEFwAqrfhNl4hQxC46U01/IIk+Ch3Ce1F4kkwdan+re4BYc1exN4Ovl8ks6S73mHn5mlPUT8AGR3G2JVHhzchZsbFITMjKFcwuhHhC7ma1twLbVT63T38BPQr8/+q50j1ekKMiL5rOD0XvBUfWoZ7OKiZD/IDOWqI+kzKgmUzc2CGQT77fpXkex1gMma7dguMtgvUt15FnECSz+1LENEYS3SYXfZfQ4/86jQETsHlfPh9Sd1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hdL3UCKYJLbJXvGaCsvSydMZY+u1pV5Ev91i21iPTNw=;
+ b=x2kBnDLNTbu039GSym4y3uKHXZqKink3ymHqz/eYbWWmDBzrUxtHgkPfxYb2OU9BifoWwMBleZvbICGTE910VEOY8yWlH8eahv4QVeODMs8lTwZO+aSQgNcscl3q+LIv7FXOowa2A3YlZDRLaTV5Jrc5w1yV6J5xUobPZODN/LPYU2bjcYc5UCnr/j7JVL27yEQa762Ag/uCo7OGSvqmt1ClzSzQrRyHsK6GPR00EPIj+YU7yDerIZatH51lF6QMeoeLR9zrrPknbkty/8+i4g0BG5FaAWzi7fUfRuyjD7Lz5LQgG5hodFvSJtJS4RyDbMKkmDnbvVQeT77lR+fESw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cs-soprasteria.com; dmarc=pass action=none
+ header.from=cs-soprasteria.com; dkim=pass header.d=cs-soprasteria.com;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cs-soprasteria.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hdL3UCKYJLbJXvGaCsvSydMZY+u1pV5Ev91i21iPTNw=;
+ b=Wrtfd0VXOesybT/CY7vFDtxML8TmqSOlhvxCzClZflhWPXOMFomR6MzAXnY6lXYNiOUGvWtoP5ScVasu+DXKerYnlczEFi5xCit7064cTXyb1olT7lO8rPRNhGlTgo8UIHbwMXI0WIJGt/Km/f7ybG3EfZTehweLT8Ad+sFJ046229ttenTCmHLUxLSo3WO3e9+4cSKJOSPA3m4q2Wd4lL+NlQ9iJJy2oMRTsRpMCjFm8rb67GtYWSd2r2zHoU9k6PAqI2TNCDDtIHngHx7odmuofD0247/hk6iu/Vruy0Pg+81d39jmfrjvqYTV8sn8/CKRFWGq358aNejGOD/zIA==
+Received: from PA4PR07MB7455.eurprd07.prod.outlook.com (2603:10a6:102:b9::12)
+ by AS8PR07MB9111.eurprd07.prod.outlook.com (2603:10a6:20b:567::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Fri, 13 Dec
+ 2024 07:27:03 +0000
+Received: from PA4PR07MB7455.eurprd07.prod.outlook.com
+ ([fe80::191c:a08d:4945:6288]) by PA4PR07MB7455.eurprd07.prod.outlook.com
+ ([fe80::191c:a08d:4945:6288%6]) with mapi id 15.20.8251.008; Fri, 13 Dec 2024
+ 07:27:03 +0000
+From: LEROY Christophe <christophe.leroy2@cs-soprasteria.com>
+To: Frederic Weisbecker <frederic@kernel.org>, LKML
+	<linux-kernel@vger.kernel.org>
+CC: "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Andrew Morton
+	<akpm@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, Thomas
+ Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 06/19] soc/qman: test: Use kthread_run_on_cpu()
+Thread-Topic: [PATCH 06/19] soc/qman: test: Use kthread_run_on_cpu()
+Thread-Index: AQHbS+Mex5HqM2GsQkaLVT6cfvGz17LjyQcA
+Date: Fri, 13 Dec 2024 07:27:03 +0000
+Message-ID: <986fee5c-8537-498f-83ec-65a7c7c7a71c@cs-soprasteria.com>
+References: <20241211154035.75565-1-frederic@kernel.org>
+ <20241211154035.75565-7-frederic@kernel.org>
+In-Reply-To: <20241211154035.75565-7-frederic@kernel.org>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla Thunderbird
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cs-soprasteria.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PA4PR07MB7455:EE_|AS8PR07MB9111:EE_
+x-ms-office365-filtering-correlation-id: aa59d417-63ba-458b-bb31-08dd1b478a4a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?RW1udzFrNVhQN2NNemR1dnhjZ29WT0RycE5nYUIvaHNUZEtuclhYVFlwQVNh?=
+ =?utf-8?B?dXlXL0k4UmxFQ2VOUytvTEdJL2hvWU1raVJnU2VmaUNwVVdwMzNHemhqNlVP?=
+ =?utf-8?B?dFUrVWwyQVJ1UlhYemgrNngwb2R3RzdKQ0tBS2FQVmxwYVB2ejJHaWlHTlp0?=
+ =?utf-8?B?cHYwaFBseUNnTWhKMlE5Tk9mSDZXZGpxQS9oczRZZjlxVks2eEdTMWhHT1hz?=
+ =?utf-8?B?U3ZpaUhNN2J6a1VDKzB0UEZIUmJHRHNLQ1phU0NEVk93dVdCaUMrUUFmWVNy?=
+ =?utf-8?B?TFFMb3hmdkQrM0c0M3FmQ0EyVW15bjN2RnFsNGZBd3QrQkdtZ0FrSm9UWDQz?=
+ =?utf-8?B?endqQ2EzNjV4TldEdmZVWVVGajltODJXQWhGVUJxdENGTzBCVkNaNURjS1Ey?=
+ =?utf-8?B?QmxjalBKZ1ZObHFKcXJqdWsvSzRtRWNtMTJtUmdCS0J3SURoVUhmek9wSFFa?=
+ =?utf-8?B?azhIYjgxZGF1T0JicGd6SG1WQW9rTWNwN0ovTUQxcllSN01xbVZjNXhqK3F0?=
+ =?utf-8?B?ZGF2Q1V6T1hrQ1VidVFhZllpSVJuOG5kK2dCSU5qRlZLZ29qNGJtaHpEL3dw?=
+ =?utf-8?B?ZUdrdXZXZXcvdFZhVTlWVWUxdGtMVlBsUFp2Uk1HMXpxRFBIb3J1aTZ4a0Y2?=
+ =?utf-8?B?NVRsL2cvd2dWa3VoZEJBdmQzOFpUOG1PbDVhTVE0UGRmNzlLUWkySFVXclRE?=
+ =?utf-8?B?L0NyUG1VaWZaM095bWp2akpLcHkvQUY1WnlCNHM2MWlDWjlaRU5hU29qVWpG?=
+ =?utf-8?B?WGZKQjZSSURxbENLcG1CVXpkd2hnSGZCbkNOcVZLUlNuTXdzNU9vMHl4U1kw?=
+ =?utf-8?B?ZTd5T1h1ZGVpdjRIR01CemNHVVhxT2cxayt0M2c5T0FidzlYTWZFTGVUbWtZ?=
+ =?utf-8?B?NE1YKzM3dUtieFFYUDArM1Z3UVlyV0VWSFNaWGxIcUN5Q01wKzhZUHZOcHo5?=
+ =?utf-8?B?WEdIVDlMYlZLSGVRUTN1TlNDRDhEdVc5SjhPMEJtR3hVakRhckwvbDRPcFZJ?=
+ =?utf-8?B?dXJXQ3VqTUFpZVJWZ0ttakczUXNCbVZPQmFvTFFWWnBWNHJxRXFvdG9qSG11?=
+ =?utf-8?B?NWNCZitHOHUyQ2FUaUNxNmRpdjlkZTJYcE1xYS9qQVEwNGxWbkFOZTVkV0Fw?=
+ =?utf-8?B?c0Q5M2pOamNQVzJ3SngwL2FKaFZ2aXhDUzEydmJ2dHNJZXcxTDVRZWRmd3dD?=
+ =?utf-8?B?Q1QzVkNPZlJSYkc5R2FCUTR2L2p2NzVhR2NDQlk2SGdQVzNxR2UxQzdOUEc1?=
+ =?utf-8?B?blgzZTgyUzYveHZtM25DZEh5RWF5RVUrc0FYQ3lmOXk5MVJ6T0tnejNNemcr?=
+ =?utf-8?B?NW0xVXdzM3lMNnMxUklKaGkwOVd1K202Y2ZEUXpoM2lOazB4a3pPaExFUFlY?=
+ =?utf-8?B?blFHdUs5eVUrSUlOL3dKK3h0L1N6WmgyUG1hNGZKeUFyQmljWlVySVBVVGll?=
+ =?utf-8?B?Rk1KVVVacy82UStQdG9ZK2RTNy9ObFNNb3JWS0gvSDZJTXJ2SWJpWi9ERDlU?=
+ =?utf-8?B?L1pESWlHb3VwcVgzbThSMjZKSjk1WGxNL29BU2xxUTJSU3BnRnRhZXZwMUtk?=
+ =?utf-8?B?NVJBaS91SUdkUUhDU2dhVm9SSGJsN2pubC9LZjh3RVJtRkloOS9wM0lKcVBw?=
+ =?utf-8?B?RUk5YnhiWHhWbGxLcW1nQjB6dWlZQ2Ziem96M1BBOG1GcTJUQTNFc04zNXVr?=
+ =?utf-8?B?QzZXNDBzZGp2UXE2UDJURkN1ZFRXblJFYW9HZ09BZWwxVzZRRUdmNmtxY1Vh?=
+ =?utf-8?B?OUc2RFplUjlNUmJiTnhXVDE0SWQxRmpOQ2FzTFRKdFN1M0EwYzliZ0NqRE5z?=
+ =?utf-8?B?aVRnSHNqeVo1cDYvMGFKU1dLNHMxTTQ0N1d4ZUdyNlg1eFkxVW9GRXcyc2tJ?=
+ =?utf-8?B?d1V1MVRtZ2wxbEdoQVE2MnExQkVabHFLd3lHSWNTb1g4UmFKYUJ1SXdpTHVY?=
+ =?utf-8?Q?PdQHZ9k3ewPaTGbN4jUH7ikPe1UDwXQi?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR07MB7455.eurprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dlhnRVluU25QM2Z0QzNnRWEzSTdrZjdYT2RNSEFPNUVlZW8yVUd6WFd6Rmtn?=
+ =?utf-8?B?Y0FQcnB2N1JNQ1c0RGwwMWRXdlgydURRMHEwU290QzJ5L3VQdVFESEJpSDhV?=
+ =?utf-8?B?R0hsaHVzM3RNRXRVeHVCWWRHZHVIR1lEWXp3L3lPcFN6dDRSRXk2blV1Qmxy?=
+ =?utf-8?B?VHRRelhjcTMydGZ3Tk5PZlI3eVBhRmpndWc4amxuYjI4VTUvZnhPckZWaE9Q?=
+ =?utf-8?B?eDV3VlNpa21nWTJUU1N5SFAvelF0OHlobCtoaHNaaHlJNTAyOTdFTExPMkhH?=
+ =?utf-8?B?di9EeG5nQUpPWkY1RDF3Z0VueW9qa2hNalM0WS9SSUtuSVVmV3dkZm5DYmsx?=
+ =?utf-8?B?OHdXaWN6REVyVyt6YzR3ci9CUno2U3VSaEZkSmx3V1ViT2VmR3M4UDV6QVdn?=
+ =?utf-8?B?RVJ5RG43UXQwSFRGS2xGZFFVSmlFS2JuVWpzSk5GTThOR2NTUW5rUnUyeEJh?=
+ =?utf-8?B?OXU4OWlQWDhnUUttZ21PQXY3Y1I1NUpQYVB2bFBVeEFJYmp6NGlyQjN5aldY?=
+ =?utf-8?B?UStoUEV3VTl0OEI0THN2NjBhcnZZeTluSXluTm56OHRmK3RkbjgwTXpkYVZZ?=
+ =?utf-8?B?Z09HamJSWkExY0tYUWR4NmJBbGUwM0RZL0ovcnpRdjFIQjNwTk9EVk1uMXh1?=
+ =?utf-8?B?ZXZKNzF3SUJPOGlaVXZYdGhIalR2ZmlPdlkyVlZXY3NMZE9MU0hBQmRjdW1r?=
+ =?utf-8?B?N0hPOEdMQ3pTdzlKVDFFdUFoc1ljcmNtUVdicHJPUVdCaSs2VEJqalVPU2FC?=
+ =?utf-8?B?NVNYYWFUQTJZSDVQWGhNS0w3cDJ4ZFFjL3cvRnhUZzQ1MGVFbjhBb09HalFV?=
+ =?utf-8?B?OGNIRkpseWRCeFkzMWpOckpod1ZEUnZnMmRpT0RrRDlGc1dLQ0gweEVDeEY5?=
+ =?utf-8?B?R3U0eWZPaFhhbWlTTFVGbkdiL0tDelhaRDl1RG01WU9Ra2FQdUhFRVVZclk4?=
+ =?utf-8?B?dldGd1NwcXdQM0czbHlPb3VhY2VVeEhiR1VBZjFUaW9CVVluSGF6dTMza2pt?=
+ =?utf-8?B?S1ZBUjRnUUpQbW54eXV5eGNkVVh1U0s1dDNlWlZlczM0dHRUSnlNOWppQ1B5?=
+ =?utf-8?B?cXM4V3IrVHJyUVNUdVhhbVpERHZXZHBzTVdHOWllVENsaWdqT04wa0xlNUo3?=
+ =?utf-8?B?SGNOSWVFUkJhdElOVlNWR1NGeHRpSzhVK1Fmc0hONUNObzZCRlQvNG5ObEk1?=
+ =?utf-8?B?aHcrek5YZHV3Z1RLVy9HNEN5REFZSnlraWFVSWpsMjhiekxlZU5OZHVNZGtN?=
+ =?utf-8?B?VTM5blBrUmV5aHFKN3o0blRic1ppNDAyZ3c5K3NsVnEwTFI5MFB5K1cxUG9C?=
+ =?utf-8?B?QjB4WUs2RG13UGdPOGtoN1dobHhhZGl1QkZvbmlmaGNKZlJYVlBQTDNaa2pq?=
+ =?utf-8?B?aHpQN1JPOUMzdlZpZ1BTanhSV0tRV20rOUN4a0lUVzd4TDlvSjdpNmtOVlNK?=
+ =?utf-8?B?K1poV0Z1aGNUUUV1VFAvL1BqaHRWampyVVBpQ09Xa1BmVjdONDgzQ01jYkkz?=
+ =?utf-8?B?NXIyUmxlankrOEUzQk5JekJndGJvYWFrOFhVdUxlS2ZjNktUV2pqSi9LVDVl?=
+ =?utf-8?B?UHZScVRrSGlnUFd3cU0xNHplU3ljalkzNGxjWWV5WkdkdU43V0pCUVlaY0Nl?=
+ =?utf-8?B?SmxJREIrZm1QQjhnMXQvK3cybUtndmZPYVNOSnVzU1FwaTFuOXR3YWo2NUta?=
+ =?utf-8?B?TlluNGx0MkJPQ0hlYlBETUVUNDBZYStzcGtHb1dhaVJVVFZSSXZhMTQwZjVq?=
+ =?utf-8?B?eWJ1TWVmd2dkVXAycWlhSGQxY1orUlErbVZtWlBoMklJc25ZV1pmQXFoZlZX?=
+ =?utf-8?B?NVNpQndlVTlIVUpxZEZQQXBYakw4c1RiU08zMDUxcmdlSGpnRDdHaUhiUklm?=
+ =?utf-8?B?dVJERy9NVU9iem4yZWt1a0gyK28xcENpNmpyY0xrM0VKVW54bnVwOEQ5c3pt?=
+ =?utf-8?B?aDRDeUo5M0hGK29YM3dXSTJGUXNtdWJmSzVQNWxFR3FSSTgrajhsQmJiZ2xM?=
+ =?utf-8?B?VUw2Z3BEbTZwaTFIWGoxWGJhYWs1UTNhYmVkRkJzdHR1VWRzalozaVc5cVJh?=
+ =?utf-8?B?Qkt4VXpXUnRiTjZ5QXh0WXdGYmgySHo5RU9tR3VjVEg2TkdRY0dVdE5MUnhF?=
+ =?utf-8?B?TC81WTZLRU1CMi9HTGJVczlKOGdWR3RJUEVzMkJYR3FRQk5MS3ZXOG5iTklu?=
+ =?utf-8?Q?ostCVC4X50ZucpF9qIvxNkc=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <F7D7DD7166234949A5178134762653A0@eurprd07.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing
- optional properties
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, marex@denx.de
-References: <20241212121712.214639-1-andrej.picej@norik.com>
- <20241212121712.214639-3-andrej.picej@norik.com>
- <45f90007-3136-4b59-a3fc-6fc0147b8ad8@wanadoo.fr>
-Content-Language: en-US
-From: Andrej Picej <andrej.picej@norik.com>
-Autocrypt: addr=andrej.picej@norik.com; keydata=
- xsDNBGa0T6ABDAC4Acdg6VCJQi1O9x5GxXU1b3hDR/luNg85c1aC7bcFhy6/ZUY9suHS/kPF
- StNNiUybFZ2xE8Z18L+iQjNT3klDNUteroenx9eVhK5P1verK4GPlCB+nOwayoe/3ic5S9cC
- F76exdEtQHIt4asuwUJlV1IARn2j30QQ/1ZDVsw2FutxmPsu8zerTJAZCKPe6FUkWHaUfmlw
- d+DAdg3k33mVhURuiNfVrIHZ+Z9wrP6kHYS6nmBXNeAKy6JxJkJOUa4doBZFsvbQnNoPJTeF
- R/Pc9Nr5dRlFjq/w0RQqOngdtA2XqXhqgsgzlOTCrHSzZXqtwyRQlbb0egom+JjyrfakQa/L
- exUif7hcFiUdVImkbUwI4cS2/prNHu0aACu3DlLxE0I9fe/kfmtYWJLwMaI6pfuZdSL5N49y
- w+rllYFjOuHYEmyZWDBRKPM7TyPVdlmt6IYXR09plqIifc0jXI6/543Hjt8MK4MZSke6CLGn
- U9ovXDrlmTh5h8McjagssVsAEQEAAc0lQW5kcmVqIFBpY2VqIDxhbmRyZWoucGljZWpAbm9y
- aWsuY29tPsLBBwQTAQgAMRYhBFPRdFhqlu6CXugSybrG0Hq8HZyTBQJmtE+hAhsDBAsJCAcF
- FQgJCgsFFgIDAQAACgkQusbQerwdnJPi0QwAjuxLXKbt0KP6iKVc9dvycPDuz87yJMbGfM8f
- 6Ww6tY3GY6ZoQB2SsslHyzLCMVKs0YvbxOIRh4Hjrxyx7CqxGpsMNEsmlxfjGseA1rFJ0hFy
- bNgCgNfR6A2Kqno0CS68SgRpPy0jhlcd7Tr62bljIh/QDZ0zv3X92BPVxB9MosV8P/N5x80U
- 1IIkB8fi5YCLDDGCIhTK6/KbE/UQMPORcLwavcyBq831wGavF7g9QV5LnnOZHji+tPeWz3vz
- BvQyz0gNKS784jCQZFLx5fzKlf5Mixkn1uCFmP4usGbuctTo29oeiwNYZxmYMgFANYr+RlnA
- pUWa7/JAcICQe8zHKQOWAOCl8arvVK2gSVcUAe0NoT6GWIuEEoQnH9C86c+492NAQNJB9nd1
- bjUnFtjRKHsWr/Df11S26o8XT5YxFhn9aLld+GQcf07O/MWe+G185QSjKdA5jjpI459EPgDk
- iK4OSGx//i8n4fFtT6s+dbKyRN6z9ZHPseQtLsS7TCjEzsDNBGa0T6EBDAClk5JF2904JX5Z
- 5gHK28w+fLTmy8cThoVm3G4KbLlObrFxBy3gpDnSpPhRzJCbjVK+XZm2jGSJ1bxZxB/QHOdx
- F7HFlBE2OrO58k7dIB+6D1ibrHy++iZOEWeoOUrbckoSxP2XmNugPC1ZIBcqMamoFpz4Vul1
- JuspMmYOkvytkCtUl+nTpGq/QHxF4N2vkCY7MwtY1Au6JpeJncfv+VXlP3myl+b4wvweDCWU
- kqZrd6a+ePv4t8vbb99HLzoeGCuyaBMRzfYNN4dMbF29QHpvbvZKuSmn5wZIScAWmwhiaex9
- OwR6shKh1Eypw+CUlDbn3aieicbEpLgihali8XUcq5t6dGmvAiqmM7KpfeXkkE1rZ4TpB69+
- S2qiv2WgSIlUizuIx7u1zltCpEtp0tgTqrre8rVboOVHAytbzXTnUeL/E8frecJnk4eU3OvV
- eNDgjMe2N6qqfb6a2MmveM1tJSpEGYsOiYU69uaXifg5th7kF96U4lT24pVW2N2qsZMAEQEA
- AcLA9gQYAQgAIBYhBFPRdFhqlu6CXugSybrG0Hq8HZyTBQJmtE+iAhsMAAoJELrG0Hq8HZyT
- 4hAL/11F3ozI5QV7kdwh1H+wlfanHYFMxql/RchfZhEjr1B094KN+CySIiS/c63xflfbZqkb
- 7edAAroi78BCvkLw7MTBMgssynex/k6KxUUWSMhsHz/vHX4ybZWN15iin0HwAgQSiMbTyZCr
- IEDf6USMYfsjbh+aXlx+GyihsShn/dVy7/UP2H3F2Ok1RkyO8+gCyklDiiB7ppHu19ts55lL
- EEnImv61YwlqOZsGaRDSUM0YCPO6uTOKidTpRsdEVU7d9HiEiFa9Se3Y8UeiKKNpakqJHOlk
- X2AvHenkIyjWe6lCpq168yYmzxc1ovl0TKS+QiEqy30XJztEAP/pBRXMscQtbB9Tw67fq3Jo
- w4gWiaZTJM2lirY3/na1R8U0Qv6eodPa6OqK6N0OEdkGA1mlOzZusZGIfUyyzIThuLED/MKZ
- /398mQiv1i++TVho/54XoTtEnmV8zZmY25VIE1UXHzef+A12P9ZUmtuA3TOdDemS5EXebl/I
- xtT/8OxBOVSHvA==
-In-Reply-To: <45f90007-3136-4b59-a3fc-6fc0147b8ad8@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
-X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-OriginatorOrg: cs-soprasteria.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR07MB7455.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa59d417-63ba-458b-bb31-08dd1b478a4a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Dec 2024 07:27:03.2642
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 8b87af7d-8647-4dc7-8df4-5f69a2011bb5
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iYaECwIX2PddRGv7phiqsaPALMYISHNVD/irhNop6RKv8y87bYiXHZK47leYOKYKe7Akmbxu6a0Llf4lTn00NU6iBgDW8ovxnO39S2zJtROa2CKbZGWLeUvxV/V3XwOx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR07MB9111
+X-MS-Exchange-CrossPremises-AuthAs: Internal
+X-MS-Exchange-CrossPremises-AuthMechanism: 04
+X-MS-Exchange-CrossPremises-AuthSource: PA4PR07MB7455.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossPremises-TransportTrafficType: Email
+X-MS-Exchange-CrossPremises-SCL: 1
+X-MS-Exchange-CrossPremises-messagesource: StoreDriver
+X-MS-Exchange-CrossPremises-BCC: 
+X-MS-Exchange-CrossPremises-originalclientipaddress: 88.124.70.171
+X-MS-Exchange-CrossPremises-transporttraffictype: Email
+X-MS-Exchange-CrossPremises-antispam-scancontext: DIR:Originating;SFV:NSPM;SKIP:0;
+X-MS-Exchange-CrossPremises-processed-by-journaling: Journal Agent
+X-OrganizationHeadersPreserved: AS8PR07MB9111.eurprd07.prod.outlook.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_225738_573026_2F4206E1 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20241212_232712_342752_7864B119 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,145 +197,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
-
-On 12. 12. 24 13:33, Christophe JAILLET wrote:
-> Le 12/12/2024 à 13:17, Andrej Picej a écrit :
->> Add a optional properties to change LVDS output voltage. This should not
->> be static as this depends mainly on the connected display voltage
->> requirement. We have three properties:
->> - "ti,lvds-termination-ohms", which sets near end termination,
->> - "ti,lvds-vod-swing-data-microvolt" and
->> - "ti,lvds-vod-swing-clock-microvolt" which both set LVDS differential
->> output voltage for data and clock lanes. They are defined as an array
->> with min and max values. The appropriate bitfield will be set if
->> selected constraints can be met.
->>
->> If "ti,lvds-termination-ohms" is not defined the default of 200 Ohm near
->> end termination will be used. Selecting only one:
->> "ti,lvds-vod-swing-data-microvolt" or
->> "ti,lvds-vod-swing-clock-microvolt" can be done, but the output voltage
->> constraint for only data/clock lanes will be met. Setting both is
->> recommended.
-> 
-> ...
-> 
->> +static int sn65dsi83_select_lvds_vod_swing(struct device *dev,
->> +    u32 lvds_vod_swing_data[2], u32 lvds_vod_swing_clk[2], u8 lvds_term)
->> +{
->> +    int i;
->> +
->> +    for (i = 0; i <= 3; i++) {
->> +        if (lvds_vod_swing_data_table[lvds_term][i][0] >= 
->> lvds_vod_swing_data[0] &&
->> +        lvds_vod_swing_data_table[lvds_term][i][1] <= 
->> lvds_vod_swing_data[1] &&
->> +        lvds_vod_swing_clock_table[lvds_term][i][0] >= 
->> lvds_vod_swing_clk[0] &&
->> +        lvds_vod_swing_clock_table[lvds_term][i][1] <= 
->> lvds_vod_swing_clk[1])
-> 
-> Adding a few spaces to align things would help reading.
-
-Ok, that makes sense, will fix.
-
-> 
->> +            return i;
->> +    }
->> +
->> +    dev_err(dev, "failed to find appropriate LVDS_VOD_SWING 
->> configuration\n");
->> +    return -EINVAL;
->> +}
->> +
->> +static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int 
->> channel)
->> +{
->> +    struct device *dev = ctx->dev;
->> +    struct device_node *endpoint;
->> +    int endpoint_reg;
->> +    /* Set so the property can be freely selected if not defined */
->> +    u32 lvds_vod_swing_data[2] = { 0, 1000000 };
->> +    u32 lvds_vod_swing_clk[2] = { 0, 1000000 };
->> +    /* Set default near end terminataion to 200 Ohm */
->> +    u32 lvds_term = 200;
->> +    int lvds_vod_swing_conf;
->> +    int ret = 0;
->> +    int ret_data;
->> +    int ret_clock;
->> +
->> +    if (channel == CHANNEL_A)
->> +        endpoint_reg = 2;
->> +    else
->> +        endpoint_reg = 3;
->> +
->> +    endpoint = of_graph_get_endpoint_by_regs(dev->of_node, 
->> endpoint_reg, -1);
->> +
->> +    of_property_read_u32(endpoint, "ti,lvds-termination-ohms", 
->> &lvds_term);
->> +    if (lvds_term == 100)
->> +        ctx->lvds_term_conf[channel] = OHM_100;
->> +    else if (lvds_term == 200)
->> +        ctx->lvds_term_conf[channel] = OHM_200;
->> +    else
->> +        return -EINVAL;
-> 
-> Should it be:
->      else {
->          ret = -EINVAL;
->          goto exit;
->      }
-> ?
-
-Of course, good catch. Thanks.
-
-Best regards,
-Andrej.
-
-> 
->> +
->> +    ret_data = of_property_read_u32_array(endpoint, 
->> "ti,lvds-vod-swing-data-microvolt",
->> +                    lvds_vod_swing_data, 
->> ARRAY_SIZE(lvds_vod_swing_data));
->> +    if (ret_data != 0 && ret_data != -EINVAL) {
->> +        ret = ret_data;
->> +        goto exit;
->> +    }
->> +
->> +    ret_clock = of_property_read_u32_array(endpoint, 
->> "ti,lvds-vod-swing-clock-microvolt",
->> +                    lvds_vod_swing_clk, ARRAY_SIZE(lvds_vod_swing_clk));
->> +    if (ret_clock != 0 && ret_clock != -EINVAL) {
->> +        ret = ret_clock;
->> +        goto exit;
->> +    }
->> +
->> +    /* Use default value if both properties are NOT defined. */
->> +    if (ret_data == -EINVAL && ret_clock == -EINVAL)
->> +        lvds_vod_swing_conf = 0x1;
->> +
->> +    /* Use lookup table if any of the two properties is defined. */
->> +    if (!ret_data || !ret_clock) {
->> +        lvds_vod_swing_conf = sn65dsi83_select_lvds_vod_swing(dev, 
->> lvds_vod_swing_data,
->> +                        lvds_vod_swing_clk, 
->> ctx->lvds_term_conf[channel]);
->> +        if (lvds_vod_swing_conf < 0) {
->> +            ret = lvds_vod_swing_conf;
->> +            goto exit;
->> +        }
->> +    }
->> +
->> +    ctx->lvds_vod_swing_conf[channel] = lvds_vod_swing_conf;
->> +    ret = 0;
->> +exit:
->> +    of_node_put(endpoint);
->> +    return ret;
->> +}
-> 
-> ...
-> 
-> CJ
+DQoNCkxlIDExLzEyLzIwMjQgw6AgMTY6NDAsIEZyZWRlcmljIFdlaXNiZWNrZXIgYSDDqWNyaXTC
+oDoNCj4gVXNlIHRoZSBwcm9wZXIgQVBJIGluc3RlYWQgb2Ygb3BlbiBjb2RpbmcgaXQuDQo+IA0K
+PiBIb3dldmVyIGl0IGxvb2tzIGxpa2Uga3RocmVhZHMgaGVyZSBjb3VsZCBiZSByZXBsYWNlZCBi
+eSB0aGUgdXNlIG9mIGENCj4gcGVyLWNwdSB3b3JrcXVldWUgaW5zdGVhZC4NCj4gDQo+IFNpZ25l
+ZC1vZmYtYnk6IEZyZWRlcmljIFdlaXNiZWNrZXIgPGZyZWRlcmljQGtlcm5lbC5vcmc+DQoNCkFj
+a2VkLWJ5OiBDaHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxlcm95QGNzZ3JvdXAuZXU+DQoN
+Cj4gLS0tDQo+ICAgZHJpdmVycy9zb2MvZnNsL3FibWFuL3FtYW5fdGVzdF9zdGFzaC5jIHwgNiAr
+Ky0tLS0NCj4gICAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygt
+KQ0KPiANCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvc29jL2ZzbC9xYm1hbi9xbWFuX3Rlc3Rfc3Rh
+c2guYyBiL2RyaXZlcnMvc29jL2ZzbC9xYm1hbi9xbWFuX3Rlc3Rfc3Rhc2guYw0KPiBpbmRleCBi
+N2U4ZTVlYzg4NGMuLmY0ZDNjMjE0NmY0ZiAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9zb2MvZnNs
+L3FibWFuL3FtYW5fdGVzdF9zdGFzaC5jDQo+ICsrKyBiL2RyaXZlcnMvc29jL2ZzbC9xYm1hbi9x
+bWFuX3Rlc3Rfc3Rhc2guYw0KPiBAQCAtMTA4LDE0ICsxMDgsMTIgQEAgc3RhdGljIGludCBvbl9h
+bGxfY3B1cyhpbnQgKCpmbikodm9pZCkpDQo+ICAgCQkJLmZuID0gZm4sDQo+ICAgCQkJLnN0YXJ0
+ZWQgPSBBVE9NSUNfSU5JVCgwKQ0KPiAgIAkJfTsNCj4gLQkJc3RydWN0IHRhc2tfc3RydWN0ICpr
+ID0ga3RocmVhZF9jcmVhdGUoYnN0cmFwX2ZuLCAmYnN0cmFwLA0KPiAtCQkJImhvdHBvdGF0byVk
+IiwgY3B1KTsNCj4gKwkJc3RydWN0IHRhc2tfc3RydWN0ICprID0ga3RocmVhZF9ydW5fb25fY3B1
+KGJzdHJhcF9mbiwgJmJzdHJhcCwNCj4gKwkJCQkJCQkgICBjcHUsICJob3Rwb3RhdG8lZCIpOw0K
+PiAgIAkJaW50IHJldDsNCj4gICANCj4gICAJCWlmIChJU19FUlIoaykpDQo+ICAgCQkJcmV0dXJu
+IC1FTk9NRU07DQo+IC0JCWt0aHJlYWRfYmluZChrLCBjcHUpOw0KPiAtCQl3YWtlX3VwX3Byb2Nl
+c3Moayk7DQo+ICAgCQkvKg0KPiAgIAkJICogSWYgd2UgY2FsbCBrdGhyZWFkX3N0b3AoKSBiZWZv
+cmUgdGhlICJ3YWtlIHVwIiBoYXMgaGFkIGFuDQo+ICAgCQkgKiBlZmZlY3QsIHRoZW4gdGhlIHRo
+cmVhZCBtYXkgZXhpdCB3aXRoIC1FSU5UUiB3aXRob3V0IGV2ZXINCg0K
 
