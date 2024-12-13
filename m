@@ -4,112 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BB5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E079E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXgZvcT0Drh85QdvJpzT/FSyREzxKpRhTcFxHOice7U=; b=cRwsFuCkRWhSZRHFCzFnOVXIZu
-	y6dfwXJavTIzZGSGh1KUwi/etKAM+zxmoJZL3YF9cKaAmZlD5lYvJ1CPe4DpJBZHs82XOVToHdwae
-	daV+PXaJsJUvP91sjbFPE7EmszeQZAdX5jEk+dHjW0TvBTMx7zUVSl+sWWlMSYZNcWBOSrPnkIO/I
-	o4AHs80MsK7eeqkXcs+PJpUf+zMiXL+wh2ntPOj3CdcQy2YRFKXFNBzO3v9RvHiVBKZTBLT92QYSj
-	nYZ8D/JCk/9J3AxAeTS9+Elcuhu3FG4smEGnyr9Una/f1KYy7IK/vr/d2KGFAQj3ENCjDzp3Ufm9m
-	OLYe+hpQ==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ax9fIlDokPVT/m7zwVLOWjC58ZMH8YcqVCp3qT1D65k=; b=QuclF33k1j9dCAqGyPlhojUBvC
+	YqOFv9qyoR5FGK+jYXfzPLotZHlGl2nPJ6dOYQeYq35GjURZUdjyAV4wPjNiEiDpURUJGM3Yfk4kZ
+	s4+Tqk5spp4P5Bwa6L/gXiIMOLryWzqc2lzf9KQQ/ySxj3DMcmg9OTEamIgeY624N7KYlEOc11k3h
+	tXw0IQjl1FfHfJrljJQOxSLB1kifJvQQTzAVrMynJNPaFKSMfAGtqeS4uXI01ImmRe5QRFcOhiswA
+	mc6M/uNPe6miLyQLoT/HFmAQqG/NcmhI8OxOoiUN3uqeaM5zY9Yh7k9t1jQaG+OQO/fUX/PXCC0yd
+	fmlN7sOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0g9-000000032JR-2prl;
-	Fri, 13 Dec 2024 08:05:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tM0oa-000000033fG-0KHQ;
+	Fri, 13 Dec 2024 08:14:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0eS-000000031vW-3SRt
+	id 1tM0nW-000000033XK-0W77
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Dec 2024 08:13:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ax9fIlDokPVT/m7zwVLOWjC58ZMH8YcqVCp3qT1D65k=; b=iL5/rrXuIf9wGkb5mbczSq7V1z
+	VrTeW+/5wbkvbrr9zVAVMZgre/NHTJEL8PWLd+VuFcjBMWDitILFdS68CcHZad5KefmFOtAR6yume
+	LTUbb1/X9uDZbAFLGFEEKyG2qhq4s3rVX6WKl9m7uVnO+NoRlfDCeFkxDeTvAZgXIVVkpFvGYuOcA
+	5gb/sRXcVxQFsRmTeLmLuIUdclvbSQ4nrcyJctFwen7zqzYpW8cwv/NmKhEcidFFWvE0w3TA14E6l
+	bWGDnV7kdSA6w+/kZNyHpGIaqVnwhE4X8+gd/74Z5nZUykmtEPl52pcsHnQbvcnafuW+4juXBhmBk
+	t9vusmqA==;
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tM0nS-00000004ESl-2mn6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 08:03:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E62E3A405FD;
-	Fri, 13 Dec 2024 08:02:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF10C4CED0;
-	Fri, 13 Dec 2024 08:03:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734077035;
-	bh=a427peznSb9rd/430/QkT+uXHAFd5aCvLum2pl93qig=;
-	h=Date:Subject:From:To:References:In-Reply-To:From;
-	b=VCflS9WqFIdAL12O6EMv/nY5QV0YiVxxWGfv9lb26mzyIccZ8nTm8zXNJMeels9T4
-	 GDo8sfUj5ycdYnH9L3cimdj+wqOD8KyKgPicfOtzOOJ1VUmacZMpXfxDlpaofGW2Hp
-	 l7egv5NduCSgMBV3P+kCpU1L6PhQNebemKo1yKktJfC0bJYSSqrn6HC/+3NkvXtSCg
-	 6nlyPoqSohERvegkJvdo4ieXfKHz5ULK33N7xEn9X7CeVAq8i9a6lWbHmob2SskDfw
-	 SmYTFz12ZBJoAJyRMRuSvY6tchjYU9OMik9tzhmwcrKXo95oT+JAyFUSIKMfYSmlBC
-	 46OrqHN4y/+8Q==
-Message-ID: <7b991fca-6e2f-454f-a94d-6a583854769b@kernel.org>
-Date: Fri, 13 Dec 2024 09:03:46 +0100
+	Fri, 13 Dec 2024 08:13:16 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5d3f65844deso2332486a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 00:13:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734077591; x=1734682391; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ax9fIlDokPVT/m7zwVLOWjC58ZMH8YcqVCp3qT1D65k=;
+        b=EQeO3kp7Jipp3mBVwleaR5jr7O4GGREGWA7dSLDIFf+ReT9Xr2S+HiAoPDgpTH+yDB
+         q+ZUsCLsw+MTCIsVWHRXXcqLYgcAgVitmi0BSdgssG505vtDqHytd1zaP6xL1qFPK73R
+         haHoiMvWls0FTzzDYAPjBbpFpg1YROecnPtOpkINgt4xJvN1U+QJp4+X7pTMpu2lg9Hy
+         1W+/Ek6SCmN4B3oG6Tv+o+2yVdTovzNtjUmrVeOaLwsHv+xySDs6l4OYL+Vst7mhqjtq
+         lA4RAAMdXxg+KCRkQGW6pPBQYIqIh0qRYkoWJJhauqMguRD2SLe/n7HZ/Wo8bkduG8pe
+         WlbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734077591; x=1734682391;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ax9fIlDokPVT/m7zwVLOWjC58ZMH8YcqVCp3qT1D65k=;
+        b=jSfYWVI5aY5ABRUEETBbFI12adokdAPvhVvJzqRFRFwaS+X05sIOG79YsVlBZ0mFJF
+         4niIZn+P6Ec+M1oVW1uhE+8Qd9wcYP5kjMQj+4cck+V3Ua5kIlmAP0HorP2SJSwASJS6
+         2KZzPN3WT9/X7mgVNp45V6IfIAKWb3sRT3OjFXivTcWwlQxo73ny2z7TNkJxID9E8fzK
+         XD/1OIkv2+mR12EJaEO0HUc7krOYq+8kkVP+aBs+z3CBkvJwaVMrJLktOdKhPqojg0pP
+         MgE0NdwVFl0Cg3U1WRdwZzafoSFFIXaba6b2k5+O8r3ct3KAxByEko28EoBDddCJ73FP
+         DxSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX62B1XK7/sgkV6zeiRPxb5sXkSqJNyJgbB1BAWuoDybpvD8EWJmCFIiM1dpfmhLAenzh76kbKheBeoHu5AKesW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJRpXCZ33Tt9P7OVLSm7hkijFxCPyj9MLQDapqvXW4uAjT4A/f
+	eoq2WG/U8ExCATtNO3eFTUYeeBADlA9SYSZWNHZn5K6j04QPLQH6sohHa5prWNo=
+X-Gm-Gg: ASbGncsqoRcnBqY6UCMrGgnrwD24pTqRBiHPr9GKQngnuMXDL2ZmH5KuAiabPPNd79M
+	ri+0Z+UO0EUC8l30tbs5VI7Jm+DqlHdpvAa7xl1CYTDCnDS0YyqVe2/g+aLhChW3O6CEygf630J
+	2oaC4CedO9Kibal7XRtoa/p3n2j3yPH2xlq7bGDoJtCMVKsru8qUwx0+fh54sdQM9W+a3IxZFiA
+	hikf+rzl8dpDt7Ezcy1/nVYRPSIF+/ikbkV/Tkt32LNDiLAqs/BmVXdoWIgcx8o
+X-Google-Smtp-Source: AGHT+IEu1OlplbyTKyMNJiSwcJM/aHzieHb5jY3kjHadk0/91d7Jwi8sJXlwCnYq4jjEgabYRNsm0Q==
+X-Received: by 2002:a05:6402:40c2:b0:5d2:7199:ad4 with SMTP id 4fb4d7f45d1cf-5d63c2e7f94mr1392853a12.6.1734077591474;
+        Fri, 13 Dec 2024 00:13:11 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.27])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3cbd14892sm9718785a12.39.2024.12.13.00.13.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Dec 2024 00:13:10 -0800 (PST)
+Message-ID: <467966de-ae91-417f-b315-62459af93b7d@linaro.org>
+Date: Fri, 13 Dec 2024 08:13:07 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/6] dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kevin Chen <kevin_chen@aspeedtech.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, tglx@linutronix.de, catalin.marinas@arm.com,
- will@kernel.org, arnd@arndb.de, olof@lixom.net, quic_bjorande@quicinc.com,
- geert+renesas@glider.be, dmitry.baryshkov@linaro.org,
- konradybcio@kernel.org, neil.armstrong@linaro.org, johan+linaro@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- soc@lists.linux.dev
-References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
- <20241212155237.848336-4-kevin_chen@aspeedtech.com>
- <7289a50a-e139-453f-a512-3dd68a0839a2@kernel.org>
+Subject: Re: [PATCH v4 1/3] dt-bindings: mailbox: add google,gs101-mbox
+ bindings
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: peter.griffin@linaro.org, devicetree@vger.kernel.org,
+ daniel.lezcano@linaro.org, Alim Akhtar <alim.akhtar@samsung.com>,
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ willmcvicker@google.com, vincent.guittot@linaro.org,
+ kernel-team@android.com, arnd@arndb.de, Krzysztof Kozlowski
+ <krzk@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ ulf.hansson@linaro.org, andre.draszik@linaro.org,
+ Jassi Brar <jassisinghbrar@gmail.com>, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20241212-acpm-v4-upstream-mbox-v4-0-02f8de92cfaf@linaro.org>
+ <20241212-acpm-v4-upstream-mbox-v4-1-02f8de92cfaf@linaro.org>
+ <173402453635.2828943.15564980222849076434.robh@kernel.org>
+ <90720b8f-340f-4f27-ae51-df98b2e5e820@linaro.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <7289a50a-e139-453f-a512-3dd68a0839a2@kernel.org>
+In-Reply-To: <90720b8f-340f-4f27-ae51-df98b2e5e820@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_000356_993174_D4A7E2DB 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20241213_081314_874812_FDBD9EB9 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,45 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/12/2024 08:59, Krzysztof Kozlowski wrote:
-> On 12/12/2024 16:52, Kevin Chen wrote:
->> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
->> ---
->>  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
->>  1 file changed, 6 insertions(+)
+
+
+On 12/12/24 5:53 PM, Tudor Ambarus wrote:
+> 
+> 
+> On 12/12/24 5:28 PM, Rob Herring (Arm) wrote:
+>> My bot found errors running 'make dt_binding_check' on your patch:
 >>
->> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->> index 2f92b8ab08fa..20191fee1f5b 100644
->> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->> @@ -101,4 +101,10 @@ properties:
->>                - ufispace,ncplite-bmc
->>            - const: aspeed,ast2600
->>  
->> +      - description: AST2700 based boards
->> +        items:
->> +          - enum:
->> +              - aspeed,ast2700-evb
->> +          - const: aspeed,ast2700
->> +
->>  additionalProperties: true
+>> yamllint warnings/errors:
+>>
+>> dtschema/dtc warnings/errors:
+>> Documentation/devicetree/bindings/mailbox/google,gs101-mbox.example.dtb:
+>>  /example-0/soc/mailbox@17610000: failed to match any schema with 
+>> compatible: ['google,gs101-acpm-mbox']
 > 
-> 
-> 
-> This patchset is just corrupted. You already sent it as patch #1.
-> 
-> Please run scripts/checkpatch.pl and fix reported warnings. Then please
-> run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-> Some warnings can be ignored, especially from --strict run, but the code
-> here looks like it needs a fix. Feel free to get in touch if the warning
-> is not clear.
-BTW, you already got here same comments before and this is third time
-you send exactly the same without implementing what we asked you.
 
-Three times same issue.
+It seems I had an outdated dtschema (2023.11) and couldn't see the
+error. Updated to dtschema-2024.11 and now I see it.
 
-NAK
+The takeover is that I shall periodically check for updates, or maybe to
+try to upgrade dtschema and dependencies before each test.
 
-Best regards,
-Krzysztof
+> ugh, I remember I fixed this, compatible in the example needs to be
+> updated to 'google,gs101-mbox'. I'll send a new version tomorrow.
+> 
+> Thanks,
+> ta
 
