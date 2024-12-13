@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59386E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 07:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF76FE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 07:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVpVUoH/ta+NwZEFaU7pKdWDVImT4tYOWHORaLu0rR8=; b=e41mf6pf5nUDijknu45PzVT+yb
-	s5EeqBtQyLxa1smzccvV8N3ETagaRNpTo7uCSqzMqoFhtE274zfscQHSdaSekqhX0C4j5WTQkY0xx
-	jGfL5Bx6ApWF13WLYYQZn0m1CCLduJPUpseSrpxSCsKq3hut8MUNfK6Tb2rUVmmT49htd7vNH3Twx
-	8NCv2GZJrCvKEbS5MnLPi6DoLFi3ygskS4RbqzYwXxJRYrMmt29YLkTF1pzU+wpJamEbbQeEE/jEo
-	x/sDUiuOWuu2S980cUzGYYXZZURLu2bCUrFj2L/g56G3JlViFq+ousX8uzi5wk46ZhnUtScSKr1l6
-	3uMz9YUQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hOvik/xLMeZGVKLpPOX0ZfkoCRuOe0+n3RqrbLlA+sM=; b=Gtv3F56YY2V9u+JTP04POaRPmv
+	MptVLkkQ5fwKbKQ4FkWCi7qtcxciD4UPJ4rXx4OwsIWpQtTEhGK+h5eGqJOpqRVIwnihduHLE28Yb
+	dcbCY6SplhvCP3eaJ08Wni52PBqn7FZCPgCNemV8I+pcVP4DqBoOiWxKzIVag5E+uLHSMhzO5EpZC
+	tMmGKXKPDPPZG3dA+3Sy5t2bYisrjqHROcVcn0KSlF9g7+onBGgZCuqXs0oeWkqo2whiTvqi8ntfh
+	xiqSIZxlfh6sj9HRyD2GAqnjtFjInGSRwWt2p9kviLQ543xvBwPNeeudOOV6QM8i7DyBuN7RQqZcC
+	nG2ecuvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0Ut-000000030cs-3QTi;
-	Fri, 13 Dec 2024 07:54:03 +0000
+	id 1tM0Y6-000000030x9-2SOy;
+	Fri, 13 Dec 2024 07:57:22 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0To-000000030XL-341u
+	id 1tM0X0-000000030oE-3vL4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 07:52:57 +0000
+	Fri, 13 Dec 2024 07:56:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CB140A427A7;
-	Fri, 13 Dec 2024 07:51:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B54CC4CED0;
-	Fri, 13 Dec 2024 07:52:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A082FA427A7;
+	Fri, 13 Dec 2024 07:54:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CFADC4CED0;
+	Fri, 13 Dec 2024 07:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734076375;
-	bh=sIKJxOhq8Y8pGK7ztAR92w2utGmqaU9elHq5cSzGwyM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r0qLUAbvkDAtaeOmGqQbBwtCYKK1D3dyVCBwPNgs/SXizwv5OFE2btO2vV41652kS
-	 8kNwFxeaVNb36ZDl3nUmYVUv/FbhETIjFvtVwoRpUpwj1eX73Dd9I8/LZvo0vQw/GF
-	 DKqCWgMRziyDje5KAskHJ9AKxs0GpBNunj+MPMv9G6RRfpY9LKFrtpeR7/xbBsT5vU
-	 mvapj7Xud7sXbPZLaT96qVZa1NNZ97JkRiBr7tVe/LBZtZNhESabBjFpX4w06lP54k
-	 s5dUXwgKkX5/W1HpPyTuuj9hRa06QXofJLlg6P0bIzhV3CdSszdVuGEU1JKB+kJrlF
-	 YkDKRVFg5X8iw==
-Message-ID: <cf153dd6-f82c-47d9-9ab4-f247437d607e@kernel.org>
-Date: Fri, 13 Dec 2024 08:52:49 +0100
+	s=k20201202; t=1734076573;
+	bh=hOvik/xLMeZGVKLpPOX0ZfkoCRuOe0+n3RqrbLlA+sM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=BwBYMH9n8F+NgtQxz92WnA4jRMRy6UvJdJCb2pxuk9jzGczJ3gBvPWlCtcRyNRzOm
+	 kuHNCDNyfTd+b0dPlkge+opZNo3Z0pczZiDL6SzIetkWEJ3fdnse5j5HQsJvUPHLvS
+	 Pk6atADnpjJdZKVc8kUS+SDbPIiGiSmlLxr4mzyHL0reIr0dLIuP20W7tny+LgvWEN
+	 9u0OGwEXPUG696eLeHUDyTI1e7wg5M6osqvv1xK5LO6Msta4YNkJKnxwTz7N/8qFua
+	 InYsnetroicK78/C86PsEMr8kFGP1BY986ueYikbaMVBZYQGXX3oleV1o8XQIXW699
+	 Wzq24lDa9KRBQ==
+Message-ID: <7aaeacd1-ecff-49ad-828c-1dcb22d11f05@kernel.org>
+Date: Fri, 13 Dec 2024 08:56:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] nvmem: imx-ocotp-ele: Support accessing controller
- for i.MX9
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>
-References: <20241212-imx-ocotp-v1-0-198bb0af86a0@nxp.com>
- <20241212-imx-ocotp-v1-2-198bb0af86a0@nxp.com>
-Content-Language: en-US
+Subject: Re: [PATCH v3 1/6] dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
+To: Kevin Chen <kevin_chen@aspeedtech.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, tglx@linutronix.de, catalin.marinas@arm.com,
+ will@kernel.org, arnd@arndb.de, olof@lixom.net, quic_bjorande@quicinc.com,
+ geert+renesas@glider.be, dmitry.baryshkov@linaro.org,
+ konradybcio@kernel.org, neil.armstrong@linaro.org, johan+linaro@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ soc@lists.linux.dev
+References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
+ <20241212155237.848336-2-kevin_chen@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -105,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241212-imx-ocotp-v1-2-198bb0af86a0@nxp.com>
+In-Reply-To: <20241212155237.848336-2-kevin_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_235256_901969_4435BE49 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20241212_235615_122096_CE365EAF 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,30 +124,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/12/2024 09:24, Peng Fan (OSS) wrote:
-> +
-> +			if (imx_ele_ocotp_check_access(pdev, id)) {
-> +				of_detach_node(child);
-> +				dev_err(dev, "%s: Not granted, device driver will not be probed\n",
-> +					child->full_name);
-> +			}
-> +		}
-> +
-> +		imx_ele_ocotp_grant_access(pdev, child);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int imx_ele_ocotp_access_control(struct platform_device *pdev)
-> +{
-> +	struct imx_ocotp_priv *priv = platform_get_drvdata(pdev);
-> +	struct device_node *soc __free(device_node) = of_find_node_by_path("/soc");
-
-No, you just created undocumented ABI on the name.
-
-Drop/replace or express the ABI (which is impossible, so basically: drop).
-
+On 12/12/2024 16:52, Kevin Chen wrote:
+> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
+> ---
+Please run scripts/checkpatch.pl and fix reported warnings. Then please
+run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
+Some warnings can be ignored, especially from --strict run, but the code
+here looks like it needs a fix. Feel free to get in touch if the warning
+is not clear.
 
 Best regards,
 Krzysztof
