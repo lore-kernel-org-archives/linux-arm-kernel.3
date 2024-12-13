@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F89E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 15:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EB7E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 15:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fOK+EabcLART//wNWq/2bx90ZPHXhDUCyx5nSPtp/mo=; b=ff8Gdr1Qzaq9KI+BTKDzq8oCo1
-	y276o3gRTy1ImGjpGKnIsadLqsGWoLDXqc2KowaeDSENSkC9Sqj9zPzK4fm/gMB+Wv6ckCQVHNrfV
-	foxfi32lw/UjGL13+bpEO4LCmETQjIlbpT13mm4qfdnTGtMG8VktL80eXLULTJX6ImCZDAVSqCJre
-	L7m/XyvYy9CWce47Ww55pOxmbOf/nz/Sy+uXZ0cUNu4JRKDU2XPkFA4qt1EeL18r3zKLIuwV3cTLA
-	UgDk8sWYphoxefzFu2XY4gL1T+pK2G9Bl4xocq4XJevKqfskM/YteZ6CyjDCz+/7XlqzD9Z8CSInB
-	e3RokQLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=43Ur9i+9lJzhFNNc9nCq7jYHKY+JdnEg7pprLiaBgA4=; b=XShpUyu9CWOmbP
+	9ToUqi7rd5/yyus6yENUbj7R1oqoT61QoEpgUrngDj8AaxjIBjCsCOXxCQQ0akq1glXrmYA8O3pHa
+	ORBo2j04WaIInk9PgUI7iU6mEvDrDiP1Nu/zAUjHHeChnZ5v1AZ/AsV4UXRfW++cLAA61RskT/hZW
+	aLxv/3UcnWMSxeTdw2Ap3M0JH8E3SzYvhKqmoKHrrhE/HTqfgDS893cbLWUnm1NuEYuQPxo7Bo1Uw
+	otU9eWfuDBt9k9ACeo3yL7AfEeVVL88x5cb3s0LMRXHxuECEY0xuxB2iDY0sjGq3wEGJERMwMAICJ
+	UeSe6EtpQOaaZCgTL5Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM7Iv-00000004E6L-3Vux;
-	Fri, 13 Dec 2024 15:10:09 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tM7Kg-00000004EY2-1ByF;
+	Fri, 13 Dec 2024 15:11:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM7G2-00000004DJo-049P
+	id 1tM7JC-00000004EFm-3Zej
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 15:07:11 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2163affd184so114785ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 07:07:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734102428; x=1734707228; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fOK+EabcLART//wNWq/2bx90ZPHXhDUCyx5nSPtp/mo=;
-        b=OYRpgGcb9H/1GDW0CJ2wqEe9GKTqdQz8Ku5Ib1b4mVlVKnVHvR8bay11Ka3jCk4ATt
-         rZ2bwxZQ2uLPb18D5SpAJJGBq73caivxANeil3oT4rxvZI6laWH8VqxoOQmQ5Dz22rp+
-         f02tghCNqnQHU0j+zfzsS73B/ZAT5zXNVMXAR4y6cgQInLBh5oxgL4scxgvBk92fBf4C
-         P/Qb/DOxPsuQkrzKX8rJhhgQY6gbg7naqmj6OMftw6TSZ79gWPGRzv8XCIFhturbdEAv
-         cF3JEGvz+6MwgdMOLG91X41Ltm0F5FJTVEpQ7seSDEkSfmoyPEDwNSOTaVKF1y+l9lNw
-         maSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734102428; x=1734707228;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fOK+EabcLART//wNWq/2bx90ZPHXhDUCyx5nSPtp/mo=;
-        b=F2+ANkl/AxquD7L0+K67eTx/Qaf8+rInH5XaZcTkY58ZILqfb+I9Et3SIBiza1LUlV
-         Qy4XUfOTQ17TIExhAwrvX9bL6a6lUYsrYRK5a0Y48eqqBpWOynP8fRxUr0v+Kf69zNE4
-         ZC1sGt77BBv1rpdzYdfJ2MIVCLcmsgr6pjhN4QEMG3En+fxsXy0YrBJh/6Txp9DlQVxI
-         6Yjz2UnZMP1SpP6o9Hy1gp8IySxM1KqN5ZXFEAwzQuI0NYv34ZikdvwIUJmfmFPJ7DE7
-         8Af4ldLg8WkQng4xBWAtanvTJheXXKlw5hgGDMtczJ2M0+W6y7pw1CC/+hFaSdRz/JHV
-         znTw==
-X-Forwarded-Encrypted: i=1; AJvYcCVvw+Mpo68Rvw49qgkKE7t8tL+5OSRtZ+Ew1flOyhZ/vtfTTilrunWT2tT0SmF8BEZhdZqj8Cw6dgrlqMyHjhia@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/yhdmaABK0fIRS0lAuFdsOcaOsOZcMIaXsYTB2jyDhcc0u35X
-	/hghkTnmhhfudgsSA0pAV2cqbSGC1zDMtR0EsEKAqbTdLh/e2pqfYOMzycAREcfq0lHmcVwPAtz
-	Ug9/iS3Sq3wUAEELWTvV/lv/otiCUWJr8//Mt
-X-Gm-Gg: ASbGnctVtvnNsqtPKm/D/mzeUH7uVStyMQfVc0u0oZ++kw29+TviK6suFEDSpmmEweb
-	ga+DODQKQF3XWK+ktZ0t0L0ryY4i6jnZjSa7sfg==
-X-Google-Smtp-Source: AGHT+IEFkkLrbUVuE/cQvOQQfUpzDKI51xwKn+aUa2wuLKN/e2/s4qkcLn7DHuV9QVymd56Ir4cx8C6BN8kJhz8qssU=
-X-Received: by 2002:a17:902:da82:b0:215:44af:313b with SMTP id
- d9443c01a7336-21891d3ead6mr2786695ad.0.1734102427757; Fri, 13 Dec 2024
- 07:07:07 -0800 (PST)
+	Fri, 13 Dec 2024 15:10:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B97405C6B67
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 15:09:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6D07C4CED0
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 15:10:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734102625;
+	bh=7rGYYKks2MEAi+q8RZqhrYRZGipLH9Pjib1jzgb/fXk=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=mgg8RGr8gIjtj61OhTetZkA1d0aGvS4JT7KCZpCYNQDG2jzCy+Ml1Clx3hHlA9Y4G
+	 QCJloxPBQB4s7QSs3XFhkziBrVo5Ffrdgd6pFJ+yJ2zNSgfLXufwVxtcUwL77xoJCj
+	 deverJ7wwOzwL2dHfFG5PVjhNVFLRfCJwH8Edt5TUeJale+JlHUMxgBKvHaflnwH6k
+	 udpURyFhiZyNwh7lWWc9KXK6nTGPVX+q57g72weRLCs/k10h61sdyiKASYwmlv4Y9h
+	 bcNjNa9fZwDzjCZ+oFPobiKbhbplIHAhxhmoaGlNJ1ooQ+NqPjjYZZWazuubNdohWi
+	 wkp3WKBCh+bGQ==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-30037784fceso17059661fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 07:10:25 -0800 (PST)
+X-Gm-Message-State: AOJu0YwB6AKRnN/JJqfnOVX23WgSDEayVBF+Y3xBJj8FrloxayZ8jMz3
+	KmZg5Bu6MDJV3B8ydeDaSpi/qsz/BsAOKum2kKL967qO6vjCiLGTb35ZIslQr0rnbCufkVSTj4u
+	Jib/scM7dlIn8U51z0eH/zLO0IZQ=
+X-Google-Smtp-Source: AGHT+IGDFvr2zsjfqD8NaCsTVvFuyZlBxurx6y5trjl6JqR98HwSzgFaX+Zrs452OMiQuLpq6Zp9nyogMDd0TgQVXRI=
+X-Received: by 2002:a05:651c:1994:b0:300:3a15:8f19 with SMTP id
+ 38308e7fff4ca-30254611fafmr13669331fa.32.1734102623974; Fri, 13 Dec 2024
+ 07:10:23 -0800 (PST)
 MIME-Version: 1.0
-References: <20241211232754.1583023-1-kaleshsingh@google.com>
- <hmuzfspqjzb36xlj2x44keihacrrhzj5madqrfbcnhqouzredv@wo75achgkuh5>
- <1818e2ea-f170-4a9c-8d93-2a24f2755a41@lucifer.local> <20241212173609.afd41d1dffbefe0d731ed4ed@linux-foundation.org>
- <695eabb8-ba28-4031-bc4d-66dc4f1d096f@lucifer.local>
-In-Reply-To: <695eabb8-ba28-4031-bc4d-66dc4f1d096f@lucifer.local>
-From: Kalesh Singh <kaleshsingh@google.com>
-Date: Fri, 13 Dec 2024 10:06:55 -0500
-Message-ID: <CAC_TJvcdz854DmBoVRkb_B5j+u-t=4zHkLtHVeB5RJ=bXcBJag@mail.gmail.com>
-Subject: Re: [PATCH mm-unstable v2 00/16] mm: Introduce arch_mmap_hint()
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, vbabka@suse.cz, 
-	yang@os.amperecomputing.com, riel@surriel.com, david@redhat.com, 
-	minchan@kernel.org, jyescas@google.com, linux@armlinux.org.uk, 
-	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com, 
-	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
-	davem@davemloft.net, andreas@gaisler.com, tglx@linutronix.de, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net, 
-	jcmvbkbc@gmail.com, bhelgaas@google.com, jason.andryuk@amd.com, 
-	leitao@debian.org, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org, 
-	kernel-team@android.com, android-mm@google.com, Jann Horn <jannh@google.com>
+References: <20241213141037.3995049-1-maz@kernel.org>
+In-Reply-To: <20241213141037.3995049-1-maz@kernel.org>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 13 Dec 2024 23:10:11 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67vgoZr_1T579SrwG9UvNs0eRfT37Qk_g2k7Z-mRfEXNg@mail.gmail.com>
+Message-ID: <CAGb2v67vgoZr_1T579SrwG9UvNs0eRfT37Qk_g2k7Z-mRfEXNg@mail.gmail.com>
+Subject: Re: [PATCH] irqchip/gic-v3: Work around insecure GIC integrations
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Mark Kettenis <mark.kettenis@xs4all.nl>, Chen-Yu Tsai <wenst@chromium.org>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_070710_050754_6C4791BC 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20241213_071026_986472_92010A94 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +79,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 4:00=E2=80=AFAM Lorenzo Stoakes
-<lorenzo.stoakes@oracle.com> wrote:
+On Fri, Dec 13, 2024 at 10:34=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrot=
+e:
 >
-> On Thu, Dec 12, 2024 at 05:36:09PM -0800, Andrew Morton wrote:
-> > On Thu, 12 Dec 2024 22:51:34 +0000 Lorenzo Stoakes <lorenzo.stoakes@ora=
-cle.com> wrote:
-> >
-> > > You've fundamentally violated kernel process and etiquette. I'd be mo=
-re
-> > > forgiving, but this is at v2 and you've not cc'd KEY people. Twice. T=
-his is
-> > > totally unacceptable. See [0] if you are unsure of how to do so.
-> >
-> > This feels excessive to me.  linux-mm averages a mere 140 mesages/day
-> > and it seems reasonable to assume that key people are spending their 5
-> > minutes to scroll through the email subjects.
+> It appears that the relatively popular RK3399 SoC has been put together
+> using a large amount of illicit substances, as experiments reveal
+> that its integration of GIC500 exposes the *secure* programming
+> interface to non-secure.
 >
-> In practice we did all miss it, and I don't think it's unreasonable to as=
-k
-> people to run get_maintainers.pl to avoid this.
+> This has some pretty bad effects on the way priorities are handled,
+> and results in a dead machine if booting with pseudo-NMI enabled
+> (irqchip.gicv3_pseudo_nmi=3D1) if the kernel contains 18fdb6348c480
+> ("arm64: irqchip/gic-v3: Select priorities at boot time"), which
+> relies on the priorities being programmed using the NS view.
 >
-> In any case, I truly do think this series works better as RFC, I mean Lia=
-m
-> has already voiced the kind of disagreements I share with it, and we need
-> to rethink how to approach it in general.
+> Let's restore some sanity by going one step further and disable
+> security altogether in this case. This is not any worse, and
+> puts us in a mode where priorities actually make some sense.
 >
-> So if this is simply sent as RFC with the correct cc's (and ideally with
-> some review feedback applied - a better cover letter, etc.) then it makes
-> everything easier.
+> Huge thanks to Mark Kettenis who initially identified this issue
+> on OpenBSD, and to Chen-Yu Tsai who reported the problem in
+> Linux.
 >
-> As mentioned the timing is unfortunate here, this is a series we really
-> want to make sure is properly reviewed before any chance of merge so agai=
-n
-> this points to RFC being the way forward.
+> Fixes: 18fdb6348c480 ("arm64: irqchip/gic-v3: Select priorities at boot t=
+ime")
+> Reported-by: Mark Kettenis <mark.kettenis@xs4all.nl>
+> Reported-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Hi everyone,
+Should be
 
-Sorry for the delayed response -- I was traveling and didn=E2=80=99t have
-access to email.
+Reported-by: Chen-Yu Tsai <wens@csie.org>
 
-Thank you for the feedback. I realize I missed some key reviewers in
-the CC list for this patch.
-When I ran get_maintainer.pl, it returned a large list of recipients.
-To avoid over-CC=E2=80=99ing people (which has been an issue for me in the
-past), I tried to trim it down to maintainers and a few others I
-thought would be interested. Clearly, I got it wrong and missed some
-key folks. That was not my intention, and I=E2=80=99ll make sure to fix it
-when I resend the patch as an RFC.
+(I know it's confusing, I even mix up inboxes at work.)
 
-On the technical side, Liam is right that the copy-pasted arch code
-has inconsistencies (missing checks, order of checks, ...). I agree
-there=E2=80=99s room for further consolidation. I=E2=80=99ll take another s=
-tab at it
-and resend it as an RFC with an updated cover letter, as Lorenzo and
-others suggested.
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
 
-Thanks,
-Kalesh
+Tested-by: Chen-Yu Tsai <wens@csie.org>
+
+My RK3399 boots normally with pseudo NMI enabled with this patch now.
+Also tried NMI backtraces through sysrq, though I'm not sure that
+always goes through the pseudo NMI path?
+
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 34db379d066a5..79d8cc80693c3 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -161,7 +161,22 @@ static bool cpus_have_group0 __ro_after_init;
+>
+>  static void __init gic_prio_init(void)
+>  {
+> -       cpus_have_security_disabled =3D gic_dist_security_disabled();
+> +       bool ds;
+> +
+> +       ds =3D gic_dist_security_disabled();
+> +       if (!ds) {
+> +               u32 val;
+> +
+> +               val =3D readl_relaxed(gic_data.dist_base + GICD_CTLR);
+> +               val |=3D GICD_CTLR_DS;
+> +               writel_relaxed(val, gic_data.dist_base + GICD_CTLR);
+> +
+> +               ds =3D gic_dist_security_disabled();
+> +               if (ds)
+> +                       pr_warn("Broken GIC integration, security disable=
+d");
+> +       }
+> +
+> +       cpus_have_security_disabled =3D ds;
+>         cpus_have_group0 =3D gic_has_group0();
+>
+>         /*
+> --
+> 2.39.2
+>
+>
 
