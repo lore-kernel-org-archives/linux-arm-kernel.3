@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5946E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:03:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E2AE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 08:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+OIcgo3tA5osCXlqLZ4sQaufk6SmQZDh+GnoFoiCrBQ=; b=21lWWf3MmvTKY1XB0/kvJtXe26
-	Ai3091PK5TROFsagE2gTNnXdUXS7x4eeHK55ZUN97vDzmiC2snhV8pFXBIrdZ4itIV3MlzjDF2SJb
-	1SCvJcLfXLwevqDM+599KKPwNwgxLF4QfyYNzASx/wRc2hLrPaE9qnj90ZZyGjlBJ3Ty5q5jA4YZy
-	ZIv27yiHhe0nWrSHvvJ0V/iXFx7/UNDfgC5K/CIu7CyylICJ+hBqzi/ZhCygHViS44FQ84oEBuneG
-	NrrX31dcQmq+R8R3Fwf/Z2qpBc+athfSG7iC4VCtQtRf34TZyBFMQAwa1a0KInEAEjNKvs7wpSGYh
-	MOeXorEw==;
+	bh=+MASkLN1FgxszsWI5Y09zAOGB93egTLjzXn5Q0L8I8w=; b=A9zUbsFDyL3oaNW0Ny473KPeP+
+	QUfnDL5Mw6ac+igTdEj1yz6pCWvVeEhWWfRFrnfTpy0gSnW52SfPg5xV8O9sDmtmdlEW1bD4+QZpY
+	B9ectSKI4zr4/mn1nZ1osr7+JRD5+OxgyivYGIxUgK3gX1tRXKdAJFMt2fDmzQIm02O6UayzmWGJq
+	I36RSilVgz21RjD4qmCnkcBqQ7wd9ltTiRkN2zNvvR/21dIICcVmUpgDzz7+xXxh+4Gbs+SZKD81P
+	FGKgicss245ZCzZSb3yCcQP0qeyXgtkeeBjafLw28ddFy7cAvdNcvJraOjAKhKCWjXs2YmfI434Vm
+	trd70fNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0du-000000031md-15JS;
-	Fri, 13 Dec 2024 08:03:22 +0000
+	id 1tM0f6-0000000327U-4BJ3;
+	Fri, 13 Dec 2024 08:04:37 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM0cW-000000031W9-1YlG
+	id 1tM0dn-000000031lr-1Grd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 08:01:57 +0000
+	Fri, 13 Dec 2024 08:03:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5B389A427CB;
-	Fri, 13 Dec 2024 08:00:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F060C4CED1;
-	Fri, 13 Dec 2024 08:01:48 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67F31A4279C;
+	Fri, 13 Dec 2024 08:01:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68A56C4CED0;
+	Fri, 13 Dec 2024 08:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734076915;
-	bh=7LD54dmJDjftl31NJJcExHt1aZa+FMSTWfGvjuK1GAA=;
+	s=k20201202; t=1734076994;
+	bh=cCfaLbDj76ucD+vK9e+MtqWGYwvp8M9DqjAGvbzG//o=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=M5PdWI9Ap51gOdghnXpW7Yj0LlUwGokHmPMqLNKuUoItSerMXxIGBc0H1YbuWOCVz
-	 sE45bhf0/u5jw4eOyNxzv9GhfTIGNmDOkR1Sv4fHrGbXyB2Bi1qeSBbldwiB4vfHhN
-	 IUf2qVnycb7ESTFjYv5hoO4xfkjszM2wpnecBLsaCJPYu1YLl4rhPaU3LdqNxoaoHD
-	 VYih3RLAfp6VhPjoTewg7U8/YyM5C01zrcNrIr/LwX8+sbUtUpgKB0WyHfHWe0fKjw
-	 zEwcTsEv4p5xbhvK6SCt/hPm+E0LuwJzHB/VfAXVQDVP8+swEadlHzFTncv2KqIIS5
-	 FWZrIi7lIRxmQ==
-Message-ID: <dbfe7c42-cc9b-4471-93ed-846260db42e6@kernel.org>
-Date: Fri, 13 Dec 2024 09:01:46 +0100
+	b=EwV67xqqK8+3K9vXVLo5cX7V4TaPvlNYwRndJpGG7E5X6pVvVaD20DDpngbCo1D4u
+	 UKtct4n546cJX9QbQi0s7oS6iqfi19ZfRWpuCRsWtIuJ7/X8OsAAVqr95TVvq8Lydx
+	 B9A8f/oHHYp90MavTu79v1JvSHijg8eyh97e8QxvSagkFJuCo2kovh1IikG34m1KrE
+	 y+q4SxnOh5VW4P7yltNH6tm4DnWFwO2Lukvie0TPpCHoAoIiOD2sTx4cVYJoTuqGqp
+	 8uNquwYdxa+TKkq14VjsyusAN4UCPnMSe3xHYaDxwcUpyPVBYh49p0x/f9wBCjzKjm
+	 TKOQYn45goflg==
+Message-ID: <3e5346a3-ad00-46e2-8af5-1ac5d60c27c8@kernel.org>
+Date: Fri, 13 Dec 2024 09:03:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] arm64: dts: aspeed: Add initial AST27XX device
+Subject: Re: [PATCH v3 5/6] arm64: dts: aspeed: Add initial AST2700 EVB device
  tree
 To: Kevin Chen <kevin_chen@aspeedtech.com>, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
@@ -58,7 +58,7 @@ To: Kevin Chen <kevin_chen@aspeedtech.com>, robh@kernel.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  soc@lists.linux.dev
 References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
- <20241212155237.848336-7-kevin_chen@aspeedtech.com>
+ <20241212155237.848336-8-kevin_chen@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241212155237.848336-7-kevin_chen@aspeedtech.com>
+In-Reply-To: <20241212155237.848336-8-kevin_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_000156_541188_7A80FCD5 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241213_000315_473524_E67F21D0 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,19 +125,86 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/12/2024 16:52, Kevin Chen wrote:
-> Add aspeed-g7.dtsi to be AST27XX device tree.
+> Add EVB board of AST2700 in ASPEED Architecture.
 > 
 > Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
-
-Where are all the bindings? Why are you silent about this? The patchset
-adding new SoC DTS, when separate, is supposed to explain where we can
-find the bindings.
-
 > ---
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi | 236 ++++++++++++++++++++++
->  2 files changed, 237 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.
+>  arch/arm64/boot/dts/aspeed/Makefile        |  4 ++
+>  arch/arm64/boot/dts/aspeed/ast2700-evb.dts | 57 ++++++++++++++++++++++
+>  2 files changed, 61 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
+>  create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+> 
+> diff --git a/arch/arm64/boot/dts/aspeed/Makefile b/arch/arm64/boot/dts/aspeed/Makefile
+> new file mode 100644
+> index 000000000000..ffe7e15017cc
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/aspeed/Makefile
+> @@ -0,0 +1,4 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +dtb-$(CONFIG_ARCH_ASPEED) += \
+> +	ast2700-evb.dtb
+> diff --git a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+> new file mode 100644
+> index 000000000000..6dad88c98ce0
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+> @@ -0,0 +1,57 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +
+> +/dts-v1/;
+> +
+> +#include "aspeed-g7.dtsi"
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +
+> +/ {
+> +	model = "AST2700A1-EVB";
+> +	compatible = "aspeed,ast2700-evb", "aspeed,ast2700";
+> +
+> +	aliases {
+> +		serial12 = &uart12;
+> +	};
+> +
+> +	chosen {
+> +		bootargs = "console=ttyS12,115200n8";
+> +		stdout-path = &uart12;
+
+Nothing improved. You keep ignoring my comments: not responding, not
+addressing, not fixing the code.
+
+> +	};
+> +
+> +	firmware {
+> +		optee: optee {
+> +			compatible = "linaro,optee-tz";
+> +			method = "smc";
+> +		};
+> +	};
+> +
+> +	memory@400000000 {
+> +		device_type = "memory";
+> +		reg = <0x4 0x00000000 0x40000000>;
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		mcu_fw: mcu-firmware@42fe00000 {
+> +			reg = <0x4 0x2fe00000 0x200000>;
+> +			no-map;
+> +		};
+> +
+> +		atf: trusted-firmware-a@430000000 {
+> +			reg = <0x4 0x30000000 0x80000>;
+> +			no-map;
+> +		};
+> +
+> +		optee_core: optee_core@430080000 {
+
+Follow DTS Coding style document. That's the same comment as before.
 
 
 Best regards,
