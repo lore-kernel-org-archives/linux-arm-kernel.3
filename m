@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28C5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 15:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21666E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 15:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WIAyRklPQmqf9KZJxMUGFpriShtgf5N1bsq1t9wgGwE=; b=yn8ekDQtU1t6pZGUmlKJnameCa
-	+sclLDtmAUeofS+WgopFpiWvAKPwgCoI6XydUpmttL4h+gxCzIZEbZEb0+QBF3ENga7fAJPJCugUx
-	/GtBW8snt8ImZ7L9f5YDklC8guGkwnvsVl+DHsQuq0OVEdQ+UKlBJfHG7gMzBnSolNp3T/djPetuA
-	SG57k8WFPiPNTmgX96GttRdzgc0cSRQl61XyAJZ0mVhFdlrx3YUyey+TxRqf5OLeeciC0h2pFWpv6
-	S/mefifYtatfIBt/HVKXhfS3HRRjRDr74wQ+GUBCivL7h2kRdvlIMOw1Rh2jdTatxuwHC1P2UO04K
-	2ye+Q1+g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e4qEMLxfX1BseC/FdkMrRBTdE/BHic3wsmzo5oEqfeQ=; b=hHRElwSH/cnGmDKmJQ7C9yDWmy
+	Iikv4aOyTo77XRFw/IsvbHXVlP+LqtU6M1OfRwVsWVhNIHEJXHmhO32vAOXav3eZDqDsIdlphVzIB
+	ZRI4hDcCwifl4ngzbAOVe/IiTC3rNcNQ8p7GxE9YCvnkKZ8Kjz559bcS4jOyxa3ZmRqy/AtoNk/t2
+	r1uaeMz5oAP6uwZzkXVfxUo5ZM1FfzL9Utt+ueYofzcxD+NwQs0IDT3GdQrnDfQPIRT1NXh76cnz7
+	XReLSedejJIoLABf5yTapOufNztZjXTmFaRSOnR1UDVbrCJ+qETjTcMXjGpo0YcSnJPTttYurdNvN
+	jjBEX3DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM7Ei-00000004D53-2tGO;
-	Fri, 13 Dec 2024 15:05:48 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tM7Fm-00000004DFr-1W9s;
+	Fri, 13 Dec 2024 15:06:54 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM77X-00000004BPg-1SQA
+	id 1tM77Y-00000004BPy-2KlD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 14:58:24 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5d3d2a30afcso3134609a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 06:58:22 -0800 (PST)
+	Fri, 13 Dec 2024 14:58:25 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5cedf5fe237so3062455a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 06:58:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734101901; x=1734706701; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WIAyRklPQmqf9KZJxMUGFpriShtgf5N1bsq1t9wgGwE=;
-        b=Tqgi5AdZOZCeI23baBo9BSwRljODzIjq32TeXpPbw4h2dyLUNbUYPM+oh35uw+gJEQ
-         F92ZfvAowVW+5rjrSXrvYuUuMJiUYP3fF31ljhn0uE+ffkVJDs0/RMWxwGV4swFW28Gp
-         yW87TnZXKESc3PO0SBuoY2B+Czn6B/w9G5jAVzzjXzxj/PYJnM+h9BH6L1fCnmrxAilN
-         aTuyXbguHL4d6wQG3T8b9XDsAI0Xlqx3X1o5FY9MqbTFfD1ODEJXludN7ym3gD045Z01
-         Z1EcwHump6oc3Pf76JWUnQr/T8UlVECUjPC+O8yw6KkzDRCXgBWDktvUbZi5PocGY+sw
-         +2NA==
+        d=gmail.com; s=20230601; t=1734101902; x=1734706702; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=e4qEMLxfX1BseC/FdkMrRBTdE/BHic3wsmzo5oEqfeQ=;
+        b=PqIx+dOH2Dx6VKyF5fpne3VI/4dFngIWelRZ//6uSypsW24KfTgWVGSV80giC+48dd
+         NwyEOzqQnElM+6bixm50NC3ff+XNgrvRD4Zp0wRYB/EgRJ2WJiK9CZMPQbJxsCtoNqjW
+         dEsG8za6m0oWShfKlXPx5i0TDJjO2pWXE7ImSRPkmpynWDoYml3M0SKFGK73TalNDhyN
+         t8EAJ+eptJcB07MHk/xJhXAhNNRwoyZt2Y3EGHJ9CnmcUR/39pcpNtc90zV2HFsNkKwK
+         DNyZVr0GYa6zFGZX26Q2YH4zZfa0KDDWyGsDTLH+7CCLjB1KsqlOV5OnH1y8VQZSL0QP
+         R8hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734101901; x=1734706701;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WIAyRklPQmqf9KZJxMUGFpriShtgf5N1bsq1t9wgGwE=;
-        b=LgPN5+YpobOHesDsC2AOxBj7PW49++2vIh3FUWPgqSFrF1lHN2QBfFuD16oPdRZjUM
-         b+MPcEnvlWYG6au8H78QL44y68IpZ/gIaDDU8IJ7C42h79O6sqzcEOMJ3EopY8yjQ1OF
-         IYj5G4u7Q2JOjyQUhF2SsiHhHGzoPXio6gOWWb3s8rkseGOuFaEW4g08nDdTC6lNkaUC
-         E7blMm3mOj63yH3z8nJiUaTYEdt/vZhgNYM6nMhcOloAk4GlCFRJKc2/ZcTh4SnW8Lfc
-         66DhbmF/SZmMJqxrHWvWWiiNEq60Rl7e9FNYhBeaYRFJvjY2XOk7jtmIz9vjDWDShFTv
-         sC4Q==
-X-Gm-Message-State: AOJu0YzptjyZnetTJS6z9xbn+7NyW2tFK9wzoI0nDO4vRpIiR+wg7cDK
-	NKoujLVJcV9tknYDz6msH7cnI+uhJdVpVAIgksZcAZ3jnadhfRpSfOqdldkT
-X-Gm-Gg: ASbGnctcYxyT00hqSKumro4J7TSKTkAswgkpKR6AmW687ABnUJhWsN+2Og+N0E51o3W
-	7YW4Sivh61F/tUO6yvWpXQoXg6n4MswmN1GB0rorY3UtQ2C7CrWnRQPLkzW+dVZ11VADFdzDDcK
-	rZbwSBmpm2uY+4fqPfY5RzFb6JITS9n8c8miL4foQo50mgXZBPdFKlXIrx6gYI8dmACl7X4gpKl
-	Pb35Cw6fps9ceCXA6PtCPepWI2MopcJUslsc3P3w65GcDJb99T5jA7/xP6rcjTS1A==
-X-Google-Smtp-Source: AGHT+IH1tqiOuYhFc9ioeNHPkf8qQaZvXIjpk64aKZaDXNtayA3HfPmpe9Y22E4UKaBziVSZVldg9g==
-X-Received: by 2002:a05:6402:3890:b0:5d3:cd85:36c6 with SMTP id 4fb4d7f45d1cf-5d63c3ac2a0mr2656510a12.24.1734101900740;
-        Fri, 13 Dec 2024 06:58:20 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734101902; x=1734706702;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=e4qEMLxfX1BseC/FdkMrRBTdE/BHic3wsmzo5oEqfeQ=;
+        b=oGaGs3KWM4gShZDRKfSw64/qjmXLvXOQ4FwhtLAAIq8+aOqk4jq5QXbEBQYLL88unL
+         Y5D2pLXS4tbzdpw1gm6BvoPgWQZUOpghSL2W713ySALnhh8R7irqmhWn0fzOimc7pXet
+         J9mWMZFvJA8+2aX/KArB2yHyMG1T1jK5kZZker+kHz08gQywHvNdHoUvDQSVBGDUKTvP
+         0W9E1dYTVJlh6ue2P0W0p86c4Ra7MgV9A8eauMCEK8FHliJ4Vcr9y5kQ2SxJPFVwxsKg
+         t4T1FKGulnLbn/wPLNpl/n4SVfwIJ4xi+wjFLck6QYKhpj64lAXuDz9g4K7wHzvfTTc+
+         VU6Q==
+X-Gm-Message-State: AOJu0YzQU0Qi3x5NyoTD1AdCqpn4sE6eylzymgKj/nqfWzTu8nLUR73A
+	i8F4jWkpYmw/mrnpaM2yzGJmbk/bEhZMyYmdtJmf7vprBD1uYd3PM5Uxl/O3
+X-Gm-Gg: ASbGncvL6o5dHpebGb7u+VBlHgWS4U6eu6OOqZV1iGKqqt99le16njDdcOHYH/WvtNG
+	PqK967OMxyyyOXgAkKwe8M4MhZJ0SBQjlAG4w7DQ5awJaJA3ptQvuzx8yfqKw/dLLJYmpUZ2YSs
+	G4uw6DhBqv/SLtKIO3J16xLLf5UcE7vPB12cUx2spfPhTRP3WOV3YvC8VMu4CJ2xkwKBEdm6u92
+	kJhAF7zUVBcxcSDLMVQO4CaS3Y3HFLMzLPOFBCrLHD8BBZOhDnz+I0Pw4pLOXw9vg==
+X-Google-Smtp-Source: AGHT+IFFvoMSIBChWgea1OnryG31unMF7LtnV6rYFz6R55l7bdMGVY5c0jGGqI8Y+CKjTdPlJAQFJQ==
+X-Received: by 2002:a05:6402:50cb:b0:5d0:d5af:d417 with SMTP id 4fb4d7f45d1cf-5d63c2e9df2mr2151151a12.1.1734101901967;
+        Fri, 13 Dec 2024 06:58:21 -0800 (PST)
 Received: from localhost.localdomain ([46.248.82.114])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3cedbb8fesm10048424a12.22.2024.12.13.06.58.19
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d3cedbb8fesm10048424a12.22.2024.12.13.06.58.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Dec 2024 06:58:20 -0800 (PST)
+        Fri, 13 Dec 2024 06:58:21 -0800 (PST)
 From: Uros Bizjak <ubizjak@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
 Cc: Uros Bizjak <ubizjak@gmail.com>,
 	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH 1/3] KVM: arm64: timers: Fix percpu address space issues in kvm_timer_hyp_init()
-Date: Fri, 13 Dec 2024 15:57:52 +0100
-Message-ID: <20241213145809.2918-1-ubizjak@gmail.com>
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH 2/3] irqchip/gic: Correct declaration of *percpu_base pointer in union gic_base
+Date: Fri, 13 Dec 2024 15:57:53 +0100
+Message-ID: <20241213145809.2918-2-ubizjak@gmail.com>
 X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20241213145809.2918-1-ubizjak@gmail.com>
+References: <20241213145809.2918-1-ubizjak@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_065823_382578_D2A1894A 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20241213_065824_593523_3AC2625D 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,54 +98,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cast return value from kvm_get_running_vcpus() in the __percpu
-address space to the generic address space via uintptr_t [1]
-to fix a couple of:
+percpu_base is used in various percpu functions that expect variable in
+__percpu address space. Correct the declaration of percpu_base to
 
-arch_timer.c:1395:66: warning: incorrect type in argument 2 (different address spaces)
-arch_timer.c:1395:66:    expected void *vcpu_info
-arch_timer.c:1395:66:    got struct kvm_vcpu *[noderef] __percpu *
+void __iomem * __percpu *percpu_base;
 
-sparse warnings.
+to declare the variable as __percpu pointer.
+
+The patch fixes several sparse warnings:
+
+irq-gic.c:1172:44: warning: incorrect type in assignment (different address spaces)
+irq-gic.c:1172:44:    expected void [noderef] __percpu *[noderef] __iomem *percpu_base
+irq-gic.c:1172:44:    got void [noderef] __iomem *[noderef] __percpu *
+...
+irq-gic.c:1184:26: warning: incorrect type in initializer (different address spaces)
+irq-gic.c:1184:26:    expected void const [noderef] __percpu *__vpp_verify
+irq-gic.c:1184:26:    got void [noderef] __percpu *[noderef] __iomem *
+...
+irq-gic.c:1184:71: warning: incorrect type in assignment (different address spaces)
+irq-gic.c:1184:71:    expected void [noderef] __percpu *
+irq-gic.c:1184:71:    got void [noderef] __iomem *
+...
+irq-gic.c:1231:43: warning: incorrect type in argument 1 (different address spaces)
+irq-gic.c:1231:43:    expected void [noderef] __percpu *__pdata
+irq-gic.c:1231:43:    got void [noderef] __percpu *[noderef] __iomem *percpu_base
 
 There were no changes in the resulting object files.
 
-[1] https://sparse.docs.kernel.org/en/latest/annotations.html#address-space-name
-
 Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
 Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Zenghui Yu <yuzenghui@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
 ---
- arch/arm64/kvm/arch_timer.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-gic.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 1215df590418..a13bb9e8dc19 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1392,7 +1392,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+index 8fae6dc01024..6503573557fd 100644
+--- a/drivers/irqchip/irq-gic.c
++++ b/drivers/irqchip/irq-gic.c
+@@ -64,7 +64,7 @@ static void gic_check_cpu_features(void)
  
- 	if (has_gic) {
- 		err = irq_set_vcpu_affinity(host_vtimer_irq,
--					    kvm_get_running_vcpus());
-+					    (void *)(uintptr_t)kvm_get_running_vcpus());
- 		if (err) {
- 			kvm_err("kvm_arch_timer: error setting vcpu affinity\n");
- 			goto out_free_vtimer_irq;
-@@ -1416,7 +1416,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+ union gic_base {
+ 	void __iomem *common_base;
+-	void __percpu * __iomem *percpu_base;
++	void __iomem * __percpu *percpu_base;
+ };
  
- 		if (has_gic) {
- 			err = irq_set_vcpu_affinity(host_ptimer_irq,
--						    kvm_get_running_vcpus());
-+						    (void *)(uintptr_t)kvm_get_running_vcpus());
- 			if (err) {
- 				kvm_err("kvm_arch_timer: error setting vcpu affinity\n");
- 				goto out_free_ptimer_irq;
+ struct gic_chip_data {
 -- 
 2.42.0
 
