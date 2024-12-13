@@ -4,112 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23789E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 00:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F46E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 01:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+pka+oHLhYgtgvKTbIDY/zAibUvBwaOFa9npTDjnf8A=; b=s/41KQNK1KJJF12oVrNKrPsus2
-	3/Da/Y+Ui3GTL1Z6MxQoLHMuGGX+BvU5BGD/onQ4x/pBNPW/dZWq6m+DvkoQz+p9NRrw5Ql3I+155
-	tXHQPdItZ7Yrcrh0GaFSUe1bC3Qr72JmDdNxcY7pG7FxJdoUuitMCAE6tVjs7/7crRVzK8LVLX5qk
-	PHP8QIlWlajsF5t8bhrZgkRGUqjTabr2H0jXajNgVDryyyX8eAtkF2Y2Sgpjnq0AhX4b7bTq9xFvo
-	3rHxa4IzChcMlpAZNGbk9nOT7ZHJbR6rPWV+8xqtjsyixOCHfTrOiV/P/Qq0XQ2SqD1iKijrYAp5w
-	q2jI04kw==;
+	bh=Jn1DysVTcUcd9ySgqRwXIoCNYLQUOLat4q21/VMPDys=; b=Ne3O5/8D7TpO2brMkEX7Ss5Pwt
+	gkuoG3Y1cDRuJg9SfUbpnEW/1YD+T4TQCFPcowOxdLziLsWq6I6oJIlfdojfPeY83wqY2A+OH2YhR
+	3UrD7ina6sBaSjFKbctKu9WM87O9LKouiEFM+5d390dcFXoNfHj4uKUfnx9DmKlQhtQubhT7HqXCB
+	yuns9jEnSQe9vSWX6vPgVYo5uJecQQj8lyVPvGIgOh3p/9iwj6mrfgYrkadq37MfzHo4kLF8GjGV7
+	4c3ksrLqnLoA4QG4Zl2AeGvpTNgs09h1j5PGeARRC9DR3M0jZRUPkkSJ4zMckjNOYHaZpCk9HkE3s
+	V2pynJCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLtuZ-00000002LYY-2tWt;
-	Fri, 13 Dec 2024 00:52:07 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tLuEn-00000002NI4-3OAQ;
+	Fri, 13 Dec 2024 01:13:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLtcp-00000002IJm-1QyM
+	id 1tLuDj-00000002NCe-2p4W
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Dec 2024 01:11:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Jn1DysVTcUcd9ySgqRwXIoCNYLQUOLat4q21/VMPDys=; b=nYWRRfT0BKsMaspuMG4RiehTn1
+	Ejp19XxkzkL4Kr+K+dB5UCPh2aqXe5HIuQzhMCiSA3z3HUjQOtkd55URDsc+BuNJcF9FhIhADzPOn
+	WTgPv4XxcDUVleOZeQgLGr/ZGFQ0juqP0Ts5DaL9Bzya0vxZYt9TZT7C7pqLe2OKza3MXu4ykH1Im
+	h2PeUYj+zi7cUMjN2ztGCTdZB4Nk5WcGHzTd7q7bWYSlryoYBwOH7X2uwDXyX/syLIkB2Z5QdbUKc
+	3nbfGpzHASzZi6VR7QWkLs0+Ocs5QfFcGxs9bMK9keMvg1ewnpN6rb1TStEuCxda9U20Ay5iN+vXF
+	bR42OkLA==;
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLuDf-00000004APx-2zpY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 00:33:48 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2ee6dd1dd5eso941009a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 16:33:47 -0800 (PST)
+	Fri, 13 Dec 2024 01:11:54 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5cedf5fe237so2050839a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 17:11:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734050027; x=1734654827; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+pka+oHLhYgtgvKTbIDY/zAibUvBwaOFa9npTDjnf8A=;
-        b=p7im8EJ6sZwZufJDEvTd4xkyCv1l7GmAXR46y9GOvRDVZMR55SFJieMBiwCiWdeUs5
-         4JgugG0QrDEq8waQ63A+Kxb3add2aM7lWz4qKq2IewQIDQASS0mz61WSgup/i2G98y6P
-         7DZRVtV4nJsUkcT7kuGxBGbPPwiiCZVZ21LjWII+6cU05jvsfs2lr7MZpijDhCnc0AY3
-         5da8x7Jdnx/lAryKy3I/hxRPo2cR2QLNCPkOfsCywbPJQicm1IPHND0lXipHWq5lPm43
-         1HLySRKWm+47Ph5/CYQYkE0M3X7lRK0+1hqQlgt4F6fpueptgV4Zy0s34qq/NxEz0i2O
-         p95g==
+        d=gmail.com; s=20230601; t=1734052309; x=1734657109; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Jn1DysVTcUcd9ySgqRwXIoCNYLQUOLat4q21/VMPDys=;
+        b=l0+S4f5ZJrjlD6zyhB5UrPsnwbx4xot7sOHiUAD13ACwO53uNbowEWRSdaKB1Pc4qa
+         wi0YVdmJRJB/zW++yn0G1ZfLp+I9ISamiWSYCWHtsUnmY1viE0V4YIzHghOVzN/wcVR3
+         wfcCKwQ4NTaV8yhX7TAyaQu9ACNC2MJG2JjEPncb1WyqfUZEBsUvmkaoqs2SCTpHuU4i
+         6OR4dEeMAy7UGwy9q3MHSuoe+oK/IxkvOnrsNAsts1Zi5LgBqTHrBvU62P/KZ5ymgE4r
+         j7IjWesWQQGX+myB5KjhPZfe0C1nD5Qk0OGiRmefj+B9zJXWm6I6PUpXRG06QuKStQy7
+         eAAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734050027; x=1734654827;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1734052309; x=1734657109;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+pka+oHLhYgtgvKTbIDY/zAibUvBwaOFa9npTDjnf8A=;
-        b=i1/YxbGj8gUC96B3F6mPSqdNgt8ktpFNGpLGZFBnXtSzwpIoafoaNvIyDJHzNCftw/
-         DbIAWJLcnaozhDThsCqUAQxOpxeUxBFcUjb1fFmQWpO29yWuk/AJqk7hHdqucAIa5yA9
-         gfosymSArU7iA9brWp5um81FQje3lAv8EXDsTLwngxV95B758MBNwMFYhxg3wyYQSGvR
-         IRSOPFa3dToI1y5ToqwoS7yCHcQzOdcQYY7pqYeOdqXIwzWrDOswoEWZ8aWeejG8oXC7
-         hvyTaJOSFQTJs3mdSEmBqoM8rB4RCW7rH7duTbLCyDFEKetY5ak7R1wAcMAzFQ8zibA1
-         jFhw==
-X-Forwarded-Encrypted: i=1; AJvYcCXz73DEPSyhjWmUw+hxOXgMkaWmxmLc4j4W6vIMfUh/y+C4bNDMDOYjyc2YM8Uo9Bgu5kE9VoxmwKLzCBdjKo75@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXVCEoBR+F9yMtCPOskFzRrVkolLumfk15x6MxdQqH8U+E4isS
-	5ItL3bqAcOh3w0dquP0sogBAfr6lKO34+8JClyd133SMORrNyI1gE/OFmsb/8R0=
-X-Gm-Gg: ASbGncvCB/sTGGAV6otjygoljeDmC+SLTyj2S8fq+0lcOQHBt7R+Wdfx4euOTAevHEW
-	yI6zurYjB7ExMpDLE3W+OGNJs5XCvlf47WTZzVuR1cqyrLJlP92v/hc17dIBe5FrbGhIWxWhTcu
-	KFtNCxKWHIPjCvkLO5F63esLDpwZ8JjVwRmD+Coe99tgQAM7pFAFn6ljAkysrIW8Y5P7pZlY/ia
-	n9et/2yP4fcIhgox8C/9fWF8HcttMC7RIezcOLXgm7ILzf6JgVd7sekoKs9T8d5JbbL9pHc
-X-Google-Smtp-Source: AGHT+IHzZ3bXJ0cy5rr0lWYKZxXGVM8gv6U7Mp7+XdqikZu489dXujvjckGU7RMBQANT1p4rUrKCWA==
-X-Received: by 2002:a17:90b:2883:b0:2ee:8e75:4ae1 with SMTP id 98e67ed59e1d1-2f28fd69b42mr995910a91.21.1734050026769;
-        Thu, 12 Dec 2024 16:33:46 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142e0ce50sm1934462a91.39.2024.12.12.16.33.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 16:33:45 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 12 Dec 2024 16:33:05 -0800
-Subject: [PATCH v2 15/16] perf tools: s390: Use generic syscall table
- scripts
+        bh=Jn1DysVTcUcd9ySgqRwXIoCNYLQUOLat4q21/VMPDys=;
+        b=i3FJGOUr6fwhMxfKgWdNfWL/bUVHipgdjb3gcUtr8vNbOd8zYL5A1AQbuO2XqydIB+
+         BCrLZfs6raU79QRem0tksv124iQtlcPdsuQM0Zt6WsWVBPCzNUZ0zypj+tEEByqZFzie
+         CWiHf3vdbxRCY0lu8OloY4Va+KDheJaOd0fVsUYbSUWYsGDChUSfCiWqTgdzKt73tRZp
+         ejtoYY9OTkhnYHBbPqlNz5nZn8ihrO74uhZkK+t8See6TQHu3AJxf2VyxbE5zaQiNmRc
+         R2Ox8w0ujd4KhqnJfwciV5s1z11z39Lur6ceDpwzLRNS0U19dWvGlPK4nT1E0NMT1GQX
+         zmGg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6mVUflR1POURRCyu12NXpHTMptwSVQZIvsr/oOPdyHE1PaWJyTSyYKWb1aOBFsxPDOA3JrVzftc73EE3itqeT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMBXheMiWSC/k6f52Tyd0jFq4CAE149vNJa16fXiynvAeXa4gj
+	xkw7vh36Mrz6A+QAYFrYjPoVA1eVa+XvhqXGniQx7BqDNVjebQN+43SV4zJtpMQW8XMVPZt2JFO
+	7OXwDNlWYCxLUR8Kgqw89FiR/Lc8=
+X-Gm-Gg: ASbGncttk714SQ/l/iOwUDst57m1hRyB5Gd79YqJ+ddz+vhbdj9sWXAPL7u6wlpGoIF
+	0juaGo3OivKPlWkIH9akMdpt5mz0RqRsahP+pnLNTUd1Hm1aC2Sse7Q3T4yCqDHbVH5w9tA==
+X-Google-Smtp-Source: AGHT+IFQ4XNOkc8sPX1M8qZSVacYSK9EidDYtS/NoHmzSlgwZHZDH0Ukd2SJ8UKW79iATKfg796ugAZZITmrQz+qNYA=
+X-Received: by 2002:a05:6402:27cb:b0:5d0:8359:7a49 with SMTP id
+ 4fb4d7f45d1cf-5d63c1575f0mr474365a12.0.1734052309059; Thu, 12 Dec 2024
+ 17:11:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241212-perf_syscalltbl-v2-15-f8ca984ffe40@rivosinc.com>
-References: <20241212-perf_syscalltbl-v2-0-f8ca984ffe40@rivosinc.com>
-In-Reply-To: <20241212-perf_syscalltbl-v2-0-f8ca984ffe40@rivosinc.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, 
- =?utf-8?q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
- Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>, 
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
- Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
- Arnd Bergmann <arnd@arndb.de>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org, 
- bpf@vger.kernel.org, linux-csky@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6382; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=SdqrBFVai22Ulnc/RZqlr6Emdw7FO8UY/I4PiNM6pQc=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3p0w0GZf58rer42WZlmnpVUf5zmPq/zH4esfL1TEPe5W
- KXAyb87SlkYxDgYZMUUWXiuNTC33tEvOypaNgFmDisTyBAGLk4BmEiUDiPDXt7Zm4+6HwhXUnz6
- oYjVdV3G7tM7j2xSneg9p3OqyGHJHEaGF36SiV2n5hp/y2R0edgx6fuOKTc4AiZsF1b56PnvV7c
- lHwA=
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
+References: <20241206214315.3385033-1-zmw12306@gmail.com> <21f4927382a3cf3bb433bc1f1d7d4ad9ea1a2a5e.camel@foss.st.com>
+In-Reply-To: <21f4927382a3cf3bb433bc1f1d7d4ad9ea1a2a5e.camel@foss.st.com>
+From: Mingwei Zheng <zmw12306@gmail.com>
+Date: Thu, 12 Dec 2024 20:11:37 -0500
+Message-ID: <CAN4iqtTcdZ8tqwPx=WeG6j6k17OHF3rj_YcXUgJAwseoTUKDeQ@mail.gmail.com>
+Subject: Re: [Linux-stm32] [PATCH v3] pinctrl: stm32: Add check for clk_enable()
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: marex@denx.de, peng.fan@nxp.com, make24@iscas.ac.cn, 
+	linus.walleij@linaro.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Jiasheng Jiang <jiashengjiangcool@gmail.com>, 
+	fabien.dessenne@foss.st.com, mcoquelin.stm32@gmail.com, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_163347_387481_38B31337 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20241213_011152_171672_93DF3012 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,174 +111,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the generic scripts to generate headers from the syscall table
-instead of the custom ones for s390.
+Hi Antonio,
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- tools/perf/Makefile.config                         |  8 ++----
- tools/perf/Makefile.perf                           |  2 +-
- tools/perf/arch/s390/Makefile                      | 21 --------------
- tools/perf/arch/s390/entry/syscalls/Kbuild         |  2 ++
- .../arch/s390/entry/syscalls/Makefile.syscalls     |  5 ++++
- tools/perf/arch/s390/entry/syscalls/mksyscalltbl   | 32 ----------------------
- tools/perf/arch/s390/include/syscall_table.h       |  2 ++
- tools/perf/util/syscalltbl.c                       |  6 +---
- 8 files changed, 13 insertions(+), 65 deletions(-)
+On Sat, Dec 7, 2024 at 9:25=E2=80=AFAM Antonio Borneo
+<antonio.borneo@foss.st.com> wrote:
+>
+> On Fri, 2024-12-06 at 16:43 -0500, Mingwei Zheng wrote:
+> > Convert the driver to clk_bulk*() API.
+> > Add check for the return value of clk_bulk_enable() to catch
+> > the potential error.
+> >
+> > Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled =
+when LEVEL IRQ requested")
+> > Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+> > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+> > ---
+> > Changelog:
+> >
+> > v2 -> v3:
+> >
+> > 1. Convert clk_disable_unprepare to clk_bulk_disable
+> > and clk_bulk_unprepare.
+> >
+> > v1 -> v2:
+> >
+> > 1. Move int ret declaration into if block.
+> > ---
+> >  drivers/pinctrl/stm32/pinctrl-stm32.c | 28 +++++++++++++--------------
+> >  1 file changed, 13 insertions(+), 15 deletions(-)
+> >
+> > diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/st=
+m32/pinctrl-stm32.c
+> > index 5b7fa77c1184..0ef912e82736 100644
+> > --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
+> > +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> > @@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
+> >
+> >  struct stm32_gpio_bank {
+> >         void __iomem *base;
+> > -       struct clk *clk;
+> >         struct reset_control *rstc;
+> >         spinlock_t lock;
+> >         struct gpio_chip gpio_chip;
+> > @@ -108,6 +107,7 @@ struct stm32_pinctrl {
+> >         unsigned ngroups;
+> >         const char **grp_names;
+> >         struct stm32_gpio_bank *banks;
+>
+> Thanks for your patch!
+> While it's growing wider than your initial scope, it looks as a nice impr=
+ovement.
+>
+> > +       struct clk_bulk_data *clks;
+>
+> Maybe I've missed it but, where does this array get allocated?
+> There exist clk_bulk_get_all() and devm_clk_bulk_get_all() that do the al=
+location for you, but they require all the clocks to be listed in the same =
+"clocks" property, while this driver has a clock in
+> each DT subnode!
+> Some suggestion below.
+>
+> >         unsigned nbanks;
+> >         const struct stm32_pinctrl_match_data *match_data;
+> >         struct irq_domain       *domain;
+> > @@ -1308,7 +1308,7 @@ static int stm32_gpiolib_register_bank(struct stm=
+32_pinctrl *pctl, struct fwnode
+> >         if (IS_ERR(bank->base))
+> >                 return PTR_ERR(bank->base);
+> >
+> > -       err =3D clk_prepare_enable(bank->clk);
+> > +       err =3D clk_prepare_enable(pctl->clks[pctl->nbanks].clk);
+> >         if (err) {
+> >                 dev_err(dev, "failed to prepare_enable clk (%d)\n", err=
+);
+> >                 return err;
+> > @@ -1397,7 +1397,7 @@ static int stm32_gpiolib_register_bank(struct stm=
+32_pinctrl *pctl, struct fwnode
+> >         return 0;
+> >
+> >  err_clk:
+> > -       clk_disable_unprepare(bank->clk);
+> > +       clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
+> >         return err;
+> >  }
+> >
+> > @@ -1631,11 +1631,10 @@ int stm32_pctl_probe(struct platform_device *pd=
+ev)
+> >                         fwnode_handle_put(child);
+> >                         return -EPROBE_DEFER;
+> >                 }
+> > -
+> > -               bank->clk =3D of_clk_get_by_name(np, NULL);
+> > -               if (IS_ERR(bank->clk)) {
+> > +               pctl->clks[i].clk =3D of_clk_get_by_name(np, NULL);
+>
+> This is the first time the array is used, during stm32_pctl_probe(), so t=
+he array should be already allocated before this line.
+> The number of banks pctl->nbanks is computed few lines below, so it shoul=
+d be anticipated, or being replaced by a simpler
+>   pctl->nbanks =3D gpiochip_node_count(dev);
+>
+> then allocation could be done with
+>   pctl->clks =3D devm_kmalloc_array(dev, pctl->nbanks, sizeof(*pctl->clks=
+), GFP_KERNEL);
+>
+> Also, you never assign `pctl->clks[i].id` which is then used by the error=
+ messages in, e.g., clk_bulk_enable().
+> We don't mandate the property "clock-names" in the DT subnodes, so no way=
+ to get a reasonable value from the DT.
+> I presume it's fine to set it to NULL... to be tested.
+>
+> Regards,
+> Antonio
+>
+>
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 1ca8c9814cbffbc4bbed3b40e0d6e53f0f9b77f1..c62622b4eb3dcbdfbd49ad371f15b92bfa4a6c43 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -31,12 +31,8 @@ $(call detected_var,SRCARCH)
- ifneq ($(NO_SYSCALL_TABLE),1)
-   NO_SYSCALL_TABLE := 1
- 
--  ifeq ($(SRCARCH),s390)
--    NO_SYSCALL_TABLE := 0
--  endif
--
-   # architectures that use the generic syscall table scripts
--  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc))
-+  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc s390))
-     NO_SYSCALL_TABLE := 0
-     CFLAGS += -DGENERIC_SYSCALL_TABLE
-     CFLAGS += -I$(OUTPUT)/tools/perf/arch/$(SRCARCH)/include/generated
-@@ -78,7 +74,7 @@ ifeq ($(SRCARCH),loongarch)
- endif
- 
- ifeq ($(ARCH),s390)
--  CFLAGS += -fPIC -I$(OUTPUT)arch/s390/include/generated
-+  CFLAGS += -fPIC
- endif
- 
- ifeq ($(ARCH),mips)
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index 45bccc88e0087b57e4d9549e281cdbafc152a2fd..1f3262c1f9d44261be0315c693837cfdfb3071de 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -311,7 +311,7 @@ FEATURE_TESTS := all
- endif
- endif
- # architectures that use the generic syscall table
--ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc))
-+ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc s390))
- include $(srctree)/tools/perf/scripts/Makefile.syscalls
- endif
- include Makefile.config
-diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
-index c431c21b11ef824535c1b9fb6ca4246d666fc97b..0033698a65ce5d5d7ebcc280399957561dd9d2c6 100644
---- a/tools/perf/arch/s390/Makefile
-+++ b/tools/perf/arch/s390/Makefile
-@@ -1,24 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0-only
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
--
--#
--# Syscall table generation for perf
--#
--
--out    := $(OUTPUT)arch/s390/include/generated/asm
--header := $(out)/syscalls_64.c
--sysprf := $(srctree)/tools/perf/arch/s390/entry/syscalls
--sysdef := $(sysprf)/syscall.tbl
--systbl := $(sysprf)/mksyscalltbl
--
--# Create output directory if not already present
--$(shell [ -d '$(out)' ] || mkdir -p '$(out)')
--
--$(header): $(sysdef) $(systbl)
--	$(Q)$(SHELL) '$(systbl)' $(sysdef) > $@
--
--clean::
--	$(call QUIET_CLEAN, s390) $(RM) $(header)
--
--archheaders: $(header)
-diff --git a/tools/perf/arch/s390/entry/syscalls/Kbuild b/tools/perf/arch/s390/entry/syscalls/Kbuild
-new file mode 100644
-index 0000000000000000000000000000000000000000..9a41e3572c3afd4f202321fd9e492714540e8fd3
---- /dev/null
-+++ b/tools/perf/arch/s390/entry/syscalls/Kbuild
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+syscall-y += syscalls_64.h
-diff --git a/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls b/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
-new file mode 100644
-index 0000000000000000000000000000000000000000..9762d7abf17c3f79a6213e7306a5f7b56e833a78
---- /dev/null
-+++ b/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+syscall_abis_64 += renameat rlimit memfd_secret
-+
-+syscalltbl = $(srctree)/tools/perf/arch/s390/entry/syscalls/syscall.tbl
-diff --git a/tools/perf/arch/s390/entry/syscalls/mksyscalltbl b/tools/perf/arch/s390/entry/syscalls/mksyscalltbl
-deleted file mode 100755
-index 52eb88a77c94727aeb8c15427cdd43dfe5f9f2bd..0000000000000000000000000000000000000000
---- a/tools/perf/arch/s390/entry/syscalls/mksyscalltbl
-+++ /dev/null
-@@ -1,32 +0,0 @@
--#!/bin/sh
--# SPDX-License-Identifier: GPL-2.0
--#
--# Generate system call table for perf
--#
--# Copyright IBM Corp. 2017, 2018
--# Author(s):  Hendrik Brueckner <brueckner@linux.vnet.ibm.com>
--#
--
--SYSCALL_TBL=$1
--
--if ! test -r $SYSCALL_TBL; then
--	echo "Could not read input file" >&2
--	exit 1
--fi
--
--create_table()
--{
--	local max_nr nr abi sc discard
--
--	echo 'static const char *const syscalltbl_s390_64[] = {'
--	while read nr abi sc discard; do
--		printf '\t[%d] = "%s",\n' $nr $sc
--		max_nr=$nr
--	done
--	echo '};'
--	echo "#define SYSCALLTBL_S390_64_MAX_ID $max_nr"
--}
--
--grep -E "^[[:digit:]]+[[:space:]]+(common|64)" $SYSCALL_TBL	\
--	|sort -k1 -n					\
--	|create_table
-diff --git a/tools/perf/arch/s390/include/syscall_table.h b/tools/perf/arch/s390/include/syscall_table.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..b53e31c15805319a01719c22d489c4037378b02b
---- /dev/null
-+++ b/tools/perf/arch/s390/include/syscall_table.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <asm/syscalls_64.h>
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index 8869fed1a58946c590484816354d8c74aff52ee3..210f61b0a7a264a427ebb602185d3a9da2f426f4 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -14,11 +14,7 @@
- #include <string.h>
- #include "string2.h"
- 
--#if defined(__s390x__)
--#include <asm/syscalls_64.c>
--const int syscalltbl_native_max_id = SYSCALLTBL_S390_64_MAX_ID;
--static const char *const *syscalltbl_native = syscalltbl_s390_64;
--#elif defined(GENERIC_SYSCALL_TABLE)
-+#if defined(GENERIC_SYSCALL_TABLE)
- #include <syscall_table.h>
- const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
- static const char *const *syscalltbl_native = syscalltbl;
+Thanks for your suggestion. We used devm_kcalloc to allocate clk. We
+set `pctl->clks[i].id` to "".
 
--- 
-2.34.1
+Best,
+Mingwei
 
+> > +               if (IS_ERR(pctl->clks[i].clk)) {
+> >                         fwnode_handle_put(child);
+> > -                       return dev_err_probe(dev, PTR_ERR(bank->clk),
+> > +                       return dev_err_probe(dev, PTR_ERR(pctl->clks[i]=
+.clk),
+> >                                              "failed to get clk\n");
+> >                 }
+> >                 i++;
+> > @@ -1646,8 +1645,8 @@ int stm32_pctl_probe(struct platform_device *pdev=
+)
+> >                 if (ret) {
+> >                         fwnode_handle_put(child);
+> >
+> > -                       for (i =3D 0; i < pctl->nbanks; i++)
+> > -                               clk_disable_unprepare(pctl->banks[i].cl=
+k);
+> > +                       clk_bulk_disable(pctl->nbanks, pctl->clks);
+> > +                       clk_bulk_unprepare(pctl->nbanks, pctl->clks);
+> >
+> >                         return ret;
+> >                 }
+> > @@ -1726,10 +1725,8 @@ static int __maybe_unused stm32_pinctrl_restore_=
+gpio_regs(
+> >  int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
+> >  {
+> >         struct stm32_pinctrl *pctl =3D dev_get_drvdata(dev);
+> > -       int i;
+> >
+> > -       for (i =3D 0; i < pctl->nbanks; i++)
+> > -               clk_disable(pctl->banks[i].clk);
+> > +       clk_bulk_disable(pctl->nbanks, pctl->clks);
+> >
+> >         return 0;
+> >  }
+> > @@ -1738,10 +1735,11 @@ int __maybe_unused stm32_pinctrl_resume(struct =
+device *dev)
+> >  {
+> >         struct stm32_pinctrl *pctl =3D dev_get_drvdata(dev);
+> >         struct stm32_pinctrl_group *g =3D pctl->groups;
+> > -       int i;
+> > +       int i, ret;
+> >
+> > -       for (i =3D 0; i < pctl->nbanks; i++)
+> > -               clk_enable(pctl->banks[i].clk);
+> > +       ret =3D clk_bulk_enable(pctl->nbanks, pctl->clks);
+> > +       if (ret)
+> > +               return ret;
+> >
+> >         for (i =3D 0; i < pctl->ngroups; i++, g++)
+> >                 stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
 
