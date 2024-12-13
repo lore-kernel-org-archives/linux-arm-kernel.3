@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8E1E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7BBE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=U2A0DSQsBZCyHCjJuq/xQMDgQGYmtUN7RbB1oPXeNuw=; b=CukZS+icjR56pT
-	lo0kxngtJoFs5PaQgsvy/zMtFuWn/IrBlTS+PKgrTkccewKNOjZE8xIvQGrpM9V5U4wb38mKYuwED
-	myBET0Hroj0vUR0mvBlm202n8doqesyqcNJIG03Nt6J2bWlpz+rIjBNur2++/Ay12bP9vMVu/yuG6
-	EJKjdgXobktX7nXp0U/CL3J6NVcNCQfvs2IsSHzL0xhUuPqkb2FdLiHhaAVTO8qEPUiHRLYW3z//F
-	jSTVi3fFt7jXvuLnUnoBcnOyVnZ5z9n74A0nZIOJ3DFp6VwC3ZqCjf5/bMDITUNN1Q3KosQBZ2ZOb
-	PiCJAWkmTuN5V51Ej+HQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rjlzbWl9chiW3b1bcyAnwj9F/eAWfXtVDjTLB3PlhTI=; b=JCijouNAzASfamQmc4KSLc4gwq
+	WqDYpNqz6IgdgcUm0VQtit2z27uLddaHEq7fTL0/iWZ8bQ/BeFKCAocfjjHyLzapWtud+0jHDnEC7
+	M/H8GIqR5DIY2OOta1Wyr+kV8esqmX9IK9ktomhaiufyr4QRZHQoeRxBl8/AzvHx6qgrMIUFv4LF1
+	l1DSToi+ZstWqORxRmaJKe5MyOqYieIPvUl5Xfukylw04W4yks+qTrYeIDKAcCdBAA/3bngVbdGUe
+	97L41h/eSuHbTBKh7QbUsI20YPPog6LsibjApYxusAj5u2IiKg0F6ERZrCtpaujscFLILfBTZJYsx
+	cfLe5L7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8p0-00000004SRo-2CNZ;
-	Fri, 13 Dec 2024 16:47:22 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tM8r8-00000004T8l-17zv;
+	Fri, 13 Dec 2024 16:49:34 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8n0-00000004Rt6-2FuQ
+	id 1tM8n3-00000004Rum-3UUB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 16:45:20 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43634b570c1so2018695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 08:45:17 -0800 (PST)
+	Fri, 13 Dec 2024 16:45:23 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso4455475e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 08:45:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734108316; x=1734713116; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=U2A0DSQsBZCyHCjJuq/xQMDgQGYmtUN7RbB1oPXeNuw=;
-        b=AeGmZ2oG0f4OLwcrcD9AYKPfdC4YhxYJhHwaTrDHa6kFlJTRc0YrtiNi0TEBYwHJco
-         49+hlUOIztnWSA5spj47+gxQJ2BNmH0jQ1GP7kseoDObniz7drQMf/RARqgLEgB4oNxy
-         xWaiX/lQFjRgZ2R3S6DJBWssiPxTjUIH5GZKFoQY5E4eTKGisyOD447GQi6L3BPD4gjs
-         cMUZQGDBajK3FlxVOvLM4cV1h8Hvpl2yzDJbxzMAC44R1Ohbcc4qwloB3Ijo67jaxetq
-         QPFPZhysyiQDlk50PfY44sOg6l3L4Dr05dZ+fRDw715xLJZ5inbFEzEwVcnAPTUJhTpQ
-         iEhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734108316; x=1734713116;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1734108320; x=1734713120; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=U2A0DSQsBZCyHCjJuq/xQMDgQGYmtUN7RbB1oPXeNuw=;
-        b=Am7fNR8tTQ5cmMfEEv+a/TEUmgo889P52KRPSTlI1Uq5nHGQYOg+IZloxy7aL71A8Z
-         p3c68I6JbTriAx2qhVHMztslmSJ/tS5E+lWYZGGAmJ7v30SwsGa0Q8m8hM/RtNxWpeft
-         Qbu6c4tl7OjOIctNNFJkANjVLpzaUMLvLqWsbbfOSmTS8dEsXM3GCoczAQteEPY0bSQ0
-         Q6pr/yrX4fPQsHxTn9z80MJcs+VZ0Pxq3WqKoK4AB+crT0xmCxG+osXucEjXV7EJP+Gg
-         Vmo25fxKVJEo94T/5VHRZj9ynzo07hwqtiBF8ETIQ/KLBBcwAn7AOOQTWHFgmGGJeIae
-         sDbA==
-X-Forwarded-Encrypted: i=1; AJvYcCXr7s+6f0J1mzYRzVg8CIdmDJSfRfc6jq0wgWHuaWicyFmCYSdlPjdeo08+2+xzN0aOP/egVKFpZgPsGoThLp13@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzzz0CIXyYx3Ot0GAK+S7n7sCpiRlNyj8+/sFl2sF55ao08ds2o
-	3iVlPfC4ZQUDe0BttHjahJWvo3P2EIQ+ujEQcoLwbgmD2+c/3MUwrSiPD3HnFxE=
-X-Gm-Gg: ASbGncsWARkATPVnNONZoiHMbrICWNRBOPR1YClO7lPniPbS4ZMxaPUl3xOZqYIgDf1
-	motKDMm8iuv+K9Wa5+cz1tKYRvGTFvA8V2vZyLBIDcfCtffYR3mVVxWHxf+E9cl9NZ+wgFeHC8G
-	rzVCQMzzaoQPb4C7apGALVGmuV2wHehIoY529GRAAUvb7kUe7TLg6TR6tLl8QT4hPsi93pJJMiS
-	KeqfgG4uf7nagg6j6VfqJGM6OHQGlUASEMWKZ5IbaztMkpEoQQ9Nx3arlckYMdLuw2C363+80YP
-	i8Z+GByfpg==
-X-Google-Smtp-Source: AGHT+IHZJ2di20HJpkRNIWKJIeFs0CuIRmOYxZ3U2nkyoSYzcTlosFGe1cGxVE2LTdjgH6l8IIepXw==
-X-Received: by 2002:a05:600c:1907:b0:434:fbd5:2f0a with SMTP id 5b1f17b1804b1-4362aa425edmr34728655e9.9.1734108316537;
-        Fri, 13 Dec 2024 08:45:16 -0800 (PST)
+        bh=rjlzbWl9chiW3b1bcyAnwj9F/eAWfXtVDjTLB3PlhTI=;
+        b=iEAtTG4aj9JUrYlvUqassvu2nhv1ndKktxOVin/UMf2NAuGb2o2GIsAq5zHCKjXbEl
+         96d4j6KkOc4v2PdN+qSX9BWVQm0jAPq9A5C1jFhzXtPsoGqtUGs5nVkLmbRKgGghBk/i
+         F4d6C6Yahufca/db0fJ0SzDf99JBeHpvviXiumjXqvXrP13qcAutZeSF1m/zFpOMAhTl
+         oxmEpo8BW/HXmXTd/WU552odRv/d+Nf0ohxOXaeMGz6G1KYR8CdObPksrdfHJDWilcNo
+         QntadANy7hilUbcYjzUJwBq0ytV+JY0CWDn6TtYU84pf8ZIyeWS4zKOFy/BCzcQKFkt4
+         15IQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734108320; x=1734713120;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rjlzbWl9chiW3b1bcyAnwj9F/eAWfXtVDjTLB3PlhTI=;
+        b=FffBUywXZXQFeSQ6BZnXJUObnkMQbQ5Gt0mdIK71+OLQYUxoHcszis6mIz2/AOCO82
+         ctM8MulB4sYVsYZ8EJqL4D+00oMj25OBf0w0ey+PDw3rpNvCwBnJXetCK443N4wVxXaf
+         VFFx0hCDJREbuYSQ3XufjyyABEFRKdZ3Kq4J/a5xdI3MpVJvgH3+L7FX+zHxL4oXBRa0
+         vkh+5WFYH0H3GAUB3tv4rcc/2ULPIYZgM6ZbhSLEp6JHoMtVq/NKiW8nILxQGiPMhd5P
+         HZ2YKycRkRf735i/Oj15ncZpq+ucrhhhckT6A94UG+Xhpf+APHe6xeM1PVe3wZ0WVpgb
+         dW9A==
+X-Forwarded-Encrypted: i=1; AJvYcCXldpAM80nx6UOpvd90Y8VI68Ldp3zNg0mZEeZ2+wUnxdCGJ33sC81HHsg5eZ9XOADIpaJZ/pAf7EjlyyHERBSC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyd8SIo4Cov0ossXjmAEOxkUT6O7Q726mFFPuTtxzTDDTNnpNOR
+	iwc7efXWGSphZnBBlE01NfRyaeuVNsD6ZBQ4J+IkMMvFnHoiHrVOoDFKVHKEc50=
+X-Gm-Gg: ASbGncvkFP7Gc9g/XIYNwK4vGR/ObxFE1vQLWI6uweNF2f4o1lR77Swdr0jZEGrLHqE
+	RyR0kLY0iibL6FxppNjLDrL4K0qYF1qS7o3L9LlktNPu6H76AqQIClFQ1a09JFs3ZQPtYmc1lFQ
+	CDKKrYKbsDjfiJy9Qh8AIu/NObIM78A90AdFw/3xNQvAZ5p7mz5bsev2vS0xsiv9IDOECWZOTIc
+	LS1BbOHKvNTaqQECAN5XYAmH1rrpaa6/p/bXhlZiwvOAhzH29XNlp2RHvsqsC1w14XCA9/KDWls
+	AYVxpt+nIw==
+X-Google-Smtp-Source: AGHT+IGEMv1e/DIXO21O5MsRQ5xu7AvkX9VSUgw7Z5GjjX9HSgSRS8PPK1Q/zoWIWgCKahnDrQunCQ==
+X-Received: by 2002:a05:600c:510c:b0:436:1c04:aa8e with SMTP id 5b1f17b1804b1-4362aa3e398mr33232645e9.16.1734108319836;
+        Fri, 13 Dec 2024 08:45:19 -0800 (PST)
 Received: from gpeter-l.roam.corp.google.com ([145.224.66.83])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43625550523sm53900665e9.7.2024.12.13.08.45.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43625550523sm53900665e9.7.2024.12.13.08.45.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Dec 2024 08:45:16 -0800 (PST)
+        Fri, 13 Dec 2024 08:45:18 -0800 (PST)
 From: Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH 0/4] Fix Google Tensor GS101 CPU hotplug support
-Date: Fri, 13 Dec 2024 16:44:37 +0000
-Message-Id: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
+Date: Fri, 13 Dec 2024 16:44:39 +0000
+Subject: [PATCH 2/4] dt-bindings: mfd: syscon: allow two reg regions for
+ gs101-pmu
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHVkXGcC/x3MQQrCMBBA0auUWTvQiSmiVxEXMZmmA5qETFOE0
- rsbunx8+DsoV2GFx7BD5U1UcuqgywB+cSkySugGMxpLhq7oc1qrvLFE9KXhktfyaRG1aeEUTHV
- fnOXHihshzTcXrLfTfSTox1L5bH34fB3HH1sgkqd9AAAA
+Message-Id: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
+References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
+In-Reply-To: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>
@@ -85,26 +86,26 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
  kernel-team@android.com, Peter Griffin <peter.griffin@linaro.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2996;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1498;
  i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=2o7v5L9OD4+jL7eoS1HSAH1rlsefrFIImLxiX+uatp0=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBnXGSZfuIaCNB2a/OJnzHqAuOiyM2etUNKYbV+0
- C/C0x0YvVOJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ1xkmQAKCRDO6LjWAjRy
- utWQD/0eoK8RIO7nrEuBMHD793BwLl1lcBfzxKcA9w4q1BUI16yVBb7izZ+8E1TOcgPHzyqn3vk
- MHWJragitUXibjNIbh/tM4xdc5ko1jL7n1wBE1R5GP83D4W/2jY63oZPrFFqy88ZfcQICn2taf2
- 0erNKDBTc3ZODWaBgKur/vBgXYLrooFG437jik6CrF4W6DUiEakoixuIsJZm7aIwM1IwAFRlI3z
- pXnvhqcODqJb2YkNQ/isDehKftaZ/ySujrP63gBeNaRK3yC+q93FPW5O7jDgkNifUHFra2hRpyx
- a/fHHACO7K9u0qN444AAWlHb2hsffq+rOQ41zZLjKDRqazYlczaeANiZHJAfa9dDu58vKtvTkK1
- Lpc7miIhQUtZBm7ouSPh+d8lLf/MZrmjH1fcjJWsLYmG1dG3HpiS3kS8IOwP4pe0VWUuJbqw/DR
- E3ULI6jeJJDgR30BFajfgKAjfY2hazulsFGQR0mtYWajbCiDcEPd9EqXodXGgrQJzgqHGWJ6ISe
- YfN7BJy0AcIBVl2E+2dSLASGVc2g7geepJ1p+5goRuSH/5lYCBbDxIJ4nFRGy3QZZpsksHjCZkC
- FGd7x3ogt55av0XRgo8zX+Qrk2IWfKFRj5+uTr+T/esi88NPkNKMkeLEvQcxwVyUESBgV1AiMz6
- JPYxpWDGm9hdv1w==
+ bh=aKfOXqQGDukFzONr0CiKY/knEiGL73lWVm8HRLM5iLs=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBnXGSa4bgZiEwGnt8X8V7Vmo0R6b2jQKykl5ebV
+ 3aqYK3KqAyJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ1xkmgAKCRDO6LjWAjRy
+ utM+D/9Lk7ruFKfWr5gVg4qeHtniwokKKn/WAgFmW2kqL04Q3frRnu3hIB8xkoQ7CTPjR7CizPf
+ 6UPCsN88uZ1a7nBp93Gs1M3goA2x963JhBm+AEQs+zh1Y16BBMWQIwdfExz6Nc7o5fe+igiYYu1
+ LtrTWgFHIlOPvlCEN0MtjZn6RWT7aMfU88pln7puSgEe+CrY+eIiL/tCKRmsee5oLjFM5tvNWoE
+ 5a+tCA7o4zU3t93z95vwF/DJOucolzwDyeabj/6uMXvakh/umqYYsCIHgkHCStcPGXiW02IwmSn
+ v8y5eLd099K8jyA2GQzmXNQQPNFXtXz4oVmo5bWAsWTh9qSeO0qbwPEeUJ+D0X1kzXx4c2OiF+v
+ irhcrq+TtLF67/20GIpZlhrZKv0vs02CqH1VjdspQtJFKApzxMzs3x8kcoSAZFgtvp6bTCFNywk
+ a+fyOEzNidOvBSAc3IGCLlJWD2pkD7XUc9i6Fy9K1wFpuGwIBsweqrejFIf/arD6z/sGKleAxfx
+ laB+rnMD391eqZJGamVXGNA485w01JVITKcfxQMYWN/sABgS4bCxw8CUvSJtD+8mrjnuJKXfYHC
+ oDxsOUbrO7nM3BCrS0ao6/NjDiB4yMcAjY4Kt+iB4vcJsP+IDzJh82FOP3GwxBaj8nhM4//Q2+9
+ BjKjkQz0D3wdIvg==
 X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
  fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_084518_589897_1A7BEBC2 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20241213_084521_906292_2AD56DF9 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,72 +120,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
-
-As part of an effort to make suspend to RAM functional upstream on
-Pixel 6 I noticed that CPU hotplug leads to a system hang.
-
-After debugging and comparing with downstream drivers it became clear
-that some extra register writes are required to make CPU hotplug
-functional on these older devices which use the el3mon firmware.
-
-This series adds support for programming the CPU_INFORM register hint
-required by the firmware and also adds support for the pmu-intr-gen
-register region. This is achieved using cpuhp_setup_state() to setup
-a cpu hotplug state. This is similar to soc/xilinx/xlnx_event_manager.c
-and soc/fsl/qbman/bman_portal.c drivers.
-
-With these changes CPU hotplug is now functional :)
-
-It can be tested with commands such as
-
-echo 0 > /sys/devices/system/cpu/cpu6/online
-echo 1 > /sys/devices/system/cpu/cpu6/online
-[   15.880597][    T0] Detected PIPT I-cache on CPU6
-[   15.880638][    T0] GICv3: CPU6: found redistributor 600 region 0:0x0000000010500000
-[   15.880685][    T0] CPU6: Booted secondary processor 0x0000000600 [0x411fd440]
-
-This would (prior to this series) hang the system.
-
-Note 1: It is highly likely that similar changes are required for other
-Exynos based SoCs using el3mon. For anyone following along who is
-accustomed to looking at downstream Exynos based drivers this replaces
-register writes defined in 
-
-drivers/soc/<google|samsung>/cal-if/<socname>/flexpmu_cal_cpu_<socname>.h
-
-Which are used by files in the cal-if folder and exynos-cpupm.c driver.
-
-For the moment I've used the GS101 CPU inform register offsets directly
-but these can be moved to driver data once we've established other SoCs
-benefit from this.
-
-Note 2: To ensure older DTs which don't define pmu-intr-gen register
-region still work. The driver only issues a warning if the registers
-can't be mapped, and the behaviour remains the same as today (system
-boots, but CPU hotplug will not be functional).
+To avoid dtschema warnings allow google,gs101-pmu to have
+two reg regions.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
-Peter Griffin (4):
-      dt-bindings: soc: samsung: exynos-pmu: gs101: add pmu-intr-gen reg region
-      dt-bindings: mfd: syscon: allow two reg regions for gs101-pmu
-      arm64: dts: exynos: gs101: add pmu-intr-gen regs to the PMU node
-      soc: samsung: exynos-pmu: enable CPU hotplug support for gs101
+I don't really like this patch, but also didn't want to submit the series
+with a dtschema warning ;-)
 
- .../devicetree/bindings/mfd/syscon-common.yaml     | 10 +++
- .../bindings/soc/samsung/exynos-pmu.yaml           | 29 ++++++++-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  4 +-
- drivers/soc/samsung/exynos-pmu.c                   | 73 +++++++++++++++++++++-
- drivers/soc/samsung/exynos-pmu.h                   |  1 +
- include/linux/soc/samsung/exynos-regs-pmu.h        | 11 ++++
- 6 files changed, 125 insertions(+), 3 deletions(-)
+Possibly a better solution is when Robs patch
+`mfd: syscon: Allow syscon nodes without a "syscon" compatible` [1]
+
+gets updated with a v2, we could remove syscon compatible from
+gs101.dtsi (an ABI issue). If I understood his patch correctly,
+it would mean this yaml update would then no longer be required.
+
+Let me know your thoughts
+
+[1] https://lore.kernel.org/lkml/20241211-syscon-fixes-v1-0-b5ac8c219e96@kernel.org/T/#m5ad1ed5c69f693d2a5cc54342a87fbdf3df756d2
 ---
-base-commit: ed9a4ad6e5bd3a443e81446476718abebee47e82
-change-id: 20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-1f7ad4c45901
+ Documentation/devicetree/bindings/mfd/syscon-common.yaml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/mfd/syscon-common.yaml b/Documentation/devicetree/bindings/mfd/syscon-common.yaml
+index 451cbad467a3..9cd9739d5e97 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon-common.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon-common.yaml
+@@ -59,6 +59,16 @@ allOf:
+         compatible:
+           minItems: 3
+           maxItems: 5
++  - if:
++      properties:
++        compatible:
++          contains:
++            const:
++              - google,gs101-pmu
++  then:
++    properties:
++      reg:
++        maxItems: 2
+ 
+ additionalProperties: true
+ 
+
 -- 
-Peter Griffin <peter.griffin@linaro.org>
+2.47.1.613.gc27f4b7a9f-goog
 
 
