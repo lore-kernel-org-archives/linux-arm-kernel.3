@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D10E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 20:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B49E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 20:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjFjYpSxXBJz9M1hdmG3iiPhNXo18zA2UB8YwR16DTw=; b=d9ytE4XwWh87kOISBfBKwpZZwI
-	iLIJBYhQimE4xQF4Oqa79CooejrF+I6W391JF7J8WzrnSfko11Rz2W9ni+Arsp4ks8x/B5sbHtEcc
-	VzQd1AZRnXsGJhPDIbD5pzbka916e6II/IZxvRiXH5zPEk/p26m+RdTJzz2bHinEd5RVr1q6jnUMI
-	63SD2o41u9ehFXyIfKgfFGgFyLVpAoWv+b0Vo8f5pfyFa4wyRi6ODP66JsRQTOWikejjloG6ivVjj
-	teZmGp1zitOKwDEmzgG/uIT0+/ot8d8+0itNArAkUmpXZbRAyq2D9tNvxrWCZA6yuMxyBNubRcxPC
-	t/Y2jJPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q6XBpg/4IY/h2oG4Vm6RRozZRxiEoSr8X5lqGM2zVMQ=; b=eIfH4DjhgUe2uBpOo8/SnZv9xd
+	J/T2sl3+DZbu95wPGqGylmGjP9IG9Z3owoLa9PHJ9tFg1hABl5dXok7fkJNFweDVMnorQoRx1iKU4
+	ZTbjF3D8rRUSs0Ka9Obj0ZZ7VNdLKsUeexmODfDGjpfDrWkSz7Q6Tjo43kKeKhTmXH4zYCwKD0zly
+	UA34RB7pR/EpkViHwXD2H4RiqEtytik7GPx9n1kdDYaGn+wjj4up4/6VklIcIsnOBFH/Ogfun1Xaf
+	PI6KZ5nDhLmo+hw25LY9wv3HtFOCs4qy5GYre0wQWB7EHjGvKtuL3td763jH1WsQUqOX4+7W1LvPD
+	Xsd/ky1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBrd-00000004up2-3pdb;
-	Fri, 13 Dec 2024 20:02:17 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1tMBwq-00000004vuh-20MH;
+	Fri, 13 Dec 2024 20:07:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBqY-00000004uQb-1V82
+	id 1tMBvl-00000004vim-1TfN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 20:01:11 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6d8f99cb0d9so19308336d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 12:01:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1734120067; x=1734724867; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WjFjYpSxXBJz9M1hdmG3iiPhNXo18zA2UB8YwR16DTw=;
-        b=ZznwfE8nhMNKn88jRH6E6iqeCagm5oFSwTpfVCNktv0zSahPQv1Klc8DXsCKZD8sbR
-         PQU/mL3cm9zGEWrhrLsx2yN15CiPo9W+o3H+D4onCBpjQlzJFMAtzjuglhel+Z6fKFmw
-         4ZBy/SZuEqDl7Cf/6iEskovEBD43SW4Ta9cN5ea6B7H9t2n8du2t1j+wXSWxhxJLVr0h
-         /LcmTfq6wcYw9I5ysASNMlXjowNQCFYzf4YSIdaQnYPfJxE1svZYCSLvkQl3SfKG/kv1
-         IsivQQ0V4rbSIB/dkeDqbJ02W22OrgfCsp9F30rG8LExW4ZYeK8eic+KXN/FzZosg4qM
-         SkCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734120067; x=1734724867;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WjFjYpSxXBJz9M1hdmG3iiPhNXo18zA2UB8YwR16DTw=;
-        b=ZRW46RTqxcK9+tOCgEZuujzHR3FexplMI8DtqNpmc0eOcrsuRSNbdmxtQshANMVQV3
-         riACRVVcVq9WYAD1SWHitVy/aA97ZWG5QG9uj9jaH4PtXp6eCAo2wrx9YYDifPMLyTV5
-         GhSVNgCvr0shs/nVMcDQVDoLrSAF3djCq9qJjvvfh2FgSx5BTutF96t8MVTpzir2VO16
-         RUz1uqyWvCWI8QkxssgZWZ3ERJ2tFngV9KcicUtRE+/uMLicQnJa6pHNNgBEaMw3F6pm
-         0V3jMor3WyLADGp8gmcO6EMrJl2t3hNIFxpx3ca+j3VGZUQvrTb8YlZ8CgOwjGzaLXmY
-         tw7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWfDOQ4XJPzG+V/5gWYjSsKcDIhQKbM+NkF631S4NWWiCVneog2Xlnn5ko6om6e6Cnydh7wWlLkcuu2qSn/PwIb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvMt3JP2KW4mFOjnvTwpr4NuAv28U7GCKdhRTKz1W9BeenWOkX
-	EY+mfSorvKL7FvTLDcmI/p6tROTFhKKXdVDI9av+WyBOXDxW40i7atv6TlJXMxNFHgjGGgi87gH
-	n+LqVGyXt6pjTiRYsaVSP2uTVVDrBZvoEnrvQOzLgA/bfXN+wo9Y=
-X-Gm-Gg: ASbGncvRasJrIWyJprynJOFFN55byWsPUU2mDvjtsa+1diXhB9sKaS2lIUz7M9WuuFQ
-	mFdOxjm/FHXwaPbr2P1nm9wiqsWs1+Tq4yF8unw==
-X-Google-Smtp-Source: AGHT+IEywBNIbwjppPoVSQ/XELBsV0fF8sTiDrKGwA9AnZLBRibm/aOssHinTtzowKOKfn5HmY+4fB4H6J+nE2ZGRjI=
-X-Received: by 2002:a17:90b:2242:b0:2ee:ba0c:1726 with SMTP id
- 98e67ed59e1d1-2f2901b253dmr5268444a91.34.1734119680395; Fri, 13 Dec 2024
- 11:54:40 -0800 (PST)
+	Fri, 13 Dec 2024 20:06:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=q6XBpg/4IY/h2oG4Vm6RRozZRxiEoSr8X5lqGM2zVMQ=; b=aNI5GnhQ6591BedH7CtBIbwC3F
+	pPegR4DND7Y/V0E+4t4zeoFoiA4JLIzRvfkwicxC81fLd2Ni+pEJlR5DEadz7cng3p7F5+jqj7ut2
+	0gy193TVuR83XUqRwvK60EUJQZjeEznMo5DK7ygI8PaY2FTQGbMeBIk/Jubz49CQe9Wnm1H1onRjF
+	rWaijsyAlwiEioPkzZyU/rLwFrv3gujLHJGlaVMDMUlkgpfe6YqA6E4pmsgDMdYb7YtV+yd5VIpxF
+	peu09WWvvSxecCx9Bc+jUMX103IOvU51cBhnpqBHpmJh/c9W2gjBpkthcxqGqa6l/3oYMHIl7KNp6
+	XeeBe0yA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35158)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tMBvd-0007Iw-2d;
+	Fri, 13 Dec 2024 20:06:25 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tMBva-0006ZC-0s;
+	Fri, 13 Dec 2024 20:06:22 +0000
+Date: Fri, 13 Dec 2024 20:06:22 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 2/7] net: stmmac: move tx_lpi_timer tracking to
+ phylib
+Message-ID: <Z1yTviYUZ8sbNOsK@shell.armlinux.org.uk>
+References: <Z1r3MWZOt36SgGxf@shell.armlinux.org.uk>
+ <E1tLkSX-006qfS-Rx@rmk-PC.armlinux.org.uk>
+ <Z1wTqh-BnvPYLqU8@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
-In-Reply-To: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Fri, 13 Dec 2024 20:54:29 +0100
-Message-ID: <CA+HBbNG0k24fO5OG42jw-7trWbT3iVTdo6Hh=55s1MaTh28p-A@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 0/9] net: lan969x: add RGMII support
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Lars Povlsen <lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
-	Horatiu Vultur <horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>, 
-	jacob.e.keller@intel.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, devicetree@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z1wTqh-BnvPYLqU8@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_120110_439970_D202360F 
-X-CRM114-Status: GOOD (  31.89  )
+X-CRM114-CacheID: sfid-20241213_120633_388321_6361DE22 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,168 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 2:41=E2=80=AFPM Daniel Machon
-<daniel.machon@microchip.com> wrote:
->
-> =3D=3D Description:
->
-> This series is the fourth of a multi-part series, that prepares and adds
-> support for the new lan969x switch driver.
->
-> The upstreaming efforts is split into multiple series (might change a
-> bit as we go along):
->
->         1) Prepare the Sparx5 driver for lan969x (merged)
->
->         2) Add support for lan969x (same basic features as Sparx5
->            provides excl. FDMA and VCAP, merged).
->
->         3) Add lan969x VCAP functionality (merged).
->
->     --> 4) Add RGMII support.
->
->         5) Add FDMA support.
->
-> =3D=3D RGMII support:
->
-> The lan969x switch device includes two RGMII port interfaces (port 28
-> and 29) supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps.
->
-> =3D=3D Patch breakdown:
->
-> Patch #1 does some preparation work.
->
-> Patch #2 adds new function: is_port_rgmii() to the match data ops.
->
-> Patch #3 uses the is_port_rgmii() in a number of places.
->
-> Patch #4 makes sure that we do not configure an RGMII device as a
->          low-speed device, when doing a port config.
->
-> Patch #5 makes sure we only return the PCS if the port mode requires
->          it.
->
-> Patch #6 adds checks for RGMII PHY modes in sparx5_verify_speeds().
->
-> Patch #7 adds registers required to configure RGMII.
->
-> Patch #8 adds RGMII implementation.
->
-> Patch #9 documents RGMII delays in the dt-bindings.
->
-> Details are in the commit description of the individual patches
->
-> To: UNGLinuxDriver@microchip.com
-> To: Andrew Lunn <andrew+netdev@lunn.ch>
-> To: David S. Miller <davem@davemloft.net>
-> To: Eric Dumazet <edumazet@google.com>
-> To: Jakub Kicinski <kuba@kernel.org>
-> To: Paolo Abeni <pabeni@redhat.com>
-> To: Lars Povlsen <lars.povlsen@microchip.com>
-> To: Steen Hegelund <Steen.Hegelund@microchip.com>
-> To: Horatiu Vultur <horatiu.vultur@microchip.com>
-> To: Russell King <linux@armlinux.org.uk>
-> To: jacob.e.keller@intel.com
-> To: robh@kernel.org
-> To: krzk+dt@kernel.org
-> To: conor+dt@kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: netdev@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: robert.marko@sartura.hr
->
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+On Fri, Dec 13, 2024 at 10:59:54AM +0000, Russell King (Oracle) wrote:
+> On Thu, Dec 12, 2024 at 02:46:33PM +0000, Russell King (Oracle) wrote:
+> > @@ -1092,6 +1092,7 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+> >  			phy_init_eee(phy, !(priv->plat->flags &
+> >  				STMMAC_FLAG_RX_CLK_RUNS_IN_LPI)) >= 0;
+> >  		priv->eee_enabled = stmmac_eee_init(priv);
+> > +		priv->tx_lpi_timer = phy->eee_cfg.tx_lpi_timer;
+> >  		priv->tx_lpi_enabled = priv->eee_enabled;
+> >  		stmmac_set_eee_pls(priv, priv->hw, true);
+> >  	}
+> 
+> While looking deeper at stmmac, there's a bug in the above hunk -
+> stmmac_eee_init() makes use of priv->tx_lpi_timer, so this member
+> needs to be set before calling this function. I'll post a v2 shortly.
 
-Tested-by: Robert Marko <robert.marko@sartura.hr>
+I'm going to hold off v2, there's a lot more that can be cleaned up
+here - the EEE code is rather horrid in stmmac, and there's definitely
+one race, and one logical error in it (e.g. why mark software EEE mode
+*enabled* when EEE mode is being disabled - which can lead to the EEE
+timer being added back onto the timer list.)
 
-> ---
-> Changes in v4:
->
-> - Split patch #4 in v3 into two patches, where the new patch #5 handles
->   PCS selection, by returning the PCS only for ports that require it.
->
-> - Got rid of the '|' symbol for {rx,tx}-internal-delay-ps property
->   description in the dt-bindings (patch #9).
->
-> - Link to v3: https://lore.kernel.org/r/20241118-sparx5-lan969x-switch-dr=
-iver-4-v3-0-3cefee5e7e3a@microchip.com
->
-> Changes in v3:
->
-> v2 was kindly tested by Robert Marko. Not carrying the tag to v3 since
-> we have changes to the handling of the delays.
->
-> - Modified lan969x_rgmii_delay_config() to not apply any MAC delay when
->   the {rx,tx}-internal-delay-ps properties are missing or set to 0
->   (patch #7).
->
-> - Removed 'required' constraint from {rx-tx}-internal-delay-ps
->   properties. Also added description and default value (Patch #8).
->
-> - Link to v2: https://lore.kernel.org/r/20241113-sparx5-lan969x-switch-dr=
-iver-4-v2-0-0db98ac096d1@microchip.com
->
-> Changes in v2:
->
->   Most changes are in patch #7. RGMII implementation has been moved to
->   it's own file lan969x_rgmii.c.
->
->   Details:
->
->     - Use ETH_P_8021Q and ETH_P_8021AD instead of the Sparx5 provided
->       equivalents (patch #7).
->     - Configure MAC delays through "{rx,tx}-internal-delay-ps"
->       properties (patch #7).
->     - Add selectors for all the phase shifts that the hardware supports
->       (instead of only 2.0 ns, patch #7).
->     - Add selectors for all the port speeds (instead of only 1000 mbps.)
->     - Document RGMII delays in dt-bindings.
->
->   - Link to v1: https://lore.kernel.org/r/20241106-sparx5-lan969x-switch-=
-driver-4-v1-0-f7f7316436bd@microchip.com
->
-> ---
-> Daniel Machon (9):
->       net: sparx5: do some preparation work
->       net: sparx5: add function for RGMII port check
->       net: sparx5: use is_port_rgmii() throughout
->       net: sparx5: skip low-speed configuration when port is RGMII
->       net: sparx5: only return PCS for modes that require it
->       net: sparx5: verify RGMII speeds
->       net: lan969x: add RGMII registers
->       net: lan969x: add RGMII implementation
->       dt-bindings: net: sparx5: document RGMII delays
->
->  .../bindings/net/microchip,sparx5-switch.yaml      |  18 ++
->  drivers/net/ethernet/microchip/sparx5/Makefile     |   3 +-
->  .../ethernet/microchip/sparx5/lan969x/lan969x.c    |   5 +
->  .../ethernet/microchip/sparx5/lan969x/lan969x.h    |  10 +
->  .../microchip/sparx5/lan969x/lan969x_rgmii.c       | 224 +++++++++++++++=
-++++++
->  .../net/ethernet/microchip/sparx5/sparx5_main.c    |  29 ++-
->  .../net/ethernet/microchip/sparx5/sparx5_main.h    |   3 +
->  .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 145 +++++++++++++
->  .../net/ethernet/microchip/sparx5/sparx5_phylink.c |  14 +-
->  .../net/ethernet/microchip/sparx5/sparx5_port.c    |  57 ++++--
->  .../net/ethernet/microchip/sparx5/sparx5_port.h    |   5 +
->  11 files changed, 484 insertions(+), 29 deletions(-)
-> ---
-> base-commit: 2c27c7663390d28bc71e97500eb68e0ce2a7223f
-> change-id: 20241104-sparx5-lan969x-switch-driver-4-d59b7820485a
->
-> Best regards,
-> --
-> Daniel Machon <daniel.machon@microchip.com>
->
+There's also weirdness with dwmac4's EEE register fiddling.
 
+The stmmac driver uses hardware timed LPI entry if the timer is small
+enough to be programmed into hardware, otherwise it uses software mode.
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+When software mode wants to enter LPI mode, it sets both:
+
+	GMAC4_LPI_CTRL_STATUS_LPIEN (LPI enable)
+	GMAC4_LPI_CTRL_STATUS_LPITXA (LPI TX Automate)
+
+When software mode wants to exit LPI mode, it clears both of these
+two bits.
+
+In hardware mode, when enabling LPI generation, we set the hardware LPI
+entry timer (separate register) to a non-zero value, and then set:
+
+	GMAC4_LPI_CTRL_STATUS_LPIEN (LPI enable)
+	GMAC4_LPI_CTRL_STATUS_LPITXA (LPI TX Automate)
+	GMAC4_LPI_CTRL_STATUS_LPIATE (LPI Timer enable)
+
+That seems logical. However, in hardware mode, when we want to then
+disable hardware LPI generation, we set the hardware LPI entry timer to
+zero, the following bits:
+
+	GMAC4_LPI_CTRL_STATUS_LPIEN (LPI enable)
+	GMAC4_LPI_CTRL_STATUS_LPITXA (LPI TX Automate)
+
+and clear:
+
+	GMAC4_LPI_CTRL_STATUS_LPIATE (LPI Timer enable)
+
+So, hardware mode, disabled, ends up setting the same bits as
+software mode wanting to generate LPI state on the transmit side.
+This makes no sense to me, and looks like another bug in this driver.
+
+Can anyone suggest any hardware that I could source which uses the
+dwmac4 code and which supports EEE please, so that I have hardware to
+run some tests on.
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
