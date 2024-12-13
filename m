@@ -4,84 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE18E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 05:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D17E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 05:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3+q6mTrPCMLeXIQ9N86FugnUcIPctJtn1/nORRgCwQ=; b=OI4GLUeJWpB1jnzTgwm27JkxO+
-	m3umkyDLTARhDVN5S74ICMG4xy5FnVBwHs9joMTo0T5zN7qoctAYRFmFUzdLu4FItEBLLyzd2Buy6
-	KvBtVkzX1Sl/aRs2w3jADmE1uErwb/6iCEKRl12ph6KoxhUnkxQ77+4jQYxEE+qJPzwP48GlgpKX6
-	VSXi0m/OoOG5ycgAkBlwsbNj2GxsHkrea2ywXd9Sn7YJnIYjndmPzftV9fOCIJhmlpieB0msaFAbg
-	gLcKRBDVQn1lEYz2fVI/a9byoI831vuRArClav8VsPOKwFQsegVR3vrI3+e6TDabLWhDqpLRY84Qc
-	8bM92zjA==;
+	bh=qLWMoNbeqY84cESCWVfsNOf+8OmkCLP+G6E8CsuZzBc=; b=nRAABp5Ke2R3MBbxF+cRwFs56i
+	Jsj9Gl+dx4rITaXvNOhZv/Vl9H2ZPsJpHY2leAU4uu9Npe2Ewk9+aZ9H7Ejf3W5HQGuaif596n+RR
+	g/ER53lZ5ExyqZNrhisXd0jrvakJy+seOKb65Li0NbqA+PAGBPciwQwoFJQvDJhz0Pb//z59ljdQP
+	PhcPdQgBAk0Q7NJmv7Bdb+xA6mMjHwG8oPnA3WBW51u8gHtpa7kO9l53KcuQYG7gcDMC7wyjgn5dS
+	53a1zaUxDmSFWZInL6KIGcvG8+8eLMuY+vWwSBRMfdBcOVS7yAbPhnrlhfAiW+i1pqwa9cwkVU2/a
+	m81rlUHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLyaI-00000002oHt-09GK;
-	Fri, 13 Dec 2024 05:51:30 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1tLyhS-00000002or7-06lS;
+	Fri, 13 Dec 2024 05:58:54 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLyZD-00000002o8P-1Gaz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 05:50:24 +0000
-Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BCMGnKg004865;
-	Thu, 12 Dec 2024 21:50:09 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=N3+q6mTrPCMLeXIQ9N86FugnU
-	cIPctJtn1/nORRgCwQ=; b=O7Tg08v6E0UZh095WEobbBLY+JGmGmeL/Jdx3usYg
-	HFBCQtvZze8Dnp4FIoHARw50MwIJrSJLhCyQ13dkPeaLHwZuZvcznZ9q8uchh2Hk
-	segNtdvOpZg5mLuOPcS76gqHM8vXjoFy2mTDE4rWaw8CmcPqHSpi8tW7HTw3yoV7
-	cCLAEzRdY968lNACIjQN4CZrN+kGgCcnQIVBUjFfu/ztHhKIU5a6gTRpQzjirek7
-	2yBeqs7bb7DV1+qLUP169gehHRzn1hMkMxWlFF0Pka1TCFgQZzrvkS51GDLyZxK+
-	cO8XBVJec7gsYNstS1Ev1kXMK2VHrylijUxOZVD/uazug==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 43g8fxrrgu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Dec 2024 21:50:08 -0800 (PST)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+	id 1tLygN-00000002oiH-0mAy;
+	Fri, 13 Dec 2024 05:57:48 +0000
+X-UUID: 2919fe66b91711ef9048ed6ed365623b-20241212
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=qLWMoNbeqY84cESCWVfsNOf+8OmkCLP+G6E8CsuZzBc=;
+	b=IeY3RfMkTtL1VWuk30hGkkGBNyryoaKV3BEnGJCvEcW++Ttz1NMj7fH6PRLRbS0TbNguxSF+ymsZl1M2h/WUB8CFG+QVxZtM4jaRNEAulSXWyckVaXeRITR1yQOZg7WxXd0ZtPZ8YAadp52qazZ0gD06UxBjWArc1AY9kyueuCA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:7c055260-c6a7-4167-af35-21e06e3c6d94,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:e2c37428-d2eb-4de2-b5c9-495d1bc17256,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0,EDM
+	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 2919fe66b91711ef9048ed6ed365623b-20241212
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <liju-clr.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 162842683; Thu, 12 Dec 2024 22:57:39 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Thu, 12 Dec 2024 21:50:07 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Thu, 12 Dec 2024 21:50:07 -0800
-Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
-	by maili.marvell.com (Postfix) with SMTP id B73973F7078;
-	Thu, 12 Dec 2024 21:50:02 -0800 (PST)
-Date: Fri, 13 Dec 2024 11:20:01 +0530
-From: Linu Cherian <lcherian@marvell.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-CC: <mike.leach@linaro.org>, <james.clark@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
-        <gcherian@marvell.com>, Anil Kumar Reddy <areddy3@marvell.com>,
-        "Tanmay
- Jagdale" <tanmay@marvell.com>
-Subject: Re: [PATCH v12 5/8] coresight: tmc: Add support for reading crash
- data
-Message-ID: <20241213055001.GA1224111@hyd1403.caveonetworks.com>
-References: <20241129084714.3057080-1-lcherian@marvell.com>
- <20241129084714.3057080-6-lcherian@marvell.com>
- <b56cbd79-61a4-49c3-82ce-12ca55a40991@arm.com>
+ 15.2.1118.26; Fri, 13 Dec 2024 13:57:36 +0800
+Received: from APC01-SG2-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 13 Dec 2024 13:57:36 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rJcv2ACnctwR0vGfCSjcuMoobIl1k52lxcuwnYCMmqGlZfLskIEzcMxjDNJqByKTZLE+c/DS9lipLF/y/ZJuO48ZHFeY3a2uCrLRFZ+n+ierpdnYn+ygG7mAaQ53FSdYMn4uy5G25ZblUHYNO+3U7ban0yAJJEE9CK5zC8DXDsXL2WeTN1vwf1MMc8YOaxyJIgC59Eycpq9sPxllKMWdwlEkNm2tFYFuVxrfLT28F682viEcbBGNX2wwOfzA3wSadimI2pwywQCIwmbJiUCTFyPRkz/Q9MHxWLIbsonpAkYBYwnWVz+3kHbJsaS4W/zp6f2TAUz2dnh26ROIrxuQ3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qLWMoNbeqY84cESCWVfsNOf+8OmkCLP+G6E8CsuZzBc=;
+ b=WvNLjgVqx1yR1k0O1y+45FQJ6KJoYRyHrlb4kkUwbgJAQD8gfVTNKLUqABMcQ33gj8NV7S+iRu73EL8oz9f50ycXkBensRImi2ZBse6BNYZC0ZSUGmaMb7mDLGZVyMLuZjbQw3CxCx0KgBGsEq4LQwcd9IQhapx0YG0IAexDOjRBesUdI8Hy+8US+GM5wjRkGakg3v1VglZ84M4JfoAHOGQCv46jR3AVwKKOEGGOavPGcrB+4kF2HyHi5TMFk5SbQwVvy4DVQ3LHhXEnkkKDvG0NbDlyt5bDZ4nIc8nn3f+/W//TE4Df2G4jBmLv9UMoV4gmoevGo+dDGSom4eCPiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qLWMoNbeqY84cESCWVfsNOf+8OmkCLP+G6E8CsuZzBc=;
+ b=phZUhjX9/rc+woIhjjO0wwGIFRUAyi9sQbJWa5/Y6QOxfo/JWN/XGkZsaiZULooPx03Iiz/QxpLXIQ3wneXe6eVkSV8FFpOMe2nOr7spVaUlsNcrjZHiovdoInMGhwcPDIPLdXQgnsYmpdWirVFb/hbxFKsiKLMiOSP/oh3bAPc=
+Received: from KL1PR03MB8285.apcprd03.prod.outlook.com (2603:1096:820:10e::13)
+ by SEZPR03MB7591.apcprd03.prod.outlook.com (2603:1096:101:132::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Fri, 13 Dec
+ 2024 05:57:34 +0000
+Received: from KL1PR03MB8285.apcprd03.prod.outlook.com
+ ([fe80::fc6e:1c9b:c9c6:ca6b]) by KL1PR03MB8285.apcprd03.prod.outlook.com
+ ([fe80::fc6e:1c9b:c9c6:ca6b%4]) with mapi id 15.20.8207.020; Fri, 13 Dec 2024
+ 05:57:31 +0000
+From: =?utf-8?B?TGlqdS1jbHIgQ2hlbiAo6Zmz6bqX5aaCKQ==?=
+	<Liju-clr.Chen@mediatek.com>
+To: "corbet@lwn.net" <corbet@lwn.net>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "rostedt@goodmis.org"
+	<rostedt@goodmis.org>, "krzk@kernel.org" <krzk@kernel.org>,
+	=?utf-8?B?WmUteXUgV2FuZyAo546L5r6k5a6HKQ==?= <Ze-yu.Wang@mediatek.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"richardcochran@gmail.com" <richardcochran@gmail.com>, "mhiramat@kernel.org"
+	<mhiramat@kernel.org>, =?utf-8?B?WWluZ3NoaXVhbiBQYW4gKOa9mOepjui7kik=?=
+	<Yingshiuan.Pan@mediatek.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"mathieu.desnoyers@efficios.com" <mathieu.desnoyers@efficios.com>,
+	"will@kernel.org" <will@kernel.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	=?utf-8?B?S2V2ZW5ueSBIc2llaCAo6Kyd5a6c6Iq4KQ==?=
+	<Kevenny.Hsieh@mediatek.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, =?utf-8?B?UGVpTHVuIFN1ZWkgKOmai+WfueWAqyk=?=
+	<PeiLun.Suei@mediatek.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, =?utf-8?B?U2hhd24gSHNpYW8gKOiVreW/l+elpSk=?=
+	<shawn.hsiao@mediatek.com>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, =?utf-8?B?Q2hpLXNoZW4gWWVoICjokYnlpYfou5Ip?=
+	<Chi-shen.Yeh@mediatek.com>
+Subject: Re: [PATCH v13 01/25] virt: geniezone: enable gzvm-ko in defconfig
+Thread-Topic: [PATCH v13 01/25] virt: geniezone: enable gzvm-ko in defconfig
+Thread-Index: AQHbNn01wa/NjP5Jt06CzkTKxIxBpbLg4z4AgAL3kQA=
+Date: Fri, 13 Dec 2024 05:57:31 +0000
+Message-ID: <d711de9ef517cc85fbb16a30ac21bd4c44c8f863.camel@mediatek.com>
+References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
+	 <20241114100802.4116-2-liju-clr.chen@mediatek.com>
+	 <1ecf2e8c-86cd-4ba2-832b-014a05a80d26@kernel.org>
+In-Reply-To: <1ecf2e8c-86cd-4ba2-832b-014a05a80d26@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR03MB8285:EE_|SEZPR03MB7591:EE_
+x-ms-office365-filtering-correlation-id: 2041a8cb-b743-4fd5-6838-08dd1b3b0859
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?Tnc4T3puenlyTTZVcjM3K25qRGl6ZDl2cFlOY0F4bFJ5aTZuZkFiTjNyRWQv?=
+ =?utf-8?B?UVdiQzJ2NXErL3BqVXl5OVlISG9WREU2QXhFM1VmUnBNbmhTUldPcGRYSU9U?=
+ =?utf-8?B?Yk1JU0FmeG04alREUW5sYVFQd3dhVXBqU2FzVy9UVy83dlMzMVFTUGlXYzRx?=
+ =?utf-8?B?QlZtbU1TWXM4NkVYMXpDZ3lJUjRmM1ViRllJUUt2NDZrRjJOcTIrYWlWMnAr?=
+ =?utf-8?B?QjZzUUxpY3kxNWQyQkIyOU9FY0VuUldPWW9WVkJzRmV2cUFJaEZqRU4zVTNG?=
+ =?utf-8?B?RWwrSE5XV2pDZU1VNUE3TWxIYWJodlYwRHJGcVRWWGJ4MFNIRGJsbDhLOFVw?=
+ =?utf-8?B?NmVYbDFXYktXVXNsTDlVN0NvRGlvZFgyTDVCZWpLa1owRFFzcW5ENFdHb3lC?=
+ =?utf-8?B?eXJKNjIyd0FUS1FtMzhnNEkyOTcxclFDSU93REFITXBuY3ZVdE5XWWlTRXZr?=
+ =?utf-8?B?ODVYeWhHOGxUOWhvUDJOdFlHTmx2WEVwbERlb25IQnZHZVNqbUhkVy82Umdz?=
+ =?utf-8?B?dkFoMTJRUnhkY254ZG8zTGlTWUpMcVBjeWd4cTl3YVJYRHNsZ2lCbmx4UTBx?=
+ =?utf-8?B?RU1xVWFINFdSSUEvUlpJdG11NXZESnptOURWS0JzSXZBU3RHRERVRE4weDcv?=
+ =?utf-8?B?VXN2bUtBMTFNQ0VVWkc5Y0prRlkvZysyd1dsYk5kcVBpRnVBc3M3azRkQ2dL?=
+ =?utf-8?B?U3YzYXBwR29xaTRiZVhTby9leUN5eTBsK0M0VERFLzBkeXhJQmRqVVR3QXgy?=
+ =?utf-8?B?M0REb1lvOWE1TWMzZFlEY1J0MktMTDd2RkRVVlNaUk9NTitQaVpNS2hKUVRX?=
+ =?utf-8?B?czQxbGZuMzZrWldlbXJYdlhWNnJzQy8vREQrOTJvalpkM3ZlcWJUbU1lUTd5?=
+ =?utf-8?B?eWNOVGc3UXM2dk5mcGRtQnVCckF1M2NKdWl2SE9wRFRyeEdaVnpTTncrM3JL?=
+ =?utf-8?B?bGxEY3hibmU1VlFGVHR0VWRzZW80T3RQTDVYQ1JtY295RVRyc1AzQ3RBdXF5?=
+ =?utf-8?B?M042d1ZuMlVUNnAxZERwZzUwaENLVU41VlEvSW1PVXF1SU5aQjB5OGRHL1hK?=
+ =?utf-8?B?THFoV0I0N2JWY1R1S3FNMjR0Y0hDd0hJY3FKR21LU2JzUnUxU1N4NTJpa2hB?=
+ =?utf-8?B?bW1FR1YxK09oMk9iM3o4RE5mS1hPaDlMTVpwemo1ZDJDeGlKRDRGaGlNMDh5?=
+ =?utf-8?B?bVZoc05VUlVRVkNXRmtOaFE3cVJZYkxSZlJscDJlNHNEeDI3OUt0MXhyWWMx?=
+ =?utf-8?B?Q2Rqa1VoR0ZPTnNEKzdaMllFclZnTjJIWXlnVnNWcEFTYmZ6a21YT3JFdTg3?=
+ =?utf-8?B?V2tMazNLdGM4bEdSeDV2dXVBeHdYZkhFTnRDNlJQTkZoVVBhYS96YmdWVWJv?=
+ =?utf-8?B?QnRRVXVJUUVpVWdjU1dQdzhDVmRhSGcxMjBPQzRzRDd2b2N5ekc5TTFEZFNq?=
+ =?utf-8?B?RWt4TXFlVjd2c2hMUlkzdWc4MlpzWFZFam0zNDkrRmFGL1lSVWhlTkEwbUJI?=
+ =?utf-8?B?MTBBNXFCS3N3N1RITklVeDd6MER6NC9lTVlZdWtGYXprZWRydFNqTlI5OTJK?=
+ =?utf-8?B?dlFvU3ZhMWJlNVUyamorWU5zSGQveHhONVlKRWoxZGlEY2p5OGtjZ1h1MTA0?=
+ =?utf-8?B?Y1c5Q2Y5VU5KVlBVQTR1ZWJ4NWFhNDZQU29tOFp1ck42TytpR3Ztdi9KRWR5?=
+ =?utf-8?B?RnR2TjFuZmxzSmxIUEFvV3l3Z0xPZG1TRDFIbjZSMFRvOURmTlR4UmVpUU44?=
+ =?utf-8?B?bnJKZFFiSm1YMUNZSGFaUGhoS0htd2tzbVpLaVFFNGVoeUYzbTJUcnV1RkdX?=
+ =?utf-8?B?R0Vwa1kyWU5uYzVpZ3Yzb3VLWTZJVDZjdzgzaEx5WFlNYVcxMEF3VUtTMk41?=
+ =?utf-8?B?U3R2c2dnMGxjZ3FRTHZBbmdpN09OL21sVytyL3lpUHJpVlFRdGdxVUlSaWNq?=
+ =?utf-8?Q?3mJ0UFTvUDrhNkjO1uNVXI/3s4jiC0YP?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB8285.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MHNyQ3BBN3h3eWl0b3BuVEpvS0ZsNzF4L21HV2YwaHV5RENTY3pDOExYeDJZ?=
+ =?utf-8?B?bjM1dzZCL1ZzVHloZVRtbVVwM3JUOGIwc0dCL2VvK050cEF3SnBpYUlJeGJl?=
+ =?utf-8?B?aXM5MWE0QWoxWEVGSDI1bzVpdFZhYmg1UUkyTnJENkwxS0ZVZVdsTGl1ZFc4?=
+ =?utf-8?B?SU9yTHV1eE1TUjZTTFdPZFYzZVJkdG9oTWJnS093bmJRUHdBRkVmZ2hZeTdZ?=
+ =?utf-8?B?SzkyNjNtQTVnZCtVUEs2RUZYTFppZ3RPVkFhc0NuUU1ReHl3bmFZU2kzZzk3?=
+ =?utf-8?B?UFM3MlVwV0FuN3RmSmkrdDNKK1B4NldGWGVYZ1BYZ3VZdUhGaG11MStWaTVM?=
+ =?utf-8?B?Q05YM3BwQlBLdDh3aGppbyszd1V0WHFHLzhENktEeTAxWklTVmJLVTI2MlA4?=
+ =?utf-8?B?TldRaVRVMjd1ejhlbnNTL2FZcTcrVk5oYXZrVDFBeHUzeWVyNXlGblJPWlBF?=
+ =?utf-8?B?dHB2VG1kdTh0ZFk2RU9GamJJWU4zcHFpbG9ubEZ6aFFaamQ2UXpqZDdwcTll?=
+ =?utf-8?B?VGJZY2tGUzkzS0lhYzhsaGZHSVk3Z0g5MjIxWXRHSVJxVFRmUW9VSXhFU29q?=
+ =?utf-8?B?QXpPRGNuZWQ5WG9rb3lYeFYrZUIyV0pVY0o1aWVtVGpLSSszeGtEek9Ncnda?=
+ =?utf-8?B?Q01mQk9lWmpNdmJsNjhkUGN5WnFzcTlHM2U5dmdUWkx3aGg4TkhJekxkK0ZC?=
+ =?utf-8?B?b2ppdmJqY3BOSXJwQXArSFJJSlhJOTJCQ0p1ODA1Uks0eldLWVQ1L0NPVXFr?=
+ =?utf-8?B?YnZwbXVYUGk4WDVERW1uMUZGQjh0RGpxN3lUVmJTcDZtdml1cGJUaFlrbW9t?=
+ =?utf-8?B?MGFkclRCVjVnbTA4YmFQUjBpMXA0SEt3MzRuQ21JUXY2blJ1QnZQMVZnSE5j?=
+ =?utf-8?B?aUt2Ti9LQTJEY0c1N0Nzc0krbWpTUGFOMC9ITnNLZ29ESThXUzZLUjlMVzlU?=
+ =?utf-8?B?V20wVTErbjdYQXZ2M0ZXdzhBNnY2RUw2Y3lQZnEwWmFSM0pCeWh3VGNCWGhw?=
+ =?utf-8?B?bXZoNFJtOEs4Rlpwa1gwSDJMVFR5ZEdockxhc1BNalc0SForcWZyWDZLTnhy?=
+ =?utf-8?B?aVVhcTZiQ0F1alZvRytKR2d3MlNmbExxODNBNlkzNDVPcGF2K1E5UVhNeFJI?=
+ =?utf-8?B?RlhhTmFib0lBTlE5dWQ1WGk5UHZlTmU5M210M3RuRkNpSjQ4MVVIZmQ0ZTdz?=
+ =?utf-8?B?TmZqdVlJNkVJbXIrbCtSWlpHUjFBVVd3bEU1WUwrdjg3Ti85aEhZNzhxWmdn?=
+ =?utf-8?B?SHN5R3JGcDJnVzQ2U1RiT0ZJU3QveDRVZlRjSHlTaWFrQ0JRTEMrTm9tL09s?=
+ =?utf-8?B?NU4wSDN4cmdVazhrd09vbkgwQjd0ZDM0aC9DbXN2aVc1bm4wYno1K2RObzNH?=
+ =?utf-8?B?eTE4Wm83cUNmQ2RuclZFSGROMVRRR1VYV0NwUFE5TEUvVi9lNXlDa3RqY1p3?=
+ =?utf-8?B?d2NGZFo0VnNoM2xlWTV3bEtRc0ZHazBwd3V5dG9OSkN5T1R5V05tVE9Ub2E3?=
+ =?utf-8?B?MXkvcnpJUlhtcEQwV1FVUEZ4dWNVQmxzbEpLUHkxRm56aWFaS1kzUUdBbjBT?=
+ =?utf-8?B?MXZBZFQ0MlJkdFVkZDdkZUJGV25DRVN0V0EydWNyenZzemRiN0R0SitPdFpC?=
+ =?utf-8?B?NTVUYklBV3ByQmdTeVg2VjlXY0JRT1kwMmluTmlDdWNTVitObFhQbytlTFlG?=
+ =?utf-8?B?YU55dlVTSmY0NG1aSmRKdXRjZnBia3ZONmZPZFVVYmVSbzZsN05rdmxwMDhD?=
+ =?utf-8?B?c0FLelcxN2FBb3ExN1JZWVNmUWZXN3ZoYUc5T1NsMXYrQnRtTERIK3hzT3FS?=
+ =?utf-8?B?RTFVUlQvVUFkU3F3bjBIaUxCZDd3anltL093ZytQUXNwVEFTQTJDQ0VvaDhF?=
+ =?utf-8?B?U1RaL2FPRnEzVGZRd0g4Z1Z5RklmNjVYb0doQ2tGQlQ1b29nc3JGT0FLQUR2?=
+ =?utf-8?B?RE5JajdxRTl2YkhpMUFiWUFHL1ZURDNqUXZ6Z2JKcEFnM05XTk9TZ3dSNk41?=
+ =?utf-8?B?TUNDRFVyZ3ZVRVpEYkVYeFVUK3lyRzFraE01K29DS09UWUFSbFVvUW0vamVj?=
+ =?utf-8?B?bmFRbCtQSUh6dElrTXdJWERBVG5xa3pNTkhZWkF1TThPbXJidzJ5VVoyRHRa?=
+ =?utf-8?B?dUVWK0hoWDlETlNmSVpDSzVUTDdkTWcyamRGWWxEOUF0UGgrZnBGMEtUVENa?=
+ =?utf-8?B?Umc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <A227F33B0CDCCD4A852017EF4861A399@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <b56cbd79-61a4-49c3-82ce-12ca55a40991@arm.com>
-X-Proofpoint-ORIG-GUID: rlC0BNxQiyCImuEzcen0I3K3nw0kH4Ro
-X-Proofpoint-GUID: rlC0BNxQiyCImuEzcen0I3K3nw0kH4Ro
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
- definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB8285.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2041a8cb-b743-4fd5-6838-08dd1b3b0859
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Dec 2024 05:57:31.3013
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: i4+RIVi3j+2nXOg2h00yMZYHkh4IgR9GCElu1NW16rWXG7V6f+GMbInSvDUarCj9hTEl9yAstef5nuREPpGRqj7b7Y9OgModBk/8/zEsF8c=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7591
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_215023_469334_CB3DBD09 
-X-CRM114-Status: GOOD (  43.52  )
+X-CRM114-CacheID: sfid-20241212_215747_242680_B588939F 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,458 +228,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
-
-On 2024-12-05 at 22:31:51, Suzuki K Poulose (suzuki.poulose@arm.com) wrote:
-> Hi Linu,
-> 
-> On 29/11/2024 08:47, Linu Cherian wrote:
-> > * Add support for reading crashdata using special device files.
-> >    The special device files /dev/crash_tmc_xxx would be available
-> >    for read file operation only when the crash data is valid.
-> > 
-> > * User can read the crash data as below
-> > 
-> >    For example, for reading crash data from tmc_etf sink
-> > 
-> >    #dd if=/dev/crash_tmc_etfXX of=~/cstrace.bin
-> > 
-> 
-> Unfortunately there is still a bug that I picked up, see below for the
-> barrier_packet insertion.
-> 
-> > Signed-off-by: Anil Kumar Reddy <areddy3@marvell.com>
-> > Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
-> > Signed-off-by: Linu Cherian <lcherian@marvell.com>
-> > ---
-> >   .../hwtracing/coresight/coresight-tmc-core.c  | 231 +++++++++++++++++-
-> >   .../hwtracing/coresight/coresight-tmc-etr.c   |  19 +-
-> >   drivers/hwtracing/coresight/coresight-tmc.h   |  13 +-
-> >   3 files changed, 260 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > index 1e3938ec12cb..5f3789314c4d 100644
-> > --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > @@ -105,6 +105,151 @@ u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata)
-> >   	return mask;
-> >   }
-> > +bool is_tmc_crashdata_valid(struct tmc_drvdata *drvdata)
-> > +{
-> > +	struct tmc_crash_metadata *mdata;
-> > +
-> > +	if (!tmc_has_reserved_buffer(drvdata) ||
-> > +	    !tmc_has_crash_mdata_buffer(drvdata))
-> > +		return false;
-> > +
-> > +	mdata = drvdata->crash_mdata.vaddr;
-> > +
-> > +	/* Check version match */
-> > +	if (mdata->version != CS_CRASHDATA_VERSION)
-> > +		return false;
-> > +
-> > +	/* Check for valid metadata */
-> > +	if (!mdata->valid) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"Data invalid in tmc crash metadata\n");
-> > +		return false;
-> > +	}
-> > +
-> > +	/*
-> > +	 * Buffer address given by metadata for retrieval of trace data
-> > +	 * from previous boot is expected to be same as the reserved
-> > +	 * trace buffer memory region provided through DTS
-> > +	 */
-> > +	if (drvdata->resrv_buf.paddr != mdata->trace_paddr) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"Trace buffer address of previous boot invalid\n");
-> > +		return false;
-> > +	}
-> > +
-> > +	/* Check data integrity of metadata */
-> > +	if (mdata->crc32_mdata != find_crash_metadata_crc(mdata)) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"CRC mismatch in tmc crash metadata\n");
-> > +		return false;
-> > +	}
-> > +	/* Check data integrity of tracedata */
-> > +	if (mdata->crc32_tdata != find_crash_tracedata_crc(drvdata, mdata)) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"CRC mismatch in tmc crash tracedata\n");
-> > +		return false;
-> > +	}
-> > +
-> > +	return true;
-> > +}
-> > +
-> > +int tmc_read_prepare_crashdata(struct tmc_drvdata *drvdata)
-> > +{
-> > +	int ret = 0;
-> > +	u32 status, size;
-> > +	u64 rrp, rwp, dba;
-> > +	unsigned long flags;
-> > +	struct tmc_resrv_buf *rbuf;
-> > +	struct tmc_crash_metadata *mdata;
-> > +
-> > +	spin_lock_irqsave(&drvdata->spinlock, flags);
-> > +
-> > +	if (drvdata->reading) {
-> > +		ret = -EBUSY;
-> > +		goto out;
-> > +	}
-> > +
-> > +	if (!is_tmc_crashdata_valid(drvdata)) {
-> > +		ret = -ENXIO;
-> > +		goto out;
-> > +	}
-> > +
-> > +	mdata = drvdata->crash_mdata.vaddr;
-> > +	rbuf = &drvdata->resrv_buf;
-> > +
-> > +	rrp = mdata->tmc_rrp;
-> > +	rwp = mdata->tmc_rwp;
-> > +	dba = mdata->tmc_dba;
-> > +	status = mdata->tmc_sts;
-> > +	size = mdata->tmc_ram_size << 2;
-> > +
-> > +	/* Sync the buffer pointers */
-> > +	rbuf->offset = rrp - dba;
-> > +	if (status & TMC_STS_FULL)
-> > +		rbuf->len = size;
-> > +	else
-> > +		rbuf->len = rwp - rrp;
-> > +
-> 
-> I believe all of the above can be done one time probe and don't need to
-> be repeated every time we do a read_prepare() ?
-
-Ack. Will do that change.
-
-> 
-> 
-> > +	/* Additional sanity checks for validating metadata */
-> > +	if ((rbuf->offset > size) ||
-> > +	    (rbuf->len > size)) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"Offset and length invalid in tmc crash metadata\n");
-> > +		return -EINVAL;
-> > +	}
-> 
-> Ideally this should also be done once and "don't expose" crash_tmc
-> device if the above is invalid in metada.
-
-
-Will remove the invocation of this function during tmc_crashdata_read
-and move it to tmc_probe .
-
-+       if (is_tmc_crashdata_valid(drvdata) &&
-+           !tmc_prepare_crashdata(drvdata))
-+               register_crash_dev_interface(drvdata, desc.name);
-        return ret;
- }
-
-
-> 
-> 
-> > +
-> > +	if (status & 0x1)
-> 
-> minor nit: s/0x1/TMC_STS_FULL ?
-
-Ack.
-
-> 
-> > +		coresight_insert_barrier_packet(drvdata->buf);
-> 
-> And this looks completely out of nowhere and corrupting the drvdata->buf ?
-> drvdata->buf is for active sessions, which we haven't set here ?
-
-Thanks for pointing this out. Somehow missed this.
-
-> 
-> 
-> > +
-> > +	drvdata->reading = true;
-> 
-> Also, we agreed to not overload "drvdata->reading" ?
-
-> 
-> See
-> https://lkml.kernel.org/r/20241017114054.GC896339@hyd1403.caveonetworks.com
-> 
-> We are allowed to the ETR (which drvdata->reading prevents from btw) while
-> crash data is being read. You could instead move it to
-> drvdata->resrv_buf->reading ?
-
-Ack.
-
-> 
-> 
-> 
-> Suzuki
-> 
-> 
-> > +out:
-> > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> > +	return ret;
-> > +}
-> > +
-> > +int tmc_read_unprepare_crashdata(struct tmc_drvdata *drvdata)
-> > +{
-> > +	unsigned long flags;
-> > +	struct tmc_resrv_buf *rbuf;
-> > +
-> > +	spin_lock_irqsave(&drvdata->spinlock, flags);
-> > +
-> > +	rbuf = &drvdata->resrv_buf;
-> > +	/* Reset valid length */
-> > +	rbuf->len = 0;
-> > +
-> > +	drvdata->reading = false;
-> > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static inline ssize_t tmc_get_resvbuf_trace(struct tmc_drvdata *drvdata,
-> > +					  loff_t pos, size_t len, char **bufpp)
-> > +{
-> > +	s64 offset;
-> > +	ssize_t actual = len;
-> > +	struct tmc_resrv_buf *rbuf = &drvdata->resrv_buf;
-> > +
-> > +	if (pos + actual > rbuf->len)
-> > +		actual = rbuf->len - pos;
-> > +	if (actual <= 0)
-> > +		return 0;
-> > +
-> > +	/* Compute the offset from which we read the data */
-> > +	offset = rbuf->offset + pos;
-> > +	if (offset >= rbuf->size)
-> > +		offset -= rbuf->size;
-> > +
-> > +	/* Adjust the length to limit this transaction to end of buffer */
-> > +	actual = (actual < (rbuf->size - offset)) ?
-> > +		actual : rbuf->size - offset;
-> > +
-> > +	*bufpp = (char *)rbuf->vaddr + offset;
-> > +
-> > +	return actual;
-> > +}
-> > +
-> >   static int tmc_read_prepare(struct tmc_drvdata *drvdata)
-> >   {
-> >   	int ret = 0;
-> > @@ -223,6 +368,69 @@ static const struct file_operations tmc_fops = {
-> >   	.release	= tmc_release,
-> >   };
-> > +static int tmc_crashdata_open(struct inode *inode, struct file *file)
-> > +{
-> > +	int ret;
-> > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
-> > +						   struct tmc_drvdata,
-> > +						   crashdev);
-> > +
-> > +	ret = tmc_read_prepare_crashdata(drvdata);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	nonseekable_open(inode, file);
-> > +
-> > +	dev_dbg(&drvdata->csdev->dev, "%s: successfully opened\n", __func__);
-> > +	return 0;
-> > +}
-> > +
-> > +static ssize_t tmc_crashdata_read(struct file *file, char __user *data,
-> > +				  size_t len, loff_t *ppos)
-> > +{
-> > +	char *bufp;
-> > +	ssize_t actual;
-> > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
-> > +						   struct tmc_drvdata,
-> > +						   crashdev);
-> > +
-> > +	actual = tmc_get_resvbuf_trace(drvdata, *ppos, len, &bufp);
-> > +	if (actual <= 0)
-> > +		return 0;
-> > +
-> > +	if (copy_to_user(data, bufp, actual)) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"%s: copy_to_user failed\n", __func__);
-> > +		return -EFAULT;
-> > +	}
-> > +
-> > +	*ppos += actual;
-> > +	dev_dbg(&drvdata->csdev->dev, "%zu bytes copied\n", actual);
-> > +
-> > +	return actual;
-> > +
-> > +}
-> > +
-> > +static int tmc_crashdata_release(struct inode *inode, struct file *file)
-> > +{
-> > +	int ret = 0;
-> > +	struct tmc_drvdata *drvdata = container_of(file->private_data,
-> > +						   struct tmc_drvdata,
-> > +						   crashdev);
-> > +
-> > +	ret = tmc_read_unprepare_crashdata(drvdata);
-> > +
-> > +	dev_dbg(&drvdata->csdev->dev, "%s: released\n", __func__);
-> > +	return ret;
-> > +}
-> > +
-> > +static const struct file_operations tmc_crashdata_fops = {
-> > +	.owner		= THIS_MODULE,
-> > +	.open		= tmc_crashdata_open,
-> > +	.read		= tmc_crashdata_read,
-> > +	.release	= tmc_crashdata_release,
-> > +};
-> > +
-> >   static enum tmc_mem_intf_width tmc_get_memwidth(u32 devid)
-> >   {
-> >   	enum tmc_mem_intf_width memwidth;
-> > @@ -532,6 +740,20 @@ static u32 tmc_etr_get_max_burst_size(struct device *dev)
-> >   	return burst_size;
-> >   }
-> > +static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
-> > +					 const char *name)
-> > +{
-> > +	drvdata->crashdev.name =
-> > +		devm_kasprintf(&drvdata->csdev->dev, GFP_KERNEL, "%s_%s", "crash", name);
-> > +	drvdata->crashdev.minor = MISC_DYNAMIC_MINOR;
-> > +	drvdata->crashdev.fops = &tmc_crashdata_fops;
-> > +	if (misc_register(&drvdata->crashdev)) {
-> > +		dev_dbg(&drvdata->csdev->dev,
-> > +			"Failed to setup user interface for crashdata\n");
-> > +		drvdata->crashdev.fops = NULL;
-> > +	}
-> > +}
-> > +
-> >   static int __tmc_probe(struct device *dev, struct resource *res)
-> >   {
-> >   	int ret = 0;
-> > @@ -632,8 +854,13 @@ static int __tmc_probe(struct device *dev, struct resource *res)
-> >   	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
-> >   	drvdata->miscdev.fops = &tmc_fops;
-> >   	ret = misc_register(&drvdata->miscdev);
-> > -	if (ret)
-> > +	if (ret) {
-> >   		coresight_unregister(drvdata->csdev);
-> > +		goto out;
-> > +	}
-> > +
-> > +	if (is_tmc_crashdata_valid(drvdata))
-> > +		register_crash_dev_interface(drvdata, desc.name);
-> >   out:
-> >   	return ret;
-> >   }
-> > @@ -687,6 +914,8 @@ static void __tmc_remove(struct device *dev)
-> >   	 * handler to this device is closed.
-> >   	 */
-> >   	misc_deregister(&drvdata->miscdev);
-> > +	if (drvdata->crashdev.fops)
-> > +		misc_deregister(&drvdata->crashdev);
-> >   	coresight_unregister(drvdata->csdev);
-> >   }
-> > diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> > index fb944a68a11c..18752f58dfa6 100644
-> > --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> > +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> > @@ -2012,6 +2012,23 @@ static ssize_t buf_mode_preferred_show(struct device *dev,
-> >   	return sysfs_emit(buf, "%s\n", buf_modes_str[drvdata->etr_mode]);
-> >   }
-> > +static int buf_mode_set_resrv(struct tmc_drvdata *drvdata)
-> > +{
-> > +	unsigned long flags;
-> > +	int err = 0;
-> > +
-> > +	/* Ensure there are no active crashdata read sessions */
-> > +	spin_lock_irqsave(&drvdata->spinlock, flags);
-> > +	if (!drvdata->reading) {
-> > +		tmc_crashdata_set_invalid(drvdata);
-> > +		drvdata->etr_mode = ETR_MODE_RESRV;
-> > +
-> > +	} else
-> > +		err = -1;
-> > +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> > +	return err;
-> > +}
-> > +
-> >   static ssize_t buf_mode_preferred_store(struct device *dev,
-> >   					  struct device_attribute *attr,
-> >   					  const char *buf, size_t size)
-> > @@ -2027,7 +2044,7 @@ static ssize_t buf_mode_preferred_store(struct device *dev,
-> >   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_CATU]) && buf_hw.has_catu)
-> >   		drvdata->etr_mode = ETR_MODE_CATU;
-> >   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_RESRV]) && buf_hw.has_resrv)
-> > -		drvdata->etr_mode = ETR_MODE_RESRV;
-> > +		return buf_mode_set_resrv(drvdata) ? -EBUSY : size;
-> >   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_AUTO]))
-> >   		drvdata->etr_mode = ETR_MODE_AUTO;
-> >   	else
-> > diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> > index d76e83fc840b..2ece44e09911 100644
-> > --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> > +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> > @@ -195,11 +195,15 @@ struct etr_buf {
-> >    * @paddr	: Start address of reserved memory region.
-> >    * @vaddr	: Corresponding CPU virtual address.
-> >    * @size	: Size of reserved memory region.
-> > + * @offset	: Offset of the trace data in the buffer for consumption.
-> > + * @len	: Available trace data @buf (may round up to the beginning).
-> >    */
-> >   struct tmc_resrv_buf {
-> >   	phys_addr_t     paddr;
-> >   	void		*vaddr;
-> >   	size_t		size;
-> > +	unsigned long	offset;
-> > +	s64		len;
-> >   };
-> >   /**
-> > @@ -208,6 +212,8 @@ struct tmc_resrv_buf {
-> >    * @base:	memory mapped base address for this component.
-> >    * @csdev:	component vitals needed by the framework.
-> >    * @miscdev:	specifics to handle "/dev/xyz.tmc" entry.
-> > + * @crashdev:	specifics to handle "/dev/crash_tmc_xyz" entry for reading
-> > + *		crash tracedata.
-> >    * @spinlock:	only one at a time pls.
-> >    * @pid:	Process ID of the process that owns the session that is using
-> >    *		this component. For example this would be the pid of the Perf
-> > @@ -227,7 +233,7 @@ struct tmc_resrv_buf {
-> >    * @idr_mutex:	Access serialisation for idr.
-> >    * @sysfs_buf:	SYSFS buffer for ETR.
-> >    * @perf_buf:	PERF buffer for ETR.
-> > - * @resrv_buf:	Used by ETR as hardware trace buffer and for trace data
-> > + * @resrv_buf:  Used by ETR as hardware trace buffer and for trace data
-> >    *		retention (after crash) only when ETR_MODE_RESRV buffer
-> >    *		mode is enabled. Used by ETF for trace data retention
-> >    *		(after crash) by default.
-> > @@ -239,6 +245,7 @@ struct tmc_drvdata {
-> >   	void __iomem		*base;
-> >   	struct coresight_device	*csdev;
-> >   	struct miscdevice	miscdev;
-> > +	struct miscdevice	crashdev;
-> >   	spinlock_t		spinlock;
-> >   	pid_t			pid;
-> >   	bool			reading;
-> > @@ -309,6 +316,8 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
-> >   void tmc_enable_hw(struct tmc_drvdata *drvdata);
-> >   void tmc_disable_hw(struct tmc_drvdata *drvdata);
-> >   u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
-> > +int tmc_read_prepare_crashdata(struct tmc_drvdata *drvdata);
-> > +int tmc_read_unprepare_crashdata(struct tmc_drvdata *drvdata);
-> >   /* ETB/ETF functions */
-> >   int tmc_read_prepare_etb(struct tmc_drvdata *drvdata);
-> > @@ -371,6 +380,8 @@ void tmc_sg_table_sync_data_range(struct tmc_sg_table *table,
-> >   				  u64 offset, u64 size);
-> >   ssize_t tmc_sg_table_get_data(struct tmc_sg_table *sg_table,
-> >   			      u64 offset, size_t len, char **bufpp);
-> > +
-> > +bool is_tmc_crashdata_valid(struct tmc_drvdata *drvdata);
-> >   static inline unsigned long
-> >   tmc_sg_table_buf_size(struct tmc_sg_table *sg_table)
-> >   {
-> 
-> 
+T24gV2VkLCAyMDI0LTEyLTExIGF0IDA5OjM4ICswMTAwLCBLcnp5c3p0b2YgS296bG93c2tpIHdy
+b3RlOg0KPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3Bl
+biBhdHRhY2htZW50cyB1bnRpbA0KPiB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRo
+ZSBjb250ZW50Lg0KPiANCj4gDQo+IE9uIDE0LzExLzIwMjQgMTE6MDcsIExpanUtY2xyIENoZW4g
+d3JvdGU6DQo+ID4gRnJvbTogWWluZ3NoaXVhbiBQYW4gPHlpbmdzaGl1YW4ucGFuQG1lZGlhdGVr
+LmNvbT4NCj4gPiANCj4gDQo+IFBsZWFzZSB1c2Ugc3ViamVjdCBwcmVmaXhlcyBtYXRjaGluZyB0
+aGUgc3Vic3lzdGVtLiBZb3UgY2FuIGdldCB0aGVtDQo+IGZvcg0KPiBleGFtcGxlIHdpdGggYGdp
+dCBsb2cgLS1vbmVsaW5lIC0tIERJUkVDVE9SWV9PUl9GSUxFYCBvbiB0aGUNCj4gZGlyZWN0b3J5
+DQo+IHlvdXIgcGF0Y2ggaXMgdG91Y2hpbmcuDQo+IA0KPiANCj4gPiBBZGQgY29uZmlnIGluIGRl
+ZmNvbmZpZyB0byBlbmFibGUgZ3p2bSBkcml2ZXIgYnkgZGVmYXVsdA0KPiANCj4gVGhpcyB3ZSBz
+ZWUgZnJvbSB0aGUgZGlmZi4gWW91IG11c3QgZXhwbGFpbiB3aHkgd2Ugd2FudCBpdC4NCj4gDQo+
+ID4gDQo+ID4gU2lnbmVkLW9mZi1ieTogWWluZ3NoaXVhbiBQYW4gPHlpbmdzaGl1YW4ucGFuQG1l
+ZGlhdGVrLmNvbT4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBZaS1EZSBXdSA8eWktZGUud3VAbWVkaWF0
+ZWsuY29tPg0KPiA+IFNpZ25lZC1vZmYtYnk6IExpanUgQ2hlbiA8bGlqdS1jbHIuY2hlbkBtZWRp
+YXRlay5jb20+DQo+ID4gLS0tDQo+ID4gIGFyY2gvYXJtNjQvY29uZmlncy9kZWZjb25maWcgfCAy
+ICsrDQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKykNCj4gPiANCj4gPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9hcm02NC9jb25maWdzL2RlZmNvbmZpZw0KPiA+IGIvYXJjaC9hcm02NC9j
+b25maWdzL2RlZmNvbmZpZw0KPiA+IGluZGV4IGQxMzIxOGQwYzMwZi4uMGY2M2Q0ODM3YjYxIDEw
+MDY0NA0KPiA+IC0tLSBhL2FyY2gvYXJtNjQvY29uZmlncy9kZWZjb25maWcNCj4gPiArKysgYi9h
+cmNoL2FybTY0L2NvbmZpZ3MvZGVmY29uZmlnDQo+ID4gQEAgLTE3MzMsMyArMTczMyw1IEBAIENP
+TkZJR19DT1JFU0lHSFRfU1RNPW0NCj4gPiAgQ09ORklHX0NPUkVTSUdIVF9DUFVfREVCVUc9bQ0K
+PiA+ICBDT05GSUdfQ09SRVNJR0hUX0NUST1tDQo+ID4gIENPTkZJR19NRU1URVNUPXkNCj4gPiAr
+Q09ORklHX1ZJUlRfRFJJVkVSUz15DQo+ID4gK0NPTkZJR19NVEtfR1pWTT1tDQo+IA0KPiBEb2Vz
+IG5vdCBsb29rIGxpa2UgcGxhY2VkIGNvcnJlY3RseSwgYWNjb3JkaW5nIHRvIHNhdmVkZWZjb25m
+aWcuDQo+IA0KPiBJIHN0aWxsIGRvIG5vdCBzZWUgYW55IHJlYXNvbiB0byBoYXZlIGl0IGVuYWJs
+ZWQuDQo+IA0KPiBZb3VyIHBhdGNoZXMgaGF2ZSB3ZWlyZCBvcmRlciBvciB0aGlzIGlzIGp1c3Qg
+d3JvbmcuIFRoZXJlIGlzIG5vIHN1Y2gNCj4gdGhpbmcgYXMgIk1US19HWlZNIi4gVXNlIGdpdCBn
+cmVwLCBpZiB5b3UgZG8gbm90IGJlbGlldmUgbWUuDQo+IA0KPiANCj4gQmVzdCByZWdhcmRzLA0K
+PiBLcnp5c3p0b2YNCg0KSGkgS3J6eXN6dG9mLA0KVGhhbmsgeW91IGZvciB5b3VyIGNvbW1lbnRz
+LiBJIGFncmVlIHdpdGggeW91ciBzdWdnZXN0aW9ucy4NCldlIHdpbGwgcmVtb3ZlIHRoaXMgcGF0
+Y2ggaW4gdGhlIG5leHQgdmVyc2lvbi4NCg0KQmVzdCByZWdhcmRzLA0KTGlqdSBDaGVuDQo=
 
