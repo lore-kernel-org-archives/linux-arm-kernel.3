@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16908E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB815E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKm4FZIk/ozrGW7rGdW3TBshP6lLkJj5mg/YznNZrz0=; b=271u5KCvm64AqPLLgeOF0Sazzb
-	vC5zYp4PEvrC0J2E+18hMtgXtFdKpjKPyvi/jsdK/zGiDl7K2K9bTljQMurj4QbNOieQ+bHphs63c
-	GFiUmoX18Y132FsmXn55aiVbeSHrPEOweDj2KVOa5mBMJ2zoVhfKKGo+Y7dKxt1mLqlxqRXXdl8ig
-	heZWG58DTdUQ7yMIW2Wk1gGoWgEq94C7HpHkOuFLTbMRfqud/FoMsbgJMPt9wsPo7egMo1c79oNt/
-	nIHvg5SXitoBrYeXM8gyuw2g16NrQMrhXu4QRYbZpR6WeM5o6pSxKitLHWbmbhyv07RlAan7goOhw
-	Ipm84HTw==;
+	bh=8uwKzWXE2RzjZKjwJlroc5SdHzWlSGYHVXGkvD3Wxh8=; b=E07VbWNoyAHTAP++WielW02IGh
+	UD7raqlRU1+roh9lVKBwZI+PEstvD6P0mvS/lPr/ezdDPxyfNzBQrBY0EjiKCYKOzOBextX4nHUJU
+	vL8mlSvBftXb0EP+OVvul66n+NbCzoGDB/k0UZpk6sWLWOYAFJmPerC2ZadyYw2z4/rYUfc4pgaAM
+	cZ6obSwE3eFnHqeaXUwBJDa1CWiwGnWDY42dYMopO9/YyXHOy287VvS0klNJm16o7pBnPLuDuwcRV
+	Koost+ncL/9mtlz7pL4G1GylSrKaz7TZhC/s2gLuzFrfHO6GJ4wZnLXz65zWoeONutqq67zGrTOw4
+	Ed10B7Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8ON-00000004NtK-0Gdk;
-	Fri, 13 Dec 2024 16:19:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8MT-00000004NeW-0A7b
+	id 1tM8Qi-00000004OII-06kZ;
+	Fri, 13 Dec 2024 16:22:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tM8Pc-00000004O7u-163r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 16:17:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 35878A4288B;
-	Fri, 13 Dec 2024 16:16:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C56D3C4CED0;
-	Fri, 13 Dec 2024 16:17:50 +0000 (UTC)
-Date: Fri, 13 Dec 2024 16:17:48 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] arm64/signal: Silence spurious sparse warning storing
- GCSPR_EL0
-Message-ID: <Z1xeLCKoSWyn2sko@arm.com>
-References: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
- <Z1hU0Ii-Sm9NHnhj@J2N7QTR9R3>
- <20c12aac-193e-43ae-9418-39db1af4ede9@sirena.org.uk>
- <Z1ht7X2LRw34pMJK@J2N7QTR9R3>
- <6d839dfb-0a85-44c5-90cc-2b2426353a5f@sirena.org.uk>
+	Fri, 13 Dec 2024 16:21:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AD5D1595;
+	Fri, 13 Dec 2024 08:21:35 -0800 (PST)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D90B53F5A1;
+	Fri, 13 Dec 2024 08:21:05 -0800 (PST)
+Date: Fri, 13 Dec 2024 16:21:03 +0000
+From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [RFC PATCH v1 3/5] arm64: Add errata and workarounds for systems
+ with broken BBML2
+Message-ID: <20241213162103.GB30314@mazurka.cambridge.arm.com>
+References: <20241211154611.40395-1-miko.lenczewski@arm.com>
+ <20241211154611.40395-4-miko.lenczewski@arm.com>
+ <86pllyrwke.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <6d839dfb-0a85-44c5-90cc-2b2426353a5f@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <86pllyrwke.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_081753_133862_5D785C6D 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20241213_082108_387221_6BBCE29F 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,38 +69,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 04:52:49PM +0000, Mark Brown wrote:
-> On Tue, Dec 10, 2024 at 04:35:57PM +0000, Mark Rutland wrote:
-> > On Tue, Dec 10, 2024 at 03:44:29PM +0000, Mark Brown wrote:
-> > > The spuriousness is arguable, from my point of view it's spurious in
-> > > that we don't have the type of the system register we're writing to.
+On Wed, Dec 11, 2024 at 04:52:49PM +0000, Marc Zyngier wrote:
+> On Wed, 11 Dec 2024 15:45:04 +0000,
+> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
+> > 
+> > There are systems which claim support for BBML2, but whose
+> > implementation of this support is broken. Add a Kconfig erratum for each
+> > of these systems, and a cpufeature workaround that forces the supported
+> > BBM level on these systems to 0.
+> > 
+> > Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+> > ---
+> >  Documentation/arch/arm64/silicon-errata.rst |  32 ++++
+> >  arch/arm64/Kconfig                          | 164 ++++++++++++++++++++
+> >  arch/arm64/kernel/cpufeature.c              |  32 +++-
+> >  3 files changed, 227 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index 100570a048c5..9ef8418e8410 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -1127,6 +1127,170 @@ config ARM64_ERRATUM_3194386
+> >  
+> >  	  If unsure, say Y.
+> >  
+> > +config ARM64_WORKAROUND_BROKEN_BBML2_SUPPORT
+> > +	bool
+> > +
+> > +config ARM64_ERRATUM_3696250
+> > +	bool "Neoverse-N2: workaround for broken BBM level 2 support"
+> > +	default y
+> > +	select ARM64_WORKAROUND_BROKEN_BBML2_SUPPORT
+> > +	help
+> > +	  Affected Neoverse-N2 cores (r0p0, r0p1, r0p2, r0p3) declare
 > 
-> > All that I'm asking for here is a trivial rewording; make the title say
-> > something like:
+> So you list a number of affected revisions...
 > 
-> Yes, I had already removed the references to spurious and false positive
-> locally and changed the unsigned long cast to a __force u64 cast.
+> [...]
+> 
+> > +static bool has_bbml2(const struct arm64_cpu_capabilities *entry,
+> > +		      int scope)
+> > +{
+> > +	if (IS_ENABLED(CONFIG_ARM64_WORKAROUND_BROKEN_BBML2_SUPPORT)) {
+> > +		static const struct midr_range broken_bbml2_list[] = {
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_A76),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_A78),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_A78C),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_A710),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_X1),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_X2),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_X4),
+> > +			MIDR_ALL_VERSIONS(MIDR_CORTEX_X925),
+> > +			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
+> > +			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
+> > +			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
+> > +			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
+> > +			MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3),
+> > +			{}
+> 
+> ... and yet you flag all versions as broken? So which one is it? If it
+> is really the case that all versions are broken, then the text should
+> be simplified. Otherwise, this should really list the broken versions.
+> 
+> The other thing is that I find it incredibly dangerous to rely on
+> some config option to disable a feature that will absolutely eat your
+> data if it is broken. I'd rather see the whole BBM-L2 being behind an
+> option, and unconditionally check for b0rken CPUs.
+> 
+> Specially when it looks like there isn't a single CPU on the planet
+> that implemented the feature correctly... :-/
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
-I still have a slight preference for treating a sysreg value as an
-integer and cast it to pointer when needed rather than using __force.
+Thanks for reviewing. Apologies for the delay in responding, and for
+spam (replied instead of group-replied).
 
-> > > With map_shadow_stack() it's a bit of an issue with letting users
-> > > specify a size but yeah, we could do better there.
-> 
-> > I don't follow. The only place where size interacts with cap_ptr is when
-> > we initialize cap_ptr, and there we're adding size to an integer type:
-> 
-> > 	cap_ptr = (unsigned long __user *)(addr + size -
-> > 					   (cap_offset * sizeof(unsigned long)));
-> 
-> Ugh, addr is also not a pointer which I'd not noticed but still.
+The workaround kconfig entries should be correct here. The MIDR
+revisions will be fixed in the next respin.
 
-'addr' should stay as long in map_shadow_stack(). This matches mmap(),
-mremap(), brk() etc. as they handle address space layout manipulation
-(these functions also do not accept tagged pointers). map_shadow_stack()
-does write a cap to memory but its primary functionality is not user
-buffer access but rather memory layout management.
-
--- 
-Catalin
+I agree that having a BBML2 option and unconditionally guarding against
+broken cpus is better, will make that change.
 
