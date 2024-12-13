@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B08E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 11:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798C5E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 11:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkBIlhUGkIaiKofFxUVhr74VClg7J+Yj/5BHdg57D+8=; b=XEvf7zoP3lAHE/URoB9SG2+Wop
-	tw4v6O8ZVHtiFTKkMa/jRrJxeYvZKWYPVo9ijjL3egqF+woDU/AW8I8pPEYj00pflyDRHvJbzlqz9
-	SCKGw6U77+zV87b2avBGnLGIrjQAAjilnF1Ob33VCqGwLGemjvLbMNzQhJSdoapCEULgIRfFvD9Ck
-	myItIbhk2nCcNE6x1VqNJGUkOG5GRkeblYzUJziOO+RFML9C1BlyDXC7iv37bxxOgXxouG/RFoZEP
-	NGVC6guuHY0TeFTGq0C3MOkUayqNjByWNfnNGkgsnVxfuX6DXA8egZOoTaQPP5xM4QM/Ry2Je+Nz7
-	cS518dBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GGQe7PrBLWKhr5aELxTpsrHE0Ho/kHt9ZqSvq1qJm/8=; b=dz3JJQlCbBVj7xBOVGMempyzgv
+	+Ot9pBBBXASxBGIaXO0sHRwlzek4qK79c7jMRNDcspa2IMp6AZ+dsODPvzHUEMX+uc/l0u69kt9EZ
+	cX3V3zaiNrHT35Xh0JxfYgV80eAISV8VAp992QBC6qXNTfAKIaR3+kSfErZy3jjVNCLsK7nNIAlWX
+	+LWObZGcpSD3qvqEL8PcXSpdoIMrE2i6SuT9Y8TGLUPCDfsELHl8tmsNYbdHMXXOdvb73A1p2VQAS
+	tT9MAAzoDUEZna+xNaNPHXnUQR+ezC9R2XwaCDNfzFqAYFsS1OpSDrHWa4cv6Hwhxg5wuu0YYebHg
+	jl4yuYow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM47x-00000003cgF-2Sa0;
-	Fri, 13 Dec 2024 11:46:37 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tM490-00000003cqr-0slI;
+	Fri, 13 Dec 2024 11:47:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM46s-00000003cTd-1841
+	id 1tM47m-00000003cdb-39Ko
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 11:45:31 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5E3731049DA13;
-	Fri, 13 Dec 2024 12:45:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1734090325;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dkBIlhUGkIaiKofFxUVhr74VClg7J+Yj/5BHdg57D+8=;
-	b=WCmUgeosX4tvXaGOiHRdoD6VWNxfDTxSEKj4CLn7/x4aFicr3aW5a8/LadGjHRtv/5575d
-	gCmNC2ojQGczCqkDM7MbJZu40HJus9y8cdZSvdjdYc/UysZ/eEF0VD2Xmms4Bk782EGaVq
-	GGTVzilaiwLKOWrN6BMM+ZVnB6TR9UFBil3njXfibn6sPYRxHmZJUCXZc5ugdwLsQJITeK
-	DxaFNzxIw+E3S5Pqa87fuxAePTuCZnktgamau651x8PqReAS4Z16bvY3Ybml4Q1E+kNe+O
-	q+jvIDdzZz3l1EtJwK532EgUamcK35ZbRJFup2FuF1bHw4QWTX6BkjtMpsRbzQ==
-Message-ID: <a47b567d-96a6-4a87-9f60-33a311c281ae@denx.de>
-Date: Fri, 13 Dec 2024 12:45:19 +0100
+	Fri, 13 Dec 2024 11:46:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5DE4BA42B35;
+	Fri, 13 Dec 2024 11:44:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9D7FC4CED0;
+	Fri, 13 Dec 2024 11:46:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734090385;
+	bh=1LJTjOx7kJx7q2mytF+grEPfxYG6mPmq7VZvVuE7Nzg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ga6vJJy9Plt8rk1ZLRU0bSPuEEIFFP2NqMZ14P/0k78uOtrRzmJT9MR3QaA9haWSo
+	 gUUXUPwAVnTYsPGiYkA8V6YjKyalKDhOIvkczNBD7KGwWGv5g/x5BbfXbRRSQszI1F
+	 geoEG7xNXHypBybJOy49Thqk+6h/zux7VvR6IQLOuw+v1AE04G3zspHzqdrs2SDTka
+	 PQ27MD+bupU6M46eKS7qz5ZPI5RCCBdsyqdUqTdUZnpogDyaVmIE+2nAo8J6drEgWr
+	 DmbcHUFGaBT9QaDX65+w0C6gw0Cd7jFb1R9C6I83DglShv8SVKS5sf6gh1rm0gSE0Y
+	 y9+1nfDq9wnNg==
+Date: Fri, 13 Dec 2024 12:46:22 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LEROY Christophe <christophe.leroy2@cs-soprasteria.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH 06/19] soc/qman: test: Use kthread_run_on_cpu()
+Message-ID: <Z1wejvFpGLFMhLJ9@localhost.localdomain>
+References: <20241211154035.75565-1-frederic@kernel.org>
+ <20241211154035.75565-7-frederic@kernel.org>
+ <986fee5c-8537-498f-83ec-65a7c7c7a71c@cs-soprasteria.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] pinctrl: stm32: Add check for clk_enable()
-To: Mingwei Zheng <zmw12306@gmail.com>, antonio.borneo@foss.st.com
-Cc: linus.walleij@linaro.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, make24@iscas.ac.cn, peng.fan@nxp.com,
- fabien.dessenne@foss.st.com, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiasheng Jiang <jiashengjiangcool@gmail.com>
-References: <20241213010948.2623382-1-zmw12306@gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20241213010948.2623382-1-zmw12306@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <986fee5c-8537-498f-83ec-65a7c7c7a71c@cs-soprasteria.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_034530_457720_2AB9DFEE 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241213_034626_849915_08488A90 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/13/24 2:09 AM, Mingwei Zheng wrote:
+Le Fri, Dec 13, 2024 at 07:27:03AM +0000, LEROY Christophe a écrit :
+> 
+> 
+> Le 11/12/2024 à 16:40, Frederic Weisbecker a écrit :
+> > Use the proper API instead of open coding it.
+> > 
+> > However it looks like kthreads here could be replaced by the use of a
+> > per-cpu workqueue instead.
+> > 
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> 
+> Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 
-[...]
-
-> @@ -1397,7 +1397,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
->   	return 0;
->   
->   err_clk:
-> -	clk_disable_unprepare(bank->clk);
-> +	clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
-
-
-Should this be
-
--clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
-+clk_disable_unprepare(pctl->clks[bank->bank_nr].clk);
-                                   ^^^^^^^^^^^^^
-
-?
-
->   	return err;
->   }
->   
-> @@ -1617,10 +1617,18 @@ int stm32_pctl_probe(struct platform_device *pdev)
->   		return -EINVAL;
->   	}
->   	pctl->banks = devm_kcalloc(dev, banks, sizeof(*pctl->banks),
-> -			GFP_KERNEL);
-> +				   GFP_KERNEL);
->   	if (!pctl->banks)
->   		return -ENOMEM;
->   
-> +	pctl->clks = devm_kcalloc(dev, banks, sizeof(*pctl->clks),
-> +				  GFP_KERNEL);
-> +	if (!pctl->clks)
-> +		return -ENOMEM;
-> +
-> +	for (i = 0; i < banks; ++i)
-
-i++
+Thanks! Feel free to apply this patch to your tree as it's a pretty
+standalone change.
 
