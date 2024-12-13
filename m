@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E26CE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AADEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JwtUsynowUEKWe6t/qL2B1q4adNzZ1IR4NPP5PbdL8E=; b=KgBx1bo7pHVfOG+o9LwA+8hgCc
-	/1YJgacPH8J5NJ6HddOvJpys8POdy/4L665Kug3PcXodID878BktuxL5HEY5icq+v9rG/EzI1r/bw
-	cAwNHoUmiYVFUv0dIJXgBDwIMeccXXsaVfvMLLkgaEXjEaGzBDC+AYL3EUOeFxrQ+jjHnxYl5AIyI
-	Y19NNJ2Ei4a4F6YafXCfOwsIgNKa8YP5Y5r9VaVX2Q+Ypqh+OyGP0bXzsyow5Hvde9WzetIzJ1VFP
-	fgd+UoboAAkiwe0dmzkFeCSeoJQY9O9uoesTZ0P6VZYnF69AUij/GjPuQoUKVZFYto8FsNzwndrvE
-	mUMZOMgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I6kE8t5Yl2xYqtb9LtTwxOrdC5L10bLg5KJZZLPXHH8=; b=VP0+MbkM16S3NYoEiPQN64T5ux
+	DirEkUUFBgdK1+exmPiuOWMaapIwLPi39iHdCAGx0T7teF7L1RtbFqtfi/8X8pi1C9el37z5pSYkm
+	hu5Mn3HXFYcqy4DvQLgqEDJR+Nj5vTTgKZpFyrUO8U/FNRRUJxtvbbot88jQ3eR9z32n6nYd2Z+eG
+	gaKakMaTs51CTZ/ZbMQhqu+IFiXi7KSQtCd2Ny/8t2tjGsp7WrpIwldNQrrwsOvv/5TS7HoQj5O9W
+	2cxEasbRqrTJiy+bc4ZDVfzeYc3zd3O0+u0OXbwrTLUxcIPIa2p39gXu02ZCKuOf6GNFcjCu9oh3k
+	jJdO+9BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1pV-00000003Dyx-479F;
-	Fri, 13 Dec 2024 09:19:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tM1qZ-00000003EKM-073z;
+	Fri, 13 Dec 2024 09:20:31 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1oQ-00000003Di6-1Va6;
-	Fri, 13 Dec 2024 09:18:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6192B5C6B43;
-	Fri, 13 Dec 2024 09:17:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 593E3C4CED1;
-	Fri, 13 Dec 2024 09:18:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734081497;
-	bh=50F8lzvkwofE8E594WChlhW/wIJ0vV/r+Oafv5taTGg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QpgPUgesM7i0LrrUQpMsCjr/1XK14ByrihO4BH0gOP/7vCC4Y25Ny+iMjKCzj6Bdx
-	 AlU3JwBmCuXEiGMP2iL4TypqHTZYpVQYG+ND22uRoP4tdpnHk0Z+qj9TKn23Z2kA9G
-	 RnoAV1OVu64R7XB5+BN9EiakahM2nZ4APApFStkV7wcEcJIC5a/UQyqGO/JTbZnZp0
-	 4ycDvoSjfPEFS0ylU1LsxZx/gM4sDLIk/Nc7nNn9O8Vg6KrM4DAk1heHV94112Jkhf
-	 UHeNUUZj7gtb6D44PRpQ2wpZPiG46Ku2fTwPfjfVxwFDh+BowJ6QqY+NiNNGVD5e1Z
-	 Q5Tst+dLrlORQ==
-Date: Fri, 13 Dec 2024 10:18:12 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, 
-	Stefan Wahren <wahrenst@gmx.net>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] dt-bindings: display: bcm2711-hdmi: Add interrupt
- details for BCM2712
-Message-ID: <cjf4n2tg5qcqpik3j6ufesl4lf2fftyccrqmurb2xvib6iyt2d@fbhkwoiwfjuy>
-References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com>
- <20241212-dt-bcm2712-fixes-v3-1-44a7f3390331@raspberrypi.com>
+	id 1tM1oZ-00000003Djo-14rF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Dec 2024 09:18:28 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BD8HJvd026866;
+	Fri, 13 Dec 2024 09:18:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	I6kE8t5Yl2xYqtb9LtTwxOrdC5L10bLg5KJZZLPXHH8=; b=gQN5K6N7y+x4QkmS
+	Ok7PR6HbTic3wS7g7gqgFXkA/Kkuer+Mqh67AXjhs9vplaKwldwV+pyq/Rh1dz01
+	4lXlwOZwcl6hGzlPqkqNR8hIL4G9FO4lpIShH2c5wW1brHfZKEu0vRHjU5RhcE+y
+	szAeZ6sLem6Csj/TA3+JVE4jQ+swbALMiC0YsNclHKfHIM0Ru3yzDAuBi7+S2Hhg
+	zoh/I5l4e2Ki/6RgUkSzpwZxwH62wWhYbHfhLWjZZJyxy2TxwmXKZ52QnKUZ5FmZ
+	PH+a7Q9+gW6NHgXmX7e0PwO+8ZLLLD0ULBuUf2gAMms2/m9Ac70ILLYDpgjVzmNr
+	fMXTxA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43fd40ns6c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Dec 2024 09:18:19 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BD9IIAe019113
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Dec 2024 09:18:18 GMT
+Received: from [10.239.132.152] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 13 Dec
+ 2024 01:18:16 -0800
+Message-ID: <1e99294f-b528-4cf7-a0e0-3d78221e6982@quicinc.com>
+Date: Fri, 13 Dec 2024 17:18:14 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241212-dt-bcm2712-fixes-v3-1-44a7f3390331@raspberrypi.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] coresight-etm4x: add isb() before reading the TRCSTATR
+To: Leo Yan <leo.yan@arm.com>
+CC: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
+        <james.clark@linaro.org>, <alexander.shishkin@linux.intel.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20241204112332.3706137-1-quic_yuanfang@quicinc.com>
+ <20241204151650.GA1976757@e132581.arm.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <20241204151650.GA1976757@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: p_9MwUObVSA2qo8Me6vwxP0ygYgJGMDg
+X-Proofpoint-ORIG-GUID: p_9MwUObVSA2qo8Me6vwxP0ygYgJGMDg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 spamscore=0
+ suspectscore=0 impostorscore=0 phishscore=0 clxscore=1011 bulkscore=0
+ lowpriorityscore=0 mlxlogscore=902 priorityscore=1501 mlxscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412130063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_011818_484109_834E1A52 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20241213_011827_304016_25462E8C 
+X-CRM114-Status: GOOD (  27.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +101,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 06:36:28PM +0000, Dave Stevenson wrote:
-> Commit 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
-> added the compatible strings for BCM2712, but missed out that the
-> number of interrupts changed.
+
+
+On 12/4/2024 11:16 PM, Leo Yan wrote:
+> Hi Yuanfang,
 > 
-> Update the schema to include the interrupt requirements.
+> Recently I just acrossed this part, so some comments.
 > 
-> Fixes: 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> ---
->  .../bindings/display/brcm,bcm2711-hdmi.yaml        | 107 ++++++++++++++++++---
->  1 file changed, 93 insertions(+), 14 deletions(-)
+> On Wed, Dec 04, 2024 at 07:23:32PM +0800, yuanfang zhang wrote:
+>>
+>> From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>>
+>> As recommended by section 4.3.7 ("Synchronization when using system
+>> instructions to progrom the trace unit") of ARM IHI 0064H.b, the
+>> self-hosted trace analyzer must perform a Context synchronization
+>> event between writing to the TRCPRGCTLR and reading the TRCSTATR.
+>>
+>> Fixes: ebddaad09e10 ("coresight: etm4x: Add missing single-shot control API to sysfs")
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>> ---
+>> Change in V2:
+>> Added comments in the code.
+>>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 7 +++++++
+>>  1 file changed, 7 insertions(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> index 66d44a404ad0..decb3a87e27e 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> @@ -906,6 +906,13 @@ static void etm4_disable_hw(void *info)
+>>         tsb_csync();
+>>         etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
+>>
+>> +       /*
+>> +        * As recommended by section 4.3.7 ("Synchronization when using system
+>> +        * instructions to progrom the trace unit") of ARM IHI 0064H.b, the
+>> +        * self-hosted trace analyzer must perform a Context synchronization
+>> +        * event between writing to the TRCPRGCTLR and reading the TRCSTATR.
+>> +        */
+>> +       isb();
 > 
-> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-> index 6d11f5955b51..dd7dea60183b 100644
-> --- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
-> @@ -56,22 +56,38 @@ properties:
->        - const: cec
->  
->    interrupts:
+> As described in the doc, the "isb" is only required for system
+> instructions case.  It is good to only apply the ISB on system
+> register case:
+> 
+>         if (!csa->io_mem)
+>                 isb();
+> 
 
-> -    items:
-> -      - description: CEC TX interrupt
-> -      - description: CEC RX interrupt
-> -      - description: CEC stuck at low interrupt
-> -      - description: Wake-up interrupt
-> -      - description: Hotplug connected interrupt
-> -      - description: Hotplug removed interrupt
-> +    oneOf:
-> +      - items:
-> +          - description: CEC TX interrupt
-> +          - description: CEC RX interrupt
-> +          - description: CEC stuck at low interrupt
-> +          - description: Wake-up interrupt
-> +          - description: Hotplug connected interrupt
-> +          - description: Hotplug removed interrupt
-> +
-> +      - items:
-> +          - description: CEC TX interrupt
-> +          - description: CEC RX interrupt
-> +          - description: CEC stuck at low interrupt
-> +          - description: Hotplug connected interrupt
-> +          - description: Hotplug removed interrupt
+updated in PATCH V3.
 
-You have chosen unusual syntax. There are no bindings doing this way, so
-I really do not get which file you used as template.
+>>         /* wait for TRCSTATR.PMSTABLE to go to '1' */
+>>         if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
+>>                 dev_err(etm_dev,
+> 
+> As mentioned in system register case: "Arm recommends that the
+> self-hosted trace analyzer always executes an ISB instruction after
+> programming the trace unit registers, to ensure that all updates are
+> committed to the trace unit before normal code execution resumes."
+> 
+> And for MMIO case:
+> 
+> "When the memory is marked as Device-nGnRE or stronger.
+>  ...
+>  - Poll TRCSTATR to ensure the previous write has completed.
+>  — Execute an ISB operation."
+> 
+> Thus we need to add an ISB after polling.
+> 
+>         isb();
+> 
 
-Expected here are minItems and maxItems. These are the widest
-constraints. Otherwise you are repeating the same in allOf:if:then. And
-then the allOf:if:then: defines the items.
+updated in PATCH V3.
 
-You can do the opposite - define the items here then just choose
-constraints in if:then:. Less popular if you have list without common
-part (so no minItems here), but sure, if you insist... yet you chosen
-some third way of duplicating it in both places.
+> For consistent behaviour, a relevant thing is the dsb(sy) in
+> etm4_enable_hw().  I do not think the dsb(sy) is necessary, as the
+> driver uses the sequence "write TRCPRGCTLR + polling TRCSTATR" to
+> ensure the data has been populated to trace unit, the polling
+> operations somehow act as a read back.  And the ETM manual does not
+> mention the requirement for DSB when enabling trace unit.  Thus, we
+> should remove dsb(sy) (maybe use a separte patch).
+> 
 
-Look:
-https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
-https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/samsung,exynos-ufs.yaml#L39
-https://elixir.bootlin.com/linux/v5.19/source/Documentation/devicetree/bindings/example-schema.yaml#L91
+updated in PATCH V3.
 
-There is nowhere syntax like here, with duplicating everything twice.
-
-BTW, drop the full stop from your subjects in some other patches.
-Subject never ends with full stop.
-
-
-Best regards,
-Krzysztof
+> Mike / Suzuki / James, please confirm if my conclusions are valid.
+> 
+> Thanks,
+> Leo
 
 
