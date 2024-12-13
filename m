@@ -4,167 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE745E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 21:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FC3E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 22:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YzQAzwgrLSACgBR+HR+s455jSB0R2yU9/03zGj//XsQ=; b=Hxn67pEo4o1Jx8mSEJlpsoiBVA
-	gVQSrBB5nu7kbMaMXb/koK/lGv9rr70HrLQX+PPJQgQgj9j0vurHgfu0BiqGPJWPRly2FOyvWbFsr
-	iUU1dZgIYmE/7Y4b8wr/c5I6S+Ps8lIww8RqRKh/Ot05NADnAxk5sa81aWli/JJWucWJFhAP5OG8C
-	FfrtUTPN5ZuN+mRuHNKVXFsoOsNb2AAgFp3sXpISQ8CDDEerwF5vgk50SWLx0DXfjcqfJCYO5mfhc
-	jcPZEm9csVUcUyzePXlH0SYppwkEoYh16JfObLUQghdrUCZggQzXnjXRSo8FDH949LcwQbmyqdM2U
-	QWDl5HKg==;
+	bh=3fT6QBQL/2MhJSNZuMQZny8f9lxbnoEvXOfu47IDsj8=; b=XCZ+CJ8Dwush17TXr6RTS6NYS3
+	pvRZfpqSeSTiplyjMIgmP11o+iy5K2ga3A1E0+imm5uL0L7A5m77R7fDf8sTAGEtpZvBW/SMwTQR0
+	yrcqI1XGkfWJPpX34vy8twwKfx2Bl6GrIuryK0P7ia+AvlQyTmnWoCTHFe4K88b/57hUy++XJy7rg
+	zhqPKKaLb8PnT3A0S5iNrt+ZNquoH4Vup1rLwteFYfhQ/GVeK1/is+patFnEzcpysy3v5RXgGcut8
+	HC0YEyHi0FAZml3/4TUjeNS7aqHb3L5qeocpH1dBboJIbWU1RYOr3Z1DrVUm96No5cHc8Uau26j60
+	wU21xHzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMD9F-000000054mV-48L5;
-	Fri, 13 Dec 2024 21:24:33 +0000
-Received: from mail-db8eur05on20613.outbound.protection.outlook.com ([2a01:111:f403:2614::613] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tMDlN-000000058Eo-07Tt;
+	Fri, 13 Dec 2024 22:03:57 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMD8A-000000054dp-1iVH
+	id 1tMDkI-0000000587P-05db
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 21:23:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hvwRgxi9BKGQPmPatQC0lFBvEu9LCouV3r4mKjsgRrCj78d86OpxYFZ6Fr5KszUk2B4iGREhKShCltrHO2g/OCWgyrkr03mVkWZ4jw5+5XASlxnMcu5/YLql3jti6+lDinUp0m+exmgUfBt4F9X9KcDvNfdNhkciYhZtX7aXX2sWRi6s/x3eFlcCcf/rsvrOVUVad6/7B7zv+qMAhREaYr6m5Q8D9fLl4adtfbpwz86S/KyGayniyeIehNFCPDDLdFYiwEhauCLAX52IUM6tjBPykgCXC8BwE/Zq1nma/KEbEKQu6SVDt1W1FKmxKJ/18wsfgUHganRtdnI1DZnMRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YzQAzwgrLSACgBR+HR+s455jSB0R2yU9/03zGj//XsQ=;
- b=y/WhzlWQ6wS72p+Kv9zJTIujaKbhzHoojtWtndnq/dnk3yKizU+61yARZjaoaZcU9nRinMTcfW/yjFeo0cNShareeV27VehL/xf/hu+2NKjx4lOOI9gRMe/v1vP/PJLX3F4Bc0wNZEMNM0cj9HYjTH8kG60iVbHzywRjjPszSu7p354GQZjRHVKWhF8y4+Y64zm/McIm7eKwhQS+LClLV5qi3WF00qEcoYFHDJ465U5YqFdSJw9kG1aQAYy/VwElnzhk4d7Yv85r/vzbY+qcbRKeayzVAuCW2jBhTdAP9s8ofcPXoC5mLdpacRgkrxSTQnVwy77VzugCAlgp5pW2ig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YzQAzwgrLSACgBR+HR+s455jSB0R2yU9/03zGj//XsQ=;
- b=Ra5XfanieXfNz/YzDPRFTrXSRbfEUdQBlHplqyfP1K0qy9rjsiMTEISjndb5dSN3U0Y8fyCy2Mov/6C0/dGb6w8PI7kx7mHAl/hUc1/7VYs9EAtpappSKQ1l1/27q6N8hRnqxBQkiqESbhHIsGaM5fkQ9K33OuUYNWYKvYy6o8n/cyFYq+ktWBtEU3pNeeIyhpf4iX+O9XeAd0WBScgMMDMcIyrJR0/XHhnOlgr+MRtf7ZJm16zuUj+xV/aCllEwjUoPHlxQ9BTL/frL+l6Fj5E0YinsXUU2SrCHjk6C9QOwn7wFX8zS1BdbZ+O/DfGzz11Rorq+QjIeOxLoCz/5nQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8782.eurprd04.prod.outlook.com (2603:10a6:102:20d::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Fri, 13 Dec
- 2024 21:23:19 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8251.008; Fri, 13 Dec 2024
- 21:23:19 +0000
-Date: Fri, 13 Dec 2024 16:23:12 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>,
-	imx@lists.linux.dev
-Cc: Fabio Estevam <festevam@gmail.com>, shawnguo@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	ariel.dalessandro@collabora.com, Fabio Estevam <festevam@denx.de>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Subject: Re: [PATCH] arm64: dts: imx8mn-bsh-smm-s2pro: Remove invalid audio
- codec clock
-Message-ID: <Z1ylwPiSt/jRJV8w@lizhi-Precision-Tower-5810>
-References: <20240821143420.2564869-1-festevam@gmail.com>
- <CAOf5uwnUPDPVzM7vNPn-tGrt2ENuuUzVfKh1q7AiORcAMZm0UA@mail.gmail.com>
- <CAOMZO5DVy7x62zfX5UbDZUi=c8nbSHfD=Q39faZTBz87bz3W=g@mail.gmail.com>
- <CAOf5uwmg83-TVQvbNOCnzBh9JdQAC=5hpgbCeT-6qJ=+YBrssg@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOf5uwmg83-TVQvbNOCnzBh9JdQAC=5hpgbCeT-6qJ=+YBrssg@mail.gmail.com>
-X-ClientProxiedBy: SJ0PR05CA0066.namprd05.prod.outlook.com
- (2603:10b6:a03:332::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 13 Dec 2024 22:02:51 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53df6322ea7so3164558e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 14:02:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734127367; x=1734732167; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3fT6QBQL/2MhJSNZuMQZny8f9lxbnoEvXOfu47IDsj8=;
+        b=OHebGQf6NuW/q3F8KN4kNG3egEu3MYNSNRyVS+ArZNlUNcxx/S0Qd3NFivtOrmUTbl
+         W7KXZCsF5lM6geDQR9Uy3GdrJlTMnYCiFZsVg4kLWYfZUaQH6fucsVId0MUbwa1OIenq
+         OMDNYopn+ZjfeAHTplFHKc/7bBNDLvTUYAw5uKntdzW71j3cpOMk1kKJa1/lVXDesQ4z
+         yywQ1givnNziip6uQ9Aky/TBpWSyDEXU55A3pGVas7eH/eyFaNmVokGBfZedgJlxC2bm
+         no6QSZKrZZ7b9NzWBjF3/u4IZvh77KmrUEQ/fjiJxC1WXp4H+dh2bm2nGKOVi7zdj0gF
+         y7Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734127367; x=1734732167;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3fT6QBQL/2MhJSNZuMQZny8f9lxbnoEvXOfu47IDsj8=;
+        b=aBFcoJul6lPBSpJo1Lh0ToygbJ14e1TP/GO77ePdHiCiCrkUmo9P1K20GqBrtSpL+t
+         rR3zX6ejqIlm2JN+/jMxKIMtpA41J2ZBAiiuXHSX5+tZOoyhH3fhmT7pHXD0UZAZYyjT
+         7gq7pM/rkFcUniF7R5fIzeObZ287Szs2lunO0DqTR4OVyxvj66rgnK9pg4JkQ3XTrhzp
+         r0eNgDXGwO64cDHdmBtjDclbuYcps0ATVxjV1/BhUzym8bREMjy20kun06ezUwuGKTER
+         rpMJU2KLER2y6X4Q2pyWsJHjpMIcOD+DXWPNGbm2eOZHO3DBxlohLvydRf/YdPtEiGW8
+         +lqA==
+X-Forwarded-Encrypted: i=1; AJvYcCXJyRRH+edBv5Q9ObqnC8VvGL4P8vewtuj4CM3il0gp45/RU0TaJFKqWkKp0lFULw5ZyWF8wVRraKbYVclNmoN8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiDOW3580P2jxKmkUmdrJh4h8NtdjM5QfOXpP86JTLJDlJ+Amr
+	bI0feaFNxYqR1j+LXNvrqJQCpHSkpSGOHRfZ8BmETrIRol9cxHxSJYpGKoAYcf4Ura7OYz5WbnM
+	iNfTKWzNsXflfcEUYgnd+vyRSnhLHiXt29Flp
+X-Gm-Gg: ASbGnctC3jk+RNcLkDNdaBhuuzGwqLadJevPCWyQHKi3yuBOZkdRXW4y7lA03Kn/Evf
+	ajODg883HCF8sQ8Kb8iw2v61//iziaL0/T3y4D9pNX3mZQDhboffQDK2W8yEWQBlB
+X-Google-Smtp-Source: AGHT+IEdvX8UCDRHwMsM6tElC5pzCUR6NnPXZ6/2dYHPyLngGaSRf0A3HFQ57okaG6m08xez14kCUm816z6DCZuXJI0=
+X-Received: by 2002:a05:6512:2815:b0:53e:3740:4a92 with SMTP id
+ 2adb3069b0e04-5409059572bmr1481442e87.42.1734127366767; Fri, 13 Dec 2024
+ 14:02:46 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8782:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4beeea20-8c77-41ce-c3e0-08dd1bbc5db9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QWEvVXN2Nll4SGwxcFBBNlJVQVNlLzE0OG9ETVZXZzNMVnc3eVhWYlp1cFNr?=
- =?utf-8?B?ZGpLUUwrRzQ0MHg5UjFsdHZRZnVrTis5Y1k2ajVBZUp2KzlpYjRSNk84clZR?=
- =?utf-8?B?TVphNlE1NWhTVUY1NHVaREV3SlZkbnFjZnZpTlI0MVNsQXFOOFFCNVZWYUZ2?=
- =?utf-8?B?S2UvNHFCQzZDZGRTZTQ3Z0J5TEtVVklXdXp0T1l6L2g3QVhzM1c4YnpXZ0gz?=
- =?utf-8?B?aEYwa0pReHh2WmhHSUJMK3JZWlhXQ0F2Ly9WYkt1VXdmczNXbStXMWxNKzhK?=
- =?utf-8?B?NnNiT1FmaHBXaVV0REVmZjhLRUJJUUc1eUlHSnNPWDRXVFU3QWJBRjhRTVhm?=
- =?utf-8?B?RWpHdm9mb0hMS25nRTFsVUtoTlVuWkJxa3Q1blg4aGI1USsyZ3BYRVlkMEJy?=
- =?utf-8?B?SzI2bjRKTXZjY0ZIVUJ4VG5qWWNOZWZjYzBvMG56elJ6QmZ6WGZaOWpZZ1NU?=
- =?utf-8?B?dTVBblNBT1Q3c1hneXhXV0gwT3VxeGpFWXV4alRwMVVMR3YzMVp6QzZISVF0?=
- =?utf-8?B?Q0tqQ3hraHAwMFZZSWNhdDlNb3kzNzlMZFB3YVlwWmo4UXhsQzgzaHNXODhZ?=
- =?utf-8?B?T1oyOXgyT1pzaWdvQ1YrbUd0OS9xVTBGQmoxQktNUXJWM1MxUlFyN2xJV1Bj?=
- =?utf-8?B?UzNkNnZTdW52KzYxaDlIS05HUE14cVFzVzJkZ3MraWNGWFRkc2FtTHFsaXV0?=
- =?utf-8?B?Sk5xQ085MkNkQ1FxQWs4b3ZLc0UzZm1LWkNIOXZUeW1BdGRZM3pmVXV1NVMv?=
- =?utf-8?B?bWVwbVNKQkEzeG1nSWtVR0t1Wm45UmUvZ2lodE1PbXNaVTNJNTlHV2c5TzZK?=
- =?utf-8?B?T25YQWh5VHgvRWpkRXYzNEZQNlBsU09wdlZET3pKK1FNK0dEdnZCU3pyM1RC?=
- =?utf-8?B?STd0UGlhcjZMOW9ZZlJyVXNXd0lXcTRBS2U0UzJINndud0IrNlVFcG1BQUF3?=
- =?utf-8?B?NEtqWDNWMVh1MTVQWEtpSlBtWnN2UDBRZVFxRHlJMitINytqM0RWSXJaVkpI?=
- =?utf-8?B?dFo4a1lDbW03dnVsV25LdUhqQW1jcUhIUjNIWCsxOEs0ZXR6aU1LazVIbHVz?=
- =?utf-8?B?TUZSaTZTeWZJZ21rcExKd1doM3l6azlUaWlkZW1taXQ3NGZma0lBTjRnT0ov?=
- =?utf-8?B?Mnl1Vk91ZWJvOG4wbGxSTUN3K05BbjNLZEZieHlXaWhNTzZSQ043R01xTFB1?=
- =?utf-8?B?V1J2UzVhbDdxZDh2RlN3SC9ZTDZ3Z1d5N2RNclhOc3IwaitYODM2b2E0cWtu?=
- =?utf-8?B?cUlINXE5d1o3NGtxRlZ2c2FVWVVRbGEwUTVNZHQycTFvc2RIV2lVOEpZVmJr?=
- =?utf-8?B?M0hUcVczSllGVURDeitCTndpcFY5a2haU0hxc0czUmpiOXNvM0hvRFpqM0xx?=
- =?utf-8?B?U1YrLzVOY2U1ZElCd1k4SE5QOGVRYVdLZFp2NEFoU0F6QXZzcHppNnpxanZX?=
- =?utf-8?B?Q1oxWW8yYTBDSVRXVXZ1YmtJeTFGME5WSVFDNVJaMldiVFFyZVRvRjF4Rjlk?=
- =?utf-8?B?Z2pGYWo0a3BXNUQ4SzVSRThvUlZqR2NJOG41dml0ZFBUemUzSTNEeFR3d3R1?=
- =?utf-8?B?TDJBYVZ6RE5vMkhJVXdMUkpoMk5EYUVmbEwyWW1ZL255dGZFL1dQdk5NbVB3?=
- =?utf-8?B?a2dUNHpTNUl4c0FrTkViWGE2VUFmWTAvbVJXcFBSOEgyVWZ1YWhpQVFpQXg3?=
- =?utf-8?B?N1VvdktJY3grUlJaKzVKQVAzMUtwdVA3Z20ydysrMUZoSU1KbldaTnBIeDBv?=
- =?utf-8?B?TStha1pSODk1Wk5NT3ErVU1GbVZuNjlXVUR0eVVVSkFQcVgzVm5URGhwbDF6?=
- =?utf-8?B?NDVYa1dXVk1pNXRSU1ZXUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dnhFdTZ5azVYWEgwdnBuVzV0a2xObkgzWmVHd01iUVE4NDEySUpUaWFUcmE0?=
- =?utf-8?B?KzZmdHZCT0Z1eVAzOFZaRE1jM3lTT283ZGVsYzJpNGVmUzVqTDFLaG5XSEVX?=
- =?utf-8?B?anRVQjVlajNsNU1QMFlYemJ6MEsvVkVFZkR0K0VwNTFPa0ZocVI1VDN4N0Y1?=
- =?utf-8?B?d3B3cHhNVk4zU1JNSDAyMEhHR0VBWmdtMHpqbUZTd1QvTWkySHN5NTZ5S0lC?=
- =?utf-8?B?NWlMZHVlVkFYTkV2c0tkc3pueEFCb1pzMlBXRktiaGV0VVV4K3pvWUJUZVFE?=
- =?utf-8?B?WHFZTWovZi92RU5xbHVqVnBoaGI0dktMeThVc2h6UHV0aSttand2M1JXU3h0?=
- =?utf-8?B?TElqQ0hBMDRVd3FxMDcveDJRWUhUZ0RTT21XMjRXbWFsRDIybms4QkFmZ25w?=
- =?utf-8?B?dnVZb0Fac1NtS2ZmaDNxUkhkZERlMGdpYnJIYlVSaHBVRzB1S1F2NGJlV2Zj?=
- =?utf-8?B?WVNiQ1Jva1JieHF0ZU0xU0NXQ01UNTMyTkFYK2F4eFAwN0dsUHFaZHdQWVFs?=
- =?utf-8?B?ekF2bFZPY0E0RkVKdEVSUDhGdW5OK0lTdWFHUW9iNHRtRVNmbGRva1dQSThy?=
- =?utf-8?B?OE9EdXFLbEpld3BtOXpFaG5ydjArN3ZHd1IxZ2MyMEJtTElLYzJjSHdNS0N0?=
- =?utf-8?B?V0MzeUQxVkI3M0lpaTRFVm5vWmVnMmM2MXNyem1WaU0rMWZaV0ZtUzVjeENO?=
- =?utf-8?B?TERiWnh5TUhsQTlwSXAra2xEZ1BoeFI4UWNsTGFtdmtreEFQOWtzQ1hqNFdV?=
- =?utf-8?B?WUZndHVuSmFUeFdnQVNIcy9TYmNkSnM5elRGZkhrT2V1aXlETGlsUWRwdXNG?=
- =?utf-8?B?RE9MSjN1Mno5eDZOS0RhOE9LaWs0QVVXMHBwSVBDanJWWVpMWW5uaWhXbHRL?=
- =?utf-8?B?aFVRaUZ0S2tReVF0MlE5bFM4QytVZkpsdzE1RkFxTUF1dU1xR3k1RStDcjA2?=
- =?utf-8?B?dG5BNTAxdEhrNjN0T044d1pFbWovYSt5SkN3TkVmdS9ua3JDUlc1OWNlL0RH?=
- =?utf-8?B?R2tUeG5yL3hNK3hzNWtxY3Q5V1JLWUNma1JRVHh6cXRBd1QxQzIwSWp0a2RJ?=
- =?utf-8?B?ZkZZd21HRVZ2amxUQnRpTjh1eTgyN0pLTlF2c092Mlh5dVNNaGNnVHNhSEUw?=
- =?utf-8?B?OTJtc0xWV0FnMS9rTU9wb0lRZm50T09ueXJiYlNjUW1Qbm1nRUxFMGVMK3VH?=
- =?utf-8?B?N1RLbUtlNnowTE8yenRXWEV3RG9EM2J1Z0IxQ3c4ZlVUdTBoRzRZNWd4Tk10?=
- =?utf-8?B?V05RZEo0TCthMFgydFFvNXlNUU5qS0svOHJQYkl4allMYTkrUmhUbW5tdGRN?=
- =?utf-8?B?VVdzMEcvRDVVM0RqaU1ubUJmd0oyVWc5OGNWNWZwbkU2OHZzckpSZjU4bU9X?=
- =?utf-8?B?d0dJdllSUlVhZjRSUGpSUE41UHNFeHgyNUZ4UzVQanRsWGJYWC9ZdTFlRSt1?=
- =?utf-8?B?UnMvVU84ak00UFFoL2lsbldtWTQ1bEZUTzROWXhUNlJlYnNaNlpXc1lmK0hm?=
- =?utf-8?B?MWViTlkzNDJZVVdJQWhIcnVnT280VTRuTnl4a29lUDBNYzVVT3U4bWNUTDBX?=
- =?utf-8?B?MkJHdS8zWlBGK09UejJBTnBPMHBMZXBFMWhvSlVYSW96dWxjMWFwQ3pCQSsw?=
- =?utf-8?B?VHFIUFFWd2ZydXR2RUZMMjQvcDJnYnJtS3UwMTZqSldHNmdPdkx6UDk5M21n?=
- =?utf-8?B?OTVYWkpOUUpKL25NU2hnT05ObjVrNW0reVRGc05PUFU2NnJHY1dYdFBaUW4x?=
- =?utf-8?B?RFBoTmh0UnBGbS8ydmliMFRKWTRmMTZDZyszRDR0THRnOTdGaDZHcDAwVmdQ?=
- =?utf-8?B?QW9WTi9oOFlRNE9Ba1dyc0greUlYRW1QM2F0ejR5S1Q3NFFPS1lvYTdWNGJ3?=
- =?utf-8?B?YW1meGhnTVc2WVdEZDRpNXN6NkM3UktvSmViTUNIcWVvZ29ROU5LVlp1aWtO?=
- =?utf-8?B?dlpEeXhZNFBmaU1wWk9WN3RweVdjSzhNM2U3U1hzUDc4YkxxZGxxRlF0VWx5?=
- =?utf-8?B?ZGpqbUVDSWNCdUNBYUFkcitGRUdubXAwcDZ2WE92VDdoZXM0Zm85T1N2V1ho?=
- =?utf-8?B?MzJ6NW9yS2lmRUZMejRRUlBDZy9iWXJlb2U2MHU5cE52SUxMZ29zczFXWDRr?=
- =?utf-8?Q?XlwV4tyQuW8kTLWugb+7LDFpz?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4beeea20-8c77-41ce-c3e0-08dd1bbc5db9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 21:23:19.8157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oka64qt7V/lTo2Qm4LI5sLWdRQp9uQGXb9kOAUZsdwGE1qM/hFVsaDeI1flhbxuY9xBFN4ekbkRIvsbjPZnu/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8782
+References: <CAFERDQ2hLHek+0ViVqbqgOD+4xwC2ZwK1KhgGdLP_zGnonEs4w@mail.gmail.com>
+ <d02a7143-43e7-4851-a06e-d57981362a5a@gmx.net> <CAFERDQ0AUhCp_c0LLRRR9SWyvDON-CdXFvK3eqcLFc_SMhdPRw@mail.gmail.com>
+In-Reply-To: <CAFERDQ0AUhCp_c0LLRRR9SWyvDON-CdXFvK3eqcLFc_SMhdPRw@mail.gmail.com>
+From: Saravana Kannan <saravanak@google.com>
+Date: Fri, 13 Dec 2024 14:02:10 -0800
+X-Gm-Features: AbW1kvaRZEbg79r0iuOt3DfYvyY31TNdR3EOMiJgmzNfAPz6oPlmMYNe9esc_zM
+Message-ID: <CAGETcx-NWnBDfVq7hwrS7dQDdbEeBaVOuS=YzAfTyS6e6xCUCQ@mail.gmail.com>
+Subject: Re: Raspberry Pi 3B: Failed to create device link with soc:firmware:gpio
+To: Martin Wetterwald <martin@wetterwald.eu>
+Cc: Stefan Wahren <wahrenst@gmx.net>, f.fainelli@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_132326_453048_C7408C1D 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20241213_140250_084264_A07954B3 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,69 +94,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 17, 2024 at 01:50:13PM +0200, Michael Nazzareno Trimarchi wrote:
-> Hi Fabio
+On Thu, Dec 12, 2024 at 10:13=E2=80=AFAM Martin Wetterwald <martin@wetterwa=
+ld.eu> wrote:
 >
-> On Thu, Oct 17, 2024 at 1:43 PM Fabio Estevam <festevam@gmail.com> wrote:
-> >
-> > Hi Michael,
-> >
-> > On Tue, Aug 27, 2024 at 9:03 AM Michael Nazzareno Trimarchi
-> > <michael@amarulasolutions.com> wrote:
-> > >
-> > > Hi Fabio
-> > >
-> > > On Wed, Aug 21, 2024 at 4:34 PM Fabio Estevam <festevam@gmail.com> wrote:
-> > > >
-> > > > From: Fabio Estevam <festevam@denx.de>
-> > > >
-> > > > According to ti,tlv320dac3100.yaml, 'clocks' is not a valid
-> > > > property.
-> > > >
-> > > > Remove it to fix the following dt-schema warning:
-> > > >
-> > > > Unevaluated properties are not allowed ('clocks' was unexpected)
-> > > >
-> > > > Signed-off-by: Fabio Estevam <festevam@denx.de>
-> > > > ---
-> > > >  arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dts | 1 -
-> > > >  1 file changed, 1 deletion(-)
-> > > >
-> > > > diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dts b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dts
-> > > > index c6ad65becc97..475cbf9e0d1e 100644
-> > > > --- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dts
-> > > > +++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2pro.dts
-> > > > @@ -64,7 +64,6 @@ tlv320dac3101: audio-codec@18 {
-> > > >                 DVDD-supply = <&buck5_reg>;
-> > > >                 reset-gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
-> > > >                 ai31xx-micbias-vg = <MICBIAS_AVDDV>;
-> > > > -               clocks = <&clk IMX8MN_CLK_SAI3_ROOT>;
-> > > >         };
-> > > >  };
-> > >
-> > > Let's just give a test to the board
-> >
-> > Have you had a chance to test it?
+> On Thu, Dec 12, 2024 at 2:16=E2=80=AFPM Stefan Wahren <wahrenst@gmx.net> =
+wrote:
+> > What happens if you replace your custom config with arm64/defconfig?
+> > Does the issue still occurs?
 >
-> I will test on monday ;). Is that ok?
+> I've just launched a kernel with the arm64 defconfig:
+>
+> > 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq =3D 99, base_baud =3D =
+0) is a PL011 rev2
+> > serial serial0: tty port ttyAMA0 registered
+> > raspberrypi-firmware soc:firmware: Attached to firmware from 2024-09-13=
+T16:00:01
+> > hci_uart_bcm serial0-0: supply vbat not found, using dummy regulator
+> > hci_uart_bcm serial0-0: supply vddio not found, using dummy regulator
+> > Bluetooth: hci0: BCM: chip id 94
+> > Bluetooth: hci0: BCM: features 0x2e
+> > Bluetooth: hci0: BCM43430A1
+> > Bluetooth: hci0: BCM43430A1 (001.002.009) build 0000
+>
+> And it worked perfectly. Thanks for your suggestion. It confirmed the pro=
+blem
+> came from my kernel config.
+>
+> I then compared both .config and it appeared I was missing this config fl=
+ag:
+>
+> > CONFIG_SERIAL_DEV_CTRL_TTYPORT
+>
+> I had already enabled CONFIG_SERIAL_DEV_BUS, but not CTRL_TTYPORT.
+> Nevertheless, that first kernel config item's prompt had been clear about=
+ that,
+> but I missed the advice:
+>
+> > CONFIG_SERIAL_DEV_BUS
+> > Core support for devices connected via a serial port.
+> > Note that you typically also want to enable TTY port controller support=
+.
+>
+> It's so much better now to see the HCI attachment handled by the kernel
+> directly!
 
-Any update ?
+Glad this got sorted out without my help :) Thanks Stefan!
 
-Frank
 
->
-> Michael
->
-> --
-> Michael Nazzareno Trimarchi
-> Co-Founder & Chief Executive Officer
-> M. +39 347 913 2170
-> michael@amarulasolutions.com
-> __________________________________
->
-> Amarula Solutions BV
-> Joop Geesinkweg 125, 1114 AB, Amsterdam, NL
-> T. +31 (0)85 111 9172
-> info@amarulasolutions.com
-> www.amarulasolutions.com
+-Saravana
 
