@@ -4,124 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C4AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 12:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE55E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 12:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YY9Ny37WV/e8XNd3tcZJEJMvfANE4ZRS8J1X5XId050=; b=LZH7bhYSzOGLDjlI/2E2qeZO3O
-	bY0wG2bCINXky1lR7tqZCijUBgQYmn4h1g9s+IN3QBFp8l4YGM/gJCDiGhk7AWSwBlsmBN7HHrPwv
-	2AwNhU5pP5doxDhDf0Tl5UGttEdJJBgfnE5msK0KeLF+v/Mcb09kB9nbfrCxkmkU14I0Wp4Osae5L
-	UyrIL1pOa0/EiARKRV6x/ZkicpurexUVqhcW/racA/gh4CjWZIwQirsSbiLYxRQCoNFEX70k+bGhq
-	pIahNLiau9APPWZtBZi7DEBrcmOn7xRPcyqQKRQVqKVzCkHLfgGAGYr10+0QEXFHqlK8OuNxbKSVp
-	2MFfJ6TA==;
+	bh=OqCDbEADje7fO21Qa02fh5oNDuq7n3wLt2xjV7uGqj4=; b=VqrjtyXFwA/M7VdYDr1lXPF3mP
+	yGRYopJweVKJ5mlbV48LGiQcWxaCvqZW558j4MWNrU4IgPErE3thuFOkaEk29txaeU8HG//n60elp
+	C29x0wrENmLAOqLN4Nocb/SDv/KVjaxJzeApri/oRWMlGbDPuyizqOxYuu4l54ShHsmmweadbt4P9
+	WwGu5hOthvJwkBpTOSwEFKVCXXFOcfJTvMyIRX7MTDGB0r/TcyKH+dbDSEh4woauXFylRnjUOnYEl
+	a0zDFAMwbuzhn43ODgHt/69Z75fG8dZDXooL1DUvb/HMOO/hScFxRd5I9SkkghznBduUrl2xcsF5g
+	yEW123kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM4LX-00000003eDn-0seM;
-	Fri, 13 Dec 2024 12:00:39 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1tM4Ql-00000003ezb-06ua;
+	Fri, 13 Dec 2024 12:06:03 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM4KQ-00000003e7I-3lfu;
-	Fri, 13 Dec 2024 11:59:32 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.stl.internal (Postfix) with ESMTP id 9DEE31140216;
-	Fri, 13 Dec 2024 06:59:26 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Fri, 13 Dec 2024 06:59:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1734091166; x=
-	1734177566; bh=YY9Ny37WV/e8XNd3tcZJEJMvfANE4ZRS8J1X5XId050=; b=t
-	QgxBTJ7cI21MODHm5IIhsr9qQzk4lUA0CTYP4QXEFNOgSxelQHeakjL+MZkdtoSw
-	ld7ieKDSHQKVUZJ03hzJ1b4ApDYLShIMZ2/1sQ/07AmlG+/WqCEIkwmJUoSMVuxf
-	lE46e4YNbqvpRzK3Er+9gVFjHXCmcI/Iz9vdMIMZzJ5Pfp2+AGW0GcYY+JO+0I9o
-	7dU1+wSufBh8U149cRZAVjGaNfVF2qwDh0zkYs5V0v8aojQaYlLgh3BH64mtDwF/
-	Uz9OV+qisQPQj1ovy5JQlHG2I0+RDihEkEcY7wqnEPtcDixc/fDiAk7EwCiEBz+u
-	k9wr+T8lfG2rdpxyIFU/g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1734091166; x=1734177566; bh=YY9Ny37WV/e8XNd3tcZJEJMvfANE4ZRS8J1
-	X5XId050=; b=uHJTAYSvYyol+OslkmlWVtjJxWlbd6yvuoAI+aLInxA51QCTJ+w
-	0zgUiCFT5M3BkYay9NetzJ9vIKz8Rgl4jPugaEXY/7MwiWU7Q95moFYBNktPp7Rs
-	xLlTMyq/0meVG4P6x3w9OSnouLbB8Y0UYi728bJ/WluPkeYT1sg/U3guL9ZMu0Q1
-	u/9lOFirZb5EHkekq8HhWCU5T/4ueLYsdvKMuTEO4Jk1GnLUFMMjQuZimGTCLc1e
-	8ygE0yPAtfa9FCxYhHauPrTfHoVE0az+9tm3UXC0TUEZz96zvov/NErDhXTU/AIW
-	xOySIUmbdP6OPjtwdgpo9amPsZsKG3KOylg==
-X-ME-Sender: <xms:nCFcZ9jwvYrdqGJY5AXoELdLaHGuUUfWoHHb7qyvrcs7otL--F9zcQ>
-    <xme:nCFcZyC4V1hIWZSgfKWznAW135Kb86FiCIDfn-3_TTYBrClnjPMAFz_QtuZbIpiU-
-    5pL5JxhyYjwld8sO4g>
-X-ME-Received: <xmr:nCFcZ9F9puHXqz8UHyPic35ImT0xh5322Wrg0RuDrW1285oZXBluiCDQENsEoz8MWdodpA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrkeejgdefgecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdfstddttddvnecu
-    hfhrohhmpedfmfhirhhilhhlucetrdcuufhhuhhtvghmohhvfdcuoehkihhrihhllhessh
-    hhuhhtvghmohhvrdhnrghmvgeqnecuggftrfgrthhtvghrnhepffdvveeuteduhffhffev
-    lefhteefveevkeelveejudduvedvuddvleetudevhfeknecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirhhilhhlsehshhhuthgvmhhovhdr
-    nhgrmhgvpdhnsggprhgtphhtthhopeeftddpmhhouggvpehsmhhtphhouhhtpdhrtghpth
-    htohepthhhohhmrghsrdhlvghnuggrtghkhiesrghmugdrtghomhdprhgtphhtthhopehk
-    ihhrihhllhdrshhhuhhtvghmohhvsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpth
-    htohepsghpsegrlhhivghnkedruggvpdhrtghpthhtohepthhglhigsehlihhnuhhtrhho
-    nhhigidruggvpdhrtghpthhtohepmhhinhhgohesrhgvughhrghtrdgtohhmpdhrtghpth
-    htohepuggrvhgvrdhhrghnshgvnheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphht
-    thhopeigkeeisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhphgrseiihihtohhrrd
-    gtohhmpdhrtghpthhtoheplhhuthhosehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:nCFcZyTEfCh21EnlTiPrK6G66zjhnkSICcPVJ5yGL_XX7CPK1LepTg>
-    <xmx:nCFcZ6yfy5onCbvtfbE9MjEOnuFY59LeQraVqzy6cMwh2dZO7nNzwQ>
-    <xmx:nCFcZ44gnrVsQRUU0evquTZE4W0t006Zwd1VWEzwQw8dmXJ7O69QwA>
-    <xmx:nCFcZ_wBGf8yVd5DPOy-M9IiNQcdKezDc7xTboVD_T-5GwLBVrORwA>
-    <xmx:niFcZz8dofWI4yELC61Xl2mY9kvqAIng5IyYovyCZ3-xyAvp6G73usVl>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 13 Dec 2024 06:59:15 -0500 (EST)
-Date: Fri, 13 Dec 2024 13:59:12 +0200
-From: "Kirill A. Shutemov" <kirill@shutemov.name>
-To: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- 	Borislav Petkov <bp@alien8.de>, Thomas Gleixner <tglx@linutronix.de>,
- 	Ingo Molnar <mingo@redhat.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- 	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- 	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>,
- 	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- 	Daniel Borkmann <daniel@iogearbox.net>,
- Eric Chan <ericchancf@google.com>, 	Jason Gunthorpe <jgg@ziepe.ca>,
- Kai Huang <kai.huang@intel.com>,
- 	Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kent Overstreet <kent.overstreet@linux.dev>,
- 	Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- 	Russell King <linux@armlinux.org.uk>,
- Samuel Holland <samuel.holland@sifive.com>,
- 	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>,
- 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, 	Ashish Kalra <ashish.kalra@amd.com>,
- "Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <myzpconz5z7xf4j7fnofb5zgxv7fc3evxhcys6wnqlao2c3xkj@aoapggj7lchq>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
- <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
- <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
- <079cb87c-78aa-5fb5-b28f-e7a54e51aa78@amd.com>
+	id 1tM4Pf-00000003epS-1Y7a
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Dec 2024 12:04:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734091495; x=1765627495;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=IJj2A0TpahfSDjQbTxH0M41Gz9q3uEE5ittvsXt6JEc=;
+  b=BfXrGtX1H5/KlgPpTAWH7QQyTwqRDOan5V4fk7pXAQ7aCyRVIJbeKsuO
+   Ik/LvkHY1odN9duxnVXQfHj0/rg3cInHHu00q8xWDte2Mt9TA6s9FnHKD
+   xw7GYo6si7oj7K0s4rHGQPjrMGamTd9X41y39+FKA1tT+fUuSckSyvDiM
+   K5T4y1TFSJ3jr/uM0c6LvV0X8OsVkY/eDIWK4nZDpr/dKzqBJ1kxfu+y7
+   clPEaILrcu/NFvkvba6KEZAOBHW+dJKxNdXYR/zxT3/V270+xj7KQKvaC
+   xqIWC5zVYva4IkKYyb0PrUtZLWbheMVK0QIHX4HecjN81oHmHVDzEmNSP
+   g==;
+X-CSE-ConnectionGUID: xU6nkoBSTdOD95NVNzD5JQ==
+X-CSE-MsgGUID: BFPmXHvCSS+RBx+kDsDVww==
+X-IronPort-AV: E=McAfee;i="6700,10204,11284"; a="33870022"
+X-IronPort-AV: E=Sophos;i="6.12,231,1728975600"; 
+   d="scan'208";a="33870022"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Dec 2024 04:04:54 -0800
+X-CSE-ConnectionGUID: 8KYD8N5JSqaN2cjS85YV0A==
+X-CSE-MsgGUID: YNFEv/HgStKG8uAY6twq1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,231,1728975600"; 
+   d="scan'208";a="96937658"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 13 Dec 2024 04:04:54 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 13 Dec 2024 04:04:53 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Fri, 13 Dec 2024 04:04:53 -0800
+Received: from NAM04-BN8-obe.outbound.protection.outlook.com (104.47.74.48) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Fri, 13 Dec 2024 04:04:53 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aqA/XYJxU+ioXDXkeDc/FFV81XTMaVJVfph8OAl2nUxOxGfX9uuusuifhhOdCg64JJDekKovRI4uJXQAvBt3KHs+jeLX3CLCR30upKzCxCoiQv8DPovyeZVK5fMx0+brWXY8Pv5xnuUw++cuwBhzojGjO+u2DZpXNXzrUcitdUt6PZ87FnI3Rn/s1BPcQwSv4w/+RVWlrS3FggepMG4wTqtH3PXRvyOh9t5iQxzf7Fu3OlDlKktSUMTGnB5IXEjs9E1uhgTk7hm1DA5UrEwNNHnRRPiAh6HFtasIFTjw3jLnDP6xt1GJQ6UmODPTW9rUVJMsf7Pj12eslsHe2fzunQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OqCDbEADje7fO21Qa02fh5oNDuq7n3wLt2xjV7uGqj4=;
+ b=OgTo5MCPyE6juL5vSeDOym7iAKy7yQMfJa5XT7C9wAywdiS/y9/C97jI2YEa6ZAYMkh6yFdG2O9RdAl+ngJjH3EArHfx9ytjvch02LwmuLJZpGPKmRRFCNwZQmjINLFhSuPwAMeFhSpTQ3QVRbd0WqxRGETONCW42M+IqvOvDNqxEV2rBYFM6br8zU4DaeMnSPtjxmB2OBe/EzgyzroN+9YzmSLqaCfhXoBUDQ6gR40JuzYIsGtWaEU0TXPZ1YELu85DKJB89TaptQufxrH7H7kljoDtvqODdL4blWls/KZgw23r8r3rlTT2cCTVke7WVS31qGwgE39rh2+1hxizNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from BL1PR11MB5399.namprd11.prod.outlook.com (2603:10b6:208:318::12)
+ by IA0PR11MB8335.namprd11.prod.outlook.com (2603:10b6:208:493::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.16; Fri, 13 Dec
+ 2024 12:04:11 +0000
+Received: from BL1PR11MB5399.namprd11.prod.outlook.com
+ ([fe80::b8f1:4502:e77d:e2dc]) by BL1PR11MB5399.namprd11.prod.outlook.com
+ ([fe80::b8f1:4502:e77d:e2dc%5]) with mapi id 15.20.8251.015; Fri, 13 Dec 2024
+ 12:04:11 +0000
+Message-ID: <bc9fe988-76f5-4106-b063-96941b5fc7fe@intel.com>
+Date: Fri, 13 Dec 2024 13:04:04 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v1] net: stmmac: Drop redundant dwxgmac_tc_ops
+ variable
+To: Furong Xu <0x1207@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+	<joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, <xfr@outlook.com>
+References: <20241212033325.282817-1-0x1207@gmail.com>
+Content-Language: pl
+From: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
+Organization: Intel
+In-Reply-To: <20241212033325.282817-1-0x1207@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR09CA0127.eurprd09.prod.outlook.com
+ (2603:10a6:803:12c::11) To BL1PR11MB5399.namprd11.prod.outlook.com
+ (2603:10b6:208:318::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <079cb87c-78aa-5fb5-b28f-e7a54e51aa78@amd.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR11MB5399:EE_|IA0PR11MB8335:EE_
+X-MS-Office365-Filtering-Correlation-Id: f28af127-e8be-4ded-89ff-08dd1b6e4124
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MStjd2ZHYkFHelhLMnEyS0FYazlyTlJ4MGtWcmhoQ2FIZVNodXR2eVZFcUdo?=
+ =?utf-8?B?Vm1xd05KVjNFZkRLQklROW9helVqRmdjMUQvNHpNVVptTjloSHRYOUlTL3Mv?=
+ =?utf-8?B?UkRYYmdPeVhxbzlzQmVwNDdWKzFGWkJZaC9Ga0ZBUFhTVlE5WEMrRFllRE1Z?=
+ =?utf-8?B?SFBESHEyTjFIdS9CQkxPZEh5UzRrWThydkdOY09WNnFFTGJCQW1idUsrcUYy?=
+ =?utf-8?B?L3NselR5cndhUG8zVW1uKzByOUcwNHU2MkNHeFgrM21vQ3BZT0R1bFRhemR4?=
+ =?utf-8?B?UHNFZ1ZPNmdGcE95bytDK2l6ZzVSWnlXbHFwYlgreGE3WkMzaUhZK0R0Zjlm?=
+ =?utf-8?B?Z3YxbktzRGN5TlQ5cVQ0Um94QTZ4WFlyUS85KzlEZjRMdVpNTU1hZUFhUDU0?=
+ =?utf-8?B?aVI1MkJUM3cwZTFFTmN4K3BUSUNwZTVpcUlXMFZpaWFWSis5Mnluekt6Y2VC?=
+ =?utf-8?B?aVRSUUNnaFFWcjV0Qy9ieTZjZEhiaTlLRk9EeUlIbVc2a0dveEpRZ2JzT29v?=
+ =?utf-8?B?RGk4bWhlRDFLNkk3S0lSMk42UUx3dndjWjNlRjlOZ2Ira0J3MSthekJwNUR2?=
+ =?utf-8?B?WTg3QWMxaGFkZm1lZWhncUdVMlMwUSt3ZkUwTnFpYzEvSGF4bm1mVHJHY2RH?=
+ =?utf-8?B?Yy9qR3hKdE4yQWlsNmNhaWdPbllNRENSRWZZWVUvK3N2THZUZ1FkTEZUcE9n?=
+ =?utf-8?B?UXZPV05qOG1KN0greG9YZnNnZlluVkVmd2NjcUFqWldySlhZK3RGWjZPd1J2?=
+ =?utf-8?B?RnpPZ1VyT2ZrM0hJZzR1eWphYmh4RTNYV0tRQjhNWk5PTXNqOGRyKzU5NEV0?=
+ =?utf-8?B?ZCthcWcrbkNpUFM3ZXBCaE9aTjFhTmFmTXk1anZqSjhDMmtCRm04d1E5amZj?=
+ =?utf-8?B?a0dqV2ZRM1dqaGRadUtnUDlQTXRtOFlRQmRZR05DUjd1ZFU1dEplQVBLOVZa?=
+ =?utf-8?B?RDVwT0ZTZHpqOE4xM0JTdWk3RjBBbUdIeURGV0ZUYUVqNzc2Qm1JK3cxZFk0?=
+ =?utf-8?B?Rm9GYlU2V1doT2ZZOG55THBmRFlkSXFBaXFGTTBGd1hteGl0UVJ4ZDE4c0Rz?=
+ =?utf-8?B?WVl4Qjc1K2JKU0ljWHF6Z1JLRzU2eEU4QUJRcVRRakVyNmJ5QldDSndxcDZJ?=
+ =?utf-8?B?VzR4M20wU0hzejBGQXN0VnlHZkpSZWxyS1cyNFlOdnVFTkUrMy8zK0NSVFls?=
+ =?utf-8?B?L0ZNM1MrWXlmQ1VqUlA1Y1JYZ2NEQkhNYmtsb0o1ZThwWDlES0ZlNXJHNjVS?=
+ =?utf-8?B?V2F4MTZLS1VZaEpkTXBRZEtHUWpXUERWUU5wanZaeWZpS2tyMGpxSFM2NWFJ?=
+ =?utf-8?B?ZzdOUlNsRThjVmVzMEQySWxPT2NkZ0hNSkNXajk5Ky95Zk1VeXR2a3MwMFAz?=
+ =?utf-8?B?c1JBNjByb2Q3Nms3R09FWlBET255eERabjZBcE9WMnVzMU5GSjd0SDFMeDBJ?=
+ =?utf-8?B?U2lHWC9YcVg0Z2FacHNURUVtcm43YzNGSkdiQmNzVFdxaW5GM3B1dEQyZkFz?=
+ =?utf-8?B?YXlUcExjckZNa2dITnFrb3VNMEYvYndUSHNKMjh0UjgwaTBrZmZMKy9ZemFX?=
+ =?utf-8?B?Y3VKSVh2bDIvSHZDaFdOb01KTUNWWS9sUlJNcGk2VWMvNEZvNndVUDJSRExF?=
+ =?utf-8?B?eXB4MFRGK0F5VUloY2xhRnNoWkRFeVhEcUZ1VHVtWlRpdzN4OUNVTGxDa1Jt?=
+ =?utf-8?B?bEFjNXZtZEZJeDlVWUFkVWNreHB6R0IxZzZUU0dJQkl6Zkp3cU1SUEZoR3Jx?=
+ =?utf-8?B?b0huL21ZMVVUNW5nUG9tUE40Q0NmZTFtdEN6SGpydXhacHFtcDV4YXVWdEJ4?=
+ =?utf-8?B?eFl3OTlXNi9mU2xKazB6QXowUnJ6dGZRQzBnRWs5T1FLaytpRDR6NkhPd1kr?=
+ =?utf-8?Q?YxEx1Ae704tcd?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5399.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dlB1ZXhveU1UTVg4Z1U0NG1MeWkyaW83TVYxekdxN1JUQ3NJdzRUNmVrODlq?=
+ =?utf-8?B?bXhhaXMvZU5JUWxGQjZaSmRkZzIxbWR5RDV0T0Fpc2pjNE1jTEUrZ3pHMnJp?=
+ =?utf-8?B?STN6Rm1iRENSL2ZqSnpiUmN6OHlvQ2ZVYko4VzJBYUE0UVJzQlZWOFIrTHZm?=
+ =?utf-8?B?ZjhhQ0pNeFEzM0pXRjRoWFNOOWwzOXhXTUxjcjZLUU9EMG1uMjBDcEo1cTdN?=
+ =?utf-8?B?T00yVDNyWDR4dVZxTCt4MlVFbFFHQzNJZmdpb2hOWnJ6YklFdG5taHZXZVRt?=
+ =?utf-8?B?dmdUQksrM1YzUy9jaHVPMUxTWG9VazdYZ3QxWkYvbzVzb1FGTVVvZlE0Zkdx?=
+ =?utf-8?B?RzJPalRaVlRYOVRMQ21UdUtGY1dzbEJHZUpUUktsaWRqYUJyYnlBK1BCT3Ft?=
+ =?utf-8?B?SUxSSG9HWTRrSkUzTW85dGg3bHNmd2psdFpyN2o3YnlXYUNLQjhUbDk5eWcv?=
+ =?utf-8?B?bCt0eTAxQzBhSDF0bVYyWEx0NnJjbkMwWGRBQk04bWdYTU5xcnVlN0pZSzd2?=
+ =?utf-8?B?WmFxUTQrOUVsK3ltUitidUdZS1lyOTlxMzRMbCtJd0dwOE9USldWMzhPVThZ?=
+ =?utf-8?B?dlIzZ0l5dmJ3bDJuZlRvUnBYVFVCV0xNcEh5TkwvV1ArdEFhRy9EZFFEekoy?=
+ =?utf-8?B?aWhUYzFnd1FoV09WczVhWmN1ZlNuM08wOTBvNE8zOHVNZEQ4UnByNUhwanln?=
+ =?utf-8?B?L0I5d1FUdlRRS09QdXRSTnd5OEVveGIzdlc3WlhVWmo2c1FBdExGbzBraVlU?=
+ =?utf-8?B?RXpVbGdOaDdtYS9sdTZMQ3lSckswaFg4b1ZiL1poa0ZId01mUDI2QXhxaXVI?=
+ =?utf-8?B?N0M5VzdFbnBXU2V4d1d1WFYvSnJUNGJEOUkvWmNqRzdrb0VDR0hCZTNua0lT?=
+ =?utf-8?B?TDJqTUp2anlBTXhRd0JjT1piaEpnL0lOZFhPREJSZy82NHN4dk5obVZRREd3?=
+ =?utf-8?B?eS9VRUs5emZ1TUMyNDZNTkxxZ0ZTd3dNejFmMWVNaEJ0NjMzWjAvZHVianFu?=
+ =?utf-8?B?blBZMXVlakluZnFieVhFdGZGakdJaTF4SFV2bVlxVFVRcWpyZDcvKzlRNDlZ?=
+ =?utf-8?B?R0lwRDFkWDRvTStCWUdUa3o2MUlVZmtScktkVnhHS1h1dHFycWJOaGhwcWY5?=
+ =?utf-8?B?OEtMdXNVcDRqdzB1WGNUOWpjdGpoanpGVGZ5SGtSMjhGOVdWR0x1ZHFubmo3?=
+ =?utf-8?B?b3BCenBCUWdVSE5UOUk4bXczR0VzUmVtSk0xVWxhMzh2UTZsZHpFakQyQmla?=
+ =?utf-8?B?dm44cEk5cWJlSHJ6aVFLTHVmZkFoKzgrWjJzeW1zYnNjMWtXaEVjNHR3ZTky?=
+ =?utf-8?B?S0hTTEE0dWdzSFZVcm9sY2FncUxKYnQ3eGtPS2NPVHFtZ05EK3NtdS8xVTNI?=
+ =?utf-8?B?SUxEM3hKVzhSdTNmKytuaFZ1bklJalRzbnZRQTgyWFhHbmdOcUJFUC9Xdy9X?=
+ =?utf-8?B?VlpoTzhjV250RFdBYnE3MHpzMnNveHNEMkI2dTRmdm5SRmpOMkZFUlB5UVFi?=
+ =?utf-8?B?Unh5NkFzc2VRem50SmVRbk5yOEdweUdxOGZZOU5YbmIweEh1ejR1RStpbUVa?=
+ =?utf-8?B?U2ZrSE9PRlFlQmllRENzNm1YWjRYeTduTElvaVZsRFpRK3c5ZmVHcDlMM0Nh?=
+ =?utf-8?B?cnB0aXk2K1V2TFdDQUZhUzNxUHFaN29KMElpN2N1dVJpbk5vNHQzUk5oQmR3?=
+ =?utf-8?B?YktzT1I5dUg4a04zUnhPTG1kcU9YZi9SVVBIbWxqUVg4ZkhWL3F6QXRTdUM1?=
+ =?utf-8?B?THNYQVE2aWIwWXpMNXZVTVg3M2pSQWhHSzBtTTNuRkMxalVNblk2WkpZVSth?=
+ =?utf-8?B?bTVtQm96bjZwajRYaVRtdk9jRVFJZ21lTE14MjlKWGxQTHhKSEpwd2Z1K1VN?=
+ =?utf-8?B?WU1WdzhCZUsvNlJYWWV5QnMwSDBtUHo1eTNFcTZ2ZGM4dG1McGJ6OHpiVUxw?=
+ =?utf-8?B?KzZZbjlJMy9pN2tLL2tnNWxLYk1oSzN4aUNFTTVaZDlQOEdRYi8rRm1OeXpJ?=
+ =?utf-8?B?ZG1PZUkxUW0vdDNkQlFxcFF3SkMraC9PTTc3bjVGUlpIcm5VbGlzY1JxK081?=
+ =?utf-8?B?bXh2S1AzL1JaQmRWcWxoekFQeitKNDIvT1g5NExwSGJJWmpTZU5ZSFI2dmVy?=
+ =?utf-8?B?S0I5YnA5eWU1MWtHQ05GM1JnRTVhbUVSOXZkL0F1cnNQMFVocUVtL2RYN2Ew?=
+ =?utf-8?B?Umc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: f28af127-e8be-4ded-89ff-08dd1b6e4124
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5399.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 12:04:11.2157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lVk5z81BhhlQI2gL1zVnxHEuejCaKnawAVCsvlQuY+GAxcss3myHqaVXDaMnMDVdONKkrnhgeko2GxnP8860PgVHBiZSigqajC/POS0kITA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB8335
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_035931_631123_F6DD286D 
-X-CRM114-Status: GOOD (  38.31  )
+X-CRM114-CacheID: sfid-20241213_040455_500119_E50187D7 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,94 +216,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 08:23:07AM -0600, Tom Lendacky wrote:
-> On 12/10/24 07:26, Kirill A. Shutemov wrote:
-> > On Thu, Nov 21, 2024 at 12:49:52PM +0100, Borislav Petkov wrote:
-> >> On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
-> >>> Sure, we can workaround every place that touches such ranges.
-> >>
-> >> Every place? Which every place? I thought this is only an EISA issue?
-> > 
-> > I looked at other places where we call memremap(MEMREMAP_WB) such as
-> > acpi_wakeup_cpu(). We actually get encrypted/private mapping for this
-> > callsite despite __ioremap_caller() being called encrypted == false.
-> > This happens because of IORES_MAP_ENCRYPTED check in __ioremap_caller().
-> > 
-> > So we depend on the BIOS here. The EISA problem happens because the
-> > target memory is in !IORES_MAP_ENCRYPTED memory.
-> > 
-> > It's hard to say if any other memremap(MEMREMAP_WB) would trigger the
-> > issue. And what will happen after next BIOS update.
-> > 
-> >> Then clearly your changelogs need to expand considerably more what we're
-> >> *really* addressing here.
-> >>
-> >>> Or we can address problem at the root and make creating decrypted/shared
-> >>> mappings explicit.
-> >>
-> >> What is the problem? That KVM implicitly converts memory to shared? Why does
-> >> KVM do that an can it be fixed not to?
-> >>
-> >> Doesn't sound like the guest's problem.
-> > 
-> > Well, the problem is on the both sides.
-> > 
-> > VMM behaviour on such accesses is not specified in any spec. AFAIK all
-> > current VMM implementations do this implicit conversion.
-> > 
-> > I think it has to be fixed. VMMs (not only KVM) should not silently
-> > convert memory to shared. But VMMs cannot make memory access to go away.
-> > The only option they have is to inject #VE instead indicating bogus
-> > access. At this point it becomes a guest problem.
-> > 
-> > It will get fixed in VMMs naturally when TDX Connect gets enabled.
-> > With a secure device assigned to a TD, VMM would loose the ability to
-> > convert memory on its own. The guest would have to unlock the memory
-> > first. This will make implicit conversion impossible.
-> > 
-> > But it also means guest should never initiate shared access without
-> > explicit conversion. Otherwise #VE will crash it.
-> > 
-> >> Or maybe this needs a lot more explanation what we're fixing here.
-> >>
-> >>> Such mappings have both functional (as we see here) and security
-> >>> implications (VMM can manipulate the guest memory range). We should not
-> >>> create decrypted mappings by default on legacy interfaces.
-> >>
-> >> So we're getting closer.
-> >>
-> >> The changes themselves are fine but your text is missing a lot about what
-> >> we're fixing here. When I asked, I barely scratched the surface. So can we
-> >> elaborate here pls?
-> > 
-> > What about this:
-> > 
-> > x86/mm: Make memremap(MEMREMAP_WB) map memory as encrypted by default
-> > 
-> > Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
-> > 
-> > memremap(MEMREMAP_WB)
-> >   arch_memremap_wb()
-> >     ioremap_cache()
-> >       __ioremap_caller(.encrytped = false)
+
+
+On 12/12/2024 4:33 AM, Furong Xu wrote:
+> dwmac510_tc_ops and dwxgmac_tc_ops are completely identical,
+> keep dwmac510_tc_ops to provide better backward compatibility.
 > 
-> That's because try_ram_remap() invokes arch_memremap_can_ram_remap()
-> which is returning false (for some reason).
+> Signed-off-by: Furong Xu <0x1207@gmail.com>
+> ---
+>   drivers/net/ethernet/stmicro/stmmac/hwif.c      |  4 ++--
+>   drivers/net/ethernet/stmicro/stmmac/hwif.h      |  1 -
+>   drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 11 -----------
+>   3 files changed, 2 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> index 4bd79de2e222..31bdbab9a46c 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> @@ -267,7 +267,7 @@ static const struct stmmac_hwif_entry {
+>   		.hwtimestamp = &stmmac_ptp,
+>   		.ptp = &stmmac_ptp_clock_ops,
+>   		.mode = NULL,
+> -		.tc = &dwxgmac_tc_ops,
+> +		.tc = &dwmac510_tc_ops,
+>   		.mmc = &dwxgmac_mmc_ops,
+>   		.est = &dwmac510_est_ops,
+>   		.setup = dwxgmac2_setup,
+> @@ -290,7 +290,7 @@ static const struct stmmac_hwif_entry {
+>   		.hwtimestamp = &stmmac_ptp,
+>   		.ptp = &stmmac_ptp_clock_ops,
+>   		.mode = NULL,
+> -		.tc = &dwxgmac_tc_ops,
+> +		.tc = &dwmac510_tc_ops,
+>   		.mmc = &dwxgmac_mmc_ops,
+>   		.est = &dwmac510_est_ops,
+>   		.setup = dwxlgmac2_setup,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> index e428c82b7d31..2f7295b6c1c5 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> @@ -685,7 +685,6 @@ extern const struct stmmac_dma_ops dwmac410_dma_ops;
+>   extern const struct stmmac_ops dwmac510_ops;
+>   extern const struct stmmac_tc_ops dwmac4_tc_ops;
+>   extern const struct stmmac_tc_ops dwmac510_tc_ops;
+> -extern const struct stmmac_tc_ops dwxgmac_tc_ops;
+>   
+>   #define GMAC_VERSION		0x00000020	/* GMAC CORE Version */
+>   #define GMAC4_VERSION		0x00000110	/* GMAC4+ CORE Version */
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> index 6a79e6a111ed..694d6ee14381 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> @@ -1284,14 +1284,3 @@ const struct stmmac_tc_ops dwmac510_tc_ops = {
+>   	.query_caps = tc_query_caps,
+>   	.setup_mqprio = tc_setup_dwmac510_mqprio,
+>   };
+> -
+> -const struct stmmac_tc_ops dwxgmac_tc_ops = {
+> -	.init = tc_init,
+> -	.setup_cls_u32 = tc_setup_cls_u32,
+> -	.setup_cbs = tc_setup_cbs,
+> -	.setup_cls = tc_setup_cls,
+> -	.setup_taprio = tc_setup_taprio,
+> -	.setup_etf = tc_setup_etf,
+> -	.query_caps = tc_query_caps,
+> -	.setup_mqprio = tc_setup_dwmac510_mqprio,
+> -};
 
-In EISA case try_ram_remap() is not called. is_ram is REGION_DISJOINT
+Reviewed-by: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
 
-> When arch_memremap_can_ram_remap() returns false, ioremap_cache() is
-> invoked. ioremap() should provide shared mappings unless specifically
-> requested to provide an encrypted mapping (via encrypted parameter) or
-> if __ioremap_check_mem() determines that an encrypted mapping is needed.
-
-I don't propose changing ioremap() behaviour. It's about memremap().
-
-> Can logic be added to arch_memremap_can_ram_remap() to return true for
-> the cases that TDX is having issues with?
-
-It will not help EISA case, because we don't get this path.
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
 
