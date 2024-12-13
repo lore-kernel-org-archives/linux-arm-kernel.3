@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D92CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 19:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF205E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 19:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yydHl5BH5Sb6MLQ4m8pTbWEBjAsjzLNECa7MKHOHJLc=; b=DMXrpnNqotdlbbnhp0rO7iLhhP
-	EQr0PSMn8Ho+ik9e64JePUxseiMhDwKdw+HIHgZXUCjC3GgB3czjhCP6H58hkfERlQKXq+iMOgITv
-	Lq4zg9Nq7kIB79KKftqBKTP7kr8GF6DHCpbNGULQSI3EXjhXKNEI1uU04RN+VRZeiy/lwPNUTXHYh
-	yetJCitLxxnSfA1f/MhnDZFRyl6HM/xjvvchg0ZY4SrmtD+8ELrNjgjINVqr4UFl0OK8JhAPSX79h
-	77zs8qFLWajBMmAqGYFz2iJQv10xPhoaWAN0Fi6SJG4aNBuvjvBNjtzf9OYyO7B4DABNr4ENXW8p4
-	wFEuvANA==;
+	bh=HdDCxRaTUX9FGCD245j20jXl1EXkrNlD8Fe9FHouQUM=; b=yUua8BHSgJ0MuHlDjGEZtExo1P
+	XpGcx+LSIxi8WdxGWRjzNIcFmiaAC3MFowwM/cZ4arFN+xpLzY7BMyhcJsiXeCho4PAdv/xfhPj3P
+	hF3wHPmMI6eEmrqtvIIl7FJAV7ZylvJmSIidxsEB2kg+G11y4YImOS45soOjeTYoL575CMmnlT9So
+	0ViuZ5aNfDmG5Mn4ANMHFJ/AC+MrLEUzXZBGilQF236UF4aUAKFqcx2uMb5VCcKSJ05Ih+JU75gcG
+	s7oXN5pfad12BN48hquAq/PXCY1S0RjgCyQXW1AqkkoqNzai1GTFwSHLTHyNgwsHvrl/eWMsWYB3k
+	aUZzbO5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBVg-00000004pqd-3vGL;
-	Fri, 13 Dec 2024 19:39:36 +0000
+	id 1tMBWk-00000004qCo-2MtV;
+	Fri, 13 Dec 2024 19:40:42 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMBRc-00000004o6M-1G0M
+	id 1tMBTK-00000004o1J-3enl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 19:35:25 +0000
+	Fri, 13 Dec 2024 19:37:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yydHl5BH5Sb6MLQ4m8pTbWEBjAsjzLNECa7MKHOHJLc=; b=L/niVw4tv8rIjtUYlrmUm/to63
-	7TWOizwe65Scj1N18yS/1bNUTtMQU/c4fovuuQxm+QDWYWUgKpHzcOOzjqOccwnwRX0RpkPS/n7O+
-	rHnQvWMJHc+ZiOVEVzF8VqQ6iBrJKR3pjzSvaVyDHiVifTBkhwyglwKX3dDkI0Wb5Xe6q5cfyVkg3
-	A/0Io2liQyGXd4xgS2zw/fzPlhokjXGsBK79SRVmMyTIyxUWsIRDascvHL3C2oPrFmcT3jb3WM0vN
-	GJLU0LWrkTkmET7jTC3iebx1OuGeQNeDoBAWKB5wT2IJTfTBYGqTrLo64zTHi+PkXykYMe5ClCKCG
-	BZ6ne/oQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41426 helo=rmk-PC.armlinux.org.uk)
+	bh=HdDCxRaTUX9FGCD245j20jXl1EXkrNlD8Fe9FHouQUM=; b=t3BbWIbt0mNjNv/q72K2ziPS/i
+	AY/p8nVScTMol5dSAKTKnfdtkXLXZPGh89Cj3mjEhdCu0Nfc3BV028PdJeGK+WNwZsawUIdkm/mO0
+	735oeSHWCV2/tVwzV7lG7WmVzojiIxqhMya7f9MOq1HqMlRHfQRsIDOB4eaN9k9NYjIjDuHEQz7vQ
+	H7VvT5e6gw2ZC8LAnuRPjAo2bnTqElRdzxRtlFqXeu78z/tdWNQUeXlUDvjWUZv0Lcvn/dWzTqpl1
+	4GnVWcgUh96ugv0dLl25WqOdyvtr079spbDDFisw9pJOa6KwxxLQdhPEkpq679IHPwIMpPmBoseFq
+	8Kb+LFCA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:32846 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tMBRT-0007EF-09;
-	Fri, 13 Dec 2024 19:35:15 +0000
+	id 1tMBRC-0007DD-2v;
+	Fri, 13 Dec 2024 19:34:58 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tMBRQ-006vat-7F; Fri, 13 Dec 2024 19:35:12 +0000
+	id 1tMBRA-006vaY-Sv; Fri, 13 Dec 2024 19:34:56 +0000
 In-Reply-To: <Z1yJQikqneoFNJT4@shell.armlinux.org.uk>
 References: <Z1yJQikqneoFNJT4@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -66,16 +66,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	 linux-stm32@st-md-mailman.stormreply.com,
 	 linux-arm-kernel@lists.infradead.org,
 	 linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 5/5] net: stmmac: use PCS supported_interfaces
+Subject: [PATCH net-next 2/5] net: pcs: xpcs: fill in PCS supported_interfaces
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tMBRQ-006vat-7F@rmk-PC.armlinux.org.uk>
-Date: Fri, 13 Dec 2024 19:35:12 +0000
+Message-Id: <E1tMBRA-006vaY-Sv@rmk-PC.armlinux.org.uk>
+Date: Fri, 13 Dec 2024 19:34:56 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_113524_333223_422FB676 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20241213_113710_900010_CC42BDAF 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PCS' supported_interfaces member to build the MAC level
-supported_interfaces bitmap.
+Fill in the new PCS supported_interfaces member with the interfaces
+that XPCS supports.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/net/pcs/pcs-xpcs.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index d45fd7a3acd5..0e45c4a48bb5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1206,6 +1206,7 @@ static int stmmac_phy_setup(struct stmmac_priv *priv)
- 	struct stmmac_mdio_bus_data *mdio_bus_data;
- 	int mode = priv->plat->phy_interface;
- 	struct fwnode_handle *fwnode;
-+	struct phylink_pcs *pcs;
- 	struct phylink *phylink;
+diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+index f70ca39f0905..cf41dc5e74e8 100644
+--- a/drivers/net/pcs/pcs-xpcs.c
++++ b/drivers/net/pcs/pcs-xpcs.c
+@@ -1446,6 +1446,8 @@ static struct dw_xpcs *xpcs_create(struct mdio_device *mdiodev)
+ 	if (ret)
+ 		goto out_clear_clks;
  
- 	priv->phylink_config.dev = &priv->dev->dev;
-@@ -1227,8 +1228,14 @@ static int stmmac_phy_setup(struct stmmac_priv *priv)
- 
- 	/* If we have an xpcs, it defines which PHY interfaces are supported. */
- 	if (priv->hw->xpcs)
--		xpcs_get_interfaces(priv->hw->xpcs,
--				    priv->phylink_config.supported_interfaces);
-+		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
-+	else
-+		pcs = priv->hw->phylink_pcs;
++	xpcs_get_interfaces(xpcs, xpcs->pcs.supported_interfaces);
 +
-+	if (pcs)
-+		phy_interface_or(priv->phylink_config.supported_interfaces,
-+				 priv->phylink_config.supported_interfaces,
-+				 pcs->supported_interfaces);
- 
- 	fwnode = priv->plat->port_node;
- 	if (!fwnode)
+ 	if (xpcs->info.pma == WX_TXGBE_XPCS_PMA_10G_ID)
+ 		xpcs->pcs.poll = false;
+ 	else
 -- 
 2.30.2
 
