@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1929CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 01:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E27E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 01:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmLMT9HyJdtqZoszt9l3H7/SZ22CYQFZhILA0LbfIRc=; b=aemafjgkQ0rYVKxRJbwM/YkAxJ
-	KF0ydB5LvnhaPpFJ0npAGFWfmUvScY7Qu5nyTBoifLLAvwKvzI6qZIgITWE+6HIFjiqEaN3guuAcA
-	vjxQ4DMqtCLFVhVKKRAJEE7Jm5AqHPKZvTOYRomPIzmsetGzlm7km6CLfEMKIUuajz+22LMqY/V7v
-	/OaDeUTdxaoL1Xjp5FJ7OldXd+VYyWZ13cxWEx8onXqMxdyOuIc5LCFWVJIrPpN++wLC6Lz0d2Kei
-	Pech1jwO9iALaJZGAlyaWSwyKpZYrPc8dr2E3et/Hr7XVJq2iRnpE4m5QMO9WjsoPWJpdtVuTiUww
-	JXlx2XwA==;
+	bh=XDf95d9Uka+UIYv5wGQ9WydOISmAvXQAo6tglVHRDi0=; b=FkKaMhkmzHOWVC6brodT/fupX9
+	kSNhYSnEZ0A5v/tlT1l6+bjTFFetzxXPxNGrGuB+ZGkoOOOszaJrt2gXTjdmdYyIT7CP1hgmPpQSe
+	Qo/39YVuuZs6RW9JRZPC10Exps1ZTeK1UfleFHLE023s9b6GxLStNw/t8E71XSCAnEdElGlLIcf4q
+	0UbyUhlLRertlSUcsh9y8DrbDGwrhbk8uORKRmLX74ZkKkxtaKqxLpP7OP5bJeEcz4+vs8nJiWsJb
+	Tod0DeDy9gAGj7qmc2z3f147znzOS60AuoDgL85ntRVdpizLUtcAXypH+MOMMZRgmubgdwaQifbi0
+	OfQkPJgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLucJ-00000002QEs-2Ecn;
-	Fri, 13 Dec 2024 01:37:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLufc-00000002Qg5-065A;
+	Fri, 13 Dec 2024 01:40:44 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLubE-00000002Q5m-21tQ;
-	Fri, 13 Dec 2024 01:36:13 +0000
+	id 1tLueX-00000002QSW-36dD;
+	Fri, 13 Dec 2024 01:39:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E5A045C6682;
-	Fri, 13 Dec 2024 01:35:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B07DAC4CECE;
-	Fri, 13 Dec 2024 01:36:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 50A5DA40E72;
+	Fri, 13 Dec 2024 01:37:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA84DC4CECE;
+	Fri, 13 Dec 2024 01:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1734053771;
-	bh=7f/5fqryMUGvRImZN3hfJmmlKUrLgbHGWnv+giipYko=;
+	s=korg; t=1734053976;
+	bh=z6KasiqXW9OocT/gPdXD8wxFCgxz3hJU5rxa3NS7ujM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pU24h8Qmf2l3dWmBoawfB733EGF8ZWmMJjrPI6B43pMJbMG4ZTBpTRzP1HUP8GzP4
-	 1boZnf+GhhYVxYCiYxKJ0ZLRya4Nw9Vpsn1tw6iHWN3gws31ENEkqbfbQgsb2j17Bw
-	 tbFaFZWjLH1q1pTGS9LCKFYhq+6kLBeOOeefROU4=
-Date: Thu, 12 Dec 2024 17:36:09 -0800
+	b=NOajGzF7Oghi2j823OVBOAGjMfDE2y8sqhBtABteyi+xNwCVBGrHLGBc4kP8k/ZzS
+	 nGpVqOiOxYmCXtpYVq8CDh3d/Emvq9T/1xFLC/6g4wNbedpjpYuIv/cuTxF0CeV0MY
+	 ibJbSfQIh1u6+D2zMIFRD+W8TWrIVtCfqGegBRio=
+Date: Thu, 12 Dec 2024 17:39:34 -0800
 From: Andrew Morton <akpm@linux-foundation.org>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>, Kalesh Singh
- <kaleshsingh@google.com>, vbabka@suse.cz, yang@os.amperecomputing.com,
- riel@surriel.com, david@redhat.com, minchan@kernel.org, jyescas@google.com,
+To: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+Cc: Kalesh Singh <kaleshsingh@google.com>, lorenzo.stoakes@oracle.com,
+ vbabka@suse.cz, yang@os.amperecomputing.com, riel@surriel.com,
+ david@redhat.com, minchan@kernel.org, jyescas@google.com,
  linux@armlinux.org.uk, tsbogend@alpha.franken.de,
  James.Bottomley@hansenpartnership.com, ysato@users.sourceforge.jp,
  dalias@libc.org, glaubitz@physik.fu-berlin.de, davem@davemloft.net,
@@ -57,21 +57,21 @@ Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>, Kalesh Singh
  linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
  sparclinux@vger.kernel.org, linux-mm@kvack.org, kernel-team@android.com,
- android-mm@google.com, Jann Horn <jannh@google.com>
-Subject: Re: [PATCH mm-unstable v2 00/16] mm: Introduce arch_mmap_hint()
-Message-Id: <20241212173609.afd41d1dffbefe0d731ed4ed@linux-foundation.org>
-In-Reply-To: <1818e2ea-f170-4a9c-8d93-2a24f2755a41@lucifer.local>
+ android-mm@google.com
+Subject: Re: [PATCH mm-unstable v2 06/16] mm: csky: Introduce
+ arch_mmap_hint()
+Message-Id: <20241212173934.4dc429716acd4c71a76e15c2@linux-foundation.org>
+In-Reply-To: <vc2uhcysgosapznbuookcj5677w43a4kzxbotwqub237ccawww@i3pbqiacdwsx>
 References: <20241211232754.1583023-1-kaleshsingh@google.com>
-	<hmuzfspqjzb36xlj2x44keihacrrhzj5madqrfbcnhqouzredv@wo75achgkuh5>
-	<1818e2ea-f170-4a9c-8d93-2a24f2755a41@lucifer.local>
+	<20241211232754.1583023-7-kaleshsingh@google.com>
+	<vc2uhcysgosapznbuookcj5677w43a4kzxbotwqub237ccawww@i3pbqiacdwsx>
 X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_173612_572641_BD08AE7E 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_173937_839237_80F9BF00 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,13 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Dec 2024 22:51:34 +0000 Lorenzo Stoakes <lorenzo.stoakes@oracle.com> wrote:
+On Thu, 12 Dec 2024 16:40:10 -0500 "Liam R. Howlett" <Liam.Howlett@oracle.com> wrote:
 
-> You've fundamentally violated kernel process and etiquette. I'd be more
-> forgiving, but this is at v2 and you've not cc'd KEY people. Twice. This is
-> totally unacceptable. See [0] if you are unsure of how to do so.
+> * Kalesh Singh <kaleshsingh@google.com> [241211 18:28]:
+> > Introduce csky arch_mmap_hint() and define HAVE_ARCH_MMAP_HINT.
+> > This is a preparatory patch, no functional change is introduced.
+> 
+> This also looks like it has changed the validation order and potentially
+> introduced functional changes?
+> 
+> All these stem from the same cloned code (sparc32 iirc), but were not
+> updated when the cloned code was updated.  This is why I am against
+> arch_* code.  We should find a better way to unify the code so that
+> there is nothing different.  You seem to have gotten some of the shared
+> code together, but some still exists.
+> 
+> In the addresses, there are upper and lower limits, and sometimes
+> "colours".  Could we not just define the upper/lower limits in each arch
+> and if colour is used?  Maybe this is complicated with 32/64 handled
+> both in the 64 bit code.
+> 
+> Is there any plan to unite this code further?
+> 
+> We have had errors for many years in cloned but not updated code.  I
+> really wish there was more information in the cover letter on what is
+> going on here.  I'd like to try and reduce the arch_ code to, basically
+> nothing.
+> 
+> I was also disappointed that I wasn't Cc'ed because I've spent a lot of
+> time in this code and this area.  I am probably the last one to crawl
+> through and change any of this.
 
-This feels excessive to me.  linux-mm averages a mere 140 mesages/day
-and it seems reasonable to assume that key people are spending their 5
-minutes to scroll through the email subjects.
+Thanks, I removed this version of this series from mm-unstable.
 
