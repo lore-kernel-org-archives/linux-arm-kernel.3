@@ -4,107 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61638E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 02:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76B9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 02:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2c/XwSCr59KYiV5COV+QijUTe/cctADBA4FfAWvsC6E=; b=ZKKuekYdrLB6x07+B9xitgTb/V
-	ILh2qkZGw97YiKRHXdx4m2hNPEGe+G2MayMJs9QNu4fwcQtuhMEXw7Q8VTMvXUyiHDdCkypzCG0ul
-	PUymL9byqBhF/Y5qaIWydhcctHUwQAz384nEIbPR8+DgDU4p5trepPoNM0NGV2xBFnSvdT5PDZbp4
-	7F+JS0jrbnE0TpYfv0xgw1rVBWnFNjXjlL+cHW5dgIv81iXZG2br3M6H5LgCJdWdW04BP60VBb6SQ
-	ufIzwLVtdrpW8cb1Fpigr1/iVTpj1kLuP4xsycneLJIU1GpVuWHW1R7nUs1LTgNniKIibz01LckNl
-	UasMxifA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FTg/cfpbpEdq4zqUU3lTcCM2xrPU0e0ELzEkGVCsKow=; b=jd2o+80ymRrN8qrjzDJN5t57qG
+	EBGyBbdXdq1/BCJD2hy9VFktIgSjxWokS/9KfkfnI8KDO2fEQp1Qiz0jo5/CSfWPC4auF7mv9P1jZ
+	0f46fWoj1zhtFSSXK6VSi2w650mJFSW/e7UJHu6+WvFVM+wV6SBeLGWw6PIcbAAr6QjaOW6CIK6B3
+	Y2UGdawZ29WR3exGQrjN3lqhQUgA8xqAimaiXMYLg+nxkauZ29XblCQ5cjsdH4l8A967TuVS2jkRe
+	rBGznvGI+4v8hrn261apyuWsN3EJcG9I3Zem80zBShvBw2zvJtW4pyxfwfONJFVvchVJEJklg0iVr
+	uL4dtoTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLvDL-00000002U69-2Te1;
-	Fri, 13 Dec 2024 02:15:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tLvsK-00000002Y8o-2CuJ;
+	Fri, 13 Dec 2024 02:57:56 +0000
+Received: from mail-eastasiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c400::2] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLu8y-00000002Mp2-1vfY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Dec 2024 01:07:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=2c/XwSCr59KYiV5COV+QijUTe/cctADBA4FfAWvsC6E=; b=qI4G1oxPJWGqGZ2IoCnd5ZByTM
-	TA1GtGZDp3CAKWM9MxOMKqHOQZCasvkiMsF8QfNjXoWznpOJuYLwTIhwEDnQrPeKUBsgwOHCzmuDj
-	Vy3HY5fA7/prwCV0eRr5LD9BZIa33EP/9BYpVTagGVxXCw6k1n6tqIGVObaDSb5FWvUgSRBHFPIQw
-	Qc17U5uuM8rDAeWSeaKI9LAsJxegslE9j2nt5hafPsB48s1297mGPVQAKITSUbB121lIHbuvwpIjo
-	GrU7tnUil1P2NVtVpomKI1NHw+XeLAoyapYVxEXr8lP8r144nz87B8yhhWJ8ICXzfY4LH6IhrAOcI
-	PpA/6b5w==;
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLu8u-00000004AJO-3kyI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 01:06:59 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-844c825ab4cso38458439f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 17:06:54 -0800 (PST)
+	id 1tLvrE-00000002Xxp-2g0Y;
+	Fri, 13 Dec 2024 02:56:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WjSiV5NwhvyGWgd5Ml23R0+9Tyx/Ry96BMSbtgDrLSZCNuoo0cFjtnYgCpaT9hwAccHWxCAX1H9XuoeNTbaHrQCLK7ZgRQaQemrqs6hivjPfxecLZb/EUtZRV2jWEQ3VXtLJXR0XyQfVDuMjprd+GoRe6z0HjMEzs7g19LNFIeIufdg9d7yBQiwt0kCMyakp7XwjGoSP5MOKa6odu0pBx8f9h0oumEGvcqSVGTj2lSnAc3N+6cOodBQKrxy72oMo9fKK3/3m5s3jZGVE2rleeFe9VuK67mdEjFmF/XTzwH+y4YQVoTqBBL/3LVHvKT4Lrc3PZWYqHegZvRGDi2/3zQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FTg/cfpbpEdq4zqUU3lTcCM2xrPU0e0ELzEkGVCsKow=;
+ b=GKpDrmdFNws/M1PMSedMjn/+C23WqFvPXApANQR8pQEEYOhYz8R3ePzxgpjIsbN01Yteis4pG2RRaLJUT0yrdkWQNXWwgP60yRl45WU70ZkAq7aXClyw53thJuoVXZQIjqXGj5cSHVEnz25QUdNtMKSlD6kXADP9cJYMbGcke1LW4LH1Wf7d/lwCYeeNUdKe27KEOSPIejyGMG6GrRVkygKKU8RIhhFOsbHMp7ZKB8zyLxBuSjhcfBWB8DST+4o2p2zQX1twn7Zozaf4HpffdKt08l+nAOpv4TTv/is7NMUC+liHPOPL6te6TkS32nAIs65hC7YWe3k33UFIhmXx5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734052013; x=1734656813; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2c/XwSCr59KYiV5COV+QijUTe/cctADBA4FfAWvsC6E=;
-        b=eRzvALBd3EN5GXoaLnq4CiwWBpRtiZ60S/f7dW4BMHgEVJtaIqtBmWo1XvhQmbbulQ
-         3GcSsVYyF2aPF9nM2DsrgRdSWPYK10kS3wTjrBm1PoNt17yskyu6oBnJAZ9jGleJMXoB
-         vzD2qqqyfgHouTZteD1eBSg/irpIrhlxlsvPDBD8g73Ossh/hv5oNaEoj6h2WkMdFXxh
-         sFndceNYPAtBe1ors4UdxHm7T8Fg0BgeJRwWmeUbr2GKudEOCnOZLH580pSNEOG9eNds
-         gs5Xoer7NLuHfMgBy0dEdaYDWmDblvXJNlA4Hhs80jdnHpxVyNphpJJDI7BlMwn9Un8+
-         yYXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734052013; x=1734656813;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2c/XwSCr59KYiV5COV+QijUTe/cctADBA4FfAWvsC6E=;
-        b=eu+OzF3GC+I+6sP4xXfNTBhBKWZGTKCdCEinkL6Z1CkKfZPL4DRxYpp9PZKmcjlf1z
-         XNb8PcVvyrTTJAzyCzXQhN6aZdqBdYuOeJ0zp5eI3YmxvI+EBDQcaPZkjZ9vuzVfhYRH
-         9A5OI5E+QSryN8r+ilzZbM/EXWTH2769Xoubw1fhUTb90Ft2CiN0QAlu+qIf7h+kgNmb
-         00dqHu+uJcZoVumUIgtO0lWWjL7ji0G/2kuR9/9D22ZqIPlkNMC9OCiyZREdS0ptTc8D
-         sdKSrAjl2MQCrmVAkm78PkN6d1b53nQdu36+VwvPYlrNkfI4/rJpdGbsZm35xnJNkWR6
-         n5dg==
-X-Forwarded-Encrypted: i=1; AJvYcCWzyNzXZnhNISdjfxsQZhMDtA2bP0rIsOCbdf1cCmBp87Yvo1SE+AD2d9F+QCM9MYXXzZUSEdkOmN4Ce6OCYTRJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+QMPcoGRCmjag+8c8DOgWgivD96XdZ/NU9JJqEH5X+7c/XI5I
-	iadvUAF/otwD2WQ79LHe+9Y/TEq0uN5F4hgD8oR+4AgG78L9tUbc
-X-Gm-Gg: ASbGncuTQk8UjgUBxN/RSDdDhtMWGzAyQp2tTzvalPniZiEr5fbEuxaiJ9z9FE0X/O9
-	1ADTrEBFtVzT1ovU92wyI3Apwf46SJkAsWpD3WTRRprfXBKie5R+KHG1+n+W83KoLlVpbefJEKD
-	Q8oWezeaPv5jx0YUduSPoGb5bEFjD9PoO9E5i5dO+l0jgVES5xXsYl1OCvK7+6CKfIHOFqzvuJ+
-	h/mAw1H/6illBv4646ukK+BW2IUKpIyUm0izywyI1td58cmnJQGY/vzwm23dWTRqxtZ
-X-Google-Smtp-Source: AGHT+IE0aRqUJwlA5+FNU6Sqc7UszAClayD0xVEQXFIIaM793yvcNU2uDJsHlxIEfHs4it75DfgO/g==
-X-Received: by 2002:a05:6e02:13a5:b0:3a7:e0c0:5f0d with SMTP id e9e14a558f8ab-3aff4616f35mr9786085ab.3.1734052013275;
-        Thu, 12 Dec 2024 17:06:53 -0800 (PST)
-Received: from localhost.localdomain ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a9628ba832sm32644325ab.64.2024.12.12.17.06.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 17:06:51 -0800 (PST)
-From: Mingwei Zheng <zmw12306@gmail.com>
-To: marex@denx.de,
-	antonio.borneo@foss.st.com
-Cc: linus.walleij@linaro.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	make24@iscas.ac.cn,
-	peng.fan@nxp.com,
-	fabien.dessenne@foss.st.com,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FTg/cfpbpEdq4zqUU3lTcCM2xrPU0e0ELzEkGVCsKow=;
+ b=wt1CfV74bj1/foa/FJIGCyz5lSYnKQSrLhRnlRYl/wzvP750YpyfKqVBsblXZHW0ER9LS5jh9QSKEErFzmgdgNdipGjrSjXW8Qt3kdrG1O+2wEFe9uZuRyCIm00mwci24nF+jsqTcq1kjguKV44rPseIqstBRafVGH3W02kY3To=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
+ by JH0PR02MB6869.apcprd02.prod.outlook.com (2603:1096:990:53::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Fri, 13 Dec
+ 2024 02:56:27 +0000
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b%5]) with mapi id 15.20.8230.016; Fri, 13 Dec 2024
+ 02:56:27 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: mateusz.polchlopek@intel.com,
+	Jinjian Song <jinjian.song@fibocom.com>,
+	chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	haijun.liu@mediatek.com,
+	m.chetan.kumar@linux.intel.com,
+	ricardo.martinez@linux.intel.com,
+	loic.poulain@linaro.org,
+	ryazanov.s.a@gmail.com,
+	johannes@sipsolutions.net,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com,
+	corbet@lwn.net,
+	danielwinkler@google.com,
+	helgaas@kernel.org,
+	horms@kernel.org,
+	korneld@google.com,
 	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Mingwei Zheng <zmw12306@gmail.com>,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v4] pinctrl: stm32: Add check for clk_enable()
-Date: Thu, 12 Dec 2024 20:09:48 -0500
-Message-Id: <20241213010948.2623382-1-zmw12306@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	netdev@vger.kernel.org
+Subject: Re: [net-next v1] net: wwan: t7xx: Fix FSM command timeout issue
+Date: Fri, 13 Dec 2024 10:55:55 +0800
+Message-Id: <20241213025555.113779-1-jinjian.song@fibocom.com>
 X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+In-Reply-To: <b409c23a-0b6f-458c-8e34-039338e799c0@intel.com>
+References: <20241212105555.10364-1-jinjian.song@fibocom.com>
+Content-Language: pl
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR0P281CA0204.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ad::13) To TY0PR02MB5766.apcprd02.prod.outlook.com
+ (2603:1096:400:1b5::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|JH0PR02MB6869:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f1c9f12-82ab-4993-13b0-08dd1b21bc62
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|7053199007|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RPgLwiyiOaZJ2i4J1GCdYubY8M8ndpjCyP2F8PKH09KaI8NXCap1l/9pvY+O?=
+ =?us-ascii?Q?DOAUq46ico/kFXI62b2lOjOfPMFkil6b+IMi6Gy86SzMkTzob3cympbmI1ky?=
+ =?us-ascii?Q?3DAdOsrq0P++2+BBobbTDqtHHs5E+Msyh9k0FaTiDW4fhxBAPt7w7xydAcNy?=
+ =?us-ascii?Q?+R09UHe7+FknWvMeI66jbLLGrUw2nEOmIWBmEjjgVSNgViK6Am3M8WysG/iB?=
+ =?us-ascii?Q?RY/zGdQIf/RCPMnF0XoX1s5BnN/ejsUv6slCYH8z5pE2tiRN1a3nBgTm6VF/?=
+ =?us-ascii?Q?2BigygLrWwymipFoVDu2JtyaAmxC3Tqmd6Bau34eAAVhipVTVvat+BUeakVH?=
+ =?us-ascii?Q?IhCwpYObARODpBIRTUFSUn+VaXQOrm83hahFBBY1gXGwBCLIDyumvIVl/Nnw?=
+ =?us-ascii?Q?CpXWehgXT/e5T3Y3VUoTFoTpR+7zcAMOEzo8d8VFlzEPNg5WB5oVr68bqigK?=
+ =?us-ascii?Q?jOeaQrYU+Qt0U9Cf2lOtqJHQuleUZuSyMHnpxv2bdDsyeoiyLJhbfg0zk2ib?=
+ =?us-ascii?Q?s3O6EJDdAmBvkEZbm0sb+Dv6m7R6d+iH63ZLCqr8VkZLwrVNRXDJWdYzaI0R?=
+ =?us-ascii?Q?PRJh5LScgMTGkVTquyce8NigC4B0I+SQQzHmn4dVAppEMVGlFc80RihxMIrx?=
+ =?us-ascii?Q?bYY28/V+LKJXEz8oG2Mq9YIjOUQUdYhOhGcvQEi8dyhBn8EDdFhXgECt2XyT?=
+ =?us-ascii?Q?e59+CtF1Py9GYdfHjjVITh+ZkQvFhq/MgAyY60/KN0yDc3oW8bcihZHW4omG?=
+ =?us-ascii?Q?Wav3wJW5ddpqhyZ1KNl7DZlBlN2xp0pPDSdHiq9hA8gx43o1V1Ys1c8MD64D?=
+ =?us-ascii?Q?ops24ui+SfWCEnXSD+19SPBDbGu3Pf14lka3k/OD9K4NI4/eH0tDARUc09Xv?=
+ =?us-ascii?Q?WQfvxprKnCMFaYhDjGq5S3Iy4rpPp9xkHDDEAbbkzfJRfnPgT4uTLN5GoDXl?=
+ =?us-ascii?Q?IK/Yx7wWhtt7/XF4uAF5aRwENrGor6Bb1gDPnkJyMJXDncQo3JpSsGGskYEw?=
+ =?us-ascii?Q?NXLMuYZgZRGolKz9HDf+cW5JKXy9IuyNFLfQn3pzWUVxWlZnKzl8aBo8hVa5?=
+ =?us-ascii?Q?443kCZEJL7tz/q19LqnObkLeQxXL4gosE1EEdqm+LaancocjlmLu2VsWoqMY?=
+ =?us-ascii?Q?80DRM5SkSP2BR0743Om42xCqUE9aQ4YrpdxM9tUihwnazI8gBOr1evsq2PKL?=
+ =?us-ascii?Q?zpbJGJdJ91qwnVUJ73qON4u4aOK0DKIvFr7QCtPj0gRMrUwuMdW8xO0ysdyT?=
+ =?us-ascii?Q?zmXpto33ZuVnrtGLNXG2x9oi4blobbNTTkU9dvvNew1os18KNsNWrVbqvoA7?=
+ =?us-ascii?Q?mTCEnttQekIzlkspReBwyWXv+jdlqN1We9es9JwLehmbde8jLWVDPGWNyVKs?=
+ =?us-ascii?Q?CPVZVmVwy5rUcKs1Awy+kac5KJweWkuSSdsPRQ0PQ1OjlB26BemwksZ2sAef?=
+ =?us-ascii?Q?ESCOp+2pRp4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(7053199007)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gC33ddMAtCcDXn34i4/N/J8k+iOj1siAmY+Klbuev+uSQP6P6GwWZjCgplM6?=
+ =?us-ascii?Q?PXey6gPZEMQB7yqkTQdXdsumz/rZV4zw/AnKJwoXpVZ3xpsJV6rAEkU4apVI?=
+ =?us-ascii?Q?iUG3+JoAv0X11WZHUGDHPs2YDdw1rXSZVy7omiYEOm1JIz0jmnjjFGqMOCo1?=
+ =?us-ascii?Q?1aerNVI/gtNTUfstsySq0YuFHNUN40Lju4oqCM2lNb3ofdkHQDkq4YKHRc6S?=
+ =?us-ascii?Q?UMkyrqUuGvqcWbS0kylILISl7nSUYMjjVxi1WMa7fYCT8oAL76G7uFh7D2k6?=
+ =?us-ascii?Q?8xgbEFHo8z/8LoV82y1b4iyQeKCgP2pVeEAjEkqlOdN3zlikKi2wgQytiTCq?=
+ =?us-ascii?Q?CdOPCN2tI7T2+BJZi+pVTQsZuMPQk5vAePv4W3RIfuh5c8Cy4mhW/Y4dlMqk?=
+ =?us-ascii?Q?OPm06S+ia7f+9pl4iSBOuD+Ot2A/JCt3leW32jlhkIcQ8mrJShB56IWGBTHW?=
+ =?us-ascii?Q?8AxDgFjHRsXk761UpOPFiAozlPmD8GIyBpj9NuytPrqRCIYvC4Xd1I8BaF95?=
+ =?us-ascii?Q?SIrkNhKFN0YFzbJ/M6tsumBIembgqtk6FxQiLa2Tq3Ped7yRxw03mYFW2CtI?=
+ =?us-ascii?Q?17S9K/hld/RZ17L1j03DrysNVjS+d+S8VbB4nidqfkcdcc0ckuUyRK99NYUE?=
+ =?us-ascii?Q?hp4iXIBCo8dZPpFOVgl5hbgIxbjM1Z6pELjpvp6YjUty+tq/LCWRE2qZvTvG?=
+ =?us-ascii?Q?D3eXfURMu+9lLWvRD5ITRKQ/242e20V/wVzJ5URxjzeo5SW7pgftmfHCngwg?=
+ =?us-ascii?Q?YzsWPNqKT+F7S2+t4Cb3NPD6feJ9tkCZ+xazNxKaP8iJG17p4cO0n+ttDCNz?=
+ =?us-ascii?Q?UJ7yS79hmugHcpf1u/v1in5pjkv4Xqw/WDXWcI+C5V+YutNXThE9T6XwYsFI?=
+ =?us-ascii?Q?T68k8Zj9DcHMSuy/wGVvC74nd63SWLDR6ancaEsBx9RS1etnBM3TEVNEhdEk?=
+ =?us-ascii?Q?zaRlGz4jNSSQdomI5cfm7FmMQvOL91cATaGhibvr1E00vom2aycybxwn9j2I?=
+ =?us-ascii?Q?wDr5GDCAWnhc2dpzAKCHbIorSBCzRPpRBzfR0M4iZSgZwhtOGuGbw7tl405P?=
+ =?us-ascii?Q?1Aeoa9/lUUgEmzBy71z4dDk6DX9SI65g2WYEP/1DYzbNOAiCcrE+NZ3GrHuH?=
+ =?us-ascii?Q?6swPZ/yHx1fCEXordglbuzz3F+2X+SEWZdDyb2SP4FFdP+CkzG66ml+RVbVy?=
+ =?us-ascii?Q?+ltadYc7POfM6+9WnsvbThQIo4VuYF5Dt81tc2zJDqV0nTSpvsSJk6/On8Y4?=
+ =?us-ascii?Q?lRdmHh9ybmBmVxhS+uDxp+nbmb4XtKfv01ksEn+nqx1Z4Fx4hysNEFHGxIZg?=
+ =?us-ascii?Q?FBZMd/rcbBEiNDEoDEMfPF98KqDBJIDkA0VIgPQAdwnfMK69z/OP/GsKwIU7?=
+ =?us-ascii?Q?n2d4ML9JBGk0M8avWybDQDyACNIAvKitAO9KLhYQi7SbeJne+de4KgVteOvs?=
+ =?us-ascii?Q?oKC2FWo1yVOjFjOMkphnjJxkOD7OnZaaExAvz7sM8b/vWBecwcsY9P24xvJP?=
+ =?us-ascii?Q?BXNdpGsLXB8LoAQE97W5EcBR5ZmP4CbIw1kX1Kwi6B/B3kmsjxR79HwwA6op?=
+ =?us-ascii?Q?p/NlqE77Y4+FGYxN8Hz848H1aWwpvjn/YCWp2pE/NT3rGyxuU7z+xUkjH8lm?=
+ =?us-ascii?Q?aw=3D=3D?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f1c9f12-82ab-4993-13b0-08dd1b21bc62
+X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Dec 2024 02:56:27.0509
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BDexC9zkpLyQNkLgMi72CeyATKYW1TvYrjhCus9mH4OjBYnOF8lfVkSynsZEdZyBd1BzCPt1xnt6pyioj0//7VgKyzCiNWkkKe6VyvhoKyI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR02MB6869
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_010657_360430_2A912BF6 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20241212_185648_841886_0FBD7A78 
+X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,143 +183,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the driver to clk_bulk*() API.
-Add check for the return value of clk_bulk_enable() to catch
-the potential error.
+From: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
 
-Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
-Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
----
-Changelog:
+>On 12/12/2024 11:55 AM, Jinjian Song wrote:
+>> When driver processes the internal state change command, it use
+>> asynchronous thread to process the command operation. If the main
+>> thread detects that the task has timed out, the asynchronous thread
+>> will panic when executing te completion notification because the
+>> main thread completion object is released.
+>> 
+>[...]
 
-v3 -> v4:
-1. Add initialization for  pctl->clks.
-2. Adjust alignment.
+>If this is a fix then should be targeted to net and not net-next
+>and probably should have Fixes: tag.
 
-v2 -> v3:
+Hi Mateusz,
 
-1. Convert clk_disable_unprepare to clk_bulk_disable
-and clk_bulk_unprepare.
+Please let me request to net and add the Fixes: tag.
 
-v1 -> v2:
+Thanks.
 
-1. Move int ret declaration into if block.
----
- drivers/pinctrl/stm32/pinctrl-stm32.c | 37 +++++++++++++++------------
- 1 file changed, 21 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index 5b7fa77c1184..427749d4f6a5 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
- 
- struct stm32_gpio_bank {
- 	void __iomem *base;
--	struct clk *clk;
- 	struct reset_control *rstc;
- 	spinlock_t lock;
- 	struct gpio_chip gpio_chip;
-@@ -108,6 +107,7 @@ struct stm32_pinctrl {
- 	unsigned ngroups;
- 	const char **grp_names;
- 	struct stm32_gpio_bank *banks;
-+	struct clk_bulk_data *clks;
- 	unsigned nbanks;
- 	const struct stm32_pinctrl_match_data *match_data;
- 	struct irq_domain	*domain;
-@@ -1308,7 +1308,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
- 	if (IS_ERR(bank->base))
- 		return PTR_ERR(bank->base);
- 
--	err = clk_prepare_enable(bank->clk);
-+	err = clk_prepare_enable(pctl->clks[pctl->nbanks].clk);
- 	if (err) {
- 		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
- 		return err;
-@@ -1397,7 +1397,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
- 	return 0;
- 
- err_clk:
--	clk_disable_unprepare(bank->clk);
-+	clk_disable_unprepare(pctl->clks[pctl->nbanks].clk);
- 	return err;
- }
- 
-@@ -1617,10 +1617,18 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 	pctl->banks = devm_kcalloc(dev, banks, sizeof(*pctl->banks),
--			GFP_KERNEL);
-+				   GFP_KERNEL);
- 	if (!pctl->banks)
- 		return -ENOMEM;
- 
-+	pctl->clks = devm_kcalloc(dev, banks, sizeof(*pctl->clks),
-+				  GFP_KERNEL);
-+	if (!pctl->clks)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < banks; ++i)
-+		pctl->clks[i].id = "";
-+
- 	i = 0;
- 	for_each_gpiochip_node(dev, child) {
- 		struct stm32_gpio_bank *bank = &pctl->banks[i];
-@@ -1631,11 +1639,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 			fwnode_handle_put(child);
- 			return -EPROBE_DEFER;
- 		}
--
--		bank->clk = of_clk_get_by_name(np, NULL);
--		if (IS_ERR(bank->clk)) {
-+		pctl->clks[i].clk = of_clk_get_by_name(np, NULL);
-+		if (IS_ERR(pctl->clks[i].clk)) {
- 			fwnode_handle_put(child);
--			return dev_err_probe(dev, PTR_ERR(bank->clk),
-+			return dev_err_probe(dev, PTR_ERR(pctl->clks[i].clk),
- 					     "failed to get clk\n");
- 		}
- 		i++;
-@@ -1646,8 +1653,7 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 		if (ret) {
- 			fwnode_handle_put(child);
- 
--			for (i = 0; i < pctl->nbanks; i++)
--				clk_disable_unprepare(pctl->banks[i].clk);
-+			clk_bulk_disable_unprepare(pctl->nbanks, pctl->clks);
- 
- 			return ret;
- 		}
-@@ -1726,10 +1732,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
- int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
- {
- 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
--	int i;
- 
--	for (i = 0; i < pctl->nbanks; i++)
--		clk_disable(pctl->banks[i].clk);
-+	clk_bulk_disable(pctl->nbanks, pctl->clks);
- 
- 	return 0;
- }
-@@ -1738,10 +1742,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
- {
- 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
- 	struct stm32_pinctrl_group *g = pctl->groups;
--	int i;
-+	int i, ret;
- 
--	for (i = 0; i < pctl->nbanks; i++)
--		clk_enable(pctl->banks[i].clk);
-+	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
-+	if (ret)
-+		return ret;
- 
- 	for (i = 0; i < pctl->ngroups; i++, g++)
- 		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
--- 
-2.34.1
-
+Jinjian,
+Best Regards.
 
