@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5426DE7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 04:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36514E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 05:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I9SAvhC/1O9xhOgEJgltjPIiKB+jL/KUsbTgQGFrTOI=; b=Q5I1uHGQ9cYl/wkZ0iicVouSFD
-	XHnEz4JihPm5Hj0yOV8u2LeRNm+w+jD3Ei+A7MdY50Ym8Zw5zi4EzWHGrh3cqLB5HmORUzMHWKsBK
-	G5P9PJxzSbvCMGK2XlSIcja0CElPZYCQErPF6EhUTMzjDuG7xN+hjiSkLAxxIn8qgGYxdk78ruoqW
-	Ipp+F5OgdrWJyAxGmllLwiVLzwWtQf75qMb/XPy6ufQexzfRn8l25J//cI/BuUsIk/+0aemqrZS26
-	tU+GYi92SUqxdIBKLmoYFH/WoBGCmtAjS6u8Qq5OM/Tl8OGfwCgNyfgcQkBUBHtXcUHy6NvnfMs0e
-	KIgtNJQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NXNevEN0n9qVncZh5Qf4Le7HtbaM6bdBPRxi3/t0UF4=; b=R0jOrkonExVD3HZ9RzvXUGX69I
+	BWO9/bkXq/llMJ8nJqtAbzHt0+hU9N6DiORUoHbHjkHkEFs8ZeH+dGlHfxvnPznARANSB4SytFsEN
+	0t6m3QrVMzr90a9rt7aFv5kBzXyYBA5rv6VhHBPi5LyJfBBdXOJYEkwuOLL5+Zc9YVQmUzfzpp/Kc
+	ZknhsqkLXGHXJ3M/FPuJvHyzRJMZob+BFV52N5h/OqOy+kYNcd606UYtM75h3O4QoukVD9DUULmHZ
+	aUoyhwYlsrt3hboOh9Eg3yQXoC3cGAKCftrjbVsQRt9mT3KZRfBx3Ck0ZnarEY1ZU7fWUFN2tKJKY
+	fqgNZjpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLxkN-00000002j9J-0RVx;
-	Fri, 13 Dec 2024 04:57:51 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1tLxrG-00000002jkP-0Edh;
+	Fri, 13 Dec 2024 05:04:58 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLxjH-00000002j2a-17Ri
+	id 1tLxqA-00000002jXE-1Itd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 04:56:45 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-728f1e66418so1201306b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 20:56:41 -0800 (PST)
+	Fri, 13 Dec 2024 05:03:51 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-728e81257bfso1119976b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Dec 2024 21:03:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734065801; x=1734670601; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=I9SAvhC/1O9xhOgEJgltjPIiKB+jL/KUsbTgQGFrTOI=;
-        b=RO73Mfd+mlIV3skRrCK68/fwE5sKSAx7YWudX5bH7ky2jyKBn1SUJbtMzYHKQWAGkC
-         WP+QMBeRGTRmbYInrauxFrx+OLAP/CMIgzUHQHA/Roe+/18Dn7kZaTuQCfG71RpcNTS4
-         GXs5zHtaUuOfrl6evW+BczqDInlt85UakK+PY=
+        d=ventanamicro.com; s=google; t=1734066229; x=1734671029; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NXNevEN0n9qVncZh5Qf4Le7HtbaM6bdBPRxi3/t0UF4=;
+        b=nHEBejUiF0wQJI14VmqQc2Bifieu/RtV+D7NcixZTcxSVDmX6OalkFxEhM6d8B+lBt
+         7PFOasMBH+i4cxEj2J9UXcnVOVziAFsiMCZtFezV3KYkf0nTH1urwgFW7T5rDFuUDSat
+         q6RAShbRSGSDDkgzmRnq5MJIRZSCIsxPPSJD8xSoSozxmE1GH8HMCT1/azTN8vXbj/Gz
+         iF+V6bmGRuHfjL0Rp5aOJlw7jnG/BSqTcQqelS/WkfifKlHa5wOPOjiPlMR/TBb1pZHf
+         aLrR/JM8nfmAFDX+MGcixZryEEsmIWjunzdzjUJPPaw7qseAgXk42qtEfQYGbkCFIfEO
+         2hzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734065801; x=1734670601;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=I9SAvhC/1O9xhOgEJgltjPIiKB+jL/KUsbTgQGFrTOI=;
-        b=mjVaG3Z7c1wHFMh9W77zuYmqiOKsw4HN2XN85CHJ7HQ1+0+bZ792l332TuqwdVj7Gi
-         1GP0S+3U/uLOInh9ynLzI8cySBwsh5v4TQ5P7zZdZMhJSgl86JamPSS+L3tvHmTpSGNh
-         rGBoWzI2ZhpNh0XRi2RgZdw3qYvcM77yqe2wosLC4NFcmwB6fD8+aXinKCqWtN6OKf/I
-         RK4uFtwfXN9aqu1ioQLMaMkGyvWv0vk03ql9Sr6kDEkhHaZnyOATlHShWpMqZjqd8KEb
-         JnpOU25MJ/s61W+ThQoV5JpUtwwF3f440w3mM49IaSbKyeR0VpBvp9z110I8S7RafRYP
-         G6ow==
-X-Forwarded-Encrypted: i=1; AJvYcCVrLl8sK3NEtuzNdy7DZKWJuM1esFXJzc0YkpSBEIWSNNQGponS168PdRZJ2i1aWb1hi0jt3eCSc91RQBb1QxA+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwkVRap9Ej+4Gv49aylng73NaQECHP0r/2aake+BbILQnwto5r
-	5FYeWL4m933fcYXfds4b0gjg2NtI3YzPtRnG4pPWKUBJFbdRkPfCLDuWouzU/A==
-X-Gm-Gg: ASbGnctjlxOdI9S1uB9RkI3ZsQm2EaubiEJboShILq1CaVEuczeeaW5Rs0jrBmHLJ2X
-	slQySCsqCZByqcTB67BXB9bLOZWT5RwXKmLH3MOCRmrXFKa0c0Nu4BYHZ6/+nbANKufQpcSPrsM
-	ZeA0gGuIKWJGYWgZBCetv9ExIh9xJiTGN8DQotoYsW8lEIP14JC2D+IP928Yh9cuXUEUTazFyJl
-	/51texnCfM29K6Pf+fgG6SzBF08+KpugQvGpnOU4QQ050kxVaZ4jpLHW/zVojvMiVjF/E7rGGKA
-	35fLm2AjeXXIKYG6FGi5yD/jcGCZ5y2aa5kojsYwaOdiz90=
-X-Google-Smtp-Source: AGHT+IGVfeYguG/ILnnKexOgC8Dj9851hNf9D996FbgoQLKq1WGOOUB6A+Iz+5HK65u7tKV9Fecjzg==
-X-Received: by 2002:a05:6a00:3d10:b0:71e:1722:d019 with SMTP id d2e1a72fcca58-7290c272caemr1997795b3a.22.1734065801174;
-        Thu, 12 Dec 2024 20:56:41 -0800 (PST)
-Received: from yuanhsinte.c.googlers.com (176.220.194.35.bc.googleusercontent.com. [35.194.220.176])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725e73f1e41sm9070244b3a.61.2024.12.12.20.56.38
+        d=1e100.net; s=20230601; t=1734066229; x=1734671029;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NXNevEN0n9qVncZh5Qf4Le7HtbaM6bdBPRxi3/t0UF4=;
+        b=pn49Y39vYUgjtm5DxQH0Jrj3M18g/Tl3YOj+1MAMYvzoQOz1/9UQyLF1eiNAE3wezW
+         gnbSYAlXyaJ/gt6vVXdOxPNY5XB/O/BodSBTqxXW+cA3KLYlpVrJceo8FbllrxKS1QcR
+         thJNE8S/KzuxdNqtRSPTpXKXRcEoliqG9c5yb6wwwRCPOK1aBtIgxjsYWiGuyycQOu/d
+         xFncEEn4gebksD2Wl71hVe/C3nv5os2jg0O+CJQIeoUWi1+f1GXMdYzXVyngOlEX4gFr
+         cpgRBYN820OAYesPJMHJFyCrD1O0MbFVWJ89Dp+Ei24hYlpo2yvbYacPbl/h9GHTlUpE
+         bapw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKdzsEcDxF+Rh59pRXexotcfTuXZnefj423OScaQrfCVUdgdtZYgYX4ahsR4YPzTOBO87TiDJxN3y4Q0frUNiJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yycl7ARrfVJoPvaobVbi4xeRFhPz3kRuoVNile8ZI9uRf5RdY0G
+	gmJTdkeZYkKLB9QFJeUt8T9D02/pGJEb8BoOOFOL/yT7JIZMtY1EP9h/FjR51OE=
+X-Gm-Gg: ASbGnctZm4RhGtERbSA4SyrlSNk84iq70KW/fZNb66k6exG4yMuDOaOIa1EyxZPA7JN
+	hNbfMIPm7cFntksHrtKLnYwODMUwJqjsC/6qz7WzQ+TXingQ1tia2Qj7jvg5NUZu3QZEHC991ZY
+	Z9r3I7SmtHuaT+gTP9tn+pVc8kFgXwy6fTFxS7yQjkZtL+B13NjzDDNN3W672pmgV2voz2Iz4Fs
+	KgA7EQOUldQviH2o/EsGUJ/R+ImjsYMe5nMvLruXtutox0YFcyMj78=
+X-Google-Smtp-Source: AGHT+IE2uIF/uxgtYtuLqbH276nU5dfIbzVoT0gqYVwEFkKaRaQqe1w7myZtuVqmqyjoTvwzoz9YyQ==
+X-Received: by 2002:a05:6a20:6a03:b0:1e0:d867:c880 with SMTP id adf61e73a8af0-1e1dfe3eb61mr1781927637.42.1734066229289;
+        Thu, 12 Dec 2024 21:03:49 -0800 (PST)
+Received: from ventana ([49.37.251.1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725c9ec7217sm11162179b3a.60.2024.12.12.21.03.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Dec 2024 20:56:40 -0800 (PST)
-From: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Date: Fri, 13 Dec 2024 04:56:11 +0000
-Subject: [PATCH v3] arm64: dts: mediatek: mt8183: Switch to Elan
- touchscreen driver
+        Thu, 12 Dec 2024 21:03:48 -0800 (PST)
+Date: Fri, 13 Dec 2024 10:33:43 +0530
+From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Anup Patel <apatel@ventanamicro.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Atish Patra <atishp@atishpatra.org>
+Subject: Re: [PATCH v3 3/4] drivers: firmware: add riscv SSE support
+Message-ID: <Z1vALzeks+6Fkf9/@ventana>
+References: <20241206163102.843505-1-cleger@rivosinc.com>
+ <20241206163102.843505-4-cleger@rivosinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241213-post-reset-v3-1-ec30df9b9381@chromium.org>
-X-B4-Tracking: v=1; b=H4sIAGu+W2cC/3WMQQ6CMBAAv0J6tqbbWkBP/sN4KHSFPUDJFhsN4
- e8WjkaPM8nMIiIyYRSXYhGMiSKFMYM5FKLt3dihJJ9ZaKVPoKCWU4izZIw4S9eWZaOMhRKMyMH
- E+KDXPrvdM/cU58Dv/Z1gsz83CaSS1jnfVNYqZapr23MY6DkcA3diOyX9v9a51rW35uyrM0L9V
- a/r+gGvT5NC5QAAAA==
-X-Change-ID: 20241018-post-reset-ac66b0351613
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Enric Balletbo i Serra <eballetbo@kernel.org>, 
- Hsin-Yi Wang <hsinyi@chromium.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Hans de Goede <hdegoede@redhat.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Hsin-Te Yuan <yuanhsinte@chromium.org>
-X-Mailer: b4 0.15-dev-7be4f
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241206163102.843505-4-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_205643_335146_88F67877 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20241212_210350_577611_51D0A6A0 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,139 +103,884 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 2be404486c05 ("HID: i2c-hid-of: Add reset GPIO support to
-i2c-hid-of"), the i2c-hid-of driver used by some mt8183 devices resets
-the touchscreen without having enough post-reset delay. This makes those
-touchscreen fail to get probed.
+Hi Clement,
 
-Switch to Elan touchscreen driver, which has enough post-reset delay.
+On Fri, Dec 06, 2024 at 05:30:59PM +0100, Clément Léger wrote:
+> Add driver level interface to use RISC-V SSE arch support. This interface
+> allows registering SSE handlers, and receive them. This will be used by
+> PMU and GHES driver.
+> 
+> Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+> Co-developed-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+> Signed-off-by: Clément Léger <cleger@rivosinc.com>
+> ---
+>  MAINTAINERS                        |  14 +
+>  drivers/firmware/Kconfig           |   1 +
+>  drivers/firmware/Makefile          |   1 +
+>  drivers/firmware/riscv/Kconfig     |  15 +
+>  drivers/firmware/riscv/Makefile    |   3 +
+>  drivers/firmware/riscv/riscv_sse.c | 691 +++++++++++++++++++++++++++++
+>  include/linux/riscv_sse.h          |  56 +++
+>  7 files changed, 781 insertions(+)
+>  create mode 100644 drivers/firmware/riscv/Kconfig
+>  create mode 100644 drivers/firmware/riscv/Makefile
+>  create mode 100644 drivers/firmware/riscv/riscv_sse.c
+>  create mode 100644 include/linux/riscv_sse.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 686109008d8e..a3ddde7fe9fb 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20125,6 +20125,13 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
+>  F:	Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+>  F:	drivers/iommu/riscv/
+>  
+> +RISC-V FIRMWARE DRIVERS
+> +M:	Conor Dooley <conor@kernel.org>
+> +L:	linux-riscv@lists.infradead.org
+> +S:	Maintained
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git
+> +F:	drivers/firmware/riscv/*
+> +
+>  RISC-V MICROCHIP FPGA SUPPORT
+>  M:	Conor Dooley <conor.dooley@microchip.com>
+>  M:	Daire McNamara <daire.mcnamara@microchip.com>
+> @@ -20177,6 +20184,13 @@ F:	drivers/perf/riscv_pmu.c
+>  F:	drivers/perf/riscv_pmu_legacy.c
+>  F:	drivers/perf/riscv_pmu_sbi.c
+>  
+> +RISC-V SSE DRIVER
+> +M:	Clément Léger <cleger@rivosinc.com>
+> +L:	linux-riscv@lists.infradead.org
+> +S:	Maintained
+> +F:	drivers/firmware/riscv/riscv_sse.c
+> +F:	include/linux/riscv_sse.h
+> +
 
-Fixes: 2be404486c05 ("HID: i2c-hid-of: Add reset GPIO support to i2c-hid-of")
-Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
----
-After commit 2be404486c05 ("HID: i2c-hid-of: Add reset GPIO support to
-i2c-hid-of"), i2c-hid-of driver resets the touchscreen without having
-proper post-reset delay on OF platform.  From the commit message of that
-commit, not to decribe poset-reset delay in device tree is intended.
-Instead, describing the delay in platform data and changing to use
-specialized driver is more preferable solution.
----
-Changes in v3:
-- Remove patches related to the race condition of pinctrl since they are
-  not needed anymore.
-- Link to v2: https://lore.kernel.org/r/20241018-post-reset-v2-0-28d539d79e18@chromium.org
+I request you to add me as a reviewer to these SSE files.
+Himanshu Chauhan <himanshu@thechauhan.dev>
 
-Changes in v2:
-- Add second source touchscreen patches since they should based on the
-  first patch of this series.
-- Link to v1: https://lore.kernel.org/r/20241018-post-reset-v1-0-5aadb7550037@chromium.org
----
- arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts       | 9 +++------
- .../arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts | 8 ++------
- .../arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts | 8 ++------
- .../arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts | 8 ++------
- 4 files changed, 9 insertions(+), 24 deletions(-)
+Thanks
+Regards
+Himanshu
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
-index 65860b33c01fe832f3a4b2e21d24ea6b4f0cba2b..b226dfee22669d596e5b45a7cc02133ee4aaa828 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
-@@ -14,16 +14,13 @@ / {
- };
- 
- &touchscreen {
--	status = "okay";
-+	compatible = "elan,ekth6a12nay";
- 
--	compatible = "hid-over-i2c";
--	reg = <0x10>;
--	interrupts-extended = <&pio 155 IRQ_TYPE_LEVEL_LOW>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&touchscreen_pins>;
- 
--	post-power-on-delay-ms = <10>;
--	hid-descr-addr = <0x0001>;
-+	vcc33-supply = <&pp3300_alw>;
-+	vccio-supply = <&pp1800_alw>;
- };
- 
- &qca_wifi {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
-index 72852b7600383972d98d9b0edd40b6e99e34a85b..863f3e403de8577da41b17b144cdb17c578b2027 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
-@@ -27,16 +27,12 @@ &cros_ec_pwm {
- };
- 
- &touchscreen {
--	status = "okay";
-+	compatible = "elan,ekth6a12nay";
- 
--	compatible = "hid-over-i2c";
--	reg = <0x10>;
--	interrupts-extended = <&pio 155 IRQ_TYPE_LEVEL_LOW>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&touchscreen_pins>;
- 
--	post-power-on-delay-ms = <10>;
--	hid-descr-addr = <0x0001>;
-+	vcc33-supply = <&pp3300_alw>;
- };
- 
- &qca_wifi {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
-index 757d0afd14fb064fc1de4608e65eb1a561c4dfa6..e0a583ce4a0bb18095a77d23ab8409bb80898979 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
-@@ -14,16 +14,12 @@ / {
- };
- 
- &touchscreen {
--	status = "okay";
-+	compatible = "elan,ekth6a12nay";
- 
--	compatible = "hid-over-i2c";
--	reg = <0x10>;
--	interrupts-extended = <&pio 155 IRQ_TYPE_LEVEL_LOW>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&touchscreen_pins>;
- 
--	post-power-on-delay-ms = <10>;
--	hid-descr-addr = <0x0001>;
-+	vcc33-supply = <&pp3300_alw>;
- };
- 
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
-index 6641b087e7c5f3a957e43ac985137dfd84ac7878..7874c9a20e124c65ace3f90e2ec5bcaf59b69c40 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
-@@ -14,16 +14,12 @@ / {
- };
- 
- &touchscreen {
--	status = "okay";
-+	compatible = "elan,ekth6a12nay";
- 
--	compatible = "hid-over-i2c";
--	reg = <0x10>;
--	interrupts-extended = <&pio 155 IRQ_TYPE_LEVEL_LOW>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&touchscreen_pins>;
- 
--	post-power-on-delay-ms = <10>;
--	hid-descr-addr = <0x0001>;
-+	vcc33-supply = <&pp3300_alw>;
- };
- 
- 
-
----
-base-commit: eefa7a9c069908412f8f5d15833901d1b46ae1b2
-change-id: 20241018-post-reset-ac66b0351613
-
-Best regards,
--- 
-Hsin-Te Yuan <yuanhsinte@chromium.org>
-
+>  RISC-V THEAD SoC SUPPORT
+>  M:	Drew Fustini <drew@pdp7.com>
+>  M:	Guo Ren <guoren@kernel.org>
+> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> index 71d8b26c4103..9e996a1fd511 100644
+> --- a/drivers/firmware/Kconfig
+> +++ b/drivers/firmware/Kconfig
+> @@ -267,6 +267,7 @@ source "drivers/firmware/meson/Kconfig"
+>  source "drivers/firmware/microchip/Kconfig"
+>  source "drivers/firmware/psci/Kconfig"
+>  source "drivers/firmware/qcom/Kconfig"
+> +source "drivers/firmware/riscv/Kconfig"
+>  source "drivers/firmware/smccc/Kconfig"
+>  source "drivers/firmware/tegra/Kconfig"
+>  source "drivers/firmware/xilinx/Kconfig"
+> diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+> index 7a8d486e718f..c0f5009949a8 100644
+> --- a/drivers/firmware/Makefile
+> +++ b/drivers/firmware/Makefile
+> @@ -33,6 +33,7 @@ obj-y				+= efi/
+>  obj-y				+= imx/
+>  obj-y				+= psci/
+>  obj-y				+= qcom/
+> +obj-y				+= riscv/
+>  obj-y				+= smccc/
+>  obj-y				+= tegra/
+>  obj-y				+= xilinx/
+> diff --git a/drivers/firmware/riscv/Kconfig b/drivers/firmware/riscv/Kconfig
+> new file mode 100644
+> index 000000000000..8056ed3262d9
+> --- /dev/null
+> +++ b/drivers/firmware/riscv/Kconfig
+> @@ -0,0 +1,15 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +menu "Risc-V Specific firmware drivers"
+> +depends on RISCV
+> +
+> +config RISCV_SSE
+> +	bool "Enable SBI Supervisor Software Events support"
+> +	depends on RISCV_SBI
+> +	default y
+> +	help
+> +	  The Supervisor Software Events support allow the SBI to deliver
+> +	  NMI-like notifications to the supervisor mode software. When enable,
+> +	  this option provides support to register callbacks on specific SSE
+> +	  events.
+> +
+> +endmenu
+> diff --git a/drivers/firmware/riscv/Makefile b/drivers/firmware/riscv/Makefile
+> new file mode 100644
+> index 000000000000..4ccfcbbc28ea
+> --- /dev/null
+> +++ b/drivers/firmware/riscv/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_RISCV_SSE)		+= riscv_sse.o
+> diff --git a/drivers/firmware/riscv/riscv_sse.c b/drivers/firmware/riscv/riscv_sse.c
+> new file mode 100644
+> index 000000000000..c165e32cc9a5
+> --- /dev/null
+> +++ b/drivers/firmware/riscv/riscv_sse.c
+> @@ -0,0 +1,691 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2024 Rivos Inc.
+> + */
+> +
+> +#define pr_fmt(fmt) "sse: " fmt
+> +
+> +#include <linux/cpu.h>
+> +#include <linux/cpuhotplug.h>
+> +#include <linux/cpu_pm.h>
+> +#include <linux/hardirq.h>
+> +#include <linux/list.h>
+> +#include <linux/percpu-defs.h>
+> +#include <linux/reboot.h>
+> +#include <linux/riscv_sse.h>
+> +#include <linux/slab.h>
+> +
+> +#include <asm/sbi.h>
+> +#include <asm/sse.h>
+> +
+> +struct sse_event {
+> +	struct list_head list;
+> +	u32 evt;
+> +	u32 priority;
+> +	sse_event_handler *handler;
+> +	void *handler_arg;
+> +	bool is_enabled;
+> +	/* Only valid for global events */
+> +	unsigned int cpu;
+> +
+> +	union {
+> +		struct sse_registered_event *global;
+> +		struct sse_registered_event __percpu *local;
+> +	};
+> +};
+> +
+> +static int sse_hp_state;
+> +static bool sse_available;
+> +static DEFINE_SPINLOCK(events_list_lock);
+> +static LIST_HEAD(events);
+> +static DEFINE_MUTEX(sse_mutex);
+> +
+> +struct sse_registered_event {
+> +	struct sse_event_arch_data arch;
+> +	struct sse_event *evt;
+> +	unsigned long attr_buf;
+> +};
+> +
+> +void sse_handle_event(struct sse_event_arch_data *arch_event,
+> +		      struct pt_regs *regs)
+> +{
+> +	int ret;
+> +	struct sse_registered_event *reg_evt =
+> +		container_of(arch_event, struct sse_registered_event, arch);
+> +	struct sse_event *evt = reg_evt->evt;
+> +
+> +	ret = evt->handler(evt->evt, evt->handler_arg, regs);
+> +	if (ret)
+> +		pr_warn("event %x handler failed with error %d\n", evt->evt,
+> +			ret);
+> +}
+> +
+> +static bool sse_event_is_global(u32 evt)
+> +{
+> +	return !!(evt & SBI_SSE_EVENT_GLOBAL);
+> +}
+> +
+> +static
+> +struct sse_event *sse_event_get(u32 evt)
+> +{
+> +	struct sse_event *sse_evt = NULL, *tmp;
+> +
+> +	scoped_guard(spinlock, &events_list_lock) {
+> +		list_for_each_entry(tmp, &events, list) {
+> +			if (tmp->evt == evt) {
+> +				return sse_evt;
+> +			}
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static phys_addr_t sse_event_get_phys(struct sse_registered_event *reg_evt,
+> +				      void *addr)
+> +{
+> +	phys_addr_t phys;
+> +
+> +	if (sse_event_is_global(reg_evt->evt->evt))
+> +		phys = virt_to_phys(addr);
+> +	else
+> +		phys = per_cpu_ptr_to_phys(addr);
+> +
+> +	return phys;
+> +}
+> +
+> +static int sse_sbi_event_func(struct sse_event *event, unsigned long func)
+> +{
+> +	struct sbiret ret;
+> +	u32 evt = event->evt;
+> +
+> +	ret = sbi_ecall(SBI_EXT_SSE, func, evt, 0, 0, 0, 0, 0);
+> +	if (ret.error)
+> +		pr_debug("Failed to execute func %lx, event %x, error %ld\n",
+> +			 func, evt, ret.error);
+> +
+> +	return sbi_err_map_linux_errno(ret.error);
+> +}
+> +
+> +static int sse_sbi_disable_event(struct sse_event *event)
+> +{
+> +	return sse_sbi_event_func(event, SBI_SSE_EVENT_DISABLE);
+> +}
+> +
+> +static int sse_sbi_enable_event(struct sse_event *event)
+> +{
+> +	return sse_sbi_event_func(event, SBI_SSE_EVENT_ENABLE);
+> +}
+> +
+> +static int sse_event_attr_get_no_lock(struct sse_registered_event *reg_evt,
+> +				      unsigned long attr_id, unsigned long *val)
+> +{
+> +	struct sbiret sret;
+> +	u32 evt = reg_evt->evt->evt;
+> +	unsigned long phys;
+> +
+> +	phys = sse_event_get_phys(reg_evt, &reg_evt->attr_buf);
+> +
+> +	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, evt,
+> +				     attr_id, 1, phys, 0, 0);
+> +	if (sret.error) {
+> +		pr_debug("Failed to get event %x attr %lx, error %ld\n", evt,
+> +			 attr_id, sret.error);
+> +		return sbi_err_map_linux_errno(sret.error);
+> +	}
+> +
+> +	*val = reg_evt->attr_buf;
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_event_attr_set_nolock(struct sse_registered_event *reg_evt,
+> +				     unsigned long attr_id, unsigned long val)
+> +{
+> +	struct sbiret sret;
+> +	u32 evt = reg_evt->evt->evt;
+> +	unsigned long phys;
+> +
+> +	reg_evt->attr_buf = val;
+> +	phys = sse_event_get_phys(reg_evt, &reg_evt->attr_buf);
+> +
+> +	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_WRITE, evt,
+> +				     attr_id, 1, phys, 0, 0);
+> +	if (sret.error && sret.error != SBI_ERR_INVALID_STATE) {
+> +		pr_debug("Failed to set event %x attr %lx, error %ld\n", evt,
+> +			 attr_id, sret.error);
+> +		return sbi_err_map_linux_errno(sret.error);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_event_set_target_cpu_nolock(struct sse_event *event,
+> +					   unsigned int cpu)
+> +{
+> +	unsigned int hart_id = cpuid_to_hartid_map(cpu);
+> +	struct sse_registered_event *reg_evt = event->global;
+> +	u32 evt = event->evt;
+> +	bool was_enabled;
+> +	int ret;
+> +
+> +	if (!sse_event_is_global(evt))
+> +		return -EINVAL;
+> +
+> +	was_enabled = event->is_enabled;
+> +	if (was_enabled)
+> +		sse_sbi_disable_event(event);
+> +	do {
+> +		ret = sse_event_attr_set_nolock(reg_evt,
+> +						SBI_SSE_ATTR_PREFERRED_HART,
+> +						hart_id);
+> +	} while (ret == -EINVAL);
+> +
+> +	if (ret == 0)
+> +		event->cpu = cpu;
+> +
+> +	if (was_enabled)
+> +		sse_sbi_enable_event(event);
+> +
+> +	return 0;
+> +}
+> +
+> +int sse_event_set_target_cpu(struct sse_event *event, unsigned int cpu)
+> +{
+> +	int ret;
+> +
+> +	scoped_guard(mutex, &sse_mutex) {
+> +		cpus_read_lock();
+> +
+> +		if (!cpu_online(cpu))
+> +			return -EINVAL;
+> +
+> +		ret = sse_event_set_target_cpu_nolock(event, cpu);
+> +
+> +		cpus_read_unlock();
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int sse_event_init_registered(unsigned int cpu,
+> +				     struct sse_registered_event *reg_evt,
+> +				     struct sse_event *event)
+> +{
+> +	reg_evt->evt = event;
+> +	arch_sse_init_event(&reg_evt->arch, event->evt, cpu);
+> +
+> +	return 0;
+> +}
+> +
+> +static void sse_event_free_registered(struct sse_registered_event *reg_evt)
+> +{
+> +	arch_sse_free_event(&reg_evt->arch);
+> +}
+> +
+> +static int sse_event_alloc_global(struct sse_event *event)
+> +{
+> +	int err;
+> +	struct sse_registered_event *reg_evt;
+> +
+> +	reg_evt = kzalloc(sizeof(*reg_evt), GFP_KERNEL);
+> +	if (!reg_evt)
+> +		return -ENOMEM;
+> +
+> +	event->global = reg_evt;
+> +	err = sse_event_init_registered(smp_processor_id(), reg_evt,
+> +					event);
+> +	if (err)
+> +		kfree(reg_evt);
+> +
+> +	return err;
+> +}
+> +
+> +static int sse_event_alloc_local(struct sse_event *event)
+> +{
+> +	int err;
+> +	unsigned int cpu, err_cpu;
+> +	struct sse_registered_event *reg_evt;
+> +	struct sse_registered_event __percpu *reg_evts;
+> +
+> +	reg_evts = alloc_percpu(struct sse_registered_event);
+> +	if (!reg_evts)
+> +		return -ENOMEM;
+> +
+> +	event->local = reg_evts;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		reg_evt = per_cpu_ptr(reg_evts, cpu);
+> +		err = sse_event_init_registered(cpu, reg_evt, event);
+> +		if (err) {
+> +			err_cpu = cpu;
+> +			goto err_free_per_cpu;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +
+> +err_free_per_cpu:
+> +	for_each_possible_cpu(cpu) {
+> +		if (cpu == err_cpu)
+> +			break;
+> +		reg_evt = per_cpu_ptr(reg_evts, cpu);
+> +		sse_event_free_registered(reg_evt);
+> +	}
+> +
+> +	free_percpu(reg_evts);
+> +
+> +	return err;
+> +}
+> +
+> +static struct sse_event *sse_event_alloc(u32 evt,
+> +					 u32 priority,
+> +					 sse_event_handler *handler, void *arg)
+> +{
+> +	int err;
+> +	struct sse_event *event;
+> +
+> +	event = kzalloc(sizeof(*event), GFP_KERNEL);
+> +	if (!event)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	event->evt = evt;
+> +	event->priority = priority;
+> +	event->handler_arg = arg;
+> +	event->handler = handler;
+> +
+> +	if (sse_event_is_global(evt)) {
+> +		err = sse_event_alloc_global(event);
+> +		if (err)
+> +			goto err_alloc_reg_evt;
+> +	} else {
+> +		err = sse_event_alloc_local(event);
+> +		if (err)
+> +			goto err_alloc_reg_evt;
+> +	}
+> +
+> +	return event;
+> +
+> +err_alloc_reg_evt:
+> +	kfree(event);
+> +
+> +	return ERR_PTR(err);
+> +}
+> +
+> +static int sse_sbi_register_event(struct sse_event *event,
+> +				  struct sse_registered_event *reg_evt)
+> +{
+> +	int ret;
+> +
+> +	ret = sse_event_attr_set_nolock(reg_evt, SBI_SSE_ATTR_PRIO,
+> +					event->priority);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return arch_sse_register_event(&reg_evt->arch);
+> +}
+> +
+> +static int sse_event_register_local(struct sse_event *event)
+> +{
+> +	int ret;
+> +	struct sse_registered_event *reg_evt = per_cpu_ptr(event->local,
+> +							   smp_processor_id());
+> +
+> +	ret = sse_sbi_register_event(event, reg_evt);
+> +	if (ret)
+> +		pr_debug("Failed to register event %x: err %d\n", event->evt,
+> +			 ret);
+> +
+> +	return ret;
+> +}
+> +
+> +
+> +static int sse_sbi_unregister_event(struct sse_event *event)
+> +{
+> +	return sse_sbi_event_func(event, SBI_SSE_EVENT_UNREGISTER);
+> +}
+> +
+> +struct sse_per_cpu_evt {
+> +	struct sse_event *event;
+> +	unsigned long func;
+> +	atomic_t error;
+> +};
+> +
+> +static void sse_event_per_cpu_func(void *info)
+> +{
+> +	int ret;
+> +	struct sse_per_cpu_evt *cpu_evt = info;
+> +
+> +	if (cpu_evt->func == SBI_SSE_EVENT_REGISTER)
+> +		ret = sse_event_register_local(cpu_evt->event);
+> +	else
+> +		ret = sse_sbi_event_func(cpu_evt->event, cpu_evt->func);
+> +
+> +	if (ret)
+> +		atomic_set(&cpu_evt->error, ret);
+> +}
+> +
+> +static void sse_event_free(struct sse_event *event)
+> +{
+> +	unsigned int cpu;
+> +	struct sse_registered_event *reg_evt;
+> +
+> +	if (sse_event_is_global(event->evt)) {
+> +		sse_event_free_registered(event->global);
+> +		kfree(event->global);
+> +	} else {
+> +		for_each_possible_cpu(cpu) {
+> +			reg_evt = per_cpu_ptr(event->local, cpu);
+> +			sse_event_free_registered(reg_evt);
+> +		}
+> +		free_percpu(event->local);
+> +	}
+> +
+> +	kfree(event);
+> +}
+> +
+> +int sse_event_enable(struct sse_event *event)
+> +{
+> +	int ret = 0;
+> +	struct sse_per_cpu_evt cpu_evt;
+> +
+> +	scoped_guard(mutex, &sse_mutex) {
+> +		cpus_read_lock();
+> +		if (sse_event_is_global(event->evt)) {
+> +			ret = sse_sbi_enable_event(event);
+> +		} else {
+> +			cpu_evt.event = event;
+> +			atomic_set(&cpu_evt.error, 0);
+> +			cpu_evt.func = SBI_SSE_EVENT_ENABLE;
+> +			on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
+> +			ret = atomic_read(&cpu_evt.error);
+> +			if (ret) {
+> +				cpu_evt.func = SBI_SSE_EVENT_DISABLE;
+> +				on_each_cpu(sse_event_per_cpu_func, &cpu_evt,
+> +					    1);
+> +			}
+> +		}
+> +		cpus_read_unlock();
+> +
+> +		if (ret == 0)
+> +			event->is_enabled = true;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static void sse_events_mask(void)
+> +{
+> +	sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_HART_MASK, 0, 0, 0, 0, 0, 0);
+> +}
+> +
+> +static void sse_events_unmask(void)
+> +{
+> +	sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_HART_UNMASK, 0, 0, 0, 0, 0, 0);
+> +}
+> +
+> +static void sse_event_disable_nolock(struct sse_event *event)
+> +{
+> +	struct sse_per_cpu_evt cpu_evt;
+> +
+> +	if (sse_event_is_global(event->evt)) {
+> +		sse_sbi_disable_event(event);
+> +	} else {
+> +		cpu_evt.event = event;
+> +		cpu_evt.func = SBI_SSE_EVENT_DISABLE;
+> +		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
+> +	}
+> +}
+> +
+> +void sse_event_disable(struct sse_event *event)
+> +{
+> +	scoped_guard(mutex, &sse_mutex) {
+> +		cpus_read_lock();
+> +		sse_event_disable_nolock(event);
+> +		event->is_enabled = false;
+> +		cpus_read_unlock();
+> +	}
+> +}
+> +
+> +struct sse_event *sse_event_register(u32 evt, u32 priority,
+> +				     sse_event_handler *handler, void *arg)
+> +{
+> +	struct sse_per_cpu_evt cpu_evt;
+> +	struct sse_event *event;
+> +	int ret = 0;
+> +
+> +	if (!sse_available)
+> +		return ERR_PTR(-EOPNOTSUPP);
+> +
+> +	mutex_lock(&sse_mutex);
+> +	if (sse_event_get(evt)) {
+> +		pr_debug("Event %x already registered\n", evt);
+> +		ret = -EEXIST;
+> +		goto out_unlock;
+> +	}
+> +
+> +	event = sse_event_alloc(evt, priority, handler, arg);
+> +	if (IS_ERR(event)) {
+> +		ret = PTR_ERR(event);
+> +		goto out_unlock;
+> +	}
+> +
+> +	cpus_read_lock();
+> +	if (sse_event_is_global(evt)) {
+> +		unsigned long preferred_hart;
+> +
+> +		ret = sse_event_attr_get_no_lock(event->global,
+> +						 SBI_SSE_ATTR_PREFERRED_HART,
+> +						 &preferred_hart);
+> +		if (ret)
+> +			goto err_event_free;
+> +		event->cpu = riscv_hartid_to_cpuid(preferred_hart);
+> +
+> +		ret = sse_sbi_register_event(event, event->global);
+> +		if (ret)
+> +			goto err_event_free;
+> +
+> +	} else {
+> +		cpu_evt.event = event;
+> +		atomic_set(&cpu_evt.error, 0);
+> +		cpu_evt.func = SBI_SSE_EVENT_REGISTER;
+> +		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
+> +		ret = atomic_read(&cpu_evt.error);
+> +		if (ret) {
+> +			cpu_evt.func = SBI_SSE_EVENT_UNREGISTER;
+> +			on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
+> +			goto err_event_free;
+> +		}
+> +	}
+> +	cpus_read_unlock();
+> +
+> +	scoped_guard(spinlock, &events_list_lock)
+> +		list_add(&event->list, &events);
+> +
+> +	mutex_unlock(&sse_mutex);
+> +
+> +	return event;
+> +
+> +err_event_free:
+> +	cpus_read_unlock();
+> +	sse_event_free(event);
+> +out_unlock:
+> +	mutex_unlock(&sse_mutex);
+> +
+> +	return ERR_PTR(ret);
+> +}
+> +
+> +static void sse_event_unregister_nolock(struct sse_event *event)
+> +{
+> +	struct sse_per_cpu_evt cpu_evt;
+> +
+> +	if (sse_event_is_global(event->evt)) {
+> +		sse_sbi_unregister_event(event);
+> +	} else {
+> +		cpu_evt.event = event;
+> +		cpu_evt.func = SBI_SSE_EVENT_UNREGISTER;
+> +		on_each_cpu(sse_event_per_cpu_func, &cpu_evt, 1);
+> +	}
+> +}
+> +
+> +void sse_event_unregister(struct sse_event *event)
+> +{
+> +	scoped_guard(mutex, &sse_mutex) {
+> +		cpus_read_lock();
+> +		sse_event_unregister_nolock(event);
+> +		cpus_read_unlock();
+> +
+> +		scoped_guard(spinlock, &events_list_lock)
+> +			list_del(&event->list);
+> +
+> +		sse_event_free(event);
+> +	}
+> +}
+> +
+> +static int sse_cpu_online(unsigned int cpu)
+> +{
+> +	struct sse_event *sse_evt;
+> +
+> +	scoped_guard(spinlock, &events_list_lock) {
+> +		list_for_each_entry(sse_evt, &events, list) {
+> +			if (sse_event_is_global(sse_evt->evt))
+> +				continue;
+> +
+> +			sse_event_register_local(sse_evt);
+> +			if (sse_evt->is_enabled)
+> +				sse_sbi_enable_event(sse_evt);
+> +		}
+> +	}
+> +
+> +	/* Ready to handle events. Unmask SSE. */
+> +	sse_events_unmask();
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_cpu_teardown(unsigned int cpu)
+> +{
+> +	unsigned int next_cpu;
+> +	struct sse_event *sse_evt;
+> +
+> +	/* Mask the sse events */
+> +	sse_events_mask();
+> +
+> +	scoped_guard(spinlock, &events_list_lock) {
+> +		list_for_each_entry(sse_evt, &events, list) {
+> +			if (!sse_event_is_global(sse_evt->evt)) {
+> +
+> +				if (sse_evt->is_enabled)
+> +					sse_sbi_disable_event(sse_evt);
+> +
+> +				sse_sbi_unregister_event(sse_evt);
+> +				continue;
+> +			}
+> +
+> +			if (sse_evt->cpu != smp_processor_id())
+> +				continue;
+> +
+> +			/* Update destination hart for global event */
+> +			next_cpu = cpumask_any_but(cpu_online_mask, cpu);
+> +			sse_event_set_target_cpu_nolock(sse_evt, next_cpu);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void sse_reset(void)
+> +{
+> +	struct sse_event *event = NULL;
+> +
+> +	list_for_each_entry(event, &events, list) {
+> +		sse_event_disable_nolock(event);
+> +		sse_event_unregister_nolock(event);
+> +	}
+> +}
+> +
+> +static int sse_pm_notifier(struct notifier_block *nb, unsigned long action,
+> +			   void *data)
+> +{
+> +	WARN_ON_ONCE(preemptible());
+> +
+> +	switch (action) {
+> +	case CPU_PM_ENTER:
+> +		sse_events_mask();
+> +		break;
+> +	case CPU_PM_EXIT:
+> +	case CPU_PM_ENTER_FAILED:
+> +		sse_events_unmask();
+> +		break;
+> +	default:
+> +		return NOTIFY_DONE;
+> +	}
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static struct notifier_block sse_pm_nb = {
+> +	.notifier_call = sse_pm_notifier,
+> +};
+> +
+> +/*
+> + * Mask all CPUs and unregister all events on panic, reboot or kexec.
+> + */
+> +static int sse_reboot_notifier(struct notifier_block *nb, unsigned long action,
+> +				void *data)
+> +{
+> +	cpuhp_remove_state(sse_hp_state);
+> +
+> +	sse_reset();
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static struct notifier_block sse_reboot_nb = {
+> +	.notifier_call = sse_reboot_notifier,
+> +};
+> +
+> +static int __init sse_init(void)
+> +{
+> +	int cpu, ret;
+> +
+> +	if (sbi_probe_extension(SBI_EXT_SSE) <= 0) {
+> +		pr_err("Missing SBI SSE extension\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +	pr_info("SBI SSE extension detected\n");
+> +
+> +	for_each_possible_cpu(cpu)
+> +		INIT_LIST_HEAD(&events);
+> +
+> +	ret = cpu_pm_register_notifier(&sse_pm_nb);
+> +	if (ret) {
+> +		pr_warn("Failed to register CPU PM notifier...\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = register_reboot_notifier(&sse_reboot_nb);
+> +	if (ret) {
+> +		pr_warn("Failed to register reboot notifier...\n");
+> +		goto remove_cpupm;
+> +	}
+> +
+> +	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/sse:online",
+> +				sse_cpu_online, sse_cpu_teardown);
+> +	if (ret < 0)
+> +		goto remove_reboot;
+> +
+> +	sse_hp_state = ret;
+> +	sse_available = true;
+> +
+> +	return 0;
+> +
+> +remove_reboot:
+> +	unregister_reboot_notifier(&sse_reboot_nb);
+> +
+> +remove_cpupm:
+> +	cpu_pm_unregister_notifier(&sse_pm_nb);
+> +
+> +	return ret;
+> +}
+> +arch_initcall(sse_init);
+> diff --git a/include/linux/riscv_sse.h b/include/linux/riscv_sse.h
+> new file mode 100644
+> index 000000000000..c73184074b8c
+> --- /dev/null
+> +++ b/include/linux/riscv_sse.h
+> @@ -0,0 +1,56 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2024 Rivos Inc.
+> + */
+> +
+> +#ifndef __LINUX_RISCV_SSE_H
+> +#define __LINUX_RISCV_SSE_H
+> +
+> +#include <linux/types.h>
+> +#include <linux/linkage.h>
+> +
+> +struct sse_event;
+> +struct pt_regs;
+> +
+> +typedef int (sse_event_handler)(u32 event_num, void *arg, struct pt_regs *regs);
+> +
+> +#ifdef CONFIG_RISCV_SSE
+> +
+> +struct sse_event *sse_event_register(u32 event_num, u32 priority,
+> +				     sse_event_handler *handler, void *arg);
+> +
+> +void sse_event_unregister(struct sse_event *evt);
+> +
+> +int sse_event_set_target_cpu(struct sse_event *sse_evt, unsigned int cpu);
+> +
+> +int sse_event_enable(struct sse_event *sse_evt);
+> +
+> +void sse_event_disable(struct sse_event *sse_evt);
+> +
+> +#else
+> +static inline struct sse_event *sse_event_register(u32 event_num, u32 priority,
+> +						   sse_event_handler *handler,
+> +						   void *arg)
+> +{
+> +	return ERR_PTR(-EOPNOTSUPP);
+> +}
+> +
+> +static inline void sse_event_unregister(struct sse_event *evt) {}
+> +
+> +static inline int sse_event_set_target_cpu(struct sse_event *sse_evt,
+> +					   unsigned int cpu)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static inline int sse_event_enable(struct sse_event *sse_evt)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static inline void sse_event_disable(struct sse_event *sse_evt) {}
+> +
+> +
+> +#endif
+> +
+> +#endif /* __LINUX_RISCV_SSE_H */
+> -- 
+> 2.45.2
+> 
 
