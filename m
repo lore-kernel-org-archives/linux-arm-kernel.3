@@ -4,82 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3737E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BDCE7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rka3uWrK3MCyr0hfJh0ffhr2Lty5KOVMuvd6Op+l+RM=; b=o5HwIlpTCwjB+10tXfnuMWDnTk
-	Vb2kCCGtVNaODiNC/C4pgq+qa3RdJ4b7XBMqPzWjmsYppkcH6qxcZi3IVcPToGoZk7EQR+HNLP2WA
-	JRqG7YfvCbzLQXnfxLJl2zUIPaSvoHbDiNOMGuP2Pv8HNHYQH3cvt+COuRq0hHhsxkmRJ7zsYNqDm
-	KZ/0g9wtJ80FTJjuRPvwTgcMWsmob3K9rEO6lxqWXMwRT3lR/7o5IPheXiOqhMoVQaTyR15NJHURH
-	nQfkkyB4RB/+Lic/0+HMqd20EVHQbl+X4qgzMQj5+jjVfoy8sLSp2WH6R5VHplPRVtxI4kRfggOLh
-	8uyHW1UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uRExllKY+4DGs0s+ZiFvrFQk9Bb6GpDeZ36Y1/rPLyI=; b=AsS3JWMQrUPMYe8+mIlyDDNi9W
+	CrI4+lEOpcBZDEjQaAVzwcGkuoFYrhYmDhzSvCa8fokb9n1YID9hYTPzurGy/Is90eDiNjDtbPwJy
+	t1402M2vusFqNecfXUY/cQhiUM1R+IOg4+TAqs/jp3hGufksNEogOtpCPjCDrWoMpFDStuLS6uREn
+	UWlsrOVsOe6TfHFmF75xo41VateZZmHo2yLcE57LXsTQtEt0fsQU0RvM+gb6jKDcOT/uCVYUZS/93
+	TUbklWEXMZkCi6N1whySNKkPQ6+m3vVSwq6QEKNEnIDvx+v+o7/gq0x2r2CktqNqlAm6GNXrdJ4vm
+	dSgJTfXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1md-00000003DJQ-16Wd;
-	Fri, 13 Dec 2024 09:16:27 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1kS-00000003CUf-2SCu
+	id 1tM1ng-00000003DXZ-3vjO;
+	Fri, 13 Dec 2024 09:17:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tM1la-00000003D7v-2Kma
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 09:14:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rka3uWrK3MCyr0hfJh0ffhr2Lty5KOVMuvd6Op+l+RM=; b=QtmTa+KeLXA/34ueeEIk2NLJtK
-	e7hFH4BPaIqy39ed3evrUQyqwf0ncaoLLu/euV8o6NkUoV+APH+fOMeEL//1+ABTuDcM31G/Mytyu
-	IKtWDLOy3TrJMTSC1MQL4ny/IFUEht6RmD7gDS8usd1M0WLj2vlKVFGQZBPLHJxHQAXZde9vzKA3o
-	gbeEQyud7Mz7uHmN6Xxc2j9HoEMybSa9gFuniaWT/pu90uQah4hwAbIEz8Xq2aLLIxH5APw3TdSSF
-	NInxZKt+lWqgJKh6mKdij+rPbqRWPK2IUebz46lV+kAzDjqfprxUY1o94GOPtUejfNia8QdSHaOBy
-	RUQ9DyRw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56840)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tM1iM-0006SP-1N;
-	Fri, 13 Dec 2024 09:12:02 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tM1iH-0006CT-0h;
-	Fri, 13 Dec 2024 09:11:57 +0000
-Date: Fri, 13 Dec 2024 09:11:57 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Arnd Bergmann <arnd@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org,
-	linux-rt-devel@lists.linux.dev, Ard Biesheuvel <ardb@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	David Hildenbrand <david@redhat.com>
-Subject: Re: [PATCH 2/4] ARM: Disable HIGHPTE on PREEMPT_RT kernels
-Message-ID: <Z1v6XcaSK97Sa9Tz@shell.armlinux.org.uk>
-References: <20241210160556.2341497-1-arnd@kernel.org>
- <20241210160556.2341497-3-arnd@kernel.org>
- <CACRpkdZaoD2vqbCi1AFUa6mF2_=c3Nu4R0CvxFAep0VMgtMtOQ@mail.gmail.com>
- <20241211152257.Igx3aT2Y@linutronix.de>
- <CACRpkdbYU=Txm0zUWDWvNXA0JHRNGpy1ccy0zQdiBb2Ya+UBFA@mail.gmail.com>
+	Fri, 13 Dec 2024 09:15:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85BD51595;
+	Fri, 13 Dec 2024 01:15:47 -0800 (PST)
+Received: from [10.57.71.4] (unknown [10.57.71.4])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 515E63F5A1;
+	Fri, 13 Dec 2024 01:15:17 -0800 (PST)
+Message-ID: <b2b0f73e-ba2b-4402-afa6-4960814ea1fd@arm.com>
+Date: Fri, 13 Dec 2024 10:15:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACRpkdbYU=Txm0zUWDWvNXA0JHRNGpy1ccy0zQdiBb2Ya+UBFA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: signal: Ensure signal delivery failure is
+ recoverable
+To: Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Dave.Martin@arm.com, will@kernel.org
+References: <20241210160940.2031997-1-kevin.brodsky@arm.com>
+ <5db7f7a0-1d3c-4bbd-ad2b-124bf54f49ef@sirena.org.uk>
+ <Z1sY9tIsAZ84W93-@arm.com>
+ <a70cd007-a2c8-477f-972e-fa1e9c362604@sirena.org.uk>
+ <Z1siulo_PKdI3xC_@arm.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <Z1siulo_PKdI3xC_@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_011412_613371_7C170E5A 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20241213_011522_655776_3B93468A 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +68,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 01:27:00AM +0100, Linus Walleij wrote:
-> On Wed, Dec 11, 2024 at 4:22 PM Sebastian Andrzej Siewior
-> <bigeasy@linutronix.de> wrote:
-> > On 2024-12-11 14:29:29 [+0100], Linus Walleij wrote:
-> > > So fast GUP is supposed to be lockless, and should just not
-> > > have this problem. So it can't be addressing gup_fast_pgd_range()
-> > > right?
-> > …
-> > > I'm more asking if HIGHPTE even acquires a spinlock anymore
-> > > as it is supposed to be "fast"/lockless. If it does, it is clearly violating
-> > > the "fast" promise of the fast GUP API and should not exist.
-> >
-> > This is lockless on x86. The problem is ARM's
-> > arch_kmap_local_high_get(). This is where the lock is from.
-> 
-> Aha that calls down to kmap_high_get() that that issues
-> lock_kmap_any(flags).
-> 
-> But is it really sound that the "fast" API does this? It feels
-> like a violation of the whole design of the fast stuff.
+On 12/12/2024 18:51, Catalin Marinas wrote:
+> On Thu, Dec 12, 2024 at 05:26:47PM +0000, Mark Brown wrote:
+>> On Thu, Dec 12, 2024 at 05:10:14PM +0000, Catalin Marinas wrote:
+>>> On Thu, Dec 12, 2024 at 04:47:46PM +0000, Mark Brown wrote:
+>>>>> Fixes: eaf62ce1563b ("arm64/signal: Set up and restore the GCS context for signal handlers")
+>>>> Presumably we also need a Fixes for whatever introduced the above copy.
+>>> Hmm, it was like this from the beginning. If we are to do a cc stable to
+>>> the oldest maintained LTS, I'd rather have a separate patch for
+>>> copy_siginfo_to_user(), it doesn't make much sense to backport a GCS
+>>> patch to early kernels.
+>> Hrm, good point about it triggering backports.  I'm not sure it's worth
+>> doing that TBH.
+> I had the same thoughts. I think this was mostly triggered by the
+> POR_EL0 changes when Will raised the point that the kernel might return
+> with a more privileged value in this sysreg.
 
-If there's no way to do it lockless, then it has to take the lock.
+I don't think backporting would be worth it either, referencing the
+original commit implementing signal support felt like overkill. The
+copy_siginfo_to_user() issue is such a corner case that I doubt anyone
+ever ran into it.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+- Kevin
 
