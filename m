@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F88E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 10:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B88E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 11:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5uSC3BK+YvGUsKSKx/YNrD4AlAFZtoOKclTkZr6p54=; b=TzYN8T7UBL8BZc1ETGw1H+YQAc
-	lE8igSulgHVIA7nxxuM22COnZXRDw2TZjBPKt82dYulJL7OExJhV3J14zdjYSi9kGdMmyzg8KmI6R
-	Cvo5Hgo4EX597/M/5Om1IlqrzkW6P772X2VgE0xX+EK3ezlbOmD2muzjd+wIgkhPqKcTsp9ubjlmB
-	gjIKAVxt0N9cNdmtXVu0DjnV9HCbh+PhBBNALUj6lk5DJ9EQsb+IOxDZ1va5P3QqOPTyyve37pgE6
-	Q/Sqk3AO8YbL2TZ7LnyszfpSVqSoNadnEh97DlkC3GnVusy9JV7PT39EqZAcKPIXmmLW5BVmZ+ZzN
-	zGoLKd2A==;
+	bh=tW1kqG7AA7VKuaZuIchhnJLzAYeE13kvfdYICGMAvpA=; b=iOFh5t+1aYhbsJzrp2yVfIEXXl
+	KtIsXKTm7CAJaUVyCOI439IUaciTSgaHgksRLIpic0WDAg2/UN1woBOaHHRCbOIq5uk/1UMb74cSH
+	CVRQh9iosvQeHjlezPb9u9wDlWn2XrkQfU5OEGBA/klp6WTaeLJ2YXUzG0Z+Rjjv8spZsp7x6wdpa
+	I+Z71iIPKxIUmbxOHI4PDT/XB3Rq1CIQwi2Cl7Iq1Z+z+WMancMyTs8c3Eh15qdZX7KFhW6frm0Oh
+	Gkosn5w6fhldF09Rr5+V2R2X18ymHsLdISIq7o+5EAtpoTsE7FlXCjMapZPaXIqMoi5A9GhMc1Q7w
+	9+UeZs6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM3Hu-00000003U0s-1OSp;
-	Fri, 13 Dec 2024 10:52:50 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tM3Q1-00000003Uvk-21mN;
+	Fri, 13 Dec 2024 11:01:13 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM3Go-00000003TsS-1eH9
+	id 1tM3Ov-00000003UkO-223G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 10:51:43 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BDAW5Gf002214;
-	Fri, 13 Dec 2024 11:51:26 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	G5uSC3BK+YvGUsKSKx/YNrD4AlAFZtoOKclTkZr6p54=; b=V59d/Tcak9U2dgRH
-	IieiSNH5E9xkRhqCZH3nlT4/henx+nxTNXz4bglJg5tdoBYQs5nEMOhEAe0Zszq8
-	mev4UqwhRvA5G2uSm+THWcdqbkuELoqDsTb83kCYc9RqkbowUg1vPnKVJJfgtcwe
-	tIGMNxFh+U23kxQp1U1o3B0d/3ae+idNFqs85362zq3BZVamCxiwvctJV9iMomP+
-	+/5TGY7nLZL0k44sSR/4D1pA66lXhlKIXOQejNNmjKMfY+x+a418pD6J7XToKZeV
-	EEqn0RsO+wpR1U0X5jbe06mfIBz83J3Q/JYzlBdoBhMya+eaifghcKKP3XkNGATA
-	BK3MZg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ftj75wr4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Dec 2024 11:51:26 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6D82F40056;
-	Fri, 13 Dec 2024 11:50:16 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6C4BA268D8B;
-	Fri, 13 Dec 2024 11:49:30 +0100 (CET)
-Received: from gnbcxd0016.gnb.st.com (10.129.178.213) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 13 Dec
- 2024 11:49:29 +0100
-Date: Fri, 13 Dec 2024 11:49:24 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Lukas Bulwahn <lbulwahn@redhat.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil
-	<hverkuil@xs4all.nl>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        <linux-media@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <kernel-janitors@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: Re: [PATCH] MAINTAINERS: repair file entry in MEDIA DRIVERS FOR
- STM32 - CSI
-Message-ID: <20241213104924.GA3662210@gnbcxd0016.gnb.st.com>
-References: <20241213060011.67797-1-lukas.bulwahn@redhat.com>
+	Fri, 13 Dec 2024 11:00:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tW1kqG7AA7VKuaZuIchhnJLzAYeE13kvfdYICGMAvpA=; b=BAynvb7wzY0Qw60t6wnpt78/qq
+	vFB1MVGBVwIRglh/GEFtMTFb03eloxHgljpyzzDUs2omP3GUblZGcLOIc9evLq0qrEPJfPUQuJgOn
+	xDolDmF8a0Ag+MXGKmMfJEkKjpYABzH/x581Dt1BabS44Sbofprj51HoI5P5a622ScSqBlCT1O6yg
+	MGUhQmh8uBOBzQbcKrjCJbz9aL22I/+UpbWSzVQ/3GKAjjijlwErDxyH2XgnqjPmz5V0kWQ1Tp/wO
+	DpmJnZpgleUDOqghGcZs3+mDQeWuxuzTDS+83fti+X9buWRsGee9bvqHZL5FN3bQGLhto+z1CoCBv
+	Kt9Qx8PQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48066)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tM3On-0006ar-0n;
+	Fri, 13 Dec 2024 10:59:58 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tM3Ok-0006Fr-0f;
+	Fri, 13 Dec 2024 10:59:54 +0000
+Date: Fri, 13 Dec 2024 10:59:54 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 2/7] net: stmmac: move tx_lpi_timer tracking to
+ phylib
+Message-ID: <Z1wTqh-BnvPYLqU8@shell.armlinux.org.uk>
+References: <Z1r3MWZOt36SgGxf@shell.armlinux.org.uk>
+ <E1tLkSX-006qfS-Rx@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241213060011.67797-1-lukas.bulwahn@redhat.com>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.129.178.213]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+In-Reply-To: <E1tLkSX-006qfS-Rx@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_025142_705969_33664642 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20241213_030005_522680_81839B20 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lukas,
+On Thu, Dec 12, 2024 at 02:46:33PM +0000, Russell King (Oracle) wrote:
+> @@ -1092,6 +1092,7 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+>  			phy_init_eee(phy, !(priv->plat->flags &
+>  				STMMAC_FLAG_RX_CLK_RUNS_IN_LPI)) >= 0;
+>  		priv->eee_enabled = stmmac_eee_init(priv);
+> +		priv->tx_lpi_timer = phy->eee_cfg.tx_lpi_timer;
+>  		priv->tx_lpi_enabled = priv->eee_enabled;
+>  		stmmac_set_eee_pls(priv, priv->hw, true);
+>  	}
 
-Indeed, thank you for the fix.
+While looking deeper at stmmac, there's a bug in the above hunk -
+stmmac_eee_init() makes use of priv->tx_lpi_timer, so this member
+needs to be set before calling this function. I'll post a v2 shortly.
 
-Reviewed-by: Alain Volmat <alain.volmat@foss.st.com>
-
-Regards,
-Alain
-
-On Fri, Dec 13, 2024 at 07:00:11AM +0100, Lukas Bulwahn wrote:
-> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-> 
-> Commit dcb0f4c16be5 ("media: stm32: csi: addition of the STM32 CSI driver")
-> adds a new driver at drivers/media/platform/st/stm32/stm32-csi.c, but
-> creates a new MAINTAINERS section MEDIA DRIVERS FOR STM32 - CSI with a file
-> entry pointing to drivers/media/platform/stm32/stm32-csi.c. Note that the
-> file entry is missing the ‘st’ directory in its path.
-> 
-> Hence, ./scripts/get_maintainer.pl --self-test=patterns complains about a
-> broken reference. Repair this file entry in MEDIA DRIVERS FOR STM32 - CSI.
-> 
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-> ---
->  MAINTAINERS | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index bff3d35f80b5..230b7a4ee95f 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14551,7 +14551,7 @@ L:	linux-media@vger.kernel.org
->  S:	Supported
->  T:	git git://linuxtv.org/media_tree.git
->  F:	Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-> -F:	drivers/media/platform/stm32/stm32-csi.c
-> +F:	drivers/media/platform/st/stm32/stm32-csi.c
->  
->  MEDIA DRIVERS FOR STM32 - DCMI / DCMIPP
->  M:	Hugues Fruchet <hugues.fruchet@foss.st.com>
-> -- 
-> 2.47.1
-> 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
