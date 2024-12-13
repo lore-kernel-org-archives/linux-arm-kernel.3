@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C0DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 17:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DA9E77182
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 17:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XjbszIPs/n7b4p5KIBRoTwuiUU9LW0qDdu2zkchL+yc=; b=4nEbl7we7zTdovKx7lZ0xSDAVF
-	FDG9hE84N2M4Hu/Rv7C+Jwt1ijTOxMhX6FI3oZpCHj8Cnwg4UhD4rsLBQVDSVqPnDFQHtDIU5w9+G
-	CZqvqmV1pNXOAJNV49GFMraoyuiYAwYWwa+/dffh6H02gGtSqiNF32eYUQg/on+URG9M+zjWSTO97
-	HdvTcDmETHCFp3DSXUH7dVlUmjppccvaB5pMNhLHDjHMWqCJfa6PO1dvk+CPLdocJBTlojo/R2NVH
-	x25TDFhThkNPORouk9BOHXTrLXM/20nO2oL2RSfdaNXpaoDOxW1JV+LHmECZwzKdFj8+9lxuJBr5X
-	MzyqwTrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qh9Zm1VmGUbfUfimsR2fhN/wfQpXtijhFkCUNze7318=; b=h9uNfatAkclXu8euxv527BL9Fy
+	2HdfNlQE0Hi1E2WHGeABAGn6VR24QZ08bdcnK3Tan/AEi49DvjJTqtV5bZrXqszUDy0R9A2ib00R3
+	FxSJCfEIXhxOwhWH6Qdsl3L5AY0yW0hY2eF1zpCvC4ZaIjAMSU1jkd7D+CZyPW9leM9gW7d2WGHyS
+	etVqJh78V86wnpuYufHTwvJ9UkddODEd9O955W/81GLOu2oK3f7JJKEySSI4bREDMQ1IHhlhWe/Uw
+	3K97kzAyGSbItAmeVpIv3sNLMZgxcngr2wVTnINwczYRilG26nqmaCK/p8P11EcZhXTq+0LDQcL6w
+	iK1OMuGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM9Nj-00000004YLL-1kEm;
-	Fri, 13 Dec 2024 17:23:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tM9UY-00000004Z8n-2PuO;
+	Fri, 13 Dec 2024 17:30:18 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM9MS-00000004Y90-0qlE
+	id 1tM9TS-00000004Z0A-3gMs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 17:21:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D072CA42C2F;
-	Fri, 13 Dec 2024 17:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ACFAC4CED0;
-	Fri, 13 Dec 2024 17:21:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734110514;
-	bh=XjbszIPs/n7b4p5KIBRoTwuiUU9LW0qDdu2zkchL+yc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FtdISbkyY80zUrkwLQ5rsJjuw9Xlq/oJ9Hh4oqs0R6dhPRTUJfBWAp4xlKWYXDJrW
-	 pXePzLW4nSAPbv2tY2QgYgOpFjTB79aRcfD+QswvDeQO3t9D6EZ1rw+WpgyNTRRYjr
-	 wEmDz5G0itB5ZCIS2hcpQ0M9ECFHWISDBWuKLt34D4wfsEEwY1ilI8y/Sr7V+CKrLX
-	 7M/pTfzuFSWwCFB6INOJKGIYjJdp7En4F2w4oJCtTwbd9yr1Go5+ag4FEABPnULCSJ
-	 4hjgpqXwPZK2aRa9RD3368T0yFNzCOzH0e7pJAy6YCeGkz2tKk+ckIO/kFIjpLtWUj
-	 hwyOm9Y/Nhg2Q==
-Date: Fri, 13 Dec 2024 17:21:50 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] arm64/signal: Silence spurious sparse warning storing
- GCSPR_EL0
-Message-ID: <e9259a94-652c-470b-8ad0-b6fd2dcdc0c8@sirena.org.uk>
-References: <20241210-arm64-gcs-signal-sparse-v1-1-26888bcd6f89@kernel.org>
- <Z1hU0Ii-Sm9NHnhj@J2N7QTR9R3>
- <20c12aac-193e-43ae-9418-39db1af4ede9@sirena.org.uk>
- <Z1ht7X2LRw34pMJK@J2N7QTR9R3>
- <6d839dfb-0a85-44c5-90cc-2b2426353a5f@sirena.org.uk>
- <Z1xeLCKoSWyn2sko@arm.com>
+	Fri, 13 Dec 2024 17:29:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B246AC0006;
+	Fri, 13 Dec 2024 17:29:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1734110947;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qh9Zm1VmGUbfUfimsR2fhN/wfQpXtijhFkCUNze7318=;
+	b=AQalMVSihDbNV7GO0/TcVv+Jhxil4XJ9NFon+gfZ3+6jeSdAs/h2D5x4du/rqyku1zjsEV
+	jHledJm9X3nJ9w/4ZYxXw0VGSJimYUxqJ2s7zL1IRogsrEsmFXny/JyaNE4JgKPxUltoXy
+	bbOy0xSAhT1e+eUsKmwMHTGP17gg9mYmUQW4nwllTH/iqF08QdwVGr37xpWqsLFGtsWoW5
+	jZshQRSQEbs4NovEj0tT4w4O937zHMToa5TiLjA7aQyKPOnG8nS8dGnN/uSWCG71EeKxtF
+	Gm+ZyztxUyEfCuw6id5w3/SylvJxbMdvOSj166I4N4yZfmDzMOv0yGa8ls6Z4A==
+Date: Fri, 13 Dec 2024 18:29:04 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-socfpga: Set interface
+ modes from Lynx PCS as supported
+Message-ID: <20241213182904.55eb2504@fedora.home>
+In-Reply-To: <Z1wnFXlgEU84VX8F@shell.armlinux.org.uk>
+References: <20241213090526.71516-1-maxime.chevallier@bootlin.com>
+	<20241213090526.71516-3-maxime.chevallier@bootlin.com>
+	<Z1wnFXlgEU84VX8F@shell.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pLtlhyeX8UkM8kV/"
-Content-Disposition: inline
-In-Reply-To: <Z1xeLCKoSWyn2sko@arm.com>
-X-Cookie: Not for human consumption.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_092156_306204_784242BD 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20241213_092911_057060_522F7ACB 
+X-CRM114-Status: GOOD (  24.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Russell,
 
---pLtlhyeX8UkM8kV/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Fri, 13 Dec 2024 12:22:45 +0000
+"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 
-On Fri, Dec 13, 2024 at 04:17:48PM +0000, Catalin Marinas wrote:
-> On Tue, Dec 10, 2024 at 04:52:49PM +0000, Mark Brown wrote:
+> On Fri, Dec 13, 2024 at 10:05:25AM +0100, Maxime Chevallier wrote:
+> > On Socfpga, the dwmac controller uses a variation of the Lynx PCS to get
+> > additional support for SGMII and 1000BaseX. The switch between these
+> > modes may occur at runtime (e.g. when the interface is wired to an SFP
+> > cage). In such case, phylink will validate the newly selected interface
+> > between the MAC and SFP based on the internal "supported_interfaces"
+> > field.
+> > 
+> > For now in stmmac, this field is populated based on :
+> >  - The interface specified in firmware (DT)
+> >  - The interfaces supported by XPCS, when XPCS is in use.
+> > 
+> > In our case, the PCS in Lynx and not XPCS.
+> > 
+> > This commit makes so that the .pcs_init() implementation of
+> > dwmac-socfpga populates the supported_interface when the Lynx PCS was
+> > successfully initialized.  
+> 
+> I think it would also be worth adding this to Lynx, so phylink also
+> gets to know (via its validation) which PHY interface modes the PCS
+> can support.
+> 
+> However, maybe at this point we need to introduce an interface bitmap
+> into struct phylink_pcs so that these kinds of checks can be done in
+> phylink itself when it has the PCS, and it would also mean that stmmac
+> could do something like:
+> 
+> 	struct phylink_pcs *pcs;
+> 
+> 	if (priv->hw->xpcs)
+> 		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
+> 	else
+> 		pcs = priv->hw->phylink_pcs;
+> 
+> 	if (pcs)
+> 		phy_interface_or(priv->phylink_config.supported_interfaces,
+> 				 priv->phylink_config.supported_interfaces,
+> 				 pcs->supported_interfaces);
+> 
+> and not have to worry about this from individual PCS or platform code.
 
-> > Yes, I had already removed the references to spurious and false positive
-> > locally and changed the unsigned long cast to a __force u64 cast.
+I like the idea, I will give it a go and send a series for that if
+that's ok :)
 
-> I still have a slight preference for treating a sysreg value as an
-> integer and cast it to pointer when needed rather than using __force.
+Thanks,
 
-I've now changed to that and will send it later - TBH I'm having a very
-hard time seeing it as an improvement, especially with the update to
-gcs_signal_entry() where we do two writes.
-
---pLtlhyeX8UkM8kV/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdcbS0ACgkQJNaLcl1U
-h9CWxQf9FYCi81Mft1lRJXVju7GTWF/hR4f7L8c37sR6fd7AOWUKUEeSDIIyQsKm
-6u0/kyAWr0oFbLH1Kd1PyB7SmYTsk/O5jOYbT/W6s15OWaFEYUBoAI3a/Ql/1aqR
-4hecDva2rqQcCf4TijoLt7N7U+f2gFd/J44uxPEfmgtLQ+HlqiguQujnk3n/G+6P
-JjYp6GYbOYbVNosVDxke1YhbOM0BgiV2dIJ8ML2RfMBYShnpesEQCU26rpmfk9PV
-mygXhdjjSDz9UxytvgC7MRN+7X6Rk3U3S0VR1mWSlUxNNm4d+jwsDfTR3U8sGYu+
-ti9p9BaHpU5qPMkln/0dW9BcZdh9GA==
-=Tu/G
------END PGP SIGNATURE-----
-
---pLtlhyeX8UkM8kV/--
+Maxime
 
