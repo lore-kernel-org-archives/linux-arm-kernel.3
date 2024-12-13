@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5911E7717D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4E8E7717D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 09:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UdqcTZ5dYcu+1db9jRbnT2mWghupTOqEjc4U3dcloEo=; b=U4nX2W2+JuglDB7XYBnTAfJ0JH
-	Cgix/3smOz4VAgQbN0gso/YZqt5J33W583aCEp+kXUiX7upd2tbPnC7zXkG9hXaiG2uticwf/aeQp
-	kWYLxsCYdH4WEr3B2zJdBCZIr4m5egjaysn+rVZCcqtwKbIlmgySw6xOhentBgPIZmE6Owl2jK+F6
-	2IM7uESXJhfgecqN24CXO54pHl+0NGqLL4KogbPCDZZpEkjo/HHxbNPU9JuRhNx9Mw5CTikUVa6Q9
-	3Xgoqim0AIScbOLHT/rbcGhRUSacwCkc5HaCOGbKg+xkW4QysbABGh/qdH15J7ObEnZUt1R4ly3G3
-	ECZ7IbEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jeEYpoT5ymS8tRy1xVLDixRmFAc5fwDD3sDDNeC0nh8=; b=PoyF/ghN6CMkbvwLFbw4wY1oeI
+	0bW+irW126qXOyyqLwUiRCZhDgQliVRQiBKXS6cA32xPAt7z0yEf543ly/XUfIw6s8Uc9oxRIQIxP
+	7hSQThoJCZpZ39QfiLaK7UB/pXDR/YZeJoC0o6m8VSKcaKxQYdqZcQXy75qw1Azz1HL3xvr/3ZTie
+	lOLaI8TZiT7zSbkBA1BpFw2UxN08UIIZAOl9YAMfRL41QJ6k1MzYAl3Rz8g6WNp1EGFJDHYAffpvC
+	NTXhKhj1BG9ZYOaAlxP2kgYLI4z2/aF0Z+qtuhsqL+Hzb7Wxo4SH1014VogPVmU9q6YSatF2Mli1M
+	tpnOG7mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2Om-00000003LD7-3rOk;
-	Fri, 13 Dec 2024 09:55:52 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tM2Pq-00000003Le1-45uD;
+	Fri, 13 Dec 2024 09:56:58 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM2K1-00000003Jy6-3YAU;
-	Fri, 13 Dec 2024 09:50:58 +0000
-X-UUID: bd5a3ea4b93711ef9048ed6ed365623b-20241213
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=UdqcTZ5dYcu+1db9jRbnT2mWghupTOqEjc4U3dcloEo=;
-	b=AwLN+Wc0Cc0AQMM86Xcv+jFF1X0EgjYVqc9cfg9hgv88XXUVp5d1LoChPLsjM51uCl9GEAnk+DOa1F9PN7iWPuXl/k3xOO5Huh80PknV7vBdIP3uROpQRpFUNpPOUOBMLIY61f0ly/K48Il2wrh+3PrNj1NHbCq1G924Fsyrzmk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:10a9d867-bc12-413e-a13d-b37319c471d1,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:2495eb3b-e809-4df3-83cd-88f012b9e9ba,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: bd5a3ea4b93711ef9048ed6ed365623b-20241213
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 125377447; Fri, 13 Dec 2024 02:50:52 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 13 Dec 2024 17:50:47 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 13 Dec 2024 17:50:47 +0800
-From: Jason-JH.Lin <jason-jh.lin@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "Jason-JH . Lin"
-	<jason-jh.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Nancy
- Lin" <nancy.lin@mediatek.com>, Shawn Sung <shawn.sung@mediatek.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Fei Shao
-	<fshao@chromium.org>, Pin-yen Lin <treapking@chromium.org>
-Subject: [PATCH v2 3/3] dts: arm64: mediatek: mt8195: Remove MT8183 compatible for OVL
-Date: Fri, 13 Dec 2024 17:50:44 +0800
-Message-ID: <20241213095044.23757-4-jason-jh.lin@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20241213095044.23757-1-jason-jh.lin@mediatek.com>
-References: <20241213095044.23757-1-jason-jh.lin@mediatek.com>
+	id 1tM2OJ-00000003L3o-2hln;
+	Fri, 13 Dec 2024 09:55:24 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9f1d76dab1so314837566b.0;
+        Fri, 13 Dec 2024 01:55:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734083721; x=1734688521; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jeEYpoT5ymS8tRy1xVLDixRmFAc5fwDD3sDDNeC0nh8=;
+        b=YPGOMYlQMjgdyMGZjjrVCoT26XsK8kPauTx7KRSlCVSJo5aduBiLeaUPeCE5Bux8Hs
+         vGJksrgeIpyQUAp8O59I8qTcgdG4lHA2PWDgBxlKVemF9nYWVytpuE4pyCOmttiwkHHg
+         mkPeSGUyGrh/rNK8xaVVfvccTTRPzexBMV08Lb7x4l2DfZgzZ7LMJjeJAPI8Bmr8+Sk+
+         6CaWXpGGcmD+98/r3EsrvavZT+jhO1ZZsvf3gXrXSi0ipV7CTqvOoiYociyG1XK5JHSF
+         zE5/w2YxwVgzsKOwaem17xDdHDD8HQ821lkSre4nyb3UQMyIB5gmNw5kpKuYZx+YP4xm
+         eBSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734083721; x=1734688521;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jeEYpoT5ymS8tRy1xVLDixRmFAc5fwDD3sDDNeC0nh8=;
+        b=mXHthkPbKrselx+eA+Y8/FulCc8ThIz4twtBKEDz5lKfXMNbdM92NaFsCaxXnXI887
+         lqdsm+fhKj78UeQr62s0GeAK2QCF7WiWXV5tk++Kcsc5jwD5mmP6AZpDkLyetAi1xQ8+
+         wpS4YxGZY+SxRXaW739mdorGtddpXQagSn69yImevjxEOC7707Fjc8pJaxTnUaM69NEM
+         dCjPx8gP+jWe0o57ZXngcXidI5dD3plYABsm2eQqBdk99cgiAy3VKADY2kLOEZ/v6irt
+         eMx8wKoV8QHGmDFKu/+UTtg9DFXmdBCj+7PzAreKFbJI5KAe2z+z88HFuTLdkLGJH7y8
+         7VuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUMZ9Bc0nI45poawpPEpp6hvUJY3zzBb9QZ/8ZVt+wfqY/xZsjloHl3mGSF2W4wyb7HsRF0Fy2xvhmnHzD8JYw=@lists.infradead.org, AJvYcCXnG+KkBPVKcPYHNIlMF6Xi1TI9fxEG+5fSIWTx915eW9xW8sBagIDajNUKQz5DzeNBsJehIEvnMtZsY7PPp242@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBvk7CNwIlJ+6HQtVG6+ECYaG+3U661PZegzP81NUynWl5Y6we
+	Vtucwr9MUNc69SZ9CcpD+maiYEIEeJ48jUypGgDhF7b9VfubxMpM
+X-Gm-Gg: ASbGncth9rHRDYYerKQMtrJDFO9aY4+NiTQNgHzd6yrvCpuLU8qhtk8oh4zKXH7bcUr
+	AdWzSTEhjRWxImg7h3Va0P/TSgUZuXFPKd2Ppxfl3CdsqOfyYqeNL8KyJifsOBv2yKbYTXcxKLx
+	huh57pl5l5+iOEZskKEP/2LklvPs352/ZylrhFHXvzpXjoObtZbj77Fqcv78BunlNw3KVNYhtpH
+	bNyCvnbMphvdOlza1DSs8rBtHm7HqwJzl8Be9A4oXDDitdR42HORveKqapmx3jY/aWm5eW9V33u
+	+jMot4rCo1QO3B9NUKCvK6DaaA==
+X-Google-Smtp-Source: AGHT+IHZMHT5CWtXaqVR5si+MBRX4Sk47tkz4p5lH/eSEWo0dRkleARMLltPnuR/+triSY+HnVjWaA==
+X-Received: by 2002:a17:907:1c8b:b0:aa6:7cae:dba7 with SMTP id a640c23a62f3a-aab778c6ef1mr216718366b.4.1734083721229;
+        Fri, 13 Dec 2024 01:55:21 -0800 (PST)
+Received: from opti3050-1.lan (ip092042140082.rev.nessus.at. [92.42.140.82])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa6969a7645sm598970866b.16.2024.12.13.01.55.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Dec 2024 01:55:20 -0800 (PST)
+From: Jakob Unterwurzacher <jakobunt@gmail.com>
+X-Google-Original-From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+Date: Fri, 13 Dec 2024 10:54:58 +0100
+Subject: [PATCH v4] arm64: dts: rockchip: increase gmac rx_delay on
+ rk3399-puma
 MIME-Version: 1.0
-Content-Type: text/plain
-X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-AS-Result: No-10-0.109800-8.000000
-X-TMASE-MatchedRID: 5yyS2hWhq1jeG4FwcWqAS4v2/i8VNqeOQl/FdRYkUZLfUZT83lbkEFUP
-	yEuNfDiQ4vM1YF6AJbbGJQ3BiiLAggtuKBGekqUpm+MB6kaZ2g7bq4ItpX/+OkXLunBl25srQ3I
-	ZDfmS/Cx6FQax6pBNIiUC2B4XPIxH7nqbEDar1/8dr6Hp73MZ6f1ZJlBFxbQ1PYx8vsB79PVJmt
-	82E/eyBQGH0CAFIQWsmb5gmylW+PbGS+seVPx64iUa7Lz57KOX
-X-TM-AS-User-Approved-Sender: No
-X-TM-AS-User-Blocked-Sender: No
-X-TMASE-Result: 10-0.109800-8.000000
-X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
-X-TM-SNTS-SMTP: 6AB72FE2E5F4D780974943D808A7EACE3A86CD8C4C7E30EC064974F7EB0690EB2000:8
-X-MTK: N
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241213-puma_rx_delay-v4-1-8e8e11cc6ed7@cherry.de>
+X-B4-Tracking: v=1; b=H4sIAHEEXGcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHQUlJIzE
+ vPSU3UzU4B8JSMDIxNDI0Nj3YLS3MT4oor4lNScxErdtMSUpOSUNANLcwtjJaCegqLUtMwKsHn
+ RsbW1AFzzeNhfAAAA
+X-Change-ID: 20241213-puma_rx_delay-fadbcdf09783
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Klaus Goger <klaus.goger@theobroma-systems.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Quentin Schulz <quentin.schulz@cherry.de>, 
+ Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_015057_890015_D67317D8 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20241213_015523_707487_AC3F981E 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +104,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OVL hardware capabilities have changed starting from MT8195,
-making the MT8183 compatible no longer applicable.
-Therefore, it is necessary to remove the MT8183 compatible for OVL.
+During mass manufacturing, we noticed the mmc_rx_crc_error counter,
+as reported by "ethtool -S eth0 | grep mmc_rx_crc_error", to increase
+above zero during nuttcp speedtests. Most of the time, this did not
+affect the achieved speed, but it prompted this investigation.
 
-Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+Cycling through the rx_delay range on six boards (see table below) of
+various ages shows that there is a large good region from 0x12 to 0x35
+where we see zero crc errors on all tested boards.
+
+The old rx_delay value (0x10) seems to have always been on the edge for
+the KSZ9031RNX that is usually placed on Puma.
+
+Choose "rx_delay = 0x23" to put us smack in the middle of the good
+region. This works fine as well with the KSZ9131RNX PHY that was used
+for a small number of boards during the COVID chip shortages.
+
+	Board S/N        PHY        rx_delay good region
+	---------        ---        --------------------
+	Puma TT0069903   KSZ9031RNX 0x11 0x35
+	Puma TT0157733   KSZ9031RNX 0x11 0x35
+	Puma TT0681551   KSZ9031RNX 0x12 0x37
+	Puma TT0681156   KSZ9031RNX 0x10 0x38
+	Puma 17496030079 KSZ9031RNX 0x10 0x37 (Puma v1.2 from 2017)
+	Puma TT0681720   KSZ9131RNX 0x02 0x39 (alternative PHY used in very few boards)
+
+	Intersection of good regions = 0x12 0x35
+	Middle of good region = 0x23
+
+Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
+Cc: stable@vger.kernel.org
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # Puma v2.1 and v2.3 with KSZ9031
+Signed-off-by: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 ---
- arch/arm64/boot/dts/mediatek/mt8195.dtsi | 2 +-
+v4: drop internal Relates-to tag, add Tested-by, rebase to Linus master, send with b4
+v3: use rx_delay = 0x23 instead of 0x11, which was not enough.
+v2: cc stable, add "Fixes:", add omitted "there" to commit msg,
+v1: initial submission
+---
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-index ade685ed2190..137ee8929e01 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-@@ -3138,7 +3138,7 @@ larb20: larb@1b010000 {
- 		};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+index d12e661dfd9917f820284477a215389c16205f46..995b30a7aae01a0326e9f80d6be930f227968539 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+@@ -182,7 +182,7 @@ &gmac {
+ 	snps,reset-active-low;
+ 	snps,reset-delays-us = <0 10000 50000>;
+ 	tx_delay = <0x10>;
+-	rx_delay = <0x10>;
++	rx_delay = <0x23>;
+ 	status = "okay";
+ };
  
- 		ovl0: ovl@1c000000 {
--			compatible = "mediatek,mt8195-disp-ovl", "mediatek,mt8183-disp-ovl";
-+			compatible = "mediatek,mt8195-disp-ovl";
- 			reg = <0 0x1c000000 0 0x1000>;
- 			interrupts = <GIC_SPI 636 IRQ_TYPE_LEVEL_HIGH 0>;
- 			power-domains = <&spm MT8195_POWER_DOMAIN_VDOSYS0>;
+
+---
+base-commit: f932fb9b40749d1c9a539d89bb3e288c077aafe5
+change-id: 20241213-puma_rx_delay-fadbcdf09783
+
+Best regards,
 -- 
-2.43.0
+Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
 
 
