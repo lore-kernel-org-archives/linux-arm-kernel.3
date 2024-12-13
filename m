@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1845DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8213AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 16:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qj5V9jM7yeXfqobJUv9aozaLzVRoXEay+ww3dHYrjew=; b=nuNShahUmjNNNuL8ez625VNgA2
-	pwI3DMlXA6fAf9hZwiJZfHSnMA0/xjw08VPnTKwmeDgVUEZAEHvKbWuhCIpnMlweKqhLSjSP/miXC
-	e7i6u8qm/R2coRaf0E8MpLbn3yvOVTBxK8ziAbcCzcIZ9I/nx25bnXZDqpShup52hYi83QbCy6bRY
-	1HRUovkAWKaJDpoY0B+pdl46zRpV8jY3uaKKQtJCR8W/FjOmyqn95b5rKctHg0UnH3qMlAH0tjZ8n
-	TqvYYrPGuEUS5NdGBEy/Taz9spc4CFKTAJqYBF6C6GMwIfL315A5Ww0UUrhlllkVJl5Xw/SHlFhaU
-	/am8EFZQ==;
+	bh=MeRRGLDDb0ux1182zAHVdE8lHrLfJb7fiMK9nZBfy2I=; b=V4gFMVdIw2ZqzgzEjGssiAW3rR
+	4jwZjuZ/3JupgnAxm51/R9GzW38WC4MgA1+5YVsxCC1sB1vK+KC34sLMC01DBNNds0sHMMVx2PBCl
+	HGD6t19rVA9Pav+H5c/k5FEsdB3A/vt0dTCjbBVnTF7XY+LRfLYho9nnVWjLbMtiKuSYtbliHqxGC
+	nhZnzkHgRygNjW6MrDmycRmZGmzzH/iZ3kk6+PG1whnZHLsZFsJs6WCMgNFWYUlpT017XaoVF3fJ6
+	qnnGrKAG6+OU+72PXb2wNbTkwGjI1Eo6ebRo/BJzTIbkFD7MUN+5X8xNVSl1RvLfV9fqbV0UZ57Jw
+	9VrdXnGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8wO-00000004UcP-4ADj;
-	Fri, 13 Dec 2024 16:55:00 +0000
+	id 1tM8xS-00000004UtA-2lvp;
+	Fri, 13 Dec 2024 16:56:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM8rJ-00000004TCl-1H5m
+	id 1tM8ui-00000004UB2-20TQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Dec 2024 16:49:46 +0000
+	Fri, 13 Dec 2024 16:53:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B597C1480;
-	Fri, 13 Dec 2024 08:50:11 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9E841480;
+	Fri, 13 Dec 2024 08:53:41 -0800 (PST)
 Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.1.196.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15C1F3F5A1;
-	Fri, 13 Dec 2024 08:49:41 -0800 (PST)
-Date: Fri, 13 Dec 2024 16:49:39 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C20F33F5A1;
+	Fri, 13 Dec 2024 08:53:11 -0800 (PST)
+Date: Fri, 13 Dec 2024 16:53:09 +0000
 From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
 To: Marc Zyngier <maz@kernel.org>
-Cc: ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
-	corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+Cc: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+	will@kernel.org, corbet@lwn.net, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
 Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20241213164939.GD30314@mazurka.cambridge.arm.com>
+Message-ID: <20241213165309.GE30314@mazurka.cambridge.arm.com>
 References: <20241211160218.41404-1-miko.lenczewski@arm.com>
  <20241211160218.41404-3-miko.lenczewski@arm.com>
  <87cyhxs3xq.wl-maz@kernel.org>
+ <084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
+ <86ikrprn7w.wl-maz@kernel.org>
+ <2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
+ <86h678sy00.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <87cyhxs3xq.wl-maz@kernel.org>
+In-Reply-To: <86h678sy00.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_084945_438240_D8C80D41 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20241213_085316_558726_08718500 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,74 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 08:25:53AM +0000, Marc Zyngier wrote:
-> Ah, so this is where this is hiding. I missed it in my review of patch
-> #1 yesterday.
-> 
-> On Wed, 11 Dec 2024 16:01:38 +0000,
-> Mikołaj Lenczewski <miko.lenczewski@arm.com> wrote:
 > > 
-> > The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> > and this commit adds a dedicated BBML2 cpufeature to test against
-> > support for.
+> > From the ARM:
+> > """
+> > RFCPSG: If level 1 or level 2 is supported and the Contiguous bit in a set of
+> > Block descriptors or Page descriptors is changed, then a TLB conflict abort can
+> > be generated because multiple translation table entries might exist within a TLB
+> > that translates the same IA.
+> > """
 > > 
-> > In supporting BBM level 2, we open ourselves up to potential TLB
-> > Conflict Abort Exceptions during expected execution, instead of only
-> > in exceptional circumstances. In the case of an abort, it is
-> > implementation defined at what stage the abort is generated, and
+> > Although I guess it's not totally explicit, I've interpretted that as saying
+> > that conflicting TLB entries can only arise for the IA range for which the
+> > contiguous bits have been modified in the translation tables.
 > 
-> *IF* stage-2 is enabled. Also, in the case of the EL2&0 translation
-> regime, no stage-2 applies, so it can only be a stage-1 abort.
+> Right, that's reassuring, thanks for digging that one.
 > 
-> > the minimal set of required invalidations is also implementation
-> > defined. The maximal set of invalidations is to do a `tlbi vmalle1`
-> > or `tlbi vmalls12e1`, depending on the stage.
+
+Thanks Ryan, will improve the comment and commit messages to make this
+clearer and to include references to this information.
+
+> > > If anything, this should absolutely check for FAR_EL1 and assert that
+> > > this is indeed caused by such change.
 > > 
-> > Such aborts should not occur on Arm hardware, and were not seen in
-> > benchmarked systems, so unless performance concerns arise, implementing
+> > I'm not really sure how we would check this reliably? Without patch 5, the
+> > problem is somewhat constrained; we could have as many changes in flight as
+> > there are CPUs so we could keep a list of all the {mm_struct, VA-range} that are
+> > being modified. But if patch 5 is confirmed to be architecturally sound, then
+> > there is no "terminating tlbi" so there is no bound on the set of {mm_struct,
+> > VA-range}'s that could legitimately cause a conflict abort.
 > 
-> Which systems? Given that you have deny-listed *all* half recent ARM
-> Ltd implementations, I'm a bit puzzled.
-> 
-
-I had tested on an earlier series of the patchset that didn't introduce
-the MIDR checks (has_bbml2() only read the claimed level of support),
-but otherwise had the same implementation.
-
-> >
-> > +static inline bool system_supports_bbml2(void)
-> > +{
-> > +	/* currently, BBM is only relied on by code touching the userspace page
-> > +	 * tables, and as such we are guaranteed that caps have been finalised.
-> > +	 *
-> > +	 * if later we want to use BBM for kernel mappings, particularly early
-> > +	 * in the kernel, this may return 0 even if BBML2 is actually supported,
-> > +	 * which means unnecessary break-before-make sequences, but is still
-> > +	 * correct
-> 
-> Comment style, capitalisation, punctuation.
-> 
-> > +	if (!system_supports_bbml2())
-> > +		return do_bad(far, esr, regs);
-> > +
-> > +	/* if we receive a TLB conflict abort, we know that there are multiple
-> > +	 * TLB entries that translate the same address range. the minimum set
-> > +	 * of invalidations to clear these entries is implementation defined.
-> > +	 * the maximum set is defined as either tlbi(vmalls12e1) or tlbi(alle1).
-> > +	 *
-> > +	 * if el2 is enabled and stage 2 translation enabled, this may be
-> > +	 * raised as a stage 2 abort. if el2 is enabled but stage 2 translation
-> > +	 * disabled, or if el2 is disabled, it will be raised as a stage 1
-> > +	 * abort.
-> > +	 *
-> > +	 * local_flush_tlb_all() does a tlbi(vmalle1), which is enough to
-> > +	 * handle a stage 1 abort.
-> 
-> Same comment about comments.
+> I didn't mean to imply that we should identify the exact cause of the
+> abort. I was hoping to simply check that FAR_EL1 reports a userspace
+> VA. Why wouldn't that work?
 > 
 
-Will fix.
+Will do so.
 
-Kind regard,
+Kind regards,
 Mikołaj
 
