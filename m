@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE50E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE3FE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rZb9moUiVpxFCMqmY6tsWVihMcoiO44ViJkmkTUeDTs=; b=UxEh4AhgaCz0YxEkTVNmguCyh1
-	CA/Ph2xQ0AL8/wk50BJQVfAf7eO2Ingv3n89im2hlEc/CWzrnOMit+/aEIjU3s20wAMkBN5TKx3iO
-	i5lq4Rr+rPZy8Jfu8ljPaDHKiD5jLyUWA5JlkOShm4MssLduOHkY0oxDwCXdqiMUVWSAHvxzR/BGX
-	xk3Ky5ZGoS3MgXHKGxX1to2piFcYwTfDH1nObpmPTqNtx89E14eaUgmuNc+17uHQZ12+z3/IYrk3T
-	KPkggSYXRNS2WtSXT0i+L/9zZjqoIPNnGA36fXJjYv+Y3tS/uZ1iMTj0ycXqimXR9YxgwBM3qBz6w
-	QIo8CbFA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b4/Hq9oG1hCHZN6bpooRR8vHRpWTBHDd5vOt3uAQ3gY=; b=HhavGL66BkNm0cfwpSouCyeSEM
+	eHis4HltG7ECOK62e/y2FDbBMoTY66jAfGhf9RxXerP2AuEX2DKNh6aBPGMN8I3Waxoj4Q+PbTTgJ
+	m3RSx6BWUCNrhQuQhluQB4gP1/mBhcW29IOCzThFJYButx4uOmkCh4NcRyAVCHQqfEL2HAe73qJQD
+	wze3X0x73jLSyKMLQt7zpRNxto2vf/xpNS8TanlqdBce0+0YRw7WvWS9Ay0egIH1sK7GegIXZTio2
+	Ff9VS3h6f018JouuI2DbGK6dPEbTuzlv5aN9hLurF9FeVBpAybPvmJM1Z58tKhfSNBJaTKnaMEv1I
+	fwbh3itw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMaGu-000000071Wu-0RPu;
-	Sat, 14 Dec 2024 22:06:00 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tMaI0-000000071gf-3BA4;
+	Sat, 14 Dec 2024 22:07:08 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMaFp-000000071M8-1OlZ
+	id 1tMaFq-000000071MB-1Xb4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 22:04:54 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43623f0c574so19927815e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 14:04:52 -0800 (PST)
+	Sat, 14 Dec 2024 22:04:55 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-432d86a3085so18793975e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 14:04:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734213891; x=1734818691; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rZb9moUiVpxFCMqmY6tsWVihMcoiO44ViJkmkTUeDTs=;
-        b=guACw+OVHpahHm0eLuzSpCBmUsFfESDOiNOsF+YLwH4RlJzfjve5MSiP6wTdVOcPVF
-         kN7m9VOTJokN+Siaj4HLce8HNCSAAB5ZC2McXEgMMENiYIeDYi6BO2cZJjw4lHPBmhTM
-         m39Ws+CWwJVZKlwb5ie7wVWgltHyUVWc9jZZ7NMzTB/uYquNQvIA5qb1chadus2FfAeK
-         2biK1O0piJbM7mxsLOdvRpiuLK4Y0WRO+HjWuaOGworkFJFIxHp1/f4Baqx4yO23VK7h
-         /Yki5nnRW42KsxqbxLLrqm/zfQS27lUEvVwC1cSa8yDlk4l4Ii18MIQaLOORYqDEqTjf
-         JAmg==
+        d=gmail.com; s=20230601; t=1734213893; x=1734818693; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b4/Hq9oG1hCHZN6bpooRR8vHRpWTBHDd5vOt3uAQ3gY=;
+        b=JSzqZ0Rn+gXXuwCmKBc2Ozubaca7LtqnbpUFgfHxzG2MnwxZjI/ZmySMMsGkI3adlh
+         eK248Dm5DvOw+tA2n00W+oriMXip0MOtESs2q+KIoOUVDT2qvJMr9OHZQ+oc0BR7KF5z
+         HdWJ91Csse0W39dukGKxKwIH6aoBwM2Uc4BcxPIZgP9DYcfiKXODfsMUV3JZHU4pF+Dl
+         LV/bFrA76J3MqorFxr4YQAcaNsk2U9jE55z6mQEuFf4zlXFSGs/4DUObS69rsuOIJN0b
+         nwML/nf/Xqu69ON5M1Aane28s0UUKEAz2tSVNxU706LbaGhAUJ9w6kQHTN5bL7zlaOSI
+         X2og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734213891; x=1734818691;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rZb9moUiVpxFCMqmY6tsWVihMcoiO44ViJkmkTUeDTs=;
-        b=lkeS6A3VJfA2lw1fWwkXfgXf5SrI/NSrogl1EsOWNFKaZV5YI9C6w4XNcRid1bR22T
-         ZFkmmsXUSN5Uu4jo4Ibg1fZVcAfyO7actXboON9za04GT6rhrl1+ICZYw9GtuI6BK4e+
-         /W66IV2uYv96g6OPbx6GZqDJXAnXEdNl5gmdaCYx1YCXaFOisQWV5Vj0/juXopM7rEgu
-         wGK9SLiMpyo297IskfhBB48WYaoYFG777NVfFax5qqD2DiBkPIbYsoe95aQzX8lHSx2O
-         XsxJ/N+b5rS1bMadn1km30iaSXrBbgB+LLJnYTepOvpJWaZcrxoTNCoXXhhJ5Ld4C8bR
-         HqvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX5tzLE0ChmAL+arORlp6Pr+4sIS02x8nwt8mCOZSplwwiWfFpgo+LVGa36EWwbV0xytpEFzktgHRerEiAwSK3x@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmnIvaiyOSmsbles62iiaYb4pvp0exRXMQ+RBfrTsXlP9Vg68B
-	Pfnr48UxRm+plW5D9H5uAnDX62X1LdynpJQzr3oF7Oi+Z1aRv/VS
-X-Gm-Gg: ASbGnctomsTLy0WV73VtMRhaAzrMfvpFH8KkrymDuaJAIbXOFw0Ri4NwG06qaIkPH4+
-	hXRRJtTXO2tlSsLiJHgZEHqrLFuWKspiJrvD/dmV0LYuIxw5sG2ayQQAlfZ4wSMjR92cpMHs9uR
-	xQNPYF2+nofG1Jro08q0B6VDgGe1yRXJIfjG7HyblLoMT+NwPZNDtSKw7DgwFaClG7c3tzmS7fT
-	QlkKD6hsMyXHmJINcHCKC/Lhx3xceWQZVUKyylp+JkXdt3Yb3o55Ex5lSWxQEghQBQ04h7jCWAN
-	qCSVbYRjE332fHfVX2uQ8T1MpKs0j52u
-X-Google-Smtp-Source: AGHT+IEp+JHm04UmoCFXhypLWQox3sRGEjPR48qR1XxVmCrxM/GGVQTqiSSl6fYMc4Bk25nsaMdzVw==
-X-Received: by 2002:a05:600c:1c12:b0:434:f623:9fe3 with SMTP id 5b1f17b1804b1-4362aa3d8bbmr72912625e9.16.1734213890608;
-        Sat, 14 Dec 2024 14:04:50 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734213893; x=1734818693;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=b4/Hq9oG1hCHZN6bpooRR8vHRpWTBHDd5vOt3uAQ3gY=;
+        b=g/PG/UgQcYZueG1nprEOV/wDowEsTavoNQQ0mZ1uLBWynIgZEVk0F590Kun7tkYTOU
+         vsI+Etw0E4cQmN/Jpo4WYcLJw6QCVMWXYfEYTci1Jq+Z4IV2RGncIinFQbASVOib5mfT
+         B43PxvlVtwaXvkOuCJHZXsVjFDahvGoYt2WUBTKsnKM8/oGgMsJkCorkUEGo1m79s4C7
+         tO5aNJ9mQo/RucgOPQwuHMIcK4QR3ZT3xynHQCfhhFcgM5hux+CaZyyjAGZjjmf0lyi4
+         8bUGKLKPFyWilnPSmEdKsMyhuAYNM++LcNczX/YKhq8JNXdUW7qQy8reW7pb/j//+P8B
+         zU3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUik3RDoawxrE7SFpFEDU7P4xyITg1Vz8kxlMN48jEeYGAfJfu3cz5WNsWWGo/zJ6FcskrzWQ5PUlKlufI17K1z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBZ6/JyWIZWgrwdc3DPgYPskoN/Izuts+bjzRJdgbfQce0b2VQ
+	+89NQWGTPlxvHMdVfHD02/aUvCeKKnbkSACYsCF4kkmI3nCynt81gw0lbxPs
+X-Gm-Gg: ASbGncvm/YstGxlVK8gR6c9AMpZuWuPx13X9+s28puhZwGVt2qKCs2NdsuoGcGZAUM1
+	j4I8f24xvfk/ajXStP4gSpvLVOi4JCBqwiEQE9Pbo2LdwHRiCSNwPW+nkWj+980TjltpTNsczKg
+	ioNqZt84l5qAHK25vKwu4YAbsLnqXY4N0FYXi5nhTB+xSnLH2Z8hj2NSvk7r83AUAe4vl/YMOFN
+	5uF/8/gEXP3qJyR0+nu/u6zhkkNTbrxrGV/ZVlbQoL08WVw9ySSrT1FMTCXbaSsAxGrBrc1y771
+	zBenWVivWAyJxvQHgRB9zA8MBDLd4dqV
+X-Google-Smtp-Source: AGHT+IEZgL7+/oHEX5vhRmaBN/fBPq0CETkKB+H+95woCtbcul7ecn0vP85Z/48Wz2GhSZiyO6kbtQ==
+X-Received: by 2002:a05:600c:3151:b0:434:fe4b:be18 with SMTP id 5b1f17b1804b1-4362aa3ffcdmr68162205e9.18.1734213892367;
+        Sat, 14 Dec 2024 14:04:52 -0800 (PST)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4361ec75410sm104456185e9.1.2024.12.14.14.04.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4361ec75410sm104456185e9.1.2024.12.14.14.04.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 14:04:50 -0800 (PST)
+        Sat, 14 Dec 2024 14:04:51 -0800 (PST)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Andi Shyti <andi.shyti@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -78,15 +79,17 @@ Cc: linux-i2c@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 0/2] i2c: exynos5: Add support for Exynos8895 SoC
-Date: Sun, 15 Dec 2024 00:04:17 +0200
-Message-ID: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v1 1/2] dt-bindings: i2c: exynos5: Add samsung,exynos8895-hsi2c compatible
+Date: Sun, 15 Dec 2024 00:04:18 +0200
+Message-ID: <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_140453_409523_9ADD2BAC 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20241214_140454_402003_04D2A1CA 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,30 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey folks,
+Add samsung,exynos8895-hsi2c dedicated compatible for representing
+I2C of Exynos8895 SoC. Since there are I2C buses that aren't implemented
+as a part of USIv1 blocks, they only require a single clock.
 
-This series adds HSI2C support for Exynos8895 to i2c-exynos5. HSI2C
-buses here are mostly available implemented in USIv1 blocks, with 5
-available externally - hsi2c_0 to 4. hsi2c_0 is available for PMIC
-(although I've never seen it used) and it uses BUSC clocks, which are
-still not implemented in the current clock driver, so I've decided to
-leave it out for now.
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+---
+ .../devicetree/bindings/i2c/i2c-exynos5.yaml  | 26 ++++++++++++++++---
+ 1 file changed, 23 insertions(+), 3 deletions(-)
 
-In the next few patchsets support for USIv1 will be added to the
-exynos-usi driver and with that the rest of the I2C buses will be made
-available.
-
-Kind regards,
-Ivo
-
-Ivaylo Ivanov (2):
-  dt-bindings: i2c: exynos5: Add samsung,exynos8895-hsi2c compatible
-  i2c: exynos5: Add support for Exynos8895 SoC
-
- .../devicetree/bindings/i2c/i2c-exynos5.yaml  | 26 ++++++++++++++--
- drivers/i2c/busses/i2c-exynos5.c              | 31 +++++++++++++++++--
- 2 files changed, 52 insertions(+), 5 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+index cc8bba553..b029be88e 100644
+--- a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
++++ b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+@@ -25,6 +25,7 @@ properties:
+           - samsung,exynos5250-hsi2c    # Exynos5250 and Exynos5420
+           - samsung,exynos5260-hsi2c    # Exynos5260
+           - samsung,exynos7-hsi2c       # Exynos7
++          - samsung,exynos8895-hsi2c
+           - samsung,exynosautov9-hsi2c
+       - items:
+           - enum:
+@@ -94,9 +95,28 @@ allOf:
+         - clock-names
+ 
+     else:
+-      properties:
+-        clocks:
+-          maxItems: 1
++      if:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - samsung,exynos8895-hsi2c
++
++      then:
++        properties:
++          clocks:
++            maxItems: 2
++
++          clock-names:
++            maxItems: 2
++
++        required:
++          - clock-names
++
++      else:
++        properties:
++          clocks:
++            maxItems: 1
+ 
+ unevaluatedProperties: false
+ 
 -- 
 2.43.0
 
