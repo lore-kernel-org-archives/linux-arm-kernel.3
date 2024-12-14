@@ -4,56 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF93E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 01:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E51E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 01:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWRF7RfMnn05h4sg+MxJaKSQFuBruNoGMe9edv4pt/U=; b=GW4Xca+lBiypsJ1URkyOFZg5kG
-	qDcu5Il2D4zt0hWooclFw8r/AI83DKRtXmkS+y9+PK6nB4PpbnmxCb9OSY18eR75iMSxX40XGvOKz
-	YbsUrCxttLGpqBMYwg7OlyuP/F2r186D7N2t9Fsa3Jx1scgXV4I8PSc/k3FXVhe0vYL+lUf2+C7k+
-	OjKLDH3N2BS0UpkMLmto8/bZfJU4PouqbyyepHP7iiqHyJ32Bx6mzle6vHQugXkwoqiq39aLL0jPV
-	MFEjFkA9Za/wOchDh9yyxvBwJX4c36Q9hR8LzzAKh9xHruv+qigUL/t2AlIQ6O4svS8JXOiDkkLQA
-	7bPcnvAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FbACf+zYDKXAWssDymW0DKWC7LQPGZm8j9ATdknhB08=; b=18tUau4EBc0U3vT/RskfgiEVSN
+	smuUkc+oxSXn7dIfhh7zk7Pe8en4IrbVi4GEsPHGK/PakSdL0eTxLpi8aMzwSX1fpILybdS7W10B3
+	ygoLlE4NeDOGXvfXwFGuFXK/bzkiQAxBK/43/VfO2xZtrkjxqaYYBhBqevfrXRw/N/JiT1AdTiegz
+	VspvuzTaYT9dmKJ+nH0Pc7NvE8UX+GoBeoXIUljLzXqLfXlYPwBH/Jj2TBBFNrpPq/bY1WMGnC0OX
+	ydndc7du8bKVcf5mbZshFcyyxzMmeSbPuPg9okFz6/xYFH0yU0cPqPiTXiSzwfhELRYaJaRexScGD
+	HOHEnwuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMGnJ-00000005UMU-1RPN;
-	Sat, 14 Dec 2024 01:18:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMGmD-00000005UF1-2KdW
+	id 1tMGz2-00000005VBL-3C1k;
+	Sat, 14 Dec 2024 01:30:16 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tMGxx-00000005V18-05eL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 01:17:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7EDE11FB;
-	Fri, 13 Dec 2024 17:17:23 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20AD63F5A1;
-	Fri, 13 Dec 2024 17:16:54 -0800 (PST)
-Date: Sat, 14 Dec 2024 01:16:12 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Hermann.Lauer@uni-heidelberg.de
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Icenowy Zheng
- <uwu@icenowy.me>
-Subject: Re: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
-Message-ID: <20241214011612.4fd9e4bf@minigeek.lan>
-In-Reply-To: <20241213195433.GA1568@lemon.iwr.uni-heidelberg.de>
-References: <20241213195433.GA1568@lemon.iwr.uni-heidelberg.de>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Sat, 14 Dec 2024 01:29:10 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-467abce2ef9so57111cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 17:29:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734139747; x=1734744547; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FbACf+zYDKXAWssDymW0DKWC7LQPGZm8j9ATdknhB08=;
+        b=OGgmIcsHBg3/9DLg+YP8FWenzHWEQiOq1ss5ZEAhUQfhcL2e3x4iGQMXR+fqxd7gA5
+         KFKf8eUYCFcOxMdl1jdroDV+rQQm2O6EhFjwrD+b4mZUkma4CdEP2u5cRoew155LP06u
+         PvKPB51VDRtHVYioXQ7nJzr+Glvy8XCEn+eL0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734139747; x=1734744547;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FbACf+zYDKXAWssDymW0DKWC7LQPGZm8j9ATdknhB08=;
+        b=hCe6jMpzUU1EEeWf5EfFGjVIhMo8exXMrZJnb8S70zyp3TPqvhwRziUjt20y+Q381z
+         EBETixqlXB1qiYWCU0Fvk3at4LPU5ilELisVMYMbFtYysjWP1aTKk3XnP1gSdexusZtR
+         3sAodEsFLKrr3xetGqKjFL+U42sEEdWKDiU/5YXae/OXUE4KSNXQBtJqskY2LVIncUpp
+         8xRb3qZGr634A/A+WVLGjhDg5Ioi4dxgGYMz+p8TPHChGDACOjtdk3t0EHOGTERraY0K
+         1pXN9KUC9xYf6A9GTRvmwqxrF5wghYHYtXnUcOsAqG1uZR4+NYCffGmrlgtMxAzrUWst
+         F7+g==
+X-Forwarded-Encrypted: i=1; AJvYcCWQWaXSjLSBbkFg4vLJ0h7I2EEGqD2ZOLb4FkaClqWvphy6Ap6gvkxVG91ywR8fPUwQdDSKlFLdWEmXwHA6PIMq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7k7BTtA7e0KFeABbvW0Bu9USD8AfAzVNDG0/vJikj151kCSFg
+	e+bx2s7lUOewx9z2ZFiZy/jCWUs8Wq5Jujsm5OJwP4dc4FHqi2b6WrLaKXnVgEXCtWmbbuwK39/
+	bjwZcoXA778d0cFDNYu+hLMyQicfr9kgaV2C2
+X-Gm-Gg: ASbGncuMYE16p8p3/SpdzkuNhrAxqdYCQykyI4ch8+7PPCv4d/4wdZon7h4CMEf3X33
+	Xck8L/rvxf0hq4lJVlGjjCwN+kHLnXcUPmMI=
+X-Google-Smtp-Source: AGHT+IHNtwf8QADinV12qA0ZzZiycG5IyBHw5q4jrC1tLoJV04+MI6FXaBeKEVoVuATlTKwSTdw0HE6Zeb5uzLpINtk=
+X-Received: by 2002:a05:622a:1882:b0:466:8c23:823a with SMTP id
+ d75a77b69052e-467b4a2978dmr640821cf.17.1734139746638; Fri, 13 Dec 2024
+ 17:29:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20241209174430.2904353-1-dianders@chromium.org>
+ <20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384@changeid>
+ <l5rqbbxn6hktlcxooolkvi5n3arkht6zzhrvdjf6kis322nsup@5hsrak4cgteq> <CAD=FV=WQf+ig21u316WvQh0DoKsdKAmZgqPn5LB-myDXsJtXig@mail.gmail.com>
+In-Reply-To: <CAD=FV=WQf+ig21u316WvQh0DoKsdKAmZgqPn5LB-myDXsJtXig@mail.gmail.com>
+From: Julius Werner <jwerner@chromium.org>
+Date: Fri, 13 Dec 2024 17:28:55 -0800
+Message-ID: <CAODwPW919K+XdxjUe3aPgxsv0CEWwx0P_Hxvf=VniLhk8eagkQ@mail.gmail.com>
+Subject: Re: [PATCH 5/6] arm64: errata: Add QCOM_KRYO_5XX_GOLD to the spectre_bhb_k24_list
+To: Doug Anderson <dianders@chromium.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Julius Werner <jwerner@chromium.org>, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
+	Roxana Bradescu <roxabee@google.com>, bjorn.andersson@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, Trilok Soni <quic_tsoni@quicinc.com>, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_171701_639856_B0283074 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20241213_172909_080095_C6FCB587 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,75 +94,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Dec 2024 20:54:33 +0100
-Hermann.Lauer@uni-heidelberg.de wrote:
+> Interesting. So the Gold/Prime are actually IDing themselves as
+> straight Cortex A77. The Silver is IDing itself the same as
+> KRYO_4XX_SILVER. ...so in that sense there's nothing to do here for
+> those cores.
 
-Hi,
-
-CC:ing Icenowy, who added the regulator originally, with commit
-0ca12c1ee43c ("ARM: sun8i: r40: add 5V regulator for Banana Pi M2
-Ultra").
-
-Icenowy: can you clarify what "newer" version this was referring to in
-that commit message? That commit in itself doesn't seem to do anything,
-as the regulator isn't referenced, and it's not always-on. It's only
-later when the USB nodes were added that it got used?
-So was PH23 really necessary? As Hermann reports, setting PH23 on a v1.1
-makes it reboot.
-
-> Subject: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
-
-Hermann, this looks like an extra subject line here?
-
-> Banana Pi M2 Ultra V1.1 board resets immediately when the usb core tries
-> to setup PH23 GPIO. It turned out that the V1.0 board USB-A ports are
-> always power supplied and according to the board scheme PH23 is simply
-> not connected.
-> 
-> So remove the PH23 setup: Doesn't harm V1.0 (with R40) and let V1.1
-> (with A40i) start.
-> 
-> Signed-off-by: Hermann Lauer <Hermann.Lauer@uni-heidelberg.de>
-
-The patch itself looks good to me, but it would be good to clarify the
-situation with the "older newer" version.
-
-Just in case:
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
- 
-> ---
-> V2: shorten subject, rm dangerous PH23 regulator completely
-> 
-> diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-> --- a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-> +++ b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-> @@ -91,15 +91,6 @@
->  		};
->  	};
->  
-> -	reg_vcc5v0: vcc5v0 {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "vcc5v0";
-> -		regulator-min-microvolt = <5000000>;
-> -		regulator-max-microvolt = <5000000>;
-> -		gpio = <&pio 7 23 GPIO_ACTIVE_HIGH>; /* PH23 */
-> -		enable-active-high;
-> -	};
-> -
->  	wifi_pwrseq: pwrseq {
->  		compatible = "mmc-pwrseq-simple";
->  		reset-gpios = <&pio 6 10 GPIO_ACTIVE_LOW>; /* PG10 WIFI_EN */
-> @@ -347,7 +338,5 @@
->  };
->  
->  &usbphy {
-> -	usb1_vbus-supply = <&reg_vcc5v0>;
-> -	usb2_vbus-supply = <&reg_vcc5v0>;
->  	status = "okay";
->  };
-> 
-
+Should we add some comments to cputype.h to record which other
+products are matched under the same ID?
 
