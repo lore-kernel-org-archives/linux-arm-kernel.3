@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B35BE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 08:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80D9E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 08:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqulEFbhfch0S8gkc5ZlSAEaZIDhCqJzYdCBDY1dfNs=; b=Xf0jvxt64JQy7As2ejl/NQyST1
-	e+oQAx9BM66xfA/uk0aiydKjArVVdnLmONEQjLXB0d3K/TWci+/zMZ6+tNGggziwtmwFa5rh5bFjv
-	zch+5j3iLKC0byKyjGsVnxsnz4mWoOhYVtLBIJdeut6mJg7ayi4Bh2WQkVJe7oYowQga7C256ZHjk
-	lrksDdDBmsJyd3KZgwco5YYPGWYa889LiTiTdcPSos2aiKbUMyP8wb/I4+OHBNvRQcJR00UchhZte
-	WhvXq86+5N3iM1eHA1qat7EU4i5ql6W0GEV1Gt1cwHOlwwhw0roF97I9E4vpxrbA6uZSpUvqdHfdA
-	09VfKCWQ==;
+	bh=JqulEFbhfch0S8gkc5ZlSAEaZIDhCqJzYdCBDY1dfNs=; b=L7udP+DZ3VodroBj/DZtrkd/II
+	rO/+xblPfcI4zMwTnZrj1otVb9fBi1YK83gXvDOOzx7pnXPsN0WDijK+JemSlBUA/4zeVbKStPQGe
+	Z81btI7klhPrXtDNHTY2sR+aevMByxO/Iuum66SpT8Y/yRAnIo2DpUalRqdOiKn8+HCyrTe5e+q1g
+	8CpuZ/jc8RDpCywgOadlbJN/HIqZSV2hLXdPSDmmannKanEtLxTj/vCNLFBSQrvjbgZEDXTyj/pVH
+	MJpihSEe5rodRDDtSkgxZNgO7GcmIoIIJ/4/CnuaQLngKdr/f27r327/g3L3fuzSm9ZlOZ4j410qg
+	KmK0+U8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMNeH-000000061iv-1te8;
-	Sat, 14 Dec 2024 08:37:17 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1tMNfK-000000061rR-3Tv4;
+	Sat, 14 Dec 2024 08:38:22 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMNLQ-00000005yEa-2NN0;
-	Sat, 14 Dec 2024 08:17:51 +0000
+	id 1tMNJi-00000005xgQ-2kOj;
+	Sat, 14 Dec 2024 08:16:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
 	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=JqulE
-	Fbhfch0S8gkc5ZlSAEaZIDhCqJzYdCBDY1dfNs=; b=bm9ZX4VUgnazCRBIid/SO
-	CM2vXoY9C03p8hIhl9iJP186VpLSWW2PE0i1Vc6VR4dc6KSW1uCsg6NdJZVh7uvq
-	QzxP1Wa87vqUvV3OpYXVANRf3u2IkDsppRqTVGzUfC7i63mcLX8RrGsfUULcmmSs
-	SQfI0uj3L8Ayi+h2Cl9M4Y=
+	Fbhfch0S8gkc5ZlSAEaZIDhCqJzYdCBDY1dfNs=; b=EJD59GcCEBzKwYvytZsVV
+	t7BvmJYlcGRzaobYhxPeM7p8jqRwHu2ykeWCCQSvizcm7K78GSobikzI6UtLC0Ww
+	9q4Mvy6+U1qHSTPg3OiCGCx+h3jHU7f2vYUq6QXbooacyIos7D3/biqOVgwPfaK+
+	zxf3Yymn4WMsmJd7mH+YfM=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3fwEQP11ntNLtAQ--.5686S11;
-	Sat, 14 Dec 2024 16:17:32 +0800 (CST)
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3vwGjPl1n3T_wAQ--.16730S11;
+	Sat, 14 Dec 2024 16:15:42 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -50,23 +50,24 @@ Cc: hjc@rock-chips.com,
 	Andy Yan <andy.yan@rock-chips.com>,
 	Michael Riesch <michael.riesch@wolfvision.net>
 Subject: [PATCH v6 09/16] drm/rockchip: vop2: Add platform specific callback
-Date: Sat, 14 Dec 2024 16:17:08 +0800
-Message-ID: <20241214081719.3330518-10-andyshrk@163.com>
+Date: Sat, 14 Dec 2024 16:15:17 +0800
+Message-ID: <20241214081529.3330243-10-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241214081719.3330518-1-andyshrk@163.com>
-References: <20241214081719.3330518-1-andyshrk@163.com>
+In-Reply-To: <20241214081529.3330243-1-andyshrk@163.com>
+References: <20241209122943.2781431-1-andyshrk@163.com>
+ <20241214081529.3330243-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3fwEQP11ntNLtAQ--.5686S11
+X-CM-TRANSID: _____wD3vwGjPl1n3T_wAQ--.16730S11
 X-Coremail-Antispam: 1Uf129KBjvAXoWDtFWDJF4kJw4UJw1kXw4fKrg_yoWfZw1xKo
 	W7uFnYqr4Iqw1rKrZrWr17XFy7W348Can7Cr17XFnxZ39xX3yjkF92q3ZrtF17Jr15Cay5
 	Aws5t3WrZa1fXFs7n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxiFxUUUUU
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxiSdDUUUU
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMxq1XmddNByuZwAAsZ
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0g+1XmddMGzhNQACsG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_001749_254876_6E66439F 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20241214_001603_361344_15E1486D 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
