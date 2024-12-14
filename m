@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD391E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 21:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE50E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0R3xI1UN2GRunhZ03PNs268H2M6C30q31a5zdZmWMp8=; b=SCpwtCcVj/AePgLhScRcmkn1+1
-	RevovvAlZZFVsGw69sQW9IeflzkdpRic9WX1U+t1UtLNdUaotH0zqnEgyPCMKBtZSc1euTxrTeoys
-	0CZiyiV9mVj0c/81/nd8QooFIBOWNp7iMFFr0wSeDFSIDwbGFtm61IGE4z5agQyqCC+QdAVfcNoEv
-	bqtChiLDhkiR7AfqDb0+dHXTavAH/EqKbZICm7Oic99wZ/DB1HEroJ2kKTUysp9I13iCTANktlTUN
-	Wnu5swqcpEcF3sBECIDggYl2s7VGyT55G4vVoo0sojKkUQpt0bMt7OTzPhajSFR067o6VTBJnXKfu
-	BxTF8kdQ==;
+	bh=rZb9moUiVpxFCMqmY6tsWVihMcoiO44ViJkmkTUeDTs=; b=UxEh4AhgaCz0YxEkTVNmguCyh1
+	CA/Ph2xQ0AL8/wk50BJQVfAf7eO2Ingv3n89im2hlEc/CWzrnOMit+/aEIjU3s20wAMkBN5TKx3iO
+	i5lq4Rr+rPZy8Jfu8ljPaDHKiD5jLyUWA5JlkOShm4MssLduOHkY0oxDwCXdqiMUVWSAHvxzR/BGX
+	xk3Ky5ZGoS3MgXHKGxX1to2piFcYwTfDH1nObpmPTqNtx89E14eaUgmuNc+17uHQZ12+z3/IYrk3T
+	KPkggSYXRNS2WtSXT0i+L/9zZjqoIPNnGA36fXJjYv+Y3tS/uZ1iMTj0ycXqimXR9YxgwBM3qBz6w
+	QIo8CbFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMaAN-000000070vQ-2lqR;
-	Sat, 14 Dec 2024 21:59:15 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1tMaGu-000000071Wu-0RPu;
+	Sat, 14 Dec 2024 22:06:00 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMa9J-000000070nV-13Ym;
-	Sat, 14 Dec 2024 21:58:10 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7b6e9586b82so223392385a.1;
-        Sat, 14 Dec 2024 13:58:08 -0800 (PST)
+	id 1tMaFp-000000071M8-1OlZ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Dec 2024 22:04:54 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43623f0c574so19927815e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 14:04:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734213487; x=1734818287; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734213891; x=1734818691; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0R3xI1UN2GRunhZ03PNs268H2M6C30q31a5zdZmWMp8=;
-        b=ZoWxq49FrbkdFfoy7SiQiVPXauqm9uWlFVTe6f2Y7PEWgldVO05dFNJCqkyyPa6lE/
-         4Q+GK4PFVAMgKTaGHjZ8blTH71Bv+rAd11SCjaJ2RyzUhyva2elQeqtikuDyQWg4p3Jc
-         LymIs2UI7R0bcy9NYcj2xY4+XauB+B/2QK50Yr6LCbkMrGAaeDC3uBFMm+jfCne30KBQ
-         KnaiJDhXSbZi8eLrr27oGBKtXqHANkcs3f615DscK1xqohyOKrfFLR08Eyq0PW2tgaSr
-         fza4LwXgiSoQ4Yim5561kIZhy0bLIIzGc4TJ7mB6EUDhbKW4RR+RvdVfu9lL7HHaaG3V
-         FtwQ==
+        bh=rZb9moUiVpxFCMqmY6tsWVihMcoiO44ViJkmkTUeDTs=;
+        b=guACw+OVHpahHm0eLuzSpCBmUsFfESDOiNOsF+YLwH4RlJzfjve5MSiP6wTdVOcPVF
+         kN7m9VOTJokN+Siaj4HLce8HNCSAAB5ZC2McXEgMMENiYIeDYi6BO2cZJjw4lHPBmhTM
+         m39Ws+CWwJVZKlwb5ie7wVWgltHyUVWc9jZZ7NMzTB/uYquNQvIA5qb1chadus2FfAeK
+         2biK1O0piJbM7mxsLOdvRpiuLK4Y0WRO+HjWuaOGworkFJFIxHp1/f4Baqx4yO23VK7h
+         /Yki5nnRW42KsxqbxLLrqm/zfQS27lUEvVwC1cSa8yDlk4l4Ii18MIQaLOORYqDEqTjf
+         JAmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734213487; x=1734818287;
+        d=1e100.net; s=20230601; t=1734213891; x=1734818691;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0R3xI1UN2GRunhZ03PNs268H2M6C30q31a5zdZmWMp8=;
-        b=aYlLVwnL65WlAMMkTFkAQ9Wl6+SXisaYRSihk8zYyN5oY32WKibf4s9Iyrxi+spfc1
-         EC/+ChpC9xwSwmrnB4gydsR+hWZnhpQYZIA9afUhhE7RoqHVtUHHl2xM5HVw9j1FUP8M
-         9a2IGyR7DFkvPK4coU0IxoIfB10Vq/0T0V/vPMvlQeSWrbeKDld0DbqI817DpAftLcP9
-         6WYzaV9p3UrvTlTa8DBS86bWOLEp5uy456XcbNCR6qN6BHkbiboFyAeSJohmRGisxIN0
-         l+ZMUdsfKpR6gMC2ceJfGqfoQoRdxYR8AKBOC16Yvm/i9h72nYTyaKhMc/SUE1BIBKma
-         zs+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCULZISaEo8hxU9PttJld/vOjpfY7/wX5WajBeQR8WtKby/rrOnyWuuCNEuC5o8FdIU5hRROC3VP3uG+UZruZ3w=@lists.infradead.org, AJvYcCXcU4v+MbOj/YwRrV+GTZEPVEUoB1E1tg5o4H4OlRdRqGBhZnfHcH7zclDVcSug/S93BhKQX9MZzBO82lA13T0j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx24qP5JNqTWdLgSYqYCNojoCziSN0ePzEG3O+9JXjqSmlZ/VWq
-	et7L524jMiPSIpLtidz6d0gCxECRatA/6aGraxWub+L1ffI05BiJ
-X-Gm-Gg: ASbGncs82nu6PIoUzx5vB57tYBIigmDoyOBU8xiLnxgau4SoJ7pay+wvveQf6XoJGNd
-	7wcboGCprZgrMrq5ska8p6G5D+ZZPCkZngjN2b6pyRZxGPd7PammtaKN7/0a2RH3MEANCf5T+/o
-	DfDK5CQn0VdMV0vx5DAldn6yYpTy/KIx4xj1lJhAiuUOnrHNFakWnxdmozgrohA1unWRi0RvwVq
-	nJ22eBT58BYodJPmwpLom19AdVNPbzDQ7z6hpz0NGuSfJLlg8EAVT+cF48ahx/MAkG4
-X-Google-Smtp-Source: AGHT+IGt/f+i+UFJ3O+RvOd/bRwD3wpdtAD3wNHRnq4t2hd2j0+Yy4uR/gvcC7FSIKX3AOr1aEX9Ug==
-X-Received: by 2002:a05:620a:a005:b0:7b7:68c:cde5 with SMTP id af79cd13be357-7b7068cda7amr362626385a.1.1734213487439;
-        Sat, 14 Dec 2024 13:58:07 -0800 (PST)
-Received: from master-x64.sparksnet ([204.111.53.241])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b7048bb8cfsm95536385a.76.2024.12.14.13.58.04
+        bh=rZb9moUiVpxFCMqmY6tsWVihMcoiO44ViJkmkTUeDTs=;
+        b=lkeS6A3VJfA2lw1fWwkXfgXf5SrI/NSrogl1EsOWNFKaZV5YI9C6w4XNcRid1bR22T
+         ZFkmmsXUSN5Uu4jo4Ibg1fZVcAfyO7actXboON9za04GT6rhrl1+ICZYw9GtuI6BK4e+
+         /W66IV2uYv96g6OPbx6GZqDJXAnXEdNl5gmdaCYx1YCXaFOisQWV5Vj0/juXopM7rEgu
+         wGK9SLiMpyo297IskfhBB48WYaoYFG777NVfFax5qqD2DiBkPIbYsoe95aQzX8lHSx2O
+         XsxJ/N+b5rS1bMadn1km30iaSXrBbgB+LLJnYTepOvpJWaZcrxoTNCoXXhhJ5Ld4C8bR
+         HqvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX5tzLE0ChmAL+arORlp6Pr+4sIS02x8nwt8mCOZSplwwiWfFpgo+LVGa36EWwbV0xytpEFzktgHRerEiAwSK3x@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmnIvaiyOSmsbles62iiaYb4pvp0exRXMQ+RBfrTsXlP9Vg68B
+	Pfnr48UxRm+plW5D9H5uAnDX62X1LdynpJQzr3oF7Oi+Z1aRv/VS
+X-Gm-Gg: ASbGnctomsTLy0WV73VtMRhaAzrMfvpFH8KkrymDuaJAIbXOFw0Ri4NwG06qaIkPH4+
+	hXRRJtTXO2tlSsLiJHgZEHqrLFuWKspiJrvD/dmV0LYuIxw5sG2ayQQAlfZ4wSMjR92cpMHs9uR
+	xQNPYF2+nofG1Jro08q0B6VDgGe1yRXJIfjG7HyblLoMT+NwPZNDtSKw7DgwFaClG7c3tzmS7fT
+	QlkKD6hsMyXHmJINcHCKC/Lhx3xceWQZVUKyylp+JkXdt3Yb3o55Ex5lSWxQEghQBQ04h7jCWAN
+	qCSVbYRjE332fHfVX2uQ8T1MpKs0j52u
+X-Google-Smtp-Source: AGHT+IEp+JHm04UmoCFXhypLWQox3sRGEjPR48qR1XxVmCrxM/GGVQTqiSSl6fYMc4Bk25nsaMdzVw==
+X-Received: by 2002:a05:600c:1c12:b0:434:f623:9fe3 with SMTP id 5b1f17b1804b1-4362aa3d8bbmr72912625e9.16.1734213890608;
+        Sat, 14 Dec 2024 14:04:50 -0800 (PST)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4361ec75410sm104456185e9.1.2024.12.14.14.04.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 13:58:06 -0800 (PST)
-From: Peter Geis <pgwipeout@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Peter Geis <pgwipeout@gmail.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Sat, 14 Dec 2024 14:04:50 -0800 (PST)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v2] pmdomain: rockchip: fix rockchip_pd_power error handling
-Date: Sat, 14 Dec 2024 21:58:02 +0000
-Message-Id: <20241214215802.23989-1-pgwipeout@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] i2c: exynos5: Add support for Exynos8895 SoC
+Date: Sun, 15 Dec 2024 00:04:17 +0200
+Message-ID: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_135809_291136_07ABE5CA 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20241214_140453_409523_9ADD2BAC 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,81 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The calls rockchip_pd_power makes to rockchip_pmu_set_idle_request lack
-any return error handling, causing device drivers to incorrectly believe
-the hardware idle requests succeed when they may have failed. This leads
-to software possibly accessing hardware that is powered off and the
-subsequent SError panic that follows.
+Hey folks,
 
-Add error checking and return errors to the calling function to prevent
-such crashes.
+This series adds HSI2C support for Exynos8895 to i2c-exynos5. HSI2C
+buses here are mostly available implemented in USIv1 blocks, with 5
+available externally - hsi2c_0 to 4. hsi2c_0 is available for PMIC
+(although I've never seen it used) and it uses BUSC clocks, which are
+still not implemented in the current clock driver, so I've decided to
+leave it out for now.
 
-gst-launch-1.0 videotestsrc num-buffers=2000 ! v4l2jpegenc ! fakesink
-Setting pipeline to PAUSED ...er-x64
-Pipeline is PREROLLING ...
-Redistribute latency...
-rockchip-pm-domain ff100000.syscon:power-controller: failed to get ack on domain 'hevc', val=0x98260
-SError Interrupt on CPU2, code 0x00000000bf000002 -- SError
+In the next few patchsets support for USIv1 will be added to the
+exynos-usi driver and with that the rest of the I2C buses will be made
+available.
 
-Signed-off-by: Peter Geis <pgwipeout@gmail.com>
+Kind regards,
+Ivo
 
----
-I have pulled this patch out to be standalone and rebased it on
-Sebastian's pmdomain work. It is now dependent on their series [1].
+Ivaylo Ivanov (2):
+  dt-bindings: i2c: exynos5: Add samsung,exynos8895-hsi2c compatible
+  i2c: exynos5: Add support for Exynos8895 SoC
 
-[1] https://lore.kernel.org/linux-rockchip/20241211143044.9550-1-sebastian.reichel@collabora.com/T/#t
+ .../devicetree/bindings/i2c/i2c-exynos5.yaml  | 26 ++++++++++++++--
+ drivers/i2c/busses/i2c-exynos5.c              | 31 +++++++++++++++++--
+ 2 files changed, 52 insertions(+), 5 deletions(-)
 
-Changes in v2:
-- Rebase on Sebastian's pmdomain work.
-- Handle clock cleanup.
-- Clean up commit message.
-- Pull this patch from the series and submit alone.
-
- drivers/pmdomain/rockchip/pm-domains.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index 31c71b6fddf1..9f6640063fda 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -602,26 +602,29 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
- 		rockchip_pmu_save_qos(pd);
- 
- 		/* if powering down, idle request to NIU first */
--		rockchip_pmu_set_idle_request(pd, true);
-+		ret = rockchip_pmu_set_idle_request(pd, true);
-+		if (ret < 0)
-+			goto out;
- 	}
- 
- 	ret = rockchip_do_pmu_set_power_domain(pd, power_on);
--	if (ret < 0) {
--		clk_bulk_disable(pd->num_clks, pd->clks);
--		return ret;
--	}
-+	if (ret < 0)
-+		goto out;
- 
- 	if (power_on) {
- 		/* if powering up, leave idle mode */
--		rockchip_pmu_set_idle_request(pd, false);
-+		ret = rockchip_pmu_set_idle_request(pd, false);
-+		if (ret < 0)
-+			goto out;
- 
- 		rockchip_pmu_restore_qos(pd);
- 	}
- 
-+out:
- 	rockchip_pmu_ungate_clk(pd, false);
- 	clk_bulk_disable(pd->num_clks, pd->clks);
- 
--	return 0;
-+	return ret;
- }
- 
- static int rockchip_pd_regulator_disable(struct rockchip_pm_domain *pd)
 -- 
-2.39.5
+2.43.0
 
 
